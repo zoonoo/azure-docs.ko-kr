@@ -10,11 +10,11 @@ ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 5c44561895bc1905328ec0eb357bee1c68a8eb55
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76510535"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78379354"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>Azure Portal에서 Azure IoT Edge 모듈 배포
 
@@ -22,7 +22,7 @@ ms.locfileid: "76510535"
 
 이 아티클에서는 배포 매니페스트를 만들고 IoT Edge 디바이스에 배포를 푸시하는 방법을 Azure Portal에서 어떻게 설명하는지를 보여줍니다. 공유 태그를 기준으로 여러 장치를 대상으로 하는 배포를 만드는 방법에 대 한 자세한 내용은 [대규모로 IoT Edge 모듈 배포 및 모니터링](how-to-deploy-monitor.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독의 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md)
 * IoT Edge 런타임이 설치된 [IoT Edge 디바이스](how-to-register-device.md#register-in-the-azure-portal)
@@ -38,7 +38,7 @@ Azure Portal에는 JSON 문서를 수동으로 빌드하지 않고 배포 매니
 1. [Azure Portal](https://portal.azure.com)에 로그인하고 IoT Hub로 이동합니다.
 1. 왼쪽 창의 메뉴에서 **IoT Edge** 를 선택 합니다.
 1. 디바이스 목록에서 대상 디바이스의 ID를 클릭합니다.
-1. 위쪽 막대에서 **모듈 설정**을 선택 합니다.
+1. 위쪽 막대에서 **모듈 설정**을 선택합니다.
 1. 페이지의 **Container Registry 설정** 섹션에서 모듈 이미지를 포함 하는 개인 컨테이너 레지스트리에 액세스 하기 위한 자격 증명을 제공 합니다.
 1. 페이지의 **IoT Edge 모듈** 섹션에서 **추가**를 선택 합니다.
 1. 드롭다운 메뉴에서 모듈의 유형을 확인 합니다.
@@ -53,7 +53,7 @@ Azure Portal에는 JSON 문서를 수동으로 빌드하지 않고 배포 매니
 
 ### <a name="specify-routes"></a>경로 지정
 
-**경로** 탭에서 모듈과 IoT Hub 간에 메시지를 전달 하는 방법을 정의 합니다. 메시지는 이름/값 쌍을 사용 하 여 생성 됩니다. 기본적으로 경로는 **경로** 라고 하며 **/messages/\*에서 $upstream**로 정의 됩니다. 즉, 모듈에서 출력 하는 모든 메시지가 IoT hub에 전송 됩니다.  
+**경로** 탭에서 모듈과 IoT Hub 사이에서 메시지가 전달되는 방식을 정의합니다. 메시지는 이름/값 쌍을 사용하여 생성됩니다. 기본적으로 경로는 **경로** 라고 하며 **/messages/\*에서 $upstream**로 정의 됩니다. 즉, 모듈에서 출력 하는 모든 메시지가 IoT hub에 전송 됩니다.  
 
 [선언 경로](module-composition.md#declare-routes)에서 정보를 사용 하 여 경로를 추가 하거나 업데이트 한 후 다음을 선택 합니다. 마법사의 다음 단계로 계속 진행 하려면 **다음** 을 선택 합니다.
 
@@ -92,7 +92,7 @@ Azure Marketplace에서 Azure Portal의 IoT Hub 장치에 모듈을 신속 하 �
 1. Azure Portal에서 IoT Hub로 이동합니다.
 1. 왼쪽 창의 **자동 장치 관리**에서 **IoT Edge**를 선택 합니다.
 1. 배포를 받을 IoT Edge 장치를 선택 합니다.
-1. 위쪽 막대에서 **모듈 설정**을 선택 합니다.
+1. 위쪽 막대에서 **모듈 설정**을 선택합니다.
 1. **IoT Edge 모듈** 섹션에서 **추가**를 클릭 하 고 드롭다운 메뉴에서 **Marketplace 모듈** 을 선택 합니다.
 
 ![IoT Hub에 모듈 추가](./media/how-to-deploy-modules-portal/iothub-add-module.png)

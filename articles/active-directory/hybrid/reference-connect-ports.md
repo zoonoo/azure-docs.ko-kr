@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 08/02/2017
+ms.date: 03/04/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f365a8325fc027d8770287208f91d164166fcbc
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 611937a709152823ddc1b88b1a0befe4161217cd
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024333"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376128"
 ---
 # <a name="hybrid-identity-required-ports-and-protocols"></a>포트 및 프로토콜이 필요한 하이브리드 ID
 다음 문서는 하이브리드 ID 솔루션을 구현하는 포트 및 프로토콜에 대한 기술 참조입니다. 다음 그림을 사용하고 해당 테이블을 참조합니다.
@@ -51,7 +51,7 @@ ms.locfileid: "77024333"
 | HTTP |80 (TCP) |CRL(인증서 해지 목록)를 다운로드하여 SSL 인증서를 확인하는 데 사용합니다. |
 | HTTPS |443 (TCP) |Azure AD와 동기화하는 데 사용합니다. |
 
-방화벽에서 열어야 하는 URL 및 IP 주소의 목록은 [Office 365 URL 및 IP 주소 범위](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)를 참조하세요.
+방화벽에서 열어야 하는 Url 및 IP 주소 목록은 [Office 365 url 및 ip 주소 범위](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) 및 [Azure AD Connect 연결 문제 해결](tshoot-connect-connectivity.md#troubleshoot-connectivity-issues-in-the-installation-wizard)을 참조 하세요.
 
 ## <a name="table-3---azure-ad-connect-and-ad-fs-federation-serverswap"></a>테이블 3 - Azure AD Connect 및 AD FS 페더레이션 서버/WAP
 이 테이블은 Azure AD Connect 서버 및 AD FS 페더레이션 서버/WAP 서버 간의 통신에 필요한 포트와 프로토콜에 대해 설명합니다.  

@@ -87,6 +87,8 @@
           href: networking-features.md
         - name: 서비스 엔드포인트가 있는 애플리케이션 게이트웨이
           href: networking/app-gateway-with-service-endpoints.md
+        - name: 프라이빗 엔드포인트
+          href: networking/private-endpoint.md
     - name: 인바운드 및 아웃바운드 IP
       href: overview-inbound-outbound-ips.md
     - name: 가상 네트워크 통합

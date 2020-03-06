@@ -144,11 +144,5 @@
       href: score-svd-recommender.md
     - name: SVD 추천 학습
       href: train-svd-recommender.md
-- name: 이상 감지
-  items:
-    - name: PCA 기반 변칙 검색
-      href: pca-based-anomaly-detection.md
-    - name: 변칙 검색 모델 학습
-      href: train-anomaly-detection-model.md
 - name: 모듈 오류 및 문제 해결
   href: designer-error-codes.md

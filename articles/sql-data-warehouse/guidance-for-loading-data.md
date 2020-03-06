@@ -12,11 +12,11 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ms.openlocfilehash: d59a66b25b55572865f297436331971434d831c3
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78199889"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78384311"
 ---
 # <a name="best-practices-for-loading-data-for-data-warehousing"></a>데이터 웨어하우징에 대 한 데이터 로드에 대 한 모범 사례
 
@@ -75,11 +75,11 @@ StaticRC20 리소스 클래스에 대 한 리소스를 사용 하 여 부하를 
 
 사용자_A 및 사용자_B는 이제 다른 부서의 스키마에서 차단되었습니다.
 
-## <a name="loading-to-a-staging-table"></a>스테이징 테이블에 로드
+## <a name="loading-to-a-staging-table"></a>준비 테이블에 로드
 
-데이터를 데이터 웨어하우스 테이블로 이동하는 로딩 속도를 가장 빠르게 만들려면 데이터를 스테이징 테이블에 로드합니다.  스테이징 테이블을 힙으로 정의하고 배포 옵션에 라운드 로빈을 사용합니다. 
+데이터를 데이터 웨어하우스 테이블로 이동하는 로딩 속도를 가장 빠르게 만들려면 데이터를 준비 테이블에 로드합니다.  준비 테이블을 힙으로 정의하고 배포 옵션에 라운드 로빈을 사용합니다. 
 
-로드는 먼저 데이터를 스테이징 테이블로 로드한 다음 프로덕션 데이터 웨어하우스 테이블에 삽입하는 2단계 프로세스로 간주하는 것이 좋습니다. 프로덕션 테이블이 해시 배포를 사용하는 경우 해시 배포를 사용하여 스테이징 테이블을 정의하면 로드하고 삽입하는 총 시간이 더 빠를 수 있습니다. 스테이징 테이블로 로드하는 데 시간이 더 걸리지만 프로덕션 테이블에 행을 삽입하는 두 번째 단계에서는 배포에서 데이터 이동이 발생하지 않습니다.
+로드는 먼저 데이터를 준비 테이블로 로드한 다음 프로덕션 데이터 웨어하우스 테이블에 삽입하는 2단계 프로세스로 간주하는 것이 좋습니다. 프로덕션 테이블이 해시 배포를 사용하는 경우 해시 배포를 사용하여 준비 테이블을 정의하면 로드하고 삽입하는 총 시간이 더 빠를 수 있습니다. 준비 테이블로 로드하는 데 시간이 더 걸리지만 프로덕션 테이블에 행을 삽입하는 두 번째 단계에서는 배포에서 데이터 이동이 발생하지 않습니다.
 
 ## <a name="loading-to-a-columnstore-index"></a>columnstore 인덱스에 로드
 
@@ -125,7 +125,7 @@ Azure Storage 계정 키를 회전하려면:
 
 키가 변경된 각 스토리지 계정에 대해 [ALTER DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/alter-database-scoped-credential-transact-sql)을 실행합니다.
 
-예:
+예제:
 
 원래 키를 만드는 경우
 

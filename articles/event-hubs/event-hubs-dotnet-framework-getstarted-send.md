@@ -1,6 +1,6 @@
 ---
 title: Azure Event Hubs - .NET Framework를 사용하여 이벤트 보내기 및 받기
-description: '빠른 시작: 이 문서에서는 Azure Event Hubs에 이벤트를 보내는 .NET Framework 애플리케이션을 만드는 방법을 안내합니다.'
+description: 빠른 시작:이 문서에서는 Azure Event Hubs에 이벤트를 전송 하는 .NET Framework 응용 프로그램을 만들기 위한 연습을 제공 합니다.
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
@@ -16,22 +16,22 @@ ms.custom: seodec18
 ms.date: 12/20/2019
 ms.author: shvija
 ms.openlocfilehash: 385430d993afe8b7a0ad57991d3c93eebd46ddcb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75437274"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78365406"
 ---
-# <a name="quickstart-send-events-to-or-receive-events-from-azure-event-hubs-using-net-framework"></a>빠른 시작: .NET Framework를 사용하여 Azure Event Hubs에서 이벤트 보내기 또는 받기
+# <a name="quickstart-send-events-to-or-receive-events-from-azure-event-hubs-using-net-framework"></a>빠른 시작: .NET Framework를 사용 하 여 Azure Event Hubs에서 이벤트를 보내거나 받습니다.
 Azure Event Hubs는 초당 수백만 개의 이벤트를 수신하여 처리할 수 있는 빅 데이터 스트리밍 플랫폼이자 이벤트 수집 서비스입니다. Event Hubs는 분산된 소프트웨어와 디바이스에서 생성된 이벤트, 데이터 또는 원격 분석을 처리하고 저장할 수 있습니다. Event Hub로 전송된 데이터는 실시간 분석 공급자 또는 일괄 처리/스토리지 어댑터를 사용하여 변환하고 저장할 수 있습니다. Event Hubs에 대한 자세한 개요는 [Event Hubs 개요](event-hubs-about.md) 및 [Event Hubs 기능](event-hubs-features.md)을 참조하세요.
 
 이 자습서에서는 C#에서 이벤트 허브와 이벤트를 주고 받는 .NET Framework 콘솔 애플리케이션을 만드는 방법을 보여줍니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 이 자습서를 완료하려면 다음 필수 구성 요소가 필요합니다.
 
 - [Microsoft Visual Studio 2019](https://visualstudio.com)
-- **Event Hubs 네임스페이스 및 이벤트 허브 만들기** 첫 번째 단계에서는 [Azure Portal](https://portal.azure.com)을 사용하여 Event Hubs 형식의 네임스페이스를 만들고 애플리케이션에서 Event Hub와 통신하는 데 필요한 관리 자격 증명을 얻습니다. 네임스페이스 및 이벤트 허브를 만들려면 [이 문서](event-hubs-create.md)의 절차를 따릅니다. 그리고 다음 문서의 지침에 따라 **이벤트 허브 네임스페이스에 대한 연결 문자열**을 가져옵니다. [연결 문자열 가져오기](event-hubs-get-connection-string.md#get-connection-string-from-the-portal) 해당 연결 문자열은 이 자습서의 뒷부분에서 사용합니다.
+- **Event Hubs 네임스페이스 및 이벤트 허브 만들기** 첫 번째 단계에서는 [Azure Portal](https://portal.azure.com)을 사용하여 Event Hubs 형식의 네임스페이스를 만들고 애플리케이션에서 Event Hub와 통신하는 데 필요한 관리 자격 증명을 얻습니다. 네임스페이스 및 이벤트 허브를 만들려면 [이 문서](event-hubs-create.md)의 절차를 따릅니다. 그런 다음 문서: [연결 문자열 가져오기](event-hubs-get-connection-string.md#get-connection-string-from-the-portal)의 지침에 따라 **이벤트 허브 네임 스페이스에 대 한 연결 문자열** 을 가져옵니다. 해당 연결 문자열은 이 자습서의 뒷부분에서 사용합니다.
 
 ## <a name="send-events"></a>이벤트 보내기 
 이 섹션에서는 이벤트 허브로 이벤트를 전송하는 .NET Framework 콘솔 애플리케이션을 만드는 방법을 보여줍니다. 
@@ -53,7 +53,7 @@ Visual Studio에서 **콘솔 애플리케이션** 프로젝트 템플릿을 사�
 
 ### <a name="write-code-to-send-messages-to-the-event-hub"></a>이벤트 허브에 메시지를 전송하는 코드 작성
 
-1. **Program.cs** 파일 위에 다음 `using` 문을 추가합니다.
+1. `using`Program.cs**파일 위에 다음** 문을 추가합니다.
    
     ```csharp
     using System.Threading;
@@ -65,7 +65,7 @@ Visual Studio에서 **콘솔 애플리케이션** 프로젝트 템플릿을 사�
     static string eventHubName = "Your Event Hub name";
     static string connectionString = "namespace connection string";
     ```
-3. **Program** 클래스에 다음 메서드를 추가합니다.
+3. 다음 메서드를 **Program** 클래스에 추가합니다.
    
       ```csharp
       static void SendingRandomMessages()
@@ -188,7 +188,7 @@ Visual Studio에서 **콘솔 애플리케이션** 프로젝트 템플릿을 사�
       using Microsoft.ServiceBus.Messaging;
       ```
     
-2. `Program` 클래스의 `Main` 메서드를 다음 코드로 바꿉니다. 이 코드는 이전에 저장한 이벤트 허브 이름 및 네임스페이스 수준 연결 문자열과 이전 섹션에서 복사한 스토리지 계정 및 키를 대체합니다. 
+2. `Main` 클래스의 `Program` 메서드를 다음 코드로 바꿉니다. 이 코드는 이전에 저장한 이벤트 허브 이름 및 네임스페이스 수준 연결 문자열과 이전 섹션에서 복사한 스토리지 계정 및 키를 대체합니다. 
     
       ```csharp
       static void Main(string[] args)

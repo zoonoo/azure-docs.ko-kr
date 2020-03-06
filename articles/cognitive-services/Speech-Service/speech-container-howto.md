@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 12/04/2019
 ms.author: dapine
 ms.openlocfilehash: 5d30693eb13104504d1cf27ffdbfb8d098d4ef9e
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367767"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78390817"
 ---
 # <a name="install-and-run-speech-service-containers-preview"></a>음성 서비스 컨테이너 설치 및 실행 (미리 보기)
 
@@ -35,7 +35,7 @@ ms.locfileid: "77367767"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 음성 컨테이너를 사용 하기 전에 다음 필수 구성 요소:
 
@@ -73,25 +73,25 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 
 다음 표에서는 각 음성 컨테이너에 대 한 최소 및 권장 리소스 할당을 설명 합니다.
 
-# <a name="speech-to-texttabstt"></a>[Speech-to-text](#tab/stt)
+# <a name="speech-to-text"></a>[Speech-to-text](#tab/stt)
 
 | 컨테이너 | 최소 | 권장 |
 |-----------|---------|-------------|
 | 음성 텍스트 변환 | 2 코어, 2gb 메모리 | 4 코어, 4gb 메모리 |
 
-# <a name="custom-speech-to-texttabcstt"></a>[Custom Speech 텍스트](#tab/cstt)
+# <a name="custom-speech-to-text"></a>[Custom Speech 텍스트](#tab/cstt)
 
 | 컨테이너 | 최소 | 권장 |
 |-----------|---------|-------------|
 | Custom Speech 텍스트 | 2 코어, 2gb 메모리 | 4 코어, 4gb 메모리 |
 
-# <a name="text-to-speechtabtts"></a>[Text-to-speech](#tab/tts)
+# <a name="text-to-speech"></a>[Text-to-speech](#tab/tts)
 
 | 컨테이너 | 최소 | 권장 |
 |-----------|---------|-------------|
 | 텍스트 음성 변환 | 1 코어, 2gb 메모리 | 2 코어, 3gb 메모리 |
 
-# <a name="custom-text-to-speechtabctts"></a>[사용자 지정 텍스트 음성 변환](#tab/ctts)
+# <a name="custom-text-to-speech"></a>[사용자 지정 텍스트 음성 변환](#tab/ctts)
 
 | 컨테이너 | 최소 | 권장 |
 |-----------|---------|-------------|
@@ -110,25 +110,25 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 
 다음 Container Registry에서 음성을 위한 컨테이너 이미지를 사용할 수 있습니다.
 
-# <a name="speech-to-texttabstt"></a>[Speech-to-text](#tab/stt)
+# <a name="speech-to-text"></a>[Speech-to-text](#tab/stt)
 
 | 컨테이너 | 리포지토리 |
 |-----------|------------|
 | 음성 텍스트 변환 | `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text:latest` |
 
-# <a name="custom-speech-to-texttabcstt"></a>[Custom Speech 텍스트](#tab/cstt)
+# <a name="custom-speech-to-text"></a>[Custom Speech 텍스트](#tab/cstt)
 
 | 컨테이너 | 리포지토리 |
 |-----------|------------|
 | Custom Speech 텍스트 | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text:latest` |
 
-# <a name="text-to-speechtabtts"></a>[Text-to-speech](#tab/tts)
+# <a name="text-to-speech"></a>[Text-to-speech](#tab/tts)
 
 | 컨테이너 | 리포지토리 |
 |-----------|------------|
 | 텍스트 음성 변환 | `containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech:latest` |
 
-# <a name="custom-text-to-speechtabctts"></a>[사용자 지정 텍스트 음성 변환](#tab/ctts)
+# <a name="custom-text-to-speech"></a>[사용자 지정 텍스트 음성 변환](#tab/ctts)
 
 | 컨테이너 | 리포지토리 |
 |-----------|------------|
@@ -140,7 +140,7 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 
 ### <a name="docker-pull-for-the-speech-containers"></a>음성 컨테이너에 대 한 Docker 풀
 
-# <a name="speech-to-texttabstt"></a>[Speech-to-text](#tab/stt)
+# <a name="speech-to-text"></a>[Speech-to-text](#tab/stt)
 
 #### <a name="docker-pull-for-the-speech-to-text-container"></a>음성-텍스트 컨테이너를 위한 Docker 풀
 
@@ -169,7 +169,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-t
 
 **음성-텍스트** 컨테이너의 지원 되는 모든 로캘에 대해 [음성 텍스트 이미지 태그](../containers/container-image-tags.md#speech-to-text)를 참조 하세요.
 
-# <a name="custom-speech-to-texttabcstt"></a>[Custom Speech 텍스트](#tab/cstt)
+# <a name="custom-speech-to-text"></a>[Custom Speech 텍스트](#tab/cstt)
 
 #### <a name="docker-pull-for-the-custom-speech-to-text-container"></a>Custom Speech-텍스트 컨테이너의 Docker 풀
 
@@ -182,7 +182,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-custom-spee
 > [!NOTE]
 > 사용자 지정 음성 컨테이너의 `locale` 및 `voice`는 컨테이너에 의해 수집 된 사용자 지정 모델에 의해 결정 됩니다.
 
-# <a name="text-to-speechtabtts"></a>[Text-to-speech](#tab/tts)
+# <a name="text-to-speech"></a>[Text-to-speech](#tab/tts)
 
 #### <a name="docker-pull-for-the-text-to-speech-container"></a>텍스트 음성 변환 용 Docker 풀 컨테이너
 
@@ -214,7 +214,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-text-to-spe
 > [!IMPORTANT]
 > *표준 텍스트 음성 변환* HTTP POST를 생성 하는 경우 [SSML (Speech 합성 Markup Language)](speech-synthesis-markup.md) 메시지에는 `name` 특성이 있는 `voice` 요소가 필요 합니다. 값은 해당 컨테이너 로캘 및 음성 ( ["짧은 이름"](language-support.md#standard-voices)이 라고도 함)입니다. 예를 들어 `latest` 태그는 `en-US-JessaRUS`의 음성 이름을 갖습니다.
 
-# <a name="custom-text-to-speechtabctts"></a>[사용자 지정 텍스트 음성 변환](#tab/ctts)
+# <a name="custom-text-to-speech"></a>[사용자 지정 텍스트 음성 변환](#tab/ctts)
 
 #### <a name="docker-pull-for-the-custom-text-to-speech-container"></a>사용자 지정 텍스트 음성 변환 컨테이너에 대 한 Docker pull
 
@@ -240,7 +240,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-custom-text
 
 [Docker 실행](https://docs.docker.com/engine/reference/commandline/run/) 명령을 사용하여 컨테이너를 실행합니다. `{Endpoint_URI}` 및 `{API_Key}` 값을 가져오는 방법에 대 한 자세한 내용은 [필수 매개 변수 수집](#gathering-required-parameters) 을 참조 하세요. `docker run` 명령의 추가 [예](speech-container-configuration.md#example-docker-run-commands) 도 사용할 수 있습니다.
 
-# <a name="speech-to-texttabstt"></a>[Speech-to-text](#tab/stt)
+# <a name="speech-to-text"></a>[Speech-to-text](#tab/stt)
 
 *음성 텍스트* 컨테이너를 실행 하려면 다음 `docker run` 명령을 실행 합니다.
 
@@ -259,7 +259,7 @@ ApiKey={API_KEY}
 * 는 TCP 포트 5000를 노출 하 고 컨테이너에 대 한 의사 TTY를 할당 합니다.
 * 종료 후 자동으로 컨테이너를 제거합니다. 컨테이너 이미지는 호스트 컴퓨터에서 계속 사용할 수 있습니다.
 
-# <a name="custom-speech-to-texttabcstt"></a>[Custom Speech 텍스트](#tab/cstt)
+# <a name="custom-speech-to-text"></a>[Custom Speech 텍스트](#tab/cstt)
 
 *Custom Speech-텍스트* 컨테이너는 사용자 지정 음성 모델을 기반으로 합니다. 사용자 지정 모델은 [사용자 지정 음성 포털](https://speech.microsoft.com/customspeech)을 사용 하 여 [학습](how-to-custom-speech-train-model.md) 해야 합니다.
 
@@ -282,7 +282,7 @@ ApiKey={API_KEY}
 
 다음 표에서는 다양 한 `docker run` 매개 변수 및 해당 설명을 나타냅니다.
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 |---------|---------|
 | `{VOLUME_MOUNT}` | Docker에서 사용자 지정 모델을 유지 하는 데 사용 하는 호스트 컴퓨터 [볼륨 탑재](https://docs.docker.com/storage/volumes/)입니다. 예를 들어 *C 드라이브가* 호스트 컴퓨터에 있는 *c:\customspeech* 가 여기에 해당 합니다. |
 | `{MODEL_ID}` | 사용자 지정 음성 포털의 **학습** 페이지에서 CUSTOM SPEECH **모델 ID** 입니다. |
@@ -311,7 +311,7 @@ ApiKey={API_KEY}
 * 사용자 지정 모델을 이전에 다운로드 한 경우에는 `ModelId` 무시 됩니다.
 * 종료 후 자동으로 컨테이너를 제거합니다. 컨테이너 이미지는 호스트 컴퓨터에서 계속 사용할 수 있습니다.
 
-# <a name="text-to-speechtabtts"></a>[Text-to-speech](#tab/tts)
+# <a name="text-to-speech"></a>[Text-to-speech](#tab/tts)
 
 *텍스트 음성 변환* 컨테이너를 실행 하려면 다음 `docker run` 명령을 실행 합니다.
 
@@ -330,7 +330,7 @@ ApiKey={API_KEY}
 * 는 TCP 포트 5000를 노출 하 고 컨테이너에 대 한 의사 TTY를 할당 합니다.
 * 종료 후 자동으로 컨테이너를 제거합니다. 컨테이너 이미지는 호스트 컴퓨터에서 계속 사용할 수 있습니다.
 
-# <a name="custom-text-to-speechtabctts"></a>[사용자 지정 텍스트 음성 변환](#tab/ctts)
+# <a name="custom-text-to-speech"></a>[사용자 지정 텍스트 음성 변환](#tab/ctts)
 
 *사용자 지정 텍스트 음성 변환* 컨테이너는 사용자 지정 음성 모델을 기반으로 합니다. 사용자 지정 모델은 [사용자 지정 음성 포털](https://aka.ms/custom-voice-portal)을 사용 하 여 [학습](how-to-custom-voice-create-voice.md) 해야 합니다. 컨테이너를 실행 하려면 사용자 지정 음성 **모델 ID** 가 필요 합니다. 사용자 지정 음성 포털의 **학습** 페이지에서 찾을 수 있습니다. 사용자 지정 음성 포털에서 **학습** 페이지로 이동 하 여 모델을 선택 합니다.
 <br>
@@ -344,7 +344,7 @@ Docker run 명령의 `ModelId` 매개 변수에 대 한 인수로 사용할 **�
 
 다음 표에서는 다양 한 `docker run` 매개 변수 및 해당 설명을 나타냅니다.
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 |---------|---------|
 | `{VOLUME_MOUNT}` | Docker에서 사용자 지정 모델을 유지 하는 데 사용 하는 호스트 컴퓨터 [볼륨 탑재](https://docs.docker.com/storage/volumes/)입니다. 예를 들어 *C 드라이브가* 호스트 컴퓨터에 있는 *c:\customspeech* 가 여기에 해당 합니다. |
 | `{MODEL_ID}` | 사용자 지정 음성 포털의 **학습** 페이지에서 CUSTOM SPEECH **모델 ID** 입니다. |

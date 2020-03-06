@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2019
 ms.author: zivr
 ms.openlocfilehash: b61a84f2b284177b7443be00efeea65e7eb8aaef
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73171105"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78374813"
 ---
 # <a name="co-locate-resource-for-improved-latency"></a>대기 시간 향상을 위한 리소스 배치
 

@@ -21,8 +21,9 @@
           href: quickstart-azure-functions-csharp.md
         - name: Java Spring
           href: quickstart-java-spring-app.md
-        - name: Azure Resource Manager 템플릿
+        - name: ARM 템플릿
           href: quickstart-resource-manager.md
+          displayName: 'ARM, azure resource manager template'
     - name: 기능 관리
       items:
         - name: ASP.NET Core

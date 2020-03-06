@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/02/2019
 ms.author: TomSh
 ms.openlocfilehash: 6d4d8ac1eb001f03e7615eeabdaca6967223f40b
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76772000"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78392025"
 ---
 # <a name="azure-best-practices-for-network-security"></a>네트워크 보안에 대 한 Azure 모범 사례
 이 문서에서는 네트워크 보안을 향상 시키기 위한 Azure 모범 사례 모음을 설명 합니다. 이러한 모범 사례는 Azure 네트워킹에 대한 Microsoft의 경험 그리고 여러분 같은 고객의 경험에서 얻은 것입니다.
@@ -131,9 +131,9 @@ Azure 네트워크 보안 어플라이언스는 네트워크 수준 제어에서
 하이브리드 IT 시나리오에서는 일반적으로 일부 종류의 크로스-프레미스 연결이 있습니다. 크로스-프레미스 연결을 사용하면 회사가 온-프레미스 네트워크를 Azure 가상 네트워크에 연결할 수 있습니다. 다음과 같은 두 가지 크로스-프레미스 연결 솔루션이 제공됩니다.
 
 * [사이트 간 VPN](../../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md). 신뢰할 수 있고 안정적이며 인정된 기술이지만 연결이 인터넷을 통해 이루어집니다. 대역폭은 최대 약 1.25 Gbps로 제한 됩니다. 일부 시나리오에서 사이트 간 VPN은 바람직한 옵션입니다.
-* **Azure ExpressRoute**. 크로스-프레미스 연결에 대해 [express](../../expressroute/expressroute-introduction.md) 경로를 사용 하는 것이 좋습니다. ExpressRoute를 사용하면 연결 공급자가 지원하는 프라이빗 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장할 수 있습니다. Express 경로를 사용 하면 Azure, Office 365 및 Dynamics 365과 같은 Microsoft 클라우드 서비스에 대 한 연결을 설정할 수 있습니다. Express 경로는 온-프레미스 위치 또는 Microsoft Exchange 호스팅 공급자 간의 전용 WAN 링크입니다. 이 연결은 telco 연결 이므로 인터넷을 통해 데이터가 이동 되지 않으므로 인터넷 통신의 잠재적인 위험에 노출 되지 않습니다.
+* **Azure express**경로. 크로스-프레미스 연결에 대해[ExpressRoute](../../expressroute/expressroute-introduction.md)를 사용하는 것이 좋습니다. ExpressRoute를 사용하면 연결 공급자가 지원하는 프라이빗 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장할 수 있습니다. Express 경로를 사용 하면 Azure, Office 365 및 Dynamics 365과 같은 Microsoft 클라우드 서비스에 대 한 연결을 설정할 수 있습니다. Express 경로는 온-프레미스 위치 또는 Microsoft Exchange 호스팅 공급자 간의 전용 WAN 링크입니다. 이 연결은 telco 연결 이므로 인터넷을 통해 데이터가 이동 되지 않으므로 인터넷 통신의 잠재적인 위험에 노출 되지 않습니다.
 
-Express 경로 연결의 위치는 방화벽 용량, 확장성, 안정성 및 네트워크 트래픽 표시 여부에 영향을 줄 수 있습니다. 기존 (온-프레미스) 네트워크에서 Express 경로를 종료 하는 위치를 식별 해야 합니다. 다음과 같은 기능이 가능합니다.
+Express 경로 연결의 위치는 방화벽 용량, 확장성, 안정성 및 네트워크 트래픽 표시 여부에 영향을 줄 수 있습니다. 기존 (온-프레미스) 네트워크에서 Express 경로를 종료 하는 위치를 식별 해야 합니다. 다음을 수행할 수 있습니다.
 
 - 트래픽에 대 한 가시성을 요구 하는 경우 (경계 네트워크 패러다임) 방화벽 외부에서 종료 합니다. 즉, 데이터 센터를 격리 하는 기존 사례를 계속 수행 해야 하는 경우에는 Azure에 엑스트라넷 리소스만 배치 하면 됩니다.
 - 방화벽 내부에서 종료 합니다 (네트워크 확장 패러다임). 이는 기본 권장 사항입니다. 다른 모든 경우에는 Azure를 n 번째 데이터 센터로 취급 하는 것이 좋습니다.

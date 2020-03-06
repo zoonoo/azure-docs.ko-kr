@@ -4,11 +4,11 @@ description: Azure Site Recovery를 사용 하 여 복제에서 Azure로 디스�
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.openlocfilehash: 57bf06f0fde85714530c06cbd008db08de7460d2
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75498268"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78362936"
 ---
 # <a name="exclude-disks-from-disaster-recovery"></a>재해 복구에서 디스크 제외
 
@@ -26,7 +26,7 @@ ms.locfileid: "75498268"
 
 **Azure 간** | **VMware에서 Azure로** | **Hyper-V에서 Azure로** 
 --- | --- | ---
-예 (PowerShell 사용) | 예 | 예 
+예 (PowerShell 사용) | yes | yes 
 
 ## <a name="exclude-limitations"></a>제외 제한 사항
 

@@ -8,11 +8,11 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.openlocfilehash: 0c32d438ac8551f061343edb747e9fc035b498e2
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77560527"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78379854"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-c"></a>C#을 사용하여 Azure Data Explorer 클러스터 및 데이터베이스 만들기
 
@@ -26,7 +26,7 @@ ms.locfileid: "77560527"
 
 Azure Data Explorer는 애플리케이션, 웹 사이트, IoT 디바이스 등으로부터 대량의 데이터 스트리밍에 대한 실시간 분석을 제공하는 빠른 속도의 완전 관리형 데이터 분석 서비스입니다. Azure Data Explorer를 사용하려면 먼저 클러스터를 만들고 이 클러스터에 데이터베이스를 하나 이상 만듭니다. 그런 다음, 데이터베이스에 대해 쿼리를 실행할 수 있도록 데이터베이스에 데이터를 수집(로드)합니다. 이 문서에서는를 사용 C#하 여 클러스터와 데이터베이스를 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Visual Studio 2019가 설치 되어 있지 않으면 **무료** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)을 다운로드 하 여 사용할 수 있습니다. Visual Studio를 설치하는 동안 **Azure 개발**을 사용하도록 설정합니다.
 * Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
@@ -105,7 +105,7 @@ Azure Data Explorer는 애플리케이션, 웹 사이트, IoT 디바이스 등�
    |**설정** | **제안 값** | **필드 설명**|
    |---|---|---|
    | clusterName | *mykustocluster* | 데이터베이스가 만들어지는 클러스터의 이름입니다.|
-   | databaseName | *mykustodatabase* | 데이터베이스 이름입니다.|
+   | databaseName | *mykustodatabase* | 데이터베이스의 이름입니다.|
    | resourceGroupName | *testrg* | 클러스터가 만들어질 리소스 그룹 이름입니다. |
    | softDeletePeriod | *3650:00:00:00* | 데이터를 쿼리할 수 있도록 유지되는 시간입니다. |
    | hotCachePeriod | *3650:00:00:00* | 데이터가 캐시에 유지되는 시간입니다. |
