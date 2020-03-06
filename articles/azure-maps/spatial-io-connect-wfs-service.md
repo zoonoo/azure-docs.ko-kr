@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 0f50fe51f9c1cdef3c3f07c91640f5b9b9616229
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: 18ac583837c7cb8b2dabbfa6f7d7210c8afe3fcb
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78370961"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78402761"
 ---
 # <a name="connect-to-a-wfs-service"></a>워크플로 서비스에 연결
 
@@ -91,7 +91,7 @@ ms.locfileid: "78370961"
 
 <br/>
 
-<iframe height='700' scrolling='no' title= '워크플로 서비스 탐색기' src='//codepen.io/azuremaps/embed/bGdrvmG/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) 펜 <a href='https://codepen.io/azuremaps/pen/bGdrvmG/'>워크플로 서비스 탐색기</a> 를 참조 하세요.
+<iframe height='700' style='width: 100%;' scrolling='no' title= '워크플로 서비스 탐색기' src='//codepen.io/azuremaps/embed/bGdrvmG/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) 펜 <a href='https://codepen.io/azuremaps/pen/bGdrvmG/'>워크플로 서비스 탐색기</a> 를 참조 하세요.
 </iframe>
 
 또한 프록시 서비스를 사용 하 여 CORs를 사용 하도록 설정 되지 않은 도메인에서 호스팅되는 리소스를 로드할 수 있습니다. 먼저 프록시 서비스 url을 저장할 변수를 정의 하 고 워크플로 클라이언트에 대 한 `proxyService` 옵션을 설정 합니다. 사용자에 대 한 프록시 서비스 옵션을 렌더링 하려면 UI에 사용자 입력을 추가 합니다. 입력을 클릭 하면 서비스 url을 로드 합니다. 다음 코드 조각에서는 프록시 서비스를 사용 하는 방법을 보여 줍니다.

@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 01/21/2020
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: 00180c1791e765240f3f8feac188b9250162408e
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78199906"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78380790"
 ---
 # <a name="upgrade-your-sql-pool-to-gen2"></a>Gen2로 SQL 풀 업그레이드
 
@@ -106,7 +106,7 @@ SQL 풀에 문제가 발생 하는 경우 [지원 요청](sql-data-warehouse-get
 - A: Gen1에서 W 600 또는 DW1200를 실행 하는 경우 DW1000c가 Gen2 보다 더 많은 메모리, 리소스 및 높은 성능을 제공 하므로 각각 DW500c 또는 Gen1를 사용 하는 것이 좋습니다.
 
 **Q: 지역 백업을 사용 하지 않도록 설정할 수 있나요?**
-- 대답: 아니요. 지역 백업은 지역에서 사용할 수 없게 되는 경우 SQL 풀 가용성을 유지 하는 엔터프라이즈 기능입니다. 문제가 더 있는 경우 [지원 요청](sql-data-warehouse-get-started-create-support-ticket.md)을 엽니다.
+- A: 아니요. 지역 백업은 지역에서 사용할 수 없게 되는 경우 SQL 풀 가용성을 유지 하는 엔터프라이즈 기능입니다. 문제가 더 있는 경우 [지원 요청](sql-data-warehouse-get-started-create-support-ticket.md)을 엽니다.
 
 **Q: Gen1와 Gen2 간의 T-sql 구문에 차이가 있나요?**
 
@@ -118,7 +118,7 @@ SQL 풀에 문제가 발생 하는 경우 [지원 요청](sql-data-warehouse-get
 
 **Q: 내 지역이 업그레이드 된 후 새 Gen1 인스턴스를 만들 수 있나요?**
 
-- 대답: 아니요. 지역을 업그레이드한 후에는 Gen1 인스턴스를 새로 만들 수 없습니다.
+- A: 아니요. 지역을 업그레이드한 후에는 Gen1 인스턴스를 새로 만들 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

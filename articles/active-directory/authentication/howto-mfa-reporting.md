@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 52d9f7a0b2a7cebefdb5ade8e16417043c5c83d3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75425285"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78378070"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication에서 보고서
 
@@ -40,7 +40,7 @@ Azure Multi-Factor Authentication은 사용자 및 사용자의 조직에서 Azu
 
 ## <a name="azure-ad-sign-ins-report"></a>Azure AD 로그인 보고서
 
-[Azure Portal](https://portal.azure.com)에서 **로그인 작업 보고서**를 통해 사용자 환경의 상태를 파악하는 데 필요한 모든 정보를 얻을 수 있습니다.
+**Azure Portal**에서 [로그인 작업 보고서](https://portal.azure.com)를 통해 사용자 환경의 상태를 파악하는 데 필요한 모든 정보를 얻을 수 있습니다.
 
 로그인 보고서는 MFA(Multi-Factor Authentication) 사용에 대한 정보가 포함된 사용자 로그인 활동 및 관리되는 애플리케이션에 대한 정보를 제공할 수 있습니다. MFA 데이터는 MFA가 조직에서 어떻게 작동하는지에 대한 정보를 제공합니다. 이를 통해 다음과 같은 질문에 답할 수 있습니다.
 
@@ -150,10 +150,10 @@ Get-MsolUser -All | Select-Object @{N='UserPrincipalName';E={$_.UserPrincipalNam
 
 | 호출 결과 | Description | 광범위 한 설명 |
 | --- | --- | --- |
-| SUCCESS_WITH_PIN | PIN이 입력됨 | 사용자가 PIN을 입력했습니다.  인증에 성공 하면 올바른 PIN을 입력 한 것입니다.  인증이 거부 된 경우 잘못 된 PIN을 입력 하거나 사용자가 표준 모드로 설정 됩니다. |
-| SUCCESS_NO_PIN | #만 입력 됨 | PIN 모드로 설정된 사용자의 인증이 거부되는 경우 사용자가 PIN을 입력하지 않고 #만 입력했음을 의미합니다.  표준 모드로 설정된 사용자가 인증에 성공하면 사용자가 표준 모드에서는 올바른 동작인 #만 입력했음을 의미합니다. |
-| SUCCESS_WITH_PIN_BUT_TIMEOUT | 입력 후 # 단추 누르지 않음 | 사용자가 #을 입력하지 않았으므로 DTMF 번호를 전송하지 않았습니다.  입력 된 다른 숫자는 입력 완료를 나타내는 #을 입력 하지 않으면 전송 되지 않습니다. |
-|SUCCESS_NO_PIN_BUT_TIMEOUT | 폰 입력 없음 - 시간 초과됨 | 전화를 받았지만 답변은 없었습니다.  이는 일반적으로 전화가 음성 메일로 선택 되었음을 나타냅니다. |
+| SUCCESS_WITH_PIN | PIN이 입력됨 | 사용자가 PIN을 입력했습니다.  인증이 성공하면 사용자가 올바른 PIN을 입력한 것이며,  인증이 거부 된 경우 잘못 된 PIN을 입력 하거나 사용자가 표준 모드로 설정 됩니다. |
+| SUCCESS_NO_PIN | #만 입력 됨 | PIN 모드로 설정된 사용자의 인증이 거부되는 경우 사용자가 PIN을 입력하지 않고 #만 입력했음을 의미합니다.  사용자를 표준 모드로 설정 하 고 인증에 성공 하면 사용자가 표준 모드에서 수행 해야 하는 올바른 것으로 #을 입력 한 것입니다. |
+| SUCCESS_WITH_PIN_BUT_TIMEOUT | 입력 후 # 단추 누르지 않음 | 사용자가 #을 입력하지 않았으므로 DTMF 번호를 전송하지 않았습니다.  입력 완료를 나타내는 #이 입력되지 않으면 입력한 다른 번호는 전송되지 않습니다. |
+|SUCCESS_NO_PIN_BUT_TIMEOUT | 폰 입력 없음 - 시간 초과됨 | 전화를 받았지만 답변은 없었습니다.  이는 일반적으로 음성 사서함에서 전화를 받았음을 나타냅니다. |
 | SUCCESS_PIN_EXPIRED | PIN이 만료된 후 변경 안 됨 | 사용자의 PIN이 만료되어 PIN을 변경하라는 안내를 받았지만 PIN 변경이 성공적으로 완료되지 않았습니다. |
 | SUCCESS_USED_CACHE | 사용된 캐시 | 구성 된 캐시 기간 내에 동일한 사용자 이름에 대해 이전에 성공한 인증이 수행 된 이후에 Multi-Factor Authentication 호출 없이 인증이 성공 했습니다. |
 | SUCCESS_BYPASSED_AUTH | 바이패스된 인증 | 사용자가 시작한 원타임 바이패스를 사용하여 인증에 성공했습니다.  바이패스에 대 한 자세한 내용은 바이패스 된 사용자 기록 보고서를 참조 하세요. |
@@ -172,12 +172,12 @@ Get-MsolUser -All | Select-Object @{N='UserPrincipalName';E={$_.UserPrincipalNam
 | CONFIG_ISSUE | 폰에 연결할 수 없음 | 호출을 시도 했지만, 찾을 수 없거나 응답 하지 않았습니다.  여기에는 사용 중인 신호, 고속 사용 신호 (연결 끊김), 3 톤 (서비스에서 더 이상 사용 되지 않음), 벨 울림 등의 시간이 포함 됩니다. |
 | FAILED_INVALID_PHONENUMBER | 잘못된 전화 번호 형식 | 전화 번호 형식이 잘못되었습니다.  전화 번호는 숫자 여야 하며 국가 코드 + 1 (미국 & 캐나다)의 경우 10 자리 여야 합니다. |
 | FAILED_USER_HUNGUP_ON_US | 사용자가 전화 끊음 | 사용자가 전화를 받았지만 단추를 누르지 않고 끊었습니다. |
-| FAILED_INVALID_EXTENSION | 잘못된 내선 번호 | 내선 번호에 잘못된 문자가 포함되어 있습니다.  숫자, 쉼표, * 및 #만 사용할 수 있습니다.  @ 접두사를 사용할 수도 있습니다. |
+| FAILED_INVALID_EXTENSION | 잘못된 내선 번호 | 내선 번호에 잘못된 문자가 포함되어 있습니다.  숫자, 쉼표, * 및 #만 허용됩니다.  @ 접미사를 사용할 수도 있습니다. |
 | FAILED_FRAUD_CODE_ENTERED | 사기 코드가 입력됨 | 사용자가 전화 통화 시 사기 행위를 보고하여 인증이 거부되고 전화 번호가 차단되었습니다.| 
 | FAILED_SERVER_ERROR | 전화 걸 수 없음 | Multi-Factor Authentication 서비스에서 호출을 수행할 수 없습니다. |
-| FAILED_SMS_NOT_SENT | 문자 메시지를 보낼 수 없음 | 문자 메시지를 보낼 수 없습니다.  인증이 거부 되었습니다. |
-| FAILED_SMS_OTP_INCORRECT | 문자 메시지의 OTP가 잘못됨 | 사용자가 받은 문자 메시지에서 잘못 된 OTP (일회성 암호)를 입력 했습니다.  인증이 거부 되었습니다. |
-| FAILED_SMS_OTP_PIN_INCORRECT | 문자 메시지의 OTP + PIN이 잘못됨 | 사용자가 잘못 된 OTP (일회용 암호) 및/또는 잘못 된 사용자 PIN을 입력 했습니다.  인증이 거부 되었습니다. |
+| FAILED_SMS_NOT_SENT | 문자 메시지를 보낼 수 없음 | 문자 메시지를 보낼 수 없습니다.  인증이 거부됩니다. |
+| FAILED_SMS_OTP_INCORRECT | 문자 메시지의 OTP가 잘못됨 | 사용자가 받은 문자 메시지에서 잘못 된 OTP (일회성 암호)를 입력 했습니다.  인증이 거부됩니다. |
+| FAILED_SMS_OTP_PIN_INCORRECT | 문자 메시지의 OTP + PIN이 잘못됨 | 사용자가 잘못 된 OTP (일회용 암호) 및/또는 잘못 된 사용자 PIN을 입력 했습니다.  인증이 거부됩니다. |
 | FAILED_SMS_MAX_OTP_RETRY_REACHED | 최대 문자 메시지 OTP 시도 횟수 초과 | 사용자가 최대 OTP (일회용 암호) 시도 횟수를 초과 했습니다. |
 | FAILED_PHONE_APP_DENIED | 모바일 앱 거부됨 | 사용자가 [거부] 단추를 눌러 모바일 앱에서 인증을 거부했습니다. |
 | FAILED_PHONE_APP_INVALID_PIN | 모바일 앱의 잘못된 PIN | 사용자가 모바일 앱에서 인증할 때 잘못된 PIN을 입력했습니다. |
@@ -187,10 +187,10 @@ Get-MsolUser -All | Select-Object @{N='UserPrincipalName';E={$_.UserPrincipalNam
 | FAILED_PHONE_APP_ALL_DEVICES_BLOCKED | 모바일 앱의 모든 장치가 차단됨 | 이 사용자의 모바일 앱 장치가 더 이상 알림에 응답하지 않고 차단되었습니다. |
 | FAILED_PHONE_APP_NOTIFICATION_FAILED | 모바일 앱 알림 실패 | 사용자의 장치에 있는 모바일 앱으로 알림을 보내려는 동안 오류가 발생했습니다. |
 | FAILED_PHONE_APP_INVALID_RESULT | 모바일 앱의 잘못된 결과 | 모바일 앱에서 잘못된 결과를 반환했습니다. |
-| FAILED_OATH_CODE_INCORRECT | OATH 코드가 잘못됨 | 사용자가 잘못된 OATH 코드를 입력했습니다.  인증이 거부됩니다. |
-| FAILED_OATH_CODE_PIN_INCORRECT | OATH 코드 + PIN이 잘못 됨 | 사용자가 잘못 된 OATH 코드 및/또는 잘못 된 사용자 PIN을 입력 했습니다.  인증이 거부됩니다. |
-| FAILED_OATH_CODE_DUPLICATE | 중복된 OATH 코드 | 사용자가 이전에 사용된 OATH 코드를 입력했습니다.  인증이 거부됩니다. |
-| FAILED_OATH_CODE_OLD | OATH 코드가 만료됨 | 사용자가 이전에 사용된 OATH 코드보다 이전의 OATH 코드를 입력했습니다.  인증이 거부됩니다. |
+| FAILED_OATH_CODE_INCORRECT | OATH 코드가 잘못됨 | 사용자가 잘못된 OATH 코드를 입력했습니다.  인증이 거부 되었습니다. |
+| FAILED_OATH_CODE_PIN_INCORRECT | OATH 코드 + PIN이 잘못 됨 | 사용자가 잘못 된 OATH 코드 및/또는 잘못 된 사용자 PIN을 입력 했습니다.  인증이 거부 되었습니다. |
+| FAILED_OATH_CODE_DUPLICATE | 중복된 OATH 코드 | 사용자가 이전에 사용된 OATH 코드를 입력했습니다.  인증이 거부 되었습니다. |
+| FAILED_OATH_CODE_OLD | OATH 코드가 만료됨 | 사용자가 이전에 사용된 OATH 코드보다 이전의 OATH 코드를 입력했습니다.  인증이 거부 되었습니다. |
 | FAILED_OATH_TOKEN_TIMEOUT | OATH 코드 결과 시간 제한 | 사용자가 OATH 코드를 입력 하는 데 너무 오래 걸려서 Multi-Factor Authentication 시도 시간이 이미 초과 되었습니다. |
 | FAILED_SECURITY_QUESTIONS_TIMEOUT | 보안 질문 결과 시간 제한 | 사용자가 보안 질문에 대 한 답변을 입력 하는 데 너무 오래 걸려서 Multi-Factor Authentication 시도 시간이 이미 초과 되었습니다. |
 | FAILED_AUTH_RESULT_TIMEOUT | 인증 결과 시간 제한 | 사용자가 Multi-Factor Authentication 시도를 완료 하는 데 너무 오래 걸렸습니다. |

@@ -1,14 +1,14 @@
 ---
 title: 테넌트 간 관리 환경
 description: Azure 위임 리소스 관리를 통해 테넌트 간 관리 환경을 사용하도록 설정할 수 있습니다.
-ms.date: 02/14/2020
+ms.date: 03/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: cb484ea936bbb64b3ca3d7fcf648de0d0ef73c66
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
-ms.translationtype: HT
+ms.openlocfilehash: 42368bcbc9f15f9ff5ef957b4c88f15bf070f25b
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78328683"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78402093"
 ---
 # <a name="cross-tenant-management-experiences"></a>테넌트 간 관리 환경
 
@@ -37,7 +37,14 @@ Azure 위임 리소스 관리를 사용하면 다른 테넌트의 다른 계정�
 
 포털에서 직접 또는 API 및 관리 도구(예: Azure CLI 및 Azure PowerShell)를 사용하여 위임된 리소스에서 관리 작업을 수행할 수 있습니다. 이 기능이 테넌트 간 관리에 대해 지원되고 사용자에게 적절 한 권한이 있는 한, 위임된 리소스를 사용할 때 기존의 모든 API를 사용할 수 있습니다.
 
-또한 Azure 위임 리소스 관리 작업을 수행하기 위한 API를 제공합니다. 자세한 내용은 **참조** 섹션을 참조하세요.
+Azure PowerShell [AzSubscription cmdlet](https://docs.microsoft.com/powershell/module/Az.Accounts/Get-AzSubscription?view=azps-3.5.0) 은 각 구독의 **tenantID** 를 표시 하 여 반환 된 구독이 서비스 공급자 테 넌 트 또는 관리 되는 고객 테 넌 트에 속하는지 여부를 식별할 수 있도록 합니다.
+
+마찬가지로 [az account list](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-list) 와 같은 Azure CLI 명령은 **homeTenantId** 및 **managedByTenants** 특성을 표시 합니다.
+
+> [!TIP]
+> Azure CLI를 사용 하는 경우 이러한 값이 표시 되지 않으면 `az account clear`를 실행 하 고 `az login --identity`를 실행 하 여 캐시를 지워 보세요.
+
+또한 Azure 위임 된 리소스 관리 작업 수행과 관련 된 Api를 제공 합니다. 자세한 내용은 **참조** 섹션을 참조하세요.
 
 ## <a name="enhanced-services-and-scenarios"></a>고급 서비스 및 시나리오
 

@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: fffe1ebda0103b3ed2cd8f76642ecb2967d23069
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76510297"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78396739"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>Azure CLI를 사용하여 대규모 IoT Edge 모듈 배포 및 모니터링
 
@@ -148,7 +148,7 @@ Azure CLI를 사용하여 모듈을 배포하려면 배포 매니페스트를 �
 }
 ```
 
-이전 예제에서는 모듈에 대 한 `properties.desired`를 설정 하는 계층화 된 배포를 살펴보았습니다. 이 계층화 된 배포가 동일한 모듈이 이미 적용 된 장치를 대상으로 하는 경우 기존 desired 속성을 덮어씁니다. 덮어쓰기, desired 속성 대신를 업데이트 하기 위해 새 하위 섹션을 정의할 수 있습니다. 예:
+이전 예제에서는 모듈에 대 한 `properties.desired`를 설정 하는 계층화 된 배포를 살펴보았습니다. 이 계층화 된 배포가 동일한 모듈이 이미 적용 된 장치를 대상으로 하는 경우 기존 desired 속성을 덮어씁니다. 덮어쓰기, desired 속성 대신를 업데이트 하기 위해 새 하위 섹션을 정의할 수 있습니다. 다음은 그 예입니다.
 
 ```json
 "SimulatedTEmperatureSensor": {

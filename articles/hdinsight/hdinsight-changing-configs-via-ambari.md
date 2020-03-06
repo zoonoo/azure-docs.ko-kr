@@ -9,11 +9,11 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.openlocfilehash: 15a2c75a7619a815655be0fd9fd3044d86acd057
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74150109"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78386935"
 ---
 # <a name="use-apache-ambari-to-optimize-hdinsight-cluster-configurations"></a>Apache Ambari를 사용하여 HDInsight 클러스터 구성 최적화
 
@@ -175,12 +175,12 @@ Hadoop 작업은 일반적으로 I/O 병목 상태가 됩니다. 데이터를 �
 
 사용 가능한 압축 유형은 다음과 같습니다.
 
-| 형식 | 도구 | 알고리즘 | 파일 확장명 | 분할 가능? |
+| 서식 | 도구 | 알고리즘 | 파일 확장명 | 분할 가능? |
 | -- | -- | -- | -- | -- |
-| Gzip | Gzip | DEFLATE | .gz | 아니오 |
+| Gzip | Gzip | DEFLATE | .gz | 아니요 |
 | Bzip2 | Bzip2 | Bzip2 |.bz2 | 예 |
 | LZO | Lzop | LZO | .lzo | 예(인덱싱된 경우) |
-| Snappy | 해당 없음 | Snappy | Snappy | 아니오 |
+| Snappy | N/A | Snappy | Snappy | 아니요 |
 
 일반적으로 분할 가능한 압축 방법이 있는 것이 중요합니다. 그렇지 않으면 매우 적은 수의 매퍼가 생성됩니다. 입력 데이터가 텍스트인 경우 `bzip2`가 최고 옵션입니다. ORC 형식의 경우 Snappy가 가장 빠른 압축 옵션입니다.
 
@@ -201,7 +201,7 @@ Hadoop 작업은 일반적으로 I/O 병목 상태가 됩니다. 데이터를 �
 
     c. 속성 추가 창에서 키에 `mapred.map.output.compression.codec`을 입력하고 값에 `org.apache.hadoop.io.compress.SnappyCodec`을 입력합니다.
 
-    d. **추가**를 선택합니다.
+    . **추가**를 선택합니다.
 
     ![사용자 지정 속성 추가 Apache Hive](./media/hdinsight-changing-configs-via-ambari/hive-custom-property.png)
 
@@ -319,7 +319,7 @@ Hive와 마찬가지로 로컬 모드는 비교적 양이 적은 데이터의 �
 
 Pig는 UDF에 필요한 JAR 파일을 태스크 노드에서 사용할 수 있도록 분산 캐시에 복사합니다. 이러한 jar 자주 변경 되지 않습니다. `pig.user.cache.enabled` 설정을 사용하도록 설정하면 jar를 캐시에 배치하여 동일한 사용자가 실행하는 작업에 다시 사용할 수 있습니다. 이로 인해 작업 성능이 약간 향상됩니다.
 
-1. 사용하도록 설정하려면 `pig.user.cache.enabled`를 true로 설정합니다. 기본값은 false입니다.
+1. 사용하도록 설정하려면 `pig.user.cache.enabled`을 true로 설정합니다. 기본값은 false입니다.
 
 1. 캐시된 jar의 기본 경로를 설정하려면 `pig.user.cache.location`을 기본 경로로 설정합니다. 기본값은 `/tmp`입니다.
 
@@ -341,7 +341,7 @@ Pig는 작업 실행 중에 임시 파일을 생성합니다. 임시 파일을 �
 
 ### <a name="enable-split-combining"></a>분할 결합 사용
 
-사용하도록 설정하면 맵 작업 수가 줄어들도록 작은 파일이 결합됩니다. 이렇게 하면 작은 파일이 많이 있는 작업의 효율이 향상됩니다. 사용하도록 설정하려면 `pig.noSplitCombination`를 true로 설정합니다. 기본값은 false입니다.
+사용하도록 설정하면 맵 작업 수가 줄어들도록 작은 파일이 결합됩니다. 이렇게 하면 작은 파일이 많이 있는 작업의 효율이 향상됩니다. 사용하도록 설정하려면 `pig.noSplitCombination`을 true로 설정합니다. 기본값은 false입니다.
 
 ### <a name="tune-mappers"></a>매퍼 조정
 

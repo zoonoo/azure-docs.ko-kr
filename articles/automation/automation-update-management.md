@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 02/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: 71cf1a2c4a0a2ff07d2aa0b48a8ee3bb3da8a540
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: c76b14e4f08ec930159498da4a35fdad0341929e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77919716"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78372806"
 ---
 # <a name="update-management-solution-in-azure"></a>Azure의 업데이트 관리 솔루션
 
@@ -27,9 +27,9 @@ Azure Automation에서 업데이트 관리 솔루션을 사용 하 여 Azure, �
 > [!NOTE]
 > 업데이트 관리 솔루션을 사용 하려면 Log Analytics 작업 영역을 Automation 계정에 연결 해야 합니다. 지원 되는 지역에 대 한 명확한 목록은 [Azure 작업 영역 매핑](./how-to/region-mappings.md)을 참조 하세요. 지역 매핑은 Automation 계정과 별도의 지역에 있는 Vm을 관리 하는 기능에 영향을 주지 않습니다.
 
-Azure [리소스 관리자 템플릿을](automation-update-management-deploy-template.md) 사용 하 여 새 또는 기존 Automation 계정 및 구독에서 Log Analytics 작업 영역에 업데이트 관리 솔루션을 배포할 수 있습니다.
-
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
+Azure [리소스 관리자 템플릿을](automation-update-management-deploy-template.md) 사용 하 여 새 또는 기존 Automation 계정 및 구독에서 Log Analytics 작업 영역에 업데이트 관리 솔루션을 배포할 수 있습니다.
 
 ## <a name="solution-overview"></a>솔루션 개요
 
@@ -248,10 +248,15 @@ Pc, 서버 및 모바일 장치를 관리 하기 위해 Microsoft 끝점 Configu
 
 시스템 업데이트를 시작 하려면 업데이트 관리 솔루션을 사용 하도록 설정 해야 합니다. 다음은 솔루션을 등록 하는 데 권장 되는 방법입니다.
 
-* [가상 머신에서 등록](automation-onboard-solutions-from-vm.md)
-* [여러 컴퓨터에서 찾아보기](automation-onboard-solutions-from-browse.md)
-* [Automation 계정에서 등록](automation-onboard-solutions-from-automation-account.md)
-* [Azure Automation Runbook 사용](automation-onboard-solutions.md)
+- [가상 머신에서 등록](automation-onboard-solutions-from-vm.md)
+
+- [여러 컴퓨터에서 찾아보기](automation-onboard-solutions-from-browse.md)
+
+- [Automation 계정에서 등록](automation-onboard-solutions-from-automation-account.md)
+
+- [Azure Automation Runbook 사용](automation-onboard-solutions.md)
+
+- [Azure Resource Manager 템플릿 사용](automation-update-management-deploy-template.md)
 
 ## <a name="next-steps"></a>다음 단계
 
