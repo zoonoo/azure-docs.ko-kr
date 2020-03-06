@@ -11,11 +11,11 @@ ms.author: vijetaj
 ms.topic: overview
 ms.date: 12/31/2019
 ms.openlocfilehash: ea53ee3f3c1d39652982b6343b1e634dac1fbc75
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77525926"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78360640"
 ---
 # <a name="what-is-the-azure-data-science-virtual-machine-for-linux-and-windows"></a>Linux 및 Windows용 Azure Data Science Virtual Machine이란?
 
@@ -57,7 +57,7 @@ DSVM은 지원 및 비호환 문제를 덜어주는 일관된 설정을 사용�
 모든 한도를 해제하려면 DSVM 또는 Jupyter 서버에서 실행되는 다른 모든 VM에 Notebook 프로젝트를 연결하면 됩니다. Azure Active Directory를 사용하는 계정(예: 회사 계정)으로 Azure Notebooks에 로그인하면 Notebooks가 해당 계정과 연결된 모든 구독의 DSVM을 자동으로 보여줍니다. [DSVM을 Azure Notebooks에 연결](../../notebooks/configure-manage-azure-notebooks-projects.md#compute-tier)하여 사용 가능한 컴퓨팅 성능을 확장할 수 있습니다.
 
 ### <a name="short-term-experimentation-and-evaluation"></a>단기 실험 및 평가
-DSVM을 사용하면, 특별히 게시된 [샘플 및 연습](./dsvm-samples-and-walkthroughs.md) 중 일부를 진행하여 새로운 데이터 과학 [도구](./tools-included.md)를 평가하거나 학습할 수 있습니다.
+DSVM을 사용하면, 특별히 게시된 [샘플 및 연습](./tools-included.md) 중 일부를 진행하여 새로운 데이터 과학 [도구](./dsvm-samples-and-walkthroughs.md)를 평가하거나 학습할 수 있습니다.
 
 
 ### <a name="deep-learning-with-gpus"></a>GPU를 사용한 딥 러닝

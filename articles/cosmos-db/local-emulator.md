@@ -7,11 +7,11 @@ author: markjbrown
 ms.author: mjbrown
 ms.date: 01/31/2020
 ms.openlocfilehash: 287933de6403d680c5aa5b6c78df49abe5f2ac56
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77591373"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78364495"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>로컬 개발 및 테스트에 Azure Cosmos Emulator 사용
 
@@ -27,7 +27,7 @@ Azure Cosmos DB 서비스의 에뮬레이션이 충실한 경우 에뮬레이터
 
 [Azure Cosmos DB 데이터 마이그레이션 도구](https://github.com/azure/azure-documentdb-datamigrationtool)를 사용하여 Azure Cosmos Emulator와 Azure Cosmos DB 서비스 간에 데이터를 마이그레이션할 수 있습니다.
 
-Windows Docker 컨테이너에서 Azure Cosmos Emulator를 실행할 수 있습니다. docker pull 명령은 [Docker Hub](https://hub.docker.com/r/microsoft/azure-cosmosdb-emulator/)를 참조하고 `Dockerfile` 및 자세한 내용은 [GitHub](https://github.com/Azure/azure-cosmos-db-emulator-docker)를 참조하세요.
+Windows Docker 컨테이너에서 Azure Cosmos Emulator를 실행할 수 있습니다. docker pull 명령은 [Docker Hub](https://hub.docker.com/r/microsoft/azure-cosmosdb-emulator/)를 참조하고 [ 및 자세한 내용은 ](https://github.com/Azure/azure-cosmos-db-emulator-docker)GitHub`Dockerfile`를 참조하세요.
 
 ## <a name="differences-between-the-emulator-and-the-service"></a>에뮬레이터와 서비스 간 차이
 
@@ -103,7 +103,7 @@ Azure Cosmos DB와 마찬가지로 Azure Cosmos Emulator는 SSL을 통한 보안
 
 ## <a name="running-on-a-local-network"></a>로컬 네트워크에서 실행
 
-로컬 네트워크에서 에뮬레이터를 실행할 수 있습니다. 네트워크 액세스를 사용하도록 설정하려면 [명령줄](#command-line-syntax)에 `/AllowNetworkAccess` 옵션을 지정합니다. 여기에는 `/Key=key_string` 또는 `/KeyFile=file_name`도 지정해야 합니다. `/GenKeyFile=file_name`을 사용하여 미리 설정된 임의 키로 파일을 생성할 수 있습니다. 그런 다음, `/KeyFile=file_name` 또는 `/Key=contents_of_file`에 전달합니다.
+로컬 네트워크에서 에뮬레이터를 실행할 수 있습니다. 네트워크 액세스를 사용하도록 설정하려면 `/AllowNetworkAccess`명령줄[에 ](#command-line-syntax) 옵션을 지정합니다. 여기에는 `/Key=key_string` 또는 `/KeyFile=file_name`도 지정해야 합니다. `/GenKeyFile=file_name`을 사용하여 미리 설정된 임의 키로 파일을 생성할 수 있습니다. 그런 다음, `/KeyFile=file_name` 또는 `/Key=contents_of_file`에 전달합니다.
 
 처음에 네트워크 액세스를 사용하도록 설정하려면 사용자는 에뮬레이터를 종료하고 에뮬레이터의 데이터 디렉터리(%LOCALAPPDATA%\CosmosDBEmulator)를 삭제해야 합니다.
 
@@ -240,40 +240,40 @@ Python 및 Node.js SDK에서 에뮬레이터에 연결하면 SSL 확인이 비�
 |---|---|---|---|
 |[인수 없음] | 기본 설정으로 Azure Cosmos Emulator를 시작합니다. |Microsoft.Azure.Cosmos.Emulator.exe| |
 |[도움말] |지원되는 명령줄 인수 목록을 표시합니다.|Microsoft.Azure.Cosmos.Emulator.exe /? | |
-| GetStatus |Azure Cosmos Emulator의 상태를 구합니다. 상태는 종료 코드에 의해 표시됩니다. 1 = 시작, 2 = 실행, 3 = 정지. 부정적인 종료 코드는 오류가 발생 했음을 나타냅니다. 어떤 출력도 생성되지 않습니다. | Microsoft.Azure.Cosmos.Emulator.exe /GetStatus| |
+| GetStatus |Azure Cosmos Emulator의 상태를 구합니다. 상태는 종료 코드에 의해 표시 됩니다. 1 = 시작, 2 = 실행, 3 = 정지. 부정적인 종료 코드는 오류가 발생 했음을 나타냅니다. 어떤 출력도 생성되지 않습니다. | Microsoft.Azure.Cosmos.Emulator.exe /GetStatus| |
 | Shutdown| Azure Cosmos Emulator를 종료합니다.| Microsoft.Azure.Cosmos.Emulator.exe /Shutdown | |
-|DataPath | 데이터 파일을 저장할 경로를 지정합니다. 기본값은 %LocalAppdata%\CosmosDBEmulator입니다. | Microsoft.Azure.Cosmos.Emulator.exe /DataPath=\<datapath\> | \<datapath\>: 액세스할 수 있는 경로 |
-|포트 | 에뮬레이터에 사용할 포트 번호를 지정합니다. 기본값은 8081입니다. |Microsoft.Azure.Cosmos.Emulator.exe /Port=\<port\> | \<포트\>: 단일 포트 번호 |
-| ComputePort | Compute Interop 게이트웨이 서비스에 사용하도록 지정된 포트 번호입니다. 게이트웨이의 HTTP 엔드포인트 프로브 포트는 ComputePort + 79로 계산됩니다. 따라서 ComputePort 및 ComputePort + 79가 열리고 사용할 수 있어야 합니다. 기본값은 8900입니다. | Microsoft.Azure.Cosmos.Emulator.exe /ComputePort=\<computeport\> | \<computeport\>: 단일 포트 번호 |
+|DataPath | 데이터 파일을 저장할 경로를 지정합니다. 기본값은 %LocalAppdata%\CosmosDBEmulator입니다. | Microsoft.Azure.Cosmos.Emulator.exe /DataPath=\<datapath\> | \<datapath\>: 액세스 가능한 경로 |
+|포트 | 에뮬레이터에 사용할 포트 번호를 지정합니다. 기본값은 8081입니다. |Microsoft.Azure.Cosmos.Emulator.exe /Port=\<port\> | \<port\>: 단일 포트 번호 |
+| ComputePort | Compute Interop 게이트웨이 서비스에 사용하도록 지정된 포트 번호입니다. 게이트웨이의 HTTP 엔드포인트 프로브 포트는 ComputePort + 79로 계산됩니다. 따라서 ComputePort 및 ComputePort + 79가 열리고 사용할 수 있어야 합니다. 기본값은 8900입니다. | Microsoft.Azure.Cosmos.Emulator.exe /ComputePort=\<computeport\> | \<\>포트 번호: 단일 포트 번호 |
 | EnableMongoDbEndpoint=3.2 | MongoDB API 3.2 사용 | Microsoft.Azure.Cosmos.Emulator.exe /EnableMongoDbEndpoint=3.2 | |
 | EnableMongoDbEndpoint=3.6 | MongoDB API 3.6 사용 | Microsoft.Azure.Cosmos.Emulator.exe /EnableMongoDbEndpoint=3.6 | |
 | MongoPort | MongoDB 호환성 API에 사용할 포트 번호를 지정합니다. 기본값은 10255입니다. |Microsoft.Azure.Cosmos.Emulator.exe /MongoPort=\<mongoport\>|\<mongoport\>: 단일 포트 번호|
 | EnableCassandraEndpoint | Cassandra API를 사용하도록 설정 | Microsoft.Azure.Cosmos.Emulator.exe /EnableCassandraEndpoint | |
 | CassandraPort | Cassandra 엔드포인트에 사용할 포트 번호를 지정합니다. 기본값은 10350입니다. | Microsoft.Azure.Cosmos.Emulator.exe /CassandraPort=\<cassandraport\> | \<cassandraport\>: 단일 포트 번호 |
 | EnableGremlinEndpoint | Gremlin API를 사용하도록 설정 | Microsoft.Azure.Cosmos.Emulator.exe /EnableGremlinEndpoint | |
-| GremlinPort | Gremlin 엔드포인트에 사용할 포트 번호입니다. 기본값은 8901입니다. | Microsoft.Azure.Cosmos.Emulator.exe /GremlinPort=\<port\> | \<포트\>: 단일 포트 번호 |
+| GremlinPort | Gremlin 엔드포인트에 사용할 포트 번호입니다. 기본값은 8901입니다. | Microsoft.Azure.Cosmos.Emulator.exe /GremlinPort=\<port\> | \<port\>: 단일 포트 번호 |
 |EnableTableEndpoint | Azure Table API를 사용하도록 설정 | Microsoft.Azure.Cosmos.Emulator.exe /EnableTableEndpoint | |
-|TablePort | Azure 테이블 엔드포인트에 사용할 포트 번호입니다. 기본값은 8902입니다. | Microsoft.Azure.Cosmos.Emulator.exe /TablePort=\<port\> | \<포트\>: 단일 포트 번호|
-| KeyFile | 지정된 파일에서 권한 부여 키를 읽어옵니다. keyfile을 생성하려면 /GenKeyFile 옵션을 사용합니다. | Microsoft.Azure.Cosmos.Emulator.exe /KeyFile=\<file_name\> | \<file_name\>: 파일의 경로 |
-| ResetDataPath | 지정된 경로에 있는 모든 파일을 재귀적으로 제거합니다. 경로를 지정하지 않으면 기본값은 %LOCALAPPDATA%\CosmosDbEmulator입니다. | Microsoft.Azure.Cosmos.Emulator.exe /ResetDataPath=\<path> | \<path\>: 파일 경로  |
+|TablePort | Azure 테이블 엔드포인트에 사용할 포트 번호입니다. 기본값은 8902입니다. | Microsoft.Azure.Cosmos.Emulator.exe /TablePort=\<port\> | \<port\>: 단일 포트 번호|
+| KeyFile | 지정된 파일에서 권한 부여 키를 읽어옵니다. keyfile을 생성하려면 /GenKeyFile 옵션을 사용합니다. | Microsoft.Azure.Cosmos.Emulator.exe /KeyFile=\<file_name\> | \<file_name\>: 파일 경로 |
+| ResetDataPath | 지정된 경로에 있는 모든 파일을 재귀적으로 제거합니다. 경로를 지정하지 않으면 기본값은 %LOCALAPPDATA%\CosmosDbEmulator입니다. | Microsoft.Azure.Cosmos.Emulator.exe /ResetDataPath=\<path> | \<경로\>: 파일 경로  |
 | StartTraces  |  LOGMAN을 사용하여 디버그 추적 로그 수집을 시작합니다. | Microsoft.Azure.Cosmos.Emulator.exe /StartTraces | |
 | StopTraces     | LOGMAN을 사용하여 디버그 추적 로그 수집을 중지합니다. | Microsoft.Azure.Cosmos.Emulator.exe /StopTraces  | |
 | StartWprTraces  |  Windows 성능 기록 도구를 사용하여 디버그 추적 로그 수집을 시작합니다. | Microsoft.Azure.Cosmos.Emulator.exe /StartWprTraces | |
 | StopWprTraces     | Windows 성능 기록 도구를 사용하여 디버그 추적 로그 수집을 중지합니다. | Microsoft.Azure.Cosmos.Emulator.exe /StopWprTraces  | |
 |FailOnSslCertificateNameMismatch | 기본적으로 에뮬레이터는 인증서의 SAN에 에뮬레이터 호스트의 도메인 이름, 로컬 IPv4 주소, 'localhost' 및 '127.0.0.1'이 포함되어 있지 않으면 자체 서명된 SSL 인증서를 다시 생성합니다. 이 옵션을 사용하면 시작할 때 에뮬레이터가 실패합니다. 그러면 /GenCert 옵션을 사용하여 자체 서명된 SSL 인증서를 새로 만들고 설치해야 합니다. | Microsoft.Azure.Cosmos.Emulator.exe /FailOnSslCertificateNameMismatch  | |
-| GenCert | 자체 서명된 SSL 인증서를 새로 생성하고 설치합니다. 선택적으로 네트워크를 통해 에뮬레이터에 액세스하기 위해 쉼표로 구분된 추가 DNS 이름 목록을 포함합니다. | Microsoft.Azure.Cosmos.Emulator.exe /GenCert=\<dns-names\> |\<dns-names\>: 추가 dns 이름의 쉼표로 구분된 목록(선택 사항)  |
-| DirectPorts |직접 연결에 사용할 포트를 지정합니다. 기본값은 10251,10252,10253,10254입니다. | Microsoft.Azure.Cosmos.Emulator.exe /DirectPorts:\<directports\> | \<directports\>: 쉼표로 구분된 4개 포트 목록 |
-| 키 |에뮬레이터에 대한 권한 부여 키입니다. 키는 64바이트 벡터의 base 64 인코딩이어야 합니다. | Microsoft.Azure.Cosmos.Emulator.exe /Key:\<key\> | \<키\>: 키는 64바이트 벡터의 base 64 인코딩이어야 합니다.|
+| GenCert | 자체 서명된 SSL 인증서를 새로 생성하고 설치합니다. 선택적으로 네트워크를 통해 에뮬레이터에 액세스하기 위해 쉼표로 구분된 추가 DNS 이름 목록을 포함합니다. | Microsoft.Azure.Cosmos.Emulator.exe /GenCert=\<dns-names\> |\<dns 이름\>: 선택적으로 쉼표로 구분 된 추가 dns 이름을 나열 합니다.  |
+| DirectPorts |직접 연결에 사용할 포트를 지정합니다. 기본값은 10251,10252,10253,10254입니다. | Microsoft.Azure.Cosmos.Emulator.exe /DirectPorts:\<directports\> | \<directports\>: 쉼표로 구분된 4개의 포트 목록 |
+| 키 |에뮬레이터에 대한 권한 부여 키입니다. 키는 64바이트 벡터의 base 64 인코딩이어야 합니다. | Microsoft.Azure.Cosmos.Emulator.exe /Key:\<key\> | \<key\>: 키는 64바이트 벡터의 base 64 인코딩이어야 합니다.|
 | EnableRateLimiting | 요청 속도 제한 동작을 사용하도록 지정합니다. |Microsoft.Azure.Cosmos.Emulator.exe /EnableRateLimiting | |
 | DisableRateLimiting |요청 속도 제한 동작을 사용하지 않도록 지정합니다. |Microsoft.Azure.Cosmos.Emulator.exe /DisableRateLimiting | |
 | NoUI | 에뮬레이터 사용자 인터페이스를 표시하지 않습니다. | Microsoft.Azure.Cosmos.Emulator.exe /NoUI | |
 | NoExplorer | 시작 시 데이터 탐색기를 표시하지 않습니다. |Microsoft.Azure.Cosmos.Emulator.exe /NoExplorer | | 
-| PartitionCount | 분할된 컨테이너의 최대 수를 지정합니다. 자세한 내용은 [컨테이너 수 변경](#set-partitioncount)을 참조하세요. | Microsoft.Azure.Cosmos.Emulator.exe /PartitionCount=\<partitioncount\> | \<partitioncount\>: 허용되는 단일 파티션 컨테이너의 최대 수입니다. 기본값은 25입니다. 허용되는 최대값은 250입니다.|
+| PartitionCount | 분할된 컨테이너의 최대 수를 지정합니다. 자세한 내용은 [컨테이너 수 변경](#set-partitioncount)을 참조하세요. | Microsoft.Azure.Cosmos.Emulator.exe /PartitionCount=\<partitioncount\> | \<파티션 수\>: 허용 된 단일 파티션 컨테이너의 최대 수입니다. 기본값은 25입니다. 허용되는 최대값은 250입니다.|
 | DefaultPartitionCount| 분할된 컨테이너에 대한 기본 파티션 수를 지정합니다. | Microsoft.Azure.Cosmos.Emulator.exe /DefaultPartitionCount=\<defaultpartitioncount\> | \<defaultpartitioncount\> 기본값은 25입니다.|
 | AllowNetworkAccess | 네트워크를 통해 에뮬레이터에 액세스할 수 있도록 합니다. /Key=\<key_string\> 또는 /KeyFile=\<file_name\>을 전달하여 네트워크 액세스를 활성화해야 합니다. | Microsoft.Azure.Cosmos.Emulator.exe /AllowNetworkAccess /Key=\<key_string\> 또는  Microsoft.Azure.Cosmos.Emulator.exe /AllowNetworkAccess /KeyFile=\<file_name\>| |
 | NoFirewall | /AllowNetworkAccess 옵션이 사용되는 경우 방화벽 규칙을 조정하지 마십시오. |Microsoft.Azure.Cosmos.Emulator.exe /NoFirewall | |
 | GenKeyFile | 새 인증 키를 생성하고 지정된 파일에 저장합니다. 생성된 키를 /Key 또는 /KeyFile 옵션과 함께 사용할 수 있습니다. | Microsoft.Azure.Cosmos.Emulator.exe /GenKeyFile=\<path to key file\> | |
-| 일관성 | 계정의 기본 일관성 수준을 설정합니다. | Microsoft.Azure.Cosmos.Emulator.exe /Consistency=\<consistency\> | \<일관성\>: 값은 [일관성 수준](consistency-levels.md) Session, Strong, Eventual 또는 BoundedStaleness 중 하나여야 합니다. 기본값은 Session입니다. |
+| 일관성 | 계정의 기본 일관성 수준을 설정합니다. | Microsoft.Azure.Cosmos.Emulator.exe /Consistency=\<consistency\> | \<일관성\>: 값은 Session, Strong, Eventual 또는 BoundedStaleness의 [일관성 수준](consistency-levels.md) 중 하나여야 합니다. 기본값은 Session입니다. |
 | ? | 도움말 메시지를 표시합니다.| | |
 
 ## <a id="set-partitioncount"></a>컨테이너 수 변경
@@ -283,7 +283,7 @@ Python 및 Node.js SDK에서 에뮬레이터에 연결하면 SSL 확인이 비�
 현재 파티션 수가 초과된 후에 컨테이너를 만들려고 하면 에뮬레이터에서 다음 메시지와 함께 ServiceUnavailable 예외를 throw합니다.
 
 "Sorry, we are currently experiencing high demand in this region, and cannot fulfill your request at this time. (죄송합니다. 현재 이 지역에서 많은 수요가 발생하고 있으며 지금은 귀하의 요청을 수행할 수 없습니다.) We work continuously to bring more and more capacity online, and encourage you to try again. (당사는 온라인 용량을 늘리기 위해 지속적으로 노력하고 있습니다. 다시 시도해 주십시오.)
-ActivityId: 12345678-1234-1234-1234-123456789abc"
+활동 id: 12345678-1234-1234-1234-123456789abc "
 
 Azure Cosmos Emulator에서 사용 가능한 컨테이너 수를 변경하려면 다음 단계를 수행합니다.
 
@@ -301,7 +301,7 @@ Azure Cosmos Emulator에서 사용 가능한 컨테이너 수를 변경하려면
 Import-Module "$env:ProgramFiles\Azure Cosmos DB Emulator\PSModules\Microsoft.Azure.CosmosDB.Emulator"
 ```
 
-또는 `PSModulesPath`에 `PSModules` 디렉터리를 배치하고 다음 명령을 참고하여 가져옵니다.
+또는 `PSModules`에 `PSModulesPath` 디렉터리를 배치하고 다음 명령을 참고하여 가져옵니다.
 
 ```powershell
 $env:PSModulesPath += "$env:ProgramFiles\Azure Cosmos DB Emulator\PSModules"
@@ -318,7 +318,7 @@ Import-Module Microsoft.Azure.CosmosDB.Emulator
 
 **주의**
 
-ServiceControllerStatus 값 ServiceControllerStatus.StartPending, ServiceControllerStatus.Running 또는 ServiceControllerStatus.Stopped 중에서 하나를 반환합니다.
+ServiceControllerStatus.StartPending, ServiceControllerStatus.Running, 또는 ServiceControllerStatus.Stopped 같은 ServiceControllerStatus 값 중 하나를 반환합니다.
 
 ### `Start-CosmosDbEmulator`
 
@@ -431,7 +431,7 @@ Windows VM 내에서 아래 명령을 실행하고 IPv4 주소를 기록해 둡�
 ipconfig.exe
 ```
 
-애플리케이션 내에서 엔드포인트로 사용되는 URI로 변경하여 `localhost` 대신 `ipconfig.exe`로 반환하는 IPv4 주소를 사용해야 합니다.
+애플리케이션 내에서 엔드포인트로 사용되는 URI로 변경하여 `ipconfig.exe` 대신 `localhost`로 반환하는 IPv4 주소를 사용해야 합니다.
 
 다음 단계로, Windows VM 내에서 다음 옵션을 사용하여 명령줄에서 Cosmos 에뮬레이터를 시작합니다.
 

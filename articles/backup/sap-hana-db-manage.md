@@ -4,11 +4,11 @@ description: 이 문서에서는 Azure virtual machines에서 실행 되는 SAP 
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.openlocfilehash: a9462f8608fc5ae35255ac321a0742b3f1834fde
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75390586"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78382469"
 ---
 # <a name="manage-and-monitor-backed-up-sap-hana-databases"></a>백업한 SAP HANA 데이터베이스 관리 및 모니터링
 
@@ -113,18 +113,18 @@ SAP HANA 백업 항목에 대 한 기본 정책을 변경할 수 있습니다.
 >
 > SAP HANA 데이터베이스에는 증분 백업 정책을 사용할 수 없습니다. 증분 백업은 현재 이러한 데이터베이스에 대해 지원 되지 않습니다.
 
-### <a name="stop-protection-for-an-sap-hana-database"></a>SAP HANA 데이터베이스에 대 한 보호 중지
+### <a name="stop-protection-for-an-sap-hana-database"></a>SAP HANA 데이터베이스 보호 중지
 
-몇 가지 방법으로 SAP HANA 데이터베이스 보호를 중지할 수 있습니다.
+다음과 같은 몇 가지 방법으로 SAP HANA 데이터베이스 보호를 중지할 수 있습니다.
 
 * 미래의 모든 백업 작업을 중지하고 모든 복구 지점을 삭제
-* 이후의 모든 백업 작업을 중지 하 고 복구 지점은 그대로 둡니다.
+* 미래의 모든 백업 작업을 중지하고 복구 지점을 원래 상태로 유지
 
-복구 지점의 보존을 선택 하는 경우 다음 세부 정보를 염두에 두어야 합니다.
+복구 지점을 그대로 두기로 선택하는 경우 다음 세부 정보를 염두에 두어야 합니다.
 
-* 모든 복구 지점은 영구적으로 유지 되 고, 모든 정리는 데이터 보존을 사용 하 여 보호 중지에서 중지 됩니다.
+* 모든 복구 지점은 영구적으로 유지되고, 모든 정리는 데이터 보관을 통해 보호 중지에서 중지됩니다.
 * 보호 된 인스턴스와 사용 된 저장소에 대 한 요금이 청구 됩니다. 자세한 내용은 [Azure Backup 가격 책정](https://azure.microsoft.com/pricing/details/backup/)을 참조 하세요.
-* 백업을 중지 하지 않고 데이터 원본을 삭제 하는 경우 새 백업이 실패 합니다.
+* 백업을 중지하지 않고 데이터 원본을 삭제하면 새 백업이 실패합니다.
 
 데이터베이스에 대한 보호를 중지하려면:
 

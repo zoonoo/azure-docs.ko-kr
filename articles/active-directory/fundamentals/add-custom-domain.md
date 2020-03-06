@@ -14,11 +14,11 @@ ms.reviewer: elkuzmen
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: de91bd7e1e4c5f9909213f663dd3ede0f979d4de
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073512"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376838"
 ---
 # <a name="add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Azure Active Directory 포털을 사용하여 사용자 지정 도메인 이름 추가
 
@@ -48,7 +48,7 @@ ms.locfileid: "74073512"
 
 디렉터리를 만든 후에 사용자 지정 도메인 이름을 추가할 수 있습니다.
 
-1. 해당 디렉터리에 대한 글로벌 관리자 계정을 사용하여 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+1. 디렉터리에 대한 글로벌 관리자 계정을 사용하여 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 1. 모든 페이지에서 *Azure Active Directory* 를 검색 하 고 선택 합니다. 그런 다음 사용자 지정 **도메인 이름** 을 선택 하 > **사용자 지정 도메인 추가**를 선택 합니다.
 
@@ -80,7 +80,7 @@ Azure AD에 사용자 지정 도메인 이름을 추가한 후에 해당 도메�
 
 사용자 지정 도메인 이름을 확인 하려면 다음 단계를 수행 합니다.
 
-1. 해당 디렉터리에 대한 글로벌 관리자 계정을 사용하여 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+1. 디렉터리에 대한 글로벌 관리자 계정을 사용하여 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 1. 모든 페이지에서 *Azure Active Directory* 를 검색 하 고 선택한 다음 **사용자 지정 도메인 이름**을 선택 합니다.
 

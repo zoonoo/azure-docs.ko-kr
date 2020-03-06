@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 09/18/2019
 ms.author: juliako
 ms.openlocfilehash: b8f4de1a5b9d8216ae2442631f5f9135c3c72d0b
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74899902"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78359496"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>Media Services v3 API-.NET에 연결
 
 이 문서에서는 서비스 사용자 로그인 메서드를 사용 하 여 Azure Media Services v3 .NET SDK에 연결 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - [Media Services 계정 만들기](create-account-cli-how-to.md) 리소스 그룹 이름 및 Media Services 계정 이름을 명심 해야 합니다.
 - .NET 개발에 사용할 도구를 설치 합니다. 이 문서의 단계에서는 [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)을 사용 하는 방법을 보여 줍니다. Visual Studio Code를 사용할 수 있습니다. [작업 C# ](https://code.visualstudio.com/docs/languages/csharp)을 참조 하세요. 또는 다른 코드 편집기를 사용할 수 있습니다.
@@ -43,9 +43,9 @@ ms.locfileid: "74899902"
 ## <a name="add-required-nuget-packages"></a>필요한 NuGet 패키지 추가
 
 1. Visual Studio에서 **도구** > **nuget 패키지 관리자** > **nuget 관리자 콘솔**을 선택 합니다.
-2. **패키지 관리자 콘솔** 창에서 `Install-Package` 명령을 사용 하 여 다음 NuGet 패키지를 추가 합니다. 예: `Install-Package Microsoft.Azure.Management.Media`
+2. **패키지 관리자 콘솔** 창에서 `Install-Package` 명령을 사용 하 여 다음 NuGet 패키지를 추가 합니다. `Install-Package Microsoft.Azure.Management.Media`)을 입력합니다.
 
-|패키지|설명|
+|패키지|Description|
 |---|---|
 |`Microsoft.Azure.Management.Media`|Azure Media Services SDK. <br/>최신 Azure Media Services 패키지를 사용 하 고 있는지 확인 하려면 [Microsoft.](https://www.nuget.org/packages/Microsoft.Azure.Management.Media)|
 |`Microsoft.Rest.ClientRuntime.Azure.Authentication`|NET 용 Azure SDK 용 ADAL 인증 라이브러리|

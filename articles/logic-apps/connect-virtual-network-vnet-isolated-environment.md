@@ -5,17 +5,17 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
-ms.date: 02/28/2020
-ms.openlocfilehash: 8c9732aec73f6387c9d32bb2333a3e7f834c2165
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
-ms.translationtype: MT
+ms.date: 03/05/2020
+ms.openlocfilehash: 66c257f940d4345f333aacf95f8efc9051a9566c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78249889"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78359046"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>ISE(통합 서비스 환경)를 사용하여 Azure Logic Apps에서 Azure 가상 네트워크에 연결
 
-논리 앱 및 통합 계정이 [Azure 가상 네트워크](../virtual-network/virtual-networks-overview.md)에 액세스해야 하는 시나리오의 경우 [*ISE*(통합 서비스 환경)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)을 만듭니다. ISE는 전용 저장소 및 공용, "전역" 다중 테 넌 트 Logic Apps 서비스와 별도로 유지 되는 기타 리소스를 사용 하는 격리 된 환경입니다. 이러한 격리로 인해 다른 Azure 테넌트가 앱 성능에 줄 수 있는 영향이 감소됩니다. 또한 ISE는 사용자 고유의 고정 IP 주소를 제공 합니다. 이러한 IP 주소는 공용 다중 테 넌 트 서비스의 논리 앱에서 공유 하는 고정 IP 주소와는 별개입니다.
+논리 앱 및 통합 계정이 [Azure 가상 네트워크](../virtual-network/virtual-networks-overview.md)에 액세스해야 하는 시나리오의 경우 [*ISE*(통합 서비스 환경)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)을 만듭니다. ISE는 전용 저장소 및 "글로벌" 다중 테 넌 트 Logic Apps 서비스와 별도로 유지 되는 기타 리소스를 사용 하는 격리 된 환경입니다. 이러한 격리로 인해 다른 Azure 테넌트가 앱 성능에 줄 수 있는 영향이 감소됩니다. 또한 ISE는 사용자 고유의 고정 IP 주소를 제공 합니다. 이러한 IP 주소는 공용 다중 테 넌 트 서비스의 논리 앱에서 공유 하는 고정 IP 주소와는 별개입니다.
 
 ISE를 만들 때 Azure는이 ISE를 Azure 가상 네트워크에 *삽입* 하 여 가상 네트워크에 Logic Apps 서비스를 배포 합니다. 논리 앱 또는 통합 계정을 만들 때 ISE를 해당 위치로 선택 합니다. 그러면 논리 앱 및 통합 계정은 가상 네트워크에서 VM(가상 머신), 서버, 시스템 및 서비스와 같은 리소스에 직접 액세스할 수 있습니다.
 
@@ -55,10 +55,10 @@ ISE는 실행 지속 시간, 저장소 보존, 처리량, HTTP 요청 및 응답
     **주소 접두사**: 0.0.0.0/0<br>
     **다음 홉**: 인터넷
 
-* Azure 가상 네트워크에 사용자 지정 DNS 서버를 사용 하려면 가상 네트워크에 ISE를 배포 하기 전에 다음 단계를 수행 하 [여 해당 서버를 설정](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) 합니다. 그렇지 않으면 DNS 서버를 변경할 때마다 ISE를 다시 시작 해야 합니다.
+* Azure 가상 네트워크에 사용자 지정 DNS 서버를 사용 하려면 가상 네트워크에 ISE를 배포 하기 전에 다음 단계를 수행 하 [여 해당 서버를 설정](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) 합니다. DNS 서버 설정을 관리 하는 방법에 대 한 자세한 내용은 [가상 네트워크 만들기, 변경 또는 삭제](../virtual-network/manage-virtual-network.md#change-dns-servers)를 참조 하세요.
 
-  > [!IMPORTANT]
-  > ISE를 만든 후 DNS 서버 설정을 변경 하는 경우 ISE를 다시 시작 해야 합니다. DNS 서버 설정을 관리 하는 방법에 대 한 자세한 내용은 [가상 네트워크 만들기, 변경 또는 삭제](../virtual-network/manage-virtual-network.md#change-dns-servers)를 참조 하세요.
+  > [!NOTE]
+  > DNS 서버 또는 DNS 서버 설정을 변경 하는 경우 ISE에서 해당 변경 내용을 선택할 수 있도록 ISE를 다시 시작 해야 합니다. 자세한 내용은 [ISE 다시 시작](#restart-ISE)을 참조 하세요.
 
 <a name="enable-access"></a>
 
@@ -277,6 +277,18 @@ ISE에 액세스할 수 있고 ISE의 논리 앱이 가상 네트워크의 각 �
 1. 다른 조건을 추가 하려면 **크기 조정 조건 추가**를 선택 합니다.
 
 1. 자동 크기 조정 설정에 대 한 작업이 완료 되 면 변경 내용을 저장 합니다.
+
+<a name="restart-ISE"></a>
+
+## <a name="restart-ise"></a>ISE 다시 시작
+
+DNS 서버 또는 DNS 서버 설정을 변경 하는 경우 ISE에서 해당 변경 내용을 선택할 수 있도록 ISE를 다시 시작 해야 합니다. 프리미엄 SKU ISE를 다시 시작 하면 중복성 및 구성 요소를 재활용 하는 동안 한 번에 다시 시작 하는 경우 가동 중지 시간이 발생 하지 않습니다. 그러나 중복성이 없기 때문에 개발자 SKU ISE에는 가동 중지 시간이 발생 합니다. 자세한 내용은 [ISE sku](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)를 참조 하세요.
+
+1. [Azure Portal](https://portal.azure.com)에서 통합 서비스 환경으로 이동 합니다.
+
+1. ISE 메뉴에서 **개요**를 선택 합니다. 개요 도구 모음에서를 **다시 시작**합니다.
+
+   ![통합 서비스 환경 다시 시작](./media/connect-virtual-network-vnet-isolated-environment/restart-integration-service-environment.png)
 
 ## <a name="delete-ise"></a>ISE 삭제
 

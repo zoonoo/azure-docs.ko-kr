@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 07/05/2017
 ms.author: alkohli
 ms.openlocfilehash: 607379f8645226a031646376df9ca18f4d3164bf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60819187"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78394582"
 ---
 # <a name="use-the-storsimple-device-manager-service-in-azure-portal-to-manage-backup-policies"></a>Azure Portal에서 StorSimple 디바이스 관리자 서비스를 사용하여 백업 정책 관리
 

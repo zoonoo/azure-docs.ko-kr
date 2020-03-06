@@ -4,11 +4,11 @@ description: Service Fabric 클러스터의 Resource Manager 템플릿을 만드
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.openlocfilehash: a00f2bc505acd89d9fb9488565b6235bf7d146ba
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75463259"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78396651"
 ---
 # <a name="create-a-service-fabric-cluster-resource-manager-template"></a>서비스 패브릭 클러스터 Resource Manager 템플릿 만들기
 

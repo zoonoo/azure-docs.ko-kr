@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 7288e5d8c01122bea7650274cdaf358c7fc24cd0
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78197320"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78392389"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>CLI로 Key Vault 일시 삭제를 사용하는 방법
 
@@ -155,7 +155,7 @@ az keyvault key purge --name ContosoFirstKey --vault-name ContosoVault
 
 #### <a name="set-a-key-vault-access-policy"></a>Key Vault 액세스 정책 설정
 
-다음 명령은 **제거**를 포함하여 *ContosoVault*의 키에 대해 여러 가지 작업을 사용하는 user@contoso.com 사용 권한을 부여합니다.
+다음 명령은 user@contoso.com제거*를 포함하여* ContosoVault**의 키에 대해 여러 가지 작업을 사용하는**  사용 권한을 부여합니다.
 
 ```azurecli
 az keyvault set-policy --name ContosoVault --key-permissions get create delete list update import backup restore recover purge

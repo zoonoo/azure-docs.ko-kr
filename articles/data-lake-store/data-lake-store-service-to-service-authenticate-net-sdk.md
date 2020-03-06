@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 96c496ef67e26a3079577bf52e9d019d963467b8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65915845"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78390587"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>.NET SDK를 사용하여 Azure Data Lake Storage Gen1로 서비스 간 인증
 > [!div class="op_single_selector"]
@@ -30,16 +30,16 @@ ms.locfileid: "65915845"
 이 문서에서는 .NET SDK를 사용하여 Azure Data Lake Storage Gen1로 서비스 간 인증을 수행하는 방법을 배웁니다. .NET SDK를 사용한 Data Lake Storage Gen1 최종 사용자 인증의 경우 [.NET SDK를 사용하여 Data Lake Storage Gen1로 최종 사용자 인증](data-lake-store-end-user-authenticate-net-sdk.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
-* **Visual Studio 2013 이상**합니다. 아래 지침에서는 Visual Studio 2019를 사용 합니다.
+* **Visual Studio 2013 이상** 아래 지침에서는 Visual Studio 2019을 사용 합니다.
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
 * **Azure Active Directory "웹" 애플리케이션 만들기**. [Azure Active Directory를 사용하여 Data Lake Storage Gen1로 서비스 간 인증](data-lake-store-service-to-service-authenticate-using-active-directory.md)의 단계를 완료해야 합니다.
 
 ## <a name="create-a-net-application"></a>.NET 애플리케이션 만들기
-1. Visual Studio에서 선택 합니다 **파일** 메뉴에서 **새로 만들기**를 차례로 **프로젝트**합니다.
-2. 선택할 **콘솔 앱 (.NET Framework)** 를 선택한 후 **다음**합니다.
-3. **프로젝트 이름**를 입력 `CreateADLApplication`를 선택한 후 **만들기**합니다.
+1. Visual Studio에서 **파일** 메뉴, **새로 만들기**, **프로젝트**를 차례로 선택 합니다.
+2. **콘솔 앱 (.NET Framework)** 을 선택 하 고 **다음**을 선택 합니다.
+3. **프로젝트 이름**에 `CreateADLApplication`를 입력하고 **만들기**를 선택합니다.
 
 4. NuGet 패키지를 프로젝트에 추가합니다.
 
@@ -50,7 +50,7 @@ ms.locfileid: "65915845"
       * `Microsoft.Azure.Management.DataLake.Store` - 이 자습서에서는 v2.1.3-미리 보기를 사용합니다.
       * `Microsoft.Rest.ClientRuntime.Azure.Authentication` - 이 자습서는 v2.2.12를 사용합니다.
 
-        ![NuGet 원본 추가](./media/data-lake-store-get-started-net-sdk/data-lake-store-install-nuget-package.png "새 Azure Data Lake 계정 만들기")
+        ![NuGet 소스 추가](./media/data-lake-store-get-started-net-sdk/data-lake-store-install-nuget-package.png "새 Azure Data Lake 계정 만들기")
    4. **NuGet 패키지 관리자**를 닫습니다.
 
 5. **Program.cs**를 열고 기존 코드를 삭제한 후 다음 문을 포함시켜서 네임스페이스에 대한 참조를 추가합니다.
@@ -115,5 +115,5 @@ private static void Main(string[] args)
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 .NET SDK를 사용하여 Data Lake Storage Gen1로 인증하는 서비스 간 인증을 사용하는 방법을 배웠습니다. 이제 다음 문서를 통해 .NET SDK를 Data Lake Storage Gen1과 함께 사용하는 방법을 살펴볼 수 있습니다.
 
-* [.NET SDK를 사용한 Data Lake Storage Gen1에서의 계정 관리 작업](data-lake-store-get-started-net-sdk.md)
+* [.NET SDK를 사용한 Data Lake Storage Gen1의 계정 관리 작업](data-lake-store-get-started-net-sdk.md)
 * [.NET SDK를 사용한 Data Lake Storage Gen1의 데이터 작업](data-lake-store-data-operations-net-sdk.md)

@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: Apache Hadoop 및 Resource Manager - Azure HDInsight'
+title: '빠른 시작: Apache Hadoop & 리소스 관리자-Azure HDInsight'
 description: 이 빠른 시작에서는 Azure HDInsight에서 Resource Manager 템플릿을 사용하여 Apache Hadoop 클러스터를 만듭니다.
 keywords: Hadoop 시작, Hadoop Linux, Hadoop 빠른 시작, Hive 시작, Hive 빠른 시작
 ms.service: hdinsight
@@ -10,13 +10,13 @@ ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: quickstart
 ms.date: 06/12/2019
 ms.openlocfilehash: b554fcd4d4175aeac88df14eebbbaf4a8ba49f4c
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044795"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78361348"
 ---
-# <a name="quickstart-create-apache-hadoop-cluster-in-azure-hdinsight-using-resource-manager-template"></a>빠른 시작: Azure HDInsight에서 Resource Manager 템플릿을 사용하여 Apache Hadoop 클러스터 만들기
+# <a name="quickstart-create-apache-hadoop-cluster-in-azure-hdinsight-using-resource-manager-template"></a>빠른 시작: 리소스 관리자 템플릿을 사용 하 여 Azure HDInsight에서 Apache Hadoop 클러스터 만들기
 
 이 빠른 시작에서는 Azure HDInsight에서 Resource Manager 템플릿을 사용하여 Apache Hadoop 클러스터를 만드는 방법을 알아봅니다.
 
@@ -35,14 +35,14 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 2. 다음 값을 입력하거나 선택합니다.
 
-    |자산  |설명  |
+    |속성  |설명  |
     |---------|---------|
     |**구독**     |  Azure 구독을 선택합니다. |
     |**리소스 그룹**     | 리소스 그룹을 만들거나 기존 리소스 그룹을 선택합니다.  리소스 그룹은 Azure 구성 요소의 컨테이너입니다.  이 경우 리소스 그룹에는 HDInsight 클러스터 및 종속 Azure Storage 계정이 포함되어 있습니다. |
     |**위치**     | 클러스터를 만들려는 Azure 위치를 선택합니다.  성능 향상을 위해 가까운 곳을 선택합니다. |
     |**클러스터 이름**     | Hadoop 클러스터에 사용할 이름을 입력합니다. HDInsight의 모든 클러스터는 동일한 DNS 네임스페이스를 공유하므로 이 이름은 고유해야 합니다. 이름은 소문자, 숫자 및 하이픈만 포함할 수 있으며 문자로 시작해야 합니다.  각 하이픈의 앞과 뒤에는 하이픈이 아닌 문자가 있어야 합니다.  또한 이름은 3~59자여야 합니다. |
     |**클러스터 유형**     | **hadoop**을 선택합니다. |
-    |**클러스터 로그인 이름 및 암호**     | 기본 로그인 이름은 **admin**입니다. 암호는 10자 이상이어야 하며, 숫자, 대문자, 소문자 및 영숫자가 아닌 문자(' " ` 문자 제외\)를 각각 하나 이상 포함해야 합니다. "Pass@word1"과 같은 일반적인 암호를 **제공하지 않았는지** 확인합니다.|
+    |**클러스터 로그인 이름 및 암호**     | 기본 로그인 이름은 **admin**입니다. 암호는 10 자 이상 이어야 하 고 하나 이상의 숫자, 대문자 및 소문자 1 자 (문자 ' "\)'를 제외 하 고 영숫자가 아닌 문자 하나)를 포함 해야 합니다. " **"과 같은 일반적인 암호를** 제공하지 않았는지Pass@word1 확인합니다.|
     |**SSH 사용자 이름 및 암호**     | 기본 사용자 이름은 **sshuser**입니다.  SSH 사용자 이름은 바꿀 수 있습니다.  SSH 사용자 암호에는 클러스터 로그인 암호와 동일한 요구 사항이 적용됩니다.|
 
     일부 속성이 템플릿에 하드 코딩되었습니다.  템플릿에서 이러한 값을 구성할 수 있습니다. 이러한 속성에 대한 자세한 설명은 [HDInsight에서 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요.

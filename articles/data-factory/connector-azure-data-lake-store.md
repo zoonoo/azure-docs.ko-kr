@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/12/2019
 ms.openlocfilehash: 4dae0d10f103710a0e6039127c5c1cacb63c03c4
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75893098"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78394273"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 Azure Data Lake Storage Gen1 간에 데이터 복사
 
@@ -60,11 +60,11 @@ Azure Data Lake Store 연결된 서비스에 다음 속성이 지원됩니다.
 
 | 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | `type` 속성은 **AzureDataLakeStore**로 설정해야 합니다. | 예 |
-| dataLakeStoreUri | Azure Data Lake Store 계정에 대한 정보. 이 정보는 `https://[accountname].azuredatalakestore.net/webhdfs/v1` 또는 `adl://[accountname].azuredatalakestore.net/` 형식 중 하나를 사용합니다. | 예 |
+| type | `type` 속성은 **AzureDataLakeStore**로 설정해야 합니다. | yes |
+| dataLakeStoreUri | Azure Data Lake Store 계정에 대한 정보. 이 정보는 `https://[accountname].azuredatalakestore.net/webhdfs/v1` 또는 `adl://[accountname].azuredatalakestore.net/` 형식 중 하나를 사용합니다. | yes |
 | subscriptionId | Data Lake Store 계정이 속하는 Azure 구독 ID입니다. | 싱크에 필요 |
 | resourceGroupName | Data Lake Store 계정이 속하는 Azure 리소스 그룹 이름입니다. | 싱크에 필요 |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. 데이터 저장소가 개인 네트워크에 있는 경우 Azure integration runtime 또는 자체 호스팅 integration runtime을 사용할 수 있습니다. 이 속성을 지정 하지 않으면 기본 Azure 통합 런타임이 사용 됩니다. |아닙니다. |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. 데이터 저장소가 개인 네트워크에 있는 경우 Azure integration runtime 또는 자체 호스팅 integration runtime을 사용할 수 있습니다. 이 속성을 지정 하지 않으면 기본 Azure 통합 런타임이 사용 됩니다. |예 |
 
 ### <a name="use-service-principal-authentication"></a>서비스 주체 인증 사용
 
@@ -85,9 +85,9 @@ Azure Data Lake Store 연결된 서비스에 다음 속성이 지원됩니다.
 
 | 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| servicePrincipalId | 애플리케이션의 클라이언트 ID를 지정합니다. | 예 |
-| servicePrincipalKey | 애플리케이션의 키를 지정합니다. 이 필드를 `SecureString`으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
-| tenant | 응용 프로그램이 있는 테 넌 트 정보 (예: 도메인 이름 또는 테 넌 트 ID)를 지정 합니다. Azure Portal의 오른쪽 위 모서리에 마우스를 이동하여 검색할 수 있습니다. | 예 |
+| servicePrincipalId | 애플리케이션의 클라이언트 ID를 지정합니다. | yes |
+| servicePrincipalKey | 애플리케이션의 키를 지정합니다. 이 필드를 `SecureString`으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | yes |
+| tenant | 응용 프로그램이 있는 테 넌 트 정보 (예: 도메인 이름 또는 테 넌 트 ID)를 지정 합니다. Azure Portal의 오른쪽 위 모서리에 마우스를 이동하여 검색할 수 있습니다. | yes |
 
 **예:**
 
@@ -160,9 +160,9 @@ Azure Data Factory에서 연결된 서비스의 일반 Data Lake Store 정보 �
 
 | 속성   | Description                                                  | 필수 |
 | ---------- | ------------------------------------------------------------ | -------- |
-| type       | 데이터 집합의 `location`에 있는 type 속성은 **AzureDataLakeStoreLocation**로 설정 해야 합니다. | 예      |
-| folderPath | 폴더의 경로입니다. 와일드 카드를 사용 하 여 폴더를 필터링 하려면이 설정을 건너뛰고 활동 원본 설정에서 지정 합니다. | 아닙니다.       |
-| fileName   | 지정 된 folderPath의 파일 이름입니다. 와일드 카드를 사용 하 여 파일을 필터링 하려는 경우이 설정을 건너뛰고 작업 원본 설정에서 지정 합니다. | 아닙니다.       |
+| type       | 데이터 집합의 `location`에 있는 type 속성은 **AzureDataLakeStoreLocation**로 설정 해야 합니다. | yes      |
+| folderPath | 폴더의 경로입니다. 와일드 카드를 사용 하 여 폴더를 필터링 하려면이 설정을 건너뛰고 활동 원본 설정에서 지정 합니다. | 예       |
+| fileName   | 지정 된 folderPath의 파일 이름입니다. 와일드 카드를 사용 하 여 파일을 필터링 하려는 경우이 설정을 건너뛰고 작업 원본 설정에서 지정 합니다. | 예       |
 
 **예:**
 
@@ -202,13 +202,13 @@ Azure Data Factory에서 연결된 서비스의 일반 Data Lake Store 정보 �
 
 | 속성                 | Description                                                  | 필수                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
-| type                     | `storeSettings` 아래의 type 속성은 **AzureDataLakeStoreReadSettings**로 설정 해야 합니다. | 예                                           |
-| recursive                | 하위 폴더 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. Recursive가 true로 설정 되 고 싱크가 파일 기반 저장소 인 경우 빈 폴더 또는 하위 폴더가 싱크에 복사 되거나 생성 되지 않습니다. 허용되는 값은 **true**(기본값) 및 **false**입니다. | 아닙니다.                                            |
-| wildcardFolderPath       | 원본 폴더를 필터링 할 와일드 카드 문자가 포함 된 폴더 경로입니다. <br>허용 되는 와일드 카드는 `*` (0 개 이상의 문자와 일치) 및 `?` (0 개 또는 단일 문자와 일치)입니다. 실제 폴더 이름에 와일드 카드 또는이 이스케이프 문자가 포함 된 경우 `^`를 사용 하 여 이스케이프 합니다. <br>더 많은 예는 [폴더 및 파일 필터 예제](#folder-and-file-filter-examples)를 참조하세요. | 아닙니다.                                            |
+| type                     | `storeSettings` 아래의 type 속성은 **AzureDataLakeStoreReadSettings**로 설정 해야 합니다. | yes                                           |
+| recursive                | 하위 폴더 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. Recursive가 true로 설정 되 고 싱크가 파일 기반 저장소 인 경우 빈 폴더 또는 하위 폴더가 싱크에 복사 되거나 생성 되지 않습니다. 허용되는 값은 **true**(기본값) 및 **false**입니다. | 예                                            |
+| wildcardFolderPath       | 원본 폴더를 필터링 할 와일드 카드 문자가 포함 된 폴더 경로입니다. <br>허용 되는 와일드 카드는 `*` (0 개 이상의 문자와 일치) 및 `?` (0 개 또는 단일 문자와 일치)입니다. 실제 폴더 이름에 와일드 카드 또는이 이스케이프 문자가 포함 된 경우 `^`를 사용 하 여 이스케이프 합니다. <br>더 많은 예는 [폴더 및 파일 필터 예제](#folder-and-file-filter-examples)를 참조하세요. | 예                                            |
 | wildcardFileName         | 소스 파일을 필터링 하기 위해 지정 된 folderPath/wildcardFolderPath 아래의 와일드 카드 문자가 포함 된 파일 이름입니다. <br>허용 되는 와일드 카드는 `*` (0 개 이상의 문자와 일치) 및 `?` (0 개 또는 단일 문자와 일치)입니다. 실제 폴더 이름에 와일드 카드 또는이 이스케이프 문자가 포함 된 경우 `^`를 사용 하 여 이스케이프 합니다. 더 많은 예는 [폴더 및 파일 필터 예제](#folder-and-file-filter-examples)를 참조하세요. | `fileName` 데이터 집합에 지정 되지 않은 경우에는 예입니다. |
-| modifiedDatetimeStart    | 마지막으로 수정한 특성을 기반으로 하는 파일 필터입니다. 파일은 마지막으로 수정한 시간이 `modifiedDatetimeStart`와 `modifiedDatetimeEnd`사이의 시간 범위 내에 있는 경우 선택 됩니다. 시간은 "2018-12-01T05:00:00Z" 형식으로 UTC 표준 시간대에 적용 됩니다. <br> 속성은 NULL 일 수 있습니다. 즉, 파일 특성 필터가 데이터 집합에 적용 되지 않습니다. `modifiedDatetimeStart`에 datetime 값이 있지만 `modifiedDatetimeEnd` NULL 이면 마지막으로 수정 된 특성이 datetime 값 보다 크거나 같은 파일이 선택 된 것입니다. `modifiedDatetimeEnd`에 datetime 값이 있지만 `modifiedDatetimeStart` NULL 이면 마지막으로 수정 된 특성이 datetime 값 보다 작은 파일이 선택 된 것입니다. | 아닙니다.                                            |
-| modifiedDatetimeEnd      | 위와 동일합니다.                                               | 아닙니다.                                            |
-| maxConcurrentConnections | 저장소 저장소에 동시에 연결 하기 위한 연결 수입니다. 데이터 저장소에 대 한 동시 연결 수를 제한 하려는 경우에만를 지정 합니다. | 아닙니다.                                            |
+| modifiedDatetimeStart    | 마지막으로 수정한 특성을 기반으로 하는 파일 필터입니다. 파일은 마지막으로 수정한 시간이 `modifiedDatetimeStart`와 `modifiedDatetimeEnd`사이의 시간 범위 내에 있는 경우 선택 됩니다. 시간은 "2018-12-01T05:00:00Z" 형식으로 UTC 표준 시간대에 적용 됩니다. <br> 속성은 NULL 일 수 있습니다. 즉, 파일 특성 필터가 데이터 집합에 적용 되지 않습니다. `modifiedDatetimeStart`에 datetime 값이 있지만 `modifiedDatetimeEnd` NULL 이면 마지막으로 수정 된 특성이 datetime 값 보다 크거나 같은 파일이 선택 된 것입니다. `modifiedDatetimeEnd`에 datetime 값이 있지만 `modifiedDatetimeStart` NULL 이면 마지막으로 수정 된 특성이 datetime 값 보다 작은 파일이 선택 된 것입니다. | 예                                            |
+| modifiedDatetimeEnd      | 위와 동일합니다.                                               | 예                                            |
+| maxConcurrentConnections | 저장소 저장소에 동시에 연결 하기 위한 연결 수입니다. 데이터 저장소에 대 한 동시 연결 수를 제한 하려는 경우에만를 지정 합니다. | 예                                            |
 
 **예:**
 
@@ -259,9 +259,9 @@ Azure Data Factory에서 연결된 서비스의 일반 Data Lake Store 정보 �
 
 | 속성                 | Description                                                  | 필수 |
 | ------------------------ | ------------------------------------------------------------ | -------- |
-| type                     | `storeSettings` 아래의 type 속성은 **AzureDataLakeStoreWriteSettings**로 설정 해야 합니다. | 예      |
-| copyBehavior             | 원본이 파일 기반 데이터 저장소의 파일인 경우 복사 동작을 정의합니다.<br/><br/>허용된 값은<br/><b>- PreserveHierarchy(기본값)</b>: 대상 폴더에서 파일 계층 구조를 유지합니다. 원본 폴더의 원본 파일 상대 경로는 대상 폴더의 대상 파일 상대 경로와 동일합니다.<br/><b>- FlattenHierarchy</b>: 원본 폴더의 모든 파일이 대상 폴더의 첫 번째 수준에 있게 됩니다. 대상 파일은 자동 생성된 이름을 갖습니다. <br/><b>- MergeFiles</b>: 원본 폴더의 모든 파일을 하나의 파일로 병합합니다. 파일 이름이 지정된 경우 병합되는 파일 이름은 지정된 이름입니다. 그렇지 않으면 자동 생성되는 파일 이름이 적용됩니다. | 아닙니다.       |
-| maxConcurrentConnections | 데이터 저장소에 동시에 연결 하기 위한 연결 수입니다. 데이터 저장소에 대 한 동시 연결 수를 제한 하려는 경우에만를 지정 합니다. | 아닙니다.       |
+| type                     | `storeSettings` 아래의 type 속성은 **AzureDataLakeStoreWriteSettings**로 설정 해야 합니다. | yes      |
+| copyBehavior             | 원본이 파일 기반 데이터 저장소의 파일인 경우 복사 동작을 정의합니다.<br/><br/>허용된 값은<br/><b>- PreserveHierarchy(기본값)</b>: 대상 폴더에서 파일 계층 구조를 유지합니다. 원본 폴더의 원본 파일 상대 경로는 대상 폴더의 대상 파일 상대 경로와 동일합니다.<br/><b>- FlattenHierarchy</b>: 원본 폴더의 모든 파일이 대상 폴더의 첫 번째 수준에 있게 됩니다. 대상 파일은 자동 생성된 이름을 갖습니다. <br/><b>- MergeFiles</b>: 원본 폴더의 모든 파일을 하나의 파일로 병합합니다. 파일 이름이 지정된 경우 병합되는 파일 이름은 지정된 이름입니다. 그렇지 않으면 자동 생성되는 파일 이름이 적용됩니다. | 예       |
+| maxConcurrentConnections | 데이터 저장소에 동시에 연결 하기 위한 연결 수입니다. 데이터 저장소에 대 한 동시 연결 수를 제한 하려는 경우에만를 지정 합니다. | 예       |
 
 **예:**
 
@@ -429,13 +429,13 @@ Data Lake Storage Gen1에서 Data Lake Storage Gen2로 업그레이드 하는 �
 
 | 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | 데이터 집합의 type 속성은 **AzureDataLakeStoreFile**로 설정 해야 합니다. |예 |
-| folderPath | Data Lake Store의 폴더 경로입니다. 지정하지 않으면 루트를 가리킵니다. <br/><br/>와일드 카드 필터가 지원 됩니다. 허용 되는 와일드 카드는 `*` (0 개 이상의 문자와 일치) 및 `?` (0 개 또는 단일 문자와 일치)입니다. 실제 폴더 이름에 와일드 카드 또는이 이스케이프 문자가 포함 된 경우 `^`를 사용 하 여 이스케이프 합니다. <br/><br/>예: rootfolder/하위 폴더/. 더 많은 예는 [폴더 및 파일 필터 예제](#folder-and-file-filter-examples)를 참조하세요. |아닙니다. |
-| fileName | 지정 된 "folderPath" 아래에 있는 파일에 대 한 이름 또는 와일드 카드 필터입니다. 이 속성의 값을 지정하지 않으면 데이터 세트는 폴더에 있는 모든 파일을 가리킵니다. <br/><br/>필터의 경우 허용 되는 와일드 카드는 `*` (0 개 이상의 문자와 일치) 및 `?` (0 개 또는 단일 문자와 일치)입니다.<br/>- 예 1: `"fileName": "*.csv"`<br/>- 예 2: `"fileName": "???20180427.txt"`<br/>실제 파일 이름에 와일드 카드 또는이 이스케이프 문자가 포함 된 경우 `^`를 사용 하 여 이스케이프 합니다.<br/><br/>FileName이 출력 데이터 집합에 대해 지정 되지 않고 **preserveHierarchy** 가 활동 싱크에 지정 되지 않은 경우 복사 작업은 다음 패턴으로 파일 이름을 자동으로 생성 합니다. "*Data. [ 작업 실행 ID입니다. [GUID if FlattenHierarchy]입니다. [구성 된 경우 형식]. [압축이 구성 된 경우]* "(예:" 0a405f8a-93ff-4c6f-b3be-f69616f1df7a. release.tar.gz "). 쿼리 대신 테이블 이름을 사용 하 여 테이블 형식 원본에서 복사 하는 경우 이름 패턴은 " *[table name]. [ format]. [압축이 구성 된 경우]* "(예:" MyTable "). |아닙니다. |
-| modifiedDatetimeStart | 마지막으로 수정한 특성을 기반으로 하는 파일 필터입니다. 파일은 마지막으로 수정한 시간이 `modifiedDatetimeStart`와 `modifiedDatetimeEnd`사이의 시간 범위 내에 있는 경우 선택 됩니다. 시간은 "2018-12-01T05:00:00Z" 형식으로 UTC 표준 시간대에 적용 됩니다. <br/><br/> 대용량 파일을 사용 하 여 파일을 필터링 하려는 경우이 설정을 사용 하면 데이터 이동의 전반적인 성능이 영향을 받습니다. <br/><br/> 속성은 NULL 일 수 있습니다. 즉, 파일 특성 필터가 데이터 집합에 적용 되지 않습니다. `modifiedDatetimeStart`에 datetime 값이 있지만 `modifiedDatetimeEnd` NULL 이면 마지막으로 수정 된 특성이 datetime 값 보다 크거나 같은 파일이 선택 된 것입니다. `modifiedDatetimeEnd`에 datetime 값이 있지만 `modifiedDatetimeStart` NULL 이면 마지막으로 수정 된 특성이 datetime 값 보다 작은 파일이 선택 된 것입니다.| 아닙니다. |
-| modifiedDatetimeEnd | 마지막으로 수정한 특성을 기반으로 하는 파일 필터입니다. 파일은 마지막으로 수정한 시간이 `modifiedDatetimeStart`와 `modifiedDatetimeEnd`사이의 시간 범위 내에 있는 경우 선택 됩니다. 시간은 "2018-12-01T05:00:00Z" 형식으로 UTC 표준 시간대에 적용 됩니다. <br/><br/> 대용량 파일을 사용 하 여 파일을 필터링 하려는 경우이 설정을 사용 하면 데이터 이동의 전반적인 성능이 영향을 받습니다. <br/><br/> 속성은 NULL 일 수 있습니다. 즉, 파일 특성 필터가 데이터 집합에 적용 되지 않습니다. `modifiedDatetimeStart`에 datetime 값이 있지만 `modifiedDatetimeEnd` NULL 이면 마지막으로 수정 된 특성이 datetime 값 보다 크거나 같은 파일이 선택 된 것입니다. `modifiedDatetimeEnd`에 datetime 값이 있지만 `modifiedDatetimeStart` NULL 이면 마지막으로 수정 된 특성이 datetime 값 보다 작은 파일이 선택 된 것입니다.| 아닙니다. |
+| type | 데이터 집합의 type 속성은 **AzureDataLakeStoreFile**로 설정 해야 합니다. |yes |
+| folderPath | Data Lake Store의 폴더 경로입니다. 지정하지 않으면 루트를 가리킵니다. <br/><br/>와일드 카드 필터가 지원 됩니다. 허용 되는 와일드 카드는 `*` (0 개 이상의 문자와 일치) 및 `?` (0 개 또는 단일 문자와 일치)입니다. 실제 폴더 이름에 와일드 카드 또는이 이스케이프 문자가 포함 된 경우 `^`를 사용 하 여 이스케이프 합니다. <br/><br/>예: rootfolder/하위 폴더/. 더 많은 예는 [폴더 및 파일 필터 예제](#folder-and-file-filter-examples)를 참조하세요. |예 |
+| fileName | 지정 된 "folderPath" 아래에 있는 파일에 대 한 이름 또는 와일드 카드 필터입니다. 이 속성의 값을 지정하지 않으면 데이터 세트는 폴더에 있는 모든 파일을 가리킵니다. <br/><br/>필터의 경우 허용 되는 와일드 카드는 `*` (0 개 이상의 문자와 일치) 및 `?` (0 개 또는 단일 문자와 일치)입니다.<br/>- 예 1: `"fileName": "*.csv"`<br/>- 예 2: `"fileName": "???20180427.txt"`<br/>실제 파일 이름에 와일드 카드 또는이 이스케이프 문자가 포함 된 경우 `^`를 사용 하 여 이스케이프 합니다.<br/><br/>FileName이 출력 데이터 집합에 대해 지정 되지 않고 **preserveHierarchy** 가 활동 싱크에 지정 되지 않은 경우 복사 작업은 다음 패턴으로 파일 이름을 자동으로 생성 합니다. "*Data. [ 작업 실행 ID입니다. [GUID if FlattenHierarchy]입니다. [구성 된 경우 형식]. [압축이 구성 된 경우]* "(예:" 0a405f8a-93ff-4c6f-b3be-f69616f1df7a. release.tar.gz "). 쿼리 대신 테이블 이름을 사용 하 여 테이블 형식 원본에서 복사 하는 경우 이름 패턴은 " *[table name]. [ format]. [압축이 구성 된 경우]* "(예:" MyTable "). |예 |
+| modifiedDatetimeStart | 마지막으로 수정한 특성을 기반으로 하는 파일 필터입니다. 파일은 마지막으로 수정한 시간이 `modifiedDatetimeStart`와 `modifiedDatetimeEnd`사이의 시간 범위 내에 있는 경우 선택 됩니다. 시간은 "2018-12-01T05:00:00Z" 형식으로 UTC 표준 시간대에 적용 됩니다. <br/><br/> 대용량 파일을 사용 하 여 파일을 필터링 하려는 경우이 설정을 사용 하면 데이터 이동의 전반적인 성능이 영향을 받습니다. <br/><br/> 속성은 NULL 일 수 있습니다. 즉, 파일 특성 필터가 데이터 집합에 적용 되지 않습니다. `modifiedDatetimeStart`에 datetime 값이 있지만 `modifiedDatetimeEnd` NULL 이면 마지막으로 수정 된 특성이 datetime 값 보다 크거나 같은 파일이 선택 된 것입니다. `modifiedDatetimeEnd`에 datetime 값이 있지만 `modifiedDatetimeStart` NULL 이면 마지막으로 수정 된 특성이 datetime 값 보다 작은 파일이 선택 된 것입니다.| 예 |
+| modifiedDatetimeEnd | 마지막으로 수정한 특성을 기반으로 하는 파일 필터입니다. 파일은 마지막으로 수정한 시간이 `modifiedDatetimeStart`와 `modifiedDatetimeEnd`사이의 시간 범위 내에 있는 경우 선택 됩니다. 시간은 "2018-12-01T05:00:00Z" 형식으로 UTC 표준 시간대에 적용 됩니다. <br/><br/> 대용량 파일을 사용 하 여 파일을 필터링 하려는 경우이 설정을 사용 하면 데이터 이동의 전반적인 성능이 영향을 받습니다. <br/><br/> 속성은 NULL 일 수 있습니다. 즉, 파일 특성 필터가 데이터 집합에 적용 되지 않습니다. `modifiedDatetimeStart`에 datetime 값이 있지만 `modifiedDatetimeEnd` NULL 이면 마지막으로 수정 된 특성이 datetime 값 보다 크거나 같은 파일이 선택 된 것입니다. `modifiedDatetimeEnd`에 datetime 값이 있지만 `modifiedDatetimeStart` NULL 이면 마지막으로 수정 된 특성이 datetime 값 보다 작은 파일이 선택 된 것입니다.| 예 |
 | format | 파일 기반 저장소 (이진 복사) 간에 파일을 있는 그대로 복사 하려는 경우 입력 및 출력 데이터 집합 정의 둘 다에서 형식 섹션을 건너뜁니다.<br/><br/>특정 형식으로 파일을 구문 분석하거나 생성하려면 **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** 및 **ParquetFormat** 파일 형식 유형이 지원됩니다. **format**의 **type** 속성을 이 값 중 하나로 설정합니다. 자세한 내용은 [텍스트 형식](supported-file-formats-and-compression-codecs-legacy.md#text-format), [JSON 형식](supported-file-formats-and-compression-codecs-legacy.md#json-format), [Avro 형식](supported-file-formats-and-compression-codecs-legacy.md#avro-format), [Orc 형식](supported-file-formats-and-compression-codecs-legacy.md#orc-format) 및 [Parquet 형식](supported-file-formats-and-compression-codecs-legacy.md#parquet-format) 섹션을 참조하세요. |아니요(이진 복사 시나리오에만 해당) |
-| 압축 | 데이터에 대한 압축 유형 및 수준을 지정합니다. 자세한 내용은 [지원되는 파일 형식 및 압축 코덱](supported-file-formats-and-compression-codecs-legacy.md#compression-support)을 참조하세요.<br/>지원되는 형식은 **GZip**, **Deflate**, **BZip2** 및 **ZipDeflate**입니다.<br/>**Optimal** 및 **Fastest** 수준이 지원됩니다. |아닙니다. |
+| 압축 | 데이터에 대한 압축 유형 및 수준을 지정합니다. 자세한 내용은 [지원되는 파일 형식 및 압축 코덱](supported-file-formats-and-compression-codecs-legacy.md#compression-support)을 참조하세요.<br/>지원되는 형식은 **GZip**, **Deflate**, **BZip2** 및 **ZipDeflate**입니다.<br/>**Optimal** 및 **Fastest** 수준이 지원됩니다. |예 |
 
 >[!TIP]
 >폴더 아래에서 모든 파일을 복사하려면 **folderPath**만을 지정합니다.<br>특정 이름의 단일 파일을 복사 하려면 폴더 부분과 파일 **이름으로 파일** 이름으로 **folderPath** 를 지정 합니다.<br>폴더 아래에 있는 파일의 하위 집합을 복사 하려면 와일드 카드 필터를 사용 하 여 폴더 파트 및 **파일 이름** 으로 **folderPath** 를 지정 합니다. 
@@ -474,9 +474,9 @@ Data Lake Storage Gen1에서 Data Lake Storage Gen2로 업그레이드 하는 �
 
 | 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업 원본의 `type` 속성은 **AzureDataLakeStoreSource**로 설정 해야 합니다. |예 |
-| recursive | 하위 폴더 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. `recursive`이 true로 설정 되 고 싱크가 파일 기반 저장소 인 경우 빈 폴더 또는 하위 폴더가 싱크에 복사 되거나 생성 되지 않습니다. 허용되는 값은 **true**(기본값) 및 **false**입니다. | 아닙니다. |
-| maxConcurrentConnections | 데이터 저장소에 동시에 연결 하기 위한 연결 수입니다. 데이터 저장소에 대 한 동시 연결 수를 제한 하려는 경우에만를 지정 합니다. | 아닙니다. |
+| type | 복사 작업 원본의 `type` 속성은 **AzureDataLakeStoreSource**로 설정 해야 합니다. |yes |
+| recursive | 하위 폴더 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. `recursive`이 true로 설정 되 고 싱크가 파일 기반 저장소 인 경우 빈 폴더 또는 하위 폴더가 싱크에 복사 되거나 생성 되지 않습니다. 허용되는 값은 **true**(기본값) 및 **false**입니다. | 예 |
+| maxConcurrentConnections | 데이터 저장소에 동시에 연결 하기 위한 연결 수입니다. 데이터 저장소에 대 한 동시 연결 수를 제한 하려는 경우에만를 지정 합니다. | 예 |
 
 **예:**
 
@@ -514,9 +514,9 @@ Data Lake Storage Gen1에서 Data Lake Storage Gen2로 업그레이드 하는 �
 
 | 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업 싱크의 `type` 속성은 **AzureDataLakeStoreSink**로 설정 해야 합니다. |예 |
-| copyBehavior | 원본이 파일 기반 데이터 저장소의 파일인 경우 복사 동작을 정의합니다.<br/><br/>허용된 값은<br/><b>- PreserveHierarchy(기본값)</b>: 대상 폴더에서 파일 계층 구조를 유지합니다. 원본 폴더의 원본 파일 상대 경로는 대상 폴더의 대상 파일 상대 경로와 동일합니다.<br/><b>- FlattenHierarchy</b>: 원본 폴더의 모든 파일이 대상 폴더의 첫 번째 수준에 있게 됩니다. 대상 파일은 자동 생성된 이름을 갖습니다. <br/><b>- MergeFiles</b>: 원본 폴더의 모든 파일을 하나의 파일로 병합합니다. 파일 이름이 지정된 경우 병합되는 파일 이름은 지정된 이름입니다. 그렇지 않은 경우 파일 이름이 자동으로 생성됩니다. | 아닙니다. |
-| maxConcurrentConnections | 데이터 저장소에 동시에 연결 하기 위한 연결 수입니다. 데이터 저장소에 대 한 동시 연결 수를 제한 하려는 경우에만를 지정 합니다. | 아닙니다. |
+| type | 복사 작업 싱크의 `type` 속성은 **AzureDataLakeStoreSink**로 설정 해야 합니다. |yes |
+| copyBehavior | 원본이 파일 기반 데이터 저장소의 파일인 경우 복사 동작을 정의합니다.<br/><br/>허용된 값은<br/><b>- PreserveHierarchy(기본값)</b>: 대상 폴더에서 파일 계층 구조를 유지합니다. 원본 폴더의 원본 파일 상대 경로는 대상 폴더의 대상 파일 상대 경로와 동일합니다.<br/><b>- FlattenHierarchy</b>: 원본 폴더의 모든 파일이 대상 폴더의 첫 번째 수준에 있게 됩니다. 대상 파일은 자동 생성된 이름을 갖습니다. <br/><b>- MergeFiles</b>: 원본 폴더의 모든 파일을 하나의 파일로 병합합니다. 파일 이름이 지정된 경우 병합되는 파일 이름은 지정된 이름입니다. 그렇지 않은 경우 파일 이름이 자동으로 생성됩니다. | 예 |
+| maxConcurrentConnections | 데이터 저장소에 동시에 연결 하기 위한 연결 수입니다. 데이터 저장소에 대 한 동시 연결 수를 제한 하려는 경우에만를 지정 합니다. | 예 |
 
 **예:**
 

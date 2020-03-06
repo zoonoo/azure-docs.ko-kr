@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.reviewer: mbullwin
 ms.openlocfilehash: 2c97c79229c6f136c154169253f2299b7756a105
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78192475"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78362307"
 ---
 # <a name="applicationinsightsloggerprovider-for-net-core-ilogger-logs"></a>ApplicationInsightsLoggerProvider for .NET Core ILogger logs
 
@@ -104,7 +104,7 @@ public class ValuesController : ControllerBase
 ### <a name="capture-ilogger-logs-from-startupcs-and-programcs-in-aspnet-core-apps"></a>ASP.NET Core apps의 Startup.cs 및 Program.cs에서 ILogger 로그 캡처
 
 > [!NOTE]
-> ASP.NET Core 3.0 이상에서는 더 이상 Startup.cs 및 Program.cs에 `ILogger`을 삽입할 수 없습니다. 자세한 내용은 https://github.com/aspnet/Announcements/issues/353을 참조하십시오.
+> ASP.NET Core 3.0 이상에서는 더 이상 Startup.cs 및 Program.cs에 `ILogger`을 삽입할 수 없습니다. 자세한 내용은 https://github.com/aspnet/Announcements/issues/353를 참조하세요.
 
 새 ApplicationInsightsLoggerProvider는 응용 프로그램 시작 파이프라인 초기에 로그를 캡처할 수 있습니다. ApplicationInsightsLoggerProvider는 Application Insights (버전 2.7.1부터)에서 자동으로 사용 하도록 설정 되지만 파이프라인에서 나중에까지 계측 키를 설정 하지 않습니다. 따라서 **컨트롤러**/기타 클래스의 로그만 캡처됩니다. **Program.cs** 및 **Startup.cs** 자체에서 시작 하는 모든 로그를 캡처하려면 ApplicationInsightsLoggerProvider에 대 한 계측 키를 명시적으로 사용 하도록 설정 해야 합니다. 또한 **Program.cs** 또는 **Startup.cs** 자체에서 로그 하는 경우 *TelemetryConfiguration* 는 완전히 설정 되지 않습니다. 따라서 이러한 로그에는 InMemoryChannel, 샘플링, 표준 원격 분석 이니셜라이저 또는 프로세서를 사용 하지 않는 최소 구성이 포함 됩니다.
 
@@ -215,7 +215,7 @@ public class Startup
 > [!Note]
 > 새 공급자는 NETSTANDARD 2.0 이상을 대상으로 하는 응용 프로그램에 사용할 수 있습니다. 응용 프로그램이 .NET Core 1.1 같은 이전 버전의 .NET Core를 대상으로 하는 경우 또는 .NET Framework를 대상으로 하는 경우에는 이전 공급자를 계속 사용 합니다.
 
-## <a name="console-application"></a>콘솔 응용 프로그램
+## <a name="console-application"></a>콘솔 애플리케이션
 
 > [!NOTE]
 > 모든 콘솔 응용 프로그램에 대해 Application Insights (ILogger 및 기타 Application Insights 원격 분석)를 사용 하도록 설정 하는 데 사용할 수 있는 [라는 새로운](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) Application Insights SDK가 있습니다. [여기](../../azure-monitor/app/worker-service.md)에서이 패키지 및 관련 지침을 사용 하는 것이 좋습니다.

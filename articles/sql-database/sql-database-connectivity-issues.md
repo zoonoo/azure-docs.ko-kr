@@ -14,11 +14,11 @@ ms.author: ninarn
 ms.reviewer: carlrab, vanto
 ms.date: 01/14/2020
 ms.openlocfilehash: d2b56e259f551f7655936c975a7a864a27a1df79
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76027805"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78379932"
 ---
 # <a name="troubleshooting-transient-connection-errors-to-sql-database"></a>SQL Database에 대 한 일시적인 연결 오류 해결
 
@@ -131,7 +131,7 @@ ADO.NET을 사용하는 클라이언트에 대한 차단 기간의 설명은 [SQ
 2015-11-30, FwLink 393996 points to dn632678.aspx, which links to a downloadable .docx related to SqlClient and SQL Server 2014.
 -->
 
-**SqlConnection** 개체에 대한 [연결 문자열](https://msdn.microsoft.com/library/System.Data.SqlClient.SqlConnection.connectionstring.aspx)을 작성하는 경우 다음 매개 변수 중에서 값을 조정합니다.
+[SqlConnection](https://msdn.microsoft.com/library/System.Data.SqlClient.SqlConnection.connectionstring.aspx) 개체에 대한 **연결 문자열**을 작성하는 경우 다음 매개 변수 중에서 값을 조정합니다.
 
 - **ConnectRetryCount**:&nbsp;&nbsp;기본값은 1입니다. 범위는 0에서 255입니다.
 - **ConnectRetryInterval**:&nbsp;&nbsp;기본값은 10 초입니다. 범위는 1에서 60입니다.
@@ -226,7 +226,7 @@ ADO.NET 4.0 이전 버전을 사용할 경우 최신 ADO.NET으로 업그레이�
 모든 Windows 컴퓨터에서 이러한 유틸리티를 시도할 수 있습니다.
 
 - ADO.NET을 사용하여 연결하는 SQL Server Management Studio(ssms.exe)
-- [ODBC](https://msdn.microsoft.com/library/jj730308.aspx)를 사용하여 연결하는 `sqlcmd.exe`
+- `sqlcmd.exe`ODBC[를 사용하여 연결하는 ](https://msdn.microsoft.com/library/jj730308.aspx)
 
 프로그램이 연결된 후에는 짧은 SQL SELECT 쿼리가 작동하는지 테스트합니다.
 

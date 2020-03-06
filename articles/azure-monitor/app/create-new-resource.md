@@ -4,11 +4,11 @@ description: 새 라이브 애플리케이션에 대한 Application Insights 모
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.openlocfilehash: 090c983dcca101557f8dec479d1267275d24908b
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77672041"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78374890"
 ---
 # <a name="create-an-application-insights-resource"></a>Application Insights 리소스 만들기
 

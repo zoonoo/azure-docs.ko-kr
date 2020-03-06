@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 02/26/2020
+ms.date: 03/04/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10d3f18fb11dc54f560d867e2b5ff87251e2c836
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
-ms.translationtype: MT
+ms.openlocfilehash: 5aff2ff2b2e60a35d0525cf5733c940aedb7976c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78249097"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78377709"
 ---
 # <a name="conditional-access-grant"></a>조건부 액세스: Grant
 
@@ -67,7 +67,35 @@ Microsoft Intune를 배포한 조직은 장치에서 반환 된 정보를 사용
 
 조직에서 선택한 클라우드 앱에 대 한 액세스를 승인 된 클라이언트 앱에서 수행 해야 하도록 요구할 수 있습니다. 이러한 승인 된 클라이언트 앱은 모든 MDM (모바일 장치 관리) 솔루션과 독립적인 [Intune 앱 보호 정책을](/intune/app-protection-policy) 지원 합니다.
 
-지원 되는 응용 프로그램은 [Microsoft Intune 보호 된 앱](/intune/apps/apps-supported-intune-apps)문서에서 찾을 수 있습니다.
+이 설정은 다음 클라이언트 앱에 적용됩니다.
+
+- Microsoft Azure Information Protection
+- Microsoft 예약
+- Microsoft Cortana
+- Microsoft Dynamics 365
+- Microsoft Edge
+- Microsoft Excel
+- Microsoft Flow
+- Microsoft Intune Managed Browser
+- Microsoft Invoicing
+- Microsoft Kaizala
+- Microsoft Launcher
+- Microsoft OneDrive
+- Microsoft OneNote
+- Microsoft Outlook
+- Microsoft Planner
+- Microsoft PowerApps
+- Microsoft Power BI
+- Microsoft PowerPoint
+- Microsoft SharePoint
+- 비즈니스용 Microsoft Skype
+- Microsoft StaffHub
+- Microsoft Stream
+- Microsoft 팀
+- Microsoft To-Do
+- Microsoft Visio
+- Microsoft Word
+- Microsoft Yammer
 
 **주의**
 
@@ -76,17 +104,26 @@ Microsoft Intune를 배포한 조직은 장치에서 반환 된 정보를 사용
    - 는 iOS 및 Android for device 플랫폼 조건만 지원 합니다.
 - 조건부 액세스는 InPrivate 모드에서 승인 된 클라이언트 앱으로 Microsoft Edge를 고려할 수 없습니다.
 
+구성 예제는 [방법: 조건부 액세스를 사용 하는 클라우드 앱 액세스를 위해 승인 된 클라이언트 앱 필요](app-based-conditional-access.md) 문서를 참조 하세요.
+
 ### <a name="require-app-protection-policy"></a>앱 보호 정책 필요
 
 조건부 액세스 정책에서 선택한 클라우드 앱에 액세스할 수 있으려면 먼저 클라이언트 앱에 [Intune 앱 보호 정책이](/intune/app-protection-policy) 있어야 합니다. 
 
-지원 되는 응용 프로그램은 [Microsoft Intune 보호 된 앱](/intune/apps/apps-supported-intune-apps)문서에서 찾을 수 있습니다.
+이 설정은 다음 클라이언트 앱에 적용됩니다.
+
+- Microsoft Cortana
+- Microsoft OneDrive
+- Microsoft Outlook
+- Microsoft Planner
 
 **주의**
 
 - 앱 보호 정책에 대 한 앱은 정책 보호를 사용 하 여 Intune 모바일 응용 프로그램 관리 기능을 지원 합니다.
 - **앱 보호 정책** 요구 사항은 다음과 같습니다.
     - 는 iOS 및 Android for device 플랫폼 조건만 지원 합니다.
+
+구성 예제는 [방법: 조건부 액세스를 사용 하 여 cloud app access에 앱 보호 정책 및 승인 된 클라이언트 앱 필요](app-protection-based-conditional-access.md) 문서를 참조 하세요.
 
 ### <a name="terms-of-use"></a>사용 약관
 

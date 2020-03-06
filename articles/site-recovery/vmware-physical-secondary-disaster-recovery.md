@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: raynew
 ms.openlocfilehash: 71d230c9fea25edfbf0ca4ea40f15b69779ad060
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73620530"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78362959"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>보조 사이트에 온-프레미스 VMware 가상 머신 또는 물리적 서버의 재해 복구 설정
 
@@ -52,12 +52,12 @@ o 물리적 머신의 경우 이 [자습서](./physical-azure-disaster-recovery.
 **구성 및 오케스트레이션** |Azure Portal의 Recovery Services 자격 증명 모음 | vContinuum 사용 
 **복제됨** |디스크(Windows 및 Linux) |볼륨-Windows<br> 디스크-Linux
 **공유된 디스크 클러스터** |지원되지 않음|지원됨
-**데이터 변동 제한(평균)** |디스크당 10MB/s 데이터<br> VM당 25MB/s 데이터<br> [자세한 정보](./site-recovery-vmware-deployment-planner-analyze-report.md#azure-site-recovery-limits) | 디스크당 10MB/s 데이터 이상  <br> VM당 25MB/s 데이터 이상
-**모니터링** |Azure Portal에서|CX(구성 서버)에서
+**데이터 변동 제한(평균)** |디스크당 10MB/s 데이터<br> VM당 25MB/s 데이터<br> [자세히 알아보기](./site-recovery-vmware-deployment-planner-analyze-report.md#azure-site-recovery-limits) | 디스크당 10MB/s 데이터 이상  <br> VM당 25MB/s 데이터 이상
+**Monitoring** |Azure Portal에서|CX(구성 서버)에서
 **지원 매트릭스** | [자세한 내용을 보려면 여기를 클릭](./vmware-physical-azure-support-matrix.md)|[ASR Scout 호환 매트릭스 다운로드](https://aka.ms/asr-scout-cm)
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 이 자습서를 완료하려면 다음이 필요합니다.
 
 - 모든 구성 요소에 대한 지원 요구 사항을 [검토합니다](vmware-physical-secondary-support-matrix.md).
@@ -118,17 +118,17 @@ o 물리적 머신의 경우 이 [자습서](./physical-azure-disaster-recovery.
 - InMage_UA_8.0.7.0_SLES11-SP3-64_GA_03Dec2018_release.tar.gz
 - InMage_UA_8.0.7.0_SLES11-SP4-64_GA_03Dec2018_release.tar.gz
   1. .zip 파일의 압축을 풉니다.
-  2. **Rx 서버**: **rx_ 8.0.7.0 _GA_Update_7_2965621_28Dec18** 를 RX 서버에 복사 하 고 압축을 풉니다. 압축을 푼 폴더에서 **/Install**을 실행합니다.
-  3. **구성 서버 및 프로세스 서버**: **cx_windows_ 8.0.7.0 _St_up_7_2965621_28deb.exe** 를 구성 서버 및 프로세스 서버에 복사 합니다. 실행하려면 두 번 클릭합니다.<br>
-  4. **Windows 마스터 대상 서버**: 통합 된 에이전트를 업데이트 하려면 **Inmage_ua_ 8.0.7.0 _Windows_st_s2018_.exe** 를 서버에 복사 합니다. 실행하려면 두 번 클릭합니다. 새 설치에 동일한 파일을 사용할 수도 있습니다. 또한 원본 서버에도 동일한 통합 에이전트 업데이트를 적용할 수 있습니다.
+  2. **Rx 서버**: **RELEASE.TAR.GZ 0_GA_Update_7_2965621_28Dec18** 를 rx 서버에 RX_8 복사 하 고 압축을 풉니다. 압축을 푼 폴더에서 **/Install**을 실행합니다.
+  3. **구성 서버 및 프로세스 서버**: **CX_Windows_8.0_GA_Update_7_2965621_28Dec18** 를 구성 서버 및 프로세스 서버에 복사 합니다. 실행하려면 두 번 클릭합니다.<br>
+  4. **Windows 마스터 대상 서버**: 통합 된 에이전트를 업데이트 하려면 **InMage_UA_8 0_Windows_GA_27Dec2018_release** 를 서버에 복사 합니다. 실행하려면 두 번 클릭합니다. 새 설치에 동일한 파일을 사용할 수도 있습니다. 또한 원본 서버에도 동일한 통합 에이전트 업데이트를 적용할 수 있습니다.
   **InMage_Scout_vContinuum_MT_8.0.7.0_Windows_GA_27Dec2018_release.exe**로 준비된 마스터 대상에는 이 업데이트를 적용할 필요가 없습니다. 모든 최신 변경 내용을 포함하는 새 GA 설치 관리자이기 때문입니다.
-  5. **Vcontinuum 서버**: **Inmage_scout_vcontinuum_mt_ 8.0.7.0 _Windows_st_-2018_l** 을 서버에 복사 합니다.  VContinuum 마법사를 닫았는지 확인합니다. 실행하려면 파일을 두 번 클릭합니다.
-  6. **Linux 마스터 대상 서버**: 통합 된 에이전트를 업데이트 하려면 Linux 마스터 대상 서버에 **inmage_ua_ 8.0.7.0 _Ro6-64_srelease.tar.gz** 를 복사 하 고 압축을 풉니다. 압축을 푼 폴더에서 **/Install**을 실행합니다.
-  7. **Windows 원본 서버**: 통합 된 에이전트를 업데이트 하려면 원본 서버에 **Inmage_ua_ 8.0.7.0 _Windows_ga_-2018_.exe** 를 복사 합니다. 실행하려면 파일을 두 번 클릭합니다. 
-  8. **Linux 원본 서버**: 통합 에이전트를 업데이트하려면 해당 버전의 통합 에이전트 파일을 Linux 서버에 복사하고 압축을 풉니다. 압축을 푼 폴더에서 **/Install**을 실행합니다.  예: RHEL 6.7 64 비트 서버에 대해 **inmage_ua_ 8.0.7.0 _Ro6-64_c_l _03de2018_l release.tar.gz** 를 서버에 복사 하 고 압축을 풉니다. 압축을 푼 폴더에서 **/Install**을 실행합니다.
+  5. **Vcontinuum 서버**: **InMage_Scout_vContinuum_MT_8 0_Windows_GA_27Dec2018_release** 를 서버에 복사 합니다.  VContinuum 마법사를 닫았는지 확인합니다. 실행하려면 파일을 두 번 클릭합니다.
+  6. **Linux 마스터 대상 서버**: 통합 된 에이전트를 업데이트 하려면 **InMage_UA_8 0_RHEL6-64_GA_03Dec2018_release** 를 Linux 마스터 대상 서버에 복사 하 고 압축을 풉니다. 압축을 푼 폴더에서 **/Install**을 실행합니다.
+  7. **Windows 원본 서버**: 통합 된 에이전트를 업데이트 하려면 **InMage_UA_8.0_Windows_GA_27Dec2018_release** 를 원본 서버에 복사 합니다. 실행하려면 파일을 두 번 클릭합니다. 
+  8. **Linux 원본 서버**: 통합 에이전트를 업데이트하려면 해당 버전의 통합 에이전트 파일을 Linux 서버에 복사하고 압축을 풉니다. 압축을 푼 폴더에서 **/Install**을 실행합니다.  예: RHEL 6.7 64 비트 서버의 경우 **release.tar.gz. 0_RHEL6-64_GA_03Dec2018_release** 를 서버에 InMage_UA_8 복사 하 고 압축을 풉니다. 압축을 푼 폴더에서 **/Install**을 실행합니다.
   9. 위에 언급한 설치 관리자를 사용하여 구성 서버, 프로세스 서버 및 RX 서버를 업그레이드한 후 PHP 및 MySQL 라이브러리는 [빠른 설치 가이드](https://aka.ms/asr-scout-quick-install-guide)의 섹션 7.4에 설명된 단계를 사용하여 수동으로 업그레이드되어야 합니다.
 
-## <a name="enable-replication"></a>복제 활성화
+## <a name="enable-replication"></a>복제 사용
 
 1. 원본과 대상 VMware 사이트 간 복제를 설정합니다.
 2. 설치, 보호 및 복구에 대한 자세한 내용을 보려면 다음 문서를 참조하세요.
@@ -188,7 +188,7 @@ Scout 업데이트 6는 누적 업데이트입니다. 여기에는 업데이트 
 - UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe
 - UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
 - vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe
-- RHEL5, OL5, OL6, SUSE 10, SUSE 11: UA_\<Linux OS > _ 8.0.4.0 _GA_Update_4_9035261_26Sep16 release.tar.gz에 대 한 UA 업데이트 5만 비트
+- RHEL5, OL5, OL6, SUSE 10, SUSE 11: UA_\<Linux OS > _ 8.0.4에 대 한 UA 업데이트 5만 비트 0_GA_Update_4_9035261_26Sep16 release.tar.gz
   1. .zip 파일의 압축을 풉니다.
   2. **RX 서버**: **RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz**를 RX 서버에 복사하고 압축을 풉니다. 압축을 푼 폴더에서 **/Install**을 실행합니다.
   3. **구성 서버/프로세스 서버**: **CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe**를 구성 서버 및 프로세스 서버에 복사합니다. 실행하려면 두 번 클릭합니다.<br>
