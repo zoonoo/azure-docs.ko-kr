@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: 274ee0fe98281e733994f2d5df38886409cbc913
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: 17be351d4af3d277242af70ea96e8735a5f68bc9
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78273642"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78329088"
 ---
 # <a name="runbook-input-parameters"></a>Runbook 입력 매개 변수
 
@@ -270,7 +270,7 @@ Runbook에 대한 [webhook](automation-webhooks.md) 을 만들고 Runbook 입력
 
 ![Webhook 만들기 및 매개 변수 할당](media/automation-runbook-input-parameters/automation-08-createwebhookandassignparameters.png)
 
-웹 후크를 사용 하 여 runbook을 실행 하면 사용자가 정의 하는 입력 매개 변수와 함께 미리 정의 된 입력 매개 변수 *[WebhookData](automation-webhooks.md#details-of-a-webhook)* 이 전송 됩니다. 
+웹 후크를 사용 하 여 runbook을 실행 하면 사용자가 정의 하는 입력 매개 변수와 함께 미리 정의 된 입력 매개 변수 *[WebhookData](automation-webhooks.md)* 이 전송 됩니다. 
 
 ![WebhookData 매개 변수](media/automation-runbook-input-parameters/automation-09-webhook-data-parameters.png)
 

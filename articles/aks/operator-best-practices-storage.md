@@ -4,12 +4,12 @@ description: AKS(Azure Kubernetes Services)의 스토리지, 데이터 암호화
 services: container-service
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: a58a42f65472a9c4b495e0cb964eefa40bf82041
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: b1336d10b091be4f3eb2a711401cafd3f58221fe
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77649622"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399477"
 ---
 # <a name="best-practices-for-storage-and-backups-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 스토리지 및 백업 모범 사례
 
@@ -75,7 +75,7 @@ Pod에 스토리지를 연결해야 할 경우에는 영구 볼륨을 사용합�
 
 ![AKS(Azure Kubernetes Service) 클러스터의 영구적 볼륨 클레임](media/concepts-storage/persistent-volume-claims.png)
 
-PVC(영구 볼륨 클레임)를 사용하면 필요에 따라 스토리지를 동적으로 만들 수 있습니다. 기본 Azure 디스크는 pod의 요청이 있으면 만들어집니다. Pod 정의에서 볼륨을 만들어 디자인된 탑재 경로에 연결하도록 요청합니다.
+PVC(영구 볼륨 클레임)를 사용하면 필요에 따라 스토리지를 동적으로 만들 수 있습니다. 기본 Azure 디스크는 pod의 요청이 있으면 만들어집니다. Pod 정의에서 생성 하 고 지정 된 탑재 경로에 연결할 볼륨을 요청 합니다.
 
 볼륨을 동적으로 만들고 사용 하는 방법에 대 한 개념은 [영구 볼륨 클레임][aks-concepts-storage-pvcs]을 참조 하세요.
 

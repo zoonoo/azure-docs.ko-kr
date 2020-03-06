@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 624f5c91a9d2a0eb4744d310120050d0d5ccef4e
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: c019424241bc07d5a5d2cc19a64685c476f94548
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349834"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303820"
 ---
 # <a name="is_number-azure-cosmos-db"></a>IS_NUMBER (Azure Cosmos DB)
  지정한 식의 형식이 숫자인지 여부를 나타내는 부울 값을 반환합니다.  
@@ -28,7 +28,7 @@ IS_NUMBER(<expr>)
 *expr*  
    임의의 식입니다.  
   
-## <a name="return-types"></a>반환 유형
+## <a name="return-types"></a>반환 형식
   
   부울 식을 반환합니다.  
   
@@ -52,6 +52,10 @@ SELECT
 ```json
 [{"isNum1":false,"isNum2":true,"isNum3":false,"isNum4":false,"isNum5":false,"isNum6":false,"isNum7":false}]  
 ```  
+
+## <a name="remarks"></a>설명
+
+이 시스템 함수는 [범위 인덱스](index-policy.md#includeexclude-strategy)를 활용 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

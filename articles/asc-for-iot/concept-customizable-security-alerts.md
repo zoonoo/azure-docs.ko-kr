@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/27/2020
+ms.date: 03/04/2020
 ms.author: mlottner
-ms.openlocfilehash: f10604d23901c2d7ed23f8b4f32a296f063d8620
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 32d79267559480de8ec91e5e66196bfd57e01cf1
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76776275"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78299576"
 ---
 # <a name="azure-security-center-for-iot-security-alerts"></a>IoT 보안 경고에 대 한 Azure Security Center
 
@@ -29,7 +29,7 @@ IoT에 대 한 Azure Security Center는 고급 분석 및 위협 인텔리전스
 
 IoT 경고에 대 한 다음 Azure Security Center 목록은 예상 IoT Hub 및/또는 장치 동작에 따라 사용자가 정의할 수 있습니다. 각 경고를 사용자 지정 하는 방법에 대 한 자세한 내용은 [사용자 지정 경고 만들기](quickstart-create-custom-alerts.md)를 참조 하세요.
 
-## <a name="azure-security-center-for-iot-alerts-available-for-customization"></a>사용자 지정에 사용할 수 있는 IoT 경고에 대 한 Azure Security Center 
+## <a name="iot-hub-alerts-available-for-customization"></a>사용자 지정에 사용할 수 있는 IoT Hub 경고 
 
 
 
@@ -49,13 +49,18 @@ IoT 경고에 대 한 다음 Azure Security Center 목록은 예상 IoT Hub 및/
 | 낮음      | 사용자 지정 경고 - 명령 큐 제거 수가 허용 범위를 벗어납니다.                               | IoT Hub     | 특정 시간 범위 내의 명령 큐 제거 수가 현재 구성된 허용 범위를 벗어납니다.||
 | 낮음      | 사용자 지정 경고 - 모듈 쌍 업데이트 수가 허용 범위를 벗어납니다.                                       | IoT Hub     | 특정 시간 범위 내의 모듈 쌍 업데이트 수가 현재 구성된 허용 범위를 벗어납니다.|
 | 낮음      | 사용자 지정 경고 - 권한 없는 작업 수가 허용 범위를 벗어납니다.  | IoT Hub     | 특정 시간 범위 내의 권한 없는 작업 수가 현재 구성된 허용 범위를 벗어납니다.|
+|
+
+## <a name="agent-alerts-available-for-customization"></a>사용자 지정에 사용할 수 있는 에이전트 경고 
+
+| 심각도 | 경고 이름 | 데이터 원본 | Description | 제안된 수정 사항|
+|---|---|---|---|---|
 | 낮음      | 사용자 지정 경고 - 활성 연결 수가 허용 범위를 벗어납니다.  | 에이전트       | 특정 시간 범위 내의 활성 연결 수가 현재 구성된 허용 범위를 벗어납니다.|  디바이스 로그를 조사합니다. 연결이 시작된 위치를 알아보고, 무해하거나 악의적인 위치인지 확인합니다. 악의적인 위치이면 가능한 멀웨어를 제거하고 해당 원본을 파악합니다. 무해한 위치이면 해당 원본을 연결 허용 목록에 추가합니다.  |
 | 낮음      | 사용자 지정 경고 - 아웃바운드 연결이 허용되지 않는 IP에 만들어졌습니다.                             | 에이전트       | 아웃바운드 연결이 IP 허용 목록을 벗어난 IP에 만들어졌습니다. |디바이스 로그를 조사합니다. 연결이 시작된 위치를 알아보고, 무해하거나 악의적인 위치인지 확인합니다. 악의적인 위치이면 가능한 멀웨어를 제거하고 해당 원본을 파악합니다. 무해한 위치이면 해당 원본을 IP 허용 목록에 추가합니다.                        |
 | 낮음      | 사용자 지정 경고 -실패한 로컬 로그인 수가 허용 범위를 벗어납니다.                               | 에이전트       | 특정 시간 범위 내의 실패한 로컬 로그인 수가 현재 구성된 허용 범위를 벗어납니다. |   |
 | 낮음      | 사용자 지정 경고 - 사용자 허용 목록에 없는 사용자의 로그인입니다. | 에이전트       | 사용자 허용 목록에 없는 로컬 사용자가 디바이스에 로그인했습니다.|  원시 데이터를 저장하는 경우 로그 분석 계정으로 이동하고, 데이터를 사용하여 디바이스를 조사하고, 원본을 확인한 다음, 해당 설정에 대한 허용/차단 목록을 수정합니다. 현재 원시 데이터를 저장하지 않는 경우 디바이스로 이동하여 해당 설정에 대한 허용/차단 목록을 수정합니다.|
 | 낮음      | 사용자 지정 경고 - 허용되지 않는 프로세스가 실행되었습니다. | 에이전트       | 디바이스에서 허용되지 않는 프로세스가 실행되었습니다. |원시 데이터를 저장하는 경우 로그 분석 계정으로 이동하고, 데이터를 사용하여 디바이스를 조사하고, 원본을 확인한 다음, 해당 설정에 대한 허용/차단 목록을 수정합니다. 현재 원시 데이터를 저장하지 않는 경우 디바이스로 이동하여 해당 설정에 대한 허용/차단 목록을 수정합니다.  |
 |
-
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -3,12 +3,12 @@ title: 이미지를 작성 하 고 테스트 & 패치를 실행 하는 다단계
 description: 클라우드의 컨테이너 이미지를 빌드, 테스트 및 패치 하는 작업 기반 워크플로를 제공 하는 Azure Container Registry의 ACR 작업 기능인 다단계 작업을 소개 합니다.
 ms.topic: article
 ms.date: 03/28/2019
-ms.openlocfilehash: cf5f90263c75aeb96220967142d28995209f2d86
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: 0dcd38559d3f50715f982de4c9c80bfe9c6c8433
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75945676"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399705"
 ---
 # <a name="run-multi-step-build-test-and-patch-tasks-in-acr-tasks"></a>ACR 작업에서 다단계 작성, 테스트 및 패치 작업 실행
 
@@ -95,8 +95,11 @@ az acr run --registry <acrName> -f build-push-hello-world.yaml https://github.co
 
 작업을 실행하면 출력에는 YAML 파일에 정의된 각 단계의 진행률이 표시됩니다. 다음 출력에서 단계는 `acb_step_0` 및 `acb_step_1`로 표시됩니다.
 
-```console
-$ az acr run --registry myregistry -f build-push-hello-world.yaml https://github.com/Azure-Samples/acr-tasks.git
+```azurecli
+az acr run --registry myregistry -f build-push-hello-world.yaml https://github.com/Azure-Samples/acr-tasks.git
+```
+
+```output
 Sending context to registry: myregistry...
 Queued a run with ID: yd14
 Waiting for an agent...

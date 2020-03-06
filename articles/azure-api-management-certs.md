@@ -10,12 +10,12 @@ ms.service: api-management
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: gwallace
-ms.openlocfilehash: 5ce96796cbfdcefbaf5568ff199cba6a87f65e05
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 4b49a9b391eeca2d2e249b171d99f231bda6fdff
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359883"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78329122"
 ---
 # <a name="upload-an-azure-service-management-certificate"></a>Azure Service Management 인증서 업로드
 관리 인증서를 사용하면 Azure에서 제공하는 클래식 배포 모델로 인증할 수 있습니다. Visual Studio 또는 Azure SDK와 같은 많은 프로그램 및 도구에서 이러한 인증서를 사용하여 다양한 Azure 서비스의 구성 및 배포를 자동화합니다. 
@@ -29,7 +29,7 @@ Azure 인증서(자체 서명 인증서 포함)에 대한 자세한 내용은 [A
 
 [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)를 사용하여 자동화를 위한 클라이언트 코드를 인증할 수도 있습니다.
 
-**참고:** 관리 인증서에서 작업을 수행 하려면 구독에 대 한 공동 관리자 여야 합니다. 새 Azure Portal에서 공동 관리자를 추가하거나 제거하는 방법에 대해 [자세히 알아보세요](https://go.microsoft.com/fwlink/?linkid=849300). 
+**참고:** 관리 인증서에서 모든 작업을 수행하려면 구독에 대한 공동 관리자여야 합니다. 새 Azure Portal에서 공동 관리자를 추가하거나 제거하는 방법에 대해 [자세히 알아보세요](https://go.microsoft.com/fwlink/?linkid=849300). 
 
 ## <a name="upload-a-management-certificate"></a>관리 인증서 업로드
 관리 인증서(공개 키만 포함하는 .cer 파일)를 만든 후에는 포털에 업로드할 수 있습니다. 포털에서 인증서를 사용할 수 있는 경우 일치하는 인증서(프라이빗 키)가 있는 모든 사람이 관리 API를 통해 연결할 수 있고 연결된 구독에 대한 리소스에 액세스할 수 있습니다.
@@ -52,4 +52,4 @@ Azure 인증서(자체 서명 인증서 포함)에 대한 자세한 내용은 [A
     ![설정](./media/azure-api-management-certs/certificate_details.png)
 
 ## <a name="next-steps"></a>다음 단계
-이제 구독과 연관된 관리 인증서가 있으므로(로컬에서 일치하는 인증서를 설치한 후에) [클래식 배포 모델 REST API](/azure/#pivot=sdkstools)에 프로그래밍 방식으로 연결할 수 있고 구독과 연관된 다양한 Azure 리소스를 자동화할 수 있습니다.
+이제 구독과 연관된 관리 인증서가 있으므로(로컬에서 일치하는 인증서를 설치한 후에) [클래식 배포 모델 REST API](/azure/?pivot=sdkstools)에 프로그래밍 방식으로 연결할 수 있고 구독과 연관된 다양한 Azure 리소스를 자동화할 수 있습니다.

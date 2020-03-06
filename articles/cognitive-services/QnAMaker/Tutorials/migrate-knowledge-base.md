@@ -11,18 +11,18 @@ ms.topic: article
 ms.date: 01/28/2020
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: b441eb1e6531030a998fe628ae833b29a5d9fe5a
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 942932c229ace82a0bf66da7a5421f936b028088
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76902033"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302562"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>내보내기-가져오기를 사용하여 기술 자료 마이그레이션
 
 기술 자료를 마이그레이션하려면 한 기술 자료를 내보낸 다음, 다른 기술 자료로 가져와야 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 * 새 [QnA Maker 서비스](../How-To/set-up-qnamaker-service-azure.md) 설정
@@ -47,12 +47,8 @@ ms.locfileid: "76902033"
    > [![기술 자료 가져오기](../media/qnamaker-how-to-migrate-kb/Import.png)](../media/qnamaker-how-to-migrate-kb/Import.png#lightbox)
 
 1. 테스트 패널을 사용하여 새 기술 자료를 **테스트**합니다. [기술 자료 테스트](../How-To/test-knowledge-base.md) 방법을 알아보세요.
-1. 기술 자료를 **게시**합니다. [기술 자료 게시](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) 방법을 알아보세요.
-1. 애플리케이션 또는 봇 코드에서 엔드포인트를 사용합니다. 여기에서 [QnA 봇을 만드는](../Tutorials/create-qna-bot.md) 방법을 참조하세요.
 
-    ![QnA Maker 값](../media/qnamaker-how-to-migrate-kb/qnamaker-settings-kbid-key.png)
-
-    이때 모든 기술 자료 콘텐츠인 질문, 답변 및 메타데이터와 URL 및 원본 파일의 이름을 새 기술 자료로 가져옵니다.
+1. 기술 자료를 **게시** 하 고 채팅 봇을 만듭니다. [기술 자료 게시](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) 방법을 알아보세요.
 
 ## <a name="chat-logs-and-alterations"></a>채팅 로그 및 변경 내용
 대/소문자를 구분하지 않는 변경 내용(동의어)은 자동으로 가져오지 않습니다. [V4 api](https://go.microsoft.com/fwlink/?linkid=2092179) 를 사용 하 여 새 기술 자료의 변경 사항을 이동 합니다.

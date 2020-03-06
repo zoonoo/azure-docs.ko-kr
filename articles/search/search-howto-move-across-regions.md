@@ -8,81 +8,97 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: how-to
 ms.custom: subject-moving-resources
-ms.date: 02/18/2020
-ms.openlocfilehash: 392c86d8ea24e59d388926d4df581305ea2b531d
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.date: 03/05/2020
+ms.openlocfilehash: df712f48c5aff722a4f1a850788378fb78ea7335
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77599302"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78379582"
 ---
 # <a name="move-your-azure-cognitive-search-service-to-another-azure-region"></a>Azure Cognitive Search 서비스를 다른 Azure 지역으로 이동
 
-Azure 인식 서비스 계정을 한 지역에서 다른 지역으로 이동 하려면 구독을 이동 하는 내보내기 템플릿을 만듭니다. 구독을 이동한 후에는 데이터를 이동 하 고 서비스를 다시 만들어야 합니다.
+현재는 검색 서비스를 다른 지역으로 이동 하는 것은 지원 되지 않습니다. 즉, 작업을 종단 간 작업에 도움이 되는 자동화 또는 도구가 없습니다.
 
-이 문서에서는 다음을 수행하는 방법을 알아봅니다.
+포털에서 **템플릿 내보내기** 명령은 서비스의 기본 정의 (이름, 위치, 계층, 복제본 및 파티션 수)를 생성 하지만 서비스의 콘텐츠를 인식 하지 않으며 키, 역할 또는 로그를 전달 하지 않습니다.
+
+검색을 한 지역에서 다른 지역으로 이동 하는 경우 다음과 같은 방법을 사용 하는 것이 좋습니다.
+
+1. 서비스의 전체 개체 목록에 대 한 기존 서비스를 인벤토리 합니다. 로깅을 사용 하도록 설정한 경우 나중에 비교할 때 필요할 수 있는 보고서를 만들고 보관 합니다.
+
+1. 새 지역에서 서비스를 만들고 소스 코드에서 기존 인덱스, 인덱서, 데이터 원본, 기술력과 및 동의어 맵을 다시 게시 합니다. 서비스 이름은 고유 해야 하므로 기존 이름을 다시 사용할 수 없습니다.
+
+1. 로깅을 사용 하 고 사용 하는 경우 보안 역할을 다시 만듭니다.
+
+1. 새 서비스 이름 및 API 키를 사용 하 고 모든 응용 프로그램을 테스트 하도록 클라이언트 응용 프로그램 및 테스트 도구 모음을 업데이트 합니다.
+
+1. 새 서비스가 완전히 작동 하면 이전 서비스를 삭제 합니다.
+
+<!-- To move your Azure Cognitive Service account from one region to another, you will create an export template to move your subscription(s). After moving your subscription, you will need to move your data and recreate your service.
+
+In this article, you'll learn how to:
 
 > [!div class="checklist"]
-> * 템플릿을 내보냅니다.
-> * 템플릿 수정: 대상 지역, 검색 및 저장소 계정 이름을 추가 합니다.
-> * 템플릿을 배포 하 여 새 검색 및 저장소 계정을 만듭니다.
-> * 새 지역에서 서비스 상태 확인
-> * 원본 지역에서 리소스를 정리 합니다.
+> * Export a template.
+> * Modify the template: adding the target region, search and storage account names.
+> * Deploy the template to create the new search and storage accounts.
+> * Verify your service status in the new region
+> * Clean up resources in the source region.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## Prerequisites
 
-- 계정에서 사용 하는 서비스 및 기능이 대상 지역에서 지원 되는지 확인 합니다.
+- Ensure that the services and features that your account uses are supported in the target region.
 
-- 미리 보기 기능에 대해 구독을 대상 지역에 대 한 허용 목록 확인 합니다. 미리 보기 기능에 대 한 자세한 내용은 [기술 자료 저장소](https://docs.microsoft.com/azure/search/knowledge-store-concept-intro), [증분 보강](https://docs.microsoft.com/azure/search/cognitive-search-incremental-indexing-conceptual)및 [개인 끝점](https://docs.microsoft.com/azure/search/service-create-private-endpoint)을 참조 하세요.
+- For preview features, ensure that your subscription is whitelisted for the target region. For more information about preview features, see [knowledge stores](https://docs.microsoft.com/azure/search/knowledge-store-concept-intro), [incremental enrichment](https://docs.microsoft.com/azure/search/cognitive-search-incremental-indexing-conceptual), and [private endpoint](https://docs.microsoft.com/azure/search/service-create-private-endpoint).
 
-## <a name="assessment-and-planning"></a>평가 및 계획
+## Assessment and planning
 
-검색 서비스를 새 지역으로 이동 하는 경우 [데이터를 새 저장소 서비스로 이동한](https://docs.microsoft.com/azure/storage/common/storage-account-move?tabs=azure-portal#configure-the-new-storage-account) 다음 인덱스, 기술력과 및 기술 자료 저장소를 다시 작성 해야 합니다. 서비스를 보다 쉽고 빠르게 다시 빌드하기 위해 현재 설정을 기록 하 고 json 파일을 복사 해야 합니다.
+When you move your search service to the new region, you will need to [move your data to the new storage service](https://docs.microsoft.com/azure/storage/common/storage-account-move?tabs=azure-portal#configure-the-new-storage-account) and then rebuild your indexes, skillsets and knowledge stores. You should record current settings and copy json files to make the rebuilding of your service easier and faster.
 
-## <a name="moving-your-search-services-resources"></a>검색 서비스의 리소스 이동
+## Moving your search service's resources
 
-시작 하려면 리소스 관리자 템플릿을 내보낸 다음 수정 합니다.
+To start you will export and then modify a Resource Manager template.
 
-### <a name="export-a-template"></a>템플릿 내보내기
+### Export a template
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. 리소스 그룹 페이지로 이동 합니다.
+2. Go to your Resource Group page.
 
 > [!div class="mx-imgBorder"]
-> ![리소스 그룹 페이지 예제](./media/search-move-resource/export-template-sample.png)
+> ![Resource Group page example](./media/search-move-resource/export-template-sample.png)
 
-3. **모든 리소스**를 선택합니다.
+3. Select **All resources**.
 
-3. 왼쪽 탐색 메뉴에서 **템플릿 내보내기**를 선택 합니다.
+3. In the left hand navigation menu select **Export template**.
 
-4. **템플릿 내보내기** 페이지에서 **다운로드** 를 선택 합니다.
+4. Choose **Download** in the **Export template** page.
 
-5. 포털에서 다운로드 한 .zip 파일을 찾아 원하는 폴더에 해당 파일의 압축을 풉니다.
+5. Locate the .zip file that you downloaded from the portal, and unzip that file to a folder of your choice.
 
-Zip 파일에는 템플릿을 배포 하는 템플릿 및 스크립트를 구성 하는. i n i 파일이 포함 되어 있습니다.
+The zip file contains the .json files that comprise the template and scripts to deploy the template.
 
-### <a name="modify-the-template"></a>템플릿 수정
+### Modify the template
 
-검색 및 저장소 계정 이름 및 지역을 변경 하 여 템플릿을 수정 합니다. 이름은 각 서비스 및 지역 명명 규칙의 규칙을 따라야 합니다. 
+You will modify the template by changing the search and storage account names and regions. The names must follow the rules for each service and region naming conventions. 
 
-지역 위치 코드를 가져오려면 [Azure 위치](https://azure.microsoft.com/global-infrastructure/locations/)를 참조 하세요.  영역에 대 한 코드는 공백이 없고 **미국 중부** = **centralus**지역 이름입니다.
+To obtain region location codes, see [Azure Locations](https://azure.microsoft.com/global-infrastructure/locations/).  The code for a region is the region name with no spaces, **Central US** = **centralus**.
 
-1. Azure Portal에서 **리소스 만들기**를 선택합니다.
+1. In the Azure portal, select **Create a resource**.
 
-2. **Marketplace 검색**에서 **템플릿 배포**를 입력하고 **ENTER**를 누릅니다.
+2. In **Search the Marketplace**, type **template deployment**, and then press **ENTER**.
 
-3. **템플릿 배포**를 선택합니다.
+3. Select **Template deployment**.
 
-4. **만들기**를 선택합니다.
+4. Select **Create**.
 
-5. **편집기에서 사용자 고유의 템플릿을 빌드합니다.** 를 선택합니다.
+5. Select **Build your own template in the editor**.
 
-6. **파일 로드**를 선택 하 고 지침에 따라 이전 섹션에서 다운로드 하 여 압축을 푼 **템플릿. json** 파일을 로드 합니다.
+6. Select **Load file**, and then follow the instructions to load the **template.json** file that you downloaded and unzipped in the previous section.
 
-7. **템플릿 json** 파일에서 검색 및 저장소 계정 이름의 기본값을 설정 하 여 대상 검색 및 저장소 계정의 이름을로 설정 합니다. 
+7. In the **template.json** file, name the target search and storage accounts by setting the default value of the search and storage account names. 
 
-8. 검색 및 저장소 서비스에 대 한 **템플릿. json** 파일의 **location** 속성을 대상 지역으로 편집 합니다. 이 예에서는 대상 지역을 `centralus`설정 합니다.
+8. Edit the **location** property in the **template.json** file to the target region for both your search and storage services. This example sets the target region to `centralus`.
 
 ```json
 },
@@ -113,35 +129,34 @@ Zip 파일에는 템플릿을 배포 하는 템플릿 및 스크립트를 구성
             },
 ```
 
-### <a name="deploy-the-template"></a>템플릿 배포
+### Deploy the template
 
-1. **템플릿. json** 파일을 저장 합니다.
+1. Save the **template.json** file.
 
-2. 속성 값을 입력 하거나 선택 합니다.
+2. Enter or select the property values:
 
-- **구독**: Azure 구독을 선택합니다.
+- **Subscription**: Select an Azure subscription.
 
-- **리소스 그룹**: **새로 만들기**를 클릭하고 리소스 그룹에 이름을 지정합니다.
+- **Resource group**: Select **Create new** and give the resource group a name.
 
-- **위치**: Azure 위치를 선택 합니다.
+- **Location**: Select an Azure location.
 
-3. **위에 명시 된 사용 약관에 동의 함** 확인란을 클릭 한 다음 **구매 선택** 단추를 클릭 합니다.
+3. Click the **I agree to the terms and conditions stated above** checkbox, and then click the **Select Purchase** button.
 
-## <a name="verifying-your-services-status-in-new-region"></a>새 지역에서 서비스의 상태를 확인 하는 중
+## Verifying your services' status in new region
 
-이동을 확인 하려면 새 리소스 그룹을 열고 서비스가 새 지역으로 나열 됩니다.
+To verify the move, open the new resource group and your services will be listed with the new region.
 
-원본 지역에서 대상 지역으로 데이터를 이동 하려면 [새 저장소 계정으로 데이터를 이동 하는](https://docs.microsoft.com/azure/storage/common/storage-account-move?tabs=azure-portal#move-data-to-the-new-storage-account)방법에 대 한이 문서의 지침을 참조 하세요.
+To move your data from your source region to the target region, please see this article's guidelines for [moving your data to the new storage account](https://docs.microsoft.com/azure/storage/common/storage-account-move?tabs=azure-portal#move-data-to-the-new-storage-account).
 
-## <a name="clean-up-resources-in-your-original-region"></a>원본 지역에서 리소스 정리
+## Clean up resources in your original region
 
-변경 내용을 커밋하고 서비스 계정의 이동을 완료 하려면 원본 서비스 계정을 삭제 합니다.
+To commit the changes and complete the move of your service account, delete the source service account.
 
-## <a name="next-steps"></a>다음 단계
+## Next steps
 
-[인덱스 만들기](https://docs.microsoft.com/azure/search/search-get-started-portal)
+[Create an index](https://docs.microsoft.com/azure/search/search-get-started-portal)
 
-[기술 세트 만들기](https://docs.microsoft.com/azure/search/cognitive-search-quickstart-blob)
+[Create a skillset](https://docs.microsoft.com/azure/search/cognitive-search-quickstart-blob)
 
-[기술 자료 저장소 만들기](https://docs.microsoft.com/azure/search/knowledge-store-create-portal)
-
+[Create a knowledge store](https://docs.microsoft.com/azure/search/knowledge-store-create-portal) -->

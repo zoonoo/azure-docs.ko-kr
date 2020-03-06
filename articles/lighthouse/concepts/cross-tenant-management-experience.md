@@ -1,14 +1,14 @@
 ---
 title: 테넌트 간 관리 환경
 description: Azure 위임 리소스 관리를 통해 테넌트 간 관리 환경을 사용하도록 설정할 수 있습니다.
-ms.date: 02/07/2020
+ms.date: 02/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: f5d68be1226a026f8fdfd7595cb2812ce51dfdb6
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
-ms.translationtype: MT
+ms.openlocfilehash: cb484ea936bbb64b3ca3d7fcf648de0d0ef73c66
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77122051"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78328683"
 ---
 # <a name="cross-tenant-management-experiences"></a>테넌트 간 관리 환경
 
@@ -131,7 +131,7 @@ Azure 위임 리소스 관리를 사용하면 다른 테넌트의 다른 계정�
 
 - Azure Resource Manager에서 처리되는 요청은 Azure 위임 리소스 관리를 사용하여 수행할 수 있습니다. 이러한 요청에 대한 작업 URI는 `https://management.azure.com`으로 시작합니다. 그러나 리소스 유형의 인스턴스가 처리하는 요청(예: KeyVault 비밀 액세스 또는 스토리지 데이터 액세스)은 Azure 위임 리소스 관리에서 지원되지 않습니다. 이러한 요청에 대한 작업 URI는 일반적으로 `https://myaccount.blob.core.windows.net` 또는 `https://mykeyvault.vault.azure.net/`과 같이 사용자 인스턴스에 고유한 주소로 시작합니다. 후자는 일반적으로 관리 작업이 아니라 데이터 작업입니다. 
 - 역할 할당은 RBAC(역할 기반 액세스 제어) [기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 사용해야 합니다. 현재, 소유자 또는 [DataActions](../../role-based-access-control/role-definitions.md#dataactions) 권한이 있는 기본 제공 역할을 제외한 모든 기본 제공 역할이 Azure 위임 리소스 관리에서 지원됩니다. 사용자 액세스 관리자 역할은 [관리 ID에 역할 할당](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant)에서 제한된 용도로만 지원됩니다.  사용자 지정 역할 및 [클래식 구독 관리자 역할](../../role-based-access-control/classic-administrators.md)은 지원되지 않습니다.
-- 현재, 구독에서 Azure Databricks를 사용하는 경우 Azure 위임 리소스 관리에 대 한 구독(또는 구독 내의 리소스 그룹)을 온보딩할 수 없습니다. 마찬가지로, **Microsoft.ManagedServices** 리소스 공급자에 온보딩하기 위해 구독을 등록한 경우 현재는 해당 구독에 대해 Databricks 작업 영역을 만들 수 없습니다.
+- Azure Databricks를 사용 하는 구독을 등록할 수 있지만 관리 테 넌 트의 사용자는 지금은 위임 된 구독에서 Azure Databricks 작업 영역을 시작할 수 없습니다.
 - 리소스 잠금이 있는 Azure 위임 리소스 관리에 대한 구독 및 리소스 그룹을 온보드할 수 있지만 이러한 잠금으로 인해 관리 테넌트의 사용자가 작업을 수행할 수 없습니다. Azure 관리 애플리케이션 또는 Azure Blueprints(시스템이 할당한 거부 할당)에서 만든 것과 같이 시스템 관리 리소스를 보호하는 [거부 할당](../../role-based-access-control/deny-assignments.md)은 관리 테넌트의 사용자가 해당 리소스에 대해 작업을 수행하지 못하도록 합니다. 그러나 현재 고객 테넌트의 사용자는 자신의 거부 할당(사용자가 할당한 거부 할당)을 만들 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계

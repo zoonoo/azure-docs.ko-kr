@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 10/02/2019
 ms.author: iainfou
-ms.openlocfilehash: 286e2ad460e98cfeceab52a3ac21bcba8da2cc7f
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: f187dba4eace61695a72e4b7b08731e65ff0d7f9
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77612814"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78299111"
 ---
 # <a name="troubleshoot-domain-join-problems-with-an-azure-ad-domain-services-managed-domain"></a>Azure AD Domain Services 관리 되는 도메인의 도메인 가입 문제 해결
 
@@ -55,7 +55,7 @@ Azure AD DS 관리 되는 도메인에 가입 하기 위한 자격 증명을 요
 
 1. UPN 형식을 사용하여 자격 증명(예: `dee@aaddscontoso.onmicrosoft.com`)을 지정합니다. 이 UPN이 Azure AD에서 올바르게 구성 되어 있는지 확인 합니다.
     * 사용자 계정에 대 한 *SAMAccountName* 은 테 넌 트에서 동일한 upn 접두사를 사용 하는 여러 사용자가 있거나 upn 접두사가 너무 긴 경우 자동으로 생성 될 수 있습니다. 따라서 계정에 대 한 *SAMAccountName* 형식은 사용자의 온-프레미스 도메인에서 사용 하거나 사용 하는 것과 다를 수 있습니다.
-1. *AAD DC 관리자* 그룹에 속한 사용자 계정에 대 한 자격 증명을 사용 하 여 Vm을 Azure AD DS 관리 되는 도메인에 연결 해 봅니다.
+1. Azure AD DS 관리 되는 도메인의 일부인 사용자 계정에 대 한 자격 증명을 사용 하 여 Vm을 관리 되는 도메인에 가입 하십시오.
 1. [암호 동기화를 사용 하도록 설정][enable-password-sync] 하 고 초기 암호 동기화가 완료 될 때까지 충분히 대기 해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계

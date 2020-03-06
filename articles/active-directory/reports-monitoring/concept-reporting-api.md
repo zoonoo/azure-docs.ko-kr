@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c841195cacd8c8d7698f69435572587bf04c3d67
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 56f240a5191dd483f89889f3ffe13b1819ca1e53
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74008368"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399314"
 ---
 # <a name="get-started-with-the-azure-active-directory-reporting-api"></a>Azure Active Directory reporting API 시작하기
 
@@ -34,7 +34,7 @@ Azure AD 보고서에 대한 Microsoft Graph API를 사용하면 일련의 REST 
 
 문제가 발생하면 [Azure Active Directory에 대한 지원을 받는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto)을 참조하세요.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 
 사용자 작업으로 또는 사용자 작업 없이 보고 API에 액세스하려면 다음이 필요합니다.
 
@@ -50,15 +50,12 @@ Azure AD 보고서에 대한 Microsoft Graph API를 사용하면 일련의 REST 
 감사 로그에 대한 Microsoft Graph API 엔드포인트는 `https://graph.microsoft.com/beta/auditLogs/directoryAudits`이며 로그인에 대한 Microsoft Graph API 엔드포인트는 `https://graph.microsoft.com/beta/auditLogs/signIns`입니다. 자세한 내용은 [감사 API 참조](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 및 [로그인 API 참조](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signIn)를 참조하세요.
 
 또한 [Id 보호 위험 검색 API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent) 를 사용 하 여 Microsoft Graph 사용 하는 보안 검색에 대 한 프로그래밍 방식 액세스를 얻을 수 있습니다. 자세한 내용은 [Azure Active Directory ID 보호 및 Microsoft Graph 시작](../identity-protection/graph-get-started.md)을 참조하세요. 
-
-> [!NOTE]
->  **https:\/\/graph.windows.net\/\<테넌트 이름\>\/보고서\/** 엔드포인트는 사용되지 않습니다. 프로그래밍 방식으로 작업 및 보안 보고서에 액세스하려면 위에 설명된 새 API 엔드포인트를 사용합니다.
   
-## <a name="apis-with-graph-explorer"></a>Graph 탐색기가 있는 API
+## <a name="apis-with-microsoft-graph-explorer"></a>Microsoft Graph 탐색기를 사용 하는 Api
 
-[MSGraph 탐색기](https://developer.microsoft.com/graph/graph-explorer)를 사용하여 로그인 및 감사 API 데이터를 확인할 수 있습니다. Graph 탐색기 UI에서 두 로그인 단추를 사용하여 계정에 로그인하고 표시된 것처럼 테넌트에 대해 **AuditLog.Read.All** 및 **Directory.Read.All** 권한을 설정합니다.   
+[Microsoft Graph 탐색기](https://developer.microsoft.com/graph/graph-explorer) 를 사용 하 여 로그인 및 감사 API 데이터를 확인할 수 있습니다. Graph 탐색기 UI에서 두 로그인 단추를 사용하여 계정에 로그인하고 표시된 것처럼 테넌트에 대해 **AuditLog.Read.All** 및 **Directory.Read.All** 권한을 설정합니다.   
 
-![Graph 탐색기](./media/concept-reporting-api/graph-explorer.png)
+![그래프 탐색기](./media/concept-reporting-api/graph-explorer.png)
 
 ![권한 수정 UI](./media/concept-reporting-api/modify-permissions.png)
 

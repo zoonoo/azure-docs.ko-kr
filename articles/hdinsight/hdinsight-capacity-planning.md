@@ -9,11 +9,11 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.openlocfilehash: db7b2787df68e5e9baadddc7e6e6159cfff26097
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75887243"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78389794"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>HDInsight 클러스터의 용량 계획
 
@@ -100,7 +100,7 @@ Azure Storage에는 일부 [용량 제한](../azure-resource-manager/management/
 2. HDInsight 클러스터에 대 한 **개요** 페이지로 이동 합니다. 
 3. 왼쪽 메뉴에서 **할당량 한도**를 클릭 합니다.
 
-   페이지는 사용 중인 코어 수, 사용 가능한 코어 수 및 총 코어 수를 표시 합니다.
+   페이지에 사용 중인 코어 수, 사용 가능한 코어 수 및 총 코어 수가 표시됩니다.
 
 할당량 증가를 요청해야 하는 경우 다음 단계를 수행합니다.
 
@@ -118,7 +118,7 @@ Azure Storage에는 일부 [용량 제한](../azure-resource-manager/management/
 1. **다음: 솔루션 > >** 를 선택 합니다.
 1. **세부 정보** 페이지에서 문제에 대 한 설명을 입력 하 고 문제의 심각도, 기본 연락 방법 및 기타 필수 필드를 선택 합니다.
 1. **다음: 검토 + > 만들기 >** 를 선택 합니다.
-1. **검토 + 만들기** 탭에서 **만들기**를 선택 합니다.
+1. **검토 + 만들기** 탭에서 **만들기**를 선택합니다.
 
 > [!NOTE]  
 > 프라이빗 영역에서 HDInsight 코어 할당량을 늘려야 하는 경우 [허용 목록에 추가 요청을 제출합니다](https://aka.ms/canaryintwhitelist).

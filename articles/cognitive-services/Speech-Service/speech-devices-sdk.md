@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: erhopf
-ms.openlocfilehash: 854e7beb2afd8ae838455f77ff448f13d8b3fbea
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 43d08b466076672587e7f6545193e326283c0031
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77188969"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78330790"
 ---
 # <a name="about-the-speech-devices-sdk"></a>Speech Devices SDK 정보
 
@@ -47,7 +47,7 @@ Windows의 경우 샘플 응용 프로그램은 플랫폼 간 Java 응용 프로
 ### <a name="linux"></a>Linux
 
 Linux의 경우 샘플 응용 프로그램은 플랫폼 간 Java 응용 프로그램으로 제공 됩니다. 최신 버전의 [JRE Speech 장치 SDK](https://aka.ms/sdsdk-download-JRE)를 다운로드 합니다.
-애플리케이션은 Speech SDK 패키지와 64비트 Linux(Ubuntu 16.04, Ubuntu 18.04, Debian 9) 기반의 Eclipse Java IDE(v4)를 사용하여 빌드됩니다. 64비트 Java 8 JRE(Java Runtime Environment)에서 실행됩니다.
+응용 프로그램은 Speech SDK 패키지 및 64 비트 Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 8, CentOS 8)의 Eclipse Java IDE (v4)를 사용 하 여 빌드됩니다. 64비트 Java 8 JRE(Java Runtime Environment)에서 실행됩니다.
 
 향후 장치, [Roobo V2 DDK](https://aka.ms/sdsdk-download-roobov2)및 [urbetter](https://aka.ms/sdsdk-download-urbetter)을 지원 하기 위해 추가 바이너리가 제공 됩니다.
 

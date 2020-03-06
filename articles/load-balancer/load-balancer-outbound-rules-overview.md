@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 7/17/2019
 ms.author: allensu
-ms.openlocfilehash: d35241850d60e82b79bba0384f60c40e3ecd6427
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: d419c213b3bcfef3631d68eb9d4cb485291bed31
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78192526"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78304194"
 ---
 # <a name="load-balancer-outbound-rules"></a>Load Balancer 아웃바운드 규칙
 
@@ -206,7 +206,6 @@ disableOutboundSNAT 매개 변수의 기본값은 false입니다. 즉 부하 분
 - 프런트 엔드 IP 주소당 사용 가능한 사용 후 삭제 포트의 최대 수는 64,000개입니다.
 - 구성 가능한 아웃바운드 유휴 시간 제한 범위는 4-120분(240-7200초)입니다.
 - Load Balancer는 아웃바운드 NAT에 대해 ICMP를 지원하지 않습니다.
-- 아웃바운드 규칙은 포털을 통해 구성하거나 볼 수 없습니다.  대신 템플릿, REST API, Az CLI 2.0 또는 PowerShell을 사용하세요.
 - 아웃 바운드 규칙은 NIC의 기본 IP 구성에만 적용할 수 있습니다.  여러 Nic가 지원 됩니다.
 
 ## <a name="next-steps"></a>다음 단계

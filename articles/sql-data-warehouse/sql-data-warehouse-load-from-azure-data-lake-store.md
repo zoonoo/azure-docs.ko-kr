@@ -7,16 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: load-data
-ms.date: 02/04/2020
+ms.date: 03/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 9a567a8f62f8f12de725f6d9420576680a3005fe
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: b0b9cffe0b69545a6d0219941b48ac9eb0f399b3
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78194583"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78300590"
 ---
 # <a name="load-data-from-azure-data-lake-storage-for-sql-analytics"></a>SQL Analytics에 대 한 Azure Data Lake Storage에서 데이터 로드
 이 가이드에서는 PolyBase 외부 테이블을 사용 하 여 Azure Data Lake Storage에서 데이터를 로드 하는 방법을 설명 합니다. Data Lake Storage에 저장 된 데이터에 대해 임시 쿼리를 실행할 수 있지만 최상의 성능을 위해 데이터를 가져오는 것이 좋습니다. 
@@ -32,7 +32,7 @@ ms.locfileid: "78194583"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
+## <a name="before-you-begin"></a>시작하기 전에
 이 자습서를 시작하기 전에 최신 버전의 SSMS([SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms))를 다운로드하여 설치합니다.
 
 이 자습서를 실행하려면 다음이 필요합니다.
@@ -46,6 +46,8 @@ AAD 통과를 사용 하 여 인증 하는 경우이 섹션을 건너뛰고 "외
 Data Lake Storage 계정에 액세스 하려면 자격 증명 암호를 암호화 하는 데이터베이스 마스터 키를 만들어야 합니다. 그런 다음 암호를 저장 하는 데이터베이스 범위 자격 증명을 만듭니다. 서비스 주체 (Azure Directory 응용 프로그램 사용자)를 사용 하 여 인증 하는 경우 데이터베이스 범위 자격 증명은 AAD에 설정 된 서비스 주체 자격 증명을 저장 합니다. 데이터베이스 범위 자격 증명을 사용 하 여 Gen2에 대 한 저장소 계정 키를 저장할 수도 있습니다.
 
 서비스 주체를 사용 하 여 Data Lake Storage에 연결 하려면 **먼저** Azure Active Directory 응용 프로그램을 만들고, 액세스 키를 만들고, Data Lake Storage 계정에 대 한 액세스 권한을 응용 프로그램에 부여 해야 합니다. 지침은 [Active Directory를 사용 하 여 Azure Data Lake Storage에 인증을](../data-lake-store/data-lake-store-authenticate-using-active-directory.md)참조 하세요.
+
+컨트롤 수준 권한이 있는 사용자로 SQL 풀에 로그인 하 고 데이터베이스에 대해 다음 SQL 문을 실행 합니다.
 
 ```sql
 -- A: Create a Database Master Key.
@@ -138,7 +140,7 @@ WITH
 ```
 
 ## <a name="create-the-external-tables"></a>외부 테이블 만들기
-이제 데이터 원본과 파일 형식을 지정했으니 외부 테이블을 만들 준비가 완료되었습니다. 외부 테이블은 외부 데이터와 상호 작용하는 방식입니다. LOCATION  매개 변수는 파일 또는 디렉터리를 지정할 수 있습니다. 디렉터리를 지정하는 경우 해당 디렉터리의 모든 파일을 로드합니다.
+이제 데이터 원본과 파일 형식을 지정했으니 외부 테이블을 만들 준비가 완료되었습니다. 외부 테이블은 외부 데이터와 상호 작용하는 방식입니다. 위치 매개 변수는 파일 또는 디렉터리를 지정할 수 있습니다. 디렉터리를 지정하는 경우 해당 디렉터리의 모든 파일을 로드합니다.
 
 ```sql
 -- D: Create an External Table
@@ -174,12 +176,12 @@ WITH
 
 REJECT_TYPE 및 REJECT_VALUE 옵션을 사용하면 최종 테이블에 있어야 하는 행 수 또는 데이터의 비율을 정의할 수 있습니다. 로드 중 거부 값에 도달하는 경우 로드는 실패합니다. 거부된 행의 가장 일반적인 원인은 스키마 정의 불일치입니다. 예를 들어 파일의 데이터가 문자열일 때 열이 int의 스키마로 잘못 지정된 경우 모든 행을 로드하지 못합니다.
 
-Data Lake Storage Gen1은 RBAC(역할 기반 액세스 제어)를 사용하여 데이터에 대한 액세스를 제어합니다. 즉, 서비스 주체는 LOCATION 매개 변수에서 정의된 디렉터리와 최종 디렉터리 및 파일의 자식 항목에 대해 읽기 권한이 있어야 합니다. 이 경우 PolyBase는 해당 데이터를 인증하고 로드할 수 있습니다. 
+Data Lake Storage Gen1은 RBAC(역할 기반 액세스 제어)를 사용하여 데이터에 대한 액세스를 제어합니다. 즉, 서비스 주체는 위치 매개 변수에서 정의된 디렉터리와 최종 디렉터리 및 파일의 자식 항목에 대해 읽기 권한이 있어야 합니다. 이 경우 PolyBase는 해당 데이터를 인증하고 로드할 수 있습니다. 
 
 ## <a name="load-the-data"></a>데이터 로드
 Data Lake Storage에서 데이터를 로드 하려면 [SELECT (transact-sql) 문을 CREATE TABLE](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) 사용 합니다. 
 
-CTAS는 새 테이블을 만들고 select 문의 결과로 새 테이블을 채웁니다. CTAS는 select 문의 결과와 동일한 열과 데이터 형식을 가지도록 새 테이블을 정의합니다. 외부 테이블에서 모든 열을 선택하는 경우 새 테이블은 외부 테이블의 열과 데이터 형식의 복제본이 됩니다.
+CTAS는 새 테이블을 만들고 select 문의 결과와 함께 새 테이블을 정보표시합니다. CTAS는 select 문의 결과에 부합하는 동일한 열과 데이터 형식을 가지도록 새 테이블을 정의합니다. 외부 테이블에서 모든 열을 선택하는 경우 새 테이블은 외부 테이블의 열과 데이터 형식의 복제본이 됩니다.
 
 이 예제에서는 외부 테이블 DimProduct_external에서 DimProduct라는 해시 분산 테이블을 만듭니다.
 

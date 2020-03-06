@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: jordane
 author: jpe316
-ms.date: 11/05/2019
+ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: fe9cee44970da94c346caffc0d5fe76ffebf4a0b
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 471b26ebc4bd4aecb814ec43c7eba56e3d764fa0
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845137"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78402481"
 ---
 # <a name="use-the-cli-extension-for-azure-machine-learning"></a>Azure Machine Learning에 CLI 확장 사용
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -31,7 +31,7 @@ Azure Machine Learning CLI는 Azure 플랫폼용 플랫폼 간 명령줄 인터�
 
 CLI는 Azure Machine Learning SDK를 대체하는 것이 아닙니다. 자동화에 잘 맞는 매우 중요 한 작업을 처리 하도록 최적화 된 보완 도구입니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * CLI를 사용하려면 Azure 구독이 있어야 합니다. Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
@@ -311,7 +311,7 @@ az extension remove -n azure-cli-ml
 
 다음 표에서는 JSON 파일의 각 최상위 필드, 형식 및 설명에 대해 자세히 설명 합니다. 개체 형식이 Python SDK의 클래스에 연결 된 경우에는 Python 클래스에서 각 JSON 필드와 공용 변수 이름 사이에 느슨한 1:1 일치 항목이 있습니다. 경우에 따라 필드는 클래스 변수가 아니라 생성자 인수에 매핑될 수 있습니다. 예를 들어 `environmentVariables` 필드는 [`Environment`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py) 클래스의 `environment_variables` 변수에 매핑됩니다.
 
-| JSON 필드 | 유형 | Description |
+| JSON 필드 | Type | Description |
 |---|---|---|
 | `name` | `string` | 환경의 이름입니다. **Microsoft** 또는 **AzureML**에서 이름을 시작 하지 않습니다. |
 | `version` | `string` | 환경의 버전입니다. |

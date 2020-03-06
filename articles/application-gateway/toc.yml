@@ -39,6 +39,8 @@
   items:
     - name: 기본 사항
       items:
+        - name: Application Gateway 기능
+          href: features.md
         - name: 애플리케이션 게이트웨이 작동 원리
           href: how-application-gateway-works.md
         - name: 애플리케이션 게이트웨이 구성 요소
@@ -261,7 +263,7 @@
     - name: 커뮤니티 템플릿
       displayName: ARM
       href: 'https://azure.microsoft.com/documentation/templates'
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/application-gateway/'
     - name: 국가별 가용성
       href: 'https://azure.microsoft.com/regions/services/'

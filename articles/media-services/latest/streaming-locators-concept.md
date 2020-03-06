@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 05/26/2019
+ms.date: 03/04/2020
 ms.author: juliako
-ms.openlocfilehash: 1cc0132cc17217c858060e107dfcfc090a3ef8a7
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 3a9568e1a0307cd1713c511ef42c065424306548
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75611001"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302885"
 ---
 # <a name="streaming-locators"></a>스트리밍 로케이터
 
@@ -56,7 +56,7 @@ StreamingLocator locator = await client.StreamingLocators.CreateAsync(
     });
 ```
 
-### <a name="encrypted"></a>암호화됨 
+### <a name="encrypted"></a>암호화 
 
 CENC 암호화를 사용 하 여 콘텐츠를 암호화 해야 하는 경우 정책을 ' Predefined_MultiDrmCencStreaming '로 설정 합니다. Widevine 암호화가 대시 스트림에 적용 되 고 PlayReady가 자연스럽 게 적용 됩니다. 구성 된 DRM 라이선스에 따라 키가 재생 클라이언트에 전달 됩니다.
 
@@ -92,18 +92,19 @@ CBCS (FairPlay)를 사용 하 여 HLS 스트림을 암호화 하려는 경우에
 
 |언어|API|
 |---|---|
-|REST|[liststreaminglocators](https://docs.microsoft.com/rest/api/media/assets/liststreaminglocators)|
-|CLI|[az ams asset list-streaming-locators](https://docs.microsoft.com/cli/azure/ams/asset?view=azure-cli-latest#az-ams-asset-list-streaming-locators)|
+|REST (영문)|[liststreaminglocators](https://docs.microsoft.com/rest/api/media/assets/liststreaminglocators)|
+|CLI|[az ams asset list-streaming-locator](https://docs.microsoft.com/cli/azure/ams/asset?view=azure-cli-latest#az-ams-asset-list-streaming-locators)|
 |.NET|[ListStreamingLocators](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.assetsoperationsextensions.liststreaminglocators?view=azure-dotnet#Microsoft_Azure_Management_Media_AssetsOperationsExtensions_ListStreamingLocators_Microsoft_Azure_Management_Media_IAssetsOperations_System_String_System_String_System_String_)|
 |Java|[AssetStreamingLocator](https://docs.microsoft.com/rest/api/media/assets/liststreaminglocators#assetstreaminglocator)|
 |Node.js|[listStreamingLocators](https://docs.microsoft.com/javascript/api/@azure/arm-mediaservices/assets#liststreaminglocators-string--string--string--msrest-requestoptionsbase-)|
 
-## <a name="also-see"></a>참고 항목
+## <a name="see-also"></a>참고 항목
 
 * [Assets](assets-concept.md)
 * [스트리밍 정책](streaming-policy-concept.md)
 * [콘텐츠 키 정책](content-key-policy-concept.md)
+* [자습서: .NET을 사용 하 여 비디오 업로드, 인코딩 및 스트리밍](stream-files-tutorial-with-api.md)
 
 ## <a name="next-steps"></a>다음 단계
 
-[자습서: .NET을 사용 하 여 비디오 업로드, 인코딩 및 스트리밍](stream-files-tutorial-with-api.md)
+[스트리밍 로케이터 및 빌드 Url을 만드는 방법](create-streaming-locator-build-url.md)

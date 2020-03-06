@@ -4,18 +4,18 @@ description: Azure Cosmos DB의 아크탄젠트 (ATAN) SQL 시스템 함수에�
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/04/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 8fd398e343a3e617ceb9f49ca8f31ee776a7f073
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 899c94a939be7825dca82522eab235bde9252896
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873457"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302681"
 ---
 # <a name="atan-azure-cosmos-db"></a>ATAN (Azure Cosmos DB)
- 탄젠트 값이 지정된 숫자 식인 라디안에서 각도를 반환합니다. 아크탄젠트라고도 합니다.  
+ 탄젠트 값이 지정된 숫자 식인 라디안에서 각도를 반환합니다. 이를 아크탄젠트라고도 합니다.  
   
 ## <a name="syntax"></a>구문
   
@@ -28,11 +28,11 @@ ATAN(<numeric_expr>)
 *numeric_expr*  
    숫자 식입니다.  
   
-## <a name="return-types"></a>반환 유형
+## <a name="return-types"></a>반환 형식
   
   숫자 식을 반환합니다.  
   
-## <a name="examples"></a>예시
+## <a name="examples"></a>예
   
   다음 예에서는 지정 된 값의 `ATAN` 반환 합니다.  
   
@@ -46,6 +46,9 @@ SELECT ATAN(-45.01) AS atan
 [{"atan": -1.5485826962062663}]  
 ```  
   
+## <a name="remarks"></a>설명
+
+이 시스템 함수는 인덱스를 활용 하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

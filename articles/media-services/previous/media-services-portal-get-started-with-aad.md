@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 4428187c985c1004c88f2ac20b0e5811803cce2a
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: ee04fa7120f5510d703d72e662036f4fe952cd66
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77162772"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78330671"
 ---
 # <a name="get-started-with-azure-ad-authentication-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure AD 인증 시작
 
@@ -31,86 +31,41 @@ Azure Portal을 사용하여 Azure AD(Azure Active Directory) 인증에 액세�
 
 - Azure 계정. 계정이 없는 경우 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)으로 시작하세요. 
 - Media Services 계정. 자세한 내용은 [Azure Portal을 사용하여 Azure Media Services 계정 만들기](media-services-portal-create-account.md)를 참조하세요.
-- [Azure AD 인증으로 Azure Media Services API 액세스 개요](media-services-use-aad-auth-to-access-ams-api.md)를 검토해야 합니다. 
 
 Azure Media Services와 함께 Azure AD 인증을 사용할 때 두 가지 인증 옵션이 제공됩니다.
 
-- **사용자 인증**. Media Services 리소스와 상호 작용하는 데 앱을 사용하는 사용자를 인증합니다. 대화형 애플리케이션은 먼저 사용자에게 자격 증명을 묻는 메시지를 표시합니다. 예제는 권한 있는 사용자가 인코딩 작업 또는 라이브 스트리밍을 모니터링하기 위해 사용한 관리 콘솔 앱입니다. 
 - **서비스 주체 인증**. 서비스를 인증합니다. 이 인증 방법을 일반적으로 사용하는 애플리케이션은 디먼 서비스, 중간 계층 서비스 또는 예약된 작업(예: 웹앱, 함수 앱, 논리 앱, API 또는 마이크로 서비스)을 실행하는 앱입니다.
+- **사용자 인증**. Media Services 리소스와 상호 작용하는 데 앱을 사용하는 사용자를 인증합니다. 대화형 애플리케이션은 먼저 사용자에게 자격 증명을 묻는 메시지를 표시합니다. 예제는 권한 있는 사용자가 인코딩 작업 또는 라이브 스트리밍을 모니터링하기 위해 사용한 관리 콘솔 앱입니다. 
 
-> [!IMPORTANT]
-> 현재 Media Services는 Azure Access Control 서비스 인증 모델을 지원합니다. 그러나 Access Control 권한 부여는 2018년 6월 1일부로 더 이상 사용되지 않을 예정입니다. 가능한 빨리 Azure AD 인증 모델로 마이그레이션하는 것이 좋습니다.
+## <a name="access-the-media-services-api"></a>Media Services API 액세스
 
-## <a name="select-the-authentication-method"></a>인증 방법 선택
+이 페이지에서 API에 연결 하는 데 사용 하려는 인증 방법을 선택할 수 있습니다. 또한이 페이지는 API에 연결 하는 데 필요한 값을 제공 합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에서 Media Services 계정을 선택합니다.
 2. Media Services API에 연결하는 방법을 선택합니다.
+3. **MEDIA SERVICES api에 연결**에서 연결 하려는 Media Services api 버전을 선택 합니다.
 
-    ![연결 방법 선택 페이지](./media/media-services-portal-get-started-with-aad/media-services-portal-get-started01.png)
+## <a name="service-principal-authentication--recommended"></a>서비스 주체 인증 (권장)
+
+Azure Active Directory (Azure AD) 앱 및 암호를 사용 하 여 서비스를 인증 합니다. Media Services API를 호출 하는 중간 계층 서비스에 권장 됩니다. Web Apps, 함수, Logic Apps, Api 및 마이크로 서비스를 예로 들 수 있습니다. 권장 되는 인증 방법입니다.
+
+### <a name="manage-your-azure-ad-app-and-secret"></a>Azure AD 앱 및 비밀 관리
+
+**AAD 앱 및 비밀 관리** 섹션에서 새 Azure AD 앱을 선택 하거나 만들고 비밀을 생성할 수 있습니다. 보안을 위해 블레이드를 닫은 후에는 비밀을 표시할 수 없습니다. 응용 프로그램은 인증에 응용 프로그램 ID 및 암호를 사용 하 여 media services에 대 한 유효한 토큰을 가져옵니다.
+
+Azure AD 테 넌 트에 응용 프로그램을 등록 하 고 Azure 구독의 역할에 응용 프로그램을 할당할 수 있는 충분 한 권한이 있는지 확인 합니다. 자세한 내용은 [필요한 권한](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions)을 참조 하세요.
+
+### <a name="connect-to-media-services-api"></a>Media Services API에 연결
+
+**Media Services에 연결 API** 는 서비스 사용자 응용 프로그램에 연결 하는 데 사용 하는 값을 제공 합니다. 텍스트 값을 가져오거나 JSON 또는 XML 블록을 복사할 수 있습니다.
 
 ## <a name="user-authentication"></a>사용자 인증
 
-사용자 인증 옵션을 사용하여 Media Service API에 연결하려면 클라이언트 앱에서 다음 매개 변수가 있는 Azure AD 토큰을 요청해야 합니다.  
+이 옵션은 앱을 사용 하 여 Media Services 리소스와 상호 작용 하는 Azure Active Directory의 직원 또는 멤버를 인증 하는 데 사용할 수 있습니다. 대화형 애플리케이션은 먼저 사용자에게 사용자의 자격 증명을 묻는 메시지를 표시합니다. 이 인증 방법은 관리 응용 프로그램에만 사용 해야 합니다.
 
-* Azure AD 테넌트 엔드포인트
-* Media Services 리소스 URI
-* Media Services(원시) 애플리케이션 클라이언트 ID 
-* Media Services(원시) 애플리케이션 리디렉션 URI 
-* REST Media Services의 리소스 URI
+### <a name="connect-to-media-services-api"></a>Media Services API에 연결
 
-**Media Services API 및 사용자 인증** 페이지에서 이러한 매개 변수에 대한 값을 가져올 수 있습니다. 
-
-![사용자 인증으로 연결 페이지](./media/media-services-portal-get-started-with-aad/media-services-portal-get-started02.png)
-
-Media Services Microsoft .NET SDK를 사용하여 Media Services API에 연결하는 경우 SDK의 일부로 필요한 값이 제공됩니다. 자세한 내용은 [Azure AD 인증을 사용하여 .NET으로 Azure Media Services API 액세스](media-services-dotnet-get-started-with-aad.md)를 참조하세요.
-
-Media Services .NET 클라이언트 SDK를 사용하지 않는 경우 앞에서 설명한 매개 변수를 사용하여 Azure AD 토큰 요청을 수동으로 만들어야 합니다. 자세한 내용은 [Azure AD 인증 라이브러리를 사용하여 Azure AD 토큰 가져오기](../../active-directory/azuread-dev/active-directory-authentication-libraries.md)를 참조하세요.
-
-## <a name="service-principal-authentication"></a>서비스 주체 인증
-
-서비스 주체 옵션을 사용하여 Media Services API에 연결하려면 중간 계층 앱(웹 API 또는 웹 애플리케이션)에서 다음 매개 변수가 있는 Azure AD 토큰을 요청해야 합니다.  
-
-* Azure AD 테넌트 엔드포인트
-* Media Services 리소스 URI 
-* REST Media Services의 리소스 URI
-* Azure AD 애플리케이션 값: **클라이언트 ID** 및 **클라이언트 암호**
-
-**서비스 주체로 Media Services API에 연결** 페이지에서 이러한 매개 변수에 대한 값을 가져올 수 있습니다. 이 페이지에서 새 Azure AD 애플리케이션을 만들거나 기존 항목을 선택합니다. Azure AD 앱을 선택한 후에는 클라이언트 ID(애플리케이션 ID)를 가져오고 클라이언트 암호(키) 값을 생성합니다. 
-
-![서비스 주체로 연결 페이지](./media/media-services-portal-get-started-with-aad/media-services-portal-get-started04.png)
-
-**서비스 주체** 블레이드가 열리면 다음 기준을 충족하는 첫 번째 Azure AD 애플리케이션이 선택됩니다.
-
-- 등록된 Azure AD 애플리케이션입니다.
-- 계정에 대한 참가자 또는 소유자 역할 기반 Access Control 권한을 포함합니다.
-
-Azure AD 앱을 만들거나 선택한 후에는 클라이언트 암호(키) 및 클라이언트 ID(애플리케이션 ID)를 만들고 복사할 수 있습니다. 이 시나리오에서 액세스 토큰을 가져오는 데는 클라이언트 암호 및 클라이언트 ID가 필요합니다.
-
-도메인에 Azure AD 앱을 만들기 위한 권한이 없는 경우 블레이드의 Azure AD 앱 컨트롤이 표시되지 않고 경고 메시지가 표시됩니다.
-
-Media Services .NET SDK를 사용하여 Media Services API에 연결하는 경우 [Azure AD 인증을 사용하여 .NET으로 Azure Media Services API 액세스](media-services-dotnet-get-started-with-aad.md)를 참조하세요.
-
-Media Services .NET 클라이언트 SDK를 사용하지 않는 경우 앞에서 설명한 매개 변수를 사용하여 Azure AD 토큰 요청을 수동으로 만들어야 합니다. 자세한 내용은 [Azure AD 인증 라이브러리를 사용하여 Azure AD 토큰 가져오기](../../active-directory/azuread-dev/active-directory-authentication-libraries.md)를 참조하세요.
-
-### <a name="get-the-client-id-and-client-secret"></a>클라이언트 ID 및 클라이언트 암호 가져오기
-
-기존 Azure AD 앱을 선택하거나 새 항목을 만드는 옵션을 선택하면 다음 단추가 나타납니다.
-
-![[사용 권한 관리] 단추 및 [애플리케이션 관리] 단추](./media/media-services-portal-get-started-with-aad/media-services-portal-manage.png)
-
-Azure AD 애플리케이션 블레이드를 열려면 **애플리케이션 관리**를 클릭합니다. **애플리케이션 관리** 블레이드에서 앱의 클라이언트 ID(애플리케이션 ID)를 가져올 수 있습니다. 클라이언트 암호(키)를 생성하려면 **키**를 선택합니다.
-
-![애플리케이션 블레이드 키 관리 옵션](./media/media-services-portal-get-started-with-aad/media-services-portal-get-started06.png) 
-
-### <a name="manage-permissions-and-the-application"></a>사용 권한 및 애플리케이션 관리
-
-Azure AD 애플리케이션을 선택한 후에는 애플리케이션 및 사용 권한을 관리할 수 있습니다. 다른 애플리케이션에 액세스하도록 Azure AD 애플리케이션을 설정하려면 **사용 권한 관리**를 클릭합니다. 키 및 회신 URL 변경과 같은 관리 작업이나 애플리케이션의 매니페스트를 편집하려면 **애플리케이션 관리**를 클릭합니다.
-
-### <a name="edit-the-apps-settings-or-manifest"></a>앱의 설정 또는 매니페스트 편집
-
-앱의 설정 또는 매니페스트를 편집하려면 **애플리케이션 관리**를 클릭합니다.
-
-![애플리케이션 관리 페이지](./media/media-services-portal-get-started-with-aad/media-services-portal-get-started05.png)
+**MEDIA SERVICES API에 연결** 섹션에서 사용자 응용 프로그램을 연결 하려면 자격 증명을 복사 합니다. 텍스트 값을 가져오거나 JSON 또는 XML 블록을 복사할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

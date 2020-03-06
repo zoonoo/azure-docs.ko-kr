@@ -3,14 +3,14 @@ title: 스테이징 환경 설정
 description: 프로덕션이 아닌 슬롯에 앱을 배포 하 고 프로덕션으로 자동 교환 하는 방법에 대해 알아봅니다. 안정성을 높이고 배포에서 앱 가동 중지 시간을 제거 합니다.
 ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
-ms.date: 09/19/2019
+ms.date: 03/04/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 63070b2c1e6adbb0149446b218e6e58023b2d409
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.openlocfilehash: 21e025088e59c7f65f848b332ecb393b05918261
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75666461"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78300874"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Azure App Service에서 스테이징 환경 설정
 <a name="Overview"></a>
@@ -23,7 +23,7 @@ ms.locfileid: "75666461"
 * 먼저 슬롯으로 앱을 배포하고 프로덕션으로 교환하기 때문에 프로덕션으로 교환되기 전에 슬롯에 있는 모든 인스턴스가 준비되어 있는 상태입니다. 따라서 앱을 배포할 때 가동 중지가 발생하지 않습니다. 트래픽 리디렉션은 중단 없이 원활하게 수행되며 교환 작업으로 인해 삭제되는 요청은 없습니다. 사전 교환 유효성 검사가 필요 하지 않은 경우 [자동 교환](#Auto-Swap) 을 구성 하 여이 전체 워크플로를 자동화할 수 있습니다.
 * 교환 후에는 이전의 준비된 앱이 들어 있던 슬롯 안에 이전의 프로덕션 앱이 들어갑니다. 프로덕션 슬롯과 교환한 변경 내용이 예상과 다른 경우 같은 교환 작업을 즉시 수행하여 "마지막 양호 상태"로 돌아갈 수 있습니다.
 
-각 App Service 계획 계층은 다양한 수의 배포 슬롯을 지원합니다. 배포 슬롯 사용에 대 한 추가 비용은 없습니다. 앱 계층이 지 원하는 슬롯 수를 확인 하려면 [App Service 제한](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#app-service-limits)을 참조 하세요. 
+각 App Service 계획 계층은 다양한 수의 배포 슬롯을 지원합니다. 배포 슬롯 사용에 대 한 추가 비용은 없습니다. 앱 계층이 지 원하는 슬롯 수를 확인 하려면 [App Service 제한](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits)을 참조 하세요. 
 
 앱을 다른 계층으로 확장 하려면 대상 계층에서 앱이 이미 사용 하는 슬롯 수를 지원 하는지 확인 합니다. 예를 들어 앱의 슬롯이 5 개를 초과 하는 **경우 표준 계층은 5** 개의 배포 슬롯만 지원 하기 때문에 **표준** 계층으로 확장할 수 없습니다. 
 
@@ -170,7 +170,7 @@ Preview를 사용 하 여 교환 하려면:
 
 <a name="Auto-Swap"></a>
 
-## <a name="configure-auto-swap"></a>자동 전환 구성
+## <a name="configure-auto-swap"></a>자동 교환 구성
 
 > [!NOTE]
 > 자동 교환은 Linux의 웹 앱에서 지원 되지 않습니다.
@@ -289,7 +289,7 @@ Azure PowerShell은 Windows PowerShell을 통해 Azure를 관리하기 위한 cm
 Azure PowerShell을 설치 및 구성하는 방법과 Azure 구독에 Azure PowerShell을 인증하는 방법에 대한 자세한 내용은 [Microsoft Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview)을 참조하세요.  
 
 ---
-### <a name="create-a-web-app"></a>웹 응용 프로그램 만들기
+### <a name="create-a-web-app"></a>웹앱 만들기
 ```powershell
 New-AzWebApp -ResourceGroupName [resource group name] -Name [app name] -Location [location] -AppServicePlan [app service plan name]
 ```
@@ -303,7 +303,7 @@ New-AzWebAppSlot -ResourceGroupName [resource group name] -Name [app name] -Slot
 ---
 ### <a name="initiate-a-swap-with-a-preview-multi-phase-swap-and-apply-destination-slot-configuration-to-the-source-slot"></a>Preview (다단계 교환)를 사용 하 여 교환 시작 및 대상 슬롯 구성을 원본 슬롯에 적용
 ```powershell
-$ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}
+$ParametersObject = @{targetSlot  = "[slot name – e.g. "production"]"}
 Invoke-AzResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action applySlotConfig -Parameters $ParametersObject -ApiVersion 2015-07-01
 ```
 
@@ -316,7 +316,7 @@ Invoke-AzResourceAction -ResourceGroupName [resource group name] -ResourceType M
 ---
 ### <a name="swap-deployment-slots"></a>배포 슬롯 교환
 ```powershell
-$ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}
+$ParametersObject = @{targetSlot  = "[slot name – e.g. "production"]"}
 Invoke-AzResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action slotsswap -Parameters $ParametersObject -ApiVersion 2015-07-01
 ```
 

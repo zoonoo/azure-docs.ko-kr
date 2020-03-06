@@ -494,6 +494,13 @@
           href: speech-devices-sdk.md
         - name: 음성 디바이스 SDK 가져오기
           href: get-speech-devices-sdk.md
+        - name: 릴리스 정보
+          href: devices-sdk-release-notes.md
+        - name: Roobo v1 세부 정보
+          href: speech-devices-sdk-roobo-v1.md
+        - name: Roobo v2 세부 정보
+          href: speech-devices-sdk-roobo-v2.md
+        - name: 마이크 사양
     - name: 하드웨어
       items:
         - name: 마이크 배열 권장 사항

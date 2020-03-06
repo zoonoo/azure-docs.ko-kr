@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 09/05/2019
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: 1aff2815144f776b351e92d8945b267d1451f9f6
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: df2acedd7f472b96d55d9ecc294d47e7173c5f90
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77915710"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78329019"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>.NET Azure Functions에서 종속성 주입 사용
 
@@ -21,7 +21,7 @@ Azure Functions는 클래스와 해당 종속성 간의 [IoC (제어 반전)](ht
 
 - 종속성 주입에 대 한 지원은 Azure Functions 2.x로 시작 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 종속성 주입을 사용 하려면 먼저 다음 NuGet 패키지를 설치 해야 합니다.
 
@@ -132,11 +132,57 @@ GitHub의 [다른 서비스 수명 샘플](https://aka.ms/functions/di-sample) �
 > - 환경에서 제공 하는 서비스와 충돌 하는 서비스를 등록 하므로 서비스 컬렉션에 `AddApplicationInsightsTelemetry()`를 추가 하지 마세요.
 > - 기본 제공 Application Insights 기능을 사용 하는 경우 사용자 고유의 `TelemetryConfiguration` 또는 `TelemetryClient`를 등록 하지 마십시오. 사용자 고유의 `TelemetryClient` 인스턴스를 구성 해야 하는 경우 [모니터 Azure Functions](./functions-monitoring.md#version-2x-and-later-2)에 표시 된 대로 삽입 된 `TelemetryConfiguration`를 통해 하나를 만듭니다.
 
+### <a name="iloggert-and-iloggerfactory"></a>ILogger<T> 및 ILoggerFactory
+
+호스트는 `ILogger<T>` 및 `ILoggerFactory` 서비스를 생성자에 삽입 합니다.  그러나 기본적으로 이러한 새 로깅 필터는 함수 로그에서 필터링 됩니다.  추가 필터 및 범주를 옵트인 하려면 `host.json` 파일을 수정 해야 합니다.  다음 샘플에서는 호스트에서 노출 되는 로그가 포함 된 `ILogger<HttpTrigger>`를 추가 하는 방법을 보여 줍니다.
+
+```csharp
+namespace MyNamespace
+{
+    public class HttpTrigger
+    {
+        private readonly ILogger<HttpTrigger> _log;
+
+        public HttpTrigger(ILogger<HttpTrigger> log)
+        {
+            _log = log;
+        }
+
+        [FunctionName("HttpTrigger")]
+        public async Task<IActionResult> Run(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req)
+        {
+            _log.LogInformation("C# HTTP trigger function processed a request.");
+
+            // ...
+    }
+}
+```
+
+로그 필터를 추가 하는 `host.json` 파일
+
+```json
+{
+    "version": "2.0",
+    "logging": {
+        "applicationInsights": {
+            "samplingExcludedTypes": "Request",
+            "samplingSettings": {
+                "isEnabled": true
+            }
+        },
+        "logLevel": {
+            "MyNamespace.HttpTrigger": "Information"
+        }
+    }
+}
+```
+
 ## <a name="function-app-provided-services"></a>함수 앱 제공 서비스
 
 함수 호스트는 많은 서비스를 등록 합니다. 다음 서비스는 응용 프로그램에서 종속성으로 사용 하기에 안전 합니다.
 
-|서비스 유형|수명|설명|
+|서비스 유형|수명|Description|
 |--|--|--|
 |`Microsoft.Extensions.Configuration.IConfiguration`|단일|런타임 구성|
 |`Microsoft.Azure.WebJobs.Host.Executors.IHostIdProvider`|단일|호스트 인스턴스의 ID를 제공 해야 합니다.|
@@ -208,7 +254,7 @@ public class HttpTrigger
 
 ## <a name="next-steps"></a>다음 단계
 
-자세한 내용은 다음 참고 자료를 참조하십시오.
+자세한 내용은 다음 리소스를 참조하세요.
 
 - [함수 앱을 모니터링 하는 방법](functions-monitoring.md)
 - [함수에 대 한 모범 사례](functions-best-practices.md)

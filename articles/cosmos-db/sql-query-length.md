@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: aa430152415b1662a73a388a03ba6d4721c730f0
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: e020555b0c706b5577bd20ac9bd537604d43ba3f
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349761"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303718"
 ---
 # <a name="length-azure-cosmos-db"></a>길이 (Azure Cosmos DB)
  지정한 문자열 식의 문자 수를 반환합니다.  
@@ -26,9 +26,9 @@ LENGTH(<str_expr>)
 ## <a name="arguments"></a>인수
   
 *str_expr*  
-   계산할 문자열 식입니다.  
+   평가할 문자열 식입니다.  
   
-## <a name="return-types"></a>반환 유형
+## <a name="return-types"></a>반환 형식
   
   숫자 식을 반환합니다.  
   
@@ -45,6 +45,10 @@ SELECT LENGTH("abc") AS len
 ```json
 [{"len": 3}]  
 ```  
+
+## <a name="remarks"></a>설명
+
+이 시스템 함수는 인덱스를 활용 하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -8,12 +8,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 9/23/2019
 ms.author: pabutler
-ms.openlocfilehash: c84f5538d2f553a713b52aa795a10acddac9aff8
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: c745a37805862b77e7893788d9d089c8447ae465
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819878"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302868"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Azure 파트너 고객 사용량 특성
 
@@ -48,7 +48,7 @@ Microsoft 파트너는 고객을 대신하여 프로비전하는 Azure 리소스
 
 GUID(Globally Unique Identifier)를 추가하려면 주 템플릿 파일을 한 번만 수정하면 됩니다.
 
-1. 제안된 방법을 사용하여 [GUID를 만들고](#create-guids) [GUID를 등록](#register-guids-and-offers)합니다.
+1. 제안된 방법을 사용하여 [GUID를 만들고](#create-guids)[GUID를 등록](#register-guids-and-offers)합니다.
 
 1. Resource Manager 템플릿을 엽니다.
 
@@ -87,7 +87,7 @@ GUID(Globally Unique Identifier)를 추가하려면 주 템플릿 파일을 한 
 
 ## <a name="use-the-resource-manager-apis"></a>Resource Manager API 사용
 
-파트너가 Resource Manager REST API를 직접 호출하여 Azure 서비스를 배포하는 방법을 선호하는 경우도 있습니다. Azure는 이러한 호출을 사용하도록 설정하는 [여러 SDK를 지원](https://docs.microsoft.com/azure/#pivot=sdkstools)합니다. SDK 중 하나를 사용하거나, REST API를 직접 호출하여 리소스를 배포할 수 있습니다.
+파트너가 Resource Manager REST API를 직접 호출하여 Azure 서비스를 배포하는 방법을 선호하는 경우도 있습니다. Azure는 이러한 호출을 사용하도록 설정하는 [여러 SDK를 지원](https://docs.microsoft.com/azure/?pivot=sdkstools)합니다. SDK 중 하나를 사용하거나, REST API를 직접 호출하여 리소스를 배포할 수 있습니다.
 
 Resource Manager 템플릿을 사용하는 경우 앞에서 설명한 지침에 따라 솔루션에 태그를 지정해야 합니다. Resource Manager 템플릿을 사용하지 않고 API를 직접 호출하는 경우에도 Azure 리소스 사용량에 연결하도록 배포에 태그를 지정할 수 있습니다.
 
@@ -296,7 +296,7 @@ foreach ($deployment in $deployments){
     * 연락처 정보를 완료 하거나 검토 합니다.
     * 컨설팅 세부 정보는 미리 채우거 나 드롭다운 항목에서 선택할 수 있습니다.
     * 문제에 대 한 제목 및 설명 (가능한 한 많은 정보 제공)을 입력 합니다.
-1. 전송 클릭
+1. 제출을 클릭합니다.
 
 [https://aka.ms/TechConsultInstructions](https://aka.ms/TechConsultInstructions)에서 스크린샷을 사용 하 여 단계별 지침을 확인 하세요.
 

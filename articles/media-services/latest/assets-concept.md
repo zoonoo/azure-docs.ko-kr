@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/29/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 68bb1fea88ab7ba30e0ba07839f2d962840b7818
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: ce32343faefbcf2484ec0b1b39f752654a2d8514
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77921184"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303616"
 ---
 # <a name="assets-in-azure-media-services"></a>Azure Media Services 자산
 
@@ -61,7 +61,7 @@ Media Services는 계정이 범용 v2(GPv2) 스토리지를 사용할 때 Blob �
 
 미사용 자산을 보호하려면 스토리지 쪽 암호화를 사용하여 자산을 암호화해야 합니다. 다음 표는 Media Services에서 스토리지 쪽 암호화가 작동하는 원리를 보여줍니다.
 
-|암호화 옵션|설명|Media Services v2|Media Services v3|
+|암호화 옵션|Description|Media Services v2|Media Services v3|
 |---|---|---|---|
 |Media Services 스토리지 암호화|AES-256 암호화, Media Services에서 관리 하는 키입니다.|지원<sup>(1)</sup>|지원되지 않음<sup>(2)</sup>|
 |[미사용 데이터에 대한 Storage 서비스 암호화](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Azure Storage에서 제공 하는 서버 쪽 암호화, Azure 또는 고객이 관리 하는 키입니다.|지원됨|지원됨|
@@ -75,6 +75,6 @@ Media Services는 계정이 범용 v2(GPv2) 스토리지를 사용할 때 Blob �
 
 [Media Services에서 자산 관리](manage-asset-concept.md)
 
-## <a name="also-see"></a>참고 항목
+## <a name="see-also"></a>참고 항목
 
 [Media Services v2와 v3의 차이점](migrate-from-v2-to-v3.md)

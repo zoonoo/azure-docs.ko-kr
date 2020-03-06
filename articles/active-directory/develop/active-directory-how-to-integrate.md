@@ -13,12 +13,12 @@ ms.date: 04/08/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, seoapril2019
-ms.openlocfilehash: dbbe501b27bf7ae4d4cb4bc00501aeb1fb06819e
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 5e4c6fb91b93b1035c68350a5f77a3c16db7323f
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77161225"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78300115"
 ---
 # <a name="integrating-with-azure-active-directory"></a>Azure Active Directory와의 통합
 
@@ -38,13 +38,13 @@ ms.locfileid: "77161225"
 
 ### <a name="browse-for-users-manage-user-provisioning-and-control-access-to-your-application"></a>사용자를 찾고, 사용자 프로 비전을 관리 하 고, 응용 프로그램에 대 한 액세스를 제어 합니다.
 
-**디렉터리에서 사용자를 찾습니다.**  다른 사람을 초대하거나 액세스 권한을 부여할 때 사용자가 메일 주소를 입력할 필요 없이 Graph API를 사용하면 조직에서 다른 사람을 검색하고 찾는 데 도움이 됩니다. 사용자는 조직 계층의 세부 정보 보기 등 친숙한 주소록 유형의 인터페이스를 사용하여 찾아볼 수 있습니다. [Graph API](active-directory-graph-api.md)에 대해 자세히 알아보세요.
+**디렉터리에서 사용자를 찾습니다.**  Microsoft Graph API를 사용 하 여 사용자가 전자 메일 주소를 입력 하도록 요구 하는 대신 다른 사용자를 초대 하거나 액세스 권한을 부여할 때 조직에서 다른 사용자를 검색 하 고 찾아볼 수 있습니다. 사용자는 조직 계층의 세부 정보 보기 등 친숙한 주소록 유형의 인터페이스를 사용하여 찾아볼 수 있습니다. [MICROSOFT GRAPH API](https://docs.microsoft.com/graph/overview)에 대해 자세히 알아보세요.
 
-**Active Directory 그룹 및 고객이 이미 관리하는 메일 그룹을 다시 사용합니다.**  Azure AD에는 고객이 이미 메일 배포에 사용하고 액세스를 관리하는 그룹이 포함되어 있습니다. 고객이 애플리케이션에서 별도의 그룹 집합을 만들고 관리할 필요 없이 Graph API를 사용하여 그룹을 다시 사용하세요. 로그인 토큰의 애플리케이션에 그룹 정보가 전송될 수도 있습니다. [Graph API](active-directory-graph-api.md)에 대해 자세히 알아보세요.
+**Active Directory 그룹 및 고객이 이미 관리하는 메일 그룹을 다시 사용합니다.**  Azure AD에는 고객이 이미 메일 배포에 사용하고 액세스를 관리하는 그룹이 포함되어 있습니다. Microsoft Graph API를 사용 하 여 고객이 응용 프로그램에서 별도의 그룹 집합을 만들고 관리 하도록 요구 하는 대신 이러한 그룹을 다시 사용 합니다. 로그인 토큰의 애플리케이션에 그룹 정보가 전송될 수도 있습니다. [MICROSOFT GRAPH API](https://docs.microsoft.com/graph/overview)에 대해 자세히 알아보세요.
 
-**Azure AD를 사용하여 애플리케이션에 대한 액세스 권한이 있는 사용자를 제어합니다.**  Azure AD의 관리자 및 애플리케이션 소유자는 애플리케이션에 대한 액세스 권한을 특정 사용자 및 그룹에게 할당할 수 있습니다. Graph API를 사용하여 이 목록을 읽고 리소스의 프로비전 및 프로비전 해제와 애플리케이션 내의 액세스를 제어할 수 있습니다.
+**Azure AD를 사용하여 애플리케이션에 대한 액세스 권한이 있는 사용자를 제어합니다.**  Azure AD의 관리자 및 애플리케이션 소유자는 애플리케이션에 대한 액세스 권한을 특정 사용자 및 그룹에게 할당할 수 있습니다. Microsoft Graph API를 사용 하 여이 목록을 읽고 응용 프로그램 내에서 리소스 및 액세스의 프로 비전 및 프로 비전 해제를 제어 하는 데 사용할 수 있습니다.
 
-**Azure AD를 사용하여 역할 기반 Access Control을 사용합니다.**  관리자와 애플리케이션 소유자는 Azure AD에 애플리케이션을 등록할 때 정의하는 역할에 사용자 및 그룹을 할당할 수 있습니다. 역할 정보는 로그인 토큰의 애플리케이션에 전송되며 Graph API를 사용해서도 읽을 수 있습니다. [Azure AD를 사용하여 권한 부여](https://cloudblogs.microsoft.com/enterprisemobility/2014/12/18/azure-active-directory-now-with-group-claims-and-application-roles/)에 대해 자세히 알아보세요.
+**Azure AD를 사용하여 역할 기반 Access Control을 사용합니다.**  관리자와 애플리케이션 소유자는 Azure AD에 애플리케이션을 등록할 때 정의하는 역할에 사용자 및 그룹을 할당할 수 있습니다. 역할 정보는 로그인 토큰에서 응용 프로그램으로 전송 되며 Microsoft Graph API를 사용 하 여 읽을 수도 있습니다. [Azure AD를 사용하여 권한 부여](https://cloudblogs.microsoft.com/enterprisemobility/2014/12/18/azure-active-directory-now-with-group-claims-and-application-roles/)에 대해 자세히 알아보세요.
 
 ### <a name="get-access-to-users-profile-calendar-email-contacts-files-and-more"></a>사용자의 프로필, 일정, 메일, 연락처, 파일 등에 액세스
 

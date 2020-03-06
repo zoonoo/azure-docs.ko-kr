@@ -4,15 +4,15 @@ description: Azure Cosmos DB의 SQL 시스템 함수 StringToObject에 대해 �
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: f09c27458a630386664f3f6579cfeee0721d8be9
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: c3e61d1efe20910d84ef4ff583d74982b3ea9f3d
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349206"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78296384"
 ---
 # <a name="stringtoobject-azure-cosmos-db"></a>StringToObject (Azure Cosmos DB)
  개체로 변환 된 식을 반환 합니다. 식을 변환할 수 없는 경우는 undefined를 반환 합니다.  
@@ -28,7 +28,7 @@ StringToObject(<str_expr>)
 *str_expr*  
    JSON 개체 식으로 구문 분석할 문자열 식입니다. 중첩 된 문자열 값은 큰따옴표를 사용 하 여 유효 하 게 작성 해야 합니다. JSON 형식에 대 한 자세한 내용은 [json.org](https://json.org/) 를 참조 하세요.  
   
-## <a name="return-types"></a>반환 유형
+## <a name="return-types"></a>반환 형식
   
   개체 식을 반환 하거나 정의 되지 않은를 반환 합니다.  
   
@@ -103,6 +103,10 @@ SELECT
 ```json
 [{}]
 ```
+
+## <a name="remarks"></a>설명
+
+이 시스템 함수는 인덱스를 활용 하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: 70c67a99274eaedc5592c7b90b1ef80a3a17acf8
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.openlocfilehash: 8c52bb21276071581a83fb3ee6a3a4a31ba0bb4a
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77109993"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78400007"
 ---
 # <a name="webhook-activity-in-azure-data-factory"></a>Azure Data Factory의 Webhook 활동
 웹 후크 작업을 사용 하 여 사용자 지정 코드를 통해 파이프라인의 실행을 제어할 수 있습니다. 고객은 webhook 활동을 사용 하 여 끝점을 호출 하 고 콜백 URL을 전달할 수 있습니다. 파이프라인 실행은 다음 작업을 진행 하기 전에 콜백이 호출 될 때까지 기다립니다.
@@ -116,6 +116,10 @@ PFX 파일의 base64로 인코딩된 콘텐츠 및 암호를 지정합니다.
 Azure Data Factory는 본문의 추가 속성인 "callBackUri"를 url 끝점에 전달 하 고,이 uri는 지정 된 시간 제한 값 보다 먼저 호출 될 것으로 간주 합니다. Uri가 호출 되지 않으면 작업이 실패 하 고 ' TimedOut ' 상태가 나타납니다.
 
 사용자 지정 끝점에 대 한 호출이 실패 하면 웹 후크 작업 자체가 실패 합니다. 모든 오류 메시지는 콜백 본문에 추가 되 고 후속 작업에 사용 될 수 있습니다.
+
+모든 REST API 호출에 대해 끝점의 응답이 1 분 이면 클라이언트는 시간 초과 됩니다. 이것은 표준 http 모범 사례입니다. 이 문제를 해결 하려면 끝점에서 202 (수락 됨)을 반환 하 고 클라이언트에서 폴링할 202 패턴을 구현 해야 합니다.
+
+요청에 대 한 1 분 시간 제한에 작업 시간 제한에 대해 수행할 작업이 없습니다. 이는 callbackUri를 대기 하는 데 사용 됩니다.
 
 콜백 URI로 다시 전달 되는 본문은 유효한 JSON 이어야 합니다. `application/json`콘텐츠 형식 헤더를 설정 해야 합니다.
 

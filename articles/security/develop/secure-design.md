@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 316ed596cfa49987e229004c388267286ff50927
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 889897cfd4dc8714ae3aea556f0924c9dbcd7825
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71000976"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78299417"
 ---
 # <a name="design-secure-applications-on-azure"></a>Azure에서 보안 응용 프로그램 디자인
 이 문서에서는 클라우드 용 응용 프로그램을 디자인할 때 고려해 야 할 보안 작업 및 제어를 제공 합니다. Microsoft [SDL (보안 개발 수명 주기)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) 의 요구 사항 및 디자인 단계에서 고려해 야 하는 보안 질문 및 개념과 함께 학습 리소스를 다룹니다. 목표는 보다 안전한 응용 프로그램을 디자인 하는 데 사용할 수 있는 활동 및 Azure 서비스를 정의 하는 데 도움을 주는 것입니다.
@@ -38,7 +38,7 @@ ms.locfileid: "71000976"
 
   - [Azure 개발자를 위한 시작 가이드](../../guides/developer/azure-developer-guide.md) 에서는 개발 요구 사항에 따라 azure 플랫폼을 사용 하 여 시작 하려는 개발자를 위한 필수 정보를 제공 합니다.
 
-  - [Sdk 및 도구](https://docs.microsoft.com/azure/index#pivot=sdkstools) 는 Azure에서 사용할 수 있는 도구에 대해 설명 합니다.
+  - [Sdk 및 도구](https://docs.microsoft.com/azure/index?pivot=sdkstools) 는 Azure에서 사용할 수 있는 도구에 대해 설명 합니다.
 
   - [Azure DevOps Services](https://docs.microsoft.com/azure/devops/) 는 개발 공동 작업 도구를 제공 합니다. 이러한 도구에는 고성능 파이프라인, 무료 Git 리포지토리, 구성 가능한 간판 보드, 광범위 한 자동화 된 클라우드 기반 부하 테스트가 포함 됩니다.
     [Devops 리소스 센터](https://docs.microsoft.com/azure/devops/learn/) 는 devops 사례, Git 버전 제어, agile 방법, Microsoft에서 devops를 사용 하는 방법 및 사용자 고유의 devops 진행을 평가 하는 방법을 학습 하기 위한 리소스를 결합 합니다.
@@ -66,7 +66,7 @@ ms.locfileid: "71000976"
 
   - 응용 프로그램에 중요 한 데이터가 포함 되어 있나요?
 
-  - 내 응용 프로그램은 [연방 금융 기관 조사 Council (FFIEC)](../blueprints/ffiec-analytics-overview.md) 또는 [지불 카드 업계 데이터 보안 표준 (PCI DSS)과 같은 업계 표준 및 규정 준수 프로그램을 준수 하도록 요구 하는 데이터를 수집 하거나 저장 합니다. ](../blueprints/pcidss-analytics-overview.md)?
+  - 내 응용 프로그램은 [연방 금융 기관 조사 Council (FFIEC)](../blueprints/ffiec-analytics-overview.md) 또는 [지불 카드 업계의 PCI DSS (데이터 보안 표준)](../blueprints/pcidss-analytics-overview.md)와 같은 업계 표준 및 규정 준수 프로그램을 준수 하도록 요구 하는 데이터를 수집 하거나 저장 합니까?
 
   - 내 응용 프로그램은 자체 또는 다른 정보와 함께 사용 될 수 있는 중요 한 개인 또는 고객 데이터를 수집 하거나 포함 하 여 단일 사용자를 식별 하거나 연락 하거나 찾을 수 있나요?
 
@@ -126,10 +126,10 @@ OWASP 상위 10 개는 웹 응용 프로그램에 대 한 중요 한 보안 위�
 최신 버전의 프레임 워크와 프레임 워크에서 사용할 수 있는 모든 보안 기능을 사용 하 고 있는지를 알고 있어야 합니다. Microsoft는 모든 개발자가 모든 플랫폼 또는 언어를 사용 하 여 클라우드 응용 프로그램을 제공 하는 포괄적인 [개발 도구 집합](https://azure.microsoft.com/product-categories/developer-tools/) 을 제공 합니다. 다양 한 [sdk](https://azure.microsoft.com/downloads/)중에서 선택 하 여 원하는 언어로 코딩할 수 있습니다.
 모든 기능을 갖춘 Ide (통합 개발 환경) 및 고급 디버깅 기능 및 기본 제공 Azure 지원이 있는 편집기를 활용할 수 있습니다.
 
-Microsoft는 Azure에서 응용 프로그램을 개발 하는 데 사용할 수 있는 다양 한 [언어, 프레임 워크 및 도구](https://docs.microsoft.com/azure/index#pivot=sdkstools&panel=sdkstools-all) 를 제공 합니다. 예제는 [.net 및 .Net Core 개발자를 위한 Azure](https://docs.microsoft.com/dotnet/azure/)입니다. 제공 하는 각 언어와 프레임 워크에 대해 빠른 시작, 자습서 및 API 참조를 통해 빠르게 시작할 수 있습니다.
+Microsoft는 Azure에서 응용 프로그램을 개발 하는 데 사용할 수 있는 다양 한 [언어, 프레임 워크 및 도구](https://docs.microsoft.com/azure/index?pivot=sdkstools&panel=sdkstools-all) 를 제공 합니다. 예제는 [.net 및 .Net Core 개발자를 위한 Azure](https://docs.microsoft.com/dotnet/azure/)입니다. 제공 하는 각 언어와 프레임 워크에 대해 빠른 시작, 자습서 및 API 참조를 통해 빠르게 시작할 수 있습니다.
 
 Azure는 웹 사이트 및 웹 응용 프로그램을 호스트 하는 데 사용할 수 있는 다양 한 서비스를 제공 합니다. 이러한 서비스를 사용 하면 .NET, .NET Core, Java, Ruby, node.js, PHP 또는 Python 등 원하는 언어로 개발할 수 있습니다.
-[Azure App Service Web Apps](../../app-service/overview.md) (Web Apps)은 이러한 서비스 중 하나입니다.
+Web Apps ( [Azure App Service Web Apps](../../app-service/overview.md) )은 이러한 서비스 중 하나입니다.
 
 Web Apps Microsoft Azure의 기능을 응용 프로그램에 추가 합니다. 여기에는 보안, 부하 분산, 자동 크기 조정 및 자동화 된 관리가 포함 됩니다. 패키지 관리, 스테이징 환경, 사용자 지정 도메인, SSL/TLS 인증서, Azure DevOps, GitHub, Docker 허브 및 기타 원본에서 지속적인 배포와 같은 Web Apps의 DevOps 기능을 활용할 수도 있습니다.
 
@@ -149,7 +149,7 @@ Azure는 웹 사이트 및 웹 응용 프로그램을 호스트 하는 데 사�
 
 위협 모델링 프로세스를 용이 하 게 하기 위해 보안 전문가가 아닌 전문가와 [Threat Modeling Tool SDL](threat-modeling-tool.md) 을 설계 했습니다. 이 도구를 사용 하면 위협 모델을 만들고 분석 하는 방법에 대 한 명확한 지침을 제공 하 여 모든 개발자가 쉽게 위협 모델링을 수행할 수 있습니다
 
-모든 트러스트 경계에서 응용 프로그램 디자인을 모델링 하 고 [STRIDE](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy) 위협 (스푸핑, 변조, 부인, 정보 공개, 서비스 거부 및 권한 상승)을 열거 하는 것은 디자인 오류를 효과적으로 파악 하는 효과적인 방법을 입증 했습니다. 조기에 다음 표에서는 STRIDE 위협을 나열 하 고 Azure에서 제공 하는 기능을 사용 하는 몇 가지 예제 완화 방법을 제공 합니다. 이러한 완화 방식을 모든 상황에서 사용할 수 있는 것은 아닙니다.
+모든 트러스트 경계에 걸쳐 응용 프로그램 디자인을 모델링 하 고 [STRIDE](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy) 위협 (스푸핑, 변조, 부인, 정보 공개, 서비스 거부 및 권한 상승)을 열거 하는 것은 조기에 설계 오류를 파악 하는 효과적인 방법을 입증 했습니다. 다음 표에서는 STRIDE 위협을 나열 하 고 Azure에서 제공 하는 기능을 사용 하는 몇 가지 예제 완화 방법을 제공 합니다. 이러한 완화 방식을 모든 상황에서 사용할 수 있는 것은 아닙니다.
 
 | 위협 | 보안 속성 | 잠재적 Azure 플랫폼 완화 |
 | ---------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -158,9 +158,9 @@ Azure는 웹 사이트 및 웹 응용 프로그램을 호스트 하는 데 사�
 | 거부            | 거부 없음       | Azure [모니터링 및 진단](https://docs.microsoft.com/azure/architecture/best-practices/monitoring)을 사용하도록 설정합니다.|
 | 정보 공개 | 기밀성       | [미사용](../fundamentals/encryption-atrest.md) 및 [전송 중](../fundamentals/data-encryption-best-practices.md#protect-data-in-transit)에 중요 한 데이터를 암호화 합니다. |
 | 서비스 거부      | 가용성          | 잠재적 서비스 거부 조건에 대 한 성능 메트릭을 모니터링 합니다. 연결 필터를 구현합니다. 응용 프로그램 설계 모범 사례와 결합 된 [Azure DDoS protection](../../virtual-network/ddos-protection-overview.md#next-steps)은 DDoS 공격에 대 한 방어를 제공 합니다.|
-| 권한 상승 | Authorization         | Azure Active Directory <span class="underline"></span> [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md)를 사용 합니다.|
+| 권한 상승 | 권한 부여         | Azure Active Directory <span class="underline"></span> [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md)를 사용 합니다.|
 
-### <a name="reduce-your-attack-surface"></a>공격 노출 영역 줄이기
+### <a name="reduce-your-attack-surface"></a>공격 노출 영역 축소
 
 공격 노출 영역은 잠재적 취약성이 발생할 수 있는 총 합계입니다. 이 문서에서는 응용 프로그램의 공격 노출 영역에 초점을 둡니다.
 공격 으로부터 응용 프로그램을 보호 하는 데 중점을 둡니다. 공격 노출 영역을 최소화 하는 간단 하 고 빠른 방법은 응용 프로그램에서 사용 하지 않는 리소스 및 코드를 제거 하는 것입니다. 응용 프로그램 크기가 작을수록 공격 노출 영역이 작아집니다. 예를 들어 다음을 제거 합니다.

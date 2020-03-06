@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: iainfou
-ms.openlocfilehash: 89fa2297c50b6f28045f6f934092de3fd5d6c879
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: b2138818a9092999dd54b14664f7146f087c4fed
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77613063"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78328649"
 ---
 # <a name="enable-security-audits-for-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services에 대 한 보안 감사 사용
 
@@ -193,7 +193,7 @@ AADDomainServicesAccountManagement
 
 ### <a name="sample-query-2"></a>예제 쿼리 2
 
-4740 년 2 월 3 일 오전 9 시 사이에 모든 계정 잠금 이벤트 () 2020를 표시 합니다. 2019 년 2 월 10 일, 자정: 날짜 및 시간을 기준으로 오름차순으로 정렬 됩니다.
+4740 년 2 월 3 일 오전 9 시 사이에 모든 계정 잠금 이벤트 () 2020를 표시 합니다. 2020 년 2 월 10 일, 자정: 날짜 및 시간을 기준으로 오름차순으로 정렬 됩니다.
 
 ```Kusto
 AADDomainServicesAccountManagement

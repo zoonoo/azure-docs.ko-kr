@@ -17,16 +17,16 @@ ms.date: 03/04/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f25f13c60a60e1a397e4c63443ee786a9acdf6d1
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: 12abfc0d345c937ae886f9bfacfb8ce30227cc45
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78273808"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399300"
 ---
 # <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>Azure Active Directory reporting API에 액세스하기 위한 필수 구성 요소
 
-[Azure AD(Azure Active Directory) Reporting API](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-reports-and-events-preview)는 일련의 REST 기반 API를 통해 데이터에 프로그래밍 방식으로 액세스합니다. 프로그래밍 언어 및 도구에서 이러한 Api를 호출할 수 있습니다.
+[Azure AD(Azure Active Directory) Reporting API](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-reporting-api)는 일련의 REST 기반 API를 통해 데이터에 프로그래밍 방식으로 액세스합니다. 프로그래밍 언어 및 도구에서 이러한 Api를 호출할 수 있습니다.
 
 Reporting API는 [OAuth](https://docs.microsoft.com/azure/api-management/api-management-howto-protect-backend-with-aad) 를 사용하여 Web API에 대한 액세스 권한을 부여합니다.
 
@@ -80,9 +80,9 @@ Azure AD 보고 API에 액세스하도록 디렉터리를 구성하려면 Azure 
 
     b. **지원 되는 계정 유형**으로 **이 조직 에서만 계정을**선택 합니다.
 
-    다. **리디렉션 URL** 선택 **웹** 텍스트 상자에 `https://localhost`을 입력 합니다.
+    c. **리디렉션 URL** 선택 **웹** 텍스트 상자에 `https://localhost`을 입력 합니다.
 
-    d. **등록**을 선택합니다. 
+    . **등록**을 선택합니다. 
 
 
 ## <a name="grant-permissions"></a>권한 부여 
@@ -183,27 +183,25 @@ Reporting API에 대한 호출을 구성하는 경우 이 값이 필요합니다
 
     b. **만료**로 **In 2 years**(2년)를 선택합니다.
 
-    다. **저장**을 클릭합니다.
+    c. **저장**을 클릭합니다.
 
-    d. 키 값을 복사합니다.
+    . 키 값을 복사합니다.
 
 ## <a name="troubleshoot-errors-in-the-reporting-api"></a>보고 API의 오류 문제 해결
 
 이 섹션에서는 Microsoft Graph API를 사용 하 여 작업 보고서에 액세스 하는 동안 발생할 수 있는 일반적인 오류 메시지와 해결 단계를 나열 합니다.
 
-
 ### <a name="error-failed-to-get-user-roles-from-microsoft-graph"></a>오류: Microsoft Graph에서 사용자 역할을 가져오지 못했습니다.
 
  Graph explorer를 사용 하 여 로그인 할 때 오류가 발생 하지 않도록 하려면 Graph Explorer UI의 로그인 단추를 모두 사용 하 여 계정에 로그인 합니다. 
 
-![Graph 탐색기](./media/troubleshoot-graph-api/graph-explorer.png)
+![그래프 탐색기](./media/troubleshoot-graph-api/graph-explorer.png)
 
 ### <a name="error-failed-to-do-premium-license-check-from-microsoft-graph"></a>오류: Microsoft Graph에서 프리미엄 라이선스 검사를 수행 하지 못했습니다. 
 
 Graph 탐색기를 사용하여 로그인에 액세스하는 동안 이 오류 메시지가 표시되면 왼쪽 탐색에 있는 계정 아래에서 **권한 수정**을 선택하고 **Tasks.ReadWrite** 및 **Directory.Read.All**을 선택합니다. 
 
 ![권한 수정 UI](./media/troubleshoot-graph-api/modify-permissions.png)
-
 
 ### <a name="error-tenant-is-not-b2c-or-tenant-doesnt-have-premium-license"></a>오류: 테 넌 트가 B2C이 아니거나 테 넌 트에 프리미엄 라이선스가 없습니다.
 
@@ -215,7 +213,7 @@ Graph 탐색기를 사용하여 로그인에 액세스하는 동안 이 오류 �
 
 ### <a name="error-application-missing-aad-read-directory-data-permission"></a>오류: 애플리케이션에 AAD ‘디렉터리 데이터 읽기’ 권한이 없음 
 
-### <a name="error-application-missing-microsoft-api-read-all-audit-log-data-permission"></a>오류: 응용 프로그램에 Microsoft API ' 모든 감사 로그 데이터 읽기 ' 권한이 없습니다.
+### <a name="error-application-missing-microsoft-graph-api-read-all-audit-log-data-permission"></a>오류: 응용 프로그램에 Microsoft Graph API ' 모든 감사 로그 데이터 읽기 ' 권한이 없습니다.
 
 [Azure Active Directory 보고 API에 액세스 하기 위한 필수 구성 요소](howto-configure-prerequisites-for-reporting-api.md) 의 단계에 따라 응용 프로그램이 올바른 권한 집합으로 실행 되 고 있는지 확인 합니다. 
 

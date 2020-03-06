@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 05/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 7495c6b114e232a9aad0075e173abebcb3c92cd0
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
-ms.translationtype: HT
+ms.openlocfilehash: 4ce56b64502904308f45c74a5471447d93419452
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78273591"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303055"
 ---
 # <a name="variable-assets-in-azure-automation"></a>Azure Automation의 변수 자산
 
@@ -33,9 +33,6 @@ Automation 변수는 지속 되므로 runbook 또는 DSC 구성에 실패 한 �
 변수를 만들 때 보안 자산으로 Azure Automation 여 해당 암호화 및 저장소를 지정할 수 있습니다. 기타 보안 자산에는 자격 증명, 인증서 및 연결이 포함 됩니다. Azure Automation는 이러한 자산을 암호화 하 여 각 Automation 계정에 대해 생성 되는 고유 키를 사용 하 여 저장 합니다. 키는 시스템에서 관리 되는 Key Vault에 저장 됩니다. 보안 자산을 저장 하기 전에 Azure Automation Key Vault에서 키를 로드 한 다음이를 사용 하 여 자산을 암호화 합니다. 
 
 Azure Automation는 암호화 된 각 변수를 안전 하 게 저장 합니다. Azure PowerShell 모듈의 일부로 제공 되는 [AzAutomationVariable](https://docs.microsoft.com/powershell/module/az.automation/get-azautomationvariable?view=azps-3.5.0) cmdlet을 사용 하 여 해당 값을 검색할 수 없습니다. 암호화 된 값을 검색 하는 유일한 방법은 runbook 또는 DSC 구성의 **Get AutomationVariable** 작업을 사용 하는 것입니다.
-
->[!NOTE]
->변수에 대 한 암호화를 제거 하려면 변수를 삭제 하 고 암호화 되지 않은 상태로 다시 만들어야 합니다.
 
 >[!NOTE]
 >이 문서는 새 Azure PowerShell Az 모듈을 사용하도록 업데이트되었습니다. AzureRM 모듈은 적어도 2020년 12월까지 버그 수정을 수신할 예정이므로 계속 사용하셔도 됩니다. 새 Az 모듈 및 AzureRM 호환성에 대한 자세한 내용은 [새 Azure PowerShell Az 모듈 소개](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0)를 참조하세요. Hybrid Runbook Worker에 대 한 Az module 설치 지침은 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0)를 참조 하세요. Automation 계정의 경우 [Azure Automation에서 Azure PowerShell 모듈을 업데이트 하는 방법을](../automation-update-azure-modules.md)사용 하 여 모듈을 최신 버전으로 업데이트할 수 있습니다.
@@ -96,6 +93,9 @@ Az module의 경우 다음 표의 cmdlet은 Windows PowerShell을 사용 하 여
 1. Automation 계정에서 **자산** 타일을 클릭하고 **자산** 블레이드에서 **변수**를 선택합니다.
 2. **변수** 타일에서 **변수 추가**를 선택합니다.
 3. **새** 변수 블레이드에서 옵션을 완료 하 고 **만들기** 를 클릭 하 여 새 변수를 저장 합니다.
+
+>[!NOTE]
+>변수에 대 한 암호화를 제거 하려면 변수를 삭제 하 고 암호화 되지 않은 상태로 다시 만들어야 합니다.
 
 ### <a name="create-a-new-variable-with-windows-powershell"></a>Windows PowerShell을 사용 하 여 새 변수 만들기
 

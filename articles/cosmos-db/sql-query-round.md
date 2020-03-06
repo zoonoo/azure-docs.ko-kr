@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 4bad140ea1c6b1c59c8f752bc5336bbd49952e16
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: b6aac5a963d0f58a3b21b9fb0958793169a3d444
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349526"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302120"
 ---
 # <a name="round-azure-cosmos-db"></a>ROUND (Azure Cosmos DB)
  가장 가까운 정수 값으로 반올림한 숫자 값을 반환합니다.  
@@ -28,7 +28,7 @@ ROUND(<numeric_expr>)
 *numeric_expr*  
    숫자 식입니다.  
   
-## <a name="return-types"></a>반환 유형
+## <a name="return-types"></a>반환 형식
   
   숫자 식을 반환합니다.  
   
@@ -56,6 +56,10 @@ SELECT ROUND(2.4) AS r1, ROUND(2.6) AS r2, ROUND(2.5) AS r3, ROUND(-2.4) AS r4, 
 ```json
 [{r1: 2, r2: 3, r3: 3, r4: -2, r5: -3}]  
 ```  
+
+## <a name="remarks"></a>설명
+
+이 시스템 함수는 [범위 인덱스](index-policy.md#includeexclude-strategy)를 활용 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

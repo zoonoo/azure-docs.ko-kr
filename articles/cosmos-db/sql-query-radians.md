@@ -7,15 +7,15 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: cef572eaf879110fd52657ac358f1261f594692d
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 7831ef4bbd65bce7329b1ecf0f602b110a16834b
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349618"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302239"
 ---
 # <a name="radians-azure-cosmos-db"></a>라디안 (Azure Cosmos DB)
- 숫자 식을 단위로 입력하면 라디안을 반환합니다.  
+ 숫자 식을 도 단위로 입력하면 라디안을 반환합니다.  
   
 ## <a name="syntax"></a>구문
   
@@ -28,7 +28,7 @@ RADIANS (<numeric_expr>)
 *numeric_expr*  
    숫자 식입니다.  
   
-## <a name="return-types"></a>반환 유형
+## <a name="return-types"></a>반환 형식
   
   숫자 식을 반환합니다.  
   
@@ -51,6 +51,10 @@ SELECT RADIANS(-45.01) AS r1, RADIANS(-181.01) AS r2, RADIANS(0) AS r3, RADIANS(
        "r5": 3.4402174274458375  
    }]  
 ```  
+
+## <a name="remarks"></a>설명
+
+이 시스템 함수는 인덱스를 활용 하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

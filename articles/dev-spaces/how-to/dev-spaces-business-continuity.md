@@ -8,12 +8,12 @@ ms.topic: conceptual
 description: Azure Dev Spaces 및 Azure Kubernetes 서비스를 사용 하 여 비즈니스 연속성을 제공 하 고 재해 복구를 준비 하는 방법을 알아봅니다.
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s '
 manager: gwallace
-ms.openlocfilehash: 8561486bcf8524d309ba46fcbb4b4d3e180d7c72
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 37c0048bfa7e72b25eb56603fc027045eba25cea
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78252397"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78295830"
 ---
 # <a name="business-continuity-and-disaster-recovery-in-azure-dev-spaces"></a>Azure Dev Spaces의 비즈니스 연속성 및 재해 복구
 
@@ -27,11 +27,9 @@ Azure Dev Spaces는 AKS(Azure Kubernetes Service)의 기능입니다. AKS의 재
 
 여러 지역에 AKS를 배포하는 방법과 관련된 일반 정보는 [여러 지역 배포 계획](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region#plan-for-multiregion-deployment)을 참조하세요.
 
-Azure Dev Spaces와 호환되는 AKS 클러스터 배포에 대한 정보는 [Azure Cloud Shell을 사용하여 Kubernetes 클러스터 만들기](https://docs.microsoft.com/azure/dev-spaces/how-to/create-cluster-cloud-shell)를 참조하세요.
-
 ### <a name="enable-dev-spaces-via-the-azure-portal"></a>Azure Portal을 통해 Dev Spaces를 사용하도록 설정
 
-Azure Portal에서 각 클러스터의 속성 아래에 있는 **Dev Spaces** 탐색 항목을 클릭합니다. 그런 다음 Dev Spaces를 사용하도록 설정하는 옵션을 선택합니다.
+Azure Portal의 각 클러스터 설정에서 **Dev Spaces** 메뉴 항목을 선택 합니다. 그런 다음 개발 공간을 사용 하도록 설정 하 고 저장 하는 옵션을 선택 합니다.
 
 ![Azure Portal을 통해 Dev Spaces를 사용하도록 설정](../media/common/enable-dev-spaces.jpg)
 
@@ -53,7 +51,7 @@ Dev Spaces 사용 시에는 보통 Kubernetes 클러스터의 상위 개발 공�
 
 ## <a name="select-the-correct-aks-cluster-to-use-for-dev-spaces"></a>Dev Spaces용으로 사용할 올바른 AKS 클러스터 선택
 
-팀의 초기 계획을 실행하는 백업 클러스터를 올바르게 구성하고 나면 언제든지 백업 클러스터로 빠르게 전환할 수 있습니다. 그런 후에는 Dev Spaces에서 작업 중인 개별 서비스를 다시 실행할 수 있습니다.
+팀의 초기 계획을 실행하는 백업 클러스터를 올바르게 구성하고 나면 언제든지 백업 클러스터로 빠르게 전환할 수 있습니다. 그런 다음 자식 dev 공간에서 작업 중인 개별 서비스를 다시 실행할 수 있습니다.
 
 다음 CLI 명령을 사용하여 다른 클러스터를 선택합니다.
 

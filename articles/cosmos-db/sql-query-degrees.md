@@ -4,15 +4,15 @@ description: 라디안으로 지정 된 각도에 해당 하는 각도 (도)를 
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 5f432f5ef57c8eccc0cf629f00d2231364785b9a
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: d175ba53a71998fc8e7812a1b761f9cd264c38a9
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74871332"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78299473"
 ---
 # <a name="degrees-azure-cosmos-db"></a>도 (Azure Cosmos DB)
  라디안에서 지정된 각도로 해당하는 각도를 반환합니다.  
@@ -28,11 +28,11 @@ DEGREES (<numeric_expr>)
 *numeric_expr*  
    숫자 식입니다.  
   
-## <a name="return-types"></a>반환 유형
+## <a name="return-types"></a>반환 형식
   
   숫자 식을 반환합니다.  
   
-## <a name="examples"></a>예시
+## <a name="examples"></a>예
   
   다음 예제에서는 PI/2 라디안 각도의 각도 수를 반환합니다.  
   
@@ -45,6 +45,10 @@ SELECT DEGREES(PI()/2) AS degrees
 ```json
 [{"degrees": 90}]  
 ```  
+
+## <a name="remarks"></a>설명
+
+이 시스템 함수는 인덱스를 활용 하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

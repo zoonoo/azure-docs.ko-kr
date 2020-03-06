@@ -4,15 +4,15 @@ description: Azure Cosmos DB의 SQL 시스템 함수 ToString에 대해 알아�
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/04/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 53630a0ecd76459f23a978e98040a86152d7c0d8
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 293449b1616e7124245d91c647177b958006009e
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349120"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78304262"
 ---
 # <a name="tostring-azure-cosmos-db"></a>ToString (Azure Cosmos DB)
  스칼라 식의 문자열 표현을 반환합니다. 
@@ -28,13 +28,13 @@ ToString(<expr>)
 *expr*  
    스칼라 식입니다.  
   
-## <a name="return-types"></a>반환 유형
+## <a name="return-types"></a>반환 형식
   
   문자열 식을 반환합니다.  
   
 ## <a name="examples"></a>예
   
-  다음 예제에서는 `ToString`이 서로 다른 형식에서 동작 하는 방식을 보여 줍니다.   
+  다음 예제에서는 `ToString` 다양 한 형식에서 작동 하는 방법을 보여 줍니다.   
   
 ```sql
 SELECT 
@@ -57,7 +57,7 @@ SELECT
 ```json
 {"Products":[{"ProductID":1,"Weight":4,"WeightUnits":"lb"},{"ProductID":2,"Weight":32,"WeightUnits":"kg"},{"ProductID":3,"Weight":400,"WeightUnits":"g"},{"ProductID":4,"Weight":8999,"WeightUnits":"mg"}]}
 ```    
- 다음 예에서는 `ToString` `CONCAT`과 같은 다른 문자열 함수를 사용할 수 있는 방법을 보여 줍니다.   
+ 다음 예에서는 `ToString` `CONCAT`와 같은 다른 문자열 함수와 함께 사용할 수 있는 방법을 보여 줍니다.   
  
 ```sql
 SELECT 
@@ -78,7 +78,7 @@ FROM p in c.Products
 ```json
 {"id":"08259","description":"Cereals ready-to-eat, KELLOGG, KELLOGG'S CRISPIX","nutrients":[{"id":"305","description":"Caffeine","units":"mg"},{"id":"306","description":"Cholesterol, HDL","nutritionValue":30,"units":"mg"},{"id":"307","description":"Sodium, NA","nutritionValue":612,"units":"mg"},{"id":"308","description":"Protein, ABP","nutritionValue":60,"units":"mg"},{"id":"309","description":"Zinc, ZN","nutritionValue":null,"units":"mg"}]}
 ```
-다음 예에서는 `ToString` `REPLACE`과 같은 다른 문자열 함수를 사용할 수 있는 방법을 보여 줍니다.   
+다음 예에서는 `ToString` `REPLACE`와 같은 다른 문자열 함수와 함께 사용할 수 있는 방법을 보여 줍니다.   
 ```sql
 SELECT 
     n.id AS nutrientID,
@@ -94,6 +94,10 @@ JOIN n IN food.nutrients
 {"nutrientID":"308","nutritionVal":"90"},
 {"nutrientID":"309","nutritionVal":"null"}]
 ``` 
+
+## <a name="remarks"></a>설명
+
+이 시스템 함수는 인덱스를 활용 하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

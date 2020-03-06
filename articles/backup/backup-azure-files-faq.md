@@ -3,12 +3,12 @@ title: Azure Files 백업 FAQ
 description: 이 문서에서는 Azure Backup 서비스를 사용하여 Azure 파일 공유를 보호하는 방법에 대한 일반적인 질문과 답변을 검색합니다.
 ms.date: 07/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 053fe38b07fff5d289c72024ef185fbf5d647f70
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: c69d4642aefbd599d3783dcdfa059a0cd9d129d9
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76294000"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302545"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Azure Files 백업에 대한 질문
 
@@ -83,7 +83,7 @@ Azure 파일 공유에 대한 Backup은 현재 미리 보기로 제공되며 다
 - NWW (노르웨이 서 부)
 - SZN (스위스 북부)
 
-위에 나열되지 않은 특정 지역에서 사용해야 하는 경우 [AskAzureBackupTeam@microsoft.com](email:askazurebackupteam@microsoft.com)으로 문의하세요.
+위에 나열되지 않은 특정 지역에서 사용해야 하는 경우 [AskAzureBackupTeam@microsoft.com](mailto:askazurebackupteam@microsoft.com)으로 문의하세요.
 
 ### <a name="how-many-azure-file-shares-can-i-protect-in-a-vault"></a>자격 증명 모음에서 보호할 수 있는 Azure 파일 공유 수는 몇 개인가요?
 
@@ -91,7 +91,7 @@ Azure 파일 공유에 대한 Backup은 현재 미리 보기로 제공되며 다
 
 ### <a name="can-i-protect-two-different-file-shares-from-the-same-storage-account-to-different-vaults"></a>동일한 스토리지 계정의 두 파일 공유를 서로 다른 자격 증명 모음에서 보호할 수 있나요?
 
-아닙니다. 한 스토리지 계정의 모든 파일 공유는 동일한 자격 증명 모음에서만 보호할 수 있습니다.
+아니요. 한 스토리지 계정의 모든 파일 공유는 동일한 자격 증명 모음에서만 보호할 수 있습니다.
 
 ## <a name="backup"></a>Backup
 

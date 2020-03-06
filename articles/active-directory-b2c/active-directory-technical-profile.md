@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/13/2020
+ms.date: 03/05/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 06c9e79a68540cb10557b0951b743bf841963057
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 2c36a2c47605e7e672996a4a33734c9281dad042
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78190265"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78397832"
 ---
 # <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 Azure Active Directory 기술 프로필 정의
 
@@ -28,8 +28,8 @@ Azure Active Directory B2C (Azure AD B2C) Azure Active Directory 사용자 관�
 
 **Protocol** 요소의 **Name** 특성은 `Proprietary`로 설정해야 합니다. **handler** 특성은 프로토콜 처리기 어셈블리의 정규화된 이름 `Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`을 포함해야 합니다.
 
-모든 Azure AD 기술 프로필은 **AAD-Common** 기술 프로필을 포함합니다. 프로토콜이 **AAD-Common** 기술 프로필에 구성되어 있으므로 다음 기술 프로필은 프로토콜을 지정하지 않습니다.
-
+[사용자 지정 정책 시작 팩](custom-policy-get-started.md#custom-policy-starter-pack) Azure AD 기술 프로필에는 **AAD 일반** 기술 프로필이 포함 됩니다. 프로토콜이 **AAD 일반** 기술 프로필에 구성 되어 있으므로 Azure AD 기술 프로필은 프로토콜을 지정 하지 않습니다.
+ 
 - **AAD-UserReadUsingAlternativeSecurityId** 및 **AAD-UserReadUsingAlternativeSecurityId-NoError** - 디렉터리에서 소셜 계정을 조회합니다.
 - **AAD-UserWriteUsingAlternativeSecurityId** - 새 소셜 계정을 만듭니다.
 - **AAD-UserReadUsingEmailAddress** - 디렉터리에서 로컬 계정을 조회합니다.

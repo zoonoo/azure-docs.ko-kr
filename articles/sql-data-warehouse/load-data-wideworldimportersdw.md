@@ -1,6 +1,6 @@
 ---
 title: '자습서: SSMS를 사용 하 여 데이터 로드 Azure Portal &'
-description: 자습서에서는 Azure Portal 및 SQL Server Management Studio를 사용 하 여 글로벌 Azure blob에서 Azure Synapse Analytics Sql 풀로 WideWorldImportersDW data warehouse를 로드 합니다.
+description: 자습서에서는 Azure Portal 및 SQL Server Management Studio를 사용 하 여 글로벌 Azure blob에서 Azure Synapse Analytics SQL 풀로 WideWorldImportersDW data warehouse를 로드 합니다.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -11,14 +11,14 @@ ms.date: 07/17/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, synapse-analytics
-ms.openlocfilehash: 8e58c315ddc171ba19e0bce1cea4f694691f946e
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: d8242731466df9b80a6a6c3f0e340d6deb76e7d4
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78193669"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78304041"
 ---
-# <a name="tutorial-load-data-to--azure-synapse-analytics-sql-pool"></a>자습서: Azure Synapse Analytics Sql 풀에 데이터 로드
+# <a name="tutorial-load-data-to--azure-synapse-analytics-sql-pool"></a>자습서: Azure Synapse Analytics SQL 풀에 데이터 로드
 
 이 자습서에서는 PolyBase를 사용 하 여 azure Blob storage에서 azure Synapse Analytics SQL 풀의 데이터 웨어하우스로 WideWorldImportersDW 데이터 웨어하우스를 로드 합니다. 이 자습서에서는 [Azure Portal](https://portal.azure.com) 및 SSMS([SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms))를 사용합니다.
 
@@ -35,7 +35,7 @@ ms.locfileid: "78193669"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
+## <a name="before-you-begin"></a>시작하기 전에
 
 이 자습서를 시작하기 전에 최신 버전의 SSMS([SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms))를 다운로드하여 설치합니다.
 
@@ -45,7 +45,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="create-a-blank-data-warehouse-in-sql-pool"></a>SQL 풀에서 빈 데이터 웨어하우스 만들기
 
-정의 된 [계산 리소스](memory-concurrency-limits.md)집합을 사용 하 여 Sql 풀을 만듭니다. SQL 풀은 azure [리소스 그룹](../azure-resource-manager/management/overview.md) 및 [azure sql 논리 서버](../sql-database/sql-database-features.md)내에서 만들어집니다. 
+정의 된 [계산 리소스](memory-concurrency-limits.md)집합을 사용 하 여 SQL 풀을 만듭니다. SQL 풀은 azure [리소스 그룹](../azure-resource-manager/management/overview.md) 및 [azure sql 논리 서버](../sql-database/sql-database-features.md)내에서 만들어집니다. 
 
 빈 SQL 풀을 만들려면 다음 단계를 수행 합니다. 
 
@@ -57,14 +57,14 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 1. 다음 정보를 사용 하 여 **프로젝트 세부 정보** 섹션을 작성 합니다.   
 
-   | 설정 | 예제 | 설명 | 
+   | 설정 | 예제 | Description | 
    | ------- | --------------- | ----------- |
    | **구독** | 사용자의 구독  | 구독에 대한 자세한 내용은 [구독](https://account.windowsazure.com/Subscriptions)을 참조하세요. |
    | **리소스 그룹** | myResourceGroup | 유효한 리소스 그룹 이름은 [명명 규칙 및 제한 사항](/azure/architecture/best-practices/resource-naming)을 참조하세요. |
 
 1. **Sql 풀 정보**에서 sql 풀의 이름을 제공 합니다. 그런 다음 드롭다운에서 기존 서버를 선택 하거나 **서버** 설정 아래에서 **새로 만들기** 를 선택 하 여 새 서버를 만듭니다. 다음 정보로 양식을 작성합니다. 
 
-    | 설정 | 제안된 값 | 설명 | 
+    | 설정 | 제안 값 | Description | 
     | ------- | --------------- | ----------- |
     |**SQL 풀 이름**|SampleDW| 유효한 데이터베이스 이름은 [데이터베이스 식별자](/sql/relational-databases/databases/database-identifiers)를 참조하세요. | 
     | **서버 이름** | 전역적으로 고유한 이름 | 유효한 서버 이름은 [명명 규칙 및 제한 사항](/azure/architecture/best-practices/resource-naming)을 참조하세요. | 
@@ -100,7 +100,7 @@ Azure Synapse Analytics 서비스는 서버 수준에서 외부 응용 프로그
 1. 서버 이름을 선택합니다. 
     ![서버 이름](media/load-data-wideworldimportersdw/find-server-name.png) 
 
-1. **방화벽 설정 표시**를 선택 합니다. Sql 풀 서버에 대 한 **방화벽 설정** 페이지가 열립니다. 
+1. **방화벽 설정 표시**를 선택 합니다. SQL 풀 서버에 대 한 **방화벽 설정** 페이지가 열립니다. 
 
     ![서버 설정](media/load-data-wideworldimportersdw/server-settings.png) 
 
@@ -129,13 +129,13 @@ Azure Synapse Analytics 서비스는 서버 수준에서 외부 응용 프로그
 
 2. **서버에 연결** 대화 상자에 다음 정보를 입력합니다.
 
-    | 설정      | 제안된 값 | 설명 | 
+    | 설정      | 제안 값 | Description | 
     | ------------ | --------------- | ----------- | 
     | 서버 유형 | 데이터베이스 엔진 | 이 값은 필수입니다. |
     | 서버 이름 | 정규화된 서버 이름 | 예를 들어 **sqlpoolservername.database.windows.net** 는 정규화 된 서버 이름입니다. |
     | 인증 | SQL Server 인증 | SQL 인증은 이 자습서에서 구성되어 있는 유일한 인증 유형입니다. |
     | 로그인 | 서버 관리자 계정 | 서버를 만들 때 지정한 계정입니다. |
-    | Password | 서버 관리자 계정의 암호 | 서버를 만들 때 지정한 암호입니다. |
+    | 암호 | 서버 관리자 계정의 암호 | 서버를 만들 때 지정한 암호입니다. |
 
     ![서버에 연결](media/load-data-wideworldimportersdw/connect-to-server.png)
 
@@ -170,7 +170,7 @@ Azure Synapse Analytics 서비스는 서버 수준에서 외부 응용 프로그
 
     ![예제 데이터 웨어하우스에 대한 새 쿼리](media/load-data-wideworldimportersdw/create-loading-user.png)
  
-5. 다음 T-SQL 명령을 입력하여 LoaderRC60 로그인에 대해 LoaderRC60이라는 데이터베이스 사용자를 만듭니다. 두 번째 줄은 새 데이터 웨어하우스에 대한 제어 권한을 새 사용자에게 부여합니다.  이러한 권한 부여는 해당 사용자를 데이터베이스의 소유자로 만드는 것과 비슷합니다. 세 번째 줄에서는 새 사용자를 staticrc60 [리소스 클래스](resource-classes-for-workload-management.md)의 구성원으로 추가합니다.
+5. 다음 T-SQL 명령을 입력하여 LoaderRC60 로그인에 대해 LoaderRC60이라는 데이터베이스 사용자를 만듭니다. 두 번째 줄은 새 데이터 웨어하우스에 대한 제어 권한을 새 사용자에게 부여합니다.  이러한 권한 부여은 해당 사용자를 데이터베이스의 소유자로 만드는 것과 비슷합니다. 세 번째 줄에서는 새 사용자를 staticrc60 [리소스 클래스](resource-classes-for-workload-management.md)의 구성원으로 추가합니다.
 
     ```sql
     CREATE USER LoaderRC60 FOR LOGIN LoaderRC60;
@@ -532,7 +532,7 @@ Azure Synapse Analytics 서비스는 서버 수준에서 외부 응용 프로그
 이 섹션에서는 정의 된 외부 테이블을 사용 하 여 Azure Blob에서 SQL 풀로 샘플 데이터를 로드 합니다.  
 
 > [!NOTE]
-> 이 자습서에서는 최종 테이블에 직접 데이터를 로드합니다. 프로덕션 환경에서는 일반적으로 CREATE TABLE AS SELECT를 사용하여 스테이징 테이블에 로드합니다. 데이터가 스테이징 테이블에 있는 동안에는 필요한 모든 변환을 수행할 수 있습니다. 스테이징 테이블의 데이터를 프로덕션 테이블에 추가하려면 INSERT...SELECT 문을 사용합니다. 자세한 내용은 [프로덕션 테이블에 데이터 삽입](guidance-for-loading-data.md#inserting-data-into-a-production-table)을 참조하세요.
+> 이 자습서에서는 최종 테이블에 직접 데이터를 로드합니다. 프로덕션 환경에서는 일반적으로 CREATE TABLE AS SELECT를 사용하여 준비 테이블에 로드합니다. 데이터가 준비 테이블에 있는 동안에는 필요한 모든 변환을 수행할 수 있습니다. 준비 테이블의 데이터를 프로덕션 테이블에 추가하려면 INSERT...SELECT 문을 사용합니다. 자세한 내용은 [프로덕션 테이블에 데이터 삽입](guidance-for-loading-data.md#inserting-data-into-a-production-table)을 참조하세요.
 > 
 
 이 스크립트는 [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) T-SQL 문을 사용하여 Azure Storage Blob에서 데이터 웨어하우스의 새로운 테이블로 데이터를 로드합니다. CTAS는 select 문의 결과에 따라 새 테이블을 만듭니다. 새 테이블은 select 문의 결과에 부합하는 동일한 열과 데이터 형식을 포함합니다. Select 문이 외부 테이블에서 선택 하는 경우 데이터 웨어하우스의 관계형 테이블로 데이터를 가져옵니다. 

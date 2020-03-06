@@ -10,22 +10,22 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 08/05/2019
 ms.author: juliako
-ms.openlocfilehash: dc844392d64178cb9000db15af39f923521efc19
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 1f40f16ddbe5231dd754ad97b54e414c6ce9b9e7
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838391"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78328832"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Azure에 연결되는 Video Indexer 계정 만들기
 
-Video Indexer 계정을 만들 때 평가판 계정(일정한 무료 인덱싱 시간(분)을 가져올 수 있음) 또는 유료 옵션(할당량으로 제한되지 않음)을 선택할 수 있습니다. 평가판을 사용하면 Video Indexer에서 웹 사이트 사용자에게 최대 600분의 체험 인덱싱을 제공하고, API 사용자에게는 최대 2,400분의 체험 인덱싱을 제공합니다. 유료 옵션을 사용하면 Azure 구독 및 Azure Media Services 계정에 연결되는 Video Indexer 계정을 만듭니다. 인덱싱 시간(분) 및 미디어 계정과 관련된 요금을 지불합니다. 
+Video Indexer 계정을 만들 때 평가판 계정(특정의 체험 인덱싱 시간(분)을 가져오는 경우) 또는 유료 옵션(할당량으로 제한되지 않은 경우)을 선택할 수 있습니다. 평가판을 사용하면 Video Indexer에서 웹 사이트 사용자에게 최대 600분의 체험 인덱싱을 제공하고, API 사용자에게는 최대 2,400분의 체험 인덱싱을 제공합니다. 유료 옵션을 사용하면 Azure 구독 및 Azure Media Services 계정에 연결되는 Video Indexer 계정을 만듭니다. 인덱싱 시간(분) 및 미디어 계정과 관련된 요금을 지불합니다. 
 
 이 문서에서는 Azure 구독 및 Azure Media Services 계정에 연결되는 Video Indexer 계정을 만드는 방법에 대해 설명합니다. 이 토픽에서는 자동(기본값) 흐름을 사용하여 Azure에 연결하는 단계를 설명합니다. Azure에 수동으로 연결하는 방법도 보여줍니다(고급).
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-* Azure 구독.
+* Azure 구독
 
     아직 Azure 구독이 없는 경우 [Azure 평가판](https://azure.microsoft.com/free/)에 가입합니다.
 
@@ -124,8 +124,8 @@ Azure 연결이 실패한 경우 수동으로 연결하여 문제를 해결할 �
 4. Video Indexer가 Media Services API를 인증하려면 AD 애플리케이션을 만들어야 합니다. 다음 단계는 [Azure Portal을 사용하여 Azure AD 인증 시작](../previous/media-services-portal-get-started-with-aad.md)에 설명된 Azure AD 인증 프로세스를 안내합니다.
 
     1. 새 Media Services 계정에서 **API 액세스**를 선택합니다.
-    2. [서비스 주체 인증 방법](../previous/media-services-portal-get-started-with-aad.md#service-principal-authentication)을 선택합니다.
-    3. [클라이언트 ID 및 클라이언트 비밀 가져오기](../previous/media-services-portal-get-started-with-aad.md#get-the-client-id-and-client-secret) 섹션에 설명된 대로 클라이언트 ID 및 클라이언트 비밀을 가져옵니다.
+    2. [서비스 주체 인증 방법](../previous/media-services-portal-get-started-with-aad.md)을 선택합니다.
+    3. 클라이언트 ID 및 클라이언트 암호 가져오기
 
         **설정**->**키**를 선택하고, **설명**을 추가하고, **저장**을 누르면 키 값이 채워집니다.
 
@@ -140,7 +140,7 @@ Azure 연결이 실패한 경우 수동으로 연결하여 문제를 해결할 �
 
 대화 상자에서 다음 정보를 입력합니다.
 
-|설정|설명|
+|설정|Description|
 |---|---|
 |Video Indexer 계정 지역|Video Indexer 계정 지역의 이름입니다. 성능을 향상시키고 비용을 절감하려면 Azure Media Services 리소스와 Azure Storage 계정이 있는 지역의 이름을 지정하는 것이 좋습니다. |
 |AAD(Azure Active Directory) 테넌트|Azure AD 테넌트의 이름입니다(예: "contoso.onmicrosoft.com"). Azure Portal에서 테넌트 정보를 검색할 수 있습니다. 오른쪽 위 모서리에서 로그인한 사용자의 이름 위로 커서를 이동합니다. **도메인** 오른쪽에서 이름을 찾습니다.|

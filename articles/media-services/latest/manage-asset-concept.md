@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/29/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 1e912e8147f83571d073d5456019d043ff983ceb
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: b1ec4ee3d7a51c2a21a5bbd8888ea4662cf78bf5
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77925619"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78304160"
 ---
 # <a name="manage-assets"></a>자산 관리
 
@@ -64,7 +64,7 @@ Azure Media Services에서 [자산은](https://docs.microsoft.com/rest/api/media
 > [!NOTE]
 > Datetime 형식의 자산 속성은 항상 UTC 형식입니다.
 
-#### <a name="rest"></a>REST
+#### <a name="rest"></a>REST (영문)
 
 ```
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/mediaServices/{amsAccountName}/assets/{assetName}?api-version=2018-07-01
@@ -94,7 +94,7 @@ curl -X PUT \
  Asset asset = await client.Assets.CreateOrUpdateAsync(resourceGroupName, accountName, assetName, new Asset());
 ```
 
-### <a name="also-see"></a>참고 항목
+### <a name="see-also"></a>참고 항목
 
 * [로컬 파일에서 작업 입력 만들기](job-input-from-local-file-how-to.md)
 * [HTTPS URL에서 작업 입력 만들기](job-input-from-http-how-to.md)

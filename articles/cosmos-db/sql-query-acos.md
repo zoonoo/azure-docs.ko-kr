@@ -4,15 +4,15 @@ description: Azure Cosmos DB에서 ACOS (arccosice) SQL 시스템 함수가 코�
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: fd5baa3ffefb7039c40706253e633661a51150f2
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 733d6b009f03d61c37170cc506a3b2ec842d7c47
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873525"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78300964"
 ---
 # <a name="acos-azure-cosmos-db"></a>ACOS (Azure Cosmos DB)
  코사인 값이 지정된 숫자 식인 라디안에서 각도를 반환합니다. 아크코사인이라고도 합니다.  
@@ -28,11 +28,11 @@ ACOS(<numeric_expr>)
 *numeric_expr*  
    숫자 식입니다.  
   
-## <a name="return-types"></a>반환 유형
+## <a name="return-types"></a>반환 형식
   
   숫자 식을 반환합니다.  
   
-## <a name="examples"></a>예시
+## <a name="examples"></a>예
   
   다음 예에서는-1의 `ACOS` 반환 합니다.  
   
@@ -45,6 +45,10 @@ SELECT ACOS(-1) AS acos
 ```json
 [{"acos": 3.1415926535897931}]  
 ```  
+
+## <a name="remarks"></a>설명
+
+이 시스템 함수는 인덱스를 활용 하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

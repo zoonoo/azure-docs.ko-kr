@@ -1,8 +1,8 @@
 ### YamlMime:Landing
-title: Azure Resource Manager 템플릿 설명서
-summary: Resource Manager 템플릿은 프로젝트에 대한 인프라 및 구성을 정의하는 JSON(JavaScript Object Notation) 파일입니다.
+title: ARM 템플릿 설명서
+summary: Azure Resource Manager 템플릿은 프로젝트에 대한 인프라 및 구성을 정의하는 JSON(JavaScript Object Notation) 파일입니다.
 metadata:
-  title: Azure Resource Manager 설명서
+  title: ARM 템플릿 설명서
   description: Azure Resource Manager 템플릿을 개발하고 이를 사용하여 Azure 리소스를 배포하는 방법 알아보기
   services: azure-resource-manager
   ms.service: azure-resource-manager
@@ -11,15 +11,15 @@ metadata:
   ms.collection: na
   author: mumian
   ms.author: jgao
-  ms.date: 12/19/2019
-  ms.openlocfilehash: 43cd4dadc33ddc498106084ee26ef0819c14b973
-  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+  ms.date: 03/04/2020
+  ms.openlocfilehash: 0ea805d87db78d0a7fadad0a07e01e9387d568a5
+  ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 12/25/2019
-  ms.locfileid: "75469933"
+  ms.lasthandoff: 03/05/2020
+  ms.locfileid: "78299247"
 landingContent:
-- title: Azure Resource Manager 템플릿 정보
+- title: ARM 템플릿 정보
   linkLists:
   - linkListType: overview
     links:

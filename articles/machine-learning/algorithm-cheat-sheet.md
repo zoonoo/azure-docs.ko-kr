@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 author: FrancescaLazzeri
 ms.author: lazzeri
-ms.date: 11/04/2019
-ms.openlocfilehash: 82d4131170002a3d9ffd78933c9dc566c3b1d921
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.date: 03/05/2020
+ms.openlocfilehash: 85fbb1c1d26f71903adab2eb96b0c1dd3bf74c33
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76767623"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78328622"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-designer"></a>Azure Machine Learning 디자이너에 대 한 Machine Learning 알고리즘 참고 자료 시트
 
@@ -44,7 +44,7 @@ Azure Machine Learning 알고리즘에 대 한 자세한 내용을 보려면 [�
 
 Machine Learning의 세 가지 주요 범주는 *감독 학습*, *자율 학습* 및 *보충 학습*입니다.
 
-### <a name="supervised-learning"></a>감독 학습
+### <a name="supervised-learning"></a>감독 된 학습
 
 감독 학습에서 각 데이터 요소는 범주 또는 관련 값에 대 한 레이블 또는 연결 됩니다. 범주 레이블의 예는 이미지를 'cat' 또는 'dog'로 할당하는 것입니다. 값 레이블의 예는 중고차와 연결된 판매 가격입니다. 감독 학습의 목표는 이와 같은 많은 레이블이 지정된 예제를 연구한 다음 향후 데이터 요소에 대한 예측을 수행할 수 있도록 하는 것입니다. 예를 들어 올바른 동물로 새 사진을 식별하거나 다른 중고 자동차에 정확한 판매 가격을 할당합니다. 이는 널리 사용되고 유용한 기계 학습 유형입니다.
 
@@ -52,7 +52,7 @@ Machine Learning의 세 가지 주요 범주는 *감독 학습*, *자율 학습*
 
 자율 학습에서는 데이터 요소에 연결된 레이블이 없습니다. 대신, 자율 학습 알고리즘의 목표는 어떤 방식으로든 데이터를 구성하거나 해당 구조를 설명하는 것입니다. 자율 learning은 데이터를 클러스터로 그룹화 하 고, K를 사용 하 여 데이터를 더 간단 하 게 표시 하기 위해 복잡 한 데이터를 볼 수 있는 다양 한 방법을 찾습니다.
 
-### <a name="reinforcement-learning"></a>강화 학습
+### <a name="reinforcement-learning"></a>보충 학습
 
 보충 학습에서는 알고리즘이 각 데이터 요소에 대한 응답으로 작업을 선택합니다. 이는 지정 시간 센서 판독값 집합이 한 데이터 요소이며 알고리즘으로 로봇의 다음 동작을 선택해야 하는 로봇 공학의 일반적인 접근 방식입니다. 사물 인터넷의 애플리케이션에 적합한 학습이기도 합니다. 또한 학습 알고리즘은 짧은 시간 후에 결정이 얼마나 효율적이었는지를 나타내는 보상 신호를 받습니다. 이 신호를 기반으로 알고리즘은 최고 보상을 얻기 위해 전략을 수정 합니다. 
 

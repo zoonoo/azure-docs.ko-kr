@@ -1,7 +1,7 @@
 ---
-title: SSL을 사용 하 여 웹 서비스 보안
+title: TLS를 사용 하는 보안 웹 서비스
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning를 통해 배포 된 웹 서비스를 보호 하기 위해 HTTPS를 사용 하도록 설정 하는 방법에 대해 알아봅니다.
+description: Azure Machine Learning를 통해 배포 된 웹 서비스를 보호 하기 위해 HTTPS를 사용 하도록 설정 하는 방법에 대해 알아봅니다. Azure Machine Learning TLS 버전 1.2을 사용 하 여 웹 서비스로 배포 된 모델을 보호 합니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
-ms.date: 08/12/2019
+ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: 34c6071a127d0fc0c967991582f629c6ae713783
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 1f4b699476902fa24fa285754f13b1c61ddca8f0
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905213"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78355523"
 ---
-# <a name="use-ssl-to-secure-a-web-service-through-azure-machine-learning"></a>SSL을 사용 하 여 Azure Machine Learning 통해 웹 서비스 보호
+# <a name="use-tls-to-secure-a-web-service-through-azure-machine-learning"></a>TLS를 사용 하 여 Azure Machine Learning 통해 웹 서비스 보호
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 이 문서에서는 Azure Machine Learning를 통해 배포 된 웹 서비스를 보호 하는 방법을 보여 줍니다.
@@ -258,6 +258,6 @@ aks_target.update(update_config)
 ```
 
 ## <a name="next-steps"></a>다음 단계
-방법 알아보기
+방법 배우기:
 + [웹 서비스로 배포된 기계 학습 모델 사용](how-to-consume-web-service.md)
 + [Azure virtual network 내에서 실험 및 유추를 안전 하 게 실행](how-to-enable-virtual-network.md)

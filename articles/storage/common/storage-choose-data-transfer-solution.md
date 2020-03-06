@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: article
 ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 838d65da90ec0daef69375e5a75bcb497a0c3512
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: ada96d0d4b167e30cb6e271aa02d0d399a9ae7d3
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900396"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303089"
 ---
 # <a name="choose-an-azure-solution-for-data-transfer"></a>데이터 전송을 위한 Azure 솔루션 선택
 
@@ -50,20 +50,19 @@ ms.locfileid: "69900396"
 
 - 사용 가능한 네트워크 대역폭이 제한적이거나 없으며 대용량 데이터 세트를 전송하려고 하나요?
   
-    예인 경우 다음을 참조하세요. [시나리오 1: 네트워크 대역폭이 없거나 제한적인 경우 대용량 데이터 세트 전송](storage-solution-large-dataset-low-network.md)
+    그렇다면 [시나리오 1: 네트워크 대역폭이 없거나 낮은 네트워크 대역폭을 사용 하 여 대량 데이터 집합 전송](storage-solution-large-dataset-low-network.md)을 참조 하세요.
 - 보통-높은 네트워크 대역폭이 있으며 네트워크를 통해 대용량 데이터 세트를 전송하려고 하나요?
 
-    예인 경우 다음을 참조하세요. [시나리오 2: 보통-높은 네트워크 대역폭에서 대용량 데이터 세트 전송](storage-solution-large-dataset-moderate-high-network.md)
+    그렇다면 [시나리오 2: 중간 규모에서 높은 네트워크 대역폭으로 큰 데이터 집합 전송](storage-solution-large-dataset-moderate-high-network.md)을 참조 하세요.
 - 네트워크를 통해 몇 개의 파일만 때때로 전송하려고 하나요?
 
-    예인 경우 [시나리오 3: 제한적-보통 네트워크 대역폭에서 작은 데이터 세트 전송](storage-solution-small-dataset-low-moderate-network.md)을 참조하세요.
+    그렇다면 [시나리오 3: 중간 네트워크 대역폭으로 제한 된 작은 데이터 집합 전송](storage-solution-small-dataset-low-moderate-network.md)을 참조 하세요.
 - 일정한 간격마다 수행되는 지정 시간 데이터 전송을 원하시나요?
 
-    예인 경우 [시나리오 4: 정기적 데이터 전송](storage-solution-periodic-data-transfer.md)에 요약된 스크립팅/프로그래밍 방식 옵션을 사용합니다.
+    그렇다면 [시나리오 4: 주기적인 데이터 전송](storage-solution-periodic-data-transfer.md)에 설명 된 스크립팅된/프로그래밍 방식의 옵션을 사용 합니다.
 - 지속적인 데이터 전송을 원하시나요?
 
-    예인 경우 [시나리오 4: 정기적 데이터 전송](storage-solution-periodic-data-transfer.md)에 요약된 스크립팅/프로그래밍 방식 옵션을 사용합니다.
- 
+    그렇다면 [시나리오 4: 주기적인 데이터 전송](storage-solution-periodic-data-transfer.md)의 옵션을 사용 합니다.
 
 ## <a name="data-transfer-feature-in-azure-portal"></a>Azure Portal의 데이터 전송 기능
 
@@ -74,7 +73,7 @@ Azure Portal에서 Azure Storage 계정으로 이동 하 여 **데이터 전송*
 - [Azure Storage Explorer 소개](https://azure.microsoft.com/resources/videos/introduction-to-microsoft-azure-storage-explorer/).
 - [AzCopy의 개요 읽기](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10)
 - [Azure Storage에서 Azure PowerShell 사용](https://docs.microsoft.com/azure/storage/common/storage-powershell-guide-full)
-- [Azure Storage에서 Azure CLI 사용](https://docs.microsoft.com/azure/storage/common/storage-azure-cli)
+- [빠른 시작: Azure CLI을 사용 하 여 blob 만들기, 다운로드 및 나열](../blobs/storage-quickstart-blobs-cli.md)
 - 자세한 정보:
 
     - [오프라인 전송을 위한 Azure Data Box, Azure Data Box Disk 및 Azure Data Box Heavy](https://docs.microsoft.com/azure/databox/)

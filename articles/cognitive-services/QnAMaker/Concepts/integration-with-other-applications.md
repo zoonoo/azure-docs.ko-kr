@@ -3,12 +3,12 @@ title: 다른 응용 프로그램과 통합-QnA Maker
 description: QnA Maker은 채팅 봇과 같은 클라이언트 응용 프로그램과 Language Understanding (LUIS) 같은 기타 자연어 처리 서비스와 통합 됩니다.
 ms.topic: conceptual
 ms.date: 01/27/2020
-ms.openlocfilehash: f75ee92f2ecd14f5c3e017aeee2340cff0c92561
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 38b275aa2b8cf5768a2bc95634a7ff4892893eda
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846353"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78300522"
 ---
 # <a name="design-knowledge-base-for-client-applications"></a>클라이언트 응용 프로그램에 대 한 기술 자료 디자인
 
@@ -20,7 +20,7 @@ QnA Maker는 [Microsoft Bot Framework](https://dev.botframework.com/)와 같은 
 
 ## <a name="create-a-bot-without-writing-any-code"></a>코드를 작성 하지 않고 봇 만들기
 
-기술 자료를 게시 한 후에는 [ **봇 만들기** ] 단추를 선택 하 여 **게시** 페이지에서 봇을 만듭니다. [봇 자습서](../tutorials/create-qna-bot.md) 를 사용 하 여 단추를 선택한 후 발생 하는 상황을 알아봅니다.
+기술 자료를 게시 한 후에는 [ **봇 만들기** ] 단추를 선택 하 여 **게시** 페이지에서 봇을 만듭니다. [봇 자습서](../Quickstarts/create-publish-knowledge-base.md) 를 사용 하 여 단추를 선택한 후 발생 하는 상황을 알아봅니다.
 
 ## <a name="providing-multi-turn-conversations"></a>다중 전환 대화 제공
 

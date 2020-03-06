@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 02/24/2020
-ms.openlocfilehash: b3e110766b2e131330f3108b7938e9e5e01e48a4
-ms.sourcegitcommit: 5192c04feaa3d1bd564efe957f200b7b1a93a381
+ms.openlocfilehash: d14b4a3f4c3fdddac64596760fdbbfefce49036a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78208562"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78364397"
 ---
 # <a name="azure-monitor-customer-managed-key-configuration"></a>고객 관리 키 구성 Azure Monitor 
 
@@ -283,6 +283,11 @@ Content-type: application/json
 
 CMK를 구성 Application Insights이 단계에 대해서는 부록 콘텐츠를 따르세요.
 
+이 작업을 수행 하려면 작업 영역 및 *클러스터* 리소스 모두에 ' 쓰기 ' 권한이 있어야 합니다. 여기에는 다음 작업이 포함 됩니다.
+
+- 작업 영역에서: OperationalInsights/작업 영역/쓰기
+- *클러스터* 리소스: OperationalInsights/클러스터/쓰기
+
 ```rst
 PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>/linkedservices/cluster?api-version=2019-08-01-preview 
 Authorization: Bearer <token>
@@ -290,18 +295,17 @@ Content-type: application/json
 
 {
   "properties": {
-    "WriteAccessResourceId": "subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/clusters/<cluster-name>"
+    "WriteAccessResourceId": "/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/clusters/<cluster-name>"
     }
 }
 ```
-*ClusterDefinitionId* 은 이전 단계의 응답에서 제공 된 *clusterId* 값입니다.
 
 **응답**
 
 ```json
 {
   "properties": {
-    "WriteAccessResourceId": "subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/clusters/<cluster-name>"
+    "WriteAccessResourceId": "/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/clusters/<cluster-name>"
     },
   "id": "/subscriptions/subscription-id/resourcegroups/resource-group-name/providers/microsoft.operationalinsights/workspaces/workspace-name/linkedservices/cluster",
   "name": "workspace-name/cluster",
@@ -478,7 +482,6 @@ Log Analytics 및 Application Insights는 동일한 데이터 저장소 플랫�
 Application Insights CMK의 구성은 다음 단계를 제외한 제약 조건 및 문제 해결을 포함 하 여이 문서에 설명 된 프로세스와 동일 합니다.
 
 - *클러스터* 리소스 만들기
-
 - *클러스터* 리소스에 구성 요소 연결
 
 Application Insights에 대해 CMK를 구성 하는 경우 위에 나열 된 단계 대신 이러한 단계를 사용 합니다.
@@ -534,6 +537,11 @@ Content-type: application/json
 > 다음 단계에서 필요 하므로 "원칙 id" 값을 복사 하 여 유지 합니다.
 
 ### <a name="associate-a-component-to-a-cluster-resource-using-components---create-or-update-api"></a>구성 요소를 사용 하 여 *클러스터* 리소스에 구성 요소 연결 [-API 만들기 또는 업데이트](https://docs.microsoft.com/rest/api/application-insights/components/createorupdate)
+
+다음 작업을 포함 하 여이 작업을 수행 하려면 구성 요소 및 *클러스터* 리소스 모두에 ' 쓰기 ' 권한이 있어야 합니다.
+
+- 구성 요소: Microsoft Insights/component/write
+- *클러스터* 리소스: OperationalInsights/클러스터/쓰기
 
 ```rst
 PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Insights/components/<component-name>?api-version=2015-05-01

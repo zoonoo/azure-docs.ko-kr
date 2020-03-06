@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: nishankgu
 ms.author: nigup
-ms.date: 11/04/2019
-ms.openlocfilehash: 443fcad17e5832a014dc463f0dd8a44d90667b75
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.date: 03/05/2020
+ms.openlocfilehash: 17a4652604c0faa804d24530869aac0848c972b3
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646458"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399162"
 ---
 # <a name="manage-and-request-quotas-for-azure-resources"></a>Azure 리소스에 대한 할당량 관리 및 요청
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -38,10 +38,10 @@ ms.locfileid: "75646458"
 
 다음은 Azure 구독 내의 다양한 리소스 유형에 따라 할당량 한도를 분류한 것입니다.
 
-> [!Important]
+> [!IMPORTANT]
 > 한도는 변경될 수 있습니다. 언제든지 모든 Azure의 서비스 수준 할당량 [문서](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits/)에서 최신 정보를 확인할 수 있습니다.
 
-### <a name="virtual-machines"></a>Virtual Machines
+### <a name="virtual-machines"></a>가상 머신
 각 Azure 구독에 대해 서비스 또는 독립 실행형에서 사용할 수 있는 가상 컴퓨터의 수에 제한이 있습니다. 이 제한은 총 코어 수 및 제품군 별로 영역 수준에서 적용됩니다.
 
 가상 컴퓨터 코어에는 지역별 총 제한과 지역별 크기 시리즈 (Dv2, F 등) 제한이 있습니다. 둘 다 개별적으로 적용 됩니다. 미국 동부 총 VM 코어 한도가 30이고, A 시리즈 코어 한도 30이며, D 시리즈 코어 한도는 30인 구독을 예로 들 수 있습니다. 이러한 구독은 A1 VM 30개 또는 D1 VM 30개 또는 총 코어가 30개를 초과하지 않는 두 가지의 조합(예: A1 VM 10, D1 VM 20)을 배포하도록 허용됩니다.
@@ -91,7 +91,7 @@ Azure Machine Learning 파이프라인의 경우 파이프라인의 단계 수�
 
 좀 더 구체적인 최신 할당량 한도 목록은 [여기](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#container-instances-limits)서 Azure 전체 할당량 문서를 참조하세요.
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>스토리지
 영역당 및 특정 구독당 스토리지 계정의 수가 제한되어 있습니다. 기본 제한은 250 이며 표준 및 Premium Storage 계정을 모두 포함 합니다. 지정 된 지역에서 250 개 이상의 저장소 계정이 필요한 경우 [Azure 지원](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/)에 요청을 만듭니다. Azure Storage 팀이 비즈니스 사례를 검토하고 지정된 지역에 대해 Storage 계정을 250개까지 승인할 수 있습니다.
 
 

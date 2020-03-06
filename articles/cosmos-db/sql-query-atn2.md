@@ -4,15 +4,15 @@ description: Azure Cosmos DB의 ATN2 SQL 시스템 함수가 y/x의 원호의 �
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 11321ef9d7b81af279b04e0e435b19c645cf3bcf
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 696e14e75998ead04c99fab2b84fc4c742d5f54a
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74871655"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302664"
 ---
 # <a name="atn2-azure-cosmos-db"></a>ATN2 (Azure Cosmos DB)
  y/x에 대한 아크 탄젠트의 주요 값(라디안 단위)을 반환합니다.  
@@ -28,11 +28,11 @@ ATN2(<numeric_expr>, <numeric_expr>)
 *numeric_expr*  
    숫자 식입니다.  
   
-## <a name="return-types"></a>반환 유형
+## <a name="return-types"></a>반환 형식
   
   숫자 식을 반환합니다.  
   
-## <a name="examples"></a>예시
+## <a name="examples"></a>예
   
   다음 예제에서는 지정된 x 및 y 구성 요소에 대한 ATN2를 계산합니다.  
   
@@ -45,6 +45,10 @@ SELECT ATN2(35.175643, 129.44) AS atn2
 ```json
 [{"atn2": 1.3054517947300646}]  
 ```  
+
+## <a name="remarks"></a>설명
+
+이 시스템 함수는 인덱스를 활용 하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

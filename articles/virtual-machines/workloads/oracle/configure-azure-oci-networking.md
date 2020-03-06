@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2019
 ms.author: rogirdh
-ms.openlocfilehash: 63543c0ac34536b736bd4b8cdbd47fdd98e9f9be
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 0e2e16ccc04ff6df80597d646a00c40551e4cfd0
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802204"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302052"
 ---
 # <a name="set-up-a-direct-interconnection-between-azure-and-oracle-cloud-infrastructure"></a>Azure와 Oracle 클라우드 인프라 간의 직접 상호 관계 설정  
 
@@ -31,11 +31,11 @@ ms.locfileid: "71802204"
 
 ![클라우드 간 네트워크 연결](media/configure-azure-oci-networking/azure-oci-connect.png)
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure와 OCI 간에 연결을 설정 하려면 활성 Azure 구독 및 활성 OCI 테 넌 트가 있어야 합니다.
 
-* Azure Express 경로 피어 링 위치가 OCI FastConnect와 동일한 피어 링 위치에 있는 경우에만 연결을 사용할 수 있습니다. [미리 보기 제한 사항](oracle-oci-overview.md#preview-limitations)을 참조 하세요.
+* Azure Express 경로 피어 링 위치가 OCI FastConnect와 동일한 피어 링 위치에 있는 경우에만 연결을 사용할 수 있습니다. [지역 가용성](oracle-oci-overview.md#region-availability)을 참조 하세요.
 
 * 이 미리 보기 기능을 사용 하려면 Azure 구독을 사용 하도록 설정 해야 합니다.
 

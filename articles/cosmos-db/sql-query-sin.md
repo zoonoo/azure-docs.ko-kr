@@ -4,15 +4,15 @@ description: Azure Cosmos DB의 SQL 시스템 함수 사인에 대해 알아봅�
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: b4450ea9dd50f8093fa9569d7f82fe124022c3a1
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 25e7cf66fdd55a0b641c35443e38b0a67cbe365d
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349472"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303106"
 ---
 # <a name="sin-azure-cosmos-db"></a>SIN (Azure Cosmos DB)
  지정된 식의 라디안에서 지정된 각도의 삼각 사인을 반환합니다.  
@@ -28,13 +28,13 @@ SIN(<numeric_expr>)
 *numeric_expr*  
    숫자 식입니다.  
   
-## <a name="return-types"></a>반환 유형
+## <a name="return-types"></a>반환 형식
   
   숫자 식을 반환합니다.  
   
 ## <a name="examples"></a>예
   
-  다음 예에서는 지정 된 각도의 `SIN`을 계산 합니다.  
+  다음 예에서는 지정 된 각도의 `SIN` 계산 합니다.  
   
 ```sql
 SELECT SIN(45.175643) AS sin  
@@ -45,6 +45,10 @@ SELECT SIN(45.175643) AS sin
 ```json
 [{"sin": 0.929607286611012}]  
 ```  
+
+## <a name="remarks"></a>설명
+
+이 시스템 함수는 인덱스를 활용 하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

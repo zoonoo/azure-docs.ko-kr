@@ -2,15 +2,15 @@
 title: Azure VM에서 업데이트 관리, 변경 내용 추적 및 인벤토리 솔루션 등록
 description: Azure Automation에 포함된 업데이트 관리, 변경 내용 추적 및 인벤토리 솔루션을 사용하여 Azure 가상 머신을 등록하는 방법을 알아봅니다.
 services: automation
-ms.date: 03/20/2019
+ms.date: 03/04/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 93222b1b38fa37ec577da6377fdd9aff3fe12018
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 621b429f5dc3a6b6620e4d41ad46763e1d4fa226
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75421833"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78299532"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>Azure 가상 머신에서 업데이트 관리, 변경 내용 추적 및 인벤토리 솔루션 등록
 
@@ -18,17 +18,21 @@ Azure Automation은 운영 체제 보안 업데이트를 관리하고, 변경 �
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-[https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
+[https://portal.azure.com](https://portal.azure.com) 에서 Azure Portal에 로그인합니다.
 
 ## <a name="enable-the-solutions"></a>솔루션을 사용하도록 설정
 
-기존 가상 머신으로 이동합니다. **작업** 아래에서 **업데이트 관리**, **인벤토리** 또는 **변경 내용 추적**을 선택합니다. 가상 머신은 Automation 계정의 위치와 상관 없이 모든 지역에 있을 수 있습니다. VM에서 솔루션을 온 보 딩 하는 경우 VM이 작업 영역에 등록 여부를 확인 하는 `Microsoft.OperationalInsights/workspaces/read` 권한이 있어야 합니다. 일반적으로 필요한 추가 사용 권한에 대 한 자세한 내용은 [컴퓨터를 등록 하는 데 필요한 권한](automation-role-based-access-control.md#onboarding)을 참조 하세요.
+먼저 VM에서 하나 또는 세 가지 솔루션을 모두 사용 하도록 설정 합니다.
 
-VM에 대해서만 솔루션을 활성화하려면 **이 VM에 대해 활성화**가 선택되었는지 확인합니다. 솔루션에 여러 컴퓨터를 등록하려면 **이 구독에서 VM에 대해 활성화**를 선택한 다음, **클릭하여 활성화할 컴퓨터 선택**을 선택합니다. 한 번에 여러 컴퓨터를 등록하는 방법에 대해 알아보려면 [업데이트 관리, 변경 내용 추적 및 인벤토리 솔루션 등록](automation-onboard-solutions-from-automation-account.md)을 참조하세요.
+1. [Azure Portal](https://portal.azure.com)의 왼쪽 창에서 **가상 컴퓨터** 를 선택 하거나 **홈** 페이지에서 **가상 컴퓨터** 를 검색 하 고 선택 합니다.
+2. 솔루션을 사용 하도록 설정할 VM을 선택 합니다.
+3. VM 페이지의 **작업**아래에서 **업데이트 관리**, **인벤토리**또는 **변경 내용 추적**을 선택 합니다. 가상 머신은 Automation 계정의 위치와 상관 없이 모든 지역에 있을 수 있습니다. VM에서 솔루션을 온 보 딩 하는 경우 VM이 작업 영역에 등록 여부를 확인 하려면 `Microsoft.OperationalInsights/workspaces/read` 권한이 있어야 합니다. 필요한 추가 사용 권한에 대 한 자세한 내용은 컴퓨터를 등록 하는 데 [필요한 권한](automation-role-based-access-control.md#onboarding)을 참조 하세요.
+
+한 번에 여러 컴퓨터를 등록하는 방법에 대해 알아보려면 [업데이트 관리, 변경 내용 추적 및 인벤토리 솔루션 등록](automation-onboard-solutions-from-automation-account.md)을 참조하세요.
 
 Azure Log Analytics 작업 영역 및 Automation 계정을 선택한 다음, **사용**을 선택하여 솔루션을 사용하도록 설정합니다. 솔루션을 사용하도록 설정하는 데 최대 15분이 걸립니다.
 
-![업데이트 관리 솔루션 등록](media/automation-onboard-solutions-from-vm/onboard-solution.png)
+![업데이트 관리 솔루션 등록](media/automation-tutorial-update-management/manageupdates-update-enable.png)
 
 다른 솔루션으로 이동한 다음, **사용**을 선택합니다. 이러한 솔루션은 이전에 사용 하도록 설정 된 솔루션과 동일한 작업 영역 및 Automation 계정을 사용 하므로 Log Analytics 작업 영역 및 Automation 계정 드롭다운 목록을 사용할 수 없습니다.
 
@@ -37,7 +41,7 @@ Azure Log Analytics 작업 영역 및 Automation 계정을 선택한 다음, **�
 
 ## <a name="scope-configuration"></a>범위 구성
 
-각 솔루션은 작업 영역에서 범위 구성을 사용하여 솔루션을 가져오는 컴퓨터를 대상으로 합니다. 범위 구성은 솔루션 범위를 특정 컴퓨터로 제한하는 데 사용되는 하나 이상의 저장된 검색 그룹입니다. 범위 구성에 액세스하려면 Automation 계정의 **관련 리소스** 아래에서 **작업 영역**을 선택합니다. 작업 영역의 **작업 영역 데이터 원본** 아래에서 **범위 구성**을 선택합니다.
+각 솔루션은 작업 영역에서 범위 구성을 사용하여 솔루션을 가져오는 컴퓨터를 대상으로 합니다. 범위 구성은 솔루션 범위를 특정 컴퓨터로 제한하는 데 사용되는 하나 이상의 저장된 검색 그룹입니다. 범위 구성에 액세스 하려면 Automation 계정의 **관련 리소스**에서 **작업 영역**을 선택 합니다. 작업 영역의 **작업 영역 데이터 원본**에서 **범위 구성**을 선택 합니다.
 
 선택한 작업 영역에 업데이트 관리 또는 변경 내용 추적 솔루션이 없는 경우 다음과 같은 범위 구성이 생성됩니다.
 
@@ -55,7 +59,7 @@ Azure Log Analytics 작업 영역 및 Automation 계정을 선택한 다음, **�
 
 작업 영역으로 이동합니다. **일반** 아래에서 **저장된 검색**을 선택합니다. 다음 표에는 이러한 솔루션에서 사용하는 두 가지 저장된 검색이 나와 있습니다.
 
-|이름     |범주  |Alias  |
+|속성     |Category  |Alias  |
 |---------|---------|---------|
 |MicrosoftDefaultComputerGroup     |  ChangeTracking       | ChangeTracking__MicrosoftDefaultComputerGroup        |
 |MicrosoftDefaultComputerGroup     | 업데이트        | Updates__MicrosoftDefaultComputerGroup         |
@@ -91,15 +95,15 @@ Automation 계정을 Log Analytics 작업 영역에 더 이상 통합 하지 않
 
 업데이트 관리 솔루션을 사용한 경우 솔루션을 제거한 후 더 이상 필요하지 않은 다음 항목을 제거할 수도 있습니다.
 
-* 업데이트 일정 - 각 일정에는 사용자가 만든 업데이트 배포와 일치하는 이름이 지정됩니다.
+* 업데이트 일정-각 이름은 사용자가 만든 업데이트 배포와 일치 합니다.
 
-* 솔루션용으로 만든 Hybrid Worker 그룹 - 각 그룹에는 machine1.contoso.com_9ceb8108-26c9-4051-b6b3-227600d715c8과 비슷하게 이름이 지정됩니다.
+* 솔루션에 대해 생성 된 Hybrid worker 그룹-각각 machine1와 비슷하게 이름이 지정 됩니다. com_9ceb8108-4051-b6b3-227600d715c8).
 
 작업이 없는 동안 VM 시작/중지를 사용한 경우 솔루션을 제거한 후 더 이상 필요하지 않은 다음 항목을 제거할 수도 있습니다.
 
 * VM runbook 시작 및 중지 일정
 * VM runbook 시작 및 중지
-* 변수
+* variables
 
 또는 Log Analytics 작업 영역에서 Automation 계정에서 작업 영역의 연결을 끊을 수도 있습니다. 작업 영역에서 **관련 리소스**아래에 있는 **Automation 계정** 을 선택 합니다. Automation 계정 페이지에서 **계정 연결 해제**를 선택 합니다.
 
@@ -115,5 +119,7 @@ Automation 계정을 Log Analytics 작업 영역에 더 이상 통합 하지 않
 솔루션을 사용하는 방법을 알아보려면 다음 자습서로 계속 진행하세요.
 
 * [자습서 - VM에 대한 업데이트 관리](automation-tutorial-update-management.md)
+
 * [자습서 - VM에 설치된 소프트웨어 식별](automation-tutorial-installed-software.md)
+
 * [자습서 - VM에 대한 변경 내용 문제 해결](automation-tutorial-troubleshoot-changes.md)

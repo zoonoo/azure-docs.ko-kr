@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 02/15/2020
 ms.author: cherylmc
-ms.openlocfilehash: 2bca7034780c4bfbbadd97558bf4b4891c7d6ec5
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 3fb18b6afb2fc32ba8cc07c46a9a4f5a026d07e2
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78251110"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78402286"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 파트너 및 피어링 위치
 
@@ -106,7 +106,7 @@ Express 경로 위치 (예를 들어 피어 링 위치 또는 위치 면)는 MSE
 | **런던** | [서-ix LD5](https://www.equinix.com/locations/europe-colocation/united-kingdom-colocation/london-data-centers/ld5/) | 1 | 영국 남부 | 10G, 100G | & T NetBond, 영국령 텔레콤, Colt, 고 지이, euNetworks, InterCloud, 인터넷 솔루션-클라우드 연결, Interx이온, Jisc, Level 3 Communications, Megaport, MTN, NTT Communications, 주황, PCCW Global 제한, Tata 통신, Telehouse-KDDI, 통신 사업자, Verizon, Vodafone, Zayo |
 | **런던2** | [Telehouse 북부 2](https://www.telehouse.net/data-centres/emea/uk-data-centres/london-data-centres/north-two) | 1 | 영국 남부 | 10G, 100G | CenturyLink Cloud Connect, Colt, IX Reach, Inix, Megaport, Telehouse |
 | **로스앤젤레스** | [CoreSite LA1](https://www.coresite.com/data-centers/locations/los-angeles/one-wilshire) | 1 | 해당 없음 | 해당 없음 | CoreSite, Megaport, Neutrona Networks, NTT, Transtelco, Zayo |
-| **마르세유** |[Interxion MRS1](https://www.interxion.com/Locations/marseille/) | 1 | 프랑스 남부 | 해당 없음 | 비 CIX, GEANT, Interxion, 재규어 네트워크 |
+| **마르세유** |[Interxion MRS1](https://www.interxion.com/Locations/marseille/) | 1 | 프랑스 남부 | 해당 없음 | DEX, GEANT, Interxion, 재규어 네트워크, Ooredoo 클라우드 연결 |
 | **멜버른** | [NextDC M1](https://www.nextdc.com/data-centres/m1-melbourne-data-centre) | 2 | 오스트레일리아 남동부 | 10G, 100G | AARNet, Devoli,, Megaport, NEXTDC, Optus, Telstra Corporation, TPG 텔레콤 |
 | **마이애미** | [서-ix MI1](https://www.equinix.com/locations/americas-colocation/united-states-colocation/miami-data-centers/mi1/) | 1 | 해당 없음 | 10G | C3ntro, Megaport, Neutrona Networks |
 | **Milan** | [IRIDEOS](https://irideos.it/en/data-centers/) | 1 | 해당 없음 | 10G | |

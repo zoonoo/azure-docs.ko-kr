@@ -4,15 +4,15 @@ description: Azure Cosmos DB의 SQL 시스템 함수 TAN에 대해 알아봅니�
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/04/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 70636dbc00307ced8ad0cf84f41fe025c759997e
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 9d7187ba116067445e835769fc33aa70677ef80b
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349168"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78301984"
 ---
 # <a name="tan-azure-cosmos-db"></a>황갈색 (Azure Cosmos DB)
  지정된 식에서 지정된 각도(라디안 단위)의 탄젠트를 반환합니다.  
@@ -28,7 +28,7 @@ TAN (<numeric_expr>)
 *numeric_expr*  
    숫자 식입니다.  
   
-## <a name="return-types"></a>반환 유형
+## <a name="return-types"></a>반환 형식
   
   숫자 식을 반환합니다.  
   
@@ -45,6 +45,10 @@ SELECT TAN(PI()/2) AS tan
 ```json
 [{"tan": 16331239353195370 }]  
 ```  
+
+## <a name="remarks"></a>설명
+
+이 시스템 함수는 인덱스를 활용 하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

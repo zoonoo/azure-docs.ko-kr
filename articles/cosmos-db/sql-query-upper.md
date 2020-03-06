@@ -4,15 +4,15 @@ description: Azure Cosmos DB의 SQL 시스템 기능에 대해 알아봅니다.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/04/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 9809a138a5e28eb069d545d39cfda815c915bd78
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: 5129b4fffafb6918f655263cac2f5564635acf36
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75728891"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303973"
 ---
 # <a name="upper-azure-cosmos-db"></a>UPPER (Azure Cosmos DB)
  소문자 데이터를 대문자로 변환한 후에 문자열 식을 반환합니다.  
@@ -34,7 +34,7 @@ UPPER(<str_expr>)
   
   문자열 식을 반환합니다.  
   
-## <a name="examples"></a>예시
+## <a name="examples"></a>예
   
   다음 예제에서는 쿼리에서 `UPPER`를 사용 하는 방법을 보여 줍니다.  
   
@@ -47,6 +47,10 @@ SELECT UPPER("Abc") AS upper
 ```json
 [{"upper": "ABC"}]  
 ```
+
+## <a name="remarks"></a>설명
+
+이 시스템 함수는 인덱스를 활용 하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

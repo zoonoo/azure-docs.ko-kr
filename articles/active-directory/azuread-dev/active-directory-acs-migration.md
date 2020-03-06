@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 10/03/2018
 ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
-ms.openlocfilehash: 7b009a6e2f540dc076340a6803679a541e60adc7
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 63ace9af31dd284c61fae188744b24361f33c170
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77165346"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78377901"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>방법: Azure Access Control Service에서 마이그레이션
 
@@ -68,13 +68,13 @@ Access Control에 대한 자세한 내용은 [Access Control Service 2.0(보관)
 ### <a name="download-and-install-acs-powershell"></a>ACS PowerShell 다운로드 및 설치
 
 1. PowerShell 갤러리로 이동하여 [Acs.Namespaces](https://www.powershellgallery.com/packages/Acs.Namespaces/1.0.2)를 다운로드합니다.
-1. 실행하여 모듈 설치
+2. 실행하여 모듈 설치
 
     ```powershell
     Install-Module -Name Acs.Namespaces
     ```
 
-1. 실행하여 가능한 모든 명령 목록 가져오기
+3. 실행하여 가능한 모든 명령 목록 가져오기
 
     ```powershell
     Get-Command -Module Acs.Namespaces
@@ -94,8 +94,8 @@ Access Control에 대한 자세한 내용은 [Access Control Service 2.0(보관)
   
     명령을 실행하기 전에 `Set-ExecutionPolicy -ExecutionPolicy Bypass`를 실행해야 하며 해당 명령을 실행하려면 해당 구독의 관리자여야 합니다.
 
-1. **Get-AcsSubscription** cmdlet을 사용하여 사용 가능한 Azure 구독을 나열합니다.
-1. **Get-AcsNamespace** cmdlet을 사용하여 ACS 네임스페이스를 나열합니다.
+2. **Get-AcsSubscription** cmdlet을 사용하여 사용 가능한 Azure 구독을 나열합니다.
+3. **Get-AcsNamespace** cmdlet을 사용하여 ACS 네임스페이스를 나열합니다.
 
 ### <a name="check-which-applications-will-be-impacted"></a>어떤 애플리케이션이 영향을 받는지 확인합니다.
 
@@ -103,8 +103,8 @@ Access Control에 대한 자세한 내용은 [Access Control Service 2.0(보관)
 
     예를 들어, 네임스페이스 중 하나가 contoso-test이면 `https://contoso-test.accesscontrol.windows.net`으로 이동합니다.
 
-1. **신뢰 관계**에서 **신뢰 당사자 애플리케이션**을 선택하여 ACS 사용 중지에 의해 영향을 받는 애플리케이션 목록을 확인합니다.
-1. 가지고 있는 다른 모든 ACS 네임스페이스에 대해 1-2 단계를 반복합니다.
+2. **신뢰 관계**에서 **신뢰 당사자 애플리케이션**을 선택하여 ACS 사용 중지에 의해 영향을 받는 애플리케이션 목록을 확인합니다.
+3. 가지고 있는 다른 모든 ACS 네임스페이스에 대해 1-2 단계를 반복합니다.
 
 ## <a name="retirement-schedule"></a>사용 중지 일정
 
@@ -210,7 +210,7 @@ Azure AD 테넌트는 AD FS를 통해 하나 이상의 온-프레미스 Active D
 | 사용자 지정 토큰 서명 인증서 업로드 | 지원됨 | 지원됨 |
 | 토큰의 클레임 사용자 지정 |- ID 공급자의 입력 클레임 전달<br />- ID 공급자의 액세스 토큰을 클레임으로서 가져오기<br />- 입력 클레임의 값을 바탕으로 출력 클레임 발행<br />- 상수 값을 사용하여 출력 클레임 발행 |- 페더레이션된 ID 공급자의 클레임 전달 불가<br />- ID 공급자의 액세스 토큰을 클레임으로서 가져오기 불가<br />- 입력 클레임의 값을 바탕으로 출력 클레임 발행 불가<br />- 상수 값을 사용하여 출력 클레임 발행 가능<br />- Azure AD에 동기화된 사용자의 속성을 바탕으로 출력 클레임 발행 가능 |
 | **Automation** | | |
-| 구성 및 관리 작업 자동화 | Access Control 관리 서비스를 통해 지원 | Microsoft Graph 및 Azure AD Graph API를 통해 지원 |
+| 구성 및 관리 작업 자동화 | Access Control 관리 서비스를 통해 지원 | Microsoft Graph API를 사용 하 여 지원 |
 
 Azure AD가 애플리케이션 및 서비스에 적합한 마이그레이션 경로라고 판단한 경우, 앱에 Azure AD를 통합하는 두 가지 방법을 모두 알고 있어야 합니다.
 
@@ -261,7 +261,7 @@ Azure AD B2C는 Access Control과 마찬가지로 다양한 계정 유형을 지
 | 사용자 지정 토큰 서명 인증서 업로드 | 지원됨 | 사용자 정책을 통해 사용자 지정 서명 키 지원(인증서는 지원 불가) |
 | 토큰의 클레임 사용자 지정 |- ID 공급자의 입력 클레임 전달<br />- ID 공급자의 액세스 토큰을 클레임으로서 가져오기<br />- 입력 클레임의 값을 바탕으로 출력 클레임 발행<br />- 상수 값을 사용하여 출력 클레임 발행 |- ID 공급자의 클레임 전달 가능. 일부 클레임에는 사용자 지정 정책 필요<br />- ID 공급자의 액세스 토큰을 클레임으로서 가져오기 불가<br />- 사용자 지정 정책을 통해 입력 클레임의 값을 바탕으로 출력 클레임 발행 가능<br />- 사용자 지정 정책을 통해 상수 값을 바탕으로 출력 클레임 발행 가능 |
 | **Automation** | | |
-| 구성 및 관리 작업 자동화 | Access Control 관리 서비스를 통해 지원 |- Azure AD Graph API를 통한 사용자 생성 허용<br />- B2C 테넌트, 애플리케이션 또는 정책을 프로그래밍 방식으로 생성 불가 |
+| 구성 및 관리 작업 자동화 | Access Control 관리 서비스를 통해 지원 |-Microsoft Graph API를 사용 하 여 허용 되는 사용자 만들기<br />- B2C 테넌트, 애플리케이션 또는 정책을 프로그래밍 방식으로 생성 불가 |
 
 Azure AD B2C가 애플리케이션 및 서비스에 적합한 마이그레이션 경로라고 판단한 경우, 다음 리소스를 살펴보세요.
 
@@ -325,7 +325,7 @@ Access Control의 서비스 ID는 일반적으로 서버-투-서버(S2S) 인증�
 | 클라이언트 인증 방법 |- 단순한 암호<br />- 서명된 SWT<br />- 페더레이션 ID 공급자로부터 전달된 SAML 토큰 |- 단순한 암호<br />- 서명된 JWT |
 | 토큰 형식 |- JWT<br />- SAML 1.1<br />- SAML 2.0<br />- SWT<br /> | JWT만 |
 | 토큰 변환 |- 사용자 지정 클레임 추가<br />- 단순한 if-then 클레임 발행 로직 | 사용자 지정 클레임 추가 | 
-| 구성 및 관리 작업 자동화 | Access Control 관리 서비스를 통해 지원 | Microsoft Graph 및 Azure AD Graph API를 통해 지원 |
+| 구성 및 관리 작업 자동화 | Access Control 관리 서비스를 통해 지원 | Microsoft Graph API를 사용 하 여 지원 |
 
 서버-투-서버 시나리오를 구현하는 방법은 아래의 리소스를 참조하세요.
 

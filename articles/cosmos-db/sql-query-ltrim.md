@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 652204416c201ccca024aff0239fc10dcc3eb105
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 08c069de70684a8562e86963ddb2e84ee889e7cc
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74870992"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302256"
 ---
 # <a name="ltrim-azure-cosmos-db"></a>LTRIM (Azure Cosmos DB)
  선행 공백을 제거한 후에 문자열 식을 반환합니다.  
@@ -28,11 +28,11 @@ LTRIM(<str_expr>)
 *str_expr*  
    는 문자열 식입니다.  
   
-## <a name="return-types"></a>반환 유형
+## <a name="return-types"></a>반환 형식
   
   문자열 식을 반환합니다.  
   
-## <a name="examples"></a>예시
+## <a name="examples"></a>예
   
   다음 예에서는 쿼리 내에서 `LTRIM`를 사용 하는 방법을 보여 줍니다.  
   
@@ -45,6 +45,10 @@ SELECT LTRIM("  abc") AS l1, LTRIM("abc") AS l2, LTRIM("abc   ") AS l3
 ```json
 [{"l1": "abc", "l2": "abc", "l3": "abc   "}]  
 ```  
+
+## <a name="remarks"></a>설명
+
+이 시스템 함수는 인덱스를 활용 하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

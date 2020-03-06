@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b234533e-ac51-4482-9452-d97444f98b38
 ms.openlocfilehash: 628569c547aa776ec2fbb7ec7e32edad7c1fe7dd
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173403"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78395550"
 ---
 # <a name="track-backup-and-restore-jobs-using-rest-api"></a>REST API를 사용하여 백업 및 복원 작업 추적
 
@@ -43,15 +43,15 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 `{jobName}`은 위에 언급된 “jobId”입니다. 응답은 항상 작업의 현재 상태를 나타내는 “상태” 필드가 포함된 200 OK입니다. “Completed” 또는 “CompletedWithWarnings”인 경우 ‘extendedInfo’ 섹션에 해당 작업에 관한 자세한 내용이 표시됩니다.
 
-### <a name="response"></a>response
+### <a name="response"></a>응답
 
-|이름  |형식  |설명  |
+|속성  |Type  |Description  |
 |---------|---------|---------|
 |200 정상     | [JobResource](https://docs.microsoft.com/rest/api/backup/jobdetails/get#jobresource)        | 확인        |
 
 #### <a name="example-response"></a>예제 응답
 
-*GET* URI가 제출되면 200(OK) 응답이 반환됩니다.
+*GET* URI를 제출하면 200(정상) 응답이 반환됩니다.
 
 ```http
 HTTP/1.1 200 OK

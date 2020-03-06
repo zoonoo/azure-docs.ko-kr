@@ -4,15 +4,15 @@ description: Azure Cosmos DB의 CONCAT SQL 시스템 함수가 둘 이상의 문
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: adb8564d4addaaa3f4a383b32941549aed3d53bd
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: c8a0941376ed74d7f8cb819d78df43eb9f0b7bd1
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74871553"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302613"
 ---
 # <a name="concat-azure-cosmos-db"></a>CONCAT (Azure Cosmos DB)
  둘 이상의 문자열 값을 연결한 결과인 문자열을 반환합니다.  
@@ -28,11 +28,11 @@ CONCAT(<str_expr1>, <str_expr2> [, <str_exprN>])
 *str_expr*  
    다른 값에 연결 하는 문자열 식입니다. `CONCAT` 함수에는 *str_expr* 인수가 두 개 이상 필요 합니다.  
   
-## <a name="return-types"></a>반환 유형
+## <a name="return-types"></a>반환 형식
   
   문자열 식을 반환합니다.  
   
-## <a name="examples"></a>예시
+## <a name="examples"></a>예
   
   다음 예제에서는 지정된 값의 연결된 문자열을 반환합니다.  
   
@@ -46,6 +46,9 @@ SELECT CONCAT("abc", "def") AS concat
 [{"concat": "abcdef"}]  
 ```  
   
+## <a name="remarks"></a>설명
+
+이 시스템 함수는 인덱스를 활용 하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

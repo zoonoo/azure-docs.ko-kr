@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/11/2020
 ms.author: memildin
-ms.openlocfilehash: 45ce8a808efc5b882c90f99875fdde661e292774
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: fac9cba28f90f3642de660ed7d070b165c06bb2e
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78205979"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303259"
 ---
 # <a name="container-security-in-security-center"></a>Security Center의 컨테이너 보안
 
@@ -37,6 +37,8 @@ Azure Security Center는 컨테이너 보안을 위한 Azure 기본 솔루션입
 ARM 기반 Azure Container Registry를 모니터링 하려면 Security Center의 표준 계층 ( [가격 책정](/azure/security-center/security-center-pricing)참조)을 사용 하 고 있는지 확인 하세요. 그런 다음 선택적 컨테이너 레지스트리 번들을 사용 하도록 설정 합니다. 새 이미지가 푸시되 면 업계 최고의 취약점 검색 공급 업체 Qualys에서 스캐너를 사용 하 여 이미지를 검색 Security Center.
 
 Qualys 또는 Security Center에서 문제가 발견 되 면 Security Center 대시보드의 알림이 표시 됩니다. 모든 취약점에 대해 Security Center는 심각도 분류 및 문제 해결 방법에 대 한 지침과 함께 조치 가능한 권장 사항을 제공 합니다. 컨테이너에 대 한 Security Center 권장 사항에 대 한 자세한 내용은 권장 사항에 대 한 [참조 목록을](recommendations-reference.md#recs-containers)참조 하세요.
+
+Security Center는 스캐너에서 검색 결과를 필터링 하 고 분류 합니다. 이미지가 정상 상태 이면 Security Center 표시 합니다. Security Center는 문제를 해결 해야 하는 이미지에 대해서만 보안 권장 사항을 생성 합니다. 문제가 발생 하는 경우에만 Security Center 하면 원치 않는 정보 알림이 발생할 가능성이 줄어듭니다.
 
 ## <a name="environment-hardening"></a>환경 강화
 
@@ -61,11 +63,11 @@ AKS는 클러스터의 보안 상태에 대 한 보안 제어 및 가시성을 �
 
 이 기능에 대해 나타날 수 있는 관련 Security Center 권장 사항에 대 한 자세한 내용은 권장 사항 참조 표의 [컨테이너 섹션](recommendations-reference.md#recs-containers) 을 참조 하십시오.
 
-## <a name="run-time-protection---real-time-threat-protection"></a>런타임 보호-실시간 위협 방지
+## <a name="run-time-protection---real-time-threat-detection"></a>런타임 보호-실시간 위협 감지
 
-Security Center는 컨테이너 화 된 환경에 대 한 실시간 위협 방지 기능을 제공 하 고 의심 스러운 활동에 대 한 경고를 생성 합니다. 이 정보를 사용하여 보안 문제를 신속하게 수정하고 컨테이너의 보안을 강화할 수 있습니다.
+Security Center는 컨테이너 화 된 환경에 대 한 실시간 위협 감지 기능을 제공 하 고 의심 스러운 활동에 대 한 경고를 생성 합니다. 이 정보를 사용하여 보안 문제를 신속하게 수정하고 컨테이너의 보안을 강화할 수 있습니다.
 
-호스트 및 AKS 클러스터 수준에서 위협을 검색 합니다. 자세한 내용은 [Azure 컨테이너에 대 한 위협 방지](threat-protection.md#azure-containers)를 참조 하세요.
+호스트 및 AKS 클러스터 수준에서 위협을 검색 합니다. 자세한 내용은 [Azure 컨테이너에 대 한 위협 감지](https://docs.microsoft.com/azure/security-center/security-center-alerts-compute#azure-containers-)를 참조 하세요.
 
 
 ## <a name="container-security-faq"></a>컨테이너 보안 FAQ
@@ -73,10 +75,12 @@ Security Center는 컨테이너 화 된 환경에 대 한 실시간 위협 방�
 ### <a name="what-types-of-images-can-azure-security-center-scan"></a>스캔할 수 있는 이미지 종류는 무엇 Azure Security Center?
 Security Center 셸 액세스를 제공 하는 Linux OS 기반 이미지를 검색 합니다. 
 
-Qualys 스캐너는 [Docker 스크래치](https://hub.docker.com/_/scratch/) 이미지와 같은 슈퍼 전적 이미지 또는 응용 프로그램 및 해당 런타임 종속성만 포함 하는 "Distroless" 이미지 (패키지 관리자, 셸 또는 OS 없음)를 지원 하지 않습니다.
+Qualys 스캐너는 [Docker 스크래치](https://hub.docker.com/_/scratch/) 이미지 등의 슈퍼 전적 이미지 또는 패키지 관리자, 셸 또는 OS 없이 응용 프로그램 및 해당 런타임 종속성만 포함 하는 "Distroless" 이미지를 지원 하지 않습니다.
 
-### <a name="how-does-we-scan-azure-security-center-scan-an-image"></a>이미지를 검색 Azure Security Center 검색 하는 방법
-레지스트리에서 이미지를 추출 합니다. 그런 다음 알려진 취약점 목록을 추출 하는 Qualys 스캐너가 포함 된 격리 된 샌드박스에서 실행 됩니다.
+### <a name="how-does-azure-security-center-scan-an-image"></a>Azure Security Center에서 이미지를 검색 하는 방법은 무엇입니까?
+레지스트리에서 이미지를 가져옵니다. 그런 다음 알려진 취약점 목록을 추출 하는 Qualys 스캐너가 포함 된 격리 된 샌드박스에서 실행 됩니다.
+
+Security Center는 스캐너에서 검색 결과를 필터링 하 고 분류 합니다. 이미지가 정상 상태 이면 Security Center 표시 합니다. Security Center는 문제를 해결 해야 하는 이미지에 대해서만 보안 권장 사항을 생성 합니다. 문제가 발생 하는 경우에만 Security Center 하면 원치 않는 정보 알림이 발생할 가능성이 줄어듭니다.
 
 ### <a name="how-often-does-azure-security-center-scan-my-images"></a>에서 이미지를 얼마나 자주 Azure Security Center 검색 하나요?
 이미지 검색은 푸시 마다 트리거됩니다.

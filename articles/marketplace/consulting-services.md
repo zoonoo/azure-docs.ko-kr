@@ -9,12 +9,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 02/27/2020
 ms.author: evansma
-ms.openlocfilehash: 50e5be309d56f58a79fa19b5270a0b6d2fd3db92
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
-ms.translationtype: HT
+ms.openlocfilehash: 1506a4180a5991e6f6e8ed946192bcbf10bbeac0
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78268245"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78296154"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Azure Marketplace 및 AppSource 컨설팅 서비스
 Azure Marketplace 및 AppSource의 컨설팅 서비스는 Microsoft 파트너에게 고객과 서비스를 연결하여 고객의 Azure 사용을 지원하고 확대한다는 목표와 비즈니스 목표를 제공합니다. 
@@ -39,7 +39,7 @@ Microsoft Dynamics 365, Power Apps 및 Power BI을 기반으로 하는 컨설팅
 Microsoft Azure 기반으로 하는 컨설팅 서비스 및 관리 서비스 제안은 Azure Marketplace에 나열 될 수 있습니다. 자세한 내용은 [Azure 컨설팅 서비스 게시](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer) 및 [Azure Marketplace에 관리 서비스 제품 게시](https://docs.microsoft.com/azure/lighthouse/how-to/publish-managed-services-offers)에 대 한 문서를 참조 하세요.
 
 > [!Note]
-> Azure Marketplace의 컨설팅 서비스는 *Azure 기술 솔루션 및 서비스*에 중점을 두고 **기술직 종사자에 맞게 조정된 솔루션을 활용해야 합니다. ** AppSource의 컨설팅 서비스는 전문 지식을 통해 Dynamics 365, Power BI 또는 PowerApps에 대한 품질 솔루션을 제공하는 경우 AppSource에서 해당 컨설팅 서비스 제품을 나열할 수 있습니다.
+> Azure Marketplace의 컨설팅 서비스는 *Azure 기술 솔루션 및 서비스*에 중점을 두고 **기술직 종사자에 맞게 조정된 솔루션을 활용해야 합니다. \* * AppSource의 컨설팅 서비스는 Dynamics 365, Power BI 또는 Power Apps에 대 한 품질 솔루션을 제공 하 여 AppSource에서 컨설팅 서비스 제품을 나열 하는 데 전문 지식을 제공 하는 제품을 활용 해야 합니다.
 > 
 > 
 > [!TIP]
@@ -67,7 +67,7 @@ Microsoft Azure 기반으로 하는 컨설팅 서비스 및 관리 서비스 제
 | Dynamics 365 Customer Insights | 5 개 이상의 측정값과 5 개 세그먼트를 포함 하는 [Dynamics 365 Customer Insights](https://dynamics.microsoft.com/ai/customer-insights/) 의 성공적인 비프로덕션 구현이 하나 이상 있어야 합니다. |
 | Dynamics 365 Business Central | [엔터프라이즈 리소스 계획 역량](https://partner.microsoft.com/membership/enterprise-resource-planning-competency) 에서 골드 또는 실버 인증을 받아야 하며, 3 개 이상의 비즈니스 센터 고객을 위한 클라우드 솔루션 공급자 여야 합니다. <br> <br> 또는 <br> <br> [AppSource에 비즈니스 중앙 응용 프로그램](https://appsource.microsoft.com/) 을 게시 해야 합니다. |
 | Power BI | [Power BI 파트너 소개](https://powerbi.microsoft.com/partner-showcase/?term=&country=&industry=&department=)에 나열 되어야 합니다.|
-|Power Apps | [PowerApps 파트너 관계 프로그램](https://aka.ms/PowerAppsPartner)의 고급 혜택을 받을 자격이 있어야 합니다. |
+|Power Apps | [Power Apps 파트너 관계 프로그램](https://aka.ms/PowerAppsPartner)의 고급 혜택을 받을 자격이 있어야 합니다. |
 
 추가 리소스 및 지원:
 

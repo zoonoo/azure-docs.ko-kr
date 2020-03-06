@@ -160,6 +160,8 @@
       items:
         - name: Azure Portal에서
           items:
+            - name: 개요
+              href: azure-file-share-backup-overview.md
             - name: Backup
               href: backup-afs.md
             - name: 복원

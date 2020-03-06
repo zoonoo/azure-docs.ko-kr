@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/13/2020
+ms.date: 03/05/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 11d631f6977f760c8253fbaa0dc66af05def42a2
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 8e8a56fdfd57b44677cf5459eb1a4e6e46e6bdae
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78184012"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399071"
 ---
 # <a name="define-an-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에 Openid connect Connect 기술 프로필 정의
 
@@ -77,9 +77,11 @@ Azure Active Directory B2C (Azure AD B2C)는 [Openid connect Connect](https://op
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | client_id | 예 | ID 공급자의 애플리케이션 식별자입니다. |
-| IdTokenAudience | 아니요 | id_token의 대상 그룹입니다. 지정된 경우 Azure AD B2C는 토큰이 ID 공급자에서 반환된 클레임에 있고 지정된 토큰과 같은지 확인합니다. |
-| METADATA | 예 | 잘 알려진 openid 구성 엔드포인트라고도 하는 OpenID Connect Discovery 사양에 따라 서식이 지정된 JSON 구성 문서를 가리키는 URL입니다. |
-| ProviderName | 아니요 | ID 공급자의 이름입니다. |
+| IdTokenAudience | 아니요 | id_token의 대상 그룹입니다. 지정 된 경우 id 공급자가 반환 하는 토큰의 `aud` 클레임이 IdTokenAudience 메타 데이터에 지정 된 것과 동일한 지 여부를 Azure AD B2C 확인 합니다.  |
+| METADATA | 예 | Openid connect 잘 알려진 구성 끝점이 라고도 하는 Openid connect Connect id 공급자 구성 문서를 가리키는 URL입니다. URL은 테 넌 트 이름으로 대체 되는 `{tenant}` 식을 포함할 수 있습니다.  |
+| authorization_endpoint | 아니요 | Openid connect Connect id 공급자 구성 권한 부여 끝점을 가리키는 URL입니다. Authorization_endpoint 메타 데이터 값은 잘 알려진 Openid connect 구성 끝점에 지정 된 `authorization_endpoint` 보다 우선적으로 적용 됩니다. URL은 테 넌 트 이름으로 대체 되는 `{tenant}` 식을 포함할 수 있습니다. |
+| 발급자 | 아니요 | Openid connect Connect id 공급자의 고유 식별자입니다. 발급자 메타 데이터의 값은 Openid connect 잘 알려진 구성 끝점에 지정 된 `issuer` 보다 우선적으로 적용 됩니다.  지정 된 경우 id 공급자가 반환 하는 토큰의 `iss` 클레임이 발급자 메타 데이터에 지정 된 것과 동일한 지 여부를 Azure AD B2C 확인 합니다. |
+| ProviderName | 아니요 | ID 공급자의 이름입니다.  |
 | response_types | 아니요 | OpenID Connect Core 1.0 사양에 따른 응답 유형입니다. 가능한 값은 `id_token`, `code` 또는 `token`입니다. |
 | response_mode | 아니요 | ID 공급자가 결과를 다시 Azure AD B2C에 보내는 데 사용하는 방법입니다. 가능한 값은 `query`, `form_post`(기본값) 또는 `fragment`입니다. |
 | 범위 | 아니요 | Openid connect Connect Core 1.0 사양에 따라 정의 된 요청의 범위입니다. 예를 들어 `openid`, `profile` 및 `email`입니다. |

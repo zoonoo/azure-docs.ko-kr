@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 9bcb0fd26710b5f44ca9e3e3715c40cb32b3c40d
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 535707191557142054e493d0216b713312f53953
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77913943"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78368654"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Azure Maps 맵 컨트롤 사용
 
@@ -27,23 +27,23 @@ ms.locfileid: "77913943"
 
 2. Azure Maps 웹 SDK에서 로드합니다. 두 가지 옵션 중 하나를 선택할 수 있습니다.
 
-   1. 파일의 `<head>` 요소에 있는 스타일시트 및 스크립트 참조에 URL 엔드포인트를 추가하여 Azure Maps 웹 SDK의 글로벌 호스팅 CDN 버전을 사용합니다.
+    * HTML 파일의 `<head>` 요소에서 JavaScript 및 스타일 시트에 대 한 참조를 추가 하 여 Azure Maps 웹 SDK의 전역적으로 호스팅된 CDN 버전을 사용 합니다.
 
-      ```HTML
-       <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css">
-       <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
-      ```
+        ```HTML
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css">
+        <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
+        ```
 
-   1. [NPM 패키지를 사용](https://www.npmjs.com/package/azure-maps-control) 하 여 AZURE MAPS 웹 SDK 소스 코드를 로컬로 로드 하 고 앱과 함께 호스트 합니다. 이 패키지에는 TypeScript 정의도 포함됩니다.
+    * [NPM 패키지를 사용](https://www.npmjs.com/package/azure-maps-control) 하 여 AZURE MAPS 웹 SDK 소스 코드를 로컬로 로드 하 고 앱과 함께 호스트 합니다. 이 패키지에는 TypeScript 정의도 포함됩니다.
 
-      > **npm 설치-맵-컨트롤**
+        > **npm 설치-맵-컨트롤**
 
-   그런 다음, Azure Maps 스타일시트에 대한 참조와 스크립트 소스 참조를 파일의 `<head>` 요소에 추가합니다.
+       그런 다음, Azure Maps 스타일시트에 대한 참조와 스크립트 소스 참조를 파일의 `<head>` 요소에 추가합니다.
 
-      ```HTML
-       <link rel="stylesheet" href="node_modules/azure-maps-control/dist/atlas.min.css" type="text/css"> 
-       <script src="node_modules/azure-maps-control/dist/atlas.min.js"></script>
-      ```
+        ```HTML
+        <link rel="stylesheet" href="node_modules/azure-maps-control/dist/atlas.min.css" type="text/css"> 
+        <script src="node_modules/azure-maps-control/dist/atlas.min.js"></script>
+        ```
 
     > [!Note]
     > 다음 코드를 추가 하 여 Typescript 정의를 응용 프로그램으로 가져올 수 있습니다.

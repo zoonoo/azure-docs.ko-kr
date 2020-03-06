@@ -7,16 +7,25 @@ ms.topic: conceptual
 ms.date: 03/02/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 78100a5dd38b211f6b0241d5a0bac10cf86b09f6
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: d04b38fac2b42d2d510902c7ba54ddebb8e3f410
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250957"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78330313"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>Azure File Sync로 StorSimple 8100 및 8600 마이그레이션
 
-StorSimple 8000 시리즈는 두 개의 개별 Sku를 나타내며 이러한 Sku 중 하나에서 Azure File Sync 환경으로 데이터를 마이그레이션할 수 있습니다. 이 문서에서는 두 어플라이언스를 Azure File Sync로 마이그레이션하는 방법에 대해 설명 하 고 성공적인 Azure File Sync 마이그레이션을 위해 마이그레이션을 수행 하는 데 필요한 배경 지식과 마이그레이션 단계를 제공 합니다.
+StorSimple 8000 시리즈는 8100 또는 8600 물리적, 온-프레미스 어플라이언스 및 클라우드 서비스 구성 요소로 표시 됩니다. 이러한 어플라이언스의 데이터를 Azure File Sync 환경으로 마이그레이션할 수 있습니다. 이 문서에서는 성공적인 마이그레이션에 대 한 필요한 배경 지식 및 마이그레이션 단계를 Azure File Sync으로 제공 합니다.
+
+## <a name="storsimple"></a>StorSimple
+
+StorSimple은 중단 된 Microsoft 제품입니다. 이 제품 및 클라우드 서비스에 대 한 연장 된 지원은 12 월 31 2022 일에 만료 됩니다. StorSimple에서 바로 마이그레이션 계획을 시작 하는 것이 중요 합니다.
+
+Azure File Sync는 StorSimple 어플라이언스를 마이그레이션할 수 있는 기본 및 전략적 장기 Azure 서비스입니다.
+
+> [!IMPORTANT]
+> Microsoft는 마이그레이션하는 고객을 지원 하기 위해 최선을 다하고 있습니다. 마이그레이션 중에 지원 뿐만 아니라 사용자 지정 된 마이그레이션 계획에 대 한 AzureFilesMigration@microsoft .com을 메일로 보냅니다.
 
 ## <a name="azure-file-sync"></a>Azure 파일 동기화
 

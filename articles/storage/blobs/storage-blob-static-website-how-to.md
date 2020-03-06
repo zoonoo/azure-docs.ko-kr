@@ -6,13 +6,13 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.author: normesta
-ms.date: 05/28/2019
-ms.openlocfilehash: 35b5a85ea6fba87e785b581a7a20d0c28f312820
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.date: 03/04/2020
+ms.openlocfilehash: e312cc0dc6c58bb33a737e1fc28dd6eb3578b764
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77484148"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78330278"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Azure Storage에서 정적 웹 사이트를 호스팅합니다.
 
@@ -20,25 +20,35 @@ Azure Storage GPv2 계정의 컨테이너에서 직접 정적 콘텐츠 (HTML, C
 
 이 문서에서는 Azure Portal, Azure CLI 또는 PowerShell을 사용 하 여 정적 웹 사이트 호스팅을 사용 하도록 설정 하는 방법을 보여 줍니다.
 
-<a id="portal" />
+## <a name="enable-static-website-hosting"></a>정적 웹 사이트 호스팅 사용
 
-## <a name="portal"></a>[포털](#tab/azure-portal)
+정적 웹 사이트 호스팅은 저장소 계정에서 사용 하도록 설정 해야 하는 기능입니다.
 
-단계별 자습서는 [자습서: Blob Storage에서 정적 웹 사이트 호스팅](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website-host)을 참조 하세요.
+### <a name="portal"></a>[포털](#tab/azure-portal)
 
-정적 웹 사이트 호스팅을 사용 하도록 설정한 후에는 웹 사이트의 공용 URL을 사용 하 여 브라우저에서 사이트의 페이지를 볼 수 있습니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인하여 시작합니다.
 
-<a id="portal-find-url" />
+2. 스토리지 계정을 찾아 계정 개요를 표시합니다.
 
-### <a name="find-the-website-url-by-using-the-azure-portal"></a>Azure Portal를 사용 하 여 웹 사이트 URL을 찾습니다.
+3. **정적 웹 사이트**를 선택하여 정적 웹 사이트에 대한 구성 페이지를 표시합니다.
 
-저장소 계정의 계정 개요 페이지 옆에 표시 되는 창에서 **정적 웹 사이트**를 선택 합니다. 사이트의 URL이 **기본 끝점** 필드에 표시 됩니다.
+4. **사용**을 선택하여 스토리지 계정에서 정적 웹 사이트를 호스팅할 수 있습니다.
 
-![Azure Storage 정적 웹 사이트 메트릭](./media/storage-blob-static-website/storage-blob-static-website-url.png)
+5. **인덱스 문서 이름** 필드에 기본 인덱스 페이지 (예: *index .html*)를 지정 합니다. 
+
+   기본 인덱스 페이지는 사용자가 정적 웹 사이트의 루트로 이동할 때 표시됩니다.  
+
+6. **오류 문서 경로** 필드에서 기본 오류 페이지를 지정 합니다 (예: *404*). 
+
+   기본 오류 페이지는 사용자가 정적 웹 사이트에서 존재하지 않는 페이지로 이동하려고 할 때 표시됩니다.
+
+7. **저장**을 클릭합니다. 이제 Azure Portal에는 정적 웹 사이트 엔드포인트가 표시됩니다. 
+
+    ![스토리지 계정에서 정적 웹 사이트 호스팅 설정](media/storage-blob-static-website-host/enable-static-website-hosting.png)
+
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 <a id="cli" />
-
-## <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 [CLI (Azure 명령줄 인터페이스)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)를 사용 하 여 정적 웹 사이트 호스팅을 사용 하도록 설정할 수 있습니다.
 
@@ -64,45 +74,9 @@ Azure Storage GPv2 계정의 컨테이너에서 직접 정적 콘텐츠 (HTML, C
 
    * `<index-document-name>` 자리 표시자를 인덱스 문서 이름으로 바꿉니다. 이 문서는 일반적으로 "index .html"입니다.
 
-4. 소스 디렉터리의 *$web* 컨테이너에 개체를 업로드합니다.
-
-   > [!NOTE]
-   > Azure Cloud Shell 사용 하는 경우 `$web` 컨테이너 (예: `\$web`)를 참조할 때 `\` 이스케이프 문자를 추가 해야 합니다. Azure CLI의 로컬 설치를 사용 하는 경우 이스케이프 문자를 사용할 필요가 없습니다.
-
-   이 예에서는 Azure Cloud Shell 세션에서 명령을 실행 중인 것으로 가정 합니다.
-
-   ```azurecli-interactive
-   az storage blob upload-batch -s <source-path> -d \$web --account-name <storage-account-name> --content-type 'text/html; charset=utf-8'
-   ```
-
-   * `<storage-account-name>` 자리 표시자 값을 스토리지 계정 이름으로 바꿉니다.
-
-   * `<source-path>` 자리 표시자를 업로드할 파일의 위치에 대 한 경로로 바꿉니다.
-
-   > [!NOTE]
-   > Azure CLI의 위치 설치를 사용 하는 경우 로컬 컴퓨터의 모든 위치에 대 한 경로를 사용할 수 있습니다 (예: `C:\myFolder`.
-   >
-   > Azure Cloud Shell를 사용 하는 경우 Cloud Shell에 표시 되는 파일 공유를 참조 해야 합니다. 이 위치는 클라우드 공유 자체의 파일 공유 또는 Cloud Shell에서 탑재 한 기존 파일 공유 일 수 있습니다. 이 작업을 수행 하는 방법에 대 한 자세한 내용은 [Azure Cloud Shell 파일 유지](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage)를 참조 하세요.
-
-<a id="cli-find-url" />
-
-### <a name="find-the-website-url-by-using-the-azure-cli"></a>Azure CLI를 사용 하 여 웹 사이트 URL을 찾습니다.
-
-웹 사이트의 공용 URL을 사용 하 여 브라우저에서 콘텐츠를 볼 수 있습니다.
-
-다음 명령을 사용 하 여 URL을 찾습니다.
-
-```azurecli-interactive
-az storage account show -n <storage-account-name> -g <resource-group-name> --query "primaryEndpoints.web" --output tsv
-```
-
-* `<storage-account-name>` 자리 표시자 값을 스토리지 계정 이름으로 바꿉니다.
-
-* `<resource-group-name>` 자리 표시자 값을 리소스 그룹의 이름으로 바꿉니다.
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 <a id="powershell" />
-
-## <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Azure PowerShell 모듈을 사용 하 여 정적 웹 사이트 호스팅을 사용 하도록 설정할 수 있습니다.
 
@@ -152,28 +126,101 @@ Azure PowerShell 모듈을 사용 하 여 정적 웹 사이트 호스팅을 사�
 
    * `<index-document-name>` 자리 표시자를 인덱스 문서 이름으로 바꿉니다. 이 문서는 일반적으로 "index .html"입니다.
 
-7. 소스 디렉터리의 *$web* 컨테이너에 개체를 업로드합니다.
+---
 
-    ```powershell
-    # upload a file
-    set-AzStorageblobcontent -File "<path-to-file>" `
-    -Properties @{ ContentType = "text/html; charset=utf-8";} `
-    -Container `$web `
-    -Blob "<blob-name>" `
-    -Context $ctx
-     ```
+## <a name="upload-files"></a>파일 업로드 
 
-   * `<path-to-file>` 자리 표시자 값을 업로드 하려는 파일의 정규화 된 경로로 바꿉니다 (예: `C:\temp\index.html`).
+### <a name="portal"></a>[포털](#tab/azure-portal)
 
-   * `<blob-name>` 자리 표시자 값을 결과 blob에 지정할 이름으로 바꿉니다 (예: `index.html`).
+이 지침에서는 Azure Portal에 표시 되는 Storage 탐색기 버전을 사용 하 여 파일을 업로드 하는 방법을 보여 줍니다. 그러나 Azure Portal 외부에서 실행 되는 [Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/) 버전을 사용할 수도 있습니다. [AzCopy](../common/storage-use-azcopy-v10.md), POWERSHELL, CLI 또는 계정의 **$web** 컨테이너에 파일을 업로드할 수 있는 사용자 지정 응용 프로그램을 사용할 수 있습니다. Visual Studio code를 사용 하 여 파일을 업로드 하는 단계별 자습서는 [자습서: Blob Storage에서 정적 웹 사이트 호스팅](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website-host)을 참조 하세요.
+
+1. **Storage 탐색기 (미리 보기)** 를 선택 합니다.
+
+2. **BLOB 컨테이너** 노드를 확장 한 다음 **$web** 컨테이너를 선택 합니다.
+
+3. **업로드** 단추를 선택 하 여 파일을 업로드 합니다.
+
+   ![파일 업로드](media/storage-blob-static-website/storage-blob-static-website-upload.png)
+
+4. 브라우저에서 파일의 내용을 표시 하려면 해당 파일의 콘텐츠 형식이 `text/html`로 설정 되어 있는지 확인 합니다. 
+
+   ![콘텐츠 형식 확인](media/storage-blob-static-website/storage-blob-static-website-content-type.png)
+
+   >[!NOTE]
+   > Storage 탐색기은 `.html`와 같은 일반적으로 인식 되는 확장에 대해이 속성을 자동으로 `text/html`로 설정 합니다. 그러나이를 직접 설정 해야 하는 경우도 있습니다. 이 속성을 `text/html`로 설정 하지 않으면 브라우저에서 사용자에 게 콘텐츠를 렌더링 하지 않고 파일을 다운로드 하 라는 메시지를 표시 합니다. 이 속성을 설정 하려면 파일을 마우스 오른쪽 단추로 클릭 한 다음 **속성**을 클릭 합니다.
+
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+소스 디렉터리의 *$web* 컨테이너에 개체를 업로드합니다.
+
+> [!NOTE]
+> Azure Cloud Shell 사용 하는 경우 `$web` 컨테이너 (예: `\$web`)를 참조할 때 `\` 이스케이프 문자를 추가 해야 합니다. Azure CLI의 로컬 설치를 사용 하는 경우 이스케이프 문자를 사용할 필요가 없습니다.
+
+이 예에서는 Azure Cloud Shell 세션에서 명령을 실행 중인 것으로 가정 합니다.
+
+```azurecli-interactive
+az storage blob upload-batch -s <source-path> -d \$web --account-name <storage-account-name> --content-type 'text/html; charset=utf-8'
+```
+
+* `<storage-account-name>` 자리 표시자 값을 스토리지 계정 이름으로 바꿉니다.
+
+* `<source-path>` 자리 표시자를 업로드할 파일의 위치에 대 한 경로로 바꿉니다.
+
+> [!NOTE]
+> Azure CLI의 위치 설치를 사용 하는 경우 로컬 컴퓨터의 모든 위치에 대 한 경로를 사용할 수 있습니다 (예: `C:\myFolder`.
+>
+> Azure Cloud Shell를 사용 하는 경우 Cloud Shell에 표시 되는 파일 공유를 참조 해야 합니다. 이 위치는 클라우드 공유 자체의 파일 공유 또는 Cloud Shell에서 탑재 한 기존 파일 공유 일 수 있습니다. 이 작업을 수행 하는 방법에 대 한 자세한 내용은 [Azure Cloud Shell 파일 유지](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage)를 참조 하세요.
+
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+소스 디렉터리의 *$web* 컨테이너에 개체를 업로드합니다.
+
+```powershell
+# upload a file
+set-AzStorageblobcontent -File "<path-to-file>" `
+-Properties @{ ContentType = "text/html; charset=utf-8";} `
+-Container `$web `
+-Blob "<blob-name>" `
+-Context $ctx
+```
+
+* `<path-to-file>` 자리 표시자 값을 업로드 하려는 파일의 정규화 된 경로로 바꿉니다 (예: `C:\temp\index.html`).
+
+* `<blob-name>` 자리 표시자 값을 결과 blob에 지정할 이름으로 바꿉니다 (예: `index.html`).
+
+---
+
+## <a name="find-the-website-url-by-using-the-azure-portal"></a>Azure Portal를 사용 하 여 웹 사이트 URL을 찾습니다.
+
+웹 사이트의 공용 URL을 사용 하 여 브라우저에서 사이트의 페이지를 볼 수 있습니다.
+
+### <a name="portal"></a>[포털](#tab/azure-portal)
+
+<a id="portal-find-url" />
+
+저장소 계정의 계정 개요 페이지 옆에 표시 되는 창에서 **정적 웹 사이트**를 선택 합니다. 사이트의 URL이 **기본 끝점** 필드에 표시 됩니다.
+
+![Azure Storage 정적 웹 사이트 메트릭](./media/storage-blob-static-website/storage-blob-static-website-url.png)
+
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+<a id="cli-find-url" />
+
+다음 명령을 사용 하 여 정적 웹 사이트의 공용 URL을 찾습니다.
+
+```azurecli-interactive
+az storage account show -n <storage-account-name> -g <resource-group-name> --query "primaryEndpoints.web" --output tsv
+```
+
+* `<storage-account-name>` 자리 표시자 값을 스토리지 계정 이름으로 바꿉니다.
+
+* `<resource-group-name>` 자리 표시자 값을 리소스 그룹의 이름으로 바꿉니다.
+
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 <a id="powershell-find-url" />
 
-### <a name="find-the-website-url-by-using-powershell"></a>PowerShell을 사용 하 여 웹 사이트 URL 찾기
-
-웹 사이트의 공용 URL을 사용 하 여 브라우저에서 콘텐츠를 볼 수 있습니다.
-
-다음 명령을 사용 하 여 URL을 찾습니다.
+다음 명령을 사용 하 여를 사용 하 여 정적 웹 사이트의 공용 URL을 찾습니다.
 
 ```powershell
  $storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -Name "<storage-account-name>"
@@ -184,9 +231,9 @@ Write-Output $storageAccount.PrimaryEndpoints.Web
 
 * `<storage-account-name>` 자리 표시자 값을 스토리지 계정 이름으로 바꿉니다.
 
-<a id="metrics" />
-
 ---
+
+<a id="metrics" />
 
 ## <a name="enable-metrics-on-static-website-pages"></a>정적 웹 사이트 페이지에서 메트릭 사용
 

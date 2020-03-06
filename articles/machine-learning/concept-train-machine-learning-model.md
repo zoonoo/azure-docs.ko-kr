@@ -8,13 +8,13 @@ author: Blackmist
 ms.author: larryfr
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 09/18/2019
-ms.openlocfilehash: f46dd2b30ca84a7e6a1b0fc34ef0fa5bafffaef5
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.date: 03/05/2020
+ms.openlocfilehash: 68b7dfbf61f5d353f394bfbc034e00fddd262cd1
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76721118"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78344033"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 모델 학습
 
@@ -28,6 +28,8 @@ Azure Machine Learning은 SDK를 사용 하는 code first 솔루션에서 자동
     | [자동화 된 기계 학습](#automated-machine-learning) | 자동화 된 기계 학습을 사용 하면 **광범위 한 데이터 과학 또는 프로그래밍 지식 없이 모델**을 학습할 수 있습니다. 데이터 과학 및 프로그래밍 배경을 사용 하는 사용자의 경우 알고리즘 선택 및 하이퍼 매개 변수 튜닝을 자동화 하 여 시간과 리소스를 절약 하는 방법을 제공 합니다. 자동화 된 machine learning을 사용할 때 실행 구성을 정의 하는 것에 대해 걱정할 필요가 없습니다. |
     | [추정](#estimators) | 평가기 클래스 **를 사용 하면 인기 있는 기계 학습 프레임 워크를 기반으로 모델을 쉽게 학습 시킬 수**있습니다. **Scikit**에 대 한 평가기, **PyTorch**, **TensorFlow**및 **체 이너**클래스가 있습니다. 또한 전용 평가기 클래스가 없는 프레임 워크에서 사용할 수 있는 일반 평가기 있습니다. 추정를 사용 하는 경우 실행 구성을 정의 하는 것에 대해 걱정할 필요가 없습니다. |
     | [Machine learning 파이프라인](#machine-learning-pipeline) | 파이프라인은 다른 학습 방법이 아니라 워크플로의 일부로 서 학습을 포함할 수 있는 **모듈 재사용 가능 단계를 사용 하 여 워크플로를 정의 하는 방법입니다**. 기계 학습 파이프라인은 자동화 된 machine learning, 추정 및 실행 구성을 사용 하 여 모델을 학습 하도록 지원 합니다. 파이프라인은 학습에 특별히 집중 되지 않으므로 파이프라인을 사용 하는 이유는 다른 학습 방법 보다 더 다양 합니다. 일반적으로 다음과 같은 경우에 파이프라인을 사용할 수 있습니다.<br>* 장기 실행 교육 작업 또는 데이터 준비와 같은 **무인 프로세스를 예약** 하려고 합니다.<br>* 다른 유형의 계산 리소스 및 저장소 위치에서 조정 된 **여러 단계** 를 사용 합니다.<br>* 파이프라인은 특정 시나리오 (예: 재 학습 또는 일괄 처리 점수 매기기)에 **재사용 가능한 템플릿으로** 사용 합니다.<br>워크플로에 대 한 **데이터 원본, 입력 및 출력을 추적 하 고 버전을** * 합니다.<br>* 워크플로는 **특정 단계에 독립적으로 작동 하는 여러 팀에 의해 구현**됩니다. 그런 다음 워크플로를 구현 하기 위해 파이프라인에서 단계를 함께 조인할 수 있습니다. |
+
++ [Python 용 AZURE MACHINE LEARNING sdk](#r-sdk): sdk는 reticulate 패키지를 사용 하 여 Azure Machine Learning의 python SDK에 바인딩합니다. 이를 통해 모든 R 환경에서 Python SDK에 구현 된 핵심 개체 및 메서드에 액세스할 수 있습니다.
 
 + **디자이너**: Azure Machine Learning designer (미리 보기)는 개념 증명을 빌드하기 위한 Machine Learning 또는 코딩 경험이 거의 없는 사용자를 위한 쉬운 진입점을 제공 합니다. 끌어서 놓기 웹 기반 UI를 사용 하 여 모델을 학습 시킬 수 있습니다. 디자인의 일부로 Python 코드를 사용 하거나 코드를 작성 하지 않고 모델을 학습 시킬 수 있습니다.
 
@@ -61,7 +63,7 @@ Python 용 Azure Machine Learning SDK를 사용 하면 Azure Machine Learning를
 > [!TIP]
 > Python SDK 외에도 [Azure Machine Learning studio](https://ml.azure.com)를 통해 자동화 된 ML을 사용할 수 있습니다.
 
-* [자동화 된 machine learning 이란?](concept-automated-ml.md)
+* [자동화된 Machine Learning이란?](concept-automated-ml.md)
 * [자습서: 자동화 된 machine learning을 사용 하 여 첫 번째 분류 모델 만들기](tutorial-first-experiment-automated-ml.md)
 * [자습서: 자동화 된 machine learning을 사용 하 여 taxi 정의 요금 예측](tutorial-auto-train-models.md)
 * [예: 자동화 된 기계 학습에 대 한 Jupyter Notebook 예제](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning)
@@ -88,6 +90,15 @@ Machine learning 파이프라인은 앞서 언급 한 학습 메서드 (실행 �
 * [예: 기계 학습 파이프라인에 대 한 Jupyter Notebook 예제](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines)
 * [예: 자동화 된 machine learning을 사용 하는 파이프라인](https://aka.ms/pl-automl)
 * [예: 추정를 사용 하는 파이프라인](https://aka.ms/pl-estimator)
+
+## <a name="r-sdk"></a>R SDK
+
+R SDK를 사용 하면 Azure Machine Learning에서 R 언어를 사용할 수 있습니다. SDK는 reticulate 패키지를 사용 하 여 Azure Machine Learning의 Python SDK에 바인딩합니다. 이를 통해 모든 R 환경에서 Python SDK에 구현 된 핵심 개체 및 메서드에 액세스할 수 있습니다.
+
+자세한 내용은 다음 문서를 참조하세요.
+
+* [자습서: 로지스틱 회귀 모델 만들기](tutorial-1st-r-experiment.md)
+* [R 참조용 Azure Machine Learning SDK](https://azure.github.io/azureml-sdk-for-r/index.html)
 
 ## <a name="azure-machine-learning-designer"></a>Azure Machine Learning 디자이너
 

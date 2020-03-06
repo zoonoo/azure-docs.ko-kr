@@ -6,12 +6,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/13/2018
 ms.topic: conceptual
-ms.openlocfilehash: b891c8a7bbb33e3a3f18adbbc723d4bc9aa99a3a
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 6a967f328a4fbe17f2c451d35f413bd7fdcbc24a
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78246457"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78331471"
 ---
 # <a name="my-first-graphical-runbook"></a>내 첫 번째 그래픽 Runbook
 
@@ -22,7 +22,7 @@ ms.locfileid: "78246457"
 > * [Python](automation-first-runbook-textual-python2.md)
 > 
 
-이 자습서는 Azure Automation에서 [그래픽 Runbook](automation-runbook-types.md#graphical-runbooks)을 만드는 과정을 안내합니다. Runbook 작업의 상태를 추적 하는 방법을 배우면 서 테스트 하 고 게시 하는 간단한 runbook으로 시작 합니다. 그런 다음 실제로 Azure 리소스를 관리 하도록 runbook을 수정 합니다 .이 경우에는 Azure 가상 컴퓨터를 시작 합니다. Runbook 매개 변수와 조건부 링크를 추가 하 여 runbook을 더욱 강력 하 게 만드는 자습서를 완료 합니다.
+이 자습서는 Azure Automation에서 [그래픽 Runbook](automation-runbook-types.md#graphical-runbooks)을 만드는 과정을 안내합니다. Runbook 작업의 상태를 추적 하는 방법을 배우면 서 테스트 하 고 게시할 수 있는 간단한 runbook으로 시작 합니다. 그런 다음 실제로 Azure 리소스를 관리 하도록 runbook을 수정 합니다 .이 경우에는 Azure 가상 컴퓨터를 시작 합니다. Runbook 매개 변수와 조건부 링크를 추가 하 여 runbook을 더욱 강력 하 게 만드는 자습서를 완료 합니다.
 
 >[!NOTE]
 >이 문서는 새 Azure PowerShell Az 모듈을 사용하도록 업데이트되었습니다. AzureRM 모듈은 적어도 2020년 12월까지 버그 수정을 수신할 예정이므로 계속 사용하셔도 됩니다. 새 Az 모듈 및 AzureRM 호환성에 대한 자세한 내용은 [새 Azure PowerShell Az 모듈 소개](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0)를 참조하세요. Hybrid Runbook Worker에 대 한 Az module 설치 지침은 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0)를 참조 하세요. Automation 계정의 경우 [Azure Automation에서 Azure PowerShell 모듈을 업데이트 하는 방법을](automation-update-azure-modules.md)사용 하 여 모듈을 최신 버전으로 업데이트할 수 있습니다.
@@ -37,7 +37,7 @@ ms.locfileid: "78246457"
 
 ## <a name="step-1---create-runbook"></a>1단계 - Runbook 만들기
 
-먼저 "Hello World" 텍스트를 출력 하는 간단한 runbook을 만듭니다.
+먼저 **Hello World**라는 텍스트를 출력하는 간단한 Runbook을 만듭니다.
 
 1. Azure Portal에서 Automation 계정을 엽니다. 
 
@@ -78,7 +78,7 @@ ms.locfileid: "78246457"
 
    작업 상태는 큐에 **대기**중으로 시작 되며, 작업에서 클라우드의 runbook worker를 사용할 수 있을 때까지 기다리고 있음을 나타냅니다. 작업 자가 작업을 클레임 할 때 상태가 **시작 중** 으로 변경 됩니다. 마지막으로 runbook이 실제로 실행 되기 시작 하면 상태가 **실행 중** 으로 바뀝니다.
 
-1. Runbook 작업이 완료 되 면 테스트 페이지에 해당 출력이 표시 됩니다. 이 경우에 **Hello World**가 표시됩니다.<br> ![Hello World](media/automation-first-runbook-graphical/runbook-test-results.png)
+1. Runbook 작업이 완료 되 면 테스트 창에 해당 출력이 표시 됩니다. 이 경우에 **Hello World**가 표시됩니다.<br> ![Hello World](media/automation-first-runbook-graphical/runbook-test-results.png)
 1. 캔버스로 돌아가려면 테스트 창을 닫습니다.
 
 ## <a name="step-4---publish-and-start-the-runbook"></a>4 단계 - runbook 게시 및 시작

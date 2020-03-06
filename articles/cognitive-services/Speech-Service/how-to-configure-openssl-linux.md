@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/16/2020
 ms.author: jhakulin
-ms.openlocfilehash: ff8772f7c3c3213c010b0bdbd0d0aa8897404bac
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 350c2bf3c4d0fc0a16f1b393e7c8d8a372679797
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77119989"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78331147"
 ---
 # <a name="configure-openssl-for-linux"></a>Linux용 OpenSSL 구성
 
@@ -42,13 +42,13 @@ OPENSSLDIR 아래에 `certs` 하위 디렉터리가 있는지 확인 합니다. 
 - OPENSSLDIR이 `/opt/ssl`됩니다. `.crt` 또는 `.pem` 파일이 많은 `certs` 하위 디렉터리가 있습니다.
 Speech SDK를 사용 하는 프로그램을 실행 하기 전에 `/opt/ssl/certs`를 가리키도록 환경 변수 `SSL_CERT_DIR`를 설정 합니다. 다음은 그 예입니다.
 ```bash
-SSL_CERT_DIR=/opt/ssl/certs ./helloworld
+export SSL_CERT_DIR=/opt/ssl/certs
 ```
 
-- OPENSSLDIR이 `/etc/pki/tls`됩니다. `ca-bundle.pem` 또는 `ca-bundle.crt`와 같은 인증서 번들 파일이 있습니다.
-Speech SDK를 사용 하는 프로그램을 실행 하기 전에 `/etc/pki/tls/ca-bundle.pem`를 가리키도록 환경 변수 `SSL_CERT_FILE`를 설정 합니다. 다음은 그 예입니다.
+- OPENSSLDIR은 `/etc/pki/tls` (예: RHEL/CentOS 기반 시스템). `ca-bundle.crt`와 같이 인증서 번들 파일을 사용 하는 `certs` 하위 디렉터리가 있습니다.
+Speech SDK를 사용 하는 프로그램을 실행 하기 전에 해당 파일을 가리키도록 환경 변수 `SSL_CERT_FILE` 설정 합니다. 다음은 그 예입니다.
 ```bash
-SSL_CERT_FILE=/etc/pki/tls/ca-bundle.pem ./helloworld
+export SSL_CERT_FILE=/etc/pki/tls/certs/ca-bundle.crt
 ```
 
 ## <a name="next-steps"></a>다음 단계

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 12/05/2019
-ms.openlocfilehash: bb8477165afcaafe6d03ccb3fe7764124aa166c6
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 7cbd2dfab7d0d9ee0df730eb15fa2c4b4952c85b
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928668"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399183"
 ---
 # <a name="mysql-drivers-and-management-tools-compatible-with-azure-database-for-mysql"></a>Azure Database for MySQL과 호환되는 MySQL 드라이버 및 관리 도구
 이 문서에서는 Azure Database for MySQL과 호환되는 드라이버 및 관리 도구를 설명합니다.
@@ -21,21 +21,21 @@ Azure Database for MySQL은 전 세계에서 가장 인기 있는 커뮤니티 �
 
 | **프로그래밍 언어** | **드라이버** | **연결** | **호환되는 버전** | **호환되지 않는 버전** | **참고 사항** |
 | :----------------------- | :--------- | :-------- | :---------------------- | :------------------------ | :-------- |
-| PHP | mysqli, pdo_mysql, mysqli | https://secure.php.net/downloads.php | 5.5, 5.6, 7.x | 5.3 | PHP 7.0과 SSL MySQLi 연결의 경우 연결 문자열에 MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT를 추가합니다. <br> ```mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306, NULL, MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT);```<br> PDO 집합: ```PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT``` 옵션을 false로 설정합니다.|
+| PHP | mysqli, pdo_mysql, mysqli | https://secure.php.net/downloads.php | 5.5, 5.6, 7.x | 5.3 | SSL MySQLi를 사용하여 PHP 7.0 연결을 하는 경우 연결 문자열에 MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT를 추가합니다. <br> ```mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306, NULL, MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT);```<br> PDO 집합: ```PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT``` 옵션을 false로 설정합니다.|
 | .NET | .NET 용 Async MySQL 커넥터 | https://github.com/mysql-net/MySqlConnector <br> [Nuget의 설치 패키지](https://www.nuget.org/packages/MySqlConnector/) | 0.27 이상 | 0.26.5 이하 | |
-| .NET | MySQL Connector/NET | https://github.com/mysql/mysql-connector-net | 8.0, 7.0, 6.10 |  | 인코딩 버그로 인해 UTF8이 아닌 Windows 시스템 중 일부에서 연결이 실패할 수 있습니다. |
+| .NET | MySQL Connector/NET | https://github.com/mysql/mysql-connector-net | 6.6.3, 7.0, 8.0 |  | 인코딩 버그로 인해 UTF8이 아닌 Windows 시스템 중 일부에서 연결이 실패할 수 있습니다. |
 | Node.js | mysqljs | https://github.com/mysqljs/mysql/ <br> NPM의 설치 패키지:<br> NPM에서 `npm install mysql` 실행 | 2.15 | 2.14.1 이하 | |
 | Node.js | 노드-mysql2 | https://github.com/sidorares/node-mysql2 | 1.3.4 + | | |
-| Go | Go MySQL 드라이버 | https://github.com/go-sql-driver/mysql/releases | 1.3, 1.4 | 1.2 이하 | 버전 1.3에 대한 연결 문자열에서는 `allowNativePasswords=true`를 사용합니다. 버전 1.4는 수정 사항을 포함하고 `allowNativePasswords=true`가 필요하지 않습니다. |
-| 파이썬 | MySQL 커넥터/Python | https://pypi.python.org/pypi/mysql-connector-python | 1.2.3, 2.0, 2.1, 2.2, MySQL 8.0에서 8.0.16 + 사용  | 1.2.2 이하 | |
-| 파이썬 | PyMySQL | https://pypi.org/project/PyMySQL/ | 0.7.11, 0.8.0부터, 0.8.1, 0.9.3 + | 0.9.0-0.9.2 (web2py의 회귀) | |
+| 이동 | Go MySQL 드라이버 | https://github.com/go-sql-driver/mysql/releases | 1.3, 1.4 | 1.2 이하 | 1\.3 버전에 대 한 연결 문자열에 `allowNativePasswords=true`를 사용 합니다. 버전 1.4에는 수정 `allowNativePasswords=true` 프로그램이 포함 되어 있으므로 더 이상 필요 하지 않습니다. |
+| Python | MySQL 커넥터/Python | https://pypi.python.org/pypi/mysql-connector-python | 1.2.3, 2.0, 2.1, 2.2, MySQL 8.0에서 8.0.16 + 사용  | 1.2.2 이하 | |
+| Python | PyMySQL | https://pypi.org/project/PyMySQL/ | 0.7.11, 0.8.0부터, 0.8.1, 0.9.3 + | 0.9.0-0.9.2 (web2py의 회귀) | |
 | Java | MariaDB 커넥터/J | https://downloads.mariadb.org/connector-java/ | 2.1, 2.0, 1.6 | 1.5.5 이하 | | 
 | Java | MySQL 커넥터/J | https://github.com/mysql/mysql-connector-j | 5.1.21 +, MySQL 8.0에 8.0.17 + 사용 | 5.1.20 및 아래 | |
 | C | MySQL 커넥터/C (C #) | https://dev.mysql.com/doc/refman/5.7/en/c-api-implementations.html | 6.0.2 + | | |
 | C | MySQL 커넥터/ODBC (myodbc) | https://github.com/mysql/mysql-connector-odbc | 3.51.29 + | | |
 | C++ | MySQL 커넥터/C++ | https://github.com/mysql/mysql-connector-cpp | 1.1.9 + | 1.1.3 및 아래 | | 
 | C++ | MySQL + +| https://tangentsoft.net/mysql++ | 3.2.3 + | | |
-| 루비 | mysql2 | https://github.com/brianmario/mysql2 | 0.4.10 + | | |
+| Ruby | mysql2 | https://github.com/brianmario/mysql2 | 0.4.10 + | | |
 | R | RMySQL | https://github.com/rstats-db/RMySQL | 0.10.16 + | | |
 | Swift | mysql-swift | https://github.com/novi/mysql-swift | 0.7.2 + | | |
 | Swift | vapor/mysql | https://github.com/vapor/mysql-kit | 2.0.1 + | | |
@@ -50,7 +50,7 @@ Azure Database for MySQL은 전 세계에서 가장 인기 있는 커뮤니티 �
 | SQL 쿼리 자동 완성 | X | X |  |
 | 데이터 가져오기 및 내보내기 | X | X | X | 
 | 여러 형식으로 내보내기 | X | X | X |
-| Backup 및 복원 |  | X |  |
+| 백업 및 복원 |  | X |  |
 | 서버 매개 변수 표시 | X | X | X |
 | 클라이언트 연결 표시 | X | X | X |
 

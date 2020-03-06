@@ -8,20 +8,20 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: larryfr
 author: Blackmist
-ms.date: 11/05/2019
-ms.openlocfilehash: 06b890a9186ec38ce3f851c9f36b778ec7549f76
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.date: 03/05/2020
+ms.openlocfilehash: 5e90416b23b057ad5079a551242895802ac641c9
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77580550"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399122"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Azure CLI를 사용 하 여 Azure Machine Learning에 대 한 작업 영역 만들기
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 이 문서에서는 Azure CLI를 사용 하 여 Azure Machine Learning 작업 영역을 만드는 방법에 대해 알아봅니다. Azure CLI는 Azure 리소스를 관리 하기 위한 명령을 제공 합니다. CLI에 대 한 machine learning 확장은 Azure Machine Learning 리소스를 사용 하기 위한 명령을 제공 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 * **Azure 구독**. 없는 경우 [무료 또는 유료 버전의 Azure Machine Learning](https://aka.ms/AMLFree)을 사용해 보세요.
 
@@ -59,7 +59,7 @@ Azure Machine Learning 작업 영역에서는 다음과 같은 Azure 서비스 �
 > [!IMPORTANT]
 > 기존 Azure 서비스를 지정 하지 않으면 작업 영역을 만드는 동안 자동으로 하나 생성 됩니다. 항상 리소스 그룹을 지정 해야 합니다.
 
-| 서비스 | 기존 인스턴스를 지정 하는 매개 변수 |
+| Service | 기존 인스턴스를 지정 하는 매개 변수 |
 | ---- | ---- |
 | **Azure 리소스 그룹** | `-g <resource-group-name>`
 | **Azure Storage 계정** | `--storage-account <service-id>` |

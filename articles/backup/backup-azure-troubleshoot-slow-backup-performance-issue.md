@@ -4,18 +4,18 @@ description: Azure Backup 성능 문제의 원인을 진단하는 데 도움이 
 ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: f8988d3df7f61d2fce4c8fa5b49e42e872c185b8
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: ed91a1cd8600f4e1ac208b0036c3d4ba74c0e6bb
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77603147"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78295966"
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Azure Backup에서 파일 및 폴더의 느린 백업 문제 해결
 
 이 문서에서는 Azure Backup을 사용할 때 파일 및 폴더의 느린 백업 성능 문제에 대한 원인을 진단하는 데 도움이 되는 문제 해결 지침을 제공합니다. Azure Backup 에이전트를 사용하여 파일을 백업하는 경우 백업 프로세스가 예상보다 오래 걸릴 수 있습니다. 이러한 지연은 다음 중 하나 이상에 의해 발생할 수 있습니다.
 
-* [백업 중인 컴퓨터에서 성능 병목 현상이 발생하는 경우](#cause1)
+* [백업 중인 컴퓨터에 성능 병목 현상이 있습니다.](#cause1)
 * [다른 프로세스 또는 바이러스 백신 소프트웨어가 Azure Backup 프로세스를 방해하는 경우](#cause2)
 * [Backup 에이전트가 Azure VM(가상 머신)에서 실행 중인 경우](#cause3)  
 * [많은 수(수백만 개)의 파일을 백업하는 경우](#cause4)
@@ -44,19 +44,19 @@ ms.locfileid: "77603147"
 
 백업 중인 컴퓨터의 병목 현상으로 인해 지연이 발생할 수 있습니다. 예를 들어 컴퓨터가 디스크에 읽거나 쓰는 기능 또는 네트워크를 통해 데이터를 전송하는 데 사용할 수 있는 대역폭으로 인해 병목 현상이 발생할 수 있습니다.
 
-Windows에서는 이러한 병목 상태를 검색 하는 [성능 모니터](h https://techcommunity.microsoft.com/t5/ask-the-performance-team/windows-performance-monitor-overview/ba-p/375481) (Perfmon) 라는 기본 제공 도구를 제공 합니다.
+Windows에서는 이러한 병목 상태를 검색 하는 [성능 모니터](https://techcommunity.microsoft.com/t5/ask-the-performance-team/windows-performance-monitor-overview/ba-p/375481) (Perfmon) 라는 기본 제공 도구를 제공 합니다.
 
 다음은 최적의 백업을 위해 병목 현상을 진단하는 데 도움이 될 수 있는 몇 가지 성능 카운터 및 범위입니다.
 
 | 카운터 | 상태 |
 | --- | --- |
-| Logical Disk(Physical Disk)--%idle |• 100% 유휴 ~ 50% 유휴 = 정상</br>• 49% 유휴 ~ 20% 유휴 = 경고 또는 모니터</br>• 19% 유휴 ~ 0% 유휴 = 위험 또는 사양을 벗어남 |
-| 논리 디스크 (실제 디스크)--% Avg. Disk Sec 읽기 또는 쓰기 |• 0.001ms ~ 0.015ms = 정상</br>• 0.015ms ~ 0.025ms = 경고 또는 모니터</br>• 0.026ms 이상 = 위험 또는 사양을 벗어남 |
+| Logical Disk(Physical Disk)--%idle |* 100% 유휴 ~ 50% 유휴 = 정상</br>* 49% 유휴 ~ 20% 유휴 상태 = 경고 또는 모니터</br>* 19% 유휴 상태에서 0% 유휴 = 위험 또는 사양을 벗어남 |
+| 논리 디스크 (실제 디스크)--% Avg. Disk Sec 읽기 또는 쓰기 |* 0.001 밀리초 ~ 0.015 밀리초 = 정상</br>* 0.015 밀리초 ~ 0.025 밀리초 = 경고 또는 모니터</br>* 0.026 밀리초 이상 = 위험 또는 사양 부족 |
 | 논리 디스크(실제 디스크)--현재 디스크 큐 길이(모든 인스턴스) |6분이 넘는 시간 동안 80개 요청 |
-| Memory--Pool Non Paged Bytes |• 사용된 풀의 60% 미만 = 정상<br>• 사용된 풀의 61% ~ 80% = 경고 또는 모니터</br>• 사용된 풀의 80% 초과 = 위험 또는 사양을 벗어남 |
-| Memory--Pool Paged Bytes |• 사용된 풀의 60% 미만 = 정상</br>• 사용된 풀의 61% ~ 80% = 경고 또는 모니터</br>• 사용된 풀의 80% 초과 = 위험 또는 사양을 벗어남 |
-| Memory--Available Megabytes |• 사용 가능한 여유 메모리의 50% 이상 = 정상</br>• 사용 가능한 여유 메모리의 25% = 모니터링</br>• 사용 가능한 여유 메모리의 10% = 경고</br>• 사용 가능한 여유 메모리의 100MB 또는 5% 미만 = 위험 또는 사양을 벗어남 |
-| Processor--\%%Processor Time(모든 인스턴스) |• 60% 미만 사용 = 정상</br>• 61% ~ 90% 사용 = 모니터 또는 주의</br>• 91% ~ 100% 사용 = 위험 |
+| Memory--Pool Non Paged Bytes |* 사용 된 풀의 60% 미만 = 정상<br>* 61% ~ 80%의 사용 된 풀 = 경고 또는 모니터</br>* 사용 된 풀의 80% 초과 = 위험 또는 사양을 벗어남 |
+| Memory--Pool Paged Bytes |* 사용 된 풀의 60% 미만 = 정상</br>* 61% ~ 80%의 사용 된 풀 = 경고 또는 모니터</br>* 사용 된 풀의 80% 초과 = 위험 또는 사양을 벗어남 |
+| Memory--Available Megabytes |* 사용 가능한 메모리의 50% 이상 = 정상</br>* 사용 가능한 메모리의 25% = 모니터</br>* 사용 가능한 메모리의 10% = 경고</br>* 100 MB 미만 또는 사용 가능한 사용 가능한 메모리의 5% = 위험 또는 사양 부족 |
+| Processor--\%%Processor Time(모든 인스턴스) |* 60% 미만 = 정상</br>* 61% ~ 90% 사용 됨 = 모니터 또는 주의</br>* 91% ~ 100% 사용 됨 = 위험 |
 
 > [!NOTE]
 > 인프라가 가능한 원인으로 격리되면 더 나은 성능을 위해 주기적으로 디스크의 조각 모음을 수행하는 것이 좋습니다.

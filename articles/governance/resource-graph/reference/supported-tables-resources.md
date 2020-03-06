@@ -1,14 +1,14 @@
 ---
 title: 지원 되는 리소스 관리자 리소스 유형
 description: Azure 리소스 그래프에서 지원 되는 리소스 관리자 리소스 유형 목록 및 변경 기록을 제공 합니다.
-ms.date: 03/02/2020
+ms.date: 03/05/2020
 ms.topic: reference
-ms.openlocfilehash: 3d6ba89cbf5c35c2a06a214029971341c4184b41
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.openlocfilehash: 597e1c2f7e04a7861099763d809ac09978e09805
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78227332"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399594"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Azure 리소스 그래프 테이블 및 리소스 종류 참조
 
@@ -272,7 +272,7 @@ Azure 리소스 그래프는 [Azure Resource Manager](../../../azure-resource-ma
 - microsoft. network/ddoscustompolicies
 - microsoft. network/ddosprotectionplans
 - microsoft. network/dnszones
-- Microsoft. network/expressroutecircuits
+- microsoft. network/expressroutecircuits
 - microsoft. network/expressroutecrossconnections
 - microsoft. network/expressroutegateways
 - microsoft. network/expressrouteports
@@ -348,6 +348,7 @@ Azure 리소스 그래프는 [Azure Resource Manager](../../../azure-resource-ma
 - microsoft. 검색/searchservices
 - microsoft. security/자동화
 - microsoft. security/iotsecuritysolutions
+- securitydetonation/침실
 - servicebus/네임 스페이스
 - servicefabric/클러스터
 - servicefabric/containergroupsets

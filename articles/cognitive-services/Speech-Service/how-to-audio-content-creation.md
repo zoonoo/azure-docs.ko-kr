@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: dapine
-ms.openlocfilehash: 4785356963e7df1d7b175ac21ceebc921f851ffb
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: ab0d2b8d95b4cb5996dd93fa0bb24085c9de26d5
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77913653"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78331539"
 ---
 # <a name="improve-synthesis-with-audio-content-creation"></a>오디오 콘텐츠 생성으로 합성 향상
 
@@ -43,7 +43,7 @@ ms.locfileid: "77913653"
 
 음성 리소스를 만들고 Speech Studio와 연결 하려면 다음 단계를 수행 합니다.
 
-1. 다음 지침에 따라 [Azure 계정에 등록](get-started.md#new-resource) 하 고 [음성 리소스를 만듭니다](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure). 가격 책정 계층이 **S0**로 설정 되었는지 확인 합니다. 신경망 중 하나를 사용 하는 경우 [지원 되는 지역](regions.md#standard-and-neural-voices)에서 리소스를 만들어야 합니다.
+1. 다음 지침에 따라 [Azure 계정에 등록](get-started.md#new-resource) 하 고 [음성 리소스를 만듭니다](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-the-resource). 가격 책정 계층이 **S0**로 설정 되었는지 확인 합니다. 신경망 중 하나를 사용 하는 경우 [지원 되는 지역](regions.md#standard-and-neural-voices)에서 리소스를 만들어야 합니다.
 2. [오디오 콘텐츠 생성](https://aka.ms/audiocontentcreation)에 로그인 합니다.
 3. 기존 프로젝트를 선택 하거나 **새로 만들기**를 클릭 합니다.
 4. 위쪽 탐색 창에 있는 **설정** 옵션을 사용 하 여 언제 든 지 구독을 수정할 수 있습니다.

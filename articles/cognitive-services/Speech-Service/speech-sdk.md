@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: dapine
-ms.openlocfilehash: 04546883e6742086fa05fc450920b1026702bd08
-ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
+ms.openlocfilehash: 984d2dfe07faa22756b4be167aa86a69806b1a84
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77212514"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78331096"
 ---
 # <a name="about-the-speech-sdk"></a>Speech SDK 정보
 
@@ -31,7 +31,7 @@ ms.locfileid: "77212514"
 
 ## <a name="get-the-sdk"></a>SDK 가져오기
 
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+# <a name="windows"></a>[Windows](#tab/windows)
 
 > [!WARNING]
 > Speech SDK는 Windows 10 이상 버전을 지원 합니다. 이전 Windows 버전은 **지원 되지 않습니다**.
@@ -42,12 +42,12 @@ Windows의 경우 다음 언어를 지원합니다.
 
 * Java: 최신 버전의 음성 SDK Maven 패키지를 참조 및 사용할 수 있으며, 이 패키지는 Windows x64만 지원합니다. Maven 프로젝트에서 `https://csspeechstorage.blob.core.windows.net/maven/`을 추가 리포지토리로 추가하고, `com.microsoft.cognitiveservices.speech:client-sdk:1.8.0`을 종속성으로 참조합니다.
 
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+# <a name="linux"></a>[Linux](#tab/linux)
 
 > [!NOTE]
-> 현재는 다음 대상 아키텍처에서 Ubuntu 16.04, Ubuntu 18.04 및 Debian 9만 지원 합니다.
-> - x86, x64 및 ARM64 C++ 개발
-> - Java 용 x64 및 ARM64
+> 현재 다음 대상 아키텍처에서는 Ubuntu 16.04, Ubuntu 18.04, Debian 9, Red Hat Enterprise Linux (RHEL) 8 및 CentOS 8만 지원 합니다.
+> - C++ 개발용 X86 (Debian/ubuntu), X64, ARM32 (Debian/ubuntu) 및 ARM64 (Debian/ubuntu)
+> - Java 용 x64, ARM32 (Debian/Ubuntu) 및 ARM64 (Debian/Ubuntu)
 > - .NET Core 및 Python 용 x64
 
 다음 셸 명령을 실행 하 여 필요한 라이브러리를 설치 했는지 확인 합니다.
@@ -65,6 +65,16 @@ Debian 9:
 sudo apt-get update
 sudo apt-get install libssl1.0.2 libasound2
 ```
+
+RHEL/CentOS 8에서:
+
+```sh
+sudo yum update
+sudo yum install alsa-lib openssl
+```
+
+> [!NOTE]
+> RHEL/CentOS 8에서 [Linux 용 OpenSSL를 구성 하는 방법](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md)에 대 한 지침을 따릅니다.
 
 * C#: 최신 버전의 음성 SDK NuGet 패키지를 참조 및 사용할 수 있습니다. SDK를 참조하려면 다음 패키지 참조를 프로젝트에 추가합니다.
 
@@ -86,7 +96,7 @@ sudo apt-get install libssl1.0.2 libasound2
 
   애플리케이션을 만들려면 개발 환경에 필수 이진 파일(및 라이브러리)을 복사하고 이동합니다. 필요에 따라 빌드 프로세스에 포함합니다.
 
-# <a name="androidtabandroid"></a>[Android](#tab/android)
+# <a name="android"></a>[Android](#tab/android)
 
 Android용 Java SDK는 필요한 라이브러리와 필요한 Android 권한을 포함하는 [AAR(Android 라이브러리)](https://developer.android.com/studio/projects/android-library)로 패키지됩니다. `https://csspeechstorage.blob.core.windows.net/maven/`의 Maven 리포지토리에서 패키지 `com.microsoft.cognitiveservices.speech:client-sdk:1.7.0`로 호스트됩니다.
 

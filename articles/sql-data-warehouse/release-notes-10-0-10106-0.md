@@ -12,12 +12,12 @@ ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 4811f24fb942689bddcc9d9d1bcb8c33d147c1af
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.openlocfilehash: 934e804b60312a32300c4b884ea8fd15e2195870
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78256011"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302035"
 ---
 # <a name="azure-synapse-analytics-release-notes"></a>Azure Synapse Analytics 릴리스 정보
 
@@ -38,6 +38,13 @@ ms.locfileid: "78256011"
 > ```
 > SELECT SERVERPROPERTY('EngineEdition')
 > ```
+
+## <a name="february-2020"></a>2020년 2월
+
+| 서비스 개선 사항 | 세부 정보 |
+| --- | --- |
+|**데이터베이스 호환성 수준 (미리 보기)**| 이 릴리스에서는 이제 사용자가 데이터베이스의 호환성 수준을 설정 하 여 특정 버전의 SQL 분석 엔진의 Transact-sql 언어 및 쿼리 처리 동작을 가져올 수 있습니다. 자세한 내용은 database_scoped_configurations 및 [Alter Database 범위 구성](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql?view=sql-server-ver15)을 참조 하세요 [.](/sql/relational-databases/system-catalog-views/sys-database-scoped-configurations-transact-sql?view=azure-sqldw-latest&branch=pr-en-us-13797)|
+|**Sp_describe_undeclared_parameters**| 사용자가 Transact-sql 일괄 처리에서 선언 되지 않은 매개 변수에 대 한 메타 데이터를 볼 수 있도록 허용 합니다. 자세한 내용은 [sp_describe_undeclared_parameters](/sql/relational-databases/system-stored-procedures/sp-describe-undeclared-parameters-transact-sql?view=sql-server-ver15)를 참조 하세요.|
 
 ## <a name="january-2020"></a>2020년 1월
 

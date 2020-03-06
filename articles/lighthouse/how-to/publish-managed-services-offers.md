@@ -3,16 +3,16 @@ title: Azure Marketplace에 관리형 서비스 솔루션 게시
 description: 고객이 Azure 위임 리소스 관리에 고객을 온보딩하는 관리형 서비스 제품을 게시하는 방법을 알아봅니다.
 ms.date: 01/16/2020
 ms.topic: conceptual
-ms.openlocfilehash: 841cb52791709be5649d66b72f5c18ef35b740ef
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 6ae93759073be6b05d118ccf46f6b6367fff5fc6
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76155250"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78328945"
 ---
 # <a name="publish-a-managed-services-offer-to-azure-marketplace"></a>Azure Marketplace에 관리형 서비스 솔루션 게시
 
-이 문서에서는 [Cloud 파트너 포털](https://cloudpartner.azure.com/)을 사용하여 [Azure Marketplace](https://azuremarketplace.microsoft.com)에 공용 또는 프라이빗 관리형 서비스 제품을 게시하여 제품을 구매하는 고객이 Azure 위임 리소스 관리를 위해 리소스를 온보딩할 수 있도록 하는 방법을 알아봅니다.
+이 문서에서는 [Cloud 파트너 포털](https://azuremarketplace.microsoft.com)을 사용하여 [Azure Marketplace](https://cloudpartner.azure.com/)에 공용 또는 프라이빗 관리형 서비스 제품을 게시하여 제품을 구매하는 고객이 Azure 위임 리소스 관리를 위해 리소스를 온보딩할 수 있도록 하는 방법을 알아봅니다.
 
 > [!NOTE]
 > 이러한 제품을 만들고 게시하려면 [파트너 센터에 유효한 계정](../../marketplace/partner-center-portal/create-account.md)이 있어야 합니다. 계정이 아직 없는 경우 [등록 프로세스](https://aka.ms/joinmarketplace)를 통해 파트너 센터에서 계정을 만들고 상업적 Marketplace 프로그램에 등록하는 단계를 진행합니다. MPN(Microsoft 파트너 네트워크) ID는 게시하는 제품에 [자동으로 연결되어](../../billing/billing-partner-admin-link-started.md) 고객 계약에 미치는 영향을 추적합니다.
@@ -88,7 +88,7 @@ ms.locfileid: "76155250"
 - **역할 정의**: 목록에서 사용 가능한 Azure AD 기본 제공 역할 중 하나를 선택 합니다. 이 역할은 **Azure AD 개체 ID** 필드의 사용자가 고객의 리소스에 대해 갖게 되는 권한을 결정합니다. 이러한 역할에 대 한 설명은 [기본 제공 역할](../../role-based-access-control/built-in-roles.md) 및 [Azure 위임 된 리소스 관리에 대 한 역할 지원](../concepts/tenants-users-roles.md#role-support-for-azure-delegated-resource-management)을 참조 하세요.
   > [!NOTE]
   > 해당 하는 새로운 기본 제공 역할이 Azure에 추가 되 면 여기에서 사용할 수 있게 되며, 이러한 역할은 표시 되기 전에 약간의 지연이 있을 수 있습니다.
-- **할당 가능한 역할**:이 권한 부여에 대 한 **역할 정의** 에서 사용자 액세스 관리자를 선택한 경우에만 필요 합니다. 그렇다면 여기에 할당 가능한 역할을 하나 이상 추가해야 합니다. **Azure AD 개체 ID** 필드의 사용자는 이러한 **할당 가능한 역할**을 [수정할 수 있는 정책을 배포](deploy-policy-remediation.md)하는 데 필요한 [관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)에 할당할 수 있습니다. 사용자 액세스 관리자 역할에 연결된 다른 사용 권한이 이 사용자에게 적용되지 않습니다. 여기에서 하나 이상의 역할을 선택하지 않으면 제출이 인증을 통과하지 못합니다. 이 사용자의 역할 정의에 대해 사용자 액세스 관리자를 선택하지 않은 경우 이 필드는 영향을 주지 않습니다.
+- **할당 가능한 역할**:이 권한 부여에 대 한 **역할 정의** 에서 사용자 액세스 관리자를 선택한 경우에만 필요 합니다. 그렇다면 여기에 할당 가능한 역할을 하나 이상 추가해야 합니다. **Azure AD 개체 ID** 필드의 사용자는 이러한 **할당 가능한 역할**을 [수정할 수 있는 정책을 배포](../../active-directory/managed-identities-azure-resources/overview.md)하는 데 필요한 [관리 ID](deploy-policy-remediation.md)에 할당할 수 있습니다. 사용자 액세스 관리자 역할에 연결된 다른 사용 권한이 이 사용자에게 적용되지 않습니다. 여기에서 하나 이상의 역할을 선택하지 않으면 제출이 인증을 통과하지 못합니다. 이 사용자의 역할 정의에 대해 사용자 액세스 관리자를 선택하지 않은 경우 이 필드는 영향을 주지 않습니다.
 
 > [!TIP]
 > 필요한 경우 [위임에 대 한 액세스를 제거할](onboard-customer.md#remove-access-to-a-delegation) 수 있도록 하려면 **역할 정의가** [관리 서비스 등록 할당 삭제 역할](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role)로 설정 된 **권한 부여** 를 포함 합니다. 이 역할을 할당하지 않으면 고객 테넌트의 사용자만 위임된 리소스를 제거할 수 있습니다.
@@ -141,7 +141,7 @@ ms.locfileid: "76155250"
 
 이 정보를 추가한 후에는 **저장**을 선택합니다.
 
-## <a name="publish-your-offer"></a>제안 게시
+## <a name="publish-your-offer"></a>제품 게시
 
 모든 섹션을 완료한 후, 다음 단계는 Azure Marketplace에 제품을 게시하는 것입니다. **게시** 단추를 선택하여 제품을 라이브로 전환하는 프로세스를 시작합니다. 이 프로세스에 대한 자세한 내용은 [Azure Marketplace 및 AppSource 제안 게시](../../marketplace/cloud-partner-portal/manage-offers/cpp-publish-offer.md)를 참조하세요.
 
@@ -149,17 +149,14 @@ ms.locfileid: "76155250"
 
 ## <a name="the-customer-onboarding-process"></a>고객 온보딩 프로세스
 
-고객이 제품을 추가하면 하나 이상의 특정 구독 또는 리소스 그룹을 위임할 수 있습니다. 그러면 [Azure 위임 리소스 관리에 온보딩](view-manage-service-providers.md#delegate-resources)됩니다. 고객이 제품을 수락했지만 아직 리소스를 위임하지 않은 경우 Azure Portal에서 [**서비스 공급자**](view-manage-service-providers.md) 페이지의 **공급자 제품** 섹션 맨 위에 메모가 표시됩니다.
+고객이 제품을 추가하면 하나 이상의 특정 구독 또는 리소스 그룹을 위임할 수 있습니다. 그러면 [Azure 위임 리소스 관리에 온보딩](view-manage-service-providers.md#delegate-resources)됩니다. 고객이 제품을 수락했지만 아직 리소스를 위임하지 않은 경우 Azure Portal에서서비스 공급자[**페이지의**공급자 제품](view-manage-service-providers.md) 섹션 맨 위에 메모가 표시됩니다.
 
 > [!IMPORTANT]
 > 위임은 온보딩하려는 구독에 대해 [소유자 기본 제공 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)이 있는(또는 온보딩하려는 리소스 그룹을 포함하는) 고객 테넌트의 비게스트 계정이 수행해야 합니다. 구독을 위임할 수 있는 모든 사용자를 보기 위해 고객 테넌트의 사용자는 Azure Portal에서 구독을 선택하고, **IAM(액세스 제어)** 을 열고, [소유자 역할이 있는 모든 소유자를 볼 수 있습니다](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription).
 
 고객이 구독 또는 구독 내의 하나 이상의 리소스 그룹을 위임한 후에는 해당 구독에 대해 **Microsoft ManagedServices** 리소스 공급자가 등록되고, 테넌트의 사용자는 제품의 권한 부여에 따라 위임된 리소스에 액세스할 수 있습니다.
 
-> [!NOTE]
-> 현재 구독에서 Azure Databricks를 사용하는 경우 구독 또는 구독 내의 리소스 그룹을 위임할 수 없습니다. 마찬가지로 구독 또는 구독 내의 리소스 그룹이 이미 위임된 경우에는 현재 해당 구독에서 Databricks 작업 영역을 만들 수 없습니다.
-
 ## <a name="next-steps"></a>다음 단계
 
 - [테넌트 간 관리 환경](../concepts/cross-tenant-management-experience.md)에 대해 알아봅니다.
-- Azure Portal의 **내 고객**으로 이동하여 [고객을 보고 관리](view-manage-customers.md)합니다.
+- Azure Portal의 [내 고객](view-manage-customers.md)으로 이동하여 **고객을 보고 관리**합니다.

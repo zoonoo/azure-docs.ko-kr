@@ -9,13 +9,13 @@ ms.author: gopalv
 ms.topic: quickstart
 ms.date: 12/31/2019
 ms.openlocfilehash: 1fdf8eae5d19a2d43499d1984f4dea834d8a61d8
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77525875"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78397296"
 ---
-# <a name="quickstart-set-up-the-data-science-virtual-machine-for-windows"></a>빠른 시작: Windows용 Data Science Virtual Machine 설정
+# <a name="quickstart-set-up-the-data-science-virtual-machine-for-windows"></a>빠른 시작: Windows에 대 한 Data Science Virtual Machine 설정
 
 Windows Server 2019 Data Science Virtual Machine을 준비하고 실행합니다.
 
@@ -36,14 +36,14 @@ DSVM 인스턴스를 만들려면
 1. "가상 머신 만들기" 블레이드로 리디렉션됩니다.
 
 1. **기본** 탭을 채웁니다.
-      * **구독**: 둘 이상의 구독이 있으면 머신을 만들고 요금을 청구할 구독을 선택합니다. 이 구독에 대한 리소스 만들기 권한이 있어야 합니다.
-      * **리소스 그룹**: 새 그룹을 만들거나 기존 그룹을 사용합니다.
-      * **가상 머신 이름**: 가상 머신의 이름을 입력합니다. 입력한 대로 Azure Portal에 표시됩니다.
-      * **위치**: 가장 적합한 데이터 센터를 선택합니다. 가장 빠른 네트워크 액세스를 위해 대부분의 데이터가 있거나 물리적 위치에 가장 가까운 데이터 센터입니다. [Azure 지역](https://azure.microsoft.com/global-infrastructure/regions/)에 대해 자세히 알아보세요.
+      * **구독**: 둘 이상의 구독이 있는 경우 컴퓨터가 만들어지고 청구 되는 구독을 선택 합니다. 이 구독에 대한 리소스 만들기 권한이 있어야 합니다.
+      * **리소스 그룹**: 새 그룹을 만들거나 기존 그룹을 사용 합니다.
+      * **가상 컴퓨터 이름**: 가상 컴퓨터의 이름을 입력 합니다. 입력한 대로 Azure Portal에 표시됩니다.
+      * **위치**: 가장 적합 한 데이터 센터를 선택 합니다. 가장 빠른 네트워크 액세스를 위해 대부분의 데이터가 있거나 물리적 위치에 가장 가까운 데이터 센터입니다. [Azure 지역](https://azure.microsoft.com/global-infrastructure/regions/)에 대해 자세히 알아보세요.
       * **이미지**: 기본값을 그대로 둡니다.
-      * **Size**: 일반 워크로드에 적합한 크기가 자동으로 채워집니다. [Azure에서 Windows VM 크기](../../virtual-machines/windows/sizes.md)에 대해 자세히 읽어보세요.
-      * **사용자 이름**: 관리자 사용자 이름을 입력합니다. 가상 머신에 로그인할 때 사용할 사용자 이름이며 Azure 사용자 이름과 같지 않아도 됩니다.
-      * **암호**: 가상 머신에 로그인하는 데 사용할 암호를 입력합니다.    
+      * **크기**: 일반 작업에 적절 한 크기로 자동 채워야 합니다. [Azure에서 Windows VM 크기](../../virtual-machines/windows/sizes.md)에 대해 자세히 읽어보세요.
+      * **사용자 이름**: 관리자 사용자 이름을 입력 합니다. 가상 머신에 로그인할 때 사용할 사용자 이름이며 Azure 사용자 이름과 같지 않아도 됩니다.
+      * **암호**: 가상 머신에 로그인 하는 데 사용할 암호를 입력 합니다.    
 1. **검토 + 만들기**를 선택합니다.
 1. **검토+만들기**
    * 입력한 모든 정보가 올바른지 확인합니다. 

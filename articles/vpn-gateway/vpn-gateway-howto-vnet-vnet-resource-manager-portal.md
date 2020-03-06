@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 02/26/2020
+ms.date: 03/05/2020
 ms.author: cherylmc
-ms.openlocfilehash: 18ef9d89a2366e6d4db3c3154bae0bd83e0386f1
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: dbdc13b8c861c620bfdbaaf53c0901a51bb9ce08
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77654772"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399209"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-by-using-the-azure-portal"></a>Azure Portal을 사용하여 VNet-VNet 간 VPN Gateway 연결 구성
 
@@ -75,16 +75,16 @@ VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이�
 
 - **가상 네트워크 설정**
     - **이름**: VNet1
-    - **주소 공간**: 10.11.0.0/16
+    - **주소 공간**: 10.1.0.0/16
     - **구독**: 사용 하려는 구독을 선택 합니다.
     - **리소스 그룹**: TestRG1
     - **위치**: 미국 동부
     - **서브넷**
         - **이름**: 프런트 엔드
-        - **주소 범위**: 10.11.0.0/24
+        - **주소 범위**: 10.1.0.0/24
     - **게이트웨이 서브넷**:
         - **이름**: *게이트웨이 서브넷* 이 자동으로 채워집니다.
-        - **주소 범위**: 10.11.255.0/27
+        - **주소 범위**: 10.1.255.0/27
 
 - **가상 네트워크 게이트웨이 설정**
     - **이름**: VNet1GW
@@ -126,11 +126,6 @@ VNet이 이미 있는 경우 설정이 VPN 게이트웨이 설계와 호환되�
 
 ### <a name="to-create-a-virtual-network"></a>가상 네트워크를 만들려면
 [!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
-
-## <a name="add-additional-address-space-and-create-subnets"></a>다른 주소 공간 추가 및 서브넷 만들기
-VNet이 만들어지면 여기에 다른 주소 공간을 추가하고 서브넷을 만들 수 있습니다.
-
-[!INCLUDE [vpn-gateway-additional-address-space](../../includes/vpn-gateway-additional-address-space-include.md)]
 
 ## <a name="create-a-virtual-network-gateway"></a>가상 네트워크 게이트웨이 만들기
 이 단계에서는 VNet용 가상 네트워크 게이트웨이를 만듭니다. 종종 선택한 게이트웨이 SKU에 따라 게이트웨이를 만드는 데 45분 이상 걸릴 수 있습니다. 연습으로 이 구성을 만드는 경우 [예제 설정](#example-settings)을 참조하세요.

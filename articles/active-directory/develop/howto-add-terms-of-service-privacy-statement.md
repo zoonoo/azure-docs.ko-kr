@@ -12,12 +12,12 @@ ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
-ms.openlocfilehash: f28c33f20556825d84edda34752ac64714327526
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 8fc85781f139b45e9e37f6e0f7cc36974041352d
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76697339"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78300012"
 ---
 # <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>방법: 앱에 대 한 서비스 약관 및 개인 정보 취급 방침 구성
 
@@ -53,7 +53,7 @@ Azure AD(Azure Active Directory)와 Microsoft 계정을 통합하는 앱을 빌�
 
 * [Azure Portal을 통해](#azure-portal)
 * [앱 개체 JSON을 사용하여](#app-object-json)
-* [MSGraph 베타 REST API를 사용하여](#msgraph-beta-rest-api)
+* [Microsoft Graph API 사용](#msgraph-rest-api)
 
 ### <a name="azure-portal"></a>Azure Portal 사용
 Azure Portal에서 다음 단계를 수행 합니다.
@@ -77,12 +77,12 @@ Azure Portal에서 다음 단계를 수행 합니다.
     }
 ```
 
-### <a name="msgraph-beta-rest-api"></a>MSGraph 베타 REST API를 사용하여
+### <a name="msgraph-rest-api"></a>Microsoft Graph API 사용
 
-프로그래밍 방식으로 모든 앱을 업데이트하려면 MSGraph 베타 REST API를 사용하여 서비스 약관 및 개인정보처리방침 문서 링크를 포함하도록 모든 앱을 업데이트하면 됩니다.
+모든 앱을 프로그래밍 방식으로 업데이트 하려면 Microsoft Graph API를 사용 하 여 모든 앱을 업데이트 하 여 서비스 약관 및 개인정보 처리 방침 문서에 대 한 링크를 포함 합니다.
 
 ```
-PATCH https://graph.microsoft.com/beta/applications/{application id}
+PATCH https://graph.microsoft.com/v1.0/applications/{application id}
 { 
     "appId": "{your application id}", 
     "info": { 
@@ -97,4 +97,4 @@ PATCH https://graph.microsoft.com/beta/applications/{application id}
 
 > [!NOTE]
 > * `supportUrl`, `marketingUrl` 및 `logoUrl` 필드에 할당된 기존 값을 덮어쓰지 않도록 주의해야 합니다.
-> * MSGraph 베타 REST API는 Azure AD 계정으로 로그인하는 경우에만 작동합니다. 개인 Microsoft 계정은 지원되지 않습니다.
+> * Microsoft Graph API는 Azure AD 계정으로 로그인 하는 경우에만 작동 합니다. 개인 Microsoft 계정은 지원되지 않습니다.

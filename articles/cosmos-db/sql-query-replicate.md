@@ -4,18 +4,18 @@ description: Azure Cosmos DB에서 SQL 시스템 함수 복제에 대해 알아�
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 5e0b7f29c503daa8a95dcc46238e60728c0cec50
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 19fcde522c5cb0355e53a5616145f27fada7dad9
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349563"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302188"
 ---
 # <a name="replicate-azure-cosmos-db"></a>복제 (Azure Cosmos DB)
- 문자열 값을 지정한 횟수 만큼을 반복합니다.
+ 지정한 횟수만큼 문자열 값을 반복합니다.
   
 ## <a name="syntax"></a>구문
   
@@ -29,9 +29,9 @@ REPLICATE(<str_expr>, <num_expr>)
    는 문자열 식입니다.
   
 *num_expr*  
-   숫자 식입니다. *Num_expr* 가 음수 이거나 한정 되지 않은 경우 결과가 정의 되지 않습니다.
+   숫자 식입니다. *Num_expr* 음수 이거나 한정 되지 않은 경우 결과가 정의 되지 않습니다.
   
-## <a name="return-types"></a>반환 유형
+## <a name="return-types"></a>반환 형식
   
   문자열 식을 반환합니다.
   
@@ -40,7 +40,7 @@ REPLICATE(<str_expr>, <num_expr>)
 
 ## <a name="examples"></a>예
   
-  다음 예에서는 쿼리에서 `REPLICATE`을 사용 하는 방법을 보여 줍니다.
+  다음 예에서는 쿼리에서 `REPLICATE`를 사용 하는 방법을 보여 줍니다.
   
 ```sql
 SELECT REPLICATE("a", 3) AS replicate
@@ -51,6 +51,10 @@ SELECT REPLICATE("a", 3) AS replicate
 ```json
 [{"replicate": "aaa"}]
 ```  
+
+## <a name="remarks"></a>설명
+
+이 시스템 함수는 인덱스를 활용 하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

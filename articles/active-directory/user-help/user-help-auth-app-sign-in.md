@@ -8,19 +8,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 02/07/2020
+ms.date: 02/25/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: b5f2b42728fd6f3d61695b4f88cc416015dd97cb
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.openlocfilehash: ac61c01c5e45b6e8e001a68781f93c3962cb581f
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77108266"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78297848"
 ---
 # <a name="sign-in-to-your-accounts-using-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱을 사용하여 계정에 로그인
 
-2단계 인증을 사용하는 경우 Microsoft Authenticator 앱으로 계정에 쉽게 로그인할 수 있습니다. 2단계 인증을 사용하면 특히 중요한 정보를 볼 때 보다 안전하게 계정에 액세스할 수 있습니다. 암호를 잊어버리거나 암호가 노출될 수 있으므로 2단계 인증은 다른 사람이 침입하기 어렵게 만들어서 계정을 보호하는 추가 보안 단계입니다.
+Microsoft Authenticator 앱을 사용 하면 2 단계 인증을 사용 하는 경우 계정에 로그인 할 수 있습니다. 2단계 인증을 사용하면 특히 중요한 정보를 볼 때 보다 안전하게 계정에 액세스할 수 있습니다. 암호를 잊어버리거나 암호가 노출될 수 있으므로 2단계 인증은 다른 사람이 침입하기 어렵게 만들어서 계정을 보호하는 추가 보안 단계입니다.
 
 Microsoft Authenticator 앱은 다음을 비롯한 여러 가지 방법으로 사용할 수 있습니다.
 
@@ -49,13 +49,19 @@ Microsoft Authenticator 앱을 사용하려면 다음을 수행해야 합니다.
 
 ### <a name="turn-on-phone-sign-in"></a>휴대폰 로그인 설정
 
-- Microsoft Authenticator 앱을 열고, 회사 또는 학교 계정으로 이동하고, 휴대폰 로그인을 설정합니다.
+Microsoft Authenticator 앱을 열고 회사 또는 학교 계정으로 이동한 다음 휴대폰 로그인을 설정 합니다.
 
-    - **이 아이콘 ![설정을 보여주는 아이콘](media/user-help-auth-app-sign-in/icon.png)이 있는 경우** 이 아이콘이 회사 또는 학교 계정 이름 옆에 나타나는 경우 계정에 대한 휴대폰 로그인을 이미 설정했음을 의미합니다. 앱 외부에서 인증 요청에 대한 알림을 받을 수 있도록 계정에 대한 푸시 알림을 추가하라는 메시지가 표시될 수 있습니다.
+Android 장치:
 
-    - **2단계 인증에 대한 앱을 사용하고 있는 경우** 앱 및 2단계 인증을 이미 사용하고 있는 경우 계정 이름 옆의 드롭다운 화살표를 선택한 다음, **휴대폰 로그인 사용**을 선택할 수 있습니다.
+- **이 아이콘 ![설정을 보여주는 아이콘](media/user-help-auth-app-sign-in/icon.png)이 있는 경우** 이 아이콘이 회사 또는 학교 계정 이름 옆에 나타나는 경우 계정에 대한 휴대폰 로그인을 이미 설정했음을 의미합니다. 앱 외부에서 인증 요청에 대한 알림을 받을 수 있도록 계정에 대한 푸시 알림을 추가하라는 메시지가 표시될 수 있습니다.
+- **2 단계 인증에 앱을 이미 사용 하 고 있는 경우** 앱 및 2 단계 확인을 이미 사용 하 고 있는 경우 계정 이름 옆에 있는 화살표를 선택한 다음 **휴대폰 로그인 사용**을 선택할 수 있습니다.
+- **회사 또는 학교 계정을 찾을 수 없는 경우** 앱의 **계정** 화면에서 회사 또는 학교 계정을 찾을 수 없는 경우 앱에 계정을 아직 추가하지 않은 것을 의미합니다. [회사 또는 학교 계정 추가](user-help-auth-app-add-work-school-account.md) 문서의 단계를 수행하여 회사 또는 학교 계정을 추가합니다.
 
-    - **회사 또는 학교 계정을 찾을 수 없는 경우** 앱의 **계정** 화면에서 회사 또는 학교 계정을 찾을 수 없는 경우 앱에 계정을 아직 추가하지 않은 것을 의미합니다. [회사 또는 학교 계정 추가](user-help-auth-app-add-work-school-account.md) 문서의 단계를 수행하여 회사 또는 학교 계정을 추가합니다.
+IOS 장치에서:
+
+- 계정 **타일을 탭 하면**계정이 계정의 전체 화면 보기로 열립니다. **휴대폰 로그인이 사용 하도록** 설정 되어 있으면 암호 없이 로그인 하도록 완전히 설정 된 것입니다. **휴대폰 로그인 사용**이 표시 되 면 해당 항목을 눌러 휴대폰 로그인을 설정 합니다.
+- **2 단계 인증을 위해 앱을 이미 사용 하 고 있다면**계정 타일을 탭 하 여 계정의 전체 화면 보기로 확장할 수 있습니다. 그런 다음 **휴대폰 로그인 사용** 을 탭 하 여 휴대폰 로그인을 설정 합니다.
+- 앱의 **계정** 화면에서 **회사 또는 학교 계정을 찾을 수 없는 경우** 앱에 아직 추가 하지 않았음을 의미 합니다. 회사 또는 학교 계정 추가 문서의 단계를 수행 하 여 회사 또는 학교 계정을 추가 합니다.
 
 휴대폰 로그인을 설정한 후 Microsoft Authenticator 앱만을 사용하여 로그인할 수 있습니다.
 
@@ -82,13 +88,19 @@ Outlook.com, Xbox, Skype 등의 개인 Microsoft 계정에 휴대폰 로그인�
 
 ### <a name="turn-on-phone-sign-in"></a>휴대폰 로그인 설정 
 
-- Microsoft Authenticator 앱을 열고, 개인 Microsoft 계정으로 이동하고, 휴대폰 로그인을 설정합니다.
+Microsoft Authenticator 앱을 열고 회사 또는 학교 계정으로 이동한 다음 휴대폰 로그인을 설정 합니다.
 
-    - **이 아이콘 ![설정을 보여주는 아이콘](media/user-help-auth-app-sign-in/icon.png)이 있는 경우** 이 아이콘이 계정 이름 옆에 나타나는 경우 계정에 대한 휴대폰 로그인을 이미 설정했음을 의미합니다. 앱 외부에서 인증 요청에 대한 알림을 받을 수 있도록 계정에 대한 푸시 알림을 추가하라는 메시지가 표시될 수 있습니다.
+Android 장치:
 
-    - **2단계 인증에 대한 앱을 사용하고 있는 경우** 앱 및 2단계 인증을 이미 사용하고 있는 경우 계정 이름 옆의 드롭다운 화살표를 선택한 다음, **휴대폰 로그인 사용**을 선택할 수 있습니다.
+- **이 아이콘 ![설정을 보여주는 아이콘](media/user-help-auth-app-sign-in/icon.png)이 있는 경우** 이 아이콘이 개인 Microsoft 계정 이름 옆에 표시 되는 경우 계정에 대 한 휴대폰 로그인을 이미 설정 했음을 의미 합니다. 앱 외부에서 인증 요청에 대한 알림을 받을 수 있도록 계정에 대한 푸시 알림을 추가하라는 메시지가 표시될 수 있습니다.
+- **2단계 인증에 대한 앱을 사용하고 있는 경우** 앱 및 2 단계 확인을 이미 사용 하 고 있는 경우 계정 이름 옆에 있는 화살표를 선택한 다음 **휴대폰 로그인 사용**을 선택할 수 있습니다.
+- **회사 또는 학교 계정을 찾을 수 없는 경우** 앱의 **계정** 화면에서 계정을 찾을 수 없는 경우 앱에 계정을 아직 추가하지 않은 것을 의미합니다. [개인 Microsoft 계정 추가](user-help-auth-app-add-personal-ms-account.md) 문서의 단계를 수행 하 여 계정을 추가 합니다.
 
-    - **계정을 찾을 수 없는 경우** 앱의 **계정** 화면에서 계정을 찾을 수 없는 경우 앱에 계정을 아직 추가하지 않은 것을 의미합니다. [개인 Microsoft 계정 추가](user-help-auth-app-add-personal-ms-account.md#add-your-personal-microsoft-account) 문서의 단계를 수행하여 개인 Microsoft 계정을 추가합니다.
+IOS 장치에서:
+
+- 계정 **타일을 탭 하면**계정이 계정의 전체 화면 보기로 열립니다. **휴대폰 로그인이 사용 하도록** 설정 되어 있으면 암호 없이 로그인 하도록 완전히 설정 된 것입니다. **휴대폰 로그인 사용**이 표시 되 면 해당 항목을 눌러 휴대폰 로그인을 설정 합니다.
+- **2 단계 인증에 앱을 이미 사용 중인 경우**계정 타일을 탭 하 여 계정의 전체 화면 보기로 확장할 수 있습니다. 그런 다음 **휴대폰 로그인 사용** 을 탭 하 여 휴대폰 로그인을 설정 합니다.
+- 앱의 **계정** 화면에서 **계정을 찾을 수 없는 경우** 앱에 아직 추가 하지 않았음을 의미 합니다. [개인 Microsoft 계정 추가](user-help-auth-app-add-personal-ms-account.md) 문서의 단계에 따라 개인 Microsoft 계정를 추가 합니다.
 
 ### <a name="sign-in-to-your-account-using-phone-sign-in"></a>휴대폰 로그인을 사용하여 계정에 로그인
 
@@ -100,7 +112,7 @@ Outlook.com, Xbox, Skype 등의 개인 Microsoft 계정에 휴대폰 로그인�
 
 ## <a name="sign-in-using-two-factor-verification-for-your-account"></a>계정에 2단계 인증을 사용하여 로그인
 
-표준 2단계 인증 방법은 로그인하는 디바이스에 사용자 이름 및 암호를 입력한 다음, Microsoft Authenticator 앱에서 알림을 보낼지, 아니면 Microsoft Authenticator 앱의 **계정** 화면에서 연결된 확인 코드를 복사할지 여부를 선택해야 합니다. Microsoft Authenticator 앱에 계정을 추가하는 프로세스의 일환으로 계정에 대해 2단계 인증을 설정합니다.
+표준 2 단계 인증 방법을 사용 하려면 로그인 하는 장치에 사용자 이름과 암호를 입력 한 다음 Microsoft Authenticator 앱에서 Microsoft Authenticator 앱을 받을지 여부를 선택 해야 합니다. Android 장치에서 이러한 확인 코드는 계정 화면에서 찾을 수 있습니다. IOS 장치에서 계정 화면 또는 계정의 유형에 **따라 계정의 전체** 화면 보기에서 이러한 확인 코드를 찾을 수 있습니다. Microsoft Authenticator 앱에 계정을 추가하는 프로세스의 일환으로 계정에 대해 2단계 인증을 설정합니다.
 
 >[!Note]
 >Microsoft Authenticator 앱의 **계정** 화면에 회사 또는 학교 계정 또는 개인 계정이 표시되지 않는 경우 Microsoft Authenticator 앱에 계정을 추가하지 않은 것을 의미합니다. 계정을 추가하려면 [회사 또는 학교 계정 추가](user-help-auth-app-add-work-school-account.md) 또는 [개인 계정 추가](user-help-auth-app-add-personal-ms-account.md)를 참조하세요.

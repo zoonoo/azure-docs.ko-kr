@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.subservice: pim
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/09/2019
+ms.date: 03/05/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0ba7846b60ca6649b4342d5096e92dfd8c96601
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 733743f4680f3197a1754d87b4672641b2321907
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756305"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399335"
 ---
 # <a name="start-using-privileged-identity-management"></a>Privileged Identity Management 사용 시작
 
@@ -27,7 +27,7 @@ PIM (Privileged Identity Management)을 사용 하 여 Azure Active Directory (A
 
 이 문서에서는 Privileged Identity Management을 사용 하도록 설정 하 고 시작 하는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 Privileged Identity Management를 사용 하려면 다음 라이선스 중 하나가 있어야 합니다.
 
@@ -62,7 +62,7 @@ Privileged Identity Management를 사용 하려면 다음 라이선스 중 하�
 
     ![Id를 확인 하려면 계정 창을 선택 합니다.](./media/pim-getting-started/pick-account.png)
 
-1. 확인을 위해 추가 정보가 필요한 경우 프로세스 안내가 제공됩니다. 자세한 내용은 [2단계 확인에 대한 도움말 보기](https://go.microsoft.com/fwlink/p/?LinkId=708614)를 참조하세요.
+1. 확인을 위해 추가 정보가 필요한 경우 프로세스 안내가 제공됩니다. 자세한 내용은 [2단계 확인에 대한 도움말 보기](../user-help/multi-factor-authentication-end-user-troubleshoot.md)를 참조하세요.
 
     ![조직에 추가 정보가 필요한 경우 추가 정보 필요 창](./media/pim-getting-started/more-information-required.png)
 
@@ -115,7 +115,7 @@ Privileged Identity Management 설정 되 면 id 관리 작업을 시작할 수 
 
 Privileged Identity Management를 쉽게 열 수 있도록 Azure Portal 대시보드에 Privileged Identity Management 타일을 추가 해야 합니다.
 
-1. [Azure portal](https://portal.azure.com/)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 1. **모든 서비스**를 클릭하고, **Azure AD Privileged Identity Management** 서비스를 찾습니다.
 

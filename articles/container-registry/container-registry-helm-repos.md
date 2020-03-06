@@ -3,12 +3,12 @@ title: 매장 투구 차트
 description: Azure Container Registry 리포지토리를 사용 하 여 Kubernetes 응용 프로그램에 대 한 투구 차트를 저장 하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 01/28/2020
-ms.openlocfilehash: 26588bb4dc3cf50656103b50d5d0559908a1ccb7
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 7969efe37558fffb26b983131c56ae11f3ef9368
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77524634"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78398968"
 ---
 # <a name="push-and-pull-helm-charts-to-an-azure-container-registry"></a>Azure container registry에 투구 차트 푸시 및 끌어오기
 
@@ -36,7 +36,7 @@ Kubernetes에 대 한 응용 프로그램을 신속 하 게 관리 하 고 배�
 
 ## <a name="use-the-helm-3-client"></a>투구 3 클라이언트 사용
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 조건
 
 - Azure 구독에 있는 **azure container registry** 필요한 경우 [Azure Portal](container-registry-get-started-portal.md) 또는 [Azure CLI](container-registry-get-started-azure-cli.md)를 사용 하 여 레지스트리를 만듭니다.
 - **투구 클라이언트 버전 3.0.0 이상** -`helm version`를 실행 하 여 현재 버전을 찾습니다. 투구 설치 및 업그레이드 방법에 대 한 자세한 내용은 [투구 설치][helm-install]를 참조 하세요.
@@ -118,7 +118,7 @@ helm chart push mycontainerregistry.azurecr.io/helm/wordpress:latest
 
 푸시가 성공적으로 완료 되 면 출력은 다음과 유사 합니다.
 
-```console
+```output
 The push refers to repository [mycontainerregistry.azurecr.io/helm/wordpress]
 ref:     mycontainerregistry.azurecr.io/helm/wordpress:latest
 digest:  5899db028dcf96aeaabdadfa5899db025899db025899db025899db025899db02
@@ -141,7 +141,7 @@ az acr repository show \
 
 출력은 다음과 비슷합니다.
 
-```console
+```output
 {
   "changeableAttributes": {
     "deleteEnabled": true,
@@ -158,7 +158,7 @@ az acr repository show \
 }
 ```
 
-[Az acr repository show-manifest][az-acr-repository-show-manifests] 명령을 실행 하 여 리포지토리에 저장 된 차트의 세부 정보를 확인 합니다. 다음은 그 예입니다.
+[Az acr repository show-manifest][az-acr-repository-show-manifests] 명령을 실행 하 여 리포지토리에 저장 된 차트의 세부 정보를 확인 합니다. 예를 들면 다음과 같습니다.
 
 ```azurecli
 az acr repository show-manifests \
@@ -168,7 +168,7 @@ az acr repository show-manifests \
 
 이 예에서 간략하게 설명 하는 출력은 `application/vnd.cncf.helm.config.v1+json``configMediaType`을 보여 줍니다.
 
-```console
+```output
 [
   {
     [...]
@@ -216,7 +216,7 @@ helm inspect chart wordpress
 
 버전 번호를 제공하지 않으면 *최신* 버전이 사용됩니다. 투구는 다음 압축 된 출력과 같이 차트에 대 한 자세한 정보를 반환 합니다.
 
-```
+```output
 apiVersion: v1
 appVersion: 5.3.2
 dependencies:
@@ -248,7 +248,7 @@ version: 8.1.0
 
 ### <a name="install-helm-chart"></a>투구 차트 설치
 
-`helm install`를 실행 하 여 로컬 캐시로 끌어온 투구 차트를 설치 하 고 내보낼 수 있습니다. 릴리스 이름을 지정 하거나 `--generate-name` 매개 변수를 전달 하십시오. 다음은 그 예입니다.
+`helm install`를 실행 하 여 로컬 캐시로 끌어온 투구 차트를 설치 하 고 내보낼 수 있습니다. 릴리스 이름을 지정 하거나 `--generate-name` 매개 변수를 전달 하십시오. 예를 들면 다음과 같습니다.
 
 ```console
 helm install wordpress --generate-name
@@ -256,7 +256,7 @@ helm install wordpress --generate-name
 
 설치가 진행 되는 동안 명령 출력의 지침에 따라 WorPress Url 및 자격 증명을 확인 합니다. `kubectl get pods` 명령을 실행 하 여 투구 차트를 통해 배포 된 Kubernetes 리소스를 확인할 수도 있습니다.
 
-```console
+```output
 NAME                                    READY   STATUS    RESTARTS   AGE
 wordpress-1598530621-67c77b6d86-7ldv4   1/1     Running   0          2m48s
 wordpress-1598530621-mariadb-0          1/1     Running   0          2m48s
@@ -273,7 +273,7 @@ az acr repository delete --name mycontainerregistry --image helm/wordpress:lates
 
 ## <a name="use-the-helm-2-client"></a>투구 2 클라이언트 사용
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 조건
 
 - Azure 구독에 있는 **azure container registry** 필요한 경우 [Azure Portal](container-registry-get-started-portal.md) 또는 [Azure CLI](container-registry-get-started-azure-cli.md)를 사용 하 여 레지스트리를 만듭니다.
 - **Helm 클라이언트 버전 2.11.0(RC 버전 아님) 이상** - `helm version`을 실행하여 현재 버전을 찾습니다. Kubernetes 클러스터 내에서 Helm 서버(Tiller)도 초기화해야 합니다. 필요한 경우 [Azure Kubernetes 서비스 클러스터][aks-quickstart]를 만듭니다. 투구 설치 및 업그레이드 방법에 대 한 자세한 내용은 [투구 설치][helm-install-v2]를 참조 하세요.
@@ -311,7 +311,7 @@ helm fetch stable/wordpress
 
 `ls`를 입력 하 여 다운로드 한 차트를 나열 하 고 파일 이름에 포함 된 Wordpress 버전을 확인 합니다. `helm fetch stable/wordpress` 명령은 특정 버전을 지정하지 않았으므로 *최신* 버전을 가져왔습니다. 다음 예제 출력에서 Wordpress 차트는 version *8.1.0*입니다.
 
-```
+```output
 wordpress-8.1.0.tgz
 ```
 
@@ -323,7 +323,7 @@ az acr helm push --name mycontainerregistry wordpress-8.1.0.tgz
 
 몇 분 후에 Azure CLI은 다음 예제 출력과 같이 차트가 저장 되었음을 보고 합니다.
 
-```
+```output
 {
   "saved": true
 }
@@ -345,7 +345,7 @@ helm search mycontainerregistry
 
 다음 예제 출력과 같이 이전 단계에서 푸시한 Wordpress 차트가 나열됩니다.
 
-```
+```output
 NAME                CHART VERSION   APP VERSION DESCRIPTION
 helmdocs/wordpress  8.1.0           5.3.2       Web publishing platform for building blogs and websites.
 ```
@@ -366,7 +366,7 @@ helm inspect mycontainerregistry/wordpress
 
 버전 번호를 제공하지 않으면 *최신* 버전이 사용됩니다. 다음의 축소된 예제 출력과 같이 Helm이 차트에 대한 세부 정보를 반환합니다.
 
-```
+```output
 apiVersion: v1
 appVersion: 5.3.2
 description: Web publishing platform for building blogs and websites.
@@ -416,7 +416,7 @@ helm install mycontainerregistry/wordpress
 
 설치가 진행 되는 동안 명령 출력의 지침에 따라 WorPress Url 및 자격 증명을 확인 합니다. `kubectl get pods` 명령을 실행 하 여 투구 차트를 통해 배포 된 Kubernetes 리소스를 확인할 수도 있습니다.
 
-```
+```output
 NAME                                    READY   STATUS    RESTARTS   AGE
 wordpress-1598530621-67c77b6d86-7ldv4   1/1     Running   0          2m48s
 wordpress-1598530621-mariadb-0          1/1     Running   0          2m48s

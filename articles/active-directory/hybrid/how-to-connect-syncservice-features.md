@@ -16,12 +16,12 @@ ms.date: 06/25/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be67a6f287e2d6e77070928cbe12542857696011
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5486a8d8bd4c295f49e0ab847daf45d0fcab47ad
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60347546"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78300539"
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Azure AD Connect 동기화 서비스 기능
 
@@ -96,7 +96,7 @@ Set-MsolDirSyncFeature -Feature EnableSoftMatchOnUpn -Enable $true
 
 자세한 내용은 [Office 365, Azure 또는 Intune의 사용자 이름이 온-프레미스 UPN 또는 대체 로그인 ID와 일치하지 않음](https://support.microsoft.com/kb/2523192)을 참조하세요.
 
-이 기능을 사용 하면 변경 된 온-프레미스 이며 암호 해시 동기화 또는 통과 인증을 사용 하는 경우 userPrincipalName 업데이트 동기화 엔진이 있습니다. 페더레이션을 사용하는 경우 이 기능은 지원되지 않습니다.
+이 기능을 사용 하도록 설정 하면 동기화 엔진이 온-프레미스로 변경 되 고 암호 해시 동기화 또는 통과 인증을 사용 하는 경우 userPrincipalName를 업데이트할 수 있습니다.
 
 이 기능은 새로 만든 Azure AD 디렉터리에 기본적으로 설정되어 있습니다. 다음을 실행하여 이 기능을 사용하도록 설정했는지 확인할 수 있습니다.  
 

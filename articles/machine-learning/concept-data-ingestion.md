@@ -10,12 +10,12 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 02/26/2020
-ms.openlocfilehash: 35c133a4d9d95dc6e942d5b8c3e8d21debb9493b
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
-ms.translationtype: HT
+ms.openlocfilehash: 71a02e47db288890d1392f5423da0ef817ecd690
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78268555"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303123"
 ---
 # <a name="data-ingestion-in-azure-machine-learning"></a>Azure Machine Learning에서 데이터 수집
 
@@ -71,4 +71,5 @@ Azure Data Factory 데이터 흐름에 대 한 포함 된 데이터 계보 기�
 
 ## <a name="next-steps"></a>다음 단계
 
+* [Azure Data Factory](how-to-data-ingest-adf.md) 를 사용 하 여 Machine Learning에 대 한 데이터 수집 파이프라인을 빌드하는 방법을 알아봅니다.
 * [Azure Pipelines](how-to-cicd-data-ingestion.md)를 사용 하 여 데이터 수집 파이프라인의 개발 수명 주기를 자동화 하 고 관리 하는 방법을 알아봅니다.

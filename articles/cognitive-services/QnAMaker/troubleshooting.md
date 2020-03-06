@@ -4,12 +4,12 @@ description: QnA Maker 서비스와 관련 하 여 가장 자주 묻는 질문�
 ms.topic: troubleshooting
 ms.date: 02/21/2020
 ms.author: diberry
-ms.openlocfilehash: 37aae8e67ccc84a6e22be8ce8a304fc4884ead52
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
-ms.translationtype: HT
+ms.openlocfilehash: 4596c16a5d7c9053bf0e27af476c66fe8fa9ed35
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78273392"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78296102"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>QnA Maker에 대 한 문제 해결
 
@@ -224,7 +224,7 @@ QnA 집합이 기술 자료에 있으면 대답의 markdown 텍스트를 편집 
 <details>
 <summary><b>QnA Maker를 사용 하 여 새 봇을 만들려면 어떻게 해야 하나요?</b></summary>
 
-**답변**: [이](./Tutorials/create-qna-bot.md) 설명서의 지침에 따라 Azure Bot Service를 사용 하 여 봇을 만듭니다.
+**답변**: [이](./Quickstarts/create-publish-knowledge-base.md) 설명서의 지침에 따라 Azure Bot Service를 사용 하 여 봇을 만듭니다.
 
 </details>
 
@@ -255,7 +255,7 @@ QnA 집합이 기술 자료에 있으면 대답의 markdown 텍스트를 편집 
 
 **대답**: 다음 단계에 따라 QnA Maker 서비스를 웹 사이트에 웹 채팅 컨트롤로 포함 합니다.
 
-1. [여기](./Tutorials/create-qna-bot.md)에 제공된 지침을 따라 FAQ 봇을 만듭니다.
+1. [여기](./Quickstarts/create-publish-knowledge-base.md)에 제공된 지침을 따라 FAQ 봇을 만듭니다.
 2. [여기](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-webchat)에 제공된 단계를 따라 웹 채팅을 사용하도록 설정합니다.
 
 </details>

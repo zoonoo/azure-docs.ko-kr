@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 0273a0a729d39de27b9e417c23624992d1d55b42
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: b7ca4677507f73467dddac09050f250ae34342a9
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77064401"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78329472"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Azure Stream Analytics 사용 시작 : 실시간 부정 행위 감지
 
@@ -31,7 +31,7 @@ ms.locfileid: "77064401"
 
 통신 회사에는 많은 양의 들어오는 호출 데이터가 있습니다. 회사에서는 고객에게 사기성 호출을 알리거나 고객이 특정 번호에 대한 서비스를 종료할 수 있도록 실시간으로 사기성 호출을 감지하려고 합니다. SIM 사기의 한 유형으로, 지리적으로 다른 위치에서 동일한 ID로 동시에 여러 호출을 이루어지는 경우가 있습니다. 이러한 종류의 사기 행위를 감지 하려면 회사에서 들어오는 전화 레코드를 검사 하 고 특정 패턴 (이 경우 다른 국가/지역에서 동시에 발생 한 호출)을 확인 해야 합니다. 이 범주에 속하는 모든 전화 레코드는 후속 분석을 위해 스토리지에 기록됩니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에서는 샘플 전화 통화 메타데이터를 생성하는 클라이언트 앱을 사용하여 전화 통화 데이터를 시뮬레이션합니다. 앱에서 생성하는 일부 레코드는 사기성 호출과 유사합니다. 
 
@@ -63,7 +63,7 @@ Streaming Analytics 작업 결과를 확인하려면 Azure Blob Storage 컨테�
 
 3. 왼쪽 탐색 메뉴의 **즐겨찾기** 아래에서 **Event Hubs**를 선택하고, 도구 모음에서 **추가**를 선택합니다.
 
-   ![[추가] 단추](./media/stream-analytics-real-time-fraud-detection/event-hubs-add-toolbar.png)
+   ![추가 단추](./media/stream-analytics-real-time-fraud-detection/event-hubs-add-toolbar.png)
 
 4. **네임스페이스 만들기** 창에서 네임스페이스 이름을 입력합니다(예: `<yourname>-eh-ns-demo`). 네임스페이스에 어떤 이름이든 사용할 수 있지만 이름은 URL에 대해 유효해야 하며 Azure 전체에서 고유해야 합니다. 
     
@@ -94,7 +94,7 @@ Streaming Analytics 작업 결과를 확인하려면 Azure Blob Storage 컨테�
     >[!NOTE]
     >이벤트 허브 네임스페이스가 아니라 이벤트 허브로 작업하고 있는지 확인합니다.
 
-3.  `sa-policy-manage-demo`클레임**에 대해** 라는 이름의 정책을 추가하고 **관리**를 선택합니다.
+3.  `asa-policy-manage-demo`클레임**에 대해** 라는 이름의 정책을 추가하고 **관리**를 선택합니다.
 
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-shared-access-policy-manage-new-portal.png" alt="Create shared access policy for Stream Analytics" width="300px"/>
  

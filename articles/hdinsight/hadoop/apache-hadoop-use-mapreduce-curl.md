@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/13/2020
-ms.openlocfilehash: 607020f1d540e83a4d049b96b9ab9a4ebcd385f0
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: abc3cc8c526e37e18f1e67b109a9a8e15ff8c989
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76157256"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302715"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-rest"></a>REST를 사용하여 HDInsight에서 Apache Hadoop으로 MapReduce 작업 실행
 
@@ -22,7 +22,7 @@ Apache Hive WebHCat REST API를 사용 하 여 HDInsight 클러스터의 Apache 
 > [!NOTE]  
 > Linux 기반 Hadoop 서버를 사용 하는 방법을 이미 잘 알고 있지만 HDInsight를 처음 사용 하는 경우 [hdinsight의 linux 기반 Apache Hadoop](../hdinsight-hadoop-linux-information.md) 에 대해 알아야 할 사항 문서를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * HDInsight의 Apache Hadoop 클러스터. [Azure Portal를 사용 하 여 Apache Hadoop 클러스터 만들기를](../hdinsight-hadoop-create-linux-clusters-portal.md)참조 하세요.
 
@@ -171,7 +171,7 @@ Apache Hive WebHCat REST API를 사용 하 여 HDInsight 클러스터의 Apache 
 
 1. 작업 상태가 `SUCCEEDED`로 변경되면 Azure Blob Storage에서 작업 결과를 검색할 수 있습니다. 쿼리와 함께 전달되는 `statusdir` 매개 변수에는 출력 파일의 위치가 포함됩니다. 이 예제에서 위치는 `/example/curl`입니다. 이 주소는 작업의 출력을 클러스터 기본 스토리지인 `/example/curl`에 저장합니다.
 
-[Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)를 사용하여 이러한 파일을 나열하고 다운로드할 수 있습니다. Azure CLI에서 Blob을 사용하는 방법에 대한 자세한 내용은 [Azure Storage에서 Azure CLI 사용](../../storage/common/storage-azure-cli.md#create-and-manage-blobs) 문서를 참조하세요.
+[Azure CLI](/cli/azure/install-azure-cli)를 사용하여 이러한 파일을 나열하고 다운로드할 수 있습니다. Azure CLI를 사용 하 여 Azure Blob storage로 작업 하는 방법에 대 한 자세한 내용은 [빠른 시작: Azure CLI를 사용 하 여 Blob 만들기, 다운로드 및 나열](../../storage/blobs/storage-quickstart-blobs-cli.md)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

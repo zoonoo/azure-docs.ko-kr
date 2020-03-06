@@ -7,16 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 10/21/2019
+ms.date: 03/04/2020
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019"
-ms.openlocfilehash: ecaf9e007d93b3a99a7609ebf36307f3a6dad15c
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 2b689588bcbca640dd55b25c52c462ad1a363da5
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78199957"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78296340"
 ---
 # <a name="backup-and-restore-in-azure-synapse-sql-pool"></a>Azure Synapse SQL 풀에서 백업 및 복원
 
@@ -58,7 +58,7 @@ order by run_id desc
 2. SQL 풀이 일시 중지 되 면 스냅숏이 생성 되지 않습니다.
 3. 복원 지점의 보존 기간은 SQL 풀이 일시 중지 될 때를 포함 하 여 복원 지점이 수행 된 시간부터 절대 달력 일 수로 측정 됩니다.
 4. 언제 든 지 SQL 풀은 이러한 복원 지점이 7 일의 보존 기간에 도달 하지 않은 경우 사용자 정의 복원 지점 및 42 자동 복원 지점을 최대 42까지 저장할 수 있도록 보장 합니다.
-5. 스냅숏이 생성 되는 경우 SQL 풀은 7 일 넘게 일시 중지 된 후 다시 시작 됩니다. 42의 총 복원 지점 (사용자 정의 및 자동 포함)이 있을 때까지 복원 지점이 지속 될 수 있습니다.
+5. 스냅숏이 생성 되는 경우 SQL 풀은 7 일 넘게 일시 중지 된 후 다시 시작 됩니다. 42의 총 복원 지점 (사용자 정의 및 자동 포함)이 있을 때까지 복원 지점이 유지 됩니다.
 
 ### <a name="snapshot-retention-when-a-sql-pool-is-dropped"></a>SQL 풀을 삭제할 때의 스냅숏 보존
 

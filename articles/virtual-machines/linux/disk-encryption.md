@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: 1d203fd0c6777eee96311f45f4d5dfb8728ff431
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 48935dc74d6d22bcafa31afebbdfcb829e122815
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210604"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399244"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Azure managed disks의 서버 쪽 암호화
 
@@ -72,6 +72,7 @@ Azure managed disks는 클라우드로 데이터를 유지할 때 기본적으�
 - 고객 관리 키 (Azure 키 자격 증명 모음, 디스크 암호화 집합, Vm, 디스크 및 스냅숏)와 관련 된 모든 리소스는 동일한 구독 및 지역에 있어야 합니다.
 - 고객 관리 키로 암호화 된 디스크, 스냅숏 및 이미지는 다른 구독으로 이동할 수 없습니다.
 - Azure Portal를 사용 하 여 디스크 암호화 집합을 만드는 경우 지금은 스냅숏을 사용할 수 없습니다.
+- 고객 관리 키를 사용 하 여 암호화 된 관리 디스크는 Azure Disk Encryption로 암호화 될 수도 없습니다.
 
 ### <a name="cli"></a>CLI
 #### <a name="setting-up-your-azure-key-vault-and-diskencryptionset"></a>Azure Key Vault 및 Diskset 설정

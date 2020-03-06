@@ -7,12 +7,12 @@ ms.service: vs-appcenter
 ms.topic: article
 ms.date: 10/22/2019
 ms.author: emalani
-ms.openlocfilehash: bc7d8d4aaec6ebe27a0f8d2ecc11ca408266f7ef
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 261c12e63f8f348e1673dbc46c89c614caf3283b
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453240"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78296357"
 ---
 # <a name="add-authentication-and-manage-user-identities-in-your-mobile-apps"></a>모바일 앱에서 인증 추가 및 사용자 id 관리
 
@@ -21,7 +21,7 @@ ms.locfileid: "75453240"
 다음 서비스를 사용 하 여 모바일 앱에서 사용자 인증을 사용 하도록 설정 합니다.
 
 ## <a name="visual-studio-app-center"></a>Visual Studio App Center
-[App Center Auth](/appcenter/auth/) 는 개발자가 사용자를 인증 하 고 사용자 id를 관리 하는 데 사용할 수 있는 클라우드 기반 id 관리 서비스입니다. App Center Auth는 Visual Studio App Center의 다른 부분과도 통합 됩니다. 개발자는 사용자 id를 사용 하 여 다른 서비스의 [사용자 데이터를 확인](/appcenter/data/index) 하 고 [개별 장치 대신 사용자에 게 푸시 알림을 보낼](/appcenter/push/push-to-user#app-center-auth-set-identity)수 있습니다. 
+[App Center Auth](/appcenter/auth/) 는 개발자가 사용자를 인증 하 고 사용자 id를 관리 하는 데 사용할 수 있는 클라우드 기반 id 관리 서비스입니다. App Center Auth는 Visual Studio App Center의 다른 부분과도 통합 됩니다. 개발자는 사용자 id를 사용 하 여 다른 서비스의 [사용자 데이터를 확인](/appcenter/data/index) 하 고 [개별 장치 대신 사용자에 게 푸시 알림을 보낼](/appcenter/push/push-to-user#setting-user-identity)수 있습니다. 
 
 **주요 기능**
 - Azure Active Directory B2C (Azure AD B2C). 

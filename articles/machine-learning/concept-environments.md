@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.author: trbye
 author: trevorbye
 ms.date: 01/06/2020
-ms.openlocfilehash: 8906299cc9e2c000dab2ac9d2a345d9aaf238260
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 036efa27fb8d22c32f2f6bce1efe9dea300a3972
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045850"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302776"
 ---
 # <a name="what-are-azure-machine-learning-environments"></a>Azure Machine Learning 환경 이란 무엇 인가요?
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Azure Machine Learning 환경에서는 학습 및 점수 매기기 스크립트와 관련 된 Python 패키지, 환경 변수 및 소프트웨어 설정을 지정 합니다. 실행 시간 (Python, Spark 또는 Docker)도 지정 합니다. 이러한 항목은 다양 한 계산 대상에서 재현 가능 하 고 감사 가능 하며 휴대용 기계 학습 워크플로를 가능 하 게 하는 Machine Learning 작업 영역 내에서 관리 되 고 버전이 지정 된 엔터티입니다.
+Azure Machine Learning 환경에서는 학습 및 점수 매기기 스크립트와 관련 된 Python 패키지, 환경 변수 및 소프트웨어 설정을 지정 합니다. 실행 시간 (Python, Spark 또는 Docker)도 지정 합니다. 환경은 다양 한 계산 대상에서 재현 가능 하 고 감사 가능 하며 이식 가능한 기계 학습 워크플로를 사용할 수 있도록 하는 Machine Learning 작업 영역 내에서 관리 되는 버전의 엔터티입니다.
 
 로컬 계산에서 `Environment` 개체를 사용 하 여 다음을 수행할 수 있습니다.
 * 학습 스크립트를 개발 합니다.
@@ -57,6 +57,45 @@ Azure Machine Learning 환경에서는 학습 및 점수 매기기 스크립트�
 * 사용자 환경에서 자동으로 Docker 이미지를 빌드할 수 있습니다.
 
 코드 샘플은 [학습 및 배포를 위한 재사용 환경의](how-to-use-environments.md#manage-environments)"환경 관리" 섹션을 참조 하세요.
+
+## <a name="environment-building-caching-and-reuse"></a>환경 빌드, 캐싱 및 다시 사용
+
+Azure Machine Learning 서비스는 환경 정의를 Docker 이미지 및 conda 환경으로 작성 합니다. 또한 이후 학습 실행 및 서비스 끝점 배포에서 다시 사용할 수 있도록 환경을 캐시 합니다.
+
+### <a name="building-environments-as-docker-images"></a>Docker 이미지로 환경 구축
+
+일반적으로 환경을 사용 하 여 실행을 제출할 때 Azure Machine Learning 서비스는 작업 영역과 연결 된 ACR (Azure Container Registry)에서 [Acr Build 작업](https://docs.microsoft.com/azure/container-registry/container-registry-tasks-overview) 을 호출 합니다. 그러면 빌드된 Docker 이미지가 작업 영역 ACR에 캐시 됩니다. 실행을 시작할 때 이미지는 계산 대상에 의해 검색 됩니다.
+
+이미지 빌드는 두 단계로 구성 됩니다.
+
+ 1. 기본 이미지 다운로드 및 Docker 단계 실행
+ 2. 환경 정의에 지정 된 conda 종속성에 따라 conda 환경을 구축 합니다.
+
+[사용자 관리 종속성](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.pythonsection?view=azure-ml-py)을 지정 하는 경우 두 번째 단계가 생략 됩니다. 이 경우 기본 이미지에 포함 하거나 첫 번째 단계 내에서 사용자 지정 Docker 단계를 지정 하 여 Python 패키지를 설치 해야 합니다. 또한 Python 실행 파일에 대 한 올바른 위치를 지정 해야 합니다.
+
+### <a name="image-caching-and-reuse"></a>이미지 캐싱 및 다시 사용
+
+다른 실행에 동일한 환경 정의를 사용 하는 경우 Azure Machine Learning 서비스는 작업 영역 ACR에서 캐시 된 이미지를 재사용 합니다. 
+
+캐시 된 이미지의 세부 정보를 보려면 [get_image_details](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#get-image-details-workspace-) 메서드를 사용 합니다.
+
+캐시 된 이미지를 다시 사용 하거나 새 이미지를 빌드 할지 여부를 결정 하기 위해 서비스는 환경 정의에서 [해시 값을](https://en.wikipedia.org/wiki/Hash_table) 계산 하 고이를 기존 환경의 해시와 비교 합니다. 해시는 다음을 기반으로 합니다.
+ 
+ * 기본 이미지 속성 값
+ * 사용자 지정 docker 단계 속성 값
+ * Conda 정의에 있는 Python 패키지 목록
+ * Spark 정의의 패키지 목록 
+
+해시는 환경 이름이 나 버전에 따라 달라 지지 않습니다. Python 패키지를 추가 또는 제거 하거나 패키지 버전을 변경 하는 등 환경 정의를 변경 하면 해시 값이 변경 되 고 이미지 다시 작성이 트리거됩니다. 그러나 단순히 환경의 이름을 바꾸거나 기존 환경에 대 한 정확한 속성 및 패키지를 사용 하 여 새 환경을 만드는 경우 해시 값은 동일 하 게 유지 되 고 캐시 된 이미지가 사용 됩니다.
+
+세 가지 환경 정의를 보여 주는 다음 다이어그램을 참조 하세요. 그 중 두 가지는 서로 다른 이름과 버전을 갖지만 동일한 기본 이미지 및 Python 패키지를 포함 합니다. 동일한 해시가 있으므로 동일한 캐시 된 이미지에 해당 합니다. 세 번째 환경에는 다른 Python 패키지와 버전이 있으므로 다른 캐시 된 이미지에 해당 합니다.
+
+![Docker 이미지인 환경 캐싱 다이어그램](./media/concept-environments/environment-caching.png)
+
+고정 해제 된 패키지 종속성이 있는 환경 (예: ```numpy```을 만드는 경우 해당 환경에서 환경을 만들 때 설치 된 패키지 버전을 계속 사용 합니다. 또한 일치 하는 정의가 있는 이후의 모든 환경은 이전 버전을 계속 사용 합니다. 패키지를 업데이트 하려면 이미지를 다시 작성 하는 데 사용할 버전 번호를 지정 합니다 (예: ```numpy==1.18.1```). 중첩 된 항목을 포함 하 여 이전에 작업 한 시나리오를 중단할 수 있는 새 종속성이 설치 됩니다.
+
+> [!WARNING]
+>  재현 가능성 [메서드는](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#build-workspace-) 캐시 된 이미지를 다시 작성 합니다 .이는 고정 되지 않은 패키지를 업데이트 하 고 해당 캐시 된 이미지에 해당 하는 모든 환경 정의에 대해를 중단 시킬 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

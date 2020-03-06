@@ -4,15 +4,15 @@ description: Azure Cosmos DB에서 SQL 시스템 함수에 대해 알아봅니�
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 5aeee91db0b1ce891d7e4090a074ddda1f15a576
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 247616d2ac4f2a5799a5896d679f6e6d5917d5a6
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349540"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302154"
 ---
 # <a name="right-azure-cosmos-db"></a>RIGHT (Azure Cosmos DB)
  지정된 수의 문자로 문자열의 오른쪽 부분을 반환합니다.  
@@ -31,7 +31,7 @@ RIGHT(<str_expr>, <num_expr>)
 *num_expr*  
    문자 수를 지정 하는 숫자 식입니다.  
   
-## <a name="return-types"></a>반환 유형
+## <a name="return-types"></a>반환 형식
   
   문자열 식을 반환합니다.  
   
@@ -48,6 +48,10 @@ SELECT RIGHT("abc", 1) AS r1, RIGHT("abc", 2) AS r2
 ```json
 [{"r1": "c", "r2": "bc"}]  
 ```  
+
+## <a name="remarks"></a>설명
+
+이 시스템 함수는 인덱스를 활용 하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 2e175e1ed62a4afb2a532add161dd2ab63ba9b1c
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 0eac35a91e4d5158335d6797d49a09f8f6f391e3
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349765"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303752"
 ---
 # <a name="left-azure-cosmos-db"></a>LEFT (Azure Cosmos DB)
  지정된 수의 문자로 문자열의 왼쪽 부분을 반환합니다.  
@@ -31,7 +31,7 @@ LEFT(<str_expr>, <num_expr>)
 *num_expr*  
    문자 수를 지정 하는 숫자 식입니다.  
   
-## <a name="return-types"></a>반환 유형
+## <a name="return-types"></a>반환 형식
   
   문자열 식을 반환합니다.  
   
@@ -48,6 +48,10 @@ SELECT LEFT("abc", 1) AS l1, LEFT("abc", 2) AS l2
 ```json
 [{"l1": "a", "l2": "ab"}]  
 ```  
+
+## <a name="remarks"></a>설명
+
+이 시스템 함수는 [범위 인덱스](index-policy.md#includeexclude-strategy)를 활용 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

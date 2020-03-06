@@ -9,14 +9,14 @@ ms.topic: conceptual
 author: clauren42
 ms.author: clauren
 ms.reviewer: jmartens
-ms.date: 10/25/2019
+ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1645d2848c6d4b852a81042c4db8a0f6e90fd8fd
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: fab46f7d7ae74ad643ce3f122b27b0dc767f5a78
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75945808"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399673"
 ---
 # <a name="troubleshooting-azure-machine-learning-azure-kubernetes-service-and-azure-container-instances-deployment"></a>Azure Kubernetes Service 및 Azure Container Instances 배포 Azure Machine Learning 문제 해결
 
@@ -36,7 +36,7 @@ Azure Machine Learning에서 모델을 배포 하는 경우 시스템에서 많�
 
 이 프로세스에 대한 자세한 정보는 [모델 관리](concept-model-management-and-deployment.md) 소개를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * **Azure 구독**. 없는 경우 [무료 또는 유료 버전의 Azure Machine Learning](https://aka.ms/AMLFree)을 사용해 보세요.
 * [AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)입니다.
@@ -124,7 +124,7 @@ service.wait_for_deployment(True)
 print(service.port)
 ```
 
-사용자 고유의 conda 사양 YAML을 정의 하는 경우 pip 종속성으로 버전 > = 1.0.45이 있는 azureml 기본값을 나열 해야 합니다. 이 패키지에는 웹 서비스로 모델을 호스트 하는 데 필요한 기능이 포함 되어 있습니다.
+사용자 고유의 conda 사양 YAML을 정의 하는 경우 pip 종속성으로 버전 > = 1.0.45이 있는 azureml 기본값을 나열 해야 합니다. 이 패키지에는 모델을 웹 서비스로 호스팅하는 데 필요한 기능이 포함되어 있습니다.
 
 이 시점에서 서비스를 정상적으로 사용할 수 있습니다. 예를 들어 다음 코드는 서비스에 데이터를 보내는 방법을 보여 줍니다.
 
@@ -204,7 +204,7 @@ print(Model.get_model_path(model_name='my-best-model'))
 
 ## <a name="function-fails-runinput_data"></a>함수 실패: run(input_data)
 
-서비스가 성공적으로 배포되었지만 채점 엔드포인트에 데이터를 게시할 때 크래시가 발생하는 경우 오류를 catch하는 명령문을 `run(input_data)` 함수에 추가하면 구체적인 오류 메시지가 반환됩니다. 예:
+서비스가 성공적으로 배포되었지만 채점 엔드포인트에 데이터를 게시할 때 크래시가 발생하는 경우 오류를 catch하는 명령문을 `run(input_data)` 함수에 추가하면 구체적인 오류 메시지가 반환됩니다. 다음은 그 예입니다.
 
 ```python
 def run(input_data):
@@ -220,6 +220,10 @@ def run(input_data):
 ```
 
 **참고**: `run(input_data)` 호출에서 오류 메시지를 반환하는 방법은 디버깅 용도로만 사용해야 합니다. 보안상의 이유로 프로덕션 환경에서는 이러한 방식으로 오류 메시지를 반환 해서는 안 됩니다.
+
+## <a name="http-status-code-502"></a>HTTP 상태 코드 502
+
+502 상태 코드는 score.py 파일의 `run()` 메서드에서 서비스가 예외를 throw 했거나 충돌 했음을 나타냅니다. 이 문서의 정보를 사용 하 여 파일을 디버그할 수 있습니다.
 
 ## <a name="http-status-code-503"></a>HTTP 상태 코드 503
 
@@ -261,6 +265,12 @@ Azure Kubernetes 서비스 배포는 복제본을 추가 하 여 추가 부하�
     > 새 최소 복제본이 처리할 수 있는 것 보다 더 큰 요청 급증이 발생 하는 경우 503s을 다시 받을 수 있습니다. 예를 들어 서비스에 대 한 트래픽이 늘어나면 최소 복제본을 늘려야 할 수 있습니다.
 
 에 대 한 `autoscale_target_utilization`, `autoscale_max_replicas`및 `autoscale_min_replicas`를 설정 하는 방법에 대 한 자세한 내용은 [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) 모듈 참조를 참조 하세요.
+
+## <a name="http-status-code-504"></a>HTTP 상태 코드 504
+
+504 상태 코드는 요청 시간이 초과 되었음을 나타냅니다. 기본 시간 제한은 1 분입니다.
+
+Score.py를 수정 하 여 불필요 한 호출을 제거 함으로써 시간 제한을 늘리거나 서비스 속도를 높일 수 있습니다. 이러한 동작으로 문제가 해결 되지 않으면이 문서의 정보를 사용 하 여 score.py 파일을 디버깅 합니다. 코드는 정지 된 상태 이거나 무한 루프 일 수 있습니다.
 
 ## <a name="advanced-debugging"></a>고급 디버깅
 

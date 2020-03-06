@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: mnark
 author: MrudulaN
 ms.reviewer: larryfr
-ms.date: 10/25/2019
-ms.openlocfilehash: 28d176289a0b6cfe659f390feb441158c57f6533
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.date: 03/05/2020
+ms.openlocfilehash: afbd9950c31bc1c40b01ec0aaf3d2bfffb8a6b94
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169930"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78398219"
 ---
 # <a name="deploy-a-model-to-azure-machine-learning-compute-instances"></a>모델을 배포 하 여 계산 인스턴스 Azure Machine Learning
 
@@ -29,7 +29,7 @@ Azure Machine Learning를 사용 하 여 Azure Machine Learning 계산 인스턴
 > [!TIP]
 > 계산 인스턴스의 Jupyter Notebook에서 동일한 VM의 웹 서비스로 모델을 배포 하는 것은 _로컬 배포_입니다. 이 경우 ' 로컬 ' 컴퓨터는 계산 인스턴스입니다. 배포에 대 한 자세한 내용은 [Azure Machine Learning를 사용 하 여 모델 배포](how-to-deploy-and-where.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 - 계산 인스턴스가 실행 되는 Azure Machine Learning 작업 영역입니다. 자세한 내용은 [환경 및 작업 영역 설정](tutorial-1st-experiment-sdk-setup.md)을 참조 하세요.
 
@@ -51,7 +51,7 @@ Azure Machine Learning를 사용 하 여 Azure Machine Learning 계산 인스턴
     * 노트북 VM: `https://<vm_name>-<local_service_port>.<azure_region_of_workspace>.notebooks.azureml.net/score`. 
     * 계산 인스턴스: `https://<vm_name>-<local_service_port>.<azure_region_of_workspace>.instances.azureml.net/score`. 
 
-    예를 들면 다음과 같습니다. 
+    예를 들어 입니다. 
     * 노트북 VM: `https://vm-name-6789.northcentralus.notebooks.azureml.net/score` 
     * 계산 인스턴스: `https://vm-name-6789.northcentralus.instances.azureml.net/score`
 

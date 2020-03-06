@@ -8,19 +8,16 @@ ms.date: 10/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: fasttrack-edit
-ms.openlocfilehash: b75740e9bff714ad68c93bea7e387e60da2f1c59
-ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
+ms.openlocfilehash: 1370f65405963ebf825e986e6801607a0d96156e
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77212509"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78298091"
 ---
 # <a name="add-a-service-principal-to-the-server-administrator-role"></a>서버 관리자 역할에 서비스 사용자 추가 
 
  무인 PowerShell 태스크를 자동화하려면 서비스 사용자가 관리할 Analysis Services 서버에 대해 **서버 관리자** 권한이 있어야 합니다. 이 문서에서는 Azure AS 서버에서 서버 관리자 역할에 서비스 사용자를 추가하는 방법을 설명합니다. SQL Server Management Studio 또는 리소스 관리자 템플릿을 사용 하 여이 작업을 수행할 수 있습니다.
- 
-> [!NOTE]
-> Azure PowerShell cmdlet을 사용 하는 서버 작업의 경우 서비스 주체는 [AZURE RBAC (역할 기반 Access Control)](../role-based-access-control/overview.md)의 리소스에 대 한 **소유자** 역할에도 속해야 합니다. 
 
 ## <a name="before-you-begin"></a>시작하기 전에
 이 태스크를 완료하기 전에 Azure Active Directory에 등록된 서비스 사용자가 있어야 합니다.
@@ -96,6 +93,24 @@ Azure Resource Manager 템플릿을 사용 하 여 Analysis Services 서버를 �
     ]
 }
 ```
+
+## <a name="using-managed-identities"></a>관리 id 사용
+
+관리 id를 Analysis Services Admins 목록에 추가할 수도 있습니다. 예를 들어 [시스템 할당 관리 id를 사용 하는 논리 앱](../logic-apps/create-managed-service-identity.md)이 있고 Analysis Services 서버를 관리할 수 있는 권한을 부여 하려고 합니다.
+
+Azure Portal 및 Api의 대부분에서 관리 되는 id는 해당 서비스 주체 개체 ID를 사용 하 여 식별 됩니다. 그러나 Analysis Services의 경우 클라이언트 ID를 사용 하 여 식별 해야 합니다. 서비스 사용자의 클라이언트 ID를 가져오려면 Azure CLI를 사용할 수 있습니다.
+
+```bash
+az ad sp show --id <ManagedIdentityServicePrincipalObjectId> --query appId -o tsv
+```
+
+또는 PowerShell을 사용할 수 있습니다.
+
+```powershell
+(Get-AzureADServicePrincipal -ObjectId <ManagedIdentityServicePrincipalObjectId>).AppId
+```
+
+그런 다음 위에서 설명한 대로 테 넌 트 ID와 함께이 클라이언트 ID를 사용 하 여 관리 되는 id를 Analysis Services Admins 목록에 추가할 수 있습니다.
 
 ## <a name="related-information"></a>관련 정보
 

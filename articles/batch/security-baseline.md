@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/28/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 779b7d071b1161c53bdba08738539c4c682882d2
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: af0466299d1f972fe9334beb5f31c886c1928a1c
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78273553"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78329002"
 ---
 # <a name="azure-security-baseline-for-batch"></a>Batch에 대 한 Azure 보안 기준
 
@@ -628,7 +628,7 @@ Azure Batch 데이터를 포함 하는 저장소 계정에 액세스 하려면 H
 
 전송 중인 Azure Storage 계정 암호화 이해:
 
-https://docs.microsoft.com/azure/storage/common/storage-security-guide#encryption-in-transit
+https://docs.microsoft.com/azure/storage/blobs/security-recommendations
 
 **Azure Security Center 모니터링**: 예
 

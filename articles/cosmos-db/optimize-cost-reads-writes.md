@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/21/2019
-ms.openlocfilehash: 934853b80c6e6377923df4c2b5cce7b7d7d57d7c
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: bbdd1bedb7b9a9f00a0b65ccc4c108ba6fd2638c
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72754923"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78398950"
 ---
 # <a name="optimize-reads-and-writes-cost-in-azure-cosmos-db"></a>Azure Cosmos DB에서 읽기 및 쓰기 비용 최적화
 
@@ -29,14 +29,6 @@ Azure Cosmos DB는 프로비전된 처리량 모델을 사용하여 처리량 �
 |100KB |10RU |50RU |
 
 크기가 1KB인 단일 항목을 읽는 비용은 1RU입니다. 크기가 1KB인 단일 항목을 쓰는 비용은 5RU입니다. 기본 세션 [일관성 수준](consistency-levels.md)을 사용하는 경우 읽기 및 쓰기 비용이 적용됩니다.  RU에 대해 항목 크기, 속성 수, 데이터 일관성, 인덱싱된 속성, 인덱싱 및 쿼리 패턴이 고려됩니다.
-
-## <a name="normalized-cost-for-1-million-reads-and-writes"></a>1백만 개의 읽기 및 쓰기에 대한 정규화된 비용
-
-초당 1,000RU를 프로비전하는 것은 시간당 360만RU에 해당하며 시간당 $0.08가 됩니다(미국 및 유럽). 1KB 항목의 경우 이러한 프로비전된 처리량으로 시간당 360만 개 읽기 또는 72만 개 쓰기를 수행할 수 있습니다(이 값은 `3.6 million RU / 5`로 계산됨). 1백만 읽기 및 쓰기로 정규화된 요금은 1백만 읽기에 대해 $0.022(이 값은 $0.08/360만으로 계산됨) 및 1백만 쓰기에 대해 $0.111(이 값은 $0.08/72만으로 계산됨)이 됩니다.
-
-## <a name="number-of-regions-and-the-request-units-cost"></a>지역 수 및 요청 단위 비용
-
-쓰기 비용은 Azure Cosmos 계정과 연결된 지역 수에 관계없이 일정합니다. 즉, 1KB 쓰기는 계정과 연결된 지역 수에 관계없이 5RU 요금이 청구됩니다. 모든 지역에서 복제, 수락 및 복제 트래픽 처리를 위해 많은 양의 리소스가 사용됩니다. 다중 지역의 비용 최적화에 대한 자세한 내용은 [다중 지역 Cosmos 계정의 비용 최적화](optimize-cost-regions.md) 문서를 참조하세요.
 
 ## <a name="optimize-the-cost-of-writes-and-reads"></a>읽기 및 쓰기 비용 최적화
 

@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 11/04/2019
-ms.openlocfilehash: c35afe6e3d6ec74e8fc7cd134f533d1e618c820e
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.date: 03/05/2020
+ms.openlocfilehash: eb4f46322bec57fb4412d3ddebb345640556ca5c
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845732"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399108"
 ---
 # <a name="monitoring-azure-machine-learning"></a>모니터링 Azure Machine Learning
 
@@ -30,7 +30,7 @@ ms.locfileid: "76845732"
 
 ## <a name="azure-monitor"></a>Azure Monitor
 
-Azure Machine Learning는 Azure에서 전체 스택 모니터링 서비스인 Azure Monitor를 사용 하 여 모니터링 데이터를 기록 합니다. Azure Monitor는 Azure 리소스를 모니터링 하는 완전 한 기능 집합을 제공 합니다. 또한 다른 클라우드 및 온-프레미스의 리소스도 모니터링할 수 있습니다.
+Azure Machine Learning은 Azure에서 전체 스택 모니터링 서비스인 Azure Monitor를 사용하여 모니터링 데이터를 기록합니다. Azure Monitor는 Azure 리소스를 모니터링 하는 완전 한 기능 집합을 제공 합니다. 또한 다른 클라우드 및 온-프레미스의 리소스도 모니터링할 수 있습니다.
 
 모니터링 기능에 대 한 개요를 제공 하는 [Azure Monitor 개요](/azure/azure-monitor/overview)문서부터 시작 합니다. 다음 섹션에서는 Azure Machine Learning에서 Azure Monitor 사용에 대 한 구체적인 정보를 제공 하 여이 정보를 작성 합니다.
 
@@ -38,7 +38,7 @@ Azure Monitor와 관련 된 비용을 이해 하려면 [사용량 및 예상 비
 
 ## <a name="monitoring-data-from-azure-machine-learning"></a>Azure Machine Learning에서 데이터 모니터링
 
-Azure Machine Learning는 다른 Azure 리소스와 동일한 종류의 모니터링 데이터를 수집 하며, [azure 리소스의 데이터 모니터링](/azure/azure-monitor/insights/monitor-azure-resource#monitoring-data)에 설명 되어 있습니다. Azure Machine Learning에서 만든 로그 및 메트릭에 대 한 자세한 내용은 [Azure Machine Learning 모니터링 데이터 참조](monitor-resource-reference.md) 를 참조 하세요.
+Azure Machine Learning은 다른 Azure 리소스와 동일한 종류의 모니터링 데이터를 수집합니다. 이에 대해서는 [Azure 리소스의 데이터 모니터링](/azure/azure-monitor/insights/monitor-azure-resource#monitoring-data)에 설명되어 있습니다. Azure Machine Learning에서 만든 로그 및 메트릭에 대 한 자세한 내용은 [Azure Machine Learning 모니터링 데이터 참조](monitor-resource-reference.md) 를 참조 하세요.
 
 ## <a name="analyzing-metric-data"></a>메트릭 데이터 분석
 
@@ -62,7 +62,7 @@ Azure Machine Learning에 대 한 모든 메트릭은 네임 스페이스 **Mach
 
 다음 표에서는 Azure Machine Learning에 대 한 일반적인 메트릭 경고 규칙과 권장 메트릭을 보여 줍니다.
 
-| 경고 유형 | 조건 | Description |
+| 경고 유형 | 조건 | 설명 |
 |:---|:---|:---|
 | 모델 배포 실패 | 집계 유형: 합계, 연산자: 보다 큼, 임계값: 0 | 하나 이상의 모델 배포에 실패 한 경우 |
 | 할당량 사용률 비율 | 집계 유형: 평균, 연산자: 보다 큼, 임계값: 90| 할당량 사용률 백분율이 90% 보다 큰 경우 |
@@ -85,7 +85,7 @@ Azure Machine Learning에 대 한 모든 메트릭은 네임 스페이스 **Mach
 
 Azure Machine Learning에 대해 다음 로그를 구성할 수 있습니다.
 
-| 범주 | Description |
+| 범주 | 설명 |
 |:---|:---|
 | AmlComputeClusterEvent | Azure Machine Learning 계산 클러스터의 이벤트입니다. |
 | AmlComputeClusterNodeEvent | Azure Machine Learning 계산 클러스터 내의 노드에서 발생 한 이벤트입니다. |
@@ -100,7 +100,7 @@ Azure Monitor Log Analytics를 사용 하려면 진단 구성을 만들고 __Log
 
 Azure Monitor 로그의 데이터는 테이블에 저장 되 고 각 테이블에는 고유한 속성 집합이 있습니다. Azure Machine Learning은 다음 테이블에 데이터를 저장 합니다.
 
-| Table | Description |
+| Table | 설명 |
 |:---|:---|
 | AmlComputeClusterEvent | Azure Machine Learning 계산 클러스터의 이벤트입니다. |
 | AmlComputeClusterNodeEvent | Azure Machine Learning 계산 클러스터 내의 노드에서 발생 한 이벤트입니다. |

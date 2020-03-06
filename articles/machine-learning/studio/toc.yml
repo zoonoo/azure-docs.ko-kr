@@ -8,19 +8,19 @@
       href: what-is-ml-studio.md
     - name: ML 제품 비교
       href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/studio/context/ml-context
-- name: 자습서
+- name: 빠른 시작
   items:
     - name: 첫 번째 실험 만들기
       displayName: quickstart
       href: create-experiment.md
-    - name: 예측 솔루션 만들기
-      items:
-        - name: 1 - 실험 만들기
-          href: tutorial-part1-credit-risk.md
-        - name: 2 - 학습 및 평가
-          href: tutorial-part2-credit-risk-train.md
-        - name: 3 - 웹 서비스 배포
-          href: tutorial-part3-credit-risk-deploy.md
+- name: 자습서
+  items:
+    - name: '1: 예측 실험 만들기'
+      href: tutorial-part1-credit-risk.md
+    - name: '2: 솔루션 학습 및 평가'
+      href: tutorial-part2-credit-risk-train.md
+    - name: '3: 웹 서비스 배포'
+      href: tutorial-part3-credit-risk-deploy.md
 - name: 샘플
   items:
     - name: 사용 가능한 데이터 세트
@@ -147,7 +147,7 @@
           href: dedicated-capacity-for-bes-jobs.md
     - name: 사용 사례
       items:
-        - name: 고객 변동
+        - name: 고객 이탈
           href: azure-ml-customer-churn-scenario.md
         - name: 정서 분석
           href: text-analytics-module-tutorial.md
@@ -161,7 +161,7 @@
         - name: 갤러리 데이터
           displayName: export
           href: ai-gallery-control-personal-data-dsr.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: 알고리즘 및 모듈 참조
       href: /azure/machine-learning/studio-module-reference/machine-learning-studio-algorithm-and-module-help
@@ -181,7 +181,7 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: 국가별 가용성
       href: 'https://azure.microsoft.com/regions/services/'
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/machine-learning/'
     - name: '신경망 사용자 지정(Net#)'
       href: azure-ml-netsharp-reference-guide.md

@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 859f8a9c2bf644461c8945255de9f925b4e943f4
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 93695b407762766b0bdd40c9d99a0bf4965f59a8
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78251858"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78328782"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>시계열 예측 모델 자동 학습
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -113,7 +113,7 @@ test_labels = test_data.pop(label).values
 
 [`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) 개체는 자동화 된 machine learning 작업에 필요한 설정 및 데이터를 정의 합니다. 회귀 문제와 마찬가지로 작업 유형, 반복 횟수, 학습 데이터 및 교차 유효성 검사 수와 같은 표준 학습 매개 변수를 정의 합니다. 예측 작업의 경우 실험에 영향을 주는 추가 매개 변수를 설정 해야 합니다. 다음 표에서는 각 매개 변수 및 사용법을 설명 합니다.
 
-| 매개 변수 | Description | 필수 |
+| 매개 변수&nbsp;이름 | Description | 필수 |
 |-------|-------|-------|
 |`time_column_name`|시계열을 작성 하 고 해당 빈도를 유추 하는 데 사용 되는 입력 데이터의 datetime 열을 지정 하는 데 사용 됩니다.|✓|
 |`grain_column_names`|입력 데이터에서 개별 계열 그룹을 정의 하는 이름입니다. 그레인을 정의 하지 않으면 데이터 집합은 하나의 시계열으로 간주 됩니다.||

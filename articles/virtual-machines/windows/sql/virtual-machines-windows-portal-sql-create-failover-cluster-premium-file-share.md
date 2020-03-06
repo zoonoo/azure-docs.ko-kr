@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/09/2019
 ms.author: mathoma
-ms.openlocfilehash: b2d49eeadf068cbaacaa5e147f38025c55f33ff4
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 9595ee87801fa4ce187a50197fc58d6c448eac24
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77651364"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303225"
 ---
 # <a name="configure-a-sql-server-failover-cluster-instance-with-premium-file-share-on-azure-virtual-machines"></a>Azure virtual machines에서 프리미엄 파일 공유를 사용 하 여 SQL Server 장애 조치 (failover) 클러스터 인스턴스 구성
 
@@ -53,7 +53,7 @@ Azure IaaS VM 장애 조치 (failover) 클러스터에서는 서버당 단일 NI
 
 많은 작업에는 버스트 IO가 있으므로 사용량이 많은 기간 중에 확인 하 고 최대 IOPS 및 평균 IOPS를 모두 기록해 두는 것이 좋습니다. 프리미엄 파일 공유는 공유 크기에 따라 IOPS를 제공 합니다. 프리미엄 파일 공유는 또한 최대 1 시간 동안 기준 금액을 3 배까지 버스트 하는 데 사용할 수 있는 무료 버스트를 제공 합니다.
 
-프리미엄 파일 공유 성능에 대 한 자세한 내용은 [파일 공유 성능 계층](https://docs.microsoft.com/azure/storage/files/storage-files-planning#file-share-performance-tiers)을 참조 하세요.
+프리미엄 파일 공유 성능에 대 한 자세한 내용은 [파일 공유 성능 계층](https://docs.microsoft.com/azure/storage/files/storage-files-planning#storage-tiers)을 참조 하세요.
 
 ### <a name="licensing-and-pricing"></a>라이선스 및 가격 책정
 
@@ -71,7 +71,7 @@ SQL Server 라이선싱에 대한 자세한 내용은 [가격 책정](https://ww
 
 Filestream은 프리미엄 파일 공유를 사용 하는 장애 조치 (failover) 클러스터에 대해 지원 되지 않습니다. Filestream을 사용 하려면 [스토리지 공간 다이렉트](virtual-machines-windows-portal-sql-create-failover-cluster.md)를 사용 하 여 클러스터를 배포 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서의 단계를 완료 하기 전에 다음이 이미 있어야 합니다.
 
@@ -153,7 +153,7 @@ Filestream은 프리미엄 파일 공유를 사용 하는 장애 조치 (failove
 
    각 가상 컴퓨터의 Windows 방화벽에서 이러한 포트를 엽니다.
 
-   | 목적 | TCP 포트 | 참고
+   | 목적 | TCP 포트 | 메모
    | ------ | ------ | ------
    | SQL Server | 1433 | SQL Server의 기본 인스턴스에 대한 표준 포트입니다. 갤러리에서 이미지를 사용한 경우 이 포트는 자동으로 열립니다.
    | 상태 프로브 | 59999 | 모든 공개 TCP 포트입니다. 이후 단계에서 이 포트를 사용하려면 부하 분산 장치 [상태 프로브](#probe) 및 클러스터를 구성합니다.

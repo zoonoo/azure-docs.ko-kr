@@ -10,18 +10,18 @@ author: peterclu
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/14/2019
-ms.openlocfilehash: eac7674ae4a88621a803c70bd55a88e65b2cb7e9
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: caf2437b4a4853bc29f094d082a4ea15d2f7a3c9
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838686"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78388469"
 ---
 # <a name="retrain-and-deploy-a-classic-studio-classic-web-service"></a>클래식 Studio (클래식) 웹 서비스 다시 학습 및 배포
 
 기계 학습 모델 다시 학습은 사용 가능한 가장 관련성 있는 데이터를 기반으로 계속 정확성을 유지하는 한 가지 방법입니다. 이 문서에서는 클래식 Studio (클래식) 웹 서비스를 다시 학습 하는 방법을 보여 줍니다. 새 Studio (클래식) 웹 서비스를 다시 학습 하는 방법에 대 한 지침은 [이 방법 문서를 참조 하세요.](retrain-machine-learning-model.md)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서에서는 이미 다시 학습 실험과 예측 실험이 둘 다 있다고 가정합니다. 이 단계는 [기계 학습 모델 다시 학습 및 배포](/azure/machine-learning/studio/retrain-machine-learning-model)에서 설명합니다. 그러나 기계 학습 모델을 새로운 웹 서비스로 배포하는 대신, 예측 실험을 클래식 웹 서비스로 배포하겠습니다.
      
@@ -49,22 +49,9 @@ ms.locfileid: "73838686"
 1. **추가**를 클릭합니다.
 1. 새 엔드포인트에 대한 이름 및 설명을 입력합니다. 로깅 수준 및 예제 데이터 사용 여부를 선택합니다. 자세한 내용은 [Machine Learning 웹 서비스에 대해 로깅 사용](web-services-logging.md)을 참조하세요.
 
-## <a name="update-the-added-endpoints-trained-model"></a>추가된 엔드포인트의 학습된 모델 업데이트
+## <a name="update-the-added-endpoints-trained-model"></a>추가 된 끝점의 학습 된 모델 업데이트
 
 ### <a name="retrieve-patch-url"></a>패치 URL 검색
-
-### <a name="option-1-programmatically"></a>옵션 1: 프로그래밍 방식으로
-
-프로그램 방식으로 올바른 패치 URL을 가져오려면 다음 단계를 수행합니다.
-
-1. [AddEndpoint](https://github.com/raymondlaghaeian/AML_EndpointMgmt/blob/master/Program.cs) 샘플 코드를 실행합니다.
-1. AddEndpoint의 출력에서 *HelpLocation* 값을 찾아 URL을 복사합니다.
-
-   ![addEndpoint 샘플의 출력에 있는 HelpLocation.](./media/retrain-classic/addEndpoint-output.png)
-1. 웹 서비스에 대한 도움말 링크를 제공하는 페이지로 이동하려면 브라우저에 URL을 붙여 넣습니다.
-1. **리소스 업데이트** 링크를 클릭하여 패치 도움말 페이지를 엽니다.
-
-### <a name="option-2-use-the-azure-machine-learning-web-services-portal"></a>옵션 2: Azure Machine Learning 웹 서비스 포털 사용
 
 웹 포털을 사용하여 올바른 패치 URL을 가져오려면 다음 단계를 수행합니다.
 
@@ -101,8 +88,8 @@ PATCH 도움말 페이지에는 사용해야 하는 PATCH URL이 들어 있으�
                     Location = new AzureBlobDataReference()
                     {
                         BaseLocation = "https://esintussouthsus.blob.core.windows.net/",
-                        RelativeLocation = "your endpoint relative location", //from the output, for example: “experimentoutput/8946abfd-79d6-4438-89a9-3e5d109183/8946abfd-79d6-4438-89a9-3e5d109183.ilearner”
-                        SasBlobToken = "your endpoint SAS blob token" //from the output, for example: “?sv=2013-08-15&sr=c&sig=37lTTfngRwxCcf94%3D&st=2015-01-30T22%3A53%3A06Z&se=2015-01-31T22%3A58%3A06Z&sp=rl”
+                        RelativeLocation = "your endpoint relative location", //from the output, for example: "experimentoutput/8946abfd-79d6-4438-89a9-3e5d109183/8946abfd-79d6-4438-89a9-3e5d109183.ilearner"
+                        SasBlobToken = "your endpoint SAS blob token" //from the output, for example: "?sv=2013-08-15&sr=c&sig=37lTTfngRwxCcf94%3D&st=2015-01-30T22%3A53%3A06Z&se=2015-01-31T22%3A58%3A06Z&sp=rl"
                     }
                 }
             }
@@ -131,7 +118,7 @@ PATCH 도움말 페이지에는 사용해야 하는 PATCH URL이 들어 있으�
 
 *리소스*의 *Name* 매개 변수의 값은 예측 실험의 저장된 학습된 모델의 리소스 이름과 일치해야 합니다. 리소스 이름을 가져오려면:
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 왼쪽 메뉴에서 **Machine Learning**을 클릭합니다.
 1. 이름 아래에서 작업 영역을 클릭한 다음 **웹 서비스**를 클릭합니다.
 1. 이름 아래에서 **Census Model[예측 exp.]** 을 클릭합니다.

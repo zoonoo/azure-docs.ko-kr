@@ -10,18 +10,18 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: dapine
-ms.openlocfilehash: 5c8b3ed329c03bd08b2a0b3e26ada7a4e36ceb49
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 1968bc03bfddb9d6f6c8fe743a2a1a99722c074d
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76716880"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399175"
 ---
 # <a name="deploy-the-text-analytics-language-detection-container-to-azure-kubernetes-service"></a>Text Analytics 언어 검색 컨테이너를 Azure Kubernetes Service에 배포
 
 언어 감지 컨테이너를 배포하는 방법을 알아봅니다. 이 절차에서는 로컬 Docker 컨테이너를 만들고, 컨테이너를 고유한 프라이빗 컨테이너 레지스트리로 푸시하고, Kubernetes 클러스터에서 컨테이너를 실행하고, 웹 브라우저에서 테스트하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 이 절차를 수행하려면 로컬로 설치 및 실행해야 하는 몇 가지 도구가 필요합니다. Azure Cloud Shell은 사용하지 않도록 합니다.
 
@@ -80,8 +80,11 @@ Azure Kubernetes Service에 컨테이너를 배포하려면 컨테이너 이미�
 
     결과를 저장하여 **loginServer** 속성을 가져옵니다. 이 속성은 나중에 `language.yml` 파일에서 사용되는 호스트된 컨테이너 주소의 일부가 됩니다.
 
-    ```console
-    > az acr create --resource-group cogserv-container-rg --name pattyregistry --sku Basic
+    ```azurecli-interactive
+    az acr create --resource-group cogserv-container-rg --name pattyregistry --sku Basic
+    ```
+
+    ```output
     {
         "adminUserEnabled": false,
         "creationDate": "2019-01-02T23:49:53.783549+00:00",
@@ -126,7 +129,7 @@ Azure Kubernetes Service에 컨테이너를 배포하려면 컨테이너 이미�
 
     컨테이너 레지스트리에 버전을 추적하려면 버전 형식의 태그(예: `v1`)를 추가합니다.
 
-1. 이미지를 컨테이너 레지스트리에 푸시합니다. 몇 분이 걸릴 수 있습니다.
+1. 이미지를 컨테이너 레지스트리에 푸시합니다. 이 작업은 몇 분 정도 걸릴 수 있습니다.
 
     ```console
     docker push pattyregistry.azurecr.io/language-frontend:v1
@@ -136,8 +139,7 @@ Azure Kubernetes Service에 컨테이너를 배포하려면 컨테이너 이미�
 
     프로세스가 완료되면 결과는 다음과 비슷합니다.
 
-    ```console
-    > docker push pattyregistry.azurecr.io/language-frontend:v1
+    ```output
     The push refers to repository [pattyregistry.azurecr.io/language-frontend]
     82ff52ee6c73: Pushed
     07599c047227: Pushed
@@ -150,7 +152,7 @@ Azure Kubernetes Service에 컨테이너를 배포하려면 컨테이너 이미�
 
 ## <a name="get-language-detection-docker-image"></a>언어 감지 Docker 이미지 가져오기
 
-1. 최신 버전의 Docker 이미지를 로컬 컴퓨터로 끌어옵니다. 몇 분이 걸릴 수 있습니다. 이 컨테이너의 최신 버전이 있으면 `1.1.006770001-amd64-preview`의 값을 최신 버전으로 변경합니다.
+1. 최신 버전의 Docker 이미지를 로컬 컴퓨터로 끌어옵니다. 이 작업은 몇 분 정도 걸릴 수 있습니다. 이 컨테이너의 최신 버전이 있으면 `1.1.006770001-amd64-preview`의 값을 최신 버전으로 변경합니다.
 
     ```console
     docker pull mcr.microsoft.com/azure-cognitive-services/language:1.1.006770001-amd64-preview
@@ -162,7 +164,7 @@ Azure Kubernetes Service에 컨테이너를 배포하려면 컨테이너 이미�
     docker tag mcr.microsoft.com/azure-cognitive-services/language pattiyregistry.azurecr.io/language:1.1.006770001-amd64-preview
     ```
 
-1. 이미지를 컨테이너 레지스트리에 푸시합니다. 몇 분이 걸릴 수 있습니다.
+1. 이미지를 컨테이너 레지스트리에 푸시합니다. 이 작업은 몇 분 정도 걸릴 수 있습니다.
 
     ```console
     docker push pattyregistry.azurecr.io/language:1.1.006770001-amd64-preview
@@ -180,8 +182,7 @@ Azure Kubernetes Service에 컨테이너를 배포하려면 컨테이너 이미�
 
     assignee 매개 변수에 대한 결과 `appId` 값을 3단계 `<appId>`에 저장합니다. 다음 섹션의 클라이언트-암호 매개 변수 `password`을 위해 `<client-secret>`를 저장합니다.
 
-    ```console
-    > az ad sp create-for-rbac --skip-assignment
+    ```output
     {
       "appId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
       "displayName": "azure-cli-2018-12-31-18-39-32",
@@ -199,8 +200,7 @@ Azure Kubernetes Service에 컨테이너를 배포하려면 컨테이너 이미�
 
     범위 매개 변수 값의 출력 `<acrId>`를 다음 단계에 저장합니다. 다음과 같이 표시됩니다.
 
-    ```console
-    > az acr show --resource-group cogserv-container-rg --name pattyregistry --query "id" --o table
+    ```output
     /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/cogserv-container-rg/providers/Microsoft.ContainerRegistry/registries/pattyregistry
     ```
 
@@ -222,8 +222,7 @@ Azure Kubernetes Service에 컨테이너를 배포하려면 컨테이너 이미�
 
     이 단계를 완료하는 데 몇 분이 걸릴 수 있습니다. 결과는 다음과 같습니다.
 
-    ```console
-    > az aks create --resource-group cogserv-container-rg --name patty-kube --node-count 2  --service-principal <appId>  --client-secret <client-secret>  --generate-ssh-keys
+    ```output
     {
       "aadProfile": null,
       "addonProfiles": null,
@@ -300,8 +299,7 @@ Azure Kubernetes Service에 컨테이너를 배포하려면 컨테이너 이미�
 
     응답은 다음과 같습니다.
 
-    ```console
-    > kubectl get nodes
+    ```output
     NAME                       STATUS    ROLES     AGE       VERSION
     aks-nodepool1-13756812-0   Ready     agent     6m        v1.9.11
     aks-nodepool1-13756812-1   Ready     agent     6m        v1.9.11
@@ -313,14 +311,14 @@ Azure Kubernetes Service에 컨테이너를 배포하려면 컨테이너 이미�
 
 1. 다음 표에 따라 `language.yml`의 언어-프런트 엔드 배포 줄을 변경하여 고유한 컨테이너 레지스트리에 이미지 이름, 클라이언트 비밀 및 텍스트 분석 설정을 추가합니다.
 
-    언어-프런트 엔드 배포 설정|목적|
+    언어-프런트 엔드 배포 설정|용도|
     |--|--|
     |줄 32<br> `image` 속성|Container Registry에 있는 프런트 엔드 이미지의 이미지 위치입니다.<br>`<container-registry-name>.azurecr.io/language-frontend:v1`|
     |줄 44<br> `name` 속성|이전 섹션에서 `<client-secret>`으로 나타낸 이미지의 컨테이너 레지스트리 비밀입니다.|
 
 1. 다음 표에 따라 `language.yml`의 언어 배포 줄을 변경하여 고유한 컨테이너 레지스트리에 이미지 이름, 클라이언트 비밀 및 텍스트 분석 설정을 추가합니다.
 
-    |언어 배포 설정|목적|
+    |언어 배포 설정|용도|
     |--|--|
     |줄 78<br> `image` 속성|Container Registry에 있는 언어 이미지의 이미지 위치입니다.<br>`<container-registry-name>.azurecr.io/language:1.1.006770001-amd64-preview`|
     |줄 95<br> `name` 속성|이전 섹션에서 `<client-secret>`으로 나타낸 이미지의 컨테이너 레지스트리 비밀입니다.|
@@ -337,8 +335,7 @@ Azure Kubernetes Service에 컨테이너를 배포하려면 컨테이너 이미�
 
     응답은 다음과 같습니다.
 
-    ```console
-    > kubectl apply -f language.yml
+    ```output
     service "language-frontend" created
     deployment.apps "language-frontend" created
     service "language" created
@@ -353,8 +350,7 @@ Azure Kubernetes Service에 컨테이너를 배포하려면 컨테이너 이미�
 kubectl get all
 ```
 
-```console
-> kubectl get all
+```output
 NAME                                     READY     STATUS    RESTARTS   AGE
 pod/language-586849d8dc-7zvz5            1/1       Running   0          13h
 pod/language-frontend-68b9969969-bz9bg   1/1       Running   1          13h

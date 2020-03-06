@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/06/2020
 ms.author: tagore
 ms.custom: include file
-ms.openlocfilehash: a9c045162e650b4468fb53676e367d2c658bf7cc
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 57469bef7014010164234638f3d059ac96b125cf
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77912576"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78384010"
 ---
 ## <a name="what-is-the-time-required-for-migration"></a>마이그레이션에 필요한 시간은 어떻게 되나요?
 
@@ -22,6 +22,14 @@ ms.locfileid: "77912576"
 ## <a name="what-is-the-definition-of-a-new-customer-on-iaas-vms-classic"></a>IaaS Vm (클래식)에 대 한 새 고객의 정의는 무엇 인가요?
 
 Febrauary 2020 (사용 중단을 시작 하기 전 한 달) 동안 구독에 IaaS Vm (클래식)이 없는 고객은 새 고객으로 간주 됩니다. 
+
+## <a name="what-is-the-definition-of-an-existing-customer-on-iaas-virtual-machines-classic"></a>IaaS Virtual Machines (클래식)에서 기존 고객의 정의는 무엇 인가요?
+
+2 월 2020 일에 활성 또는 중지 되었지만 IaaS Vm (클래식)을 구독에 할당 한 고객은 기존 고객으로 간주 됩니다. 이러한 고객만 2023 년 3 월 1 일까 야 Azure Service Manager에서 Azure Resource Manager로 Vm을 마이그레이션할 수 있습니다. 
+
+## <a name="why-am-i-getting-an-error-stating-newclassicvmcreationnotallowedforsubscription"></a>"NewClassicVMCreationNotAllowedForSubscription" 라는 오류가 발생 하는 이유는 무엇 인가요?
+
+사용 중지 프로세스의 일부로 IaaS VM (클래식)은 새 고객에 게 더 이상 제공 되지 않습니다. 새 고객으로 식별 되었으며 작업에 권한이 부여 되지 않았습니다. [ARM을 사용 하 여 Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell)를 사용 하는 것이 좋습니다. ARM을 사용 하 여 Azure Vm을 사용할 수 없는 경우 구독 허용 목록 지원 담당자에 게 문의 하세요.
 
 ## <a name="does-this-migration-plan-affect-any-of-my-existing-services-or-applications-that-run-on-azure-virtual-machines"></a>이 마이그레이션 계획이 Azure 가상 머신에서 실행되는 기존 서비스 또는 애플리케이션에 영향을 미치나요? 
 
@@ -49,7 +57,7 @@ IaaS Vm의 2023 년 3 월 1 일까 지 (클래식) IaaS Vm (클래식)은 일반
 
 ## <a name="do-i-have-to-buy-another-express-route-circuit-if-i-have-to-use-iaas-under-resource-manager"></a>Resource Manager에서 IaaS를 활용해야 할 경우 다른 Express 경로 회로를 구매해야 하나요? 
 
-No. 최근에 [클래식에서 Resource Manager 배포 모델로의 ExpressRoute 회로 이동](../articles/expressroute/expressroute-move.md)을 사용하도록 설정했습니다. 이미 ExpressRoute 회로가 있는 경우 새로 구입하지 않아도 됩니다.
+아니요. 최근에 [클래식에서 Resource Manager 배포 모델로의 ExpressRoute 회로 이동](../articles/expressroute/expressroute-move.md)을 사용하도록 설정했습니다. 이미 ExpressRoute 회로가 있는 경우 새로 구입하지 않아도 됩니다.
 
 ## <a name="what-if-i-had-configured-role-based-access-control-policies-for-my-classic-iaas-resources"></a>클래식 IaaS 리소스에 대해 역할 기반 Access Control 정책을 구성한 경우 어떻게 되나요? 
 

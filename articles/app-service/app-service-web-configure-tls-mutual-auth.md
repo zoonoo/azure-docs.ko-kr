@@ -5,12 +5,12 @@ ms.assetid: cd1d15d3-2d9e-4502-9f11-a306dac4453a
 ms.topic: article
 ms.date: 10/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 44bf98ea0bd82bd261fa565fa068382ecc2a0ba7
-ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
+ms.openlocfilehash: 357ea2cc598bca3e008a74f021895e1e45a3874f
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75681143"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78301009"
 ---
 # <a name="configure-tls-mutual-authentication-for-azure-app-service"></a>Azure App Service에 대 한 TLS 상호 인증 구성
 
@@ -19,6 +19,8 @@ ms.locfileid: "75681143"
 > [!NOTE]
 > HTTP를 통해 사이트에 액세스하고 HTTPS를 통해서는 액세스하지 않는 경우 클라이언트 인증서가 제공되지 않습니다. 따라서 응용 프로그램에 클라이언트 인증서가 필요한 경우 HTTP를 통해 응용 프로그램에 대 한 요청을 허용 하지 않아야 합니다.
 >
+
+[!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
 
 ## <a name="enable-client-certificates"></a>클라이언트 인증서 사용
 

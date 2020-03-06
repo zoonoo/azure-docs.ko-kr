@@ -4,15 +4,15 @@ description: Azure Cosmos DB에서 코탄젠트 (COT) SQL 시스템 함수가 �
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: f049d1295eef3e6a45abeaafe8c22d376f90abe1
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 25c907644f58ee40ea08e5636d68dc0e84564a28
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74871502"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78299490"
 ---
 # <a name="cot-azure-cosmos-db"></a>COT (Azure Cosmos DB)
  지정된 숫자 식의 라디안에서 지정된 각도의 삼각 코탄젠트를 반환합니다.  
@@ -28,11 +28,11 @@ COT(<numeric_expr>)
 *numeric_expr*  
    숫자 식입니다.  
   
-## <a name="return-types"></a>반환 유형
+## <a name="return-types"></a>반환 형식
   
   숫자 식을 반환합니다.  
   
-## <a name="examples"></a>예시
+## <a name="examples"></a>예
   
   다음 예에서는 지정 된 각도의 `COT` 계산 합니다.  
   
@@ -45,7 +45,10 @@ SELECT COT(124.1332) AS cot
 ```json
 [{"cot": -0.040311998371148884}]  
 ```  
-  
+
+## <a name="remarks"></a>설명
+
+이 시스템 함수는 인덱스를 활용 하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

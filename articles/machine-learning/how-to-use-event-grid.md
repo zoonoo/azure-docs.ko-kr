@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
-ms.date: 11/04/2019
-ms.openlocfilehash: 49ee00d43820d5aeb50e44cff1b6c5a448b4ce81
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.date: 03/05/2020
+ms.openlocfilehash: 8a9dc92baf47242af502862edebffe686263dd5d
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77623910"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399671"
 ---
 # <a name="create-event-driven-machine-learning-workflows-preview"></a>이벤트 기반 기계 학습 워크플로 만들기 (미리 보기)
 
@@ -30,7 +30,7 @@ Event Grid를 사용 하 여 다음과 같은 일반적인 시나리오를 사�
 * Azure Machine Learning에서 다양 한 끝점으로 이벤트 스트리밍
 * 드리프트가 검색 되 면 ML 파이프라인 트리거
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 * Azure Machine Learning 작업 영역에 대 한 참가자 또는 소유자 액세스는 이벤트를 만들 수 있습니다.
 
 ### <a name="configure-eventgrid-using-the-azure-portal"></a>Azure Portal를 사용 하 여 EventGrid 구성

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 2da7820a6c9f1f90585b4deb605bb99c7580b0e5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 81f113aa51a7f739b506ec7e3eb5bf2cb9f49a03
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75444813"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302647"
 ---
 # <a name="ceiling-azure-cosmos-db"></a>상한 (Azure Cosmos DB)
  지정한 숫자 식보다 크거나 같은 가장 작은 정수 값을 반환합니다.  
@@ -32,7 +32,7 @@ CEILING (<numeric_expr>)
   
   숫자 식을 반환합니다.  
   
-## <a name="examples"></a>예시
+## <a name="examples"></a>예
   
   다음 예에서는 `CEILING` 함수를 사용 하 여 양수, 음수 및 0 값을 보여 줍니다.  
   
@@ -45,6 +45,10 @@ SELECT CEILING(123.45) AS c1, CEILING(-123.45) AS c2, CEILING(0.0) AS c3
 ```json
 [{c1: 124, c2: -123, c3: 0}]  
 ```  
+
+## <a name="remarks"></a>설명
+
+이 시스템 함수는 [범위 인덱스](index-policy.md#includeexclude-strategy)를 활용 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

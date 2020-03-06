@@ -15,11 +15,11 @@ ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 76e614b605cd07cd5dc454824dd204447f806907
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77132466"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78377438"
 ---
 # <a name="considerations-for-using-xamarin-ios-with-msalnet"></a>MSAL.NET와 함께 Xamarin iOS 사용에 대 한 고려 사항
 Xamarin iOS에서 .NET 용 Microsoft Authentication Library (MSAL.NET)를 사용 하는 경우 다음을 수행 해야 합니다. 
@@ -115,7 +115,7 @@ IOS 12 Safari를 사용 하 여 ASP.NET Core OIDC 인증이 중단 되는 것을
 
 Xamarin iOS의 속성에 대 한 자세한 내용은 다음 샘플의 README.md 파일에서 [iOS 관련 고려 사항](https://github.com/Azure-Samples/active-directory-xamarin-native-v2/tree/master/1-Basic#ios-specific-considerations) 단락을 참조 하세요.
 
-샘플 | 플랫폼 | 설명
+샘플 | 플랫폼 | Description
 ------ | -------- | -----------
 [https://github.com/Azure-Samples/active-directory-xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) | Xamarin iOS, Android, 유니버설 Windows 플랫폼 (UWP) | MSAL을 사용 하 여 Azure AD 2.0 끝점을 통해 Microsoft 개인 계정 및 Azure AD를 인증 하는 방법을 보여 주는 간단한 Xamarin Forms 앱입니다. 또한 앱은 결과 토큰을 사용 하 여 Microsoft Graph에 액세스 하는 방법을 보여 줍니다.
 

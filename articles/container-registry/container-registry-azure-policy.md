@@ -3,12 +3,12 @@ title: Azure Policy 사용 준수
 description: Azure Policy의 기본 제공 정책을 할당 하 여 Azure container registry의 준수 감사
 ms.topic: article
 ms.date: 02/26/2020
-ms.openlocfilehash: 331fcfaf72b1ad2022aa3edeefefa597e5bcfe17
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 012cd013de1c60fddcfb28e4bca96d761ada41ab
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77925671"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78330739"
 ---
 # <a name="audit-compliance-of-azure-container-registries-using-azure-policy"></a>Azure Policy를 사용 하 여 Azure container registry의 준수 감사
 
@@ -68,14 +68,14 @@ Name                                                                            
 [Preview]: Container Registries should be encrypted with a Customer-Managed Key (CMK)  /subscriptions/<subscriptionID>/providers/Microsoft.Authorization/policyAssignments/cce1ed4f38a147ad994ab60a
 ```
 
-그런 다음 [az policy state list](/cli/azure/policy/state#az-policy-assignment-list) 를 실행 하 여 특정 정책 ID의 모든 리소스에 대해 JSON 형식 준수 상태를 반환 합니다.
+그런 다음 [az policy state list](/cli/azure/policy/state#az-policy-state-list) 를 실행 하 여 특정 정책 ID의 모든 리소스에 대해 JSON 형식 준수 상태를 반환 합니다.
 
 ```azurecli
 az policy state list \
   --resource <policyID>
 ```
 
-또는 [az policy state list](/cli/azure/policy/state#az-policy-assignment-list) 를 실행 하 여 *myregistry*와 같은 특정 레지스트리 리소스의 JSON 형식 준수 상태를 반환 합니다.
+또는 [az policy state list](/cli/azure/policy/state#az-policy-state-list) 를 실행 하 여 *myregistry*와 같은 특정 레지스트리 리소스의 JSON 형식 준수 상태를 반환 합니다.
 
 ```azurecli
 az policy state list \

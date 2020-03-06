@@ -4,15 +4,15 @@ description: 배열 식의 일부를 반환 하 Azure Cosmos DB 배열 조각 SQ
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 3c65886eabfa87f729e18fb854aca6662d1d6fac
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: a98cb17d22f41776ff788d12ced6aa988ad0b10e
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74871791"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303327"
 ---
 # <a name="array_slice-azure-cosmos-db"></a>ARRAY_SLICE (Azure Cosmos DB)
  배열 식의 일부를 반환합니다.
@@ -33,11 +33,11 @@ ARRAY_SLICE (<arr_expr>, <num_expr> [, <num_expr>])
 
 *num_expr* 결과 배열의 최대 요소 수를 설정 하는 선택적 숫자 식입니다.    
 
-## <a name="return-types"></a>반환 유형
+## <a name="return-types"></a>반환 형식
   
   배열 식을 반환합니다.  
   
-## <a name="examples"></a>예시
+## <a name="examples"></a>예
   
   다음 예제에서는 `ARRAY_SLICE`를 사용 하 여 배열의 다른 조각을 가져오는 방법을 보여 줍니다.  
   
@@ -66,6 +66,10 @@ SELECT
            "s7": [] 
 }]  
 ```  
+
+## <a name="remarks"></a>설명
+
+이 시스템 함수는 인덱스를 활용 하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

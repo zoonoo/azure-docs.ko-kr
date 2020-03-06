@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/24/2020
+ms.date: 03/05/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b997e15b4e987b7a18890606326f52a82cb15212
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 4c3b3318e941723ec333597c7e4b3e48710152d1
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78189927"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78397808"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -56,8 +56,11 @@ ms.locfileid: "78189927"
 | 마스크 | 0:1 | 클레임을 표시할 때 적용할 수 있는 마스킹 문자로 구성된 선택적 문자열입니다. 예를 들어 전화 번호 324-232-4343은 XXX-XXX-4343으로 마스킹할 수 있습니다. |
 | UserHelpText | 0:1 | 사용자가 클레임의 용도를 파악하는 데 도움이 될 수 있는 클레임 형식의 설명입니다. 값을 [지역화](localization.md)할 수 있습니다. |
 | UserInputType | 0:1 | 클레임 형식의 클레임 데이터를 수동으로 입력할 때 사용자에게 제공해야 하는 입력 컨트롤 유형입니다. 이 페이지 아래쪽에 정의되어 있는 사용자 입력 형식을 참조하세요. |
+| AdminHelpText | 0:1 | 관리자가 해당 용도를 이해 하는 데 도움이 될 수 있는 클레임 유형에 대 한 설명입니다. |
 | 제한 | 0:1 | 정규식(Regex) 또는 허용되는 값 목록과 같은 이 클레임의 값 제한입니다. 값을 [지역화](localization.md)할 수 있습니다. |
 PredicateValidationReference| 0:1 | **PredicateValidationsInput** 요소에 대한 참조입니다. **PredicateValidationReference** 요소를 사용하면 적절한 형식의 데이터만 입력하도록 유효성 검사 프로세스를 수행할 수 있습니다. 자세한 내용은 [Predicates](predicates.md)를 참조하세요. |
+
+
 
 ### <a name="datatype"></a>DataType
 

@@ -4,12 +4,12 @@ ms.service: data-explorer
 ms.topic: include
 ms.date: 11/03/2019
 ms.author: orspodek
-ms.openlocfilehash: f8b3e541dfd55bbd613af2791329a08402cf8670
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 3cd9d017429b629acad39f5b902e842886c3c818
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73581902"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78304945"
 ---
 ## <a name="configure-the-data-source"></a>데이터 원본 구성
 
@@ -29,7 +29,7 @@ ms.locfileid: "73581902"
 
 1. 서비스 주체를 만들려면 [Azure Portal 설명서](/azure/active-directory/develop/howto-create-service-principal-portal)의 지침을 따릅니다.
 
-    1. [역할에 애플리케이션 할당](/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) 섹션에서 **Reader** 역할 유형을 Azure Data Explorer 클러스터에 할당합니다.
+    1. [역할에 애플리케이션 할당](/azure/active-directory/develop/howto-create-service-principal-portal#assign-a-role-to-the-application) 섹션에서 **Reader** 역할 유형을 Azure Data Explorer 클러스터에 할당합니다.
 
     1. 로그인에 [사용할 값 가져오기](/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) 섹션에서 **디렉터리 ID** (테 넌 트 Id), **응용 프로그램 id**및 **암호**단계에서 설명 하는 세 가지 속성 값을 복사 합니다.
 
@@ -39,7 +39,7 @@ ms.locfileid: "73581902"
 
 #### <a name="azure-cli"></a>Azure CLI
 
-1. 서비스 주체를 만듭니다. `reader`의 해당 범위 및 역할 유형을 설정합니다.
+1. 서비스 주체를 생성합니다. `reader`의 해당 범위 및 역할 유형을 설정합니다.
 
     ```azurecli
     az ad sp create-for-rbac --name "https://{UrlToYourDashboard}:{PortNumber}" --role "reader" \
@@ -85,7 +85,7 @@ ms.locfileid: "73581902"
 
 1. **권한**을 선택한 다음, **추가**를 선택합니다.
 
-    ![데이터베이스 권한](media/data-explorer-configure-data-source/database-permissions.png)
+    ![데이터베이스 사용 권한](media/data-explorer-configure-data-source/database-permissions.png)
 
 1. **데이터베이스 권한 추가**에서 **뷰어** 역할을 선택한 다음, **주체 선택**을 선택합니다.
 

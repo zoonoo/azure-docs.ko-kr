@@ -8,13 +8,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: trbye
-ms.date: 07/12/2019
-ms.openlocfilehash: 65db6cfa64658edc4e604a009e672ba3aa5e86f3
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.date: 03/05/2020
+ms.openlocfilehash: 73b9ae6bc3c15526bfdafd74330c7b86286631b1
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75893991"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78396138"
 ---
 # <a name="enable-logging-in-azure-machine-learning"></a>Azure Machine Learning에서 로깅 사용
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -31,7 +31,7 @@ Azure Machine Learning Python SDK를 사용하면 로컬 로깅 및 포털의 �
 
 ## <a name="training-models-and-compute-target-logging"></a>모델 학습 및 컴퓨팅 대상 로깅
 
-모델 학습 프로세스 중 로깅을 사용하는 여러 가지 방법이 있으며, 표시된 예제는 일반적인 디자인 패턴을 보여 줍니다. `Experiment` 클래스의 `start_logging` 함수를 사용하여 클라우드의 작업 영역에 실행 관련 데이터를 쉽게 로그할 수 있습니다.
+모델 학습 프로세스 중 로깅을 사용하는 여러 가지 방법이 있으며, 표시된 예제는 일반적인 디자인 패턴을 보여 줍니다. `start_logging` 클래스의 `Experiment` 함수를 사용하여 클라우드의 작업 영역에 실행 관련 데이터를 쉽게 로그할 수 있습니다.
 
 ```python
 from azureml.core import Experiment
@@ -58,7 +58,7 @@ run = experiment.submit(config=run_config_object, show_output=True)
 run.wait_for_completion(show_output=True)
 ```
 
-또한 SDK는 특정 학습 시나리오에서 기본 Python 로깅 패키지 사용을 지원합니다. 다음 예제에서는 `AutoMLConfig` 개체의 `INFO` 로깅 수준을 사용하도록 설정합니다.
+또한 SDK는 특정 학습 시나리오에서 기본 Python 로깅 패키지 사용을 지원합니다. 다음 예제에서는 `INFO` 개체의 `AutoMLConfig` 로깅 수준을 사용하도록 설정합니다.
 
 ```python
 from azureml.train.automl import AutoMLConfig
@@ -101,7 +101,7 @@ logs = service.get_logs()
 service.update(enable_app_insights=True)
 ```
 
-Azure Machine Learning studio에서 Application Insights 작업 하는 방법에 대 한 자세한 내용은 [방법을](how-to-enable-app-insights.md) 참조 하세요.
+자세한 내용은 [ML 웹 서비스 끝점에서 데이터 모니터링 및 수집](how-to-enable-app-insights.md)을 참조 하세요.
 
 ## <a name="python-native-logging-settings"></a>Python 기본 로깅 설정
 
@@ -111,3 +111,7 @@ SDK의 특정 로그에 로깅 수준을 디버그로 설정하라는 오류가 
 import logging
 logging.basicConfig(level=logging.DEBUG)
 ```
+
+## <a name="next-steps"></a>다음 단계
+
+* [ML 웹 서비스 끝점에서 데이터 모니터링 및 수집](how-to-enable-app-insights.md)

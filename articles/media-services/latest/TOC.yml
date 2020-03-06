@@ -121,6 +121,7 @@
         - name: 동적 매니페스트
           href: filters-dynamic-manifest-overview.md
         - name: 필터
+          displayName: "manifest, dynamic manifest, filter, hls, dash, m3u8, mpd,\tcontent delivery"
           href: filters-concept.md
         - name: 스트리밍 엔드포인트
           displayName: 'origin, packager, cdn'
@@ -307,6 +308,8 @@
       items:
         - name: 자산 게시 - CLI
           href: cli-publish-asset.md
+        - name: 스트리밍 로케이터 생성 및 URL 빌드
+          href: create-streaming-locator-build-url.md
         - name: 결과 다운로드
           href: download-results-howto.md
         - name: 신호 설명 오디오

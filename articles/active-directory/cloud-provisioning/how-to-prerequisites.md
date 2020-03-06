@@ -11,12 +11,12 @@ ms.date: 12/06/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51e5c58d29f01cadcc3ea2e8ec48ae67e58c4180
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 382c588ca005f95f4ae38e7506c0e3e8d842bd2c
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76909043"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78298652"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-provisioning"></a>Azure AD Connect 클라우드 프로 비전을 위한 필수 구성 요소
 이 문서에서는 id 솔루션으로 Azure AD (Azure AD) Connect cloud 프로 비전을 선택 하 고 Azure Active Directory 사용 하는 방법에 대 한 지침을 제공 합니다.
@@ -26,7 +26,7 @@ ms.locfileid: "76909043"
 ## <a name="cloud-provisioning-agent-requirements"></a>클라우드 프로 비전 에이전트 요구 사항
 Azure AD Connect 클라우드 프로 비전을 사용 하려면 다음이 필요 합니다.
     
-- Azure AD 테 넌 트에 대 한 전역 관리자 계정.
+- 게스트 사용자가 아닌 Azure AD 테 넌 트의 전역 관리자 계정입니다.
 - Windows 2012 R2 이상 버전을 사용 하는 프로 비전 에이전트에 대 한 온-프레미스 서버입니다.
 - 온-프레미스 방화벽 구성.
 
@@ -39,6 +39,10 @@ Azure AD Connect 클라우드 프로 비전을 사용 하려면 다음이 필요
 
 1. Azure AD 테넌트에서 클라우드 전용 전역 관리자 계정을 만듭니다. 이러한 방식으로 온-프레미스 서비스가 실패 하거나 사용할 수 없게 되는 경우 테 넌 트의 구성을 관리할 수 있습니다. [클라우드 전용 전역 관리자 계정을 추가](../active-directory-users-create-azure-portal.md)하는 방법에 대해 알아봅니다. 이 단계를 완료 하는 것은 테 넌 트에서 잠기지 않도록 하는 데 중요 합니다.
 1. Azure AD 테넌트에 [사용자 지정 도메인 이름](../active-directory-domains-add-azure-portal.md)을 하나 이상 추가합니다. 사용자는 이러한 도메인 이름 중 하나로 로그인할 수 있습니다.
+
+### <a name="in-your-directory-in-active-directory"></a>Active Directory의 디렉터리에서
+
+[Idfix 도구](https://docs.microsoft.com/office365/enterprise/prepare-directory-attributes-for-synch-with-idfix) 를 실행 하 여 동기화를 위한 디렉터리 특성을 준비 합니다.
 
 ### <a name="in-your-on-premises-environment"></a>온-프레미스 환경에서
 

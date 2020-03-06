@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 234c8be8c696ca7381b8860680d072e84820d424
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1904ed9707859f0d00bca3b6e3aef90d1346cea5
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75431969"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78331505"
 ---
 # <a name="create-a-media-services-account-using-the-azure-portal"></a>Azure Portal을 사용하여 Media Services 계정 만들기
 
@@ -46,13 +46,9 @@ Media Services 계정 및 연결된 모든 스토리지 계정은 동일한 Azur
 이 섹션의 단계에서는 AMS 계정을 만드는 방법을 보여 줍니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. **+새로 만들기** > **웹 + 모바일** > **Media Services**를 클릭합니다.
-   
-    ![Media Services 만들기](./media/media-services-create-account/media-services-new1.png)
+2. **+ 리소스 만들기** > **미디어** > **Media Services**를 클릭 합니다.
 3. **미디어 서비스 계정 만들기** 에 필요한 값을 입력합니다.
-   
-    ![Media Services 만들기](./media/media-services-create-account/media-services-new3.png)
-   
+
    1. **계정 이름**에 새 AMS 계정의 이름을 입력합니다. Media Services 계정 이름은 공백 없이 모두 소문자로 이루어진 3-24자의 숫자 또는 문자입니다.
    2. 구독에서 액세스할 수 있는 다양한 Azure 구독 중에서 선택합니다.
    3. **리소스 그룹**에서 새 또는 기존 리소스를 선택합니다.  리소스 그룹은 수명 주기, 권한 및 정책을 공유하는 리소스의 컬렉션입니다. [여기](../../azure-resource-manager/management/overview.md#resource-groups)를 참조하세요.
@@ -72,7 +68,6 @@ Media Services 계정 및 연결된 모든 스토리지 계정은 동일한 Azur
 
 AMS 계정을 관리하려면(예: 프로그래밍 방식으로 AMS API에 연결, 비디오 업로드, 자산 인코딩, 콘텐츠 보호 구성, 작업 진행률 모니터링) 포털의 왼쪽에서 **설정**을 선택합니다. **설정**에서 사용할 수 있는 블레이드 중 하나로 이동합니다(예: **API 액세스**, **자산**, **작업**, **콘텐츠 보호**).
 
-
 ## <a name="next-steps"></a>다음 단계
 
 이제 AMS 계정에 파일을 업로드할 수 있습니다. 자세한 내용은 [파일 업로드](media-services-portal-upload-files.md)를 참조하세요.
@@ -82,6 +77,6 @@ AMS 계정을 관리하려면(예: 프로그래밍 방식으로 AMS API에 연�
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>피드백 제공하기
+## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: ae7812670da836efa326b9224547e4d1b64374c2
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 9213ef03f383dec7109652246411fac154b4a7f9
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873287"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302511"
 ---
 # <a name="log-azure-cosmos-db"></a>로그 (Azure Cosmos DB)
  지정된 숫자 식의 자연 로그를 반환합니다.  
@@ -31,7 +31,7 @@ LOG (<numeric_expr> [, <base>])
 *base*  
    로그의 밑을 설정하는 선택적 숫자 인수입니다.  
   
-## <a name="return-types"></a>반환 유형
+## <a name="return-types"></a>반환 형식
   
   숫자 식을 반환합니다.  
   
@@ -39,11 +39,11 @@ LOG (<numeric_expr> [, <base>])
   
   LOG()는 기본적으로 자연 로그를 반환합니다. 선택적인 base 매개 변수를 사용하여 로그의 밑을 다른 값으로 변경할 수 있습니다.  
   
-  자연 로그는 **e**를 밑으로 하는 로그입니다. 여기서 **e**는 대략 2.718281828과 같은 무리 상수입니다.  
+  자연 로그는 밑이 **e**인 로그입니다. 여기서 **e**는 대략 2.718281828과 같은 무리 상수입니다.  
   
   숫자의 지수의 자연 로그는 숫자 자체, 즉 LOG( EXP( n ) ) = n입니다. 그리고 숫자의 자연 로그의 지수는 숫자 자체, 즉 EXP( LOG( n ) ) = n입니다.  
   
-## <a name="examples"></a>예시
+## <a name="examples"></a>예
   
   다음 예제에서는 변수를 선언하고 지정된 변수 (10)의 로그 값을 반환합니다.  
   
@@ -68,6 +68,10 @@ SELECT EXP(LOG(10)) AS expLog
 ```json
 [{expLog: 10.000000000000002}]  
 ```  
+
+## <a name="remarks"></a>설명
+
+이 시스템 함수는 인덱스를 활용 하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

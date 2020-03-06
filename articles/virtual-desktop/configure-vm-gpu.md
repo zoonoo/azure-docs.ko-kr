@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: 64e8fab3ac352c906cfb63cd39f89acda4109b18
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 941a1ff23668a3202028e8b693b57d902095b3b2
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76719758"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78384814"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Windows 가상 데스크톱에 대 한 GPU (그래픽 처리 장치) 가속 구성
 
@@ -82,7 +82,7 @@ Azure에서 배포 된 드라이버만 Windows 가상 데스크톱에서 지원 
 원격 데스크톱이 GPU 가속 인코딩을 사용 하는지 확인 하려면 다음을 수행 합니다.
 
 1. Windows 가상 데스크톱 클라이언트를 사용 하 여 VM의 데스크톱에 연결 합니다.
-2. 이벤트 뷰어를 시작 하 고 다음 노드로 이동 합니다. **응용 프로그램 및 서비스 로그** > **Microsoft** > **Windows** > **remotedesktopservices-rdpcorets** > **운영**
+2. 이벤트 뷰어를 시작 하 고 다음 노드로 이동 합니다. **응용 프로그램 및 서비스 로그** > **Microsoft** > **Windows** > **remotedesktopservices-RdpCoreCDV** > **Operational**
 3. GPU 가속 인코딩이 사용 되는지 확인 하려면 이벤트 ID 170을 찾습니다. "AVC 하드웨어 인코더 사용: 1"이 표시 되 면 GPU 인코딩이 사용 됩니다.
 4. AVC 444 모드가 사용 되는지 확인 하려면 이벤트 ID 162를 찾습니다. "AVC 사용 가능: 1 초기 프로필: 2048"이 표시 되 면 AVC 444이 사용 됩니다.
 

@@ -13,12 +13,12 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 4ffcd82931b4df92aa2885eb043deae90a70526f
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 737b25fd4c83c459f033bd7b07f6362909e38056
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76695350"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78299886"
 ---
 # <a name="migrating-applications-to-msalnet"></a>애플리케이션을 MSAL.NET으로 마이그레이션
 
@@ -88,7 +88,7 @@ catch(AdalException exception)
 
 ADAL.NET을 사용하여 [토큰을 획득하는 데 추천되는 패턴](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AcquireTokenSilentAsync-using-a-cached-token#recommended-pattern-to-acquire-a-token)에서 세부 정보를 참조하세요.
 
-MSAL.NET을 사용하면 [AcquireTokenSilent](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/AcquireTokenSilentAsync-using-a-cached-token)에서 설명한 대로 `MsalUiRequiredException`을 catch합니다.
+MSAL.NET을 사용하면 `MsalUiRequiredException`AcquireTokenSilent[에서 설명한 대로 ](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/AcquireTokenSilentAsync-using-a-cached-token)을 catch합니다.
 
 ```csharp
 catch(MsalUiRequiredException exception)
@@ -108,7 +108,7 @@ ADAL.NET에서 클레임 챌린지 예외는 다음과 같은 방법으로 처�
 MSAL.NET에서 클레임 챌린지 예외는 다음과 같은 방법으로 처리됩니다.
 
 - `Claims`가 `MsalServiceException`에 표시됩니다.
-- `AcquireTokenInteractive` 작성기에 적용할 수 있는 `.WithClaim(claims)` 메서드가 있습니다. 
+- `.WithClaim(claims)` 작성기에 적용할 수 있는 `AcquireTokenInteractive` 메서드가 있습니다. 
 
 ### <a name="supported-grants"></a>지원되는 권한 부여
 
@@ -132,12 +132,12 @@ Windows 통합 인증 | [Windows의 통합 인증(Kerberos)](https://github.com/
 앱 유형 | 허용 | ADAL.NET | MSAL.NET
 ----- | ----- | ----- | -----
 Web App, Web API, 디먼 | 클라이언트 자격 증명 | [ADAL.NET의 클라이언트 자격 증명 흐름](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Client-credential-flows) | [MSAL.NET의 클라이언트 자격 증명 흐름](msal-authentication-flows.md#client-credentials)
-웹 API | On-Behalf-Of | [사용자를 대신하여 ADAL.NET을 통해 서비스 간 호출](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Service-to-service-calls-on-behalf-of-the-user) | [MSAL.NET의 On-Behalf-Of 흐름](msal-authentication-flows.md#on-behalf-of)
+Web API | On-Behalf-Of | [사용자를 대신하여 ADAL.NET을 통해 서비스 간 호출](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Service-to-service-calls-on-behalf-of-the-user) | [MSAL.NET의 On-Behalf-Of 흐름](msal-authentication-flows.md#on-behalf-of)
 웹앱 | 권한 부여 코드 | [ADAL.NET을 사용하여 웹앱에서 권한 부여 코드가 있는 토큰 획득](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Acquiring-tokens-with-authorization-codes-on-web-apps) | [MSAL.NET을 사용하여 웹앱에서 권한 부여 코드가 있는 토큰 획득](msal-authentication-flows.md#authorization-code)
 
 ### <a name="cache-persistence"></a>캐시 지속성
 
-ADAL.NET을 사용하면 보안 스토리지(.NET Framework 및 .NET Core)가 없는 플랫폼에서 원하는 지속성 기능을 구현하기 위해 `BeforeAccess` 및 `BeforeWrite` 메서드를 사용하여 `TokenCache` 클래스를 확장할 수 있습니다. 자세한 내용은 [ADAL.NET의 토큰 캐시 직렬화](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Token-cache-serialization)를 참조하세요.
+ADAL.NET을 사용하면 보안 스토리지(.NET Framework 및 .NET Core)가 없는 플랫폼에서 원하는 지속성 기능을 구현하기 위해 `TokenCache` 및 `BeforeAccess` 메서드를 사용하여 `BeforeWrite` 클래스를 확장할 수 있습니다. 자세한 내용은 [ADAL.NET의 토큰 캐시 직렬화](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Token-cache-serialization)를 참조하세요.
 
 MSAL.NET은 토큰 캐시를 sealed 클래스로 만들어 확장 기능을 제거합니다. 따라서 토큰 캐시 지속성의 구현은 sealed 토큰 캐시와 상호 작용하는 도우미 클래스 형식이어야 합니다. 이 상호 작용은 [MSAL.NET의 토큰 캐시 직렬화](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/token-cache-serialization)에서 설명하고 있습니다.
 
@@ -145,7 +145,7 @@ MSAL.NET은 토큰 캐시를 sealed 클래스로 만들어 확장 기능을 제�
 
 v1.0에서 https://login.microsoftonline.com/common 인증 기관을 사용하는 경우 사용자가 모든 조직에 대해 AAD 계정을 사용하여 로그인하도록 허용할 수 있습니다. [ADAL.NET의 인증 기관 유효성 검사](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AuthenticationContext:-the-connection-to-Azure-AD#authority-validation)를 참조하세요
 
-v2.0에서 https://login.microsoftonline.com/common 인증 기관을 사용하는 경우 사용자가 모든 AAD 조직 또는 MSA(Microsoft 개인 계정)를 사용하여 로그인하도록 허용할 수 있습니다. MSAL.NET에서 AAD 계정에 대한 로그인(ADAL.NET과 동일한 동작)을 제한하려면 https://login.microsoftonline.com/organizations 를 사용해야 합니다. 자세한 내용은 [퍼블릭 클라이언트 애플리케이션](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Client-Applications#publicclientapplication)의 `authority` 매개 변수를 참조하세요.
+v2.0에서 https://login.microsoftonline.com/common 인증 기관을 사용하는 경우 사용자가 모든 AAD 조직 또는 MSA(Microsoft 개인 계정)를 사용하여 로그인하도록 허용할 수 있습니다. MSAL.NET에서 AAD 계정에 대한 로그인(ADAL.NET과 동일한 동작)을 제한하려면 https://login.microsoftonline.com/organizations를 사용해야 합니다. 자세한 내용은 `authority`퍼블릭 클라이언트 애플리케이션[의 ](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Client-Applications#publicclientapplication) 매개 변수를 참조하세요.
 
 ## <a name="v10-and-v20-tokens"></a>v1.0 및 v2.0 토큰
 
@@ -155,7 +155,7 @@ v2.0에서 https://login.microsoftonline.com/common 인증 기관을 사용하�
 
 v1.0 엔드포인트(ADAL에서 사용)는 v1.0 토큰만 내보냅니다.
 
-그러나 v2.0 엔드포인트(MSAL에서 사용)는 Web API에서 허용하는 토큰 버전을 내보냅니다. Web API의 애플리케이션 매니페스트 속성을 사용하면 개발자가 허용할 토큰 버전을 선택할 수 있습니다. [애플리케이션 매니페스트](reference-app-manifest.md) 참조 설명서에서 `accessTokenAcceptedVersion`을 참조하세요.
+그러나 v2.0 엔드포인트(MSAL에서 사용)는 Web API에서 허용하는 토큰 버전을 내보냅니다. Web API의 애플리케이션 매니페스트 속성을 사용하면 개발자가 허용할 토큰 버전을 선택할 수 있습니다. `accessTokenAcceptedVersion`애플리케이션 매니페스트[ 참조 설명서에서 ](reference-app-manifest.md)을 참조하세요.
 
 v1.0 및 v2.0 토큰에 대한 자세한 내용은 [Azure Active Directory 액세스 토큰](access-tokens.md)을 참조하세요.
 
@@ -165,7 +165,7 @@ OAuth2 권한은 v1.0 웹 API(리소스) 애플리케이션에서 클라이언�
 
 ### <a name="scopes-to-request-access-to-specific-oauth2-permissions-of-a-v10-application"></a>v1.0 애플리케이션의 특정 OAuth2 권한에 대한 액세스를 요청하는 범위
 
-v1.0 애플리케이션의 특정 범위(예: AAD 그래프(https://graph.windows.net) )에 대한 토큰을 획득하려면 원하는 리소스 식별자를 해당 리소스에 대해 원하는 OAuth2 권한과 연결하여 `scopes` 를 만들어야 합니다.
+V1.0 토큰을 수락 하는 응용 프로그램에 대 한 토큰을 획득 하려는 경우 (https://graph.microsoft.com)되는 Microsoft Graph API와 같이 원하는 리소스 식별자를 해당 리소스에 대 한 원하는 OAuth2 사용 권한과 연결 하 여 `scopes`를 만들어야 합니다.
 
 예를 들어 App ID URI가 `ResourceId`인 v1.0 Web API를 사용자 이름으로 액세스하려면 다음을 사용해야 합니다.
 
@@ -173,16 +173,16 @@ v1.0 애플리케이션의 특정 범위(예: AAD 그래프(https://graph.window
 var scopes = new [] {  ResourceId+"/user_impersonation"};
 ```
 
-AAD 그래프 API(https://graph.windows.net/) 를 사용하여 MSAL.NET Azure Active Directory에서 읽고 쓰려면 다음 코드 조각과 같은 범위 목록을 만듭니다.
+Microsoft Graph API (https://graph.microsoft.com/)를 사용 하 여 MSAL.NET Azure Active Directory를 읽고 쓰려면 다음 코드 조각과 같은 범위 목록을 만듭니다.
 
 ```csharp
-ResourceId = "https://graph.windows.net/";
+ResourceId = "https://graph.microsoft.com/";
 var scopes = new [] { ResourceId + "Directory.Read", ResourceID + "Directory.Write"}
 ```
 
 #### <a name="warning-should-you-have-one-or-two-slashes-in-the-scope-corresponding-to-a-v10-web-api"></a>경고: v 1.0 Web API에 해당 하는 범위에 하나 또는 두 개의 슬래시가 있어야 합니다.
 
-Azure Resource Manager API(https://management.core.windows.net/) 에 해당하는 범위를 작성하려면 다음 범위를 요청해야 합니다(이중 슬래시에 주의). 
+Azure Resource Manager API(https://management.core.windows.net/)에 해당하는 범위를 작성하려면 다음 범위를 요청해야 합니다(이중 슬래시에 주의). 
 
 ```csharp
 var scopes = new[] {"https://management.core.windows.net//user_impersonation"};
@@ -196,7 +196,7 @@ var result = await app.AcquireTokenInteractive(scopes).ExecuteAsync();
 Azure AD에서 사용하는 논리는 다음과 같습니다.
 - v1.0 액세스 토큰을 사용하는 ADAL(v1.0) 엔드포인트의 경우(유일하게 가능한 경우) audio=resource
 - MSAL(v2.0 엔드포인트)에서 v2.0 토큰을 허용하는 리소스에 대한 액세스 토큰을 요청하는 경우 aud=resource.AppId
-- MSAL(v2.0 엔드포인트)에서 v1.0 액세스 토큰을 허용하는 리소스(위의 경우)에 대한 액세스 토큰을 요청하는 경우 Azure AD는 마지막 슬래시 앞의 모든 항목을 가져와서 리소스 식별자로 사용하여 요청된 범위에서 원하는 대상 그룹을 구문 분석합니다. 따라서 https:\//database.windows.net에서 "https://database.windows.net/ "의 대상이 예상된다면, https:\/ /database.windows.net//.default의 범위를 요청해야 합니다. 참고 항목: 문제 #[747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747): 리소스 url의 후행 슬래시가 생략 되어 sql auth 오류가 발생 했습니다 #747
+- MSAL(v2.0 엔드포인트)에서 v1.0 액세스 토큰을 허용하는 리소스(위의 경우)에 대한 액세스 토큰을 요청하는 경우 Azure AD는 마지막 슬래시 앞의 모든 항목을 가져와서 리소스 식별자로 사용하여 요청된 범위에서 원하는 대상 그룹을 구문 분석합니다. 따라서 https:\//database.windows.net에서 "https://database.windows.net/"의 대상이 예상된다면, https:\//database.windows.net//.default의 범위를 요청해야 합니다. 참고 항목: 문제 #[747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747): 리소스 url의 후행 슬래시가 생략 되어 sql auth 오류가 발생 했습니다 #747
 
 
 ### <a name="scopes-to-request-access-to-all-the-permissions-of-a-v10-application"></a>v1.0 애플리케이션의 모든 권한에 대한 액세스를 요청하는 범위
@@ -238,7 +238,7 @@ IByRefreshToken.AcquireTokenByRefreshToken(IEnumerable<string> scopes, string re
  
 이 메서드를 사용하면 이전에 사용한 새로 고침 토큰을 원하는 범위(리소스)와 함께 제공할 수 있습니다. 새로 고침 토큰이 새 토큰으로 교환되고 애플리케이션에 캐시됩니다.  
 
-이 메서드는 일반적이지 않은 시나리오를 위한 것이므로 먼저 `IByRefreshToken`에 캐스팅해야 `IConfidentialClientApplication`에서 쉽게 액세스할 수 있습니다.
+이 메서드는 일반적이지 않은 시나리오를 위한 것이므로 먼저 `IConfidentialClientApplication`에 캐스팅해야 `IByRefreshToken`에서 쉽게 액세스할 수 있습니다.
 
 다음 코드 조각에서는 기밀 클라이언트 애플리케이션의 일부 마이그레이션 코드를 보여 줍니다. `GetCachedRefreshTokenForSignedInUser`는 ADAL 2.x를 활용하는 데 사용된 이전 버전의 애플리케이션에서 일부 스토리지에 저장한 새로 고침 토큰을 검색합니다. `GetTokenCacheForSignedInUser`는 로그인한 사용자에 대한 캐시를 역직렬화합니다(기밀 클라이언트 애플리케이션에 사용자당 하나의 캐시가 있어야 하므로).
 

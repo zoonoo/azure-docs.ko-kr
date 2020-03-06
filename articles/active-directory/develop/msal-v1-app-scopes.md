@@ -12,12 +12,12 @@ ms.date: 11/25/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: e0ef46d23ba267bbfc1ff539eb659fafe2b44f8e
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: d5b2ef57af112169fb39e0da7a60b095698ff504
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77085689"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78299833"
 ---
 # <a name="scopes-for-a-web-api-accepting-v10-tokens"></a>v1.0 토큰을 허용하는 Web API에 대한 범위
 
@@ -25,7 +25,7 @@ OAuth2 권한은 개발자 용 Azure Active Directory (Azure AD) 웹 API (리소
 
 ## <a name="scopes-to-request-access-to-specific-oauth2-permissions-of-a-v10-application"></a>v1.0 애플리케이션의 특정 OAuth2 권한에 대한 액세스를 요청하는 범위
 
-V1.0 응용 프로그램의 특정 범위에 대 한 토큰을 획득 하려면 (예: https://graph.windows.net)하는 Azure AD graph) 원하는 리소스 식별자를 해당 리소스에 대 한 원하는 OAuth2 사용 권한과 연결 하 여 범위를 만듭니다.
+V1.0 응용 프로그램의 특정 범위에 대 한 토큰을 가져오려면 (예: https://graph.microsoft.com)되는 Microsoft Graph API) 원하는 리소스 식별자를 해당 리소스에 대 한 원하는 OAuth2 사용 권한과 연결 하 여 범위를 만듭니다.
 
 예를 들어 앱 ID URI가 `ResourceId`인 v1.0 web API에 사용자를 대신하여 액세스하려면 다음과 같습니다.
 
@@ -37,15 +37,15 @@ var scopes = new [] {  ResourceId+"/user_impersonation"};
 var scopes = [ ResourceId + "/user_impersonation"];
 ```
 
-Azure AD Graph API (https:\//graph.windows.net/)를 사용 하 여 MSAL.NET Azure AD에 대 한 읽기 및 쓰기를 수행 하려면 다음 예제와 같이 범위 목록을 만들어야 합니다.
+Microsoft Graph API (https:\//graph.microsoft.com/)를 사용 하 여 MSAL.NET Azure AD에 대 한 읽기 및 쓰기를 수행 하려면 다음 예제와 같이 범위 목록을 만들어야 합니다.
 
 ```csharp
-string ResourceId = "https://graph.windows.net/";
+string ResourceId = "https://graph.microsoft.com/";
 var scopes = new [] { ResourceId + "Directory.Read", ResourceID + "Directory.Write"}
 ```
 
 ```javascript
-var ResourceId = "https://graph.windows.net/";
+var ResourceId = "https://graph.microsoft.com/";
 var scopes = [ ResourceId + "Directory.Read", ResourceID + "Directory.Write"];
 ```
 

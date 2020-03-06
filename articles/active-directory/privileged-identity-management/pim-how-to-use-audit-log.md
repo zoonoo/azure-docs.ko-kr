@@ -1,6 +1,6 @@
 ---
-title: PIM에서 Azure AD 역할에 대 한 감사 보고서 보기-Azure AD | Microsoft Docs
-description: Azure AD Privileged Identity Management (PIM)에서 Azure AD 역할에 대 한 감사 기록을 보는 방법에 대해 알아봅니다.
+title: Azure AD PIM에서 Azure AD 역할에 대 한 감사 로그 보고서 보기 | Microsoft Docs
+description: Azure AD Privileged Identity Management (PIM)에서 Azure AD 역할에 대 한 감사 로그 기록을 보는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -10,18 +10,18 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 02/07/2020
+ms.date: 01/07/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4a2eccc02d13bf5a2dfc8bf3ceb7887e4962489
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: 4b8aef68e0f61e6ca995fc2bb362d59aba73ead2
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77498513"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78329517"
 ---
-# <a name="view-audit-history-for-azure-ad-roles-in-pim"></a>PIM에서 Azure AD 역할에 대 한 감사 기록 보기
+# <a name="view-audit-history-for-azure-ad-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure AD 역할에 대 한 감사 기록 보기
 
 PIM (Privileged Identity Management) 감사 기록을 사용 하 여 모든 권한 있는 역할에 대해 지난 30 일 이내에 모든 역할 할당 및 활성화를 볼 수 있습니다. 관리자, 최종 사용자 및 동기화 작업을 포함 하 여 Azure Active Directory (Azure AD) 조직에서 활동의 전체 감사 기록을 보려면 [보안 및 활동 보고서 Azure Active Directory](../reports-monitoring/overview-reports.md)를 사용할 수 있습니다.
 
@@ -32,7 +32,7 @@ PIM (Privileged Identity Management) 감사 기록을 사용 하 여 모든 권�
 1. [권한 있는 역할 관리자](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) 역할에 있는 사용자로 [Azure Portal](https://portal.azure.com/) 에 로그인 합니다.
 1. **Azure AD Privileged Identity Management**를 엽니다. 개요 페이지의 맨 위에 배너가 있는 경우이 문서의 **새 버전** 탭에 있는 지침을 따르세요. 그렇지 않으면 **이전 버전** 탭의 지침을 따릅니다.
 
-    [![](media/pim-how-to-add-role-to-user/pim-new-version.png "Select Azure AD > Privileged Identity Management")](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
+    [![Azure AD 역할 새 버전](media/pim-how-to-use-audit-log/directory-roles-audit-history.png "해당 버전에 대 한 탭을 선택 합니다.")](media/pim-how-to-use-audit-log/directory-roles-audit-history.png)
 
 # <a name="new-version"></a>[새 버전](#tab/new)
 
@@ -50,7 +50,7 @@ Azure AD 역할에 대 한 감사 기록을 보려면 다음 단계를 따르세
 
 1. 미리 정의된 날짜 또는 사용자 지정 범위를 사용하여 기록을 필터링합니다.
 
-    ![필터를 사용 하는 리소스 감사 목록](media/pim-how-to-use-audit-log/resource-audit.png)
+    ![필터를 사용 하는 리소스 감사 목록](media/azure-pim-resource-rbac/rbac-resource-audit.png)
 
 ## <a name="view-my-audit"></a>내 감사 보기
 
@@ -66,7 +66,7 @@ Azure AD 역할에 대 한 감사 기록을 보려면 다음 단계를 따르세
 
 1. 미리 정의된 날짜 또는 사용자 지정 범위를 사용하여 기록을 필터링합니다.
 
-    ![현재 사용자에 대 한 감사 목록](media/pim-how-to-use-audit-log/audit-time-span.png)
+    ![현재 사용자에 대 한 감사 목록](media/azure-pim-resource-rbac/my-audit-time.png)
 
 # <a name="previous-version"></a>[이전 버전](#tab/previous)
 
@@ -84,7 +84,7 @@ Azure AD 역할에 대 한 감사 기록을 보려면 다음 단계를 따르세
 
     감사 기록에 따라 세로 막대형 차트는 총 활성화, 일별 최대 활성화 및 일별 평균 활성화와 함께 표시 됩니다.
 
-    ![디렉터리 역할 감사 기록](media/pim-how-to-use-audit-log/directory-roles-audit-history.png)
+    [![Azure AD 역할 새 버전](media/pim-how-to-use-audit-log/directory-roles-audit-history.png "디렉터리 역할 감사 기록 보기")](media/pim-how-to-use-audit-log/directory-roles-audit-history.png)
 
     페이지의 맨 아래에는 사용 가능한 감사 기록의 각 작업에 대 한 정보가 포함 된 테이블이 표시 됩니다. 열에는 다음과 같은 의미가 있습니다.
 
@@ -113,6 +113,28 @@ Azure AD 역할에 대 한 감사 기록을 보려면 다음 단계를 따르세
     ![차트 매개 변수 창 업데이트](media/pim-how-to-use-audit-log/update-chart-parameters.png)
 
 1. **완료** 를 선택 하 여 필터링 된 감사 기록을 봅니다.
+
+## <a name="get-reason-approver-and-ticket-number-for-approval-events"></a>승인 이벤트에 대 한 이유, 승인자 및 티켓 번호를 가져옵니다.
+
+1. 권한 있는 역할 관리자 역할 권한을 사용 하 여 [Azure Portal](https://aad.portal.azure.com) 에 로그인 하 고 Azure AD를 엽니다.
+1. **감사 로그**를 선택 합니다.
+1. **서비스** 필터를 사용 하 여 권한 있는 id 관리 서비스에 대 한 감사 이벤트만 표시 합니다. **감사 로그** 페이지에서 다음을 수행할 수 있습니다.
+
+    - **상태 이유** 열에서 감사 이벤트의 이유를 참조 하세요.
+    - "역할 요청이 승인 되었습니다." 이벤트의 경우 **시작 (행위자)** 열에서 승인자를 확인 합니다.
+
+    [![Azure AD 역할 새 버전](media/pim-how-to-use-audit-log/filter-audit-logs.png "PIM 서비스에 대 한 감사 로그 필터링")](media/pim-how-to-use-audit-log/filter-audit-logs.png)
+
+1. 감사 로그 이벤트를 선택 하 여 **세부 정보** 창의 **작업** 탭에서 티켓 번호를 확인 합니다.
+  
+    [![Azure AD 역할 새 버전](media/pim-how-to-use-audit-log/audit-event-ticket-number.png "감사 이벤트의 티켓 번호를 확인 합니다.")](media/pim-how-to-use-audit-log/audit-event-ticket-number.png)
+
+1. 감사 이벤트에 대 한 **세부 정보** 창의 **대상** 탭에서 요청자 (역할 활성화 사용자)를 볼 수 있습니다. Azure AD 역할에는 두 가지 대상 유형이 있습니다.
+
+    - Role (**Type** = role)
+    - 요청자 (**Type** = User)
+
+일반적으로 승인 이벤트 바로 위의 감사 로그 이벤트는 "역할에 구성원 추가"에 대 한 이벤트입니다. 여기서 **시작 된 (행위자)** 은 요청자입니다. 대부분의 경우 감사 관점에서 승인 요청에 대 한 요청자를 찾을 필요가 없습니다.
 
 ---
 

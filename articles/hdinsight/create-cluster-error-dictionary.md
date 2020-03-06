@@ -1,6 +1,6 @@
 ---
-title: 클러스터 오류 사전 만들기
-description: 클러스터 오류 사전을 만드는 방법을 알아봅니다.
+title: Azure HDInsight 클러스터 만들기-오류 사전
+description: Azure HDInsight 클러스터를 만들 때 발생 하는 오류를 해결 하는 방법을 알아봅니다.
 author: karkrish
 ms.author: v-todmc
 ms.reviewer: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 11/19/2019
-ms.openlocfilehash: 979e83c0eeaac4555fc5144bca479f0b5656cd28
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: b0dc974185ad616d57327e9cc3743db9ecb20e54
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77617533"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302732"
 ---
 # <a name="azure-hdinsight-cluster-creation-errors"></a>Azure HDInsight: 클러스터 생성 오류
 

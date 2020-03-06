@@ -12,12 +12,12 @@ ms.date: 12/08/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 23433c816fc7b002c3426a0aac7c0aade8cdb338
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 9ea3388cb65b18c093ffff3ec8b8c9f2764ef189
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77585852"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78300071"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>방법: Azure AD 앱에 선택적 클레임 제공
 
@@ -122,7 +122,7 @@ ms.locfileid: "77585852"
 ## <a name="configuring-optional-claims"></a>선택적 클레임 구성
 
 > [!IMPORTANT]
-> 액세스 토큰은 **항상** 클라이언트가 아닌 리소스의 매니페스트를 사용 하 여 생성 됩니다.  따라서 요청 `...scope=https://graph.microsoft.com/user.read...` 리소스는 그래프입니다.  따라서 액세스 토큰은 클라이언트의 매니페스트가 아닌 그래프 매니페스트를 사용 하 여 만들어집니다.  응용 프로그램에 대 한 매니페스트를 변경 하면 그래프의 토큰이 다르게 표시 되지 않습니다.  `accessToken` 변경 내용이 적용 되는지 확인 하기 위해 다른 앱이 아닌 응용 프로그램에 대 한 토큰을 요청 합니다.  
+> 액세스 토큰은 **항상** 클라이언트가 아닌 리소스의 매니페스트를 사용 하 여 생성 됩니다.  따라서 요청 `...scope=https://graph.microsoft.com/user.read...` 리소스는 Microsoft Graph API입니다.  따라서 액세스 토큰은 클라이언트의 매니페스트가 아닌 Microsoft Graph API 매니페스트를 사용 하 여 생성 됩니다.  응용 프로그램에 대 한 매니페스트를 변경 하면 Microsoft Graph API에 대 한 토큰이 다르게 표시 되지 않습니다.  `accessToken` 변경 내용이 적용 되는지 확인 하기 위해 다른 앱이 아닌 응용 프로그램에 대 한 토큰을 요청 합니다.  
 
 UI 또는 응용 프로그램 매니페스트를 통해 응용 프로그램에 대 한 선택적 클레임을 구성할 수 있습니다.
 
@@ -349,7 +349,7 @@ SAML 토큰 내에서 이러한 클레임은 `http://schemas.microsoft.com/ident
 애플리케이션 ID 구성에서 속성을 업데이트하여 선택적 클레임을 사용하도록 설정하고 구성하는 데 여러 옵션을 사용할 수 있습니다.
 -    **토큰 구성 (미리 보기)** UI를 사용할 수 있습니다 (아래 예제 참조).
 -    **매니페스트** 를 사용할 수 있습니다 (아래 예제 참조). 먼저 매니페스트를 소개하는 [Azure AD 애플리케이션 매니페스트 이해 문서](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-manifest)를 읽으세요.
--   또한 [Graph API](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api)를 사용하는 애플리케이션을 작성하여 애플리케이션을 업데이트할 수 있습니다. Graph API 참조 가이드의 [OptionalClaims](https://docs.microsoft.com/graph/api/resources/optionalclaims?view=graph-rest-1.0) 유형은 선택적 클레임을 구성 하는 데 도움이 될 수 있습니다.
+-   또한 [MICROSOFT GRAPH API](https://docs.microsoft.com/graph/use-the-api?context=graph%2Fapi%2F1.0&view=graph-rest-1.0) 를 사용 하 여 응용 프로그램을 업데이트 하는 응용 프로그램을 작성할 수 있습니다. Microsoft Graph API 참조 가이드의 [OptionalClaims](https://docs.microsoft.com/graph/api/resources/optionalclaims?view=graph-rest-1.0) 유형은 선택적 클레임을 구성 하는 데 도움이 될 수 있습니다.
 
 **예:** 아래 예제에서는 **토큰 구성 (미리 보기)** UI 및 **매니페스트** 를 사용 하 여 응용 프로그램에 적합 한 액세스, ID 및 SAML 토큰에 선택적 클레임을 추가 합니다. 응용 프로그램에서 받을 수 있는 각 토큰 유형에는 다음과 같은 다양 한 선택적 클레임이 추가 됩니다.
 -    이제 ID 토큰에는 페더레이션 사용자의 UPN이 전체 형식으로 포함됩니다(`<upn>_<homedomain>#EXT#@<resourcedomain>`).

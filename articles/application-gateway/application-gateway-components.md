@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/20/2019
 ms.author: absha
-ms.openlocfilehash: 54606b4fbbf7ae459298b3842f957de5256ba0df
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 799ed0e877bb3bddb3f179cdb3d6df6fca57e4d5
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74971148"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78301355"
 ---
 # <a name="application-gateway-components"></a>응용 프로그램 게이트웨이 구성 요소
 
@@ -32,7 +32,7 @@ V1 SKU는 고정 또는 동적 내부 IP 주소 및 동적 공용 IP 주소를 �
 
 Application gateway와 연결 된 DNS 이름은 게이트웨이의 수명 주기 동안 변경 되지 않습니다. 따라서 CNAME 별칭을 사용 하 여 application gateway의 DNS 주소를 가리키도록 해야 합니다.
 
-## <a name="listeners"></a>수신기
+## <a name="listeners"></a>Listeners
 
 수신기는 들어오는 연결 요청을 확인 하는 논리적 엔터티입니다. 요청과 연결 된 프로토콜, 포트, 호스트 이름 및 IP 주소가 수신기 구성과 연결 된 동일한 요소와 일치 하는 경우 수신기는 요청을 수락 합니다.
 
@@ -53,7 +53,7 @@ Application Gateway는 HTTP, HTTPS, HTTP/2 및 WebSocket의 네 가지 프로토
 >Application Gateway 수신기에 연결하는 클라이언트의 경우에만 HTTP/2 프로토콜이 지원됩니다. 백 엔드 서버 풀에 대 한 통신은 항상 HTTP/1.1을 통해입니다. 기본적으로 HTTP/2 지원은 사용할 수 없습니다. 이 기능을 사용 하도록 선택할 수 있습니다.
 
 - 수신기 구성에서 HTTP 및 HTTPS 프로토콜을 지정 합니다.
-- [Websocket 및 HTTP/2 프로토콜](overview.md#websocket-and-http2-traffic) 에 대 한 지원은 기본적으로 제공 되며 [websocket 지원은](application-gateway-websocket.md) 기본적으로 사용 하도록 설정 되어 있습니다. WebSocket 지원을 선택적으로 사용하거나 사용하지 않도록 설정하는 사용자 구성 가능 설정은 없습니다. HTTP 및 HTTPS 수신기 모두에서 Websocket을 사용 합니다.
+- [Websocket 및 HTTP/2 프로토콜](features.md#websocket-and-http2-traffic) 에 대 한 지원은 기본적으로 제공 되며 [websocket 지원은](application-gateway-websocket.md) 기본적으로 사용 하도록 설정 되어 있습니다. WebSocket 지원을 선택적으로 사용하거나 사용하지 않도록 설정하는 사용자 구성 가능 설정은 없습니다. HTTP 및 HTTPS 수신기 모두에서 Websocket을 사용 합니다.
 
 SSL 종료에 HTTPS 수신기를 사용 합니다. HTTPS 수신기는 암호화 및 암호 해독 작업을 응용 프로그램 게이트웨이로 오프 로드 하므로 웹 서버가 오버 헤드로 부담이 되지 않습니다.
 
@@ -115,9 +115,9 @@ HTTP 설정에 사용 되는 포트 및 프로토콜에 따라 응용 프로그�
 
 이 구성 요소는 다음 작업에도 사용 됩니다.
 
-- [쿠키 기반 세션 선호도](overview.md#session-affinity)를 사용 하 여 사용자 세션을 동일한 서버에 유지할지 여부를 결정 합니다.
+- [쿠키 기반 세션 선호도](features.md#session-affinity)를 사용 하 여 사용자 세션을 동일한 서버에 유지할지 여부를 결정 합니다.
 
-- [연결 드레이닝](overview.md#connection-draining)을 사용 하 여 백 엔드 풀 멤버를 정상적으로 제거 합니다.
+- [연결 드레이닝](features.md#connection-draining)을 사용 하 여 백 엔드 풀 멤버를 정상적으로 제거 합니다.
 
 - 사용자 지정 프로브를 연결 하 여 백 엔드 상태를 모니터링 하 고, 요청 시간 제한 간격을 설정 하 고, 요청에서 호스트 이름 및 경로를 재정의 하 고, 한 번 클릭으로 App Service 백 엔드에 대 한 설정을 지정할 수 있습니다.
 

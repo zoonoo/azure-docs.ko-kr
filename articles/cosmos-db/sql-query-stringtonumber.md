@@ -4,15 +4,15 @@ description: Azure Cosmos DB의 SQL 시스템 함수 StringToNumber에 대해 �
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 8b9596738d9b02fa26f9c363287323b905654a1f
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 5ca8d0c4a6d244823dda6f0f79a3cf5c743a12a9
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349233"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78296425"
 ---
 # <a name="stringtonumber-azure-cosmos-db"></a>StringToNumber (Azure Cosmos DB)
  숫자로 변환 된 식을 반환 합니다. 식을 변환할 수 없는 경우는 undefined를 반환 합니다.  
@@ -28,13 +28,13 @@ StringToNumber(<str_expr>)
 *str_expr*  
    JSON 숫자 식으로 구문 분석할 문자열 식입니다. JSON의 숫자는 정수 이거나 부동 소수점 이어야 합니다. JSON 형식에 대 한 자세한 내용은 [json.org](https://json.org/) 를 참조 하세요.  
   
-## <a name="return-types"></a>반환 유형
+## <a name="return-types"></a>반환 형식
   
   숫자 식을 반환 하거나 정의 되지 않은를 반환 합니다.  
   
 ## <a name="examples"></a>예
   
-  다음 예제에서는 `StringToNumber`이 서로 다른 형식에서 동작 하는 방식을 보여 줍니다. 
+  다음 예제에서는 `StringToNumber` 다양 한 형식에서 작동 하는 방법을 보여 줍니다. 
 
 공백은 숫자 앞 이나 뒤에만 사용할 수 있습니다.
 
@@ -82,6 +82,10 @@ SELECT
 ```json
 {{}}
 ```  
+
+## <a name="remarks"></a>설명
+
+이 시스템 함수는 인덱스를 활용 하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

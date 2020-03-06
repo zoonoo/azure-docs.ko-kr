@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/30/2020
 ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: 4f75adba27c8173f918fa1afbd44f307d50eb995
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 9507428e63b337b3d8419a833d03d081d494c522
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76902017"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78330807"
 ---
 # <a name="ship-an-application"></a>애플리케이션 배송
 
@@ -39,7 +39,7 @@ Cognitive Services Speech SDK를 사용 하려면 시스템에서 [Visual Studio
 
 필요한 Speech SDK 파일은 애플리케이션과 동일한 디렉터리에 배포할 수 있습니다. 이렇게 하면 애플리케이션이 라이브러리에 직접 액세스할 수 있습니다. 애플리케이션과 일치하는 올바른 버전(Win32/x64)을 선택해야 합니다.
 
-| 이름 | 함수 |
+| 속성 | 함수 |
 | :--- | :------- |
 | `Microsoft.CognitiveServices.Speech.core.dll`   | 네이티브 및 관리된 배포에 필요한 핵심 SDK |
 | `Microsoft.CognitiveServices.Speech.csharp.dll` | 관리된 배포에 필요                      |
@@ -52,7 +52,7 @@ Cognitive Services Speech SDK를 사용 하려면 시스템에서 [Visual Studio
 
 ## <a name="linux"></a>Linux
 
-Speech SDK는 현재 Ubuntu 16.04, Ubuntu 18.04 및 Debian 9 배포를 지원 합니다.
+Speech SDK는 현재 Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 8, CentOS 8 배포를 지원 합니다.
 네이티브 애플리케이션의 경우 Speech SDK 라이브러리 `libMicrosoft.CognitiveServices.Speech.core.so`를 전달해야 합니다.
 애플리케이션과 일치하는 버전(x86, x64)을 선택해야 합니다. Linux 버전에 따라 다음 종속성을 포함해야 할 수도 있습니다.
 
@@ -73,6 +73,16 @@ Debian 9에서 다음 패키지를 설치 합니다.
 sudo apt-get update
 sudo apt-get install libssl1.0.2 libasound2
 ```
+
+RHEL/CentOS 8에서:
+
+```sh
+sudo yum update
+sudo yum install alsa-lib openssl
+```
+
+> [!NOTE]
+> RHEL/CentOS 8에서 [Linux 용 OpenSSL를 구성 하는 방법](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md)에 대 한 지침을 따릅니다.
 
 ## <a name="next-steps"></a>다음 단계
 

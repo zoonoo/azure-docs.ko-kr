@@ -4,12 +4,12 @@ description: AKS (Azure Kubernetes Service)에서 Windows Server 노드 풀 및 
 services: container-service
 ms.topic: article
 ms.date: 05/31/2019
-ms.openlocfilehash: 157f890c65efd0de9fa7d8d7aa5cb43b4a902dfa
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: 65c62324a27e8377a1cc9833595b15cf08c6c820
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77615654"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78298175"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스 (AKS)에서 Windows Server 노드 풀 및 응용 프로그램 작업에 대 한 현재 제한 사항
 
@@ -69,7 +69,7 @@ Windows 노드 풀을 사용 하는 AKS 클러스터는 Azure CNI (고급) 네�
 
 ## <a name="how-many-node-pools-can-i-create"></a>만들 수 있는 노드 풀은 몇 개입니까?
 
-AKS 클러스터의 노드 풀은 최대 8 개까지 지정할 수 있습니다. 이러한 노드 풀에서 최대 400 노드를 사용할 수 있습니다. [노드 풀 제한][nodepool-limitations].
+AKS 클러스터에는 최대 10 개의 노드 풀이 있을 수 있습니다. 이러한 노드 풀에서 최대 1000 노드를 사용할 수 있습니다. [노드 풀 제한][nodepool-limitations].
 
 ## <a name="what-can-i-name-my-windows-node-pools"></a>Windows 노드 풀의 이름을 지정할 수 있는 항목
 

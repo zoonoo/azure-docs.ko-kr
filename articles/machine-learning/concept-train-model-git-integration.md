@@ -9,20 +9,35 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.date: 10/11/2019
-ms.openlocfilehash: b83eb1556ed3f4a41409faf70f6ba9d8cd28322d
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
-ms.translationtype: MT
+ms.openlocfilehash: 10e4ba16e00a37d532a2eceb69fedb8f5b62be8b
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75732181"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78301661"
 ---
 # <a name="git-integration-for-azure-machine-learning"></a>Azure Machine Learning에 대 한 Git 통합
 
-[Git](https://git-scm.com/) 은 프로젝트를 공유 하 고 공동 작업할 수 있는 인기 있는 버전 제어 시스템입니다. Azure Machine Learning에 대 한 학습 작업을 제출할 때 학습 파일이 로컬 git 리포지토리에 저장 된 경우 리포지토리에 대 한 정보는 학습 프로세스의 일부로 추적 됩니다.
+[Git](https://git-scm.com/) 은 프로젝트를 공유 하 고 공동 작업할 수 있는 인기 있는 버전 제어 시스템입니다. 
+
+작업 추적을 위한 Git 리포지토리를 완벽 하 게 지원 Azure Machine Learning-공유 작업 영역 파일 시스템에 직접 리포지토리를 복제 하거나 로컬 워크스테이션에서 Git를 사용 하거나 CI/CD 파이프라인에서 Git를 사용할 수 있습니다.
+
+Azure Machine Learning에 작업을 제출할 때 원본 파일이 로컬 git 리포지토리에 저장 된 경우 리포지토리에 대 한 정보는 학습 프로세스의 일부로 추적 됩니다.
 
 Azure Machine Learning는 로컬 git 리포지토리의 정보를 추적 하므로 특정 중앙 리포지토리에 연결 되지 않습니다. GitHub, GitLab, Bitbucket, Azure DevOps 또는 다른 모든 git 호환 서비스에서 리포지토리를 복제할 수 있습니다.
 
-## <a name="how-does-git-integration-work"></a>Git 통합은 어떻게 작동 하나요?
+## <a name="clone-git-repositories-into-your-workspace-file-system"></a>작업 영역 파일 시스템에 Git 리포지토리 복제
+Azure Machine Learning는 작업 영역에 있는 모든 사용자에 게 공유 파일 시스템을 제공 합니다.
+이 파일 공유에 Git 리포지토리를 복제 하려면 계산 인스턴스 & 만들어 터미널을 여는 것이 좋습니다.
+터미널이 열리면 전체 Git 클라이언트에 액세스할 수 있고 Git CLI 환경을 통해 Git를 복제 하 고 사용할 수 있습니다.
+
+사용자가 작업 분기에서 직접 충돌 하지 않도록 사용자 디렉터리에 리포지토리를 복제 하는 것이 좋습니다.
+
+인증할 수 있는 Git 리포지토리 (GitHub, Azure Repos, BitBucket 등)를 복제할 수 있습니다.
+
+Git CLI를 사용 하는 방법에 대 한 가이드는 [여기](https://guides.github.com/introduction/git-handbook/)에서 읽어 보세요.
+
+## <a name="track-code-that-comes-from-git-repositories"></a>Git 리포지토리에서 제공 되는 코드 추적
 
 Python SDK 또는 Machine Learning CLI에서 학습 실행을 제출 하면 모델을 학습 하는 데 필요한 파일이 작업 영역에 업로드 됩니다. `git` 명령을 개발 환경에서 사용할 수 있는 경우 업로드 프로세스에서이 명령을 사용 하 여 파일이 git 리포지토리에 저장 되었는지 확인 합니다. 그렇다면 git 리포지토리의 정보는 학습 실행의 일부로도 업로드 됩니다. 이 정보는 학습 실행을 위해 다음 속성에 저장 됩니다.
 
@@ -53,7 +68,7 @@ Python SDK 또는 Machine Learning CLI에서 학습 실행을 제출 하면 모�
 
 Git 정보는 학습 실행을 위한 속성에 저장 됩니다. Azure Portal, Python SDK 및 CLI를 사용 하 여이 정보를 볼 수 있습니다. 
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
 1. [Azure Portal](https://portal.azure.com)에서 작업 영역을 선택 합니다.
 1. __실험__을 선택 하 고 실험 중 하나를 선택 합니다.

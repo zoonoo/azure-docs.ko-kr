@@ -1,6 +1,6 @@
 ---
 title: Azure 센티널 (미리 보기)를 사용 하 여 구성에 대 한 IoT 가이드 Azure Security Center | Microsoft Docs
-description: 이 방법 가이드에서는 IoT 솔루션에 대 한 Azure Security Center에서 데이터를 수신 하도록 Azure 센티널을 구성 하는 방법을 설명 합니다.
+description: IoT 솔루션에 대 한 Azure Security Center에서 데이터를 수신 하도록 Azure 센티널를 구성 하는 방법을 설명 합니다.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/18/2020
 ms.author: mlottner
-ms.openlocfilehash: f6e7eddd6ddbcec61c3d8d173891cbc9abaaf08f
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: 082b33332051fee9da2aebe63b0c41edb300afaf
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77463181"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303548"
 ---
 > [!IMPORTANT]
 > Azure 센티널의 IoT 데이터 커넥터용 Azure Security Center은 현재 공개 미리 보기로 제공 됩니다.
@@ -29,13 +29,13 @@ ms.locfileid: "77463181"
 이 가이드에서는 IoT 데이터에 대 한 Azure Security Center를 Azure 센티널에 연결 하는 방법에 대해 알아봅니다.  
 
 > [!div class="checklist"]
-> * 필수 조건 
+> * 사전 요구 사항 
 > * 연결 설정
 > * Log Analytics 경고 보기 
 
 IoT에 대 한 Azure Security Center에서 경고를 연결 하 고 Azure 센티널로 직접 스트리밍합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 작업 영역 **읽기** 및 **쓰기** 권한이 있어야 합니다.
 - **IoT에 대 한 Azure Security Center** 를 관련 IoT Hub에서 **사용 하도록 설정** 해야 합니다.
@@ -48,10 +48,10 @@ IoT에 대 한 Azure Security Center에서 경고를 연결 하 고 Azure 센티
 ## <a name="connect-to-azure-security-center-for-iot"></a>IoT에 대 한 Azure Security Center에 연결
 
 1. Azure 센티널에서 **데이터 커넥터** 를 선택한 다음 **IoT에 대 한 Azure Security Center** 타일을 클릭 합니다.
-1. 오른쪽 아래 창에서 **커넥터 페이지 열기**를 클릭 합니다. 
+1. 오른쪽 창의 맨 아래에서 **커넥터 페이지 열기**를 클릭 합니다. 
 1. 연결을 클릭 하 고, 경고 및 장치 경고가 Azure 센티널로 스트리밍할 각 IoT Hub 구독 옆에 있는 **연결**을 클릭 합니다. 
-    - IoT에 대 한 Azure Security Center를 해당 허브에서 사용 하도록 설정 하지 않은 경우 사용 경고 메시지가 표시 됩니다. **사용** 링크를 클릭 하 여 서비스를 시작 합니다. 
-1. IoT에 대 한 경고를 Azure Security Center 하 여 Azure 센티널에서 인시던트를 자동으로 생성할지 여부를 결정할 수 있습니다. **인시던트 만들기**에서 **사용** 을 선택 하 여 기본 분석 규칙을 사용 하도록 설정 하 여 연결 된 보안 서비스에 생성 된 경고에서 인시던트를 자동으로 만듭니다. 이 규칙은 **분석** > **활성** 규칙에서 변경 하거나 편집할 수 있습니다.
+    - IoT에 대 한 Azure Security Center 해당 허브에서 사용 하도록 설정 되지 않은 경우 활성화 경고 메시지가 표시 됩니다. **사용** 링크를 클릭 하 여 서비스를 시작 하 고 사용 하도록 설정 합니다. 
+1. IoT에 대 한 경고를 Azure Security Center 하 여 Azure 센티널에서 인시던트를 자동으로 생성할지 여부를 결정할 수 있습니다. **인시던트 만들기**에서 **사용** 을 선택 하 여 생성 된 경고에서 인시던트를 자동으로 생성 하는 규칙을 사용 하도록 설정 합니다.  이 규칙은 **분석** > **활성** 규칙에서 변경 하거나 편집할 수 있습니다.
 
 > [!NOTE]
 >연결 변경 후 허브 목록을 새로 고치는 데 10 초 이상 걸릴 수 있습니다. 
