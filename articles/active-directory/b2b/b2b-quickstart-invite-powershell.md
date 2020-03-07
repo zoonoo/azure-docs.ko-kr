@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: PowerShell을 사용하여 게스트 사용자 추가 - Azure AD'
+title: '빠른 시작: PowerShell을 사용 하 여 게스트 사용자 추가-Azure AD'
 description: 이 빠른 시작에서는 PowerShell을 사용하여 외부 Azure AD B2B 협업 사용자에게 초대를 보내는 방법을 알아봅니다.
 services: active-directory
 ms.service: active-directory
@@ -13,11 +13,11 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 50c283122fe707e922275b6c1a6c576009964855
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74273363"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78377752"
 ---
 # <a name="quickstart-add-a-guest-user-with-powershell"></a>빠른 시작: PowerShell을 사용하여 게스트 사용자 추가
 
@@ -25,7 +25,7 @@ Azure Active Directory B2B 협업을 사용하여 앱 및 서비스에 외부 �
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 ### <a name="install-the-latest-azureadpreview-module"></a>최신 AzureADPreview 모듈 설치
 Graph 모듈에 대한 Azure AD PowerShell의 최신 버전(AzureADPreview)을 설치해야 합니다. 
@@ -69,7 +69,7 @@ Get-Module -ListAvailable AzureAD*
 ```powershell
 Connect-AzureAD -TenantDomain "<Tenant_Domain_Name>"
 ```
-예: `Connect-AzureAD -TenantDomain "contoso.onmicrosoft.com"`
+`Connect-AzureAD -TenantDomain "contoso.onmicrosoft.com"`)을 입력합니다.
 
 메시지가 표시되면 자격 증명을 입력합니다.
 

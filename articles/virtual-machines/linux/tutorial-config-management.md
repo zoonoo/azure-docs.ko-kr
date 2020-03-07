@@ -16,17 +16,17 @@ ms.date: 09/27/2019
 ms.author: magoedte
 ms.custom: mvc
 ms.openlocfilehash: 5dd35ed2f4533d19cc3a59788d6422416dce13f5
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034549"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78372879"
 ---
-# <a name="tutorial-monitor-changes-and-update-a-linux-virtual-machine-in-azure"></a>자습서: Azure에서 Linux 가상 머신 변경 내용 및 업데이트 모니터링
+# <a name="tutorial-monitor-changes-and-update-a-linux-virtual-machine-in-azure"></a>자습서: Azure에서 변경 내용 모니터링 및 Linux 가상 머신 업데이트
 
 Azure [변경 추적](../../automation/change-tracking.md)을 사용하면 변경 내용을 쉽게 식별할 수 있으며 [업데이트 관리](../../automation/automation-update-management.md)를 사용하면 Azure Linux VM의 운영 체제 업데이트를 관리할 수 있습니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * Windows 업데이트 관리
@@ -111,9 +111,9 @@ Log Analytics 작업 영역 및 Automation 계정을 선택하고 **사용**을 
 
 새 업데이트 배포를 만들려면 **업데이트 배포 예약**을 선택합니다. **새 업데이트 배포** 페이지가 열립니다. 다음 표에 설명된 속성의 값을 입력하고 **만들기**를 클릭합니다.
 
-| 자산 | 설명 |
+| 속성 | Description |
 | --- | --- |
-| Name |업데이트 배포를 식별하는 고유 이름입니다. |
+| 속성 |업데이트 배포를 식별하는 고유 이름입니다. |
 |운영 체제| Linux 또는or Windows|
 | 업데이트할 그룹 |Azure 머신의 경우 구독, 리소스 그룹, 위치 및 태그의 조합을 기반으로 쿼리를 정의하여 배포에 포함할 Azure VM의 동적 그룹을 빌드합니다. </br></br>비 Azure 머신의 경우 저장된 기존 검색을 선택하여 배포에 포함할 비 Azure 머신 그룹을 선택합니다. </br></br>자세한 내용은 [동적 그룹](../../automation/automation-update-management-groups.md)을 참조하세요.|
 | 업데이트할 컴퓨터 |저장된 검색, 가져온 그룹을 선택하거나 드롭다운에서 머신을 선택하고 개별 머신을 선택합니다. **머신**을 선택한 경우 머신의 준비는 **업데이트 에이전트 준비** 열에 표시됩니다.</br> Azure Monitor 로그에서 컴퓨터 그룹을 만드는 다른 방법에 대해 알아보려면 [Azure Monitor 로그의 컴퓨터 그룹](../../azure-monitor/platform/computer-groups.md)을 참조하세요. |
@@ -169,7 +169,7 @@ VM에 대해 변경 내용 및 인벤토리 관리 사용:
 
 솔루션을 사용하도록 설정한 후 데이터가 표시되기까지 VM에서 인벤토리가 수집되는 동안 시간이 걸릴 수 있습니다.
 
-### <a name="track-changes"></a>변경 내용 추적
+### <a name="track-changes"></a>변경 내용 추적 작업
 
 VM에서 **작업** 아래에 있는 **변경 내용 추적**을 선택합니다. **설정 편집**을 선택하면 **변경 내용 추적** 페이지가 표시됩니다. 추적할 설정의 형식을 선택한 다음, **+ 추가**를 선택하여 설정을 구성합니다. 사용 가능한 Linux 옵션은 **Linux 파일**입니다.
 
@@ -195,7 +195,7 @@ VM을 중지하고 시작하면 활동 로그에 이벤트가 기록됩니다. *
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 VM에 대한 변경 내용 추적 및 업데이트 관리를 구성하고 검토했습니다. 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 VM에 대한 변경 내용 추적 및 업데이트 관리를 구성하고 검토했습니다. 구체적으로 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * 리소스 그룹 및 VM 만들기

@@ -1,5 +1,5 @@
 ---
-title: '자습서: Azure FXT Edge Filer에 케이블 연결'
+title: '자습서: Azure FXT Edge 필터에 케이블 연결'
 description: 네트워크 포트를 케이블로 연결하고 Azure FXT Edge Filer 하드웨어의 전원을 연결하는 방법
 author: ekpgh
 ms.author: rohogue
@@ -7,13 +7,13 @@ ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 07/01/2019
 ms.openlocfilehash: 1e3c60fd955bd899955c46b7670acd3f088d0f86
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75550947"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78395425"
 ---
-# <a name="tutorial-make-network-connections-and-supply-power-to-the-azure-fxt-edge-filer-node"></a>자습서: Azure FXT Edge Filer 노드에 네트워크 및 전원 공급 장치를 연결하는 방법
+# <a name="tutorial-make-network-connections-and-supply-power-to-the-azure-fxt-edge-filer-node"></a>자습서: 네트워크 연결을 설정 하 고 Azure FXT Edge 필터 노드에 전원 공급
 
 이 자습서에서는 케이블을 사용하여 Azure FXT Edge Filer 하드웨어 노드를 네트워크에 연결하는 방법을 설명합니다.
 

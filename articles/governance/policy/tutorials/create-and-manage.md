@@ -1,16 +1,16 @@
 ---
-title: '자습서: 규정 준수를 적용하는 정책 빌드'
+title: '자습서: 규정 준수를 적용 하는 정책 빌드'
 description: 이 자습서에서는 정책을 사용하여 표준을 적용하고, 비용을 제어하고, 보안을 유지하고, 엔터프라이즈 수준의 디자인 원칙을 적용합니다.
 ms.date: 12/20/2019
 ms.topic: tutorial
 ms.openlocfilehash: a4e4190e5ff6a87098c349cde99572df2dba4331
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75436136"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78384544"
 ---
-# <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>자습서: 규정 준수를 적용하는 정책 만들기 및 관리
+# <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>자습서: 규정 준수를 적용 하는 정책 만들기 및 관리
 
 회사 표준 및 서비스 수준 계약의 준수를 유지하는 데 있어 Azure에서 정책을 만들고 관리하는 방법을 이해하는 것이 중요합니다. 이 자습서에서는 Azure Policy를 사용하여 조직 전체에서 정책을 생성, 할당 및 관리하는 것과 관련된 보다 일반적인 작업 중 일부를 수행하는 방법에 대해 알아봅니다.
 
@@ -22,7 +22,7 @@ ms.locfileid: "75436136"
 
 기존 리소스의 현재 규정 준수 상태를 식별하는 정책을 할당하려는 경우 이 빠른 시작 문서를 통해 방법을 살펴보세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
@@ -69,7 +69,7 @@ Azure Policy 준수를 적용하기 위한 첫 번째 단계는 정책 정의를
 
 1. **수정 작업 만들기**를 선택하지 않은 상태로 둡니다. 이 상자에서는 새 리소스 또는 업데이트된 리소스 외에도 기존 리소스를 변경하는 작업을 만들 수 있습니다. 자세한 내용은 [리소스 수정](../how-to/remediate-resources.md)을 참조하세요.
 
-1. 이 정책 정의는 [수정](../concepts/effects.md#modify) 효과를 사용하므로 **관리 ID 만들기**가 자동으로 선택됩니다. **권한**은 정책 정의에 따라 자동으로 _기여자_로 설정됩니다. 자세한 내용은 [관리 ID](../../../active-directory/managed-identities-azure-resources/overview.md) 및 [수정 보안의 작동 방식](../how-to/remediate-resources.md#how-remediation-security-works)을 참조하세요.
+1. 이 정책 정의는 **수정** 효과를 사용하므로 [관리 ID 만들기](../concepts/effects.md#modify)가 자동으로 선택됩니다. **권한**은 정책 정의에 따라 자동으로 _기여자_로 설정됩니다. 자세한 내용은 [관리 ID](../../../active-directory/managed-identities-azure-resources/overview.md) 및 [수정 보안의 작동 방식](../how-to/remediate-resources.md#how-remediation-security-works)을 참조하세요.
 
 1. 마법사 맨 위에 있는 **검토 + 만들기** 탭을 선택합니다.
 
@@ -85,7 +85,7 @@ Azure Policy 준수를 적용하기 위한 첫 번째 단계는 정책 정의를
 
 1. 페이지 위쪽에서 **+ 정책 정의**를 선택합니다. 이 단추를 선택하면 **정책 정의** 페이지가 열립니다.
 
-1. 다음 정보를 입력합니다.
+1. 다음 정보 입력:
 
    - 정책 정의가 저장되는 관리 그룹 또는 구독. **정의 위치**에 있는 줄임표를 사용하여 선택합니다.
 
@@ -438,12 +438,12 @@ New-AzPolicySetDefinition -Name 'VMPolicySetDefinition' -Metadata '{"category":"
    - 제외: 범위 내의 리소스에 이니셔티브 할당이 적용되지 않도록 리소스를 구성합니다.
    - 이니셔티브 정의 및 할당 이름: 보안 강화(할당되는 이니셔티브의 이름으로 미리 채워짐).
    - 설명: 이 이니셔티브 할당은 이 정책 정의 그룹을 적용하도록 조정됩니다.
-   - 정책 적용: 기본값인 _사용_으로 둡니다.
+   - 정책 적용: 기본값을 _사용 하도록 설정_된 상태로 둡니다.
    - 할당한 사람: 로그인한 사용자를 기준으로 자동 입력됩니다. 이 필드는 선택 사항이므로 사용자 지정 값을 입력할 수 있습니다.
 
 1. 마법사 맨 위에 있는 **매개 변수** 탭을 선택합니다. 이전 단계에서 이니셔티브 매개 변수를 구성한 경우 여기서 값을 설정합니다.
 
-1. 마법사 맨 위에 있는 **수정** 탭을 선택합니다. **관리 ID 만들기**는 선택하지 않은 상태로 유지합니다. 할당 중인 정책이나 이니셔티브에 [deployIfNotExists](../concepts/effects.md#deployifnotexists) 또는 [modify](../concepts/effects.md#modify)가 적용되는 정책이 있으면 이 확인란을 _반드시_ 선택해야 합니다. 이 자습서에 사용되는 정책의 경우 해당 항목이 적용되지 않으므로 이 확인란을 비워 둡니다. 자세한 내용은 [관리 ID](../../../active-directory/managed-identities-azure-resources/overview.md) 및 [수정 보안의 작동 방식](../how-to/remediate-resources.md#how-remediation-security-works)을 참조하세요.
+1. 마법사 맨 위에 있는 **수정** 탭을 선택합니다. **관리 ID 만들기**는 선택하지 않은 상태로 유지합니다. 할당 중인 정책이나 이니셔티브에 _deployIfNotExists_ 또는 [modify](../concepts/effects.md#deployifnotexists)가 적용되는 정책이 있으면 이 확인란을 [반드시](../concepts/effects.md#modify) 선택해야 합니다. 이 자습서에 사용되는 정책의 경우 해당 항목이 적용되지 않으므로 이 확인란을 비워 둡니다. 자세한 내용은 [관리 ID](../../../active-directory/managed-identities-azure-resources/overview.md) 및 [수정 보안의 작동 방식](../how-to/remediate-resources.md#how-remediation-security-works)을 참조하세요.
 
 1. 마법사 맨 위에 있는 **검토 + 만들기** 탭을 선택합니다.
 
@@ -453,12 +453,12 @@ New-AzPolicySetDefinition -Name 'VMPolicySetDefinition' -Metadata '{"category":"
 
 1. Azure Policy 페이지의 왼쪽에서 **규정 준수**를 선택합니다.
 
-1. **보안 가져오기** 이니셔티브를 찾습니다. ‘규정 준수 상태’가 **시작되지 않음**일 가능성이 여전히 있습니다. 
+1. **보안 가져오기** 이니셔티브를 찾습니다. ‘규정 준수 상태’가 _시작되지 않음_일 가능성이 여전히 있습니다.
    이니셔티브를 선택하여 할당 진행 상황에 대한 자세한 내용을 가져옵니다.
 
    ![이니셔티브 규정 준수 페이지 - 평가가 시작되지 않음](../media/create-and-manage/compliance-status-not-started.png)
 
-1. 이니셔티브 할당이 완료되었으면 규정 준수 페이지에서 **준수 상태**가 _준수_로 업데이트됩니다
+1. 이니셔티브 할당이 완료되었으면 규정 준수 페이지에서 _준수 상태_가 **준수**로 업데이트됩니다
 
    ![이니셔티브 규정 준수 페이지 - 리소스 규정 준수](../media/create-and-manage/compliance-status-compliant.png)
 
@@ -468,11 +468,11 @@ New-AzPolicySetDefinition -Name 'VMPolicySetDefinition' -Metadata '{"category":"
 
 특정 위치를 요구하도록 정책 이니셔티브를 할당한 후에는 다른 위치에서 생성된 리소스가 거부됩니다. 이 섹션에서는 단일 리소스 그룹에 대한 제외를 만들어서 리소스 생성 요청이 거부되는 문제 해결 방법을 단계별로 안내합니다. 제외는 해당 리소스 그룹에 정책(또는 이니셔티브)이 적용되지 않도록 방지합니다. 다음 예제에서는 모든 위치가 제외된 리소스 그룹에서 허용됩니다. 구독, 리소스 그룹 또는 개별 리소스에 제외를 적용할 수 있습니다.
 
-할당된 정책 또는 이니셔티브에 의해 금지되는 배포는 배포 대상으로 지정된 리소스 그룹에서 볼 수 있습니다. 페이지 왼쪽에서 **배포**를 선택하고 실패한 배포에서 **배포 이름**을 선택합니다. 거부된 리소스가 _사용할 수 없음_ 상태와 함께 나열됩니다. 리소스를 거부한 정책 또는 이니셔티브와 할당을 확인하려면 개요 페이지에서 **실패했습니다. 자세한 내용을 보려면 여기를 클릭하세요. ->** 를 클릭합니다. 페이지 오른쪽에 창이 열리고 오류 정보가 표시됩니다. **오류 세부 정보** 아래에 관련 정책 개체의 GUID가 있습니다.
+할당 된 정책 또는 이니셔티브에 의해 방지 된 배포는 배포 대상으로 지정 된 리소스 그룹에서 볼 수 있습니다. 페이지의 왼쪽에서 **배포** 를 선택한 다음 실패 한 배포의 **배포 이름을** 선택 합니다. 거부된 리소스가 _사용할 수 없음_ 상태와 함께 나열됩니다. 리소스를 거부 한 정책 또는 이니셔티브와 할당을 확인 하려면 실패를 선택 **합니다. 배포 개요 페이지에서 자세한 내용을 보려면 여기를 클릭** 하십시오. > 페이지 오른쪽에 창이 열리고 오류 정보가 표시됩니다. **오류 세부 정보** 아래에 관련 정책 개체의 GUID가 있습니다.
 
 ![정책 할당에 의해 거부된 배포](../media/create-and-manage/rg-deployment-denied.png)
 
-Azure Policy 페이지: 페이지 왼쪽에서 **규정 준수**를 선택하고 **보안 강화** 정책 이니셔티브를 선택합니다. 이 페이지에서는 차단된 리소스의 **거부** 수가 증가합니다. **이벤트** 탭에는 정책 정의에 의해 거부된 리소스를 만들거나 배포하려고 시도한 사용자에 대한 세부 정보가 있습니다.
+Azure Policy 페이지에서 페이지의 왼쪽에 있는 **준수** 를 선택 하 고 **보안 정책 가져오기** 이니셔티브를 선택 합니다. 이 페이지에서는 차단된 리소스의 **거부** 수가 증가합니다. **이벤트** 탭에는 정책 정의에 의해 거부된 리소스를 만들거나 배포하려고 시도한 사용자에 대한 세부 정보가 있습니다.
 
 ![할당된 정책의 규정 준수 정책](../media/create-and-manage/compliance-overview.png)
 
@@ -484,7 +484,7 @@ Azure Policy 페이지: 페이지 왼쪽에서 **규정 준수**를 선택하고
 
 1. 모든 정책 할당을 검색하여 _보안 강화_ 정책 할당을 엽니다.
 
-1. 줄임표를 선택하고 제외할 리소스 그룹(이 예제에서는 _LocationsExcluded_)을 선택하여 **제외**를 설정합니다. **선택한 범위에 추가**를 선택하고 **저장**을 선택합니다.
+1. 줄임표를 선택하고 제외할 리소스 그룹(이 예제에서는 **LocationsExcluded**)을 선택하여 _제외_를 설정합니다. **선택한 범위에 추가**를 선택하고 **저장**을 선택합니다.
 
    ![제외된 리소스 그룹을 정책 할당에 추가](../media/create-and-manage/request-exclusion.png)
 

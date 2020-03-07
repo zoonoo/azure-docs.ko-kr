@@ -11,11 +11,11 @@ ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 787cade13a0636bb25afa1d4043a977f512484f9
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850893"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78372297"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Azure Automation 상태 구성 개요
 
@@ -41,7 +41,7 @@ Azure 포털 또는 PowerShell에서 DSC 구성, 리소스 및 대상 노드를 
 
 Azure Automation 상태 구성으로 관리되는 노드는 상세한 보고 상태 데이터를 기본 제공 끌어오기 서버에 보냅니다. 이 데이터를 Log Analytics 작업 영역으로 보내려면 Azure Automation 상태 구성을 구성할 수 있습니다. 상태 구성 상태 데이터를 Log Analytics 작업 영역으로 전송 하는 방법에 대 한 자세한 내용은 [Azure Automation 상태 구성 보고 데이터를 Azure Monitor 로그로 전달](automation-dsc-diagnostics.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 DSC (Azure Automation 상태 구성)를 사용 하는 경우 다음 요구 사항을 고려 하세요.
 
@@ -54,7 +54,7 @@ Windows를 실행 하는 노드의 경우 지원 되는 버전은 다음과 같�
 - Windows Server 2012R2
 - Windows Server 2012
 - Windows Server 2008 R2 SP1
-- Windows 10
+- 윈도우 10
 - Windows 8.1
 - Windows 7
 

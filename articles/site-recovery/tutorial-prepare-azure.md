@@ -9,11 +9,11 @@ ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: 1ec668fac087773001ca401eefb5ca8bc10ea2b8
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73620603"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78367105"
 ---
 # <a name="prepare-azure-for-on-premises-disaster-recovery-to-azure"></a>Azure에 대한 온-프레미스 재해 복구를 위한 Azure 준비
 
@@ -22,7 +22,7 @@ ms.locfileid: "73620603"
 이 문서는 온-프레미스 VM에 대한 재해 복구를 설정하는 방법을 보여 주는 자습서 시리즈 중 첫 번째 자습서입니다. 
 
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * Azure 계정에 복제 권한이 있는지 확인합니다.
@@ -30,7 +30,7 @@ ms.locfileid: "73620603"
 > * Azure VNet(Virtual Network)을 설정합니다. 장애 조치(failover) 후 만들어지는 Azure VM이 이 네트워크에 연결됩니다.
 
 > [!NOTE]
-> 자습서는 시나리오의 가장 간단한 배포 경로를 보여줍니다. 가능한 경우 기본 옵션을 사용하고 가능한 모든 설정과 경로를 보여주지 않습니다. 자세한 내용은 Site Recovery 목차의 방법 섹션에 있는 문서를 참조하세요.
+> 자습서는 시나리오에 맞는 가장 간단한 배포 경로를 보여줍니다. 가능한 경우 기본 옵션을 사용하고 가능한 모든 설정과 경로를 보여주지 않습니다. 자세한 내용은 Site Recovery 목차의 방법 섹션에 있는 문서를 참조하세요.
 
 ## <a name="before-you-start"></a>시작하기 전에
 
@@ -59,7 +59,7 @@ Azure 체험 계정을 방금 만든 경우 자신이 구독에 대한 관리자
 3. **Recovery Services 자격 증명 모음 만들기** 페이지에서 **구독**을 선택합니다. 지금은 **Contoso 구독**을 사용하고 있습니다.
 4. 기존 **리소스 그룹**을 선택하거나 새 리소스 그룹을 만듭니다. 이 자습서에서는 **contosoRG**를 사용합니다.
 5. **자격 증명 모음 이름**에 자격 증명 모음을 식별하기 위한 이름을 입력합니다. 이 자습서의 집합의 경우 **ContosoVMVault**를 사용합니다.
-6. **지역**에서 자격 증명 모음을 배치할 지역을 선택합니다. **유럽 서부**를 사용합니다.
+6. **지역**에서 자격 증명 모음을 배치할 지역을 선택합니다. **서유럽**를 사용합니다.
 7. **검토 + 만들기**를 선택합니다.
 
    ![새 자격 증명 모음 만들기](./media/tutorial-prepare-azure/new-vault-settings.png)

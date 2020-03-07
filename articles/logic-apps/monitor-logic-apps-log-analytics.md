@@ -7,11 +7,11 @@ ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 01/30/2020
 ms.openlocfilehash: 3e41f92f9e41f7a05102e8c0e1c2edb81fa50bf3
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77426329"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78381900"
 ---
 # <a name="set-up-azure-monitor-logs-and-collect-diagnostics-data-for-azure-logic-apps"></a>Azure Monitor 로그 설정 및 Azure Logic Apps에 대 한 진단 데이터 수집
 
@@ -176,7 +176,7 @@ ms.locfileid: "77426329"
 
 Azure Monitor 로그를 사용 하 여 논리 앱의 진단 데이터를 다른 Azure 서비스와 함께 사용 하는 방법을 확장할 수 있습니다. 예를 들면 다음과 같습니다.
 
-* [저장소 계정에 Azure 리소스 로그 보관](../azure-monitor/platform/resource-logs-collect-storage.md)
+* [스토리지 계정에 Azure 리소스 로그 보관](../azure-monitor/platform/resource-logs-collect-storage.md)
 * [Azure 플랫폼 로그를 Azure Event Hubs로 스트림](../azure-monitor/platform/resource-logs-stream-event-hubs.md)
 
 그런 다음 [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) 및 [Power BI](../azure-monitor/platform/powerbi.md)와 같은 다른 서비스의 원격 분석 및 분석을 사용하여 실시간으로 모니터링할 수 있습니다. 다음은 그 예입니다.

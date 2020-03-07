@@ -7,29 +7,29 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.openlocfilehash: a0058bf309e0ff4fbe687731d676e907d1c3fd82
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383103"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78394236"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Azure Cosmos DB의 요청 단위
 
-Azure Cosmos DB를 사용하면 프로비전하는 처리량 및 시간 단위로 사용하는 스토리지의 요금을 지불합니다. Azure Cosmos 데이터베이스에 대 한 충분 한 시스템 리소스를 항상 사용할 수 있도록 처리량을 프로 비전 해야 합니다. [Azure Cosmos DB sla](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)를 충족 하거나 초과 하는 데 충분 한 리소스가 필요 합니다.
+Azure Cosmos DB를 사용하면 프로비전하는 처리량 및 시간 단위로 사용하는 스토리지의 요금을 지불합니다. Azure Cosmos 데이터베이스가 항상 충분한 시스템 리소스를 사용할 수 있도록 처리량을 프로비저닝해야 합니다. [Azure Cosmos DB sla](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)를 충족 하거나 초과 하는 데 충분 한 리소스가 필요 합니다.
 
 Azure Cosmos DB는 SQL, MongoDB, Cassandra, Gremlin, Table 등의 많은 API를 지원합니다. 각 API에는 고유한 데이터베이스 작업 세트가 있습니다. 이러한 작업은 간단한 지점 읽기 및 쓰기에서 복잡한 쿼리에 이르기까지 다양합니다. 각 데이터베이스 작업은 작업의 복잡도에 따라 시스템 리소스를 사용합니다. 
 
 모든 데이터베이스 작업의 비용은 Azure Cosmos DB에 의해 정규화 되며 *요청 단위* (단기)로 표현 됩니다. 초당 RU를 처리량 통화로 간주할 수 있습니다. 초당 RU는 속도 기반 통화로, Azure Cosmos DB에서 지원하는 데이터베이스 작업을 수행하는 데 필요한 CPU, IOPS, 메모리 등의 시스템 리소스를 추상화합니다. 
 
-1kb 항목을 읽는 비용은 1 개의 요청 단위 (또는 1, 000 개)입니다. 1gb의 각 데이터를 저장 하려면 최소 10 r u/초를 입력 해야 합니다. 다른 모든 데이터베이스 작업에는 또한 RUs를 사용 하 여 비용이 할당 됩니다. Azure Cosmos 컨테이너 조작에 사용하는 API에 상관없이 비용은 항상 RU로 측정됩니다. 데이터베이스 작업이 쓰기, 읽기 또는 쿼리든 간에 비용은 항상 RU로 측정됩니다.
+1KB 항목을 읽는 비용은 1RU(또는 1 요청 단위)입니다. 1gb의 각 데이터를 저장 하려면 최소 10 r u/초를 입력 해야 합니다. RU를 사용하여 다른 모든 데이터베이스 작업에 비슷하게 비용이 할당됩니다. Azure Cosmos 컨테이너 조작에 사용하는 API에 상관없이 비용은 항상 RU로 측정됩니다. 데이터베이스 작업이 쓰기, 읽기 또는 쿼리든 간에 비용은 항상 RU로 측정됩니다.
 
-다음 그림은 RUs의 개략적인 개념을 보여 줍니다.
+다음 이미지는 RU의 개략적인 개념을 보여 줍니다.
 
 ![데이터베이스 작업은 요청 단위를 사용함](./media/request-units/request-units.png)
 
-용량을 관리하고 계획하려면 Azure Cosmos DB에서는 지정된 데이터 세트를 통해 지정된 데이터베이스 작업에 대한 RU 수가 결정적이 되도록 확인합니다. 응답 헤더를 검사 하 여 모든 데이터베이스 작업에서 사용 되는 RUs의 수를 추적할 수 있습니다. 매우 요금 및 응용 프로그램의 처리량 요구 사항에 [영향을 주는 요소](request-units.md#request-unit-considerations) 를 이해 하면 응용 프로그램 비용을 효과적으로 실행할 수 있습니다.
+용량을 관리하고 계획하려면 Azure Cosmos DB에서는 지정된 데이터 세트를 통해 지정된 데이터베이스 작업에 대한 RU 수가 결정적이 되도록 확인합니다. 응답 헤더를 검사하여 모든 데이터베이스 작업에서 사용하는 RU 수를 추적할 수 있습니다. 매우 요금 및 응용 프로그램의 처리량 요구 사항에 [영향을 주는 요소](request-units.md#request-unit-considerations) 를 이해 하면 응용 프로그램 비용을 효과적으로 실행할 수 있습니다.
 
-초당 100 RU 증분으로, 애플리케이션에 대한 RU 수를 프로비전합니다. 애플리케이션에 대해 프로비전되는 처리량 크기를 조정하기 위해 언제든지 RU 수를 늘리거나 줄일 수 있습니다. 100 RUs의 증가 또는 감소를 확장할 수 있습니다. 프로그래밍 방식으로 또는 Azure Portal을 사용하여 변경할 수 있습니다. 시간 단위로 요금이 청구 됩니다.
+초당 100 RU 증분으로, 애플리케이션에 대한 RU 수를 프로비전합니다. 애플리케이션에 대해 프로비전되는 처리량 크기를 조정하기 위해 언제든지 RU 수를 늘리거나 줄일 수 있습니다. 100RU 증분 또는 감축으로 규모를 조정할 수 있습니다. 프로그래밍 방식으로 또는 Azure Portal을 사용하여 변경할 수 있습니다. 시간 단위로 요금이 청구됩니다.
 
 두 가지 고유 단위로 처리량을 프로비전할 수 있습니다. 
 

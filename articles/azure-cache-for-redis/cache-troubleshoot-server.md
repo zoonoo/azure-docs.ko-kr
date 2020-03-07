@@ -7,17 +7,17 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 10/18/2019
 ms.openlocfilehash: a68c27de304a0da6470745ee4abf69590d9bf78c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433346"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78372175"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-server-side-issues"></a>Redis 서버 쪽 문제에 대 한 Azure 캐시 문제 해결
 
 이 섹션에서는 Redis에 대 한 Azure 캐시 또는이를 호스팅하는 가상 컴퓨터에 대 한 조건으로 인해 발생 하는 문제를 해결 하는 방법을 설명 합니다.
 
-- [Redis 서버의 메모리 부족](#memory-pressure-on-redis-server)
+- [Redis 서버의 메모리 압력](#memory-pressure-on-redis-server)
 - [높은 CPU 사용량 또는 서버 부하](#high-cpu-usage-or-server-load)
 - [장기 실행 명령](#long-running-commands)
 - [서버 쪽 대역폭 제한](#server-side-bandwidth-limitation)
