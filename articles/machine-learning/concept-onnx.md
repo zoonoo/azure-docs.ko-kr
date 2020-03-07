@@ -12,11 +12,11 @@ author: prasanthpul
 ms.date: 08/15/2019
 ms.custom: seodec18
 ms.openlocfilehash: 98aebb4733c2aa2a6d0b0217f1f437bcea1992e9
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75541063"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78396222"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-accelerate-ml-models"></a>ONNX 및 Azure Machine Learning: ML 모델 만들기 및 가속화
 
@@ -78,13 +78,13 @@ results = session.run([], {"input1": indata1, "input2": indata2})
 
 전체 Python API 참조는 [ONNX 런타임 참조 문서](https://aka.ms/onnxruntime-python)를 참조하세요.    
 
-## <a name="examples"></a>예시
+## <a name="examples"></a>예
 
 ONNX 모델을 만들고 배포하는 예제 노트는 [how-to-use-azureml/deployment/onnx](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx)를 참조하세요.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
 
-## <a name="more-info"></a>자세한 정보
+## <a name="more-info"></a>추가 정보
 
 ONNX에 대해 자세히 알아보거나 프로젝트에 참가합니다.
 + [ONNX 프로젝트 웹 사이트](https://onnx.ai)

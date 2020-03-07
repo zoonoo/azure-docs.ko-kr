@@ -7,11 +7,11 @@ ms.topic: reference
 ms.date: 11/21/2017
 ms.custom: seodec18
 ms.openlocfilehash: e30b256d9fa43402c3b2c444aa1a0e0dc16cfdcf
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76120578"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78370874"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>Azure Functions 1.x의 Azure Cosmos DB 바인딩
 
@@ -43,7 +43,7 @@ Azure Cosmos DB 트리거는 [Azure Cosmos DB 변경 피드](../cosmos-db/change
 
 ## <a name="trigger---example"></a>트리거 - 예제
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 다음 예제에서는 지정한 데이터베이스 및 컬렉션에서 삽입 또는 업데이트가 있을 때 호출되는 [C# 함수](functions-dotnet-class-library.md)를 보여줍니다.
 
@@ -76,7 +76,7 @@ namespace CosmosDBSamplesV1
 }
 ```
 
-# <a name="c-scripttabcsharp-script"></a>[C#스크립트도](#tab/csharp-script)
+# <a name="c-script"></a>[C#스크립트도](#tab/csharp-script)
 
 다음 예에서는 *function.json* 파일의 Cosmos DB 트리거 바인딩 및 바인딩을 사용하는 [C# 스크립트 함수](functions-reference-csharp.md)를 보여줍니다. 이 함수는 Cosmos DB 레코드가 수정될 때 로그 메시지를 작성합니다.
 
@@ -112,7 +112,7 @@ C# 스크립트 코드는 다음과 같습니다.
     }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 다음 예에서는 *function.json* 파일의 Cosmos DB 트리거 바인딩 및 바인딩을 사용하는 [JavaScript 함수](functions-reference-node.md)를 보여줍니다. 이 함수는 Cosmos DB 레코드가 수정될 때 로그 메시지를 작성합니다.
 
@@ -145,7 +145,7 @@ JavaScript 코드는 다음과 같습니다.
 
 ## <a name="trigger---attributes"></a>트리거 - 특성
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 [C# 클래스 라이브러리](functions-dotnet-class-library.md)에서 [CosmosDBTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/Trigger/CosmosDBTriggerAttribute.cs) 특성을 사용합니다.
 
@@ -164,11 +164,11 @@ JavaScript 코드는 다음과 같습니다.
 
 전체 예제는 [트리거 - C# 예제](#trigger)를 참조하세요.
 
-# <a name="c-scripttabcsharp-script"></a>[C#스크립트도](#tab/csharp-script)
+# <a name="c-script"></a>[C#스크립트도](#tab/csharp-script)
 
 스크립트에서 C# 특성을 지원 하지 않습니다.
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 JavaScript에서는 특성을 지원 하지 않습니다.
 
@@ -180,9 +180,9 @@ JavaScript에서는 특성을 지원 하지 않습니다.
 
 |function.json 속성 | 특성 속성 |Description|
 |---------|---------|----------------------|
-|**type** | n/a | `cosmosDBTrigger`로 설정해야 합니다. |
-|**direction** | n/a | `in`로 설정해야 합니다. 이 매개 변수는 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다. |
-|**name** | n/a | 변경 사항이 포함된 문서 목록을 나타내는 함수 코드에 사용되는 변수 이름. |
+|**type** | 해당 없음 | `cosmosDBTrigger`로 설정해야 합니다. |
+|**direction** | 해당 없음 | `in`로 설정해야 합니다. 이 매개 변수는 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다. |
+|**name** | 해당 없음 | 변경 사항이 포함된 문서 목록을 나타내는 함수 코드에 사용되는 변수 이름. |
 |**connectionStringSetting**|**ConnectionStringSetting** | 모니터링되는 Azure Cosmos DB 계정에 연결하는 데 사용되는 연결 문자열을 포함하고 있는 앱 설정의 이름입니다. |
 |**databaseName**|**DatabaseName**  | 컬렉션이 모니터링되는 Azure Cosmos DB 데이터베이스의 이름입니다. |
 |**collectionName** |**CollectionName** | 모니터링되는 컬렉션의 이름입니다. |
@@ -215,7 +215,7 @@ JavaScript에서는 특성을 지원 하지 않습니다.
 
 Azure Cosmos DB 입력 바인딩은 SQL API를 사용하여 하나 이상의 Azure Cosmos DB 문서를 검색하고, 함수의 입력 매개 변수에 전달합니다. 문서 ID 또는 쿼리 매개 변수는 함수를 호출하는 트리거를 기반으로 결정할 수 있습니다.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 이 섹션에는 다음 예제가 포함되어 있습니다.
 
@@ -523,7 +523,7 @@ namespace CosmosDBSamplesV1
 }
 ```
 
-# <a name="c-scripttabcsharp-script"></a>[C#스크립트도](#tab/csharp-script)
+# <a name="c-script"></a>[C#스크립트도](#tab/csharp-script)
 
 이 섹션에는 다음 예제가 포함되어 있습니다.
 
@@ -881,7 +881,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, Docume
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 이 섹션에는 다음 예제가 포함되어 있습니다.
 
@@ -1093,17 +1093,17 @@ JavaScript 코드는 다음과 같습니다.
 
 ## <a name="input---attributes"></a>입력 - 특성
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 [C# 클래스 라이브러리](functions-dotnet-class-library.md)에서 [DocumentDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) 특성을 사용합니다.
 
 특성의 생성자는 데이터베이스 이름과 컬렉션 이름을 사용합니다. 이러한 설정 및 구성할 수 있는 다른 속성에 대한 자세한 내용은 [다음 구성 섹션](#input---configuration)을 참조하세요.
 
-# <a name="c-scripttabcsharp-script"></a>[C#스크립트도](#tab/csharp-script)
+# <a name="c-script"></a>[C#스크립트도](#tab/csharp-script)
 
 스크립트에서 C# 특성을 지원 하지 않습니다.
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 JavaScript에서는 특성을 지원 하지 않습니다.
 
@@ -1115,9 +1115,9 @@ JavaScript에서는 특성을 지원 하지 않습니다.
 
 |function.json 속성 | 특성 속성 |Description|
 |---------|---------|----------------------|
-|**type**     | n/a | `documentdb`로 설정해야 합니다.        |
-|**direction**     | n/a | `in`로 설정해야 합니다.         |
-|**name**     | n/a | 함수에서 문서를 나타내는 바인딩 매개 변수의 이름입니다.  |
+|**type**     | 해당 없음 | `documentdb`로 설정해야 합니다.        |
+|**direction**     | 해당 없음 | `in`로 설정해야 합니다.         |
+|**name**     | 해당 없음 | 함수에서 문서를 나타내는 바인딩 매개 변수의 이름입니다.  |
 |**databaseName** |**DatabaseName** |문서를 포함하는 데이터베이스입니다.        |
 |**collectionName** |**CollectionName** | 문서를 포함하는 컬렉션의 이름입니다. |
 |**id**    | **Id** | 검색할 문서의 ID입니다. 이 속성은 [바인딩 식](./functions-bindings-expressions-patterns.md)을 지원합니다. **id** 및 **sqlQuery** 속성을 둘 다 설정하지 마십시오. 둘 중 하나를 설정하지 않으면 전체 컬렉션이 검색됩니다. |
@@ -1129,15 +1129,15 @@ JavaScript에서는 특성을 지원 하지 않습니다.
 
 ## <a name="input---usage"></a>입력 - 사용
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 함수가 성공적으로 종료 되 면 명명 된 입력 매개 변수를 통해 입력 문서에 대 한 모든 변경 내용이 자동으로 유지 됩니다.
 
-# <a name="c-scripttabcsharp-script"></a>[C#스크립트도](#tab/csharp-script)
+# <a name="c-script"></a>[C#스크립트도](#tab/csharp-script)
 
 함수가 성공적으로 종료 되 면 명명 된 입력 매개 변수를 통해 입력 문서에 대 한 모든 변경 내용이 자동으로 유지 됩니다.
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 함수 종료 시 업데이트가 자동으로 수행 되지 않습니다. 대신 `context.bindings.<documentName>In` 및 `context.bindings.<documentName>Out`을 사용하여 업데이트합니다. [입력 예제](#input)를 참조 하십시오.
 
@@ -1147,7 +1147,7 @@ JavaScript에서는 특성을 지원 하지 않습니다.
 
 Azure Cosmos DB 출력 바인딩을 사용하면 Azure Cosmos DB 데이터베이스에 SQL API를 사용하여 새 문서를 작성할 수 있습니다.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 이 섹션에는 다음 예제가 포함되어 있습니다.
 
@@ -1233,7 +1233,7 @@ namespace CosmosDBSamplesV1
 }
 ```
 
-# <a name="c-scripttabcsharp-script"></a>[C#스크립트도](#tab/csharp-script)
+# <a name="c-script"></a>[C#스크립트도](#tab/csharp-script)
 
 이 섹션에는 다음 예제가 포함되어 있습니다.
 
@@ -1361,7 +1361,7 @@ public static async Task Run(ToDoItem[] toDoItemsIn, IAsyncCollector<ToDoItem> t
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 다음 예제에서는 *function.json* 파일의 Azure Cosmos DB 출력 바인딩 및 해당 바인딩을 사용하는 [JavaScript 함수](functions-reference-node.md)를 보여 줍니다. 이 함수는 다음 형식으로 JSON을 수신하는 큐에 대한 큐 입력 바인딩을 사용합니다.
 
@@ -1420,7 +1420,7 @@ JavaScript 코드는 다음과 같습니다.
 
 ## <a name="output---attributes"></a>출력 - 특성
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 [C# 클래스 라이브러리](functions-dotnet-class-library.md)에서 [DocumentDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) 특성을 사용합니다.
 
@@ -1438,11 +1438,11 @@ JavaScript 코드는 다음과 같습니다.
 
 전체 예제는 [Output](#output)을 참조 하세요.
 
-# <a name="c-scripttabcsharp-script"></a>[C#스크립트도](#tab/csharp-script)
+# <a name="c-script"></a>[C#스크립트도](#tab/csharp-script)
 
 스크립트에서 C# 특성을 지원 하지 않습니다.
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 JavaScript에서는 특성을 지원 하지 않습니다.
 
@@ -1454,9 +1454,9 @@ JavaScript에서는 특성을 지원 하지 않습니다.
 
 |function.json 속성 | 특성 속성 |Description|
 |---------|---------|----------------------|
-|**type**     | n/a | `documentdb`로 설정해야 합니다.        |
-|**direction**     | n/a | `out`로 설정해야 합니다.         |
-|**name**     | n/a | 함수에서 문서를 나타내는 바인딩 매개 변수의 이름입니다.  |
+|**type**     | 해당 없음 | `documentdb`로 설정해야 합니다.        |
+|**direction**     | 해당 없음 | `out`로 설정해야 합니다.         |
+|**name**     | 해당 없음 | 함수에서 문서를 나타내는 바인딩 매개 변수의 이름입니다.  |
 |**databaseName** | **DatabaseName**|문서가 만들어진 컬렉션을 포함하는 데이터베이스입니다.     |
 |**collectionName** |**CollectionName**  | 문서가 만들어진 컬렉션의 이름입니다. |
 |**createIfNotExists**  |**CreateIfNotExists**    | 컬렉션이 존재하지 않는 경우 만들 수 있는지 여부를 나타내는 부울 값입니다. 새 컬렉션이 예약된 처리량으로 만들어져 비용이 부과되기 기본값은 *false*입니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/documentdb/)를 참조하세요.  |

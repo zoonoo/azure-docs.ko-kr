@@ -17,11 +17,11 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cbaf7d4e5a0dee82edf9b6b6bd65b91309e1344d
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74007687"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78375382"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Azure Active Directory 보고서 관련 자주 묻는 질문
 
@@ -76,7 +76,7 @@ ms.locfileid: "74007687"
 | 보고서                 | Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
 | :--                    | :--           | :--                 | :--                 |
 | 감사 로그             | 7 일        | 30일             | 30일             |
-| 로그인               | 해당 없음           | 30일             | 30일             |
+| 로그인               | N/A           | 30일             | 30일             |
 | Azure MFA 사용        | 30일       | 30일             | 30일             |
 
 ---

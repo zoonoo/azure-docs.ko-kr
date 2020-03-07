@@ -9,11 +9,11 @@ ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: 5bd9f5316f8b8799633de8c0c84c61424c0e4f4a
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954427"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78362780"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Azure로 재해 복구 훈련 실행
 
@@ -22,7 +22,7 @@ ms.locfileid: "73954427"
 
 이 문서는 온-프레미스 머신에 대한 재해 복구를 Azure에 설정하는 방법을 보여 주는 자습서 시리즈 중 네 번째 자습서입니다.
 
-이 자습서에서는 다음 방법을 알아봅니다.
+이 자습서에 설명 하는 방법.
 
 > [!div class="checklist"]
 > * 테스트 장애 조치(failover)를 위한 격리된 네트워크 설정
@@ -30,9 +30,9 @@ ms.locfileid: "73954427"
 > * 단일 머신에 대해 테스트 장애 조치(failover) 실행
 
 > [!NOTE]
-> 자습서는 시나리오의 가장 간단한 배포 경로를 보여줍니다. 가능한 경우 기본 옵션을 사용하고 가능한 모든 설정과 경로를 보여주지 않습니다. 재해 복구 훈련 단계에 대해 자세히 알아보려면 [이 문서를 검토하세요](site-recovery-test-failover-to-azure.md).
+> 자습서는 시나리오에 맞는 가장 간단한 배포 경로를 보여줍니다. 가능한 경우 기본 옵션을 사용하고 가능한 모든 설정과 경로를 보여주지 않습니다. 재해 복구 훈련 단계에 대해 자세히 알아보려면 [이 문서를 검토하세요](site-recovery-test-failover-to-azure.md).
 
-## <a name="before-you-start"></a>시작하기 전에
+## <a name="before-you-start"></a>시작하기 전 확인 사항
 
 이전 자습서 완료:
 
@@ -72,8 +72,8 @@ ms.locfileid: "73954427"
 1. **설정** > **복제된 항목**에서 VM > **+테스트 장애 조치(Failover)** 를 클릭합니다.
 2. 이 자습서에서는 **가장 최근에 처리된** 복구 지점을 선택합니다. 그러면 사용 가능한 최신 시점으로 VM을 장애 조치(failover)합니다. 타임스탬프가 표시됩니다. 이 옵션을 사용하면 데이터를 처리하는 데 시간을 소비하지 않으므로 낮은 RTO(복구 시간 목표)가 제공됩니다.
 3. **테스트 장애 조치(Failover)** 에서 장애 조치(Failover)가 발생한 후에 Azure VM이 연결될 대상 Azure 네트워크를 선택합니다.
-4. **확인**을 클릭하여 장애 조치(failover)를 시작합니다. VM을 클릭하여 해당 속성을 열어 진행률을 추적할 수 있습니다. 또는 자격 증명 모음 이름 > **설정** > **작업** >
-   **Site Recovery 작업**에서 **테스트 장애 조치(Failover)** 작업을 클릭하면 됩니다.
+4. **확인**을 클릭하여 장애 조치(failover)를 시작합니다. VM을 클릭하여 해당 속성을 열어 진행률을 추적할 수 있습니다. 또는 자격 증명 모음 이름 > **설정**작업 > Site Recovery 작업 >
+   에서 **테스트 장애 조치(Failover)** 작업을 클릭하면 됩니다.
 5. 장애 조치가 완료되면 Azure Portal > **Virtual Machines**에서 Azure VM 복제본이 표시됩니다. VM의 크기가 적당하고, VM이 올바른 네트워크에 연결되어 있으며 실행 중인지 확인합니다.
 6. 이제 Azure에서 복제된 VM에에 연결할 수 있습니다.
 7. 테스트 장애 조치(failover) 중에 만든 Azure VM을 삭제하려면 VM에서 **테스트 장애 조치(failover) 정리**를 클릭합니다. **참고**에서 테스트 장애 조치와 관련된 모든 관측 내용을 기록하고 저장합니다.

@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: raynew
 ms.openlocfilehash: 8e256aac16bb8c2d2f1eca494981458f71cc2e4d
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73620610"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78362906"
 ---
 # <a name="about-migration"></a>마이그레이션 정보
 
@@ -30,7 +30,7 @@ Site Recovery를 사용하여 마이그레이션할 수 있는 항목은 다음�
 
 ## <a name="what-do-we-mean-by-migration"></a>마이그레이션 기준은 어떤 의미인가요?
 
-온-프레미스 및 Azure VM의 재해 복구를 위해 Site Recovery를 사용하는 것 외에도, Site Recovery 서비스를 사용하여 마이그레이션을 수행할 수 있습니다. 차이점은 무엇입니까?
+온-프레미스 및 Azure VM의 재해 복구를 위해 Site Recovery를 사용하는 것 외에도, Site Recovery 서비스를 사용하여 마이그레이션을 수행할 수 있습니다. 차이점은 무엇일까요?
 
 - 재해 복구를 위해서는 컴퓨터를 Azure에 정기적으로 복제합니다. 중단이 발생하면 컴퓨터를 기본 사이트에서 보조 Azure 사이트로 장애 조치(Failover)하고 여기에서 액세스합니다. 기본 사이트를 다시 사용할 수 있게 되면 Azure에서 장애 복구(Failback)합니다.
 - 마이그레이션의 경우에는 온-프레미스 컴퓨터를 Azure로 복제하거나 Azure VM을 보조 지역으로 복제합니다. 그런 다음 기본 사이트의 VM을 보조 사이트로 장애 조치(Failover)하고 마이그레이션 프로세스를 완료합니다. 장애 복구는 필요하지 않습니다.  

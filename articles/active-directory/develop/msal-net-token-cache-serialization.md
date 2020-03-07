@@ -14,11 +14,11 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 1bd348ad27d892d0421b13c16ce81bc4f5dfb021
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76695129"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78377482"
 ---
 # <a name="token-cache-serialization-in-msalnet"></a>MSAL.NET에서 토큰 캐시 직렬화
 [획득한 토큰](msal-acquire-cache-tokens.md)은 MSAL(Microsoft 인증 라이브러리)을 사용하여 캐시됩니다.  애플리케이션 코드는 캐시에서 토큰을 가져오려고 시도한 후 다른 방법으로 토큰을 획득해야 합니다.  이 문서에서는 MSAL.NET에서 제공하는 토큰 캐시의 기본 및 사용자 지정 직렬화에 대해 설명합니다.
@@ -45,7 +45,7 @@ MSAL.NET에서는 메모리 내 토큰 캐시가 기본적으로 제공됩니다
   ![클래스 다이어그램](media/msal-net-token-cache-serialization/class-diagram.png)
 
 > [!IMPORTANT]
-> 사용자가 애플리케이션의 `UserTokenCache` 및 `AppTokenCache` 속성을 호출하면 MSAL.NET은 사용자 대신 토큰 캐시를 만들고 사용자에게 `IToken` 캐시를 제공합니다. 사용자가 인터페이스를 직접 구현할 필요가 없습니다. 사용자는 사용자 지정 토큰 캐시 직렬화를 구현할 때 다음과 같은 일만 하면 됩니다.
+> 사용자가 애플리케이션의 `IToken` 및 `UserTokenCache` 속성을 호출하면 MSAL.NET은 사용자 대신 토큰 캐시를 만들고 사용자에게 `AppTokenCache` 캐시를 제공합니다. 사용자가 인터페이스를 직접 구현할 필요가 없습니다. 사용자는 사용자 지정 토큰 캐시 직렬화를 구현할 때 다음과 같은 일만 하면 됩니다.
 > - `BeforeAccess` 및`AfterAccess` "이벤트"(또는 해당 비동기 버전)에 대응합니다. `BeforeAccess` 대리자는 캐시를 역직렬화하는 역할을 담당하고, `AfterAccess`는 캐시를 직렬화하는 역할을 담당합니다.
 > - 이러한 이벤트의 일부는 Blob을 저장하거나 로드하며, Blob은 이벤트 인수를 통해 사용자가 원하는 스토리지에 전달됩니다.
 
@@ -273,12 +273,12 @@ namespace CommonCacheMsalV3
 
 웹 앱 또는 web Api에서 계정 당 하나의 토큰 캐시를 유지 합니다.  웹 앱의 경우 계정 ID로 토큰 캐시를 키로 지정 해야 합니다.  웹 Api의 경우 API를 호출 하는 데 사용 되는 토큰의 해시를 사용 하 여 계정에 키를 지정 해야 합니다. MSAL.NET는 .NET Framework 및 .NET Core subplatforms에서 사용자 지정 토큰 캐시 serialization을 제공 합니다. 이벤트는 캐시에 액세스할 때 발생 합니다. 앱은 캐시를 직렬화 하거나 deserialize 할지 여부를 선택할 수 있습니다. 사용자를 처리 하는 기밀 클라이언트 응용 프로그램 (사용자를 로그인 하 고 웹 Api를 호출 하는 웹 앱 및 다운스트림 웹 Api를 호출 하는 웹 Api)에서 많은 사용자가 동시에 처리 될 수 있습니다. 보안 및 성능상의 이유로 사용자 당 캐시 하나를 직렬화 하는 것이 좋습니다. Serialization 이벤트는 처리 된 사용자의 id를 기반으로 캐시 키를 계산 하 고 해당 사용자에 대 한 토큰 캐시를 직렬화/deserialie 합니다.
 
-웹앱 및 웹 API의 토큰 캐시를 사용하는 방법의 예제는 [2-2 토큰 캐시](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-2-TokenCache) 단계의 [ASP.NET Core 웹앱 자습서](https://ms-identity-aspnetcore-webapp-tutorial)에서 찾을 수 있습니다. 구현에 대 한 [TokenCacheProviders](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/Microsoft.Identity.Web/TokenCacheProviders) [폴더에](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Web) 있는 [microsoft-인증-확장-dotnet](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet) 라이브러리의 폴더를 확인 합니다. 
+웹앱 및 웹 API의 토큰 캐시를 사용하는 방법의 예제는 [2-2 토큰 캐시](https://ms-identity-aspnetcore-webapp-tutorial) 단계의 [ASP.NET Core 웹앱 자습서](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-2-TokenCache)에서 찾을 수 있습니다. 구현에 대 한 [TokenCacheProviders](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/Microsoft.Identity.Web/TokenCacheProviders) [폴더에](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Web) 있는 [microsoft-인증-확장-dotnet](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet) 라이브러리의 폴더를 확인 합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 다음 샘플은 토큰 캐시 직렬화를 보여줍니다.
 
-| 샘플 | 플랫폼 | Description|
+| 샘플 | 플랫폼 | 설명|
 | ------ | -------- | ----------- |
 |[active-directory-dotnet-desktop-msgraph-v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | 데스크톱(WPF) | Microsoft Graph API를 호출하는 Windows 데스크톱 .NET(WPF) 애플리케이션 ![토폴로지](media/msal-net-token-cache-serialization/topology.png)|
 |[active-directory-dotnet-v1-to-v2](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2) | 데스크톱(콘솔) | Azure AD v1.0 애플리케이션(ADAL.NET 사용)을 컨버지드 애플리케이션이라고도 하는 Azure AD v2.0 애플리케이션(MSAL.NET 사용)으로 마이그레이션, 특히 [토큰 캐시 마이그레이션](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2/blob/master/TokenCacheMigration/README.md)하는 방법을 보여주는 Visual Studio 솔루션 세트|

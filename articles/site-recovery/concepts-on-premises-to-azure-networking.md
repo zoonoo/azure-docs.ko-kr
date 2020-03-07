@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 10/13/2019
 ms.author: mayg
 ms.openlocfilehash: f222cdd315b79503b1bdea032f495c71df4682b5
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084259"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78363032"
 ---
 # <a name="connect-to-azure-vms-after-failover-from-on-premises"></a>온-프레미스에서 장애 조치 (failover) 후 Azure Vm에 연결 
 
@@ -94,7 +94,7 @@ IP 주소를 유지 하려면 다음 단계를 수행 해야 합니다.
 - 복제 된 항목의 Compute & 네트워크 속성에서 온-프레미스 설정을 미러링할 대상 Azure VM에 대 한 네트워크 및 IP 주소를 설정 합니다.
 - 서브넷은 재해 복구 프로세스의 일부로 관리 해야 합니다. 온-프레미스 네트워크와 일치 하는 Azure VNet이 필요 합니다. 그리고 장애 조치 (failover) 후에는 서브넷이 Azure로 이동 하 고 새 IP 주소 위치로 장애 조치 (failover) 네트워크 경로를 수정 해야 합니다.  
 
-### <a name="failover-example"></a>장애 조치(failover) 예제
+### <a name="failover-example"></a>장애 조치 예제
 
 예제를 살펴보겠습니다.
 

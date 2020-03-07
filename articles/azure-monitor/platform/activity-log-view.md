@@ -8,17 +8,17 @@ ms.date: 12/07/2019
 ms.author: johnkem
 ms.subservice: logs
 ms.openlocfilehash: 9df7593a9fd191d3a734fba5e81fb1aecba08345
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77668828"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78360860"
 ---
 # <a name="view-and-retrieve-azure-activity-log-events"></a>Azure 활동 로그 이벤트 보기 및 검색
 
 [Azure 활동 로그](platform-logs-overview.md) 는 azure에서 발생 한 구독 수준 이벤트에 대 한 통찰력을 제공 합니다. 이 문서에서는 활동 로그 이벤트를 보고 검색 하는 다양 한 방법에 대 한 세부 정보를 제공 합니다.
 
-## <a name="azure-portal"></a>Azure portal
+## <a name="azure-portal"></a>Azure 포털
 Azure Portal **모니터** 메뉴의 모든 리소스에 대 한 활동 로그를 봅니다. 해당 리소스의 메뉴에 있는 **활동 로그** 옵션에서 특정 리소스에 대 한 활동 로그를 봅니다.
 
 ![활동 로그 보기](./media/activity-logs-overview/view-activity-log.png)
@@ -39,14 +39,14 @@ Azure Portal **모니터** 메뉴의 모든 리소스에 대 한 활동 로그�
 ## <a name="categories-in-the-activity-log"></a>활동 로그의 범주
 활동 로그의 각 이벤트에는 다음 표에 설명 된 특정 범주가 있습니다. 이러한 범주의 스키마에 대한 전체 정보는 [Azure Activity Log 이벤트 스키마](activity-log-schema.md)를 참조하세요. 
 
-| Category | Description |
+| 범주 | 설명 |
 |:---|:---|
 | 관리 | 리소스 관리자을 통해 수행 되는 모든 만들기, 업데이트, 삭제 및 동작 작업의 레코드를 포함 합니다. 관리 이벤트의 예로는 _가상 머신 만들기_ 및 _네트워크 보안 그룹 삭제_가 있습니다.<br><br>리소스 관리자를 사용 하 여 사용자 또는 응용 프로그램에서 수행 하는 모든 작업은 특정 리소스 종류에 대 한 작업으로 모델링 됩니다. 작업 유형이 _쓰기_, _삭제_또는 _작업_인 경우 해당 작업의 시작 및 성공 또는 실패의 레코드가 관리 범주에 기록 됩니다. 관리 이벤트에는 구독에서 역할 기반 액세스 제어에 대 한 변경 내용도 포함 됩니다. |
 | 서비스 상태 | Azure에서 발생 한 모든 서비스 상태 인시던트의 레코드를 포함 합니다. 미국 동부에서 Service Health 이벤트 SQL Azure의 예로는 _가동 중지 시간이 발생_합니다. <br><br>Service Health 이벤트는 _작업 필요_, _지원 복구_, _인시던트_, _유지 관리_, _정보_또는 _보안_의 여섯 가지 형태로 제공 됩니다. 이러한 이벤트는 이벤트의 영향을 받는 구독에 리소스가 있는 경우에만 생성 됩니다.
 | 리소스 상태 | Azure 리소스에 발생 한 리소스 상태 이벤트의 레코드를 포함 합니다. Resource Health 이벤트의 예는 _가상 컴퓨터 상태를 사용할 수 없음으로 변경 하_는 것입니다.<br><br>Resource Health 이벤트는 _사용 가능, 사용_ _불가_, _저하_됨 및 _알 수 없음_의 네 가지 상태 중 하나를 나타낼 수 있습니다. 또한 Resource Health 이벤트는 _플랫폼에서 시작_ 되거나 _사용자가 시작한_것으로 분류 될 수 있습니다. |
 | 경고 | Azure 경고에 대 한 활성화 레코드를 포함 합니다. 경고 이벤트의 예로는 _myVM의 CPU%가 지난 5 분 동안 80을 초과_했습니다.|
 | 자동 크기 조정 | 구독에서 정의한 자동 크기 조정 설정에 따라 자동 크기 조정 엔진의 작업과 관련 된 모든 이벤트의 레코드를 포함 합니다. 자동 크기 조정 이벤트의 예로는 _자동 크기 조정 확장 작업이 실패 했습니다_. |
-| 권장 | Azure Advisor의 권장 사항 이벤트를 포함 합니다. |
+| 권장 구성 | Azure Advisor의 권장 사항 이벤트를 포함 합니다. |
 | 보안 | Azure Security Center에서 생성 된 모든 경고의 레코드를 포함 합니다. 보안 이벤트의 예로 _의심 스러운 이중 확장 파일이 실행_됩니다. |
 | 정책 | Azure Policy에서 수행 하는 모든 효과 동작 작업의 레코드를 포함 합니다. 정책 이벤트의 예로 _감사_ 및 _거부_를 들 수가 있습니다. Policy에서 수행하는 모든 작업은 리소스에 대한 작업으로 모델링됩니다. |
 
@@ -173,7 +173,7 @@ GET https://management.azure.com/subscriptions/089bd33f-d4ec-47fe-8ba5-0753aa5c5
 ## <a name="activity-logs-analytics-monitoring-solution"></a>활동 로그 분석 모니터링 솔루션
 Azure Log Analytics 모니터링 솔루션에는 Log Analytics 작업 영역에서 활동 로그 레코드를 분석 하기 위한 여러 로그 쿼리 및 뷰가 포함 되어 있습니다.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 조건
 구독에 대 한 활동 로그를 Log Analytics 작업 영역에 보내려면 진단 설정을 만들어야 합니다. [Azure Monitor의 Log Analytics 작업 영역에서 Azure platform Logs 수집을](resource-logs-collect-workspace.md)참조 하세요.
 
 ### <a name="install-the-solution"></a>솔루션 설치
@@ -189,7 +189,7 @@ Azure **활동 로그** 타일을 클릭 하 여 **azure 활동 로그** 보기�
 
 ![Azure 활동 로그 대시보드](media/collect-activity-logs/activity-log-dash.png)
 
-| 시각화 요소 | Description |
+| 시각화 요소 | 설명 |
 | --- | --- |
 | Azure 활동 로그 항목 | 선택한 날짜 범위에 대 한 상위 Azure 활동 로그 항목 레코드 합계의 가로 막대형 차트를 표시 하 고 상위 10 개 활동 호출자의 목록을 표시 합니다. 가로 막대형 차트를 클릭하면 `AzureActivity`에 대한 로그 검색이 실행됩니다. 호출자 항목을 클릭 하면 해당 항목에 대 한 모든 활동 로그 항목을 반환 하는 로그 검색이 실행 됩니다. |
 | 상태별 활동 로그 | 선택한 날짜 범위에 대 한 Azure 활동 로그 상태와 상위 10 개 상태 레코드의 목록에 대 한 도넛형 차트를 표시 합니다. 차트를 클릭 하 `AzureActivity | summarize AggregatedValue = count() by ActivityStatus`에 대 한 로그 쿼리를 실행 합니다. 상태 항목을 클릭 하면 해당 상태 레코드에 대 한 모든 활동 로그 항목을 반환 하는 로그 검색이 실행 됩니다. |

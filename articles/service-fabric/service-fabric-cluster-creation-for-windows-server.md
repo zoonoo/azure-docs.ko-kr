@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 2/21/2019
 ms.author: dekapur
 ms.openlocfilehash: 461d6021a201ca1fa5722bb44c427baca2a7728e
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76903387"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78389830"
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Windows Server에서 실행되는 독립 실행형 클러스터 만들기
 Azure Service Fabric을 사용하면 Windows Server를 실행 중인 가상 머신 또는 컴퓨터에서 Service Fabric 클러스터를 만들 수 있습니다. 즉, 온-프레미스 또는 클라우드 공급자에 서로 연결된 일련의 Windows Server 컴퓨터가 있는 환경에서 Service Fabric 애플리케이션을 배포하고 실행할 수 있습니다. 서비스 패브릭은 독립 실행형 Windows Server 패키지라는 서비스 패브릭 클러스터를 만들 수 있는 설치 패키지를 제공합니다. Azure의 기존 Service Fabric 클러스터는 관리 서비스로 사용할 수 있으며 독립 실행형 Service Fabric 클러스터는 셀프 서비스입니다. 차이점에 대 한 자세한 내용은 [Azure 및 독립 실행형 Service Fabric 클러스터 비교](./service-fabric-deploy-anywhere.md)를 참조 하세요.
@@ -55,7 +55,7 @@ Service Fabric 런타임 패키지는 클러스터 생성 시 자동으로 다�
 ### <a name="step-1-create-the-cluster"></a>1 단계: 클러스터 만들기
 
 #### <a name="scenario-a-create-an-unsecured-local-development-cluster"></a>시나리오 A: 보안 되지 않은 로컬 개발 클러스터 만들기
-[샘플](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples)에 포함된 *ClusterConfig.Unsecure.DevCluster.json* 파일을 사용하여 하나의 컴퓨터 개발 클러스터에 Service Fabric을 배포할 수 있습니다.
+*샘플*에 포함된 [ClusterConfig.Unsecure.DevCluster.json](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples) 파일을 사용하여 하나의 컴퓨터 개발 클러스터에 Service Fabric을 배포할 수 있습니다.
 
 머신에 독립 실행형 패키지의 압축을 풀고 로컬 머신에 샘플 구성 파일을 복사한 다음, 독립 실행형 패키지 폴더에서 관리자 PowerShell 세션을 통해 *CreateServiceFabricCluster.ps1* 스크립트를 실행합니다.
 
@@ -109,7 +109,7 @@ Service Fabric 런타임 패키지는 클러스터 생성 시 자동으로 다�
 
 #### <a name="scenario-c-create-an-offline-internet-disconnected-cluster"></a>시나리오 C: 오프 라인 (인터넷 연결 끊김) 클러스터 만들기
 Service Fabric 런타임 패키지는 클러스터 생성 시 자동으로 다운로드됩니다. 클러스터를 인터넷에 연결되지 않은 컴퓨터에 배포할 때 Service Fabric 런타임 패키지를 별도로 다운로드하고 클러스터 생성 시 경로를 제공해야 합니다.
-런타임 패키지는 [다운로드 링크 - Service Fabric 런타임 - Windows Server](https://go.microsoft.com/fwlink/?linkid=839354)에서 인터넷에 연결된 다른 컴퓨터에서 개별적으로 다운로드할 수 있습니다. 오프라인 클러스터를 배포하는 위치에 런타임 패키지를 복사하고 다음 예제와 같이 포함된 `-FabricRuntimePackagePath` 매개 변수를 사용하여 `CreateServiceFabricCluster.ps1`을 실행하여 클러스터를 만듭니다. 
+런타임 패키지는 [다운로드 링크 - Service Fabric 런타임 - Windows Server](https://go.microsoft.com/fwlink/?linkid=839354)에서 인터넷에 연결된 다른 컴퓨터에서 개별적으로 다운로드할 수 있습니다. 오프라인 클러스터를 배포하는 위치에 런타임 패키지를 복사하고 다음 예제와 같이 포함된 `CreateServiceFabricCluster.ps1` 매개 변수를 사용하여 `-FabricRuntimePackagePath`을 실행하여 클러스터를 만듭니다. 
 
 ```powershell
 .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.json -FabricRuntimePackagePath .\MicrosoftAzureServiceFabric.cab
@@ -126,7 +126,7 @@ Service Fabric 런타임 패키지는 클러스터 생성 시 자동으로 다�
 Connect-ServiceFabricCluster -ConnectionEndpoint <*IPAddressofaMachine*>:<Client connection end point port>
 ```
 
-예:
+다음은 그 예입니다.
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint 192.13.123.2345:19000
 ```
@@ -203,7 +203,7 @@ NodeDeactivationInfo NodeName IpAddressOrFQDN NodeType  CodeVersion  ConfigVersi
 <a id="previewfeatures" name="previewfeatures_anchor"></a>
 
 ## <a name="preview-features-included-in-this-package"></a>이 패키지에 포함된 미리 보기 기능
-없음.
+없음
 
 
 > [!NOTE]

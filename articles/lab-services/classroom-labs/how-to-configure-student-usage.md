@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 02/20/2020
 ms.author: spelluru
 ms.openlocfilehash: 9fda1295bcdcd44b8a92c101c2aa445197ce6d4a
-ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77539205"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78358646"
 ---
 # <a name="add-and-manage-lab-users"></a>랩 사용자 추가 및 관리
 이 문서에서는 랩에 사용자를 추가하고, 사용자를 랩에 등록하고, VM을 사용할 수 있는 시간을 제어하는 방법 등을 설명합니다. 
@@ -101,7 +101,7 @@ ms.locfileid: "77539205"
 2. **사용자 등록** 대화 상자에서 **완료**를 선택 합니다. 
 4. 학생 들이 클래스에 등록할 수 있도록 **등록 링크** 를 학생에 게 보냅니다. 
 
-## <a name="view-registered-users"></a>등록 된 사용자 보기
+## <a name="view-registered-users"></a>등록된 사용자 보기
 
 1. [Azure Lab Services 웹 사이트](https://labs.azure.com)로 이동합니다. 
 2. **로그인**을 선택하고 자격 증명을 입력합니다. Azure Lab Services는 조직 계정 및 Microsoft 계정을 지원합니다.
@@ -128,7 +128,7 @@ ms.locfileid: "77539205"
 ## <a name="set-additional-quota-for-a-specific-user"></a>특정 사용자에 대 한 추가 할당량 설정
 사용자에 대 한 추가 할당량을 지정할 수 있습니다. 이 할당량은 이전 섹션의 모든 사용자에 대해 설정 된 공통 할당량에 추가 됩니다. 예를 들어 (강사)가 모든 사용자에 대 한 할당량을 10 시간으로 설정 하 고 특정 사용자에 대해 5 시간의 추가 할당량을 설정 하는 경우 해당 사용자는 15 시간 (10 + 5)의 할당량을 가집니다. 나중에 15로 일반 할당량을 변경 하는 경우 사용자에 게 20 (15 + 5)의 할당량이 표시 됩니다. 이 전체 할당량은 예약 된 시간을 벗어납니다. 예약 시간 동안 학생이 랩 VM에서 소비한 시간은이 할당량에 대해 계산 되지 않습니다. 
 
-이렇게 하려면 다음 단계를 따르십시오.
+이 작업을 수행하려면 다음 단계를 수행합니다.
 
 1. **사용자 페이지의** 사용자 목록에서 사용자 (학생)를 선택 합니다.
 2. 그런 다음 도구 모음에서 **할당량 조정** 을 선택 합니다. 
