@@ -9,15 +9,15 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: d46d0309b3d2ffb638016e88ba022e49009eedf2
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793564"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78379712"
 ---
 # <a name="how-full-text-search-works-in-azure-cognitive-search"></a>Azure Cognitive Search에서 전체 텍스트 검색이 작동 하는 방식
 
-이 문서는 Azure Cognitive Search에서 Lucene 전체 텍스트 검색이 작동 하는 방식을 심층적으로 이해 해야 하는 개발자를 위한 것입니다. 텍스트 쿼리의 경우 Azure Cognitive Search는 대부분의 시나리오에서 예상 된 결과를 원활 하 게 제공 하지만 때로는 "해제" 된 결과를 얻을 수 있습니다. 이러한 상황에서는 Lucene 쿼리 실행의 네 단계(쿼리 구문 분석, 어휘 분석, 문서 일치, 점수 매기기)에 대한 배경 지식을 갖고 있으면 쿼리 매개 변수의 특정 변경 내용 또는 원하는 결과를 제공하는 인덱스 구성을 식별하는 데 도움이 될 수 있습니다. 
+이 문서는 Azure Cognitive Search에서 Lucene 전체 텍스트 검색이 작동 하는 방식을 심층적으로 이해 해야 하는 개발자를 위한 것입니다. 텍스트 쿼리의 경우 Azure Cognitive Search는 대부분의 시나리오에서 예상된 결과를 원활하게 제공하지만, 가끔은 "예상과 다른" 결과를 얻기도 합니다. 이러한 상황에서는 Lucene 쿼리 실행의 네 단계(쿼리 구문 분석, 어휘 분석, 문서 일치, 점수 매기기)에 대한 배경 지식을 갖고 있으면 쿼리 매개 변수의 특정 변경 내용 또는 원하는 결과를 제공하는 인덱스 구성을 식별하는 데 도움이 될 수 있습니다. 
 
 > [!Note] 
 > Azure Cognitive Search는 전체 텍스트 검색에 Lucene를 사용 하지만 Lucene 통합은 완전 하지 않습니다. Azure Cognitive Search에 중요 한 시나리오를 사용할 수 있도록 Lucene 기능을 선택적으로 노출 하 고 확장 합니다. 
@@ -69,7 +69,7 @@ POST /indexes/hotels/docs/search?api-version=2019-05-06
 2. 쿼리를 실행합니다. 이 예제의 검색 쿼리는 다음과 같은 구와 용어로 구성되어 있습니다. `"Spacious, air-condition* +\"Ocean view\""`(일반적으로는 사용자가 문장 부호를 입력하지 않지만, 이 예에서는 분석기가 문장 부호를 어떻게 처리하는지 설명하기 위해 문장 부호를 포함함). 이 쿼리에서 검색 엔진은 "Ocean view"가 포함된 문서를 찾기 위해 `searchFields`에 지정된 설명 및 제목 필드를 검색하고, 추가적으로 "spacious" 용어 또는 접두사 "air-condition"으로 시작하는 용어를 검색합니다. `searchMode` 매개 변수는 용어가 명시적으로 필요하지 않은 경우(`+`)에 일부 일치(기본값) 또는 전체 일치에 사용됩니다.
 3. 호텔 검색 결과 집합을 특정 지리적 위치에 가까운 순서대로 정렬한 후 호출 애플리케이션으로 반환합니다. 
 
-이 문서의 대부분은 *검색 쿼리* `"Spacious, air-condition* +\"Ocean view\""`의 처리에 대한 내용입니다. 필터링 및 정렬은 본 문서에서 다루지 않습니다. 자세한 내용은 [검색 API 참조 문서](https://docs.microsoft.com/rest/api/searchservice/search-documents)를 참조하세요.
+이 문서의 대부분은 *검색 쿼리*`"Spacious, air-condition* +\"Ocean view\""`의 처리에 대한 내용입니다. 필터링 및 정렬은 본 문서에서 다루지 않습니다. 자세한 내용은 [검색 API 참조 문서](https://docs.microsoft.com/rest/api/searchservice/search-documents)를 참조하세요.
 
 <a name="stage1"></a>
 ## <a name="stage-1-query-parsing"></a>1단계: 쿼리 구문 분석 
@@ -84,7 +84,7 @@ POST /indexes/hotels/docs/search?api-version=2019-05-06
 
 + 독립 용어(예: spacious)에 대한 *용어 쿼리*
 + 따옴표가 붙은 용어(예: ocean view)에 대한 *구 쿼리*
-+ 뒤에 `*` 접두사 연산자가 붙는 용어(예: air-condition)에 대한 *접두사 쿼리*
++ 뒤에 *접두사 연산자가 붙는 용어(예: air-condition)에 대한*접두사 쿼리`*`
 
 지원되는 쿼리 유형의 전체 목록은 [Lucene 쿼리 구문](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)을 참조하세요.
 
@@ -96,7 +96,7 @@ POST /indexes/hotels/docs/search?api-version=2019-05-06
 
 ### <a name="supported-parsers-simple-and-full-lucene"></a>지원되는 파서: 단순(simple) 및 전체(full) Lucene 
 
- Azure Cognitive Search는 `simple` (기본값) 및 `full`두 가지 다른 쿼리 언어를 노출 합니다. 사용자는 검색 요청에서 `queryType` 매개 변수를 설정함으로써 쿼리 파서에 어떤 쿼리 언어를 사용하여 연산자와 구문을 해석해야 하는지 알려줍니다. [단순 쿼리 언어](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)는 직관적이고 견고하며, 종종 클라이언트 측 처리 없이 사용자 입력을 있는 그대로 해석하는 데 적합합니다. 웹 검색 엔진과 비슷한 쿼리 연산자를 지원합니다. `queryType=full`로 설정하면 사용할 수 있는 [전체 Lucene 쿼리 언어](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)는 와일드카드, 퍼지, regex, 필드 범위가 지정된 쿼리 등의 추가 연산자 및 쿼리 유형에 대한 지원을 추가하여 기본값인 단순 쿼리 언어를 확장합니다. 예를 들어 단순 쿼리 구문에서 전송되는 정규식은 식이 아닌 쿼리 문자열로 해석됩니다. 이 문서의 요청 예제에서는 전체 Lucene 쿼리 언어를 사용합니다.
+ Azure Cognitive Search는 `simple` (기본값) 및 `full`두 가지 다른 쿼리 언어를 노출 합니다. 사용자는 검색 요청에서 `queryType` 매개 변수를 설정함으로써 쿼리 파서에 어떤 쿼리 언어를 사용하여 연산자와 구문을 해석해야 하는지 알려줍니다. [단순 쿼리 언어](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)는 직관적이고 견고하며, 종종 클라이언트 측 처리 없이 사용자 입력을 있는 그대로 해석하는 데 적합합니다. 웹 검색 엔진과 비슷한 쿼리 연산자를 지원합니다. [로 설정하면 사용할 수 있는 ](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)전체 Lucene 쿼리 언어`queryType=full`는 와일드카드, 퍼지, regex, 필드 범위가 지정된 쿼리 등의 추가 연산자 및 쿼리 유형에 대한 지원을 추가하여 기본값인 단순 쿼리 언어를 확장합니다. 예를 들어 단순 쿼리 구문에서 전송되는 정규식은 식이 아닌 쿼리 문자열로 해석됩니다. 이 문서의 요청 예제에서는 전체 Lucene 쿼리 언어를 사용합니다.
 
 ### <a name="impact-of-searchmode-on-the-parser"></a>searchMode가 파서에 미치는 영향 
 
@@ -108,7 +108,7 @@ POST /indexes/hotels/docs/search?api-version=2019-05-06
 Spacious,||air-condition*+"Ocean view" 
 ~~~~
 
-`+"Ocean view"`의 `+` 같은 명시적 연산자는 부울 쿼리 구조에서 모호하지 않습니다(용어가 *반드시* 일치해야 함). 나머지 용어 spacious와 air-condition을 해석하는 방법은 덜 명확합니다. 검색 엔진이 ocean view *그리고* spacious *그리고* air-condition과 일치하는 항목을 찾아야 합니까? 아니면 ocean view와 나머지 *두 용어 중 하나*를 찾아야 합니까? 
+`+`의 `+"Ocean view"` 같은 명시적 연산자는 부울 쿼리 구조에서 모호하지 않습니다(용어가 *반드시* 일치해야 함). 나머지 용어 spacious와 air-condition을 해석하는 방법은 덜 명확합니다. 검색 엔진이 ocean view *그리고* spacious *그리고* air-condition과 일치하는 항목을 찾아야 합니까? 아니면 ocean view와 나머지 *두 용어 중 하나*를 찾아야 합니까? 
 
 기본적으로(`searchMode=any`) 검색 엔진은 보다 광범위한 해석을 가정합니다. "or" 구문을 반영하여 두 필드 중 하나가 일치*해야 합니다*. 앞에서 보여드린 두 개의 "should" 연산이 사용된 초기 쿼리 트리는 기본값을 표시합니다.  
 
@@ -123,7 +123,7 @@ Spacious,||air-condition*+"Ocean view"
  ![부울 쿼리 searchmode all][3]
 
 > [!Note] 
-> `searchMode=all` 대신 `searchMode=any`를 선택하는 것은 대표 쿼리를 실행하여 도착할 수 있는 최선의 결정입니다. 연산자를 포함할 가능성(문서 저장소를 검색할 때 일반적)이 높은 사용자는 `searchMode=all`이 부울 쿼리 구문에 알릴 때 좀 더 직관적인 결과를 얻을 수 있습니다. `searchMode` 및 연산자 간의 상호 작용에 대한 자세한 내용은 [단순 쿼리 구문](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)을 참조하세요.
+> `searchMode=any` 대신 `searchMode=all`를 선택하는 것은 대표 쿼리를 실행하여 도착할 수 있는 최선의 결정입니다. 연산자를 포함할 가능성(문서 저장소를 검색할 때 일반적)이 높은 사용자는 `searchMode=all`이 부울 쿼리 구문에 알릴 때 좀 더 직관적인 결과를 얻을 수 있습니다. `searchMode` 및 연산자 간의 상호 작용에 대한 자세한 내용은 [단순 쿼리 구문](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)을 참조하세요.
 
 <a name="stage2"></a>
 ## <a name="stage-2-lexical-analysis"></a>2단계: 어휘 분석 
@@ -251,7 +251,7 @@ Spacious,||air-condition*+"Ocean view"
 
 예제로 돌아가서, **제목** 필드의 경우 반전된 인덱스는 다음과 같습니다.
 
-| 조건 | 문서 목록 |
+| 용어 | 문서 목록 |
 |------|---------------|
 | atman | 1 |
 | beach | 2 |
@@ -265,10 +265,10 @@ Spacious,||air-condition*+"Ocean view"
 
 **설명** 필드의 경우 인덱스는 다음과 같습니다.
 
-| 조건 | 문서 목록 |
+| 용어 | 문서 목록 |
 |------|---------------|
 | air | 3
-| 및 | 4
+| and | 4
 | beach | 1
 | conditioned | 3
 | comfortable | 3
@@ -278,7 +278,7 @@ Spacious,||air-condition*+"Ocean view"
 | located | 2
 | north | 2
 | ocean | 1, 2, 3
-| / | 2
+| of | 2
 | on |2
 | quiet | 4
 | rooms  | 1, 3
@@ -287,9 +287,9 @@ Spacious,||air-condition*+"Ocean view"
 | spacious | 1
 | the | 1, 2
 | to | 1
-| 보기 | 1, 2, 3
+| 뷰 | 1, 2, 3
 | walking | 1
-| 다음으로 바꿀 수 있습니다. | 3
+| 다음과 같이 바꿉니다. | 3
 
 
 **쿼리 용어를 인덱싱된 용어와 연결**

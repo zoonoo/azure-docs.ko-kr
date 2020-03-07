@@ -9,11 +9,11 @@ ms.date: 03/11/2019
 ms.author: normesta
 ms.reviewer: fryu
 ms.openlocfilehash: 25c047dc9b2ce08ca39e69c6f106e41c5d9bd0dc
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77484896"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78360981"
 ---
 # <a name="azure-storage-analytics-logging"></a>Azure Storage 분석 로깅
 
@@ -88,7 +88,7 @@ ms.locfileid: "77484896"
 
  다음 표에서는 로그 이름의 각 특성에 대해 설명합니다.
 
-|attribute|Description|
+|특성|설명|
 |---------------|-----------------|
 |`<service-name>`|스토리지 서비스의 이름입니다. 예: `blob`, `table`또는 `queue`|
 |`YYYY`|로그의 4자리 숫자 연도입니다. 예: `2011`|
@@ -112,7 +112,7 @@ ms.locfileid: "77484896"
 
  모든 로그 Blob는 해당 Blob에 포함된 로깅 데이터를 식별하는 데 사용할 수 있는 메타데이터와 함께 저장됩니다. 다음 표에서는 각 메타데이터 특성에 대해 설명합니다.
 
-|attribute|Description|
+|특성|설명|
 |---------------|-----------------|
 |`LogType`|로그에 읽기, 쓰기 또는 삭제 작업과 관련된 정보가 포함되는지 여부를 설명합니다. 이 값에는 한 가지 형식이 포함될 수도 있고 3개 형식이 모두 조합(쉼표로 구분)되어 포함될 수도 있습니다.<br /><br /> 예 1: `write`<br /><br /> 예 2: `read,write`<br /><br /> 예 3: `read,write,delete`|
 |`StartTime`|`YYYY-MM-DDThh:mm:ssZ` 형식을 사용해서 표시되는 로그 항목의 초기 시간입니다. 예: `2011-07-31T18:21:46Z`|

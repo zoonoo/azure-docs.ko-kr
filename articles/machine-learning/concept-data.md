@@ -11,11 +11,11 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 12/09/2019
 ms.openlocfilehash: 4149e90e07bbcd03a0df41060b42b8902b89e774
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75541882"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78396195"
 ---
 # <a name="data-access-in-azure-machine-learning"></a>Azure Machine Learning에서 데이터 액세스
 
@@ -51,14 +51,14 @@ Azure Machine Learning 데이터 저장소는 Azure storage 서비스에 대 한
 Datastores로 등록할 수 있는 지원 되는 Azure storage 서비스:
 + Azure Blob 컨테이너
 + Azure 파일 공유
-+ Azure Data Lake
++ Azure 데이터 레이크
 + Azure Data Lake Gen2
-+ Azure SQL Database
++ Azure SQL 데이터베이스
 + Azure Database for PostgreSQL
 + Databricks 파일 시스템
 + Azure Database for MySQL
 
-### <a name="datasets"></a>데이터 세트
+### <a name="datasets"></a>데이터 집합
 
 데이터 저장소의 데이터와 상호 작용 하 [는 Azure Machine Learning 데이터 집합을 만들고](how-to-create-register-datasets.md) , 기계 학습 작업을 위한 사용 가능한 개체에 데이터를 패키지할 수 있습니다. 데이터 집합을 작업 영역에 등록 하 여 데이터 수집 복잡성 없이 다른 실험에서 데이터 집합을 공유 하 고 다시 사용할 수 있습니다.
 

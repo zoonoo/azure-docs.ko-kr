@@ -12,11 +12,11 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ms.openlocfilehash: 5167c897109f9e4f050ac6f7416ecabbbb28a4a9
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78196604"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78389541"
 ---
 # <a name="indexing-tables-in-sql-analytics"></a>SQL Analytics의 테이블 인덱싱
 
@@ -52,7 +52,7 @@ WITH ( CLUSTERED COLUMNSTORE INDEX );
 
 ## <a name="heap-tables"></a>힙 테이블
 
-SQL Analytics에서 데이터를 일시적으로 방문 하는 경우 힙 테이블을 사용 하면 전체 프로세스를 더 빠르게 수행할 수 있습니다. 즉, 힙에 로드하는 것이 인덱스 테이블에 로드하는 것보다 더 빠르며 경우에 따라 캐시에서 후속 읽기가 수행될 수도 있습니다.  더 많은 변환을 실행하기 전에 스테이징만을 위해 데이터를 로드하는 경우 테이블을 힙 테이블에 로드하면 데이터를 클러스터형 columnstore 테이블에 로드할 때보다 훨씬 빠릅니다. 또한 데이터를 [임시 테이블](sql-data-warehouse-tables-temporary.md)에 로드하면 테이블을 영구 스토리지에 로드하는 것보다 빠릅니다.  
+SQL Analytics에서 데이터를 일시적으로 방문 하는 경우 힙 테이블을 사용 하면 전체 프로세스를 더 빠르게 수행할 수 있습니다. 즉, 힙에 로드하는 것이 인덱스 테이블에 로드하는 것보다 더 빠르며 경우에 따라 캐시에서 후속 읽기가 수행될 수도 있습니다.  더 많은 변환을 실행하기 전에 준비만을 위해 데이터를 로드하는 경우 테이블을 힙 테이블에 로드하면 데이터를 클러스터형 columnstore 테이블에 로드할 때보다 훨씬 빠릅니다. 또한 데이터를 [임시 테이블](sql-data-warehouse-tables-temporary.md)에 로드하면 테이블을 영구 스토리지에 로드하는 것보다 빠릅니다.  
 
 6천만 행보다 적은 행이 있는 작은 조회 테이블은 종종 힙 테이블이 적합합니다.  클러스터 columnstore 테이블은 6천만 개 이상의 행이 있으면 최적의 압축을 달성하기 시작합니다.
 
@@ -230,7 +230,7 @@ EXEC sp_addrolemember 'xlargerc', 'LoadUser'
 
 1 단계의 사용자 (예: LoadUser)로 로그인 합니다 .이 사용자는 이제 더 높은 리소스 클래스를 사용 하 고 ALTER INDEX 문을 실행 합니다. 이 사용자가 인덱스를 다시 작성하려는 테이블에 대한 ALTER 권한이 있는지 확인합니다. 이 예제에서는 전체 columnstore 인덱스 또는 단일 파티션을 다시 빌드하는 방법을 보여 줍니다. 대형 테이블에서는 한 번에 파티션 하나에 대해 인덱스를 다시 빌드하는 것이 실용적입니다.
 
-또는 인덱스를 다시 빌드하는 대신 [CTAS](sql-data-warehouse-develop-ctas.md)를 사용하여 테이블을 새 테이블에 복사할 수 있습니다. 어떤 방식이 적합할까요? 데이터 양이 많은 경우 일반적으로 CTAS가 [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql)보다 빠릅니다. 더 작은 볼륨의 데이터에서는 ALTER INDEX를 사용하기가 더 쉬우며 테이블도 전환할 필요가 없습니다.
+또는 인덱스를 다시 빌드하는 대신 [CTAS](sql-data-warehouse-develop-ctas.md)를 사용하여 테이블을 새 테이블에 복사할 수 있습니다. 어떤 방식이 적합할까요? 데이터 양이 많은 경우 일반적으로 CTAS가 [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql)보다 빠릅니다. 더 작은 볼륨의 데이터에서는 ALTER INDEX를 사용하기가 더 쉬우며 테이블도 스왑할 필요가 없습니다.
 
 ```sql
 -- Rebuild the entire clustered index
