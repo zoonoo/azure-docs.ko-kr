@@ -508,11 +508,13 @@
     - name: VM 모니터링
       items:
         - name: VM용 Azure Monitor
-          href: ../../azure-monitor/insights/vminsights-overview.md
+          href: ../../azure-monitor/insights/vminsights-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: 메트릭 경고 만들기
-          href: ../../azure-monitor/platform/alerts-metric.md
+          href: ../../azure-monitor/platform/alerts-metric.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: 로그 경고 만들기
-          href: ../../azure-monitor/platform/alerts-log.md
+          href: ../../azure-monitor/platform/alerts-log.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+        - name: REST로 사용 메트릭 가져오기
+          href: ../linux/metrics-vm-usage-rest.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: 이미지 사용
       items:
         - name: 공유 이미지

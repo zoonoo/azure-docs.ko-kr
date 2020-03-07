@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: robinsh
 ms.openlocfilehash: c43c142b22709d42416b2dd14dfc78812970916a
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76169601"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78396602"
 ---
 # <a name="create-an-iot-hub-using-the-azure-portal"></a>Azure Portal을 사용하여 IoT Hub 만들기
 
@@ -86,7 +86,7 @@ IoT 허브에 설정할 수 있는 몇 가지 속성은 다음 과같습니다.
 
 **데이터 원본**에 대해 [디바이스 원격 분석 메시지]를 선택합니다. 
 
-다음으로, 라우팅 쿼리를 추가합니다. 이 예에서는 `critical`과 동일한 값이 있는 `level`이라는 애플리케이션 속성이 있는 메시지가 스토리지 계정으로 라우팅됩니다.
+다음으로, 라우팅 쿼리를 추가합니다. 이 예에서는 `level`과 동일한 값이 있는 `critical`이라는 애플리케이션 속성이 있는 메시지가 스토리지 계정으로 라우팅됩니다.
 
 ![새 경로 규칙 저장을 보여 주는 스크린샷](./media/iot-hub-create-through-portal/iot-hub-add-route.png)
 

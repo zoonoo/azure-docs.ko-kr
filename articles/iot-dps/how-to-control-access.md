@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 04/09/2019
 ms.author: wesmc
 ms.openlocfilehash: 2a7e0932d226b1533c039b8529c2c11de06cf525
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453798"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78396063"
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>Azure IoT Hub Device Provisioning Service에 대한 액세스 제어
 
@@ -24,7 +24,7 @@ ms.locfileid: "75453798"
 * 프로비전 서비스에 액세스하기 위해 백 엔드 앱에 부여할 수 있는 다양한 권한
 * 권한을 확인하기 위해 사용되는 인증 프로세스 및 토큰.
 
-### <a name="when-to-use"></a>사용하는 경우
+### <a name="when-to-use"></a>사용 시기
 
 프로비전 서비스 엔드포인트에 액세스하려면 적절한 권한이 있어야 합니다. 예를 들어 백 엔드 앱은 서비스에 보내는 모든 메시지와 함께 보안 자격 증명을 포함하는 토큰을 포함해야 합니다.
 
@@ -50,7 +50,7 @@ Azure IoT Hub Device Provisioning Service는 공유 액세스 정책에 대한 �
 
 HTTP는 유일하게 지원되는 프로토콜이며 **권한 부여** 요청 헤더에서 유효한 토큰을 포함하여 인증을 구현합니다.
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 ```csharp
 SharedAccessSignature sr = 
    mydps.azure-devices-provisioning.net&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501&skn=provisioningserviceowner`\
@@ -84,7 +84,7 @@ Device Provisioning Service는 네트워크에서 키가 전송되는 것을 피
 
 **접두사에 대한 참고**: 문자가 아니라 세그먼트에 의해 계산된 URI 접두사입니다. 예를 들어 `/a/b`는 `/a/b/c`에 대한 접두사이지만 `/a/bc`에 대한 접두사는 아닙니다.
 
-다음 Node.js 코드 조각은 입력 `resourceUri, signingKey, policyName, expiresInMins`의 토큰을 계산하는 **generateSasToken**이라는 함수를 보여줍니다. 다음 섹션에서는 여러 토큰 사용 사례에 대해 서로 다른 입력을 초기화하는 방법을 자세히 설명합니다.
+다음 Node.js 코드 조각은 입력 **의 토큰을 계산하는** generateSasToken`resourceUri, signingKey, policyName, expiresInMins`이라는 함수를 보여줍니다. 다음 섹션에서는 여러 토큰 사용 사례에 대해 서로 다른 입력을 초기화하는 방법을 자세히 설명합니다.
 
 ```javascript
 var generateSasToken = function(resourceUri, signingKey, policyName, expiresInMins) {

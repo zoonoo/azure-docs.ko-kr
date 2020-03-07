@@ -10,11 +10,11 @@ ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
 ms.openlocfilehash: 804b46cd5238c189063608d067c0b40fcd3e306d
-ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77505681"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78379253"
 ---
 ::: zone target="docs" 
 
@@ -44,7 +44,7 @@ ms.locfileid: "77505681"
 
 시작하기 전에 다음 사항을 확인합니다.
 
-1. [자습서: Azure Data Box 설정](data-box-deploy-set-up.md)을 완료했습니다.
+1. [자습서: 설정 Azure Data Box](data-box-deploy-set-up.md)를 완료 했습니다.
 2. Data Box를 받았고 포털의 주문 상태가 **배달됨**입니다.
 3. Data Box에 복사할 데이터가 포함된 호스트 컴퓨터가 있습니다. 호스트 컴퓨터는 다음 사항이 필수입니다.
     - [지원되는 운영 체제](data-box-system-requirements.md)를 실행합니다.
@@ -238,7 +238,7 @@ SMB, NFS, REST, 데이터 복사 서비스 또는 관리 디스크를 통해 원
 2. 공유 액세스 자격 증명을 가져오려면 Data Box의 로컬 웹 UI에 있는 **연결 및 복사** 페이지로 이동합니다.
 3. Robocopy와 같이 SMB 호환 파일 복사 도구를 사용하여 공유할 데이터를 복사합니다. 
 
-단계별 지침은 [자습서: SMB를 통해 Azure Data Box에 데이터 복사](data-box-deploy-copy-data.md)로 이동합니다.
+단계별 지침은 [자습서: SMB를 통해 Azure Data Box로 데이터 복사](data-box-deploy-copy-data.md)로 이동 합니다.
 
 ## <a name="copy-data-via-nfs"></a>NFS를 통해 데이터 복사
 
@@ -249,21 +249,21 @@ SMB, NFS, REST, 데이터 복사 서비스 또는 관리 디스크를 통해 원
 2. 공유 액세스 자격 증명을 가져오려면 Data Box의 로컬 웹 UI에 있는 **연결 및 복사** 페이지로 이동합니다.
 3. `cp` 또는 `rsync` 명령을 사용하여 데이터를 복사합니다.
 
-단계별 지침은 [자습서: NFS를 통해 Azure Data Box에 데이터 복사](data-box-deploy-copy-data-via-nfs.md)로 이동합니다.
+단계별 지침은 [자습서: NFS를 통해 Azure Data Box로 데이터 복사](data-box-deploy-copy-data-via-nfs.md)로 이동 합니다.
 
 ## <a name="copy-data-via-rest"></a>REST를 통한 데이터 복사
 
 1. REST API를 통해 Data Box Blob Storage를 사용하여 데이터를 복사하기 위해 *http* 또는 *https*를 통해 연결할 수 있습니다.
 2. Data Box Blob Storage에 데이터를 복사하려면 AzCopy를 사용하면 됩니다.
 
-단계별 지침은 [자습서: REST API를 통해 Azure Data Box Blob Storage에 데이터 복사](data-box-deploy-copy-data-via-nfs.md)로 이동합니다.
+단계별 지침은 [자습서: REST api를 통해 Azure Data Box Blob storage로 데이터 복사](data-box-deploy-copy-data-via-nfs.md)로 이동 합니다.
 
 ## <a name="copy-data-via-data-copy-service"></a>데이터 복사 서비스를 통해 데이터 복사
 
 1. 데이터 복사 서비스를 사용하여 데이터를 복사하려면 작업을 만들어야 합니다. Data Box의 로컬 웹 UI에서 **관리 > 데이터 복사 > 만들기**로 이동합니다. 
 2. 매개 변수를 입력하고 작업을 만듭니다.
 
-단계별 지침은 [자습서: 데이터 복사 서비스를 사용하여 Azure Data Box로 데이터 복사](data-box-deploy-copy-data-via-copy-service.md)로 이동합니다.
+단계별 지침은 [자습서: 데이터 복사 서비스를 사용 하 여 데이터를 Azure Data Box에 복사](data-box-deploy-copy-data-via-copy-service.md)로 이동 합니다.
 
 ## <a name="copy-data-to-managed-disks"></a>관리 디스크로 데이터 복사
 
@@ -271,7 +271,7 @@ SMB, NFS, REST, 데이터 복사 서비스 또는 관리 디스크를 통해 원
 2. SMB 또는 NFS 공유를 통해 Data Box에 연결할 수 있습니다.
 3. 그런 다음, SMB 또는 NFS 도구를 통해 데이터를 복사할 수 있습니다.
 
-단계별 지침은 [자습서: Data Box를 사용하여 Azure의 관리 디스크로 데이터 가져오기](data-box-deploy-copy-data-from-vhds.md)로 이동합니다.
+단계별 지침을 보려면 [자습서: Data Box을 사용 하 여 Azure에서 관리 디스크로 데이터 가져오기](data-box-deploy-copy-data-from-vhds.md)로 이동 합니다.
 
 ::: zone-end
 

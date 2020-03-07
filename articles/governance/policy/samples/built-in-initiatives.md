@@ -4,11 +4,11 @@ description: Azure Policy에 대한 기본 제공 정책 이니셔티브를 나�
 ms.date: 01/31/2020
 ms.topic: sample
 ms.openlocfilehash: f98a5d611e807875390102d67efd1b0f0f262628
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77170431"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78387300"
 ---
 # <a name="azure-policy-built-in-initiative-definitions"></a>Azure Policy 기본 제공 이니셔티브 정의
 

@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 09002a8c0999dc137ca3386ca7392a566d323e8a
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: b8ddeda2c435a52efd14f06acb3c1a8bb94bc45e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78196062"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78381841"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-net"></a>빠른 시작: .NET용 Azure Blob 스토리지 클라이언트 라이브러리 v12
 
@@ -114,7 +114,7 @@ Azure Blob Storage는 대량의 비정형 데이터를 저장하도록 최적화
 
 다음 다이어그램에서는 이러한 리소스 간의 관계를 보여줍니다.
 
-![Blob Storage 아키텍처 다이어그램](./media/storage-blob-introduction/blob1.png)
+![Blob Storage 아키텍처 다이어그램](./media/storage-blobs-introduction/blob1.png)
 
 다음 .NET 클래스를 사용하여 이러한 리소스와 상호 작용합니다.
 
