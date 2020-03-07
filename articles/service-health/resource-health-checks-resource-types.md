@@ -3,12 +3,12 @@ title: Azure Resource Health를 통해 지원되는 리소스 유형 | Microsoft
 description: Azure Resource Health를 통해 지원되는 리소스 유형
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 3a61c8b90f4dc5e52a875488afb5374e3d6b7ce4
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
-ms.translationtype: MT
+ms.openlocfilehash: f5d1c720d3cbafafc81276a968abf2003bbd46ce
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76717077"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78373466"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Azure Resource Health에서 리소스 유형 및 상태 검사
 다음은 리소스 유형별 리소스 상태를 통해 실행되는 모든 검사 목록입니다.
@@ -28,7 +28,7 @@ ms.locfileid: "76717077"
 |---|
 |<ul><li>Batch 계정이 작동 하 고 실행 되 고 있나요?</li><li>이 배치 계정에 대 한 풀 할당량을 초과 했습니까?</li></ul>|
 
-## <a name="microsoftcacheredisredis"></a>Microsoft.CacheRedis/Redis
+## <a name="microsoftcacheredis"></a>Microsoft.Cache/Redis
 |실행된 검사|
 |---|
 |<ul><li>모든 캐시 노드가 작동 중인가?</li><li>데이터 센터 내에서 캐시에 도달할 수 있는가?</li><li>캐시가 최대 연결 수에 도달했는가?</li><li> 캐시가 사용 가능한 메모리를 모두 소모했는가? </li><li>캐시에 많은 수의 페이지 폴트가 있는가?</li><li>캐시에 부하가 큰가?</li></ul>|
@@ -129,7 +129,7 @@ ms.locfileid: "76717077"
 |---|
 |<ul><li>미디어 서비스를 실행 하 고 있습니까?</li></ul>|
 
-## <a name="microsoftnetworkapplicationgateways"></a>Microsoft. network/applicationgateways
+## <a name="microsoftnetworkapplicationgateways"></a>microsoft. network/applicationgateways
 |실행된 검사|
 |---|
 |<ul><li>Application Gateway 성능이 저하 됩니까?</li><li>Application Gateway 사용 가능 여부</li></ul>|
@@ -139,7 +139,7 @@ ms.locfileid: "76717077"
 |---|
 |<ul><li>VPN 터널이 연결되어 있는가?</li><li>연결에 구성 충돌이 있는가?</li><li>미리 공유한 키를 적절히 구성하였는가?</li><li>VPN 온-프레미스 디바이스에 연결할 수 있나요?</li><li>IPSec/IKE 보안 정책에 일치하지 않는 사항이 있는가?</li><li>S2S VPN 연결이 적절히 프로비전되었는가 아니면 실패한 상태인가?</li><li>VNET-VNET 연결이 적절히 프로비전되었는가 아니면 실패한 상태인가?</li></ul>|
 
-## <a name="microsoftnetworkexpressroutecircuits"></a>Microsoft. network/expressroutecircuits
+## <a name="microsoftnetworkexpressroutecircuits"></a>microsoft. network/expressroutecircuits
 |실행된 검사|
 |---|
 |<ul><li>Express 경로 회로가 정상 입니까?</li></ul>|

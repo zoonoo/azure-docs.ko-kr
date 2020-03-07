@@ -8,11 +8,11 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 10/29/2019
 ms.openlocfilehash: 6319d2d72df69cc9633bd2b2ff8e777c2a48966a
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982528"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78386549"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Visual Studio로 논리 앱 관리
 
@@ -23,7 +23,7 @@ ms.locfileid: "75982528"
 
 <a name="requirements"></a>
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
@@ -63,7 +63,7 @@ Visual Studio에서 클라우드 탐색기를 사용하여 Azure 구독에 연�
 
 1. Visual Studio를 엽니다. **보기** 메뉴에서 **클라우드 탐색기**를 선택합니다.
 
-1. 클라우드 탐색기에서 **계정 관리**를 선택 합니다. 논리 앱과 연결 된 Azure 구독을 선택 하 고 **적용**을 선택 합니다. 예:
+1. 클라우드 탐색기에서 **계정 관리**를 선택 합니다. 논리 앱과 연결 된 Azure 구독을 선택 하 고 **적용**을 선택 합니다. 다음은 그 예입니다.
 
    !["계정 관리"를 선택 합니다.](./media/manage-logic-apps-with-visual-studio/account-management-select-Azure-subscription.png)
 
@@ -96,7 +96,7 @@ Visual Studio에서는 Visual Studio를 사용 하 여 Azure Portal 또는 Azure
 
 ## <a name="download-from-azure"></a>Azure에서 다운로드
 
-[Azure Portal](https://portal.azure.com)에서 논리 앱을 다운로드하여 [Azure Resource Manager](../azure-resource-manager/management/overview.md) 템플릿으로 저장할 수 있습니다. 그런 다음, Visual Studio를 사용하여 로컬로 템플릿을 편집하고 다른 배포 환경에 적합하도록 사용자 지정할 수 있습니다.  논리 앱을 자동으로 다운로드하면 해당 정의가 [Resource Manager 템플릿](../azure-resource-manager/templates/overview.md) 내에서 *매개 변수화*되며, 템플릿도 JSON(JavaScript Object Notation)을 사용합니다.
+[Azure Portal](https://portal.azure.com)에서 논리 앱을 다운로드하여 [Azure Resource Manager](../azure-resource-manager/management/overview.md) 템플릿으로 저장할 수 있습니다. 그런 다음, Visual Studio를 사용하여 로컬로 템플릿을 편집하고 다른 배포 환경에 적합하도록 사용자 지정할 수 있습니다.  논리 앱을 자동으로 다운로드하면 해당 정의가 *Resource Manager 템플릿* 내에서 [매개 변수화](../azure-resource-manager/templates/overview.md)되며, 템플릿도 JSON(JavaScript Object Notation)을 사용합니다.
 
 1. Visual Studio에서 클라우드 탐색기를 엽니다. Azure에서 다운로드 하려는 논리 앱을 찾아 선택 합니다.
 
@@ -226,7 +226,7 @@ Azure에 배포된 논리 앱을 Visual Studio에서 수동으로 트리거할 �
 
    ![논리 앱에 대 한 실행 기록 열기](./media/manage-logic-apps-with-visual-studio/open-run-history-for-logic-app.png)
 
-1. 특정 실행에 대한 세부 정보를 보려면 실행을 두 번 클릭합니다. 예:
+1. 특정 실행에 대한 세부 정보를 보려면 실행을 두 번 클릭합니다. 다음은 그 예입니다.
 
    ![특정 실행에 대 한 정보 보기](./media/manage-logic-apps-with-visual-studio/view-run-history-details.png)
   

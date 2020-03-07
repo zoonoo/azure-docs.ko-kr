@@ -4,11 +4,11 @@ description: Azure 위임 리소스 관리를 사용하는 경우 보안 및 액
 ms.date: 07/11/2019
 ms.topic: conceptual
 ms.openlocfilehash: 8972d6548eccb1006d90bfcbb4dba8c01b05a981
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75456872"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78394052"
 ---
 # <a name="recommended-security-practices"></a>권장 보안 방법
 
@@ -28,7 +28,7 @@ Azure 위임 리소스 관리를 사용하는 경우 보안 및 액세스 제어
 
 예를 들어 다음과 같은 구조를 사용하려고 할 수 있습니다.
 
-|그룹 이름  |유형  |principalId  |역할 정의  |역할 정의 ID  |
+|그룹 이름  |Type  |principalId  |역할 정의  |역할 정의 ID  |
 |---------|---------|---------|---------|---------|
 |설계자     |사용자 그룹         |\<principalId\>         |참가자         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
 |평가     |사용자 그룹         |\<principalId\>         |판독기         |acdd72a7-3385-48ef-bd42-f606fba81ae7  |

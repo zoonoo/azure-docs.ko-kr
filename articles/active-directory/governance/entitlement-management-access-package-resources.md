@@ -17,11 +17,11 @@ ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 102bbfbd1c02c93830f5c7fce89fe95d7fde54c5
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73174649"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376698"
 ---
 # <a name="change-resource-roles-for-an-access-package-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 액세스 패키지에 대 한 리소스 역할 변경
 
@@ -93,7 +93,7 @@ ms.locfileid: "73174649"
     |  |  |
     | --- | --- |
     | 보안 | 리소스에 대 한 액세스 권한을 부여 하는 데 사용 됩니다. |
-    | 유통 | 사용자 그룹에 알림을 보내는 데 사용 됩니다. |
+    | 배포 | 사용자 그룹에 알림을 보내는 데 사용 됩니다. |
     | O365 | 팀에서 사용 하지 않는 Office 365 그룹 회사 내부와 외부의 사용자 간 공동 작업에 사용 됩니다. |
     | 팀 | 팀에서 사용 하도록 설정 된 Office 365 그룹 회사 내부와 외부의 사용자 간 공동 작업에 사용 됩니다. |
 
@@ -103,7 +103,7 @@ ms.locfileid: "73174649"
 
     ![액세스 패키지-그룹 또는 팀에 대 한 리소스 역할 추가](./media/entitlement-management-access-package-resources/group-role.png)
 
-1. **추가**으로 로그온합니다.
+1. **추가**를 클릭합니다.
 
     액세스 패키지에 대 한 기존 할당을 사용 하는 모든 사용자는이 그룹 또는 팀이 추가 될 때 자동으로 구성원이 됩니다.
 
@@ -134,7 +134,7 @@ ms.locfileid: "73174649"
 
     ![액세스 패키지-응용 프로그램에 대 한 리소스 역할 추가](./media/entitlement-management-access-package-resources/application-role.png)
 
-1. **추가**으로 로그온합니다.
+1. **추가**를 클릭합니다.
 
     액세스 패키지에 대 한 기존 할당을 사용 하는 모든 사용자에 게는 추가 될 때이 응용 프로그램에 대 한 액세스 권한이 자동으로 부여 됩니다.
 
@@ -154,7 +154,7 @@ Azure AD는 액세스 패키지에 할당 된 경우 사용자에 게 SharePoint
 
     ![액세스 패키지-SharePoint Online 사이트에 대 한 리소스 역할 추가](./media/entitlement-management-access-package-resources/sharepoint-site-role.png)
 
-1. **추가**으로 로그온합니다.
+1. **추가**를 클릭합니다.
 
     액세스 패키지에 대 한 기존 할당을 사용 하는 모든 사용자에 게는이 SharePoint Online 사이트를 추가할 때 해당 사이트에 대 한 액세스 권한이 자동으로 부여 됩니다.
 
@@ -178,7 +178,7 @@ Azure AD는 액세스 패키지에 할당 된 경우 사용자에 게 SharePoint
 
 자격 관리에서 Azure AD는 매일 여러 번 액세스 패키지의 할당 및 리소스에 대 한 대량 변경을 처리 합니다. 따라서 액세스를 만들거나 액세스 패키지의 리소스 역할을 변경 하는 경우 Azure AD에서 변경 내용을 적용 하는 데 최대 24 시간이 걸릴 수 있으며, 이러한 변경 내용을 다른 Microsoft Online Services 또는 연결 된 SaaS 응용 프로그램에 전파 하는 데 걸리는 시간이 길어집니다. server 변경으로 인해 몇 가지 개체만 영향을 받는 경우 Azure AD에서 변경 내용을 적용 하는 데 몇 분 정도 걸릴 수 있습니다. 그 후에는 다른 Azure AD 구성 요소에서 해당 변경 내용을 검색 하 고 SaaS 응용 프로그램을 업데이트 합니다. 변경이 수천 개의 개체에 영향을 주는 경우에는 변경 내용이 더 오래 걸립니다. 예를 들어 응용 프로그램 2 개 및 100 사용자 할당을 사용 하는 액세스 패키지가 있고 액세스 패키지에 SharePoint 사이트 역할을 추가 하기로 결정 한 경우 모든 사용자가 해당 SharePoint 사이트 역할에 포함 될 때까지 지연이 있을 수 있습니다. Azure AD 감사 로그, Azure AD 프로 비전 로그 및 SharePoint 사이트 감사 로그를 통해 진행률을 모니터링할 수 있습니다.
 
-팀의 구성원을 제거 하면 Office 365 그룹 에서도 제거 됩니다. 팀의 채팅 기능을 제거 하는 작업이 지연 될 수 있습니다. 자세한 내용은 [그룹 멤버 자격](https://docs.microsoft.com/microsoftteams/office-365-groups#group-membership)을 참조 하세요.
+팀 구성원을 제거하면 Office 365 그룹에서도 제거됩니다. 팀 채팅 기능을 제거하면 작업이 지연될 수 있습니다. 자세한 내용은 [그룹 멤버 자격](https://docs.microsoft.com/microsoftteams/office-365-groups#group-membership)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

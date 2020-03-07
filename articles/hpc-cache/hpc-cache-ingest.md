@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: rohogue
 ms.openlocfilehash: a5625341e3dd279d93a59c57cd3325245351723e
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646730"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78364941"
 ---
 # <a name="move-data-to-azure-blob-storage"></a>Azure Blob storage로 데이터 이동
 
@@ -31,7 +31,7 @@ Python 기반 유틸리티는 Blob 저장소 컨테이너에 콘텐츠를 로드
 
 ## <a name="pre-load-data-in-blob-storage-with-clfsload"></a>CLFSLoad를 사용 하 여 Blob storage에 데이터 미리 로드
 
-사용자는 <!--[Avere CLFSLoad](https://aka.ms/avere-clfsload)--> Avere CLFSLoad 유틸리티를 통해 데이터를 저장소 대상으로 추가 하기 전에 새 Blob 저장소 컨테이너로 데이터를 복사 합니다. 이 유틸리티는 단일 Linux 시스템에서 실행 되며 Azure HPC 캐시에 필요한 소유 형식으로 데이터를 기록 합니다. CLFSLoad는 캐시에 사용할 Blob 저장소 컨테이너를 채우는 가장 효율적인 방법입니다.
+이 경우 <!--[Avere CLFSLoad](https://aka.ms/avere-clfsload)--> Avere CLFSLoad 유틸리티를 통해 데이터를 저장소 대상으로 추가 하기 전에 새 Blob 저장소 컨테이너로 데이터를 복사 합니다. 이 유틸리티는 단일 Linux 시스템에서 실행 되며 Azure HPC 캐시에 필요한 소유 형식으로 데이터를 기록 합니다. CLFSLoad는 캐시에 사용할 Blob 저장소 컨테이너를 채우는 가장 효율적인 방법입니다.
 
 Avere CLFSLoad 유틸리티는 Azure HPC 캐시 팀의 요청에 의해 제공 됩니다. 팀에 문의 하거나 [지원 티켓](hpc-cache-support-ticket.md) 을 열어 지원을 요청 하세요.
 

@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 96bd6b461a5374b5f5bc578c5f58dbcd09cd7087
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548631"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78358686"
 ---
 # <a name="develop-your-own-iot-edge-modules"></a>사용자 고유의 IoT Edge 모듈 개발
 
@@ -51,7 +51,7 @@ IoT Edge는 경로 만들기를 간소화하기 위해 모듈 *입력* 및 *출�
 
 마지막으로 Edge 허브에서 처리하는 디바이스-클라우드 메시지는 다음 시스템 속성으로 스탬프 처리됩니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 | -------- | ----------- |
 | $connectionDeviceId | 메시지를 보낸 클라이언트의 디바이스 ID입니다. |
 | $connectionModuleId | 메시지를 보낸 모듈의 모듈 ID입니다. |
