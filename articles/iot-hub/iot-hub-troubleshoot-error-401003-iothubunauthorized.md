@@ -9,11 +9,11 @@ ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
 ms.openlocfilehash: d0a9f643516af5945037acb3dd1da24b06944171
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76960634"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78396480"
 ---
 # <a name="401003-iothubunauthorized"></a>401003 IoTHubUnauthorized
 
@@ -51,7 +51,7 @@ MQTT의 경우 일부 Sdk는 IoT Hub를 사용 하 여 SAS 토큰이 만료 될 
 
 IoT Hub 인증 헤더, 규칙 또는 키를 인증할 수 없습니다.
 
-## <a name="solution"></a>솔루션
+## <a name="solution"></a>해결 방법
 
 ### <a name="solution-1"></a>해결 방법 1
 

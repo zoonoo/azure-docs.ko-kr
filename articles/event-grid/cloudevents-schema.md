@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: babanisa
 ms.openlocfilehash: 25a24c5bb44c77038a508e4c2f4e099132101f6a
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76844737"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78370580"
 ---
 # <a name="use-cloudevents-v10-schema-with-event-grid"></a>Event Grid에서 CloudEvents v 1.0 스키마 사용
 
@@ -20,7 +20,7 @@ ms.locfileid: "76844737"
 
 CloudEvents는 클라우드 기반 이벤트를 게시 및 사용하기 위한 일반적인 이벤트 스키마를 제공하여 상호 운용성을 간소화합니다. 이 스키마를 통해 균일한 도구, 이벤트를 라우팅 및 처리하는 표준 방법, 외부 이벤트 스키마를 역직렬화하는 유니버설 방법이 가능해집니다. 공통 스키마를 통해 여러 플랫폼에서 작업을 보다 쉽게 통합할 수 있습니다.
 
-CloudEvents는 [Cloud Native Computing Foundation](https://www.cncf.io/)을 통해 Microsoft를 포함한 여러 [협력자](https://github.com/cloudevents/spec/blob/master/community/contributors.md)가 작성하고 있습니다. 현재 버전 1.0로 사용할 수 있습니다.
+CloudEvents는 [Cloud Native Computing Foundation](https://github.com/cloudevents/spec/blob/master/community/contributors.md)을 통해 Microsoft를 포함한 여러 [협력자](https://www.cncf.io/)가 작성하고 있습니다. 현재 버전 1.0로 사용할 수 있습니다.
 
 이 문서에서는 Event Grid에서 CloudEvents 스키마를 사용하는 방법을 설명합니다.
 

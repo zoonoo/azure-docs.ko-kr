@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
 ms.openlocfilehash: 462f8dafdffa7ee01e6ccf7945a1abfdff90db42
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64720700"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78395853"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-jobs-update-3-and-later"></a>StorSimple 디바이스 관리자 서비스를 사용하여 작업 보기 및 관리(업데이트 3 이상)
 
@@ -76,16 +76,16 @@ ms.locfileid: "64720700"
 > 볼륨 형식을 변경하기 위해 볼륨을 수정하거나 볼륨을 확장하는 등의 일부 작업은 취소할 수 없습니다.
 
 
-### <a name="to-cancel-a-job"></a>작업 취소 방법
-1. **작업** 페이지에서 적절한 필터와 함께 쿼리를 실행하여 취소하려는 실행 중인 작업을 표시합니다. 작업을 선택합니다.
+### <a name="to-cancel-a-job"></a>작업을 취소하려면
+1. **작업** 페이지에서 적절한 필터가 포함된 쿼리를 실행하여 취소하기를 원하는 실행 중인 작업을 표시합니다. 작업을 선택합니다.
 
 2. 선택한 작업을 마우스 오른쪽 단추로 클릭하여 상황에 맞는 메뉴를 표시하고 **취소**를 클릭합니다.
 
     ![작업 세부 정보](./media/storsimple-8000-manage-jobs-u2/jobs2.png)
 
-3. 확인하라는 메시지가 표시되면 **예**를 클릭합니다. 이 작업은 이제 취소됩니다.
+3. 확인 메시지가 표시되면 **예**를 클릭합니다. 이 작업은 이제 취소됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [StorSimple 백업 정책을 관리](storsimple-8000-manage-backup-policies-u2.md)하는 방법을 알아봅니다.
-* [StorSimple 디바이스 관리자 서비스를 사용하여 StorSimple 디바이스를 관리](storsimple-8000-manager-service-administration.md)하는 방법에 대해 자세히 알아보기
+* [StorSimple 디바이스 관리자 서비스를 사용하여 StorSimple 디바이스를 관리](storsimple-8000-manager-service-administration.md)하는 방법을 알아봅니다.
 

@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 5cbb819ef1300f16a40dbdd0da52a35bdf578e59
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: f1be146a5173c86a8b19bca5c7b3b8c72d72b9c5
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77598190"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78362430"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Azure Files에 대한 FAQ(질문과 대답)
 [Azure Files](storage-files-introduction.md)는 산업 표준 [SMB(서버 메시지 블록) 프로토콜](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)을 통해 액세스할 수 있는, 클라우드에서 완전히 관리되는 파일 공유를 제공합니다. Azure 파일 공유를 Windows, Linux 및 macOS의 클라우드 또는 온-프레미스 배포에 동시에 탑재할 수 있습니다. 데이터가 사용되는 위치 가까이에 대한 빠른 액세스를 위해 Azure 파일 동기화를 사용하여 Windows Server 컴퓨터에서 Azure 파일 공유를 캐시할 수도 있습니다.
@@ -179,12 +179,12 @@ id 기반 인증 및 액세스 제어를 지원 하나요?**
 * <a id="ad-support-rest-apis"></a>
 **디렉터리/파일 NTFS ACL 가져오기/설정/복사를 지원하는 REST API가 있나요?**
 
-    예, [2019-02-02](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#version-2019-02-02) 이상 REST API를 사용 하는 경우 디렉터리 또는 파일에 대 한 NTFS acl을 가져오거나 설정 하거나 복사 하는 REST api를 지원 합니다.
+    예, [2019-07-07](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#version-2019-07-07) 이상 REST API를 사용 하는 경우 디렉터리 또는 파일에 대 한 NTFS acl을 가져오거나 설정 하거나 복사 하는 REST api를 지원 합니다.
 
 * <a id="ad-vm-subscription"></a>
 **다른 구독으로 VM에서 Azure AD 자격 증명을 사용하여 Azure Files에 액세스할 수 있나요?**
 
-    파일 공유가 배포된 구독과 VM이 도메인에 조인된 Azure AD Domain Services 배포와 동일한 Azure AD 테넌트가 연결되어 있는 경우 동일한 Azure AD 자격 증명을 사용하여 Azure Files에 액세스할 수 있습니다. 제한 사항은 연결된 Azure AD 테넌트가 아닌 구독에만 적용됩니다.    
+    파일 공유가 배포된 구독과 VM이 도메인에 조인된 Azure AD Domain Services 배포와 동일한 Azure AD 테넌트가 연결되어 있는 경우 동일한 Azure AD 자격 증명을 사용하여 Azure Files에 액세스할 수 있습니다. 제한 사항은 연결된 Azure AD 테넌트가 아닌 구독에만 적용됩니다.
     
 * <a id="ad-support-subscription"></a>azure **ad 테 넌 트를 사용 하 여 Azure Files azure AD DS 또는 AD 인증을 사용 하도록 설정할 수 
 , 파일 공유가 연결 된 기본 테 넌 트와 다른** 경우

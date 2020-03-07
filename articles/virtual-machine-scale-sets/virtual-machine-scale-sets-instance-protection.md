@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 02/26/2020
 ms.author: avverma
 ms.openlocfilehash: 021faad28fb575c4ffeb4d895ad451d8cd82b1a5
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77919858"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78392910"
 ---
 # <a name="instance-protection-for-azure-virtual-machine-scale-set-instances"></a>Azure 가상 머신 확장 집합 인스턴스에 대 한 인스턴스 보호
 
@@ -43,7 +43,7 @@ Azure 가상 머신 확장 집합을 사용 하면 [자동 크기 조정을](vir
 
 아래 예제에 설명 된 대로 확장 집합 인스턴스에 스케일 인 보호를 적용 하는 여러 가지 방법이 있습니다.
 
-### <a name="azure-portal"></a>Azure 포털
+### <a name="azure-portal"></a>Azure portal
 
 Azure Portal를 통해 확장 집합의 인스턴스에 확장 보호를 적용할 수 있습니다. 한 번에 두 개 이상의 인스턴스를 조정할 수 없습니다. 보호 하려는 각 인스턴스에 대해이 단계를 반복 합니다.
  
@@ -111,7 +111,7 @@ az vmss update \
 
 아래 예제에 설명 된 대로 확장 집합 인스턴스에 확장 집합 작업 보호를 적용 하는 방법에는 여러 가지가 있습니다.
 
-### <a name="azure-portal"></a>Azure 포털
+### <a name="azure-portal"></a>Azure portal
 
 Azure Portal를 통해 확장 집합 작업의 보호를 확장 집합의 인스턴스에 적용할 수 있습니다. 한 번에 두 개 이상의 인스턴스를 조정할 수 없습니다. 보호 하려는 각 인스턴스에 대해이 단계를 반복 합니다.
  

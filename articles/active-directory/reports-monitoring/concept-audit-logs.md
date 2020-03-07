@@ -18,11 +18,11 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ad399fc24b2cdfbdc51e7feccba2c05786216b19
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77648428"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376994"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털의 감사 작업 보고서 
 
@@ -77,8 +77,8 @@ Azure AD 감사 로그는 규정 준수를 위한 시스템 활동의 기록을 
 
 다음 필드에서 감사 데이터를 필터링할 수 있습니다.
 
-- Service
-- 범주
+- 서비스
+- Category
 - 작업
 - 상태
 - 대상
@@ -107,7 +107,7 @@ Azure AD 감사 로그는 규정 준수를 위한 시스템 활동의 기록을 
 - PIM
 - 셀프 서비스 그룹 관리
 - 셀프 서비스 암호 관리
-- 사용 조건
+- 사용 약관
 
 **범주** 필터를 사용 하면 다음 필터 중 하나를 선택할 수 있습니다.
 
@@ -117,7 +117,7 @@ Azure AD 감사 로그는 규정 준수를 위한 시스템 활동의 기록을 
 - 인증
 - 권한 부여
 - 연락처
-- 장치
+- 디바이스
 - DeviceConfiguration
 - DirectoryManagement
 - EntitlementManagement
@@ -139,7 +139,7 @@ Graph API를 사용 하 여 모든 감사 활동의 목록을 가져올 수 있�
 **상태** 필터를 사용 하면 감사 작업 상태를 기준으로 필터링 할 수 있습니다. 상태는 다음 중 하나일 수 있습니다.
 
 - 모두
-- 성공
+- Success
 - 실패
 
 **대상** 필터를 사용 하면 이름 또는 UPN (사용자 계정 이름)을 기준으로 특정 대상을 검색할 수 있습니다. 대상 이름 및 UPN은 대/소문자를 구분 합니다. 

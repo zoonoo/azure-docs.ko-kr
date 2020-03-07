@@ -5,11 +5,11 @@ ms.topic: article
 ms.date: 11/01/2019
 ms.custom: mvc
 ms.openlocfilehash: 73781418321c3932bf3e0190b646dcd3bb178195
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75888059"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78365025"
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Azure Container Instances의 컨테이너 그룹
 
@@ -72,7 +72,7 @@ Azure Container Instances는 그룹의 인스턴스에 대 한 [리소스 요청
 
 필요에 따라 컨테이너 그룹을 [Azure 가상 네트워크][virtual-network] 에 배포 하 여 컨테이너가 가상 네트워크의 다른 리소스와 안전 하 게 통신할 수 있도록 합니다.
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>스토리지
 
 컨테이너 그룹 내에서 탑재할 외부 볼륨을 지정할 수 있습니다. 지원 되는 볼륨은 다음과 같습니다.
 * [Azure 파일 공유][azure-files]

@@ -4,11 +4,11 @@ description: Azure Site Recovery 장애 조치 (failover) 및 장애 조치 (fai
 ms.topic: conceptual
 ms.date: 12/24/2019
 ms.openlocfilehash: d9b54f3c452212e12419a5ffd67b116c8660308d
-ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77539521"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78362864"
 ---
 # <a name="about-on-premises-disaster-recovery-failoverfailback"></a>온-프레미스 재해 복구 장애 조치 (failover)/장애 복구 정보
 

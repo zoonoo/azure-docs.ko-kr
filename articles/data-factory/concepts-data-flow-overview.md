@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/19/2019
 ms.openlocfilehash: 210c1814325e689dd70af9caa7fad08deed933e1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75444497"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78395978"
 ---
 # <a name="what-are-mapping-data-flows"></a>데이터 흐름 매핑이란?
 
@@ -43,7 +43,7 @@ ms.locfileid: "75444497"
 
 ### <a name="azure-integration-runtime-data-flow-properties"></a>Azure integration runtime 데이터 흐름 속성
 
-![디버그 단추](media/data-flow/debugbutton.png "디버깅 단추")
+![디버그 단추](media/data-flow/debugbutton.png "디버그 단추")
 
 ADF에서 데이터 흐름에 대 한 작업을 시작 하는 경우 브라우저 UI의 맨 위에 있는 데이터 흐름에 대해 "디버그" 스위치를 설정 하는 것이 좋습니다. 그러면 대화형 디버깅, 데이터 미리 보기 및 파이프라인 디버그 실행에 사용할 Azure Databricks 클러스터가 실행 됩니다. 사용자 지정 [Azure Integration Runtime](concepts-integration-runtime.md)를 선택 하 여 사용 되는 클러스터의 크기를 설정할 수 있습니다. 디버그 세션은 마지막 데이터 미리 보기 또는 마지막 디버그 파이프라인 실행 후 최대 60 분 동안 활성 상태를 유지 합니다.
 

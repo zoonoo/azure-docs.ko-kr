@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: tagore
 ms.openlocfilehash: 32603f4ab33e020245861e5dc66d2ade545fa627
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77148312"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78344520"
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>클라우드 서비스 모델 정의 및 패키지 방법
 클라우드 서비스는 서비스 정의 *(.csdef)* , 서비스 구성 *(.cscfg)* , 서비스 패키지 *(.cspkg)* 의 세 구성 요소에서 생성됩니다. **ServiceDefinition.csdef** 및 **ServiceConfig.cscfg** 파일은 둘 다 XML 기반으로, 클라우드 서비스의 구조 및 구성 방법(합쳐서 모델이라고 함)을 설명합니다. **ServicePackage.cspkg**는 **ServiceDefinition.csdef** 및 다른 구성 요소에서 생성되는 zip 파일로, 필수 이진 기반 종속성을 모두 포함합니다. Azure는 **ServicePackage.cspkg**와 **ServiceConfig.cscfg**에서 모두 클라우드 서비스를 만듭니다.
@@ -262,7 +262,7 @@ cspack [DirectoryName]\[ServiceDefinition]
 
 여기서는 변수가 다음과 같이 정의됩니다.
 
-| Variable | 값 |
+| 변수 | 값 |
 | --- | --- |
 | \[DirectoryName\] |Azure 프로젝트의 .csdef 파일을 포함하는 루트 프로젝트 디렉터리의 하위 디렉터리입니다. |
 | \[ServiceDefinition\] |서비스 정의 파일의 이름입니다. 기본적으로 이 파일의 이름은 ServiceDefinition.csdef입니다. |
