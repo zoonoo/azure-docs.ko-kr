@@ -9,13 +9,13 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 07/12/2019
 ms.openlocfilehash: 0981ed30c6bcd9d4246ce1eb047aa66168e3884a
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707911"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78364496"
 ---
-# <a name="quickstart-build-a-net-console-app-to-manage-azure-cosmos-db-sql-api-resources"></a>빠른 시작: .NET 콘솔 앱을 빌드하여 Azure Cosmos DB SQL API 리소스 관리
+# <a name="quickstart-build-a-net-console-app-to-manage-azure-cosmos-db-sql-api-resources"></a>빠른 시작: SQL API 리소스 Azure Cosmos DB 관리 하는 .NET 콘솔 앱 빌드
 
 > [!div class="op_single_selector"]
 > * [.NET V3](create-sql-api-dotnet.md)
@@ -36,7 +36,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 [API 참조 설명서](/dotnet/api/microsoft.azure.cosmos?view=azure-dotnet) | [라이브러리 소스 코드](https://github.com/Azure/azure-cosmos-dotnet-v3) | [패키지(NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Cosmos)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 - [무료로 구독을 만들거나](https://azure.microsoft.com/free/) Azure 구독, 요금 및 약정 없이 [Azure Cosmos DB 평가판을 사용](https://azure.microsoft.com/try/cosmosdb/)할 수 있습니다. 
 * [.NET Core 2.1 SDK 이상](https://dotnet.microsoft.com/download/dotnet-core/2.1)
@@ -304,7 +304,7 @@ public class Program
 
 ### <a name="create-a-database"></a>데이터베이스 만들기 
 
-`program.cs` 클래스 내에서 `CreateDatabaseAsync` 메서드를 정의합니다. 이 메서드는 `FamilyDatabase`가 아직 없는 경우 새로 만듭니다.
+`CreateDatabaseAsync` 클래스 내에서 `program.cs` 메서드를 정의합니다. 이 메서드는 `FamilyDatabase`가 아직 없는 경우 새로 만듭니다.
 
 ```csharp
 private async Task CreateDatabaseAsync()
@@ -317,7 +317,7 @@ private async Task CreateDatabaseAsync()
 
 ### <a name="create-a-container"></a>컨테이너 만들기
 
-`program.cs` 클래스 내에서 `CreateContainerAsync` 메서드를 정의합니다. 이 메서드는 `FamilyContainer`가 아직 없는 경우 새로 만듭니다. 
+`CreateContainerAsync` 클래스 내에서 `program.cs` 메서드를 정의합니다. 이 메서드는 `FamilyContainer`가 아직 없는 경우 새로 만듭니다. 
 
 ```csharp
 /// Create the container if it does not exist. 
@@ -381,7 +381,7 @@ private async Task AddItemsToContainerAsync()
 
 ### <a name="query-the-items"></a>항목 쿼리
 
-항목을 삽입한 후 쿼리를 실행하여 "Andersen" 패밀리의 세부 정보를 가져올 수 있습니다. 다음 코드에서는 SQL 쿼리를 직접 사용하여 쿼리를 실행하는 방법을 보여 줍니다. "Anderson" 패밀리 세부 정보를 가져오는 SQL 쿼리는 다음과 같습니다. `SELECT * FROM c WHERE c.LastName = 'Andersen'` `program.cs` 클래스 내에서 `QueryItemsAsync` 메서드를 정의하고 다음 코드를 추가합니다.
+항목을 삽입한 후 쿼리를 실행하여 "Andersen" 패밀리의 세부 정보를 가져올 수 있습니다. 다음 코드에서는 SQL 쿼리를 직접 사용하여 쿼리를 실행하는 방법을 보여 줍니다. "Anderson" 패밀리 세부 정보를 가져오는 SQL 쿼리는 다음과 같습니다. `SELECT * FROM c WHERE c.LastName = 'Andersen'` `QueryItemsAsync` 클래스 내에서 `program.cs` 메서드를 정의하고 다음 코드를 추가합니다.
 
 
 ```csharp

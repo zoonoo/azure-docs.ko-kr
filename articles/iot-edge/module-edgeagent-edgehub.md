@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 4684daf2a1095a40c478170be37edcae788868ef
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548614"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78379351"
 ---
 # <a name="properties-of-the-iot-edge-agent-and-iot-edge-hub-module-twins"></a>IoT Edge 에이전트 및 IoT Edge 허브 모듈 쌍의 속성
 
@@ -33,30 +33,30 @@ IoT Edge 에이전트에 대한 모듈 쌍은 `$edgeAgent`라고 하며, 디바�
 
 | 속성 | Description | 필수 |
 | -------- | ----------- | -------- |
-| schemaVersion | "1.0"이어야 합니다. | 예 |
-| runtime.type | "docker"여야 합니다. | 예 |
-| runtime.settings.minDockerVersion | 이 배포 매니페스트에 필요한 최소 Docker 버전으로 설정합니다. | 예 |
-| runtime.settings.loggingOptions | IoT Edge 에이전트 컨테이너에 대한 로깅 옵션을 포함하는 문자열 형식 JSON입니다. [Docker 로깅 옵션](https://docs.docker.com/engine/admin/logging/overview/) | 아닙니다. |
-| runtime.settings.registryCredentials<br>.{registryId}.username | 컨테이너 레지스트리의 사용자 이름입니다. Azure Container Registry의 경우 사용자 이름은 일반적으로 레지스트리 이름입니다.<br><br> 모든 개인 모듈 이미지에는 레지스트리 자격 증명이 필요 합니다. | 아닙니다. |
-| runtime.settings.registryCredentials<br>.{registryId}.password | 컨테이너 레지스트리에 대한 암호입니다. | 아닙니다. |
-| runtime.settings.registryCredentials<br>.{registryId}.address | 컨테이너 레지스트리의 주소입니다. Azure Container Registry의 경우 주소는 일반적으로 *{registryname}.azurecr.io*입니다. | 아닙니다. |  
-| systemModules.edgeAgent.type | "docker"여야 합니다. | 예 |
-| systemModules.edgeAgent.settings.image | IoT Edge 에이전트 이미지의 URI입니다. 현재 IoT Edge 에이전트는 자신을 업데이트할 수 없습니다. | 예 |
-| systemModules.edgeAgent.settings<br>.createOptions | IoT Edge 에이전트 컨테이너에 대한 만들기 옵션을 포함하는 문자열 형식 JSON입니다. [Docker 만들기 옵션](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | 아닙니다. |
+| schemaVersion | "1.0"이어야 합니다. | yes |
+| runtime.type | "docker"여야 합니다. | yes |
+| runtime.settings.minDockerVersion | 이 배포 매니페스트에 필요한 최소 Docker 버전으로 설정합니다. | yes |
+| runtime.settings.loggingOptions | IoT Edge 에이전트 컨테이너에 대한 로깅 옵션을 포함하는 문자열 형식 JSON입니다. [Docker 로깅 옵션](https://docs.docker.com/engine/admin/logging/overview/) | 예 |
+| runtime.settings.registryCredentials<br>.{registryId}.username | 컨테이너 레지스트리의 사용자 이름입니다. Azure Container Registry의 경우 사용자 이름은 일반적으로 레지스트리 이름입니다.<br><br> 모든 개인 모듈 이미지에는 레지스트리 자격 증명이 필요 합니다. | 예 |
+| runtime.settings.registryCredentials<br>.{registryId}.password | 컨테이너 레지스트리에 대한 암호입니다. | 예 |
+| runtime.settings.registryCredentials<br>.{registryId}.address | 컨테이너 레지스트리의 주소입니다. Azure Container Registry의 경우 주소는 일반적으로 *{registryname}.azurecr.io*입니다. | 예 |  
+| systemModules.edgeAgent.type | "docker"여야 합니다. | yes |
+| systemModules.edgeAgent.settings.image | IoT Edge 에이전트 이미지의 URI입니다. 현재 IoT Edge 에이전트는 자신을 업데이트할 수 없습니다. | yes |
+| systemModules.edgeAgent.settings<br>.createOptions | IoT Edge 에이전트 컨테이너에 대한 만들기 옵션을 포함하는 문자열 형식 JSON입니다. [Docker 만들기 옵션](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | 예 |
 | systemModules.edgeAgent.configuration.id | 이 모듈을 배포한 배포의 ID입니다. | IoT Hub는 배포를 사용하여 매니페스트를 적용할 때 이 속성을 설정합니다. 배포 매니페스트의 일부가 아닙니다. |
-| systemModules.edgeHub.type | "docker"여야 합니다. | 예 |
-| systemModules.edgeHub.status | "running"이어야 합니다. | 예 |
-| systemModules.edgeHub.restartPolicy | "always"여야 합니다. | 예 |
-| systemModules.edgeHub.settings.image | IoT Edge 허브 이미지의 URI입니다. | 예 |
-| systemModules.edgeHub.settings<br>.createOptions | IoT Edge 허브 컨테이너에 대한 만들기 옵션을 포함하는 문자열 형식 JSON입니다. [Docker 만들기 옵션](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | 아닙니다. |
+| systemModules.edgeHub.type | "docker"여야 합니다. | yes |
+| systemModules.edgeHub.status | "running"이어야 합니다. | yes |
+| systemModules.edgeHub.restartPolicy | "always"여야 합니다. | yes |
+| systemModules.edgeHub.settings.image | IoT Edge 허브 이미지의 URI입니다. | yes |
+| systemModules.edgeHub.settings<br>.createOptions | IoT Edge 허브 컨테이너에 대한 만들기 옵션을 포함하는 문자열 형식 JSON입니다. [Docker 만들기 옵션](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | 예 |
 | systemModules.edgeHub.configuration.id | 이 모듈을 배포한 배포의 ID입니다. | IoT Hub는 배포를 사용하여 매니페스트를 적용할 때 이 속성을 설정합니다. 배포 매니페스트의 일부가 아닙니다. |
-| modules.{moduleId}.version | 이 모듈의 버전을 나타내는 사용자 정의 문자열입니다. | 예 |
-| modules.{moduleId}.type | "docker"여야 합니다. | 예 |
-| modules.{moduleId}.status | {“running” \| “stopped”} | 예 |
-| modules.{moduleId}.restartPolicy | {"\|" 실패 "\|" 비정상 "\|" 항상 "} | 예 |
-| 모듈로. {moduleId} .Imagepullpolicy | {"온-\|" 안 함 "} | 아닙니다. |
-| modules.{moduleId}.settings.image | 모듈 이미지에 대한 URI입니다. | 예 |
-| modules.{moduleId}.settings.createOptions | 모듈 컨테이너에 대한 만들기 옵션을 포함하는 문자열 형식 JSON입니다. [Docker 만들기 옵션](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | 아닙니다. |
+| modules.{moduleId}.version | 이 모듈의 버전을 나타내는 사용자 정의 문자열입니다. | yes |
+| modules.{moduleId}.type | "docker"여야 합니다. | yes |
+| modules.{moduleId}.status | {“running” \| “stopped”} | yes |
+| modules.{moduleId}.restartPolicy | {"\|" 실패 "\|" 비정상 "\|" 항상 "} | yes |
+| 모듈로. {moduleId} .Imagepullpolicy | {"온-\|" 안 함 "} | 예 |
+| modules.{moduleId}.settings.image | 모듈 이미지에 대한 URI입니다. | yes |
+| modules.{moduleId}.settings.createOptions | 모듈 컨테이너에 대한 만들기 옵션을 포함하는 문자열 형식 JSON입니다. [Docker 만들기 옵션](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | 예 |
 | modules.{moduleId}.configuration.id | 이 모듈을 배포한 배포의 ID입니다. | IoT Hub는 배포를 사용하여 매니페스트를 적용할 때 이 속성을 설정합니다. 배포 매니페스트의 일부가 아닙니다. |
 
 ## <a name="edgeagent-reported-properties"></a>Edge 에이전트 reported 속성
@@ -79,8 +79,8 @@ IoT Edge 에이전트 reported 속성에는 다음 세 가지 주요 정보가 �
 | lastDesiredVersion | 이 정수는 IoT Edge 에이전트에서 처리하는 desired 속성의 마지막 버전을 나타냅니다. |
 | lastDesiredStatus.code | 이 상태 코드는 IoT Edge 에이전트가 표시 하는 마지막 desired 속성을 참조 합니다. 허용되는 값: `200` 성공, `400` 잘못된 구성, `412` 잘못된 스키마 버전, `417` 비어 있는 desired 속성, `500` 실패 |
 | lastDesiredStatus.description | 상태에 대한 텍스트 설명입니다. |
-| deviceHealth | 모든 모듈의 런타임 상태가 `running` 또는 `stopped`이면 `healthy`, 그렇지 않으면 `unhealthy`입니다 |
-| configurationHealth.{deploymentId}.health | {deploymentId} 배포에서 설정한 모든 모듈의 런타임 상태가 `running` 또는 `stopped`이면 `healthy`이고, 그렇지 않으면 `unhealthy`입니다. |
+| deviceHealth | 모든 모듈의 런타임 상태가 `healthy` 또는 `running`이면 `stopped`, 그렇지 않으면 `unhealthy`입니다 |
+| configurationHealth.{deploymentId}.health | {deploymentId} 배포에서 설정한 모든 모듈의 런타임 상태가 `healthy` 또는 `running`이면 `stopped`이고, 그렇지 않으면 `unhealthy`입니다. |
 | runtime.platform.OS | 디바이스에서 실행 중인 OS를 보고합니다. |
 | runtime.platform.architecture | 디바이스의 CPU 아키텍처를 보고합니다. |
 | systemModules.edgeAgent.runtimeStatus | IoT Edge 에이전트의 보고된 상태: {“running” \| “unhealthy”} |
@@ -106,9 +106,9 @@ IoT Edge 허브에 대한 모듈 쌍은 `$edgeHub`라고 하며, 디바이스에
 
 | 속성 | Description | 배포 매니페스트에 필요합니다. |
 | -------- | ----------- | -------- |
-| schemaVersion | "1.0"이어야 합니다. | 예 |
+| schemaVersion | "1.0"이어야 합니다. | yes |
 | routes.{routeName} | IoT Edge 허브 경로를 나타내는 문자열입니다. 자세한 내용은 [Declare 경로](module-composition.md#declare-routes)를 참조 하세요. | `routes` 요소는 존재하지만 비어 있을 수 있습니다. |
-| storeAndForwardConfiguration.timeToLiveSecs | IoT Hub 또는 로컬 모듈 인지 여부에 관계 없이 라우팅 끝점에서 연결을 끊을 경우 IoT Edge 허브가 메시지를 유지 하는 시간 (초)입니다. 값은 임의의 양의 정수일 수 있습니다. | 예 |
+| storeAndForwardConfiguration.timeToLiveSecs | IoT Hub 또는 로컬 모듈 인지 여부에 관계 없이 라우팅 끝점에서 연결을 끊을 경우 IoT Edge 허브가 메시지를 유지 하는 시간 (초)입니다. 값은 임의의 양의 정수일 수 있습니다. | yes |
 
 ## <a name="edgehub-reported-properties"></a>Edge 허브 reported 속성
 

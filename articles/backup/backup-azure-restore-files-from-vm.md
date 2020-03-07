@@ -3,12 +3,12 @@ title: Azure VM 백업에서 파일 및 폴더 복구
 description: 이 문서에서는 Azure 가상 컴퓨터 복구 지점에서 파일 및 폴더를 복구 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 03/01/2019
-ms.openlocfilehash: d80fb1060eca766305ecbfffe151d975472f8b3c
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 0e3061ea8fc26adcf39fe415cd9a662de739543a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77660923"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78363896"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Azure Virtual Machine 백업에서 파일 복구
 
@@ -65,7 +65,7 @@ Azure Backup에서는 복구 지점이라고도 하는 Azure VM 백업에서 [Az
 
 #### <a name="for-windows"></a>Windows의 경우
 
-실행 파일을 실행하면 운영 체제는 새 볼륨을 탑재하고 드라이브 문자를 할당합니다. Windows 탐색기 또는 파일 탐색기를 사용하여 해당 드라이브를 탐색할 수 있습니다. 볼륨에 할당 된 드라이브 문자는 원래 가상 컴퓨터의 문자와 다를 수 있습니다. 그러나 볼륨 이름은 유지 됩니다. 예를 들어 원래 가상 컴퓨터에서 볼륨이 "데이터 디스크(E:`\`)"인 경우 해당 볼륨은 로컬 컴퓨터에서 "데이터 디스크('임의 드라이브 문자':`\`)로 연결할 수 있습니다. 파일이 나 폴더를 찾을 때까지 스크립트 출력에 언급 된 모든 볼륨을 탐색 합니다.  
+실행 파일을 실행하면 운영 체제는 새 볼륨을 탑재하고 드라이브 문자를 할당합니다. Windows 탐색기 또는 파일 탐색기를 사용하여 해당 드라이브를 탐색할 수 있습니다. 볼륨에 할당 된 드라이브 문자는 원래 가상 컴퓨터의 문자와 다를 수 있습니다. 그러나 볼륨 이름은 유지 됩니다. 예를 들어 원래 가상 컴퓨터의 볼륨이 "데이터 디스크 (E:`\`)" 인 경우 해당 볼륨은 로컬 컴퓨터에서 "데이터 디스크 (' 모든 문자 ':`\`)로 연결 될 수 있습니다. 파일이 나 폴더를 찾을 때까지 스크립트 출력에 언급 된 모든 볼륨을 탐색 합니다.  
 
    ![파일 복구 메뉴](./media/backup-azure-restore-files-from-vm/volumes-attached.png)
 
@@ -125,7 +125,7 @@ pvs <volume name as shown above in the script output>
 
 ```bash
 #!/bin/bash
-lvdisplay <volume-group-name from the pvs command’s results>
+lvdisplay <volume-group-name from the pvs command's results>
 ```
 
 선택한 경로에 논리 볼륨을 탑재 하려면:
@@ -163,8 +163,8 @@ RAID 디스크에 다른 LVM이 구성 되어 있는 경우 LVM 파티션에 대
 
 |서버 OS | 호환되는 클라이언트 OS  |
 | --------------- | ---- |
-| Windows Server 2019    | 윈도우 10 |
-| Windows Server 2016    | 윈도우 10 |
+| Windows Server 2019    | Windows 10 |
+| Windows Server 2016    | Windows 10 |
 | Windows Server 2012 R2 | Windows 8.1 |
 | Windows Server 2012    | Windows 8  |
 | Windows Server 2008 R2 | Windows 7   |
@@ -192,7 +192,7 @@ Linux에서 파일을 복원하는 데 사용하는 컴퓨터의 OS는 보호된
 
 |구성 요소 | 버전  |
 | --------------- | ---- |
-| bash | 4 이상 |
+| 백슬래시 | 4 이상 |
 | python | 2.6.6 이상  |
 | TLS | 1.2가 지원되어야 합니다.  |
 
@@ -202,10 +202,10 @@ Linux에서 파일을 복원하는 데 사용하는 컴퓨터의 OS는 보호된
 
 - `download.microsoft.com`
 - Recovery Service URL(복구 서비스 자격 증명 모음이 있는 지역을 참조하는 지역 이름)
-  - <https://pod01-rec2.geo-name.backup.windowsazure.com>(Azure 공용 지역의 경우)
-  - <https://pod01-rec2.geo-name.backup.windowsazure.cn> (Azure 중국 21Vianet의 경우)
-  - <https://pod01-rec2.geo-name.backup.windowsazure.us>(Azure 미국 정부의 경우)
-  - <https://pod01-rec2.geo-name.backup.windowsazure.de>(Azure 독일의 경우)
+  - `https://pod01-rec2.geo-name.backup.windowsazure.com`(Azure 공용 지역의 경우)
+  - `https://pod01-rec2.geo-name.backup.windowsazure.cn` (Azure 중국 21Vianet의 경우)
+  - `https://pod01-rec2.geo-name.backup.windowsazure.us`(Azure 미국 정부의 경우)
+  - `https://pod01-rec2.geo-name.backup.windowsazure.de`(Azure 독일의 경우)
 - 아웃 바운드 포트 53 (DNS), 443, 3260
 
 > [!NOTE]
@@ -257,7 +257,7 @@ Linux의 경우 스크립트는 복구 지점에 연결하는 데 'open-iscsi' �
 | ------------------------ | -------------- | ------------------ |
 | Exe 출력: *대상에 연결 하는 동안 예외가 catch* 되었습니다. | 스크립트는 복구 지점에 액세스할 수 없습니다.    | 컴퓨터가 [이전 액세스 요구 사항을](#access-requirements)충족 하는지 확인 합니다. |  
 | Exe 출력: *iSCSI 세션을 통해 대상이 이미 로그인되었습니다.* | 동일한 컴퓨터에서 스크립트가 이미 실행되었고 드라이브가 연결되었습니다. | 복구 지점의 볼륨이 이미 연결되었습니다. 원래 VM과 동일한 드라이브 문자로 탑재되지 않을 수 있습니다. 파일 탐색기에서 사용 가능한 모든 볼륨을 탐색 하 여 파일을 찾습니다. |
-| Exe 출력: *디스크가 포털을 통해 분리 되었거나 12 시간 제한을 초과 했기 때문에이 스크립트는 유효 하지 않습니다. 포털에서 새 스크립트를 다운로드 합니다.* |    디스크가 포털에서 분리 되었거나 12 시간 제한을 초과 했습니다. | 이 특정 exe는 현재 유효하지 않고 실행할 수 없습니다. 해당 복구 시점의 파일에 액세스 하려면 포털에서 새 exe를 방문 합니다.|
+| Exe 출력: *디스크가 포털을 통해 분리 되었거나 12 시간 제한을 초과 했기 때문에이 스크립트는 유효 하지 않습니다. 포털에서 새 스크립트를 다운로드 합니다.* |    디스크가 포털에서 분리 되었거나 12 시간 제한을 초과 했습니다. | 이 특정 exe는 이제 유효 하지 않으므로 실행할 수 없습니다. 해당 복구 시점의 파일에 액세스 하려면 포털에서 새 exe를 방문 합니다.|
 | Exe를 실행 하는 컴퓨터에서: 분리 단추를 클릭 한 후 새 볼륨이 분리 되지 않습니다. | 컴퓨터의 iSCSI 초기자가 대상에 대 한 연결을 새로 고치거 나 캐시를 유지 관리 하지 않습니다. |  **분리**를 클릭한 후에 잠시 대기합니다. 새 볼륨이 분리 되지 않은 경우 모든 볼륨을 검색 합니다. 모든 볼륨을 검색 하면 초기자가 연결을 새로 고치지만 디스크를 사용할 수 없다는 오류 메시지와 함께 볼륨이 분리 됩니다.|
 | Exe 출력: 스크립트가 성공적으로 실행 되지만 "새 볼륨이 연결 되었습니다."는 스크립트 출력에 표시 되지 않습니다. |    일시적인 오류입니다.    | 볼륨이 이미 연결 되어 있습니다. Explorer를 열어 탐색합니다. 매번 스크립트를 실행 하는 데 동일한 컴퓨터를 사용 하는 경우 컴퓨터를 다시 시작 하는 것이 좋습니다. 그러면 목록이 후속 exe 실행에 표시 됩니다. |
 | Linux 특정: 원하는 볼륨을 볼 수 없습니다 | 스크립트가 실행되는 컴퓨터의 OS는 보호된 VM의 기본 파일 시스템을 인식하지 못할 수도 있습니다. | 복구 지점이 크래시 일관성 또는 파일 일치 인지 확인 합니다. 파일에 일관성이 있는 경우 OS가 보호 된 VM의 파일 시스템을 인식 하는 다른 컴퓨터에서 스크립트를 실행 합니다. |
@@ -295,7 +295,7 @@ Linux의 경우 스크립트는 복구 지점에 연결하는 데 'open-iscsi' �
 
 각 구성 요소가 서로를 인증 하도록 상호 CHAP 인증 메커니즘을 사용 합니다. 즉, 가짜 초기자가 iSCSI 대상에 연결 하 고 가짜 대상이 스크립트가 실행 되는 컴퓨터에 연결 하는 것은 매우 어렵습니다.
 
-복구 서비스와 컴퓨터 간의 데이터 흐름은 TCP를 통한 보안 SSL 터널을 구축 하 여 보호 됩니다.[TLS 1.2](#system-requirements) 은 스크립트가 실행 되는 컴퓨터에서 지원 되어야 합니다.
+복구 서비스와 컴퓨터 간의 데이터 흐름은 TCP를 통해 보안 TLS 터널을 구축 하 여 보호 됩니다.[tls 1.2](#system-requirements) 은 스크립트가 실행 되는 컴퓨터에서 지원 되어야 합니다.
 
 부모/백업 VM에 있는 모든 ACL (파일 Access Control 목록)은 탑재 된 파일 시스템에도 유지 됩니다.
 

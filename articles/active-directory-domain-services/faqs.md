@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: 3abd9835c1cf750b926f49442f3e34e96dc9c865
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
-ms.translationtype: MT
+ms.openlocfilehash: c51387e92a100cabc5b35ccc7abde0483e77b5b1
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77917359"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78378504"
 ---
 # <a name="frequently-asked-questions-faqs"></a>FAQ(질문과 대답)
 
@@ -91,7 +91,7 @@ No. 관리 되는 Azure AD Domain Services 도메인을 만든 후에는 인스�
 No. 원격 데스크톱을 사용 하 여 관리 되는 도메인에 대 한 도메인 컨트롤러에 연결할 수 있는 권한이 없습니다. *AAD DC 관리자* 그룹의 멤버는 adac (Active Directory 관리 센터) 또는 ad PowerShell과 같은 ad 관리 도구를 사용 하 여 관리 되는 도메인을 관리할 수 있습니다. 이러한 도구는 관리 되는 도메인에 가입 된 Windows Server에서 *원격 서버 관리 도구* 기능을 사용 하 여 설치 됩니다. 자세한 내용은 [관리 VM을 만들어 Azure AD Domain Services 관리 되는 도메인 구성 및](tutorial-create-management-vm.md)관리를 참조 하세요.
 
 ### <a name="ive-enabled-azure-ad-domain-services-what-user-account-do-i-use-to-domain-join-machines-to-this-domain"></a>Azure AD Domain Services를 사용 하도록 설정 했습니다. 이 도메인에 도메인 가입 컴퓨터를 사용하려면 사용자 계정은 무엇입니까?
-관리 그룹 *AAD DC 관리자* 의 구성원은 컴퓨터를 도메인에 가입 시킬 수 있습니다. 또한 이 그룹의 멤버에게는 도메인에 가입 된 컴퓨터에 대한 원격 데스크톱 액세스가 부여됩니다.
+Azure AD DS 관리 되는 도메인의 일부인 모든 사용자 계정은 VM에 가입할 수 있습니다. *AAD DC Administrators* 그룹의 구성원에 게는 관리 되는 도메인에 가입 된 컴퓨터에 대 한 원격 데스크톱 액세스가 부여 됩니다.
 
 ### <a name="do-i-have-domain-administrator-privileges-for-the-managed-domain-provided-by-azure-ad-domain-services"></a>Azure AD Domain Services에서 제공하는 관리되는 도메인에 대한 도메인 관리자 권한이 부여됩니까?
 No. 관리 되는 도메인에 대 한 관리 권한이 부여 되지 않았습니다. 도메인 *관리자* 및 *엔터프라이즈 관리자* 권한은 도메인 내에서 사용할 수 없습니다. 온-프레미스 Active Directory 도메인 관리자 또는 엔터프라이즈 관리자 그룹의 멤버에 게는 관리 되는 도메인에 대 한 도메인/엔터프라이즈 관리자 권한도 부여 되지 않습니다.

@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: ejarvi
 ms.openlocfilehash: 8435663dcf92e2617ea2fe9218649e94243272d2
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073220"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78383198"
 ---
 # <a name="azure-disk-encryption-for-windows-microsoftazuresecurityazurediskencryption"></a>Windows용 Azure Disk Encryption(Microsoft.Azure.Security.AzureDiskEncryption)
 
@@ -26,7 +26,7 @@ ms.locfileid: "74073220"
 
 Azure Disk Encryption은 BitLocker를 활용하여 Windows를 실행하는 Azure 가상 머신에서 전체 디스크 암호화를 제공합니다.  이 솔루션은 Azure Key Vault와 통합되어 키 자격 증명 모음 구독의 디스크 암호화 키와 비밀을 관리합니다. 
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 필수 구성 요소의 전체 목록은 [Linux vm에 대 한 Azure Disk Encryption](../linux/disk-encryption-overview.md), 특히 다음 섹션을 참조 하세요.
 
@@ -71,7 +71,7 @@ V 2.2 스키마는 모든 새 Vm에 권장 되며 Azure Active Directory 속성�
 
 1\.1 스키마에는 `aadClientID` `aadClientSecret` 또는 `AADClientCertificate` 필요 하며 새 Vm에는 권장 되지 않습니다.
 
-`aadClientSecret`을 사용할 경우 다음을 실행합니다.
+`aadClientSecret`사용:
 
 ```json
 {
@@ -101,7 +101,7 @@ V 2.2 스키마는 모든 새 Vm에 권장 되며 Azure Active Directory 속성�
 }
 ```
 
-`AADClientCertificate`을 사용할 경우 다음을 실행합니다.
+`AADClientCertificate`사용:
 
 ```json
 {
@@ -134,23 +134,23 @@ V 2.2 스키마는 모든 새 Vm에 권장 되며 Azure Active Directory 속성�
 
 ### <a name="property-values"></a>속성 값
 
-| 이름 | 값/예제 | 데이터 형식 |
+| 속성 | 값/예제 | 데이터 형식 |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| publisher | Microsoft.Azure.Security | string |
-| type | AzureDiskEncryptionForLinux | string |
-| typeHandlerVersion | 1.1, 2.2 | string |
-| (1.1 스키마) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | GUID | 
-| (1.1 스키마) AADClientSecret | password | string |
-| (1.1 스키마) AADClientCertificate | thumbprint | string |
+| publisher | Microsoft.Azure.Security | 문자열 |
+| type | AzureDiskEncryptionForLinux | 문자열 |
+| typeHandlerVersion | 1.1, 2.2 | 문자열 |
+| (1.1 스키마) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | guid | 
+| (1.1 스키마) AADClientSecret | password | 문자열 |
+| (1.1 스키마) AADClientCertificate | thumbprint | 문자열 |
 | DiskFormatQuery | {"dev_path":"","name":"","file_system":""} | JSON 사전 |
-| EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | string | 
-| KeyEncryptionAlgorithm | 'RSA-OAEP', 'RSA-OAEP-256', 'RSA1_5' | string |
-| KeyEncryptionKeyURL | URL | string |
-| KeyVaultURL | URL | string |
-| (선택 사항) Passphrase | password | string | 
-| SequenceVersion | uniqueidentifier | string |
-| VolumeType | OS, Data, All | string |
+| EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | 문자열 | 
+| KeyEncryptionAlgorithm | 'RSA-OAEP', 'RSA-OAEP-256', 'RSA1_5' | 문자열 |
+| KeyEncryptionKeyURL | url | 문자열 |
+| KeyVaultURL | url | 문자열 |
+| (선택 사항) Passphrase | password | 문자열 | 
+| SequenceVersion | uniqueidentifier | 문자열 |
+| VolumeType | OS, Data, All | 문자열 |
 
 ## <a name="template-deployment"></a>템플릿 배포
 템플릿 배포에 대한 예제는 [갤러리 이미지에서 암호화된 새 Windows VM 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image)를 참조하세요.

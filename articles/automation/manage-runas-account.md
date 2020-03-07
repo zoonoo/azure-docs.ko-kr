@@ -6,11 +6,11 @@ ms.subservice: shared-capabilities
 ms.date: 05/24/2019
 ms.topic: conceptual
 ms.openlocfilehash: a1761eebe51c5ccb4d30b93ad4122dfc185d216e
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028252"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78373233"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Azure Automation 실행 계정 관리
 
@@ -50,9 +50,9 @@ Azure Automation의 실행 계정은 Azure에서 Azure cmdlet으로 리소스를
 |Automation 인증서 생성 또는 제거|[New-AzureRmAutomationCertificate](/powershell/module/AzureRM.Automation/New-AzureRmAutomationCertificate)</br>[Remove-AzureRmAutomationCertificate](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationCertificate)     | 리소스 그룹의 기여자         |Automation 계정 리소스 그룹|
 |Automation 연결 생성 또는 제거|[New-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/New-AzureRmAutomationConnection)</br>[Remove-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationConnection)|리소스 그룹의 기여자 |Automation 계정 리소스 그룹|
 
-<sup>1</sup> Azure AD 테넌트의 **사용자 설정** 페이지에 있는 **사용자가 애플리케이션을 등록할 수 있음** 옵션이 **예**로 설정된 경우, Azure AD 테넌트의 관리자가 아닌 사용자가 [AD 애플리케이션을 등록](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)할 수 있습니다. 앱 등록 설정이 **아니요**로 설정 된 경우이 작업을 수행 하는 사용자는 앞의 표에 정의 되어 있어야 합니다.
+<sup>1</sup> Azure AD 테넌트의 [사용자 설정](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) 페이지에 있는 **사용자가 애플리케이션을 등록할 수 있음** 옵션이 **예**로 설정된 경우, Azure AD 테넌트의 관리자가 아닌 사용자가 **AD 애플리케이션을 등록**할 수 있습니다. 앱 등록 설정이 **아니요**로 설정 된 경우이 작업을 수행 하는 사용자는 앞의 표에 정의 되어 있어야 합니다.
 
-구독의 **전역 관리자** 역할에 추가 되기 전에 구독의 Active Directory 인스턴스에 대 한 멤버가 아닌 경우 게스트로 추가 됩니다. 이 경우에는 **Automation 계정 추가** 페이지에 `You do not have permissions to create…` 경고가 표시됩니다. 먼저 **전역 관리자** 역할에 추가 된 사용자를 구독의 Active Directory 인스턴스에서 제거 하 고 다시 추가 하 여 Active Directory에서 전체 사용자로 만들 수 있습니다. Azure Portal의 **Azure Active Directory** 창에서 이 상황을 확인하려면 **사용자 및 그룹**을 선택한 다음 **모든 사용자**를 선택하거나 특정 사용자를 선택한 후 **프로필**을 선택합니다. 사용자 프로필에서 **사용자 유형** 속성의 값은 **Guest**와 같지 않아야 합니다.
+구독의 **전역 관리자** 역할에 추가 되기 전에 구독의 Active Directory 인스턴스에 대 한 멤버가 아닌 경우 게스트로 추가 됩니다. 이 경우에는 `You do not have permissions to create…`Automation 계정 추가**페이지에** 경고가 표시됩니다. 먼저 **전역 관리자** 역할에 추가 된 사용자를 구독의 Active Directory 인스턴스에서 제거 하 고 다시 추가 하 여 Active Directory에서 전체 사용자로 만들 수 있습니다. Azure Portal의 **Azure Active Directory** 창에서 이 상황을 확인하려면 **사용자 및 그룹**을 선택한 다음 **모든 사용자**를 선택하거나 특정 사용자를 선택한 후 **프로필**을 선택합니다. 사용자 프로필에서 **사용자 유형** 속성의 값은 **Guest**와 같지 않아야 합니다.
 
 ## <a name="permissions-classic"></a>클래식 실행 계정을 구성할 수 있는 권한
 
@@ -71,7 +71,7 @@ Azure Automation의 실행 계정은 Azure에서 Azure cmdlet으로 리소스를
 
 ## <a name="create-run-as-account-using-powershell"></a>PowerShell을 사용하여 실행 계정 만들기
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 다음 목록에서는 PowerShell에서 실행 계정을 만들기 위한 요구 사항을 제공합니다.
 
@@ -442,7 +442,7 @@ PowerShell 갤러리에서 [Extend-AutomationRunAsAccountRoleAssignmentToKeyVaul
 * 실행 계정이 참여자 역할에서 제거됨
 * Azure AD의 서비스 주체 또는 애플리케이션
 
-잘못된 구성의 이전 및 다른 인스턴스에서 Automation 계정은 변경 사항을 감지하고 계정의 **실행 계정** 속성 창에서 *불완전*이라는 상태를 표시합니다.
+잘못된 구성의 이전 및 다른 인스턴스에서 Automation 계정은 변경 사항을 감지하고 계정의 *실행 계정* 속성 창에서 **불완전**이라는 상태를 표시합니다.
 
 ![불완전 실행 계정 구성 상태](media/manage-runas-account/automation-account-runas-incomplete-config.png)
 

@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: ff608cac9786ebc0d3908ce4d88fb501e621be6c
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176612"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78374451"
 ---
 # <a name="azure-api-management-page-controls"></a>Azure API Management 페이지 컨트롤
 Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다음 컨트롤을 제공합니다.  
@@ -52,15 +52,15 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
   
  ![앱&#45;작업 제어](./media/api-management-page-controls/APIM-app-actions-control.png "APIM 앱-작업 컨트롤")  
   
-### <a name="usage"></a>사용량  
+### <a name="usage"></a>사용  
   
 ```xml  
 <app-actions params="{ appId: '{{app.id}}' }"></app-actions>  
 ```  
   
-### <a name="parameters"></a>parameters  
+### <a name="parameters"></a>매개 변수  
   
-|매개 변수를 포함해야 합니다.|설명|  
+|매개 변수|Description|  
 |---------------|-----------------|  
 |appId|응용 프로그램의 ID입니다.|  
   
@@ -74,14 +74,14 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
   
  ![기본&#45;signin 컨트롤](./media/api-management-page-controls/APIM-basic-signin-control.png "APIM 기본-signin 컨트롤")  
   
-### <a name="usage"></a>사용량  
+### <a name="usage"></a>사용  
   
 ```xml  
 <basic-SignIn></basic-SignIn>  
 ```  
   
-### <a name="parameters"></a>parameters  
- 없음.  
+### <a name="parameters"></a>매개 변수  
+ 없음  
   
 ### <a name="developer-portal-templates"></a>개발자 포털 템플릿  
  `basic-signin` 컨트롤은 다음과 같은 개발자 포털 템플릿에서 사용할 수 있습니다.  
@@ -93,14 +93,14 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
   
  ![페이징 컨트롤](./media/api-management-page-controls/APIM-paging-control.png "APIM 페이징 컨트롤")  
   
-### <a name="usage"></a>사용량  
+### <a name="usage"></a>사용  
   
 ```xml  
 <paging-control></paging-control>  
 ```  
   
-### <a name="parameters"></a>parameters  
- 없음.  
+### <a name="parameters"></a>매개 변수  
+ 없음  
   
 ### <a name="developer-portal-templates"></a>개발자 포털 템플릿  
  `paging-control` 컨트롤은 다음과 같은 개발자 포털 템플릿에서 사용할 수 있습니다.  
@@ -116,14 +116,14 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
   
  ![providers 컨트롤](./media/api-management-page-controls/APIM-providers-control.png "APIM 공급자 컨트롤")  
   
-### <a name="usage"></a>사용량  
+### <a name="usage"></a>사용  
   
 ```xml  
 <providers></providers>  
 ```  
   
-### <a name="parameters"></a>parameters  
- 없음.  
+### <a name="parameters"></a>매개 변수  
+ 없음  
   
 ### <a name="developer-portal-templates"></a>개발자 포털 템플릿  
  `providers` 컨트롤은 다음과 같은 개발자 포털 템플릿에서 사용할 수 있습니다.  
@@ -135,14 +135,14 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
   
  ![검색 컨트롤](./media/api-management-page-controls/APIM-search-control.png "APIM 검색 컨트롤")  
   
-### <a name="usage"></a>사용량  
+### <a name="usage"></a>사용  
   
 ```xml  
 <search-control></search-control>  
 ```  
   
-### <a name="parameters"></a>parameters  
- 없음.  
+### <a name="parameters"></a>매개 변수  
+ 없음  
   
 ### <a name="developer-portal-templates"></a>개발자 포털 템플릿  
  `search-control` 컨트롤은 다음과 같은 개발자 포털 템플릿에서 사용할 수 있습니다.  
@@ -156,14 +156,14 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
   
  ![등록&#45;컨트롤](./media/api-management-page-controls/APIM-sign-up-control.png "APIM 등록 제어")  
   
-### <a name="usage"></a>사용량  
+### <a name="usage"></a>사용  
   
 ```xml  
 <sign-up></sign-up>  
 ```  
   
-### <a name="parameters"></a>parameters  
- 없음.  
+### <a name="parameters"></a>매개 변수  
+ 없음  
   
 ### <a name="developer-portal-templates"></a>개발자 포털 템플릿  
  `sign-up` 컨트롤은 다음과 같은 개발자 포털 템플릿에서 사용할 수 있습니다.  
@@ -175,14 +175,14 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
   
  ![구독&#45;단추 컨트롤](./media/api-management-page-controls/APIM-subscribe-button-control.png "APIM 구독 단추 컨트롤")  
   
-### <a name="usage"></a>사용량  
+### <a name="usage"></a>사용  
   
 ```xml  
 <subscribe-button></subscribe-button>  
 ```  
   
-### <a name="parameters"></a>parameters  
- 없음.  
+### <a name="parameters"></a>매개 변수  
+ 없음  
   
 ### <a name="developer-portal-templates"></a>개발자 포털 템플릿  
  `subscribe-button` 컨트롤은 다음과 같은 개발자 포털 템플릿에서 사용할 수 있습니다.  
@@ -194,7 +194,7 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
   
  ![구독&#45;취소 컨트롤](./media/api-management-page-controls/APIM-subscription-cancel-control.png "APIM 구독-취소 컨트롤")  
   
-### <a name="usage"></a>사용량  
+### <a name="usage"></a>사용  
   
 ```xml  
 <subscription-cancel params="{ subscriptionId: '{{subscription.id}}', cancelUrl: '{{subscription.cancelUrl}}' }">  
@@ -202,9 +202,9 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
   
 ```  
   
-### <a name="parameters"></a>parameters  
+### <a name="parameters"></a>매개 변수  
   
-|매개 변수를 포함해야 합니다.|설명|  
+|매개 변수|Description|  
 |---------------|-----------------|  
 |subscriptionId|취소할 구독의 ID입니다.|  
 |cancelUrl|구독 취소 URL입니다.|  

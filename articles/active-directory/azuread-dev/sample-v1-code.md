@@ -17,12 +17,12 @@ ms.date: 07/15/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 74da5b84fafd7f7c60d07fc90b05c051c1fa2a3e
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 9b4479436077dbad8cf2fb4dc40954194c138981
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77164397"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78377691"
 ---
 # <a name="azure-active-directory-code-samples-v10-endpoint"></a>Azure Active Directory 코드 샘플(v1.0 엔드포인트)
 
@@ -54,7 +54,7 @@ GitHub에서 샘플에 참여할 수도 있습니다. 자세한 방법은 [Micro
 
 다음 샘플은 사용자를 로그인하는 웹 애플리케이션을 보여 줍니다. 일부 애플리케이션은 로그인한 사용자의 이름으로 Microsoft Graph 또는 사용자 고유의 Web API도 호출합니다.
 
- 플랫폼 | 사용자만 로그인 | Microsoft Graph 또는 AAD Graph 호출| 또 다른 ASP.NET 또는 ASP.NET Core 2.0 Web API 호출
+ 플랫폼 | 사용자만 로그인 | Microsoft Graph 호출 | 또 다른 ASP.NET 또는 ASP.NET Core 2.0 Web API 호출
  -------- | ------------------- | --------------------- | -------------------------
 ![이 이미지는 ASP.NET 로고를 보여줍니다.](media/sample-v2-code/logo-netcore.png)</p>ASP.NET Core 2.0 | [dotnet-webapp-openidconnect-aspnetcore](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect-aspnetcore) | [webapp-webapi-multitenant-openidconnect-aspnetcore](https://github.com/Azure-Samples/active-directory-webapp-webapi-multitenant-openidconnect-aspnetcore/) </p>(AAD Graph) | [dotnet-webapp-webapi-openidconnect-aspnetcore](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore)
 ![이 이미지는 ASP.NET 로고를 보여줍니다.](media/sample-v2-code/logo-netframework.png)</p> ASP.NET 4.5 |  </p> [webapp-WSFederation-dotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation) </p> [dotnet-webapp-webapi-oauth2-useridentity](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-oauth2-useridentity) | [dotnet-webapp-multitenant-openidconnect](https://github.com/Azure-Samples/active-directory-dotnet-webapp-multitenant-openidconnect)</p> (AAD Graph) |
@@ -74,7 +74,7 @@ GitHub에서 샘플에 참여할 수도 있습니다. 자세한 방법은 [Micro
 
 다음 샘플에서는 Microsoft Graph 또는 사용자 이름에서 Web API에 액세스 하는 공용 클라이언트 응용 프로그램 (deskto/pmobile 응용 프로그램)을 보여 줍니다. 디바이스 및 플랫폼에 따라 애플리케이션에서 다른 방식(흐름/권한 부여)으로 사용자를 로그인할 수 있습니다.
 
-- 하는데
+- 대화형
 - 자동 (Windows에서 windows 통합 인증 또는 사용자 이름/암호 사용)
 - 다른 장치에 대화형 로그인 위임 (웹 컨트롤을 제공 하지 않는 장치에서 사용 되는 장치 코드 흐름)
 
@@ -125,10 +125,6 @@ Azure AD 인증을 포함하여 Microsoft Graph API에 대한 여러 사용 패�
 
 ## <a name="see-also"></a>참고 항목
 
-[Azure Active Directory 개발자 가이드](v1-overview.md)
-
-[Azure Active Directory 인증 라이브러리](active-directory-authentication-libraries.md)
-
-[Azure AD Graph API 개념 및 참조](https://msdn.microsoft.com/library/azure/hh974476.aspx)
-
-[Azure AD Graph API 도우미 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.ActiveDirectory.GraphClient)
+- [Azure Active Directory 개발자 가이드](v1-overview.md)
+- [Azure Active Directory 인증 라이브러리](active-directory-authentication-libraries.md)
+- [Microsoft Graph API 개념 및 참조](https://docs.microsoft.com/graph/use-the-api)

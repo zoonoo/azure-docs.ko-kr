@@ -4,11 +4,11 @@ description: Azure Service Fabric에서 응용 프로그램을 제거 하 고 �
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.openlocfilehash: e3fdd194f2949f1246e991968e02b3278f33f7db
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75614505"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78379989"
 ---
 # <a name="deploy-and-remove-applications-using-powershell"></a>PowerShell을 사용하여 애플리케이션 배포 및 제거
 
@@ -103,7 +103,7 @@ C:\USERS\USER\DOCUMENTS\VISUAL STUDIO 2015\PROJECTS\MYAPPLICATION\MYAPPLICATION\
 부작용은 애플리케이션 유형 등록 및 등록 취소가 빠르다는 것입니다. 업로드 시간은 현재 느려질 수 있습니다. 패키지를 압축하는 시간이 포함되는 경우 특히 그렇습니다. 
 
 패키지를 압축하려면 동일한 [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) 명령을 사용합니다. 압축은 업로드와 별도로 `SkipCopy` 플래그를 사용하거나 업로드 작업과 함께 수행할 수 있습니다. 압축된 패키지에 압축을 적용하면 아무런 변화가 없습니다.
-압축된 패키지를 풀려면 `UncompressPackage` 스위치와 함께 [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) 명령을 사용합니다.
+압축된 패키지를 풀려면 [ 스위치와 함께 ](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps)Copy-ServiceFabricApplicationPackage`UncompressPackage` 명령을 사용합니다.
 
 다음 cmdlet은 패키지를 이미지 저장소에 복사하지 않고 압축합니다. 이제 패키지에 `Code` 및 `Config` 패키지의 압축 파일이 포함됩니다. 애플리케이션 및 서비스 매니페스트는 많은 내부 작업(특정 유효성 검사를 위한 패키지 공유, 애플리케이션 유형 이름 및 버전 추출 등)에 필요하기 때문에 압축되지 않습니다. 매니페스트를 압축하면 이러한 작업이 비효율적으로 수행됩니다.
 
@@ -357,7 +357,7 @@ ImageStoreConnectionString은 클러스터 매니페스트에 있습니다.
 - 이미지 저장소에 복사하기 전에 [패키지를 압축합니다](service-fabric-package-apps.md#compress-a-package).
 압축하면 파일의 크기와 수가 줄어들므로 Service Fabric에서 수행해야 하는 트래픽과 작업량도 줄어듭니다. 업로드 작업이 느려질 수 있지만(특히 압축 시간이 포함되는 경우), 애플리케이션 유형을 더 빠르게 등록 및 등록 취소할 수 있습니다.
 - [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps)에 `TimeoutSec` 매개 변수를 사용하여 더 긴 시간 제한을 지정합니다.
-- [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps)에 `Async` 스위치를 지정합니다. 명령은 클러스터가 명령을 수락하고 애플리케이션 형식의 등록을 비동기적으로 계속하는 경우 반환합니다. 이러한 이유로 더 긴 시간 제한을 지정할 필요가 없습니다. [Get-ServiceFabricApplicationType](/powershell/module/servicefabric/get-servicefabricapplicationtype?view=azureservicefabricps) 명령은 성공적으로 등록된 모든 애플리케이션 유형 버전과 해당 등록 상태를 나열합니다. 이 명령을 사용하여 등록이 완료된 시기를 확인할 수 있습니다.
+- `Async`Register-ServiceFabricApplicationType[에 ](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) 스위치를 지정합니다. 명령은 클러스터가 명령을 수락하고 애플리케이션 형식의 등록을 비동기적으로 계속하는 경우 반환합니다. 이러한 이유로 더 긴 시간 제한을 지정할 필요가 없습니다. [Get-ServiceFabricApplicationType](/powershell/module/servicefabric/get-servicefabricapplicationtype?view=azureservicefabricps) 명령은 성공적으로 등록된 모든 애플리케이션 유형 버전과 해당 등록 상태를 나열합니다. 이 명령을 사용하여 등록이 완료된 시기를 확인할 수 있습니다.
 
 ```powershell
 Get-ServiceFabricApplicationType
@@ -376,7 +376,7 @@ DefaultParameters      : { "Stateless1_InstanceCount" = "-1" }
 다음을 시도해 보세요.
 - 이미지 저장소에 복사하기 전에 [패키지를 압축합니다](service-fabric-package-apps.md#compress-a-package). 압축하면 파일의 수가 줄어듭니다.
 - [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps)에 `TimeoutSec` 매개 변수를 사용하여 더 긴 시간 제한을 지정합니다.
-- [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps)에 `Async` 스위치를 지정합니다. 명령은 클러스터가 명령을 수락하고 애플리케이션 형식의 등록을 비동기적으로 계속하는 경우 반환합니다.
+- `Async`Register-ServiceFabricApplicationType[에 ](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) 스위치를 지정합니다. 명령은 클러스터가 명령을 수락하고 애플리케이션 형식의 등록을 비동기적으로 계속하는 경우 반환합니다.
 이러한 이유로 더 긴 시간 제한을 지정할 필요가 없습니다. [Get-ServiceFabricApplicationType](/powershell/module/servicefabric/get-servicefabricapplicationtype?view=azureservicefabricps) 명령은 성공적으로 등록된 모든 애플리케이션 유형 버전과 해당 등록 상태를 나열합니다. 이 명령을 사용하여 등록이 완료된 시기를 확인할 수 있습니다.
 
 ```powershell
