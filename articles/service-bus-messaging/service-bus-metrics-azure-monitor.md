@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 01/27/2020
 ms.author: aschhab
 ms.openlocfilehash: 329b930c950ea7c58bdac798fce51af152aa8ff3
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77920606"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78396270"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor"></a>Azure Monitor Azure Service Bus 메트릭
 
@@ -60,7 +60,7 @@ Azure Monitor에 대 한 메트릭 및 경고는 경고 단위로 요금이 부�
 
 데이터 및 관리 작업 요청 수를 계산합니다.
 
-| 메트릭 이름 | 설명 |
+| 메트릭 이름 | Description |
 | ------------------- | ----------------- |
 | 들어오는 요청| 지정된 기간 동안 Service Bus 서비스에 대한 요청 수입니다. <br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
 |성공한 요청|지정된 기간 동안 Service Bus 서비스에 대한 성공한 요청 수입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
@@ -78,25 +78,25 @@ Azure Monitor에 대 한 메트릭 및 경고는 경고 단위로 요금이 부�
 
 ## <a name="message-metrics"></a>메시지 메트릭
 
-| 메트릭 이름 | 설명 |
+| 메트릭 이름 | Description |
 | ------------------- | ----------------- |
 |들어오는 메시지|지정된 기간 동안 Service Bus에 전송된 이벤트 또는 메시지 수입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
 |보내는 메시지|지정된 기간 동안 Service Bus에서 수신한 이벤트 또는 메시지 수입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
-| Messages| 큐/토픽에 있는 메시지 수 <br/><br/> 단위: 개수 <br/> 집계 형식: 평균 <br/> 차원: EntityName |
+| 메시지| 큐/토픽에 있는 메시지 수 <br/><br/> 단위: 개수 <br/> 집계 형식: 평균 <br/> 차원: EntityName |
 | ActiveMessages| 큐/토픽에 있는 활성 메시지 수 <br/><br/> 단위: 개수 <br/> 집계 형식: 평균 <br/> 차원: EntityName |
 | 배달 못 한 메시지| 큐/토픽에서 배달 못 한 메시지의 수입니다. <br/><br/> 단위: 개수 <br/> 집계 형식: 평균 <br/>차원: EntityName |
 | 예약된 메시지| 큐/토픽에 있는 예약 된 메시지 수입니다. <br/><br/> 단위: 개수 <br/> 집계 형식: 평균  <br/> 차원: EntityName |
 
 > [!NOTE]
 > 다음 메트릭에 대 한 값은 지정 시간 값입니다. 해당 시점 직후에 사용 된 들어오는 메시지는 이러한 메트릭에 반영 되지 않을 수 있습니다. 
-> - Messages
+> - 메시지
 > - 활성 메시지 
 > - 배달 못 한 메시지 
 > - 예약된 메시지 
 
 ## <a name="connection-metrics"></a>연결 메트릭
 
-| 메트릭 이름 | 설명 |
+| 메트릭 이름 | Description |
 | ------------------- | ----------------- |
 |ActiveConnections|네임스페이스와 엔터티의 활성 연결 수입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
 
@@ -105,7 +105,7 @@ Azure Monitor에 대 한 메트릭 및 경고는 경고 단위로 요금이 부�
 > [!NOTE] 
 > 다음 메트릭은 **프리미엄** 계층에서만 제공됩니다. 
 
-| 메트릭 이름 | 설명 |
+| 메트릭 이름 | Description |
 | ------------------- | ----------------- |
 |네임스페이스당 CPU 사용량|네임스페이스의 CPU 사용량 비율입니다.<br/><br/> 단위: % <br/> 집계 형식: 최대 <br/> 차원: EntityName|
 |네임스페이스당 메모리 크기 사용량|네임스페이스의 메모리 사용량 비율입니다.<br/><br/> 단위: % <br/> 집계 형식: 최대 <br/> 차원: EntityName|
@@ -114,7 +114,7 @@ Azure Monitor에 대 한 메트릭 및 경고는 경고 단위로 요금이 부�
 
 Azure Service Bus는 Azure Monitor의 메트릭에 대해 다음과 같은 차원을 지원합니다. 메트릭에 차원을 추가하는 것은 선택 사항입니다. 차원을 추가하지 않는 경우 메트릭은 네임스페이스 수준에서 지정됩니다. 
 
-|차원 이름|설명|
+|차원 이름|Description|
 | ------------------- | ----------------- |
 |EntityName| Service Bus는 네임스페이스에서 메시징 엔터티를 지원합니다.|
 
@@ -146,7 +146,7 @@ Azure Service Bus는 Azure Monitor의 메트릭에 대해 다음과 같은 차�
     2. 경고에 대한 **설명** 을 입력합니다.
     3. 경고의 **심각도**를 선택합니다. 
 
-        ![경고 정보](./media/service-bus-metrics-azure-monitor/alert-details.png)
+        ![경고 세부 정보](./media/service-bus-metrics-azure-monitor/alert-details.png)
 1. **규칙 만들기** 페이지에서 **작업 그룹 정의**를 선택하고, **새 작업 그룹**을 선택하고, **작업 그룹 추가 페이지**에서 다음 작업을 수행합니다. 
     1. 작업 그룹의 이름을 입력합니다.
     2. 작업 그룹의 짧은 이름을 입력합니다. 
@@ -160,7 +160,7 @@ Azure Service Bus는 Azure Monitor의 메트릭에 대해 다음과 같은 차�
         2. **이메일 주소**를 입력합니다. 
         3. **확인**을 선택합니다.
 
-            ![경고 정보](./media/service-bus-metrics-azure-monitor/add-action-group.png)
+            ![경고 세부 정보](./media/service-bus-metrics-azure-monitor/add-action-group.png)
         4. **작업 그룹 추가** 페이지에서 **확인**을 선택합니다. 
 1. **규칙 만들기** 페이지에서 **경고 규칙 만들기**를 선택합니다. 
 

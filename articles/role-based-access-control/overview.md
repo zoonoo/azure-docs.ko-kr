@@ -15,11 +15,11 @@ ms.date: 09/11/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 2ef528438591006be6e4cdec508dd15a7fb0a143
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75357684"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78379266"
 ---
 # <a name="what-is-role-based-access-control-rbac-for-azure-resources"></a>Azure 리소스에 대한 RBAC(역할 기반 액세스 제어)란?
 

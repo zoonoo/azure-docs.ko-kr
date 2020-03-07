@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 06/29/2017
 ms.author: alkohli
 ms.openlocfilehash: 13a3e57bb27c075fc045e87790dbe13369ed9f8e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60699474"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78366763"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-storsimple-bandwidth-templates"></a>StorSimple 디바이스 관리자 서비스를 사용하여 StorSimple 대역폭 템플릿 관리
 
@@ -116,7 +116,7 @@ ms.locfileid: "60699474"
 기본 대역폭 템플릿이 제공되며 기본값으로 볼륨 컨테이너에서 사용되어 클라우드에 액세스할 때 대역폭 제어를 적용합니다. 기본 템플릿은 자신의 템플릿을 만드는 사용자를 위한 준비 참조로도 제공됩니다. 이 기본 템플릿의 내용은 다음과 같습니다.
 
 * **이름** – 무제한 저녁 시간 및 주말
-* **일정** – 오전 8시와 오후 5시 디바이스 시간 사이의 1Mbps의 대역폭 속도를 적용하는 월요일에서부터 금요일까지의 단일 일정입니다. 대역폭은 그 주의 나머지 부분에 대해 무제한으로 설정됩니다.
+* **일정** – 오전 8시와 오후 5시 디바이스 시간 사이의 1Mbps의 대역폭 속도를 적용하는 월요일에서부터 금요일까지의 단일 일정입니다. 주의 나머지 요일에는 대역폭이 무제한으로 설정됩니다.
 
 기본 템플릿은 편집할 수 있습니다. 이 템플릿의 사용(편집된 버전 포함)을 추적합니다.
 

@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
 ms.openlocfilehash: 1bfb9362aa0e893a8bf1a758e5a0069e85ab227b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75438753"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78385697"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Data Lake Storage Gen1 시작
 
@@ -26,7 +26,7 @@ ms.locfileid: "75438753"
 
 Azure Portal 사용 하 여 Data Lake Storage Gen1 계정을 만들고 폴더 만들기, 데이터 파일 업로드 및 다운로드, 계정 삭제 등의 기본 작업을 수행 하는 방법에 대해 알아봅니다. 자세한 내용은 [Azure Data Lake Storage Gen1 개요](data-lake-store-overview.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 시작하기 전에 다음 항목이 있어야 합니다.
 

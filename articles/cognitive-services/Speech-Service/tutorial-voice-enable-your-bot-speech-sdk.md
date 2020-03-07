@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: dapine
 ms.openlocfilehash: 9112c7070708f3b97d79c1978a9b7204721c3194
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77616629"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78394836"
 ---
 # <a name="tutorial-voice-enable-your-bot-using-the-speech-sdk"></a>자습서: 음성 SDK를 사용 하 여 봇 음성 사용
 
@@ -50,7 +50,7 @@ ms.locfileid: "77616629"
 > * 사용자 지정 키워드 활성화 추가
 > * 인식 된 음성 및 음성 음성의 언어를 변경 하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료 하는 데 필요한 사항은 다음과 같습니다.
 
@@ -104,7 +104,7 @@ ms.locfileid: "77616629"
 
 이 시점에서 리소스 그룹 (**SpeechEchoBotTutorial**)에 음성 리소스가 있는지 확인 합니다.
 
-| 이름 | 형식  | 위치 |
+| 속성 | Type  | 위치 |
 |------|-------|----------|
 | SpeechEchoBotTutorial-Speech | Cognitive Services | 미국 서부 |
 
@@ -125,7 +125,7 @@ ms.locfileid: "77616629"
 
 이 시점에서 리소스 그룹 (**SpeechEchoBotTutorial-ResourceGroup**)에 두 개의 리소스가 있는지 확인 합니다.
 
-| 이름 | 형식  | 위치 |
+| 속성 | Type  | 위치 |
 |------|-------|----------|
 | SpeechEchoBotTutorial-AppServicePlan | App Service 계획 | 미국 서부 |
 | SpeechEchoBotTutorial-Speech | Cognitive Services | 미국 서부 |
@@ -164,13 +164,13 @@ ms.locfileid: "77616629"
 1. [Bot Framework 에뮬레이터](https://github.com/Microsoft/BotFramework-Emulator/releases/latest) 버전 4.3.0 이상을 설치 합니다.
 2. Bot Framework 에뮬레이터를 시작 하 고 bot를 엽니다.
    * **파일** -> **열기 봇**입니다.
-3. 봇의 URL을 입력 합니다. 예를 들면 다음과 같습니다.
+3. 봇의 URL을 입력 합니다. 다음은 그 예입니다.
 
    ```
    http://localhost:3978/api/messages
    ```
    "연결"을 누릅니다.
-4. 봇에서 "Hello 및 환영!"을 즉시 환영 합니다. 않습니다. 모든 문자 메시지를 입력 하 고 봇에서 응답이 수신 되는지 확인 합니다.
+4. 봇에서 "Hello 및 환영!"을 즉시 환영 합니다. 메시지가 표시됩니다. 모든 문자 메시지를 입력 하 고 봇에서 응답이 수신 되는지 확인 합니다.
 5. Echo Bot 인스턴스와 통신 교환이 다음과 같이 표시 될 수 있습니다. [ ![봇-에뮬레이터](media/tutorial-voice-enable-your-bot-speech-sdk/bot-framework-emulator.png "Bot Framework 에뮬레이터")](media/tutorial-voice-enable-your-bot-speech-sdk/bot-framework-emulator.png#lightbox)
 
 ## <a name="deploy-your-bot-to-an-azure-app-service"></a>Azure App Service에 봇 배포
@@ -207,7 +207,7 @@ ms.locfileid: "77616629"
 1. 기본 브라우저가 열리고 "봇이 준비 되었습니다!" 라는 페이지가 표시 됩니다.
 1. 이 시점에서 Azure Portal 리소스 그룹 **SpeechEchoBotTutorial** 를 확인 하 고 세 가지 리소스가 있는지 확인 합니다.
 
-| 이름 | 형식  | 위치 |
+| 속성 | Type  | 위치 |
 |------|-------|----------|
 | EchoBot20190805125647 | App Service | 미국 서부 |
 | SpeechEchoBotTutorial-AppServicePlan | App Service 계획 | 미국 서부 |
@@ -248,7 +248,7 @@ ms.locfileid: "77616629"
 
 이 시점에서 Azure Portal 리소스 그룹 **SpeechEchoBotTutorial** 를 확인 합니다. 이제 다음 4 개의 리소스를 표시 해야 합니다.
 
-| 이름 | 형식  | 위치 |
+| 속성 | Type  | 위치 |
 |------|-------|----------|
 | EchoBot20190805125647 | App Service | 미국 서부 |
 | SpeechEchoBotTutorial-AppServicePlan | App Service 계획 | 미국 서부 |
@@ -294,7 +294,7 @@ Direct Line Speech Client에는 bot에 대 한 연결을 구성 하 고, 텍스�
 
 주 앱 창에 오류 메시지가 표시 되 면이 표를 사용 하 여 오류를 식별 하 고 해결 합니다.
 
-| 오류 | 무엇을 해야 하나요? |
+| Error | 무엇을 해야 하나요? |
 |-------|----------------------|
 |오류 AuthenticationFailure: 인증 오류 (401)로 인해 WebSocket을 업그레이드 하지 못했습니다. 올바른 구독 키 (또는 권한 부여 토큰) 및 지역 이름 확인| 앱의 설정 페이지에서 음성 구독 키와 해당 영역을 올바르게 입력 했는지 확인 합니다.<br>음성 키와 키 영역을 올바르게 입력 했는지 확인 합니다. |
 |오류 ConnectionFailure: 원격 호스트에서 연결을 끊었습니다. 오류 코드: 1011. 오류 세부 정보: 메시지를 보내기 전에 봇에 연결할 수 없습니다. | ["스트리밍 끝점 사용"](#register-the-direct-line-speech-channel) 확인란을 선택 했는지 확인 하 고 [ **웹 소켓** ](#enable-web-sockets) 을 켜기로 전환 합니다.<br>Azure App Service 실행 중인지 확인 합니다. 인 경우 App Service를 다시 시작 하십시오.|

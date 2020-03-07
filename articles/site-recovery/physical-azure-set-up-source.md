@@ -9,25 +9,25 @@ ms.topic: conceptual
 ms.date: 07/03/2019
 ms.author: ramamill
 ms.openlocfilehash: 902c14211e91a1500c6b50cd790b347e337c4f70
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67589051"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78367103"
 ---
 # <a name="set-up-the-configuration-server-for-disaster-recovery-of-physical-servers-to-azure"></a>Azure에 물리적 서버를 재해 복구하기 위해 구성 서버 설정
 
 이 문서에서는 온-프레미스 환경을 설정하여 Windows 또는 Linux를 실행 중인 물리적 서버를 Azure에 복제하기 시작하는 방법을 설명합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서에서는 사용자가 다음 항목을 이미 가지고 있다고 가정합니다.
-- [Azure Portal](https://portal.azure.com "Azure Portal")의 Recovery Services 자격 증명 모음
+- [Azure Portal](https://portal.azure.com "Azure portal")의 Recovery Services 자격 증명 모음입니다.
 - 구성 서버를 설치할 물리적 컴퓨터
-- 구성 서버를 설치 하는 컴퓨터에서 TLS 1.0을 사용 하지 않도록 설정 했으므로, 있는지는 TLs 1.2 사용 하 고 (강력한 암호화를 통해 사용 하도록 설정) 컴퓨터에.NET Framework 버전 4.6 이상이 설치 되어 있는지 확인 합니다. [자세히 알아보기](https://support.microsoft.com/help/4033999/how-to-resolve-azure-site-recovery-agent-issues-after-disabling-tls-1).
+- 구성 서버를 설치 하는 컴퓨터에서 TLS 1.0을 사용 하지 않도록 설정한 경우 TLs 1.2을 사용 하도록 설정 하 고 .NET Framework 버전 4.6 이상이 컴퓨터에 설치 되어 있는지 확인 합니다 (강력한 암호화 사용). [자세히 알아봅니다](https://support.microsoft.com/help/4033999/how-to-resolve-azure-site-recovery-agent-issues-after-disabling-tls-1).
 
 ### <a name="configuration-server-minimum-requirements"></a>구성 서버 최소 요구 사항
-다음 테이블에는 구성 서버에 대한 최소 하드웨어, 소프트웨어 및 네트워크 요구 사항이 나와 있습니다.
+다음 표에는 구성 서버에 대한 최소 하드웨어, 소프트웨어 및 네트워크 요구 사항이 나와 있습니다.
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
 > [!NOTE]
@@ -63,7 +63,7 @@ ms.locfileid: "67589051"
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
 > [!NOTE]
-> 명령줄을 통해 구성 서버를 설치할 수 있습니다. [자세히 알아보기](physical-manage-configuration-server.md#install-from-the-command-line).
+> 명령줄을 통해 구성 서버를 설치할 수 있습니다. [자세히 알아봅니다](physical-manage-configuration-server.md#install-from-the-command-line).
 
 
 ## <a name="common-issues"></a>일반적인 문제

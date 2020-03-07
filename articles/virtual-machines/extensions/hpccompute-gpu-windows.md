@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: akjosh
 ms.openlocfilehash: c388f433327b5328483f10fbef637a6fdfd08832
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073032"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78383232"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>Windows용 NVIDIA GPU 드라이버 확장
 
@@ -29,7 +29,7 @@ ms.locfileid: "74073032"
 드라이버의 수동 설치 및 현재 지원 되는 버전에 대 한 지침은 [여기](https://docs.microsoft.com/azure/virtual-machines/windows/n-series-driver-setup)에서 제공 됩니다.
 또한 [Linux N 시리즈 VM](hpccompute-gpu-linux.md)에 NVIDIA GPU 드라이버를 설치할 수 있는 확장도 제공됩니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 ### <a name="operating-system"></a>운영 체제
 
@@ -37,9 +37,9 @@ ms.locfileid: "74073032"
 
 | 배포 | 버전 |
 |---|---|
-| Windows 10 | Core |
-| Windows Server 2016 | Core |
-| Windows Server 2012 R2 | Core |
+| 윈도우 10 | 핵심 |
+| Windows Server 2016 | 핵심 |
+| Windows Server 2012 R2 | 핵심 |
 
 ### <a name="internet-connectivity"></a>인터넷 연결
 
@@ -71,11 +71,11 @@ NVIDIA GPU 드라이버용 Microsoft Azure 확장을 사용하려면 대상 VM�
 
 ### <a name="properties"></a>속성
 
-| 이름 | 값/예제 | 데이터 형식 |
+| 속성 | 값/예제 | 데이터 형식 |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| publisher | Microsoft.HpcCompute | string |
-| type | NvidiaGpuDriverWindows | string |
+| publisher | Microsoft.HpcCompute | 문자열 |
+| type | NvidiaGpuDriverWindows | 문자열 |
 | typeHandlerVersion | 1.2 | int |
 
 

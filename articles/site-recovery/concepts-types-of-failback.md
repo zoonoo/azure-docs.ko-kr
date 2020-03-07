@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: raynew
 ms.openlocfilehash: c0eaf28f9aeb4050fd35a6036a53e3e91d00f3eb
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847480"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78362927"
 ---
-# <a name="failback-of-vmware-vms-after-disaster-recovery-to-azure"></a>Azure로 재해 복구 후 VMware Vm 장애 복구 (Failback)
+# <a name="failback-of-vmware-vms-after-disaster-recovery-to-azure"></a>Azure로 재해 복구 후 VMware VM 장애 복구(failback)
 
 재해 복구 프로세스의 일부로 Azure로 장애 조치(failover)한 후 온-프레미스 사이트로 장애 복구(failback)할 수 있습니다. Azure Site Recovery에서 가능한 두 가지 유형의 장애 복구(failback)가 있습니다. 
 

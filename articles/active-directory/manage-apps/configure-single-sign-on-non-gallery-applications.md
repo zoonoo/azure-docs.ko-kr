@@ -13,11 +13,11 @@ ms.author: celested
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ad27ad5e34d9f44fe7d7be80e05e33dd6fb5e7b1
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77159066"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78375894"
 ---
 # <a name="configure-saml-based-single-sign-on-to-non-gallery-applications"></a>비 갤러리 응용 프로그램에 대 한 SAML 기반 Single Sign-On 구성
 

@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 06/12/2019
 ms.custom: mvc
 ms.openlocfilehash: 2637603fa303d57340aa36786443508f1930a481
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77049920"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78381320"
 ---
 # <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-resource-manager-template"></a>빠른 시작: Azure HDInsight에서 Resource Manager 템플릿을 사용하여 Apache Spark 클러스터 만들기
 

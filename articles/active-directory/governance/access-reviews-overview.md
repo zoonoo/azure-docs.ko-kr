@@ -17,11 +17,11 @@ ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5499c8808c3916842071df1f03a865efd98719f6
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77185738"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376799"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>Azure AD 액세스 검토란?
 
@@ -58,8 +58,8 @@ Azure AD를 사용하면 조직 내에서 내부적으로, 또한 파트너와 �
 | --- | --- | --- | --- |
 | 보안 그룹 멤버</br>사무실 그룹 멤버 | 지정된 검토자</br>그룹 소유자</br>자동 검토 | Azure AD 액세스 검토</br>Azure AD 그룹 | 액세스 패널 |
 | 연결된 앱에 할당됨 | 지정된 검토자</br>자동 검토 | Azure AD 액세스 검토</br>Azure AD 엔터프라이즈 앱(미리 보기) | 액세스 패널 |
-| Azure AD 역할 | 지정된 검토자</br>자동 검토 | [Azure AD PIM](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Azure portal |
-| Azure 리소스 역할 | 지정된 검토자</br>자동 검토 | [Azure AD PIM](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Azure portal |
+| Azure AD 역할 | 지정된 검토자</br>자동 검토 | [Azure AD PIM](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Azure 포털 |
+| Azure 리소스 역할 | 지정된 검토자</br>자동 검토 | [Azure AD PIM](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Azure 포털 |
 
 
 ## <a name="create-access-reviews"></a>액세스 검토 만들기
