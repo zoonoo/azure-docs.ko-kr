@@ -11,11 +11,11 @@ ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ms.openlocfilehash: 6e4b5bc6d30f6caa2809b7aa1e72be70ae12dbc1
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78193037"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78396615"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-architecture"></a>Azure Synapse Analytics (이전의 SQL DW) 아키텍처 
 
@@ -54,7 +54,7 @@ SQL Analytics는 Azure Storage를 활용 하 여 사용자 데이터를 안전 �
 
 * Hash
 * 라운드 로빈
-* Replicate
+* 복제
 
 ### <a name="control-node"></a>제어 노드
 

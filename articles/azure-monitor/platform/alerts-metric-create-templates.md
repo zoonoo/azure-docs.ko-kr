@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 2/24/2020
 ms.subservice: alerts
 ms.openlocfilehash: 2f6e9cd4e7a035e6555b2241613cb9c46c3be550
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77664839"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78368020"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 메트릭 경고 만들기
 
@@ -565,7 +565,7 @@ az group deployment create \
 
 최신 메트릭 경고는 다차원 메트릭에 대한 경고를 지원하고 여러 조건을 지원합니다. 다음 템플릿을 사용 하 여 차원 메트릭에 대 한 고급 메트릭 경고 규칙을 만들고 여러 조건을 지정할 수 있습니다.
 
-여러 조건을 포함 하는 경고 규칙에서 차원을 사용 하는 경우 다음 제약 조건을 유의 하세요.
+여러 조건이 포함된 경고 규칙에서 차원을 사용하는 경우 다음 제약 조건을 참조하세요.
 - 각 조건 내에서 차원 당 하나의 값만 선택할 수 있습니다.
 - "\*"을 차원 값으로 사용할 수 없습니다.
 - 다른 조건에서 구성 된 메트릭이 동일한 차원을 지 원하는 경우 구성 된 차원 값은 모든 해당 메트릭에 대해 동일한 방식으로 명시적으로 설정 되어야 합니다 (관련 조건에 따라).

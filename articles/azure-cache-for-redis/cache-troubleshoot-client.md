@@ -7,11 +7,11 @@ ms.service: cache
 ms.topic: troubleshooting
 ms.date: 10/18/2019
 ms.openlocfilehash: ace953fcb278604cb64eef463753f0f2622d3d24
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77523342"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78372181"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-client-side-issues"></a>Redis 클라이언트 쪽 문제에 대 한 Azure 캐시 문제 해결
 

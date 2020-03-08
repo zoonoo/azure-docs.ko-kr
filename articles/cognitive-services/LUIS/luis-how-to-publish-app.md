@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: diberry
 ms.openlocfilehash: 676c6d15c4f439543a3ed74627001725632fecfa
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74554836"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78361176"
 ---
 # <a name="publish-your-active-trained-app-to-a-staging-or-production-endpoint"></a>스테이징 또는 프로덕션 엔드포인트에 활성 상태의 학습된 앱 게시
 
@@ -38,7 +38,7 @@ ms.locfileid: "74554836"
 
 팝업 창이 표시 되 면 올바른 슬롯을 선택 합니다. 
 
-* Staging
+* 스테이징
 * 프로덕션 
 
 두 게시 슬롯을 모두 사용 하면 게시 된 끝점에서 두 가지 다른 버전의 앱을 사용할 수 있거나 두 개의 서로 다른 끝점에서 동일한 버전을 사용할 수 있습니다. 
@@ -57,7 +57,7 @@ ms.locfileid: "74554836"
 
 슬롯을 선택 하 고 다음에 대 한 게시 설정을 구성 합니다.
 
-* 감정 분석
+* 정서 분석
 * 맞춤법 수정-v2 예측 끝점만
 * 음성 초기화 
 
@@ -69,7 +69,7 @@ ms.locfileid: "74554836"
 
 엔드포인트 URL이 필요한 경우 링크를 선택하세요. 상단 메뉴에서 **관리** 를 선택 하 고 왼쪽 메뉴에서 **Azure 리소스** 를 선택 하 여 끝점 url로 이동할 수도 있습니다. 
 
-## <a name="sentiment-analysis"></a>감정 분석
+## <a name="sentiment-analysis"></a>정서 분석
 
 <a name="enable-sentiment-analysis"></a>
 

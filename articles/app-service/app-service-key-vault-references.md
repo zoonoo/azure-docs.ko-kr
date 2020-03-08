@@ -7,11 +7,11 @@ ms.date: 10/09/2019
 ms.author: mahender
 ms.custom: seodec18
 ms.openlocfilehash: 7fdb7c980a278e2dcd4b64a4b70de50721d0b72a
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75728755"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78373816"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions"></a>App Service 및 Azure Functions에 대 한 Key Vault 참조를 사용 합니다.
 
@@ -40,7 +40,7 @@ Key Vault 참조는 `@Microsoft.KeyVault({referenceString})` 형식이며, 여�
 > [!div class="mx-tdBreakAll"]
 > | 참조 문자열                                                            | Description                                                                                                                                                                                 |
 > |-----------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-> | SecretUri=_secretUri_                                                       | **SecretUri**는 버전을 포함하여 Key Vault에 있는 비밀의 전체 데이터 평면 URI여야 합니다(예: https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931 ).  |
+> | SecretUri=_secretUri_                                                       | **SecretUri**는 버전을 포함하여 Key Vault에 있는 비밀의 전체 데이터 평면 URI여야 합니다(예: https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931).  |
 > | VaultName=_vaultName_;SecretName=_secretName_;SecretVersion=_secretVersion_ | **VaultName**은 Key Vault 리소스의 이름이어야 합니다. **SecretName**은 대상 비밀의 이름이어야 합니다. **SecretVersion**은 사용할 비밀의 버전이어야 합니다. |
 
 예를 들어 버전에 대 한 전체 참조는 다음과 같습니다.
@@ -187,7 +187,7 @@ Azure Resource Manager 템플릿을 통해 리소스 배포를 자동화할 때 
 ### <a name="using-the-detector-for-app-service"></a>App Service에 대 한 탐지기 사용
 
 1. 포털에서 앱으로 이동 합니다.
-2. **문제 진단 및 해결**을 선택합니다.
+2. **진단 및 문제 해결을**선택 합니다.
 3. **가용성 및 성능** 을 선택 하 고 **웹 앱 중단을 선택 합니다.**
 4. **Key Vault 응용 프로그램 설정 진단을** 찾고 **추가 정보**를 클릭 합니다.
 
@@ -196,6 +196,6 @@ Azure Resource Manager 템플릿을 통해 리소스 배포를 자동화할 때 
 
 1. 포털에서 앱으로 이동 합니다.
 2. **플랫폼 기능으로 이동 합니다.**
-3. **문제 진단 및 해결**을 선택합니다.
+3. **진단 및 문제 해결을**선택 합니다.
 4. **가용성 및 성능** 을 선택 하 고 **함수 앱 중단 또는 오류 보고를 선택 합니다.**
 5. **Key Vault 응용 프로그램 설정 진단을 클릭 합니다.**

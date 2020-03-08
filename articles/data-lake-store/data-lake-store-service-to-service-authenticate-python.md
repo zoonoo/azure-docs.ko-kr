@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 009aff2703829e6d30f93b3c8e3696724594f29b
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76290770"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78390593"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-python"></a>Python을 사용하여 Azure Data Lake Storage Gen1로 서비스 간 인증
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.locfileid: "76290770"
 이 문서에서는 Python SDK를 사용하여 Azure Data Lake Storage Gen1로 서비스 간 인증을 수행하는 방법을 배웁니다. Python을 사용한 Data Lake Storage Gen1 최종 사용자 인증의 경우 [을 사용하여 Data Lake Storage Gen1로 최종 사용자 인증](data-lake-store-end-user-authenticate-python.md)을 참조하세요.
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * **Python**. Python을 [여기](https://www.python.org/downloads/)에서 다운로드할 수 있습니다. 이 문서에서는 Python 3.6.2를 사용합니다.
 

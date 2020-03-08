@@ -8,11 +8,11 @@ ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: ''
 ms.openlocfilehash: f4fdf25fa1403b8429e7ad7e7fc644d0355b1324
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77189828"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78373700"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Azure Functions의 타이머 트리거 
 
@@ -34,7 +34,7 @@ ms.locfileid: "77189828"
 
 ## <a name="example"></a>예제
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 다음 예에서는 분에 5로 나눌 수 있는 값이 있을 때마다 실행 되는 [ C# 함수](functions-dotnet-class-library.md) 를 보여 줍니다 (예: 함수가 18:57:00에서 시작 하는 경우 다음 성능은 19:00:00에 표시 됨). [`TimerInfo`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) 개체가 함수에 전달 됩니다.
 
@@ -50,7 +50,7 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
 }
 ```
 
-# <a name="c-scripttabcsharp-script"></a>[C#스크립트도](#tab/csharp-script)
+# <a name="c-script"></a>[C#스크립트도](#tab/csharp-script)
 
 다음 예에서는 *function.json* 파일의 타이머 트리거 바인딩 및 바인딩을 사용하는 [C# 스크립트 함수](functions-reference-csharp.md)를 보여줍니다. 함수는 누락된 일정으로 인해 이 함수 호출이 발생했는지를 나타내는 로그를 씁니다. [`TimerInfo`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) 개체가 함수에 전달 됩니다.
 
@@ -78,7 +78,7 @@ public static void Run(TimerInfo myTimer, ILogger log)
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 다음 예에서는 *function.json* 파일의 타이머 트리거 바인딩 및 바인딩을 사용하는 [JavaScript 함수](functions-reference-node.md)를 보여줍니다. 함수는 누락된 일정으로 인해 이 함수 호출이 발생했는지를 나타내는 로그를 씁니다. [타이머 개체가](#usage) 함수에 전달 됩니다.
 
@@ -109,7 +109,7 @@ module.exports = function (context, myTimer) {
 };
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 다음 예제에서는 해당 구성이 *함수인 json* 파일에 설명 된 타이머 트리거 바인딩을 사용 합니다. 바인딩을 사용 하는 실제 [Python 함수](functions-reference-python.md) 는 *py* 파일에 설명 되어 있습니다. 함수에 전달 되는 개체는 [azure. 함수인 request 개체](/python/api/azure-functions/azure.functions.timerrequest)유형입니다. 함수 논리는 현재 호출이 누락 된 일정 발생으로 인 한 것인지 여부를 나타내는 로그에 기록 합니다. 
 
@@ -143,7 +143,7 @@ def main(mytimer: func.TimerRequest) -> None:
     logging.info('Python timer trigger function ran at %s', utc_timestamp)
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 다음 예제 함수는 5분 간격으로 트리거되고 실행됩니다. 함수의 `@TimerTrigger` 주석은 [CRON 식](https://en.wikipedia.org/wiki/Cron#CRON_expression)과 같은 문자열 형식을 사용하여 일정을 정의합니다.
 
@@ -162,7 +162,7 @@ public void keepAlive(
 
 ## <a name="attributes-and-annotations"></a>특성 및 주석
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 [C# 클래스 라이브러리](functions-dotnet-class-library.md)에서 [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs) 특성을 사용합니다.
 
@@ -182,19 +182,19 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
 }
 ```
 
-# <a name="c-scripttabcsharp-script"></a>[C#스크립트도](#tab/csharp-script)
+# <a name="c-script"></a>[C#스크립트도](#tab/csharp-script)
 
 스크립트에서 C# 특성을 지원 하지 않습니다.
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 JavaScript에서는 특성을 지원 하지 않습니다.
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Python에서 특성을 지원 하지 않습니다.
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 함수의 `@TimerTrigger` 주석은 [CRON 식](https://en.wikipedia.org/wiki/Cron#CRON_expression)과 같은 문자열 형식을 사용하여 일정을 정의합니다.
 

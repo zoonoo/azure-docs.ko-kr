@@ -14,11 +14,11 @@ ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 8080d4cf4c3f0091f7837b3fccead5474c42db55
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76695877"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78377234"
 ---
 # <a name="single-sign-on-with-msaljs"></a>MSAL.js를 사용한 Single Sign-On
 
@@ -87,7 +87,7 @@ userAgentApplication.acquireTokenSilent(request).then(function(response) {
 
 **Login 힌트 사용**
 
-구성 된 SID 클레임이 없거나, 대화형 인증 호출에서 계정 선택 프롬프트를 무시 해야 하는 경우 요청 매개 변수에 `login_hint`를 제공 하 고, MSAL의 대화형 방법 (`loginPopup`, `loginRedirect`, `acquireTokenPopup` 및 `acquireTokenRedirect`)에서 필요에 따라 `domain_hint`을 `extraQueryParameters` 하 여이 작업을 수행할 수 있습니다. 예:
+구성 된 SID 클레임이 없거나, 대화형 인증 호출에서 계정 선택 프롬프트를 무시 해야 하는 경우 요청 매개 변수에 `login_hint`를 제공 하 고, MSAL의 대화형 방법 (`loginPopup`, `loginRedirect`, `acquireTokenPopup` 및 `acquireTokenRedirect`)에서 필요에 따라 `domain_hint`을 `extraQueryParameters` 하 여이 작업을 수행할 수 있습니다. 다음은 그 예입니다.
 
 ```javascript
 var request = {

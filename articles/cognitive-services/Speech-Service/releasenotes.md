@@ -3,22 +3,48 @@ title: 릴리스 정보-음성 서비스
 titleSuffix: Azure Cognitive Services
 description: 음성 서비스 기능 릴리스, 향상 된 기능, 버그 수정 및 알려진 문제에 대 한 실행 로그입니다.
 services: cognitive-services
-author: oscholz
-manager: nitinme
+author: brianem
+manager: jhakulin
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/15/2020
-ms.author: oliversc
+ms.date: 02/25/2020
+ms.author: brianem
 ms.custom: seodec18
-ms.openlocfilehash: 235d8788b47355925d93cb3e3835d32e25c1b51f
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: cbe9c7cbd0f402e38d1163050d77b055f89948ba
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77168156"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78394808"
 ---
 # <a name="release-notes"></a>릴리스 정보
+## <a name="speech-sdk-1100-2020-february-release"></a>Speech SDK 1.10.0:2020-2 월 릴리스
+
+**새로운 기능**
+ - Python의 새로운 3.8 릴리스를 지 원하는 Python 패키지를 추가 했습니다.
+ - Red Hat Enterprise Linux (RHEL)/CentOS 8 x64 지원 (C++, C#, Java, Python).
+   > [!NOTE] 
+   > 고객은 [이러한 지침](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-configure-openssl-linux)에 따라 OpenSSL를 구성 해야 합니다.
+ - Debian 및 Ubuntu에 대 한 Linux ARM32 지원.
+ - DialogServiceConnector는 이제 BotFrameworkConfig에서 선택적 "bot ID" 매개 변수를 지원 합니다. 이 매개 변수를 사용 하면 단일 Azure 음성 리소스에서 여러 개의 직접 라인 음성 봇을 사용할 수 있습니다. 매개 변수를 지정 하지 않으면 기본 봇 (직접 선 음성 채널 구성 페이지에 의해 결정 됨)이 사용 됩니다.
+ - DialogServiceConnector에는 이제 SpeechActivityTemplate 속성이 있습니다. 이 JSON 문자열의 내용은 음성 인식과 같은 이벤트에 대 한 응답으로 자동으로 생성 되는 활동을 포함 하 여 직접 라인 음성 봇에 도달 하는 모든 활동에서 다양 한 지원 필드를 미리 채우도록 사용 됩니다.
+ - 이제 TTS는 인증에 구독 키를 사용 하 여 신시사이저를 만든 후 첫 번째 합성 결과의 첫 번째 바이트 대기 시간을 줄입니다.
+ - 18.6%의 평균 단어 오류 비율 절감을 위해 19 개 로캘에 대 한 음성 인식 모델 업데이트 (es, es-MX, fr-fr, fr-fr, it-zh-cn, ko-kr, ko-kr, pt-BR,, zh-cn-HK, nb,, fi,, pl,, zh-cn,,,)를 차례로 찾을 수 있습니다 .이에 대 한 자세한 내용은 새 모델은 받아쓰기, 콜 센터 기록 및 비디오 인덱싱 시나리오를 비롯 한 여러 도메인에 걸쳐 상당한 향상 된 기능을 가져옵니다.
+
+**버그 수정**
+ - JAVA Api에서 대화 Transcriber 올바르게 기다리지 않는 버그가 수정 되었습니다. 
+ - Xamarin [GitHub 문제](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/363) 에 대 한 Android x86 에뮬레이터 수정
+ - Missing 추가 (Get | 속성 메서드를 기타 구성으로 설정 합니다.
+ - 연결이 실패할 때 audioDataStream를 중지할 수 없는 TTS 버그를 수정 합니다.
+ - 지역이 없는 끝점을 사용 하면 대화 변환기에 대 한 USP 오류가 발생 합니다.
+ - 유니버설 Windows 응용 프로그램의 ID 생성은 이제 적절 한 고유 GUID 알고리즘을 사용 합니다. 이전에는 대부분의 상호 작용에 대 한 충돌을 자주 생성 하는 스텁 구현에 대해 이전 및 실수로 기본 설정 되었습니다.
+ 
+ **샘플**
+ - [Unity 마이크 및 푸시 모드 스트리밍](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/unity/from-unitymicrophone) 에서 음성 SDK를 사용 하기 위한 unity 샘플
+
+**기타 변경 내용**
+ - [Linux 용으로 업데이트 된 OpenSSL 구성 설명서](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-configure-openssl-linux)
 
 ## <a name="speech-sdk-190-2020-january-release"></a>Speech SDK 1.9.0:2020-1 월 릴리스
 

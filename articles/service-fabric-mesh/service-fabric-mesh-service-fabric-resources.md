@@ -7,18 +7,18 @@ ms.date: 10/23/2018
 ms.author: vturecek
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 0ae2ed163560aee4c0c3525ab31910e37afaa5b9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75352449"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78397241"
 ---
 # <a name="introduction-to-service-fabric-resource-model"></a>Service Fabric 리소스 모델 소개
 
 Service Fabric 리소스 모델에서는 Service Fabric Mesh 애플리케이션을 구성하는 리소스를 정의하는 간단한 방법을 설명합니다. 개별 리소스는 모든 Service Fabric 환경에 배포할 수 있습니다.  Service Fabric 리소스 모델은 Azure Resource Manager 모델과도 호환됩니다. 다음 형식의 리소스가 현재 이 모델에서 지원됩니다.
 
 - 애플리케이션 및 서비스
-- Networks
+- 네트워크
 - 게이트웨이
 - 비밀 및 비밀/값
 - 볼륨
@@ -44,7 +44,7 @@ Mesh 애플리케이션이 둘 이상의 서비스로 구성되면 동일한 노
 
 앞에서 언급한 대로 각 애플리케이션 인스턴스의 수명 주기를 독립적으로 관리할 수 있습니다. 예를 들어 하나의 애플리케이션 인스턴스는 다른 애플리케이션 인스턴스와 독립적으로 업그레이드될 수 있습니다. 일반적으로 애플리케이션에서 서비스 수를 적게 유지하고 애플리케이션에 서비스가 많을수록 서비스를 독립적으로 관리하기 어렵게 됩니다.
 
-## <a name="networks"></a>Networks
+## <a name="networks"></a>네트워크
 
 네트워크 리소스는 개별적으로 배포 가능한 리소스이며 해당 종속성으로 참조할 수 있는 애플리케이션 또는 서비스 리소스와 독립적입니다. 애플리케이션에 대한 네트워크를 만드는 데 사용됩니다. 다른 애플리케이션의 여러 서비스는 동일한 네트워크의 일부일 수 있습니다.  자세한 내용은 [Service Fabric Mesh 애플리케이션에서 네트워킹](service-fabric-mesh-networks-and-gateways.md)을 참조하세요.
 

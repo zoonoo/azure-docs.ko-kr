@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: rajanaki
 ms.openlocfilehash: ecfe993a137ca63c84438870ec54ac1e6d6707da
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72173490"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78390488"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>복구 계획에 Azure Automation Runbook 추가
 
@@ -189,7 +189,7 @@ $vmMap = $RecoveryPlanContext.VmMap
 
 ### <a name="use-a-complex-variable-to-store-more-information"></a>복합 변수를 사용하여 자세한 정보 저장
 
-일부 시나리오에서는 각 복구 계획에 대 한 별도의 변수를 만들지 못할 수 있습니다. 단일 스크립트를 통해 특정 Vm에 공용 IP 주소를 할당 하려는 시나리오를 고려해 보세요. 다른 시나리오에서는 서로 다른 VM(모든 VM 아님)에는 다른 NSG를 적용하려고 합니다. 다음 사항에 유의합니다.
+일부 시나리오에서는 각 복구 계획에 대 한 별도의 변수를 만들지 못할 수 있습니다. 단일 스크립트를 통해 특정 Vm에 공용 IP 주소를 할당 하려는 시나리오를 고려해 보세요. 다른 시나리오에서는 서로 다른 VM(모든 VM 아님)에는 다른 NSG를 적용하려고 합니다. 다음 사항에 유의하세요.
 
 - 복구 계획에 다시 사용할 수 있는 스크립트를 만들 수 있습니다.
 - 각 복구 계획에는 다양한 수의 VM이 포함될 수 있습니다.

@@ -9,11 +9,11 @@ ms.date: 08/12/2019
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: 58997b20c01f33037a5e5e149caa59e1630373ff
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978465"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78360936"
 ---
 # <a name="azure-importexport-system-requirements"></a>Azure Import/Export에 대한 시스템 요구 사항
 
@@ -26,7 +26,7 @@ WAImportExport 도구를 사용하여 하드 드라이브를 준비하기 위해
 
 |플랫폼 |버전 |
 |---------|---------|
-|Windows     | Windows 7 Enterprise, Windows 7 Ultimate <br> Windows 8 Pro, Windows 8 Enterprise, Windows 8.1 Pro, Windows 8.1 Enterprise <br> Windows 10        |
+|Windows     | Windows 7 Enterprise, Windows 7 Ultimate <br> Windows 8 Pro, Windows 8 Enterprise, Windows 8.1 Pro, Windows 8.1 Enterprise <br> 윈도우 10        |
 |Windows Server     |Windows Server 2008 R2 <br> Windows Server 2012, Windows Server 2012 R2         |
 
 ## <a name="other-required-software-for-windows-client"></a>Windows 클라이언트에 필요한 다른 소프트웨어
@@ -57,10 +57,10 @@ Azure Import/Export 서비스는 다음과 같은 유형의 스토리지 계정�
 다음 스토리지 유형 목록은 Azure Import/Export 서비스를 지원합니다.
 
 
-|작업  |스토리지 서비스 |지원됨  |지원하지 않음  |
+|작업  |스토리지 서비스 |지원됨  |지원되지 않음  |
 |---------|---------|---------|---------|
-|가져오기     |  Azure Blob Storage <br><br> Azure File Storage       | 블록 Blob 및 페이지 Blob 지원됨 <br><br> 파일 지원됨          |
-|내보내기     |   Azure Blob Storage       | 블록 Blob, 페이지 Blob 및 추가 Blob 지원됨         | Azure Files 지원되지 않음
+|가져오기     |  Azure BLOB 스토리지 <br><br> Azure File Storage       | 블록 Blob 및 페이지 Blob 지원됨 <br><br> 파일 지원됨          |
+|내보내기     |   Azure BLOB 스토리지       | 블록 Blob, 페이지 Blob 및 추가 Blob 지원됨         | Azure Files 지원되지 않음
 
 
 ## <a name="supported-hardware"></a>지원되는 하드웨어

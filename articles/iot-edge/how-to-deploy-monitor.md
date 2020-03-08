@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 0a20ea4236683e26c51bc75309435c65e24271d7
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76510263"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78396744"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>Azure Portal을 사용하여 대규모 IoT Edge 모듈 배포 및 모니터링
 
@@ -76,7 +76,7 @@ IoT Edge는 시나리오를 사용자 지정 하는 데 사용할 수 있는 두
 사용자 지정 코드를 모듈로 추가하거나 Azure 서비스 모듈을 수동으로 추가하려면 다음 단계를 수행합니다.
 
 1. 페이지의 **Container Registry 자격 증명** 섹션에서이 배포에 대 한 모듈 이미지를 포함 하는 개인 컨테이너 레지스트리에 대 한 이름 및 자격 증명을 제공 합니다. IoT Edge 에이전트는 Docker 이미지에 대 한 컨테이너 레지스트리 자격 증명을 찾을 수 없는 경우 오류 500을 보고 합니다.
-1. 페이지의 **IoT Edge 모듈** 섹션에서 **추가**를 클릭 합니다.
+1. 페이지의 **IoT Edge 모듈** 섹션에서 **추가**를 클릭합니다.
 1. 드롭다운 메뉴에서 **IoT Edge 모듈** 을 선택 합니다.
 1. 모듈에 **IoT Edge 모듈 이름을**지정 합니다.
 1. **이미지 URI** 필드에 대해 모듈의 컨테이너 이미지를 입력합니다.
@@ -97,7 +97,7 @@ IoT Edge는 시나리오를 사용자 지정 하는 데 사용할 수 있는 두
 
 Azure Marketplace에서 모듈을 추가 하려면 다음 단계를 수행 합니다.
 
-1. 페이지의 **IoT Edge 모듈** 섹션에서 **추가**를 클릭 합니다.
+1. 페이지의 **IoT Edge 모듈** 섹션에서 **추가**를 클릭합니다.
 1. 드롭다운 메뉴에서 **Marketplace 모듈** 을 선택 합니다.
 1. **IoT Edge 모듈 마켓플레이스** 페이지에서 모듈을 선택 합니다. 선택한 모듈은 구독, 리소스 그룹 및 장치에 대해 자동으로 구성 됩니다. 그런 다음 IoT Edge 모듈 목록에 표시 됩니다. 일부 모듈에는 추가 구성이 필요할 수 있습니다. 자세한 내용은 [Azure marketplace에서 모듈 배포](how-to-deploy-modules-portal.md#deploy-modules-from-azure-marketplace)를 참조 하세요.
 
@@ -105,7 +105,7 @@ Azure Marketplace에서 모듈을 추가 하려면 다음 단계를 수행 합�
 
 Azure Stream Analytics에서 모듈을 추가하려면 다음 단계를 수행합니다.
 
-1. 페이지의 **IoT Edge 모듈** 섹션에서 **추가**를 클릭 합니다.
+1. 페이지의 **IoT Edge 모듈** 섹션에서 **추가**를 클릭합니다.
 1. 드롭다운 메뉴에서 **Azure Stream Analytics 모듈** 을 선택 합니다.
 1. 오른쪽 창에서 **구독**을 선택 합니다.
 1. IoT **Edge 작업**을 선택 합니다.
@@ -139,7 +139,7 @@ Azure Stream Analytics에서 모듈을 추가하려면 다음 단계를 수행�
 
 1. **메트릭 조건**에 대한 쿼리를 입력합니다. 쿼리는 IoT Edge 허브 모듈 쌍의 [보고된 속성](module-edgeagent-edgehub.md#edgehub-reported-properties)을 기반으로 합니다. 메트릭은 쿼리에 의해 반환되는 행 수를 나타냅니다.
 
-   예:
+   다음은 그 예입니다.
 
    ```sql
    SELECT deviceId FROM devices

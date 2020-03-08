@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 05/09/2018
 ms.author: alkohli
 ms.openlocfilehash: efc116c278bfe72419800603a3b365f461fe0a28
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60362791"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78366765"
 ---
 # <a name="configure-chap-for-your-storsimple-device"></a>StorSimple 디바이스에 대한 CHAP 구성
 
@@ -141,7 +141,7 @@ Windows 호스트 서버에서 CHAP를 구성하는 방법에 대한 자세한 �
 
 Windows 호스트 서버에서 CHAP를 구성하는 방법에 대한 자세한 내용을 보려면 [추가 고려 사항](#additional-considerations)으로 이동하세요.
 
-## <a name="additional-considerations"></a>추가 고려 사항
+## <a name="additional-considerations"></a>기타 고려 사항
 
 **빠른 연결** 기능은 CHAP를 사용할 수 있는 연결을 지원하지 않습니다. CHAP를 사용하도록 설정한 경우 **대상** 탭에 있는 **연결** 단추를 사용하여 대상에 연결해야 합니다.
 

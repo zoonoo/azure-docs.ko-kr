@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 11/28/2016
 ms.author: memccror
 ms.openlocfilehash: d65f4b55be317234c10a0e90cfe413d9e38a6a90
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75360602"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78397085"
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services"></a>Azure Cloud Services의 역할에 대해 원격 데스크톱 연결 사용
 

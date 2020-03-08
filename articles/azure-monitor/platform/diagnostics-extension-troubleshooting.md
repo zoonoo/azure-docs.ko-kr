@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 05/08/2019
 ms.openlocfilehash: 043369bd6112c4cac36539bbd764393d889439c0
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77672279"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78384478"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Azure Diagnostics 문제 해결
 이 문서에서는 Azure Diagnostics 사용과 관련된 문제 해결 정보를 설명합니다. Azure 진단에 대한 자세한 내용은 [Azure Diagnostics 개요](diagnostics-extension-overview.md)를 참조하세요.

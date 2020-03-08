@@ -1,6 +1,6 @@
 ---
-title: 암호 보호 문제 해결-Azure Active Directory
-description: Azure AD 암호 보호에 대 한 일반적인 문제 해결 이해
+title: 온-프레미스 Azure AD 암호 보호 문제 해결
+description: 온-프레미스 Active Directory Domain Services 환경의 Azure AD 암호 보호 문제를 해결 하는 방법 알아보기
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,14 +11,14 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd609eb1f289c0a104bddaa08a60e7dc6202acee
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 79ebf543a3880a4f2c8ee8c0d706c268ef3f08d2
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74847663"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78671693"
 ---
-# <a name="azure-ad-password-protection-troubleshooting"></a>Azure AD 암호 보호 문제 해결
+# <a name="troubleshoot-on-premises-azure-ad-password-protection"></a>문제 해결: 온-프레미스 Azure AD 암호 보호
 
 Azure AD 암호 보호를 배포한 후 문제를 해결해야 할 수도 있습니다. 이 문서에서는 몇 가지 일반적인 문제 해결 단계를 이해하는 데 유용한 세부 정보를 제공합니다.
 
@@ -82,9 +82,9 @@ Azure AD 암호 보호는 Microsoft 키 배포 서비스에서 제공 하는 암
 
 1. DC 에이전트가 정책을 다운로드할 수 없거나 기존 정책의 암호를 해독할 수 없습니다. 위의 항목에서 가능한 원인을 확인 하십시오.
 
-1. 암호 정책 강제 적용 모드가 여전히 감사로 설정되어 있습니다. 이 구성이 적용 되는 경우 Azure AD 암호 보호 포털을 사용 하 여 적용 하도록 다시 구성 합니다. [암호 보호 사용](howto-password-ban-bad-on-premises-operations.md#enable-password-protection)을 참조 하세요.
+1. 암호 정책 강제 적용 모드가 여전히 감사로 설정되어 있습니다. 이 구성이 적용 되는 경우 Azure AD 암호 보호 포털을 사용 하 여 적용 하도록 다시 구성 합니다. 자세한 내용은 [작업 모드](howto-password-ban-bad-on-premises-operations.md#modes-of-operation)를 참조 하세요.
 
-1. 암호 정책이 사용하지 않도록 설정되어 있습니다. 이 구성이 적용 되는 경우 Azure AD 암호 보호 포털을 사용 하 여 사용으로 다시 구성 합니다. [암호 보호 사용](howto-password-ban-bad-on-premises-operations.md#enable-password-protection)을 참조 하세요.
+1. 암호 정책이 사용하지 않도록 설정되어 있습니다. 이 구성이 적용 되는 경우 Azure AD 암호 보호 포털을 사용 하 여 사용으로 다시 구성 합니다. 자세한 내용은 [작업 모드](howto-password-ban-bad-on-premises-operations.md#modes-of-operation)를 참조 하세요.
 
 1. 도메인의 모든 도메인 컨트롤러에 DC 에이전트 소프트웨어를 설치 하지 않았습니다. 이 경우 원격 Windows 클라이언트가 암호 변경 작업 중에 특정 도메인 컨트롤러를 대상으로 하도록 하는 것은 어렵습니다. DC 에이전트 소프트웨어가 설치 된 특정 DC의 대상이 성공적으로 지정 된 경우에는 DC 에이전트 관리자 이벤트 로그를 두 번 확인 하 여 확인할 수 있습니다. 결과와 상관 없이 암호의 결과를 문서화 하는 이벤트가 하나 이상 있습니다. 유효성 검사. 암호가 변경 된 사용자에 게 존재 하는 이벤트가 없는 경우 다른 도메인 컨트롤러에서 암호 변경을 처리 했을 수 있습니다.
 
@@ -189,13 +189,13 @@ PS C:\> Get-AzureADPasswordProtectionDCAgent | Where-Object {$_.SoftwareVersion 
 
 Azure AD 암호 보호 프록시 소프트웨어는 어떤 버전 에서도 시간이 제한 되지 않습니다. DC와 프록시 에이전트는 모두 릴리스 될 때 최신 버전으로 업그레이드 하는 것이 좋습니다. `Get-AzureADPasswordProtectionProxy` cmdlet을 사용 하 여 DC 에이전트에 대 한 위의 예제와 유사 하 게 업그레이드를 필요로 하는 프록시 에이전트를 찾을 수 있습니다.
 
-특정 업그레이드 절차에 대 한 자세한 내용은 [DC 에이전트 업그레이드](howto-password-ban-bad-on-premises-deploy.md#upgrading-the-dc-agent) 및 [프록시 에이전트 업그레이드](howto-password-ban-bad-on-premises-deploy.md#upgrading-the-proxy-agent) 를 참조 하세요.
+특정 업그레이드 절차에 대 한 자세한 내용은 [DC 에이전트 업그레이드](howto-password-ban-bad-on-premises-deploy.md#upgrading-the-dc-agent) 및 [프록시 서비스 업그레이드](howto-password-ban-bad-on-premises-deploy.md#upgrading-the-proxy-service) 를 참조 하세요.
 
 ## <a name="emergency-remediation"></a>응급 업데이트 관리
 
 DC 에이전트 서비스가 문제를 일으키는 상황이 발생하면 DC 에이전트 서비스는 즉시 종료될 수 있습니다. DC 에이전트 암호 필터 dll은 여전히 실행 중이 아닌 서비스를 호출하고 경고 이벤트(10012, 10013)를 기록하지만 해당 시간 동안 들어오는 모든 암호는 허용됩니다. DC 에이전트 서비스는 필요에 따라 "Disabled" 시작 유형을 사용하여 Windows 서비스 제어 관리자를 통해 구성될 수 있습니다.
 
-다른 수정 측정값을 Azure AD 암호 보호 포털에서 사용 모드를 안 함으로 설정할 수 있습니다. 업데이트된 정책이 다운로드되면, 각 DC 에이전트 서비스는 모든 암호가 있는 그대로 허용되는 정지 모드가 됩니다. 자세한 내용은 [적용 모드](howto-password-ban-bad-on-premises-operations.md#enforce-mode)를 참조하세요.
+다른 수정 측정값을 Azure AD 암호 보호 포털에서 사용 모드를 안 함으로 설정할 수 있습니다. 업데이트된 정책이 다운로드되면, 각 DC 에이전트 서비스는 모든 암호가 있는 그대로 허용되는 정지 모드가 됩니다. 자세한 내용은 [작업 모드](howto-password-ban-bad-on-premises-operations.md#modes-of-operation)를 참조 하세요.
 
 ## <a name="removal"></a>제거
 

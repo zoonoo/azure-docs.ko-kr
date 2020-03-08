@@ -9,11 +9,11 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.openlocfilehash: da6d17e42407048b7ecbcacade67ef48046d7fe1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75457112"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78382196"
 ---
 # <a name="reference---iot-hub-endpoints"></a>참조 - IoT Hub 엔드포인트
 
@@ -78,7 +78,7 @@ IoT Hub는 현재 추가 엔드포인트로 다음과 같은 Azure 서비스를 
 * Azure Storage 컨테이너
 * Event Hubs
 * Service Bus 큐
-* Service Bus 항목
+* Service Bus 토픽
 
 추가할 수 있는 엔드포인트의 수에 대한 제한은 [할당량 및 제한](iot-hub-devguide-quotas-throttling.md)을 참조하세요.
 

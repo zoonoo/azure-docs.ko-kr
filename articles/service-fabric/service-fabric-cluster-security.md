@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 08/14/2018
 ms.custom: sfrev
 ms.openlocfilehash: 92d2c4d03075eaafce039f94b4f03c0791985b40
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75746928"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78396629"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>서비스 패브릭 클러스터 보안 시나리오
 
@@ -114,7 +114,7 @@ X.509 디지털 인증서는 클라이언트 및 서버를 인증하는 데 일�
 몇 가지 다른 사항도 고려해야 합니다.
 
 * **주체** 필드는 여러 값을 가질 수 있습니다. 각 값은 값 형식을 나태내는 이니셜로 접두사가 지정됩니다. 일반적으로 초기화는 **CN** ( *일반 이름*)입니다. 예를 들어 **CN = www\.contoso.com**입니다.
-* **제목** 필드는 비워 둘 수 있습니다.
+* **주체** 필드는 비워 둘 수 있습니다.
 * 선택적 **주체 대체 이름** 필드가 채워진 경우 인증서의 일반 이름과 SAN당 하나의 항목을 모두 포함해야 합니다. 이러한 작업은 **DNS 이름** 값으로 입력됩니다. SAN을 포함하는 인증서를 생성하는 방법을 알아보려면 [보안 LDAP 인증서에 주체 대체 이름을 추가하는 방법](https://support.microsoft.com/kb/931351)을 참조하세요.
 * 인증서의 **용도** 필드의 값은 **서버 인증** 또는 **클라이언트 인증**과 같은 적절한 값을 포함해야 합니다.
 

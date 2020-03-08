@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: de56ba1281d0f20c8be838fa1bc9ebc24905b26c
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73666938"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78384786"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>모니터링 및 관리 앱을 사용하여 Azure Data Factory 파이프라인 모니터링 및 관리
 > [!div class="op_single_selector"]
@@ -159,7 +159,7 @@ Ctrl 키를 사용하여 두 개 이상의 파이프라인을 다중 선택할 �
 
 <table>
 <tr>
-    <th align="left">가동 상태</th><th align="left">하위 상태</th><th align="left">설명</th>
+    <th align="left">상태</th><th align="left">하위 상태</th><th align="left">Description</th>
 </tr>
 <tr>
     <td rowspan="8">대기</td><td>ScheduleTime</td><td>활동 기간을 실행할 시간이 아직 되지 않습니다.</td>
@@ -177,7 +177,7 @@ Ctrl 키를 사용하여 두 개 이상의 파이프라인을 다중 선택할 �
 <td>ActivityResume</td><td>활동이 일시 중지되어 재개될 때까지 활동 기간을 실행할 수 없습니다.</td>
 </tr>
 <tr>
-<td>Retry</td><td>활동 실행을 다시 시도 중입니다.</td>
+<td>다시 시도</td><td>활동 실행을 다시 시도 중입니다.</td>
 </tr>
 <tr>
 <td>유효성 검사</td><td>유효성 검사가 아직 시작되지 않았습니다.</td>
@@ -193,10 +193,10 @@ Ctrl 키를 사용하여 두 개 이상의 파이프라인을 다중 선택할 �
 <td>작업 창을 처리 중입니다.</td>
 </tr>
 <tr>
-<td rowspan="4">Failed</td><td>TimedOut</td><td>활동 실행이 활동에서 허용하는 것보다 오래 걸렸습니다.</td>
+<td rowspan="4">실패</td><td>TimedOut</td><td>활동 실행이 활동에서 허용하는 것보다 오래 걸렸습니다.</td>
 </tr>
 <tr>
-<td>Canceled</td><td>활동 기간이 사용자 작업으로 인해 취소되었습니다.</td>
+<td>취소됨</td><td>활동 기간이 사용자 작업으로 인해 취소되었습니다.</td>
 </tr>
 <tr>
 <td>유효성 검사</td><td>유효성 검사가 실패했습니다.</td>
@@ -207,10 +207,10 @@ Ctrl 키를 사용하여 두 개 이상의 파이프라인을 다중 선택할 �
 <td>Ready</td><td>-</td><td>작업 창을 사용할 준비가 되었습니다.</td>
 </tr>
 <tr>
-<td>생략</td><td>-</td><td>활동 기간이 처리되지 않습니다.</td>
+<td>건너뜀</td><td>-</td><td>활동 기간이 처리되지 않습니다.</td>
 </tr>
 <tr>
-<td>없음</td><td>-</td><td>활동 기간이 다른 상태와 함께 존재하는 데 사용되었지만 다시 설정되었습니다.</td>
+<td>None</td><td>-</td><td>활동 기간이 다른 상태와 함께 존재하는 데 사용되었지만 다시 설정되었습니다.</td>
 </tr>
 </table>
 
@@ -270,7 +270,7 @@ Ctrl 키를 사용하여 두 개 이상의 파이프라인을 다중 선택할 �
 
 ![활동 기간 목록 열 메뉴](./media/data-factory-monitor-manage-app/ActivityWindowsListColumnMenu.png)
 
-다음을 수행할 수 있습니다.
+사용할 수 있는 기능은 다음과 같습니다.
 
 * 오름차순으로 정렬.
 * 내림차순으로 정렬.
