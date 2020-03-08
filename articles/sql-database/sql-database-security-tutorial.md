@@ -11,11 +11,11 @@ ms.reviewer: carlrab
 ms.date: 09/03/2019
 ms.custom: seoapril2019
 ms.openlocfilehash: 05ea21f7b3221425e5b052797d79e629fdfe3ba5
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818030"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78360404"
 ---
 # <a name="tutorial-secure-a-single-or-pooled-database"></a>자습서: 단일 또는 풀링된 데이터베이스 보호
 
@@ -42,7 +42,7 @@ Azure SQL Database는 다음과 같은 방법으로 단일 또는 풀링된 데�
 > [!TIP]
 > 다음 Microsoft Learn 모듈을 사용하면 [Azure SQL Database 보안](https://docs.microsoft.com/learn/modules/secure-your-azure-sql-database/) 방법에 대해 무료로 배울 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음 필수 조건이 충족되어야 합니다.
 
@@ -338,7 +338,7 @@ Azure SQL Database는 Azure Portal을 사용하여 액세스하는 보안 기능
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 몇 가지 간단한 단계를 통해 데이터베이스의 보안을 향상시키는 방법을 알아보았습니다. 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 몇 가지 간단한 단계를 통해 데이터베이스의 보안을 향상시키는 방법을 알아보았습니다. 구체적으로 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > - 서버 수준 및 데이터베이스 수준 방화벽 규칙 만들기
