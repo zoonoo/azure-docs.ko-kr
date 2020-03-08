@@ -2,17 +2,23 @@
 title: 구독에 리소스 배포
 description: Azure Resource Manager 템플릿에서 리소스 그룹을 만드는 방법을 설명합니다. 또한 Azure 구독 범위에서 리소스를 배포하는 방법도 보여 줍니다.
 ms.topic: conceptual
-ms.date: 03/02/2020
-ms.openlocfilehash: 2e747b7faa6e9766a577b472cc3e283d6223109e
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.date: 03/06/2020
+ms.openlocfilehash: 1ec761a8136d631c60a7a2021f5462dbf3d7f790
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78228116"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78925089"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>구독 수준에서 리소스 그룹 및 리소스 만들기
 
-일반적으로 Azure 리소스는 Azure 구독의 리소스 그룹에 배포합니다. 그러나 구독 수준에서 리소스를 만들 수도 있습니다. 구독 수준 배포를 사용 하 여 리소스 그룹을 만들고 [역할 기반 액세스 제어](../../role-based-access-control/overview.md)를 할당 하는 등 해당 수준에서 적합 한 작업을 수행할 수 있습니다.
+일반적으로 Azure 리소스는 Azure 구독의 리소스 그룹에 배포합니다. 그러나에서 리소스를 만들 수도 있습니다.
+
+* 구독 수준 (이 문서에 포함 됨)
+* [관리 그룹 수준](deploy-to-management-group.md)
+* [테 넌 트 수준](deploy-to-tenant.md)
+
+구독 수준 배포를 사용 하 여 리소스 그룹을 만들고 [역할 기반 액세스 제어](../../role-based-access-control/overview.md)를 할당 하는 등 해당 수준에서 적합 한 작업을 수행할 수 있습니다.
 
 구독 수준에서 템플릿을 배포 하려면 Azure CLI, PowerShell 또는 REST API를 사용 합니다. Azure Portal은 구독 수준의 배포를 지원하지 않습니다.
 
@@ -21,7 +27,7 @@ ms.locfileid: "78228116"
 구독 수준에서 다음과 같은 리소스 유형을 배포할 수 있습니다.
 
 * [예산의](/azure/templates/microsoft.consumption/budgets)
-* [배포](/azure/templates/microsoft.resources/deployments)
+* [배포](/azure/templates/microsoft.resources/deployments) -리소스 그룹에 배포 하는 중첩 된 템플릿의 경우
 * [peerAsns](/azure/templates/microsoft.peering/peerasns)
 * [policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
 * [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
@@ -88,12 +94,12 @@ REST API의 경우 [배포-구독 범위에서 만들기](/rest/api/resources/de
 
 * [resourceGroup()](template-functions-resource.md#resourcegroup) 함수는 지원되지 **않습니다**.
 * [reference()](template-functions-resource.md#reference) 및 [list()](template-functions-resource.md#list) 함수는 지원됩니다.
-* [resourceId()](template-functions-resource.md#resourceid) 함수는 지원됩니다. 이를 사용하여 구독 수준 배포에 사용되는 리소스에 대한 리소스 ID를 가져옵니다. 리소스 그룹 매개 변수에 대 한 값을 제공 하지 마십시오.
+* [Subscriptionresourceid ()](template-functions-resource.md#subscriptionresourceid) 함수를 사용 하 여 구독 수준에서 배포 된 리소스에 대 한 리소스 ID를 가져올 수 있습니다.
 
   예를 들어 정책 정의에 대 한 리소스 ID를 가져오려면 다음을 사용 합니다.
   
   ```json
-  resourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))
+  subscriptionResourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))
   ```
   
   반환 된 리소스 ID 형식은 다음과 같습니다.
@@ -101,8 +107,6 @@ REST API의 경우 [배포-구독 범위에서 만들기](/rest/api/resources/de
   ```json
   /subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
   ```
-
-  또는 [Subscriptionresourceid ()](template-functions-resource.md#subscriptionresourceid) 함수를 사용 하 여 구독 수준 리소스의 리소스 ID를 가져옵니다.
 
 ## <a name="create-resource-groups"></a>리소스 그룹 만들기
 

@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 02/10/2020
 ms.author: aahi
 ms.openlocfilehash: 0622aca5579c64c6d840761abb151665af559eea
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367644"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78899511"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Text Analytics에서 명명된 엔터티 인식 사용 방법
 
@@ -47,7 +47,7 @@ NER (명명 된 엔터티 인식)는 텍스트에서 다양 한 엔터티를 식
 자세한 내용은 [언어 지원](../language-support.md#sentiment-analysis-key-phrase-extraction-and-named-entity-recognition) 을 참조 하세요.
 
 
-#### <a name="version-30-previewtabversion-3"></a>[버전 3.0 미리 보기](#tab/version-3)
+#### <a name="version-30-preview"></a>[버전 3.0 미리 보기](#tab/version-3)
 
 ### <a name="entity-types"></a>엔터티 형식
 
@@ -74,31 +74,31 @@ NER
 
 [!INCLUDE [v3-model-versioning](../includes/model-versioning.md)]
 
-#### <a name="version-21tabversion-2"></a>[버전 2.1](#tab/version-2)
+#### <a name="version-21"></a>[버전 2.1](#tab/version-2)
 
 ### <a name="entity-types"></a>엔터티 형식
 
 > [!NOTE]
 > NER (명명 된 엔터티 인식) 버전 2는 다음 엔터티만 지원 합니다. NER v3은 공개 미리 보기 상태 이며 텍스트에서 인식 되는 엔터티의 수와 깊이를 크게 확장 합니다.   
 
-| 형식  | 하위 유형 | 예제 |
+| Type  | 하위 유형 | 예제 |
 |:-----------   |:------------- |:---------|
-| 사용자        | 해당 없음\*         | "Jeff", "Bill Gates"     |
+| Person        | 해당 없음\*         | "Jeff", "Bill Gates"     |
 | 위치      | 해당 없음\*         | "Redmond, Washington", "Paris"  |
 | 조직  | 해당 없음\*         | "Microsoft"   |
 | 수량      | Number        | "6", "six"     |
 | 수량      | 백분율    | "50%", "fifty percent"|
 | 수량      | Ordinal       | "2nd", "second"     |
-| 수량      | 처리 기간           | "90 day old", "30 years old"    |
+| 수량      | Age           | "90 day old", "30 years old"    |
 | 수량      | 통화      | "$10.99"     |
-| 수량      | Dimension     | "10 miles", "40 cm"     |
+| 수량      | 차원     | "10 miles", "40 cm"     |
 | 수량      | 온도   | "32 degrees"    |
 | DateTime      | 해당 없음\*         | "6:30PM February 4, 2012"      |
-| DateTime      | 날짜          | "May 2nd, 2017", "05/02/2017"   |
-| DateTime      | 시간          | "8am", "8:00"  |
+| DateTime      | Date          | "May 2nd, 2017", "05/02/2017"   |
+| DateTime      | Time          | "8am", "8:00"  |
 | DateTime      | DateRange     | "May 2nd to May 5th"    |
 | DateTime      | TimeRange     | "6pm to 7pm"     |
-| DateTime      | 지속 시간      | "1 minute and 45 seconds"   |
+| DateTime      | Duration      | "1 minute and 45 seconds"   |
 | DateTime      | 설정           | "every Tuesday"     |
 | URL           | 해당 없음\*         | "https:\//www.bing.com"    |
 | Email         | 해당 없음\*         | "support@contoso.com" |
@@ -128,9 +128,9 @@ ID, 텍스트, 언어 형식의 JSON 문서가 있어야 합니다.
 POST 요청을 만듭니다. 다음 링크에서 [Postman](text-analytics-how-to-call-api.md) 또는 **API 테스트 콘솔** 을 사용 하 여 신속 하 게 구조를 구성 하 고 보낼 수 있습니다. 
 
 > [!NOTE]
-> Azure portal에서 Text Analytics 리소스에 대 한 키 및 끝점을 찾을 수 있습니다. 리소스의 **빠른 시작** 페이지의 **리소스 관리** 아래에 있습니다. 
+> Azure Portal에서 Text Analytics 리소스에 대한 키와 엔드포인트를 찾을 수 있습니다. 리소스의 **빠른 시작** 페이지의 **리소스 관리** 아래에 있습니다. 
 
-#### <a name="version-30-previewtabversion-3"></a>[버전 3.0 미리 보기](#tab/version-3)
+#### <a name="version-30-preview"></a>[버전 3.0 미리 보기](#tab/version-3)
 
 [명명 된 엔터티 인식 v3 참조](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionGeneral)
 
@@ -144,7 +144,7 @@ NER
 엔터티 연결
 * `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/linking`
 
-#### <a name="version-21tabversion-2"></a>[버전 2.1](#tab/version-2)
+#### <a name="version-21"></a>[버전 2.1](#tab/version-2)
 
 [NER (명명 된 엔터티 인식) v2 참조](https://eastus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
 
@@ -185,7 +185,7 @@ Text Analytics API는 상태를 저장하지 않습니다. 계정에 데이터�
 출력은 즉시 반환됩니다. JSON을 승인하는 애플리케이션으로 결과를 스트림하거나 로컬 시스템의 파일에 출력을 저장하고, 데이터를 정렬, 검색 및 조작할 수 있는 애플리케이션으로 가져올 수 있습니다.
 
 
-#### <a name="version-30-previewtabversion-3"></a>[버전 3.0-미리 보기)](#tab/version-3)
+#### <a name="version-30-preview"></a>[버전 3.0-미리 보기)](#tab/version-3)
 
 ### <a name="example-v3-responses"></a>V3 응답 예
 
@@ -242,7 +242,7 @@ Text Analytics API는 상태를 저장하지 않습니다. 계정에 데이터�
 }
 ```
 
-#### <a name="version-21tabversion-2"></a>[버전 2.1](#tab/version-2)
+#### <a name="version-21"></a>[버전 2.1](#tab/version-2)
 
 ### <a name="example-ner-v2-response"></a>예제 NER v2 응답
 ```json

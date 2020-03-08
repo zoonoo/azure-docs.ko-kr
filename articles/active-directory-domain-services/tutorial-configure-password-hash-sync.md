@@ -9,14 +9,14 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/10/2020
 ms.author: iainfou
-ms.openlocfilehash: c2a751367a96c995a24457d0357aa6a2bfe987e5
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
-ms.translationtype: HT
+ms.openlocfilehash: 93e5ee9b46fb3387b70dd5092f72efcaa8a2bc19
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77612573"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78668977"
 ---
-# <a name="tutorial-enable-password-synchronization-in-azure-active-directory-domain-services-for-hybrid-environments"></a>자습서: 하이브리드 환경을 위해 Azure Active Directory Domain Services에서 암호 동기화 활성화
+# <a name="tutorial-enable-password-synchronization-in-azure-active-directory-domain-services-for-hybrid-environments"></a>자습서: 하이브리드 환경에 대 한 Azure Active Directory Domain Services에서 암호 동기화 사용
 
 하이브리드 환경의 경우 Azure AD Connect를 사용하여 온-프레미스 AD DS(Active Directory Domain Services) 환경과 동기화하도록 Azure AD(Azure Active Directory) 테넌트를 구성할 수 있습니다. 기본적으로 Azure AD Connect는 Azure AD DS(Azure Active Directory Domain Services)에 필요한 레거시 NTLM(NT LAN Manager)과 Kerberos 암호 해시를 동기화하지 않습니다.
 
@@ -60,7 +60,7 @@ Azure AD DS에 필요한 NTLM 또는 Kerberos 암호 해시를 동기화하도�
 Azure AD Connect를 설치하고 Azure AD와 동기화하도록 구성된 상태에서, NTLM 및 Kerberos에 대한 레거시 암호 해시 동기화를 구성합니다. 필요한 설정을 구성한 다음, Azure AD에 대한 전체 암호 동기화를 시작하는 데 PowerShell 스크립트가 사용됩니다. Azure AD Connect 암호 해시 동기화 프로세스가 완료되면 사용자는 레거시 NTLM 또는 Kerberos 암호 해시를 사용하는 Azure AD DS를 통해 애플리케이션에 로그인할 수 있습니다.
 
 1. Azure AD Connect가 설치된 컴퓨터의 시작 메뉴에서 **Azure AD Connect> 동기화 서비스**를 엽니다.
-1. **커넥터** 탭을 선택합니다. 온-프레미스 AD DS 환경과 Azure AD 간의 동기화를 설정하는 데 사용된 연결 정보가 나열됩니다.
+1. **커넥터** 탭을 선택 합니다. 온-프레미스 AD DS 환경과 Azure AD 간의 동기화를 설정 하는 데 사용 되는 연결 정보가 나열 됩니다.
 
     **형식**은 Azure AD 커넥터용 *Windows Azure Active Directory(Microsoft)* 또는 온-프레미스 AD DS 커넥터용 *Active Directory Domain Services*를 나타냅니다. 다음 단계에서 PowerShell 스크립트에 사용할 커넥터 이름을 적어 둡니다.
 
@@ -68,7 +68,7 @@ Azure AD Connect를 설치하고 Azure AD와 동기화하도록 구성된 상태
 
     이 예제 스크린샷에서는 다음 커넥터가 사용됩니다.
 
-    * *aaddscontoso.onmicrosoft.com - AAD*라는 Azure AD 커넥터
+    * Azure AD 커넥터 이름이 *aaddscontoso.onmicrosoft.com-AAD* 입니다.
     * *onprem.contoso.com*이라는 온-프레미스 AD DS 커넥터
 
 1. 다음 PowerShell 스크립트를 복사하여 Azure AD Connect가 설치된 컴퓨터에 붙여넣습니다. 이 스크립트는 레거시 암호 해시가 포함된 전체 암호 동기화를 트리거합니다. `$azureadConnector` 및 `$adConnector` 변수를 이전 단계의 커넥터 이름으로 업데이트합니다.
@@ -79,6 +79,8 @@ Azure AD Connect를 설치하고 Azure AD와 동기화하도록 구성된 상태
     # Define the Azure AD Connect connector names and import the required PowerShell module
     $azureadConnector = "<CASE SENSITIVE AZURE AD CONNECTOR NAME>"
     $adConnector = "<CASE SENSITIVE AD DS CONNECTOR NAME>"
+    
+    Import-Module "C:\Program Files\Microsoft Azure AD Sync\Bin\ADSync\ADSync.psd1"
     Import-Module "C:\Program Files\Microsoft Azure Active Directory Connect\AdSyncConfig\AdSyncConfig.psm1"
 
     # Create a new ForceFullPasswordSync configuration parameter object then

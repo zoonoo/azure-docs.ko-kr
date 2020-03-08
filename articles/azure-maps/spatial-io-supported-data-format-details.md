@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: cbeb1ccaed6ec2c62aaa731e88fcefbe84d1df02
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: fff801731c3c3a94b4039a8c65ad8ccaab7cc725
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78370883"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78402734"
 ---
 # <a name="supported-data-format-details"></a>지원 되는 데이터 형식 세부 정보
 
@@ -391,39 +391,39 @@ ms.locfileid: "78370883"
 
 머리글 행을 검색할 때 열 이름에 있는 모든 유형 정보는 추출 되어 해당 열의 셀을 캐스팅 하는 데 사용 됩니다. 다음은 유형 값이 "ColumnName (typeName)" 인 열 이름의 예입니다. 다음과 같은 대/소문자를 구분 하지 않는 형식 이름이 지원 됩니다.
 
-**번호**
+#### <a name="numbers"></a>숫자
 
-    - edm. int64
-    - int
-    - long
-    - edm. double
-    - float
-    - double
-    - number
+- edm. int64
+- int
+- long
+- edm. double
+- float
+- double
+- number
 
-**Boolean**
+#### <a name="booleans"></a>부울
 
-    - edm. 부울
-    - bool
-    - boolean
+- edm. 부울
+- bool
+- boolean
 
-**날짜나**
+#### <a name="dates"></a>날짜
 
-    - edm. datetime
-    - date
-    - Datetime
+- edm. datetime
+- date
+- Datetime
 
-**지리**
+#### <a name="geography"></a>Geography
 
-    - edm. 지리
-    - geography
+- edm. 지리
+- geography
 
-**문자열일**
+#### <a name="strings"></a>문자열
 
-    - edm. 문자열
-    - varchar
-    - text
-    - case ' 문자열
+- edm. 문자열
+- varchar
+- text
+- case ' 문자열
 
 헤더에서 형식 정보를 추출할 수 없고 읽을 때 동적 형식 지정 옵션을 사용할 수 있는 경우 각 셀은 개별적으로 분석 되어로 캐스팅 하기에 가장 적합 한 데이터 형식을 결정 합니다.
 

@@ -1,5 +1,5 @@
 ---
-title: '자습서: AWS(Amazon Web Services)와 Azure Active Directory SSO(Single Sign-On) 연결 | Microsoft Docs'
+title: '자습서: Amazon Web Services와 SSO (Azure Active Directory Single Sign-On) 통합 (AWS) | Microsoft Docs'
 description: Azure Active Directory와 Amazon Web Services(AWS) 간에 Single Sign-On을 구성하는 방법을 알아봅니다.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 01/31/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 986aa000102cfed01666c8a95c00847ecc0cd651
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
-ms.translationtype: HT
+ms.openlocfilehash: 6970debd3885a513ac0e30d6cc5391b0db66cf9b
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77047273"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78668782"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-amazon-web-services-aws"></a>자습서: AWS(Amazon Web Services)와 Azure Active Directory SSO(Single Sign-On) 연결
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-amazon-web-services-aws"></a>자습서: Amazon Web Services와 SSO (Azure Active Directory Single Sign-On) 통합 (AWS)
 
 이 자습서에서는 AWS(Amazon Web Services)를 Azure AD(Azure Active Directory)와 통합하는 방법에 대해 알아봅니다. AWS(Amazon Web Services)를 Azure AD와 통합하면 다음을 수행할 수 있습니다.
 
@@ -173,7 +173,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     a. **공급자 형식**으로 **SAML**을 선택합니다.
 
-    b. **Provider Name**(공급자 이름)에 대해 공급자 이름(예: *WAAD*)을 입력합니다.
+    b. **공급자 이름**에 공급자 이름 (예: *waad*)을 입력 합니다.
 
     다. Azure Portal에서 다운로드한 **메타데이터 파일**을 업로드하려면 **파일 선택**을 선택합니다.
 
@@ -193,13 +193,13 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     a. **Select type of trusted entity**(신뢰할 수 있는 엔터티 유형 선택) 아래에서 **SAML 2.0 federation**(SAML 2.0 페더레이션)을 선택합니다.
 
-    b. **Choose a SAML 2.0 Provider**(SAML 2.0 공급자 선택) 아래에서 이전에 만든 **SAML provider**(SAML 공급자)를 선택합니다(예: *WAAD*)을 입력합니다.
+    b. **Saml 2.0 공급자 선택**에서 이전에 만든 **saml 공급자** (예: *waad*)를 선택 합니다.
 
     다. **프로그래밍 및 AWS 관리 콘솔 액세스 허용**을 선택합니다.
   
-    d. 완료되면 **다음: 사용 권한**을 클릭합니다.
+    d. **다음: 사용 권한**을 선택 합니다.
 
-9. **Attach permissions policies**(권한 정책 연결) 대화 상자에서 조직에 따라 적절한 정책을 연결합니다. 그런 다음, **Next: 검토**를 클릭합니다.  
+9. **Attach permissions policies**(권한 정책 연결) 대화 상자에서 조직에 따라 적절한 정책을 연결합니다. 그런 후 **다음: 검토**를 선택 합니다.  
 
     ![Attach permissions policy 대화 상자의 스크린샷][33]
 
@@ -294,7 +294,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     b. **AzureAD_SSOUserRole_Policy** 필터 섹션에서 새로 만든 정책을 검색합니다.
 
-    다. 정책을 선택한 다음, **Next: 검토**를 클릭합니다.
+    다. 정책을 선택한 후 **다음: 검토**를 선택 합니다.
 
 19. 연결된 사용자에 대한 정책을 검토합니다.
 
@@ -337,7 +337,10 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     ![켜기가 강조 표시된 설정 섹션의 스크린샷](./media/amazon-web-service-tutorial/provisioning2.png)
 
 > [!NOTE]
-> 프로비저닝 서비스는 AWS에서 Azure AD로 역할만 가져옵니다. 이 서비스는 사용자 및 그룹을 Azure AD에서 AWS로 다시 프로비저닝하지 않습니다.
+> 프로 비전 서비스는 AWS에서 Azure AD로만 역할을 가져옵니다. 서비스는 사용자 및 그룹을 Azure AD에서 AWS로 프로 비전 하지 않습니다.
+
+> [!NOTE]
+> 프로 비전 자격 증명을 저장 한 후에는 초기 동기화 주기가 실행 될 때까지 기다려야 합니다. 동기화를 완료 하는 데는 일반적으로 약 40 분이 소요 됩니다. **프로 비전** 페이지의 아래쪽에 있는 **현재 상태**에서 상태를 볼 수 있습니다.
 
 ### <a name="create-amazon-web-services-aws-test-user"></a>AWS(Amazon Web Services) 테스트 사용자 만들기
 
@@ -353,9 +356,9 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
  * **프로비저닝** 섹션에서 **매핑** 하위 섹션에 "로드 중..." 메시지가 표시되고 특성 매핑이 표시되지 않습니다. 현재 지원되는 유일한 프로비저닝 워크플로는 사용자 또는 그룹을 할당하는 중에 선택할 수 있도록 역할을 AWS에서 Azure AD로 가져오는 것입니다. 이에 대한 특성 매핑은 미리 결정되어 있으며 구성할 수 없습니다.
 
- * **프로비전** 섹션에서는 한 번에 하나의 AWS 테넌트에 대한 하나의 자격 증명 집합만 입력할 수 있습니다. 가져온 모든 역할은 AWS 테넌트에 대한 Azure AD [`servicePrincipal` 개체](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta)의 `appRoles` 속성에 기록됩니다.
+ * **프로비전** 섹션에서는 한 번에 하나의 AWS 테넌트에 대한 하나의 자격 증명 집합만 입력할 수 있습니다. 가져온 모든 역할은 AWS 테넌트에 대한 Azure AD `appRoles`[ 개체`servicePrincipal`의 ](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta) 속성에 기록됩니다.
 
-   프로비저닝을 위해 여러 AWS 테넌트(`servicePrincipals`로 표시됨)를 갤러리에서 Azure AD에 추가할 수 있습니다. 그러나 SSO에 사용되는 단일 `servicePrincipal`에 프로비저닝하는 데 사용되는 여러 AWS `servicePrincipals`에서 가져온 역할을 모두 자동으로 작성할 수 없는 알려진 문제가 있습니다.
+   프로비저닝을 위해 여러 AWS 테넌트(`servicePrincipals`로 표시됨)를 갤러리에서 Azure AD에 추가할 수 있습니다. 그러나 SSO에 사용되는 단일 `servicePrincipals`에 프로비저닝하는 데 사용되는 여러 AWS `servicePrincipal`에서 가져온 역할을 모두 자동으로 작성할 수 없는 알려진 문제가 있습니다.
 
    해결 방법으로 [Microsoft Graph API](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta)를 사용하여 가져온 모든 `appRoles`를 프로비저닝이 구성된 각 AWS `servicePrincipal`에 추출할 수 있습니다. 그런 다음, 이러한 역할 문자열을 SSO가 구성된 AWS `servicePrincipal`에 추가할 수 있습니다.
 

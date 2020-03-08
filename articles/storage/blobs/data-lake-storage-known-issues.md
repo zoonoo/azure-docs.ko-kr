@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 7d637c2fb3f4a4d5f8deac9cd99c0a44af6568e6
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 7fd76be8d17dc1c632e555a56d038d4f5c1e1486
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77919614"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78668604"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2에서 알려진 문제
 
@@ -102,7 +102,7 @@ Blobfuse는 지원 되지 않습니다.
 
 <a id="explorer-in-portal" />
 
-## <a name="storage-explorer-in-the-azure-portal"></a>Azure Portal의 Storage 탐색기
+## <a name="storage-explorer-in-the-azure-portal"></a>Azure Portal Storage 탐색기
 
 Acl은 아직 지원 되지 않습니다.
 
@@ -111,6 +111,14 @@ Acl은 아직 지원 되지 않습니다.
 ## <a name="thirdpartyapplications"></a>타사 응용 프로그램
 
 REST Api를 사용 하 여 작동 하는 타사 응용 프로그램은 Blob Api를 호출 하는 응용 프로그램 Data Lake Storage Gen2 사용할 경우 계속 작동 합니다.
+
+## <a name="access-control-lists-acl-and-anonymous-read-access"></a>ACL (액세스 제어 목록) 및 익명 읽기 액세스
+
+컨테이너에 [익명 읽기 액세스](storage-manage-access-to-resources.md) 권한이 부여 된 경우 acl은 해당 컨테이너 또는 해당 컨테이너의 파일에 영향을 주지 않습니다.
+
+## <a name="windows-azure-storage-blob-wasb-driver"></a>Windows Azure Storage Blob (WASB) 드라이버
+
+현재는 계층 네임 스페이스가 있는 계정과 함께 WASB 드라이버를 사용 하는 것과 관련 된 몇 가지 문제가 있습니다. 워크 로드에서 [Azure Blob 파일 시스템 (ABFS)](data-lake-storage-abfs-driver.md) 드라이버를 사용 하는 것이 좋습니다. 
 
 
 

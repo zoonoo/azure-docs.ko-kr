@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: c94b2a755d85bdf425980574b63d8fd74a232b19
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 97c5bf0c7bdf036a0555e8d536b5421d739327ad
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78195994"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78668943"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 리소스 클래스를 사용 하 여 워크 로드 관리
 
@@ -73,7 +73,7 @@ ms.locfileid: "78195994"
 | DW200c         | 12.5%             | 12.5%                  | 22%                    | 70%                    |
 | DW300c         | 8%                | 10%                    | 22%                    | 70%                    |
 | DW400c         | 6.25%             | 10%                    | 22%                    | 70%                    |
-| DW500c         | 20%               | 10%                    | 22%                    | 70%                    |
+| DW500c         | 5%                | 10%                    | 22%                    | 70%                    |
 | DW1000c<br> DW30000c | 3%       | 10%                    | 22%                    | 70%                    |
 
 
@@ -101,7 +101,7 @@ ms.locfileid: "78195994"
 - SELECT(사용자 테이블을 쿼리하는 경우)
 - ALTER INDEX - REBUILD 또는 REORGANIZE
 - ALTER TABLE REBUILD
-- CREATE INDEX
+- CREATE  INDEX
 - CREATE CLUSTERED COLUMNSTORE INDEX
 - CREATE TABLE AS SELECT (CTAS)
 - 데이터 로드
@@ -141,7 +141,7 @@ Removed as these two are not confirmed / supported under SQL DW
 - REDISTRIBUTE
 -->
 
-## <a name="concurrency-slots"></a>동시성 슬롯
+## <a name="concurrency-slots"></a>동시성 슬롯 수
 
 동시성 슬롯은 쿼리 실행에 사용할 수 있는 리소스를 추적하는 편리한 방법입니다. 동시성 슬롯은 콘서트의 좌석이 제한되어 있으므로 좌석을 예약하기 위해 구매하는 티켓과 같습니다. 데이터 웨어하우스 당 동시성 슬롯의 총 수는 서비스 수준에 의해 결정됩니다. 쿼리를 실행하려면 먼저 충분한 동시성 슬롯을 예약할 수 있어야 합니다. 쿼리가 완료 되 면 동시성 슬롯을 해제 합니다.  
 
@@ -207,10 +207,10 @@ EXEC sp_droprolemember 'largerc', 'loaduser';
 
 일부 쿼리는 계산 집약적이고 일부는 그렇지 않습니다.  
 
-- 쿼리는 복잡하지만 높은 동시성을 요구하지 않는 경우 동적 리소스 클래스를 선택합니다.  예를 들어 매일 또는 매주 보고서를 생성하는 경우 리소스는 가끔 필요합니다. 보고서가 많은 양의 데이터를 처리하는 경우 데이터 웨어하우스를 확장하면 사용자의 기존 리소스 클래스에 더 많은 메모리를 제공할 수 있습니다.
+- 쿼리는 복잡하지만 높은 동시성을 요구하지 않는 경우 동적 리소스 클래스를 선택합니다.  예를 들어 매일 또는 매주 보고서를 생성하는 경우 리소스가 가끔 필요합니다. 보고서가 많은 양의 데이터를 처리하는 경우 데이터 웨어하우스 크기를 조정하면 사용자의 기존 리소스 클래스에 더 많은 메모리를 제공할 수 있습니다.
 - 하루 중 리소스 요구 사항이 다른 경우 정적 리소스 클래스를 선택합니다. 예를 들어 데이터 웨어하우스가 여러 사용자에 의해 쿼리되는 경우에는 정적 리소스 클래스가 잘 작동합니다. 데이터 웨어하우스의 크기를 조정 하는 경우 사용자에 게 할당 된 메모리 양이 변경 되지 않습니다. 따라서 시스템에서 더 많은 쿼리를 동시에 실행할 수 있습니다.
 
-적절한 메모리 부여는 쿼리되는 데이터의 양, 테이블 스키마의 특성 및 다양한 조인, 선택 및 그룹 조건자 등의 많은 요인에 따라 달라집니다. 일반적으로 더 많은 메모리를 할당하면 쿼리를 더 빠르게 완료할 수 있지만 전체적인 동시성은 떨어집니다. 동시성이 문제가 되지 않는 경우 메모리를 과도하게 할당해도 처리량에는 문제가 없습니다.
+적절한 메모리 부여는 쿼리되는 데이터의 양, 테이블 스키마의 특성 및 다양한 조인, 선택 및 그룹 조건자 등의 많은 요인에 따라 달라집니다. 일반적으로 더 많은 메모리를 할당하면 쿼리를 더 빠르게 완료할 수 있지만 전체적인 동시성은 떨어집니다. 동시성이 문제가 되지 않을 경우 메모리를 과도하게 할당해도 처리량은 괜찮습니다.
 
 성능을 튜닝하려면 다른 리소스 클래스를 사용합니다. 다음 섹션에서는 최상의 리소스 클래스를 파악하는 데 도움이 되는 저장 프로시저를 제공합니다.
 
@@ -242,7 +242,7 @@ EXEC sp_droprolemember 'largerc', 'loaduser';
 
 ### <a name="usage-example"></a>사용 예
 
-구문:  
+구문  
 `EXEC dbo.prc_workload_management_by_DWU @DWU VARCHAR(7), @SCHEMA_NAME VARCHAR(128), @TABLE_NAME VARCHAR(128)`
   
 1. @DWU: NULL 매개 변수를 제공 하 여 DW DB에서 현재 DWU를 추출 하거나 ' DW100c ' 형식으로 지원 되는 DWU를 제공 합니다.

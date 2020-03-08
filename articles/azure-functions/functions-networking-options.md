@@ -5,12 +5,12 @@ author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: 7b47e7b0672716141f62e3f7df4b0d3ed95c663d
-ms.sourcegitcommit: d12880206cf9926af6aaf3bfafda1bc5b0ec7151
+ms.openlocfilehash: f06c50c35e25f2f64948c5f18672e00382d4ef42
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77114285"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78893239"
 ---
 # <a name="azure-functions-networking-options"></a>Azure Functions 네트워킹 옵션
 
@@ -34,7 +34,7 @@ ms.locfileid: "77114285"
 |[가상 네트워크 통합](#virtual-network-integration)|❌아니요|✅예 (지역)|✅예 (지역 및 게이트웨이)|예 ✅|
 |[가상 네트워크 트리거 (비 HTTP)](#virtual-network-triggers-non-http)|❌아니요| 예 ✅ |예 ✅|예 ✅|
 |[하이브리드 연결](#hybrid-connections) (Windows에만 해당)|❌아니요|예 ✅|예 ✅|예 ✅|
-|[아웃 바운드 IP 제한](#outbound-ip-restrictions)|❌아니요| ❌아니요|❌아니요|예 ✅|
+|[아웃 바운드 IP 제한](#outbound-ip-restrictions)|❌아니요| 예 ✅|예 ✅|예 ✅|
 
 ## <a name="inbound-ip-restrictions"></a>인바운드 IP 제한
 
@@ -57,65 +57,34 @@ IP 제한을 사용 하 여 앱에 대 한 액세스가 허용 되거나 거부 
 
 ## <a name="virtual-network-integration"></a>가상 네트워크 통합
 
-가상 네트워크 통합을 사용 하면 함수 앱이 가상 네트워크 내의 리소스에 액세스할 수 있습니다. 이 기능은 프리미엄 요금제와 App Service 계획에서 모두 사용할 수 있습니다. 앱이 App Service Environment에 있는 경우 이미 가상 네트워크에 있으며 가상 네트워크를 통합 하 여 동일한 가상 네트워크에 있는 리소스에 연결할 필요가 없습니다.
+가상 네트워크 통합을 사용 하면 함수 앱이 가상 네트워크 내의 리소스에 액세스할 수 있습니다. Azure Functions는 두 가지 종류의 가상 네트워크 통합을 지원 합니다.
 
-가상 네트워크 통합을 사용 하 여 가상 네트워크에서 실행 되는 데이터베이스 및 웹 서비스에 대 한 앱 액세스를 설정할 수 있습니다. 가상 네트워크 통합을 사용 하면 VM의 응용 프로그램에 대 한 공용 끝점을 노출할 필요가 없습니다. 대신 개인, 비 인터넷 라우팅 가능 주소를 사용할 수 있습니다.
-
-가상 네트워크 통합에는 다음과 같은 두 가지 형식이 있습니다.
-
-+ **지역 가상 네트워크 통합 (미리 보기)** : 동일한 지역의 가상 네트워크와 통합할 수 있습니다. 이 유형의 통합에는 동일한 지역의 가상 네트워크에 있는 서브넷이 필요 합니다. 이 기능은 아직 미리 보기 상태 이지만, Windows에서 실행 되는 함수 앱에 대해 지원 되며, 다음 문제/해결 방법 테이블 뒤에 설명 된 주의 사항이 있습니다.
-+ **게이트웨이 필요 가상 네트워크 통합**: 원격 지역의 가상 네트워크 또는 클래식 가상 네트워크와 통합할 수 있습니다. 이러한 유형의 통합을 위해서는 VNet에 가상 네트워크 게이트웨이를 배포 해야 합니다. 이는 Windows에서 실행 되는 함수 앱에 대해서만 지원 되는 지점 및 사이트 간 VPN 기반 기능입니다.
-
-앱은 한 번에 한 가지 유형의 가상 네트워크 통합 기능만 사용할 수 있습니다. 여러 시나리오에는 두 가지 모두 유용 하지만 다음 표에서는 각각을 사용 해야 하는 위치를 나타냅니다.
-
-| 문제  | 해결 방법 |
-|----------|----------|
-| 동일한 지역에서 RFC 1918 주소 (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16)에 도달 하려고 합니다. | 지역 가상 네트워크 통합 |
-| 클래식 가상 네트워크 또는 다른 지역의 가상 네트워크에 있는 리소스에 연결 하려고 합니다. | 게이트웨이는 가상 네트워크 통합 필요 |
-| Azure Express 경로에서 RFC 1918 끝점에 도달 하려고 합니다. | 지역 가상 네트워크 통합 |
-| 서비스 끝점에서 리소스에 연결 하려고 합니다. | 지역 가상 네트워크 통합 |
-
-두 기능 모두 Express 경로에서 비 RFC 1918 주소에 도달할 수 있습니다. 이렇게 하려면 현재 App Service Environment를 사용 해야 합니다.
-
-지역 가상 네트워크 통합을 사용 하면 가상 네트워크를 온-프레미스 끝점에 연결 하거나 서비스 끝점을 구성할 수 없습니다. 이는 별도의 네트워킹 구성입니다. 지역 가상 네트워크 통합을 사용 하면 응용 프로그램에서 이러한 연결 형식에 대 한 호출을 수행할 수 있습니다.
-
-사용 된 버전에 관계 없이 가상 네트워크 통합은 함수 앱에 가상 네트워크의 리소스에 대 한 액세스를 제공 하지만 가상 네트워크에서 함수 앱에 대 한 개인 사이트 액세스를 부여 하지 않습니다. 개인 사이트 액세스는 Azure virtual network와 같은 개인 네트워크 에서만 앱에 액세스할 수 있도록 하는 것을 의미 합니다. 가상 네트워크 통합은 앱에서 가상 네트워크로 아웃 바운드 호출을 수행 하기 위한 것입니다.
-
-가상 네트워크 통합 기능:
-
-* Standard, Premium 또는 PremiumV2 App Service 계획이 필요 합니다.
-* TCP 및 UDP를 지원 합니다.
-* App Service 앱 및 함수 앱에서 작동
-
-다음을 포함 하 여 가상 네트워크 통합에서 지원 하지 않는 몇 가지 항목이 있습니다.
-
-* 드라이브 탑재
-* Active Directory 통합
-* NetBIOS
+[!INCLUDE [app-service-web-vnet-types](../../includes/app-service-web-vnet-types.md)]
 
 Azure Functions의 가상 네트워크 통합은 App Service 웹 앱과 공유 인프라를 사용 합니다. 두 가지 유형의 가상 네트워크 통합에 대해 자세히 알아보려면 다음을 참조 하세요.
 
 * [지역 가상 네트워크 통합](../app-service/web-sites-integrate-with-vnet.md#regional-vnet-integration)
 * [게이트웨이는 가상 네트워크 통합 필요](../app-service/web-sites-integrate-with-vnet.md#gateway-required-vnet-integration)
 
-가상 네트워크 통합을 사용 하는 방법에 대 한 자세한 내용은 [Azure 가상 네트워크와 함수 앱 통합](functions-create-vnet.md)을 참조 하세요.
+가상 네트워크 통합을 설정 하는 방법을 알아보려면 [Azure 가상 네트워크와 함수 앱 통합](functions-create-vnet.md)을 참조 하세요.
+
+## <a name="regional-virtual-network-integration"></a>지역 Virtual Network 통합
+
+[!INCLUDE [app-service-web-vnet-types](../../includes/app-service-web-vnet-regional.md)]
 
 ## <a name="connecting-to-service-endpoint-secured-resources"></a>서비스 끝점 보안 리소스에 연결
-
-> [!NOTE]
-> 지금은 다운스트림 리소스에 대 한 액세스 제한을 구성한 후 새 서비스 끝점을 함수 앱에서 사용할 수 있게 되는 데 최대 12 시간이 걸릴 수 있습니다. 이 시간 동안 앱에서 리소스를 완전히 사용할 수 없게 됩니다.
 
 높은 수준의 보안을 제공 하기 위해 서비스 끝점을 사용 하 여 여러 Azure 서비스를 가상 네트워크로 제한할 수 있습니다. 그런 다음 해당 가상 네트워크와 함수 앱을 통합 하 여 리소스에 액세스 해야 합니다. 이 구성은 가상 네트워크 통합을 지 원하는 모든 요금제에서 지원 됩니다.
 
 [가상 네트워크 서비스 끝점에 대해 자세히 알아보세요.](../virtual-network/virtual-network-service-endpoints-overview.md)
 
-### <a name="restricting-your-storage-account-to-a-virtual-network"></a>가상 네트워크에 대 한 저장소 계정 제한
+## <a name="restricting-your-storage-account-to-a-virtual-network"></a>가상 네트워크에 대 한 저장소 계정 제한
 
-함수 앱을 만들 때 Blob, 큐 및 테이블 저장소를 지 원하는 범용 Azure Storage 계정을 만들거나 연결 해야 합니다. 현재이 계정에 대 한 가상 네트워크 제한을 사용할 수 없습니다. 함수 앱에 사용 하는 저장소 계정에서 가상 네트워크 서비스 끝점을 구성 하는 경우 앱이 중단 됩니다. 이 기능은 현재 프리미엄 계획 및 가상 네트워크 통합을 사용 하 여 사용할 수 있습니다.
+함수 앱을 만들 때 Blob, 큐 및 테이블 저장소를 지 원하는 범용 Azure Storage 계정을 만들거나 연결 해야 합니다. 현재이 계정에 대 한 가상 네트워크 제한을 사용할 수 없습니다. 함수 앱에 사용 하는 저장소 계정에서 가상 네트워크 서비스 끝점을 구성 하는 경우 앱이 중단 됩니다.
 
 [저장소 계정 요구 사항에 대해 자세히 알아보세요.](./functions-create-function-app-portal.md#storage-account-requirements)
 
-### <a name="using-key-vault-references"></a>Key Vault 참조 사용 
+## <a name="using-key-vault-references"></a>Key Vault 참조 사용 
 
 Key Vault 참조를 사용 하면 코드를 변경할 필요 없이 Azure Functions 응용 프로그램에서 Azure Key Vault의 암호를 사용할 수 있습니다. Azure Key Vault는 중앙 집중화 된 비밀 관리를 제공 하 고 액세스 정책 및 감사 기록에 대 한 모든 권한을 제공 하는 서비스입니다.
 
@@ -171,9 +140,13 @@ Azure Functions에서 사용 되는 것 처럼 각 하이브리드 연결은 단
 
 ## <a name="outbound-ip-restrictions"></a>아웃 바운드 IP 제한
 
-아웃 바운드 IP 제한은 App Service Environment에 배포 된 함수에만 사용할 수 있습니다. App Service Environment 배포 되는 가상 네트워크에 대 한 아웃 바운드 제한을 구성할 수 있습니다.
+아웃 바운드 IP 제한은 프리미엄 계획, App Service 계획 또는 App Service Environment에서 사용할 수 있습니다. App Service Environment 배포 되는 가상 네트워크에 대 한 아웃 바운드 제한을 구성할 수 있습니다.
 
-프리미엄 계획의 함수 앱 또는 가상 네트워크와 App Service 계획을 통합 하는 경우 앱은 여전히 인터넷에 대 한 아웃 바운드 호출을 수행할 수 있습니다.
+프리미엄 계획의 함수 앱 또는 가상 네트워크와 App Service 계획을 통합 하는 경우 앱은 기본적으로 인터넷에 대 한 아웃 바운드 호출을 수행할 수 있습니다. `WEBSITE_VNET_ROUTE_ALL=1`응용 프로그램 설정을 추가 하 여 모든 아웃 바운드 트래픽이 가상 네트워크로 전송 되도록 합니다 .이 경우 네트워크 보안 그룹 규칙을 사용 하 여 트래픽을 제한할 수 있습니다.
+
+## <a name="troubleshooting"></a>문제 해결 
+
+[!INCLUDE [app-service-web-vnet-troubleshooting](../../includes/app-service-web-vnet-troubleshooting.md)]
 
 ## <a name="next-steps"></a>다음 단계
 
