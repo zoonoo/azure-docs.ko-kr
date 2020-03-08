@@ -11,20 +11,20 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f7f6f31c4d2f67660fef507ce101b2d15897d51
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 158b3b34bf433c1da0d1c4bdc851fd99e5bd54d2
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77620861"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78671968"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>방법: 조건부 액세스를 사용 하 여 Azure AD에 대 한 레거시 인증 차단   
 
-사용자가 클라우드 앱에 쉽게 액세스할 수 있도록 Azure AD(Active Directory)에서 레거시 인증을 포함한 다양한 인증 프로토콜을 지원합니다. 그러나 레거시 프로토콜은 MFA(다단계 인증)를 지원하지 않습니다. MFA는 다양한 환경에서 ID 도용 문제를 해결하기 위한 일반적인 요구 사항입니다. 
+사용자가 클라우드 앱에 쉽게 액세스할 수 있도록 Azure AD(Active Directory)에서 레거시 인증을 포함한 다양한 인증 프로토콜을 지원합니다. 그러나 레거시 프로토콜은 MFA (multi-factor authentication)를 지원 하지 않습니다. MFA는 다양한 환경에서 ID 도용 문제를 해결하기 위한 일반적인 요구 사항입니다. 
 
 사용자 환경이 레거시 인증을 차단 하 여 테 넌 트의 보호를 향상 시킬 준비가 된 경우 조건부 액세스를 사용 하 여이 목표를 달성할 수 있습니다. 이 문서에서는 테 넌 트에 대해 레거시 인증을 차단 하는 조건부 액세스 정책을 구성 하는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서에서는 사용자가 다음에 대해 잘 알고 있다고 가정합니다. 
 
@@ -54,7 +54,7 @@ Azure AD는 레거시 인증을 포함하여 가장 널리 사용되는 몇 가�
 
 - 인증 된 SMTP-POP 및 IMAP 클라이언트에서 전자 메일 메시지를 보내는 데 사용 됩니다.
 - 자동 검색-Outlook 및 EAS 클라이언트에서 Exchange Online의 사서함을 찾아 연결 하는 데 사용 됩니다.
-- Exchange Online PowerShell-원격 PowerShell을 사용 하 여 Exchange Online에 연결 하는 데 사용 됩니다. Exchange Online PowerShell에 대 한 기본 인증을 차단 하는 경우 Exchange Online PowerShell 모듈을 사용 하 여 연결 해야 합니다. 지침은 [multi-factor authentication을 사용 하 여 Exchange Online PowerShell에 연결](https://docs.microsoft.com/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell)을 참조 하세요.
+- Exchange Online PowerShell-원격 PowerShell을 사용 하 여 Exchange Online에 연결 하는 데 사용 됩니다. Exchange Online PowerShell에 대 한 기본 인증을 차단 하는 경우 Exchange Online PowerShell 모듈을 사용 하 여 연결 해야 합니다. 지침은 [multi-factor authentication을 사용 하 여 Exchange Online PowerShell에 연결](/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell)을 참조 하세요.
 - EWS (Exchange 웹 서비스)-Outlook, Mac 용 Outlook 및 타사 앱에서 사용 하는 프로그래밍 인터페이스입니다.
 - IMAP4-IMAP 메일 클라이언트에서 사용 합니다.
 - MAPI over HTTP (MAPI/HTTP)-Outlook 2010 이상에서 사용 됩니다.
@@ -91,7 +91,7 @@ Azure AD는 레거시 인증을 포함하여 가장 널리 사용되는 몇 가�
 
 조직의 레거시 인증을 차단하려면 다음을 선택하여 이 작업을 수행할 수 있습니다.
 
-- 모든 사용자
+- 모든 사용자가 액세스할 수 있습니다.
 - 모든 클라우드 앱
 - 액세스 차단
 
@@ -137,4 +137,4 @@ Azure에는이 구성이 조건부 액세스 정책에 대 한 [모범 사례](b
 ## <a name="next-steps"></a>다음 단계
 
 - 조건부 액세스 정책을 구성 하는 방법을 잘 모르는 경우 예제를 보려면 [조건부 액세스 Azure Active Directory 있는 특정 앱에 대해 MFA 필요](app-based-mfa.md) 를 참조 하세요.
-- 최신 인증 지원에 대 한 자세한 내용은 [office 2013 및 office 2016 클라이언트 앱에 대 한 최신 인증 작동 방식](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016) 을 참조 하세요. 
+- 최신 인증 지원에 대 한 자세한 내용은 [office 2013 및 office 2016 클라이언트 앱에 대 한 최신 인증 작동 방식](/office365/enterprise/modern-auth-for-office-2013-and-2016) 을 참조 하세요. 

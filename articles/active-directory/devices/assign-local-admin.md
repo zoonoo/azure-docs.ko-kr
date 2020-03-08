@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd8087e9eaa11ced5da9b445af9d33377b4391c0
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 613c5e9f153f2e3f02ab35d3be16ef3b29d15634
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74379654"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672721"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Azure AD 조인 디바이스에서 로컬 관리자 그룹을 관리하는 방법
 
@@ -68,8 +68,8 @@ Azure Portal에 있는 **디바이스** 페이지에서 디바이스 관리자 �
 
 기본적으로 Azure AD는 디바이스에서 관리자 그룹에 Azure AD 조인을 수행하는 사용자를 추가합니다. 일반 사용자가 로컬 관리자가 되지 않도록 하려면 다음 옵션을 사용할 수 있습니다.
 
-- [Windows Autopilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) - Windows Autopilot은 조인을 수행하는 기본 사용자가 로컬 관리자가 되는 것을 방지하는 옵션을 제공합니다. 이 작업은 [Autopilot 프로필 만들기](https://docs.microsoft.com/intune/enrollment-autopilot#create-an-autopilot-deployment-profile)를 통해 수행할 수 있습니다.
-- [대량 등록](https://docs.microsoft.com/intune/windows-bulk-enroll) - 대량 등록의 컨텍스트에서 수행되는 Azure AD 조인은 자동으로 생성된 사용자의 컨텍스트에서 발생합니다. 디바이스가 조인된 후에 로그인하는 사용자는 관리자 그룹에 추가되지 않습니다.   
+- [Windows Autopilot](/windows/deployment/windows-autopilot/windows-10-autopilot) - Windows Autopilot은 조인을 수행하는 기본 사용자가 로컬 관리자가 되는 것을 방지하는 옵션을 제공합니다. 이 작업은 [Autopilot 프로필 만들기](/intune/enrollment-autopilot#create-an-autopilot-deployment-profile)를 통해 수행할 수 있습니다.
+- [대량 등록](/intune/windows-bulk-enroll) - 대량 등록의 컨텍스트에서 수행되는 Azure AD 조인은 자동으로 생성된 사용자의 컨텍스트에서 발생합니다. 디바이스가 조인된 후에 로그인하는 사용자는 관리자 그룹에 추가되지 않습니다.   
 
 ## <a name="manually-elevate-a-user-on-a-device"></a>수동으로 디바이스에서 사용자 권한 상승 
 

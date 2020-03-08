@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/29/2019
 ms.author: erhopf
-ms.openlocfilehash: 020055c1629a66ec1aa82beb050501803b2a0f18
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: dc5e251fee00ee22edb2261c1abd8404714834ba
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77168303"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78669323"
 ---
 ## <a name="authentication"></a>인증
 
@@ -22,7 +22,7 @@ ms.locfileid: "77168303"
 
 `Ocp-Apim-Subscription-Key` 헤더를 사용하는 경우 구독 키만 제공하면 됩니다. 다음은 그 예입니다.
 
-```
+```http
 'Ocp-Apim-Subscription-Key': 'YOUR_SUBSCRIPTION_KEY'
 ```
 
@@ -34,7 +34,7 @@ ms.locfileid: "77168303"
 
 `issueToken` 끝점의 형식은 다음과 같습니다.
 
-```
+```http
 https://<REGION_IDENTIFIER>.api.cognitive.microsoft.com/sts/v1.0/issueToken
 ```
 
@@ -62,7 +62,7 @@ Content-Length: 0
 
 이 예제는 액세스 토큰을 가져오는 간단한 PowerShell 스크립트입니다. `YOUR_SUBSCRIPTION_KEY`를 Speech Service 구독 키로 바꿉니다. 사용자 구독과 일치하는 지역에 맞는 엔드포인트를 사용해야 합니다. 이 예제는 현재 미국 서부로 설정되어 있습니다.
 
-```Powershell
+```powershell
 $FetchTokenHeader = @{
   'Content-type'='application/x-www-form-urlencoded';
   'Content-Length'= '0';
@@ -81,7 +81,7 @@ $OAuthToken
 
 cURL은 Linux(Linux용 Windows 하위 시스템)에서 사용할 수 있는 명령줄 도구입니다. 이 cURL 명령은 액세스 토큰을 가져오는 방법을 설명합니다. `YOUR_SUBSCRIPTION_KEY`를 Speech Service 구독 키로 바꿉니다. 사용자 구독과 일치하는 지역에 맞는 엔드포인트를 사용해야 합니다. 이 예제는 현재 미국 서부로 설정되어 있습니다.
 
-```cli
+```console
 curl -v -X POST
  "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken" \
  -H "Content-type: application/x-www-form-urlencoded" \
@@ -93,7 +93,7 @@ curl -v -X POST
 
 이 C# 클래스는 액세스 토큰을 가져오는 방법을 설명합니다. 이 클래스를 인스턴스화할 때 Speech Service 구독 키를 전달합니다. 구독이 미국 서부 지역이 아닌 경우 `FetchTokenUri`의 값을 구독의 지역과 일치하도록 변경합니다.
 
-```cs
+```csharp
 public class Authentication
 {
     public static readonly string FetchTokenUri =

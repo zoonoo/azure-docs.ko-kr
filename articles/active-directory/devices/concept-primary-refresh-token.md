@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b9240b863eef4d460cd8d3a47304fb96ffb4bc8
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 9a237ad35d9d5d8abee784926563d972d0ee95f9
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77917784"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672642"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>기본 새로 고침 토큰은 무엇 인가요?
 
@@ -33,7 +33,7 @@ PRT (주 새로 고침 토큰)는 Windows 10, iOS 및 Android 장치에서 Azure
 * **AZURE Ad CloudAP 플러그 인**: Windows 로그인 중에 azure ad를 사용 하 여 사용자 자격 증명을 확인 하는 CloudAP 프레임 워크를 기반으로 하는 azure ad 특정 플러그 인입니다.
 * **AZURE AD WAM 플러그 인**: 인증을 위해 azure ad를 사용 하는 응용 프로그램에 SSO를 사용 하는 WAM 프레임 워크를 기반으로 하는 azure ad 특정 플러그 인입니다.
 * **Dsreg**: 모든 장치 상태에 대 한 장치 등록 프로세스를 처리 하는 Windows 10의 Azure AD 관련 구성 요소입니다.
-* **신뢰할 수 있는 플랫폼 모듈** (tpm): tpm은 장치에 기본 제공 되는 하드웨어 구성 요소로, 사용자 및 장치 암호에 대 한 하드웨어 기반 보안 기능을 제공 합니다. 자세한 내용은 [신뢰할 수 있는 플랫폼 모듈 기술 개요](https://docs.microsoft.com/windows/security/information-protection/tpm/trusted-platform-module-overview)문서에서 찾을 수 있습니다.
+* **신뢰할 수 있는 플랫폼 모듈** (tpm): tpm은 장치에 기본 제공 되는 하드웨어 구성 요소로, 사용자 및 장치 암호에 대 한 하드웨어 기반 보안 기능을 제공 합니다. 자세한 내용은 [신뢰할 수 있는 플랫폼 모듈 기술 개요](/windows/security/information-protection/tpm/trusted-platform-module-overview)문서에서 찾을 수 있습니다.
 
 ## <a name="what-does-the-prt-contain"></a>PRT에는 무엇이 포함 되나요?
 
@@ -48,7 +48,7 @@ PRT는 모든 클라이언트 구성 요소에서 콘텐츠를 알 수 없는 Az
 
 ## <a name="how-is-a-prt-issued"></a>PRT는 어떻게 실행 되나요?
 
-장치 등록은 Azure AD에서 장치 기반 인증을 위한 필수 구성 요소입니다. PRT는 등록 된 장치 에서만 사용자에 게 발급 됩니다. 장치 등록에 대 한 자세한 내용은 [비즈니스용 Windows Hello 및 장치 등록](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-how-it-works-device-registration)문서를 참조 하세요. 장치를 등록 하는 동안 dsreg 구성 요소는 두 가지 암호화 키 쌍 집합을 생성 합니다.
+장치 등록은 Azure AD에서 장치 기반 인증을 위한 필수 구성 요소입니다. PRT는 등록 된 장치 에서만 사용자에 게 발급 됩니다. 장치 등록에 대 한 자세한 내용은 [비즈니스용 Windows Hello 및 장치 등록](/windows/security/identity-protection/hello-for-business/hello-how-it-works-device-registration)문서를 참조 하세요. 장치를 등록 하는 동안 dsreg 구성 요소는 두 가지 암호화 키 쌍 집합을 생성 합니다.
 
 * 장치 키 (dkpub/dkpub)
 * 전송 키 (tkpub/tkpub)
@@ -145,10 +145,10 @@ Windows 10은 각 자격 증명에 대 한 PRTs의 분할 된 목록을 유지 �
 > [!NOTE]
 > Azure AD 조인 장치에서이 exchange는 사용자가 Windows에 로그온 할 수 있기 전에 PRT를 실행 하는 동기식으로 발생 합니다. 하이브리드 Azure AD 조인 장치에서 온-프레미스 Active Directory는 기본 인증 기관입니다. 따라서 사용자는 TGT를 획득 하 여 로그인 할 수 있을 때까지 대기 하는 반면, PRT 발급은 비동기적으로 발생 합니다. Logon은 Azure AD 자격 증명을 사용 하지 않으므로이 시나리오는 Azure AD에 등록 된 장치에는 적용 되지 않습니다.
 
-| 단계 | 설명 |
+| 단계 | Description |
 | :---: | --- |
 | A | 사용자가 로그인 UI에 암호를 입력 합니다. LogonUI는 인증 버퍼의 자격 증명을 LSA에 전달 하 여이를 내부적으로 CloudAP에 전달 합니다. CloudAP는이 요청을 CloudAP 플러그인으로 전달 합니다. |
-| B | CloudAP 플러그 인은 사용자에 대 한 id 공급자를 식별 하는 영역 검색 요청을 시작 합니다. 사용자의 테 넌 트가 페더레이션 공급자를 설정 하는 경우 Azure AD는 페더레이션 공급자의 MEX (Metadata Exchange endpoint) 끝점을 반환 합니다. 그렇지 않은 경우 Azure AD는 사용자가 Azure AD를 사용 하 여 인증할 수 있음을 나타내는 사용자가 관리 됨을 반환 합니다. |
+| b | CloudAP 플러그 인은 사용자에 대 한 id 공급자를 식별 하는 영역 검색 요청을 시작 합니다. 사용자의 테 넌 트가 페더레이션 공급자를 설정 하는 경우 Azure AD는 페더레이션 공급자의 MEX (Metadata Exchange endpoint) 끝점을 반환 합니다. 그렇지 않은 경우 Azure AD는 사용자가 Azure AD를 사용 하 여 인증할 수 있음을 나타내는 사용자가 관리 됨을 반환 합니다. |
 | C | 사용자가 관리 되는 경우 CloudAP는 Azure AD에서 nonce를 가져옵니다. 사용자가 페더레이션 된 경우 CloudAP 플러그 인은 페더레이션 공급자에서 사용자 자격 증명을 사용 하 여 SAML 토큰을 요청 합니다. 수신 되 면 SAML 토큰은 Azure AD에서 nonce를 요청 합니다. |
 | D | CloudAP 플러그 인은 사용자의 자격 증명, nonce 및 broker 범위를 사용 하 여 인증 요청을 생성 하 고, 장치 키 (dkpriv)를 사용 하 여 요청에 서명 하 고 Azure AD에 보냅니다. 페더레이션된 환경에서 CloudAP 플러그 인은 사용자 자격 증명 대신 페더레이션 공급자가 반환 하는 SAML 토큰을 사용 합니다. |
 | E | Azure AD는 사용자 자격 증명, nonce 및 장치 서명의 유효성을 검사 하 고 장치가 테 넌 트에서 유효한 지 확인 하 고 암호화 된 PRT를 발급 합니다. 또한 PRT와 함께 Azure AD는 tkpub (전송 키)를 사용 하 여 Azure AD에서 암호화 된 세션 키 라는 대칭 키를 발급 합니다. 또한 세션 키는 PRT에도 포함 되어 있습니다. 이 세션 키는 PRT를 사용 하는 후속 요청에 대 한 PoP (소유 증명) 키 역할을 합니다. |
@@ -158,10 +158,10 @@ Windows 10은 각 자격 증명에 대 한 PRTs의 분할 된 목록을 유지 �
 
 ![후속 로그온 시 PRT 갱신](./media/concept-primary-refresh-token/prt-renewal-subsequent-logons.png)
 
-| 단계 | 설명 |
+| 단계 | Description |
 | :---: | --- |
 | A | 사용자가 로그인 UI에 암호를 입력 합니다. LogonUI는 인증 버퍼의 자격 증명을 LSA에 전달 하 여이를 내부적으로 CloudAP에 전달 합니다. CloudAP는이 요청을 CloudAP 플러그인으로 전달 합니다. |
-| B | 사용자가 이전에 사용자에 로그온 한 경우 Windows는 캐시 된 로그인을 시작 하 고 사용자를 기록할 자격 증명의 유효성을 검사 합니다. 4 시간 마다 CloudAP 플러그 인은 PRT 갱신을 비동기적으로 시작 합니다. |
+| b | 사용자가 이전에 사용자에 로그온 한 경우 Windows는 캐시 된 로그인을 시작 하 고 사용자를 기록할 자격 증명의 유효성을 검사 합니다. 4 시간 마다 CloudAP 플러그 인은 PRT 갱신을 비동기적으로 시작 합니다. |
 | C | CloudAP 플러그 인은 사용자에 대 한 id 공급자를 식별 하는 영역 검색 요청을 시작 합니다. 사용자의 테 넌 트가 페더레이션 공급자를 설정 하는 경우 Azure AD는 페더레이션 공급자의 MEX (Metadata Exchange endpoint) 끝점을 반환 합니다. 그렇지 않은 경우 Azure AD는 사용자가 Azure AD를 사용 하 여 인증할 수 있음을 나타내는 사용자가 관리 됨을 반환 합니다. |
 | D | 사용자가 페더레이션 된 경우 CloudAP 플러그 인은 페더레이션 공급자에서 사용자 자격 증명을 사용 하 여 SAML 토큰을 요청 합니다. 수신 되 면 SAML 토큰은 Azure AD에서 nonce를 요청 합니다. 사용자가 관리 되는 경우 CloudAP는 Azure AD에서 nonce를 직접 가져옵니다. |
 | E | CloudAP 플러그 인은 사용자의 자격 증명, nonce 및 기존 PRT를 사용 하 여 인증 요청을 생성 하 고, 세션 키를 사용 하 여 요청에 서명 하 고 Azure AD로 보냅니다. 페더레이션된 환경에서 CloudAP 플러그 인은 사용자 자격 증명 대신 페더레이션 공급자가 반환 하는 SAML 토큰을 사용 합니다. |
@@ -172,10 +172,10 @@ Windows 10은 각 자격 증명에 대 한 PRTs의 분할 된 목록을 유지 �
 
 ![앱 토큰 요청 중에 PRT 사용](./media/concept-primary-refresh-token/prt-usage-app-token-requests.png)
 
-| 단계 | 설명 |
+| 단계 | Description |
 | :---: | --- |
 | A | 응용 프로그램 (예: Outlook, OneNote 등)은 WAM에 대 한 토큰 요청을 시작 합니다. 그런 다음 WAM는 Azure AD WAM 플러그 인을 요청 하 여 토큰 요청을 처리 합니다. |
-| B | 응용 프로그램에 대 한 새로 고침 토큰을 이미 사용할 수 있는 경우 Azure AD WAM 플러그 인은이 토큰을 사용 하 여 액세스 토큰을 요청 합니다. 장치 바인딩의 증명을 제공 하기 위해 WAM 플러그 인은 세션 키를 사용 하 여 요청에 서명 합니다. Azure AD는 세션 키의 유효성을 검사 하 고, 세션 키로 암호화 된 앱에 대 한 새 새로 고침 토큰 및 액세스 토큰을 발급 합니다. WAM 플러그 인은 토큰의 암호를 해독 하도록 클라우드 AP 플러그 인을 요청 하며,이는 세션 키를 사용 하 여 암호를 해독 하도록 TPM을 요청 합니다. 그러면 WAM 플러그 인이 두 토큰을 모두 가져옵니다. 그런 다음 WAM 플러그 인은 응용 프로그램에 대 한 액세스 토큰만 제공 하지만 DPAPI를 사용 하 여 새로 고침 토큰을 다시 암호화 하 고 자체 캐시에 저장 합니다.  |
+| b | 응용 프로그램에 대 한 새로 고침 토큰을 이미 사용할 수 있는 경우 Azure AD WAM 플러그 인은이 토큰을 사용 하 여 액세스 토큰을 요청 합니다. 장치 바인딩의 증명을 제공 하기 위해 WAM 플러그 인은 세션 키를 사용 하 여 요청에 서명 합니다. Azure AD는 세션 키의 유효성을 검사 하 고, 세션 키로 암호화 된 앱에 대 한 새 새로 고침 토큰 및 액세스 토큰을 발급 합니다. WAM 플러그 인은 토큰의 암호를 해독 하도록 클라우드 AP 플러그 인을 요청 하며,이는 세션 키를 사용 하 여 암호를 해독 하도록 TPM을 요청 합니다. 그러면 WAM 플러그 인이 두 토큰을 모두 가져옵니다. 그런 다음 WAM 플러그 인은 응용 프로그램에 대 한 액세스 토큰만 제공 하지만 DPAPI를 사용 하 여 새로 고침 토큰을 다시 암호화 하 고 자체 캐시에 저장 합니다.  |
 | C |  응용 프로그램에 대 한 새로 고침 토큰을 사용할 수 없는 경우 Azure AD WAM 플러그 인은 PRT를 사용 하 여 액세스 토큰을 요청 합니다. 소유 증명을 제공 하기 위해 WAM 플러그 인은 세션 키를 사용 하 여 PRT를 포함 하는 요청에 서명 합니다. Azure AD는 PRT에 포함 된 세션 키와 비교 하 여 세션 키 서명의 유효성을 검사 하 고, 장치가 올바른지 확인 하 고, 응용 프로그램에 대 한 액세스 토큰 및 새로 고침 토큰을 발급 합니다. 또한 Azure AD는 새로 고침 주기를 기반으로 하는 새 PRT를 발급할 수 있습니다. 이러한 모든 항목은 세션 키로 암호화 됩니다. |
 | D | WAM 플러그 인은 토큰의 암호를 해독 하도록 클라우드 AP 플러그 인을 요청 하며,이는 세션 키를 사용 하 여 암호를 해독 하도록 TPM을 요청 합니다. 그러면 WAM 플러그 인이 두 토큰을 모두 가져옵니다. 그런 다음 WAM 플러그 인은 응용 프로그램에 대 한 액세스 토큰만 제공 하지만 DPAPI를 사용 하 여 새로 고침 토큰을 다시 암호화 하 고 자체 캐시에 저장 합니다. WAM 플러그 인은이 응용 프로그램에 대해 전달 되는 새로 고침 토큰을 사용 합니다. 또한 WAM 플러그 인은 새로운 PRT를 클라우드 AP 플러그인에 다시 제공 합니다 .이 플러그인은 Azure AD를 사용 하 여 PRT의 유효성을 검사 한 후 자체 캐시로 업데이트 합니다. 클라우드 AP 플러그인은 앞으로 새 PRT를 사용 합니다. |
 | E | WAM는 WAM에 새로 발급 된 액세스 토큰을 제공 하며, 다시 호출 하는 응용 프로그램에 다시 제공 합니다.|
@@ -184,10 +184,10 @@ Windows 10은 각 자격 증명에 대 한 PRTs의 분할 된 목록을 유지 �
 
 ![PRT를 사용 하는 브라우저 SSO](./media/concept-primary-refresh-token/browser-sso-using-prt.png)
 
-| 단계 | 설명 |
+| 단계 | Description |
 | :---: | --- |
 | A | 사용자는 자격 증명을 사용 하 여 Windows에 로그인 하 여 PRT를 가져옵니다. 사용자가 브라우저를 열면 브라우저 또는 확장명이 레지스트리에서 Url을 로드 합니다. |
-| B | 사용자가 Azure AD 로그인 URL을 열면 브라우저나 확장에서 레지스트리에서 가져온 URL의 유효성을 검사 합니다. 일치 하는 경우 브라우저는 토큰을 가져오기 위해 native client 호스트를 호출 합니다. |
+| b | 사용자가 Azure AD 로그인 URL을 열면 브라우저나 확장에서 레지스트리에서 가져온 URL의 유효성을 검사 합니다. 일치 하는 경우 브라우저는 토큰을 가져오기 위해 native client 호스트를 호출 합니다. |
 | C | Native client 호스트는 url이 Microsoft id 공급자 (Microsoft 계정 또는 Azure AD)에 속해 있는지 확인 하 고, URL에서 보낸 nonce를 추출 하 고, CloudAP 플러그 인을 호출 하 여 PRT 쿠키를 가져옵니다. |
 | D | CloudAP 플러그 인은 PRT 쿠키를 만들고 TPM 바인딩된 세션 키를 사용 하 여 로그인 한 다음 다시 native client 호스트로 보냅니다. 쿠키는 세션 키로 서명 되므로 변조 될 수 없습니다. |
 | E | Native client 호스트는이 PRT 쿠키를 브라우저에 반환 합니다. 그러면이 PRT 쿠키를 Azure AD의 요청 토큰 및 요청 헤더의 일부로 포함 됩니다. |

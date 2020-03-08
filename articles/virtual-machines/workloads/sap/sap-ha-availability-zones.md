@@ -13,15 +13,15 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/17/2020
+ms.date: 03/05/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0ee3d1d896d99d892d0a41799c4c1695633d29c4
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: a7a92bef85cd4ee7530940a065135e88c7530781
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76291501"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78675602"
 ---
 # <a name="sap-workload-configurations-with-azure-availability-zones"></a>Azure 가용성 영역을 사용하는 SAP 워크로드 구성
 [Azure 가용성 영역](https://docs.microsoft.com/azure/availability-zones/az-overview)은 Azure가 제공하는 고가용성 기능 중 하나입니다. 가용성 영역을 사용하면 Azure에서 SAP 워크로드의 전반적인 가용성이 향상됩니다. 이 기능은 일부 [Azure 지역](https://azure.microsoft.com/global-infrastructure/regions/)에서 이미 사용할 수 있습니다. 향후에는 더 많은 지역에서 사용할 수 있게 될 것입니다.
@@ -118,6 +118,9 @@ Azure 가용성 영역을 사용하여 동일한 아키텍처를 배포하려면
 - 세 번째 영역은 [SUSE Linux Pacemaker 클러스터](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#create-azure-fence-agent-stonith-device) 또는 추가 애플리케이션 인스턴스를 빌드하는 경우 SBD 디바이스의 호스트가 됩니다.
 - 중요 한 비즈니스 프로세스에 대 한 런타임 일관성을 얻기 위해 SAP batch 서버 그룹, SAP 로그온 그룹 또는 RFC 그룹을 사용 하 여 특정 batch 작업 및 사용자를 활성 DBMS 인스턴스와 영역 내 응용 프로그램 인스턴스로 안내할 수 있습니다. 그러나 영역 장애 조치(failover)의 경우 이러한 그룹을 활성 DB VM이 있는 영역 내 VM에서 실행되는 인스턴스로 수동으로 이동해야 합니다.  
 - 각 영역에서 유휴 대화 상자 인스턴스를 배포할 수 있습니다. 이렇게 하면 애플리케이션 인스턴스의 일부에서 사용하는 영역의 서비스가 중단될 경우 이전 리소스 용량을 즉시 되돌아갈 수 있습니다.
+
+> [!IMPORTANT]
+> 이 능동/능동 시나리오에서는 Microsoft에서 04/01/2020에 대 한 추가 요금 청구 요금이 발표 됩니다. 문서 [대역폭 가격 정보](https://azure.microsoft.com/pricing/details/bandwidth/)를 확인 합니다. SAP 응용 프로그램 계층과 SAP DBMS 계층 간의 데이터 전송은 매우 많이 사용 됩니다. 따라서 활성/활성 시나리오는 상당한 비용에 기여할 수 있습니다. 정확한 비용을 얻으려면이 문서를 계속 확인 하세요. 
 
 
 ## <a name="activepassive-deployment"></a>액티브/패시브 배포

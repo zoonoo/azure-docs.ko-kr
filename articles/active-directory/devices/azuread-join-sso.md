@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 083433d31f088eae1e138dd9cbd5ac05bbe8a304
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: f9d8c0cd803424e117bd4dc7a3382b7b32df2d05
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773300"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672711"
 ---
 # <a name="how-sso-to-on-premises-resources-works-on-azure-ad-joined-devices"></a>온-프레미스 리소스에 대한 SSO가 Azure AD 조인 디바이스에서 작동하는 방식
 
@@ -24,11 +24,11 @@ Azure AD(Azure Active Directory) 조인 디바이스에서 SSO(Single Sign-On) �
 
 이 문서에서는 이러한 작동 방식에 대해 설명합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
  Azure AD 조인 컴퓨터가 조직의 네트워크에 연결 되어 있지 않으면 VPN 또는 다른 네트워크 인프라가 필요 합니다. 온-프레미스 SSO에는 온-프레미스 AD DS 도메인 컨트롤러와의 시야 통신이 필요 합니다.
 
-## <a name="how-it-works"></a>작동 원리 
+## <a name="how-it-works"></a>작동 방법 
 
 단일 사용자 이름과 암호만 기억하면 되므로 SSO는 리소스에 대한 액세스를 간소화하고 환경의 보안을 향상시킵니다. Azure AD 조인 디바이스를 사용하면 사용자는 이미 자신의 환경에서 클라우드 앱에 대한 SSO 환경을 갖추고 있습니다. 환경에 Azure AD와 온-프레미스 AD가 있는 경우 SSO 환경 범위를 온-프레미스 LOB(기간 업무) 앱, 파일 공유 및 프린터로 확장하려고 할 수도 있습니다.
 
@@ -42,13 +42,13 @@ Azure AD와 온-프레미스 AD를 모두 갖춘 환경은 하이브리드 환�
 사용자의 온-프레미스 환경에서 Kerberos를 요청 하는 리소스에 액세스 하려고 시도 하는 동안 장치는 다음과 같습니다.
 
 1. 온-프레미스 도메인 정보와 사용자 자격 증명을 찾아낸 DC로 보내 사용자를 인증합니다.
-1. AD 조인 리소스에 액세스하는 데 사용되는 Kerberos [TGT(Ticket-Granting Ticket)](https://docs.microsoft.com/windows/desktop/secauthn/ticket-granting-tickets)를 수신합니다. AAD 연결 도메인에 대 한 TGT를 가져오지 못한 경우 (관련 DCLocator 시간 제한으로 인해 지연이 발생할 수 있음) 자격 증명 관리자 항목이 시도 되거나 사용자가 대상 리소스에 대 한 자격 증명을 요청 하는 인증 팝업을 받을 수 있습니다.
+1. AD 조인 리소스에 액세스하는 데 사용되는 Kerberos [TGT(Ticket-Granting Ticket)](/windows/desktop/secauthn/ticket-granting-tickets)를 수신합니다. AAD 연결 도메인에 대 한 TGT를 가져오지 못한 경우 (관련 DCLocator 시간 제한으로 인해 지연이 발생할 수 있음) 자격 증명 관리자 항목이 시도 되거나 사용자가 대상 리소스에 대 한 자격 증명을 요청 하는 인증 팝업을 받을 수 있습니다.
 
 사용자가 액세스하려고 시도하면 **Windows 통합 인증**에 구성된 모든 앱에서 SSO를 원활하게 받습니다.
 
-Azure AD 조인 디바이스에서 온-프레미스 SSO를 사용하도록 설정하려면 비즈니스용 Windows Hello를 추가로 구성해야 합니다. 자세한 내용은 [비즈니스용 Windows Hello를 사용하여 온-프레미스 Single Sign-On에 대한 Azure AD 조인 디바이스 구성](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-hybrid-aadj-sso-base)을 참조하세요. 
+Azure AD 조인 디바이스에서 온-프레미스 SSO를 사용하도록 설정하려면 비즈니스용 Windows Hello를 추가로 구성해야 합니다. 자세한 내용은 [비즈니스용 Windows Hello를 사용하여 온-프레미스 Single Sign-On에 대한 Azure AD 조인 디바이스 구성](/windows/security/identity-protection/hello-for-business/hello-hybrid-aadj-sso-base)을 참조하세요. 
 
-## <a name="what-you-get"></a>MSDN 구독 혜택
+## <a name="what-you-get"></a>결과
 
 SSO를 사용하면 Azure AD 조인 디바이스에서 다음을 수행할 수 있습니다. 
 

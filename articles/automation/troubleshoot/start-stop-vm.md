@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 44de5878dcc39e09adf24f69b883a29370f00b48
-ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
+ms.openlocfilehash: 97ea98fc38fc8d06dc1bc65ee057241da6f15488
+ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77505733"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78851387"
 ---
 # <a name="troubleshoot-the-startstop-vms-during-off-hours-solution"></a>작업 시간 외 VM 시작/중지 문제 해결
 
@@ -203,7 +203,7 @@ VM의 잘못된 태그 지정 때문입니다.
 
 실행 계정이 제대로 구성되어 있는지 확인하려면 Azure Portal에서 Automation 계정으로 이동한 후 **계정 설정** 아래에서 **실행 계정**을 선택합니다. 다음은 실행 계정의 상태입니다. 실행 계정이 잘못 구성되었거나 만료된 경우 이러한 상태가 표시됩니다.
 
-실행 계정이 [잘못 구성된](../manage-runas-account.md#misconfiguration) 경우 실행 계정을 삭제한 후 다시 만들어야 합니다.
+실행 계정이 잘못 구성 된 경우 실행 계정을 삭제 하 고 다시 만들어야 합니다. [Azure Automation 실행 계정 관리](../manage-runas-account.md)를 참조 하세요.
 
 실행 계정에 대해 인증서가 만료되면 [자체 서명된 인증서 갱신](../manage-runas-account.md#cert-renewal)의 단계에 따라 인증서를 갱신합니다.
 

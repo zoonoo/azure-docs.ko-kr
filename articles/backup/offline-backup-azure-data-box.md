@@ -3,12 +3,12 @@ title: Azure Data Box를 사용 하 여 오프 라인 백업
 description: Azure Data Box를 사용 하 여 MARS 에이전트에서 Recovery Services 자격 증명 모음으로 대량 초기 백업 데이터를 오프 라인으로 설정 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 1/27/2020
-ms.openlocfilehash: 9a8288939adba8ec1b0cbe38d2243b1bdd84fa2e
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: a031a8cac357e7d212f8f6a3a5dbec749fbccc21
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78196474"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672961"
 ---
 # <a name="azure-backup-offline-backup-by-using-azure-data-box"></a>Azure Data Box를 사용 하 여 오프 라인 백업 Azure Backup
 
@@ -21,7 +21,7 @@ ms.locfileid: "78196474"
 
 이 문서에서는 Azure Data Box를 사용 하 여 MARS 에이전트에서 Recovery Services 자격 증명 모음으로 대량 초기 백업 데이터를 오프 라인으로 설정 하는 방법을 설명 합니다.
 
-## <a name="supported-platforms"></a>지원되는 플랫폼
+## <a name="supported-platforms"></a>지원 플랫폼
 
 Azure Data Box를 사용 하 여 MARS 에이전트에서 데이터를 시드 하는 프로세스는 다음 Windows Sku에서 지원 됩니다.
 
@@ -56,7 +56,7 @@ Azure Data Box를 사용 하 여 MARS 에이전트에서 데이터를 시드 하
 >[!IMPORTANT]
 >단일 서버에서 초기 백업 데이터는 단일 Azure Data Box 인스턴스 또는 Azure Data Box 디스크에 포함 되어야 하며, 동일한 또는 다른 Sku의 여러 장치 간에 공유할 수 없습니다. 그러나 Azure Data Box 장치는 여러 서버의 초기 백업을 포함할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 ### <a name="azure-subscription-and-required-permissions"></a>Azure 구독 및 필요한 권한
 
@@ -124,7 +124,7 @@ Mars 및 Azure Data Box를 사용 하는 오프 라인 백업 프로세스를 �
 
 1. MARS 에이전트의 이전 설치를 모두 제거 해야 합니다.
 1. [이 웹 사이트](https://aka.ms/azurebackup_agent)에서 최신 MARS 에이전트를 다운로드 합니다.
-1. 을 *실행 하*고, 백업을 저장 하려는 Recovery Services 자격 증명 모음에 [에이전트를 설치 하 고 등록](https://docs.microsoft.com/azure/backup/backup-configure-vault#install-and-register-the-agent) *하는 단계만 수행* 합니다.
+1. 을 *실행 하*고, 백업을 저장 하려는 Recovery Services 자격 증명 모음에 [에이전트를 설치 하 고 등록](https://docs.microsoft.com/azure/backup/install-mars-agent#install-and-register-the-agent) *하는 단계만 수행* 합니다.
 
    > [!NOTE]
    > Recovery Services 자격 증명 모음은 Azure Data Box 작업과 동일한 구독에 있어야 합니다.
@@ -307,7 +307,7 @@ Microsoft Azure Backup (MAB) 에이전트는 테 넌 트에서 사용자를 위�
     >[!NOTE]
     > Azure 사용자 ID를 가져오려면 다음 작업 중 하나를 수행 합니다.
     >
-    >* Azure에 연결 된 PowerShell에서 `Get-AzureRmADUser -UserPrincipalName “Account Holder’s email as defined in the portal”` 명령을 실행 합니다.
+    >* Azure에 연결 된 PowerShell에서 `Get-AzureRmADUser -UserPrincipalName "Account Holder's email as defined in the portal"` 명령을 실행 합니다.
     > * 이름 *Currentuserid*를 사용 하 여 레지스트리 경로 *Computer \ HKEY_LOCAL_MACHINE \software\microsoft\windows Azure Backup\DbgSettings\OnlineBackup* 로 이동 합니다.
 
 6. 이전 단계에서 추가 된 문자열을 마우스 오른쪽 단추로 클릭 하 고 **수정**을 선택 합니다. 값에서 2 단계에서 내보낸 인증서의 지문을 제공 합니다. **확인**을 선택합니다.

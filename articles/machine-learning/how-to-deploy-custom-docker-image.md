@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 03/05/2020
-ms.openlocfilehash: 8c55fec08f05352d4587a8821c10600b7d7fad07
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 24ca37f5610589ae675a47a1dd966871b3004800
+ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78396158"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78851263"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>사용자 지정 Docker 기본 이미지를 사용 하 여 모델 배포
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -41,7 +41,7 @@ Azure Machine Learning는 기본 Docker 기본 이미지를 제공 하므로 만
 * 사용자 지정 기본 이미지 만들기: 사용자 지정 이미지를 만들고 Azure CLI 및 Machine Learning CLI를 사용 하 여 Azure Container Registry에 대 한 인증을 구성 하는 데 관리자 및 DevOps에 정보를 제공 합니다.
 * 사용자 지정 기본 이미지를 사용 하 여 모델 배포: Python SDK 또는 ML CLI에서 학습 된 모델을 배포할 때 사용자 지정 이미지를 사용 하 여 데이터 과학자 및 DevOps/ML 엔지니어에 게 정보를 제공 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure Machine Learning 작업 그룹입니다. 자세한 내용은 [작업 영역 만들기](how-to-manage-workspace.md) 문서를 참조 하세요.
 * [AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)입니다. 
@@ -155,6 +155,9 @@ Azure Machine Learning를 사용 하 여 모델을 이미 학습 하거나 배�
     az acr build --image myimage:v1 --registry <registry_name> --file Dockerfile .
     ```
 
+    > [!TIP]
+    > 이 예제에서는 `:v1`의 태그가 이미지에 적용 됩니다. 태그를 제공 하지 않으면 `:latest` 태그가 적용 됩니다.
+
     빌드 프로세스 중에 정보는 명령줄로 돌아옵니다. 빌드가 성공적으로 수행 되 면 다음 텍스트와 유사한 메시지가 표시 됩니다.
 
     ```text
@@ -170,6 +173,10 @@ Azure Container Registry에 기존 이미지를 업로드 하는 방법에 대 �
 사용자 지정 이미지를 사용 하려면 다음 정보가 필요 합니다.
 
 * __이미지 이름__입니다. 예를 들어 `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda`은 Microsoft에서 제공 하는 기본 Docker 이미지의 경로입니다.
+
+    > [!IMPORTANT]
+    > 만든 사용자 지정 이미지의 경우 이미지에 사용 된 태그를 포함 해야 합니다. 예를 들어 `:v1`와 같은 특정 태그를 사용 하 여 이미지를 만든 경우입니다. 이미지를 만들 때 특정 태그를 사용 하지 않은 경우 `:latest` 태그를 적용 했습니다.
+
 * 이미지가 __개인 리포지토리에__있는 경우 다음 정보가 필요 합니다.
 
     * 레지스트리 __주소__입니다. `myregistry.azureecr.io`)을 입력합니다.
@@ -181,7 +188,7 @@ Azure Container Registry에 기존 이미지를 업로드 하는 방법에 대 �
 
 Microsoft는 공개적으로 액세스할 수 있는 리포지토리에 여러 docker 이미지를 제공 하며,이는이 섹션의 단계에서 사용할 수 있습니다.
 
-| 이미지 | 설명 |
+| 이미지 | Description |
 | ----- | ----- |
 | `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda` | Azure Machine Learning에 대 한 기본 이미지 |
 | `mcr.microsoft.com/azureml/onnxruntime:latest` | CPU 추론에 대 한 ONNX 런타임을 포함 합니다. |

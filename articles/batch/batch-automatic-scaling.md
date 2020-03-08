@@ -14,12 +14,12 @@ ms.workload: multiple
 ms.date: 10/24/2019
 ms.author: labrenne
 ms.custom: H1Hack27Feb2017,fasttrack-edit
-ms.openlocfilehash: 46be210ead3816356b63293b910e1c0e7ffc087b
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 9f4831fd60038a2265990c0774106a5ea2f98a5a
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200098"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672058"
 ---
 # <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Batch 풀에서 계산 노드의 크기를 조정 하기 위한 자동 수식 만들기
 
@@ -134,7 +134,7 @@ $NodeDeallocationOption = taskcompletion;
 | $SucceededTasks |성공적으로 완료된 태스크 수. |
 | $FailedTasks |실패한 태스크 수. |
 | $CurrentDedicatedNodes |현재 전용 컴퓨팅 노드 수. |
-| $CurrentLowPriorityNodes |선점된 노드를 포함하여 우선 순위가 낮은 컴퓨팅 노드의 현재 수입니다. |
+| $CurrentLowPriorityNodes |선점 된 노드를 포함 하 여 우선 순위가 낮은 계산 노드의 현재 수입니다. |
 | $PreemptedNodeCount | 선점 상태에 있는 풀의 노드 수입니다. |
 
 > [!TIP]

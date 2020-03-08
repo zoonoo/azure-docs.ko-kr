@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5aff2ff2b2e60a35d0525cf5733c940aedb7976c
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: 09a720be10b09e11adc8acdc8ab26a06870311b0
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78377709"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78892711"
 ---
 # <a name="conditional-access-grant"></a>조건부 액세스: Grant
 
@@ -35,7 +35,7 @@ Block은 적절 한 정보를 사용 하 여 wielded 해야 하는 강력한 컨
 관리자는 액세스 권한을 부여할 때 하나 이상의 컨트롤을 적용 하도록 선택할 수 있습니다. 이러한 컨트롤에는 다음 옵션이 포함 됩니다. 
 
 - [Multi-factor authentication 필요 (Azure Multi-Factor Authentication)](../authentication/concept-mfa-howitworks.md)
-- [장치를 규격으로 표시 해야 함 (Microsoft Intune)](https://docs.microsoft.com/intune/protect/device-compliance-get-started)
+- [장치를 규격으로 표시 해야 함 (Microsoft Intune)](/intune/protect/device-compliance-get-started)
 - [하이브리드 Azure AD 조인 장치 필요](../devices/concept-azure-ad-join-hybrid.md)
 - [승인 된 클라이언트 앱 필요](app-based-conditional-access.md)
 - [앱 보호 정책 필요](app-protection-based-conditional-access.md)
@@ -53,7 +53,7 @@ Block은 적절 한 정보를 사용 하 여 wielded 해야 하는 강력한 컨
 
 ### <a name="require-device-to-be-marked-as-compliant"></a>디바이스를 준수 상태로 표시해야 함
 
-Microsoft Intune를 배포한 조직은 장치에서 반환 된 정보를 사용 하 여 특정 규정 준수 요구 사항을 충족 하는 장치를 식별할 수 있습니다. 이 정책 준수 정보는 Intune에서 Azure AD로 전달 되며, 조건부 액세스는 리소스에 대 한 액세스를 부여 하거나 차단 하는 결정을 내릴 수 있습니다. 규정 준수 정책에 대 한 자세한 내용은 Intune을 [사용 하 여 조직의 리소스에 대 한 액세스를 허용 하는 장치에 대 한 규칙 설정](https://docs.microsoft.com/intune/protect/device-compliance-get-started)문서를 참조 하세요.
+Microsoft Intune를 배포한 조직은 장치에서 반환 된 정보를 사용 하 여 특정 규정 준수 요구 사항을 충족 하는 장치를 식별할 수 있습니다. 이 정책 준수 정보는 Intune에서 Azure AD로 전달 되며, 조건부 액세스는 리소스에 대 한 액세스를 부여 하거나 차단 하는 결정을 내릴 수 있습니다. 규정 준수 정책에 대 한 자세한 내용은 Intune을 [사용 하 여 조직의 리소스에 대 한 액세스를 허용 하는 장치에 대 한 규칙 설정](/intune/protect/device-compliance-get-started)문서를 참조 하세요.
 
 장치는 Intune (장치 OS의 경우) 또는 타사 MDM system for Windows 10 장치에서 준수로 표시 될 수 있습니다. Jamf pro는 유일 하 게 지원 되는 타사 MDM 시스템입니다. 통합에 대 한 자세한 내용은 [Jamf Pro를 Intune과 통합](/intune/protect/conditional-access-integrate-jamf)하 여 준수 문서를 참조 하세요.
 

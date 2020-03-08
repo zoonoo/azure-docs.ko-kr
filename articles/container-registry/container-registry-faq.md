@@ -5,12 +5,12 @@ author: sajayantony
 ms.topic: article
 ms.date: 07/02/2019
 ms.author: sajaya
-ms.openlocfilehash: 699ee2c2c3b1a90231f24663619cc590aae9889d
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: c0d51c9c31e4e6859eaedce371efeafaa5fd4f46
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78252074"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78403218"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Azure Container Registry에 대 한 질문과 대답
 
@@ -241,7 +241,7 @@ ACR은 다양 한 수준의 사용 권한을 제공 하는 [사용자 지정 역
 
 * 이미지를 꺼내려면:
 
-  ```console
+  ```bash
   docker pull myregistry.azurecr.io/hello-world
   ```
 
@@ -297,28 +297,25 @@ grep OPTIONS /etc/sysconfig/docker
 
 예를 들어 Fedora 28 서버에는 다음과 같은 docker 데몬 옵션이 있습니다.
 
-```
-OPTIONS='--selinux-enabled --log-driver=journald --live-restore'
-```
+`OPTIONS='--selinux-enabled --log-driver=journald --live-restore'`
 
 `--signature-verification=false` 누락 되 면 다음과 유사한 오류가 발생 하 여 `docker pull` 실패 합니다.
 
-```bash
+```output
 Trying to pull repository myregistry.azurecr.io/myimage ...
 unauthorized: authentication required
 ```
 
 오류를 해결하려면:
 1. `--signature-verification=false` 옵션을 Docker 디먼 구성 파일 `/etc/sysconfig/docker`에 추가 합니다. 다음은 그 예입니다.
-
-  ```
-  OPTIONS='--selinux-enabled --log-driver=journald --live-restore --signature-verification=false'
-  ```
+   
+   `OPTIONS='--selinux-enabled --log-driver=journald --live-restore --signature-verification=false'`
+   
 2. 다음 명령을 실행 하 여 Docker 디먼 서비스를 다시 시작 합니다.
-
-  ```bash
-  sudo systemctl restart docker.service
-  ```
+   
+   ```bash
+   sudo systemctl restart docker.service
+   ```
 
 `man dockerd`를 실행 하 여 `--signature-verification`에 대 한 세부 정보를 찾을 수 있습니다.
 
@@ -478,9 +475,7 @@ az acr task list-runs -r $myregistry --run-status Running --query '[].runId' -o 
 
 `az acr build` 명령에 로컬 원본 폴더를 전달 하는 경우 기본적으로 업로드 된 패키지에서 `.git` 폴더가 제외 됩니다. 다음 설정을 사용 하 여 `.dockerignore` 파일을 만들 수 있습니다. 업로드 된 패키지에서 `.git` 아래의 모든 파일을 복원 하는 명령을 지시 합니다. 
 
-```sh
-!.git/**
-```
+`!.git/**`
 
 이 설정은 `az acr run` 명령에도 적용 됩니다.
 

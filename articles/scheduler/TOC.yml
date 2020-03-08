@@ -6,8 +6,8 @@
       href: scheduler-intro.md
 - name: 시작하기
   items:
-    - name: 작업 만들기 및 관리 - 포털
-      href: scheduler-get-started-portal.md
+    - name: 일정 만들기 및 관리 - Azure PowerShell
+      href: scheduler-powershell-reference.md
     - name: Scheduler에서 Logic Apps로 마이그레이션
       href: migrate-from-scheduler-to-logic-apps.md
 - name: 개념
@@ -34,7 +34,7 @@
       items:
         - name: 아웃바운드 호출 인증
           href: scheduler-outbound-authentication.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: Azure PowerShell
       href: /powershell/module/azurerm.scheduler
@@ -52,7 +52,7 @@
       href: 'https://social.msdn.microsoft.com/Forums/home?forum=azurescheduler'
     - name: 스택 오버플로
       href: 'https://stackoverflow.com/questions/tagged/azure-scheduler'
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/scheduler/'
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'

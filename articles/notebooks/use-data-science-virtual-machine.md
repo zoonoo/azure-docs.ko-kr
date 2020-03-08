@@ -6,12 +6,12 @@ manager: andneil
 ms.author: getroyer
 ms.topic: how-to
 ms.date: 06/13/2019
-ms.openlocfilehash: 7a47be46818c633c016c791d0c52eb9393029973
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: b4da63b7b2a6da4316215b85a09ca7420745251c
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646997"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898412"
 ---
 # <a name="use-azure-data-science-virtual-machines"></a>Azure 데이터 과학 Virtual Machines 사용
 
@@ -38,6 +38,9 @@ DSVM을 만들었으면 Azure Notebooks 프로젝트 대시보드에서 **실행
 
 DSVM 인스턴스를 선택하는 경우 Azure Notebooks에서 VM을 만들 때 사용한 특정 머신 자격 증명을 묻는 메시지가 표시될 수도 있습니다.
 
+> [!Important]
+> JupyterHub와 함께 사용 하려면 사용자 이름은 소문자 여야 합니다.
+
 조건 중 하나라도 충족 되지 않으면 DSVM에 연결할 수 있습니다. 드롭다운 목록에서 **직접 계산** 옵션을 선택 합니다 .이 옵션을 선택 하면 목록에 표시 되는 이름을 입력 하 라는 메시지가 표시 되 고, VM의 IP 주소와 포트 (일반적으로 8000, JupyterHub가 수신 하는 기본 포트) 및 vm 자격 증명이 표시 됩니다.
 
 ![직접 컴퓨팅 옵션에 대한 서버 정보 수집 프롬프트](media/project-compute-tier-direct.png)
@@ -60,7 +63,7 @@ DSVM 인스턴스를 선택하는 경우 Azure Notebooks에서 VM을 만들 때 
 
 1. [Azure Portal](https://portal.azure.com)에서 가상 머신으로 이동 합니다.
 1. 왼쪽 여백의 **지원 + 문제 해결** 에서 **암호 재설정**을 선택 합니다.
-1. 새 사용자 이름 및 암호를 입력 하 고 **업데이트**를 선택 합니다. 기존 사용자 이름은 영향을 받지 않습니다.
+1. 새 **사용자 이름을**입력 합니다. JupyterHub와 함께 사용 하려면 사용자 이름은 소문자 여야 합니다. 암호를 입력합니다. 그런 다음 **업데이트**를 선택 합니다. 기존 사용자 이름은 영향을 받지 않습니다.
 1. 모든 추가 사용자에 대해 이전 단계를 반복 합니다.
 
 ## <a name="next-steps"></a>다음 단계

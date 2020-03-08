@@ -7,43 +7,19 @@ ms.topic: article
 ms.date: 02/27/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 76139716fe11536faa0ff792185ba1643801c641
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 89aa78e0d26598eacf436ca88cc6c5549f91d2fc
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77649039"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78673219"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Azure Virtual Network에 앱 통합
 이 문서에서는 Azure App Service 가상 네트워크 통합 기능 및 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)에서 앱을 사용 하 여 설정 하는 방법을 설명 합니다. [Azure vnet (가상 네트워크][VNETOverview] )를 사용 하면 여러 azure 리소스를 인터넷을 통해 라우팅할 수 없는 네트워크에 저장할 수 있습니다.  
 
-Azure App Service에는 두 가지 변형이 있습니다. 
+Azure App Service에는 두 가지 변형이 있습니다.
 
-1. 격리 계층을 제외한 모든 범위의 요금제를 지원하는 다중 테넌트 시스템
-2. VNet에 배포 되 고 격리 된 가격 책정 계획 앱을 지 원하는 ASE (App Service Environment)
-
-이 문서는 다중 테 넌 트 App Service에서 사용 하기 위한 VNet 통합 기능을 안내 합니다. 앱이 [App Service Environment][ASEintro]에 있는 경우 이미 vnet에 있으며 vnet 통합 기능을 사용 하 여 동일한 vnet의 리소스에 연결할 필요가 없습니다. 모든 App Service 네트워킹 기능에 대 한 자세한 내용은 [네트워킹 기능 App Service](networking-features.md) 를 참조 하세요.
-
-VNet 통합은 웹 앱에 가상 네트워크의 리소스에 대 한 액세스를 제공 하지만 VNet에서 웹 앱에 대 한 인바운드 개인 액세스를 부여 하지 않습니다. 프라이빗 사이트 액세스는 Azure Virtual Network와 같은 프라이빗 네트워크에서만 앱에 액세스할 수 있도록 합니다. VNet 통합은 앱에서 VNet으로의 아웃 바운드 호출을 수행 하는 경우에만 사용할 수 있습니다. VNet 통합 기능은 동일한 지역에서 Vnet와 함께 사용 하거나 다른 지역에서 Vnet를 사용 하는 경우 다르게 동작 합니다. VNet 통합 기능에는 두 가지 변형이 있습니다.
-
-1. 지역 VNet 통합-동일한 지역에서 리소스 관리자 Vnet에 연결 하는 경우 통합 하는 VNet에 전용 서브넷이 있어야 합니다. 
-2. 게이트웨이는 VNet 통합이 필요 합니다. Vnet 다른 지역에서 또는 동일한 지역의 클래식 VNet에 연결 하는 경우 대상 VNet에서 프로 비전 된 Virtual Network 게이트웨이가 필요 합니다.
-
-VNet 통합 기능:
-
-* Standard, Premium, PremiumV2 또는 탄력적 프리미엄 요금제 필요 
-* TCP 및 UDP 지원
-* App Service 앱 및 함수 앱 작업
-
-VNet 통합에서 지원하지 않는 다음 몇 가지 항목이 있습니다.
-
-* 드라이브 탑재
-* AD 통합 
-* NetBios
-
-게이트웨이 필요 VNet 통합은 대상 VNet 또는 피어 링 또는 Vpn을 사용 하 여 대상 VNet에 연결 된 네트워크에 있는 리소스에 대 한 액세스만 제공 합니다. 게이트웨이 필요 VNet 통합은 Express 경로 연결에서 사용할 수 있는 리소스에 대 한 액세스를 허용 하지 않으며 서비스 끝점과 연동 됩니다. 
-
-사용 된 버전에 관계 없이 VNet 통합은 가상 네트워크의 리소스에 대 한 웹 앱 액세스를 제공 하지만 가상 네트워크에서 웹 앱에 대 한 인바운드 개인 액세스를 부여 하지 않습니다. 프라이빗 사이트 액세스는 Azure Virtual Network와 같은 프라이빗 네트워크에서만 앱에 액세스할 수 있도록 합니다. VNet 통합은 앱에서 VNet으로의 아웃 바운드 호출을 수행 하는 경우에만 사용할 수 있습니다. 
+[!INCLUDE [app-service-web-vnet-types](../../includes/app-service-web-vnet-types.md)]
 
 ## <a name="enable-vnet-integration"></a>VNet 통합 사용 
 
@@ -71,69 +47,7 @@ VNet 통합에서 지원하지 않는 다음 몇 가지 항목이 있습니다.
 
 ## <a name="regional-vnet-integration"></a>지역 VNet 통합
 
-지역 VNet 통합을 사용 하면 앱이 다음에 액세스할 수 있습니다.
-
-* 와 통합 하는 동일한 지역에 있는 VNet의 리소스 
-* Vnet의 리소스는 동일한 지역에 있는 VNet에 피어 링 합니다.
-* 서비스 끝점 보안 서비스
-* Express 경로 연결에서 리소스
-* 연결 된 VNet의 리소스
-* Express 경로 연결을 포함 하는 피어 링 연결 간 리소스
-* 전용 끝점 
-
-동일한 지역에서 Vnet와 VNet 통합을 사용 하는 경우 다음과 같은 Azure 네트워킹 기능을 사용할 수 있습니다.
-
-* NSGs (네트워크 보안 그룹)-통합 서브넷에 배치 된 네트워크 보안 그룹을 사용 하 여 아웃 바운드 트래픽을 차단할 수 있습니다. VNet 통합을 사용 하 여 웹 앱에 대 한 인바운드 액세스를 제공할 수 없으므로 인바운드 규칙은 적용 되지 않습니다.
-* UDRs (경로 테이블)-통합 서브넷에 경로 테이블을 추가 하 여 원하는 위치에 아웃 바운드 트래픽을 보낼 수 있습니다. 
-
-기본적으로 앱은 RFC1918 트래픽만 VNet으로 라우팅합니다. 모든 아웃 바운드 트래픽을 VNet으로 라우팅하려면 앱 설정 WEBSITE_VNET_ROUTE_ALL 앱에 적용 합니다. 앱 설정을 구성 하려면:
-
-1. 앱 포털에서 구성 UI로 이동 합니다. **새 응용 프로그램 설정** 선택
-1. 이름 필드에 **WEBSITE_VNET_ROUTE_ALL** 를 입력 하 고 값 필드에 **1** 을 입력 합니다.
-
-   ![응용 프로그램 설정 제공][4]
-
-1. **확인**을 선택합니다.
-1. **저장**을 선택합니다.
-
-모든 아웃 바운드 트래픽을 VNet으로 라우팅하는 경우 통합 서브넷에 적용 되는 NSGs 및 UDRs가 적용 됩니다. 모든 아웃 바운드 트래픽을 VNet으로 라우팅하는 경우 다른 곳에서 트래픽을 보내는 경로를 제공 하지 않으면 아웃 바운드 주소는 앱 속성에 나열 된 아웃 바운드 주소가 됩니다. 
-
-동일한 지역에서 Vnet와 VNet 통합을 사용 하는 경우 몇 가지 제한 사항이 있습니다.
-
-* 전역 피어 링 연결에서 리소스에 연결할 수 없습니다.
-* 이 기능은 PremiumV2 App Service 계획을 지 원하는 최신 App Service 배율 단위 에서만 사용할 수 있습니다.
-* 통합 서브넷은 하나의 App Service 계획 에서만 사용할 수 있습니다.
-* 이 기능은 App Service Environment에 있는 격리 된 계획 앱에서 사용할 수 없습니다.
-* 이 기능을 사용 하려면 리소스 관리자 VNet에서 32 주소 이상인/27의 사용 하지 않는 서브넷이 필요 합니다.
-* 앱과 VNet은 동일한 지역에 있어야 합니다.
-* VNet은 통합된 앱을 사용하여 삭제할 수 없습니다. VNet을 삭제 하기 전에 통합을 제거 합니다. 
-* 웹 앱과 동일한 구독에 있는 Vnet와만 통합할 수 있습니다.
-* App Service 계획 마다 하나의 지역 VNet 통합만 사용할 수 있습니다. 동일한 App Service 계획의 여러 앱에서 동일한 VNet을 사용할 수 있습니다. 
-* 지역 VNet 통합을 사용 하는 앱이 있는 동안에는 앱 또는 App Service 계획의 구독을 변경할 수 없습니다.
-
-각 App Service 계획 인스턴스마다 하나의 주소가 사용됩니다. 앱을 5 개의 인스턴스로 크기를 조정 하면 5 개의 주소가 사용 됩니다. 할당 후에는 서브넷 크기를 변경할 수 없으므로 앱이 도달할 수 있는 모든 규모를 수용할 수 있을 정도로 큰 서브넷을 사용 해야 합니다. 64 주소를 포함 하는/26은 권장 크기입니다. /26 64 주소는 30 개 인스턴스를 사용 하는 프리미엄 App Service 요금제를 수용 합니다. App Service 계획의 크기를 조정 하거나 축소 하는 경우 짧은 시간 동안 두 번의 주소가 필요 합니다. 
-
-다른 App Service 응용 프로그램이 다른 App Service 계획의 앱에 의해 이미 연결 되어 있는 VNet에 연결 하려는 경우 기존 VNet 통합에서 사용 하는 것과 다른 서브넷을 선택 해야 합니다.  
-
-이 기능은 Linux 용 미리 보기 상태입니다. 기능의 Linux 형식은 RFC 1918 주소 (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16)를 호출 하는 것만 지원 합니다.
-
-### <a name="web-app-for-containers"></a>Web App for Containers
-
-기본 제공 이미지를 사용 하 여 Linux에서 App Service를 사용 하는 경우에는 추가 변경 없이 지역 VNet 통합이 작동 합니다. Web App for Containers 사용 하는 경우 VNet 통합을 사용 하기 위해 docker 이미지를 수정 해야 합니다. Docker 이미지에서 하드 코드 된 포트 번호를 사용 하는 대신 포트 환경 변수를 주 웹 서버의 수신 대기 포트로 사용 합니다. 포트 환경 변수는 컨테이너 시작 시간에 App Service 플랫폼에 의해 자동으로 설정 됩니다. SSH를 사용 하는 경우 지역 VNet 통합을 사용 하는 경우 SSH_PORT 환경 변수에 지정 된 포트 번호를 수신 하도록 SSH 디먼을 구성 해야 합니다.  Linux에서 게이트웨이를 요구 하는 VNet 통합은 지원 되지 않습니다. 
-
-### <a name="service-endpoints"></a>서비스 엔드포인트
-
-지역 VNet 통합을 사용 하면 서비스 끝점을 사용할 수 있습니다.  앱에서 서비스 끝점을 사용 하려면 지역 VNet 통합을 사용 하 여 선택한 VNet에 연결한 다음 통합에 사용한 서브넷에서 서비스 끝점을 구성 합니다. 
-
-### <a name="network-security-groups"></a>네트워크 보안 그룹
-
-네트워크 보안 그룹을 사용 하면 VNet의 리소스에 대 한 인바운드 및 아웃 바운드 트래픽을 차단할 수 있습니다. 지역 VNet 통합을 사용 하는 웹 앱은 [네트워크 보안 그룹][VNETnsg] 을 사용 하 여 VNet 또는 인터넷의 리소스에 대 한 아웃 바운드 트래픽을 차단할 수 있습니다. 공용 주소에 대 한 트래픽을 차단 하려면 응용 프로그램 설정 WEBSITE_VNET_ROUTE_ALL 1로 설정 해야 합니다. VNet 통합은 앱의 아웃 바운드 트래픽에만 영향을 주므로 NSG의 인바운드 규칙은 앱에 적용 되지 않습니다. 웹 앱에 대 한 인바운드 트래픽을 제어 하려면 액세스 제한 기능을 사용 합니다. 통합 서브넷에 적용 되는 NSG는 통합 서브넷에 적용 된 경로에 관계 없이 적용 됩니다. WEBSITE_VNET_ROUTE_ALL 1로 설정 되 고 통합 서브넷의 공용 주소 트래픽에 영향을 주는 경로가 없는 경우 모든 아웃 바운드 트래픽은 통합 서브넷에 할당 된 NSGs에 계속 적용 됩니다. WEBSITE_VNET_ROUTE_ALL를 설정 하지 않은 경우 NSGs는 RFC1918 트래픽에만 적용 됩니다.
-
-### <a name="routes"></a>경로
-
-경로 테이블을 사용 하면 앱의 아웃 바운드 트래픽을 원하는 위치로 라우팅할 수 있습니다. 기본적으로 경로 테이블은 RFC1918 대상 트래픽에만 영향을 줍니다.  WEBSITE_VNET_ROUTE_ALL를 1로 설정 하면 모든 아웃 바운드 호출에 영향을 미칩니다. 통합 서브넷에 설정 된 경로는 인바운드 앱 요청에 대 한 회신에 영향을 주지 않습니다. 일반적인 대상에는 방화벽 장치나 게이트웨이가 포함 될 수 있습니다. 모든 아웃 바운드 트래픽을 온-프레미스로 라우팅하는 경우 경로 테이블을 사용 하 여 모든 아웃 바운드 트래픽을 Express 경로 게이트웨이로 보낼 수 있습니다. 게이트웨이로 트래픽을 라우팅하는 경우에는 응답을 다시 보내도록 외부 네트워크에서 경로를 설정 해야 합니다.
-
-BGP (Border Gateway Protocol) 경로만 앱 트래픽에 영향을 줍니다. Express 경로 게이트웨이와 같은 항목에서 BGP 경로를 사용할 경우 앱 아웃 바운드 트래픽이 영향을 받습니다. 기본적으로 BGP 경로는 RFC1918 대상 트래픽에만 영향을 줍니다. WEBSITE_VNET_ROUTE_ALL 1로 설정 된 경우 모든 아웃 바운드 트래픽은 BGP 경로의 영향을 받을 수 있습니다. 
+[!INCLUDE [app-service-web-vnet-types](../../includes/app-service-web-vnet-regional.md)]
 
 ### <a name="how-regional-vnet-integration-works"></a>지역 VNet 통합의 작동 방식
 
@@ -230,74 +144,10 @@ ASP VNet 통합 UI에는 ASP의 앱에서 사용 하는 모든 VNet 통합이 �
 * VPN Gateway 비용-지점 및 사이트 간 VPN에 필요한 VNet 게이트웨이의 비용이 있습니다. 세부 정보는 [VPN Gateway 가격 책정][VNETPricing] 페이지에 있습니다.
 
 ## <a name="troubleshooting"></a>문제 해결
-기능을 설정하기 쉽다고 해서 환경에 문제가 없는 것은 아닙니다. 원하는 엔드포인트에 액세스하다가 문제가 발생하는 경우, 앱 콘솔에서 연결을 테스트하는 데 사용할 수 있는 유틸리티가 있습니다. 사용할 수 있는 두 개의 콘솔이 있습니다. 하나는 Kudu 콘솔이고, 다른 하나는 Azure Portal의 콘솔입니다. 앱에서 Kudu 콘솔에 도달하려면 도구 -> Kudu로 차례로 이동합니다. [Sitename]. Kudo 콘솔에 연결할 수도 있습니다. 웹 사이트가 로드 되 면 디버그 콘솔 탭으로 이동 합니다. Azure Portal 호스트 된 콘솔로 이동 하려면 앱에서 도구-> 콘솔로 이동 합니다. 
 
-#### <a name="tools"></a>도구
-도구 **ping**, **nslookup**및 **tracert** 는 보안 제약 조건으로 인해 콘솔을 통해 작동 하지 않습니다. Void를 채우기 위해 별도의 두 가지 도구를 추가 했습니다. DNS 기능을 테스트하기 위해 nameresolver.exe라는 도구가 추가되었습니다. 구문:
+[!INCLUDE [app-service-web-vnet-troubleshooting](../../includes/app-service-web-vnet-troubleshooting.md)]
 
-    nameresolver.exe hostname [optional: DNS Server]
-
-**nameresolver**를 사용하여 앱에서 사용하는 호스트 이름을 확인합니다. 이렇게 하면 DNS에 잘못 구성된 항목이 있는지 또는 DNS 서버에 대한 액세스가 없는지를 테스트할 수 있습니다. 환경 변수 WEBSITE_DNS_SERVER 및 WEBSITE_DNS_ALT_SERVER를 살펴보면 앱이 콘솔에서 사용할 DNS 서버를 볼 수 있습니다.
-
-다음 도구는 호스트와 포트에 대한 TCP 연결을 테스트하는 데 사용할 수 있습니다. 이 도구는 **tcpping**이라고 하며, 구문은 다음과 같습니다.
-
-    tcpping.exe hostname [optional: port]
-
-특정 호스트 및 포트에 연결할 수 있으면 **tcpping** 유틸리티에서 이를 알려줍니다. 호스트 및 포트 조합에서 수신 대기하는 애플리케이션이 있고 네트워크를 통해 앱에서 지정된 호스트 및 포트에 액세스할 수 있는 경우에만 성공으로 표시될 수 있습니다.
-
-#### <a name="debugging-access-to-vnet-hosted-resources"></a>VNet에서 호스트되는 리소스에 대한 액세스 디버깅
-특정 호스트와 포트에 앱이 도달하지 못하도록 방해할만한 요소는 많이 있습니다. 대부분의 경우 다음 세 가지 중 하나입니다.
-
-* **중간에 방화벽이 있음.** 중간에 방화벽이 있으면 TCP 시간 제한에 도달합니다. 이 경우 TCP 시간 제한은 21초입니다. **tcpping** 도구를 사용하여 연결을 테스트합니다. TCP 시간 초과는 방화벽 뒤에 많은 항목이 있으나 방화벽 뒤에서 시작하기 때문일 수 있습니다. 
-* **DNS에 액세스할 수 없음.** DNS 시간 제한은 DNS 서버당 3초입니다. DNS 서버가 2개 있으면 제한 시간은 6초입니다. DNS가 작동하는지 확인하려면 nameresolver를 사용합니다. VNet이 구성된 DNS를 사용하지 않으므로 nslookup을 사용할 수 없음에 주의하세요. 액세스할 수 없는 경우 DNS에 대 한 액세스를 차단 하는 방화벽 또는 NSG가 있을 수 있습니다.
-
-이러한 항목으로 인해 문제가 해결 되지 않으면 먼저 다음을 확인 하세요. 
-
-**지역 VNet 통합**
-* 대상 사용자가 RFC1918 주소가 아니고 WEBSITE_VNET_ROUTE_ALL 1로 설정 되어 있지 않습니다.
-* 통합 서브넷에서 송신을 차단 하는 NSG가 있나요?
-* Express 경로 또는 VPN을 통해 이동 하는 경우 온-프레미스 게이트웨이는 트래픽을 Azure로 라우팅하도록 구성 되나요? VNet의 끝점에 연결할 수 있지만 온-프레미스에 연결할 수 없는 경우 경로를 확인 합니다.
-* 통합 서브넷에 대 한 위임을 설정할 수 있는 권한이 있나요? 지역 VNet 통합 구성 중 통합 서브넷이 Microsoft 웹에 위임 됩니다. VNet 통합 UI가 자동으로 서브넷을 Microsoft. 웹에 위임 합니다. 계정에 위임 설정을 위한 충분 한 네트워킹 권한이 없는 경우 통합 서브넷의 특성을 설정 하 여 서브넷을 위임할 수 있는 사용자가 필요 합니다. 통합 서브넷을 수동으로 위임 하려면 Azure Virtual Network 서브넷 UI로 이동 하 고 Microsoft 웹에 대 한 위임을 설정 합니다. 
-
-**게이트웨이 필요 VNet 통합**
-* RFC 1918 범위 (10.0.0.0-10.255.255.255/172.16.0.0-172.31.255.255/192.168.0.0-192.168.255.255)의 지점 및 사이트 간 주소 범위 입니까?
-* 게이트웨이가 포털에서 실행되고 있나요? 게이트웨이가 다운되어 있으면 다시 가동시킵니다.
-* 인증서가 동기화 된 것으로 표시 되거나 네트워크 구성이 변경 된 것으로 의심 됩니까?  인증서가 동기화 되지 않은 상태 이거나, Asp와 동기화 되지 않은 VNet 구성의 변경 내용이 있는 것으로 의심 되는 경우 "네트워크 동기화"를 누릅니다.
-* VPN을 통해 이동 하는 경우 온-프레미스 게이트웨이는 트래픽 백업을 Azure로 라우팅하도록 구성 되나요? VNet의 끝점에 연결할 수 있지만 온-프레미스에 연결할 수 없는 경우 경로를 확인 합니다.
-* 지점 및 사이트 간 및 Express 경로를 모두 지 원하는 공존 게이트웨이를 사용 하려고 하나요? VNet 통합에서는 공존 게이트웨이가 지원 되지 않습니다. 
-
-네트워킹 문제를 디버깅 하는 것은 특정 호스트에 대 한 액세스를 차단 하는 것을 확인할 수 없기 때문입니다. 포트 조합입니다. 여기에 해당하는 경우는 다음과 같습니다.
-
-* 호스트에 방화벽이 실행 중이며 지점과 사이트 간 IP 범위에서 애플리케이션 포트에 대한 액세스를 방해합니다. 보통 교차 서브넷에는 공용 액세스가 필요합니다.
-* 대상 호스트가 다운되었습니다.
-* 애플리케이션이 다운되었습니다.
-* IP 또는 호스트 이름이 잘못되었습니다.
-* 애플리케이션이 예상치 않은 다른 포트를 수신 대기 중입니다. 엔드포인트 호스트에서 "netstat -aon"을 사용하여 프로세스 ID를 수신 대기 포트와 일치시킬 수 있습니다. 
-* 네트워크 보안 그룹이 지점과 사이트 간 IP 범위에서 애플리케이션 호스트 및 포트에 대한 액세스를 금지하도록 구성되어 있습니다.
-
-앱이 실제로 사용 하는 주소는 알지 못합니다. 통합 서브넷 또는 지점 및 사이트 간 주소 범위의 모든 주소일 수 있으므로 전체 주소 범위에서 액세스를 허용 해야 합니다. 
-
-추가적인 디버그 단계에는 다음 내용이 포함됩니다.
-
-* VNet의 VM에 연결하고 이 위치에서 리소스 호스트:포트에 연결하려고 시도합니다. TCP 액세스를 테스트하려면 **test-netconnection** PowerShell 명령을 사용합니다. 구문:
-
-      test-netconnection hostname [optional: -Port]
-
-* VM에서 응용 프로그램을 가져오고 **tcpping** 을 사용 하 여 앱에서 해당 호스트 및 포트에 대 한 액세스를 테스트 합니다.
-
-#### <a name="on-premises-resources"></a>온-프레미스 리소스 ####
-
-앱에서 온-프레미스 리소스에 연결할 수 없으면 VNet에서 리소스에 연결할 수 있는지 확인합니다. **test-netconnection** PowerShell 명령을 사용하여 TCP 액세스를 확인합니다. VM이 온-프레미스 리소스에 연결할 수 없는 경우 VPN 또는 Express 경로 연결이 제대로 구성 되지 않을 수 있습니다.
-
-VNet 호스팅된 VM에서 온-프레미스 시스템에 연결할 수 있지만 앱에서는 연결할 수 없는 경우 다음과 같은 이유 중 하나가 원인일 수 있습니다.
-
-* 사용자의 경로가 서브넷 또는 온-프레미스 게이트웨이의 지점 및 사이트 간 주소 범위를 사용 하 여 구성 되지 않았습니다.
-* 네트워크 보안 그룹에서 지점 및 사이트 간 IP 범위에 대한 액세스를 차단하고 있음
-* 온-프레미스 방화벽에서 지점 및 사이트 간 IP 범위의 트래픽을 차단하고 있음
-* 지역 VNet 통합 기능을 사용 하 여 비 RFC 1918 주소에 도달 하려고 합니다.
-
-
-## <a name="automation"></a>자동화
+## <a name="automation"></a>Automation
 
 지역 VNet 통합에 대 한 CLI 지원이 있습니다. 다음 명령에 액세스 하려면 Azure CLI를 [설치][installCLI]합니다. 
 
@@ -328,7 +178,6 @@ VNet 호스팅된 VM에서 온-프레미스 시스템에 연결할 수 있지만
 [1]: ./media/web-sites-integrate-with-vnet/vnetint-app.png
 [2]: ./media/web-sites-integrate-with-vnet/vnetint-addvnet.png
 [3]: ./media/web-sites-integrate-with-vnet/vnetint-classic.png
-[4]: ./media/web-sites-integrate-with-vnet/vnetint-appsetting.png
 [5]: ./media/web-sites-integrate-with-vnet/vnetint-regionalworks.png
 [6]: ./media/web-sites-integrate-with-vnet/vnetint-gwworks.png
 
@@ -340,7 +189,6 @@ VNet 호스팅된 VM에서 온-프레미스 시스템에 연결할 수 있지만
 [VNETPricing]: https://azure.microsoft.com/pricing/details/vpn-gateway/
 [DataPricing]: https://azure.microsoft.com/pricing/details/data-transfers/
 [V2VNETP2S]: https://azure.microsoft.com/documentation/articles/vpn-gateway-howto-point-to-site-rm-ps/
-[ASEintro]: environment/intro.md
 [ILBASE]: environment/create-ilb-ase.md
 [V2VNETPortal]: ../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md
 [VPNERCoex]: ../expressroute/expressroute-howto-coexist-resource-manager.md
@@ -348,6 +196,5 @@ VNet 호스팅된 VM에서 온-프레미스 시스템에 연결할 수 있지만
 [creategatewaysubnet]: ../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md#creategw
 [creategateway]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal#creategw
 [setp2saddresses]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal#addresspool
-[VNETnsg]: https://docs.microsoft.com/azure/virtual-network/security-overview/
 [VNETRouteTables]: https://docs.microsoft.com/azure/virtual-network/manage-route-table/
 [installCLI]: https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest/

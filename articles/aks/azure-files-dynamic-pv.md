@@ -4,12 +4,12 @@ description: Azure Files를 사용하여 AKS(Azure Kubernetes Service)에서 여
 services: container-service
 ms.topic: article
 ms.date: 09/12/2019
-ms.openlocfilehash: a6e46433354be0d9d958ec69da4529e94a4edd75
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: ef9ef10a5523bd91b346e16e105c5ff5cd9cb669
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77596423"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78897703"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Azure Files를 사용하여 영구 볼륨을 동적으로 만들어 사용
 
@@ -29,11 +29,13 @@ Kubernetes 볼륨에 대 한 자세한 내용은 [AKS의 응용 프로그램에 
 
 * *Standard_LRS* - 표준 LRS(로컬 중복 스토리지)
 * *Standard_GRS* - 표준 GRS(지역 중복 스토리지)
+* *Standard_ZRS* -표준 GRS (영역 중복 저장소)
 * *Standard_RAGRS* - 표준 RA-GRS(읽기 액세스 지역 중복 스토리지)
 * *Premium_LRS* -프리미엄 LRS (로컬 중복 저장소)
+* *Premium_ZRS* -프리미엄 GRS (영역 중복 저장소)
 
 > [!NOTE]
-> Azure Files Kubernetes 1.13 이상을 실행 하는 AKS 클러스터의 premium storage를 지원 합니다.
+> Kubernetes 1.13 이상을 실행 하는 AKS 클러스터의 premium storage를 지원 합니다. 최소 프리미엄 파일 공유는 100GB입니다. Azure Files
 
 Azure Files에 대 한 Kubernetes 저장소 클래스에 대 한 자세한 내용은 [Kubernetes 저장소 클래스][kubernetes-storage-classes]를 참조 하세요.
 
@@ -48,11 +50,10 @@ provisioner: kubernetes.io/azure-file
 mountOptions:
   - dir_mode=0777
   - file_mode=0777
-  - uid=1000
-  - gid=1000
+  - uid=0
+  - gid=0
   - mfsymlinks
-  - nobrl
-  - cache=none
+  - cache=strict
 parameters:
   skuName: Standard_LRS
 ```
@@ -163,7 +164,7 @@ Volumes:
 
 ## <a name="mount-options"></a>탑재 옵션
 
-*FileMode* 및 이상 *모드* 의 기본값은 Kubernetes version 1.9.1 이상에서 *0755* 입니다. Kuberetes 버전이 1.8.5 이상인 클러스터를 사용 하 고 저장소 클래스를 사용 하 여 영구적 볼륨을 동적으로 만드는 경우 저장소 클래스 개체에 탑재 옵션을 지정할 수 있습니다. 다음 예제에서는 *0777*을 설정합니다.
+*FileMode* 및 이상 *모드* 의 기본값은 Kubernetes version 1.13.0 이상에서 *0777* 입니다. 저장소 클래스를 사용 하 여 영구적 볼륨을 동적으로 만드는 경우 저장소 클래스 개체에 탑재 옵션을 지정할 수 있습니다. 다음 예제에서는 *0777*을 설정합니다.
 
 ```yaml
 kind: StorageClass
@@ -174,16 +175,13 @@ provisioner: kubernetes.io/azure-file
 mountOptions:
   - dir_mode=0777
   - file_mode=0777
-  - uid=1000
-  - gid=1000
+  - uid=0
+  - gid=0
   - mfsymlinks
-  - nobrl
-  - cache=none
+  - cache=strict
 parameters:
   skuName: Standard_LRS
 ```
-
-버전 1.8.0 - 1.8.4의 클러스터를 사용하는 경우 *runAsUser* 값을 *0*으로 설정하여 보안 컨텍스트를 지정할 수 있습니다. Pod 보안 컨텍스트에 대 한 자세한 내용은 [보안 컨텍스트 구성][kubernetes-security-context]을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

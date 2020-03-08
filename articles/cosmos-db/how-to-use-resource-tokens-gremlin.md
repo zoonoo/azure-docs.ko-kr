@@ -5,14 +5,14 @@ author: luisbosquez
 ms.author: lbosq
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 09/06/2019
-ms.openlocfilehash: 443b6ea2583c7c8a1c633cf1825e83cc02bd168c
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
-ms.translationtype: HT
+ms.openlocfilehash: 42f3c7f3351bddab429489dccf28587549d76e18
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756078"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78897842"
 ---
 # <a name="use-azure-cosmos-db-resource-tokens-with-the-gremlin-sdk"></a>Gremlin SDK를 통해 Azure Cosmos DB 리소스 토큰 사용
 
@@ -26,7 +26,7 @@ Apache TinkerPop Gremlin SDK에는 리소스 토큰을 만들기 위한 API가 �
 
 - **Azure Cosmos DB 계정** - DNS가 연결되어 있는 최상위 엔터티입니다(예: `contoso.gremlin.cosmos.azure.com`).
   - **Azure Cosmos DB 데이터베이스**
-    - **User**
+    - **사용자**
       - **사용 권한**
         - **토큰** - 허용되는 작업 또는 거부되는 작업을 나타내는 권한 개체 속성입니다.
 

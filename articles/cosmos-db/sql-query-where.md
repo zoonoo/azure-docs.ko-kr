@@ -4,14 +4,14 @@ description: Azure Cosmos DB에 대 한 SQL WHERE 절 알아보기
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 02/03/2020
+ms.date: 03/06/2020
 ms.author: tisande
-ms.openlocfilehash: 31653b598f0f3a79bf7f9c09231b1d111f167a16
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 483a0533eafc81ef8698d260a753062ae074f6d4
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76982232"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898768"
 ---
 # <a name="where-clause-in-azure-cosmos-db"></a>Azure Cosmos DB의 WHERE 절
 
@@ -35,12 +35,13 @@ WHERE <filter_condition>
   
    계산할 값을 나타내는 식입니다. 자세한 내용은 [스칼라 식](sql-query-scalar-expressions.md) 을 참조 하세요.  
   
-
 ## <a name="remarks"></a>설명
   
-  문서를 반환하려면 필터 조건으로 지정된 식을 true로 평가해야 합니다. true 부울 값만 조건을 충족하고, 다른 값(undefined, null, false, 숫자, 배열 또는 개체)은 조건을 충족하지 않습니다. 
+  문서를 반환하려면 필터 조건으로 지정된 식을 true로 평가해야 합니다. 부울 값 `true`만 조건을 충족 하 고, 다른 모든 값은 undefined, null, false, 숫자, 배열 또는 개체는 조건을 충족 하지 않습니다.
 
-## <a name="examples"></a>예시
+  동일한 필터의 일부로 `WHERE` 절에 파티션 키를 포함 하는 경우 쿼리는 관련 파티션만 자동으로 필터링 합니다.
+
+## <a name="examples"></a>예
 
 다음 쿼리는 값이 `AndersenFamily`되는 `id` 속성을 포함 하는 항목을 요청 합니다. `id` 속성이 없거나 해당 값이 `AndersenFamily`일치 하지 않는 항목은 제외 됩니다.
 

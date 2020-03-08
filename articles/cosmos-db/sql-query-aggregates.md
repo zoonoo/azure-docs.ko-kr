@@ -1,23 +1,23 @@
 ---
 title: Azure Cosmos DB 집계 함수
 description: Azure Cosmos DB에서 지 원하는 집계 함수 유형 및 SQL 집계 함수 구문에 대해 알아봅니다.
-author: markjbrown
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.author: mjbrown
-ms.openlocfilehash: 1ce3b18dd31944a1a4d4e6fad8fb49e63996dace
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.date: 03/05/2020
+ms.author: tisande
+ms.openlocfilehash: df9700dd51c8915ff28c34cf0a29c2f5e48baa44
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74871842"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78897821"
 ---
 # <a name="aggregate-functions-in-azure-cosmos-db"></a>Azure Cosmos DB 집계 함수
 
 집계 함수는 SELECT 절의 값 집합에 대해 계산을 수행 하 고 단일 값을 반환 합니다. 예를 들어 다음 쿼리는 `Families` 컨테이너 내의 항목 수를 반환 합니다.
 
-## <a name="examples"></a>예시
+## <a name="examples"></a>예
 
 ```sql
     SELECT COUNT(1)
@@ -63,12 +63,12 @@ VALUE 키워드를 사용 하 여 집계의 스칼라 값만 반환할 수도 �
 
 SQL API는 다음과 같은 집계 함수를 지원 합니다. 숫자, 문자열, 부울 및 null에 대 한 SUM 및 AVG는 숫자 값, 개수, 최소값 및 최대값에 대해 작동 합니다.
 
-| 함수 | 설명 |
+| 함수 | Description |
 |-------|-------------|
 | 개수 | 식에서 항목 수를 반환합니다. |
 | 합계   | 식에서 모든 값의 합계를 반환합니다. |
-| 최소   | 식에서 최소값을 반환합니다. |
-| 최대   | 식에서 최대값을 반환합니다. |
+| 최소   | 식의 최소값을 반환합니다. |
+| 최대   | 식의 최대값을 반환합니다. |
 | 평균   | 식에서 평균값을 반환합니다. |
 
 배열 반복의 결과를 집계할 수도 있습니다.

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d713dd968956f5bcc93e7b53ed2d7801e5d7bec2
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 5d02b0299b6267fdd9d880d5bc0fe8c93d0edadc
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561944"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672615"
 ---
 # <a name="deploy-a-secure-azure-managed-workstation"></a>안전 하 고 Azure로 관리 되는 워크스테이션 배포
 
@@ -35,7 +35,7 @@ ms.locfileid: "74561944"
 | Intune 관리 | yes | yes | yes | yes | yes | yes |
 | 장치-Azure AD 등록 됨 | yes |  |  |  |  | |   |
 | 장치-Azure AD 조인 됨 |   | yes | yes | yes | yes | yes |
-| Intune 보안 기준이 적용 됨 |   | yes <br> 한층 | yes <br> (HighSecurity) | yes <br> NCSC | yes <br> 보안 | 해당 없음 |
+| Intune 보안 기준이 적용 됨 |   | yes <br> 한층 | yes <br> (HighSecurity) | yes <br> (NCSC) | yes <br> 보안 | 해당 없음 |
 | 하드웨어가 안전한 Windows 10 표준을 충족 합니다. |   | yes | yes | yes | yes | yes |
 | Microsoft Defender ATP 사용 |   | yes  | yes | yes | yes | yes |
 | 관리자 권한 제거 |   |   | yes  | yes | yes | yes |
@@ -57,14 +57,14 @@ ms.locfileid: "74561944"
 
 Azure AD (Azure Active Directory)는 관리자 워크스테이션의 사용자, 그룹 및 장치를 관리 합니다. [관리자 계정을](../users-groups-roles/directory-assign-admin-roles.md)사용 하 여 id 서비스 및 기능을 사용 하도록 설정 합니다.
 
-보안 워크스테이션 관리자 계정을 만들 때 현재 워크스테이션에 계정을 노출 합니다. 이 초기 구성과 모든 전역 구성을 수행 하려면 알려진 안전한 장치를 사용 해야 합니다. 첫 번째 환경의 공격 노출을 줄이려면 [맬웨어 감염을 방지 하는 지침](https://docs.microsoft.com/windows/security/threat-protection/intelligence/prevent-malware-infection)을 수행 하는 것이 좋습니다.
+보안 워크스테이션 관리자 계정을 만들 때 현재 워크스테이션에 계정을 노출 합니다. 이 초기 구성과 모든 전역 구성을 수행 하려면 알려진 안전한 장치를 사용 해야 합니다. 첫 번째 환경의 공격 노출을 줄이려면 [맬웨어 감염을 방지 하는 지침](/windows/security/threat-protection/intelligence/prevent-malware-infection)을 수행 하는 것이 좋습니다.
 
 관리자에 게는 이상 multi-factor authentication이 필요 합니다. 구현 지침은 [클라우드 기반 MFA 배포](../authentication/howto-mfa-getstarted.md) 를 참조 하세요.
 
 ### <a name="azure-ad-users-and-groups"></a>Azure AD 사용자 및 그룹
 
 1. Azure Portal에서 **Azure Active Directory** > **사용자** > **새 사용자**로 이동 합니다.
-1. [사용자 만들기 자습서](https://docs.microsoft.com/Intune/quickstart-create-user)의 단계를 수행 하 여 장치 관리자를 만듭니다.
+1. [사용자 만들기 자습서](/Intune/quickstart-create-user)의 단계를 수행 하 여 장치 관리자를 만듭니다.
 1. 다음을 입력합니다.
 
    * **이름** -워크스테이션 관리자 보안
@@ -127,7 +127,7 @@ Azure 포털에서 다음을 수행합니다.
 1. **MDM 사용자 범위** 설정을 **모두**로 변경 합니다.
 1. **저장**을 선택합니다.
 
-이러한 단계를 통해 Intune을 사용 하 여 모든 장치를 관리할 수 있습니다. 자세한 내용은 [Intune 빠른 시작: Windows 10 장치에 대 한 자동 등록 설정](https://docs.microsoft.com/Intune/quickstart-setup-auto-enrollment)을 참조 하세요. 이후 단계에서 Intune 구성 및 규정 준수 정책을 만듭니다.
+이러한 단계를 통해 Intune을 사용 하 여 모든 장치를 관리할 수 있습니다. 자세한 내용은 [Intune 빠른 시작: Windows 10 장치에 대 한 자동 등록 설정](/Intune/quickstart-setup-auto-enrollment)을 참조 하세요. 이후 단계에서 Intune 구성 및 규정 준수 정책을 만듭니다.
 
 #### <a name="azure-ad-conditional-access"></a>Azure AD 조건부 액세스
 
@@ -137,7 +137,7 @@ Azure AD 조건부 액세스를 사용 하면 권한 있는 관리 작업을 규
 
 ### <a name="configure-enrollment-status"></a>등록 상태 구성
 
-안전한 워크스테이션이 신뢰할 수 있는 깨끗 한 장치 인지 확인 하는 것이 중요 합니다. 새 장치를 구매할 때 공장을 [Windows 10 Pro](https://docs.microsoft.com/Windows/deployment/Windows-10-pro-in-s-mode)로 설정 하는 것을 선택할 수 있습니다 .이 모드에서는 공급망 관리 중 취약점에 대 한 노출을 제한 합니다. 공급자에서 장치를 받은 후에는 Autopilot를 사용 하 여 S 모드에서 장치를 변경할 수 있습니다. 다음 지침에서는 변환 프로세스를 적용 하는 방법에 대해 자세히 설명 합니다.
+안전한 워크스테이션이 신뢰할 수 있는 깨끗 한 장치 인지 확인 하는 것이 중요 합니다. 새 장치를 구매할 때 공장을 [Windows 10 Pro](/Windows/deployment/Windows-10-pro-in-s-mode)로 설정 하는 것을 선택할 수 있습니다 .이 모드에서는 공급망 관리 중 취약점에 대 한 노출을 제한 합니다. 공급자에서 장치를 받은 후에는 Autopilot를 사용 하 여 S 모드에서 장치를 변경할 수 있습니다. 다음 지침에서는 변환 프로세스를 적용 하는 방법에 대해 자세히 설명 합니다.
 
 장치를 사용 하기 전에 장치를 완전히 구성 하기 위해 Intune은 **모든 앱과 프로필이 설치 될 때까지 장치 사용을 차단**하는 수단을 제공 합니다.
 
@@ -162,7 +162,7 @@ Azure Portal의 Intune에서 다음을 수행 합니다.
 
 1. **다음**을 선택합니다.
 
-   * **배포 모드**의 경우 **자체 배포 (미리 보기)** 를 선택 합니다. 이 프로필을 사용 하는 장치는 장치를 등록 하는 사용자와 연결 됩니다. 장치를 등록 하려면 사용자 자격 증명이 필요 합니다. **자체 배포** 모드에서 장치를 배포 하면 공유 모델에 랩톱을 배포할 수 있습니다. 사용자가 처음으로 사용자에 게 할당 될 때까지 사용자 할당은 발생 하지 않습니다. 따라서 사용자 할당이 완료 될 때까지 BitLocker와 같은 사용자 정책을 사용 하도록 설정 되지 않습니다. 보안 장치에 로그온 하는 방법에 대 한 자세한 내용은 [선택한 프로필](https://docs.microsoft.com/intune/device-profile-assign)을 참조 하세요.
+   * **배포 모드**의 경우 **자체 배포 (미리 보기)** 를 선택 합니다. 이 프로필을 사용 하는 장치는 장치를 등록 하는 사용자와 연결 됩니다. 장치를 등록 하려면 사용자 자격 증명이 필요 합니다. **자체 배포** 모드에서 장치를 배포 하면 공유 모델에 랩톱을 배포할 수 있습니다. 사용자가 처음으로 사용자에 게 할당 될 때까지 사용자 할당은 발생 하지 않습니다. 따라서 사용자 할당이 완료 될 때까지 BitLocker와 같은 사용자 정책을 사용 하도록 설정 되지 않습니다. 보안 장치에 로그온 하는 방법에 대 한 자세한 내용은 [선택한 프로필](/intune/device-profile-assign)을 참조 하세요.
    * **AZURE ad에 조인** 상자는 **azure ad에 조인** 되 고 회색으로 표시 되어야 합니다.
    * 언어 (지역), 사용자 계정 유형 **표준**을 선택 합니다. 
 
@@ -175,7 +175,7 @@ Azure Portal의 Intune에서 다음을 수행 합니다.
 1. **다음**을 선택합니다.
 1. **만들기**를 선택하여 프로필을 만듭니다. 이제 Autopilot 배포 프로필을 장치에 할당할 수 있습니다.
 
-Autopilot의 장치 등록은 장치 유형 및 역할에 따라 다른 사용자 환경을 제공 합니다. 이 배포 예제에서는 보호 된 장치를 대량으로 배포 하 고 공유할 수 있는 모델을 설명 하지만, 처음 사용 하는 경우 사용자에 게 장치가 할당 됩니다. 자세한 내용은 [Intune Autopilot device 등록](https://docs.microsoft.com/intune/device-enrollment)을 참조 하세요.
+Autopilot의 장치 등록은 장치 유형 및 역할에 따라 다른 사용자 환경을 제공 합니다. 이 배포 예제에서는 보호 된 장치를 대량으로 배포 하 고 공유할 수 있는 모델을 설명 하지만, 처음 사용 하는 경우 사용자에 게 장치가 할당 됩니다. 자세한 내용은 [Intune Autopilot device 등록](/intune/device-enrollment)을 참조 하세요.
 
 ### <a name="configure-windows-update"></a>Windows 업데이트 구성
 
@@ -203,7 +203,7 @@ Azure Portal에서 다음을 수행합니다.
 1. **만들기**를 선택합니다.
 1. **할당** 탭에서 **보안 워크스테이션** 그룹을 추가 합니다.
 
-Windows 업데이트 정책에 대 한 자세한 내용은 [정책 CSP-업데이트](https://docs.microsoft.com/windows/client-management/mdm/policy-csp-update)를 참조 하세요.
+Windows 업데이트 정책에 대 한 자세한 내용은 [정책 CSP-업데이트](/windows/client-management/mdm/policy-csp-update)를 참조 하세요.
 
 ### <a name="windows-defender-atp-intune-integration"></a>Windows Defender ATP Intune 통합
 
@@ -223,7 +223,7 @@ Windows Defender ATP 및 Intune의 통합을 구성 하려면 Azure Portal으로
 1. Windows **DEFENDER ATP에 연결 windows 장치 버전 10.0.15063 이상을** **켜기**로 설정 합니다.
 1. **저장**을 선택합니다.
 
-자세한 내용은 [Windows Defender Advanced Threat Protection](https://docs.microsoft.com/Windows/security/threat-protection/windows-defender-atp/windows-defender-advanced-threat-protection)을 참조 하세요.
+자세한 내용은 [Windows Defender Advanced Threat Protection](/Windows/security/threat-protection/windows-defender-atp/windows-defender-advanced-threat-protection)을 참조 하세요.
 
 ### <a name="finish-workstation-profile-hardening"></a>워크스테이션 프로필 강화 끝내기
 
@@ -231,12 +231,12 @@ Windows Defender ATP 및 Intune의 통합을 구성 하려면 Azure Portal으로
 
 | 프로필 | 다운로드 위치 | 파일 이름 |
 | --- | --- | --- |
-| 낮은 보안 | N/A | N/A |
+| 낮은 보안 | 해당 없음 | 해당 없음 |
 | 향상된 보안 | https://aka.ms/securedworkstationgit | Windows10-(1809). p s 1 |
 | 높은 수준의 보안 | https://aka.ms/securedworkstationgit | HighSecurityWorkstation-Windows10-(1809) ps1 |
 | 특수화 | https://github.com/pelarsen/IntunePowerShellAutomation | DeviceConfiguration_NCSC-Windows10 (1803) SecurityBaseline. ps1 |
-| 특수 규정 준수 * | https://aka.ms/securedworkstationgit | DeviceCompliance_NCSC-Windows10 (1803). p s 1 |
-| 보안 | https://aka.ms/securedworkstationgit | Windows10-(1809)-SecurityBaseline. ps1 |
+| 특수 규정 준수 * | https://aka.ms/securedworkstationgit | DeviceCompliance_NCSC-Windows10(1803).ps1 |
+| 보안 | https://aka.ms/securedworkstationgit | Secure-Workstation-Windows10-(1809)-SecurityBaseline.ps1 |
 
 특수 한 규정 준수 \* NCSC Windows10 SecurityBaseline에 제공 된 특수 구성을 적용 하는 스크립트입니다.
 
@@ -245,7 +245,7 @@ Windows Defender ATP 및 Intune의 통합을 구성 하려면 Azure Portal으로
 * 스크립트: **Azure Portal** > **Microsoft Intune** > **장치 구성** > **프로필**에서 만든 Intune 장치 구성 프로필을 찾을 수 있습니다.
 * 다음은 스크립트에서 만든 Intune 장치 준수 정책을 찾을 수 있는 위치 **Azure Portal** > **Microsoft Intune** > **장치 준수** > **정책**입니다.
 
-스크립트에서 변경한 내용을 검토 하려면 프로필을 내보낼 수 있습니다. 이러한 방식으로 [Seccon 설명서](https://docs.microsoft.com/windows/security/threat-protection/windows-security-configuration-framework/windows-security-configuration-framework)에 설명 된 대로 필요할 수 있는 추가 강화를 결정할 수 있습니다.
+스크립트에서 변경한 내용을 검토 하려면 프로필을 내보낼 수 있습니다. 이러한 방식으로 [Seccon 설명서](/windows/security/threat-protection/windows-security-configuration-framework/windows-security-configuration-framework)에 설명 된 대로 필요할 수 있는 추가 강화를 결정할 수 있습니다.
 
 [DeviceConfiguration Gid Uhub 리포지토리에서](https://github.com/microsoftgraph/powershell-intune-samples/tree/master/DeviceConfiguration) Intune 데이터 내보내기 스크립트 `DeviceConfiguration_Export.ps1`를 실행 하 여 현재 intune 프로필을 모두 내보냅니다.
 
@@ -260,7 +260,7 @@ Windows Defender ATP 및 Intune의 통합을 구성 하려면 Azure Portal으로
 
 ### <a name="set-rules-in-the-firewall-configuration-service-provider-csp"></a>방화벽 구성 서비스 공급자 (CSP)에서 규칙 설정
 
-허용 및 차단 된 끝점에 대 한 필요에 따라 인바운드 및 아웃 바운드 규칙의 관리를 추가로 변경할 수 있습니다. 보안 워크스테이션을 계속 강화 하면서 모든 인바운드 및 아웃 바운드 트래픽을 거부 하는 제한을 느슨하게 할 수 있습니다. 허용 되는 아웃 바운드 사이트를 추가 하 여 공통 및 신뢰할 수 있는 웹 사이트를 포함할 수 있습니다. 자세한 내용은 [방화벽 구성 서비스](https://docs.microsoft.com/Windows/client-management/mdm/firewall-csp)를 참조 하세요.
+허용 및 차단 된 끝점에 대 한 필요에 따라 인바운드 및 아웃 바운드 규칙의 관리를 추가로 변경할 수 있습니다. 보안 워크스테이션을 계속 강화 하면서 모든 인바운드 및 아웃 바운드 트래픽을 거부 하는 제한을 느슨하게 할 수 있습니다. 허용 되는 아웃 바운드 사이트를 추가 하 여 공통 및 신뢰할 수 있는 웹 사이트를 포함할 수 있습니다. 자세한 내용은 [방화벽 구성 서비스](/Windows/client-management/mdm/firewall-csp)를 참조 하세요.
 
 제한적인 URL 트래픽 관리에는 다음이 포함 됩니다.
 
@@ -302,7 +302,7 @@ Chrome 설정 구성에 대 한 자세한 내용은 [Microsoft Intune를 사용 
 
 보안 모드에서는 응용 프로그램 설치가 Intune 회사 포털로 제한 됩니다. 그러나 포털을 설치 하려면 Microsoft Store에 대 한 액세스가 필요 합니다. 보안 솔루션에서는 오프 라인 모드를 통해 모든 장치에서 회사 포털을 사용할 수 있도록 설정할 수 있습니다.
 
-Intune에서 관리 하는 [회사 포털](https://docs.microsoft.com/Intune/store-apps-company-portal-app) 복사본은 보안 워크스테이션의 사용자에 게 푸시할 수 있는 추가 도구에 대 한 주문형 액세스를 제공 합니다.
+Intune에서 관리 하는 [회사 포털](/Intune/store-apps-company-portal-app) 복사본은 보안 워크스테이션의 사용자에 게 푸시할 수 있는 추가 도구에 대 한 주문형 액세스를 제공 합니다.
 
 배포에 특별 한 준비가 필요한 Windows 32 비트 앱 또는 다른 앱을 설치 해야 할 수 있습니다. 이러한 경우 [Microsoft win32 콘텐츠 준비 도구](https://github.com/Microsoft/Microsoft-Win32-Content-Prep-Tool) 는 설치를 위해 바로 사용할 수 있는 `.intunewin` 서식 파일을 제공할 수 있습니다.
 
@@ -371,11 +371,11 @@ Microsoft Scripting Center의 [Setdesktopbackground.](https://gallery.technet.mi
 
 ## <a name="assign-devices"></a>장치 할당
 
-장치 및 사용자를 할당 하려면 [선택한 프로필](https://docs.microsoft.com/intune/device-profile-assign) 을 보안 그룹에 매핑해야 합니다. 서비스에 대 한 사용 권한이 필요한 모든 새 사용자도 보안 그룹에 추가 해야 합니다.
+장치 및 사용자를 할당 하려면 [선택한 프로필](/intune/device-profile-assign) 을 보안 그룹에 매핑해야 합니다. 서비스에 대 한 사용 권한이 필요한 모든 새 사용자도 보안 그룹에 추가 해야 합니다.
 
 ## <a name="using-sentinel-and-windows-defender-atp-to-monitor-and-respond-to-security-incidents"></a>센티널 및 Windows Defender ATP를 사용 하 여 보안 인시던트 모니터링 및 대응
 
-보안 워크스테이션 배포 모니터링은 [센티널]을 사용 하도록 설정 하 고 [위협 및 취약성 관리](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/next-gen-threat-and-vuln-mgt) 를 활용 하 여 수행할 수 있습니다. 지침은 철저 한 위협 구하기를 제공 하지 않지만 잠재적인 보안 문제를 모니터링 하 고이에 대응 하는 좋은 일반적인 의미를 제공 합니다.
+보안 워크스테이션 배포 모니터링은 [센티널]을 사용 하도록 설정 하 고 [위협 및 취약성 관리](/windows/security/threat-protection/microsoft-defender-atp/next-gen-threat-and-vuln-mgt) 를 활용 하 여 수행할 수 있습니다. 지침은 철저 한 위협 구하기를 제공 하지 않지만 잠재적인 보안 문제를 모니터링 하 고이에 대응 하는 좋은 일반적인 의미를 제공 합니다.
 
 **Azure 센티널** 을 사용 하 여 다음을 수행 합니다. 
 
@@ -412,7 +412,7 @@ Microsoft Scripting Center의 [Setdesktopbackground.](https://gallery.technet.mi
 * 조사 하는 동안 대시보드를 사용 하 여 컴퓨터 수준 취약점 식별
 * Intune에 재구성 푸시
 
-[DEFENDER ATP 대시보드](https://securitycenter.windows.com/machines)를 구성 합니다. [위협 & 취약성 관리 대시보드 개요](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/tvm-dashboard-insights)에서 지침을 사용 합니다.
+[DEFENDER ATP 대시보드](https://securitycenter.windows.com/machines)를 구성 합니다. [위협 & 취약성 관리 대시보드 개요](/windows/security/threat-protection/microsoft-defender-atp/tvm-dashboard-insights)에서 지침을 사용 합니다.
 
 ## <a name="monitoring-application-activity-using-microsoft-monitoring-agent-mma"></a>Microsoft Monitoring Agent를 사용 하 여 응용 프로그램 동작 모니터링 (MMA)
 특수 워크스테이션부터 앱 락커는 워크스테이션에서 응용 프로그램 활동을 모니터링할 수 있도록 설정 됩니다. 모니터링을 Log Analytics 작업 영역에 통합 하려면 MMA 에이전트 및 구성을 따라야 합니다. 
@@ -449,18 +449,18 @@ Intune PowerShell 스크립트를 사용 하 여 MMA 에이전트 배포
 
 ## <a name="monitoring"></a>모니터링
 
-* [Azure 센티널을 사용 하 여 위협을 검색](https://docs.microsoft.com/azure/sentinel/tutorial-detect-threats) 하는 방법 알아보기
-* [Azure 센티널을 사용 하 여 인시던트 조사](https://docs.microsoft.com/azure/sentinel/tutorial-investigate-cases)
-* [Azure 센티널에서 자동화 된 위협 응답 설정](https://docs.microsoft.com/azure/sentinel/tutorial-respond-threats-playbook)
-* [노출 점수](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/tvm-exposure-score) 를 검토 하는 방법 이해
-* [보안 권장 사항](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/tvm-security-recommendation) 검토
-* 보안 [재구성](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/tvm-remediation) 관리
-* [끝점 검색 및 응답](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/overview-endpoint-detection-response) 관리
-* [Intune 프로필 모니터링](https://docs.microsoft.com/intune/device-profile-monitor)을 사용 하 여 프로필을 모니터링 합니다.
+* [Azure 센티널을 사용 하 여 위협을 검색](/azure/sentinel/tutorial-detect-threats) 하는 방법 알아보기
+* [Azure 센티널을 사용 하 여 인시던트 조사](/azure/sentinel/tutorial-investigate-cases)
+* [Azure 센티널에서 자동화 된 위협 응답 설정](/azure/sentinel/tutorial-respond-threats-playbook)
+* [노출 점수](/windows/security/threat-protection/microsoft-defender-atp/tvm-exposure-score) 를 검토 하는 방법 이해
+* [보안 권장 사항](/windows/security/threat-protection/microsoft-defender-atp/tvm-security-recommendation) 검토
+* 보안 [재구성](/windows/security/threat-protection/microsoft-defender-atp/tvm-remediation) 관리
+* [끝점 검색 및 응답](/windows/security/threat-protection/microsoft-defender-atp/overview-endpoint-detection-response) 관리
+* [Intune 프로필 모니터링](/intune/device-profile-monitor)을 사용 하 여 프로필을 모니터링 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Microsoft Intune](https://docs.microsoft.com/intune/index)에 대해 자세히 알아보세요.
+* [Microsoft Intune](/intune/index)에 대해 자세히 알아보세요.
 * [AZURE AD](../index.yml)를 이해 합니다.
-* [Microsoft Defender Advanced Threat Protection](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) 사용
-* [Azure 센티널](https://docs.microsoft.com/azure/sentinel/) 검색
+* [Microsoft Defender Advanced Threat Protection](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) 사용
+* [Azure 센티널](/azure/sentinel/) 검색

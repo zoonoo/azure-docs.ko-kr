@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 07/17/2019
 ms.author: juliako
-ms.openlocfilehash: a0b0a4e89242103811f20071b7235c825c9d8bd2
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: d9e42e809443a2dd6cdeb989f692b96d63269f79
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74967527"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78673571"
 ---
 # <a name="azure-media-player-overview"></a>Azure Media Player 개요
 
@@ -26,8 +26,6 @@ Microsoft Azure Media Services에서 콘텐츠를 HLS, DASH, 부드러운 스트
 
 > [!NOTE]
 > 암호화 된 콘텐츠를 위해 HTTPS 재생이 필요 합니다.
-
-[평가판 시작](https://azure.microsoft.com/pricing/free-trial/)
 
 ## <a name="use-azure-media-player-demo-page"></a>Azure Media Player 데모 페이지 사용
 

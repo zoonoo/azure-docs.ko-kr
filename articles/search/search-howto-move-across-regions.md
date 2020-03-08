@@ -3,36 +3,53 @@ title: 여러 지역에서 서비스 리소스를 이동 하는 방법
 titleSuffix: Azure Cognitive Search
 description: 이 문서에서는 azure 클라우드에서 azure Cognitive Search 리소스를 한 지역에서 다른 지역으로 이동 하는 방법을 보여 줍니다.
 manager: nitinme
-author: tchristiani
-ms.author: terrychr
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
 ms.custom: subject-moving-resources
-ms.date: 03/05/2020
-ms.openlocfilehash: df712f48c5aff722a4f1a850788378fb78ea7335
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.date: 03/06/2020
+ms.openlocfilehash: 183a937a232dbd28962bb7d6ef42b0d78b8a81fd
+ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78379582"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78850689"
 ---
 # <a name="move-your-azure-cognitive-search-service-to-another-azure-region"></a>Azure Cognitive Search 서비스를 다른 Azure 지역으로 이동
 
-현재는 검색 서비스를 다른 지역으로 이동 하는 것은 지원 되지 않습니다. 즉, 작업을 종단 간 작업에 도움이 되는 자동화 또는 도구가 없습니다.
+경우에 따라 고객이 기존 검색 서비스를 다른 지역으로 이동 하는 것을 조회 합니다. 현재이 작업에 도움이 되는 기본 제공 메커니즘 또는 도구가 없습니다. 이 문서는 아래에 설명 된 수동 프로세스로 남아 있습니다.
 
-포털에서 **템플릿 내보내기** 명령은 서비스의 기본 정의 (이름, 위치, 계층, 복제본 및 파티션 수)를 생성 하지만 서비스의 콘텐츠를 인식 하지 않으며 키, 역할 또는 로그를 전달 하지 않습니다.
+> [!NOTE]
+> Azure Portal 모든 서비스에는 **내보내기 템플릿** 명령이 있습니다. Azure Cognitive Search의 경우이 명령은 서비스의 기본 정의 (이름, 위치, 계층, 복제본 및 파티션 수)를 생성 하지만 서비스의 콘텐츠를 인식 하지 않으며 키, 역할 또는 로그를 전달 하지 않습니다. 명령이 존재 하지만 검색 서비스를 이동 하는 데 사용 하지 않는 것이 좋습니다.
 
-검색을 한 지역에서 다른 지역으로 이동 하는 경우 다음과 같은 방법을 사용 하는 것이 좋습니다.
+## <a name="steps-for-moving-a-service"></a>서비스를 이동 하는 단계
 
-1. 서비스의 전체 개체 목록에 대 한 기존 서비스를 인벤토리 합니다. 로깅을 사용 하도록 설정한 경우 나중에 비교할 때 필요할 수 있는 보고서를 만들고 보관 합니다.
+검색 서비스를 다른 지역으로 이동 해야 하는 경우 접근 방식은 아래 단계와 유사 합니다.
 
-1. 새 지역에서 서비스를 만들고 소스 코드에서 기존 인덱스, 인덱서, 데이터 원본, 기술력과 및 동의어 맵을 다시 게시 합니다. 서비스 이름은 고유 해야 하므로 기존 이름을 다시 사용할 수 없습니다.
+1. 서비스를 재배치할 때의 모든 영향을 이해 하기 위해 관련 서비스를 식별 합니다. 로깅, 기술 자료 저장소 또는 외부 데이터 원본으로 Azure Storage를 사용할 수 있습니다. AI 보강 Cognitive Services를 사용할 수 있습니다. 다른 지역에서 서비스에 액세스 하는 것은 일반적 이지만 추가 대역폭 요금이 제공 됩니다. AI 보강를 사용 하는 경우 Cognitive Services 및 Azure Cognitive Search는 동일한 지역에 있어야 합니다.
+
+1. 서비스의 전체 개체 목록에 대 한 기존 서비스를 인벤토리 합니다. 로깅을 사용 하도록 설정한 경우 기록 레코드에 필요할 수 있는 모든 보고서를 만들고 보관 합니다.
+
+1. 새 지역의 가격 책정 및 가용성을 확인 하 여 동일한 지역에서 만들 수 있는 Azure Cognitive Search 및 관련 서비스의 가용성을 보장 합니다. 기능 패리티를 확인 합니다. 일부 미리 보기 기능에는 제한 된 가용성이 있습니다.
+
+1. 새 지역에서 서비스를 만들고 소스 코드에서 기존 인덱스, 인덱서, 데이터 원본, 기술력과, 기술 자료 저장소 및 동의어 맵을 다시 게시 합니다. 서비스 이름은 고유 해야 하므로 기존 이름을 다시 사용할 수 없습니다.
+
+1. 인덱스와 기술 자료 저장소 (해당 하는 경우)를 다시 로드 합니다. 응용 프로그램 코드를 사용 하 여 JSON 데이터를 인덱스로 푸시 하거나 인덱서를 다시 실행 하 여 외부 소스에서 문서를 가져옵니다. 
 
 1. 로깅을 사용 하 고 사용 하는 경우 보안 역할을 다시 만듭니다.
 
 1. 새 서비스 이름 및 API 키를 사용 하 고 모든 응용 프로그램을 테스트 하도록 클라이언트 응용 프로그램 및 테스트 도구 모음을 업데이트 합니다.
 
-1. 새 서비스가 완전히 작동 하면 이전 서비스를 삭제 합니다.
+1. 새 서비스가 완전히 테스트 되 고 작동 하면 이전 서비스를 삭제 합니다.
+
+## <a name="next-steps"></a>다음 단계
+
++ [계층 선택](search-sku-tier.md)
++ [검색 서비스 만들기](search-create-service-portal.md)
++ [검색 문서 로드](search-what-is-data-import.md)
++ [로깅 사용](search-monitor-logs.md)
+
 
 <!-- To move your Azure Cognitive Service account from one region to another, you will create an export template to move your subscription(s). After moving your subscription, you will need to move your data and recreate your service.
 

@@ -6,22 +6,22 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 08/23/2019
+ms.date: 3/6/2020
 ms.custom: seodec18
-ms.openlocfilehash: 85d32e96335a9fffa874f1f370f72883ff420df0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: de2b99666dbed4eaec3db3e56800e9a7352e10e7
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75369867"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898396"
 ---
-# <a name="test-an-azure-stream-analytics-job-with-sample-data"></a>샘플 데이터를 사용하여 Azure Stream Analytics 작업 테스트
+# <a name="test-an-azure-stream-analytics-job-in-the-portal"></a>포털에서 Azure Stream Analytics 작업 테스트
 
-Azure Stream Analytics에서 작업을 시작 하거나 중지 하지 않고 쿼리를 테스트할 수 있습니다. 입력 싱크에서 들어오는 데이터에 대 한 쿼리를 테스트 하거나 Azure Portal의 로컬 파일에서 예제 데이터를 업로드할 수 있습니다. 또한 [Visual Studio](stream-analytics-live-data-local-testing.md) 의 로컬 샘플 데이터 또는 라이브 데이터에서 로컬로 쿼리를 테스트 하 고 [Visual Studio Code](visual-studio-code-local-run-live-input.md)수 있습니다.
+Azure Stream Analytics에서 작업을 시작 하거나 중지 하지 않고 쿼리를 테스트할 수 있습니다. 스트리밍 원본에서 들어오는 데이터에 대 한 쿼리를 테스트 하거나 Azure Portal의 로컬 파일에서 예제 데이터를 업로드할 수 있습니다. 또한 [Visual Studio](stream-analytics-live-data-local-testing.md) 의 로컬 샘플 데이터 또는 라이브 데이터에서 로컬로 쿼리를 테스트 하 고 [Visual Studio Code](visual-studio-code-local-run-live-input.md)수 있습니다.
 
-## <a name="sample-incoming-data-from-input"></a>입력에서 들어오는 데이터 샘플링
+## <a name="automatically-sample-incoming-data-from-input"></a>입력에서 들어오는 데이터를 자동으로 샘플링
 
-Azure Stream Analytics은 자동으로 스트리밍 입력에서 이벤트를 페치합니다. 기본 샘플에서 쿼리를 실행 하거나 샘플에 대 한 특정 시간 프레임을 설정할 수 있습니다.
+Azure Stream Analytics은 스트리밍 입력에서 이벤트를 자동으로 인출 합니다. 기본 샘플에서 쿼리를 실행 하거나 샘플에 대 한 특정 시간 프레임을 설정할 수 있습니다.
 
 1. Azure Portal에 로그인합니다.
 
@@ -98,6 +98,7 @@ Azure Stream Analytics은 자동으로 스트리밍 입력에서 이벤트를 �
 10. 브라우저에 표시 된 결과를 확인 한 후 작업을 **시작할** 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
+* [Stream Analytics를 사용 하 여 IoT 솔루션 빌드](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-build-an-iot-solution-using-stream-analytics):이 자습서에서는 유료 집에서 트래픽을 시뮬레이트하는 데이터 생성기를 사용 하 여 종단 간 솔루션을 구축 하는 방법을 안내 합니다.
 
 * [Azure  Stream Analytics 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 

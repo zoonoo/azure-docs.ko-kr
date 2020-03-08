@@ -6,12 +6,12 @@ author: reyang
 ms.author: reyang
 ms.date: 10/11/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: a2b66cdc7a0704cd3560c0776a0ca5302dc689d2
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: eb1bde6bb58e3e5299311636f8222e2fc181ec5d
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250764"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78673311"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application-preview"></a>Python 응용 프로그램에 대 한 Azure Monitor 설정 (미리 보기)
 
@@ -425,13 +425,14 @@ Azure Monitor로 보내기 전에 추적 된 원격 분석을 수정 하는 방�
 
 * [GitHub의 OpenCensus Python](https://github.com/census-instrumentation/opencensus-python)
 * [사용자 지정](https://github.com/census-instrumentation/opencensus-python/blob/master/README.rst#customization)
-* [Flask 통합](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-flask)
-* [Django 통합](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-django)
-* [MySQL 통합](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-mysql)
-* [PostgreSQL](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-postgresql)
+* [GitHub의 Azure Monitor 내보내기](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)
+* [OpenCensus 통합](https://github.com/census-instrumentation/opencensus-python#extensions)
+* [Azure Monitor 샘플 응용 프로그램](https://github.com/Azure-Samples/azure-monitor-opencensus-python)
 
 ## <a name="next-steps"></a>다음 단계
 
+* [들어오는 요청 추적](./../../azure-monitor/app/opencensus-python-dependency.md)
+* [진행 중인 요청 추적](./../../azure-monitor/app/opencensus-python-request.md)
 * [애플리케이션 맵](./../../azure-monitor/app/app-map.md)
 * [엔드투엔드 성능 모니터링](./../../azure-monitor/learn/tutorial-performance.md)
 

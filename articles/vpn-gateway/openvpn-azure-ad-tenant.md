@@ -5,14 +5,14 @@ services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 01/03/2020
+ms.date: 03/05/2020
 ms.author: alzam
-ms.openlocfilehash: b9627862002a70dc84b0e268128c53a97df0ebe8
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: f4092f651a3058c8a2e738c81d9db7e296386bfa
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77472301"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78402900"
 ---
 # <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>P2S OpenVPN 프로토콜 연결에 대 한 Azure Active Directory 테 넌 트 만들기
 
@@ -22,9 +22,10 @@ VNet에 연결 하는 경우 인증서 기반 인증 또는 RADIUS 인증을 사
 > Azure AD 인증은 OpenVPN® 프로토콜 연결에만 지원됩니다.
 >
 
-## <a name="tenant"></a>1. Azure AD 테 넌 트 만들기
 
-[새 테 넌 트 만들기](../active-directory/fundamentals/active-directory-access-create-new-tenant.md) 문서의 단계를 사용 하 여 Azure AD 테 넌 트를 만듭니다.
+## <a name="tenant"></a>1. Azure AD 테 넌 트 확인
+
+Azure AD 테 넌 트가 있는지 확인 합니다. Azure AD 테 넌 트가 없는 경우 [새 테 넌 트 만들기](../active-directory/fundamentals/active-directory-access-create-new-tenant.md) 문서의 단계를 사용 하 여 만들 수 있습니다.
 
 * 조직 이름
 * 초기 도메인 이름
@@ -35,7 +36,7 @@ VNet에 연결 하는 경우 인증서 기반 인증 또는 RADIUS 인증을 사
 
 ## <a name="users"></a>2. Azure AD 테 넌 트 사용자 만들기
 
-다음으로 두 개의 사용자 계정을 만듭니다. 전역 관리자 계정과 마스터 사용자 계정 하나를 만듭니다. 마스터 사용자 계정은 마스터 포함 계정 (서비스 계정)으로 사용 됩니다. Azure AD 테 넌 트 사용자 계정을 만들 때 만들려는 사용자의 유형에 대 한 디렉터리 역할을 조정 합니다.
+Azure AD 테 넌 트에는 전역 관리자 계정 및 마스터 사용자 계정과 같은 계정이 필요 합니다. 마스터 사용자 계정은 마스터 포함 계정 (서비스 계정)으로 사용 됩니다. Azure AD 테 넌 트 사용자 계정을 만들 때 만들려는 사용자의 유형에 대 한 디렉터리 역할을 조정 합니다.
 
 [이 문서의](../active-directory/fundamentals/add-users-azure-active-directory.md) 단계를 사용 하 여 Azure AD 테 넌 트에 대해 두 명 이상의 사용자를 만듭니다. 계정 유형을 만들려면 **디렉터리 역할** 을 변경 해야 합니다.
 

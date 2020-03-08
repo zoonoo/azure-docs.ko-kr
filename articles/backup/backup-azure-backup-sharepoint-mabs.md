@@ -3,12 +3,12 @@ title: MABS를 사용 하 여 Azure에 SharePoint 팜 백업
 description: Azure Backup Server를 사용하여 SharePoint 데이터를 백업 및 복원합니다. 이 문서에서는 원하는 데이터를 Azure에 저장할 수 있도록 SharePoint 팜을 구성하는 정보를 제공합니다. 디스크 또는 Azure에서 보호된 SharePoint 데이터를 복원할 수 있습니다.
 ms.topic: conceptual
 ms.date: 06/08/2018
-ms.openlocfilehash: ba9d79270da839cf99574322d68ccdba27fe2d93
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 441a896f2faa67a1380007ebb9474d7c311a4842
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77584254"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78673131"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-mabs"></a>MABS를 사용 하 여 Azure에 SharePoint 팜 백업
 
@@ -63,12 +63,12 @@ MABS를 사용하여 SharePoint를 보호할 수 있으려면, **ConfigureShareP
 
 1. WFE 서버의 명령 프롬프트에서 [MABS 설치 위치] \bin\으로 이동
 2. ConfigureSharePoint -EnableSharePointProtection을 입력합니다.
-3. 팜 관리자 자격 증명을 입력 합니다. 이 계정은 WFE 서버에서 로컬 관리자 그룹의 구성원 이어야 합니다. 팜 관리자가 로컬 관리자가 아닌 경우, WFE 서버에 다음 권한을 부여 합니다.
+3. 팜 관리자 자격 증명을 입력 합니다. 이 계정은 WFE 서버에서 로컬 관리자 그룹의 구성원 이어야 합니다. 팜 관리자가 로컬 관리자가 아닌 경우 WFE 서버에 대 한 다음 권한을 부여 합니다.
    * DPM 폴더(%Program Files%\Microsoft Azure Backup\DPM)에 WSS_Admin_WPG 그룹 전체 제어 권한을 부여합니다.
    * DPM 레지스트리 키 (HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager)에 WSS_Admin_WPG 그룹 읽기 액세스 권한을 부여 합니다.
 
 > [!NOTE]
-> SharePoint 팜 관리자 자격 증명의 변경이 있을 때마다 ConfigureSharePoint.exe를 다시 실행 해야 합니다.
+> SharePoint 팜 관리자 자격 증명이 변경 될 때마다 Configuresharepoint.exe를 다시 실행 해야 합니다.
 >
 >
 
@@ -127,7 +127,7 @@ MABS를 사용하여 SharePoint를 보호할 수 있으려면, **ConfigureShareP
     ![Online_backup_schedule](./media/backup-azure-backup-sharepoint/specify-online-backup-schedule.png)
 
     > [!NOTE]
-    > MABS는 사용 가능한 최신 디스크 백업 지점에서 Azure에 최대 두 번의 일일 백업을 제공합니다. Azure 백업은 [Azure Backup 네트워크 제한](https://azure.microsoft.com/documentation/articles/backup-configure-vault/#enable-network-throttling)을 사용하여 사용량이 최고인 시간과 적은 시간의 백업에 사용될 수 있는 WAN 대역폭 양을 제어할 수도 있습니다.
+    > MABS는 사용 가능한 최신 디스크 백업 지점에서 Azure에 최대 두 번의 일일 백업을 제공합니다. Azure Backup은 [Azure Backup 네트워크 제한을](backup-windows-with-mars-agent.md#enable-network-throttling)사용 하 여 사용량이 많은 시간 및 사용률이 낮은 시간에 백업 하는 데 사용할 수 있는 WAN 대역폭의 양을 제어할 수도 있습니다.
     >
     >
 11. 선택한 백업 일정에 따라 **온라인 보존 정책을 지정** 페이지에서 매일, 매주, 매월 및 매년 백업 지점에 대한 보존 정책을 선택합니다.

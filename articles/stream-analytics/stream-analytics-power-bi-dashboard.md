@@ -6,13 +6,13 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/11/2019
-ms.openlocfilehash: 76f5c1f0cd3186244e9a262358c9c9a652a73fdb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 03/05/2019
+ms.openlocfilehash: 8466fbcb4325dc244551a3b84fc20581366b7071
+ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75431640"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78851159"
 ---
 # <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Stream Analytics 및 Power BI: 스트리밍 데이터에 대한 실시간 분석 대시보드
 
@@ -23,12 +23,12 @@ Azure Stream Analytics를 사용하면 최고의 비즈니스 인텔리전스 �
 이 시나리오를 보여주는 [비디오](https://www.youtube.com/watch?v=SGUpT-a99MA)를 시청할 수 있습니다.
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 다음이 필요합니다.
 
 * Azure 계정.
-* Power BI에 대한 계정. 회사 계정 또는 학교 계정을 사용할 수 있습니다.
+* Power BI Pro에 대 한 계정입니다. 회사 계정 또는 학교 계정을 사용할 수 있습니다.
 * [실시간 사기 감지](stream-analytics-real-time-fraud-detection.md) 자습서의 완료된 버전. 자습서에는 가상의 전화 통화 메타데이터를 생성하는 앱이 포함됩니다. 자습서에서 이벤트 허브를 만들고 스트리밍 전화 통화 데이터를 이벤트 허브로 보냅니다. 사기성 호출(서로 다른 위치에서 동시에 같은 번호에서 발신되는 전화)을 감지하는 쿼리를 작성합니다. 
 
 
@@ -77,7 +77,7 @@ Power BI 데이터 세트에 대한 자세한 내용은 [Power BI REST API](http
 3. 다음 쿼리를 입력합니다. 이 쿼리는 사기 감지 자습서에서 만든 셀프 조인 쿼리와 유사합니다. 차이점은 이 쿼리에서 사용자가 만든 새 출력으로 결과는 보낸다는 점입니다(`CallStream-PowerBI`). 
 
     >[!NOTE]
-    >사기 감지 자습서에서 입력 `CallStream`에 이름을 지정하지 않으면 쿼리에서 **FROM** 및 **JOIN** 절의 `CallStream` 이름을 바꿉니다.
+    >사기 감지 자습서에서 입력 `CallStream`에 이름을 지정하지 않으면 쿼리에서 `CallStream`FROM**및**JOIN**절의** 이름을 바꿉니다.
 
    ```SQL
    /* Our criteria for fraud:
@@ -190,7 +190,7 @@ Streaming Analytics 작업이 들어오는 스트림에서 사기성 호출을 �
 이 자습서에서는 데이터 세트에 대해 몇 가지 종류의 차트를 만드는 방법만 설명합니다. Power BI는 조직에 대한 다른 고객 비즈니스 인텔리전스 도구를 만드는 데 도움이 됩니다. 자세한 개념은 다음 리소스를 참조하세요.
 
 * Power BI 대시보드의 다른 예제는 [Power BI 시작](https://youtu.be/L-Z_6P56aas?t=1m58s) 비디오를 보세요.
-* Power BI에 Streaming Analytics 작업 출력 구성 및 Power BI 그룹 사용에 대한 자세한 내용은 [Stream Analytics 출력](stream-analytics-define-outputs.md) 문서의 [Power BI](stream-analytics-define-outputs.md#power-bi) 섹션을 검토하세요. 
+* Power BI에 Streaming Analytics 작업 출력 구성 및 Power BI 그룹 사용에 대한 자세한 내용은 [Stream Analytics 출력](stream-analytics-define-outputs.md#power-bi) 문서의 [Power BI](stream-analytics-define-outputs.md) 섹션을 검토하세요. 
 * 일반적으로 Power BI를 사용 하는 방법은 [Power BI의 대시보드](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/)를 참조하세요.
 
 
@@ -201,7 +201,7 @@ Streaming Analytics 작업이 들어오는 스트림에서 사기성 호출을 �
 
 ![값을 컴퓨팅하여 기간(초)을 제공하는 수식](./media/stream-analytics-power-bi-dashboard/compute-window-seconds-equation.png)  
 
-예:
+다음은 그 예입니다.
 
 * 1,000대의 디바이스가 1초 간격으로 데이터를 보내고 있습니다.
 * 시간당 1,000,000개의 행을 지원하는 Power BI Pro SKU를 사용하고 있습니다.
@@ -234,7 +234,7 @@ Streaming Analytics 작업이 들어오는 스트림에서 사기성 호출을 �
 
 Power BI를 사용하여 권한 부여가 새로 고쳐지면 권한 부여 영역에 문제가 해결되었음을 나타내는 녹색 알림이 표시됩니다.
 
-## <a name="get-help"></a>도움 받기
+## <a name="get-help"></a>도움말 보기
 추가 지원이 필요한 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계

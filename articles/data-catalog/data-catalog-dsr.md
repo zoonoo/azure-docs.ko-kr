@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 8f148bfe08d5f7933857eb46cf0d13d4582da108
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: ec716924d3cebf8e78b0505b95837b91c568813a
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950271"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898158"
 ---
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Azure Data Catalog에서 지원되는 데이터 원본
 
@@ -26,7 +26,7 @@ ms.locfileid: "68950271"
        <td><b>수동 입력</b></td>
        <td><b>등록 도구</b></td>
        <td><b>도구에서 열기</b></td>
-       <td><b>참고</b></td>
+       <td><b>참고 사항</b></td>
     </tr>
     <tr>
       <td>Azure Data Lake Store directory (Gen 1만 해당)</td>
@@ -45,7 +45,7 @@ ms.locfileid: "68950271"
       <td></td>
     </tr>
     <tr>
-      <td>Linux에서 File Storage 사용에 대한 자세한 내용은 Linux에서 Azure 파일 스토리지 사용 방법을 참조하세요.</td>
+      <td>Azure BLOB 스토리지</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -124,7 +124,7 @@ ms.locfileid: "68950271"
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td></td>
+      <td>Oracle 10 이상 버전.</td>
     </tr>
     <tr>
       <td>Oracle 데이터베이스 뷰</td>
@@ -132,7 +132,7 @@ ms.locfileid: "68950271"
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td></td>
+      <td>Oracle 10 이상 버전.</td>
     </tr>
     <tr>
       <td>기타(일반 자산)</td>
@@ -457,7 +457,7 @@ ms.locfileid: "68950271"
     <tr>
       <td>Azure Data Lake Store</td>
       <td>컨테이너</td>
-      <td>Data Lake</td>
+      <td>데이터 레이크</td>
       <td>
         
             Protocol: webhdfs

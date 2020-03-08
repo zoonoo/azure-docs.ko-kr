@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24ec4373bceb3cc3c9e5be2c7a0dab1f62197b3c
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 40f89fbe19b93601f9e0525f0387e402bd175fe4
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76512201"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672676"
 ---
 # <a name="azure-ad-joined-devices"></a>Azure AD 조인 디바이스
 
@@ -45,9 +45,9 @@ Azure AD 조인은 클라우드 우선 또는 클라우드 전용으로 사용 �
 
 Azure AD 조인 장치는 조직의 Azure AD 계정을 사용 하 여 로그인 됩니다. 조직의 리소스에 대 한 액세스는 해당 Azure AD 계정 및 장치 id에 적용 되는 [조건부 액세스 정책](../conditional-access/overview.md) 에 따라 추가로 제한할 수 있습니다.
 
-관리자는 Microsoft Intune와 같은 MDM (모바일 장치 관리) 도구를 사용 하 여 Azure AD 조인 장치를 안전 하 게 제어 하거나 Microsoft 끝점 Configuration Manager를 사용 하는 공동 관리 시나리오를 수행할 수 있습니다. 이러한 도구는 저장소 암호화, 암호 복잡성, 소프트웨어 설치 및 소프트웨어 업데이트와 같은 조직에서 필요한 구성을 적용 하는 수단을 제공 합니다. 관리자는 Configuration Manager를 사용 하 여 Azure AD 조인 장치에서 조직 응용 프로그램을 사용할 수 있도록 하 여 [비즈니스 및 교육용 Microsoft Store에서 앱을 관리할](https://docs.microsoft.com/configmgr/apps/deploy-use/manage-apps-from-the-windows-store-for-business)수 있습니다.
+관리자는 Microsoft Intune와 같은 MDM (모바일 장치 관리) 도구를 사용 하 여 Azure AD 조인 장치를 안전 하 게 제어 하거나 Microsoft 끝점 Configuration Manager를 사용 하는 공동 관리 시나리오를 수행할 수 있습니다. 이러한 도구는 저장소 암호화, 암호 복잡성, 소프트웨어 설치 및 소프트웨어 업데이트와 같은 조직에서 필요한 구성을 적용 하는 수단을 제공 합니다. 관리자는 Configuration Manager를 사용 하 여 Azure AD 조인 장치에서 조직 응용 프로그램을 사용할 수 있도록 하 여 [비즈니스 및 교육용 Microsoft Store에서 앱을 관리할](/configmgr/apps/deploy-use/manage-apps-from-the-windows-store-for-business)수 있습니다.
 
-OOBE (기본 제공 경험), 대량 등록 또는 [Windows Autopilot](https://docs.microsoft.com/intune/enrollment-autopilot)와 같은 셀프 서비스 옵션을 사용 하 여 Azure AD 조인을 수행할 수 있습니다.
+OOBE (기본 제공 경험), 대량 등록 또는 [Windows Autopilot](/intune/enrollment-autopilot)와 같은 셀프 서비스 옵션을 사용 하 여 Azure AD 조인을 수행할 수 있습니다.
 
 Azure AD 가입 장치는 조직의 네트워크에 있는 경우 온-프레미스 리소스에 대 한 Single Sign-On 액세스를 계속 유지할 수 있습니다. Azure AD에 가입 된 장치는 여전히 파일, 인쇄 및 기타 응용 프로그램과 같은 온-프레미스 서버에 인증할 수 있습니다.
 
@@ -74,8 +74,8 @@ Azure AD 가입 디바이스의 목표는 단순화하는 것입니다.
 
 다음 방법 중 하나를 사용하여 Azure AD Join을 배포할 수 있습니다.
 
-- [Windows Autopilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot)
-- [대량 배포](https://docs.microsoft.com/intune/windows-bulk-enroll)
+- [Windows Autopilot](/windows/deployment/windows-autopilot/windows-10-autopilot)
+- [대량 배포](/intune/windows-bulk-enroll)
 - [셀프 서비스 환경](azuread-joined-devices-frx.md)
 
 ## <a name="next-steps"></a>다음 단계

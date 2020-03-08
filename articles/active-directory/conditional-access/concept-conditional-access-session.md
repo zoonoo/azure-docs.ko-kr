@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84c794e6fe751bc1c12b90353ef7b285f31a2331
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: e99b9b87f939d614679fdecf24c9d36d99bf2938
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77192143"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78671897"
 ---
 # <a name="conditional-access-session"></a>조건부 액세스: 세션
 
@@ -30,12 +30,12 @@ ms.locfileid: "77192143"
 
 앱 적용 제한 사용 및 구성에 대 한 자세한 내용은 다음 문서를 참조 하세요.
 
-- [SharePoint Online을 사용하여 제한된 액세스를 사용하도록 설정](https://docs.microsoft.com/sharepoint/control-access-from-unmanaged-devices)
+- [SharePoint Online을 사용하여 제한된 액세스를 사용하도록 설정](/sharepoint/control-access-from-unmanaged-devices)
 - [Exchange Online을 사용하여 제한된 액세스를 사용하도록 설정](https://aka.ms/owalimitedaccess)
 
 ## <a name="conditional-access-application-control"></a>조건부 액세스 응용 프로그램 제어
 
-조건부 액세스 앱 제어는 역방향 프록시 아키텍처를 사용 하며 Azure AD 조건부 액세스와 고유 하 게 통합 됩니다. Azure AD 조건부 액세스를 사용 하면 특정 조건에 따라 조직의 앱에 대 한 액세스 제어를 적용할 수 있습니다. 조건은 사용자 또는 사용자 그룹을 정의 하 고 조건부 액세스 정책이 적용 되는 위치 및 네트워크 (위치 및 네트워크)를 정의 합니다. 조건을 확인 한 후 액세스 및 세션 컨트롤을 적용 하 여 조건부 액세스 앱 제어 데이터를 보호할 수 있는 [Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security) 으로 사용자를 라우팅할 수 있습니다.
+조건부 액세스 앱 제어는 역방향 프록시 아키텍처를 사용 하며 Azure AD 조건부 액세스와 고유 하 게 통합 됩니다. Azure AD 조건부 액세스를 사용하면 특정 조건에 따라 조직의 앱에 대한 액세스 제어를 적용할 수 있습니다. 조건은 조건부 액세스 정책이 누구에게(사용자 또는 사용자 그룹), 무엇에(클라우드 앱), 어디에(위치 및 네트워크) 적용되는지 정의합니다. 조건을 확인 한 후 액세스 및 세션 컨트롤을 적용 하 여 조건부 액세스 앱 제어 데이터를 보호할 수 있는 [Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security) 으로 사용자를 라우팅할 수 있습니다.
 
 조건부 액세스 앱 제어를 사용 하 여 액세스 및 세션 정책에 따라 실시간으로 사용자 앱 액세스 및 세션을 모니터링 하 고 제어할 수 있습니다. 액세스 및 세션 정책은 Cloud App Security 포털 내에서 필터를 추가로 구체화 하 고 사용자에 대해 수행할 작업을 설정 하는 데 사용 됩니다. 액세스 및 세션 정책을 사용 하면 다음을 수행할 수 있습니다.
 
@@ -46,7 +46,7 @@ ms.locfileid: "77192143"
 - 액세스 차단: 몇 가지 위험 요소에 따라 특정 앱 및 사용자에 대 한 액세스를 세부적으로 차단할 수 있습니다. 예를 들어 장치 관리의 형태로 클라이언트 인증서를 사용 하는 경우이를 차단할 수 있습니다.
 - 사용자 지정 활동 차단: 일부 앱은 위험을 발생 시키는 고유한 시나리오를 포함 합니다. 예를 들어 Microsoft 팀 이나 여유 시간과 같은 앱에서 중요 한 내용이 포함 된 메시지를 보낼 수 있습니다. 이러한 종류의 시나리오에서는 중요 한 콘텐츠에 대 한 메시지를 검색 하 고 실시간으로 차단할 수 있습니다.
 
-자세한 내용은 [추천 앱에 대 한 조건부 액세스 앱 제어 배포](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)문서를 참조 하세요.
+자세한 내용은 [추천 앱에 대 한 조건부 액세스 앱 제어 배포](/cloud-app-security/proxy-deployment-aad)문서를 참조 하세요.
 
 ## <a name="sign-in-frequency-preview"></a>로그인 빈도 (미리 보기)
 

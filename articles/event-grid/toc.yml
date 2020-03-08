@@ -96,8 +96,12 @@
   items:
     - name: Event Grid 개념
       href: concepts.md
-    - name: 보안 및 인증
-      href: security-authentication.md
+    - name: 보안
+      items:
+        - name: 인증
+          href: security-authentication.md
+        - name: 권한 부여
+          href: security-authorization.md
     - name: 배달 및 다시 시도
       href: delivery-and-retry.md
     - name: 이벤트 필터링

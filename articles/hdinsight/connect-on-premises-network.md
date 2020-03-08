@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/16/2019
-ms.openlocfilehash: 97725099e82c5edb05447d97b47f352c440bd8e8
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.custom: hdinsightactive
+ms.date: 03/04/2020
+ms.openlocfilehash: 2ed7a5b9c81d1b50f80f379a88688b69c49ed382
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529303"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78897938"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>온-프레미스 네트워크에 HDInsight 연결
 
@@ -28,12 +28,12 @@ Azure Virtual Networks와 VPN Gateway를 사용하여 HDInsight를 온-프레미
 
 HDInsight 및 조인된 네트워크의 리소스를 이름별로 통신하도록 하려면 다음 작업을 수행해야 합니다.
 
-* Azure Virtual Network를 만듭니다.
-* Azure Virtual Network에서 사용자 지정 DNS 서버 만들기
-* 기본 Azure Recursive Resolver 대신 사용자 지정 DNS 서버를 사용하도록 가상 네트워크를 구성합니다.
-* 사용자 지정 DNS 서버와 온-프레미스 DNS 서버 간에 전달을 구성합니다.
+1. Azure Virtual Network를 만듭니다.
+1. Azure Virtual Network에서 사용자 지정 DNS 서버 만들기
+1. 기본 Azure Recursive Resolver 대신 사용자 지정 DNS 서버를 사용하도록 가상 네트워크를 구성합니다.
+1. 사용자 지정 DNS 서버와 온-프레미스 DNS 서버 간에 전달을 구성합니다.
 
-이 구성은 다음 동작을 사용하도록 설정합니다.
+이러한 구성을 통해 다음과 같은 동작을 수행할 수 있습니다.
 
 * __가상 네트워크에 대한__ DNS 접미사가 있는 정규화된 도메인 이름의 요청을 사용자 지정 DNS 서버로 전달합니다. 그런 다음 사용자 지정 DNS 서버는 IP 주소를 반환하는 Azure Recursive Resolver에 이러한 요청을 전달합니다.
 * 다른 모든 요청을 온-프레미스 DNS 서버에 전달합니다. 이름 확인을 위해 Microsoft.com과 같은 인터넷 리소스에 대한 요청을 온-프레미스 DNS 서버에 전달합니다.
@@ -42,7 +42,7 @@ HDInsight 및 조인된 네트워크의 리소스를 이름별로 통신하도�
 
 ![구성에서 DNS 요청을 확인 하는 방법에 대 한 다이어그램](./media/connect-on-premises-network/on-premises-to-cloud-dns.png)
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * SSH 클라이언트. 자세한 내용은 [SSH를 사용하여 HDInsight(Apache Hadoop)에 연결](./hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 * PowerShell을 사용 하는 경우 [AZ Module](https://docs.microsoft.com/powershell/azure/overview)이 필요 합니다.
@@ -63,15 +63,17 @@ HDInsight 및 조인된 네트워크의 리소스를 이름별로 통신하도�
 
 이번 단계에서는 [Azure Portal](https://portal.azure.com)을 사용하여 Azure Virtual Machine을 만듭니다. 가상 머신을 만드는 다른 방법은 [VM 만들기 - Azure CLI](../virtual-machines/linux/quick-create-cli.md) 및 [VM 만들기 - Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)을 참조하세요.  [Bind](https://www.isc.org/downloads/bind/) DNS 소프트웨어를 사용하는 Linux VM을 만들려면 다음 단계를 사용합니다.
 
-1. [Azure portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
   
-2. 왼쪽 메뉴에서 **+ 리소스 만들기**  > **계산**  > **Ubuntu Server 18.04 lts**로 이동 합니다.
+1. 상단 메뉴에서 **+ 리소스 만들기**를 선택 합니다.
 
-    ![Ubuntu 가상 머신 만들기](./media/connect-on-premises-network/create-ubuntu-virtual-machine.png)
+    ![Ubuntu 가상 머신 만들기](./media/connect-on-premises-network/azure-portal-create-resource.png)
 
-3. __기본__ 탭에 다음 정보를 입력합니다.  
+1. **계산** > **가상 컴퓨터** 를 선택 하 여 **가상 컴퓨터 만들기** 페이지로 이동 합니다.
+
+1. __기본__ 탭에 다음 정보를 입력합니다.  
   
-    | 필드 | Value |
+    | 필드 | 값 |
     | --- | --- |
     |Subscription |내게 적합한 구독을 선택합니다.|
     |Resource group |앞에서 만든 가상 네트워크를 포함하는 리소스 그룹을 선택합니다.|
@@ -90,7 +92,7 @@ HDInsight 및 조인된 네트워크의 리소스를 이름별로 통신하도�
 
 4. **네트워킹** 탭에서 다음 정보를 입력합니다.
 
-    | 필드 | Value |
+    | 필드 | 값 |
     | --- | --- |
     |가상 네트워크 | 이전에 만든 가상 네트워크를 선택합니다.|
     |서브넷 | 이전에 만든 가상 네트워크에 대한 기본 서브넷을 선택합니다. VPN Gateway에서 사용되는 서브넷을 선택하지 __않습니다__.|
@@ -114,7 +116,7 @@ HDInsight 및 조인된 네트워크의 리소스를 이름별로 통신하도�
 
 ### <a name="install-and-configure-bind-dns-software"></a>Bind(DNS 소프트웨어) 설치 및 구성
 
-1. SSH를 사용하여 가상 머신의 __공용 IP 주소__에 연결합니다. @No__t_0를 VM을 만들 때 지정한 SSH 사용자 계정으로 바꿉니다. 다음 예제에서는 40.68.254.142에서 가상 머신에 연결합니다.
+1. SSH를 사용하여 가상 머신의 __공용 IP 주소__에 연결합니다. `sshuser`를 VM을 만들 때 지정한 SSH 사용자 계정으로 바꿉니다. 다음 예제에서는 40.68.254.142에서 가상 머신에 연결합니다.
 
     ```bash
     ssh sshuser@40.68.254.142
@@ -156,7 +158,7 @@ HDInsight 및 조인된 네트워크의 리소스를 이름별로 통신하도�
     > [!IMPORTANT]  
     > `goodclients` 섹션의 값을 가상 네트워크와 온-프레미스 네트워크의 IP 주소 범위로 바꿉니다. 이 섹션에서는 이 DNS 서버가 요청을 수락하는 주소를 정의합니다.
     >
-    > `forwarders` 섹션에 있는 `192.168.0.1` 항목을 온-프레미스 DNS 서버의 IP 주소로 바꿉니다. 이 항목은 확인을 위해 DNS 요청을 온-프레미스 DNS 서버에 라우팅합니다.
+    > `192.168.0.1` 섹션에 있는 `forwarders` 항목을 온-프레미스 DNS 서버의 IP 주소로 바꿉니다. 이 항목은 확인을 위해 DNS 요청을 온-프레미스 DNS 서버에 라우팅합니다.
 
     이 파일을 편집하려면 다음 명령을 사용합니다.
 
@@ -178,7 +180,7 @@ HDInsight 및 조인된 네트워크의 리소스를 이름별로 통신하도�
     dnsproxy.icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net
     ```
 
-    `icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net` 텍스트는 이 가상 네트워크에 대한 __DNS 접미사__입니다. 나중에 사용하므로 이 값을 저장합니다.
+    `icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net` 텍스트는 이 가상 네트워크에 대한 __DNS 접미사__입니다. 이 값은 나중에 사용 되므로 저장 합니다.
 
 5. 가상 네트워크 내에서 리소스의 DNS 이름을 확인하도록 바인딩을 구성하려면 `/etc/bind/named.conf.local` 파일의 내용에 다음과 같은 텍스트를 사용합니다.
 
@@ -232,7 +234,7 @@ HDInsight 및 조인된 네트워크의 리소스를 이름별로 통신하도�
 
 Azure Recursive Resolver 대신 사용자 지정 DNS 서버를 사용하도록 가상 네트워크를 구성하려면 [Azure Portal](https://portal.azure.com)에서 다음 단계를 사용합니다.
 
-1. 왼쪽 메뉴에서 **모든 서비스**  > **네트워킹**  > **가상 네트워크**로 이동 합니다.
+1. 왼쪽 메뉴에서 **모든 서비스** > **네트워킹** > **가상 네트워크**로 이동 합니다.
 
 2. 목록에서 가상 네트워크를 선택하면 가상 네트워크에 대한 기본 보기가 열립니다.  
 

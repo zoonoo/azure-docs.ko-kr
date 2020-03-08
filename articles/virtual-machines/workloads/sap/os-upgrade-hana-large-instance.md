@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/04/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 83b86b9bc5c09cc9f97a320e3019ddea68434309
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: 3a0a5d39a7cb2162186291ea534a623ef45c40d4
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77616468"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78675622"
 ---
 # <a name="operating-system-upgrade"></a>운영 체제 업그레이드
 이 문서에서는 HANA 대형 인스턴스에서 운영 체제 업그레이드에 대한 세부 정보를 설명합니다.
@@ -58,11 +58,11 @@ Linux 버전이 다른 여러 SAP HANA 버전에 대한 지원 매트릭스는 [
   네트워크 성능과 시스템 안정성을 적절 하 게 유지 하려면 다음 호환성 테이블에 표시 된 대로 OS 관련 적절 한 버전의 eNIC 및 fNIC 드라이버가 설치 되어 있는지 확인 하는 것이 좋습니다. 서버는 호환 되는 버전이 있는 고객에 게 배달 됩니다. 일부 경우에 OS/커널 패치를 적용 하는 동안 드라이버는 기본 드라이버 버전으로 롤백할 수 있습니다. 적절 한 드라이버 버전이 post OS/Kernel 패칭 작업을 실행 중인지 확인 합니다.
        
       
-  |  OS 공급 업체    |  OS 패키지 버전     |  eNIC 드라이버  |  fNIC 드라이버 |
-  |---------------|-------------------------|---------------|--------------|
-  |   SuSE        |  SLES 12 SP2            |   2.3.0.40    |   1.6.0.34   |
-  |   SuSE        |  SLES 12 SP3            |   2.3.0.44    |   1.6.0.36   |
-  |   Red Hat     |  RHEL 7.2               |   2.3.0.39    |   1.6.0.34   |
+  |  OS 공급 업체    |  OS 패키지 버전     |  펌웨어 버전  |  eNIC 드라이버 |  fNIC 드라이버 | 
+  |---------------|-------------------------|--------------------|--------------|--------------|
+  |   SuSE        |  SLES 12 SP2            |   3.1.3 h           |  2.3.0.40    |   1.6.0.34   |
+  |   SuSE        |  SLES 12 SP3            |   3.1.3 h           |  2.3.0.44    |   1.6.0.36   |
+  |   Red Hat     |  RHEL 7.2               |   3.1.3 h           |  2.3.0.39    |   1.6.0.34   |
  
 
 ### <a name="commands-for-driver-upgrade-and-to-clean-old-rpm-packages"></a>드라이버를 업그레이드 하 고 이전 rpm 패키지를 정리 하는 명령

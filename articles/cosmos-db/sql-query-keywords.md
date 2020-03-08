@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: mjbrown
-ms.openlocfilehash: a9de9435c0e2fb2b67733a995ff412978ea02d89
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 711e961bd5eb1607e2e6f11b0b5762423d78c0e7
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78386993"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898780"
 ---
 # <a name="keywords-in-azure-cosmos-db"></a>Azure Cosmos DB의 키워드
 이 문서에서는 SQL 쿼리에서 Azure Cosmos DB는 데 사용할 수 있는 키워드에 대해 자세히 설명 합니다.
@@ -108,7 +108,7 @@ FROM f
 SELECT COUNT(1) FROM (SELECT DISTINCT f.lastName FROM f)
 ```
 
-## <a name="in"></a>진행
+## <a name="in"></a>IN
 
 IN 키워드를 사용 하 여 지정 된 값이 목록에 있는 값과 일치 하는지 여부를 확인 합니다. 예를 들어 다음 쿼리는 `id` `WakefieldFamily` 또는 `AndersenFamily`모든 패밀리 항목을 반환 합니다.
 
@@ -126,7 +126,9 @@ IN 키워드를 사용 하 여 지정 된 값이 목록에 있는 값과 일치 
     WHERE Families.address.state IN ("NY", "WA", "CA", "PA", "OH", "OR", "MI", "WI", "MN", "FL")
 ```
 
-SQL API는 [JSON 배열](sql-query-object-array.md#Iteration)에 대 한 반복을 지원 하며, FROM 소스에 있는 in 키워드를 통해 새 구문을 추가 합니다. 
+SQL API는 [JSON 배열](sql-query-object-array.md#Iteration)에 대 한 반복을 지원 하며, FROM 소스에 있는 in 키워드를 통해 새 구문을 추가 합니다.
+
+`IN` 필터에 파티션 키를 포함 하는 경우 쿼리는 관련 파티션만 자동으로 필터링 됩니다.
 
 ## <a name="top"></a>맨 위로 이동
 

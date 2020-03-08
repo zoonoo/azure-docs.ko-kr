@@ -4,12 +4,12 @@ description: 이 빠른 시작에서는 컨테이너 레지스트리에 Event Gr
 ms.topic: article
 ms.date: 08/23/2018
 ms.custom: seodec18
-ms.openlocfilehash: 1ff9572cf8614e3eb5d015a602ca3f878875a0a4
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: dbeba56820a520e3435eeb0c5c8dbc5aae981241
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74455354"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78403242"
 ---
 # <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>빠른 시작: 개인 컨테이너 레지스트리의 이벤트를 Event Grid으로 보내기
 
@@ -19,7 +19,7 @@ Azure Event Grid는 게시-구독 모델을 사용하여 균일한 이벤트 소
 
 ![수신된 이벤트 세 개로 샘플 웹 애플리케이션을 렌더링하는 웹 브라우저][sample-app-01]
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정][azure-account] 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정][azure-account]을 만듭니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -110,7 +110,7 @@ az eventgrid event-subscription create \
 
 구독이 완료되면 다음과 비슷한 출력이 표시되어야 합니다.
 
-```JSON
+```json
 {
   "destination": {
     "endpointBaseUrl": "https://eventgridviewer.azurewebsites.net/api/updates",
@@ -149,8 +149,7 @@ az acr build --registry $ACR_NAME --image myimage:v1 -f Dockerfile https://githu
 
 ACR Tasks가 이미지를 빌드하고 푸시하는 동안에는 다음과 유사한 출력이 표시되어야 합니다. 다음 샘플 출력은 너무 길어서 일부분이 잘렸습니다.
 
-```console
-$ az acr build -r $ACR_NAME --image myimage:v1 -f Dockerfile https://github.com/Azure-Samples/acr-build-helloworld-node.git
+```output
 Sending build context to ACR...
 Queued a build with build ID: aa2
 Waiting for build agent...
@@ -172,8 +171,7 @@ az acr repository show-tags --name $ACR_NAME --repository myimage
 
 빌드한 이미지의 "v1" 태그가 다음과 유사한 출력으로 표시되어야 합니다.
 
-```console
-$ az acr repository show-tags --name $ACR_NAME --repository myimage
+```output
 [
   "v1"
 ]
@@ -189,10 +187,9 @@ az acr repository delete --name $ACR_NAME --image myimage:v1
 
 매니페스트와 관련 이미지 삭제를 확인하는 다음과 유사한 출력이 표시되어야 합니다.
 
-```console
-$ az acr repository delete --name $ACR_NAME --image myimage:v1
+```output
 This operation will delete the manifest 'sha256:f15fa9d0a69081ba93eee308b0e475a54fac9c682196721e294b2bc20ab23a1b' and all the following images: 'myimage:v1'.
-Are you sure you want to continue? (y/n): y
+Are you sure you want to continue? (y/n): 
 ```
 
 ## <a name="view-registry-events"></a>레지스트리 이벤트 보기

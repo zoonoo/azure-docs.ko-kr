@@ -15,18 +15,18 @@ ms.workload: identity
 ms.date: 01/31/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 9465b77d03fb3dbb668bd40bf2c7e6ded6891a05
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 5718a23e5669de6ba16354a718d72b68d14bbf49
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76962063"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78894546"
 ---
 # <a name="scenario-daemon-application-that-calls-web-apis"></a>시나리오: 웹 Api를 호출 하는 디먼 응용 프로그램
 
 웹 Api를 호출 하는 디먼 응용 프로그램을 빌드하는 데 필요한 모든 것을 알아보세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
@@ -42,7 +42,7 @@ ms.locfileid: "76962063"
 - 배치 작업을 수행 하는 데스크톱 응용 프로그램 (예: Windows의 Windows 서비스 또는 Linux의 디먼 프로세스) 백그라운드에서 실행 되는 운영 체제 서비스
 - 특정 사용자가 아닌 디렉터리를 조작 해야 하는 웹 Api
 
-비 디먼 응용 프로그램이 클라이언트 자격 증명을 사용 하는 또 다른 일반적인 경우는 다음과 같습니다. 사용자를 대신 하 여 작업 하는 경우에도 기술적인 이유로 사용자의 id를 사용 하 여 web API 또는 리소스에 액세스 해야 합니다. 예를 들어 캐시에 대 한 Azure SQL 데이터베이스 또는 Azure Key Vault의 비밀에 액세스할 수 있습니다.
+비 디먼 응용 프로그램이 클라이언트 자격 증명을 사용 하는 또 다른 일반적인 경우는 다음과 같습니다. 사용자를 대신 하 여 동작 하는 경우에도 기술적인 이유로 자체 id로 웹 API 또는 리소스에 액세스 해야 합니다. 예를 들어 캐시에 대 한 Azure SQL 데이터베이스 또는 Azure Key Vault의 비밀에 액세스할 수 있습니다.
 
 고유 id에 대 한 토큰을 획득 하는 응용 프로그램:
 

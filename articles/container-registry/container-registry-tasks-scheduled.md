@@ -3,12 +3,12 @@ title: 자습서-ACR 작업 예약
 description: 이 자습서에서는 하나 이상의 타이머 트리거를 설정 하 여 정의 된 일정에 Azure Container Registry 작업을 실행 하는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 06/27/2019
-ms.openlocfilehash: 4c0962a38cca73e4a03a7417baaa595cf0d97009
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: 3202b5d8c426165d81129f1affa69b3a3d515ce9
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77617452"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78402871"
 ---
 # <a name="run-an-acr-task-on-a-defined-schedule"></a>정의 된 일정에 따라 ACR 작업 실행
 
@@ -56,8 +56,11 @@ az acr task create \
 
 [Az acr task show][az-acr-task-show] 명령을 실행 하 여 타이머 트리거가 구성 되어 있는지 확인 합니다. 기본적으로 기본 이미지 업데이트 트리거도 사용 하도록 설정 됩니다.
 
-```console
-$ az acr task show --name mytask --registry registry --output table
+```azurecli
+az acr task show --name mytask --registry registry --output table
+```
+
+```output
 NAME      PLATFORM    STATUS    SOURCE REPOSITORY       TRIGGERS
 --------  ----------  --------  -------------------     -----------------
 mytask    linux       Enabled                           BASE_IMAGE, TIMER
@@ -71,7 +74,7 @@ az acr task run --name mytask --registry myregistry
 
 컨테이너가 성공적으로 실행 되 면 출력은 다음과 유사 합니다.
 
-```console
+```output
 Queued a run with ID: cf2a
 Waiting for an agent...
 2019/06/28 21:03:36 Using acb_vol_2ca23c46-a9ac-4224-b0c6-9fde44eb42d2 as the home volume
@@ -92,7 +95,7 @@ az acr task list-runs --name mytask --registry myregistry --output table
 
 타이머가 성공적으로 실행 되 면 출력은 다음과 유사 합니다.
 
-```console
+```output
 RUN ID    TASK     PLATFORM    STATUS     TRIGGER    STARTED               DURATION
 --------  -------- ----------  ---------  ---------  --------------------  ----------
 [...]
@@ -201,7 +204,7 @@ Cron 식에 사용 되는 표준 시간대는 UTC (협정 세계시)입니다. �
 
 컨테이너 레지스트리 또는 레지스트리, 컨테이너 인스턴스, 주요 자격 증명 모음 및 서비스 주체를 포함 하 여이 자습서 시리즈에서 만든 모든 리소스를 제거 하려면 다음 명령을 실행 합니다.
 
-```azurecli-interactive
+```azurecli
 az group delete --resource-group $RES_GROUP
 az ad sp delete --id http://$ACR_NAME-pull
 ```

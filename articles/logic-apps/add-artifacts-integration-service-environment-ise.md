@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/28/2020
-ms.openlocfilehash: d6e5eb8875e6b7d930a002708079dab0e357297f
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 7b9ce8be4ffc306417dd836e28127641f6100321
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250934"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78899192"
 ---
 # <a name="add-resources-to-your-integration-service-environment-ise-in-azure-logic-apps"></a>Azure Logic Apps에서 ISE (통합 서비스 환경)에 리소스 추가
 
@@ -51,7 +51,7 @@ ISE (통합 서비스 환경)에서 실행 되는 논리 앱을 빌드하려면 
 
 1. [일반적인 방법으로 논리 앱](../logic-apps/quickstart-create-first-logic-app-workflow.md)을 계속 만듭니다.
 
-   트리거 및 작업이 작동 하는 방식과 ISE를 사용 하 여 글로벌 Logic Apps 서비스에 표시 되는 방식에 대 한 차이점 [은 ise 개요에서 격리 된 vs global](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#difference)을 참조 하세요.
+   여러 테 넌 트 Logic Apps 서비스와 비교 하 여 ISE를 사용 하는 경우 트리거와 작업의 작동 방식 및 레이블이 지정 되는 방식에 대 한 차이점 [은 ise 개요에서 격리 된 다중 테 넌 트와 다중 테 넌 트 비교](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#difference)를 참조 하세요.
 
 1. ISE에서 논리 앱 및 API 연결을 관리 하려면 [통합 서비스 환경 관리](../logic-apps/ise-manage-integration-service-environment.md)를 참조 하세요.
 

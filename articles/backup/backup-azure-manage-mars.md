@@ -4,12 +4,12 @@ description: Azure Backup 서비스를 사용 하 여 MARS (Microsoft Azure Reco
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: 26ed6fefdf95281429a8c91057195785db4f5589
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: c11d73edd32c197aac2cec58eeb1cc20e5c6a339
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77617596"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78673262"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Azure Backup 서비스를 사용 하 여 MARS (Microsoft Azure Recovery Services) 에이전트 백업 관리
 
@@ -172,4 +172,4 @@ ms.locfileid: "77617596"
 ## <a name="next-steps"></a>다음 단계
 
 - 지원 되는 시나리오 및 제한 사항에 대 한 자세한 내용은 [MARS 에이전트에 대 한 지원 매트릭스](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent)를 참조 하세요.
-- [주문형 백업 정책 보존 동작](backup-configure-vault.md#set-up-on-demand-backup-policy-retention-behavior)에 대해 자세히 알아보세요.
+- [주문형 백업 정책 보존 동작](backup-windows-with-mars-agent.md#set-up-on-demand-backup-policy-retention-behavior)에 대해 자세히 알아보세요.

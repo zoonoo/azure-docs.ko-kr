@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 02/25/2020
-ms.openlocfilehash: 593f80583067d28292701353c8a6a62d81282614
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.date: 02/26/2020
+ms.openlocfilehash: 72534225acffa176d248901f363100955e36c6f6
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77650829"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898921"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터에 사용할 스토리지 옵션 비교
 
@@ -28,7 +28,7 @@ HDInsight 클러스터를 만들 때 몇 가지 Azure storage 서비스 중에�
 
 | 저장소 서비스 | 계정 유형 | 네임 스페이스 형식 | 지원되는 서비스 | 지원되는 성능 계층 | 지원되는 액세스 계층 | HDInsight 버전 | 클러스터 유형 |
 |---|---|---|---|---|---|---|---|
-|Azure Data Lake Storage Gen2| 범용 V2 | 계층 구조 (파일 시스템) | Blob | Standard | 핫, 쿨, 보관 | 3.6 이상 | Spark 2.1을 제외한 모든 |
+|Azure Data Lake Storage Gen2| 범용 V2 | 계층 구조 (파일 시스템) | Blob | Standard | 핫, 쿨, 보관 | 3.6 이상 | Spark 2.1 및 2.2을 제외한 모든|
 |Azure Storage| 범용 V2 | Object | Blob | Standard | 핫, 쿨, 보관 | 3.6 이상 | 모두 |
 |Azure Storage| 범용 V1 | Object | Blob | Standard | 해당 없음 | 모두 | 모두 |
 |Azure Storage| Blob Storage * * | Object | 블록 Blob | Standard | 핫, 쿨, 보관 | 모두 | 모두 |
@@ -58,7 +58,7 @@ Azure Storage 액세스 계층에 대 한 자세한 내용은 [Azure Blob storag
 \* = 클러스터 액세스에 동일한 관리 되는 id를 사용 하도록 모두 설정 되어 있는 한 하나 또는 여러 개의 Data Lake Storage Gen2 계정일 수 있습니다.
 
 > [!Note] 
-> Data Lake Storage Gen2 기본 저장소는 Spark 2.1 클러스터에 대해 지원 되지 않습니다. 
+> Data Lake Storage Gen2 기본 저장소는 Spark 2.1 또는 2.2 클러스터에 대해 지원 되지 않습니다. 
 
 ## <a name="use-azure-data-lake-storage-gen2-with-apache-hadoop-in-azure-hdinsight"></a>Azure HDInsight의 Apache Hadoop에서 Azure Data Lake Storage Gen2 사용
 

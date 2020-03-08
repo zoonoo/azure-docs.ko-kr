@@ -3,12 +3,12 @@ title: PowerShell을 사용하여 Azure에 Windows Server 백업
 description: 이 문서에서는 Windows Server 또는 Windows 클라이언트에서 Azure Backup를 설정 하 고 백업 및 복구를 관리 하는 데 PowerShell을 사용 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 12/2/2019
-ms.openlocfilehash: 85006a318864aed537b70a97fb38f89746d2878c
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: efe0b93fe1e37990422ffbd2256e38c12401dca5
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77622817"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78673185"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>PowerShell을 사용하여 Windows Server/Windows Client용 Azure 백업 배포 및 관리
 
@@ -138,7 +138,7 @@ $CredsFilename = Get-AzRecoveryServicesVaultSettingsFile -Backup -Vault $Vault1 
 > [!NOTE]
 > 자격 증명 모음 인증서를 생성 하는 버그는 Az 3.5.0 release에서 수정 되었습니다. Az 3.5.0 release version 이상을 사용 하 여 자격 증명 모음 인증서를 다운로드 합니다.
 
-기본 플랫폼 제한으로 인해 Powershell의 최신 Az 모듈에서 자격 증명 모음 자격 증명을 다운로드 하려면 자체 서명 된 인증서가 필요 합니다. 다음 예제에서는 자체 서명 된 인증서를 제공 하 고 자격 증명 모음을 다운로드 하는 방법을 보여 줍니다.
+기본 플랫폼 제한으로 인해 PowerShell의 최신 Az 모듈에서 자격 증명 모음 자격 증명을 다운로드 하려면 자체 서명 된 인증서가 필요 합니다. 다음 예제에서는 자체 서명 된 인증서를 제공 하 고 자격 증명 모음을 다운로드 하는 방법을 보여 줍니다.
 
 ```powershell
 $dt = $(Get-Date).ToString("M-d-yyyy")
@@ -740,4 +740,4 @@ Invoke-Command -Session $Session -Script { param($D, $A) Start-Process -FilePath
 Windows Server/Client의 Azure Backup에 대 한 자세한 내용은 다음을 수행 하십시오.
 
 * [Azure Backup 소개](backup-introduction-to-azure-backup.md)
-* [Windows 서버 백업](backup-configure-vault.md)
+* [Windows 서버 백업](backup-windows-with-mars-agent.md)

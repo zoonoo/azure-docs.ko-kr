@@ -5,14 +5,14 @@ services: batch
 ms.service: batch
 author: mscurrell
 ms.author: markscu
-ms.date: 08/02/2018
+ms.date: 03/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: d181b9b2495ebd106bb068b78131fa90c2f6d62c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f3b2e641ab187514a7900b2ab7cc75068df00252
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75449674"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672002"
 ---
 # <a name="using-azure-batch-rendering"></a>Azure Batch 렌더링 사용
 
@@ -32,7 +32,7 @@ ms.locfileid: "75449674"
 
 개발자나 Azure 전문가가 아닌 최종 사용자가 Azure Batch 렌더링을 사용해보는 가장 간단한 방법은 직접 또는 클라이언트 애플리케이션 플러그인에서 호출하여 Batch Explorer 애플리케이션을 사용하는 것입니다.
 
-## <a name="using-batch-explorer"></a>Batch 탐색기 사용
+## <a name="using-batch-explorer"></a>Batch Explorer 사용
 
 Batch Explorer를 사용하여 렌더링을 수행하는 단계별 자습서는 [Blender 자습서](https://docs.microsoft.com/azure/batch/tutorial-rendering-batchexplorer-blender)를 참조하세요.
 
@@ -48,17 +48,18 @@ Batch Explorer에 다양한 템플릿을 사용하면 풀, 작업, 태스크를 
 
 템플릿은 Marketplace 렌더링 VM 이미지에 있는 모든 애플리케이션에 대해 준비되어 제공됩니다.  각 애플리케이션에 대해 CPU 및 GPU 풀, Windows 풀 및 Linux 풀을 서비스하는 풀 템플릿 등, 여러 템플릿이 존재하며 작업 템플릿은 전체 프레임 또는 타일 방식 Blender 렌더링 및 V-Ray 분산 렌더링을 포함합니다. 제공된 템플릿 집합은 시간에 따라 풀 자동 크기 조정과 같은 다른 Batch 기능을 서비스하기 위해 확장됩니다.
 
-고객 템플릿은 처음부터 새로 만들거나 제공된 템플릿을 수정하여 만들 수 있습니다. Batch Explorer의 '갤러리' 섹션에서 '로컬 템플릿' 항목을 선택하여 사용자 지정 템플릿을 사용할 수 있습니다.
+고객 템플릿은 처음부터 새로 만들거나 제공된 템플릿을 수정하여 만들 수 있습니다. Batch Explorer의 ' 갤러리 ' 섹션에서 ' 로컬 템플릿 ' 항목을 선택 하 여 사용자 지정 템플릿을 사용할 수 있습니다.
 
 ### <a name="file-system-and-data-movement"></a>파일 시스템 및 데이터 이동
 
-Batch Explorer의 '데이터' 섹션에서는 로컬 파일 시스템과 Azure Storage 계정 간에 파일을 복사할 수 있습니다.
+Batch Explorer의 ' Data ' 섹션을 통해 로컬 파일 시스템과 Azure Storage 계정 간에 파일을 복사할 수 있습니다.
 
 ## <a name="client-application-plug-ins"></a>클라이언트 애플리케이션 플러그 인
 
 일부 클라이언트 애플리케이션에는 플러그 인을 사용할 수 있습니다.  플러그 인을 사용하면 풀 및 작업을 애플리케이션에서 직접 만들거나 Batch Explorer를 호출할 수 있습니다.
 
-* [Blender](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/blender)
+* [Blender 2.79](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/blender)
+* [Blender 2.8 +](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/blender28)
 * [Autodesk 3ds Max](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/3ds-max)
 * [Autodesk Maya](https://github.com/Azure/azure-batch-maya)
 

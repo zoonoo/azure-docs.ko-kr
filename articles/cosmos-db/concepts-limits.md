@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: 99f255d9991b51897ee31671835dabb5f3e359fd
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 9e5b3e633bf35a25a68eb513d0ec691c3254bde4
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77916509"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78674214"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB 서비스 할당량
 
@@ -183,9 +183,23 @@ Cosmos DB은 MongoDB에 대해 작성 된 응용 프로그램에 대 한 MongoDB
 | 구독 당 최대 컨테이너 (MongoDB API) | 3 |
 | 컨테이너 당 최대 처리량 | 5,000 |
 | 공유 처리량 데이터베이스당 최대 처리량 | 20000 |
-| 계정 당 최대 총 저장소 | 10GB |
+| 계정 당 최대 총 저장소 | 10 GB |
 
 Cosmos DB는 미국 중부, 서유럽, 동남 아시아 지역 에서만 글로벌 배포를 지원 합니다. 시도 Azure Cosmos DB 계정에 대해 Azure 지원 티켓을 만들 수 없습니다. 그러나 기존 지원 계획이 있는 구독자에 대 한 지원이 제공 됩니다.
+
+## <a name="free-tier-account-limits"></a>무료 계층 계정 제한
+다음 표에서는 [Azure Cosmos DB 무료 계층 계정](optimize-dev-test.md#azure-cosmos-db-free-tier) 에 대 한 제한을 나열 합니다.
+
+| 리소스 | 기본 제한 |
+| --- | --- |
+| Azure 구독 당 무료 계층 계정 수 | 1 |
+| 무료 계층 할인 기간 | 계정의 수명입니다. 계정을 만드는 동안 옵트인 (opt in) 해야 합니다. |
+| 무료/s 최대 | 400RU/s |
+| 무료 최대 저장소 | 5GB |
+| 최대 공유 처리량 데이터베이스 수 | 5 |
+| 공유 처리량 데이터베이스의 최대 컨테이너 수 | 25 <br>무료 계층 계정에서 최대 25 개의 컨테이너를 포함 하는 공유 처리량 데이터베이스의 최소/s는 400 r u/초입니다. |
+
+  위의 항목 외에 [계정 당 제한은](#per-account-limits) 무료 계층 계정에도 적용 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c26197a14e78b1cf1a1e078ba0145eca207206bf
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 05a3a8cf14a591dd3037175e4eed5b5bd8d3096c
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561963"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672651"
 ---
 # <a name="understand-secure-azure-managed-workstations"></a>안전 하 고 Azure로 관리 되는 워크스테이션 이해
 
@@ -81,18 +81,18 @@ ms.locfileid: "74561963"
 
 안전한 워크스테이션에는 ' 신뢰 루트 ' 라는 신뢰할 수 있는 워크스테이션을 사용 하는 공급망 솔루션이 필요 합니다. 신뢰 하드웨어 루트를 선택할 때 고려해 야 하는 기술에는 최신 노트북에 포함 된 다음과 같은 기술이 포함 되어야 합니다. 
 
-* [신뢰할 수 있는 플랫폼 모듈 (TPM) 2.0](https://docs.microsoft.com/windows-hardware/design/device-experiences/oem-tpm)
-* [BitLocker 드라이브 암호화](https://docs.microsoft.com/windows-hardware/design/device-experiences/oem-bitlocker)
-* [UEFI 보안 부팅](https://docs.microsoft.com/windows-hardware/design/device-experiences/oem-secure-boot)
-* [Windows 업데이트를 통해 배포 되는 드라이버 및 펌웨어](https://docs.microsoft.com/windows-hardware/drivers/dashboard/understanding-windows-update-automatic-and-optional-rules-for-driver-distribution)
-* [가상화 및 HVCI 사용](https://docs.microsoft.com/windows-hardware/design/device-experiences/oem-vbs)
-* [드라이버 및 앱 HVCI-준비](https://docs.microsoft.com/windows-hardware/test/hlk/testref/driver-compatibility-with-device-guard)
-* [Windows Hello](https://docs.microsoft.com/windows-hardware/design/device-experiences/windows-hello-biometric-requirements)
-* [DMA i/o 보호](https://docs.microsoft.com/windows/security/information-protection/kernel-dma-protection-for-thunderbolt)
-* [시스템 가드](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-system-guard/system-guard-how-hardware-based-root-of-trust-helps-protect-windows)
-* [최신 대기](https://docs.microsoft.com/windows-hardware/design/device-experiences/modern-standby)
+* [신뢰할 수 있는 플랫폼 모듈 (TPM) 2.0](/windows-hardware/design/device-experiences/oem-tpm)
+* [BitLocker 드라이브 암호화](/windows-hardware/design/device-experiences/oem-bitlocker)
+* [UEFI 보안 부팅](/windows-hardware/design/device-experiences/oem-secure-boot)
+* [Windows 업데이트를 통해 배포 되는 드라이버 및 펌웨어](/windows-hardware/drivers/dashboard/understanding-windows-update-automatic-and-optional-rules-for-driver-distribution)
+* [가상화 및 HVCI 사용](/windows-hardware/design/device-experiences/oem-vbs)
+* [드라이버 및 앱 HVCI-준비](/windows-hardware/test/hlk/testref/driver-compatibility-with-device-guard)
+* [Windows Hello](/windows-hardware/design/device-experiences/windows-hello-biometric-requirements)
+* [DMA i/o 보호](/windows/security/information-protection/kernel-dma-protection-for-thunderbolt)
+* [시스템 가드](/windows/security/threat-protection/windows-defender-system-guard/system-guard-how-hardware-based-root-of-trust-helps-protect-windows)
+* [최신 대기](/windows-hardware/design/device-experiences/modern-standby)
 
-이 솔루션의 경우 최신 기술 요구 사항을 충족 하는 하드웨어가 포함 된 [Microsoft Autopilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-autopilot) 기술을 사용 하 여 신뢰 루트를 배포 합니다. 워크스테이션을 보호 하기 위해 Autopilot를 사용 하 여 Microsoft OEM 최적화 Windows 10 장치를 활용할 수 있습니다. 이러한 장치는 제조업체 로부터 알려진 양호한 상태로 제공 됩니다. Autopilot는 잠재적으로 안전 하지 않은 장치를 이미지로 다시 설치 하는 대신 Windows 장치를 "업무 지원" 상태로 변환할 수 있습니다. 설정 및 정책을 적용 하 고, 앱을 설치 하 고, Windows 10의 버전을 변경 합니다. 예를 들어, Autopilot는 Windows 10 Pro에서 windows 10 Enterprise로 장치의 Windows 설치를 변경 하 여 고급 기능을 사용할 수 있습니다.
+이 솔루션의 경우 최신 기술 요구 사항을 충족 하는 하드웨어가 포함 된 [Microsoft Autopilot](/windows/deployment/windows-autopilot/windows-autopilot) 기술을 사용 하 여 신뢰 루트를 배포 합니다. 워크스테이션을 보호 하기 위해 Autopilot를 사용 하 여 Microsoft OEM 최적화 Windows 10 장치를 활용할 수 있습니다. 이러한 장치는 제조업체 로부터 알려진 양호한 상태로 제공 됩니다. Autopilot는 잠재적으로 안전 하지 않은 장치를 이미지로 다시 설치 하는 대신 Windows 장치를 "업무 지원" 상태로 변환할 수 있습니다. 설정 및 정책을 적용 하 고, 앱을 설치 하 고, Windows 10의 버전을 변경 합니다. 예를 들어, Autopilot는 Windows 10 Pro에서 windows 10 Enterprise로 장치의 Windows 설치를 변경 하 여 고급 기능을 사용할 수 있습니다.
 
 ![보안 워크스테이션 수준](./media/concept-azure-managed-workstation/supplychain.png)
 
@@ -105,7 +105,7 @@ ms.locfileid: "74561963"
 
 * **보안 강화** –이 항목 수준의 보호 된 솔루션은 개인 사용자, 소규모 비즈니스 사용자 및 일반 개발자에 게 적합 합니다.
 
-   강화 된 워크스테이션은 낮은 보안 프로필의 보안을 강화 하는 정책 기반 방법입니다. 전자 메일 및 웹 검색과 같은 생산성 도구를 사용 하면서 고객 데이터를 사용할 수 있는 안전한 방법을 제공 합니다. 감사 정책 및 Intune을 사용 하 여 사용자 동작 및 프로필 사용에 대 한 향상 된 워크스테이션을 모니터링할 수 있습니다. Windows10 (1809) 스크립트를 사용 하 여 향상 된 워크스테이션 프로필을 배포 하 고 [ATP (Advanced Threat protection)](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection)를 사용 하는 고급 맬웨어 보호를 활용 합니다.
+   강화 된 워크스테이션은 낮은 보안 프로필의 보안을 강화 하는 정책 기반 방법입니다. 전자 메일 및 웹 검색과 같은 생산성 도구를 사용 하면서 고객 데이터를 사용할 수 있는 안전한 방법을 제공 합니다. 감사 정책 및 Intune을 사용 하 여 사용자 동작 및 프로필 사용에 대 한 향상 된 워크스테이션을 모니터링할 수 있습니다. Windows10 (1809) 스크립트를 사용 하 여 향상 된 워크스테이션 프로필을 배포 하 고 [ATP (Advanced Threat protection)](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection)를 사용 하는 고급 맬웨어 보호를 활용 합니다.
 
 * **높은 수준의 보안** – 워크스테이션의 공격 노출 영역을 줄이는 가장 효과적인 방법은 워크스테이션을 자체 관리 하는 기능을 제거 하는 것입니다. 로컬 관리 권한을 제거 하는 단계는 보안을 개선 하지만 잘못 구현 된 경우 생산성에 영향을 줄 수 있습니다. 높은 수준의 보안 프로필은 향상 된 보안 프로필을 기반으로 하며, 로컬 관리자를 제거 하는 것입니다. 이 프로필은 높은 프로필 사용자를 위해 설계 되었습니다. 임원, 급여 및 중요 한 데이터 사용자, 서비스 및 프로세스에 대 한 승인자입니다.
 
@@ -121,8 +121,8 @@ ms.locfileid: "74561963"
 
 * **격리** –이 사용자 지정 오프 라인 시나리오는 스펙트럼의 극단적인 끝을 나타냅니다. 이 경우 설치 스크립트가 제공 되지 않습니다. 지원 되지 않거나 패치가 적용 되지 않은 레거시 운영 체제가 필요한 업무상 중요 한 기능을 관리 해야 할 수 있습니다. 예를 들어 높은 가치의 생산 라인 또는 수명 지원 시스템입니다. 보안이 중요 하 고 클라우드 서비스를 사용할 수 없기 때문에 이러한 컴퓨터를 수동으로 관리 하 고 업데이트할 수 있으며, ESAE (강화 된 보안 관리 환경)와 같은 격리 된 Active Directory 포리스트 아키텍처로 관리할 수 있습니다. 이러한 경우 기본 Intune 및 ATP 상태 검사를 제외한 모든 액세스를 제거 하는 것이 좋습니다.
 
-   * [Intune 네트워크 통신 요구 사항](https://docs.microsoft.com/intune/network-bandwidth-use)
-   * [ATP 네트워크 통신 요구 사항](https://docs.microsoft.com/azure-advanced-threat-protection/configure-proxy)
+   * [Intune 네트워크 통신 요구 사항](/intune/network-bandwidth-use)
+   * [ATP 네트워크 통신 요구 사항](/azure-advanced-threat-protection/configure-proxy)
 
 ## <a name="next-steps"></a>다음 단계
 

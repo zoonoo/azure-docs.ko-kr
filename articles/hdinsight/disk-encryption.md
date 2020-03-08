@@ -7,12 +7,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: c22ee0ef0393c0dae64674d18bae5a2e92969b4c
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: fd5308574e84ab6d2e30b9352254683b2d1d6fdd
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78206067"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78403564"
 ---
 # <a name="customer-managed-key-disk-encryption"></a>고객 관리형 키 디스크 암호화
 
@@ -34,7 +34,7 @@ Azure Portal 또는 Azure CLI를 사용하여 Key Vault의 키를 안전하게 �
 
 |클러스터 유형 |OS 디스크 (관리 디스크) |데이터 디스크 (관리 디스크) |임시 데이터 디스크 (로컬 SSD) |
 |---|---|---|---|
-|Kafka, 가속화 된 쓰기를 사용 하는 HBase|SSE 암호화|SSE 암호화 + 선택적 CMK 암호화|선택적 CMK 암호화|
+|Kafka, 가속화 된 쓰기를 사용 하는 HBase|[SSE 암호화](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#encryption)|SSE 암호화 + 선택적 CMK 암호화|선택적 CMK 암호화|
 |다른 모든 클러스터 (Spark, 대화형, Hadoop, 가속 없는 쓰기 없는 HBase)|SSE 암호화|해당 없음|선택적 CMK 암호화|
 
 ## <a name="get-started-with-customer-managed-keys"></a>고객 관리 키 사용 시작

@@ -10,12 +10,12 @@ ms.date: 01/23/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 40a7f49cbb2d74b55ccb85dce64eea936a20801e
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
-ms.translationtype: MT
+ms.openlocfilehash: 943f63c19dec463f99c10c00dd42abad0779f5e8
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905521"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78673563"
 ---
 # <a name="disaster-recovery-and-account-failover-preview"></a>재해 복구 및 계정 장애 조치 (failover) (미리 보기)
 
@@ -114,16 +114,7 @@ Azure Portal, PowerShell, Azure CLI 또는 Azure Storage 리소스 공급자 API
 
 ## <a name="about-the-preview"></a>미리 보기 정보
 
-계정 장애 조치 (failover)는 Azure Resource Manager 배포와 함께 GRS 또는 GRS를 사용 하는 모든 고객에 대해 미리 보기로 제공 됩니다. 범용 v1, 범용 v2 및 Blob 스토리지 계정 유형을 사용할 수 있습니다. 계정 장애 조치(failover)는 현재 다음 지역에서 사용할 수 있습니다.
-
-- 아시아 동부
-- 동남아시아
-- 오스트레일리아 동부
-- 오스트레일리아 남동부
-- 미국 중부
-- 미국 동부 2
-- 미국 중서부
-- 미국 서부 2
+계정 장애 조치 (failover)는 Azure Resource Manager 배포와 함께 GRS 또는 GRS를 사용 하는 모든 고객에 대해 미리 보기로 제공 됩니다. 범용 v1, 범용 v2 및 Blob 스토리지 계정 유형을 사용할 수 있습니다. 계정 장애 조치 (failover)는 현재 모든 공용 지역에서 사용할 수 있습니다. 지금은 소 버린/국가별 클라우드에서 계정 장애 조치 (failover)를 사용할 수 없습니다.
 
 이 미리 보기는 프로덕션 이외 용도로 사용해야 합니다. 현재 프로덕션 SLA(서비스 수준 계약)는 사용할 수 없습니다.
 

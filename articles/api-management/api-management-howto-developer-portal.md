@@ -11,24 +11,20 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/22/2019
+ms.date: 03/05/2020
 ms.author: apimpm
-ms.openlocfilehash: a206ef6eb529fc396ec4ecb82d468c19f9e54b8a
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.openlocfilehash: 1f10a577f681d1df4ba99c987df457ea1ca09470
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77108247"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78671612"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Azure API Management 개발자 포털 개요
 
 개발자 포털은 Api 설명서를 사용 하 여 자동으로 생성 되 고 완전히 사용자 지정할 수 있는 웹 사이트입니다. API 소비자는 api를 검색 하 고, Api를 사용 하 고, 액세스를 요청 하 고, 사용해 볼 수 있습니다.
 
 이 문서에서는 API Management에서 개발자 포털 자체 호스팅 및 관리 되는 버전 간의 차이점을 설명 합니다. 또한 아키텍처를 설명 하 고 질문과 대답을 제공 합니다.
-
-> [!WARNING]
->
-> [미리 보기 버전에서 개발자 포털의 일반 공급 버전으로 마이그레이션하는 방법에 대해 알아봅니다](#preview-to-ga) .
 
 ![API Management 개발자 포털](media/api-management-howto-developer-portal/cover.png)
 
@@ -39,7 +35,7 @@ ms.locfileid: "77108247"
 개발자 포털은 다음과 같은 두 가지 방법으로 빌드할 수 있습니다.
 
 - **관리 되는 버전** -포털을 편집 하 고 사용자 지정 합니다 .이 포털은 API Management 인스턴스에 기본 제공 되며 `<your-api-management-instance-name>.developer.azure-api.net`URL을 통해 액세스할 수 있습니다. 관리 되는 포털에 액세스 하 고 사용자 지정 하는 방법을 알아보려면 [이 설명서 문서](api-management-howto-developer-portal-customize.md) 를 참조 하세요.
-- **자체 호스팅 버전** -API Management 인스턴스 외부에서 포털을 배포 하 고 자체 호스트 합니다. 이 방법을 사용 하면 포털의 코드 베이스를 편집 하 고 제공 된 핵심 기능을 확장할 수 있습니다. 또한 포털을 직접 최신 버전으로 업그레이드 해야 합니다. 세부 정보 및 지침은 [포털의 소스 코드와][1] 위젯을 구현 하는 방법 [에 대 한 자습서][3]를 포함 하는 GitHub 리포지토리를 참조 하세요. [관리 되는 버전에 대 한 자습서](api-management-howto-developer-portal-customize.md) 는 포털의 관리 패널을 안내 하며,이는 자체 호스팅 버전 에서도 제공 됩니다.
+- **자체 호스팅 버전** -API Management 인스턴스 외부에서 포털을 배포 하 고 자체 호스트 합니다. 이 방법을 사용 하면 포털의 코드 베이스를 편집 하 고 제공 된 핵심 기능을 확장할 수 있습니다. 예를 들어 타사 시스템과 통합 하기 위한 사용자 지정 위젯을 구현할 수 있습니다. 이 시나리오에서는 포털의 유지 관리자 이며 포털을 최신 버전으로 업그레이드할 책임이 있습니다. 세부 정보 및 지침은 [포털의 소스 코드와][1] 위젯을 구현 하는 방법 [에 대 한 자습서][3]를 포함 하는 GitHub 리포지토리를 참조 하세요. 관리 되는 [버전에 대 한 자습서](api-management-howto-developer-portal-customize.md) 는 관리 되는 버전 및 자체 호스팅 버전에 공통 된 포털의 관리 패널을 안내 합니다.
 
 ## <a name="portal-architectural-concepts"></a>포털 아키텍처 개념
 
@@ -70,7 +66,7 @@ ms.locfileid: "77108247"
 
 ## <a name="faq"></a>질문과 대답
 
-이 섹션에서는 일반적인 특성상 새로운 개발자 포털에 대 한 일반적인 질문에 답변 합니다. 자체 호스팅 버전과 관련 된 질문은 [GitHub 리포지토리의 wiki 섹션](https://github.com/Azure/api-management-developer-portal/wiki)을 참조 하세요.
+이 섹션에서는 일반적인 특성의 개발자 포털에 대 한 일반적인 질문에 답변 합니다. 자체 호스팅 버전과 관련 된 질문은 [GitHub 리포지토리의 wiki 섹션](https://github.com/Azure/api-management-developer-portal/wiki)을 참조 하세요.
 
 ### <a name="a-idpreview-to-ga-how-can-i-migrate-from-the-preview-version-of-the-portal"></a>포털의 미리 보기 버전에서 마이그레이션할 수 있는 방법 <a id="preview-to-ga"/>
 
@@ -86,13 +82,13 @@ ms.locfileid: "77108247"
 
 일반 공급 발표 후에 포털을 프로 비전 한 경우 이미 새 기본 콘텐츠를 사용 해야 합니다. 사용자 측의 작업은 필요 하지 않습니다.
 
-### <a name="how-can-i-migrate-from-the-old-developer-portal-to-the-new-developer-portal"></a>이전 개발자 포털에서 새 개발자 포털로 마이그레이션하려면 어떻게 해야 하나요?
+### <a name="how-can-i-migrate-from-the-old-developer-portal-to-the-developer-portal"></a>이전 개발자 포털에서 개발자 포털로 마이그레이션하려면 어떻게 해야 하나요?
 
 포털이 호환 되지 않으므로 콘텐츠를 수동으로 마이그레이션해야 합니다.
 
-### <a name="does-the-new-portal-have-all-the-features-of-the-old-portal"></a>새 포털에 이전 포털의 모든 기능이 있나요?
+### <a name="does-the-portal-have-all-the-features-of-the-old-portal"></a>포털에 이전 포털의 모든 기능이 있나요?
 
-새 개발자 포털은 *응용 프로그램* 및 *문제*를 지원 하지 않습니다. 이전 포털에서 *문제* 를 사용 하 고 새 포털에서이를 필요로 하는 경우 [전용 GitHub 문제](https://github.com/Azure/api-management-developer-portal/issues/122)에 대 한 의견을 게시 합니다.
+개발자 포털은 더 이상 *응용 프로그램과* *문제*를 지원 하지 않습니다.
 
 대화형 개발자 콘솔에서 OAuth를 사용한 인증은 아직 지원 되지 않습니다. [GitHub 문제](https://github.com/Azure/api-management-developer-portal/issues/208)를 통해 진행률을 추적할 수 있습니다.
 
@@ -104,23 +100,25 @@ ms.locfileid: "77108247"
 
 ### <a name="functionality-i-need-isnt-supported-in-the-portal"></a>필요한 기능이 포털에서 지원 되지 않습니다.
 
-자체 호스팅 버전을 사용 하 고 사용자 [고유의 위젯을 구현][3]합니다.
+[기능 요청](https://aka.ms/apimwish) 을 열거나 [누락 된 기능을 직접 구현할][3]수 있습니다. 기능을 직접 구현 하는 경우 개발자 포털을 자체 호스트 하거나 GitHub에서 끌어오기 요청을 열어 관리 되는 버전의 변경 내용을 포함할 수 있습니다.
 
 ### <a name="how-can-i-automate-portal-deployments"></a>포털 배포를 자동화 하려면 어떻게 해야 하나요?
 
 관리 또는 자체 호스팅 버전을 사용 하는 경우와 관계 없이 REST API를 통해 프로그래밍 방식으로 개발자 포털의 콘텐츠를 액세스 하 고 관리할 수 있습니다.
 
-이 API는 [GitHub 리포지토리의 wiki 섹션][2]에 설명 되어 있습니다. 환경 간의 포털 콘텐츠 (예: 테스트 환경에서 프로덕션 환경으로)의 마이그레이션을 자동화 하는 데에도 사용할 수 있습니다. 이 프로세스에 대 한 자세한 내용은 GitHub의 [이 문서 문서에서](https://aka.ms/apimdocs/migrateportal) 확인할 수 있습니다.
+이 API는 [GitHub 리포지토리의 wiki 섹션][2]에 설명 되어 있습니다. 테스트 환경에서 프로덕션 환경으로, 예를 들어 환경 간의 포털 콘텐츠 마이그레이션을 자동화 하는 데 사용할 수 있습니다. 이 프로세스에 대 한 자세한 내용은 GitHub의 [이 문서 문서에서](https://aka.ms/apimdocs/migrateportal) 확인할 수 있습니다.
 
 ### <a name="does-the-portal-support-azure-resource-manager-templates-andor-is-it-compatible-with-api-management-devops-resource-kit"></a>포털이 Azure Resource Manager 템플릿을 지원 하나요? 아니면 API Management DevOps Resource Kit와 호환 되나요?
 
 아니요.
 
-### <a name="do-i-need-to-enable-additional-vnet-connectivity-for-the-new-managed-portal-dependencies"></a>새 관리 되는 포털 종속성에 대 한 추가 VNet 연결을 사용 하도록 설정 해야 하나요?
+### <a name="do-i-need-to-enable-additional-vnet-connectivity-for-the-managed-portal-dependencies"></a>관리 되는 포털 종속성에 대 한 추가 VNet 연결을 사용 하도록 설정 해야 하나요?
 
 대부분의 경우-아니요.
 
 API Management 서비스가 내부 VNet에 있는 경우 개발자 포털은 네트워크 내 에서만 액세스할 수 있습니다. 관리 끝점의 호스트 이름은 포털의 관리 인터페이스에 액세스 하는 데 사용 하는 컴퓨터에서 서비스의 내부 VIP로 확인 되어야 합니다. 관리 끝점이 DNS에 등록 되어 있는지 확인 합니다. 잘못 된 구성의 경우 `Unable to start the portal. See if settings are specified correctly in the configuration (...)`오류가 표시 됩니다.
+
+API Management 서비스가 내부 VNet에 있고 인터넷에서 Application Gateway를 통해 액세스 하는 경우 개발자 포털 및 API Management의 관리 끝점에 대 한 연결을 사용 하도록 설정 해야 합니다.
 
 ### <a name="i-have-assigned-a-custom-api-management-domain-and-the-published-portal-doesnt-work"></a>사용자 지정 API Management 도메인을 할당 하 고 게시 된 포털이 작동 하지 않음
 
@@ -138,7 +136,7 @@ Id 공급자 (예: AAD, AAD B2C)를 구성한 후에는 [포털을 다시 게시
 
 대부분의 구성 변경 (예: VNet, 로그인 및 제품 용어)에 [는 포털](api-management-howto-developer-portal-customize.md#publish)을 다시 게시 해야 합니다.
 
-### <a name="im-getting-a-cors-error-when-using-the-interactive-console"></a>대화형 콘솔을 사용 하는 경우 CORS 오류가 발생 합니다.
+### <a name="cors"></a>대화형 콘솔을 사용 하는 경우 CORS 오류가 발생 합니다.
 
 대화형 콘솔은 브라우저에서 클라이언트 쪽 API 요청을 만듭니다. API에 [cors 정책을](api-management-cross-domain-policies.md#CORS) 추가 하 여 cors 문제를 해결할 수 있습니다. 모든 매개 변수를 수동으로 지정 하거나 와일드 카드 `*` 값을 사용할 수 있습니다. 다음은 그 예입니다.
 

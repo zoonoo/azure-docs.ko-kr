@@ -2,23 +2,29 @@
 title: 관리 그룹에 리소스 배포
 description: Azure Resource Manager 템플릿의 관리 그룹 범위에서 리소스를 배포 하는 방법을 설명 합니다.
 ms.topic: conceptual
-ms.date: 03/02/2020
-ms.openlocfilehash: 3b2eeaf2c63a50cda1a32fee94c1e5b99822075d
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.date: 03/06/2020
+ms.openlocfilehash: ae561468531b0c3fa584a02793c58ee64ca3610f
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78228102"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78894884"
 ---
 # <a name="create-resources-at-the-management-group-level"></a>관리 그룹 수준에서 리소스 만들기
 
-일반적으로 Azure 리소스는 Azure 구독의 리소스 그룹에 배포합니다. 그러나 관리 그룹 수준에서 리소스를 만들 수도 있습니다. 관리 그룹 수준 배포를 사용 하 여 [역할 기반 액세스 제어](../../role-based-access-control/overview.md) 할당 또는 [정책](../../governance/policy/overview.md)적용과 같은 해당 수준에서 적합 한 작업을 수행할 수 있습니다.
+일반적으로 Azure 리소스는 Azure 구독의 리소스 그룹에 배포합니다. 그러나에서 리소스를 만들 수도 있습니다.
+
+* [구독 수준](deploy-to-subscription.md)
+* 관리 그룹 수준 (이 문서에 포함 됨)
+* [테 넌 트 수준](deploy-to-tenant.md)
+
+관리 그룹 수준 배포를 사용 하 여 [역할 기반 액세스 제어](../../role-based-access-control/overview.md) 할당 또는 [정책](../../governance/policy/overview.md)적용과 같은 해당 수준에서 적합 한 작업을 수행할 수 있습니다.
 
 ## <a name="supported-resources"></a>지원되는 리소스
 
 관리 그룹 수준에서 다음과 같은 리소스 유형을 배포할 수 있습니다.
 
-* [배포](/azure/templates/microsoft.resources/deployments)
+* [배포](/azure/templates/microsoft.resources/deployments) -구독 또는 리소스 그룹에 배포 하는 중첩 된 템플릿의 경우
 * [policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
 * [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
 * [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)

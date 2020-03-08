@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b135b14fb18904901ad78a1f5d9dc66c8a2bc67
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: 46be728216ed4b9c9e84c1c7f68c5ddf2051f42b
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74538814"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672324"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>방법: Azure AD에서 오래 된 장치 관리
 
@@ -53,11 +53,11 @@ Azure AD의 부실 디바이스는 조직의 디바이스에 대한 일반적인
 
 활동 타임스탬프의 값을 검색하는 두 가지 옵션이 있습니다.
 
-- Azure Portal의 [디바이스 페이지](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices)에 있는 **활동** 열
+- Azure Portal의 **디바이스 페이지**에 있는 [활동](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices) 열
 
     ![활동 타임스탬프](./media/manage-stale-devices/01.png)
 
-- [Get-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet
+- [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet
 
     ![활동 타임스탬프](./media/manage-stale-devices/02.png)
 
@@ -129,11 +129,11 @@ Azure AD에서 Azure AD 등록 디바이스를 사용하지 않도록 설정하�
 
 일반적인 루틴은 다음 단계로 구성됩니다.
 
-1. [Connect-MsolService](https://docs.microsoft.com/powershell/module/msonline/connect-msolservice?view=azureadps-1.0) cmdlet을 사용하여 Azure Active Directory에 연결합니다.
+1. [Connect-MsolService](/powershell/module/msonline/connect-msolservice?view=azureadps-1.0) cmdlet을 사용하여 Azure Active Directory에 연결합니다.
 1. 디바이스 목록을 가져옵니다.
-1. [Disable-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/disable-msoldevice?view=azureadps-1.0) cmdlet을 사용하여 디바이스를 사용하지 않도록 설정합니다. 
+1. [Disable-MsolDevice](/powershell/module/msonline/disable-msoldevice?view=azureadps-1.0) cmdlet을 사용하여 디바이스를 사용하지 않도록 설정합니다. 
 1. 디바이스를 삭제하기 전에 선택한 며칠 동안의 유예 기간 동안 기다립니다.
-1. [Remove-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/remove-msoldevice?view=azureadps-1.0) cmdlet을 사용하여 디바이스를 제거합니다.
+1. [Remove-MsolDevice](/powershell/module/msonline/remove-msoldevice?view=azureadps-1.0) cmdlet을 사용하여 디바이스를 제거합니다.
 
 ### <a name="get-the-list-of-devices"></a>디바이스 목록을 가져옵니다.
 

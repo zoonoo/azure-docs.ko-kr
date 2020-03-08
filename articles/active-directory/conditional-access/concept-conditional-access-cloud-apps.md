@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9d2780e09c099d76aa2ef4ec2638a410793481d
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 69bdd2d6825427597e9030a03aae7d219361ba25
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77186364"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78671939"
 ---
 # <a name="conditional-access-cloud-apps-or-actions"></a>조건부 액세스: 클라우드 앱 또는 작업
 
@@ -39,7 +39,7 @@ ms.locfileid: "77186364"
 - [Azure SQL Database 및 데이터 웨어하우스](../../sql-database/sql-database-conditional-access.md)
 - Dynamics CRM Online
 - Microsoft Application Insights 분석
-- [Microsoft Azure Information Protection](https://docs.microsoft.com/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
+- [Microsoft Azure Information Protection](/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
 - [Microsoft Azure 관리](#microsoft-azure-management)
 - Microsoft Azure 구독 관리
 - Microsoft Cloud App Security
@@ -48,7 +48,7 @@ ms.locfileid: "77186364"
 - Microsoft Flow
 - Microsoft Forms
 - Microsoft Intune
-- [Microsoft Intune 등록](https://docs.microsoft.com/intune/enrollment/multi-factor-authentication)
+- [Microsoft Intune 등록](/intune/enrollment/multi-factor-authentication)
 - Microsoft Planner
 - Microsoft PowerApps
 - Bing에서 Microsoft Search

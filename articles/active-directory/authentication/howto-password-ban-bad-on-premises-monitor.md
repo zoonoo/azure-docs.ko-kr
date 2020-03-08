@@ -1,6 +1,6 @@
 ---
-title: 암호 보호 모니터 및 로깅-Azure Active Directory
-description: Azure AD 암호 보호 모니터링 및 로깅 이해
+title: 온-프레미스 Azure AD 암호 보호 모니터링
+description: 온-프레미스 Active Directory Domain Services 환경의 Azure AD 암호 보호를 위한 로그를 모니터링 하 고 검토 하는 방법을 알아봅니다.
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,14 +11,14 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c74ea99d3a0e39729bb4d89f012d7b790bf0568b
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: fbb533d5565009fb22d686e4082c9b4bfaae6dc1
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74847714"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78671649"
 ---
-# <a name="azure-ad-password-protection-monitoring-and-logging"></a>Azure AD 암호 보호 모니터링 및 로깅
+# <a name="monitor-and-review-logs-for-on-premises-azure-ad-password-protection-environments"></a>온-프레미스 Azure AD 암호 보호 환경에 대 한 로그 모니터링 및 검토
 
 Azure AD 암호 보호의 배포 후 모니터링 및 보고는 필수 작업입니다. 이 문서에서는 각 서비스에서 정보를 기록하는 위치 및 Azure AD 암호 보호 사용에 대한 보고 방법을 포함하여 다양한 모니터링 기술을 이해할 수 있도록 자세히 설명합니다.
 
@@ -235,7 +235,7 @@ HKLM\System\CurrentControlSet\Services\AzureADPasswordProtectionDCAgent\Paramete
 
 DC 에이전트 서비스 소프트웨어는 **Azure AD 암호 보호**라는 성능 카운터 개체를 설치합니다. 다음 성능 카운터는 현재 사용할 수 있습니다.
 
-|성능 카운터 이름 | 설명|
+|성능 카운터 이름 | Description|
 | --- | --- |
 |처리된 암호 |이 카운터는 마지막 다시 시작한 이후에 (승인 또는 거부) 처리된 암호의 총 수를 표시합니다.|
 |허용된 암호 |이 카운터는 마지막 다시 시작한 이후에 허용된 암호의 총 수를 표시합니다.|

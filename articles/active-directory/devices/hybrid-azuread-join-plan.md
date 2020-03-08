@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bae957eba627be7fa3b968585a03d28aa5b0af56
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.openlocfilehash: 76d3be0fc00465c35dbc79a258b57db962969cc8
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78255011"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672339"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>방법: 하이브리드 Azure Active Directory 조인 구현 계획
 
@@ -59,7 +59,7 @@ Azure AD에 디바이스를 가져오면 클라우드와 온-프레미스 리소
 - Windows Server 2016
 - Windows Server 2019
 
-Windows 데스크톱 운영 체제를 실행 하는 장치의 경우 지원 되는 버전은 [windows 10 릴리스 정보](https://docs.microsoft.com/windows/release-information/)문서에 나열 되어 있습니다. 모범 사례로, Microsoft는 최신 버전의 Windows 10으로 업그레이드 하는 것이 좋습니다.
+Windows 데스크톱 운영 체제를 실행 하는 장치의 경우 지원 되는 버전은 [windows 10 릴리스 정보](/windows/release-information/)문서에 나열 되어 있습니다. 모범 사례로, Microsoft는 최신 버전의 Windows 10으로 업그레이드 하는 것이 좋습니다.
 
 ### <a name="windows-down-level-devices"></a>Windows 하위 수준 디바이스
 
@@ -87,7 +87,7 @@ Windows 데스크톱 운영 체제를 실행 하는 장치의 경우 지원 되�
 
 - VM (가상 머신) 스냅숏을 사용 하 여 추가 Vm을 만드는 경우, Azure AD에 이미 등록 된 VM의 스냅숏이 하이브리드 Azure AD 조인으로 사용 되지 않는지 확인 합니다.
 
-- 다시 부팅 시 디스크에 대 한 변경 내용을 지우는 [통합 쓰기 필터](https://docs.microsoft.com/windows-hardware/customize/enterprise/unified-write-filter) 와 유사한 기술을 사용 하는 경우 장치가 하이브리드 Azure AD에 가입 된 후에 적용 해야 합니다. 하이브리드 Azure AD 조인을 완료 하기 전에 이러한 기술을 사용 하도록 설정 하면 장치가 다시 부팅 될 때마다 가입이 발생 합니다.
+- 다시 부팅 시 디스크에 대 한 변경 내용을 지우는 [통합 쓰기 필터](/windows-hardware/customize/enterprise/unified-write-filter) 와 유사한 기술을 사용 하는 경우 장치가 하이브리드 Azure AD에 가입 된 후에 적용 해야 합니다. 하이브리드 Azure AD 조인을 완료 하기 전에 이러한 기술을 사용 하도록 설정 하면 장치가 다시 부팅 될 때마다 가입이 발생 합니다.
 
 ### <a name="handling-devices-with-azure-ad-registered-state"></a>Azure AD 등록 상태를 사용 하 여 장치 처리
 Windows 10 도메인 가입 장치가 테 넌 트에 [등록 된 azure](overview.md#getting-devices-in-azure-ad) ad 인 경우 하이브리드 azure ad 조인 및 azure ad 등록 장치의 이중 상태가 될 수 있습니다. 이 시나리오를 자동으로 해결 하려면 Windows 10 1803 (KB4489894 적용 됨) 이상으로 업그레이드 하는 것이 좋습니다. 1803 이전 버전에서는 하이브리드 Azure AD 조인을 사용 하도록 설정 하기 전에 Azure AD 등록 상태를 수동으로 제거 해야 합니다. 1803 이상 릴리스에서는 이러한 이중 상태를 방지 하기 위해 다음과 같이 변경 되었습니다.
@@ -100,7 +100,7 @@ Windows 10 도메인 가입 장치가 테 넌 트에 [등록 된 azure](overview
 > Azure AD 등록 장치는 Intune에서 관리 되는 경우 자동으로 제거 되지 않습니다.
 
 ### <a name="additional-considerations"></a>기타 고려 사항
-- 사용자 환경에서 VDI (가상 데스크톱 인프라)를 사용 하는 경우 [장치 id 및 데스크톱 가상화](https://docs.microsoft.com/azure/active-directory/devices/howto-device-identity-virtual-desktop-infrastructure)를 참조 하세요.
+- 사용자 환경에서 VDI (가상 데스크톱 인프라)를 사용 하는 경우 [장치 id 및 데스크톱 가상화](/azure/active-directory/devices/howto-device-identity-virtual-desktop-infrastructure)를 참조 하세요.
 
 - 하이브리드 Azure AD 조인은 FIPS 규격 TPM 2.0에 대해 지원 되며 TPM 1.2에 대해 지원 되지 않습니다. 장치에 FIPS 규격 TPM 1.2이 있는 경우 하이브리드 Azure AD 조인을 진행 하기 전에 사용 하지 않도록 설정 해야 합니다. TPM은 TPM 제조업체에 따라 다르므로 tpm에서 FIPS 모드를 사용 하지 않도록 설정 하는 도구는 제공 하지 않습니다. 하드웨어 OEM에 지원을 문의 하세요. Windows 10 1903 릴리스부터는 tpm 1.2이 하이브리드 Azure AD 조인에 사용 되지 않으며 해당 tpm이 있는 장치는 TPM이 없는 것으로 간주 됩니다.
 
@@ -116,7 +116,7 @@ Windows 10 도메인 가입 장치가 테 넌 트에 [등록 된 azure](overview
 
 ### <a name="managed-environment"></a>관리 환경
 
-관리형 환경은 [Seamless Single Sign On](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-phs)을 사용하여 [PHS(암호 해시 동기화)](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta) 또는 [PTA(통과 인증)](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso)를 통해 배포할 수 있습니다.
+관리형 환경은 [Seamless Single Sign On](/azure/active-directory/hybrid/whatis-phs)을 사용하여 [PHS(암호 해시 동기화)](/azure/active-directory/hybrid/how-to-connect-pta) 또는 [PTA(통과 인증)](/azure/active-directory/hybrid/how-to-connect-sso)를 통해 배포할 수 있습니다.
 
 이러한 시나리오는 인증용 페더레이션 서버를 구성할 필요가 없습니다.
 
@@ -133,7 +133,7 @@ Windows 10 도메인 가입 장치가 테 넌 트에 [등록 된 azure](overview
   `/adfs/services/trust/13/certificatemixed` 
 
 > [!WARNING] 
-> **adfs/services/trust/2005/windowstransport** 또는 **adfs/services/trust/13/windowstransport**는 모두 인트라넷 연결 엔드포인트로만 사용하도록 설정해야 하며 웹 애플리케이션 프록시를 통해 엑스트라넷 연결 엔드포인트로 노출되어서는 안됩니다. WS-Trust Windows 엔드포인트를 비활성화는 방법에 대해 자세히 알아보려면 [프록시에서 WS-Trust Windows 엔드포인트 사용 안 함](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet)을 참조하세요. **서비스** > **엔드포인트**에서 AD FS 관리 콘솔을 통해 어떤 엔드포인트가 사용하도록 설정되었는지 확인할 수 있습니다.
+> **adfs/services/trust/2005/windowstransport** 또는 **adfs/services/trust/13/windowstransport**는 모두 인트라넷 연결 엔드포인트로만 사용하도록 설정해야 하며 웹 애플리케이션 프록시를 통해 엑스트라넷 연결 엔드포인트로 노출되어서는 안됩니다. WS-Trust Windows 엔드포인트를 비활성화는 방법에 대해 자세히 알아보려면 [프록시에서 WS-Trust Windows 엔드포인트 사용 안 함](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet)을 참조하세요. **서비스** > **엔드포인트**에서 AD FS 관리 콘솔을 통해 어떤 엔드포인트가 사용하도록 설정되었는지 확인할 수 있습니다.
 
 > [!NOTE]
 > Azure AD는 관리형 도메인에서 스마트 카드나 인증서를 지원하지 않습니다.
@@ -147,9 +147,9 @@ Id 인프라와 일치 하는 시나리오에 따라 다음을 참조 하세요.
 
 ## <a name="review-on-premises-ad-upn-support-for-hybrid-azure-ad-join"></a>하이브리드 Azure AD 조인에 대 한 온-프레미스 AD UPN 지원 검토
 
-경우에 따라 온-프레미스 AD UPN이 Azure AD UPN과 다를 수 있습니다. 그러한 경우 Windows 10 하이브리드 Azure AD 조인은 [인증 방법](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn), 도메인 유형 및 Windows 10 버전을 기반으로 온-프레미스 AD UPN에 대한 제한된 지원을 제공합니다. 사용자 환경에 있을 수 있는 온-프레미스 AD UPN에는 두 가지 유형이 있습니다.
+경우에 따라 온-프레미스 AD UPN이 Azure AD UPN과 다를 수 있습니다. 그러한 경우 Windows 10 하이브리드 Azure AD 조인은 [인증 방법](/azure/security/fundamentals/choose-ad-authn), 도메인 유형 및 Windows 10 버전을 기반으로 온-프레미스 AD UPN에 대한 제한된 지원을 제공합니다. 사용자 환경에 있을 수 있는 온-프레미스 AD UPN에는 두 가지 유형이 있습니다.
 
-- 라우팅할 수 있는 UPN: 라우팅할 수 있는 UPN에는 도메인 등록 기관에 등록 된 유효한 확인 된 도메인이 있습니다. 예를 들어 contoso.com이 Azure AD의 기본 도메인인 경우 contoso.org는 Contoso에서 소유하고 [Azure AD에서 확인](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain)된 기본 도메인입니다.
+- 라우팅할 수 있는 UPN: 라우팅할 수 있는 UPN에는 도메인 등록 기관에 등록 된 유효한 확인 된 도메인이 있습니다. 예를 들어 contoso.com이 Azure AD의 기본 도메인인 경우 contoso.org는 Contoso에서 소유하고 [Azure AD에서 확인](/azure/active-directory/fundamentals/add-custom-domain)된 기본 도메인입니다.
 - 라우팅할 수 없는 UPN: 라우팅할 수 없는 UPN에 확인 된 도메인이 없습니다. 조직의 사설망 내에서만 적용됩니다. 예를 들어 contoso.com이 Azure AD의 기본 도메인인 경우 contoso.com은 온-프레미스 AD의 기본 도에미인이지만 인터넷에서 확인할 수 없는 도메인이며 Consoso의 네트워크 내에서만 사용됩니다.
 
 아래 표에서는 Windows 10 하이브리드 Azure AD 조인에서 이러한 온-프레미스 AD UPN에 대한 지원을 자세히 설명합니다.

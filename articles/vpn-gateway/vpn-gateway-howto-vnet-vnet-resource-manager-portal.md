@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 03/05/2020
 ms.author: cherylmc
-ms.openlocfilehash: dbdc13b8c861c620bfdbaaf53c0901a51bb9ce08
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.openlocfilehash: 3d91203253c08acdaa159fc70f7a34fa7fca20c8
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/06/2020
-ms.locfileid: "78399209"
+ms.locfileid: "78674181"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-by-using-the-azure-portal"></a>Azure Portal을 사용하여 VNet-VNet 간 VPN Gateway 연결 구성
 
@@ -127,7 +127,7 @@ VNet이 이미 있는 경우 설정이 VPN 게이트웨이 설계와 호환되�
 ### <a name="to-create-a-virtual-network"></a>가상 네트워크를 만들려면
 [!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
 
-## <a name="create-a-virtual-network-gateway"></a>가상 네트워크 게이트웨이 만들기
+## <a name="create-the-vnet1-gateway"></a>VNet1 게이트웨이 만들기
 이 단계에서는 VNet용 가상 네트워크 게이트웨이를 만듭니다. 종종 선택한 게이트웨이 SKU에 따라 게이트웨이를 만드는 데 45분 이상 걸릴 수 있습니다. 연습으로 이 구성을 만드는 경우 [예제 설정](#example-settings)을 참조하세요.
 
 [!INCLUDE [About gateway subnets](../../includes/vpn-gateway-about-gwsubnet-portal-include.md)]
@@ -138,7 +138,7 @@ VNet이 이미 있는 경우 설정이 VPN 게이트웨이 설계와 호환되�
 [!INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
 
 ## <a name="create-and-configure-vnet4"></a>V 만들기 및 구성
-VNet1을 구성한 후에는 이전 단계를 반복 하 고 값을 v 값으로 바꿔서 v를 만듭니다. V를 구성 하기 전에 VNet1에 대 한 가상 네트워크 게이트웨이가 만들기를 완료할 때까지 기다릴 필요가 없습니다. 고유한 값을 사용하는 경우에 주소 공간에 연결하려는 VNet을 사용하여 겹치지 않는지 확인합니다.
+VNet1를 구성한 후 이전 단계를 반복 하 고 값을 v 값으로 바꿔서 v 및 v 게이트웨이를 만듭니다. V를 구성 하기 전에 VNet1에 대 한 가상 네트워크 게이트웨이가 만들기를 완료할 때까지 기다릴 필요가 없습니다. 고유한 값을 사용하는 경우에 주소 공간에 연결하려는 VNet을 사용하여 겹치지 않는지 확인합니다.
 
 ## <a name="configure-the-vnet1-gateway-connection"></a>VNet1 게이트웨이 연결 구성
 VNet1 및 v 둘 다에 대 한 가상 네트워크 게이트웨이가 완료 되 면 가상 네트워크 게이트웨이 연결을 만들 수 있습니다. 이 섹션에서는 VNet1에서 VNet4에 연결을 만듭니다. 이러한 단계는 동일한 구독에 있는 Vnet에 대해서만 작동합니다. VNet이 다른 구독에 있으면 [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)을 사용하여 연결해야 합니다. 그러나 VNet이 동일한 구독의 다른 리소스 그룹에 있는 경우 포털을 사용하여 연결할 수 있습니다.
@@ -148,7 +148,7 @@ VNet1 및 v 둘 다에 대 한 가상 네트워크 게이트웨이가 완료 되
    ![연결 페이지](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/connections.png "연결 페이지")
 2. **+ 추가** 를 선택 하 여 **연결 추가** 페이지를 엽니다.
 
-   ![연결 추가](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/vnet1-to-vnet4.png "연결 추가")
+   ![연결 추가](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/vnet1-vnet4-connection.png "연결 추가")
 3. **연결 추가** 페이지에서 연결의 값을 입력합니다.
 
    - **이름**: 연결의 이름을 입력 합니다. 예를 들면 *VNet1toVNet4*입니다.

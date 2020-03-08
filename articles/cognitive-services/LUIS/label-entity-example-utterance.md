@@ -7,15 +7,15 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: quickstart
+ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: diberry
-ms.openlocfilehash: f7d6e98205afad2ed2c4aea30e635254f79acaa1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: 5499e8362e1107a18b997a6a485e11343c328d0d
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448081"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898366"
 ---
 # <a name="label-machine-learned-entity-in-an-example-utterance"></a>예제 발화의 기계 학습된 엔터티에 레이블 지정
 
@@ -86,7 +86,7 @@ ms.locfileid: "75448081"
 1. 의도 세부 정보 페이지의 컨텍스트 도구 모음에서 **엔터티 팔레트**를 선택합니다.
 1. 엔터티 팔레트가 열리면 엔터티 목록에서 엔터티를 선택합니다.
 1. **엔터티 검사자**로 이동하여 기존 역할을 선택하거나 새 역할을 만듭니다.
-1. 예제 발화 텍스트에서 엔터티 역할을 사용하여 텍스트에 레이블을 지정합니다. 
+1. 예제 발화 텍스트에서 엔터티 역할을 사용하여 텍스트에 레이블을 지정합니다.
 
 ## <a name="unlabel-entities"></a>엔터티 레이블 지정 해제
 

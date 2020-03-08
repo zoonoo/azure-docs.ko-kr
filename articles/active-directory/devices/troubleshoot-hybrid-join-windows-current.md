@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd53b95472c72d70721612d8684779c206aad74e
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: f3ce27c59ead4e126cb143d1831ece0e93e119ef
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75888790"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672270"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>하이브리드 Azure Active Directory 연결 된 장치 문제 해결 
 
@@ -26,7 +26,7 @@ ms.locfileid: "75888790"
 
 이 문서에서는 다음 시나리오를 지원하도록 [디바이스에 조인된 하이브리드 Azure Active Directory를 구성](hybrid-azuread-join-plan.md)했다고 가정합니다.
 
-- 디바이스 기반 조건부 액세스
+- 장치 기반 조건부 액세스
 - [엔터프라이즈 설정 로밍](../active-directory-windows-enterprise-state-roaming-overview.md)
 - [비즈니스용 Windows Hello](../active-directory-azureadjoin-passport-deployment.md)
 
@@ -356,7 +356,7 @@ WamDefaultAuthority: organizations
    - 해결 방법:이 오류가 발생 한 장치에서 TPM을 사용 하지 않도록 설정 합니다. Windows 1809는 tpm 오류를 자동으로 감지 하 고 TPM을 사용 하지 않고 하이브리드 Azure AD 조인을 완료 합니다.
 - **NTE_AUTHENTICATION_IGNORED** (0x80090031/2146893775)
    - 이유: TPM이 잠겼습니다.
-   - 해결 방법: 일시적인 오류입니다. 쿨 기간 동안 기다립니다. 잠시 후 조인 시도에 성공 합니다. 자세한 내용은 [TPM 기본 사항](https://docs.microsoft.com/windows/security/information-protection/tpm/tpm-fundamentals#anti-hammering) 문서에서 찾을 수 있습니다.
+   - 해결 방법: 일시적인 오류입니다. 쿨 기간 동안 기다립니다. 잠시 후 조인 시도에 성공 합니다. 자세한 내용은 [TPM 기본 사항](/windows/security/information-protection/tpm/tpm-fundamentals#anti-hammering) 문서에서 찾을 수 있습니다.
 
 ##### <a name="network-errors"></a>네트워크 오류
 
@@ -372,13 +372,13 @@ WamDefaultAuthority: organizations
 
 ##### <a name="federated-join-server-errors"></a>페더레이션된 조인 서버 오류
 
-| 서버 오류 코드 | 서버 오류 메시지 | 가능한 원인 | 해상도 |
+| 서버 오류 코드 | 서버 오류 메시지 | 가능한 원인 | 해결 방법 |
 | --- | --- | --- | --- |
 | DirectoryError | 요청이 일시적으로 제한되었습니다. 300 초 후에 시도 하세요. | 오류가 발생 했습니다. 여러 번의 신속한 등록 요청이 있을 수 있습니다. | 쿨 기간 이후에 조인 다시 시도 |
 
 ##### <a name="sync-join-server-errors"></a>동기화 조인 서버 오류
 
-| 서버 오류 코드 | 서버 오류 메시지 | 가능한 원인 | 해상도 |
+| 서버 오류 코드 | 서버 오류 메시지 | 가능한 원인 | 해결 방법 |
 | --- | --- | --- | --- |
 | DirectoryError | AADSTS90002: 테 넌 트 <UUID>를 찾을 수 없습니다. 이 오류는 테 넌 트에 대 한 활성 구독이 없는 경우에 발생할 수 있습니다. 구독 관리자에 게 문의 하세요. | SCP 개체의 테 넌 트 ID가 잘못 되었습니다. | SCP 개체가 올바른 Azure AD 테 넌 트 ID 및 활성 구독으로 구성 되 고 테 넌 트에 표시 되는지 확인 합니다. |
 | DirectoryError | 지정 된 ID의 장치 개체를 찾을 수 없습니다. | 동기화 조인에 필요한 오류입니다. 장치 개체가 AD에서 Azure AD로 동기화 되지 않았습니다. | Azure AD Connect 동기화가 완료 될 때까지 기다렸다가 동기화 완료 후 다음 조인 시도가 문제를 해결 합니다. |

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 67c42de09c75b7dd6737b80071f1f6eba094b132
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: a6bbecf0e365ba7a8424da775245181fa64c21f6
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76512422"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672688"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>방법: Azure AD 조인 구현 계획
 
@@ -24,7 +24,7 @@ Azure AD 조인을 사용하면 사용자의 생산성과 보안을 유지하면
 
 이 문서에서는 Azure AD 조인 구현을 계획하는 데 필요한 정보를 제공합니다.
  
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서에서는 사용자가 [Azure Active Directory의 디바이스 관리 소개](../device-management-introduction.md)를 잘 알고 있다고 가정합니다.
 
@@ -59,7 +59,7 @@ Azure AD 조인은 관리 환경 및 페더레이션 환경 모두에서 작동�
 
 ### <a name="managed-environment"></a>관리 환경
 
-관리 환경은 Seamless Single Sign On을 사용하여 [암호 해시 동기화](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization) 또는 [통과 인증](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-quick-start)을 통해 배포할 수 있습니다.
+관리 환경은 Seamless Single Sign On을 사용하여 [암호 해시 동기화](/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization) 또는 [통과 인증](/azure/active-directory/hybrid/how-to-connect-pta-quick-start)을 통해 배포할 수 있습니다.
 
 이러한 시나리오는 인증용 페더레이션 서버를 구성할 필요가 없습니다.
 
@@ -78,7 +78,7 @@ AD FS를 사용하는 경우 다음 WS-Trust 엔드포인트를 사용하도록 
 ID 공급자가 이러한 프로토콜을 지원하지 않는 경우 Azure AD 조인이 기본적으로 작동하지 않습니다. 
 
 >[!NOTE]
-> 현재 Azure AD 조인은 [기본 인증 방법으로 외부 인증 공급자를 사용 하 여 구성 된 AD FS 2019](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/additional-authentication-methods-ad-fs#enable-external-authentication-methods-as-primary)에서 작동 하지 않습니다. Azure AD 조인은 기본 방법으로 암호 인증을 기본값으로 설정 하므로이 시나리오에서 인증 오류가 발생 합니다.
+> 현재 Azure AD 조인은 [기본 인증 방법으로 외부 인증 공급자를 사용 하 여 구성 된 AD FS 2019](/windows-server/identity/ad-fs/operations/additional-authentication-methods-ad-fs#enable-external-authentication-methods-as-primary)에서 작동 하지 않습니다. Azure AD 조인은 기본 방법으로 암호 인증을 기본값으로 설정 하므로이 시나리오에서 인증 오류가 발생 합니다.
 
 
 ### <a name="smartcards-and-certificate-based-authentication"></a>스마트 카드 및 인증서 기반 인증
@@ -91,7 +91,7 @@ ID 공급자가 이러한 프로토콜을 지원하지 않는 경우 Azure AD �
 
 다음 위치에서 사용자를 만드는 경우:
 
-- **온-프레미스 Active Directory** - [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-whatis)를 사용하여 Azure AD에 동기화해야 합니다. 
+- **온-프레미스 Active Directory** - [Azure AD Connect](/azure/active-directory/hybrid/how-to-connect-sync-whatis)를 사용하여 Azure AD에 동기화해야 합니다. 
 - **Azure AD** - 추가 설치가 필요 없습니다.
 
 Azure AD UPN과는 다른 온-프레미스 UPN은 Azure AD 가입 디바이스에서 지원되지 않습니다. 사용자가 온-프레미스 UPN을 사용하는 경우 Azure AD에서 사용자의 기본 UPN을 사용하도록 전환할 계획을 세워야 합니다.
@@ -127,9 +127,9 @@ Azure AD 조인 디바이스를 관리하는 두 가지 방법이 있습니다.
 - 지원되지 않는 정책이 Azure AD 조인 디바이스 또는 사용자에게 필요합니까?
 - 지원되지 않는 정책을 클라우드 기반 배포에 적용할 수 있습니까?
 
-Azure AD 앱 갤러리를 통해 MDM 솔루션을 사용할 수 없는 경우 [MDM과 Azure Active Directory 통합](https://docs.microsoft.com/windows/client-management/mdm/azure-active-directory-integration-with-mdm)에 설명된 프로세스에 따라 추가할 수 있습니다. 
+Azure AD 앱 갤러리를 통해 MDM 솔루션을 사용할 수 없는 경우 [MDM과 Azure Active Directory 통합](/windows/client-management/mdm/azure-active-directory-integration-with-mdm)에 설명된 프로세스에 따라 추가할 수 있습니다. 
 
-공동 관리를 통해 SCCM을 사용하여 디바이스의 특정 측면을 관리할 수 있으며, 정책은 MDM 플랫폼을 통해 제공됩니다. Microsoft Intune은 SCCM을 사용한 공동 관리를 지원합니다. Windows 10 장치에 대 한 공동 관리에 대 한 자세한 내용은 [공동 관리 란?](https://docs.microsoft.com/configmgr/core/clients/manage/co-management-overview)을 참조 하세요. Intune이 아닌 MDM 제품을 사용하는 경우 해당하는 공동 관리 시나리오에서 MDM 공급자를 확인하세요.
+공동 관리를 통해 SCCM을 사용하여 디바이스의 특정 측면을 관리할 수 있으며, 정책은 MDM 플랫폼을 통해 제공됩니다. Microsoft Intune은 SCCM을 사용한 공동 관리를 지원합니다. Windows 10 장치에 대 한 공동 관리에 대 한 자세한 내용은 [공동 관리 란?](/configmgr/core/clients/manage/co-management-overview)을 참조 하세요. Intune이 아닌 MDM 제품을 사용하는 경우 해당하는 공동 관리 시나리오에서 MDM 공급자를 확인하세요.
 
 **권장 사항:** Azure AD 조인 디바이스에는 MDM 전용 관리를 고려해 보세요.
 
@@ -155,7 +155,7 @@ Azure AD 앱 갤러리에 애플리케이션이 추가되면 사용자는 Azure 
 - Windows 통합 인증 지원 
 - 사용자에게 프롬프트 없는 SSO 환경 제공 
 
-AD FS를 사용하는 경우 [AD FS를 사용하여 Single Sign-On 확인 및 관리](https://docs.microsoft.com/previous-versions/azure/azure-services/jj151809(v%3dazure.100))를 참조하세요. 
+AD FS를 사용하는 경우 [AD FS를 사용하여 Single Sign-On 확인 및 관리](/previous-versions/azure/azure-services/jj151809(v%3dazure.100))를 참조하세요. 
 
 **권장 사항:** 보다 나은 환경을 제공할 수 있도록 클라우드에 호스트하고(예: Azure) Azure AD와 통합하는 방안을 고려합니다.
 
@@ -163,7 +163,7 @@ AD FS를 사용하는 경우 [AD FS를 사용하여 Single Sign-On 확인 및 �
 
 디바이스가 도메인 컨트롤러에 액세스할 수 있는 경우 사용자는 Azure AD 조인 디바이스에서 SSO를 얻습니다. 
 
-**권장 사항:** 이러한 애플리케이션에 안전하게 액세스할 수 있도록 [Azure AD 앱 프록시](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy)를 배포합니다.
+**권장 사항:** 이러한 애플리케이션에 안전하게 액세스할 수 있도록 [Azure AD 앱 프록시](/azure/active-directory/manage-apps/application-proxy)를 배포합니다.
 
 ### <a name="on-premises-network-shares"></a>온-프레미스 네트워크 공유
 
@@ -171,7 +171,7 @@ AD FS를 사용하는 경우 [AD FS를 사용하여 Single Sign-On 확인 및 �
 
 ### <a name="printers"></a>프린터
 
-프린터의 경우 Azure AD 조인 디바이스에서 프린터를 검색하기 위한 [하이브리드 클라우드 인쇄](https://docs.microsoft.com/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy)를 배포해야 합니다. 
+프린터의 경우 Azure AD 조인 디바이스에서 프린터를 검색하기 위한 [하이브리드 클라우드 인쇄](/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy)를 배포해야 합니다. 
 
 클라우드 전용 환경에서는 프린터를 자동으로 검색할 수 없지만, 사용자가 프린터의 UNC 경로를 사용하여 프린터를 직접 추가할 수도 있습니다. 
 
@@ -183,25 +183,25 @@ Azure AD 조인 디바이스는 머신 인증에 의존하는 온-프레미스 �
 
 ### <a name="remote-desktop-services"></a>원격 데스크톱 서비스
 
-Azure AD 조인 디바이스에 원격 데스크톱 연결을 설정하려면 호스트 머신이 Azure AD에 조인되거나 하이브리드 Azure AD에 조인되어야 합니다. 조인되지 않은 디바이스 또는 Windows 이외의 디바이스에서 원격 데스크톱으로 연결하는 기능은 지원되지 않습니다. 자세한 내용은 [원격 Azure AD 조인 pc에 연결](https://docs.microsoft.com/windows/client-management/connect-to-remote-aadj-pc)을 참조하세요.
+Azure AD 조인 디바이스에 원격 데스크톱 연결을 설정하려면 호스트 머신이 Azure AD에 조인되거나 하이브리드 Azure AD에 조인되어야 합니다. 조인되지 않은 디바이스 또는 Windows 이외의 디바이스에서 원격 데스크톱으로 연결하는 기능은 지원되지 않습니다. 자세한 내용은 [원격 Azure AD 조인 pc에 연결](/windows/client-management/connect-to-remote-aadj-pc)을 참조하세요.
 
 ## <a name="understand-your-provisioning-options"></a>프로비전 옵션 이해
 
 다음 방법을 사용하여 Azure AD 조인을 프로비전할 수 있습니다.
 
-- **OOBE/설정에서 셀프 서비스** - 셀프 서비스 모드에서는 사용자가 Windows OOBE(첫 실행 경험) 동안 또는 Windows 설정에서 Azure AD 조인 프로세스를 진행합니다. 자세한 내용은 [회사 디바이스를 조직의 네트워크에 조인](https://docs.microsoft.com/azure/active-directory/user-help/user-help-join-device-on-network)을 참조하세요. 
-- **Windows Autopilot** - Windows Autopilot을 사용하여 디바이스를 미리 구성하면 OOBE에서 보다 원활하게 Azure AD 조인을 수행하는 환경을 구축할 수 있습니다. 자세한 내용은 [Windows Autopilot 개요](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot)를 참조하세요. 
-- **대량 등록** - 대량 등록을 사용하면 대량 프로비전 도구를 사용하여 디바이스를 구성하는 관리자 중심 Azure AD 조인을 지원할 수 있습니다. 자세한 내용은 [Windows 디바이스 대량 등록](https://docs.microsoft.com/intune/windows-bulk-enroll)을 참조하세요.
+- **OOBE/설정에서 셀프 서비스** - 셀프 서비스 모드에서는 사용자가 Windows OOBE(첫 실행 경험) 동안 또는 Windows 설정에서 Azure AD 조인 프로세스를 진행합니다. 자세한 내용은 [회사 디바이스를 조직의 네트워크에 조인](/azure/active-directory/user-help/user-help-join-device-on-network)을 참조하세요. 
+- **Windows Autopilot** - Windows Autopilot을 사용하여 디바이스를 미리 구성하면 OOBE에서 보다 원활하게 Azure AD 조인을 수행하는 환경을 구축할 수 있습니다. 자세한 내용은 [Windows Autopilot 개요](/windows/deployment/windows-autopilot/windows-10-autopilot)를 참조하세요. 
+- **대량 등록** - 대량 등록을 사용하면 대량 프로비전 도구를 사용하여 디바이스를 구성하는 관리자 중심 Azure AD 조인을 지원할 수 있습니다. 자세한 내용은 [Windows 디바이스 대량 등록](/intune/windows-bulk-enroll)을 참조하세요.
  
 다음은 세 방법을 비교한 내용입니다. 
  
 |   | 셀프 서비스 설정 | Windows Autopilot | 대량 등록 |
 | --- | --- | --- | --- |
-| 설정에서 사용자 상호 작용이 필요 | 예 | 예 | 아닙니다. |
-| IT 활동이 필요 | 아닙니다. | 예 | 예 |
+| 설정에서 사용자 상호 작용이 필요 | yes | yes | 예 |
+| IT 활동이 필요 | 예 | yes | yes |
 | 적용 흐름 | OOBE 및 설정 | OOBE만 | OOBE만 |
-| 기본 사용자에 대한 로컬 관리자 권한 | 기본적으로 예 | 구성 가능 여부 | 아닙니다. |
-| 디바이스 OEM 지원 필요 | 아닙니다. | 예 | 아닙니다. |
+| 기본 사용자에 대한 로컬 관리자 권한 | 기본적으로 예 | 구성 가능 여부 | 예 |
+| 디바이스 OEM 지원 필요 | 예 | yes | 예 |
 | 지원되는 버전 | 1511+ | 1709+ | 1703+ |
  
 위의 표를 검토하고 방법 채택에 대한 다음 고려 사항을 검토하여 배포 접근 방식을 선택합니다.  
@@ -296,7 +296,7 @@ Azure AD 조인 디바이스에 대한 MDM 공급자가 구성된 경우 공급�
 
 > [!div class="nextstepaction"]
 > [첫 번째 실행 동안 새 Windows 10 디바이스를 Azure AD에 조인](azuread-joined-devices-frx.md)
-> [회사 디바이스를 조직의 네트워크에 조인](https://docs.microsoft.com/azure/active-directory/user-help/user-help-join-device-on-network)
+> [회사 디바이스를 조직의 네트워크에 조인](/azure/active-directory/user-help/user-help-join-device-on-network)
 
 <!--Image references-->
 [1]: ./media/azureadjoin-plan/12.png

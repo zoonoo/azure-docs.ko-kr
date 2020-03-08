@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/03/2020
+ms.date: 03/05/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0219b3e35ed82795e9c799754cabdeb5d17096d6
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: 4a02fb7ab7e42f2a56041638a3d883287da3eb42
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78267401"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78674499"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Azure를 사용 하 여 SAP 워크 로드 시나리오 호스트 및 실행
 
@@ -43,6 +43,7 @@ Azure의 SAP 워크 로드 섹션에서 문서에 대 한 변경 내용은이 �
 - Azure Vm 및 HANA Large Instances에서 지원 되는 SAP 배포 시나리오 지원 되는 시나리오에 대 한 정보는 다음 문서에서 찾을 수 있습니다.
     - [Azure virtual machine의 SAP 워크 로드 지원 시나리오](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-planning-supported-configurations)
     - [HANA Large Instance에 대해 지원 되는 시나리오](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario)
+- 다른 Azure 지역에서 사용할 수 있는 Azure 서비스, Azure VM 유형 및 Azure storage는 [지역별 사용 가능한 사이트 제품](https://azure.microsoft.com/global-infrastructure/services/) 을 확인 하세요. 
 
  
 ## <a name="sap-hana-on-azure-large-instances"></a>Azure(큰 인스턴스)에서 SAP HANA 사용
@@ -109,6 +110,8 @@ SAP 구성 요소에 Azure 서비스를 통합 하는 방법에 대 한 자세�
 
 
 ## <a name="change-log"></a>변경 로그
+
+- 03/05/2020: Azure에서 azure 지역 및 Azure 가상 머신에 대 한 구조 변경 및 콘텐츠 변경 [VIRTUAL MACHINES SAP NetWeaver 계획 및 구현](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide)
 - 03/03/2020: [sap 응용 프로그램에 대해 ANF를 사용 하 여 SLES의 Azure vm에서 SAP NW에 대 한 고가용성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files) 을 변경 하 여 보다 효율적인 anf 볼륨 레이아웃으로 변경
 - 03/01/2020: Azure Backup 서비스를 포함 하도록 [Azure Virtual Machines에서 SAP HANA에 대 한 백업 가이드](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-guide) 를 수정 했습니다. [파일 수준에서](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-file-level) 콘텐츠를 축소 및 압축 하 고, 디스크 스냅숏을 통한 백업을 처리 하는 세 번째 문서를 삭제 Azure Backup SAP HANA. 콘텐츠는 Azure의 SAP HANA에 대 한 백업 가이드에서 처리 됩니다 Virtual Machines 
 - 02/27/2020: sap [응용 프로그램에 대 한 SLES의 Azure vm](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse)에서 sap nw에 대 한 고가용성 변경, SAP 용 [Anf의 Azure vm에서 azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files) vm에 대 한 고가용성 및 [SLES 다중 SID 가이드의 azure vm에서 sap NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-multi-sid) 에 대 한 고가용성 (영문) "장애 조치 (failover)" 클러스터 매개 변수 조정

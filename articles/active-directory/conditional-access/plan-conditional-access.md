@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martincoetzer
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c8c5e3c2552101437bfed17906f94861e676568
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: e1c75d5022432a9a57b30aabec4dd2c4f76f2f29
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77468440"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78671825"
 ---
 # <a name="how-to-plan-your-conditional-access-deployment-in-azure-active-directory"></a>방법: Azure Active Directory에서 조건부 액세스 배포 계획
 
@@ -163,13 +163,13 @@ Azure AD는 레거시 인증을 포함하여 가장 널리 사용되는 몇 가�
 
 |정책 |시나리오 |예상 결과 | 결과 |
 |---|---|---|---|
-|[직장이 아닐 때 MFA 요구](https://docs.microsoft.com/azure/active-directory/conditional-access/untrusted-networks)|권한 있는 사용자가 신뢰할 수 있는 위치/직장에서 ‘앱’에 로그인함|사용자에게 MFA에 대한 메시지가 표시되지 않음| |
-|[직장이 아닐 때 MFA 요구](https://docs.microsoft.com/azure/active-directory/conditional-access/untrusted-networks)|권한 있는 사용자가 신뢰할 수 있는 위치/직장이 아닌 곳에서 ‘앱’에 로그인함|사용자에게 MFA에 대한 메시지가 표시되고 성공적으로 로그인할 수 있음| |
-|[MFA 요구(관리자의 경우)](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-baseline-protect-administrators)|전역 관리자가 ‘앱’에 로그인함|관리자에게 MFA에 대한 메시지가 표시됨| |
-|[위험한 로그인](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-sign-in-risk-policy)|사용자가 [Tor 브라우저](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection-playbook)를 사용하여 ‘앱’에 로그인함|관리자에게 MFA에 대한 메시지가 표시됨| |
-|[디바이스 관리](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices)|권한 있는 사용자가 권한 있는 디바이스에서 로그인하려고 시도함|액세스 권한 부여됨| |
-|[디바이스 관리](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices)|권한 있는 사용자가 권한 없는 디바이스에서 로그인하려고 시도함|액세스 차단됨| |
-|[위험한 사용자에 대한 암호 변경](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-user-risk-policy)|권한 있는 사용자가 손상된 자격 증명을 사용하여 로그인하려고 시도함(높은 위험 로그인)|사용자에게 암호를 변경하라는 메시지가 표시되거나 정책에 따라 액세스가 차단됨| |
+|[직장이 아닐 때 MFA 요구](/azure/active-directory/conditional-access/untrusted-networks)|권한 있는 사용자가 신뢰할 수 있는 위치/직장에서 ‘앱’에 로그인함|사용자에게 MFA에 대한 메시지가 표시되지 않음| |
+|[직장이 아닐 때 MFA 요구](/azure/active-directory/conditional-access/untrusted-networks)|권한 있는 사용자가 신뢰할 수 있는 위치/직장이 아닌 곳에서 ‘앱’에 로그인함|사용자에게 MFA에 대한 메시지가 표시되고 성공적으로 로그인할 수 있음| |
+|[MFA 요구(관리자의 경우)](/azure/active-directory/conditional-access/howto-baseline-protect-administrators)|전역 관리자가 ‘앱’에 로그인함|관리자에게 MFA에 대한 메시지가 표시됨| |
+|[위험한 로그인](/azure/active-directory/identity-protection/howto-sign-in-risk-policy)|사용자가 [Tor 브라우저](/azure/active-directory/active-directory-identityprotection-playbook)를 사용하여 ‘앱’에 로그인함|관리자에게 MFA에 대한 메시지가 표시됨| |
+|[디바이스 관리](/azure/active-directory/conditional-access/require-managed-devices)|권한 있는 사용자가 권한 있는 디바이스에서 로그인하려고 시도함|액세스 권한 부여됨| |
+|[디바이스 관리](/azure/active-directory/conditional-access/require-managed-devices)|권한 있는 사용자가 권한 없는 디바이스에서 로그인하려고 시도함|액세스 차단됨| |
+|[위험한 사용자에 대한 암호 변경](/azure/active-directory/identity-protection/howto-user-risk-policy)|권한 있는 사용자가 손상된 자격 증명을 사용하여 로그인하려고 시도함(높은 위험 로그인)|사용자에게 암호를 변경하라는 메시지가 표시되거나 정책에 따라 액세스가 차단됨| |
 
 ### <a name="configure-the-policy"></a>정책 구성
 

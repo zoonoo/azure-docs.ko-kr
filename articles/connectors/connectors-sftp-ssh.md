@@ -6,14 +6,14 @@ ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, klam, logicappspm
 ms.topic: article
-ms.date: 02/28/2020
+ms.date: 03/7/2020
 tags: connectors
-ms.openlocfilehash: e7a0791cc2bca672e7fde142650ad25e7e8ab58b
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.openlocfilehash: 0f62fb835fdd2353557a4aff47128bb94ba91a31
+ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78161877"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78851497"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>SSH 및 Azure Logic Apps를 사용하여 SFTP 파일 모니터링, 만들기 및 관리
 
@@ -36,29 +36,34 @@ SFTP-SSH 커넥터와 SFTP 커넥터 간의 차이점을 보려면이 항목의 
   > [!NOTE]
   > [Ise (통합 서비스 환경](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md))의 논리 앱의 경우이 커넥터의 ise 레이블 버전은 [ise 메시지 제한을](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) 대신 사용 합니다.
 
+  대신 사용할 [상수 청크 크기를 지정할](#change-chunk-size) 때이 적응형 동작을 재정의할 수 있습니다. 이 크기는 5mb에서 50 MB 까지입니다. 예를 들어 45 MB 파일 및 해당 파일 크기를 대기 시간 없이 지원할 수 있는 네트워크가 있다고 가정 합니다. 적응 청크는 호출 하는 것이 아니라 여러 번 호출 됩니다. 호출 수를 줄이기 위해 50 MB 청크 크기를 설정 해 볼 수 있습니다. 다른 시나리오에서는 논리 앱의 시간이 초과 되는 경우 (예: 15MB 청크를 사용 하는 경우) 크기를 5mb로 줄일 수 있습니다.
+
   청크 크기는 연결과 관련이 있습니다. 즉, 청크를 지 원하는 작업과 청크를 지원 하지 않는 작업에 대해 동일한 연결을 사용할 수 있습니다. 이 경우 청크를 지원 하지 않는 작업의 청크 크기는 5mb에서 50 MB 사이입니다. 다음 표에서는 청크를 지 원하는 SFTP-SSH 작업을 보여 줍니다.
 
-  | 작업 | 청크 지원 |
-  |--------|------------------|
-  | **파일 복사** | 아니요 |
-  | **파일 만들기** | 예 |
-  | **폴더 만들기** | 해당 없음 |
-  | **파일 삭제** | 해당 없음 |
-  | **폴더에 보관 추출** | 해당 없음 |
-  | **파일 콘텐츠 가져오기** | 예 |
-  | **경로를 사용하여 파일 콘텐츠 가져오기** | 예 |
-  | **파일 메타데이터 가져오기** | 해당 없음 |
-  | **경로를 사용하여 파일 메타데이터 가져오기** | 해당 없음 |
-  | **폴더의 파일 나열** | 해당 없음 |
-  | **파일 이름 바꾸기** | 해당 없음 |
-  | **파일 업데이트** | 아니요 |
-  |||
+  | 작업 | 청크 지원 | 청크 크기 지원 재정의 |
+  |--------|------------------|-----------------------------|
+  | **파일 복사** | 예 | 해당 없음 |
+  | **파일 만들기** | yes | yes |
+  | **폴더 만들기** | 해당 없음 | 해당 없음 |
+  | **파일 삭제** | 해당 없음 | 해당 없음 |
+  | **폴더에 보관 추출** | 해당 없음 | 해당 없음 |
+  | **파일 콘텐츠 가져오기** | yes | yes |
+  | **경로를 사용하여 파일 콘텐츠 가져오기** | yes | yes |
+  | **파일 메타데이터 가져오기** | 해당 없음 | 해당 없음 |
+  | **경로를 사용하여 파일 메타데이터 가져오기** | 해당 없음 | 해당 없음 |
+  | **폴더의 파일 나열** | 해당 없음 | 해당 없음 |
+  | **파일 이름 바꾸기** | 해당 없음 | 해당 없음 |
+  | **파일 업데이트** | 예 | 해당 없음 |
+  ||||
 
-* SFTP-SSH 트리거는 청크를 지원 하지 않습니다. 파일 콘텐츠를 요청 하는 경우 트리거는 15MB 미만의 파일만 선택 합니다. 64MB 보다 큰 파일을 가져오려면 대신 다음 패턴을 따릅니다.
+  > [!NOTE]
+  > 용량이 많은 파일을 업로드 하려면 SFTP 서버의 루트 폴더에 대 한 읽기 및 쓰기 권한이 모두 필요 합니다.
 
-  * **파일이 추가 되거나 수정 된 경우 (속성에만 해당)** 와 같이 파일 속성을 반환 하는 SFTP-SSH 트리거를 사용 합니다.
+* SFTP-SSH 트리거는 메시지 청크를 지원 하지 않습니다. 파일 콘텐츠를 요청 하는 경우 트리거는 15MB 미만의 파일만 선택 합니다. 64MB 보다 큰 파일을 가져오려면 대신 다음 패턴을 따릅니다.
 
-  * 전체 파일을 읽고 메시지 청크를 암시적으로 사용 하는 SFTP-SSH **파일 콘텐츠 가져오기** 작업을 사용 하 여 트리거를 수행 합니다.
+  1. **파일이 추가 되거나 수정 된 경우 (속성만)** 와 같이 파일 속성만 반환 하는 SFTP-SSH 트리거를 사용 합니다.
+
+  1. 전체 파일을 읽고 메시지 청크를 암시적으로 사용 하는 SFTP-SSH **파일 콘텐츠 가져오기** 작업을 사용 하 여 트리거를 수행 합니다.
 
 <a name="comparison"></a>
 
@@ -74,7 +79,7 @@ SFTP-SSH 커넥터와 SFTP 커넥터 간의 차이점을 보려면이 항목의 
 
 * *최대 1시간 동안* SFTP 서버에 대한 연결을 캐시합니다. 그러면 서버에 대한 연결에서 시도 수가 감소하며 성능이 개선됩니다. 이 캐싱 동작에 대한 기간을 설정하려면 SFTP 서버의 SSH 구성에서 [**ClientAliveInterval**](https://man.openbsd.org/sshd_config#ClientAliveInterval) 속성을 편집합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
@@ -125,7 +130,7 @@ SFTP-a s s-SSH 트리거는 SFTP 파일 시스템을 폴링하고 마지막 폴�
 
    `puttygen <path-to-private-key-file-in-PuTTY-format> -O private-openssh -o <path-to-private-key-file-in-OpenSSH-format>`
 
-   예를 들면 다음과 같습니다.
+   다음은 그 예입니다.
 
    `puttygen /tmp/sftp/my-private-key-putty.ppk -O private-openssh -o /tmp/sftp/my-private-key-openssh.pem`
 
@@ -153,13 +158,13 @@ SFTP-a s s-SSH 트리거는 SFTP 파일 시스템을 폴링하고 마지막 폴�
 
 1. [Azure Portal](https://portal.azure.com)에 로그인하고, 아직 열리지 않은 경우 Logic App Designer에서 논리 앱을 엽니다.
 
-1. 빈 논리 앱의 경우 검색 상자에서 필터로 “sftp ssh”를 입력합니다. 트리거 목록에서 원하는 트리거를 선택합니다.
+1. 빈 논리 앱의 경우 검색 상자에 `sftp ssh`를 필터로 입력 합니다. 트리거 목록에서 원하는 트리거를 선택합니다.
 
-   -또는-
+   또는
 
-   기존 논리 앱의 경우 작업을 추가하려는 마지막 단계에서 **새 단계**를 선택합니다. 검색 상자에서 필터로 “sftp ssh”를 입력합니다. 작업 목록에서 원하는 작업을 선택합니다.
+   기존 논리 앱의 경우 작업을 추가 하려는 마지막 단계에서 **새 단계**를 선택 합니다. 검색 상자에서 필터로 `sftp ssh`을 입력합니다. 작업 목록에서 원하는 작업을 선택합니다.
 
-   단계 사이에서 작업을 추가하려면 단계 사이에 있는 화살표 위로 포인터를 이동합니다. 표시되는 더하기 기호( **+** )를 선택한 다음, **작업 추가**를 선택합니다.
+   단계 사이에서 작업을 추가하려면 단계 사이에 있는 화살표 위로 포인터를 이동합니다. 표시 되는 더하기 기호 ( **+** )를 선택 하 고 **작업 추가**를 선택 합니다.
 
 1. 연결에 필요한 정보를 입력합니다.
 
@@ -177,9 +182,25 @@ SFTP-a s s-SSH 트리거는 SFTP 파일 시스템을 폴링하고 마지막 폴�
 
    1. 추가한 SFTP-SSH 트리거 또는 작업에서 *SSH 프라이빗 키* 속성으로 복사한 **전체** 키를 붙여넣습니다. 이는 여러 줄을 지원합니다.  키를 ***붙여넣었는지 확인합니다***. ***키를 수동으로 입력하거나 편집하지 마십시오***.
 
-1. 연결 세부 정보 입력이 완료되면 **만들기**를 선택합니다.
+1. 연결 세부 정보를 입력 했으면 **만들기**를 선택 합니다.
 
 1. 이제 선택한 트리거 또는 작업에 대해 필요한 세부 정보를 제공하고 논리 앱의 워크플로를 계속 빌드합니다.
+
+<a name="change-chunk-size"></a>
+
+## <a name="override-chunk-size"></a>청크 크기 재정의
+
+청크를 사용 하는 기본 적응 동작을 재정의 하려면 5 MB에서 50 MB까지 상수 청크 크기를 지정할 수 있습니다.
+
+1. 작업의 오른쪽 위 모서리에서 줄임표 단추 ( **...** )를 선택한 다음 **설정**을 선택 합니다.
+
+   ![SFTP-SSH 설정 열기](./media/connectors-sftp-ssh/sftp-ssh-connector-setttings.png)
+
+1. **콘텐츠 전송**의 **청크 크기** 속성에서 `50``5` 정수 값을 입력 합니다. 예를 들면 다음과 같습니다. 
+
+   ![대신 사용할 청크 크기 지정](./media/connectors-sftp-ssh/specify-chunk-size-override-default.png)
+
+1. 완료되면 **완료**를 선택합니다.
 
 ## <a name="examples"></a>예
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b2c1a088e4c200dcc4a2ff35db942e3eb8480674
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: c6bb57a60b2ed3b39bf83154d3afea88071efbac
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76512094"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672415"
 ---
 # <a name="controlled-validation-of-hybrid-azure-ad-join"></a>하이브리드 Azure AD 조인의 제어된 유효성 검사
 
@@ -82,13 +82,13 @@ ADSI 편집 (Active Directory Services 인터페이스 편집기)을 사용 하 
 AD FS를 사용 하는 경우 먼저 AD FS 서버에 GPO를 연결 하 여 위에서 설명한 지침을 사용 하 여 클라이언트 쪽 SCP를 구성 해야 합니다. SCP 개체는 장치 개체에 대 한 기관의 원본을 정의 합니다. 온-프레미스 또는 Azure AD 일 수 있습니다. 클라이언트 쪽 SCP가 AD FS에 대해 구성 된 경우 장치 개체의 원본은 Azure AD로 설정 됩니다.
 
 > [!NOTE]
-> AD FS 서버에서 클라이언트 쪽 SCP를 구성 하지 않은 경우 장치 id의 원본은 온-프레미스로 간주 됩니다. 그러면 adfs는 ADFS 장치 등록의 특성 "MaximumInactiveDays"에 정의 된 규정 된 기간 후 온-프레미스 디렉터리에서 장치 개체 삭제를 시작 합니다. ADFS 장치 등록 개체는 [합니다. cmdlet](https://docs.microsoft.com/powershell/module/adfs/get-adfsdeviceregistration?view=win10-ps)을 사용 하 여 찾을 수 있습니다.
+> AD FS 서버에서 클라이언트 쪽 SCP를 구성 하지 않은 경우 장치 id의 원본은 온-프레미스로 간주 됩니다. 그러면 adfs는 ADFS 장치 등록의 특성 "MaximumInactiveDays"에 정의 된 규정 된 기간 후 온-프레미스 디렉터리에서 장치 개체 삭제를 시작 합니다. ADFS 장치 등록 개체는 [합니다. cmdlet](/powershell/module/adfs/get-adfsdeviceregistration?view=win10-ps)을 사용 하 여 찾을 수 있습니다.
 
 ## <a name="controlled-validation-of-hybrid-azure-ad-join-on-windows-down-level-devices"></a>Windows 하위 수준 장치에서 하이브리드 Azure AD 조인에 대 한 제어 된 유효성 검사
 
 Windows 하위 수준 디바이스를 등록하려면 조직에서는 Microsoft Download Center에 제공되는 [비 Windows 10 컴퓨터용 Microsoft Workplace Join](https://www.microsoft.com/download/details.aspx?id=53554)을 설치해야 합니다.
 
- [Microsoft 엔드포인트 Configuration Manager](https://docs.microsoft.com/configmgr/)와 같은 소프트웨어 배포 시스템을 사용 하 여 패키지를 배포할 수 있습니다. 패키지는 quiet 매개 변수를 사용하여 표준 자동 설치 옵션을 지원합니다. 구성 관리자의 현재 분기는 완료된 등록을 추적하는 기능과 같은 이전 버전보다 나은 이점이 추가로 제공됩니다.
+ [Microsoft Endpoint Configuration Manager](/configmgr/)와 같은 소프트웨어 배포 시스템을 사용하여 패키지를 배포할 수 있습니다. 패키지는 quiet 매개 변수를 사용하여 표준 자동 설치 옵션을 지원합니다. 구성 관리자의 현재 분기는 완료된 등록을 추적하는 기능과 같은 이전 버전보다 나은 이점이 추가로 제공됩니다.
 
 설치 관리자는 사용자 컨텍스트에서 실행되는 예약된 작업을 시스템에 만듭니다. 사용자가 Windows에 로그인할 때 이 작업이 트리거됩니다. 이 작업은 Azure AD에서 인증을 받은 후 사용자 자격 증명으로 Azure AD에 디바이스를 자동으로 가입합니다.
 
