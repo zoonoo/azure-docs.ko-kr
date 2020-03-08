@@ -13,13 +13,13 @@ ms.author: ajburnle
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: de205beaf9800c2061cc41343b4153bd0e2b5dc7
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024605"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376856"
 ---
-# <a name="quickstart-create-a-new-tenant-in-azure-active-directory"></a>빠른 시작: Azure Active Directory에서 새 테넌트 만들기
+# <a name="quickstart-create-a-new-tenant-in-azure-active-directory"></a>빠른 시작: Azure Active Directory에서 새 테 넌 트 만들기
 Azure AD(Azure Active Directory) 포털을 사용하여 조직의 테넌트를 새로 만드는 작업을 비롯한 모든 관리 작업을 수행할 수 있습니다. 
 
 이 빠른 시작에서는 Azure Portal과 Azure Active Directory에 액세스하는 방법과 조직의 기본 테넌트를 만드는 방법을 배웁니다.
@@ -45,11 +45,11 @@ Azure Portal에 로그인한 후에 조직의 테넌트를 새로 만들 수 있
 
 1.  **디렉터리 만들기** 페이지에서 다음 정보를 입력합니다.
     
-    - **조직 이름** 상자에 _Contoso_를 입력합니다.
+    - _조직 이름_ 상자에 **Contoso**를 입력합니다.
 
-    - **초기 도메인 이름** 상자에 _Contoso_를 입력합니다.
+    - _초기 도메인 이름_ 상자에 **Contoso**를 입력합니다.
 
-    - **국가 또는 지역** 상자의 _미국_ 옵션은 그대로 사용합니다.
+    - _국가 또는 지역_ 상자의 **미국** 옵션은 그대로 사용합니다.
 
 1. **만들기**를 선택합니다.
 

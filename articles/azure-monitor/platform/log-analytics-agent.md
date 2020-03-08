@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/04/2020
-ms.openlocfilehash: 365c228edd97ffcd02b86508deff4272365447f6
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
-ms.translationtype: MT
+ms.openlocfilehash: 99083cd08db98a6d6ac56d4cf55aaf9d0e64e2b4
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77672143"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78362324"
 ---
 # <a name="log-analytics-agent-overview"></a>Log Analytics 에이전트 개요
 Azure Log Analytics 에이전트는 모든 클라우드, 온-프레미스 컴퓨터 및 [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/)에서 모니터링 하는 가상 컴퓨터에서 종합적인 관리를 위해 개발 되었습니다. Windows 및 Linux 에이전트는 다양 한 원본에서 수집 된 데이터를 Azure Monitor의 Log Analytics 작업 영역으로 보내고, 모니터링 솔루션에 정의 된 대로 고유한 로그 나 메트릭을 전송 합니다. 또한 Log Analytics 에이전트는 Azure Monitor에서 [VM용 Azure Monitor](../insights/vminsights-enable-overview.md), [Azure Security Center](/azure/security-center/), [Azure Automation](../../automation/automation-intro.md)등의 기타 서비스와 정보를 지원 합니다.
@@ -101,7 +101,7 @@ Windows 에이전트에 대해 다음 버전의 Windows 운영 체제가 공식�
 2018년 8월 이후에 출시된 버전부터 지원 모델이 다음과 같이 변경됩니다.  
 
 * 서버 버전만 지원되고 클라이언트 버전은 지원되지 않습니다.  
-* 새 버전의 [Azure Linux 보증 배포판](../../virtual-machines/linux/endorsed-distros.md)은 항상 지원됩니다.  
+* [Azure Linux 보증](../../virtual-machines/linux/endorsed-distros.md)배포판에서 집중 지원. Azure Linux 보증 새 배포판/버전 간에 약간의 지연이 있을 수 있으며 Log Analytics Linux 에이전트에 대해 지원 됩니다.
 * 나열된 각 주 버전의 모든 부 버전이 지원됩니다.
 * 제조업체의 지원 종료 날짜가 지난 버전은 지원되지 않습니다.  
 * 새 AMI 버전은 지원되지 않습니다.  

@@ -6,11 +6,11 @@ ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
 ms.openlocfilehash: 211f8c8a203b81a4df6a8e9515b403f99cec572a
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926323"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78370872"
 ---
 # <a name="notification-hubs-output-binding-for-azure-functions"></a>Azure Functions에 대한 Notification Hubs 출력 바인딩
 
@@ -48,7 +48,7 @@ Notification Hubs는 [Microsoft.Azure.WebJobs.Extensions.NotificationHubs](https
 
 ### <a name="c-script-template-example---out-parameter"></a>C# 스크립트 템플릿 예제 - out 매개 변수
 
-이 예제에서는 템플릿에 `message` 자리 표시자가 포함된 [템플릿 등록](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md)에 대한 알림을 보냅니다.
+이 예제에서는 템플릿에 [ 자리 표시자가 포함된 ](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md)템플릿 등록`message`에 대한 알림을 보냅니다.
 
 ```cs
 using System;
@@ -96,7 +96,7 @@ private static IDictionary<string, string> GetTemplateProperties(string message)
 
 ### <a name="c-script-template-example---json"></a>C# 스크립트 템플릿 예제 - JSON
 
-이 예제에서는 유효한 JSON 문자열을 사용하여 템플릿에 `message` 자리 표시자가 포함된 [템플릿 등록](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md)에 대한 알림을 보냅니다.
+이 예제에서는 유효한 JSON 문자열을 사용하여 템플릿에 [ 자리 표시자가 포함된 ](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md)템플릿 등록`message`에 대한 알림을 보냅니다.
 
 ```cs
 using System;
@@ -135,7 +135,7 @@ private static TemplateNotification GetTemplateNotification(string message)
 
 ### <a name="f-template-example"></a>F# 템플릿 예제
 
-이 예제에서는 `location` 및 `message`을 포함하는 [템플릿 등록](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md)에 대한 알림을 보냅니다.
+이 예제에서는 [ 및 ](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md)을 포함하는 `location`템플릿 등록`message`에 대한 알림을 보냅니다.
 
 ```fsharp
 let Run(myTimer: TimerInfo, notification: byref<IDictionary<string, string>>) =
@@ -144,7 +144,7 @@ let Run(myTimer: TimerInfo, notification: byref<IDictionary<string, string>>) =
 
 ### <a name="javascript-template-example"></a>JavaScript 템플릿 예제
 
-이 예제에서는 `location` 및 `message`을 포함하는 [템플릿 등록](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md)에 대한 알림을 보냅니다.
+이 예제에서는 [ 및 ](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md)을 포함하는 `location`템플릿 등록`message`에 대한 알림을 보냅니다.
 
 ```javascript
 module.exports = function (context, myTimer) {
@@ -247,11 +247,11 @@ public static async Task Run(string myQueueItem, IAsyncCollector<Notification> n
 
 다음 테이블에서는 *function.json* 파일 및 `NotificationHub` 특성에 설정된 바인딩 구성 속성을 설명합니다.
 
-|function.json 속성 | 특성 속성 |설명|
+|function.json 속성 | 특성 속성 |Description|
 |---------|---------|----------------------|
-|**type** |n/a| `notificationHub`로 설정해야 합니다. |
-|**direction** |n/a| `out`로 설정해야 합니다. | 
-|**name** |n/a| 알림 허브 메시지에 대한 함수 코드에 사용되는 변수 이름입니다. |
+|**type** |해당 없음| `notificationHub`로 설정해야 합니다. |
+|**direction** |해당 없음| `out`로 설정해야 합니다. | 
+|**name** |해당 없음| 알림 허브 메시지에 대한 함수 코드에 사용되는 변수 이름입니다. |
 |**tagExpression** |**TagExpression** | 태그 식을 사용하면 태그 식과 일치하는 알림을 수신하도록 등록된 일련의 디바이스에 배달하도록 지정할 수 있습니다.  자세한 내용은 [라우팅 및 태그 식](../notification-hubs/notification-hubs-tags-segment-push-message.md)을 참조하세요. |
 |**hubName** | **HubName** | Azure Portal에서 알림 허브 리소스의 이름입니다. |
 |**연결** | **ConnectionStringSetting** | Notification Hubs 연결 문자열을 포함하는 앱 설정의 이름입니다.  연결 문자열은 알림 허브의 *DefaultFullSharedAccessSignature* 값으로 설정해야 합니다. 이 문서의 뒷부분에 나오는 [연결 문자열 설정](#connection-string-setup)을 참조하세요.|

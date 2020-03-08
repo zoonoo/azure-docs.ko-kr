@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: alkohli
 ms.openlocfilehash: a56610dd81d6e50da11bbd65bcf0682e399b1783
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76273954"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78366813"
 ---
 # <a name="deploy-your-on-premises-storsimple-device-update-3-and-later"></a>온-프레미스 StorSimple 디바이스(업데이트 3 이상) 배포
 
@@ -62,7 +62,7 @@ StorSimple 디바이스를 구성하여 StorSimple 디바이스 관리자 서비
 
 * [StorSimple 배포 구성 검사 목록 다운로드](https://www.microsoft.com/download/details.aspx?id=49159)
 
-## <a name="deployment-prerequisites"></a>배포 필수 구성 요소
+## <a name="deployment-prerequisites"></a>배포 필수 조건
 다음 섹션에서는 StorSimple 디바이스 관리자 서비스 및 StorSimple 디바이스에 대한 필수 조건에 대해 설명합니다.
 
 ### <a name="for-the-storsimple-device-manager-service"></a>StorSimple 디바이스 관리자 서비스의 경우

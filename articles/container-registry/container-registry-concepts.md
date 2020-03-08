@@ -3,12 +3,12 @@ title: 리포지토리 & 이미지 정보
 description: Azure 컨테이너 레지스트리, 리포지토리 및 컨테이너 이미지의 주요 개념을 소개 합니다.
 ms.topic: article
 ms.date: 09/10/2019
-ms.openlocfilehash: 9de0c344b226a0b13e76c7f02977ba3c91ba2d2a
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: ea6e2577d3eee91626dd613617a0b79e4ff3d6a1
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74455281"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78668617"
 ---
 # <a name="about-registries-repositories-and-images"></a>레지스트리, 리포지토리 및 이미지 정보
 
@@ -24,9 +24,7 @@ Docker 컨테이너 이미지 외에도 Azure Container Registry은 OCI (Open Co
 
 Azure container registry의 아티팩트 주소에는 다음과 같은 요소가 포함 됩니다. 
 
-```
-[loginUrl]/[namespace]/[artifact:][tag]
-```
+`[loginUrl]/[namespace]/[artifact:][tag]`
 
 * **loginUrl** -레지스트리 호스트의 정규화 된 이름입니다. Azure container registry의 레지스트리 호스트는 *myregistry*. azurecr.io (모두 소문자) 형식으로 되어 있습니다. Docker 또는 다른 클라이언트 도구를 사용 하 여 Azure container registry에 아티팩트를 끌어오거나 푸시할 때 loginUrl를 지정 해야 합니다. 
 * 작업 그룹 또는 응용 프로그램의 경우와 같이 관련 된 이미지 또는 아티팩트의 **네임 스페이스로** 구분 된 논리적 그룹화
@@ -36,9 +34,7 @@ Azure container registry의 아티팩트 주소에는 다음과 같은 요소가
 
 예를 들어 Azure container registry에 있는 이미지의 전체 이름은 다음과 같습니다.
 
-```
-myregistry.azurecr.io/marketing/campaign10-18/email-sender:v2
-```
+*myregistry.azurecr.io/marketing/campaign10-18/email-sender:v2*
 
 이러한 요소에 대 한 자세한 내용은 다음 섹션을 참조 하십시오.
 
@@ -46,21 +42,18 @@ myregistry.azurecr.io/marketing/campaign10-18/email-sender:v2
 
 컨테이너 레지스트리는 *리포지토리*를 관리 하 고, 동일한 이름의 컨테이너 이미지 또는 다른 아티팩트의 컬렉션을 관리 하 고, 다른 태그를 사용 합니다. 예를 들어, 다음 3개의 이미지가 "helloworld acr" 리포지토리에 있습니다.
 
-```
-acr-helloworld:latest
-acr-helloworld:v1
-acr-helloworld:v2
-```
+
+- *acr-helloworld: 최신*
+- *acr-helloworld: v1*
+- *acr-helloworld: v2*
 
 리포지토리 이름에 [네임스페이스](container-registry-best-practices.md#repository-namespaces)가 포함될 수도 있습니다. 네임 스페이스를 사용 하면 슬래시로 구분 된 리포지토리 이름을 사용 하 여 이미지를 그룹화 할 수 있습니다. 예를 들면 다음과 같습니다.
 
-```
-marketing/campaign10-18/web:v2
-marketing/campaign10-18/api:v3
-marketing/campaign10-18/email-sender:v2
-product-returns/web-submission:20180604
-product-returns/legacy-integrator:20180715
-```
+- *marketing/campaign10-18/웹: v2*
+- *marketing/campaign10-18/api: v3*
+- *marketing/campaign10-18/전자 메일-보낸 사람: v2*
+- *제품-반환/웹 제출: 20180604*
+- *제품 반환/레거시-통합자: 20180715*
 
 ## <a name="image"></a>이미지
 
@@ -92,8 +85,11 @@ az acr repository show-manifests --name <acrName> --repository <repositoryName>
 
 예를 들어 "acr-helloworld" 리포지토리의 매니페스트를 나열 합니다.
 
-```console
-$ az acr repository show-manifests --name myregistry --repository acr-helloworld
+```azurecli
+az acr repository show-manifests --name myregistry --repository acr-helloworld
+```
+
+```output
 [
   {
     "digest": "sha256:0a2e01852872580b2c2fea9380ff8d7b637d3928783c55beb3f21a6e58d5d108",
@@ -128,9 +124,7 @@ $ az acr repository show-manifests --name myregistry --repository acr-helloworld
 
 예를 들어, 매니페스트 다이제스트를 통해 "acr-helloworld" 리포지토리에서 이미지를 끌어옵니다.
 
-```console
-$ docker pull myregistry.azurecr.io/acr-helloworld@sha256:0a2e01852872580b2c2fea9380ff8d7b637d3928783c55beb3f21a6e58d5d108
-```
+`docker pull myregistry.azurecr.io/acr-helloworld@sha256:0a2e01852872580b2c2fea9380ff8d7b637d3928783c55beb3f21a6e58d5d108`
 
 > [!IMPORTANT]
 > 동일한 태그가 지정된 이미지를 수정 후 반복적으로 밀어넣을 경우 태그가 지정되지 않은 이미지는 별도로 분리되어 생성될 수 있지만 이 이미지는 여전히 레지스트리에서 공간을 차지합니다. 태그가 지정되지 않은 이미지는 태그를 기준으로 이미지를 나열하거나 표시할 경우 Azure CLI 또는 Azure Portal에 표시되지 않습니다. 그러나 해당 계층은 여전히 존재하며 레지스트리에서 공간을 차지합니다. 태그가 없는 이미지를 삭제 하면 매니페스트가 유일한 경우 또는 마지막 인 경우 특정 계층을 가리키는 레지스트리 공간을 해제 합니다. 태그 없는 이미지에서 사용 되는 공간을 확보 하는 방법에 대 한 자세한 내용은 [Azure Container Registry에서 컨테이너 이미지 삭제](container-registry-delete.md)를 참조 하세요.

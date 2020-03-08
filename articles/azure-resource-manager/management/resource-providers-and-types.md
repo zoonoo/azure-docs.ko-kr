@@ -4,11 +4,11 @@ description: 리소스 관리자, 스키마, 제공되는 API 버전 및 리소�
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.openlocfilehash: ce68762dae14f98a751cb4b619b75ff04a5f655b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75478592"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78372213"
 ---
 # <a name="azure-resource-providers-and-types"></a>Azure 리소스 공급자 및 종류
 
@@ -29,7 +29,7 @@ Azure Portal, Azure PowerShell 또는 Azure CLI를 통해 이러한 단계를 �
 
 리소스 공급자를 Azure 서비스에 매핑하는 목록은 [azure 서비스에 대 한 리소스 공급자](azure-services-resource-providers.md)를 참조 하세요.
 
-## <a name="azure-portal"></a>Azure Portal
+## <a name="azure-portal"></a>Azure portal
 
 모든 리소스 공급자와 구독 등록 상태를 보려면 다음을 수행합니다.
 

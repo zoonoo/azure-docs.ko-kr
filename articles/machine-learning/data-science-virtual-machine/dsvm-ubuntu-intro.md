@@ -9,13 +9,13 @@ ms.author: gopalv
 ms.topic: quickstart
 ms.date: 12/31/2019
 ms.openlocfilehash: 5d139cbd59b1b3e63786ae22bbd3b934de37cd49
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77526113"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78360639"
 ---
-# <a name="quickstart-set-up-the-data-science-virtual-machine-for-linux-ubuntu"></a>빠른 시작: Linux(Ubuntu)용 Data Science Virtual Machine 설정
+# <a name="quickstart-set-up-the-data-science-virtual-machine-for-linux-ubuntu"></a>빠른 시작: Linux 용 Data Science Virtual Machine 설정 (Ubuntu)
 
 Ubuntu 18.04 Data Science Virtual Machine을 준비하고 실행합니다.
 
@@ -39,23 +39,23 @@ Data Science Virtual Machine Ubuntu 18.04의 인스턴스를 만드는 단계는
 
     1. **기본 사항**:
     
-       * **구독**: 둘 이상의 구독이 있으면 머신을 만들고 요금을 청구할 구독을 선택합니다. 이 구독에 대한 리소스 만들기 권한이 있어야 합니다.
-       * **리소스 그룹**: 새 그룹을 만들거나 기존 그룹을 사용합니다.
-       * **가상 머신 이름**: 가상 머신의 이름을 입력합니다. 입력한 대로 Azure Portal에 표시됩니다.
-       * **지역**: 가장 적합한 데이터 센터를 선택합니다. 가장 빠른 네트워크 액세스를 위해 대부분의 데이터가 있거나 물리적 위치에 가장 가까운 데이터 센터입니다. [Azure 지역](https://azure.microsoft.com/global-infrastructure/regions/)에 대해 자세히 알아보세요.
+       * **구독**: 둘 이상의 구독이 있는 경우 컴퓨터가 만들어지고 청구 되는 구독을 선택 합니다. 이 구독에 대한 리소스 만들기 권한이 있어야 합니다.
+       * **리소스 그룹**: 새 그룹을 만들거나 기존 그룹을 사용 합니다.
+       * **가상 컴퓨터 이름**: 가상 컴퓨터의 이름을 입력 합니다. 입력한 대로 Azure Portal에 표시됩니다.
+       * **지역**: 가장 적합 한 데이터 센터를 선택 합니다. 가장 빠른 네트워크 액세스를 위해 대부분의 데이터가 있거나 물리적 위치에 가장 가까운 데이터 센터입니다. [Azure 지역](https://azure.microsoft.com/global-infrastructure/regions/)에 대해 자세히 알아보세요.
        * **이미지**: 기본값을 그대로 둡니다.
-       * **Size**: 일반 워크로드에 적합한 크기가 자동으로 채워집니다. [Azure의 Linux VM 크기](../../virtual-machines/linux/sizes.md)에 대해 자세히 읽어보세요.
-       * **인증 형식**: 더 빨리 설치하려면 "암호"를 선택합니다. 
+       * **크기**: 일반 작업에 적절 한 크기로 자동 채워야 합니다. [Azure의 Linux VM 크기](../../virtual-machines/linux/sizes.md)에 대해 자세히 읽어보세요.
+       * **인증 유형**: 더 빠른 설치를 위해 "암호"를 선택 합니다. 
          
          > [!NOTE]
          > JupyterHub를 사용하려면 "암호"를 선택해야 합니다. JupyterHub는 SSH 공개 키를 사용하도록 구성되지 *않기* 때문입니다.
 
-       * **사용자 이름**: 관리자 사용자 이름을 입력합니다. 가상 머신에 로그인할 때 사용할 사용자 이름이며 Azure 사용자 이름과 같지 않아도 됩니다. 대문자는 사용하지 *마십시오*.
+       * **사용자 이름**: 관리자 사용자 이름을 입력 합니다. 가상 머신에 로그인할 때 사용할 사용자 이름이며 Azure 사용자 이름과 같지 않아도 됩니다. 대문자는 사용하지 *마십시오*.
          
          > [!NOTE]
          > 사용자 이름에 대문자를 사용하면 JupyterHub가 작동하지 않으며 500 내부 서버 오류가 발생합니다.
 
-       * **암호**: 가상 머신에 로그인하는 데 사용할 암호를 입력합니다.    
+       * **암호**: 가상 머신에 로그인 하는 데 사용할 암호를 입력 합니다.    
     
    1. **검토 + 만들기**를 선택합니다.
    1. **검토+만들기**
@@ -94,12 +94,12 @@ Linux VM은 이미 X2Go 서버와 함께 프로비저닝되었고 클라이언�
 
 1. 구성 창이 열리면 다음과 같은 구성 매개 변수를 입력합니다.
    * **세션 탭**:
-     * **호스트**: 앞서 기록해 둔 VM의 IP 주소를 입력합니다.
-     * **로그인**: Linux VM에서 사용자 이름을 입력합니다.
+     * **호스트**: 이전에 기록해 둔 VM의 IP 주소를 입력 합니다.
+     * **로그인**: Linux VM에서 사용자 이름을 입력 합니다.
      * **SSH 포트**: 기본값 22를 그대로 사용합니다.
      * **세션 유형**: 값을 **XFCE**로 변경합니다. 현재 Linux VM은 XFCE 데스크톱만 지원합니다.
    * **미디어 탭**: 사운드 지원 및 클라이언트 인쇄를 사용하지 않으려면 해제할 수 있습니다.
-   * **공유 폴더**: 클라이언트 머신의 디렉터리를 Linux VM에 탑재하려면 이 탭에서 VM과 공유하려는 클라이언트 머신 디렉터리를 추가합니다.
+   * **공유 폴더**: 클라이언트 컴퓨터의 디렉터리를 Linux VM에 탑재하려면 이 탭에서 VM과 공유하려는 클라이언트 컴퓨터 디렉터리를 추가합니다.
 
    ![X2go 구성](./media/dsvm-ubuntu-intro/x2go-ubuntu.png)
 1. **확인**을 선택합니다.

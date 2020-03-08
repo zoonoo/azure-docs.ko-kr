@@ -12,11 +12,11 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/20/2019
 ms.openlocfilehash: a4c435b4874301fe6fb804085c5b265954cd4f5a
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75637595"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78359895"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-purchasing-model"></a>DTU 구매 모델을 사용 하 여 단일 데이터베이스에 대 한 리소스 제한
 
@@ -38,7 +38,7 @@ ms.locfileid: "75637595"
 | 최대 DTU | 5 |
 | 포함된 스토리지(GB) | 2 |
 | 최대 스토리지(GB) 옵션 | 2 |
-| 최대 메모리 내 OLTP 스토리지(GB) |N/A |
+| 최대 메모리 내 OLTP 스토리지(GB) |해당 없음 |
 | 최대 동시 작업자(요청) | 30 |
 | 최대 동시 세션 | 300 |
 |||
@@ -56,7 +56,7 @@ ms.locfileid: "75637595"
 | 최대 DTU | 10 | 20 | 50 | 100 |
 | 포함된 스토리지(GB) | 250 | 250 | 250 | 250 |
 | 최대 스토리지(GB) 옵션 | 250 | 250 | 250 | 250, 500, 750, 1024 |
-| 최대 메모리 내 OLTP 스토리지(GB) | N/A | N/A | N/A | N/A |
+| 최대 메모리 내 OLTP 스토리지(GB) | 해당 없음 | 해당 없음 | 해당 없음 | 해당 없음 |
 | 최대 동시 작업자(요청)| 60 | 90 | 120 | 200 |
 | 최대 동시 세션 |600 | 900 | 1200 | 2400 |
 ||||||
@@ -74,7 +74,7 @@ ms.locfileid: "75637595"
 | 최대 DTU | 200 | 400 | 800 | 1600 | 3000 |
 | 포함된 스토리지(GB) | 250 | 250 | 250 | 250 | 250 |
 | 최대 스토리지(GB) 옵션 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 |
-| 최대 메모리 내 OLTP 스토리지(GB) | N/A | N/A | N/A | N/A |N/A |
+| 최대 메모리 내 OLTP 스토리지(GB) | 해당 없음 | 해당 없음 | 해당 없음 | 해당 없음 |해당 없음 |
 | 최대 동시 작업자(요청)| 400 | 800 | 1600 | 3200 |6000 |
 | 최대 동시 세션 |4800 | 9600 | 19200 | 30000 |30000 |
 |||||||
@@ -96,7 +96,7 @@ ms.locfileid: "75637595"
 > [!IMPORTANT]
 > 프리미엄 계층에 1TB 이상 저장소는 중국 동부, 중국 북부, 독일 중부, 독일 북동쪽, 미국 서 부, US DoD 지역 및 미국 정부 중부를 제외한 모든 지역에서 사용할 수 있습니다. 이러한 지역에서 프리미엄 계층 스토리지 최대 크기는 1TB로 제한됩니다.  자세한 내용은 [P11-P15 현재 제한 사항](sql-database-single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb)을 참조하세요.  
 > [!NOTE]
-> `tempdb`제한 사항은 [tempdb 제한](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database?view=sql-server-2017#tempdb-database-in-sql-database)을 참조 하세요.
+> `tempdb` 제한은 [tempdb 제한](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database?view=sql-server-2017#tempdb-database-in-sql-database)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

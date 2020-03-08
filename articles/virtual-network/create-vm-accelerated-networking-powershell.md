@@ -15,11 +15,11 @@ ms.workload: infrastructure
 ms.date: 01/04/2018
 ms.author: gsilva
 ms.openlocfilehash: 16837782af2f08e27363091dc21587a100194cd8
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083696"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78363517"
 ---
 # <a name="create-a-windows-virtual-machine-with-accelerated-networking-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 가속화 된 네트워킹을 사용 하는 Windows 가상 머신 만들기
 
@@ -41,26 +41,26 @@ ms.locfileid: "74083696"
 ## <a name="limitations-and-constraints"></a>제한 및 제약 조건
 
 ### <a name="supported-operating-systems"></a>지원되는 운영 체제
-다음 분포는 즉시 Azure Gallery에서 기본으로 지원됩니다.
+다음 배포는 즉시 Azure Gallery에서 기본으로 지원됩니다.
 * **Windows Server 2016 Datacenter** 
 * **Windows Server 2012 R2 Datacenter**
 * **Windows Server 2019 Datacenter**
 
 ### <a name="supported-vm-instances"></a>지원되는 VM 인스턴스
-가속화된 네트워킹은 가장 일반적인 용도 및 2개 이상의 vCPU가 포함된 계산 최적화 인스턴스 크기로 지원됩니다.  이러한 지원되는 계열은 D/DSv2 및 F/Fs입니다.
+가속 네트워킹은 가장 일반적인 용도로 2개 이상의 vCPU가 포함된 계산 최적화 인스턴스 크기에서 지원됩니다.  이러한 지원되는 계열은 D/DSv2 및 F/Fs입니다.
 
-하이퍼스레딩을 지원하는 인스턴스에서 가속화된 네트워킹은 4개 이상의 vCPU가 포함된 VM 인스턴스에서 지원됩니다. 지원 되는 시리즈는 D/Dsv3, E/Esv3, Fsv2, Lsv2, Ms/Mms 및 Ms/Mmsv2입니다.
+하이퍼스레딩을 지원하는 인스턴스에서 가속 네트워킹은 4개 이상의 vCPU가 포함된 VM 인스턴스에서 지원됩니다. 지원 되는 시리즈는 D/Dsv3, E/Esv3, Fsv2, Lsv2, Ms/Mms 및 Ms/Mmsv2입니다.
 
 VM 인스턴스에 대한 자세한 내용은 [Windows VM 크기](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
 
-### <a name="regions"></a>Regions
+### <a name="regions"></a>영역
 모든 공용 Azure 지역 및 Azure Government 클라우드에서 사용할 수 있습니다.
 
-### <a name="enabling-accelerated-networking-on-a-running-vm"></a>실행 중인 VM에서 가속화된 네트워킹 사용하도록 설정
+### <a name="enabling-accelerated-networking-on-a-running-vm"></a>실행 중인 VM에서 가속 네트워킹 사용
 가속 네트워킹을 사용하지 않고 지원되는 VM 크기에서는 기능이 중지되고 할당이 취소된 경우에만 사용하도록 설정할 수 있습니다.
 
 ### <a name="deployment-through-azure-resource-manager"></a>Azure Resource Manager를 통한 배포
-가속화된 네트워킹을 사용하여 가상 머신(클래식)을 배포할 수 없습니다.
+가속 네트워킹을 사용하여 가상 머신(클래식)을 배포할 수 없습니다.
 
 ## <a name="create-a-windows-vm-with-azure-accelerated-networking"></a>Azure 가속화된 네트워킹을 사용하여 Windows VM 만들기
 ## <a name="portal-creation"></a>포털 만들기
@@ -220,7 +220,7 @@ Azure에서 VM을 만들면 VM에 연결하고 Windows에서 드라이버가 설
 
 이제 가속화된 네트워킹을 VM에 사용할 수 있습니다.
 
-## <a name="enable-accelerated-networking-on-existing-vms"></a>기존 VM에서 가속화된 네트워킹을 사용하도록 설정
+## <a name="enable-accelerated-networking-on-existing-vms"></a>기존 VM에서 가속 네트워킹 사용
 가속 네트워킹을 사용하지 않고 VM을 만든 경우 기존 VM에서 이 기능을 사용하도록 설정할 수 있습니다.  VM이 위에 설명된 다음 필수 조건을 충족하여 가속 네트워킹을 지원해야 합니다.
 
 * VM은 가속화된 네트워킹에 대해 지원되는 크기이어야 함

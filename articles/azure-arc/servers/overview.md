@@ -10,11 +10,11 @@ keywords: Azure Automation, DSC, PowerShell, Desired State Configuration, 업데
 ms.date: 02/24/2020
 ms.topic: overview
 ms.openlocfilehash: 57b44db9c1bb9a607ad8478b7208df40441020c2
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77586243"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78372230"
 ---
 # <a name="what-is-azure-arc-for-servers-preview"></a>서버용 Azure Arc(미리 보기)란?
 
@@ -49,10 +49,10 @@ Azure 외부에 호스팅되는 하이브리드 머신에 이 환경을 제공�
 
 Azure Connected Machine 에이전트를 공식적으로 지원하는 Windows 및 Linux 운영 체제 버전은 다음과 같습니다. 
 
-- Windows Server 2012 R2 이상(Windows Server Core 포함)
+- Windows Server 2012 R2 이상 (Windows Server Core 포함)
 - Ubuntu 16.04 및 18.04
 - CentOS Linux 7
-- SLES(SUSE Linux Enterprise Server) 15
+- SUSE Linux Enterprise Server (SLES) 15
 - Red Hat Enterprise Linux(RHEL) 7
 - Amazon Linux 7
 
@@ -72,7 +72,7 @@ Azure Connected Machine 에이전트를 공식적으로 지원하는 Windows 및
 
 ## <a name="tls-12-protocol"></a>TLS 1.2 프로토콜
 
-Azure로 전송되는 데이터의 보안을 보장하려면 TLS(전송 계층 보안) 1.2를 사용하도록 머신을 구성하는 것이 좋습니다. 이전 버전의 TLS/SSL(Secure Sockets Layer)은 취약한 것으로 나타났으며, 여전히 이전 버전과 호환되지만 **사용하지 않는 것이 좋습니다**. 
+Azure에 전송 되는 데이터의 보안을 보장 하려면 TLS (전송 계층 보안) 1.2를 사용 하도록 컴퓨터를 구성 하는 것이 좋습니다. 이전 버전의 TLS/SSL(Secure Sockets Layer)은 취약한 것으로 나타났으며, 여전히 이전 버전과 호환되지만 **사용하지 않는 것이 좋습니다**. 
 
 |플랫폼/언어 | 지원 | 추가 정보 |
 | --- | --- | --- |
@@ -135,7 +135,7 @@ az provider register --namespace 'Microsoft.GuestConfiguration'
 
 ## <a name="connected-machine-agent"></a>Connected Machine 에이전트
 
-Windows 및 Linux용 Azure Connected Machine 에이전트 패키지는 아래에 나열된 위치에서 다운로드할 수 있습니다.
+아래 나열 된 위치에서 Windows 및 Linux 용 Azure 연결 된 컴퓨터 에이전트 패키지를 다운로드할 수 있습니다.
 
 - Microsoft 다운로드 센터에서 [Windows 에이전트 Windows Installer 패키지](https://aka.ms/AzureConnectedMachineAgent)를 다운로드합니다.
 - Linux 에이전트 패키지는 선호하는 배포 패키지 형식(.RPM 또는 .DEB)을 사용하여 Microsoft [패키지 리포지토리](https://packages.microsoft.com/)를 통해 배포됩니다.
@@ -143,11 +143,11 @@ Windows 및 Linux용 Azure Connected Machine 에이전트 패키지는 아래에
 >[!NOTE]
 >이 미리 보기 기간에는 Ubuntu 16.04 또는 18.04에 적합한 한 가지 패키지만 릴리스되었습니다.
 
-Windows 및 Linux용 Azure Connected Machine 에이전트는 요구 사항에 따라 수동 또는 자동으로 최신 릴리스로 업그레이드할 수 있습니다. Windows의 경우 Windows 업데이트를 사용하고, Ubuntu의 경우 [apt](https://help.ubuntu.com/lts/serverguide/apt.html) 명령줄 도구를 사용하여 에이전트를 자동으로 업데이트할 수 있습니다.
+Windows 및 Linux 용 Azure 연결 된 컴퓨터 에이전트는 요구 사항에 따라 수동으로 또는 자동으로 최신 릴리스로 업그레이드할 수 있습니다. Windows의 경우 [apt](https://help.ubuntu.com/lts/serverguide/apt.html) 명령줄 도구를 사용 하 여 Windows 업데이트 및 Ubuntu에 대해 에이전트 업데이트를 자동으로 수행할 수 있습니다.
 
 ### <a name="agent-status"></a>에이전트 상태
 
-Connected Machine 에이전트는 5분마다 정기적인 하트비트 메시지를 서비스에 보냅니다. 15분 동안 받지 못하면 머신이 오프라인으로 간주되고, 포털에서 상태가 자동으로 **연결되지 않음**으로 변경됩니다. Connected Machine 에이전트로부터 후속 하트비트 메시지를 받으면 상태가 자동으로 **연결됨**으로 변경됩니다.
+연결 된 컴퓨터 에이전트는 5 분 마다 일반 하트 비트 메시지를 서비스로 보냅니다. 15 분 동안 수신 되지 않으면 컴퓨터가 오프 라인으로 간주 되 고 상태가 포털에서 **연결이 끊어짐** 으로 자동 변경 됩니다. 연결 된 컴퓨터 에이전트에서 후속 하트 비트 메시지가 수신 되 면 상태가 자동으로 **연결**됨으로 변경 됩니다.
 
 ## <a name="install-and-configure-agent"></a>에이전트 설치 및 구성
 

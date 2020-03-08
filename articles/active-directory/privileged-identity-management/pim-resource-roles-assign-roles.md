@@ -16,11 +16,11 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 34051a31c6ccf69356f330d7c5ecb009f760857a
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72895955"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78375488"
 ---
 # <a name="assign-azure-resource-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure 리소스 역할 할당
 
@@ -28,7 +28,7 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM)는 기본
 
 - 소유자
 - 사용자 액세스 관리자
-- 기여자
+- 참가자
 - 보안 관리자
 - 보안 관리자
 

@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: helohr
 ms.openlocfilehash: a6bc8546a4047e921d62953e39eaddf546f38229
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367430"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78388830"
 ---
 # <a name="create-a-profile-container-for-a-host-pool-using-a-file-share"></a>파일 공유를 사용하여 호스트 풀에 대한 프로필 컨테이너 만들기
 
@@ -65,7 +65,7 @@ FSLogix 소프트웨어를 사용 하 여 가상 머신을 구성 하려면 호�
 6. **프로필**이라는 키를 만듭니다.
 7. 프로필 키에 대해 다음 값을 만듭니다.
 
-| 이름                | 형식               | 데이터/값                        |
+| 속성                | Type               | 데이터/값                        |
 |---------------------|--------------------|-----------------------------------|
 | 사용             | DWORD              | 1                                 |
 | VHDLocations        | 다중 문자열 값 | "파일 공유의 네트워크 경로"     |

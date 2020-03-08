@@ -12,11 +12,11 @@ ms.author: genemi
 ms.reviewer: billgib, sstein
 ms.date: 12/18/2018
 ms.openlocfilehash: 6f660426c41b37dd27438c28cbf603bdbf1e58b3
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822115"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78359108"
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>분할된 다중 테넌트 SQL 데이터베이스를 사용하는 SaaS 애플리케이션에서 스키마 관리
 
@@ -40,7 +40,7 @@ Azure SQL Database의 [탄력적 작업](elastic-jobs-overview.md) 기능은 테
 > * 모든 테넌트 데이터베이스의 참조 데이터 업데이트하기.
 > * 모든 테넌트 데이터베이스의 테이블에서 인덱스를 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Wingtip Tickets 다중 테넌트 데이터베이스 앱이 설치되어 있어야 합니다.
     - 자세한 내용은 Wingtip Tickets SaaS 다중 테넌트 데이터베이스 앱을 소개하는 첫 번째 튜토리얼을 참조하세요.<br />[Azure SQL Database를 사용하는 분할된 다중 테넌트 애플리케이션 배포 및 탐색](saas-multitenantdb-get-started-deploy.md)합니다.
@@ -88,7 +88,7 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 애플
 먼저 각 테넌트 데이터베이스에 포함된 각 장소 유형을 검토합니다. SQL Server Management Studio(SSMS)에서 테넌트 데이터베이스 중 하나에 접속하여 VenueTypes 테이블을 살펴봅니다.  데이터베이스 페이지에서 액세스할 수 있는 Azure Portal에서 쿼리 편집기를 사용하여 이 표를 쿼리하는 방법도 있습니다.
 
 1. SSMS를 열고 테넌트 서버 *tenants1-dpt-&lt;user&gt;.database.windows.net*에 접속합니다.
-1. *Motorcycle Racing*과 *Swimming Club*이 현재 포함되어 있지 **않은** 것을 확인하려면 *tenants1-dpt-* user *&lt; 서버에서 &gt;contosoconcerthall* 데이터베이스로 이동하여 *VenueTypes* 테이블을 쿼리합니다.
+1. *Motorcycle 경주* 및 *수영 클럽* **이** 현재 포함 되어 있지 않은지 확인 하려면 *tenants1-&lt;user 사용자&gt;* 서버에서 *contosoconcerthall* 데이터베이스로 이동 하 여 *VenueTypes* 테이블을 쿼리 합니다.
 
 
 
