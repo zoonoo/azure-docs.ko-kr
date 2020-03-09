@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect 동기화: 운영 작업 및 고려 사항 | Microsoft Docs'
+title: 'Azure AD Connect Sync: 운영 작업 및 고려 사항 | Microsoft Docs'
 description: 이 항목에서는 Azure AD Connect Sync 및 이 구성 요소를 운영하기 위한 준비 방법에 대한 운영 작업을 설명합니다.
 services: active-directory
 documentationcenter: ''
@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bc88640cdff4f716902a80bb149913b961d40ae3
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900050"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376209"
 ---
 # <a name="azure-ad-connect-staging-server-and-disaster-recovery"></a>Azure AD Connect: 준비 서버 및 재해 복구
 스테이징 모드에 있는 서버로 서버를 활성화하기 전에 구성을 변경하고 변경을 미리 볼 수 있습니다. 또한 프로덕션 환경에 해당 변경 사항을 적용하기 전에 필요한지를 확인하기 위해 전체 가져오기 및 동기화를 실행할 수 있습니다.
@@ -50,7 +50,7 @@ ms.locfileid: "69900050"
 이 메서드를 적용 하려면 다음 단계를 수행합니다.
 
 1. [준비](#prepare)
-2. [구성](#configuration)
+2. [Configuration](#configuration)
 3. [가져오기 및 동기화](#import-and-synchronize)
 4. [Verify](#verify)
 5. [활성 서버 전환](#switch-active-server)
@@ -60,7 +60,7 @@ ms.locfileid: "69900050"
    ![ReadyToConfigure](./media/how-to-connect-sync-staging-server/readytoconfigure.png)
 2. 시작 메뉴에서 로그오프/로그온하고 **동기화 서비스**를 선택합니다.
 
-#### <a name="configuration"></a>Configuration
+#### <a name="configuration"></a>구성
 주 서버에 사용자 지정 변경 내용을 적용했으며 구성을 스테이징 서버와 비교하려는 경우 [Azure AD Connect 구성 구조 분석](https://github.com/Microsoft/AADConnectConfigDocumenter)을 사용합니다.
 
 #### <a name="import-and-synchronize"></a>가져오기 및 동기화
@@ -71,10 +71,10 @@ ms.locfileid: "69900050"
 
 이제 Azure AD 및 온-프레미스 AD에 스테이징된 내보내기 변경 사항이 있습니다.(Exchange 하이브리드 배포를 사용하는 경우) 다음 단계를 사용하면 디렉터리에 실제로 내보내기를 시작하기 전에 무엇이 변경될지를 검사할 수 있습니다.
 
-#### <a name="verify"></a>Verify
+#### <a name="verify"></a>확인
 1. cmd 프롬프트를 시작하고 `%ProgramFiles%\Microsoft Azure AD Sync\bin`로 이동합니다.
-2. 실행: `csexport "Name of Connector" %temp%\export.xml /f:x` 커넥터 이름은 동기화 서비스에서 찾을 수 있습니다. Azure AD에 "contoso.com – AAD"와 유사한 이름이 있습니다.
-3. 실행: `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv` Microsoft Excel에서 검사할 수 있는 export.csv라는 파일이 %temp%에 있습니다. 이 파일은 내보낼 수 있는 모든 변경 내용을 포함합니다.
+2. 실행: `csexport "Name of Connector" %temp%\export.xml /f:x` 동기화 서비스에서 커넥터의 이름을 찾을 수 있습니다. Azure AD에 "contoso.com – AAD"와 유사한 이름이 있습니다.
+3. 실행: `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv` %temp%에 Microsoft Excel에서 검사할 수 있는 export.csv라는 파일이 있습니다. 이 파일은 내보낼 수 있는 모든 변경 내용을 포함합니다.
 4. 내보내려는 변경 사항이 예정될 때까지 데이터 또는 구성에 필요한 변경을 수행하고 이러한 단계(가져오기 및 동기화 및 확인)를 다시 실행합니다.
 
 **export.csv 파일 이해** 파일은 대부분 따로 설명이 필요하지 않습니다. 콘텐츠를 이해하기 위한 일부 약어입니다.

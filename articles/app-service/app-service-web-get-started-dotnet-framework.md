@@ -6,11 +6,11 @@ ms.topic: quickstart
 ms.date: 10/21/2019
 ms.custom: seodec18
 ms.openlocfilehash: f2e31723dc2761007994f652d9d6c28ab3f7d47d
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671400"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78388212"
 ---
 # <a name="create-an-aspnet-framework-web-app-in-azure"></a>Azure에서 ASP.NET Framework 웹앱 만들기
 
@@ -20,14 +20,14 @@ ms.locfileid: "74671400"
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-이 자습서를 완료하려면 **ASP.NET 및 웹 개발** 워크로드가 포함된 <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a>를 설치합니다.
+이 자습서를 완료하려면 <a href="https://www.visualstudio.com/downloads/" target="_blank">ASP.NET 및 웹 개발</a> 워크로드가 포함된 **Visual Studio 2019**를 설치합니다.
 
 Visual Studio 2019를 이미 설치한 경우:
 
 - **도움말** > **업데이트 확인**을 차례로 선택하여 Visual Studio에서 최신 업데이트를 설치합니다.
-- **도구** > **도구 및 기능 가져오기**를 선택하여 워크로드를 추가합니다.
+- **도구** > **도구 및 기능 가져오기**를 차례로 선택하여 워크로드를 추가합니다.
 
 ## ASP.NET 웹앱 만들기<a name="create-and-publish-the-web-app"></a>
 
@@ -41,13 +41,13 @@ Visual Studio 2019를 이미 설치한 경우:
 
    ![웹앱 프로젝트 구성](./media/app-service-web-get-started-dotnet-framework/configure-web-app-project-framework.png)
 
-4. 모든 종류의 ASP.NET 웹앱을 Azure에 배포할 수 있습니다. 이 빠른 시작을 위해 **MVC** 템플릿을 선택합니다.
+4. 모든 종류의 ASP.NET 웹앱을 Azure에 배포할 수 있습니다. 이 빠른 시작에서는 **MVC** 템플릿을 선택합니다.
 
 5. 인증이 **인증 없음**으로 설정되어 있는지 확인합니다. **만들기**를 선택합니다.
 
    ![ASP.NET 웹 애플리케이션 만들기](./media/app-service-web-get-started-dotnet-framework/select-mvc-template-vs2019.png)
 
-6. Visual Studio 메뉴에서 **디버그** > **디버깅하지 않고 시작**을 선택하여 웹앱을 로컬로 실행합니다.
+6. Visual Studio 메뉴에서 **디버그** > **디버깅하지 않고 시작**을 차례로 선택하여 웹앱을 로컬로 실행합니다.
 
    ![로컬에서 앱 실행](./media/app-service-web-get-started-dotnet-framework/local-web-app.png)
 
@@ -80,9 +80,9 @@ Visual Studio 2019를 이미 설치한 경우:
 
 1. **호스팅 계획 구성** 대화 상자에서 다음 표의 값을 입력한 다음, **확인**을 선택합니다.
 
-   | 설정 | 제안 값 | 설명 |
+   | 설정 | 제안 값 | Description |
    |-|-|-|
-   |App Service 계획| myAppServicePlan | App Service 계획의 이름입니다. |
+   |App Service 계획| myAppServicePlan | App Service 플랜의 이름입니다. |
    | 위치 | 서유럽 | 웹앱이 호스팅된 데이터 센터입니다. |
    | 크기 | 무료 | [가격 책정 계층](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)은 호스팅 기능을 결정합니다. |
 
@@ -127,11 +127,11 @@ Visual Studio 2019를 이미 설치한 경우:
 
    ![앱 서비스 선택](./media/app-service-web-get-started-dotnet-framework/app-services.png)
 
-2. **App Services** 페이지에서 웹앱의 이름을 선택합니다.
+2. **App Service** 페이지에서 웹앱의 이름을 선택합니다.
 
    ![Azure 앱에 대한 포털 탐색](./media/app-service-web-get-started-dotnet-framework/access-portal-framework-vs2019.png)
 
-   웹앱의 개요 페이지가 표시됩니다. 여기에서 찾아보기, 중지, 시작, 다시 시작, 삭제와 같은 기본 관리를 수행할 수 있습니다.
+   웹앱의 개요 페이지가 표시됩니다. 여기서 찾아보기, 중지, 시작, 다시 시작 및 삭제와 같은 기본 관리를 수행할 수 있습니다.
 
    ![Azure Portal의 App Service 개요](./media/app-service-web-get-started-dotnet-framework/web-app-general-framework-vs2019.png)
 
