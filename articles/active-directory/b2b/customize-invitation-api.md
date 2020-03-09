@@ -12,11 +12,11 @@ manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3a090ee3f9588ff6bff01e12db469bf04407a7fc
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74272871"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78377679"
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>Azure Active Directory B2B 협업 API 및 사용자 지정
 
@@ -91,7 +91,7 @@ PowerShell을 사용하여 외부 사용자를 조직에 쉽게 추가하고 초
 New-AzureADMSInvitation
 ```
 
-다음 옵션을 사용할 수 있습니다.
+사용할 수 있는 옵션은 다음과 같습니다.
 
 * -InvitedUserDisplayName
 * -InvitedUserEmailAddress
@@ -115,7 +115,7 @@ Get-AzureADUser -Filter "UserState eq 'PendingAcceptance'" | Format-List -Proper
 > [!NOTE]
 > AzureAD PowerShell 모듈 또는 AzureADPreview PowerShell 모듈의 최신 버전이 있는지 확인합니다. 
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참고 항목
 
 [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)에서 초대 API 참조를 확인하세요.
 

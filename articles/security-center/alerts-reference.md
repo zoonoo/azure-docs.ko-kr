@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: f83385e1c0a360689569424dbba0c4548751916c
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: c62af3ddf8b2c2dc8082dc4f4870ecfcdc175ab8
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77661962"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78380735"
 ---
 # <a name="security-alerts---a-reference-guide"></a>보안 경고-참조 가이드
 
@@ -243,7 +243,7 @@ ms.locfileid: "77661962"
 |경고|Description|의도 ([자세한 정보](#intentions))|
 |----|----|:----:|
 |**클러스터에 대 한 미리 보기 역할 바인딩-관리자 역할이 검색 됨**|Kubernetes 감사 로그 분석에서 클러스터 관리자 역할에 대 한 새 바인딩을 검색 하 여 관리자 권한이 있습니다. 관리자 권한을 불필요 하 게 제공 하면 클러스터에서 권한 상승 문제가 발생할 수 있습니다.|지속성|
-|**미리 보기 노출 된 Kubernetes 대시보드가 검색 됨**|Kubernetes 감사 로그 분석에서 LoadBalancer 서비스에의 한 Kubernetes 대시보드의 노출을 감지 했습니다. 노출 된 대시보드는 클러스터 관리에 대 한 인증 되지 않은 액세스를 허용 하 고 보안 위협을 야기 합니다.|지속성|
+|**미리 보기 노출 된 Kubernetes 대시보드가 검색 됨**|Kubernetes 감사 로그 분석에서 LoadBalancer 서비스에의 한 Kubernetes 대시보드의 노출을 감지 했습니다. 노출 된 대시보드는 클러스터 관리에 대 한 인증 되지 않은 액세스를 허용 하 고 보안 위협을 야기 합니다.|초기 액세스|
 |**PREVIEW-새 높은 권한 역할 검색 됨**|Kubernetes 감사 로그 분석에서 높은 권한을 가진 새 역할을 검색 했습니다. 높은 권한이 있는 역할에 대 한 바인딩은 클러스터에서 사용자/그룹 승격 된 권한을 부여 합니다. 상승 된 권한을 불필요 하 게 제공 하면 클러스터에서 권한 상승 문제가 발생할 수 있습니다.|지속성|
 |**PREVIEW-kube 네임 스페이스의 새 컨테이너 검색 됨**|Kubernetes 감사 로그 분석에서이 네임 스페이스에서 일반적으로 실행 되는 컨테이너에 속하지 않는 kube 네임 스페이스의 새 컨테이너를 검색 했습니다. Kube 네임 스페이스에는 사용자 리소스가 포함 되지 않아야 합니다. 공격자는이 네임 스페이스를 사용 하 여 악성 구성 요소를 숨길 수 있습니다.|지속성|
 |**PREVIEW-디지털 통화 마이닝 컨테이너 검색 됨**|Kubernetes 감사 로그 분석에서 디지털 통화 마이닝 도구와 연결 된 이미지가 있는 컨테이너를 검색 했습니다.|실행|
@@ -263,7 +263,7 @@ ms.locfileid: "77661962"
 |**SSH 서버가 컨테이너 내에서 실행 되 고 있습니다.**|컴퓨터 로그는 SSH 서버가 Docker 컨테이너 내에서 실행 되 고 있음을 의미 합니다. 이 동작은 의도적인 일 수 있지만 컨테이너가 잘못 구성 되거나 위반 되는 경우가 많습니다.|실행|
 |**마이너 이미지가 있는 컨테이너가 검색 됨**|컴퓨터 로그는 디지털 통화 마이닝과 연결 된 이미지를 실행 하는 Docker 컨테이너의 실행을 표시 합니다. 이 동작은 리소스가 악용 중임을 나타낼 수 있습니다.|실행|
 |**Kubernetes API에 대 한 의심 스러운 요청**|컴퓨터 로그는 Kubernetes API에 대 한 의심 스러운 요청이 있음을 의미 합니다. 노드에서 실행 중인 컨테이너 중 하나에서 Kubernetes 노드의 요청이 전송 되었습니다. 이 동작은 의도적인 것일 수 있지만 노드가 손상 된 컨테이너를 실행 하 고 있음을 나타낼 수 있습니다.|실행|
-|**Kubernetes 대시보드에 대 한 의심 스러운 요청**|컴퓨터 로그에는 Kubernetes 대시보드에 대 한 의심 스러운 요청이 표시 됩니다. 노드에서 실행 중인 컨테이너 중 하나에서 Kubernetes 노드의 요청이 전송 되었습니다. 이 동작은 의도적인 것일 수 있지만 노드가 손상 된 컨테이너를 실행 하 고 있음을 나타낼 수 있습니다.|-|
+|**Kubernetes 대시보드에 대 한 의심 스러운 요청**|컴퓨터 로그에는 Kubernetes 대시보드에 대 한 의심 스러운 요청이 표시 됩니다. 노드에서 실행 중인 컨테이너 중 하나에서 Kubernetes 노드의 요청이 전송 되었습니다. 이 동작은 의도적인 것일 수 있지만 노드가 손상 된 컨테이너를 실행 하 고 있음을 나타낼 수 있습니다.|수평 이동|
 ||||
 
 
@@ -395,7 +395,7 @@ ms.locfileid: "77661962"
 
 정찰에서 데이터 반출의 진행을 설명 하는 일련의 단계를 종종 "kill chain" 이라고 합니다. 
 
-Security Center 지원 되는 kill 체인 의도는 [MITRE at&t &AMP; 접시™ 프레임 워크](https://attack.mitre.org/matrices/enterprise) 를 기반으로 하며 아래 표에 설명 되어 있습니다.
+Security Center 지원 되는 kill 체인 의도는 [MITRE at&t &AMP; 접시&trade; 프레임 워크](https://attack.mitre.org/matrices/enterprise) 를 기반으로 하며 아래 표에 설명 되어 있습니다.
 
 |Intent|Description|
 |------|-------|

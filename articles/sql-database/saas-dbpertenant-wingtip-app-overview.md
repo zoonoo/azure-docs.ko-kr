@@ -12,11 +12,11 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
 ms.openlocfilehash: 46cdcd5f768278dbc729f48e450c68a63be604be
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822156"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78359112"
 ---
 # <a name="introduction-to-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>SQL Database로 테넌트별 데이터베이스 패턴을 사용하는 다중 테넌트 SaaS 앱 소개
 
@@ -39,7 +39,7 @@ Wingtip SaaS 앱은 테넌트별 데이터베이스 모델을 사용합니다. S
 앱을 배포한 후 초기 배포를 기반으로 하는 다음 자습서를 탐색합니다. 이러한 자습서에서는 SQL Database, Azure SQL Data Warehouse 및 기타 Azure 서비스의 기본 제공 기능을 활용하는 일반적인 SaaS 패턴을 살펴봅니다. 자습서에는 PowerShell 스크립트와 자세한 설명이 포함되어 있습니다. 쉽게 이해하고 애플리케이션에서 동일한 SaaS 관리 패턴을 구현할 수 있도록 설명되어 있습니다.
 
 
-| 자습서 | 설명 |
+| 자습서 | Description |
 |:--|:--|
 | [SQL Database 다중 테넌트 SaaS 앱 예제에 대한 지침 및 팁](saas-tenancy-wingtip-app-guidance-tips.md) | PowerShell 스크립트를 다운로드한 후 실행하여 애플리케이션 부분을 준비하세요. |
 |[Wingtip SaaS 애플리케이션 배포 및 탐색](saas-dbpertenant-get-started-deploy.md)|  Azure 구독으로 Wingtip SaaS 애플리케이션을 배포하고 탐색합니다. |

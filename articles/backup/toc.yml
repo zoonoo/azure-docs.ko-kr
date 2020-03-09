@@ -142,10 +142,16 @@
       items:
         - name: 개요
           href: backup-azure-about-mars.md
+        - name: 설치 또는 업그레이드
+          items:
+            - name: MARS 에이전트 설치
+              href: install-mars-agent.md
+            - name: MARS 에이전트 업그레이드
+              href: upgrade-mars-agent.md
         - name: Backup
           items:
             - name: Windows Server 파일 및 폴더 백업
-              href: backup-configure-vault.md
+              href: backup-windows-with-mars-agent.md
             - name: Windows Server 시스템 상태 백업
               href: backup-azure-system-state.md
         - name: 복원

@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: pafarley
 ms.openlocfilehash: 1aba86efb9ea76fbf060e80b47f9f2f6cdf8ee71
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73744414"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78379056"
 ---
 # <a name="content-moderation-reviews-workflows-and-jobs"></a>콘텐츠 중재 검토, 워크플로 및 작업
 
@@ -66,7 +66,7 @@ Content Moderator은 기계 지원 조정을 사용자의 루프 기능과 결�
 
 워크플로 만들기 및 사용을 시작 하려면 [검토 도구 가이드](./review-tool-user-guide/workflows.md) 를 참조 하거나 프로그래밍 방식으로 작업을 수행 하는 방법을 알아보려면 [REST API 가이드](./try-review-api-workflow.md) 를 참조 하세요.
 
-## <a name="jobs"></a>작업
+## <a name="jobs"></a>교육
 
 중재 작업은 콘텐츠 조정, 워크플로 및 검토 기능을 위한 일종의 래퍼 역할을 합니다. 작업은 Content Moderator 이미지 조정 API 또는 텍스트 중재 API를 사용 하 여 콘텐츠를 검색 한 다음 지정 된 워크플로를 사용 하 여 확인 합니다. 워크플로 결과에 따라 [검토 도구](./review-tool-user-guide/human-in-the-loop.md)에서 콘텐츠에 대 한 검토가 생성 되거나 생성 되지 않을 수 있습니다. 검토와 워크플로를 각각의 해당 Api를 사용 하 여 만들고 구성할 수 있지만 작업 API를 사용 하면 지정 된 콜백 끝점에 보낼 수 있는 전체 프로세스에 대 한 자세한 보고서를 가져올 수 있습니다.
 

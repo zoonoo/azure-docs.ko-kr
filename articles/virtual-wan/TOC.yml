@@ -34,24 +34,36 @@
       href: connect-virtual-network-gateway-vwan.md
     - name: 글로벌 VNet 피어링 구성
       href: global-peering-vnet.md
-    - name: ExpressRoute 암호화 구성
-      href: vpn-over-expressroute.md
     - name: 가상 WAN SKU 업그레이드
       href: upgrade-virtual-wan.md
     - name: 사용자 지정 IPsec 정책 구성
       href: virtual-wan-custom-ipsec-portal.md
-    - name: 사용자 VPN(지점 및 사이트 간)에 대한 인증서 구성
-      href: certificates-point-to-site.md
-    - name: 사용자 VPN에 대한 Azure AD 테넌트 구성
-      href: openvpn-azure-ad-tenant.md
-    - name: 사용자 VPN에 대한 MFA(Multi-Factor Authentication) 사용
-      href: openvpn-azure-ad-mfa.md
-    - name: 사용자 VPN에 대한 Azure AD 인증 구성
-      href: virtual-wan-point-to-site-azure-ad.md
-    - name: 사용자 VPN에 대한 다중 애플리케이션 Azure AD 인증 구성
-      href: openvpn-azure-ad-tenant-multi-app.md
-    - name: 글로벌 및 허브 기반 VPN 프로필 다운로드
-      href: global-hub-profile.md
+    - name: ExpressRoute
+      items:
+        - name: ExpressRoute 연결 만들기
+          href: virtual-wan-expressroute-portal.md
+        - name: ExpressRoute 암호화 구성
+          href: vpn-over-expressroute.md
+    - name: 사이트 간
+      items:
+        - name: 사이트 간 연결 만들기
+          href: virtual-wan-site-to-site-portal.md
+    - name: 사용자 VPN(지점 및 사이트 간)
+      items:
+        - name: 사용자 VPN(지점 및 사이트 간) 연결 만들기
+          href: virtual-wan-point-to-site-portal.md
+        - name: 사용자 VPN에 대한 인증서 구성
+          href: certificates-point-to-site.md
+        - name: 사용자 VPN에 대한 Azure AD 테넌트 구성
+          href: openvpn-azure-ad-tenant.md
+        - name: 사용자 VPN에 대한 MFA(Multi-Factor Authentication) 사용
+          href: openvpn-azure-ad-mfa.md
+        - name: 사용자 VPN에 대한 Azure AD 인증 구성
+          href: virtual-wan-point-to-site-azure-ad.md
+        - name: 사용자 VPN에 대한 다중 애플리케이션 Azure AD 인증 구성
+          href: openvpn-azure-ad-tenant-multi-app.md
+        - name: 글로벌 및 허브 기반 사용자 VPN 프로필 다운로드
+          href: global-hub-profile.md
     - name: 라우팅 구성
       items:
         - name: 가상 허브에서 NVA로 트래픽 라우팅

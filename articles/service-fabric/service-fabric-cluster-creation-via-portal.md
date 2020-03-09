@@ -4,11 +4,11 @@ description: Azure Portal 및 Azure Key Vault를 사용하여 Azure에서 보안
 ms.topic: conceptual
 ms.date: 09/06/2018
 ms.openlocfilehash: 0f384da75f09390e9b0988722b974e7e16d13e63
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452312"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78363384"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Azure 포털을 사용하여 Azure에서 서비스 패브릭 클러스터 만들기
 > [!div class="op_single_selector"]

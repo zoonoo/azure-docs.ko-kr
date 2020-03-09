@@ -35,8 +35,8 @@
           href: howto-aad-app-configuration.md
     - name: Azure Red Hat OpenShift 클러스터에 독립형 prometheus 배포
       href: howto-deploy-prometheus.md
-    - name: Azure Red Hat OpenShift 클러스터에서 프로젝트 관리
-      href: howto-manage-projects.md
+    - name: 프라이빗 Azure Red Hat OpenShift 클러스터 만들기
+      href: howto-create-private-cluster.md
     - name: 모니터링 및 로깅
       items:
         - name: 컨테이너용 Azure Monitor(미리 보기)

@@ -5,11 +5,11 @@ ms.date: 11/04/2019
 ms.topic: article
 ms.reviewer: chroyal
 ms.openlocfilehash: 03c22a7a23f1579a846746f21ce048b3425399c3
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977025"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78387053"
 ---
 # <a name="configure-blockchain-data-manager-using-the-azure-portal"></a>Azure Portal을 사용하여 Blockchain Data Manager 구성
 
@@ -20,7 +20,7 @@ Blockchain Data Manager 인스턴스를 구성 하려면 다음을 수행 합니
 * Azure Blockchain 서비스 트랜잭션 노드에 대 한 Blockchain Data Manager 인스턴스 만들기
 * 블록 체인 응용 프로그램 추가
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 * 빠른 시작 완료: Azure Portal 또는 [빠른 시작: Azure CLI를 사용 하 여 Azure Blockchain 서비스 blockchain 구성원 만들기](create-member-cli.md) 를 [사용 하 여 블록 체인 구성원 만들기](create-member.md)
 * [Event Grid 토픽](../../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic) 만들기
@@ -40,9 +40,9 @@ Blockchain Data Manager 인스턴스는 Azure Blockchain Service 트랜잭션 �
 
     다음 세부 정보를 입력합니다.
 
-    설정 | Description
+    설정 | 설명
     --------|------------
-    속성 | 연결된 Blockchain Data Manager의 고유 이름을 입력합니다. Blockchain Data Manager 이름에는 소문자와 숫자가 포함 될 수 있으며 최대 길이는 20 자입니다.
+    이름 | 연결된 Blockchain Data Manager의 고유 이름을 입력합니다. Blockchain Data Manager 이름에는 소문자와 숫자가 포함 될 수 있으며 최대 길이는 20 자입니다.
     트랜잭션 노드 | 트랜잭션 노드를 선택 합니다. 읽기 권한이 있는 트랜잭션 노드만 나열 됩니다.
     연결 이름 | 블록체인 트랜잭션 데이터가 전송되는 아웃바운드 연결의 고유 이름을 입력합니다.
     Event Grid 엔드포인트 | Blockchain Data Manager 인스턴스와 동일한 구독에서 event grid 항목을 선택 합니다.
@@ -108,9 +108,9 @@ Blockchain Data Manager을 사용하려면 애플리케이션을 추가할 때 U
 
     ![스토리지 계정 컨테이너 만들기](./media/data-manager-portal/create-container.png)
 
-    | 필드 | Description |
+    | 필드 | 설명 |
     |-------|-------------|
-    | 속성  | 컨테이너 이름을 지정합니다. 예: *smartcontract* |
+    | 이름  | 컨테이너 이름을 지정합니다. 예: *smartcontract* |
     | 공용 액세스 수준 | *프라이빗(익명 액세스 없음)* 선택 |
 
 1. **확인**을 선택하여 컨테이너를 만듭니다.
@@ -144,9 +144,9 @@ Blockchain Data Manager을 사용하려면 애플리케이션을 추가할 때 U
 
     블록체인 애플리케이션의 이름과 스마트 계약 ABI 및 바이트 코드 URL을 입력합니다.
 
-    설정 | Description
+    설정 | 설명
     --------|------------
-    속성 | 추적할 블록체인 애플리케이션의 고유 이름을 입력합니다.
+    이름 | 추적할 블록체인 애플리케이션의 고유 이름을 입력합니다.
     계약 ABI | 계약 ABI 파일의 URL 경로입니다. 자세한 내용은 [계약 ABI 및 바이트 코드 URL 만들기](#create-contract-abi-and-bytecode-url)를 참조하세요.
     계약 바이트 코드 | 바이트 코드 파일의 URL 경로입니다. 자세한 내용은 [계약 ABI 및 바이트 코드 URL 만들기](#create-contract-abi-and-bytecode-url)를 참조하세요.
 

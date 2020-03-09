@@ -10,11 +10,11 @@ ms.topic: reference
 ms.date: 11/18/2019
 ms.author: dapine
 ms.openlocfilehash: 0d8c7a36582c30975f3a408a2ea6e95d39e560ef
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173760"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78390822"
 ---
 # <a name="azure-cognitive-services-container-image-tags"></a>Azure Cognitive Services 컨테이너 이미지 태그
 
@@ -29,19 +29,19 @@ Azure Cognitive Services는 많은 컨테이너 이미지를 제공 합니다. �
 
 이 컨테이너 이미지에 사용할 수 있는 태그는 다음과 같습니다.
 
-| 이미지 태그 | 참고 |
+| 이미지 태그 | 메모 |
 |------------|:------|
 | `latest` | |
 | `1.1.009301-amd64-preview` | |
 | `1.1.008500001-amd64-preview` | |
 
-## <a name="computer-vision"></a>Computer Vision API
+## <a name="computer-vision"></a>Computer Vision
 
 [Computer Vision][cv-containers] 컨테이너 이미지는 `containerpreview.azurecr.io` container registry에서 찾을 수 있습니다. 이 클래스는 `microsoft` 리포지토리 내에 있으며 `cognitive-services-read`이름이 지정 됩니다. 정규화 된 컨테이너 이미지 이름은, `containerpreview.azurecr.io/microsoft/cognitive-services-read`입니다.
 
 이 컨테이너 이미지에 사용할 수 있는 태그는 다음과 같습니다.
 
-| 이미지 태그 | 참고 |
+| 이미지 태그 | 메모 |
 |------------|:------|
 | `latest` | |
 | `1.1.009920003-amd64-preview` | |
@@ -53,7 +53,7 @@ Azure Cognitive Services는 많은 컨테이너 이미지를 제공 합니다. �
 
 이 컨테이너 이미지에 사용할 수 있는 태그는 다음과 같습니다.
 
-| 이미지 태그 | 참고 |
+| 이미지 태그 | 메모 |
 |------------|:------|
 | `latest` | |
 | `1.1.009301-amd64-preview` | |
@@ -71,20 +71,20 @@ Azure Cognitive Services는 많은 컨테이너 이미지를 제공 합니다. �
 
 이 컨테이너 이미지에 사용할 수 있는 태그는 다음과 같습니다.
 
-| 이미지 태그 | 참고 |
+| 이미지 태그 | 메모 |
 |------------|:------|
 | `latest` | |
 | `1.1.009301-amd64-preview` | |
 | `1.1.008640001-amd64-preview` | |
 | `1.1.008510001-amd64-preview` | |
 
-## <a name="language-understanding-luis"></a>LUIS(Language Understanding)
+## <a name="language-understanding-luis"></a>언어 이해(LUIS)
 
 [LUIS][lu-containers] 컨테이너 이미지는 `mcr.microsoft.com` 컨테이너 레지스트리 게시에서 찾을 수 있습니다. 이 클래스는 `azure-cognitive-services` 리포지토리 내에 있으며 `luis`이름이 지정 됩니다. 정규화 된 컨테이너 이미지 이름은, `mcr.microsoft.com/azure-cognitive-services/luis`입니다.
 
 이 컨테이너 이미지에 사용할 수 있는 태그는 다음과 같습니다.
 
-| 이미지 태그 | 참고 |
+| 이미지 태그 | 메모 |
 |------------|:------|
 | `latest` | |
 | `1.1.010330004-amd64-preview` | |
@@ -102,7 +102,7 @@ Azure Cognitive Services는 많은 컨테이너 이미지를 제공 합니다. �
 
 이 컨테이너 이미지에 사용할 수 있는 태그는 다음과 같습니다.
 
-| 이미지 태그 | 참고 |
+| 이미지 태그 | 메모 |
 |------------|:------|
 | `latest` | |
 | `2.0.0-amd64-preview` | |
@@ -113,7 +113,7 @@ Azure Cognitive Services는 많은 컨테이너 이미지를 제공 합니다. �
 
 이 컨테이너 이미지에 사용할 수 있는 태그는 다음과 같습니다.
 
-| 이미지 태그 | 참고 |
+| 이미지 태그 | 메모 |
 |------------|:------|
 | `latest` | |
 | `1.3.0-amd64-preview` | |
@@ -124,7 +124,7 @@ Azure Cognitive Services는 많은 컨테이너 이미지를 제공 합니다. �
 
 이 컨테이너 이미지에 사용할 수 있는 태그는 다음과 같습니다.
 
-| 이미지 태그 | 참고 |
+| 이미지 태그 | 메모 |
 |------------|:------|
 | `latest` | `en-US` 로캘이 있는 컨테이너 이미지입니다. |
 | `2.0.0-amd64-ar-eg-preview` | `ar-EG` 로캘이 있는 컨테이너 이미지입니다. |
@@ -249,7 +249,7 @@ Azure Cognitive Services는 많은 컨테이너 이미지를 제공 합니다. �
 
 이 컨테이너 이미지에 사용할 수 있는 태그는 다음과 같습니다.
 
-| 이미지 태그 | 참고 |
+| 이미지 태그 | 메모 |
 |------------|:------|
 | `latest` | `en-US` 로캘 및 `en-US-JessaRUS` 음성이 포함 된 컨테이너 이미지입니다. |
 | `1.3.0-amd64-ar-eg-hoda-preview` | `ar-EG` 로캘 및 `ar-EG-Hoda` 음성이 포함 된 컨테이너 이미지입니다. |
@@ -419,13 +419,13 @@ Azure Cognitive Services는 많은 컨테이너 이미지를 제공 합니다. �
 | `1.0.0-amd64-zh-cn-kangkang-apollo-preview` | `zh-CN` 로캘 및 `zh-CN-Kangkang-Apollo` 음성이 포함 된 컨테이너 이미지입니다. |
 | `1.0.0-amd64-zh-cn-yaoyao-apollo-preview` | `zh-CN` 로캘 및 `zh-CN-Yaoyao-Apollo` 음성이 포함 된 컨테이너 이미지입니다. |
 
-## <a name="key-phrase-extraction"></a>핵심 구 추출
+## <a name="key-phrase-extraction"></a>핵심 문구 추출
 
 [핵심 구 추출][ta-kp] 컨테이너 이미지는 `mcr.microsoft.com` container registry 게시에서 찾을 수 있습니다. 이 클래스는 `azure-cognitive-services` 리포지토리 내에 있으며 `keyphrase`이름이 지정 됩니다. 정규화 된 컨테이너 이미지 이름은, `mcr.microsoft.com/azure-cognitive-services/keyphrase`입니다.
 
 이 컨테이너 이미지에 사용할 수 있는 태그는 다음과 같습니다.
 
-| 이미지 태그 | 참고 |
+| 이미지 태그 | 메모 |
 |------------|:------|
 | `latest` | |
 | `1.1.009301-amd64-preview` | |
@@ -434,13 +434,13 @@ Azure Cognitive Services는 많은 컨테이너 이미지를 제공 합니다. �
 | `1.1.007360001-amd64-preview` | |
 | `1.1.006770001-amd64-preview` | |
 
-## <a name="language-detection"></a>언어 감지
+## <a name="language-detection"></a>언어 검색
 
 [언어 감지][ta-la] 컨테이너 이미지는 `mcr.microsoft.com` container registry 게시에서 찾을 수 있습니다. 이 클래스는 `azure-cognitive-services` 리포지토리 내에 있으며 `language`이름이 지정 됩니다. 정규화 된 컨테이너 이미지 이름은, `mcr.microsoft.com/azure-cognitive-services/language`입니다.
 
 이 컨테이너 이미지에 사용할 수 있는 태그는 다음과 같습니다.
 
-| 이미지 태그 | 참고 |
+| 이미지 태그 | 메모 |
 |------------|:------|
 | `latest` | |
 | `1.1.009301-amd64-preview` | |
@@ -455,7 +455,7 @@ Azure Cognitive Services는 많은 컨테이너 이미지를 제공 합니다. �
 
 이 컨테이너 이미지에 사용할 수 있는 태그는 다음과 같습니다.
 
-| 이미지 태그 | 참고 |
+| 이미지 태그 | 메모 |
 |------------|:------|
 | `latest` | |
 | `1.1.009301-amd64-preview` | |

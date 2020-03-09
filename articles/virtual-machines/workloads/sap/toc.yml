@@ -24,6 +24,8 @@
           href: hana-data-tiering-extension-nodes.md
         - name: 작업 모델 및 책임
           href: hana-operations-model.md
+        - name: 호환 가능한 운영 체제
+          href: os-compatibility-matrix-hana-large-instance.md
     - name: Architecture
       items:
         - name: 일반 아키텍처

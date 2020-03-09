@@ -12,11 +12,11 @@ ms.author: sstein
 ms.reviewer: billgib
 ms.date: 09/19/2018
 ms.openlocfilehash: b6802d97b964b8863f6c2fce0cebfe16782b46fe
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822008"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78397160"
 ---
 # <a name="manage-schema-in-a-saas-application-using-the-database-per-tenant-pattern-with-azure-sql-database"></a>Azure SQL Database를 사용하여 SaaS 애플리케이션에서 테넌트별 데이터베이스 패턴으로 스키마 관리
  
@@ -36,7 +36,7 @@ ms.locfileid: "73822008"
 
 이 자습서를 수행하려면 다음 필수 조건이 충족되었는지 확인합니다.
 
-* Wingtip Tickets SaaS 테넌트당 데이터베이스 앱이 배포됩니다. 5분 안에 배포를 마치려면 [테넌트 애플리케이션별로 Wingtip Tickets SaaS 데이터베이스 배포 및 살펴보기](saas-dbpertenant-get-started-deploy.md)를 참조하세요.
+* Wingtip Tickets SaaS Database Per Tenant 앱이 배포됩니다. 5분 안에 배포를 마치려면 [테넌트 애플리케이션별로 Wingtip Tickets SaaS 데이터베이스 배포 및 살펴보기](saas-dbpertenant-get-started-deploy.md)를 참조하세요.
 * Azure PowerShell이 설치되었습니다. 자세한 내용은 [Azure PowerShell 시작](https://docs.microsoft.com/powershell/azure/get-started-azureps)을 참조하세요.
 * 최신 버전의 SSMS(SQL Server Management Studio)가 설치되어 있습니다. [SSMS 다운로드 및 설치](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
 
@@ -59,7 +59,7 @@ ms.locfileid: "73822008"
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>테넌트 애플리케이션별 Wingtip Tickets SaaS 데이터베이스 스크립트 받기
 
-[WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub 리포지토리에서 애플리케이션 소스 코드와 관리 스크립트를 받을 수 있습니다. [일반 지침](saas-tenancy-wingtip-app-guidance-tips.md)에서 Wingtip Tickets SaaS 스크립트를 다운로드하고 차단을 해제하는 단계를 확인하세요.
+[WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub 리포지토리에서 애플리케이션 소스 코드와 관리 스크립트를 받을 수 있습니다. Wingtip Tickets SaaS 스크립트를 다운로드하고 차단을 해제하는 단계는 [일반 지침](saas-tenancy-wingtip-app-guidance-tips.md)을 확인하세요.
 
 ## <a name="create-a-job-agent-database-and-new-job-agent"></a>작업 에이전트 데이터베이스와 새 작업 에이전트 만들기
 
@@ -77,7 +77,7 @@ Wingtip Tickets 앱에서 각 테넌트 데이터베이스에는 지원되는 �
 먼저 각 테넌트 데이터베이스에 포함된 각 장소 유형을 검토합니다. SQL Server Management Studio(SSMS)에서 테넌트 데이터베이스 중 하나에 접속하여 VenueTypes 테이블을 살펴봅니다.  데이터베이스 페이지에서 액세스할 수 있는 Azure Portal에서 쿼리 편집기를 사용하여 이 표를 쿼리하는 방법도 있습니다. 
 
 1. SSMS를 열고 테넌트 서버 *tenants1-dpt-&lt;user&gt;.database.windows.net*에 접속합니다.
-1. *Motorcycle Racing*과 *Swimming Club*이 현재 포함되어 있지 **않은** 것을 확인하려면 _tenants1-dpt-_ user *&lt; 서버에서 &gt;contosoconcerthall* 데이터베이스로 이동하여 *VenueTypes* 테이블을 쿼리합니다.
+1. *Motorcycle 경주* 및 *수영 클럽* **이** 현재 포함 되어 있지 않은지 확인 하려면 *tenants1-&lt;user 사용자&gt;* 서버에서 _contosoconcerthall_ 데이터베이스로 이동 하 여 *VenueTypes* 테이블을 쿼리 합니다.
 
 이번에는 모든 테넌트 데이터베이스의 *VenueTypes* 테이블을 업데이트하여 새 장소 유형을 추가하는 작업을 만들어 보겠습니다.
 
@@ -95,7 +95,7 @@ Wingtip Tickets 앱에서 각 테넌트 데이터베이스에는 지원되는 �
 * **sp\_add\_jobstep**은 VenueTypes 참조 테이블을 업데이트하기 위한 T-SQL 명령 텍스트가 포함된 작업 단계를 만듭니다.
 * 스크립트의 남은 보기에서 개체의 존재 여부를 표시하고 작업 실행을 모니터링합니다. 쿼리를 사용하여 **lifecycle** 열에서 상태 값을 검토하여 모든 대상 데이터베이스에서 작업이 끝났는지 확인합니다.
 
-스크립트가 완료되면 참조 데이터가 업데이트된 것을 확인할 수 있습니다.  SSMS에서 *tenants1-dpt-* user *&lt; 서버에 있는 &gt;contosoconcerthall* 데이터베이스로 이동하여 *VenueTypes* 테이블을 쿼리합니다.  *Motorcycle Racing*과 *Swimming Club*이 **있는지** 확인합니다.
+스크립트가 완료되면 참조 데이터가 업데이트된 것을 확인할 수 있습니다.  SSMS에서 *tenants1-dpt-* user *&lt; 서버에 있는 &gt;contosoconcerthall* 데이터베이스로 이동하여 *VenueTypes* 테이블을 쿼리합니다.  *Motorcycle 경주* 및 *수영 클럽* **이 현재** 있는지 확인 합니다.
 
 
 ## <a name="create-a-job-to-manage-the-reference-table-index"></a>참조 테이블 인덱스를 관리하는 작업 만들기

@@ -75,10 +75,10 @@
       href: samples-notebooks.md
     - name: Azure Open Datasets
       href: /azure/open-datasets/samples?context=azure/machine-learning/service/context/ml-context
+    - name: 디자이너 데이터 세트
+      href: sample-designer-datasets.md
     - name: 엔드투엔드 MLOps 예제
       href: 'https://github.com/microsoft/MLOps'
-    - name: 디자이너 샘플 데이터 세트
-      href: designer-sample-datasets.md
 - name: 개념
   items:
     - name: 작업 영역

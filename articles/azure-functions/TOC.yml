@@ -50,6 +50,8 @@
       href: /learn/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr
     - name: TensorFlow를 사용한 기계 학습
       href: functions-machine-learning-tensorflow.md
+    - name: PyTorch를 사용한 이미지 분류
+      href: machine-learning-pytorch.md
     - name: 사용자 지정 Linux 이미지 만들기
       href: functions-create-function-linux-custom-image.md
     - name: IoT Edge 디바이스의 Functions

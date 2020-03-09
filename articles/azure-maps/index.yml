@@ -9,12 +9,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 1/15/2020
-  ms.openlocfilehash: de21e0efb6725433fe16b15665fafd9226c74f61
-  ms.sourcegitcommit: 5192c04feaa3d1bd564efe957f200b7b1a93a381
+  ms.openlocfilehash: cab367254df3f83903eeee110f0a435b97ea8eba
+  ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 03/02/2020
-  ms.locfileid: "78208781"
+  ms.lasthandoff: 03/05/2020
+  ms.locfileid: "78368620"
 landingContent:
 - title: Azure Maps 정보
   linkLists:
@@ -74,6 +74,22 @@ landingContent:
       url: tutorial-route-location.md
     - text: 저장소 로케이터 만들기
       url: tutorial-create-store-locator.md
+  - linkListType: how-to-guide
+    links:
+    - text: 공간 IO 모듈 사용
+      url: how-to-use-spatial-io-module.md
+    - text: 단순 데이터 레이어 추가
+      url: spatial-io-add-simple-data-layer.md
+    - text: 공간 데이터 읽기 및 쓰기
+      url: spatial-io-read-write-spatial-data.md
+    - text: OGC 지도 계층 추가
+      url: spatial-io-add-ogc-map-layer.md
+    - text: WFS 서비스에 연결
+      url: spatial-io-connect-wfs-service.md
+    - text: 핵심 작업 활용
+      url: spatial-io-core-operations.md
+    - text: 지원되는 데이터 형식 세부 정보
+      url: spatial-io-supported-data-format-details.md
   - linkListType: reference
     links:
     - text: 지도 컨트롤
@@ -82,6 +98,8 @@ landingContent:
       url: https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/?view=azure-maps-typescript-latest
     - text: 서비스 모듈
       url: https://docs.microsoft.com/javascript/api/azure-maps-rest/?view=azure-maps-typescript-latest
+    - text: 공간 IO 모듈
+      url: https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/?view=azure-maps-typescript-latest
 - title: Android SDK로 개발
   linkLists:
   - linkListType: how-to-guide

@@ -17,11 +17,11 @@ ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cf410db5a483fc4f5d9efc1a6bd5c6202694ef4c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422629"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376570"
 ---
 # <a name="hide-or-delete-an-access-package-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 액세스 패키지를 숨기 거 나 삭제 합니다.
 

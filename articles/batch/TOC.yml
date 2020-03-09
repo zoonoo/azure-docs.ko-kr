@@ -81,8 +81,12 @@
           href: batch-aad-auth-management.md
         - name: Batch를 사용하여 Key Vault에 안전하게 액세스
           href: credential-access-key-vault.md
-    - name: 애플리케이션 패키지 사용
-      href: batch-application-packages.md
+    - name: 파일 및 애플리케이션을 풀 노드에 복사
+      items:
+        - name: 애플리케이션 패키지 사용
+          href: batch-application-packages.md
+        - name: 리소스 파일 만들기
+          href: resource-files.md
     - name: 풀 만들기 및 관리
       items:
         - name: 자동 크기 조정 컴퓨팅 노드
@@ -123,12 +127,12 @@
           href: batch-user-accounts.md
         - name: 많은 수의 작업 제출
           href: large-number-tasks.md
+        - name: 효율성을 위해 작업 예약
+          href: batch-job-schedule.md
         - name: 작업 및 태스크 오류 확인
           href: batch-job-task-error-checking.md
         - name: 배치 서비스 오류 감지 및 처리
           href: batch-retry-after-errors.md
-    - name: 리소스 파일 만들기
-      href: resource-files.md
     - name: 작업 및 태스크 출력 유지
       href: batch-task-output.md
       items:

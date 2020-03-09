@@ -4,11 +4,11 @@ description: 이 빠른 시작에서는 Azure Blueprints를 사용하여 Azure P
 ms.date: 11/21/2019
 ms.topic: quickstart
 ms.openlocfilehash: fa9eb8285086e35f8b23798c41a09529d0f49582
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75436608"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78356078"
 ---
 # <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>빠른 시작: 포털에서 청사진 정의 및 할당
 

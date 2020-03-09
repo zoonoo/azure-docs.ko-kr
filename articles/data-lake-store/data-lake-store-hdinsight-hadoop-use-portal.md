@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 1d1368ef8ffb474c6bec1240f567f043961597fb
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838188"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78389809"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Data Lake Storage Gen1로 HDInsight 클러스터 만들기
 
@@ -45,7 +45,7 @@ Azure Portal을 사용해 기본 스토리지나 추가 스토리지로 Azure Da
 
 Data Lake Storage Gen1 계정을 기본 저장소 계정으로 사용 하 여 HDInsight 클러스터를 만들려면 다음을 수행 합니다.
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. HDInsight 클러스터를 만드는 방법에 대한 일반 정보는 [클러스터 만들기](../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md#create-clusters)를 따릅니다.
 3. **스토리지** 블레이드의 **기본 스토리지 유형** 아래에서 **Azure Data Lake Storage Gen1**을 선택한 후 다음 정보를 입력합니다.
 
@@ -64,7 +64,7 @@ Data Lake Storage Gen1 계정을 기본 저장소 계정으로 사용 하 여 HD
 
 Data Lake Storage Gen1 계정을 추가 저장소 계정으로 사용 하 여 HDInsight 클러스터를 만들려면 다음을 수행 합니다.
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. HDInsight 클러스터를 만드는 방법에 대한 일반 정보는 [클러스터 만들기](../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md#create-clusters)를 따릅니다.
 3. **스토리지** 블레이드의 **기본 스토리지 형식** 아래에서 **Azure Storage**를 선택한 후 다음 정보를 입력합니다.
 
@@ -130,7 +130,7 @@ Data Lake Storage Gen1 계정 루트 수준에서 사용 권한을 할당 하려
 
 1. 페이지 아래쪽에서 **선택**을 클릭합니다.
 1. **실행** 을 선택 하 여 사용 권한을 할당 합니다.
-1. **완료**를 선택합니다.
+1. **완료** 를 선택합니다.
 
 HDInsight 클러스터 루트 수준에서 사용 권한을 할당 하려면:
 
@@ -140,7 +140,7 @@ HDInsight 클러스터 루트 수준에서 사용 권한을 할당 하려면:
 1. 폴더에 권한을 설정합니다.  기본적으로 읽기, 쓰기 및 실행이 모두 선택되어 있습니다.
 1. 페이지 아래쪽에서 **선택**을 클릭합니다.
 1. **실행**을 선택합니다.
-1. **완료**를 선택합니다.
+1. **완료** 를 선택합니다.
 
 Data Lake Storage Gen1을 추가 스토리지로 사용하는 경우 HDInsight 클러스터에서 액세스하려는 폴더에만 권한을 할당해야 합니다. 예를 들어 아래 스크린샷에서는 Data Lake Storage Gen1 계정의 **mynewfolder** 폴더에만 액세스 권한을 제공합니다.
 
@@ -158,7 +158,7 @@ Data Lake Storage Gen1을 추가 스토리지로 사용하는 경우 HDInsight �
 
     ![HDInsight 클러스터에 서비스 주체 추가](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.6.png "HDInsight 클러스터에 서비스 주체 추가")
 
-## <a name="examples"></a>예시
+## <a name="examples"></a>예
 
 저장소로 Data Lake Storage Gen1를 사용 하 여 클러스터를 설정한 후에는 HDInsight 클러스터를 사용 하 여 Data Lake Storage Gen1에 저장 된 데이터를 분석 하는 방법에 대 한 다음 예제를 참조 하세요.
 

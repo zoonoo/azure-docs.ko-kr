@@ -110,20 +110,18 @@
           href: howto-registration-mfa-sspr-combined-troubleshoot.md
     - name: Azure AD 암호 보호
       items:
-        - name: 온-프레미스 통합
-          items:
-            - name: Azure AD 암호 보호 배포
-              href: howto-password-ban-bad-on-premises-deploy.md
-            - name: Azure AD 암호 보호 구성
-              href: howto-password-ban-bad-on-premises-operations.md
-            - name: Azure AD 암호 보호 모니터링
-              href: howto-password-ban-bad-on-premises-monitor.md
-            - name: Azure AD 암호 보호 문제 해결
-              href: howto-password-ban-bad-on-premises-troubleshoot.md
-            - name: 질문과 대답
-              href: howto-password-ban-bad-on-premises-faq.md
-            - name: 온-프레미스 에이전트 버전 기록
-              href: howto-password-ban-bad-on-premises-agent-versions.md
+        - name: 온-프레미스 계획 및 배포
+          href: howto-password-ban-bad-on-premises-deploy.md
+        - name: 온-프레미스 사용 및 구성
+          href: howto-password-ban-bad-on-premises-operations.md
+        - name: 온-프레미스 배포 모니터링
+          href: howto-password-ban-bad-on-premises-monitor.md
+        - name: 온-프레미스 배포 문제 해결
+          href: howto-password-ban-bad-on-premises-troubleshoot.md
+        - name: 온-프레미스 FAQ
+          href: howto-password-ban-bad-on-premises-faq.md
+        - name: 온-프레미스 에이전트 버전 기록
+          href: howto-password-ban-bad-on-premises-agent-versions.md
     - name: Azure AD 스마트 잠금
       href: howto-password-smart-lockout.md
     - name: 암호 없음
