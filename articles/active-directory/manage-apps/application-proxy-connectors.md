@@ -13,11 +13,11 @@ ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1c2036bf9995725e4bbef44e4c039f8336eb81a0
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74997040"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78375720"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Azure AD 애플리케이션 프록시 커넥터 이해
 
@@ -92,7 +92,7 @@ Azure AD에서는 사용자가 배포하는 모든 커넥터에 자동 업데이
 
 일반적으로 사용자가 많을수록 더 큰 머신이 필요합니다. 다음 표에서는 다양 한 컴퓨터에서 처리할 수 있는 예상 대기 시간 및 볼륨에 대 한 개요를 제공 합니다. 사용 패턴이 다양하고 부하를 예측하는 데 사용할 수 없으므로 사용자 기준이 아닌 예상 TPS(초당 트랜잭션)를 기반으로 합니다. 또한 응답의 크기 및 백 엔드 애플리케이션 응답 시간에 따라 약간의 차이가 있습니다. 응답 크기가 크고 응답 시간이 느린 경우 최대 TPS가 낮아집니다. 또한 컴퓨터 전체의 분산 부하가 항상 충분 한 버퍼를 제공 하도록 추가 컴퓨터를 포함 하는 것이 좋습니다. 추가 용량으로 고가용성 및 복원력을 확보할 수 있습니다.
 
-|코어 수|RAM|예상 대기 시간(밀리초)-P99|최대 TPS|
+|코어|RAM|예상 대기 시간(밀리초)-P99|최대 TPS|
 | ----- | ----- | ----- | ----- |
 |2|8|325|586|
 |4|16|320|1150|
@@ -160,7 +160,7 @@ Import-module AppProxyPSModule
 Register-AppProxyConnector
 ```
 
-## <a name="under-the-hood"></a>내부 살펴보기
+## <a name="under-the-hood"></a>기본적인 이해
 
 커넥터는 Windows Server 웹 애플리케이션 프록시를 기반으로 하므로 Windows 이벤트 로그를 포함하여 대부분 동일한 관리 도구를 포함합니다.
 

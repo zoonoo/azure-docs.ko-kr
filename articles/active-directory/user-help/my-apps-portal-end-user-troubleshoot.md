@@ -13,11 +13,11 @@ ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.openlocfilehash: f72dd5595d67ae989cec5681d22def9a2f929adf
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77022344"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78377960"
 ---
 # <a name="troubleshoot-problems-with-the-my-apps-portal"></a>My Apps 포털 문제 해결
 
@@ -47,7 +47,7 @@ ms.locfileid: "77022344"
 
 **내 앱** 포털에 로그인 하는 데 문제가 있는 경우 다음을 시도할 수 있습니다.
 
-- 올바른 URL을 사용 하 고 있는지 확인 합니다. https://myapps.microsoft.com/contoso.com 와 같이 조직의 사용자 지정 된 페이지 https://myapps.microsoft.com 또는 사용자 지정 된 페이지 여야 합니다.
+- 올바른 URL을 사용 하 고 있는지 확인 합니다. https://myapps.microsoft.com/contoso.com와 같이 조직의 사용자 지정 된 페이지 https://myapps.microsoft.com 또는 사용자 지정 된 페이지 여야 합니다.
 
 - 암호가 올바르고 만료 되지 않았는지 확인 합니다. 자세한 내용은 [회사 또는 학교 암호 재설정](active-directory-passwords-update-your-own-password.md)을 참조 하세요.
 

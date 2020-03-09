@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 06/18/2019
 ms.author: rajanaki
 ms.openlocfilehash: a411fc9a95bef595a8fc49cad77189bb88fb7661
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875794"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78362855"
 ---
 # <a name="remove-servers-and-disable-protection"></a>서버 제거 및 보호 사용 안 함
 
@@ -157,7 +157,7 @@ VMM에 의해 관리되지 않는 Hyper-V 호스트가 Hyper-V 사이트로 수�
 
 -  **보호된 항목** > **복제된 항목**에서 컴퓨터를 마우스 오른쪽 단추로 클릭한 후 **복제 사용 안 함**을 클릭합니다.
 > [!NOTE]
-> 모바일 서비스는 보호 된 서버에서 제거 되지 않으므로 수동으로 제거 해야 합니다. 서버를 다시 보호 하려는 경우 모바일 서비스 제거를 건너뛸 수 있습니다.
+> 모바일 서비스는 보호되는 서버에서 제거되지 않으므로 수동으로 제거해야 합니다. 서버를 다시 보호하려는 경우 모바일 서비스 제거를 건너뛸 수 있습니다.
 
 ## <a name="disable-protection-for-a-hyper-v-virtual-machine-hyper-v-to-azure"></a>Hyper-V 가상 머신에 대해 보호 사용 안 함(Hyper-V에서 Azure로)
 
@@ -227,7 +227,7 @@ VMM에 의해 관리되지 않는 Hyper-V 호스트가 Hyper-V 사이트로 수�
         $vm = get-scvirtualmachine -Name "SQLVM1"
         Remove-SCVirtualMachine -VM $vm -Force
 5. 두 번째 VMM 서버에서 Hyper-V 호스트 서버에서 가상 머신을 새로 고쳐 보조 VM이 VMM 콘솔에서 다시 감지되도록 합니다.
-6. 위의 단계는 VMM 서버에서 복제 설정을 정리합니다. 가상 머신에 대한 복제를 중지하려면 주 및 보조 VM에서 다음 스크립트를 실행합니다. SQLVM1을 가상 머신의 이름으로 바꿉니다.
+6. 위의 단계는 VMM 서버에서 복제 설정을 정리합니다. 가상 머신에 대한 복제를 중지하려면 주 및 보조 VM에서 다음 스크립트를 실행합니다. SQLVM1을 가상 컴퓨터의 이름으로 바꿉니다.
 
         Remove-VMReplication –VMName “SQLVM1”
 

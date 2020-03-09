@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
 ms.openlocfilehash: b05d1f36d1e74b3d915e216676859654fbcbacf3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60578694"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78365988"
 ---
 # <a name="replace-an-ebod-controller-on-your-storsimple-device"></a>StorSimple 디바이스의 EBOD 컨트롤러 교체
 
@@ -82,7 +82,7 @@ StorSimple 디바이스에서 오류가 발생한 EBOD 컨트롤러 모듈을 �
     **그림 3** EBOD 모듈 래치 닫기
 4. 케이블을 다시 연결합니다. 교체 전에 있던 구성을 정확하게 사용합니다. 케이블을 연결하는 방법에 대한 자세한 내용은 다음 다이어그램과 표를 참조하세요.
    
-    ![전원에 4U 디바이스를 케이블로 연결](./media/storsimple-ebod-controller-replacement/IC770723.png)
+    ![전원 공급을 위해 4U 장치 케이블 연결](./media/storsimple-ebod-controller-replacement/IC770723.png)
    
     **그림 4**. 케이블 다시 연결
    

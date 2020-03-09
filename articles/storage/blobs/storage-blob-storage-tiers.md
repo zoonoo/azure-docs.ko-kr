@@ -9,11 +9,11 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
 ms.openlocfilehash: f2f6be1022a7100a23f49534f2c18fc951d56284
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368713"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78389094"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Azure Blob storage: 핫, 쿨 및 보관 액세스 계층
 
@@ -140,7 +140,7 @@ Blob이 핫 계층으로 이동 하면 (archive-> 쿨, archive-> 핫 또는 쿨 
 
 ### <a name="change-the-default-account-access-tier-of-a-gpv2-or-blob-storage-account"></a>GPv2 또는 Blob Storage 계정의 기본 계정 액세스 계층을 변경합니다.
 
-# <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
+# <a name="portal"></a>[포털](#tab/azure-portal)
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 1. Azure Portal에서 **모든 리소스**를 검색 하 고 선택 합니다.
@@ -155,7 +155,7 @@ Blob이 핫 계층으로 이동 하면 (archive-> 쿨, archive-> 핫 또는 쿨 
 
 ![저장소 계정 계층 변경](media/storage-tiers/account-tier.png)
 
-# <a name="powershelltabazure-powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
 다음 PowerShell 스크립트를 사용 하 여 계정 계층을 변경할 수 있습니다. `$rgName` 변수는 리소스 그룹 이름으로 초기화 해야 합니다. `$accountName` 변수는 저장소 계정 이름으로 초기화 해야 합니다. 
 ```powershell
 #Initialize the following with your resource group and storage account names
@@ -168,7 +168,7 @@ Set-AzStorageAccount -ResourceGroupName $rgName -Name $accountName -AccessTier H
 ---
 
 ### <a name="change-the-tier-of-a-blob-in-a-gpv2-or-blob-storage-account"></a>GPv2 또는 Blob 저장소 계정에서 blob의 계층 변경
-# <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
+# <a name="portal"></a>[포털](#tab/azure-portal)
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 1. Azure Portal에서 **모든 리소스**를 검색 하 고 선택 합니다.
@@ -185,7 +185,7 @@ Set-AzStorageAccount -ResourceGroupName $rgName -Name $accountName -AccessTier H
 
 ![저장소 계정 계층 변경](media/storage-tiers/blob-access-tier.png)
 
-# <a name="powershelltabazure-powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
 다음 PowerShell 스크립트를 사용 하 여 blob 계층을 변경할 수 있습니다. `$rgName` 변수는 리소스 그룹 이름으로 초기화 해야 합니다. `$accountName` 변수는 저장소 계정 이름으로 초기화 해야 합니다. `$containerName` 변수는 컨테이너 이름으로 초기화 해야 합니다. `$blobName` 변수는 blob 이름으로 초기화 해야 합니다. 
 ```powershell
 #Initialize the following with your resource group, storage account, container, and blob names

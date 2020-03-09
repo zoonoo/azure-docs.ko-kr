@@ -1,6 +1,6 @@
 ---
 title: Microsoft Azure Data Box 시스템 요구 사항 | Microsoft Docs
-description: Azure Data Box의 소프트웨어 및 네트워킹 요구 사항에 대해 알아봅니다.
+description: Azure Data Box의 소프트웨어 및 네트워킹 요구 사항에 대해 알아보기
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 07/11/2019
 ms.author: alkohli
 ms.openlocfilehash: e232ad131b1c0930afcf5e7e78b386aba2c9490b
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839771"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78380582"
 ---
 # <a name="azure-data-box-system-requirements"></a>Azure Data Box 시스템 요구 사항
 
@@ -55,7 +55,7 @@ ms.locfileid: "67839771"
 
 ### <a name="port-requirements"></a>포트 요구 사항
 
-다음 표에서 SMB 또는 NFS 트래픽을 허용 하려면 방화벽에서 열려야 하는 포트를 나열 합니다. 이 테이블에서 *인* 또는 *인바운드*는 디바이스에 대한 들어오는 클라이언트 요청 액세스에서 방향을 참조합니다. *Out* 또는 *아웃 바운드* Data Box 장치 외부적으로 데이터 배포를 벗어나 전송 방향을 가리킵니다: 예를 들어, 인터넷에 아웃 바운드입니다.
+다음 표에는 SMB 또는 NFS 트래픽을 허용 하기 위해 방화벽에서 열어야 하는 포트가 나와 있습니다. 이 테이블에서 *인* 또는 *인바운드*는 디바이스에 대한 들어오는 클라이언트 요청 액세스에서 방향을 참조합니다. *Out* 또는 *아웃 바운드* 는 Data Box 장치가 배포를 벗어나 외부에서 데이터를 전송 하는 방향 (예: 인터넷으로 아웃 바운드)을 나타냅니다.
 
 [!INCLUDE [data-box-port-requirements](../../includes/data-box-port-requirements.md)]
 

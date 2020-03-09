@@ -263,7 +263,7 @@ Azure Enterprise Portal의 CSV 보고서를 유로 화폐 단위로 표시하는
 
 ### <a name="to-import-the-csv-file-without-formatting-issues"></a>서식 지정 문제 없이 CSV 파일을 가져오려면 다음을 수행합니다.
 
-1. Microsoft Excel에서 **파일** ** > 열기**로 차례로 이동합니다.
+1. Microsoft Excel에서 **파일** > **열기**로 차례로 이동합니다.
    텍스트 가져오기 마법사가 나타납니다.
 1. **원본 데이터 형식** 아래에서 **구분 기호로 분리됨**을 선택합니다.  기본값은 **고정 폭**입니다.
 1. **다음**을 선택합니다.

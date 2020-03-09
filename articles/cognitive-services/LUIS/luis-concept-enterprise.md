@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: diberry
 ms.openlocfilehash: efef3faf3cc4ff04235254f0ff6538d92a831196
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619929"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78361149"
 ---
 # <a name="enterprise-strategies-for-a-luis-app"></a>LUIS 앱의 엔터프라이즈 전략
 엔터프라이즈 앱의 이러한 디자인 전략을 검토합니다.
@@ -37,7 +37,7 @@ LUIS app request rate가 허용 된 [할당량](https://azure.microsoft.com/pric
 
 이러한 형제 앱을 학습할 때 [모든 데이터를 학습](luis-how-to-train.md#train-with-all-data)해야 합니다.
 
-단일 앱을 마스터로 지정합니다. 검토를 위해 제안된 모든 발화는 마스터 앱에 추가된 다음, 다시 다른 모든 앱으로 이동되어야 합니다. 이것은 앱의 전체 내보내기이거나 마스터에서 자식으로 레이블이 지정된 발화를 로드하는 것입니다. [단일 발언](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c08) 또는 [일괄 처리](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09)를 위해 [LUIS](luis-reference-regions.md) 웹 사이트 또는 작성 API에서 로드할 수 있습니다. 
+단일 앱을 마스터로 지정합니다. 검토를 위해 제안된 모든 발화는 마스터 앱에 추가된 다음, 다시 다른 모든 앱으로 이동되어야 합니다. 이것은 앱의 전체 내보내기이거나 마스터에서 자식으로 레이블이 지정된 발화를 로드하는 것입니다. [단일 발언](luis-reference-regions.md) 또는 [일괄 처리](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c08)를 위해 [LUIS](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09) 웹 사이트 또는 작성 API에서 로드할 수 있습니다. 
 
 활성 학습에 대 한 [끝점 길이 발언](luis-how-to-review-endpoint-utterances.md) 의 모든 2 주마다 정기적으로 검토 한 다음 다시 학습 및 다시 게시를 예약 합니다. 
 

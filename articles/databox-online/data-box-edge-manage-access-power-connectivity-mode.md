@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 06/24/2019
 ms.author: alkohli
 ms.openlocfilehash: 7ce4b9dda853e63e427757317abc2f7c878ba3a4
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68253148"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78384702"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-edge"></a>Azure Data Box Edge에 대 한 액세스, 기능 및 연결 모드 관리
 
@@ -48,12 +48,12 @@ Data Box Edge 장치에 대 한 액세스는 장치 암호를 사용 하 여 제
 
 1. Azure Portal에서 **개요 > 관리자 암호 재설정**으로 이동합니다.
 
-    ![암호 다시 설정](media/data-box-edge-manage-access-power-connectivity-mode/reset-password-1.png)
+    ![암호 재설정](media/data-box-edge-manage-access-power-connectivity-mode/reset-password-1.png)
 
 
 2. 새 암호를 입력하고 확인합니다. 제공된 암호는 8 ~ 16자 사이여야 합니다. 암호에 대문자, 소문자, 숫자, 특수 문자 중 3가지가 포함되어야 합니다. **다시 설정**을 선택 합니다.
 
-    ![암호 다시 설정](media/data-box-edge-manage-access-power-connectivity-mode/reset-password-2.png)
+    ![암호 재설정](media/data-box-edge-manage-access-power-connectivity-mode/reset-password-2.png)
 
 ## <a name="manage-resource-access"></a>리소스 액세스 관리
 
@@ -66,7 +66,7 @@ Data Box Edge 장치에 대 한 정품 인증 키를 생성 하거나 자격 증
 -  연결 된 저장소 계정을 사용 하 여 공유 만들기
 -  장치에서 공유에 액세스할 수 있는 사용자 만들기
 
-`User` 가능`Read all directory objects`하면 Active Directory 테 넌 트에 대 한 액세스 권한이 있어야 합니다. 권한이 없는 게스트 사용자는 사용할 수 없습니다 `Read all directory objects`. 게스트 인 경우 활성화 키 생성, Data Box Edge 장치에서 공유 만들기, 사용자 만들기, Edge 계산 역할의 구성, 장치 암호 다시 설정 등의 작업이 모두 실패 합니다.
+`Read all directory objects`하려면 Active Directory 테 넌 트에서 `User` 액세스 권한이 있어야 합니다. `Read all directory objects`권한이 없으므로 게스트 사용자가 될 수 없습니다. 게스트 인 경우 활성화 키 생성, Data Box Edge 장치에서 공유 만들기, 사용자 만들기, Edge 계산 역할의 구성, 장치 암호 다시 설정 등의 작업이 모두 실패 합니다.
 
 사용자에 게 Graph API Azure Active Directory 대 한 액세스를 제공 하는 방법에 대 한 자세한 내용은 [관리자, 사용자 및 게스트 사용자에 대 한 기본 액세스](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-)를 참조 하세요.
 
@@ -80,7 +80,7 @@ Azure에서 리소스를 프로 비전 하려면 (Azure Resource Manager 모델)
 
 리소스를 만들기 전에 리소스 공급자가 구독에 등록 되어 있는지 확인 합니다. 리소스 공급자가 등록 되지 않은 경우 새 리소스를 만드는 사용자에 게 구독 수준에서 필요한 리소스 공급자를 등록할 수 있는 충분 한 권한이 있는지 확인 해야 합니다. 아직 수행 하지 않은 경우 다음과 같은 오류가 표시 됩니다.
 
-*구독 \<구독 이름 >에 리소스 공급자를 등록할 수 있는 권한이 없습니다. Microsoft.DataBoxEdge.*
+*구독 \<구독 이름 >에 리소스 공급자를 등록할 수 있는 권한이 없습니다. DataBoxEdge.*
 
 
 현재 구독에서 등록 된 리소스 공급자 목록을 가져오려면 다음 명령을 실행 합니다.
@@ -89,7 +89,7 @@ Azure에서 리소스를 프로 비전 하려면 (Azure Resource Manager 모델)
 Get-AzResourceProvider -ListAvailable |where {$_.Registrationstate -eq "Registered"}
 ```
 
-Data Box Edge 장치의 경우을 `Microsoft.DataBoxEdge` 등록 해야 합니다. 등록 `Microsoft.DataBoxEdge`하려면 구독 관리자가 다음 명령을 실행 해야 합니다.
+Data Box Edge 장치의 경우 `Microsoft.DataBoxEdge` 등록 해야 합니다. `Microsoft.DataBoxEdge`등록 하려면 구독 관리자가 다음 명령을 실행 해야 합니다.
 
 ```PowerShell
 Register-AzResourceProvider -ProviderNamespace Microsoft.DataBoxEdge

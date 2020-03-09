@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: 54c161c40c881d7626f79fc9bfe1ec1c160480ae
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082237"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78362785"
 ---
 # <a name="monitor-the-process-server"></a>프로세스 서버 모니터링
 
@@ -59,11 +59,11 @@ ms.locfileid: "74082237"
 ![Warning][yellow] | 최근 15 분 동안 캐시 폴더의 사용 가능한 공간 < 30%
 ![Warning][yellow] | Site Recovery은 5 분 마다 보류/발신 데이터를 모니터링 하 고, 프로세스 서버 캐시의 데이터를 30 분 내에 Azure에 업로드할 수 없음을 추정 합니다.
 ![Warning][yellow] | 지난 15 분간 프로세스 서버 서비스가 실행 되 고 있지 않음
-![심각][red] | 지난 15 분간 CPU 사용률 > 95%
-![심각][red] | 최근 15 분 동안 메모리 사용 > 95%
-![심각][red] | 최근 15 분 동안 캐시 폴더의 사용 가능한 공간 < 25%
-![심각][red] | Site Recovery은 5 분 마다 보류/발신 데이터를 모니터링 하 고, 프로세스 서버 캐시의 데이터를 45 분 내에 Azure에 업로드할 수 없음을 예상 합니다.
-![심각][red] | 15 분 동안 프로세스 서버에서 하트 비트가 없습니다.
+![위험][red] | 지난 15 분간 CPU 사용률 > 95%
+![위험][red] | 최근 15 분 동안 메모리 사용 > 95%
+![위험][red] | 최근 15 분 동안 캐시 폴더의 사용 가능한 공간 < 25%
+![위험][red] | Site Recovery은 5 분 마다 보류/발신 데이터를 모니터링 하 고, 프로세스 서버 캐시의 데이터를 45 분 내에 Azure에 업로드할 수 없음을 예상 합니다.
+![위험][red] | 15 분 동안 프로세스 서버에서 하트 비트가 없습니다.
 
 ![테이블 키](./media/vmware-physical-azure-monitor-process-server/table-key.png)
 
