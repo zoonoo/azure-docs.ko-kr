@@ -9,11 +9,11 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/24/2018
 ms.openlocfilehash: ee8dec821e8cbb4657323c167a463b94b7935ab1
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77623429"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78397358"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Azure Cosmos DB Cassandra API에서 지원하는 Apache Cassandra 기능 
 
@@ -54,20 +54,20 @@ Azure Cosmos DB Cassandra API는 다음 CQL 데이터 형식을 지원합니다.
 * inet  
 * int  
 * list  
-* set  
-* smallint  
-* text  
+* 집합  
+* SMALLINT  
+* 텍스트  
 * time  
 * timestamp  
 * timeuuid  
 * tinyint  
-* tuple  
+* 튜플(tuple)  
 * uuid  
 * varchar  
 * varint  
 * tuples  
 * udts  
-* map  
+* 지도(map)  
 
 ## <a name="cql-functions"></a>CQL 함수
 
@@ -96,7 +96,7 @@ Azure Cosmos DB Cassandra API는 다음 CQL 함수를 지원합니다.
 
 ## <a name="cassandra-api-limits"></a>Cassandra API 한도
 
-Azure Cosmos DB Cassandra API에는 테이블에 저장할 수 있는 데이터 크기에 제한이 없습니다. 그러므로 파티션 키 제한 범위 내에서 수백 TB/PB에 달하는 데이터를 저장할 수 있습니다. 마찬가지로, 모든 엔터티 또는 그에 해당하는 행에도 열 수는 제한되지 않습니다. 그러나 엔터티의 총 크기는 2MB를 초과할 수 없습니다. 파티션 키당 데이터는 다른 모든 API와 마찬가지로 20GB를 초과할 수 없습니다.
+Azure Cosmos DB Cassandra API에는 테이블에 저장할 수 있는 데이터 크기에 제한이 없습니다. 그러므로 파티션 키 제한 범위 내에서 수백 TB/PB에 달하는 데이터를 저장할 수 있습니다. 마찬가지로, 모든 엔터티 또는 그에 해당하는 행에도 열 수는 제한되지 않습니다. 그러나 엔터티의 총 크기는 2MB를 초과할 수 없습니다. 파티션 키 당 데이터는 다른 모든 Api와 마찬가지로 20gb를 초과할 수 없습니다.
 
 ## <a name="tools"></a>도구 
 
@@ -151,7 +151,7 @@ Azure Cosmos DB는 Cassandra API 계정에서 다음 데이터베이스 명령�
 * SELECT 
 * UPDATE 
 * BATCH - 로깅되지 않는 명령만 지원됨 
-* Delete
+* DELETE
 
 CQL v4 호환 SDK를 통해 실행하는 모든 CRUD 작업에서는 오류, 사용한 요청 단위와 관련된 추가 정보가 반환됩니다. 프로비저닝된 처리량을 가장 효율적으로 사용하기 위해 리소스 거버넌스를 고려하면서 DELETE 및 UPDATE 명령을 처리해야 합니다.
 

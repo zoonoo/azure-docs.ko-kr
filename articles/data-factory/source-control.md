@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/09/2019
 ms.openlocfilehash: 1cc5932eca520b0bbc0c592b54d36ea8b5942b08
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77031632"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78386620"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Azure Data Factory의 소스 제어
 
@@ -70,7 +70,7 @@ Azure Data Factory UX 제작 캔버스에서 **Data Factory** 드롭다운 메�
 
 구성 창에는 다음 Azure Repos 코드 리포지토리 설정이 표시 됩니다.
 
-| 설정 | Description | 값 |
+| 설정 | 설명 | 값 |
 |:--- |:--- |:--- |
 | **리포지토리 유형** | Azure Repos 코드 리포지토리의 유형입니다.<br/> | Azure DevOps Git 또는 GitHub |
 | **Azure Active Directory** | Azure AD 테넌트 이름입니다. | `<your tenant name>` |
@@ -187,7 +187,7 @@ _원본 제어_라고도 하는 버전 제어 시스템을 통해 개발자는 �
 
 ### <a name="configure-publishing-settings"></a>게시 설정 구성
 
-게시 분기(Resource Manager 템플릿이 저장되는 분기)를 구성하려면 협업 분기의 루트 폴더에 `publish_config.json` 파일을 추가합니다. Data Factory는 이 파일을 읽고 `publishBranch` 필드를 찾은 다음 제공된 값을 사용하여 새 분기(없는 경우)를 만듭니다. 그런 다음 지정된 위치에 모든 Resource Manager 템플릿을 저장합니다. 다음은 그 예입니다.
+게시 분기(Resource Manager 템플릿이 저장되는 분기)를 구성하려면 협업 분기의 루트 폴더에 `publish_config.json` 파일을 추가합니다. Data Factory는 이 파일을 읽고 `publishBranch` 필드를 찾은 다음 제공된 값을 사용하여 새 분기(없는 경우)를 만듭니다. 그런 다음 지정된 위치에 모든 Resource Manager 템플릿을 저장합니다. 예를 들면 다음과 같습니다.
 
 ```json
 {
@@ -226,7 +226,7 @@ _원본 제어_라고도 하는 버전 제어 시스템을 통해 개발자는 �
 
 ## <a name="best-practices-for-git-integration"></a>Git 통합에 대한 모범 사례
 
-### <a name="permissions"></a>사용 권한
+### <a name="permissions"></a>권한
 
 일반적으로 모든 팀 멤버에 게 팩터리를 업데이트할 수 있는 권한이 필요 하지 않습니다. 다음 사용 권한 설정을 사용 하는 것이 좋습니다.
 

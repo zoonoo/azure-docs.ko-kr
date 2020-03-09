@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/01/2020
+ms.date: 03/07/2020
 ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2fda5d1bdd00a601df363bd930e5f2f6d610c7f
-ms.sourcegitcommit: 5192c04feaa3d1bd564efe957f200b7b1a93a381
+ms.openlocfilehash: 42fc10c1e7e88e36e4d2174671702e043fb96538
+ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78208715"
+ms.lasthandoff: 03/08/2020
+ms.locfileid: "78926852"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-active-directory-azure-ad"></a>SCIM 끝점을 빌드하고 Azure Active Directory (Azure AD)를 사용 하 여 사용자 프로 비전 구성
 
@@ -33,7 +33,7 @@ SCIM은 두 끝점의 표준화 된 정의입니다./사용자 끝점 및/Tgroup
 
 SCIM 2.0 (RFC [7642](https://tools.ietf.org/html/rfc7642), [7643](https://tools.ietf.org/html/rfc7643), [7644](https://tools.ietf.org/html/rfc7644))에 정의 된 관리용 표준 사용자 개체 스키마 및 rest api를 사용 하 여 id 공급자와 앱을 서로 쉽게 통합할 수 있습니다. SCIM 끝점을 빌드하는 응용 프로그램 개발자는 사용자 지정 작업을 수행 하지 않고도 SCIM 호환 클라이언트와 통합할 수 있습니다.
 
-응용 프로그램에 프로 비전을 자동화 하려면 SCIM 끝점을 빌드하고 Azure AD SCIM과 통합 해야 합니다. 응용 프로그램에 사용자 및 그룹 프로 비전을 시작 하려면 다음 단계를 수행 합니다. 
+응용 프로그램에 프로 비전을 자동화 하려면 SCIM 끝점을 빌드하고 Azure AD SCIM 클라이언트와 통합 해야 합니다. 응용 프로그램에 사용자 및 그룹 프로 비전을 시작 하려면 다음 단계를 수행 합니다. 
     
   * **[1 단계: 사용자 및 그룹 스키마를 디자인 합니다.](#step-1-design-your-user-and-group-schema)** 응용 프로그램에 필요한 개체 및 특성을 확인 하 고 Azure AD SCIM 구현에서 지 원하는 사용자 및 그룹 스키마에 매핑되는 방법을 결정 합니다.
 
@@ -60,7 +60,7 @@ SCIM 2.0 (RFC [7642](https://tools.ietf.org/html/rfc7642), [7643](https://tools.
 |loginName|userName|userPrincipalName|
 |firstName|name.givenName|givenName|
 |lastName|이름. lastName|lastName|
-|회사 메일|전자 메일 [type eq "work"]. value|Mail|
+|회사 메일|전자 메일 [type eq "work"]. value|메일|
 |manager|manager|manager|
 |tag|urn: ietf: params: scim: 스키마: 확장: 2.0: CustomExtension: tag|extensionAttribute1|
 |상태|활성|Is소프트 삭제 (사용자에 게 저장 되지 않은 계산 값)|
@@ -106,7 +106,7 @@ SCIM 2.0 (RFC [7642](https://tools.ietf.org/html/rfc7642), [7643](https://tools.
 | Facsimile-TelephoneNumber |phoneNumbers[type eq "fax"].value |
 | givenName |name.givenName |
 | jobTitle |title |
-| mail |emails[type eq "work"].value |
+| 메일 |emails[type eq "work"].value |
 | mailNickname |externalId |
 | manager |urn: ietf: params: scim: 스키마: 확장: enterprise: 2.0: User: manager |
 | mobile |phoneNumbers[type eq "mobile"].value |
@@ -124,9 +124,9 @@ SCIM 2.0 (RFC [7642](https://tools.ietf.org/html/rfc7642), [7643](https://tools.
 | Azure Active Directory 그룹 | urn:ietf:params:scim:schemas:core:2.0:Group |
 | --- | --- |
 | displayName |displayName |
-| mail |emails[type eq "work"].value |
+| 메일 |emails[type eq "work"].value |
 | mailNickname |displayName |
-| members |members |
+| 멤버 |멤버 |
 | objectId |externalId |
 | proxyAddresses |emails[type eq "other"].Value |
 
@@ -752,7 +752,7 @@ TLS 1.2 암호 그룹 최소 막대:
 
 ## <a name="step-3-build-a-scim-endpoint"></a>3 단계: SCIM 끝점 빌드
 
-이제 스키마를 desidned 하 고 Azure AD SCIM 구현을 이해 했으므로 SCIM 끝점 개발을 시작할 수 있습니다. 처음부터 시작 하 여 구현을 완전히 빌드하는 대신 SCIM 주석 uinty에서 게시 한 여러 오픈 소스 SCIM 라이브러리를 사용할 수 있습니다.  
+이제 스키마를 설계 하 고 Azure AD SCIM 구현을 이해 했으므로 SCIM 끝점 개발을 시작할 수 있습니다. 처음부터 시작 하 여 구현을 완전히 빌드하는 대신 SCIM 주석 uinty에서 게시 한 여러 오픈 소스 SCIM 라이브러리를 사용할 수 있습니다.  
 Azure AD 프로 비전 팀에서 게시 한 오픈 소스 .NET Core [참조 코드](https://aka.ms/SCIMReferenceCode) 는 개발을 시작할 수 있는 리소스 중 하나입니다. SCIM 끝점을 빌드한 후에는 테스트 하는 것이 좋습니다. 참조 코드의 일부로 제공 되는 [postman 테스트](https://github.com/AzureAD/SCIMReferenceCode/wiki/Test-Your-SCIM-Endpoint) 컬렉션을 사용 하거나 [위에서](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#user-operations)제공 된 샘플 요청/응답을 통해 실행할 수 있습니다.  
 
 참고: 참조 코드는 SCIM 끝점 빌드를 시작 하는 데 도움을 주기 위한 것 이며 "있는 그대로" 제공 됩니다. 커뮤니티의 기여는 코드를 작성 하 고 유지 관리 하는 데 도움이 됩니다. 
@@ -832,7 +832,7 @@ Azure AD 애플리케이션 갤러리에 있는 "비-갤러리 애플리케이�
 ### <a name="authorization-for-provisioning-connectors-in-the-application-gallery"></a>응용 프로그램 갤러리에서 커넥터 프로 비전에 대 한 권한 부여
 SCIM 사양에는 인증 및 권한 부여에 대 한 SCIM 관련 체계가 정의 되어 있지 않습니다. 기존 업계 표준의 사용을 기반으로 합니다. Azure AD 프로 비전 클라이언트는 갤러리의 응용 프로그램에 대 한 두 가지 권한 부여 방법을 지원 합니다. 
 
-|권한 부여 방법|장점|단점|지원|
+|권한 부여 방법|전문가|단점|지원|
 |--|--|--|--|
 |사용자 이름 및 암호 (Azure AD에서 권장 되지 않거나 지원 되지 않음)|손쉬운 구현|안전 [하지 않음-Pa $ $word 중요 하지 않습니다](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/your-pa-word-doesn-t-matter/ba-p/731984) .|갤러리 앱에 대 한 대/소문자를 기준으로 지원 됩니다. 비 갤러리 앱에 대해서는 지원 되지 않습니다.|
 |수명이 긴 전달자 토큰|수명이 긴 토큰에는 사용자가 없어도 됩니다. 프로 비전을 설정할 때 관리자가 쉽게 사용할 수 있습니다.|수명이 긴 토큰은 전자 메일과 같은 안전 하지 않은 방법을 사용 하지 않고 관리자와 공유 하기 어려울 수 있습니다. |갤러리 및 비 갤러리 앱에 대해 지원 됩니다. |

@@ -1,14 +1,14 @@
 ---
 title: 쿼리 언어 이해
 description: 리소스 그래프 테이블에 대해 설명 하 고 Azure 리소스 그래프에서 사용할 수 있는 Kusto 데이터 형식, 연산자 및 함수에 대해 설명 합니다.
-ms.date: 12/05/2019
+ms.date: 03/07/2020
 ms.topic: conceptual
-ms.openlocfilehash: a3503ce8d83b5bd47872db4b1de0eadb88be432c
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 2f4be4d86a340867e1ad3015ff288f98fc54cecf
+ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851216"
+ms.lasthandoff: 03/08/2020
+ms.locfileid: "78927490"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Azure Resource Graph 쿼리 언어 이해
 
@@ -28,8 +28,12 @@ Azure Resource Graph 쿼리 언어는 다양한 연산자 및 함수를 지원�
 |---|---|
 |리소스 |쿼리에 정의 된 내용이 없는 경우의 기본 테이블입니다. 대부분의 리소스 관리자 리소스 유형 및 속성은 다음과 같습니다. |
 |ResourceContainers |구독 (미리 보기--`Microsoft.Resources/subscriptions`) 및 리소스 그룹 (`Microsoft.Resources/subscriptions/resourcegroups`) 리소스 유형 및 데이터를 포함 합니다. |
+|AdvisorResources |`Microsoft.Advisor`_와 관련 된_ 리소스를 포함 합니다. |
 |AlertsManagementResources |`Microsoft.AlertsManagement`_와 관련 된_ 리소스를 포함 합니다. |
+|MaintenanceResources |`Microsoft.Maintenance`_와 관련 된_ 리소스를 포함 합니다. |
 |SecurityResources |`Microsoft.Security`_와 관련 된_ 리소스를 포함 합니다. |
+
+리소스 종류를 비롯 한 전체 목록은 [참조: 지원 되는 테이블 및 리소스 종류](../reference/supported-tables-resources.md)를 참조 하세요.
 
 > [!NOTE]
 > _리소스_ 는 기본 테이블입니다. _리소스_ 테이블을 쿼리 하는 동안에는 `join` 또는 `union`를 사용 하지 않는 한 테이블 이름을 제공 하지 않아도 됩니다. 그러나 권장 되는 방법은 항상 쿼리에 초기 테이블을 포함 하는 것입니다.
@@ -120,4 +124,4 @@ Resources
 
 - [시작 쿼리에서](../samples/starter.md)사용 중인 언어를 참조 하세요.
 - [고급 쿼리에서](../samples/advanced.md)고급 사용을 참조 하세요.
-- [리소스 검색](explore-resources.md) 방법을 자세히 알아봅니다.
+- [리소스 검색](explore-resources.md) 방법에 대해 자세히 알아보기

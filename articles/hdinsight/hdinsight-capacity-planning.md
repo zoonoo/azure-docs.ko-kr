@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: db7b2787df68e5e9baadddc7e6e6159cfff26097
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 69627c961d9224a124fda09f40901f837d627281
+ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78389794"
+ms.lasthandoff: 03/08/2020
+ms.locfileid: "78932693"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>HDInsight 클러스터의 용량 계획
 
@@ -56,7 +56,7 @@ Azure Storage에는 일부 [용량 제한](../azure-resource-manager/management/
 * 데이터를 만들려는 경우 이미 클러스터에서 사용할 수 있는 blob 컨테이너에 업로드 했습니다.
 * 보안상의 이유나 관리 간소화를 위해 스토리지의 다른 부분을 격리하려고 하는 경우
 
-48 노드 클러스터의 경우 4~8개 스토리지 계정이 권장됩니다. 총 스토리지 이미 충분할 수 있지만 각 스토리지 계정이 컴퓨팅 노드에 대해 추가 네트워킹 대역폭을 제공합니다. 스토리지 계정이 여러 개 있는 경우 각 스토리지 계정에 대해 접두사 없는 임의 이름을 사용합니다. 임의 이름을 지정하는 목적은 모든 계정에서 스토리지 병목 상태(제한) 또는 일반 모드 오류가 발생할 가능성을 줄이려는 것입니다. 성능 향상을 위해서는 스토리지 계정당 하나의 컨테이너만 사용합니다.
+성능 향상을 위해서는 스토리지 계정당 하나의 컨테이너만 사용합니다.
 
 ## <a name="choose-a-cluster-type"></a>클러스터 유형 선택
 

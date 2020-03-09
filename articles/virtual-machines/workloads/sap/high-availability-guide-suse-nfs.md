@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/15/2019
+ms.date: 03/06/2020
 ms.author: radeltch
-ms.openlocfilehash: efba617f9aeefa2e9374f5a7551338e003e70f56
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 58e7eea487c5d00a33338a592dd064072bef3c64
+ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77598734"
+ms.lasthandoff: 03/08/2020
+ms.locfileid: "78926701"
 ---
 # <a name="high-availability-for-nfs-on-azure-vms-on-suse-linux-enterprise-server"></a>SUSE Linux Enterprise Server의 Azure VM에 있는 NFS의 고가용성
 
@@ -127,7 +127,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
 먼저 NFS 클러스터에 대한 가상 머신을 만들어야 합니다. 그런 다음, 부하 분산 장치를 만들고 백 엔드 풀의 가상 머신을 사용합니다.
 
 1. 리소스 그룹 만들기
-1. Virtual Network 만들기
+1. 가상 네트워크 만들기
 1. 가용성 집합 만들기  
    최대 업데이트 도메인 설정
 1. Virtual Machine 1 만들기 SLES4SAP 12 SP3 이상 사용, 이 예제에서는 SAP 애플리케이션 12 SP3용 SLES4SAP 12 SP3 BYOS 이미지 SLES(BYOS)가 사용됨  
@@ -143,7 +143,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
             1. 부하 분산 장치 열기, 프런트 엔드 IP 풀 선택 및 추가 클릭
             1. 새 프런트 엔드 IP 풀의 이름 입력(예: **nw1-frontend**)
             1. 할당을 정적으로 설정하고 IP 주소 입력(예: **10.0.0.4**)
-            1. 확인 클릭
+            1. 확인을 클릭합니다.
          1. NW2의 경우 IP 주소 10.0.0.5
             * NW2에 대해 위 단계를 반복
       1. 백 엔드 풀 만들기
@@ -161,7 +161,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
             1. 부하 분산 장치를 열고 상태 프로브를 선택한 다음 추가 클릭
             1. 새 상태 프로브의 이름 입력(예: **nw1-hp**)
             1. 프로토콜로 TCP를 선택하고 포트 610**00**을 선택한 다음, 간격은 5, 비정상 임계값은 2로 유지
-            1. 확인 클릭
+            1. 확인을 클릭합니다.
          1. NW2의 경우 포트 61001
             * 위의 단계를 반복하여 NW2용 상태 프로브 만들기
       1. 부하 분산 규칙
@@ -171,7 +171,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
          1. **HA 포트**를 선택 합니다.
          1. 유휴 상태 시간 제한을 30분으로 증가
          1. **부동 IP를 사용하도록 설정**
-         1. 확인 클릭
+         1. 확인을 클릭합니다.
          * 위의 단계를 반복 하 여 N W 2에 대 한 부하 분산 규칙 만들기
    1. 또는 시나리오에 기본 부하 분산 장치가 필요한 경우 다음 지침을 따르세요.
       1. 프런트 엔드 IP 주소 만들기
@@ -179,7 +179,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
             1. 부하 분산 장치 열기, 프런트 엔드 IP 풀 선택 및 추가 클릭
             1. 새 프런트 엔드 IP 풀의 이름 입력(예: **nw1-frontend**)
             1. 할당을 정적으로 설정하고 IP 주소 입력(예: **10.0.0.4**)
-            1. 확인 클릭
+            1. 확인을 클릭합니다.
          1. NW2의 경우 IP 주소 10.0.0.5
             * NW2에 대해 위 단계를 반복
       1. 백 엔드 풀 만들기
@@ -189,7 +189,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
             1. 가상 머신 추가 클릭
             1. 이전에 만든 가용성 집합 선택
             1. NFS 클러스터의 가상 머신 선택
-            1. 확인 클릭
+            1. 확인을 클릭합니다.
          1. NW2에 대한 NFS 클러스터의 일부분이어야 하는 모든 가상 머신의 주 네트워크 인터페이스에 연결됨
             * 위의 단계를 반복하여 NW2용 백 엔드 풀 만들기
       1. 상태 프로브 만들기
@@ -197,7 +197,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
             1. 부하 분산 장치를 열고 상태 프로브를 선택한 다음 추가 클릭
             1. 새 상태 프로브의 이름 입력(예: **nw1-hp**)
             1. 프로토콜로 TCP를 선택하고 포트 610**00**을 선택한 다음, 간격은 5, 비정상 임계값은 2로 유지
-            1. 확인 클릭
+            1. 확인을 클릭합니다.
          1. NW2의 경우 포트 61001
             * 위의 단계를 반복하여 NW2용 상태 프로브 만들기
       1. 부하 분산 규칙
@@ -208,7 +208,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
             1. **TCP** 프로토콜을 유지하고 포트 **2049** 입력
             1. 유휴 상태 시간 제한을 30분으로 증가
             1. **부동 IP를 사용하도록 설정**
-            1. 확인 클릭
+            1. 확인을 클릭합니다.
          1. NW1의 경우 2049 UDP
             * NW1의 UDP 및 포트 2049에 대하 위 단계 반복
          1. NW2의 경우 2049 TCP
@@ -478,7 +478,12 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
 
    > [!IMPORTANT]
    > 최신 테스트로 인해 netcat이 백로그로 인 한 요청 응답을 중지 하 고 하나의 연결만 처리할 수 있는 경우를 확인할 수 있습니다. Netcat 리소스는 Azure 부하 분산 장치 요청에 대 한 수신 대기를 중지 하 고 부동 IP는 사용할 수 없게 됩니다.  
-   > 기존 Pacemaker 클러스터의 경우 [Azure 부하 분산 장치 검색 강화](https://www.suse.com/support/kb/doc/?id=7024128)의 지침에 따라 netcat을 socat로 바꾸는 것이 좋습니다. 변경 작업을 수행 하려면 짧은 가동 중지 시간이 필요 합니다.  
+   > 기존 Pacemaker 클러스터의 경우 netcat을 socat로 교체 하는 것이 좋습니다. 현재 패키지 리소스 에이전트의 일부인 azure-lb 리소스 에이전트를 사용 하는 것이 좋습니다. 패키지 버전 요구 사항은 다음과 같습니다.
+   > - SLES 12 SP4/SP5의 경우 버전은 4.3.018. a7fb5035-3.30.1 이상 이어야 합니다.  
+   > - SLES 15/15 s p 1의 경우 버전은 4.3.0184.6 ee15eb2-4.13.1 이상 이어야 합니다.  
+   >
+   > 변경 작업을 수행 하려면 짧은 가동 중지 시간이 필요 합니다.  
+   > 기존 Pacemaker 클러스터의 경우 [Azure 부하 분산 장치 검색 강화](https://www.suse.com/support/kb/doc/?id=7024128)에 설명 된 대로 구성이 이미 socat을 사용 하도록 변경 된 경우 azure-lb 리소스 에이전트로 즉시 전환 하지 않아도 됩니다.
 
    <pre><code>sudo crm configure rsc_defaults resource-stickiness="200"
 
@@ -515,9 +520,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
      IPaddr2 \
      params ip=<b>10.0.0.4</b> cidr_netmask=<b>24</b> op monitor interval=10 timeout=20
    
-   sudo crm configure primitive nc_<b>NW1</b>_nfs \
-     anything \
-     params binfile="/usr/bin/socat" cmdline_options="-U TCP-LISTEN:<b>61000</b>,backlog=10,fork,reuseaddr /dev/null" op monitor timeout=20s interval=10 depth=0
+   sudo crm configure primitive nc_<b>NW1</b>_nfs azure-lb port=<b>61000</b>
    
    sudo crm configure group g-<b>NW1</b>_nfs \
      fs_<b>NW1</b>_sapmnt exportfs_<b>NW1</b> nc_<b>NW1</b>_nfs vip_<b>NW1</b>_nfs
@@ -554,15 +557,13 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
    sudo crm configure primitive exportfs_<b>NW2</b> \
      ocf:heartbeat:exportfs \
      params directory="/srv/nfs/<b>NW2</b>" \
-     options="rw,no_root_squash" clientspec="*" fsid=2 wait_for_leasetime_on_stop=true op monitor interval="30s"
+     options="rw,no_root_squash,crossmnt" clientspec="*" fsid=2 wait_for_leasetime_on_stop=true op monitor interval="30s"
    
    sudo crm configure primitive vip_<b>NW2</b>_nfs \
      IPaddr2 \
      params ip=<b>10.0.0.5</b> cidr_netmask=<b>24</b> op monitor interval=10 timeout=20
    
-   sudo crm configure primitive nc_<b>NW2</b>_nfs \
-     anything \
-     params binfile="/usr/bin/socat" cmdline_options="-U TCP-LISTEN:<b>61001</b>,backlog=10,fork,reuseaddr /dev/null" op monitor timeout=20s interval=10 depth=0
+   sudo crm configure primitive nc_<b>NW2</b>_nfs azure-lb port=<b>61001</b>
    
    sudo crm configure group g-<b>NW2</b>_nfs \
      fs_<b>NW2</b>_sapmnt exportfs_<b>NW2</b> nc_<b>NW2</b>_nfs vip_<b>NW2</b>_nfs
@@ -585,5 +586,4 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
 * [SAP 용 Azure Virtual Machines 계획 및 구현][planning-guide]
 * [SAP 용 Azure Virtual Machines 배포][deployment-guide]
 * [SAP 용 Azure Virtual Machines DBMS 배포][dbms-guide]
-* [Azure의 SAP HANA(큰 인스턴스) 고가용성 및 재해 복구](hana-overview-high-availability-disaster-recovery.md) - Azure의 SAP HANA(큰 인스턴스)에 대한 고가용성 및 재해 복구 계획을 설정하는 방법을 알아봅니다.
 * Azure Vm에서 SAP HANA의 고가용성을 설정 하 고 재해 복구를 계획 하는 방법에 대 한 자세한 내용은 [azure Virtual Machines (vm)의 SAP HANA 고가용성][sap-hana-ha] 을 참조 하세요.

@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 11/06/2019
-ms.openlocfilehash: bbc62aa153e6ecb5d9ae65c37392c2697b9beaa2
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.date: 03/06/2020
+ms.openlocfilehash: 958794cda60d0ce1b0d223b9b5a6c03283022a6c
+ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979714"
+ms.lasthandoff: 03/08/2020
+ms.locfileid: "78927558"
 ---
 # <a name="azure-machine-learning-monitoring-data-reference"></a>Azure machine learning 모니터링 데이터 참조
 
@@ -27,7 +27,7 @@ Azure Machine Learning 작업 영역에서 Azure Monitor 하 여 수집 된 데�
 
 ### <a name="amlcomputejobevents-table"></a>AmlComputeJobEvents 테이블
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:--- |:---|
 | TimeGenerated | 로그 항목이 생성 된 시간 |
 | OperationName | 로그 이벤트와 연결 된 작업의 이름입니다. |
@@ -56,7 +56,7 @@ Azure Machine Learning 작업 영역에서 Azure Monitor 하 여 수집 된 데�
 
 ### <a name="amlcomputeclusterevents-table"></a>AmlComputeClusterEvents 테이블
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:--- |:--- |
 | TimeGenerated | 로그 항목이 생성 된 시간 |
 | OperationName | 로그 이벤트와 연결 된 작업의 이름입니다. |
@@ -74,7 +74,7 @@ Azure Machine Learning 작업 영역에서 Azure Monitor 하 여 수집 된 데�
 | MaximumNodeCount | 클러스터의 최대 노드 수 |
 | NodeDeallocationOption | 노드의 할당을 취소 하는 방법 |
 | 게시자 | 클러스터 유형 게시자 |
-| 제품 | 클러스터가 생성 되는 제품 |
+| 제안 | 클러스터가 생성 되는 제품 |
 | SKU | 클러스터 내에서 만든 노드/v m의 Sku |
 | 버전 | 노드/v m이 생성 되는 동안 사용 된 이미지의 버전 |
 | SubnetId | 클러스터의 SubnetId |
@@ -99,7 +99,7 @@ Azure Machine Learning 작업 영역에서 Azure Monitor 하 여 수집 된 데�
 
 ### <a name="amlcomputeclusternodeevents-table"></a>AmlComputeClusterNodeEvents 테이블
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:--- |:--- |
 | TimeGenerated | 로그 항목이 생성 된 시간 |
 | OperationName | 로그 이벤트와 연결 된 작업의 이름입니다. |
@@ -110,7 +110,7 @@ Azure Machine Learning 작업 영역에서 Azure Monitor 하 여 수집 된 데�
 | VmFamilyName | 노드가 속한 Vm 제품군 |
 | VmPriority | 전용/LowPriority를 만든 노드의 우선 순위입니다. |
 | 게시자 | Vm 이미지 (예: microsoft-dsvm)의 게시자 |
-| 제품 | VM 만들기와 관련 된 제안 |
+| 제안 | VM 만들기와 관련 된 제안 |
 | SKU | 만든 노드/v m의 Sku |
 | 버전 | 노드/v m이 생성 되는 동안 사용 된 이미지의 버전 |
 | ClusterCreationTime | 클러스터가 생성 된 시간 |
@@ -122,43 +122,43 @@ Azure Machine Learning 작업 영역에서 Azure Monitor 하 여 수집 된 데�
 | StartTaskEndTime | 노드에 할당 된 작업이 종료 된 시간 |
 | TotalE2ETimeInSeconds | 노드가 활성 상태 였던 총 시간 |
 
-### <a name="metrics"></a>메트릭
+### <a name="metrics"></a>metrics
 
 다음 표에서는 Azure Machine Learning에 대해 수집 된 플랫폼 메트릭을 나열 합니다. 모든 메트릭은 네임 스페이스 **Azure Machine Learning 작업 영역**에 저장 됩니다.
 
 **Model**
 
-| 메트릭 | 단위 | Description |
+| 메트릭 | 단위 | 설명 |
 | ----- | ----- | ----- |
-| 모델 배포 실패 | 카운트 | 실패 한 모델 배포의 수입니다. |
-| 모델 배포가 시작 됨 | 카운트 | 시작 된 모델 배포의 수입니다. |
-| 모델 배포 성공 | 카운트 | 성공한 모델 배포의 수입니다. |
-| 모델 레지스터가 실패 했습니다. | 카운트 | 실패 한 모델 등록 수입니다. |
-| 모델 등록 성공 | 카운트 | 성공한 모델 등록 수입니다. |
+| 모델 배포 실패 | 개수 | 실패 한 모델 배포의 수입니다. |
+| 모델 배포가 시작 됨 | 개수 | 시작 된 모델 배포의 수입니다. |
+| 모델 배포 성공 | 개수 | 성공한 모델 배포의 수입니다. |
+| 모델 레지스터가 실패 했습니다. | 개수 | 실패 한 모델 등록 수입니다. |
+| 모델 등록 성공 | 개수 | 성공한 모델 등록 수입니다. |
 
 **할당량**
 
 할당량 정보는 Azure Machine Learning 계산 전용입니다.
 
-| 메트릭 | 단위 | Description |
+| 메트릭 | 단위 | 설명 |
 | ----- | ----- | ----- |
-| 활성 코어 | 카운트 | 활성 계산 코어의 수입니다. |
-| 활성 노드 | 카운트 | 활성 노드 수입니다. |
-| 유휴 코어 | 카운트 | 유휴 계산 코어의 수입니다. |
-| 유휴 노드 | 카운트 | 유휴 계산 노드 수입니다. |
-| 코어 탈퇴 | 카운트 | 종료 되는 코어 수입니다. |
-| 노드 종료 | 카운트 | 종료 노드 수입니다. |
-| 선점 코어 | 카운트 | 선점 되는 코어 수입니다. |
-| 선점 노드 | 카운트 | 선점 된 노드 수입니다. |
-| 할당량 사용률 비율 | 백분율 | 사용 된 할당량의 백분율입니다. |
-| 총 코어 수 | 카운트 | 총 코어입니다. |
-| 총 노드 | 카운트 | 총 노드입니다. |
-| 사용할 수 없는 코어 | 카운트 | 사용할 수 없는 코어의 수입니다. |
-| 사용할 수 없는 노드 | 카운트 | 사용할 수 없는 노드 수입니다. |
+| 활성 코어 | 개수 | 활성 계산 코어의 수입니다. |
+| 활성 노드 | 개수 | 활성 노드 수입니다. |
+| 유휴 코어 | 개수 | 유휴 계산 코어의 수입니다. |
+| 유휴 노드 | 개수 | 유휴 계산 노드 수입니다. |
+| 코어 탈퇴 | 개수 | 종료 되는 코어 수입니다. |
+| 노드 종료 | 개수 | 종료 노드 수입니다. |
+| 선점 코어 | 개수 | 선점 되는 코어 수입니다. |
+| 선점 노드 | 개수 | 선점 된 노드 수입니다. |
+| 할당량 사용률 비율 | % | 사용 된 할당량의 백분율입니다. |
+| 총 코어 | 개수 | 총 코어입니다. |
+| 총 노드 | 개수 | 총 노드입니다. |
+| 사용할 수 없는 코어 | 개수 | 사용할 수 없는 코어의 수입니다. |
+| 사용할 수 없는 노드 | 개수 | 사용할 수 없는 노드 수입니다. |
 
 다음은 할당량 메트릭을 필터링 하는 데 사용할 수 있는 차원입니다.
 
-| 치수 | 에서 사용 가능한 메트릭 | Description |
+| Dimension | 에서 사용 가능한 메트릭 | 설명 |
 | ---- | ---- | ---- |
 | 클러스터 이름 | 모든 할당량 메트릭 | 계산 인스턴스의 이름입니다. |
 | Vm 제품군 이름 | 할당량 사용률 비율 | 클러스터에서 사용 하는 VM 제품군의 이름입니다. |
@@ -168,15 +168,15 @@ Azure Machine Learning 작업 영역에서 Azure Monitor 하 여 수집 된 데�
 
 학습 실행에 대 한 정보입니다.
 
-| 메트릭 | 단위 | Description |
+| 메트릭 | 단위 | 설명 |
 | ----- | ----- | ----- |
-| 완료 된 실행 | 카운트 | 완료 된 실행 수입니다. |
-| 실패 한 실행 | 카운트 | 실패 한 실행 수입니다. |
-| 실행 시작 | 카운트 | 시작 된 실행의 수입니다. |
+| 완료 된 실행 | 개수 | 완료 된 실행 수입니다. |
+| 실패 한 실행 | 개수 | 실패 한 실행 수입니다. |
+| 실행 시작 | 개수 | 시작 된 실행의 수입니다. |
 
 다음은 실행 메트릭을 필터링 하는 데 사용할 수 있는 차원입니다.
 
-| 치수 | Description |
+| Dimension | 설명 |
 | ---- | ---- |
 | 고 대 여 Etype | 실행에 사용 되는 계산 형식입니다. |
 | PipelineStepType | 실행에 사용 되는 [PipelineStep](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinestep?view=azure-ml-py) 의 형식입니다. |
@@ -185,14 +185,14 @@ Azure Machine Learning 작업 영역에서 Azure Monitor 하 여 수집 된 데�
 
 RunType 차원의 유효한 값은 다음과 같습니다.
 
-| 값 | Description |
+| 값 | 설명 |
 | ----- | ----- |
 | 실험 | 비 파이프라인 실행 |
 | PipelineRun | 단계별 실행의 부모인 파이프라인 실행입니다. |
 | Strun | 파이프라인 단계에 대 한 실행입니다. |
 | ReusedStepRun | 이전 실행을 다시 사용할 파이프라인 단계에 대 한 실행입니다. |
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>관련 항목
 
 - Azure Machine Learning 모니터링에 대 한 설명은 [monitoring Azure Machine Learning](monitor-azure-machine-learning.md) 를 참조 하세요.
 - Azure 리소스 모니터링에 대 한 자세한 내용은 [Azure Monitor를 사용 하 여 azure 리소스 모니터링](/azure/azure-monitor/insights/monitor-azure-resource) 을 참조 하세요.

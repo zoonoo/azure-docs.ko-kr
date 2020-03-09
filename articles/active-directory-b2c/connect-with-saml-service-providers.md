@@ -12,12 +12,12 @@ ms.date: 02/27/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 1c362cd2924de73b2e40e634fe554ff1526e09d8
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 4cf572b09f1e44faca002528fd00fe5be0b51bc5
+ms.sourcegitcommit: 3616b42a0d6bbc31b965995d861930e53d2cf0d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78189653"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78933029"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Azure AD B2C에서 SAML 응용 프로그램 등록
 
@@ -113,7 +113,7 @@ SAML 서비스 공급자와 연결 된 메타 데이터 끝점이 아직 없는 
 
 ### <a name="21-create-the-saml-token-issuer"></a>2.1 SAML 토큰 발급자 만들기
 
-이제 테 넌 트가 SAML 토큰을 발급 하는 기능을 추가 합니다.
+이제 [saml 토큰 발급자](saml-issuer-technical-profile.md) 및 [saml 세션 공급자](custom-policy-reference-sso.md#samlssosessionprovider) 기술 프로필을 사용 하 여 테 넌 트가 saml 토큰을 발급 하는 기능을 추가 합니다.
 
 사용자 지정 정책 시작 팩에서 `SocialAndLocalAccounts\` **`TrustFrameworkExtensions.xml`** 를 엽니다.
 
@@ -297,7 +297,7 @@ SAML 앱의 경우 응용 프로그램 등록의 매니페스트에서 구성 �
 
 SAML 메타 데이터 URL과 응용 프로그램 등록의 매니페스트에 *모두* 지정 된 속성이 있으면 **병합**됩니다. 메타 데이터 URL에 지정 된 속성이 먼저 처리 되 고 우선 순위가 적용 됩니다.
 
-SAML 테스트 응용 프로그램을 사용 하는이 자습서의 경우 `samlMetadataUrl`에 다음 값을 사용 합니다.
+SAML 테스트 응용 프로그램을 사용 하는이 자습서의 경우 `samlMetadataUrl`에 대해 다음 값을 사용 합니다.
 
 ```JSON
 "samlMetadataUrl":"https://samltestapp2.azurewebsites.net/Metadata",

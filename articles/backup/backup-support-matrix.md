@@ -1,14 +1,14 @@
 ---
-title: Azure Backup 지원 매트릭스
+title: Azure Backup 지원 표
 description: Azure Backup 서비스에 대한 지원 설정 및 제한 사항에 대한 요약을 제공합니다.
 ms.topic: conceptual
 ms.date: 02/17/2019
-ms.openlocfilehash: 788da5708178cfa533d4382a4a417cef73f46a5e
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: d036e527880a98d323e8de2f3a8721d7e12dbb07
+ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78363839"
+ms.lasthandoff: 03/08/2020
+ms.locfileid: "78932650"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Azure Backup에 대 한 지원 매트릭스
 
@@ -84,7 +84,7 @@ Linux 컴퓨터를 백업 하려는 경우 다음 같습니다 지원 됩니다.
 
 ## <a name="daylight-saving-time-support"></a>일광 절약 시간 지원
 
-Azure Backup는 Azure VM 백업에 대 한 일광 절약 시간에 대 한 자동 클록 조정을 지원 하지 않습니다. 필요에 따라 수동으로 백업 정책을 수정합니다.
+Azure Backup는 Azure VM 백업에 대 한 일광 절약 시간에 대 한 자동 클록 조정을 지원 하지 않습니다. 백업 시간을 앞 또는 뒤로 이동 하지 않습니다. 원하는 시간에 백업이 실행 되도록 하려면 필요에 따라 백업 정책을 수동으로 수정 합니다.
 
 ## <a name="disk-deduplication-support"></a>디스크 중복 제거 지원
 
@@ -152,9 +152,9 @@ Azure Backup는 데이터 가용성 및 복원 력 기능을 강화 하는 지�
 | 백업 관리 유형 | 지원됨                                                    | 지원되는 지역 |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
 | Azure VM               | 예. 1TB 미만의 디스크를 사용 하 여 암호화 된 Vm 및 Vm에 대해 지원 되는 공개 제한 된 미리 보기 | 미국 중서부   |
-| MARS 에이전트/온-프레미스 | 아니요                                                           | 해당 사항 없음               |
-| SQL/SAP HANA          | 아니요                                                           | 해당 사항 없음               |
-| AFS                    | 아니요                                                           | 해당 사항 없음               |
+| MARS 에이전트/온-프레미스 | 아니요                                                           | N/A               |
+| SQL/SAP HANA          | 아니요                                                           | N/A               |
+| AFS                    | 아니요                                                           | N/A               |
 
 ## <a name="next-steps"></a>다음 단계
 

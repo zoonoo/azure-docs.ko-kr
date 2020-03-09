@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/05/2020
+ms.date: 03/09/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2c36a2c47605e7e672996a4a33734c9281dad042
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.openlocfilehash: 82daf447270fc0413284e3e7a908a8b5237a4f9c
+ms.sourcegitcommit: 3616b42a0d6bbc31b965995d861930e53d2cf0d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78397832"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78932982"
 ---
 # <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 Azure Active Directory 기술 프로필 정의
 
@@ -58,13 +58,13 @@ Azure Active Directory B2C (Azure AD B2C) Azure Active Directory 사용자 관�
 
 ## <a name="input-claims"></a>입력 클레임
 
-다음 기술 프로필은 소셜 및 로컬 계정에 대한 **InputClaims**를 포함합니다.
+InputClaims 요소는 디렉터리에서 계정을 조회 하거나 새로 만드는 데 사용 되는 클레임을 포함 합니다. 모든 Azure AD 기술 프로필에 대 한 입력 클레임 컬렉션에는 정확히 하나의 InputClaim 요소가 있어야 합니다. 정책에 정의된 클레임 이름을 Azure Active Directory에서 정의된 이름에 매핑해야 할 수도 있습니다.
 
-- 소셜 계정 기술 프로필 **AAD-UserReadUsingAlternativeSecurityId** 및 **AAD-UserWriteUsingAlternativeSecurityId**는 **AlternativeSecurityId** 클레임을 포함합니다. 이 클레임은 소셜 계정 사용자 식별자를 포함합니다.
-- 로컬 계정 기술 프로필 **AAD-UserReadUsingEmailAddress** 및 **AAD-UserWriteUsingLogonEmail**은 **email** 클레임을 포함합니다. 이 클레임은 로컬 계정의 로그인 이름을 포함합니다.
-- 통합(로컬 및 소셜) 기술 프로필 **AAD-UserReadUsingObjectId**, **AAD-UserWritePasswordUsingObjectId**, **AAD-UserWriteProfileUsingObjectId** 및 **AAD-UserWritePhoneNumberUsingObjectId**는 **objectId** 클레임을 포함합니다. 계정의 고유 식별자입니다.
+기존 사용자 계정을 읽거나, 업데이트 하거나, 삭제 하기 위해 입력 클레임은 Azure AD 디렉터리에서 계정을 고유 하 게 식별 하는 키입니다. 예를 들어 **objectId**, **userPrincipalName**, **signInNames, emailAddress**, **signInNames**또는 **alternativeSecurityId**입니다. 
 
-**InputClaimsTransformations** 요소는 입력 클레임을 수정하거나 새 클레임을 생성하는 데 사용되는 **InputClaimsTransformation** 요소 컬렉션을 포함할 수 있습니다.
+새 사용자 계정을 만들기 위해 입력 클레임은 로컬 또는 페더레이션된 계정을 고유 하 게 식별 하는 키입니다. 예를 들면 로컬 계정: **signInNames. emailAddress**또는 **signInNames**입니다. 페더레이션된 계정의 경우: **alternativeSecurityId**입니다.
+
+InputClaimsTransformations 요소에는 입력 클레임을 수정 하거나 새 항목을 생성 하는 데 사용 되는 입력 클레임 변환 요소의 컬렉션이 포함 될 수 있습니다.
 
 ## <a name="output-claims"></a>출력 클레임
 

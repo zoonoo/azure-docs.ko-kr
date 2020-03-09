@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/07/2020
-ms.openlocfilehash: 032d4793576e2fb9b8de9e36666548e5bffb9460
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.openlocfilehash: a85d9ebb03ea0c9ebe078ad49ce6bbf40a5b004d
+ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78898243"
+ms.lasthandoff: 03/08/2020
+ms.locfileid: "78927548"
 ---
 # <a name="support-for-the-commercial-marketplace-program-in-partner-center"></a>파트너 센터에서 상업적 Marketplace 프로그램 지원
 
@@ -27,9 +27,9 @@ Microsoft는 광범위한 제품 및 서비스에 대한 지원을 제공합니�
 
 1. 회사 계정을 사용 하 여 [파트너 센터의 상용 Marketplace 프로그램](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) 에 로그인 합니다. 아직 수행 하지 않은 경우 [파트너 센터 계정을 만들어야](./create-account.md)합니다.
 
-1. 페이지 오른쪽 상단 메뉴에서 **지원** 아이콘을 선택 합니다. 
+2. 페이지 오른쪽 상단 메뉴에서 **지원** 아이콘을 선택 합니다. 
  
-1. **도움말 및 지원** 창이 페이지의 오른쪽에 표시 됩니다. 
+3. **도움말 및 지원** 창이 페이지의 오른쪽에 표시 됩니다. 
  
    ![지원 드롭다운 메뉴](./media/commercial-marketplace-support-pane.png)
 
@@ -37,11 +37,11 @@ Microsoft는 광범위한 제품 및 서비스에 대한 지원을 제공합니�
 
    ![홈 페이지에서 도움말 및 지원](./media/homepage-help-support.png)
 
-1. **[설명서](../index.md)** 를 선택 하 여 질문 및 리소스에 대 한 포괄적인 대답을 검토 합니다. 
+4. **[설명서](../index.yml)** 를 선택 하 여 질문 및 리소스에 대 한 포괄적인 대답을 검토 합니다. 
 
-1. 다른 Microsoft 게시자의 지식을 활용 하 여 질문에 답변 하려면 **[Marketplace 파트너 커뮤니티 포럼](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222)** 을 선택 합니다. 
+5. 다른 Microsoft 게시자의 지식을 활용 하 여 질문에 답변 하려면 **[Marketplace 파트너 커뮤니티 포럼](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222)** 을 선택 합니다. 
 
-1. **[추가 도움말](https://aka.ms/marketplacepublishersupport)** 을 선택 하 여 **새 지원 요청** 티켓을 엽니다.  
+6. **[추가 도움말](https://aka.ms/marketplacepublishersupport)** 을 선택 하 여 **새 지원 요청** 티켓을 엽니다.  
 
 ## <a name="how-to-open-a-support-ticket"></a>지원 티켓을 여는 방법
 

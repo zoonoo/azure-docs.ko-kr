@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: vaidyas
 author: vaidyas
 ms.reviewer: larryfr
-ms.date: 11/22/2019
-ms.openlocfilehash: 29c91cf14413a11804de82eeaf08d628b125d76a
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.date: 03/06/2020
+ms.openlocfilehash: d03a3d482d147d3bc69354ee09dfe0b187610a09
+ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77471944"
+ms.lasthandoff: 03/08/2020
+ms.locfileid: "78927434"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-preview"></a>Azure Functions에 machine learning 모델 배포 (미리 보기)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -27,7 +27,7 @@ Azure Functions에서 함수 앱으로 Azure Machine Learning에서 모델을 �
 
 Azure Machine Learning를 통해 학습 된 기계 학습 모델에서 Docker 이미지를 만들 수 있습니다. 이제 Azure Machine Learning에는 이러한 기계 학습 모델을 [Azure Functions에 배포할](https://docs.microsoft.com/azure/azure-functions/functions-deployment-technologies#docker-container)수 있는 함수 앱으로 빌드하는 미리 보기 기능이 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 * Azure Machine Learning 작업 영역 자세한 내용은 [작업 영역 만들기](how-to-manage-workspace.md) 문서를 참조 하세요.
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
@@ -148,10 +148,10 @@ print(blob.location)
 
     ```azurecli-interactive
     az group create --name myresourcegroup --location "West Europe"
-    az appservice plan create --name myplanname --resource-group myresourcegroup --sku EP1 --is-linux
+    az appservice plan create --name myplanname --resource-group myresourcegroup --sku B1 --is-linux
     ```
 
-    이 예제에서는 _Linux 프리미엄_ 가격 책정 계층 (`--sku EP1`)이 사용 됩니다.
+    이 예제에서는 _Linux 기본_ 가격 책정 계층 (`--sku B1`)이 사용 됩니다.
 
     > [!IMPORTANT]
     > Azure Machine Learning에서 만든 이미지는 Linux를 사용 하므로 `--is-linux` 매개 변수를 사용 해야 합니다.
@@ -159,13 +159,13 @@ print(blob.location)
 1. 웹 작업 저장소에 사용할 저장소 계정을 만들고 연결 문자열을 가져옵니다. `<webjobStorage>`를 사용 하려는 이름으로 바꿉니다.
 
     ```azurecli-interactive
-    az storage account create --name triggerStorage --location westeurope --resource-group myresourcegroup --sku Standard_LRS
+    az storage account create --name <webjobStorage> --location westeurope --resource-group myresourcegroup --sku Standard_LRS
     ```
     ```azurecli-interactive
     az storage account show-connection-string --resource-group myresourcegroup --name <webJobStorage> --query connectionString --output tsv
     ```
 
-1. 함수 앱을 만들려면 다음 명령을 사용 합니다. `<app-name>`를 사용 하려는 이름으로 바꿉니다. `<acrinstance>` 및 `<imagename>`를 앞에서 반환 된 `package.location` 값으로 바꿉니다. Replace `<webjobStorage>`을 이전 단계의 저장소 계정 이름으로 바꿉니다.
+1. 함수 앱을 만들려면 다음 명령을 사용 합니다. `<app-name>`를 사용 하려는 이름으로 바꿉니다. `<acrinstance>` 및 `<imagename>`를 앞에서 반환 된 `package.location` 값으로 바꿉니다. `<webjobStorage>`을 이전 단계의 저장소 계정 이름으로 바꿉니다.
 
     ```azurecli-interactive
     az functionapp create --resource-group myresourcegroup --plan myplanname --name <app-name> --deployment-container-image-name <acrinstance>.azurecr.io/package:<imagename> --storage-account <webjobStorage>
@@ -179,7 +179,7 @@ print(blob.location)
     ```azurecli-interactive
     az storage account create --name <triggerStorage> --location westeurope --resource-group myresourcegroup --sku Standard_LRS
     ```
-    ```azurecli-interactive
+    ```azurecli-interactiv
     az storage account show-connection-string --resource-group myresourcegroup --name <triggerStorage> --query connectionString --output tsv
     ```
     이 연결 문자열을 기록 하 여 함수 앱에 제공 합니다. 나중에 `<triggerConnectionString>`을 요청할 때이를 사용 합니다.
@@ -205,7 +205,7 @@ print(blob.location)
     ```
     반환 된 값을 저장 합니다 .이 값은 다음 단계에서 `imagetag`로 사용 됩니다.
 
-1. 컨테이너 레지스트리에 액세스 하는 데 필요한 자격 증명을 함수 앱에 제공 하려면 다음 명령을 사용 합니다. `<app-name>`를 사용 하려는 이름으로 바꿉니다. `<acrinstance>` 및 `<imagetag>`을 이전 단계에서 AZ CLI 호출의 값으로 바꿉니다. `<username>` 및 `<password>`를 앞에서 검색 한 ACR 로그인 정보로 바꿉니다.
+1. 컨테이너 레지스트리에 액세스 하는 데 필요한 자격 증명을 함수 앱에 제공 하려면 다음 명령을 사용 합니다. `<app-name>`을 함수 앱의 이름으로 바꿉니다. `<acrinstance>` 및 `<imagetag>`을 이전 단계에서 AZ CLI 호출의 값으로 바꿉니다. `<username>` 및 `<password>`를 앞에서 검색 한 ACR 로그인 정보로 바꿉니다.
 
     ```azurecli-interactive
     az functionapp config container set --name <app-name> --resource-group myresourcegroup --docker-custom-image-name <acrinstance>.azurecr.io/package:<imagetag> --docker-registry-server-url https://<acrinstance>.azurecr.io --docker-registry-server-user <username> --docker-registry-server-password <password>
@@ -246,6 +246,52 @@ print(blob.location)
 
 > [!IMPORTANT]
 > 이미지가 로드 되기까지 몇 분 정도 걸릴 수 있습니다. Azure Portal을 사용 하 여 진행률을 모니터링할 수 있습니다.
+
+## <a name="test-the-deployment"></a>배포 테스트
+
+이미지가 로드 되 고 앱을 사용할 수 있게 되 면 다음 단계를 사용 하 여 앱을 트리거합니다.
+
+1. Score.py 파일에 필요한 데이터가 포함 된 텍스트 파일을 만듭니다. 다음 예제에서는 10 개의 숫자가 포함 된 배열이 필요한 score.py를 사용 합니다.
+
+    ```json
+    {"data": [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10], [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]]}
+    ```
+
+    > [!IMPORTANT]
+    > 데이터의 형식은 score.py 및 모델에 필요한 내용에 따라 달라 집니다.
+
+2. 다음 명령을 사용 하 여 앞에서 만든 트리거 저장소 blob의 입력 컨테이너에이 파일을 업로드 합니다. `<file>`를 데이터를 포함 하는 파일의 이름으로 바꿉니다. `<triggerConnectionString>`를 앞에서 반환 된 연결 문자열로 바꿉니다. 이 예제에서 `input`은 앞에서 만든 입력 컨테이너의 이름입니다. 다른 이름을 사용 하는 경우 다음 값을 바꿉니다.
+
+    ```azurecli-interactive
+    az storage blob upload --container-name input --file <file> --name <file> --connection-string <triggerConnectionString>
+    ```
+
+    이 명령의 출력은 다음 JSON과 유사 합니다.
+
+    ```json
+    {
+    "etag": "\"0x8D7C21528E08844\"",
+    "lastModified": "2020-03-06T21:27:23+00:00"
+    }
+    ```
+
+3. 함수에서 생성 된 출력을 보려면 다음 명령을 사용 하 여 생성 된 출력 파일을 나열 합니다. `<triggerConnectionString>`를 앞에서 반환 된 연결 문자열로 바꿉니다. 이 예에서 `output`은 앞에서 만든 출력 컨테이너의 이름입니다. 다른 이름을 사용 하는 경우 다음 값을 바꿉니다.:
+
+    ```azurecli-interactive
+    az storage blob list --container-name output --connection-string <triggerConnectionString> --query '[].name' --output tsv
+    ```
+
+    이 명령의 출력은 `sample_input_out.json`와 비슷합니다.
+
+4. 파일을 다운로드 하 고 콘텐츠를 검사 하려면 다음 명령을 사용 합니다. `<file>`를 이전 명령에서 반환 된 파일 이름으로 바꿉니다. `<triggerConnectionString>`를 앞에서 반환 된 연결 문자열로 바꿉니다. 
+
+    ```azurecli-interactive
+    az storage blob download --container-name output --file <file> --name <file> --connection-string <triggerConnectionString>
+    ```
+
+    명령이 완료 되 면 파일을 엽니다. 모델에 의해 반환 되는 데이터를 포함 합니다.
+
+Blob 트리거를 사용 하는 방법에 대 한 자세한 내용은 [Azure blob storage에 의해 트리거되는 함수 만들기](/azure/azure-functions/functions-create-storage-blob-triggered-function) 문서를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

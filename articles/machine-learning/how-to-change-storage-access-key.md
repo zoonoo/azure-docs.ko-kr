@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 11/06/2019
-ms.openlocfilehash: becb05616ecac51fa4646836a6b1a2f3b71d3543
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.date: 03/06/2020
+ms.openlocfilehash: ab7aaeb2b28592aab38d112b02340160a6c882ee
+ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75540842"
+ms.lasthandoff: 03/08/2020
+ms.locfileid: "78927502"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>저장소 계정 액세스 키 다시 생성
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -31,6 +31,9 @@ Azure Machine Learning에서 사용 하는 Azure Storage 계정의 액세스 키
 * [AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)입니다.
 
 * [AZURE MACHINE LEARNING CLI 확장](reference-azure-machine-learning-cli.md)입니다.
+
+> [!NOTE]
+> 이 문서의 코드 조각은 Python SDK의 버전 1.0.83 테스트 되었습니다.
 
 <a id="whattoupdate"></a> 
 

@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/16/2018
+ms.date: 03/06/2020
 ms.author: radeltch
-ms.openlocfilehash: 06c92797f2cab96a9e0c423b0f0f754e57b99b14
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: fb73bf6af46ce8303e1be80d1bfc7303f95cda06
+ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77598445"
+ms.lasthandoff: 03/08/2020
+ms.locfileid: "78927338"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Azure의 SUSE Linux Enterprise Server에서 Pacemaker 설정
 
@@ -328,6 +328,16 @@ o- / ...........................................................................
    <pre><code>sudo zypper in socat
    </code></pre>
 
+1. **[A]** 클러스터 리소스에 필요한 azure-lb 구성 요소를 설치 합니다.
+
+   <pre><code>sudo zypper in resource-agents
+   </code></pre>
+
+   > [!NOTE]
+   > 패키지 리소스 에이전트의 버전을 확인 하 고 최소 버전 요구 사항이 충족 되었는지 확인 합니다.  
+   > - SLES 12 SP4/SP5의 경우 버전은 4.3.018. a7fb5035-3.30.1 이상 이어야 합니다.  
+   > - SLES 15/15 s p 1의 경우 버전은 4.3.0184.6 ee15eb2-4.13.1 이상 이어야 합니다.  
+
 1. **[A]** 운영 체제 구성
 
    경우에 따라 Pacemaker는 많은 프로세스를 만들게 되므로 허용되는 프로세스 수가 고갈됩니다. 이러한 경우 클러스터 노드 간 하트비트가 실패하고 리소스가 장애 조치(Failover)될 수 있습니다. 다음 매개 변수를 설정하여 허용되는 최대 프로세스 수를 늘리는 것이 좋습니다.
@@ -607,9 +617,9 @@ sudo crm configure primitive <b>stonith-sbd</b> stonith:external/sbd \
 
 Azure는 [예약 된 이벤트](https://docs.microsoft.com/azure/virtual-machines/linux/scheduled-events)를 제공 합니다. 예약 된 이벤트는 메타 데이터 서비스를 통해 제공 되며 응용 프로그램이 VM 종료, VM 다시 배포 등의 이벤트를 준비할 수 있는 시간을 허용 합니다. 리소스 에이전트 **[azure 이벤트](https://github.com/ClusterLabs/resource-agents/pull/1161)** 는 예약 된 azure 이벤트를 모니터링 합니다. 이벤트가 검색 되 면 에이전트는 영향을 받는 VM의 모든 리소스를 중지 하 고 클러스터의 다른 노드로 이동 하려고 시도 합니다. 이렇게 하려면 추가 Pacemaker 리소스를 구성 해야 합니다. 
 
-1. **[A]** **azure 이벤트** 에이전트를 설치 합니다. 
+1. **[A]** **azure 이벤트** 에이전트의 패키지가 이미 설치 되어 있고 최신 버전 인지 확인 합니다. 
 
-<pre><code>sudo zypper install resource-agents
+<pre><code>sudo zypper info resource-agents
 </code></pre>
 
 2. **[1]** Pacemaker에서 리소스를 구성 합니다. 

@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/27/2019
+ms.date: 03/09/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9a9fb1d64fb27507e4ee42c39be9ea80fbe5f168
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 5dcbc2ee35620d0a29c495b24bd3756769095a17
+ms.sourcegitcommit: 3616b42a0d6bbc31b965995d861930e53d2cf0d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78184454"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78933002"
 ---
 # <a name="localization"></a>지역화
 
@@ -146,7 +146,7 @@ ms.locfileid: "78184454"
 
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| ElementType | 예 | 정책의 클레임 유형 요소 또는 사용자 인터페이스 요소에 대한 참조입니다. 가능한 값은 `ClaimType`, `UxElement`, `ErrorMessage`, `Predicate` 등입니다. `ClaimType` 값은 StringId에 지정된 대로 클레임 특성 중 하나를 지역화하는 데 사용됩니다. `UxElement` 값은 StringId에 지정된 대로 사용자 인터페이스 요소 중 하나를 지역화하는 데 사용됩니다. `ErrorMessage` 값은 StringId에 지정된 대로 시스템 오류 메시지 중 하나를 지역화하는 데 사용됩니다. `Predicate` 값은 StringId에 지정된 대로 [Predicate](predicates.md) 오류 메시지 중 하나를 지역화하는 데 사용됩니다. `InputValidation` 값은 StringId에 지정된 대로 [PredicateValidation](predicates.md) 그룹 오류 메시지 중 하나를 지역화하는 데 사용됩니다. |
+| ElementType | 예 | 정책의 클레임 유형 요소 또는 사용자 인터페이스 요소에 대한 참조입니다. 가능한 값은 `ClaimType`, `UxElement`, `ErrorMessage`, `Predicate`또는 `GetLocalizedStringsTransformationClaimType`입니다. `ClaimType` 값은 StringId에 지정된 대로 클레임 특성 중 하나를 지역화하는 데 사용됩니다. `UxElement` 값은 StringId에 지정된 대로 사용자 인터페이스 요소 중 하나를 지역화하는 데 사용됩니다. `ErrorMessage` 값은 StringId에 지정된 대로 시스템 오류 메시지 중 하나를 지역화하는 데 사용됩니다. `Predicate` 값은 StringId에 지정된 대로 [Predicate](predicates.md) 오류 메시지 중 하나를 지역화하는 데 사용됩니다. `InputValidation` 값은 StringId에 지정된 대로 [PredicateValidation](predicates.md) 그룹 오류 메시지 중 하나를 지역화하는 데 사용됩니다. `GetLocalizedStringsTransformationClaimType` 값은 지역화 된 문자열을 클레임에 복사 하는 데 사용 됩니다. 자세한 내용은 [GetLocalizedStringsTransformation 클레임 변환](string-transformations.md#getlocalizedstringstransformation) 을 참조 하세요.  | 
 | ElementId | 예 | **ElementType**이 `ClaimType`, `Predicate` 또는 `InputValidation`으로 설정된 경우 이 요소는 ClaimsSchema 섹션에 이미 정의된 클레임 유형에 대한 참조를 포함합니다. |
 | StringId | 예 | **ElementType**이 `ClaimType`으로 설정된 경우 이 요소는 클레임 유형의 특성에 대한 참조를 포함합니다. 가능한 값은 `DisplayName`, `AdminHelpText` 또는 `PatternHelpText`입니다. `DisplayName` 값은 클레임 표시 이름을 설정하는 데 사용됩니다. `AdminHelpText` 값은 클레임 사용자의 도움말 텍스트 이름을 설정하는 데 사용됩니다. `PatternHelpText` 값은 클레임 패턴 도움말 텍스트를 설정하는 데 사용됩니다. **ElementType**이 `UxElement`로 설정된 경우 이 요소는 사용자 인터페이스 요소의 특성에 대한 참조를 포함합니다. **ElementType**이 `ErrorMessage`로 설정된 경우 이 요소는 오류 메시지의 식별자를 지정합니다. [ 식별자의 전체 목록은 ](localization-string-ids.md)지역화 문자열 ID`UxElement`를 참조하세요.|
 

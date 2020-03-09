@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/10/2020
+ms.date: 03/09/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 701fb64dd85526bc79cab48bf36d4583da71ca76
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: a4732d780bb241a18e0738c99603799c31c2102f
+ms.sourcegitcommit: 3616b42a0d6bbc31b965995d861930e53d2cf0d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78184029"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78933063"
 ---
 # <a name="define-a-one-time-password-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Azure AD B2C 사용자 지정 정책에서 일회성 암호 기술 프로필을 정의 합니다.
 
@@ -69,7 +69,7 @@ Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.
 
 ### <a name="metadata"></a>메타데이터
 
-다음 설정을 사용 하 여 코드 생성 및 유지 관리를 구성할 수 있습니다.
+다음 설정은 코드 생성 모드를 구성 하는 데 사용할 수 있습니다.
 
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
@@ -77,7 +77,7 @@ Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.
 | CodeLength | 아니요 | 코드의 길이입니다. 기본값은 `6`입니다. |
 | CharacterSet | 아니요 | 정규식에서 사용 하기 위해 형식이 지정 된 코드에 대 한 문자 집합입니다. `a-z0-9A-Z`)을 입력합니다. 기본값은 `0-9`입니다. 문자 집합은 지정 된 집합에 최소 10 개의 다른 문자를 포함 해야 합니다. |
 | NumRetryAttempts | 아니요 | 코드가 잘못 된 것으로 간주 되기 전의 확인 시도 횟수입니다. 기본값은 `5`입니다. |
-| 연산 | 예 | 수행할 작업입니다. 가능한 값은 `GenerateCode`또는 `VerifyCode`입니다. |
+| 연산 | 예 | 수행할 작업입니다. 가능한 값: `GenerateCode`. |
 | ReuseSameCode | 아니요 | 지정 된 코드가 만료 되지 않고 여전히 유효한 경우 새 코드를 생성 하는 대신 중복 코드를 지정 해야 하는지 여부입니다. 기본값은 `false`입니다. |
 
 ### <a name="returning-error-message"></a>오류 메시지 반환
@@ -90,22 +90,22 @@ Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.
 
 ```XML
 <TechnicalProfile Id="GenerateCode">
-    <DisplayName>Generate Code</DisplayName>
-    <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-    <Metadata>
-        <Item Key="Operation">GenerateCode</Item>
-        <Item Key="CodeExpirationInSeconds">600</Item>
-        <Item Key="CodeLength">6</Item>
-        <Item Key="CharacterSet">0-9</Item>
-        <Item Key="NumRetryAttempts">5</Item>
-        <Item Key="ReuseSameCode">false</Item>
-    </Metadata>
-    <InputClaims>
-        <InputClaim ClaimTypeReferenceId="identifier" PartnerClaimType="identifier" />
-    </InputClaims>
-    <OutputClaims>
-        <OutputClaim ClaimTypeReferenceId="otpGenerated" PartnerClaimType="otpGenerated" />
-    </OutputClaims>
+  <DisplayName>Generate Code</DisplayName>
+  <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+  <Metadata>
+    <Item Key="Operation">GenerateCode</Item>
+    <Item Key="CodeExpirationInSeconds">600</Item>
+    <Item Key="CodeLength">6</Item>
+    <Item Key="CharacterSet">0-9</Item>
+    <Item Key="NumRetryAttempts">5</Item>
+    <Item Key="ReuseSameCode">false</Item>
+  </Metadata>
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="identifier" PartnerClaimType="identifier" />
+  </InputClaims>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="otpGenerated" PartnerClaimType="otpGenerated" />
+  </OutputClaims>
 </TechnicalProfile>
 ```
 
@@ -132,21 +132,23 @@ Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.
 
 ### <a name="metadata"></a>메타데이터
 
-다음 설정을 사용 하 여 코드 확인 실패 시 표시 되는 오류 메시지를 구성할 수 있습니다.
+다음 설정을 사용 하 여 코드 확인 모드를 설정할 수 있습니다.
+
+| 특성 | 필수 | 설명 |
+| --------- | -------- | ----------- |
+| 연산 | 예 | 수행할 작업입니다. 가능한 값: `VerifyCode`. |
+
+
+### <a name="error-messages"></a>오류 메시지
+
+다음 설정을 사용 하 여 코드 확인 실패 시 표시 되는 오류 메시지를 구성할 수 있습니다. 메타 데이터는 [자체 어설션된](self-asserted-technical-profile.md) 기술 프로필에서 구성 해야 합니다. 오류 메시지를 [지역화할](localization-string-ids.md#one-time-password-error-messages)수 있습니다.
 
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | UserMessageIfSessionDoesNotExist | 아니요 | 코드 확인 세션이 만료 된 경우 사용자에 게 표시할 메시지입니다. 코드가 만료 되었거나 지정 된 식별자에 대 한 코드가 생성 되지 않았습니다. |
 | UserMessageIfMaxRetryAttempted | 아니요 | 허용 되는 최대 확인 시도 횟수를 초과 하는 경우 사용자에 게 표시할 메시지입니다. |
 | Usermessageifin유효한 코드 | 아니요 | 잘못 된 코드를 제공한 경우 사용자에 게 표시할 메시지입니다. |
-
-### <a name="returning-error-message"></a>오류 메시지 반환
-
-[메타 데이터](#metadata)에 설명 된 대로 사용자에 게 표시 되는 오류 메시지를 사용자 지정 하 여 다른 오류 사례를 확인할 수 있습니다. 다음과 같이 로캘에 접두사를 추가 하 여 해당 메시지를 추가로 지역화할 수 있습니다.
-
-```XML
-<Item Key="en.UserMessageIfInvalidCode">Wrong code has been entered.</Item>
-```
+|UserMessageIfSessionConflict|아니요| 코드를 확인할 수 없는 경우 사용자에 게 표시할 메시지입니다.|
 
 ### <a name="example"></a>예제
 
@@ -154,24 +156,21 @@ Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.
 
 ```XML
 <TechnicalProfile Id="VerifyCode">
-    <DisplayName>Verify Code</DisplayName>
-    <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-    <Metadata>
-        <Item Key="Operation">VerifyCode</Item>
-        <Item Key="UserMessageIfInvalidCode">Wrong code has been entered.</Item>
-        <Item Key="UserMessageIfSessionDoesNotExist">Code has expired.</Item>
-        <Item Key="UserMessageIfMaxRetryAttempted">You've tried too many times.</Item>
-    </Metadata>
-    <InputClaims>
-        <InputClaim ClaimTypeReferenceId="identifier" PartnerClaimType="identifier" />
-        <InputClaim ClaimTypeReferenceId="otpGenerated" PartnerClaimType="otpToVerify" />
-    </InputClaims>
+  <DisplayName>Verify Code</DisplayName>
+  <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+  <Metadata>
+    <Item Key="Operation">VerifyCode</Item>
+  </Metadata>
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="identifier" PartnerClaimType="identifier" />
+    <InputClaim ClaimTypeReferenceId="otpGenerated" PartnerClaimType="otpToVerify" />
+  </InputClaims>
 </TechnicalProfile>
 ```
 
 ## <a name="next-steps"></a>다음 단계
 
-사용자 지정 전자 메일 확인과 함께 일회성 암호 technial 프로필을 사용 하는 예는 다음 문서를 참조 하세요.
+사용자 지정 전자 메일 확인과 함께 일회성 암호 기술 프로필을 사용 하는 예는 다음 문서를 참조 하세요.
 
 - [Azure Active Directory B2C에서 사용자 지정 전자 메일 확인](custom-email.md)
 

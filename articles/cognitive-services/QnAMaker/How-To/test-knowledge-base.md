@@ -1,22 +1,14 @@
 ---
 title: 기술 자료를 테스트하는 방법 - QnA Maker
-titleSuffix: Azure Cognitive Services
 description: QnA Maker 기술 자료를 테스트하는 작업은 반환되는 응답의 정확도를 향상시키기 위한 반복 프로세스의 중요한 부분입니다. 또한 편집할 수도 있는 향상된 채팅 인터페이스를 통해 기술 자료를 테스트할 수 있습니다.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 11/14/2019
-ms.author: diberry
-ms.custom: seodec18
-ms.openlocfilehash: c139d3a740067e3cecaff90d3171d7b0cb3d52c7
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.date: 03/05/2020
+ms.openlocfilehash: da4988ced0b077952ce64e6227d16e58d40ae329
+ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091763"
+ms.lasthandoff: 03/08/2020
+ms.locfileid: "78927270"
 ---
 # <a name="test-your-knowledge-base-in-qna-maker"></a>QnA Maker에서 기술 자료 테스트
 
@@ -45,7 +37,7 @@ QnA Maker 기술 자료를 테스트하는 작업은 반환되는 응답의 정�
 
     ![응답 검사](../media/qnamaker-how-to-test-kb/inspect.png)
 
-2.  검사 패널이 나타납니다. 패널에는 식별된 엔터티뿐만 아니라 상위 채점 의도도 포함됩니다. 패널에는 선택한 음성의 결과가 표시됩니다.
+2.  검사 패널이 나타납니다. 패널에는 식별된 엔터티뿐만 아니라 상위 채점 의도도 포함됩니다. 패널에는 선택한 발화의 결과가 표시됩니다.
 
 ### <a name="correct-the-top-scoring-answer"></a>상위 점수 대답 수정
 
@@ -61,11 +53,11 @@ QnA Maker 기술 자료를 테스트하는 작업은 반환되는 응답의 정�
 
 ### <a name="add-a-new-answer"></a>새 대답 추가
 
-일치된 기존 대답이 올바르지 않거나 기술 자료에 존재하지 않는(KB에서 일치 항목을 찾을 수 없음) 경우 새 응답을 추가할 수 있습니다. 
+일치된 기존 대답이 올바르지 않거나 기술 자료에 존재하지 않는(KB에서 일치 항목을 찾을 수 없음) 경우 새 응답을 추가할 수 있습니다.
 
-답변 목록의 맨 아래에 있는 텍스트 상자를 사용 하 여 새 답변을 입력 하 고 enter 키를 눌러 추가 합니다. 
+답변 목록의 맨 아래에 있는 텍스트 상자를 사용 하 여 새 답변을 입력 하 고 enter 키를 눌러 추가 합니다.
 
-**저장 후 학습**을 선택하여 이 대답을 유지합니다. 새로운 질문-대답 쌍이 기술 자료에 추가되었습니다. 
+**저장 후 학습**을 선택하여 이 대답을 유지합니다. 새로운 질문-대답 쌍이 기술 자료에 추가되었습니다.
 
 > [!NOTE]
 > **저장 후 학습**을 누를 경우에만 기술 자료에 대한 모든 편집 내용이 저장됩니다.
@@ -83,12 +75,14 @@ QnA Maker 기술 자료를 테스트하는 작업은 반환되는 응답의 정�
 * 질문 집합의 최고 대답 및 점수 결정
 * 질문 집합의 예상 응답 유효성 검사
 
-일괄 처리 테스트는 batch 테스트 도구와 함께 제공 됩니다. 이 도구는 다운로드를 위한 [압축 실행 파일](https://aka.ms/qnamakerbatchtestingtool) 또는 [ C# 소스 코드로](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/batchtesting)사용할 수 있습니다. 
+단계별 지침은 batch 테스트 [자습서](../Quickstarts/batch-testing.md) 를 참조 하세요.
+
+일괄 처리 테스트는 batch 테스트 도구와 함께 제공 됩니다. 이 도구는 다운로드를 위한 [압축 실행 파일](https://aka.ms/qnamakerbatchtestingtool) 또는 [ C# 소스 코드로](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/batchtesting)사용할 수 있습니다.
 
 이 [도구에 대 한 참조 설명서](../reference-tsv-format-batch-testing.md) 는 다음과 같습니다.
 
 * 도구의 명령줄 예제
-* TSV 입력 및 출력 파일의 형식입니다. 
+* TSV 입력 및 출력 파일의 형식입니다.
 
 ## <a name="next-steps"></a>다음 단계
 
