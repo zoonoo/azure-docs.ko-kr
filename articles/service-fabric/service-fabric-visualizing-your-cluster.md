@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: mikhegn
 ms.openlocfilehash: 80e3d990b6e8026c57ffff0048d0447a95529564
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75464107"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78364969"
 ---
-# <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Service Fabric 탐색기를 사용하여 클러스터 시각화
+# <a name="visualize-your-cluster-with-service-fabric-explorer"></a>서비스 패브릭 탐색기로 클러스터 시각화
 
 SFX(Service Fabric Explorer)는 Azure Service Fabric 클러스터를 검사하고 관리하기 위한 오픈 소스 도구입니다. Service Fabric Explorer는 Windows, macOS 및 Linux용 데스크톱 애플리케이션입니다.
 
@@ -39,7 +39,7 @@ Service Fabric Explorer를 데스크톱 애플리케이션으로 다운로드하
 
 Service Fabric Explorer는 Service Fabric 클러스터의 HTTP 관리 엔드포인트에도 호스트됩니다. 웹 브라우저에서 SFX를 시작 하려면 브라우저에서 클러스터의 HTTP 관리 끝점 (예: https:\//clusterFQDN: 19080)으로 이동 합니다.
 
-개발자 워크스테이션 설정의 경우 https://localhost:19080/Explorer 로 이동하여 로컬 클러스터에서 Service Fabric Explorer를 시작할 수 있습니다. 이 문서를 참조하여 [개발 환경을 준비](service-fabric-get-started.md)하세요.
+개발자 워크스테이션 설정의 경우 https://localhost:19080/Explorer로 이동하여 로컬 클러스터에서 Service Fabric Explorer를 시작할 수 있습니다. 이 문서를 참조하여 [개발 환경을 준비](service-fabric-get-started.md)하세요.
 
 > [!NOTE]
 > 클러스터가 자체 서명된 인증서로 보호되면 웹 브라우저에서 "이 사이트는 안전하지 않습니다"라는 오류 메시지가 표시됩니다. 대부분의 최신 웹 브라우저에서는 이 경고를 무시하고 계속 진행할 수 있습니다. 프로덕션 환경의 클러스터는 일반 이름과 인증 기관에서 발급한 인증서를 사용하여 보호해야 합니다. 
@@ -119,7 +119,7 @@ EventStore는 플랫폼에서 Service Fabric Explorer와 REST API를 통해 사�
 
 ![서비스 패브릭 탐색기 클러스터 맵][sfx-imagestore]
 
-## <a name="backup-and-restore"></a>Backup 및 복원
+## <a name="backup-and-restore"></a>백업 및 복원
 Service Fabric Explorer는 [백업 및 복원과](./service-fabric-reliable-services-backup-restore.md)상호 작용 하는 기능을 제공 합니다. SFX에서 백업 및 복원 기능을 확인 하려면 고급 모드를 사용 하도록 설정 해야 합니다.
 
 ![고급 모드 사용][0]

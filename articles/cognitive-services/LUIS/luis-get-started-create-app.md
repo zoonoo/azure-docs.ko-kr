@@ -12,13 +12,13 @@ ms.topic: quickstart
 ms.date: 12/17/2019
 ms.author: diberry
 ms.openlocfilehash: 302321a36a6ce7526ad5e3144f87b88edbfaaec7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448112"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78393687"
 ---
-# <a name="quickstart-use-prebuilt-home-automation-app"></a>빠른 시작: 미리 빌드된 홈 자동화 앱 사용
+# <a name="quickstart-use-prebuilt-home-automation-app"></a>빠른 시작: 미리 작성된 Home automation 앱 사용
 
 이 빠른 시작에서는 미리 작성된 도메인 `HomeAutomation`를 사용하여 조명 및 어플라이언스를 켜고 끄는 LUIS 응용 프로그램을 만듭니다. 미리 작성된 도메인에는 의도, 엔터티 및 예제 발언이 제공됩니다. 마치면 클라우드에서 LUIS 엔드포인트를 실행하게 됩니다.
 
@@ -103,7 +103,7 @@ Turn off the lights
     |`verbose=true`|
     |`show-all-intents=true`|
 
-1. 브라우저 주소 표시줄에서 URL 끝으로 이동하고 _쿼리_ 값에 대해 `turn off the living room light`를 입력한 후 Enter 키를 누릅니다.
+1. 브라우저 주소 표시줄에서 URL 끝으로 이동하고 `turn off the living room light`쿼리_값에 대해_를 입력한 후 Enter 키를 누릅니다.
 
     ```json
     {

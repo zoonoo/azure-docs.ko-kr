@@ -7,11 +7,11 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/05/2019
 ms.openlocfilehash: 5f6c04c9a57dc8c250d99f2fa944203d2d73c404
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74791756"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78358812"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Azure Logic Apps에서 워크플로 작업을 반복하거나 배열을 처리하는 루프를 만듭니다.
 
@@ -20,11 +20,11 @@ ms.locfileid: "74791756"
 조건이 충족되거나 상태가 변경될 때마다 작업을 반복하려면 ["Until" 루프](#until-loop)를 만들 수 있습니다. 논리 앱은 먼저 루프 내에서 모든 작업을 실행 한 다음 조건 또는 상태를 확인 합니다. 조건이 충족되면 루프가 중지됩니다. 그렇지 않으면 루프가 반복됩니다. 논리 앱 실행의 "Until" 루프 수 제한에 대해서는 [제한 및 구성](../logic-apps/logic-apps-limits-and-config.md)을 참조하세요. 
 
 > [!TIP]
-> 배열을 받는 트리거가 있고 각 배열 항목에 대한 워크플로를 실행하려는 경우, [**SplitOn** 트리거 속성](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch)을 사용하여 해당 배열을 *분리 처리(debatch)* 할 수 있습니다. 
+> 배열을 받는 트리거가 있고 각 배열 항목에 대한 워크플로를 실행하려는 경우,SplitOn[ 트리거 속성**을 사용하여 해당 배열을** 분리 처리(debatch)](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch)할 수 있습니다. 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-* Azure 구독. 구독이 없는 경우 [Azure 체험 계정에 등록](https://azure.microsoft.com/free/)합니다. 
+* Azure 구독 구독이 없는 경우 [Azure 체험 계정에 등록](https://azure.microsoft.com/free/)합니다. 
 
 * [논리 앱 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)에 관한 기본 지식
 
@@ -120,7 +120,7 @@ ms.locfileid: "74791756"
 
 ## <a name="foreach-loop-sequential"></a>순차적 "Foreach" 루프
 
-기본적으로 "Foreach" 루프의 주기는 병렬로 실행됩니다. 각 주기를 순차적으로 실행하려면 루프의 **순차** 옵션을 설정합니다. "Foreach" 루프는 예측 가능한 결과를 예상할 경우 루프 내에 중첩된 루프 또는 변수가 있으면 순차적으로 실행되어야 합니다. 
+기본적으로 “Foreach” 루프의 주기는 병렬로 실행됩니다. 각 주기를 순차적으로 실행하려면 루프의 **순차** 옵션을 설정합니다. "Foreach" 루프는 예측 가능한 결과를 예상할 경우 루프 내에 중첩된 루프 또는 변수가 있으면 순차적으로 실행되어야 합니다. 
 
 1. 루프의 오른쪽 위 모서리에서 **줄임표**( **...** ) > **설정**을 선택합니다.
 
@@ -130,7 +130,7 @@ ms.locfileid: "74791756"
 
    ![동시성 제어 켜기](media/logic-apps-control-flow-loops/for-each-loop-sequential-setting.png)
 
-논리 앱의 JSON 정의를 사용하는 경우 `operationOptions` 매개 변수를 추가하여 `Sequential` 옵션을 사용할 수 있습니다. 예:
+논리 앱의 JSON 정의를 사용하는 경우 `Sequential` 매개 변수를 추가하여 `operationOptions` 옵션을 사용할 수 있습니다. 예:
 
 ``` json
 "actions": {
@@ -173,10 +173,10 @@ ms.locfileid: "74791756"
 
    ![되풀이 일정 설정](./media/logic-apps-control-flow-loops/do-until-loop-set-trigger-properties.png)
 
-   | 자산 | Value |
+   | 속성 | 값 |
    | -------- | ----- |
    | **간격** | 1 | 
-   | **Frequency(빈도)** | 일 |
+   | **빈도** | 일 |
    | **시간 선택** | 8 |
    ||| 
 
@@ -189,9 +189,9 @@ ms.locfileid: "74791756"
 
    ![변수 속성 설정](./media/logic-apps-control-flow-loops/do-until-loop-set-variable-properties.png)
 
-   | 자산 | Value | 설명 |
+   | 속성 | 값 | Description |
    | -------- | ----- | ----------- |
-   | **Name** | 제한 | 변수의 이름 | 
+   | **이름** | 제한 | 변수의 이름 | 
    | **형식** | 정수 | 변수의 데이터 형식 | 
    | **값** | 0 | 변수의 시작 값 | 
    |||| 
@@ -230,10 +230,10 @@ ms.locfileid: "74791756"
 
       ![이메일 속성 설정](./media/logic-apps-control-flow-loops/do-until-loop-send-email-settings.png)
 
-      | 자산 | Value | 설명 |
+      | 속성 | 값 | Description |
       | -------- | ----- | ----------- | 
-      | **To** | *\<전자 메일 주소\@도메인 >* | 받는 사람의 이메일 주소입니다. 테스트를 위해 자신의 이메일 주소를 사용합니다. | 
-      | **제목** | "제한"에 대한 현재 값은 **Limit**입니다. | 이메일 제목을 지정합니다. 이 예에서는 **Limit** 변수를 포함해야 합니다. | 
+      | **수행할 작업** | *\<전자 메일 주소\@도메인 >* | 받는 사람의 이메일 주소입니다. 테스트를 위해 자신의 이메일 주소를 사용합니다. | 
+      | **Subject** | "제한"에 대한 현재 값은 **Limit**입니다. | 이메일 제목을 지정합니다. 이 예에서는 **Limit** 변수를 포함해야 합니다. | 
       | **본문** | <*email-content*> | 보내려는 이메일 메시지의 내용을 지정합니다. 이 예에서는 텍스트를 원하는 대로 입력합니다. | 
       |||| 
 
@@ -247,10 +247,10 @@ ms.locfileid: "74791756"
 
 "Until" 루프에는 다음 조건 중 하나가 발생하는 경우 실행을 중지하는 기본 제한이 있습니다.
 
-| 자산 | 기본값 | 설명 | 
+| 속성 | 기본값 | Description | 
 | -------- | ------------- | ----------- | 
-| **개수** | 60 | 루프가 종료되기 전에 실행되는 최대 루프 수입니다. 기본값은 60회 주기입니다. | 
-| **시간 제한** | PT1H | 루프가 종료되기 전에 루프를 실행하는 가장 많은 시간입니다. 기본값은 1시간이며 ISO 8601 형식으로 지정됩니다. <p>시간 제한 값은 각 루프 주기에 대해 평가됩니다. 루프의 작업이 시간 제한보다 오래 걸리면 현재 주기가 중지되지 않습니다. 그러나 제한 조건이 충족되지 않으면 다음 주기가 시작되지 않습니다. | 
+| **Count** | 60 | 루프가 종료되기 전에 실행되는 최대 루프 수입니다. 기본값은 60회 주기입니다. | 
+| **Timeout** | PT1H | 루프가 종료되기 전에 루프를 실행하는 가장 많은 시간입니다. 기본값은 1시간이며 ISO 8601 형식으로 지정됩니다. <p>시간 제한 값은 각 루프 주기에 대해 평가됩니다. 루프의 작업이 시간 제한보다 오래 걸리면 현재 주기가 중지되지 않습니다. 그러나 제한 조건이 충족되지 않으면 다음 주기가 시작되지 않습니다. | 
 |||| 
 
 이러한 기본 제한을 변경하려면 루프 작업 셰이프에서 **고급 옵션 표시**를 선택합니다.

@@ -13,11 +13,11 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 25b8aa9b5e80720e9543dafce7970404a62b7d1f
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77132650"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78377444"
 ---
 # <a name="use-microsoft-authenticator-or-intune-company-portal-on-xamarin-applications"></a>Xamarin 응용 프로그램에서 Microsoft Authenticator 또는 Intune 회사 포털 사용
 

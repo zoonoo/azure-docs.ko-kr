@@ -8,11 +8,11 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.openlocfilehash: b3f622b360f565ef5b16d5376cb1aa2498655017
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75744739"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78389806"
 ---
 # <a name="azure-hdinsight-virtual-network-architecture"></a>Azure HDInsight 가상 네트워크 아키텍처
 
@@ -22,7 +22,7 @@ ms.locfileid: "75744739"
 
 Azure HDInsight 클러스터에는 서로 다른 유형의 가상 머신 또는 노드가 있습니다. 각 노드 유형은 시스템 작업에서 역할을 수행 합니다. 다음 표에는 클러스터의 노드 유형과 해당 역할에 대 한 설명이 요약 되어 있습니다.
 
-| 유형 | Description |
+| Type | Description |
 | --- | --- |
 | 헤드 노드 |  Apache Storm를 제외한 모든 클러스터 유형에 대해 헤드 노드는 배포 응용 프로그램의 실행을 관리 하는 프로세스를 호스팅합니다. 헤드 노드는 또한 SSH로 이동 하 여 클러스터 리소스에서 실행 되도록 조정 된 응용 프로그램을 실행할 수 있는 노드입니다. 모든 클러스터 유형에 대해 헤드 노드 수는 2로 고정 됩니다. |
 | 사육 아웃 노드 | 사육 사가 데이터 처리를 수행 하는 노드 간에 작업을 조정 합니다. 또한 헤드 노드의 지도자 선택을 수행 하 고 특정 마스터 서비스를 실행 중인 헤드 노드를 추적 합니다. 사육 사 노드 수는 3에서 고정 됩니다. |
@@ -54,18 +54,18 @@ HDInsight가 Azure Virtual Network에 배포 될 때 제공 되는 기본 리소
 
 | 리소스 유형 | 표시 번호 | 세부 정보 |
 | --- | --- | --- |
-|헤드 노드 | 2 |    |
-|Zookeeper 노드 | 3 | |
-|작업자 노드 | 2 | 이 수는 클러스터 구성 및 크기 조정에 따라 달라질 수 있습니다. Apache Kafka에는 최소 3 개의 작업자 노드가 필요 합니다.  |
-|게이트웨이 노드 | 2 | 게이트웨이 노드는 Azure에서 생성 되지만 구독에는 표시 되지 않는 Azure 가상 컴퓨터입니다. 이러한 노드를 다시 부팅 해야 하는 경우 지원 담당자에 게 문의 하세요. |
+|헤드 노드 | two |    |
+|Zookeeper 노드 | three | |
+|작업자 노드 | two | 이 수는 클러스터 구성 및 크기 조정에 따라 달라질 수 있습니다. Apache Kafka에는 최소 3 개의 작업자 노드가 필요 합니다.  |
+|게이트웨이 노드 | two | 게이트웨이 노드는 Azure에서 생성 되지만 구독에는 표시 되지 않는 Azure 가상 컴퓨터입니다. 이러한 노드를 다시 부팅 해야 하는 경우 지원 담당자에 게 문의 하세요. |
 
 다음 네트워크 리소스는 HDInsight에서 사용 되는 가상 네트워크 내에 자동으로 만들어집니다.
 
 | 네트워킹 리소스 | 표시 번호 | 세부 정보 |
 | --- | --- | --- |
-|Load Balancer | 3 | |
+|부하 분산 장치 | three | |
 |네트워크 인터페이스 | 커서나 | 이 값은 각 노드에 고유한 네트워크 인터페이스가 있는 일반 클러스터를 기반으로 합니다. 9 개의 인터페이스는 두 헤드 노드, 3 개의 사육 아웃 노드, 두 개의 작업자 노드 및 위의 표에 언급 된 두 개의 게이트웨이 노드에 대 한 것입니다. |
-|공용 IP 주소 | 2 |    |
+|공용 IP 주소 | two |    |
 
 ## <a name="endpoints-for-connecting-to-hdinsight"></a>HDInsight에 연결 하기 위한 끝점
 

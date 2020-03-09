@@ -7,11 +7,11 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: 1d91813e0f39207bcf7768de89600a6bdee0fc53
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792628"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78358998"
 ---
 # <a name="manage-your-integration-service-environment-ise-in-azure-logic-apps"></a>Azure Logic Apps에서 ISE (통합 서비스 환경) 관리
 
@@ -19,7 +19,7 @@ Ise [(통합 서비스 환경)](../logic-apps/connect-virtual-network-vnet-isola
 
 ## <a name="view-your-ise"></a>ISE 보기
 
-1. [Azure portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 1. 포털의 검색 상자에 "integration service environment"를 입력 한 다음 **Integration Service environment**를 선택 합니다.
 
