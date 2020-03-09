@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 10/15/2019
 ms.author: ramamill
 ms.openlocfilehash: 5209dab5e0934cc98bb1334a1565cc13998a7d2e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75376293"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78362808"
 ---
 # <a name="deploy-a-configuration-server"></a>구성 서버 배포
 
@@ -26,7 +26,7 @@ Azure에 대한 VMware VM과 물리적 서버 재해 복구를 위해 [Azure Sit
 
 구성 서버는 최소 하드웨어 및 크기 조정 요구 사항에 따라 항상 사용 가능한 VMware VM으로 설정 해야 합니다. 편리 하 고 쉬운 배포를 위해 Site Recovery는 여기에 나열 된 모든 요구 사항을 준수 하는 구성 서버를 설정 하는 다운로드 가능한 OVA (Open Virtualization Application) 템플릿을 제공 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 구성 서버에 대 한 최소 하드웨어 요구 사항은 다음 섹션에 요약 되어 있습니다.
 
@@ -132,7 +132,7 @@ Azure에 대한 VMware VM과 물리적 서버 재해 복구를 위해 [Azure Sit
 7. 구성 서버가 VMware 서버에 연결하는 데 사용할 자격 증명을 입력합니다. Site Recovery는 이러한 자격 증명을 사용하여 복제에 사용 가능한 VMware VM을 자동으로 검색합니다. **추가** > **계속**을 선택합니다. 여기서 입력한 자격 증명은 로컬로 저장됩니다.
 8. **가상 컴퓨터 자격 증명 구성**에서 가상 컴퓨터의 사용자 이름 및 암호를 입력 하 여 복제 중에 모바일 서비스를 자동으로 설치 합니다. **Windows** 컴퓨터의 경우 복제하려는 컴퓨터에 대한 로컬 관리자 권한이 필요합니다. **Linux**의 경우 루트 계정에 대한 세부 정보를 제공합니다.
 9. **구성 완료**를 선택하여 등록을 완료합니다.
-10. 등록이 완료 된 후 Azure Portal를 열고 구성 서버와 VMware 서버가 **Recovery Services 자격 증명 모음** 에 나열 되어 있는지 확인 >  > **Site Recovery 인프라** > **구성 서버**를 **관리** 합니다.
+10. 등록이 완료된 후 Azure Portal을 열고 구성 서버와 VMware 서버가 **Recovery Services 자격 증명 모음** > **관리** > **Site Recovery 인프라** > **구성 서버**에 나열되어 있는지 확인합니다.
 
 ## <a name="upgrade-the-configuration-server"></a>구성 서버 업그레이드
 
@@ -154,10 +154,10 @@ Azure에 대한 VMware VM과 물리적 서버 재해 복구를 위해 [Azure Sit
 
 * 구성 서버가 서로 다른 용도로 설치 된 VM을 사용할 수 있나요?
 
-    아닙니다. 구성 서버의 유일한 용도에 대해 VM을 사용 합니다. 재해 복구를 효율적으로 관리 하기 위해 [필수 구성 요소](#prerequisites) 에서 언급 한 모든 사양을 따라야 합니다.
+    아니요. 구성 서버의 유일한 용도에 대해 VM을 사용 합니다. 재해 복구를 효율적으로 관리 하기 위해 [필수 구성 요소](#prerequisites) 에서 언급 한 모든 사양을 따라야 합니다.
 * 구성 서버에 이미 등록된 자격 증명 모음을 새로 만든 자격 증명 모음으로 전환할 수 있나요?
 
-    아닙니다. 구성 서버에 자격 증명 모음을 등록 한 후에는 변경할 수 없습니다.
+    아니요. 구성 서버에 자격 증명 모음을 등록 한 후에는 변경할 수 없습니다.
 * 동일한 구성 서버를 사용 하 여 물리적 컴퓨터와 가상 컴퓨터를 모두 보호할 수 있나요?
 
     예. 물리적 컴퓨터와 가상 컴퓨터를 복제 하는 데 동일한 구성 서버를 사용할 수 있습니다. 그러나 물리적 컴퓨터는 VMware VM 으로만 장애 복구 될 수 있습니다.
@@ -172,17 +172,17 @@ Azure에 대한 VMware VM과 물리적 서버 재해 복구를 위해 [Azure Sit
     암호를 다운로드 하려면 [VMWARE VM 재해 복구를 위한 구성 서버 관리](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase)를 참조 하세요.
 * 암호를 변경할 수 있나요?
 
-    아닙니다. 구성 서버의 암호를 변경 하지 마세요. 암호가 변경 되 면 보호 된 컴퓨터의 복제를 중단 하 고 위험 상태를 초래 합니다.
+    아니요. 구성 서버의 암호를 변경 하지 마세요. 암호가 변경 되 면 보호 된 컴퓨터의 복제를 중단 하 고 위험 상태를 초래 합니다.
 * 자격 증명 모음 등록 키는 어디서 다운로드할 수 있나요?
 
     **Recovery Services 자격 증명 모음**에서 **관리** > **Site Recovery 인프라** > **구성 서버**를 선택 합니다. **서버**에서 **등록 키 다운로드**를 선택하여 자격 증명 모음 자격 증명 파일을 다운로드합니다.
 * 기존 구성 서버를 복제 하 고 복제 오케스트레이션에 사용할 수 있나요?
 
-    아닙니다. 복제 된 구성 서버 구성 요소를 사용 하는 것은 지원 되지 않습니다. 스케일 아웃 프로세스 서버를 복제 하는 것도 지원 되지 않는 시나리오입니다. 복제 Site Recovery 구성 요소는 진행 중인 복제에 영향을 줍니다.
+    아니요. 복제 된 구성 서버 구성 요소를 사용 하는 것은 지원 되지 않습니다. 스케일 아웃 프로세스 서버를 복제 하는 것도 지원 되지 않는 시나리오입니다. 복제 Site Recovery 구성 요소는 진행 중인 복제에 영향을 줍니다.
 
 * 구성 서버의 IP를 변경할 수 있나요?
 
-    아닙니다. 구성 서버의 IP 주소를 변경 하지 마세요. 구성 서버에 할당 된 모든 Ip가 DHCP Ip가 아닌 고정 Ip 인지 확인 합니다.
+    아니요. 구성 서버의 IP 주소를 변경 하지 마세요. 구성 서버에 할당 된 모든 Ip가 DHCP Ip가 아닌 고정 Ip 인지 확인 합니다.
 * Azure에서 구성 서버를 설정할 수 있나요?
 
     온-프레미스 환경에서 구성 서버를 설정 하 고 v 센터와의 직접적인 시야를 사용 하 여 데이터 전송 대기 시간을 최소화 합니다. [장애 복구](vmware-azure-manage-configuration-server.md#failback-requirements)를 위해 구성 서버의 예약된 백업을 수행할 수 있습니다.

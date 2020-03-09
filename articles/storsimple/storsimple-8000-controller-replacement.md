@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.openlocfilehash: dd2f6fcc9b2f5d716566e91e89487969613d1005
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61482873"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78365851"
 ---
 # <a name="replace-a-controller-module-on-your-storsimple-device"></a>StorSimple 디바이스의 컨트롤러 모듈 교체
 ## <a name="overview"></a>개요
@@ -38,10 +38,10 @@ ms.locfileid: "61482873"
 
 | 사례 | 교체 시나리오 | 해당 절차 |
 |:--- |:--- |:--- |
-| 1 |한 컨트롤러는 실패 상태이고 다른 컨트롤러는 정상 활성 상태입니다. |[단일 컨트롤러 교체를 지원하는 논리](#single-controller-replacement-logic) 및 [교체 단계](#single-controller-replacement-steps)를 설명하는 [단일 컨트롤러 교체](#replace-a-single-controller)입니다. |
-| 2 |두 컨트롤러에서 모두 오류가 발생했으며 교체해야 합니다. 섀시, 디스크 및 디스크 엔클로저는 정상입니다. |[이중 컨트롤러 교체를 지원하는 논리](#dual-controller-replacement-logic) 및 [교체 단계](#dual-controller-replacement-steps)를 설명하는 [이중 컨트롤러 교체](#replace-both-controllers)입니다. |
+| 1 |한 컨트롤러는 실패 상태이고 다른 컨트롤러는 정상 활성 상태입니다. |[단일 컨트롤러 교체를 지원하는 논리](#replace-a-single-controller) 및 [교체 단계](#single-controller-replacement-logic)를 설명하는 [단일 컨트롤러 교체](#single-controller-replacement-steps)입니다. |
+| 2 |두 컨트롤러에서 모두 오류가 발생했으며 교체해야 합니다. 섀시, 디스크 및 디스크 엔클로저는 정상입니다. |[이중 컨트롤러 교체를 지원하는 논리](#replace-both-controllers) 및 [교체 단계](#dual-controller-replacement-logic)를 설명하는 [이중 컨트롤러 교체](#dual-controller-replacement-steps)입니다. |
 | 3 |동일한 디바이스 또는 서로 다른 디바이스의 컨트롤러를 교환합니다. 섀시, 디스크 및 디스크 엔클로저는 정상입니다. |슬롯 불일치 경고 메시지가 표시됩니다. |
-| 4 |한 컨트롤러는 없고 다른 컨트롤러에서는 오류가 발생합니다. |[이중 컨트롤러 교체를 지원하는 논리](#dual-controller-replacement-logic) 및 [교체 단계](#dual-controller-replacement-steps)를 설명하는 [이중 컨트롤러 교체](#replace-both-controllers)입니다. |
+| 4 |한 컨트롤러는 없고 다른 컨트롤러에서는 오류가 발생합니다. |[이중 컨트롤러 교체를 지원하는 논리](#replace-both-controllers) 및 [교체 단계](#dual-controller-replacement-logic)를 설명하는 [이중 컨트롤러 교체](#dual-controller-replacement-steps)입니다. |
 | 5 |하나 또는 두 개의 컨트롤러에서 모두 오류가 발생했습니다. 직렬 콘솔 또는 Windows PowerShell 원격을 통해 디바이스에 액세스할 수 없습니다. |수동 컨트롤러 교체 절차는 [Microsoft 지원에 문의](storsimple-8000-contact-microsoft-support.md)하세요. |
 | 6 |컨트롤러의 빌드 버전이 서로 다르며, 다음과 같은 이유 때문일 수 있습니다.<ul><li>컨트롤러에는 다양한 소프트웨어 버전이 있습니다.</li><li>컨트롤러에는 다양한 펌웨어 버전이 있습니다.</li></ul> |컨트롤러 소프트웨어 버전이 서로 다른 경우 교체 논리에서 이를 감지하고 교체 컨트롤러의 소프트웨어 버전을 업데이트합니다.<br><br>컨트롤러 펌웨어 버전이 서로 다르고 이전 펌웨어 버전을 자동으로 업그레이드할 수 **없는** 경우 Azure Portal에 경고 메시지가 표시됩니다. 업데이트를 검색하고 펌웨어 업데이트를 설치해야 합니다.</br></br>컨트롤러 펌웨어 버전이 서로 다르고 이전 펌웨어 버전을 자동으로 업그레이드할 수 있는 경우 컨트롤러 교체 논리에서 이를 감지하고 컨트롤러가 시작된 후 펌웨어가 자동으로 업데이트됩니다. |
 
@@ -62,7 +62,7 @@ ms.locfileid: "61482873"
 Microsoft Azure StorSimple 디바이스의 두 컨트롤러 중 하나에서 오류가 발생했거나 오작동하거나 없는 경우 단일 컨트롤러를 교체해야 합니다.
 
 ### <a name="single-controller-replacement-logic"></a>단일 컨트롤러 교체 논리
-단일 컨트롤러 교체에서는 오류가 발생한 컨트롤러를 먼저 제거해야 합니다. (디바이스의 나머지 컨트롤러가 활성 컨트롤러가 됩니다.) 교체 컨트롤러를 삽입하면 다음 동작이 발생합니다.
+단일 컨트롤러 교체에서는 오류가 발생한 컨트롤러를 먼저 제거해야 합니다. (장치의 나머지 컨트롤러는 활성 컨트롤러입니다.) 교체 컨트롤러를 삽입 하면 다음 작업이 수행 됩니다.
 
 1. 교체 컨트롤러가 즉시 StorSimple 디바이스와 통신을 시작합니다.
 2. 활성 컨트롤러에 대한 VHD(가상 하드 디스크)의 스냅샷이 교체 컨트롤러에 복사됩니다.
@@ -90,7 +90,7 @@ Microsoft Azure StorSimple 디바이스의 컨트롤러 중 하나에서 오류�
    
     **그림 1** StorSimple 디바이스 뒷면
    
-   | 레이블 | 설명 |
+   | 레이블 | Description |
    |:--- |:--- |
    | 1 |PCM 0 |
    | 2 |PCM 1 |
@@ -149,7 +149,7 @@ Microsoft Azure StorSimple 디바이스의 두 컨트롤러에서 모두 오류�
    
    1. EBOD 엔클로저가 먼저 켜지는지 확인합니다.
    2. EBOD 엔클로저가 실행될 때까지 기다립니다.
-   3. 기본 엔클로저를 켭니다.
+   3. 기본 인클로저를 켭니다.
    4. 첫 번째 컨트롤러가 다시 시작되고 정상 상태이면 시스템이 실행됩니다.
       
       > [!NOTE]
@@ -231,7 +231,7 @@ Azure Portal에서 디바이스로 이동하고 **모니터** > **하드웨어 �
 
 **그림 8** 데이터 포트와 모니터링 LED가 있는 기본 엔클로저 뒷면
 
-| 레이블 | 설명 |
+| 레이블 | Description |
 |:--- |:--- |
 | 1-6 |DATA 0 - 5 네트워크 포트 |
 | 7 |파란색 LED |

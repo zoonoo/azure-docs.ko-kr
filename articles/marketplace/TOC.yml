@@ -1,5 +1,5 @@
 - name: Azure Marketplace 및 AppSource 설명서
-  href: index.md
+  href: index.yml
   items:
     - name: Azure Marketplace 및 AppSource 로드맵
       href: ./marketplace-roadmap.md
@@ -51,9 +51,6 @@
           items:
             - name: 목록에 제품 추가 모범 사례
               href: ./gtm-offer-listing-best-practices.md
-              items:
-                - name: 범주
-                  href: ./gtm-offer-listing-best-practices-categories.md
             - name: 추천 받기
               href: ./gtm-how-to-get-featured.md
             - name: Marketplace 콘텐츠 유효성 검사

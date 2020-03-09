@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b6da67589b15b4ab043510c0375c26c12f645adb
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76155149"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78378103"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>클라우드 기반 Azure Multi-Factor Authentication 배포 계획
 
@@ -24,11 +24,11 @@ ms.locfileid: "76155149"
 
 [MFA (Azure Multi-Factor Authentication)](concept-mfa-howitworks.md) 는 데이터 및 응용 프로그램에 대 한 액세스를 보호 하는 데 도움이 됩니다. 두 번째 형태의 인증을 사용 하 여 추가 보안 계층을 제공 합니다. 조직에서는 [조건부 액세스](../conditional-access/overview.md) 를 사용 하 여 솔루션을 특정 요구 사항에 맞게 만들 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure Multi-Factor Authentication 배포를 시작 하기 전에 고려해 야 하는 필수 조건 항목이 있습니다.
 
-| 시나리오 | 필수 조건 |
+| 시나리오 | 필수 요소 |
 | --- | --- |
 | 최신 인증을 사용 하는 **클라우드 전용** id 환경 | **추가 필수 구성 요소 작업 없음** |
 | **하이브리드** id 시나리오 | [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) 배포 되 고 사용자 id가 Azure Active Directory를 사용 하 여 온-프레미스 Active Directory Domain Services와 동기화 되거나 페더레이션 됩니다. |
@@ -221,7 +221,7 @@ Azure AD 테 넌 트에서 실수로 잠기는 것을 방지 하는 것이 중�
 ### <a name="create-conditional-access-policy"></a>조건부 액세스 정책 만들기
 
 1. 전역 관리자 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. **조건부 액세스** >  > **보안** **Azure Active Directory** 로 이동 합니다.
+1. **Azure Active Directory** > **Security** > **조건부 액세스**로 이동합니다.
 1. **새 정책**을 선택합니다.
    ![하 여 파일럿 그룹의 Azure Portal 사용자에 대해 MFA를 사용 하도록 설정 하는 조건부 액세스 정책을 만듭니다](media/howto-mfa-getstarted/conditionalaccess-newpolicy.png)
 1. 의미 있는 정책 이름을 입력합니다.
@@ -288,11 +288,11 @@ MFA에 등록 되지 않은 사용자가 인증을 시도 하는 경우 수행�
 | 키가 없습니다. | 등록 되지 않음 | MFA 챌린지 실패 |
 | True/설정 안 함으로 설정 되는 값 | 등록 되지 않음 | MFA 챌린지 실패 |
 | 키가 False로 설정 되었습니다. | 등록 되지 않음 | MFA 없는 인증 |
-| False 또는 True로 설정 되는 키 | 등록됨 | MFA를 사용 하 여 인증 해야 합니다. |
+| False 또는 True로 설정 되는 키 | 등록 | MFA를 사용 하 여 인증 해야 합니다. |
 
 ### <a name="integrate-with-active-directory-federation-services"></a>Active Directory Federation Services와 통합
 
-조직이 Azure AD와 페더레이션 되는 경우 Azure Multi-Factor Authentication를 사용 하 여 온-프레미스와 클라우드에서 [AD FS 리소스를 보호할](multi-factor-authentication-get-started-adfs.md)수 있습니다. Azure MFA를 사용 하 여 암호를 줄이고 보다 안전한 인증 방법을 제공할 수 있습니다. Windows Server 2016 부터는 기본 인증을 위해 Azure MFA를 지금 구성할 수 있습니다.
+조직이 Azure AD와 페더레이션 되는 경우 Azure Multi-Factor Authentication를 사용 하 여 온-프레미스와 클라우드에서 [AD FS 리소스를 보호할](multi-factor-authentication-get-started-adfs.md)수 있습니다. Azure MFA를 사용 하 여 암호를 줄이고 보다 안전한 인증 방법을 제공할 수 있습니다. 이제 Windows Server 2016부터 기본 인증을 위해 Azure MFA를 구성할 수 있습니다.
 
 Windows Server 2012 r 2의 AD FS와 달리 AD FS 2016 Azure MFA 어댑터는 Azure AD와 직접 통합 되며 온-프레미스 Azure MFA 서버가 필요 하지 않습니다. Azure MFA 어댑터는 Windows Server 2016에 기본 제공 되며 추가 설치는 필요 하지 않습니다.
 

@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 09/20/2018
 ms.author: barclayn
 ms.openlocfilehash: 541039c82d5ea21c43a847da2710bef4162a2bc7
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72804048"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78358962"
 ---
 # <a name="azure-encryption-overview"></a>Azure 암호화 개요
 
@@ -59,7 +59,7 @@ Azure는 서비스 관리 키를 사용하는 서버 쪽 암호화, Key Vault의
 
 ### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 
-[Windows BitLocker](https://technet.microsoft.com/library/cc766295(v=ws.10).aspx) 기술과 Linux [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt)를 사용하여 전체 볼륨 암호화로 운영 체제 디스크와 데이터 디스크를 모두 보호하는 [Azure Disk Encryption](/azure/security/fundamentals/azure-disk-encryption-vms-vmss)으로 Windows 및 Linux 가상 머신을 보호할 수 있습니다.
+[Windows BitLocker](/azure/security/fundamentals/azure-disk-encryption-vms-vmss) 기술과 Linux [DM-Crypt](https://technet.microsoft.com/library/cc766295(v=ws.10).aspx)를 사용하여 전체 볼륨 암호화로 운영 체제 디스크와 데이터 디스크를 모두 보호하는 [Azure Disk Encryption](https://en.wikipedia.org/wiki/Dm-crypt)으로 Windows 및 Linux 가상 머신을 보호할 수 있습니다.
 
 암호화 키 및 비밀은 사용자의 [Azure Key Vault](../../key-vault/key-vault-overview.md) 구독에서 보호됩니다. Azure Backup 서비스를 사용하여 KEK(키 암호화) 구성으로 암호화된 VM을 백업 및 복원할 수 있습니다.
 
@@ -181,7 +181,7 @@ Azure에서 원격 데스크톱을 사용하여 Azure의 Linux VM에 연결할 �
 
 Azure Portal, PowerShell 또는 Azure CLI를 사용하여 가상 네트워크에 사이트 간 VPN 연결을 구성할 수 있습니다.
 
-자세한 내용은
+자세한 내용은 다음을 참조하세요.
 
 [Azure Portal에서 사이트 간 연결 만들기](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 

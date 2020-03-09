@@ -4,11 +4,11 @@ description: Azure Kubernetes 서비스 (AKS)에 대 한 일반적인 질문에 
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.openlocfilehash: 1531308a8d0bd5a09952d8ad8ccd03c92f2f99eb
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77914605"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78374656"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 대한 질문과 대답
 
@@ -117,7 +117,7 @@ Kubernetes 제어 평면의 작동 시간 및 Azure Virtual Machines에서 실�
 
 AKS에서는 Azure CLI 및 Azure Resource Manager 템플릿을 사용 하 여 클러스터를 만들 때 `maxPods` 값을 설정할 수 있습니다. 그러나 Kubenet 및 Azure CNI에는 최소한의 *값* (생성 시 유효성 검사 됨)이 필요 합니다.
 
-| 네트워킹 | 최소 | 최대값 |
+| 네트워킹 | 최소 | 최대 |
 | -- | :--: | :--: |
 | Azure CNI | 30 | 250 |
 | Kubenet | 30 | 110 |

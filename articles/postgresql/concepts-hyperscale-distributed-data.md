@@ -8,11 +8,11 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.openlocfilehash: ade7632dc042741a07bdb59e34e30b3fb464e0e9
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975621"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78363432"
 ---
 # <a name="distributed-data-in-azure-database-for-postgresql--hyperscale-citus"></a>Azure Database for PostgreSQL-Hyperscale (Citus)의 분산 데이터
 
@@ -51,7 +51,7 @@ Citus (Hyperscale)를 사용 하는 경우 연결 하는 코디네이터 노드�
 
 이전 섹션에서 분산 테이블이 작업자 노드에서 분할된 데이터베이스로 저장되는 방법을 설명했습니다. 이 섹션에서는 기술에 대해 자세히 설명 합니다.
 
-코디네이터의 `pg_dist_shard` 메타데이터 테이블은 시스템에서 각 분산된 테이블의 각 분할된 데이터베이스에 대한 행을 포함합니다. 이 행은 해시 공간의 정수 범위 (shardminvalue, shardmaxvalue)를 사용 하 여 분할 된 ID와 일치 합니다.
+코디네이터의 `pg_dist_shard` 메타 데이터 테이블에는 시스템에 있는 각 분산 된 테이블의 각 분할 된 행이 포함 됩니다. 이 행은 해시 공간의 정수 범위 (shardminvalue, shardmaxvalue)를 사용 하 여 분할 된 ID와 일치 합니다.
 
 ```sql
 SELECT * from pg_dist_shard;

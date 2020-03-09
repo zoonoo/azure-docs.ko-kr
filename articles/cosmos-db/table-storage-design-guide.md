@@ -9,11 +9,11 @@ author: sakash279
 ms.author: akshanka
 ms.custom: seodec18
 ms.openlocfilehash: 166076d366cbbf7bef24648772beaba9b3a88253
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76771528"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78395650"
 ---
 # <a name="azure-table-storage-table-design-guide-scalable-and-performant-tables"></a>Azure 테이블 저장소 테이블 디자인 가이드: 확장 가능 하 고 성능이 뛰어난 테이블
 
@@ -43,7 +43,7 @@ ms.locfileid: "76771528"
 <th></th>
 </tr>
 <tr>
-<td>마케팅</td>
+<td>Marketing</td>
 <td>00001</td>
 <td>2014-08-22T00:50:32Z</td>
 <td>
@@ -51,8 +51,8 @@ ms.locfileid: "76771528"
 <tr>
 <th>FirstName</th>
 <th>LastName</th>
-<th>연령</th>
-<th>이메일</th>
+<th>Age</th>
+<th>Email</th>
 </tr>
 <tr>
 <td>Don</td>
@@ -63,7 +63,7 @@ ms.locfileid: "76771528"
 </table>
 </tr>
 <tr>
-<td>마케팅</td>
+<td>Marketing</td>
 <td>00002</td>
 <td>2014-08-22T00:50:34Z</td>
 <td>
@@ -71,8 +71,8 @@ ms.locfileid: "76771528"
 <tr>
 <th>FirstName</th>
 <th>LastName</th>
-<th>연령</th>
-<th>이메일</th>
+<th>Age</th>
+<th>Email</th>
 </tr>
 <tr>
 <td>6월</td>
@@ -83,7 +83,7 @@ ms.locfileid: "76771528"
 </table>
 </tr>
 <tr>
-<td>마케팅</td>
+<td>Marketing</td>
 <td>department</td>
 <td>2014-08-22T00:50:30Z</td>
 <td>
@@ -93,14 +93,14 @@ ms.locfileid: "76771528"
 <th>EmployeeCount</th>
 </tr>
 <tr>
-<td>마케팅</td>
+<td>Marketing</td>
 <td>153</td>
 </tr>
 </table>
 </td>
 </tr>
 <tr>
-<td>영업</td>
+<td>Sales</td>
 <td>00010</td>
 <td>2014-08-22T00:50:44Z</td>
 <td>
@@ -108,8 +108,8 @@ ms.locfileid: "76771528"
 <tr>
 <th>FirstName</th>
 <th>LastName</th>
-<th>연령</th>
-<th>이메일</th>
+<th>Age</th>
+<th>Email</th>
 </tr>
 <tr>
 <td>Ken</td>
@@ -422,7 +422,7 @@ Merge는 현재 지원 되지 않습니다. 이전에 다른 키를 사용 하 �
 
 또한 전자 메일 주소와 같은 다른 속성의 값을 기반으로 직원 엔터티를 찾으려는 경우에는 더 효율적인 파티션 검색을 사용 하 여 일치 하는 항목을 찾아야 합니다. 이는 테이블 저장소에서 보조 인덱스를 제공 하지 않기 때문입니다. 또한 `RowKey` 순서와 다른 순서로 정렬 된 직원 목록을 요청 하는 옵션은 없습니다.  
 
-#### <a name="solution"></a>솔루션
+#### <a name="solution"></a>해결 방법
 보조 인덱스가 없는 문제를 해결 하려면 각 엔터티의 여러 복사본을 다른 `RowKey` 값을 사용 하 여 각 복사본과 함께 저장 하면 됩니다. 다음 구조를 사용 하 여 엔터티를 저장 하는 경우 전자 메일 주소 또는 직원 ID를 기준으로 직원 엔터티를 효율적으로 검색할 수 있습니다. `RowKey`, `empid_`및 `email_`에 대 한 접두사 값을 사용 하 여 전자 메일 주소 또는 직원 Id의 범위를 통해 단일 직원 또는 직원 범위를 쿼리할 수 있습니다.  
 
 ![다양 한 RowKey 값을 사용 하 여 employee 엔터티를 보여 주는 그래픽][7]
@@ -482,7 +482,7 @@ Merge는 현재 지원 되지 않습니다. 이전에 다른 키를 사용 하 �
 
 이러한 엔터티에 대해 많은 양의 트랜잭션을 예측 하 고 테이블 저장소 속도로 클라이언트를 제한 하는 위험을 최소화 하려고 합니다.  
 
-#### <a name="solution"></a>솔루션
+#### <a name="solution"></a>해결 방법
 보조 인덱스가 없는 문제를 해결 하려면 각 엔터티의 여러 복사본을 다른 `PartitionKey` 및 `RowKey` 값을 사용 하는 각 복사본과 함께 저장 하면 됩니다. 다음 구조를 사용 하 여 엔터티를 저장 하는 경우 전자 메일 주소 또는 직원 ID를 기준으로 직원 엔터티를 효율적으로 검색할 수 있습니다. `PartitionKey`, `empid_`및 `email_`에 대 한 접두사 값을 사용 하 여 쿼리에 사용할 인덱스를 식별할 수 있습니다.  
 
 ![주 인덱스와 보조 인덱스의 employee 엔터티를 포함 하는 employee 엔터티를 보여 주는 그래픽][10]
@@ -540,7 +540,7 @@ EGT는 동일한 파티션 키를 공유하는 여러 엔터티 간의 원자성
 * 테이블 저장소에 저장 된 엔터티 및 파일 시스템의 파일입니다.  
 * Azure Cognitive Search을 사용 하 여 인덱싱된 테이블 저장소에 저장 된 엔터티입니다.  
 
-#### <a name="solution"></a>솔루션
+#### <a name="solution"></a>해결 방법
 Azure 큐를 사용하면 둘 이상의 파티션 또는 스토리지 시스템 간에 결과적 일관성을 유지하는 솔루션을 구현할 수 있습니다.
 
 이러한 접근 방식을 설명 하기 위해 이전 직원 엔터티를 보관할 수 있는 요구 사항이 있다고 가정 합니다. 이전 직원 엔터티는 드물게 쿼리 되며 현재 직원을 처리 하는 모든 활동에서 제외 되어야 합니다. 이 요구 사항을 구현 하기 위해 활성 직원을 **현재** 테이블에 저장 하 고 이전 직원을 **보관** 테이블에 저장 합니다. 직원을 보관 하려면 **현재** 테이블에서 엔터티를 삭제 하 고 **Archive** 테이블에 엔터티를 추가 해야 합니다.
@@ -591,7 +591,7 @@ Table storage 및 Queue storage의 일부 오류는 일시적인 오류 이며 �
 
 또한 last name과 같은 고유 하지 않은 다른 속성의 값을 기반으로 직원 엔터티 목록을 검색할 수 있도록 하려면 더 효율적인 파티션 검색을 사용 해야 합니다. 이 검색은 인덱스를 사용 하 여 직접 조회 하는 대신 일치 항목을 찾습니다. 이는 테이블 저장소에서 보조 인덱스를 제공 하지 않기 때문입니다.  
 
-#### <a name="solution"></a>솔루션
+#### <a name="solution"></a>해결 방법
 이전 엔터티 구조를 사용 하 여 성을 기준으로 조회를 사용 하도록 설정 하려면 직원 Id의 목록을 유지 관리 해야 합니다. Jones와 같이 특정 성을 사용 하 여 직원 엔터티를 검색 하려면 먼저 Jones가 있는 직원의 직원 Id 목록을 찾은 다음 해당 직원 엔터티를 검색 해야 합니다. 직원 Id 목록을 저장 하는 세 가지 주요 옵션은 다음과 같습니다.  
 
 * Blob storage를 사용 합니다.  
@@ -662,8 +662,8 @@ Table storage 및 Queue storage의 일부 오류는 일시적인 오류 이며 �
 
 ![부서 엔터티 및 employee 엔터티 그래픽][16]
 
-#### <a name="solution"></a>솔루션
-두 개의 별도 엔터티에 데이터를 저장하는 대신 데이터를 비정규화하여 부서 엔터티에 관리자 세부 정보의 복사본을 유지합니다. 예:  
+#### <a name="solution"></a>해결 방법
+두 개의 별도 엔터티에 데이터를 저장하는 대신 데이터를 비정규화하여 부서 엔터티에 관리자 세부 정보의 복사본을 유지합니다. 다음은 그 예입니다.  
 
 ![비 정규화 된 부서 및 결합 된 부서 엔터티의 그래픽][17]
 
@@ -701,7 +701,7 @@ Table storage 및 Queue storage의 일부 오류는 일시적인 오류 이며 �
 
 이 방법을 사용 하면 단일 요청으로 데이터를 검색할 수 있도록 새 엔터티의 일부 정보 (예: 이름 및 성)를 복제할 수 있습니다. 그러나 두 엔터티를 원자 단위로 업데이트할 수 없으므로 강력한 일관성을 유지할 수 없습니다.  
 
-#### <a name="solution"></a>솔루션
+#### <a name="solution"></a>해결 방법
 다음 구조의 엔터티를 사용 하 여 원래 테이블에 새 엔터티 형식을 저장 합니다.  
 
 ![복합 키가 있는 employee 엔터티 그래픽][20]
@@ -738,7 +738,7 @@ $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000123') and (RowKey lt 
 #### <a name="context-and-problem"></a>컨텍스트 및 문제점
 일반적인 요구 사항은 가장 최근에 생성된 엔터티(예: 직원이 제출한 가장 최근 비용 청구 10개)를 검색할 수 있는 것입니다. 테이블 쿼리는 집합에서 처음 *n* 개의 엔터티를 반환 하는 `$top` 쿼리 작업을 지원 합니다. 집합의 마지막 *n 개* 엔터티를 반환 하는 해당 쿼리 작업은 없습니다.  
 
-#### <a name="solution"></a>솔루션
+#### <a name="solution"></a>해결 방법
 자연스럽 게 역방향 날짜/시간 순서를 정렬 하는 `RowKey`을 사용 하 여 엔터티를 저장 합니다. 따라서 가장 최근의 항목은 항상 테이블의 첫 번째 항목입니다.  
 
 예를 들어 직원이 제출한 가장 최근 비용 청구 10개를 검색하려면 현재 날짜/시간에서 파생된 역방향 틱 값을 사용하면 됩니다. 다음 C# 코드 샘플에서는 가장 최근에서 가장 오래 된 항목으로 정렬 하는 `RowKey`에 대해 적합 한 "반전 된 틱" 값을 만드는 한 가지 방법을 보여 줍니다.  
@@ -780,7 +780,7 @@ $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000123') and (RowKey lt 
 
 이 방법을 사용 하면 응용 프로그램에서 각 사용자에 대 한 로그인 엔터티를 별도의 파티션에 삽입 하 고 삭제할 수 있으므로 파티션 핫스팟을 피할 수 있습니다. 그러나이 방법은 많은 엔터티가 있는 경우 비용이 많이 들고 시간이 오래 걸릴 수 있습니다. 먼저 삭제할 모든 엔터티를 식별 하기 위해 테이블 검색을 수행한 후 이전 엔터티를 모두 삭제 해야 합니다. 여러 삭제 요청을 EGT로 일괄 처리하면 이전 엔터티를 삭제하는 데 필요한 서버 왕복 횟수를 줄일 수 있습니다.  
 
-#### <a name="solution"></a>솔루션
+#### <a name="solution"></a>해결 방법
 각 로그인 시도 날짜에 별도의 테이블을 사용합니다. 이전 엔터티 디자인을 사용 하 여 엔터티를 삽입할 때 핫스폿을 피할 수 있습니다. 이제 오래 된 엔터티를 삭제 하면 매일 수백 및 수천 개의 개별 로그인 엔터티를 검색 하 고 삭제 하는 대신 매일 하나의 테이블을 삭제 하는 것은 간단 합니다 (단일 저장소 작업).  
 
 #### <a name="issues-and-considerations"></a>문제 및 고려 사항
@@ -810,7 +810,7 @@ $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000123') and (RowKey lt 
 
 이 디자인을 사용하면 애플리케이션이 메시지 수 값을 업데이트해야 할 때마다 각 직원에 대한 엔터티를 쉽게 찾아서 업데이트할 수 있습니다. 그러나 이전 24시간 동안의 활동에 대한 차트를 그리기 위해 정보를 검색하려면 24개의 엔터티를 검색해야 합니다.  
 
-#### <a name="solution"></a>솔루션
+#### <a name="solution"></a>해결 방법
 각 시간에 대 한 메시지 수를 저장 하는 별도의 속성을 사용 하 여 다음 디자인을 사용 합니다.  
 
 ![구분 된 속성이 있는 메시지 통계 엔터티를 보여 주는 그래픽][23]
@@ -839,7 +839,7 @@ $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000123') and (RowKey lt 
 #### <a name="context-and-problem"></a>컨텍스트 및 문제점
 개별 엔터티는 필수 시스템 속성을 제외 하 고 252 개의 속성을 가질 수 없으며, 총 1mb의 데이터를 저장할 수 없습니다. 관계형 데이터베이스에서 일반적으로 새 테이블을 추가 하 고 두 테이블 간에 일대일 관계를 적용 하 여 행 크기에 대 한 제한을 해결할 수 있습니다.  
 
-#### <a name="solution"></a>솔루션
+#### <a name="solution"></a>해결 방법
 테이블 저장소를 사용 하 여 여러 엔터티를 저장 하 여 252 개 이상의 속성이 포함 된 단일 대기업 개체를 나타낼 수 있습니다. 예를 들어 지난 365 일간 각 직원이 보낸 IM 메시지 수를 저장 하려는 경우 스키마가 서로 다른 두 엔터티를 사용 하는 다음 디자인을 사용할 수 있습니다.  
 
 ![Rowkey가 01 인 메시지 통계 엔터티 및 Rowkey 02가 있는 메시지 통계 엔터티를 보여 주는 그래픽][24]
@@ -866,7 +866,7 @@ Blob 저장소를 사용 하 여 대량 속성 값을 저장 합니다.
 #### <a name="context-and-problem"></a>컨텍스트 및 문제점
 개별 엔터티는 총 1mb가 넘는 데이터를 저장할 수 없습니다. 하나 이상의 속성에서 엔터티의 총 크기가이 값을 초과 하는 값을 저장 하는 경우 테이블 저장소에 전체 엔터티를 저장할 수 없습니다.  
 
-#### <a name="solution"></a>솔루션
+#### <a name="solution"></a>해결 방법
 하나 이상의 속성에 많은 양의 데이터가 포함 되어 있으므로 엔터티의 크기가 1mb를 초과 하는 경우 Blob 저장소에 데이터를 저장 한 다음 엔터티의 속성에 blob의 주소를 저장할 수 있습니다. 예를 들어 직원의 사진을 Blob storage에 저장 하 고 직원 엔터티의 `Photo` 속성에 사진에 대 한 링크를 저장할 수 있습니다.  
 
 ![Blob 저장소를 가리키는 사진에 대 한 문자열이 있는 직원 엔터티를 보여 주는 그래픽][25]
@@ -896,7 +896,7 @@ Blob 저장소를 사용 하 여 대량 속성 값을 저장 합니다.
 
 ![Employee 엔터티 그래픽][26]
 
-#### <a name="solution"></a>솔루션
+#### <a name="solution"></a>해결 방법
 다음 대체 엔터티 구조는 응용 프로그램이 이벤트를 기록 하므로 특정 파티션에서 핫스팟을 방지 합니다.  
 
 ![연도, 월, 일, 시간 및 이벤트 ID를 그래야만 RowKey를 사용 하 여 직원 엔터티를 보여 주는 그래픽][27]
@@ -935,7 +935,7 @@ Blob 저장소를 사용 하 여 대량 속성 값을 저장 합니다.
 
 그러나이 스키마의 문제는 특정 시간 범위에 대 한 모든 로그 메시지를 검색 하려면 테이블의 모든 파티션을 검색 해야 한다는 것입니다.
 
-#### <a name="solution"></a>솔루션
+#### <a name="solution"></a>해결 방법
 이전 섹션에서는 테이블 저장소를 사용 하 여 로그 항목을 저장 하려고 시도 하는 문제를 강조 하 고 두 가지 불충분 한 디자인을 제안 했습니다. 한 솔루션은 로그 메시지를 작성 하는 데 문제가 있는 핫 파티션을 실행 합니다. 다른 솔루션은 테이블의 모든 파티션을 검색 하 여 특정 시간 범위에 대 한 로그 메시지를 검색 하는 요구 사항 때문에 쿼리 성능이 저하 되었습니다. Blob storage는 이러한 유형의 시나리오에 더 나은 솔루션을 제공 하며,이는 Azure Storage 분석에서 수집 하는 로그 데이터를 저장 하는 방법입니다.  
 
 이 섹션에서는 일반적으로 범위로 쿼리 하는 데이터를 저장 하는이 방법을 설명 하는 저장소 분석에서 로그 데이터를 Blob 저장소에 저장 하는 방법에 대해 설명 합니다.  
@@ -1138,8 +1138,8 @@ foreach (var e in entities)
 <tr>
 <th>FirstName</th>
 <th>LastName</th>
-<th>연령</th>
-<th>이메일</th>
+<th>Age</th>
+<th>Email</th>
 </tr>
 <tr>
 <td></td>
@@ -1158,8 +1158,8 @@ foreach (var e in entities)
 <tr>
 <th>FirstName</th>
 <th>LastName</th>
-<th>연령</th>
-<th>이메일</th>
+<th>Age</th>
+<th>Email</th>
 </tr>
 <tr>
 <td></td>
@@ -1195,8 +1195,8 @@ foreach (var e in entities)
 <tr>
 <th>FirstName</th>
 <th>LastName</th>
-<th>연령</th>
-<th>이메일</th>
+<th>Age</th>
+<th>Email</th>
 </tr>
 <tr>
 <td></td>
@@ -1231,8 +1231,8 @@ foreach (var e in entities)
 <th>EntityType</th>
 <th>FirstName</th>
 <th>LastName</th>
-<th>연령</th>
-<th>이메일</th>
+<th>Age</th>
+<th>Email</th>
 </tr>
 <tr>
 <td>Employee</td>
@@ -1253,8 +1253,8 @@ foreach (var e in entities)
 <th>EntityType</th>
 <th>FirstName</th>
 <th>LastName</th>
-<th>연령</th>
-<th>이메일</th>
+<th>Age</th>
+<th>Email</th>
 </tr>
 <tr>
 <td>Employee</td>
@@ -1294,8 +1294,8 @@ foreach (var e in entities)
 <th>EntityType</th>
 <th>FirstName</th>
 <th>LastName</th>
-<th>연령</th>
-<th>이메일</th>
+<th>Age</th>
+<th>Email</th>
 </tr>
 <tr>
 <td>Employee</td>
