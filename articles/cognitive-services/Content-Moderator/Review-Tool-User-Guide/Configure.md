@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: pafarley
 ms.openlocfilehash: 2d685683bdc359b31a5a6c550c19e8c0d858f12a
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76169583"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78379050"
 ---
 # <a name="configure-the-review-tool"></a>검토 도구 구성
 
@@ -64,7 +64,7 @@ ms.locfileid: "76169583"
 
 ![하위 팀 간에 전환](images/3-review-image-subteam-2.png)
 
-## <a name="tags"></a>태그
+## <a name="tags"></a>태그들
 
 **태그** 탭에서는 **isadult** (**a**) 및 **isracy** (**r**)&mdash;두 개의 기본 중재 태그 외에도 사용자 지정 중재 태그를 정의할 수 있습니다. 사용자 지정 태그를 만들 때 기본 태그와 함께 검토에서 사용할 수 있게 됩니다. 표시 유형 설정을 전환 하 여 리뷰에 표시 되는 태그를 변경할 수 있습니다.
 
@@ -97,7 +97,7 @@ ms.locfileid: "76169583"
 - Emotion
 - Face
 - PhotoDNA 클라우드 서비스
-- Text Analytics
+- 텍스트 분석
 
 ### <a name="add-a-connector"></a>커넥터 추가
 

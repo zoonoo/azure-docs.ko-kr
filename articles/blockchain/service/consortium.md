@@ -5,11 +5,11 @@ ms.date: 11/21/2019
 ms.topic: conceptual
 ms.reviewer: zeyadr
 ms.openlocfilehash: 7b8885ba08d35db20d1eb7e75141cb173913b386
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74455753"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78384452"
 ---
 # <a name="azure-blockchain-service-consortium"></a>Azure Blockchain 서비스 컨소시엄
 
@@ -27,15 +27,15 @@ Azure Blockchain 서비스를 사용 하 여 각 Blockchain 네트워크를 네�
 
 Azure Blockchain 서비스의 컨소시엄 관리를 사용 하 여 consortium 네트워크에서 참가자를 관리할 수 있습니다. 컨소시엄의 관리는 네트워크의 합의 모델을 기반으로 합니다. 현재 미리 보기 릴리스에서는 Azure Blockchain 서비스가 consortium 관리를 위한 중앙 집중식 합의 모델을 제공 합니다. 관리자 역할이 있는 모든 권한 있는 참가자는 네트워크에서 참가자를 추가 하거나 제거 하는 등 컨소시엄 관리 작업을 수행할 수 있습니다.
 
-## <a name="roles"></a>역할
+## <a name="roles"></a>Roles
 
 컨소시엄의 참여자는 개인 또는 조직 일 수 있으며 사용자 역할 또는 관리자 역할을 할당할 수 있습니다. 다음 표에서는 두 역할 간의 높은 수준의 차이점을 보여 줍니다.
 
 | 작업 | 사용자 역할 | 관리자 역할
 |--------|:----:|:------------:|
 | 새 멤버 만들기 | 예 | 예 |
-| 새 구성원 초대 | 아니오 | 예 |
-| 구성원 참가자 역할 설정 또는 변경 | 아니오 | 예 |
+| 새 구성원 초대 | 아니요 | 예 |
+| 구성원 참가자 역할 설정 또는 변경 | 아니요 | 예 |
 | 멤버 표시 이름 변경 | 멤버 전용 | 멤버 전용 |
 | 구성원 제거 | 멤버 전용 | 예 |
 | 블록 체인 트랜잭션에 참여 | 예 | 예 |

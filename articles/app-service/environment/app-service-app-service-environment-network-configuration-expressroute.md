@@ -8,11 +8,11 @@ ms.date: 10/14/2016
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: 8a83c2f6ac7599ff37237834a85b7771cf4ee502
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688740"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78374996"
 ---
 # <a name="network-configuration-details-for-app-service-environment-for-powerapps-with-azure-expressroute"></a>Azure ExpressRoute를 사용하는 PowerApps용 App Service Environment의 네트워크 구성 세부 정보
 
@@ -85,7 +85,7 @@ DNS 요구 사항을 충족하려면 가상 네트워크에 유효한 DNS 인프
 
 이 섹션은 App Service Environment에 대한 예제 UDR 구성을 보여 줍니다.
 
-### <a name="prerequisites"></a>전제 조건
+### <a name="prerequisites"></a>필수 조건
 
 * [Azure 다운로드 페이지][AzureDownloads]에서 Azure PowerShell를 설치 합니다. 2015년 6월 이후 날짜의 다운로드를 선택합니다. **명령줄 도구** > **Windows PowerShell**에서 **설치**를 선택하여 최신 PowerShell cmdlet을 설치합니다.
 

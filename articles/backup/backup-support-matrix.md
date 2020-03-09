@@ -4,11 +4,11 @@ description: Azure Backup 서비스에 대한 지원 설정 및 제한 사항에
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.openlocfilehash: 788da5708178cfa533d4382a4a417cef73f46a5e
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78254903"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78363839"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Azure Backup에 대 한 지원 매트릭스
 
@@ -115,10 +115,10 @@ Azure Backup은 전송 중 및 미사용 데이터에 대 한 암호화를 지�
 
 **머신** | **전송 중** | **저장**
 --- | --- | ---
-**DPM/MABS를 사용 하지 않는 온-프레미스 Windows 컴퓨터** | ![yes][green] | ![yes][green]
-**Azure VM** | ![yes][green] | ![yes][green]
-**DPM을 사용 하는 온-프레미스 Windows 컴퓨터 또는 Azure Vm** | ![yes][green] | ![yes][green]
-**MABS를 사용 하는 온-프레미스 Windows 컴퓨터 또는 Azure Vm** | ![yes][green] | ![yes][green]
+**DPM/MABS를 사용 하지 않는 온-프레미스 Windows 컴퓨터** | ![예][green] | ![예][green]
+**Azure VM** | ![예][green] | ![예][green]
+**DPM을 사용 하는 온-프레미스 Windows 컴퓨터 또는 Azure Vm** | ![예][green] | ![예][green]
+**MABS를 사용 하는 온-프레미스 Windows 컴퓨터 또는 Azure Vm** | ![예][green] | ![예][green]
 
 ## <a name="compression-support"></a>압축 지원
 
@@ -129,9 +129,9 @@ Backup은 다음 표에 요약 된 것 처럼 백업 트래픽의 압축을 지�
 
 **머신** | **MABS/DPM에 압축(TCP)** | **자격 증명 모음으로 압축 (HTTPS)**
 --- | --- | ---
-**온-프레미스 Windows 머신 직접 백업** | 해당 없음 | ![yes][green]
-**VM 확장을 사용 하 여 Azure Vm 백업** | 해당 없음 | 해당 없음
-**MABS/DPM을 사용 하 여 온-프레미스/Azure 컴퓨터에서 백업** | ![yes][green] | ![yes][green]
+**온-프레미스 Windows 머신 직접 백업** | NA | ![예][green]
+**VM 확장을 사용 하 여 Azure Vm 백업** | NA | NA
+**MABS/DPM을 사용 하 여 온-프레미스/Azure 컴퓨터에서 백업** | ![예][green] | ![예][green]
 
 ## <a name="retention-limits"></a>보존 제한
 
@@ -152,9 +152,9 @@ Azure Backup는 데이터 가용성 및 복원 력 기능을 강화 하는 지�
 | 백업 관리 유형 | 지원됨                                                    | 지원되는 지역 |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
 | Azure VM               | 예. 1TB 미만의 디스크를 사용 하 여 암호화 된 Vm 및 Vm에 대해 지원 되는 공개 제한 된 미리 보기 | 미국 중서부   |
-| MARS 에이전트/온-프레미스 | 예                                                           | 해당 없음               |
-| SQL/SAP HANA          | 예                                                           | 해당 없음               |
-| AFS                    | 예                                                           | 해당 없음               |
+| MARS 에이전트/온-프레미스 | 아니요                                                           | 해당 사항 없음               |
+| SQL/SAP HANA          | 아니요                                                           | 해당 사항 없음               |
+| AFS                    | 아니요                                                           | 해당 사항 없음               |
 
 ## <a name="next-steps"></a>다음 단계
 

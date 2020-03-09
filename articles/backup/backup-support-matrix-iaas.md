@@ -3,12 +3,12 @@ title: Azure VM Backup의 지원 매트릭스
 description: Azure Backup 서비스를 사용하여 Azure VM을 백업할 때의 지원 설정 및 제한 사항에 대한 요약을 제공합니다.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: d4d5168ee7f2f8c71b3a63fea64873a8dd71658b
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 93ee900eb936bdc3f03c96d0b1196227d05dd03f
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77602212"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78669253"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM Backup의 지원 매트릭스
 
@@ -66,7 +66,7 @@ VM의 백업 정책 수정 | 지원됩니다.<br/><br/> 새 정책의 일정 및
 **시나리오** | **OS 지원**
 --- | ---
 Azure VM 에이전트 확장을 사용하는 백업 | -Windows 10 클라이언트 (64 비트만 해당) <br/><br/>-Windows Server 2019 (Datacenter/Datacenter Core/Standard) <br/><br/> -Windows Server 2016 (Datacenter/Datacenter Core/Standard) <br/><br/> -Windows Server 2012 R2 (Datacenter/Standard) <br/><br/> -Windows Server 2008 R2 (RTM 및 SP1 Standard)  <br/><br/> -Windows Server 2008 (64 비트만 해당)
-MARS 에이전트를 사용하여 백업 | [지원되는](backup-support-matrix-mars-agent.md#support-for-direct-backups) 운영 체제
+MARS 에이전트를 사용하여 백업 | [지원되는](backup-support-matrix-mars-agent.md#supported-operating-systems) 운영 체제
 DPM/MABS를 사용 하 여 백업 | [MABS](backup-mabs-protection-matrix.md) 및 [DPM](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-1807)을 사용하는 백업이 지원되는 운영 체제
 
 Azure Backup은 32비트 운영 체제를 지원하지 않습니다.
@@ -83,7 +83,7 @@ DPM/MABS를 사용하여 Linux Azure VM 백업 | 지원되지 않습니다.
 
 ## <a name="operating-system-support-linux"></a>운영 체제 지원(Linux)
 
-Azure VM Linux 백업의 경우 Azure Backup은 [Azure 인증 Linux 배포 목록](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)을 지원합니다. 다음 사항에 유의하세요.
+Azure VM Linux 백업의 경우 Azure Backup은 [Azure 인증 Linux 배포 목록](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)을 지원합니다. 다음에 유의하세요.
 
 - Azure Backup은 Core OS Linux를 지원하지 않습니다.
 - Azure Backup은 32비트 운영 체제를 지원하지 않습니다.
@@ -165,7 +165,7 @@ Azure VM 데이터 디스크 수 | 16 개 이하의 데이터 디스크를 사�
 데이터 디스크 크기 | 개별 디스크 크기는 최대 32 TB 이며 VM의 모든 디스크에 대해 최대 256 TB를 결합할 수 있습니다.
 스토리지 유형 | 표준 HDD, 표준 SSD, 프리미엄 SSD.
 관리 디스크 | 지원됩니다.
-암호화된 디스크 | 지원됩니다.<br/><br/> Azure Disk Encryption에서 사용 하도록 설정 된 azure Vm은 Azure AD 앱을 사용 하거나 사용 하지 않고 백업할 수 있습니다.<br/><br/> 암호화된 VM은 파일/폴더 수준에서 복구할 수 없습니다. 전체 VM을 복구 해야 합니다.<br/><br/> Azure Backup에서 이미 보호되는 VM에 암호화를 사용하도록 설정할 수 있습니다.
+암호화된 디스크 | 지원됩니다.<br/><br/> Azure Disk Encryption에서 사용 하도록 설정 된 azure Vm은 Azure AD 앱을 사용 하거나 사용 하지 않고 백업할 수 있습니다.<br/><br/> 암호화 된 Vm은 파일/폴더 수준에서 복구할 수 없습니다. 전체 VM을 복구 해야 합니다.<br/><br/> Azure Backup에서 이미 보호되는 VM에 암호화를 사용하도록 설정할 수 있습니다.
 Write Accelerator가 설정된 디스크 | 지원되지 않습니다.<br/><br/> Azure backup은 백업 하는 동안 쓰기 가속기 사용 하도록 설정 된 디스크를 자동으로 제외 합니다. 이러한 디스크는 백업 되지 않으므로 VM의 복구 점에서 복원할 수 없습니다.
 중복 제거 된 Vm/디스크 백업 & 복원 | Azure Backup은 중복 제거를 지원 하지 않습니다. 자세한 내용은이 [문서](https://docs.microsoft.com/azure/backup/backup-support-matrix#disk-deduplication-support) 를 참조 하세요. <br/> <br/>  -Azure Backup Recovery Services 자격 증명 모음의 Vm 간에 중복 제거 되지 않습니다. <br/> <br/>  -복원 중에 중복 제거 상태의 Vm이 있는 경우 자격 증명 모음에서 형식을 인식 하지 않으므로 파일을 복원할 수 없습니다. 그러나 전체 VM 복원을 성공적으로 수행할 수 있습니다.
 보호된 VM에 디스크 추가 | 지원됩니다.
@@ -213,24 +213,24 @@ Azure로의 네트워크 트래픽:
 
 **머신** | **전송 중** | **저장**
 --- | --- | ---
-온-프레미스 Windows 머신(DPM/MABS 사용 안 함) | ![yes][green] | ![yes][green]
-Azure VM | ![yes][green] | ![yes][green]
-온-프레미스/Azure VM(DPM 사용) | ![yes][green] | ![yes][green]
-온-프레미스/Azure VM(MABS 사용) | ![yes][green] | ![yes][green]
+온-프레미스 Windows 머신(DPM/MABS 사용 안 함) | ![예][green] | ![예][green]
+Azure VM | ![예][green] | ![예][green]
+온-프레미스/Azure VM(DPM 사용) | ![예][green] | ![예][green]
+온-프레미스/Azure VM(MABS 사용) | ![예][green] | ![예][green]
 
 ## <a name="vm-compression-support"></a>VM 압축 지원
 
-Backup은 다음 표에 요약 된 것 처럼 백업 트래픽의 압축을 지원 합니다. 다음 사항에 유의하세요.
+Backup은 다음 표에 요약 된 것 처럼 백업 트래픽의 압축을 지원 합니다. 다음에 유의하세요.
 
 - Azure Vm의 경우 VM 확장은 저장소 네트워크를 통해 Azure storage 계정에서 직접 데이터를 읽습니다. 이 트래픽을 압축할 필요는 없습니다.
 - DPM 또는 MABS를 사용 하는 경우 데이터를 DPM/MABS에 백업 하기 전에 압축 하 여 대역폭을 절약할 수 있습니다.
 
 **머신** | **MABS/DPM에 압축(TCP)** | **자격 증명 모음으로 압축 (HTTPS)**
 --- | --- | ---
-온-프레미스 Windows 머신(DPM/MABS 사용 안 함) | 해당 없음 | ![yes][green]
-Azure VM | 해당 없음 | 해당 없음
-온-프레미스/Azure VM(DPM 사용) | ![yes][green] | ![yes][green]
-온-프레미스/Azure VM(MABS 사용) | ![yes][green] | ![yes][green]
+온-프레미스 Windows 머신(DPM/MABS 사용 안 함) | NA | ![예][green]
+Azure VM | NA | NA
+온-프레미스/Azure VM(DPM 사용) | ![예][green] | ![예][green]
+온-프레미스/Azure VM(MABS 사용) | ![예][green] | ![예][green]
 
 ## <a name="next-steps"></a>다음 단계
 

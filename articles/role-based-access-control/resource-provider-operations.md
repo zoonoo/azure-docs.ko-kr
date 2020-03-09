@@ -14,11 +14,11 @@ ms.date: 02/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 9b3a1175b5e22b787c62365d3b113e02ec1d1326
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78206999"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78361907"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager 리소스 공급자 작업
 
@@ -33,7 +33,7 @@ ms.locfileid: "78206999"
 Azure 서비스: [Azure Active Directory Domain Services](../active-directory-domain-services/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.AAD/unregister/action | 도메인 서비스를 등록 취소합니다. |
 > | 작업 | Microsoft.AAD/register/action | 도메인 서비스를 등록합니다. |
@@ -55,7 +55,7 @@ Azure 서비스: [Azure Active Directory Domain Services](../active-directory-do
 Microsoft Monitoring Insights
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > |  | **diagnosticsettings** |  |
 > | 작업 | microsoft.aadiam/diagnosticsettings/write | 진단 설정을 작성합니다. |
@@ -73,7 +73,7 @@ Microsoft Monitoring Insights
 Azure 서비스: 핵심
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.Addons/register/action | 지정된 구독을 Microsoft.Addons에 등록합니다. |
 > |  | **작업도** |  |
@@ -90,7 +90,7 @@ Azure 서비스: 핵심
 Azure 서비스: [Azure Active Directory](../active-directory/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.ADHybridHealthService/configuration/action | 테넌트 구성을 업데이트합니다. |
 > | 작업 | Microsoft.ADHybridHealthService/services/action | 테넌트의 서비스 인스턴스를 업데이트합니다. |
@@ -219,7 +219,7 @@ Azure 서비스: [Azure Active Directory](../active-directory/index.yml)
 Azure 서비스: [Azure Advisor](../advisor/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.Advisor/generateRecommendations/action | 권장 사항 생성 상태를 가져옵니다. |
 > | 작업 | Microsoft.Advisor/register/action | Microsoft Advisor에 대한 구독을 등록합니다. |
@@ -250,7 +250,7 @@ Azure 서비스: [Azure Advisor](../advisor/index.yml)
 Azure 서비스: [Azure Monitor](../azure-monitor/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.AlertsManagement/register/action | Microsoft 경고 관리에 대한 구독을 등록합니다. |
 > |  | **actionRules** |  |
@@ -289,7 +289,7 @@ Azure 서비스: [Azure Monitor](../azure-monitor/index.yml)
 Azure 서비스: [Azure Analysis Services](../analysis-services/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.AnalysisServices/register/action | Analysis Services 리소스 공급자를 등록합니다. |
 > |  | **위치도** |  |
@@ -317,7 +317,7 @@ Azure 서비스: [Azure Analysis Services](../analysis-services/index.yml)
 Azure 서비스: [API Management](../api-management/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.ApiManagement/register/action | Microsoft.ApiManagement 리소스 공급자에 대한 구독을 등록합니다. |
 > | 작업 | Microsoft.ApiManagement/unregister/action | Microsoft.ApiManagement 리소스 공급자에 대한 구독을 등록 취소합니다. |
@@ -616,7 +616,7 @@ Azure 서비스: [API Management](../api-management/index.yml)
 Azure 서비스: 핵심
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft AppConfiguration/register/action | Microsoft 앱 구성을 사용 하는 구독을 등록 합니다. |
 > |  | **checkNameAvailability** |  |
@@ -667,7 +667,7 @@ Azure 서비스: 핵심
 Azure 서비스: [Azure Resource Manager](../azure-resource-manager/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.Authorization/elevateAccess/Action | 테넌트 범위에서 호출자에게 사용자 액세스 관리자 액세스 권한을 부여합니다. |
 > |  | **classicAdministrators** |  |
@@ -721,7 +721,7 @@ Azure 서비스: [Azure Resource Manager](../azure-resource-manager/index.yml)
 Azure 서비스: [자동화](../automation/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.Automation/register/action | 구독을 Azure Automation에 등록합니다. |
 > |  | **automationAccounts** |  |
@@ -890,7 +890,7 @@ Azure 서비스: [자동화](../automation/index.yml)
 Azure 서비스: [Azure Active Directory B2C](../active-directory-b2c/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.AzureActiveDirectory/register/action | Microsoft.AzureActiveDirectory 리소스 공급자 구독을 등록합니다. |
 > |  | **b2cDirectories** |  |
@@ -907,7 +907,7 @@ Azure 서비스: [Azure Active Directory B2C](../active-directory-b2c/index.yml)
 Azure 서비스: 핵심
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.AzureStack/register/action | Microsoft.AzureStack 리소스 공급자에 구독을 등록합니다. |
 > |  | **작업** |  |
@@ -935,7 +935,7 @@ Azure 서비스: 핵심
 Azure 서비스: [Batch](../batch/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.Batch/register/action | Batch 리소스 공급자에 대한 구독을 등록하고 Batch 계정을 만들도록 설정합니다. |
 > | 작업 | Microsoft.Batch/unregister/action | Batch 리소스 공급자에 대한 구독을 등록 취소하여 Batch 계정 만들기를 차단합니다. |
@@ -994,7 +994,7 @@ Azure 서비스: [Batch](../batch/index.yml)
 Azure 서비스: [Cost Management + 청구](../cost-management-billing/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft. 요금 청구/s i d/작업 |  |
 > | 작업 | Microsoft.Billing/register/action |  |
@@ -1059,7 +1059,7 @@ Azure 서비스: [Cost Management + 청구](../cost-management-billing/index.yml
 Azure 서비스: [Bing 지도](https://docs.microsoft.com/BingMaps/)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | BingMaps/updateCommunicationPreference/작업 | Microsoft. BingMaps의 소유자에 대 한 통신 기본 설정을 업데이트 합니다. |
 > | 작업 | BingMaps/listCommunicationPreference/작업 | Microsoft. BingMaps의 소유자에 대 한 통신 기본 설정을 가져옵니다. |
@@ -1078,7 +1078,7 @@ Azure 서비스: [Bing 지도](https://docs.microsoft.com/BingMaps/)
 Azure 서비스: [Azure Blockchain 서비스](../blockchain/workbench/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.Blockchain/register/action | Blockchain 리소스 공급자에 대 한 구독을 등록 합니다. |
 > |  | **blockchainMembers** |  |
@@ -1109,7 +1109,7 @@ Azure 서비스: [Azure Blockchain 서비스](../blockchain/workbench/index.yml)
 Azure 서비스: [Azure 청사진](../governance/blueprints/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.Blueprint/register/action | Azure 청사진 리소스 공급자 등록 |
 > |  | **blueprintAssignments** |  |
@@ -1139,7 +1139,7 @@ Azure 서비스: [Azure 청사진](../governance/blueprints/index.yml)
 Azure 서비스: [Azure Bot Service](https://docs.microsoft.com/azure/bot-service/)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | BotService/checknameavailability/action | 봇의 이름 사용 가능 여부 확인 |
 > | 작업 | BotService/listauthserviceproviders/action | 인증 서비스 공급자 나열 |
@@ -1168,7 +1168,7 @@ Azure 서비스: [Azure Bot Service](https://docs.microsoft.com/azure/bot-servic
 Azure 서비스: [Redis에 대 한 Azure 캐시](../azure-cache-for-redis/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.Cache/checknameavailability/action | 이름을 새 Redis Cache에서 사용할 수 있는지 확인합니다. |
 > | 작업 | Microsoft.Cache/register/action | ‘Microsoft.Cache’ 리소스 공급자를 구독에 등록합니다. |
@@ -1208,7 +1208,7 @@ Azure 서비스: [Redis에 대 한 Azure 캐시](../azure-cache-for-redis/index.
 Azure 서비스: 핵심
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.Capacity/calculateprice/action | 예약 가격을 계산합니다. |
 > | 작업 | Microsoft.Capacity/checkoffers/action | 구독 제안을 확인합니다. |
@@ -1257,7 +1257,7 @@ Azure 서비스: 핵심
 Azure 서비스: [Content Delivery Network](../cdn/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.Cdn/register/action | CDN 리소스 공급자에 대한 구독을 등록하고 CDN 프로필 생성을 활성화합니다. |
 > | 작업 | Microsoft.Cdn/CheckNameAvailability/action |  |
@@ -1345,7 +1345,7 @@ Azure 서비스: [Content Delivery Network](../cdn/index.yml)
 Azure 서비스: [인증서 App Service](../app-service/configure-ssl-certificate.md#import-an-app-service-certificate)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.CertificateRegistration/provisionGlobalAppServicePrincipalInUserTenant/Action | 서비스 앱 사용자에 대한 서비스 주체를 프로비전합니다. |
 > | 작업 | Microsoft.CertificateRegistration/validateCertificateRegistrationInformation/Action | 인증서 구매 개체를 제출하지 않고 유효성을 검사합니다. |
@@ -1374,7 +1374,7 @@ Azure 서비스: [인증서 App Service](../app-service/configure-ssl-certificat
 Azure 서비스: 클래식 배포 모델 가상 머신
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.ClassicCompute/register/action | 클래식 Compute에 등록 |
 > | 작업 | Microsoft.ClassicCompute/checkDomainNameAvailability/action | 지정된 도메인 이름의 가용성을 확인합니다. |
@@ -1504,7 +1504,7 @@ Azure 서비스: 클래식 배포 모델 가상 머신
 > | 작업 | Microsoft.ClassicCompute/virtualMachines/performMaintenance/action | 가상 머신에서 유지 관리를 수행합니다. |
 > | 작업 | Microsoft.ClassicCompute/virtualMachines/restart/action | 가상 머신을 다시 시작합니다. |
 > | 작업 | Microsoft.ClassicCompute/virtualMachines/stop/action | 가상 머신을 중지합니다. |
-> | 작업 | Microsoft.ClassicCompute/virtualMachines/shutdown/action | 가상 머신을 종료합니다. |
+> | 작업 | Microsoft.ClassicCompute/virtualMachines/shutdown/action | 가상 컴퓨터를 종료합니다. |
 > | 작업 | Microsoft.ClassicCompute/virtualMachines/attachDisk/action | 데이터 디스크를 가상 머신에 연결합니다. |
 > | 작업 | Microsoft.ClassicCompute/virtualMachines/detachDisk/action | 데이터 디스크를 가상 머신에서 분리합니다. |
 > | 작업 | Microsoft.ClassicCompute/virtualMachines/downloadRemoteDesktopConnectionFile/action | 가상 머신에 대한 RDP 파일을 다운로드합니다. |
@@ -1548,7 +1548,7 @@ Azure 서비스: 클래식 배포 모델 가상 머신
 Azure 서비스: 클래식 배포 모델 가상 네트워크
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.ClassicNetwork/register/action | 클래식 네트워크에 등록합니다. |
 > |  | **expressroutecrossconnections** |  |
@@ -1655,7 +1655,7 @@ Azure 서비스: 클래식 배포 모델 가상 네트워크
 Azure 서비스: 클래식 배포 모델 저장소
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.ClassicStorage/register/action | 클래식 스토리지에 등록합니다. |
 > | 작업 | Microsoft.ClassicStorage/checkStorageAccountAvailability/action | 스토리지 계정의 가용성을 확인합니다. |
@@ -1754,7 +1754,7 @@ Azure 서비스: 클래식 배포 모델 저장소
 Azure 서비스: [Cognitive Services](../cognitive-services/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.CognitiveServices/register/action | Cognitive Services에 대한 구독을 등록합니다. |
 > | 작업 | Microsoft.CognitiveServices/checkDomainAvailability/action | 구독에 대해 사용 가능한 Sku를 읽습니다. |
@@ -2101,7 +2101,7 @@ Azure 서비스: [Cognitive Services](../cognitive-services/index.yml)
 Azure 서비스: 핵심
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft. 상거래용/register/action | Microsoft Commerce UsageAggregate에 대 한 구독 등록 |
 > | 작업 | Microsoft. 상거래/등록 취소/작업 | Microsoft Commerce UsageAggregate에 대 한 구독 등록 취소 |
@@ -2115,7 +2115,7 @@ Azure 서비스: 핵심
 Azure 서비스: [Virtual Machines](../virtual-machines/index.yml), [Virtual Machine Scale Sets](../virtual-machine-scale-sets/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.Compute/register/action | Microsoft.Compute 리소스 공급자에 구독을 등록합니다. |
 > | 작업 | Microsoft.Compute/unregister/action | Microsoft. Compute 리소스 공급자를 사용 하 여 구독 등록을 취소 합니다. |
@@ -2323,7 +2323,7 @@ Azure 서비스: [Virtual Machines](../virtual-machines/index.yml), [Virtual Mac
 Azure 서비스: [Cost Management](../cost-management-billing/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.Consumption/register/action | 소비 RP에 등록합니다. |
 > |  | **aggregatedcost** |  |
@@ -2381,7 +2381,7 @@ Azure 서비스: [Cost Management](../cost-management-billing/index.yml)
 Azure 서비스: [Container Instances](../container-instances/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.ContainerInstance/register/action | 컨테이너 인스턴스 리소스 공급자에 대한 구독을 등록하고 컨테이너 그룹을 만들 수 있도록 합니다. |
 > |  | **containerGroups** |  |
@@ -2424,7 +2424,7 @@ Azure 서비스: [Container Instances](../container-instances/index.yml)
 Azure 서비스: [Container Registry](../container-registry/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.ContainerRegistry/register/action | 컨테이너 레지스트리 리소스 공급자에 대한 구독을 등록하고 컨테이너 레지스트리를 만들도록 설정합니다. |
 > |  | **checkNameAvailability** |  |
@@ -2538,7 +2538,7 @@ Azure 서비스: [Container Registry](../container-registry/index.yml)
 Azure 서비스: [Azure Kubernetes 서비스 (AKS)](../aks/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.ContainerService/register/action | Microsoft.ContainerService 리소스 공급자에 구독을 등록합니다. |
 > | 작업 | Microsoft.ContainerService/unregister/action | Microsoft.ContainerService 리소스 공급자에 구독을 등록 취소합니다. |
@@ -2596,7 +2596,7 @@ Azure 서비스: [Azure Kubernetes 서비스 (AKS)](../aks/index.yml)
 Azure 서비스: [Cost Management](../cost-management-billing/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.CostManagement/query/action | 범위별 사용량 현황 데이터를 쿼리합니다. |
 > | 작업 | Microsoft.CostManagement/reports/action | 범위별 사용량 현황 데이터에 관한 보고서를 예약합니다. |
@@ -2660,7 +2660,7 @@ Azure 서비스: [Cost Management](../cost-management-billing/index.yml)
 Azure 서비스: [Azure Data Box](../databox-family/index.md)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.DataBox/register/action | 공급자 Microsoft.Databox를 등록합니다. |
 > | 작업 | DataBox/등록 취소/작업 | 공급자 등록 취소 Databox |
@@ -2691,7 +2691,7 @@ Azure 서비스: [Azure Data Box](../databox-family/index.md)
 Azure 서비스: [Azure Data Box Edge](../databox-online/data-box-edge-overview.md)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > |  | **dataBoxEdgeDevices** |  |
 > | 작업 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/uploadCertificate/action | 디바이스 등록에 대한 인증서를 업로드 |
@@ -2797,7 +2797,7 @@ Azure 서비스: [Azure Data Box Edge](../databox-online/data-box-edge-overview.
 Azure 서비스: [Azure Databricks](../azure-databricks/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.Databricks/register/action | Databricks에 등록합니다. |
 > |  | **위치도** |  |
@@ -2830,7 +2830,7 @@ Azure 서비스: [Azure Databricks](../azure-databricks/index.yml)
 Azure 서비스: [Data Catalog](../data-catalog/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.DataCatalog/register/action | Data Catalog 리소스 공급자에 대 한 구독 등록 |
 > | 작업 | Microsoft.DataCatalog/unregister/action | Data Catalog 리소스 공급자에 대 한 구독 등록 취소 |
@@ -2852,7 +2852,7 @@ Azure 서비스: [Data Catalog](../data-catalog/index.yml)
 Azure 서비스: [Data Factory](../data-factory/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.DataFactory/register/action | Data Factory 리소스 공급자에 대한 구독을 등록합니다. |
 > | 작업 | Microsoft.DataFactory/unregister/action | Data Factory 리소스 공급자에 대한 구독을 등록 취소합니다. |
@@ -3024,7 +3024,7 @@ Azure 서비스: [Data Factory](../data-factory/index.yml)
 Azure 서비스: [Data Lake Analytics](../data-lake-analytics/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.DataLakeAnalytics/register/action | DataLakeAnalytics에 구독을 등록합니다. |
 > |  | **계좌** |  |
@@ -3074,7 +3074,7 @@ Azure 서비스: [Data Lake Analytics](../data-lake-analytics/index.yml)
 Azure 서비스: [Azure Data Lake Store](../storage/blobs/data-lake-storage-introduction.md)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.DataLakeStore/register/action | DataLakeStore에 구독을 등록합니다. |
 > |  | **계좌** |  |
@@ -3121,7 +3121,7 @@ Azure 서비스: [Azure Data Lake Store](../storage/blobs/data-lake-storage-intr
 Azure 서비스: [Azure Database Migration Service](../dms/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.DataMigration/register/action | Azure Database Migration Service 공급자를 사용하여 구독을 등록합니다. |
 > |  | **위치/operationResults** |  |
@@ -3173,7 +3173,7 @@ Azure 서비스: [Azure Database Migration Service](../dms/index.yml)
 Azure 서비스: [Azure Database for MariaDB](../mariadb/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.DBforMariaDB/register/action | MariaDB 리소스 공급자 등록 |
 > | 작업 | Microsoft.DBforMariaDB/checkNameAvailability/action | 지정된 서버 이름을 지정된 구독에 대해 전 세계적으로 프로비전에 사용할 수 있는지 확인합니다. |
@@ -3282,7 +3282,7 @@ Azure 서비스: [Azure Database for MariaDB](../mariadb/index.yml)
 Azure 서비스: [Azure Database for MySQL](../mysql/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.DBforMySQL/register/action | MySQL 리소스 공급자 등록 |
 > | 작업 | Microsoft.DBforMySQL/checkNameAvailability/action | 지정된 서버 이름을 지정된 구독에 대해 전 세계적으로 프로비전에 사용할 수 있는지 확인합니다. |
@@ -3391,7 +3391,7 @@ Azure 서비스: [Azure Database for MySQL](../mysql/index.yml)
 Azure 서비스: [Azure Database for PostgreSQL](../postgresql/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.DBforPostgreSQL/register/action | PostgreSQL 리소스 공급자 등록 |
 > | 작업 | Microsoft.DBforPostgreSQL/checkNameAvailability/action | 지정된 서버 이름을 지정된 구독에 대해 전 세계적으로 프로비전에 사용할 수 있는지 확인합니다. |
@@ -3515,7 +3515,7 @@ Azure 서비스: [Azure Database for PostgreSQL](../postgresql/index.yml)
 Azure 서비스: [IoT Hub](../iot-hub/index.yml), [IoT Hub Device Provisioning Service](../iot-dps/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.Devices/register/action | IotHub 리소스 공급자에 대한 구독을 등록하고 IotHub 리소스를 만들도록 설정합니다. |
 > | 작업 | Microsoft.Devices/checkNameAvailability/Action | IotHub 이름이 사용 가능한지 확인합니다. |
@@ -3687,7 +3687,7 @@ Azure 서비스: [IoT Hub](../iot-hub/index.yml), [IoT Hub Device Provisioning S
 Azure 서비스: [Azure Dev Spaces](../dev-spaces/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.DevSpaces/register/action | 구독으로 Microsoft Dev Spaces 리소스 공급자 등록 |
 > |  | **컨트롤러용** |  |
@@ -3707,7 +3707,7 @@ Azure 서비스: [Azure Dev Spaces](../dev-spaces/index.yml)
 Azure 서비스: [Azure Lab Services](../lab-services/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.DevTestLab/register/action | 구독을 등록합니다. |
 > |  | **랩 센터** |  |
@@ -3822,7 +3822,7 @@ Azure 서비스: [Azure Lab Services](../lab-services/index.yml)
 > | 작업 | Microsoft.DevTestLab/labs/virtualMachines/Resize/action | 가상 머신 크기를 조정합니다. |
 > | 작업 | Microsoft.DevTestLab/labs/virtualMachines/Restart/action | 가상 머신을 다시 시작합니다. |
 > | 작업 | Microsoft.DevTestLab/labs/virtualMachines/Start/action | 가상 머신을 시작합니다. |
-> | 작업 | Microsoft.DevTestLab/labs/virtualMachines/Stop/action | 가상 머신 중지 |
+> | 작업 | Microsoft.DevTestLab/labs/virtualMachines/Stop/action | 가상 컴퓨터 중지 |
 > | 작업 | Microsoft.DevTestLab/labs/virtualMachines/TransferDisks/action | 현재 사용자가 소유할 가상 머신에 연결된 모든 데이터 디스크를 전송합니다. |
 > | 작업 | Microsoft.DevTestLab/labs/virtualMachines/UnClaim/action | 기존 가상 머신의 소유권을 해제합니다. |
 > |  | **labs/virtualMachines/일정** |  |
@@ -3856,7 +3856,7 @@ Azure 서비스: [Azure Lab Services](../lab-services/index.yml)
 Azure 서비스: [Azure Cosmos DB](../cosmos-db/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.DocumentDB/register/action |  구독에 대한 Microsoft DocumentDB 리소스 공급자를 등록합니다. |
 > |  | **databaseAccountNames** |  |
@@ -4079,7 +4079,7 @@ Azure 서비스: [Azure Cosmos DB](../cosmos-db/index.yml)
 Azure 서비스: [App Service](../app-service/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.DomainRegistration/generateSsoRequest/Action | 도메인 제어 센터에 대한 로그인 요청을 생성합니다. |
 > | 작업 | Microsoft.DomainRegistration/validateDomainRegistrationInformation/Action | 도메인 구매 개체를 제출하지 않고 유효성을 검사합니다. |
@@ -4111,7 +4111,7 @@ Azure 서비스: [App Service](../app-service/index.yml)
 Azure 서비스: [Event Grid](../event-grid/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.EventGrid/register/action | EventGrid 리소스 공급자에 대한 구독을 등록합니다. |
 > | 작업 | Microsoft.EventGrid/unregister/action | EventGrid 리소스 공급자에 대한 구독을 등록 취소합니다. |
@@ -4185,7 +4185,7 @@ Azure 서비스: [Event Grid](../event-grid/index.yml)
 Azure 서비스: [Event Hubs](../event-hubs/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.EventHub/checkNamespaceAvailability/action | 지정된 구독에서 네임스페이스의 가용성을 확인합니다. 이 API는 사용되지 않으므로 CheckNameAvailability를 대신 사용하세요. |
 > | 작업 | Microsoft.EventHub/checkNameAvailability/action | 지정된 구독에서 네임스페이스의 가용성을 확인합니다. |
@@ -4285,7 +4285,7 @@ Azure 서비스: [Event Hubs](../event-hubs/index.yml)
 Azure 서비스: [Azure Resource Manager](../azure-resource-manager/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.Features/register/action | 구독 기능을 등록합니다. |
 > |  | **features** |  |
@@ -4302,7 +4302,7 @@ Azure 서비스: [Azure Resource Manager](../azure-resource-manager/index.yml)
 Azure 서비스: [Azure Policy](../governance/policy/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.GuestConfiguration/register/action | GuestConfiguration 리소스 공급자에 대 한 구독을 등록 합니다. |
 > |  | **guestConfigurationAssignments** |  |
@@ -4319,7 +4319,7 @@ Azure 서비스: [Azure Policy](../governance/policy/index.yml)
 Azure 서비스: [HDInsight](../hdinsight/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft HDInsight/register/action | 구독에 대 한 HDInsight 리소스 공급자 등록 |
 > | 작업 | Microsoft HDInsight/등록 취소/작업 | 구독에 대 한 HDInsight 리소스 공급자 등록 취소 |
@@ -4358,7 +4358,7 @@ Azure 서비스: [HDInsight](../hdinsight/index.yml)
 Azure 서비스: [Azure Arc](../azure-arc/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | HybridCompute/register/action | HybridCompute 리소스 공급자에 대 한 구독을 등록 합니다. |
 > | 작업 | HybridCompute/등록 취소/작업 | HybridCompute 리소스 공급자에 대 한 구독의 등록을 취소 합니다. |
@@ -4381,7 +4381,7 @@ Azure 서비스: [Azure Arc](../azure-arc/index.yml)
 Azure 서비스: [Azure Import/Export](../storage/common/storage-import-export-service.md)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.ImportExport/register/action | Import/Export 리소스 공급자에 대한 구독을 등록하고 Import/Export 작업을 만들도록 설정합니다. |
 > |  | **jobs** |  |
@@ -4399,7 +4399,7 @@ Azure 서비스: [Azure Import/Export](../storage/common/storage-import-export-s
 Azure 서비스: [Azure Monitor](../azure-monitor/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.Insights/Metrics/Action | 메트릭 작업 |
 > | 작업 | Microsoft.Insights/Register/Action | Microsoft Insights 공급자를 등록합니다. |
@@ -4934,7 +4934,7 @@ Azure 서비스: [Azure Monitor](../azure-monitor/index.yml)
 Microsoft Monitoring Insights
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > |  | **diagnosticsettings** |  |
 > | 작업 | Microsoft.Intune/diagnosticsettings/write | 진단 설정을 작성합니다. |
@@ -4948,7 +4948,7 @@ Microsoft Monitoring Insights
 Azure 서비스: [IoT Central](../iot-central/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.IoTCentral/checkNameAvailability/action | IoT Central 애플리케이션 이름이 사용 가능한지 확인합니다. |
 > | 작업 | Microsoft.IoTCentral/checkSubdomainAvailability/action | IoT Central 애플리케이션 하위 도메인이 사용 가능한지 확인합니다. |
@@ -4966,7 +4966,7 @@ Azure 서비스: [IoT Central](../iot-central/index.yml)
 Azure 서비스: [Azure Digital Twins](../digital-twins/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.IoTSpaces/register/action | 리소스를 만들 수 있게 설정하려면 Microsoft.IoTSpaces Graph 리소스 공급자에 대한 구독을 등록하세요. |
 > |  | **Graph** |  |
@@ -4979,7 +4979,7 @@ Azure 서비스: [Azure Digital Twins](../digital-twins/index.yml)
 Azure 서비스: [Key Vault](../key-vault/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.KeyVault/register/action | 구독을 등록합니다. |
 > | 작업 | Microsoft.KeyVault/unregister/action | 구독을 등록 취소합니다. |
@@ -5063,7 +5063,7 @@ Azure 서비스: [Key Vault](../key-vault/index.yml)
 Azure 서비스: [azure 데이터 탐색기](../data-explorer/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft. Kusto/등록/동작 | 구독 등록 작업 |
 > | 작업 | Microsoft.Kusto/Register/action | 구독을 Kusto 리소스 공급자에 등록 합니다. |
@@ -5131,7 +5131,7 @@ Azure 서비스: [azure 데이터 탐색기](../data-explorer/index.yml)
 Azure 서비스: [Azure Lab Services](../lab-services/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.LabServices/register/action | 구독을 등록합니다. |
 > |  | **랩 계정** |  |
@@ -5199,7 +5199,7 @@ Azure 서비스: [Azure Lab Services](../lab-services/index.yml)
 Azure 서비스: [Logic Apps](../logic-apps/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.Logic/register/action | 지정된 구독에 대한 Microsoft.Logic 리소스 공급자를 등록합니다. |
 > |  | **integrationAccounts** |  |
@@ -5351,7 +5351,7 @@ Azure 서비스: [Logic Apps](../logic-apps/index.yml)
 Azure 서비스: [Machine Learning Studio](../machine-learning/studio/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.MachineLearning/register/action | Machine Learning 웹 서비스 리소스 공급자에 대한 구독을 등록하고 웹 서비스를 만들도록 설정합니다. |
 > | 작업 | Microsoft.MachineLearning/webServices/action | 지원되는 지역에 대한 국가별 웹 서비스 속성을 만듭니다. |
@@ -5389,7 +5389,7 @@ Azure 서비스: [Machine Learning Studio](../machine-learning/studio/index.yml)
 Azure 서비스: [Machine Learning 서비스](../machine-learning/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.MachineLearningServices/register/action | Machine Learning Services 리소스 공급자에 대한 구독을 등록합니다. |
 > |  | **위치도** |  |
@@ -5538,7 +5538,7 @@ Azure 서비스: [Machine Learning 서비스](../machine-learning/index.yml)
 Azure 서비스: [azure 리소스에 대 한 관리 되는 id](../active-directory/managed-identities-azure-resources/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.ManagedIdentity/register/action | 관리 ID 리소스 공급자에 대한 구독을 등록합니다. |
 > |  | **신원을** |  |
@@ -5556,7 +5556,7 @@ Azure 서비스: [azure 리소스에 대 한 관리 되는 id](../active-directo
 Azure 서비스: [Azure Lighthouse](../lighthouse/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft ManagedServices/register/action | 관리 서비스에 등록 합니다. |
 > | 작업 | Microsoft ManagedServices/등록 취소/작업 | 관리 서비스에서 등록을 취소 합니다. |
@@ -5580,7 +5580,7 @@ Azure 서비스: [Azure Lighthouse](../lighthouse/index.yml)
 Azure 서비스: [관리 그룹](../governance/management-groups/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.Management/checkNameAvailability/action | 지정된 관리 그룹 이름이 유효하고 고유한지 확인합니다. |
 > | 작업 | Microsoft.Management/getEntities/action | 인증된 사용자에 대한 모든 엔터티(관리 그룹, 구독 등)를 나열합니다. |
@@ -5604,7 +5604,7 @@ Azure 서비스: [관리 그룹](../governance/management-groups/index.yml)
 Azure 서비스: [Azure Maps](../azure-maps/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.Maps/register/action | 공급자를 등록합니다. |
 > |  | **계좌** |  |
@@ -5627,7 +5627,7 @@ Azure 서비스: [Azure Maps](../azure-maps/index.yml)
 Azure 서비스: 핵심
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.Marketplace/register/action | 구독에서 Microsoft.Marketplace 리소스 공급자를 등록합니다. |
 > |  | **offerTypes/게시자/제품/계획/규약** |  |
@@ -5643,7 +5643,7 @@ Azure 서비스: 핵심
 Azure 서비스: 핵심
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > |  | **ClassicDevServices** |  |
 > | 작업 | Microsoft.MarketplaceApps/ClassicDevServices/read | 클래식 개발 서비스에서 GET 작업을 수행합니다. |
@@ -5659,7 +5659,7 @@ Azure 서비스: 핵심
 Azure 서비스: 핵심
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > |  | **내용이** |  |
 > | 작업 | Microsoft.MarketplaceOrdering/agreements/read | 지정된 구독의 모든 규약을 반환합니다. |
@@ -5678,7 +5678,7 @@ Azure 서비스: 핵심
 Azure 서비스: [Media Services](../media-services/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.Media/register/action | Media Services 리소스 공급자에 대한 구독을 등록하고 Media Services 계정을 만들도록 설정합니다. |
 > | 작업 | Microsoft.Media/unregister/action | Media Services 리소스 공급자에 대한 구독을 등록 취소합니다. |
@@ -5763,7 +5763,7 @@ Azure 서비스: [Media Services](../media-services/index.yml)
 Azure 서비스: [Azure Migrate](../migrate/migrate-services-overview.md)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.Migrate/register/action | Microsoft.Compute 리소스 공급자로 구독을 등록합니다. |
 > |  | **assessmentprojects** |  |
@@ -5856,7 +5856,7 @@ Azure 서비스: [Azure Migrate](../migrate/migrate-services-overview.md)
 Azure 서비스: [Azure 공간 앵커](../spatial-anchors/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.MixedReality/register/action | Mixed Reality 리소스 공급자에 대 한 구독을 등록 합니다. |
 > |  | **remoteRenderingAccounts/providers/metricDefinitions** |  |
@@ -5897,7 +5897,7 @@ Azure 서비스: [Azure 공간 앵커](../spatial-anchors/index.yml)
 Azure 서비스: [Azure NetApp Files](../azure-netapp-files/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft NetApp/register/action | 구독 등록 작업 |
 > | 작업 | Microsoft NetApp/등록 취소/작업 | Microsoft .Net 앱 리소스 공급자를 사용 하 여 구독 등록 취소 |
@@ -5956,7 +5956,7 @@ Azure 서비스: [Azure NetApp Files](../azure-netapp-files/index.yml)
 Azure 서비스: [Virtual Network](../virtual-network/index.yml), [Load Balancer](../load-balancer/index.yml), [Application Gateway](../application-gateway/index.yml), [Azure DNS](../dns/index.yml), [express](../expressroute/index.yml)경로, [VPN Gateway](../vpn-gateway/index.yml), [Traffic Manager](../traffic-manager/index.yml), [Network Watcher](../network-watcher/index.yml), [azure 방화벽](../firewall/index.yml) [azure Front 도어 서비스](../frontdoor/index.yml), [azure 방호](../bastion/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.Network/register/action | 구독을 등록합니다. |
 > | 작업 | Microsoft.Network/unregister/action | 구독을 등록 취소합니다. |
@@ -6608,7 +6608,7 @@ Azure 서비스: [Virtual Network](../virtual-network/index.yml), [Load Balancer
 Azure 서비스: [Notification Hubs](../notification-hubs/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.NotificationHubs/register/action | NotificationHubs 리소스 공급자에 대한 구독을 등록하고 네임스페이스와 NotificationHubs 만들기를 사용하도록 설정합니다. |
 > | 작업 | Microsoft.NotificationHubs/unregister/action | NotificationHubs 리소스 공급자에 대한 구독을 등록 취소하고 네임스페이스와 NotificationHubs 만들기를 사용하도록 설정합니다. |
@@ -6650,7 +6650,7 @@ Azure 서비스: [Notification Hubs](../notification-hubs/index.yml)
 Azure 서비스: [Azure Migrate](../migrate/migrate-services-overview.md)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.OffAzure/register/action | Microsoft.OffAzure 리소스 공급자에 구독을 등록합니다. |
 > | 작업 | Microsoft.OffAzure/register/action | Microsoft.OffAzure 리소스 공급자에 구독을 등록합니다. |
@@ -6922,7 +6922,7 @@ Azure 서비스: [Azure Migrate](../migrate/migrate-services-overview.md)
 Azure 서비스: [Azure Monitor](../azure-monitor/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.OperationalInsights/register/action | 리소스 공급자에 구독을 등록합니다. |
 > | 작업 | microsoft.operationalinsights/register/action | 구독을 Rergisters 합니다. |
@@ -7527,7 +7527,7 @@ Azure 서비스: [Azure Monitor](../azure-monitor/index.yml)
 > | 작업 | Microsoft.OperationalInsights/workspaces/savedSearches/write | 저장된 검색 쿼리를 만듭니다. |
 > | 작업 | Microsoft.OperationalInsights/workspaces/savedSearches/delete | 저장된 검색 쿼리를 삭제합니다. |
 > |  | **작업 영역/savedsearches/결과** |  |
-> | 작업 | microsoft.operationalinsights/workspaces/savedsearches/results/read | 저장된 검색 결과를 가져옵니다. 사용되지 않음 |
+> | 작업 | microsoft.operationalinsights/workspaces/savedsearches/results/read | 저장된 검색 결과를 가져옵니다. 사용하지 않음 |
 > |  | **작업 영역/savedsearches/일정** |  |
 > | 작업 | microsoft.operationalinsights/workspaces/savedsearches/schedules/read | 예약된 검색을 가져옵니다. |
 > | 작업 | microsoft.operationalinsights/workspaces/savedsearches/schedules/delete | 예약된 검색을 삭제합니다. |
@@ -7543,7 +7543,7 @@ Azure 서비스: [Azure Monitor](../azure-monitor/index.yml)
 > | 작업 | operationalinsights/작업 영역/scopedPrivateLinkProxies/쓰기 | 범위가 지정 된 개인 링크 프록시를 추가 합니다. |
 > | 작업 | operationalinsights/작업 영역/scopedPrivateLinkProxies/삭제 | 범위가 지정 된 개인 링크 프록시를 삭제 합니다. |
 > |  | **작업 영역/검색** |  |
-> | 작업 | microsoft.operationalinsights/workspaces/search/read | 검색 결과를 가져옵니다. 사용되지 않습니다. |
+> | 작업 | microsoft.operationalinsights/workspaces/search/read | 검색 결과를 가져옵니다. 사용되지 않음. |
 > |  | **작업 영역/sharedKeys** |  |
 > | 작업 | Microsoft.OperationalInsights/workspaces/sharedKeys/read | 작업 영역에 대한 공유 키를 검색합니다. 이러한 키는 Microsoft Operational Insights 에이전트를 작업 영역에 연결하는 데 사용됩니다. |
 > |  | **작업 영역/storageinsightconfigs** |  |
@@ -7560,7 +7560,7 @@ Azure 서비스: [Azure Monitor](../azure-monitor/index.yml)
 Azure 서비스: [Azure Monitor](../azure-monitor/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.OperationsManagement/register/action | 리소스 공급자에 구독을 등록합니다. |
 > |  | **managementAssociations** |  |
@@ -7581,7 +7581,7 @@ Azure 서비스: [Azure Monitor](../azure-monitor/index.yml)
 Azure 서비스: [Azure Policy](../governance/policy/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.PolicyInsights/register/action | Microsoft Policy Insights 리소스 공급자를 등록 하 고 작업을 사용 하도록 설정 합니다. |
 > | 작업 | Microsoft.PolicyInsights/unregister/action | Microsoft Policy Insights 리소스 공급자를 등록 취소 합니다. |
@@ -7621,7 +7621,7 @@ Azure 서비스: [Azure Policy](../governance/policy/index.yml)
 Azure 서비스: [Azure Portal](../azure-portal/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.Portal/register/action | 포털에 등록합니다. |
 > |  | **콘솔로** |  |
@@ -7642,7 +7642,7 @@ Azure 서비스: [Azure Portal](../azure-portal/index.yml)
 Azure 서비스: [Power BI Embedded](https://docs.microsoft.com/azure/power-bi-embedded/)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.PowerBIDedicated/register/action | Power BI 전용 리소스 공급자를 등록합니다. |
 > |  | **용량** |  |
@@ -7669,7 +7669,7 @@ Azure 서비스: [Power BI Embedded](https://docs.microsoft.com/azure/power-bi-e
 Azure 서비스: [Site Recovery](../site-recovery/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.RecoveryServices/register/action | 지정된 리소스 공급자에 대한 구독을 등록합니다. |
 > |  | **위치** |  |
@@ -7960,7 +7960,7 @@ Azure 서비스: [Site Recovery](../site-recovery/index.yml)
 Azure 서비스: [Azure Relay](../service-bus-relay/relay-what-is-it.md)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.Relay/checkNamespaceAvailability/action | 지정된 구독에서 네임스페이스의 가용성을 확인합니다. 이 API는 사용되지 않으므로 CheckNameAvailability를 대신 사용하세요. |
 > | 작업 | Microsoft.Relay/checkNameAvailability/action | 지정된 구독에서 네임스페이스의 가용성을 확인합니다. |
@@ -8034,7 +8034,7 @@ Azure 서비스: [Azure Relay](../service-bus-relay/relay-what-is-it.md)
 Azure 서비스: [Azure Service Health](../service-health/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.ResourceHealth/register/action | Microsoft ResourceHealth에 대한 구독을 등록합니다. |
 > | 작업 | Microsoft.ResourceHealth/unregister/action | Microsoft ResourceHealth에 대한 구독을 등록 취소합니다. |
@@ -8065,7 +8065,7 @@ Azure 서비스: [Azure Service Health](../service-health/index.yml)
 Azure 서비스: [Azure Resource Manager](../azure-resource-manager/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.Resources/checkResourceName/action | 리소스 이름의 유효성을 확인합니다. |
 > | 작업 | CalculateTemplateHash/작업 | 제공 된 템플릿의 해시를 계산 합니다. |
@@ -8144,7 +8144,7 @@ Azure 서비스: [Azure Resource Manager](../azure-resource-manager/index.yml)
 Azure 서비스: [Scheduler](../scheduler/index.md)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > |  | **무료** |  |
 > | 작업 | Microsoft.Scheduler/jobcollections/read | 작업 컬렉션을 가져옵니다. |
@@ -8166,7 +8166,7 @@ Azure 서비스: [Scheduler](../scheduler/index.md)
 Azure 서비스: [Azure Search](../search/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.Search/register/action | Search 리소스 공급자에 대한 구독을 등록하고 Search 서비스를 만들도록 설정합니다. |
 > | 작업 | Microsoft.Search/checkNameAvailability/action | 서비스 이름의 가용성을 확인합니다. |
@@ -8195,7 +8195,7 @@ Azure 서비스: [Azure Search](../search/index.yml)
 Azure 서비스: [Security Center](../security-center/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.Security/register/action | Azure Security Center에 대한 구독을 등록합니다. |
 > | 작업 | Microsoft.Security/unregister/action | Azure Security Center에서 구독을 등록 취소합니다. |
@@ -8279,7 +8279,7 @@ Azure 서비스: [Security Center](../security-center/index.yml)
 Microsoft Monitoring Insights
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > |  | **diagnosticsettings** |  |
 > | 작업 | Microsoft.SecurityGraph/diagnosticsettings/write | 진단 설정을 작성합니다. |
@@ -8293,7 +8293,7 @@ Microsoft Monitoring Insights
 Azure 서비스: [Azure 센티널](../sentinel/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft SecurityInsights/register/action | Azure 센티널에 구독을 등록 합니다. |
 > | 작업 | Microsoft SecurityInsights/등록 취소/작업 | Azure 센티널에서 구독의 등록을 취소 합니다. |
@@ -8346,7 +8346,7 @@ Azure 서비스: [Azure 센티널](../sentinel/index.yml)
 Azure 서비스: [Service Bus](../service-bus/index.md)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.ServiceBus/checkNamespaceAvailability/action | 지정된 구독에서 네임스페이스의 가용성을 확인합니다. 이 API는 사용되지 않으므로 CheckNameAvailability를 대신 사용하세요. |
 > | 작업 | Microsoft.ServiceBus/checkNameAvailability/action | 지정된 구독에서 네임스페이스의 가용성을 확인합니다. |
@@ -8462,7 +8462,7 @@ Azure 서비스: [Service Bus](../service-bus/index.md)
 Azure 서비스: [Service Fabric](../service-fabric/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.ServiceFabric/register/action | 작업을 등록합니다. |
 > |  | **클러스터** |  |
@@ -8511,7 +8511,7 @@ Azure 서비스: [Service Fabric](../service-fabric/index.yml)
 Azure 서비스: [Azure SignalR 서비스](../azure-signalr/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.SignalRService/register/action | ‘Microsoft.SignalRService’ 리소스 공급자를 구독에 등록합니다. |
 > | 작업 | Microsoft.SignalRService/unregister/action | ‘Microsoft.SignalRService’ 리소스 공급자를 구독에서 등록 취소합니다. |
@@ -8556,7 +8556,7 @@ Azure 서비스: [Azure SignalR 서비스](../azure-signalr/index.yml)
 Azure 서비스: [Azure Managed Applications](../azure-resource-manager/managed-applications/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.Solutions/register/action | 솔루션에 등록합니다. |
 > | 작업 | Microsoft.Solutions/unregister/action | 솔루션에서 등록을 취소 합니다. |
@@ -8588,7 +8588,7 @@ Azure 서비스: [Azure Managed Applications](../azure-resource-manager/managed-
 Azure 서비스: [Azure SQL Database](../sql-database/index.yml), [SQL Data Warehouse](../sql-data-warehouse/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.Sql/checkNameAvailability/action | 지정된 서버 이름을 지정된 구독에 대해 전 세계적으로 프로비전에 사용할 수 있는지 확인합니다. |
 > | 작업 | Microsoft.Sql/register/action | Microsoft SQL Database 리소스 공급자에 대한 구독을 등록하고 Microsoft SQL Databases를 만들도록 설정합니다. |
@@ -9203,7 +9203,7 @@ Azure 서비스: [Azure SQL Database](../sql-database/index.yml), [SQL Data Ware
 Azure 서비스: [azure Virtual Machines에서 SQL Server](../virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | SqlVirtualMachine/register/action | SqlVirtualMachine 리소스 공급자에 구독을 등록 합니다. |
 > | 작업 | SqlVirtualMachine/등록 취소/작업 | SqlVirtualMachine 리소스 공급자를 사용 하 여 구독 등록 취소 |
@@ -9235,7 +9235,7 @@ Azure 서비스: [azure Virtual Machines에서 SQL Server](../virtual-machines/w
 Azure 서비스: [Storage](../storage/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.Storage/register/action | 스토리지 리소스 공급자에 대한 구독을 등록하고 스토리지 계정을 만들도록 설정합니다. |
 > |  | **checknameavailability** |  |
@@ -9367,7 +9367,7 @@ Azure 서비스: [Storage](../storage/index.yml)
 Azure 서비스: [Storage](../storage/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | microsoft.storagesync/register/action | 저장소 동기화 공급자에 대 한 구독을 등록 합니다. |
 > | 작업 | microsoft.storagesync/등록 취소/작업 | 저장소 동기화 공급자에 대 한 구독의 등록을 취소 합니다. |
@@ -9426,7 +9426,7 @@ Azure 서비스: [Storage](../storage/index.yml)
 Azure 서비스: [StorSimple](../storsimple/index.md)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.StorSimple/register/action | Microsoft.StorSimple 공급자를 등록합니다. |
 > |  | **입력기** |  |
@@ -9691,7 +9691,7 @@ Azure 서비스: [StorSimple](../storsimple/index.md)
 Azure 서비스: [Stream Analytics](../stream-analytics/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.StreamAnalytics/Register/action | 구독을 Stream Analytics 리소스 공급자에 등록합니다. |
 > |  | **위치/할당량** |  |
@@ -9750,7 +9750,7 @@ Azure 서비스: [Stream Analytics](../stream-analytics/index.yml)
 Azure 서비스: 핵심
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.Subscription/CreateSubscription/action | Azure 구독을 만듭니다. |
 > | 작업 | Microsoft.Subscription/register/action | Microsoft.Subscription 리소스 공급자에 구독을 등록합니다. |
@@ -9765,7 +9765,7 @@ Azure 서비스: 핵심
 Azure 서비스: 핵심
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.Support/register/action | 등록 지원 리소스 공급자 |
 > | 작업 | Microsoft. Support/checkNameAvailability/action | 이름이 유효 하 고 리소스 종류에 사용 되 고 있지 않은지 확인 합니다. |
@@ -9791,7 +9791,7 @@ Azure 서비스: 핵심
 Azure 서비스: [Time Series Insights](../time-series-insights/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.TimeSeriesInsights/register/action | Time Series Insights 리소스 공급자에 대한 구독을 등록하고 Time Series Insights 환경을 만들도록 설정합니다. |
 > |  | **에서는** |  |
@@ -9818,7 +9818,7 @@ Azure 서비스: [Time Series Insights](../time-series-insights/index.yml)
 Azure 서비스: [Azure DevOps](https://docs.microsoft.com/azure/devops/)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.VisualStudio/Register/Action | Azure 구독을 Microsoft.VisualStudio 공급자에 등록합니다. |
 > |  | **계정** |  |
@@ -9836,7 +9836,7 @@ Azure 서비스: [Azure DevOps](https://docs.microsoft.com/azure/devops/)
 > | 작업 | Microsoft.VisualStudio/Extension/Read | 확장을 읽습니다. |
 > |  | **프로젝트** |  |
 > | 작업 | Microsoft.VisualStudio/Project/Write | 프로젝트를 설정합니다. |
-> | 작업 | Microsoft.VisualStudio/Project/Delete | 프로젝트를 삭제합니다. |
+> | 작업 | Microsoft.VisualStudio/Project/Delete | 프로젝트 삭제 |
 > | 작업 | Microsoft.VisualStudio/Project/Read | 프로젝트를 읽습니다. |
 
 ## <a name="microsoftweb"></a>microsoft.web
@@ -9844,7 +9844,7 @@ Azure 서비스: [Azure DevOps](https://docs.microsoft.com/azure/devops/)
 Azure 서비스: [App Service](../app-service/index.yml), [함수](../azure-functions/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | microsoft.web/unregister/action | 구독에 대한 Microsoft.Web 리소스 공급자를 등록 취소합니다. |
 > | 작업 | microsoft.web/validate/action | 유효성 검사를 수행합니다. |
@@ -10503,7 +10503,7 @@ Azure 서비스: [App Service](../app-service/index.yml), [함수](../azure-func
 Azure 서비스: [Azure Monitor](../azure-monitor/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | Description |
+> | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > |  | **요소도** |  |
 > | 작업 | Microsoft.WorkloadMonitor/components/read | 리소스에 대한 구성 요소를 가져옵니다. |

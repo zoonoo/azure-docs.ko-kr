@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
 ms.openlocfilehash: d40157523a074547885a14a3d92379f8e8b6f351
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980252"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78364570"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>Azure Stream Analytics 출력 문제 해결
 
@@ -94,7 +94,7 @@ SQL 테이블에 UNIQUE KEY 제약 조건이 설정되고 SQL 테이블에 중�
 원래 호환성 수준 (1.0)을 사용 하는 경우 열 이름을 소문자로 변경 하는 데 사용 Azure Stream Analytics. 이 동작은 이후 호환성 수준에서 수정 되었습니다. 사례를 유지 하기 위해 고객은 호환성 수준 1.1 이상으로 이동 하는 것을 권장 합니다. [Azure Stream Analytics 작업에 대 한 호환성 수준](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level)에 대 한 자세한 정보를 찾을 수 있습니다.
 
 
-## <a name="get-help"></a>도움 받기
+## <a name="get-help"></a>도움말 보기
 
 추가 지원이 필요한 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)을 참조하세요.
 

@@ -8,11 +8,11 @@ ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 0684f626553946619a0db2cd895df39576bd17b9
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77598258"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78362415"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Azure 파일 동기화 배포에 대한 계획
 [Azure Files](storage-files-introduction.md) 는 서버를 사용 하지 않는 azure 파일 공유를 직접 탑재 하거나 Azure File Sync를 사용 하 여 온-프레미스에서 azure 파일 공유를 캐시 하는 두 가지 주요 방법으로 배포할 수 있습니다. 선택 하는 배포 옵션에 따라 배포를 계획할 때 고려해 야 할 사항이 변경 됩니다. 
@@ -106,7 +106,7 @@ Azure File Sync를 배포 하기 전에 Azure File Sync evaluation cmdlet을 사
 
 [Azure PowerShell 설치 및 구성](https://docs.microsoft.com/powershell/azure/install-Az-ps)지침에 따라 설치할 수 있는 Az PowerShell module을 설치 하 여 evaluation cmdlet을 설치할 수 있습니다.
 
-#### <a name="usage"></a>사용  
+#### <a name="usage"></a>사용법  
 평가 도구는 몇 가지 다른 방법으로 호출할 수 있습니다. 즉 시스템 검사, 데이터 세트 검사 또는 둘 다를 수행할 수 있습니다. 시스템 검사 및 데이터 세트 검사를 모두 수행하려면 다음을 수행합니다. 
 
 ```powershell
@@ -136,16 +136,16 @@ NTFS 볼륨만 지원 됩니다. ReFS, FAT, FAT32 및 기타 파일 시스템은
 
 다음 표에서는 NTFS 파일 시스템 기능의 interop 상태를 보여 줍니다. 
 
-| 기능 | 상태 지원 | 메모 |
+| 기능 | 상태 지원 | 참고 |
 |---------|----------------|-------|
-| ACL(액세스 제어 목록) | 완벽하게 지원 | Windows 스타일의 임의 액세스 제어 목록은 Azure File Sync에 의해 유지 되며 서버 끝점에서 Windows Server에 의해 적용 됩니다. Azure 파일 공유를 직접 탑재 하는 경우 Acl을 강제로 적용할 수도 있지만이 경우 추가 구성이 필요 합니다. 자세한 내용은 [id 섹션](#identity) 을 참조 하세요. |
+| ACL(액세스 제어 목록) | 완전하게 지원됨 | Windows 스타일의 임의 액세스 제어 목록은 Azure File Sync에 의해 유지 되며 서버 끝점에서 Windows Server에 의해 적용 됩니다. Azure 파일 공유를 직접 탑재 하는 경우 Acl을 강제로 적용할 수도 있지만이 경우 추가 구성이 필요 합니다. 자세한 내용은 [id 섹션](#identity) 을 참조 하세요. |
 | 하드 링크 | 건너뜀 | |
 | 바로 가기 링크 | 건너뜀 | |
 | 탑재 지점 | 부분적으로 지원됨 | 탑재 지점은 서버 엔드포인트의 루트일 수 있지만, 서버 엔드포인트의 네임스페이스에 포함된 경우 건너뜁니다. |
 | 분기 동기화 | 건너뜀 | 분산 파일 시스템 DfrsrPrivate 및 DFSRoots 폴더를 예로 들 수 있습니다. |
 | 재분석 지점 | 건너뜀 | |
-| NTFS 압축 | 완벽하게 지원 | |
-| 스파스 파일 | 완벽하게 지원 | 스파스 파일은 동기화되지만(차단되지 않음) 전체 파일로 클라우드와 동기화됩니다. 클라우드(또는 다른 서버)에서 파일 콘텐츠가 변경될 경우 변경 내용이 다운로드되면 파일은 더 이상 스파스 파일이 아닙니다. |
+| NTFS 압축 | 완전하게 지원됨 | |
+| 스파스 파일 | 완전하게 지원됨 | 스파스 파일은 동기화되지만(차단되지 않음) 전체 파일로 클라우드와 동기화됩니다. 클라우드(또는 다른 서버)에서 파일 콘텐츠가 변경될 경우 변경 내용이 다운로드되면 파일은 더 이상 스파스 파일이 아닙니다. |
 | ADS(대체 데이터 스트림) | 보존되지만 동기화되지 않음 | 예를 들어, 파일 분류 인프라에서 만들어진 분류 태그는 동기화되지 않습니다. 각 서버 엔드포인트의 파일에 대한 기존 분류 태그는 그대로 유지됩니다. |
 
 <a id="files-skipped"></a>또한 Azure File Sync는 특정 임시 파일 및 시스템 폴더도 건너뜁니다.
@@ -199,7 +199,7 @@ Azure File Sync는 Windows Server 2012 r 2의 동일한 볼륨에서 데이터 �
     
     참고: 에이전트를 제거 하 고 다시 설치 하면 서버의 Azure File Sync 구성 설정이 유지 됩니다.
 
-### <a name="distributed-file-system-dfs"></a>분산 파일 시스템(DFS)
+### <a name="distributed-file-system-dfs"></a>DFS(분산 파일 시스템)
 Azure 파일 동기화에서는 DFS-N(DFS 네임스페이스) 및 DFS-R(DFS 복제)과의 상호 작용을 지원합니다.
 
 **DFS 네임 스페이스(DFS-N)** : DFS-N 서버에서 Azure 파일 동기화가 완전히 지원됩니다. 하나 이상의 DFS-N 멤버에 Azure 파일 동기화 에이전트를 설치하면 서버 엔드포인트 및 클라우드 엔드포인트 간에 데이터를 동기화할 수 있습니다. 자세한 내용은 [DFS 네임스페이스 개요](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/dfs-overview)를 참조하세요.
@@ -226,7 +226,7 @@ Azure File Sync 에이전트가 설치 된 서버에서 sysprep를 사용 하는
 ### <a name="other-hierarchical-storage-management-hsm-solutions"></a>다른 HSM(계층적 스토리지 관리) 솔루션
 다른 HSM 솔루션은 Azure 파일 동기화와 함께 사용하면 안 됩니다.
 
-## <a name="identity"></a>ID
+## <a name="identity"></a>Identity
 Azure File Sync은 동기화를 설정 하는 것 외에는 특별 한 설정 없이 표준 AD 기반 id로 작동 합니다. Azure File Sync를 사용 하는 경우 대부분의 액세스는 Azure 파일 공유 대신 Azure File Sync 캐싱 서버를 통과 하는 것이 일반적입니다. 서버 끝점은 Windows Server에 있고 Windows Server는 매우 긴 시간 동안 AD 및 Windows 스타일 Acl을 지원 하기 때문에 저장소 동기화 서비스에 등록 된 Windows 파일 서버가 도메인에 가입 되어 있는지 확인 하는 것 외에는 아무 작업도 필요 하지 않습니다. Azure File Sync는 Azure 파일 공유의 파일에 Acl을 저장 하 고 모든 서버 끝점에 복제 합니다.
 
 Azure 파일 공유에 대 한 변경 내용이 동기화 그룹의 서버 끝점과 동기화 하는 데 더 오래 걸리므로 클라우드에서 직접 파일 공유에 대 한 AD 권한을 적용할 수 있는지도 확인할 수 있습니다. 이렇게 하려면 Windows 파일 서버가 도메인에 가입 된 방식과 마찬가지로 저장소 계정을 온-프레미스 AD에 도메인에 가입 시켜야 합니다. 고객 소유 Active Directory에 저장소 계정을 가입 하는 도메인에 대해 자세히 알아보려면 [Azure Files Active Directory 개요](storage-files-active-directory-overview.md)를 참조 하세요.
@@ -295,24 +295,24 @@ Azure File Sync은 다음 지역에서 제공 됩니다.
 | 공용 | 오스트레일리아 | 오스트레일리아 동부 | `australiaeast` |
 | 공용 | 오스트레일리아 | 오스트레일리아 남동부 | `australiasoutheast` |
 | 공용 | 브라질 | 브라질 남부 | `brazilsouth` |
-| 공용 | Canada | 캐나다 중부 | `canadacentral` |
-| 공용 | Canada | 캐나다 동부 | `canadaeast` |
+| 공용 | 캐나다 | 캐나다 중부 | `canadacentral` |
+| 공용 | 캐나다 | 캐나다 동부 | `canadaeast` |
 | 공용 | 유럽 | 북유럽 | `northeurope` |
 | 공용 | 유럽 | 서유럽 | `westeurope` |
-| 공용 | 프랑스 | 프랑스 중부 | `francecentral` |
-| 공용 | 프랑스 | 프랑스 남부 * | `francesouth` |
+| 공용 | France | 프랑스 중부 | `francecentral` |
+| 공용 | France | 프랑스 남부 * | `francesouth` |
 | 공용 | 인도 | 인도 중부 | `centralindia` |
 | 공용 | 인도 | 인도 남부 | `southindia` |
-| 공용 | 일본 | 일본 동부 | `japaneast` |
-| 공용 | 일본 | 일본 서부 | `japanwest` |
-| 공용 | 한국 | 한국 중부 | `koreacentral` |
-| 공용 | 한국 | 한국 남부 | `koreasouth` |
-| 공용 | 남아프리카 | 남아프리카 북부 | `southafricanorth` |
-| 공용 | 남아프리카 | 남아프리카 공화국 * | `southafricawest` |
+| 공용 | Japan | 일본 동부 | `japaneast` |
+| 공용 | Japan | 일본 서부 | `japanwest` |
+| 공용 | Korea | 한국 중부 | `koreacentral` |
+| 공용 | Korea | 한국 남부 | `koreasouth` |
+| 공용 | 남아프리카 공화국 | 남아프리카 북부 | `southafricanorth` |
+| 공용 | 남아프리카 공화국 | 남아프리카 공화국 * | `southafricawest` |
 | 공용 | 아랍에미리트 | 아랍에미리트 중부 * | `uaecentral` |
 | 공용 | 아랍에미리트 | 아랍에미리트 북부 | `uaenorth` |
-| 공용 | 영국 | 영국 남부 | `uksouth` |
-| 공용 | 영국 | 영국 서부 | `ukwest` |
+| 공용 | UK | 영국 남부 | `uksouth` |
+| 공용 | UK | 영국 서부 | `ukwest` |
 | 공용 | US | 미국 중부 | `centralus` |
 | 공용 | US | 미국 동부 | `eastus` |
 | 공용 | US | 미국 동부 2 | `eastus2` |

@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 02/14/2020
 ms.author: spelluru
 ms.openlocfilehash: c82b5d02ab3928eb0472f2a047cdca2238bf0b63
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77443406"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78382927"
 ---
 # <a name="manage-lab-accounts-in-azure-lab-services"></a>Azure Lab Services의 랩 계정 관리 
 Azure Lab Services에서 랩 계정은 교실 labs와 같은 관리 되는 랩 형식에 대 한 컨테이너입니다. 관리자는 Azure Lab Services를 사용하여 랩 계정을 설정하고 계정에 랩을 만들 수 있는 랩 소유자에게 액세스 권한을 제공합니다. 이 문서는 랩 계정을 만들거나, 모든 랩 계정을 보거나, 랩 계정을 삭제하는 방법을 설명합니다.
@@ -33,7 +33,7 @@ Azure Lab Services에서 랩 계정은 교실 labs와 같은 관리 되는 랩 �
 3. **랩 계정** 페이지의 도구 모음에서 **추가** 를 선택 하거나 페이지에서 **랩 계정을 만듭니다** . 
 
     ![랩 계정 페이지에서 추가 선택](../media/tutorial-setup-lab-account/add-lab-account-button.png)
-4. **랩 계정 만들기** 페이지의 **기본 사항** 탭에서 다음 작업을 수행 합니다. 
+4. **랩 계정 만들기** 페이지의 **기본 사항** 탭에서 다음 작업을 수행합니다. 
     1. **랩 계정 이름**에 이름을 입력합니다. 
     2. 랩 계정을 만들려는 **Azure 구독**을 선택합니다.
     3. **리소스 그룹**의 경우 **새로 만들기**를 선택하고 리소스 그룹의 이름을 입력합니다.

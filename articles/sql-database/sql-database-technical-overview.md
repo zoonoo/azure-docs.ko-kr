@@ -13,11 +13,11 @@ ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/08/2019
 ms.openlocfilehash: 3932c22ff003a343e4c32aee117a7ddea922fbdb
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820739"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78360081"
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>Azure SQL Database 서비스란?
 
@@ -117,7 +117,7 @@ Azure 가용성 영역는 단일 지역 내에서 단일 데이터 센터 빌드
 
 실제로 Microsoft에서 관리 하는 데이터 센터의 글로벌 네트워크에서 제공 하는 Azure의 [SLA (](https://azure.microsoft.com/support/legal/sla/) 서비스 수준 계약)는 앱이 24/7을 계속 실행 하는 데 도움이 됩니다. Azure 플랫폼은 모든 데이터베이스를 완벽 하 게 관리 하 고 데이터 손실 및 높은 비율의 데이터 가용성을 보장 하지 않습니다. Azure는 패치, 백업, 복제, 오류 감지, 기본 하드웨어, 소프트웨어 또는 네트워크 오류, 배포 버그 픽스, 장애 조치(failover), 데이터베이스 업그레이드 및 기타 유지 관리 작업을 자동으로 처리합니다. 표준 가용성은 컴퓨팅 계층과 스토리지 계층을 분리하여 달성합니다. 프리미엄 가용성은 성능 향상을 위해 단일 노드에 계산 및 저장소를 통합 한 다음 Always On 가용성 그룹과 유사한 기술을 구현 하 여 수행 됩니다. Azure SQL Database의 고가용성 기능에 대한 자세한 내용은 [SQL Database 가용성](sql-database-high-availability.md)을 참조하세요. 
 
-또한 SQL Database는 기본 제공 [비즈니스 연속성 및 글로벌 확장성](sql-database-business-continuity.md) 기능을 제공 합니다. 내용은 다음과 같습니다.
+또한 SQL Database는 기본 제공 [비즈니스 연속성 및 글로벌 확장성](sql-database-business-continuity.md) 기능을 제공 합니다. 이러한 개체는 다음과 같습니다.
 
 - [자동 백업](sql-database-automated-backups.md):
 
@@ -242,7 +242,7 @@ SQL Server에 대한 Azure 하이브리드 혜택은 두 가지 주요 영역에
 
 SQL Database 고객에 게는 SQL Server에 대 한 Azure 하이브리드 혜택와 관련 된 다음 권한이 있습니다.
 
-|라이선스 공간|SQL Server Azure 하이브리드 혜택은 무엇 인가요?|
+|라이선스 사용 공간|SQL Server Azure 하이브리드 혜택은 무엇 인가요?|
 |---|---|
 |SA가 있는 SQL Server Enterprise Edition 핵심 고객|<li>범용 또는 중요 비즈니스용 SKU에 대 한 기본 요금을 지불할 수 있습니다.</li><br><li>온-프레미스의 1개 코어 = 범용 SKU의 4개 코어</li><br><li>온-프레미스의 1개 코어 = 중요 비즈니스 SKU의 1개 코어</li>|
 |SA가 있는 SQL Server Standard Edition 핵심 고객|<li>범용 SKU에 대해서만 기본 요금을 지불할 수 있습니다.</li><br><li>온-프레미스의 1개 코어 = 범용 SKU의 1개 코어</li>|

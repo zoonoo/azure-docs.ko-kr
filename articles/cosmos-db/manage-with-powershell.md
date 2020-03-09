@@ -8,11 +8,11 @@ ms.date: 10/23/2019
 ms.author: mjbrown
 ms.custom: seodec18
 ms.openlocfilehash: 978f37d08275de704dd01c0251dde42665fca552
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72882102"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78364491"
 ---
 # <a name="manage-azure-cosmos-db-sql-api-resources-using-powershell"></a>PowerShell을 사용하여 Azure Cosmos DB SQL API 리소스 관리
 
@@ -22,7 +22,7 @@ Azure Cosmos DB의 플랫폼 간 관리를 위해 [Azure CLI](manage-with-cli.md
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="getting-started"></a>시작하기
+## <a name="getting-started"></a>시작
 
 [Azure PowerShell을 설치하고 구성하는 방법][powershell-install-configure]의 지침에 따라 Powershell에서 Azure 계정을 설치하고 로그인합니다.
 
@@ -323,7 +323,7 @@ Set-AzResource -ResourceType $resourceType `
 아래 예제에서는 현재 장애 조치(failover) 우선 순위 `West US 2 = 0`, `East US 2 = 1`, `South Central US = 2`를 가정합니다.
 
 > [!CAUTION]
-> `failoverPriority=0`에 대한 `locationName`을 변경하면 Azure Cosmos 계정에 대한 수동 장애 조치가 트리거됩니다. 다른 우선 순위 변경은 장애 조치를 트리거하지 않습니다.
+> `locationName`에 대한 `failoverPriority=0`을 변경하면 Azure Cosmos 계정에 대한 수동 장애 조치가 트리거됩니다. 다른 우선 순위 변경은 장애 조치를 트리거하지 않습니다.
 
 ```azurepowershell-interactive
 # Change the failover priority for an Azure Cosmos Account
@@ -354,7 +354,7 @@ Invoke-AzResourceAction -Action failoverPriorityChange `
 아래 예제에서는 계정의 현재 장애 조치(failover) 우선순위가 `West US 2 = 0` 및 `East US 2 = 1`이라고 가정하고 지역을 대칭 이동시킵니다.
 
 > [!CAUTION]
-> `failoverPriority=0`에 대한 `locationName`을 변경하면 Azure Cosmos 계정에 대한 수동 장애 조치가 트리거됩니다. 다른 우선 순위 변경은 장애 조치(failover)를 트리거하지 않습니다.
+> `locationName`에 대한 `failoverPriority=0`을 변경하면 Azure Cosmos 계정에 대한 수동 장애 조치가 트리거됩니다. 다른 우선 순위 변경은 장애 조치(failover)를 트리거하지 않습니다.
 
 ```azurepowershell-interactive
 # Change the failover priority for an Azure Cosmos Account

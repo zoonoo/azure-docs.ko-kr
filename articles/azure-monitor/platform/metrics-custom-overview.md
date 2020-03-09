@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 3e3f45c1802d501e2320930c35073ec89ff38124
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 0050112dc7d9d2fa20da612691f1ff0927df93fb
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77662351"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78385339"
 ---
 # <a name="custom-metrics-in-azure-monitor"></a>Azure Monitor의 사용자 지정 메트릭
 
@@ -59,7 +59,7 @@ Azure Monitor에 전송되는 각 데이터 요소는 타임스탬프를 사용�
 ### <a name="namespace"></a>네임스페이스
 네임스페이스는 유사한 메트릭을 함께 분류 또는 그룹화하는 방법입니다. 네임스페이스를 사용하면 각기 다른 인사이트 또는 성능 지표를 수집할 수 있는 메트릭 그룹을 격리할 수 있습니다. 예를 들어 앱을 프로 파일링 하는 메모리 사용 메트릭을 추적 하는 **contosomemorymetrics** 라는 네임 스페이스가 있을 수 있습니다. **Contosoapptransaction** 라는 다른 네임 스페이스는 응용 프로그램의 사용자 트랜잭션에 대 한 모든 메트릭을 추적할 수 있습니다.
 
-### <a name="name"></a>속성
+### <a name="name"></a>이름
 **이름**은 보고되는 메트릭의 이름입니다. 일반적으로 이름은 측정 대상을 식별하기에 충분한 정보를 제공합니다. 예를 들어, 지정된 VM에서 사용된 메모리 바이트 수를 측정하는 메트릭이 있습니다. 메트릭 이름은 **사용 중인 메모리 바이트**일 수 있습니다.
 
 ### <a name="dimension-keys"></a>차원 키
@@ -152,17 +152,21 @@ Azure Monitor에 대한 결과 메트릭 게시는 다음과 같습니다.
 내보내기 전에 사용자 지정 메트릭을 Azure Monitor에서 미리 정의할 필요가 없습니다. 게시된 각 메트릭 데이터 요소에는 네임스페이스, 이름 및 차원 정보가 포함되어 있습니다. 따라서 사용자 지정 메트릭을 Azure Monitor에 처음 내보낼 때 메트릭 정의가 자동으로 생성됩니다. 그런 다음, 메트릭 정의를 통해 메트릭을 내보낸 모든 리소스에서 이 메트릭 정의를 검색할 수 있습니다.
 
 > [!NOTE]  
-> Azure Monitor는 사용자 지정 메트릭에 대한 **단위** 정의를 아직 지원하지 않습니다.
+> Azure Monitor는 사용자 지정 메트릭에 대 한 **단위** 정의를 아직 지원 하지 않습니다.
 
 ## <a name="using-custom-metrics"></a>사용자 지정 메트릭 사용
 사용자 지정 메트릭을 Azure Monitor에 전송한 후 Azure Portal을 통해 검색하고 Azure Monitor REST API를 통해 쿼리할 수 있습니다. 특정 조건이 충족되면 알리도록 메트릭에 대한 경고를 만들 수도 있습니다.
+
+> [!NOTE]
+> 사용자 지정 메트릭을 보려면 독자 또는 참가자 역할을 수행 해야 합니다.
+
 ### <a name="browse-your-custom-metrics-via-the-azure-portal"></a>Azure Portal을 통해 사용자 지정 메트릭 찾아보기
-1.  [Azure 포털](https://portal.azure.com)로 이동합니다.
-2.  **모니터** 창을 선택합니다.
-3.  **메트릭**을 선택합니다.
-4.  사용자 지정 메트릭을 내보낸 리소스를 선택합니다.
-5.  사용자 지정 메트릭에 대한 메트릭 네임스페이스를 선택합니다.
-6.  사용자 지정 메트릭을 선택합니다.
+1.    [Azure 포털](https://portal.azure.com)로 이동합니다.
+2.    **모니터** 창을 선택합니다.
+3.    **메트릭**을 선택합니다.
+4.    사용자 지정 메트릭을 내보낸 리소스를 선택합니다.
+5.    사용자 지정 메트릭에 대한 메트릭 네임스페이스를 선택합니다.
+6.    사용자 지정 메트릭을 선택합니다.
 
 ## <a name="supported-regions"></a>지원되는 지역
 공개 미리 보기 중 사용자 지정 메트릭을 게시할 수 있는 기능은 일부 Azure 지역에서만 사용할 수 있습니다. 이 제한 사항은 지원되는 지역 중 하나의 리소스에 대해서만 메트릭을 게시할 수 있음을 의미합니다. 다음 표에는 사용자 지정 메트릭이 지원되는 Azure 지역 집합이 나와 있습니다. 이러한 지역의 리소스에 대한 메트릭이 게시되어야 하는 해당 엔드포인트도 나와 있습니다.
@@ -196,7 +200,7 @@ Azure Monitor에 대한 결과 메트릭 게시는 다음과 같습니다.
 ## <a name="quotas-and-limits"></a>할당량 및 제한
 Azure Monitor는 사용자 지정 메트릭에 대해 다음과 같은 사용량 한도를 적용합니다.
 
-|Category|제한|
+|범주|제한|
 |---|---|
 |활성 시계열/구독/지역|50,000|
 |메트릭당 차원 키|10|

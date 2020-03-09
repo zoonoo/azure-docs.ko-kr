@@ -10,13 +10,13 @@ ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: iainfou
 ms.openlocfilehash: f422d1dd6c76d78448ae4fb1012a5dae8d6108b3
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/05/2020
-ms.locfileid: "78299077"
+ms.locfileid: "78376629"
 ---
-# <a name="tutorial-create-a-management-vm-to-configure-and-administer-an-azure-active-directory-domain-services-managed-domain"></a>자습서: 관리 VM을 만들어 Azure Active Directory Domain Services 관리되는 도메인 구성 및 관리
+# <a name="tutorial-create-a-management-vm-to-configure-and-administer-an-azure-active-directory-domain-services-managed-domain"></a>자습서: 관리 VM을 만들어 관리 되는 Azure Active Directory Domain Services 도메인 구성 및 관리
 
 Azure AD DS(Active Directory Domain Services)는 Windows Server Active Directory와 완전히 호환되는 도메인 조인, 그룹 정책, LDAP 및 Kerberos/NTLM 인증과 같은 관리되는 도메인 서비스를 제공합니다. 이 관리되는 도메인은 온-프레미스 Active Directory Domain Services 도메인과 동일한 RSAT(원격 서버 관리 도구)를 사용하여 관리됩니다. Azure AD DS는 관리형 서비스이므로 RDP(원격 데스크톱 프로토콜)를 사용하여 도메인 컨트롤러에 연결하는 것과 같이 수행할 수 없는 몇 가지 관리 작업이 있습니다.
 
@@ -31,7 +31,7 @@ Azure AD DS(Active Directory Domain Services)는 Windows Server Active Directory
 
 Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 이 자습서를 완료하는 데 필요한 리소스와 권한은 다음과 같습니다.
 
@@ -44,8 +44,8 @@ Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https
 * Azure AD DS 관리되는 도메인에 조인된 Windows Server VM
     * 필요한 경우 이전 자습서를 참조하여 [Windows Server VM을 만들어 관리되는 도메인에 조인시킵니다][create-join-windows-vm].
 * Azure AD 테넌트의 *Azure AD DC Administrators* 그룹에 속한 멤버인 사용자 계정
-* Azure AD DS 가상 네트워크에 배포된 Azure Bastion 호스트
-    * 필요한 경우 [Azure Bastion 호스트를 만듭니다][azure-bastion].
+* Azure AD DS 가상 네트워크에 배포 된 Azure 방호 호스트.
+    * 필요한 경우 [Azure 방호 호스트를 만듭니다][azure-bastion].
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
@@ -85,15 +85,15 @@ Azure AD DS 관리되는 도메인이 잠겨 있으므로 도메인에서 특정
 시작하려면 다음과 같이 Windows Server VM에 연결합니다.
 
 1. Azure Portal의 왼쪽에서 **리소스 그룹**을 선택합니다. VM을 만든 리소스 그룹(예: *myResourceGroup*)을 선택한 다음, VM(예: *myVM*)을 선택합니다.
-1. VM에 대한 **개요** 창에서 **연결**, **Bastion**을 차례로 선택합니다.
+1. VM에 대 한 **개요** 창에서 **연결**, **방호**를 차례로 선택 합니다.
 
-    ![Azure Portal에서 Bastion을 사용하여 Windows 가상 머신에 연결](./media/join-windows-vm/connect-to-vm.png)
+    ![Azure Portal에서 방호를 사용 하 여 Windows 가상 머신에 연결](./media/join-windows-vm/connect-to-vm.png)
 
-1. VM에 대한 자격 증명을 입력한 다음, **연결**을 선택합니다.
+1. VM에 대 한 자격 증명을 입력 하 고 **연결**을 선택 합니다.
 
-   ![Azure Portal에서 Bastion 호스트를 통해 연결](./media/join-windows-vm/connect-to-bastion.png)
+   ![Azure Portal에서 요새 호스트를 통해 연결](./media/join-windows-vm/connect-to-bastion.png)
 
-필요한 경우 웹 브라우저에서 Bastion 연결을 표시할 팝업을 열도록 허용합니다. VM에 연결하는 데 몇 초 정도 걸립니다.
+필요한 경우 웹 브라우저에서 해당 웹 브라우저를 사용 하 여 방호 연결을 표시할 수 있습니다. VM에 연결 하는 데 몇 초 정도 걸립니다.
 
 ## <a name="install-active-directory-administrative-tools"></a>Active Directory 관리 도구 설치
 
@@ -102,10 +102,10 @@ Azure AD DS 관리되는 도메인은 온-프레미스 AD DS 환경과 동일한
 Active Directory 관리 도구를 도메인 조인 VM에 설치하려면 다음 단계를 수행합니다.
 
 1. VM에 로그인할 때 **서버 관리자**가 기본적으로 열리지 않는 경우 **시작** 메뉴를 선택한 다음, **서버 관리자**를 선택합니다.
-1. **서버 관리자** 창의 *대시보드* 창에서 **역할 및 기능 추가**를 선택합니다.
-1. *역할 및 기능 추가 마법사*의 **시작하기 전에** 페이지에서 **다음**을 선택합니다.
+1. *서버 관리자* 창의 **대시보드** 창에서 **역할 및 기능 추가**를 선택합니다.
+1. **역할 및 기능 추가 마법사**의 *시작하기 전에* 페이지에서 **다음**을 선택합니다.
 1. *설치 유형*에서 **역할 기반 또는 기능 기반 설치** 옵션을 선택한 상태로 두고, **다음**을 선택합니다.
-1. **서버 선택** 페이지의 서버 풀에서 현재 VM(예: *myvm.aaddscontoso.com*), **다음**을 차례로 선택합니다.
+1. **서버 선택** 페이지에서 서버 풀의 현재 VM (예: *myvm.aaddscontoso.com*)을 선택 하 고 **다음**을 선택 합니다.
 1. **서버 역할** 페이지에서 **다음**을 클릭합니다.
 1. **기능** 페이지에서 **원격 서버 관리 도구** 노드, **역할 관리 도구** 노드를 차례로 펼칩니다.
 
@@ -125,7 +125,7 @@ Active Directory 관리 도구를 도메인 조인 VM에 설치하려면 다음 
     ![서버에 설치된 관리 도구 목록](./media/tutorial-create-management-vm/list-admin-tools.png)
 
 1. **Active Directory 관리 센터**를 선택합니다.
-1. Azure AD DS 관리형 도메인을 검색하려면 왼쪽 창에서 도메인 이름(예: *aaddscontoso.com*)을 선택합니다. *AADDC Computers* 및 *AADDC Users*라는 두 개의 컨테이너가 목록 위쪽에 있습니다.
+1. Azure AD DS 관리 되는 도메인을 탐색 하려면 왼쪽 창에서 도메인 이름 (예: *aaddscontoso.com*)을 선택 합니다. *AADDC Computers* 및 *AADDC Users*라는 두 개의 컨테이너가 목록 위쪽에 있습니다.
 
     ![Azure AD DS 관리되는 도메인의 사용 가능한 컨테이너 부분 나열](./media/tutorial-create-management-vm/active-directory-administrative-center.png)
 
@@ -143,7 +143,7 @@ Active Directory 관리 도구를 도메인 조인 VM에 설치하려면 다음 
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 작업 방법을 알아보았습니다.
+이 자습서에서는 다음 작업을 수행하는 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * Azure AD DS 관리되는 도메인에서 사용 가능한 관리 작업 이해

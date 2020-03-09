@@ -8,11 +8,11 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.openlocfilehash: d1afb6037b5fc290de93faba405982ebd1fb68ea
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75431571"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78364571"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Azure Stream Analytics에서 쿼리 병렬 처리 사용
 이 문서에서는 Azure Stream Analytics에서 병렬 처리 기능을 활용하는 방법을 보여 줍니다. 입력 파티션을 구성하고, 분석 쿼리 정의를 조정하여 Stream Analytics 작업의 크기를 조정하는 방법을 알아봅니다.
@@ -32,11 +32,11 @@ Stream Analytics 작업 크기 조정은 입력 또는 출력에 있는 파티�
 -   IoT Hub(PARTITION BY 키워드로 파티션 키를 명시적으로 설정해야 함)
 -   Blob Storage
 
-### <a name="outputs"></a>outputs
+### <a name="outputs"></a>출력
 
 Stream Analytics로 작업할 때 다음 출력에서 분할을 활용할 수 있습니다.
--   Azure Data Lake Storage
--   Azure Function
+-   Azure Data Lake 스토리지
+-   Azure 기능
 -   Azure 테이블
 -   Blob Storage(파티션 키를 명시적으로 설정할 수 있음)
 -   Cosmos DB(파티션 키를 명시적으로 설정해야 함)
@@ -198,7 +198,7 @@ Stream Analytics 작업에 사용될 수 있는 스트리밍 단위의 총 수�
 하나의 Stream Analytics 작업에 대해 분할되지 않은 모든 단계를 최대 6개의 SU(스트리밍 단위)로 확장할 수 있습니다. 이외에 분할 단계에서 각 파티션에 대해 6개의 SU를 추가할 수 있습니다.
 아래 표에서 일부 **예제**를 확인할 수 있습니다.
 
-| 쿼리                                               | 작업에 대한 최대 SU |
+| query                                               | 작업에 대한 최대 SU |
 | --------------------------------------------------- | ------------------- |
 | <ul><li>쿼리는 한 단계를 포함합니다.</li><li>이 단계는 분할되지 않습니다.</li></ul> | 6 |
 | <ul><li>입력 데이터 스트림은 16으로 분할됩니다.</li><li>쿼리는 한 단계를 포함합니다.</li><li>이 단계는 분할됩니다.</li></ul> | 96(6 * 16개 파티션) |
@@ -252,13 +252,13 @@ Stream Analytics 작업에 사용될 수 있는 스트리밍 단위의 총 수�
 
 다음 관찰에서는 이벤트 허브, Azure SQL DB 또는 Cosmos DB에 쓰는 기본 JavaScript UDF 인 상태 비저장 (통과) 쿼리를 사용 하는 Stream Analytics 작업을 사용 합니다.
 
-#### <a name="event-hub"></a>이벤트 허브
+#### <a name="event-hub"></a>Event Hubs
 
 |수집 률 (초당 이벤트 수) | 스트리밍 단위 | 출력 리소스  |
 |--------|---------|---------|
 | 1K     |    1    |  2 TU   |
 | 5K     |    6    |  6 TU   |
-| 10,000    |    12   |  10 TU  |
+| 10K    |    12   |  10 TU  |
 
 [이벤트 허브](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-eventhubs) 솔루션은 SU (스트리밍 단위) 및 처리량 측면에서 선형적으로 확장 되므로 Stream Analytics에서 데이터를 분석 하 고 스트리밍할 수 있는 가장 효율적이 고 성능이 뛰어난 방법입니다. 작업은 최대 200 m b/초 또는 하루 19조 이벤트를 처리 하는 데 약 192 SU로 확장 될 수 있습니다.
 
@@ -267,7 +267,7 @@ Stream Analytics 작업에 사용될 수 있는 스트리밍 단위의 총 수�
 |---------|------|-------|
 |    1K   |   3  |  S3   |
 |    5K   |   18 |  P4   |
-|    10,000  |   36 |  P6   |
+|    10K  |   36 |  P6   |
 
 [AZURE SQL](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-azuresql) 은 분할 상속 이라는 병렬 작성을 지원 하지만 기본적으로 사용 하도록 설정 되어 있지 않습니다. 그러나 완전히 병렬 쿼리와 함께 상속 분할을 사용 하도록 설정 하는 것 만으로는 처리량이 높아질 수 있습니다. SQL 쓰기 처리량은 SQL Azure 데이터베이스 구성 및 테이블 스키마에 따라 크게 달라 집니다. [SQL 출력 성능](./stream-analytics-sql-output-perf.md) 문서에는 쓰기 처리량을 최대화할 수 있는 매개 변수에 대 한 자세한 정보가 있습니다. [Azure SQL Database Azure Stream Analytics 출력](./stream-analytics-sql-output-perf.md#azure-stream-analytics) 에 설명 된 것 처럼이 솔루션은 8 개의 파티션을 초과 하는 완전히 병렬 파이프라인으로 선형으로 확장 되지 않으므로 SQL 출력 전에 다시 분할 해야 할 수 있습니다 [(참조)](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count). 프리미엄 Sku는 몇 분 마다 발생 하는 로그 백업에서 발생 하는 오버 헤드와 함께 높은 IO 비율을 유지 하는 데 필요 합니다.
 
@@ -276,7 +276,7 @@ Stream Analytics 작업에 사용될 수 있는 스트리밍 단위의 총 수�
 |-------|-------|---------|
 |  1K   |  3    | 20K  |
 |  5K   |  24   | 60K 이상  |
-|  10,000  |  48   | 120K 이상 |
+|  10K  |  48   | 120K 이상 |
 
 Stream Analytics의 [Cosmos DB](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-cosmosdb) 출력이 [호환성 수준 1.2](./stream-analytics-documentdb-output.md#improved-throughput-with-compatibility-level-12)에서 네이티브 통합을 사용 하도록 업데이트 되었습니다. 호환성 수준 1.2을 사용 하면 처리량이 크게 향상 되 고 새 작업에 대 한 기본 호환성 수준인 1.1에 비해 사용이 감소 합니다. 솔루션은/deviceId에서 분할 된 CosmosDB 컨테이너를 사용 하 고 나머지 솔루션은 동일 하 게 구성 됩니다.
 
@@ -303,7 +303,7 @@ Stream Analytics의 [Cosmos DB](https://github.com/Azure-Samples/streaming-at-sc
 
 Azure Stream Analytics 작업의 메트릭 창을 사용 하 여 파이프라인의 병목 상태를 식별할 수 있습니다. 처리량 및 ["워터 마크 지연"](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/) 또는 **백로그 이벤트** 에 대 한 **입/출력 이벤트** 를 검토 하 여 작업이 입력 속도를 유지 하는지 확인 합니다. 이벤트 허브 메트릭에 대해 **제한 된 요청** 을 찾아 임계값 단위를 적절 하 게 조정 합니다. Cosmos DB 메트릭은 처리량에서 **파티션 키 범위별 최대** 사용량을 검토 하 여 파티션 키 범위를 균등 하 게 사용 하는지 확인 합니다. Azure SQL DB의 경우 **로그 IO** 및 **CPU**를 모니터링 합니다.
 
-## <a name="get-help"></a>도움 받기
+## <a name="get-help"></a>도움말 보기
 
 추가 지원이 필요한 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)을 참조하세요.
 

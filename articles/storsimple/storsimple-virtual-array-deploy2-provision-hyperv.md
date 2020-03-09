@@ -16,11 +16,11 @@ ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 9d3f4f4ab6cc1c928761fce740d39f3f73426e62
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516786"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78365714"
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-hyper-v"></a>StorSimple 가상 배열 배포 - Hyper-V에서 프로비전
 ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/hyperv4.png)
@@ -40,7 +40,7 @@ ms.locfileid: "68516786"
 시작하기 전에 다음 사항을 확인합니다.
 
 * [StorSimple 가상 배열용 포털 준비](storsimple-virtual-array-deploy1-portal-prep.md)의 모든 단계를 완료했습니다.
-* Azure Portal에서 Hyper-V용 가상 배열 이미지를 다운로드했습니다. 자세한 내용은 **3단계: 가상 어레이 이미지 다운로드**([StorSimple Virtual Array를 위한 포털 준비 가이드](storsimple-virtual-array-deploy1-portal-prep.md))를 참조하세요.
+* Azure Portal에서 Hyper-V용 가상 배열 이미지를 다운로드했습니다. 자세한 내용은 **StorSimple 가상 배열을 위한 포털 준비 가이드**의 [3단계: 가상 배열 이미지 다운로드](storsimple-virtual-array-deploy1-portal-prep.md)를 참조하세요.
 
   > [!IMPORTANT]
   > StorSimple 가상 배열에서 실행되는 소프트웨어는 StorSimple 디바이스 관리자 서비스와 함께 사용해야 합니다.
@@ -83,7 +83,7 @@ ms.locfileid: "68516786"
 * 네트워크 인터페이스 하나
 * 시스템 데이터용 가상 디스크 500GB
 
-## <a name="step-2-provision-a-virtual-array-in-hypervisor"></a>2단계: 하이퍼바이저에서 가상 배열 프로비저닝
+## <a name="step-2-provision-a-virtual-array-in-hypervisor"></a>2단계: 하이퍼바이저에서 가상 배열 프로비전
 하이퍼바이저에서 디바이스를 프로비전하려면 다음 단계를 수행합니다.
 
 #### <a name="to-provision-a-virtual-array"></a>가상 배열을 프로비전하려면
@@ -208,7 +208,7 @@ ms.locfileid: "68516786"
        >
        >
 
-디바이스가 최소 구성 요구 사항을 충족하지 못하면 아래 표시된 배너 텍스트에 다음 오류가 표시됩니다. 머신이 최소 요구 사항을 충족하기에 충분한 리소스를 확보하도록 디바이스 구성을 수정합니다. 그런 다음, 다시 시작하고 디바이스에 연결합니다. 1단계: 호스트 시스템이 최소 가상 배열 요구 사항을 충족하는지 확인의 최소 구성 요구 사항을 참조합니다.
+디바이스가 최소 구성 요구 사항을 충족하지 못하면 아래 표시된 배너 텍스트에 다음 오류가 표시됩니다. 머신이 최소 요구 사항을 충족하기에 충분한 리소스를 확보하도록 디바이스 구성을 수정합니다. 그런 다음, 다시 시작하고 디바이스에 연결합니다. 1 단계: 호스트 시스템이 최소 가상 배열 요구 사항을 충족 하는지 확인에서 최소 구성 요구 사항을 참조 하세요.
 
 ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image32.png)
 

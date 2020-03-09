@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
 ms.openlocfilehash: 00d260a74807774d5bf226c3ec00a6b84f93b8d1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75478800"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78360055"
 ---
 # <a name="manage-azure-resources-by-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure 리소스 관리
 
@@ -19,7 +19,7 @@ ms.locfileid: "75478800"
 리소스 관리에 대 한 다른 문서:
 
 - [Azure CLI를 사용 하 여 Azure 리소스 관리](manage-resources-cli.md)
-- [Azure PowerShell를 사용 하 여 Azure 리소스 관리](manage-resources-powershell.md)
+- [Azure PowerShell을 사용하여 Azure 리소스 관리](manage-resources-powershell.md)
 
 [!INCLUDE [Handle personal data](../../../includes/gdpr-intro-sentence.md)]
 
@@ -112,7 +112,7 @@ Azure 리소스는 Azure 서비스 및 리소스 그룹별로 구성 됩니다. 
 
 그래프의 오른쪽 위 모퉁이에 있는 고정 아이콘을 선택 하 여 그래프를 대시보드에 고정할 수 있습니다. 대시보드를 사용하는 방법을 알아보려면 [Azure 포털에서 대시보드 만들기 및 공유](../../azure-portal/azure-portal-dashboards.md)를 참조하세요.
 
-## <a name="manage-access-to-resources"></a>리소스에 대한 액세스 관리
+## <a name="manage-access-to-resources"></a>리소스에 대 한 액세스 관리
 
 [RBAC(역할 기반 액세스 제어)](../../role-based-access-control/overview.md)는 Azure에서 리소스에 대한 액세스를 관리하는 방법입니다. 자세한 내용은 [RBAC 및 Azure Portal을 사용하여 액세스 관리](../../role-based-access-control/role-assignments-portal.md)를 참조하세요.
 

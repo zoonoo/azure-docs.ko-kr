@@ -17,11 +17,11 @@ ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
 ms.openlocfilehash: eb44163922e318d17d675143ca2d6a3a1fa4ed75
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793329"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78363519"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking-using-azure-cli"></a>Azure CLI를 사용 하는 가속화 된 네트워킹을 사용 하 여 Linux 가상 머신 만들기
 
@@ -35,7 +35,7 @@ ms.locfileid: "74793329"
 
 가속화된 네트워킹의 이점은 사용하도록 설정된 VM에만 적용된다는 것입니다. 최상의 결과를 얻으려면 동일한 Azure VNet(Virtual Network)에 연결된 둘 이상의 VM에서 이 기능을 사용하도록 설정하는 것이 좋습니다. VNet에서 통신하거나 온-프레미스에 연결할 때 이 기능을 사용하면 전체 대기 시간에 미치는 영향을 최소화할 수 있습니다.
 
-## <a name="benefits"></a>혜택
+## <a name="benefits"></a>이점
 * **더 낮은 대기 시간/더 높은 초당 패킷 수(pps):** 데이터 경로에서 가상 스위치를 제거하면 패킷이 정채 처리를 위해 호스트에서 소요하는 시간이 제거되고 VM 내에서 처리될 수 있는 패킷 수가 늘어납니다.
 * **감소된 지터:** 가상 스위치 처리는 적용해야 하는 정책의 양과 처리를 수행하는 CPU의 워크로드에 따라 달라집니다. 정책 적용을 하드웨어로 오프로드하면 패킷이 VM으로 직접 전달되고, 호스트-VM 통신과 모든 소프트웨어 인터럽트 및 컨텍스트 전환이 제거되어 이러한 가변성이 해소됩니다.
 * **CPU 사용률 감소:** 호스트의 가상 스위치를 무시하면 네트워크 트래픽 처리에 사용되는 CPU가 감소됩니다.
@@ -58,14 +58,14 @@ ms.locfileid: "74793329"
 ### <a name="supported-vm-instances"></a>지원되는 VM 인스턴스
 가속 네트워킹은 가장 일반적인 용도로 2개 이상의 vCPU가 포함된 계산 최적화 인스턴스 크기에서 지원됩니다.  이러한 지원되는 계열은 D/DSv2 및 F/Fs입니다.
 
-하이퍼스레딩을 지원하는 인스턴스에서 가속화된 네트워킹은 4개 이상의 vCPU가 포함된 VM 인스턴스에서 지원됩니다. 지원 되는 시리즈는 D/Dsv3, E/Esv3, Fsv2, Lsv2, Ms/Mms 및 Ms/Mmsv2입니다.
+하이퍼스레딩을 지원하는 인스턴스에서 가속 네트워킹은 4개 이상의 vCPU가 포함된 VM 인스턴스에서 지원됩니다. 지원 되는 시리즈는 D/Dsv3, E/Esv3, Fsv2, Lsv2, Ms/Mms 및 Ms/Mmsv2입니다.
 
 VM 인스턴스에 대한 자세한 내용은 [Linux VM 크기](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
 
 ### <a name="custom-images"></a>사용자 지정 이미지
 사용자 지정 이미지를 사용 하 고 이미지가 가속화 된 네트워킹을 지 원하는 경우 Azure에서 Mellanox Connectx-3-3 및 Connectx-3-4 Lx Nic와 함께 작동 하는 데 필요한 드라이버가 있는지 확인 하세요.
 
-### <a name="regions"></a>개 지역
+### <a name="regions"></a>영역
 모든 공용 Azure 지역 및 Azure Government 클라우드에서 사용할 수 있습니다.
 
 <!-- ### Network interface creation 
@@ -74,7 +74,7 @@ removed per issue https://github.com/MicrosoftDocs/azure-docs/issues/9772 -->
 ### <a name="enabling-accelerated-networking-on-a-running-vm"></a>실행 중인 VM에서 가속 네트워킹 사용
 가속 네트워킹을 사용하지 않고 지원되는 VM 크기에서는 기능이 중지되고 할당이 취소된 경우에만 사용하도록 설정할 수 있습니다.  
 ### <a name="deployment-through-azure-resource-manager"></a>Azure Resource Manager를 통한 배포
-가속화된 네트워킹을 사용하여 가상 머신(클래식)을 배포할 수 없습니다.
+가속 네트워킹을 사용하여 가상 머신(클래식)을 배포할 수 없습니다.
 
 ## <a name="create-a-linux-vm-with-azure-accelerated-networking"></a>Azure 가속 네트워킹을 사용하여 Linux VM 만들기
 ## <a name="portal-creation"></a>포털 만들기
@@ -192,7 +192,7 @@ VM을 만들면 다음 예제 출력과 유사한 출력이 반환됩니다. **p
 
 ### <a name="confirm-that-accelerated-networking-is-enabled"></a>가속 네트워킹을 사용할 수 있는지 확인합니다.
 
-다음 명령을 사용하여 VM으로 SSH 세션을 만듭니다. `<your-public-ip-address>`를 만든 가상 머신에 할당된 공용 IP 주소와 바꾸고, VM을 만들 때 `--admin-username`에 다른 값을 사용한 경우 *azureuser*를 바꿉니다.
+다음 명령을 사용하여 VM으로 SSH 세션을 만듭니다. `<your-public-ip-address>`를 만든 가상 머신에 할당된 공용 IP 주소와 바꾸고, VM을 만들 때 *에 다른 값을 사용한 경우* azureuser`--admin-username`를 바꿉니다.
 
 ```bash
 ssh azureuser@<your-public-ip-address>

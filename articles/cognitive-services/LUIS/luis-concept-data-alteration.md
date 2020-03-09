@@ -4,11 +4,11 @@ description: Language Understanding(LUIS)에서 예측 전에 데이터를 변�
 ms.topic: conceptual
 ms.date: 02/11/2020
 ms.openlocfilehash: 5547724a6333d248a7ba4e9aeecaaa8f331feb7d
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77148269"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78361190"
 ---
 # <a name="alter-utterance-data-before-or-during-prediction"></a>예측 이전 또는 도중에 발언 데이터 변경
 LUIS는 예측 전이나 예측 중에 발화를 조작할 수 있는 방법을 제공합니다. 여기에는 미리 작성 한 [datetimeV2](luis-reference-prebuilt-datetimev2.md)에 대 한 [맞춤법 수정](luis-tutorial-bing-spellcheck.md), 표준 시간대 문제 해결 등이 포함 됩니다.
@@ -35,7 +35,7 @@ LUIS는 [Bing Spell Check API V7](../Bing-Spell-Check/overview.md)을 사용하�
 
 [Bing Spell Check API V7](https://azure.microsoft.com/services/cognitive-services/spell-check/)에서 오류를 검색하면 원래 발화와 수정된 발화가 엔드포인트의 예측과 함께 반환됩니다.
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 예측 엔드포인트 응답](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[V2 예측 엔드포인트 응답](#tab/V2)
 
 ```JSON
 {
@@ -49,7 +49,7 @@ LUIS는 [Bing Spell Check API V7](../Bing-Spell-Check/overview.md)을 사용하�
 }
 ```
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 예측 엔드포인트 응답](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[V3 예측 엔드포인트 응답](#tab/V3)
 
 ```JSON
 {
@@ -85,7 +85,7 @@ LUIS 앱이 미리 작성 된 [datetimeV2](luis-reference-prebuilt-datetimev2.md
 ### <a name="daylight-savings-example"></a>일광 절약 시간제 예제
 반환된 미리 빌드된 datetimeV2를 일광 절약 시간제에 맞게 조정해야 하는 경우, 분 단위의 +/- 값과 함께 `timezoneOffset` 쿼리 문자열 매개 변수를 [엔드포인트](https://go.microsoft.com/fwlink/?linkid=2092356) 쿼리에 사용해야 합니다.
 
-#### <a name="v2-prediction-endpoint-requesttabv2"></a>[V2 예측 엔드포인트 요청](#tab/V2)
+#### <a name="v2-prediction-endpoint-request"></a>[V2 예측 엔드포인트 요청](#tab/V2)
 
 60분 추가:
 
@@ -95,7 +95,7 @@ https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/{appId}?q=Turn the l
 
 https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/{appId}?q=Turn the lights on?**timezoneOffset=-60**&verbose={boolean}&spellCheck={boolean}&staging={boolean}&bing-spell-check-subscription-key={string}&log={boolean}
 
-#### <a name="v3-prediction-endpoint-requesttabv3"></a>[V3 예측 엔드포인트 요청](#tab/V3)
+#### <a name="v3-prediction-endpoint-request"></a>[V3 예측 엔드포인트 요청](#tab/V3)
 
 60분 추가:
 
