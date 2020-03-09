@@ -9,11 +9,11 @@ ms.date: 04/08/2019
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: 201d0c0a545c5ba7ae1bb0b5e119f7acb1ae362f
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029959"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78363911"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Azure Import/Export 서비스를 사용하여 Azure Files로 데이터 가져오기
 
@@ -115,7 +115,7 @@ Import/Export 서비스는 Azure Storage로 Azure Files의 가져오기만을 �
 ## <a name="step-2-create-an-import-job"></a>2단계: 가져오기 작업 만들기
 
 다음 단계를 수행하여 Azure Portal에서 가져오기 작업을 만듭니다.
-1. https://portal.azure.com/ 에 로그온합니다.
+1. https://portal.azure.com/에 로그온합니다.
 2. **모든 서비스 &gt; 스토리지 &gt; 작업 가져오기/내보내기**로 차례로 이동합니다.
 
     ![가져오기/내보내기로 이동](./media/storage-import-export-data-to-blobs/import-to-blob1.png)

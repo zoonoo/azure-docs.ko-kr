@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: atsenthi
 ms.openlocfilehash: 9dd60a5898b648215fc8b26e49a706a7b19dfeeb
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75610083"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78386277"
 ---
 # <a name="scaling-azure-service-fabric-clusters"></a>Azure Service Fabric 클러스터 크기 조정
 Service Fabric 클러스터는 마이크로 서비스가 배포되고 관리되는 네트워크로 연결된 가상 또는 실제 머신 집합입니다. 클러스터의 일부인 머신 또는 VM을 노드라고 합니다. 클러스터는 잠재적으로 수천 개의 노드를 포함할 수 있습니다. Service Fabric 클러스터를 만든 후에 수평으로(노드 수 변경) 또는 수직으로(노드의 리소스 변경) 클러스터 크기를 조정할 수 있습니다.  클러스터에서 워크로드가 실행되는 경우에도 언제든지 클러스터의 크기를 조정할 수 있습니다.  클러스터의 크기를 조정하면 애플리케이션 크기도 자동으로 조정됩니다.

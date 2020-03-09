@@ -14,11 +14,11 @@ ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: hirsin, jlu, annaba
 ms.openlocfilehash: 0b2b9dbe52a5696f21b287402fc4cbaa32b29c73
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77461201"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78377788"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Azure Active Directory에서 구성 가능한 토큰 수명(미리 보기)
 
@@ -83,7 +83,7 @@ Azure AD는 두 종류의 SSO 세션 토큰을 사용합니다. 하나는 영구
 토큰 수명 정책은 토큰 수명 규칙을 포함하는 정책 개체의 형식입니다. 정책의 속성을 사용하여 지정된 토큰 수명을 제어할 수 있습니다. 설정된 정책이 없는 경우 시스템에서 기본 수명값을 적용합니다.
 
 ### <a name="configurable-token-lifetime-properties"></a>구성 가능한 토큰 수명 속성
-| 속성 | 정책 속성 문자열 | 영향 | 기본 | 최소 | 최대값 |
+| 속성 | 정책 속성 문자열 | 영향 | 기본값 | 최소 | 최대 |
 | --- | --- | --- | --- | --- | --- |
 | 액세스 토큰 수명 |AccessTokenLifetime<sup>2</sup> |액세스 토큰, ID 토큰, SAML2 토큰 |1시간 |10분 |1일 |
 | 새로 고침 토큰 최대 비활성 시간 |MaxInactiveTime |새로 고침 토큰 |90일 |10분 |90일 |
@@ -96,7 +96,7 @@ Azure AD는 두 종류의 SSO 세션 토큰을 사용합니다. 하나는 영구
 * <sup>2</sup> Microsoft 팀 웹 클라이언트의 작동을 보장 하려면 Microsoft 팀에 대해 15 분 이상 AccessTokenLifetime를 유지 하는 것이 좋습니다.
 
 ### <a name="exceptions"></a>예외
-| 속성 | 영향 | 기본 |
+| 속성 | 영향 | 기본값 |
 | --- | --- | --- |
 | 새로 고침 토큰 최대 기간(해지 정보가 부족한 페더레이션된 사용자에 대해 발급됨<sup>1</sup>) |새로 고침 토큰(해지 정보가 부족한 페더레이션된 사용자에 대해 발급됨<sup>1</sup>) |12시간 |
 | 새로 고침 토큰 최대 비활성 시간(비밀 클라이언트에 대해 발급됨) |새로 고침 토큰(비밀 클라이언트에 대해 발급됨) |90일 |
@@ -208,7 +208,7 @@ Azure AD는 두 종류의 SSO 세션 토큰을 사용합니다. 하나는 영구
 * web API를 호출하는 네이티브 앱에 대한 정책 만들기
 * 고급 정책 관리
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>사전 요구 사항
 다음 예제에서는 앱, 서비스 주체 및 조직 전체에 대한 정책을 만들고, 업데이트하고, 연결하고, 삭제해 보겠습니다. Azure AD을 처음 접하는 분들은 [Azure AD 테넌트를 가져오는 방법](quickstart-create-new-tenant.md)을 살펴본 후 예제를 진행하는 것이 좋습니다.  
 
 시작하려면 다음 단계 중 하나를 수행합니다.
@@ -387,7 +387,7 @@ Azure AD는 두 종류의 SSO 세션 토큰을 사용합니다. 하나는 영구
 New-AzureADPolicy -Definition <Array of Rules> -DisplayName <Name of Policy> -IsOrganizationDefault <boolean> -Type <Policy Type>
 ```
 
-| 매개 변수 | 설명 | 예제 |
+| 매개 변수 | Description | 예제 |
 | --- | --- | --- |
 | <code>&#8209;Definition</code> |정책의 모든 규칙을 포함하는 문자열로 변환된 JSON 배열입니다. | `-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
 | <code>&#8209;DisplayName</code> |정책 이름의 문자열입니다. |`-DisplayName "MyTokenPolicy"` |
@@ -404,7 +404,7 @@ New-AzureADPolicy -Definition <Array of Rules> -DisplayName <Name of Policy> -Is
 Get-AzureADPolicy
 ```
 
-| 매개 변수 | 설명 | 예제 |
+| 매개 변수 | Description | 예제 |
 | --- | --- | --- |
 | <code>&#8209;Id</code>[선택 사항] |원하는 정책의 **ObjectId (ID)** 입니다. |`-Id <ObjectId of Policy>` |
 
@@ -417,7 +417,7 @@ Get-AzureADPolicy
 Get-AzureADPolicyAppliedObject -Id <ObjectId of Policy>
 ```
 
-| 매개 변수 | 설명 | 예제 |
+| 매개 변수 | Description | 예제 |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |원하는 정책의 **ObjectId (ID)** 입니다. |`-Id <ObjectId of Policy>` |
 
@@ -430,7 +430,7 @@ Get-AzureADPolicyAppliedObject -Id <ObjectId of Policy>
 Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName <string>
 ```
 
-| 매개 변수 | 설명 | 예제 |
+| 매개 변수 | Description | 예제 |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |원하는 정책의 **ObjectId (ID)** 입니다. |`-Id <ObjectId of Policy>` |
 | <code>&#8209;DisplayName</code> |정책 이름의 문자열입니다. |`-DisplayName "MyTokenPolicy"` |
@@ -448,7 +448,7 @@ Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName <string>
  Remove-AzureADPolicy -Id <ObjectId of Policy>
 ```
 
-| 매개 변수 | 설명 | 예제 |
+| 매개 변수 | Description | 예제 |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |원하는 정책의 **ObjectId (ID)** 입니다. | `-Id <ObjectId of Policy>` |
 
@@ -464,7 +464,7 @@ Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName <string>
 Add-AzureADApplicationPolicy -Id <ObjectId of Application> -RefObjectId <ObjectId of Policy>
 ```
 
-| 매개 변수 | 설명 | 예제 |
+| 매개 변수 | Description | 예제 |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |응용 프로그램의 **ObjectId (ID)** 입니다. | `-Id <ObjectId of Application>` |
 | <code>&#8209;RefObjectId</code> |정책의 **ObjectId**입니다. | `-RefObjectId <ObjectId of Policy>` |
@@ -478,7 +478,7 @@ Add-AzureADApplicationPolicy -Id <ObjectId of Application> -RefObjectId <ObjectI
 Get-AzureADApplicationPolicy -Id <ObjectId of Application>
 ```
 
-| 매개 변수 | 설명 | 예제 |
+| 매개 변수 | Description | 예제 |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |응용 프로그램의 **ObjectId (ID)** 입니다. | `-Id <ObjectId of Application>` |
 
@@ -491,7 +491,7 @@ Get-AzureADApplicationPolicy -Id <ObjectId of Application>
 Remove-AzureADApplicationPolicy -Id <ObjectId of Application> -PolicyId <ObjectId of Policy>
 ```
 
-| 매개 변수 | 설명 | 예제 |
+| 매개 변수 | Description | 예제 |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |응용 프로그램의 **ObjectId (ID)** 입니다. | `-Id <ObjectId of Application>` |
 | <code>&#8209;PolicyId</code> |정책의 **ObjectId**입니다. | `-PolicyId <ObjectId of Policy>` |
@@ -508,7 +508,7 @@ Remove-AzureADApplicationPolicy -Id <ObjectId of Application> -PolicyId <ObjectI
 Add-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal> -RefObjectId <ObjectId of Policy>
 ```
 
-| 매개 변수 | 설명 | 예제 |
+| 매개 변수 | Description | 예제 |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |응용 프로그램의 **ObjectId (ID)** 입니다. | `-Id <ObjectId of Application>` |
 | <code>&#8209;RefObjectId</code> |정책의 **ObjectId**입니다. | `-RefObjectId <ObjectId of Policy>` |
@@ -522,7 +522,7 @@ Add-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal> -RefObjectI
 Get-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>
 ```
 
-| 매개 변수 | 설명 | 예제 |
+| 매개 변수 | Description | 예제 |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |응용 프로그램의 **ObjectId (ID)** 입니다. | `-Id <ObjectId of Application>` |
 
@@ -535,7 +535,7 @@ Get-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>
 Remove-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>  -PolicyId <ObjectId of Policy>
 ```
 
-| 매개 변수 | 설명 | 예제 |
+| 매개 변수 | Description | 예제 |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |응용 프로그램의 **ObjectId (ID)** 입니다. | `-Id <ObjectId of Application>` |
 | <code>&#8209;PolicyId</code> |정책의 **ObjectId**입니다. | `-PolicyId <ObjectId of Policy>` |

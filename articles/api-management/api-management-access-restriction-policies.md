@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
 ms.openlocfilehash: 3ba620d66b84e6724751b2024059e8ecd66888cd
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75902511"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78374250"
 ---
 # <a name="api-management-access-restriction-policies"></a>API Management 액세스 제한 정책
 
@@ -50,7 +50,7 @@ ms.locfileid: "75902511"
 </check-header>
 ```
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 ```xml
 <check-header name="Authorization" failed-check-httpcode="401" failed-check-error-message="Not authorized" ignore-case="false">
@@ -60,21 +60,21 @@ ms.locfileid: "75902511"
 
 ### <a name="elements"></a>요소
 
-| 이름         | Description                                                                                                                                   | 필수 |
+| 속성         | Description                                                                                                                                   | 필수 |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| check-header | 루트 요소입니다.                                                                                                                                 | 예      |
-| 값        | 허용된 HTTP 헤더 값입니다. 여러 값 요소가 지정된 경우 값 중 하나와 일치하면 확인에 성공한 것으로 간주됩니다. | 아닙니다.       |
+| check-header | 루트 요소입니다.                                                                                                                                 | yes      |
+| 값        | 허용된 HTTP 헤더 값입니다. 여러 값 요소가 지정된 경우 값 중 하나와 일치하면 확인에 성공한 것으로 간주됩니다. | 예       |
 
 ### <a name="attributes"></a>특성
 
-| 이름                       | Description                                                                                                                                                            | 필수 | 기본값 |
+| 속성                       | Description                                                                                                                                                            | 필수 | 기본값 |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| failed-check-error-message | 헤더가 없거나 잘못된 값이 있는 경우 HTTP 응답 본문에 반환할 오류 메시지입니다. 이 메시지는 적절히 이스케이프된 특수 문자를 포함해야 합니다. | 예      | N/A     |
-| failed-check-httpcode      | 헤더가 없거나 잘못된 값이 있는 경우 반환할 HTTP 상태 코드입니다.                                                                                        | 예      | N/A     |
-| header-name                | 확인할 HTTP 헤더의 이름입니다.                                                                                                                                  | 예      | N/A     |
-| ignore-case                | True 또는 False로 설정할 수 있습니다. True로 설정되면 헤더 값을 허용 가능한 값 집합과 비교할 때 대소문자가 무시됩니다.                                    | 예      | N/A     |
+| failed-check-error-message | 헤더가 없거나 잘못된 값이 있는 경우 HTTP 응답 본문에 반환할 오류 메시지입니다. 이 메시지는 적절히 이스케이프된 특수 문자를 포함해야 합니다. | yes      | 해당 없음     |
+| failed-check-httpcode      | 헤더가 없거나 잘못된 값이 있는 경우 반환할 HTTP 상태 코드입니다.                                                                                        | yes      | 해당 없음     |
+| header-name                | 확인할 HTTP 헤더의 이름입니다.                                                                                                                                  | yes      | 해당 없음     |
+| ignore-case                | True 또는 False로 설정할 수 있습니다. True로 설정되면 헤더 값을 허용 가능한 값 집합과 비교할 때 대소문자가 무시됩니다.                                    | yes      | 해당 없음     |
 
-### <a name="usage"></a>사용량
+### <a name="usage"></a>사용
 
 이 정책은 다음과 같은 정책 [섹션](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.
 
@@ -104,7 +104,7 @@ ms.locfileid: "75902511"
 </rate-limit>
 ```
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 ```xml
 <policies>
@@ -120,21 +120,21 @@ ms.locfileid: "75902511"
 
 ### <a name="elements"></a>요소
 
-| 이름       | Description                                                                                                                                                                                                                                                                                              | 필수 |
+| 속성       | Description                                                                                                                                                                                                                                                                                              | 필수 |
 | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| rate-limit | 루트 요소입니다.                                                                                                                                                                                                                                                                                            | 예      |
-| api        | 이러한 요소 중 하나 이상을 추가 하 여 제품 내에서 Api에 대 한 호출 요금 제한을 적용 합니다. 제품 및 API 호출 속도 제한은 독립적으로 적용됩니다. API는 `name` 또는 `id`를 통해 참조할 수 있습니다. 두 특성이 모두 제공되면 `id`는 사용되지만 `name`은 무시됩니다.                    | 아닙니다.       |
-| operation(작업)  | API 내에서 작업에 대 한 호출 요금 제한을 적용 하려면 이러한 요소 중 하나 이상을 추가 합니다. 제품, API 및 작업 호출 속도 제한은 독립적으로 적용됩니다. 작업은 `name` 또는 `id`를 통해 참조할 수 있습니다. 두 특성이 모두 제공되면 `id`는 사용되지만 `name`은 무시됩니다. | 아닙니다.       |
+| rate-limit | 루트 요소입니다.                                                                                                                                                                                                                                                                                            | yes      |
+| api        | 이러한 요소 중 하나 이상을 추가 하 여 제품 내에서 Api에 대 한 호출 요금 제한을 적용 합니다. 제품 및 API 호출 속도 제한은 독립적으로 적용됩니다. API는 `name` 또는 `id`를 통해 참조할 수 있습니다. 두 특성이 모두 제공되면 `id`는 사용되지만 `name`은 무시됩니다.                    | 예       |
+| operation(작업)  | API 내에서 작업에 대 한 호출 요금 제한을 적용 하려면 이러한 요소 중 하나 이상을 추가 합니다. 제품, API 및 작업 호출 속도 제한은 독립적으로 적용됩니다. 작업은 `name` 또는 `id`를 통해 참조할 수 있습니다. 두 특성이 모두 제공되면 `id`는 사용되지만 `name`은 무시됩니다. | 예       |
 
 ### <a name="attributes"></a>특성
 
-| 이름           | Description                                                                                           | 필수 | 기본값 |
+| 속성           | Description                                                                                           | 필수 | 기본값 |
 | -------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
-| name           | 속도 제한을 적용할 API의 이름입니다.                                                | 예      | N/A     |
-| calls          | `renewal-period`에 지정된 시간 간격 동안 허용된 전체 최대 호출 수입니다. | 예      | N/A     |
-| renewal-period | 할당량이 재설정되는 초 단위의 기간입니다.                                              | 예      | N/A     |
+| name           | 속도 제한을 적용할 API의 이름입니다.                                                | yes      | 해당 없음     |
+| calls          | `renewal-period`에 지정된 시간 간격 동안 허용된 전체 최대 호출 수입니다. | yes      | 해당 없음     |
+| renewal-period | 할당량이 재설정되는 초 단위의 기간입니다.                                              | yes      | 해당 없음     |
 
-### <a name="usage"></a>사용량
+### <a name="usage"></a>사용
 
 이 정책은 다음과 같은 정책 [섹션](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.
 
@@ -164,7 +164,7 @@ ms.locfileid: "75902511"
 
 ```
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 다음 예제에서 속도 제한은 호출자 IP 주소를 키로 사용합니다.
 
@@ -185,20 +185,20 @@ ms.locfileid: "75902511"
 
 ### <a name="elements"></a>요소
 
-| 이름              | Description   | 필수 |
+| 속성              | Description   | 필수 |
 | ----------------- | ------------- | -------- |
-| rate-limit-by-key | 루트 요소입니다. | 예      |
+| 요율-키로 제한 | 루트 요소입니다. | yes      |
 
 ### <a name="attributes"></a>특성
 
-| 이름                | Description                                                                                           | 필수 | 기본값 |
+| 속성                | Description                                                                                           | 필수 | 기본값 |
 | ------------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
-| calls               | `renewal-period`에 지정된 시간 간격 동안 허용된 전체 최대 호출 수입니다. | 예      | N/A     |
-| counter-key         | 속도 제한 정책에 사용할 키입니다.                                                             | 예      | N/A     |
-| increment-condition | 요청을 할당량에 포함할지를 지정하는 부울 식입니다(`true`).        | 아닙니다.       | N/A     |
-| renewal-period      | 할당량이 재설정되는 초 단위의 기간입니다.                                              | 예      | N/A     |
+| calls               | `renewal-period`에 지정된 시간 간격 동안 허용된 전체 최대 호출 수입니다. | yes      | 해당 없음     |
+| counter-key         | 속도 제한 정책에 사용할 키입니다.                                                             | yes      | 해당 없음     |
+| increment-condition | 요청을 할당량에 포함할지를 지정하는 부울 식입니다(`true`).        | 예       | 해당 없음     |
+| renewal-period      | 할당량이 재설정되는 초 단위의 기간입니다.                                              | yes      | 해당 없음     |
 
-### <a name="usage"></a>사용량
+### <a name="usage"></a>사용
 
 이 정책은 다음과 같은 정책 [섹션](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.
 
@@ -219,7 +219,7 @@ ms.locfileid: "75902511"
 </ip-filter>
 ```
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 다음 예제에서 정책은 단일 IP 주소 또는 지정 된 IP 주소 범위에서 들어오는 요청만 허용 합니다.
 
@@ -232,20 +232,20 @@ ms.locfileid: "75902511"
 
 ### <a name="elements"></a>요소
 
-| 이름                                      | Description                                         | 필수                                                       |
+| 속성                                      | Description                                         | 필수                                                       |
 | ----------------------------------------- | --------------------------------------------------- | -------------------------------------------------------------- |
-| ip-filter                                 | 루트 요소입니다.                                       | 예                                                            |
+| ip-filter                                 | 루트 요소입니다.                                       | yes                                                            |
 | address                                   | 필터링할 단일 IP 주소를 지정합니다.   | 하나 이상의 `address` 또는 `address-range` 요소가 필요합니다. |
 | address-range from="address" to="address" | 필터링할 IP 주소 범위를 지정합니다. | 하나 이상의 `address` 또는 `address-range` 요소가 필요합니다. |
 
 ### <a name="attributes"></a>특성
 
-| 이름                                      | Description                                                                                 | 필수                                           | 기본값 |
+| 속성                                      | Description                                                                                 | 필수                                           | 기본값 |
 | ----------------------------------------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------- |
-| address-range from="address" to="address" | 액세스를 허용 또는 거부할 IP 주소 범위                                        | `address-range` 요소가 사용될 때 필요합니다. | N/A     |
-| ip-filter action="allow &#124; forbid"    | 지정된 IP 주소 및 범위에 대해 호출을 허용해야 할지 여부를 지정합니다. | 예                                                | N/A     |
+| address-range from="address" to="address" | 액세스를 허용 또는 거부할 IP 주소 범위                                        | `address-range` 요소가 사용될 때 필요합니다. | 해당 없음     |
+| ip-filter action="allow &#124; forbid"    | 지정된 IP 주소 및 범위에 대해 호출을 허용해야 할지 여부를 지정합니다. | yes                                                | 해당 없음     |
 
-### <a name="usage"></a>사용량
+### <a name="usage"></a>사용
 
 이 정책은 다음과 같은 정책 [섹션](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.
 
@@ -271,7 +271,7 @@ ms.locfileid: "75902511"
 </quota>
 ```
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 ```xml
 <policies>
@@ -287,22 +287,22 @@ ms.locfileid: "75902511"
 
 ### <a name="elements"></a>요소
 
-| 이름      | Description                                                                                                                                                                                                                                                                                  | 필수 |
+| 속성      | Description                                                                                                                                                                                                                                                                                  | 필수 |
 | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| quota     | 루트 요소입니다.                                                                                                                                                                                                                                                                                | 예      |
-| api       | 제품 내에서 Api에 대 한 호출 할당량을 적용 하려면 이러한 요소 중 하나 이상을 추가 합니다. 제품 및 API 호출 할당량은 독립적으로 적용됩니다. API는 `name` 또는 `id`를 통해 참조할 수 있습니다. 두 특성이 모두 제공되면 `id`는 사용되지만 `name`은 무시됩니다.                    | 아닙니다.       |
-| operation(작업) | API 내에서 작업에 대 한 호출 할당량을 적용 하려면 이러한 요소 중 하나 이상을 추가 합니다. 제품, API 및 작업 호출 할당량은 독립적으로 적용됩니다. 작업은 `name` 또는 `id`를 통해 참조할 수 있습니다. 두 특성이 모두 제공되면 `id`는 사용되지만 `name`은 무시됩니다. | 아닙니다.       |
+| quota     | 루트 요소입니다.                                                                                                                                                                                                                                                                                | yes      |
+| api       | 제품 내에서 Api에 대 한 호출 할당량을 적용 하려면 이러한 요소 중 하나 이상을 추가 합니다. 제품 및 API 호출 할당량은 독립적으로 적용됩니다. API는 `name` 또는 `id`를 통해 참조할 수 있습니다. 두 특성이 모두 제공되면 `id`는 사용되지만 `name`은 무시됩니다.                    | 예       |
+| operation(작업) | API 내에서 작업에 대 한 호출 할당량을 적용 하려면 이러한 요소 중 하나 이상을 추가 합니다. 제품, API 및 작업 호출 할당량은 독립적으로 적용됩니다. 작업은 `name` 또는 `id`를 통해 참조할 수 있습니다. 두 특성이 모두 제공되면 `id`는 사용되지만 `name`은 무시됩니다. | 예       |
 
 ### <a name="attributes"></a>특성
 
-| 이름           | Description                                                                                               | 필수                                                         | 기본값 |
+| 속성           | Description                                                                                               | 필수                                                         | 기본값 |
 | -------------- | --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | ------- |
-| name           | 할당량이 적용되는 API 또는 작업의 이름입니다.                                             | 예                                                              | N/A     |
-| bandwidth      | `renewal-period`에 지정된 시간 간격 동안 허용된 전체 최대 킬로바이트 수입니다. | `calls`, `bandwidth` 또는 둘 다 함께 지정해야 합니다. | N/A     |
-| calls          | `renewal-period`에 지정된 시간 간격 동안 허용된 전체 최대 호출 수입니다.     | `calls`, `bandwidth` 또는 둘 다 함께 지정해야 합니다. | N/A     |
-| renewal-period | 할당량이 재설정되는 초 단위의 기간입니다.                                                  | 예                                                              | N/A     |
+| name           | 할당량이 적용되는 API 또는 작업의 이름입니다.                                             | yes                                                              | 해당 없음     |
+| bandwidth      | `renewal-period`에 지정된 시간 간격 동안 허용된 전체 최대 킬로바이트 수입니다. | `calls`, `bandwidth` 또는 둘 다 함께 지정해야 합니다. | 해당 없음     |
+| calls          | `renewal-period`에 지정된 시간 간격 동안 허용된 전체 최대 호출 수입니다.     | `calls`, `bandwidth` 또는 둘 다 함께 지정해야 합니다. | 해당 없음     |
+| renewal-period | 할당량이 재설정되는 초 단위의 기간입니다.                                                  | yes                                                              | 해당 없음     |
 
-### <a name="usage"></a>사용량
+### <a name="usage"></a>사용
 
 이 정책은 다음과 같은 정책 [섹션](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.
 
@@ -329,7 +329,7 @@ ms.locfileid: "75902511"
 
 ```
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 다음 예제에서 할당량은 호출자 IP 주소를 키로 사용합니다.
 
@@ -349,21 +349,21 @@ ms.locfileid: "75902511"
 
 ### <a name="elements"></a>요소
 
-| 이름  | Description   | 필수 |
+| 속성  | Description   | 필수 |
 | ----- | ------------- | -------- |
-| quota | 루트 요소입니다. | 예      |
+| quota | 루트 요소입니다. | yes      |
 
 ### <a name="attributes"></a>특성
 
-| 이름                | Description                                                                                               | 필수                                                         | 기본값 |
+| 속성                | Description                                                                                               | 필수                                                         | 기본값 |
 | ------------------- | --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | ------- |
-| bandwidth           | `renewal-period`에 지정된 시간 간격 동안 허용된 전체 최대 킬로바이트 수입니다. | `calls`, `bandwidth` 또는 둘 다 함께 지정해야 합니다. | N/A     |
-| calls               | `renewal-period`에 지정된 시간 간격 동안 허용된 전체 최대 호출 수입니다.     | `calls`, `bandwidth` 또는 둘 다 함께 지정해야 합니다. | N/A     |
-| counter-key         | 할당량 정책에 사용할 키입니다.                                                                      | 예                                                              | N/A     |
-| increment-condition | 요청을 할당량에 포함할지를 지정하는 부울 식입니다(`true`).             | 아닙니다.                                                               | N/A     |
-| renewal-period      | 할당량이 재설정되는 초 단위의 기간입니다.                                                  | 예                                                              | N/A     |
+| bandwidth           | `renewal-period`에 지정된 시간 간격 동안 허용된 전체 최대 킬로바이트 수입니다. | `calls`, `bandwidth` 또는 둘 다 함께 지정해야 합니다. | 해당 없음     |
+| calls               | `renewal-period`에 지정된 시간 간격 동안 허용된 전체 최대 호출 수입니다.     | `calls`, `bandwidth` 또는 둘 다 함께 지정해야 합니다. | 해당 없음     |
+| counter-key         | 할당량 정책에 사용할 키입니다.                                                                      | yes                                                              | 해당 없음     |
+| increment-condition | 요청을 할당량에 포함할지를 지정하는 부울 식입니다(`true`).             | 예                                                               | 해당 없음     |
+| renewal-period      | 할당량이 재설정되는 초 단위의 기간입니다.                                                  | yes                                                              | 해당 없음     |
 
-### <a name="usage"></a>사용량
+### <a name="usage"></a>사용
 
 이 정책은 다음과 같은 정책 [섹션](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.
 
@@ -375,7 +375,7 @@ ms.locfileid: "75902511"
 `validate-jwt` 정책은 지정된 HTTP 헤더 또는 지정된 쿼리 매개 변수에서 추출된 JWT의 존재 및 유효성을 적용합니다.
 
 > [!IMPORTANT]
-> `validate-jwt` 정책에서는 `require-expiration-time` 특정이 지정되지 않고 `false`로 설정된 경우가 아니면 `exp` 등록 클레임이 JWT 토큰에 포함되어야 합니다.
+> `validate-jwt` 정책에서는 `exp` 특정이 지정되지 않고 `require-expiration-time`로 설정된 경우가 아니면 `false` 등록 클레임이 JWT 토큰에 포함되어야 합니다.
 > `validate-jwt` 정책은 HS256 및 RS256 서명 알고리즘을 지원합니다. HS256의 경우 키를 base64 인코딩 양식으로 정책 내에 인라인으로 제공해야 합니다. RS256의 경우 Open ID 구성 엔드포인트를 통해 키를 제공해야 합니다.
 > `validate-jwt` 정책은 A128CBC-HS256, A192CBC-HS384, A256CBC-HS512 암호화 알고리즘을 사용하여 대칭 키로 암호화된 토큰을 지원합니다.
 
@@ -420,7 +420,7 @@ ms.locfileid: "75902511"
 
 ```
 
-### <a name="examples"></a>예시
+### <a name="examples"></a>예
 
 #### <a name="simple-token-validation"></a>단순 토큰 유효성 검사
 
@@ -505,34 +505,34 @@ ms.locfileid: "75902511"
 
 | 요소             | Description                                                                                                                                                                                                                                                                                                                                           | 필수 |
 | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| validate-jwt        | 루트 요소입니다.                                                                                                                                                                                                                                                                                                                                         | 예      |
-| audiences           | 토큰에 제공할 수 있는 허용 가능한 대상 그룹 클레임 목록을 포함합니다. 여러 대상 그룹 값이 있는 경우 각 값은 모든 값이 소진(이 경우 유효성 검사 실패)되거나 한 값이 성공할 때까지 시도됩니다. 한 명 이상의 대상 그룹을 지정해야 합니다.                                                                     | 아닙니다.       |
-| issuer-signing-keys | 서명된 토큰의 유효성을 검사하는 데 사용되는 Base64 인코딩 보안 키의 목록입니다. 보안 키가 여러 개 있는 경우 각 키는 모든 키가 소진(이 경우 유효성 검사 실패)되거나 한 개 키가 성공할 때까지 시도됩니다(토큰 롤오버에 유용함). 키 요소에는 `kid` 클레임에 대한 일치에 사용된 `id` 특성(선택적)이 포함됩니다.               | 아닙니다.       |
-| decryption-keys     | 토큰의 암호를 해독하는 데 사용되는 Base64로 인코딩된 키의 목록입니다. 여러 개의 보안 키가 있는 경우 모든 키가 사용되거나(유효성 검사가 실패한 경우) 키가 성공할 때까지 각 키를 시도합니다. 키 요소에는 `kid` 클레임에 대한 일치에 사용된 `id` 특성(선택적)이 포함됩니다.                                                 | 아닙니다.       |
-| issuers             | 토큰을 발행한 허용 가능한 보안 주체의 목록입니다. 여러 발급자 값이 있는 경우 각 값은 모든 값이 소진(이 경우 유효성 검사 실패)되거나 한 값이 성공할 때까지 시도됩니다.                                                                                                                                         | 아닙니다.       |
-| openid-config       | 서명 키 및 발급자를 획득할 수 있는 준수 Open ID 구성 엔드포인트를 지정하는 데 사용됩니다.                                                                                                                                                                                                                        | 아닙니다.       |
-| required-claims     | 유효성을 고려할 토큰에 있을 것으로 예상되는 클레임 목록을 포함합니다. `match` 특성이 `all`로 설정되면 유효성 검사 성공을 위해 정책에 있는 모든 클레임 값이 토큰에 표시되어야 합니다. `match` 특성이 `any`로 설정되면 유효성 검사 성공을 위해 정책에 있는 모든 클레임 값이 토큰에 표시되어야 합니다. | 아닙니다.       |
+| validate-jwt        | 루트 요소입니다.                                                                                                                                                                                                                                                                                                                                         | yes      |
+| audiences           | 토큰에 제공할 수 있는 허용 가능한 대상 그룹 클레임 목록을 포함합니다. 여러 대상 그룹 값이 있는 경우 각 값은 모든 값이 소진(이 경우 유효성 검사 실패)되거나 한 값이 성공할 때까지 시도됩니다. 한 명 이상의 대상 그룹을 지정해야 합니다.                                                                     | 예       |
+| issuer-signing-keys | 서명된 토큰의 유효성을 검사하는 데 사용되는 Base64 인코딩 보안 키의 목록입니다. 보안 키가 여러 개 있는 경우 각 키는 모든 키가 소진(이 경우 유효성 검사 실패)되거나 한 개 키가 성공할 때까지 시도됩니다(토큰 롤오버에 유용함). 키 요소에는 `id` 클레임에 대한 일치에 사용된 `kid` 특성(선택적)이 포함됩니다.               | 예       |
+| decryption-keys     | 토큰의 암호를 해독하는 데 사용되는 Base64로 인코딩된 키의 목록입니다. 여러 개의 보안 키가 있는 경우 모든 키가 사용되거나(유효성 검사가 실패한 경우) 키가 성공할 때까지 각 키를 시도합니다. 키 요소에는 `id` 클레임에 대한 일치에 사용된 `kid` 특성(선택적)이 포함됩니다.                                                 | 예       |
+| issuers             | 토큰을 발행한 허용 가능한 보안 주체의 목록입니다. 여러 발급자 값이 있는 경우 각 값은 모든 값이 소진(이 경우 유효성 검사 실패)되거나 한 값이 성공할 때까지 시도됩니다.                                                                                                                                         | 예       |
+| openid-config       | 서명 키 및 발급자를 획득할 수 있는 준수 Open ID 구성 엔드포인트를 지정하는 데 사용됩니다.                                                                                                                                                                                                                        | 예       |
+| required-claims     | 유효성을 고려할 토큰에 있을 것으로 예상되는 클레임 목록을 포함합니다. `match` 특성이 `all`로 설정되면 유효성 검사 성공을 위해 정책에 있는 모든 클레임 값이 토큰에 표시되어야 합니다. `match` 특성이 `any`로 설정되면 유효성 검사 성공을 위해 정책에 있는 모든 클레임 값이 토큰에 표시되어야 합니다. | 예       |
 
 ### <a name="attributes"></a>특성
 
-| 이름                            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                            | 필수                                                                         | 기본값                                                                           |
+| 속성                            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                            | 필수                                                                         | 기본값                                                                           |
 | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| clock-skew                      | Timespan입니다. 토큰 발급자와 API Management 인스턴스의 시스템 시계 간 최대 예상 시간 차이를 지정하는 데 사용합니다.                                                                                                                                                                                                                                                                                                               | 아닙니다.                                                                               | 0초                                                                         |
-| failed-validation-error-message | JWT가 유효성 검사를 통과하지 못한 경우 HTTP 응답 본문에 반환할 오류 메시지입니다. 이 메시지는 적절히 이스케이프된 특수 문자를 포함해야 합니다.                                                                                                                                                                                                                                                                                                 | 아닙니다.                                                                               | 기본 오류 메시지는 유효성 검사 문제에 따라 달라집니다(예: "JWT not present(JWT 없음)"). |
-| failed-validation-httpcode      | JWT가 유효성 검사를 통과하지 못한 경우 반환할 HTTP 상태 코드입니다.                                                                                                                                                                                                                                                                                                                                                                                         | 아닙니다.                                                                               | 401                                                                               |
-| header-name                     | 토큰을 보유하는 HTTP 헤더의 이름입니다.                                                                                                                                                                                                                                                                                                                                                                                                         | `header-name`, `query-parameter-name` 또는 `token-value` 중 하나를 지정 해야 합니다. | N/A                                                                               |
-| query-parameter-name            | 토큰을 보유하는 쿼리 매개 변수의 이름입니다.                                                                                                                                                                                                                                                                                                                                                                                                     | `header-name`, `query-parameter-name` 또는 `token-value` 중 하나를 지정 해야 합니다. | N/A                                                                               |
-| 토큰-값                     | JWT 토큰이 포함 된 문자열을 반환 하는 식                                                                                                                                                                                                                                                                                                                                                                                                     | `header-name`, `query-parameter-name` 또는 `token-value` 중 하나를 지정 해야 합니다. | N/A                                                                               |
-| id                              | `key` 요소에 있는 `id` 특성을 통해 토큰(있는 경우)에 있는 `kid` 클레임과 일치시킬 문자열을 지정하여 서명 유효성 검사에 사용할 적절한 키를 확인할 수 있습니다.                                                                                                                                                                                                                                           | 아닙니다.                                                                               | N/A                                                                               |
-| match                           | `claim` 요소에 있는 `match` 특성에 따라 유효성 검사 성공을 위해 정책에 있는 모든 클레임 값이 토큰에 표시되어야 하는지가 지정됩니다. 가능한 값은 다음과 같습니다.<br /><br /> - `all` - 유효성 검사 성공을 위해 정책에 있는 모든 클레임 값이 토큰에 표시되어야 합니다.<br /><br /> - `any` - 유효성 검사 성공을 위해 하나 이상의 클레임 값이 토큰에 표시되어야 합니다.                                                       | 아닙니다.                                                                               | all                                                                               |
-| require-expiration-time         | Boolean입니다. 토큰에 만료 클레임이 필요한지를 지정합니다.                                                                                                                                                                                                                                                                                                                                                                               | 아닙니다.                                                                               | true                                                                              |
-| require-scheme                  | 토큰 구성표 이름입니다 (예: "전달자"). 이 특성이 설치되면 정책은 지정된 스키마가 권한 부여 헤더 값에 있는지를 확인합니다.                                                                                                                                                                                                                                                                                    | 아닙니다.                                                                               | N/A                                                                               |
-| require-signed-tokens           | Boolean입니다. 토큰에 서명이 필요한지를 지정합니다.                                                                                                                                                                                                                                                                                                                                                                                           | 아닙니다.                                                                               | true                                                                              |
-| 구분 기호                       | 문자열입니다. 다중 값 클레임에서 값 집합을 추출하는 데 사용된 구분 기호(예: “,”)를 지정합니다.                                                                                                                                                                                                                                                                                                                                          | 아닙니다.                                                                               | N/A                                                                               |
-| url                             | Open ID 구성 메타데이터를 가져올 수 있는 Open ID 구성 엔드포인트 URL입니다. 응답은 URL `https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`에서 정의된 사양을 따라야 합니다. Azure Active Directory의 경우 다음 URL을 사용합니다. `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` 여기서 사용자의 디렉터리 테넌트 이름을 대체합니다(예: `contoso.onmicrosoft.com`). | 예                                                                              | N/A                                                                               |
-| output-token-variable-name      | 문자열입니다. 토큰 유효성 검사가 성공 했을 때 [`Jwt`](api-management-policy-expressions.md) 형식의 개체로 토큰 값을 받는 컨텍스트 변수의 이름입니다.                                                                                                                                                                                                                                                                                     | 아닙니다.                                                                               | N/A                                                                               |
+| clock-skew                      | Timespan입니다. 토큰 발급자와 API Management 인스턴스의 시스템 시계 간 최대 예상 시간 차이를 지정하는 데 사용합니다.                                                                                                                                                                                                                                                                                                               | 예                                                                               | 0초                                                                         |
+| failed-validation-error-message | JWT가 유효성 검사를 통과하지 못한 경우 HTTP 응답 본문에 반환할 오류 메시지입니다. 이 메시지는 적절히 이스케이프된 특수 문자를 포함해야 합니다.                                                                                                                                                                                                                                                                                                 | 예                                                                               | 기본 오류 메시지는 유효성 검사 문제에 따라 달라집니다(예: "JWT not present(JWT 없음)"). |
+| failed-validation-httpcode      | JWT가 유효성 검사를 통과하지 못한 경우 반환할 HTTP 상태 코드입니다.                                                                                                                                                                                                                                                                                                                                                                                         | 예                                                                               | 401                                                                               |
+| header-name                     | 토큰을 보유하는 HTTP 헤더의 이름입니다.                                                                                                                                                                                                                                                                                                                                                                                                         | `header-name`, `query-parameter-name` 또는 `token-value` 중 하나를 지정 해야 합니다. | 해당 없음                                                                               |
+| query-parameter-name            | 토큰을 보유하는 쿼리 매개 변수의 이름입니다.                                                                                                                                                                                                                                                                                                                                                                                                     | `header-name`, `query-parameter-name` 또는 `token-value` 중 하나를 지정 해야 합니다. | 해당 없음                                                                               |
+| 토큰-값                     | JWT 토큰이 포함 된 문자열을 반환 하는 식                                                                                                                                                                                                                                                                                                                                                                                                     | `header-name`, `query-parameter-name` 또는 `token-value` 중 하나를 지정 해야 합니다. | 해당 없음                                                                               |
+| id                              | `id` 요소에 있는 `key` 특성을 통해 토큰(있는 경우)에 있는 `kid` 클레임과 일치시킬 문자열을 지정하여 서명 유효성 검사에 사용할 적절한 키를 확인할 수 있습니다.                                                                                                                                                                                                                                           | 예                                                                               | 해당 없음                                                                               |
+| match                           | `match` 요소에 있는 `claim` 특성에 따라 유효성 검사 성공을 위해 정책에 있는 모든 클레임 값이 토큰에 표시되어야 하는지가 지정됩니다. 가능한 값은 다음과 같습니다.<br /><br /> - `all` - 유효성 검사 성공을 위해 정책에 있는 모든 클레임 값이 토큰에 표시되어야 합니다.<br /><br /> - `any` - 유효성 검사 성공을 위해 하나 이상의 클레임 값이 토큰에 표시되어야 합니다.                                                       | 예                                                                               | all                                                                               |
+| require-expiration-time         | Boolean입니다. 토큰에 만료 클레임이 필요한지를 지정합니다.                                                                                                                                                                                                                                                                                                                                                                               | 예                                                                               | true                                                                              |
+| require-scheme                  | 토큰 구성표 이름입니다 (예: "전달자"). 이 특성이 설치되면 정책은 지정된 스키마가 권한 부여 헤더 값에 있는지를 확인합니다.                                                                                                                                                                                                                                                                                    | 예                                                                               | 해당 없음                                                                               |
+| require-signed-tokens           | Boolean입니다. 토큰에 서명이 필요한지를 지정합니다.                                                                                                                                                                                                                                                                                                                                                                                           | 예                                                                               | true                                                                              |
+| 구분 기호                       | 문자열입니다. 다중 값 클레임에서 값 집합을 추출하는 데 사용된 구분 기호(예: “,”)를 지정합니다.                                                                                                                                                                                                                                                                                                                                          | 예                                                                               | 해당 없음                                                                               |
+| url                             | Open ID 구성 메타데이터를 가져올 수 있는 Open ID 구성 엔드포인트 URL입니다. 응답은 URL `https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`에서 정의된 사양을 따라야 합니다. Azure Active Directory의 경우 다음 URL을 사용합니다. `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` 여기서 사용자의 디렉터리 테넌트 이름을 대체합니다(예: `contoso.onmicrosoft.com`). | yes                                                                              | 해당 없음                                                                               |
+| output-token-variable-name      | 문자열입니다. 토큰 유효성 검사가 성공 했을 때 [`Jwt`](api-management-policy-expressions.md) 형식의 개체로 토큰 값을 받는 컨텍스트 변수의 이름입니다.                                                                                                                                                                                                                                                                                     | 예                                                                               | 해당 없음                                                                               |
 
-### <a name="usage"></a>사용량
+### <a name="usage"></a>사용
 
 이 정책은 다음과 같은 정책 [섹션](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.
 

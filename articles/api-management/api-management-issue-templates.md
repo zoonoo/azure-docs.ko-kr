@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 1dac90053797caf66af79e458b9dbb95b682cd17
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176647"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78374440"
 ---
 # <a name="issue-templates-in-azure-api-management"></a>Azure API Management의 문제 템플릿
 Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사용하여 개발자 포털 페이지의 콘텐츠를 사용자 지정하는 기능을 제공합니다. 이러한 템플릿에서 [DotLiquid](http://dotliquidmarkup.org/) 구문 및 [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers) 및 제공된 지역화 [String 리소스](api-management-template-resources.md#strings), [Glyph 리소스](api-management-template-resources.md#glyphs) 및 [Page 컨트롤](api-management-page-controls.md)의 집합과 같은 선택한 편집기를 사용하여 필요에 따라 페이지 콘텐츠를 유연하게 구성할 수 있습니다.  
@@ -98,12 +98,12 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
   
 ### <a name="data-model"></a>데이터 모델  
   
-|자산|Type|설명|  
+|속성|Type|Description|  
 |--------------|----------|-----------------|  
 |`Issues`|[문제](api-management-template-data-model-reference.md#Issue) 엔터티의 컬렉션입니다.|현재 사용자에게 표시되는 문제입니다.|  
 |`Paging`|[페이징](api-management-template-data-model-reference.md#Paging) 엔터티입니다.|애플리케이션 컬렉션에 대한 페이징 정보입니다.|  
-|`IsAuthenticated`|부울|현재 사용자가 개발자 포털에 로그인했는지 여부입니다.|  
-|`CanReportIssues`|부울|현재 사용자에게 문제를 접수할 권한이 있는지 여부입니다.|  
+|`IsAuthenticated`|boolean|현재 사용자가 개발자 포털에 로그인했는지 여부입니다.|  
+|`CanReportIssues`|boolean|현재 사용자에게 문제를 접수할 권한이 있는지 여부입니다.|  
 |`Search`|문자열|이 속성은 사용되지 않으며 사용할 수 없습니다.|  
   
 ### <a name="sample-template-data"></a>샘플 템플릿 데이터  

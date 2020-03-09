@@ -15,16 +15,16 @@ manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 11/14/2019
 ms.openlocfilehash: 6027c2d94535ca2ef5c41e7027fe070c6ccb21a0
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926486"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78388556"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Azure Data Factory에서 SSIS 패키지 실행 작업을 사용하여 SSIS 패키지 실행
 이 문서에서는 SSIS 패키지 실행 작업을 사용 하 여 Azure Data Factory 파이프라인에서 SSIS (SQL Server Integration Services) 패키지를 실행 하는 방법을 설명 합니다. 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

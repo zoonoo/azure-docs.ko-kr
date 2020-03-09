@@ -12,11 +12,11 @@ ms.date: 11/07/2019
 ms.author: diberry
 ms.custom: seodec18
 ms.openlocfilehash: d584b00caef628eb9dfd085b1fdce2bb7b353988
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78273512"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78361207"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>LUIS 모델 및 키에 대한 경계
 LUIS에는 여러 경계 영역이 있습니다. 첫 번째는 LUIS에서 의도, 엔터티 및 기능을 제어하는 [모델 경계](#model-boundaries)입니다. 두 번째 영역은 키 유형을 기반으로 하는 [할당량 한도](#key-limits)입니다. 세 번째 경계 영역은 LUIS 웹 사이트를 제어하기 위한 [키보드 조합](#keyboard-controls)입니다. 네 번째 영역은 LUIS 작성 웹 사이트와 LUIS [엔드포인트](luis-reference-regions.md) API 간의 [세계 지역 매핑](luis-glossary.md#endpoint)입니다.

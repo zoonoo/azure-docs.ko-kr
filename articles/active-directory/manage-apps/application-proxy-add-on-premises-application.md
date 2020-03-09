@@ -13,13 +13,13 @@ ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 29ab39c10686066599a23d12c4fd8e66caae732e
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77586073"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78375693"
 ---
-# <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>자습서: Azure Active Directory에서 애플리케이션 프록시를 통한 원격 액세스를 위해 온-프레미스 애플리케이션 추가
+# <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>자습서: Azure Active Directory에서 응용 프로그램 프록시를 통해 원격 액세스를 위한 온-프레미스 응용 프로그램 추가
 
 Azure AD(Azure Active Directory)에는 사용자가 해당 Azure AD 계정으로 로그인하여 온-프레미스 애플리케이션에 액세스할 수 있는 애플리케이션 프록시 서비스가 포함됩니다. 이 자습서에서는 애플리케이션 프록시에서 사용할 환경을 준비합니다. 환경이 준비되면 Azure Portal을 사용하여 Azure AD 테넌트에 온-프레미스 애플리케이션을 추가합니다.
 
@@ -128,7 +128,7 @@ TLS 1.2를 사용하도록 설정하려면:
 
 ### <a name="general-remarks"></a>일반적인 설명
 
-이전에 커넥터를 설치한 경우 최신 버전을 다시 설치합니다. 이전에 릴리스된 버전 및 변경 내용에 대한 정보를 보려면 [애플리케이션 프록시: 버전 릴리스 내역](application-proxy-release-version-history.md)을 참조하세요.
+이전에 커넥터를 설치한 경우 최신 버전을 다시 설치합니다. 이전에 릴리스된 버전과 해당 버전에 포함 된 변경 내용에 대 한 정보는 [응용 프로그램 프록시: 버전 릴리스 기록](application-proxy-release-version-history.md)을 참조 하세요.
 
 온-프레미스 애플리케이션에서 둘 이상의 Windows Server가 설치되도록 선택하려는 경우 각 서버에서 커넥터를 설치하고 등록해야 합니다. 커넥터를 커넥터 그룹으로 구성할 수 있습니다. 자세한 내용은 [커넥터 그룹](application-proxy-connector-groups.md)을 참조하세요.
 

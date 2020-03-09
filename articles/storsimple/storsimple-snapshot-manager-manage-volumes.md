@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 04/18/2016
 ms.author: twooley
 ms.openlocfilehash: f09d4dd46a50f1794e51342a939b8919c5c523ef
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75931624"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78365927"
 ---
 # <a name="use-storsimple-snapshot-manager-to-view-and-manage-volumes"></a>StorSimple 스냅샷 관리자를 사용하여 볼륨 보기 및 관리
 ## <a name="overview"></a>개요
@@ -93,7 +93,7 @@ ms.locfileid: "75931624"
    
    | 결과 열 | Description |
    |:--- |:--- |
-   |  이름 |**이름** 열에는 검색된 각 볼륨에 할당된 드라이브 문자가 포함되어 있습니다. |
+   |  속성 |**이름** 열에는 검색된 각 볼륨에 할당된 드라이브 문자가 포함되어 있습니다. |
    |  디바이스 |**디바이스** 열은 호스트 컴퓨터에 연결된 디바이스의 IP 주소를 포함합니다. |
    |  디바이스 볼륨 이름 |**디바이스 볼륨 이름** 열은 선택한 볼륨이 속한 디바이스 볼륨의 이름을 포함합니다. 이 이름은 해당 특정 볼륨에 대해 Azure Portal에서 정의한 볼륨 이름입니다. |
    |  액세스 경로 |**액세스 경로** 열은 볼륨에 대한 액세스 경로를 표시합니다. 호스트 컴퓨터에서 볼륨에 액세스할 수 있는 드라이브 문자 또는 탑재 지점입니다. |
@@ -130,7 +130,7 @@ ms.locfileid: "75931624"
 ## <a name="configure-and-back-up-a-basic-volume"></a>기본 볼륨 구성 및 백업
 다음 절차에 따라 기본 볼륨의 백업을 구성한 다음 백업을 즉시 시작하거나 예약된 백업에 대한 정책을 만들 수 있습니다.
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>사전 요구 사항
 시작하기 전에
 
 * StorSimple 디바이스 및 호스트 컴퓨터가 올바르게 구성되었는지 확인합니다. 자세한 내용은 [온-프레미스 StorSimple 디바이스 배포](storsimple-deployment-walkthrough-u2.md)를 참조하세요.
@@ -158,7 +158,7 @@ ms.locfileid: "75931624"
 * 1단계: 디스크 관리를 사용하여 동적 미러 볼륨을 만듭니다. 
 * 2단계: StorSimple Snapshot Manager를 사용하여 백업을 구성합니다.
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>사전 요구 사항
 시작하기 전에
 
 * StorSimple 디바이스 및 호스트 컴퓨터가 올바르게 구성되었는지 확인합니다. 자세한 내용은 [온-프레미스 StorSimple 디바이스 배포](storsimple-8000-deployment-walkthrough-u2.md)를 참조하세요.

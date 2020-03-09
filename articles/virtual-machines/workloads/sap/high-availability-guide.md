@@ -16,11 +16,11 @@ ms.date: 01/24/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: aa0810818bf7cfea21f925ee639b4b5a50dcb23b
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77615891"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78363310"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms"></a>Azure VM에서 SAP NetWeaver에 대한 고가용성
 
@@ -864,7 +864,7 @@ Ascs/SCS 다중 SID 템플릿을 설정 하려면 [Ascs/scs 다중 sid 템플릿
 필요한 DNS IP 주소를 설정하려면 다음 단계를 수행합니다.
 
 1. Azure Portal의 **DNS 서버** 블레이드에서 가상 네트워크 **DNS 서버** 옵션이 **사용자 지정 DNS**로 설정되어 있는지 확인합니다.
-2. 사용 중인 네트워크의 종류에 따라 설정을 선택합니다. 자세한 내용은 다음 참고 자료를 참조하십시오.
+2. 사용 중인 네트워크의 종류에 따라 설정을 선택합니다. 자세한 내용은 다음 리소스를 참조하세요.
    * 온-프레미스 DNS 서버의 IP 주소를 추가합니다.  
    Azure에서 실행되는 가상 머신으로 온-프레미스 DNS 서버를 확장할 수 있습니다. 이 시나리오에서는 DNS 서비스를 실행하는 Azure Virtual Machines의 IP 주소를 추가할 수 있습니다.
    * Azure에서 격리 된 배포의 경우: DNS 서버 역할을 하는 동일한 Virtual Network 인스턴스에 추가 가상 컴퓨터를 배포 합니다. DNS 서비스를 실행하도록 설정한 Azure Virtual Machines의 IP 주소를 추가합니다.
@@ -1016,7 +1016,7 @@ SAP ASCS 또는 SCS 인스턴스에 대해 다른 번호를 사용하려는 경�
 1. Azure Portal에서 **<*SID*>-lb-ascs 부하 분산 장치** > **부하 부산 규칙**을 선택합니다.
 2. SAP ASCS 또는 SCS 인스턴스에 속하는 모든 부하 분산 규칙에 대해 다음 값을 변경합니다.
 
-   * 이름
+   * 속성
    * 포트
    * 백 엔드 포트
 

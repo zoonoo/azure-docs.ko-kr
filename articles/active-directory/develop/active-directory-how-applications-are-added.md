@@ -14,12 +14,12 @@ ms.date: 11/26/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: daf26f346ab10906eb5c37c6d7d2bb24736417cb
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: d47ed3a4cd4fbdcb69b956d3c8418f70a71cf44f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76698819"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78375645"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>애플리케이션을 Azure AD에 추가하는 방법 및 이유
 
@@ -77,7 +77,7 @@ Azure Portal에서 [엔터프라이즈 애플리케이션](https://portal.azure.
 * 관리자가 앱 갤러리에서 애플리케이션을 추가하는 경우(이때 기본 앱 개체도 만듦)
 * 애플리케이션을 추가하여 [Azure AD 애플리케이션 프록시](/azure/active-directory/manage-apps/application-proxy) 사용
 * SAML 또는 암호 SSO(Single Sign-On)를 사용하여 Single-Sign-On용 애플리케이션 연결
-* Azure AD Graph API 또는 PowerShell을 통해 프로그래밍 방식으로
+* Microsoft Graph API 또는 PowerShell을 통해 프로그래밍 방식으로
 
 ## <a name="how-are-application-objects-and-service-principals-related-to-each-other"></a>애플리케이션 개체와 서비스 주체는 서로 어떻게 관련되어 있나요?
 
@@ -100,13 +100,13 @@ Azure AD와 통합하는 애플리케이션 게시자/공급업체에는 게시 
 
 ### <a name="notes-and-exceptions"></a>참고 사항 및 예외
 
-* 일부 서비스 주체만 애플리케이션 개체를 다시 가리킵니다. Azure AD가 처음 빌드되었을 때 애플리케이션에 제공된 서비스는 더 제한적이었으며 서비스 주체로 충분히 애플리케이션 ID를 설정할 수 있었습니다. 원래 서비스 주체는 Windows Server Active Directory 서비스 계정의 형태에 더 가까웠습니다. 이러한 이유로 먼저 애플리케이션 개체를 만들지 않고도 Azure AD PowerShell을 사용하는 것처럼 다른 경로를 통해 서비스 주체를 만들 수 있는 것입니다. Azure AD Graph API는 애플리케이션 개체가 있어야 서비스 주체를 만들 수 있습니다.
+* 일부 서비스 주체만 애플리케이션 개체를 다시 가리킵니다. Azure AD가 처음 빌드되었을 때 애플리케이션에 제공된 서비스는 더 제한적이었으며 서비스 주체로 충분히 애플리케이션 ID를 설정할 수 있었습니다. 원래 서비스 주체는 Windows Server Active Directory 서비스 계정의 형태에 더 가까웠습니다. 이러한 이유로 먼저 애플리케이션 개체를 만들지 않고도 Azure AD PowerShell을 사용하는 것처럼 다른 경로를 통해 서비스 주체를 만들 수 있는 것입니다. Microsoft Graph API에는 서비스 주체를 만들기 전에 응용 프로그램 개체가 필요 합니다.
 * 위에서 설명한 정보 중 일부만 프로그래밍 방식으로 나타납니다. 다음은 UI에서만 사용할 수 있습니다.
   * 클레임 변환 규칙
   * 특성 매핑(사용자 프로비전)
-* 서비스 주체 및 애플리케이션 개체에 대한 자세한 내용은 다음과 같은 Azure AD Graph REST API 참조 문서를 참조하세요.
-  * [응용 프로그램](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity)
-  * [Service Principal](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#serviceprincipal-entity)
+* 서비스 주체 및 응용 프로그램 개체에 대 한 자세한 내용은 Microsoft Graph API 참조 설명서를 참조 하세요.
+  * [응용 프로그램](https://docs.microsoft.com/graph/api/resources/application?view=graph-rest-1.0)
+  * [Service Principal](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta)
 
 ## <a name="why-do-applications-integrate-with-azure-ad"></a>애플리케이션이 Azure AD와 통합되는 이유는 무엇일까요?
 
