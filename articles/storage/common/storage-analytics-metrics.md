@@ -9,11 +9,11 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.openlocfilehash: 897ae1fa474de8726ed0caa1def162a00e142dbe
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72514784"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78360980"
 ---
 # <a name="azure-storage-analytics-metrics-classic"></a>Azure Storage 분석 메트릭 (클래식)
 
@@ -39,7 +39,7 @@ ms.locfileid: "72514784"
 > [!NOTE]
 >  현재는 Blob service에 대해서만 용량 메트릭이 제공됩니다.
 
- 용량 데이터는 스토리지 계정의 Blob service에 대해 매일 기록되며 2개 테이블 엔터티가 작성됩니다. 이러한 엔터티 중 하나는 사용자 데이터에 대한 통계를 제공하며 다른 하나는 스토리지 분석에서 사용하는 `$logs` Blob 컨테이너에 대한 통계를 제공합니다. *$MetricsCapacityBlob* 테이블에는 다음 통계가 포함 됩니다.  
+ 용량 데이터는 스토리지 계정의 Blob service에 대해 매일 기록되며 2개 테이블 엔터티가 작성됩니다. 이러한 엔터티 중 하나는 사용자 데이터에 대한 통계를 제공하며 다른 하나는 스토리지 분석에서 사용하는 `$logs` Blob 컨테이너에 대한 통계를 제공합니다. *$MetricsCapacityBlob* 테이블에는 다음과 같은 통계가 포함됩니다.  
 
 - **Capacity**: 스토리지 계정의 Blob service가 사용하는 스토리지의 양(바이트)입니다.  
 - **ContainerCount**: 스토리지 계정의 Blob service에 포함된 Blob 컨테이너의 수입니다.  
@@ -49,16 +49,16 @@ ms.locfileid: "72514784"
 
 ## <a name="how-metrics-are-stored"></a>메트릭 저장 방법  
 
- 각 스토리지 서비스의 모든 메트릭 데이터는 해당 서비스용으로 예약된 테이블 3개에 저장됩니다. 이러한 테이블은 각각 트랜잭션 정보용, 세부 트랜잭션 정보용, 용량 정보용 테이블입니다. 트랜잭션 및 세부 트랜잭션 정보는 요청과 응답 데이터로 구성되며 용량 정보는 스토리지 사용량 데이터로 구성됩니다. 저장소 계정의 Blob service에 대 한 시간 메트릭, 분 메트릭 및 용량은 다음 표에 설명 된 대로 이름이 지정 된 테이블에서 액세스할 수 있습니다.  
+ 각 스토리지 서비스의 모든 메트릭 데이터는 해당 서비스용으로 예약된 테이블 3개에 저장됩니다. 이러한 테이블은 각각 트랜잭션 정보용, 세부 트랜잭션 정보용, 용량 정보용 테이블입니다. 트랜잭션 및 세부 트랜잭션 정보는 요청과 응답 데이터로 구성되며 용량 정보는 스토리지 사용량 데이터로 구성됩니다. 저장소 계정의 Blob 서비스에 대한 시간 메트릭, 분 메트릭 및 용량은 다음 표에 설명된 대로 이름이 지정된 테이블을 통해 액세스할 수 있습니다.  
 
-|메트릭 수준|테이블 이름|버전에 대해 지원 됨|  
+|메트릭 수준|테이블 이름|지원되는 버전|  
 |-------------------|-----------------|----------------------------|  
-|시간 메트릭, 기본 위치|-$MetricsTransactionsBlob<br />-$MetricsTransactionsTable<br />-$MetricsTransactionsQueue|2013-08-15 이전 버전만 해당됩니다. 이러한 이름은 계속 지원되기는 하지만 아래에 나와 있는 테이블을 사용하도록 전환하는 것이 좋습니다.|  
-|시간 메트릭, 기본 위치|-$MetricsHourPrimaryTransactionsBlob<br />-$MetricsHourPrimaryTransactionsTable<br />-$MetricsHourPrimaryTransactionsQueue<br />-$MetricsHourPrimaryTransactionsFile|모든 버전입니다. 파일 서비스 메트릭에 대 한 지원은 버전 2015-04-05 이상 에서만 사용할 수 있습니다.|  
-|분 메트릭, 기본 위치|-$MetricsMinutePrimaryTransactionsBlob<br />-$MetricsMinutePrimaryTransactionsTable<br />-$MetricsMinutePrimaryTransactionsQueue<br />-$MetricsMinutePrimaryTransactionsFile|모든 버전입니다. 파일 서비스 메트릭에 대 한 지원은 버전 2015-04-05 이상 에서만 사용할 수 있습니다.|  
-|시간 메트릭, 보조 위치|-$MetricsHourSecondaryTransactionsBlob<br />-$MetricsHourSecondaryTransactionsTable<br />-$MetricsHourSecondaryTransactionsQueue|모든 버전입니다. 읽기 권한의 지역 중복 복제를 사용하도록 설정해야 합니다.|  
-|분 메트릭, 보조 위치|-$MetricsMinuteSecondaryTransactionsBlob<br />-$MetricsMinuteSecondaryTransactionsTable<br />-$MetricsMinuteSecondaryTransactionsQueue|모든 버전입니다. 읽기 권한의 지역 중복 복제를 사용하도록 설정해야 합니다.|  
-|용량(Blob service만 해당)|$MetricsCapacityBlob|모든 버전입니다.|  
+|시간 메트릭, 기본 위치|-   $MetricsTransactionsBlob<br />-   $MetricsTransactionsTable<br />-   $MetricsTransactionsQueue|2013-08-15 이전 버전만 해당됩니다. 이러한 이름은 계속 지원되기는 하지만 아래에 나와 있는 테이블을 사용하도록 전환하는 것이 좋습니다.|  
+|시간 메트릭, 기본 위치|-   $MetricsHourPrimaryTransactionsBlob<br />-   $MetricsHourPrimaryTransactionsTable<br />-   $MetricsHourPrimaryTransactionsQueue<br />-   $MetricsHourPrimaryTransactionsFile|모든 버전. 파일 서비스 메트릭에 대 한 지원은 버전 2015-04-05 이상 에서만 사용할 수 있습니다.|  
+|분 메트릭, 기본 위치|-   $MetricsMinutePrimaryTransactionsBlob<br />-   $MetricsMinutePrimaryTransactionsTable<br />-   $MetricsMinutePrimaryTransactionsQueue<br />-   $MetricsMinutePrimaryTransactionsFile|모든 버전. 파일 서비스 메트릭에 대 한 지원은 버전 2015-04-05 이상 에서만 사용할 수 있습니다.|  
+|시간 메트릭, 보조 위치|-   $MetricsHourSecondaryTransactionsBlob<br />-   $MetricsHourSecondaryTransactionsTable<br />-   $MetricsHourSecondaryTransactionsQueue|모든 버전. 읽기 권한의 지역 중복 복제를 사용하도록 설정해야 합니다.|  
+|분 메트릭, 보조 위치|-   $MetricsMinuteSecondaryTransactionsBlob<br />-   $MetricsMinuteSecondaryTransactionsTable<br />-   $MetricsMinuteSecondaryTransactionsQueue|모든 버전. 읽기 권한의 지역 중복 복제를 사용하도록 설정해야 합니다.|  
+|용량(Blob service만 해당)|$MetricsCapacityBlob|모든 버전.|  
 
  이러한 테이블은 저장소 서비스 끝점에 대해 스토리지 분석를 사용 하도록 설정할 때 자동으로 생성 됩니다. 저장소 계정의 네임 스페이스를 통해 액세스할 수 있습니다 (예: `https://<accountname>.table.core.windows.net/Tables("$MetricsTransactionsBlob")`). 메트릭 테이블은 목록 작업에 표시 되지 않으며 테이블 이름을 통해 직접 액세스 해야 합니다.  
 
@@ -75,7 +75,7 @@ ms.locfileid: "72514784"
 [Azure Portal](https://portal.azure.com)에서는 현재 스토리지 계정에서 분 메트릭을 구성할 수 없습니다. 따라서 PowerShell을 사용하거나 프로그래밍 방식으로 분 메트릭을 사용하도록 설정해야 합니다.
 
 ## <a name="enable-storage-metrics-using-powershell"></a>PowerShell을 사용 하 여 저장소 메트릭 사용  
-**AzStorageServiceMetricsProperty** cmdlet을 Azure PowerShell 사용 하 여 현재 설정을 검색 하 고 cmdlet **을 사용 하 여 저장소 계정에서 저장소 메트릭을 구성 하려면 로컬 컴퓨터에서 PowerShell을 사용할 수 있습니다.** 현재 설정을 변경 하려면 AzStorageServiceMetricsProperty을 설정 합니다.  
+**AzStorageServiceMetricsProperty** cmdlet을 사용 하 여 현재 설정을 검색 하 고 **AzStorageServiceMetricsProperty** cmdlet을 Azure PowerShell 사용 하 여 현재 설정을 변경 하 여 로컬 컴퓨터에서 PowerShell을 사용 하 여 저장소 계정에서 저장소 메트릭을 구성할 수 있습니다.  
 
 Storage 메트릭을 제어하는 cmdlet은 다음 매개 변수를 사용합니다.  
 
@@ -97,7 +97,7 @@ $storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>
 Set-AzStorageServiceMetricsProperty -MetricsType Minute -ServiceType Blob -MetricsLevel ServiceAndApi  -RetentionDays 5 -Context $storageAccount.Context
 ```  
 
-* @No__t_0 자리 표시자 값을 리소스 그룹의 이름으로 바꿉니다.
+* `<resource-group-name>` 자리 표시자 값을 리소스 그룹의 이름으로 바꿉니다.
         
 * `<storage-account-name>` 자리 표시자 값을 스토리지 계정 이름으로 바꿉니다.
 
@@ -112,9 +112,9 @@ Get-AzStorageServiceMetricsProperty -MetricsType Hour -ServiceType Blob -Context
 Azure 구독에서 작동하도록 Azure PowerShell cmdlet을 구성하고 사용할 기본 스토리지 계정을 선택하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](https://azure.microsoft.com/documentation/articles/install-configure-powershell/)을 참조하세요.  
 
 ## <a name="enable-storage-metrics-programmatically"></a>프로그래밍 방식으로 저장소 메트릭 사용  
-Azure Portal 또는 Azure PowerShell cmdlet을 사용 하 여 저장소 메트릭을 제어 하는 것 외에도 Azure Storage Api 중 하나를 사용할 수 있습니다. 예를 들어 .NET 언어를 사용 하는 경우 저장소 클라이언트 라이브러리를 사용할 수 있습니다.  
+Azure Portal 또는 Azure PowerShell cmdlet을 사용 하 여 저장소 메트릭을 제어 하는 것 외에도 Azure Storage Api 중 하나를 사용할 수 있습니다. 예를 들어 .NET 언어를 사용 중인 경우 저장소 클라이언트 라이브러리를 사용할 수 있습니다.  
 
-**CloudBlobClient**, **CloudQueueClient**, **CloudTableClient**및 **CloudFileClient** 클래스에는 모두를 **사용 하는 setserviceproperties 및 SetServicePropertiesAsync와 같은 메서드가 있습니다. ServiceProperties** 개체를 매개 변수로 합니다. **Serviceproperties** 개체를 사용 하 여 저장소 메트릭을 구성할 수 있습니다. 예를 들어 다음 C# 코드 조각은 시간별 큐 메트릭에 대 한 메트릭 수준 및 보존 일 수를 변경 하는 방법을 보여 줍니다.  
+**CloudBlobClient**, **CloudQueueClient**, **CloudTableClient**및 **CloudFileClient** 클래스 모두에는 **Serviceproperties** 개체를 매개 변수로 사용 하는 **setserviceproperties** 및 **SetServicePropertiesAsync** 와 같은 메서드가 있습니다. **ServiceProperties** 개체를 사용하여 저장소 메트릭을 구성할 수 있습니다. 예를 들어 다음 C# 조각은 시간 큐 메트릭의 메트릭 수준과 보존 기간을 변경하는 방법을 보여 줍니다.  
 
 ```csharp
 var storageAccount = CloudStorageAccount.Parse(connStr);  
@@ -146,27 +146,27 @@ Azure Portal에서 저장소 계정의 메뉴 블레이드의 **모니터링 (�
 ||||  
 |-|-|-|  
 |**Metrics**(메트릭)|**테이블 이름**|**참고 사항**|  
-|시간 메트릭|$MetricsHourPrimaryTransactionsBlob<br /><br /> $MetricsHourPrimaryTransactionsTable<br /><br /> $MetricsHourPrimaryTransactionsQueue<br /><br /> $MetricsHourPrimaryTransactionsFile|2013-08-15 이전 버전에서는 이러한 테이블을 다음과 같이 알려져 있습니다.<br /><br /> $MetricsTransactionsBlob<br /><br /> $MetricsTransactionsTable<br /><br /> $MetricsTransactionsQueue<br /><br /> 파일 서비스에 대 한 메트릭은 버전 2015-04-05부터 사용할 수 있습니다.|  
-|분 메트릭|$MetricsMinutePrimaryTransactionsBlob<br /><br /> $MetricsMinutePrimaryTransactionsTable<br /><br /> $MetricsMinutePrimaryTransactionsQueue<br /><br /> $MetricsMinutePrimaryTransactionsFile|PowerShell을 사용 하거나 프로그래밍 방식 으로만 사용 하도록 설정할 수 있습니다.<br /><br /> 파일 서비스에 대 한 메트릭은 버전 2015-04-05부터 사용할 수 있습니다.|  
-|용량 중심|$MetricsCapacityBlob|Blob service에만 해당 합니다.|  
+|시간 메트릭|$MetricsHourPrimaryTransactionsBlob<br /><br /> $MetricsHourPrimaryTransactionsTable<br /><br /> $MetricsHourPrimaryTransactionsQueue<br /><br /> $MetricsHourPrimaryTransactionsFile|2013-08-15 이전 버전에서는 이러한 테이블을 다음과 같이 지칭했습니다.<br /><br /> $MetricsTransactionsBlob<br /><br /> $MetricsTransactionsTable<br /><br /> $MetricsTransactionsQueue<br /><br /> 파일 서비스에 대 한 메트릭은 버전 2015-04-05부터 사용할 수 있습니다.|  
+|분 메트릭|$MetricsMinutePrimaryTransactionsBlob<br /><br /> $MetricsMinutePrimaryTransactionsTable<br /><br /> $MetricsMinutePrimaryTransactionsQueue<br /><br /> $MetricsMinutePrimaryTransactionsFile|PowerShell을 사용하거나 프로그래밍 방식으로만 사용하도록 설정할 수 있습니다.<br /><br /> 파일 서비스에 대 한 메트릭은 버전 2015-04-05부터 사용할 수 있습니다.|  
+|용량|$MetricsCapacityBlob|Blob service만 해당합니다.|  
 
 [스토리지 분석 메트릭 테이블 스키마](/rest/api/storageservices/storage-analytics-metrics-table-schema)에서 이러한 테이블의 스키마에 대한 전체 세부 정보를 확인할 수 있습니다. 아래의 샘플 행에는 사용 가능한 열 중 일부만 나와 있습니다. 그러나 Storage 메트릭에서 이러한 메트릭을 저장하는 방식과 관련한 몇 가지 중요한 기능을 확인할 수 있습니다.  
 
 ||||||||||||  
 |-|-|-|-|-|-|-|-|-|-|-|  
 |**PartitionKey**|**RowKey**|**Timestamp**|**TotalRequests**|**TotalBillableRequests**|**TotalIngress**|**TotalEgress**|**가용성**|**AverageE2ELatency**|**AverageServerLatency**|**PercentSuccess**|  
-|20140522T1100|user;All|2014-05-22T11:01:16.7650250 Z|7|7|4003|46801|100|104.4286|6.857143|100|  
-|20140522T1100|user;QueryEntities|2014-05-22T11:01:16.7640250 Z|5|5|2694|45951|100|143.8|7.8|100|  
-|20140522T1100|user;QueryEntity|2014-05-22T11:01:16.7650250 Z|1|1|538|633|100|3|3|100|  
-|20140522T1100|user;UpdateEntity|2014-05-22T11:01:16.7650250 Z|1|1|771|217|100|9|6|100|  
+|20140522T1100|user;All|2014-05-22T11:01:16.7650250Z|7|7|4003|46801|100|104.4286|6.857143|100|  
+|20140522T1100|user;QueryEntities|2014-05-22T11:01:16.7640250Z|5|5|2694|45951|100|143.8|7.8|100|  
+|20140522T1100|user;QueryEntity|2014-05-22T11:01:16.7650250Z|1|1|538|633|100|3|3|100|  
+|20140522T1100|user;UpdateEntity|2014-05-22T11:01:16.7650250Z|1|1|771|217|100|9|6|100|  
 
 이 예제 분 메트릭 데이터에서 파티션 키는 분 확인 시의 시간을 사용합니다. 행 키는 행에 저장되는 정보의 유형을 식별합니다. 이 정보는 액세스 형식과 요청 형식의 두 가지 정보로 구성됩니다.  
 
--   액세스 유형은 user 또는 **system**입니다. 여기서 **user** 는 storage 서비스에 대 한 **모든 사용자 요청** 을 나타내고 **시스템** 은 스토리지 분석에서 수행 하는 요청을 나타냅니다.  
+-   액세스 유형은 **user** 또는 **system**입니다. 여기서 **user**는 저장소 서비스에 대한 모든 사용자 요청을 나타내고, **system**은 저장소 분석에 의해 만들어진 요청을 나타냅니다.  
 
--   요청 형식은 **모두** 요약 줄 이거나 **Queryentity** 또는 **UPDATEENTITY**와 같은 특정 API를 식별 합니다.  
+-   요청 유형은 요약 행인 **all**이거나, **QueryEntity** 또는 **UpdateEntity**와 같은 특정 API를 식별합니다.  
 
-위의 샘플 데이터는 단일 분 (오전 11 시에 시작)에 대 한 모든 레코드를 보여 줍니다. 즉, **Queryentities** 요청 수와 **queryentities** 요청 수에 더하여 **updateentity** 요청 수는 **사용자: 모든** 행에 표시 되는 합계입니다. 마찬가지로 ((143.8 * 5) + 3 + 9)/7을 계산 하 여 **사용자: 모든** 행에 대 한 평균 종단 간 대기 시간 104.4286을 파생 시킬 수 있습니다.  
+위의 샘플 데이터는 1분 동안의 모든 레코드를 보여 주므로(오전 11:00에 시작) **QueryEntities** 요청 수와 **QueryEntity** 요청 수와 **UpdateEntity** 요청 수를 더하면 합계 7(**user:All** 행에 표시된 총계)이 됩니다. 마찬가지로 ((143.8 * 5) + 3 + 9)/7을 계산하여 **user:All** 행에 대한 평균 종단 간 대기 시간 104.4286을 도출할 수 있습니다.  
 
 ## <a name="metrics-alerts"></a>메트릭 알림
 [Azure Portal](https://portal.azure.com) 에서 경고를 설정 하는 것이 좋습니다. 그러면 저장소 서비스 동작의 중요 한 변경 내용을 자동으로 알릴 수 있습니다. 스토리지 탐색기 도구를 사용하여 이 메트릭 데이터를 구분된 형식에서 다운로드하려면 Microsoft Excel을 사용하여 데이터를 분석할 수 있습니다. 사용 가능한 스토리지 탐색기 도구의 목록은 [Azure Storage Client Tools](/azure/storage/storage-explorers)를 참조하세요. **경고 (클래식)** 블레이드에서 저장소 계정 메뉴 블레이드의 **모니터링 (클래식)** 아래에서 액세스할 수 있는 경고를 구성할 수 있습니다.

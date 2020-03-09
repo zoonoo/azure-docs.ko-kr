@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bc76f8edc8520ca50cd4c9527b037d99d24ce63c
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78190503"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376045"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Azure AD Connect에 대한 필수 조건
 이 항목에서는 Azure AD Connect에 대한 필수 조건 및 하드웨어 요구 사항을 설명합니다.
@@ -67,7 +67,7 @@ Azure AD Connect를 설치하기 전에 필요한 몇 가지 사항이 있습니
 
 * 도메인에 가입 된 서버에 Azure AD Connect를 배포 하 고 도메인 관리자 또는 엄격 하 게 제어 되는 다른 보안 그룹에 대 한 관리 액세스를 제한 합니다
 
-자세히 알아보려면 다음을 참조하십시오. 
+자세한 내용은 다음을 참조하세요. 
 
 * [관리자 그룹 보안](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-g--securing-administrators-groups-in-active-directory)
 
@@ -84,7 +84,7 @@ Azure AD Connect를 설치하기 전에 필요한 몇 가지 사항이 있습니
   * 대/소문자를 구분하지 않는 SQL 데이터 정렬을 사용해야 합니다. 이러한 데이터 정렬은 이름에 \_CI_를 사용하여 식별됩니다. 이름에 **CS_를 사용하여 식별되는 대/소문자 구분 데이터 정렬을 사용하는 것은** 지원되지 않습니다\_.
   * SQL 인스턴스당 동기화 엔진을 한 개만 사용할 수 있습니다. SQL 인스턴스를 FIM/MIM 동기화, DirSync 또는 Azure AD Sync와 공유하는 것은 **지원되지 않습니다**.
 
-### <a name="accounts"></a>Accounts
+### <a name="accounts"></a>계정
 * 통합하려는 Azure AD 테넌트에 대한 Azure AD 전역 관리자 계정. 이 계정은 **학교 또는 조직 계정**이어야 하며 **Microsoft 계정**이 될 수 없습니다.
 * [Express 설정을](reference-connect-accounts-permissions.md#express-settings-installation) 사용 하거나 DirSync에서 업그레이드 하는 경우 온-프레미스 Active Directory에 대 한 엔터프라이즈 관리자 계정이 있어야 합니다.
 * 사용자 지정 설정 설치 경로를 사용 하는 경우 [Active Directory의 계정](reference-connect-accounts-permissions.md#custom-installation-settings) 을 참조 하세요.

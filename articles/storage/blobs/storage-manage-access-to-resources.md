@@ -10,11 +10,11 @@ ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.openlocfilehash: 4d9a54c220861b19d67b07998e609ee72897446a
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892485"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78360919"
 ---
 # <a name="manage-anonymous-read-access-to-containers-and-blobs"></a>컨테이너 및 Blob에 대한 익명 읽기 권한 관리
 
@@ -24,7 +24,7 @@ ms.locfileid: "74892485"
 
 ## <a name="grant-anonymous-users-permissions-to-containers-and-blobs"></a>컨테이너 및 Blob에 익명의 사용자 권한 부여
 
-기본적으로, 컨테이너와 컨테이너 내의 모든 Blob은 적절한 권한이 부여된 사용자만 액세스할 수 있습니다. 익명 사용자에게 컨테이너와 해당 Blob에 대한 읽기 권한을 부여하려면 컨테이너 퍼블릭 액세스 수준을 설정할 수 있습니다. 컨테이너에 대 한 공용 액세스 권한을 부여 하면 익명 사용자가 요청을 승인 하지 않고도 공개적으로 액세스할 수 있는 컨테이너 내에서 blob을 읽을 수 있습니다.
+기본적으로 컨테이너와 그 안의 모든 blob은 적절 한 권한이 부여 된 사용자만 액세스할 수 있습니다. 익명 사용자에 게 컨테이너와 해당 blob에 대 한 읽기 액세스 권한을 부여 하려면 컨테이너 공용 액세스 수준을 설정 하면 됩니다. 컨테이너에 대 한 공용 액세스 권한을 부여 하면 익명 사용자가 요청을 승인 하지 않고도 공개적으로 액세스할 수 있는 컨테이너 내에서 blob을 읽을 수 있습니다.
 
 다음 권한으로 컨테이너를 구성할 수 있습니다.
 

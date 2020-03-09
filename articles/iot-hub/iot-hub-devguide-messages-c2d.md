@@ -9,11 +9,11 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.openlocfilehash: 3a7254cc9de89a297811792b4dd64b4b669ba8e4
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77921041"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78379804"
 ---
 # <a name="send-cloud-to-device-messages-from-an-iot-hub"></a>IoT hub에서 클라우드-장치 메시지 보내기
 
@@ -76,7 +76,7 @@ IoT hub의 **최대 배달 횟수** 속성은 *큐* 에 대기 중인 상태와 
 | Ack 속성 값 | 동작 |
 | ------------ | -------- |
 | none     | IoT hub가 피드백 메시지를 생성 하지 않습니다 (기본 동작). |
-| 양수 | 클라우드-장치 메시지가 *완료* 된 상태에 도달 하면 IoT hub가 피드백 메시지를 생성 합니다. |
+| 긍정 | 클라우드-장치 메시지가 *완료* 된 상태에 도달 하면 IoT hub가 피드백 메시지를 생성 합니다. |
 | 부정 | 클라우드-장치 메시지가 *배달 못* 한 메시지 상태에 도달 하면 IoT hub가 피드백 메시지를 생성 합니다. |
 | 전체     | IoT hub는 어떤 경우 든 피드백 메시지를 생성 합니다. |
 
@@ -84,7 +84,7 @@ IoT hub의 **최대 배달 횟수** 속성은 *큐* 에 대기 중인 상태와 
 
 [끝점](iot-hub-devguide-endpoints.md)에 설명 된 대로 IoT hub는 서비스 지향 끝점 ( */messages/servicebound/feedback*)을 통해 피드백을 메시지로 전달 합니다. 피드백 수신을 위한 의미 체계는 클라우드-디바이스 메시지의 경우와 같습니다. 가능한 경우 메시지 피드백은 다음 형식으로 단일 메시지에서 일괄 처리됩니다.
 
-| 속성     | 설명 |
+| 속성     | Description |
 | ------------ | ----------- |
 | EnqueuedTime | 허브에서 피드백 메시지를 받은 시간을 나타내는 타임 스탬프입니다. |
 | UserId       | `{iot hub name}` |
@@ -92,12 +92,12 @@ IoT hub의 **최대 배달 횟수** 속성은 *큐* 에 대기 중인 상태와 
 
 본문은 각각 다음과 같은 속성이 있는 레코드의 JSON으로 직렬화된 배열입니다.
 
-| 속성           | 설명 |
+| 속성           | Description |
 | ------------------ | ----------- |
 | EnqueuedTimeUtc    | 메시지의 결과가 발생 한 시간을 나타내는 타임 스탬프입니다. 예를 들어 허브에서 피드백 메시지를 받았거나 원래 메시지는 만료 됩니다. |
 | OriginalMessageId  | 이 피드백 정보가 관련 된 클라우드-장치 메시지의 *MessageId* |
 | StatusCode         | IoT hub에서 생성 된 피드백 메시지에 사용 되는 필수 문자열: <br/> *Success* <br/> *종료* <br/> *DeliveryCountExceeded* <br/> *되었으므로* <br/> *삭제* |
-| 설명        | *StatusCode* 에 대 한 문자열 값 |
+| Description        | *StatusCode* 에 대 한 문자열 값 |
 | deviceId           | 이 피드백 부분이 관련 된 클라우드-장치 메시지의 대상 장치에 대 한 *DeviceId* 입니다. |
 | DeviceGenerationId | 이 의견의 일부가 관련 된 클라우드-장치 메시지의 대상 장치에 대 한 *DeviceGenerationId* 입니다. |
 
@@ -132,7 +132,7 @@ IoT hub의 **최대 배달 횟수** 속성은 *큐* 에 대기 중인 상태와 
 
 각 IoT Hub는 클라우드-디바이스 메시징에 다음 구성 옵션을 노출합니다.
 
-| 속성                  | 설명 | 범위 및 기본값 |
+| 속성                  | Description | 범위 및 기본값 |
 | ------------------------- | ----------- | ----------------- |
 | defaultTtlAsIso8601       | 클라우드-장치 메시지에 대 한 기본 TTL | ISO_8601 간격은 최대 2 일 (최소 1 분)입니다. 기본값: 1 시간 |
 | maxDeliveryCount          | 클라우드-장치 단위 큐의 최대 배달 횟수 | 1 ~ 100; 기본값: 10 |

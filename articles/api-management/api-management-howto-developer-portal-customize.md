@@ -10,20 +10,20 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/22/2019
+ms.date: 03/05/2020
 ms.author: apimpm
-ms.openlocfilehash: 8629d07830622770c3b30dacdd1fabc8417d7f52
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: af7c995c11322a538dd9e27a905f1ddbc723e8ab
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74454427"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78893373"
 ---
 # <a name="access-and-customize-developer-portal"></a>개발자 포털 액세스 및 사용자 지정
 
 개발자 포털은 Api 설명서를 사용 하 여 자동으로 생성 되 고 완전히 사용자 지정할 수 있는 웹 사이트입니다. API 소비자는 api를 검색 하 고, api를 사용 하 고, 액세스를 요청 하는 방법을 배울 수 있습니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 개발자 포털의 관리 되는 버전에 액세스
@@ -36,7 +36,7 @@ ms.locfileid: "74454427"
 
 ![API Management 개발자 포털-관리자 모드](media/api-management-howto-developer-portal-customize/cover.png)
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 다음 빠른 시작 [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)를 완료합니다.
 - Azure API Management 인스턴스를 가져오고 게시합니다. 자세한 내용은 [가져오기 및 게시](import-and-publish.md) 를 참조 하세요.
@@ -91,7 +91,7 @@ ms.locfileid: "74454427"
 방문자가 포털을 사용할 수 있도록 설정 하기 전에 자동으로 생성 된 콘텐츠를 개인 설정 해야 합니다. 권장 되는 변경 내용에는 홈 페이지의 레이아웃, 스타일 및 콘텐츠가 포함 됩니다.
 
 > [!NOTE]
-> 통합 고려 사항으로 인해 `/404`, `/500`, `/captcha`, `/change-password`, `/config.json`, `/confirm/invitation`, `/confirm-v2/identities/basic/signup`, `/confirm-v2/password`, `/internal-status-0123456789abcdef`등의 다른 URL에서 다음 페이지를 제거 하거나 이동할 수 없습니다. `/publish`, `/signin`, `/signin-sso`, `/signup`.
+> 통합 고려 사항 때문에 다음 페이지를 다른 URL로 제거 하거나 이동할 수 없습니다. `/404`, `/500`, `/captcha`, `/change-password`, `/config.json`, `/confirm/invitation`, `/confirm-v2/identities/basic/signup`, `/confirm-v2/password`, `/internal-status-0123456789abcdef`, `/publish`, `/signin`, `/signin-sso`, `/signup`.
 
 ### <a name="home-page"></a>홈 페이지
 
@@ -101,7 +101,7 @@ ms.locfileid: "74454427"
 
 탐색 모음에서 자동으로 생성 된 로고를 사용자 고유의 이미지로 바꿉니다.
 
-### <a name="styling"></a>설정과
+### <a name="styling"></a>스타일 지정
 
 스타일을 조정할 필요가 없지만 특정 요소를 조정 하는 것이 좋습니다. 예를 들어 브랜드 색과 일치 하도록 기본 색을 변경 합니다.
 
@@ -125,6 +125,10 @@ ms.locfileid: "74454427"
 ## <a name="visit-the-published-portal"></a>게시 된 포털 방문
 
 포털을 게시 한 후에는 관리 패널과 동일한 URL (예: `https://contoso-api.developer.azure-api.net`에 액세스할 수 있습니다. 별도의 브라우저 세션 (incognito/개인 검색 모드)에서 외부 방문자로 볼 수 있습니다.
+
+## <a name="apply-the-cors-policy-on-apis"></a>Api에 CORS 정책 적용
+
+포털의 방문자가 기본 제공 대화형 콘솔을 통해 Api를 테스트할 수 있도록 하려면 Api에서 CORS (크로스-원본 자원 공유)를 사용 하도록 설정 해야 합니다. 자세한 내용은 [이 문서](api-management-howto-developer-portal.md#cors) 를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,5 +1,5 @@
 ---
-title: Azure AD 테 넌 트 앱 클레임 사용자 지정 (Powershell)
+title: Azure AD 테 넌 트 앱 클레임 사용자 지정 (PowerShell)
 titleSuffix: Microsoft identity platform
 description: 이 페이지에서는 Azure Active Directory 클레임 매핑을 설명합니다.
 services: active-directory
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 57a66f73a2c0c37426c23c7274853148fd976ac8
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 49860504da8dd2a1b994a23a24df95f59c959c90
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76699073"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78375791"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>방법: 테넌트의 특정 앱용 토큰에서 내보낸 클레임 사용자 지정(미리 보기)
 
@@ -105,7 +105,7 @@ Azure AD에서 **정책** 개체는 조직에 있는 개별 애플리케이션 �
 | grant_type |
 | graph |
 | group_sids |
-| 그룹 |
+| groups |
 | hasgroups |
 | hash_alg |
 | home_oid |
@@ -320,8 +320,8 @@ ID 요소는 클레임의 값을 제공할 원본의 속성을 식별합니다. 
 | 사용자 | extensionattribute15 | 확장 특성 15 |
 | 사용자 | othermail | 다른 메일 |
 | 사용자 | country | 국가 |
-| 사용자 | city | 시/군/구 |
-| 사용자 | state | 상태 |
+| 사용자 | city | City |
+| 사용자 | state | 시스템 상태 |
 | 사용자 | jobtitle | 직위 |
 | 사용자 | employeeid | 직원 ID |
 | 사용자 | facsimiletelephonenumber | 팩스 번호 |
@@ -410,12 +410,12 @@ ID 요소는 클레임의 값을 제공할 원본의 속성을 식별합니다. 
 
 | TransformationMethod | 제한 |
 | ----- | ----- |
-| ExtractMailPrefix | 없음 |
+| ExtractMailPrefix | None |
 | Join | 조인되는 접미사는 리소스 테넌트의 확인된 도메인이어야 합니다. |
 
 ### <a name="custom-signing-key"></a>사용자 지정 서명 키
 
-클레임 매핑 정책을 적용하려면 사용자 지정 서명 키를 서비스 사용자 개체에 할당해야 합니다. 이렇게 하면 클레임 매핑 정책의 생성자가 토큰을 수정한 것을 인정하게 되며, 악의적인 행위자가 만든 클레임 매핑 정책을 사용하지 않도록 애플리케이션을 보호할 수 있습니다. 사용자 지정 서명 키를 추가 하기 위해 Azure Powershell cmdlet `new-azureadapplicationkeycredential`를 사용 하 여 응용 프로그램 개체에 대 한 대칭 키 자격 증명을 만들 수 있습니다. 이 Azure Powershell cmdlet에 대 한 자세한 내용을 보려면 [여기](https://docs.microsoft.com/powershell/module/Azuread/New-AzureADApplicationKeyCredential?view=azureadps-2.0)를 클릭 하세요.
+클레임 매핑 정책을 적용하려면 사용자 지정 서명 키를 서비스 사용자 개체에 할당해야 합니다. 이렇게 하면 클레임 매핑 정책의 생성자가 토큰을 수정한 것을 인정하게 되며, 악의적인 행위자가 만든 클레임 매핑 정책을 사용하지 않도록 애플리케이션을 보호할 수 있습니다. 사용자 지정 서명 키를 추가 하기 위해 Azure PowerShell cmdlet `new-azureadapplicationkeycredential`를 사용 하 여 응용 프로그램 개체에 대 한 대칭 키 자격 증명을 만들 수 있습니다. 이 Azure PowerShell cmdlet에 대 한 자세한 내용은 [AzureADApplicationKeyCredential](https://docs.microsoft.com/powerShell/module/Azuread/New-AzureADApplicationKeyCredential?view=azureadps-2.0)를 참조 하세요.
 
 클레임 매핑을 사용 하도록 설정 된 앱은 [Openid connect Connect 메타 데이터 요청](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document)에 `appid={client_id}`을 추가 하 여 해당 토큰 서명 키의 유효성을 검사 해야 합니다. 다음은 사용 해야 하는 Openid connect Connect 메타 데이터 문서의 형식입니다. 
 
@@ -435,7 +435,7 @@ https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
 
 Azure AD에서 특정 서비스 주체에 대해 토큰에 내보내지는 클레임을 사용자 지정할 수 있는 경우 많은 시나리오가 가능합니다. 이 섹션에서는 클레임 매핑 정책 형식을 사용하는 방법을 이해하는 데 도움이 되는 몇 가지 일반적인 시나리오를 설명합니다.
 
-#### <a name="prerequisites"></a>필수 조건
+#### <a name="prerequisites"></a>사전 요구 사항
 
 다음 예제에서는 서비스 주체에 대한 정책을 만들고, 업데이트, 연결 및 삭제합니다. Azure AD를 처음 접하는 분들은 [Azure AD 테넌트를 가져오는 방법](quickstart-create-new-tenant.md)을 살펴본 후 예제를 진행하는 것이 좋습니다.
 
@@ -469,7 +469,7 @@ Azure AD에서 특정 서비스 주체에 대해 토큰에 내보내지는 클�
       Get-AzureADPolicy
       ```
 1. 서비스 주체에게 정책을 할당합니다. 서비스 주체의 ObjectId도 가져와야 합니다.
-   1. 조직의 모든 서비스 주체를 보려면 [Microsoft Graph를 쿼리할](/graph/traverse-the-graph)수 있습니다. 또는 [그래프 탐색기](https://developer.microsoft.com/graph/graph-explorer)에서 Azure AD 계정에 로그인 합니다.
+   1. 조직의 모든 서비스 주체를 보려면 [MICROSOFT GRAPH API를 쿼리할](/graph/traverse-the-graph)수 있습니다. 또는 [Microsoft Graph 탐색기](https://developer.microsoft.com/graph/graph-explorer)에서 Azure AD 계정에 로그인 합니다.
    2. 서비스 주체의 ObjectId가 있으면 다음 명령을 실행합니다.  
      
       ``` powershell
@@ -493,7 +493,7 @@ Azure AD에서 특정 서비스 주체에 대해 토큰에 내보내지는 클�
       Get-AzureADPolicy
       ```
 1. 서비스 주체에게 정책을 할당합니다. 서비스 주체의 ObjectId도 가져와야 합니다. 
-   1. 조직의 모든 서비스 주체를 보려면 [Microsoft Graph를 쿼리할](/graph/traverse-the-graph)수 있습니다. 또는 [그래프 탐색기](https://developer.microsoft.com/graph/graph-explorer)에서 Azure AD 계정에 로그인 합니다.
+   1. 조직의 모든 서비스 주체를 보려면 [MICROSOFT GRAPH API를 쿼리할](/graph/traverse-the-graph)수 있습니다. 또는 [Microsoft Graph 탐색기](https://developer.microsoft.com/graph/graph-explorer)에서 Azure AD 계정에 로그인 합니다.
    2. 서비스 주체의 ObjectId가 있으면 다음 명령을 실행합니다.  
      
       ``` powershell
@@ -517,7 +517,7 @@ Azure AD에서 특정 서비스 주체에 대해 토큰에 내보내지는 클�
       Get-AzureADPolicy
       ```
 1. 서비스 주체에게 정책을 할당합니다. 서비스 주체의 ObjectId도 가져와야 합니다. 
-   1. 조직의 모든 서비스 주체를 보려면 [Microsoft Graph를 쿼리할](/graph/traverse-the-graph)수 있습니다. 또는 [그래프 탐색기](https://developer.microsoft.com/graph/graph-explorer)에서 Azure AD 계정에 로그인 합니다.
+   1. 조직의 모든 서비스 주체를 보려면 [MICROSOFT GRAPH API를 쿼리할](/graph/traverse-the-graph)수 있습니다. 또는 [Microsoft Graph 탐색기](https://developer.microsoft.com/graph/graph-explorer)에서 Azure AD 계정에 로그인 합니다.
    2. 서비스 주체의 ObjectId가 있으면 다음 명령을 실행합니다. 
      
       ``` powershell

@@ -17,11 +17,11 @@ ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e291a032c1aac45ebc783126e69b524e1d0af95b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422488"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376748"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management"></a>Azure AD 자격 관리 문제 해결
 
@@ -35,19 +35,19 @@ ms.locfileid: "75422488"
 
 ## <a name="resources"></a>리소스
 
-* 응용 프로그램의 역할은 응용 프로그램 자체에 의해 정의 되며 Azure AD에서 관리 됩니다. 응용 프로그램에 리소스 역할이 없으면 권한 부여 관리에서 사용자를 **기본 액세스** 역할에 할당 합니다.
+* 애플리케이션의 역할은 애플리케이션 자체에서 정의되며 Azure AD에서 관리됩니다. 응용 프로그램에 리소스 역할이 없으면 권한 부여 관리에서 사용자를 **기본 액세스** 역할에 할당 합니다.
 
-    Azure Portal는 응용 프로그램으로 선택할 수 없는 서비스에 대 한 서비스 사용자를 표시할 수도 있습니다.  특히 **Exchange online** 및 **SharePoint online** 은 디렉터리에 리소스 역할이 있는 응용 프로그램이 아니라 서비스 이므로 액세스 패키지에 포함 될 수 없습니다.  대신 그룹 기반 라이선스를 사용 하 여 해당 서비스에 액세스 해야 하는 사용자에 게 적절 한 라이선스를 설정 합니다.
+    Azure Portal는 응용 프로그램으로 선택할 수 없는 서비스에 대 한 서비스 사용자를 표시할 수도 있습니다.  특히 **Exchange online** 및 **SharePoint online** 은 디렉터리에 리소스 역할이 있는 응용 프로그램이 아니라 서비스 이므로 액세스 패키지에 포함 될 수 없습니다.  대신 그룹 기반 라이선스를 사용하여 해당 서비스에 액세스해야 하는 사용자에게 적절한 라이선스를 설정합니다.
 
-* 그룹이 액세스 패키지의 리소스가 되려면 Azure AD에서 수정할 수 있어야 합니다.  Azure AD에서 소유자 또는 멤버 특성을 변경할 수 없으므로 온-프레미스 Active Directory에서 발생 하는 그룹을 리소스로 할당할 수 없습니다.   Exchange Online에서 배포 그룹으로 시작 된 그룹은 Azure AD에서 수정할 수 없습니다. 
+* 그룹이 액세스 패키지의 리소스가 되려면 Azure AD에서 수정할 수 있어야 합니다.  Azure AD에서 소유자 또는 구성원 특성을 변경할 수 없으므로 온-프레미스 Active Directory에서 시작된 그룹을 리소스로 할당할 수 없습니다.   Exchange Online에서 배포 그룹으로 시작된 그룹도 Azure AD에서 수정할 수 없습니다. 
 
 * SharePoint Online 문서 라이브러리와 개별 문서를 리소스로 추가할 수 없습니다.  대신, [AZURE AD 보안 그룹](../fundamentals/active-directory-groups-create-azure-portal.md)을 만들고, 해당 그룹과 사이트 역할을 액세스 패키지에 포함 하 고, SharePoint Online에서 해당 그룹을 사용 하 여 문서 라이브러리나 문서에 대 한 액세스를 제어 합니다.
 
-* 액세스 패키지를 사용 하 여 관리 하려는 리소스에 이미 할당 된 사용자가 있는 경우 해당 사용자에 게 적절 한 정책을 사용 하 여 액세스 패키지를 할당 해야 합니다. 예를 들어 그룹에 이미 사용자가 있는 액세스 패키지에 그룹을 포함 하려는 경우가 있습니다. 그룹의 사용자가 계속 액세스 해야 하는 경우 그룹에 대 한 액세스 권한이 손실 되지 않도록 액세스 패키지에 대 한 적절 한 정책이 있어야 합니다. 사용자에 게 해당 리소스를 포함 하는 액세스 패키지를 요청 하거나 액세스 패키지에 직접 할당 하 여 액세스 패키지를 할당할 수 있습니다. 자세한 내용은 [액세스 패키지에 대 한 요청 및 승인 설정 변경](entitlement-management-access-package-request-policy.md)을 참조 하세요.
+* 액세스 패키지를 사용하여 관리하려는 리소스에 이미 할당된 사용자가 있는 경우 해당 사용자에게 적절한 정책을 사용하여 액세스 패키지를 할당해야 합니다. 예를 들어 이미 사용자가 있는 그룹을 액세스 패키지에 포함하려는 경우가 있습니다. 그룹의 사용자가 계속 액세스해야 하는 경우 사용자에게 그룹에 대한 액세스 권한을 잃지 않도록 액세스 패키지에 대한 적절한 정책이 있어야 합니다. 사용자에게 해당 리소스를 포함하는 액세스 패키지를 요청하거나 사용자를 액세스 패키지에 직접 할당하는 방법으로 액세스 패키지를 할당할 수 있습니다. 자세한 내용은 [액세스 패키지에 대 한 요청 및 승인 설정 변경](entitlement-management-access-package-request-policy.md)을 참조 하세요.
 
-* 팀의 구성원을 제거 하면 Office 365 그룹 에서도 제거 됩니다. 팀의 채팅 기능을 제거 하는 작업이 지연 될 수 있습니다. 자세한 내용은 [그룹 멤버 자격](https://docs.microsoft.com/microsoftteams/office-365-groups#group-membership)을 참조 하세요.
+* 팀 구성원을 제거하면 Office 365 그룹에서도 제거됩니다. 팀 채팅 기능을 제거하면 작업이 지연될 수 있습니다. 자세한 내용은 [그룹 멤버 자격](https://docs.microsoft.com/microsoftteams/office-365-groups#group-membership)을 참조 하세요.
 
-* 디렉터리가 다중 지역에 대해 구성 되지 않았는지 확인 합니다. 자격 관리는 현재 SharePoint Online에 대 한 다중 지역 위치를 지원 하지 않습니다. SharePoint Online 사이트는 자격 관리를 제어 하는 기본 지리적 위치에 있어야 합니다. 자세한 내용은 [OneDrive 및 SharePoint Online의 다중 지역 기능](https://docs.microsoft.com/Office365/Enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-office-365)을 참조 하세요.
+* 디렉터리가 다중 지역에 대해 구성되지 않았는지 확인합니다. 권한 관리는 현재 SharePoint Online에 대한 다중 지역 위치를 지원하지 않습니다. SharePoint Online 사이트는 권한 관리로 제어되는 기본 지리적 위치에 있어야 합니다. 자세한 내용은 [OneDrive 및 SharePoint Online의 다중 지역 기능](https://docs.microsoft.com/Office365/Enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-office-365)을 참조 하세요.
 
 ## <a name="external-users"></a>외부 사용자
 
@@ -55,19 +55,19 @@ ms.locfileid: "75422488"
 
 * 외부 사용자가 액세스 패키지에 대 한 액세스를 요청 하거나 리소스에 액세스할 수 없는 경우 [외부 사용자에 대 한 설정을](entitlement-management-external-users.md#settings-for-external-users)확인 해야 합니다.
 
-* 이전에 디렉터리에서 서명 하지 않은 새 외부 사용자가 SharePoint Online 사이트를 포함 하는 액세스 패키지를 수신 하는 경우 해당 계정이 SharePoint Online에서 프로 비전 될 때까지 해당 액세스 패키지는 완전히 배달 되지 않음으로 표시 됩니다. 설정 공유에 대 한 자세한 내용은 [SharePoint Online 외부 공유 설정 검토](entitlement-management-external-users.md#review-your-sharepoint-online-external-sharing-settings)를 참조 하세요.
+* 이전에 디렉터리에서 로그인하지 않은 새 외부 사용자가 SharePoint Online 사이트를 포함하는 액세스 패키지를 수신하는 경우 해당 계정이 SharePoint Online에서 프로비저닝될 때까지 해당 액세스 패키지는 완전히 전달되지 않음으로 표시됩니다. 설정 공유에 대 한 자세한 내용은 [SharePoint Online 외부 공유 설정 검토](entitlement-management-external-users.md#review-your-sharepoint-online-external-sharing-settings)를 참조 하세요.
 
 ## <a name="requests"></a>요청
 
 * 사용자가 액세스 패키지에 대 한 액세스를 요청 하려는 경우 액세스 패키지에 대 한 **내 액세스 포털 링크** 를 사용 해야 합니다. 자세한 내용은 [액세스 패키지를 요청 하는 공유 링크를](entitlement-management-access-package-settings.md)참조 하세요.
 
-* 브라우저에서 비공개 또는 incognito 모드로 설정 된 내 액세스 포털을 여는 경우 로그인 동작과 충돌할 수 있습니다. 내 액세스 포털을 방문 하는 경우 브라우저에 대해 비공개 또는 incognito 모드를 사용 하지 않는 것이 좋습니다.
+* in-private 또는 incognito 모드로 설정된 브라우저에서 내 액세스 포털을 열면 로그인 동작과 충돌할 수 있습니다. 내 액세스 포털을 방문하는 경우 브라우저를 in-private 또는 incognito 모드로 사용하지 않는 것이 좋습니다.
 
-* 디렉터리에 아직 없는 사용자가 액세스 패키지를 요청 하기 위해 내 액세스 포털에 로그인 하는 경우 조직 계정을 사용 하 여 인증 해야 합니다. 조직 계정은 리소스 디렉터리의 계정 이거나 액세스 패키지의 정책 중 하나에 포함 된 디렉터리 일 수 있습니다. 사용자 계정이 조직 계정이 아니거나 인증 된 디렉터리가 정책에 포함 되지 않은 경우 사용자에 게 액세스 패키지가 표시 되지 않습니다. 자세한 내용은 [액세스 패키지에 대 한 액세스 요청](entitlement-management-request-access.md)을 참조 하세요.
+* 아직 디렉터리에 없는 사용자가 내 액세스 포털에 로그인하여 액세스 패키지를 요청하는 경우 해당 조직의 계정을 사용하여 인증해야 합니다. 조직 계정은 리소스 디렉터리 또는 액세스 패키지의 정책 중 하나에 포함된 디렉터리의 계정일 수 있습니다. 사용자 계정이 조직 계정이 아니거나 인증한 디렉터리가 정책에 포함되지 않은 경우에는 사용자에게 액세스 패키지가 표시되지 않습니다. 자세한 내용은 [액세스 패키지에 대 한 액세스 요청](entitlement-management-request-access.md)을 참조 하세요.
 
-* 사용자가 리소스 디렉터리에 로그인 하지 못하도록 차단 된 경우에는 내 액세스 포털에서 액세스를 요청할 수 없습니다. 사용자가 액세스를 요청 하려면 먼저 사용자의 프로필에서 로그인 블록을 제거 해야 합니다. 로그인 블록을 제거 하려면 Azure Portal에서 **Azure Active Directory** **를 클릭 하 고 사용자를 클릭**한 다음 사용자를 클릭 하 고 **프로필**을 클릭 합니다. **설정** 섹션을 편집 하 고 **블록 로그인** 을 **아니요**로 변경 합니다. 자세한 내용은 [Azure Active Directory를 사용 하 여 사용자의 프로필 정보 추가 또는 업데이트](../fundamentals/active-directory-users-profile-azure-portal.md)를 참조 하세요.  [Id 보호 정책](../identity-protection/howto-unblock-user.md)으로 인해 사용자가 차단 되었는지 여부도 확인할 수 있습니다.
+* 사용자가 리소스 디렉터리에 로그인하지 못하도록 차단된 경우에는 내 액세스 포털에서 액세스를 요청할 수 없습니다. 사용자가 액세스를 요청하려면 먼저 사용자의 프로필에서 로그인 차단을 제거해야 합니다. 로그인 블록을 제거 하려면 Azure Portal에서 **Azure Active Directory** **를 클릭 하 고 사용자를 클릭**한 다음 사용자를 클릭 하 고 **프로필**을 클릭 합니다. **설정** 섹션을 편집 하 고 **블록 로그인** 을 **아니요**로 변경 합니다. 자세한 내용은 [Azure Active Directory를 사용 하 여 사용자의 프로필 정보 추가 또는 업데이트](../fundamentals/active-directory-users-profile-azure-portal.md)를 참조 하세요.  [Id 보호 정책](../identity-protection/howto-unblock-user.md)으로 인해 사용자가 차단 되었는지 여부도 확인할 수 있습니다.
 
-* 내 액세스 포털에서 사용자가 요청자 이자 승인자 인 경우 **승인** 페이지에서 액세스 패키지에 대 한 요청이 표시 되지 않습니다. 이 동작은 의도적인 것입니다. 사용자가 자신의 요청을 승인할 수 없습니다. 요청 하는 액세스 패키지에 정책에 구성 된 추가 승인자가 있는지 확인 합니다. 자세한 내용은 [액세스 패키지에 대 한 요청 및 승인 설정 변경](entitlement-management-access-package-request-policy.md)을 참조 하세요.
+* 내 액세스 포털에서 사용자가 요청자 이자 승인자 인 경우 **승인** 페이지에서 액세스 패키지에 대 한 요청이 표시 되지 않습니다. 이 동작은 의도적인 것으로, 사용자가 자신의 요청을 승인할 수 없습니다. 요청 중인 액세스 패키지에 정책에 구성된 추가 승인자가 있는지 확인합니다. 자세한 내용은 [액세스 패키지에 대 한 요청 및 승인 설정 변경](entitlement-management-access-package-request-policy.md)을 참조 하세요.
 
 ### <a name="view-a-requests-delivery-errors"></a>요청의 배달 오류 보기
 

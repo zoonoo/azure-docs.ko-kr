@@ -16,11 +16,11 @@ ms.date: 03/20/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: 5657a2d2c348b371f81aed74c92e52b5199cdc61
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77159883"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78377419"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>JavaScript SPA(단일 페이지 애플리케이션)에서 사용자 로그인 및 Microsoft Graph API 호출
 
@@ -45,7 +45,7 @@ ms.locfileid: "77159883"
 
 이 가이드에서는 다음 라이브러리를 사용합니다.
 
-|라이브러리|Description|
+|라이브러리|설명|
 |---|---|
 |[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|JavaScript용 Microsoft 인증 라이브러리 미리 보기|
 
@@ -65,7 +65,7 @@ ms.locfileid: "77159883"
 >
 > 코드 샘플을 먼저 구성한 후에 실행하려면 [구성 단계](#register-your-application)로 건너뜁니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 * 이 자습서를 실행하려면 [Node.js](https://nodejs.org/en/download/), [.NET Core](https://www.microsoft.com/net/core) 또는 IIS Express와 같은 로컬 웹 서버가 [Visual Studio 2017](https://www.visualstudio.com/downloads/)과 연결되어 있어야 합니다.
 
@@ -75,7 +75,7 @@ ms.locfileid: "77159883"
 
 ## <a name="create-your-project"></a>프로젝트 만들기
 
-> ### <a name="option-1-nodejs-or-other-web-servers"></a>옵션 1: Node.js 또는 다른 웹 서버
+> ### <a name="option-1-nodejs-or-other-web-servers"></a>옵션 1: node.js 또는 다른 웹 서버
 > [Node.js](https://nodejs.org/en/download/)가 설치되어 있는지 확인한 다음, 애플리케이션을 호스팅할 폴더를 만듭니다.
 >
 > ### <a name="option-2-visual-studio"></a>옵션 2: Visual Studio
@@ -404,7 +404,7 @@ Visual Studio를 사용하지 않는 경우 웹 서버가 시작되었는지 확
 
 Visual Studio를 사용하는 경우 프로젝트 솔루션을 선택한 다음, F5 키를 눌러 프로젝트를 실행합니다. 브라우저가 열리고 http://<span></span>localhost:{port} 위치로 이동합니다. **로그인** 단추가 표시됩니다.
 
-## <a name="test-your-application"></a>애플리케이션 테스트
+## <a name="test-your-application"></a>응용 프로그램 테스트
 
 브라우저에서 *index.html* 파일이 로드되면 **로그인**을 선택합니다. Microsoft ID 플랫폼 엔드포인트로 로그인하라는 메시지가 표시됩니다.
 
@@ -427,7 +427,7 @@ Visual Studio를 사용하는 경우 프로젝트 솔루션을 선택한 다음,
 
 Microsoft Graph API는 *user.read* 범위가 있어야만 사용자 프로필을 읽을 수 있습니다. 기본적으로 이 범위는 등록 포털에서 등록된 모든 애플리케이션에 자동으로 추가됩니다. 다른 Microsoft Graph용 API와 백 엔드 서버용 사용자 지정 API에는 추가 범위가 필요할 수 있습니다. 예를 들어 Microsoft Graph API에는 사용자 일정을 나열하기 위해 *Calendars.Read* 범위가 필요합니다.
 
-애플리케이션의 컨텍스트에서 사용자 일정에 액세스하려면 애플리케이션 등록 정보에 *Calendars.Read* 위임 권한을 추가합니다. 그런 다음 `acquireTokenSilent` 호출에 *Calendars.Read* 범위를 추가합니다.
+애플리케이션의 컨텍스트에서 사용자 일정에 액세스하려면 애플리케이션 등록 정보에 *Calendars.Read* 위임 권한을 추가합니다. 그런 다음 *호출에*Calendars.Read`acquireTokenSilent` 범위를 추가합니다.
 
 >[!NOTE]
 >범위 수를 늘리면 사용자에게 추가 동의를 요청하는 메시지가 표시될 수 있습니다.
