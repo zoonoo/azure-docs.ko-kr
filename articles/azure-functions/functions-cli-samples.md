@@ -7,11 +7,11 @@ ms.topic: sample
 ms.date: 01/09/2018
 ms.custom: mvc
 ms.openlocfilehash: 8de245dc6307890c872bfc4b8b66371775e1ad12
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74532880"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78358239"
 ---
 # <a name="azure-cli-samples"></a>Azure CLI 샘플
 
@@ -19,19 +19,19 @@ ms.locfileid: "74532880"
 
 <a id="create"></a>
 
-| 앱 만들기 | 설명 |
+| 앱 만들기 | Description |
 |---|---|
 | [서버를 사용하지 않고 실행하기 위한 함수 앱 만들기](scripts/functions-cli-create-serverless.md) | 소비 계획에서 함수 앱을 만듭니다.  |
 | [서버리스 Python 함수 앱 만들기](scripts/functions-cli-create-serverless-python.md) | 전용 App Service 계획에서 함수 앱을 만듭니다. |
 | [확장 가능한 프리미엄 플랜에서 함수 앱 만들기](scripts/functions-cli-create-premium-plan.md) | 전용 App Service 계획에서 함수 앱을 만듭니다. |
 | [전용(App Service) 계획에서 함수 앱 만들기](scripts/functions-cli-create-app-service-plan.md) | 전용 App Service 계획에서 함수 앱을 만듭니다. |
 
-| 통합 | 설명|
+| 통합 | Description|
 |---|---|
 | [함수 앱을 만들고 스토리지 계정에 연결](scripts/functions-cli-create-function-app-connect-to-storage-account.md) | 함수 앱을 만들고 스토리지 계정에 연결합니다. |
 | [함수 앱을 만들고 Azure Cosmos DB에 연결](scripts/functions-cli-create-function-app-connect-to-cosmos-db.md) | 함수 앱을 만들고 Azure Cosmos DB에 연결합니다. |
 
-| 연속 배포 | 설명|
+| 연속 배포 | Description|
 |---|---|
 | [GitHub에서 배포](scripts/functions-cli-create-function-app-github-continuous.md) | GitHub 리포지토리에서 배포되는 함수 앱을 만듭니다.  |
 | [Azure DevOps에서 배포](scripts/functions-cli-create-function-app-vsts-continuous.md) | Azure DevOps 리포지토리에서 배포하는 함수 앱을 만듭니다.  |

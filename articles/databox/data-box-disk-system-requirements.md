@@ -10,11 +10,11 @@ ms.date: 09/04/2019
 ms.author: alkohli
 ms.localizationpriority: high
 ms.openlocfilehash: fb2fd89664517e44cf5128a5c82e583f03087061
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70307690"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78380414"
 ---
 ::: zone target="docs"
 
@@ -74,7 +74,7 @@ Linux 클라이언트의 경우 Data Box Disk 도구 집합이 다음 필수 소
 
 Data Box Disk에 대해 지원되는 스토리지 형식의 목록은 다음과 같습니다.
 
-| **Storage 계정** | **참고 사항** |
+| **스토리지 계정** | **참고 사항** |
 | --- | --- |
 | 클래식 | Standard |
 | 범용  |표준; V1 및 V2 모두 지원됩니다. 핫 및 쿨 계층은 모두 지원됩니다. |
