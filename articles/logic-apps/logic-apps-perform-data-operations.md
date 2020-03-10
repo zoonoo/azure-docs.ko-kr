@@ -7,11 +7,11 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 09/20/2019
 ms.openlocfilehash: baa6e5732221d120ff71217a3a86a942794c53f4
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75666740"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78358975"
 ---
 # <a name="perform-data-operations-in-azure-logic-apps"></a>Azure Logic Apps에서 데이터 작업 수행
 
@@ -29,7 +29,7 @@ ms.locfileid: "75666740"
 
 배열의 데이터를 사용할 수 있는 작업은 다음과 같습니다.
 
-| 실행력 | Description |
+| 작업 | Description |
 |--------|-------------|
 | [**CSV 테이블 만들기**](#create-csv-table-action) | 배열에서 CSV(쉼표로 구분된 값) 테이블을 만듭니다. |
 | [**HTML 테이블 만들기**](#create-html-table-action) | 배열에서 HTML 테이블을 만듭니다. |
@@ -42,7 +42,7 @@ ms.locfileid: "75666740"
 
 JSON(JavaScript Object Notation) 형식으로 데이터를 사용할 수 있는 작업은 다음과 같습니다.
 
-| 실행력 | Description |
+| 작업 | Description |
 |--------|-------------|
 | [**Compose**](#compose-action) | 다양한 데이터 형식이 있을 수 있는 여러 입력에서 메시지 또는 문자열을 만듭니다. 그런 다음, 동일한 입력을 반복적으로 입력하는 대신, 이 문자열을 단일 입력으로 사용할 수 있습니다. 예를 들어 다양한 입력에서 단일 JSON 메시지를 만들 수 있습니다. |
 | [**Parse JSON**](#parse-json-action) | JSON 콘텐츠의 속성에 대해 사용자에게 친숙한 데이터 토큰을 만들어 논리 앱에서 해당 속성을 더 쉽게 사용할 수 있습니다. |
@@ -50,7 +50,7 @@ JSON(JavaScript Object Notation) 형식으로 데이터를 사용할 수 있는 
 
 더 복잡한 JSON 변환을 만들려면 [Liquid 템플릿을 사용하여 고급 JSON 변환 수행](../logic-apps/logic-apps-enterprise-integration-liquid-transform.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 구독이 없는 경우 [Azure 체험 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
@@ -76,7 +76,7 @@ JSON(JavaScript Object Notation) 형식으로 데이터를 사용할 수 있는 
 
 `{"age":35,"fullName":"Owens,Sophie"}`
 
-이 예제를 시도하려면 Logic Apps 디자이너를 사용하여 다음 단계를 수행합니다. 또는 코드 보기 편집기에서 작업하려는 경우 [데이터 작업 코드 예제 - 작성](../logic-apps/logic-apps-data-operations-code-samples.md#compose-action-example) 문서의 **작성** 및 **변수 초기화** 작업 정의 예제를 사용자 고유의 논리 앱의 기본 워크플로 정의에 복사할 수 있습니다. 
+이 예제를 시도하려면 Logic Apps 디자이너를 사용하여 다음 단계를 수행합니다. 또는 코드 보기 편집기에서 작업하려는 경우 **데이터 작업 코드 예제 - 작성** 문서의 **작성** 및 [변수 초기화](../logic-apps/logic-apps-data-operations-code-samples.md#compose-action-example) 작업 정의 예제를 사용자 고유의 논리 앱의 기본 워크플로 정의에 복사할 수 있습니다. 
 
 1. [Azure Portal](https://portal.azure.com) 또는 Visual Studio의 논리 앱 디자이너에서 논리 앱을 엽니다.
 
@@ -134,7 +134,7 @@ JSON(JavaScript Object Notation) 형식으로 데이터를 사용할 수 있는 
 
 배열의 JSON (JavaScript Object Notation) 개체에서 속성과 값을 포함 하는 CSV (쉼표로 구분 된 값) 테이블을 만들려면 **csv 테이블 만들기** 작업을 사용 합니다. 그런 다음, **CSV 테이블 만들기** 작업 이후에 수행하는 작업에서 결과 테이블을 사용할 수 있습니다.
 
-코드 보기 편집기에서 작업하려는 경우 [데이터 작업 코드 예제 - CSV 테이블 만들기](../logic-apps/logic-apps-data-operations-code-samples.md#create-csv-table-action-example) 문서의 **CSV 테이블 만들기** 및 **변수 초기화** 작업 정의 예제를 사용자 고유의 논리 앱의 기본 워크플로 정의에 복사할 수 있습니다.
+코드 보기 편집기에서 작업하려는 경우 **데이터 작업 코드 예제 - CSV 테이블 만들기** 문서의 **CSV 테이블 만들기** 및 [변수 초기화](../logic-apps/logic-apps-data-operations-code-samples.md#create-csv-table-action-example) 작업 정의 예제를 사용자 고유의 논리 앱의 기본 워크플로 정의에 복사할 수 있습니다.
 
 1. [Azure Portal](https://portal.azure.com) 또는 Visual Studio의 논리 앱 디자이너에서 논리 앱을 엽니다.
 
@@ -161,7 +161,7 @@ JSON(JavaScript Object Notation) 형식으로 데이터를 사용할 수 있는 
    ![CSV 테이블 만들기에 대한 배열 출력 선택](./media/logic-apps-perform-data-operations/configure-create-csv-table-action.png)
 
    > [!TIP]
-   > JSON 개체의 속성에 대해 사용자에게 친숙한 토큰을 만들어 해당 속성을 입력으로 사용할 수 있도록 **CSV 테이블 만들기** 작업을 호출하기 전에 [JSON 구문 분석](#parse-json-action)을 사용합니다.
+   > JSON 개체의 속성에 대해 사용자에게 친숙한 토큰을 만들어 해당 속성을 입력으로 사용할 수 있도록 [CSV 테이블 만들기](#parse-json-action) 작업을 호출하기 전에 **JSON 구문 분석**을 사용합니다.
 
    완료된 **CSV 테이블 만들기** 작업 예제는 다음과 같습니다. 
 
@@ -200,7 +200,7 @@ Oranges,2
 
    `item()?['<array-property-name>']`
 
-   예:
+   다음은 그 예입니다.
 
    * `item()?['Description']`
    * `item()?['Product_ID']`
@@ -232,7 +232,7 @@ Oranges,2
    }
    ```
 
-   예:
+   다음은 그 예입니다.
 
    ```json
    "Create_CSV_table": {
@@ -285,7 +285,7 @@ Oranges,2
 
 배열의 JSON (JavaScript Object Notation) 개체에서 속성 및 값을 포함 하는 HTML 테이블을 만들려면 **html 테이블 만들기** 작업을 사용 합니다. 그런 다음, **HTML 테이블 만들기** 작업 이후에 수행하는 작업에서 결과 테이블을 사용할 수 있습니다.
 
-코드 보기 편집기에서 작업하려는 경우 [데이터 작업 코드 예제 - HTML 테이블 만들기](../logic-apps/logic-apps-data-operations-code-samples.md#create-html-table-action-example) 문서의 **HTML 테이블 만들기** 및 **변수 초기화** 작업 정의 예제를 사용자 고유의 논리 앱의 기본 워크플로 정의에 복사할 수 있습니다. 
+코드 보기 편집기에서 작업하려는 경우 **데이터 작업 코드 예제 - HTML 테이블 만들기** 문서의 **HTML 테이블 만들기** 및 [변수 초기화](../logic-apps/logic-apps-data-operations-code-samples.md#create-html-table-action-example) 작업 정의 예제를 사용자 고유의 논리 앱의 기본 워크플로 정의에 복사할 수 있습니다. 
 
 1. [Azure Portal](https://portal.azure.com) 또는 Visual Studio의 논리 앱 디자이너에서 논리 앱을 엽니다.
 
@@ -312,7 +312,7 @@ Oranges,2
    ![HTML 테이블 만들기에 대한 배열 출력 선택](./media/logic-apps-perform-data-operations/configure-create-html-table-action.png)
 
    > [!TIP]
-   > JSON 개체의 속성에 대해 사용자에게 친숙한 토큰을 만들어 해당 속성을 입력으로 사용할 수 있도록 **HTML 테이블 만들기** 작업을 호출하기 전에 [JSON 구문 분석](#parse-json-action)을 사용합니다.
+   > JSON 개체의 속성에 대해 사용자에게 친숙한 토큰을 만들어 해당 속성을 입력으로 사용할 수 있도록 [HTML 테이블 만들기](#parse-json-action) 작업을 호출하기 전에 **JSON 구문 분석**을 사용합니다.
 
    완료된 **HTML 테이블 만들기** 작업 예제는 다음과 같습니다.
 
@@ -351,7 +351,7 @@ Oranges,2
 
    `item()?['<array-property-name>']`
 
-   예:
+   다음은 그 예입니다.
 
    * `item()?['Description']`
    * `item()?['Product_ID']`
@@ -383,7 +383,7 @@ Oranges,2
    }
    ```
 
-   예:
+   다음은 그 예입니다.
 
    ```json
    "Create_HTML_table": {
@@ -447,7 +447,7 @@ Oranges,2
 > HTTP 끝점을 호출 하 고 JSON 응답을 수신 하는 경우 json **구문 분석** 작업을 사용 하 여 json 응답을 처리 합니다. 
 > 그렇지 않은 경우에는 **필터 배열** 작업에서 JSON 페이로드의 구조가 아닌 응답 본문만 읽을 수 있습니다.
 
-또는 코드 보기 편집기에서 작업하려는 경우 [데이터 작업 코드 예제 - 배열 필터링](../logic-apps/logic-apps-data-operations-code-samples.md#filter-array-action-example) 문서의 **배열 필터링** 및 **변수 초기화** 작업 정의 예제를 사용자 고유의 논리 앱의 기본 워크플로 정의에 복사할 수 있습니다.
+또는 코드 보기 편집기에서 작업하려는 경우 **데이터 작업 코드 예제 - 배열 필터링** 문서의 **배열 필터링** 및 [변수 초기화](../logic-apps/logic-apps-data-operations-code-samples.md#filter-array-action-example) 작업 정의 예제를 사용자 고유의 논리 앱의 기본 워크플로 정의에 복사할 수 있습니다.
 
 1. [Azure Portal](https://portal.azure.com) 또는 Visual Studio의 논리 앱 디자이너에서 논리 앱을 엽니다.
 
@@ -512,7 +512,7 @@ Oranges,2
 
 배열의 모든 항목을 포함 하 고 해당 항목을 특정 구분 기호 문자로 구분 하는 문자열을 만들려면 **조인** 동작을 사용 합니다. 그런 다음, **조인** 작업 이후에 수행하는 작업에서 문자열을 사용할 수 있습니다.
 
-코드 보기 편집기에서 작업하려는 경우 [데이터 작업 코드 예제 - 조인](../logic-apps/logic-apps-data-operations-code-samples.md#join-action-example) 문서의 **조인** 및 **변수 초기화** 작업 정의 예제를 사용자 고유의 논리 앱의 기본 워크플로 정의에 복사할 수 있습니다.
+코드 보기 편집기에서 작업하려는 경우 **데이터 작업 코드 예제 - 조인** 문서의 **조인** 및 [변수 초기화](../logic-apps/logic-apps-data-operations-code-samples.md#join-action-example) 작업 정의 예제를 사용자 고유의 논리 앱의 기본 워크플로 정의에 복사할 수 있습니다.
 
 1. [Azure Portal](https://portal.azure.com) 또는 Visual Studio의 논리 앱 디자이너에서 논리 앱을 엽니다.
 
@@ -572,7 +572,7 @@ Oranges,2
 
 JSON (JavaScript Object Notation) 콘텐츠의 속성을 참조 하거나 액세스 하려면 **Json 구문 분석** 작업을 사용 하 여 해당 속성에 대 한 사용자에 게 친숙 한 필드 또는 토큰을 만들 수 있습니다. 이렇게 하면 논리 앱에 대한 입력을 지정할 때 동적 콘텐츠 목록에서 해당 속성을 선택할 수 있습니다. 이 작업의 경우 JSON 콘텐츠 또는 페이로드 샘플에서 JSON 스키마를 제공하거나 생성할 수 있습니다.
 
-코드 보기 편집기에서 작업하려는 경우 [데이터 작업 코드 예제 - JSON 구문 분석](../logic-apps/logic-apps-data-operations-code-samples.md#parse-json-action-example) 문서의 **JSON 구문 분석** 및 **변수 초기화** 작업 정의 예제를 사용자 고유의 논리 앱의 기본 워크플로 정의에 복사할 수 있습니다.
+코드 보기 편집기에서 작업하려는 경우 **데이터 작업 코드 예제 - JSON 구문 분석** 문서의 **JSON 구문 분석** 및 [변수 초기화](../logic-apps/logic-apps-data-operations-code-samples.md#parse-json-action-example) 작업 정의 예제를 사용자 고유의 논리 앱의 기본 워크플로 정의에 복사할 수 있습니다.
 
 1. [Azure Portal](https://portal.azure.com) 또는 Visual Studio의 논리 앱 디자이너에서 논리 앱을 엽니다.
 
@@ -647,7 +647,7 @@ JSON (JavaScript Object Notation) 콘텐츠의 속성을 참조 하거나 액세
 > [!NOTE]
 > **선택** 작업에서 배열 출력을 사용하는 작업의 경우 해당 작업에서 배열을 입력으로 받아들여야 하거나 출력 배열을 호환되는 다른 형식으로 변환해야 할 수 있습니다. 
 
-코드 보기 편집기에서 작업하려는 경우 [데이터 작업 코드 예제 - 선택](../logic-apps/logic-apps-data-operations-code-samples.md#select-action-example) 문서의 **선택** 및 **변수 초기화** 작업 정의 예제를 사용자 고유의 논리 앱의 기본 워크플로 정의에 복사할 수 있습니다. 
+코드 보기 편집기에서 작업하려는 경우 **데이터 작업 코드 예제 - 선택** 문서의 **선택** 및 [변수 초기화](../logic-apps/logic-apps-data-operations-code-samples.md#select-action-example) 작업 정의 예제를 사용자 고유의 논리 앱의 기본 워크플로 정의에 복사할 수 있습니다. 
 
 1. [Azure Portal](https://portal.azure.com) 또는 Visual Studio의 논리 앱 디자이너에서 논리 앱을 엽니다.
 

@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 01/27/2020
 ms.author: diberry
 ms.openlocfilehash: 95b7c7446a47fafd26d00b0da4d880786340fcd0
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76775145"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78393745"
 ---
 # <a name="how-to-improve-the-luis-app-by-reviewing-endpoint-utterances"></a>엔드포인트 길이 발언을 검토 하 여 LUIS 앱을 개선 하는 방법
 
@@ -42,7 +42,7 @@ LUIS 포털을 사용 하 여 올바른 끝점 쿼리를 생성 합니다.
     > [!div class="mx-imgBorder"]
     > ![LUIS 포털을 사용 하 여 활성 학습에 필요한 로그를 저장 합니다.](./media/luis-tutorial-review-endpoint-utterances/luis-portal-manage-azure-resource-save-logs.png)
 
-     이 작업은 `log=true` querystring 매개 변수를 추가 하 여 URL의 예를 변경 합니다. 런타임 끝점에 대 한 예측 쿼리를 만들 때 변경 된 예제 쿼리 URL을 복사 하 여 사용 합니다.
+     이 작업은 `log=true` 쿼리 문자열 매개 변수를 추가하여 예제 URL을 변경합니다. 런타임 엔드포인트에 예측 쿼리를 만들 때 변경된 예제 쿼리 URL을 복사하여 사용합니다.
 
 ## <a name="correct-intent-predictions-to-align-utterances"></a>길이 발언를 맞추기 위한 올바른 의도 예측
 

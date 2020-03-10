@@ -9,11 +9,11 @@ ms.date: 01/31/2020
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: e300bc0f29808215673407d21b65fe329e50ad45
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76930434"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78372299"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Azure Automation에서 모듈 관리
 
@@ -42,7 +42,7 @@ $moduleVersion = <ModuleVersion>
 New-AzAutomationModule -AutomationAccountName <AutomationAccountName> -ResourceGroupName <ResourceGroupName> -Name $moduleName -ContentLinkUri "https://www.powershellgallery.com/api/v2/package/$moduleName/$moduleVersion"
 ```
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
 Azure Portal에서 Automation 계정으로 이동 하 고 **공유 리소스**아래에서 **모듈** 을 선택 합니다. **+ 모듈 추가를**클릭 합니다. 모듈이 포함 된 **.zip** 파일을 선택 하 고 **확인** 을 클릭 하 여 프로세스 가져오기를 시작 합니다.
 
@@ -50,7 +50,7 @@ Azure Portal에서 Automation 계정으로 이동 하 고 **공유 리소스**�
 
 PowerShell 갤러리의 모듈은 [PowerShell 갤러리](https://www.powershellgallery.com) 에서 직접 가져오거나 Automation 계정에서 가져올 수 있습니다.
 
-PowerShell 갤러리에서 모듈을 가져오려면 https://www.powershellgallery.com 으로 이동 하 여 가져올 모듈을 검색 합니다. **배포를 클릭 하** 여 **설치 옵션**아래의 **Azure Automation** 탭에서 Azure Automation 합니다. 이 작업을 수행하면 Azure Portal이 열립니다. **가져오기** 페이지에서 Automation 계정을 선택 하 고 **확인**을 클릭 합니다.
+PowerShell 갤러리에서 모듈을 가져오려면 https://www.powershellgallery.com으로 이동 하 여 가져올 모듈을 검색 합니다. **배포를 클릭 하** 여 **설치 옵션**아래의 **Azure Automation** 탭에서 Azure Automation 합니다. 이 작업을 수행하면 Azure Portal이 열립니다. **가져오기** 페이지에서 Automation 계정을 선택 하 고 **확인**을 클릭 합니다.
 
 ![가져오기 모듈 PowerShell 갤러리](../media/modules/powershell-gallery.png)
 
@@ -62,7 +62,7 @@ Automation 계정에서 직접 PowerShell 갤러리 모듈을 가져올 수도 �
 
 모듈에 문제가 있거나 이전 버전의 모듈로 롤백해야 하는 경우 Automation 계정에서 삭제할 수 있습니다. Automation 계정을 만들 때 가져온 [기본 모듈](#default-modules) 의 원래 버전은 삭제할 수 없습니다. 삭제 하려는 모듈이 설치 된 [기본 모듈](#default-modules) 중 하나 이상의 최신 버전인 경우 Automation 계정과 함께 설치 된 버전으로 롤백됩니다. 그렇지 않으면 Automation 계정에서 삭제 한 모든 모듈이 제거 됩니다.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
 Azure Portal에서 Automation 계정으로 이동 하 고 **공유 리소스**아래에서 **모듈** 을 선택 합니다. 제거 하려는 모듈을 선택 합니다. **모듈** 페이지에서 **삭제**를 선택 합니다. 이 모듈이 [기본 모듈](#default-modules)중 하나인 경우 Automation 계정을 만들 때 제공 된 버전으로 롤백됩니다.
 
@@ -82,7 +82,7 @@ Remove-AzureRmAutomationModule -Name <moduleName> -AutomationAccountName <automa
 >이러한 내부 cmdlet은 Windows Hybrid Runbook Worker에서 사용할 수 있으며 Linux Hybrid Runbook Worker에서는 사용할 수 없습니다. 컴퓨터에서 직접 실행 되는 runbook 또는 사용자 환경의 리소스에 대해 해당 [AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Automation/?view=azurermps-6.13.0) 또는 [Az 모듈](../az-modules.md) 을 사용 합니다. 
 >
 
-|이름|Description|
+|속성|Description|
 |---|---|
 |Get-AutomationCertificate|`Get-AutomationCertificate [-Name] <string> [<CommonParameters>]`|
 |Get-AutomationConnection|`Get-AutomationConnection [-Name] <string> [-DoNotDecrypt] [<CommonParameters>]` |

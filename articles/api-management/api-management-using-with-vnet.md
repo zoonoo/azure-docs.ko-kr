@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 02/05/2020
 ms.author: apimpm
 ms.openlocfilehash: c5a1aaac0edea1e5ab2e6cdf35f91f61eed23db5
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77047490"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78374955"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>가상 네트워크에서 Azure API Management를 사용하는 방법
 Azure VNET(Virtual Network)을 사용하면 비인터넷 라우팅 가능 네트워크(액세스를 제어하는)에 다수의 Azure 리소스를 배치할 수 있습니다. 이러한 네트워크는 다양한 VPN 기술을 사용하여 온-프레미스 네트워크에 연결될 수 있습니다. Azure Virtual Network에 대해 자세히 알아보려면 [Azure Virtual Network 개요](../virtual-network/virtual-networks-overview.md)부터 참조하세요.
@@ -31,7 +31,7 @@ Azure API Management가 네트워크 내의 백 엔드 서비스에 액세스할
 
 [!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서에 설명한 단계를 수행하려면 다음 항목이 있어야 합니다.
 
@@ -213,7 +213,7 @@ IP 주소는 **Azure 환경**으로 구분 됩니다. **Global** 로 표시 된 
 | Azure 공용| 아랍에미리트 북부| 20.46.144.85|
 | Azure 공용| 브라질 남부| 191.233.24.179|
 | Azure 공용| 동남아시아| 40.90.185.46|
-| Azure 공용| 남아프리카 공화국 북부| 102.133.130.197|
+| Azure 공용| 남아프리카 북부| 102.133.130.197|
 | Azure 공용| 캐나다 중부| 52.139.20.34|
 | Azure 공용| 한국 남부| 40.80.232.185|
 | Azure 공용| 인도 중부| 13.71.49.1|
@@ -249,7 +249,7 @@ IP 주소는 **Azure 환경**으로 구분 됩니다. **Global** 로 표시 된 
 | Azure Government| 미국 정부 버지니아 (Global)| 52.127.42.160|
 | Azure Government| 미국 정부 텍사스 (Global)| 52.127.34.192|
 | Azure Government| USGov 버지니아| 52.227.222.92|
-| Azure Government| 미국 정부 아이오와| 13.73.72.21|
+| Azure Government| USGov 아이오와| 13.73.72.21|
 | Azure Government| USGov 애리조나| 52.244.32.39|
 | Azure Government| USGov 텍사스| 52.243.154.118|
 | Azure Government| USDoD Central| 52.182.32.132|

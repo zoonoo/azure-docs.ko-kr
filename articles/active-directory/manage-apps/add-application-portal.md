@@ -12,13 +12,13 @@ ms.date: 10/29/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 650a4f643f170fc64dd0e0643d645a7dcbffdfbc
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420473"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78379787"
 ---
-# <a name="quickstart-add-an-application-to-your-azure-active-directory-tenant"></a>빠른 시작: 애플리케이션을 Azure Active Directory 테넌트에 추가합니다.
+# <a name="quickstart-add-an-application-to-your-azure-active-directory-tenant"></a>빠른 시작: Azure Active Directory 테넌트에 애플리케이션 추가
 
 Azure AD(Azure Active Directory)에는 수천 개의 사전 통합 애플리케이션이 들어 있는 갤러리가 있습니다. 조직에서 사용하는 애플리케이션 중 일부는 이 갤러리에 있을 것입니다. 이 빠른 시작에서는 Azure Portal을 사용하여 Azure AD(Azure Active Directory) 테넌트에 갤러리 애플리케이션을 추가합니다.
 
@@ -50,7 +50,7 @@ Azure AD 테넌트에 갤러리 애플리케이션을 추가하려면:
 
     ![새 애플리케이션을 선택하여 갤러리 앱을 테넌트에 추가](media/add-application-portal/new-application.png)
 
- 4. 새 갤러리 미리 보기 환경으로 전환합니다. **애플리케이션 페이지 추가** 맨 위에 있는 배너에서 **여기를 클릭하여 새롭고 향상된 앱 갤러리 사용해 보기** 링크를 선택합니다.
+ 4. 새 갤러리 미리 보기 환경으로 전환: **응용 프로그램 추가 페이지**의 맨 위에 있는 배너에서 **새로운 기능 및 향상 된 앱 갤러리를 사용해 보려면 여기를 클릭**하십시오. 라는 링크를 선택 합니다.
 
 5. **Azure AD 갤러리 찾아보기(미리 보기)** 창이 열리고 클라우드 플랫폼, 온-프레미스 애플리케이션 및 추천 애플리케이션에 대한 타일이 표시됩니다. **추천 애플리케이션** 섹션에 나열된 애플리케이션에는 SSO(페더레이션된 Single Sign-On) 및 프로비저닝을 지원하는지 여부를 나타내는 아이콘이 있습니다.
 
@@ -101,27 +101,27 @@ Azure AD 테넌트에 갤러리 애플리케이션을 추가하려면:
        |---|---|---|---|---|
        | 사용자가 로그인할 수 있습니까? | 사용자 할당이 필요합니까? | 사용자가 볼 수 있습니까? | 할당된 사용자가 로그인할 수 있습니까? | 할당된 사용자가 애플리케이션을 볼 수 있습니까?* |
        | 예 | 예 | 예 | 예 | 예  |
-       | 예 | 예 | no  | 예 | no   |
-       | 예 | no  | 예 | 예 | 예  |
-       | 예 | no  | no  | 예 | no   |
-       | no  | 예 | 예 | no  | no   |
-       | no  | 예 | no  | no  | no   |
-       | no  | no  | 예 | no  | no   |
-       | no  | no  | no  | no  | no   |
+       | 예 | 예 | 아니요  | 예 | 아니요   |
+       | 예 | 아니요  | 예 | 예 | 예  |
+       | 예 | 아니요  | 아니요  | 예 | 아니요   |
+       | 아니요  | 예 | 예 | 아니요  | 아니요   |
+       | 아니요  | 예 | 아니요  | 아니요  | 아니요   |
+       | 아니요  | 아니요  | 예 | 아니요  | 아니요   |
+       | 아니요  | 아니요  | 아니요  | 아니요  | 아니요   |
 
    - **할당되지 않은** 사용자에 대한 동작:
 
        | 애플리케이션 속성 설정 | | | 할당되지 않은 사용자 환경 | |
        |---|---|---|---|---|
        | 사용자가 로그인할 수 있습니까? | 사용자 할당이 필요합니까? | 사용자가 볼 수 있습니까? | 할당되지 않은 사용자가 로그인할 수 있습니까? | 할당되지 않은 사용자가 애플리케이션을 볼 수 있습니다? * |
-       | 예 | 예 | 예 | no  | no   |
-       | 예 | 예 | no  | no  | no   |
-       | 예 | no  | 예 | 예 | no   |
-       | 예 | no  | no  | 예 | no   |
-       | no  | 예 | 예 | no  | no   |
-       | no  | 예 | no  | no  | no   |
-       | no  | no  | 예 | no  | no   |
-       | no  | no  | no  | no  | no   |
+       | 예 | 예 | 예 | 아니요  | 아니요   |
+       | 예 | 예 | 아니요  | 아니요  | 아니요   |
+       | 예 | 아니요  | 예 | 예 | 아니요   |
+       | 예 | 아니요  | 아니요  | 예 | 아니요   |
+       | 아니요  | 예 | 예 | 아니요  | 아니요   |
+       | 아니요  | 예 | 아니요  | 아니요  | 아니요   |
+       | 아니요  | 아니요  | 예 | 아니요  | 아니요   |
+       | 아니요  | 아니요  | 아니요  | 아니요  | 아니요   |
 
      *사용자가 액세스 패널 및 Office 365 앱 시작 관리자에서 애플리케이션을 볼 수 있습니까?
 

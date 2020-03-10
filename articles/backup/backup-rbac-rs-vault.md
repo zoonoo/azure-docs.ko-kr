@@ -5,11 +5,11 @@ ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.openlocfilehash: e2e32ac6981635e3b9885119fdf397783ac32cc9
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76156389"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78363766"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>역할 기반 Access Control을 사용하여 Azure Backup 복구 지점 관리
 
@@ -65,7 +65,7 @@ Azure Backup는 백업 관리 작업을 제어 하는 세 가지 기본 제공 �
 | 관리 작업 | 역할 필요 | 리소스 |
 | --- | --- | --- |
 | Azure 파일 공유의 백업 사용 | Backup 참가자 |Recovery Services 자격 증명 모음 |
-| |Storage 계정 | 참가자 저장소 계정 리소스 |
+| |스토리지 계정 | 참가자 저장소 계정 리소스 |
 | VM의 주문형 백업 | Backup 운영자 | Recovery Services 자격 증명 모음 |
 | 파일 공유 복원 | Backup 운영자 | Recovery Services 자격 증명 모음 |
 | | Storage 계정 참가자 | 복원 원본 및 대상 파일 공유가 있는 저장소 계정 리소스 |

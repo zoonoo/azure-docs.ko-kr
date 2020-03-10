@@ -9,11 +9,11 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.openlocfilehash: 6fd23e3d41dda15b1ec439c1e8b02073722b8871
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71073627"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78359987"
 ---
 # <a name="create-virtual-networks-for-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터에 대 한 가상 네트워크 만들기
 
@@ -48,7 +48,7 @@ Azure HDInsight에서 가상 네트워크를 사용 하는 방법에 대 한 배
 다음 PowerShell 스크립트를 사용하여 인바운드 트래픽을 제한하며 북유럽 지역의 IP 주소에서 전송되는 트래픽을 허용하는 가상 네트워크를 만듭니다.
 
 > [!IMPORTANT]  
-> 이 예제에서 및 `hdirule1` `hdirule2` 에 대 한 IP 주소를 사용 하는 Azure 지역과 일치 하도록 변경 합니다. [HDInsight 관리 IP 주소](hdinsight-management-ip-addresses.md)에 대 한 정보를 찾을 수 있습니다.
+> `hdirule1`에 대 한 IP 주소를 변경 하 고이 예의 `hdirule2` 사용 중인 Azure 지역에 맞게 변경 합니다. [HDInsight 관리 IP 주소](hdinsight-management-ip-addresses.md)에 대 한 정보를 찾을 수 있습니다.
 
 ```powershell
 $vnetName = "Replace with your virtual network name"
@@ -162,7 +162,7 @@ Add-AzNetworkSecurityRuleConfig -Name "SSH" -Description "SSH" -Protocol "*" -So
 
 다음 단계에 따라 인바운드 트래픽을 제한하지만 HDInsight에 필요한 IP 주소에서의 트래픽은 허용하는 가상 네트워크를 만듭니다.
 
-1. 다음 명령을 사용하여 `hdisecure`이라는 새 네트워크 보안 그룹을 만듭니다. 을 `RESOURCEGROUP` Azure Virtual Network를 포함 하는 리소스 그룹으로 바꿉니다. 을 `LOCATION` 그룹이 만들어진 위치 (지역)로 바꿉니다.
+1. 다음 명령을 사용하여 `hdisecure`이라는 새 네트워크 보안 그룹을 만듭니다. `RESOURCEGROUP`를 Azure Virtual Network를 포함 하는 리소스 그룹으로 바꿉니다. `LOCATION`를 그룹이 만들어진 위치 (지역)로 바꿉니다.
 
     ```azurecli
     az network nsg create -g RESOURCEGROUP -n hdisecure -l LOCATION
@@ -170,10 +170,10 @@ Add-AzNetworkSecurityRuleConfig -Name "SSH" -Description "SSH" -Protocol "*" -So
 
     그룹을 만들면 새 그룹에 대한 정보를 받습니다.
 
-2. 다음을 사용하여 Azure HDInsight 상태 및 관리 서비스에서 포트 443에 대한 인바운드 통신을 허용하는 새 네트워크 보안 그룹에 규칙을 추가합니다. 을 `RESOURCEGROUP` Azure Virtual Network를 포함 하는 리소스 그룹의 이름으로 바꿉니다.
+2. 다음을 사용하여 Azure HDInsight 상태 및 관리 서비스에서 포트 443에 대한 인바운드 통신을 허용하는 새 네트워크 보안 그룹에 규칙을 추가합니다. `RESOURCEGROUP`를 Azure Virtual Network를 포함 하는 리소스 그룹의 이름으로 바꿉니다.
 
     > [!IMPORTANT]  
-    > 이 예제에서 및 `hdirule1` `hdirule2` 에 대 한 IP 주소를 사용 하는 Azure 지역과 일치 하도록 변경 합니다. [HDInsight 관리 IP 주소](hdinsight-management-ip-addresses.md)에서이 정보를 찾을 수 있습니다.
+    > `hdirule1`에 대 한 IP 주소를 변경 하 고이 예의 `hdirule2` 사용 중인 Azure 지역에 맞게 변경 합니다. [HDInsight 관리 IP 주소](hdinsight-management-ip-addresses.md)에서이 정보를 찾을 수 있습니다.
 
     ```azurecli
     az network nsg rule create -g RESOURCEGROUP --nsg-name hdisecure -n hdirule1 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "52.164.210.96" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 300 --direction "Inbound"
@@ -194,7 +194,7 @@ Add-AzNetworkSecurityRuleConfig -Name "SSH" -Description "SSH" -Protocol "*" -So
 
         "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Network/networkSecurityGroups/hdisecure"
 
-4. 다음 명령을 사용하여 네트워크 보안 그룹을 서브넷에 적용합니다. `GUID` 및`RESOURCEGROUP` 값을 이전 단계에서 반환 된 값으로 바꿉니다. `VNETNAME` 및`SUBNETNAME` 를 만들려는 가상 네트워크 이름 및 서브넷 이름으로 바꿉니다.
+4. 다음 명령을 사용하여 네트워크 보안 그룹을 서브넷에 적용합니다. `GUID` 및 `RESOURCEGROUP` 값을 이전 단계에서 반환 된 값으로 바꿉니다. `VNETNAME` 및 `SUBNETNAME`을 만들려는 가상 네트워크 이름 및 서브넷 이름으로 바꿉니다.
 
     ```azurecli
     az network vnet subnet update -g RESOURCEGROUP --vnet-name VNETNAME --name SUBNETNAME --set networkSecurityGroup.id="/subscriptions/GUID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Network/networkSecurityGroups/hdisecure"
@@ -227,7 +227,7 @@ az network nsg rule create -g RESOURCEGROUP --nsg-name hdisecure -n ssh --protoc
 
 1. Azure PowerShell 또는 Azure CLI를 사용하여 가상 네트워크의 DNS 접미사를 찾습니다.
 
-    을 `RESOURCEGROUP` 가상 네트워크를 포함 하는 리소스 그룹의 이름으로 바꾸고 다음 명령을 입력 합니다.
+    `RESOURCEGROUP`를 가상 네트워크를 포함 하는 리소스 그룹의 이름으로 바꾸고 다음 명령을 입력 합니다.
 
     ```powershell
     $NICs = Get-AzNetworkInterface -ResourceGroupName "RESOURCEGROUP"
@@ -288,7 +288,7 @@ az network nsg rule create -g RESOURCEGROUP --nsg-name hdisecure -n ssh --protoc
     
     * `192.168.0.1` 값을 온-프레미스 DNS 서버의 IP 주소로 바꿉니다. 이 항목은 다른 모든 DNS 요청을 온-프레미스 DNS 서버에 라우팅합니다.
 
-3. 구성을 사용하려면 바인딩을 다시 시작합니다. `sudo service bind9 restart` 을 입력합니다.
+3. 구성을 사용하려면 바인딩을 다시 시작합니다. `sudo service bind9 restart`)을 입력합니다.
 
 4. 온-프레미스 DNS 서버에 조건부 전달자를 추가합니다. 1단계에서 DNS 접미사에 대한 요청을 사용자 지정 DNS 서버에 보내도록 조건부 전달자를 구성합니다.
 
@@ -309,7 +309,7 @@ az network nsg rule create -g RESOURCEGROUP --nsg-name hdisecure -n ssh --protoc
 
 1. Azure PowerShell 또는 Azure CLI를 사용하여 두 가상 네트워크의 DNS 접미사를 찾습니다.
 
-    을 `RESOURCEGROUP` 가상 네트워크를 포함 하는 리소스 그룹의 이름으로 바꾸고 다음 명령을 입력 합니다.
+    `RESOURCEGROUP`를 가상 네트워크를 포함 하는 리소스 그룹의 이름으로 바꾸고 다음 명령을 입력 합니다.
 
     ```powershell
     $NICs = Get-AzNetworkInterface -ResourceGroupName "RESOURCEGROUP"

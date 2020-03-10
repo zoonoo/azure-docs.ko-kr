@@ -6,28 +6,28 @@ ms.topic: conceptual
 ms.date: 10/12/2017
 ms.author: tomfitz
 ms.openlocfilehash: 6e56c5e528a17d42a75da54158f00857a917645c
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75650657"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78380868"
 ---
 # <a name="createuidefinition-functions"></a>CreateUiDefinition 함수
 이 섹션에는 CreateUiDefinition의 지원되는 모든 함수에 대한 서명이 포함되어 있습니다.
 
-함수를 사용하려면 선언을 대괄호로 묶습니다. 예:
+함수를 사용하려면 선언을 대괄호로 묶습니다. 다음은 그 예입니다.
 
 ```json
 "[function()]"
 ```
 
-문자열 및 기타 함수를 함수에 대한 매개 변수로 참조할 수 있지만 문자열을 따옴표로 묶어야 합니다. 예:
+문자열 및 기타 함수를 함수에 대한 매개 변수로 참조할 수 있지만 문자열을 따옴표로 묶어야 합니다. 다음은 그 예입니다.
 
 ```json
 "[fn1(fn2(), 'foobar')]"
 ```
 
-해당하는 경우 점 연산자를 사용하여 함수 출력의 속성을 참조할 수 있습니다. 예:
+해당하는 경우 점 연산자를 사용하여 함수 출력의 속성을 참조할 수 있습니다. 다음은 그 예입니다.
 
 ```json
 "[func().prop1]"
@@ -48,7 +48,7 @@ ms.locfileid: "75650657"
 ### <a name="steps"></a>단계
 지정된 단계에서 정의된 요소의 출력 값을 반환합니다. 기본 사항 단계의 요소 출력 값을 가져오려면 `basics()`를 대신 사용합니다.
 
-다음 예제에서는 `foo` 단계의 `bar` 요소 출력을 반환합니다.
+다음 예제에서는 `bar` 단계의 `foo` 요소 출력을 반환합니다.
 
 ```json
 "[steps('foo').bar]"
@@ -431,7 +431,7 @@ ms.locfileid: "75650657"
 "[greaterOrEquals(2, 2)]"
 ```
 
-### <a name="and"></a>및
+### <a name="and"></a>and
 모든 매개 변수가 `true`로 평가되면 `true`를 반환합니다. 이 함수는 두 개 이상의 부울 형식의 매개 변수만 지원합니다.
 
 다음 예제는 `true`을 반환합니다.
@@ -462,7 +462,7 @@ ms.locfileid: "75650657"
 ```
 
 ### <a name="not"></a>not
-매개 변수가 `false`로 평가되면 `true`를 반환합니다. 이 함수는 부울 형식의 매개 변수만 지원합니다.
+매개 변수가 `true`로 평가되면 `false`를 반환합니다. 이 함수는 부울 형식의 매개 변수만 지원합니다.
 
 다음 예제는 `true`을 반환합니다.
 
@@ -687,7 +687,7 @@ null이 아닌 첫 번째 매개 변수의 값을 반환합니다. 이 함수는
 "[mod(6, 4)]"
 ```
 
-### <a name="min"></a>분
+### <a name="min"></a>min
 두 숫자 중 작은 숫자를 반환합니다.
 
 다음 예제는 `1`을 반환합니다.

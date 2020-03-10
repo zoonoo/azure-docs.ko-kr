@@ -4,11 +4,11 @@ description: 리소스가 비규격 인 경우 여러 가지 원인이 있을 �
 ms.date: 04/26/2019
 ms.topic: how-to
 ms.openlocfilehash: c931831ddf3cc727b9861e75969eac3bf00c9e45
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75972833"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78385209"
 ---
 # <a name="determine-causes-of-non-compliance"></a>규정 비준수의 원인 확인
 
@@ -111,7 +111,7 @@ _게스트 구성_ 범주에 있는 _AUDITIFNOTEXISTS_ 정책의 경우 VM 내�
 
 VM에 직접 로그인 할 수 있는 액세스 권한이 없을 수도 있지만 VM이 _비규격_인 이유를 보고 해야 합니다.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
 정책 준수 세부 정보를 보기 위해 위의 섹션에서 설명한 것과 동일한 단계를 수행 하 여 시작 합니다.
 

@@ -13,11 +13,11 @@ ms.workload: na
 ms.date: 12/18/2019
 ms.author: memildin
 ms.openlocfilehash: a6a1371553ccd9b810ba4649af448fb8847d0ed8
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77604706"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78380742"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>보안 권장 사항-참조 가이드
 
@@ -53,7 +53,7 @@ ms.locfileid: "77604706"
 |----|----|----|----|----|
 |**Kubernetes 서비스 클러스터에 대 한 액세스를 제한 하려면 역할 기반 Access Control를 사용 해야 합니다.**|사용자가 수행할 수 있는 작업에 대 한 세부적인 필터링을 제공 하려면 RBAC (역할 기반 Access Control)를 사용 하 여 Kubernetes 서비스 클러스터에서 사용 권한을 관리 하 고 관련 된 권한 부여 정책을 구성 합니다. 자세한 내용은 [Azure 역할 기반 액세스 제어](https://docs.microsoft.com/azure/aks/concepts-identity#role-based-access-controls-rbac)를 참조 하세요.<br>(관련 정책: [Preview]: Kubernetes Services에서 RBAC (역할 기반 Access Control)를 사용 해야 합니다.|중간|N|계산 리소스 (컨테이너)|
 |**Kubernetes 서비스를 최신 Kubernetes 버전으로 업그레이드 해야 합니다.**|최신 취약점 패치를 활용 하기 위해 Azure Kubernetes 서비스 클러스터를 최신 Kubernetes 버전으로 업그레이드 합니다. 특정 Kubernetes 취약성에 대 한 자세한 내용은 [Kubernetes CVEs](https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=kubernetes)를 참조 하십시오.<br>(관련 정책: [Preview]: Kubernetes Services를 취약 하지 않은 Kubernetes 버전으로 업그레이드 해야 함)|높음|N|계산 리소스 (컨테이너)|
-|**Pod 보안 정책은 불필요 한 응용 프로그램 권한 (미리 보기)을 제거 하 여 공격 벡터를 줄이도록 정의 되어야 합니다.**|Pod 보안 정책을 정의 하 여 불필요 한 응용 프로그램 권한을 제거 함으로써 공격 벡터를 줄일 수 있습니다. Pod가 액세스할 수 있는 리소스에만 액세스할 수 있도록 pod 보안 정책을 구성 하는 것이 좋습니다.<br>(관련 정책: [미리 보기]: Pod 보안 정책은 Kubernetes Services)에 정의 되어 있어야 합니다.|중간|N|계산 리소스 (컨테이너)|
+|**Pod 보안 정책은 불필요 한 응용 프로그램 권한 (미리 보기)을 제거 하 여 공격 벡터를 줄이도록 정의 되어야 합니다.**|Pod 보안 정책을 정의하여 불필요한 애플리케이션 권한을 제거함으로써 공격 벡터를 줄일 수 있습니다. Pod가 액세스할 수 있는 리소스에만 액세스할 수 있도록 pod 보안 정책을 구성 하는 것이 좋습니다.<br>(관련 정책: [미리 보기]: Pod 보안 정책은 Kubernetes Services)에 정의 되어 있어야 합니다.|중간|N|계산 리소스 (컨테이너)|
 |**특정 IP 범위에만 권한을 부여 하 여 Kubernetes service management API에 대 한 액세스를 제한 해야 합니다.**|특정 범위의 IP 주소에만 API 액세스를 부여 하 여 Kubernetes service management API에 대 한 액세스를 제한 합니다. 허용 된 네트워크의 응용 프로그램만 클러스터에 액세스할 수 있도록 권한이 부여 된 IP 범위를 구성 하는 것이 좋습니다.<br>(관련 정책: [미리 보기]: 권한 있는 IP 범위는 Kubernetes Services에서 정의 해야 함)|높음|N|계산 리소스 (컨테이너)|
 |**Azure Container Registry 이미지의 취약점을 재구성 해야 함 (Qualys)**|컨테이너 이미지 취약성 평가는 푸시된 각 컨테이너 이미지의 보안 취약성에 대해 레지스트리를 검사 하 고 이미지 당 자세한 결과를 노출 합니다. 취약성을 해결 하면 컨테이너의 보안 상태를 크게 개선 하 고 공격 으로부터 보호할 수 있습니다.<br>(관련 정책 없음)|높음|N|계산 리소스 (컨테이너)|
 ||||||

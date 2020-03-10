@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 1/10/2019
 ms.author: aahi
 ms.openlocfilehash: d15058126f43fff328acfc563ffd081164a69a90
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66384979"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78385070"
 ---
 # <a name="language-and-region-support-for-the-bing-news-search-api"></a>Bing News Search API에 대한 언어 및 지역 지원
 
@@ -23,7 +23,7 @@ Bing News Search API는 다양한 국가/지역을 지원하며, 이 중에는 �
 
 `cc` 쿼리 매개 변수를 사용하여 국가/지역을 지정할 수 있습니다. 국가/지역을 지정하는 경우 `Accept-Language` HTTP 헤더를 사용하여 언어 코드도 하나 이상 지정해야 합니다. 지원되는 언어는 국가/지역마다 다르며, 지역/국가 표에서 각 국가/지역에 대해 제공됩니다.
 
-또는 **지역/국가** 표에서 `mkt` 쿼리 매개 변수 및 코드를 사용하여 지역/국가를 지정할 수 있습니다. 지역/국가 지정은 동시에 국가/지역 및 기본 언어를 지정합니다. `setLang` 쿼리 매개 변수는 이 경우 언어 코드로 설정할 수 있습니다. 사용자가 Bing을 다른 언어로 보길 선호하지 않는 한 주로 `mkt`에 의해 지정된 동일한 언어입니다.
+또는 `mkt`지역/국가**표에서** 쿼리 매개 변수 및 코드를 사용하여 지역/국가를 지정할 수 있습니다. 지역/국가 지정은 동시에 국가/지역 및 기본 언어를 지정합니다. `setLang` 쿼리 매개 변수는 이 경우 언어 코드로 설정할 수 있습니다. 사용자가 Bing을 다른 언어로 보길 선호하지 않는 한 주로 `mkt`에 의해 지정된 동일한 언어입니다.
 
 ## <a name="supported-markets-for-news-search-endpoint"></a>뉴스 검색 엔드포인트에 대해 지원되는 시장
 
@@ -38,8 +38,8 @@ Bing News Search API는 다양한 국가/지역을 지원하며, 이 중에는 �
 |스위스|독일어|de-CH|
 |독일|독일어|de-DE|
 |오스트레일리아|영어|en-AU|
-|캐나다|영어|en-CA|
-|영국|영어|en-GB|
+|Canada|영어|en-CA|
+|United Kingdom|영어|en-GB|
 |인도네시아|영어|en-ID|
 |아일랜드|영어|en-IE|
 |인도|영어|en-IN|
@@ -47,25 +47,25 @@ Bing News Search API는 다양한 국가/지역을 지원하며, 이 중에는 �
 |뉴질랜드|영어|en-NZ|
 |필리핀|영어|en-PH|
 |싱가포르|영어|en-SG|
-|미국|영어|en-US|
+|미국|영어|ko-KR|
 |영어|일반|en-WW|
 |영어|일반|en-XA|
-|남아프리카 공화국|영어|en-ZA|
+|남아프리카|영어|en-ZA|
 |아르헨티나|스페인어|es-AR|
 |칠레|스페인어|es-CL|
 |스페인|스페인어|es-ES|
 |멕시코|스페인어|es-MX|
-|미국|스페인어|es (미국)|
+|미국|스페인어|es-US|
 |스페인어|일반|es-XL|
 |핀란드|핀란드어|fi-FI|  
 |프랑스|프랑스어|fr-BE|
-|캐나다|프랑스어|fr-CA|
+|Canada|프랑스어|fr-CA|
 |벨기에|네덜란드어|nl-BE|
 |스위스|프랑스어|fr-CH|
 |프랑스|프랑스어|fr-FR|  
 |이탈리아|이탈리아어|it-IT|
-|홍콩 특별 행정구|중국어(번체)|zh-HK|  
-|대만|중국어(번체)|zh-TW|
+|홍콩 특별 행정구|중국어 번체|zh-HK|  
+|대만|중국어 번체|zh-TW|
 |일본|일본어|ja-JP|  
 |한국|한국어|en-US|  
 |네덜란드|네덜란드어|nl-NL|  
@@ -85,14 +85,14 @@ Bing News Search API는 다양한 국가/지역을 지원하며, 이 중에는 �
 |덴마크|덴마크어|da-DK|
 |독일|독일어|de-DE|
 |오스트레일리아|영어|en-AU|
-|영국|영어|en-GB|
-|미국|영어|en-US|
+|United Kingdom|영어|en-GB|
+|미국|영어|ko-KR|
 |영어|일반|en-WW|
 |칠레|스페인어|es-CL|
 |멕시코|스페인어|es-MX|
-|미국|스페인어|es (미국)|
+|미국|스페인어|es-US|
 |핀란드|핀란드어|fi-FI|  
-|캐나다|프랑스어|fr-CA|
+|Canada|프랑스어|fr-CA|
 |프랑스|프랑스어|fr-FR|  
 |이탈리아|이탈리아어|it-IT|
 |브라질|포르투갈어|pt-BR|
@@ -107,12 +107,12 @@ Bing News Search API는 다양한 국가/지역을 지원하며, 이 중에는 �
 |---------------------|--------------|-----------------|
 |독일|독일어|de-DE|
 |오스트레일리아|영어|en-AU|
-|영국|영어|en-GB|
-|미국|영어|en-US|
-|캐나다|영어|en-CA|
+|United Kingdom|영어|en-GB|
+|미국|영어|ko-KR|
+|Canada|영어|en-CA|
 |인도|영어|en-IN|
 |프랑스|프랑스어|fr-FR|
-|캐나다|프랑스어|fr-CA|
+|Canada|프랑스어|fr-CA|
 |브라질|포르투갈어|pt-BR|
 |중국|중국어|zh-CN|
 
@@ -129,7 +129,7 @@ Bing News Search API는 다양한 국가/지역을 지원하며, 이 중에는 �
 |오스트리아|AT|  
 |벨기에|BE|  
 |브라질|BR|  
-|캐나다|CA|  
+|Canada|CA|  
 |칠레|CL|  
 |덴마크|DK|  
 |핀란드|FI|  
@@ -137,7 +137,7 @@ Bing News Search API는 다양한 국가/지역을 지원하며, 이 중에는 �
 |독일|DE|  
 |홍콩 특별 행정구|HK|  
 |인도|IN|  
-|인도네시아|id|  
+|인도네시아|ID|  
 |이탈리아|IT|  
 |일본|JP|  
 |한국|KR|  
@@ -152,13 +152,13 @@ Bing News Search API는 다양한 국가/지역을 지원하며, 이 중에는 �
 |필리핀|PH|  
 |러시아|RU|  
 |사우디아라비아|SA|  
-|남아프리카 공화국|ZA|  
+|남아프리카|ZA|  
 |스페인|ES|  
 |스웨덴|SE|  
 |스위스|CH|  
 |대만|TW|  
 |터키|TR|  
-|영국|GB|  
+|United Kingdom|GB|  
 |미국|US|
 
 ## <a name="next-steps"></a>다음 단계

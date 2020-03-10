@@ -5,11 +5,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 12/10/2019
 ms.openlocfilehash: 514f1d6631a70301589943ddb7920ca3c9c46062
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75609224"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78363016"
 ---
 # <a name="run-a-failover-from-on-premises-to-azure"></a>온-프레미스에서 Azure로 장애 조치(failover) 실행
 
@@ -32,7 +32,7 @@ ms.locfileid: "75609224"
 
 **장애 조치(failover) 후** | **위치** | **actions**
 --- | --- | ---
-**Windows를 실행하는 Azure VM** | 장애 조치(Failover) 전에 온-프레미스 컴퓨터에서 | 인터넷을 통해 Azure VM에 액세스하려면 RDP를 활성화하고, TCP 및 UDP 규칙이 **공용**에 추가되었는지 그리고 **Windows 방화벽** > **허용되는 앱**에서 모든 프로필에 대해 RDP가 허용되는지 확인합니다.<br/><br/> 사이트 간 연결을 통해 Azure VM에 액세스하려면 머신에서 RDP를 활성화하고, **도메인 및 프라이빗** 네트워크의 **Windows 방화벽** -> **허용되는 앱 및 기능**에서 RDP를 허용해야 합니다.<br/><br/> <br/><br/> 정적 영구 경로 및 WinHTTP 프록시를 제거 합니다. 운영 체제의 SAN 정책이 **OnlineAll**로 설정되어 있는지 확인합니다. [자세히 알아보기](https://support.microsoft.com/kb/3031135).<br/><br/> 장애 조치를 트리거할 때 VM에 보류 중인 Windows 업데이트가 없는지 확인합니다. 장애 조치 시 Windows 업데이트가 시작될 수 있으며, 업데이트를 완료할 때까지 VM에 로그인할 수 없습니다.
+**Windows를 실행하는 Azure VM** | 장애 조치(Failover) 전에 온-프레미스 컴퓨터에서 | 인터넷을 통해 Azure VM에 액세스하려면 RDP를 활성화하고, TCP 및 UDP 규칙이 **공용**에 추가되었는지 그리고 **Windows 방화벽** > **허용되는 앱**에서 모든 프로필에 대해 RDP가 허용되는지 확인합니다.<br/><br/> 사이트 간 연결을 통해 Azure VM에 액세스하려면 머신에서 RDP를 활성화하고, **도메인 및 프라이빗** 네트워크의  -> Windows 방화벽**허용되는 앱 및 기능**에서 RDP를 허용해야 합니다.<br/><br/> <br/><br/> 정적 영구 경로 및 WinHTTP 프록시를 제거 합니다. 운영 체제의 SAN 정책이 **OnlineAll**로 설정되어 있는지 확인합니다. [자세히 알아봅니다](https://support.microsoft.com/kb/3031135).<br/><br/> 장애 조치를 트리거할 때 VM에 보류 중인 Windows 업데이트가 없는지 확인합니다. 장애 조치 시 Windows 업데이트가 시작될 수 있으며, 업데이트를 완료할 때까지 VM에 로그인할 수 없습니다.
 **Linux를 실행하는 Azure VM** | 장애 조치(Failover) 전에 온-프레미스 컴퓨터에서 | VM의 보안 셸 서비스가 시스템 부팅 시 자동으로 시작되도록 설정되어 있는지 확인합니다.<br/><br/> 방화벽 규칙이 SSH 연결을 허용하는지 확인합니다.
 
 
@@ -46,7 +46,7 @@ ms.locfileid: "75609224"
 1. Site Recovery 자격 증명 모음에서 **복구 계획** > *recoveryplan_name*을 선택 합니다.
 2. **장애 조치**를 클릭합니다.
 
-    ![장애 조치(Failover)](./media/site-recovery-failover/Failover.png)
+    ![장애 조치](./media/site-recovery-failover/Failover.png)
 
 3. 장애 조치 ( **failover** ) > **장애 조치**(Failover) 방향에서 Azure에 복제 하는 경우 기본값을 그대로 둡니다.
 4. **장애 조치 (Failover)** 에서 장애 조치 (failover) 할 **복구 지점을** 선택 합니다.
@@ -80,7 +80,7 @@ Hyper-v Vm에 대해 계획 된 장애 조치 (failover)를 실행할 수 있습
 
 장애 조치 (failover)와 관련 된 여러 작업이 있습니다.
 
-![장애 조치(Failover)](./media/site-recovery-failover/FailoverJob.png)
+![장애 조치](./media/site-recovery-failover/FailoverJob.png)
 
 - **필수 조건 확인**: 장애 조치 (failover)에 필요한 모든 조건이 충족 되는지 확인 합니다.
 - **장애 조치 (Failover)** : 데이터를 처리 하 여 Azure VM을 만들 수 있도록 합니다. **최신** 복구 지점을 선택한 경우 서비스로 전송 된 데이터에서 복구 지점이 생성 됩니다.
@@ -137,7 +137,7 @@ RDP 또는 SSH를 사용 하 여 장애 조치 (failover) 후 생성 된 Azure V
     - 동일한 IP 주소 유지: Azure VM에서 온-프레미스 컴퓨터에 할당 된 것과 동일한 IP 주소를 사용할 수 있습니다.
     - 다른 IP 주소 사용: Azure VM에 다른 IP 주소를 사용할 수 있습니다.
     - 내부 IP 주소를 설정 하는 방법에 [대해 자세히 알아보세요](concepts-on-premises-to-azure-networking.md#assign-an-internal-address) .
-- **외부 ip 주소**: 장애 조치 (failover) 시 공용 ip 주소를 유지할 수 있습니다. 장애 조치 (failover) 프로세스의 일부로 만든 azure Vm에는 Azure 지역에서 사용할 수 있는 Azure 공용 IP 주소가 할당 되어야 합니다. 수동으로 또는 복구 계획을 사용 하 여 프로세스를 자동화 하 여 공용 IP 주소를 할당할 수 있습니다. [자세히 알아보기](concepts-public-ip-address-with-site-recovery.md).
+- **외부 ip 주소**: 장애 조치 (failover) 시 공용 ip 주소를 유지할 수 있습니다. 장애 조치 (failover) 프로세스의 일부로 만든 azure Vm에는 Azure 지역에서 사용할 수 있는 Azure 공용 IP 주소가 할당 되어야 합니다. 수동으로 또는 복구 계획을 사용 하 여 프로세스를 자동화 하 여 공용 IP 주소를 할당할 수 있습니다. [자세히 알아봅니다](concepts-public-ip-address-with-site-recovery.md).
 
 
 ## <a name="next-steps"></a>다음 단계

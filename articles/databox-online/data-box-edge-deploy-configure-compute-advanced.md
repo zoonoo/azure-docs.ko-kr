@@ -10,13 +10,13 @@ ms.date: 05/20/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Data Box Edge for advanced deployment flow so I can use it to transform the data before sending it to Azure.
 ms.openlocfilehash: b446a3ebf92f6240d3bc02a148fbb8296efec926
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65950700"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78384742"
 ---
-# <a name="tutorial-transform-data-with-azure-data-box-edge-for-advanced-deployment-flow"></a>자습서: 고급 배포 흐름을 위해 Azure Data Box Edge를 사용하여 데이터 변환
+# <a name="tutorial-transform-data-with-azure-data-box-edge-for-advanced-deployment-flow"></a>자습서: 고급 배포 흐름에 대 한 Azure Data Box Edge를 사용 하 여 데이터 변환
 
 이 자습서에서는 Azure Data Box Edge 디바이스에서 고급 배포 흐름을 위해 컴퓨팅 역할을 구성하는 방법에 대해 설명합니다. 컴퓨팅 역할이 구성되면 Data Box Edge에서 데이터를 변환한 후에 Azure로 보낼 수 있습니다.
 
@@ -31,7 +31,7 @@ ms.locfileid: "65950700"
 
 이 절차를 완료하는 데 약 20-30분이 걸릴 수 있습니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 컴퓨팅 구성
@@ -41,7 +41,7 @@ ms.locfileid: "65950700"
 > * 데이터 변환 및 전송 확인
 
  
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Data Box Edge 디바이스에서 컴퓨팅 역할을 설정하기 전에 다음 사항을 확인합니다.
 
@@ -65,8 +65,8 @@ Data Box Edge에 컴퓨팅을 구성하려면 IoT Hub 리소스를 만들어야 
    
     |필드  |값  |
     |---------|---------|
-    |IoT Hub     | **새로 만들기** 또는 **기존 항목** 중에서 선택합니다. <br> 표준 계층(S1)을 사용하여 IoT 리소스를 만드는 것이 기본입니다. 무료 계층 IoT 리소스를 사용하려면 IoT 리소스를 새로 만든 후 기존 리소스를 선택합니다. <br> 어떤 방법을 선택하든, IoT Hub 리소스는 Data Box Edge 리소스에서 사용한 것과 동일한 구독 및 리소스 그룹을 사용합니다.     |
-    |Name     |IoT Hub 리소스의 이름을 입력합니다.         |
+    |IoT Hub     | **새로 만들기** 또는 **기존 항목** 중에서 선택합니다. <br> 표준 계층(S1)을 사용하여 IoT 리소스를 만드는 것이 기본입니다. 무료 계층 IoT 리소스를 사용하려면 IoT 리소스를 새로 만든 후 기존 리소스를 선택합니다. <br> 어떤 방법을 선택하든, IoT Hub 리소스는 Data Box Edge 리소스에서 사용하는 것과 동일한 구독 및 리소스 그룹을 사용합니다.     |
+    |속성     |IoT Hub 리소스의 이름을 입력합니다.         |
 
     ![컴퓨팅 시작](./media/data-box-edge-deploy-configure-compute-advanced/configure-compute-3.png)
 
@@ -183,7 +183,7 @@ Data Box Edge에 컴퓨팅을 구성하려면 IoT Hub 리소스를 만들어야 
      
         |필드  |값  |
         |---------|---------|
-        |Name     | 모듈의 고유한 이름입니다. 이 모듈은 Data Box Edge와 연결된 IoT Edge 디바이스에 배포할 수 있는 Docker 컨테이너입니다.        |
+        |속성     | 모듈의 고유한 이름입니다. 이 모듈은 Data Box Edge와 연결된 IoT Edge 디바이스에 배포할 수 있는 Docker 컨테이너입니다.        |
         |이미지 URI     | 모듈의 해당 컨테이너 이미지에 대한 이미지 URI입니다.        |
         |자격 증명 필요     | 이 옵션을 선택하면 사용자 이름과 암호를 사용하여 URL이 일치하는 모듈을 검색하게 됩니다.        |
     
@@ -261,7 +261,7 @@ Data Box Edge에 컴퓨팅을 구성하려면 IoT Hub 리소스를 만들어야 
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * 컴퓨팅 구성

@@ -6,11 +6,11 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: 09144c4c35ab911b60931849807123608f2c3cdd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75482414"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78385203"
 ---
 # <a name="manage-farms"></a>팜 관리
 
@@ -25,7 +25,7 @@ Azure FarmBeats에서 팜을 관리할 수 있습니다. 이 문서에서는 팜
 
     샘플 이미지는 다음과 같습니다.
 
-    ![프로젝트 팜 비트](./media/create-farms-in-azure-farmbeats/create-farm-main-page-1.png)
+    ![Farm Beats 프로젝트](./media/create-farms-in-azure-farmbeats/create-farm-main-page-1.png)
 
 
 2. **팜 만들기** 를 선택 하 **고 이름**, **자르기** 및 **주소**를 제공 합니다.
@@ -35,12 +35,12 @@ Azure FarmBeats에서 팜을 관리할 수 있습니다. 이 문서에서는 팜
 
 1. **지도에 표시**: 지도 컨트롤 도구를 사용 하 여 팜의 경계를 그리거나 표시 합니다. 경계를 표시 하기 위해 ![프로젝트 팜](./media/create-farms-in-azure-farmbeats/pencil-icon-1.png)를 보다 정확 하 게 표시 하 고 정확한 경계를 표시 합니다.
 
-    ![프로젝트 팜 비트](./media/create-farms-in-azure-farmbeats/create-farm-mark-on-map-1.png)
+    ![Farm Beats 프로젝트](./media/create-farms-in-azure-farmbeats/create-farm-mark-on-map-1.png)
 
 2. **GeoJson 코드 붙여넣기**: GeoJson는 JAVASCRIPT OBJECT NOTATION (JSON)를 사용 하 여 지리적 데이터 구조 인코딩에 사용 되는 형식입니다. 이 옵션은 팜 경계를 표시 하기 위해 GeoJSON 문자열을 입력할 수 있는 텍스트 상자를 표시 합니다. GeoJSON.io에서 GeoJSON 코드를 만들 수도 있습니다.
 도구 설명을 사용 하 여 정보를 입력 합니다.
 
-    ![프로젝트 팜 비트](./media/create-farms-in-azure-farmbeats/create-new-farm-1.png)
+    ![Farm Beats 프로젝트](./media/create-farms-in-azure-farmbeats/create-new-farm-1.png)
 
 3.  **제출** 을 선택 하 여 팜을 만듭니다. 새 팜이 만들어지고 **팜** 페이지에 표시 됩니다.
 
@@ -60,7 +60,7 @@ Azure FarmBeats에서 팜을 관리할 수 있습니다. 이 문서에서는 팜
 1.  팜을 보고 편집할 팜을 선택 합니다.
 2.  팜 **편집** 을 선택 하 여 팜 정보를 편집 합니다. **팜 세부 정보** 창에서 **팜 경계** 필드의 **이름**, **자르기**, **주소**및 정의를 편집할 수 있습니다.
 
-    ![프로젝트 팜 비트](./media/create-farms-in-azure-farmbeats/edit-farm-1.png)
+    ![Farm Beats 프로젝트](./media/create-farms-in-azure-farmbeats/edit-farm-1.png)
 
 3. **제출** 을 선택 하 여 편집 된 세부 정보를 저장 합니다.
 
@@ -71,7 +71,7 @@ Azure FarmBeats에서 팜을 관리할 수 있습니다. 이 문서에서는 팜
 1.  팜 세부 정보를 삭제 하려면 목록에서 팜을 선택 합니다.
 2.  팜 **삭제** 를 선택 하 여 팜을 삭제 합니다.
 
-    ![프로젝트 팜 비트](./media/create-farms-in-azure-farmbeats/delete-farm-1.png)
+    ![Farm Beats 프로젝트](./media/create-farms-in-azure-farmbeats/delete-farm-1.png)
 
     > [!NOTE]
     > 팜을 삭제 하면 팜에 연결 된 장치 및 맵이 삭제 되지 않습니다. 장치와 연결 된 팜 정보는 관련이 없습니다. FarmBeats 서비스에서 장치, 원격 분석 및 맵을 계속 볼 수 있습니다.

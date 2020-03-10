@@ -17,11 +17,11 @@ ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 86d924860e97b15a0a4af46c5bc35b0e0050292b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422593"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376657"
 ---
 # <a name="delegation-and-roles-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리의 위임 및 역할
 
@@ -65,7 +65,7 @@ Hana가 마케팅, 재무 및 법률 부서에 액세스 관리를 위임할 수
 
 위임 후 마케팅 부서에는 다음 표와 비슷한 역할이 있을 수 있습니다.
 
-| 사용자 | 직무 | Azure AD 역할 | 자격 관리 역할 |
+| 사용자 | 작업 역할 | Azure AD 역할 | 자격 관리 역할 |
 | --- | --- | --- | --- |
 | Hana | IT 관리자 | 전역 관리자 또는 사용자 관리자 |  |
 | Mamta | 마케팅 관리자 | 사용자 | 카탈로그 작성자 및 카탈로그 소유자 |
@@ -87,7 +87,7 @@ Hana가 마케팅, 재무 및 법률 부서에 액세스 관리를 위임할 수
 | Right | Description |
 | --- | --- |
 | 승인자 | 패키지에 대 한 액세스 요청을 승인 하거나 거부 하기 위해 정책에서 권한을 부여 합니다. 단, 액세스 패키지 정의는 변경할 수 없습니다. |
-| 요청자 | 액세스 패키지를 요청 하는 액세스 패키지의 정책에 의해 권한이 부여 됩니다. |
+| 요청 | 액세스 패키지를 요청 하는 액세스 패키지의 정책에 의해 권한이 부여 됩니다. |
 
 다음 표에는 자격 관리 역할이 수행할 수 있는 작업이 나열 되어 있습니다.
 
@@ -122,8 +122,8 @@ Hana가 마케팅, 재무 및 법률 부서에 액세스 관리를 위임할 수
 
 | Azure AD 디렉터리 역할 | 자격 관리 역할 | 보안 그룹을 추가할 수 있음 | Office 365 그룹을 추가할 수 있습니다. | 앱 추가 가능 | SharePoint Online 사이트 추가 가능 |
 | --- | :---: | :---: | :---: | :---: | :---: |
-| [전역 관리자](../users-groups-roles/directory-assign-admin-roles.md) | n/a |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [사용자 관리자](../users-groups-roles/directory-assign-admin-roles.md) | n/a |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
+| [전역 관리자](../users-groups-roles/directory-assign-admin-roles.md) | 해당 없음 |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| [사용자 관리자](../users-groups-roles/directory-assign-admin-roles.md) | 해당 없음 |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Intune 관리자](../users-groups-roles/directory-assign-admin-roles.md) | 카탈로그 소유자 | :heavy_check_mark: | :heavy_check_mark: |  |  |
 | [Exchange 관리자](../users-groups-roles/directory-assign-admin-roles.md) | 카탈로그 소유자 |  | :heavy_check_mark: |  |  |
 | [팀 서비스 관리자](../users-groups-roles/directory-assign-admin-roles.md) | 카탈로그 소유자 |  | :heavy_check_mark: |  |  |

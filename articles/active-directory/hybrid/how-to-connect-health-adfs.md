@@ -19,11 +19,11 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bbd1ad6178e0120bf8414fc424b79254e306d2c2
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76897269"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78375944"
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>Azure AD Connect Health를 사용하여 AD FS 모니터링
 다음 문서는 AZure AD Connect Health와 함께 AD FS 인프라 모니터링에 중점을 둡니다. Azure AD Connect Health에서 Azure AD Connect (동기화)를 모니터링 하는 방법에 대 한 자세한 내용은 [동기화에 Azure AD Connect Health 사용](how-to-connect-health-sync.md)을 참조 하세요. 또한 Azure AD Connect Health Active Directory Domain Services 모니터링에 대 한 자세한 내용은 AD DS에서 [Azure AD Connect Health 사용](how-to-connect-health-adds.md)을 참조 하세요.
@@ -51,7 +51,7 @@ Azure AD Connect Health 사용 현황 분석에서는 페더레이션 서버의 
 
 |그룹화 기준 | 그룹화의 의미 및 그룹화가 유용한 이유 |
 | --- | --- |
-| 전체 | 모든 AD FS 서버에서 처리한 총 요청 수를 보여 줍니다.|
+| 모두 | 모든 AD FS 서버에서 처리한 총 요청 수를 보여 줍니다.|
 | 애플리케이션 | 대상 신뢰 당사자를 기반으로 전체 요청을 그룹화합니다. 이 그룹화는 전체 트래픽 중 애플리케이션이 수신하는 트래픽의 비율을 이해하는 데 유용합니다. |
 |  서버 |요청을 처리한 서버를 기반으로 전체 요청을 그룹화합니다. 이 그룹화는 전체 트래픽의 부하 분포를 이해하는 데 유용합니다.
 | 작업 공간 연결 |작업 공간이 연결된(알려진) 디바이스의 요청인지 여부를 기반으로 전체 요청을 그룹화합니다. 이 그룹화는 ID 인프라에 알려지지 않은 디바이스를 사용하여 리소스에 액세스하는 경우를 이해하는 데 유용합니다. |
@@ -72,7 +72,7 @@ Azure AD Connect Health 사용 현황 분석에서는 페더레이션 서버의 
 
 |그룹화 기준 | 그룹화의 의미 및 그룹화가 유용한 이유 |
 | --- | --- |
-|전체 |이 메트릭은 선택한 시간 조각에서 페더레이션 서비스를 사용하는 평균 사용자 수를 제공합니다. 사용자가 그룹화되지 않습니다. <br>평균은 선택한 시간 조각에 따라 달라집니다. |
+|모두 |이 메트릭은 선택한 시간 조각에서 페더레이션 서비스를 사용하는 평균 사용자 수를 제공합니다. 사용자가 그룹화되지 않습니다. <br>평균은 선택한 시간 조각에 따라 달라집니다. |
 | 애플리케이션 |대상 애플리케이션(신뢰 당사자)을 기반으로 평균 사용자 수를 그룹화합니다. 이 그룹화는 특정 애플리케이션을 사용하는 사용자의 수를 파악하는 데 유용합니다. |
 
 ## <a name="performance-monitoring-for-ad-fs"></a>AD FS의 모니터링 성능
@@ -118,7 +118,7 @@ Azure AD Connect Health for ADFS는 사용자 이름 또는 암호가 잘못되�
 > [!NOTE]
 > 이 보고서는 12시간마다 자동으로 업데이트되어 해당 시간 내에 수집된 새 정보가 포함됩니다. 따라서 마지막 12시간 내에 발생하는 로그인 시도가 보고서에 포함되지 않을 수 있습니다.
 
-## <a name="related-links"></a>관련된 링크
+## <a name="related-links"></a>관련 링크
 * [Azure AD Connect Health](whatis-hybrid-identity-health.md)
 * [Azure AD Connect Health Agent 설치](how-to-connect-health-agent-install.md)
 * [위험한 IP 보고서](how-to-connect-health-adfs-risky-ip.md)

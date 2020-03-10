@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.service: automation
 manager: carmonm
 ms.openlocfilehash: 4cea558b11d7ee7bbe838cecbd061cd487b536d2
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769866"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78372358"
 ---
 # <a name="troubleshoot-errors-with-shared-resources"></a>공유 리소스 오류 해결
 
@@ -31,9 +31,9 @@ Azure Automation에서 모듈을 가져오거나 업데이트할 때 모듈이 *
 
 PowerShell 모듈 가져오기는 복잡한 다단계 프로세스입니다. 이 프로세스는 모듈 가져오기가 제대로 수행되지 않을 가능성이 있습니다. 이 문제가 발생하는 경우 가져오는 모듈이 일시적인 상태에서 중단될 수 있습니다. 이 프로세스에 대한 자세한 내용은 [PowerShell 모듈 가져오기](/powershell/scripting/developer/module/importing-a-powershell-module#the-importing-process)를 참조하세요.
 
-#### <a name="resolution"></a>해상도
+#### <a name="resolution"></a>해결 방법
 
-이 문제를 해결하려면 [Remove-AzureRmAutomationModule](/powershell/module/azurerm.automation/remove-azurermautomationmodule) cmdlet을 사용하여 **가져오기** 상태에서 중단된 모듈을 제거해야 합니다. 그 후 모듈 가져오기를 다시 시도할 수 있습니다.
+이 문제를 해결하려면 **Remove-AzureRmAutomationModule** cmdlet을 사용하여 [가져오기](/powershell/module/azurerm.automation/remove-azurermautomationmodule) 상태에서 중단된 모듈을 제거해야 합니다. 그 후 모듈 가져오기를 다시 시도할 수 있습니다.
 
 ```azurepowershell-interactive
 Remove-AzureRmAutomationModule -Name ModuleName -ResourceGroupName ExampleResourceGroup -AutomationAccountName ExampleAutomationAccount -Force
@@ -53,7 +53,7 @@ Azure modules are being updated
 
 숫자 이름이 0으로 시작 하는 리소스 그룹에 있는 Automation 계정에서 AzureRM 모듈을 업데이트 하는 것과 관련 된 알려진 문제가 있습니다.
 
-#### <a name="resolution"></a>해상도
+#### <a name="resolution"></a>해결 방법
 
 Automation 계정에서 Azure 모듈을 업데이트 하려면 영숫자 이름이 있는 리소스 그룹에 있어야 합니다. 숫자 이름이 0부터 시작 하는 리소스 그룹은 현재 AzureRM 모듈을 업데이트할 수 없습니다.
 
@@ -72,7 +72,7 @@ Automation 계정에서 Azure 모듈을 업데이트 하려면 영숫자 이름�
 * 모듈 폴더에 종속성이 없습니다.
 * `New-AzureRmAutomationModule` cmdlet을 사용하여 모듈을 업로드하고 있는데 전체 스토리지 경로를 지정하지 않았거나 공개적으로 액세스 가능한 URL을 사용하여 모듈을 로드하지 않았습니다.
 
-#### <a name="resolution"></a>해상도
+#### <a name="resolution"></a>해결 방법
 
 다음 해결 방법 중 하나를 사용하여 문제를 해결합니다.
 
@@ -90,7 +90,7 @@ Automation 계정에서 Azure 모듈을 업데이트 하려면 영숫자 이름�
 
 `Update-AzureModule.ps1` 스크립트를 사용하면 동시에 업데이트되는 모듈 수를 결정하는 기본 설정이 10입니다. 동시에 너무 많은 모듈을 업데이트하면 업데이트 프로세스에서 오류가 발생할 가능성이 높습니다.
 
-#### <a name="resolution"></a>해상도
+#### <a name="resolution"></a>해결 방법
 
 모든 AzureRM 모듈이 반드시 동일한 Automation 계정에 있어야 하는 경우는 흔치 않습니다. 필요한 AzureRM 모듈만 가져오는 것이 좋습니다.
 
@@ -132,7 +132,7 @@ You do not have permissions to create…
 
 실행 계정을 만들거나 업데이트해야 하는 권한이 없거나 리소스 그룹 수준에서 리소스가 잠겨 있습니다.
 
-#### <a name="resolution"></a>해상도
+#### <a name="resolution"></a>해결 방법
 
 실행 계정을 만들거나 업데이트하려면 실행 계정에서 사용된 다양한 리소스에 대해 적절한 권한이 있어야 합니다. 실행 계정을 만들거나 업데이트하는 데 필요한 권한에 대해 알아보려면 [실행 계정 권한](../manage-runas-account.md#permissions)을 참조하세요.
 
@@ -152,7 +152,7 @@ Unable to find an entry point named 'GetPerAdapterInfo' in DLL 'iplpapi.dll'
 
 이 오류는 잘못 구성 된 [실행 계정](../manage-runas-account.md)으로 인해 발생할 수 있습니다.
 
-#### <a name="resolution"></a>해상도
+#### <a name="resolution"></a>해결 방법
 
 [실행 계정이](../manage-runas-account.md) 제대로 구성 되어 있는지 확인 합니다. 올바르게 구성 되 면 runbook에서 Azure로 인증 하는 데 적절 한 코드가 있는지 확인 합니다. 다음 예제에서는 실행 계정을 사용 하 여 runbook에서 Azure에 인증 하는 코드 조각을 보여 줍니다.
 

@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 04/28/2019
 ms.author: ramamill
 ms.openlocfilehash: ef16e3b75ca8e051b1b7abb1a92843279884c697
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954342"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78362869"
 ---
 # <a name="manage-process-servers"></a>프로세스 서버 관리
 
@@ -61,7 +61,7 @@ ms.locfileid: "73954342"
 3. 작업을 전환 하려는 프로세스 서버를 클릭 합니다.
 4. **스위치**를 클릭 하 고 작업을 이동 하려는 대상 프로세스 서버를 선택 합니다. 그런 다음 **확인을** 클릭 합니다.
 
-    ![Switch](media/vmware-azure-manage-process-server/Switch.PNG)
+    ![스위치](media/vmware-azure-manage-process-server/Switch.PNG)
 
 5. 자격 증명 모음에서 > **Site Recovery 작업**을 **모니터링** 하는 작업의 진행률을 모니터링 합니다.
 

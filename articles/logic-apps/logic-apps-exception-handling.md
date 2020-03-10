@@ -9,11 +9,11 @@ ms.reviewer: klam, estfan, logicappspm
 ms.date: 01/11/2020
 ms.topic: article
 ms.openlocfilehash: 73b116117530e5a2103b604efbf757d691006508
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906688"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78358948"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Azure Logic Apps에서 예외 및 오류 처리
 
@@ -27,7 +27,7 @@ ms.locfileid: "76906688"
 
 재시도 정책 유형은 다음과 같습니다.
 
-| 유형 | Description |
+| Type | Description |
 |------|-------------|
 | **기본값** | 이 정책은 7.5초마다 *기하급수적으로 증가하는* 간격으로 최대 4번의 다시 시도를 보냅니다. 7.5초마다 증가하지만 5 ~ 45초 사이로 제한됩니다. |
 | **지수 간격**  | 이 정책은 다음 요청을 보내기 전에 기하급수적으로 증가하는 범위에서 선택된 임의의 간격만큼 대기합니다. |
@@ -69,7 +69,7 @@ ms.locfileid: "76906688"
 
 *필수*
 
-| 값 | 유형 | Description |
+| 값 | Type | Description |
 |-------|------|-------------|
 | <*retry-policy-type*> | String | 사용할 재시도 정책 유형(`default`, `none`, `fixed` 또는 `exponential`) |
 | <*retry-interval*> | String | 해당 값이 [ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)을 사용해야 하는 재시도 간격입니다. 기본 최소 간격은 `PT5S`이고 최대 간격은 `PT1D`입니다. 지수 간격 정책을 사용하면 다른 최소값 및 최대값을 지정할 수 있습니다. |
@@ -78,7 +78,7 @@ ms.locfileid: "76906688"
 
 *선택 사항*
 
-| 값 | 유형 | Description |
+| 값 | Type | Description |
 |-------|------|-------------|
 | <*minimum-interval*> | String | 지수 간격 정책에서 임의로 선택한 간격의 최소 간격([ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)) |
 | <*maximum-interval*> | String | 지수 간격 정책에서 임의로 선택한 간격의 최대 간격([ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)) |
@@ -112,7 +112,7 @@ ms.locfileid: "76906688"
 }
 ```
 
-### <a name="none"></a>없음
+### <a name="none"></a>None
 
 작업 또는 트리거가 실패한 요청을 재시도하지 않도록 지정하려면 <*retry-policy-type*>을 `none`으로 설정합니다.
 
@@ -326,7 +326,7 @@ ms.locfileid: "76906688"
 
 1. 실패한 작업 이름(`@item()['name']`) 및 실패한 실행 클라이언트 추적 ID(`@item()['clientTrackingId']`)가 있는 두 개의 사용자 지정 헤더를 포함됩니다.
 
-참고로 이전 예제에서 구문 분석하는 `name`, `body` 및 `clientTrackingId` 속성을 보여 주는 단일 `@result()` 항목의 예제는 다음과 같습니다. `For_each` 작업 외부에서 `@result()`는 이러한 개체의 배열을 반환 합니다.
+참고로 이전 예제에서 구문 분석하는 `@result()`, `name` 및 `body` 속성을 보여 주는 단일 `clientTrackingId` 항목의 예제는 다음과 같습니다. `For_each` 작업 외부에서 `@result()`는 이러한 개체의 배열을 반환 합니다.
 
 ```json
 {

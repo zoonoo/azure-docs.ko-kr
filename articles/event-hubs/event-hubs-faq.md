@@ -11,11 +11,11 @@ ms.custom: seodec18
 ms.date: 12/02/2019
 ms.author: shvija
 ms.openlocfilehash: 3b46c574ea47622ec97e70c0d2f2cdc3aa54ec0d
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706388"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78393653"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Event Hubs 질문과 대답
 
@@ -66,7 +66,7 @@ Event Hubs는 [Azure Monitor](../azure-monitor/overview.md)에 리소스 상태�
 Azure Service Bus에서 다음 프로토콜을 사용 하 여 메시지를 보내고 받을 수 있습니다.
 
 - AMQP(고급 메시지 큐 프로토콜)
-- http
+- HTTP
 - Apache Kafka
 
 이러한 프로토콜을 사용 하 여 Azure Event Hubs와 통신 하기 위해 열어야 하는 아웃 바운드 포트는 다음 표를 참조 하세요. 
@@ -203,11 +203,11 @@ Event Hubs 가격 책정에 대한 전체 내용은 [Event Hubs 가격 책정 �
 
 ### <a name="is-there-a-charge-for-retaining-event-hubs-events-for-more-than-24-hours"></a>24시간 이상 Event Hubs 이벤트를 유지 하려면 비용이 청구됩니까?
 
-Event Hubs 표준 계층은 최대 7일 동안 24시간을 초과하는 메시지 보존 기간을 허용합니다. File Storage에 대한 자세한 내용은 파일 서비스 REST API를 참조하세요. 처리량 단위가 최대 수신 허용 한도까지 사용되었더라도 각 처리량 단위의 스토리지 허용 한도는 24 시간(기본값) 동안의 보존 기간에 대한 모든 스토리지 비용이 포함됩니다.
+Event Hubs 표준 계층은 최대 7일 동안 24시간을 초과하는 메시지 보존 기간을 허용합니다. File Storage에 대한 자세한 내용은 {1}파일 서비스 REST API{2}를 참조하세요. 처리량 단위가 최대 수신 허용 한도까지 사용되었더라도 각 처리량 단위의 스토리지 허용 한도는 24 시간(기본값) 동안의 보존 기간에 대한 모든 스토리지 비용이 포함됩니다.
 
 ### <a name="how-is-the-event-hubs-storage-size-calculated-and-charged"></a>Event Hubs 스토리지 크기가 계산 및 청구되는 방법
 
-모든 이벤트 허브의 디스크 스토리지 구조 또는 이벤트 헤더의 내부 오버헤드를 포함하여, 저장된 모든 이벤트의 전체 크기가 하루 종일 측정됩니다. 하루가 끝날 때 최고 스토리지 크기가 계산됩니다. 일별 스토리지 허용량은 하루 동안 선택된 처리량 단위의 최소 수를 기준으로 계산됩니다. 각 처리량 단위는 84GB의 허용량을 제공합니다. 총 크기가 계산된 일일 스토리지 허용 한도를 초과하면, 초과 스토리지는 Azure Blob Storage 가격을 사용하여 청구됩니다( **로컬 중복 스토리지** 속도로).
+모든 이벤트 허브의 디스크 스토리지 구조 또는 이벤트 헤더의 내부 오버헤드를 포함하여, 저장된 모든 이벤트의 전체 크기가 하루 종일 측정됩니다. 하루가 끝날 때 최대 스토리지 크기가 계산됩니다. 일일 스토리지 허용 한도는 하루 동안 선택된 최소 처리량 단위 수를 기준으로 계산됩니다(각 처리량 단위는 84GB의 허용 한도를 제공함) . 총 크기가 계산된 일일 스토리지 허용 한도를 초과하면, 초과 스토리지는 Azure Blob Storage 가격을 사용하여 청구됩니다( **로컬 중복 스토리지** 속도로).
 
 ### <a name="how-are-event-hubs-ingress-events-calculated"></a>Event Hubs 수신 이벤트 계산하는 방법
 
@@ -217,7 +217,7 @@ Event Hubs 표준 계층은 최대 7일 동안 24시간을 초과하는 메시�
 
 ### <a name="do-brokered-connection-charges-apply-to-event-hubs"></a>조정된 연결 요금이 Event Hubs에 적용됩니까?
 
-AMQP 프로토콜을 사용하는 경우에 연결 요금이 적용됩니다. 전송하는 시스템 또는 디바이스 수와 관계없이 HTTP를 사용하여 이벤트를 전송하기 위한 연결 요금은 부과되지 않습니다. AMQP를 사용하려는 경우(예: 보다 효율적인 이벤트 스트리밍을 달성하거나 IoT 명령 및 제어 시나리오에서 양방향 통신 설정), 각 서비스 계층에 포함된 연결 수에 대한 자세한 내용은 [Event Hubs 가격 책정 정보](https://azure.microsoft.com/pricing/details/event-hubs/) 페이지를 참조하세요.
+AMQP 프로토콜을 사용하는 경우에 연결 요금이 적용됩니다. 시스템 또는 디바이스 수에 관계 없이 HTTP를 사용하여 이벤트를 보내는 데에는 연결 요금이 부과되지 않습니다. AMQP를 사용하려는 경우(예: 보다 효율적인 이벤트 스트리밍을 달성하거나 IoT 명령 및 제어 시나리오에서 양방향 통신 설정), 각 서비스 계층에 포함된 연결 수에 대한 자세한 내용은 [Event Hubs 가격 책정 정보](https://azure.microsoft.com/pricing/details/event-hubs/) 페이지를 참조하세요.
 
 ### <a name="how-is-event-hubs-capture-billed"></a>Event Hubs 캡처는 어떻게 청구되나요?
 
@@ -236,7 +236,7 @@ Event Hubs 할당량의 목록은 [할당량](event-hubs-quotas.md)을 참조하
 ## <a name="troubleshooting"></a>문제 해결
 
 ### <a name="why-am-i-not-able-to-create-a-namespace-after-deleting-it-from-another-subscription"></a>네임스페이스를 다른 구독에서 삭제한 후 만들 수 없는 이유는 무엇인가요? 
-구독에서 네임스페이스를 삭제한 후에 다른 구독에서 동일한 이름으로 다시 만들려면 4시간 정도 기다려야 합니다. 그렇지 않으면 다음 오류 메시지가 표시될 수 있습니다. `Namespace already exists`. 
+구독에서 네임스페이스를 삭제한 후에 다른 구독에서 동일한 이름으로 다시 만들려면 4시간 정도 기다려야 합니다. 그렇지 않으면 다음 오류 메시지가 표시될 수 있습니다. `Namespace already exists` 
 
 ### <a name="what-are-some-of-the-exceptions-generated-by-event-hubs-and-their-suggested-actions"></a>Event Hubs에 의해 생성된 일부 예외 및 해당 제안된 작업은 무엇인가요?
 

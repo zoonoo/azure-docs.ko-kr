@@ -9,11 +9,11 @@ ms.date: 12/13/2019
 ms.author: wgries
 ms.subservice: files
 ms.openlocfilehash: 51b7b37466ae8a6988ee4bfa85a054fb42d23124
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77920759"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78362431"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Azure 파일 동기화 에이전트에 대한 릴리스 정보
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 희생하지 않고 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Windows Server 설치는 Azure 파일 공유의 빠른 캐시로 변환됩니다. 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다(SMB, NFS 및 FTPS 포함). 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -38,9 +38,9 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
 | 4 월 2019 업데이트 롤업- [KB4481061](https://support.microsoft.com/help/4481061)| 5.2.0.0 | 2019 4 월 4 일 | 지원 됨-에이전트 버전이 2020 년 3 월 18 일에 만료 됩니다. |
 | 3 월 2019 업데이트 롤업- [KB4481060](https://support.microsoft.com/help/4481060)| 5.1.0.0 | 2019 년 3 월 7 일 | 지원 됨-에이전트 버전이 2020 년 3 월 18 일에 만료 됩니다. |
 | V5 릴리스 - [KB4459989](https://support.microsoft.com/help/4459989)| 5.0.2.0 | 2019년 2월 12일 | 지원 됨-에이전트 버전이 2020 년 3 월 18 일에 만료 됩니다. |
-| V4 릴리스 | 4.0.1.0 - 4.3.0.0 | N/A | 지원 되지 않음-2019 년 11 월 6 일에 에이전트 버전이 만료 됨 |
-| V3 릴리스 | 은 3.1.0.0-v3.4.0.0 | N/A | 지원 되지 않음-에이전트 버전이 8 월 19 일에 만료 됨-2019 |
-| GA 에이전트 | 1.1.0.0 - 3.0.13.0 | N/A | 미지원 - 2018년 10월 1일에 에이전트 버전 만료 |
+| V4 릴리스 | 4.0.1.0 - 4.3.0.0 | 해당 없음 | 지원 되지 않음-2019 년 11 월 6 일에 에이전트 버전이 만료 됨 |
+| V3 릴리스 | 은 3.1.0.0-v3.4.0.0 | 해당 없음 | 지원 되지 않음-에이전트 버전이 8 월 19 일에 만료 됨-2019 |
+| GA 에이전트 | 1.1.0.0 - 3.0.13.0 | 해당 없음 | 미지원 - 2018년 10월 1일에 에이전트 버전 만료 |
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Azure 파일 동기화 에이전트 업데이트 정책
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]

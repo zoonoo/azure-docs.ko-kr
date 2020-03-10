@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: rohogue
 ms.openlocfilehash: a183989cc666f00da4be077c719c40d2524fd6e0
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76547509"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78372135"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Avere vFXT 만들기 준비
 
@@ -51,10 +51,10 @@ Azure Portal에 새 Azure 구독을 만들려면 다음을 수행합니다.
 
 |Azure 구성 요소|할당량|
 |----------|-----------|
-|Virtual Machines|3 개 이상의 E32s_v3 (클러스터 노드당 하나) |
+|가상 머신|3 개 이상의 E32s_v3 (클러스터 노드당 하나) |
 |프리미엄 SSD 스토리지|노드당 200GB OS 공간 + 1TB-4TB 캐시 공간 |
 |스토리지 계정(선택 사항) |v2|
-|데이터 백 엔드 저장소 (선택 사항) |새 LRS Blob 컨테이너 1개 |
+|데이터 백 엔드 스토리지(선택 사항) |새 LRS Blob 컨테이너 1개 |
 <!-- this table also appears in the overview - update it there if updating here -->
 
 ## <a name="accept-software-terms"></a>소프트웨어 약관 동의

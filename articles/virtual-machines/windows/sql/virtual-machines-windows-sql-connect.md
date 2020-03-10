@@ -15,11 +15,11 @@ ms.date: 12/12/2017
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: deb337d989a3658e909cefa7a9ab028e37792562
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77918379"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78389048"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure"></a>Azure에서 SQL Server 가상 머신에 연결
 
@@ -39,7 +39,7 @@ Azure Portal에서 SQL Server VM을 프로비전하는 경우 **SQL 연결**의 
 
 연결에 대한 옵션은 다음과 같습니다.
 
-| 옵션 | 설명 |
+| 옵션 | Description |
 |---|---|
 | **공용** | 인터넷을 통해 SQL Server에 연결 |
 | **프라이빗** | 동일한 가상 네트워크의 SQL Server에 연결 |
@@ -135,7 +135,7 @@ SQL Server 연결 설정을 변경할 때 Azure는 SQL Server Developer 및 Expr
 
 다음 표에는 Azure VM에서 실행되는 SQL Server에 연결하기 위한 요구 사항이 나와 있습니다.
 
-| 요구 사항 | 설명 |
+| 요구 사항 | Description |
 |---|---|
 | [SQL Server 인증 모드 사용](/sql/database-engine/configure-windows/change-server-authentication-mode#use-ssms) | Virtual Network에 Active Directory를 구성하지 않은 경우 원격으로 VM에 연결하는 데 SQL Server 인증이 필요합니다. |
 | [SQL 로그인 만들기](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/create-a-login) | SQL 인증을 사용하는 경우 대상 데이터베이스에 대한 권한이 있는 사용자 이름과 암호를 사용하는 SQL 로그인이 필요합니다. |
