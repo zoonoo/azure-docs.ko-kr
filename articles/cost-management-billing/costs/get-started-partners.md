@@ -4,17 +4,17 @@ description: 이 문서에서는 파트너가 Azure Cost Management 기능을 �
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/10/2020
+ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 9f35f0ae2b310fba462a3f45038496854077da27
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: f81ec71ffe5cdf7f70e309282307a1c4bb293219
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77117596"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78245465"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>파트너용 Azure Cost Management 시작
 
@@ -140,18 +140,14 @@ Azure Portal에서 파트너 테넌트에 로그인하고 **Cost Management + �
 
 비용 표시 여부 정책을 사용하도록 설정하면, 구독 사용량이 있는 모든 서비스는 종량제 요금으로 비용을 표시합니다. 예약 사용은 실제 및 분할상환 비용에 대한 요금이 0으로 표시됩니다. 구매 및 자격은 특정 구독에 연결되지 않습니다. 따라서 구매는 구독 범위에 표시되지 않습니다.
 
-고객 테넌트에 대한 비용을 보려면 **Cost Management + 청구**를 열고 관련 Microsoft 파트너 계약 청구 계정을 선택합니다.
 
-![청구 계정 선택](./media/get-started-partners/select-billing-account.png)
+### <a name="view-customer-costs"></a>고객 비용 보기
 
-**청구**에서 **Azure 구독**을 선택한 다음, 고객을 선택합니다.
-
-![Azure 구독 고객 선택](./media/get-started-partners/subscriptions-select-customer.png)
-
-**비용 분석**을 선택하고 비용을 검토하기 시작합니다.
-비용 분석, 예산 및 경고는 종량제 요금 기반 비용으로 구독 및 리소스 그룹 RBAC 범위에 대해 사용할 수 있습니다.
+고객 테넌트에 대한 비용을 보려면 **Cost Management + 청구**를 엽니다. **비용 분석**을 선택한 다음, 범위를 고객 테넌트 구독으로 변경하여 비용 검토를 시작합니다.
 
 ![고객으로 비용 분석 보기 ](./media/get-started-partners/customer-tenant-view-cost-analysis.png)
+
+비용 분석, 예산 및 경고는 종량제 요금 기반 비용으로 구독 및 리소스 그룹 RBAC 범위에 대해 사용할 수 있습니다.
 
 RBAC 범위에서 예약된 인스턴스에 대한 분할상환 보기와 실제 비용은 요금이 0으로 표시됩니다. 예약된 인스턴스 비용은 구매가 완료된 청구 범위에만 표시됩니다.
 

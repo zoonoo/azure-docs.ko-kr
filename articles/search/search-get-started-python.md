@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
 ms.date: 02/10/2020
-ms.openlocfilehash: 15a3801a7ea99d6d799bcd8adf340b03f36bc196
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 93fb9ec735de1abf89eb217d0f4096fcfc0afe94
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77121623"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78227095"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-python-using-jupyter-notebooks"></a>빠른 시작: Jupyter Notebook을 사용하여 Python에서 Azure Cognitive Search 인덱스 만들기
 
@@ -126,7 +126,7 @@ REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL�
     }
     ```
 
-2. 다른 셀에서 요청을 작성합니다. 이 PUT 요청은 검색 서비스의 indexes 컬렉션을 대상으로 하고, 이전 셀에서 제공한 인덱스 스키마에 기반한 인덱스를 만듭니다.
+2. 다른 셀에서 요청을 작성합니다. 이 POST 요청은 검색 서비스의 indexes 컬렉션을 대상으로 하고, 이전 셀에서 제공한 인덱스 스키마에 기반한 인덱스를 만듭니다.
 
    ```python
    url = endpoint + "indexes" + api_version

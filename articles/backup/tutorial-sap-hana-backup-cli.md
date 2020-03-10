@@ -3,12 +3,12 @@ title: 자습서 - CLI를 사용하여 Azure에서 SAP HANA DB 백업
 description: 이 자습서에서는 Azure CLI를 사용하여 Azure VM에서 실행되는 SAP HANA 데이터베이스를 Azure Backup Recovery Services 자격 증명 모음에 백업하는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.date: 12/4/2019
-ms.openlocfilehash: 6d35b6ebfc6f47f5775c24407b645b97112387c9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: cdc8a8fb09a086a2b9212c21d071f267991fa275
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75470808"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206625"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>자습서: Azure CLI를 사용하여 Azure VM에서 SAP HANA 데이터베이스 복원
 
@@ -68,7 +68,7 @@ westus2    saphanaVault     saphanaResourceGroup
 
 ## <a name="register-and-protect-the-sap-hana-instance"></a>SAP HANA 인스턴스 등록 및 보호
 
-Azure 서비스에서 SAP HANA 인스턴스(SAP HANA가 설치된 VM)를 검색하려면 SAP HANA 머신에서 [사전 등록 스크립트](https://aka.ms/scriptforpermsonhana)를 실행해야 합니다. 스크립트를 실행하기 전에 모든 [필수 구성 요소](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db#prerequisites)를 충족하는지 확인합니다. 스크립트가 하는 일에 대한 자세한 내용은 [권한 설정](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db#setting-up-permissions) 섹션을 참조하세요.
+Azure 서비스에서 SAP HANA 인스턴스(SAP HANA가 설치된 VM)를 검색하려면 SAP HANA 머신에서 [사전 등록 스크립트](https://aka.ms/scriptforpermsonhana)를 실행해야 합니다. 스크립트를 실행하기 전에 모든 [필수 구성 요소](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db#prerequisites)를 충족하는지 확인합니다. 스크립트가 수행하는 작업에 대한 자세한 내용은 [사전 등록 스크립트의 기능](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) 섹션을 참조하세요.
 
 스크립트가 실행되면 앞에서 만든 복구 서비스 자격 증명 모음에 SAP HANA 인스턴스를 등록할 수 있습니다. 인스턴스를 등록하려면 [az backup container register](https://docs.microsoft.com/cli/azure/backup/container?view=azure-cli-latest#az-backup-container-register) cmdlet을 사용합니다. *VMResourceId*는 SAP HANA를 설치하기 위해 만든 VM의 리소스 ID입니다.
 

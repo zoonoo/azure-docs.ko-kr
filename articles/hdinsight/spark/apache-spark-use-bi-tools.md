@@ -5,27 +5,27 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
-ms.date: 10/03/2019
-ms.openlocfilehash: 3fd1405d8421d71f52d9cd215dd055ce1595abd0
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.custom: hdinsightactive,mvc
+ms.date: 03/02/2020
+ms.openlocfilehash: d7330225ecbdc6715847821a47c140a3c2b8d1b9
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327268"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251946"
 ---
 # <a name="tutorial-analyze-apache-spark-data-using-power-bi-in-hdinsight"></a>자습서: HDInsight에서 Power BI를 사용하여 Apache Spark 데이터 분석
 
 이 자습서에서는 [Microsoft Power BI](https://powerbi.microsoft.com/)를 사용하여 [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/)의 Apache Spark 클러스터에서 데이터를 시각화하는 방법을 알아봅니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 > [!div class="checklist"]
 > * Power BI를 사용하여 Spark 데이터 시각화
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [자습서: Azure HDInsight의 Apache Spark 클러스터에서 데이터 로드 및 쿼리 실행](./apache-spark-load-data-run-query.md) 문서를 완료합니다.
 
@@ -86,7 +86,7 @@ Spark를 사용하는 첫 번째 단계는 Power BI Desktop에서 클러스터�
 
 4. **서버** 텍스트 상자에 클러스터 URL(`mysparkcluster.azurehdinsight.net` 형식)을 입력합니다.
 
-5. **데이터 연결 모드**에서 **DirectQuery**를 선택합니다. 그런 다음 **확인**을 선택합니다.
+5. **데이터 연결 모드**에서 **DirectQuery**를 선택합니다. 그런 다음, **확인**을 선택합니다.
 
     Spark와 함께 데이터 연결 모드 중 하나를 사용할 수 있습니다. DirectQuery를 사용하는 경우 변경 내용은 전체 데이터 세트를 새로 고치지 않고 보고서에 반영됩니다. 데이터를 가져오는 경우 변경 내용을 보려면 데이터 집합을 새로 고쳐야 합니다. DirectQuery를 사용하는 방법 및 사례에 대한 자세한 내용은 [Power BI에서 DirectQuery 사용](https://powerbi.microsoft.com/documentation/powerbi-desktop-directquery-about/)을 참조하세요.
 
@@ -128,47 +128,47 @@ Power BI 서비스를 사용하면 조직 전체에서 보고서 및 대시보�
 
 1. Power BI Desktop을 엽니다.
 
-1. **홈** 탭에서 **게시**를 클릭합니다.
+1. **홈** 탭에서 **게시**를 선택합니다.
 
     ![Power BI Desktop에서 게시](./media/apache-spark-use-bi-tools/apache-spark-bi-publish.png "Power BI Desktop에서 게시")
 
-1. 데이터 세트 및 보고서를 게시하려는 작업 영역을 선택한 다음, **선택**을 클릭합니다. 다음 이미지에서 기본 **내 작업 영역**이 선택됩니다.
+1. 데이터 세트 및 보고서를 게시하려는 작업 영역을 선택한 다음, **선택**을 선택합니다. 다음 이미지에서 기본 **내 작업 영역**이 선택됩니다.
 
-    ![데이터 세트 및 보고서를 게시할 작업 영역 선택](./media/apache-spark-use-bi-tools/apache-spark-bi-select-workspace.png "데이터 세트 및 보고서를 게시할 작업 영역 선택") 
+    ![데이터 세트 및 보고서를 게시할 작업 영역 선택](./media/apache-spark-use-bi-tools/apache-spark-bi-select-workspace.png "데이터 세트 및 보고서를 게시할 작업 영역 선택")
 
-1. 게시에 성공한 후 **Power BI에서 'BuildingTemperature.pbix' 열기**를 클릭합니다.
+1. 게시에 성공한 후 **Power BI에서 'BuildingTemperature.pbix' 열기**를 선택합니다.
 
-    ![자격 증명 입력을 클릭하여 성공 게시](./media/apache-spark-use-bi-tools/apache-spark-bi-publish-success.png "자격 증명 입력을 클릭하여 성공 게시") 
+    ![자격 증명 입력을 클릭하여 성공 게시](./media/apache-spark-use-bi-tools/apache-spark-bi-publish-success.png "자격 증명 입력을 클릭하여 성공 게시")
 
-1. Power BI 서비스에서 **자격 증명 입력**을 클릭합니다.
+1. Power BI 서비스에서 **자격 증명 입력**을 선택합니다.
 
     ![Power BI 서비스에 자격 증명 입력](./media/apache-spark-use-bi-tools/apache-spark-bi-enter-credentials.png "Power BI 서비스에 자격 증명 입력")
 
-1. **자격 증명 편집**을 클릭합니다.
+1. **자격 증명 편집**을 선택합니다.
 
     ![Power BI 서비스에서 자격 증명 편집](./media/apache-spark-use-bi-tools/apache-spark-bi-edit-credentials.png "Power BI 서비스에서 자격 증명 편집")
 
-1. HDInsight 로그인 계정 정보를 입력한 다음 **로그인**을 클릭합니다. 기본 계정 이름은 *admin*입니다.
+1. HDInsight 로그인 계정 정보를 입력한 다음, **로그인**을 선택합니다. 기본 계정 이름은 *admin*입니다.
 
     ![Spark 클러스터에 로그인](./media/apache-spark-use-bi-tools/apache-spark-bi-sign-in.png "Spark 클러스터에 로그인")
 
-1. 왼쪽 창에서 **작업 영역** > **내 작업 영역** > **보고서**로 이동한 다음 **BuildingTemperature**를 클릭합니다.
+1. 왼쪽 창에서 **작업 영역** > **내 작업 영역** > **보고서**로 이동한 다음, **BuildingTemperature**를 선택합니다.
 
     ![왼쪽 창의 보고서 아래에 나열된 보고서](./media/apache-spark-use-bi-tools/apache-spark-bi-service-left-pane.png "왼쪽 창의 보고서 아래에 나열된 보고서")
 
     왼쪽 창의 **데이터 세트** 아래에 나열된 **BuildingTemperature**도 표시됩니다.
 
-    이제 Power BI Desktop에서 만든 시각적 개체를 Power BI 서비스에서 사용할 수 있습니다. 
+    이제 Power BI Desktop에서 만든 시각적 개체를 Power BI 서비스에서 사용할 수 있습니다.
 
-1. 시각화 위로 커서를 이동한 후 오른쪽 위 모서리의 핀 고정 아이콘을 클릭합니다.
+1. 시각화 위로 커서를 이동한 다음, 오른쪽 위 모서리의 핀 고정 아이콘을 선택합니다.
 
     ![Power BI 서비스의 보고서](./media/apache-spark-use-bi-tools/apache-spark-bi-service-report.png "Power BI 서비스의 보고서")
 
-1. "새 대시보드"를 선택하고, 이름 `Building temperature`를 입력한 다음 **고정**을 클릭합니다.
+1. "새 대시보드"를 선택하고, 이름 `Building temperature`를 입력한 다음, **고정**을 선택합니다.
 
     ![새 대시보드에 고정](./media/apache-spark-use-bi-tools/apache-spark-bi-pin-dashboard.png "새 대시보드에 고정")
 
-1. 보고서에서 **대시보드로 이동**을 클릭합니다.
+1. 보고서에서 **대시보드로 이동**을 선택합니다.
 
 시각적 개체가 대시보드에 고정됩니다. 다른 시각적 개체를 보고서에 추가하고 동일한 대시보드에 고정할 수 있습니다. 보고서 및 대시보드에 대한 자세한 내용은 [Power BI의 보고서](https://powerbi.microsoft.com/documentation/powerbi-service-reports/)및 [Power BI의 대시보드](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/)를 참조하세요.
 

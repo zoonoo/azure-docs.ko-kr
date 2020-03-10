@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.date: 1/9/2019
 ms.author: lcozzens
-ms.openlocfilehash: 268e6c5a999244eb643990143d1102d129b7af68
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 71a330523f1d3393a365fec29fb66f5c9773b6cc
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76310059"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78207067"
 ---
 # <a name="quickstart-create-an-azure-functions-app-with-azure-app-configuration"></a>빠른 시작: Azure App Configuration으로 Azure Functions 앱 만들기
 
@@ -42,11 +42,7 @@ ms.locfileid: "76310059"
 
 ## <a name="connect-to-an-app-configuration-store"></a>App Configuration 저장소에 연결
 
-1. 마우스 오른쪽 단추로 프로젝트를 클릭하고, **NuGet 패키지 관리**를 선택합니다. **찾아보기** 탭에서 다음 NuGet 패키지를 검색하여 프로젝트에 추가합니다. 찾을 수 없으면 **시험판 포함** 확인란을 선택합니다.
-
-    ```
-    Microsoft.Extensions.Configuration.AzureAppConfiguration 3.0.0-preview-010550001-251 or later
-    ```
+1. 마우스 오른쪽 단추로 프로젝트를 클릭하고, **NuGet 패키지 관리**를 선택합니다. **찾아보기** 탭에서 `Microsoft.Extensions.Configuration.AzureAppConfiguration` NuGet 패키지를 검색하여 프로젝트에 추가합니다. 찾을 수 없으면 **시험판 포함** 확인란을 선택합니다.
 
 2. *Function1.cs* 파일을 열고, .NET Core 구성 및 App Configuration 공급자의 네임스페이스를 추가합니다.
 
@@ -54,6 +50,7 @@ ms.locfileid: "76310059"
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     ```
+
 3. `Configuration`이라는 `static` 속성을 추가하여 `IConfiguration`의 단일 인스턴스를 만듭니다. 그런 다음, `AddAzureAppConfiguration()`를 호출하여 App Configuration에 연결하는 `static` 생성자를 추가합니다. 그러면 애플리케이션이 시작될 때 구성이 한 번 로드됩니다. 이후부터는 모든 Functions 호출에 동일한 구성 인스턴스가 사용됩니다.
 
     ```csharp
@@ -66,6 +63,7 @@ ms.locfileid: "76310059"
         Configuration = builder.Build();
     }
     ```
+
 4. 구성에서 값을 읽도록 `Run` 메서드를 업데이트합니다.
 
     ```csharp
@@ -76,7 +74,7 @@ ms.locfileid: "76310059"
 
         string keyName = "TestApp:Settings:Message";
         string message = Configuration[keyName];
-            
+
         return message != null
             ? (ActionResult)new OkObjectResult(message)
             : new BadRequestObjectResult($"Please create a key-value with the key '{keyName}' in App Configuration.");
@@ -90,14 +88,18 @@ ms.locfileid: "76310059"
     ```CLI
         setx ConnectionString "connection-string-of-your-app-configuration-store"
     ```
+
     Windows PowerShell을 사용하는 경우 다음 명령을 실행합니다.
 
     ```azurepowershell
         $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
     ```
+
     macOS 또는 Linux를 사용하는 경우 다음 명령을 실행합니다.
 
+    ```bash
         export ConnectionString='connection-string-of-your-app-configuration-store'
+    ```
 
 2. F5를 눌러 함수를 테스트합니다. 메시지가 표시되면 Visual Studio에서 **Azure Functions Core(CLI)** 도구를 다운로드하여 설치하도록 요구하는 요청을 수락합니다. 또한 도구에서 HTTP 요청을 처리할 수 있도록 방화벽 예외를 사용하도록 설정해야 할 수도 있습니다.
 

@@ -5,12 +5,12 @@ services: container-service
 ms.topic: tutorial
 ms.date: 02/25/2020
 ms.custom: mvc
-ms.openlocfilehash: 1e977d927a301bee4be6cf3856114692542981b4
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: bc31a4197b08cbeb1a99820d7ff490f20147c7bf
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77621212"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78191268"
 ---
 # <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>자습서: AKS(Azure Kubernetes Service) 클러스터 배포
 
@@ -43,6 +43,8 @@ az aks create \
     --generate-ssh-keys \
     --attach-acr <acrName>
 ```
+
+ACR에서 이미지를 가져오도록 서비스 주체를 수동으로 구성할 수도 있습니다. 자세한 내용은 [서비스 주체를 사용하여 ACR 인증](../container-registry/container-registry-auth-service-principal.md) 또는 [끌어오기 비밀을 사용하여 Kubernetes에서 인증](../container-registry/container-registry-auth-kubernetes.md)을 참조하세요.
 
 몇 분 후에 배포가 완료되고 JSON 형식의 AKS 배포 관련 정보가 반환됩니다.
 

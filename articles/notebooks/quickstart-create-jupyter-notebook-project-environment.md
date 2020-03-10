@@ -3,12 +3,12 @@ title: 사용자 지정 환경을 사용하여 Azure Notebooks 미리 보기 프
 description: 설치된 패키지 및 시작 스크립트의 특정 세트로 구성된 Azure Notebooks 미리 보기에서 새 프로젝트를 만듭니다.
 ms.topic: quickstart
 ms.date: 12/04/2018
-ms.openlocfilehash: 999133dd7d9d792956f9a2c93ec218e458c921e8
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 6388cb7997cac5bef25975043a13c4e080f288d4
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647070"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196844"
 ---
 # <a name="quickstart-create-a-project-with-a-custom-environment-in-azure-notebooks-preview"></a>빠른 시작: Azure Notebooks 미리 보기에서 사용자 지정 환경으로 프로젝트 만들기
 
@@ -51,11 +51,14 @@ Azure Notebooks의 프로젝트는 특정 설정 명령을 사용하여 구성�
 
 1. **+ 추가** 명령으로 프로젝트에서 작업으로 정의한 단계 및 파일에서 선택한 대상 파일을 만듭니다. 다음 작업을 지원합니다.
 
-    | 작업(Operation) | Description |
-    | --- | --- |
-    | Requirements.txt | Python 프로젝트 requirements.txt 파일에서 해당 종속성을 정의합니다. 이 옵션을 사용하여 프로젝트의 파일 목록에서 해당 파일을 선택하고 나타나는 추가 드롭다운 목록에서 Python 버전을 선택할 수도 있습니다. 필요한 경우 **취소**를 선택하여 프로젝트로 돌아가거나 파일을 업로드하거나 만든 다음 **프로젝트 설정** > **환경** 탭으로 돌아가서 새 단계를 만듭니다. 이 단계가 준비된 상태로 프로젝트에서 Notebook을 실행하면 `pip install -r <file>`이 자동 실행됩니다. |
-    | 셸 스크립트 | 환경을 초기화하기 이해 실행하려는 모든 명령어가 포함된 Bash 셸 스크립트(일반적으로 *.sh* 확장명이 있는 파일)를 사용합니다. |
-    | Environment.yml | 환경 관리를 위해 Conda를 사용하는 Python 프로젝트는 *environments.yml* 파일을 사용하여 종속성을 설명합니다. 이 옵션을 사용하여 프로젝트의 파일 목록에서 해당 파일을 선택합니다. |
+   | 작업(Operation) | Description |
+   | --- | --- |
+   | Requirements.txt | Python 프로젝트 requirements.txt 파일에서 해당 종속성을 정의합니다. 이 옵션을 사용하여 프로젝트의 파일 목록에서 해당 파일을 선택하고 나타나는 추가 드롭다운 목록에서 Python 버전을 선택할 수도 있습니다. 필요한 경우 **취소**를 선택하여 프로젝트로 돌아가거나 파일을 업로드하거나 만든 다음 **프로젝트 설정** > **환경** 탭으로 돌아가서 새 단계를 만듭니다. 이 단계가 준비된 상태로 프로젝트에서 Notebook을 실행하면 `pip install -r <file>`이 자동 실행됩니다. |
+   | 셸 스크립트 | 환경을 초기화하기 이해 실행하려는 모든 명령어가 포함된 Bash 셸 스크립트(일반적으로 *.sh* 확장명이 있는 파일)를 사용합니다. |
+   | Environment.yml | 환경 관리를 위해 Conda를 사용하는 Python 프로젝트는 *environments.yml* 파일을 사용하여 종속성을 설명합니다. 이 옵션을 사용하여 프로젝트의 파일 목록에서 해당 파일을 선택합니다. |
+
+   > [!WARNING]
+   > 이는 개발 중인 미리 보기 서비스이므로 현재는 `Environment.yml` 설정이 프로젝트에 예상대로 적용되지 않는 알려진 문제가 있습니다. 프로젝트와 Jupyter 노트북은 현재 지정된 환경 파일을 로드하지 않습니다.
 
 1. 모든 설치 단계를 제거하려면 단계의 오른쪽에 있는 **X**를 선택합니다.
 

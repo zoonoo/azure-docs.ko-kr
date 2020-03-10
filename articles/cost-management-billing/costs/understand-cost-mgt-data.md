@@ -4,23 +4,25 @@ description: 이 문서는 Azure Cost Management에 포함된 데이터와 이 �
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/21/2020
+ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: 44953a3986b5c03afa9cc4668e2563c5c5cd6c46
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: ff3ed7ee65fd34ef9cd3541832f9cffc306e1aa8
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77560612"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78245365"
 ---
 # <a name="understand-cost-management-data"></a>Cost Management 데이터 이해
 
 이 문서는 Azure Cost Management에 포함된 Azure 비용 및 사용량 데이터를 파악하는 데 도움이 됩니다. 데이터의 처리, 수집, 표시 및 마감 빈도를 설명합니다. Azure 사용 요금은 매월 청구됩니다. 청구 기간은 월별 기간이지만 주기 시작 및 종료 날짜는 구독 유형에 따라 달라집니다. Cost Management가 사용량 데이터를 받는 빈도는 다양한 요인에 따라 달라집니다. 이러한 요인에는 데이터 처리에 걸리는 시간, Azure 서비스에서 사용량을 청구 시스템으로 내보내는 빈도 등이 있습니다.
 
 Cost Management에는 EA(기업계약) 계정에 대한 예약 및 타사 제품을 비롯한 모든 사용량 및 구매가 포함됩니다. Microsoft 고객 계약 계정 및 종량제 요금으로 개별 구독은 Azure 및 Marketplace 서비스의 사용량만 포함합니다. 지원 및 기타 비용은 포함되지 않습니다. 비용은 청구서가 생성될 때까지 예상되며 크레딧에는 영향을 주지 않습니다.
+
+새 구독이 있는 경우 Cost Management 기능을 즉시 사용할 수 없습니다. 모든 Cost Management 기능을 사용하려면 최대 48시간이 걸릴 수 있습니다.
 
 ## <a name="supported-microsoft-azure-offers"></a>지원되는 Microsoft Azure 제품
 

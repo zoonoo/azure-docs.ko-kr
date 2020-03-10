@@ -1,18 +1,17 @@
 ---
 title: Azure 리소스에서 리소스 로그를 수집하고 Azure Monitor로 분석
 description: Azure 리소스에서 Log Analytics 작업 영역(로그 쿼리를 사용하여 로그를 분석할 수 있는 작업 영역)으로 리소스 로그를 수집하도록 진단 설정을 구성하는 방법에 대한 자습서입니다.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 12/15/2019
-ms.openlocfilehash: 90b2a9bc9e3e8aa6297f02a46163717a2bf58a22
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: d356042d65c419163de4951e64a635a22ea90e6d
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75532616"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78269202"
 ---
 # <a name="tutorial-collect-and-analyze-resource-logs-from-an-azure-resource"></a>자습서: Azure 리소스에서 리소스 로그 수집 및 분석
 
@@ -47,7 +46,7 @@ Azure Monitor의 Log Analytics 작업 영역은 다양한 원본에서 로그 �
    - **구독**: 작업 영역을 저장할 구독을 선택합니다. 모니터링할 리소스와 동일한 구독이 아니어도 상관 없습니다.
    - **리소스 그룹**: 기존 리소스 그룹을 선택하거나 **새로 만들기**를 클릭하여 새로 만듭니다. 모니터링할 리소스와 동일한 리소스 그룹이 아니어도 상관 없습니다.
    - **위치**: Azure 지역을 선택하거나 새 Azure 지역을 만듭니다. 모니터링할 리소스와 동일한 위치가 아니어도 상관 없습니다.
-   - **가격 책정 계층**: 7일 간 데이터를 유지하는 *체험판*을 선택합니다. 나중에 가격 책정 계층을 변경할 수 있습니다. 가격 책정 계층에 대한 자세한 내용을 보려면 **Log Analytics 가격 책정** 링크를 클릭하세요.
+   - **가격 책정 계층**: 가격 책정 계층으로 *종량제*를 선택합니다. 나중에 가격 책정 계층을 변경할 수 있습니다. 가격 책정 계층에 대한 자세한 내용을 보려면 **Log Analytics 가격 책정** 링크를 클릭하세요.
 
     ![새 작업 영역](media/tutorial-resource-logs/new-workspace.png)
 

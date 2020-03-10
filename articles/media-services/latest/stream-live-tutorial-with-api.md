@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/13/2019
 ms.author: juliako
-ms.openlocfilehash: 47d526ea410bc449c91ae4fb10913850c447f1b3
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: cb6095f1579334b9fe35a02a3006de32ff551989
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582637"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78268167"
 ---
 # <a name="tutorial-stream-live-with-media-services"></a>자습서: Media Services로 라이브 스트리밍
 
@@ -39,7 +39,7 @@ ms.locfileid: "73582637"
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 자습서를 완료하는 데 필요한 항목은 다음과 같습니다.
 
@@ -47,7 +47,7 @@ ms.locfileid: "73582637"
 - [Media Services 계정 만들기](create-account-cli-how-to.md)<br/>리소스 그룹 이름 및 Media Services 계정 이름에 사용하는 값을 기억해 두세요.
 - [Azure CLI를 사용하여 Azure Media Services API 액세스](access-api-cli-how-to.md)의 단계를 수행하고 자격 증명을 저장합니다. API에 액세스할 때 필요합니다.
 - 브로드캐스트 또는 이벤트에 사용되는 카메라 또는 디바이스(예: 랩톱).
-- 카메라에서 Media Services 라이브 스트리밍 서비스로 보내는 스트림으로 신호를 변환하는 온-프레미스 라이브 인코더입니다. 스트림은 **RTMP** 또는 **부드러운 스트리밍** 형식이어야 합니다.
+- 카메라에서 Media Services 라이브 스트리밍 서비스로 보내는 스트림으로 신호를 변환하는 온-프레미스 라이브 인코더입니다. [권장되는 온-프레미스 라이브 인코더](recommended-on-premises-live-encoders.md)를 참조하세요. 스트림은 **RTMP** 또는 **부드러운 스트리밍** 형식이어야 합니다.
 
 > [!TIP]
 > 계속 진행하기 전에 [Media Services v3에서 라이브 스트리밍](live-streaming-overview.md)을 검토해야 합니다. 

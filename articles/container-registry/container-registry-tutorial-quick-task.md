@@ -4,12 +4,12 @@ description: 이 자습서에서는 ACR 작업(Azure Container Registry 작업)�
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.custom: seodec18, mvc
-ms.openlocfilehash: b8a45cf3a72ed8f38f6f28a2f0225d0913f906da
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 51891d7b17fad7e438cc31652b6a0769d024e8e0
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456059"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252105"
 ---
 # <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>자습서: Azure Container Registry 작업을 사용하여 클라우드에 컨테이너 이미지 빌드 및 배포
 
@@ -32,11 +32,11 @@ ms.locfileid: "74456059"
 
 Azure CLI를 로컬로 사용하려면 Azure CLI 버전 **2.0.46** 이상이 설치되어 있고, [az login][az-login]을 사용하여 로그인해야 합니다. `az --version`을 실행하여 버전을 찾습니다. CLI를 설치하거나 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli]를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 ### <a name="github-account"></a>GitHub 계정
 
-아직 계정이 없는 경우  https://github.com 에서 계정을 만듭니다. 이 자습서 시리즈에서는 GitHub 리포지토리를 사용하여 ACR 작업에서 자동화된 이미지 빌드를 보여 줍니다.
+아직 계정이 없는 경우 https://github.com 에서 계정을 만듭니다. 이 자습서 시리즈에서는 GitHub 리포지토리를 사용하여 ACR 작업에서 자동화된 이미지 빌드를 보여 줍니다.
 
 ### <a name="fork-sample-repository"></a>샘플 리포지토리 포크
 
@@ -52,13 +52,13 @@ Azure CLI를 로컬로 사용하려면 Azure CLI 버전 **2.0.46** 이상이 설
 
 `git`을 사용하여 리포지토리를 복제하고, **\<your-github-username\>** 을 GitHub 사용자 이름으로 바꿉니다.
 
-```azurecli-interactive
+```console
 git clone https://github.com/<your-github-username>/acr-build-helloworld-node
 ```
 
 소스 코드가 포함된 디렉터리를 입력합니다.
 
-```azurecli-interactive
+```console
 cd acr-build-helloworld-node
 ```
 
@@ -72,7 +72,9 @@ cd acr-build-helloworld-node
 
 이 시리즈의 자습서에서는 샘플 명령을 더 쉽게 실행하기 위해 셸 환경 변수를 사용합니다. 다음 명령을 실행하여 `ACR_NAME` 변수를 설정합니다. **\<registry-name\>** 을 새 컨테이너 레지스트리에 대한 고유한 이름으로 바꿉니다. 레지스트리 이름은 Azure 내에서 고유해야 하며, 소문자만 포함하고, 5-50자의 영숫자를 포함해야 합니다. 자습서에서 만드는 다른 리소스는 이 이름을 기반으로 하므로 이 첫 번째 변수만 수정해야 합니다.
 
-```azurecli-interactive
+[![Embed 시작](https://shell.azure.com/images/launchcloudshell.png "Azure Cloud Shell 시작")](https://shell.azure.com)
+
+```console
 ACR_NAME=<registry-name>
 ```
 

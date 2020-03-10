@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: fac83a7a5137a50a26721da58395cc2e915f222d
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: fae9b8a2101329383cc90c8f7f0ff225e3a9059c
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77086195"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77913821"
 ---
 # <a name="migrate-web-service-from-google-maps"></a>Google Maps에서 웹 서비스 마이그레이션
 
@@ -24,21 +24,24 @@ Azure 및 Google Maps 둘 다 REST 웹 서비스를 통해 공간 API에 액세�
 
 | Google Maps 서비스 API | Azure Maps 서비스 API                                                                      |
 |-------------------------|---------------------------------------------------------------------------------------------|
-| 방향              | [Route](https://docs.microsoft.com/rest/api/maps/route)                               |
-| 거리 행렬         | [경로 행렬](https://docs.microsoft.com/rest/api/maps/route/postroutematrixpreview) |
-| 지오코딩               | [검색](https://docs.microsoft.com/rest/api/maps/search)                             |
-| 장소 검색           | [검색](https://docs.microsoft.com/rest/api/maps/search)                             |
-| 장소 자동 완성      | [검색](https://docs.microsoft.com/rest/api/maps/search)                             |
-| 정적 맵              | [Render](https://docs.microsoft.com/rest/api/maps/render/getmapimage)                 |
-| 표준 시간대               | [표준 시간대](https://docs.microsoft.com/rest/api/maps/timezone)                        |
+| 방향              | [Route](https://docs.microsoft.com/rest/api/maps/route)                                     |
+| 거리 행렬         | [경로 행렬](https://docs.microsoft.com/rest/api/maps/route/postroutematrixpreview)       |
+| 지오코딩               | [검색](https://docs.microsoft.com/rest/api/maps/search)                                   |
+| 장소 검색           | [검색](https://docs.microsoft.com/rest/api/maps/search)                                   |
+| 장소 자동 완성      | [검색](https://docs.microsoft.com/rest/api/maps/search)                                   |
+| 도로에 맞춤            | [경로 및 방향 계산](#calculate-routes-and-directions) 섹션을 참조하세요.            |
+| 속도 제한            | [좌표 역방향 지오코딩](#reverse-geocode-a-coordinate) 섹션을 참조하세요.                  |
+| 정적 맵              | [Render](https://docs.microsoft.com/rest/api/maps/render/getmapimage)                       |
+| 표준 시간대               | [표준 시간대](https://docs.microsoft.com/rest/api/maps/timezone)                              |
 
 다음 서비스 API는 현재 Azure Maps에서 사용할 수 없습니다.
 
 - 상승
 - 지리적 위치
-- Place Details 및 Place Photos. 전화 번호 및 웹 사이트 URL은 Azure Maps 검색 API에서 사용할 수 있습니다.
+- 위치 세부 정보 및 사진 - 전화 번호 및 웹 사이트 URL은 Azure Maps 검색 API에서 사용할 수 있습니다.
 - 맵 URL
-- Roads. 속도 제한 데이터는 Azure Maps의 경로 및 역방향 지오코딩 API를 통해 사용할 수 있습니다.
+- 가장 가까운 도로 - [여기](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Basic%20snap%20to%20road%20logic
+)에 표시된 것처럼 Web SDK를 사용하여 달성할 수 있지만 현재 서비스로는 사용할 수 없습니다.
 - 정적 주소 보기
 
 Azure Maps에는 다음과 같은 몇 가지 흥미로운 추가 REST 웹 서비스가 있습니다.
@@ -176,8 +179,8 @@ Azure Maps를 사용하여 경로와 방향을 계산합니다. Azure Maps에는
 
 Azure Maps 라우팅 서비스는 경로 계산을 위한 다음 API를 제공합니다.
 
-- [**경로 계산**](https://docs.microsoft.com/rest/api/maps/route/getroutedirections): 경로를 계산하고 요청을 즉시 처리합니다. 이 API는 GET 및 POST 요청을 모두 지원합니다. 다수의 중간 지점을 지정하거나 많은 경로 옵션을 사용하는 경우 POST 요청을 사용합니다. POST를 사용하면 URL 요청이 너무 길어져 문제가 생기는 것을 막을 수 있기 때문입니다.
-- [**일괄 처리 경로**](https://docs.microsoft.com/rest/api/maps/route/postroutedirectionsbatchpreview): 최대 1,000개의 경로 요청을 포함하는 요청을 만들고 일정 기간 동안 처리합니다. 모든 데이터는 서버에서 병렬로 처리됩니다. 처리가 완료되면 전체 결과 세트를 다운로드할 수 있습니다.
+- [**경로 계산**](https://docs.microsoft.com/rest/api/maps/route/getroutedirections): 경로를 계산하고 요청을 즉시 처리합니다. 이 API는 GET 및 POST 요청을 모두 지원합니다. POST 요청은 많은 수의 중간 지점을 지정할 때 또는 URL 요청이 너무 길어서 문제가 발생하지 않도록 많은 경로 옵션을 사용할 때 추천하는 방법입니다. Azure Maps의 POST 경로 방향에는 수천 개의 [지원 요소](https://docs.microsoft.com/rest/api/maps/route/postroutedirections#supportingpoints)를 사용할 수 있는 옵션이 있으며 이를 사용하여 둘 사이의 논리적 경로를 다시 만들 수 있습니다(도로에 맞춤). 
+- [**일괄 처리 경로**](https://docs.microsoft.com/rest/api/maps/route/postroutedirectionsbatchpreview): 최대 1,000개의 경로 요청을 포함하는 요청을 만들고 일정 기간 동안 처리합니다. 모든 데이터가 서버에서 병렬로 처리되며, 처리가 완료되면 전체 결과 세트를 다운로드할 수 있습니다.
 - [**모바일 서비스**](https://docs.microsoft.com/rest/api/maps/mobility): 대중 교통을 사용하여 경로 및 방향을 계산합니다.
 
 다음 표에서는 Google Maps API 매개 변수와 Azure Maps의 비슷한 API 매개 변수를 상호 참조합니다.
@@ -365,7 +368,7 @@ URL에 `path` 매개 변수를 사용하여 정적 맵 이미지에 선과 다�
 - `geodesic` – 경로가 지구의 곡률을 따르는 선이어야 하는지 여부를 나타냅니다.
 - `weight` - 경로 선의 두께(픽셀)입니다.
 
-URL 매개 변수에서 좌표 사이의 맵에 빨간색 선 불투명도와 픽셀 두께를 추가합니다. 아래 예의 경우 선의 불투명도는 50%이고 두께는 4픽셀입니다. 좌표는 경도: -110, 위도: 45 및 경도: -100, 위도: 50입니다.
+URL 매개 변수에서 좌표 사이의 맵에 빨간색 선 불투명도와 픽셀 두께를 추가합니다. 아래 예의 경우 선의 불투명도는 50%이고 두께는 4픽셀입니다. 좌표는 경도: -110, 위도: 45 및 경도: -100, 위도: 50.
 
 ```
 &path=color:0xFF000088|weight:4|45,-110|50,-100

@@ -6,13 +6,13 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/20/2019
-ms.openlocfilehash: 9f25486aba9549855939b06ea5b8dfc14db0af95
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.date: 02/27/2020
+ms.openlocfilehash: 4adcda6030ed59cb6cc2285eb1c1eea0f768662c
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75969113"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77662747"
 ---
 # <a name="tutorial-automate-tasks-to-process-emails-by-using-azure-logic-apps-azure-functions-and-azure-storage"></a>자습서: Azure Logic Apps, Azure Functions 및 Azure Storage를 사용하여 이메일을 처리하는 작업 자동화
 
@@ -89,7 +89,7 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
 1. 이메일 첨부 파일에 대한 Blob Storage 컨테이너를 만듭니다.
 
-   1. 스토리지 계정 메뉴에서 **개요**를 선택합니다. **서비스**에서 **컨테이너**를 선택합니다.
+   1. 스토리지 계정 메뉴에서 **개요**를 선택합니다. 개요 창에서 **연결**을 선택합니다.
 
       ![Blob Storage 컨테이너 추가](./media/tutorial-process-email-attachments-workflow/create-storage-container.png)
 
@@ -223,24 +223,24 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
 ## <a name="create-your-logic-app"></a>논리 앱 만들기
 
-1. Azure 홈페이지의 검색 상자에서 **Logic Apps**를 찾아 선택합니다.
+1. Azure 최상위 검색 상자에 `logic apps`를 입력하고, **Logic Apps**를 선택합니다.
 
    !["Logic Apps" 찾기 및 선택](./media/tutorial-process-email-attachments-workflow/find-select-logic-apps.png)
 
-1. **Logic Apps** 페이지에서 **추가**를 선택합니다.
+1. **Logic Apps** 창에서 **추가**를 선택합니다.
 
-   ![새 논리 앱 추가](./media/quickstart-create-first-logic-app-workflow/add-new-logic-app.png)
+   ![새 논리 앱 추가](./media/tutorial-process-email-attachments-workflow/add-new-logic-app.png)
 
-1. 여기에 보이는 것처럼 **논리 앱 만들기** 아래에서 논리 앱에 대한 정보를 제공합니다. 완료되면 **만들기**를 선택합니다.
+1. 여기에 표시된 것처럼 **논리 앱** 창에서 논리 앱에 대한 정보를 제공합니다. 완료되면 **검토 + 만들기**를 선택합니다.
 
    ![논리 앱 정보 제공](./media/tutorial-process-email-attachments-workflow/create-logic-app-settings.png)
 
    | 설정 | 값 | Description |
    | ------- | ----- | ----------- |
-   | **이름** | LA-ProcessAttachment | 논리 앱의 이름 |
    | **구독** | <*your-Azure-subscription-name*> | 이전에 사용한 동일한 Azure 구독 |
    | **리소스 그룹** | LA-Tutorial-RG | 이전에 사용한 동일한 Azure 리소스 그룹 |
-   | **위치** | 미국 서부 | 이전에 사용한 동일한 지역 |
+   | **논리 앱 이름** | LA-ProcessAttachment | 논리 앱의 이름 |
+   | **위치 선택** | 미국 서부 | 이전에 사용한 동일한 지역 |
    | **Log Analytics** | 꺼짐 | 이 자습서에서는 **해제** 설정을 선택합니다. |
    ||||
 
@@ -277,8 +277,8 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
       | 설정 | 값 | Description |
       | ------- | ----- | ----------- |
       | **폴더** | 받은 편지함 | 확인할 이메일 폴더 |
-      | **첨부 파일 있음** | yes | 첨부 파일이 있는 이메일만 받습니다. <p>**참고:** 이 트리거는 계정에서 이메일을 제거하지 않으며, 새 메시지만 확인하고 제목 필터와 일치하는 이메일만 처리합니다. |
-      | **첨부 파일 포함** | yes | 첨부 파일을 확인하는 데서 그치지 않고 첨부 파일을 워크플로의 입력으로 가져옵니다. |
+      | **첨부 파일 있음** | 예 | 첨부 파일이 있는 이메일만 받습니다. <p>**참고:** 이 트리거는 계정에서 이메일을 제거하지 않으며, 새 메시지만 확인하고 제목 필터와 일치하는 이메일만 처리합니다. |
+      | **첨부 파일 포함** | 예 | 첨부 파일을 확인하는 데서 그치지 않고 첨부 파일을 워크플로의 입력으로 가져옵니다. |
       | **간격** | 1 | 검사 간에 대기하는 간격의 수 |
       | **빈도** | Minute | 검사 간 간격의 시간 단위 |
       ||||
@@ -667,7 +667,15 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
 이 샘플이 더 이상 필요 없으면 논리 앱 및 관련 리소스가 포함된 리소스 그룹을 삭제합니다.
 
-1. Azure 기본 메뉴에서 **리소스 그룹**을 선택합니다. 리소스 그룹 목록에서 이 자습서에 대한 리소스 그룹을 선택합니다. **개요** 창에서 **리소스 그룹 삭제**를 선택합니다.
+1. 최상위 Azure 검색 상자에 `resources groups`를 입력하고, **리소스 그룹**을 선택합니다.
+
+   !["리소스 그룹"을 찾아 선택합니다.](./media/tutorial-process-email-attachments-workflow/find-azure-resource-groups.png)
+
+1. **리소스 그룹** 목록에서 이 자습서에 대한 리소스 그룹을 선택합니다. 
+
+   ![자습서에 대한 리소스 그룹 찾기](./media/tutorial-process-email-attachments-workflow/find-select-tutorial-resource-group.png)
+
+1. **개요** 창에서 **리소스 그룹 삭제**를 선택합니다.
 
    ![논리 앱 리소스 그룹 삭제](./media/tutorial-process-email-attachments-workflow/delete-resource-group.png)
 

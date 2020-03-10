@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 12/05/2019
+ms.date: 03/04/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0bd53b72c334b35daea0864acf61cc432c272ae
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: aba42e6bd9b11e47d793219c0ff06b9177d609f5
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77442125"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78298822"
 ---
 # <a name="pilot-cloud-provisioning-for-an-existing-synced-ad-forest"></a>기존 동기화된 AD 포리스트에 파일럿 클라우드 프로비저닝 
 
@@ -31,7 +31,7 @@ ms.locfileid: "77442125"
 3. 파일럿 테스트 범위에 속한 개체에 ms-ds-consistencyGUID가 채워져 클라우드 프로비저닝이 개체와 일치하는지 확인합니다. 
 
    > [!NOTE]
-   > Azure AD Connect 동기화는 기본적으로 그룹 개체에 대한 *ms-ds-consistencyGUID*를 채우지 않습니다. [이 블로그 게시물](https://blogs.technet.microsoft.com/markrenoden/2017/10/13/choosing-a-sourceanchor-for-groups-in-multi-forest-sync-with-aad-connect/)에서 설명한 단계에 따라 그룹 개체에 대한 *ms-ds-consistencyGUID*를 채우세요.
+   > Azure AD Connect 동기화는 기본적으로 그룹 개체에 대한 *ms-ds-consistencyGUID*를 채우지 않습니다.
 
 4. 이는 고급 시나리오입니다. 이 자습서에서 설명하는 단계를 정확히 수행해야 합니다.
 
@@ -119,7 +119,7 @@ Azure AD Connect 동기화는 스케줄러를 사용하여 온-프레미스 디�
 
 ## <a name="install-the-azure-ad-connect-provisioning-agent"></a>Azure AD Connect 프로비저닝 에이전트 설치
 1. 사용할 서버에 엔터프라이즈 관리자 권한으로 로그인합니다.  [기본 AD 및 Azure 환경](tutorial-basic-ad-azure.md) 자습서를 사용하는 경우 CP1이 됩니다.
-2. [여기](https://go.microsoft.com/fwlink/?linkid=2109037)서 Azure AD Connect 클라우드 프로비저닝 에이전트를 다운로드합니다.
+2. [여기](how-to-install.md#install-the-agent)에서 설명된 단계를 사용하여 Azure AD Connect 클라우드 프로비저닝 에이전트를 다운로드합니다.
 3. Azure AD Connect 클라우드 프로비저닝을 실행합니다(AADConnectProvisioningAgent.Installer).
 3. 시작 화면에서 사용 조건을 **수락**하고 **설치**를 클릭합니다.</br>
 ![시작 화면](media/how-to-install/install1.png)</br>

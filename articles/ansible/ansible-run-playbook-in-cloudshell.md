@@ -4,16 +4,16 @@ description: 이 빠른 시작에서는 Azure Cloud Shell에서 Bash를 사용�
 keywords: Ansible, Azure, DevOps, Bash, cloudshell, 플레이북, Bash
 ms.topic: quickstart
 ms.date: 04/30/2019
-ms.openlocfilehash: 0eb89bcacae1629bdb1f6dcda8f9a25efdb6eedf
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 2a938179cf2e07a61749042db32ef9e1c9d843ba
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77193653"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78247885"
 ---
 # <a name="quickstart-run-ansible-playbooks-via-bash-in-azure-cloud-shell"></a>빠른 시작: Azure Cloud Shell에서 Bash를 통해 Ansible 플레이북 실행
 
-Azure Cloud Shell은 Azure 리소스를 관리하기 위한 브라우저에서 액세스할 수 있는 대화형 셸입니다. Cloud Shell은 Bash 또는 Powershell 명령줄을 사용할 수 있습니다. 이 문서에서는 Azure Cloud Shell 내에서 Bash를 사용하여 Ansible 플레이북을 실행합니다.
+Azure Cloud Shell은 Azure 리소스를 관리하기 위한 브라우저에서 액세스할 수 있는 대화형 셸입니다. Cloud Shell은 Bash 또는 PowerShell 명령줄을 사용할 수 있습니다. 이 문서에서는 Azure Cloud Shell 내에서 Bash를 사용하여 Ansible 플레이북을 실행합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -35,7 +35,7 @@ az account list
 
 Azure 구독 ID를 사용하여 `AZURE_SUBSCRIPTION_ID`를 다음과 같이 설정합니다.
 
-```azurecli-interactive
+```console
 export AZURE_SUBSCRIPTION_ID=<your-subscription-id>
 ```
 

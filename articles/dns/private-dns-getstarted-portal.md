@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: quickstart
 ms.date: 10/11/2019
 ms.author: rohink
-ms.openlocfilehash: 8391d92a2e2970378c11c043ca9f5d4f6dc44696
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 52bf9e061eb57c7ce6ea698b7468b5ba5e11b4e8
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76939378"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78244957"
 ---
 # <a name="quickstart-create-an-azure-private-dns-zone-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure 프라이빗 DNS 영역 만들기
 
@@ -48,7 +48,7 @@ DNS 영역에는 도메인에 대한 DNS 항목이 포함됩니다. Azure DNS에
 
 1. **프라이빗 DNS 영역 만들기** 페이지에서 다음 값을 입력하거나 선택합니다.
 
-   - **리소스 그룹**: **새로 만들기**를 선택하고, *MyAzureResourceGroup*을 입력하고, **확인**을 선택합니다. 리소스 그룹 이름은 Azure 구독 내에서 고유해야 합니다. 
+   - **리소스 그룹**: **새로 만들기**를 선택하고, *MyAzureResourceGroup*을 입력하고, **확인**을 선택합니다. 리소스 그룹 이름은 Azure 구독 내에서 고유해야 합니다.
    -  **Name**: 이 예에서는 *private.contoso.com*을 입력합니다.
 1. **리소스 그룹 위치**에 **미국 중서부**를 선택합니다.
 
@@ -58,13 +58,21 @@ DNS 영역에는 도메인에 대한 DNS 항목이 포함됩니다. Azure DNS에
 
 영역을 만드는 데 몇 분이 걸릴 수 있습니다.
 
-## <a name="create-a-virtual-network"></a>가상 네트워크 만들기
+## <a name="virtual-network-and-parameters"></a>가상 네트워크 및 매개 변수
 
-1. 포털 페이지 상단 왼쪽에서 **리소스 만들기**를 선택하고 **네트워킹**을 선택한 다음 **가상 네트워크**를 선택합니다.
-2. **이름**에는 **myAzureVNet**을 입력합니다.
-3. **리소스 그룹**으로 **MyAzureResourceGroup**을 선택합니다.
-4. **위치**에 **미국 중서부**를 선택합니다.
-5. 다른 기본값을 적용하고 **만들기**를 선택합니다.
+이 섹션에서는 단계의 다음 매개 변수를 아래 정보로 바꾸어야 합니다.
+
+| 매개 변수                   | 값                |
+|-----------------------------|----------------------|
+| **\<resource-group-name>**  | MyAzureResourceGroup(기존 리소스 그룹 선택) |
+| **\<virtual-network-name>** | MyAzureVNet          |
+| **\<region-name>**          | 미국 중서부      |
+| **\<IPv4-address-space>**   | 10.2.0.0\16          |
+| **\<subnet-name>**          | MyAzureSubnet        |
+| **\<subnet-address-range>** | 10.2.0.0\24          |
+
+
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 ## <a name="link-the-virtual-network"></a>가상 네트워크 연결
 
@@ -88,9 +96,8 @@ DNS 영역에는 도메인에 대한 DNS 항목이 포함됩니다. Azure DNS에
 1. 리소스 그룹으로 **MyAzureResourceGroup**을 선택합니다.
 1. **myVM01**(가상 머신의 이름)을 입력합니다.
 1. **지역**은 **미국 중서부**를 선택합니다.
-1. 관리자 사용자 이름에 **azureadmin**을 입력합니다.
-2. 암호로 **Azure12345678**을 입력하고 암호를 확인합니다.
-
+1. 관리자 사용자 이름의 이름을 입력합니다.
+2. 암호를 입력하고 암호를 확인합니다.
 5. **공용 인바운드 포트**에서 **선택한 포트 허용**을 선택한 다음 **인바운드 포트 선택**에 대해 **RDP(3389)** 를 선택합니다.
 10. 페이지에서 다른 기본값으로 적용하고 **다음: 디스크 >** 를 클릭합니다.
 11. **디스크** 페이지에서 기본값을 적용하고 **다음: 네트워킹 >** 을 클릭합니다.

@@ -1,5 +1,5 @@
 ---
-title: 자습서`:` 관리 ID를 사용하여 Azure Storage에 액세스 - Linux - Azure AD
+title: 자습서`:` 관리 ID를 사용하여 액세스 키를 통해 Azure Storage에 액세스 - Linux - Azure AD
 description: Linux VM 시스템 할당 관리 ID를 사용하여 Azure Storage에 액세스하는 프로세스를 안내하는 자습서입니다.
 services: active-directory
 documentationcenter: ''
@@ -12,27 +12,27 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/20/2017
+ms.date: 03/04/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35c31fbf8c7c1aa37134a1808cd3f54a559833c1
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 86f875fa80f8bb8dd33a369a23f49833162cd417
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74183426"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273812"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage-via-access-key"></a>자습서: Linux VM 시스템 할당 관리 ID를 사용하여 액세스 키를 통해 Azure Storage에 액세스
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-이 자습서에서는 Linux VM(가상 머신)에 대한 시스템 할당 관리 ID를 사용하여 스토리지 계정 액세스 키를 검색하는 방법을 보여줍니다. Storage SDK를 사용하는 등의 저장소 작업을 수행할 때 일반적인 방식으로 저장소 액세스 키를 사용할 수 있습니다. 이 자습서의 경우 Azure CLI를 사용하여 Blob을 업로드하고 다운로드합니다. 다음 방법을 알게 됩니다.
+이 자습서에서는 Linux VM(가상 머신)에 대한 시스템 할당 관리 ID를 사용하여 스토리지 계정 액세스 키를 검색하는 방법을 보여줍니다. Storage SDK를 사용하는 등의 스토리지 작업을 수행할 때 일반적인 방식으로 스토리지 액세스 키를 사용할 수 있습니다. 이 자습서의 경우 Azure CLI를 사용하여 Blob을 업로드하고 다운로드합니다. 다음 방법을 알게 됩니다.
 
 > [!div class="checklist"]
 > * 리소스 관리자의 스토리지 계정 액세스 키에 대한 VM 액세스 권한 부여 
 > * VM ID를 사용하여 액세스 토큰을 가져와서 리소스 관리자에서 스토리지 액세스 키를 검색하는 데 사용  
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 

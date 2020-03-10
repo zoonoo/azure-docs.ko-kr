@@ -8,16 +8,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 02/24/2020
 ms.author: aahi
-ms.openlocfilehash: 785840ad0b678337f513a700d37f0ba94671964e
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: ffa493c5bed152eea58d29bbf56215af7ebce5b1
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77651982"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78208239"
 ---
 Bing Web Search 클라이언트 라이브러리를 사용하면 Bing Web Search를 Python 애플리케이션에 쉽게 통합할 수 있습니다. 이 빠른 시작에서는 요청을 보내고, JSON 응답을 받고, 결과를 필터링 및 구문 분석하는 방법에 대해 알아봅니다.
 
-지금 코드를 보시겠나요? [JavaScript용 Bing Search 클라이언트 라이브러리](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/tree/master/samples/search) 샘플은 GitHub에서 사용할 수 있습니다.
+지금 코드를 보시겠나요? [Python용 Bing Search 클라이언트 라이브러리](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/tree/master/samples/search) 샘플은 GitHub에서 사용할 수 있습니다.
 
 
 ## <a name="prerequisites"></a>사전 요구 사항

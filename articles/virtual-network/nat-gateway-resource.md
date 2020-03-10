@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/24/2020
+ms.date: 03/04/2020
 ms.author: allensu
-ms.openlocfilehash: 9d9033689472fbc462eefd3d31c2b36a19add81a
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 45cb07de9ddc7854e6da8b8739acfaa95dd0ed01
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77589473"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78304126"
 ---
 # <a name="designing-virtual-networks-with-nat-gateway-resources-public-preview"></a>NAT 게이트웨이 리소스를 사용하여 가상 네트워크 설계(공개 미리 보기)
 
@@ -34,7 +34,7 @@ NAT 게이트웨이 리소스는 [Virtual Network NAT](nat-overview.md)의 일�
 
 
 >[!NOTE] 
->Virtual Network NAT는 현재 공개 미리 보기로 제공됩니다. 현재 제한된 [지역](nat-overview.md#region-availability) 세트에서만 사용할 수 있습니다. 이 미리 보기는 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure 미리 보기에 대한 보충 사용 약관](https://azure.microsoft.comsupport/legal/preview-supplemental-terms)을 참조하세요.
+>Virtual Network NAT는 현재 공개 미리 보기로 제공됩니다. 현재 제한된 [지역](nat-overview.md#region-availability) 세트에서만 사용할 수 있습니다. 이 미리 보기는 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure 미리 보기에 대한 보충 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms)을 참조하세요.
 
 ## <a name="how-to-deploy-nat"></a>NAT를 배포하는 방법
 
@@ -349,21 +349,25 @@ SNAT 포트는 5초 후에 동일한 대상 IP 주소 및 대상 포트에 다�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [가상 네트워크 NAT](nat-overview.md)에 대한 자세한 정보
-- NAT 게이트웨이의 유효성 검사 자습서
-  * [Azure CLI](tutorial-create-validate-nat-gateway-cli.md)
-  * [PowerShell](tutorial-create-validate-nat-gateway-cli.md)
-  * [포털](tutorial-create-validate-nat-gateway-cli.md)
-- NAT 게이트웨이 리소스 배포 빠른 시작
-  * [Azure CLI](./quickstart-create-nat-gateway-cli.md)
-  * [PowerShell](./quickstart-create-nat-gateway-powershell.md)
-  * [Portal](./quickstart-create-nat-gateway-portal.md)
-- [가용성 영역](../availability-zones/az-overview.md)에 대한 자세한 정보
-- [표준 부하 분산 장치](../load-balancer/load-balancer-standard-overview.md)에 대한 자세한 정보
-- [가용성 영역 및 표준 부하 분산 장치](../load-balancer/load-balancer-standard-availability-zones.md)에 대한 자세한 정보
-- NAT 게이트웨이 리소스 API에 대한 자세한 정보
-  * [REST API](https://docs.microsoft.com/rest/api/virtualnetwork/natgateways)
-  * [Azure CLI](https://docs.microsoft.com/cli/azure/network/nat/gateway?view=azure-cli-latest)
-  * [PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-aznatgateway).
-- [UserVoice에서 다음에 빌드할 항목 제시](https://aka/natuservoice)
-- [공개 미리 보기에 대한 피드백 제공](https://aka.ms/natfeedback)
+* [가상 네트워크 NAT](nat-overview.md)에 대해 알아봅니다.
+* [NAT 게이트웨이 리소스에 대한 메트릭 및 경고](nat-metrics.md)에 대해 알아봅니다.
+* [NAT 게이트웨이 리소스 문제 해결](troubleshoot-nat.md)에 대해 알아봅니다.
+* [UserVoice에서 다음에 빌드할 항목 제시](https://aka.ms/natuservoice)
+* [공개 미리 보기에 대한 피드백을 제공합니다](https://aka.ms/natfeedback).
+* NAT 게이트웨이의 유효성 검사 자습서
+  - [Azure CLI](tutorial-create-validate-nat-gateway-cli.md)
+  - [PowerShell](tutorial-create-validate-nat-gateway-cli.md)
+  - [포털](tutorial-create-validate-nat-gateway-cli.md)
+* NAT 게이트웨이 리소스 배포 빠른 시작
+  - [Azure CLI](./quickstart-create-nat-gateway-cli.md)
+  - [PowerShell](./quickstart-create-nat-gateway-powershell.md)
+  - [Portal](./quickstart-create-nat-gateway-portal.md)
+* NAT 게이트웨이 리소스 API에 대한 자세한 정보
+  - [REST API](https://docs.microsoft.com/rest/api/virtualnetwork/natgateways)
+  - [Azure CLI](https://docs.microsoft.com/cli/azure/network/nat/gateway?view=azure-cli-latest)
+  - [PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-aznatgateway).
+* [가용성 영역](../availability-zones/az-overview.md)에 대해 알아봅니다.
+* [표준 부하 분산 장치](../load-balancer/load-balancer-standard-overview.md)에 대해 알아봅니다.
+* [가용성 영역 및 표준 부하 분산 장치](../load-balancer/load-balancer-standard-availability-zones.md)에 대해 알아봅니다.
+
+

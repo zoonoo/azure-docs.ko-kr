@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 175625ab9fca9103bde027c3c0ea0986806ad846
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 7b73923b7fc32ae83bfc8405d074835c02031a63
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77208305"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77913704"
 ---
 # <a name="migrate-from-google-maps-to-azure-maps"></a>Google Maps에서 Azure Maps로 마이그레이션
 
@@ -39,10 +39,13 @@ Azure Maps는 모든 산업의 개발자에게 강력한 지리 공간적 기능
 | 상승                   | 계획                                |
 | 지오코딩(정방향/역방향) | ✓                                      |
 | 지리적 위치                 | 해당 없음                                    |
+| 가장 가까운 도로               | ✓                                      |
 | 장소 검색               | ✓                                      |
 | 장소 세부 정보              | 해당 없음 – 사용 가능한 웹 사이트 및 전화 번호 |
 | 장소 사진               | 해당 없음                                    |
 | 장소 자동 완성          | ✓                                      |
+| 도로에 맞춤                | ✓                                      |
+| 속도 제한                | ✓                                      |
 | 정적 맵                 | ✓                                      |
 | 정적 주소 보기          | 해당 없음                                    |
 | 표준 시간대                   | ✓                                      |
@@ -87,7 +90,9 @@ Google Maps에서 Azure Maps로 마이그레이션할 때 라이선스와 관련
 - 개발자 포럼: [https://aka.ms/AzureMapsForums](https://aka.ms/AzureMapsForums)
 - 동영상: [https://aka.ms/AzureMapsVideos](https://aka.ms/AzureMapsVideos)
 - 블로그: [https://aka.ms/AzureMapsBlog](https://aka.ms/AzureMapsBlog)
+- 기술 블로그: [https://aka.ms/AzureMapsTechBlog](https://aka.ms/AzureMapsTechBlog)
 - Azure Maps 피드백(UserVoice): [https://aka.ms/AzureMapsFeedback](https://aka.ms/AzureMapsFeedback)
+- [Azure Maps Jupyter Notebook][https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook ]
 
 ## <a name="migration-support"></a>마이그레이션 지원
 

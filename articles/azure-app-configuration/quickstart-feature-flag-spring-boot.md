@@ -6,12 +6,12 @@ ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.date: 01/21/2020
 ms.author: lcozzens
-ms.openlocfilehash: 4438851ef7ea015060926075f46822de877b85b3
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 4a8d7f50ecf385388b63b9d83525a39737e0d157
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76766432"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77655755"
 ---
 # <a name="quickstart-add-feature-flags-to-a-spring-boot-app"></a>빠른 시작: Spring Boot 앱에 기능 플래그 추가
 
@@ -21,9 +21,9 @@ Spring Boot 기능 관리 라이브러리는 포괄적인 기능 플래그 지�
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
-- 버전 8이 설치된 지원되는 [Java Development Kit SDK](https://docs.microsoft.com/java/azure/jdk)
-- [Apache Maven](https://maven.apache.org/download.cgi) 버전 3.0 이상
+* Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
+* 버전 8이 설치된 지원되는 [Java Development Kit SDK](https://docs.microsoft.com/java/azure/jdk)
+* [Apache Maven](https://maven.apache.org/download.cgi) 버전 3.0 이상
 
 ## <a name="create-an-app-configuration-instance"></a>App Configuration 인스턴스 만들기
 
@@ -42,14 +42,14 @@ Spring Boot 기능 관리 라이브러리는 포괄적인 기능 플래그 지�
 
 1. [https://www.microsoft.com]\(<https://start.spring.io/>) 로 이동합니다.
 
-2. 다음 옵션을 지정합니다.
+1. 다음 옵션을 지정합니다.
 
-   - **Java**를 사용하는 **Maven** 프로젝트를 생성합니다.
-   - **Spring Boot** 버전 2.0 이상을 지정합니다.
-   - 애플리케이션에 대한 **그룹** 및 **아티팩트** 이름을 지정합니다.  이 문서에서는 `com.example` 및 `demo`를 사용합니다.
-   - **Spring Web** 종속성을 추가합니다.
+   * **Java**를 사용하는 **Maven** 프로젝트를 생성합니다.
+   * **Spring Boot** 버전 2.0 이상을 지정합니다.
+   * 애플리케이션에 대한 **그룹** 및 **아티팩트** 이름을 지정합니다.  이 문서에서는 `com.example` 및 `demo`를 사용합니다.
+   * **Spring Web** 종속성을 추가합니다.
 
-3. 이전 옵션을 지정한 후 **프로젝트 생성**을 선택합니다. 메시지가 표시되면 프로젝트를 로컬 컴퓨터로 다운로드합니다.
+1. 이전 옵션을 지정한 후 **프로젝트 생성**을 선택합니다. 메시지가 표시되면 프로젝트를 로컬 컴퓨터로 다운로드합니다.
 
 ## <a name="add-feature-management"></a>기능 관리 추가
 
@@ -57,20 +57,41 @@ Spring Boot 기능 관리 라이브러리는 포괄적인 기능 플래그 지�
 
 1. 텍스트 편집기에서 *pom.xml* 파일을 열고 `<dependencies>` 목록에 다음을 추가합니다.
 
+### <a name="spring-cloud-11x"></a>Spring Cloud 1.1.x
+
     ```xml
     <dependency>
         <groupId>com.microsoft.azure</groupId>
-        <artifactId>spring-cloud-starter-azure-appconfiguration-config</artifactId>
-        <version>1.2.1</version>
+        <artifactId>spring-cloud-azure-appconfiguration-config</artifactId>
+        <version>1.1.2</version>
     </dependency>
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-azure-feature-management-web</artifactId>
-        <version>1.2.1</version>
+        <version>1.1.2</version>
     </dependency>
     <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-thymeleaf</artifactId>
+    </dependency>
+    ```
+
+### <a name="spring-cloud-12x"></a>Spring Cloud 1.2.x
+
+    ```xml
+    <dependency>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>spring-cloud-azure-appconfiguration-config</artifactId>
+        <version>1.2.2</version>
+    </dependency>
+    <dependency>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>spring-cloud-azure-feature-management-web</artifactId>
+        <version>1.2.2</version>
+    </dependency>
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-thymeleaf</artifactId>
     </dependency>
     ```
 
@@ -108,6 +129,7 @@ Spring Boot 기능 관리 라이브러리는 포괄적인 기능 플래그 지�
         }
     }
     ```
+
 1. 앱의 패키지 디렉터리에 *MessageProperties.java*라는 새 Java 파일을 만듭니다.
 
     ```java
@@ -131,7 +153,7 @@ Spring Boot 기능 관리 라이브러리는 포괄적인 기능 플래그 지�
     }
     ```
 
-1. 앱의 패키지 디렉터리에 *HelloController.java*라는 새 Java 파일을 만듭니다. 
+1. 앱의 패키지 디렉터리에 *HelloController.java*라는 새 Java 파일을 만듭니다.
 
     ```java
     package com.example.demo;
@@ -220,36 +242,36 @@ Spring Boot 기능 관리 라이브러리는 포괄적인 기능 플래그 지�
 
     ```
 
-6. `static` 아래에 CSS라는 새 폴더를 만들고 그 안에 *main.css*라는 새 CSS 파일을 만듭니다.
+1. `static` 아래에 CSS라는 새 폴더를 만들고 그 안에 *main.css*라는 새 CSS 파일을 만듭니다.
 
     ```css
     html {
-    position: relative;
-    min-height: 100%;
+     position: relative;
+     min-height: 100%;
     }
     body {
-    margin-bottom: 60px;
+     margin-bottom: 60px;
     }
     .footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 60px;
-    line-height: 60px;
-    background-color: #f5f5f5;
+     position: absolute;
+     bottom: 0;
+     width: 100%;
+     height: 60px;
+     line-height: 60px;
+     background-color: #f5f5f5;
     }
 
     body > .container {
-    padding: 60px 15px 0;
+     padding: 60px 15px 0;
     }
 
     .footer > .container {
-    padding-right: 15px;
-    padding-left: 15px;
+     padding-right: 15px;
+     padding-left: 15px;
     }
 
     code {
-    font-size: 80%;
+     font-size: 80%;
     }
     ```
 
@@ -284,6 +306,6 @@ Spring Boot 기능 관리 라이브러리는 포괄적인 기능 플래그 지�
 
 이 빠른 시작에서는 새 App Configuration 저장소를 만든 후 [기능 관리 라이브러리](https://go.microsoft.com/fwlink/?linkid=2074664)를 통해 Spring Boot 웹앱에서 기능을 관리하는 데 사용했습니다.
 
-- [기능 관리](./concept-feature-management.md)에 대한 자세한 정보
-- [기능 플래그 관리](./manage-feature-flags.md)
-- [Spring Boot Core 앱에서 기능 플래그 사용](./use-feature-flags-spring-boot.md)
+* [기능 관리](./concept-feature-management.md)에 대한 자세한 정보
+* [기능 플래그 관리](./manage-feature-flags.md)
+* [Spring Boot Core 앱에서 기능 플래그 사용](./use-feature-flags-spring-boot.md)

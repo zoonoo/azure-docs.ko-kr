@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: kumud
-ms.openlocfilehash: ff1017c8a6bc3c2806da6ea2a53b931aaf28644f
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 5ce10cf37b61b0269e6c8f2279b8814d9dc4a4f9
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74092092"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78271212"
 ---
 # <a name="azure-cli-samples-for-virtual-network"></a>가상 네트워크에 대한 Azure CLI 샘플
 
@@ -34,3 +34,4 @@ ms.locfileid: "74092092"
 | [인바운드 및 아웃바운드 VM 네트워크 트래픽 필터링](./scripts/virtual-network-cli-sample-filter-network-traffic.md) | 프런트 엔드 및 백 엔드 서브넷이 있는 가상 네트워크를 만듭니다. 프런트 엔드 서브넷에 대한 인바운드 네트워크 트래픽은 HTTP, HTTPS 및 SSH로 제한됩니다. 백 엔드 서브넷에서 인터넷으로의 아웃바운드 트래픽은 허용되지 않습니다. |
 |[기본 Load Balancer를 사용하여 IPv4 + IPv6 이중 스택 가상 네트워크 구성](./scripts/virtual-network-cli-sample-ipv6-dual-stack.md)|IPv4 및 IPv6 공용 IP 주소가 있는 Azure Basic Load Balancer 및 두 개의 VM으로 이중 스택(IPv4+IPv6) 가상 네트워크를 배포합니다. |
 |[표준 Load Balancer를 사용하여 IPv4 + IPv6 이중 스택 가상 네트워크 구성](./scripts/virtual-network-cli-sample-ipv6-dual-stack-standard-load-balancer.md)|IPv4 및 IPv6 공용 IP 주소가 있는 Azure Standard Load Balancer 및 두 개의 VM으로 이중 스택(IPv4+IPv6) 가상 네트워크를 배포합니다. |
+|[자습서: NAT 게이트웨이 만들기 및 테스트 - Azure CLI](../virtual-network/tutorial-create-validate-nat-gateway-cli.md)|원본 및 대상 가상 머신을 사용하여 NAT 게이트웨이를 만들고 유효성을 검사합니다. |

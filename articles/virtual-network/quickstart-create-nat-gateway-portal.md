@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/24/2020
 ms.author: allensu
-ms.openlocfilehash: 429c221609005136663d5e64a1b8650027cba411
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: c6da4b54dbc982c69e9d3004a5da8f63deffa3e9
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77588742"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78246025"
 ---
 # <a name="quickstart-create-a-nat-gateway-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 NAT 게이트웨이 만들기
 
@@ -32,27 +32,24 @@ ms.locfileid: "77588742"
 
 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-### <a name="create-a-virtual-network"></a>가상 네트워크 만들기
+## <a name="virtual-network-and-parameters"></a>가상 네트워크 및 매개 변수
 
-VM을 배포하고 NAT 게이트웨이를 사용하려면 먼저 리소스 그룹과 가상 네트워크를 만들어야 합니다.  
+VM을 배포하고 NAT 게이트웨이를 사용하려면 먼저 리소스 그룹과 가상 네트워크를 만들어야 합니다.
 
-1. 화면의 왼쪽 위에서 **리소스 만들기** > **네트워킹** > **가상 네트워크**를 차례로 선택하거나, Marketplace 검색에서 **가상 네트워크**를 검색합니다.
+이 섹션에서는 단계의 다음 매개 변수를 아래 정보로 바꾸어야 합니다.
 
-2. **가상 네트워크 만들기**에서 다음 정보를 입력하거나 선택합니다.
+| 매개 변수                   | 값                |
+|-----------------------------|----------------------|
+| **\<resource-group-name>**  | myResourceGroupNAT |
+| **\<virtual-network-name>** | myVNet          |
+| **\<region-name>**          | 미국 동부 2      |
+| **\<IPv4-address-space>**   | 192.168.0.0\16          |
+| **\<subnet-name>**          | mySubnet        |
+| **\<subnet-address-range>** | 192.168.0.0\24          |
 
-    | 설정 | 값 |
-    | ------- | ----- |
-    | 속성 | **myVNet**을 입력합니다. |
-    | 주소 공간 | **192.168.0.0/16**을 입력합니다. |
-    | Subscription | 구독을 선택합니다.|
-    | Resource group | 새로 만들기 - **myResourceGroupNAT**를 선택합니다. |
-    | 위치 | **미국 동부 2**를 선택합니다.|
-    | 서브넷 - 이름 | **mySubnet**을 입력합니다. |
-    | 서브넷 - 주소 범위 | **192.168.0.0/24**를 입력합니다. |
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
-3. 나머지는 기본값으로 두고, **만들기**를 선택합니다.
-
-### <a name="create-a-vm-to-use-the-nat-gateway"></a>NAT 게이트웨이를 사용할 VM 만들기
+## <a name="create-a-vm-to-use-the-nat-gateway"></a>NAT 게이트웨이를 사용할 VM 만들기
 
 이제 NAT 서비스를 사용할 VM을 만듭니다. 이 VM에는 VM에 액세스할 수 있도록 인스턴스 수준 공용 IP로 사용할 공용 IP가 있습니다. NAT 서비스는 흐름 방향을 인식하며 서브넷의 기본 인터넷 대상을 대체합니다. VM의 공용 IP 주소는 아웃바운드 연결에 사용되지 않습니다.
 

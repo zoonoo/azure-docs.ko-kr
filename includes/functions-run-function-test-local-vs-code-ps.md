@@ -2,20 +2,20 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 01/16/2020
+ms.date: 02/19/2020
 ms.author: glenga
-ms.openlocfilehash: 916aa2552e5dd004ec767df98ce7c78f7320efd0
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: edf5fc33ec14d41630462cca1a4ace0663473196
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76964139"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78191056"
 ---
 ## <a name="run-the-function-locally"></a>로컬에서 함수 실행
 
-Azure Functions Core Tools는 Visual Studio Code와 통합되어 사용자가 Azure Functions 프로젝트를 로컬로 실행하고 디버그할 수 있도록 합니다.  
+Azure Functions Core Tools는 Visual Studio Code와 통합되어 사용자가 Azure Functions 프로젝트를 로컬로 실행하고 디버그할 수 있도록 합니다. Visual Studio Code에서 디버그하는 방법에 대한 자세한 내용은 [PowerShell Azure Functions를 로컬로 디버그](../articles/azure-functions/functions-debug-powershell-local.md)를 참조하세요. 
 
-1. 함수를 디버그하려면 디버거를 연결하기 전에 함수 코드에 [`Wait-Debugger`](/powershell/module/microsoft.powershell.utility/wait-debugger?view=powershell-6) cmdlet 호출을 삽입한 후 F5 키를 눌러 함수 앱 프로젝트를 시작하고 디버거를 연결합니다. 핵심 도구의 출력이 **터미널** 패널에 표시됩니다.
+1. F5 키를 눌러 함수 앱 프로젝트를 시작합니다. 핵심 도구의 출력이 **터미널** 패널에 표시됩니다.
 
 1. **터미널** 패널에서 HTTP 트리거 함수의 URL 엔드포인트를 복사합니다.
 
@@ -38,9 +38,6 @@ Azure Functions Core Tools는 Visual Studio Code와 통합되어 사용자가 Az
 
     ![터미널 패널에서 함수 실행](./media/functions-run-function-test-local-vs-code-ps/function-execution-terminal.png)
 
-1. 디버깅을 중지하려면 Ctrl + C를 눌러 Core Tools를 중지합니다.
+1. 완료되면 **Ctrl + C**를 눌러 Core Tools를 중지합니다.
 
 함수가 로컬 컴퓨터에서 제대로 실행되는지 확인한 후에 해당 프로젝트를 Azure에 게시해야 합니다.
-
-> [!NOTE]
-> Azure에 함수를 게시하기 전에 `Wait-Debugger` 호출을 제거해야 합니다. 

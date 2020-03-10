@@ -5,12 +5,12 @@ author: zr-msft
 ms.topic: overview
 ms.date: 12/05/2017
 ms.author: zarhoads
-ms.openlocfilehash: 8d727256afbe152a4f7022d0fd2454c4677b023c
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 2eddedea7d626a92e21442c81aa49e00491958a1
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77595606"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273013"
 ---
 # <a name="integrate-with-azure-managed-services-using-open-service-broker-for-azure-osba"></a>OSBA(Open Service Broker for Azure)를 사용하여 Azure에서 관리되는 서비스와 통합
 
@@ -29,39 +29,43 @@ ms.locfileid: "77595606"
 
 ## <a name="install-service-catalog"></a>서비스 카탈로그 설치
 
-첫 번째 단계는 Helm 차트를 사용하여 Kubernetes 클러스터에 서비스 카탈로그를 설치하는 것입니다. 다음을 사용하여 클러스터에서 Tiller(Helm 서버) 설치를 업그레이드합니다.
+첫 번째 단계는 Helm 차트를 사용하여 Kubernetes 클러스터에 서비스 카탈로그를 설치하는 것입니다.
 
-```azurecli-interactive
+[https://shell.azure.com](https://shell.azure.com)으로 이동하여 브라우저에서 Cloud Shell을 엽니다.
+
+다음을 사용하여 클러스터에서 Tiller(Helm 서버) 설치를 업그레이드합니다.
+
+```console
 helm init --upgrade
 ```
 
 이제 서비스 카탈로그 차트를 Helm 리포지토리에 추가합니다.
 
-```azurecli-interactive
+```console
 helm repo add svc-cat https://svc-catalog-charts.storage.googleapis.com
 ```
 
 마지막으로 Helm 차트와 함께 서비스 카탈로그를 설치합니다. 클러스터가 RBAC를 사용할 수 있는 경우 이 명령을 실행합니다.
 
-```azurecli-interactive
+```console
 helm install svc-cat/catalog --name catalog --namespace catalog --set apiserver.storage.etcd.persistence.enabled=true --set apiserver.healthcheck.enabled=false --set controllerManager.healthcheck.enabled=false --set apiserver.verbosity=2 --set controllerManager.verbosity=2
 ```
 
 클러스터가 RBAC를 사용할 수 없는 경우 이 명령을 실행합니다.
 
-```azurecli-interactive
+```console
 helm install svc-cat/catalog --name catalog --namespace catalog --set rbacEnable=false --set apiserver.storage.etcd.persistence.enabled=true --set apiserver.healthcheck.enabled=false --set controllerManager.healthcheck.enabled=false --set apiserver.verbosity=2 --set controllerManager.verbosity=2
 ```
 
 Helm 차트를 실행한 후에는 다음 명령의 출력에 `servicecatalog`가 나타나는지 확인합니다.
 
-```azurecli-interactive
+```console
 kubectl get apiservice
 ```
 
 예를 들어, 다음과 유사한 출력이 표시되어야 합니다(여기에는 잘려서 표시됨).
 
-```
+```output
 NAME                                 AGE
 v1.                                  10m
 v1.authentication.k8s.io             10m
@@ -76,7 +80,7 @@ v1beta1.storage.k8s.io               10
 
 Open Service Broker for Azure Helm 리포지토리 추가부터 시작합니다.
 
-```azurecli-interactive
+```console
 helm repo add azure https://kubernetescharts.blob.core.windows.net/azure
 ```
 
@@ -88,7 +92,7 @@ az ad sp create-for-rbac
 
 출력은 다음과 유사합니다. `appId`, `password`, `tenant` 값을 다음 단계에서 사용하기 위해 적어둡니다.
 
-```JSON
+```json
 {
   "appId": "7248f250-0000-0000-0000-dbdeb8400d85",
   "displayName": "azure-cli-2017-10-15-02-20-15",
@@ -100,7 +104,7 @@ az ad sp create-for-rbac
 
 위의 값으로 다음 환경 변수를 설정합니다.
 
-```azurecli-interactive
+```console
 AZURE_CLIENT_ID=<appId>
 AZURE_CLIENT_SECRET=<password>
 AZURE_TENANT_ID=<tenant>
@@ -114,7 +118,7 @@ az account show --query id --output tsv
 
 다시 위의 값으로 다음 환경 변수를 설정합니다.
 
-```azurecli-interactive
+```console
 AZURE_SUBSCRIPTION_ID=[your Azure subscription ID from above]
 ```
 
@@ -132,20 +136,20 @@ OSBA 배포가 완료되면 서비스 broker, 서비스 클래스, 서비스 계
 
 다음 명령을 실행하여 서비스 카탈로그 CLI 이진을 설치합니다.
 
-```azurecli-interactive
+```console
 curl -sLO https://servicecatalogcli.blob.core.windows.net/cli/latest/$(uname -s)/$(uname -m)/svcat
 chmod +x ./svcat
 ```
 
 이제 설치된 서비스 broker를 나열합니다.
 
-```azurecli-interactive
+```console
 ./svcat get brokers
 ```
 
 다음과 비슷한 내용이 출력됩니다.
 
-```
+```output
   NAME                               URL                                STATUS
 +------+--------------------------------------------------------------+--------+
   osba   http://osba-open-service-broker-azure.osba.svc.cluster.local   Ready
@@ -153,13 +157,13 @@ chmod +x ./svcat
 
 다음으로 사용 가능한 서비스 클래스를 나열합니다. 표시된 서비스 클래스는 Open Service Broker for Azure를 통해 프로비전할 수 있는 Azure에서 관리되는 서비스입니다.
 
-```azurecli-interactive
+```console
 ./svcat get classes
 ```
 
 마지막으로 사용 가능한 모든 서비스 계획을 나열합니다. 서비스 계획은 Azure에서 관리되는 서비스의 서비스 계층입니다. 예를 들어 Azure Database for MySQL의 경우 계획의 범위는 DTU(데이터베이스 트랜잭션 단위)가 50개인 기본 계층의 `basic50`부터 DTU가 800개인 표준 계층의 `standard800`까지 입니다.
 
-```azurecli-interactive
+```console
 ./svcat get plans
 ```
 
@@ -167,20 +171,20 @@ chmod +x ./svcat
 
 이 단계에서는 Helm을 사용하여 WordPress용으로 업데이트된 Helm 차트를 설치합니다. 이 차트는 WordPress가 사용할 수 있는 외부 Azure Database for MySQL 인스턴스를 프로비전합니다. 이 프로세스는 몇 분 정도 걸릴 수 있습니다.
 
-```azurecli-interactive
+```console
 helm install azure/wordpress --name wordpress --namespace wordpress --set resources.requests.cpu=0 --set replicaCount=1
 ```
 
 설치를 통해 올바른 리소스가 프로비전되었는지 확인하려면 설치된 서비스 인스턴스와 바인딩을 나열합니다.
 
-```azurecli-interactive
+```console
 ./svcat get instances -n wordpress
 ./svcat get bindings -n wordpress
 ```
 
 설치된 비밀 나열:
 
-```azurecli-interactive
+```console
 kubectl get secrets -n wordpress -o yaml
 ```
 

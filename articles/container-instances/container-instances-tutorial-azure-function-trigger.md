@@ -4,12 +4,12 @@ description: Azure 컨테이너 인스턴스 만들기를 자동화하는 HTTP �
 ms.topic: tutorial
 ms.date: 09/20/2019
 ms.custom: ''
-ms.openlocfilehash: 49eb0721972a92f33bda2532367bc78280b6e655
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 51146886e3f52cb6a60d49da0d57aea1e2c55106
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533365"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196538"
 ---
 # <a name="tutorial-use-an-http-triggered-azure-function-to-create-a-container-group"></a>자습서: HTTP 트리거 Azure 함수를 사용하여 컨테이너 그룹 만들기
 
@@ -28,9 +28,9 @@ ms.locfileid: "74533365"
 > [!IMPORTANT]
 > Azure Functions용 PowerShell은 현재 미리 보기로 제공되고 있습니다. [부속 사용 약관][terms-of-use]에 동의하면 미리 보기를 사용할 수 있습니다. 이 기능의 몇 가지 측면은 일반 공급(GA) 전에 변경될 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-Azure Functions를 사용하여 OS에 Visual Studio Code를 설치하고 사용하기 위한 필수 조건은 [Azure에서 첫 번째 PowerShell 함수 만들기](../azure-functions/functions-create-first-function-powershell.md#prerequisites)를 참조하세요.
+Azure Functions를 사용하여 OS에 Visual Studio Code를 설치하고 사용하기 위한 필수 조건은 [Azure에서 첫 번째 함수 만들기](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-powershell#configure-your-environment)를 참조하세요.
 
 이 문서의 일부 단계에서는 Azure CLI를 사용합니다. Azure Cloud Shell 또는 로컬에 설치된 Azure CLI를 사용하여 이러한 단계를 완료할 수 있습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
 
@@ -193,7 +193,7 @@ az group delete --name myfunctionapp
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 HTTP 요청을 받아서 컨테이너 그룹의 배포를 트리거하는 Azure 함수를 만들었습니다. 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 HTTP 요청을 받아서 컨테이너 그룹의 배포를 트리거하는 Azure 함수를 만들었습니다. 구체적으로 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * Azure Functions 확장과 함께 Visual Studio Code를 사용하여 기본 HTTP 트리거 PowerShell 함수를 만듭니다.

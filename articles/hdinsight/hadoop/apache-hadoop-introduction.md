@@ -1,20 +1,19 @@
 ---
-title: Apache Hadoop 기술 스택이란? - Azure HDInsight
+title: Apache Hadoop 및 MapReduce란 - Azure HDInsight
 description: HDInsight 및 Apache Hadoop 기술 스택 및 구성 요소에 대해 소개합니다.
-keywords: Azure Hadoop, Hadoop Azure, Hadoop 소개, Hadoop 기술 스택, Hadoop 소개, Hadoop 클러스터란?, Hadoop 용도
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: overview
-ms.date: 08/15/2019
-ms.openlocfilehash: 193b8f59a805de4303bfc38d397a821cc068dcc0
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
+ms.date: 02/27/2020
+ms.openlocfilehash: 7e8dd69b7c58e090c30ea1aa59feddab610dd3c5
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71088194"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78244882"
 ---
 # <a name="what-is-apache-hadoop-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Hadoop이란?
 
@@ -24,7 +23,7 @@ Azure HDInsight는 엔터프라이즈용 클라우드의 완전 관리형 전체
 
 HDInsight에서 사용할 수 있는 Hadoop 기술 스택 구성 요소를 보려면 [HDInsight에서 사용할 수 있는 구성 요소 및 버전](../hdinsight-component-versioning.md)을 참조하세요. HDInsight의 Hadoop에 대한 자세한 내용은 [HDInsight에 대한 Azure 기능 페이지](https://azure.microsoft.com/services/hdinsight/)를 참조하세요.
 
-## <a id="whatis"></a>MapReduce란
+## <a name="what-is-mapreduce"></a>MapReduce란
 
 Apache Hadoop MapReduce는 방대한 양의 데이터를 처리하는 작업을 작성하기 위한 소프트웨어 프레임워크입니다. 입력 데이터는 독립적인 청크로 분할됩니다. 각 청크는 클러스터의 노드에서 동시에 처리됩니다. MapReduce 작업은 두 함수로 구성됩니다.
 
@@ -32,7 +31,7 @@ Apache Hadoop MapReduce는 방대한 양의 데이터를 처리하는 작업을 
 
 * **리듀서**: 매퍼에서 내보낸 튜플을 사용하고 매퍼 데이터에서 더 작고 결합된 결과를 만드는 요약 작업을 수행합니다.
 
-다음 다이어그램에서는 기본 단어 계산 MapReduce 작업 예제를 보여줍니다.   
+다음 다이어그램에서는 기본 단어 계산 MapReduce 작업 예제를 보여줍니다.
 
  ![HDI.WordCountDiagram](./media/apache-hadoop-introduction/hdi-word-count-diagram.gif)
 
@@ -51,7 +50,7 @@ Hadoop 스트리밍은 STDIN 및 STDOUT을 통해 매퍼 및 리듀서와 통신
 
     [key]/t[value]
 
-자세한 내용은 [Hadoop 스트리밍](https://hadoop.apache.org/docs/r1.2.1/streaming.html)을 참조하세요.
+자세한 내용은 [Hadoop 스트리밍](https://hadoop.apache.org/docs/current/hadoop-streaming/HadoopStreaming.html)을 참조하세요.
 
 HDInsight와 함께 Hadoop 스트리밍을 사용하는 예제는 다음 문서를 참조하세요.
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/08/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: eab8298362bfb3ad790d13fcbf47e0fe624ed3fd
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 2477d91ac885d4ef39df7b9246f7272d66c3f7ee
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77470193"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251871"
 ---
 # <a name="quickstart-create-a-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 VM 부하를 분산하는 Load Balancer 만들기
 
@@ -110,21 +110,20 @@ Load Balancer가 앱의 상태를 모니터링하도록 하려면 상태 프로�
 
 이 섹션에서는 가상 네트워크를 만들고, Load Balancer의 백 엔드 풀에 사용되는 가상 머신 3개를 만든 다음, Load Balancer를 테스트하기 위한 IIS를 가상 머신에 설치합니다.
 
-### <a name="create-a-virtual-network"></a>가상 네트워크 만들기
-1. 화면의 왼쪽 위에서 **리소스 만들기** > **네트워킹** > **가상 네트워크**를 차례로 선택합니다.
+## <a name="virtual-network-and-parameters"></a>가상 네트워크 및 매개 변수
 
-1. **가상 네트워크 만들기**에서 다음 정보를 입력하거나 선택합니다.
+이 섹션에서는 단계의 다음 매개 변수를 아래 정보로 바꾸어야 합니다.
 
-    | 설정 | 값 |
-    | ------- | ----- |
-    | 속성 | *myVNet*을 입력합니다. |
-    | 주소 공간 | *10.1.0.0/16*을 입력합니다. |
-    | Subscription | 구독을 선택합니다.|
-    | Resource group | 기존 리소스(*myResourceGroupSLB*)를 선택합니다. |
-    | 위치 | **서유럽**를 선택합니다.|
-    | 서브넷 - 이름 | *myBackendSubnet*을 입력합니다. |
-    | 서브넷 - 주소 범위 | *10.1.0.0/24*를 입력합니다. |
-1. 나머지는 기본값으로 두고, **만들기**를 선택합니다.
+| 매개 변수                   | 값                |
+|-----------------------------|----------------------|
+| **\<resource-group-name>**  | myResourceGroupSLB |
+| **\<virtual-network-name>** | myVNet          |
+| **\<region-name>**          | 서유럽      |
+| **\<IPv4-address-space>**   | 10.1.0.0\16          |
+| **\<subnet-name>**          | myBackendSubnet        |
+| **\<subnet-address-range>** | 10.1.0.0\24          |
+
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 ### <a name="create-virtual-machines"></a>가상 머신 만들기
 공용 IP SKU와 Load Balancer SKU가 일치해야 합니다. 표준 Load Balancer의 경우 백 엔드 풀에서 표준 IP 주소가 있는 VM을 사용합니다. 이 섹션에서는 이전에 생성된 Load Balancer의 백 엔드 풀에 나중에 추가된 세 가지 다른 영역(*영역 1*, *영역 2* 및 *영역 3*)에 표준 공용 IP 주소를 사용하는 세 개의 VM(*myVM1*, *myVM2* 및 *myVM3*)을 만듭니다. 기본을 선택한 경우 기본 IP 주소가 있는 VM을 사용합니다.

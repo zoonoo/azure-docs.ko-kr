@@ -4,12 +4,12 @@ description: 이 자습서에서는 Jenkins를 사용하여 Node.js 앱을 Visua
 keywords: Jenkins, Azure, DevOps, 가상 머신, CI/CD
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: 380d547aaee68ad40ae12a4836826d2addae3a18
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: cae28b293a6217996b44c839dc8836ec940c3155
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77606380"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78192611"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-azure-devops-services"></a>자습서: Jenkins 및 Azure DevOps Services를 사용하여 Azure에서 Linux 가상 머신에 앱 배포
 
@@ -96,9 +96,9 @@ Git 리포지토리에 저장된 앱을 배포해야 합니다.
 5. **Trigger release in TFS/Team Services**(TFS/Team Services에서 릴리스 트리거)를 선택합니다. Azure DevOps Services 조직의 URI(예: **https://{조직 이름}.visualstudio.com**)를 입력합니다.
 6. **프로젝트** 이름을 입력합니다.
 7. 릴리스 파이프라인의 이름을 선택합니다. (나중에 Azure DevOps Services에서 이 릴리스 파이프라인을 만듭니다.)
-8. 자격 증명을 선택하여 Azure DevOps Services 또는 Team Foundation Server 환경에 연결합니다.
+8. 자격 증명을 선택하여 Azure DevOps Services 또는 Azure DevOps Server 환경에 연결합니다.
    - Azure DevOps Services를 사용하는 경우 **사용자 이름**을 비워둡니다. 
-   - Team Foundation Server 온-프레미스 버전을 사용하는 경우 사용자 이름과 암호를 입력합니다.    
+   - Azure DevOps Server의 온-프레미스 버전을 사용하는 경우 사용자 이름과 암호를 입력합니다.    
    ![Jenkins 빌드 후 작업 구성](media/tutorial-build-deploy-jenkins/trigger-release-from-jenkins.png)
 5. Jenkins 프로젝트를 저장합니다.
 

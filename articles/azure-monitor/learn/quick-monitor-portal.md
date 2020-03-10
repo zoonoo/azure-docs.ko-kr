@@ -1,19 +1,18 @@
 ---
 title: Azure Application Insights로 ASP.NET 웹앱 모니터링 | Microsoft Docs
 description: Application Insights를 사용하여 모니터링하도록 ASP.NET 웹앱을 빠르게 설정하는 지침을 제공합니다.
-ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: quickstart
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/26/2019
 ms.custom: mvc
-ms.openlocfilehash: 1aab9009c2c33522abdeae6ca865a35b9fc104e4
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 6ba7bca0756b4e2f6fdcb89208fe15e3517a9513
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900483"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77661706"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>ASP.NET 웹 애플리케이션 모니터링 시작
 
@@ -21,7 +20,7 @@ Azure Application Insights를 사용하면 웹 애플리케이션의 가용성, 
 
 이 빠른 시작에서는 애플리케이션을 분석하는 데 사용할 수 있는 다양한 방법 중 하나인 기존 ASP.NET 웹 애플리케이션에 Application Insights를 추가하고 실시간 통계 분석을 시작하는 방법을 보여줍니다. ASP.NET 웹 애플리케이션이 없는 경우 [ASP.NET 웹앱 빠른 시작 만들기](../../app-service/app-service-web-get-started-dotnet-framework.md)에 따라 만들 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 이 빠른 시작을 완료하려면 다음이 필요합니다.
 
 - 다음 워크로드로 [Visual Studio 2019](https://www.visualstudio.com/downloads/)를 설치합니다.

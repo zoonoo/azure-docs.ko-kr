@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 12/16/2019
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: 17d86f25de6eecee535d6f812f4ef0b078a4b6db
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: d1fb963753577e9518d93262f9c9c7a1cf984005
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75752499"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77656010"
 ---
 # <a name="tutorial-use-key-vault-references-in-a-java-spring-app"></a>자습서: Java Spring 앱에서 Key Vault 참조 사용
 
@@ -43,9 +43,9 @@ App Configuration을 사용하면 Key Vault에 저장된 값을 참조하는 키
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-이 자습서를 시작하기 전에 [.NET Core SDK](https://dotnet.microsoft.com/download)를 설치해야 합니다.
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+* Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
+* 버전 8 이상이 설치된 지원되는 [JDK(Java Development Kit)](https://docs.microsoft.com/java/azure/jdk)
+* [Apache Maven](https://maven.apache.org/download.cgi) 버전 3.0 이상
 
 ## <a name="create-a-vault"></a>자격 증명 모음 만들기
 
@@ -56,10 +56,10 @@ App Configuration을 사용하면 Key Vault에 저장된 값을 참조하는 키
 1. 결과 목록의 왼쪽에서 **Key Vault**를 선택합니다.
 1. **Key Vault**에서 **추가**를 선택합니다.
 1. 오른쪽에 있는 **Key Vault 만들기**에서 다음 정보를 제공합니다.
-    - **구독**을 선택하여 구독을 선택합니다.
-    - **리소스 그룹**에서 **새로 만들기**를 선택하고 리소스 그룹 이름을 입력합니다.
-    - **Key Vault 이름**에는 고유한 이름이 필요합니다. 이 자습서에서는 **Contoso-vault2**를 입력합니다.
-    - **지역** 드롭다운 목록에서 위치를 선택합니다.
+    * **구독**을 선택하여 구독을 선택합니다.
+    * **리소스 그룹**에서 **새로 만들기**를 선택하고 리소스 그룹 이름을 입력합니다.
+    * **Key Vault 이름**에는 고유한 이름이 필요합니다. 이 자습서에서는 **Contoso-vault2**를 입력합니다.
+    * **지역** 드롭다운 목록에서 위치를 선택합니다.
 1. 다른 **Key Vault 만들기** 옵션은 기본값 그대로 둡니다.
 1. **만들기**를 선택합니다.
 
@@ -74,9 +74,9 @@ App Configuration을 사용하면 Key Vault에 저장된 값을 참조하는 키
 1. Key Vault 속성 페이지에서 **비밀**을 선택합니다.
 1. **생성/가져오기**를 선택합니다.
 1. **비밀 만들기** 창에서 다음 값을 입력합니다.
-    - **업로드 옵션**: **수동**을 입력합니다.
-    - **Name**: **Message**를 입력합니다.
-    - **값**: **Hello from Key Vault**를 입력합니다.
+    * **업로드 옵션**: **수동**을 입력합니다.
+    * **Name**: **Message**를 입력합니다.
+    * **값**: **Hello from Key Vault**를 입력합니다.
 1. 다른 **비밀 만들기** 속성은 기본값 그대로 둡니다.
 1. **만들기**를 선택합니다.
 
@@ -87,10 +87,10 @@ App Configuration을 사용하면 Key Vault에 저장된 값을 참조하는 키
 1. **구성 탐색기**를 선택합니다.
 
 1. **+ 만들기** > **Key Vault 참조**를 선택하고 다음 값을 지정합니다.
-    - **키**: **/application/config.keyvaultmessage**를 선택합니다.
-    - **레이블**: 이 값은 빈 상태로 둡니다.
-    - **구독**, **리소스 그룹** 및 **Key Vault**: 이전 섹션에서 만든 Key Vault의 값에 해당하는 값을 입력합니다.
-    - **비밀**: 이전 섹션에서 만든 **Message**라는 비밀을 선택합니다.
+    * **키**: **/application/config.keyvaultmessage**를 선택합니다.
+    * **레이블**: 이 값은 빈 상태로 둡니다.
+    * **구독**, **리소스 그룹** 및 **Key Vault**: 이전 섹션에서 만든 Key Vault의 값에 해당하는 값을 입력합니다.
+    * **비밀**: 이전 섹션에서 만든 **Message**라는 비밀을 선택합니다.
 
 ## <a name="connect-to-key-vault"></a>Key Vault에 연결
 
@@ -119,8 +119,15 @@ App Configuration을 사용하면 Key Vault에 저장된 값을 참조하는 키
 
 1. 다음 명령을 실행하여 서비스 주체가 키 자격 증명 모음에 액세스하도록 허용합니다.
 
+    ```console
+    az keyvault set-policy -n <your-unique-keyvault-name> --spn <clientId-of-your-service-principal> --secret-permissions delete get
     ```
-    az keyvault set-policy -n <your-unique-keyvault-name> --spn <clientId-of-your-service-principal> --secret-permissions delete get list set --key-permissions create decrypt delete encrypt get list unwrapKey wrapKey
+
+1. 다음 명령을 실행하여 개체 ID를 가져온 다음, App Configuration에 추가합니다.
+
+    ```console
+    az ad sp show --id <clientId-of-your-service-principal>
+    az role assignment create --role "App Configuration Data Reader" --assignee-object-id <objectId-of-your-service-principal> --resource-group <your-resource-group>
     ```
 
 1. 이전 단계에 표시된 서비스 주체에 대한 값을 사용하여 다음 환경 변수를 만듭니다.
@@ -130,7 +137,7 @@ App Configuration을 사용하면 Key Vault에 저장된 값을 참조하는 키
     * **AZURE_TENANT_ID**: *tenantId*
 
 > [!NOTE]
-> Key Vault 자격 증명은 애플리케이션 내에서만 사용됩니다. 애플리케이션은 이러한 자격 증명을 사용하여 Key Vault에 직접 인증합니다. App Configuration 서비스로 절대 전달되지 않습니다.
+> Key Vault 자격 증명은 애플리케이션 내에서만 사용됩니다.  애플리케이션은 App Configuration 서비스를 제외하고 이러한 자격 증명을 사용하여 Key Vault에서 직접 인증합니다.  Key Vault는 키를 공유하거나 노출하지 않고 애플리케이션 및 App Configuration 서비스 모두에 대한 인증을 제공합니다.
 
 ## <a name="update-your-code-to-use-a-key-vault-reference"></a>Key Vault 참조를 사용하도록 코드 업데이트
 
@@ -157,17 +164,73 @@ App Configuration을 사용하면 Key Vault에 저장된 값을 참조하는 키
     }
     ```
 
+1. *AzureCredentials.java*라는 새 파일을 만들고 아래 코드를 추가합니다.
+
+    ```java
+    package com.example;
+
+    import com.azure.core.credential.TokenCredential;
+    import com.azure.identity.EnvironmentCredentialBuilder;
+    import com.microsoft.azure.spring.cloud.config.AppConfigurationCredentialProvider;
+    import com.microsoft.azure.spring.cloud.config.KeyVaultCredentialProvider;
+
+    public class AzureCredentials implements AppConfigurationCredentialProvider, KeyVaultCredentialProvider{
+
+        @Override
+        public TokenCredential getKeyVaultCredential(String uri) {
+            return getCredential();
+        }
+
+        @Override
+        public TokenCredential getAppConfigCredential(String uri) {
+            return getCredential();
+        }
+
+        private TokenCredential getCredential() {
+            return new EnvironmentCredentialBuilder().build();
+        }
+
+    }
+    ```
+
+1. *AppConfiguration.java*라는 새 파일을 만듭니다. 아래 코드를 추가합니다.
+
+    ```java
+    package com.example;
+
+    import org.springframework.context.annotation.Bean;
+    import org.springframework.context.annotation.Configuration;
+
+    @Configuration
+    public class AppConfiguration {
+
+        @Bean
+        public AzureCredentials azureCredentials() {
+            return new AzureCredentials();
+        }
+    }
+    ```
+
+1. 리소스 META-INF 디렉터리에서 *spring.factories*라는 새 파일을 만들고 추가합니다.
+
+    ```factories
+    org.springframework.cloud.bootstrap.BootstrapConfiguration=\
+    com.example.AppConfiguration
+    ```
+
 1. Maven을 사용하여 Spring Boot 애플리케이션을 빌드하고 실행합니다. 예를 들어 다음과 같습니다.
 
     ```shell
     mvn clean package
     mvn spring-boot:run
     ```
+
 1. 애플리케이션이 실행되면 *curl*을 사용하여 애플리케이션을 테스트합니다. 예를 들어 다음과 같습니다.
 
       ```shell
       curl -X GET http://localhost:8080/
       ```
+
     App Configuration 저장소에 입력한 메시지가 표시됩니다. Key Vault에서 입력한 메시지도 표시됩니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리

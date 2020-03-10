@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/26/2019
 ms.author: mametcal
 ms.custom: mvc
-ms.openlocfilehash: 8c66e2995462701f7ddaefc3a2623c02fee883ef
-ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
+ms.openlocfilehash: 090ede85301f9e7aff14394c8fb5c7d558d98dd4
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71687203"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77656027"
 ---
 # <a name="tutorial-use-feature-flags-in-a-spring-boot-app"></a>자습서: Spring Boot 앱에서 기능 플래그 사용
 
@@ -29,7 +29,7 @@ Spring Boot 핵심 기능 관리 라이브러리는 Spring Boot 애플리케이�
 
 [Spring Boot 앱에 기능 플래그 추가 빠른 시작](./quickstart-feature-flag-spring-boot.md)에서는 Spring Boot 애플리케이션에서 기능 플래그를 추가하는 다양한 방법을 보여줍니다. 이 자습서에서는 해당 방법을 자세히 설명합니다.
 
-이 자습서에서는 다음 방법을 알아봅니다.
+이 자습서에서는 다음 작업 방법을 배웁니다.
 
 > [!div class="checklist"]
 > * 애플리케이션의 핵심 부분에 기능 가용성을 제어하는 기능 플래그를 추가합니다.
@@ -51,11 +51,23 @@ public HelloController(FeatureManager featureManager) {
 
 Spring Boot 애플리케이션을 App Configuration에 연결하는 가장 쉬운 방법은 구성 공급자를 통하는 것입니다.
 
+### <a name="spring-cloud-11x"></a>Spring Cloud 1.1.x
+
 ```xml
 <dependency>
     <groupId>com.microsoft.azure</groupId>
-    <artifactId>spring-cloud-starter-azure-appconfiguration-config</artifactId>
-    <version>1.1.0.M4</version>
+    <artifactId>spring-cloud-azure-feature-management-web</artifactId>
+    <version>1.1.1</version>
+</dependency>
+```
+
+### <a name="spring-cloud-12x"></a>Spring Cloud 1.2.x
+
+```xml
+<dependency>
+    <groupId>com.microsoft.azure</groupId>
+    <artifactId>spring-cloud-azure-feature-management-web</artifactId>
+    <version>1.2.1</version>
 </dependency>
 ```
 
@@ -69,32 +81,31 @@ Spring Boot 애플리케이션을 App Configuration에 연결하는 가장 쉬�
 
 ```yml
 feature-management:
-  featureSet:
-    features:
-      FeatureA: true
-      FeatureB: false
-      FeatureC:
-        EnabledFor:
-          -
-            name: Percentage
-            parameters:
-              value: 50
+  feature-set:
+    feature-a: true
+    feature-b: false
+    feature-c:
+      enabled-for:
+        -
+          name: Percentage
+          parameters:
+            value: 50
 ```
 
 규칙에 따라 이 YML 문서의 `feature-management` 섹션은 기능 플래그 설정에 사용됩니다. 앞의 예제에서는 `EnabledFor` 속성에 필터가 정의된 다음 세 가지 기능 플래그를 보여줍니다.
 
-* `FeatureA`는 *on*입니다.
-* `FeatureB`는 *off*입니다.
-* `FeatureC`는 `Parameters` 속성을 사용하여 `Percentage`라는 필터를 지정합니다. `Percentage`는 구성 가능한 필터입니다. 이 예제에서 `Percentage`는 `FeatureC` 플래그가 *on*이 될 50% 확률을 지정합니다.
+* `feature-a`는 *on*입니다.
+* `feature-b`는 *off*입니다.
+* `feature-c`는 `parameters` 속성을 사용하여 `Percentage`라는 필터를 지정합니다. `Percentage`는 구성 가능한 필터입니다. 이 예제에서 `Percentage`는 `feature-c` 플래그가 *on*이 될 50% 확률을 지정합니다.
 
 ## <a name="feature-flag-checks"></a>기능 플래그 확인
 
-먼저 기능 플래그가 *on*으로 설정되었는지 확인하는 것이 기능 관리의 기본 패턴입니다. on으로 설정된 경우 기능 관리자는 해당 기능에 포함된 작업을 실행합니다. 예:
+먼저 기능 플래그가 *on*으로 설정되었는지 확인하는 것이 기능 관리의 기본 패턴입니다. on으로 설정된 경우 기능 관리자는 해당 기능에 포함된 작업을 실행합니다. 다음은 그 예입니다.
 
 ```java
 private FeatureManager featureManager;
 ...
-if (featureManager.isEnabled("FeatureA"))
+if (featureManager.isEnabledAsync("feature-a"))
 {
     // Run the following code
 }
@@ -118,11 +129,11 @@ public class HomeController {
 
 ## <a name="controller-actions"></a>컨트롤러 작업
 
-MVC 컨트롤러에서 `@FeatureGate` 특성을 사용하여 특정 작업을 사용할 것인지 제어합니다. 다음 `Index` 작업은 `FeatureA`가 *on*으로 설정되어야만 실행할 수 있습니다.
+MVC 컨트롤러에서 `@FeatureGate` 특성을 사용하여 특정 작업을 사용할 것인지 제어합니다. 다음 `Index` 작업은 `feature-a`가 *on*으로 설정되어야만 실행할 수 있습니다.
 
 ```java
 @GetMapping("/")
-@FeatureGate(feature = "FeatureA")
+@FeatureGate(feature = "feature-a")
 public String index(Model model) {
     ...
 }
@@ -132,7 +143,7 @@ public String index(Model model) {
 
 ## <a name="mvc-filters"></a>MVC 필터
 
-MVC 필터를 기능 플래그의 상태에 따라 활성화되도록 설정할 수 있습니다. 다음 코드는 `FeatureFlagFilter`라는 MVC 필터를 추가합니다. 이 필터는 `FeatureA`가 사용되는 경우에만 MVC 파이프라인 내에서 트리거됩니다.
+MVC 필터를 기능 플래그의 상태에 따라 활성화되도록 설정할 수 있습니다. 다음 코드는 `FeatureFlagFilter`라는 MVC 필터를 추가합니다. 이 필터는 `feature-a`가 사용되는 경우에만 MVC 파이프라인 내에서 트리거됩니다.
 
 ```java
 @Component
@@ -144,7 +155,7 @@ public class FeatureFlagFilter implements Filter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws IOException, ServletException {
-        if(!featureManager.isEnabled("FeatureA")) {
+        if(!featureManager.isEnabled("feature-a")) {
             chain.doFilter(request, response);
             return;
         }
@@ -156,11 +167,11 @@ public class FeatureFlagFilter implements Filter {
 
 ## <a name="routes"></a>경로
 
-기능 플래그를 사용하여 경로를 리디렉션할 수 있습니다. `FeatureA`에서 사용자를 리디렉션하는 다음 코드를 사용할 수 있습니다.
+기능 플래그를 사용하여 경로를 리디렉션할 수 있습니다. `feature-a`에서 사용자를 리디렉션하는 다음 코드를 사용할 수 있습니다.
 
 ```java
 @GetMapping("/redirect")
-@FeatureGate(feature = "FeatureA", fallback = "/getOldFeature")
+@FeatureGate(feature = "feature-a", fallback = "/getOldFeature")
 public String getNewFeature() {
     // Some New Code
 }

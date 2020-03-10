@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 09/04/2019
-ms.openlocfilehash: a0ffa6e20b42ed8ac145b50c062f5c0a8998add0
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 58c5b3bdd6d50f2e512cccffe78bd4e70805d729
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77061644"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78204738"
 ---
 # <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>자습서: Enterprise Security Package를 사용하여 HDInsight에서 Apache Kafka 정책 구성(미리 보기)
 
@@ -203,4 +203,4 @@ kafka-producer-consumer.jar이 도메인 조인 클러스터에서 작동하지 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Apache Kafka로의 Bring Your Own Key](../kafka/apache-kafka-byok.md)
+> [고객 관리형 키 디스크 암호화](../disk-encryption.md)

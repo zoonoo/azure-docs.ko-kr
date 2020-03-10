@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 06/02/2017
 ms.author: rogardle
 ms.custom: mvc
-ms.openlocfilehash: d8dff1dc063cc3b940fbdf0698b8b328b90d60b6
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: a8f863f16888e6eca2dbc72c5dd612c38edbe46e
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277842"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273370"
 ---
 # <a name="deprecated-load-balance-containers-in-an-azure-container-service-dcos-cluster"></a>(사용되지 않음) Azure Container Service DC/OS 클러스터에서 컨테이너 부하 분산
 
@@ -43,9 +43,11 @@ Azure Container Service DC/OS 클러스터에는 두 개의 부하 분산 계층
 
 Marathon Load Balancer는 배포한 컨테이너를 기준으로 동적으로 자체 재구성합니다. 컨테이너 또는 에이전트 손실에 대한 복원력이 있으며 손실이 발생하는 경우 Apache Mesos가 다른 곳에서 컨테이너를 다시 시작하고 marathon-lb가 상황에 맞게 조정됩니다.
 
+[https://shell.azure.com](https://shell.azure.com)으로 이동하여 브라우저에서 Cloud Shell을 엽니다.
+
 공용 에이전트의 클러스터에 Marathon Load Balancer를 설치하려면 다음 명령을 실행합니다.
 
-```azurecli-interactive
+```console
 dcos package install marathon-lb
 ```
 
@@ -97,7 +99,7 @@ az acs list --resource-group myResourceGroup --query "[0].agentPoolProfiles[0].f
 
 DC/OS CLI를 사용하여 애플리케이션을 실행합니다. 기본적으로 Marathon은 프라이빗 클러스터에 애플리케이션을 배포합니다. 다시 말해서 위의 배포는 부하 분산 장치를 통해서만 액세스할 수 있으며, 이는 일반적으로 고객이 원하는 동작입니다.
 
-```azurecli-interactive
+```console
 dcos marathon app add hello-web.json
 ```
 

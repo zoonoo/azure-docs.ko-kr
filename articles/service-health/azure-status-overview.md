@@ -1,18 +1,18 @@
 ---
 title: Azure 상태 개요 | Microsoft Docs
-description: Azure 서비스의 상태에 대 한 전역 보기
-ms.topic: article
+description: Azure 서비스 상태에 대한 전반적인 보기입니다.
+ms.topic: overview
 ms.date: 06/11/2019
-ms.openlocfilehash: 1257476234709380de3452015313e3a3bf71e04d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: MT
+ms.openlocfilehash: 4f4a0bf09c9256362e71466b9545389f4341ef38
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75463997"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77654157"
 ---
 # <a name="azure-status-overview"></a>Azure 상태 개요
 
-[Azure 상태](https://status.azure.com/status/)는 Azure 서비스 및 지역의 상태에 대한 글로벌 보기를 제공합니다. Azure 상태를 사용 하면 서비스 가용성에 대 한 정보를 얻을 수 있습니다. Azure 상태는 모든 사용자에게 제공되어 서비스 상태를 보고하는 모든 서비스와 광범위한 영향을 주는 인시던트를 보여 줍니다. 그러나 현재 Azure 사용자인 경우 [Azure Service Health](https://aka.ms/azureservicehealth)에서 맞춤형 환경을 사용하는 것이 좋습니다. Azure Service Health에는 모든 가동 중단, 향후 계획된 유지 관리 작업 및 서비스 추천 사항이 포함되어 있습니다.
+[Azure 상태](https://status.azure.com/status/)는 Azure 서비스 및 지역의 상태에 대한 글로벌 보기를 제공합니다. Azure 상태를 사용하여 서비스 가용성에 대한 정보를 얻을 수 있습니다. Azure 상태는 모든 사용자에게 제공되어 서비스 상태를 보고하는 모든 서비스와 광범위한 영향을 주는 인시던트를 보여 줍니다. 그러나 현재 Azure 사용자인 경우 [Azure Service Health](https://aka.ms/azureservicehealth)에서 맞춤형 환경을 사용하는 것이 좋습니다. Azure Service Health에는 모든 가동 중단, 향후 계획된 유지 관리 작업 및 서비스 추천 사항이 포함되어 있습니다.
 
 ![Azure 상태 페이지](./media/azure-status-overview/azure-status.PNG)
 

@@ -1,34 +1,43 @@
 ---
-title: '자습서: JSON Blob에서 텍스트 및 구조 추출'
+title: '자습서: Azure Blob을 통한 REST 및 AI'
 titleSuffix: Azure Cognitive Search
-description: Postman 및 Azure Cognitive Search REST API를 사용하여 JSON Blob의 콘텐츠에서 텍스트를 추출하고 자연어를 처리하는 예제를 단계별로 실행합니다.
+description: Postman 및 Azure Cognitive Search REST API를 사용하여 Blob 스토리지의 콘텐츠에서 텍스트를 추출하고 자연어를 처리하는 예제를 단계별로 실행합니다.
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 11/04/2019
-ms.openlocfilehash: 5dffafba0f0dc0dc108bf2c82929c157018d8dbb
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.date: 02/26/2020
+ms.openlocfilehash: 8acafa14afab507b704806056efac0f877a47684
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113665"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190725"
 ---
-# <a name="tutorial-extract-text-and-structure-from-json-blobs-in-azure-using-rest-apis-azure-cognitive-search"></a>자습서: REST API(Azure Cognitive Search)를 사용하여 Azure의 JSON Blob에서 텍스트 및 구조 추출
+# <a name="tutorial-use-rest-and-ai-to-generate-searchable-content-from-azure-blobs"></a>자습서: REST 및 AI를 사용하여 Azure Blob에서 검색 가능한 콘텐츠 생성
 
-Azure Blob 스토리지에 비정형 텍스트 또는 이미지 콘텐츠가 있는 경우 [AI 보강 파이프라인](cognitive-search-concept-intro.md)을 사용하면 정보를 추출하여 전체 텍스트 검색 또는 지식 마이닝 시나리오에 유용한 새 콘텐츠를 만들 수 있습니다. 파이프라인은 이미지 파일(JPG, PNG, TIFF)을 처리할 수 있지만, 이 자습서에서는 단어 기반 콘텐츠에 집중하고 언어 감지 및 텍스트 분석을 적용하여 쿼리, 패싯 및 필터에서 활용할 수 있는 새 필드와 정보를 만듭니다.
+Azure Blob 스토리지에 비정형 텍스트 또는 이미지가 있는 경우 [AI 보강 파이프라인](cognitive-search-concept-intro.md)은 정보를 추출하여 전체 텍스트 검색 또는 지식 마이닝 시나리오에 유용한 새 콘텐츠를 만들 수 있습니다. 파이프라인에서 이미지를 처리할 수 있지만, 이 REST 자습서에서는 텍스트에 중점을 두고 언어 감지 및 자연어 처리를 적용하여 쿼리, 패싯 및 필터에 활용할 수 있는 새로운 필드를 만듭니다.
+
+이 자습서에서는 Postman 및 [Search REST API](https://docs.microsoft.com/rest/api/searchservice/)를 사용하여 다음 작업을 수행합니다.
 
 > [!div class="checklist"]
-> * Azure Blob 스토리지에서 PDF, MD, DOCX 및 PPTX와 같은 전체 문서(비정형 텍스트)로 시작합니다.
+> * Azure Blob 스토리지에서 PDF, HTML, DOCX 및 PPTX와 같은 전체 문서(비정형 텍스트)로 시작합니다.
 > * 텍스트를 추출하고, 언어를 감지하고, 엔터티를 인식하고, 핵심 구를 검색하는 파이프라인을 정의합니다.
 > * 출력(원시 콘텐츠 및 파이프라인에서 생성된 이름-값 쌍)을 저장할 인덱스를 정의합니다.
 > * 파이프라인을 실행하여 변환 및 분석을 시작하고 인덱스를 생성하고 로드합니다.
 > * 전체 텍스트 검색과 풍부한 쿼리 구문을 사용하여 결과를 검색합니다.
 
-이 연습을 완료하려면 몇 가지 서비스 및 가 필요하며, REST API를 호출하는 [Postman 데스크톱 앱](https://www.getpostman.com/) 또는 다른 웹 테스트 도구가 필요합니다. 
-
 Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 엽니다.
+
+## <a name="prerequisites"></a>사전 요구 사항
+
++ [Azure Storage](https://azure.microsoft.com/services/storage/)
++ [Postman 데스크톱 앱](https://www.getpostman.com/)
++ [만들기](search-create-service-portal.md) 또는 [기존 검색 서비스 찾기](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
+
+> [!Note]
+> 이 자습서에서는 체험 서비스를 사용할 수 있습니다. 체험 검색 서비스에서는 인덱스, 인덱서 및 데이터 원본이 각각 3개로 제한됩니다. 이 자습서에서는 각각을 하나씩 만듭니다. 시작하기 전에 새 리소스를 수용할 수 있는 공간이 서비스에 있는지 확인하세요.
 
 ## <a name="download-files"></a>파일 다운로드
 
@@ -38,7 +47,9 @@ Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.
 
 ## <a name="1---create-services"></a>1 - 서비스 만들기
 
-이 연습에서는 Azure Cognitive Search(인덱싱 및 쿼리용), Cognitive Services(AI 보강용) 및 Azure Blob 스토리지를 사용하여 데이터를 제공합니다. 근접성과 관리 효율성을 위해 가능하면 세 가지 서비스를 모두 동일한 지역과 리소스 그룹에 만듭니다. 실제로 Azure Storage 계정은 모든 지역에 있을 수 있습니다.
+이 자습서는 인덱싱 및 쿼리를 위한 Azure Cognitive Search, AI 보강을 위한 백 엔드의 Cognitive Services 및 Azure Blob Storage를 사용하여 데이터를 제공합니다. 이 자습서는 Cognitive Services에 인덱서당 하루 20개의 트랜잭션을 무료로 할당하기 때문에, 검색 및 스토리지 서비스만 만들면 됩니다.
+
+가능하면, 근접성과 관리 효율성을 위해 두 가지 모두를 동일한 지역과 리소스 그룹에 만듭니다. 실제로 Azure Storage 계정은 모든 지역에 있을 수 있습니다.
 
 ### <a name="start-with-azure-storage"></a>Azure Storage 시작
 
@@ -102,9 +113,9 @@ Azure Blob 스토리지와 마찬가지로 잠시 시간을 내어 액세스 키
 
 2. **설정** > **키**에서 서비스에 대한 모든 권한의 관리자 키를 가져옵니다. 교체 가능한 두 개의 관리자 키가 있으며, 하나를 롤오버해야 하는 경우 비즈니스 연속성을 위해 다른 하나가 제공됩니다. 개체 추가, 수정 및 삭제 요청 시 기본 또는 보조 키를 사용할 수 있습니다.
 
-    쿼리 키도 가져옵니다. 쿼리 요청은 읽기 전용 액세스로 발급하는 것이 좋습니다.
+   쿼리 키도 가져옵니다. 쿼리 요청은 읽기 전용 액세스로 발급하는 것이 좋습니다.
 
-![서비스 이름과 관리자 및 쿼리 키 확인](media/search-get-started-nodejs/service-name-and-keys.png)
+   ![서비스 이름과 관리자 및 쿼리 키 확인](media/search-get-started-nodejs/service-name-and-keys.png)
 
 모든 요청에서 서비스에 보내는 각 요청의 헤더마다 API 키가 필요합니다. 유효한 키는 요청을 보내는 애플리케이션과 이 요청을 처리하는 서비스 간에 요청별로 신뢰를 설정합니다.
 
@@ -164,7 +175,7 @@ Azure Cognitive Search에서 AI 처리는 인덱싱(또는 데이터 수집) 중
 
 1. 요청 **본문**에서 아래 JSON 정의를 복사합니다. 이 기술 세트를 구성하는 기본 제공 기술은 다음과 같습니다.
 
-   | 기술                 | 설명    |
+   | 기술                 | Description    |
    |-----------------------|----------------|
    | [엔터티 인식](cognitive-search-skill-entity-recognition.md) | Blob 컨테이너의 콘텐츠에서 사람, 조직 및 위치의 이름을 추출합니다. |
    | [언어 감지](cognitive-search-skill-language-detection.md) | 콘텐츠의 언어를 감지합니다. |
@@ -475,29 +486,25 @@ Azure Cognitive Search에서 AI 처리는 인덱싱(또는 데이터 수집) 중
    cog-search-demo-idx/docs?search=*&$filter=organizations/any(organizations: organizations eq 'NASDAQ')&$select=metadata_storage_name,organizations&$count=true&api-version=2019-05-06
    ```
 
-이러한 쿼리에서는 인지 검색에서 만든 새 필드에 대해 쿼리 구문과 필터를 사용할 수 있는 몇 가지 방법을 보여 줍니다. 자세한 쿼리 예제는 [검색 문서 REST API 예제](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples), [단순 구문 쿼리 예제](search-query-simple-examples.md) 및 [full Lucene 쿼리 예제](search-query-lucene-examples.md)를 참조하세요.
+이러한 쿼리는 인식 검색을 통해 생성되는 새 필드에 대해 쿼리 구문과 필터를 사용할 수 있는 몇 가지 방법을 보여 줍니다. 자세한 쿼리 예제는 [문서 검색 REST API 예제](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples), [단순 구문 쿼리 예제](search-query-simple-examples.md) 및 [전체 Lucene 쿼리 예제](search-query-lucene-examples.md)를 참조하세요.
 
 <a name="reset"></a>
 
 ## <a name="reset-and-rerun"></a>다시 설정하고 다시 실행
 
-파이프라인 개발의 초기 실험 단계에서 디자인 반복에 대한 가장 실용적인 방법은 Azure Cognitive Search에서 개체를 삭제하고 코드에서 개체를 다시 빌드하게 하는 것입니다. 리소스 이름은 고유합니다. 개체를 삭제하면 동일한 이름을 사용하여 개체를 다시 만들 수 있습니다.
+개발의 초기 실험 단계에서 설계 반복에 대한 가장 실용적인 방법은 Azure Cognitive Search에서 개체를 삭제하고 코드에서 이를 다시 작성할 수 있도록 허용하는 것입니다. 리소스 이름은 고유합니다. 개체를 삭제하면 동일한 이름을 사용하여 개체를 다시 만들 수 있습니다.
 
-새 정의를 사용하여 문서를 다시 인덱싱하려면:
+포털을 사용하여 인덱스, 인덱서, 데이터 원본 및 기술 세트를 삭제할 수 있습니다. 인덱서를 삭제할 때 필요한 경우 인덱스, 기술 세트 및 데이터 원본을 동시에 선택적으로 삭제할 수 있습니다.
 
-1. 인덱서, 인덱스 및 기술 세트를 삭제합니다.
-2. 개체를 수정합니다.
-3. 서비스에서 파이프라인을 다시 만들어 실행합니다. 
+![검색 개체 삭제](./media/cognitive-search-tutorial-blob-python/py-delete-indexer-delete-all.png "포털에서 검색 개체 삭제")
 
-포털을 사용하여 인덱스, 인덱서 및 기술 세트를 삭제하거나 **DELETE**를 사용하고, URL을 각 개체에 제공할 수 있습니다. 다음 명령은 인덱서를 삭제합니다.
+또는 **DELETE**를 사용하고 각 개체에 대한 URL을 제공합니다. 다음 명령은 인덱서를 삭제합니다.
 
 ```http
-DELETE https://[YOUR-SERVICE-NAME]].search.windows.net/indexers/cog-search-demo-idxr?api-version=2019-05-06
+DELETE https://[YOUR-SERVICE-NAME].search.windows.net/indexers/cog-search-demo-idxr?api-version=2019-05-06
 ```
 
 삭제 성공 시 상태 코드 204가 반환됩니다.
-
-코드가 완성될수록 다시 빌드 전략을 구체화하는 것이 좋습니다. 자세한 내용은 [인덱스 다시 작성](search-howto-reindex.md)을 참조하세요.
 
 ## <a name="takeaways"></a>핵심 내용
 
@@ -509,11 +516,13 @@ DELETE https://[YOUR-SERVICE-NAME]].search.windows.net/indexers/cog-search-demo-
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 자습서를 마친 후 정리하는 가장 빠른 방법은 Azure Cognitive Search 서비스 및 Azure Blob Service를 포함하고 있는 리소스 그룹을 삭제하는 것입니다. 두 서비스를 동일한 그룹에 배치한 경우 리소스 그룹을 삭제하면 서비스와 이 자습서에서 만들고 저장한 콘텐츠를 포함하여 리소스 그룹에 들어 있는 모든 것이 영구적으로 삭제됩니다. 포털에서 리소스 그룹 이름은 각 서비스의 개요 페이지에 있습니다.
+사용자 고유의 구독에서 작업하는 경우 프로젝트의 끝에서 더 이상 필요하지 않은 리소스를 제거하는 것이 좋습니다. 계속 실행되는 리소스에는 요금이 부과될 수 있습니다. 리소스를 개별적으로 삭제하거나 리소스 그룹을 삭제하여 전체 리소스 세트를 삭제할 수 있습니다.
+
+왼쪽 탐색 창의 [모든 리소스] 또는 [리소스 그룹] 링크를 사용하여 포털에서 리소스를 찾고 관리할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-사용자 지정 기술을 사용하여 파이프라인을 사용자 지정 또는 확장합니다. 사용자 지정 기술을 만들어서 기술 집합에 추가하면 사용자가 직접 작성한 텍스트 또는 이미지 분석을 온보딩할 수 있습니다. 
+AI 보강 파이프라인의 모든 개체에 대해 알아보았으면, 기술 세트 정의와 개별적인 기술을 자세히 살펴보겠습니다.
 
 > [!div class="nextstepaction"]
-> [예제: AI 보강에 대한 사용자 지정 기술 만들기](cognitive-search-create-custom-skill-example.md)
+> [기술 세트를 만드는 방법](cognitive-search-defining-skillset.md)

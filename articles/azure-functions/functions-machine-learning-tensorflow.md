@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 01/15/2020
 ms.author: antchu
 ms.custom: mvc
-ms.openlocfilehash: e98655dca7d682e5c42f3b0ae7f26c892bd12377
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: c64d87b2430cc1d733a67bbc1e803590a37b1714
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76710714"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190775"
 ---
 # <a name="tutorial-apply-machine-learning-models-in-azure-functions-with-python-and-tensorflow"></a>자습서: Azure Functions에서 Python 및 TensorFlow를 사용하여 기계 학습 모델 적용
 
@@ -59,7 +59,7 @@ ms.locfileid: "76710714"
 *start* 폴더로 이동하고, 다음 명령을 실행하여 `.venv`라는 가상 환경을 만들고 활성화합니다. Azure Functions에서 지원하는 Python 3.7을 사용해야 합니다.
 
 
-# <a name="bashtabbash"></a>[bash](#tab/bash)
+# <a name="bash"></a>[bash](#tab/bash)
 
 ```bash
 cd start
@@ -79,7 +79,7 @@ Python에서 venv 패키지를 Linux 배포에 설치하지 않은 경우 다음
 sudo apt-get install python3-venv
 ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 ```powershell
 cd start
@@ -93,7 +93,7 @@ py -m venv .venv
 .venv\scripts\activate
 ```
 
-# <a name="cmdtabcmd"></a>[Cmd](#tab/cmd)
+# <a name="cmd"></a>[Cmd](#tab/cmd)
 
 ```cmd
 cd start
@@ -133,7 +133,7 @@ Azure Functions에서 함수 프로젝트는 각각 특정 트리거에 응답�
     func new --name classify --template "HTTP trigger"
     ```
 
-    이 명령은 *classify* 함수 이름과 일치하는 폴더를 만듭니다. 이 폴더에는 함수 코드를 포함하는 *\_\_init\_\_.py*와 함수의 트리거 및 해당 입/출력 바인딩을 설명하는  *function.json*의 두 파일이 있습니다. 이러한 파일의 내용에 대한 자세한 내용은 [Azure에서 HTTP 트리거 Python 함수 만들기 - 파일 내용 검토](functions-create-first-function-python.md#optional-examine-the-file-contents)를 참조하세요.
+    이 명령은 *classify* 함수 이름과 일치하는 폴더를 만듭니다. 이 폴더에는 함수 코드를 포함하는 *\_\_init\_\_.py*와 함수의 트리거 및 해당 입/출력 바인딩을 설명하는  *function.json*의 두 파일이 있습니다. 이러한 파일의 콘텐츠에 대한 자세한 내용은 Python 빠른 시작에서 [파일 콘텐츠 검토](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-python#optional-examine-the-file-contents)를 참조하세요.
 
 
 ## <a name="run-the-function-locally"></a>로컬에서 함수 실행
@@ -158,19 +158,19 @@ Azure Functions에서 함수 프로젝트는 각각 특정 트리거에 응답�
 
 1. *start* 폴더에서 다음 명령을 실행하여 모델 파일을 *classify* 폴더에 복사합니다. 명령에 `\*`을 포함해야 합니다. 
 
-    # <a name="bashtabbash"></a>[bash](#tab/bash)
+    # <a name="bash"></a>[bash](#tab/bash)
     
     ```bash
     cp ../resources/model/* classify
     ```
     
-    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
     
     ```powershell
     copy ..\resources\model\* classify
     ```
     
-    # <a name="cmdtabcmd"></a>[Cmd](#tab/cmd)
+    # <a name="cmd"></a>[Cmd](#tab/cmd)
     
     ```cmd
     copy ..\resources\model\* classify
@@ -182,19 +182,19 @@ Azure Functions에서 함수 프로젝트는 각각 특정 트리거에 응답�
 
 1. *start* 폴더에서 다음 명령을 실행하여 도우미 코드가 있는 파일을 *classify* 폴더에 복사합니다.
 
-    # <a name="bashtabbash"></a>[bash](#tab/bash)
+    # <a name="bash"></a>[bash](#tab/bash)
     
     ```bash
     cp ../resources/predict.py classify
     ```
     
-    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
     
     ```powershell
     copy ..\resources\predict.py classify
     ```
     
-    # <a name="cmdtabcmd"></a>[Cmd](#tab/cmd)
+    # <a name="cmd"></a>[Cmd](#tab/cmd)
     
     ```cmd
     copy ..\resources\predict.py classify
@@ -266,19 +266,19 @@ Azure Functions에서 함수 프로젝트는 각각 특정 트리거에 응답�
 
 1. Python을 사용하여 HTTP 서버를 시작합니다.
 
-    # <a name="bashtabbash"></a>[bash](#tab/bash)
+    # <a name="bash"></a>[bash](#tab/bash)
 
     ```bash 
     python -m http.server
     ```
     
-    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
     ```powershell
     py -m http.server
     ```
 
-    # <a name="cmdtabcmd"></a>[Cmd](#tab/cmd)
+    # <a name="cmd"></a>[Cmd](#tab/cmd)
 
     ```cmd
     py -m http.server

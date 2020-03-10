@@ -1,6 +1,6 @@
 ---
 title: 소스 제어 통합
-description: Azure Repos(Git 및 GitHub)를 사용하여 SQL Data Warehouse와 네이티브 소스 제어 통합을 위한 엔터프라이즈급 데이터베이스 DevOps 환경.
+description: Azure Repos(Git 및 GitHub)를 사용하여 SQL 풀과 네이티브 소스 제어 통합을 위한 엔터프라이즈급 데이터베이스 DevOps 환경
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -10,16 +10,16 @@ ms.subservice: integration
 ms.date: 08/23/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: fc1fdddc7a157828fcc4770c4e8237af9a45fdc3
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 1a4939e8c349f36fe745becb811717983caa95c0
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76720030"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78198224"
 ---
-# <a name="source-control-integration-for-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse를 위한 원본 제어 통합
+# <a name="source-control-integration-for-sql-pool"></a>SQL 풀에 대한 원본 제어 통합
 
-이 자습서에서는 SSDT(SQL Server Data Tools) 데이터베이스 프로젝트를 소스 제어와 통합하는 방법에 대해 간략하게 설명합니다.  원본 제어 통합은 SQL Data Warehouse를 사용하여 지속적인 통합 및 배포 파이프라인을 빌드하는 첫 번째 단계입니다. 
+이 자습서에서는 SSDT(SQL Server Data Tools) 데이터베이스 프로젝트를 소스 제어와 통합하는 방법에 대해 간략하게 설명합니다.  원본 제어 통합은 Azure Synapse Analytics에서 SQL 풀 리소스를 사용하여 지속적인 통합 및 배포 파이프라인을 빌드하는 첫 번째 단계입니다. 
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -81,4 +81,4 @@ ms.locfileid: "76720030"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure SQL Data Warehouse를 위한 개발](sql-data-warehouse-overview-develop.md)
+- [SQL 풀 개발](sql-data-warehouse-overview-develop.md)

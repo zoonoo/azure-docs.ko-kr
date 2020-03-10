@@ -4,12 +4,12 @@ description: 이 자습서에서는 소스 코드를 Git 리포지토리에 커�
 ms.topic: tutorial
 ms.date: 05/04/2019
 ms.custom: seodec18, mvc
-ms.openlocfilehash: a26f1207eccd615804babe230df689d27beae49f
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 6882cb683e0bd8b76bb1207e628e43f24c7b5987
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74840785"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252129"
 ---
 # <a name="tutorial-automate-container-image-builds-in-the-cloud-when-you-commit-source-code"></a>자습서: 소스 코드를 커밋할 때 클라우드에서 컨테이너 이미지 빌드 자동화
 
@@ -20,7 +20,7 @@ ms.locfileid: "74840785"
 
 이 자습서의 ACR 작업은 소스 코드를 Git 리포지토리로 커밋할 때 Dockerfile에 지정된 단일 컨테이너 이미지를 빌드하고 푸시합니다. YAML 파일을 사용하여 코드 커밋 시 여러 컨테이너를 빌드하고, 푸시하고, 필요에 따라 테스트하는 단계를 정의하는 [다단계 작업](container-registry-tasks-multi-step.md)을 만들려면 [자습서: 소스 코드를 커밋할 때 클라우드에서 다단계 컨테이너 워크플로 실행](container-registry-tutorial-multistep-task.md)을 참조하세요. ACR 작업 개요에 대해서는 [ACR 작업을 사용하여 OS 및 프레임워크 패치 자동화](container-registry-tasks-overview.md)를 참조하세요.
 
-자습서 내용
+이 자습서에서는 다음을 수행합니다.
 
 > [!div class="checklist"]
 > * 작업을 만듭니다.
@@ -42,7 +42,9 @@ Azure CLI를 로컬로 사용하려면 Azure CLI 버전 **2.0.46** 이상이 설
 
 먼저 이러한 셸 환경 변수를 환경에 적합한 값으로 채웁니다. 이 단계는 반드시 필요한 것이 아니지만, 여러 줄로 된 Azure CLI 명령을 이 자습서에서 좀 더 쉽게 실행할 수 있게 합니다. 이러한 환경 변수를 채우지 않는 경우 명령 예제에 나타나는 각 값을 수동으로 바꿔야 합니다.
 
-```azurecli-interactive
+[![Embed 시작](https://shell.azure.com/images/launchcloudshell.png "Azure Cloud Shell 시작")](https://shell.azure.com)
+
+```console
 ACR_NAME=<registry-name>        # The name of your Azure container registry
 GIT_USER=<github-username>      # Your GitHub user account name
 GIT_PAT=<personal-access-token> # The PAT you generated in the previous section
@@ -65,7 +67,7 @@ az acr task create \
 
 이 작업은 `--context`에 지정된 리포지토리의 *마스터* 분기에 모든 시간 코드를 커밋하도록 지정하고, ACR 작업은 해당 분기의 코드에서 컨테이너 이미지를 빌드합니다. 리포지토리 루트의 `--file`에 지정된 Dockerfile은 이미지를 빌드하는 데 사용됩니다. `--image` 인수는 이미지 태그의 버전 부분에 대해 `{{.Run.ID}}`의 매개 변수화된 값을 지정하여 빌드된 이미지가 특정 빌드와 상호 연결되고 태그가 고유하게 지정되도록 합니다.
 
-성공적인 [az acr task create][az-acr-task-create] 명령의 출력은 다음과 비슷합니다.
+[az acr task create][az-acr-task-create] 명령이 성공하면 다음과 비슷한 출력이 표시됩니다.
 
 ```console
 {
@@ -208,13 +210,13 @@ Run ID: da2 was successful after 27s
 
 먼저 [리포지토리][sample-repo]의 로컬 복제본이 포함된 디렉터리에 있는지 확인합니다.
 
-```azurecli-interactive
+```console
 cd acr-build-helloworld-node
 ```
 
 다음으로, 다음 명령을 실행하여 새 파일을 만들고, 커밋하고, GitHub에 있는 리포지토리의 포크에 푸시합니다.
 
-```azurecli-interactive
+```console
 echo "Hello World!" > hello.txt
 git add hello.txt
 git commit -m "Testing ACR Tasks"

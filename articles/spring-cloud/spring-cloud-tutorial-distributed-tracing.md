@@ -6,22 +6,22 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 10/06/2019
 ms.author: brendm
-ms.openlocfilehash: e4d3a7fbdb938071b754a16179bcd021985383cc
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 0815aa084462d1b829d64cd7c5d6fa7cebf534fc
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277498"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273202"
 ---
 # <a name="use-distributed-tracing-with-azure-spring-cloud"></a>Azure Spring Cloud에서 분산 추적
 
-Azure Spring Cloud의 분산 추적 도구를 사용하면 복잡한 문제를 쉽게 디버그하고 모니터링할 수 있습니다. Azure Spring Cloud는 [Azure Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth)를 Azure의 [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview)와 통합합니다. 이러한 통합은 Azure Portal의 강력한 분산 추적 기능을 제공합니다.
+Azure Spring Cloud의 분산 추적 도구를 사용하면 복잡한 문제를 쉽게 디버그하고 모니터링할 수 있습니다. Azure Spring Cloud는 [Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth)를 Azure의 [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview)와 통합합니다. 이러한 통합은 Azure Portal의 강력한 분산 추적 기능을 제공합니다.
 
 이 문서에서는 다음 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * Azure Portal에서 분산 추적을 사용하도록 설정
-> * 애플리케이션에 Azure Spring Cloud Sleuth 추가
+> * 애플리케이션에 Spring Cloud Sleuth 추가
 > * 마이크로서비스 애플리케이션에 대한 종속성 맵 보기
 > * 다양한 필터로 추적 데이터 검색
 
@@ -39,7 +39,7 @@ Azure Spring Cloud의 분산 추적 도구를 사용하면 복잡한 문제를 �
 
    이렇게 변경한 후 Zipkin 발신자를 웹에 보낼 수 있습니다.
 
-1. [Azure Spring Cloud 애플리케이션 준비에 대한 가이드](spring-cloud-tutorial-prepare-app-deployment.md)를 수행한 경우, 이 단계를 건너뛸 수 있습니다. 그렇지 않으면 로컬 개발 환경으로 이동하고, 다음 Azure Spring Cloud Sleuth 종속성을 포함하도록 pom.xml 파일을 편집합니다.
+1. [Azure Spring Cloud 애플리케이션 준비에 대한 가이드](spring-cloud-tutorial-prepare-app-deployment.md)를 수행한 경우, 이 단계를 건너뛸 수 있습니다. 그렇지 않으면 로컬 개발 환경으로 이동하고, 다음 Spring Cloud Sleuth 종속성을 포함하도록 pom.xml 파일을 편집합니다.
 
     ```xml
     <dependencyManagement>

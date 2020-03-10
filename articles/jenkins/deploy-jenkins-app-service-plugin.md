@@ -4,12 +4,12 @@ description: Azure App Service Jenkins 플러그 인을 사용하여 Jenkins에�
 keywords: Jenkins, Azure, DevOps, App Service
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: de1bf0ea06210c86ff1da21dcac667754f11d7f4
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: fcaf45003e865cc5aac3f6bd4580479a27d38b50
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158521"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251452"
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Jenkins 플러그 인을 사용하여 Azure App Service에 배포 
 
@@ -17,7 +17,7 @@ Azure에 Java 웹앱을 배포하려면 [Jenkins 파이프라인](/azure/jenkins
 * 파일 업로드
 * Linux의 Web Apps용 Docker.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 > [!div class="checklist"]
 > * 파일 업로드를 통해 Web Apps를 배포하도록 Jenkins 구성
 > * Web App for Containers를 배포하도록 Jenkins 구성.
@@ -207,10 +207,13 @@ Jenkins에서 작업을 설정하기 전에 Linux에 웹앱이 필요합니다. 
 ### <a name="for-azure-app-service-on-linux"></a>Linux의 Azure App Service
 
 1. 웹앱을 확인하려면 Azure CLI에서 다음 명령을 실행합니다.
-    ```CLI
+    
+    ```azurecli
     az acr repository list -n <myRegistry> -o json
     ```
+    
     다음 메시지가 표시됩니다.
+    
     ```CLI
     ["calculator"]
     ```
@@ -231,7 +234,7 @@ Jenkins 플러그 인에서 버그가 발생하면 [Jenkins JIRA](https://issues
 
 이 자습서에서는 Azure에 배포하기 위해 Azure App Service Jenkins 플러그 인을 사용했습니다.
 
-다음 방법에 대해 알아보았습니다.
+구체적으로 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * 파일 업로드를 통해 Azure App Service를 배포하도록 Jenkins 구성 

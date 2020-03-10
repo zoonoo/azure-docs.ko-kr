@@ -1,5 +1,5 @@
 ---
-title: '자습서: 코드 없이 모니터링 데이터 수집 - Azure Data Explorer'
+title: '자습서: 코드 없이 Azure Data Explorer에서 모니터링 데이터 수집'
 description: 이 자습서에서는 코드를 사용하지 않고 모니터링 데이터를 Azure Data Explorer에 수집하고 해당 데이터를 쿼리하는 방법을 알아봅니다.
 author: orspod
 ms.author: orspodek
@@ -7,12 +7,12 @@ ms.reviewer: kerend
 ms.service: data-explorer
 ms.topic: tutorial
 ms.date: 01/29/2020
-ms.openlocfilehash: 24e09f6578431e6b7f2a83be13bae59bf2e707de
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 3a53a660da2257540f23bc6438fc5933e5229c76
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76986209"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78198051"
 ---
 # <a name="tutorial-ingest-and-query-monitoring-data-in-azure-data-explorer"></a>자습서: Azure Data Explorer에서 모니터링 데이터 수집 및 쿼리 
 
@@ -43,7 +43,7 @@ ms.locfileid: "76986209"
 
 Azure 진단 메트릭 및 로그와 활동 로그는 Azure 서비스에서 내보내, 해당 서비스의 작업에 대한 데이터를 제공합니다. 
 
-# <a name="diagnostic-metricstabdiagnostic-metrics"></a>[진단 메트릭](#tab/diagnostic-metrics)
+# <a name="diagnostic-metrics"></a>[진단 메트릭](#tab/diagnostic-metrics)
 #### <a name="example"></a>예제
 
 진단 메트릭은 1분의 시간 조직으로 집계됩니다. 쿼리 기간에 대한 Azure Data Explorer 메트릭 이벤트 스키마의 예제는 다음과 같습니다.
@@ -77,7 +77,7 @@ Azure 진단 메트릭 및 로그와 활동 로그는 Azure 서비스에서 내�
 }
 ```
 
-# <a name="diagnostic-logstabdiagnostic-logs"></a>[진단 로그](#tab/diagnostic-logs)
+# <a name="diagnostic-logs"></a>[진단 로그](#tab/diagnostic-logs)
 #### <a name="example"></a>예제
 
 Azure Data Explorer [진단 수집 로그](using-diagnostic-logs.md#diagnostic-logs-schema)의 예제는 다음과 같습니다.
@@ -133,7 +133,7 @@ Azure Data Explorer [진단 수집 로그](using-diagnostic-logs.md#diagnostic-l
     }
 }
 ```
-# <a name="activity-logstabactivity-logs"></a>[활동 로그](#tab/activity-logs)
+# <a name="activity-logs"></a>[활동 로그](#tab/activity-logs)
 #### <a name="example"></a>예제
 
 Azure 활동 로그는 구독에 있는 리소스에 대해 수행되는 작업에 대한 인사이트를 제공하는 구독 수준 로그입니다. 액세스를 확인하기 위한 활동 로그 이벤트의 예제는 다음과 같습니다.
@@ -210,7 +210,7 @@ Azure Monitor 로그의 구조는 테이블 형식이 아닙니다. 데이터를
 
 Azure Data Explorer 웹 UI를 사용하여 Azure Data Explorer 데이터베이스에 대상 테이블을 만듭니다.
 
-# <a name="diagnostic-metricstabdiagnostic-metrics"></a>[진단 메트릭](#tab/diagnostic-metrics)
+# <a name="diagnostic-metrics"></a>[진단 메트릭](#tab/diagnostic-metrics)
 #### <a name="create-tables-for-the-diagnostic-metrics"></a>진단 메트릭용 테이블 만들기
 
 1. *TestDatabase* 데이터베이스에서 진단 메트릭 레코드를 저장하기 위한 *DiagnosticMetrics*라는 테이블을 만듭니다. 다음과 같은 `.create table` 제어 명령을 사용합니다.
@@ -235,7 +235,7 @@ Azure Data Explorer 웹 UI를 사용하여 Azure Data Explorer 데이터베이�
     .alter-merge table DiagnosticRawRecords policy retention softdelete = 0d
     ```
 
-# <a name="diagnostic-logstabdiagnostic-logs"></a>[진단 로그](#tab/diagnostic-logs)
+# <a name="diagnostic-logs"></a>[진단 로그](#tab/diagnostic-logs)
 #### <a name="create-tables-for-the-diagnostic-logs"></a>진단 로그용 테이블 만들기 
 
 1. *TestDatabase* 데이터베이스에서 진단 로그 레코드를 저장하기 위한 *DiagnosticLogs*라는 테이블을 만듭니다. 다음과 같은 `.create table` 제어 명령을 사용합니다.
@@ -258,7 +258,7 @@ Azure Data Explorer 웹 UI를 사용하여 Azure Data Explorer 데이터베이�
     .alter-merge table DiagnosticRawRecords policy retention softdelete = 0d
     ```
 
-# <a name="activity-logstabactivity-logs"></a>[활동 로그](#tab/activity-logs)
+# <a name="activity-logs"></a>[활동 로그](#tab/activity-logs)
 #### <a name="create-tables-for-the-activity-logs"></a>활동 로그용 테이블 만들기 
 
 1. *TestDatabase* 데이터베이스에서 활동 로그 레코드를 받기 위한 *ActivityLogs*라는 테이블을 만듭니다. 테이블을 만들려면 다음 Azure Data Explorer 쿼리를 실행합니다.
@@ -284,7 +284,7 @@ Azure Data Explorer 웹 UI를 사용하여 Azure Data Explorer 데이터베이�
 
  데이터 형식이 `json`이기 때문에 데이터 매핑이 필요합니다. `json` 매핑은 각 json 경로를 테이블 열 이름에 매핑합니다.
 
-# <a name="diagnostic-metrics--diagnostic-logstabdiagnostic-metricsdiagnostic-logs"></a>[진단 메트릭/진단 로그](#tab/diagnostic-metrics+diagnostic-logs) 
+# <a name="diagnostic-metrics--diagnostic-logs"></a>[진단 메트릭/진단 로그](#tab/diagnostic-metrics+diagnostic-logs) 
 #### <a name="map-diagnostic-metrics-and-logs-to-the-table"></a>진단 메트릭 및 로그를 테이블에 매핑
 
 진단 메트릭 및 로그 데이터를 테이블에 매핑하려면 다음 쿼리를 사용합니다.
@@ -293,7 +293,7 @@ Azure Data Explorer 웹 UI를 사용하여 Azure Data Explorer 데이터베이�
 .create table DiagnosticRawRecords ingestion json mapping 'DiagnosticRawRecordsMapping' '[{"column":"Records","path":"$.records"}]'
 ```
 
-# <a name="activity-logstabactivity-logs"></a>[활동 로그](#tab/activity-logs)
+# <a name="activity-logs"></a>[활동 로그](#tab/activity-logs)
 #### <a name="map-activity-logs-to-the-table"></a>활동 로그를 테이블에 매핑
 
 활동 로그 데이터를 테이블에 매핑하려면 다음 쿼리를 사용합니다.
@@ -305,7 +305,7 @@ Azure Data Explorer 웹 UI를 사용하여 Azure Data Explorer 데이터베이�
 
 ### <a name="create-the-update-policy-for-metric-and-log-data"></a>메트릭 및 로그 데이터에 대한 업데이트 정책 만들기
 
-# <a name="diagnostic-metricstabdiagnostic-metrics"></a>[진단 메트릭](#tab/diagnostic-metrics)
+# <a name="diagnostic-metrics"></a>[진단 메트릭](#tab/diagnostic-metrics)
 #### <a name="create-data-update-policy-for-diagnostics-metrics"></a>진단 메트릭에 대한 데이터 업데이트 정책 만들기
 
 1. 컬렉션의 각 값에서 별도의 행을 받도록 진단 메트릭 레코드의 해당 컬렉션을 확장하는 [함수](/azure/kusto/management/functions)를 만듭니다. [`mv-expand`](/azure/kusto/query/mvexpandoperator) 연산자를 사용합니다.
@@ -333,7 +333,7 @@ Azure Data Explorer 웹 UI를 사용하여 Azure Data Explorer 데이터베이�
     .alter table DiagnosticMetrics policy update @'[{"Source": "DiagnosticRawRecords", "Query": "DiagnosticMetricsExpand()", "IsEnabled": "True", "IsTransactional": true}]'
     ```
 
-# <a name="diagnostic-logstabdiagnostic-logs"></a>[진단 로그](#tab/diagnostic-logs)
+# <a name="diagnostic-logs"></a>[진단 로그](#tab/diagnostic-logs)
 #### <a name="create-data-update-policy-for-diagnostics-logs"></a>진단 로그에 대한 데이터 업데이트 정책 만들기
 
 1. 컬렉션의 각 값에서 별도의 행을 받도록 진단 로그 레코드의 해당 컬렉션을 확장하는 [함수](/azure/kusto/management/functions)를 만듭니다. Azure Data Explorer 클러스터에서 수신 로그를 사용하도록 설정하고 [수집 로그 스키마](/azure/data-explorer/using-diagnostic-logs#diagnostic-logs-schema)를 사용합니다. 성공하고 실패한 수집을 위해 테이블을 하나씩 만들지만, 필드 중 일부는 성공한 수집에 대비하여 비어 있습니다(예: ErrorCode). [`mv-expand`](/azure/kusto/query/mvexpandoperator) 연산자를 사용합니다.
@@ -366,7 +366,7 @@ Azure Data Explorer 웹 UI를 사용하여 Azure Data Explorer 데이터베이�
     .alter table DiagnosticLogs policy update @'[{"Source": "DiagnosticRawRecords", "Query": "DiagnosticLogsExpand()", "IsEnabled": "True", "IsTransactional": true}]'
     ```
 
-# <a name="activity-logstabactivity-logs"></a>[활동 로그](#tab/activity-logs)
+# <a name="activity-logs"></a>[활동 로그](#tab/activity-logs)
 #### <a name="create-data-update-policy-for-activity-logs"></a>활동 로그에 대한 데이터 업데이트 정책 만들기
 
 1. 컬렉션의 각 값이 별도의 행을 받도록 활동 로그 레코드 컬렉션을 확장하는 [함수](/azure/kusto/management/functions)를 만듭니다. [`mv-expand`](/azure/kusto/query/mvexpandoperator) 연산자를 사용합니다.
@@ -425,7 +425,7 @@ Azure 진단 설정을 사용하면 메트릭 및 로그를 스토리지 계정 
 
 이제 진단 메트릭 및 로그와 활동 로그를 이벤트 허브에 연결해야 합니다.
 
-# <a name="diagnostic-metrics--diagnostic-logstabdiagnostic-metricsdiagnostic-logs"></a>[진단 메트릭/진단 로그](#tab/diagnostic-metrics+diagnostic-logs) 
+# <a name="diagnostic-metrics--diagnostic-logs"></a>[진단 메트릭/진단 로그](#tab/diagnostic-metrics+diagnostic-logs) 
 ### <a name="connect-diagnostic-metrics-and-logs-to-your-event-hub"></a>진단 메트릭 및 로그를 이벤트 허브에 연결
 
 메트릭을 내보낼 리소스를 선택합니다. Event Hubs 네임스페이스, Azure Key Vault, Azure IoT Hub 및 Azure Data Explorer 클러스터를 포함한 여러 가지 리소스 종류에서 진단 데이터 내보내기를 지원합니다. 이 자습서에서는 Azure Data Explorer 클러스터를 리소스로 사용하고, 쿼리 성능 메트릭과 수집 결과 로그를 검토합니다.
@@ -452,7 +452,7 @@ Azure 진단 설정을 사용하면 메트릭 및 로그를 스토리지 계정 
 
 1. **저장**을 선택합니다.
 
-# <a name="activity-logstabactivity-logs"></a>[활동 로그](#tab/activity-logs)
+# <a name="activity-logs"></a>[활동 로그](#tab/activity-logs)
 ### <a name="connect-activity-logs-to-your-event-hub"></a>이벤트 허브에 활동 로그 연결
 
 1. Azure Portal 왼쪽 메뉴에서 **활동 로그**를 선택합니다.
@@ -501,7 +501,7 @@ Azure 진단 설정을 사용하면 메트릭 및 로그를 스토리지 계정 
 
     ![이벤트 허브 데이터 연결](media/ingest-data-no-code/event-hub-data-connection.png)
 
-# <a name="diagnostic-metrics--diagnostic-logstabdiagnostic-metricsdiagnostic-logs"></a>[진단 메트릭/진단 로그](#tab/diagnostic-metrics+diagnostic-logs) 
+# <a name="diagnostic-metrics--diagnostic-logs"></a>[진단 메트릭/진단 로그](#tab/diagnostic-metrics+diagnostic-logs) 
 
 1. **데이터 연결** 창에 다음 설정을 사용합니다.
 
@@ -528,7 +528,7 @@ Azure 진단 설정을 사용하면 메트릭 및 로그를 스토리지 계정 
 
 1. **만들기**를 선택합니다.  
 
-# <a name="activity-logstabactivity-logs"></a>[활동 로그](#tab/activity-logs)
+# <a name="activity-logs"></a>[활동 로그](#tab/activity-logs)
 
 1. **데이터 연결** 창에 다음 설정을 사용합니다.
 
@@ -560,7 +560,7 @@ Azure 진단 설정을 사용하면 메트릭 및 로그를 스토리지 계정 
 
 이제 데이터가 흐르는 파이프라인이 있습니다. 클러스터를 통한 수집은 기본적으로 5분이 소요되므로 쿼리를 시작하기 전에 몇 분 동안 데이터 흐름을 허용합니다.
 
-# <a name="diagnostic-metricstabdiagnostic-metrics"></a>[진단 메트릭](#tab/diagnostic-metrics)
+# <a name="diagnostic-metrics"></a>[진단 메트릭](#tab/diagnostic-metrics)
 ### <a name="query-the-diagnostic-metrics-table"></a>진단 메트릭 테이블 쿼리
 
 다음 쿼리는 Azure Data Explorer의 진단 메트릭 레코드에서 쿼리 기간 데이터를 분석합니다.
@@ -579,7 +579,7 @@ DiagnosticMetrics
 |   | 00:06.156 |
 | | |
 
-# <a name="diagnostic-logstabdiagnostic-logs"></a>[진단 로그](#tab/diagnostic-logs)
+# <a name="diagnostic-logs"></a>[진단 로그](#tab/diagnostic-logs)
 ### <a name="query-the-diagnostic-logs-table"></a>진단 로그 테이블 쿼리
 
 이 파이프라인은 이벤트 허브를 통해 수집을 생성합니다. 이러한 수집의 결과를 검토합니다.
@@ -599,7 +599,7 @@ DiagnosticLogs
 |   | 00:06.156 | TestDatabase | DiagnosticRawRecords | https://rtmkstrldkereneus00.blob.core.windows.net/20190827-readyforaggregation/1133_TestDatabase_DiagnosticRawRecords_6cf02098c0c74410bd8017c2d458b45d.json.zip
 | | |
 
-# <a name="activity-logstabactivity-logs"></a>[활동 로그](#tab/activity-logs)
+# <a name="activity-logs"></a>[활동 로그](#tab/activity-logs)
 ### <a name="query-the-activity-logs-table"></a>활동 로그 테이블 쿼리
 
 다음 쿼리는 Azure Data Explorer에서 활동 로그 레코드의 데이터를 분석합니다.

@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 02/26/2020
 ms.author: tamram
-ms.openlocfilehash: 57ab56fe3028da9011e86c589209e7505e69e719
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 58532c6eb6e01a993bce7d6e22a7b5274a465963
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77650933"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78298187"
 ---
 # <a name="quickstart-create-download-and-list-blobs-with-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Blob 생성, 다운로드 및 나열
 
@@ -28,6 +28,8 @@ Azure CLI는 Azure 리소스를 관리하는 Azure의 명령줄 환경입니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
+## <a name="install-the-azure-cli-locally"></a>로컬로 Azure CLI 설치
+
 Azure CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 빠른 시작에서는 Azure CLI 버전 2.0.46 이상을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
 Azure CLI를 로컬로 실행하는 경우 로그인하여 인증해야 합니다. Azure Cloud Shell을 사용하는 경우 이 단계가 필요하지 않습니다. Azure CLI에 로그인하려면 `az login`을 실행하고 브라우저 창에서 인증합니다.
@@ -36,11 +38,13 @@ Azure CLI를 로컬로 실행하는 경우 로그인하여 인증해야 합니�
 az login
 ```
 
+Azure CLI의 인증에 대한 자세한 내용은 [Azure CLI를 사용하여 로그인](/cli/azure/authenticate-azure-cli)을 참조하세요.
+
 ## <a name="authorize-access-to-blob-storage"></a>Blob 스토리지에 대한 액세스 권한 부여
 
 Azure AD 자격 증명을 사용하거나 스토리지 계정 액세스 키를 사용하여 Azure CLI에서 Blob 스토리지에 대한 액세스 권한을 부여할 수 있습니다. Azure AD 자격 증명을 사용하는 것이 좋습니다. 이 문서에서는 Azure AD를 사용하여 Blob 스토리지 작업에 권한을 부여하는 방법을 보여 줍니다.
 
-Blob 스토리지에 대한 데이터 작업에 사용하는 Azure CLI 명령은 지정된 작업에 권한을 부여하는 방법을 지정할 수 있는 `--auth-mode` 매개 변수를 지원합니다. Azure AD 자격 증명을 사용하여 권한을 부여하려면 `--auth-mode` 매개 변수를 `login`으로 설정합니다. 자세한 내용은 [Azure AD 자격 증명으로 Azure CLI 명령을 실행하여 Blob 또는 큐 데이터에 액세스](../common/authorize-active-directory-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)를 참조하세요.
+Blob 스토리지에 대한 데이터 작업에 사용하는 Azure CLI 명령은 지정된 작업에 권한을 부여하는 방법을 지정할 수 있는 `--auth-mode` 매개 변수를 지원합니다. Azure AD 자격 증명을 사용하여 권한을 부여하려면 `--auth-mode` 매개 변수를 `login`으로 설정합니다. 자세한 내용은 [Azure CLI를 사용하여 Blob 또는 큐 데이터에 대한 액세스 권한 부여](../common/authorize-data-operations-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)를 참조하세요.
 
 Blob 스토리지 데이터 작업만 `--auth-mode` 매개 변수를 지원합니다. 리소스 그룹 또는 스토리지 계정 만들기와 같은 관리 작업은 Azure AD 자격 증명을 권한 부여에 자동으로 사용합니다.
 
@@ -149,7 +153,7 @@ azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.blob.core.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 빠른 시작에서 만든 스토리지 계정을 비롯하여 리소스 그룹의 어떠한 리소스도 더 이상 필요하지 않은 경우 [az group delete](/cli/azure/group) 명령으로 리소스 그룹을 삭제합니다. 꺾쇠 괄호로 묶인 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
+스토리지 계정을 포함하여 이 빠른 시작의 일부로 만든 리소스를 삭제하려면 [az group delete](/cli/azure/group) 명령을 사용하여 리소스 그룹을 삭제합니다. 꺾쇠 괄호로 묶인 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
 
 ```azurecli
 az group delete \

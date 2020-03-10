@@ -11,18 +11,16 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:UWP
-ms.openlocfilehash: 86401e0a827d1941b2d183d8c17371ba915c81ae
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: e78477b9c046bbdbcb67a3ff1a5420c0808a748e
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77063699"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78274314"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>빠른 시작: 유니버설 Windows 플랫폼(UWP) 애플리케이션에서 Microsoft Graph API 호출
 
-이 빠른 시작에는 UWP(유니버설 Windows 플랫폼) 애플리케이션이 개인 개정 또는 회사 및 학교 계정으로 사용자를 로그인하고, 액세스 토큰을 가져오고, Microsoft Graph API를 호출할 수 있는 방법을 보여주는 코드 샘플이 포함되어 있습니다.
-
-![이 빠른 시작에서 생성된 샘플 앱의 작동 방식 표시](media/quickstart-v2-uwp/uwp-intro.svg)
+이 빠른 시작에는 UWP(유니버설 Windows 플랫폼) 애플리케이션이 개인 개정 또는 회사 및 학교 계정으로 사용자를 로그인하고, 액세스 토큰을 가져오고, Microsoft Graph API를 호출할 수 있는 방법을 보여주는 코드 샘플이 포함되어 있습니다. (자세한 내용은 [샘플 작동 방식 ](#how-the-sample-works)을 참조하세요.)
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>빠른 시작 앱 등록 및 다운로드
@@ -64,22 +62,32 @@ ms.locfileid: "77063699"
 
 #### <a name="step-2-download-your-visual-studio-project"></a>2단계: Visual Studio 프로젝트 다운로드
 
- - [Visual Studio 프로젝트 다운로드](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip)
+> [!div renderon="docs"]
+> [Visual Studio 프로젝트 다운로드](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip)
 
-#### <a name="step-3-configure-your-visual-studio-project"></a>3단계: Visual Studio 프로젝트 구성
+> [!div class="sxs-lookup" renderon="portal"]
+> Visual Studio 2019를 사용하여 프로젝트를 실행합니다.
+> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [코드 샘플 다운로드](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip)
 
-1. zip 파일을 디스크 루트에 가까운 로컬 폴더(예: **C:\Azure-Samples**)로 추출합니다.
-1. Visual Studio에서 프로젝트를 엽니다. UWP SDK를 설치하라는 메시지가 표시될 수 있습니다. 이 경우 설치를 수락합니다.
-1. **MainPage.Xaml.cs**를 편집하고 `ClientId` 필드의 값을 바꿉니다.
+> [!div class="sxs-lookup" renderon="portal"]
+> #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>3단계: 앱이 구성되었고 실행할 준비가 되었습니다.
+> 앱 속성 값을 사용하여 프로젝트를 구성했고 실행할 준비가 되었습니다. 
 
-    ```csharp
-    private const string ClientId = "Enter_the_Application_Id_here";
-    ```
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
-> > 이 빠른 시작에서는 Enter_the_Supported_Account_Info_Here를 지원합니다.    
+> > Enter_the_Supported_Account_Info_Here
 
 > [!div renderon="docs"]
+> #### <a name="step-3-configure-your-visual-studio-project"></a>3단계: Visual Studio 프로젝트 구성
+> 
+> 1. zip 파일을 디스크 루트에 가까운 로컬 폴더(예: **C:\Azure-Samples**)로 추출합니다.
+> 1. Visual Studio에서 프로젝트를 엽니다. UWP SDK를 설치하라는 메시지가 표시될 수 있습니다. 이 경우 설치를 수락합니다.
+> 1. **MainPage.Xaml.cs**를 편집하고 `ClientId` 필드의 값을 바꿉니다.
+>
+>    ```csharp
+>    private const string ClientId = "Enter_the_Application_Id_here";
+>    ```
 > 위치:
 > - `Enter_the_Application_Id_here` - 등록한 애플리케이션의 애플리케이션 ID입니다.
 >
@@ -90,13 +98,15 @@ ms.locfileid: "77063699"
 
 Windows 머신에서 빠른 시작을 시도하려면 다음을 수행합니다.
 
-1. Visual Studio 도구 모음에서 올바른 플랫폼을 선택합니다(ARM이 아닌 **x64** 또는 **x86**).
-   > 대상 디바이스가 *디바이스*에서 *로컬 머신*으로 변경되는지 관찰합니다.
+1. Visual Studio 도구 모음에서 올바른 플랫폼을 선택합니다(ARM이 아닌 **x64** 또는 **x86**). 대상 디바이스가 *디바이스*에서 *로컬 머신*으로 변경되는지 관찰합니다.
 1. 디버그 선택 | **디버깅 없이 시작**
 
 ## <a name="more-information"></a>자세한 정보
 
 이 섹션에서는 빠른 시작에 대한 자세한 정보를 제공합니다.
+
+### <a name="how-the-sample-works"></a>샘플 작동 방법
+![이 빠른 시작에서 생성된 샘플 앱의 작동 방식 표시](media/quickstart-v2-uwp/uwp-intro.svg)
 
 ### <a name="msalnet"></a>MSAL.NET
 

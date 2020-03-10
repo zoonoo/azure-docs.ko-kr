@@ -1,6 +1,6 @@
 ---
 title: '빠른 시작: 컴퓨팅 일시 중지 및 다시 시작 - Azure Portal '
-description: 비용 절감을 위해 Azure Portal을 사용하여 Azure SQL Data Warehouse에서 컴퓨팅을 일시 중지합니다. 데이터 웨어하우스를 사용할 준비가 되면 컴퓨팅을 다시 시작합니다.
+description: Azure Portal을 사용하여 SQL 풀에 대한 컴퓨팅을 일시 중지하고 비용을 절약할 수 있습니다. 데이터 웨어하우스를 사용할 준비가 되면 컴퓨팅을 다시 시작합니다.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -10,17 +10,17 @@ ms.subservice: manage
 ms.date: 04/18/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 14f66f71948f75a723c9fdbed7490d54c2c3e2b2
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: 49684e6844c2d9f58e9b750b12991428218e4426
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73693004"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78200636"
 ---
-# <a name="quickstart-pause-and-resume-compute-for-an-azure-sql-data-warehouse-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure SQL Data Warehouse에 대한 컴퓨팅 일시 중지 및 다시 시작
+# <a name="quickstart-pause-and-resume-compute-in-azure-synapse-analytics-sql-pool-in-the-azure-portal"></a>빠른 시작: Azure Portal의 Azure Synapse Analytics SQL 풀에서 컴퓨팅 일시 중지 및 다시 시작
 
-비용 절감을 위해 Azure Portal을 사용하여 Azure SQL Data Warehouse에서 컴퓨팅을 일시 중지합니다. 데이터 웨어하우스를 사용할 준비가 되면 [컴퓨팅을 다시 시작](sql-data-warehouse-manage-compute-overview.md)합니다.
+Azure Portal을 사용하여 SQL 풀에 대한 컴퓨팅을 일시 중지하고 비용을 절약할 수 있습니다. 데이터 웨어하우스를 사용할 준비가 되면 [컴퓨팅을 다시 시작](sql-data-warehouse-manage-compute-overview.md)합니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
@@ -30,50 +30,51 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-[만들기 및 연결 - 포털](create-data-warehouse-portal.md)을 사용하여 **mySampleDataWarehouse**라는 데이터 웨어하우스를 만듭니다. 
+[만들기 및 연결 - 포털](create-data-warehouse-portal.md)을 사용하여 **mySampleDataWarehouse**라는 SQL 풀을 만듭니다. 
 
 ## <a name="pause-compute"></a>컴퓨팅 일시 중지
 
 비용을 절약하기 위해 필요에 따라 컴퓨팅 리소스를 일지 중지 및 다시 시작할 수 있습니다. 예를 들어, 밤 시간과 주말에 데이터베이스를 사용하지 않으려면 해당 시간에 일시 중지했다가 주간에 다시 시작할 수 있습니다. 데이터베이스 일시 중지 중에는 컴퓨팅 리소스 요금이 부과되지 않습니다. 그러나 스토리지에 대한 비용은 계속 청구됩니다. 
 
-SQL Data Warehouse를 일시 중지하려면 다음 단계를 따르세요.
+SQL 풀을 일시 중지하려면 다음 단계를 따르세요.
 
-1. Azure Portal의 왼쪽 페이지에서 **SQL Database**를 클릭합니다.
-2. **SQL Database** 페이지에서 **mySampleDataWarehouse**를 선택합니다. 그러면 데이터 웨어하우스를 엽니다. 
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+2. Azure Portal의 왼쪽 탐색 페이지에서 **Azure Synapse Analytics(이전의 SQL DW)** 를 클릭합니다.
+2. **Azure Synapse Analytics(이전의 SQL DW)** 페이지에서 **mySampleDataWarehouse**를 선택하여 SQL 풀을 엽니다. 
 3. **mySampleDataWarehouse** 페이지에서 **상태**는 **온라인**이 됩니다.
 
     ![온라인 컴퓨팅](media/pause-and-resume-compute-portal/compute-online.png)
 
-4. 데이터 웨어하우스를 일시 중지하려면 **일시 중지** 단추를 클릭합니다. 
+4. SQL 풀을 일시 중지하려면 **일시 중지** 단추를 클릭합니다. 
 5. 계속할지를 묻는 확인 질문이 나타납니다. **예**를 클릭합니다.
 6. 몇 분 정도 기다린 다음, **상태**는 **일시 중지**가 됩니다.
 
     ![일시 중지](media/pause-and-resume-compute-portal/pausing.png)
 
-7. 일시 중지 작업이 완료되면 상태는 **일시 중지됨**이 되고 옵션 단추는 **시작**이 됩니다.
-8. 이제 데이터 웨어하우스에 대한 컴퓨팅 리소스는 오프라인 상태입니다. 서비스를 다시 시작할 때까지 컴퓨팅에 대한 요금이 청구되지 않습니다.
+7. 일시 중지 작업이 완료되면 상태는 **일시 중지됨**이 되고 옵션 단추는 **다시 시작**이 됩니다.
+8. 이제 SQL 풀에 대한 컴퓨팅 리소스는 오프라인 상태입니다. 서비스를 다시 시작할 때까지 컴퓨팅에 대한 요금이 청구되지 않습니다.
 
     ![오프라인 컴퓨팅](media/pause-and-resume-compute-portal/compute-offline.png)
 
 
 ## <a name="resume-compute"></a>컴퓨팅 다시 시작
 
-SQL Data Warehouse를 다시 시작하려면 다음 단계를 따르세요.
+SQL 풀을 다시 시작하려면 다음 단계를 따르세요.
 
-1. Azure Portal의 왼쪽 페이지에서 **SQL Database**를 클릭합니다.
-2. **SQL Database** 페이지에서 **mySampleDataWarehouse**를 선택합니다. 그러면 데이터 웨어하우스를 엽니다. 
+1. Azure Portal의 왼쪽 페이지에서 **Azure Synapse Analytics(이전의 SQL DW)** 를 클릭합니다.
+2. **Azure Synapse Analytics(이전의 SQL DW)** 페이지에서 **mySampleDataWarehouse**를 선택하여 SQL 풀 페이지를 엽니다. 
 3. **mySampleDataWarehouse** 페이지에서 **상태**는 **일시 중지됨**이 됩니다.
 
     ![오프라인 컴퓨팅](media/pause-and-resume-compute-portal/compute-offline.png)
 
-4. 데이터 웨어하우스를 다시 시작하려면 **시작**을 클릭합니다. 
+4. SQL 풀을 다시 시작하려면 **다시 시작**을 클릭합니다. 
 5. 시작할지를 묻는 확인 질문이 나타납니다. **예**를 클릭합니다.
 6. **상태**가 **다시 시작 중**이 됩니다.
 
     ![Resuming](media/pause-and-resume-compute-portal/resuming.png)
 
-7. 데이터 웨어하우스가 다시 온라인 상태가 되면 **온라인** 상태가 되고 옵션 단추가 **일시 중지**가 됩니다.
-8. 데이터 웨어하우스에 대한 컴퓨팅 리소스는 현재 온라인 상태이고 서비스를 사용할 수 있습니다. 컴퓨팅에 대한 요금이 다시 청구됩니다.
+7. SQL 풀이 다시 온라인 상태가 되면 **온라인** 상태가 되고 옵션 단추가 **일시 중지**가 됩니다.
+8. SQL 풀에 대한 컴퓨팅 리소스는 현재 온라인 상태이고 서비스를 사용할 수 있습니다. 컴퓨팅에 대한 요금이 다시 청구됩니다.
 
     ![온라인 컴퓨팅](media/pause-and-resume-compute-portal/compute-online.png)
 
@@ -82,26 +83,26 @@ SQL Data Warehouse를 다시 시작하려면 다음 단계를 따르세요.
 데이터 웨어하우스 단위 및 데이터 웨어하우스에 저장된 데이터에 대해 요금이 청구됩니다. 이러한 컴퓨팅 및 스토리지 리소스에 대한 요금이 별도로 청구됩니다. 
 
 - 스토리지에 데이터를 유지하려는 경우 컴퓨팅을 일시 중지합니다.
-- 앞으로 요금이 부과되지 않게 하려면 데이터 웨어하우스를 삭제하면 됩니다. 
+- 앞으로 요금이 부과되지 않게 하려면 SQL 풀을 삭제하면 됩니다. 
 
 필요에 따라 다음 단계에 따라 리소스를 정리합니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인하고 데이터 웨어하우스를 클릭합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인하고 SQL 풀을 클릭합니다.
 
-    ![리소스 정리](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
+    ![리소스 정리](media/pause-and-resume-compute-portal/clean-up-resources.png)
 
-1. 컴퓨팅을 일시 중지하려면 **일시 중지** 단추를 클릭합니다. 데이터 웨어하우스가 일시 중지되면 **시작** 단추가 표시됩니다.  컴퓨팅을 재개하려면 **시작**을 클릭합니다.
+1. 컴퓨팅을 일시 중지하려면 **일시 중지** 단추를 클릭합니다. 
 
-2. 컴퓨팅 또는 스토리지에 대한 요금이 청구되지 않도록 데이터 웨어하우스를 제거하려면 **삭제**를 클릭합니다.
+2. 컴퓨팅 또는 스토리지에 대한 요금이 청구되지 않도록 SQL 풀을 제거하려면 **삭제**를 클릭합니다.
 
-3. 만든 SQL 서버를 제거하려면 **mynewserver-20171113.database.windows.net**을 클릭하고 **삭제**를 클릭합니다.  서버를 삭제하면 해당 서버에 할당된 모든 데이터베이스가 삭제되므로 주의해서 실행해야 합니다.
+3. 만든 SQL 서버를 제거하려면 **sqlpoolservername.database.windows.net**을 클릭한 다음, **삭제**를 클릭합니다.  서버를 삭제하면 해당 서버에 할당된 모든 데이터베이스가 삭제되므로 주의해서 실행해야 합니다.
 
 4. 리소스 그룹을 제거하려면 **myResourceGroup**을 클릭하고 **리소스 그룹 삭제**를 클릭합니다.
 
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 데이터 웨어하우스에 대한 컴퓨팅을 일시 중지하고 다시 시작했습니다. Azure SQL Data Warehouse에 대해 자세히 알아보려면 데이터 로드에 대한 자습서를 계속 진행하세요.
+SQL 풀에 대한 컴퓨팅을 일시 중지하고 다시 시작했습니다. 다음 단계는 데이터 로드에 대한 자습서를 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [SQL Data Warehouse로 데이터 로드](load-data-from-azure-blob-storage-using-polybase.md)
+> [SQL 풀에 데이터 로드](load-data-from-azure-blob-storage-using-polybase.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2019
 ms.author: memildin
-ms.openlocfilehash: 884f5ab6fa57b201e1a9105729bf96e10931dca1
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 84ed5db54874231d8bde4d892eedbc60c42a3430
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77604056"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77918760"
 ---
 # <a name="what-is-azure-security-center"></a>Azure Security Center란?
 
@@ -39,7 +39,7 @@ Azure Security Center는 다음 세 가지의 가장 긴급한 보안 문제를 
 
 -   **보안 상태 강화**: Security Center는 환경을 평가하고 리소스의 상태와 보안 상태를 이해할 수 있도록 합니다.
 
--   **위협으로부터 보호**: Security Center는 워크로드를 평가하고 위협 방지 권장 사항 및 위협 탐지 경고를 제공합니다.
+-   **위협으로부터 보호**: Security Center는 워크로드를 평가하고 위협 방지 권장 사항 및 보안 경고를 제공합니다.
 
 -   **보다 신속한 보안 설정**: Security Center에서는 모든 작업이 클라우드 속도로 수행됩니다. 네이티브 통합이 제공되므로 Security Center를 쉽게 배포하여 Azure 서비스를 통해 자동 프로비저닝 및 보호 기능을 이용할 수 있습니다.
 
@@ -51,7 +51,7 @@ Security Center는 기본적으로 Azure의 일부이므로 배포하지 않고�
 
 또한 Security Center는 Microsoft Monitoring Agent를 설치하여 Windows 및 Linux 서버 둘 다에서 클라우드 또는 온-프레미스의 비 Azure 서버 및 가상 머신을 보호합니다. Azure 가상 머신은 Security Center에서 자동 프로비전됩니다.
 
-에이전트 및 Azure에서 수집한 이벤트는 보안 분석 엔진에서 상관 관계가 파악되어, 워크로드 보안을 위해 따라야 하는 맞춤화된 권장 사항(강화 작업) 및 위협 탐지 경고를 제공합니다. 이러한 경고를 가능한 한 빨리 조사하여 워크로드가 악의적인 공격을 받지 않도록 해야 합니다.
+에이전트 및 Azure에서 수집한 이벤트는 보안 분석 엔진에서 상관 관계가 파악되어, 워크로드 보안을 위해 따라야 하는 맞춤화된 권장 사항(강화 작업) 및 보안 경고를 제공합니다. 이러한 경고를 가능한 한 빨리 조사하여 워크로드가 악의적인 공격을 받지 않도록 해야 합니다.
 
 Security Center를 사용하도록 설정하면 Security Center의 기본 제공 보안 정책이 Security Center 범주의 기본 제공 이니셔티브로 Azure Policy에 반영됩니다. 기본 제공 이니셔티브는 Security Center에 등록된 모든 구독(무료 또는 표준 계층)에 자동으로 할당됩니다. 기본 제공 이니셔티브에는 감사 정책만 포함되어 있습니다. Azure Policy의 Security Center 정책에 대한 자세한 내용은 [보안 정책 작업](tutorial-security-policy.md)을 참조하세요.
 
@@ -107,9 +107,9 @@ Security Center의 위협 방지에는 사이버 적극 대처(kill-chain) 분�
 
 ![Security Center 공격 권장 사항](media/security-center-intro/sc-attack-recommendation.png)
 
-### <a name="advanced-threat-protection"></a>Advanced Threat Protection
+### <a name="integration-with-microsoft-defender-advanced-threat-protection"></a>Microsoft Defender Advanced 위협 보호와 통합
 
-Security Center에서는 Windows Defender Advanced Threat Protection과의 네이티브 통합을 활용할 수 있습니다. 따라서 별도 구성 없이도 Windows 가상 머신 및 서버가 Security Center의 권장 사항 및 평가와 완전히 통합됩니다. Linux 가상 머신 및 서버에 대해서도 지능형 위협 탐지가 기본적으로 제공됩니다.
+Security Center는 Microsoft Defender Advanced Threat Protection과 자동, 네이티브 통합을 포함합니다. 따라서 별도 구성 없이도 Windows 및 Linux 머신이 Security Center의 권장 사항 및 평가와 완전히 통합됩니다.
 
 또한 Security Center를 사용하면 서버 환경에서 애플리케이션 제어 정책을 자동화할 수 있습니다. Security Center의 적응형 애플리케이션 제어를 통해 Windows 서버 전체의 엔드투엔드 앱 허용 목록을 작성할 수 있습니다. 규칙을 만들고 위반을 확인할 필요가 없으며, 모든 작업이 자동으로 수행됩니다.
 
@@ -129,7 +129,7 @@ Security Center에는 Azure SQL에서 데이터 자동 분류를 수행하는 �
 
 ### <a name="protect-iot-and-hybrid-cloud-workloads"></a>IoT 및 하이브리드 클라우드 워크로드 보호
 
-IoT(사물 인터넷)를 위한 Azure Security Center는 에지, 온-프레미스, Azure 및 기타 클라우드에 걸쳐 실행 중인 워크로드에 통합된 가시성과 제어, 적응형 위협 예방, 지능형 위협 탐지 및 응답을 제공하여 하이브리드 워크로드 보호를 간소화합니다. 자세한 내용은 [IoT용 Azure Security Center](https://docs.microsoft.com/azure/asc-for-iot/)를 참조하세요.
+IoT(사물 인터넷)를 위한 Azure Security Center는 에지, 온-프레미스, Azure 및 기타 클라우드에 걸쳐 실행 중인 워크로드에 통합된 가시성과 제어, 적응형 위협 예방, 지능형 위협 보호 및 응답을 제공하여 하이브리드 워크로드 보호를 간소화합니다. 자세한 내용은 [IoT용 Azure Security Center](https://docs.microsoft.com/azure/asc-for-iot/)를 참조하세요.
 
 ## <a name="get-secure-faster"></a>보다 신속한 보안 설정
 
@@ -146,6 +146,5 @@ Security Center는 Azure 및 Azure 리소스와의 원활한 네이티브 통합
 ## <a name="next-steps"></a>다음 단계
 
 - 보안 센터를 시작하려면 Microsoft Azure에 대한 구독이 필요합니다. 구독이 없는 경우 [무료 평가판](https://azure.microsoft.com/free/)을 등록할 수 있습니다.
-- Security Center의 무료 가격 책정 계층은 Azure 구독을 사용하여 사용하도록 설정됩니다. 고급 보안 관리 및 위협 검색 기능을 활용하려면 표준 가격 책정 계층으로 업그레이드해야 합니다. 표준 계층을 평가판으로 사용해볼 수 있습니다. 자세한 내용은 [Security Center 가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조하세요.
+- Security Center의 무료 가격 책정 계층은 Azure 구독을 사용하여 사용하도록 설정됩니다. 고급 보안 관리 및 위협 보호 기능을 활용하려면 표준 가격 책정 계층으로 업그레이드해야 합니다. 표준 계층을 30일 동안 평가판으로 사용해볼 수 있습니다. 자세한 내용은 [Security Center 가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조하세요.
 - 지금 Security Center 표준을 사용할 준비가 되었으면 [빠른 시작: Security Center 표준에 Azure 구독 온보드](security-center-get-started.md)에서 단계를 안내합니다.
-

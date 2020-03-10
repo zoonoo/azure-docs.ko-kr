@@ -2,19 +2,18 @@
 title: Apache Storm이란? - Azure HDInsight
 description: Apache Storm을 사용하면 데이터 스트림을 실시간으로 처리할 수 있습니다. Azure HDInsight를 사용하면 Azure 클라우드에 Storm 클러스터를 쉽게 만들 수 있습니다. Visual Studio를 사용하면 C#을 사용하여 Storm 솔루션을 만든 다음 HDInsight Storm 클러스터에 배포할 수 있습니다.
 author: hrasheed-msft
-ms.reviewer: jasonh
-keywords: Apache Storm 사용 사례, Storm 클러스터, Apache Storm이란?
-ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
-ms.topic: overview
-ms.date: 06/12/2019
 ms.author: hrasheed
-ms.openlocfilehash: b291d5babb0680f5f1a742efcf624a82c804de68
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.reviewer: jasonh
+ms.service: hdinsight
+ms.topic: overview
+ms.custom: hdinsightactive,hdiseo17may2017
+ms.date: 03/02/2020
+ms.openlocfilehash: 24981c10985cd353fcd476f416e89c94ad6b6cc6
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77460010"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78271893"
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>Azure HDInsight의 Apache Storm이란?
 
@@ -34,13 +33,9 @@ HDInsight의 Storm은 다음과 같은 기능을 제공합니다.
 
     * Trident Java 인터페이스를 지원합니다. 정확히 한 번의 메시지 처리, 트랜잭션 데이터 저장소 지속성 및 일반 Stream Analytics 작업 집합을 지원하는 Storm 토폴로지를 만들 수 있습니다.
 
-* **동적 크기 조정**: 실행 중인 Storm 토폴로지에 영향을 주지 않고 작업자 노드를 추가하거나 제거할 수 있습니다.
+* **동적 크기 조정**: 실행 중인 Storm 토폴로지에 영향을 주지 않고 작업자 노드를 추가하거나 제거할 수 있습니다. 크기 조정 작업을 통해 추가된 새 노드를 활용하기 위해 실행 중인 토폴로지를 비활성화하고 다시 활성화해야 합니다.
 
-    * 크기 조정 작업을 통해 추가된 새 노드를 활용하기 위해 실행 중인 토폴로지를 비활성화하고 다시 활성화해야 합니다.
-
-* **여러 Azure 서비스를 사용하여 스트리밍 파이프라인 만들기**: HDInsight의 Storm은 Event Hubs, SQL Database, Azure Storage 및 Azure Data Lake Storage 등 다른 Azure 서비스와 통합합니다.
-
-    Azure 서비스와 통합되는 예제 솔루션은 [HDInsight의 Apache Storm으로 Event Hubs의 이벤트 처리](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub)를 참조하세요.
+* **여러 Azure 서비스를 사용하여 스트리밍 파이프라인 만들기**: HDInsight의 Storm은 Event Hubs, SQL Database, Azure Storage 및 Azure Data Lake Storage 등 다른 Azure 서비스와 통합합니다. Azure 서비스와 통합되는 예제 솔루션은 [HDInsight의 Apache Storm으로 Event Hubs의 이벤트 처리](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub)를 참조하세요.
 
 실시간 분석 솔루션에 Apache Storm을 사용하는 회사 목록은 [Apache Storm을 사용하는 회사](https://storm.apache.org/Powered-By.html)(영문)를 참조하세요.
 
@@ -72,19 +67,12 @@ HDInsight에서 새 Storm 클러스터를 몇 분 내에 만들 수 있습니다
 
 ## <a name="ease-of-use"></a>사용 편의성
 
-* __SSH(보안 셸) 연결__: SSH를 사용하여 인터넷을 통해 Storm 클러스터의 헤드 노드에 액세스할 수 있습니다. SSH를 사용하여 클러스터에서 명령을 직접 실행할 수 있습니다.
-
-  자세한 내용은 [HDInsight와 함께 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
-
-* __웹 연결__: 모든 HDInsight 클러스터는 Ambari 웹 UI를 제공합니다. Ambari 웹 UI를 사용하여 클러스터에서 서비스를 쉽게 모니터링, 구성 및 관리할 수 있습니다. 또한 Storm 클러스터는 Storm UI도 제공합니다. Storm UI를 사용하여 브라우저에서 실행 중인 Storm 토폴로지를 모니터링 및 관리할 수 있습니다.
-
-  자세한 내용은 [Apache Ambari 웹 UI를 사용하여 HDInsight 관리](../hdinsight-hadoop-manage-ambari.md) 및 [Apache Storm UI를 사용하여 모니터링 및 관리](apache-storm-deploy-monitor-topology-linux.md#monitor-and-manage-a-topology-using-the-storm-ui) 문서를 참조하세요.
-
-* __Azure PowerShell 및 Azure 클래식 CLI__: PowerShell 및 클래식 CLI는 모두 HDInsight 및 다른 Azure 서비스를 사용하는 클라이언트 시스템에서 사용할 수 있는 명령줄 유틸리티를 제공합니다.
-
-* __Visual Studio 통합__: Azure Data Lake Tools for Visual Studio에는 SCP.NET Framework를 사용하여 C# Storm 토폴로지를 만드는 프로젝트 템플릿이 포함되어 있습니다. 또한 Data Lake 도구는 HDInsight의 Storm을 사용하여 솔루션을 배포, 모니터링 및 관리하는 도구를 제공합니다.
-
-  자세한 내용은 [HDInsight Tools for Visual Studio를 사용하여 C# Storm 토폴로지 개발](apache-storm-develop-csharp-visual-studio-topology.md)을 참조하세요.
+|사용 |Description |
+|---|---|
+|SSH(보안 셸) 연결|SSH를 사용하여 인터넷을 통해 Storm 클러스터의 헤드 노드에 액세스할 수 있습니다. SSH를 사용하여 클러스터에서 명령을 직접 실행할 수 있습니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.|
+|웹 연결|모든 HDInsight 클러스터는 Ambari 웹 UI를 제공합니다. Ambari 웹 UI를 사용하여 클러스터에서 서비스를 쉽게 모니터링, 구성 및 관리할 수 있습니다. 또한 Storm 클러스터는 Storm UI도 제공합니다. Storm UI를 사용하여 브라우저에서 실행 중인 Storm 토폴로지를 모니터링 및 관리할 수 있습니다. 자세한 내용은 [Apache Ambari 웹 UI를 사용하여 HDInsight 관리](../hdinsight-hadoop-manage-ambari.md) 및 [Apache Storm UI를 사용하여 모니터링 및 관리](apache-storm-deploy-monitor-topology-linux.md#monitor-and-manage-a-topology-using-the-storm-ui) 문서를 참조하세요.|
+|Azure PowerShell 및 Azure CLI|PowerShell 및 Azure CLI는 모두 HDInsight 및 다른 Azure 서비스를 사용하는 클라이언트 시스템에서 사용할 수 있는 명령줄 유틸리티를 제공합니다.|
+|Visual Studio 통합|Azure Data Lake Tools for Visual Studio에는 SCP.NET Framework를 사용하여 C# Storm 토폴로지를 만드는 프로젝트 템플릿이 포함되어 있습니다. 또한 Data Lake 도구는 HDInsight의 Storm을 사용하여 솔루션을 배포, 모니터링 및 관리하는 도구를 제공합니다. 자세한 내용은 [HDInsight Tools for Visual Studio를 사용하여 C# Storm 토폴로지 개발](apache-storm-develop-csharp-visual-studio-topology.md)을 참조하세요.|
 
 ## <a name="integration-with-other-azure-services"></a>다른 Azure 서비스와 통합
 
@@ -100,9 +88,7 @@ HDInsight에서 새 Storm 클러스터를 몇 분 내에 만들 수 있습니다
 
 ## <a name="support"></a>지원
 
-HDInsight의 Storm에는 완전한 엔터프라이즈 수준의 연속 지원이 제공됩니다. HDInsight의 Storm에는 99.9%의 SLA도 있습니다. 즉 Microsoft는 Storm 클러스터에서 적어도 99.9%의 외부 연결을 보장합니다.
-
-자세한 내용은 [Azure 지원](https://azure.microsoft.com/support/options/)을 참조하세요.
+HDInsight의 Storm에는 완전한 엔터프라이즈 수준의 연속 지원이 제공됩니다. HDInsight의 Storm에는 99.9%의 SLA도 있습니다. 즉 Microsoft는 Storm 클러스터에서 적어도 99.9%의 외부 연결을 보장합니다. 자세한 내용은 [Azure 지원](https://azure.microsoft.com/support/options/)을 참조하세요.
 
 ## <a name="apache-storm-use-cases"></a>Apache Storm 사용 사례
 
@@ -120,9 +106,7 @@ HDInsight의 Storm에는 완전한 엔터프라이즈 수준의 연속 지원이
 
 ## <a name="development"></a>개발
 
-Data Lake Tools for Visual Studio를 사용하면 .NET 개발자는 C#으로 토폴로지를 디자인하고 구현할 수 있습니다. 또한 Java 및 C# 구성 요소를 사용하는 하이브리드 토폴로지를 만들 수 있습니다.
-
-자세한 내용은 [Visual Studio를 사용하여 HDInsight에서 Apache Storm에 대한 C# 토폴로지 개발](apache-storm-develop-csharp-visual-studio-topology.md)을 참조하세요.
+Data Lake Tools for Visual Studio를 사용하면 .NET 개발자는 C#으로 토폴로지를 디자인하고 구현할 수 있습니다. 또한 Java 및 C# 구성 요소를 사용하는 하이브리드 토폴로지를 만들 수 있습니다. 자세한 내용은 [Visual Studio를 사용하여 HDInsight에서 Apache Storm에 대한 C# 토폴로지 개발](apache-storm-develop-csharp-visual-studio-topology.md)을 참조하세요.
 
 선택한 IDE를 사용하여 Java 솔루션을 개발할 수도 있습니다. 자세한 내용은 [HDInsight의 Apache Storm에 대한 Java 토폴로지 개발](apache-storm-develop-java-topology.md)을 참조하세요.
 
@@ -132,9 +116,7 @@ Python은 Storm 구성 요소를 개발하는 데에도 사용합니다. 자세�
 
 ### <a name="guaranteed-message-processing"></a>메시지 처리 보장
 
-Apache Storm은 다양한 수준의 보장된 메시지 처리를 제공할 수 있습니다. 예를 들어 기본적인 Storm 애플리케이션은 최소한 한 번 처리를 보장할 수 있고, [Trident](https://storm.apache.org/releases/current/Trident-API-Overview.html)는 정확히 한 번 처리를 보장할 수 있습니다.
-
-자세한 내용은 apache.org에서 [데이터 처리 보장](https://storm.apache.org/about/guarantees-data-processing.html) 을 참조하세요.
+Apache Storm은 다양한 수준의 보장된 메시지 처리를 제공할 수 있습니다. 예를 들어 기본적인 Storm 애플리케이션은 최소한 한 번 처리를 보장할 수 있고, [Trident](https://storm.apache.org/releases/current/Trident-API-Overview.html)는 정확히 한 번 처리를 보장할 수 있습니다. 자세한 내용은 apache.org에서 [데이터 처리 보장](https://storm.apache.org/about/guarantees-data-processing.html) 을 참조하세요.
 
 ### <a name="ibasicbolt"></a>IBasicBolt
 

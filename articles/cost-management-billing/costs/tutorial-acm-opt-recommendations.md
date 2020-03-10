@@ -3,17 +3,17 @@ title: 자습서 - 권장 사항을 통해 Azure 비용 절감
 description: 이 자습서는 최적화 권장 사항을 따를 경우 Azure 비용을 절감할 수 있도록 도와줍니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/12/2020
+ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 796d843461d5d622988f7992439a7c4426186761
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 6f84b3fb75a3774dc14fd1ea045ab9cf1eeb5451
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199962"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78245404"
 ---
 # <a name="tutorial-optimize-costs-from-recommendations"></a>자습서: 권장 사항에서 비용 최적화
 
@@ -32,7 +32,7 @@ Azure Cost Management는 Azure Advisor와 함께 실행되어 비용 최적화 �
 - Subscription
 - Resource group
 
-14일 이상 활동이 있는 활성 가상 머신이 있어야 합니다.
+새 구독이 있는 경우 Cost Management 기능을 즉시 사용할 수 없습니다. 모든 Cost Management 기능을 사용하려면 최대 48시간이 걸릴 수 있습니다. 또한 14일 이상 활동이 있는 활성 가상 머신이 있어야 합니다.
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 [https://portal.azure.com](https://portal.azure.com/)에서 Azure Portal에 로그인합니다.

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/23/2017
 ms.author: juliens
 ms.custom: mvc
-ms.openlocfilehash: 8319f2f5405271679d0c11d4ac68492cdec8fc14
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e1dccc42301cf73fb215d99636dfee9eef9bc59e
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66148927"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78274155"
 ---
 # <a name="deprecated-use-acr-with-a-dcos-cluster-to-deploy-your-application"></a>(사용되지 않음) DC/OS 클러스터에 ACR을 사용하여 애플리케이션 배포
 
@@ -46,7 +46,7 @@ az acr create --resource-group myResourceGroup --name myContainerRegistry$RANDOM
 
 레지스트리가 만들어지면 Azure CLI에서 다음과 유사한 데이터를 출력합니다. `name` 및 `loginServer`는 이후 단계에서 사용되므로 기록해 둡니다.
 
-```azurecli
+```output
 {
   "adminUserEnabled": false,
   "creationDate": "2017-06-06T03:40:56.511597+00:00",
@@ -93,7 +93,7 @@ FQDN=$(az acs list --resource-group myResourceGroup --query "[0].masterProfile.f
 
 DC/OS 기반 클러스터의 마스터(또는 첫 번째 마스터)와의 SSH 연결을 만듭니다. 클러스터를 만들 때 기본값이 아닌 값이 사용된 경우 사용자 이름을 업데이트합니다.
 
-```azurecli-interactive
+```console
 ssh azureuser@$FQDN
 ```
 
@@ -107,13 +107,13 @@ docker -H tcp://localhost:2375 login --username=myContainerRegistry23489 --passw
 
 컨테이너 레지스트리 인증 값이 포함된 압축 파일을 만듭니다.
 
-```azurecli-interactive
+```console
 tar czf docker.tar.gz .docker
 ```
 
 클러스터 공유 스토리지에 이 파일을 복사합니다. 이 단계를 수행하면 DC/OS 클러스터의 모든 노드에서 파일을 사용할 수 있습니다.
 
-```azurecli-interactive
+```console
 cp docker.tar.gz /mnt/share/dcosshare
 ```
 
@@ -123,25 +123,25 @@ cp docker.tar.gz /mnt/share/dcosshare
 
 Ubuntu 이미지에서 컨테이너를 만듭니다.
 
-```azurecli-interactive
+```console
 docker run ubuntu --name base-image
 ```
 
 이제 컨테이너를 새 이미지에 캡처합니다. 이미지 이름은 `loginServer/imageName` 형식으로 컨테이너 레지스트리의 `loginServer` 이름을 포함해야 합니다.
 
-```azurecli-interactive
+```console
 docker -H tcp://localhost:2375 commit base-image mycontainerregistry30678.azurecr.io/dcos-demo
 ```
 
 Azure Container Registry에 로그인합니다. 이름을 loginServer 이름으로 바꾸고, --username을 컨테이너 레지스트리의 이름으로 바꾸고, --password를 제공된 암호 중 하나로 바꿉니다.
 
-```azurecli-interactive
+```console
 docker login --username=myContainerRegistry23489 --password=//=ls++q/m+w+pQDb/xCi0OhD=2c/hST mycontainerregistry2675.azurecr.io
 ```
 
 마지막으로 ACR 레지스트리에 이미지를 업로드합니다. 이 예제에서는 dcos-demo라는 이미지를 업로드합니다.
 
-```azurecli-interactive
+```console
 docker push mycontainerregistry30678.azurecr.io/dcos-demo
 ```
 
@@ -189,7 +189,7 @@ ACR 레지스트리에서 이미지를 사용하려면 파일 이름 *acrDemo.js
 
 DC/OC CLI를 사용하여 애플리케이션을 배포합니다.
 
-```azurecli-interactive
+```console
 dcos marathon app add acrDemo.json
 ```
 

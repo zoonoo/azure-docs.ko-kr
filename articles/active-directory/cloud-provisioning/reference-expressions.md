@@ -11,12 +11,12 @@ ms.date: 12/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d250377e15b957c10322dbba9ca587dd58944ad
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 51c14fd7f427c29c47521a7355309e62ab2254ca
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74794979"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78298618"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Azure Active Directory에서 특성 매핑 식 작성
 클라우드 프로비저닝을 구성하는 경우 식 매핑은 지정할 수 있는 특성 매핑 유형 중 하나입니다. 
@@ -30,16 +30,16 @@ ms.locfileid: "74794979"
 
 * 전체 식은 <br>
   *FunctionName(`<<argument 1>>`,`<<argument N>>`)*
-* 서로 함수를 중첩할 수 있습니다. 예: <br> *FunctionOne(FunctionTwo(`<<argument1>>`))*
+* 서로 함수를 중첩할 수 있습니다. 다음은 그 예입니다. <br> *FunctionOne(FunctionTwo(`<<argument1>>`))*
 * 함수에 3가지 다른 유형의 인수를 전달할 수 있습니다.
   
   1. 특성은 대괄호로 묶어야 합니다. 예: [attributeName]
-  2. 문자열 상수는 큰따옴표로 묶어야 합니다. 예:  "미국"
-  3. 기타 함수 예:  FunctionOne(`<<argument1>>`, FunctionTwo(`<<argument2>>`))
-* 문자열 상수의 경우, 백슬래시 (\) 또는 따옴표(")가 문자열에 필요한 경우 백슬래시(\) 기호로 이스케이프되어야 합니다. 예:  "회사 이름: \\"Contoso\\""
+  2. 문자열 상수는 큰따옴표로 묶어야 합니다. 다음은 그 예입니다.  "미국"
+  3. 기타 함수 다음은 그 예입니다.  FunctionOne(`<<argument1>>`, FunctionTwo(`<<argument2>>`))
+* 문자열 상수의 경우, 백슬래시 (\) 또는 따옴표(")가 문자열에 필요한 경우 백슬래시(\) 기호로 이스케이프되어야 합니다. 다음은 그 예입니다.  "회사 이름: \\"Contoso\\""
 
 ## <a name="list-of-functions"></a>함수 목록
-| 함수 목록 | 설명 |
+| 함수 목록 | Description |
 |-----|----|
 |[Append](#append)|원본 문자열 값을 문자열의 끝에 접미사로 추가합니다.|
 |[BitAnd](#bitand)|BitAnd 함수는 값에 지정된 비트를 설정합니다.|
@@ -47,7 +47,7 @@ ms.locfileid: "74794979"
 |[ConvertFromBase64](#convertfrombase64)|ConvertFromBase64 함수는 지정된 base64 인코딩 값을 일반 문자열로 변환합니다.|
 |[ConvertToBase64](#converttobase64)|ConvertToBase64 함수는 문자열을 유니코드 base64 문자열로 변환합니다. |
 |[ConvertToUTF8Hex](#converttoutf8hex)|ConvertToUTF8Hex 함수는 문자열을 UTF8 16진수 인코딩 값으로 변환합니다.|
-|[개수](#count)|Count 함수는 다중값 특성의 요소 수를 반환합니다.|
+|[Count](#count)|Count 함수는 다중값 특성의 요소 수를 반환합니다.|
 |[Cstr](#cstr)|CStr 함수는 문자열 데이터 형식으로 변환합니다.|
 |[DateFromNum](#datefromnum)|DateFromNum 함수는 AD의 날짜 값 형식을 날짜/시간 형식으로 변환합니다.|
 |[DNComponent](#dncomponent)|DNComponent 함수는 왼쪽부터 지정된 DN 구성 요소의 값을 반환합니다.|
@@ -67,13 +67,13 @@ ms.locfileid: "74794979"
 |[NormalizeDiacritics](#normalizediacritics)|하나의 문자열 인수가 필요합니다. 문자열을 반환하지만 해당하는 비분음 부호 문자로 대체된 분음 부호 문자를 포함합니다.|
 |[Not](#not) |**원본**의 부울 값을 대칭 이동합니다. **원본** 값이 "*True*"인 경우 "*False*"를 반환합니다. 그렇지 않은 경우 "*True*"를 반환합니다.| 
 |[RemoveDuplicates](#removeduplicates)|RemoveDuplicates 함수는 다중값 문자열을 사용하여 개별 값을 고유하게 만듭니다.| 
-|[Replace](#replace) |문자열 내 값을 대체합니다. | 
+|[바꾸기](#replace) |문자열 내 값을 대체합니다. | 
 |[SelectUniqueValue](#selectuniquevalue)|최소 두 개의 인수가 필요하며, 이는 표현식을 사용하여 정의된 고유한 값 생성 규칙입니다. 함수는 각 규칙을 평가한 후 대상 앱/디렉터리에서 생성된 값이 고유한지 확인합니다.| 
 |[SingleAppRoleAssignment](#singleapproleassignment)|지정된 애플리케이션에 대해 사용자에게 할당된 모든 appRoleAssignment 목록에서 단일 appRoleAssignment를 반환합니다.| 
-|[분할](#split)|지정된 구분 기호 문자를 사용하여 문자열을 다중 값 배열로 분할합니다.|
+|[Split](#split)|지정된 구분 기호 문자를 사용하여 문자열을 다중 값 배열로 분할합니다.|
 |[StringFromSID](#stringfromsid)|StringFromSid 함수는 보안 식별자를 포함한 바이트 배열을 문자열로 변환합니다.| 
 |[StripSpaces](#stripspaces) |원본 문자열에서 모든 공백(" ")을 제거합니다.| 
-|[Switch](#switch)|**원본** 값이 **key**와 일치하면, 해당 **key**의 **value**를 반환합니다. | 
+|[스위치](#switch)|**원본** 값이 **key**와 일치하면, 해당 **key**의 **value**를 반환합니다. | 
 |[ToLower](#tolower)|*원본* 문자열 값을 가져와서 지정된 문화권 규칙을 사용하여 소문자로 변환합니다.| 
 |[ToUpper](#toupper)|*원본* 문자열 값을 가져와서 지정된 문화권 규칙을 사용하여 대문자로 변환합니다.|
 |[Trim](#trim)|Trim 함수는 선행 및 후행 공백을 문자열에서 제거합니다.|
@@ -87,10 +87,10 @@ ms.locfileid: "74794979"
 
 **매개 변수:**<br> 
 
-   | Name | 필수/ 반복 | Type | 메모 |
+   | 속성 | 필수/ 반복 | Type | 메모 |
    | --- | --- | --- | --- |
-   | **원본** |필수 |문자열 |대개는 원본 개체의 특성 이름입니다. |
-   | **접미사** |필수 |문자열 |원본 값의 끝에 추가하려는 문자열입니다. |
+   | **원본(source)** |필수 |String |대개는 원본 개체의 특성 이름입니다. |
+   | **접미사** |필수 |String |원본 값의 끝에 추가하려는 문자열입니다. |
 
 ---
 ### <a name="bitand"></a>BitAnd
@@ -102,7 +102,7 @@ BitAnd 함수는 값에 지정된 비트를 설정합니다.
 
 * value1, value2: 숫자 값은 AND와 함께 사용해야 합니다.
 
-**설명**  
+**설명:**  
 이 함수는 두 매개 변수를 전부 이진 표현으로 변환시키고 비트를 다음과 같이 설정합니다.
 
 * 0 - *value1* 및 *value2*의 해당 비트 중 하나 또는 둘 모두가 0인 경우
@@ -110,7 +110,7 @@ BitAnd 함수는 값에 지정된 비트를 설정합니다.
 
 즉, 두 매개 변수의 해당 비트가 1일 경우를 제외하는 모든 경우에는 0을 반환합니다.
 
-**예제:**  
+**예:**  
  
  `BitAnd(&HF, &HF7)`</br>
  16진법 "F" AND "F7"로 이 값을 계산했기 때문에 7을 반환합니다.
@@ -124,10 +124,10 @@ CBool 함수는 계산된 식에 따라 부울을 반환합니다.
 **구문:**  
 `bool CBool(exp Expression)`
 
-**설명**  
+**설명:**  
 식에서 0이 아닌 값으로 계산하는 경우 CBool은 True를 반환하고, 그렇지 않으면 False를 반환합니다.
 
-**예제:**  
+**예:**  
 `CBool([attrib1] = [attrib2])`  
 
 두개의 속성이 같은 동일한 값을 가지면 True로 반환합니다.
@@ -159,7 +159,7 @@ ConvertToBase64 함수는 문자열을 유니코드 base64 문자열로 변환�
 **구문:**  
 `str ConvertToBase64(str source)`
 
-**예제:**  
+**예:**  
 `ConvertToBase64("Hello world!")`  
 "SABlAGwAbABvACAAdwBvAHIAbABkACEA"를 반환합니다.
 
@@ -171,10 +171,10 @@ ConvertToUTF8Hex 함수는 문자열을 UTF8 16진수 인코딩 값으로 변환
 **구문:**  
 `str ConvertToUTF8Hex(str source)`
 
-**설명**  
+**설명:**  
 이 함수의 출력 형식은 DN 특성 형식으로 Azure Active Directory에서 사용됩니다.
 
-**예제:**  
+**예:**  
 `ConvertToUTF8Hex("Hello world!")`  
 48656C6C6F20776F726C6421을 반환합니다.
 
@@ -198,7 +198,7 @@ CStr 함수는 문자열 데이터 형식으로 변환합니다.
 
 * 값: 숫자 값, 참조 특성 또는 부울입니다.
 
-**예제:**  
+**예:**  
 `CStr([dn])`  
 "cn=Joe,dc=contoso,dc=com"을 반환할 수 있습니다.
 
@@ -210,7 +210,7 @@ DateFromNum 함수는 AD의 날짜 값 형식을 날짜/시간 형식으로 변�
 **구문:**  
 `dt DateFromNum(num value)`
 
-**예제:**  
+**예:**  
 `DateFromNum([lastLogonTimestamp])`  
 `DateFromNum(129699324000000000)`  
 2012-01-01 23:00:00을 나타내는 날짜/시간을 반환합니다.
@@ -226,19 +226,19 @@ DNComponent 함수는 왼쪽부터 지정된 DN 구성 요소의 값을 반환�
 * dn: 참조 특성 해석
 * ComponentNumber: 반환할 DN의 구성 요소
 
-**예제:**  
+**예:**  
 `DNComponent(CRef([dn]),1)`  
 dn이 "cn=Joe,ou=…"인 경우 Joe를 반환합니다.
 
 ---
-### <a name="error"></a>오류
+### <a name="error"></a>Error
 **설명:**  
 Error 함수는 사용자 지정 오류를 반환하는 데 사용됩니다.
 
 **구문:**  
 `void Error(str ErrorMessage)`
 
-**예제:**  
+**예:**  
 `IIF(IsPresent([accountName]),[accountName],Error("AccountName is required"))`  
 accountName 특성이 없는 경우 개체에서 오류가 throw됩니다.
 
@@ -250,11 +250,11 @@ accountName 특성이 없는 경우 개체에서 오류가 throw됩니다.
 
 **매개 변수:**<br> 
 
-   | Name | 필수/ 반복 | Type | 메모 |
+   | 속성 | 필수/ 반복 | Type | 메모 |
    | --- | --- | --- | --- |
-   | **원본** |필수 |문자열 |대개는 원본 개체의 특성 이름입니다. |
-   | **inputFormat** |필수 |문자열 |원본 값의 예상된 형식입니다. 지원되는 형식은 [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)를 참조하세요. |
-   | **outputFormat** |필수 |문자열 |출력 날짜의 형식입니다. |
+   | **원본(source)** |필수 |String |대개는 원본 개체의 특성 이름입니다. |
+   | **inputFormat** |필수 |String |원본 값의 예상된 형식입니다. 지원되는 형식은 [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)를 참조하세요. |
+   | **outputFormat** |필수 |String |출력 날짜의 형식입니다. |
 
 ---
 ### <a name="guid"></a>Guid
@@ -276,7 +276,7 @@ IIF 함수는 지정된 조건에 따라 가능한 값 집합 중 하나를 반�
 * valueIfTrue: 조건이 true로 평가되는 경우 반환된 값입니다.
 * valueIfFalse: 조건이 false로 평가되는 경우 반환된 값입니다.
 
-**예제:**  
+**예:**  
 `IIF([employeeType]="Intern","t-" & [alias],[alias])`  
  사용자가 인턴일 경우 사용자 별칭 앞에 “t-”를 추가하여 반환하고, 그 외의 경우에는 본래의 별칭 그대로 반환합니다.
 
@@ -296,10 +296,10 @@ InStr 함수는 문자열에서 부분 문자열이 처음 나오는 경우를 �
 * start: 부분 문자열을 찾을 시작 위치
 * compare: vbTextCompare 또는 vbBinaryCompare
 
-**설명**  
+**설명:**  
 부분 문자열을 찾으면 위치가 반환되고, 찾지 못할 경우 0이 반환됩니다.
 
-**예제:**  
+**예:**  
 `InStr("The quick brown fox","quick")`  
 5로 계산합니다.
 
@@ -314,10 +314,10 @@ InStr 함수는 문자열에서 부분 문자열이 처음 나오는 경우를 �
 **구문:**  
 `bool IsNull(var Expression)`
 
-**설명**  
+**설명:**  
 특성이 없는 경우 Null로 표현됩니다.
 
-**예제:**  
+**예:**  
 `IsNull([displayName])`  
 CS 또는 MV에 특성이 없을 경우 True를 반환합니다.
 
@@ -329,11 +329,11 @@ CS 또는 MV에 특성이 없을 경우 True를 반환합니다.
 **구문:**  
 `bool IsNullOrEmpty(var Expression)`
 
-**설명**  
+**설명:**  
 특성이 없거나, 빈 문자열로 존재하는 경우 True로 계산합니다.  
 이 함수의 역원을 IsPresnt라고 합니다.
 
-**예제:**  
+**예:**  
 `IsNullOrEmpty([displayName])`  
 특성이 없거나 CS 또는 MV에서 빈 문자열인 경우 True를 반환합니다.
 
@@ -345,10 +345,10 @@ CS 또는 MV에 특성이 없을 경우 True를 반환합니다.
 **구문:**  
 `bool IsPresent(var expression)`
 
-**설명**  
+**설명:**  
 이 함수의 역함수는 IsNullOrEmpty으로 지칭됩니다.
 
-**예제:**  
+**예:**  
 `Switch(IsPresent([directManager]),[directManager], IsPresent([skiplevelManager]),[skiplevelManager], IsPresent([director]),[director])`
 
 ---
@@ -362,12 +362,12 @@ Item 함수는 다중값 문자열/특성에서 하나의 항목을 반환합니
 * attribute: 다중값 특성
 * 인덱스: 다중값 문자열에 있는 항목에 대한 인덱스입니다.
 
-**설명**  
+**설명:**  
 Item 함수는 다중값 특성의 항목에 대한 인덱스를 반환하는 Contains 함수와 함께 사용할 수 있습니다.
 
 인덱스가 범위를 초과하는 경우 오류가 나타납니다.
 
-**예제:**  
+**예:**  
 `Mid(Item([proxyAddresses],Contains([proxyAddresses], "SMTP:")),6)`  
 기본 전자 메일 주소를 반환합니다.
 
@@ -379,7 +379,7 @@ Item 함수는 다중값 특성의 항목에 대한 인덱스를 반환하는 Co
 **구문:**  
 `bool IsString(var expression)`
 
-**설명**  
+**설명:**  
 CStr()이 식을 구문 분석하는 데 성공할 수 있는지 여부를 결정할 때 사용됩니다.
 
 ---
@@ -392,10 +392,10 @@ CStr()이 식을 구문 분석하는 데 성공할 수 있는지 여부를 결�
 
 **매개 변수:**<br> 
 
-   | Name | 필수/ 반복 | Type | 메모 |
+   | 속성 | 필수/ 반복 | Type | 메모 |
    | --- | --- | --- | --- |
-   | **구분 기호** |필수 |문자열 |문자열이 하나의 문자열로 연결되면 원본 값을 구분하는데 문자열을 사용합니다. 구분 기호가 필요하지 않은 경우 ""일 수 있습니다. |
-   | **source1  … sourceN** |필수, 시간 변수 |문자열 |값이 함께 조인될 문자열입니다. |
+   | **separator** |필수 |String |문자열이 하나의 문자열로 연결되면 원본 값을 구분하는데 문자열을 사용합니다. 구분 기호가 필요하지 않은 경우 ""일 수 있습니다. |
+   | **source1  … sourceN** |필수, 시간 변수 |String |값이 함께 조인될 문자열입니다. |
 
 ---
 ### <a name="left"></a>Left
@@ -408,7 +408,7 @@ Left 함수는 문자열 왼쪽부터 지정된 수의 문자를 반환합니다
 * string: 문자로 반환될 문자열입니다.
 * NumChars: 문자열의 시작(왼쪽)에서 반환될 문자의 개수를 식별하는 번호입니다.
 
-**설명**  
+**설명:**  
 문자열의 첫 번째 numChars 문자를 포함하는 문자열입니다.
 
 * numChars = 0 인 경우, 빈 문자열을 반환합니다.
@@ -417,7 +417,7 @@ Left 함수는 문자열 왼쪽부터 지정된 수의 문자를 반환합니다
 
 문자열이 numChars 내에서 숫자가 지정한 문자보다 적은 문자를 포함하는 경우, 문자열과 동일한 문자열(즉, 매개 변수 1의 모든 문자가 포함)이 반환됩니다.
 
-**예제:**  
+**예:**  
 `Left("John Doe", 3)`  
 `Joh`를 반환합니다.
 
@@ -429,11 +429,11 @@ Left 함수는 문자열 왼쪽부터 지정된 수의 문자를 반환합니다
 
 **매개 변수:**<br> 
 
-   | Name | 필수/ 반복 | Type | 메모 |
+   | 속성 | 필수/ 반복 | Type | 메모 |
    | --- | --- | --- | --- |
-   | **원본** |필수 |문자열 |일반적으로 특성 이름입니다. |
-   | **시작** |필수 |정수 |부분 문자열이 시작될 **원본** 문자열의 인덱스입니다. 문자열의 첫번째 문자에는 인덱스 1이 있고, 두번째 문자에는 인덱스 2가 있습니다. |
-   | **length** |필수 |정수 |부분 문자열의 길이입니다. 길이가 **원본** 문자열 외부에서 종료되면 함수는 **시작** 인덱스부터 **원본** 문자열 끝까지의 부분 문자열을 반환합니다. |
+   | **원본(source)** |필수 |String |일반적으로 특성 이름입니다. |
+   | **start** |필수 |integer |부분 문자열이 시작될 **원본** 문자열의 인덱스입니다. 문자열의 첫번째 문자에는 인덱스 1이 있고, 두번째 문자에는 인덱스 2가 있습니다. |
+   | **length** |필수 |integer |부분 문자열의 길이입니다. 길이가 **원본** 문자열 외부에서 종료되면 함수는 **시작** 인덱스부터 **원본** 문자열 끝까지의 부분 문자열을 반환합니다. |
 
 ---
 ### <a name="normalizediacritics"></a>NormalizeDiacritics
@@ -443,21 +443,21 @@ Left 함수는 문자열 왼쪽부터 지정된 수의 문자를 반환합니다
 
 **매개 변수:**<br> 
 
-   | Name | 필수/ 반복 | Type | 메모 |
+   | 속성 | 필수/ 반복 | Type | 메모 |
    | --- | --- | --- | --- |
-   | **원본** |필수 |문자열 | 일반적으로 이름 또는 성 특성입니다. |
+   | **원본(source)** |필수 |String | 일반적으로 이름 또는 성 특성입니다. |
 
 ---
-### <a name="not"></a>not
+### <a name="not"></a>Not
 **함수:**<br> Not(source)
 
 **설명:**<br> **원본**의 부울 값을 대칭 이동합니다. **원본** 값이 "*True*"인 경우 "*False*"를 반환합니다. 그렇지 않은 경우 "*True*"를 반환합니다.
 
 **매개 변수:**<br> 
 
-   | Name | 필수/ 반복 | Type | 메모 |
+   | 속성 | 필수/ 반복 | Type | 메모 |
    | --- | --- | --- | --- |
-   | **원본** |필수 |부울 문자열 |예상 **원본** 값은 "True" 또는 "False"입니다. |
+   | **원본(source)** |필수 |부울 문자열 |예상 **원본** 값은 "True" 또는 "False"입니다. |
 
 ---
 ### <a name="removeduplicates"></a>RemoveDuplicates
@@ -467,7 +467,7 @@ RemoveDuplicates 함수는 다중값 문자열을 사용하여 개별 값을 고
 **구문:**  
 `mvstr RemoveDuplicates(mvstr attribute)`
 
-**예제:**  
+**예:**  
 `RemoveDuplicates([proxyAddresses])`  
 모든 중복 값을 제거한 삭제된 proxyAddress 특성을 반환합니다.
 
@@ -497,15 +497,15 @@ RemoveDuplicates 함수는 다중값 문자열을 사용하여 개별 값을 고
 
 **매개 변수:**<br> 
 
-   | Name | 필수/ 반복 | Type | 메모 |
+   | 속성 | 필수/ 반복 | Type | 메모 |
    | --- | --- | --- | --- |
-   | **원본** |필수 |문자열 |일반적으로 **source** 개체의 특성 이름입니다. |
-   | **oldValue** |옵션 |문자열 |**원본** 또는 **템플릿**에서 대체될 값입니다. |
+   | **원본(source)** |필수 |String |일반적으로 **source** 개체의 특성 이름입니다. |
+   | **oldValue** |옵션 |String |**원본** 또는 **템플릿**에서 대체될 값입니다. |
    | **regexPattern** |옵션 |String |**원본**에서 대체될 값에 대한 Regex 패턴입니다. 또는 **replacementPropertyName**을 사용하는 경우 **replacementPropertyName**에서 값을 추출하는 패턴입니다. |
-   | **regexGroupName** |옵션 |문자열 |**regexPattern**내 그룹의 이름입니다. **replacementPropertyName**을 사용하는 경우에만 **replacementPropertyName**에서 이 그룹의 값을 **replacementValue**로 추출합니다. |
-   | **replacementValue** |옵션 |문자열 |이전 값과 대체할 새로운 값입니다. |
-   | **replacementAttributeName** |옵션 |문자열 |대체 값에 사용할 특성의 이름입니다. |
-   | **template** |옵션 |문자열 |**template** 값이 제공되는 경우 템플릿 내에서 **oldValue**를 찾아서 **source** 값으로 바꿉니다. |
+   | **regexGroupName** |옵션 |String |**regexPattern**내 그룹의 이름입니다. **replacementPropertyName**을 사용하는 경우에만 **replacementPropertyName**에서 이 그룹의 값을 **replacementValue**로 추출합니다. |
+   | **replacementValue** |옵션 |String |이전 값과 대체할 새로운 값입니다. |
+   | **replacementAttributeName** |옵션 |String |대체 값에 사용할 특성의 이름입니다. |
+   | **template** |옵션 |String |**template** 값이 제공되는 경우 템플릿 내에서 **oldValue**를 찾아서 **source** 값으로 바꿉니다. |
 
 ---
 ### <a name="selectuniquevalue"></a>SelectUniqueValue
@@ -522,9 +522,9 @@ RemoveDuplicates 함수는 다중값 문자열을 사용하여 개별 값을 고
 
 **매개 변수:**<br> 
 
-   | Name | 필수/ 반복 | Type | 메모 |
+   | 속성 | 필수/ 반복 | Type | 메모 |
    | --- | --- | --- | --- |
-   | **uniqueValueRule1  … uniqueValueRuleN** |2개 이상 필요, 상한 없음 |문자열 | 평가할 고유한 값 생성 규칙 목록입니다. |
+   | **uniqueValueRule1  … uniqueValueRuleN** |2개 이상 필요, 상한 없음 |String | 평가할 고유한 값 생성 규칙 목록입니다. |
 
 
 ---
@@ -535,9 +535,9 @@ RemoveDuplicates 함수는 다중값 문자열을 사용하여 개별 값을 고
 
 **매개 변수:**<br> 
 
-  | Name | 필수/ 반복 | Type | 메모 |
+  | 속성 | 필수/ 반복 | Type | 메모 |
   |--- | --- | --- | --- |
-  | **[appRoleAssignments]** |필수 |문자열 |**[appRoleAssignments]** 개체. |
+  | **[appRoleAssignments]** |필수 |String |**[appRoleAssignments]** 개체. |
 
 ---
 ### <a name="split"></a>분할
@@ -547,10 +547,10 @@ RemoveDuplicates 함수는 다중값 문자열을 사용하여 개별 값을 고
 
 **매개 변수:**<br> 
 
-   | Name | 필수/ 반복 | Type | 메모 |
+   | 속성 | 필수/ 반복 | Type | 메모 |
    | --- | --- | --- | --- |
-   | **원본** |필수 |문자열 |**원본** 값입니다. |
-   | **delimiter** |필수 |문자열 |문자열을 분할하는 데 사용할 문자(예: ",")를 지정 |
+   | **원본(source)** |필수 |String |**원본** 값입니다. |
+   | **delimiter** |필수 |String |문자열을 분할하는 데 사용할 문자(예: ",")를 지정 |
 
 ---
 ### <a name="stringfromsid"></a>StringFromSid
@@ -568,24 +568,24 @@ StringFromSid 함수는 보안 식별자를 포함한 바이트 배열을 문자
 
 **매개 변수:**<br> 
 
-   | Name | 필수/ 반복 | Type | 메모 |
+   | 속성 | 필수/ 반복 | Type | 메모 |
    | --- | --- | --- | --- |
-   | **원본** |필수 |문자열 |**원본** 값입니다. |
+   | **원본(source)** |필수 |String |**원본** 값입니다. |
 
 ---
-### <a name="switch"></a>Switch
+### <a name="switch"></a>스위치
 **함수:**<br> Switch(source, defaultValue, key1, value1, key2, value2, …)
 
 **설명:**<br> **원본** 값이 **key**와 일치하면, 해당 **key**의 **value**를 반환합니다. **원본** 값과 일치하는 키가 없으면 **defaultValue**를 반환합니다.  **Key** 및 **value** 매개 변수는 항상 쌍으로 제공되어야 합니다. 함수는 항상 짝수 개수의 매개 변수를 예상합니다.
 
 **매개 변수:**<br> 
 
-   | Name | 필수/ 반복 | Type | 메모 |
+   | 속성 | 필수/ 반복 | Type | 메모 |
    | --- | --- | --- | --- |
-   | **원본** |필수 |문자열 |**Source** 값입니다. |
-   | **defaultValue** |옵션 |문자열 |원본이 모든 키와 일치하지 않는 경우 사용할 기본값입니다. 빈 문자열("")일 수 있습니다. |
-   | **key** |필수 |문자열 |**원본** 값과 비교할 **Key**입니다. |
-   | **값** |필수 |문자열 |키와 일치하는 **원본** 의 대체 값입니다. |
+   | **원본(source)** |필수 |String |확인할 **원본** 값입니다. |
+   | **defaultValue** |옵션 |String |원본이 모든 키와 일치하지 않는 경우 사용할 기본값입니다. 빈 문자열("")일 수 있습니다. |
+   | **key** |필수 |String |**원본** 값과 비교할 **Key**입니다. |
+   | **value** |필수 |String |키와 일치하는 **원본** 의 대체 값입니다. |
 
 ---
 ### <a name="tolower"></a>ToLower
@@ -595,10 +595,10 @@ StringFromSid 함수는 보안 식별자를 포함한 바이트 배열을 문자
 
 **매개 변수:**<br> 
 
-   | Name | 필수/ 반복 | Type | 메모 |
+   | 속성 | 필수/ 반복 | Type | 메모 |
    | --- | --- | --- | --- |
-   | **원본** |필수 |문자열 |대개는 원본 개체의 특성 이름 |
-   | **문화권** |옵션 |문자열 |RFC 4646 기반의 문화권 이름 형식은 *languagecode2-country/regioncode2*이며, 여기서 *languagecode2*는 2자 언어 코드이고 *country/regioncode2*는 2자 하위 문화권 코드입니다. 일본어(일본)의 ja-JP와 영어(미국)의 en-US를 예로 들 수 있습니다. 2자 언어 코드를 사용할 수 없는 경우 ISO 639-2에서 파생된 3자 코드가 사용됩니다.|
+   | **원본(source)** |필수 |String |대개는 원본 개체의 특성 이름 |
+   | **문화권** |옵션 |String |RFC 4646 기반의 문화권 이름 형식은 *languagecode2-country/regioncode2*이며, 여기서 *languagecode2*는 2자 언어 코드이고 *country/regioncode2*는 2자 하위 문화권 코드입니다. 일본어(일본)의 ja-JP와 영어(미국)의 en-US를 예로 들 수 있습니다. 2자 언어 코드를 사용할 수 없는 경우 ISO 639-2에서 파생된 3자 코드가 사용됩니다.|
 
 ---
 
@@ -609,10 +609,10 @@ StringFromSid 함수는 보안 식별자를 포함한 바이트 배열을 문자
 
 **매개 변수:**<br> 
 
-  | Name | 필수/ 반복 | Type | 메모 |
+  | 속성 | 필수/ 반복 | Type | 메모 |
   | --- | --- | --- | --- |
-  | **원본** |필수 |문자열 |대개는 원본 개체의 특성 이름입니다. |
-  | **문화권** |옵션 |문자열 |RFC 4646 기반의 문화권 이름 형식은 *languagecode2-country/regioncode2*이며, 여기서 *languagecode2*는 2자 언어 코드이고 *country/regioncode2*는 2자 하위 문화권 코드입니다. 일본어(일본)의 ja-JP와 영어(미국)의 en-US를 예로 들 수 있습니다. 2자 언어 코드를 사용할 수 없는 경우 ISO 639-2에서 파생된 3자 코드가 사용됩니다.|
+  | **원본(source)** |필수 |String |대개는 원본 개체의 특성 이름입니다. |
+  | **문화권** |옵션 |String |RFC 4646 기반의 문화권 이름 형식은 *languagecode2-country/regioncode2*이며, 여기서 *languagecode2*는 2자 언어 코드이고 *country/regioncode2*는 2자 하위 문화권 코드입니다. 일본어(일본)의 ja-JP와 영어(미국)의 en-US를 예로 들 수 있습니다. 2자 언어 코드를 사용할 수 없는 경우 ISO 639-2에서 파생된 3자 코드가 사용됩니다.|
 
 ---
 
@@ -623,7 +623,7 @@ Trim 함수는 선행 및 후행 공백을 문자열에서 제거합니다.
 **구문:**  
 `str Trim(str value)`  
 
-**예제:**  
+**예:**  
 `Trim(" Test ")`  
 "test"를 반환합니다.
 
@@ -642,7 +642,7 @@ Word 함수는 사용할 구분 기호를 설명하는 매개 변수에 따라 �
 * WordNumber: 반환해야 하는 단어 수를 식별하는 번호입니다.
 * delimiters : 단어를 식별하는데 사용될 구분 기호를 나타내는 문자열입니다.
 
-**설명**  
+**설명:**  
 구분 기호 내의 문자 중 하나로 구분되는 전체 문자열의 각 문자열은 단어로 식별됩니다.
 
 * 숫자가 < 1인경우 , 빈 문자열을 반환합니다.
@@ -650,7 +650,7 @@ Word 함수는 사용할 구분 기호를 설명하는 매개 변수에 따라 �
 
 문자열이 단어 수보다 적거나, 구분 기호로 식별되는 단어를 포함할 경우, 빈 문자열이 반환됩니다.
 
-**예제:**  
+**예:**  
 `Word("The quick brown fox",3," ")`  
 "brown"을 반환합니다.
 

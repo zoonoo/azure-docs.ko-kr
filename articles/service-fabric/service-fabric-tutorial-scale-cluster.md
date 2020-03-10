@@ -4,12 +4,12 @@ description: 이 자습서에서는 Azure에서 Service Fabric 클러스터의 �
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: 9f3049f5a46918d9e70e27fe862372de2cf577ae
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: f1b813576a94541cdc2ab0a67fea71b6f49696c5
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75639057"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251804"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>자습서: Azure에서 Service Fabric 클러스터 크기 조정
 
@@ -38,7 +38,7 @@ ms.locfileid: "75639057"
 이 자습서를 시작하기 전에:
 
 * Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
-* [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-Az-ps) 또는 [Azure CLI](/cli/azure/install-azure-cli)를 설치합니다.
+* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps) 또는 [Azure CLI](/cli/azure/install-azure-cli)를 설치합니다.
 * Azure에서 보안 [Windows 클러스터](service-fabric-tutorial-create-vnet-and-windows-cluster.md) 만들기
 
 ## <a name="important-considerations-and-guidelines"></a>중요 고려 사항 및 지침
@@ -93,7 +93,7 @@ Bronze [내구성 수준][durability]의 노드 유형에서 노드를 확장하
 New-AzResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "ChangingInstanceCount"
 ```
 또는 다음 Azure CLI 명령을 실행합니다.
-```azure-cli
+```azurecli
 az group deployment create --resource-group sfclustertutorialgroup --template-file c:\temp\template.json --parameters c:\temp\parameters.json
 ```
 
@@ -799,7 +799,7 @@ Azure에서 실행되는 Service Fabric 클러스터에 정의된 모든 노드 
 New-AzResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "AddingNodeType"
 ```
 또는 다음 Azure CLI 명령을 실행합니다.
-```azure-cli
+```azurecli
 az group deployment create --resource-group sfclustertutorialgroup --template-file c:\temp\template.json --parameters c:\temp\parameters.json
 ```
 
@@ -845,7 +845,7 @@ Service Fabric 클러스터가 만들어지면 클러스터 노드 유형을 수
 
 가장 최근 배포에 대한 리소스 그룹에서 [템플릿 및 매개 변수 파일을 내보냅니다](#export-the-template-for-the-resource-group).  *parameters.json* 파일을 엽니다.  이 자습서에서 [샘플 템플릿][template]을 사용하여 클러스터를 배포한 경우 클러스터에는 세 개의 노드 유형이 있습니다.  
 
-두 번째 노드 유형의 VM 크기는 *vmNodeType1Size* 매개 변수에서 설정됩니다.  *vmNodeType1Size* 매개 변수 값을 Standard_D2_V2에서 각 VM 인스턴스의 리소스가 두 배 크기인 [Standard_D3_V2](/azure/virtual-machines/windows/sizes-general#dv2-series)로 변경합니다.
+두 번째 노드 유형의 VM 크기는 *vmNodeType1Size* 매개 변수에서 설정됩니다.  *vmNodeType1Size* 매개 변수 값을 Standard_D2_V2에서 각 VM 인스턴스의 리소스가 두 배 크기인 [Standard_D3_V2](../virtual-machines/dv2-dsv2-series.md)로 변경합니다.
 
 이러한 세 노드 유형 모두에 대한 VM SKU는 *vmImageSku* 매개 변수에서 설정됩니다.  다시 말하지만, 노드 유형의 VM SKU를 변경하는 경우 주의해야 하며 주 노드 유형에는 추천되지 않습니다.
 
@@ -856,7 +856,7 @@ Service Fabric 클러스터가 만들어지면 클러스터 노드 유형을 수
 New-AzResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "ScaleUpNodeType"
 ```
 또는 다음 Azure CLI 명령을 실행합니다.
-```azure-cli
+```azurecli
 az group deployment create --resource-group sfclustertutorialgroup --template-file c:\temp\template.json --parameters c:\temp\parameters.json
 ```
 

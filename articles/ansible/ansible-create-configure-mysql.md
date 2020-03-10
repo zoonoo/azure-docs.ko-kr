@@ -4,12 +4,12 @@ description: Ansible을 사용하여 Azure Database for MySQL 서버를 만들�
 keywords: Ansible, Azure, DevOps, Bash, 플레이북, MySQK, 데이터베이스
 ms.topic: tutorial
 ms.date: 04/30/2019
-ms.openlocfilehash: f068b3022c94466a20b524240dc293392b1f42ff
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 9cd574417733518b993bb242c2c168aba338e34a
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77603115"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78247879"
 ---
 # <a name="tutorial-configure-databases-in-azure-database-for-mysql-using-ansible"></a>자습서: Ansible을 사용하여 Azure Database for MySQL에서 데이터베이스 구성
 
@@ -24,7 +24,7 @@ ms.locfileid: "77603115"
 > * MySQL 서버 만들기
 > * MySQL 데이터베이스 만들기
 > * 외부 앱에서 서버에 연결할 수 있도록 방화벽 규칙 구성
-> * Azure Cloud Shell에서 MySQL 서버에 연결
+> * Azure Cloud Shell에서 MySql 서버에 연결
 > * 사용 가능한 MySQL 서버 쿼리
 > * 연결된 서버에 있는 모든 데이터베이스 나열
 
@@ -157,9 +157,13 @@ ansible-playbook mysql_firewall.yml
 
 이 섹션에서는 Azure Cloud Shell을 사용하여 이전에 만든 서버에 연결합니다.
 
-1. 다음 코드에서 **사용해 보세요** 단추를 선택합니다.
+1. 아래를 선택하여 shell.azure.com을 엽니다.
 
-    ```azurecli-interactive
+   [![Embed 시작](https://shell.azure.com/images/launchcloudshell.png "Azure Cloud Shell 시작")](https://shell.azure.com)
+
+1. 다음 코드를 입력합니다.
+
+    ```sql
     mysql -h mysqlserveransible.mysql.database.azure.com -u mysqladmin@mysqlserveransible -p
     ```
 
@@ -171,7 +175,7 @@ ansible-playbook mysql_firewall.yml
     
     모든 작업을 적절히 수행하면 다음 결과와 유사한 출력이 표시됩니다.
     
-    ```
+    ```output
     demo@Azure:~$ mysql -h mysqlserveransible.mysql.database.azure.com -u mysqladmin@mysqlserveransible -p
     Enter password:
     Welcome to the MySQL monitor.  Commands end with ; or \g.

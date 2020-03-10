@@ -12,18 +12,18 @@ ms.date: 12/09/2019
 ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev
-ms.openlocfilehash: 3c18440e87cf50e370b21b5f0ca33b42e0069fc1
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 8714b7a96197cb4a59b29bada31b5559961bf8e3
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77161429"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78300216"
 ---
 # <a name="evolution-of-microsoft-identity-platform"></a>Microsoft ID 플랫폼의 발전
 
 Microsoft ID 플랫폼은 Azure AD(Azure Active Directory) 개발자 플랫폼의 발전된 형태입니다. 이 플랫폼을 사용하면 개발자는 사용자를 로그인하고, Microsoft Graph 같은 API 또는 개발자가 빌드한 API를 호출하는 토큰을 가져오는 애플리케이션을 빌드할 수 있습니다. 이 플랫폼은 인증 서비스, 오픈 소스 라이브러리, 애플리케이션 등록 및 구성(개발자 포털 및 애플리케이션 API를 통해), 완전한 개발자 설명서, 빠른 시작 샘플, 코드 샘플, 자습서, 방법 가이드, 기타 개발자 콘텐츠로 구성되어 있습니다. Microsoft ID 플랫폼은 OAuth 2.0 및 OpenID Connect 등의 산업 표준 프로토콜을 지원합니다.
 
-지금까지는 대부분의 개발자가 ADAL(Azure AD 인증 라이브러리), 애플리케이션 등록 및 구성을 위한 Azure Portal, 프로그래밍 방식으로 애플리케이션 구성을 위한 Azure AD Graph API를 사용하여 Azure AD v1.0 엔드포인트에서 토큰을 요청하는 방법으로 Azure AD v1.0 플랫폼을 작업하여 회사 및 학교 계정(Azure AD로 프로비저닝된)을 인증했습니다.
+지금까지는 대부분의 개발자가 ADAL(Azure AD 인증 라이브러리), 애플리케이션 등록 및 구성을 위한 Azure Portal, 프로그래밍 방식으로 애플리케이션 구성을 위한 Microsoft Graph API를 사용하여 Azure AD v1.0 엔드포인트에서 토큰을 요청하는 방법으로 Azure AD v1.0 플랫폼을 작업하여 회사 및 학교 계정(Azure AD로 프로비저닝된)을 인증했습니다.
 
 통합 Microsoft ID 플랫폼(v2.0)을 사용하는 경우 코드를 한 번만 작성하면 모든 Microsoft ID를 애플리케이션에 인증할 수 있습니다. 여러 플랫폼의 경우 ID 플랫폼 엔드포인트에 대해 완전히 지원되는 오픈 소스 MSAL(Microsoft Authentication Library)을 사용하는 것이 좋습니다. MSAL은 사용 방법이 간단하고, 사용자에게 뛰어난 SSO(Single Sign-On) 환경을 제공하고, 높은 신뢰성과 성능을 제공하며, Microsoft SDL(Security Development Lifecycle)을 사용하여 개발됩니다. API를 호출할 때 증분 동의를 활용하도록 애플리케이션을 구성할 수 있습니다. 이렇게 하면 런타임에 애플리케이션을 사용할 수 있을 때까지 동의 요청을 지연하여 보다 공격적인 범위를 구현할 수 있습니다.  또한 MSAL은 Azure Active Directory B2C를 지원하므로, 고객은 기본 설정 소셜, 엔터프라이즈 또는 로컬 계정 ID를 사용하여 애플리케이션 및 API에 대한 Single Sign-On 액세스 권한을 얻습니다.
 
@@ -49,7 +49,7 @@ Azure Portal **[앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908)** �
 
 Azure AD B2C와 통합하려면(소셜 또는 로컬 ID를 인증할 때) 애플리케이션을 Azure AD B2C 테넌트에 등록해야 합니다. 이 환경은 Azure Portal의 일부이기도 합니다.
 
-**Microsoft Graph의 애플리케이션 API**는 현재 미리 보기로 제공됩니다. 이 API를 사용하면 모든 Microsoft ID를 인증하도록 Microsoft ID 플랫폼과 통합된 애플리케이션을 프로그래밍 방식으로 구성할 수 있습니다. 하지만 이 API가 일반 공급될 때까지는 Azure AD Graph 1.6 API 및 애플리케이션 매니페스트를 사용해야 합니다.
+[Application API](https://docs.microsoft.com/graph/api/resources/application?view=graph-rest-1.0)를 사용하여 모든 Microsoft ID를 인증하도록 Microsoft ID 플랫폼과 통합된 애플리케이션을 프로그래밍 방식으로 구성합니다.
 
 ### <a name="msal-libraries"></a>MSAL 라이브러리
 

@@ -1,25 +1,26 @@
 ---
 title: 지속적인 통합 및 배포
-description: Azure Pipelines를 사용한 지속적인 통합 및 배포를 기본적으로 지원하는 SQL Data Warehouse용 엔터프라이즈급 데이터베이스 DevOps 환경입니다.
+description: Azure Pipelines를 사용한 지속적인 통합 및 배포를 기본적으로 지원하는 데이터 웨어하우징용 엔터프라이즈급 데이터베이스 DevOps 환경입니다.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: overview
 ms.subservice: integration
-ms.date: 08/28/2019
+ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: a8178e5ff9ff4816ddd422d3c45cfc0e1e0b3d41
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.custom: azure-synapse
+ms.openlocfilehash: cb28afc84c423c5c5321a8f948e82f82031888a0
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76712992"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78195943"
 ---
-# <a name="continuous-integration-and-deployment-for-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에 대한 지속적인 통합 및 배포
+# <a name="continuous-integration-and-deployment-for-data-warehousing"></a>데이터 웨어하우징에 대한 지속적인 통합 및 배포
 
-이 간단한 자습서에서는 SSDT(SQL Server Data Tools) 데이터베이스 프로젝트를 Azure DevOps와 통합하고, Azure Pipelines를 활용하여 지속적인 통합 및 배포를 설정하는 방법에 대해 간략히 설명합니다. 이 자습서는 SQL Data Warehouse를 사용하여 지속적인 통합 및 배포 파이프라인을 빌드하는 두 번째 단계입니다. 
+이 간단한 자습서에서는 SSDT(SQL Server Data Tools) 데이터베이스 프로젝트를 Azure DevOps와 통합하고, Azure Pipelines를 활용하여 지속적인 통합 및 배포를 설정하는 방법에 대해 간략히 설명합니다. 이 자습서는 데이터 웨어하우징에 대한 지속적인 통합 및 배포 파이프라인을 빌드하는 두 번째 단계입니다. 
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -61,7 +62,7 @@ ms.locfileid: "76712992"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure SQL Data Warehouse 아키텍처](massively-parallel-processing-mpp-architecture.md) 살펴보기
-- 빠르게 [SQL Data Warehouse 만들기](create-data-warehouse-portal.md)
+- [SQL Analytics MPP 아키텍처](massively-parallel-processing-mpp-architecture.md) 탐색
+- 빠르게 [SQL 풀 만들기](create-data-warehouse-portal.md)
 - [샘플 데이터 로드](sql-data-warehouse-load-sample-databases.md)
 - [비디오](/azure/sql-data-warehouse/sql-data-warehouse-videos) 살펴보기

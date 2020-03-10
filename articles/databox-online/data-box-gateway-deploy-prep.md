@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: fdb4b7c370d5edadf3e0e5bc0d1ae548da6bcaa9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0446ee4fb238d2fa8447f998536c3c14d968f630
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75438652"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303208"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-gateway"></a>자습서: Azure Data Box Gateway 배포 준비
 
@@ -94,7 +94,7 @@ Data Box Gateway 리소스를 만들려면 Azure Portal에서 다음 단계를 �
     - 또는 URL [https://portal.azure.us](https://portal.azure.us)에서 Azure Government 포털에 로그인합니다. 자세한 내용을 보려면 [포털을 사용하여 Azure Government에 연결](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal)로 이동합니다.
 
 2. 왼쪽 창에서 **+ 리소스 만들기**를 선택합니다. **Data Box Edge/Data Box Gateway**를 검색합니다. Data Box Edge/Data Box Gateway를 선택합니다. **만들기**를 선택합니다.
-3. Data Box Gateway 디바이스에서 사용하려는 구독을 선택합니다. Data Box Gateway 리소스를 배포할 지역을 선택합니다. 이 릴리스에서는 미국 동부, 동남 아시아 및 서유럽을 선택할 수 있습니다. 디바이스를 배포하려는 지역에 지리적으로 가장 가까운 위치를 선택합니다. **Data Box Gateway** 옵션에서 **만들기**를 선택합니다.
+3. Data Box Gateway 디바이스에서 사용하려는 구독을 선택합니다. Data Box Gateway 리소스를 배포할 지역을 선택합니다. Azure Stack Edge 리소스를 사용할 수 있는 모든 지역 목록을 보려면 [지역별로 사용 가능한 Azure 제품](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all)을 참조하세요. 디바이스를 배포하려는 지역에 지리적으로 가장 가까운 위치를 선택합니다. **Data Box Gateway** 옵션에서 **만들기**를 선택합니다.
 
     ![Data Box Gateway 서비스 검색](media/data-box-gateway-deploy-prep/data-box-gateway-edge-sku.png)
 
@@ -110,7 +110,7 @@ Data Box Gateway 리소스를 만들려면 Azure Portal에서 다음 단계를 �
     |설정  |값  |
     |---------|---------|
     |속성   | 리소스를 식별하기 위한 이름.<br>이름에는 문자, 숫자 및 하이픈을 포함하여 2~50자가 포함됩니다.<br> 이름은 문자 또는 숫자로 시작하고 끝납니다.        |   
-    |지역     |이 릴리스는 미국 동부, 동남 아시아 및 서유럽에 리소스를 배포할 수 있습니다. Azure Government의 경우 [Azure 지역](https://azure.microsoft.com/global-infrastructure/regions/)에 나열된 모든 정부 지역에서 사용 가능합니다. <br> 디바이스를 배포하려는 지역에 지리적으로 가장 가까운 위치를 선택합니다.|
+    |지역     |Azure Stack Edge 리소스를 사용할 수 있는 모든 지역 목록을 보려면 [지역별로 사용 가능한 Azure 제품](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all)을 참조하세요. Azure Government의 경우 [Azure 지역](https://azure.microsoft.com/global-infrastructure/regions/)에 나열된 모든 정부 지역에서 사용 가능합니다. <br> 디바이스를 배포하려는 지역에 지리적으로 가장 가까운 위치를 선택합니다.|
     
     ![Data Box 게이트웨이 리소스 만들기](media/data-box-gateway-deploy-prep/data-box-gateway-resource.png)
     

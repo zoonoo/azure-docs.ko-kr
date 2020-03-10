@@ -4,16 +4,16 @@ description: Azure Data Lake Storage Gen2에 대한 개요 제공
 author: normesta
 ms.service: storage
 ms.topic: overview
-ms.date: 10/11/2019
+ms.date: 02/25/2020
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 99863f68c20a2f95dfc744e13a977bf3ccbbf639
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 75bd27f0945c66b9757055c0777b43a050ba67d7
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580440"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920997"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 소개
 
@@ -66,30 +66,23 @@ Data Lake Storage Gen2는 빅데이터 분석을 위한 추가 기능이며, Azu
 | Blob – 범용 개체 스토리지 | 컨테이너              | 가상 디렉터리(SDK만 해당 - 원자성 조작을 제공하지 않음) | Blob           |
 | Azure Data Lake Storage Gen2 - Analytics Storage          | 컨테이너            | 디렉터리                                                           | 파일           |
 
+## <a name="supported-blob-storage-features"></a>지원되는 Blob 스토리지 기능
+
+ [진단 로깅](../common/storage-analytics-logging.md),  [액세스 계층](storage-blob-storage-tiers.md) 및  [Blob Storage 수명 주기 관리 정책](storage-lifecycle-management-concepts.md)과 같은 Blob 스토리지 기능은 이제 계층 구조 네임스페이스가 있는 계정으로 작동합니다. 따라서 이러한 기능에 대한 액세스를 잃지 않고 Blob 스토리지 계정에서 계층 구조 네임스페이스를 사용하도록 설정할 수 있습니다. 
+
+지원되는 Blob 스토리지 기능 목록은 [Azure Data Lake Storage Gen2에서 사용할 수 있는 Blob Storage 기능](data-lake-storage-supported-blob-storage-features.md)을 참조하세요.
+
+## <a name="supported-azure-service-integrations"></a>지원되는 Azure 서비스 통합
+
+Data Lake Storage gen2는 데이터를 수집하고, 분석을 수행하고, 시각적 표현을 만드는 데 사용할 수 있는 여러 Azure 서비스를 지원합니다. 지원되는 Azure 서비스 목록은 [Azure Data Lake Storage Gen2를 지원하는 Azure 서비스](data-lake-storage-supported-azure-services.md)를 참조하세요.
+
 ## <a name="supported-open-source-platforms"></a>지원되는 오픈 소스 플랫폼
 
-Data Lake Storage Gen2는 몇 가지 오픈 소스 플랫폼에서 지원합니다. 다음 표에는 이러한 플랫폼이 나와 있습니다.
+Data Lake Storage Gen2는 몇 가지 오픈 소스 플랫폼에서 지원합니다. 전체 목록은 [Azure Data Lake Storage Gen2를 지원하는 오픈 소스 플랫폼](data-lake-storage-supported-open-source-platforms.md)을 참조하세요.
 
-> [!NOTE]
-> 이 표에 나오는 버전만 지원됩니다.
+## <a name="see-also"></a>참고 항목
 
-| 플랫폼 |  지원되는 버전 | 추가 정보 |
-| --- | --- | --- |
-| [HDInsight](https://azure.microsoft.com/services/hdinsight/) | 3.6 이상 | [HDInsight에서 사용할 수 있는 Apache Hadoop 구성 요소 및 버전은?](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning?toc=%2Fen-us%2Fazure%2Fhdinsight%2Fstorm%2FTOC.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)
-| [Hadoop](https://hadoop.apache.org/) | 3.2 이상 | [Apache Hadoop 릴리스 보관 파일](https://hadoop.apache.org/release.html) |
-| [Cloudera](https://www.cloudera.com/) | 6.1 이상 | [Cloudera Enterprise 6.x 릴리스 정보](https://www.cloudera.com/documentation/enterprise/6/release-notes/topics/rg_cdh_6_release_notes.html) |
-| [Azure Databricks](https://azure.microsoft.com/services/databricks/) | 5.1 이상 | [Databricks Runtime 버전](https://docs.databricks.com/release-notes/runtime/databricks-runtime-ver.html) |
-|[Hortonworks](https://hortonworks.com/)| 3.1.x 이상 | [클라우드 데이터 액세스 구성](https://docs.hortonworks.com/HDPDocuments/Cloudbreak/Cloudbreak-2.9.0/cloud-data-access/content/cb_configuring-access-to-adls2.html) |
-
-## <a name="supported-azure-services"></a>지원되는 Azure 서비스
-
-Data Lake Storage gen2는 데이터를 수집하고, 분석을 수행하고, 시각적 표현을 만드는 데 사용할 수 있는 여러 Azure 서비스를 지원합니다. 지원되는 Azure 서비스 목록은 [Azure 서비스와 Azure Data Lake Storage 통합](data-lake-storage-integrate-with-azure-services.md)을 참조하세요.
-
-## <a name="next-steps"></a>다음 단계
-
-다음 문서에서는 Data Lake Storage Gen2의 기본 개념을 설명하고 데이터를 저장, 액세스, 관리하고 데이터에서 인사이트를 얻는 방법을 자세히 살펴봅니다.
-
-- [계층 구조 네임스페이스](data-lake-storage-namespace.md)
-- [스토리지 계정을 만드는](data-lake-storage-quickstart-create-account.md)
+- [Azure Data Lake Storage Gen2에서 알려진 문제](data-lake-storage-known-issues.md)
 - [Azure Data Lake Storage에 대한 다중 프로토콜 액세스](data-lake-storage-multi-protocol-access.md)
-- [Azure 서비스와 Azure Data Lake Storage 통합](data-lake-storage-integrate-with-azure-services.md);
+
+

@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/18/2020
 ms.author: banders
-ms.openlocfilehash: c1cced862bee1ec4579f3e6e5145968dec7613e4
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: 1c5dd5ebd5023b75aad5dabf6a721a1193a6224d
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77500565"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78272196"
 ---
 # <a name="what-are-azure-reservations"></a>Azure Reservations란?
 
@@ -42,6 +42,7 @@ Azure Reservations는 가상 머신, Azure Blob 스토리지 또는 Azure Data L
 - **Azure Database for PostgreSQL** - 컴퓨팅 비용만 예약에 포함됩니다. 예약에는 PostgreSQL Database 서버와 연결된 소프트웨어, 네트워킹 또는 스토리지 요금이 포함되지 않습니다.
 - **Azure Database for MariaDB** - 컴퓨팅 비용만 예약에 포함됩니다. 예약에는 MariaDB Database 서버와 연결된 소프트웨어, 네트워킹 또는 스토리지 요금이 포함되지 않습니다.
 - **Azure Data Explorer** - 예약에는 태그 요금이 포함됩니다. 예약에는 클러스터와 연결된 컴퓨팅, 네트워킹 또는 스토리지 요금이 포함되지 않습니다.
+- **Azure Cache for Redis** - 컴퓨팅 비용만 예약에 포함됩니다. 예약에는 Redis 캐시 인스턴스와 연결된 네트워킹 또는 스토리지 요금이 포함되지 않습니다.
 - **프리미엄 SSD Managed Disks** - 지정된 디스크 SKU를 예약합니다. 
 
 소프트웨어 플랜:

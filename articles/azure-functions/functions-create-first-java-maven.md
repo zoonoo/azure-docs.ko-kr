@@ -1,20 +1,22 @@
 ---
-title: Java 및 Maven를 사용하여 Azure에 함수 게시
-description: Java 및 Maven을 사용하여 Azure에 HTTP 트리거 함수를 만들어 게시합니다.
-author: rloutlaw
+title: Java 및 Maven/Gradle을 사용하여 Azure에 함수 게시
+description: Java 및 Maven 또는 Gradle을 사용하여 Azure에 HTTP 트리거 함수를 만들어 게시합니다.
+author: KarlErickson
+ms.author: karler
 ms.topic: quickstart
 ms.date: 08/10/2018
 ms.custom: mvc, devcenter, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: f226736050319d57cd0bc123fdb2211e0faeae11
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+zone_pivot_groups: java-build-tools-set
+ms.openlocfilehash: dbdcf2552b453fa72bfec616a02bd45afc45fb0f
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77208849"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78272724"
 ---
-# <a name="quickstart-use-java-and-maven-to-create-and-publish-a-function-to-azure"></a>빠른 시작: Java 및 Maven을 사용하여 함수를 만들고 Azure에 게시
+# <a name="quickstart-use-java-and-mavengradle-to-create-and-publish-a-function-to-azure"></a>빠른 시작: Java 및 Maven/Gradle을 사용하여 함수를 만들고 Azure에 게시
 
-이 문서에서는 Maven 명령줄 도구를 사용하여 Java 함수를 만들고 Azure Functions에 게시하는 방법을 보여 줍니다. 완료되면 함수 코드는 [서버리스 호스팅 계획](functions-scale.md#consumption-plan)의 Azure에서 실행되고 HTTP 요청에 의해 트리거됩니다.
+이 문서에서는 Maven/Gradle 명령줄 도구를 사용하여 Java 함수를 만들고 Azure Functions에 게시하는 방법을 보여 줍니다. 완료되면 함수 코드는 [서버리스 호스팅 계획](functions-scale.md#consumption-plan)의 Azure에서 실행되고 HTTP 요청에 의해 트리거됩니다.
 
 <!--
 > [!NOTE] 
@@ -26,9 +28,15 @@ ms.locfileid: "77208849"
 Java를 사용하여 함수를 개발하려면 다음을 설치해야 합니다.
 
 - [Java Developer Kit](https://aka.ms/azure-jdks), 버전 8
-- [Apache Maven](https://maven.apache.org), 버전 3.0 이상
 - [Azure CLI]
 - [Azure Functions Core Tools](./functions-run-local.md#v2) 버전 2.6.666 이상
+::: zone pivot="java-build-tools-maven" 
+- [Apache Maven](https://maven.apache.org), 버전 3.0 이상
+::: zone-end
+
+::: zone pivot="java-build-tools-gradle"  
+- [Gradle](https://gradle.org/), 버전 4.10 이상
+::: zone-end 
 
 활성 상태인 Azure 구독도 필요합니다. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -36,34 +44,20 @@ Java를 사용하여 함수를 개발하려면 다음을 설치해야 합니다.
 > [!IMPORTANT]
 > 이 퀵 스타트를 완료하려면 JAVA_HOME 환경 변수를 JDK 설치 위치로 설정해야 합니다.
 
-## <a name="generate-a-new-functions-project"></a>새 Functions 프로젝트 생성
+## <a name="prepare-a-functions-project"></a>Functions 프로젝트 준비
 
+::: zone pivot="java-build-tools-maven" 
 빈 폴더에서 다음 명령을 실행하여 [Maven archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html)으로부터 Functions 프로젝트를 생성합니다.
 
-### <a name="linuxmacos"></a>Linux/macOS
-
 ```bash
-mvn archetype:generate \
-    -DarchetypeGroupId=com.microsoft.azure \
-    -DarchetypeArtifactId=azure-functions-archetype 
+mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype 
 ```
 
 > [!NOTE]
+> Powershell을 사용하는 경우 매개 변수 주위에 ""를 추가해야 합니다.
+
+> [!NOTE]
 > 명령 실행에 문제가 발생하는 경우 `maven-archetype-plugin` 버전이 사용되는지 살펴보시기 바랍니다. `.pom` 파일이 없는 빈 디렉터리에서 명령을 실행하고 있으므로 이전 버전에서 Maven을 업그레이드한 경우 `~/.m2/repository/org/apache/maven/plugins/maven-archetype-plugin`에서 이전 버전의 플러그 인을 사용을 시도할 수도 있습니다. 그렇다면 `maven-archetype-plugin` 디렉터리를 삭제하고 명령을 다시 실행해보세요.
-
-### <a name="windows"></a>Windows
-
-```powershell
-mvn archetype:generate `
-    "-DarchetypeGroupId=com.microsoft.azure" `
-    "-DarchetypeArtifactId=azure-functions-archetype"
-```
-
-```cmd
-mvn archetype:generate ^
-    "-DarchetypeGroupId=com.microsoft.azure" ^
-    "-DarchetypeArtifactId=azure-functions-archetype"
-```
 
 Maven은 배포 시 프로젝트 생성 완료를 위해 필요한 값을 요청합니다. 메시지가 표시되면 다음 값을 제공합니다.
 
@@ -79,7 +73,35 @@ Maven은 배포 시 프로젝트 생성 완료를 위해 필요한 값을 요청
 
 `Y`를 입력하거나 Enter 키를 눌러 확인합니다.
 
-Maven은 이름이 _artifactId_인 새 폴더에 프로젝트 파일을 만드는데, 이 예제에서는 `fabrikam-functions`입니다. 
+Maven은 이름이 _artifactId_인 새 폴더에 프로젝트 파일을 만드는데, 이 예제에서는 `fabrikam-functions`입니다. 다음 명령을 실행하여 디렉터리를 만든 프로젝트 폴더로 변경합니다.
+```bash
+cd fabrikam-function
+```
+
+::: zone-end 
+::: zone pivot="java-build-tools-gradle"
+다음 명령을 사용하여 샘플 프로젝트를 복제합니다.
+
+```bash
+git clone https://github.com/Azure-Samples/azure-functions-samples-java.git
+cd azure-functions-samples-java/
+```
+
+`build.gradle`을 열고 Azure에 배포할 때 도메인 이름 충돌을 방지하기 위해 다음 섹션의 `appName`을 고유한 이름으로 변경합니다. 
+
+```gradle
+azurefunctions {
+    resourceGroup = 'java-functions-group'
+    appName = 'azure-functions-sample-demo'
+    pricingTier = 'Consumption'
+    region = 'westus'
+    runtime {
+      os = 'windows'
+    }
+    localDebug = "transport=dt_socket,server=y,suspend=n,address=5005"
+}
+```
+::: zone-end
 
 텍스트 편집기에서 *src/main/java* 경로에서 새 Function.java 파일을 열고 생성된 코드를 검토합니다. 이 코드는 요청의 본문을 에코하는 [HTTP 트리거](functions-bindings-http-webhook.md) 함수입니다. 
 
@@ -88,17 +110,25 @@ Maven은 이름이 _artifactId_인 새 폴더에 프로젝트 파일을 만드�
 
 ## <a name="run-the-function-locally"></a>로컬에서 함수 실행
 
-디렉터리를 새로 만든 프로젝트 폴더로 변경하는 다음 명령을 실행한 다음, 함수 프로젝트를 빌드하고 실행합니다.
+다음 명령을 실행하여 빌드한 다음, 함수 프로젝트를 실행합니다.
 
-```console
-cd fabrikam-function
+::: zone pivot="java-build-tools-maven" 
+```bash
 mvn clean package 
 mvn azure-functions:run
 ```
+::: zone-end 
+
+::: zone pivot="java-build-tools-gradle"  
+```bash
+gradle jar --info
+gradle azureFunctionsRun
+```
+::: zone-end 
 
 프로젝트를 로컬로 실행할 때 Azure Functions Core Tools에서 다음과 같은 출력이 표시됩니다.
 
-```Output
+```output
 ...
 
 Now listening on: http://0.0.0.0:7071
@@ -112,11 +142,11 @@ Http Functions:
 
 새 터미널 창에서 cURL을 사용하여 명령줄에서 함수를 트리거합니다.
 
-```CMD
+```bash
 curl -w "\n" http://localhost:7071/api/HttpTrigger-Java --data AzureFunctions
 ```
 
-```Output
+```output
 Hello AzureFunctions!
 ```
 로컬로 실행하는 경우 [함수 키](functions-bindings-http-webhook-trigger.md#authorization-keys)는 필요하지 않습니다. 터미널에서 `Ctrl+C`를 사용하여 함수 코드를 중지합니다.
@@ -135,13 +165,22 @@ az login
 > [!TIP]
 > 계정에서 여러 구독에 액세스할 수 있는 경우 [az account set](/cli/azure/account#az-account-set)을 사용하여 이 세션에 대한 기본 구독을 설정합니다. 
 
-다음 Maven 명령을 사용하여 프로젝트를 새 함수 앱에 배포합니다. 
+다음 명령을 사용하여 프로젝트를 새 함수 앱에 배포합니다. 
 
-```azurecli
+
+::: zone pivot="java-build-tools-maven" 
+```bash
 mvn azure-functions:deploy
 ```
+::: zone-end 
 
-이 `azure-functions:deploy` Maven 대상은 Azure에서 다음 리소스를 만듭니다.
+::: zone pivot="java-build-tools-gradle"  
+```bash
+gradle azureFunctionsDeploy
+```
+::: zone-end
+
+그러면 Azure에서 다음 리소스가 생성됩니다.
 
 + 리소스 그룹 지정한 _resourceGroup_을 사용하여 명명됩니다.
 + Storage 계정 함수에 필요합니다. 이름은 스토리지 계정 이름 요구 사항에 따라 임의로 생성됩니다.
@@ -175,13 +214,13 @@ Azure Portal에서 함수 키를 사용하여 함수를 트리거하는 데 필�
 
 `cURL`을 사용하여 Azure에서 실행되는 함수 앱을 확인하려면 아래 샘플의 URL을 포털에서 복사한 URL로 바꿉니다.
 
-```azurecli
+```console
 curl -w "\n" https://fabrikam-functions-20190929094703749.azurewebsites.net/api/HttpTrigger-Java?code=zYRohsTwBlZ68YF.... --data AzureFunctions
 ```
 
 이는 요청 본문에 `AzureFunctions`를 사용하여 POST 요청을 함수 엔드포인트로 보냅니다. 다음 응답이 표시됩니다.
 
-```Output
+```output
 Hello AzureFunctions!
 ```
 
