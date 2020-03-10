@@ -1,27 +1,20 @@
 ---
 title: Azure 쓰기 가속기
 description: Write Accelerator를 사용하는 방법에 대한 설명서
-services: virtual-machines-linux
-documentationcenter: ''
 author: raiye
 manager: markkie
-editor: ''
-tags: azure-resource-manager
-keywords: ''
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 2/20/2019
 ms.author: raiye
-ms.custom: H1Hack27Feb2017
 ms.subservice: disks
-ms.openlocfilehash: 48842227e1467a64a0e5167ce319ea9da8dbc90f
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 032ce960ce0d2cca5e1690522f6a16e7b610c4fa
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036067"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78945077"
 ---
 # <a name="enable-write-accelerator"></a>Write Accelerator 사용
 [!INCLUDE [how-to-enable-write-accelerator](../../../includes/virtual-machines-common-how-to-enable-write-accelerator.md)]

@@ -6,13 +6,14 @@ ms.author: danis
 ms.date: 01/23/2020
 ms.topic: article
 ms.service: virtual-machines-linux
+ms.subservice: imaging
 manager: gwallace
-ms.openlocfilehash: 08a1ca0c85d69d1a5262f1dcac5d46fb82b1c22b
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 870c8856cdc22b0586199051575de02312420990
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78191795"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944995"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>미리 보기: Azure 이미지 작성기 템플릿 만들기 
 
@@ -70,7 +71,7 @@ Azure 이미지 작성기는 json 파일을 사용 하 여 이미지 작성기 �
     "location": "<region>",
 ```
 ## <a name="vmprofile"></a>vmProfile
-기본적으로 이미지 작성기는 "Standard_D1_v2" 빌드 VM을 사용 합니다 .이를 재정의할 수 있습니다. 예를 들어 GPU VM에 대 한 이미지를 사용자 지정 하려는 경우 GPU VM 크기가 필요 합니다. 이 옵션은 선택적입니다.
+기본적으로 이미지 작성기는 "Standard_D1_v2" 빌드 VM을 사용 합니다 .이를 재정의할 수 있습니다. 예를 들어 GPU VM에 대 한 이미지를 사용자 지정 하려는 경우 GPU VM 크기가 필요 합니다. 이 구성 요소는 선택 사항입니다.
 
 ```json
  {
@@ -80,7 +81,7 @@ Azure 이미지 작성기는 json 파일을 사용 하 여 이미지 작성기 �
 
 ## <a name="osdisksizegb"></a>osDiskSizeGB
 
-기본적으로 이미지 작성기는 이미지 크기를 변경 하지 않으며 원본 이미지의 크기를 사용 합니다. Os 디스크의 크기를 조정할 수 있습니다 (Win 및 Linux). 참고로, OS에 필요한 최소 필요한 공간 보다 너무 작게 이동 하지 마십시오. 이 값은 선택 사항이 며 값이 0 이면 원본 이미지와 크기가 동일 하 게 유지 됩니다. 이 옵션은 선택적입니다.
+기본적으로 이미지 작성기는 이미지 크기를 변경 하지 않으며 원본 이미지의 크기를 사용 합니다. Os 디스크의 크기를 조정할 수 있습니다 (Win 및 Linux). 참고로, OS에 필요한 최소 필요한 공간 보다 너무 작게 이동 하지 마십시오. 이 값은 선택 사항이 며 값이 0 이면 원본 이미지와 크기가 동일 하 게 유지 됩니다. 이 구성 요소는 선택 사항입니다.
 
 ```json
  {
@@ -88,7 +89,7 @@ Azure 이미지 작성기는 json 파일을 사용 하 여 이미지 작성기 �
  },
 ```
 
-## <a name="tags"></a>Tags
+## <a name="tags"></a>태그들
 
 이는 생성 된 이미지에 대해 지정할 수 있는 키/값 쌍입니다.
 
@@ -102,7 +103,7 @@ Azure 이미지 작성기는 json 파일을 사용 하 여 이미지 작성기 �
 
 자세한 내용은 [리소스 종속성 정의](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-define-dependencies#dependson)를 참조 하세요.
 
-## <a name="identity"></a>Identity
+## <a name="identity"></a>ID
 기본적으로 이미지 작성기는 스크립트를 사용 하거나 GitHub 및 Azure storage와 같은 여러 위치에서 파일을 복사 하는 것을 지원 합니다. 이를 사용 하려면 공개적으로 액세스할 수 있어야 합니다.
 
 사용자가 정의한 Azure 사용자 할당 관리 Id를 사용 하 여 Azure storage 계정에 최소 ' 저장소 Blob 데이터 판독기 '가 id에 부여 된 경우에만 이미지 작성기 액세스를 Azure Storage 수 있습니다. 즉, 저장소 blob을 외부에서 액세스할 수 없도록 하거나 SAS 토큰을 설정할 필요가 없습니다.

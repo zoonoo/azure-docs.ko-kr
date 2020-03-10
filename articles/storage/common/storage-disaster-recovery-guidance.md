@@ -10,12 +10,12 @@ ms.date: 01/23/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 943f63c19dec463f99c10c00dd42abad0779f5e8
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
-ms.translationtype: HT
+ms.openlocfilehash: 8442d3f7ed3e73dc5d7358a9bc1d3ee31d7668cd
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78673563"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78894537"
 ---
 # <a name="disaster-recovery-and-account-failover-preview"></a>재해 복구 및 계정 장애 조치 (failover) (미리 보기)
 
@@ -122,6 +122,10 @@ Azure Portal, PowerShell, Azure CLI 또는 Azure Storage 리소스 공급자 API
 
 미리 보기 기간 동안 강제 장애 조치(failover)를 수행할 경우 애플리케이션 및 서비스가 어떤 영향을 받을 수 있는지를 이해하려면 이 섹션에 설명된 추가 고려 사항을 검토합니다.
 
+#### <a name="storage-account-containing-archived-blobs"></a>보관 된 blob을 포함 하는 저장소 계정
+
+보관 된 blob이 있는 저장소 계정은 계정 장애 조치 (failover)를 지원 합니다. 장애 조치 (failover)가 완료 되 면 계정을 다시 GRS 또는 RA GRS 모든 archieved blob을 온라인 계층으로 전환 해야 합니다.
+
 #### <a name="storage-resource-provider"></a>스토리지 리소스 공급자
 
 장애 조치 (failover)가 완료 된 후 클라이언트는 새 주 지역에서 Azure Storage 데이터를 다시 읽고 쓸 수 있습니다. 그러나 Azure Storage 리소스 공급자는 장애 조치 (failover) 되지 않으므로 리소스 관리 작업이 주 지역에서 계속 발생 해야 합니다. 주 지역을 사용할 수 없는 경우에는 저장소 계정에 대 한 관리 작업을 수행할 수 없습니다.
@@ -153,8 +157,8 @@ VM이 종료되면 임시 디스크에 저장된 데이터가 손실됩니다.
 
 다음 기능 및 서비스는 미리 보기 릴리스에 대 한 계정 장애 조치 (failover)에 대해 지원 되지 않습니다.
 
-- Azure 파일 동기화는 스토리지 계정 장애 조치(Failover)를 지원하지 않습니다. Azure 파일 동기화에서 클라우드 엔드포인트로 사용되는 Azure 파일 공유를 포함하는 스토리지 계정은 장애 조치(failover)하지 않아야 합니다. 이러한 계정을 장애 조치(failover)하면 동기화가 더 이상 진행되지 않고, 새로 계층화된 파일의 경우 예기치 않은 데이터 손실이 발생할 수도 있습니다.  
-- 보관된 blob을 포함하는 스토리지 계정은 장애 조치(failover)할 수 없습니다. 보관된 blob은 장애 조치(failover)하지 않으려는 별도 스토리지 계정에 유지 관리합니다.
+- Azure 파일 동기화는 스토리지 계정 장애 조치(Failover)를 지원하지 않습니다. Azure 파일 동기화에서 클라우드 엔드포인트로 사용되는 Azure 파일 공유를 포함하는 스토리지 계정은 장애 조치(failover)하지 않아야 합니다. 이러한 계정을 장애 조치(failover)하면 동기화가 더 이상 진행되지 않고, 새로 계층화된 파일의 경우 예기치 않은 데이터 손실이 발생할 수도 있습니다.
+- ADLS Gen2 storage 계정 (계층적 네임 스페이스를 사용 하는 계정은 현재 지원 되지 않음)입니다.
 - 프리미엄 블록 blob을 포함하는 스토리지 계정은 장애 조치(failover)할 수 없습니다. 프리미엄 블록 blob를 지원하는 스토리지 계정은 현재 지리적 중복을 지원하지 않습니다.
 - [웜 불변성 정책](../blobs/storage-blob-immutable-storage.md) 사용 컨테이너를 포함 하는 저장소 계정은 장애 조치 (failover) 할 수 없습니다. 잠금 해제/잠금 시간 기반 보존 또는 법적 보류 정책은 규정 준수를 유지 하기 위해 장애 조치 (failover)를 방지 합니다.
 - 장애 조치 (failover)가 완료 된 후에는 [이벤트 구독](../blobs/storage-blob-event-overview.md), [변경 피드](../blobs/storage-blob-change-feed.md), [수명 주기 정책](../blobs/storage-lifecycle-management-concepts.md)및 [스토리지 분석 로깅을](storage-analytics-logging.md)사용 하는 경우 다음 기능을 사용 하지 못할 수 있습니다.

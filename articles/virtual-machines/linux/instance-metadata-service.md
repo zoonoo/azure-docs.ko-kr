@@ -2,24 +2,21 @@
 title: Azure Instance Metadata Service
 description: RESTful 인터페이스를 통해 Linux Vm 계산, 네트워크 및 예정 된 유지 관리 이벤트에 대 한 정보를 가져올 수 있습니다.
 services: virtual-machines-linux
-documentationcenter: ''
 author: KumariSupriya
 manager: paulmey
-editor: ''
-tags: azure-resource-manager
 ms.service: virtual-machines-linux
+ms.subservice: monitoring
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/24/2020
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: b0d4d1d13a329b0d95fcd0358f6141486b4435e5
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: 3281b4dafa5436c9df760ac8aa3fc82f535b4286
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78205010"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944860"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure Instance Metadata Service
 

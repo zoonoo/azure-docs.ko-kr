@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: bb0962991701dc780e50fec60982083b20d4ab0e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3930e51f63615abd21a7b04199a0f4767925792a
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75358380"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944505"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-c"></a>C#을 사용하여 Azure에서 Windows VM 생성 및 관리 #
 
@@ -59,7 +59,7 @@ NuGet 패키지는 이러한 단계를 완료하는데 필요한 라이브러리
 
 ### <a name="create-the-authorization-file"></a>권한 부여 파일 만들기
 
-1. 솔루션 탐색기에서 *myDotnetProject* > **추가** > **새 항목**을 마우스 오른쪽 단추로 클릭한 다음 *Visual C# 항목*에서 **텍스트 파일**을 선택합니다. 파일 이름을 *azureauth.properties*로 지정하고 **추가**를 클릭합니다.
+1. 솔루션 탐색기에서 *myDotnetProject* > **추가** > **새 항목**을 마우스 오른쪽 단추로 클릭한 다음 **Visual C# 항목**에서 *텍스트 파일*을 선택합니다. 파일 이름을 *azureauth.properties*로 지정하고 **추가**를 클릭합니다.
 2. 다음과 같은 권한 부여 속성을 추가합니다.
 
     ```
@@ -70,7 +70,7 @@ NuGet 패키지는 이러한 단계를 완료하는데 필요한 라이브러리
     managementURI=https://management.core.windows.net/
     baseURL=https://management.azure.com/
     authURL=https://login.windows.net/
-    graphURL=https://graph.windows.net/
+    graphURL=https://graph.microsoft.com/
     ```
 
     **&lt;subscription-id&gt;** 를 구독 식별자, **&lt;application-id&gt;** 를 Active Directory 애플리케이션 식별자, **&lt;authentication-key&gt;** 를 애플리케이션 키, **&lt;tenant-id&gt;** 를 테넌트 식별자로 바꿉니다.

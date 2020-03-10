@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 02/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 812680e587ac5c5c8b3d949199a615fcd85fa610
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 301b68d0dfaeef6d5cfdd4d7a5a504794ac877f4
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77485355"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78205828"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>샘플 레이블 지정 도구를 사용하여 레이블로 Form Recognizer 모델 학습
 
@@ -35,12 +35,19 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 ## <a name="set-up-the-sample-labeling-tool"></a>샘플 레이블 지정 도구 설정
 
 Docker 엔진을 사용하여 샘플 레이블 지정 도구를 실행합니다. 다음 단계에 따라 Docker 컨테이너를 설정합니다. Docker 및 컨테이너에 대한 기본 사항은 [Docker 개요](https://docs.docker.com/engine/docker-overview/)를 참조하세요.
-1. 먼저 Docker를 호스트 컴퓨터에 설치합니다. 호스트 컴퓨터는 로컬 컴퓨터([Windows](https://docs.docker.com/docker-for-windows/), [macOS](https://docs.docker.com/docker-for-mac/) 또는 [Linux](https://docs.docker.com/install/))일 수 있습니다. 또는 Azure에서 [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/index), [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/index) 또는 [Azure Stack에 배포된](https://docs.microsoft.com/azure-stack/user/azure-stack-solution-template-kubernetes-deploy?view=azs-1910) Kubernetes 클러스터와 같은 Docker 호스팅 서비스를 사용할 수 있습니다. 호스트 컴퓨터는 다음 하드웨어 요구 사항을 충족해야 합니다.
+1. 먼저 Docker를 호스트 컴퓨터에 설치합니다. 이 가이드에서는 로컬 컴퓨터를 호스트로 사용하는 방법을 보여줍니다. Azure에서 Docker 호스팅 서비스를 사용하려면 [샘플 레이블 지정 도구 배포](../deploy-label-tool.md) 방법 가이드를 참조하세요. 
+
+   호스트 컴퓨터는 다음 하드웨어 요구 사항을 충족해야 합니다.
 
     | 컨테이너 | 최소 | 권장|
     |:--|:--|:--|
     |샘플 레이블 지정 도구|2개 코어, 4GB 메모리|4개 코어, 8GB 메모리|
-    
+
+   운영 체제에 적합한 지침에 따라 해당 머신에 Docker를 설치합니다. 
+   * [Windows](https://docs.docker.com/docker-for-windows/)
+   * [macOS](https://docs.docker.com/docker-for-mac/)
+   * [Linux](https://docs.docker.com/install/)
+
 1. `docker pull` 명령을 사용하여 샘플 레이블 지정 도구 컨테이너를 가져옵니다.
     ```
     docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool
@@ -116,17 +123,23 @@ Docker 엔진을 사용하여 샘플 레이블 지정 도구를 실행합니다.
 
 ### <a name="apply-labels-to-text"></a>텍스트에 레이블 적용
 
-다음으로, 레이블을 만들어 모델에서 인식할 텍스트 요소에 적용합니다.
+다음으로, 태그(레이블)를 만들어 모델에서 인식할 텍스트 요소에 적용합니다.
 
-1. 먼저 태그 편집기 창을 사용하여 식별할 태그(레이블)를 만듭니다.
+1. 먼저 태그 편집기 창을 사용하여 식별할 태그를 만듭니다.
+  1. **+** 를 클릭하여 새 태그를 만듭니다.
+  1. 태그 이름을 입력합니다.
+  1. Enter 키를 눌러 태그를 저장합니다.
 1. 주 편집기에서 클릭하고 끌어서 강조 표시된 텍스트 요소에서 하나 이상의 단어를 선택합니다.
+1. 적용하려는 태그를 클릭하거나 해당 키보드 키를 누릅니다. 숫자 키는 처음 10개 태그에 대한 바로 가기 키로 할당됩니다. 태그 편집기 창에서 위쪽 및 아래쪽 화살표 아이콘을 사용하여 태그를 다시 정렬할 수 있습니다.
+    > [!Tip]
+    > 양식에 레이블을 지정할 때 다음 팁을 참조하세요.
+    > * 선택한 텍스트 요소마다 태그를 하나만 적용할 수 있습니다.
+    > * 각 태그는 페이지당 한 번만 적용할 수 있습니다. 동일한 양식에 값이 여러 번 표시되는 경우 각 인스턴스마다 서로 다른 태그를 만듭니다. 예: "invoice# 1", "invoice# 2" 등.
+    > * 태그는 여러 페이지에 걸쳐 있을 수 없습니다.
+    > * 양식에 나타나는 대로 값에 레이블을 지정합니다. 두 개의 다른 태그를 사용하여 값을 두 부분으로 분할하지 마십시오. 예를 들어, 주소 필드가 여러 줄에 걸쳐 있더라도 단일 태그로 레이블을 지정해야 합니다.
+    > * 태그가 지정된 필드에 키를 포함하지 말고&mdash;값만 포함합니다.
+    > * 테이블 데이터는 자동으로 검색되어야 하며 최종 출력 JSON 파일에서 사용이 가능합니다. 하지만 모델이 테이블 데이터를 모두 검색하지 못하면 해당 필드에 수동으로 태그를 지정할 수도 있습니다. 테이블의 각 셀에 다른 레이블로 태그를 지정합니다. 양식에 행 수가 다양한 테이블이 있는 경우, 가장 큰 테이블이 있는 하나 이상의 양식에 태그를 지정합니다.
 
-    > [!NOTE]
-    > 현재 여러 페이지에 걸쳐 있는 텍스트는 선택할 수 없습니다.
-1. 적용하려는 태그를 클릭하거나 해당 키보드 키를 누릅니다. 선택한 각 텍스트 요소에는 하나의 태그만 적용할 수 있으며, 각 태그는 페이지마다 한 번만 적용할 수 있습니다.
-
-    > [!TIP]
-    > 숫자 키는 처음 10개 태그에 대한 바로 가기 키로 할당됩니다. 태그 편집기 창에서 위쪽 및 아래쪽 화살표 아이콘을 사용하여 태그를 다시 정렬할 수 있습니다.
 
 위의 단계를 수행하여 5개의 양식에 레이블을 지정한 후 다음 단계로 이동합니다.
 

@@ -3,12 +3,12 @@ title: Azure Migrate Server 마이그레이션 FAQ
 description: Azure Migrate Server 마이그레이션을 사용 하 여 컴퓨터를 마이그레이션하는 방법에 대 한 일반적인 질문에 대 한 답변을 받으세요.
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: 273ef746e685afcf9f3654963dd9c6bd5b855b24
-ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
+ms.openlocfilehash: 4d3638e930b4e12a29df4ab189ffb24ab248582b
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2020
-ms.locfileid: "78927528"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78939205"
 ---
 # <a name="azure-migrate-server-migration-common-questions"></a>Azure Migrate 서버 마이그레이션: 일반적인 질문
 
@@ -53,11 +53,11 @@ VMware에 대 한 에이전트 없는 복제 방법은 VMware 스냅숏과 VMwar
 
 ## <a name="can-i-do-agentless-migration-of-uefi-vms-to-azure-gen-2"></a>Azure Gen 2로 UEFI Vm의 에이전트 없는 마이그레이션을 수행할 수 있나요?
 
-No. Azure Site Recovery를 사용 하 여 이러한 Vm을 Gen 2 Azure Vm으로 마이그레이션합니다. 
+아니요. Azure Site Recovery를 사용 하 여 이러한 Vm을 Gen 2 Azure Vm으로 마이그레이션합니다. 
 
 ## <a name="can-i-pin-vms-to-azure-availability-zones-when-i-migrate"></a>마이그레이션할 때 Vm을 Azure 가용성 영역에 고정할 수 있나요?
 
-No. Azure 가용성 영역는 Azure Migrate 마이그레이션에 대해 지원 되지 않습니다.
+아니요. Azure 가용성 영역는 Azure Migrate 마이그레이션에 대해 지원 되지 않습니다.
 
 ## <a name="what-transport-protocol-does-azure-migrate-use-during-replication"></a>복제 중에 사용할 Azure Migrate 있는 전송 프로토콜은 무엇 인가요?
 
@@ -69,11 +69,24 @@ VCenter Server 5.5 및 vSphere ESXi 호스트 버전 5.5 이상이 있어야 합
 
 ## <a name="can-customers-migrate-their-vms-to-unmanaged-disks"></a>고객이 Vm을 관리 되지 않는 디스크로 마이그레이션할 수 있나요?
 
-No. Azure Migrate는 관리 디스크 (표준 HDD, 프리미엄 SSD)로의 마이그레이션만 지원 합니다.
+아니요. Azure Migrate는 관리 디스크 (표준 HDD, 프리미엄 SSD)로의 마이그레이션만 지원 합니다.
 
 ## <a name="how-many-vms-can-i-replicate-at-one-time-by-using-agentless-migration"></a>에이전트 없는 마이그레이션을 사용 하 여 한 번에 복제할 수 있는 Vm 수는 몇 개입니까?
 
 현재 vCenter Server 인스턴스당 100 Vm을 동시에 마이그레이션할 수 있습니다. 10 개의 Vm을 일괄 처리 하 여 마이그레이션합니다.
+
+## <a name="when-do-i-migrate-machines-as-physical-servers"></a>컴퓨터를 물리적 서버로 마이그레이션하는 경우는 언제 인가요?
+
+물리적 서버로 처리하여 머신을 마이그레이션하는 것은 다음과 같은 다양한 시나리오에서 유용합니다.
+
+- 온-프레미스 물리적 서버를 마이그레이션하는 경우
+- Xen, KVM 등의 플랫폼에서 가상화 된 Vm을 마이그레이션하는 경우
+- Hyper-v 또는 VMware Vm을 마이그레이션하려면 (어떤 이유로 인해 Hyper-v 또는 [vmware](server-migrate-overview.md) 마이그레이션을 위한 표준 마이그레이션 프로세스를 사용할 수 없는 경우 [)](tutorial-migrate-hyper-v.md) 예를 들어 VMware vCenter를 실행 하지 않고 ESXi 호스트만 사용 하는 경우입니다.
+- 사설 클라우드에서 현재 실행 중인 Vm을 Azure로 마이그레이션하려면
+- Amazon Web Services (AWS) 또는 Google Cloud Platform (GCP)와 같은 공용 클라우드에서 실행 되는 Vm을 Azure로 마이그레이션하려는 경우
+
+## <a name="do-i-need-vmware-vcenter-to-migrate-vmware-vms"></a>VMware Vm을 마이그레이션하려면 VMware vCenter가 필요 한가요?
+VMware 에이전트 기반 또는 에이전트 없는 마이그레이션을 사용 하 여 [Vmware vm을 마이그레이션하려면](server-migrate-overview.md) vm이 있는 ESXi 호스트를 vCenter Server으로 관리 해야 합니다. VCenter Server 없는 경우 실제 서버로 마이그레이션하여 VMware Vm을 마이그레이션할 수 있습니다. [자세히 알아봅니다](migrate-support-matrix-physical-migration.md).
  
 ## <a name="next-steps"></a>다음 단계
 

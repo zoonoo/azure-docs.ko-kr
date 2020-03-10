@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: sihhu
 author: sihhu
 ms.reviewer: nibaccam
-ms.date: 11/04/2019
+ms.date: 03/09/2020
 ms.custom: ''
-ms.openlocfilehash: 4c8f3e7e47f9c8f924faf513d984d5474c105038
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 7b124c0f35b5cfda4380555385971e4968d4c45c
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834788"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78939256"
 ---
 # <a name="version-and-track-datasets-in-experiments"></a>실험의 버전 및 트랙 데이터 집합
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -28,7 +28,7 @@ ms.locfileid: "75834788"
 * 새 데이터를 다시 학습에 사용할 수 있는 경우
 * 다른 데이터 준비 또는 기능 엔지니어링 방법을 적용 하는 경우
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에서는 다음이 필요합니다.
 
@@ -60,6 +60,7 @@ titanic_ds = titanic_ds.register(workspace = workspace,
                                  description = 'titanic training data',
                                  create_new_version = True)
 ```
+에서 새 버전의 데이터 집합을 등록할 수도 있습니다. 
 
 ### <a name="retrieve-a-dataset-by-name"></a>이름을 기준으로 데이터 집합 검색
 
@@ -120,7 +121,7 @@ dataset2.register(workspace = workspace,
 
 데이터 집합을 각 Machine Learning 파이프라인 단계의 입력 및 출력으로 사용할 수 있습니다. 파이프라인을 다시 실행 하면 각 파이프라인 단계의 출력이 새 데이터 집합 버전으로 등록 됩니다.
 
-파이프라인이 다시 실행 될 때마다 Machine Learning 파이프라인이 각 단계의 출력을 새 폴더로 채우지 때문에 버전이 있는 출력 데이터 집합을 재현할 수 있습니다.
+파이프라인이 다시 실행 될 때마다 Machine Learning 파이프라인이 각 단계의 출력을 새 폴더로 채우지 때문에 버전이 있는 출력 데이터 집합을 재현할 수 있습니다. [파이프라인의 데이터 집합](how-to-create-your-first-pipeline.md#steps)에 대해 자세히 알아보세요.
 
 ```Python
 from azureml.core import Dataset
@@ -169,7 +170,7 @@ input_dataset = inputs[0]['dataset']
 input_dataset.to_path()
 ```
 
-[Azure Machine Learning studio](https://ml.azure.com/)를 사용 하 여 실험에서 `input_datasets`를 찾을 수도 있습니다. 
+https://ml.azure.com/를 사용 하 여 실험에서 `input_datasets`를 찾을 수도 있습니다. 
 
 다음 이미지는 Azure Machine Learning studio에서 실험의 입력 데이터 집합을 찾을 수 있는 위치를 보여 줍니다. 이 예에서는 **실험** 창으로 이동 하 고 `keras-mnist`실험의 특정 실행에 대 한 **속성** 탭을 엽니다.
 
@@ -183,7 +184,9 @@ model = run.register_model(model_name='keras-mlp-mnist',
                            datasets =[('training data',train_dataset)])
 ```
 
-등록 후 Python 또는 [Azure Machine Learning studio](https://ml.azure.com/)를 사용 하 여 데이터 집합에 등록 된 모델 목록을 볼 수 있습니다. 다음 뷰는 **자산**아래의 **데이터 집합** 창에서 가져온 것입니다. 데이터 집합을 선택 하 고 **모델** 탭을 선택 하 여 데이터 집합에 등록 된 모델 목록을 표시 합니다. 
+등록 후에는 Python을 사용 하 여 데이터 집합에 등록 된 모델 목록을 확인 하거나 https://ml.azure.com/으로 이동할 수 있습니다.
+
+다음 뷰는 **자산**아래의 **데이터 집합** 창에서 가져온 것입니다. 데이터 집합을 선택 하 고 **모델** 탭을 선택 하 여 데이터 집합에 등록 된 모델 목록을 표시 합니다. 
 
 ![입력 데이터 집합 모델](./media/how-to-version-track-datasets/dataset-models.png)
 

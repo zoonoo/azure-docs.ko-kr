@@ -4,12 +4,12 @@ description: AKS (개인 Azure Kubernetes Service) 클러스터를 만드는 방
 services: container-service
 ms.topic: article
 ms.date: 2/21/2020
-ms.openlocfilehash: 4b4ba130d9ff63291abdd46617b0692e844a60bf
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 0a05bd15fff97d4f0020f6ce82ee90a2fe995edf
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77649510"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944210"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster-preview"></a>개인 Azure Kubernetes Service 클러스터 만들기 (미리 보기)
 
@@ -23,7 +23,7 @@ ms.locfileid: "77649510"
 > * [AKS 지원 정책](support-policies.md)
 > * [Azure 지원 FAQ](faq.md)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure CLI 버전 2.0.77 이상 및 Azure CLI AKS Preview 확장 버전 0.4.18
 
@@ -100,6 +100,14 @@ az provider register --namespace Microsoft.Network
 ```
 ## <a name="create-a-private-aks-cluster"></a>개인 AKS 클러스터 만들기
 
+### <a name="create-a-resource-group"></a>리소스 그룹 만들기
+
+리소스 그룹을 만들거나 AKS 클러스터에 대 한 기존 리소스 그룹을 사용 합니다.
+
+```azurecli-interactive
+az group create -l westus -n MyResourceGroup
+```
+
 ### <a name="default-basic-networking"></a>기본 네트워킹 
 
 ```azurecli-interactive
@@ -126,35 +134,29 @@ az aks create \
 > [!NOTE]
 > Docker 브리지 주소 CIDR (172.17.0.1/16)이 서브넷 CIDR과 충돌 하는 경우 Docker 브리지 주소를 적절 하 게 변경 합니다.
 
-## <a name="connect-to-the-private-cluster"></a>개인 클러스터에 연결
+## <a name="options-for-connecting-to-the-private-cluster"></a>개인 클러스터에 연결 하기 위한 옵션
 
-API 서버 끝점에 공용 IP 주소가 없습니다. 따라서 가상 네트워크에서 Azure VM (가상 머신)을 만들고 API 서버에 연결 해야 합니다. 이렇게 하려면 다음을 수행합니다.
+API 서버 끝점에 공용 IP 주소가 없습니다. API 서버를 관리 하려면 AKS 클러스터의 Azure Virtual Network (VNet)에 대 한 액세스 권한이 있는 VM을 사용 해야 합니다. 개인 클러스터에 대 한 네트워크 연결을 설정 하기 위한 몇 가지 옵션이 있습니다.
 
-1. 클러스터에 연결 하기 위한 자격 증명을 가져옵니다.
+* AKS 클러스터와 동일한 Azure Virtual Network (VNet)에서 VM을 만듭니다.
+* 별도 네트워크에서 VM을 사용 하 고 [가상 네트워크 피어 링][virtual-network-peering]을 설정 합니다.  이 옵션에 대 한 자세한 내용은 아래 섹션을 참조 하세요.
+* [Express 경로 또는 VPN][express-route-or-VPN] 연결을 사용 합니다.
 
-   ```azurecli-interactive
-   az aks get-credentials --name MyManagedCluster --resource-group MyResourceGroup
-   ```
+AKS 클러스터와 동일한 VNET에 VM을 만드는 것이 가장 쉬운 옵션입니다.  Express 경로 및 Vpn은 비용을 추가 하 고 추가 네트워킹 복잡성이 필요 합니다.  가상 네트워크 피어 링을 사용 하려면 겹치는 범위가 없도록 네트워크 CIDR 범위를 계획 해야 합니다.
 
-1. 다음 중 하나를 수행합니다.
-   * AKS 클러스터와 동일한 가상 네트워크에 VM을 만듭니다.  
-   * 다른 가상 네트워크에 VM을 만들고 AKS 클러스터 가상 네트워크를 사용 하 여이 가상 네트워크를 피어 링 합니다.
+## <a name="virtual-network-peering"></a>가상 네트워크 피어링
 
-     다른 가상 네트워크에 VM을 만드는 경우이 가상 네트워크와 개인 DNS 영역 간의 링크를 설정 합니다. 이렇게 하려면 다음을 수행합니다.
+앞서 언급 했 듯이 VNet 피어 링은 개인 클러스터에 액세스 하는 한 가지 방법입니다. VNet 피어 링을 사용 하려면 가상 네트워크와 개인 DNS 영역 간의 링크를 설정 해야 합니다.
     
-     a. Azure Portal에서 MC_ * 리소스 그룹으로 이동 합니다.  
-     b. 개인 DNS 영역을 선택 합니다.   
-     c. 왼쪽 창에서 **Virtual network** 링크를 선택 합니다.  
-     . VM의 가상 네트워크를 개인 DNS 영역에 추가 하는 새 링크를 만듭니다. DNS 영역 링크를 사용할 수 있게 되는 데 몇 분 정도 걸립니다.  
-     e. Azure Portal에서 MC_ * 리소스 그룹으로 돌아갑니다.  
-     f. 오른쪽 창에서 가상 네트워크를 선택 합니다. 가상 네트워크 이름은 *aks-\** 형식으로 되어 있습니다.  
-     g. 왼쪽 창에서 **피어 링**을 선택 합니다.  
-     h. **추가**를 선택 하 고 VM의 가상 네트워크를 추가한 다음 피어 링을 만듭니다.  
-     i. VM이 있는 가상 네트워크로 이동 하 **여 피어 링을 선택 하**고 AKS 가상 네트워크를 선택한 다음 피어 링을 만듭니다. AKS 가상 네트워크의 주소 범위와 VM의 가상 네트워크가 충돌 하는 경우 피어 링이 실패 합니다. 자세한 내용은 [가상 네트워크 피어 링][virtual-network-peering]을 참조 하세요.
-
-1. Secure Shell (SSH)를 통해 VM에 액세스 합니다.
-1. Kubectl 도구를 설치 하 고 Kubectl 명령을 실행 합니다.
-
+1. Azure Portal에서 MC_ * 리소스 그룹으로 이동 합니다.  
+2. 개인 DNS 영역을 선택 합니다.   
+3. 왼쪽 창에서 **Virtual network** 링크를 선택 합니다.  
+4. VM의 가상 네트워크를 개인 DNS 영역에 추가 하는 새 링크를 만듭니다. DNS 영역 링크를 사용할 수 있게 되는 데 몇 분 정도 걸립니다.  
+5. Azure Portal에서 MC_ * 리소스 그룹으로 돌아갑니다.  
+6. 오른쪽 창에서 가상 네트워크를 선택 합니다. 가상 네트워크 이름은 *aks-\** 형식으로 되어 있습니다.  
+7. 왼쪽 창에서 **피어 링**을 선택 합니다.  
+8. **추가**를 선택 하 고 VM의 가상 네트워크를 추가한 다음 피어 링을 만듭니다.  
+9. VM이 있는 가상 네트워크로 이동 하 **여 피어 링을 선택 하**고 AKS 가상 네트워크를 선택한 다음 피어 링을 만듭니다. AKS 가상 네트워크의 주소 범위와 VM의 가상 네트워크가 충돌 하는 경우 피어 링이 실패 합니다. 자세한 내용은 [가상 네트워크 피어 링][virtual-network-peering]을 참조 하세요.
 
 ## <a name="dependencies"></a>종속성  
 * 개인 링크 서비스는 표준 Azure Load Balancer 에서만 지원 됩니다. 기본 Azure Load Balancer 지원 되지 않습니다.  
@@ -179,6 +181,8 @@ API 서버 끝점에 공용 IP 주소가 없습니다. 따라서 가상 네트�
 [az-feature-list]: /cli/azure/feature?view=azure-cli-latest#az-feature-list
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
-[private-link-service]: https://docs.microsoft.com/azure/private-link/private-link-service-overview
+[private-link-service]: /private-link/private-link-service-overview
 [virtual-network-peering]: ../virtual-network/virtual-network-peering-overview.md
+[azure-bastion]: ../bastion/bastion-create-host-portal.md
+[express-route-or-vpn]: ../expressroute/expressroute-about-virtual-network-gateways.md
 

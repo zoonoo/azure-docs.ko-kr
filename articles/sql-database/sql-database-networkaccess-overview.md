@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
-ms.date: 08/05/2019
-ms.openlocfilehash: 16ba90aab52c00f77af590f854217cd989df53b3
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.date: 03/09/2020
+ms.openlocfilehash: 822fab5c00501d415c3c184587141e869523e417
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77251909"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78945389"
 ---
 # <a name="azure-sql-database-and-data-warehouse-network-access-controls"></a>Azure SQL Database 및 데이터 웨어하우스 네트워크 액세스 제어
 
@@ -27,19 +27,28 @@ ms.locfileid: "77251909"
 > [!IMPORTANT]
 > 이 문서는 *Azure SQL Database Managed Instance*에 적용되지 **않습니다**. 네트워킹 구성에 대 한 자세한 내용은 [Managed Instance에 연결](sql-database-managed-instance-connect-app.md) 을 참조 하세요.
 
-[Azure Portal에서](sql-database-single-database-get-started.md)새 Azure SQL Server를 만들 때 결과는 *yourservername.database.windows.net*형식의 공용 끝점입니다. 설계상 공용 끝점에 대 한 모든 액세스는 거부 됩니다. 그런 다음, 다음 네트워크 액세스 제어를 사용 하 여 공용 끝점을 통해 SQl Database에 대 한 액세스를 선택적으로 허용할 수 있습니다.
-- Azure 서비스 허용: 사용으로 설정 되 면 azure 경계 내의 다른 리소스 (예: Azure Virtual Machine)는에 액세스할 수 있습니다 SQL Database
+[Azure Portal](sql-database-single-database-get-started.md)에서 새 Azure SQL Server를 만들 때 결과는 *yourservername.database.windows.net*형식의 공용 끝점입니다.
 
-- IP 방화벽 규칙:-이 기능을 사용 하 여 온-프레미스 컴퓨터 등 특정 IP 주소에서의 연결을 명시적으로 허용 합니다.
+다음 네트워크 액세스 제어를 사용 하 여 공용 끝점을 통해 SQl Database에 대 한 액세스를 선택적으로 허용할 수 있습니다.
+- Azure 서비스 허용: 설정 된 경우 azure 가상 컴퓨터와 같은 Azure 경계 내의 다른 리소스는에 액세스할 수 있습니다 SQL Database
 
-- Virtual Network 방화벽 규칙:-이 기능을 사용 하 여 Azure 경계 내에서 특정 Virtual Network의 트래픽을 허용 합니다.
+- IP 방화벽 규칙:이 기능을 사용 하 여 온-프레미스 컴퓨터 등 특정 IP 주소에서의 연결을 명시적으로 허용 합니다.
 
+다음을 통해 [가상 네트워크](../virtual-network/virtual-networks-overview.md) 에서 SQL Database에 대 한 개인 액세스를 허용할 수도 있습니다.
+- Virtual Network 방화벽 규칙:이 기능을 사용 하 여 Azure 경계 내에서 특정 Virtual Network의 트래픽을 허용 합니다.
+
+- 개인 링크:이 기능을 사용 하 여 특정 Virtual Network 내에서 Azure SQL Server에 대 한 개인 끝점을 만들 수 있습니다.
+
+
+
+이러한 액세스 제어 및 기능에 대 한 개략적인 설명은 아래 비디오를 참조 하세요.
 > [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/Data-Exposed--SQL-Database-Connectivity-Explained/player?WT.mc_id=dataexposed-c9-niner]
+
 
 ## <a name="allow-azure-services"></a>Azure 서비스 허용 
 [Azure Portal에서](sql-database-single-database-get-started.md)새 Azure SQL Server를 만드는 동안이 설정은 선택 하지 않은 상태로 유지 됩니다.
 
- ![새 서버 만들기의 스크린샷][1]
+
 
 다음과 같이 Azure SQL Server를 만든 후 방화벽 창을 통해이 설정을 변경할 수도 있습니다.
   
@@ -129,6 +138,9 @@ VM에 대 한 *고정* IP 주소를 가져오면 이러한 제한을 해결할 �
 > [!NOTE]
 > 아직 서브넷에 SQL Database가 있을 수 없습니다. Azure SQL Database 서버가 가상 네트워크에 있는 서브넷의 노드인 경우 가상 네트워크 내의 모든 노드가 SQL Database와 통신할 수 있습니다. 이 경우 VM은 가상 네트워크 규칙이나 IP 규칙이 없어도 SQL Database와 통신할 수 있습니다.
 
+## <a name="private-link"></a>Private Link 
+개인 링크를 사용 하면 **개인 끝점**을 통해 Azure SQL Server에 연결할 수 있습니다. 개인 끝점은 특정 [Virtual Network](../virtual-network/virtual-networks-overview.md) 및 서브넷 내의 개인 IP 주소입니다.
+
 ## <a name="next-steps"></a>다음 단계
 
 - 서버 수준 IP 방화벽 규칙을 만드는 방법에 대 한 빠른 시작은 [AZURE SQL 데이터베이스 만들기](sql-database-single-database-get-started.md)를 참조 하세요.
@@ -146,3 +158,4 @@ VM에 대 한 *고정* IP 주소를 가져오면 이러한 제한을 해결할 �
 <!--Image references-->
 [1]: ./media/sql-database-get-started-portal/new-server2.png
 [2]: ./media/sql-database-get-started-portal/manage-server-firewall.png
+

@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 12/02/2019
+ms.date: 02/26/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2067bea25dae05c496c81929ae65d00565bf4f1
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: fbc1baa86bb81c8975587e84427a72ccc044805e
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77020763"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77916577"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Azure Active Directory Connect FAQ
 
@@ -71,6 +71,14 @@ Azure AD Connect 동기화를 사용하면 온-프레미스 동기화 서버에�
 **Q: 클라우드 프로비저닝을 사용하여 사용자를 프로비저닝하지만, 구성을 삭제했습니다. Azure AD에서 이전에 동기화된 개체가 계속 표시되는 이유는 무엇인가요?** 
 
 구성을 삭제하는 경우 클라우드 프로비저닝은 Azure AD에서 동기화된 개체를 정리하지 않습니다. 이전 개체가 없는지 확인하려면 구성 범위를 빈 그룹 또는 조직 구성 단위로 변경합니다. 프로비저닝이 실행되고 개체가 정리되면 구성을 사용하지 않도록 설정하고 삭제합니다. 
+
+**Q:  Exchange 하이브리드가 지원되지 않는다는 것은 무슨 의미인가요?**
+
+Exchange 하이브리드 배포 기능을 통해 온-프레미스 및 Office 365에서 모두 Exchange 사서함을 동시에 존재하게 할 수 있습니다. Azure AD Connect에서는 특성의 특정 세트를 Azure AD에서 온-프레미스 디렉터리로 다시 동기화합니다.  클라우드 프로비저닝 에이전트는 현재 이러한 특성을 온-프레미스 디렉터리로 다시 동기화하지 않으므로 Azure AD Connect의 대체 항목으로 지원되지 않습니다.
+
+**Q:  Windows Server Core에 클라우드 프로저닝 에이전트를 설치할 수 있나요?**
+
+아니요, Server Core에 에이전트를 설치할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계 
 

@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: d485a2655b569b3def6162934857b02dbe4f75ea
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 85be49ad88ac62d90235c3da6b89b0da6a11487c
+ms.sourcegitcommit: e6bce4b30486cb19a6b415e8b8442dd688ad4f92
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76273977"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78933755"
 ---
 # <a name="manage-the-storsimple-data-manager-service-in-azure-portal"></a>Azure Portal에서 StorSimple 데이터 관리자 서비스 관리
 
@@ -102,7 +102,7 @@ StorSimple 데이터 관리자 서비스 내에서 데이터 변환 작업 정�
 
    3. **필터** 하위 섹션에서 관심 있는 데이터를 포함하는 루트 디렉터리를 _\MyRootDirectory\Data_ 형식으로 입력합니다. _\C:\Data_와 같은 드라이브 문자는 지원되지 않습니다. 여기에서 파일 필터를 추가할 수 있습니다.
 
-   4. 데이터 변환 서비스는 스냅샷을 통해 Azure까지 푸시되는 데이터에서 작동합니다. 이 작업을 실행할 때 최신 데이터에서 작동하도록 작업을 실행할 때마다 백업을 사용하거나 보관된 데이터를 사용하는 경우 클라우드에서 최신 기존 백업을 사용할 수 있습니다.
+   4. 데이터 변환 서비스는 Azure에 푸시되는 데이터의 최신 스냅숏에 대해서만 작동 합니다.
 
    5. **확인**을 클릭합니다.
 
@@ -150,6 +150,11 @@ StorSimple에서 작업 정의에 지정된 스토리지 계정으로 데이터�
 4. 이 작업을 모니터링하려면 StorSimple 데이터 관리자에서 **작업**으로 이동합니다. 또한 **작업** 블레이드의 모니터링 외에도 StorSimple에서 스토리지 계정으로 파일을 이동할 때마다 메시지가 추가되는 스토리지 큐에 대기할 수 있습니다.
 
     ![작업 실행 시작 4](./media/storsimple-data-manager-ui/start-job-run4.png)
+
+### <a name="view-logs-after-job-completion"></a>작업 완료 후 로그 보기
+
+작업을 완료 한 후 작업의 상태를 볼 수 있습니다. 작업 상태는 **성공**, **부분적으로 성공** 및 **실패**일 수 있습니다. 성공적으로 복사 된 파일 목록과 복사 하지 못한 파일을 볼 수 있습니다. 이러한 목록은 대상 저장소 계정 내의 **"storsimple-데이터 관리자-joblogs"** 라는 컨테이너에서 사용할 수 있습니다. 이 컨테이너 내에서 작업 정의와 이름이 같은 폴더를 찾을 수 있습니다. 이 내에서 목록을 포함 하는 모든 작업 실행에 대해 폴더가 생성 됩니다. 이 폴더의 이름은 작업 세부 정보 페이지에서 가져올 수 있는 작업의 GUID가 됩니다. 또는 대부분의 경우 작업 페이지 내에서 복사 로그에 대 한 링크가 표시 됩니다.
+이 폴더에는 두 개의 csv 파일 집합이 표시 됩니다. 모든 파일에는 성공적으로 **복사 된 파일 목록이 포함 됩니다.** **Failedfilelist** 로 시작 하는 모든 파일에는 오류 메시지와 함께 복사할 수 없는 파일이 포함 되어 있습니다.
 
 
 ## <a name="next-steps"></a>다음 단계

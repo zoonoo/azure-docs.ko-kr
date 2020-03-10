@@ -89,7 +89,7 @@
       href: relational-nosql.md
     - name: 글로벌 분포
       items:
-        - name: 개요
+        - name: 글로벌 배포 개요
           displayName: 'replication, replicate, geo distribution'
           href: distribute-data-globally.md
         - name: 일관성 수준
@@ -118,7 +118,7 @@
           href: globally-distributed-transactional-analytical-storage.md
     - name: 분할
       items:
-        - name: 개요
+        - name: 분할 개요
           href: partitioning-overview.md
         - name: 분할 및 수평 확장
           href: partition-data.md
@@ -461,7 +461,7 @@
           href: modeling-data.md
         - name: 인덱싱
           items:
-            - name: 개요
+            - name: 인덱싱 개요
               displayName: 'range, spatial'
               href: index-overview.md
             - name: 인덱싱 정책
@@ -476,7 +476,7 @@
           href: database-transactions-optimistic-concurrency.md
     - name: 변경 피드
       items:
-        - name: 개요
+        - name: 변경 피드 개요
           href: change-feed.md
         - name: 변경 피드 읽기
           href: read-change-feed.md
@@ -530,7 +530,7 @@
           href: cosmos-db-reserved-capacity.md
     - name: 보안
       items:
-        - name: 개요
+        - name: 보안 개요
           href: database-security.md
         - name: 데이터 암호화.
           href: database-encryption-at-rest.md
@@ -564,12 +564,12 @@
   items:
     - name: Cassandra API
       items:
-        - name: 소개
-          href: cassandra-introduction.md
-        - name: 유선 프로토콜 지원
-          href: cassandra-support.md
-        - name: 탄력적 확장
-          href: manage-scale-cassandra.md
+        - name: 개요
+          items:
+            - name: Cosmos DB의 Cassandra API란?
+              href: cassandra-introduction.md
+            - name: 유선 프로토콜 지원
+              href: cassandra-support.md
         - name: 빠른 시작
           items:
             - name: .NET
@@ -591,6 +591,10 @@
             - name: 4 - 데이터 마이그레이션
               displayName: import
               href: cassandra-import-data.md
+        - name: 개념
+          items:
+            - name: 탄력적 확장
+              href: manage-scale-cassandra.md
         - name: 방법 가이드
           items:
             - name: 변경 피드
@@ -628,12 +632,14 @@
               href: cli-samples-cassandra.md
     - name: MongoDB API
       items:
-        - name: 소개
-          href: mongodb-introduction.md
-        - name: 유선 프로토콜 지원(3.2)
-          href: mongodb-feature-support.md
-        - name: 유선 프로토콜 지원(3.6)
-          href: mongodb-feature-support-36.md
+        - name: 개요
+          items:
+            - name: Cosmos DB의 MongoDB API란?
+              href: mongodb-introduction.md
+            - name: 유선 프로토콜 지원(3.2)
+              href: mongodb-feature-support.md
+            - name: 유선 프로토콜 지원(3.6)
+              href: mongodb-feature-support-36.md
         - name: 빠른 시작
           items:
             - name: .NET
@@ -719,10 +725,12 @@
     - name: Gremlin API
       displayName: 'graph, graph database'
       items:
-        - name: 소개
-          href: graph-introduction.md
-        - name: 유선 프로토콜 지원
-          href: gremlin-support.md
+        - name: 개요
+          items:
+            - name: Cosmos DB의 Germlin API란?
+              href: graph-introduction.md
+            - name: 유선 프로토콜 지원
+              href: gremlin-support.md
         - name: 빠른 시작
           items:
             - name: Gremlin 콘솔
@@ -778,8 +786,10 @@
               href: cli-samples-gremlin.md
     - name: 테이블 API
       items:
-        - name: 소개
-          href: table-introduction.md
+        - name: 개요
+          items:
+            - name: Cosmos DB의 Table API란?
+              href: table-introduction.md
         - name: 빠른 시작
           items:
             - name: .NET
@@ -849,10 +859,14 @@
               href: /rest/api/storageservices/table-service-rest-api
     - name: Etcd API
       items:
-        - name: 소개
-          href: etcd-api-introduction.md
-        - name: Azure Cosmos DB를 사용한 Azure Kubernetes
-          href: bootstrap-kubernetes-cluster.md
+        - name: 개요
+          items:
+            - name: Cosmos DB의 Etcd API란?
+              href: etcd-api-introduction.md
+        - name: 방법 가이드
+          items:
+            - name: Azure Cosmos DB를 사용한 Azure Kubernetes
+              href: bootstrap-kubernetes-cluster.md
 - name: 방법 가이드
   items:
     - name: Azure Cosmos 계정 작업

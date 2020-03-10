@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/28/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: ca8d0daf5b6d9bbad0d8fa24b4b150c5e6cd6b73
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: ca3df9e68e1d7e82675a6765f0320d42599a63da
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78300913"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943647"
 ---
 # <a name="azure-security-baseline-for-azure-sql-database"></a>Azure SQL Database에 대 한 Azure 보안 기준
 
@@ -812,10 +812,10 @@ Azure Security Center 보안 점수 이해: https://docs.microsoft.com/azure/sec
 **지침**: Azure 리소스 그래프를 사용 하 여 구독 내의 모든 리소스 (azure SQL Server 인스턴스 포함)를 쿼리하고 검색 합니다.  테 넌 트에서 적절 한 (읽기) 권한이 있는지 확인 하 고 구독 내의 리소스 뿐만 아니라 모든 Azure 구독을 열거할 수 있습니다.
 
 
-클래식 Azure 리소스는 리소스 그래프를 통해 검색 될 수 있지만 앞으로 Azure Resource Manager 리소스를 만들고 사용 하는 것이 좋습니다.
+클래식 Azure 리소스는 Azure 리소스 그래프를 통해 검색 될 수 있지만 앞으로 Azure Resource Manager 리소스를 만들고 사용 하는 것이 좋습니다.
 
 
-Azure Graph를 사용 하 여 쿼리를 만드는 방법: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+Azure 리소스 그래프를 사용 하 여 쿼리를 만드는 방법: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 
 Azure 구독을 보는 방법: https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
@@ -886,7 +886,7 @@ Azure 리소스 그래프를 사용 하 여 구독 내에서 리소스를 쿼리
 
 Azure Policy를 구성 하 고 관리 하는 방법: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Azure Graph를 사용 하 여 쿼리를 만드는 방법: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+Azure 리소스 그래프를 사용 하 여 쿼리를 만드는 방법: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 **Azure Security Center 모니터링**: 해당 사항 없음
 

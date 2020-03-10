@@ -1,18 +1,18 @@
 ---
 title: Azure HDInsight의 엔터프라이즈 보안 개요
 description: Azure HDInsight에서 엔터프라이즈 보안을 보장하는 다양한 방법을 알아봅니다.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.topic: overview
-ms.date: 09/23/2019
-ms.openlocfilehash: 0e7b2db188ef6ee7d6b80ba5da4010112008ad70
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.date: 03/03/2020
+ms.openlocfilehash: 95bfe7d7788133d8548598cb30c8084bf64a977f
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77122116"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78267712"
 ---
 # <a name="overview-of-enterprise-security-in-azure-hdinsight"></a>Azure HDInsight의 엔터프라이즈 보안 개요
 
@@ -36,13 +36,13 @@ HDInsight의 경계 보안은 [가상 네트워크](../hdinsight-plan-virtual-ne
 
 HDInsight의 [Enterprise Security Package](apache-domain-joined-architecture.md)는 Active Directory 기반 인증, 다중 사용자 지원 및 역할 기반 액세스 제어를 제공합니다. Active Directory 통합은 [Azure Active Directory Domain Services](../../active-directory-domain-services/overview.md)를 사용하여 이루어집니다. 이러한 기능을 사용하면 관리형 Active Directory 도메인에 조인된 HDInsight 클러스터를 만들 수 있습니다. 그런 다음, 클러스터에서 인증하고 로그인할 수 있는 엔터프라이즈의 직원 목록을 구성할 수 있습니다.
 
-이 설정을 통해 기업 직원은 해당 도메인 자격 증명을 사용하여 클러스터 노드에 로그인할 수 있습니다. 또한 클러스터와의 상호 작용하기 위해 해당 도메인 자격 증명을 사용하여 Apache Ambari 뷰, ODBC, JDBC, PowerShell 및 REST API 등의 다른 승인된 끝점으로 인증할 수도 있습니다. 
+이 설정을 통해 기업 직원은 해당 도메인 자격 증명을 사용하여 클러스터 노드에 로그인할 수 있습니다. 또한 클러스터와의 상호 작용하기 위해 해당 도메인 자격 증명을 사용하여 Apache Ambari 뷰, ODBC, JDBC, PowerShell 및 REST API 등의 다른 승인된 끝점으로 인증할 수도 있습니다.
 
 ### <a name="authorization"></a>권한 부여
 
 대부분의 기업이 따르는 선택한 모범 사례는 모든 직원에게 기업 리소스에 대한 모든 액세스를 부여하지 않도록 하는 것입니다. 마찬가지로 관리자는 클러스터 리소스에 대한 역할 기반 액세스 제어 정책을 정의할 수 있습니다. 이는 ESP 클러스터에서만 사용할 수 있습니다.
 
-Hadoop 관리자는 Apache Ranger의 플러그인을 사용하여 Apache [Hive](apache-domain-joined-run-hive.md), [HBase](apache-domain-joined-run-hbase.md) 및 [Kafka](apache-domain-joined-run-kafka.md)를 보호하도록 RBAC(역할 기반 액세스 제어)를 구성할 수 있습니다. RBAC 정책을 구성하면 권한을 조직의 역할과 연결할 수 있습니다. 이 추상화 계층을 사용하면 사용자가 자신의 업무를 수행하는 데 필요한 권한만 더 쉽게 부여받을 수 있습니다. 또한 Ranger를 사용하면 직원의 데이터 액세스와 액세스 제어 정책에 대한 모든 변경을 감사할 수 있습니다.
+Hadoop 관리자는 Apache Ranger의 플러그 인을 사용하여 Apache [Hive](apache-domain-joined-run-hive.md), [HBase](apache-domain-joined-run-hbase.md) 및 [Kafka](apache-domain-joined-run-kafka.md)를 보호하도록 RBAC(역할 기반 액세스 제어)를 구성할 수 있습니다. RBAC 정책을 구성하면 권한을 조직의 역할과 연결할 수 있습니다. 이 추상화 계층을 사용하면 사용자가 자신의 업무를 수행하는 데 필요한 권한만 더 쉽게 부여받을 수 있습니다. 또한 Ranger를 사용하면 직원의 데이터 액세스와 액세스 제어 정책에 대한 모든 변경을 감사할 수 있습니다.
 
 예를 들어, 관리자는 [Apache Ranger](https://ranger.apache.org/)를 구성하여 Hive에 대한 액세스 제어 정책을 설정할 수 있습니다. 이 기능은 행 수준 및 열 수준 필터링(데이터 마스킹)을 보장하고 권한이 없는 사용자로부터 중요한 데이터를 필터링합니다.
 
@@ -50,7 +50,7 @@ Hadoop 관리자는 Apache Ranger의 플러그인을 사용하여 Apache [Hive](
 
 클러스터 리소스에 대한 모든 액세스를 감사하는 작업은 리소스의 무단 또는 실수로 실행된 액세스를 추적하는 데 필요합니다. 권한 없는 사용자로부터 HDInsight 클러스터 리소스를 보호하고 데이터를 보호하는 것만큼 중요합니다.
 
-관리자는 HDInsight 클러스터 리소스 및 데이터에 대한 모든 액세스를 확인하고 보고할 수 있습니다. 관리자는 Apache Ranger가 지원되는 끝점에서 만들어진 액세스 제어 정책에 대한 모든 변경 내용을 확인하고 보고할 수도 있습니다. 
+관리자는 HDInsight 클러스터 리소스 및 데이터에 대한 모든 액세스를 확인하고 보고할 수 있습니다. 관리자는 Apache Ranger가 지원되는 끝점에서 만들어진 액세스 제어 정책에 대한 모든 변경 내용을 확인하고 보고할 수도 있습니다.
 
 Apache Ranger 및 Ambari 감사 로그와 ssh 액세스 로그에 액세스하려면 [Azure Monitor를 사용하도록 설정](../hdinsight-hadoop-oms-log-analytics-tutorial.md#cluster-auditing)하고 감사 레코드를 제공하는 테이블을 살펴봅니다.
 
@@ -62,7 +62,7 @@ HDInsight 클러스터용 데이터 저장소(Azure Blob 스토리지 및 Azure 
 
 ### <a name="compliance"></a>규정 준수
 
-Azure 규정 준수 제안은 Microsoft에서 생성한 계약 수정, 자체 평가, 고객 지침 문서뿐만 아니라 독립적인 타사 감사 업체에서 생성한 공식 인증, 증명, 유효성 검사, 권한 부여 및 평가도 포함한 다양한 유형의 보증을 기반으로 합니다. HDInsight 규정 준수 정보는 [Microsoft Trust Center](https://www.microsoft.com/trust-center) 및 [Microsoft Azure 규정 준수 개요](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)를 참조하세요.
+Azure 규정 준수 제안은 독립적인 타사 감사 업체에서 생성한 공식 인증, 증명, 유효성 검사, 권한 부여 및 평가 및 Microsoft에서 생성한 계약 수정, 자체 평가, 고객 지침 문서를 포함한 다양한 유형의 보증을 기반으로 합니다. HDInsight 규정 준수 정보는 [Microsoft Trust Center](https://www.microsoft.com/trust-center) 및 [Microsoft Azure 규정 준수 개요](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)를 참조하세요.
 
 ## <a name="shared-responsibility-model"></a>공동 책임 모델
 

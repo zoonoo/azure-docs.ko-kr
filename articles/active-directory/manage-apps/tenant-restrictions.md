@@ -15,12 +15,12 @@ ms.date: 03/28/2019
 ms.author: mimart
 ms.reviewer: richagi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64f73dd8dbef3f08cd4ea5841e4ec21bac2f55bf
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 70cdb4b42e835a9bfa03f4551ba25088ef8c5226
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74276497"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942861"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>테 넌 트 제한을 사용 하 여 SaaS 클라우드 응용 프로그램에 대 한 액세스 관리
 
@@ -60,7 +60,7 @@ ms.locfileid: "74276497"
 
 프록시 인프라를 통해 테 넌 트 제한을 사용 하도록 설정 하려면 다음 구성이 필요 합니다. 이 지침은 일반적인 것이므로 보다 구체적인 구현 단계는 프록시 공급업체의 설명서를 참조차세요.
 
-#### <a name="prerequisites"></a>선행 조건
+#### <a name="prerequisites"></a>사전 요구 사항
 
 - 프록시는 FQDN/URL을 사용하여 SSL 가로채기, HTTP 헤더 삽입 및 대상 필터링을 수행할 수 있어야 합니다.
 
@@ -105,9 +105,12 @@ Login.microsoftonline.com, login.microsoft.com 및 login.windows.net으로 들�
 
 제한 된 액세스 컨텍스트 테 넌 트로 지정 된 테 넌 트의 관리자는이 보고서를 사용 하 여 사용 된 id 및 대상 디렉터리 ID를 비롯 하 여 테 넌 트 제한 정책으로 인해 차단 된 로그인을 볼 수 있습니다. 이러한 제한을 설정하는 테넌트가 로그인에 대해 사용자 테넌트이거나 리소스 테넌트인 경우 로그인이 포함됩니다.
 
+> [!NOTE]
+> 제한 된 액세스 컨텍스트 테 넌 트 이외의 테 넌 트에 있는 사용자가 로그인 하는 경우 보고서에는 대상 디렉터리 ID와 같은 제한 된 정보가 포함 될 수 있습니다. 이 경우 다른 테 넌 트의 사용자 데이터를 보호 하기 위해 이름, 사용자 계정 이름 등의 사용자 식별 가능 정보를 마스킹할 수 있습니다.
+
 Azure Portal의 다른 보고서와 마찬가지로, 필터를 사용하여 보고서의 범위를 지정할 수 있습니다. 특정 시간 간격, 사용자, 응용 프로그램, 클라이언트 또는 상태를 기준으로 필터링 할 수 있습니다. **열** 단추를 선택 하는 경우 다음 필드를 조합 하 여 데이터를 표시 하도록 선택할 수 있습니다.
 
-- **User**
+- **사용자**
 - **애플리케이션**
 - **상태**
 - **Date**
@@ -166,7 +169,7 @@ Fiddler는 HTTP 헤더 삽입을 비롯하여 HTTP/HTTPS 트래픽을 캡처하�
       }
       ```
 
-      여러 테넌트를 허용해야 하는 경우 쉼표로 테넌트 이름을 구분합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+      여러 테넌트를 허용해야 하는 경우 쉼표로 테넌트 이름을 구분합니다. 다음은 그 예입니다.
 
       `oSession.oRequest["Restrict-Access-To-Tenants"] = "contoso.onmicrosoft.com,fabrikam.onmicrosoft.com";`
 

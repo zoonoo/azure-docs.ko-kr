@@ -8,12 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: b9ac15e6909498c38f618a24be6b010dc2774b07
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 431372b930269c3dfa6bdc6e8b2fe4d291a8162e
+ms.sourcegitcommit: e6bce4b30486cb19a6b415e8b8442dd688ad4f92
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905511"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78933789"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -59,7 +59,7 @@ Windows에서는 레지스트리에서 MIME 형식이 추출 됩니다. 플래�
 azcopy copy [source] [destination] [flags]
 ```
 
-## <a name="examples"></a>예시
+## <a name="examples"></a>예
 
 OAuth 인증을 사용 하 여 단일 파일을 업로드 합니다. AzCopy에 아직 로그인 하지 않은 경우 다음 명령을 실행 하기 전에 AzCopy login 명령을 실행 하세요.
 
@@ -147,31 +147,31 @@ SAS 토큰을 사용 하 여 모든 blob 컨테이너, 디렉터리 및 blob을 
 
 액세스 키 및 SAS 토큰을 사용 하 여 AWS (Amazon Web Services) s 3에서 Blob Storage 단일 개체를 복사 합니다. 먼저 AWS S3 source에 대 한 환경 변수 AWS_ACCESS_KEY_ID 및 AWS_SECRET_ACCESS_KEY를 설정 합니다.
   
-- azcopy cp "https://s3.amazonaws.com/ [버킷]/[object]" "https://[destaccount]. blob. w i n d o w s/[container]/[path/to/blob]? [SAS] "
+- azcopy cp "https://s3.amazonaws.com/[버킷]/[object]" "https://[destaccount]. blob. w i n d o w s/[container]/[path/to/blob]? [SAS] "
 
 액세스 키 및 SAS 토큰을 사용 하 여 AWS s 3에서 전체 디렉터리를 Blob Storage에 복사 합니다. 먼저 AWS S3 source에 대 한 환경 변수 AWS_ACCESS_KEY_ID 및 AWS_SECRET_ACCESS_KEY를 설정 합니다.
 
-- azcopy cp "https://s3.amazonaws.com/ [버킷]/[폴더]" "https://[destaccount]. blob. w i n d o w s/[container]/[path/to/directory]? [SAS] "--recursive = true
+- azcopy cp "https://s3.amazonaws.com/[버킷]/[폴더]" "https://[destaccount]. blob. w i n d o w s/[container]/[path/to/directory]? [SAS] "--recursive = true
 
-[폴더] 자리 표시자를 더 잘 이해 하려면 https://docs.aws.amazon.com/AmazonS3/latest/user-guide/using-folders.html 를 참조 하세요.
+[폴더] 자리 표시자를 더 잘 이해 하려면 https://docs.aws.amazon.com/AmazonS3/latest/user-guide/using-folders.html를 참조 하세요.
 
 액세스 키 및 SAS 토큰을 사용 하 여 Blob Storage Amazon Web Services (AWS)에서 모든 버킷을 복사 합니다. 먼저 AWS S3 source에 대 한 환경 변수 AWS_ACCESS_KEY_ID 및 AWS_SECRET_ACCESS_KEY를 설정 합니다.
 
-- azcopy cp "https://s3.amazonaws.com/ " "https://[destaccount]. blob. [SAS] "--recursive = true
+- azcopy cp "https://s3.amazonaws.com/" "https://[destaccount]. blob. [SAS] "--recursive = true
 
 액세스 키 및 SAS 토큰을 사용 하 여 Amazon Web Services (AWS) 지역에서 Blob Storage 모든 버킷을 복사 합니다. 먼저 AWS S3 source에 대 한 환경 변수 AWS_ACCESS_KEY_ID 및 AWS_SECRET_ACCESS_KEY를 설정 합니다.
 
-- azcopy cp "https://s3- [region]. amazonaws/" "https://[destaccount]. blob. w i n d? [SAS] "--recursive = true
+- azcopy cp "https://s3-[region]. amazonaws/" "https://[destaccount]. blob. w i n d? [SAS] "--recursive = true
 
 버킷 이름에 와일드 카드 기호 (*)를 사용 하 여 버킷의 하위 집합을 복사 합니다. 이전 예제와 마찬가지로 액세스 키와 SAS 토큰이 필요 합니다. AWS S3 원본에 대해 환경 변수 AWS_ACCESS_KEY_ID 및 AWS_SECRET_ACCESS_KEY를 설정 해야 합니다.
 
-- azcopy cp "https://s3.amazonaws.com/ [버킷 * 이름]/" "https://[destaccount] .cc.net? [SAS] "--recursive = true
+- azcopy cp "https://s3.amazonaws.com/[버킷 * 이름]/" "https://[destaccount] .cc.net? [SAS] "--recursive = true
 
 ## <a name="options"></a>옵션
 
 **--blob 형식** 문자열은 대상에서 blob의 유형을 정의 합니다. 이는 blob을 업로드 하 고 계정 간에 복사할 때 사용 됩니다 (기본값 ' 검색 '). 유효한 값으로는 ' 검색 ', ' BlockBlob ', ' PageBlob ' 및 ' AppendBlob '가 있습니다. 계정 간에 복사 하는 경우 값이 ' 검색 ' 이면 AzCopy에서 원본 blob의 유형을 사용 하 여 대상 blob의 유형을 결정 합니다. 파일을 업로드할 때 ' 검색 '은 파일이 파일 확장명을 기반으로 하는 VHD 또는 VHDX 파일 인지 여부를 확인 합니다. 파일이 VHD 또는 VHDX 파일 에테르 스코프 경우 AzCopy는 해당 파일을 페이지 blob으로 처리 합니다. (기본 "검색")
 
-**--블록-blob** 계층 문자열 업로드 블록 blob는이 blob 계층을 사용 하 여 Azure Storage 합니다. (기본 "없음")
+**--블록-blob 계층** 문자열 업로드 블록 blob을 사용자가 선택한 [액세스 계층](../blobs/storage-blob-storage-tiers.md) 에 직접 업로드 합니다. (기본값 ' 없음 '). 유효한 값에는 ' None ', ' Hot ', ' 쿨 ' 및 ' Archive '가 포함 됩니다. ' 없음 ' 또는 계층이 전달 되지 않으면 blob는 저장소 계정의 계층을 상속 합니다.
 
 **--블록 크기-mb** 부동 소수점 Azure Storage에 업로드 하 고 Azure Storage에서 다운로드 하는 경우이 블록 크기 (MiB에 지정)를 사용 합니다. 기본값은 파일 크기에 따라 자동으로 계산 됩니다. 소수 부분을 사용할 수 있습니다 (예: 0.25).
 

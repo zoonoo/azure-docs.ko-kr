@@ -15,12 +15,12 @@ ms.date: 04/08/2019
 ms.author: mimart
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 600cd3f3ad8826b52648b51beb8c66a382766b80
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 60bfc964ffc394b3f79c9d279158003f383b7331
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367885"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943436"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>홈 영역 검색 정책을 사용하여 애플리케이션에 대한 Azure Active Directory 로그인 동작 구성
 
@@ -150,7 +150,7 @@ Azure AD PowerShell cmdlet을 사용하여 다음을 포함한 몇 가지 시나
 - 정책이 구성된 애플리케이션 나열
 
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>사전 요구 사항
 다음 예제에서는 Azure AD에서 애플리케이션 서비스 주체에 대해 정책을 생성, 업데이트, 연결 및 삭제합니다.
 
 1.  시작하려면 최신 Azure AD PowerShell cmdlet 미리 보기를 다운로드합니다. 
@@ -258,7 +258,7 @@ Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 #### <a name="step-2-remove-the-policy-assignment-from-the-application-service-principal"></a>2단계: 애플리케이션 서비스 주체에서 정책 할당 제거  
 
 ``` powershell
-Remove-AzureADApplicationPolicy -id <ObjectId of the Service Principal>  -PolicyId <ObjectId of the policy>
+Remove-AzureADServicePrincipalPolicy -id <ObjectId of the Service Principal>  -PolicyId <ObjectId of the policy>
 ```
 
 #### <a name="step-3-check-removal-by-listing-the-service-principals-to-which-the-policy-is-assigned"></a>3단계: 정책이 할당된 서비스 주체를 나열하여 제거 확인 

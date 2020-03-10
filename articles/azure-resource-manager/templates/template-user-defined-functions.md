@@ -2,13 +2,13 @@
 title: 템플릿의 사용자 정의 함수
 description: Azure Resource Manager 템플릿에서 사용자 정의 함수를 정의 하 고 사용 하는 방법에 대해 설명 합니다.
 ms.topic: conceptual
-ms.date: 09/05/2019
-ms.openlocfilehash: 58b9ba7b162736329cf775e2be5a47bfcae0a4ca
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.date: 03/09/2020
+ms.openlocfilehash: 2c09572a460aa028b23987033d2b77e2aad8a0cd
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122477"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943211"
 ---
 # <a name="user-defined-functions-in-azure-resource-manager-template"></a>Azure Resource Manager 템플릿의 사용자 정의 함수
 
@@ -18,7 +18,7 @@ ms.locfileid: "76122477"
 
 ## <a name="define-the-function"></a>함수 정의
 
-함수는 템플릿 함수와 이름 충돌을 피하기 위해 네임스페이스 값이 필요합니다. 다음 예제에서는 스토리지 계정 이름을 반환하는 함수를 보여줍니다.
+함수는 템플릿 함수와 이름 충돌을 피하기 위해 네임스페이스 값이 필요합니다. 다음 예에서는 고유 이름을 반환 하는 함수를 보여 줍니다.
 
 ```json
 "functions": [
@@ -44,23 +44,53 @@ ms.locfileid: "76122477"
 
 ## <a name="use-the-function"></a>함수 사용
 
-다음 예제에서는 함수를 호출 하는 방법을 보여 줍니다.
+다음 예에서는 사용자 정의 함수를 포함 하는 템플릿을 보여 줍니다. 이 함수는 해당 함수를 사용 하 여 저장소 계정에 대 한 고유한 이름을 가져옵니다. 템플릿에는 함수에 매개 변수로 전달 되는 **storageNamePrefix** 라는 매개 변수가 있습니다.
 
 ```json
-"resources": [
+{
+ "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+ "contentVersion": "1.0.0.0",
+ "parameters": {
+   "storageNamePrefix": {
+     "type": "string",
+     "maxLength": 11
+   }
+ },
+ "functions": [
   {
-    "name": "[contoso.uniqueName(parameters('storageNamePrefix'))]",
-    "apiVersion": "2016-01-01",
-    "type": "Microsoft.Storage/storageAccounts",
-    "location": "South Central US",
-    "tags": {},
-    "sku": {
-      "name": "Standard_LRS"
-    },
-    "kind": "Storage",
-    "properties": {}
+    "namespace": "contoso",
+    "members": {
+      "uniqueName": {
+        "parameters": [
+          {
+            "name": "namePrefix",
+            "type": "string"
+          }
+        ],
+        "output": {
+          "type": "string",
+          "value": "[concat(toLower(parameters('namePrefix')), uniqueString(resourceGroup().id))]"
+        }
+      }
+    }
   }
-]
+],
+ "resources": [
+   {
+     "type": "Microsoft.Storage/storageAccounts",
+     "apiVersion": "2019-04-01",
+     "name": "[contoso.uniqueName(parameters('storageNamePrefix'))]",
+     "location": "South Central US",
+     "sku": {
+       "name": "Standard_LRS"
+     },
+     "kind": "StorageV2",
+     "properties": {
+       "supportsHttpsTrafficOnly": true
+     }
+   }
+ ]
+}
 ```
 
 ## <a name="limitations"></a>제한 사항

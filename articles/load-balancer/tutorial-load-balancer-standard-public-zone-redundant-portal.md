@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 99ba530d4857520693060d83ad78a7f127003a3d
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: f521cc68476e2f9df1cc8288cf41156da3851cd0
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75732328"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251887"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>자습서: Azure Portal에서 Standard Load Balancer를 통한 가용성 영역 간 부하 분산
 
@@ -57,7 +57,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     | Subscription               | 구독을 선택합니다.    |    
     | Resource group         | **새로 만들기**를 선택하고 텍스트 상자에 *MyResourceGroupLBAZ*를 입력합니다.|
     | 속성                   | *myLoadBalancer*                                   |
-    | 지역         | **유럽 서부**를 선택합니다.                                        |
+    | 지역         | **서유럽**를 선택합니다.                                        |
     | Type          | **공용**을 선택합니다.                                        |
     | SKU           | **표준**을 선택합니다.                          |
     | 공용 IP 주소 | **새로 만들기**를 선택합니다. |
@@ -69,16 +69,20 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 이 섹션에서는 지역에 대해 다른 영역에 가상 네트워크, 가상 머신을 만든 다음, 영역 중복 부하 분산 장치를 테스트하기 위한 IIS를 가상 머신에 설치합니다. 따라서 한 영역이 실패하면 같은 영역의 VM에 대한 상태 검색이 실패하고 트래픽은 다른 영역의 VM에서 계속하여 처리됩니다.
 
-### <a name="create-a-virtual-network"></a>가상 네트워크 만들기
-백 엔드 서버를 배포하기 위한 가상 네트워크를 만듭니다.
+## <a name="virtual-network-and-parameters"></a>가상 네트워크 및 매개 변수
 
-1. 화면의 왼쪽 상단에서 **리소스 만들기** > **네트워킹** > **가상 네트워크**를 클릭하고 가상 네트워크에 대해 다음 값을 입력합니다.
-    - *myVNet* - 가상 네트워크의 이름입니다.
-    - *myResourceGroupLBAZ* - 기존 리소스 그룹의 이름입니다.
-    - *myBackendSubnet* - 서브넷 이름입니다.
-2. **만들기**를 클릭하여 가상 네트워크를 만듭니다.
+이 섹션에서는 단계의 다음 매개 변수를 아래 정보로 바꾸어야 합니다.
 
-    ![가상 네트워크 만들기](./media/load-balancer-standard-public-availability-zones-portal/2-load-balancer-virtual-network.png)
+| 매개 변수                   | 값                |
+|-----------------------------|----------------------|
+| **\<resource-group-name>**  | myResourceGroupLBAZ(기존 리소스 그룹 선택) |
+| **\<virtual-network-name>** | myVNet          |
+| **\<region-name>**          | 서유럽      |
+| **\<IPv4-address-space>**   | 10.0.0.0\16          |
+| **\<subnet-name>**          | myBackendSubnet        |
+| **\<subnet-address-range>** | 10.0.0.0\24          |
+
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 ## <a name="create-a-network-security-group"></a>네트워크 보안 그룹 만들기
 
@@ -86,7 +90,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. 화면 왼쪽에서 **리소스 만들기**를 클릭하고 검색 상자에 *네트워크 보안 그룹*을 입력한 다음, 네트워크 보안 그룹 페이지에서 **만들기**를 클릭합니다.
 2. 네트워크 보안 그룹 만들기 페이지에서 다음 값을 입력합니다.
-    - *myNetworkSecurityGroup*  - 네트워크 보안 그룹의 이름입니다.
+    - *myNetworkSecurityGroup* - 네트워크 보안 그룹의 이름입니다.
     - *myResourceGroupLBAZ* - 기존 리소스 그룹의 이름입니다.
    
 ![가상 네트워크 만들기](./media/load-balancer-standard-public-availability-zones-portal/create-nsg.png)

@@ -1,27 +1,22 @@
 ---
-title: Azure CLI를 사용 하 여 Linux VM에 대 한 포트 열기
-description: Azure Resource Manager 배포 모드 및 Azure CLI를 사용하여 Linux VM에 대한 포트를 열고 엔드포인트를 만드는 방법 알아보기
-services: virtual-machines-linux
-documentationcenter: ''
+title: Azure CLI를 사용 하 여 VM에 대 한 포트 열기
+description: Azure CLI를 사용 하 여 VM에 대 한 포트를 열고 끝점을 만드는 방법에 대해 알아봅니다.
 author: cynthn
 manager: gwallace
-editor: ''
-ms.assetid: eef9842b-495a-46cf-99a6-74e49807e74e
-ms.service: virtual-machines-linux
-ms.devlang: azurecli
+ms.service: virtual-machines
+ms.subservice: networking
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: cynthn
-ms.openlocfilehash: cfcea8c775b2d6a9bee3c078cf67f0a942af5984
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d9488b7a466dfc67edbf2dcbee966fc1fc72e8b7
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75354042"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944537"
 ---
-# <a name="open-ports-and-endpoints-to-a-linux-vm-with-the-azure-cli"></a>Azure CLI를 사용하여 Linux VM에 대한 엔드포인트 및 포트 열기
+# <a name="open-ports-and-endpoints-to-a-vm-with-the-azure-cli"></a>Azure CLI를 사용 하 여 VM에 대 한 포트 및 끝점 열기
 
 서브넷 또는 VM 네트워크 인터페이스에서 네트워크 필터를 만들어, Azure에서 VM(가상 컴퓨터)에 대한 포트를 열거나 엔드포인트를 만듭니다. 인바운드 및 아웃바운드 트래픽을 모두 제어하는 이러한 필터를 트래픽을 수신하는 리소스에 연결된 네트워크 보안 그룹에 배치합니다. 포트 80에서 웹 트래픽의 일반적인 예제를 사용해 보겠습니다. 이 문서에서는 Azure CLI를 사용하여 VM에 포트를 여는 방법을 보여 줍니다. 
 

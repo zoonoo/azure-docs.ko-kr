@@ -1,14 +1,14 @@
 ---
 title: 지원 되는 리소스 관리자 리소스 유형
 description: Azure 리소스 그래프에서 지원 되는 리소스 관리자 리소스 유형 목록 및 변경 기록을 제공 합니다.
-ms.date: 03/05/2020
+ms.date: 03/09/2020
 ms.topic: reference
-ms.openlocfilehash: 597e1c2f7e04a7861099763d809ac09978e09805
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.openlocfilehash: 9844b2fe7f1cbaf069789a4083229b4a6f37f38f
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78399594"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943989"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Azure 리소스 그래프 테이블 및 리소스 종류 참조
 
@@ -122,6 +122,7 @@ Azure 리소스 그래프는 [Azure Resource Manager](../../../azure-resource-ma
 - virtualmachinescalesets/
 - containerinstance/containergroups
 - microsoft.containerregistry/레지스트리
+- microsoft.containerregistry/registry/agentpools
 - microsoft.containerregistry/레지스트리/buildtasks
 - microsoft.containerregistry/레지스트리/복제
 - microsoft.containerregistry/레지스트리/taskruns
@@ -152,6 +153,7 @@ Azure 리소스 그래프는 [Azure Resource Manager](../../../azure-resource-ma
 - dbforpostgresql/servergroups
 - dbforpostgresql/서버
 - dbforpostgresql/serversv2
+- dbforpostgresql/singleservers
 - microsoft deploymentmanager/artifactsources
 - microsoft deploymentmanager/롤아웃
 - microsoft deploymentmanager/servicetopologies
@@ -413,6 +415,7 @@ Azure 리소스 그래프는 [Azure Resource Manager](../../../azure-resource-ma
 - microsoft.web/connections
 - microsoft 웹/customapis
 - microsoft 웹/hostingenvironments
+- microsoft 웹/kubeenvironments
 - microsoft 웹/serverfarms
 - microsoft.web/sites
 - microsoft 웹 사이트/사이트/premieraddons

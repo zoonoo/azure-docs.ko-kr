@@ -1,6 +1,6 @@
 ---
-title: '빠른 시작: 웨어하우스 만들기 - Azure Powershell'
-description: Azure Powershell을 사용하여 SQL Database 논리 서버, 서버 수준 방화벽 규칙 및 데이터 웨어하우스를 빠르게 만듭니다.
+title: '빠른 시작: 데이터 웨어하우스 만들기(PowerShell)'
+description: Azure PowerShell을 사용하여 서버 수준 방화벽 규칙으로 Azure Synapse Analytics 데이터 웨어하우스 논리 서버를 신속하게 만듭니다.
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -10,22 +10,24 @@ ms.subservice: development
 ms.date: 4/11/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 94dcc0dee5dd4fe81eb5ce067d7ace31edeca353
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: 9df9b4b1bdb33a856d9e31d65981e8654af049d2
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75461515"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78200008"
 ---
-# <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-with-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Azure SQL Data Warehouse 만들기 및 쿼리
+# <a name="quickstart-create--query-a-data-warehouse-with-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 데이터 웨어하우스 만들기 및 쿼리
 
-Azure PowerShell을 사용하여 Azure SQL Data Warehouse를 빠르게 만듭니다.
+Azure PowerShell을 사용하여 SQL 풀을 프로비저닝하여 Azure Synapse Analytics 데이터 웨어하우스를 만듭니다.
+
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 > [!NOTE]
-> SQL Data Warehouse를 만들면 새로운 유료 서비스가 발생할 수 있습니다.  자세한 내용은 [SQL Data Warehouse 가격](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)을 참조하세요.
+> 웨어하우스를 만들면 새로운 유료 서비스가 발생할 수 있습니다.  자세한 내용은 [Azure Synapse Analytics 가격 책정](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)을 참조하세요.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -68,7 +70,7 @@ $password = "ChangeYourAdminPassword1"
 $startip = "0.0.0.0"
 $endip = "0.0.0.0"
 # The database name
-$databasename = "mySampleDataWarehosue"
+$databasename = "mySampleDataWarehouse"
 ```
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
@@ -78,6 +80,7 @@ $databasename = "mySampleDataWarehosue"
 ```powershell
 New-AzResourceGroup -Name $resourcegroupname -Location $location
 ```
+
 ## <a name="create-a-logical-server"></a>논리 서버 만들기
 
 [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) 명령을 사용하여 [Azure SQL 논리 서버](../sql-database/sql-database-logical-servers.md)를 만듭니다. 논리 서버는 그룹으로 관리되는 데이터베이스 그룹을 포함합니다. 다음 예제에서는 관리자 사용자 이름이 `ServerAdmin`이고 암호가 `ChangeYourAdminPassword1`인 리소스 그룹에 임의로 이름이 지정된 서버를 생성합니다. 이러한 미리 정의된 값은 필요에 따라 바꿉니다.
@@ -100,7 +103,7 @@ New-AzSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
 ```
 
 > [!NOTE]
-> SQL Database 및 SQL Data Warehouse는 포트 1433을 통해 통신합니다. 회사 네트워크 내에서 연결을 시도하는 경우 포트 1433을 통한 아웃바운드 트래픽이 네트워크 방화벽에서 허용되지 않을 수 있습니다. 이 경우 IT 부서에서 1433 포트를 열지 않으면 Azure SQL 서버에 연결할 수 없습니다.
+> SQL 엔드포인트는 1433 포트를 통해 통신합니다. 회사 네트워크 내에서 연결을 시도하는 경우 포트 1433을 통한 아웃바운드 트래픽이 네트워크 방화벽에서 허용되지 않을 수 있습니다. 이 경우 IT 부서에서 1433 포트를 열지 않으면 Azure SQL 서버에 연결할 수 없습니다.
 >
 
 
@@ -121,10 +124,10 @@ New-AzSqlDatabase `
 필수 매개 변수는 다음과 같습니다.
 
 * **RequestedServiceObjectiveName**: 요청 중인 [데이터 웨어하우스 단위](what-is-a-data-warehouse-unit-dwu-cdwu.md)의 양입니다. 이 양을 늘리면 컴퓨팅 비용이 증가합니다. 지원되는 값 목록에 대해서는 [메모리와 동시성 제한](memory-concurrency-limits.md)을 참조하세요.
-* **DatabaseName**: 만들려는 SQL Data Warehouse의 이름입니다.
+* **DatabaseName**: 만드는 데이터 웨어하우스의 이름입니다.
 * **ServerName**: 만드는 데 사용할 서버의 이름입니다.
 * **ResourceGroupName**: 사용 중인 리소스 그룹입니다. 구독에서 사용 가능한 리소스 그룹을 찾으려면 Get-AzureResource를 사용합니다.
-* **Edition**: SQL Data Warehouse를 만들려면 "DataWarehouse"여야 합니다.
+* **Edition**: 데이터 웨어하우스를 만들려면 "DataWarehouse"여야 합니다.
 
 선택적 매개 변수는 다음과 같습니다.
 
@@ -148,6 +151,6 @@ Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 
 ## <a name="next-steps"></a>다음 단계
 
-지금까지 데이터 웨어하우스를 만들고, 방화벽 규칙을 만들고, 데이터 웨어하우스에 연결하고, 몇 가지 쿼리를 실행했습니다. Azure SQL Data Warehouse에 대해 자세히 알아보려면 데이터 로드에 대한 자습서를 계속 진행하세요.
+지금까지 데이터 웨어하우스를 만들고, 방화벽 규칙을 만들고, 데이터 웨어하우스에 연결하고, 몇 가지 쿼리를 실행했습니다. 자세히 알아보려면 데이터 로드에 대한 자습서를 계속 진행하세요.
 > [!div class="nextstepaction"]
->[SQL Data Warehouse로 데이터 로드](load-data-from-azure-blob-storage-using-polybase.md)
+>[데이터 웨어하우스로 데이터 로드](load-data-from-azure-blob-storage-using-polybase.md)

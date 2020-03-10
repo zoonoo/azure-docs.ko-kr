@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/21/2020
+ms.date: 03/09/2020
 ms.author: iainfou
-ms.openlocfilehash: cea1664a0418dbe6269c22cffc70e0979dea41f0
-ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
+ms.openlocfilehash: a57826c79babded6e616548879a5ec0c223307d0
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78892767"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78946428"
 ---
 # <a name="frequently-asked-questions-faqs"></a>FAQ(질문과 대답)
 
@@ -36,6 +36,7 @@ ms.locfileid: "78892767"
 * [Azure AD Domain Services 관리 되는 도메인에 도메인 컨트롤러를 추가할 수 있나요?](#can-i-add-domain-controllers-to-an-azure-ad-domain-services-managed-domain)
 * [디렉터리에 초대 하는 게스트 사용자가 Azure AD Domain Services을 사용할 수 있나요?](#can-guest-users-invited-to-my-directory-use-azure-ad-domain-services)
 * [기존 Azure AD Domain Services 관리 되는 도메인을 다른 구독, 리소스 그룹, 지역 또는 가상 네트워크로 이동할 수 있나요?](#can-i-move-an-existing-azure-ad-domain-services-managed-domain-to-a-different-subscription-resource-group-region-or-virtual-network)
+* [고가용성 옵션을 포함 Azure AD Domain Services?](#does-azure-ad-domain-services-include-high-availability-options)
 
 ### <a name="can-i-create-multiple-managed-domains-for-a-single-azure-ad-directory"></a>단일 Azure AD 디렉터리에 여러 관리되는 도메인을 만들 수 있나요?
 아니요. 단일 Azure AD 디렉터리에 Azure AD Domain Services에서 제공하는 단일 관리되는 도메인만 만들 수 있습니다.
@@ -74,6 +75,10 @@ ms.locfileid: "78892767"
 
 ### <a name="can-i-move-an-existing-azure-ad-domain-services-managed-domain-to-a-different-subscription-resource-group-region-or-virtual-network"></a>기존 Azure AD Domain Services 관리 되는 도메인을 다른 구독, 리소스 그룹, 지역 또는 가상 네트워크로 이동할 수 있나요?
 아니요. 관리 되는 Azure AD Domain Services 도메인을 만든 후에는 인스턴스를 다른 리소스 그룹, 가상 네트워크, 구독 등으로 이동할 수 없습니다. Azure AD DS 인스턴스를 배포할 때 가장 적합 한 구독, 리소스 그룹, 지역 및 가상 네트워크를 선택 합니다.
+
+### <a name="does-azure-ad-domain-services-include-high-availability-options"></a>고가용성 옵션을 포함 Azure AD Domain Services?
+
+예. 각 Azure AD Domain Services 관리 되는 도메인에는 두 개의 도메인 컨트롤러가 포함 됩니다. 이러한 도메인 컨트롤러를 관리 하거나 연결 하지 않아도 관리 서비스의 일부입니다. 가용성 영역를 지 원하는 지역에 Azure AD Domain Services를 배포 하는 경우 도메인 컨트롤러는 영역 간에 분산 됩니다. 가용성 영역를 지원 하지 않는 지역에서 도메인 컨트롤러는 가용성 집합에 분산 됩니다. 이 배포에 대 한 구성 옵션 또는 관리 제어 권한이 없습니다. 자세한 내용은 [Azure의 가상 컴퓨터에 대 한 가용성 옵션](../virtual-machines/windows/availability.md)을 참조 하세요.
 
 ## <a name="administration-and-operations"></a>관리 및 운영
 

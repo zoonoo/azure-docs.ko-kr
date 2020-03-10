@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 491ba986c6ca71be0bc5b13e2f9f0717ffec99a4
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 485eb14938fc7e490ea2d68c9090cdfdbf01cc8f
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028885"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252569"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-azure-portal"></a>빠른 시작: Azure Portal를 사용하여 프라이빗 엔드포인트 만들기
 
@@ -28,26 +28,22 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 ## <a name="create-a-vm"></a>VM 만들기
 이 섹션에서는 Private Link 리소스(이 예제에서는 Azure의 SQL 서버)에 액세스하는 데 사용되는 VM을 호스트하는 가상 네트워크와 서브넷을 만듭니다.
 
-### <a name="create-the-virtual-network"></a>가상 네트워크 만들기
-
+## <a name="virtual-network-and-parameters"></a>가상 네트워크 및 매개 변수
 
 이 섹션에서는 Private Link 리소스에 액세스하는 데 사용되는 VM을 호스트하는 Virtual Network와 서브넷을 만듭니다.
 
-1. 화면의 왼쪽 위에서 **리소스 만들기** > **네트워킹** > **가상 네트워크**를 차례로 선택합니다.
-1. **가상 네트워크 만들기**에서 다음 정보를 입력하거나 선택합니다.
+이 섹션에서는 단계의 다음 매개 변수를 아래 정보로 바꾸어야 합니다.
 
-    | 설정 | 값 |
-    | ------- | ----- |
-    | 속성 | *MyVirtualNetwork*를 입력합니다. |
-    | 주소 공간 | *10.1.0.0/16*을 입력합니다. |
-    | Subscription | 구독을 선택합니다.|
-    | Resource group | **새로 만들기**를 선택하고 *myResourceGroup*을 입력한 다음, **확인**을 선택합니다. |
-    | 위치 | **WestCentralUS**를 선택합니다.|
-    | 서브넷 - 이름 | *mySubnet*을 입력합니다. |
-    | 서브넷 - 주소 범위 | *10.1.0.0/24*를 입력합니다. |
-    |||
-1. 나머지 항목은 기본값으로 유지하고 **만들기**를 선택합니다.
+| 매개 변수                   | 값                |
+|-----------------------------|----------------------|
+| **\<resource-group-name>**  | myResourceGroup |
+| **\<virtual-network-name>** | myVirtualNetwork          |
+| **\<region-name>**          | 미국 중서부    |
+| **\<IPv4-address-space>**   | 10.1.0.0\16          |
+| **\<subnet-name>**          | mySubnet        |
+| **\<subnet-address-range>** | 10.1.0.0\24          |
 
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 ### <a name="create-virtual-machine"></a>Virtual Machine 만들기
 

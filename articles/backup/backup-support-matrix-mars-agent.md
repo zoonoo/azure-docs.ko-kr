@@ -3,12 +3,12 @@ title: MARS 에이전트에 대 한 지원 매트릭스
 description: 이 문서에서는 MARS (Microsoft Azure Recovery Services) 에이전트를 실행 하는 컴퓨터를 백업할 때 지원 Azure Backup를 요약 합니다.
 ms.date: 08/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: ef57688dd7b5ccee4e71ac0a54138ac567320aa2
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 6085bc647c06b5907282460a2d8706b8549e1bc2
+ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77582639"
+ms.lasthandoff: 03/08/2020
+ms.locfileid: "78932615"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>MARS(Microsoft Azure Recovery Services) 에이전트를 통한 백업 매트릭스 지원
 
@@ -97,7 +97,7 @@ Microsoft 피어 링을 사용 하 여 다음 서비스/지역 및 관련 커뮤
 대역폭 제어 | 지원됩니다. MARS 에이전트에서 **속성 변경** 을 사용 하 여 대역폭을 조정 합니다.
 네트워크 제한 | Windows Server 2008 R2, Windows Server 2008 SP2 또는 Windows 7을 실행 하는 백업 된 컴퓨터에는 사용할 수 없습니다.
 
-## <a name="support-for-direct-backups"></a>직접 백업 지원
+## <a name="supported-operating-systems"></a>지원되는 운영 체제
 
 >[!NOTE]
 > MARS 에이전트는 Windows Server Core Sku를 지원 하지 않습니다.
@@ -114,7 +114,6 @@ MARS 에이전트를 사용 하 여에서 실행 되는 아래 나열 된 운영
 Windows 10(Enterprise, Pro, Home) | yes | 예 |  소프트웨어/모듈 요구 사항에 해당 하는 서버 버전 확인
 Windows 8.1(Enterprise, Pro)| yes |예 | 소프트웨어/모듈 요구 사항에 해당 하는 서버 버전 확인
 Windows 8(Enterprise, Pro) | yes | 예 | 소프트웨어/모듈 요구 사항에 해당 하는 서버 버전 확인
-Windows 7(Ultimate, Enterprise, Pro, Home Premium/Basic, Starter) | yes | 예 | 소프트웨어/모듈 요구 사항에 해당 하는 서버 버전 확인
 Windows Server 2016(Standard, Datacenter, Essentials) | yes | yes | -.NET 4.5 <br> -Windows PowerShell <br> -최신 호환 Microsoft VC + + 재배포 가능 패키지 <br> -MMC (Microsoft Management Console) 3.0
 Windows Server 2012 R2(Standard, Datacenter, Foundation, Essentials) | yes | yes | -.NET 4.5 <br> -Windows PowerShell <br> -최신 호환 Microsoft VC + + 재배포 가능 패키지 <br> -MMC (Microsoft Management Console) 3.0
 Windows Server 2012(Standard, Datacenter, Foundation) | yes | yes |-.NET 4.5 <br> -Windows PowerShell <br> -최신 호환 Microsoft VC + + 재배포 가능 패키지 <br> -MMC (Microsoft Management Console) 3.0 <br> -배포 이미지 서비스 및 관리 (DISM.EXE)
@@ -122,6 +121,20 @@ Windows Storage Server 2016/2012 R2/2012 (표준, 작업 그룹) | yes | 예 | -
 Windows Server 2019(Standard, Datacenter, Essentials) | yes | yes | -.NET 4.5 <br> -Windows PowerShell <br> -최신 호환 Microsoft VC + + 재배포 가능 패키지 <br> -MMC (Microsoft Management Console) 3.0
 
 자세한 내용은 [지원 되는 MABS 및 DPM 운영 체제](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems)를 참조 하세요.
+
+### <a name="operating-systems-at-end-of-support"></a>지원 종료 시 운영 체제
+
+다음 운영 체제는 지원이 끝난 후에도 계속 보호 되도록 운영 체제를 업그레이드 하는 것이 좋습니다.
+
+기존 약정으로 인해 운영 체제가 업그레이드 되지 않는 경우, Windows server를 Azure Vm으로 마이그레이션하고 Azure VM 백업을 활용 하 여 보호 된 상태로 유지 하는 것이 좋습니다. Windows server 마이그레이션에 대 한 자세한 내용은 [여기의 마이그레이션 페이지](https://azure.microsoft.com/migration/windows-server/) 를 참조 하세요.
+
+온-프레미스 또는 호스팅된 환경에서 운영 체제를 업그레이드 하거나 Azure로 마이그레이션할 수 없는 경우 컴퓨터에 대 한 확장 된 보안 업데이트를 활성화 하 여 계속 보호 하 고 지원 합니다. 특정 버전만 확장 보안 업데이트에 적합 합니다. 자세히 알아보려면 [FAQ 페이지](https://www.microsoft.com/cloud-platform/extended-security-updates) 를 방문 하세요.
+
+| **운영 체제**                                       | **파일/폴더** | **시스템 상태** | **소프트웨어/모듈 요구 사항**                           |
+| ------------------------------------------------------------ | ----------------- | ------------------ | ------------------------------------------------------------ |
+| Windows 7 (Ultimate, Enterprise, Pro, Home Premium/Basic, Starter) | yes               | 예                 | 소프트웨어/모듈 요구 사항에 해당 하는 서버 버전 확인 |
+| Windows Server 2008 R2 (Standard, Enterprise, Datacenter, Foundation) | yes               | yes                | -.NET 3.5, .NET 4.5 <br>  -Windows PowerShell <br>  호환 Microsoft VC + + 재배포 가능 패키지 <br>  -MMC (Microsoft Management Console) 3.0 <br>  -배포 이미지 서비스 및 관리 (DISM.EXE) |
+| Windows Server 2008 SP2 (Standard, Datacenter, Foundation)  | yes               | 예                 | -.NET 3.5, .NET 4.5 <br>  -Windows PowerShell <br>  호환 Microsoft VC + + 재배포 가능 패키지 <br>  -MMC (Microsoft Management Console) 3.0 <br>  -배포 이미지 서비스 및 관리 (DISM.EXE) <br>  -Virtual Server 2005 기본 + KB KB948515 |
 
 ## <a name="backup-limits"></a>Backup 제한
 
@@ -145,7 +158,7 @@ Windows 7| 1700 GB
 
 **형식** | **지원**
 --- | ---
-암호화| 지원됩니다.
+암호화 된<sup>*</sup>| 지원됩니다.
 Compressed | 지원됩니다.
 스파스 | 지원됩니다.
 압축 및 스파스 |지원됩니다.
@@ -156,6 +169,8 @@ Compressed | 지원됩니다.
 스파스 스트림| 지원되지 않습니다. 건너뜁니다.
 OneDrive (동기화 된 파일이 스파스 스트림)| 지원되지 않습니다.
 DFS 복제 사용 하도록 설정 된 폴더 | 지원되지 않습니다.
+
+\* MARS 에이전트가 암호화 된 파일에 액세스 하는 데 필요한 인증서에 액세스할 수 있는지 확인 합니다. 액세스할 수 없는 파일은 건너뜁니다.
 
 ## <a name="supported-drives-or-volumes-for-backup"></a>백업에 지원 되는 드라이브 또는 볼륨
 

@@ -1,25 +1,18 @@
 ---
 title: Azure의 FreeBSD 소개
 description: Azure에서 FreeBSD 가상 머신을 사용하는 방법을 알아봅니다.
-services: virtual-machines-linux
-documentationcenter: ''
 author: thomas1206
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 32b87a5f-d024-4da0-8bf0-77e233d1422b
 ms.service: virtual-machines-linux
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/13/2017
 ms.author: huishao
-ms.openlocfilehash: d243806d619aa6d7328220eae53804d734737489
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: fe64418e254289a29aafd155b92396082bff5b6a
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036116"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78945094"
 ---
 # <a name="introduction-to-freebsd-on-azure"></a>Azure의 FreeBSD 소개
 이 문서에서는 Azure에서 FreeBSD 가상 머신을 실행하는 방법의 개요를 제공합니다.
@@ -108,7 +101,7 @@ FreeBSD에서 지원되는 VM 확장은 다음과 같습니다.
 > FreeBSD VM은 현재 CustomScript 버전 1.x만 지원합니다.  
 
 ## <a name="authentication-user-names-passwords-and-ssh-keys"></a>인증: 사용자 이름, 암호 및 SSH 키
-Azure 포털을 사용하여 FreeBSD 가상 컴퓨터를 만들 때 사용자 이름, 암호 또는 SSH 공개 키를 제공해야 합니다.
+Azure 포털을 사용하여 FreeBSD 가상 머신을 만들 때 사용자 이름, 암호 또는 SSH 공개 키를 제공해야 합니다.
 Azure에서 FreeBSD 가상 머신을 배포하기 위한 사용자 이름은 가상 머신에 이미 있는 시스템 계정 이름(UID &lt;100)(예: "root")과 일치해서는 안 됩니다.
 현재는 RSA SSH 키만 지원됩니다. 여러 줄 SSH 키는 `---- BEGIN SSH2 PUBLIC KEY ----`로 시작하고 `---- END SSH2 PUBLIC KEY ----`로 끝나야 합니다.
 

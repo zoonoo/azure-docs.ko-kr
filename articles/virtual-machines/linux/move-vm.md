@@ -1,36 +1,26 @@
 ---
-title: Azure에서 Linux VM 이동
-description: Resource Manager 배포 모델에서 다른 Azure 구독 또는 리소스 그룹으로 Linux VM을 이동합니다.
-services: virtual-machines-linux
-documentationcenter: ''
+title: Azure CLI를 사용 하 여에서 VM 이동
+description: Azure CLI를 사용 하 여 다른 Azure 구독 또는 리소스 그룹으로 VM을 이동 합니다.
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: d635f0a5-4458-4b95-a5f8-eed4f41eb4d4
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: azurecli
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: cynthn
-ms.openlocfilehash: 2ba8a8cdc324f46e25f9665cfce0aa07fc948e88
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: ebcd5f166fd1876f67121787c23d23860c9fa4b6
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979033"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944597"
 ---
-# <a name="move-a-linux-vm-to-another-subscription-or-resource-group"></a>Linux VM을 다른 구독 또는 리소스 그룹으로 이동
-이 문서에서는 리소스 그룹 또는 구독 간에 Linux VM(가상 머신)을 이동하는 방법을 안내합니다. 개인 구독에서 VM을 만들고 회사 구독으로 이동하려면 구독 간의 VM 이동이 편리할 수 있습니다.
+# <a name="move-a-vm-to-another-subscription-or-resource-group"></a>다른 구독 또는 리소스 그룹으로 VM 이동
+이 문서에서는 리소스 그룹 또는 구독 간에 VM (가상 머신)을 이동 하는 방법을 안내 합니다. 개인 구독에서 VM을 만들고 회사 구독으로 이동하려면 구독 간의 VM 이동이 편리할 수 있습니다.
 
 > [!IMPORTANT]
->현재 Azure Managed Disks는 이동할 수 없습니다.
->
 >새 리소스 ID는 이동의 일부로 생성됩니다. VM을 이동한 후에는 새 리소스 ID를 사용하도록 도구와 스크립트를 업데이트해야 합니다.
 >
->
+
 
 ## <a name="use-the-azure-cli-to-move-a-vm"></a>Azure CLI를 사용하여 VM 이동
 

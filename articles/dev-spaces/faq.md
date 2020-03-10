@@ -5,12 +5,12 @@ ms.date: 01/28/2020
 ms.topic: conceptual
 description: Azure Dev Spaces에 대 한 일반적인 질문에 대 한 답변을 찾습니다.
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s '
-ms.openlocfilehash: 285fdb7892d2da40dd50e025cb1dd7644ec17ae0
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.openlocfilehash: 526e8a247241bd3ea0e61b6cd3b025cd473b29aa
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78255720"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942518"
 ---
 # <a name="frequently-asked-questions-about-azure-dev-spaces"></a>Azure Dev Spaces에 대 한 질문과 대답
 
@@ -19,6 +19,10 @@ ms.locfileid: "78255720"
 ## <a name="which-azure-regions-currently-provide-azure-dev-spaces"></a>현재 Azure Dev Spaces을 제공 하는 Azure 지역은 무엇 인가요?
 
 사용 가능한 지역의 전체 목록은 [지원 되는 지역][supported-regions] 을 참조 하세요.
+
+## <a name="can-i-migrate-my-aks-cluster-with-azure-dev-spaces-to-another-region"></a>Azure Dev Spaces를 사용 하 여 AKS 클러스터를 다른 지역으로 마이그레이션할 수 있나요?
+
+예, Azure Dev Spaces로 AKS 클러스터를 다른 [지원 되는 지역][supported-regions]으로 이동 하려면 다른 지역에 새 클러스터를 만든 다음 Azure Dev Spaces를 설치 및 구성 하 고 리소스 및 응용 프로그램을 새 클러스터에 배포 하는 것이 좋습니다. AKS 마이그레이션에 대 한 자세한 내용은 [AKS (Azure Kubernetes Service로 마이그레이션)를][aks-migration]참조 하세요.
 
 ## <a name="can-i-use-azure-dev-spaces-with-existing-dockerfiles-or-helm-charts"></a>기존 Dockerfiles 또는 투구 차트와 Azure Dev Spaces를 사용할 수 있나요?
 
@@ -77,6 +81,7 @@ Visual Studio를 사용 하 여 프로젝트를 준비할 때 서비스에 대 �
 [aks-auth-range-create]: ../aks/api-server-authorized-ip-ranges.md#create-an-aks-cluster-with-api-server-authorized-ip-ranges-enabled
 [aks-auth-range-ranges]: https://github.com/Azure/dev-spaces/tree/master/public-ips
 [aks-auth-range-update]: ../aks/api-server-authorized-ip-ranges.md#update-a-clusters-api-server-authorized-ip-ranges
+[aks-migration]: ../aks/aks-migration.md
 [aks-restrict-egress-traffic]: ../aks/limit-egress-traffic.md
 [dev-spaces-prep]: how-dev-spaces-works.md#prepare-your-code
 [dev-spaces-routing]: how-dev-spaces-works.md#how-routing-works

@@ -6,12 +6,12 @@ author: sauryadas
 ms.topic: troubleshooting
 ms.date: 12/13/2019
 ms.author: saudas
-ms.openlocfilehash: b7aa90bd19e52059319570f1e7f6e64b90dee6e4
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: f0ad8d503b5280b8cba89d940b99dcd81da71ffc
+ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77593350"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78893280"
 ---
 # <a name="aks-troubleshooting"></a>AKS 문제 해결
 
@@ -384,7 +384,7 @@ Azure 디스크를 분리 하지 못하면 지 수 백오프를 사용 하 여 �
 | 1.12.0-1.12.1 | 0755 |
 | 1.12.2 이상 | 0777 |
 
-Kuberetes 버전이 1.8.5 이상인 클러스터를 사용 하 고 저장소 클래스를 사용 하 여 영구적 볼륨을 동적으로 만드는 경우 저장소 클래스 개체에 탑재 옵션을 지정할 수 있습니다. 다음 예제에서는 *0777*을 설정합니다.
+Kubernetes 버전이 1.8.5 이상인 클러스터를 사용 하 고 저장소 클래스를 사용 하 여 영구적 볼륨을 동적으로 만드는 경우 저장소 클래스 개체에 탑재 옵션을 지정할 수 있습니다. 다음 예제에서는 *0777*을 설정합니다.
 
 ```yaml
 kind: StorageClass
@@ -491,6 +491,10 @@ E1114 09:58:55.367731 1 static_autoscaler.go:239] Failed to fix node group sizes
 ```
 
 이 오류는 클러스터 autoscaler가 실제로 클러스터에 있는 값과 다른 값으로 끝나는 업스트림 클러스터 autoscaler 경합 상태 때문에 발생 합니다. 이 상태를 확인 하려면 [클러스터 autoscaler][cluster-autoscaler]를 사용 하지 않도록 설정 하 고 다시 사용 하도록 설정 하면 됩니다.
+
+### <a name="slow-disk-attachment-getazuredisklun-takes-10-to-15-minutes-and-you-receive-an-error"></a>저속 디스크 첨부 파일, GetAzureDiskLun은 10 ~ 15 분이 걸리고 오류가 발생 합니다.
+
+**1.15.0 보다 오래** 된 Kubernetes 버전에서는 **waitforattach에서 디스크에 대 한 Lun을 찾을 수 없다는**오류와 같은 오류가 발생할 수 있습니다.  이에 대 한 해결 방법은 15 분 정도 기다린 후 다시 시도 하는 것입니다.
 
 <!-- LINKS - internal -->
 [view-master-logs]: view-master-logs.md

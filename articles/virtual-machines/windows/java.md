@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: 618d9a8d941202db05981566203bf96c02f415a5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 35d5569cb36cb538585b9d2c85a392b668e9fc34
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75358312"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944494"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-java"></a>Java를 사용하여 Azure에서 Windows VM 만들기 및 관리
 
@@ -130,7 +130,7 @@ ms.locfileid: "75358312"
     managementURI=https://management.core.windows.net/
     baseURL=https://management.azure.com/
     authURL=https://login.windows.net/
-    graphURL=https://graph.windows.net/
+    graphURL=https://graph.microsoft.com/
     ```
 
     **&lt;subscription-id&gt;** 를 구독 식별자, **&lt;application-id&gt;** 를 Active Directory 애플리케이션 식별자, **&lt;authentication-key&gt;** 를 애플리케이션 키, **&lt;tenant-id&gt;** 를 테넌트 식별자로 바꿉니다.
@@ -140,7 +140,7 @@ ms.locfileid: "75358312"
 
 ### <a name="create-the-management-client"></a>관리 클라이언트 만들기
 
-1. `src\main\java\com\fabrikam`에 있는 `App.java` 파일을 열고 이 패키지 문이 위쪽에 있는지 확인합니다.
+1. `App.java`에 있는 `src\main\java\com\fabrikam` 파일을 열고 이 패키지 문이 위쪽에 있는지 확인합니다.
 
     ```java
     package com.fabrikam.testAzureApp;

@@ -6,23 +6,23 @@ ms.author: cynthn
 ms.date: 05/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
-manager: gwallace
-ms.openlocfilehash: 1bac04bbb67c7472de92c6da322121bafc20a560
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.subservice: imaging
+ms.openlocfilehash: 15a3b39b1466ffec87971b8f054ca916567d89d7
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68695442"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944947"
 ---
 # <a name="preview-create-a-linux-vm-with-azure-image-builder"></a>미리 보기: Azure 이미지 작성기를 사용 하 여 Linux VM 만들기
 
-이 문서에서는 Azure 이미지 작성기 및 Azure CLI를 사용 하 여 사용자 지정 된 Linux 이미지를 만드는 방법을 보여 줍니다. 이 문서의 예제에서는 이미지를 사용자 지정 하는 세 [가지 다른 사용자](image-builder-json.md#properties-customize) 지정을 사용 합니다.
+이 문서에서는 Azure 이미지 작성기 및 Azure CLI를 사용 하 여 사용자 지정 된 Linux 이미지를 만드는 방법을 보여 줍니다. 이 문서의 예제에서는 이미지를 사용자 지정 하는 세 [가지 다른 사용자 지정을 사용](image-builder-json.md#properties-customize) 합니다.
 
 - Shell (ScriptUri)- [셸 스크립트](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/customizeScript.sh)를 다운로드 하 여 실행 합니다.
 - Shell (인라인)-특정 명령을 실행 합니다. 이 예제에서 인라인 명령에는 디렉터리를 만들고 OS를 업데이트 하는 작업이 포함 됩니다.
 - 파일- [GitHub의 파일](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/exampleArtifacts/buildArtifacts/index.html) 을 VM의 디렉터리로 복사 합니다.
 
-를 `buildTimeoutInMinutes`지정할 수도 있습니다. 기본값은 240 분 이며 빌드 시간을 더 오래 실행 하면 빌드 시간을 늘릴 수 있습니다.
+`buildTimeoutInMinutes`를 지정할 수도 있습니다. 기본값은 240 분 이며 빌드 시간을 더 오래 실행 하면 빌드 시간을 늘릴 수 있습니다.
 
 샘플. json 템플릿을 사용 하 여 이미지를 구성 합니다. 사용 중인. json 파일은 [helloImageTemplateLinux](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/0_Creating_a_Custom_Linux_Managed_Image/helloImageTemplateLinux.json)입니다. 
 
@@ -75,7 +75,7 @@ imageName=myBuilderImage
 runOutputName=aibLinux
 ```
 
-구독 ID에 대 한 변수를 만듭니다. 을 사용 하 여 `az account show | grep id`이를 가져올 수 있습니다.
+구독 ID에 대 한 변수를 만듭니다. `az account show | grep id`를 사용 하 여이를 가져올 수 있습니다.
 
 ```azurecli-interactive
 subscriptionID=<Your subscription ID>
@@ -114,14 +114,14 @@ sed -i -e "s/<imageName>/$imageName/g" helloImageTemplateLinux.json
 sed -i -e "s/<runOutputName>/$runOutputName/g" helloImageTemplateLinux.json
 ```
 
-필요에 따라이 예제의 json을 수정할 수 있습니다. 예를 들어의 `buildTimeoutInMinutes` 값을 늘려 더 오래 실행 되는 빌드를 허용할 수 있습니다. 와 같은 `vi`텍스트 편집기를 사용 하 여 Cloud Shell에서 파일을 편집할 수 있습니다.
+필요에 따라이 예제의 json을 수정할 수 있습니다. 예를 들어 `buildTimeoutInMinutes`의 값을 늘려 더 오래 실행 되는 빌드를 허용할 수 있습니다. `vi`와 같은 텍스트 편집기를 사용 하 여 Cloud Shell에서 파일을 편집할 수 있습니다.
 
 ```azurecli-interactive
 vi helloImageTemplateLinux.json
 ```
 
 > [!NOTE]
-> 원본 이미지의 경우 항상 버전을 [지정](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#image-version-failure)해야 합니다 .를 사용할 `latest`수 없습니다.
+> 원본 이미지의 경우 항상 버전을 [지정](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#image-version-failure)해야 합니다. `latest`를 사용할 수 없습니다.
 >
 > 이미지가 배포 되는 리소스 그룹을 추가 하거나 변경 하는 경우 [리소스 그룹에 대 한 사용 권한이 설정 되어](#set-permissions-on-the-resource-group)있는지 확인 해야 합니다.
 
@@ -140,7 +140,7 @@ az resource create \
 
 성공적으로 완료 되 면 성공 메시지를 반환 하 고 $imageResourceGroup에 이미지 작성기 구성 템플릿 아티팩트를 만듭니다. ' 숨겨진 형식 표시 '를 사용 하도록 설정 하면 포털에서 리소스 그룹을 볼 수 있습니다.
 
-또한 백그라운드에서 이미지 작성기는 구독에 준비 리소스 그룹을 만듭니다. 이미지 작성기는 이미지 빌드에 대 한 준비 리소스 그룹을 사용 합니다. 리소스 그룹의 이름은 형식으로 지정 `IT_<DestinationResourceGroup>_<TemplateName>`됩니다.
+또한 백그라운드에서 이미지 작성기는 구독에 준비 리소스 그룹을 만듭니다. 이미지 작성기는 이미지 빌드에 대 한 준비 리소스 그룹을 사용 합니다. 리소스 그룹 이름은 `IT_<DestinationResourceGroup>_<TemplateName>`형식으로 지정 됩니다.
 
 > [!IMPORTANT]
 > 스테이징 리소스 그룹을 직접 삭제 하지 마십시오. 이미지 템플릿 아티팩트를 삭제 하면 스테이징 리소스 그룹이 자동으로 삭제 됩니다. 자세한 내용은이 문서의 끝에 있는 [정리](#clean-up) 섹션을 참조 하세요.
@@ -203,7 +203,7 @@ SSH 연결이 설정 되는 즉시 이미지는 하루 메시지와 함께 사�
 *******************************************************
 ```
 
-SSH `exit` 연결을 닫을 때를 입력 합니다.
+SSH 연결을 종료 하는 작업을 완료 하면 `exit`를 입력 합니다.
 
 ## <a name="check-the-source"></a>원본 확인
 

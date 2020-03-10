@@ -3,19 +3,19 @@ title: Custom Speech-Speech service에 대 한 테스트 데이터 준비
 titleSuffix: Azure Cognitive Services
 description: Microsoft 음성 인식의 정확도를 테스트 하거나 사용자 지정 모델을 학습 하는 경우 오디오 및 텍스트 데이터가 필요 합니다. 이 페이지에서는 데이터 형식, 사용 방법 및 관리 방법에 대해 다룹니다.
 services: cognitive-services
-author: erhopf
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/17/2019
-ms.author: erhopf
-ms.openlocfilehash: 6100ac6a6b01a7d0eac74b0e83539bf4e671cb89
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.date: 03/09/2020
+ms.author: dapine
+ms.openlocfilehash: 969c1450966d2754e6e8f00126da52a1e88181fc
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75660412"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942705"
 ---
 # <a name="prepare-data-for-custom-speech"></a>사용자 지정 음성에 대한 데이터 준비
 
@@ -27,9 +27,9 @@ Microsoft 음성 인식의 정확도를 테스트 하거나 사용자 지정 모
 
 | 데이터 형식 | 테스트에 사용 됨 | 권장 수량 | 학습에 사용 됨 | 권장 수량 |
 |-----------|-----------------|----------|-------------------|----------|
-| [오디오](#audio-data-for-testing) | 예<br>시각적 조사에 사용됨 | 5 + 오디오 파일 | 아닙니다. | 해당 사항 없음 |
-| [오디오 + 사람 레이블 기록](#audio--human-labeled-transcript-data-for-testingtraining) | 예<br>정확도 평가에 사용됨 | 0.5-오디오의 5 시간 | 예 | 1 ~ 1000 시간 (오디오) |
-| [관련 텍스트](#related-text-data-for-training) | 아닙니다. | 해당 사항 없음 | 예 | 1-200 MB의 관련 텍스트 |
+| [오디오](#audio-data-for-testing) | yes<br>시각적 조사에 사용됨 | 5 + 오디오 파일 | 예 | 해당 사항 없음 |
+| [오디오 + 사람이 레이블 지정 된 성적 증명서](#audio--human-labeled-transcript-data-for-testingtraining) | yes<br>정확도 평가에 사용됨 | 0.5-오디오의 5 시간 | yes | 1 ~ 1000 시간 (오디오) |
+| [관련 텍스트](#related-text-data-for-training) | 예 | 해당 사항 없음 | yes | 1-200 MB의 관련 텍스트 |
 
 파일은 형식에 따라 데이터 집합으로 그룹화 되 고 .zip 파일로 업로드 되어야 합니다. 각 데이터 집합은 단일 데이터 형식만 포함할 수 있습니다.
 
@@ -46,24 +46,26 @@ Microsoft 음성 인식의 정확도를 테스트 하거나 사용자 지정 모
 
 데이터 집합을 업로드한 후, 몇 가지 옵션이 있습니다.
 
-* **테스트** 탭으로 이동하여 오디오 전용 또는 오디오 + 사람 레이블 기록 데이터를 시각적으로 검사할 수 있습니다.
+* **테스트** 탭으로 이동 하 여 오디오 전용 또는 오디오 + 사람 레이블이 지정 된 기록 데이터를 시각적으로 검사할 수 있습니다.
 * **학습** 탭으로 이동 하 여 오디오 + 인간 기록 데이터 또는 관련 텍스트 데이터를 사용 하 여 사용자 지정 모델을 학습 시킬 수 있습니다.
 
 ## <a name="audio-data-for-testing"></a>테스트를 위한 오디오 데이터
 
-오디오 데이터는 Microsoft의 기본 음성-텍스트 모델 또는 사용자 지정 모델의 정확도를 테스트하기에 적합합니다. 오디오 데이터는 특정 모델의 성능 향상을 위해 음성의 정확성을 검사하는 데 사용되는 것임을 명심합니다. 모델의 정확도를 측정하려는 경우, [오디오 + 사람 레이블 기록 데이터](#audio--human-labeled-transcript-data-for-testingtraining)를 이용합니다.
+오디오 데이터는 Microsoft의 기본 음성-텍스트 모델 또는 사용자 지정 모델의 정확도를 테스트하기에 적합합니다. 오디오 데이터는 특정 모델의 성능 향상을 위해 음성의 정확성을 검사하는 데 사용되는 것임을 명심합니다. 모델의 정확도를 수량화 하려는 경우 [오디오 + 사람 레이블이 지정](#audio--human-labeled-transcript-data-for-testingtraining)된 기록 데이터를 사용 합니다.
 
 이 표를 사용하여 사용자 지정 음성에서 사용할 수 있도록 오디오 파일의 형식이 올바른지 확인합니다.
 
-| 속성 | 값 |
-|----------|-------|
-| 파일 형식 | RIFF(WAV) |
-| 샘플링 주기 | 8000 hz 또는 16000 Hz |
-| 채널 | 1(mono) |
-| 오디오 당 최대 길이 | 2시간 |
-| 샘플 형식 | PCM, 16비트 |
-| 보관 형식 | .zip |
-| 최대 보관 크기 | 2GB |
+| 속성                 | 값                 |
+|--------------------------|-----------------------|
+| 파일 형식              | RIFF(WAV)            |
+| 샘플링 주기              | 8000 hz 또는 16000 Hz |
+| 채널                 | 1(mono)              |
+| 오디오 당 최대 길이 | 2시간               |
+| 샘플 형식            | PCM, 16비트           |
+| 보관 형식           | .zip                  |
+| 최대 보관 크기     | 2GB                  |
+
+[!INCLUDE [supported-audio-formats](includes/supported-audio-formats.md)]
 
 > [!TIP]
 > 학습 및 테스트 데이터를 업로드할 때 .zip 파일 크기는 2gb를 초과할 수 없습니다. 학습에 더 많은 데이터를 요구 하는 경우 여러 개의 .zip 파일로 나누고 별도로 업로드 합니다. 나중에 *여러* 데이터 집합에서 학습 하도록 선택할 수 있습니다. 그러나 *단일* 데이터 집합 에서만 테스트할 수 있습니다.
@@ -79,22 +81,24 @@ Microsoft 음성 인식의 정확도를 테스트 하거나 사용자 지정 모
 
 오디오 파일을 처리하는 동안 Microsoft의 음성-텍스트 정확도를 측정하려면, 비교를 위한 사람 레이블 기록(단어 단위)을 제공해야 합니다. 사람 레이블 기록은 시간이 오래 걸리는 반면, 정확도를 평가하고 사용 사례에 대해 모델을 학습시키는 데 필요합니다. 인식의 향상은 제공된 데이터에 달려 있다는 점을 기억하세요. 따라서 고품질 기록을 업로드하는 것이 중요합니다.
 
-| 속성 | 값 |
-|----------|-------|
-| 파일 형식 | RIFF(WAV) |
-| 샘플링 주기 | 8000 hz 또는 16000 Hz |
-| 채널 | 1(mono) |
+| 속성                 | 값                               |
+|--------------------------|-------------------------------------|
+| 파일 형식              | RIFF(WAV)                          |
+| 샘플링 주기              | 8000 hz 또는 16000 Hz               |
+| 채널                 | 1(mono)                            |
 | 오디오 당 최대 길이 | 2 시간 (테스트)/60 s (교육) |
-| 샘플 형식 | PCM, 16비트 |
-| 보관 형식 | .zip |
-| 최대 zip 크기 | 2GB |
+| 샘플 형식            | PCM, 16비트                         |
+| 보관 형식           | .zip                                |
+| 최대 zip 크기         | 2GB                                |
+
+[!INCLUDE [supported-audio-formats](includes/supported-audio-formats.md)]
 
 > [!NOTE]
-> 학습 및 테스트 데이터를 업로드할 때 .zip 파일 크기는 2gb를 초과할 수 없습니다. Uou는 *단일* 데이터 집합 에서만 테스트할 수 있으며, 적절 한 파일 크기 내에서 유지 해야 합니다.
+> 학습 및 테스트 데이터를 업로드할 때 .zip 파일 크기는 2gb를 초과할 수 없습니다. *단일* 데이터 집합 에서만 테스트할 수 있으며, 적절 한 파일 크기 내에서 유지 해야 합니다. 또한 각 학습 파일은 60 초를 초과할 수 없습니다. 그렇지 않으면 오류가 발생 합니다.
 
 단어 삭제 또는 대체와 같은 이슈를 해결하기 위해, 인식 기능을 향상하는 데는 많은 양의 데이터가 필요합니다. 일반적으로, 약 10~ 1000시간의 오디오의 단어 단위 기록을 제공하는 것이 좋습니다. 모든 WAV 파일에 대한 전사는 단일 일반 텍스트 파일에 포함되어야 합니다. 전사 파일의 각 줄은 오디오 파일 중 하나의 이름을 포함하고 그 뒤에 해당 전사가 와야 합니다. 파일 이름과 전사는 탭(\t)으로 구분 해야 합니다.
 
-  예:
+  다음은 그 예입니다.
 ```
   speech01.wav  speech recognition is awesome
   speech02.wav  the quick brown fox jumped all over the place
@@ -104,7 +108,7 @@ Microsoft 음성 인식의 정확도를 테스트 하거나 사용자 지정 모
 > [!IMPORTANT]
 > 전사는 UTF-8 BOM으로 인코딩해야 합니다.
 
-전사는 시스템에서 처리할 수 있도록 텍스트로 정규화됩니다. 그러나 데이터를 Speech Studio로 업로드 하기 전에 수행 해야 하는 몇 가지 중요 한 normalizations 있습니다. 기록을 준비할 때 사용할 적절한 언어에 대해서는 [사람 레이블 기록을 만드는 방법](how-to-custom-speech-human-labeled-transcriptions.md)을 확인합니다.
+전사는 시스템에서 처리할 수 있도록 텍스트로 정규화됩니다. 그러나 데이터를 Speech Studio로 업로드 하기 전에 수행 해야 하는 몇 가지 중요 한 normalizations 있습니다. 사용자를 준비할 때 사용할 적절 한 언어는 [사람이 레이블 지정 된 기록을 만드는 방법](how-to-custom-speech-human-labeled-transcriptions.md) 을 참조 하세요.
 
 오디오 파일 및 해당 하는 해당 하는 항목을 수집한 후에는 <a href="https://speech.microsoft.com/customspeech" target="_blank">Custom Speech 포털 <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>에 업로드 하기 전에 단일 .zip 파일로 패키지 합니다. 다음은 3 개의 오디오 파일과 사람이 레이블이 지정 된 기록 파일이 있는 예제 데이터 집합입니다.
 
@@ -161,9 +165,9 @@ Microsoft 음성 인식의 정확도를 테스트 하거나 사용자 지정 모
 
 사용자 지정 된 발음은 영어 (`en-US`)와 독일어 (`de-DE`)로 제공 됩니다. 다음 표는 각 언어에서 지원되는 문자를 보여줍니다.
 
-| 언어 | 로캘 | 문자 |
+| 언어 | Locale | 문자 |
 |----------|--------|------------|
-| 한국어 | `en-US` | `a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |
+| 영어 | `en-US` | `a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |
 | 독일어 | `de-DE` | `ä, ö, ü, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |
 
 다음 표를 사용 하 여 발음에 대 한 관련 데이터 파일의 형식이 올바르게 지정 되었는지 확인 합니다. 발음 파일은 작으며 크기가 몇 킬로바이트 여야 합니다.

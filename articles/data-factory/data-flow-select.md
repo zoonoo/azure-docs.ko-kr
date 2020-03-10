@@ -6,13 +6,13 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/12/2019
-ms.openlocfilehash: a255d89aa4850d1249f1af9bdd0cb43b0826914f
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.date: 03/08/2020
+ms.openlocfilehash: 2d04de420f743e4fef4cff4bd2912559dae0886a
+ms.sourcegitcommit: e6bce4b30486cb19a6b415e8b8442dd688ad4f92
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930240"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78934180"
 ---
 # <a name="mapping-data-flow-select-transformation"></a>데이터 흐름 매핑 선택 변환
 
@@ -55,6 +55,11 @@ ms.locfileid: "74930240"
 규칙 기반 매핑을 선택 하면 ADF는 들어오는 패턴 규칙과 일치 하는 일치 하는 식을 평가 하 고 보내는 필드 이름을 정의 합니다. 필드 및 규칙 기반 매핑의 모든 조합을 추가할 수 있습니다. 그런 다음 원본에서 들어오는 메타 데이터를 기반으로 ADF에 의해 런타임에 필드 이름이 생성 됩니다. 디버그 중에 생성 된 필드의 이름과 데이터 미리 보기 창을 사용 하 여 볼 수 있습니다.
 
 패턴 일치에 대 한 자세한 내용은 [열 패턴 설명서](concepts-data-flow-column-pattern.md)에서 확인할 수 있습니다.
+
+### <a name="use-rule-based-mapping-to-parameterize-the-select-transformation"></a>규칙 기반 매핑을 사용 하 여 선택 변환 매개 변수화
+규칙 기반 매핑을 사용 하 여 선택 변환에서 필드 매핑을 매개 변수화 할 수 있습니다. ```name``` 키워드를 사용 하 여 매개 변수에 대해 들어오는 열 이름을 확인 합니다. 예를 들어 ```mycolumn``` 이라고 하는 데이터 흐름 매개 변수가 있는 경우에는 ```mycolumn``` 설정한 열 이름을 항상이 방식으로 필드 이름에 매핑하는 단일 Select 변환 규칙을 만들 수 있습니다.
+
+```name == $mycolumn```
 
 ## <a name="next-steps"></a>다음 단계
 * Select를 사용 하 여 이름을 바꾸고, 순서를 바꾸고, 별칭을 사용 하 여 데이터를 데이터 저장소로 이동 하려면 [싱크 변환을](data-flow-sink.md) 사용 합니다.

@@ -17,12 +17,12 @@ ms.workload: media
 ms.date: 02/03/2020
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 559050d11b6b85a9842c679b94e0e5b2fd5dd0f8
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 873db6315841b585aa0ba6bcb843bfe05567836f
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76987716"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78299264"
 ---
 # <a name="azure-media-services-v3-overview"></a>Azure Media Services v3 개요
 
@@ -34,13 +34,13 @@ Media Services v3 SDK는 [Media Services v3 OpenAPI 사양(Swagger)](https://aka
 > 현재는 Azure Portal을 사용하여 v3 리소스를 관리할 수 없습니다. [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) 또는 지원되는 [SDK](media-services-apis-overview.md#sdks) 중 하나를 사용하세요.
 
 ## <a name="compliance-privacy-and-security"></a>규정 준수, 개인 정보 보호 및 보안
+
+중요한 사항이라 다시 말씀드리지만, Azure Media Services 사용 시 적용 가능한 모든 법률을 준수해야 하며, 다른 사용자의 권리를 침해하거나 다른 사용자에게 해가 될 수 있는 방식으로 Media Services 또는 다른 Azure 서비스를 사용해서는 안 됩니다.
+
+비디오/이미지를 Media Services에 업로드하기 전에, Media Services와 Azure에서 데이터를 사용하고, 처리하고, 저장하는 데 대한 비디오/이미지에 포함된 개인(있는 경우)의 모든 필요한 동의(법에서 요구되는 경우)를 비롯하여 비디오/이미지를 사용할 수 있는 모든 적절한 권한이 있어야 합니다. 일부 관할 지역에서는 생체 데이터와 같은 특정 범주의 데이터를 수집하고 온라인으로 처리하고 저장하는 데 대해 특별한 법적 요구 사항이 적용될 수 있습니다. Media Services와 Azure를 특별한 법적 요구 사항이 적용되는 데이터를 처리하고 저장하는 데 사용하기 전에, 귀하에게 적용될 수 있는 이러한 법적 요구 사항을 반드시 준수해야 합니다.
+
+Media Services의 규정 준수, 개인 정보 보호 및 보안에 대해 알아보려면 Microsoft [보안 센터](https://www.microsoft.com/trust-center/?rtc=1)를 참조하세요. Microsoft의 개인 정보 보호 의무, 데이터 삭제 방법을 비롯한 데이터 처리 및 보존 방식에 대한 자세한 내용은 Microsoft의 [개인정보처리방침](https://privacy.microsoft.com/PrivacyStatement), [Online Services 사용 약관](https://www.microsoft.com/licensing/product-licensing/products?rtc=1)(“OST”) 및 [Data Processing 추록](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67)(“DPA”)을 검토하세요. Media Services를 사용하면 OST, DPA 및 개인정보처리방침을 준수할 것에 동의하는 것입니다.
  
-중요한 알림을 사용하는 경우 Azure Media Services 사용 시 적용 가능한 모든 법률을 준수해야 하며, 다른 사용자의 권리를 위반하거나 다른 사용자에게 해로운 방법으로 Azure Media Services 또는 다른 Azure 서비스를 사용해서는 안 됩니다. 
-
-처리 및 저장을 위해 Media Services에 모든 생체 인식 데이터를 비롯한 비디오/이미지를 업로드하려면, (1) 비디오/이미지에 대한 모든 적절한 권리가 있어야 하며, (2) 해당 생체 인식 데이터를 Media Services에 저장 및 사용하도록 허용하는 비디오에 나온 모든 사람들의 적절한 동의가 있어야 합니다. 
-
-규정 준수, 개인 정보 및 Microsoft에서 Azure Media Services 데이터를 보호하는 방법에 대해 알아보려면 Azure [보안 센터](https://www.microsoft.com/trust-center/?rtc=1)를 방문하세요. Microsoft의 개인 정보 보호 의무 및 데이터 처리에 대한 내용은 Microsoft의 [개인정보처리방침](https://privacy.microsoft.com/PrivacyStatement), [Online Services 사용 약관](https://www.microsoft.com/licensing/product-licensing/products)(“OST”) 및 [Data Processing 추록](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67)(“DPA”)을 검토하세요. 고객 데이터 보존 및 삭제에 대한 정보는 DPA에서 제공됩니다. Azure Media Services를 사용하면 OST, DPA 및 개인정보처리방침의 범위에 동의하는 것입니다.
-
 ## <a name="what-can-i-do-with-media-services"></a>Media Services로 무엇을 할 수 있나요?
 
 Media Services를 사용하여 클라우드에서 다양한 미디어 워크플로를 빌드할 수 있습니다. Media Services에서 수행할 수 있는 작업의 몇 가지 예제는 다음과 같습니다.
@@ -51,8 +51,8 @@ Media Services를 사용하여 클라우드에서 다양한 미디어 워크플�
 * 녹화된 비디오 또는 오디오 컨텐츠를 분석합니다. 예를 들어, 고객 만족도를 높이기 위해 조직은 음성-텍스트를 추출하고 검색 인덱스 및 대시 보드를 빌드할 수 있습니다. 그런 다음 일반적인 불만, 불만의 원인 및 기타 관련 데이터 인텔리전스를 추출할 수 있습니다.
 * 고객(예: 영화 스튜디오)이 독점 저작물의 액세스 및 사용을 제한해야 하는 경우 구독 비디오 서비스를 만들고 DRM 보호된 콘텐츠를 스트리밍합니다.
 * 항공기, 기차 및 자동차에서 재생할 오프라인 콘텐츠를 제공합니다. 고객은 네트워크에서 연결이 끊길 것으로 예상되는 경우 재생을 위해 휴대 전화나 태블릿에 콘텐츠를 다운로드해야 할 수 있습니다.
-* Azure Media Services 및 [Azure Cognitive Services API](https://docs.microsoft.com/azure/#pivot=products&panel=ai)를 사용하여 음성-텍스트 캡션, 다중 언어로 번역 등을 위한 교육 온라인 학습 비디오 플랫폼을 구현합니다.
-* [Azure Cognitive Services API](https://docs.microsoft.com/azure/#pivot=products&panel=ai)와 함께 Azure Media Services를 사용하여 더 많은 청중(예: 청각 장애인 또는 다른 언어로 따라 읽기를 원하는 사람들)을 수용하기 위해 자막 및 캡션을 비디오에 추가합니다.
+* Azure Media Services 및 [Azure Cognitive Services API](https://docs.microsoft.com/azure/?pivot=products&panel=ai)를 사용하여 음성-텍스트 캡션, 다중 언어로 번역 등을 위한 교육 온라인 학습 비디오 플랫폼을 구현합니다.
+* [Azure Cognitive Services API](https://docs.microsoft.com/azure/?pivot=products&panel=ai)와 함께 Azure Media Services를 사용하여 더 많은 청중(예: 청각 장애인 또는 다른 언어로 따라 읽기를 원하는 사람들)을 수용하기 위해 자막 및 캡션을 비디오에 추가합니다.
 * Azure CDN을 사용하여 순간적인 높은 부하(예: 제품 런칭 이벤트 시작)를 더 효율적으로 처리하기 위한 대규모 크기 조정을 구현합니다.
 
 ## <a name="how-can-i-get-started-with-v3"></a>v3는 어떻게 시작하나요? 
@@ -106,4 +106,3 @@ Media Services v3를 사용하여 콘텐츠를 인코딩 및 패키징하고, �
 ## <a name="next-steps"></a>다음 단계
 
 [기본 개념 알아보기](concepts-overview.md)
-

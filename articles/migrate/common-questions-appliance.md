@@ -2,13 +2,13 @@
 title: Azure Migrate 어플라이언스 FAQ
 description: Azure Migrate 어플라이언스에 대 한 일반적인 질문에 대 한 답변을 받으세요.
 ms.topic: conceptual
-ms.date: 02/17/2020
-ms.openlocfilehash: 99f7fc7db79785f99b96e6076607e434e43e605f
-ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
+ms.date: 03/09/2020
+ms.openlocfilehash: 3d0844b980ac418c5c334c2535c40dc5f3caeb16
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2020
-ms.locfileid: "78927318"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78939301"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Azure Migrate 어플라이언스: 일반적인 질문
 
@@ -64,7 +64,7 @@ Azure Migrate 어플라이언스에 의해 수집 되는 데이터는 Azure Migr
 
 데이터를 저장 하는 방법에 대 한 자세한 내용은 다음과 같습니다.
 
-- 데이터는 Microsoft 구독에 안전 하 게 저장 되며 Azure Migrate 프로젝트를 삭제 하면 삭제 됩니다.
+- 수집 된 데이터는 Microsoft 구독에서 CosmosDB에 안전 하 게 저장 됩니다. Azure Migrate 프로젝트를 삭제 하면 데이터가 삭제 됩니다. 저장소는 Azure Migrate에 의해 처리 됩니다. 수집 된 데이터에 대 한 저장소 계정을 구체적으로 선택할 수 없습니다.
 - [종속성 시각화](concepts-dependency-visualization.md)를 사용 하는 경우 수집 된 데이터는 azure 구독에서 만든 azure Log Analytics 작업 영역의 미국에 저장 됩니다. 구독에서 Log Analytics 작업 영역을 삭제 하면 데이터가 삭제 됩니다.
 
 ## <a name="how-much-data-is-uploaded-during-continuous-profiling"></a>연속 프로 파일링 중에 업로드 되는 데이터의 양
@@ -88,9 +88,13 @@ Azure Migrate로 전송 되는 데이터의 볼륨은 여러 매개 변수에 �
 3. 어플라이언스는 지난 달 동안 vm (코어, 메모리, 디스크, Nic) 및 각 VM의 성능 기록에 대 한 구성 데이터를 수집 합니다.
 4. 수집 된 메타 데이터는 평가를 위해 Azure Migrate: 서버 평가 도구 (HTTPS를 통해 인터넷을 통해)에 전송 됩니다.
 
-## <a name="can-i-connect-the-appliance-to-multiple-instances-of-vcenter-server"></a>어플라이언스를 여러 vCenter Server 인스턴스에 연결할 수 있나요?
+## <a name="can-the-azure-migrate-appliance-connect-to-multiple-vcenter-servers"></a>Azure Migrate 어플라이언스를 여러 vCenter 서버에 연결할 수 있나요?
 
-No. 어플라이언스와 vCenter Server 사이에 일대일 매핑이 있습니다. 여러 vCenter Server 인스턴스에서 Vm을 검색 하려면 여러 어플라이언스를 배포 해야 합니다.
+아니요. [Azure Migrate 어플라이언스](migrate-appliance.md) 와 vCenter Server 사이에 일 대 일 매핑이 있습니다. 여러 vCenter Server 인스턴스에서 Vm을 검색 하려면 여러 어플라이언스를 배포 해야 합니다. 
+
+## <a name="can-an-azure-migrate-project-have-multiple-appliances"></a>Azure Migrate 프로젝트에 여러 개의 어플라이언스를 사용할 수 있나요?
+프로젝트에는 여러 개의 기기가 연결 되어 있을 수 있습니다. 그러나 어플라이언스는 하나의 프로젝트에만 연결할 수 있습니다. 
+
 
 ## <a name="how-many-vms-or-servers-can-i-discover-with-an-appliance"></a>어플라이언스로 검색할 수 있는 Vm 또는 서버는 몇 개입니까?
 
@@ -110,11 +114,11 @@ No. 어플라이언스와 vCenter Server 사이에 일대일 매핑이 있습니
 
 ## <a name="can-i-set-up-the-appliance-on-an-azure-vm"></a>Azure VM에서 어플라이언스를 설정할 수 있나요?
 
-No. 현재이 옵션은 지원 되지 않습니다. 
+아니요. 현재이 옵션은 지원 되지 않습니다. 
 
 ## <a name="can-i-discover-on-an-esxi-host"></a>ESXi 호스트에서 검색할 수 있나요?
 
-No. VMware Vm을 검색 하려면 vCenter Server 있어야 합니다.
+아니요. VMware Vm을 검색 하려면 vCenter Server 있어야 합니다.
 
 ## <a name="how-do-i-update-the-appliance"></a>어플라이언스를 업데이트 어떻게 할까요??
 

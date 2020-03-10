@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 08/06/2019
 ms.author: alkohli
-ms.openlocfilehash: f57a0431bbdafee2d38038d0039b47a34e5454c7
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: 3aa1190fb713c2fbdedcb1ce84a65d4263693827
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71315827"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942552"
 ---
 # <a name="develop-a-c-iot-edge-module-to-move-files-on-data-box-edge"></a>C# IoT Edge 모듈을 개발 하 여 Data Box Edge에서 파일 이동
 
@@ -52,8 +52,8 @@ Data Box Edge 디바이스는 IoT Edge 모듈을 배포 및 실행할 수 있습
 
 - 다음 개발 리소스:
 
-    - 및[Visual Studio Code](https://code.visualstudio.com/)가 있습니다.
-    - [C# for Visual Studio Code(OmniSharp 제공) 확장](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
+    - [Visual Studio Code](https://code.visualstudio.com/)
+    - [C# for Visual Studio Code(OmniSharp 제공) 확장](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
     - [Visual Studio Code용 Azure IoT Edge 확장](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge)
     - [.NET Core 2.1 SDK](https://www.microsoft.com/net/download).
     - [Docker CE](https://store.docker.com/editions/community/docker-ce-desktop-windows). 소프트웨어를 다운로드 및 설치할 계정을 만들어야 할 수 있습니다.
@@ -92,8 +92,8 @@ Azure Container Registry는 프라이빗 Docker 컨테이너 이미지를 저장
 고유의 코드로 사용자 지정할 수 있는 C# 솔루션 템플릿을 만듭니다.
 
 1. Visual Studio Code에서 **보기 > 명령 팔레트**를 선택하여 VS Code 명령 팔레트를 엽니다.
-2. 명령 팔레트에서 **Azure: 로그인** 명령을 입력하고 실행한 다음, 지침에 따라 Azure 계정에 로그인합니다. 이미 로그인한 경우 이 단계를 건너뛸 수 있습니다.
-3. 명령 팔레트에서 **Azure IoT Edge: 새 IoT Edge 솔루션** 명령을 입력하고 실행합니다. 명령 팔레트에서 다음 정보를 제공하여 솔루션을 만듭니다.
+2. 명령 팔레트에서 **Azure: 로그인** 명령을 입력 및 실행하고, 지침에 따라 Azure 계정에 로그인합니다. 이미 로그인한 경우 이 단계를 건너뛸 수 있습니다.
+3. 명령 팔레트에서 **Azure IoT Edge: 새로운 IoT Edge 솔루션** 명령을 입력하고 실행합니다. 명령 팔레트에서 다음 정보를 제공하여 솔루션을 만듭니다.
 
     1. 솔루션을 만들 폴더를 선택합니다.
     2. 솔루션에 대한 이름을 제공하거나 기본 **EdgeSolution**을 그대로 적용합니다.
@@ -270,7 +270,7 @@ Azure Container Registry는 프라이빗 Docker 컨테이너 이미지를 저장
 
     무시할 수 있는 다음과 같은 경고가 나타날 수 있습니다.
 
-    *Program.cs(77,44): 경고 CS1998: 이 비동기 메서드는 'await' 연산자가 부족하여 동기적으로 실행됩니다. 'await' 연산자를 사용하여 비블로킹 API 호출을 대기하거나, 'await Task.Run(...)'을 사용하여 백그라운드 스레드에서 CPU 바인딩된 작업을 수행하세요.*
+    *Program .cs (77, 44): 경고 CS1998:이 비동기 메서드에는 ' wait ' 연산자가 없으며 동기적으로 실행 됩니다. ' Wait ' 연산자를 사용 하 여 차단 되지 않는 API 호출을 대기 하거나 ' wait a w o s.. '를 사용 하 여 CPU 바인딩된 작업을 백그라운드 스레드에서 수행 하는 것이 좋습니다.*
 
 4. VS Code 통합 터미널에 태그와 함께 전체 컨테이너 이미지 주소를 볼 수 있습니다. 이미지 주소는 `<repository>:<version>-<platform>` 형식으로 module.json 파일에 있는 정보에서 빌드됩니다. 이 문서의 경우 `mycontreg2.azurecr.io/filecopymodule:0.0.1-amd64`처럼 보여야 합니다.
 

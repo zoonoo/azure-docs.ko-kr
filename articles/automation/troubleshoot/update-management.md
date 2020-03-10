@@ -8,12 +8,12 @@ ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 1b0047cda3664759f4f1b6499c8a54ee22f98ab3
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.openlocfilehash: 359f78cabbe0372e6892695c092ae49b62df7bfa
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78227460"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944192"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>업데이트 관리 문제 해결
 
@@ -219,14 +219,17 @@ Failed to start the runbook. Check the parameters passed. RunbookName Patch-Micr
 
 해당 하는 경우 업데이트 배포에 [동적 그룹](../automation-update-management-groups.md) 을 사용 합니다. 또한 다음 작업도 수행해야 합니다.
 
-* 컴퓨터가 존재 하 고 연결할 수 있는지 확인 합니다. 존재 하지 않는 경우 배포를 편집 하 고 컴퓨터를 제거 합니다.
+* 컴퓨터가 존재 하 고 연결할 수 있는지 확인 합니다. 
+* 컴퓨터가 존재 하지 않는 경우 배포를 편집 하 고 컴퓨터를 제거 합니다.
 * 업데이트 관리에 필요한 포트 및 주소 목록은 [네트워크 계획](../automation-update-management.md#ports) 섹션을 참조 하 고 컴퓨터가 이러한 요구 사항을 충족 하는지 확인 합니다.
-* Log Analytics에서 다음 쿼리를 실행 하 여 `SourceComputerId` 변경 된 환경에서 컴퓨터를 찾을 수 있습니다. `Computer` 값이 같지만 `SourceComputerId` 값이 다른 컴퓨터를 찾습니다. 
+* Hybrid Runbook Worker 에이전트 문제 해결사를 사용 하 여 Hybrid Runbook Worker에 대 한 연결을 확인 합니다. 이 문제 해결사에 대한 자세한 내용은 [업데이트 에이전트 문제 해결](update-agent-issues.md)을 참조하세요.
+* Log Analytics에서 다음 쿼리를 실행 하 여 `SourceComputerId` 변경 된 환경에서 컴퓨터를 찾을 수 있습니다. `Computer` 값이 같지만 `SourceComputerId` 값이 다른 컴퓨터를 찾습니다.
 
    ```loganalytics
    Heartbeat | where TimeGenerated > ago(30d) | distinct SourceComputerId, Computer, ComputerIP
    ```
-   영향을 받는 컴퓨터를 찾은 후에는 해당 컴퓨터를 대상으로 하는 업데이트 배포를 편집한 다음 `SourceComputerId`가 올바른 값을 반영 하도록 제거 하 고 다시 추가 합니다.
+
+* 영향을 받는 컴퓨터를 찾은 후에는 해당 컴퓨터를 대상으로 하는 업데이트 배포를 편집한 다음 `SourceComputerId`가 올바른 값을 반영 하도록 제거 하 고 다시 추가 합니다.
 
 ## <a name="updates-nodeployment"></a>시나리오: 배포 없이 업데이트가 설치 됨
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: cynthn
-ms.openlocfilehash: c88b060104a4c17e3edad2e23cfb23a54661b969
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 6d99c5ae91b80b9b6b9af08001b3a7c57bc7ca8f
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033807"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944524"
 ---
 # <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>C# 및 Resource Manager 템플릿을 사용하여 Azure Virtual Machine 배포
 
@@ -198,7 +198,7 @@ NuGet 패키지는 이러한 단계를 완료하는데 필요한 라이브러리
     managementURI=https://management.core.windows.net/
     baseURL=https://management.azure.com/
     authURL=https://login.windows.net/
-    graphURL=https://graph.windows.net/
+    graphURL=https://graph.microsoft.com/
     ```
 
     **&lt;subscription-id&gt;** 를 구독 식별자, **&lt;application-id&gt;** 를 Active Directory 애플리케이션 식별자, **&lt;authentication-key&gt;** 를 애플리케이션 키, **&lt;tenant-id&gt;** 를 테넌트 식별자로 바꿉니다.
@@ -226,7 +226,7 @@ NuGet 패키지는 이러한 단계를 완료하는데 필요한 라이브러리
     using Microsoft.WindowsAzure.Storage.Blob;
     ```
 
-2. 관리 클라이언트를 만들려면 다음 코드를 Main 메서드에 추가합니다.
+2. 관리 클라이언트를 만들려면 Main 메서드에 다음 코드를 추가합니다.
 
     ```csharp
     var credentials = SdkContext.AzureCredentialsFactory

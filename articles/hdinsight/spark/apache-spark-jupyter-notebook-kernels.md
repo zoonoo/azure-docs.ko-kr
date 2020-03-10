@@ -10,11 +10,11 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/27/2019
 ms.openlocfilehash: 44089ea4b997e06cb7654fc6665a1a9a59ae2658
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494127"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78389695"
 ---
 # <a name="kernels-for-jupyter-notebook-on-apache-spark-clusters-in-azure-hdinsight"></a>Azure HDInsight의 Apache Spark 클러스터에 있는 Jupyter Notebook에 대한 커널
 
@@ -26,7 +26,7 @@ HDInsight Spark 클러스터는 애플리케이션 테스트를 위해 [Apache S
 
 이 문서에서는 이러한 커널의 사용 방법과 사용 시의 이점에 대해 알아봅니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 HDInsight의 Apache Spark 클러스터. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](apache-spark-jupyter-spark-sql.md)를 참조하세요.
 
@@ -65,14 +65,14 @@ HDInsight의 Apache Spark 클러스터. 자세한 내용은 [Azure HDInsight에�
 
     대신 애플리케이션에서 직접 미리 설정된 컨텍스트를 사용할 수 있습니다.
 
-- **매직 셀**입니다. PySpark 커널은 특수 명령인 일부 미리 정의된 “매직”을 제공하며 이러한 매직은 `%%`(예: `%%MAGIC` `<args>`)를 사용하여 호출할 수 있습니다. 매직 명령은 코드 셀의 첫 번째 단어여야 하고 여러 콘텐츠 줄에 허용됩니다. 매직 단어는 셀의 첫 번째 단어여야 합니다. 매직 앞에 다른 단어(주석 포함)가 있으면 오류가 발생합니다.     매직에 대한 자세한 내용은 [여기](https://ipython.readthedocs.org/en/stable/interactive/magics.html)를 참조하세요.
+- **매직 셀**입니다. PySpark 커널은 몇 가지 미리 정의 된 "매직" (예: `%%MAGIC` `<args>`)를 사용 하 `%%` 여 호출할 수 있는 특수 명령입니다. 매직 명령은 코드 셀의 첫 번째 단어여야 하고 여러 콘텐츠 줄에 허용됩니다. 매직 단어는 셀의 첫 번째 단어여야 합니다. 매직 앞에 다른 단어(주석 포함)가 있으면 오류가 발생합니다.     매직에 대한 자세한 내용은 [여기](https://ipython.readthedocs.org/en/stable/interactive/magics.html)를 참조하세요.
 
     다음 표에는 커널을 통해 사용할 수 있는 다양한 매직이 나열되어 있습니다.
 
-   | 매직 | 예제 | 설명 |
+   | 매직 | 예제 | Description |
    | --- | --- | --- |
    | help |`%%help` |예제 및 설명과 함께 사용할 수 있는 모든 매직이 포함된 테이블을 생성합니다. |
-   | info |`%%info` |현재 Livy 엔드포인트에 대한 출력 세션 정보 |
+   | 정보 |`%%info` |현재 Livy 엔드포인트에 대한 출력 세션 정보 |
    | 구성 |`%%configure -f`<br>`{"executorMemory": "1000M"`,<br>`"executorCores": 4`} |세션 만들기에 대한 매개 변수를 구성합니다. 이미 세션이 만들어진 경우 강제 플래그(-f)가 필수이며 이렇게 하면 세션을 삭제 후 다시 만들 수 있습니다. 유효한 매개 변수 목록은 [Livy의 POST /sessions Request Body](https://github.com/cloudera/livy#request-body) 를 참조하세요. 매개 변수는 JSON 문자열로 전달되어야 하며, 아래 예제 열과 같이 매직 뒤의 다음 줄에 있어야 합니다. |
    | sql |`%%sql -o <variable name>`<br> `SHOW TABLES` |sqlContext에 대해 Hive 쿼리를 실행합니다. `-o` 매개 변수가 전달된 경우 쿼리 결과가 %%local Python 컨텍스트에서 [Pandas](https://pandas.pydata.org/) 데이터 프레임으로 유지됩니다. |
    | local |`%%local`<br>`a=1` |다음 줄의 모든 코드는 로컬로 실행됩니다. 코드는 사용 중인 커널에 관계 없이 유효한 Python2 코드 여야 합니다. 따라서 노트북을 만들 때 **PySpark3** 또는 **Spark** 커널을 선택한 경우에도 셀에 `%%local` magic을 사용 하는 경우 해당 셀에는 유효한 Python2 코드만 있어야 합니다. |
@@ -89,15 +89,15 @@ HDInsight의 Apache Spark 클러스터. 자세한 내용은 [Azure HDInsight에�
 
 `%%sql` 매직은 쿼리를 실행할 때 검색하는 출력 종류를 제어하는 데 사용할 수 있는 여러 매개 변수를 지원합니다. 다음 표에는 출력이 나와 있습니다.
 
-| 매개 변수 | 예제 | 설명 |
+| 매개 변수 | 예제 | Description |
 | --- | --- | --- |
 | -o |`-o <VARIABLE NAME>` |이 매개 변수를 사용하여 쿼리 결과를 %%local Python 컨텍스트에서 [Pandas](https://pandas.pydata.org/) 데이터 프레임으로 유지할 수 있습니다. 데이터 프레임 변수 이름은 사용자가 지정한 변수 이름입니다. |
-| -q |`-q` |이 매개 변수를 사용하여 셀에 대한 시각화를 해제할 수 있습니다. 셀 내용을 자동으로 시각화 하지 않고 데이터 프레임 캡처하려면이를 사용 하려는 경우 `-q -o <VARIABLE>`를 사용 합니다. `CREATE TABLE` 문과 같은 SQL 쿼리를 실행하려는 등의 경우 결과를 캡처하지 않고 시각화를 해제하려면 `-q` 인수를 지정하지 않고 `-o`만 사용합니다. |
-| -m |`-m <METHOD>` |여기서 **METHOD**는 **take** 또는 **sample**(기본값: **take**)입니다. METHOD가 **take**인 경우 커널은 MAXROWS(이 표의 뒷부분에서 설명함)로 지정된 결과 데이터 집합의 맨 위에서부터 요소를 선택합니다. METHOD가 **sample**인 경우 커널은 `-r` 매개 변수(이 표의 다음 행에서 설명함)에 따라 데이터 집합의 요소를 무작위로 샘플링합니다. |
+| -Q |`-q` |이 매개 변수를 사용하여 셀에 대한 시각화를 해제할 수 있습니다. 셀 내용을 자동으로 시각화 하지 않고 데이터 프레임 캡처하려면이를 사용 하려는 경우 `-q -o <VARIABLE>`를 사용 합니다. `CREATE TABLE` 문과 같은 SQL 쿼리를 실행하려는 등의 경우 결과를 캡처하지 않고 시각화를 해제하려면 `-q` 인수를 지정하지 않고 `-o`만 사용합니다. |
+| -M |`-m <METHOD>` |여기서 **METHOD**는 **take** 또는 **sample**(기본값: **take**)입니다. METHOD가 **take**인 경우 커널은 MAXROWS(이 표의 뒷부분에서 설명함)로 지정된 결과 데이터 집합의 맨 위에서부터 요소를 선택합니다. METHOD가 **sample**인 경우 커널은 `-r` 매개 변수(이 표의 다음 행에서 설명함)에 따라 데이터 집합의 요소를 무작위로 샘플링합니다. |
 | -r |`-r <FRACTION>` |여기서 **FRACTION**은 0.0과 1.0 사이의 부동 소수점 숫자입니다. SQL 쿼리의 샘플 메서드가 `sample`인 경우 커널은 결과 집합 요소의 지정된 부분을 무작위로 샘플링합니다. 예를 들어 `-m sample -r 0.01` 인수를 포함하여 SQL 쿼리를 실행할 경우 결과 행의 1%가 무작위로 샘플링됩니다. |
 | -n |`-n <MAXROWS>` |**MAXROWS** 는 정수 값입니다. 커널은 출력 행 수를 **MAXROWS**로 제한합니다. **MAXROWS** 가 **-1**과 같은 음수인 경우에는 결과 집합의 행 수가 제한 되지 않습니다. |
 
-**예제:**
+**예:**
 
     %%sql -q -m sample -r 0.1 -n 500 -o query2
     SELECT * FROM hivesampletable

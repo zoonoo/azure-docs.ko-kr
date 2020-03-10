@@ -1,25 +1,18 @@
 ---
 title: Azure Active Directory 자격 증명을 사용 하 여 Linux VM에 로그인 합니다.
 description: Azure Active Directory 인증을 사용 하 여 로그인 하는 Linux VM을 만들고 구성 하는 방법을 알아봅니다.
-services: virtual-machines-linux
-documentationcenter: ''
 author: iainfoulds
-manager: gwallace
-editor: ''
-ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: azurecli
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/29/2019
 ms.author: iainfou
-ms.openlocfilehash: 9980ad7af4a9e5db1d93ffb389ef7b04209b8c43
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: eb303ecb5657e9312445093841cfa6c501efda18
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76544619"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944806"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>미리 보기: Azure Active Directory 인증을 사용 하 여 Azure에서 Linux 가상 머신에 로그인 합니다.
 
@@ -48,7 +41,7 @@ Azure에서 Azure AD 인증을 사용하여 Linux VM에 로그인하는 경우 �
 
 현재 이 기능의 미리 보기 기간 동안 다음과 같은 Linux 배포가 지원됩니다.
 
-| 유통 | 버전 |
+| 배포 | 버전 |
 | --- | --- |
 | CentOS | CentOS 6, CentOS 7 |
 | Debian | Debian 9 |
@@ -113,7 +106,7 @@ az vm extension set \
     --vm-name myVM
 ```
 
-확장이 VM에 성공적으로 설치 되 면 *provisioningState* 의 *성공* 이 표시 됩니다.
+확장이 VM에 성공적으로 설치 되 면 *provisioningState* 의 *성공* 이 표시 됩니다. VM에서 확장을 설치 하려면 실행 중인 VM 에이전트가 필요 합니다. 자세한 내용은 [VM 에이전트 개요](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows)를 참조 하세요.
 
 ## <a name="configure-role-assignments-for-the-vm"></a>VM에 대한 역할 할당 구성
 

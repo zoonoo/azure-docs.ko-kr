@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: b330b6176ba9cadc85fad81876caf2583021d503
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 0ad780c04954c09ddfd432b3c7de3dc65f0841bf
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76988637"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942989"
 ---
 # <a name="introduction-to-knowledge-stores-in-azure-cognitive-search"></a>Azure Cognitive Search의 지식 저장소 소개
 
@@ -147,3 +147,13 @@ REST API 버전 `2019-05-06-Preview`에서는 기술력과에 대 한 추가 정
 
 > [!div class="nextstepaction"]
 > [Postman 및 REST를 사용 하 여 기술 자료 저장소 만들기](knowledge-store-create-rest.md)
+
+예측, 기능 및 [기술에서 정의](knowledge-store-projection-overview.md) 하는 방법에 대해 자세히 알아보려면
+
+> [!div class="nextstepaction"]
+> [기술 자료 저장소의 프로젝션](knowledge-store-projection-overview.md)
+
+조각화, 인라인 셰이핑 및 관계와 같은 고급 예측 개념에 대 한 자습서는 [기술 자료 저장소에서 예측 정의](knowledge-store-projections-examples.md) 로 시작
+
+> [!div class="nextstepaction"]
+> [기술 자료 저장소에서 프로젝션 정의](knowledge-store-projections-examples.md)

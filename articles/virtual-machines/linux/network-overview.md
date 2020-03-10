@@ -1,25 +1,20 @@
 ---
 title: Azure의 가상 네트워크 및 Linux 가상 머신
 description: Azure에서 Linux 가상 머신을 만들기 위한 기본 사항과 관련된 네트워킹에 대해 알아봅니다.
-services: virtual-machines-linux
-documentationcenter: ''
+services: virtual-machines
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 5493e9f7-7d45-4e98-be9a-657a53708746
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.subservice: networking
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: 6d02ce362a1f64cf0dc9e40e3947bdfd01f4aeb4
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: e1e153c428068df16f522968383769ede34fabc3
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035565"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78945231"
 ---
 # <a name="virtual-networks-and-virtual-machines-in-azure"></a>Azure의 가상 네트워크 및 가상 머신 
 

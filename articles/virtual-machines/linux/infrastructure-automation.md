@@ -1,25 +1,18 @@
 ---
-title: Azure에서 Linux Vm 용 인프라 자동화 도구 사용
-description: Ansible, Chef, Puppet, Terraform 및 Packer와 같은 인프라 자동화 도구를 사용하여 Azure에서 Linux 가상 머신을 만들고 관리하는 방법을 알아봅니다.
-services: virtual-machines-linux
-documentationcenter: virtual-machines
+title: 인프라 자동화 도구 사용
+description: Ansible, Chef, 퍼핏, Terraform 및 패키지와 같은 인프라 자동화 도구를 사용 하 여 Azure에서 가상 머신을 만들고 관리 하는 방법을 알아봅니다.
 author: cynthn
-manager: gwallace
-editor: tysonn
-tags: azure-resource-manager
-ms.assetid: ''
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/13/2017
 ms.author: cynthn
-ms.openlocfilehash: eeb155e9fc5c90589420ec009a88dce87aa559e3
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 176e8fcc04f6e1e95c13488f755757a313386490
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036023"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944923"
 ---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>Azure의 가상 머신에서 인프라 자동화 도구 사용
 [!INCLUDE [virtual-machines-common-infrastructure-automation](../../../includes/virtual-machines-common-infrastructure-automation.md)]

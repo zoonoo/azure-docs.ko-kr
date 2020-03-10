@@ -2,23 +2,17 @@
 title: 테 넌 트에 리소스 배포
 description: Azure Resource Manager 템플릿의 테 넌 트 범위에서 리소스를 배포 하는 방법을 설명 합니다.
 ms.topic: conceptual
-ms.date: 03/06/2020
-ms.openlocfilehash: d63697f3c140b5ad374607f1ecb00dad20e697de
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
-ms.translationtype: MT
+ms.date: 03/09/2020
+ms.openlocfilehash: aa72116c3e6e98293b28b2d4413fd1dafb1372d9
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78899140"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942734"
 ---
 # <a name="create-resources-at-the-tenant-level"></a>테 넌 트 수준에서 리소스 만들기
 
-일반적으로 Azure 리소스는 Azure 구독의 리소스 그룹에 배포합니다. 그러나에서 리소스를 만들 수도 있습니다.
-
-* [구독 수준](deploy-to-subscription.md)
-* [관리 그룹 수준](deploy-to-management-group.md)
-* 테 넌 트 수준 (이 문서에 포함 됨)
-
-테 넌 트 수준 배포를 사용 하 여 [역할 기반 액세스 제어](../../role-based-access-control/overview.md) 할당 또는 [정책](../../governance/policy/overview.md)적용과 같은 해당 수준에서 적합 한 작업을 수행할 수 있습니다.
+조직이 완성 되 면 Azure AD 테 넌 트에서 [정책](../../governance/policy/overview.md) 또는 [역할 기반 액세스 제어](../../role-based-access-control/overview.md) 를 정의 하 고 할당 해야 할 수 있습니다. 테 넌 트 수준 템플릿을 사용 하면 선언적으로 정책을 적용 하 고 전역 수준에서 역할을 할당할 수 있습니다.
 
 ## <a name="supported-resources"></a>지원되는 리소스
 
@@ -41,10 +35,10 @@ ms.locfileid: "78899140"
 https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#
 ```
 
-매개 변수 파일의 경우 다음을 사용 합니다.
+매개 변수 파일에 대 한 스키마는 모든 배포 범위에 대해 동일 합니다. 매개 변수 파일의 경우 다음을 사용 합니다.
 
 ```json
-https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentParameters.json#
+https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#
 ```
 
 ## <a name="required-access"></a>필요한 액세스
@@ -181,5 +175,4 @@ REST API의 경우, [테 넌 트 범위에서 배포-만들기 또는 업데이�
 ## <a name="next-steps"></a>다음 단계
 
 * 역할 할당에 대 한 자세한 내용은 [RBAC를 사용 하 여 Azure 리소스에 대 한 액세스 관리 및 템플릿 Azure Resource Manager](../../role-based-access-control/role-assignments-template.md)을 참조 하세요.
-* Azure 리소스 관리자 템플릿을 만드는 방법에 대한 자세한 내용은 [템플릿 작성](template-syntax.md)을 참조하세요.
-* 템플릿에서 사용할 수 있는 함수 목록은 [템플릿 함수](template-functions.md)를 참조하세요.
+* [구독 수준](deploy-to-subscription.md) 또는 [관리 그룹 수준](deploy-to-management-group.md)에서 템플릿을 배포할 수도 있습니다.

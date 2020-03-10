@@ -8,12 +8,12 @@ ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: afa3b0f3ed345ccc7f4c627ec485351838ab2bee
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 300294f37c809b01fe8fba7e627d6bc5bdc9903a
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77649281"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942943"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Azure의 Web Apps에 대한 구성 및 관리 FAQ
 
@@ -105,7 +105,7 @@ Azure 앱 웹 사이트에 대해 실행된 인바운드 호출에 대한 전용
 
 ## <a name="how-do-i-remove-a-header-from-the-http-response"></a>HTTP 응답에서 헤더를 어떻게 제거할 수 있나요?
 
-HTTP 응답에서 헤더를 제거하려면 사이트의 web.config 파일을 업데이트합니다. 자세한 내용은 [Remove standard server headers on your Azure websites](https://azure.microsoft.com/blog/removing-standard-server-headers-on-windows-azure-web-sites/)(Azure Websites에서 표준 서버 헤더 제거)를 참조하세요.
+HTTP 응답에서 헤더를 제거 하려면 사이트의 web.config 파일을 업데이트 합니다. 자세한 내용은 [Remove standard server headers on your Azure websites](https://azure.microsoft.com/blog/removing-standard-server-headers-on-windows-azure-web-sites/)(Azure Websites에서 표준 서버 헤더 제거)를 참조하세요.
 
 ## <a name="is-app-service-compliant-with-pci-standard-30-and-31"></a>App Service는 PCI Standard 3.0 및 3.1 규격인가요?
 
@@ -183,7 +183,7 @@ F12 추적을 캡처할 수 있는 두 가지 옵션이 있습니다.
 ### <a name="f12-console-output"></a>F12 콘솔 출력
 
 1. **콘솔** 탭을 선택합니다.
-2. 하나 이상의 항목이 포함된 각 탭에 대해 탭(**오류**, **경고** 또는 **정보**)을 선택합니다. 탭이 선택되지 않은 경우 커서가 탭 아이콘을 벗어나면 탭 아이콘이 회색 또는 검은색으로 표시됩니다.
+2. 하나 이상의 항목이 포함된 각 탭에 대해 탭(**오류**, **경고** 또는 **정보**)을 선택합니다. 탭이 선택 되어 있지 않으면 커서를 커서를 밖으로 이동 하면 탭 아이콘이 회색 이나 검은색입니다.
 3. 창의 메시지 영역을 마우스 오른쪽 단추로 클릭하고 **모두 복사**를 선택합니다.
 4. 복사된 텍스트를 파일에 붙여넣고 파일을 저장합니다.
 
@@ -212,7 +212,7 @@ Azure 웹앱을 Azure ExpressRoute에 연결된 가상 네트워크에 연결하
 경우에 따라 App Service Environment 만들기에 실패합니다. 이 경우 활동 로그에서 다음 오류를 확인할 수 있습니다.
 ```
 ResourceID: /subscriptions/{SubscriptionID}/resourceGroups/Default-Networking/providers/Microsoft.Web/hostingEnvironments/{ASEname}
-Error:{"error":{"code":"ResourceDeploymentFailure","message":"The resource provision operation did not complete within the allowed timeout period.”}}
+Error:{"error":{"code":"ResourceDeploymentFailure","message":"The resource provision operation did not complete within the allowed timeout period."}}
 ```
 
 이 문제를 해결하려면 다음 중 해당하는 조건이 없는지 확인합니다.
@@ -248,7 +248,7 @@ Cron 식을 사용하여 예약된 WebJob을 만들 수 있습니다.
 
 ## <a name="how-do-i-configure-a-custom-domain-name-for-an-app-service-web-app-that-uses-traffic-manager"></a>Traffic Manager를 사용하는 App Service 웹앱에 대한 사용자 지정 도메인 이름을 구성하려면 어떻게 하나요?
 
-부하 분산을 위해 Azure Traffic Manager를 사용하는 App Service 앱에서 사용자 지정 도메인 이름을 사용하는 방법을 알아보려면 [Traffic Manager를 사용하여 Azure 웹앱에 대한 사용자 지정 도메인 이름 구성](web-sites-traffic-manager-custom-domain-name.md)을 참조하세요.
+부하 분산을 위해 Azure Traffic Manager를 사용하는 App Service 앱에서 사용자 지정 도메인 이름을 사용하는 방법을 알아보려면 [Traffic Manager를 사용하여 Azure 웹앱에 대한 사용자 지정 도메인 이름 구성](configure-domain-traffic-manager.md)을 참조하세요.
 
 ## <a name="my-app-service-certificate-is-flagged-for-fraud-how-do-i-resolve-this"></a>내 App Service Certificate에 사기 플래그가 지정되었습니다. 이 문제를 해결하려면 어떻게 해야 하나요?
 
@@ -256,7 +256,7 @@ Cron 식을 사용하여 예약된 WebJob을 만들 수 있습니다.
 
 App Service Certificate 구매의 도메인을 확인하는 동안 다음 메시지가 표시될 수 있습니다.
 
-“인증서가 사기성이 있을 수 있다고 플래그 지정되었습니다. 요청을 현재 검토하는 중입니다. 24시간 내에 인증서를 사용할 수 있게 되지 않으면 Azure 지원에 문의하세요.”
+“인증서가 사기성이 있을 수 있다고 플래그 지정되었습니다. 요청을 현재 검토하는 중입니다. 24시간 내에 인증서를 사용할 수 있게 되지 않으면 Azure 지원에 문의하세요."
 
 메시지가 표시되면 이 사기 확인 프로세스를 완료하는 데는 24시간까지 걸릴 수 있습니다. 이 시간 동안 메시지가 계속 표시됩니다.
 
@@ -282,7 +282,7 @@ App Service의 인증 및 권한 부여에 대한 자세한 문서는 다양한 
 
 ## <a name="how-do-i-redirect-the-default-azurewebsitesnet-domain-to-my-azure-web-apps-custom-domain"></a>기본 *.azurewebsites.net 도메인을 내 Azure 웹앱의 사용자 지정 도메인으로 리디렉션하려면 어떻게 하나요?
 
-Azure에서 Web Apps를 사용하여 새 웹 사이트를 만들 경우 기본 *사이트 이름*.azurewebsites.net 도메인이 사이트에 할당됩니다. 사용자 지정 호스트 이름을 사이트에 추가하지만 사용자가 기본 *.azurewebsites.net 도메인에 액세스할 수 없게 하려면 기본 URL을 리디렉션하면 됩니다. 웹 사이트의 기본 도메인에서 사용자 지정 도메인으로 모든 트래픽을 리디렉션하는 방법을 알아보려면 [Redirect the default domain to your custom domain in Azure web apps](https://zainrizvi.io/blog/block-default-azure-websites-domain/)(Azure Web Apps에서 사용자 지정 도메인으로 기본 도메인 리디렉션)를 참조하세요.
+Azure에서 Web Apps를 사용하여 새 웹 사이트를 만들 경우 기본 *사이트 이름*.azurewebsites.net 도메인이 사이트에 할당됩니다. 사용자 지정 호스트 이름을 사이트에 추가 하 고 사용자가 기본 *. azurewebsites.net 도메인에 액세스할 수 없도록 하려는 경우 기본 URL을 리디렉션할 수 있습니다. 웹 사이트의 기본 도메인에서 사용자 지정 도메인으로 모든 트래픽을 리디렉션하는 방법을 알아보려면 [Redirect the default domain to your custom domain in Azure web apps](https://zainrizvi.io/blog/block-default-azure-websites-domain/)(Azure Web Apps에서 사용자 지정 도메인으로 기본 도메인 리디렉션)를 참조하세요.
 
 ## <a name="how-do-i-determine-which-version-of-net-version-is-installed-in-app-service"></a>App Service에 어떤 .NET 버전이 설치되어 있는지 확인하려면 어떻게 하나요?
 

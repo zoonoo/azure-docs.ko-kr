@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/31/2019
+ms.date: 03/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 74d9aa8228e841b17313fb3c15efe459ccd7339a
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: bce71355eef19ec3cc85525033274f57b1a3e0b9
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77613576"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78946418"
 ---
 # <a name="administer-group-policy-in-an-azure-ad-domain-services-managed-domain"></a>Azure AD Domain Services 관리 되는 도메인의 그룹 정책 관리
 
@@ -42,7 +42,11 @@ Azure Active Directory Domain Services (Azure AD DS)의 사용자 및 컴퓨터 
 * Azure AD 테넌트의 *Azure AD DC Administrators* 그룹에 속한 멤버인 사용자 계정
 
 > [!NOTE]
-> [Azure AD DS의 도메인 컨트롤러에 대 한 액세스 권한이 없기](faqs.md#can-i-connect-to-the-domain-controller-for-my-managed-domain-using-remote-desktop)때문에 관리 되는 도메인에서 그룹 정책 관리 템플릿에 대 한 중앙 저장소를 만들고 사용할 수 없습니다. [Sysvol은 온-프레미스 Azure AD Connect 동기화에 포함 되지](synchronization.md#what-isnt-synchronized-to-azure-ad-ds)않으므로 azure AD를 통해 온-프레미스 중앙 저장소를 만들고 azure AD DS와 동기화 할 수 없습니다.
+> 관리 워크스테이션에 새 템플릿을 복사 하 여 그룹 정책 관리 템플릿를 사용할 수 있습니다. `%SYSTEMROOT%\PolicyDefinitions`로 *admx* 파일을 복사 하 고 *adml* 파일의 언어 및 지역과 일치 하는 `Language-CountryRegion` `%SYSTEMROOT%\PolicyDefinitions\[Language-CountryRegion]`에 로캘별 *adml* 파일을 복사 합니다.
+>
+> 예를 들어, *adml* 파일의 영어 미국 버전을 `\en-us` 폴더에 복사 합니다.
+>
+> 또는 Azure AD DS 관리 되는 도메인의 일부인 도메인 컨트롤러에 그룹 정책 관리 템플릿을 중앙에서 저장할 수 있습니다. 자세한 내용은 [Windows에서 그룹 정책 관리 템플릿 용 중앙 저장소를 만들고 관리 하는 방법](https://support.microsoft.com/help/3087759/how-to-create-and-manage-the-central-store-for-group-policy-administra)을 참조 하세요.
 
 ## <a name="install-group-policy-management-tools"></a>그룹 정책 관리 도구 설치
 

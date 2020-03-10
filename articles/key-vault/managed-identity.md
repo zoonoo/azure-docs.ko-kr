@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 36a4871339401629300eedd77b6441aed10aabf3
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78199838"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78395946"
 ---
 # <a name="provide-key-vault-authentication-with-a-managed-identity"></a>관리 id를 사용 하 여 Key Vault 인증 제공
 
@@ -26,7 +26,7 @@ Azure Active Directory에서 관리 되는 id를 사용 하면 앱에서 다른 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>필수 조건 
+## <a name="prerequisites"></a>사전 요구 사항 
 
 이 가이드를 완료 하려면 다음 리소스가 있어야 합니다. 
 
@@ -42,7 +42,7 @@ Azure Active Directory에서 관리 되는 id를 사용 하면 앱에서 다른 
 
 먼저 시스템에 할당 된 id를 응용 프로그램에 추가 해야 합니다. 
  
-### <a name="azure-portal"></a>Azure 포털 
+### <a name="azure-portal"></a>Azure portal 
 
 포털에서 관리 ID를 설정하려면 먼저 정상적으로 애플리케이션을 만든 다음, 기능을 사용하도록 설정합니다. 
 
@@ -88,7 +88,7 @@ az functionapp identity assign --name myApp --resource-group myResourceGroup
 ```
 ## <a name="grant-your-app-access-to-key-vault"></a>앱에 대 한 액세스 권한 부여 Key Vault 
 
-### <a name="azure-portal"></a>Azure 포털
+### <a name="azure-portal"></a>Azure portal
 
 1.  Key Vault 리소스로 이동 합니다. 
 

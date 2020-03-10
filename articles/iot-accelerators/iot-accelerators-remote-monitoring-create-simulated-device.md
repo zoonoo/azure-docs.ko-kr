@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
-ms.openlocfilehash: bb8b23513738a6696d65bf7f06a741be2ada7a93
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 8babacfede6e13fde629492e1cd9f80af7f0e53f
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250246"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943063"
 ---
 # <a name="create-and-test-a-new-simulated-device"></a>시뮬레이트된 새 디바이스 만들기 및 테스트
 
@@ -82,7 +82,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 * Visual Studio Code. [Mac, Linux 및 Windows용 Visual Studio Code를 다운로드](https://code.visualstudio.com/download)할 수 있습니다.
 * .NET Core [Mac, Linux 및 Windows용 .NET Core를 다운로드](https://www.microsoft.com/net/download)할 수 있습니다.
-* [C# for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
+* [C# for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
 * Postman [Mac, Windows 또는 Linux용 Postman](https://www.getpostman.com/apps)을 다운로드할 수 있습니다.
 * [Azure 구독에 배포된 IoT 허브](../../articles/iot-hub/iot-hub-create-through-portal.md) 이 가이드의 단계를 완료하려면 IoT 허브의 연결 문자열이 필요합니다. Azure Portal에서 연결 문자열을 가져올 수 있습니다.
 * SQL API를 사용하고 [강력한 일관성](../../articles/cosmos-db/how-to-manage-database-account.md)에 대해 구성된 Cosmos DB 데이터베이스. 이 가이드의 단계를 완료하려면 Cosmos DB 데이터베이스의 연결 문자열이 필요합니다. Azure Portal에서 연결 문자열을 가져올 수 있습니다.

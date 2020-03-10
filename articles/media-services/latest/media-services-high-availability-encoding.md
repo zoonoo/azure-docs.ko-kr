@@ -13,12 +13,12 @@ ms.topic: article
 ms.custom: ''
 ms.date: 02/24/2020
 ms.author: juliako
-ms.openlocfilehash: f5b02376111a3deba33cd5688330018bd7c370d8
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.openlocfilehash: afaa7545fbcbab016249e73a2247817310c5cdfc
+ms.sourcegitcommit: e6bce4b30486cb19a6b415e8b8442dd688ad4f92
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78899218"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78934197"
 ---
 # <a name="media-services-high-availability-encoding"></a>Media Services 고가용성 인코딩 
 
@@ -42,8 +42,8 @@ Azure Media Services encoding service는 지역 일괄 처리 플랫폼 이며 �
     * [Microsoft Azure EventGrid SDK](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/) (Media Services 이벤트를 기본적으로 지원)
 
     Azure Functions를 통해 Event Grid 이벤트를 사용할 수도 있습니다.
-*    [작업](transforms-jobs-concept.md)을 만들 때:
-    
+* [작업](transforms-jobs-concept.md)을 만들 때:
+
     * 현재 사용 되는 계정 목록에서 무작위로 계정을 선택 합니다 .이 목록에는 일반적으로 두 계정이 모두 포함 되지만 문제가 검색 되 면 계정이 하나만 포함 될 수 있습니다. 목록이 비어 있으면 운영자가 조사할 수 있도록 경고를 발생 시킵니다.
     * 일반적인 지침은 [joboutput](https://docs.microsoft.com/rest/api/media/jobs/create#joboutputasset) 당 하나의 [미디어 예약 단위](media-reserved-units-cli-how-to.md) 를 사용 해야 합니다 ( [VideoAnalyzerPreset](analyzing-video-audio-files-concept.md) 를 사용 하지 않는 경우 joboutput 당 미디어 예약 단위 4 개 권장).
     * 선택한 계정에 대 한 Mru (미디어 예약 단위) 수를 가져옵니다. 현재 **미디어 예약 단위** 수가 아직 최대값에 없으면 작업에 필요한 mru의 수를 추가 하 고 서비스를 업데이트 합니다. 작업 전송 속도는 높고 Mru을 자주 쿼리 하는 경우에는 적절 한 시간 제한이 있는 값에 대해 분산 캐시를 사용 합니다.

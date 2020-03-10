@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/09/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 82daf447270fc0413284e3e7a908a8b5237a4f9c
-ms.sourcegitcommit: 3616b42a0d6bbc31b965995d861930e53d2cf0d3
+ms.openlocfilehash: f7a6c5872c5e2b7e1b47b40e32ddb047641e8b2e
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/09/2020
-ms.locfileid: "78932982"
+ms.locfileid: "78944221"
 ---
 # <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 Azure Active Directory 기술 프로필 정의
 
@@ -56,7 +56,7 @@ Azure Active Directory B2C (Azure AD B2C) Azure Active Directory 사용자 관�
 </TechnicalProfile>
 ```
 
-## <a name="input-claims"></a>입력 클레임
+## <a name="inputclaims"></a>InputClaims
 
 InputClaims 요소는 디렉터리에서 계정을 조회 하거나 새로 만드는 데 사용 되는 클레임을 포함 합니다. 모든 Azure AD 기술 프로필에 대 한 입력 클레임 컬렉션에는 정확히 하나의 InputClaim 요소가 있어야 합니다. 정책에 정의된 클레임 이름을 Azure Active Directory에서 정의된 이름에 매핑해야 할 수도 있습니다.
 
@@ -66,7 +66,7 @@ InputClaims 요소는 디렉터리에서 계정을 조회 하거나 새로 만�
 
 InputClaimsTransformations 요소에는 입력 클레임을 수정 하거나 새 항목을 생성 하는 데 사용 되는 입력 클레임 변환 요소의 컬렉션이 포함 될 수 있습니다.
 
-## <a name="output-claims"></a>출력 클레임
+## <a name="outputclaims"></a>OutputClaims
 
 **OutputClaims** 요소는 Azure AD 기술 프로필에서 반환된 클레임 목록을 포함합니다. 정책에 정의된 클레임 이름을 Azure Active Directory에서 정의된 이름에 매핑해야 할 수도 있습니다. `DefaultValue` 특성만 설정하면, Azure Active Directory에서 반환되지 않은 클레임을 포함할 수도 있습니다.
 
@@ -253,16 +253,16 @@ Azure AD 특성 이름을 포함하는 **PartnerClaimType** 특성이 지정되�
 ```
 ## <a name="metadata"></a>메타데이터
 
-| 특성 | 필수 | 설명 |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
-| 연산 | 예 | 수행할 작업입니다. 가능한 값은 `Read`, `Write`, `DeleteClaims` 또는 `DeleteClaimsPrincipal`입니다. |
-| RaiseErrorIfClaimsPrincipalDoesNotExist | 아니요 | 사용자 개체가 디렉터리에 없는 경우 오류가 발생합니다. 가능한 값은 `true` 또는 `false`입니다. |
-| UserMessageIfClaimsPrincipalDoesNotExist | 아니요 | 오류가 발생해야 한다면(RaiseErrorIfClaimsPrincipalDoesNotExist 특성 설명 참조), 사용자 개체가 없는 경우 사용자에게 표시할 메시지를 지정합니다. 값을 [지역화](localization.md)할 수 있습니다.|
-| RaiseErrorIfClaimsPrincipalAlreadyExists | 아니요 | 사용자 개체가 이미 있는 경우 오류가 발생합니다. 가능한 값은 `true` 또는 `false`입니다.|
-| UserMessageIfClaimsPrincipalAlreadyExists | 아니요 | 오류가 발생해야 한다면(RaiseErrorIfClaimsPrincipalAlreadyExists 특성 설명 참조), 사용자 개체가 이미 있는 경우 사용자에게 표시할 메시지를 지정합니다. 값을 [지역화](localization.md)할 수 있습니다.|
-| ApplicationObjectId | 아니요 | 확장 특성에 대한 애플리케이션 개체 ID입니다. 값은 애플리케이션의 ObjectId입니다. 자세한 내용은 [사용자 지정 프로필 편집 정책에서 사용자 지정 특성 사용](custom-policy-custom-attributes.md)을 참조하세요. |
-| clientid | 아니요 | 테넌트에 제3자로 액세스하기 위한 클라이언트 식별자입니다. 자세한 내용은 [사용자 지정 프로필 편집 정책에서 사용자 지정 특성 사용](custom-policy-custom-attributes.md)을 참조하세요. |
-| IncludeClaimResolvingInClaimsHandling  | 아니요 | 입력 및 출력 클레임의 경우 [클레임 확인](claim-resolver-overview.md) 이 기술 프로필에 포함 되는지 여부를 지정 합니다. 가능한 값은 `true`또는 `false` (기본값)입니다. 기술 프로필에서 클레임 해결 프로그램을 사용 하려면 `true`으로 설정 합니다. |
+| 작업(Operation) | yes | 수행할 작업입니다. 가능한 값은 `Read`, `Write`, `DeleteClaims` 또는 `DeleteClaimsPrincipal`입니다. |
+| RaiseErrorIfClaimsPrincipalDoesNotExist | 예 | 사용자 개체가 디렉터리에 없는 경우 오류가 발생합니다. 가능한 값은 `true` 또는 `false`입니다. |
+| UserMessageIfClaimsPrincipalDoesNotExist | 예 | 오류가 발생해야 한다면(RaiseErrorIfClaimsPrincipalDoesNotExist 특성 설명 참조), 사용자 개체가 없는 경우 사용자에게 표시할 메시지를 지정합니다. 값을 [지역화](localization.md)할 수 있습니다.|
+| RaiseErrorIfClaimsPrincipalAlreadyExists | 예 | 사용자 개체가 이미 있는 경우 오류가 발생합니다. 가능한 값은 `true` 또는 `false`입니다.|
+| UserMessageIfClaimsPrincipalAlreadyExists | 예 | 오류가 발생해야 한다면(RaiseErrorIfClaimsPrincipalAlreadyExists 특성 설명 참조), 사용자 개체가 이미 있는 경우 사용자에게 표시할 메시지를 지정합니다. 값을 [지역화](localization.md)할 수 있습니다.|
+| ApplicationObjectId | 예 | 확장 특성에 대한 애플리케이션 개체 ID입니다. 값은 애플리케이션의 ObjectId입니다. 자세한 내용은 [사용자 지정 프로필 편집 정책에서 사용자 지정 특성 사용](custom-policy-custom-attributes.md)을 참조하세요. |
+| clientid | 예 | 테넌트에 제3자로 액세스하기 위한 클라이언트 식별자입니다. 자세한 내용은 [사용자 지정 프로필 편집 정책에서 사용자 지정 특성 사용](custom-policy-custom-attributes.md)을 참조하세요. |
+| IncludeClaimResolvingInClaimsHandling  | 예 | 입력 및 출력 클레임의 경우 [클레임 확인](claim-resolver-overview.md) 이 기술 프로필에 포함 되는지 여부를 지정 합니다. 가능한 값은 `true`또는 `false` (기본값)입니다. 기술 프로필에서 클레임 해결 프로그램을 사용 하려면 `true`으로 설정 합니다. |
 
 
 

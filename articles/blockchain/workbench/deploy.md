@@ -4,12 +4,12 @@ description: Azure Blockchain 워크 벤치 미리 보기를 배포 하는 방�
 ms.date: 01/08/2020
 ms.topic: article
 ms.reviewer: brendal
-ms.openlocfilehash: fab61b5850815e480b4a380fdccd6c1df5b449cd
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 141bb8825e47eb2309f9f551990a2976e8f4e209
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77189247"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943197"
 ---
 # <a name="deploy-azure-blockchain-workbench-preview"></a>Azure Blockchain 워크 벤치 미리 보기 배포
 
@@ -135,7 +135,7 @@ Blockchain Workbench의 배포가 완료되면 새 리소스 그룹에 사용자
 
     ![App Service Essentials](media/deploy/app-service.png)
 
-사용자 지정 도메인 이름을 Blockchain Workbench와 연결하려면 [Traffic Manager를 사용하는 Azure App Service의 웹앱에 대한 사용자 지정 도메인 이름 구성](../../app-service/web-sites-traffic-manager-custom-domain-name.md)을 참조하세요.
+사용자 지정 도메인 이름을 Blockchain Workbench와 연결하려면 [Traffic Manager를 사용하는 Azure App Service의 웹앱에 대한 사용자 지정 도메인 이름 구성](../../app-service/configure-domain-traffic-manager.md)을 참조하세요.
 
 ## <a name="azure-ad-configuration-script"></a>Azure AD 구성 스크립트
 

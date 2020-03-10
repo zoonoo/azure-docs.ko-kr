@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: c590a27f61c1a555ae30828332e4140a6116f95f
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: 2413601db629fda62976b75e349b0340749dc6fa
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77443859"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944081"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Linux의 Azure App Service에 대한 FAQ
 
@@ -180,6 +180,10 @@ image: <server-name>.azurecr.io/<image-name>:<tag>
 일반 Azure App Service 가격으로 앱이 실행되는 시간만큼 청구됩니다.
 
 ## <a name="other-questions"></a>기타 질문
+
+**"요청 된 기능을 리소스 그룹에서 사용할 수 없습니다."는 무엇을 의미 하나요?**
+
+ARM (Azure Resource Manager)을 사용 하 여 웹 앱을 만들 때이 메시지가 표시 될 수 있습니다. 동일한 리소스 그룹에 대 한 현재 제한 사항에 따라 동일한 지역에서 Windows 및 Linux 앱을 혼합할 수 없습니다.
 
 **애플리케이션 설정 이름에 지원되는 문자는 무엇입니까?**
 

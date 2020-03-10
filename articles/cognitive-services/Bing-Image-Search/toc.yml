@@ -26,14 +26,8 @@
           href: quickstarts/ruby.md
     - name: SDK)
       items:
-        - name: 'C# 사용'
-          href: image-search-sdk-quickstart.md
-        - name: Node.js 사용
-          href: image-search-sdk-node-quickstart.md
-        - name: Python 사용
-          href: image-sdk-python-quickstart.md
-        - name: Java 사용
-          href: image-sdk-java-quickstart.md
+        - name: Bing Image Search 클라이언트 라이브러리
+          href: ./quickstarts/client-libraries.md
 - name: 자습서
   items:
     - name: 이미지 검색 웹 애플리케이션 빌드
@@ -66,7 +60,7 @@
       href: concepts/bing-image-search-get-images.md
     - name: 검색 쿼리 보내기 및 사용
       href: concepts/bing-image-search-sending-queries.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: Bing Image Search API v7
       href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference'
@@ -95,7 +89,7 @@
   items:
     - name: FAQ
       href: bing-image-search-resource-faq.md
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/search-api/image/'
     - name: UserVoice
       href: 'https://cognitive.uservoice.com/forums/555907-bing-search'

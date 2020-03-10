@@ -4,12 +4,12 @@ description: 구독 한도에 도달할 때 Azure Resource Manager 요청에 제
 ms.topic: conceptual
 ms.date: 10/26/2019
 ms.custom: seodec18
-ms.openlocfilehash: 43ccf4f2e8098f6577f18943c4ab4132884b66f2
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: eabc621ce02d4f30c5efb5bcef2635ea0e8dbcb2
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78251334"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944045"
 ---
 # <a name="throttling-resource-manager-requests"></a>Resource Manager 요청 제한
 
@@ -124,7 +124,7 @@ Get-AzResourceGroup -Debug
 
 그러면 다음 응답 값을 포함한 많은 값이 반환됩니다.
 
-```powershell
+```output
 DEBUG: ============================ HTTP RESPONSE ============================
 
 Status Code:
@@ -143,7 +143,7 @@ New-AzResourceGroup -Name myresourcegroup -Location westus -Debug
 
 그러면 다음 값을 포함하는 많은 값이 반환됩니다.
 
-```powershell
+```output
 DEBUG: ============================ HTTP RESPONSE ============================
 
 Status Code:

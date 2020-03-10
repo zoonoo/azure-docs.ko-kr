@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 12/04/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ce7f6320ffa4d3e8c258c9d05542f12079ee355d
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 5b8654500fd697685b38e4f51ba1069e0cf6ccfc
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76509005"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942915"
 ---
 # <a name="transfer-data-with-the-data-movement-library"></a>데이터 이동 라이브러리를 사용하여 데이터 전송
 
@@ -32,7 +32,7 @@ Azure Storage 데이터 이동 라이브러리는 blob 및 파일의 고성능 �
 - URL에서 Blob Storage로 파일을 복사합니다.
 - Blob Storage 간에 복사합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - [Visual Studio Code](https://code.visualstudio.com/)
 - [Azure Storage 계정](storage-account-create.md)
@@ -42,9 +42,9 @@ Azure Storage 데이터 이동 라이브러리는 blob 및 파일의 고성능 �
 1. [.NET Core 설치 가이드](https://www.microsoft.com/net/core)를 방문하여 .NET Core를 설치합니다. 사용자 환경을 선택할 때 명령줄 옵션을 선택합니다.
 2. 명령줄에서 프로젝트에 대한 디렉터리를 만듭니다. 이 디렉터리로 이동한 다음 `dotnet new console -o <sample-project-name>`를 입력하여 C# 콘솔 프로젝트를 만듭니다.
 3. Visual Studio Code에서 이 디렉터리를 엽니다. 이 단계는 Windows에서 `code .`를 입력하여 명령줄을 통해 빠르게 수행할 수 있습니다.
-4. Visual Studio Code Marketplace에서 [C# 확장](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)을 설치합니다. Visual Studio Code를 다시 시작합니다.
+4. Visual Studio Code Marketplace에서 [C# 확장](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)을 설치합니다. Visual Studio Code를 다시 시작합니다.
 5. 이 시점에서 두 가지 프롬프트가 표시됩니다. 하나는 "빌드 및 디버그에 필요한 자산"을 추가하는 것입니다. "예"를 클릭합니다. 또 다른 프롬프트는 해결되지 않은 종속성을 복원하는 것입니다. "복원"을 클릭합니다.
-6. `.vscode` 아래에서 `launch.json`을 수정하여 외부 터미널을 콘솔로 사용합니다. 이 설정은 `"console": "externalTerminal"`로 읽어야 합니다.
+6. `launch.json` 아래에서 `.vscode`을 수정하여 외부 터미널을 콘솔로 사용합니다. 이 설정은 `"console": "externalTerminal"`로 읽어야 합니다.
 7. Visual Studio Code를 사용하면 .NET Core 애플리케이션을 디버그할 수 있습니다. `F5` 키를 눌러 애플리케이션을 실행하고 설정이 작동하는지 확인합니다. 콘솔에 "Hello World!" 가 표시됩니다.
 
 ## <a name="add-the-data-movement-library-to-your-project"></a>프로젝트에 데이터 이동 라이브러리 추가
@@ -212,7 +212,7 @@ public static void SetNumberOfParallelOperations()
 }
 ```
 
-다음과 같이 `SetNumberOfParallelOperations`를 사용하도록 `ExecuteChoice` 메서드를 수정합니다.
+다음과 같이 `ExecuteChoice`를 사용하도록 `SetNumberOfParallelOperations` 메서드를 수정합니다.
 
 ```csharp
 public static void ExecuteChoice(CloudStorageAccount account)
@@ -289,7 +289,7 @@ public static DirectoryTransferContext GetDirectoryTransferContext(TransferCheck
 }
 ```
 
-다음과 같이 `GetSingleTransferContext`를 사용하도록 `TransferLocalFileToAzureBlob` 메서드를 수정합니다.
+다음과 같이 `TransferLocalFileToAzureBlob`를 사용하도록 `GetSingleTransferContext` 메서드를 수정합니다.
 
 ```csharp
 public static async Task TransferLocalFileToAzureBlob(CloudStorageAccount account)

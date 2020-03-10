@@ -6,12 +6,12 @@ ms.author: barbkess
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/20/2019
-ms.openlocfilehash: efe8c1a2726054c54934926f652e338797d4efa1
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 78cd5945e394219be0551bbe97afef07f18b61f7
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76776548"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78945479"
 ---
 # <a name="authenticate-azure-spring-cloud-with-key-vault-in-github-actions"></a>GitHub 작업에서 Key Vault를 사용 하 여 Azure 스프링 클라우드 인증
 Key vault는 키를 저장할 수 있는 안전한 장소입니다. 기업 사용자는 CI/CD 환경의 자격 증명을 제어 하는 범위 내에 저장 해야 합니다. 키 자격 증명 모음에서 자격 증명을 가져오는 키는 리소스 범위로 제한 되어야 합니다.  전체 Azure 범위가 아니라 key vault 범위에만 액세스할 수 있습니다. 이는 건물의 모든 도어를 열 수 있는 마스터 키가 아닌 강력한 상자를 열 수 있는 키와 같습니다. CICD 워크플로에서 유용한 다른 키를 사용 하 여 키를 가져오는 방법입니다. 
@@ -32,7 +32,6 @@ az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTIO
     "tenantId": "<GUID>",
     "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
     "resourceManagerEndpointUrl": "https://management.azure.com/",
-    "activeDirectoryGraphResourceId": "https://graph.windows.net/",
     "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
     "galleryEndpointUrl": "https://gallery.azure.com/",
     "managementEndpointUrl": "https://management.core.windows.net/"
@@ -49,7 +48,7 @@ Azure Portal에서 **Key Vault** 대시보드로 이동 하 고 **Access control
 
 자격 증명 이름을 복사 합니다 (예: `azure-cli-2020-01-19-04-39-02`). **액세스 정책** 메뉴를 열고 **+ 액세스 정책 추가** 링크를 클릭 합니다.  **템플릿**`Secret Management`을 선택한 다음 **보안 주체**를 선택 합니다. **보안 주체**/입력 상자 **선택** 상자에 자격 증명 이름을 붙여 넣습니다.
 
- ![선택](./media/github-actions/key-vault2.png)
+ ![여기서](./media/github-actions/key-vault2.png)
 
  **액세스 정책 추가** 대화 상자에서 **추가** 단추를 클릭 한 다음 **저장**을 클릭 합니다.
 
@@ -69,7 +68,6 @@ az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTIO
     "tenantId": "<GUID>",
     "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
     "resourceManagerEndpointUrl": "https://management.azure.com/",
-    "activeDirectoryGraphResourceId": "https://graph.windows.net/",
     "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
     "galleryEndpointUrl": "https://gallery.azure.com/",
     "managementEndpointUrl": "https://management.core.windows.net/"

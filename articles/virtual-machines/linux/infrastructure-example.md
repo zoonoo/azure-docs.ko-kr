@@ -1,26 +1,18 @@
 ---
 title: Azure 인프라 연습 예제
 description: Azure에서 인프라 예제를 배포하기 위한 핵심 디자인 및 구현 지침에 대해 알아봅니다.
-documentationcenter: ''
-services: virtual-machines-linux
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 281fc2c0-b533-45fa-81a3-728c0049c73d
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: cynthn
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cf63db18dac5fa202bbf339723c6555c4acb2ca2
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 6040bf8862131f5a8a5564cd2f5d845fa0490a95
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036028"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944897"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-linux-vms"></a>Linux VM에 대한 Azure 인프라 연습 예제
 이 문서에서는 예제 애플리케이션 인프라를 구축하는 과정을 안내합니다. 명명 규칙, 가용성 집합, 가상 네트워크 및 부하 분산 장치에 대한 모든 지침 및 결정 사항을 함께 제공하는 간단한 온라인 스토어용 인프라의 설계와 VM(가상 머신)의 실제 배포를 자세히 다룹니다.
@@ -85,7 +77,7 @@ Azure 포털을 사용하여 다음 설정을 포함한 클라우드 전용 가�
 온라인 스토어의 모든 네 개 계층의 고가용성을 유지하기 위해 Adventure Works Cycles는 다음과 같은 네 개의 가용성 집합으로 결정했습니다.
 
 * **azos-use-as-web**
-* 애플리케이션 서버용 **azos-use-as-app**
+* **azos-use-as-app**
 * **azos-use-as-db**
 * **azos-use-as-dc**
 
@@ -94,8 +86,8 @@ Adventure Works Cycles는 Azure VM에 대해 다음 이름을 결정했습니다
 
 * **azos-use-vm-web01**
 * **azos-use-vm-web02**
-* 첫 번째 애플리케이션 서버용**azos-use-vm-앱01**
-* 두 번째 애플리케이션 서버용**azos-use-vm-앱02**
+* 첫 번째 애플리케이션 서버용 **azos-use-vm-app01**
+* 두 번째 애플리케이션 서버용 **azos-use-vm-app02**
 * **azos-use-vm-db01**
 * **azos-use-vm-db02**
 * **azos-use-vm-dc01**

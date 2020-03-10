@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/24/2020
 ms.author: allensu
-ms.openlocfilehash: a314af3d53936a58f9dfb3694ec1114ecdc3d521
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 4baf12533bed523c81ff41a81975f5bf5b918ac2
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77587008"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250816"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-the-azure-portal-and-test-the-nat-service"></a>자습서: Azure Portal을 사용하여 NAT Gateway 만들기 및 NAT 서비스 테스트
 
@@ -36,27 +36,24 @@ ms.locfileid: "77587008"
 
 다음 단계에서는 전체 테스트 환경을 구성하고 테스트 자체를 실행하는 과정을 안내합니다. 먼저 이후 단계에서 만드는 NAT 게이트웨이 리소스를 사용하는 원본으로 시작합니다.
 
-### <a name="create-a-virtual-network"></a>가상 네트워크 만들기
+## <a name="virtual-network-and-parameters"></a>가상 네트워크 및 매개 변수
 
 VM을 배포하고 NAT 게이트웨이를 사용하려면 먼저 리소스 그룹과 가상 네트워크를 만들어야 합니다.
 
-1. 화면의 왼쪽 위에서 **리소스 만들기** > **네트워킹** > **가상 네트워크**를 차례로 선택하거나, Marketplace 검색에서 **Virtual Network**를 검색합니다.
+이 섹션에서는 단계의 다음 매개 변수를 아래 정보로 바꾸어야 합니다.
 
-2. **가상 네트워크 만들기**에서 다음 정보를 입력하거나 선택합니다.
+| 매개 변수                   | 값                |
+|-----------------------------|----------------------|
+| **\<resource-group-name>**  | myResourceGroupNAT |
+| **\<virtual-network-name>** | myVNetsource          |
+| **\<region-name>**          | 미국 동부 2      |
+| **\<IPv4-address-space>**   | 192.168.0.0\16          |
+| **\<subnet-name>**          | mySubnetsource        |
+| **\<subnet-address-range>** | 192.168.0.0\24          |
 
-    | 설정 | 값 |
-    | ------- | ----- |
-    | 속성 | **myVNetsource**를 입력합니다. |
-    | 주소 공간 | **192.168.0.0/16**을 입력합니다. |
-    | Subscription | 구독을 선택합니다.|
-    | Resource group | 새로 만들기 - **myResourceGroupNAT**를 선택합니다. |
-    | 위치 | **미국 동부 2**를 선택합니다.|
-    | 서브넷 - 이름 | **mySubnetsource**를 입력합니다. |
-    | 서브넷 - 주소 범위 | **192.168.0.0/24**를 입력합니다. |
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
-3. 나머지는 기본값으로 두고, **만들기**를 선택합니다.
-
-### <a name="create-source-virtual-machine"></a>원본 가상 머신 만들기
+## <a name="create-source-virtual-machine"></a>원본 가상 머신 만들기
 
 이제 NAT 서비스를 사용할 VM을 만듭니다. 이 VM에는 VM에 액세스할 수 있도록 인스턴스 수준 공용 IP로 사용할 공용 IP가 있습니다. NAT 서비스는 흐름 방향을 인식하며 서브넷의 기본 인터넷 대상을 대체합니다. VM의 공용 IP 주소는 아웃바운드 연결에 사용되지 않습니다.
 
@@ -161,25 +158,25 @@ NAT 게이트웨이를 테스트하기 위해 외부에서 이 VM에 액세스�
 
 이제 NAT 서비스에서 변환하는 아웃바운드 트래픽의 대상을 만들어 테스트할 수 있습니다.
 
-### <a name="configure-virtual-network-for-destination"></a>대상에 대한 가상 네트워크 구성
+
+## <a name="virtual-network-and-parameters-for-destination"></a>대상에 대한 가상 네트워크 및 매개 변수
 
 대상 VM을 배포하기 전에 대상 가상 머신이 상주할 수 있는 가상 네트워크를 만들어야 합니다. 다음 단계는 대상 엔드포인트를 공개하기 위해 약간 변경되는 원본 VM에 적용되는 것과 동일합니다.
 
-1. 화면의 왼쪽 위에서 **리소스 만들기** > **네트워킹** > **가상 네트워크**를 차례로 선택합니다.
+이 섹션에서는 단계의 다음 매개 변수를 아래 정보로 바꾸어야 합니다.
 
-2. **가상 네트워크 만들기**에서 다음 정보를 입력하거나 선택합니다.
+| 매개 변수                   | 값                |
+|-----------------------------|----------------------|
+| **\<resource-group-name>**  | myResourceGroupNAT |
+| **\<virtual-network-name>** | myVNetdestination          |
+| **\<region-name>**          | 미국 동부 2      |
+| **\<IPv4-address-space>**   | 192.168.0.0\16          |
+| **\<subnet-name>**          | mySubnetdestination        |
+| **\<subnet-address-range>** | 192.168.0.0\24          |
 
-    | 설정 | 값 |
-    | ------- | ----- |
-    | 속성 | **myVNetdestination**을 입력합니다. |
-    | 주소 공간 | **192.168.0.0/16**을 입력합니다. |
-    | Subscription | 구독을 선택합니다.|
-    | Resource group | 새로 만들기 - **myResourceGroupNAT**를 선택합니다. |
-    | 위치 | **미국 동부 2**를 선택합니다.|
-    | 서브넷 - 이름 | **mySubnetdestination**을 입력합니다. |
-    | 서브넷 - 주소 범위 | **192.168.0.0/24**를 입력합니다. |
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
-### <a name="create-destination-virtual-machine"></a>대상 가상 머신 만들기
+## <a name="create-destination-virtual-machine"></a>대상 가상 머신 만들기
 
 1. 포털의 왼쪽 위에서 **리소스 만들기** > **Compute** > **Ubuntu Server 18.04 LTS**를 차례로 선택하거나, Marketplace 검색에서 **Ubuntu Server 18.04 LTS**를 검색합니다.
 

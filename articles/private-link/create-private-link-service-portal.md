@@ -8,12 +8,12 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 02/03/2020
 ms.author: allensu
-ms.openlocfilehash: e316da12345c0bf1ea3682dadb1a7a65f250747b
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: f21b440ee0e2c53d9824300e85b683629c1575da
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77191096"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252542"
 ---
 # <a name="quickstart-create-a-private-link-service-by-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Private Link 서비스 만들기
 
@@ -29,21 +29,22 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 먼저 가상 네트워크를 만듭니다. 그런 다음, Private Link 서비스에 사용할 내부 부하 분산 장치를 만듭니다.
 
-### <a name="create-the-virtual-network"></a>가상 네트워크 만들기
+## <a name="virtual-network-and-parameters"></a>가상 네트워크 및 매개 변수
 
 이 섹션에서는 가상 네트워크를 만듭니다. 또한 Private Link 서비스에 액세스하는 부하 분산 장치를 호스트하는 서브넷을 만듭니다.
 
-1. 포털의 왼쪽 위에서 **리소스 만들기** > **네트워킹** > **가상 네트워크**를 차례로 선택합니다.
+이 섹션에서는 단계의 다음 매개 변수를 아래 정보로 바꾸어야 합니다.
 
-1. **가상 네트워크 만들기** 창에서 다음 값을 입력하거나 선택합니다.
+| 매개 변수                   | 값                |
+|-----------------------------|----------------------|
+| **\<resource-group-name>**  | myResourceGroupLB |
+| **\<virtual-network-name>** | myVNet          |
+| **\<region-name>**          | 미국 동부 2      |
+| **\<IPv4-address-space>**   | 10.3.0.0\16          |
+| **\<subnet-name>**          | myBackendSubnet        |
+| **\<subnet-address-range>** | 10.3.0.0\24          |
 
-   - **Name**: **myVNet**을 입력합니다.
-   - **ResourceGroup**: **새로 만들기**를 선택하고 **myResourceGroupLB**를 입력한 다음, **확인**을 선택합니다.
-   - **서브넷** > **이름**: **myBackendSubnet**을 입력합니다.
-
-1. **만들기**를 선택합니다.
-
-   ![가상 네트워크 만들기](../load-balancer/media/tutorial-load-balancer-basic-internal-portal/2-load-balancer-virtual-network.png)
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 ### <a name="create-a-standard-load-balancer"></a>표준 부하 분산 장치 만들기
 

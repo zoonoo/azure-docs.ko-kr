@@ -1,20 +1,20 @@
 ---
 title: Azure Migrate에서 종속성 시각화 설정
-description: Azure Migrate Server 평가에서 종속성 시각화를 설정 하는 방법을 설명 합니다.
+description: 이 문서에서는 Azure Migrate Server 평가에서 종속성 시각화를 설정 하는 방법을 설명 합니다.
 ms.topic: article
 ms.date: 2/24/2020
-ms.openlocfilehash: 054e2301160a885909630c2968863e5f9e25af69
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 2b75a38a376558946841d08ab7a9dbf730232e51
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77916288"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78941080"
 ---
 # <a name="set-up-dependency-visualization"></a>종속성 시각화 설정
 
 이 문서에서는 Azure Migrate: 서버 평가에서 종속성 시각화를 설정 하는 방법을 설명 합니다. [종속성 시각화](concepts-dependency-visualization.md#what-is-dependency-visualization) 를 사용 하면 평가 하 고 Azure로 마이그레이션하려는 컴퓨터 간의 종속성을 식별 하 고 이해할 수 있습니다.
 
-## <a name="before-you-start"></a>시작하기 전 확인 사항
+## <a name="before-you-start"></a>시작하기 전에
 
 - 종속성 시각화와 관련 된 요구 사항 및 비용을 [검토](concepts-dependency-visualization.md) 합니다.
 - Azure Migrate 프로젝트를 [만들었는지](how-to-add-tool-first-time.md) 확인 합니다.
@@ -70,7 +70,7 @@ ms.locfileid: "77916288"
 Windows 컴퓨터에 에이전트를 설치하려면
 
 1. 다운로드한 에이전트를 두 번 클릭합니다.
-2. **시작** 페이지에서 **다음**을 클릭합니다. **사용 조건** 페이지에서 **동의함**을 클릭하여 라이선스에 동의합니다.
+2. **Welcome** 페이지에서 **다음**을 클릭합니다. **사용 조건** 페이지에서 **동의함**을 클릭하여 라이선스에 동의합니다.
 3. **대상 폴더**에서 기본 설치 폴더를 유지하거나 수정하고 **다음**을 클릭합니다.
 4. **에이전트 설치 옵션**에서 **Azure Log Analytics** > **다음**을 차례로 선택합니다.
 5. **추가**를 클릭하여 새로운 Log Analytics 작업 영역을 추가합니다. 포털에서 복사한 작업 영역 ID와 키를 붙여넣습니다. **다음**을 클릭합니다.

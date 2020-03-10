@@ -1,21 +1,18 @@
 ---
 title: Azure Site Recovery를 사용 하 여 Linux Vm을 Azure Premium Storage로 마이그레이션
 description: Site Recovery를 사용하여 Azure Premium Storage에 기존 가상 머신을 마이그레이션합니다. Premium Storage는 Azure Virtual Machines에서 실행되는 I/O 사용량이 많은 작업에 대해 대기 시간이 짧은 고성능 디스크 지원을 제공합니다.
-services: virtual-machines-linux,storage
-cloud: Azure
 author: luywang
 ms.service: virtual-machines-linux
-ms.tgt_pltfrm: linux
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
-ms.openlocfilehash: b8c299869da003d8dc4e9ac111ba8c5e8bb27345
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 0d03c2df720a4e3ccf57fe0be00c2af4fcf72eb0
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035822"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944840"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Azure Site Recovery를 사용하여 Premium Storage로 마이그레이션
 
@@ -60,12 +57,12 @@ Site Recovery는 최소한의 가동 중지 시간 또는 가동 중지 시간 �
 
 다음은 이 마이그레이션 시나리오에 대한 Azure 요구 사항입니다.
 
-* Azure 구독.
+* Azure 구독
 * 복제된 데이터를 저장할 Azure Premium Storage 계정
 * 장애 조치(failover) 시 만든 경우 VM에서 연결할 Azure 가상 네트워크 Azure 가상 네트워크는 Site Recovery가 실행되는 동일한 지역에 있어야 합니다.
 * 복제 로그를 저장할 Azure 표준 스토리지 계정 마이그레이션되는 VM 디스크와 동일한 스토리지 계정일 수 있습니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 이전 섹션의 관련 마이그레이션 시나리오 구성 요소 이해
 * [Site Recovery에서 장애 조치(Failover)](../../site-recovery/site-recovery-failover.md)에 대해 학습하여 작동 중단 시간 계획
@@ -76,7 +73,7 @@ Site Recovery를 사용하여 지역 간 또는 동일한 지역 내에서 Azure
 
 ### <a name="step-1-create-a-recovery-services-vault"></a>1단계: Recovery Services 자격 증명 모음 만들기
 
-1. [Azure 포털](https://portal.azure.com)을 엽니다.
+1. [Azure Portal](https://portal.azure.com)을 엽니다.
 2. **리소스 만들기** > **관리** > **Backup** 및 **Site Recovery(OMS)** 를 선택합니다. 또는 **찾아보기** > **Recovery Services 자격 증명 모음** > **추가**를 선택하면 됩니다. 
 3. VM이 복제될 지역을 지정합니다. 동일한 지역에 마이그레이션하려는 경우 원본 VM 및 원본 스토리지 계정이 있는 영역을 선택합니다. 
 

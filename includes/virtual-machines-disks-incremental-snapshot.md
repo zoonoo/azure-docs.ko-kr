@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/06/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 083051fd621194d39d0092046e187e0809fd62d9
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: 2316b52115cc23d11dfb26d951a7f1820f2737cc
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77520743"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78945872"
 ---
 증분 스냅숏 (미리 보기)은 마지막 스냅숏 이후의 모든 변경 내용 으로만 구성 된 관리 디스크의 지정 시간 백업입니다. 증분 스냅숏을 다운로드 하거나 사용 하지 않으면 전체 VHD가 사용 됩니다. 관리 디스크 스냅숏에 대 한 이러한 새로운 기능을 사용 하면 필요한 경우를 제외 하 고 각 개별 스냅숏으로 전체 디스크를 저장 하는 것이 더 이상 필요 하지 않으므로 관리 디스크 스냅숏에 대 한 이러한 새로운 기능을 사용 하는 것이 더 비용 효율적입니다. 일반 스냅숏과 마찬가지로 증분 스냅숏은 전체 관리 디스크를 만드는 데 사용 하거나 일반 스냅숏을 만드는 데 사용할 수 있습니다.
 
@@ -25,8 +25,7 @@ ms.locfileid: "77520743"
 
 현재 다음 지역만 지원 됩니다.
 
-- 미국 서 부 중부, 캐나다 동부, 캐나다 중부 지역에서 GA 제품으로 사용할 수 있습니다.
-- 미국 동부, 미국 동부 2, 미국 중부, 북부 유럽, 남부 동아시아 지역에서 공개 미리 보기로 제공 됩니다.
+- 미국 서 부, 미국 동부, 미국 동부 2, 미국 중부, 캐나다 동부, 캐나다 중부, 북부 유럽, 남부 동아시아 지역에서 GA 제품으로 제공 됩니다.
 
 ## <a name="restrictions"></a>제한
 - 디스크 크기 (미리 보기 전용)를 변경한 후에는 현재 증분 스냅숏을 만들 수 없습니다.

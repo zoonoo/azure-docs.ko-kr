@@ -145,10 +145,6 @@
             - name: outputs
               displayName: 'iteration,copy'
               href: copy-outputs.md
-        - name: 구독 수준 리소스
-          href: deploy-to-subscription.md
-        - name: 관리 그룹 수준 리소스
-          href: deploy-to-management-group.md
     - name: 제작 도구 사용
       items:
         - name: VS 코드
@@ -182,7 +178,15 @@
           href: rollback-on-error.md
         - name: SAS 토큰을 사용하여 템플릿 보호
           href: secure-template-with-sas-token.md
-        - name: 여러 리소스 그룹 또는 구독에 배포
+    - name: 범위가 지정된 배포
+      items:
+        - name: Subscription
+          href: deploy-to-subscription.md
+        - name: 관리 그룹
+          href: deploy-to-management-group.md
+        - name: 테넌트
+          href: deploy-to-tenant.md
+        - name: 여러 리소스 그룹 또는 구독
           href: cross-resource-group-deployment.md
     - name: 매개 변수 제공
       items:

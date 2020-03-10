@@ -9,12 +9,12 @@ ms.topic: how-to
 author: peterclu
 ms.author: peterlu
 ms.date: 01/16/2020
-ms.openlocfilehash: d41b0499df1a62440e8c1991e29f7963224a50d6
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: 8cd49f9714746578ec701e22f9e6b0ccce772c6b
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77138160"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942293"
 ---
 # <a name="import-your-data-into-azure-machine-learning-designer-preview"></a>Azure Machine Learning designer로 데이터 가져오기 (미리 보기)
 
@@ -56,6 +56,8 @@ ms.locfileid: "77138160"
 
 데이터 가져오기 모듈을 사용 하는 방법에 대 한 자세한 내용은 [데이터 참조 가져오기 페이지](algorithm-module-reference/import-data.md)를 참조 하세요.
 
+[!NOTE]
+> 데이터에 많은 열이 있는 경우 데이터 가져오기 모듈의 "크기 제한으로 인해 유효성 검사에 실패 했습니다."가 발생할 수 있습니다. 인코드 후 열이 최대값 모듈 매개 변수 길이를 제외 하기 때문입니다. 이 경우 [데이터 집합 UI에 데이터 집합을 등록](how-to-create-register-datasets.md#use-the-ui)하는 것이 좋습니다 .이 경우 오류가 발생 하지 않을 수 있습니다.  
 
 ## <a name="supported-sources"></a>지원 되는 원본
 
@@ -80,7 +82,7 @@ ms.locfileid: "77138160"
 * 정수
 * Decimal
 * 부울
-* 날짜
+* Date
 
 디자이너는 내부 데이터 형식을 사용 하 여 모듈 간에 데이터를 전달 합니다. 데이터 [집합으로 변환](algorithm-module-reference/convert-to-dataset.md) 모듈을 사용 하 여 데이터를 데이터 테이블 형식으로 명시적으로 변환할 수 있습니다. 내부 형식이 아닌 형식을 허용 하는 모든 모듈은 데이터를 다음 모듈로 전달 하기 전에 자동으로 변환 합니다.
 

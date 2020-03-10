@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: maxluk
 author: maxluk
-ms.date: 08/02/2019
+ms.date: 03/09/2020
 ms.custom: seodec18
-ms.openlocfilehash: d61e33568297e6f72aca0ab736f8a14f1758ffa1
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.openlocfilehash: bdd2cc400c3df75742689258caea8cb87ee8ccc6
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78255123"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942269"
 ---
 # <a name="build-scikit-learn-models-at-scale-with-azure-machine-learning"></a>빌드 scikit-Azure Machine Learning를 사용 하 여 규모에 맞게 모델 학습
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -40,7 +40,7 @@ ms.locfileid: "78255123"
     - [작업 영역 구성 파일을 만듭니다](how-to-configure-environment.md#workspace).
     - 데이터 집합 및 샘플 스크립트 파일 다운로드 
         - [iri 데이터 집합](https://archive.ics.uci.edu/ml/datasets/iris)
-        - [`train_iris.py`](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/scikit-learn/training/train-hyperparameter-tune-deploy-with-sklearn)
+        - [train_iris py](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/scikit-learn/training/train-hyperparameter-tune-deploy-with-sklearn)
     - GitHub 샘플 페이지에서이 가이드의 전체 [Jupyter Notebook 버전](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/scikit-learn/training/train-hyperparameter-tune-deploy-with-sklearn/train-hyperparameter-tune-deploy-with-sklearn.ipynb) 을 찾을 수도 있습니다. 노트북에는 지능형 하이퍼 매개 변수 튜닝을 다루는 확장 된 섹션과 기본 메트릭에의 한 최상의 모델 검색 기능이 포함 되어 있습니다.
 
 ## <a name="set-up-the-experiment"></a>실험 설정
@@ -180,7 +180,7 @@ import joblib
 joblib.dump(svm_model_linear, 'model.joblib')
 ```
 
-다음 코드를 사용 하 여 작업 영역에 모델을 등록 합니다. `model_framework`, `model_framework_version`및 `resource_configuration`매개 변수를 지정 하면 코드 없는 모델 배포를 사용할 수 있게 됩니다. 이렇게 하면 등록 된 모델에서 모델을 웹 서비스로 직접 배포할 수 있으며 `ResourceConfiguration` 개체는 웹 서비스의 계산 리소스를 정의 합니다.
+다음 코드를 사용 하 여 작업 영역에 모델을 등록 합니다. `model_framework`, `model_framework_version`및 `resource_configuration`매개 변수를 지정 하면 코드 없는 모델 배포를 사용할 수 있게 됩니다. 이렇게 하면 등록 된 모델에서 모델을 웹 서비스로 직접 배포할 수 있으며 [`ResourceConfiguration`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.resource_configuration.resourceconfiguration?view=azure-ml-py) 개체는 웹 서비스의 계산 리소스를 정의 합니다.
 
 ```Python
 from azureml.core import Model
@@ -199,7 +199,7 @@ model = run.register_model(model_name='sklearn-iris',
 
 ### <a name="preview-no-code-model-deployment"></a>모드 코드 없는 모델 배포
 
-기존 배포 경로 대신 scikit에 대 한 비 코드 배포 기능 (미리 보기)을 사용할 수도 있습니다. 모든 기본 제공 scikit 모델 형식에 대해 코드 모델 배포가 지원 되지 않습니다. 위에 표시 된 대로 `model_framework`, `model_framework_version`및 `resource_configuration` 매개 변수를 사용 하 여 모델을 등록 하면 단순히 `deploy()` 정적 함수를 사용 하 여 모델을 배포할 수 있습니다.
+기존 배포 경로 대신 scikit에 대 한 비 코드 배포 기능 (미리 보기)을 사용할 수도 있습니다. 모든 기본 제공 scikit 모델 형식에 대해 코드 모델 배포가 지원 되지 않습니다. 위에 표시 된 대로 `model_framework`, `model_framework_version`및 `resource_configuration` 매개 변수를 사용 하 여 모델을 등록 하면 단순히 [`deploy()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) 정적 함수를 사용 하 여 모델을 배포할 수 있습니다.
 
 ```python
 web_service = Model.deploy(ws, "scikit-learn-service", [model])

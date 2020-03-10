@@ -8,13 +8,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
-ms.date: 10/08/2019
-ms.openlocfilehash: f34439b7750ca1858e71d4a36121eb65001fff50
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 03/09/2020
+ms.openlocfilehash: 693065046f92e0e9eade14c43e9942772440937d
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73811262"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78945409"
 ---
 # <a name="migrate-from-the-dtu-based-model-to-the-vcore-based-model"></a>DTU 기반 모델에서 vCore 기반 모델로 마이그레이션
 
@@ -45,7 +45,7 @@ DTU 기반 모델에서 vCore 기반 구매 모델로 마이그레이션하는 �
 |범용 가상 컴퓨터|중요 비즈니스용|업그레이드|먼저 보조 데이터베이스를 마이그레이션해야 합니다.|
 ||||
 
-표준 계층의 100 Dtu 마다 하나 이상의 vCore가 필요 하며, 프리미엄 계층의 모든 125 Dtu에는 하나 이상의 vCore가 필요 합니다. \*
+경험에 \* 표준 계층의 모든 100 Dtu에는 vCore가 하나 이상 필요 하며, 프리미엄 계층의 모든 125 Dtu에는 vCore가 1 개 이상 필요 합니다. 자세한 내용은 [vCore 기반 구매 모델](https://docs.microsoft.com/azure/sql-database/sql-database-purchase-models#vcore-based-purchasing-model)을 참조하세요.
 
 ## <a name="migrate-failover-groups"></a>장애 조치 (failover) 그룹 마이그레이션
 

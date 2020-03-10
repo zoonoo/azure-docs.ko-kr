@@ -57,6 +57,8 @@
       href: test-your-model.md
     - name: 분류자 개선
       href: getting-started-improving-your-classifier.md
+    - name: 도메인 선택
+      href: select-domain.md
     - name: 예측 API 사용
       href: use-prediction-api.md
     - name: 스마트 레이블 지정자 사용

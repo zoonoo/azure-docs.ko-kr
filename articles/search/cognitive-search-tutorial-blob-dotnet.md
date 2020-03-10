@@ -1,55 +1,55 @@
 ---
-title: '자습서: C# 및 Azure blob에 대 한 AI'
+title: '자습서: Azure Blob을 통한 C# 및 AI'
 titleSuffix: Azure Cognitive Search
-description: 및 Azure Cognitive Search .NET SDK를 사용 하 여 Blob storage에서 콘텐츠를 추출 하 고 C# 자연어 처리 하는 방법의 예를 단계별로 살펴보겠습니다.
+description: C# 및 Azure Cognitive Search .NET SDK를 사용하여 Blob 스토리지의 콘텐츠에서 텍스트를 추출하고 자연어를 처리하는 예제를 단계별로 살펴봅니다.
 manager: nitinme
 author: MarkHeff
 ms.author: maheff
 ms.service: cognitive-search
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 02/27/2020
-ms.openlocfilehash: 0c37f1ce2f173f4bf527e7cca30f010101b01720
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
-ms.translationtype: MT
+ms.openlocfilehash: 0b9e7732e5274fd71c773a19d17e09ecdaa2ceb0
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78190690"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78270010"
 ---
-# <a name="tutorial-use-c-and-ai-to-generate-searchable-content-from-azure-blobs"></a>자습서: 및 C# AI를 사용 하 여 Azure blob에서 검색 가능한 콘텐츠 생성
+# <a name="tutorial-use-c-and-ai-to-generate-searchable-content-from-azure-blobs"></a>자습서: C# 및 AI를 사용하여 Azure Blob에서 검색 가능한 콘텐츠 생성
 
-Azure Blob storage에 구조화 되지 않은 텍스트 또는 이미지가 있는 경우 [AI 보강 파이프라인](cognitive-search-concept-intro.md) 은 정보를 추출 하 고 전체 텍스트 검색 또는 지식 마이닝 시나리오에 유용한 새 콘텐츠를 만들 수 있습니다. 이 C# 자습서에서는 이미지에 OCR (광학 문자 인식)을 적용 하 고 자연어 처리를 수행 하 여 쿼리, 패싯 및 필터에서 활용할 수 있는 새 필드를 만듭니다.
+Azure Blob Storage에 비정형 텍스트 또는 이미지가 있는 경우 [AI 보강 파이프라인](cognitive-search-concept-intro.md)은 정보를 추출하여 전체 텍스트 검색 또는 지식 마이닝 시나리오에 유용한 새 콘텐츠를 만들 수 있습니다. 이 C# 자습서에서는 이미지에 OCR(광학 인식)을 적용하고 자연어 처리를 수행하여 쿼리, 패싯 및 필터에 활용할 수 있는 새로운 필드를 만듭니다.
 
-이 자습서에서는 C# 및 [.net SDK](https://aka.ms/search-sdk) 를 사용 하 여 다음 작업을 수행 합니다.
+이 자습서에서는 C# 및 [.NET SDK](https://aka.ms/search-sdk)를 사용하여 다음 작업을 수행합니다.
 
 > [!div class="checklist"]
-> * Azure Blob storage의 응용 프로그램 파일 및 이미지를 사용 하 여 시작 합니다.
-> * 파이프라인을 정의 하 여 OCR, 텍스트 추출, 언어 검색, 엔터티 및 키 문구 인식을 추가 합니다.
+> * Azure Blob Storage에서 애플리케이션 파일과 이미지로 시작합니다.
+> * OCR, 텍스트 추출, 언어 감지, 엔터티 및 핵심 문구 인식을 추가하는 파이프라인을 정의합니다.
 > * 출력(원시 콘텐츠 및 파이프라인에서 생성된 이름-값 쌍)을 저장할 인덱스를 정의합니다.
 > * 파이프라인을 실행하여 변환 및 분석을 시작하고 인덱스를 생성하고 로드합니다.
 > * 전체 텍스트 검색과 풍부한 쿼리 구문을 사용하여 결과를 검색합니다.
 
 Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 엽니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 + [Azure Storage](https://azure.microsoft.com/services/storage/)
 + [Visual Studio](https://visualstudio.microsoft.com/downloads/)
-+ [기존 검색 서비스](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) [만들기](search-create-service-portal.md) 또는 찾기 
++ [만들기](search-create-service-portal.md) 또는 [기존 검색 서비스 찾기](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
 
 > [!Note]
-> 이 자습서에서는 무료 서비스를 사용할 수 있습니다. 무료 검색 서비스는 세 개의 인덱스, 세 개의 인덱서 및 세 개의 데이터 원본으로 제한 합니다. 이 자습서에서는 각각을 하나씩 만듭니다. 시작 하기 전에 새 리소스를 수락 하는 서비스에 대 한 공간이 있는지 확인 합니다.
+> 이 자습서에서는 체험 서비스를 사용할 수 있습니다. 체험 검색 서비스에서는 인덱스, 인덱서 및 데이터 원본이 각각 3개로 제한됩니다. 이 자습서에서는 각각을 하나씩 만듭니다. 시작하기 전에 새 리소스를 수용할 수 있는 공간이 서비스에 있는지 확인하세요.
 
 ## <a name="download-files"></a>파일 다운로드
 
 1. 이 [OneDrive 폴더](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4)를 열고, 왼쪽 위 모서리에서 **다운로드**를 클릭하여 파일을 컴퓨터에 복사합니다. 
 
-1. 마우스 오른쪽 단추로 Zip 파일을 클릭하고, **압축 풀기**를 선택합니다. 다양한 형식의 14개 파일이 있습니다. 이 자습서에서는이 모든 항목을 사용 합니다.
+1. 마우스 오른쪽 단추로 Zip 파일을 클릭하고, **압축 풀기**를 선택합니다. 다양한 형식의 14개 파일이 있습니다. 이 자습서에서는 모든 항목을 사용합니다.
 
 ## <a name="1---create-services"></a>1 - 서비스 만들기
 
-이 자습서에서는 인덱싱 및 쿼리에 Azure Cognitive Search를 사용 하 고 AI 보강 백 엔드에 Cognitive Services 하 고 데이터를 제공 하는 Azure Blob storage를 사용 합니다. 이 자습서는 Cognitive Services에서 하루에 인덱서 당 20 개의 트랜잭션 할당을 유지 하므로 만들어야 하는 서비스는 검색 및 저장소 뿐입니다.
+이 자습서에서는 Azure Cognitive Search를 인덱싱 및 쿼리에 사용하고 AI 보강을 위해 백 엔드의 Cognitive Services를 사용하고 Azure Blob Storage를 사용하여 데이터를 제공합니다. 이 자습서는 Cognitive Services에 인덱서당 하루 20개의 트랜잭션을 무료로 할당하기 때문에, 검색 및 스토리지 서비스만 만들면 됩니다.
 
-가능 하면 근접 및 관리 효율성을 위해 동일한 지역 및 리소스 그룹에 둘 다를 만듭니다. 실제로 Azure Storage 계정은 모든 지역에 있을 수 있습니다.
+가능하면, 근접성과 관리 효율성을 위해 두 가지 모두를 동일한 지역과 리소스 그룹에 만듭니다. 실제로 Azure Storage 계정은 모든 지역에 있을 수 있습니다.
 
 ### <a name="start-with-azure-storage"></a>Azure Storage 시작
 
@@ -75,9 +75,9 @@ Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.
 
 1. **Blob** 서비스를 클릭합니다.
 
-1. **+ 컨테이너** 를 클릭 하 여 컨테이너를 만들고 이름을 *기본-demo-pr*으로 만듭니다.
+1. **+ 컨테이너**를 클릭하여 컨테이너를 만들고, 이름을 *basic-demo-data-pr*로 지정합니다.
 
-1. *기본-데모-데이터-pr* 을 선택 하 고 **업로드** 를 클릭 하 여 다운로드 파일을 저장 한 폴더를 엽니다. 모든 14 파일을 선택 하 고 **확인** 을 클릭 하 여 업로드 합니다.
+1. *basic-demo-data-pr*을 선택한 다음, **업로드**를 클릭하여 다운로드 파일을 저장한 폴더를 엽니다. 14개 파일을 모두 선택하고 **확인**을 클릭하여 업로드합니다.
 
    ![샘플 파일 업로드](media/cognitive-search-quickstart-blob/sample-data.png "샘플 파일 업로드")
 
@@ -119,7 +119,7 @@ Azure Cognitive Search 서비스와 상호 작용하려면 서비스 URL과 액�
 
 유효한 키가 있다면 요청을 기반으로 요청을 보내는 애플리케이션과 이를 처리하는 서비스 사이에 신뢰가 쌓입니다.
 
-## <a name="2---set-up-your-environment"></a>2-환경 설정
+## <a name="2---set-up-your-environment"></a>2 - 환경 설정
 
 먼저 Visual Studio를 열고 .NET Core에서 실행할 수 있는 새 콘솔 앱 프로젝트를 만듭니다.
 
@@ -127,35 +127,35 @@ Azure Cognitive Search 서비스와 상호 작용하려면 서비스 URL과 액�
 
 [Azure Cognitive Search .NET SDK](https://aka.ms/search-sdk)는 HTTP 및 JSON의 세부 정보를 처리하지 않고도 인덱스, 데이터 원본, 인덱서 및 기술 세트를 관리하고, 문서를 업로드 및 관리하고, 쿼리를 실행할 수 있게 하는 몇 가지 클라이언트 라이브러리로 구성됩니다. 이러한 클라이언트 라이브러리는 모두 NuGet 패키지로 배포됩니다.
 
-이 프로젝트의 경우 `Microsoft.Azure.Search` NuGet 패키지 버전 9 이상을 설치 합니다.
+이 프로젝트의 경우 `Microsoft.Azure.Search` NuGet 패키지 버전 9 이상을 설치합니다.
 
 1. 패키지 관리자 콘솔을 엽니다. **도구** > **NuGet 패키지 관리자** > **패키지 관리자 콘솔**을 선택합니다. 
 
-1. [Microsoft. Azure. NuGet 패키지 검색 페이지로](https://www.nuget.org/packages/Microsoft.Azure.Search)이동 합니다.
+1. [Microsoft.Azure.Search NuGet 패키지 페이지](https://www.nuget.org/packages/Microsoft.Azure.Search)로 이동합니다.
 
-1. 최신 버전 (9 이상)을 선택 합니다.
+1. 최신 버전(9 이상)을 선택합니다.
 
-1. Package Manager 명령을 복사 합니다.
+1. 패키지 관리자 명령을 복사합니다.
 
-1. 패키지 관리자 콘솔로 돌아가서 이전 단계에서 복사한 명령을 실행 합니다.
+1. 패키지 관리자 콘솔로 돌아가서 이전 단계에서 복사한 명령을 실행합니다.
 
-다음으로 최신 `Microsoft.Extensions.Configuration.Json` NuGet 패키지를 설치 합니다.
+다음으로, 최신 `Microsoft.Extensions.Configuration.Json` NuGet 패키지를 설치합니다.
 
-1.  >  **nuget 패키지 관리자** > **솔루션에 대 한 nuget 패키지 관리**...를 선택 합니다. 
+1. **도구** > **NuGet 패키지 관리자** > **솔루션용 NuGet 패키지 관리...** 를 선택합니다. 
 
-1. **찾아보기** 를 클릭 하 `Microsoft.Extensions.Configuration.Json` NuGet 패키지를 검색 합니다. 
+1. **찾아보기**를 클릭하고 `Microsoft.Extensions.Configuration.Json` NuGet 패키지를 검색합니다. 
 
-1. 패키지를 선택 하 고 프로젝트를 선택한 다음 버전이 안정적인 최신 버전 인지 확인 하 고 **설치**를 클릭 합니다.
+1. 패키지를 선택하고, 프로젝트를 선택하고, 안정적인 최신 버전인지 확인한 다음, **설치**를 선택합니다.
 
 ### <a name="add-service-connection-information"></a>서비스 연결 정보 추가
 
-1. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **추가** > **새 항목** ...을 선택 합니다. 
+1. 솔루션 탐색기에서 마우스 오른쪽 단추로 프로젝트를 클릭하고, **추가** > **새 항목...** 을 차례로 선택합니다. 
 
 1. 파일 이름을 `appsettings.json`으로 지정하고 **추가**를 선택합니다. 
 
-1. 출력 디렉터리에이 파일을 포함 합니다.
-    1. `appsettings.json`를 마우스 오른쪽 단추로 클릭 하 고 **속성**을 선택 합니다. 
-    1. **출력 디렉터리로 복사** 의 값을 변경 된 **내용만 복사**로 변경 합니다.
+1. 이 파일을 출력 디렉터리에 포함합니다.
+    1. `appsettings.json`을 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다. 
+    1. **출력 디렉터리로 복사**의 값을 **변경된 내용만 복사**로 변경합니다.
 
 1. 아래 JSON을 새 JSON 파일에 복사합니다.
 
@@ -168,11 +168,11 @@ Azure Cognitive Search 서비스와 상호 작용하려면 서비스 URL과 액�
     }
     ```
 
-검색 서비스 및 Blob 스토리지 계정 정보를 추가합니다. 이전 섹션에 나와 있는 서비스 프로 비전 단계에서이 정보를 가져올 수 있습니다.
+검색 서비스 및 Blob 스토리지 계정 정보를 추가합니다. 이 정보는 이전 섹션에 표시된 서비스 프로비전 단계에서 가져올 수 있습니다.
 
 ### <a name="add-namespaces"></a>네임스페이스 추가
 
-`Program.cs`에서 다음 네임 스페이스를 추가 합니다.
+`Program.cs`에서 다음 네임스페이스를 추가합니다.
 
 ```csharp
 using System;
@@ -222,7 +222,7 @@ Azure Cognitive Search에서 AI 처리는 인덱싱(또는 데이터 수집) 중
 
 `SearchServiceClient`에는 `DataSources` 속성이 있습니다. 이 속성은 Azure Cognitive Search 데이터 원본을 생성, 나열, 업데이트 또는 삭제하는 데 필요한 모든 메서드를 제공합니다.
 
-`DataSource`를 호출하여 새 `serviceClient.DataSources.CreateOrUpdate(dataSource)` 인스턴스를 만듭니다. `DataSource.AzureBlobStorage`에서는 데이터 원본 이름, 연결 문자열 및 Blob 컨테이너 이름을 지정해야 합니다.
+`serviceClient.DataSources.CreateOrUpdate(dataSource)`를 호출하여 새 `DataSource` 인스턴스를 만듭니다. `DataSource.AzureBlobStorage`에서는 데이터 원본 이름, 연결 문자열 및 Blob 컨테이너 이름을 지정해야 합니다.
 
 ```csharp
 private static DataSource CreateOrUpdateDataSource(SearchServiceClient serviceClient, IConfigurationRoot configuration)
@@ -251,7 +251,7 @@ private static DataSource CreateOrUpdateDataSource(SearchServiceClient serviceCl
 
 요청이 성공하면 메서드에서 만들어진 데이터 원본을 반환합니다. 잘못된 매개 변수와 같이 요청에 문제가 있는 경우 메서드에서 예외를 throw합니다.
 
-이제 방금 추가한 `CreateOrUpdateDataSource` 함수를 호출 하는 줄을 Main에 추가 합니다.
+이제 Main 아래에 방금 추가한 `CreateOrUpdateDataSource` 함수를 호출하는 줄을 추가합니다.
 
 ```csharp
 public static void Main(string[] args)
@@ -298,7 +298,7 @@ catch (Exception e)
 
   ![포털의 데이터 원본 타일](./media/cognitive-search-tutorial-blob/data-source-tile.png "포털의 데이터 원본 타일")
 
-### <a name="step-2-create-a-skillset"></a>2 단계: 기술 만들기
+### <a name="step-2-create-a-skillset"></a>2단계: 기술 집합 만들기
 
 이 섹션에서는 데이터에 적용하려는 일단의 보강 단계를 정의합니다. 각 보강 단계는 *기술*이라고 하며, 보강 단계 집합은 *기술 집합*이라고 합니다. 이 자습서에서는 다음과 같은 [기본 제공 인식 기술](cognitive-search-predefined-skills.md)을 기술 세트에 사용합니다.
 
@@ -314,7 +314,7 @@ catch (Exception e)
 
 + [핵심 구 추출](cognitive-search-skill-keyphrases.md): 상위 핵심 구를 추출합니다.
 
-초기 처리 중에 Azure Cognitive Search는 각 문서를 분해하여 다른 파일 형식의 콘텐츠를 읽습니다. 원본 파일에서 발생하는 텍스트는 각 문서에 대해 생성되는 ```content``` 필드에 배치됩니다. 따라서이 텍스트를 사용 하려면 입력을 ```"/document/content"```로 설정 합니다. 
+초기 처리 중에 Azure Cognitive Search는 각 문서를 분해하여 다른 파일 형식의 콘텐츠를 읽습니다. 원본 파일에서 발생하는 텍스트는 각 문서에 대해 생성되는 ```content``` 필드에 배치됩니다. 따라서 이 텍스트를 사용하려면 입력을 ```"/document/content"```로 설정합니다. 
 
 출력을 인덱스에 매핑할 수도 있고, 다운스트림 기술의 입력으로 사용할 수도 있고, 언어 코드처럼 둘 다 할 수도 있습니다. 인덱스에서 언어 코드는 필터링에 유용합니다. 입력으로써의 언어 코드는 단어 분리에 대한 언어적 규칙을 알려주기 위해 텍스트 분석 기술에 사용됩니다.
 
@@ -537,7 +537,7 @@ private static Skillset CreateOrUpdateDemoSkillSet(SearchServiceClient serviceCl
 }
 ```
 
-다음 줄을 Main에 추가 합니다.
+Main에 다음 줄을 추가합니다.
 
 ```csharp
     // Create the skills
@@ -562,7 +562,7 @@ private static Skillset CreateOrUpdateDemoSkillSet(SearchServiceClient serviceCl
     Skillset skillset = CreateOrUpdateDemoSkillSet(serviceClient, skills);
 ```
 
-### <a name="step-3-create-an-index"></a>3 단계: 인덱스 만들기
+### <a name="step-3-create-an-index"></a>3단계: 인덱스 만들기
 
 이 섹션에서는 검색 가능한 인덱스에 포함할 필드 및 각 필드의 검색 특성을 지정하여 인덱스 스키마를 정의합니다. 필드에는 형식이 있으며 필드가 사용되는 방식(검색 가능, 정렬 가능 등)을 결정하는 특성을 가질 수 있습니다. 인덱스의 필드 이름은 원본의 필드 이름을 동일하게 일치시키는 데 필요하지 않습니다. 이후 단계에서 인덱서의 필드 매핑을 원본-대상 연결 필드에 추가할 것입니다. 이 단계에서는 검색 애플리케이션과 관련된 필드 명명 규칙을 사용하여 인덱스를 정의합니다.
 
@@ -641,7 +641,7 @@ public class DemoIndex
 }
 ``` -->
 
-이제 모델 클래스를 `Program.cs`에 다시 정의했으므로 인덱스 정의를 매우 쉽게 만들 수 있습니다. 이 인덱스의 이름은 `demoindex`됩니다. 해당 이름의 인덱스가 이미 있으면 삭제 됩니다.
+이제 모델 클래스를 `Program.cs`에 다시 정의했으므로 인덱스 정의를 매우 쉽게 만들 수 있습니다. 이 인덱스의 이름은 `demoindex`입니다. 동일한 이름의 인덱스가 이미 있으면 삭제됩니다.
 
 ```csharp
 private static Index CreateDemoIndex(SearchServiceClient serviceClient)
@@ -675,7 +675,7 @@ private static Index CreateDemoIndex(SearchServiceClient serviceClient)
 
 테스트 중에 인덱스를 두 번 이상 만들려고 시도할 수 있습니다. 이로 인해 인덱스를 만들려고 하기 전에 해당 인덱스가 이미 있는지 확인합니다.
 
-다음 줄을 Main에 추가 합니다.
+Main에 다음 줄을 추가합니다.
 
 ```csharp
     // Create the index
@@ -704,7 +704,7 @@ catch (Exception e)
 
 인덱스 정의에 대한 자세한 내용은 [인덱스 만들기(Azure Cognitive Search REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index)를 참조하세요.
 
-### <a name="step-4-create-and-run-an-indexer"></a>4 단계: 인덱서 만들기 및 실행
+### <a name="step-4-create-and-run-an-indexer"></a>4단계: 인덱서 만들기 및 실행
 
 지금까지 데이터 원본, 기술 집합 및 인덱스를 만들었습니다. 이러한 세 가지 구성 요소는 각 조각을 서로 연결하여 단일 다단계 작업으로 만드는 [인덱서](search-indexer-overview.md)의 일부가 됩니다. 각 구성 요소를 인덱서에 서로 연결하려면 필드 매핑을 정의해야 합니다.
 
@@ -779,7 +779,7 @@ private static Indexer CreateDemoIndexer(SearchServiceClient serviceClient, Data
     return indexer;
 }
 ```
-다음 줄을 Main에 추가 합니다.
+Main에 다음 줄을 추가합니다.
 
 ```csharp
     // Create the indexer, map fields, and execute transformations
@@ -798,7 +798,7 @@ private static Indexer CreateDemoIndexer(SearchServiceClient serviceClient, Data
 
 또한 ```"dataToExtract"```는 ```"contentAndMetadata"```으로 설정되어 있습니다. 이 명령문은 다른 파일 형식의 콘텐츠 및 각 파일과 관련된 메타데이터를 자동으로 추출하도록 인덱서에 지시합니다.
 
-콘텐츠가 추출되면 데이터 원본에서 찾은 이미지의 텍스트를 추출하도록 `imageAction`을 설정할 수 있습니다. OCR 기술 및 텍스트 병합 기술과 함께 ```"imageAction"``` 구성으로 설정된 ```"generateNormalizedImages"```은 이미지에서 텍스트(예: 트래픽 중지 기호에서 "중지"라는 단어)를 추출하여 콘텐츠 필드의 일부로 포함시키도록 인덱서에 지시합니다. 이 동작은 문서에 포함된 이미지(예: PDF 내 이미지)뿐 아니라 JPG 파일 같은 데이터 원본의 이미지에도 적용됩니다.
+콘텐츠가 추출되면 데이터 원본에서 찾은 이미지의 텍스트를 추출하도록 `imageAction`을 설정할 수 있습니다. OCR 기술 및 텍스트 병합 기술과 함께 ```"generateNormalizedImages"``` 구성으로 설정된 ```"imageAction"```은 이미지에서 텍스트(예: 트래픽 중지 기호에서 "중지"라는 단어)를 추출하여 콘텐츠 필드의 일부로 포함시키도록 인덱서에 지시합니다. 이 동작은 문서에 포함된 이미지(예: PDF 내 이미지)뿐 아니라 JPG 파일 같은 데이터 원본의 이미지에도 적용됩니다.
 
 <a name="check-indexer-status"></a>
 
@@ -840,7 +840,7 @@ private static void CheckIndexerOverallStatus(SearchServiceClient serviceClient,
 
 경고는 일부 원본 파일 및 기술 조합에서 일반적이며 항상 문제를 나타내는 것은 아닙니다. 이 자습서의 경고는 심각하지 않습니다(예: JPEG 파일의 텍스트 입력이 없음).
 
-다음 줄을 Main에 추가 합니다.
+Main에 다음 줄을 추가합니다.
 
 ```csharp
     // Check indexer overall status
@@ -854,7 +854,7 @@ private static void CheckIndexerOverallStatus(SearchServiceClient serviceClient,
 
 확인 단계로 모든 필드에 대한 인덱스를 쿼리합니다.
 
-다음 줄을 Main에 추가 합니다.
+Main에 다음 줄을 추가합니다.
 
 ```csharp
 DocumentSearchResult<DemoIndex> results;
@@ -877,7 +877,7 @@ catch (Exception e)
 }
 ```
 
-`CreateSearchIndexClient`는 애플리케이션의 구성 파일(appsettings.json)에 저장된 값을 사용하여 `SearchIndexClient`를 새로 만듭니다. 검색 서비스 쿼리 API 키가 사용 되 고 관리 키는 사용 되지 않습니다.
+`CreateSearchIndexClient`는 애플리케이션의 구성 파일(appsettings.json)에 저장된 값을 사용하여 `SearchIndexClient`를 새로 만듭니다. 검색 서비스 쿼리 API 키가 사용되며 관리자 키는 사용되지 않습니다.
 
 ```csharp
 private static SearchIndexClient CreateSearchIndexClient(IConfigurationRoot configuration)
@@ -890,7 +890,7 @@ private static SearchIndexClient CreateSearchIndexClient(IConfigurationRoot conf
 }
 ```
 
-Main에 다음 코드를 추가 합니다. 첫 번째 try-catch는 각 필드의 이름, 유형 및 특성을 사용 하 여 인덱스 정의를 반환 합니다. 두 번째는 매개 변수가 있는 쿼리입니다. 여기서 `Select`는 결과에 포함할 필드를 지정 합니다 (예: `organizations`. `"*"` 검색 문자열은 단일 필드의 모든 내용을 반환 합니다.
+Main에 다음 코드를 추가합니다. 첫 번째 try-catch는 각 필드의 이름, 유형 및 특성과 함께 인덱스 정의를 반환합니다. 두 번째는 매개 변수가 있는 쿼리이며, 여기서 `Select`는 결과에 포함할 필드(예: `organizations`)를 지정합니다. 검색 문자열이 `"*"`이면 단일 필드의 모든 콘텐츠를 반환합니다.
 
 ```csharp
 //Verify content is returned after indexing is finished
@@ -923,17 +923,17 @@ catch (Exception e)
 }
 ```
 
-추가 필드 반복: 이 연습의 콘텐츠, 언어 코드, 핵심 구 및 조직. 쉼표로 구분 된 목록을 사용 하 여 [Select](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.searchparameters.select?view=azure-dotnet) 속성을 통해 여러 필드를 반환할 수 있습니다.
+추가 필드 반복: 이 연습의 콘텐츠, 언어 코드, 핵심 구 및 조직. 쉼표로 구분된 목록을 사용하여 [Select](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.searchparameters.select?view=azure-dotnet) 속성을 통해 여러 필드를 반환할 수 있습니다.
 
 <a name="reset"></a>
 
 ## <a name="reset-and-rerun"></a>다시 설정하고 다시 실행
 
-개발의 초기 실험 단계에서 디자인 반복의 가장 실용적인 방법은 Azure Cognitive Search에서 개체를 삭제 하 고 코드에서 해당 개체를 다시 작성할 수 있도록 하는 것입니다. 리소스 이름은 고유합니다. 개체를 삭제하면 동일한 이름을 사용하여 개체를 다시 만들 수 있습니다.
+개발의 초기 실험 단계에서 설계 반복에 대한 가장 실용적인 방법은 Azure Cognitive Search에서 개체를 삭제하고 코드에서 이를 다시 작성하도록 허용하는 것입니다. 리소스 이름은 고유합니다. 개체를 삭제하면 동일한 이름을 사용하여 개체를 다시 만들 수 있습니다.
 
-이 자습서의 샘플 코드는 기존 개체를 확인 하 고 삭제 하 여 코드를 다시 실행할 수 있도록 합니다.
+이 자습서의 샘플 코드는 기존 개체가 있는지 확인하고 코드를 다시 실행할 수 있도록 삭제합니다.
 
-포털을 사용 하 여 인덱스, 인덱서, 데이터 원본 및 기술력과를 삭제할 수도 있습니다.
+포털을 사용하여 인덱스, 인덱서, 데이터 원본 및 기술 세트를 삭제할 수도 있습니다.
 
 ## <a name="takeaways"></a>핵심 내용
 
@@ -947,11 +947,11 @@ catch (Exception e)
 
 사용자 고유의 구독에서 작업하는 경우 프로젝트의 끝에서 더 이상 필요하지 않은 리소스를 제거하는 것이 좋습니다. 계속 실행되는 리소스에는 요금이 부과될 수 있습니다. 리소스를 개별적으로 삭제하거나 리소스 그룹을 삭제하여 전체 리소스 세트를 삭제할 수 있습니다.
 
-왼쪽 탐색 창의 모든 리소스 또는 리소스 그룹 링크를 사용 하 여 포털에서 리소스를 찾고 관리할 수 있습니다.
+왼쪽 탐색 창의 [모든 리소스] 또는 [리소스 그룹] 링크를 사용하여 포털에서 리소스를 찾고 관리할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 AI 보강 파이프라인의 모든 개체에 대해 잘 알고 있으므로 기술 정의와 개별 기술을 자세히 살펴보겠습니다.
+AI 보강 파이프라인의 모든 개체에 대해 알아보았으면, 기술 세트 정의와 개별적인 기술을 자세히 살펴보겠습니다.
 
 > [!div class="nextstepaction"]
-> [기술를 만드는 방법](cognitive-search-defining-skillset.md)
+> [기술 세트를 만드는 방법](cognitive-search-defining-skillset.md)

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: alkohli
-ms.openlocfilehash: 68f8ad903f967812c4a416c732b35fa1712404cd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 443ed983a0eec5dfd8f7a917fbc1440cd66c3db3
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60756657"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78946133"
 ---
 # <a name="use-the-azure-portal-to-manage-users-on-your-azure-data-box-edge"></a>Azure Portal을 사용하여 Azure Data Box Edge에서 사용자 관리
 
@@ -33,8 +33,7 @@ ms.locfileid: "60756657"
  - **전체 권한 사용자** - 전체 액세스 권한이 있는 로컬 사용자입니다.
  - **읽기 전용 사용자** - 읽기 전용 액세스 권한이 있는 로컬 사용자입니다. 이러한 사용자는 읽기 전용 작업을 허용하는 공유와 연결됩니다.
 
-사용자 권한은 공유를 생성하는 동안 사용자를 만들 때 처음 정의됩니다. 사용자와 관련된 권한이 정의된 후에는 파일 탐색기를 사용하여 수정할 수 있습니다. 
-
+사용자 권한은 공유를 생성하는 동안 사용자를 만들 때 처음 정의됩니다. 공유 수준 권한 수정은 현재 지원 되지 않습니다.
 
 ## <a name="add-a-user"></a>사용자 추가
 
@@ -49,7 +48,7 @@ ms.locfileid: "60756657"
     ![사용자 이름 및 암호 지정](media/data-box-edge-manage-users/add-user-2.png)
 
     > [!IMPORTANT] 
-    > 이러한 사용자는 시스템에서 예약되며 사용할 수 없습니다. Administrator, EdgeUser, EdgeSupport, HcsSetupUser, WDAGUtilityAccount, CLIUSR, DefaultAccount, Guest.  
+    > 다음과 같은 사용자는 시스템에 예약되어 있으므로 사용하지 말아야 합니다. Administrator, EdgeUser, EdgeSupport, HcsSetupUser, WDAGUtilityAccount, CLIUSR, DefaultAccount, Guest.  
 
 3. 사용자 만들기가 시작되고 완료되면 알림이 표시됩니다. 사용자가 만들어지면 명령 모음에서 **새로 고침**을 선택하여 업데이트된 사용자 목록을 볼 수 있습니다.
 

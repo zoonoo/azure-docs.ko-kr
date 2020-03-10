@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2018
+ms.date: 03/09/2020
 ms.author: terrylan
-ms.openlocfilehash: 74b0fa4643907493904e77ce333d1ec1dba01f49
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: ad6d3992f03802174eb03aa30b57b8d3dac1d6c4
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727098"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942964"
 ---
 # <a name="azure-sql-database-security-features"></a>Azure SQL Database 보안 기능    
 Azure SQL Database는 Azure에서 관계형 데이터베이스 서비스를 제공합니다. 고객 데이터를 보호하고 고객이 관계형 데이터베이스 서비스에서 기대하는 강력한 보안 기능을 제공하기 위해 SQL Database에는 자체의 보안 기능 집합이 있습니다. 이러한 기능은 Azure에서 상속된 제어를 기반으로 합니다.
@@ -75,7 +75,7 @@ Azure 프로덕션 네트워크는 논리적으로 다음 세 개의 기본 VLAN
 ### <a name="types-of-rules-on-firewalls"></a>방화벽 규칙 유형
 규칙은 다음과 같이 정의됩니다.
 
-{Src(보안 대응 센터) IP, Src 포트, 대상 IP, 대상 포트, 대상 프로토콜, 수신/송신, 상태 저장/상태 비저장, 상태 저장 흐름 시간 제한}
+{Src IP, Src 포트, 대상 IP, 대상 포트, 대상 프로토콜, In/Out, 상태 저장/상태 비저장, 상태 저장 흐름 시간 제한}.
 
 SYN(Synchronous idle character) 패킷은 규칙 중 하나에서 허용하는 경우에만 허용되거나 거부됩니다. TCP의 경우 Azure는 VM 내부 또는 외부로의 비SYN 패킷만 허용한다는 원칙이 있는 상태 비저장 규칙을 사용합니다. 보안 전제는 이전에 SYN 패킷을 본 적이 없는 경우 모든 호스트 스택에서 비SYN을 무시하는 복원력이 있다는 것입니다. TCP 프로토콜 자체는 상태 저장이며, 상태 비저장 SYN 기반 규칙과 결합하여 상태 저장 구현의 전체 동작을 수행합니다.
 
@@ -104,5 +104,3 @@ Azure 인프라를 보호하기 위해 Microsoft에서 수행하는 작업에 �
 - [심층 인프라 모니터링](infrastructure-monitoring.md)
 - [Azure 인프라 무결성](infrastructure-integrity.md)
 - [Azure 고객 데이터 보호](protection-customer-data.md)
-
-

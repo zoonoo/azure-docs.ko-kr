@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2020
 ms.author: spelluru
-ms.openlocfilehash: 0af2b5f7d756060d463d2b4f3ef71bdd135710ee
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 0ff464936025a20cb6925adc7ef6eb44c2fe1f0e
+ms.sourcegitcommit: e6bce4b30486cb19a6b415e8b8442dd688ad4f92
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77591526"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78933817"
 ---
 # <a name="set-up-and-manage-virtual-machine-pool"></a>가상 머신 풀 설정 및 관리 
 이 문서에서는 다음 작업을 수행 하는 방법을 보여 줍니다.
@@ -102,6 +102,13 @@ ms.locfileid: "77591526"
 
 > [!NOTE]
 > 교수에서 VM을 시작 하 고 연결할 때 학생 할당량은 영향을 받지 않습니다. 
+
+## <a name="export-list-of-virtual-machines-to-a-csv-file"></a>CSV 파일로 가상 컴퓨터 목록 내보내기
+
+1. **가상 컴퓨터 풀** 탭으로 전환 합니다.
+2. 도구 모음에서 **...** (줄임표)를 선택 하 고 **CSV 내보내기**를 선택 합니다. 
+
+    ![가상 컴퓨터 목록 내보내기](../media/how-to-export-users-virtual-machines-csv/virtual-machines-export-csv.png)
 
 ## <a name="next-steps"></a>다음 단계
 랩 소유자가 구성할 수 있는 다른 학생 사용 옵션에 대해 알아보려면 [학생 사용 구성](how-to-configure-student-usage.md)문서를 참조 하세요.

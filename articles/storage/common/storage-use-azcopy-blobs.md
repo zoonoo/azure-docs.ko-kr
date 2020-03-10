@@ -8,12 +8,12 @@ ms.date: 10/22/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: f218c64d3ffe4955877516551a29376372144598
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: fbdb447905ae43fe92693dfe45c1add710f76355
+ms.sourcegitcommit: e6bce4b30486cb19a6b415e8b8442dd688ad4f92
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77526725"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78933585"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>AzCopy 및 Blob 저장소를 사용 하 여 데이터 전송
 
@@ -73,7 +73,8 @@ AzCopy은 저장소 계정 간에 데이터를 복사 하거나 저장소 계정
 파일 경로 또는 파일 이름 어디에 나 와일드 카드 기호 (*)를 사용 하 여 파일을 업로드할 수도 있습니다. 예: `'C:\myDirectory\*.txt'`또는 `C:\my*\*.txt`.
 
 > [!NOTE]
-> AzCopy은 기본적으로 데이터를 블록 blob에 업로드 합니다. 추가 Blob 또는 페이지 Blob에 파일을 업로드 하려면 `--blob-type=[BlockBlob|PageBlob|AppendBlob]`플래그를 사용 합니다.
+> AzCopy은 기본적으로 데이터를 블록 blob으로 업로드 합니다. 추가 Blob 또는 페이지 Blob으로 파일을 업로드 하려면 `--blob-type=[BlockBlob|PageBlob|AppendBlob]`플래그를 사용 합니다.
+> AzCopy은 기본적으로 데이터를 업로드 하 여 계정 액세스 계층을 상속 합니다. 특정 [액세스 계층](../blobs/storage-blob-storage-tiers.md)에 파일을 업로드 하려면 `--block-blob-tier=[Hot|Cool|Archive]`플래그를 사용 합니다.
 
 ### <a name="upload-a-directory"></a>디렉터리 업로드
 
