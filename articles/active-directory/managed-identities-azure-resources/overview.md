@@ -15,12 +15,12 @@ ms.custom: mvc
 ms.date: 09/26/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a721d1e486010e22927512985611cccdd99f4505
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 47bd3b5da79bdb9c7dca75d521aa39d3652ab1ab
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78365082"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78945999"
 ---
 # <a name="what-are-managed-identities-for-azure-resources"></a>Azure 리소스용 관리 ID란?
 
@@ -56,7 +56,7 @@ Azure 리소스에 대한 관리 ID 기능은 Azure 구독용 Azure AD에 무료
 
 다음 다이어그램은 관리 서비스 ID가 Azure VM(가상 머신)에서 작동하는 방식을 보여줍니다.
 
-![관리 서비스 ID 및 Azure VM](media/overview/msi-vm-vmextension-imds-example.png)
+![관리 서비스 ID 및 Azure VM](media/overview/data-flow.png)
 
 |  속성    | 시스템 할당 관리 ID | 사용자 할당 관리 ID |
 |------|----------------------------------|--------------------------------|

@@ -445,8 +445,6 @@
           href: ship-application.md
     - name: 빠른 시작
       items:
-        - name: 프로젝트 만들기
-          href: quickstarts/create-project.md
         - name: Speech SDK 설치
           href: quickstarts/setup-platform.md
           displayName: 'install the speech sdk, install the speech sdk java, install the speech sdk C#, install the speech sdk python, install the speech sdk C++, setup speech sdk, install, install C#, install C++, install Python, install Java, install Javascript'

@@ -393,6 +393,7 @@
           href: media-services-deliver-asset-download.md
         - name: 장애 조치 스트리밍 시나리오
           href: media-services-implement-failover.md
+          displayName: 'HA, high availability'
     - name: 사용
       items:
         - name: 기존 플레이어로 미디어 재생
