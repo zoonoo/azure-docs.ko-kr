@@ -13,11 +13,11 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: b6a60536bae6fbedf01eda7aa340e90ced58e004
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930105"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78387374"
 ---
 # <a name="copy-data-to-and-from-data-lake-storage-gen1-by-using-data-factory"></a>Data Factory를 사용하여 Data Lake Storage Gen1 간 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -25,7 +25,7 @@ ms.locfileid: "74930105"
 > * [버전 2(현재 버전)](../connector-azure-data-lake-store.md)
 
 > [!NOTE]
-> 이 문서는 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우 [V2의 Azure Data Lake Storage Gen1 커넥터](../connector-azure-data-lake-store.md)를 참조하세요.
+> 이 아티클은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우 [V2의 Azure Data Lake Storage Gen1 커넥터](../connector-azure-data-lake-store.md)를 참조하세요.
 
 이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 Azure Data Lake Storage Gen1(이전의 Azure Data Lake Store) 간에 데이터를 이동하는 방법을 설명합니다. 이 문서는 복사 작업을 사용한 데이터 이동의 개요를 보여 주는 [데이터 이동 작업](data-factory-data-movement-activities.md) 문서를 기반으로 합니다.
 
@@ -69,7 +69,7 @@ Data Lake Store 커넥터는 다음 인증 유형을 지원합니다.
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
 연결된 서비스는 데이터 저장소를 데이터 팩터리에 연결합니다. Data Lake Store 데이터를 데이터 팩터리에 연결하는 **AzureDataLakeStore** 형식의 연결된 서비스를 만듭니다. 다음 표에서는 Data Lake Store 연결된 서비스와 관련된 JSON 요소에 대해 설명합니다. 서비스 주체와 사용자 자격 증명 인증 중에서 선택할 수 있습니다.
 
-| 자산 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | **type** | type 속성은 **AzureDataLakeStore**로 설정해야 합니다. | yes |
 | **dataLakeStoreUri** | Azure Data Lake Store 계정에 대한 정보. 이 정보는 `https://[accountname].azuredatalakestore.net/webhdfs/v1` 또는 `adl://[accountname].azuredatalakestore.net/` 형식 중 하나를 사용합니다. | yes |
@@ -90,7 +90,7 @@ Data Lake Store 커넥터는 다음 인증 유형을 지원합니다.
 
 다음 속성을 지정하여 서비스 주체 인증을 사용합니다.
 
-| 자산 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | **servicePrincipalId** | 애플리케이션의 클라이언트 ID를 지정합니다. | yes |
 | **servicePrincipalKey** | 애플리케이션의 키를 지정합니다. | yes |
@@ -117,7 +117,7 @@ Data Lake Store 커넥터는 다음 인증 유형을 지원합니다.
 ### <a name="user-credential-authentication"></a>사용자 자격 증명 인증
 또는 아래 속성을 지정하여 사용자 자격 증명 인증을 사용하여 Data Lake Store로 데이터를 복사하거나 Data Lake Store에서 다른 위치로 복사할 수 있습니다.
 
-| 자산 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | **권한 부여** | Data Factory 편집기에서 **권한 부여** 단추를 클릭하고 자격 증명을 입력합니다. 그러면 자동 생성된 authorization URL이 이 속성에 할당됩니다. | yes |
 | **sessionId** | OAuth 권한 부여 세션에서 가져온 OAuth 세션 ID입니다. 각 세션 ID는 고유하고 한 번만 사용될 수 있습니다. 이 설정은 Data Factory 편집기를 사용하는 경우 자동으로 생성됩니다. | yes |
@@ -186,7 +186,7 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
     }
 }
 ```
-코드에 사용되는 Data Factory 클래스에 대한 세부 정보는 [AzureDataLakeStoreLinkedService 클래스](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService 클래스](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) 및 [AuthorizationSessionGetResponse 클래스](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) 항목을 참조하세요. 코드에 사용되는 `WindowsFormsWebAuthenticationDialog` 클래스에 대해 `Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll`의 버전 `2.9.10826.1824`에 대한 참조를 추가합니다.
+코드에 사용되는 Data Factory 클래스에 대한 세부 정보는 [AzureDataLakeStoreLinkedService 클래스](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService 클래스](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) 및 [AuthorizationSessionGetResponse 클래스](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) 항목을 참조하세요. 코드에 사용되는 `2.9.10826.1824` 클래스에 대해 `Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll`의 버전 `WindowsFormsWebAuthenticationDialog`에 대한 참조를 추가합니다.
 
 ## <a name="troubleshooting-tips"></a>문제 해결 팁
 
@@ -203,7 +203,7 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 
 **해결 방법:**
 
-1. 연결된 서비스 `typeProperties`에 지정한 `subscriptionId` 및 `resourceGroupName`이 실제로 Data Lake 계정이 속한 항목인지 확인합니다.
+1. 연결된 서비스 `subscriptionId`에 지정한 `resourceGroupName` 및 `typeProperties`이 실제로 Data Lake 계정이 속한 항목인지 확인합니다.
 
 2. Data Lake 계정에 있는 사용자 또는 서비스 주체에 하나 이상의 **읽기 권한자** 역할을 부여해야 합니다. 이렇게 하려면 다음을 수행합니다.
 
@@ -236,13 +236,13 @@ Data Lake Store에서 입력 데이터를 표시할 데이터 세트를 지정�
 
 **AzureDataLakeStore** 형식의 데이터 세트에 대한 **typeProperties** 섹션에는 다음 속성이 있습니다.
 
-| 자산 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | **folderPath** |Data Lake Store의 컨테이너 및 폴더에 대한 경로입니다. |yes |
-| **fileName** |Azure Data Lake Store에 있는 파일의 이름입니다. **fileName** 속성은 선택 사항이며 대/소문자를 구분합니다. <br/><br/>**fileName**을 지정하는 경우 활동(복사 포함)은 특정 파일에서 작동합니다.<br/><br/>**fileName**을 지정하지 않으면 복사는 입력 데이터 세트에 대한 **folderPath**에 모든 파일을 포함합니다.<br/><br/>**FileName** 이 출력 데이터 집합에 대해 지정 되지 않고 **preserveHierarchy** 가 활동 싱크에 지정 되지 않은 경우 생성 된 파일의 이름은 `Data._Guid_.txt`형식으로 되어 있습니다. 예제: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |아닙니다. |
-| **partitionedBy** |**partitionedBy** 속성은 선택 사항입니다. 시계열 데이터에 대한 동적 경로 및 파일 이름을 지정하는 데 사용할 수 있습니다. 예를 들어 **folderPath**는 매시간 데이터에 대한 매개 변수화됩니다. 자세한 내용과 예제는 partitionedBy 속성을 참조하세요. |아닙니다. |
-| **format** | **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** 및 **ParquetFormat** 서식 유형이 지원됩니다. **format**의 **type** 속성을 이 값 중 하나로 설정합니다. 자세한 내용은 [Azure Data Factory에서 지원하는 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md) 문서의 [텍스트 형식](data-factory-supported-file-and-compression-formats.md#text-format), [JSON 형식](data-factory-supported-file-and-compression-formats.md#json-format), [Avro 형식](data-factory-supported-file-and-compression-formats.md#avro-format), [ORC 형식](data-factory-supported-file-and-compression-formats.md#orc-format) 및 [Parquet 형식](data-factory-supported-file-and-compression-formats.md#parquet-format) 섹션을 참조하세요. <br><br> 파일 기반 저장소(이진 복사) 간에 파일을 “있는 그대로” 복사하려는 경우 입력 및 출력 데이터 세트 정의 둘 다에서 `format` 섹션을 건너뜁니다. |아닙니다. |
-| **compression** | 데이터에 대한 압축 유형 및 수준을 지정합니다. 지원되는 형식은 **GZip**, **Deflate**, **BZip2** 및 **ZipDeflate**입니다. **Optimal** 및 **Fastest** 수준이 지원됩니다. 자세한 내용은 [Azure Data Factory에서 지원되는 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md#compression-support)을 참조하세요. |아닙니다. |
+| **fileName** |Azure Data Lake Store에 있는 파일의 이름입니다. **fileName** 속성은 선택 사항이며 대/소문자를 구분합니다. <br/><br/>**fileName**을 지정하는 경우 활동(복사 포함)은 특정 파일에서 작동합니다.<br/><br/>**fileName**을 지정하지 않으면 복사는 입력 데이터 세트에 대한 **folderPath**에 모든 파일을 포함합니다.<br/><br/>**FileName** 이 출력 데이터 집합에 대해 지정 되지 않고 **preserveHierarchy** 가 활동 싱크에 지정 되지 않은 경우 생성 된 파일의 이름은 `Data._Guid_.txt`형식으로 되어 있습니다. 예제: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |예 |
+| **partitionedBy** |**partitionedBy** 속성은 선택 사항입니다. 시계열 데이터에 대한 동적 경로 및 파일 이름을 지정하는 데 사용할 수 있습니다. 예를 들어 **folderPath**는 매시간 데이터에 대한 매개 변수화됩니다. 자세한 내용과 예제는 partitionedBy 속성을 참조하세요. |예 |
+| **format** | **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** 및 **ParquetFormat** 서식 유형이 지원됩니다. **format**의 **type** 속성을 이 값 중 하나로 설정합니다. 자세한 내용은 [Azure Data Factory에서 지원하는 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md#text-format) 문서의 [텍스트 형식](data-factory-supported-file-and-compression-formats.md#json-format), [JSON 형식](data-factory-supported-file-and-compression-formats.md#avro-format), [Avro 형식](data-factory-supported-file-and-compression-formats.md#orc-format), [ORC 형식](data-factory-supported-file-and-compression-formats.md#parquet-format) 및 [Parquet 형식](data-factory-supported-file-and-compression-formats.md) 섹션을 참조하세요. <br><br> 파일 기반 저장소(이진 복사) 간에 파일을 “있는 그대로” 복사하려는 경우 입력 및 출력 데이터 세트 정의 둘 다에서 `format` 섹션을 건너뜁니다. |예 |
+| **compression** | 데이터에 대한 압축 유형 및 수준을 지정합니다. 지원되는 형식은 **GZip**, **Deflate**, **BZip2** 및 **ZipDeflate**입니다. **Optimal** 및 **Fastest** 수준이 지원됩니다. 자세한 내용은 [Azure Data Factory에서 지원되는 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md#compression-support)을 참조하세요. |예 |
 
 ### <a name="the-partitionedby-property"></a>partitionedBy 속성
 **partitionedBy** 속성, Data Factory 함수 및 시스템 변수를 사용하여 시계열 데이터의 동적 **folderPath** 및 **fileName** 속성을 지정할 수 있습니다. 자세한 내용은 [Azure Data Factory - 함수 및 시스템 변수](data-factory-functions-variables.md) 문서를 참조하세요.
@@ -280,15 +280,15 @@ Data Lake Store에서 입력 데이터를 표시할 데이터 세트를 지정�
 
 **AzureDataLakeStoreSource**는 **typeProperties** 섹션에서 다음 속성을 지원합니다.
 
-| 자산 | 설명 | 허용되는 값 | 필수 |
+| 속성 | Description | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| **recursive** |하위 폴더 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. |True(기본값), False |아닙니다. |
+| **재귀** |하위 폴더 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. |True(기본값), False |예 |
 
 **AzureDataLakeStoreSink**는 **typeProperties** 섹션에서 다음 속성을 지원합니다.
 
-| 자산 | 설명 | 허용되는 값 | 필수 |
+| 속성 | Description | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| **copyBehavior** |복사 동작을 지정합니다. |<b>PreserveHierarchy</b>: 대상 폴더에서 파일 계층 구조를 유지합니다. 원본 폴더의 원본 파일 상대 경로는 대상 폴더의 대상 파일 상대 경로와 동일합니다.<br/><br/><b>FlattenHierarchy:</b> 원본 폴더의 모든 파일이 대상 폴더의 첫 번째 수준에 만들어집니다. 대상 파일은 자동 생성된 이름으로 만들어집니다.<br/><br/><b>MergeFiles</b>: 원본 폴더의 모든 파일을 하나의 파일로 병합합니다. 병합되는 파일 이름은 지정된 파일 또는 Blob 이름이 적용됩니다. 그렇지 않은 경우 파일 이름이 자동으로 생성됩니다. |아닙니다. |
+| **copyBehavior** |복사 동작을 지정합니다. |<b>PreserveHierarchy</b>: 대상 폴더에서 파일 계층 구조를 유지합니다. 원본 폴더의 원본 파일 상대 경로는 대상 폴더의 대상 파일 상대 경로와 동일합니다.<br/><br/><b>FlattenHierarchy:</b> 원본 폴더의 모든 파일이 대상 폴더의 첫 번째 수준에 만들어집니다. 대상 파일은 자동 생성된 이름으로 만들어집니다.<br/><br/><b>MergeFiles</b>: 원본 폴더의 모든 파일을 하나의 파일로 병합합니다. 병합되는 파일 이름은 지정된 파일 또는 Blob 이름이 적용됩니다. 그렇지 않은 경우 파일 이름이 자동으로 생성됩니다. |예 |
 
 ### <a name="recursive-and-copybehavior-examples"></a>recursive 및 copyBehavior 예제
 이 섹션에서는 다양한 recursive 및 copyBehavior 값 조합에 대한 복사 작업의 결과 동작을 설명합니다.
@@ -313,9 +313,9 @@ Data Lake Store에서 입력 데이터를 표시할 데이터 세트를 지정�
 
 * [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties) 형식의 연결된 서비스
 * [AzureDataLakeStore](#linked-service-properties) 형식의 연결된 서비스입니다.
-* [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties) 형식의 입력 [데이터 세트](data-factory-create-datasets.md)입니다.
-* [AzureDataLakeStore](#dataset-properties) 형식의 출력 [데이터 세트](data-factory-create-datasets.md)입니다.
-* [BlobSource](data-factory-azure-blob-connector.md#copy-activity-properties) 및 [AzureDataLakeStoreSink](#copy-activity-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)입니다.
+* [AzureBlob](data-factory-create-datasets.md) 형식의 입력 [데이터 세트](data-factory-azure-blob-connector.md#dataset-properties)입니다.
+* [AzureDataLakeStore](data-factory-create-datasets.md) 형식의 출력 [데이터 세트](#dataset-properties)입니다.
+* [BlobSource](data-factory-create-pipelines.md) 및 [AzureDataLakeStoreSink](data-factory-azure-blob-connector.md#copy-activity-properties)를 사용하는 복사 작업의 [파이프라인](#copy-activity-properties)입니다.
 
 이 예제에서는 Azure Blob Storage에서 Data Lake Store로 매시간 시계열 데이터가 복사되는 방법을 보여 줍니다.
 
@@ -497,9 +497,9 @@ Data Lake Store에서 입력 데이터를 표시할 데이터 세트를 지정�
 
 * [AzureDataLakeStore](#linked-service-properties) 형식의 연결된 서비스입니다.
 * [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties) 형식의 연결된 서비스
-* [AzureDataLakeStore](#dataset-properties) 형식의 입력 [데이터 세트](data-factory-create-datasets.md)입니다.
-* [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties) 형식의 출력 [데이터 세트](data-factory-create-datasets.md)
-* [AzureDataLakeStoreSource](#copy-activity-properties) 및 [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)입니다.
+* [AzureDataLakeStore](data-factory-create-datasets.md) 형식의 입력 [데이터 세트](#dataset-properties)입니다.
+* [AzureBlob](data-factory-create-datasets.md) 형식의 출력 [데이터 세트](data-factory-azure-blob-connector.md#dataset-properties)
+* [AzureDataLakeStoreSource](data-factory-create-pipelines.md) 및 [BlobSink](#copy-activity-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-azure-blob-connector.md#copy-activity-properties)입니다.
 
 이 코드는 Data Lake Store에서 Azure Blob로 매시간 시계열 데이터를 복사합니다.
 

@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 03/29/2019
 ms.author: magoedte
 ms.openlocfilehash: 27d43af2d5860d287d8b5914379747ae528db34b
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980160"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78383419"
 ---
 # <a name="azure-monitor-dependency-virtual-machine-extension-for-windows"></a>Windows 용 Azure Monitor 종속성 가상 머신 확장
 
@@ -71,7 +71,7 @@ Windows 용 Azure VM 종속성 에이전트 확장은 VM용 Azure Monitor 배포
 
 ### <a name="property-values"></a>속성 값
 
-| 이름 | 값/예제 |
+| 속성 | 값/예제 |
 | ---- | ---- |
 | apiVersion | 2015-01-01 |
 | publisher | Microsoft.Azure.Monitoring.DependencyAgent |

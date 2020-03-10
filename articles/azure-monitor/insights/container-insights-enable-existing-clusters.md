@@ -4,11 +4,11 @@ description: 구독에 이미 배포 된 컨테이너에 대 한 Azure Monitor�
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.openlocfilehash: 8589ea71b5c7affadc61d5e4543f734a660ab543
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250633"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78395409"
 ---
 # <a name="enable-monitoring-of-azure-kubernetes-service-aks-cluster-already-deployed"></a>이미 배포 된 AKS (Azure Kubernetes Service) 클러스터의 모니터링 사용
 

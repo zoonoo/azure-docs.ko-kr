@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 7142e3f9aaa25e7ba327194c04ad6a9b5f4e3ad1
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76774486"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78389183"
 ---
 # <a name="describe-a-service-fabric-cluster-by-using-cluster-resource-manager"></a>클러스터를 사용 하 여 Service Fabric 클러스터 설명 리소스 관리자
 Azure Service Fabric의 클러스터 리소스 관리자 기능은 클러스터를 설명 하는 몇 가지 메커니즘을 제공 합니다.
@@ -237,7 +237,7 @@ Azure에서 노드를 포함 하는 장애 도메인을 선택 하는 것은 사
 
 |  | FD0 | FD1 | FD2 | FD3 | FD4 | UDTotal |
 | --- |:---:|:---:|:---:|:---:|:---:|:---:|
-| **UD0** |N/A |N/A |N/A |N/A |N/A |N/A |
+| **UD0** |해당 없음 |해당 없음 |해당 없음 |해당 없음 |해당 없음 |해당 없음 |
 | **UD1** |R2 | | | | |1 |
 | **UD2** | |R3 |R4 | | |2 |
 | **UD3** | | | |R1 | |1 |
@@ -347,7 +347,7 @@ Azure에서 호스트 되는 Service Fabric 배포에서 장애 도메인과 업
 
 특정 워크 로드에 대 한 하드웨어를 대상으로 하는 좋은 예는 거의 모든 n 계층 아키텍처입니다. 특정 컴퓨터는 응용 프로그램의 프런트 엔드 또는 API 서비스 측 역할을 하며 클라이언트나 인터넷에 노출 됩니다. 종종 서로 다른 하드웨어 리소스를 사용하는 다양한 머신에서 컴퓨팅 또는 스토리지 계층의 작업을 처리합니다. 이러한 컴퓨터는 대개 클라이언트 또는 인터넷에 직접 노출되지 _않습니다_. 
 
-경우에 따라 특정 워크 로드를 특정 하드웨어 구성에서 실행 해야 하는 경우도 있습니다. Service Fabric 예:
+경우에 따라 특정 워크 로드를 특정 하드웨어 구성에서 실행 해야 하는 경우도 있습니다. Service Fabric 다음은 그 예입니다.
 
 * 기존 n 계층 응용 프로그램이 Service Fabric 환경으로 "리프트 및 이동" 되었습니다.
 * 성능, 규모 또는 보안 격리를 위해 특정 하드웨어에서 작업을 실행 해야 합니다.
@@ -478,7 +478,7 @@ Service Fabric는 리소스를 *메트릭으로*나타냅니다. 메트릭은 �
 
 배치 제약 조건 및 노드 속성의 경우와 마찬가지로 Service Fabric 클러스터 리소스 관리자는 메트릭의 이름이 의미 하는 것을 인식 하지 못합니다. 메트릭 이름은 단순한 문자열입니다. 모호한 것일 수 있는 경우 생성 하는 메트릭 이름의 일부로 단위를 선언 하는 것이 좋습니다.
 
-## <a name="capacity"></a>용량 중심
+## <a name="capacity"></a>용량
 모든 리소스 *분산*을 해제 한 경우 클러스터 리소스 관리자 Service Fabric 해당 용량을 초과 하지 않도록 합니다. 클러스터가 가득 차지 않았거나 워크로드가 어떤 노드보다 크지 않으면 용량 초과를 관리할 수 있습니다. 용량은 리소스 관리자 클러스터가 노드에 있는 리소스의 양을 이해 하는 데 사용 하는 또 다른 *제약 조건* 입니다. 전체 클러스터에 대해 남은 용량을 추적합니다. 
 
 서비스 수준에서 용량과 소비량은 메트릭을 기준으로 표현됩니다. 예를 들어 메트릭은 "ClientConnections"이 고 노드는 32768의 "ClientConnections"에 대해 용량이 있을 수 있습니다. 다른 노드에는 다른 제한이 있을 수 있습니다. 해당 노드에서 실행 되는 서비스는 현재 "ClientConnections" 메트릭의 32256를 사용 하 고 있을 수 있습니다.

@@ -4,11 +4,11 @@ description: Service Fabric 상태 저장 서비스를 분할하는 방법을 �
 ms.topic: conceptual
 ms.date: 06/30/2017
 ms.openlocfilehash: 1f3ee2196bad8b8a0c992ed498d40b4cf5820f2c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75434072"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78390207"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>서비스 패브릭 Reliable Services 분할
 이 문서에서는 Azure 서비스 패브릭 Reliable Services 분할의 기본 개념에 대한 소개를 제공합니다. 문서에 사용되는 소스 코드는 [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions)에서도 확인할 수 있습니다.
@@ -224,7 +224,7 @@ Service Fabric은 세 가지 파티션 체계를 제공합니다.
     }
     ```
    
-    `ProcessInternalRequest`는 파티션을 호출하는 데 사용되는 쿼리 문자열 매개 변수의 값을 읽고 신뢰할 수 있는 사전 `dictionary`에 성을 추가하도록 `AddUserAsync`를 호출합니다.
+    `ProcessInternalRequest`는 파티션을 호출하는 데 사용되는 쿼리 문자열 매개 변수의 값을 읽고 신뢰할 수 있는 사전 `AddUserAsync`에 성을 추가하도록 `dictionary`를 호출합니다.
 10. 특정 파티션을 호출할 수 있는 방법을 보도록 프로젝트에 상태 비저장 서비스를 추가하겠습니다.
     
     이 서비스는 쿼리 문자열 매개 변수로 성을 수락하고 파티션 키를 결정하고 처리를 위해 Alphabet.Processing에 이를 보내는 간단한 웹 인터페이스로 제공됩니다.
@@ -307,7 +307,7 @@ Service Fabric은 세 가지 파티션 체계를 제공합니다.
     ```
     
     이 예제에서 파티션당 하나의 파티션 키를 가진 26개의 파티션을 사용합니다.
-    그런 다음 `servicePartitionResolver` 개체의 `ResolveAsync` 메서드를 사용하여 이 키에 대한 서비스 파티션 `partition`을 가져옵니다. `servicePartitionResolver` 는 다음으로 정의됩니다.
+    그런 다음 `partition` 개체의 `ResolveAsync` 메서드를 사용하여 이 키에 대한 서비스 파티션 `servicePartitionResolver`을 가져옵니다. `servicePartitionResolver` 는 다음으로 정의됩니다.
     
     ```csharp
     private readonly ServicePartitionResolver servicePartitionResolver = ServicePartitionResolver.GetDefault();

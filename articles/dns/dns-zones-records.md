@@ -10,11 +10,11 @@ ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: rohink
 ms.openlocfilehash: 19189af6424960b8e20be686af745b10f2d8578b
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76938839"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78392616"
 ---
 # <a name="overview-of-dns-zones-and-records"></a>DNS 영역 및 레코드 개요
 
@@ -107,7 +107,7 @@ DNS 레코드의 여러 문자열을 TXT 레코드 집합의 여러 TXT 레코�
 
 ## <a name="tags-and-metadata"></a>태그 및 메타데이터
 
-### <a name="tags"></a>태그
+### <a name="tags"></a>태그들
 
 태그는 이름-값 쌍의 목록으로, Azure Resource Manager에서 리소스에 레이블을 지정하는 데 사용됩니다.  Azure Resource Manager는 태그를 사용하여 Azure 청구서를 필터링하여 표시할 수 있으며 태그가 필요한 정책을 설정할 수 있습니다. 태그에 대한 자세한 내용은 [태그를 사용하여 Azure 리소스 구성](../azure-resource-manager/management/tag-resources.md)을 참조하십시오.
 
@@ -129,7 +129,7 @@ Azure DNS REST API 수준에서 Etag는 HTTP 헤더를 사용하여 지정됩니
 
 | 헤더 | 동작 |
 | --- | --- |
-| 없음 |PUT 항상 성공(Etag 검사 안 함) |
+| None |PUT 항상 성공(Etag 검사 안 함) |
 | -Match \<etag > |리소스가 있고 Etag가 일치하는 경우에만 PUT 성공 |
 | If-match * |리소스가 있는 경우에만 PUT 성공 |
 | If-none-match * |리소스가 없는 경우에만 PUT 성공 |

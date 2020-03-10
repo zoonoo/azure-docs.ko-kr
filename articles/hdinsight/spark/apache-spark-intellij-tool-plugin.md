@@ -1,5 +1,5 @@
 ---
-title: '자습서 - Azure Toolkit for IntelliJ: Spark 앱 - HDInsight'
+title: '자습서-Azure Toolkit for IntelliJ: Spark 앱-HDInsight'
 description: 자습서 - Azure Toolkit for IntelliJ를 사용하여 Scala로 작성된 Spark 애플리케이션을 개발한 후 HDInsight Spark 클러스터에 제출합니다.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,18 +8,20 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 09/04/2019
-ms.openlocfilehash: 1790a7806b1abbe4d537f309f33dee686e30662b
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
-ms.translationtype: HT
+ms.openlocfilehash: 2631a0906a0f0886bdc106f1afef99860a6fe00b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75645041"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78381620"
 ---
-# <a name="tutorial-use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-hdinsight-cluster"></a>자습서: Azure Toolkit for IntelliJ를 사용하여 HDInsight 클러스터용 Apache Spark 애플리케이션 만들기
+# <a name="tutorial-use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-hdinsight-cluster"></a>자습서: Azure Toolkit for IntelliJ을 사용 하 여 HDInsight 클러스터용 Apache Spark 응용 프로그램 만들기
 
-이 자습서는 Azure Toolkit for IntelliJ 플러그 인을 사용하여 [Scala](https://www.scala-lang.org/)로 작성된 Apache Spark 애플리케이션을 개발한 후 IntelliJ IDE(통합 개발 환경)에서 직접 HDInsight Spark 클러스터에 제출하는 방법을 설명합니다. 다음과 같은 몇 가지 방식으로 플러그 인을 사용할 수 있습니다.
+이 자습서에서는 IntelliJ IDE 용 **Azure 도구 키트** 플러그 인을 사용 하 여 azure HDInsight에서 Apache Spark 응용 프로그램을 개발 하는 방법을 보여 줍니다. [Azure HDInsight](../hdinsight-overview.md) 는 Hadoop, Apache Spark, Apache Hive 및 Apache Kafka와 같은 오픈 소스 프레임 워크를 사용할 수 있도록 하는 클라우드에서 관리 되는 오픈 소스 분석 서비스입니다.
 
-* HDInsight Spark 클러스터에서 Scala Spark 애플리케이션을 개발 및 제출합니다.
+**Azure 도구 키트** 플러그 인은 몇 가지 방법으로 사용할 수 있습니다.
+
+* Scala Spark 응용 프로그램을 개발 하 여 HDInsight Spark 클러스터에 제출 합니다.
 * Azure HDInsight Spark 클러스터 리소스에 액세스합니다.
 * Scala Spark 애플리케이션을 로컬로 개발 및 실행합니다.
 
@@ -27,7 +29,7 @@ ms.locfileid: "75645041"
 > [!div class="checklist"]
 > * Azure Toolkit for IntelliJ 플러그 인 사용
 > * Apache Spark 애플리케이션 개발
-> * Azure HDInsight 클러스터에 애플리케이션 제출
+> * Azure HDInsight 클러스터에 응용 프로그램 제출
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -35,7 +37,7 @@ ms.locfileid: "75645041"
 
 * [Oracle Java Development 키트](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).  이 자습서에서는 Java 버전 8.0.202를 사용합니다.
 
-* IntelliJ IDEA. 이 문서에서는 [IntelliJ IDEA 커뮤니티 버전  2018.3.4](https://www.jetbrains.com/idea/download/)를 사용합니다.
+* IntelliJ IDEA. 이 문서에서는 [INTELLIJ 아이디어 커뮤니티 버전을 사용 합니다.  2018.3.4](https://www.jetbrains.com/idea/download/).
 
 * Azure Toolkit for IntelliJ.  [Azure Toolkit for IntelliJ 설치](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-installation?view=azure-java-stable)를 참조하세요.
 
@@ -108,6 +110,7 @@ Scala 플러그인을 설치하려면 다음 단계를 수행하세요.
 
    d. 그러면 **myApp.scala** 파일이 기본 보기에서 열립니다. 기본 코드를 아래 코드로 바꿉니다.  
 
+        ```scala
         import org.apache.spark.SparkConf
         import org.apache.spark.SparkContext
     
@@ -125,10 +128,12 @@ Scala 플러그인을 설치하려면 다음 단계를 수행하세요.
             }
     
         }
+        ```
 
     이 코드는 HVAC.csv(모든 HDInsight Spark 클러스터에서 사용 가능)에서 데이터를 읽고, CSV 파일의 일곱 번째 열에 한 자리 수만 있는 행을 검색하고, 출력을 클러스터의 기본 스토리지 컨테이너 아래의 `/HVACOut`에 씁니다.
 
 ## <a name="connect-to-your-hdinsight-cluster"></a>HDInsight 클러스터 연결
+
 [Azure 구독에 로그인](#sign-in-to-your-azure-subscription)하거나 Ambari 사용자 이름/암호 또는 도메인 가입 자격 증명을 사용하여 [HDInsight 클러스터에 연결](#link-a-cluster)할 수 있습니다.
 
 ### <a name="sign-in-to-your-azure-subscription"></a>Azure 구독에 로그인합니다.
@@ -223,7 +228,7 @@ Scala 애플리케이션을 작성한 후 이를 클러스터에 제출할 수 �
 
       ![HDInsight에 Spark 애플리케이션 제출 명령](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-1.png)
 
-2. **Spark 애플리케이션 제출** 대화 상자 창에서 **1. HDInsight의 Spark**를 선택합니다.
+2. **Spark 응용 프로그램 제출** 대화 상자 창에서 1을 선택 **합니다. HDInsight의 Spark**.
 
 3. **구성 편집** 창에서 다음 값을 제공하고 **확인**을 선택합니다.
 
@@ -234,7 +239,7 @@ Scala 애플리케이션을 작성한 후 이를 클러스터에 제출할 수 �
     |주 클래스 이름|기본값은 선택한 파일의 기본 클래스입니다. 줄임표( **...** )를 선택하고 다른 클래스를 선택하여 클래스를 변경할 수 있습니다.|
     |작업 구성|기본 키 및/또는 값을 변경할 수 있습니다. 자세한 내용은 [Apache Livy REST API](https://livy.incubator.apache.org/docs/latest/rest-api.html)를 참조하세요.|
     |명령줄 인수|필요한 경우 기본 클래스에 대해 공백으로 구분된 인수를 입력할 수 있습니다.|
-    |참조된 Jar 및 참조된 파일|참조되는 Jar 및 파일의 경로를 입력할 수 있습니다(있는 경우). Azure 가상 파일 시스템의 파일을 찾아 볼 수도 있습니다. 여기에는 현재 ADLS Gen 2 클러스터만 지원됩니다. 자세한 내용은 다음을 참조하세요. [Apache Spark 구성](https://spark.apache.org/docs/latest/configuration.html#runtime-environment)  [클러스터에 리소스를 업로드하는 방법](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer)을 참조하세요.|
+    |참조된 Jar 및 참조된 파일|참조되는 Jar 및 파일의 경로를 입력할 수 있습니다(있는 경우). Azure 가상 파일 시스템의 파일을 찾아 볼 수도 있습니다. 여기에는 현재 ADLS Gen 2 클러스터만 지원됩니다. 자세한 내용은 [Apache Spark 구성을](https://spark.apache.org/docs/latest/configuration.html#runtime-environment).  [클러스터에 리소스를 업로드하는 방법](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer)을 참조하세요.|
     |작업 업로드 스토리지|추가 옵션을 표시하려면 확장합니다.|
     |스토리지 유형|드롭다운 목록에서 **Azure Blob을 사용하여 업로드**를 선택합니다.|
     |스토리지 계정|스토리지 계정을 입력합니다.|
@@ -368,9 +373,11 @@ WINUTILS.EXE 필수 구성 요소를 충족하는지 확인합니다.
 ## <a name="integrate-with-hdinsight-identity-broker-hib"></a>HIB(HDInsight Identity Broker)와 통합 
 
 ### <a name="connect-to-your-hdinsight-esp-cluster-with-id-broker-hib"></a>Id Broker(HIB)를 사용하여 HDInsight ESP 클러스터에 연결
+
 Azure 구독에 로그인하는 일반적인 단계에 따라 Id Broker(HIB)를 사용하여 HDInsight ESP 클러스터에 연결할 수 있습니다. 로그인하면 Azure 탐색기에 클러스터 목록이 표시됩니다. 자세한 지침은 [HDInsight 클러스터에 연결](#connect-to-your-hdinsight-cluster)을 참조하세요.
 
 ### <a name="run-a-spark-scala-application-on-an-hdinsight-esp-cluster-with-id-broker-hib"></a>HDInsight ESP 클러스터에서 Id Broker(HIB)를 사용하여 Spark Scala 애플리케이션 실행
+
 일반적인 단계에 따라 Id Broker(HIB)를 사용하여 HDInsight ESP 클러스터에 작업을 제출할 수 있습니다. 자세한 지침은 [HDInsight Spark 클러스터에서 Spark Scala 애플리케이션 실행](#run-a-spark-scala-application-on-an-hdinsight-spark-cluster)을 참조하세요.
 
 필요한 파일은 여러분의 로그인 계정을 이름으로 사용하는 폴더에 업로드되며, 구성 파일에서 업로드 경로를 확인할 수 있습니다.
@@ -378,11 +385,11 @@ Azure 구독에 로그인하는 일반적인 단계에 따라 Id Broker(HIB)를 
    ![구성의 업로드 경로](./media/apache-spark-intellij-tool-plugin/upload-path-in-the-configuration.png)
 
 ### <a name="spark-console-on-an-hdinsight-esp-cluster-with-id-broker-hib"></a>Id Broker(HIB)를 사용하는 HDInsight ESP 클러스터의 Spark 콘솔
+
 Id Broker(HIB)를 사용하는 HDInsight ESP 클러스터에서 Spark 로컬 콘솔(Scala)을 실행하거나 Spark Livy 대화형 세션 콘솔(Scala)을 실행할 수 있습니다. 자세한 지침은 [Spark 콘솔](#spark-console)을 참조하세요.
 
    > [!NOTE]  
    > Id Broker(HIB)를 사용하는 HDInsight ESP 클러스터의 경우 현재 [클러스터 연결](#link-a-cluster) 및 [Apache Spark 애플리케이션의 원격 디버그](#debug-apache-spark-applications-locally-or-remotely-on-an-hdinsight-cluster)가 지원되지 않습니다.
-
 
 ## <a name="reader-only-role"></a>독자 전용 역할
 
@@ -417,7 +424,7 @@ Id Broker(HIB)를 사용하는 HDInsight ESP 클러스터에서 Spark 로컬 콘
 
 1. HDInsight 구성을 만듭니다. 그런 다음, **Remotely Run in Cluster**(클러스터에서 원격으로 실행)를 선택합니다.
 
-2. **Spark 클러스터(Linux 전용)** 에 대해 판독기 전용 역할 권한이 있는 클러스터를 선택합니다. 경고 메시지가 표시됩니다. **Link this cluster**(이 클러스터 연결)를 클릭하여 클러스터를 연결합니다.
+2. **Spark 클러스터(Linux 전용)** 에 대해 판독기 전용 역할 권한이 있는 클러스터를 선택합니다. 경고 메시지가 표시 됩니다. **이 클러스터에 연결** 을 클릭 하 여 클러스터에 연결할 수 있습니다.
 
    ![IntelliJ IDEA 실행/디버그 구성 만들기](./media/apache-spark-intellij-tool-plugin/create-configuration.png)
 
@@ -443,11 +450,15 @@ IntelliJ IDEA에서 만든 기존 Spark Scala 애플리케이션을 Azure Toolki
 
 2. 루트 수준에 다음과 같은 **module** 요소가 표시됩니다.
 
+        ```
         <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
+        ```
 
-   **module** 요소가 다음과 같이 표시되도록 해당 요소를 편집하여 `UniqueKey="HDInsightTool"`을 추가합니다.
+   `UniqueKey="HDInsightTool"`module**요소가 다음과 같이 표시되도록 해당 요소를 편집하여**을 추가합니다.
 
+        ```
         <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4" UniqueKey="HDInsightTool">
+        ```
 
 3. 변경 내용을 저장합니다. 이제 애플리케이션이 Azure Toolkit for IntelliJ와 호환됩니다. 프로젝트에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭하여 이 테스트를 수행할 수 있습니다. 이제 팝업 메뉴에 **HDInsight에 Spark 애플리케이션 제출** 옵션이 표시됩니다.
 
@@ -472,4 +483,4 @@ IntelliJ IDEA에서 만든 기존 Spark Scala 애플리케이션을 Azure Toolki
 이 자습서를 통해, Azure Toolkit for IntelliJ 플러그 인을 사용하여 [Scala](https://www.scala-lang.org/)로 작성된 Apache Spark 애플리케이션을 개발한 후 IntelliJ IDE(통합 개발 환경)에서 직접 HDInsight Spark 클러스터에 제출하는 방법을 알아보았습니다. 다음 문서로 진행하여 Apache Spark에 등록된 데이터를 Power BI와 같은 BI 분석 도구로 가져오는 방법을 확인하세요.
 
 > [!div class="nextstepaction"]
-> [BI 도구를 사용하여 데이터 분석](apache-spark-use-bi-tools.md)
+> [Power BI를 사용 하 여 Apache Spark 데이터 분석](apache-spark-use-bi-tools.md)

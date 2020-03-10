@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/24/2016
 ms.author: paulhsu
 ms.openlocfilehash: 018552982a8ece3bbbaea2d60e2a6e64f681f822
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60815147"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78385643"
 ---
 # <a name="command-line-interface"></a>명령줄 인터페이스
 
@@ -30,13 +30,13 @@ KES(Knowledge Exploration Service) 명령줄 인터페이스는 구조화된 데
 
 <a name="build_index-command"></a>
 
-## <a name="buildindex-command"></a>build_index 명령
+## <a name="build_index-command"></a>build_index 명령
 
 **build_index** 명령은 인덱싱할 개체의 데이터 파일 및 스키마 정의 파일의 이진 인덱스 파일을 빌드합니다.  구조화된 쿼리 식을 평가하거나 컴파일된 문법 파일과 함께 자연어 쿼리의 해석을 생성하는 데 결과 인덱스 파일을 사용할 수 있습니다.
 
 `kes.exe build_index <schemaFile> <dataFile> <indexFile> [options]`
 
-| 매개 변수      | 설명               |
+| 매개 변수      | Description               |
 |----------------|---------------------------|
 | `<schemaFile>` | 입력 스키마 경로 |
 | `<dataFile>`   | 입력 데이터 경로   |
@@ -55,13 +55,13 @@ KES(Knowledge Exploration Service) 명령줄 인터페이스는 구조화된 데
 
 <a name="build_grammar-command"></a>
 
-## <a name="buildgrammar-command"></a>build_grammar 명령
+## <a name="build_grammar-command"></a>build_grammar 명령
 
 **build_grammar** 명령은 XML에 지정된 문법을 이진 문법 파일로 컴파일합니다.  결과 문법 파일을 인덱스 파일과 함께 사용하여 자연어 쿼리의 해석을 생성할 수 있습니다.
 
 `kes.exe build_grammar <xmlFile> <grammarFile>`
 
-| 매개 변수       | 설명               |
+| 매개 변수       | Description               |
 |-----------------|---------------------------|
 | `<xmlFile>`     | 입력 XML 문법 사양 경로 |
 | `<grammarFile>` | 출력 컴파일된 문법 경로         |
@@ -70,31 +70,31 @@ KES(Knowledge Exploration Service) 명령줄 인터페이스는 구조화된 데
 
 <a name="host_service-command"/>
 
-## <a name="hostservice-command"></a>host_service 명령
+## <a name="host_service-command"></a>host_service 명령
 
 **host_service** 명령은 로컬 컴퓨터에서 KES 서비스의 인스턴스를 호스팅합니다.
 
 `kes.exe host_service <grammarFile> <indexFile> [options]`
 
-| 매개 변수       | 설명                |
+| 매개 변수       | Description                |
 |-----------------|----------------------------|
 | `<grammarFile>` | 입력 이진 문법 경로         |
 | `<indexFile>`   | 입력 이진 인덱스 경로           |
-| `--port <port>` | 로컬 포트 번호.  Default: 8000 |
+| `--port <port>` | 로컬 포트 번호.  기본값: 8000 |
 
-이러한 파일은 로컬 파일 경로 또는 Azure blob에 대한 URL 경로로 지정할 수 있습니다.  웹 서비스는 http://localhost:&lt ; port&gt; /에서 호스팅됩니다.  지원되는 목록은 [Web API](WebAPI.md)를 참조하세요.
+이러한 파일은 로컬 파일 경로 또는 Azure blob에 대한 URL 경로로 지정할 수 있습니다.  웹 서비스는 http://localhost:&lt; port&gt;/에서 호스팅됩니다.  지원되는 목록은 [Web API](WebAPI.md)를 참조하세요.
 
 Azure 환경 외부에서 로컬로 호스팅된 서비스는 최대 1MB 크기, 초당 10개 요청 및 총 1000개의 호출의 인덱스 파일로 제한됩니다.  이러한 제한을 해결하려면 Azure VM 내에서 **host_service**를 실행하거나 **deploy_service**를 사용하여 Azure 클라우드 서비스에 배포합니다.
 
 <a name="deploy_service-command"/>
 
-## <a name="deployservice-command"></a>deploy_service 명령
+## <a name="deploy_service-command"></a>deploy_service 명령
 
 **deploy_service** 명령은 KES 서비스의 인스턴스를 Azure 클라우드 서비스에 배포합니다.
 
 `kes.exe deploy_service <grammarFile> <indexFile> <serviceName> <vmSize>[options]`
 
-| 매개 변수       | 설명                  |
+| 매개 변수       | Description                  |
 |-----------------|------------------------------|
 | `<grammarFile>` | 입력 이진 문법 경로           |
 | `<indexFile>`   | 입력 이진 인덱스 경로             |
@@ -108,13 +108,13 @@ Azure 환경 외부에서 로컬로 호스팅된 서비스는 최대 1MB 크기,
 
 <a name="describe_index-command"/>
 
-## <a name="describeindex-command"></a>describe_index 명령
+## <a name="describe_index-command"></a>describe_index 명령
 
 **describe_index** 명령은 스키마 및 설명을 비롯한 인덱스 파일에 대한 정보를 출력합니다.
 
 `kes.exe describe_index <indexFile>`
 
-| 매개 변수     | 설명      |
+| 매개 변수     | Description      |
 |---------------|------------------|
 | `<indexFile>` | 입력 인덱스 경로 |
 
@@ -122,13 +122,13 @@ Azure 환경 외부에서 로컬로 호스팅된 서비스는 최대 1MB 크기,
 
 <a name="describe_grammar-command"/>
 
-## <a name="describegrammar-command"></a>describe_grammar 명령
+## <a name="describe_grammar-command"></a>describe_grammar 명령
 
 **describe_grammar** 명령은 이진 문법을 빌드하는 데 사용되는 원래 문법 사양을 출력합니다.
 
 `kes.exe describe_grammar <grammarFile>`
 
-| 매개 변수       | 설명      |
+| 매개 변수       | Description      |
 |-----------------|------------------|
 | `<grammarFile>` | 입력 문법 경로 |
 

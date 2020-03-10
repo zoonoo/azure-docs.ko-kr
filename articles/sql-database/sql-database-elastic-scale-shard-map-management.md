@@ -12,11 +12,11 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.openlocfilehash: 8175563d8c1c2ec59b4195b2ede06f6e1dbf8556
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823551"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78387778"
 ---
 # <a name="scale-out-databases-with-the-shard-map-manager"></a>분할된 데이터베이스 맵 관리자를 사용하여 데이터베이스 확장
 
@@ -53,12 +53,12 @@ Elastic Scale은 분할 키로 다음의 형식을 지원합니다.
 
 | .NET | Java |
 | --- | --- |
-| 정수 |정수 |
+| integer |integer |
 | long |long |
-| GUID |uuid |
+| guid |uuid |
 | byte[]  |byte[] |
-| datetime | timestamp |
-| TimeSpan | duration|
+| Datetime | timestamp |
+| timespan | duration|
 | datetimeoffset |offsetdatetime |
 
 ### <a name="list-and-range-shard-maps"></a>목록 및 범위 분할된 데이터베이스 맵

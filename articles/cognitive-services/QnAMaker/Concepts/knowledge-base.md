@@ -4,11 +4,11 @@ description: QnA Maker 기술 자료는 QnA (질문과 대답) 집합 및 각 Qn
 ms.topic: conceptual
 ms.date: 01/27/2020
 ms.openlocfilehash: d47d994366a8057521c1cc2ab1ab8a7ec3393965
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76843364"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78389163"
 ---
 # <a name="importing-from-data-sources"></a>데이터 원본에서 가져오기
 
@@ -28,7 +28,7 @@ Chit chat QnA 콘텐츠 집합은 여러 언어 및 대화형 스타일로 전�
 
 기술 자료를 가져오면 기존 기술 자료의 콘텐츠가 바뀝니다. 가져오기에는 질문 및 대답이 포함 된 구조화 된 `.tsv` 파일이 필요 합니다. 이 정보를 통해 질문-답변 집합을 그룹화 하 고 특성을 특정 데이터 원본에 특성을 QnA Maker 수 있습니다.
 
-| 질문  | 답변  | 원본| 메타 데이터 (1 개 키: 1 값) |
+| 질문  | Answer  | 원본| 메타 데이터 (1 개 키: 1 값) |
 |-----------|---------|----|---------------------|
 | Question1 | Answer1 | Url1 | <code>Key1:Value1 &#124; Key2:Value2</code> |
 | Question2 | Answer2 | Editorial|    `Key:Value`       |

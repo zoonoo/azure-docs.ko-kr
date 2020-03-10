@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 10/06/2017
 ms.author: amanbha
 ms.openlocfilehash: b05da78091260297d94062c06cba100d01ce7e2e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75349333"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78389585"
 ---
 # <a name="actor-lifecycle-automatic-garbage-collection-and-manual-delete"></a>행위자 수명 주기, 자동 가비지 수집 및 수동 삭제
 행위자는 해당 메서드 중 하나가 처음 호출되면 활성화됩니다. 구성 가능한 기간 동안 사용되지 않으면 비활성화됩니다(행위자 런타임에 의한 가비지 수집). 행위자와 그 상태를 언제든지 수동으로 삭제할 수도 있습니다.
@@ -52,7 +52,7 @@ ms.locfileid: "75349333"
 * *스캔 간격*. 행위자 런타임이 비활성화 및 가비지 수집될 수 있는 행위자에 대해 해당 활성 행위자 테이블을 스캔하는 간격입니다. 기본값은 1분입니다.
 * *유휴 시간 제한*. 행위자가 비활성화 및 가비지 수집되기 전에 미사용(유휴) 상태를 유지해야 하는 시간입니다. 기본값은 60분입니다.
 
-일반적으로 이 기본값은 변경할 필요가 없습니다. 그러나 [행위자 서비스](service-fabric-reliable-actors-platform.md)를 등록할 때 필요한 경우 `ActorServiceSettings`를 통해 이러한 간격을 변경할 수 있습니다.
+일반적으로 이 기본값은 변경할 필요가 없습니다. 그러나 `ActorServiceSettings`행위자 서비스[를 등록할 때 필요한 경우 ](service-fabric-reliable-actors-platform.md)를 통해 이러한 간격을 변경할 수 있습니다.
 
 ```csharp
 public class Program

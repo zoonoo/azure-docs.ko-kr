@@ -15,11 +15,11 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: kumud
 ms.openlocfilehash: 1d30b35264707c59c899cc3a224e4affa2a4696e
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73161532"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78392072"
 ---
 # <a name="quickstart-create-a-virtual-network-using-powershell"></a>빠른 시작: PowerShell을 사용하여 가상 네트워크 만들기
 
@@ -59,7 +59,7 @@ $virtualNetwork = New-AzVirtualNetwork `
 
 ### <a name="add-a-subnet"></a>서브넷 추가
 
-Azure는 가상 네트워크 내의 서브넷에 리소스를 배포하므로 서브넷을 만들어야 합니다. [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig)를 사용하여 *default*라는 서브넷 구성을 만듭니다.
+Azure는 가상 네트워크 내의 서브넷에 리소스를 배포하므로 서브넷을 만들어야 합니다. *Add-AzVirtualNetworkSubnetConfig*를 사용하여 [default](/powershell/module/az.network/add-azvirtualnetworksubnetconfig)라는 서브넷 구성을 만듭니다.
 
 ```azurepowershell-interactive
 $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
@@ -155,7 +155,7 @@ mstsc /v:<publicIpAddress>
 
 1. *myVm1*의 원격 데스크톱에서 PowerShell을 엽니다.
 
-1. `ping myVm2`을 입력합니다.
+1. `ping myVm2`를 입력합니다.
 
     다음과 같은 메시지가 반환됩니다.
 

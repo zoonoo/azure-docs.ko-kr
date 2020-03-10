@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: spelluru
 ms.openlocfilehash: 28fb464714f464a4c0a8f5eaf304dcdd5d603c90
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759723"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78381011"
 ---
 # <a name="delete-a-lab-or-vm-in-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs의 랩에서 랩 또는 VM 삭제
 이 문서에서는 랩에서 랩 또는 VM을 삭제하는 방법에 대해 설명합니다.
@@ -40,10 +40,10 @@ ms.locfileid: "76759723"
     ![삭제 단추](media/devtest-lab-delete-lab-vm/delete-button.png)
 4. **확인** 페이지에서 랩의 **이름**을 입력하고 **삭제**를 선택합니다. 
 
-    ![확인](media/devtest-lab-delete-lab-vm/confirm-delete.png)
+    ![Confirm](media/devtest-lab-delete-lab-vm/confirm-delete.png)
 5. 작업 상태를 보려면 **알림** 아이콘(벨)을 선택합니다. 
 
-    ![알림](media/devtest-lab-delete-lab-vm/delete-status.png)
+    ![공지](media/devtest-lab-delete-lab-vm/delete-status.png)
 
  
 ## <a name="delete-a-vm-in-a-lab"></a>랩에서 VM 삭제

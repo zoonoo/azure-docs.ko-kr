@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/01/2018
 ms.author: spelluru
 ms.openlocfilehash: a9426c20ae23fd3dad4cdba25590ff2eac271896
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60311422"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78380937"
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Azure DevTest Labs에 소유자 및 사용자 추가
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab/player]
@@ -37,23 +37,23 @@ Azure DevTest Labs의 액세스는 [Azure 역할 기반 Access Control(RBAC)](..
 
 다음 표에는 이러한 각 역할의 사용자가 수행할 수 있는 작업에 대해 설명합니다.
 
-| **이 역할의 사용자가 수행할 수 있는 작업** | **DevTest Lab 사용자** | **소유자** | **참여자** |
+| **이 역할의 사용자가 수행할 수 있는 작업** | **DevTest Lab 사용자** | **소유자** | **기여자** |
 | --- | --- | --- | --- |
 | **랩 작업** | | | |
-| 랩에 사용자 추가 |아닙니다. |사용자 계정 컨트롤 |아닙니다. |
-| 비용 설정 업데이트 |아닙니다. |예 |예 |
+| 랩에 사용자 추가 |예 |yes |예 |
+| 비용 설정 업데이트 |예 |yes |yes |
 | **VM 기본 작업** | | | |
-| 사용자 지정 이미지 추가 및 제거 |아닙니다. |예 |예 |
-| 수식 추가, 업데이트 및 삭제 |예 |예 |예 |
-| Azure Marketplace 이미지를 허용 목록에 추가 |아닙니다. |예 |예 |
+| 사용자 지정 이미지 추가 및 제거 |예 |yes |yes |
+| 수식 추가, 업데이트 및 삭제 |yes |yes |yes |
+| Azure Marketplace 이미지를 허용 목록에 추가 |예 |yes |yes |
 | **VM 작업** | | | |
-| VM 만들기 |예 |예 |예 |
-| VM 시작, 중지 및 삭제 |사용자가 만든 VM만 |예 |예 |
-| VM 정책 업데이트 |아닙니다. |예 |예 |
-| VM에 데이터 디스크 추가/VM에서 데이터 디스크 제거 |사용자가 만든 VM만 |예 |예 |
+| VM 만들기 |yes |yes |yes |
+| VM 시작, 중지 및 삭제 |사용자가 만든 VM만 |yes |yes |
+| VM 정책 업데이트 |예 |yes |yes |
+| VM에 데이터 디스크 추가/VM에서 데이터 디스크 제거 |사용자가 만든 VM만 |yes |yes |
 | **아티팩트 작업** | | | |
-| 아티팩트 리포지토리 추가 및 제거 |아닙니다. |예 |예 |
-| 아티팩트 적용 |예 |예 |예 |
+| 아티팩트 리포지토리 추가 및 제거 |예 |yes |yes |
+| 아티팩트 적용 |yes |yes |yes |
 
 > [!NOTE]
 > 사용자가 VM을 만들면 해당 사용자는 만든 VM의 **소유자** 역할에 자동으로 할당됩니다.
@@ -71,7 +71,7 @@ Azure Portal을 통해 랩 수준에서 소유자 및 사용자를 추가할 수
 5. **구성 및 정책** 페이지의 왼쪽 메뉴에서 **액세스 제어(IAM)** 를 선택합니다. 
 6. 도구 모음의 **역할 할당 추가**를 선택하여 역할에 사용자를 추가합니다.
 1. **권한 추가** 창에서 다음 작업을 수행합니다. 
-    1. 역할을 선택합니다(예: DevTest Lab 사용자). [각 역할에서 수행할 수 있는 작업](#actions-that-can-be-performed-in-each-role) 섹션에서 소유자, DevTest 사용자 및 참여자 역할의 사용자가 수행할 수 있는 다양한 작업을 나열합니다.
+    1. 역할을 선택합니다(예: DevTest Labs 사용자). [각 역할에서 수행할 수 있는 작업](#actions-that-can-be-performed-in-each-role) 섹션에서 소유자, DevTest 사용자 및 참여자 역할의 사용자가 수행할 수 있는 다양한 작업을 나열합니다.
     2. 역할에 추가할 사용자를 선택합니다. 
     3. **저장**을 선택합니다. 
 11. **사용자** 블레이드로 돌아가면 사용자가 추가되어 있습니다.  

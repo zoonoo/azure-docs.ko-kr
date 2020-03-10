@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/10/2019
 ms.author: cynthn
 ms.openlocfilehash: 70fff041cd693a19269b11398947fb0c8ce56bb1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75350675"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78385041"
 ---
 # <a name="create-a-linux-vm-from-a-custom-disk-with-the-azure-cli"></a>Azure CLI를 사용하여 사용자 지정 디스크에서 Linux VM 만들기
 
@@ -40,7 +40,7 @@ ms.locfileid: "75350675"
 
 - Azure에서 사용하기 위해 준비된 Linux 가상 컴퓨터 이 문서의 [VM 준비](#prepare-the-vm) 섹션에서는 SSH를 통해 VM에 연결하는 데 필요한 Azure Linux 에이전트(waagent) 설치에 대한 배포판 관련 정보를 찾는 방법에 대해 설명합니다.
 - 기존 [Azure 보증 Linux 배포판](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에서 VHD 형식으로 가상 디스크에 VHD 파일(또는 [보증되지 않는 배포에 대한 정보](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 참조) VM과 VHD를 만드는 도구는 여러 가지가 있습니다.
-  - [QEMU](https://en.wikibooks.org/wiki/QEMU/Installing_QEMU) 또는 [KVM](https://www.linux-kvm.org/page/RunningKVM)을 설치 및 구성하고 VHD를 이미지 형식으로 사용하도록 주의합니다. 필요한 경우 `qemu-img convert`를 사용하여 [이미지를 변환](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats)할 수 있습니다.
+  - [QEMU](https://en.wikibooks.org/wiki/QEMU/Installing_QEMU) 또는 [KVM](https://www.linux-kvm.org/page/RunningKVM)을 설치 및 구성하고 VHD를 이미지 형식으로 사용하도록 주의합니다. 필요한 경우 [를 사용하여 ](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats)이미지를 변환`qemu-img convert`할 수 있습니다.
   - 또한 [Windows 10](https://msdn.microsoft.com/virtualization/hyperv_on_windows/quick_start/walkthrough_install) 또는 [Windows Server 2012/2012 R2](https://technet.microsoft.com/library/hh846766.aspx)에서 Hyper-V를 사용할 수 있습니다.
 
 > [!NOTE]
@@ -70,7 +70,7 @@ Azure에서는 다양한 Linux 배포를 지원합니다( [보증 배포판](end
 또한 Azure용 Linux 이미지를 준비하는 방법에 대한 일반적인 추가 팁은 [Linux 설치 참고 사항](create-upload-generic.md#general-linux-installation-notes)을 참조하세요.
 
 > [!NOTE]
-> [Azure의 Linux 보증 배포판](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)의 "지원되는 버전"에 지정된 보증 배포 중 하나가 구성 세부 정보와 함께 사용되는 경우에만 [Azure 플랫폼 SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/)가 Linux를 실행하는 VM에 적용됩니다.
+> [Azure의 Linux 보증 배포판](https://azure.microsoft.com/support/legal/sla/virtual-machines/)의 "지원되는 버전"에 지정된 보증 배포 중 하나가 구성 세부 정보와 함께 사용되는 경우에만 [Azure 플랫폼 SLA](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)가 Linux를 실행하는 VM에 적용됩니다.
 > 
 > 
 

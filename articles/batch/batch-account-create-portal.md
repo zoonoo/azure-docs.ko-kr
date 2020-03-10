@@ -15,11 +15,11 @@ ms.date: 02/26/2019
 ms.author: labrenne
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 3723631609a04f6d12abcaac1f9d7733bf3caa01
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77048650"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78394904"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Azure Portal에서 Batch 계정 만들기
 
@@ -45,9 +45,9 @@ Batch 계정 및 시나리오에 대한 배경은 [기능 개요](batch-api-basi
 
     b. **리소스 그룹**: 새 Batch 계정에 대한 기존 리소스 그룹을 선택하거나 필요에 따라 새 리소스 그룹을 만듭니다.
 
-    c. **계정 이름**: 선택한 이름은 계정을 만든 Azure 지역 내에서 고유해야 합니다(아래 **위치** 참조). 계정 이름은 소문자 또는 숫자만 포함할 수 있으며 길이는 3-24자여야 합니다.
+    다. **계정 이름**: 선택한 이름은 계정을 만든 Azure 지역 내에서 고유해야 합니다(아래 **위치** 참조). 계정 이름은 소문자 또는 숫자만 포함할 수 있으며 길이는 3-24자여야 합니다.
 
-    . **위치**: Batch 계정을 만들 Azure 지역입니다. 구독 및 리소스 그룹에서 지원하는 지역만 옵션으로 표시됩니다.
+    d. **위치**: Batch 계정을 만들 Azure 지역입니다. 구독 및 리소스 그룹에서 지원하는 지역만 옵션으로 표시됩니다.
 
     e. **Storage 계정**: Batch 계정과 연결 하는 선택적 Azure Storage 계정입니다. 최상의 성능을 위해 범용 v2 스토리지 계정이 권장됩니다. Batch의 모든 스토리지 계정 옵션은 [Batch 기능 개요](batch-api-basics.md#azure-storage-account)를 참조하세요. 포털에서 기존 스토리지 계정을 선택하거나 새 스토리지 계정을 만듭니다.
 

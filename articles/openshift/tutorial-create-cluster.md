@@ -7,11 +7,11 @@ ms.topic: tutorial
 ms.service: container-service
 ms.date: 11/04/2019
 ms.openlocfilehash: 0e6aecccc19572ee980feb4d816fae1f2b0101b7
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76274895"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78381430"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-cluster"></a>자습서: Azure Red Hat OpenShift 클러스터 만들기
 
@@ -42,7 +42,7 @@ ms.locfileid: "76274895"
 - 보안 그룹 만들기
 - 클러스터에 로그인하기 위한 Active Directory 사용자 만들기
 
-## <a name="step-1-sign-in-to-azure"></a>1단계: Azure에 로그인
+## <a name="step-1-sign-in-to-azure"></a>1 단계: Azure에 로그인
 
 Azure CLI를 로컬로 실행하는 경우 Bash 명령 셸을 열고 `az login`을 실행하여 Azure에 로그인합니다.
 
@@ -52,7 +52,7 @@ az login
 
  여러 구독에 액세스할 수 있으면 `az account set -s {subscription ID}`에서 `{subscription ID}`를 사용하려는 구독으로 바꿔서 실행합니다.
 
-## <a name="step-2-create-an-azure-red-hat-openshift-cluster"></a>2단계: Azure Red Hat OpenShift 클러스터 만들기
+## <a name="step-2-create-an-azure-red-hat-openshift-cluster"></a>2 단계: Azure Red Hat OpenShift 클러스터 만들기
 
 Bash 명령 창에서 다음 변수를 설정합니다.
 
@@ -99,7 +99,7 @@ TENANT=<tenant ID>
 az group create --name $CLUSTER_NAME --location $LOCATION
 ```
 
-### <a name="optional-connect-the-clusters-virtual-network-to-an-existing-virtual-network"></a>선택 사항: 클러스터의 가상 네트워크를 기존 가상 네트워크에 연결
+### <a name="optional-connect-the-clusters-virtual-network-to-an-existing-virtual-network"></a>선택 사항: 클러스터의 가상 네트워크를 기존 가상 네트워크에 연결 합니다.
 
 지금 만들고 있는 클러스터의 가상 네트워크(VNET)를 피어링을 통해 기존 VNET에 연결할 필요가 없으면 이 단계를 건너뜁니다.
 
@@ -119,7 +119,7 @@ VNET_ID=$(az network vnet show -n {VNET name} -g {VNET resource group} --query i
 
 예: `VNET_ID=$(az network vnet show -n MyVirtualNetwork -g MyResourceGroup --query id -o tsv`
 
-### <a name="optional-connect-the-cluster-to-azure-monitoring"></a>선택 사항: 클러스터를 Azure 모니터링에 연결
+### <a name="optional-connect-the-cluster-to-azure-monitoring"></a>선택 사항: 클러스터를 Azure 모니터링에 연결 합니다.
 
 먼저, **기존** 로그 분석 작업 영역의 식별자를 가져옵니다. 식별자는 다음 형식입니다.
 
@@ -180,17 +180,17 @@ az openshift show -n $CLUSTER_NAME -g $CLUSTER_NAME
 
 클러스터의 로그인 URL은 `https://` + `publicHostName` 값입니다.  예: `https://openshift.xxxxxxxxxxxxxxxxxxxx.eastus.azmosa.io`  이 URI는 다음 단계에서 앱 등록 리디렉션 URI의 일부로 사용합니다.
 
-## <a name="step-3-update-your-app-registration-redirect-uri"></a>3단계: 앱 등록 리디렉션 URI 업데이트
+## <a name="step-3-update-your-app-registration-redirect-uri"></a>3 단계: 앱 등록 리디렉션 URI 업데이트
 
 이제 클러스터의 로그인 URL을 확보했으므로 앱 등록 리디렉션 UI를 설정합니다.
 
 1. [앱 등록 블레이드](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview)를 엽니다.
 2. 앱 등록 개체를 클릭합니다.
 3. **리디렉션 URI 추가**를 클릭합니다.
-4. **TYPE**이 **Web**인지 확인하고, 패턴 `https://<public host name>/oauth2callback/Azure%20AD`를 사용하여 **리디렉션 URI**를 설정합니다. 예: `https://openshift.xxxxxxxxxxxxxxxxxxxx.eastus.azmosa.io/oauth2callback/Azure%20AD`
+4. **TYPE**이 **Web**인지 확인하고, 패턴 **를 사용하여** 리디렉션 URI`https://<public host name>/oauth2callback/Azure%20AD`를 설정합니다. 예: `https://openshift.xxxxxxxxxxxxxxxxxxxx.eastus.azmosa.io/oauth2callback/Azure%20AD`
 5. 페이지 맨 아래에 있는 **저장**
 
-## <a name="step-4-sign-in-to-the-openshift-console"></a>4단계: OpenShift 콘솔에 로그인
+## <a name="step-4-sign-in-to-the-openshift-console"></a>4 단계: OpenShift 콘솔에 로그인
 
 이제 새 클러스터의 OpenShift 콘솔에 로그인할 준비가 되었습니다. [OpenShift 웹 콘솔](https://docs.openshift.com/aro/architecture/infrastructure_components/web_console.html)에서는 OpenShift 프로젝트의 콘텐츠를 시각화, 탐색 및 관리할 수 있습니다.
 
@@ -207,9 +207,9 @@ az openshift show -n $CLUSTER_NAME -g $CLUSTER_NAME
 
 ![OpenShift 클러스터 콘솔의 스크린샷](./media/aro-console.png)
 
- [Red Hat OpenShift](https://docs.openshift.com/aro/welcome/index.html) 설명서에서 [OpenShift 콘솔을 사용](https://docs.openshift.com/aro/getting_started/developers_console.html)하여 이미지를 만들고 빌드하는 방법을 자세히 알아보세요.
+ [Red Hat OpenShift](https://docs.openshift.com/aro/getting_started/developers_console.html) 설명서에서 [OpenShift 콘솔을 사용](https://docs.openshift.com/aro/welcome/index.html)하여 이미지를 만들고 빌드하는 방법을 자세히 알아보세요.
 
-## <a name="step-5-install-the-openshift-cli"></a>5단계: OpenShift CLI 설치
+## <a name="step-5-install-the-openshift-cli"></a>5 단계: OpenShift CLI 설치
 
 [OpenShift CLI](https://docs.openshift.com/aro/cli_reference/get_started_cli.html)(또는 *OC 도구*)는 OpenShift 클러스터의 다양한 구성 요소와 상호 작용하는 데 사용되는 애플리케이션 및 하위 수준 유틸리티를 관리할 수 있는 명령을 제공합니다.
 

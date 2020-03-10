@@ -12,11 +12,11 @@ ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 06/19/2019
 ms.openlocfilehash: b88557468c386bc07c2432e154a82fd1f4fcb438
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78194305"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78380009"
 ---
 # <a name="tutorial-add-an-azure-sql-database-single-database-to-a-failover-group"></a>자습서: 단일 데이터베이스를 장애 조치 (failover) 그룹에 추가 Azure SQL Database
 
@@ -27,25 +27,25 @@ Azure SQL Database 단일 데이터베이스에 대 한 장애 조치 그룹을 
 > - 두 논리 SQL server 간에 단일 데이터베이스에 대 한 [장애 조치 (failover) 그룹](sql-database-auto-failover-group.md) 을 만듭니다.
 > - 테스트 장애 조치 (failover)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 이 자습서를 완료하려면 다음이 설치되어 있어야 합니다. 
 
-- Azure 구독. 아직 없는 경우 [무료 계정을 만듭니다](https://azure.microsoft.com/free/) .
+- Azure 구독 아직 없는 경우 [무료 계정을 만듭니다](https://azure.microsoft.com/free/) .
 
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 자습서를 완료 하려면 다음 항목이 있는지 확인 합니다.
 
-- Azure 구독. 아직 없는 경우 [무료 계정을 만듭니다](https://azure.microsoft.com/free/) .
+- Azure 구독 아직 없는 경우 [무료 계정을 만듭니다](https://azure.microsoft.com/free/) .
 - [Azure PowerShell](/powershell/azureps-cmdlets-docs)
 
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 자습서를 완료 하려면 다음 항목이 있는지 확인 합니다.
 
-- Azure 구독. 아직 없는 경우 [무료 계정을 만듭니다](https://azure.microsoft.com/free/) .
+- Azure 구독 아직 없는 경우 [무료 계정을 만듭니다](https://azure.microsoft.com/free/) .
 - 최신 버전의 [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)입니다. 
 
 ---
@@ -157,7 +157,7 @@ PowerShell을 사용 하 여 장애 조치 그룹을 만들고 단일 데이터�
 
 자습서의이 부분에서는 다음 PowerShell cmdlet을 사용 합니다.
 
-| 명령 | 참고 |
+| 명령 | 메모 |
 |---|---|
 | [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | 단일 데이터베이스 및 탄력적 풀을 호스트하는 SQL Database 서버를 만듭니다. |
 | [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) | 논리 서버에 대한 방화벽 규칙을 만듭니다. | 
@@ -188,7 +188,7 @@ AZ CLI를 사용 하 여 장애 조치 그룹을 만들고 단일 데이터베�
 
 자습서의이 부분에서는 다음 Az CLI cmdlet을 사용 합니다.
 
-| 명령 | 참고 |
+| 명령 | 메모 |
 |---|---|
 | [az sql server create](/cli/azure/sql/server#az-sql-server-create) | 단일 데이터베이스 및 탄력적 풀을 호스트하는 SQL Database 서버를 만듭니다. |
 | [az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule) | 서버의 방화벽 규칙을 만듭니다. | 
@@ -277,7 +277,7 @@ PowerShell을 사용 하 여 테스트 장애 조치 (failover)
 
 자습서의이 부분에서는 다음 PowerShell cmdlet을 사용 합니다.
 
-| 명령 | 참고 |
+| 명령 | 메모 |
 |---|---|
 | [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) | Azure SQL Database 장애 조치(failover) 그룹을 가져오거나 나열합니다. |
 | [Switch-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/switch-azsqldatabasefailovergroup)| Azure SQL Database 장애 조치(failover) 그룹의 장애 조치(failover)를 실행합니다. |
@@ -313,7 +313,7 @@ AZ CLI를 사용 하 여 테스트 장애 조치 (failover)
 
 자습서의이 부분에서는 다음 Az CLI cmdlet을 사용 합니다.
 
-| 명령 | 참고 |
+| 명령 | 메모 |
 |---|---|
 | [az sql failover-group list](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-list) | 서버에 있는 장애 조치(failover) 그룹을 나열합니다. |
 | [az sql failover-group set-primary](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-set-primary) | 현재 주 서버의 모든 데이터베이스를 장애 조치(failover)하여 주 장애 조치(failover) 그룹을 설정합니다. | 
@@ -346,7 +346,7 @@ PowerShell을 사용 하 여 리소스 그룹을 삭제 합니다.
 
 자습서의이 부분에서는 다음 PowerShell cmdlet을 사용 합니다.
 
-| 명령 | 참고 |
+| 명령 | 메모 |
 |---|---|
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | 리소스 그룹을 제거합니다. | 
 
@@ -363,7 +363,7 @@ AZ CLI를 사용 하 여 리소스 그룹을 삭제 합니다.
 
 자습서의이 부분에서는 다음 Az CLI cmdlet을 사용 합니다.
 
-| 명령 | 참고 |
+| 명령 | 메모 |
 |---|---|
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az-vm-extension-set) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 
@@ -382,7 +382,7 @@ AZ CLI를 사용 하 여 리소스 그룹을 삭제 합니다.
 
 이 스크립트는 다음 명령을 사용합니다. 테이블에 있는 각 명령은 명령에 해당하는 문서에 연결됩니다.
 
-| 명령 | 참고 |
+| 명령 | 메모 |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | 단일 데이터베이스 및 탄력적 풀을 호스트하는 SQL Database 서버를 만듭니다. |
@@ -401,7 +401,7 @@ AZ CLI를 사용 하 여 리소스 그룹을 삭제 합니다.
 
 이 스크립트는 다음 명령을 사용합니다. 테이블에 있는 각 명령은 명령에 해당하는 문서에 연결됩니다.
 
-| 명령 | 참고 |
+| 명령 | 메모 |
 |---|---|
 | [az account set](/cli/azure/account?view=azure-cli-latest#az-account-set) | 현재 활성 구독이 되도록 구독을 설정합니다. | 
 | [az group create](/cli/azure/group#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |

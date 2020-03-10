@@ -5,11 +5,11 @@ ms.date: 11/20/2019
 ms.topic: article
 ms.reviewer: janders
 ms.openlocfilehash: 4a9a4f660dd171e65b600ec4cd66714ca476b091
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74326315"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78395235"
 ---
 # <a name="configure-azure-blockchain-service-transaction-nodes"></a>Azure Blockchain 서비스 트랜잭션 노드 구성
 
@@ -35,9 +35,9 @@ ms.locfileid: "74326315"
 
     ![트랜잭션 노드 추가](./media/configure-transaction-nodes/add-node.png)
 
-    | 설정 | 설명 |
+    | 설정 | Description |
     |---------|-------------|
-    | 이름 | 트랜잭션 노드 이름입니다. 트랜잭션 노드 엔드포인트에 대한 DNS 주소를 만드는 데 사용됩니다. 예: `newnode-myblockchainmember.blockchain.azure.com`. 노드 이름을 만든 후에는 변경할 수 없습니다. |
+    | 속성 | 트랜잭션 노드 이름입니다. 트랜잭션 노드 엔드포인트에 대한 DNS 주소를 만드는 데 사용됩니다. `newnode-myblockchainmember.blockchain.azure.com`)을 입력합니다. 노드 이름을 만든 후에는 변경할 수 없습니다. |
     | 암호 | 강력한 암호를 설정 합니다. 기본 인증을 사용 하 여 트랜잭션 노드 끝점에 액세스 하려면 암호를 사용 합니다.
 
 1. **만들기**를 선택합니다.
@@ -56,7 +56,7 @@ ms.locfileid: "74326315"
 
 트랜잭션 노드 끝점은 안전 하며 인증을 요구 합니다. Azure AD 인증, HTTPS 기본 인증을 사용 하 고 HTTPS 또는 SSL을 통해 Websocket을 통해 액세스 키를 사용 하 여 트랜잭션 끝점에 연결할 수 있습니다.
 
-### <a name="azure-active-directory-access-control"></a>Azure Active Directory 액세스 제어
+### <a name="azure-active-directory-access-control"></a>Azure Active Directory access control
 
 Azure Blockchain 서비스 트랜잭션 노드 끝점은 Azure AD (Azure Active Directory) 인증을 지원 합니다. Azure AD 사용자, 그룹 및 서비스 사용자에 게 끝점에 대 한 액세스 권한을 부여할 수 있습니다.
 
@@ -71,7 +71,7 @@ Azure Blockchain 서비스 트랜잭션 노드 끝점은 Azure AD (Azure Active 
     |---------|-------------|
     | 역할 | **소유자**, **참가자**또는 **읽기 권한자**를 선택 합니다.
     | 다음에 대한 액세스 할당 | **AZURE AD 사용자, 그룹 또는 서비스 주체**를 선택 합니다.
-    | 선택 | 추가 하려는 사용자, 그룹 또는 서비스 주체를 검색 합니다.
+    | 여기서 | 추가 하려는 사용자, 그룹 또는 서비스 주체를 검색 합니다.
 
 1. **저장** 을 선택 하 여 역할 할당을 추가 합니다.
 
@@ -121,7 +121,7 @@ URL을 사용 하려면 \<password\>를 노드가 프로 비전 될 때 설정 �
 
 ![연결 문자열](./media/configure-transaction-nodes/connection-strings.png)
 
-## <a name="sample-code"></a>샘플 코드
+## <a name="sample-code"></a>예제 코드
 
 Web3, Nethereum, Web3js 및 Truffle를 통해 트랜잭션 노드에 대 한 연결을 신속 하 게 설정 하기 위해 샘플 코드가 제공 됩니다.
 
@@ -129,7 +129,7 @@ Web3, Nethereum, Web3js 및 Truffle를 통해 트랜잭션 노드에 대 한 연
 
 Web3, Nethereum, Truffle 또는 Web3j 탭을 선택 하 여 사용 하려는 코드 샘플을 확인 합니다.
 
-![샘플 코드](./media/configure-transaction-nodes/sample-code.png)
+![예제 코드](./media/configure-transaction-nodes/sample-code.png)
 
 ## <a name="next-steps"></a>다음 단계
 

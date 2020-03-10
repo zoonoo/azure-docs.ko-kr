@@ -11,11 +11,11 @@ ms.date: 06/07/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 51adbb74635f66ca86347b536dc2607566dcb725
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78183570"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78389915"
 ---
 # <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C에서 사용자 흐름 만들기
 
@@ -32,7 +32,7 @@ ms.locfileid: "78183570"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 만들려는 사용자 흐름에 속하는 [애플리케이션을 등록](tutorial-register-applications.md)합니다.
 

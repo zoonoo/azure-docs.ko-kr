@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/11/2018
 ms.openlocfilehash: 01f2644874da032b95162f3f5721ab9dbea74265
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75974706"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78393437"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>온-프레미스 SQL Server 데이터베이스에서 Azure Blob Storage로 데이터 복사
 이 자습서에서는 Azure Data Factory UI(사용자 인터페이스)를 사용하여 온-프레미스 SQL Server 데이터베이스에서 Azure Blob Storage로 데이터를 복사하는 데이터 팩터리 파이프라인을 만듭니다. 온-프레미스와 클라우드 데이터 저장소 간에 데이터를 이동하는, 자체 호스팅된 통합 런타임을 생성하고 사용합니다.
@@ -227,13 +227,13 @@ ms.locfileid: "75974706"
 
 ## <a name="monitor-the-pipeline-run"></a>파이프라인 실행을 모니터링합니다.
 
-1. **모니터** 탭으로 이동합니다. 이전 단계에서 수동으로 트리거한 파이프라인이 표시됩니다.
+1. **모니터** 탭으로 이동 합니다. 이전 단계에서 수동으로 트리거한 파이프라인이 표시 됩니다.
 
     ![파이프라인 실행 모니터링](./media/tutorial-hybrid-copy-portal/pipeline-runs.png)
 1. 파이프라인 실행과 연결된 활동 실행을 보려면 **작업** 열에서 **활동 실행 보기** 링크를 선택합니다. 파이프라인에는 하나의 활동만 있으므로 활동 실행만 표시됩니다. 복사 활동에 대한 세부 정보를 보려면 **작업** 열에서 **세부 정보** 링크(안경 아이콘)를 선택합니다. 파이프라인 실행 보기로 돌아가려면 위쪽의 **파이프라인 실행**을 선택합니다.
 
 ## <a name="verify-the-output"></a>출력 확인
-파이프라인은 자동으로 `adftutorial` Blob 컨테이너에서 *fromonprem*이라는 출력 폴더를 만듭니다. 출력 폴더에서 *[pipeline().RunId].txt* 파일이 표시되는지 확인합니다.
+파이프라인은 자동으로 *Blob 컨테이너에서*fromonprem`adftutorial`이라는 출력 폴더를 만듭니다. 출력 폴더에서 *[pipeline().RunId].txt* 파일이 표시되는지 확인합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: aprameyr
 ms.openlocfilehash: cf21af43de553a2802289e44eaece12952d077d3
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75614607"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78391384"
 ---
 # <a name="replicas-and-instances"></a>복제본 및 인스턴스 
 이 문서에서는 상태 저장 서비스의 복제본과 상태 비저장 서비스의 인스턴스 수명 주기에 대한 개요를 제공합니다.
@@ -37,7 +37,7 @@ ms.locfileid: "75614607"
 삭제됨 상태에서는 인스턴스가 더 이상 노드에서 실행되지 않습니다. 이 시점에서 Service Fabric은 해당 인스턴스에 대한 메타데이터를 유지 관리합니다(결과적으로는 역시 삭제됨).
 
 > [!NOTE]
-> 어느 상태에서나 `Remove-ServiceFabricReplica`의 **ForceRemove** 옵션을 사용하여 삭제됨 상태로 전환할 수 있습니다.
+> 어느 상태에서나 **의** ForceRemove`Remove-ServiceFabricReplica` 옵션을 사용하여 삭제됨 상태로 전환할 수 있습니다.
 >
 
 ## <a name="replicas-of-stateful-services"></a>상태 저장 서비스 복제본
@@ -101,7 +101,7 @@ StandBy 복제본은 다운되었다가 열린 지속형 서비스의 복제본�
 >
 
 > [!NOTE]
-> 어느 상태에서나 `Remove-ServiceFabricReplica`의 **ForceRemove** 옵션을 사용하여 삭제됨 상태로 전환할 수 있습니다.
+> 어느 상태에서나 **의** ForceRemove`Remove-ServiceFabricReplica` 옵션을 사용하여 삭제됨 상태로 전환할 수 있습니다.
 >
 
 ## <a name="replica-role"></a>복제본 역할 

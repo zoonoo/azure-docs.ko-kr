@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 08/21/2019
 ms.author: philmea
 ms.openlocfilehash: 173be8207df2f0128dfc9ae3c36aa3c3dc392bee
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748561"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78392538"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>IoT Hub 고가용성 및 재해 복구
 
@@ -125,9 +125,9 @@ IoT 솔루션으로 배포 토폴로지를 완벽하게 수행하는 것은 이 
 
 | HA/DR 옵션 | RTO | RPO | 수동 개입 필요 여부 | 구현 복잡성 | 추가 비용 영향|
 | --- | --- | --- | --- | --- | --- |
-| Microsoft 시작 장애 조치 |2~26시간|위의 RPO 표 참조|아니요|없음|없음|
-| 수동 장애 조치(failover) |10분~2시간|위의 RPO 표 참조|예|매우 낮음. 포털에서 이 작업을 트리거하기만 하면 됩니다.|없음|
-| 지역 간 HA |1분 미만|사용자 지정 HA 솔루션의 복제 빈도에 따라 다름|아니요|높음|> IoT Hub 1개의 비용 미만|
+| Microsoft 시작 장애 조치 |2~26시간|위의 RPO 표 참조|예|None|None|
+| 수동 장애 조치(failover) |10분~2시간|위의 RPO 표 참조|yes|매우 낮음. 포털에서 이 작업을 트리거하기만 하면 됩니다.|None|
+| 지역 간 HA |1분 미만|사용자 지정 HA 솔루션의 복제 빈도에 따라 다름|예|높음|> IoT Hub 1개의 비용 미만|
 
 ## <a name="next-steps"></a>다음 단계
 

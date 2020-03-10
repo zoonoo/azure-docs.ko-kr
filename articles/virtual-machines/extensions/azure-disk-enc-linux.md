@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 06/10/2019
 ms.author: ejarvi
 ms.openlocfilehash: 4fa7f7d1419a8cd1006a632ba67587ab3434bf5a
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073803"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78383278"
 ---
 # <a name="azure-disk-encryption-for-linux-microsoftazuresecurityazurediskencryptionforlinux"></a>Linux용 Azure Disk Encryption(Microsoft.Azure.Security.AzureDiskEncryptionForLinux)
 
@@ -26,7 +26,7 @@ ms.locfileid: "74073803"
 
 Azure Disk Encryption은 Linux에서 dm-crypt 서브 시스템을 활용하여 [Azure Linux 배포판 선택](https://aka.ms/adelinux)에서 전체 디스크 암호화를 제공합니다.  이 솔루션은 Azure Key Vault와 통합되어 디스크 암호화 키와 비밀을 관리합니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 필수 구성 요소의 전체 목록은 [Linux vm에 대 한 Azure Disk Encryption](../linux/disk-encryption-overview.md), 특히 다음 섹션을 참조 하세요.
 
@@ -69,7 +69,7 @@ V 1.1 스키마를 권장 하며 Azure Active Directory 속성이 필요 하지 
 
 0\.1 스키마에 `aadClientID` `aadClientSecret` 또는 `AADClientCertificate`필요 합니다.
 
-`aadClientSecret`을 사용할 경우 다음을 실행합니다.
+`aadClientSecret`사용:
 
 ```json
 {
@@ -99,7 +99,7 @@ V 1.1 스키마를 권장 하며 Azure Active Directory 속성이 필요 하지 
 }
 ```
 
-`AADClientCertificate`을 사용할 경우 다음을 실행합니다.
+`AADClientCertificate`사용:
 
 ```json
 {
@@ -132,23 +132,23 @@ V 1.1 스키마를 권장 하며 Azure Active Directory 속성이 필요 하지 
 
 ### <a name="property-values"></a>속성 값
 
-| 이름 | 값/예제 | 데이터 형식 |
+| 속성 | 값/예제 | 데이터 형식 |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| publisher | Microsoft.Azure.Security | string |
-| type | AzureDiskEncryptionForLinux | string |
+| publisher | Microsoft.Azure.Security | 문자열 |
+| type | AzureDiskEncryptionForLinux | 문자열 |
 | typeHandlerVersion | 0.1, 1.1 | int |
-| (0.1 스키마) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | GUID | 
-| (0.1 스키마) AADClientSecret | password | string |
-| (0.1 스키마) AADClientCertificate | thumbprint | string |
+| (0.1 스키마) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | guid | 
+| (0.1 스키마) AADClientSecret | password | 문자열 |
+| (0.1 스키마) AADClientCertificate | thumbprint | 문자열 |
 | DiskFormatQuery | {"dev_path":"","name":"","file_system":""} | JSON 사전 |
-| EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | string | 
-| KeyEncryptionAlgorithm | 'RSA-OAEP', 'RSA-OAEP-256', 'RSA1_5' | string |
-| KeyEncryptionKeyURL | URL | string |
-| 필드 KeyVaultURL | URL | string |
-| Passphrase | password | string | 
-| SequenceVersion | uniqueidentifier | string |
-| VolumeType | OS, Data, All | string |
+| EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | 문자열 | 
+| KeyEncryptionAlgorithm | 'RSA-OAEP', 'RSA-OAEP-256', 'RSA1_5' | 문자열 |
+| KeyEncryptionKeyURL | url | 문자열 |
+| 필드 KeyVaultURL | url | 문자열 |
+| 암호 | password | 문자열 | 
+| SequenceVersion | uniqueidentifier | 문자열 |
+| VolumeType | OS, Data, All | 문자열 |
 
 ## <a name="template-deployment"></a>템플릿 배포
 

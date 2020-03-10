@@ -10,13 +10,13 @@ ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
 ms.openlocfilehash: 676f1133a516174478a456a97bc467e7770fe6e7
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888885"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78392168"
 ---
-# <a name="tutorial-detect-issues-with-devices-connected-to-your-monitoring-solution"></a>자습서: 모니터링 솔루션에 연결된 디바이스를 사용하여 문제 감지
+# <a name="tutorial-detect-issues-with-devices-connected-to-your-monitoring-solution"></a>자습서: 모니터링 솔루션에 연결된 디바이스를 사용하여 문제 검색
 
 이 자습서에서는 연결된 IoT 디바이스를 사용하여 문제를 검색하도록 원격 모니터링 솔루션 가속기를 구성할 수 있습니다. 디바이스를 사용하여 문제를 검색하려면 솔루션 대시보드에서 경고를 생성하는 규칙을 추가합니다.
 
@@ -54,7 +54,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 | 설정          | 값                                 |
 | ---------------- | ------------------------------------- |
 | 규칙 이름        | 냉각기 경고                       |
-| 설명      | 냉각기 압력이 150PSI를 초과함 |
+| Description      | 냉각기 압력이 150PSI를 초과함 |
 | 디바이스 그룹     | **냉각기** 디바이스 그룹             |
 | 계산      | 인스턴트                               |
 | 조건 1 필드| pressure                              |
@@ -77,14 +77,14 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 | 설정          | 값                                 |
 | ---------------- | ------------------------------------- |
 | 규칙 이름        | 냉각기 습도 및 온도 위험    |
-| 설명      | 습도 및 온도가 중요함 |
+| Description      | 습도 및 온도가 중요함 |
 | 디바이스 그룹     | **냉각기** 디바이스 그룹             |
 | 계산      | 평균                               |
 | 기간      | 5                                     |
 | 조건 1 필드| humidity                              |
 | 조건 1 연산자 | 초과                      |
 | 조건 1 값    | 80                                |
-| 심각도 수준  | 중요                              |
+| 심각도 수준  | 위험                              |
 
 [![여러 조건 규칙 만들기 파트 1](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_mult_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_mult_v2-expanded.png#lightbox)
 

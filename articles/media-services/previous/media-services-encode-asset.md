@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 06/25/2019
 ms.author: juliako
 ms.openlocfilehash: d5d5b8a7328ee82e94d494795617832cb0258667
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74901509"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78392987"
 ---
 # <a name="overview-of-azure-on-demand-media-encoders"></a>Azure 주문형 미디어 인코더 개요 
 
@@ -37,7 +37,7 @@ Azure Media Services 계정이 만들어지면 **기본** 스트리밍 엔드포
 Media Services는 이 문서에서 설명하는 다음 주문형 인코더를 지원합니다.
 
 * [미디어 인코더 표준](media-services-encode-asset.md#media-encoder-standard)
-* [Media Encoder Premium 워크플로](media-services-encode-asset.md#media-encoder-premium-workflow)
+* [미디어 인코더 Premium 워크플로](media-services-encode-asset.md#media-encoder-premium-workflow)
 
 이 문서에서는 주문형 미디어 인코더에 대한 간략한 개요와 보다 자세한 정보를 제공하는 문서에 대한 링크를 제공합니다. 또한 항목에서는 인코더에 대한 비교를 제공합니다.
 
@@ -86,7 +86,7 @@ Media Services는 이 문서에서 설명하는 다음 주문형 인코더를 �
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>피드백 제공하기
+## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-articles"></a>관련 문서

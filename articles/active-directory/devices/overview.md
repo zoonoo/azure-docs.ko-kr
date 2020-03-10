@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d593e5f27dbcd676e2b42975251778a6c48a7d79
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
-ms.translationtype: HT
+ms.openlocfilehash: 594f0ed55b5ce5c31e87fd2011f3bc1522a12380
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76511878"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78378277"
 ---
 # <a name="what-is-a-device-identity"></a>디바이스 ID란?
 
@@ -37,16 +37,16 @@ ms.locfileid: "76511878"
 Azure AD에서 디바이스를 가져올 수 있는 여러 가지 옵션이 있습니다.
 
 - **Azure AD 등록**
-   - Azure AD 등록 상태의 디바이스는 일반적으로 개인 소유이거나 모바일 디바이스이며 개인 Microsoft 계정 또는 다른 로컬 계정으로 로그인됩니다.
+   - Azure AD에 등록 된 장치는 일반적으로 개인적으로 소유 하거나 모바일 장치 이며 개인 Microsoft 계정 또는 다른 로컬 계정으로 로그인 됩니다.
       - 윈도우 10
       - iOS
       - Android
       - MacOS
 - **Azure AD 조인**
-   - Azure AD 조인 디바이스는 조직이 소유하며 조직에 속한 Azure AD 계정으로 로그인됩니다. 이 디바이스는 클라우드에만 존재합니다.
+   - Azure AD에 가입 된 장치는 조직에서 소유 하며 해당 조직에 속한 Azure AD 계정으로 로그인 됩니다. 이 디바이스는 클라우드에만 존재합니다.
       - 윈도우 10 
 - **하이브리드 Azure AD 조인**
-   - 하이브리드 Azure AD 조인 디바이스는 조직이 소유하며 조직에 속한 Azure AD 계정으로 로그인됩니다. 이 디바이스는 클라우드와 온-프레미스에 존재합니다.
+   - 하이브리드 Azure AD에 가입 된 장치는 조직에서 소유 하며 해당 조직에 속한 Azure AD 계정으로 로그인 됩니다. 이 디바이스는 클라우드와 온-프레미스에 존재합니다.
       - Windows 7, 8.1 또는 10
       - Windows Server 2008 이상
 

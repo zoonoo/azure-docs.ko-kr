@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: H1Hack27Feb2017, it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab378fe1e06de49df0fe6481a1aa475d426648dc
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 5948fba67d3f071d77192f9ad89bc696fdc0c3cc
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69032563"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78668636"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>애플리케이션 프록시를 사용하여 앱에 Single Sign-On에 대한 Kerberos 제한된 위임
 
@@ -43,7 +43,7 @@ Active Directory에 애플리케이션 프록시 커넥터 사용 권한을 부�
 7. 그러면 커넥터에서 AD에서 받은 Kerberos 토큰을 사용하여 원래 요청을 애플리케이션 서버에 보냅니다.
 8. 애플리케이션은 응답을 커넥터로 보냅니다. 그러면 해당 응답이 애플리케이션 프록시 서비스를 거쳐 마지막으로 사용자에게 반환됩니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 IWA 애플리케이션에 대한 Single Sign-On을 시작하기 전에 사용자 환경이 다음 설정 및 구성을 갖추고 준비되었는지 확인합니다.
 
 * SharePoint 웹앱과 같은 앱이 Windows 통합 인증을 사용하도록 설정됩니다. 자세한 내용은 [Kerberos 인증 지원 사용](https://technet.microsoft.com/library/dd759186.aspx) 또는 SharePoint의 경우 [SharePoint 2013에서 Kerberos 인증 계획](https://technet.microsoft.com/library/ee806870.aspx)(영문)을 참조하세요.
@@ -66,17 +66,27 @@ Active Directory 구성은 애플리케이션 프록시 커넥터와 애플리�
 
 #### <a name="connector-and-application-server-in-different-domains"></a>다른 도메인 내의 커넥터와 애플리케이션 서버
 1. 도메인에 걸쳐 KCD로 작업하기 위한 필수 구성 요소 목록은 [도메인 간의 Kerberos 제한 위임](https://technet.microsoft.com/library/hh831477.aspx)을 참조하세요.
-2. 커넥터 서버의 `principalsallowedtodelegateto` 속성을 사용하여 커넥터 서버에 대해 위임하도록 애플리케이션 프록시를 활성화합니다. 애플리케이션 서버는 `sharepointserviceaccount`이며 위임하는 서버는 `connectormachineaccount`입니다. Windows 2012 R2의 경우 예로 이 코드를 사용합니다.
+2. 웹 응용 프로그램의 서비스 계정 (컴퓨터 또는 전용 도메인 사용자 계정)의 `principalsallowedtodelegateto` 속성을 사용 하 여 응용 프로그램 프록시 (커넥터)에서 Kerberos 인증 위임을 사용 하도록 설정 합니다. 응용 프로그램 서버가 `webserviceaccount` 컨텍스트에서 실행 되 고 있으며 위임 하는 서버가 `connectorcomputeraccount`되었습니다. `webserviceaccount`도메인에서 도메인 컨트롤러 (Windows Server 2012 R2 이상 실행)에서 아래 명령을 실행 합니다. 두 계정에 모두 플랫 이름 (비 UPN)을 사용 합니다.
 
-```powershell
-$connector= Get-ADComputer -Identity connectormachineaccount -server dc.connectordomain.com
+   `webserviceaccount` 컴퓨터 계정인 경우 다음 명령을 사용 합니다.
 
-Set-ADComputer -Identity sharepointserviceaccount -PrincipalsAllowedToDelegateToAccount $connector
+   ```powershell
+   $connector= Get-ADComputer -Identity connectorcomputeraccount -server dc.connectordomain.com
 
-Get-ADComputer sharepointserviceaccount -Properties PrincipalsAllowedToDelegateToAccount
-```
+   Set-ADComputer -Identity webserviceaccount -PrincipalsAllowedToDelegateToAccount $connector
 
-`sharepointserviceaccount`은 해당 SPS 앱 풀이 실행되고 있는 SPS 컴퓨터 계정 또는 서비스 계정이 될 수 있습니다.
+   Get-ADComputer webserviceaccount -Properties PrincipalsAllowedToDelegateToAccount
+   ```
+
+   `webserviceaccount` 사용자 계정인 경우 다음 명령을 사용 합니다.
+
+   ```powershell
+   $connector= Get-ADComputer -Identity connectorcomputeraccount -server dc.connectordomain.com
+
+   Set-ADUser -Identity webserviceaccount -PrincipalsAllowedToDelegateToAccount $connector
+
+   Get-ADUser webserviceaccount -Properties PrincipalsAllowedToDelegateToAccount
+   ```
 
 ## <a name="configure-single-sign-on"></a>Single Sign-On 구성 
 1. [애플리케이션 프록시로 애플리케이션 게시](application-proxy-add-on-premises-application.md)에 설명된 지침에 따라 애플리케이션을 게시합니다. 반드시 **Azure Active Directory**를 **사전 인증 메서드**로 선택해야 합니다.
@@ -112,7 +122,7 @@ Kerberos에 대한 자세한 내용은 [KCD(Kerberos Constrained Delegation)에 
 비 Windows 앱은 일반적으로 도메인 이메일 주소 대신 사용자 이름 또는 SAM 계정 이름을 사용합니다. 해당 경우가 애플리케이션에 적용되는 경우 클라우드 ID를 애플리케이션 ID에 연결하도록 위임된 로그인 ID 필드를 구성해야 합니다. 
 
 ## <a name="working-with-different-on-premises-and-cloud-identities"></a>다른 온-프레미스 및 클라우드 ID로 작업
-애플리케이션 프록시는 사용자가 클라우드 및 온-프레미스에서 정확히 동일한 ID를 사용한다고 가정합니다. 그러나 일부 환경에서는 회사 정책 또는 응용 프로그램 종속성으로 인해 조직에서 로그인에 대체 Id를 사용 해야 할 수 있습니다. 이 경우에도 single sign-on에 KCD를 사용할 수 있습니다. 각 애플리케이션에 **위임된 로그인 ID**를 구성하여 Single Sign-On을 수행할 때 어떤 ID를 사용해야 하는지 지정합니다.  
+애플리케이션 프록시는 사용자가 클라우드 및 온-프레미스에서 정확히 동일한 ID를 사용한다고 가정합니다. 그러나 일부 환경에서는 회사 정책 또는 응용 프로그램 종속성으로 인해 조직에서 로그인에 대체 Id를 사용 해야 할 수 있습니다. 이 경우에도 Single Sign-On에 KCD를 사용할 수 있습니다. 각 애플리케이션에 **위임된 로그인 ID**를 구성하여 Single Sign-On을 수행할 때 어떤 ID를 사용해야 하는지 지정합니다.  
 
 이 기능을 사용하면 다른 온-프레미스 및 클라우드 ID가 있는 여러 조직이 사용자에게 다른 사용자 이름 및 암호를 입력하도록 하지 않고 클라우드에서 온-프레미스 앱으로 SSO를 갖게 할 수 있습니다. 이 작업은 다음의 조직을 포함합니다.
 
@@ -149,4 +159,3 @@ SSO 프로세스에 오류가 있으면 [문제 해결](application-proxy-back-e
 
 
 최신 뉴스 및 업데이트는 [애플리케이션 프록시 블로그](https://blogs.technet.com/b/applicationproxyblog/)
-

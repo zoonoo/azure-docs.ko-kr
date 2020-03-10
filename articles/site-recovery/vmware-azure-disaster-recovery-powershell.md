@@ -8,11 +8,11 @@ ms.date: 01/10/2020
 ms.topic: conceptual
 ms.author: sutalasi
 ms.openlocfilehash: d2dfaab3d01ea29b0f9ecba1e9d748415bed2edc
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75861288"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78391786"
 ---
 # <a name="set-up-disaster-recovery-of-vmware-vms-to-azure-with-powershell"></a>PowerShell을 사용하여 Azure로 VMware VM의 재해 복구 설정
 
@@ -31,7 +31,7 @@ ms.locfileid: "75861288"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 다음을 수행합니다.
 
@@ -118,7 +118,7 @@ Set-ASRVaultContext cmdlet을 사용하여 자격 증명 모음 컨텍스트를 
    VMwareDRToAzurePs VMwareDRToAzurePs Microsoft.RecoveryServices vaults
    ```
 
-Set-asrvaultcontext cmdlet에 대 한 대 안으로 AzRecoveryServicesAsrVaultSettingsFile cmdlet을 사용 하 여 자격 증명 모음 컨텍스트를 설정할 수도 있습니다. AzRecoveryServicesAsrVaultSettingsFile cmdlet에 대 한-path 매개 변수로 자격 증명 모음 등록 키 파일이 있는 경로를 지정 합니다. 예:
+Set-asrvaultcontext cmdlet에 대 한 대 안으로 AzRecoveryServicesAsrVaultSettingsFile cmdlet을 사용 하 여 자격 증명 모음 컨텍스트를 설정할 수도 있습니다. AzRecoveryServicesAsrVaultSettingsFile cmdlet에 대 한-path 매개 변수로 자격 증명 모음 등록 키 파일이 있는 경로를 지정 합니다. 다음은 그 예입니다.
 
    ```azurepowershell
    Get-AzRecoveryServicesVaultSettingsFile -SiteRecovery -Vault $Vault -Path "C:\Work\"
@@ -351,11 +351,11 @@ vCenter Server에서 가상 머신을 검색하는 데 15~20분 정도 걸립니
 이제 이 테이블에 지정된 설정을 사용하여 다음 가상 머신을 복제합니다.
 
 
-|가상 머신  |프로세스 서버        |Storage 계정              |로그 스토리지 계정  |정책           |모바일 서비스 설치를 위한 계정|대상 리소스 그룹  | 대상 가상 네트워크  |대상 서브넷  |
+|가상 머신  |프로세스 서버        |스토리지 계정              |로그 스토리지 계정  |정책           |모바일 서비스 설치를 위한 계정|대상 리소스 그룹  | 대상 가상 네트워크  |대상 서브넷  |
 |-----------------|----------------------|-----------------------------|---------------------|-----------------|-----------------------------------------|-----------------------|-------------------------|---------------|
-|CentOSVM1       |ConfigurationServer   |N/A| logstorageaccount1                 |ReplicationPolicy|LinuxAccount                             |VMwareDRToAzurePs      |ASR-vnet                 |Subnet-1       |
+|CentOSVM1       |ConfigurationServer   |해당 없음| logstorageaccount1                 |ReplicationPolicy|LinuxAccount                             |VMwareDRToAzurePs      |ASR-vnet                 |Subnet-1       |
 |Win2K12VM1       |ScaleOut-ProcessServer|premiumstorageaccount1       |logstorageaccount1   |ReplicationPolicy|WindowsAccount                           |VMwareDRToAzurePs      |ASR-vnet                 |Subnet-1       |   
-|CentOSVM2       |ConfigurationServer   |replicationstdstorageaccount1| N/A                 |ReplicationPolicy|LinuxAccount                             |VMwareDRToAzurePs      |ASR-vnet                 |Subnet-1       |   
+|CentOSVM2       |ConfigurationServer   |replicationstdstorageaccount1| 해당 없음                 |ReplicationPolicy|LinuxAccount                             |VMwareDRToAzurePs      |ASR-vnet                 |Subnet-1       |   
 
 
 ```azurepowershell

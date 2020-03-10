@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9618e02f54fbb2a3b92771761c5fcf700d126b5c
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70275224"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376134"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Azure AD Connect에 대한 토폴로지
 이 문서에서는 주요 통합 솔루션으로 Azure AD Connect Sync를 사용하는 다양한 온-프레미스 및 Azure AD(Azure Active Directory) 토폴로지에 대해 설명합니다. 이 문서에는 지원되는 구성과 지원되지 않는 구성이 포함되어 있습니다.
@@ -42,7 +42,7 @@ ms.locfileid: "70275224"
 
 
 > [!IMPORTANT]
-> Microsoft는 공식적으로 문서화된 구성 또는 작업 외의 Azure AD Connect 동기화에 대한 수정 또는 작업을 지원하지 않습니다. 이러한 구성 또는 작업 중 하나는 Azure AD Connect 동기화의 불일치하거나 지원되지 않는 상태가 될 수 있습니다. 결과적으로, Microsoft는 해당 배포에 대해 기술 지원을 제공할 수 없습니다.
+> Microsoft는 공식적으로 문서화된 구성 또는 작업 외의 Azure AD Connect 동기화에 대한 수정 또는 작업을 지원하지 않습니다. 이러한 구성 또는 작업으로 인해 Azure AD Connect 동기화 상태가 일치 하지 않거나 지원 되지 않을 수 있습니다. 따라서 Microsoft는 이러한 배포에 대 한 기술 지원을 제공할 수 없습니다.
 
 
 ## <a name="single-forest-single-azure-ad-tenant"></a>단일 포리스트, 단일 Azure AD 테넌트
@@ -120,7 +120,7 @@ Azure AD Connect 동기화의 기본 구성에서 다음 사항을 가정합니�
 ## <a name="office-365-and-topology-considerations"></a>Office 365 및 토폴로지 고려 사항
 일부 Office 365 워크로드의 경우 지원되는 토폴로지에 약간의 제한이 있습니다.
 
-| 작업 | Restrictions |
+| 워크로드 | 제한 |
 | --------- | --------- |
 | Exchange Online | Exchange Online에서 지원하는 하이브리드 토폴로지에 대한 자세한 내용은 [여러 Active Directory 포리스트를 사용한 하이브리드 배포](https://technet.microsoft.com/library/jj873754.aspx)를 참조하세요. |
 | 비즈니스용 Skype | 다중 포리스트 온-프레미스를 사용하는 경우 계정 리소스 포리스트 토폴로지만 지원됩니다. 자세한 내용은 [Business Server 2015용 Skype에 대한 환경 요구 사항](https://technet.microsoft.com/library/dn933910.aspx)을 참조하세요. |

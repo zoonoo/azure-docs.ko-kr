@@ -16,11 +16,11 @@ ms.date: 10/07/2017
 ms.author: rogarana
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: dbce2969ccb508c2bf3ee33730d0b112caa45c9e
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033059"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78388654"
 ---
 # <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>AWS(Amazon Web Services) 및 기타 플랫폼에서 Azure의 Managed Disks로 마이그레이션
 
@@ -36,7 +36,7 @@ AWS 또는 온-프레미스 가상화 솔루션에서 Azure로 VHD 파일을 업
 >
 
 
-| 시나리오                                                                                                                         | 설명서                                                                                                                       |
+| 시나리오                                                                                                                         | 문서화                                                                                                                       |
 |----------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
 | 기존 AWS EC2 인스턴스를 관리되는 디스크를 사용하여 Azure VM에 마이그레이션하려고 합니다.                              | [AWS(Amazon Web Services)에서 Azure로 VM 이동](aws-to-azure.md)                           |
 | 사용하려는 다른 가상화 플랫폼의 VM이 있어서 여러 Azure VM을 만들기 위해 이미지로 사용합니다. | [일반화된 VHD를 업로드하고 사용하여 Azure에서 새 VM 만들기](upload-generalized-managed.md) |
@@ -54,7 +54,7 @@ Azure Managed Disks는 스토리지 계정을 관리하지 않아도 되기 때�
 
 관리되지 않는 디스크에서 관리 디스크로 마이그레이션하려는 경우 [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) 역할의 사용자는 VM 크기를 변경할 수 없습니다(사전 변환이 가능하기 때문). 이는 관리 디스크가 있는 VM의 경우 사용자에게 OS 디스크에 대한 Microsoft.Compute/disks/write 권한이 있어야 하기 때문입니다.
 
-### <a name="location"></a>Location
+### <a name="location"></a>위치
 
 Azure Managed Disks를 사용할 수 있는 위치를 선택합니다. 프리미엄 Managed Disks를 마이그레이션하는 경우에도 마이그레이션하려고 계획한 지역에서 Premium Storage를 사용할 수 있는지 확인합니다. 사용 가능한 위치에 대한 최신 정보는 [지역별 Azure 서비스](https://azure.microsoft.com/regions/#services)를 참조하세요.
 
@@ -71,8 +71,8 @@ VM에서 사용할 수 있는 프리미엄 관리 디스크에는 7가지 형식
 
 | 프리미엄 디스크 유형  | P4    | P6    | P10   | P15   | P20   | P30   | P40   | P50   | 
 |---------------------|-------|-------|-------|-------|-------|-------|-------|-------|
-| 디스크 크기           | 32GB| 64GB| 128GB| 256GB|512 GB | 1024GB(1TB)    | 2,048GB(2TB)    | 4,095GB(4TB)    | 
-| 디스크당 IOPS       | 120   | 240   | 500   | 1100  |2,300              | 5000              | 7,500              | 7,500              | 
+| 디스크 크기           | 32GB| 64GB| 128GB| 256GB|512 GB | 1,024GB(1TB)    | 2,048GB(2TB)    | 4,095GB(4TB)    | 
+| 디스크당 IOPS       | 120   | 240   | 500   | 1100  |2300              | 5,000              | 7,500              | 7,500              | 
 | 디스크당 처리량 | 초당 25MB  | 초당 50MB  | 초당 100MB | 초당 125MB |초당 150MB | 초당 200MB | 초당 250MB | 초당 250MB |
 
 **표준 Managed Disks**
@@ -81,7 +81,7 @@ VM에서 사용할 수 있는 표준 관리 디스크에는 7가지 형식이 �
 
 | 표준 디스크 유형  | S4               | S6               | S10              | S15              | S20              | S30              | S40              | S50              | 
 |---------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------| 
-| 디스크 크기           | 30GB            | 64GB            | 128GB           | 256GB           |512 GB           | 1024GB(1TB)   | 2,048GB(2TB)    | 4,095GB(4TB)   | 
+| 디스크 크기           | 30GB            | 64GB            | 128GB           | 256GB           |512 GB           | 1,024GB(1TB)   | 2,048GB(2TB)    | 4,095GB(4TB)   | 
 | 디스크당 IOPS       | 500              | 500              | 500              | 500              |500              | 500              | 500             | 500              | 
 | 디스크당 처리량 | 60 MB per second | 60 MB per second | 60 MB per second | 60 MB per second |60 MB per second | 60 MB per second | 60 MB per second | 60 MB per second | 
 

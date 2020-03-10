@@ -11,11 +11,11 @@ ms.date: 04/16/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 8358d3378ea892ebeef653bcb51243c9f1aa0b8d
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78184420"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78365179"
 ---
 # <a name="request-an-access-token-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 액세스 토큰 요청
 
@@ -26,7 +26,7 @@ ms.locfileid: "78184420"
 > [!NOTE]
 > **Azure AD B2C에서는 Web API 체인(On-Behalf-Of)을 지원하지 않습니다.** -대부분의 아키텍처에는 다른 다운스트림 웹 API를 호출 해야 하는 web API가 포함 되어 있으며 둘 다 Azure AD B2C으로 보안이 유지 됩니다. 이 시나리오는 웹 API 백 엔드가 있는 클라이언트에서 일반적으로 다른 서비스를 호출 합니다. On-Behalf-Of 흐름이라고도 하는 OAuth 2.0 JWT 전달자 자격 증명 권한 부여를 사용하여 이 연결된 웹 API 시나리오를 지원할 수 있습니다. 그러나 On-Behalf-Of 흐름은 현재 Azure AD B2C에 구현되어 있지 않습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 사용자가 애플리케이션에 가입하고 로그인할 수 있는 [사용자 흐름을 만듭니다](tutorial-create-user-flows.md).
 - 아직 수행 하지 않은 경우 [Azure Active Directory B2C 테 넌 트에 WEB API 응용 프로그램을 추가](add-web-application.md)합니다.

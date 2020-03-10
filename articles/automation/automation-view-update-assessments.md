@@ -6,11 +6,11 @@ ms.subservice: update-management
 ms.date: 01/21/2020
 ms.topic: conceptual
 ms.openlocfilehash: 58d3cf6261456c09195ad6dafaeb781b55d9e5ee
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76310087"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78372986"
 ---
 # <a name="view-azure-update-management-update-assessments"></a>Azure 업데이트 관리 업데이트 평가 보기
 
@@ -26,7 +26,7 @@ Azure Automation 계정에서 **업데이트 관리** 를 선택 하 여 컴퓨�
 
 **누락 업데이트**를 선택하여 컴퓨터에서 누락된 업데이트 목록을 표시합니다. 각 업데이트가 나열되며 선택 가능합니다. 업데이트를 필요로 하는 컴퓨터 수, 운영 체제 세부 정보 및 자세한 정보에 대 한 링크가 모두 표시 됩니다. **로그 검색** 창에도 업데이트에 대 한 자세한 정보가 표시 됩니다.
 
-![누락 업데이트](./media/automation-view-update-assessments/automation-view-update-assessments-missing-updates.png)
+![누락 된 업데이트](./media/automation-view-update-assessments/automation-view-update-assessments-missing-updates.png)
 
 ## <a name="update-classifications"></a>업데이트 분류
 

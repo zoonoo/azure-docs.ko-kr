@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 06/01/2017
 ms.author: manayar
 ms.openlocfilehash: b427319fdba634ea3c61681baa30547450709dc1
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76278092"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78390425"
 ---
 # <a name="design-considerations-for-scale-sets"></a>확장 집합 디자인 고려 사항
 이 문서에서는 Virtual Machine Scale Sets를 설계할 때 고려할 사항에 대해 논의합니다. Virtual Machine Scale Sets에 대한 자세한 내용은 [Virtual Machine Scale Sets 개요](virtual-machine-scale-sets-overview.md)를 참조하세요.
@@ -39,7 +39,7 @@ ms.locfileid: "76278092"
 - 네이티브 디스크에서 관리 디스크로 개별 VM을 마이그레이션할 수 있지만, 확장 집합의 VM 인스턴스는 마이그레이션할 수 없습니다.
 - 개별 VM 가상 NIC(네트워크 인터페이스 카드)에 IPv6 공용 IP 주소를 할당할 수 있지만 확장 집합의 VM 인스턴스에 대해서는 이렇게 할 수 없습니다. 개별 VM이나 확장 집합 VM 앞에 놓인 부하 분산 장치에 IPv6 공용 IP 주소를 할당할 수 있습니다.
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>스토리지
 
 ### <a name="scale-sets-with-azure-managed-disks"></a>Azure Managed Disks를 사용하는 확장 집합
 확장 집합은 기존의 Azure Storage 계정 대신 [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md)를 사용하여 만들 수 있습니다. Managed Disks는 다음과 같은 이점을 제공합니다.

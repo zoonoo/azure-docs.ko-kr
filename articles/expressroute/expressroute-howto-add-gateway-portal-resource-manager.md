@@ -9,11 +9,11 @@ ms.date: 12/06/2018
 ms.author: cherylmc
 ms.custom: seodec18
 ms.openlocfilehash: 87b656f0ef999b3b15a89476f5cba4c4fcfc2b1e
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74037391"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78388088"
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>Azure Portal을 사용하여 ExpressRoute에 대한 가상 네트워크 게이트웨이 구성
 > [!div class="op_single_selector"]
@@ -76,7 +76,7 @@ ms.locfileid: "74037391"
 11. **리소스 그룹**: 이 설정은 선택한 Virtual Network에 의해 결정됩니다.
 12. 앞의 설정을 지정한 후에는 **위치**를 조정하지 않습니다.
 13. 설정을 확인합니다. 게이트웨이를 대시보드에 표시하려면 블레이드 아래쪽에서 **대시보드에 고정**을 선택할 수 있습니다.
-14. **만들기** 를 클릭하여 게이트웨이 만들기를 시작합니다. 설정이 검증되었으며 게이트웨이가 배포됩니다. 가상 네트워크 게이트웨이 만들기는 완료되는 데 최대 45분까지 소요됩니다.
+14. **만들기**를 클릭하여 게이트웨이 만들기를 시작합니다. 설정이 검증되었으며 게이트웨이가 배포됩니다. 가상 네트워크 게이트웨이 만들기는 완료되는 데 최대 45분까지 소요됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 VNet 게이트웨이를 만든 후 VNet을 ExpressRoute 회로에 연결할 수 있습니다. [Virtual Network를 ExpressRoute 회로에 연결](expressroute-howto-linkvnet-portal-resource-manager.md)을 참조하세요.

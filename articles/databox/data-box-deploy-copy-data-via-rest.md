@@ -1,5 +1,5 @@
 ---
-title: '자습서: REST API를 사용하여 Blob 스토리지에 복사'
+title: '자습서: REST Api를 사용 하 여 Blob storage에 복사'
 titleSuffix: Azure Data Box
 description: REST API를 통해 Azure Data Box Blob 스토리지에 데이터를 복사하는 방법 알아보기
 services: databox
@@ -10,13 +10,13 @@ ms.topic: tutorial
 ms.date: 05/09/2019
 ms.author: alkohli
 ms.openlocfilehash: b7d58bb13644c992894510f26a4848ea80c9df00
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77471842"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78380165"
 ---
-# <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>자습서: REST API를 통해 Azure Data Box Blob 스토리지에 데이터 복사  
+# <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>자습서: REST Api를 통해 Azure Data Box Blob storage로 데이터 복사  
 
 이 자습서에서는 *http* 또는 *https*를 사용한 REST API를 통해 Azure Data Box Blob 스토리지에 연결하는 절차를 설명합니다. 연결한 후에는 데이터를 Data Box Blob 스토리지에 복사하고 배송할 Data Box를 준비하는 데 필요한 단계에 대해서도 설명합니다.
 
@@ -31,7 +31,7 @@ ms.locfileid: "77471842"
 
 시작하기 전에 다음 사항을 확인합니다.
 
-1. [자습서: Azure Data Box 설정](data-box-deploy-set-up.md)을 완료했습니다.
+1. [자습서: 설정 Azure Data Box](data-box-deploy-set-up.md)를 완료 했습니다.
 2. Data Box를 받았고 포털의 주문 상태가 **배달됨**입니다.
 3. [Data Box Blob 스토리지의 시스템 요구 사항](data-box-system-requirements-rest.md)을 검토했으며 API, SDK 및 도구의 지원 버전에 대해 잘 알고 있습니다.
 4. Data Box에 복사할 데이터가 포함된 호스트 컴퓨터에 액세스했습니다. 호스트 컴퓨터는 다음 사항이 필수입니다.

@@ -15,17 +15,17 @@ ms.workload: infrastructure-services
 ms.date: 01/30/2020
 ms.author: akjosh
 ms.openlocfilehash: a0b5f45ba993033a9f56ee6b078193677b1c5aad
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78191812"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78383207"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-windows"></a>Windows용 Log Analytics 가상 머신 확장
 
 Azure Monitor 로그는 클라우드 및 온-프레미스 자산에서 모니터링 기능을 제공 합니다. Windows용 Log Analytics 에이전트 가상 머신 확장은 Microsoft에서 게시 및 지원합니다. 확장 버전은 Azure 가상 머신에 Log Analytics 에이전트를 설치하고 기존 Log Analytics 작업 영역에 가상 머신을 등록합니다. 이 문서에서는 지원되는 플랫폼, 구성 및 Windows용 Log Analytics 가상 머신 확장에 대한 배포 옵션을 설명합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 ### <a name="operating-system"></a>운영 체제
 
@@ -40,9 +40,9 @@ Azure Monitor 로그는 클라우드 및 온-프레미스 자산에서 모니터
 | 10.20.18011 | 1.0.18011 | 2019년 7월 | <ul><li> 사소한 버그 수정 및 안정화 기능 향상 </li><li> MaxExpressionDepth를 1만으로 증가 </li></ul> |
 | 10.20.18001 | 1.0.18001 | 2019년 6월 | <ul><li> 사소한 버그 수정 및 안정화 기능 향상 </li><li> 프록시 연결을 만들 때 기본 자격 증명을 사용 하지 않도록 설정 하는 기능 추가 (WINHTTP_AUTOLOGON_SECURITY_LEVEL_HIGH 지원) </li></ul>|
 | 10.19.13515 | 1.0.13515 | 2019년 3월 | <ul><li>사소한 안정화 픽스 </li></ul> |
-| 10.19.10006 | n/a | 12 월 2018 | <ul><li> 사소한 안정화 픽스 </li></ul> | 
-| 8.0.11136 | n/a | 9 월 2018 |  <ul><li> VM 이동에 대 한 리소스 ID 변경 검색에 대 한 지원이 추가 됨 </li><li> 비 확장 설치를 사용 하는 경우 보고 리소스 ID에 대 한 지원이 추가 됨 </li></ul>| 
-| 8.0.11103 | n/a |  2018년 4월 | |
+| 10.19.10006 | 해당 없음 | 12 월 2018 | <ul><li> 사소한 안정화 픽스 </li></ul> | 
+| 8.0.11136 | 해당 없음 | 9 월 2018 |  <ul><li> VM 이동에 대 한 리소스 ID 변경 검색에 대 한 지원이 추가 됨 </li><li> 비 확장 설치를 사용 하는 경우 보고 리소스 ID에 대 한 지원이 추가 됨 </li></ul>| 
+| 8.0.11103 | 해당 없음 |  2018년 4월 | |
 | 8.0.11081 | 1.0.11081 | 11 월 2017 | | 
 | 8.0.11072 | 1.0.11072 | 9 월 2017 | |
 | 8.0.11049 | 1.0.11049 | 2 월 2017 | |
@@ -83,11 +83,11 @@ Windows용 Log Analytics 에이전트 확장은 대상 가상 머신이 인터�
 ```
 ### <a name="property-values"></a>속성 값
 
-| 이름 | 값/예제 |
+| 속성 | 값/예제 |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | publisher | Microsoft.EnterpriseCloud.Monitoring |
-| 형식 | MicrosoftMonitoringAgent |
+| type | MicrosoftMonitoringAgent |
 | typeHandlerVersion | 1.0 |
 | workspaceId(예)* | 6f680a37-00c6-41c7-a93f-1437e3462574 |
 | workspaceKey(예) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |

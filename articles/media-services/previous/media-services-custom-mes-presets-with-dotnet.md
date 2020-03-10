@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: juliako
 ms.openlocfilehash: 39a1dd5c3d26eeb6545a96aa35f9457bd9859c21
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61247246"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78394746"
 ---
 # <a name="customizing-media-encoder-standard-presets"></a>Media Encoder Standard 사전 설정 사용자 지정  
 
@@ -30,7 +30,7 @@ ms.locfileid: "61247246"
 이 문서에서는 [H264 다중 비트 전송률 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) 기본 설정을 사용하고 레이어 수를 줄여 기본 설정을 사용자 지정하는 방법을 살펴봅니다. [Media Encoder Standard 기본 설정 사용자 지정](media-services-advanced-encoding-with-mes.md) 문서에서는 고급 인코딩 작업을 수행하는 데 사용할 수 있는 사용자 지정 기본 설정을 보여 줍니다.
 
 > [!NOTE]
-> 이 문서에 설명 된 사용자 지정 사전 설정을 사용할 수 없습니다 [Media Services V3](https://docs.microsoft.com/azure/media-services/latest/) 변환 또는 CLI 명령입니다. 참조 된 [v2에서 v3 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md) 대 한 자세한 내용은 합니다.
+> 이 문서에 설명 된 사용자 지정 기본 설정은 [Media Services V3](https://docs.microsoft.com/azure/media-services/latest/) 변환 또는 CLI 명령에서 사용할 수 없습니다. 자세한 내용은 v 2 [에서 v3로 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md) 을 참조 하세요.
 
 ## <a id="customizing_presets"></a> MES 사전 설정 사용자 지정
 
@@ -134,7 +134,7 @@ ms.locfileid: "61247246"
 
 개발 환경을 설정하고 [.NET을 사용한 Media Services 환경](media-services-dotnet-how-to-use.md)에 설명된 대로 연결 정보를 사용하여 app.config 파일을 채웁니다. 
 
-#### <a name="example"></a>예   
+#### <a name="example"></a>예제   
 
 ```csharp
 using System;

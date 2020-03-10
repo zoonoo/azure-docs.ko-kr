@@ -16,11 +16,11 @@ ms.date: 04/18/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 145bc45e1b7faeddc23cf5f0662337e15ab51c29
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77137353"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78392477"
 ---
 # <a name="create-or-update-custom-roles-for-azure-resources-using-the-rest-api"></a>REST API를 사용 하 여 Azure 리소스에 대 한 사용자 지정 역할 만들기 또는 업데이트
 
@@ -38,7 +38,7 @@ ms.locfileid: "77137353"
 
 1. *{Filter}* 를 역할 유형으로 바꿉니다.
 
-    | 필터 | 설명 |
+    | Assert | Description |
     | --- | --- |
     | `$filter=type%20eq%20'CustomRole'` | CustomRole 유형을 기반으로 필터링 |
 
@@ -54,15 +54,15 @@ ms.locfileid: "77137353"
 
 1. URI 내에서 *{scope}* 를 나열하려는 역할에 대한 범위로 바꿉니다.
 
-    | 범위 | 형식 |
+    | 범위 | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Subscription |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | 리소스 그룹 |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | 리소스 |
 
 1. *{Filter}* 를 역할 유형으로 바꿉니다.
 
-    | 필터 | 설명 |
+    | Assert | Description |
     | --- | --- |
     | `$filter=type%20eq%20'CustomRole'` | CustomRole 유형을 기반으로 필터링 |
 
@@ -78,15 +78,15 @@ ms.locfileid: "77137353"
 
 1. URI 내에서 *{scope}* 를 나열하려는 역할에 대한 범위로 바꿉니다.
 
-    | 범위 | 형식 |
+    | 범위 | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Subscription |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | 리소스 그룹 |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | 리소스 |
 
 1. *{Filter}* 를 역할의 표시 이름으로 바꿉니다.
 
-    | 필터 | 설명 |
+    | Assert | Description |
     | --- | --- |
     | `$filter=roleName%20eq%20'{roleDisplayName}'` | 역할의 정확한 표시 이름에 대한 URL 인코딩 형식을 사용합니다. 예: `$filter=roleName%20eq%20'Virtual%20Machine%20Contributor'` |
 
@@ -104,10 +104,10 @@ ms.locfileid: "77137353"
 
 1. URI 내에서 *{scope}* 를 나열하려는 역할에 대한 범위로 바꿉니다.
 
-    | 범위 | 형식 |
+    | 범위 | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Subscription |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | 리소스 그룹 |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | 리소스 |
 
 1. *{roleDefinitionId}* 를 역할 정의의 GUID 식별자로 바꿉니다.
@@ -152,10 +152,10 @@ ms.locfileid: "77137353"
 
 1. URI 내에서 *{scope}* 를 사용자 지정 역할의 첫 번째 `assignableScopes`로 바꿉니다.
 
-    | 범위 | 형식 |
+    | 범위 | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Subscription |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | 리소스 그룹 |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | 리소스 |
 
 1. *{roleDefinitionId}* 를 사용자 지정 역할의 GUID 식별자로 바꿉니다.
@@ -217,10 +217,10 @@ ms.locfileid: "77137353"
 
 1. URI 내에서 *{scope}* 를 사용자 지정 역할의 첫 번째 `assignableScopes`로 바꿉니다.
 
-    | 범위 | 형식 |
+    | 범위 | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Subscription |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | 리소스 그룹 |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | 리소스 |
 
 1. *{roleDefinitionId}* 를 사용자 지정 역할의 GUID 식별자로 바꿉니다.
@@ -301,10 +301,10 @@ ms.locfileid: "77137353"
 
 1. URI 내에서 *{scope}* 를 삭제하려는 사용자 지정 역할에 대한 범위로 바꿉니다.
 
-    | 범위 | 형식 |
+    | 범위 | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Subscription |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | 리소스 그룹 |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | 리소스 |
 
 1. *{roleDefinitionId}* 를 사용자 지정 역할의 GUID 식별자로 바꿉니다.

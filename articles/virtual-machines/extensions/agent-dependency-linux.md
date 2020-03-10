@@ -15,17 +15,17 @@ ms.workload: infrastructure-services
 ms.date: 03/29/2019
 ms.author: magoedte
 ms.openlocfilehash: 82f9c5a67cb056752cf8310be3b7c9f0bd2501e9
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979644"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78383245"
 ---
 # <a name="azure-monitor-dependency-virtual-machine-extension-for-linux"></a>Linux 용 Azure Monitor 종속성 가상 머신 확장
 
 VM용 Azure Monitor 맵 기능은 Microsoft Dependency Agent에서 해당 데이터를 가져옵니다. Linux 용 Azure VM 종속성 에이전트 가상 머신 확장은 Microsoft에서 게시 및 지원 합니다. 확장은 Azure virtual machines에 종속성 에이전트를 설치 합니다. 이 문서에서는 Linux 용 Azure VM 종속성 에이전트 가상 머신 확장에 대해 지원 되는 플랫폼, 구성 및 배포 옵션에 대해 자세히 설명 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 ### <a name="operating-system"></a>운영 체제
 
@@ -73,7 +73,7 @@ Linux 용 Azure VM 종속성 에이전트 확장은 VM용 Azure Monitor 배포 �
 
 ### <a name="property-values"></a>속성 값
 
-| 이름 | 값/예제 |
+| 속성 | 값/예제 |
 | ---- | ---- |
 | apiVersion | 2015-01-01 |
 | publisher | Microsoft.Azure.Monitoring.DependencyAgent |

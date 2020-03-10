@@ -13,11 +13,11 @@ ms.workload: infrastructure
 ms.date: 08/23/2019
 ms.author: genli
 ms.openlocfilehash: 80fd91106530c0150a85d508b24041b2263da925
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749673"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78382671"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>Azure VM의 BitLocker 부팅 오류
 
@@ -283,7 +283,7 @@ ms.locfileid: "73749673"
 
 **매개 변수 샘플**
 
-| 매개 변수  | 값 샘플  |설명   |
+| 매개 변수  | 값 샘플  |주석   |
 |---|---|---|
 |  $keyVaultName | myKeyVault2112852926  | 키를 저장 하는 키 자격 증명 모음의 이름입니다. |
 |$kekName   |mykey   | VM을 암호화 하는 데 사용 되는 키의 이름입니다.|

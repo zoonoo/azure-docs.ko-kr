@@ -8,11 +8,11 @@ ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 684b30a24e049722cb531cbc84e3a2cd90912ec8
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70932627"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78362386"
 ---
 # <a name="addremove-an-azure-file-sync-server-endpoint"></a>Azure 파일 동기화 서버 엔드포인트 추가/제거
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 희생하지 않고 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. 이 작업은 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환하여 수행합니다. Windows Server에서 사용할 수 있는 아무 프로토콜이나 사용하여 데이터를 로컬로(SMB, NFS 및 FTPS 포함) 액세스할 수 있으며 세계 전역에 걸쳐 필요한 만큼 캐시를 보유할 수 있습니다.
@@ -21,7 +21,7 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
 
 엔드투엔드 Azure 파일 동기화를 배포하는 방법에 대한 자세한 내용은 [Azure 파일 동기화를 배포하는 방법](storage-sync-files-deployment-guide.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 서버 엔드포인트를 만들려면 먼저 다음 조건이 충족되는지 확인해야 합니다. 
 - 서버에 Azure 파일 동기화 에이전트가 설치되고 등록되어 있습니다. Azure 파일 동기화 에이전트를 설치하기 위한 지침은 [Azure 파일 동기화에서 서버 등록/등록 취소](storage-sync-files-server-registration.md) 문서를 참조하세요. 
 - 스토리지 동기화 서비스가 배포되었는지 확인합니다. 스토리지 동기화 서비스를 배포하는 방법에 대한 자세한 내용은 [Azure 파일 동기화를 배포하는 방법](storage-sync-files-deployment-guide.md)을 참조하세요. 
@@ -54,11 +54,11 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint> -Order CloudTieringPolicy
 ```
-를 `-Order CloudTieringPolicy` 지정 하면 가장 최근에 수정한 파일이 먼저 회수 됩니다.
+`-Order CloudTieringPolicy`를 지정 하면 가장 최근에 수정한 파일이 먼저 회수 됩니다.
 고려할 수 있는 다른 옵션 이지만 유용한 매개 변수는 다음과 같습니다.
-* `-ThreadCount`동시에 회수할 수 있는 파일 수를 결정 합니다.
-* `-PerFileRetryCount`현재 차단 된 파일에 대 한 회수를 시도 하는 빈도를 결정 합니다.
-* `-PerFileRetryDelaySeconds`재시도 사이의 재시도 간격 (초)을 결정 합니다 .이 시간은 항상 이전 매개 변수와 함께 사용 해야 합니다.
+* `-ThreadCount`은 동시에 회수할 수 있는 파일 수를 결정 합니다.
+* `-PerFileRetryCount`은 현재 차단 된 파일에 대 한 회수를 시도 하는 빈도를 결정 합니다.
+* `-PerFileRetryDelaySeconds`회수 시도 사이의 시간 (초)을 결정 하 고, 항상 이전 매개 변수와 함께 사용 해야 합니다.
 
 > [!Note]  
 > 서버를 호스트하는 로컬 볼륨에 모든 계층화된 데이터를 기억할 충분한 사용 가능한 공간이 없으면 `Invoke-StorageSyncFileRecall` cmdlet이 실패합니다.  
@@ -67,7 +67,7 @@ Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint> -Order Clou
 
 1. 서버가 등록되어 있는 스토리지 동기화 서비스로 이동합니다.
 2. 원하는 동기화 그룹으로 이동합니다.
-3. 스토리지 동기화 서비스의 동기화 그룹에서 원하는 서버 엔드포인트를 제거합니다. 이 작업을 수행하려면 동기화 그룹 창에서 관련 서버 엔드포인트를 마우스 오른쪽 단추로 클릭합니다.
+3. 스토리지 동기화 서비스의 동기화 그룹에서 원하는 서버 엔드포인트를 제거합니다. 이렇게 하려면 동기화 그룹 창에서 관련 서버 엔드포인트를 마우스 오른쪽 단추로 클릭합니다.
 
     ![동기화 그룹에서 서버 엔드포인트 제거](media/storage-sync-files-server-endpoint/remove-server-endpoint-1.png)
 

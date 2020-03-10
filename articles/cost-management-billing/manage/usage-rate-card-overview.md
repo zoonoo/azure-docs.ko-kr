@@ -10,11 +10,11 @@ ms.date: 02/12/2020
 ms.author: banders
 ms.custom: seodec18
 ms.openlocfilehash: 2765a1acca21081a696bb165b75a96e1a668aa40
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200421"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78395838"
 ---
 # <a name="use-azure-billing-apis-to-programmatically-get-insight-into-your-azure-usage"></a>Azure Billing API를 사용하여 프로그래밍 방식으로 Azure 사용량에 대한 통찰력을 얻기
 Azure Billing API를 사용하여 사용량 및 리소스 데이터를 기본 설정된 데이터 분석 도구로 끌어옵니다. Azure 리소스 사용량 및 RateCard API를 통해 비용을 정확하게 예측하고 관리할 수 있습니다. API는 Azure Resource Manager가 노출한 API의 제품군의 일부로서 리소스 공급자로 구현됩니다.  

@@ -9,11 +9,11 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 01/03/2020
 ms.openlocfilehash: 75ed2029582438ede43687addfd54c0a187e0120
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75861101"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78382277"
 ---
 # <a name="data-processing-and-user-defined-functions"></a>데이터 처리 및 사용자 정의 함수
 
@@ -42,7 +42,7 @@ Azure Digital Twins의 데이터 처리는 *검사기*, *사용자 정의 함수
 
 - **온도** 데이터 형식의 모든 센서는 이스케이프된 문자열 값 `\"Temperature\"`로 표현됩니다.
 - 포트에 `01`이 있습니다.
-- 이스케이프된 문자열 값 `\"Contoso\"`로 설정된 확장 속성 키 **제조업체**가 있는 디바이스에 속합니다.
+- 이스케이프된 문자열 값 **로 설정된 확장 속성 키** 제조업체`\"Contoso\"`가 있는 디바이스에 속합니다.
 - 이스케이프된 문자열 `\"Venue\"`에서 지정된 형식의 공간에 속합니다.
 - 부모 **SpaceId** 의 하위 항목인 `DE8F06CA-1138-4AD7-89F4-F782CC6F69FD`
 
@@ -97,7 +97,7 @@ Azure Digital Twins의 데이터 처리는 *검사기*, *사용자 정의 함수
 
 사용자 정의 함수는 격리된 Azure Digital Twins 환경 내에서 실행된 사용자 지정 함수입니다. 사용자 정의 함수는 수신되는 원시 센서 원격 분석 메시지에 액세스할 수 있습니다. 사용자 정의 함수는 공간 그래프 및 디스패처 서비스에 액세스할 수도 있습니다. 사용자 정의 함수가 그래프 내에 등록되면 함수를 실행할 시기를 지정하도록 선택기([위](#matchers)에서 자세히 설명)를 만들어야 합니다. 예를 들어, Azure Digital Twins가 지정 센서에서 새 원격 분석을 수신하는 경우 일치하는 사용자 정의 함수는 마지막 몇 개의 센서 값에 대한 이동 평균을 계산할 수 있습니다.
 
-사용자 정의 함수는 JavaScript로 작성될 수 있습니다. 도우미 메서드는 사용자 정의 실행 환경에서 그래프와 상호 작용합니다. 개발자는 센서 원격 분석 메시지에 대해 사용자 지정 코드 조각을 실행할 수 있습니다. 예를 들면 다음과 같습니다.
+사용자 정의 함수는 JavaScript로 작성될 수 있습니다. 도우미 메서드는 사용자 정의 실행 환경에서 그래프와 상호 작용합니다. 개발자는 센서 원격 분석 메시지에 대해 사용자 지정 코드 조각을 실행할 수 있습니다. 다음은 이러한 템플릿의 예입니다.
 
 - 센서 값을 그래프 내의 센서 개체에 직접 설정합니다.
 - 다양한 센서 값을 기반으로 그래프의 공간 내에서 작업을 수행합니다.
@@ -106,7 +106,7 @@ Azure Digital Twins의 데이터 처리는 *검사기*, *사용자 정의 함수
 
 자세한 내용은 [사용자 정의 함수를 사용 하는 방법](./how-to-user-defined-functions.md)을 참조 하세요.
 
-#### <a name="examples"></a>예시
+#### <a name="examples"></a>예
 
 [Digital Twins C# 샘플에 대한 GitHub 리포지토리](https://github.com/Azure-Samples/digital-twins-samples-csharp/)에는 사용자 정의 함수의 몇 가지 예가 포함되어 있습니다.
 - [이 함수](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availabilityForTutorial.js)는 이산화탄소, 동작 및 온도 값을 찾아 범위 내에서 이러한 값으로 객실을 사용할 수 있는지 여부를 결정합니다. [Digital Twins 자습서](tutorial-facilities-udf.md)에 이 함수에 대해 보다 자세히 나와 있습니다. 

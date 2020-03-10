@@ -13,14 +13,14 @@ ms.date: 02/05/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: 74747e1bc5247e2a95a180b7361eafe8ca795bc2
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
-ms.translationtype: HT
+ms.openlocfilehash: ffd47d886a9d74c637f4f7ff634b3fd4c4a77574
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77160709"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78390757"
 ---
-# <a name="quickstart-set-up-a-tenant"></a>빠른 시작: 테넌트 설정
+# <a name="quickstart-set-up-a-tenant"></a>빠른 시작: 테 넌 트 설정
 
 Microsoft ID 플랫폼을 통해 개발자는 다양한 사용자 지정 Microsoft 365 환경 및 ID를 대상으로 하는 앱을 빌드할 수 있습니다. Microsoft ID 플랫폼 사용을 시작하려면 앱을 등록 및 관리하고, Microsoft 365 데이터에 액세스하고, 사용자 지정 조건부 액세스 및 테넌트 제한을 배포할 수 있는 Azure AD 테넌트라고도 하는 환경에 액세스해야 합니다.
 
@@ -74,4 +74,4 @@ Microsoft ID 플랫폼을 통해 개발자는 다양한 사용자 지정 Microso
 
 * 코딩 빠른 시작을 시도하고 사용자 인증을 시작합니다. 
 * 더 자세한 코드 샘플은 설명서의 **자습서** 섹션을 참조하세요.
-* 클라우드에 앱을 배포하시겠습니까? [Azure에 컨테이너 배포](https://docs.microsoft.com/azure/index#pivot=products&panel=containers)를 참조하세요. 
+* 클라우드에 앱을 배포하시겠습니까? [Azure에 컨테이너 배포](https://docs.microsoft.com/azure/index?pivot=products&panel=containers)를 참조하세요.

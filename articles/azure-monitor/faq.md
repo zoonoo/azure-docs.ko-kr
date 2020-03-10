@@ -8,11 +8,11 @@ author: bwren
 ms.author: bwren
 ms.date: 01/23/2020
 ms.openlocfilehash: 169cc3f6a195a7339ab33eb9f00d9937451a93e0
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77620445"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78395322"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure Monitor 질문과 대답
 
@@ -36,7 +36,7 @@ Azure Monitor는 새 Azure 구독을 만들 때 사용 하도록 설정 되며 [
 Azure Portal의 **모니터** 메뉴에서 모든 Azure Monitor 기능 및 데이터에 액세스 합니다. 서로 다른 Azure 서비스에 대 한 메뉴의 **모니터링** 섹션에서는 특정 리소스로 필터링 된 데이터를 사용 하 여 동일한 도구에 대 한 액세스를 제공 합니다. Azure Monitor 데이터는 CLI, PowerShell 및 REST API를 사용 하는 다양 한 시나리오에도 액세스할 수 있습니다.
 
 ### <a name="is-there-an-on-premises-version-of-azure-monitor"></a>Azure Monitor 온-프레미스 버전이 있나요?
-No. Azure Monitor은 많은 양의 데이터를 처리 하 고 저장 하는 확장 가능한 클라우드 서비스 이며, Azure Monitor 온-프레미스 및 다른 클라우드의 리소스를 모니터링할 수 있습니다.
+아니요. Azure Monitor은 많은 양의 데이터를 처리 하 고 저장 하는 확장 가능한 클라우드 서비스 이며, Azure Monitor 온-프레미스 및 다른 클라우드의 리소스를 모니터링할 수 있습니다.
 
 ### <a name="can-azure-monitor-monitor-on-premises-resources"></a>온-프레미스 리소스를 Azure Monitor 모니터링할 수 있나요?
 예, Azure 리소스의 모니터링 데이터를 수집 하는 것 외에도 다른 클라우드 및 온-프레미스의 가상 컴퓨터 및 응용 프로그램에서 데이터를 수집할 수 Azure Monitor. [Azure Monitor에 대 한 모니터링 데이터 원본](platform/data-sources.md)을 참조 하세요.
@@ -169,7 +169,7 @@ WireData
 ```
 
 ### <a name="how-much-network-bandwidth-is-used-by-the-microsoft-management-agent-mma-when-sending-data-to-azure-monitor"></a>Azure Monitor로 데이터를 보낼 때 Microsoft Management Agent (MMA)에서 사용 되는 네트워크 대역폭은 얼마나 되나요?
-대역폭은 전송된 데이터의 양에 대한 함수입니다. 네트워크를 통해 데이터가 전송되는 동안 데이터가 압축됩니다.
+대역폭은 전송된 데이터 양에 대한 기능입니다. 네트워크를 통해 데이터가 전송되는 동안 데이터가 압축됩니다.
 
 
 ### <a name="how-can-i-be-notified-when-data-collection-from-the-log-analytics-agent-stops"></a>Log Analytics 에이전트의 데이터 수집을 중지 하면 어떻게 알 수 있나요?
@@ -345,7 +345,7 @@ WireData
 * 데이터를 기울이거나 경고를 트리거하는 데 사용할 수 있습니다.
 * 고객에게 이러한 문제가 발생한 경우는 없었습니다.
 
-다음과 같이 작업을 수행할 수 있습니다.
+다음과 같이 할 수 있습니다.
 
 * 클라이언트 및 서버 데이터에 대해 두 개의 개별 계측 키 (별도의 Application Insights 리소스)를 사용 합니다. 또는
 * 서버에서 실행되는 프록시를 작성하고 웹 클라이언트에서 해당 프록시를 통해 데이터를 전송하도록 합니다.
@@ -395,7 +395,7 @@ POST 데이터를 자동으로 기록 하지 않지만 TrackTrace 호출을 사�
 ```
 
 
-### <a name="automation"></a>자동화
+### <a name="automation"></a>Automation
 
 #### <a name="configuring-application-insights"></a>Application Insights 구성
 
@@ -492,7 +492,7 @@ Azure 경고는 메트릭에 대해서만 설정됩니다. 이벤트가 발생�
 
 ### <a name="can-i-run-availability-web-tests-on-an-intranet-server"></a>인트라넷 서버에서 가용성 웹 테스트를 실행할 수 있나요?
 
-[웹 테스트](app/monitor-web-app-availability.md)는 전 세계에 배포된 클라이언트 로그인 지점에서 실행됩니다. 이 문제에 대한 솔루션은 다음과 같습니다.
+[웹 테스트](app/monitor-web-app-availability.md)는 전 세계에 배포된 클라이언트 로그인 지점에서 실행됩니다. 두 가지 해결 방법이 있습니다.
 
 * 방화벽 문 - [길고 변경 가능한 웹 테스트 에이전트 목록](app/ip-addresses.md)에서 서버에 대한 요청을 허용합니다.
 * 인트라넷 내부에서 서버에 주기적으로 요청을 보내는 코드를 직접 작성합니다. 이러한 목적으로 Visual Studio 웹 테스트를 실행할 수 있습니다. 테스터는 TrackAvailability() API를 사용하여 결과를 Application Insights에 보낼 수 있습니다.

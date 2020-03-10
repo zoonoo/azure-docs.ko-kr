@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed28b4bb8ec61455168f50058c8cdcaf9f50717d
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
-ms.translationtype: HT
+ms.openlocfilehash: 6754393bdeabcd67dcf6514102e3c825a26fc3e9
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73882857"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672238"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>자습서: 하이브리드 Azure Active Directory 조인 디바이스를 수동으로 구성
 
@@ -25,7 +25,7 @@ Azure AD(Active Directory)의 디바이스 관리를 사용하면 보안 및 규
 > [!TIP]
 > Azure AD Connect 사용이 선택 사항인 경우 [관리형](hybrid-azuread-join-managed-domains.md) 또는 [페더레이션](hybrid-azuread-join-federated-domains.md) 도메인에 대한 관련된 자습서를 참조하세요. Azure AD Connect를 사용하면 하이브리드 Azure AD 조인의 구성을 크게 간소화할 수 있습니다.
 
-온-프레미스 Active Directory 환경을 사용하고, Azure AD에 도메인 가입 디바이스를 연결하려는 경우 하이브리드 Azure AD 가입 디바이스를 구성하여 이를 수행할 수 있습니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
+온-프레미스 Active Directory 환경을 사용하고, Azure AD에 도메인 가입 디바이스를 연결하려는 경우 하이브리드 Azure AD 가입 디바이스를 구성하여 이를 수행할 수 있습니다. 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 수동으로 하이브리드 Azure AD 조인 구성
@@ -35,7 +35,7 @@ Azure AD(Active Directory)의 디바이스 관리를 사용하면 보안 및 규
 > * 가입 디바이스 확인
 > * 구현 문제 해결
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에서는 사용자가 다음 항목에 대해 잘 알고 있다고 가정합니다.
 
@@ -185,7 +185,7 @@ AD FS를 사용하는 경우 다음 WS-Trust 엔드포인트를 사용하도록 
 - `/adfs/services/trust/13/certificatemixed`
 
 > [!WARNING]
-> **adfs/services/trust/2005/windowstransport** 또는 **adfs/services/trust/13/windowstransport**는 모두 인트라넷 연결 엔드포인트로만 사용하도록 설정해야 하며 웹 애플리케이션 프록시를 통해 엑스트라넷 연결 엔드포인트로 노출되어서는 안됩니다. WS-Trust Windows 엔드포인트를 비활성화는 방법에 대해 자세히 알아보려면 [프록시에서 WS-Trust Windows 엔드포인트 사용 안 함](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet)을 참조하세요. **서비스** > **엔드포인트**에서 AD FS 관리 콘솔을 통해 어떤 엔드포인트가 사용하도록 설정되었는지 확인할 수 있습니다.
+> **adfs/services/trust/2005/windowstransport** 또는 **adfs/services/trust/13/windowstransport**는 모두 인트라넷 연결 엔드포인트로만 사용하도록 설정해야 하며 웹 애플리케이션 프록시를 통해 엑스트라넷 연결 엔드포인트로 노출되어서는 안됩니다. WS-Trust Windows 엔드포인트를 비활성화는 방법에 대해 자세히 알아보려면 [프록시에서 WS-Trust Windows 엔드포인트 사용 안 함](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet)을 참조하세요. **서비스** > **엔드포인트**에서 AD FS 관리 콘솔을 통해 어떤 엔드포인트가 사용하도록 설정되었는지 확인할 수 있습니다.
 
 > [!NOTE]
 >온-프레미스 페더레이션 서비스로 사용되는 AD FS가 없으면 공급업체의 지침에 따라 WS-Trust 1.3 또는 2005 버전이 지원되는지 확인하고, 메타데이터 교환 파일(MEX)을 통해 게시되는지 확인합니다.
@@ -503,7 +503,7 @@ ImmutableID 클레임(예: 대체 로그인 ID)을 이미 발급 중인 경우 �
 
 Windows 하위 수준 디바이스를 등록하려면 사용자가 Azure AD에서 디바이스를 등록할 수 있도록 허용하는 설정을 사용해야 합니다. 이 설정은 Azure Portal의 **Azure Active Directory** > **사용자 및 그룹** > **디바이스 설정** 아래에서 찾을 수 있습니다.
 
-다음 정책을 **모두**: **사용자가 디바이스를 Azure AD에 등록할 수 있습니다.** 로 설정해야 합니다.
+다음 정책을 **모두**로 설정 해야 합니다. **사용자가 Azure AD에 장치를 등록할 수 있습니다**.
 
 ![사용자가 디바이스를 등록할 수 있게 허용하는 [모두] 단추](./media/hybrid-azuread-join-manual/23.png)
 
@@ -549,7 +549,7 @@ Windows 하위 수준 디바이스를 등록하려면 다운로드 센터에서 
 
 ## <a name="verify-joined-devices"></a>가입 디바이스 확인
 
-[Azure Active Directory PowerShell 모듈](/powershell/azure/install-msonlinev1?view=azureadps-2.0)에서 [Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice) cmdlet을 사용하여 조직에 성공적으로 조인된 디바이스를 확인할 수 있습니다.
+[Azure Active Directory PowerShell 모듈](/powershell/msonline/v1/get-msoldevice)에서 [Get-MsolDevice](/powershell/azure/install-msonlinev1?view=azureadps-2.0) cmdlet을 사용하여 조직에 성공적으로 조인된 디바이스를 확인할 수 있습니다.
 
 이 cmdlet의 출력은 Azure AD로 등록 및 가입된 디바이스를 보여 줍니다. 모든 디바이스를 가져오려면 **-All** 매개 변수를 사용한 다음, **deviceTrustType** 속성을 사용하여 디바이스를 필터링합니다. 도메인에 가입된 디바이스는 **도메인 가입** 값을 갖습니다.
 

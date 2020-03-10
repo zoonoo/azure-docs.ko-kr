@@ -12,11 +12,11 @@ ms.custom: mvc
 ms.date: 09/03/2019
 ms.author: mbaldwin
 ms.openlocfilehash: a57370b7bf63ad73318ba13eff1b554aead7e186
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78197762"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78381346"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Key Vault에서 비밀을 설정하고 검색
 
@@ -26,7 +26,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-[https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
+[https://portal.azure.com](https://portal.azure.com) 에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-a-vault"></a>자격 증명 모음 만들기
 
@@ -35,7 +35,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 3. 결과 목록에서 **Key Vault**를 선택합니다.
 4. Key Vault 섹션에서 **만들기**를 선택합니다.
 5. **Key Vault 만들기** 섹션에서 다음 정보를 제공합니다.
-    - **Name**: 고유 이름은 필수입니다. 이 빠른 시작의 경우 **Contoso-vault2**를 사용합니다. 
+    - **이름**: 고유 이름은 필수입니다. 이 빠른 시작의 경우 **Contoso-vault2**를 사용합니다. 
     - **구독**: 구독을 선택합니다.
     - **리소스 그룹**에서 **새로 만들기**를 선택하고 리소스 그룹 이름을 입력합니다.
     - **위치** 풀 다운 메뉴에서 위치를 선택합니다.
@@ -45,7 +45,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 아래에 나열된 두 개의 속성을 기록합니다.
 
 * **자격 증명 모음 이름**: 이 예에서는 **Contoso-Vault2**입니다. 다른 단계에서 이 이름을 사용합니다.
-* **자격 증명 모음 URI**: 이 예에서는 https://contoso-vault2.vault.azure.net/ 입니다. REST API를 통해 사용자 자격 증명 모음을 사용하는 애플리케이션은 URI를 사용해야 합니다.
+* **자격 증명 모음 URI**: 이 예에서는 https://contoso-vault2.vault.azure.net/입니다. REST API를 통해 사용자 자격 증명 모음을 사용하는 애플리케이션은 URI를 사용해야 합니다.
 
 이때 사용자의 Azure 계정은 이 새 자격 증명 모음에서 작업을 수행할 권한이 있는 유일한 계정입니다.
 
@@ -59,7 +59,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 2. **생성/가져오기**를 클릭합니다.
 3. **비밀 만들기** 화면에서 다음 값을 선택합니다.
     - **업로드 옵션**: 수동.
-    - **Name**: ExamplePassword.
+    - **이름**: ExamplePassword.
     - **값**: hVFkk965BuUv
     - 다른 값은 기본값으로 그대로 둡니다. **만들기**를 클릭합니다.
 

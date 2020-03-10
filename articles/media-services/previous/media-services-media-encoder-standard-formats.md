@@ -15,13 +15,13 @@ ms.date: 03/18/2019
 ms.author: juliako
 ms.reviewer: anilmur
 ms.openlocfilehash: e2ccce13e4ef09426d0f3a02dcbce2f330b0ead8
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895940"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78366845"
 ---
-# <a name="media-encoder-standard-formats-and-codecs"></a>Media Encoder 표준 형식 및 코덱
+# <a name="media-encoder-standard-formats-and-codecs"></a>미디어 인코더 표준 형식 및 코덱
 
 > [!div class="op_single_selector" title1="사용 중인 Media Services의 버전을 선택 합니다."]
 > * [버전 2](media-services-media-encoder-standard-formats.md)
@@ -54,7 +54,7 @@ ms.locfileid: "74895940"
 
 * 인터리브 스테레오 오디오 또는 5.1 샘플을 포함하는 오디오 트랙이 있는 MXF, GXF 및 QuickTime 파일
 
-or
+또는
 
 * 별도의 PCM 트랙으로 오디오가 전달되지만 파일 메타데이터에서 스테레오 또는 5.1에 대한 채널 매핑을 추론할 수 MXF, GXF 및 QuickTime 파일
 
@@ -69,7 +69,7 @@ or
 | MPEG-2(최대 422 프로필 및 높은 수준, XDCAM, XDCAM HD, XDCAM IMX, CableLabs® 및 D10과 같은 변형 포함) |최대 422 프로필 |
 | MPEG-1 |yes |
 | VC-1/WMV9 |yes |
-| Canopus HQ/HQX |아닙니다. |
+| Canopus HQ/HQX |예 |
 | Mpeg-4 2부 |yes |
 | [Theora](https://en.wikipedia.org/wiki/Theora) |yes |
 | 압축되지 않은 YUV420 또는 mezzanine |yes |
@@ -93,10 +93,10 @@ or
 | [Opus](https://go.microsoft.com/fwlink/?LinkId=822667) |yes |
 | [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a> |yes |
 | AMR(Adaptive Multi-Rate) |yes |
-| AES(SMPTE 331M 및 302M, AES3-2003) |아닙니다. |
-| Dolby® E |아닙니다. |
-| Dolby® Digital(AC3) |아닙니다. |
-| Dolby® Digital Plus(E-AC3) |아닙니다. |
+| AES(SMPTE 331M 및 302M, AES3-2003) |예 |
+| Dolby® E |예 |
+| Dolby® Digital(AC3) |예 |
+| Dolby® Digital Plus(E-AC3) |예 |
 
 ## <a name="output-formats-and-codecs"></a>출력 형식 및 코덱
 다음 표에는 내보내기에 지원되는 코덱 및 파일 형식이 나열되어 있습니다.
@@ -109,7 +109,7 @@ or
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>피드백 제공하기
+## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>참고 항목

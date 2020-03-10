@@ -7,11 +7,11 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 12/05/2019
 ms.openlocfilehash: 8ec6f32d7db0161cef00330aa38601ba9bdb309d
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893147"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78392715"
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mysql-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for MySQL에서 서버 매개 변수 구성 방법
 
@@ -41,23 +41,23 @@ InnoDB 버퍼 풀 크기는 구성할 수 없으며 [가격 책정 계층](conce
 |:---|---:|---:|---:|
 |Basic| 1| 832| |
 |Basic| 2| 2560| |
-|일반적인 용도| 2| 3584| 7168|
-|일반적인 용도| 4| 7680| 15360|
-|일반적인 용도| 8| 15360| 30720|
-|일반적인 용도| 16| 31232| 62464|
-|일반적인 용도| 32| 62976| 125952|
-|일반적인 용도| 64| 125952| 251904|
-|메모리에 최적화| 2| 7168| 14336|
-|메모리에 최적화| 4| 15360| 30720|
-|메모리에 최적화| 8| 30720| 61440|
-|메모리에 최적화| 16| 62464| 124928|
-|메모리에 최적화| 32| 125952| 251904|
+|범용| 2| 3584| 7168|
+|범용| 4| 7680| 15360|
+|범용| 8| 15360| 30720|
+|범용| 16| 31232| 62464|
+|범용| 32| 62976| 125952|
+|범용| 64| 125952| 251904|
+|메모리 최적화| 2| 7168| 14336|
+|메모리 최적화| 4| 15360| 30720|
+|메모리 최적화| 8| 30720| 61440|
+|메모리 최적화| 16| 62464| 124928|
+|메모리 최적화| 32| 125952| 251904|
 
 이러한 추가 서버 매개 변수는 시스템에서 구성할 수 없습니다.
 
 |**매개 변수**|**고정 값**|
 | :------------------------ | :-------- |
-|기본 계층의 innodb_file_per_table|끄기|
+|기본 계층의 innodb_file_per_table|OFF|
 |innodb_flush_log_at_trx_commit|1|
 |sync_binlog|1|
 |innodb_log_file_size|512MB|

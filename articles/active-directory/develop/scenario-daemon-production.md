@@ -16,11 +16,11 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: db5f52c95daf4e93c140b4c93f39dad19971319d
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76775212"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78377313"
 ---
 # <a name="daemon-app-that-calls-web-apis---move-to-production"></a>웹 Api를 호출 하는 디먼 앱-프로덕션으로 이동
 
@@ -41,7 +41,7 @@ ms.locfileid: "76775212"
 
 자세히 알아보는 데 도움이 되는 몇 가지 링크는 다음과 같습니다.
 
-# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
+# <a name="net"></a>[.NET](#tab/dotnet)
 
 - 빠른 시작: [응용 프로그램의 id를 사용 하 여 콘솔 앱에서 토큰을 획득 하 고 MICROSOFT GRAPH API를 호출](./quickstart-v2-netcore-daemon.md)합니다.
 - 참조 설명서:
@@ -60,11 +60,11 @@ ms.locfileid: "76775212"
 
     ![토폴로지](media/scenario-daemon-app/damon-app-sample-web.svg)
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 [응용 프로그램의 id를 사용 하 여 빠른 시작에서 토큰 획득을 시도 하 고 Python 콘솔 앱에서 MICROSOFT GRAPH API를 호출](./quickstart-v2-python-daemon.md)합니다.
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 MSAL Java는 현재 공개 미리 보기로 제공 됩니다. 자세한 내용은 [Msal Java dev 샘플](https://github.com/AzureAD/microsoft-authentication-library-for-java/tree/dev/src/samples)을 참조 하세요.
 

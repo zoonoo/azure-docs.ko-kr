@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
 ms.openlocfilehash: 26f8d885f8cf85ab849ba221392df206e492aac4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60814483"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78385650"
 ---
 # <a name="semantic-interpretation"></a>의미 해석
 
@@ -33,7 +33,7 @@ ms.locfileid: "60814483"
 
 다음은 현재 지원되는 데이터 형식의 목록입니다.
 
-|Type|설명|예|
+|Type|Description|예|
 |----|----|----|
 |String|0자 이상의 시퀀스|“Hello World!”<br/>""|
 |Bool|부울 값|true<br/>false|
@@ -41,7 +41,7 @@ ms.locfileid: "60814483"
 |Int64|부호 있는 64비트 정수. -9.2e18 및 9.2e18|9876543210|
 |Double|배정밀도 부동 소수점. 1.7e+/-308(15자리)|123.456789<br/>1.23456789e2|
 |Guid|전역적으로 고유한 식별자|“602DD052-CC47-4B23-A16A-26B52D30C05B”|
-|query|인덱스에서 데이터 개체의 하위 집합을 지정하는 쿼리 식|All()<br/>And(*q1*, *q2*)|
+|쿼리|인덱스에서 데이터 개체의 하위 집합을 지정하는 쿼리 식|All()<br/>And(*q1*, *q2*)|
 
 ## <a name="semantic-functions"></a>의미 체계 함수
 
@@ -139,7 +139,7 @@ And(Composite(Query("academic#Author.Name", "harry shum"),
 
 시스템 변수는 서비스에서 미리 정의되며 시스템의 현재 상태에 대한 다양한 통계를 검색하는 데 사용할 수 있습니다.  다음은 현재 지원되는 시스템 변수의 집합입니다.
 
-|Name|형식|설명|
+|속성|Type|Description|
 |----|----|----|
 |IsAtEndOfQuery|Bool|현재 해석이 모든 입력된 쿼리 텍스트에 일치하는 경우 true|
 |IsBeyondEndOfQuery|Bool|현재 해석이 입력된 쿼리 텍스트 외에 완료된 항목을 제안한 경우 true|

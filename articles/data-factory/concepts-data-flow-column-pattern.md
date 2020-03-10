@@ -8,11 +8,11 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/21/2019
 ms.openlocfilehash: 0c9a3c2ef05f4a11933ca7fc81c7c0f87a612293
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72789873"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78395908"
 ---
 # <a name="using-column-patterns-in-mapping-data-flow"></a>매핑 데이터 흐름에서 열 패턴 사용
 
@@ -35,7 +35,7 @@ ms.locfileid: "72789873"
 
 ![열 패턴](media/data-flow/columnpattern2.png "열 패턴")
 
-위의 열 패턴은 double 형식의 모든 열을 일치 시키고 일치 하는 항목 마다 하나의 집계 열을 만듭니다. 새 열의 이름은 일치 하는 열 이름이 ' _total '과 연결 되어 있습니다. 새 열의 값은 반올림 되어 기존 double 값의 집계 된 합계입니다.
+위의 열 패턴은 double 형식의 모든 열을 일치 시키고 일치 하는 항목 마다 하나의 집계 열을 만듭니다. 새 열의 이름은 일치 하는 열 이름이 ' _total '과 (와) 연결 되어 있습니다. 새 열의 값은 반올림 되어 기존 double 값의 집계 된 합계입니다.
 
 일치 조건이 올바른지 확인 하기 위해 **검사** 탭에서 정의 된 열의 출력 스키마 유효성을 검사 하거나 **데이터 미리 보기** 탭에서 데이터의 스냅숏을 가져올 수 있습니다. 
 
@@ -64,8 +64,8 @@ ms.locfileid: "72789873"
 ## <a name="pattern-matching-expression-values"></a>패턴 일치 식 값입니다.
 
 * `$$`는 런타임에 각 일치 항목의 이름이 나 값으로 변환 됩니다.
-* `name`은 들어오는 각 열의 이름을 나타냅니다.
-* `type`은 들어오는 각 열의 데이터 형식을 나타냅니다.
+* 들어오는 각 열의 이름을 나타내는 `name`
+* 들어오는 각 열의 데이터 형식을 나타내는 `type`
 * `stream`는 각 스트림 또는 흐름의 변환과 연결 된 이름을 나타냅니다.
 * `position`은 데이터 흐름에서 열의 서 수 위치입니다.
 

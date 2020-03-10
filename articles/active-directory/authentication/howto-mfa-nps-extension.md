@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 43f355f22774477466d2965cef02adcc4ec4f497
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76908856"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78378114"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>기존 NPS 인프라를 Azure Multi-Factor Authentication과 통합
 
@@ -43,7 +43,7 @@ Azure MFA가 사용되는 NPS 서버를 필요한 만큼 많이 만들 수 있�
 
 VPN 서버는 인증 요청을 라우팅하므로 새로운 Azure MFA 사용 NPS 서버에 유의해야 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 NPS 확장은 기존 인프라와 함께 사용할 수 있습니다. 시작하기 전에 다음 필수 조건을 갖추고 있는지 확인합니다.
 
@@ -252,7 +252,7 @@ MFA에 등록되지 않은 사용자가 있는 경우 인증을 시도할 때 �
 
 다음 스크립트는 TechNet 갤러리에서 NPS 확장 문제를 해결할 때 기본 상태 검사 단계를 수행 하는 데 사용할 수 있습니다.
 
-[MFA_NPS_Troubleshooter.ps1](https://gallery.technet.microsoft.com/Azure-MFA-NPS-Extension-648de6bb)
+[MFA_NPS_Troubleshooter. ps1](https://gallery.technet.microsoft.com/Azure-MFA-NPS-Extension-648de6bb)
 
 ---
 
@@ -303,7 +303,7 @@ Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b0
 1. NPS 서버를 다시 시작합니다.
 2. 클라이언트 인증서가 예상대로 설치되었는지 확인합니다.
 3. 인증서가 Azure AD의 테넌트와 연결되어 있는지 확인합니다.
-4. 확장을 실행하는 서버에서 https://login.microsoftonline.com/ 에 액세스할 수 있는지 확인합니다.
+4. 확장을 실행하는 서버에서 https://login.microsoftonline.com/에 액세스할 수 있는지 확인합니다.
 
 ---
 
@@ -315,7 +315,7 @@ AD Connect가 실행 중이고 사용자가 Windows Active Directory와 Azure Ac
 
 ### <a name="why-do-i-see-http-connect-errors-in-logs-with-all-my-authentications-failing"></a>내 모든 인증이 실패한 상태의 로그에 HTTP 연결 오류가 표시되는 이유는 무엇입니까?
 
-NPS 확장을 실행하는 서버에서 https://adnotifications.windowsazure.com 에 액세스할 수 있는지 확인합니다.
+NPS 확장을 실행하는 서버에서 https://adnotifications.windowsazure.com에 액세스할 수 있는지 확인합니다.
 
 ---
 

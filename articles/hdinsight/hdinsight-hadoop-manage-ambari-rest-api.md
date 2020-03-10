@@ -9,11 +9,11 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/07/2019
 ms.openlocfilehash: 1d684957939c5cb83aae05962c1694f7a8d8da23
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498245"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78386381"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-rest-api"></a>Apache Ambari REST API를 사용하여 HDInsight 클러스터 관리
 
@@ -25,13 +25,13 @@ Apache Ambari REST API를 사용하여 Azure HDInsight에서 Apache Hadoop 클�
 
 [Apache Ambari](https://ambari.apache.org) 는 [REST api](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)에서 지원 되는 웹 UI를 쉽게 사용할 수 있도록 하 여 Hadoop 클러스터의 관리 및 모니터링을 간소화 합니다.  Ambari는 Linux 기반 HDInsight 클러스터를 기본으로 제공합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * **HDInsight의 Hadoop 클러스터** [Linux에서 HDInsight 시작](hadoop/apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 
 * **Windows 10에서 Ubuntu의 Bash**  이 문서의 예제에서는 Windows 10의 Bash 셸을 사용합니다. [Windows 10을 위한 Linux용 Windows 하위 시스템 설치 가이드](https://docs.microsoft.com/windows/wsl/install-win10)에서 설치 단계를 참조하세요.  다른 [Unix 셸](https://www.gnu.org/software/bash/)도 작동합니다.  약간의 수정이 있는 예제는 Windows 명령 프롬프트에서 작동할 수 있습니다.  또는 Windows PowerShell을 사용할 수 있습니다.
 
-* **jq**, 명령줄 JSON 프로세서.  [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/)를 참조하세요.
+* **jq**, 명령줄 JSON 프로세서.  [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/)을 참조하세요.
 
 * **Windows PowerShell**.  또는 [Bash](https://www.gnu.org/software/bash/)를 사용할 수 있습니다.
 
@@ -358,7 +358,7 @@ $resp.Content
      }
      ```
 
-2. `newconfig.json`를 편집 합니다.  
+2. `newconfig.json`을 편집합니다.  
    `newconfig.json` 문서를 열고 `properties` 개체의 값을 수정/추가합니다. 다음 예제는 `"livy.server.csrf_protection.enabled"` 값을 `"true"`에서 `"false"`로 변경합니다.
 
         "livy.server.csrf_protection.enabled": "false",

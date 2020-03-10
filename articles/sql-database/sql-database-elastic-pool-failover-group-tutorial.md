@@ -12,11 +12,11 @@ ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 08/27/2019
 ms.openlocfilehash: c57f9eed2147504dd7b3313d58468fb76ab40caa
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552562"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78380027"
 ---
 # <a name="tutorial-add-an-azure-sql-database-elastic-pool-to-a-failover-group"></a>자습서: 장애 조치 (failover) 그룹에 Azure SQL Database 탄력적 풀 추가
 
@@ -28,7 +28,7 @@ Azure Portal를 사용 하 여 Azure SQL Database 탄력적 풀 및 테스트 �
 > - 두 개의 논리 SQL server 간에 두 개의 탄력적 풀에 대 한 [장애 조치 (failover) 그룹](sql-database-auto-failover-group.md) 을 만듭니다.
 > - 테스트 장애 조치 (failover)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음이 설치되어 있어야 합니다. 
 
@@ -43,7 +43,7 @@ Azure Portal를 사용 하 여 Azure SQL Database 탄력적 풀 및 테스트 �
 이 단계에서는 탄력적 풀을 만들고 단일 데이터베이스를 추가 합니다. 
 
 
-# <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
+# <a name="portal"></a>[포털](#tab/azure-portal)
 
 Azure Portal를 사용 하 여 탄력적 풀을 만듭니다. 
 
@@ -71,7 +71,7 @@ Azure Portal를 사용 하 여 탄력적 풀을 만듭니다.
 1. **검토 + 만들기** 를 선택 하 여 탄력적 풀 설정을 검토 한 후 **만들기** 를 선택 하 여 탄력적 풀을 만듭니다. 
 
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 PowerShell을 사용 하 여 탄력적 풀 및 보조 서버를 만듭니다. 
 
    ```powershell-interactive
@@ -129,11 +129,11 @@ PowerShell을 사용 하 여 탄력적 풀 및 보조 서버를 만듭니다.
 이 단계에서는 기존 Azure SQL server와 다른 지역의 새 Azure SQL server 간에 [장애 조치 (failover) 그룹](sql-database-auto-failover-group.md) 을 만듭니다. 그런 다음 장애 조치 (failover) 그룹에 탄력적 풀을 추가 합니다. 
 
 
-# <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
+# <a name="portal"></a>[포털](#tab/azure-portal)
 
 Azure Portal를 사용 하 여 장애 조치 (failover) 그룹을 만듭니다. 
 
-1. [Azure Portal](https://portal.azure.com)의 왼쪽 메뉴에서 **Azure SQL**을 선택합니다. **AZURE sql** 이 목록에 없는 경우 **모든 서비스**를 선택한 다음 검색 상자에 azure sql을 입력 합니다. (선택 사항) **Azure SQL** 옆의 별표를 선택하여 즐겨찾기로 선택하고 왼쪽 탐색에 항목으로 추가합니다. 
+1. **Azure Portal**의 왼쪽 메뉴에서 [Azure SQL](https://portal.azure.com)을 선택합니다. **AZURE sql** 이 목록에 없는 경우 **모든 서비스**를 선택한 다음 검색 상자에 azure sql을 입력 합니다. (선택 사항) **Azure SQL** 옆의 별표를 선택하여 즐겨찾기로 선택하고 왼쪽 탐색에 항목으로 추가합니다. 
 1. 이전 섹션에서 만든 탄력적 풀 (예: `myElasticPool`)을 선택 합니다. 
 1. **개요** 창에서 서버 **이름** 아래의 서버 이름을 선택 하 여 서버에 대 한 설정을 엽니다.
   
@@ -163,7 +163,7 @@ Azure Portal를 사용 하 여 장애 조치 (failover) 그룹을 만듭니다.
 1. **선택** 을 선택 하 여 탄력적 풀 설정을 장애 조치 (failover) 그룹에 적용 한 다음 **만들기** 를 선택 하 여 장애 조치 그룹을 만듭니다. 장애 조치 (failover) 그룹에 탄력적 풀을 추가 하면 지역에서 복제 프로세스가 자동으로 시작 됩니다.
 
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 PowerShell을 사용 하 여 장애 조치 (failover) 그룹을 만듭니다. 
 
@@ -252,11 +252,11 @@ PowerShell을 사용 하 여 장애 조치 (failover) 그룹을 만듭니다.
 이 단계에서는 장애 조치 (failover) 그룹을 보조 서버로 장애 조치 (failover) 한 다음 Azure Portal를 사용 하 여 장애 복구 (failback) 합니다. 
 
 
-# <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
+# <a name="portal"></a>[포털](#tab/azure-portal)
 
 Azure Portal를 사용 하 여 장애 조치 (failover) 그룹의 장애 조치를 테스트 합니다. 
 
-1. [Azure Portal](https://portal.azure.com)의 왼쪽 메뉴에서 **Azure SQL**을 선택합니다. **AZURE sql** 이 목록에 없는 경우 **모든 서비스**를 선택한 다음 검색 상자에 azure sql을 입력 합니다. (선택 사항) **Azure SQL** 옆의 별표를 선택하여 즐겨찾기로 선택하고 왼쪽 탐색에 항목으로 추가합니다. 
+1. **Azure Portal**의 왼쪽 메뉴에서 [Azure SQL](https://portal.azure.com)을 선택합니다. **AZURE sql** 이 목록에 없는 경우 **모든 서비스**를 선택한 다음 검색 상자에 azure sql을 입력 합니다. (선택 사항) **Azure SQL** 옆의 별표를 선택하여 즐겨찾기로 선택하고 왼쪽 탐색에 항목으로 추가합니다. 
 1. 이전 섹션에서 만든 탄력적 풀 (예: `myElasticPool`)을 선택 합니다. 
 1. 서버 **이름** 아래에서 서버 이름을 선택 하 여 서버에 대 한 설정을 엽니다.
 
@@ -276,7 +276,7 @@ Azure Portal를 사용 하 여 장애 조치 (failover) 그룹의 장애 조치�
 1. 장애 **조치 (** failover)를 다시 선택 하 여 장애 조치 그룹을 다시 원래 설정으로 장애 조치 합니다. 
 
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 PowerShell을 사용 하 여 장애 조치 그룹의 장애 조치를 테스트 합니다. 
 
@@ -357,15 +357,15 @@ PowerShell을 사용 하 여 장애 조치 그룹의 장애 조치를 테스트 
 리소스 그룹을 삭제 하 여 리소스를 정리 합니다. 
 
 
-# <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
+# <a name="portal"></a>[포털](#tab/azure-portal)
 
 
-1. [Azure Portal](https://portal.azure.com)에서 리소스 그룹으로 이동 합니다.
+1. [Azure Portal](https://portal.azure.com)에서 리소스 그룹으로 이동합니다.
 1. 리소스 그룹 자체 뿐만 아니라 그룹의 모든 리소스를 삭제 하려면 **리소스 그룹 삭제** 를 선택 합니다. 
 1. 리소스 그룹의 이름을 입력 하 고, `myResourceGroup`텍스트 상자에을 입력 한 다음 **삭제** 를 선택 하 여 리소스 그룹을 삭제 합니다. 
 
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 PowerShell을 사용 하 여 리소스를 정리 합니다. 
 
@@ -392,7 +392,7 @@ PowerShell을 사용 하 여 리소스를 정리 합니다.
 
 ## <a name="full-script"></a>전체 스크립트
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 [!code-powershell-interactive[main](../../powershell_scripts/sql-database/failover-groups/add-elastic-pool-to-failover-group-az-ps.ps1 "Add elastic pool to a failover group")]
 
@@ -414,7 +414,7 @@ PowerShell을 사용 하 여 리소스를 정리 합니다.
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | 리소스 그룹을 제거합니다. | 
 
 
-# <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
+# <a name="portal"></a>[포털](#tab/azure-portal)
 Azure Portal 사용할 수 있는 스크립트가 없습니다.
 
 ---

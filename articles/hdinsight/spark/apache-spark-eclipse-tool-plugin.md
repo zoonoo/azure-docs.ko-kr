@@ -9,21 +9,21 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/13/2019
 ms.openlocfilehash: 07ed22879180d8126711eba9af0a2cac5b7b2953
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76936495"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78381630"
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Azure Toolkit for Eclipse를 사용하여 HDInsight 클러스터용 Apache Spark 애플리케이션 만들기
 
-Azure Toolkit for [Eclipse](https://www.eclipse.org/)의 HDInsight Tools를 사용하여 [Scala](https://www.scala-lang.org/)로 작성된 [Apache Spark](https://spark.apache.org/) 애플리케이션을 개발하여 Eclipse IDE에서 직접 Azure HDInsight Spark 클러스터에 제출합니다. 다음과 같은 방법으로 HDInsight Tools 플러그 인을 사용할 수 있습니다.
+Azure Toolkit for [Eclipse](https://www.eclipse.org/)의 HDInsight Tools를 사용하여 [Scala](https://spark.apache.org/)로 작성된 [Apache Spark](https://www.scala-lang.org/) 애플리케이션을 개발하여 Eclipse IDE에서 직접 Azure HDInsight Spark 클러스터에 제출합니다. 다음과 같은 방법으로 HDInsight Tools 플러그 인을 사용할 수 있습니다.
 
 * HDInsight Spark 클러스터에서 Scala Spark 애플리케이션을 개발 및 제출하려면
 * Azure HDInsight Spark 클러스터 리소스에 액세스하려면
 * Scala Spark 애플리케이션을 로컬로 개발 및 실행하려면
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * HDInsight의 Apache Spark 클러스터. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](apache-spark-jupyter-spark-sql.md)를 참조하세요.
 
@@ -53,7 +53,7 @@ Eclipse를 열면 HDInsight Tools는 Scala 플러그 인을 설치했는지 여�
     * \<버전 >을 Azure Toolkit for Eclipse 합니다.
     * Scala IDE \<버전 >.
 
-## <a name="sign-in-to-your-azure-subscription"></a>Azure 구독에 로그인
+## <a name="sign-in-to-your-azure-subscription"></a>Azure 구독에 로그인합니다.
 
 1. Eclipse IDE를 시작 합니다.
 
@@ -238,7 +238,7 @@ HDInsight Tools를 사용하여 작업 출력에 액세스를 포함한 다양�
 
 Eclipse용 Azure 도구 키트의 HDInsight Tools를 사용하여 워크스테이션에서 Spark Scala 애플리케이션을 로컬로 실행할 수 있습니다. 일반적으로 이러한 애플리케이션은 스토리지 컨테이너와 같은 클러스터 리소스에 액세스할 필요가 없으므로 로컬로 실행하고 테스트할 수 있습니다.
 
-### <a name="prerequisite"></a>필수 조건
+### <a name="prerequisite"></a>필수 요소
 
 Windows 컴퓨터에서 로컬 Spark Scala 애플리케이션을 실행하는 동안 [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356)에서 설명한 예외가 발생할 수 있습니다. 이 예외는 Windows에 **WinUtils.exe**가 없기 때문에 발생합니다.
 

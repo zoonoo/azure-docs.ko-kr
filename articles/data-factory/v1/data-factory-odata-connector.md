@@ -13,11 +13,11 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 95f92d4e5616d7754c355610685701a8e089b84e
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931878"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78387481"
 ---
 # <a name="move-data-from-an-odata-source-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 OData 원본에서 데이터 이동
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -25,7 +25,7 @@ ms.locfileid: "74931878"
 > * [버전 2(현재 버전)](../connector-odata.md)
 
 > [!NOTE]
-> 이 문서는 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [V2의 OData 커넥터](../connector-odata.md)를 참조하세요.
+> 이 아티클은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [V2의 OData 커넥터](../connector-odata.md)를 참조하세요.
 
 
 이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 OData 소스에서 데이터를 이동하는 방법을 설명합니다. 이 문서는 복사 작업을 사용한 데이터 이동의 일반적인 개요를 보여주는 [데이터 이동 작업](data-factory-data-movement-activities.md) 문서를 기반으로 합니다.
@@ -60,15 +60,15 @@ OData 소스에서 지원되는 모든 싱크 데이터 저장소로 데이터�
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
 다음 테이블은 OData 연결된 서비스에 특정된 JSON 요소에 대한 설명을 제공합니다.
 
-| 자산 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 | --- | --- | --- |
 | type |형식 속성은 **OData** |yes |
-| URL |OData 서비스의 URL입니다. |yes |
+| url |OData 서비스의 URL입니다. |yes |
 | authenticationType |OData 소스에 연결하는 데 사용되는 인증 형식입니다. <br/><br/> 클라우드 OData의 경우 가능한 값은 익명, 기본 및 OAuth입니다(Azure Data Factory는 현재 Azure Active Directory 기반 OAuth만 지원). <br/><br/> 온-프레미스 OData의 경우 가능한 값은 익명, 기본 및 Windows입니다. |yes |
-| username |기본 인증을 사용하는 경우 사용자 이름을 지정합니다. |예(기본 인증을 사용하는 경우에만) |
-| 암호 |사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. |예(기본 인증을 사용하는 경우에만) |
+| 사용자 이름 |기본 인증을 사용하는 경우 사용자 이름을 지정합니다. |예(기본 인증을 사용하는 경우에만) |
+| password |사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. |예(기본 인증을 사용하는 경우에만) |
 | authorizedCredential |OAuth를 사용하는 경우 Data Factory Copy Wizard 또는 Editor에서 **권한 부여** 단추를 클릭하고 자격 증명을 입력합니다. 그러면 이 속성의 값이 자동으로 생성됩니다. |예(OAuth 인증을 사용하는 경우에만) |
-| gatewayName |데이터 팩터리 서비스가 온-프레미스 OData 서비스에 연결하는 데 사용해야 하는 게이트웨이의 이름 온-프레미스 OData 원본에서 데이터를 복사 하는 경우에만를 지정 합니다. |아닙니다. |
+| gatewayName |데이터 팩터리 서비스가 온-프레미스 OData 서비스에 연결하는 데 사용해야 하는 게이트웨이의 이름 온-프레미스 OData 원본에서 데이터를 복사 하는 경우에만를 지정 합니다. |예 |
 
 ### <a name="using-basic-authentication"></a>기본 인증 사용
 ```json
@@ -145,9 +145,9 @@ OData 소스에서 지원되는 모든 싱크 데이터 저장소로 데이터�
 
 **typeProperties** 섹션은 데이터 세트의 각 형식에 따라 다르며 데이터 저장소에 있는 데이터의 위치에 대한 정보를 제공합니다. **ODataResource** 형식(OData 데이터 세트 포함)의 데이터 세트에 대한 typeProperties 섹션에는 다음 속성이 있습니다.
 
-| 자산 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 | --- | --- | --- |
-| 경로 |OData 리소스에 대한 경로 |아닙니다. |
+| 경로 |OData 리소스에 대한 경로 |예 |
 
 ## <a name="copy-activity-properties"></a>복사 작업 속성
 활동 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [파이프라인 만들기](data-factory-create-pipelines.md) 문서를 참조하세요. 이름, 설명, 입력/출력 테이블, 정책 등의 속성은 모든 형식의 활동에 사용할 수 있습니다.
@@ -156,9 +156,9 @@ OData 소스에서 지원되는 모든 싱크 데이터 저장소로 데이터�
 
 원본이 **RelationalSource** (OData 포함) 형식인 경우 typeProperties섹션에서 다음과 같은 속성을 사용할 수 있습니다.
 
-| 자산 | 설명 | 예제 | 필수 |
+| 속성 | Description | 예제 | 필수 |
 | --- | --- | --- | --- |
-| 쿼리 |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |"?$select=Name, Description&$top=5" |아닙니다. |
+| Query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |"?$select=Name, Description&$top=5" |예 |
 
 ## <a name="type-mapping-for-odata"></a>OData에 대한 형식 매핑
 [데이터 이동 활동](data-factory-data-movement-activities.md) 문서에서 설명한 것처럼 복사 작업은 다음 2단계 접근 방법을 사용하여 원본 형식에서 싱크 형식으로 자동 형식 변환을 수행합니다.
@@ -174,29 +174,29 @@ OData의 데이터를 이동하는 경우 OData 형식에서 .NET 형식으로 �
 | Edm.Boolean |Bool |
 | Edm.Byte |Byte[] |
 | Edm.DateTime |DateTime |
-| Edm.Decimal |10진수 |
-| Edm.Double |DOUBLE |
-| Edm.Single |단일 |
-| Edm.Guid |GUID |
+| Edm.Decimal |Decimal |
+| Edm.Double |Double |
+| Edm.Single |Single |
+| Edm.Guid |Guid |
 | Edm.Int16 |Int16 |
 | Edm.Int32 |Int32 |
 | Edm.Int64 |Int64 |
 | Edm.SByte |Int16 |
-| Edm.String |string |
-| Edm.Time |timespan |
+| Edm.String |String |
+| Edm.Time |TimeSpan |
 | Edm.DateTimeOffset |DateTimeOffset |
 
 > [!Note]
 > OData 복합 데이터 형식 예: 개체는 지원되지 않습니다.
 
 ## <a name="json-example-copy-data-from-odata-source-to-azure-blob"></a>JSON 예: OData 소스에서 Azure Blob으로 데이터 복사
-이 예제에서는 [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)를 사용 하 여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공 합니다. 이 샘플은 OData 소스에서 Azure Blob Storage로 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure Data Factory의 복사 작업을 사용하여 [여기](data-factory-data-movement-activities.md#supported-data-stores-and-formats)에 설명한 싱크로 데이터를 복사할 수 있습니다. 샘플에 포함된 Data Factory 엔터티는 다음과 같습니다.
+이 예제에서는 [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)를 사용 하 여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공 합니다. 이 샘플은 OData 소스에서 Azure Blob Storage로 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure Data Factory의 복사 작업을 사용하여 [여기](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 에 설명한 싱크로 데이터를 복사할 수 있습니다. 샘플에 포함된 Data Factory 엔터티는 다음과 같습니다.
 
 1. [OData](#linked-service-properties) 형식의 연결된 서비스입니다.
 2. [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties) 형식의 연결된 서비스
-3. [ODataResource](#dataset-properties) 형식의 입력 [데이터 세트](data-factory-create-datasets.md)입니다.
-4. [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties) 형식의 출력 [데이터 세트](data-factory-create-datasets.md)
-5. [RelationalSource](#copy-activity-properties) 및 [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)
+3. [ODataResource](data-factory-create-datasets.md) 형식의 입력 [데이터 세트](#dataset-properties)입니다.
+4. [AzureBlob](data-factory-create-datasets.md) 형식의 출력 [데이터 세트](data-factory-azure-blob-connector.md#dataset-properties)
+5. [RelationalSource](data-factory-create-pipelines.md) 및 [BlobSink](#copy-activity-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-azure-blob-connector.md#copy-activity-properties)
 
 이 샘플은 OData 소스에 쿼리한 데이터를 매시간 Azure blob에 복사합니다. 이 샘플에 사용된 JSON 속성은 샘플 다음에 나오는 섹션에서 설명합니다.
 
@@ -265,7 +265,7 @@ OData의 데이터를 이동하는 경우 OData 형식에서 .NET 형식으로 �
 
 **Azure Blob 출력 데이터 세트:**
 
-데이터는 매시간 새 blob에 기록됩니다(frequency: hour, interval: 1). Blob에 대한 폴더 경로는 처리 중인 조각의 시작 시간에 기반하여 동적으로 평가됩니다. 폴더 경로는 시작 시간에서 연도, 월, 일 및 시간 부분을 사용합니다.
+데이터는 매시간 새 blob에 기록됩니다.(빈도: 1시간, 간격:1회) Blob에 대한 폴더 경로는 처리 중인 조각의 시작 시간에 기반하여 동적으로 평가됩니다. 폴더 경로는 시작 시간에서 연도, 월, 일 및 시간 부분을 사용합니다.
 
 ```json
 {

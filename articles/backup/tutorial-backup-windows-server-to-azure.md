@@ -5,11 +5,11 @@ ms.topic: tutorial
 ms.date: 08/22/2018
 ms.custom: mvc
 ms.openlocfilehash: 906901ce4792e8b363a3a9b77c9bf6bb4b59aec5
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226470"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78381428"
 ---
 # <a name="back-up-windows-server-to-azure"></a>Azure에 Windows Server 백업
 
@@ -23,7 +23,7 @@ Azure 백업을 사용하여 손상, 공격 및 재해로부터 Windows Server�
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-[https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
+[https://portal.azure.com](https://portal.azure.com) 에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 만들기
 
@@ -39,10 +39,10 @@ Windows Server를 백업하려면 먼저 백업을 위한 장소, 즉 저장될 
 
 3. **Recovery Services 자격 증명 모음** 메뉴에서
 
-    * **이름**에 *myRecoveryServicesVault*를 입력합니다.
+    * *이름*에 **myRecoveryServicesVault**를 입력합니다.
     * 현재 구독 ID가 **구독**에 표시됩니다.
     * **리소스 그룹**에서 **기존 항목 사용**을 선택하고 *myResourceGroup*을 선택합니다. *myResourceGroup*이 없는 경우에는 **새로 만들기**를 선택한 후 *myResourceGroup*을 입력합니다.
-    * **위치** 드롭다운 메뉴에서 *유럽 서부*를 선택합니다.
+    * **위치** 드롭다운 메뉴에서 *서유럽*를 선택합니다.
     * **만들기**를 클릭하면 Recovery Services 자격 증명 모음이 생성됩니다.
 
 자격 증명 모음이 생성되면 Recovery Services 자격 증명 모음 목록에 표시됩니다.

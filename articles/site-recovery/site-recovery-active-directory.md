@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
 ms.openlocfilehash: 8c1f85217db12b60cdcd8ea0bdb65792b8d02648
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084594"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78362757"
 ---
 # <a name="set-up-disaster-recovery-for-active-directory-and-dns"></a>Active Directory 및 DNS에 대한 재해 복구 설정
 
@@ -22,7 +22,7 @@ SharePoint, Dynamics AX 및 SAP와 같은 엔터프라이즈 애플리케이션�
 
 이 문서에서는 Active Directory에 대한 재해 복구 솔루션을 만드는 방법을 설명합니다. 필수 구성 요소 및 장애 조치(failover) 지침을 포함합니다. 시작하기 전에 Active Directory와 Site Recovery에 대해 잘 알고 있어야 합니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure에 복제하는 경우 구독, Azure Virtual Network, 스토리지 계정 및 Recovery Services 자격 증명 모음을 비롯한 [Azure 리소스를 준비](tutorial-prepare-azure.md)합니다.
 * 모든 구성 요소에 대한 [지원 요구 사항](site-recovery-support-matrix-to-azure.md)을 검토합니다.

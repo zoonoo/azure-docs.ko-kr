@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2020
 ms.author: shvija
-ms.openlocfilehash: 9b69feef7c6587f7356648e6a6828277ba500aea
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: c166f4cace6a8cc25b36a84f4614033801e69a51
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77460078"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78924983"
 ---
 # <a name="capture-events-through-azure-event-hubs-in-azure-blob-storage-or-azure-data-lake-storage"></a>Azure Blob Storage 또는 Azure Data Lake Storage에서 Azure Event Hubs를 통해 이벤트 캡처
 Azure Event Hubs를 사용 하면 시간 또는 크기 간격을 유연 하 게 지정 하 여 [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/) 또는 [Azure Data Lake Storage Gen 1 또는 gen 2](https://azure.microsoft.com/services/data-lake-store/) 계정에서 Event Hubs의 스트리밍 데이터를 자동으로 캡처할 수 있습니다. 캡처는 빠르게 설정할 수 있으며 실행을 위한 관리 비용이 없고 Event Hubs [처리량 단위](event-hubs-scalability.md#throughput-units)에 따라 크기가 자동으로 조정됩니다. Event Hubs 캡처는 스트리밍 데이터를 Azure에 로드하는 가장 쉬운 방법이며 데이터 캡처보다 데이터 처리에 집중할 수 있게 해줍니다.
@@ -94,10 +94,11 @@ https://github.com/yorek/apache-drill-azure-blob
 
 ### <a name="use-apache-spark"></a>Apache Spark 사용
 
-[Apache Spark][Apache Spark] 는 "대규모 데이터 처리를 위한 통합 분석 엔진"입니다. SQL을 비롯한 다른 언어를 지원하며, Azure Blob Storage에 쉽게 액세스할 수 있습니다. Azure에서 Apache Spark를 실행하는 방법은 두 가지가 있으며, 모두 Azure Blob Storage에 손쉽게 액세스할 수 있습니다.
+[Apache Spark][Apache Spark] 는 "대규모 데이터 처리를 위한 통합 분석 엔진"입니다. SQL을 비롯한 다른 언어를 지원하며, Azure Blob Storage에 쉽게 액세스할 수 있습니다. Azure에서 Apache Spark를 실행 하는 몇 가지 옵션이 있으며, 각각 Azure Blob storage에 쉽게 액세스할 수 있습니다.
 
 - [HDInsight: Azure storage의 주소 파일][HDInsight: Address files in Azure storage]
 - [Azure Databricks: Azure Blob storage][Azure Databricks: Azure Blob Storage]
+- [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/spark-job) 
 
 ### <a name="use-avro-tools"></a>Avro 도구 사용
 

@@ -3,12 +3,12 @@ title: Azure Resource Health 개요
 description: Azure Resource Health 개요
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.openlocfilehash: 5609c7f09dc81a54a941dea391c0d717ad4bb06a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f22b41e66f15dd12d973c5744870969fae795bc1
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75356786"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78924956"
 ---
 # <a name="resource-health-overview"></a>Resource Health 개요
  
@@ -26,7 +26,7 @@ Azure Resource Health를 통해 Azure 리소스에 영향을 주는 서비스 �
 
 리소스 상태는 다음 상태 중 하나로 표시됩니다.
 
-### <a name="available"></a>사용할 수 있음
+### <a name="available"></a>사용 가능
 
 *사용 가능* 은 리소스의 상태에 영향을 주는 검색 된 이벤트가 없음을 의미 합니다. 지난 24 시간 동안 계획 되지 않은 가동 중지 시간에서 리소스가 복구 되는 경우 "최근에 해결 됨" 알림이 표시 됩니다.
 
@@ -38,7 +38,7 @@ Azure Resource Health를 통해 Azure 리소스에 영향을 주는 서비스 �
 
 #### <a name="platform-events"></a>플랫폼 이벤트
 
-플랫폼 이벤트는 Azure 인프라의 여러 구성 요소에 의해 트리거됩니다. 여기에는 예정된 작업(예: 계획된 유지 관리)과 예기치 않은 인시던트(예: 계획에 없는 호스트 재부팅)가 모두 포함됩니다.
+플랫폼 이벤트는 Azure 인프라의 여러 구성 요소에 의해 트리거됩니다. 이러한 작업에는 예약 된 작업 (예: 계획 된 유지 관리)과 예기치 않은 인시던트 (예: 계획 되지 않은 호스트 다시 부팅 또는 지정 된 기간 후에 실패 하는 것으로 예상 되는 호스트 하드웨어)가 모두 포함 됩니다.
 
 Resource Health는 이벤트 및 복구 프로세스에 대 한 추가 정보를 제공 합니다. 또한 활성 지원 계약이 없는 경우에도 Microsoft 지원에 연결할 수 있습니다.
 

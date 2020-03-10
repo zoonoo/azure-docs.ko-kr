@@ -14,11 +14,11 @@ ms.topic: troubleshooting
 ms.date: 7/10/2019
 ms.author: genli
 ms.openlocfilehash: 19b2fcaed2c80d4ca52ada9f9f0898479e73bcf2
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70080526"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78394760"
 ---
 # <a name="how-to-use-perfinsights"></a>PerfInsights를 사용하는 방법
 
@@ -83,7 +83,7 @@ Linux 가상 머신, 운영 체제, 블록 장치, 높은 리소스 소비자, �
   - 네트워크 라우팅 테이블
   - 열린 포트 및 상태
 
-- 저장 공간
+- 스토리지
   - 장치 목록 차단
   - 파티션 목록
   - 탑재 위치 목록
@@ -127,7 +127,7 @@ Linux 가상 머신, 운영 체제, 블록 장치, 높은 리소스 소비자, �
 
     | 배포               | 버전                                         |
     |----------------------------|-------------------------------------------------|
-    | Oracle Linux 서버        | 6.10 [`*`], 7.3, 7.6, 7.5 (Oracle-Database-Ee 13.8 marketplace 이미지)|
+    | Oracle Linux 서버        | 6.10 [`*`], 7.3, 7.6, 7.5 (Oracle-데이터베이스-Ee 13.8 marketplace 이미지)|
     | CentOS                     | 6.5 [`*`], 7.6                                    |
     | RHEL                       | 7.2, 7.5, 8.0 [`*`]                               |
     | Ubuntu                     | 14.04, 16.04, 18.04                               |
@@ -173,7 +173,7 @@ PerfInsights 도구를 실행하려면 다음 단계를 수행합니다.
    tar xzvf PerfInsights.tar.gz
    ```
 
-2. 파일이 포함 `perfinsights.py` 된 폴더로 이동한 다음를 실행 `perfinsights.py` 하 여 사용 가능한 명령줄 매개 변수를 확인 합니다.
+2. `perfinsights.py` 파일을 포함 하는 폴더로 이동한 후 `perfinsights.py`를 실행 하 여 사용 가능한 명령줄 매개 변수를 확인 합니다.
 
     ```bash
     cd <the path of PerfInsights folder>
@@ -205,11 +205,11 @@ PerfInsights 도구를 실행하려면 다음 단계를 수행합니다.
     >
     >Microsoft와 함께 사용 하는 지원 엔지니어의 요청에 따라 PerfInsights을 실행 하는 활성 지원 티켓이 있는 경우 **-s 또는--지원 요청** 옵션을 사용 하 여 지원 티켓 번호를 제공 해야 합니다.
 
-실행이 완료 되 면 출력 폴더가 지정 되지 않은 경우 PerfInsights와 동일한 폴더에 새 tar 파일이 표시 됩니다. 파일 이름은 **PerformanceDiagnostics\_yyyy-MM-\_dd hh-mm-ss-fff.zip release.tar.gz입니다** . 분석을 위해이 파일을 지원 에이전트로 전송 하거나 파일 내에서 보고서를 열어 결과와 권장 사항을 검토할 수 있습니다.
+실행이 완료 되 면 출력 폴더가 지정 되지 않은 경우 PerfInsights와 동일한 폴더에 새 tar 파일이 표시 됩니다. 파일의 이름은 **PerformanceDiagnostics\_yyyy-mm-dd\_hh-mm-ss-fff.zip. release.tar.gz입니다** . 분석을 위해이 파일을 지원 에이전트로 전송 하거나 파일 내에서 보고서를 열어 결과와 권장 사항을 검토할 수 있습니다.
 
 ## <a name="review-the-diagnostics-report"></a>진단 보고서 검토
 
-PerformanceDiagnostics hh-mm-ss-fff.zip release.tar.gz 파일 내에서 PerfInsights의 결과를 자세히 설명 하는 HTML 보고서를 찾을 수 있습니다. **\_\_** 보고서를 검토 하려면 **\_PerformanceDiagnostics yyyy-MM-\_dd hh-mm-ss-fff.zip release.tar.gz** 파일을 확장 한 다음 **PerfInsights report .html** 파일을 엽니다.
+**PerformanceDiagnostics\_yyyy-mm-dd\_hh-mm-ss-fff.zip release.tar.gz** 파일 내에서 PerfInsights의 결과를 자세히 설명 하는 HTML 보고서를 찾을 수 있습니다. 보고서를 검토 하려면 **PerformanceDiagnostics\_yyyy-mm-dd\_hh-mm-ss-fff.zip release.tar.gz** 파일을 확장 한 다음 **PerfInsights report .html** 파일을 엽니다.
 
 ### <a name="overview-tab"></a>개요 탭
 
@@ -254,4 +254,4 @@ PerformanceDiagnostics hh-mm-ss-fff.zip release.tar.gz 파일 내에서 PerfInsi
 
 메시지의 지침에 따라 파일 전송 작업 영역에 액세스합니다. 보안을 강화하기 위해 처음 사용할 때 암호를 변경해야 합니다.
 
-로그인 한 후 PerfInsights에 의해 수집 된 **\_PerformanceDiagnostics\_hh-mm-ss-fff.zip release.tar.gz** 파일을 업로드 하는 대화 상자가 표시 됩니다.
+로그인 한 후 PerfInsights에 의해 수집 된 **PerformanceDiagnostics\_\_hh-mm-ss-fff.zip release.tar.gz** 파일을 업로드 하는 대화 상자가 표시 됩니다.

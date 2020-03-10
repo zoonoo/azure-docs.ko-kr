@@ -10,11 +10,11 @@ ms.assetid: ad8a6992-02c7-47d4-a108-62fc5a0777a3
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.openlocfilehash: dacce0d4f40f077b5da6221000192a4398da99e0
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71315782"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78391829"
 ---
 # <a name="develop-u-sql-scripts-by-using-data-lake-tools-for-visual-studio"></a>Data Lake Tools for Visual Studio를 사용하여 U-SQL 스크립트 개발
 
@@ -37,7 +37,7 @@ Azure Data Lake 및 Stream Analytics Tools는 두 가지 Azure 서비스, Azure 
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* **Visual Studio**: Express를 제외한 모든 버전이 지원 됩니다.
+* **Visual Studio**: Express를 제외한 모든 버전이 지원됩니다.
 
   * Visual Studio 2019
   * Visual Studio 2017
@@ -55,7 +55,7 @@ Azure Data Lake 및 Stream Analytics Tools는 두 가지 Azure 서비스, Azure 
 
 1. Visual Studio를 엽니다.
 
-1. **보기** 서버탐색기 > 를 선택 하 여 서버 탐색기을 엽니다.
+1.  > **서버 탐색기** **보기** 를 선택 하 여 **서버 탐색기** 을 엽니다.
 
 1. **Azure**를 마우스 오른쪽 단추로 클릭 한 다음 **Microsoft Azure 구독에 연결을**선택 합니다. **계정에 로그인**에서 지침을 따릅니다.
 

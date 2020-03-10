@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: c184972789c412406f264f725f8b94e1f7f162ce
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76547050"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78358672"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Azure IoT Edge 런타임 및 해당 아키텍처 이해
 
@@ -23,7 +23,7 @@ IoT Edge 런타임은 IoT Edge 장치에서 다음 기능을 담당 합니다.
 
 * 디바이스에 워크로드를 설치하고 업데이트합니다.
 * 디바이스에서 Azure IoT Edge 보안 표준을 유지합니다.
-* [IoT Edge 모듈](iot-edge-modules.md) 실행을 유지합니다.
+* [IoT Edge 모듈이](iot-edge-modules.md) 항상 실행 되 고 있는지 확인 합니다.
 * 원격 모니터링을 위해 모듈 상태를 클라우드에 보고합니다.
 * 다운스트림 장치와 IoT Edge 장치 간의 통신을 관리 합니다.
 * IoT Edge 장치의 모듈 간 통신을 관리 합니다.

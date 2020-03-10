@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4c85fbc2c1f926f89dbfe9f2a5ae47cc48edf73
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
-ms.translationtype: HT
+ms.openlocfilehash: 7b044a4fd4e29bfe35abff7a4b36e5bae783328b
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74966285"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78671900"
 ---
 # <a name="what-is-conditional-access"></a>조건부 액세스란?
 
@@ -26,7 +26,7 @@ ms.locfileid: "74966285"
 
 ![개념적 조건부 신호 + 적용 여부 결정](./media/overview/conditional-access-signal-decision-enforcement.png)
 
-가장 간단한 조건부 액세스 정책은 사용자가 리소스에 액세스하려면 작업을 완료해야 하는 if-then 문입니다. 예제: 급여 관리자는 급여 애플리케이션에 액세스하려고 하며, 액세스하려면 다단계 인증을 수행해야 합니다.
+가장 간단한 조건부 액세스 정책은 사용자가 리소스에 액세스하려면 작업을 완료해야 하는 if-then 문입니다. 예: 급여 관리자는 급여 응용 프로그램에 액세스 하려고 하며 multi-factor authentication을 수행 하 여 액세스 해야 합니다.
 
 관리자는 다음과 같은 두 가지 주요 목표에 직면합니다.
 
@@ -92,7 +92,7 @@ ms.locfileid: "74966285"
 
 [!INCLUDE [Active Directory P1 license](../../../includes/active-directory-p1-license.md)]
 
-[Microsoft 365 Business 라이선스](https://docs.microsoft.com/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description)가 있는 고객은 조건부 액세스 기능에도 액세스할 수 있습니다. 
+[Microsoft 365 Business 라이선스](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description)가 있는 고객은 조건부 액세스 기능에도 액세스할 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -102,6 +102,6 @@ ms.locfileid: "74966285"
 
 [ID 보호에 대한 자세한 정보](../identity-protection/overview-v2.md)
 
-[Microsoft Cloud App Security에 대한 자세한 정보](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security)
+[Microsoft Cloud App Security에 대한 자세한 정보](/cloud-app-security/what-is-cloud-app-security)
 
-[Microsoft Intune에 대한 자세한 정보](https://docs.microsoft.com/intune/index)
+[Microsoft Intune에 대한 자세한 정보](/intune/index)

@@ -8,11 +8,11 @@ ms.date: 12/15/2019
 ms.author: bwren
 ms.subservice: logs
 ms.openlocfilehash: 843c179826b2064a1be24d3cee84b398987b4aed
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77658974"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78394941"
 ---
 # <a name="archive-azure-resource-logs-to-storage-account"></a>저장소 계정에 Azure 리소스 로그 보관
 Azure 활동 로그 및 리소스 로그를 포함 하 여 azure의 [플랫폼 로그](platform-logs-overview.md) 는 azure 리소스 및 해당 리소스가 종속 된 azure 플랫폼에 대 한 자세한 진단 및 감사 정보를 제공 합니다.  이 문서에서는 보관할 데이터를 유지 하기 위해 Azure storage 계정에 플랫폼 로그를 수집 하는 방법을 설명 합니다.

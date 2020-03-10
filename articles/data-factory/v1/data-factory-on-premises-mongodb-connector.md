@@ -10,11 +10,11 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/13/2018
 ms.openlocfilehash: edddd100bddab1d642a8169353298a2d20620274
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928123"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78387327"
 ---
 # <a name="move-data-from-mongodb-using-azure-data-factory"></a>Azure Data Factory를 사용하여 MongoDB에서 데이터 이동
 
@@ -23,14 +23,14 @@ ms.locfileid: "74928123"
 > * [버전 2(현재 버전)](../connector-mongodb.md)
 
 > [!NOTE]
-> 이 문서는 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [V2의 MongoDB 커넥터](../connector-mongodb.md)를 참조하세요.
+> 이 아티클은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [V2의 MongoDB 커넥터](../connector-mongodb.md)를 참조하세요.
 
 
 이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 온-프레미스 MongoDB 데이터베이스에서 데이터를 이동하는 방법을 설명합니다. 이 문서는 복사 작업을 사용한 데이터 이동의 일반적인 개요를 보여주는 [데이터 이동 작업](data-factory-data-movement-activities.md) 문서를 기반으로 합니다.
 
 온-프레미스 MongoDB 데이터 저장소의 데이터를 지원되는 싱크 데이터 저장소로 복사할 수 있습니다. 복사 작업의 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 테이블을 참조하세요. 현재 데이터 팩터리는 다른 데이터 저장소에서 MongoDB 데이터 저장소로 데이터 이동이 아닌 MongoDB 데이터 저장소에서 다른 데이터 저장소로 데이터 이동만을 지원합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 Azure Data Factory 서비스가 사용자의 온-프레미스 MongoDB 데이터베이스에 연결할 수 있도록 하려면 다음 구성 요소를 설치해야 합니다.
 
 - 지원 되는 MongoDB 버전은 2.4, 2.6, 3.0, 3.2, 3.4 및 3.6입니다.
@@ -61,25 +61,25 @@ Azure Data Factory 서비스가 사용자의 온-프레미스 MongoDB 데이터�
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
 다음 테이블은 **OnPremisesMongoDB** 연결된 서비스에 특정된 JSON 요소에 대한 설명을 제공합니다.
 
-| 자산 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 | --- | --- | --- |
 | type |형식 속성은 **OnPremisesMongoDb** |yes |
 | 서버 |MongoDB 서버의 IP 주소 또는 호스트 이름입니다. |yes |
 | 포트 |MongoDB 서버가 클라이언트 연결을 수신하는 데 사용하는 TCP 포트입니다. |선택 사항, 기본값: 27017 |
 | authenticationType |Basic 또는 Anonymous입니다. |yes |
-| username |MongoDB에 액세스하는 사용자 계정입니다. |예(기본 인증을 사용하는 경우) |
-| 암호 |사용자에 대한 암호입니다. |예(기본 인증을 사용하는 경우) |
+| 사용자 이름 |MongoDB에 액세스하는 사용자 계정입니다. |예(기본 인증을 사용하는 경우) |
+| password |사용자에 대한 암호입니다. |예(기본 인증을 사용하는 경우) |
 | authSource |인증에 대한 자격 증명을 확인하는 데 사용하려는 MongoDB 데이터베이스의 이름입니다. |선택 사항(기본 인증을 사용하는 경우). 기본값: 관리자 계정 및 databaseName 속성을 사용하는 지정된 데이터베이스를 사용합니다. |
 | databaseName |액세스하려는 MongoDB 데이터베이스의 이름입니다. |yes |
 | gatewayName |데이터 저장소에 액세스하는 게이트웨이의 이름입니다. |yes |
-| encryptedCredential |게이트웨이에 의해 암호화된 자격 증명입니다. |선택 사항 |
+| encryptedCredential |게이트웨이에 의해 암호화된 자격 증명입니다. |옵션 |
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트 만들기](data-factory-create-datasets.md) 문서를 참조하세요. 구조, 가용성 및 JSON 데이터 세트의 정책과 같은 섹션이 모든 데이터 세트 형식에 대해 유사합니다(Azure SQL, Azure blob, Azure 테이블 등).
 
 **typeProperties** 섹션은 데이터 세트의 각 형식에 따라 다르며 데이터 저장소에 있는 데이터의 위치에 대한 정보를 제공합니다. **MongoDbCollection** 데이터 세트 형식의 데이터 세트에 대한 typeProperties 섹션에는 다음 속성이 있습니다.
 
-| 자산 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 | --- | --- | --- |
 | collectionName |MongoDB 데이터베이스에 있는 컬렉션의 이름입니다. |yes |
 
@@ -90,22 +90,22 @@ Azure Data Factory 서비스가 사용자의 온-프레미스 MongoDB 데이터�
 
 원본이 **MongoDbSource** 형식인 경우 typeProperties 섹션에서 다음과 같은 속성을 사용할 수 있습니다.
 
-| 자산 | 설명 | 허용되는 값 | 필수 |
+| 속성 | Description | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| 쿼리 |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL-92 쿼리 문자열입니다. 예: select * from MyTable. |아니요(**데이터 세트**의 **collectionName**이 지정된 경우) |
+| Query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL-92 쿼리 문자열입니다. 예: select * from MyTable. |아니요(**데이터 세트**의 **collectionName**이 지정된 경우) |
 
 
 
 ## <a name="json-example-copy-data-from-mongodb-to-azure-blob"></a>JSON 예: MongoDB에서 Azure Blob으로 데이터 복사
-이 예제에서는 [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)를 사용 하 여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공 합니다. 온-프레미스 MongoDB에서 Azure Blob Storage로 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure Data Factory의 복사 작업을 사용하여 [여기](data-factory-data-movement-activities.md#supported-data-stores-and-formats)에 설명한 싱크로 데이터를 복사할 수 있습니다.
+이 예제에서는 [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)를 사용 하 여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공 합니다. 온-프레미스 MongoDB에서 Azure Blob Storage로 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure Data Factory의 복사 작업을 사용하여 [여기](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 에 설명한 싱크로 데이터를 복사할 수 있습니다.
 
 이 샘플에는 다음 데이터 팩터리 엔터티가 있습니다.
 
 1. [OnPremisesMongoDb](#linked-service-properties) 형식의 연결된 서비스입니다.
 2. [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties) 형식의 연결된 서비스
-3. [MongoDbCollection](#dataset-properties) 형식의 입력 [데이터 세트](data-factory-create-datasets.md)입니다.
-4. [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties) 형식의 출력 [데이터 세트](data-factory-create-datasets.md)
-5. [MongoDbSource](#copy-activity-properties) 및 [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)입니다.
+3. [MongoDbCollection](data-factory-create-datasets.md) 형식의 입력 [데이터 세트](#dataset-properties)입니다.
+4. [AzureBlob](data-factory-create-datasets.md) 형식의 출력 [데이터 세트](data-factory-azure-blob-connector.md#dataset-properties)
+5. [MongoDbSource](data-factory-create-pipelines.md) 및 [BlobSink](#copy-activity-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-azure-blob-connector.md#copy-activity-properties)입니다.
 
 샘플은 MongoDB 데이터베이스의 쿼리 결과에서 blob에 매시간 데이터를 복사합니다. 이 샘플에 사용된 JSON 속성은 샘플 다음에 나오는 섹션에서 설명합니다.
 
@@ -170,7 +170,7 @@ Azure Data Factory 서비스가 사용자의 온-프레미스 MongoDB 데이터�
 
 **Azure Blob 출력 데이터 세트:**
 
-데이터는 매시간 새 blob에 기록됩니다(frequency: hour, interval: 1). Blob에 대한 폴더 경로는 처리 중인 조각의 시작 시간에 기반하여 동적으로 평가됩니다. 폴더 경로는 시작 시간에서 연도, 월, 일 및 시간 부분을 사용합니다.
+데이터는 매시간 새 blob에 기록됩니다.(빈도: 1시간, 간격:1회) Blob에 대한 폴더 경로는 처리 중인 조각의 시작 시간에 기반하여 동적으로 평가됩니다. 폴더 경로는 시작 시간에서 연도, 월, 일 및 시간 부분을 사용합니다.
 
 ```json
 {
@@ -293,14 +293,14 @@ MongoDB에 데이터를 이동하는 경우 MongoDB 형식에서 .NET 형식으�
 | MongoDB 형식 | .NET Framework 형식 |
 | --- | --- |
 | 이진 |Byte[] |
-| Boolean |Boolean |
-| 날짜 |DateTime |
-| NumberDouble |DOUBLE |
+| 부울 |부울 |
+| Date |DateTime |
+| NumberDouble |Double |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
-| ObjectID |string |
-| string |string |
-| UUID |GUID |
+| ObjectID |String |
+| String |String |
+| UUID |Guid |
 | Object |중첩 구분 기호로 “_”를 사용한 평면화된 열에 다시 정규화 |
 
 > [!NOTE]
@@ -323,15 +323,15 @@ Azure Data Factory는 기본 제공 ODBC 드라이버를 사용하여 MongoDB �
 
 | _id | 고객 이름 | 송장 | 서비스 수준 | 등급 |
 | --- | --- | --- | --- | --- |
-| 1111 |ABC |[{송장_id:”123”, 항목:”토스터”, 가격:”456”, 할인:”0.2”}, {송장_id:”124”, 항목:”오븐”, 가격: ”1235”, 할인: ”0.2”}] |Silver |[5,6] |
-| 2222 |XYZ |[{송장_id:”135”, 항목:”냉장고”, 가격: ”12543”, 할인: ”0.0”}] |Gold |[1,2] |
+| 1111 |ABC |[{송장_id:”123”, 항목:”토스터”, 가격:”456”, 할인:”0.2”}, {송장_id:”124”, 항목:”오븐”, 가격: ”1235”, 할인: ”0.2”}] |은 |[5,6] |
+| 2222 |XYZ |[{송장_id:”135”, 항목:”냉장고”, 가격: ”12543”, 할인: ”0.0”}] |금 |[1,2] |
 
 드라이버는 이 단일 테이블을 나타내는 여러 개의 가상 테이블을 생성합니다. 첫 번째 가상 테이블은 아래에 표시된 "ExampleTable"이라는 기본 테이블입니다. 기본 테이블에는 모든 원본 테이블의 데이터가 있지만, 배열의 데이터는 생략되었으며 가상 테이블에서 확장됩니다.
 
 | _id | 고객 이름 | 서비스 수준 |
 | --- | --- | --- |
-| 1111 |ABC |Silver |
-| 2222 |XYZ |Gold |
+| 1111 |ABC |은 |
+| 2222 |XYZ |금 |
 
 다음 표는 예제에서 원본 배열을 나타내는 가상 테이블을 나타냅니다. 이들 테이블은 다음을 포함합니다.
 
@@ -341,7 +341,7 @@ Azure Data Factory는 기본 제공 ODBC 드라이버를 사용하여 MongoDB �
 
 테이블 "ExampleTable_Invoices":
 
-| _id | ExampleTable_Invoices_dim1_idx | 송장_id | 항목 | 가격 | 할인 |
+| _id | ExampleTable_Invoices_dim1_idx | 송장_id | 항목 | price | 할인 |
 | --- | --- | --- | --- | --- | --- |
 | 1111 |0 |123 |토스터 |456 |0.2 |
 | 1111 |1 |124 |오븐 |1235 |0.2 |

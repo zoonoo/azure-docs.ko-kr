@@ -4,11 +4,11 @@ description: Azure 청사진 정의 및 할당의 청사진 아티팩트와 함�
 ms.date: 12/09/2019
 ms.topic: reference
 ms.openlocfilehash: 0aab2fe0511ccc11842d0e132a83d6e3f7fac27f
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74970893"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78386242"
 ---
 # <a name="functions-for-use-with-azure-blueprints"></a>Azure 청사진과 함께 사용 하는 함수
 
@@ -16,14 +16,14 @@ Azure 청사진은 청사진 정의를 더 동적으로 만드는 함수를 제�
 
 지원 되는 함수는 다음과 같습니다.
 
-- [artifacts](#artifacts)
+- [레이어와](#artifacts)
 - [concat](#concat)
-- [매개 변수](#parameters)
+- [parameters](#parameters)
 - [resourceGroup](#resourcegroup)
 - [resourceGroups](#resourcegroups)
-- [구독](#subscription)
+- [subscription](#subscription)
 
-## <a name="artifacts"></a>artifacts
+## <a name="artifacts"></a>아티팩트
 
 `artifacts(artifactName)`
 
@@ -32,9 +32,9 @@ Azure 청사진은 청사진 정의를 더 동적으로 만드는 함수를 제�
 > [!NOTE]
 > `artifacts()` 함수는 리소스 관리자 템플릿 내에서 사용할 수 없습니다. Azure PowerShell 또는 REST API를 사용 하 여 청사진을 관리 하는 경우에만 함수 [를 청사진 정의](https://github.com/Azure/azure-blueprints/blob/master/README.md)json 또는 아티팩트 json에서 사용할 수 있습니다.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>매개 변수
 
-| 매개 변수를 포함해야 합니다. | 필수 | Type | 설명 |
+| 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | artifactName |yes |문자열 |청사진 아티팩트의 이름입니다. |
 
@@ -106,14 +106,14 @@ Azure 청사진은 청사진 정의를 더 동적으로 만드는 함수를 제�
 
 _My템플릿 아티팩트_ 샘플에서 데이터를 검색 하는 몇 가지 예는 다음과 같습니다.
 
-| 식 | Type | Value |
+| 식 | Type | 값 |
 |:---|:---|:---|
-|`[artifacts("myTemplateArtifact").outputs.myArray]` | 배열 | \["first", "second"\] |
-|`[artifacts("myTemplateArtifact").outputs.myArray[0]]` | string | 기본 |
-|`[artifacts("myTemplateArtifact").outputs.myString]` | string | "my string value" |
+|`[artifacts("myTemplateArtifact").outputs.myArray]` | Array | "first", "second" \[\] |
+|`[artifacts("myTemplateArtifact").outputs.myArray[0]]` | String | 기본 |
+|`[artifacts("myTemplateArtifact").outputs.myString]` | String | "my string value" |
 |`[artifacts("myTemplateArtifact").outputs.myObject]` | Object | { "myproperty": "my value", "anotherProperty": true } |
-|`[artifacts("myTemplateArtifact").outputs.myObject.myProperty]` | string | "my value" |
-|`[artifacts("myTemplateArtifact").outputs.myObject.anotherProperty]` | Bool | 참 |
+|`[artifacts("myTemplateArtifact").outputs.myObject.myProperty]` | String | "my value" |
+|`[artifacts("myTemplateArtifact").outputs.myObject.anotherProperty]` | Bool | True |
 
 ## <a name="concat"></a>concat
 
@@ -121,12 +121,12 @@ _My템플릿 아티팩트_ 샘플에서 데이터를 검색 하는 몇 가지 �
 
 여러 문자열 값을 결합하고 연결된 문자열을 반환합니다.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>매개 변수
 
-| 매개 변수를 포함해야 합니다. | 필수 | Type | 설명 |
+| 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | string1 |yes |문자열 |연결할 첫 번째 값입니다. |
-| 추가 인수 |아닙니다. |문자열 |연결에 대 한 순차적 순서의 추가 값 |
+| 추가 인수 |예 |문자열 |연결에 대 한 순차적 순서의 추가 값 |
 
 ### <a name="return-value"></a>반환 값
 
@@ -140,15 +140,15 @@ Azure Blueprint 함수는 문자열 에서만 작동 한다는 점에서 Azure R
 
 `concat(parameters('organizationName'), '-vm')`
 
-## <a name="parameters"></a>parameters
+## <a name="parameters"></a>매개 변수
 
 `parameters(parameterName)`
 
 청사진 매개 변수 값을 반환 합니다. 지정 된 매개 변수 이름은 청사진 정의 또는 청사진 아티팩트에 정의 해야 합니다.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>매개 변수
 
-| 매개 변수를 포함해야 합니다. | 필수 | Type | 설명 |
+| 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | parameterName |yes |문자열 |반환할 매개 변수의 이름입니다. |
 
@@ -267,9 +267,9 @@ Azure Blueprint 함수는 Azure Resource Manager 템플릿 함수와 다릅니�
 
 지정 된 리소스 그룹 아티팩트를 나타내는 개체를 반환 합니다. 아티팩트의 컨텍스트가 필요한 `resourceGroup()`와 달리이 함수는 해당 리소스 그룹의 컨텍스트가 아닌 경우 특정 리소스 그룹 자리 표시자의 속성을 가져오는 데 사용 됩니다.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>매개 변수
 
-| 매개 변수를 포함해야 합니다. | 필수 | Type | 설명 |
+| 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | placeholderName |yes |문자열 |반환할 리소스 그룹 아티팩트의 자리 표시자 이름입니다. |
 

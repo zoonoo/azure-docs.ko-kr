@@ -4,11 +4,11 @@ description: 정적 연결 클라이언트를 사용하여 Azure Functions에서
 ms.topic: conceptual
 ms.date: 02/25/2018
 ms.openlocfilehash: 872ad9a1b8f0a7da6fe410e68f08469ac11045a5
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226493"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78370465"
 ---
 # <a name="manage-connections-in-azure-functions"></a>Azure Functions에서 연결 관리
 

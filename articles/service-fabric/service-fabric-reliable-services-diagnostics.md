@@ -6,28 +6,28 @@ ms.topic: conceptual
 ms.date: 8/24/2018
 ms.author: dekapur
 ms.openlocfilehash: 37162287e130b05dc41453c579b3a628ac878fca
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75462923"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78388431"
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>상태 저장 Reliable Services의 진단 기능
 Azure Service Fabric 상태 저장 Reliable Services StatefulServiceBase 클래스는 서비스를 디버그하는 데 사용할 수 있는 [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) 이벤트를 내보내고, 런타임이 작동하는 방법에 대한 고급 정보를 제공하고 문제 해결에 도움을 줍니다.
 
 ## <a name="eventsource-events"></a>EventSource 이벤트
-상태 저장 Reliable Services StatefulServiceBase 클래스의 EventSource 이름은 “Microsoft-ServiceFabric-Services”입니다. 이 이벤트 원본의 이벤트는 서비스가 [Visual Studio에서 디버깅](service-fabric-debugging-your-application.md)될 때 [진단 이벤트](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) 창에 표시됩니다.
+상태 저장 Reliable Services StatefulServiceBase 클래스의 EventSource 이름은 “Microsoft-ServiceFabric-Services”입니다. 이 이벤트 원본의 이벤트는 서비스가 [Visual Studio에서 디버깅](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio)될 때 [진단 이벤트](service-fabric-debugging-your-application.md) 창에 표시됩니다.
 
 EventSource 이벤트를 수집하거나 보는 데 도움이 되는 도구 및 기술의 예로 [PerfView](https://www.microsoft.com/download/details.aspx?id=28567), [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md) 및 [Microsoft TraceEvent 라이브러리](https://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent)가 있습니다.
 
 ## <a name="events"></a>이벤트
-| 이벤트 이름 | 이벤트 ID | 수준 | 이벤트 설명 |
+| 이벤트 이름 | 이벤트 ID | Level | 이벤트 설명 |
 | --- | --- | --- | --- |
 | StatefulRunAsyncInvocation |1 |정보 제공 |서비스 RunAsync 작업이 시작되면 내보내집니다. |
 | StatefulRunAsyncCancellation |2 |정보 제공 |서비스 RunAsync 작업이 취소되면 내보내집니다. |
 | StatefulRunAsyncCompletion |3 |정보 제공 |서비스 RunAsync 작업이 완료되면 내보내집니다. |
-| StatefulRunAsyncSlowCancellation |4 |경고 |서비스 RunAsync 작업이 취소를 완료하는 데 너무 오래 걸리는 경우 내보내집니다. |
-| StatefulRunAsyncFailure |5 |오류 |서비스 RunAsync 작업이 예외를 throw하면 내보내집니다. |
+| StatefulRunAsyncSlowCancellation |4 |Warning |서비스 RunAsync 작업이 취소를 완료하는 데 너무 오래 걸리는 경우 내보내집니다. |
+| StatefulRunAsyncFailure |5 |Error |서비스 RunAsync 작업이 예외를 throw하면 내보내집니다. |
 
 ## <a name="interpret-events"></a>이벤트 해석
 StatefulRunAsyncInvocation, StatefulRunAsyncCompletion 및 StatefulRunAsyncCancellation 이벤트는 서비스 작성자가 서비스 시작, 취소 또는 완료 타이밍과 서비스의 수명 주기를 이해하는 데 유용합니다. 이 정보는 서비스 문제를 디버깅하거나 서비스 수명 주기를 이해할 때 유용할 수 있습니다.
@@ -41,7 +41,7 @@ RunAsync 작업에 대한 취소 요청이 4초보다 오래 걸릴 경우 State
 ## <a name="performance-counters"></a>성능 카운터
 Reliable Services 런타임은 다음과 같은 성능 카운터 범주를 정의합니다.
 
-| 범주 | Description |
+| Category | Description |
 | --- | --- |
 | Service Fabric 트랜잭션 복제기 |Azure Service Fabric 트랜잭션 복제기 관련 카운터 |
 | Service Fabric TStore |Azure Service Fabric TStore 관련 카운터 |

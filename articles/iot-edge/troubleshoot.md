@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 98d75f75a985fca3448becab216ad6570d948468
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76772242"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78387174"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Azure IoT Edge에 대한 일반적인 문제 및 해결 방법
 
@@ -21,7 +21,7 @@ ms.locfileid: "76772242"
 
 ## <a name="run-the-iotedge-check-command"></a>Iotedge ' check ' 명령을 실행 합니다.
 
-IoT Edge 문제를 해결 하는 첫 번째 단계는 일반적인 문제에 대 한 구성 및 연결 테스트 컬렉션을 실행 하는 `check` 명령을 사용 하는 것입니다. 이 `check` 명령은 [release 1.0.7](https://github.com/Azure/azure-iotedge/releases/tag/1.0.7) 이상에서 사용할 수 있습니다.
+IoT Edge 문제를 해결 하는 첫 번째 단계는 일반적인 문제에 대 한 구성 및 연결 테스트 컬렉션을 실행 하는 `check` 명령을 사용 하는 것입니다. `check` 명령은 [release 1.0.7](https://github.com/Azure/azure-iotedge/releases/tag/1.0.7) 이상에서 사용할 수 있습니다.
 
 다음과 같이 `check` 명령을 실행 하거나 `--help` 플래그를 포함 하 여 옵션의 전체 목록을 볼 수 있습니다.
 
@@ -373,7 +373,7 @@ IoT Edge 디먼은 보안상의 이유로 edgeHub에 연결하는 모든 모듈�
 
 IoT Edge는 Azure IoT Edge 런타임 및 배포된 모듈을 보호하기 위해 향상된 구성을 제공하지만, 기본 컴퓨터 및 네트워크 구성에 여전히 종속됩니다. 따라서 적절 한 네트워크 및 방화벽 규칙이 안전한 edge에서 클라우드 통신에 대해 설정 되었는지 확인 해야 합니다. 다음 표는 Azure IoT Edge 런타임이 호스트 되는 기본 서버에 대 한 구성 방화벽 규칙을 사용 하는 경우 지침으로 사용할 수 있습니다.
 
-|프로토콜|Port|수신|발신|지침|
+|프로토콜|포트|수신|발신|지침|
 |--|--|--|--|--|
 |MQTT|8883|BLOCKED(기본값)|BLOCKED(기본값)|<ul> <li>통신 프로토콜로 MQTT를 사용하는 경우 발신(아웃바운드)이 Open이 되도록 구성합니다.<li>MQTT에 대한 1883은 IoT Edge에서 지원되지 않습니다. <li>수신(인바운드) 연결을 차단해야 합니다.</ul>|
 |AMQP|5671|BLOCKED(기본값)|OPEN(기본값)|<ul> <li>IoT Edge의 기본 통신 프로토콜입니다. <li> Azure IoT Edge는 지원되는 다른 프로토콜에 대해 구성되지 않았거나 AMQP가 원하는 통신 프로토콜인 경우 Open으로 구성해야 합니다.<li>AMQP에 대한 5672는 IoT Edge에서 지원되지 않습니다.<li>Azure IoT Edge가 다른 IoT Hub 지원 프로토콜을 사용하는 경우 이 포트를 차단합니다.<li>수신(인바운드) 연결을 차단해야 합니다.</ul></ul>|
@@ -391,7 +391,7 @@ IoT Edge는 Azure IoT Edge 런타임 및 배포된 모듈을 보호하기 위해
 
 **옵션 1: 컨테이너 엔진 설정에서 DNS 서버 설정**
 
-엔진에서 시작 하는 모든 컨테이너 모듈에 적용 되는 컨테이너 엔진 설정에서 사용자 환경에 대 한 DNS 서버를 지정 합니다. 사용할 DNS 서버를 지정 하 `daemon.json` 라는 파일을 만듭니다. 예:
+엔진에서 시작 하는 모든 컨테이너 모듈에 적용 되는 컨테이너 엔진 설정에서 사용자 환경에 대 한 DNS 서버를 지정 합니다. 사용할 DNS 서버를 지정 하 `daemon.json` 라는 파일을 만듭니다. 다음은 그 예입니다.
 
 ```json
 {
@@ -419,7 +419,7 @@ IoT Edge는 Azure IoT Edge 런타임 및 배포된 모듈을 보호하기 위해
 
 **옵션 2: 모듈 당 IoT Edge 배포에서 DNS 서버 설정**
 
-IoT Edge 배포에서 각 모듈의 *Createoptions* 에 대해 DNS 서버를 설정할 수 있습니다. 예:
+IoT Edge 배포에서 각 모듈의 *Createoptions* 에 대해 DNS 서버를 설정할 수 있습니다. 다음은 그 예입니다.
 
 ```json
 "createOptions": {

@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3ec56d37ca2c0a199968707b3d93f4797be2beca
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75888671"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376137"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory Seamless Single Sign-On: 빠른 시작
 
@@ -142,15 +142,15 @@ Azure AD Connect가 이미 설치되어 있는 경우 Azure AD Connect에서 **�
 
 5. **확인**을 선택한 다음, 다시 **확인**을 선택합니다.
 
-    ![Single Sign-On](./media/how-to-connect-sso-quick-start/sso7.png)
+    ![SSO(Single sign-on)](./media/how-to-connect-sso-quick-start/sso7.png)
 
 6. **사용자 구성** > **정책** > **관리 템플릿** > **Windows 구성 요소** > internet **Explorer** > **인터넷 제어판** > **보안 페이지** > **인트라넷 영역**으로 이동 합니다. 그런 다음 **스크립트를 통해 상태 표시줄에 대한 업데이트 허용**을 선택합니다.
 
-    ![Single Sign-On](./media/how-to-connect-sso-quick-start/sso11.png)
+    ![SSO(Single sign-on)](./media/how-to-connect-sso-quick-start/sso11.png)
 
 7. 정책 설정을 활성화한 다음, **확인**을 선택합니다.
 
-    ![Single Sign-On](./media/how-to-connect-sso-quick-start/sso12.png)
+    ![SSO(Single sign-on)](./media/how-to-connect-sso-quick-start/sso12.png)
 
 ### <a name="group-policy-preference-option---detailed-steps"></a>"그룹 정책 기본 설정" 옵션 - 자세한 단계
 
@@ -158,7 +158,7 @@ Azure AD Connect가 이미 설치되어 있는 경우 Azure AD Connect에서 **�
 2. 일부 또는 모든 사용자에게 적용되는 그룹 정책을 편집합니다. 예를 들어 **기본 도메인 정책**은 다음과 같습니다.
 3. **사용자 구성** > **기본 설정** > **Windows 설정** > **레지스트리** > **새로 만들기** > **레지스트리 항목**으로 이동합니다.
 
-    ![Single Sign-On](./media/how-to-connect-sso-quick-start/sso15.png)
+    ![SSO(Single sign-on)](./media/how-to-connect-sso-quick-start/sso15.png)
 
 4. 적절한 필드에서 다음 값을 입력하고 **확인**을 클릭합니다.
    - **키 경로**: ***Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\microsoftazuread-sso.com\autologon***
@@ -166,9 +166,9 @@ Azure AD Connect가 이미 설치되어 있는 경우 Azure AD Connect에서 **�
    - **값 형식**: ***REG_DWORD***
    - **값 데이터**: ***00000001***
  
-     ![Single Sign-On](./media/how-to-connect-sso-quick-start/sso16.png)
+     ![SSO(Single sign-on)](./media/how-to-connect-sso-quick-start/sso16.png)
  
-     ![Single Sign-On](./media/how-to-connect-sso-quick-start/sso17.png)
+     ![SSO(Single sign-on)](./media/how-to-connect-sso-quick-start/sso17.png)
 
 ### <a name="browser-considerations"></a>브라우저 고려 사항
 
@@ -211,7 +211,7 @@ Firefox 및 Microsoft Edge 브라우저의 프라이빗 검색 모드에서는 S
 
 특정 사용자에 대한 기능을 테스트하려면 다음 조건이 제대로 갖추어져 있는지 확인합니다.
   - 사용자가 회사 디바이스에 로그인합니다.
-  - 디바이스가 Active Directory 도메인에 가입되어 있습니다. 디바이스가 [Azure AD 조인](../active-directory-azureadjoin-overview.md)될 필요는 _없습니다_.
+  - 디바이스가 Active Directory 도메인에 가입되어 있습니다. 디바이스가 _Azure AD 조인_될 필요는 [없습니다](../active-directory-azureadjoin-overview.md).
   - 디바이스가 회사의 유선/무선 네트워크 또는 원격 액세스 연결(예: VPN 연결)을 통해 DC(도메인 컨트롤러)에 직접 연결되어 있습니다.
   - 그룹 정책을 통해 해당 사용자에게 [기능을 롤아웃](#step-3-roll-out-the-feature)했습니다.
 

@@ -4,11 +4,11 @@ description: Azure Resource Manager를 사용 하 여 리소스를 배포할 때
 ms.topic: troubleshooting
 ms.date: 02/15/2019
 ms.openlocfilehash: a9182be53cc91240a62ab201efc53d674f7cf427
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75484520"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78390062"
 ---
 # <a name="resolve-errors-for-resource-provider-registration"></a>리소스 공급자 등록 오류 해결
 

@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 02/11/2019
 ms.author: akjosh
 ms.openlocfilehash: 6ea61acfc2db3c8f1f5c9c0ac8da8f19897d441e
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073739"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78383214"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>Linux용 NVIDIA GPU 드라이버 확장
 
@@ -30,7 +30,7 @@ ms.locfileid: "74073739"
 https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup)에서 제공 됩니다.
 확장은 [Windows N 시리즈 VM](hpccompute-gpu-windows.md)에서 NVIDIA GPU 드라이버를 설치하는 데 지원됩니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 ### <a name="operating-system"></a>운영 체제
 
@@ -72,21 +72,21 @@ NVIDIA GPU 드라이버용 Microsoft Azure 확장을 사용하려면 대상 VM�
 
 ### <a name="properties"></a>속성
 
-| 이름 | 값/예제 | 데이터 형식 |
+| 속성 | 값/예제 | 데이터 형식 |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| publisher | Microsoft.HpcCompute | string |
-| type | NvidiaGpuDriverLinux | string |
+| publisher | Microsoft.HpcCompute | 문자열 |
+| type | NvidiaGpuDriverLinux | 문자열 |
 | typeHandlerVersion | 1.2 | int |
 
 ### <a name="settings"></a>설정
 
 모든 설정은 선택 사항입니다. 기본 동작은 드라이버 설치에 필요하지 않은 경우 커널을 업데이트하지 않고, 지원되는 최신 드라이버 및 CUDA 도구 키트(해당하는 경우)를 설치하는 것입니다.
 
-| 이름 | 설명 | 기본값 | 유효한 값 | 데이터 형식 |
+| 속성 | Description | 기본값 | 유효한 값 | 데이터 형식 |
 | ---- | ---- | ---- | ---- | ---- |
 | updateOS | 드라이버 설치에 필요하지 않은 경우에도 커널을 업데이트합니다. | false | true, false | boolean |
-| driverVersion | NV: GRID 드라이버 버전<br> NC/ND: CUDA 도구 키트 버전입니다. 선택한 CUDA에 대한 최신 드라이버가 자동으로 설치됩니다. | latest | 그리드: "430.30", "418.70", "410.92", "410.71", "390.75", "390.57", "390.42"<br> CUDA: “10.0.130”, “9.2.88”, “9.1.85” | string |
+| driverVersion | NV: GRID 드라이버 버전<br> NC/ND: CUDA 도구 키트 버전입니다. 선택한 CUDA에 대한 최신 드라이버가 자동으로 설치됩니다. | 최신 | 그리드: "430.30", "418.70", "410.92", "410.71", "390.75", "390.57", "390.42"<br> CUDA: “10.0.130”, “9.2.88”, “9.1.85” | 문자열 |
 | installCUDA | CUDA 도구 키트를 설치합니다. NC/ND 시리즈 VM에만 관련됩니다. | true | true, false | boolean |
 
 

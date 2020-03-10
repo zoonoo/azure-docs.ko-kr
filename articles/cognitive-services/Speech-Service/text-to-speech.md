@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: erhopf
 ms.openlocfilehash: d076d2520bda4d6209fbdd991df57c4eedaa3938
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75379881"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78394782"
 ---
 # <a name="what-is-text-to-speech"></a>텍스트 음성 변환이란?
 
@@ -47,7 +47,7 @@ ms.locfileid: "75379881"
 
 원한다 면 [REST](rest-text-to-speech.md)를 통해 텍스트 음성 변환 서비스에 액세스할 수 있습니다.
 
-## <a name="sample-code"></a>샘플 코드
+## <a name="sample-code"></a>예제 코드
 
 텍스트 음성 변환에 대한 예제 코드는 GitHub에서 사용할 수 있습니다. 이러한 샘플에서는 가장 인기 있는 프로그래밍 언어로 텍스트 음성 변환을 다룹니다.
 

@@ -17,13 +17,13 @@ ms.reviewer: jroth
 experimental: true
 experimental_id: d51f3cc6-753b-4e
 ms.openlocfilehash: 4627d9c4fa5c87e8e80ab80892062dabd77e9229
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978200"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78389070"
 ---
-# <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>Azure의 SQL Server 가상 머신에 연결(클래식 배포)
+# <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>Azure에서 SQL Server Virtual Machine 연결(클래식 배포)
 > [!div class="op_single_selector"]
 > * [리소스 관리자](../sql/virtual-machines-windows-sql-connect.md)
 > * [클래식](../classic/sql-connect.md)

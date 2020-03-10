@@ -4,11 +4,11 @@ description: 이 문서에서는 Azure Backup Server를 사용 하 여 VMware vC
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.openlocfilehash: df85cba42118a2e814a4a1c8338f3927e4d75f36
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76152870"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78392039"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Azure Backup Server를 사용하여 VMware VM 백업
 
@@ -137,7 +137,7 @@ v-Center Server/ESXi 호스트에 액세스할 수 있는 권한을 가진 사�
 | 데이터 저장소. 낮은 수준의 파일 작업                          | 전역. 사용자 지정 특성 관리                           | Datastore.AllocateSpace                     |
 | 데이터 저장소 클러스터. Datatstore 클러스터 구성             | 전역. 사용자 지정 특성 설정                               | VirtualMachine.Config.ChangeTracking        |
 | 전역. Disable 메서드                                       | 호스트 로컬 작업. 가상 컴퓨터 만들기              | VirtualMachine.State.RemoveSnapshot         |
-| Global. Enable 메서드                                        | 네트워크: 네트워크 할당                                   | VirtualMachine.State.CreateSnapshot         |
+| Global. Enable 메서드                                        | Network. 네트워크 할당                                   | VirtualMachine.State.CreateSnapshot         |
 | 전역 라이선스                                              | 리소스나. 리소스 풀에 가상 머신 할당         | VirtualMachine.Provisioning.DiskRandomRead  |
 | Global .Log 이벤트                                             | 가상 컴퓨터. 구성. 새 디스크 추가                | VirtualMachine.Interact.PowerOff            |
 | 전역. 사용자 지정 특성 관리                              | 가상 컴퓨터. 구성. 고급                    | VirtualMachine.Inventory.Create             |
@@ -345,7 +345,7 @@ VSphere 6.7를 백업 하려면 다음을 수행 합니다.
 >[!NOTE]
 >VMWare 6.7는 TLS를 통신 프로토콜로 사용할 수 있었습니다.
 
-- 다음과 같이 레지스트리 키를 설정합니다.
+- 다음과 같이 레지스트리 키를 설정 합니다.
 
 ```text
 Windows Registry Editor Version 5.00

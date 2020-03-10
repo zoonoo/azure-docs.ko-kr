@@ -16,15 +16,15 @@ ms.date: 03/18/2019
 ms.author: xpouyat
 ms.reviewer: anilmur;juliako
 ms.openlocfilehash: 27bdf82d4515678e28eadf07fe325860fe5df063
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "69015446"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78392944"
 ---
 # <a name="using-multiple-input-files-and-component-properties-with-premium-encoder"></a>프리미엄 인코더로 여러 입력 파일 및 구성 요소 속성 사용
 ## <a name="overview"></a>개요
-**미디어 인코더 프리미엄 워크플로** 미디어 프로세서로 작업을 제출할 때 구성 요소 속성을 사용자 지정하고 클립 목록 XML 콘텐츠를 지정하거나 여러 입력 파일을 전송해야 하는 시나리오가 있습니다. 일부 사례:
+**미디어 인코더 프리미엄 워크플로** 미디어 프로세서로 작업을 제출할 때 구성 요소 속성을 사용자 지정하고 클립 목록 XML 콘텐츠를 지정하거나 여러 입력 파일을 전송해야 하는 시나리오가 있습니다. 예는 다음과 같습니다.
 
 * 각 입력 비디오에 대해 런타임에(예: 현재 날짜) 비디오 위에 텍스트 오버레이 및 텍스트 값 설정
 * 클립 목록 XML 사용자 지정(잘라내기 등을 사용/사용하지 않고 하나 이상의 소스 파일 지정)
@@ -269,13 +269,13 @@ XML 값이 예상되는 속성을 설정하려면 `<![CDATA[ and ]]>`를 사용�
   </transcodeRequest>
 ```
 
-## <a name="example-1--overlay-an-image-on-top-of-the-video"></a>예제 1: 비디오 위에 이미지 오버레이
+## <a name="example-1--overlay-an-image-on-top-of-the-video"></a>예 1: 비디오 위에 이미지 오버레이
 
 ### <a name="presentation"></a>프레젠테이션
 비디오를 인코딩하는 동안 로고 이미지를 입력 비디오에 오버레이하는 예를 살펴보겠습니다. 이 예제에서 입력 비디오의 이름은 "Microsoft_HoloLens_Possibilities_816p24.mp4", 로고 이름은 "logo.png"로 지정합니다. 다음 단계를 수행해야 합니다.
 
 * 워크플로 파일로 워크플로 자산 만들기(아래 예제 참조)
-* 다음 두 파일을 포함하는 미디어 자산 만들기: MyInputVideo.mp4(기본 파일) 및 MyLogo.png.
+* 두 파일(기본 파일로 MyInputVideo.mp4 및 MyLogo.png)을 포함하는 미디어 자산 만들기
 * 위의 입력 자산과 함께 미디어 인코더 Premium 워크플로 미디어 프로세서에 작업 보내기 및 다음 구성 문자열 지정
 
 구성:
@@ -352,7 +352,7 @@ XML 값이 예상되는 속성을 설정하려면 `<![CDATA[ and ]]>`를 사용�
 *오버레이 위치*
 
 비디오 스트림을 H.264로 인코딩하려면 AVC 비디오 인코더 및 AAC 인코더 구성 요소를 디자이너 화면에 추가합니다. 핀을 연결합니다.
-AAC 인코더를 설정하고 오디오 형식 변환/사전 설정 선택: 2.0(L, R)을 선택합니다.
+AAC 인코더를 설정하고 오디오 형식 변환/사전 설정 : 2.0 (L, R)을 선택합니다.
 
 ![오디오 및 비디오 인코더](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture15_encoders.png)
 
@@ -429,7 +429,7 @@ public ITask AddNew(string taskName, IMediaProcessor mediaProcessor, string conf
 
 [GitHub](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/)에서 샘플 워크플로를 다운로드할 수 있습니다.
 
-## <a name="example-2--multiple-audio-language-encoding"></a>예제 2: 다중 오디오 언어 인코딩
+## <a name="example-2--multiple-audio-language-encoding"></a>예 2: 다중 오디오 언어 인코딩
 
 다중 오디오 언어 인코딩 워크플로의 예는 [GitHub](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/MultilanguageAudioEncoding)에서 제공합니다.
 
@@ -466,7 +466,7 @@ public ITask AddNew(string taskName, IMediaProcessor mediaProcessor, string conf
 
 * 인코딩된 자산은 다중 언어 오디오 트랙을 포함하며 이러한 트랙을 Azure Media Player에서 선택할 수 있습니다.
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참고 항목
 * [Azure Media Services의 프리미엄 Encoding 소개](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
 * [Azure Media Services의 프리미엄 Encoding 사용 방법](https://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
 * [Azure Media Services로 주문형 콘텐츠 인코딩](media-services-encode-asset.md#media-encoder-premium-workflow)

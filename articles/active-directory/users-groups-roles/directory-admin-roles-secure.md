@@ -15,11 +15,11 @@ ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1c46facb2d43137175730bf04fea0efec9c1ecbd
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77063852"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78389945"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Azure AD에서 하이브리드 및 클라우드 배포를 위한 권한 있는 액세스 보안
 
@@ -348,7 +348,7 @@ Cloud App Security SIEM 에이전트는 Cloud App Security와 SIEM 서버를 통
 
 자세한 내용은 [하이브리드 Azure Active Directory 가입 디바이스를 구성하는 방법](../device-management-hybrid-azuread-joined-devices-setup.md)을 참조하세요.
 
-#### <a name="review-members-of-built-in-office-365-admin-roleshttpssupportofficecomarticleabout-office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d"></a>[기본 제공 Office 365 관리자 역할](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)의 멤버 검토
+#### <a name="review-members-of-built-in-office-365-admin-roles"></a>[기본 제공 Office 365 관리자 역할](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)의 멤버 검토
 Office 365를 사용하는 경우
 ‎
 #### <a name="validate-incident-response-plan"></a>인시던트 대응 계획의 유효성 검사

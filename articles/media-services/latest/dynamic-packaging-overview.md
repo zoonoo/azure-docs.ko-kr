@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 01/23/2020
 ms.author: juliako
-ms.openlocfilehash: 3984f33cd97ada9b3d5301e45fe3506966880848
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: dac5f75216a8addcaa65407d945a06363e4cbf9d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76719673"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78359499"
 ---
 # <a name="dynamic-packaging-in-media-services-v3"></a>Media Services v3의 동적 패키징
 
@@ -93,7 +93,7 @@ Media Encoder Standard [형식 및 코덱](media-encoder-standard-formats.md) �
 
 ## <a name="live-streaming-workflow"></a>라이브 스트리밍 워크플로
 
-라이브 이벤트는 통과 또는 라이브 인코딩의 두 가지 형식 중 하나일 수 있습니다. 
+라이브 이벤트는 *통과* (온-프레미스 라이브 인코더는 다중 비트 전송률 스트림) 또는 *라이브 인코딩* (온-프레미스 라이브 인코더가 단일 비트 전송률 스트림을 보냄)으로 설정할 수 있습니다. 
 
 동적 패키징을 사용한 라이브 스트리밍의 일반적인 워크플로는 다음과 같습니다.
 
@@ -240,7 +240,7 @@ MPD(MPEG-DASH Media Presentation Description)라고도 하는 MPEG-DASH 매니�
 
 ### <a name="naming-of-tracks-in-the-manifest"></a>매니페스트에서 트랙 이름 지정
 
-오디오 트랙 이름이 .ism 파일에 지정되면 Media Services에서 `Label` 요소를 `AdaptationSet` 내에 추가하여 특정 오디오 트랙에 대한 텍스트 정보를 지정합니다. 출력 DASH 매니페스트의 예제는 다음과 같습니다.
+Ism 파일에 오디오 트랙 이름이 지정 된 경우 Media Services는 특정 오디오 트랙에 대 한 치적 측정 단위 정보를 지정 하는 `AdaptationSet` 내에 `Label` 요소를 추가 합니다. 출력 대시 매니페스트의 예는 다음과 같습니다.
 
 ```xml
 <AdaptationSet codecs="mp4a.40.2" contentType="audio" lang="en" mimeType="audio/mp4" subsegmentAlignment="true" subsegmentStartsWithSAP="1">
@@ -262,7 +262,7 @@ MPD(MPEG-DASH Media Presentation Description)라고도 하는 MPEG-DASH 매니�
 
 #### <a name="smooth-streaming-manifest"></a>부드러운 스트리밍 매니페스트
 
-부드러운 스트리밍 스트림을 재생하는 경우 매니페스트는 해당 오디오 트랙에 대한 `Accessibility` 및 `Role` 특성에 값을 전달합니다. 예를 들어 `StreamIndex` 요소에 `Role="alternate" Accessibility="description"`을 추가하여 오디오 설명임을 나타낼 수 있습니다.
+부드러운 스트리밍 스트림을 재생 하는 경우 매니페스트는 해당 오디오 트랙에 대 한 `Accessibility` 및 `Role` 특성에 값을 전달 합니다. 예를 들어 `StreamIndex` 요소에 `Role="alternate" Accessibility="description"`를 추가 하 여 오디오 설명 임을 나타낼 수 있습니다.
 
 #### <a name="dash-manifest"></a>DASH 매니페스트
 
@@ -287,7 +287,7 @@ HLS v7 이상의 경우 `(format=m3u8-cmaf)` 해당 재생 목록은 오디오 �
 
 ## <a name="dynamic-encryption"></a>동적 암호화
 
-*동적 암호화*를 사용하여 AES-128 또는 세 가지 주요 DRM(디지털 권한 관리) 시스템 중 하나에서 라이브 또는 주문형 콘텐츠를 동적으로 암호화할 수 있습니다. 동적 암호화된 라이브 콘텐츠 및 주문형 콘텐츠를 제공할 수 있습니다. 또한 Media Services는 인증된 클라이언트에 AES 키 및 DRM 라이선스를 전달하는 서비스를 제공합니다. 자세한 정보는 [동적 암호화](content-protection-overview.md)를 참조하세요.
+*동적 암호화* 를 사용 하 여 AES-128 또는 세 가지 주요 DRM (디지털 권한 관리) 시스템 (Microsoft PlayReady, Google Widevine 및 Apple)으로 라이브 또는 주문형 콘텐츠를 동적으로 암호화할 수 있습니다. 또한 Media Services는 인증된 클라이언트에 AES 키 및 DRM 라이선스를 전달하는 서비스를 제공합니다. 자세한 정보는 [동적 암호화](content-protection-overview.md)를 참조하세요.
 
 > [!NOTE]
 > Widevine은 Google Inc.에서 제공하는 서비스로, Google Inc.의 서비스 약관 및 개인정보처리방침을 따릅니다.

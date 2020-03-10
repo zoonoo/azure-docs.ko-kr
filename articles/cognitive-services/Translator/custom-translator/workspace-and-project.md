@@ -11,11 +11,11 @@ ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
 ms.openlocfilehash: d2f7903fa85c645357e46a753d1cb043e0893254
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647310"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78391439"
 ---
 # <a name="what-is-a-custom-translator-workspace"></a>Custom Translator 작업 영역이란?
 
@@ -25,7 +25,7 @@ ms.locfileid: "73647310"
 
 ## <a name="what-is-a-custom-translator-project"></a>Custom Translator 프로젝트란?
 
-프로젝트란 모델, 문서 및 테스트에 대한 래퍼입니다. 각 프로젝트는 올바른 언어 쌍이 있는 해당 작업 영역에 업로드되는 모든 문서를 자동으로 포함합니다. 예를 들어 영어-스페인어 프로젝트와 스페인어-영어 프로젝트가 모두 있다면 동일한 문서가 두 프로젝트 모두에 포함됩니다. 각 프로젝트에는 번역에 대해 [V3 API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl)를 쿼리할 때 사용되는 연결된 CategoryID가 있습니다. CategoryID는 Custom Translator로 빌드된 사용자 지정 시스템에서 번역을 가져오는 데 사용되는 매개 변수입니다.
+프로젝트란 모델, 문서 및 테스트에 대한 래퍼입니다. 각 프로젝트에는 올바른 언어 쌍이 있는 해당 작업 영역에 업로드된 모든 문서가 자동으로 포함됩니다. 예를 들어 영어-스페인어 프로젝트와 스페인어-영어 프로젝트가 모두 있다면 동일한 문서가 두 프로젝트 모두에 포함됩니다. 각 프로젝트에는 번역에 대해 [V3 API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl)를 쿼리할 때 사용되는 연결된 CategoryID가 있습니다. CategoryID는 Custom Translator로 빌드된 사용자 지정 시스템에서 번역을 가져오는 데 사용되는 매개 변수입니다.
 
 ## <a name="project-categories"></a>프로젝트 범주
 

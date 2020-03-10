@@ -9,11 +9,11 @@ ms.date: 01/09/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 1319583569a8abc619ad902a87ee551b476f88eb
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76276891"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78385373"
 ---
 # <a name="turn-on-or-turn-off-your-storsimple-8000-series-device"></a>StorSimple 8000 시리즈 디바이스 켜기 또는 끄기
 

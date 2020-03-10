@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: pepogors
 ms.openlocfilehash: f40e54f5260f827f0b18c833d23d1f57b5ebc3a3
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77617462"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78382767"
 ---
 # <a name="reliable-services-application-and-service-manifest-examples"></a>Reliable Services 애플리케이션 및 서비스 매니페스트 예제
 다음은 ASP.NET Core 웹 프런트 엔드 및 상태 저장 백 엔드를 사용하는 Service Fabric 애플리케이션용 애플리케이션 및 서비스 매니페스트 예제입니다. 이러한 예제의 목적은 사용 가능한 설정 및 사용 방법을 보여주는 것입니다. 이러한 애플리케이션 및 서비스 매니페스트는 [Service Fabric .NET 빠른 시작](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) 매니페스트를 기반으로 합니다.

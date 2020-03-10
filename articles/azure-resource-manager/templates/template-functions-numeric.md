@@ -4,11 +4,11 @@ description: Azure Resource Manager 템플릿에서 숫자 작업을 수행하�
 ms.topic: conceptual
 ms.date: 11/08/2017
 ms.openlocfilehash: 91aa637701acb278e81b7eb86aa3ae2db15acc28
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77207248"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78380640"
 ---
 # <a name="numeric-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿용 숫자 함수
 

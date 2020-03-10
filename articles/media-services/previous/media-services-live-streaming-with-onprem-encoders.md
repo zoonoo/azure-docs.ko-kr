@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: f6366f162cb09898b694b14440718401c57c0adf
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74887104"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78390514"
 ---
 # <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders"></a>온-프레미스 인코더에서 다중 비트 전송률 라이브 스트림을 받는 채널 작업
 
@@ -176,25 +176,25 @@ KeyFrameInterval 및 FragmentsPerSegment를 둘 다 명시적으로 설정하는
 ## <a id="states"></a>채널 상태 및 청구
 채널의 현재 상태에 대해 가능한 값은 다음과 같습니다.
 
-* **중지됨**: 만들어진 후 채널의 초기 상태입니다. 이 상태에서, 채널 속성을 업데이트할 수 있지만 스트리밍은 허용되지 않습니다.
+* **중지됨**: 만들어진 후 채널의 초기 상태입니다. 이 상태에서 채널 속성을 업데이트할 수 있지만 스트리밍은 허용되지 않습니다.
 * **시작 중**: 채널이 시작 중입니다. 이 상태에서는 업데이트 또는 스트리밍이 허용되지 않습니다. 오류가 발생하는 경우 채널이 **중지됨** 상태를 반환합니다.
 * **실행 중**: 채널이 라이브 스트림을 처리할 수 있습니다.
 * **중지 중**: 채널이 중지 중입니다. 이 상태에서는 업데이트 또는 스트리밍이 허용되지 않습니다.
 * **삭제 중**: 채널이 삭제 중입니다. 이 상태에서는 업데이트 또는 스트리밍이 허용되지 않습니다.
 
-다음 표에서는 채널 상태가 청구 모드에 매핑되는 방식을 보여 줍니다.
+다음 테이블에서는 채널 상태가 청구 모드에 매핑되는 방식을 보여 줍니다.
 
 | 채널 상태 | 포털 UI 표시기 | 청구 여부 |
 | --- | --- | --- |
-| **시작 중** |**시작 중** |아니요(임시 상태) |
-| **실행 중** |**준비**(실행 중인 프로그램이 없음)<p><p>or<p>**스트리밍**(실행 중인 프로그램이 하나 이상임) |yes |
-| **중지 중** |**중지 중** |아니요(임시 상태) |
-| **중지** |**중지** |아닙니다. |
+| **시작 중** |**시작 중** |없음(일시적인 상태) |
+| **실행 중** |**준비**(실행 중인 프로그램이 없음)<p><p>또는<p>**스트리밍**(실행 중인 프로그램이 하나 이상임) |yes |
+| **중지 중** |**중지 중** |없음(일시적인 상태) |
+| **중지됨** |**중지됨** |예 |
 
 ## <a id="cc_and_ads"></a>선택 자막 및 광고 삽입
 다음 테이블에서는 선택 자막 및 광고 삽입의 지원되는 표준을 설명합니다.
 
-| Standard | 참고 |
+| Standard | 메모 |
 | --- | --- |
 | CEA-708 및 EIA-608(708/608) |CEA-708 및 EIA-608은 미국 및 캐나다의 선택 자막 표준입니다.<p><p>현재 인코딩된 입력 스트림에 수반되는 경우에만 자막이 지원됩니다. Media Services에 전송되는 인코딩된 스트림으로 608 또는 708 자막을 삽입할 수 있는 라이브 미디어 인코더를 사용해야 합니다. Media Services는 뷰어에 삽입된 선택 자막이 있는 콘텐츠를 제공합니다. |
 | TTML inside ismt(부드러운 스트리밍 텍스트 트랙) |Media Services 동적 패키징을 사용하면 클라이언트가 DASH, HLS 또는 부드러운 스트리밍 형식 중 하나로 콘텐츠를 스트림할 수 있습니다. 하지만 자막 inside .ismt(부드러운 스트리밍 텍스트 트랙)가 포함된 조각화된 MP4(부드러운 스트리밍)를 수집하는 경우 부드러운 스트리밍 클라이언트로만 스트림을 제공할 수 있습니다. |
@@ -225,10 +225,10 @@ KeyFrameInterval 및 FragmentsPerSegment를 둘 다 명시적으로 설정하는
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="feedback"></a>피드백
+## <a name="feedback"></a>사용자 의견
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="related-topics"></a>관련된 항목
+## <a name="related-topics"></a>관련 항목
 [온-프레미스 인코더 권장](media-services-recommended-encoders.md)
 
 [Azure Media Services 조각화된 MP4 라이브 수집 사양](../media-services-fmp4-live-ingest-overview.md)

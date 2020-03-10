@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: 276e691351d852d6dcb0075d47bf33af6767fc10
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68226090"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78394248"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1의 액세스 제어
 
@@ -27,9 +27,9 @@ Azure Data Lake Storage Gen1은 HDFS에서 파생된 액세스 제어 모델을 
 
 **액세스 ACL** 및 **기본 ACL**이라는 두 가지 ACL(액세스 제어 목록)이 있습니다.
 
-* **액세스 ACL**: 개체에 대한 액세스를 제어합니다. 파일과 폴더에는 모두 액세스 ACL이 있습니다.
+* **액세스 ACL** – 개체에 대한 액세스를 제어합니다. 파일과 폴더에는 모두 액세스 ACL이 있습니다.
 
-* **기본 ACL**: 해당 폴더 아래에 만든 모든 자식 항목에 대한 액세스 ACL을 결정하는 폴더와 연결된 ACL의 "템플릿"입니다. 파일에는 기본 ACL이 없습니다.
+* **기본 ACL** - 해당 폴더 아래에 만든 모든 자식 항목에 대한 액세스 ACL을 결정하는 폴더와 연결된 ACL의 "템플릿"입니다. 파일에는 기본 ACL이 없습니다.
 
 
 액세스 ACL 및 기본 ACL은 모두 구조가 동일합니다.
@@ -59,7 +59,7 @@ Azure Data Lake Storage Gen1은 HDFS에서 파생된 액세스 제어 모델을 
 |--------------|------------|------------------------|
 | 7            | `RWX`        | 읽기 + 쓰기 + 실행 |
 | 5            | `R-X`        | 읽기 + 실행         |
-| 4            | `R--`        | Read                   |
+| 4            | `R--`        | 읽기                   |
 | 0            | `---`        | 사용 권한 없음         |
 
 
@@ -71,15 +71,15 @@ Data Lake Storage Gen1에서 사용하는 POSIX 스타일 모델에서 항목에
 
 Data Lake Storage Gen1 계정에서 특정 작업을 수행하는 데 필요한 권한을 이해하는 데 도움이 되는 몇 가지 일반적인 시나리오는 다음과 같습니다.
 
-| 연산 | Object              |    /      | Seattle/   | Portland/   | Data.txt       |
+| 작업(Operation) | Object              |    /      | Seattle/   | Portland/   | Data.txt       |
 |-----------|---------------------|-----------|------------|-------------|----------------|
-| Read      | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
+| 읽기      | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
 | 추가 | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
-| 삭제    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
-| 만들기    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
-| List      | /                   |   `R-X`   |   `---`    |  `---`      | `---`          |
-| List      | /Seattle/           |   `--X`   |   `R-X`    |  `---`      | `---`          |
-| List      | /Seattle/Portland/  |   `--X`   |   `--X`    |  `R-X`      | `---`          |
+| DELETE    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
+| 생성    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
+| 목록      | /                   |   `R-X`   |   `---`    |  `---`      | `---`          |
+| 목록      | /Seattle/           |   `--X`   |   `R-X`    |  `---`      | `---`          |
+| 목록      | /Seattle/Portland/  |   `--X`   |   `--X`    |  `R-X`      | `---`          |
 
 
 > [!NOTE]
@@ -132,8 +132,8 @@ Data Lake Storage Gen1의 사용자와 연결된 “기본 그룹”이 없으�
 
 **새 파일이나 폴더의 소유 그룹 할당**
 
-* **사례 1**: "/" 루트 폴더입니다. 이 폴더는 Data Lake Storage Gen1 계정이 만들어질 때 생성됩니다. 이 경우 소유 그룹은 모두 0 GUID로 설정됩니다.  이 값은 어떠한 액세스도 허용하지 않습니다.  그룹이 할당될 때까지는 자리 표시자입니다.
-* **사례 2**(기타 모든 경우): 새 항목을 만들 때 소유 그룹이 부모 폴더에서 복사됩니다.
+* **사례 1** - "/" 루트 폴더입니다. 이 폴더는 Data Lake Storage Gen1 계정이 만들어질 때 생성됩니다. 이 경우 소유 그룹은 모두 0 GUID로 설정됩니다.  이 값은 어떠한 액세스도 허용하지 않습니다.  그룹이 할당될 때까지는 자리 표시자입니다.
+* **사례 2**(기타 모든 경우) - 새 항목을 만들 때 소유 그룹이 부모 폴더에서 복사됩니다.
 
 **소유 그룹 변경**
 
@@ -220,7 +220,7 @@ def access_check( user, desired_perms, path ) :
 
 Azure Data Lake Storage Gen1에 대 한 umask는 007로 설정 된 상수 값입니다. 이 값은 다음 표와 같이 변환됩니다.
 
-| umask 구성 요소     | 숫자 형식 | 약식 | 의미 |
+| umask 구성 요소     | 숫자 형식 | 짧은 형식 | 의미 |
 |---------------------|--------------|------------|---------|
 | umask.owning_user   |    0         |   `---`      | 담당 사용자의 경우 상위 항목의 기본 ACL을 하위 항목의 액세스 ACL에 복사합니다. | 
 | umask.owning_group  |    0         |   `---`      | 소유 그룹의 경우 상위 항목의 기본 ACL을 하위 항목의 액세스 ACL에 복사합니다. | 
@@ -297,6 +297,6 @@ ACL의 항목은 Azure AD의 사용자에 해당하는 GUID로 저장됩니다. 
 * [Ubuntu의 POSIX ACL](https://help.ubuntu.com/community/FilePermissionsACLs)
 * [ACL: Linux의 액세스 제어 목록 사용](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)(영문)
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참고 항목
 
 * [Azure Data Lake Storage Gen1 개요](data-lake-store-overview.md)

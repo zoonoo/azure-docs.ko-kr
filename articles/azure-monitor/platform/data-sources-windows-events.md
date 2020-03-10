@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
 ms.openlocfilehash: aa34196233ce4037ef6fa49b782b9aa958f7632d
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77670511"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78394415"
 ---
 # <a name="windows-event-log-data-sources-in-azure-monitor"></a>Azure Monitor의 Windows 이벤트 로그 데이터 원본
 많은 애플리케이션이 Windows 이벤트 로그에 기록되기 때문에 Windows 이벤트 로그는 Windows 에이전트를 사용하여 데이터를 수집하는 가장 일반적인 [데이터 원본](agent-data-sources.md) 중 하나입니다.  모니터링해야 하는 애플리케이션에서 만든 모든 사용자 지정 로그를 지정하는 것 외에 시스템 및 애플리케이션 같은 표준 로그에서 이벤트를 수집할 수 있습니다.

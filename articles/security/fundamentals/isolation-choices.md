@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
 ms.openlocfilehash: c6e74e7992326d2a4b8fe24510742422b005c2e2
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76756163"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78359072"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Azure 퍼블릭 클라우드에서 격리
 Azure를 통해 공유 되는 물리적 인프라에서 응용 프로그램 및 Vm (가상 머신)을 실행할 수 있습니다. 클라우드 환경에서 애플리케이션을 실행하는 데 있어 가장 중요한 경제적 동기 중 하나는 여러 고객에게 공유 리소스에 대한 비용을 분산할 수 있는 능력입니다. 이러한 다중 테넌트 방식은 저렴한 비용으로 서로 다른 고객 간에 리소스를 다중화함으로써 효율성을 향상시킵니다. 아쉽게도 물리적 서버 및 기타 인프라 리소스를 공유하여 임의의 잠재적 악성 사용자에게 속할 수 있는 중요한 애플리케이션과 VM을 실행할 위험이 있습니다.
@@ -35,7 +35,7 @@ Azure를 통해 공유 되는 물리적 인프라에서 응용 프로그램 및 
 각 Azure AD 디렉터리는 고유하며 다른 Azure AD 디렉터리와 구분됩니다. 회사 사무실 건물이 해당 조직에게만 속하는 안전한 자산인 것처럼 Azure AD 디렉터리도 조직에서만 사용하기 위해 자산을 보호하도록 설계되었습니다. Azure AD 아키텍처는 고객 데이터 및 ID 정보가 함께 혼합되지 않도록 격리합니다. 즉, 한 Azure AD 디렉터리의 사용자 및 관리자가 실수로 또는 악의적으로 다른 디렉터리의 데이터에 액세스할 수 없습니다.
 
 ### <a name="azure-tenancy"></a>Azure 테넌트
-Azure 테넌트(Azure 구독)는 [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)에서 "고객/청구" 관계 및 고유한 [테넌트](../../active-directory/develop/quickstart-create-new-tenant.md)를 나타냅니다. Microsoft Azure의 테넌트 수준 격리는 Azure Active Directory 및 이 서비스에서 제공하는 [역할 기반 제어](../../role-based-access-control/overview.md)를 사용하여 이루어집니다. 각각의 Azure 구독은 하나의 Azure AD(Active Directory) 디렉터리와 연결됩니다.
+Azure 테넌트(Azure 구독)는 [Azure Active Directory](../../active-directory/develop/quickstart-create-new-tenant.md)에서 "고객/청구" 관계 및 고유한 [테넌트](../../active-directory/fundamentals/active-directory-whatis.md)를 나타냅니다. Microsoft Azure의 테넌트 수준 격리는 Azure Active Directory 및 이 서비스에서 제공하는 [역할 기반 제어](../../role-based-access-control/overview.md)를 사용하여 이루어집니다. 각각의 Azure 구독은 하나의 Azure AD(Active Directory) 디렉터리와 연결됩니다.
 
 사용자, 그룹 및 해당 디렉터리에서 애플리케이션은 Azure 구독에서 리소스를 관리할 수 있습니다. Azure Portal, Azure 명령줄 도구 또는 Azure 관리 API를 사용하여 이러한 액세스 권한을 할당할 수 있습니다. Azure AD 테넌트는 보안 경계를 사용하여 논리적으로 격리되므로 어떤 고객도 악의적으로 또는 실수로 공동 테넌트에 액세스하거나 손상시킬 수 없습니다. Azure AD는 분리된 네트워크 세그먼트에서 격리된 "운영 체제 미설치(bare metal)" 서버에서 실행되며, 여기서 호스트 수준 패킷 필터링과 Windows 방화벽은 원하지 않는 연결과 트래픽을 차단합니다.
 
@@ -221,7 +221,7 @@ Azure는 다음과 같은 유형의 암호화를 제공하여 데이터를 보�
 
 -   [Azure 디스크 암호화](../azure-security-disk-encryption-overview.md) 를 사용하면 IaaS 가상 머신에서 사용되는 OS 디스크 및 데이터 디스크를 암호화할 수 있습니다.
 
-#### <a name="azure-disk-encryption"></a>Azure Disk Encryption
+#### <a name="azure-disk-encryption"></a>Azure 디스크 암호화
 VM(가상 머신)에 대해 [Azure Disk Encryption](../azure-security-disk-encryption-overview.md)를 사용하면 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)에서 제어하는 키와 정책으로 VM 디스크(부팅 및 데이터 디스크 포함)를 암호화하여 조직의 보안 및 규정 준수 요구 사항을 처리할 수 있습니다.
 
 Windows용 디스크 암호화 솔루션은 [Microsoft BitLocker 드라이브 암호화](https://technet.microsoft.com/library/cc732774.aspx)를 기반으로 하고, Linux 솔루션은 [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt)를 기반으로 합니다.

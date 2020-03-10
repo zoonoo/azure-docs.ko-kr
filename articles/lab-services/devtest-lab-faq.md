@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: spelluru
 ms.openlocfilehash: de99e9b1e4adceaf08beaf8ad3b5ea114b31a586
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76760524"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78380942"
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure DevTest Labs FAQ
 Azure DevTest Labs에 대한 일반적인 질문에 대한 답변을 확인합니다.
@@ -186,7 +186,7 @@ Azure DevOps Projects 내의 특정 프로젝트에 대 한 랩을 사용할 수
 > [!NOTE]
 > 랩 사용자가 Microsoft 계정 있지만 조직의 Active Directory 인스턴스의 멤버가 아닌 외부 사용자 인 경우 사용자는 공유 링크에 액세스 하려고 할 때 오류 메시지가 표시 될 수 있습니다. 외부 사용자가 오류 메시지를 확인하는 경우 사용자에게 먼저 Azure Portal의 오른쪽 위 모서리에서 해당 이름을 선택하도록 요청하세요. 그런 다음 메뉴의 디렉터리 섹션에서 사용자가 랩을 존재 하는 디렉터리를 선택할 수 있습니다.
 
-## <a name="virtual-machines"></a>Virtual Machines
+## <a name="virtual-machines"></a>가상 머신
 
 ### <a name="why-cant-i-see-vms-on-the-virtual-machines-page-that-i-see-in-devtest-labs"></a>DevTest Labs에 표시 되는 Virtual Machines 페이지에 Vm이 표시 되지 않는 이유는 무엇 인가요?
 DevTest Labs에서 VM을 만들 때 해당 VM에 액세스할 수 있는 권한이 부여 됩니다. 랩 페이지와 **Virtual Machines** 페이지 모두에서 VM을 볼 수 있습니다. **DevTest Labs 소유자** 역할에 할당 된 사용자는 랩의 **모든 Virtual Machines** 페이지에서 랩에서 만들어진 모든 vm을 볼 수 있습니다. 그러나 **DevTest Labs 사용자** 역할이 있는 사용자에 게는 다른 사용자가 만든 VM 리소스에 대 한 읽기 권한이 자동으로 부여 되지 않습니다. 따라서 이러한 Vm은 **Virtual Machines** 페이지에 표시 되지 않습니다.
@@ -304,7 +304,7 @@ Azure Marketplace 이미지와 고유한 사용자 지정 조직 이미지는 �
 - 모든 시스템에 대해 규정 준수 또는 규제 조건(예: 보안 정책)을 적용해야 하는 경우
 - 사용자 지정 이미지를 사용 하는 것은 가볍게 고려 하지 않아야 합니다. 이제 이러한 기본 이미지에 대 한 VHD 파일을 관리 해야 하므로 추가 복잡성이 도입 됩니다. 그리고 소프트웨어 업데이트를 사용하여 해당 기본 이미지를 정기적으로 패치해야 합니다. 이러한 업데이트에는 새 OS(운영 체제) 업데이트와 소프트웨어 패키지 자체에 필요한 업데이트 또는 구성 변경 내용이 포함됩니다.
 
-## <a name="artifacts"></a>Artifacts
+## <a name="artifacts"></a>아티팩트
 
 ### <a name="what-are-artifacts"></a>아티팩트는 무엇입니까?
 아티팩트는 VM에 최신 비트 또는 개발 도구를 배포하는 데 사용할 수 있는 사용자 지정 가능한 요소입니다. VM을 만들 때 VM에 아티팩트를 연결합니다. VM이 프로비전되면 아티팩트는 VM을 배포하고 구성합니다. [공용 GitHub 리포지토리에서](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts)다양 한 기존 아티팩트를 사용할 수 있습니다. [사용자 고유의 아티팩트를 작성](devtest-lab-artifact-author.md)할 수도 있습니다.

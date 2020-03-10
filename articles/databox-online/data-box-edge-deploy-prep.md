@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 06/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: d9778544fd9e20dc3244a37c644117d1cd505a96
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: 179a6181efdc6c31d50d3b5b3f708fd9149dadd3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75438677"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78384720"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-edge"></a>자습서: Azure Data Box Edge 배포 준비  
 
@@ -66,7 +66,7 @@ Data Box Edge를 배포하려면 다음 자습서를 지정된 순서대로 참�
 물리적 디바이스를 배포하기 전에 먼저 다음 사항을 확인합니다.
 
 - 배송 패키지에 포함된 안전 정보를 검토했습니다.
-- 데이터 센터의 표준 19” 랙에 디바이스를 랙에 탑재할 수 있는 하나의 1U 슬롯이 있습니다.
+- 장치를 랙에 탑재 하는 데 사용할 수 있는 표준 19 "랙 슬롯을 데이터 센터에서 사용할 수 있습니다.
 - 디바이스가 안전하게 있을 수 있는 평평하고 안정된 수평 작업대를 사용할 수 있습니다.
 - 디바이스를 설치하려는 사이트에 독립적인 전원의 표준 AC 전원 디바이스가 있거나 UPS(무정전 전원 공급 디바이스)가 장착된 PDU(랙 전원 분배 디바이스)가 있습니다.
 - 물리적 디바이스에 대한 액세스 권한이 있습니다.
@@ -95,9 +95,9 @@ Data Box Edge 리소스를 만들려면 Azure Portal에서 다음 단계를 수�
     - 또는 URL [https://portal.azure.us](https://portal.azure.us)에서 Azure Government 포털에 로그인합니다. 자세한 내용을 보려면 [포털을 사용하여 Azure Government에 연결](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal)로 이동합니다.
 
 2. 왼쪽 창에서 **+ 리소스 만들기**를 선택합니다. **Data Box Edge/Data Box Gateway**를 검색합니다. **Data Box Edge/Data Box Gateway**를 선택합니다. **만들기**를 선택합니다.
-3. Data Box Edge 디바이스에 사용하려는 구독을 선택합니다. Data Box Edge 리소스를 배포할 지역을 선택합니다. 이 릴리스에서는 미국 동부, 동남 아시아 및 서유럽을 선택할 수 있습니다. 
+3. Data Box Edge 디바이스에 사용하려는 구독을 선택합니다. Data Box Edge 리소스를 배포할 지역을 선택합니다. Azure Stack Edge 리소스를 사용할 수 있는 모든 지역 목록은 [지역별 사용 가능한 Azure 제품](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all)을 참조 하세요.
 
-    디바이스를 배포하려는 지역에 지리적으로 가장 가까운 위치를 선택합니다. 지역에는 디바이스 관리용 메타데이터만 저장됩니다. 실제 데이터는 원하는 스토리지 계정에 저장할 수 있습니다. 
+    디바이스를 배포하려는 지역에 지리적으로 가장 가까운 위치를 선택합니다. 지역에는 디바이스 관리용 메타데이터만 저장됩니다. 실제 데이터는 원하는 스토리지 계정에 저장할 수 있습니다.
     
     **Data Box Edge** 옵션에서 **만들기**를 선택합니다.
 
@@ -115,18 +115,18 @@ Data Box Edge 리소스를 만들려면 Azure Portal에서 다음 단계를 수�
     |설정  |값  |
     |---------|---------|
     |속성   | 리소스를 식별하기 위한 이름.<br>이름에는 문자, 숫자 및 하이픈을 포함하여 2~50자가 포함됩니다.<br> 이름은 문자 또는 숫자로 시작하고 끝납니다.        |
-    |지역     |이 릴리스는 미국 동부, 동남 아시아 및 서유럽에 리소스를 배포할 수 있습니다. Azure Government를 사용하는 경우 [Azure 지역](https://azure.microsoft.com/global-infrastructure/regions/)에서 본 것처럼 모든 정부 지역을 사용할 수 있습니다.<br> 디바이스를 배포하려는 지역에 지리적으로 가장 가까운 위치를 선택합니다.|
+    |지역     |Azure Stack Edge 리소스를 사용할 수 있는 모든 지역 목록은 [지역별 사용 가능한 Azure 제품](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all)을 참조 하세요. Azure Government를 사용하는 경우 [Azure 지역](https://azure.microsoft.com/global-infrastructure/regions/)에서 본 것처럼 모든 정부 지역을 사용할 수 있습니다.<br> 디바이스를 배포하려는 지역에 지리적으로 가장 가까운 위치를 선택합니다.|
 
     ![프로젝트 및 인스턴스 세부 정보](media/data-box-edge-deploy-prep/data-box-edge-resource.png)
 
-5. 완료되면 **다음: 배송 주소**를 선택합니다.
+5. **다음: 배송 주소**를 선택 합니다.
 
     - 디바이스가 이미 있는 경우 **I have a Data Box Edge device**(Data Box Edge 디바이스가 있습니다) 콤보 상자를 선택합니다.
     - 이 디바이스가 지금 주문하는 새 디바이스인 경우 연락처 이름, 회사, 디바이스를 배송할 주소, 연락처 정보를 입력합니다.
 
     ![새 디바이스의 배송 주소](media/data-box-edge-deploy-prep/data-box-edge-resource1.png)
 
-6. 완료되면 **다음: 리뷰 + 만들기**를 클릭합니다.
+6. **다음: 검토 + 만들기**를 선택 합니다.
 
 7. **검토 + 만들기** 탭에서 **가격 책정 세부 정보**, **사용 약관** 및 리소스 세부 정보를 살펴봅니다. **I have reviewed the privacy terms**(개인정보처리방침을 검토했습니다) 콤보 상자를 선택합니다.
 

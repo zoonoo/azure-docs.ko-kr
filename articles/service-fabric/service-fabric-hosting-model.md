@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: harahma
 ms.openlocfilehash: 69c7edb08693937aad5a658e0b22b00cd2a81647
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75464582"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78391417"
 ---
 # <a name="azure-service-fabric-hosting-model"></a>Azure Service Fabric 호스팅 모델
 이 아티클에서는 Azure Service Fabric에서 제공하는 애플리케이션 호스팅 모델을 간략하게 설명하고 **공유 프로세스** 및 **단독 프로세스** 모델 간의 차이점을 설명합니다. 배포된 애플리케이션이 Service Fabric 노드에 표시되는 방식과 서비스 복제본(또는 인스턴스) 및 서비스-호스트 프로세스 간의 관계를 설명합니다.
@@ -92,7 +92,7 @@ await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 
 보시는 것처럼 Service Fabric은 **P6** 및 **P7** 파티션의 각 복제본에 대해 하나씩 두 개의 새로운 'MyServicePackage' 복제본을 활성화했습니다. Service Fabric은 *CodePackage*의 전용 복사본에 각 복제본을 배치했습니다. 단독 프로세스 모델을 사용하는 경우 지정된 애플리케이션에 대해 지정된 *ServicePackage*의 여러 복사본을 노드에서 활성화할 수 있습니다. 앞의 예제에서 'MyServicePackage'의 세 개 복사본이 **fabric:/App1**에 대해 활성화되었습니다. 'MyServicePackage'의 각 활성 복사본에는 **ServicePackageActivationId**가 연결되어 있습니다. 이 ID는 **fabric:/App1** 애플리케이션 내에서 해당 복사본을 식별합니다.
 
-애플리케이션에 공유 프로세스 모델을 사용하는 경우 노드에는 *ServicePackage*의 활성 복사본이 하나만 있습니다. 이 활성화에서 *ServicePackage*의 **ServicePackageActivationId**는 빈 문자열입니다. 예를 들어 **fabric:/App2**를 사용하는 경우입니다.
+애플리케이션에 공유 프로세스 모델을 사용하는 경우 노드에는 *ServicePackage*의 활성 복사본이 하나만 있습니다. 이 활성화에서 **ServicePackage**의 *ServicePackageActivationId*는 빈 문자열입니다. 예를 들어 **fabric:/App2**를 사용하는 경우입니다.
 
 > [!NOTE]
 >- 공유 프로세스 호스팅 모델은 **ServicePackageActivationMode** = **SharedProcess**에 해당합니다. 이것이 기본 호스팅 모델이며, 서비스를 만들 때 **ServicePackageActivationMode**를 지정할 필요가 없습니다.
@@ -109,7 +109,7 @@ await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 노드에서 [배포 된 서비스 패키지][p3] 목록을 쿼리하여 배포 된 서비스 패키지의 **ServicePackageActivationId** 를 찾을 수 있습니다. 노드에서 배포 된 [서비스 유형][p6], [배포 된 복제본][p7]및 [배포 된 코드 패키지][p8] 를 쿼리 하는 경우 쿼리 결과에는 배포 된 부모 서비스 패키지의 **ServicePackageActivationId** 포함 됩니다.
 
 > [!NOTE]
->- 공유 프로세스 호스팅 모델 아래의 지정된 노드에서 지정된 애플리케이션에 대해 *ServicePackage* 복사본 하나만 활성화됩니다. *빈 문자열*과 같은 **ServicePackageActivationId**가 있으며, 배포된 서비스 패키지와 관련된 작업을 수행할 때 지정할 필요가 없습니다. 
+>- 공유 프로세스 호스팅 모델 아래의 지정된 노드에서 지정된 애플리케이션에 대해 *ServicePackage* 복사본 하나만 활성화됩니다. **빈 문자열**과 같은 *ServicePackageActivationId*가 있으며, 배포된 서비스 패키지와 관련된 작업을 수행할 때 지정할 필요가 없습니다. 
 >
 > - 단독 프로세스 호스팅 모델의 경우 지정된 노드에서 지정된 애플리케이션에 대해 하나 이상의 *ServicePackage* 복사본이 활성화될 수 있습니다. 각 활성화에는 배포 된 서비스 패키지와 관련 된 작업을 수행 하는 동안 지정 된 *비어 있지 않은* **ServicePackageActivationId**있습니다. 
 >

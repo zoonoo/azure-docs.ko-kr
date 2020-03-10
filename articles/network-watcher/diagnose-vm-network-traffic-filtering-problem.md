@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: VM 네트워크 트래픽 필터 문제 진단 - Azure Portal'
+title: '빠른 시작: VM 네트워크 트래픽 필터 문제 진단-Azure Portal'
 titleSuffix: Azure Network Watcher
 description: 이 빠른 시작에서는 Azure Network Watcher의 IP 흐름 확인 기능을 사용하여 가상 머신 네트워크 트래픽 필터 문제를 진단하는 방법에 대해 알아봅니다.
 services: network-watcher
@@ -18,11 +18,11 @@ ms.date: 04/20/2018
 ms.author: damendo
 ms.custom: mvc
 ms.openlocfilehash: 68f575164487f726c2f6c7477ceacd731bb52b0f
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76844924"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78381208"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 가상 머신 네트워크 트래픽 필터 문제 진단
 
@@ -118,9 +118,9 @@ VM을 만들 때 Azure는 기본적으로 VM 간 네트워크 트래픽을 허�
 
 더 이상 필요하지 않은 경우 리소스 그룹 및 해당 그룹에 포함된 모든 리소스를 삭제합니다.
 
-1. 포털 맨 위에 있는 **검색** 상자에 *myResourceGroup*을 입력합니다. 검색 결과에 **myResourceGroup**이 보이면 선택합니다.
+1. 포털 맨 위에 있는 *검색* 상자에 **myResourceGroup**을 입력합니다. 검색 결과에 **myResourceGroup**이 보이면 선택합니다.
 2. **리소스 그룹 삭제**를 선택합니다.
-3. **리소스 그룹 이름 입력:** 에 *myResourceGroup*을 입력하고 **삭제**를 선택합니다.
+3. *리소스 그룹 이름 입력:* 에 **myResourceGroup**을 입력하고 **삭제**를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

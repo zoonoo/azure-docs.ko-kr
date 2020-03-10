@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/03/2020
+ms.date: 03/09/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3af62a75228959478a80c2628307fff2b47c3c4a
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 3abf38a4b1ea798c39150454ac33f73ea588b782
+ms.sourcegitcommit: 3616b42a0d6bbc31b965995d861930e53d2cf0d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78187494"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78933064"
 ---
 # <a name="localization-string-ids"></a>지역화 문자열 ID
 
@@ -30,24 +30,24 @@ ID가 `api.signuporsignin`인 콘텐츠 정의에 사용되는 ID는 다음과 �
 | ID | 기본값 |
 | -- | ------------- |
 | **local_intro_email** | 기존 계정으로 로그인 |
-| **logonIdentifier_email** | Email Address |
+| **logonIdentifier_email** | 메일 주소 |
 | **requiredField_email** | 이메일을 입력하세요. |
 | **invalid_email** | 올바른 이메일 주소를 입력하세요. |
 | **email_pattern** | ^ [A-za-z0-9.! # $% & ' ' *+/=? ^ _\`{\|} ~-] + @ [a-za-z0-9-] + (?:\\. [ A-za-z0-9-] +)* $ |
 | **local_intro_username** | 사용자 이름으로 로그인 |
 | **logonIdentifier_username** | 사용자 이름 |
 | **requiredField_username** | 사용자 이름을 입력하세요. |
-| **password** | Password |
+| **password** | 암호 |
 | **requiredField_password** | 암호를 입력하세요. |
 | **invalid_password** | 입력한 암호의 형식이 잘못되었습니다. |
 | **forgotpassword_link** | 암호를 잊으셨습니까? |
 | **createaccount_intro** | 아직 계정이 없으세요? |
-| **createaccount_link** | 지금 등록하세요. |
-| **divider_title** | OR |
+| **createaccount_link** | 지금 등록하십시오. |
+| **divider_title** | 또는 |
 | **cancel_message** | 사용자가 암호를 잊음 |
 | **button_signin** | 로그인 |
 | **social_intro** | 소셜 계정으로 로그인 |
-  **remember_me** |로그인 상태 유지|
+  **remember_me** |로그인 유지|
 | **unknown_error** | 로그인하는 동안 문제가 발생했습니다. 나중에 다시 시도하세요. |
 
 다음 예제에서는 등록 또는 로그인 페이지의 몇 가지 사용자 인터페이스 요소 사용 방법을 보여 줍니다.
@@ -98,34 +98,34 @@ ID 공급자의 ID는 사용자 경험 **ClaimsExchange** 요소에서 구성됩
 | ID | 기본값 |
 | -- | ------------- |
 | **ver_sent** | 확인 코드를 보낸 대상: |
-| **ver_but_default** | 기본 |
+| **ver_but_default** | 기본값 |
 | **cancel_message** | 사용자가 자체 어설션된 정보의 입력을 취소함 |
 | **preloader_alt** | 기다려 주세요. |
 | **ver_but_send** | 확인 코드 보내기 |
-| **alert_yes** | 예 |
+| **alert_yes** | yes |
 | **error_fieldIncorrect** | 하나 이상의 필드가 잘못 채워졌습니다. 항목을 확인하고 다시 시도하세요. |
-| **year** | 년 |
+| **year** | Year |
 | **verifying_blurb** | 정보를 처리하는 동안 잠시 기다려 주세요. |
 | **button_cancel** | 취소 |
 | **ver_fail_no_retry** | 여러 번 틀렸습니다. 나중에 다시 시도하세요. |
-| **month** | 월 |
+| **month** | Month |
 | **ver_success_msg** | 이메일 주소를 확인했습니다. 이제 계속할 수 있습니다. |
 | **months** | 1월, 2월, 3월, 4월, 5월, 6월, 7월, 8월, 9월, 10월, 11월, 12월 |
 | **ver_fail_server** | 이메일 주소를 확인하는 동안 문제가 발생했습니다. 유효한 이메일 주소를 입력하고 다시 시도하세요. |
 | **error_requiredFieldMissing** | 필수 필드가 누락되어 있습니다. 모든 필수 필드를 작성하고 다시 시도하세요. |
 | **initial_intro** | 다음 세부 정보를 제공하세요. |
 | **ver_but_resend** | 새 코드 전송 |
-| **button_continue** | 만들기 |
+| **button_continue** | 생성 |
 | **error_passwordEntryMismatch** | 암호 입력 필드가 일치하지 않습니다. 두 필드에 같은 암호를 입력하고 다시 시도하세요. |
 | **ver_incorrect_format** | 잘못된 형식 |
 | **ver_but_edit** | 이메일 변경 |
 | **ver_but_verify** | 코드 확인 |
-| **alert_no** | 아니요 |
+| **alert_no** | 예 |
 | **ver_info_msg** | 받은 편지함으로 확인 코드를 보냈습니다. 확인 코드를 아래 입력란에 복사하세요. |
 | **day** | 일 |
 | **ver_fail_throttled** | 이 이메일 주소를 확인해 달라는 요청이 너무 많습니다. 잠시 기다렸다가 다시 시도하세요. |
 | **helplink_text** | 이것은 무엇인가요? |
-| **ver_fail_retry** | 해당 코드가 잘못되었습니다. 다시 시도하세요. |
+| **ver_fail_retry** | 해당 코드가 잘못되었습니다. 나중에 다시 시도하세요. |
 | **alert_title** | 세부 정보 입력 취소 |
 | **required_field** | 이 정보는 필수 항목입니다. |
 | **alert_message** | 세부 정보 입력을 취소하시겠습니까? |
@@ -215,6 +215,23 @@ ID가 `api.phonefactor`인 콘텐츠 정의용 ID는 다음과 같습니다.
 |verification_control_but_send_code |코드 보내기 |
 |verification_control_but_send_new_code |새 코드 보내기 |
 |verification_control_but_verify_code |코드 확인 |
+|verification_control_code_sent| 확인 코드를 보냈습니다. 확인 코드를 아래 입력란에 복사하세요. |
+
+### <a name="example"></a>예제
+
+```XML
+<LocalizedResources Id="api.localaccountsignup.en">
+  <LocalizedStrings>
+    <LocalizedString ElementType="UxElement" StringId="verification_control_but_change_claims">Change</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="verification_control_fail_send_code">Failed to send the code, please try again later.</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="verification_control_fail_verify_code">Failed to verify the code, please try again later.</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="verification_control_but_send_code">Send Code</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="verification_control_but_send_new_code">Send New Code</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="verification_control_but_verify_code">Verify Code</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="verification_control_code_sent">Verification code has been sent. Please copy it to the input box below.</LocalizedString>
+  </LocalizedStrings>
+</LocalizedResources>
+```
 
 ## <a name="one-time-password-error-messages"></a>일회용 암호 오류 메시지
 다음은 [일회성 암호 기술 프로필](one-time-password-technical-profile.md) 오류 메시지의 id입니다.
@@ -226,6 +243,18 @@ ID가 `api.phonefactor`인 콘텐츠 정의용 ID는 다음과 같습니다.
 |UserMessageIfSessionConflict |한 번의 암호 확인 세션 충돌 |
 |Usermessageifin유효한 코드 |확인을 위해 제공한 일회용 암호가 올바르지 않습니다. |
 
+### <a name="example"></a>예제
+
+```XML
+<LocalizedResources Id="api.localaccountsignup.en">
+  <LocalizedStrings>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionDoesNotExist">You have exceed the maximum time allowed.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfMaxRetryAttempted">You have exceed the number of retries allowed.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidCode">You have entered the wrong code.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionConflict">Cannot verify the code, please try again later.</LocalizedString>
+  </LocalizedStrings>
+</LocalizedResources>
+```
 
 
 

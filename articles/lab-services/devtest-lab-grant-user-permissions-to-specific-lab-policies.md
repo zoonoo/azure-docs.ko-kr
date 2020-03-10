@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/07/2019
 ms.author: spelluru
 ms.openlocfilehash: 9b31f3e68fbabc32f301fdcd8066a3bfbf1c2dbd
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72028444"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78380941"
 ---
 # <a name="grant-user-permissions-to-specific-lab-policies"></a>특정 랩 정책에 사용자 권한 부여
 ## <a name="overview"></a>개요
@@ -30,7 +30,7 @@ ms.locfileid: "72028444"
 
 DevTest Lab에서 정책은 RBAC 작업 **Microsoft.DevTestLab/labs/policySets/policies/** 를 지원하는 리소스 종류입니다. 각 랩 정책은 정책 리소스 종류에 속한 리소스이며 RBAC 역할에 범위로 할당할 수 있습니다.
 
-예를 들어 사용자에 게 허용 되는 **VM 크기** 정책에 대 한 읽기/쓰기 권한을 부여 하려면 **Microsoft. devtestlab/Labs/policysets/policy/** action과 함께 작동 하는 사용자 지정 역할을 만든 다음 적절 한 사용자를 할당 합니다. 이 사용자 지정 역할은 **Microsoft DevTestLab/labs/policySets/정책/AllowedVmSizesInLab**의 범위에 있습니다.
+예를 들어 사용자에 게 허용 되는 **VM 크기** 정책에 대 한 읽기/쓰기 권한을 부여 하려면 **Microsoft. devtestlab/Labs/policysets/policy/** action으로 작동 하는 사용자 지정 역할을 만든 다음 microsoft의 범위에서 적절 한 사용자를이 사용자 지정 역할에 할당 합니다. **Devtestlab/labs/Policysets/policy/AllowedVmSizesInLab**.
 
 RBAC의 사용자 지정 역할에 대한 자세한 내용은 [사용자 지정 역할 액세스 제어](../role-based-access-control/custom-roles.md)를 참조하세요.
 

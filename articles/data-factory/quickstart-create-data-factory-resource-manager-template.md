@@ -11,19 +11,19 @@ author: djpmsft
 ms.author: daperlov
 manager: anandsub
 ms.openlocfilehash: 7ad0367a89730c3aba37c5f75158cb42ae4ae668
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75440067"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78386665"
 ---
-# <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>자습서: Azure Resource Manager 템플릿을 사용하여 Azure Data Factory 만들기
+# <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>자습서: Azure Resource Manager 템플릿을 사용하여 첫 번째 Azure 데이터 팩터리 만들기
 
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
 > * [버전 1](v1/data-factory-build-your-first-pipeline-using-arm.md)
 > * [현재 버전](quickstart-create-data-factory-resource-manager-template.md)
 
-이 빠른 시작에서는 Azure Resource Manager 템플릿을 사용하여 Azure 데이터 팩터리를 만드는 방법을 보여 줍니다. 이 데이터 팩터리에서 만든 파이프라인은 Azure Blob Storage의 한 폴더에서 다른 폴더로 데이터를 **복사합니다**. Azure Data Factory를 사용하여 데이터를 **변환**하는 방법에 대한 자습서는 [자습서: Spark를 사용하여 데이터 변환](transform-data-using-spark.md)을 참조하세요.
+이 빠른 시작에서는 Azure Resource Manager 템플릿을 사용하여 Azure 데이터 팩터리를 만드는 방법을 보여 줍니다. 이 데이터 팩터리에서 만든 파이프라인은 Azure Blob Storage의 한 폴더에서 다른 폴더로 데이터를 **복사합니다**. Azure Data Factory를 사용하여 데이터를 **변환**하는 방법에 대한 자습서는 [자습서: Apache Spark를 사용하여 데이터 변환](transform-data-using-spark.md)을 참조하세요.
 
 > [!NOTE]
 > 이 문서는 Data Factory 서비스의 자세한 소개를 제공하지 않습니다. Azure Data Factory 서비스 소개는 [Azure Data Factory 소개](introduction.md)를 참조하세요.
@@ -287,7 +287,7 @@ Azure Resource Manager 템플릿에 대한 매개 변수를 포함하는 **ADFTu
 
 > [!IMPORTANT]
 > - 이 매개 변수 파일의 **storageAccountName** 및 **storageAccountKey** 매개 변수에 대한 Azure Storage 계정 이름과 키를 지정합니다. adftutorial 컨테이너를 만들고 이 Azure Blob Storage의 입력에 샘플 파일(emp.txt)을 업로드했습니다.
-> - **dataFactoryName** 매개 변수에 대한 데이터 팩터리의 전역적으로 고유한 이름을 지정합니다. 다음은 그 예입니다.  ARMTutorialFactoryJohnDoe11282017.
+> - **dataFactoryName** 매개 변수에 대한 데이터 팩터리의 전역적으로 고유한 이름을 지정합니다. 예: ARMTutorialFactoryJohnDoe11282017.
 > - **triggerStartTime**에는 현재 요일을 `2019-09-08T00:00:00` 형식으로 지정합니다.
 > - **triggerEndTime**에는 다음 요일을 `2019-09-09T00:00:00` 형식으로 지정합니다. 또한 현재 UTC 시간을 확인하고 종료 시간으로 그 다음 한두 시간을 지정할 수 있습니다. 예를 들어 UTC 시간이 오전 1시 32분이면 종료 시간으로 `2019-09-09:03:00:00`를 지정합니다. 이 예에서는 트리거가 파이프라인을 두 번 실행합니다(오전 2시와 오전 3시).
 
@@ -434,7 +434,7 @@ DeploymentDebugLogLevel :
 
 3. Data Factory 페이지에서 **작성자 및 모니터링** 타일을 클릭합니다.
 
-4. **시작** 페이지에서 **모니터링 탭**을 선택합니다.  ![파이프라인 실행 모니터링](media/doc-common-process/get-started-page-monitor-button.png)
+4. **시작 하기** 페이지에서 **모니터 탭**을 선택 합니다.  ![모니터 파이프라인 실행](media/doc-common-process/get-started-page-monitor-button.png)
 
     > [!IMPORTANT]
     > 파이프라인이 정각(예: 오전 4시, 오전 5시, 오전 6시 등)에만 실행되는 것을 볼 수 있습니다. 그 다음 정각이 되면 도구 모음에서 **새로 고침**을 클릭하여 목록을 새로 고칩니다.

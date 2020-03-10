@@ -4,11 +4,11 @@ description: 이 문서에서는 MABS (Microsoft Azure Backup 서버)를 사용 
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.openlocfilehash: dd506668f9d75523ff7494bccb2979bf0785990d
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77617623"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78392089"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Azure Backup Server 설치 및 업그레이드
 

@@ -15,13 +15,13 @@ ms.workload: infrastructure
 ms.date: 07/08/2019
 ms.author: kumud
 ms.openlocfilehash: d8e95f9c345a943eb458800b852640e3f1fde907
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488492"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78393113"
 ---
-# <a name="quickstart-create-a-virtual-network-using-the-azure-portal"></a>빠른 시작: Azure 포털을 사용하여 가상 네트워크 만들기
+# <a name="quickstart-create-a-virtual-network-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 가상 네트워크 만들기
 
 가상 네트워크는 Azure에서 프라이빗 네트워크의 기본 구성 요소입니다. 이 네트워크를 사용하면 VM(가상 머신)과 같은 Azure 리소스가 서로 인터넷을 통해 안전하게 통신할 수 있습니다. 이 빠른 시작에서 Azure Portal을 사용하여 가상 네트워크를 만드는 방법에 대해 알아봅니다. 그런 다음, 가상 네트워크에 두 개의 VM을 배포하고, 두 VM 간에 안전하게 통신하고, 인터넷에서 VM에 연결할 수 있습니다.
 
@@ -42,7 +42,7 @@ Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?
 
     | 설정 | 값 |
     | ------- | ----- |
-    | Name | *myVirtualNetwork*를 입력합니다. |
+    | 속성 | *myVirtualNetwork*를 입력합니다. |
     | 주소 공간 | *10.1.0.0/16*을 입력합니다. |
     | Subscription | 구독을 선택합니다.|
     | Resource group | **새로 만들기**를 선택하고 *myResourceGroup*을 입력한 다음, **확인**을 선택합니다. |
@@ -84,9 +84,9 @@ Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?
     | **비용 절감** |  |
     | 이미 Windows 라이선스가 있나요? | 기본값인 **아니요**를 그대로 둡니다. |
 
-4. **다음: 디스크**를 선택합니다.
+4. **다음: 디스크**를 선택 합니다.
 
-5. **가상 머신 만들기 - 디스크**에서 기본값을 그대로 두고 **다음: 네트워킹**을 선택합니다.
+5. **가상 머신 만들기-디스크**에서 기본값을 그대로 두고 **다음: 네트워킹**을 선택 합니다.
 
 6. **가상 머신 만들기 - 네트워킹**에서 다음 정보를 선택합니다.
 
@@ -98,7 +98,7 @@ Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?
     | 공용 인바운드 포트 | **선택한 포트 허용**을 선택합니다. |
     | 인바운드 포트 선택 | **HTTP** 및 **RDP**를 선택합니다.
 
-7. **다음: 관리**를 선택합니다.
+7. **다음: 관리**를 선택 합니다.
 
 8. **가상 머신 만들기 - 관리**에서 **진단 스토리지 계정**에 대해 **새로 만들기**를 선택합니다.
 
@@ -106,7 +106,7 @@ Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?
 
     | 설정 | 값 |
     | ------- | ----- |
-    | Name | *myvmstorageaccount*를 입력합니다. 이 이름을 사용하는 경우 고유한 이름을 만듭니다.|
+    | 속성 | *myvmstorageaccount*를 입력합니다. 이 이름을 사용하는 경우 고유한 이름을 만듭니다.|
     | 계정 종류 | 기본값인 **스토리지(범용 v1)** 를 그대로 둡니다. |
     | 성능 | 기본값인 **표준**을 그대로 둡니다. |
     | 복제 | 기본값인 **LRS(로컬 중복 스토리지)** 를 그대로 둡니다. |
@@ -142,7 +142,7 @@ Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?
 
     **연결** 단추를 선택하면 **가상 머신에 연결**이 열립니다.
 
-3. **RDP 파일 다운로드**를 선택합니다. Azure에서 원격 데스크톱 프로토콜( *.rdp*) 파일을 만들고 컴퓨터에 다운로드합니다.
+3. **RDP 파일 다운로드**를 선택합니다. Azure에서 원격 데스크톱 프로토콜( *.rdp*) 파일을 만들고, 컴퓨터에 다운로드합니다.
 
 4. 다운로드한 *.rdp* 파일을 엽니다.
 
@@ -163,7 +163,7 @@ Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?
 
 1. *myVm1*의 원격 데스크톱에서 PowerShell을 엽니다.
 
-2. `ping myVm2`을 입력합니다.
+2. `ping myVm2`를 입력합니다.
 
     다음과 유사한 메시지가 표시됩니다.
 
@@ -217,11 +217,11 @@ Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?
 
 가상 네트워크 및 VM을 다 사용했으면 리소스 그룹과 리소스 그룹에 포함된 모든 리소스를 삭제합니다.
 
-1. 포털 맨 위에 있는 **검색** 상자에 *myResourceGroup*을 입력하고 검색 결과에서 **myResourceGroup**을 선택합니다.
+1. 포털 맨 위에 있는 *검색* 상자에 **myResourceGroup**을 입력하고 검색 결과에서 **myResourceGroup**을 선택합니다.
 
 2. **리소스 그룹 삭제**를 선택합니다.
 
-3. **리소스 그룹 이름 입력**에 대해 *myResourceGroup*을 입력하고 **삭제**를 선택합니다.
+3. *리소스 그룹 이름 입력*에 대해 **myResourceGroup**을 입력하고 **삭제**를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

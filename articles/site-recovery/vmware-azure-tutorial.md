@@ -9,11 +9,11 @@ ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: 37fdd42adf66ebcb11b357ece6ea63384630d9f4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75458925"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78362897"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Azure에 온-프레미스 VMware VM 재해 복구 설정
 
@@ -41,7 +41,7 @@ ms.locfileid: "75458925"
 3. 이 자습서에서는 단일 VM을 복제하는 방법을 보여줍니다. 여러 VMware VM을 배포하는 경우 [Deployment Planner 도구](https://aka.ms/asr-deployment-planner)를 사용해야 합니다. [자세히 알아보세요](site-recovery-deployment-planner.md) .
 4. 이 자습서에서는 다양한 옵션을 사용하며 다른 방식을 선택할 수도 있습니다.
     - 이 자습서에서는 OVA 템플릿을 사용하여 구성 서버 VMware VM을 만듭니다. 어떤 이유로 이 방법을 사용할 수 없는 경우 [다음 지침](physical-manage-configuration-server.md)에 따라 구성 서버를 수동으로 설정합니다.
-    - 이 자습서에서 Site Recovery는 자동으로 MySQL을 다운로드하고 구성 서버에 설치합니다. 원한다면 대신 직접 설정할 수 있습니다. [자세히 알아보기](vmware-azure-deploy-configuration-server.md#configure-settings).
+    - 이 자습서에서 Site Recovery는 자동으로 MySQL을 다운로드하고 구성 서버에 설치합니다. 원한다면 대신 직접 설정할 수 있습니다. [자세히 알아봅니다](vmware-azure-deploy-configuration-server.md#configure-settings).
 
 
 
@@ -60,9 +60,9 @@ ms.locfileid: "75458925"
 
 원본 환경에서는 온-프레미스 Site Recovery 구성 요소를 호스팅할 단일 고가용성 온-프레미스 머신이 필요합니다.
 
-- **구성 서버**: 구성 서버는 온-프레미스와 Azure 간의 통신을 조정하여 데이터 복제를 관리합니다.
+- **구성 서버**: 구성 서버는 온-프레미스와 Azure 간의 통신을 조정 하 고 데이터 복제를 관리 합니다.
 - **프로세스 서버**: 프로세스 서버는 복제 게이트웨이의 역할을 합니다. 복제 데이터를 수신하여 캐싱, 압축 및 암호화를 사용하여 최적화한 후 Azure의 캐시 스토리지 계정으로 보냅니다. 또한 프로세스 서버는 복제하려는 VM에 모바일 서비스 에이전트를 설치하고, 온-프레미스 VMware VM을 자동으로 검색합니다.
-- **마스터 대상 서버**: 마스터 대상 서버는 Azure에서 장애 복구 중 복제 데이터를 처리합니다.
+- **마스터 대상 서버**: 마스터 대상 서버는 Azure에서 장애 복구 중에 복제 데이터를 처리 합니다.
 
 
 이 모든 구성 요소가 *구성 서버*라고 하는 단일 온-프레미스 머신에 함께 설치됩니다. 기본적으로 VMware 재해 복구의 경우 구성 서버를 고가용성 VMware VM으로 설정합니다. 이렇게 하려면 준비된 OVA(Open Virtualization Application) 템플릿을 다운로드하고 VMware로 가져와서 VM을 만듭니다. 
@@ -186,7 +186,7 @@ ms.locfileid: "75458925"
 10. **속성** > **속성 구성**에서 프로세스 서버가 자동으로 컴퓨터에 모바일 서비스를 설치하는 데 사용할 계정을 선택합니다.
 11. **복제 설정** > **복제 설정 구성**에서 올바른 복제 정책이 선택되어 있는지 확인합니다.
 12. **복제 사용**을 선택합니다. VM에 복제를 사용하도록 설정하면 Site Recovery에서는 모바일 서비스를 설치합니다.
-13. **설정** > **작업** > **Site Recovery 작업**에서 **보호 사용** 작업의 진행률을 추적할 수 있습니다. **Finalize Protection** 작업이 실행되고 복구 지점 생성이 완료되면 머신이 장애 조치(failover)를 수행할 준비가 된 것입니다.
+13. **설정**작업 > Site Recovery 작업 > 에서 **보호 사용** 작업의 진행률을 추적할 수 있습니다. **Finalize Protection** 작업이 실행되고 복구 지점 생성이 완료되면 머신이 장애 조치(failover)를 수행할 준비가 된 것입니다.
 14. 변경 내용이 적용되어 포털에 표시되는 데 15분 이상 걸릴 수 있습니다.
 15. 추가하는 VM을 모니터링하려면, **구성 서버** > **마지막 연락**에서 VM을 마지막으로 검색한 시간을 확인합니다. 예약된 검색을 기다리지 않고 VM을 추가하려면 구성 서버를 강조 표시하고(클릭하지 않음) **새로 고침**을 선택합니다.
 

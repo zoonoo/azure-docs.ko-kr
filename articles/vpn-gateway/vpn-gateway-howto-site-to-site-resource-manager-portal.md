@@ -6,14 +6,14 @@ titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 01/10/2020
+ms.date: 03/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: 2e6aeda0e84b11221af110bda738d6d93f258978
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 857b50a04466f43a25cf80d7930cfb4639dc9d65
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75895001"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78391166"
 ---
 # <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>Azure Portal에서 사이트 간 연결 만들기
 
@@ -51,7 +51,7 @@ ms.locfileid: "75895001"
 * **서브넷:** 프런트 엔드: 10.1.0.0/24, 백 엔드: 10.1.1.0/24(이 연습의 선택 사항)
 * **게이트웨이 서브넷 주소 범위:** 10.1.255.0/27
 * **가상 네트워크 게이트웨이 이름:** VNet1GW
-* **공용 IP 주소 이름:** VNet1GWIP
+* **공용 IP 주소 이름:** VNet1GWpip
 * **VPN 유형:** 경로 기반
 * **연결 형식:** 사이트 간 (IPsec)
 * **게이트웨이 유형:** VPN
@@ -61,7 +61,7 @@ ms.locfileid: "75895001"
 
 ## <a name="CreatVNet"></a>1. 가상 네트워크 만들기
 
-[!INCLUDE [Create a virtual network](../../includes/vpn-gateway-create-virtual-network-portal-include.md)]
+[!INCLUDE [Create a virtual network](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
 
 ## <a name="VNetGateway"></a>2. VPN gateway 만들기
 
@@ -77,7 +77,7 @@ ms.locfileid: "75895001"
 * **인스턴스 세부 정보 > 게이트웨이 유형:** VPN
 * **인스턴스 세부 정보 > VPN 유형:** 경로 기반
 * **Virtual Network > 게이트웨이 서브넷 주소 범위:** 10.1.255.0/27
-* 공용 ip **주소 > 공용 ip 주소 이름:** VNet1GWIP
+* 공용 ip **주소 > 공용 ip 주소 이름:** VNet1GWpip
 
 [!INCLUDE [Create a vpn gateway](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 

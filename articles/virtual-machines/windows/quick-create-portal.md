@@ -15,13 +15,13 @@ ms.date: 11/05/2019
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 002d374f5be606688121ef4a3952383567c43e85
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685177"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78363518"
 ---
-# <a name="quickstart-create-a-windows-virtual-machine-in-the-azure-portal"></a>빠른 시작: Azure 포털에서 Windows 가상 머신 만들기
+# <a name="quickstart-create-a-windows-virtual-machine-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Windows 가상 머신 만들기
 
 Azure Portal을 통해 Azure VM(가상 머신)을 만들 수 있습니다. 이 방법은 VM 및 관련 리소스를 만드는 브라우저 기반 사용자 인터페이스를 제공합니다. 이 빠른 시작에서는 Azure Portal을 사용하여 Windows Server 2019를 실행하는 Azure에서 VM(가상 머신)을 배포하는 방법을 보여줍니다. 작업에서 VM을 보려면 VM에 RDP를 수행하고 IIS 웹 서버를 설치합니다.
 
@@ -29,7 +29,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-https://portal.azure.com 에서 Azure Portal에 로그인합니다.
+[https://portal.azure.com](https://portal.azure.com) 에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-virtual-machine"></a>가상 머신 만들기
 
@@ -40,7 +40,7 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
     ![VM에 대한 새 리소스 그룹 만들기](./media/quick-create-portal/project-details.png)
 
-1. **인스턴스 세부 정보** 아래에서 **가상 머신 이름**에 *myVM*을 입력하고 **지역**에 *미국 동부*를 선택한 후, **이미지**에 대해 *Windows Server 2019 Datacenter*를 선택합니다. 다른 기본값은 그대로 둡니다.
+1. **인스턴스 세부 정보** 아래에서 *가상 머신 이름*에 **myVM**을 입력하고 *지역*에 **미국 동부**를 선택한 후, *이미지*에 대해 **Windows Server 2019 Datacenter**를 선택합니다. 다른 기본값을 그대로 둡니다.
 
     ![인스턴스 세부 정보 섹션](./media/quick-create-portal/instance-details.png)
 
@@ -52,7 +52,7 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
     ![RDP 및 HTTP에 대한 포트 열기](./media/quick-create-portal/inbound-port-rules.png)
 
-1. 나머지 기본값은 그대로 둔 다음, 페이지의 하단에 있는 **검토 + 만들기** 단추를 선택합니다.
+1. 나머지 기본값을 그대로 둔 다음, 페이지의 아래에서 **검토 + 만들기** 단추를 선택합니다.
 
     ![검토 및 만들기](./media/quick-create-portal/review-create.png)
 
@@ -86,7 +86,7 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 ## <a name="view-the-iis-welcome-page"></a>IIS 시작 페이지 보기
 
-포털에서 VM을 선택하고, VM 개요에서 IP 주소 오른쪽에 있는 **복사하려면 클릭** 단추를 사용하여 복사한 후 브라우저 탭에 붙여넣습니다. 기본 IIS 시작 페이지가 열리고, 다음과 비슷한 모습입니다.
+포털에서 VM을 선택 하 고 VM의 개요에서 클릭 하 여 복사 하려면 IP 주소 오른쪽에 있는 **복사 하려면 클릭** 단추를 사용 하 여 복사 하 고 브라우저 탭에 붙여 넣습니다. 기본 IIS 시작 페이지가 열리고 다음과 같이 표시 됩니다.
 
 ![IIS 기본 사이트](./media/quick-create-powershell/default-iis-website.png)
 

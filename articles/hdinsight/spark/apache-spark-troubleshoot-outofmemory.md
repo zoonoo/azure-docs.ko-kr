@@ -8,11 +8,11 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/15/2019
 ms.openlocfilehash: 31cdef281b1cb26d01a4690c815e3d3621e2c053
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894306"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78395145"
 ---
 # <a name="outofmemoryerror-exceptions-for-apache-spark-in-azure-hdinsight"></a>Azure HDInsight의 Apache Spark에 대 한 OutOfMemoryError 예외
 
@@ -56,7 +56,7 @@ java.lang.OutOfMemoryError
 
 이 예외의 가장 가능성 높은 원인은 JVM(Java Virtual Machine)에 할당된 힙 메모리가 충분하지 않다는 것입니다. 이러한 Jvm는 실행 기 또는 드라이버를 Apache Spark 응용 프로그램의 일부로 실행 됩니다.
 
-### <a name="resolution"></a>해상도
+### <a name="resolution"></a>해결 방법
 
 1. Spark 애플리케이션에서 처리할 데이터의 최대 크기를 결정합니다. 입력 데이터의 최대 크기를 기준으로 크기를 예상 하 고, 입력 데이터를 변환 하 여 생성 된 중간 데이터와 중간 데이터를 추가로 변환 하 여 출력 데이터를 생성 합니다. 초기 예측이 충분 하지 않으면 크기를 약간 늘리고 메모리 오류가 감소 때까지 반복 합니다.
 
@@ -114,7 +114,7 @@ hadoop fs -du -s -h wasb:///hdp/spark2-events/application_1503957839788_0264_1/
 **2.1 G**  wasb:///hdp/spark2-events/application_1503957839788_0264_1
 ```
 
-### <a name="resolution"></a>해상도
+### <a name="resolution"></a>해결 방법
 
 Spark 구성에서 `SPARK_DAEMON_MEMORY` 속성을 편집 하 고 모든 서비스를 다시 시작 하 여 Spark 기록 서버 메모리를 늘릴 수 있습니다.
 
@@ -200,7 +200,7 @@ Livy 서버가 예기치 않게 종료 되 면 Spark 클러스터에 대 한 모
 
 Livy을 통해 많은 수의 작업을 제출 하는 경우 Livy 서버에 대 한 고가용성의 일부로 ZK (HDInsight 클러스터)에 이러한 세션 상태를 저장 하 고 Livy 서비스가 다시 시작 될 때 해당 세션을 복구 합니다. 예기치 않게 종료 된 후 다시 시작 시 Livy은 세션당 스레드를 하나씩 만들지만이로 인해 너무 많은 스레드가 생성 될 수 있도록 특정 개수의 복구 된 세션이 누적 됩니다.
 
-### <a name="resolution"></a>해상도
+### <a name="resolution"></a>해결 방법
 
 아래에 설명 되어 있는 단계를 사용 하 여 모든 항목을 삭제 합니다.
 

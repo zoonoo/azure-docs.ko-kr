@@ -8,11 +8,11 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/17/2020
 ms.openlocfilehash: 388f43fec9242f6a4b448483d9486aa4413d2612
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314796"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78392542"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Stream Analytics에 입력으로 데이터 스트리밍
 

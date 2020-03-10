@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 11/15/2019
 ms.author: anavin
 ms.openlocfilehash: 5fb54e812e72b9393ffdf632085d0f32ab8b1988
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77918362"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78390228"
 ---
 # <a name="virtual-network-peering"></a>가상 네트워크 피어링
 
@@ -93,7 +93,7 @@ Azure Network Watcher를 사용 하 여 피어 링 가상 네트워크의 가상
 
 자세한 내용은 [요구 사항 및 제약 조건](virtual-network-manage-peering.md#requirements-and-constraints)을 참조 하세요. 지원 되는 피어 링 수에 대 한 자세한 내용은 [네트워킹 제한](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)을 참조 하세요.
 
-## <a name="permissions"></a>권한
+## <a name="permissions"></a>사용 권한
 
 가상 네트워크 피어 링을 만드는 데 필요한 사용 권한에 대 한 자세한 내용은 [사용 권한](virtual-network-manage-peering.md#permissions)을 참조 하세요.
 

@@ -4,11 +4,11 @@ description: Azure 리소스 그래프에 의해 제한 되는 요청을 방지 
 ms.date: 12/02/2019
 ms.topic: conceptual
 ms.openlocfilehash: fbd4bec715b187bcc643fe32b8452b0e062e7713
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75436071"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78388632"
 ---
 # <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>Azure 리소스 그래프의 제한 된 요청에 대 한 지침
 

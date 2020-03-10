@@ -6,11 +6,11 @@ ms.topic: conceptual
 description: Azure Kubernetes Services에서 Azure Dev Spaces를 실행 하기 위한 네트워킹 요구 사항을 설명 합니다.
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, CNI, kubenet, SDN, 네트워크
 ms.openlocfilehash: 9e32e3b65451dceefaeeaf7faed7c8337797e0b8
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76044983"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78389642"
 ---
 # <a name="configure-networking-for-azure-dev-spaces-in-different-network-topologies"></a>다른 네트워크 토폴로지에서 Azure Dev Spaces에 대 한 네트워킹 구성
 
@@ -28,7 +28,7 @@ Azure Dev Spaces는 수신 *및 송신* 네트워크 트래픽과 *수신 전용
 
 다음 Fqdn에 대 한 수신 및 송신 트래픽이 Azure Dev Spaces 필요 합니다.
 
-| FQDN                       | Port       | 사용      |
+| FQDN                       | 포트       | 사용      |
 |----------------------------|------------|----------|
 | cloudflare.docker.com      | HTTPS: 443 | Azure Dev Spaces에 대 한 docker 이미지를 꺼내려면 |
 | gcr.io                     | HTTPS: 443 | Azure Dev Spaces에 대 한 투구 이미지를 꺼내려면 |

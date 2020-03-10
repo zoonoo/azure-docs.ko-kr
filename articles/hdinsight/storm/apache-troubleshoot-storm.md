@@ -10,15 +10,15 @@ ms.topic: troubleshooting
 ms.date: 11/08/2019
 ms.custom: seodec18
 ms.openlocfilehash: b51b2c21fd9256c93f6947386a48336af2b75d88
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75896014"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78395134"
 ---
 # <a name="troubleshoot-apache-storm-by-using-azure-hdinsight"></a>Azure HDInsight를 사용하여 Apache Storm 문제 해결
 
-[Apache Ambari](https://ambari.apache.org/)에서 [Apache Storm](https://storm.apache.org/) 페이로드 작업에 대한 주요 문제 및 해결 방법을 알아봅니다.
+[Apache Ambari](https://storm.apache.org/)에서 [Apache Storm](https://ambari.apache.org/) 페이로드 작업에 대한 주요 문제 및 해결 방법을 알아봅니다.
 
 ## <a name="how-do-i-access-the-storm-ui-on-a-cluster"></a>클러스터에서 Storm UI에 액세스하는 방법
 
@@ -60,7 +60,7 @@ lib 폴더에는 가져오기/내보내기 작업에 대한 구현이 포함된 
 
 내보내기 명령은 설정한 Azure Blob Storage 또는 Azure Data Lake Storage의 Apache HDFS(Hadoop 분산 파일 시스템) 경로에 메타데이터를 씁니다.
 
-### <a name="examples"></a>예시
+### <a name="examples"></a>예
 
 #### <a name="export-offset-metadata"></a>오프셋 메타데이터 내보내기
 
@@ -127,7 +127,7 @@ HDInsight는 3 노드 ZooKeeper 쿼럼을 제공합니다. 쿼럼 크기는 고�
 ### <a name="worker-nodes"></a>작업자 노드
 
 Storm 작업자 노드에서 실행하는 서비스는 다음과 같습니다.
-* Supervisor
+* 감독자
 * 토폴로지를 실행하기 위한 작업자 JVM(Java Virtual Machines)
 * Ambari 에이전트
 

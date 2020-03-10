@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2020
 ms.author: allensu
 ms.openlocfilehash: 39cd5b5d6e9d6007994ccc29732186ec6a8bdc2e
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023891"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78381027"
 ---
 # <a name="configure-tcp-idle-timeout-settings-for-azure-load-balancer"></a>Azure Load Balancer에 대한 TCP 유휴 시간 제한 설정 구성
 
@@ -55,7 +55,7 @@ Set-AzPublicIpAddress -PublicIpAddress $publicIP
 
 ## <a name="set-the-tcp-timeout-on-a-load-balanced-rule-to-15-minutes"></a>부하 분산 된 규칙에 대 한 TCP 제한 시간을 15 분으로 설정 합니다.
 
-부하 분산 장치에 대 한 유휴 시간 제한을 설정 하기 위해 부하 분산 규칙에 ' IdleTimeoutInMinutes '가 설정 됩니다. 예:
+부하 분산 장치에 대 한 유휴 시간 제한을 설정 하기 위해 부하 분산 규칙에 ' IdleTimeoutInMinutes '가 설정 됩니다. 다음은 그 예입니다.
 
 ```azurepowershell-interactive
 $lb = Get-AzLoadBalancer -Name "MyLoadBalancer" -ResourceGroup "MyResourceGroup"

@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: oanapl
 ms.openlocfilehash: a76ae803b1283ce50d2f4e259943ce5ffcf0274c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75370378"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78364968"
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>시스템 상태 보고서를 사용하여 문제 해결
 Azure Service Fabric 구성 요소가 클러스터 내의 모든 엔터티에 대해 즉각적으로 시스템 상태 보고서를 제공합니다. [Health 스토어](service-fabric-health-introduction.md#health-store) 는 시스템 보고서를 기반으로 엔터티를 만들고 삭제합니다. 또한 엔터티 상호 작용을 캡처하는 계층 구조에서 보고서를 구성합니다.
@@ -48,7 +48,7 @@ Azure Service Fabric 구성 요소가 클러스터 내의 모든 엔터티에 �
 * **Property**: **환경**으로 시작되고 노드 정보를 포함합니다.
 * **다음 단계**: 환경이 손실된 이유를 조사합니다. 예를 들어 클러스터 노드 간의 통신을 확인합니다.
 
-### <a name="rebuild"></a>다시 빌드
+### <a name="rebuild"></a>다시 작성
 
 FM(장애 조치(Failover) 관리자) 서비스는 클러스터 노드에 대한 정보를 관리합니다. FM이 해당 데이터를 잃어 데이터 손실이 발생하면 클러스터 노드에 대한 최신 업데이트 정보를 보장할 수 없습니다. 이 경우 시스템은 다시 빌드되고, System.FM은 상태를 다시 작성하기 위해 클러스터의 모든 노드에서 데이터를 수집합니다. 경우에 따라 네트워킹 또는 노드 문제로 인해 다시 빌드가 중지되거나 중단될 수도 있습니다. FMM(장애 조치(Failover) 관리자 마스터) 서비스에서도 마찬가지입니다. FMM은 모든 FM이 클러스터에 있는 위치를 추적하는 상태 비저장 시스템 서비스입니다. FMM의 기본 노드는 항상 0에 가장 가까운 ID가 있는 노드입니다. 노드가 삭제되면 다시 빌드가 트리거됩니다.
 이전 조건 중 하나가 발생하면 **System.FM** 또는 **System.FMM**에서 오류 보고서를 통해 플래그를 지정합니다. 다시 빌드는 두 단계 중 하나에서 중단될 수 있습니다.
@@ -139,7 +139,7 @@ HealthEvents          :
 ## <a name="application-system-health-reports"></a>애플리케이션 시스템 상태 보고서
 클러스터 관리자 서비스를 나타내는 System.CM은 애플리케이션에 대한 정보를 관리하는 기관입니다.
 
-### <a name="state"></a>상태
+### <a name="state"></a>시스템 상태
 애플리케이션을 만들거나 업데이트할 때 System.CM은 확인을 보고합니다. 애플리케이션을 삭제할 때 스토어에서 제거할 수 있도록 Health 스토어에 이를 알려줍니다.
 
 * **SourceId**: System.CM
@@ -172,7 +172,7 @@ HealthEvents                    :
 ## <a name="service-system-health-reports"></a>서비스 시스템 상태 보고서
 장애 조치(failover) 관리자 서비스를 나타내는 System.FM은 서비스에 대한 정보를 관리하는 기관입니다.
 
-### <a name="state"></a>상태
+### <a name="state"></a>시스템 상태
 System.FM은 서비스가 만들어질 때 확인을 보고합니다. 서비스가 삭제되면 Health 스토어에서 엔터티를 삭제합니다.
 
 * **SourceId**: System.FM
@@ -214,7 +214,7 @@ HealthEvents          :
 ## <a name="partition-system-health-reports"></a>파티션 시스템 상태 보고서
 장애 조치(failover) 관리자 서비스를 나타내는 System.FM은 서비스 파티션에 대한 정보를 관리하는 기관입니다.
 
-### <a name="state"></a>상태
+### <a name="state"></a>시스템 상태
 System.FM은 파티션이 생성되고 정상적이면 확인을 보고합니다. 파티션이 삭제될 때 Health 스토어에서 엔터티를 삭제합니다.
 
 파티션이 최소 복제본 수 이하인 경우 오류를 보고합니다. 파티션이 최소 복제본 개수 이하는 아니지만 대상 복제본 개수 이하라면 경고를 보고합니다. 파티션이 쿼럼 손실인 경우 System.FM이 오류를 보고합니다.
@@ -391,7 +391,7 @@ HealthEvents          :
 ## <a name="replica-system-health-reports"></a>복제본 시스템 상태 보고서
 재구성 에이전트 구성 요소를 나타내는 **System.RA**는 복제본 상태의 기관입니다.
 
-### <a name="state"></a>상태
+### <a name="state"></a>시스템 상태
 System.RA는 복제본이 만들어지면 정상으로 보고합니다.
 
 * **SourceId**: System.RA
@@ -647,7 +647,7 @@ HealthEvents          :
 
 - **IStatefulServiceReplica.ChangeRole(P)** : 가장 일반적인 경우는 서비스가 `RunAsync`에서 작업을 반환하지 않은 경우입니다.
 
-멈출 수 있는 다른 API 호출은 **IReplicator** 인터페이스에 있습니다. 예:
+멈출 수 있는 다른 API 호출은 **IReplicator** 인터페이스에 있습니다. 다음은 그 예입니다.
 
 - **IReplicator.CatchupReplicaSet**:이 경고는 다음 두 가지 중 하나를 나타냅니다. 복제본이 충분하지 않습니다. 이러한 경우에 해당하는지 확인하려면 파티션에 있는 복제본의 복제본 상태 또는 중단된 재구성을 위한 System.FM 상태 보고서를 살펴봅니다. 복제본이 작업을 승인하고 있지 않습니다. `Get-ServiceFabricDeployedReplicaDetail` PowerShell cmdlet은 모든 복제본의 진행 상황을 확인하는 데 사용할 수 있습니다. 문제는 `LastAppliedReplicationSequenceNumber` 값이 주 복제본의 `CommittedSequenceNumber` 값 뒤에 있는 복제본에 있습니다.
 

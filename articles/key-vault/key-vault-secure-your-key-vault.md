@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: ambapat
 ms.openlocfilehash: eac3850cfa0684bd1751cf7b88b4ff8e92667293
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78197439"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78373833"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Key vault에 대한 액세스 보안
 
@@ -124,12 +124,12 @@ Key Vault의 키 또는 비밀에 대해 특정 작업을 실행하기 위해 �
 
 다음 표에서는 역할과 애플리케이션에 대한 액세스 권한을 요약해서 설명합니다.
 
-| Role | 관리 평면 사용 권한 | 데이터 평면 사용 권한 |
+| 역할 | 관리 평면 사용 권한 | 데이터 평면 사용 권한 |
 | --- | --- | --- |
 | 보안 팀 | Key Vault 참가자 | 키: 백업, 만들기, 삭제, 권한 가져오기, 가져오기, 목록 표시, 복원<br>비밀: 모든 작업 |
-| 개발자 및&nbsp;운영자 | Key Vault 배포 권한<br><br> **참고**:이 사용 권한을 통해 배포 된 vm이 키 자격 증명 모음에서 암호를 가져올 수 있습니다. | 없음 |
-| 감사자 | 없음 | 키: 목록 표시<br>암호: 목록 표시<br><br> **참고**:이 사용 권한을 통해 감사자는 로그에서 내보내지 않은 키와 비밀에 대 한 특성 (태그, 활성화 날짜, 만료 날짜)을 검사할 수 있습니다. |
-| 응용 프로그램 | 없음 | 키: 로그인<br>암호: 권한 가져오기 |
+| 개발자 및&nbsp;운영자 | Key Vault 배포 권한<br><br> **참고**:이 사용 권한을 통해 배포 된 vm이 키 자격 증명 모음에서 암호를 가져올 수 있습니다. | None |
+| 감사자 | None | 키: 목록 표시<br>암호: 목록 표시<br><br> **참고**:이 사용 권한을 통해 감사자는 로그에서 내보내지 않은 키와 비밀에 대 한 특성 (태그, 활성화 날짜, 만료 날짜)을 검사할 수 있습니다. |
+| 애플리케이션 | None | 키: 로그인<br>암호: 권한 가져오기 |
 
 이 세 가지 팀 역할은 Key Vault 사용 권한과 함께 다른 리소스에 대한 액세스 권한이 필요합니다. VM(또는 Azure App Service의 Web Apps 기능)을 배포하려면 개발자와 운영자는 해당 리소스 형식에 대한 `Contributor` 액세스 권한이 필요합니다. 감사자에게는 Key Vault 로그를 저장할 스토리지 계정에 대한 읽기 액세스 권한이 필요합니다.
 

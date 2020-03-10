@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: fadf1aa54f525fb3d4c414161583f8a89f2e4c05
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61230256"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78385435"
 ---
 # <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>MES 사전 설정을 사용자 지정하여 고급 인코딩 수행 
 
@@ -30,7 +30,7 @@ ms.locfileid: "61230256"
 XML 사전 설정을 사용하는 경우 아래 XML 예제에 표시된 것처럼 요소 순서를 유지해야 합니다(예를 들어, KeyFrameInterval은 SceneChangeDetection 앞에 와야 함).
 
 > [!NOTE] 
-> 다양 한 Media Encoder Standard의 고급 Media Services v2 기능 하지 않습니다 v3에서 사용할 수 있습니다. 자세한 내용은 [간격이 기능](https://docs.microsoft.com/azure/media-services/latest/migrate-from-v2-to-v3#feature-gaps-with-respect-to-v2-apis)합니다.
+> Media Encoder Standard의 advanced Media Services v2 기능 중 상당수는 현재 v3에서 사용할 수 없습니다. 자세한 내용은 [기능 간격](https://docs.microsoft.com/azure/media-services/latest/migrate-from-v2-to-v3#feature-gaps-with-respect-to-v2-apis)을 참조 하세요.
 
 ## <a name="support-for-relative-sizes"></a>상대적 크기에 대한 지원
 
@@ -238,8 +238,8 @@ XML 사전 설정을 사용하는 경우 아래 XML 예제에 표시된 것처�
 * Jpg/Png/BmpImage 요소에는 Start, Step 및 Range 문자열 특성이 있으며, 이러한 특성은 다음과 같이 해석될 수 있습니다.
 
   * 음수가 아닌 정수인 경우 프레임 번호(예: "Start": "120")
-  * % 접미사로 표시된 경우 소스 기간 기준(예: "Start": "15%") 또는
-  * HH:MM:SS... 형식으로 표현되는 경우 타임스탬프(예: "Start": "00:01:00"
+  * % 접미사로 표시된 경우 소스 기간 기준(예: "Start": "15%")
+  * HH:MM:SS... 형식으로 표현되는 경우 타임스탬프(예: "Start" : "00:01:00")
 
     표기법을 원하는 대로 혼용하거나 일치시킬 수 있습니다.
 
@@ -722,7 +722,7 @@ XML 사전 설정을 사용하는 경우 아래 XML 예제에 표시된 것처�
 ## <a id="deinterlacing"></a>자동 디인터레이스 사용 안 함
 인터레이스 콘텐츠가 자동으로 디인터레이스되도록 원하는 고객은 아무 작업도 수행할 필요가 없습니다. 자동 디인터레이스가 설정(기본값)된 경우 MES에서는 인터레이스 프레임 및 인터레이스로 표시된 디인터레이스 프레임만 자동으로 검색합니다.
 
-자동 디인터레이스를 해제할 수 있습니다. 이 옵션은 권장되지 않습니다.
+자동 디인터레이스를 해제할 수 있습니다. 이 방법은 권장되지 않습니다.
 
 ### <a name="json-preset"></a>JSON 사전 설정
     "Sources": [
@@ -748,7 +748,7 @@ XML 사전 설정을 사용하는 경우 아래 XML 예제에 표시된 것처�
 
 
 ## <a id="audio_only"></a>오디오 전용 사전 설정
-이 섹션에서는 두 개의 오디오 전용 MES 사전 설정인 AAC 오디오 및 AAC 고급 음질 오디오를 보여 줍니다.
+이 섹션에서는 AAC 오디오 및 AAC 고급 품질 오디오라는 두 개의 오디오 전용 MES 사전 설정을 설명합니다.
 
 ### <a name="aac-audio"></a>AAC 오디오
     {
@@ -1037,5 +1037,5 @@ XML을 사용하는 경우 **H264Video** 요소에 대한 특성으로 Condition
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>관련 항목
+## <a name="see-also"></a>참고 항목
 [Media Services Encoding 개요](media-services-encode-asset.md)

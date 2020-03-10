@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: diberry
 ms.openlocfilehash: 309a2592dbac2918aeb532fbe91e33d296f4e5a5
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280897"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78393734"
 ---
 # <a name="intents-in-your-luis-app"></a>LUIS 앱의 의도
 
@@ -24,12 +24,12 @@ ms.locfileid: "74280897"
 
 사용자가 애플리케이션에서 수행하려는 작업에 해당하는 의도 집합을 정의합니다. 예를 들어, 여행 앱에서는 다음과 같은 여러 의도를 정의합니다.
 
-여행 앱 의도   |   예제 발언   | 
+여행 앱 의도   |   예제 발화   | 
 ------|------|
  BookFlight     |   “Book me a flight to Rio next week” <br/> “Fly me to Rio on the 24th” <br/> “I need a plane ticket next Sunday to Rio de Janeiro”    |
  Greeting     |   “Hi” <br/>“hello” <br/>“Good morning”  |
  CheckWeather | “What's the weather like in Boston?” <br/> “Show me the forecast for this weekend” |
- 없음         | “Get me a cookie recipe”<br>“Did the Lakers win?” |
+ None         | “Get me a cookie recipe”<br>“Did the Lakers win?” |
 
 모든 응용 프로그램에는 대체 의도 인 미리 정의 된 의도 "[None](#none-intent)"이 함께 제공 됩니다. 
 
@@ -55,7 +55,7 @@ Utterance에 대 한 모든 의도의 점수를 원하는 경우 예측 API의 �
 
 |Intent   | 엔터티 | 예제 발화   | 
 |------------------|------------------------------|------------------------------|
-| CheckWeather | { "type": "location", "entity": "seattle" }<br>{ "type": "builtin.datetimeV2.date","entity": "tomorrow","resolution":"2018-05-23" } | What's the weather like in `Seattle` `tomorrow`? |
+| CheckWeather | { "type": "location", "entity": "seattle" }<br>{ "type": "builtin.datetimeV2.date","entity": "tomorrow","resolution":"2018-05-23" } | `Seattle` `tomorrow`와 같은 날씨는 무엇 인가요? |
 | CheckWeather | { "type": "date_range", "entity": "this weekend" } | Show me the forecast for `this weekend` | 
 ||||
 

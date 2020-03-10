@@ -6,11 +6,11 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: 9364c344c58d17f9f6e6404dd8aa850af032cee9
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77138363"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78385167"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>센서 파트너에서 센서 데이터 가져오기
 
@@ -107,7 +107,7 @@ FarmBeats를 연결 하기 위해 장치 파트너에 게이를 제공 해야 �
   장치 **페이지에** 는 장치 유형, 모델, 상태, 배치한 팜 및 메타 데이터에 대 한 마지막 업데이트 날짜가 표시 됩니다. 기본적으로 팜 열은 *NULL*로 설정 됩니다. 팜에 장치를 할당 하도록 선택할 수 있습니다. 자세한 내용은 [장치 할당](#assign-devices)을 참조 하세요.
 2. 장치를 선택 하 여 장치 속성, 원격 분석 및 장치에 연결 된 자식 장치를 확인 합니다.
 
-    ![장치 페이지](./media/get-sensor-data-from-sensor-partner/view-devices-1.png)
+    ![디바이스 페이지](./media/get-sensor-data-from-sensor-partner/view-devices-1.png)
 
 ### <a name="view-sensors"></a>센서 보기
 

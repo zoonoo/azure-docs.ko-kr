@@ -4,11 +4,11 @@ description: Azure 리소스의 이름을 지정 하는 규칙 및 제한 사항
 ms.topic: conceptual
 ms.date: 02/11/2020
 ms.openlocfilehash: 7b6a9e16ba28a2a0e5e4e181dc5650d2110eab88
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77153165"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78391187"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Azure 리소스에 대한 명명 규칙 및 제한 사항
 
@@ -27,7 +27,7 @@ ms.locfileid: "77153165"
 > [!div class="mx-tableFixed"]
 > | 엔터티 | 범위 | 길이 | 사용할 수 있는 문자 |
 > | --- | --- | --- | --- |
-> | 서버 | 리소스 그룹 | 3-63 | 소문자 및 숫자<br><br>소문자로 시작 합니다. |
+> | servers | 리소스 그룹 | 3-63 | 소문자 및 숫자<br><br>소문자로 시작 합니다. |
 
 ## <a name="microsoftapimanagement"></a>Microsoft.ApiManagement
 
@@ -51,7 +51,7 @@ ms.locfileid: "77153165"
 > | 서비스/인증서 | 서비스 | 1-256 | 사용할 수 없음:<br> `*#&+:<>?` |
 > | 서비스/진단 | 서비스 | 1-256 | 사용할 수 없음:<br> `*#&+:<>?` |
 > | 서비스/그룹 | 서비스 | 1-256 | 사용할 수 없음:<br> `*#&+:<>?` |
-> | 서비스/그룹/사용자 | 그룹 | 1-256 | 사용할 수 없음:<br> `*#&+:<>?` |
+> | 서비스/그룹/사용자 | group | 1-256 | 사용할 수 없음:<br> `*#&+:<>?` |
 > | 서비스/identityProviders | 서비스 | 1-256 | 사용할 수 없음:<br> `*#&+:<>?` |
 > | 서비스/로 거 | 서비스 | 1-256 | 사용할 수 없음:<br> `*#&+:<>?` |
 > | 서비스/알림 | 서비스 | 1-256 | 사용할 수 없음:<br> `*#&+:<>?` |
@@ -59,9 +59,9 @@ ms.locfileid: "77153165"
 > | service/openidConnectProviders | 서비스 | 1-256 | 사용할 수 없음:<br> `*#&+:<>?` |
 > | 서비스/정책 | 서비스 | 1-256 | 사용할 수 없음:<br> `*#&+:<>?` |
 > | 서비스/제품 | 서비스 | 1-256 | 사용할 수 없음:<br> `*#&+:<>?` |
-> | 서비스/제품/a p i | 제품 | 1-256 | 사용할 수 없음:<br> `*#&+:<>?` |
-> | 서비스/제품/그룹 | 제품 | 1-256 | 사용할 수 없음:<br> `*#&+:<>?` |
-> | 서비스/제품/태그 | 제품 | 1-256 | 사용할 수 없음:<br> `*#&+:<>?` |
+> | 서비스/제품/a p i | product | 1-256 | 사용할 수 없음:<br> `*#&+:<>?` |
+> | 서비스/제품/그룹 | product | 1-256 | 사용할 수 없음:<br> `*#&+:<>?` |
+> | 서비스/제품/태그 | product | 1-256 | 사용할 수 없음:<br> `*#&+:<>?` |
 > | 서비스/속성 | 서비스 | 1-256 | 사용할 수 없음:<br> `*#&+:<>?` |
 > | 서비스/구독 | 서비스 | 1-256 | 사용할 수 없음:<br> `*#&+:<>?` |
 > | 서비스/태그 | 서비스 | 1-256 | 사용할 수 없음:<br> `*#&+:<>?` |
@@ -80,7 +80,7 @@ ms.locfileid: "77153165"
 > [!div class="mx-tableFixed"]
 > | 엔터티 | 범위 | 길이 | 사용할 수 있는 문자 |
 > | --- | --- | --- | --- |
-> | 잠금 | 할당 범위 | 1-90 | 영숫자, 마침표, 밑줄, 하이픈, 괄호 등이 있습니다.<br><br>기간을 종료할 수 없습니다. |
+> | locks | 할당 범위 | 1-90 | 영숫자, 마침표, 밑줄, 하이픈, 괄호 등이 있습니다.<br><br>기간을 종료할 수 없습니다. |
 > | policyassignments | 할당 범위 | 1-128 표시 이름<br><br>1-260 리소스 이름 | 표시 이름은 모든 문자를 포함할 수 있습니다.<br><br>리소스 이름은 `%` 포함할 수 없으며 마침표 또는 공백으로 끝날 수 없습니다. |
 > | policydefinitions | 정의의 범위 | 1-128 표시 이름<br><br>1-260 리소스 이름 | 표시 이름은 모든 문자를 포함할 수 있습니다.<br><br>리소스 이름은 `%` 포함할 수 없으며 마침표 또는 공백으로 끝날 수 없습니다. |
 > | policySetDefinitions | 정의의 범위 | 1-128 표시 이름<br><br>1-260 리소스 이름 | 표시 이름은 모든 문자를 포함할 수 있습니다.<br><br>리소스 이름은 `%` 포함할 수 없으며 마침표 또는 공백으로 끝날 수 없습니다.  |
@@ -164,13 +164,13 @@ ms.locfileid: "77153165"
 > | --- | --- | --- | --- |
 > | availabilitySets | 리소스 그룹 | 1-80 | 영숫자, 밑줄, 마침표 및 하이픈입니다.<br><br>영숫자로 시작 합니다. 영숫자 또는 밑줄로 끝납니다. |
 > | Disk; 집합 | 리소스 그룹 | 1-80 | 영숫자 및 밑줄 |
-> | 디스크 | 리소스 그룹 | 1-80 | 영숫자 및 밑줄 |
+> | disks | 리소스 그룹 | 1-80 | 영숫자 및 밑줄 |
 > | galleries | 리소스 그룹 | 1-80 | 영숫자 및 마침표.<br><br>영숫자를 사용 하 여 시작 하 고 종료 합니다. |
 > | 갤러리/응용 프로그램 | 갤러리 | 1-80 | 영숫자, 하이픈 및 마침표입니다.<br><br>영숫자를 사용 하 여 시작 하 고 종료 합니다. |
-> | 갤러리/응용 프로그램/버전 | 응용 프로그램 | 32비트 정수 | 숫자 및 마침표. |
+> | 갤러리/응용 프로그램/버전 | 애플리케이션 | 32비트 정수 | 숫자 및 마침표. |
 > | 갤러리/이미지 | 갤러리 | 1-80 | 영숫자, 하이픈 및 마침표입니다.<br><br>영숫자를 사용 하 여 시작 하 고 종료 합니다. |
-> | 갤러리/이미지/버전 | image | 32비트 정수 | 숫자 및 마침표. |
-> | 이미지 | 리소스 그룹 | 1-80 | 영숫자, 밑줄, 마침표 및 하이픈입니다.<br><br>영숫자로 시작 합니다. 영숫자 또는 밑줄로 끝납니다. |
+> | 갤러리/이미지/버전 | 이미지 | 32비트 정수 | 숫자 및 마침표. |
+> | images | 리소스 그룹 | 1-80 | 영숫자, 밑줄, 마침표 및 하이픈입니다.<br><br>영숫자로 시작 합니다. 영숫자 또는 밑줄로 끝납니다. |
 > | 스냅샷 | 리소스 그룹 | 1-80 | 영숫자, 밑줄, 마침표 및 하이픈입니다.<br><br>영숫자로 시작 합니다. 영숫자 또는 밑줄로 끝납니다. |
 > | virtualMachines | 리소스 그룹 | 1-15 (Windows)<br>1-64 (Linux)<br><br>아래 참고를 참조 하세요. | 사용할 수 없음:<br> `\/""[]:|<>+=;,?*@&`<br><br>밑줄로 시작할 수 없습니다. 마침표 또는 하이픈으로 끝날 수 없습니다. |
 > | virtualMachineScaleSets | 리소스 그룹 | 1-15 (Windows)<br>1-64 (Linux)<br><br>아래 참고를 참조 하세요. | 사용할 수 없음:<br> `\/""[]:|<>+=;,?*@&`<br><br>밑줄로 시작할 수 없습니다. 마침표 또는 하이픈으로 끝날 수 없습니다. |
@@ -191,13 +191,13 @@ ms.locfileid: "77153165"
 > | 엔터티 | 범위 | 길이 | 사용할 수 있는 문자 |
 > | --- | --- | --- | --- |
 > | registries | 전역 | 5-50 | 영숫자와. |
-> | 레지스트리/buildTasks | 레지스트리 | 5-50 | 영숫자와. |
+> | 레지스트리/buildTasks | 사용된 | 5-50 | 영숫자와. |
 > | 레지스트리/buildTasks/단계 | 빌드 작업 | 5-50 | 영숫자와. |
-> | 레지스트리/복제 | 레지스트리 | 5-50 | 영숫자와. |
-> | 레지스트리/scopeMaps | 레지스트리 | 5-50 | 영숫자, 하이픈 및 밑줄입니다. |
-> | 레지스트리/작업 | 레지스트리 | 5-50 | 영숫자, 하이픈 및 밑줄입니다. |
-> | 레지스트리/토큰 | 레지스트리 | 5-50 | 영숫자, 하이픈 및 밑줄입니다. |
-> | 레지스트리/웹 후크 | 레지스트리 | 5-50 | 영숫자와. |
+> | 레지스트리/복제 | 사용된 | 5-50 | 영숫자와. |
+> | 레지스트리/scopeMaps | 사용된 | 5-50 | 영숫자, 하이픈 및 밑줄입니다. |
+> | 레지스트리/작업 | 사용된 | 5-50 | 영숫자, 하이픈 및 밑줄입니다. |
+> | 레지스트리/토큰 | 사용된 | 5-50 | 영숫자, 하이픈 및 밑줄입니다. |
+> | 레지스트리/웹 후크 | 사용된 | 5-50 | 영숫자와. |
 
 ## <a name="microsoftcontainerservice"></a>Microsoft.ContainerService
 
@@ -239,21 +239,21 @@ ms.locfileid: "77153165"
 > [!div class="mx-tableFixed"]
 > | 엔터티 | 범위 | 길이 | 사용할 수 있는 문자 |
 > | --- | --- | --- | --- |
-> | 작업 | 리소스 그룹 | 3-24 | 영숫자, 하이픈, 밑줄 및 마침표입니다. |
+> | jobs | 리소스 그룹 | 3-24 | 영숫자, 하이픈, 밑줄 및 마침표입니다. |
 
 ## <a name="microsoftdatabricks"></a>Microsoft.Databricks
 
 > [!div class="mx-tableFixed"]
 > | 엔터티 | 범위 | 길이 | 사용할 수 있는 문자 |
 > | --- | --- | --- | --- |
-> | 작업 영역 | 리소스 그룹 | 3-30 | 영숫자, 밑줄 및 하이픈 |
+> | workspaces | 리소스 그룹 | 3-30 | 영숫자, 밑줄 및 하이픈 |
 
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
 
 > [!div class="mx-tableFixed"]
 > | 엔터티 | 범위 | 길이 | 사용할 수 있는 문자 |
 > | --- | --- | --- | --- |
-> | 팩터리 | 전역 | 3-63 | 영숫자 및 하이픈<br><br>영숫자를 사용 하 여 시작 하 고 종료 합니다. |
+> | factories | 전역 | 3-63 | 영숫자 및 하이픈<br><br>영숫자를 사용 하 여 시작 하 고 종료 합니다. |
 > | 팩터리/데이터 흐름 | 공장 | 1-260 | 사용할 수 없음:<br>`<>*#.%&:\\+?/`<br><br>영숫자로 시작 합니다. |
 > | 팩터리/데이터 집합 | 공장 | 1-260 | 사용할 수 없음:<br>`<>*#.%&:\\+?/`<br><br>영숫자로 시작 합니다. |
 > | 팩터리/integrationRuntimes | 공장 | 3-63 | 영숫자 및 하이픈<br><br>영숫자를 사용 하 여 시작 하 고 종료 합니다. |
@@ -268,10 +268,10 @@ ms.locfileid: "77153165"
 > | 엔터티 | 범위 | 길이 | 사용할 수 있는 문자 |
 > | --- | --- | --- | --- |
 > | 계정 | 전역 | 3-24 | 소문자 및 숫자 |
-> | 계정/computePolicies | 아닙니다. | 3-60 | 영숫자, 하이픈 및 밑줄입니다. |
-> | 계정/dataLakeStoreAccounts | 아닙니다. | 3-24 | 소문자 및 숫자 |
-> | 계정/firewallRules | 아닙니다. | 3-50 | 영숫자, 하이픈 및 밑줄입니다. |
-> | 계정/storageAccounts | 아닙니다. | 3-60 | 영숫자, 하이픈 및 밑줄입니다. |
+> | 계정/computePolicies | account | 3-60 | 영숫자, 하이픈 및 밑줄입니다. |
+> | 계정/dataLakeStoreAccounts | account | 3-24 | 소문자 및 숫자 |
+> | 계정/firewallRules | account | 3-50 | 영숫자, 하이픈 및 밑줄입니다. |
+> | 계정/storageAccounts | account | 3-60 | 영숫자, 하이픈 및 밑줄입니다. |
 
 ## <a name="microsoftdatalakestore"></a>Microsoft.DataLakeStore
 
@@ -279,15 +279,15 @@ ms.locfileid: "77153165"
 > | 엔터티 | 범위 | 길이 | 사용할 수 있는 문자 |
 > | --- | --- | --- | --- |
 > | 계정 | 전역 | 3-24 | 소문자 및 숫자 |
-> | 계정/firewallRules | 아닙니다. | 3-50 | 영숫자, 하이픈 및 밑줄입니다. |
-> | 계정/virtualNetworkRules | 아닙니다. | 3-50 | 영숫자, 하이픈 및 밑줄입니다. |
+> | 계정/firewallRules | account | 3-50 | 영숫자, 하이픈 및 밑줄입니다. |
+> | 계정/virtualNetworkRules | account | 3-50 | 영숫자, 하이픈 및 밑줄입니다. |
 
 ## <a name="microsoftdatamigration"></a>Microsoft.DataMigration
 
 > [!div class="mx-tableFixed"]
 > | 엔터티 | 범위 | 길이 | 사용할 수 있는 문자 |
 > | --- | --- | --- | --- |
-> | 서비스 | 리소스 그룹 | 2-62 | 영숫자, 하이픈, 마침표 및 밑줄<br><br>영숫자로 시작 합니다. |
+> | services | 리소스 그룹 | 2-62 | 영숫자, 하이픈, 마침표 및 밑줄<br><br>영숫자로 시작 합니다. |
 > | 서비스/프로젝트 | 서비스 | 2-57 | 영숫자, 하이픈, 마침표 및 밑줄<br><br>영숫자로 시작 합니다. |
 
 ## <a name="microsoftdbformariadb"></a>Microsoft.DBforMariaDB
@@ -295,30 +295,30 @@ ms.locfileid: "77153165"
 > [!div class="mx-tableFixed"]
 > | 엔터티 | 범위 | 길이 | 사용할 수 있는 문자 |
 > | --- | --- | --- | --- |
-> | 서버 | 전역 | 3-63 | 소문자, 하이픈 및 숫자입니다.<br><br>하이픈으로 시작 하거나 끝날 수 없습니다. |
-> | 서버/데이터베이스 | 서버 | 1-63 | 영숫자 및 하이픈 |
-> | servers/firewallRules | 서버 | 1-128 | 영숫자, 하이픈 및 밑줄입니다. |
-> | servers/virtualNetworkRules | 서버 | 1-128 | 영숫자 및 하이픈 |
+> | servers | 전역 | 3-63 | 소문자, 하이픈 및 숫자입니다.<br><br>하이픈으로 시작 하거나 끝날 수 없습니다. |
+> | 서버/데이터베이스 | servers | 1-63 | 영숫자 및 하이픈 |
+> | servers/firewallRules | servers | 1-128 | 영숫자, 하이픈 및 밑줄입니다. |
+> | servers/virtualNetworkRules | servers | 1-128 | 영숫자 및 하이픈 |
 
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
 
 > [!div class="mx-tableFixed"]
 > | 엔터티 | 범위 | 길이 | 사용할 수 있는 문자 |
 > | --- | --- | --- | --- |
-> | 서버 | 전역 | 3-63 | 소문자, 하이픈 및 숫자입니다.<br><br>하이픈으로 시작 하거나 끝날 수 없습니다. |
-> | 서버/데이터베이스 | 서버 | 1-63 | 영숫자 및 하이픈 |
-> | servers/firewallRules | 서버 | 1-128 | 영숫자, 하이픈 및 밑줄입니다. |
-> | servers/virtualNetworkRules | 서버 | 1-128 | 영숫자 및 하이픈 |
+> | servers | 전역 | 3-63 | 소문자, 하이픈 및 숫자입니다.<br><br>하이픈으로 시작 하거나 끝날 수 없습니다. |
+> | 서버/데이터베이스 | servers | 1-63 | 영숫자 및 하이픈 |
+> | servers/firewallRules | servers | 1-128 | 영숫자, 하이픈 및 밑줄입니다. |
+> | servers/virtualNetworkRules | servers | 1-128 | 영숫자 및 하이픈 |
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
 
 > [!div class="mx-tableFixed"]
 > | 엔터티 | 범위 | 길이 | 사용할 수 있는 문자 |
 > | --- | --- | --- | --- |
-> | 서버 | 전역 | 3-63 | 소문자, 하이픈 및 숫자입니다.<br><br>하이픈으로 시작 하거나 끝날 수 없습니다. |
-> | 서버/데이터베이스 | 서버 | 1-63 | 영숫자 및 하이픈 |
-> | servers/firewallRules | 서버 | 1-128 | 영숫자, 하이픈 및 밑줄입니다. |
-> | servers/virtualNetworkRules | 서버 | 1-128 | 영숫자 및 하이픈 |
+> | servers | 전역 | 3-63 | 소문자, 하이픈 및 숫자입니다.<br><br>하이픈으로 시작 하거나 끝날 수 없습니다. |
+> | 서버/데이터베이스 | servers | 1-63 | 영숫자 및 하이픈 |
+> | servers/firewallRules | servers | 1-128 | 영숫자, 하이픈 및 밑줄입니다. |
+> | servers/virtualNetworkRules | servers | 1-128 | 영숫자 및 하이픈 |
 
 ## <a name="microsoftdevices"></a>Microsoft.Devices
 
@@ -353,7 +353,7 @@ ms.locfileid: "77153165"
 > [!div class="mx-tableFixed"]
 > | 엔터티 | 범위 | 길이 | 사용할 수 있는 문자 |
 > | --- | --- | --- | --- |
-> | 도메인 | 리소스 그룹 | 3-50 | 영숫자 및 하이픈 |
+> | domains | 리소스 그룹 | 3-50 | 영숫자 및 하이픈 |
 > | 도메인/항목 | 도메인 | 3-50 | 영숫자 및 하이픈 |
 > | eventSubscriptions | 리소스 그룹 | 3-64 | 영숫자 및 하이픈 |
 > | topics | 리소스 그룹 | 3-50 | 영숫자 및 하이픈 |
@@ -363,11 +363,11 @@ ms.locfileid: "77153165"
 > [!div class="mx-tableFixed"]
 > | 엔터티 | 범위 | 길이 | 사용할 수 있는 문자 |
 > | --- | --- | --- | --- |
-> | 클러스터 | 리소스 그룹 | 6-50 | 영숫자 및 하이픈<br><br>문자로 시작 합니다. 문자 또는 숫자로 끝납니다. |
+> | clusters | 리소스 그룹 | 6-50 | 영숫자 및 하이픈<br><br>문자로 시작 합니다. 문자 또는 숫자로 끝납니다. |
 > | 네임스페이스 | 전역 | 6-50 | 영숫자 및 하이픈<br><br>문자로 시작 합니다. 문자 또는 숫자로 끝납니다. |
-> | 네임 스페이스/AuthorizationRules | namespace | 1-50 | 영숫자, 마침표, 하이픈 및 밑줄<br><br>문자 또는 숫자로 시작 하 고 종료 합니다. |
-> | 네임 스페이스/disasterRecoveryConfigs | namespace | 1-50 | 영숫자, 마침표, 하이픈 및 밑줄<br><br>문자 또는 숫자로 시작 하 고 종료 합니다. |
-> | 네임 스페이스/eventhubs | namespace | 1-50 | 영숫자, 마침표, 하이픈 및 밑줄<br><br>문자 또는 숫자로 시작 하 고 종료 합니다. |
+> | 네임 스페이스/AuthorizationRules | 네임스페이스 | 1-50 | 영숫자, 마침표, 하이픈 및 밑줄<br><br>문자 또는 숫자로 시작 하 고 종료 합니다. |
+> | 네임 스페이스/disasterRecoveryConfigs | 네임스페이스 | 1-50 | 영숫자, 마침표, 하이픈 및 밑줄<br><br>문자 또는 숫자로 시작 하 고 종료 합니다. |
+> | 네임 스페이스/eventhubs | 네임스페이스 | 1-50 | 영숫자, 마침표, 하이픈 및 밑줄<br><br>문자 또는 숫자로 시작 하 고 종료 합니다. |
 > | 네임 스페이스/eventhubs/authorizationRules | 이벤트 허브 | 1-50 | 영숫자, 마침표, 하이픈 및 밑줄<br><br>문자 또는 숫자로 시작 하 고 종료 합니다. |
 > | 네임 스페이스/eventhubs/consumergroups | 이벤트 허브 | 1-50 | 영숫자, 마침표, 하이픈 및 밑줄<br><br>문자 또는 숫자로 시작 하 고 종료 합니다. |
 
@@ -376,14 +376,14 @@ ms.locfileid: "77153165"
 > [!div class="mx-tableFixed"]
 > | 엔터티 | 범위 | 길이 | 사용할 수 있는 문자 |
 > | --- | --- | --- | --- |
-> | 클러스터 | 전역 | 3-59 | 영숫자 및 하이픈<br><br>문자 또는 숫자로 시작 하 고 종료 합니다. |
+> | clusters | 전역 | 3-59 | 영숫자 및 하이픈<br><br>문자 또는 숫자로 시작 하 고 종료 합니다. |
 
 ## <a name="microsoftimportexport"></a>Microsoft.ImportExport
 
 > [!div class="mx-tableFixed"]
 > | 엔터티 | 범위 | 길이 | 사용할 수 있는 문자 |
 > | --- | --- | --- | --- |
-> | 작업 | 리소스 그룹 | 2-64 | 영숫자 및 하이픈<br><br>문자로 시작 합니다. |
+> | jobs | 리소스 그룹 | 2-64 | 영숫자 및 하이픈<br><br>문자로 시작 합니다. |
 
 ## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral
 
@@ -405,7 +405,7 @@ ms.locfileid: "77153165"
 > [!div class="mx-tableFixed"]
 > | 엔터티 | 범위 | 길이 | 사용할 수 있는 문자 |
 > | --- | --- | --- | --- |
-> | 클러스터 | 전역 | 4-22 | 소문자 및 숫자<br><br>문자로 시작 합니다. |
+> | clusters | 전역 | 4-22 | 소문자 및 숫자<br><br>문자로 시작 합니다. |
 > | /클러스터/데이터베이스 | cluster | 1-260 | 영숫자, 하이픈, 공백 및 마침표입니다. |
 > | /클러스터/데이터베이스/dataConnections | 데이터베이스 | 1-40 | 영숫자, 하이픈, 공백 및 마침표입니다. |
 > | /클러스터/데이터베이스/eventhubconnections | 데이터베이스 | 1-40 | 영숫자, 하이픈, 공백 및 마침표입니다. |
@@ -426,7 +426,7 @@ ms.locfileid: "77153165"
 > | integrationAccounts/세션 | 통합 계정 | 1-80 | 영숫자, 하이픈, 밑줄, 마침표 및 괄호입니다. |
 > | integrationServiceEnvironments | 리소스 그룹 | 1-80 | 영숫자, 하이픈, 마침표 및 밑줄 |
 > | integrationServiceEnvironments/managedApis | 통합 서비스 환경 | 1-80 | 영숫자, 하이픈, 마침표 및 밑줄 |
-> | 워크플로 | 리소스 그룹 | 1-80 | 영숫자, 하이픈, 밑줄, 마침표 및 괄호입니다. |
+> | workflows | 리소스 그룹 | 1-80 | 영숫자, 하이픈, 밑줄, 마침표 및 괄호입니다. |
 
 ## <a name="microsoftmachinelearning"></a>Microsoft.MachineLearning
 
@@ -435,14 +435,14 @@ ms.locfileid: "77153165"
 > | --- | --- | --- | --- |
 > | commitmentPlans | 리소스 그룹 | 1-260 | 사용할 수 없음:<br>`<>*%&:?+/\\`<br><br>공백으로 끝날 수 없습니다. |
 > | webServices | 리소스 그룹 | 1-260 | 사용할 수 없음:<br>`<>*%&:?+/\\`<br><br>공백으로 끝날 수 없습니다. |
-> | 작업 영역 | 리소스 그룹 | 1-260 | 사용할 수 없음:<br>`<>*%&:?+/\\`<br><br>공백으로 끝날 수 없습니다. |
+> | workspaces | 리소스 그룹 | 1-260 | 사용할 수 없음:<br>`<>*%&:?+/\\`<br><br>공백으로 끝날 수 없습니다. |
 
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
 
 > [!div class="mx-tableFixed"]
 > | 엔터티 | 범위 | 길이 | 사용할 수 있는 문자 |
 > | --- | --- | --- | --- |
-> | 작업 영역 | 리소스 그룹 | 3-33 | 영숫자 및 하이픈 |
+> | workspaces | 리소스 그룹 | 3-33 | 영숫자 및 하이픈 |
 > | 작업 영역/계산 | 작업 영역 | 2-16 | 영숫자 및 하이픈 |
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
@@ -516,8 +516,8 @@ ms.locfileid: "77153165"
 > | 엔터티 | 범위 | 길이 | 사용할 수 있는 문자 |
 > | --- | --- | --- | --- |
 > | 네임스페이스 | 전역 | 6-50 | 영숫자 및 하이픈<br><br>영숫자를 사용 하 여 시작 하 고 종료 합니다. |
-> | 네임 스페이스/AuthorizationRules | namespace | 1-256 | 영숫자, 마침표, 하이픈 및 밑줄<br><br>시작 영숫자입니다. |
-> | 네임 스페이스/notificationHubs | namespace | 1-260 | 영숫자, 마침표, 하이픈 및 밑줄<br><br>시작 영숫자입니다. |
+> | 네임 스페이스/AuthorizationRules | 네임스페이스 | 1-256 | 영숫자, 마침표, 하이픈 및 밑줄<br><br>시작 영숫자입니다. |
+> | 네임 스페이스/notificationHubs | 네임스페이스 | 1-260 | 영숫자, 마침표, 하이픈 및 밑줄<br><br>시작 영숫자입니다. |
 > | 네임 스페이스/notificationHubs/AuthorizationRules | 알림 허브 | 1-256 | 영숫자, 마침표, 하이픈 및 밑줄<br><br>시작 영숫자입니다. |
 
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
@@ -525,15 +525,15 @@ ms.locfileid: "77153165"
 > [!div class="mx-tableFixed"]
 > | 엔터티 | 범위 | 길이 | 사용할 수 있는 문자 |
 > | --- | --- | --- | --- |
-> | 클러스터 | 리소스 그룹 | 4-63 | 영숫자 및 하이픈<br><br>영숫자를 사용 하 여 시작 하 고 종료 합니다. |
-> | 작업 영역 | 리소스 그룹 | 4-63 | 영숫자 및 하이픈<br><br>영숫자를 사용 하 여 시작 하 고 종료 합니다. |
+> | clusters | 리소스 그룹 | 4-63 | 영숫자 및 하이픈<br><br>영숫자를 사용 하 여 시작 하 고 종료 합니다. |
+> | workspaces | 리소스 그룹 | 4-63 | 영숫자 및 하이픈<br><br>영숫자를 사용 하 여 시작 하 고 종료 합니다. |
 
 ## <a name="microsoftportal"></a>Microsoft.Portal
 
 > [!div class="mx-tableFixed"]
 > | 엔터티 | 범위 | 길이 | 사용할 수 있는 문자 |
 > | --- | --- | --- | --- |
-> | 대시보드 | 리소스 그룹 | 3-160 | 영숫자 및 하이픈<br><br>제한 문자를 사용 하려면 사용 하려는 대시보드 이름이 **숨겨진** 태그 라는 태그를 추가 합니다. 대시보드를 표시할 때 포털에 해당 이름이 표시 됩니다. |
+> | dashboards | 리소스 그룹 | 3-160 | 영숫자 및 하이픈<br><br>제한 문자를 사용 하려면 사용 하려는 대시보드 이름이 **숨겨진** 태그 라는 태그를 추가 합니다. 대시보드를 표시할 때 포털에 해당 이름이 표시 됩니다. |
 
 ## <a name="microsoftpowerbi"></a>Microsoft.PowerBI
 
@@ -547,7 +547,7 @@ ms.locfileid: "77153165"
 > [!div class="mx-tableFixed"]
 > | 엔터티 | 범위 | 길이 | 사용할 수 있는 문자 |
 > | --- | --- | --- | --- |
-> | 용량 | region | 3-63 | 소문자 또는 숫자<br><br>소문자로 시작 합니다. |
+> | capacities | region | 3-63 | 소문자 또는 숫자<br><br>소문자로 시작 합니다. |
 
 ## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
 
@@ -563,10 +563,10 @@ ms.locfileid: "77153165"
 > | 엔터티 | 범위 | 길이 | 사용할 수 있는 문자 |
 > | --- | --- | --- | --- |
 > | 네임스페이스 | 전역 | 6-50 | 영숫자 및 하이픈<br><br>문자로 시작합니다. 문자 또는 숫자로 끝납니다. |
-> | 네임 스페이스/AuthorizationRules | namespace | 1-50 |  영숫자, 마침표, 하이픈 및 밑줄<br><br>영숫자를 사용 하 여 시작 하 고 종료 합니다. |
-> | 네임 스페이스/HybridConnections | namespace | 1-260 | 영숫자, 마침표, 하이픈, 밑줄 및 슬래시가 있습니다.<br><br>영숫자를 사용 하 여 시작 하 고 종료 합니다. |
+> | 네임 스페이스/AuthorizationRules | 네임스페이스 | 1-50 |  영숫자, 마침표, 하이픈 및 밑줄<br><br>영숫자를 사용 하 여 시작 하 고 종료 합니다. |
+> | 네임 스페이스/HybridConnections | 네임스페이스 | 1-260 | 영숫자, 마침표, 하이픈, 밑줄 및 슬래시가 있습니다.<br><br>영숫자를 사용 하 여 시작 하 고 종료 합니다. |
 > | 네임 스페이스/HybridConnections/authorizationRules | 하이브리드 연결 | 1-50 | 영숫자, 마침표, 하이픈 및 밑줄<br><br>영숫자를 사용 하 여 시작 하 고 종료 합니다. |
-> | 네임 스페이스/WcfRelays | namespace | 1-260 | 영숫자, 마침표, 하이픈, 밑줄 및 슬래시가 있습니다.<br><br>영숫자를 사용 하 여 시작 하 고 종료 합니다. |
+> | 네임 스페이스/WcfRelays | 네임스페이스 | 1-260 | 영숫자, 마침표, 하이픈, 밑줄 및 슬래시가 있습니다.<br><br>영숫자를 사용 하 여 시작 하 고 종료 합니다. |
 > | 네임 스페이스/WcfRelays/authorizationRules | Wcf 릴레이 | 1-50 | 영숫자, 마침표, 하이픈 및 밑줄<br><br>영숫자를 사용 하 여 시작 하 고 종료 합니다. |
 
 ## <a name="microsoftresources"></a>Microsoft.Resources
@@ -575,7 +575,7 @@ ms.locfileid: "77153165"
 > | 엔터티 | 범위 | 길이 | 사용할 수 있는 문자 |
 > | --- | --- | --- | --- |
 > | 배포 | 리소스 그룹 | 1-64 | 영숫자, 밑줄, 괄호, 하이픈 및 마침표입니다. |
-> | resourcegroups | 구독 | 1-90 | [Regex 설명서](/rest/api/resources/resourcegroups/createorupdate)와 일치 하는 영숫자, 밑줄, 괄호, 하이픈, 마침표 및 유니코드 문자입니다.<br><br>마침표로 끝날 수 없습니다. |
+> | resourcegroups | subscription | 1-90 | [Regex 설명서](/rest/api/resources/resourcegroups/createorupdate)와 일치 하는 영숫자, 밑줄, 괄호, 하이픈, 마침표 및 유니코드 문자입니다.<br><br>마침표로 끝날 수 없습니다. |
 > | tagNames | resource | 1-512 | 사용할 수 없음:<br>`<>%&\?/` |
 > | tagNames / tagValues | 태그 이름 | 1-256 | 모든 문자입니다. |
 
@@ -585,22 +585,22 @@ ms.locfileid: "77153165"
 > | 엔터티 | 범위 | 길이 | 사용할 수 있는 문자 |
 > | --- | --- | --- | --- |
 > | 네임스페이스 | 전역 | 6-50 | 영숫자 및 하이픈<br><br>문자로 시작합니다. 문자 또는 숫자로 끝납니다.<br><br>자세한 내용은 [네임 스페이스 만들기](/rest/api/servicebus/create-namespace)를 참조 하세요. |
-> | 네임 스페이스/AuthorizationRules | namespace | 1-50 | 영숫자, 마침표, 하이픈 및 밑줄<br><br>Alphnumeric로 시작 하 고 종료 합니다. |
+> | 네임 스페이스/AuthorizationRules | 네임스페이스 | 1-50 | 영숫자, 마침표, 하이픈 및 밑줄<br><br>Alphnumeric로 시작 하 고 종료 합니다. |
 > | 네임 스페이스/disasterRecoveryConfigs | 전역 | 6-50 | 영숫자 및 하이픈<br><br>문자로 시작 합니다. 영숫자로 끝납니다. |
-> | 네임 스페이스/migrationConfigurations | namespace |  | 항상 **$default**해야 합니다. |
-> | 네임 스페이스/큐 | namespace | 1-260 | 영숫자, 마침표, 하이픈, 밑줄 및 슬래시가 있습니다.<br><br>영숫자를 사용 하 여 시작 하 고 종료 합니다. |
+> | 네임 스페이스/migrationConfigurations | 네임스페이스 |  | 항상 **$default**해야 합니다. |
+> | 네임 스페이스/큐 | 네임스페이스 | 1-260 | 영숫자, 마침표, 하이픈, 밑줄 및 슬래시가 있습니다.<br><br>영숫자를 사용 하 여 시작 하 고 종료 합니다. |
 > | 네임 스페이스/큐/authorizationRules | queue | 1-50 | 영숫자, 마침표, 하이픈 및 밑줄<br><br>Alphnumeric로 시작 하 고 종료 합니다. |
-> | 네임 스페이스/항목 | namespace | 1-260 | 영숫자, 마침표, 하이픈, 밑줄 및 슬래시가 있습니다.<br><br>영숫자를 사용 하 여 시작 하 고 종료 합니다. |
+> | 네임 스페이스/항목 | 네임스페이스 | 1-260 | 영숫자, 마침표, 하이픈, 밑줄 및 슬래시가 있습니다.<br><br>영숫자를 사용 하 여 시작 하 고 종료 합니다. |
 > | 네임 스페이스/토픽/authorizationRules | 토픽 | 1-50 | 영숫자, 마침표, 하이픈 및 밑줄<br><br>Alphnumeric로 시작 하 고 종료 합니다. |
 > | 네임 스페이스/토픽/구독 | 토픽 | 1-50 | 영숫자, 마침표, 하이픈 및 밑줄<br><br>Alphnumeric로 시작 하 고 종료 합니다. |
-> | 네임 스페이스/항목/구독/규칙 | 구독 | 1-50 | 영숫자, 마침표, 하이픈 및 밑줄<br><br>Alphnumeric로 시작 하 고 종료 합니다. |
+> | 네임 스페이스/항목/구독/규칙 | subscription | 1-50 | 영숫자, 마침표, 하이픈 및 밑줄<br><br>Alphnumeric로 시작 하 고 종료 합니다. |
 
 ## <a name="microsoftservicefabric"></a>Microsoft.ServiceFabric
 
 > [!div class="mx-tableFixed"]
 > | 엔터티 | 범위 | 길이 | 사용할 수 있는 문자 |
 > | --- | --- | --- | --- |
-> | 클러스터 | region | 4-23 | 소문자, 숫자 및 하이픈<br><br>소문자로 시작 합니다. 소문자 또는 숫자로 끝납니다. |
+> | clusters | region | 4-23 | 소문자, 숫자 및 하이픈<br><br>소문자로 시작 합니다. 소문자 또는 숫자로 끝납니다. |
 
 ## <a name="microsoftsignalrservice"></a>Microsoft.SignalRService
 
@@ -615,7 +615,7 @@ ms.locfileid: "77153165"
 > | 엔터티 | 범위 | 길이 | 사용할 수 있는 문자 |
 > | --- | --- | --- | --- |
 > | managedInstances | 전역 | 1-63 | 소문자, 숫자 및 하이픈<br><br>하이픈으로 시작 하거나 끝날 수 없습니다. |
-> | 서버 | 전역 | 1-63 | 소문자, 숫자 및 하이픈<br><br>하이픈으로 시작 하거나 끝날 수 없습니다. |
+> | servers | 전역 | 1-63 | 소문자, 숫자 및 하이픈<br><br>하이픈으로 시작 하거나 끝날 수 없습니다. |
 > | 서버/데이터베이스 | 서버 | 1-128 | 사용할 수 없음:<br>`<>*%&:\/?`<br><br>는 마침표 또는 공백으로 끝날 수 없습니다. |
 > | servers/databases/syncGroups | 데이터베이스 | 1-150 | 영숫자, 하이픈 및 밑줄입니다. |
 > | servers/elasticPools | 서버 | 1-128 | 사용할 수 없음:<br>`<>*%&:\/?`<br><br>는 마침표 또는 공백으로 끝날 수 없습니다. |
@@ -628,14 +628,14 @@ ms.locfileid: "77153165"
 > | 엔터티 | 범위 | 길이 | 사용할 수 있는 문자 |
 > | --- | --- | --- | --- |
 > | storageAccounts | 전역 | 3-24 | 소문자 및 숫자 |
-> | storageAccounts/blobServices | 저장소 계정 |  | `default`이어야 합니다. |
-> | storageAccounts/blobServices/컨테이너 | 저장소 계정 | 3-63 | 소문자, 숫자 및 하이픈<br><br>소문자 또는 숫자로 시작 합니다. 연속 하이픈을 사용할 수 없습니다. |
-> | storageAccounts/fileServices | 저장소 계정 |  | `default`이어야 합니다. |
-> | storageAccounts/fileServices/공유 | 저장소 계정 | 3-63 | 소문자, 숫자 및 하이픈<br><br>하이픈으로 시작 하거나 끝날 수 없습니다. 연속 하이픈을 사용할 수 없습니다. |
-> | storageAccounts/managementPolicies | 저장소 계정 |  | `default`이어야 합니다. |
+> | storageAccounts/blobServices | 스토리지 계정 만들기 |  | `default`이어야 합니다. |
+> | storageAccounts/blobServices/컨테이너 | 스토리지 계정 만들기 | 3-63 | 소문자, 숫자 및 하이픈<br><br>소문자 또는 숫자로 시작 합니다. 연속 하이픈을 사용할 수 없습니다. |
+> | storageAccounts/fileServices | 스토리지 계정 만들기 |  | `default`이어야 합니다. |
+> | storageAccounts/fileServices/공유 | 스토리지 계정 만들기 | 3-63 | 소문자, 숫자 및 하이픈<br><br>하이픈으로 시작 하거나 끝날 수 없습니다. 연속 하이픈을 사용할 수 없습니다. |
+> | storageAccounts/managementPolicies | 스토리지 계정 만들기 |  | `default`이어야 합니다. |
 > | blob | container | 1-1024 | 모든 URL 문자, 대/소문자 구분 |
-> | queue | 저장소 계정 | 3-63 | 소문자, 숫자 및 하이픈<br><br>하이픈으로 시작 하거나 끝날 수 없습니다. 연속 하이픈을 사용할 수 없습니다. |
-> | 테이블 | 저장소 계정 | 3-63 | 영숫자와.<br><br>문자로 시작 합니다. |
+> | queue | 스토리지 계정 만들기 | 3-63 | 소문자, 숫자 및 하이픈<br><br>하이픈으로 시작 하거나 끝날 수 없습니다. 연속 하이픈을 사용할 수 없습니다. |
+> | 테이블 | 스토리지 계정 만들기 | 3-63 | 영숫자와.<br><br>문자로 시작 합니다. |
 
 ## <a name="microsoftstoragesync"></a>Microsoft.StorageSync
 
@@ -668,7 +668,7 @@ ms.locfileid: "77153165"
 > [!div class="mx-tableFixed"]
 > | 엔터티 | 범위 | 길이 | 사용할 수 있는 문자 |
 > | --- | --- | --- | --- |
-> | 환경 | 리소스 그룹 | 1-90 | 사용할 수 없음:<br>`'<>%&:\?/#` |
+> | environments | 리소스 그룹 | 1-90 | 사용할 수 없음:<br>`'<>%&:\?/#` |
 > | 환경/Accesspolicy | 환경 | 1-90 | 사용할 수 없음:<br> `'<>%&:\?/#` |
 > | 환경/s s o 원본 | 환경 | 1-90 | 사용할 수 없음:<br>`'<>%&:\?/#` |
 > | environment/referenceDataSets | 환경 | 3-63 | 영숫자와 |

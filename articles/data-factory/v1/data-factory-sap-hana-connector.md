@@ -13,11 +13,11 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 361b98a1cde8ee5dee99a370b46d8fc8e0f5af28
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928251"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78387609"
 ---
 # <a name="move-data-from-sap-hana-using-azure-data-factory"></a>Azure Data Factory를 사용하여 SAP HANA에서 데이터 이동
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -25,7 +25,7 @@ ms.locfileid: "74928251"
 > * [버전 2(현재 버전)](../connector-sap-hana.md)
 
 > [!NOTE]
-> 이 문서는 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [V2의 SAP HANA 커넥터](../connector-sap-business-warehouse.md)를 참조하세요.
+> 이 아티클은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [V2의 SAP HANA 커넥터](../connector-sap-business-warehouse.md)를 참조하세요.
 
 이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 온-프레미스 SAP HANA에서 데이터를 이동하는 방법을 설명합니다. 이 문서는 복사 작업을 사용한 데이터 이동의 일반적인 개요를 보여주는 [데이터 이동 작업](data-factory-data-movement-activities.md) 문서를 기반으로 합니다.
 
@@ -57,14 +57,14 @@ SAP HANA 인스턴스에 대한 연결을 사용하도록 설정하려면 다음
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
 다음 표에서는 SAP HANA 연결된 서비스에 해당하는 JSON 요소에 대한 설명을 제공합니다.
 
-자산 | 설명 | 허용되는 값 | 필수
+속성 | Description | 허용되는 값 | 필수
 -------- | ----------- | -------------- | --------
 서버 | SAP HANA 인스턴스가 상주하는 서버의 이름. 서버에서 사용자 지정된 포트를 사용하는 경우 `server:port`를 지정합니다. | 문자열 | yes
 authenticationType | 인증 유형입니다. | string. "Basic" 또는 "Windows" | yes 
-username | SAP 서버에 대한 액세스 권한이 있는 사용자의 이름 | 문자열 | yes
-암호 | 사용자에 대한 암호입니다. | 문자열 | yes
+사용자 이름 | SAP 서버에 대한 액세스 권한이 있는 사용자의 이름 | 문자열 | yes
+password | 사용자에 대한 암호입니다. | 문자열 | yes
 gatewayName | Data Factory 서비스가 온-프레미스 SAP HANA 인스턴스에 연결하는 데 사용해야 하는 게이트웨이의 이름. | 문자열 | yes
-encryptedCredential | 암호화된 자격 증명 문자열. | 문자열 | 아닙니다.
+encryptedCredential | 암호화된 자격 증명 문자열. | 문자열 | 예
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트 만들기](data-factory-create-datasets.md) 문서를 참조하세요. 구조, 가용성 및 JSON 데이터 세트의 정책과 같은 섹션이 모든 데이터 세트 형식에 대해 유사합니다(Azure SQL, Azure blob, Azure 테이블 등).
@@ -79,9 +79,9 @@ encryptedCredential | 암호화된 자격 증명 문자열. | 문자열 | 아닙
 
 활동 복사의 원본이 **RelationalSource**(SAP HANA 포함) 형식인 경우 typeProperties 섹션에서 다음과 같은 속성을 사용할 수 있습니다.
 
-| 자산 | 설명 | 허용되는 값 | 필수 |
+| 속성 | Description | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| 쿼리 | SAP HANA 인스턴스에서 데이터를 읽을 SQL 쿼리를 지정합니다. | SQL 쿼리. | yes |
+| Query | SAP HANA 인스턴스에서 데이터를 읽을 SQL 쿼리를 지정합니다. | SQL 쿼리. | yes |
 
 ## <a name="json-example-copy-data-from-sap-hana-to-azure-blob"></a>JSON 샘플: SAP HANA에서 Azure Blob으로 데이터 복사
 다음 샘플에서는 [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)를 사용 하 여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공 합니다. 이 샘플은 온-프레미스 SAP HANA에서 Azure Blob Storage로 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure Data Factory의 활동 복사를 사용하여 **여기**에 나열된 싱크로 [직접](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 데이터를 복사할 수 있습니다.  
@@ -93,9 +93,9 @@ encryptedCredential | 암호화된 자격 증명 문자열. | 문자열 | 아닙
 
 1. [SapHana](#linked-service-properties) 형식의 연결된 서비스
 2. [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties) 형식의 연결된 서비스
-3. [RelationalTable](#dataset-properties) 형식의 입력 [데이터 세트](data-factory-create-datasets.md)
-4. [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties) 형식의 출력 [데이터 세트](data-factory-create-datasets.md)
-5. [RelationalSource](#copy-activity-properties) 및 [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)
+3. [RelationalTable](data-factory-create-datasets.md) 형식의 입력 [데이터 세트](#dataset-properties)
+4. [AzureBlob](data-factory-create-datasets.md) 형식의 출력 [데이터 세트](data-factory-azure-blob-connector.md#dataset-properties)
+5. [RelationalSource](data-factory-create-pipelines.md) 및 [BlobSink](#copy-activity-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-azure-blob-connector.md#copy-activity-properties)
 
 샘플은 SAP HANA 인스턴스에서 Azure Blob으로 매시간 데이터를 복사합니다. 이 샘플에 사용된 JSON 속성은 샘플 다음에 나오는 섹션에서 설명합니다.
 
@@ -284,21 +284,21 @@ SAP HANA의 데이터를 이동하는 경우 SAP HANA 형식에서 .NET 형식�
 SAP HANA 형식 | .NET 기반 형식
 ------------- | ---------------
 TINYINT | Byte
-SmallInt | Int16
+SMALLINT | Int16
 INT | Int32
-BIGINT | Int64
-Real | 단일
-DOUBLE | 단일
-DECIMAL | 10진수
+bigint | Int64
+real | Single
+DOUBLE | Single
+DECIMAL | Decimal
 BOOLEAN | Byte
-VARCHAR | string
-NVARCHAR | string
+VARCHAR | String
+NVARCHAR | String
 CLOB | Byte[]
-ALPHANUM | string
+ALPHANUM | String
 BLOB | Byte[]
 DATE | DateTime
-TIME | timespan
-TIMESTAMP | DateTime
+TIME | TimeSpan
+timestamp | DateTime
 SECONDDATE | DateTime
 
 ## <a name="known-limitations"></a>알려진 제한 사항

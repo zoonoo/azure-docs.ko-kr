@@ -16,11 +16,11 @@ ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 1fdf776570b6f10a363fb98dfe343387d86219d6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75350899"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78389033"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Azure Portal에서 Windows SQL Server 가상 머신 프로비전하는 방법
 
@@ -185,7 +185,7 @@ SQL Server 인증을 사용하도록 설정하지 않으면, VM의 로컬 관리
 
 다음 표에서는 Azure Key Vault 통합을 구성하는 데 필요한 매개 변수를 나열합니다.
 
-| 매개 변수 | 설명 | 예 |
+| 매개 변수 | 설명 | 예제 |
 | --- | --- | --- |
 | **주요 자격 증명 모음 URL** |주요 자격 증명 모음의 위치입니다. |https:\//contosokeyvault.vault.azure.net/ |
 | **주체 이름** |Azure Active Directory 서비스 주체 이름. 이 이름을 클라이언트 ID라고도 합니다. |fde2b411-33d5-4e11-af04eb07b669ccf2 |
@@ -242,7 +242,7 @@ SQL 자동화된 백업을 사용하도록 설정하면 다음 설정을 구성�
 자세한 내용은 [Azure Virtual Machines에서 SQL Server에 대한 자동화된 백업](virtual-machines-windows-sql-automated-backup.md)을 참조하세요.
 
 
-### <a name="machine-learning-services"></a>Machine Learning 서비스
+### <a name="machine-learning-services"></a>Machine Learning Services
 
 [Machine Learning Services](/sql/advanced-analytics/)를 사용 하도록 설정 하는 옵션이 있습니다. 이 옵션을 사용 하면 SQL Server 2017에서 Python 및 R에서 기계 학습을 사용할 수 있습니다. **SQL Server 설정** 창에서 **사용** 을 선택 합니다.
 

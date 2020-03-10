@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 50751c7d23797a597dc5e2d209c1e3eecf6f7a40
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75614624"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78386256"
 ---
 # <a name="cluster-resource-manager-integration-with-service-fabric-cluster-management"></a>클러스터 리소스 관리자와 서비스 패브릭 클러스터 관리 통합
 Service Fabric 클러스터 리소스 관리자는 Service Fabric에서 업그레이드를 수행하지는 않지만 관련되어 있습니다. Cluster Resource Manager에서 관리에 유용하게 사용할 수 있는 첫 번째 방법은 내부에 있는 서비스와 클러스터의 필요한 상태를 추적하는 것입니다. Cluster Resource Manager는 원하는 구성에 클러스터를 배치할 수 없는 경우 상태 보고서를 보냅니다. 예를 들어 용량이 부족하면 클러스터 리소스 관리자에서 문제를 나타내는 상태 경고 및 오류를 보냅니다. 통합의 다른 부분은 업그레이드 작동 방법와 관련이 있습니다. 클러스터 리소스 관리자는 업그레이드 중에 해당 동작을 약간 변경합니다.  
@@ -105,7 +105,7 @@ HealthEvents          :
 
 이러한 모든 제약 조건을 고려할 때 "내 시스템에서 장애 도메인 제약 조건이 가장 중요하다고 생각합니다. 장애 도메인 제약 조건을 위반하지 않도록 보장하기 위해 다른 제약 조건을 위반하려고 합니다."라고 생각했을 수도 있습니다.
 
-제약 조건은 서로 다른 우선 순위 수준으로 구성할 수 있습니다. 사용자는 다음과 같습니다.
+제약 조건은 서로 다른 우선 순위 수준으로 구성할 수 있습니다. 다음과 같습니다.
 
    - "하드" (0)
    - "소프트" (1)

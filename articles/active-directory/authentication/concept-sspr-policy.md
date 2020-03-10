@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fd6cacae9c7af705b0de7b59e0f25f25637a5a89
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76962495"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376934"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Azure Active Directory에서 암호 정책 및 제한
 
@@ -81,7 +81,7 @@ Azure AD에 로그인해야 하는 모든 사용자 계정에는 해당 계정�
 
 | 속성 | 요구 사항 |
 | --- | --- |
-| 허용되는 문자 |<ul><li>A-Z</li><li>a-z</li><li>0-9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / \` ~ " ( ) ;</li> <li>공백</li></ul> |
+| 허용되는 문자 |<ul><li>A-Z</li><li>a-z</li><li>0-9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / \` ~ "();</li> <li>공백</li></ul> |
 | 허용되지 않는 문자 | 유니코드 문자 |
 | 암호 제한 |<ul><li>최소 8 자에서 최대 256 자까지 입력할 수가 있습니다.</li><li>다음 4개 중 3개가 필요합니다.<ul><li>소문자</li><li>대문자</li><li>숫자(0-9)</li><li>기호(이전 암호 제한 참조)</li></ul></li></ul> |
 | 암호 만료 기간 (최대 암호 사용 기간) |<ul><li>기본값: **90**일</li><li>값은 Windows PowerShell용 Azure Active Directory 모듈에서 `Set-MsolPasswordPolicy` cmdlet을 사용하여 구성할 수 있습니다.</li></ul> |
@@ -149,7 +149,7 @@ Microsoft 클라우드 서비스의 전역 관리자 또는 사용자 관리자�
    Set-AzureADUser -ObjectId <user ID> -PasswordPolicies DisablePasswordExpiration
    ```
 
-   * 조직의 모든 사용자에 대 한 암호를 만료 되지 않도록 설정 하려면 다음 cmdlet을 실행 합니다.
+   * 조직 내 모든 사용자의 암호를 기간 제한 없음으로 설정하려면 다음 cmdlet을 실행합니다.
 
    ```powershell
    Get-AzureADUser -All $true | Set-AzureADUser -PasswordPolicies DisablePasswordExpiration

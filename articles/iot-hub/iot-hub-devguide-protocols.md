@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
-ms.openlocfilehash: 7082ebc4ca3066f84ca9790797cfa04e437f78a3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6d1ab50e471c9c603c7886130375dc74e9b2a755
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60626182"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78668519"
 ---
 # <a name="reference---choose-a-communication-protocol"></a>참조 - 통신 프로토콜 선택
 
@@ -48,7 +48,7 @@ IoT Hub를 사용하면 디바이스가 디바이스 쪽 통신에 다음 프로
 * **페이로드 크기**. MQTT 및 AMQP는 바이너리 프로토콜로, HTTPS보다 더 많이 압축된 페이로드를 발생합니다.
 
 > [!WARNING]
-> HTTPS를 사용하는 경우 각 디바이스는 25분 이상마다 클라우드-디바이스에 대해 폴링합니다. 그렇지만 개발하는 동안에는 25분 보다 좀 더 자주 폴링을 하도록 할 수도 있습니다.
+> HTTPS를 사용 하는 경우 각 장치는 25 분 마다 한 번만 클라우드-장치 메시지를 폴링합니다. 개발 시, 원하는 경우 각 장치에서 더 자주 폴링할 수 있습니다.
 
 ## <a name="port-numbers"></a>포트 번호
 

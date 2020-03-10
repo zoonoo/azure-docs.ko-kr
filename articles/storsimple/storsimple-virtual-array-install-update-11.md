@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 07/18/2018
 ms.author: alkohli
 ms.openlocfilehash: 88b903d68e4398b4e30b0b7435279c29bee6cd6b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61408763"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78384839"
 ---
 # <a name="install-update-11-on-your-storsimple-virtual-array"></a>StorSimple 가상 배열에 업데이트 1.1을 설치합니다.
 
@@ -58,7 +58,7 @@ StorSimple 가상 배열을 최신 상태로 유지하려면 소프트웨어 업
 * 업데이트 또는 핫픽스 설치
 
 > [!IMPORTANT] 
-> **업데이트 1(10.0.10296.0)을 실행하는 경우에만 이 업데이트를 진행합니다. 업데이트 0.6을 실행하는 경우 디바이스에 [업데이트 1을 설치](storsimple-virtual-array-install-update-1.md)한 후 업데이트 1.1을 적용합니다.**
+> **업데이트 1 (10.0.10296.0)을 실행 하는 경우에만이 업데이트를 진행 합니다. 업데이트 0.6을 실행 중인 경우 먼저 장치에 [업데이트 1을 설치한](storsimple-virtual-array-install-update-1.md) 다음 업데이트 1.1을 적용 합니다.**
 
 ### <a name="download-the-update-or-the-hotfix"></a>업데이트 또는 핫픽스 다운로드
 
@@ -99,7 +99,7 @@ StorSimple 가상 배열을 최신 상태로 유지하려면 소프트웨어 업
 
 #### <a name="to-install-the-update-or-the-hotfix"></a>업데이트 또는 핫픽스를 설치하려면
 
-1. 로컬 웹 UI에서 **유지 관리** > **소프트웨어 업데이트**로 이동합니다. 실행 중인 소프트웨어 버전을 기록해 둡니다. **업데이트 1(10.0.10296.0)을 실행하는 경우에만 이 업데이트를 진행합니다. 업데이트 0.6을 실행하는 경우 디바이스에 [업데이트 1을 설치](storsimple-virtual-array-install-update-1.md)한 후 업데이트 1.1을 적용합니다.**
+1. 로컬 웹 UI에서 **유지 관리** > **소프트웨어 업데이트**로 이동합니다. 실행 중인 소프트웨어 버전을 기록해 둡니다. **업데이트 1 (10.0.10296.0)을 실행 하는 경우에만이 업데이트를 진행 합니다. 업데이트 0.6을 실행 중인 경우 먼저 장치에 [업데이트 1을 설치한](storsimple-virtual-array-install-update-1.md) 다음 업데이트 1.1을 적용 합니다.**
    
     ![디바이스 업데이트](./media/storsimple-virtual-array-install-update-11/update1m.png)
 

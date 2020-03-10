@@ -12,11 +12,11 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ms.openlocfilehash: 11c0a168e4b2e8eac03eaebd37b208446082d1b4
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78197201"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78381098"
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>columnstore의 행 그룹 품질 최대화
 
@@ -40,7 +40,7 @@ columnstore 인덱스는 개별 행 그룹의 열 세그먼트를 검색하여 �
 
 ## <a name="how-to-monitor-rowgroup-quality"></a>행 그룹 품질을 모니터링 하는 방법
 
-DMV sys. dm_pdw_nodes_db_column_store_row_group_physical_stats ([dm_db_column_store_row_group_physical_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql) 는 SQL db와 일치 하는 뷰 정의를 포함 하 여 행 그룹의 행 수, 트리밍 시 트리밍 이유 등의 유용한 정보를 제공 합니다. 다음 뷰를 만들어 이 DMV를 간편하게 쿼리하여 행 그룹 잘라내기에 대한 정보를 가져올 수 있습니다.
+DMV sys. dm_pdw_nodes_db_column_store_row_group_physical_stats ([dm_db_column_store_row_group_physical_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql) 는 SQL db와 일치 하는 뷰 정의를 포함 하 여 행 그룹의 행 수, 트리밍 시 트리밍 이유 등의 유용한 정보를 제공 합니다. 다음 보기를 만들면 이 DMV를 간편하게 쿼리하여 행 그룹 잘라내기에 대한 정보를 가져올 수 있습니다.
 
 ```sql
 create view dbo.vCS_rg_physical_stats
@@ -117,7 +117,7 @@ Columnstore 인덱스는 파티션당 행 그룹을 하나 이상 만듭니다. 
 
 데이터베이스는 쿼리에서 모든 연산자 간 쿼리에 대한 메모리 부여를 공유합니다. 로드 쿼리에 복잡한 정렬 및 조인이 있는 경우 압축에 사용 가능한 메모리가 줄어듭니다.
 
-쿼리를 로드하는 데만 집중할 로드 쿼리를 디자인합니다. 데이터 변환을 실행해야 할 경우 로드 쿼리와 별도로 실행합니다. 예를 들어, 힙 테이블의 데이터를 준비하고 변환을 실행한 후 스테이징 테이블을 columnstore 인덱스에 로드합니다. 또한 데이터를 먼저 로드한 후 MPP 시스템을 사용하여 데이터를 변환할 수도 있습니다.
+쿼리를 로드하는 데만 집중할 로드 쿼리를 디자인합니다. 데이터 변환을 실행해야 할 경우 로드 쿼리와 별도로 실행합니다. 예를 들어, 힙 테이블의 데이터를 준비하고 변환을 실행한 후 준비 테이블을 columnstore 인덱스에 로드합니다. 또한 데이터를 먼저 로드한 후 MPP 시스템을 사용하여 데이터를 변환할 수도 있습니다.
 
 ### <a name="adjust-maxdop"></a>MAXDOP 조정
 

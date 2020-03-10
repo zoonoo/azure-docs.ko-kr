@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: manayar
 ms.openlocfilehash: 222f26febb7b14c627307295a8cdd68a17694d03
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76275890"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78394667"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure 가상 머신 확장 집합에 대한 FAQ
 
@@ -61,7 +61,7 @@ VM 이미지를 만들고 캡처한 다음, 확장 집합에 대한 원본으로
 
 ### <a name="do-scale-sets-work-with-azure-availability-zones"></a>확장 집합은 Azure 가용성 영역과 작업이 가능한가요?
 
-예. 자세한 내용은 [확장 집합 영역 문서](./virtual-machine-scale-sets-use-availability-zones.md)를 참조하세요.
+예! 자세한 내용은 [확장 집합 영역 문서](./virtual-machine-scale-sets-use-availability-zones.md)를 참조하세요.
 
 
 ## <a name="autoscale"></a>자동 크기 조정
@@ -117,7 +117,7 @@ PowerShell 또는 Azure CLI를 통해 가상 머신 확장 집합의 메트릭�
 
 /subscriptions/yoursubscriptionid/resourceGroups/yourresourcegroup/providers/Microsoft.Compute/virtualMachineScaleSets/yourvmssname
 
-경고를 설정할 메트릭으로 어떤 VM 성능 카운터도 선택할 수 있습니다. 자세한 내용은 [Azure Monitor 자동 크기 조정 공용 메트릭](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/) 문서의 [Resource Manager 기반 Windows VM에 대한 게스트 OS 메트릭](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/#guest-os-metrics-resource-manager-based-windows-vms) 및 [Linux VM에 대한 게스트 OS 메트릭](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/#guest-os-metrics-linux-vms)을 참조하세요.
+경고를 설정할 메트릭으로 어떤 VM 성능 카운터도 선택할 수 있습니다. 자세한 내용은 [Azure Monitor 자동 크기 조정 공용 메트릭](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/#guest-os-metrics-resource-manager-based-windows-vms) 문서의 [Resource Manager 기반 Windows VM에 대한 게스트 OS 메트릭](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/#guest-os-metrics-linux-vms) 및 [Linux VM에 대한 게스트 OS 메트릭](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/)을 참조하세요.
 
 ### <a name="how-do-i-set-up-autoscale-on-a-virtual-machine-scale-set-by-using-powershell"></a>PowerShell을 사용하여 가상 머신 확장 집합에 대해 자동 크기 조정을 설정하려면 어떻게 하나요?
 
@@ -126,7 +126,7 @@ PowerShell을 사용하여 가상 머신 확장 집합에 대해 자동 크기 �
 
 ### <a name="if-i-have-stopped-deallocated-a-vm-is-that-vm-started-as-part-of-an-autoscale-operation"></a>VM을 중지(할당 취소)한 경우 VM이 자동 크기 조정 작업의 일부로 시작되었나요?
 
-아닙니다. 자동 크기 조정 규칙에 확장 집합의 일부로 추가 VM 인스턴스가 필요한 경우 새 VM 인스턴스가 생성됩니다. 중지(할당 취소)된 VM 인스턴스는 자동 크기 조정 이벤트의 일부로 시작되지 않습니다. 그러나 중지(할당 취소)된 VM은 VM 인스턴스 ID의 순서에 따라 모든 VM 인스턴스를 삭제할 수 있는 것과 같은 방식으로, 인스턴스 수에 따라 자동 크기 조정 이벤트의 일부로 삭제할 수 있습니다.
+아니요. 자동 크기 조정 규칙에 확장 집합의 일부로 추가 VM 인스턴스가 필요한 경우 새 VM 인스턴스가 생성됩니다. 중지(할당 취소)된 VM 인스턴스는 자동 크기 조정 이벤트의 일부로 시작되지 않습니다. 그러나 중지(할당 취소)된 VM은 VM 인스턴스 ID의 순서에 따라 모든 VM 인스턴스를 삭제할 수 있는 것과 같은 방식으로, 인스턴스 수에 따라 자동 크기 조정 이벤트의 일부로 삭제할 수 있습니다.
 
 
 
@@ -221,11 +221,11 @@ Linux VM을 만들 때 일반 텍스트로 SSH 공개 키를 제공할 수 있�
 }
 ```
 
-linuxConfiguration 요소 이름 | 필수 | 유형 | Description
+linuxConfiguration 요소 이름 | 필수 | Type | Description
 --- | --- | --- | ---
-ssh | 아닙니다. | 컬렉션 | Linux OS용 SSH 키 구성을 지정합니다.
-경로 | 예 | String | SSH 키 또는 인증서를 배치해야 하는 Linux 파일 경로를 지정합니다.
-keyData | 예 | String | base64로 인코딩된 SSH 공개 키를 지정합니다.
+ssh | 예 | 컬렉션 | Linux OS용 SSH 키 구성을 지정합니다.
+경로 | yes | String | SSH 키 또는 인증서를 배치해야 하는 Linux 파일 경로를 지정합니다.
+keyData | yes | String | base64로 인코딩된 SSH 공개 키를 지정합니다.
 
 예제는 [101-vm-sshkey GitHub 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json)을 참조하세요.
 
@@ -331,7 +331,7 @@ VM을 만든 다음 Key Vault에서 비밀을 업데이트하면 새 인증서�
 
 자세한 내용은 [Microsoft 보안 센터](https://www.microsoft.com/TrustCenter/Compliance/PCI)를 참조하세요.
 
-### <a name="does-managed-identities-for-azure-resourceshttpsdocsmicrosoftcomazureactive-directorymsi-overview-work-with-virtual-machine-scale-sets"></a>[Azure 리소스에 대한 관리 ID](https://docs.microsoft.com/azure/active-directory/msi-overview)는 가상 머신 확장 집합과 함께 작동하나요?
+### <a name="does-managed-identities-for-azure-resources-work-with-virtual-machine-scale-sets"></a>[Azure 리소스에 대한 관리 ID](https://docs.microsoft.com/azure/active-directory/msi-overview)는 가상 머신 확장 집합과 함께 작동하나요?
 
 예. Azure 빠른 시작 템플릿에서 [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi) 및 [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi)에 대 한 몇 가지 예제 MSI 템플릿을 볼 수 있습니다.
 
@@ -466,7 +466,7 @@ Update-AzVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineScaleSet
 
 ### <a name="is-it-possible-to-assign-a-network-security-group-nsg-to-a-scale-set-so-that-it-applies-to-all-the-vm-nics-in-the-set"></a>집합의 모든 VM NIC에 적용되도록 확장 집합에 NSG(네트워크 보안 그룹)를 할당할 수 있나요?
 
-예. 네트워크 프로필의 networkInterfaceConfigurations 섹션에서 참조하여 네트워크 보안 그룹을 확장 집합에 직접 적용할 수 있습니다. 예:
+예. 네트워크 프로필의 networkInterfaceConfigurations 섹션에서 참조하여 네트워크 보안 그룹을 확장 집합에 직접 적용할 수 있습니다. 예제:
 
 ```json
 "networkProfile": {
@@ -539,7 +539,7 @@ IP 주소는 사용자가 지정한 서브넷에서 선택됩니다.
 
 ### <a name="how-can-i-configure-the-dns-servers-used-by-a-scale-set"></a>확장 집합에서 사용하는 DNS 서버를 구성하려면 어떻게 해야 하나요?
 
-사용자 지정 DNS 구성을 포함한 가상 머신 확장 집합을 만들려면 dnsSettings JSON 패킷을 확장 집합 networkInterfaceConfigurations 섹션에 추가합니다. 예:
+사용자 지정 DNS 구성을 포함한 가상 머신 확장 집합을 만들려면 dnsSettings JSON 패킷을 확장 집합 networkInterfaceConfigurations 섹션에 추가합니다. 예제:
 ```json
     "dnsSettings":{
         "dnsServers":["10.0.0.6", "10.0.0.5"]
@@ -548,7 +548,7 @@ IP 주소는 사용자가 지정한 서브넷에서 선택됩니다.
 
 ### <a name="how-can-i-configure-a-scale-set-to-assign-a-public-ip-address-to-each-vm"></a>각 VM에 공용 IP 주소를 할당하도록 확장 집합을 구성하려면 어떻게 해야 하나요?
 
-각 VM에 공용 IP 주소를 할당하는 가상 머신 확장 집합을 만들려면 Microsoft.Compute/virtualMachineScaleSets 리소스의 API 버전이 2017-03-30인지 확인하고 _publicipaddressconfiguration_ JSON 패킷을 확장 집합 ipConfigurations 섹션에 추가합니다. 예:
+각 VM에 공용 IP 주소를 할당하는 가상 머신 확장 집합을 만들려면 Microsoft.Compute/virtualMachineScaleSets 리소스의 API 버전이 2017-03-30인지 확인하고 _publicipaddressconfiguration_ JSON 패킷을 확장 집합 ipConfigurations 섹션에 추가합니다. 예제:
 
 ```json
     "publicipaddressconfiguration": {
@@ -563,7 +563,7 @@ IP 주소는 사용자가 지정한 서브넷에서 선택됩니다.
 
 예. 여러 Application Gateway 백 엔드 주소 풀에 대 한 리소스 Id를 확장 집합 네트워크 프로필의 _ipConfigurations_ 섹션에 있는 _applicationGatewayBackendAddressPools_ 목록에 추가할 수 있습니다.
 
-## <a name="scale"></a>확장성
+## <a name="scale"></a>확장
 
 ### <a name="in-what-case-would-i-create-a-virtual-machine-scale-set-with-fewer-than-two-vms"></a>어떤 경우에 VM이 2개 미만인 가상 머신 확장 집합을 만들어야 하나요?
 
@@ -677,13 +677,13 @@ Azure Portal의 Log Analytics 작업 영역에서 workspaceId 및 workspaceKey�
 
 ### <a name="how-do-i-get-property-information-for-each-vm-without-making-multiple-calls-for-example-how-would-i-get-the-fault-domain-for-each-of-the-100-vms-in-my-virtual-machine-scale-set"></a>여러 번 호출하지 않고도 각 VM에 대한 속성 정보를 얻으려면 어떻게 합니까? 예를 들어 가상 머신 확장 집합에서 100개의 VM 각각에 대해 장애 도메인을 얻으려면 어떻게 해야 할까요?
 
-여러 번 호출하지 않고 각 VM에 대한 속성 정보를 가져오려면 다음 리소스 URI에 대해 REST API `GET`을 수행하여 `ListVMInstanceViews`를 호출할 수 있습니다.
+여러 번 호출하지 않고 각 VM에 대한 속성 정보를 가져오려면 다음 리소스 URI에 대해 REST API `ListVMInstanceViews`을 수행하여 `GET`를 호출할 수 있습니다.
 
 /subscriptions/<subscription_id>/resourceGroups/<resource_group_name>/providers/Microsoft.Compute/virtualMachineScaleSets/<scaleset_name>/virtualMachines?$expand=instanceView&$select=instanceView
 
 ### <a name="can-i-pass-different-extension-arguments-to-different-vms-in-a-virtual-machine-scale-set"></a>가상 머신 확장 집합의 다른 VM에 다른 확장 인수를 전달할 수 있나요?
 
-아니요. 가상 머신 확장 집합의 다른 VM에 다른 확장 인수를 전달할 수 없습니다. 그렇지만 확장은 컴퓨터 이름과 같이 실행 중인 VM의 고유한 속성에 따라 작동할 수 있습니다. 또한 확장은 http://169.254.169.254 에 있는 인스턴스 메타데이터를 쿼리하여 VM에 대한 자세한 정보를 가져올 수 있습니다.
+아니요. 가상 머신 확장 집합의 다른 VM에 다른 확장 인수를 전달할 수 없습니다. 그렇지만 확장은 컴퓨터 이름과 같이 실행 중인 VM의 고유한 속성에 따라 작동할 수 있습니다. 또한 확장은 http://169.254.169.254에 있는 인스턴스 메타데이터를 쿼리하여 VM에 대한 자세한 정보를 가져올 수 있습니다.
 
 ### <a name="why-are-there-gaps-between-my-virtual-machine-scale-set-vm-machine-names-and-vm-ids-for-example-0-1-3"></a>가상 머신 확장 집합 VM 컴퓨터 이름과 VM ID 간에 차이가 발생하는 이유는 무엇인가요? 예를 들어 0, 1, 3...입니다.
 

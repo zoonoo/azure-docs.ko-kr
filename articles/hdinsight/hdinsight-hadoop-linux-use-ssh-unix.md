@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
 ms.date: 02/28/2020
 ms.openlocfilehash: 31e85876d60ae6fcd8f3b29633506d698a323acb
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78192951"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78386468"
 ---
 # <a name="connect-to-hdinsight-apache-hadoop-using-ssh"></a>SSH를 사용하여 HDInsight(Apache Hadoop)에 연결
 
@@ -21,7 +21,7 @@ ms.locfileid: "78192951"
 
 다음 표에서는 SSH 클라이언트를 사용 하 여 HDInsight에 연결할 때 필요한 주소와 포트 정보를 포함 합니다.
 
-| Address | 포트 | 다음에 연결... |
+| 주소 | 포트 | 다음에 연결... |
 | ----- | ----- | ----- |
 | `<clustername>-ssh.azurehdinsight.net` | 22 | 기본 헤드 노드 |
 | `<clustername>-ssh.azurehdinsight.net` | 23 | 보조 헤드 노드 |
@@ -87,7 +87,7 @@ SSH 키는 [공개 키 암호화](https://en.wikipedia.org/wiki/Public-key_crypt
 
 | 생성 방법 | 공개 키를 사용하는 방법 |
 | ------- | ------- |
-| Azure 포털 | __Ssh에 대 한 클러스터 로그인 암호 사용__의 선택을 취소 하 고 ssh 인증 유형으로 __공개 키__ 를 선택 합니다. 마지막으로 공개 키 파일을 선택하거나 __SSH 공개 키__ 필드에 파일의 텍스트 내용을 붙여 넣습니다.</br>![HDInsight 클러스터 생성의 SSH 공개 키 대화 상자](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-public-key.png) |
+| Azure portal | __Ssh에 대 한 클러스터 로그인 암호 사용__의 선택을 취소 하 고 ssh 인증 유형으로 __공개 키__ 를 선택 합니다. 마지막으로 공개 키 파일을 선택하거나 __SSH 공개 키__ 필드에 파일의 텍스트 내용을 붙여 넣습니다.</br>![HDInsight 클러스터 생성의 SSH 공개 키 대화 상자](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-public-key.png) |
 | Azure PowerShell | [AzHdinsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) cmdlet의 `-SshPublicKey` 매개 변수를 사용 하 여 공개 키의 내용을 문자열로 전달 합니다.|
 | Azure CLI | [Az hdinsight create](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) 명령의 `--sshPublicKey` 매개 변수를 사용 하 여 공개 키의 내용을 문자열로 전달 합니다. |
 | Resource Manager 템플릿 | 템플릿에서 SSH 키를 사용하는 예제는 [SSH 키를 사용하여 Linux에서 HDInsight 배포](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-publickey/)를 참조하세요. `publicKeys`azuredeploy.json[ 파일의 ](https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-linux-ssh-publickey/azuredeploy.json) 요소는 클러스터를 만들 때 Azure에 키를 전달하는 데 사용됩니다. |
@@ -106,7 +106,7 @@ SSH 계정은 암호를 사용하여 보호될 수 있습니다. SSH를 사용 �
 
 | 생성 방법 | 암호를 지정하는 방법 |
 | --------------- | ---------------- |
-| Azure 포털 | 기본적으로 SSH 사용자 계정에는 클러스터 로그인 계정인 동일한 암호가 있습니다. 다른 암호를 사용 하려면 __ssh에 대 한 클러스터 로그인 암호 사용__의 선택을 취소 하 고 __ssh 암호__ 필드에 암호를 입력 합니다.</br>![HDInsight 클러스터 생성의 SSH 암호 대화 상자](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-password.png)|
+| Azure portal | 기본적으로 SSH 사용자 계정에는 클러스터 로그인 계정인 동일한 암호가 있습니다. 다른 암호를 사용 하려면 __ssh에 대 한 클러스터 로그인 암호 사용__의 선택을 취소 하 고 __ssh 암호__ 필드에 암호를 입력 합니다.</br>![HDInsight 클러스터 생성의 SSH 암호 대화 상자](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-password.png)|
 | Azure PowerShell | [AzHdinsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) cmdlet의 `--SshCredential` 매개 변수를 사용 하 고 SSH 사용자 계정 이름 및 암호를 포함 하는 `PSCredential` 개체를 전달 합니다. |
 | Azure CLI | [Az hdinsight create](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) 명령의 `--sshPassword` 매개 변수를 사용 하 여 암호 값을 제공 합니다. |
 | Resource Manager 템플릿 | 템플릿에서 암호를 사용하는 예제는 [SSH 암호를 사용하여 Linux에서 HDInsight 배포](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-password/)를 참조하세요. `linuxOperatingSystemProfile`azuredeploy.json[ 파일의 ](https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-linux-ssh-password/azuredeploy.json) 요소는 클러스터를 만들 때 Azure에 SSH 계정 이름 및 암호를 전달하는 데 사용됩니다.|
@@ -246,11 +246,11 @@ scp sshuser@clustername-ssh.azurehdinsight.net:test.txt .
 ```
 
 > [!IMPORTANT]  
-> `scp`는 클러스터 내 개별 노드의 파일 시스템에만 액세스할 수 있으며 해당 클러스터에 대한 HDFS 호환 저장소의 데이터 액세스에는 사용할 수 없습니다.
+> `scp`는 클러스터 내 개별 노드의 파일 시스템에만 액세스할 수 있으며 해당 클러스터에 대한 HDFS 호환 스토리지의 데이터 액세스에는 사용할 수 없습니다.
 >
 > SSH 세션에서 사용할 리소스를 업로드해야 할 때 `scp`를 사용합니다. 예를 들어 Python 스크립트를 업로드한 다음 SSH 세션에서 스크립트를 실행합니다.
 >
-> HDFS 호환 저장소로 데이터 직접 로드에 대한 자세한 내용은 다음 문서를 참조하세요.
+> HDFS 호환 스토리지로 데이터 직접 로드에 대한 자세한 내용은 다음 문서를 참조하세요.
 >
 > * [Azure Storage를 사용하는 HDInsight](hdinsight-hadoop-use-blob-storage.md)
 >

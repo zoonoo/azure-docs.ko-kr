@@ -9,11 +9,11 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 4008779f0ec16bcaf6b995cf7f33d15a8f1e5665
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78190656"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78390341"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-cognitive-search"></a>Azure Cognitive Search에서 패싯 탐색을 구현 하는 방법
 
@@ -38,7 +38,7 @@ ms.locfileid: "78190656"
 
 - [GitHub의 Azure 샘플 리포지토리](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs)에서 코드를 다운로드하세요.
 
-## <a name="get-started"></a>시작
+## <a name="get-started"></a>시작하기
 검색 개발을 처음 접하는 경우 패싯 탐색을 자기 주도형 검색에 대한 가능성을 보여 주는 것이라고 생각하는 것이 가장 좋습니다. 패싯 탐색은 포인트 클릭 동작을 통해 검색 결과의 범위를 신속하게 좁히는 데 사용되는 미리 정의된 필터를 기반으로 하는 드릴다운 검색 환경에 일종입니다. 
 
 ### <a name="interaction-model"></a>상호 작용 모델
@@ -379,7 +379,7 @@ Azure Cognitive Search Job 포털 데모에는이 문서에서 참조 하는 예
 
 1. 데모 앱의 매핑 기능을 사용하려면 [Bing Maps 개발자 센터](https://www.bingmapsportal.com/)에서 Bing Maps 키를 가져옵니다. 가져온 키를 `index.cshtml` 페이지의 기존 키 위에 붙여 넣습니다. `BingApiKey` 파일의 `Web.config` 설정은 사용되지 않습니다. 
 
-2. 응용 프로그램을 실행합니다. 원한다면 대화 상자를 둘러보고 대화 상자를 닫습니다.
+2. 애플리케이션을 실행합니다. 원한다면 대화 상자를 둘러보고 대화 상자를 닫습니다.
    
 3. "분석가" 등의 검색 용어를 입력하고 검색 아이콘을 클릭합니다. 쿼리가 신속하게 실행됩니다.
    
@@ -395,7 +395,7 @@ Azure Cognitive Search Job 포털 데모에는이 문서에서 참조 하는 예
    
 <a name="nextstep"></a>
 
-## <a name="learn-more"></a>자세히
+## <a name="learn-more"></a>자세한 정보
 [Azure Cognitive Search 심층](https://channel9.msdn.com/Events/TechEd/Europe/2014/DBI-B410)조사를 시청 하세요. 45분 25초 구간에 패싯을 구현하는 방법에 대한 데모가 있습니다.
 
 패싯 탐색의 디자인 원칙에 대한 자세한 내용은 다음 링크를 참조하는 것이 좋습니다.
