@@ -251,8 +251,8 @@
       items:
         - name: CLI 사용
           href: create-cli-complete.md
-        - name: 템플릿 사용
-          displayName: 'Azure Resource Manager, ARM'
+        - name: ARM 템플릿 사용
+          displayName: Azure Resource Manager
           href: create-ssh-secured-vm-from-template.md
         - name: REST API 사용
           href: create-vm-rest-api.md
@@ -270,8 +270,9 @@
               href: spot-cli.md
             - name: 포털
               href: ../windows/spot-portal.md?toc=/azure/virtual-machines/linux/toc.json
-            - name: 템플릿
+            - name: ARM 템플릿
               href: spot-template.md
+              displayName: Azure Resource Manager
             - name: 오류 코드
               href: ../error-codes-spot.md?toc=/azure/virtual-machines/linux/toc.json
     - name: 클래식에서 Azure Resource Manager로 마이그레이션
@@ -462,8 +463,9 @@
               href: image-builder-overview.md
             - name: Azure CLI 사용
               href: image-builder.md
-            - name: 템플릿 참조
+            - name: ARM 템플릿 참조
               href: image-builder-json.md
+              displayName: 'ARM,Resource Manager'
             - name: 이미지 갤러리용 빌드
               href: image-builder-gallery.md
             - name: 기존 이미지 업데이트
@@ -631,7 +633,7 @@
               href: attach-disk-portal.md
         - name: 디스크 분리
           href: detach-disk.md
-        - name: 템플릿을 사용하여 디스크 배포
+        - name: ARM 템플릿을 사용하여 디스크 배포
           displayName: 'Azure Resource Manager, ARM'
           href: using-managed-disks-template-deployments.md
         - name: 공유 디스크 사용
@@ -757,9 +759,10 @@
       href: /rest/api/compute
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.compute/allversions
+      displayName: ARM
 - name: 리소스
   items:
-    - name: 작성자 템플릿
+    - name: ARM 템플릿 작성
       displayName: 'Azure Resource Manager, ARM'
       href: /azure/azure-resource-manager/
     - name: Microsoft Learn을 통해 기술 쌓기

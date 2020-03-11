@@ -121,7 +121,7 @@
       href: service-fabric-content-roadmap.md
     - name: 애플리케이션 시나리오
       href: service-fabric-application-scenarios.md
-    - name: 아키텍처
+    - name: Architecture
       href: service-fabric-architecture.md
     - name: 보안
       items:
@@ -145,7 +145,7 @@
               href: service-fabric-containers-overview.md
             - name: Docker Compose(미리 보기)
               href: service-fabric-docker-compose.md
-            - name: 리소스 관리
+            - name: 리소스 거버넌스
               href: service-fabric-resource-governance.md
         - name: Reliable Services
           items:
@@ -177,7 +177,7 @@
           items:
             - name: Reliable Actors 개요
               href: service-fabric-reliable-actors-introduction.md
-            - name: 아키텍처
+            - name: Architecture
               href: service-fabric-reliable-actors-platform.md
             - name: 서비스 수준 기능 구현
               href: service-fabric-reliable-actors-using.md
@@ -296,7 +296,7 @@
           items:
             - name: 클러스터 Resource Manager 개요
               href: service-fabric-cluster-resource-manager-introduction.md
-            - name: 아키텍처
+            - name: Architecture
               href: service-fabric-cluster-resource-manager-architecture.md
             - name: 클러스터 설명
               href: service-fabric-cluster-resource-manager-cluster-description.md
@@ -316,6 +316,8 @@
               href: service-fabric-cluster-resource-manager-defragmentation-metrics.md
             - name: 클러스터 균형 조정
               href: service-fabric-cluster-resource-manager-balancing.md
+            - name: 서브 클러스터링
+              href: service-fabric-cluster-resource-manager-subclustering.md
             - name: 제한
               href: service-fabric-cluster-resource-manager-advanced-throttling.md
             - name: 서비스 이동
@@ -450,7 +452,7 @@
               href: service-fabric-reliable-services-configuration.md
             - name: 알림 보내기
               href: service-fabric-reliable-services-notifications.md
-            - name: Backup 및 복원
+            - name: 백업 및 복원
               href: service-fabric-reliable-services-backup-restore.md
         - name: Reliable Actors 서비스 빌드
           items:
@@ -773,7 +775,7 @@
           href: how-to-managed-identity-service-fabric-app-code.md
         - name: 다른 Azure 리소스에 대한 액세스 권한 부여
           href: how-to-grant-access-other-resources.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: Azure PowerShell
       href: /powershell/module/az.servicefabric/
@@ -880,13 +882,13 @@
       href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric'
     - name: Azure Resource Manager 배포 가드레일
       href: service-fabric-azure-resource-manager-guardrails.md
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/service-fabric/'
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: 릴리스 정보
       href: release-notes.md
-    - name: 샘플 코드
+    - name: 예제 코드
       href: 'https://aka.ms/servicefabricsamples'
     - name: 지원 옵션
       href: service-fabric-support.md

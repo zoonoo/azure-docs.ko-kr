@@ -337,7 +337,8 @@
               href: spot-portal.md
             - name: PowerShell
               href: spot-powershell.md
-            - name: 템플릿
+            - name: ARM 템플릿
+              displayName: Azure Resource Manager
               href: ../linux/spot-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
             - name: 오류 코드
               href: ../error-codes-spot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
@@ -349,16 +350,17 @@
               href: create-vm-specialized-portal.md
             - name: PowerShell
               href: create-vm-specialized.md
-        - name: 'C#과 템플릿 사용'
+        - name: 'C#과 ARM 템플릿 사용'
           href: csharp-template.md
+          displayName: Azure Resource Manager
         - name: Chef로 VM 만들기
           href: ../../chef/chef-automation.md
         - name: Java 사용
           href: java.md
         - name: Python 사용
           href: python.md
-        - name: 템플릿 사용
-          displayName: 'Azure Resource Manager template, ARM'
+        - name: ARM 템플릿 사용
+          displayName: Azure Resource Manager template
           href: ps-template.md
         - name: VM에 연결
           href: connect-logon.md
@@ -473,7 +475,8 @@
           href: change-drive-letter.md
         - name: 가용성 집합 변경
           href: change-availability-set.md
-        - name: 템플릿 다운로드
+        - name: ARM 템플릿 내보내기
+          displayName: Azure Resource Manager
           href: download-template.md
         - name: Azure VM 에이전트
           href: ../extensions/agent-windows.md
@@ -543,7 +546,8 @@
               href: image-builder-gallery-update-image-version.md
             - name: 스크립트 저장
               href: ../linux/image-builder-user-assigned-identity.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-            - name: 템플릿 참조
+            - name: ARM 템플릿 참조
+              displayName: Azure Resource Manager
               href: ../linux/image-builder-json.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: 문제 해결
               href: 'https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md'
@@ -620,7 +624,8 @@
               href: attach-managed-disk-portal.md
         - name: 디스크 분리
           href: detach-disk.md
-        - name: 템플릿을 사용하여 디스크 배포
+        - name: ARM 템플릿을 사용하여 디스크 배포
+          displayName: Azure Resource Manager
           href: using-managed-disks-template-deployments.md
         - name: 공유 디스크 사용
           href: disks-shared-enable.md
@@ -690,6 +695,7 @@
         - name: PowerShell
           href: /azure/active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm?context=azure/virtual-machines/windows/context/windows-vm-context
         - name: Azure Resource Manager 템플릿
+          displayName: ARM
           href: /azure/active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm?context=azure/virtual-machines/windows/context/windows-vm-context
         - name: REST (영문)
           href: /azure/active-directory/managed-identities-azure-resources/qs-configure-rest-vm?context=azure/virtual-machines/windows/context/windows-vm-context
@@ -743,7 +749,8 @@
       href: /azure/templates/microsoft.compute/allversions
 - name: 리소스
   items:
-    - name: 작성자 템플릿
+    - name: ARM 템플릿 작성
+      displayName: Azure Resource Manager
       href: ../../azure-resource-manager/templates/template-syntax.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Microsoft Learn을 통해 기술 쌓기
       href: /learn/browse/?products=azure-virtual-machines
