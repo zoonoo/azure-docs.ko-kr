@@ -118,6 +118,8 @@
                   href: traffic-analytics-faq.md
                 - name: 스키마 및 데이터 집계
                   href: traffic-analytics-schema.md
+                - name: 스키마 업데이트(2019년 8월)
+                  href: traffic-analytics-schema-update.md
             - name: Power BI 사용
               href: network-watcher-visualize-nsg-flow-logs-power-bi.md
             - name: 탄력적 스택 사용

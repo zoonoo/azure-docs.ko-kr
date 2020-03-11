@@ -329,6 +329,8 @@
                       href: restful-technical-profile.md
                     - name: SAML
                       href: saml-technical-profile.md
+                    - name: SAML 토큰 발급자
+                      href: saml-issuer-technical-profile.md
                     - name: 자체 어설션
                       href: self-asserted-technical-profile.md
                     - name: SSO 세션

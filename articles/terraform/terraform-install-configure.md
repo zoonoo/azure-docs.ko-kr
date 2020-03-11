@@ -1,37 +1,27 @@
 ---
-title: Azure 리소스를 프로 비전 하기 위해 Terraform 설치 및 구성
-description: Terraform을 설치하고 구성하여 Azure 리소스를 만드는 방법을 알아봅니다.
-services: virtual-machines-linux
-documentationcenter: virtual-machines
-author: tomarchermsft
-manager: gwallace
-editor: na
-tags: azure-resource-manager
-ms.assetid: ''
-ms.service: virtual-machines-linux
-ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
-ms.date: 09/20/2019
-ms.author: tarcher
-ms.openlocfilehash: 74728fb05e900c534580f1c8eaf14dd0e48fc42c
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
-ms.translationtype: MT
+title: 빠른 시작 - Terraform을 설치하고 구성하여 Azure 리소스 프로비저닝
+description: 이 빠른 시작에서는 Terraform을 설치하고 구성하여 Azure 리소스를 만듭니다.
+keywords: azure devops terraform 설치 구성
+ms.topic: quickstart
+ms.date: 03/09/2020
+ms.openlocfilehash: 82635f59ec8165add2046a230a040b06f89d9898
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77473130"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943513"
 ---
-# <a name="install-and-configure-terraform-to-provision-azure-resources"></a>Azure 리소스를 프로 비전 하기 위해 Terraform 설치 및 구성
+# <a name="quickstart-install-and-configure-terraform-to-provision-azure-resources"></a>빠른 시작: Terraform을 설치하고 구성하여 Azure 리소스 프로비저닝
  
 Terraform은 [간단한 템플릿 언어](https://www.terraform.io/docs/configuration/syntax.html)를 사용하여 클라우드 인프라를 정의, 미리 보기 및 배포하는 쉬운 방법을 제공합니다. 이 문서에서는 Terraform을 사용하여 Azure의 리소스를 프로비전하는 데 필요한 단계를 설명합니다.
 
 Azure에서 Terraform을 사용하는 방법에 대한 자세한 내용은 [Terraform 허브](/azure/terraform)를 참조하세요.
 > [!NOTE]
-> Terraform 특정 지원의 경우 커뮤니티 채널 중 하나를 사용 하 여 Terraform에 직접 문의 하세요.
+> Terraform 관련 지원은 다음과 같은 해당 커뮤니티 채널 중 하나를 사용하여 Terraform에 직접 문의하세요.
 >
->   • 커뮤니티 포털의 [Terraform 섹션](https://discuss.hashicorp.com/c/terraform-core) 에는 질문, 사용 사례 및 유용한 패턴이 포함 됩니다.
+>    * 커뮤니티 포털의 [Terraform 섹션](https://discuss.hashicorp.com/c/terraform-core)에는 질문, 사용 사례 및 유용한 패턴이 포함되어 있습니다.
 >
->   • 공급자 관련 질문에 대해서는 커뮤니티 포털의 [Terraform 공급자](https://discuss.hashicorp.com/c/terraform-providers) 섹션을 참조 하세요.
+>    * 공급자 관련 질문은 커뮤니티 포털의 [Terraform 공급자](https://discuss.hashicorp.com/c/terraform-providers) 섹션을 참조하세요.
 
 
 
@@ -54,13 +44,13 @@ Usage: terraform [--version] [--help] <command> [args]
 
 Terraform에서 Azure로 리소스를 프로비전할 수 있도록 [Azure AD 서비스 사용자](/cli/azure/create-an-azure-service-principal-azure-cli)를 만듭니다. 서비스 사용자는 Azure 구독에서 리소스를 프로비전하는 권한을 Terraform 스크립트에 부여합니다.
 
-여러 Azure 구독이 있는 경우 먼저 [az account list](/cli/azure/account#az-account-list) 를 사용 하 여 계정을 쿼리하여 구독 id 및 테 넌 트 id 값의 목록을 가져옵니다.
+Azure 구독이 여러 개 있는 경우 먼저 [az account list](/cli/azure/account#az-account-list) 명령으로 계정을 쿼리하여 구독 ID 및 테넌트 ID 값을 가져옵니다.
 
 ```azurecli-interactive
 az account list --query "[].{name:name, subscriptionId:id, tenantId:tenantId}"
 ```
 
-선택한 구독을 사용하려면 [az account set](/cli/azure/account#az-account-set) 명령을 사용하여 이 세션에 대한 구독을 설정합니다. 사용하려는 구독에서 반환된 `SUBSCRIPTION_ID` 필드 값을 보유하도록 `id` 환경 변수를 설정합니다.
+선택한 구독을 사용하려면 [az account set](/cli/azure/account#az-account-set) 명령을 사용하여 이 세션에 대한 구독을 설정합니다. 사용하려는 구독에서 반환된 `id` 필드 값을 보유하도록 `SUBSCRIPTION_ID` 환경 변수를 설정합니다.
 
 ```azurecli-interactive
 az account set --subscription="${SUBSCRIPTION_ID}"
@@ -104,6 +94,10 @@ export ARM_ENVIRONMENT=public
 
 ```hcl
 provider "azurerm" {
+  # The "feature" block is required for AzureRM provider 2.x. 
+  # If you are using version 1.x, the "features" block is not allowed.
+  version = "~>2.0"
+  features {}
 }
 resource "azurerm_resource_group" "rg" {
         name = "testResourceGroup"

@@ -3,18 +3,18 @@ title: Azure DevOps Projects 설명서
 summary: Azure DevOps Projects는 기존 코드와 Git 리포지토리를 가져오거나 샘플 애플리케이션 중 하나를 선택하여 Azure에 CI(지속적인 통합) 및 CD(지속적인 업데이트) 파이프라인을 만드는 간소화된 환경을 제공합니다.
 metadata:
   title: Azure DevOps Projects 설명서
-  description: Azure DevOps Projects는 기존 코드와 Git 리포지토리를 가져오거나 샘플 애플리케이션 중 하나를 선택하여 Azure에 CI(지속적인 통합) 및 CD(지속적인 업데이트) 파이프라인을 만드는 간소화된 환경을 제공합니다.
+  description: 기존 코드와 Git 리포지토리를 가져오거나 샘플 앱을 선택하여 Azure에 CI(지속적인 통합) 및 CD(지속적인 업데이트) 파이프라인을 만듭니다.
   ms.service: devops-project
   ms.topic: landing-page
   author: 
   ms.author: 
   ms.date: 03/05/2020
-  ms.openlocfilehash: 0c67ed2fdffd80c447608348429985477dd426df
-  ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+  ms.openlocfilehash: f03a03b353ffa0d0562169a51a2552c2f2ab143b
+  ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 03/06/2020
-  ms.locfileid: "78674189"
+  ms.lasthandoff: 03/09/2020
+  ms.locfileid: "78942467"
 landingContent:
 - title: Azure DevOps Projects 정보
   linkLists:

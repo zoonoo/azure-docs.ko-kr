@@ -223,6 +223,9 @@
       href: stream-analytics-scale-with-machine-learning-functions.md
 - name: Stream Analytics 쿼리 언어
   items:
+    - name: Stream Analytics 쿼리 언어 개요
+      href: /stream-analytics-query/stream-analytics-query-language-reference
+      maintainContext: true
     - name: 기본 제공 함수
       items:
         - name: 기본 제공 함수 개요

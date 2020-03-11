@@ -66,39 +66,39 @@
         - name: 리소스 관리
           href: How-To/set-up-qnamaker-service-azure.md
           displayName: 'azure, resource, key, upgrade, pricing, tier,'
-        - name: 분석 가져오기
-          href: How-To/get-analytics-knowledge-base.md
         - name: 비즈니스 연속성 계획 만들기
           href: How-To/business-continuity-plan.md
     - name: 기술 자료 관리
       items:
-        - name: QnA Maker 및 LUIS로 봇 만들기
-          href: Tutorials/integrate-qnamaker-luis.md
+        - name: 기술 자료 만들기
+          href: Quickstarts/create-publish-knowledge-base.md
         - name: 언어 선택
           href: How-To/language-knowledge-base.md
-        - name: 기술 자료 마이그레이션
-          href: Tutorials/migrate-knowledge-base.md
-          displayName: 'metadata, pair'
-        - name: 기술 자료에 대한 공동 작업
-          href: How-To/collaborate-knowledge-base.md
-        - name: 기술 자료 테스트
-          href: How-To/test-knowledge-base.md
-        - name: 활성 학습을 사용하여 기술 자료 개선
-          href: How-to/improve-knowledge-base.md
-          displayName: 'active learning, suggestion, dialog prompt, train api, feedback loop, autolearn, auto-learn, user setting, service setting, services setting, accept, reject, filter by suggestion, filter active learning, clusterHead, totalAutoSuggestedCount, totalUserSuggestedCount, autoSuggestedCount, userSuggestedCount'
-        - name: 기술 자료 편집
-          href: How-To/edit-knowledge-base.md
-        - name: 후속 프롬프트로 다중 턴 대화 만들기
-          href: How-To/multiturn-conversation.md
-          displayName: 'multi-turn dialogs, parent question, child question, filtering, metadata, state, context, prompt, follow-up, followup, flow, conversation, previous question'
         - name: 잡담 추가
           href: How-to/chit-chat-knowledge-base.md
+        - name: 새 기술 자료로 마이그레이션
+          href: Tutorials/migrate-knowledge-base.md
+          displayName: 'metadata, pair'
+        - name: 공동 작업
+          href: How-To/collaborate-knowledge-base.md
+        - name: 테스트
+          href: How-To/test-knowledge-base.md
+    - name: QnA 세트 관리
+      items:
+        - name: 기술 자료 편집
+          href: How-To/edit-knowledge-base.md
+        - name: 후속 프롬프트 추가
+          href: How-To/multiturn-conversation.md
+          displayName: 'multi-turn dialogs, parent question, child question, filtering, metadata, state, context, prompt, follow-up, followup, flow, conversation, previous question'
+        - name: 제안된 대체 질문 가져오기
+          href: How-to/improve-knowledge-base.md
+          displayName: 'active learning, suggestion, dialog prompt, train api, feedback loop, autolearn, auto-learn, user setting, service setting, services setting, accept, reject, filter by suggestion, filter active learning, clusterHead, totalAutoSuggestedCount, totalUserSuggestedCount, autoSuggestedCount, userSuggestedCount'
         - name: 보안 SharePoint 파일 추가
           href: How-To/add-sharepoint-datasources.md
           displayName: 'Sharepoint, secure, AAD, azure directory, admin, permission, authorization, file, authentication'
-        - name: 기술 자료 쿼리
-          href: How-To/metadata-generateanswer-usage.md
-          displayName: 'isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters, GenerateAnswer, API, answer, RankerType, id, text, question, context, 200, 2xx, 400, 401, 403, 404'
+    - name: 기술 자료 쿼리
+      href: How-To/metadata-generateanswer-usage.md
+      displayName: 'isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters, GenerateAnswer, API, answer, RankerType, id, text, question, context, 200, 2xx, 400, 401, 403, 404'
     - name: 클라이언트 애플리케이션과 함께 사용
       items:
         - name: LUIS 및 QnA Maker

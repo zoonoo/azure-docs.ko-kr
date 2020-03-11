@@ -213,6 +213,8 @@
               items:
                 - name: 클라이언트 쪽 JavaScript
                   href: app/javascript.md
+                - name: JavaScript 소스 맵
+                  href: app/source-map-support.md
             - name: Application Insights API 요약
               displayname: 'SDK, API, custom events, custom metrics, trackevent,trackmetric, getmetric, trackrequest, trackexception, tracktrace, trackdependency'
               href: app/api-custom-events-metrics.md
@@ -933,7 +935,7 @@
                       href: platform/workbooks-time.md
                     - name: 텍스트 매개 변수
                       href: platform/workbooks-text.md
-        - name: 뷰
+        - name: 보기
           items:
             - name: 뷰를 통합 문서로 변환
               items:
@@ -1005,6 +1007,8 @@
               href: platform/alerts-activity-log.md
             - name: 관리 이벤트를 활동 로그 경고로 마이그레이션
               href: platform/migrate-management-alerts.md
+            - name: 웹후크 스키마
+              href: platform/activity-log-alerts-webhook.md
         - name: 활동 로그의 서비스 상태 경고
           items:
             - name: 알림 확인
@@ -1023,8 +1027,6 @@
               href: platform/alerts-common-schema-definitions.md
             - name: 일반 경고 스키마를 Logic Apps와 통합
               href: platform/alerts-common-schema-integrations.md
-            - name: 웹후크 스키마
-              href: platform/activity-log-alerts-webhook.md
             - name: SMS 경고 동작
               href: platform/alerts-sms-behavior.md
             - name: 알림 속도 제한
@@ -1133,7 +1135,7 @@
               href: insights/solutions-resources-automation.md
             - name: 로그 검색 및 경고
               href: insights/solutions-resources-searches-alerts.md
-            - name: 뷰
+            - name: 보기
               href: insights/solutions-resources-views.md
             - name: 모범 사례
               href: insights/solutions-best-practices.md

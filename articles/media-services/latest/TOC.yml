@@ -7,6 +7,11 @@
     - name: Media Services의 새로운 기능
       displayName: release notes
       href: release-notes.md
+- name: 빠른 시작
+  items:
+    - name: 포털과 Wirecast를 사용하는 라이브 이벤트
+      displayName: 'live, event, portal, wirecast'
+      href: live-events-wirecast-quickstart.md
 - name: 자습서
   expanded: true
   items:
@@ -189,10 +194,10 @@
     - name: 고가용성
       items:
         - name: Encoding
-          displayName: 'failover, bcdr'
+          displayName: 'failover, bcdr, HA, high availability'
           href: media-services-high-availability-encoding.md
         - name: 스트리밍
-          displayName: 'failover, bcdr'
+          displayName: 'failover, bcdr, HA, high availability'
           href: media-services-high-availability-streaming.md
     - name: v2에서 v3로의 마이그레이션 지침
       href: migrate-from-v2-to-v3.md
