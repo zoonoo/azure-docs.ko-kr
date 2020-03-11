@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: keli19
-author: likebupt
+ms.author: sihhu
+author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 02/27/2020
 ms.custom: seodec18
-ms.openlocfilehash: 5527d58f140074279d6b9feac13803f29eb0bda5
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 36d622bf2873b7e629a0f6abeecded33e32898f5
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78396209"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082088"
 ---
 # <a name="access-data-in-azure-storage-services"></a>Azure storage 서비스의 데이터에 액세스
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -25,7 +25,7 @@ ms.locfileid: "78396209"
 
 [이러한 Azure Storage 솔루션](#matrix)에서 데이터 저장소를 만들 수 있습니다. 지원 되지 않는 저장소 솔루션의 경우 machine learning 실험 중에 데이터 송신 비용을 절약 하려면 지원 되는 Azure Storage 솔루션으로 [데이터를 이동](#move) 하는 것이 좋습니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 필요한 사항:
 - Azure 구독 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning의 무료 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
@@ -272,7 +272,7 @@ run_config.source_directory_data_store = "workspaceblobstore"
 
 Azure Machine Learning에서는 모델을 사용 하 여 점수를 매기는 여러 가지 방법을 제공 합니다. 이러한 메서드 중 일부는 datastores에 대 한 액세스를 제공 하지 않습니다. 다음 표를 사용 하 여 점수 매기기 중에 데이터 저장소에 액세스할 수 있는 방법을 알아봅니다.
 
-| 방법 | 데이터 저장소 액세스 | 설명 |
+| 방법 | 데이터 저장소 액세스 | Description |
 | ----- | :-----: | ----- |
 | [일괄 처리 예측](how-to-use-parallel-run-step.md) | ✔ | 많은 양의 데이터를 비동기적으로 예측 합니다. |
 | [웹 서비스](how-to-deploy-and-where.md) | &nbsp; | 모델을 웹 서비스로 배포 합니다. |

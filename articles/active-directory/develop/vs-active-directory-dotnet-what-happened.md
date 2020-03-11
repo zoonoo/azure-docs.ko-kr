@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
-ms.openlocfilehash: 0f426e7a87204acd4be6529f7dd11a954f23491a
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: ac38adba4ca0d978dd48a546bed1b1faf4fe40fe
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77159474"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79036963"
 ---
 # <a name="what-happened-to-my-mvc-project-visual-studio-azure-active-directory-connected-service"></a>내 MVC 프로젝트(Visual Studio Azure Active Directory 연결된 서비스)의 변경 내용
 
@@ -24,13 +24,13 @@ ms.locfileid: "77159474"
 > - [시작](vs-active-directory-dotnet-getting-started.md)
 > - [변경된 내용](vs-active-directory-dotnet-what-happened.md)
 
-이 아티클에서는 [Visual Studio를 사용하여 Azure Active Directory의 연결된 서비스](vs-active-directory-add-connected-service.md)를 추가할 때 ASP.NET MVC 프로젝트에 대한 정확한 변경 내용을 설명합니다.
+이 문서에서는 [Visual Studio를 사용 하 여 Azure Active Directory 연결 된 서비스](vs-active-directory-add-connected-service.md)를 추가할 때 ASP.NET MVC 프로젝트에 대 한 정확한 변경 내용을 확인 합니다.
 
 연결된 서비스를 사용한 작업에 대한 자세한 내용은 [시작](vs-active-directory-dotnet-getting-started.md)을 참조하세요.
 
 ## <a name="added-references"></a>추가된 참조
 
-프로젝트 파일(*.NET 참조) 및 `packages.config`(NuGet 참조)에 영향을 줍니다.
+프로젝트 파일 (* .NET 참조) 및 `packages.config` (NuGet 참조)에 영향을 줍니다.
 
 | Type | 참조 |
 | --- | --- |

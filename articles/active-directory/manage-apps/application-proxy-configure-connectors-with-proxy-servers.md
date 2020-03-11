@@ -12,12 +12,12 @@ ms.date: 05/21/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d305f3354e7b1af6d43f31f0dd5fe9f54ef3e66f
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: 5d7c7d9f6d59ffd57ddb14f7c060d0a3f6f2a6eb
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73242285"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78967748"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>기존 온-프레미스 프록시 서버 작업
 
@@ -113,8 +113,8 @@ OS 구성 요소는 wpad.domainsuffix에 대한 DNS 조회를 수행하여 프�
 | URL | 사용 방법 |
 | --- | --- |
 | \*.msappproxy.net<br>\*.servicebus.windows.net | 커넥터와 애플리케이션 프록시 클라우드 서비스 간의 통신 |
-| mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | Azure에서는 다음과 같은 URL을 사용하여 인증서를 확인합니다. |
-| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>*. microsoftonline.com<br>* microsoftonline-p.com<br>*. msauth.net<br>* msauthimages.net<br>*. msecnd.net<br>* msftauth.net<br>*. msftauthimages.net<br>* phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net | 커넥터는 등록 프로세스 동안 다음과 같은 URL을 사용합니다. |
+| mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | 커넥터는 이러한 Url을 사용 하 여 인증서를 확인 합니다. |
+| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>*. microsoftonline.com<br>* microsoftonline-p.com<br>*. msauth.net<br>* msauthimages.net<br>*. msecnd.net<br>* msftauth.net<br>*. msftauthimages.net<br>* phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctdl.windowsupdate.com:80 | 커넥터는 등록 프로세스 동안 다음과 같은 URL을 사용합니다. |
 
 방화벽이 나 프록시를 사용 하 여 DNS 허용 목록을 구성할 수 있는 경우 msappproxy.net 및 servicebus.windows.net에 \*대 \*한 연결을 허용할 수 있습니다. 그렇지 않으면 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)에 대한 액세스를 허용해야 합니다. IP 범위는 매주 업데이트됩니다.
 

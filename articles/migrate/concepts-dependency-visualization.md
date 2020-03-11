@@ -3,12 +3,12 @@ title: Azure Migrate의 종속성 시각화
 description: 에서 서버 평가 서비스의 평가 계산에 대 한 개요를 제공 Azure Migrate
 ms.topic: conceptual
 ms.date: 02/24/2020
-ms.openlocfilehash: f24656d02e19f422ff26e6b06d1631a9128dff43
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: fd069ed98fa34fd6f281c98a061925f96c7bb2cd
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78362204"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082630"
 ---
 # <a name="dependency-visualization"></a>종속성 시각화
 
@@ -55,7 +55,7 @@ ms.locfileid: "78362204"
 **지원되는 운영 체제** | 에이전트 없는 시각화에 대해 지원 되는 [운영 체제](migrate-support-matrix-vmware.md#agentless-dependency-visualization) 를 검토 합니다.
 **VM** | **Vmware 도구**: vmware 도구를 설치 하 고 분석 하려는 vm에 실행 해야 합니다.<br/><br/> **계정**: Azure Migrate 어플라이언스에서 분석을 위해 vm에 액세스 하는 데 사용할 수 있는 사용자 계정을 추가 해야 합니다.<br/><br/> **Windows vm**: 사용자 계정은 컴퓨터의 로컬 또는 도메인 관리자 여야 합니다.<br/><br/> **Linux vm**: 계정에 루트 권한이 필요 합니다. 또는 사용자 계정에/bin/netstat 및/bin/ls 파일에 대 한 두 가지 기능 (CAP_DAC_READ_SEARCH 및 CAP_SYS_PTRACE이 필요 합니다. | Azure Migrate 어플라이언스 [에 대해 알아봅니다](migrate-appliance.md) .
 **VMware** | **vCenter**: 어플라이언스에는 읽기 전용 액세스 권한이 있는 VCenter Server 계정과 게스트 작업을 Virtual Machines >는 데 사용할 수 있는 권한이 필요 합니다.<br/><br/> **ESXi 호스트**: 분석 하려는 vm을 실행 하는 ESXi 호스트에서 Azure Migrate 어플라이언스는 TCP 포트 443에 연결할 수 있어야 합니다.
-**수집된 데이터** |  에이전트 없는 종속성 시각화는 사용 하도록 설정 된 컴퓨터에서 TCP 연결 데이터를 캡처하여 작동 합니다. 종속성 검색이 시작 된 후 어플라이언스는 5 분 마다 폴링하여 컴퓨터에서이 데이터를 수집 합니다.<br/> -TCP 연결<br/> -활성 연결이 있는 프로세스의 이름입니다.<br/> -활성 연결을 사용 하 여 프로세스를 실행 하는 설치 된 응용 프로그램의 이름입니다.<br/> -폴링 간격 마다 검색 된 연결 수입니다.
+**수집된 데이터** |  에이전트 없는 종속성 분석은 사용 하도록 설정 된 컴퓨터에서 TCP 연결 데이터를 캡처하여 작동 합니다. 종속성 검색을 사용 하도록 설정 하면 어플라이언스는 게스트 Vm에서 5 분 마다 TCP 연결 데이터를 수집 합니다. 이 데이터는 vSphere Api를 사용 하 여 vCenter Server 통해 게스트 Vm에서 수집 됩니다. 수집 된 데이터는 종속성 정보를 추론 하 고 6 시간 마다 Azure Migrate 전송 하기 위해 어플라이언스에서 처리 됩니다. 각 컴퓨터에서 수집 되는 데이터는 다음과 같습니다. <br/> -활성 연결이 있는 프로세스의 이름입니다.<br/> -활성 연결을 사용 하 여 프로세스를 실행 하는 응용 프로그램의 이름입니다.<br/> -활성 연결의 대상 포트입니다.
 
 
 ## <a name="next-steps"></a>다음 단계

@@ -6,14 +6,14 @@ manager: nitinme
 description: 모든 인지 서비스 제공에 대 한 컨테이너 레지스트리, 리포지토리 및 이미지 이름을 나타내는 두 테이블
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 01/10/2020
+ms.date: 03/10/2020
 ms.author: dapine
-ms.openlocfilehash: 7c229ea306d89f85fb37a68fc84e3e4f6770e5ad
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 55a3bb5f894d3ab753cfec64687abc9c7cae53cb
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75866926"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082387"
 ---
 ### <a name="container-repositories-and-images"></a>컨테이너 리포지토리 및 이미지
 
@@ -29,8 +29,8 @@ MCR (Microsoft Container Registry)은 Cognitive Services에 대해 공개적으�
 | 서비스 | 컨테이너 | Container Registry/리포지토리/이미지 이름 |
 |--|--|--|
 | [LUIS](../../LUIS/luis-container-howto.md) | LUIS | `mcr.microsoft.com/azure-cognitive-services/luis` |
-| [텍스트 분석](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | 핵심 구 추출 | `mcr.microsoft.com/azure-cognitive-services/keyphrase` |
-| [텍스트 분석](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | 언어 감지 | `mcr.microsoft.com/azure-cognitive-services/language` |
+| [텍스트 분석](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | 핵심 문구 추출 | `mcr.microsoft.com/azure-cognitive-services/keyphrase` |
+| [텍스트 분석](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | 언어 검색 | `mcr.microsoft.com/azure-cognitive-services/language` |
 | [텍스트 분석](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | 감정 분석 | `mcr.microsoft.com/azure-cognitive-services/sentiment` |
 
 #### <a name="public-gated-preview-container-registry-containerpreviewazurecrio"></a>공용 "제어 된" 미리 보기 (컨테이너 레지스트리: `containerpreview.azurecr.io`)

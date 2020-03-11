@@ -3,13 +3,13 @@ title: Azure Kubernetes Service에서 여러 노드 풀 사용 (AKS)
 description: Azure Kubernetes 서비스 (AKS)에서 클러스터에 대 한 여러 노드 풀을 만들고 관리 하는 방법을 알아봅니다.
 services: container-service
 ms.topic: article
-ms.date: 02/14/2020
-ms.openlocfilehash: 3e0890a0e8600526da2047cabc0b50af8177ea37
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.date: 03/10/2020
+ms.openlocfilehash: cf127cc75377c3ca3a18cdeaedbc1d450d6c3826
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78374505"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79081877"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스 (AKS)에서 클러스터에 대 한 여러 노드 풀 만들기 및 관리
 
@@ -33,8 +33,8 @@ Azure CLI 버전 2.0.76 이상이 설치 및 구성 되어 있어야 합니다. 
 * AKS 클러스터는 표준 SKU 부하 분산 장치를 사용 하 여 여러 노드 풀을 사용 해야 합니다 .이 기능은 기본 SKU 부하 분산 장치에서 지원 되지 않습니다.
 * AKS 클러스터는 노드에 대 한 가상 머신 확장 집합을 사용 해야 합니다.
 * 노드 풀의 이름에는 소문자 영숫자만 사용할 수 있으며 소문자 문자로 시작 해야 합니다. Linux 노드 풀의 경우 길이는 1 자에서 12 자 사이 여야 하 고 Windows 노드 풀의 길이는 1에서 6 자 사이 여야 합니다.
-* 모든 노드 풀은 동일한 vnet 및 서브넷에 있어야 합니다.
-* 클러스터를 만들 때 여러 노드 풀을 만들 때 노드 풀에서 사용 하는 모든 Kubernetes 버전은 제어 평면에 대해 설정 된 버전과 일치 해야 합니다. 이는 클러스터를 프로 비전 한 후 노드당 풀 작업을 사용 하 여 업데이트할 수 있습니다.
+* 모든 노드 풀은 동일한 가상 네트워크 및 서브넷에 있어야 합니다.
+* 클러스터를 만들 때 여러 노드 풀을 만들 때 노드 풀에서 사용 하는 모든 Kubernetes 버전은 제어 평면에 대해 설정 된 버전과 일치 해야 합니다. 이 버전은 노드 단위 풀 작업을 사용 하 여 클러스터를 프로 비전 한 후 업데이트할 수 있습니다.
 
 ## <a name="create-an-aks-cluster"></a>AKS 클러스터 만들기
 
@@ -195,11 +195,11 @@ AKS 클러스터에는 Kubernetes 버전이 연결 된 두 개의 클러스터 �
 
 컨트롤 평면은 하나 이상의 노드 풀에 매핑됩니다. 업그레이드 작업의 동작은 사용 되는 Azure CLI 명령에 따라 달라 집니다.
 
-AKS 제어 평면을 업그레이드 하려면 `az aks upgrade`를 사용 해야 합니다. 그러면 클러스터에 있는 모든 노드 풀 및 제어 평면 버전이 업그레이드 됩니다. 
+AKS 제어 평면을 업그레이드 하려면 `az aks upgrade`를 사용 해야 합니다. 이 명령은 클러스터의 제어 평면 버전과 모든 노드 풀을 업그레이드 합니다.
 
 `--control-plane-only` 플래그를 사용 하 여 `az aks upgrade` 명령을 실행 하면 클러스터 제어 평면만 업그레이드 됩니다. 클러스터에 연결 된 노드 풀이 모두 변경 되지 않았습니다.
 
-개별 노드 풀을 업그레이드 하려면 `az aks nodepool upgrade`를 사용 해야 합니다. 지정 된 Kubernetes 버전을 사용 하 여 대상 노드 풀만 업그레이드 합니다.
+개별 노드 풀을 업그레이드 하려면 `az aks nodepool upgrade`를 사용 해야 합니다. 이 명령은 지정 된 Kubernetes 버전을 사용 하 여 대상 노드 풀만 업그레이드 합니다.
 
 ### <a name="validation-rules-for-upgrades"></a>업그레이드에 대 한 유효성 검사 규칙
 
@@ -212,7 +212,7 @@ AKS 제어 평면을 업그레이드 하려면 `az aks upgrade`를 사용 해야
 
 * 업그레이드 작업을 제출 하기 위한 규칙:
    * 제어 평면이 나 노드 풀 Kubernetes 버전을 다운 그레이드할 수 없습니다.
-   * Node pool Kubernetes version을 지정 하지 않은 경우 동작은 사용 되는 클라이언트에 따라 달라 집니다. 리소스 관리자 템플릿의 선언은 사용 되는 경우 노드 풀에 대해 정의 된 기존 버전으로 대체 됩니다. 설정 되지 않은 경우에는 제어 평면 버전이 사용 됩니다.
+   * Node pool Kubernetes version을 지정 하지 않은 경우 동작은 사용 되는 클라이언트에 따라 달라 집니다. 리소스 관리자 템플릿의 선언은 사용 되는 경우 노드 풀에 대해 정의 된 기존 버전으로 대체 됩니다. 설정 된 항목이 없으면 제어 평면 버전이 사용 됩니다.
    * 지정 된 시간에 제어 평면 또는 노드 풀을 업그레이드 하거나 크기를 조정할 수 있습니다. 단일 제어 평면이 나 노드 풀 리소스에 대해 동시에 여러 작업을 제출할 수 없습니다.
 
 ## <a name="scale-a-node-pool-manually"></a>수동으로 노드 풀 크기 조정
@@ -449,12 +449,50 @@ Events:
 
 이 taint가 적용 된 pod만 *gpunodepool*의 노드에서 예약할 수 있습니다. 다른 pod는 *nodepool1* 노드 풀에서 예약 됩니다. 추가 노드 풀을 만드는 경우 추가 taints 및 tolerations를 사용 하 여 해당 노드 리소스에서 예약할 수 있는 pod를 제한할 수 있습니다.
 
-## <a name="specify-a-tag-for-a-node-pool"></a>노드 풀의 태그 지정
+## <a name="specify-a-taint-label-or-tag-for-a-node-pool"></a>노드 풀의 taint, 레이블 또는 태그 지정
 
-AKS 클러스터의 노드 풀에 Azure 태그를 적용할 수 있습니다. 노드 풀에 적용 되는 태그는 노드 풀 내의 각 노드에 적용 되며 업그레이드를 통해 유지 됩니다. 또한 확장 작업 중에 노드 풀에 추가 된 새 노드에 태그가 적용 됩니다. 태그를 추가 하면 정책 추적 또는 비용 예측과 같은 작업에 도움이 될 수 있습니다.
+노드 풀을 만들 때 해당 노드 풀에 taints, 레이블 또는 태그를 추가할 수 있습니다. Taint, label 또는 tag를 추가 하면 해당 노드 풀 내의 모든 노드에는 해당 taint, label 또는 tag도 표시 됩니다.
+
+Taint를 사용 하 여 노드 풀을 만들려면 [az aks nodepool add][az-aks-nodepool-add]를 사용 합니다. *Taintnp* 이름을 지정 하 고 `--node-taints` 매개 변수를 사용 하 여 *sku = Gpu: noschedule* for taint를 지정 합니다.
+
+```azurecli-interactive
+az aks nodepool add \
+    --resource-group myResourceGroup \
+    --cluster-name myAKSCluster \
+    --name taintnp \
+    --node-count 1 \
+    --node-taints sku=gpu:NoSchedule \
+    --no-wait
+```
+
+[Az aks nodepool list][az-aks-nodepool-list] 명령의 다음 예제 출력에서는 *taintnp* 가 지정 된 *nodeTaints*를 사용 하 여 노드를 *생성* 하 고 있음을 보여 줍니다.
+
+```console
+$ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
+
+[
+  {
+    ...
+    "count": 1,
+    ...
+    "name": "taintnp",
+    "orchestratorVersion": "1.15.7",
+    ...
+    "provisioningState": "Creating",
+    ...
+    "nodeTaints":  {
+      "sku": "gpu:NoSchedule"
+    },
+    ...
+  },
+ ...
+]
+```
+
+Taint 정보는 노드에 대 한 예약 규칙을 처리 하기 위해 Kubernetes에 표시 됩니다.
 
 > [!IMPORTANT]
-> 노드 풀 태그를 사용 하려면 *aks-preview* CLI extension version 0.4.29 이상이 필요 합니다. [Az extension add][az-extension-add] 명령을 사용 하 여 *aks-preview* Azure CLI 확장을 설치한 다음 [az extension update][az-extension-update] 명령을 사용 하 여 사용 가능한 업데이트를 확인 합니다.
+> 노드 풀 레이블 및 태그를 사용 하려면 *aks-preview* CLI extension version 0.4.35 이상이 필요 합니다. [Az extension add][az-extension-add] 명령을 사용 하 여 *aks-preview* Azure CLI 확장을 설치한 다음 [az extension update][az-extension-update] 명령을 사용 하 여 사용 가능한 업데이트를 확인 합니다.
 > 
 > ```azurecli-interactive
 > # Install the aks-preview extension
@@ -464,7 +502,51 @@ AKS 클러스터의 노드 풀에 Azure 태그를 적용할 수 있습니다. �
 > az extension update --name aks-preview
 > ```
 
-[Az aks node pool add][az-aks-nodepool-add]를 사용 하 여 노드 풀을 만듭니다. *Tagnodepool* 이름을 지정 하 고 `--tag` 매개 변수를 사용 하 여 *부서 = IT* 및 *costcenter = 9999* 를 태그에 지정 합니다.
+노드 풀을 만드는 동안 노드 풀에 레이블을 추가할 수도 있습니다. 노드 풀에 설정 된 레이블은 노드 풀의 각 노드에 추가 됩니다. 이러한 레이블은 노드에 대 한 일정 규칙을 처리 하 [는 Kubernetes에 표시 됩니다][kubernetes-labels] .
+
+레이블을 사용 하 여 노드 풀을 만들려면 [az aks nodepool add][az-aks-nodepool-add]를 사용 합니다. 이름 *labelnp* 를 지정 하 고 `--labels` 매개 변수를 사용 하 여 레이블에 대해 *dept = IT* 및 *costcenter = 9999* 를 지정 합니다.
+
+```azurecli-interactive
+az aks nodepool add \
+    --resource-group myResourceGroup \
+    --cluster-name myAKSCluster \
+    --name labelnp \
+    --node-count 1 \
+    --labels dept=IT costcenter=9999 \
+    --no-wait
+```
+
+> [!NOTE]
+> 노드 풀을 만드는 동안에는 노드 풀에 대해서만 레이블을 설정할 수 있습니다. 또한 레이블은 키/값 쌍 이어야 하며 [유효한 구문을][kubernetes-label-syntax]포함 해야 합니다.
+
+[Az aks nodepool list][az-aks-nodepool-list] 명령의 다음 예제 출력에서는 지정 된 *Nodelabels*를 사용 하 여 *Labelnp* 에서 노드를 *만드는* 것을 보여 줍니다.
+
+```console
+$ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
+
+[
+  {
+    ...
+    "count": 1,
+    ...
+    "name": "labelnp",
+    "orchestratorVersion": "1.15.7",
+    ...
+    "provisioningState": "Creating",
+    ...
+    "nodeLabels":  {
+      "dept": "IT",
+      "costcenter": "9999"
+    },
+    ...
+  },
+ ...
+]
+```
+
+AKS 클러스터의 노드 풀에 Azure 태그를 적용할 수 있습니다. 노드 풀에 적용 되는 태그는 노드 풀 내의 각 노드에 적용 되며 업그레이드를 통해 유지 됩니다. 또한 확장 작업 중에 노드 풀에 추가 된 새 노드에 태그가 적용 됩니다. 태그를 추가 하면 정책 추적 또는 비용 예측과 같은 작업에 도움이 될 수 있습니다.
+
+[Az aks nodepool add][az-aks-nodepool-add]를 사용 하 여 노드 풀을 만듭니다. *Tagnodepool* 이름을 지정 하 고 `--tag` 매개 변수를 사용 하 여 *부서 = IT* 및 *costcenter = 9999* 를 태그에 지정 합니다.
 
 ```azurecli-interactive
 az aks nodepool add \
@@ -617,13 +699,13 @@ az group deployment create \
 > [!WARNING]
 > 노드 당 공용 IP를 할당 하는 미리 보기 중에 VM 프로 비전과 충돌 하는 가능한 부하 분산 장치 규칙으로 인해 *AKS의 표준 LOAD BALANCER SKU* 와 함께 사용할 수 없습니다. 이러한 제한으로 인해 Windows 에이전트 풀은이 미리 보기 기능에서 지원 되지 않습니다. 미리 보기 중에는 노드당 공용 IP를 할당 해야 하는 경우 *기본 LOAD BALANCER SKU* 를 사용 해야 합니다.
 
-AKS 노드에는 통신에 고유한 공용 IP 주소가 필요 하지 않습니다. 그러나 경우에 따라 노드 풀의 노드에 고유한 공용 IP 주소가 있어야 합니다. 예를 들어 콘솔에서 클라우드 가상 컴퓨터에 직접 연결 하 여 홉을 최소화 해야 하는 게임이 있습니다. 이는 별도의 미리 보기 기능인 노드 공용 IP (미리 보기)를 등록 하 여 수행할 수 있습니다.
+AKS 노드에는 통신에 고유한 공용 IP 주소가 필요 하지 않습니다. 그러나 경우에 따라 노드 풀의 노드에 고유한 공용 IP 주소가 있어야 합니다. 예를 들어 콘솔에서 클라우드 가상 컴퓨터에 직접 연결 하 여 홉을 최소화 해야 하는 게임이 있습니다. 별도의 미리 보기 기능인 노드 공용 IP (미리 보기)를 등록 하 여이 시나리오를 구현할 수 있습니다.
 
 ```azurecli-interactive
 az feature register --name NodePublicIPPreview --namespace Microsoft.ContainerService
 ```
 
-등록에 성공 하면 [위와](#manage-node-pools-using-a-resource-manager-template) 동일한 지침에 따라 Azure Resource Manager 템플릿을 배포 하 고 agentpoolprofiles에 `enableNodePublicIP` 부울 값 속성을 추가 합니다. 값을 기본적으로 `true`로 설정 합니다. 지정 하지 않으면 `false`로 설정 됩니다. 이는 생성 시간 전용 속성 이며 최소 API 버전 2019-06-01이 필요 합니다. 이는 Linux 및 Windows 노드 풀 모두에 적용할 수 있습니다.
+등록에 성공 하면 [위와](#manage-node-pools-using-a-resource-manager-template) 동일한 지침에 따라 Azure Resource Manager 템플릿을 배포 하 고 agentpoolprofiles에 `enableNodePublicIP` 부울 값 속성을 추가 합니다. 값을 기본적으로 `true`로 설정 합니다. 지정 하지 않으면 `false`로 설정 됩니다. 이 속성은 생성 시간 전용 속성 이며 최소 API 버전 2019-06-01이 필요 합니다. 이는 Linux 및 Windows 노드 풀 모두에 적용할 수 있습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -652,6 +734,8 @@ Windows Server 컨테이너 노드 풀을 만들고 사용 하려면 [AKS에서 
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-taint]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#taint
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
+[kubernetes-labels]: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
+[kubernetes-label-syntax]: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#syntax-and-character-set
 
 <!-- INTERNAL LINKS -->
 [aks-windows]: windows-container-cli.md

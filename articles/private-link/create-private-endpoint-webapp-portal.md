@@ -8,12 +8,12 @@ ms.date: 03/12/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.openlocfilehash: f19e4e34b2ec8cebc9e1841f277f26fba941bb89
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: bb78536326885e043279de1ff77e6e8efcd95193
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78673890"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79037145"
 ---
 # <a name="connect-privately-to-a-web-app-using-azure-private-endpoint-preview"></a>Azure 개인 끝점 (미리 보기)을 사용 하 여 개인적으로 웹 앱에 연결
 
@@ -73,6 +73,9 @@ Azure 개인 끝점은 Azure의 개인 링크에 대 한 기본 빌딩 블록입
 ## <a name="create-your-web-app-and-private-endpoint"></a>웹 앱 및 개인 끝점 만들기
 
 이 섹션에서는 개인 끝점을 사용 하 여 개인 웹 앱을 만듭니다.
+
+> [!Note]
+>개인 끝점 기능은 Premium v 2에만 사용할 수 있으며 외부 ASE SKU와 격리 되어 있습니다.
 
 ### <a name="web-app"></a>웹앱
 

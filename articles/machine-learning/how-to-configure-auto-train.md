@@ -9,14 +9,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 03/09/2020
 ms.custom: seodec18
-ms.openlocfilehash: 7018100c830f22c3ed5e924b5096911b1f8135cb
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: c3ea40ed02fd6b585cfdc9c30fe59bd4e247395c
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78942337"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79081831"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Python에서 자동화 된 ML 실험 구성
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -130,8 +130,8 @@ automl_config = AutoMLConfig(task = "classification")
 ## <a name="compute-to-run-experiment"></a>실험 실행 컴퓨팅
 
 다음으로, 모델을 학습할 위치를 결정합니다. 자동화된 Machine Learning 실험은 다음 컴퓨팅 옵션에서 실행할 수 있습니다.
-*   로컬 데스크톱 또는 랩톱과 같은 로컬 머신 - 일반적으로 데이터 세트가 작고 아직 탐색 단계에 있는 경우입니다.
-*   클라우드의 원격 머신 - [Azure Machine Learning Managed Compute](concept-compute-target.md#amlcompute)는 Azure Virtual Machines 클러스터에서 Machine Learning 모델을 학습할 수 있도록 하는 관리형 서비스입니다.
+*    로컬 데스크톱 또는 랩톱과 같은 로컬 머신 - 일반적으로 데이터 세트가 작고 아직 탐색 단계에 있는 경우입니다.
+*    클라우드의 원격 머신 - [Azure Machine Learning Managed Compute](concept-compute-target.md#amlcompute)는 Azure Virtual Machines 클러스터에서 Machine Learning 모델을 학습할 수 있도록 하는 관리형 서비스입니다.
 
     로컬 및 원격 계산 대상이 있는 노트북의 예제는이 [GitHub 사이트](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning) 를 참조 하세요.
 
@@ -147,7 +147,7 @@ automl_config = AutoMLConfig(task = "classification")
 
 일부 사례:
 
-1.  실험 시간 제한 시간 (분)이 30 분으로 설정 되 고 교차 유효성 검사를 2로 설정 하는 기본 메트릭으로 # 가중치를 사용 하는 분류 실험
+1.    실험 시간 제한 시간 (분)이 30 분으로 설정 되 고 교차 유효성 검사를 2로 설정 하는 기본 메트릭으로 # 가중치를 사용 하는 분류 실험
 
     ```python
     automl_classifier=AutoMLConfig(
@@ -159,7 +159,7 @@ automl_config = AutoMLConfig(task = "classification")
         label_column_name=label,
         n_cross_validations=2)
     ```
-2.  다음은 5 번의 유효성 검사를 통해 60 분 후에 종료 되는 회귀 실험 집합의 예입니다.
+2.    다음은 5 번의 유효성 검사를 통해 60 분 후에 종료 되는 회귀 실험 집합의 예입니다.
 
     ```python
     automl_regressor = AutoMLConfig(

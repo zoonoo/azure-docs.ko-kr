@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 02/15/2020
 ms.author: cherylmc
-ms.openlocfilehash: d6dba6f68238327c1c5c51c75cc5a65ceec2838f
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: aa0deaf00a5121d50a2621d146ac83f97ee45df4
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78942378"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79081712"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 파트너 및 피어링 위치
 
@@ -95,7 +95,7 @@ Express 경로 위치 (예를 들어 피어 링 위치 또는 위치 면)는 MSE
 | **Dubai** | [PCCS](https://www.pacificcontrols.net/cloudservices/index.html) | 3 | 아랍에미리트 북부 | 해당 없음 | Etisalat 아랍에미리트 |
 | **Dubai2** | [du datamena](http://datamena.com/solutions/data-centre) | 3 | 아랍에미리트 북부 | 해당 없음 | du datamena, Megaport, 주황, Orixcom |
 | **더블린** | [서-ix DB3](https://www.equinix.com/locations/europe-colocation/ireland-colocation/dublin-data-centers/db3/) | 1 | 북유럽 | 10G, 100G | Colt, eir, Megaport, euNetworks, Interxion, |
-| **프랑크푸르트** | [Interxion FRA11](https://www.interxion.com/Locations/frankfurt/) | 1 | 독일 중서부 | 10G, 100G | Colt, DE-DE x, GEANT, Interxion, Megaport, 주황, Telia 캐리어 |
+| **프랑크푸르트** | [Interxion FRA11](https://www.interxion.com/Locations/frankfurt/) | 1 | 독일 중서부 | 10G, 100G | CenturyLink Cloud Connect, Colt, DE-DE x, GEANT, Interxion, Megaport, 주황, Telia 캐리어 |
 | **Geneva** | [서-ix GV2](https://www.equinix.com/locations/europe-colocation/switzerland-colocation/geneva-data-centers/gv2/) | 1 | 스위스 서부 | 10G, 100G | Equinix, Megaport |
 | **홍콩** | [서-ix HK1](https://www.equinix.com/locations/asia-colocation/hong-kong-colocation/hong-kong-data-center/hk1/) | 2 | 동아시아 | 해당 없음 | Aryaka Networks, 영국령 텔레콤, CenturyLink 클라우드 연결, 최고 통신, 중국 통신 글로벌, 고 대이, Megaport, NTT 통신, 주황색, PCCW Global 제한, Tata 통신, Telia 캐리어, Verizon |
 | **홍콩 Kong2** | [메가 비트](https://www.iadvantage.net/index.php/locations/mega-i) | 2 | 해당 없음 | 10G | |

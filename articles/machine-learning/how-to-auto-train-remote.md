@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: bad957a70079a5513f103968066e2ff6a436cd77
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.date: 03/09/2020
+ms.openlocfilehash: 9e499d609a3f78dc5f422b9ed90df09be30f2e7c
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75754152"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79080414"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>클라우드의 자동화된 기계 학습을 사용하여 모델 학습
 
@@ -24,7 +24,7 @@ ms.locfileid: "75754152"
 
 Azure Machine Learning에서 관리하는 다양한 종류의 컴퓨팅 리소스에 대해 모델을 교육할 수 있습니다. 계산 대상은 클라우드의 리소스 또는 로컬 컴퓨터 일 수 있습니다.
 
-Azure Machine Learning Compute (AmlCompute)와 같은 추가 계산 대상을 추가 하 여 machine learning 실험을 쉽게 확장 하거나 축소할 수 있습니다. AmlCompute는 단일 또는 다중 노드 계산을 쉽게 만들 수 있는 관리 되는 계산 인프라입니다.
+Azure Machine Learning Compute (AmlCompute)와 같은 추가 계산 대상을 추가 하 여 machine learning 실험을 쉽게 확장 하거나 축소할 수 있습니다. AmlCompute는 단일 또는 다중 노드 컴퓨팅을 손쉽게 만들 수 있는 관리형 컴퓨팅 인프라입니다.
 
 이 문서에서는 AmlCompute에서 자동화 된 ML을 사용 하 여 모델을 작성 하는 방법에 대해 알아봅니다.
 
@@ -218,7 +218,7 @@ remote_run.get_portal_url()
 
 작업 영역에서 동일한 정보를 사용할 수 있습니다.  이러한 결과에 대해 자세히 알아보려면 자동화 된 [machine learning 결과 이해](how-to-understand-automated-ml.md)를 참조 하세요.
 
-## <a name="example"></a>예
+## <a name="example"></a>예제
 
 다음 [노트북](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/regression/auto-ml-regression.ipynb) 은이 문서의 개념을 보여 줍니다.
 

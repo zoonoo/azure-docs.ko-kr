@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/04/2019
+ms.date: 03/09/2020
 ms.author: dapine
-ms.openlocfilehash: 5d30693eb13104504d1cf27ffdbfb8d098d4ef9e
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 7265cd0e2d292a2d8cc7273d2746348629ec4a06
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78390817"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082100"
 ---
 # <a name="install-and-run-speech-service-containers-preview"></a>음성 서비스 컨테이너 설치 및 실행 (미리 보기)
 
@@ -28,8 +28,8 @@ ms.locfileid: "78390817"
 
 | 함수 | 기능 | 최신 버전 |
 |--|--|--|
-| 음성 텍스트 변환 | 연속 실시간 음성 또는 일괄 처리 오디오 녹음/녹화를 중간 결과 텍스트로 기록합니다. | 2.0.0 |
-| Custom Speech 텍스트 | [Custom Speech 포털](https://speech.microsoft.com/customspeech)에서 사용자 지정 모델을 사용 하 여 연속 실시간 음성 또는 배치 오디오 녹음을 중간 결과가 포함 된 텍스트로 speech. | 2.0.0 |
+| 음성 텍스트 변환 | 연속 실시간 음성 또는 일괄 처리 오디오 녹음/녹화를 중간 결과 텍스트로 기록합니다. | 2.1.1 |
+| Custom Speech 텍스트 | [Custom Speech 포털](https://speech.microsoft.com/customspeech)에서 사용자 지정 모델을 사용 하 여 연속 실시간 음성 또는 배치 오디오 녹음을 중간 결과가 포함 된 텍스트로 speech. | 2.1.1 |
 | 텍스트 음성 변환 | 일반 텍스트 입력 또는 SSML (음성 합성 마크업 언어)을 사용 하 여 텍스트를 자연 스런 음성으로 변환 합니다. | 1.3.0 |
 | 사용자 지정 텍스트 음성 변환 | [사용자 지정 음성 포털](https://aka.ms/custom-voice-portal)에서 사용자 지정 모델을 사용 하 여 텍스트를 일반 텍스트 입력 또는 SSML (음성 합성 마크업 언어)을 사용 하 여 자연 스러운 음성으로 변환 합니다. | 1.3.0 |
 
@@ -164,7 +164,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-t
 다음 태그는 해당 형식의 예입니다.
 
 ```
-2.0.0-amd64-en-us-preview
+2.1.1-amd64-en-us-preview
 ```
 
 **음성-텍스트** 컨테이너의 지원 되는 모든 로캘에 대해 [음성 텍스트 이미지 태그](../containers/container-image-tags.md#speech-to-text)를 참조 하세요.

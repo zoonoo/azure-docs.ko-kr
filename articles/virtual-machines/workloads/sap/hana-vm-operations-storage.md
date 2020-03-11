@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/26/2020
+ms.date: 03/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 155498aeaea30bf2da1d5aa0dbcb322aeb43bbdd
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 4b469c098db4f8d90147b491bcb54bd55d326b03
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77661297"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79080311"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>SAP HANA Azure 가상 머신 스토리지 구성
 
@@ -279,6 +279,9 @@ Azure에서 SAP 용 인프라를 설계할 때 다음의 최소 처리량 특성
 볼륨 할당량의 1 TiB [처리량 제한은](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels) 다음과 같습니다. Azure NetApp Files
 - Premium Storage 계층-64 MiB/s  
 - Ultra Storage 계층-128 MiB/s  
+
+> [!IMPORTANT]
+> 단일 NFS 볼륨에 배포 하는 용량에 관계 없이 처리량은 가상 컴퓨터의 소비자가 활용 하는 1.2-1.4 g b/초 대역폭의 범위를 정체 되기 합니다. 이는 ANF 제품의 기본 아키텍처와 NFS에 대 한 관련 Linux 세션 제한을 사용 해야 합니다. [Azure NetApp Files에 대 한 성능 벤치 마크 테스트 결과](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-performance-benchmarks) 문서에 설명 된 성능 및 처리량 번호는 여러 클라이언트 vm이 있는 하나의 공유 NFS 볼륨에 대해 수행 되었으며 여러 세션의 결과로 수행 되었습니다. 이 시나리오는 SAP에서 측정 하는 시나리오와 다릅니다. 여기서는 NFS 볼륨에 대해 단일 VM에서 처리량을 측정 합니다. ANF에서 호스트 됩니다.
 
 데이터 및 로그에 대 한 SAP 최소 처리량 요구 사항을 충족 하 고 `/hana/shared`에 대 한 지침에 따라 권장 크기는 다음과 같습니다.
 

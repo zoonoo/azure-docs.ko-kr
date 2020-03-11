@@ -1,30 +1,19 @@
 ---
-title: Azure CLI를 사용 하 여 Azure에서 Linux VM의 이미지 캡처
+title: Azure CLI를 사용 하 여 Linux VM의 이미지 캡처
 description: Azure CLI를 사용하여 대량 배포에 사용할 Azure VM 이미지를 캡처합니다.
-services: virtual-machines-linux
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: e608116f-f478-41be-b787-c2ad91b5a802
 ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: cynthn
-ms.openlocfilehash: ed7d45fb9148bd441a3798c48be8b25e1da2b8c1
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: 77f6244651551763f5460432655d66267775a256
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78675699"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78968049"
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>가상 머신 또는 VHD의 이미지를 만드는 방법
-
-<!-- generalize, image - extended version of the tutorial-->
 
 Azure에서 사용할 VM(가상 머신)의 복사본을 여러 개 만들려면 VM 또는 OS VHD의 이미지를 캡처합니다. 배포에 대한 이미지를 만들려면 개인 계정 정보를 제거해야 합니다. 다음 단계에서는 기존 VM의 프로비전을 해제하고, 할당을 취소하고, 이미지를 만듭니다. 이 이미지를 사용하여 구독 내의 모든 리소스 그룹에서 VM을 만들 수 있습니다.
 

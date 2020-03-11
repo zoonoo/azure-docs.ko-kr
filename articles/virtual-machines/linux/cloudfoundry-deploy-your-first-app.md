@@ -1,26 +1,18 @@
 ---
 title: Microsoft Azure의 Cloud Foundry에 첫 번째 앱 배포
 description: Azure의 Cloud Foundry에 애플리케이션 배포
-services: virtual-machines-linux
-documentationcenter: ''
 author: seanmck
-manager: gwallace
-editor: ''
-tags: ''
-keywords: ''
-ms.assetid: 8fa04a58-56ad-4e6c-bef4-d02c80d4b60f
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
 ms.date: 06/14/2017
 ms.author: seanmck
-ms.openlocfilehash: b1f9ab5289a41aacb5514e954f1ca01f6ad66152
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 45ae8979a2617d4f380e417e3f0910182ebe145e
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036838"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78970067"
 ---
 # <a name="deploy-your-first-app-to-cloud-foundry-on-microsoft-azure"></a>Microsoft Azure의 Cloud Foundry에 첫 번째 앱 배포
 
@@ -39,7 +31,7 @@ Azure에 Cloud Foundry 환경을 만들기 위한 여러 가지 옵션이 있습
 
 ## <a name="connect-to-the-cloud-controller"></a>Cloud Controller에 연결
 
-Cloud Controller는 애플리케이션 배포 및 관리를 위한 Cloud Foundry 환경에 대한 기본 진입점입니다. 핵심 CCAPI(Cloud Controller API)는 REST API이지만 다양한 도구를 통해 액세스할 수 있습니다. 이 경우 [CLOUD FOUNDRY CLI][cf-cli]를 통해 상호 작용 합니다. Linux, MacOS 또는 Windows에 CLI를 설치할 수 있지만 설치 하지 않는 것이 좋습니다. [Azure Cloud Shell][cloudshell-docs]에 미리 설치 되어 있습니다.
+Cloud Controller는 애플리케이션 배포 및 관리를 위한 Cloud Foundry 환경에 대한 기본 진입점입니다. 핵심 CCAPI(Cloud Controller API)는 REST API이지만 다양한 도구를 통해 액세스할 수 있습니다. 이 경우 [CLOUD FOUNDRY CLI][cf-cli]를 통해 상호 작용 합니다. Linux, macOS 또는 Windows에 CLI를 설치할 수 있지만 설치 하지 않는 것이 좋습니다. [Azure Cloud Shell][cloudshell-docs]에 미리 설치 되어 있습니다.
 
 로그인하려면 마켓플레이스 배포에서 가져온 SYSTEMDOMAINURL 앞에 `api`를 추가합니다. 기본 배포는 자체 서명된 인증서를 사용하므로 `skip-ssl-validation` 스위치를 포함해야 합니다.
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d92c3e51aae70c66dcf9b7ca6dfd631650ace574
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 1dbd1d96cda88d500e16fff885dae03ebfa230f0
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77561751"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79079891"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Azure Active Directory 사용 약관
 
@@ -52,7 +52,7 @@ Azure AD 사용 약관에는 다음과 같은 기능이 있습니다.
 - 준수 및 감사에 대 한 사용 약관 작업 로그를 표시 합니다.
 - [Microsoft Graph api](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/agreement) (현재 미리 보기 상태)를 사용 하 여 사용 약관을 만들고 관리 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure AD 사용 약관을 사용 하 고 구성 하려면 다음이 있어야 합니다.
 
@@ -117,7 +117,7 @@ Azure AD 사용 약관에서는 PDF 형식을 사용 하 여 콘텐츠를 제공
 
    ![정책 템플릿을 선택 하는 조건부 액세스 드롭다운 목록](./media/terms-of-use/conditional-access-templates.png)
 
-   | 템플릿 | 설명 |
+   | 템플릿 | Description |
    | --- | --- |
    | **모든 게스트에 대한 클라우드 앱 액세스** | 모든 게스트 및 모든 클라우드 앱에 대 한 조건부 액세스 정책이 생성 됩니다. 이 정책은 Azure Portal에 영향을 줍니다. 이 항목이 생성되면 로그아웃했다 로그인해야 할 수 있습니다. |
    | **모든 사용자에 대한 클라우드 앱 액세스** | 모든 사용자 및 모든 클라우드 앱에 대 한 조건부 액세스 정책이 생성 됩니다. 이 정책은 Azure Portal에 영향을 줍니다. 이 항목이 생성되면 로그아웃했다 로그인해야 할 수 있습니다. |
@@ -253,12 +253,12 @@ Azure AD 감사 로그를 시작하려면 다음 절차를 따릅니다.
 지원되는 플랫폼 및 소프트웨어 목록은 다음과 같습니다.
 
 > [!div class="mx-tableFixed"]
-> |  | iOS | Android | Windows 10 | 기타 |
+> |  | iOS | Android | 윈도우 10 | 기타 |
 > | --- | --- | --- | --- | --- |
-> | **네이티브 앱** | 예 | 예 | 예 |  |
-> | **Microsoft Edge** | 예 | 예 | 예 |  |
-> | **Internet Explorer** | 예 | 예 | 예 |  |
-> | **Chrome(확장 포함)** | 예 | 예 | 예 |  |
+> | **네이티브 앱** | yes | yes | yes |  |
+> | **Microsoft Edge** | yes | yes | yes |  |
+> | **Internet Explorer** | yes | yes | yes |  |
+> | **Chrome(확장 포함)** | yes | yes | yes |  |
 
 장치당 사용 약관에는 다음과 같은 제약 조건이 있습니다.
 
@@ -277,7 +277,11 @@ Azure AD 감사 로그를 시작하려면 다음 절차를 따릅니다.
 
 Chrome을 사용하는 경우 [Windows 10 계정 확장](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji)을 설치할지 묻는 메시지가 표시됩니다.
 
-### <a name="join-an-android-device"></a>Android 장치 참여
+### <a name="register-an-ios-device"></a>IOS 장치 등록
+
+사용자가 iOS 장치를 사용 하는 경우 [Microsoft Authenticator 앱](https://apps.apple.com/us/app/microsoft-authenticator/id983156458)을 설치 하 라는 메시지가 표시 됩니다.
+
+### <a name="register-an-android-device"></a>Android 장치 등록
 
 사용자가 Android 장치를 사용 하는 경우 [Microsoft Authenticator 앱](https://play.google.com/store/apps/details?id=com.azure.authenticator)을 설치 하 라는 메시지가 표시 됩니다.
 

@@ -16,12 +16,12 @@ ms.date: 11/01/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89a346f48856ea33ae5e27e3537f53dfa1ca3ae3
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 45da1170705bab1206a98c59e02c7616c25ce502
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73608814"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78967767"
 ---
 # <a name="self-review-of-an-access-package-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 액세스 패키지의 자체 검토
 
@@ -37,7 +37,7 @@ Azure AD 자격 관리는 기업에서 그룹, 응용 프로그램 및 SharePoin
 
 1. **액세스 검토** 링크를 클릭 합니다.
 
-1. 전자 메일을 받지 못하는 경우 https://myaccess.microsoft.com로 직접 이동 하 여 보류 중인 액세스 검토를 찾을 수도 있습니다.
+1. 전자 메일을 받지 못하는 경우 https://myaccess.microsoft.com로 직접 이동 하 여 보류 중인 액세스 검토를 찾을 수도 있습니다.  (미국 정부의 경우 대신 `https://myaccess.microsoft.us`를 사용 합니다.)
 
 1. 왼쪽 탐색 모음에서 **액세스 검토** 를 클릭 하 여 사용자에 게 할당 된 보류 중인 액세스 검토 목록을 표시 합니다.
 
@@ -56,7 +56,7 @@ Azure AD 자격 관리는 기업에서 그룹, 응용 프로그램 및 SharePoin
 
 1.  **예**를 클릭 한 경우 **이유** 상자에 근거 문을 포함 해야 할 수 있습니다.
 
-1.  **Submit**를 클릭합니다.
+1.  **제출**을 클릭합니다.
 
 검토를 완료 하기 전에이 점을 변경 하 고 응답을 변경 하도록 결정 하는 경우 검토로 돌아갈 수 있습니다.
 

@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 02/05/2020
+ms.date: 03/09/2020
 ms.author: apimpm
-ms.openlocfilehash: c5a1aaac0edea1e5ab2e6cdf35f91f61eed23db5
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: 62e8c174cd10a003657093b805291e003a9ede1b
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78374955"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78968343"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>가상 네트워크에서 Azure API Management를 사용하는 방법
 Azure VNET(Virtual Network)을 사용하면 비인터넷 라우팅 가능 네트워크(액세스를 제어하는)에 다수의 Azure 리소스를 배치할 수 있습니다. 이러한 네트워크는 다양한 VPN 기술을 사용하여 온-프레미스 네트워크에 연결될 수 있습니다. Azure Virtual Network에 대해 자세히 알아보려면 [Azure Virtual Network 개요](../virtual-network/virtual-networks-overview.md)부터 참조하세요.
@@ -113,16 +113,16 @@ API Management 서비스가 VNET에 연결된 후에는 공용 서비스에 액�
 | * / 80, 443                  | 인바운드            | TCP                | 인터넷 / VIRTUAL_NETWORK            | API Management에 대한 클라이언트 통신                      | 외부             |
 | * / 3443                     | 인바운드            | TCP                | ApiManagement / VIRTUAL_NETWORK       | Azure Portal 및 Powershell용 관리 엔드포인트         | 외부 및 내부  |
 | * / 80, 443                  | 아웃바운드           | TCP                | VIRTUAL_NETWORK / 스토리지             | **Azure Storage에 대한 종속성**                             | 외부 및 내부  |
-| * / 80, 443                  | 아웃바운드           | TCP                | VIRTUAL_NETWORK / AzureActiveDirectory | Azure Active Directory(해당되는 경우)                   | 외부 및 내부  |
+| * / 80, 443                  | 아웃바운드           | TCP                | VIRTUAL_NETWORK / AzureActiveDirectory | [Azure Active Directory](api-management-howto-aad.md) (해당 하는 경우)                   | 외부 및 내부  |
 | * / 1433                     | 아웃바운드           | TCP                | VIRTUAL_NETWORK / SQL                 | **Azure SQL 엔드포인트에 대한 액세스**                           | 외부 및 내부  |
-| */5671, 5672, 443          | 아웃바운드           | TCP                | VIRTUAL_NETWORK / EventHub            | 이벤트 허브 정책 및 모니터링 에이전트에 대한 로그의 종속성 | 외부 및 내부  |
-| * / 445                      | 아웃바운드           | TCP                | VIRTUAL_NETWORK / 스토리지             | GIT의 Azure 파일 공유에 대한 종속성                      | 외부 및 내부  |
+| */5671, 5672, 443          | 아웃바운드           | TCP                | VIRTUAL_NETWORK / EventHub            | [이벤트 허브 정책](api-management-howto-log-event-hubs.md) 및 모니터링 에이전트에 대 한 로그에 대 한 종속성 | 외부 및 내부  |
+| * / 445                      | 아웃바운드           | TCP                | VIRTUAL_NETWORK / 스토리지             | [GIT](api-management-configuration-repository-git.md) 에 대 한 Azure 파일 공유에 대 한 종속성                      | 외부 및 내부  |
 | * / 1886                     | 아웃바운드           | TCP                | VIRTUAL_NETWORK / 인터넷            | 리소스 상태에 상태를 게시하는 데 필요          | 외부 및 내부  |
-| * / 443                     | 아웃바운드           | TCP                | VIRTUAL_NETWORK / AzureMonitor         | 진단 로그 및 메트릭 게시                        | 외부 및 내부  |
+| * / 443                     | 아웃바운드           | TCP                | VIRTUAL_NETWORK / AzureMonitor         | [진단 로그 및 메트릭](api-management-howto-use-azure-monitor.md) 게시                       | 외부 및 내부  |
 | * / 25                       | 아웃바운드           | TCP                | VIRTUAL_NETWORK / 인터넷            | 메일을 보내기 위해 SMTP 릴레이에 연결                    | 외부 및 내부  |
 | * / 587                      | 아웃바운드           | TCP                | VIRTUAL_NETWORK / 인터넷            | 메일을 보내기 위해 SMTP 릴레이에 연결                    | 외부 및 내부  |
 | * / 25028                    | 아웃바운드           | TCP                | VIRTUAL_NETWORK / 인터넷            | 메일을 보내기 위해 SMTP 릴레이에 연결                    | 외부 및 내부  |
-| * / 6381 - 6383              | 인바운드 및 아웃바운드 | TCP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | 역할 인스턴스 간 Azure Cache for Redis 인스턴스에 대한 액세스          | 외부 및 내부  |
+| * / 6381 - 6383              | 인바운드 및 아웃바운드 | TCP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | 컴퓨터 간 [요율 제한](api-management-access-restriction-policies.md#LimitCallRateByKey) 정책에 대 한 Redis 서비스 액세스         | 외부 및 내부  |
 | * / \*                        | 인바운드            | TCP                | AZURE_LOAD_BALANCER / VIRTUAL_NETWORK | Azure 인프라 부하 분산 장치                          | 외부 및 내부  |
 
 >[!IMPORTANT]
@@ -136,9 +136,12 @@ API Management 서비스가 VNET에 연결된 후에는 공용 서비스에 액�
 
     | Azure 환경 | 엔드포인트                                                                                                                                                                                                                                                                                                                                                              |
     |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | Azure 공용      | <ul><li>gcs.prod.monitoring.core.windows.net (**신규**)</li><li>prod.warmpath.msftcloudes.com (**사용 되지 않음**)</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li><li>prod3-black.prod3.metrics.nsatc.net</li><li>prod3-red.prod3.metrics.nsatc.net</li><li>prod.warm.ingestion.msftcloudes.com</li><li>`azure region`.warm.ingestion.msftcloudes.com(여기서 `East US 2`는 eastus2.warm.ingestion.msftcloudes.com임)</li></ul> |
-    | Azure Government  | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul>                                                                                                                                                                                                                                                |
-    | Azure China 21Vianet     | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul>                                                                                                                                                                                                                                                |
+    | Azure 공용      | <ul><li>gcs.prod.monitoring.core.windows.net (**신규**)</li><li>prod.warmpath.msftcloudes.com (**사용 되지 않음**)</li><li>shoebox2.metrics.microsoftmetrics.com (**신규**)</li><li>shoebox2.metrics.nsatc.net (**사용 되지 않음**)</li><li>prod3.metrics.microsoftmetrics.com (**신규**)</li><li>prod3.metrics.nsatc.net (**사용 되지 않음**)</li><li>prod3-black.prod3.metrics.microsoftmetrics.com (**신규**)</li><li>prod3-black.prod3.metrics.nsatc.net (**사용 되지 않음**)</li><li>prod3-red.prod3.metrics.microsoftmetrics.com (**신규**)</li><li>prod3-red.prod3.metrics.nsatc.net (**사용 되지 않음**)</li><li>prod.warm.ingestion.msftcloudes.com</li><li>`azure region`.warm.ingestion.msftcloudes.com(여기서 `East US 2`는 eastus2.warm.ingestion.msftcloudes.com임)</li></ul> |
+    | Azure Government  | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>shoebox2.metrics.microsoftmetrics.com (**신규**)</li><li>shoebox2.metrics.nsatc.net (**사용 되지 않음**)</li><li>prod3.metrics.microsoftmetrics.com (**신규**)</li><li>prod3.metrics.nsatc.net (**사용 되지 않음**)</li><li>prod5.prod.microsoftmetrics.com</li></ul>                                                                                                                                                                                                                                                |
+    | Azure China 21Vianet     | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>shoebox2.metrics.microsoftmetrics.com (**신규**)</li><li>shoebox2.metrics.nsatc.net (**사용 되지 않음**)</li><li>prod3.metrics.microsoftmetrics.com (**신규**)</li><li>prod3.metrics.nsatc.net (**사용 되지 않음**)</li><li>prod5.prod.microsoftmetrics.com</li></ul>                                                                                                                                                                                                                                                |
+
+>[!IMPORTANT]
+> Dns 영역을 사용 하 여 위의 클러스터를 변경 하는 것은 대부분 DNS **nsatc.net** . **microsoftmetrics.com** . 클러스터의 IP 주소가 변경 되지 않습니다.
 
 + **Smtp 릴레이**: 호스트 `smtpi-co1.msn.com`, `smtpi-ch1.msn.com`, `smtpi-db3.msn.com`, `smtpi-sin.msn.com` 및 `ies.global.microsoft.com`에서 확인 되는 smtp 릴레이에 대 한 아웃 바운드 네트워크 연결
 

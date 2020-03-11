@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 106f83e4c8fdf33ac8752e5942dbb22a2df78693
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: f2703994d3fe8765662e6a0205d63cef9327e17a
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840505"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79080197"
 ---
 # <a name="image-analysis-cognitive-skill"></a>이미지 분석 인식 기술
 
@@ -35,7 +35,7 @@ Microsoft.Skills.Vision.ImageAnalysisSkill
 | 매개 변수 이름     | Description |
 |--------------------|-------------|
 | defaultLanguageCode   |  반환할 언어를 나타내는 문자열입니다. 서비스는 지정된 언어로 인식 결과를 반환합니다. 이 매개 변수를 지정하지 않을 경우 기본값은 “en”입니다. <br/><br/>지원되는 언어는 다음과 같습니다. <br/>*en* - 영어(기본값) <br/> *es* -스페인어 <br/> *ja-jp* -일본어 <br/> *pt* -포르투갈어 <br/> *zh* - 중국어 간체|
-| visualFeatures |  반환할 시각적 기능 유형을 나타내는 문자열 배열입니다. 유효한 시각적 기능 유형은 다음과 같습니다.  <ul><li>*성인* -이미지가 음란 (노출 또는 성 act를 나타냅니다) 여부를 감지 하거나 범주 (극단적인 폭력 또는 피를 나타냅니다) 합니다. 성적 추천 content (즉, 외설 content)도 검색 됩니다.</li><li>*브랜드* -대략적인 위치를 포함 하 여 이미지 내 다양 한 브랜드를 검색 합니다. *브랜드* 시각적 기능은 영어로만 제공 됩니다.</li><li> *categories* -Cognitive Services [Computer Vision 설명서](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy)에 정의 된 분류에 따라 이미지 콘텐츠를 분류 합니다. </li><li> *color* -악센트 색, 주요 색 및 이미지가 검은색 & 흰색 인지 여부를 결정 합니다.</li><li>*설명* -지원 되는 언어의 전체 문장이 포함 된 이미지 내용에 대해 설명 합니다.</li><li>*얼굴* -얼굴이 있는지 검색 합니다. 있는 경우 좌표, 성별 및 연령를 생성 합니다.</li><li>  *Imagetype* -이미지가 클립 아트 인지 또는 선 그리기 인지 검색 합니다.</li><li>  *개체* -대략적인 위치를 포함 하 여 이미지 내에서 다양 한 개체를 검색 합니다. *개체* 시각적 기능은 영어로만 제공 됩니다.</li><li> ‘태그’ - 이미지 콘텐츠와 관련된 단어의 자세한 목록으로 이미지에 태그를 지정합니다.</li></ul> 시각적 기능의 이름은 대/소문자를 구분합니다.|
+| visualFeatures |  반환할 시각적 기능 유형을 나타내는 문자열 배열입니다. 유효한 시각적 기능 유형은 다음과 같습니다.  <ul><li>*성인* -이미지가 음란 (노출 또는 성 act를 나타냅니다) 여부를 감지 하거나 범주 (극단적인 폭력 또는 피를 나타냅니다) 합니다. 성적 추천 content (즉, 외설 content)도 검색 됩니다.</li><li>*브랜드* -대략적인 위치를 포함 하 여 이미지 내 다양 한 브랜드를 검색 합니다. *브랜드* 시각적 기능은 영어로만 제공 됩니다.</li><li> *categories* -Cognitive Services [Computer Vision 설명서](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy)에 정의 된 분류에 따라 이미지 콘텐츠를 분류 합니다. </li><li>*설명* -지원 되는 언어의 전체 문장이 포함 된 이미지 내용에 대해 설명 합니다.</li><li>*얼굴* -얼굴이 있는지 검색 합니다. 있는 경우 좌표, 성별 및 연령를 생성 합니다.</li><li> *개체* -대략적인 위치를 포함 하 여 이미지 내에서 다양 한 개체를 검색 합니다. *개체* 시각적 기능은 영어로만 제공 됩니다.</li><li> ‘태그’ - 이미지 콘텐츠와 관련된 단어의 자세한 목록으로 이미지에 태그를 지정합니다.</li></ul> 시각적 기능의 이름은 대/소문자를 구분합니다. *Color* 및 *imagetype* 시각적 기능은 더 이상 사용 되지 않지만 [사용자 지정 기술을](https://go.microsoft.com/fwlink/?linkid=2121117)통해이 기능에 계속 액세스할 수 있습니다.|
 | 자세히   | 반환할 도메인 특정 세부 정보를 나타내는 문자열 배열입니다. 유효한 시각적 기능 유형은 다음과 같습니다. <ul><li>*유명인* -이미지에서 검색 된 경우 유명인를 식별 합니다.</li><li>*랜드마크* -이미지에서 검색 된 경우 랜드마크를 식별 합니다. </li></ul> |
 
 ## <a name="skill-inputs"></a>기술 입력
@@ -470,20 +470,6 @@ Microsoft.Skills.Vision.ImageAnalysisSkill
             ]
           }
         ],
-        "color": {
-          "dominantColorForeground": "Brown",
-          "dominantColorBackground": "Brown",
-          "dominantColors": [
-            "Brown",
-            "Black"
-          ],
-          "accentColor": "873B59",
-          "isBwImg": false
-        },
-        "imageType": {
-          "clipArtType": 0,
-          "lineDrawingType": 0
-        },
         "objects": [
           {
             "rectangle": {

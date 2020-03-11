@@ -6,12 +6,12 @@ manager: sridmad
 ms.topic: conceptual
 ms.date: 02/21/2020
 ms.author: chrpap
-ms.openlocfilehash: d8ee2327f65332d32038806f2d2416cac190875b
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 330b455a61c45ccdb59e5aef8162fd1b04859a00
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77661979"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78969398"
 ---
 # <a name="how-to-remove-a-service-fabric-node-type"></a>Service Fabric 노드 유형을 제거 하는 방법
 이 문서에서는 클러스터에서 기존 노드 유형을 제거하여 Azure Service Fabric 클러스터의 크기를 조정하는 방법을 설명합니다. Service Fabric 클러스터는 마이크로 서비스가 배포되고 관리되는 네트워크로 연결된 가상 또는 실제 머신 집합입니다. 클러스터의 일부인 머신 또는 VM을 노드라고 합니다. 가상 머신 확장 집합은 가상 머신의 모음을 집합으로 배포하고 관리하는 데 사용할 수 있는 Azure 컴퓨팅 리소스입니다. Azure 클러스터에 정의된 모든 노드 유형은 [별도의 확장 집합으로 설정](service-fabric-cluster-nodetypes.md)됩니다. 각 노드 형식을 별도로 관리할 수 있습니다. Service Fabric 클러스터를 만든 후에 노드 유형(가상 머신 확장 집합) 및 모든 노드를 제거하여 클러스터를 수평 확장할 수 있습니다.  클러스터에서 워크로드가 실행되는 경우에도 언제든지 클러스터의 크기를 조정할 수 있습니다.  클러스터의 크기를 조정하면 애플리케이션 크기도 자동으로 조정됩니다.
@@ -31,7 +31,7 @@ Service Fabric은 데이터가 손실되지 않도록 내부 변경 및 업데�
 
 Bronze 노드 유형을 제거하면 노드 유형의 모든 노드가 즉시 다운됩니다. Service Fabric은 브론즈 노드 확장 집합 업데이트를 트래핑하지 않기 때문에 모든 VM이 즉시 다운됩니다. 해당 노드에 상태 저장 항목이 있으면 데이터가 손실됩니다. 이제 상태 비저장이더라도 Service Fabric의 모든 노드가 링에 참여하기 때문에 전체 환경이 손실되어 클러스터 자체가 불안정해질 수 있습니다.
 
-## <a name="remove-a-non-primary-node-type"></a>주 노드가 아닌 노드 형식 제거
+## <a name="remove-a-node-type"></a>노드 형식 제거
 
 1. 프로세스를 시작 하기 전에이 필수 구성 요소를 처리 하십시오.
 
@@ -122,7 +122,7 @@ Bronze 노드 유형을 제거하면 노드 유형의 모든 노드가 즉시 �
     - 배포에 사용 되는 Azure Resource Manager 템플릿을 찾습니다.
     - Service Fabric 섹션에서 노드 형식과 관련 된 섹션을 찾습니다.
     - 노드 형식에 해당 하는 섹션을 제거 합니다.
-    - 실버 이상 내구성 클러스터의 경우 템플릿에서 클러스터 리소스를 업데이트 하 고 아래 지정 된 대로 `applicationDeltaHealthPolicies`를 추가 하 여 패브릭:/시스템 응용 프로그램 상태를 무시 하도록 상태 정책을 구성 합니다. 아래 정책은 기존 오류는 무시 하지만 새 상태 오류는 허용 하지 않습니다. 
+    - 실버 이상 내구성이 있는 클러스터의 경우에만 템플릿에서 클러스터 리소스를 업데이트 하 고 아래 지정 된 대로 클러스터 리소스 `properties`에서 `applicationDeltaHealthPolicies`를 추가 하 여 패브릭:/시스템 응용 프로그램 상태를 무시 하도록 상태 정책을 구성 합니다. 아래 정책은 기존 오류는 무시 하지만 새 상태 오류는 허용 하지 않습니다. 
  
  
      ```json
@@ -158,7 +158,7 @@ Bronze 노드 유형을 제거하면 노드 유형의 모든 노드가 즉시 �
     },
     ```
 
-    수정 된 Azure Resource Manager 템플릿을 배포 합니다. \* *이 단계는 시간이 오래 걸립니다 (일반적으로 최대 2 시간). 이 업그레이드는 설정이 InfrastructureService 변경 되므로 노드를 다시 시작 해야 합니다. 이 경우 `forceRestart`은 무시 됩니다. 
+    - 수정 된 Azure Resource Manager 템플릿을 배포 합니다. \* *이 단계는 시간이 오래 걸립니다 (일반적으로 최대 2 시간). 이 업그레이드는 설정이 InfrastructureService 변경 되므로 노드를 다시 시작 해야 합니다. 이 경우 `forceRestart`은 무시 됩니다. 
     매개 변수 `upgradeReplicaSetCheckTimeout`는 아직 안전 상태가 아닌 경우 파티션이 안전한 상태가 될 때까지 대기 하 Service Fabric는 최대 시간을 지정 합니다. 안전 검사가 노드의 모든 파티션에 대해 통과 하면 Service Fabric는 해당 노드에서의 업그레이드를 진행 합니다.
     `upgradeTimeout` 매개 변수의 값은 6 시간으로 줄일 수 있지만 최대 보안을 12 시간으로 사용 해야 합니다.
 

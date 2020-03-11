@@ -16,12 +16,12 @@ ms.date: 10/27/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 634e3532e13fcba5c9b802bd77c9530c0a831eb8
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: 20ec63efe16f1120ca6e7d07c8917d8ad2b3a0e0
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78376591"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78968065"
 ---
 # <a name="approve-or-deny-access-requests-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 액세스 요청 승인 또는 거부
 
@@ -43,7 +43,7 @@ Azure AD 자격 관리를 사용 하 여 액세스 패키지에 대 한 승인�
 
 전자 메일이 없는 경우 다음 단계에 따라 승인 보류 중인 액세스 요청을 찾을 수 있습니다.
 
-1. [https://myaccess.microsoft.com](https://myaccess.microsoft.com)에서 내 액세스 포털에 로그인 합니다.
+1. [https://myaccess.microsoft.com](https://myaccess.microsoft.com)에서 내 액세스 포털에 로그인 합니다.  (미국 정부의 경우 내 액세스 포털 링크의 도메인이 `myaccess.microsoft.us`됩니다.)
 
 1. 왼쪽 메뉴 **에서 승인을 클릭 하** 여 승인 보류 중인 액세스 요청 목록을 확인 합니다.
 

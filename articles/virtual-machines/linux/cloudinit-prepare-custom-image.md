@@ -1,30 +1,22 @@
 ---
 title: 클라우드 초기화에 사용할 Azure VM 이미지 준비
 description: cloud-init를 사용하여 배포를 위해 기존 Azure VM 이미지를 준비하는 방법
-services: virtual-machines-linux
-documentationcenter: ''
 author: danis
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
 ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-ms.devlang: azurecli
 ms.topic: article
 ms.date: 06/24/2019
 ms.author: danis
-ms.openlocfilehash: a75bceebe584522ee999f86664b8afb9fa00f17b
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 73df3a12ebea3b94563d02eda8f1211401d1ae3f
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036741"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78969186"
 ---
 # <a name="prepare-an-existing-linux-azure-vm-image-for-use-with-cloud-init"></a>cloud-init와 함께 사용하기 위해 기존 Linux Azure VM 이미지 준비
 이 문서는 기존 Azure 가상 머신을 사용하고 다시 배포하고 cloud-init를 사용할 수 있도록 준비하는 방법을 보여 줍니다. 결과 이미지는 새 가상 머신이나 가상 머신 확장 집합을 배포하는 데 사용할 수 있습니다. 그런 다음 가상 머신 또는 가상 머신 확장 집합은 배포 시 cloud-init에 의해 더 사용자 지정될 수 있습니다.  Azure에서 리소스가 프로비전되면 처음 부팅 시 이러한 cloud-init 스크립트가 실행됩니다. 기본적으로 cloud-init가 Azure에서 작동되는 방식과 지원되는 Linux 배포판에 대한 자세한 내용은 [cloud-init 개요](using-cloud-init.md)를 참조하세요.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>사전 요구 사항
 이 문서에서는 지원되는 버전의 Linux 운영 체제를 실행하는 실행 중인 Azure 가상 머신이 이미 있다고 가정합니다. 필요에 맞도록 컴퓨터를 이미 구성했고, 모든 필수 모듈을 설치했고, 모든 필수 업데이트를 처리했으며 요구 사항을 충족하는지 테스트했습니다. 
 
 ## <a name="preparing-rhel-76--centos-76"></a>RHEL 7.6/CentOS 7.6 준비

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8fe33f78b96dbfe780c94fbddfc5c8821148279
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: ffb0f7cdb320d009eb1549efabac60d7710b9b0e
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78672584"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79080080"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Azure Active Directory 인증 (미리 보기)을 사용 하 여 Azure에서 Windows 가상 머신에 로그인
 
@@ -152,7 +152,8 @@ az vm extension set \
 
 > [!NOTE]
 > 사용자가 RDP를 통해 VM에 로그인 할 수 있도록 하려면 가상 컴퓨터 관리자 로그인 또는 가상 컴퓨터 사용자 로그인 역할을 할당 해야 합니다. VM에 대 한 소유자 또는 참가자 역할이 할당 된 Azure 사용자에 게는 RDP를 통해 VM에 로그인 할 수 있는 권한이 자동으로 부여 되지 않습니다. 가상 컴퓨터를 제어 하는 사용자 집합과 가상 컴퓨터에 액세스할 수 있는 사용자 집합 간에 감사 된 분리를 제공 하기 위한 것입니다.
-' VM에 대 한 역할 할당을 구성 하는 방법에는 여러 가지가 있습니다.
+
+VM에 대 한 역할 할당을 구성 하는 방법에는 여러 가지가 있습니다.
 
 - Azure AD 포털 환경 사용
 - Azure Cloud Shell 환경 사용
@@ -194,7 +195,7 @@ RBAC를 사용 하 여 Azure 구독 리소스에 대 한 액세스를 관리 하
 - [RBAC 및 Azure CLI를 사용 하 여 Azure 리소스에 대 한 액세스 관리](/azure/role-based-access-control/role-assignments-cli)
 - [RBAC 및 Azure Portal을 사용하여 Azure 리소스에 대한 액세스 관리](/azure/role-based-access-control/role-assignments-portal)
 - [RBAC 및 Azure PowerShell를 사용 하 여 Azure 리소스에 대 한 액세스를 관리](/azure/role-based-access-control/role-assignments-powershell)합니다.
-'
+
 ## <a name="using-conditional-access"></a>조건부 액세스 사용
 
 Azure AD 로그인을 사용 하도록 설정 된 Azure에서 Windows Vm에 대 한 액세스 권한을 부여 하기 전에 multi-factor authentication 또는 사용자 로그인 위험 확인 등의 조건부 액세스 정책을 적용할 수 있습니다. 조건부 액세스 정책을 적용 하려면 클라우드 앱 또는 작업 할당 옵션에서 "Azure Windows VM 로그인" 앱을 선택 하 고, 로그인 위험을 조건으로 사용 하거나, 권한 부여 액세스 제어로 multi-factor authentication을 사용 해야 합니다. 
@@ -363,4 +364,5 @@ VM에 대 한 원격 데스크톱 연결을 시작할 때 다음과 같은 오�
 이 미리 보기 기능에 대 한 피드백을 공유 하거나 [AZURE AD 피드백 포럼](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)에서이를 사용 하 여 문제를 보고 하세요.
 
 ## <a name="next-steps"></a>다음 단계
-Azure Active Directory에 대 한 자세한 내용은 [Azure Active Directory 항목](/azure/active-directory/fundamentals/active-directory-whatis) 을 참조 하세요.
+
+Azure Active Directory에 대한 자세한 내용은 [Azure Active Directory란?](/azure/active-directory/fundamentals/active-directory-whatis)을 참조하세요.

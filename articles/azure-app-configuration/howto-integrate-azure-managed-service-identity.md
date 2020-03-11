@@ -7,12 +7,12 @@ author: lisaguthrie
 ms.topic: conceptual
 ms.date: 2/25/2020
 ms.author: lcozzens
-ms.openlocfilehash: 957fef32702f35b4b509d829eba6a41914c4fc53
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: ff69262a89d8112419ffe62cd391d003cb21adc1
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78205860"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78967617"
 ---
 # <a name="integrate-with-azure-managed-identities"></a>Azure Managed Identities와 통합
 
@@ -239,8 +239,6 @@ git push azure master
 ```bash
 http://<app_name>.azurewebsites.net
 ```
-
-![App Service에서 실행 중인 앱](../app-service/media/app-service-web-tutorial-dotnetcore-sqldb/azure-app-in-browser.png)
 
 ## <a name="use-managed-identity-in-other-languages"></a>다른 언어의 관리형 ID 사용
 

@@ -12,20 +12,23 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 01/23/2020
+ms.date: 03/09/2020
 ms.author: juliako
-ms.openlocfilehash: dac5f75216a8addcaa65407d945a06363e4cbf9d
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: d408a862c18038f64b816bb54fc235d1b9d84179
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78359499"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78967970"
 ---
 # <a name="dynamic-packaging-in-media-services-v3"></a>Media Services v3의 동적 패키징
 
 Microsoft Azure Media Services를 사용하여 많은 미디어 원본 파일 형식을 인코딩할 수 있습니다. 모든 주요 디바이스(예: iOS 및 Android 디바이스)에 연결되는 콘텐츠 보호를 사용하거나 사용하지 않는 다양한 스트리밍 프로토콜을 통해 이러한 기능을 제공합니다. 이러한 클라이언트는 여러 다양한 프로토콜을 이해합니다. 예를 들어, iOS는 HLS(HTTP 라이브 스트리밍) 형식으로 스트림이 배달되어야 하 고 Android 디바이스는 HLS와 MPEG DASH를 모두 지원합니다.
 
 Media Services에서 [스트리밍 엔드포인트](streaming-endpoint-concept.md)는 라이브 및 주문형 콘텐츠를 클라이언트 플레이어 앱에 직접 배달할 수 있는 원본 서비스와 동적(적시) 패키징을 나타냅니다. 또한 다음 섹션에 설명된 일반적인 스트리밍 미디어 프로토콜중 하나를 사용합니다. 동적 패키징은 모든 스트리밍 엔드포인트(표준 또는 프리미엄)에 표준으로 제공되는 기능입니다.
+
+> [!NOTE]
+> [Azure Portal](https://portal.azure.com/) 를 사용 하 여 V3 [라이브 이벤트](live-events-outputs-concept.md)를 관리 하 고, v3 [자산](assets-concept.md)을 보고, api 액세스에 대 한 정보를 가져올 수 있습니다. 다른 모든 관리 작업 (예: 변환 및 작업)의 경우에는 [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref)또는 지원 되는 [sdk](media-services-apis-overview.md#sdks)중 하나를 사용 합니다.
 
 ## <a name="a-iddelivery-protocolsto-prepare-your-source-files-for-delivery"></a><a id="delivery-protocols"/>전송할 원본 파일 준비
 
@@ -302,7 +305,4 @@ HLS v7 이상의 경우 `(format=m3u8-cmaf)` 해당 재생 목록은 오디오 �
 
 ## <a name="next-steps"></a>다음 단계
 
-> [!NOTE]
-> 현재는 Azure Portal을 사용하여 v3 리소스를 관리할 수 없습니다. [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) 또는 지원되는 [SDK](media-services-apis-overview.md#sdks) 중 하나를 사용하세요.
-
-[비디오 업로드, 인코딩 및 스트리밍](stream-files-tutorial-with-api.md) 방법에 대해 알아봅니다.
+[비디오 업로드, 인코딩 및 스트리밍](stream-files-tutorial-with-api.md)

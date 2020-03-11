@@ -1,26 +1,18 @@
 ---
 title: Microsoft Azure에서 Cloud Foundry 시작
 description: Microsoft Azure에서 OSS 또는 Pivotal Cloud Foundry 실행
-services: virtual-machines-linux
-documentationcenter: ''
 author: seanmck
-manager: gwallace
-editor: ''
-tags: ''
-keywords: ''
-ms.assetid: 2a15ffbf-9f86-41e4-b75b-eb44c1a2a7ab
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
 ms.date: 01/19/2017
 ms.author: seanmck
-ms.openlocfilehash: 447550d2f6bca570869c9fa93724e4dbaba02132
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: ba0b4a636d8f785f1c169e4066c9cf6d25ba81db
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036815"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78970044"
 ---
 # <a name="cloud-foundry-on-azure"></a>Azure의 Cloud Foundry
 
@@ -36,7 +28,7 @@ Azure에 OSS Cloud Foundry를 배포하려면 [GitHub에 제공된 지침](https
 
 Microsoft는 다음과 같은 커뮤니티 채널을 통해 OSS CF에 대한 최선의 지원을 제공합니다.
 
-- #<a name="bosh-azure-cpi-channel-on-cloud-foundry-slackhttpsslackcloudfoundryorg"></a>[Cloud Foundry Slack](https://slack.cloudfoundry.org/)의 bosh-azure-cpi 채널
+- #<a name="bosh-azure-cpi-channel-on-cloud-foundry-slack"></a>[Cloud Foundry Slack](https://slack.cloudfoundry.org/)의 bosh-azure-cpi 채널
 - [cf-bosh mailing list](https://lists.cloudfoundry.org/pipermail/cf-bosh)
 - [CPI](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/issues) 및 [Service Broker](https://github.com/Azure/meta-azure-service-broker/issues)에 대한 GitHub Issues
 
@@ -57,7 +49,7 @@ Cloud Foundry는 상태 비저장 애플리케이션 프로세스와 상태 저�
 
 Pivotal Cloud Foundry를 사용하는 경우 Service Broker는 Pivotal Network의 [타일로도 제공](https://docs.pivotal.io/azure-sb/installing.html)됩니다.
 
-## <a name="related-resources"></a>관련 자료
+## <a name="related-resources"></a>관련 리소스
 
 ### <a name="azure-devops-services-plugin"></a>Azure DevOps Services 플러그인
 

@@ -9,14 +9,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: sgilley
-ms.date: 11/08/2019
+ms.date: 03/09/2020
 ms.custom: seodec18
-ms.openlocfilehash: 97d8d49b958293e3b51937cafc0874beb4f5ff4a
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 678af1855baf52efa727444236de8a1724a7d0b0
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75942231"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79078476"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>추정기를 사용하여 Azure Machine Learning에서 모델 학습
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -38,7 +38,7 @@ Azure Machine Learning를 사용 하 여 [Runconfiguration 개체](how-to-set-up
 
 ### <a name="single-node-training"></a>단일 노드 학습
 
-scikit-learn 모델을 위해 Azure의 원격 컴퓨팅에서 실행되는 단일 노드 학습에 `Estimator`를 사용합니다. [컴퓨팅 대상](how-to-set-up-training-targets.md#amlcompute) 개체 `compute_target` 및 [데이터 저장소](how-to-access-data.md) 개체 `ds`은 이미 만들어져 있어야 합니다.
+scikit-learn 모델을 위해 Azure의 원격 컴퓨팅에서 실행되는 단일 노드 학습에 `Estimator`를 사용합니다. [계산 대상](how-to-set-up-training-targets.md#amlcompute) 개체 `compute_target`를 이미 만들고 [filedataset](how-to-create-register-datasets.md) 개체를 `ds`해야 합니다.
 
 ```Python
 from azureml.train.estimator import Estimator
@@ -68,7 +68,7 @@ sk_est = Estimator(source_directory='./my-sklearn-proj',
 
 생성자에는 필요한 pip 패키지에 사용 하는 `pip_packages` 라는 또 다른 매개 변수가 있습니다.
 
-`Estimator` 개체를 만들었으므로 [Experiment](concept-azure-machine-learning-architecture.md#experiments) 개체`experiment`의 `submit` 함수 호출을 통해 원격 컴퓨팅에서 실행할 학습 작업을 제출합니다. 
+`Estimator` 개체를 만들었으므로 `submit`Experiment[ 개체](concept-azure-machine-learning-architecture.md#experiments)의 `experiment` 함수 호출을 통해 원격 컴퓨팅에서 실행할 학습 작업을 제출합니다. 
 
 ```Python
 run = experiment.submit(sk_est)
@@ -76,7 +76,7 @@ print(run.get_portal_url())
 ```
 
 > [!IMPORTANT]
-> 두 개의 **특수 폴더**인 *outputs* 및 *logs*는 Azure Machine Learning에서 별도로 처리합니다. 학습하는 동안 루트 디렉터리(각각 `./outputs` 및 `./logs`) 기준의 *outputs* 및 *logs*라는 폴더에 파일을 쓰면, 이러한 파일이 실행 기록에 자동으로 업로드되므로 실행이 완료되면 해당 파일에 액세스할 수 있습니다.
+> 두 개의 **특수 폴더**인 *outputs* 및 *logs*는 Azure Machine Learning에서 별도로 처리합니다. 학습하는 동안 루트 디렉터리(각각 *및*) 기준의 *outputs* 및 `./outputs`logs`./logs`라는 폴더에 파일을 쓰면, 이러한 파일이 실행 기록에 자동으로 업로드되므로 실행이 완료되면 해당 파일에 액세스할 수 있습니다.
 >
 > 모델 파일, 검사점, 데이터 파일 또는 그려진 이미지와 같이 학습 중에 아티팩트를 만들려면 이러한 파일을 `./outputs` 폴더에 씁니다.
 >
@@ -138,7 +138,7 @@ model = run.register_model(model_name='sklearn-sample', model_path=None)
 
 원본 디렉터리가 로컬 Git 리포지토리 인 학습 실행을 시작 하면 리포지토리에 대 한 정보가 실행 기록에 저장 됩니다. 자세한 내용은 [Azure Machine Learning에 대 한 Git 통합](concept-train-model-git-integration.md)을 참조 하세요.
 
-## <a name="examples"></a>예시
+## <a name="examples"></a>예
 평가기 패턴의 기본 사항을 보여 주는 노트북은 다음을 참조 하세요.
 * [how-to-use-azureml/training-with-deep-learning/how-to-use-estimator](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/how-to-use-estimator.ipynb)
 

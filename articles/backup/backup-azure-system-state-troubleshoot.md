@@ -4,12 +4,12 @@ description: 이 문서에서는 온-프레미스 Windows server에 대 한 시�
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/22/2019
-ms.openlocfilehash: f311de435d813cb0e6f8a2c3d932e05d695603f3
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 28647b72334d592692c5fe1b031735330d1a0509
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77583302"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78969570"
 ---
 # <a name="troubleshoot-system-state-backup"></a>시스템 상태 백업 문제 해결
 
@@ -137,7 +137,7 @@ Windows Server 백업 상태를 확인 하려면 다음 단계를 수행 합니�
 
 | 증상 | 해결 방법
 | -- | --
-| -MARS 에이전트가 실패 했습니다. 오류 메시지: 시스템 파일을 포함 하는 볼륨의 디스크 공간이 부족 하 여 섀도 복사본 볼륨을 늘릴 수 없어서 백업에 실패 했습니다. <br/><br/> -다음 오류/경고 로그는 volsnap 시스템 이벤트 로그에 있습니다. "볼륨 C에 디스크 공간이 부족 합니다. C: 섀도 복사본에 대 한 섀도 복사본 저장소 크기를 증가 시키려면 볼륨 C: 볼륨 C:의 모든 섀도 복사본을 삭제 하는 위험 | -백업이 진행 되는 동안 섀도 복사본을 늘릴 수 있는 충분 한 공간이 있도록 이벤트 로그에서 강조 표시 된 볼륨의 공간을 확보 합니다. <br/><br/> -섀도 복사본 공간을 구성 하는 동안 섀도 복사본에 사용 되는 공간 크기를 제한할 수 있습니다. 자세한 내용은이 [문서](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc788050(v=ws.11)#syntax) 를 참조 하세요.
+| -MARS 에이전트가 실패 했습니다. 오류 메시지: 시스템 파일을 포함 하는 볼륨의 디스크 공간이 부족 하 여 섀도 복사본 볼륨을 늘릴 수 없어서 백업에 실패 했습니다. <br/><br/> -다음 오류/경고 로그는 volsnap 시스템 이벤트 로그에 있습니다. "볼륨 C에 디스크 공간이 부족 합니다. C: 섀도 복사본에 대 한 섀도 복사본 저장소 크기를 증가 시키려면 볼륨 C: 볼륨 C:의 모든 섀도 복사본을 삭제 하는 위험 | -백업이 진행 되는 동안 섀도 복사본을 늘릴 수 있는 충분 한 공간이 있도록 이벤트 로그에서 강조 표시 된 볼륨의 공간을 확보 합니다. <br/><br/> -섀도 복사본 공간을 구성 하는 동안 섀도 복사본에 사용 되는 공간 크기를 제한할 수 있습니다. 자세한 내용은이 [문서](https://docs.microsoft.com/windows-server/administration/windows-commands/vssadmin-resize-shadowstorage) 를 참조 하세요.
 
 ### <a name="efi-partition-locked"></a>EFI 파티션 잠김
 

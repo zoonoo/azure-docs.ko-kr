@@ -1,26 +1,18 @@
 ---
 title: Linux를 실행 하는 가상 머신에서 LVM 구성
 description: Azure에서 Linux에 LVM을 구성하는 방법에 대해 알아봅니다.
-services: virtual-machines-linux
-documentationcenter: na
 author: mimckitt
-manager: gwallace
-editor: tysonn
-tag: azure-service-management,azure-resource-manager
-ms.assetid: 7f533725-1484-479d-9472-6b3098d0aecc
 ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: mimckitt
 ms.subservice: disks
-ms.openlocfilehash: 2c245d56b0fa0a09da04b83db11391a9291d3856
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 781ff1e6bda655ebd60d86e19375dcb6da051039
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78251724"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78969724"
 ---
 # <a name="configure-lvm-on-a-linux-vm-in-azure"></a>Azure에서 Linux VM에 LVM 구성
 이 문서에서는 Azure 가상 컴퓨터의 LVM(논리 볼륨 관리자)을 구성하는 방법을 설명합니다. Azure VM에서 OS 디스크 또는 데이터 디스크에 LVM을 사용할 수 있지만, 기본적으로 대부분의 클라우드 이미지는 OS 디스크에서 LVM이 구성되지 않습니다. 아래 단계에서는 데이터 디스크에 LVM을 구성하는 방법을 중점적으로 다룹니다.

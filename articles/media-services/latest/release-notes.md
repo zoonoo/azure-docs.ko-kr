@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: juliako
-ms.openlocfilehash: e5bf99e2ea84f41054ff57d08882bfa8ab4d6be5
-ms.sourcegitcommit: d12880206cf9926af6aaf3bfafda1bc5b0ec7151
+ms.openlocfilehash: 49959ff12744f28e930959c43a449800c76818f5
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77114232"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78969819"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 릴리스 정보
 
@@ -32,7 +32,7 @@ ms.locfileid: "77114232"
 ## <a name="known-issues"></a>알려진 문제
 
 > [!NOTE]
-> 현재는 Azure Portal을 사용하여 v3 리소스를 관리할 수 없습니다. [REST API](https://aka.ms/ams-v3-rest-sdk), CLI 또는 지원되는 SDK 중 하나를 사용하세요.
+> [Azure Portal](https://portal.azure.com/) 를 사용 하 여 V3 [라이브 이벤트](live-events-outputs-concept.md)를 관리 하 고, v3 [자산](assets-concept.md)을 보고, api 액세스에 대 한 정보를 가져올 수 있습니다. 다른 모든 관리 작업 (예: 변환 및 작업)의 경우에는 [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref)또는 지원 되는 [sdk](media-services-apis-overview.md#sdks)중 하나를 사용 합니다.
 
 자세한 내용은 [Media Services v2에서 v3로 이동하기 위한 마이그레이션 지침](migrate-from-v2-to-v3.md#known-issues)을 참조하세요.
  

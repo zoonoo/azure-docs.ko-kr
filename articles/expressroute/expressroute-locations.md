@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/15/2020
 ms.author: cherylmc
-ms.openlocfilehash: f46dfdb0b92e2a5c5f9b98ac93889ca49bd8c471
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: cd2562974a689ecbca0d7016d3d970895ea211d9
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78942361"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79081763"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 파트너 및 피어링 위치
 
@@ -88,7 +88,7 @@ Express 경로 위치 (예를 들어 피어 링 위치 또는 위치 면)는 MSE
 | **[British Telecom](https://www.globalservices.bt.com/en/solutions/products/cloud-connect-azure)** |지원됨 |지원됨 |암스테르담, 홍콩 특별 행정구, 요하네스버그, 런던, Newport (Wales), 상 파울로, 실리콘 계곡, 싱가포르, 시드니, 도쿄, 워싱턴 DC |
 | **[C3ntro](https://www.c3ntro.com/data1/express-route1.php)** |지원됨 |지원됨 |마이애미 |
 | **CDC** | 지원됨 | 지원됨 | 캔버라, 캔버라2 |
-| **[CenturyLink Cloud Connect](https://www.centurylink.com/cloudconnect)** |지원됨 |지원됨 |Amsterdam2, 시카고, 홍콩, Las Vegas, London2, 뉴욕, 파리, San Antonio, 실리콘 계곡, 도쿄,, 워싱턴 DC, 워싱턴 DC2 |
+| **[CenturyLink Cloud Connect](https://www.centurylink.com/cloudconnect)** |지원됨 |지원됨 |Amsterdam2, 시카고, 프랑크푸르트, 홍콩, Las Vegas, London2, 뉴욕, 파리, San Antonio, 실리콘 계곡, 도쿄,, 워싱턴 DC, 워싱턴 DC2 |
 | **[최고 통신](https://www.chief.com.tw/dispPageBox/ct.aspx?ddsPageID=ENCLOUDSERVICE&dbid=4852937342)** |지원됨 |지원됨 |홍콩, 타이베이 |
 | **중국 모바일 국가별** |지원됨 |지원됨 | 싱가포르 |
 | **China Telecom Global** |지원됨 |지원됨 |홍콩 |

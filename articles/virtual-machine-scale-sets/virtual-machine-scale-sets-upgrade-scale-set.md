@@ -1,19 +1,19 @@
 ---
 title: Azure 가상 머신 확장 집합 수정
 description: REST API, Azure PowerShell 및 Azure CLI로 Azure 가상 머신 확장 집합을 수정 및 업데이트하는 방법 알아보기
-author: mayanknayar
+author: mimckitt
 tags: azure-resource-manager
 ms.assetid: e229664e-ee4e-4f12-9d2e-a4f456989e5d
 ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
-ms.date: 02/14/2018
-ms.author: manayar
-ms.openlocfilehash: 49327ff0c3aeab25de02fc67c049f24597215d45
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.date: 03/10/2020
+ms.author: mimckitt
+ms.openlocfilehash: af5998a4207521d49ea4fd7956256aa6c880e6e9
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78390422"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082466"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>가상 머신 확장 집합 수정
 
@@ -311,7 +311,7 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
 >[!NOTE]
 > Service Fabric 클러스터는 *자동* 모드만 사용할 수 있지만 업데이트는 다르게 처리됩니다. 자세한 내용은 [Service Fabric 응용 프로그램 업그레이드](../service-fabric/service-fabric-application-upgrade.md)를 참조 하세요.
 
-업그레이드 정책을 따르지 않는 전역 확장 집합 속성에 대한 한 가지 유형의 수정 작업이 있습니다. 확장 집합 OS 프로필(예: 관리자 사용자 이름 및 암호)을 변경하면 API 버전 *2017-12-01* 이상에서만 변경됩니다. 이러한 변경은 확장 집합 모델이 변경된 후에 만들어지는 VM에만 적용됩니다. 기존 VM을 최신 상태로 유지하려면 각 VM을 “이미지로 다시 설치”해야 합니다. 다음을 통해 VM을 이미지로 다시 설치할 수 있습니다.
+업그레이드 정책을 따르지 않는 전역 확장 집합 속성에 대한 한 가지 유형의 수정 작업이 있습니다. 확장 집합 OS 및 데이터 디스크 프로필의 변경 내용 (예: 관리자 사용자 이름 및 암호)은 API 버전 *2017-12-01* 이상 에서만 변경할 수 있습니다. 이러한 변경은 확장 집합 모델이 변경된 후에 만들어지는 VM에만 적용됩니다. 기존 VM을 최신 상태로 유지하려면 각 VM을 “이미지로 다시 설치”해야 합니다. 다음을 통해 VM을 이미지로 다시 설치할 수 있습니다.
 
 - REST API에서 [compute/virtualmachinescalesets/reimage](/rest/api/compute/virtualmachinescalesets/reimage), 아래 참조:
 

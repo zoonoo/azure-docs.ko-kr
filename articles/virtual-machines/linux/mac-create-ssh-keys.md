@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 12/06/2019
 ms.author: cynthn
-ms.openlocfilehash: 9faa47e615217d62eade50a0c181dfda9ec9cd0a
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
-ms.translationtype: HT
+ms.openlocfilehash: af18a32143ebc9db7be923b09de106b79022321f
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78944790"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78969049"
 ---
 # <a name="quick-steps-create-and-use-an-ssh-public-private-key-pair-for-linux-vms-in-azure"></a>빠른 단계: Azure에서 Linux VM용 SSH퍼블릭-프라이빗 키 쌍을 만들고 사용하는 방법
 
@@ -65,7 +65,7 @@ ssh-rsa AAAAB3NzaC1yc2EAABADAQABAAACAQC1/KanayNr+Q7ogR5mKnGpKWRBQU7F3Jjhn7utdf7Z
 
 Azure Portal 또는 Resource Manager 템플릿에서 사용할 공개 키 파일의 내용을 복사하여 붙여넣으려는 경우 후행 공백은 복사하지 않아야 합니다. MacOS에서 공개 키를 복사 하려면 공개 키 파일을 `pbcopy`로 파이프 하면 됩니다. 마찬가지로, Linux에서 `xclip`와 같은 프로그램에 공개 키 파일을 파이프 할 수 있습니다.
 
-Azure에서 Linux VM에 배치하는 공개 키는 키 쌍을 만들 때 다른 위치를 지정하지 않는다면, 기본적으로 ~/.ssh/id_rsa.pub에 저장됩니다. 기존 공개 키를 사용하여 VM을 만들기 위해 [Azure CLI 2.0](/cli/azure)을 사용하는 경우 [ 옵션과 함께 ](/cli/azure/vm#az-vm-create)az vm create`--ssh-key-value` 명령을 사용하여 이 공개 키의 값과 위치(선택 사항)을 지정합니다. 다음 명령에서 *VMname*, *RGname* 및 *keyFile*을 자신의 값으로 바꿉니다.
+Azure에서 Linux VM에 배치하는 공개 키는 키 쌍을 만들 때 다른 위치를 지정하지 않는다면, 기본적으로 ~/.ssh/id_rsa.pub에 저장됩니다. 기존 공개 키를 사용하여 VM을 만들기 위해 [Azure CLI 2.0](/cli/azure)을 사용하는 경우 [ 옵션과 함께 ](/cli/azure/vm#az-vm-create)az vm create`--ssh-key-values` 명령을 사용하여 이 공개 키의 값과 위치(선택 사항)을 지정합니다. 다음 명령에서 *VMname*, *RGname* 및 *keyFile*을 자신의 값으로 바꿉니다.
 
 ```azurecli
 az vm create --name VMname --resource-group RGname --ssh-key-values mysshkey.pub

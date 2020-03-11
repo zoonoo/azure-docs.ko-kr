@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 02/25/2020
-ms.openlocfilehash: 13c51f0db468c1591ca29de17f1744752589a1c8
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.date: 03/09/2020
+ms.openlocfilehash: 77a451cb9f6598bbe7013f4215cfa7cab40186bd
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77663748"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79037537"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Apache Hive와 Apache Beeline 클라이언트 사용
 
@@ -54,6 +54,12 @@ beeline -u 'jdbc:hive2://<headnode-FQDN>:10001/default;principal=hive/_HOST@<AAD
 ```
 
 `<username>`을 클러스터에 액세스할 수 있는 권한이 있는 도메인의 계정 이름으로 바꿉니다. `<AAD-DOMAIN>`를 클러스터가 조인 된 Azure Active Directory (AAD)의 이름으로 바꿉니다. `<AAD-DOMAIN>` 값에 대문자 문자열을 사용 합니다. 그렇지 않으면 자격 증명을 찾을 수 없습니다. 필요한 경우 영역 이름 `/etc/krb5.conf`를 확인 합니다.
+
+Ambari에서 JDBC URL을 찾으려면 다음을 수행 합니다.
+
+1. 웹 브라우저에서 `https://CLUSTERNAME.azurehdinsight.net/#/main/services/HIVE/summary`로 이동 합니다. 여기서 `CLUSTERNAME`은 클러스터의 이름입니다. HiveServer2이 실행 중인지 확인 합니다.
+
+1. 클립보드를 사용 하 여 HiveServer2 JDBC URL을 복사 합니다.
 
 ---
 

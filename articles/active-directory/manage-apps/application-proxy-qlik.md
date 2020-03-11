@@ -14,17 +14,17 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45bf71274d8eb1039254cafe48a34587199be724
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 2edf63da0fd09f829f936b54eb088c34dfe029a1
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76263509"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79036991"
 ---
 # <a name="application-proxy-and-qlik-sense"></a>애플리케이션 프록시 및 Qlik Sense 
 Azure Active Directory 애플리케이션 프록시 및 Qlik Sense를 함께 사용하여 Qlik Sense 배포에 대한 원격 액세스를 제공하기 위해 애플리케이션 프록시를 쉽게 사용할 수 있도록 합니다.  
 
-## <a name="prerequisites"></a>필수 조건 
+## <a name="prerequisites"></a>사전 요구 사항 
 이 시나리오의 나머지 부분에서는 다음 작업을 완료했다고 가정합니다.
  
 - [Qlik Sense](https://community.qlik.com/docs/DOC-19822) 구성 
@@ -52,7 +52,8 @@ QlikSense를 게시하려면 Azure에서 두 개의 애플리케이션을 게시
 ### <a name="application-2"></a>애플리케이션 #2: 
 다음과 같은 예외가 포함된 애플리케이션 #1과 동일한 단계를 따릅니다. 
 
-**5단계**: 내부 URL은 애플리케이션에서 사용하는 인증 포트를 사용하는 QlikSense URL이어야 합니다. 기본값은 HTTPS의 경우 4244이 고, 4 2018 월 일 이전 QlikSense 릴리스의 경우 **4248** 입니다. QlikSense 릴리스에 대 한 기본값은 2018, HTTPS의 경우 **443** , HTTP의 경우 **80** 입니다.  예: **https&#58;//demo.qlik.com:4244**</br></br>**10단계:** SSO를 설정하지 않고 **Single Sign-On을 설정하지 않고** 그대로 둡니다.
+**5단계**: 내부 URL은 애플리케이션에서 사용하는 인증 포트를 사용하는 QlikSense URL이어야 합니다. 기본값은 HTTPS의 경우 4244이 고, 4 2018 월 일 이전 QlikSense 릴리스의 경우 **4248** 입니다. QlikSense 릴리스에 대 한 기본값은 2018, HTTPS의 경우 **443** , HTTP의 경우 **80** 입니다.  예: **https&#58;//demo.qlik.com:4244**</br></br>
+**#10 단계:** SSO를 설정 하지 않고 **Single sign-on을 사용 하지 않도록** 설정 합니다.
  
  
 ## <a name="testing"></a>테스트 

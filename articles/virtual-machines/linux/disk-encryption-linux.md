@@ -2,17 +2,18 @@
 title: Linux Vm에 대 한 Azure Disk Encryption 시나리오
 description: 이 문서에서는 다양 한 시나리오에서 Linux Vm에 Microsoft Azure 디스크 암호화를 사용 하도록 설정 하는 지침을 제공 합니다.
 author: msmbaldwin
-ms.service: security
+ms.service: virtual-machines-linux
+ms.subservice: security
 ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: ff4ccb4409bd9a41f390668cb94ef91b1b565421
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 19dcfb96f29939fd92f49ba288ddb6d9264e0f9a
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75358815"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78970589"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Linux Vm에 대 한 Azure Disk Encryption 시나리오
 

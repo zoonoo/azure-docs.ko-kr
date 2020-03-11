@@ -16,12 +16,12 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94d32bf26def6832f51b4e09c697bca885162dc2
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: ea90032b1f0cfe598ffdb3d35448a996f3111036
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73174405"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78968754"
 ---
 # <a name="share-link-to-request-an-access-package-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 액세스 패키지를 요청 하는 공유 링크
 
@@ -41,7 +41,7 @@ ms.locfileid: "73174405"
 
     ![액세스 패키지 개요 - 내 액세스 포털 링크](./media/entitlement-management-shared/my-access-portal-link.png)
 
-    내부 비즈니스 파트너에 게 보낼 때 전체 내 액세스 포털 링크를 복사 하는 것이 중요 합니다. 이렇게 하면 파트너가 디렉터리 포털에 액세스 하 여 요청을 수행할 수 있습니다. 링크는 `myaccess`으로 시작 하 고, 디렉터리 힌트를 포함 하 고, 액세스 패키지 ID로 끝납니다.
+    내부 비즈니스 파트너에 게 보낼 때 전체 내 액세스 포털 링크를 복사 하는 것이 중요 합니다. 이렇게 하면 파트너가 디렉터리 포털에 액세스 하 여 요청을 수행할 수 있습니다. 링크는 `myaccess`시작 하 고, 디렉터리 힌트를 포함 하 고, 액세스 패키지 ID로 끝납니다.  (미국 정부의 경우 내 액세스 포털 링크의 도메인이 `myaccess.microsoft.us`됩니다.)
 
     `https://myaccess.microsoft.com/@<directory_hint>#/access-packages/<access_package_id>`
 

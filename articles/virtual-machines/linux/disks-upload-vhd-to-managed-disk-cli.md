@@ -1,20 +1,19 @@
 ---
-title: Azure CLI를 사용 하 여 Azure에 vhd 업로드
+title: Azure CLI를 사용 하 여 VHD 업로드
 description: 직접 업로드를 통해 Azure 관리 디스크에 vhd를 업로드 하 고 Azure CLI를 사용 하 여 여러 지역에 관리 되는 디스크를 복사 하는 방법을 알아봅니다.
-services: virtual-machines-linux,storage
+services: virtual-machines,storage
 author: roygara
 ms.author: rogarana
 ms.date: 09/20/2019
 ms.topic: article
-ms.service: virtual-machines-linux
-ms.tgt_pltfrm: linux
+ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: 51c3933b5ee585c96ad81fe04d379b6771ae81e3
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 2a5bfec08546d6cf00b1e04017b3879db8f016ee
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457599"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78970334"
 ---
 # <a name="upload-a-vhd-to-azure-using-azure-cli"></a>Azure CLI를 사용 하 여 Azure에 vhd 업로드
 
@@ -24,7 +23,7 @@ Azure에서 IaaS Vm에 대 한 백업 솔루션을 제공 하는 경우 직접 �
 
 현재 직접 업로드는 표준 HDD, 표준 SSD 및 프리미엄 SSD 관리 디스크에 대해 지원 됩니다. 아직 ultra Ssd에 대해 지원 되지 않습니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - [AzCopy v10의 최신 버전](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy)을 다운로드 합니다.
 - [Azure CLI를 설치합니다](/cli/azure/install-azure-cli).

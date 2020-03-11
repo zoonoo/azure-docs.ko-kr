@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/28/2020
-ms.openlocfilehash: f496f6c06d36f817b0a933bdc68d5c53f308e3f2
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: e62f6f8df51c6acf4e2ad8e28e431d264c2c99e8
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78192628"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79037251"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터에서 Azure Storage 사용
 
@@ -25,11 +25,11 @@ Apache Hadoop은 기본 파일 시스템의 개념을 지원합니다. 기본 �
 > [!IMPORTANT]  
 > 저장소 계정 종류 **Blobstorage** 는 HDInsight 클러스터의 보조 저장소로만 사용할 수 있습니다.
 
-| 저장소 계정 종류 | 지원되는 서비스 | 지원되는 성능 계층 | 지원되는 액세스 계층 |
-|----------------------|--------------------|-----------------------------|------------------------|
-| StorageV2(범용 v2)  | Blob     | Standard                    | 핫, 쿨, 보관\*   |
-| 저장소 (범용 v1)   | Blob     | Standard                    | N/A                    |
-| BlobStorage                    | Blob     | Standard                    | 핫, 쿨, 보관\*   |
+| 저장소 계정 종류 | 지원되는 서비스 | 지원되는 성능 계층 |지원 되지 않는 성능 계층| 지원되는 액세스 계층 |
+|----------------------|--------------------|-----------------------------|---|------------------------|
+| StorageV2(범용 v2)  | Blob     | Standard                    |Premium| 핫, 쿨, 보관\*   |
+| 저장소 (범용 v1)   | Blob     | Standard                    |Premium| 해당 없음                    |
+| BlobStorage                    | Blob     | Standard                    |Premium| 핫, 쿨, 보관\*   |
 
 기본 Blob 컨테이너는 비즈니스 데이터를 저장하는 데 사용하지 않는 것이 좋습니다. 스토리지 비용을 줄이기 위해 사용한 후에는 매번 기본 Blob 컨테이너를 삭제하는 것이 좋습니다. 기본 컨테이너에는 애플리케이션 및 시스템 로그가 포함되어 있습니다. 컨테이너를 삭제하기 전에 이러한 로그를 검색해야 합니다.
 
@@ -166,7 +166,7 @@ HDInsight 클러스터를 만드는 동안 클러스터와 연결할 Azure Stora
 
 이 문서에서는 HDInsight로 HDFS 호환 Azure Storage를 사용하는 방법을 알아보았습니다. 이제 장기적이고 확장성 있는 보관 데이터 취득 솔루션을 구축할 수 있으며, 저장된 구조적 및 비구조적 데이터 내부의 정보를 활용하는 데 HDInsight를 사용할 수 있습니다.
 
-참조 항목:
+자세한 내용은 다음을 참조하세요.
 
 * [Azure HDInsight 시작](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [Azure Data Lake Storage 시작](../data-lake-store/data-lake-store-get-started-portal.md).

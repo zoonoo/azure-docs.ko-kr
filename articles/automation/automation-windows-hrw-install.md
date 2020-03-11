@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/10/2019
 ms.topic: conceptual
-ms.openlocfilehash: fc6d3bbe1580c4e6f7064c957a9d420555296231
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 6c99cb15ef6874ef0efecb15eb99443904491209
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78372628"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082396"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Windows Hybrid Runbook Worker 배포
 
@@ -139,7 +139,13 @@ Heartbeat
 | where TimeGenerated > ago(30m)
 ```
 
-검색 결과에는 컴퓨터에 대 한 하트 비트 레코드가 표시 되 고이 레코드가 서비스에 연결 되 고 보고 되 고 있음을 나타냅니다. 기본적으로 모든 에이전트는 하트 비트 레코드를 할당 된 작업 영역으로 전달 합니다. **C:\Program Files\Microsoft Monitoring Agent\Agent**에 **azureautomationfiles** 라는 폴더가 있는 경우 에이전트가 Automation 솔루션을 올바르게 다운로드 했는지 확인할 수 있습니다. Hybrid Runbook Worker 버전을 확인 하려면 **C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation** 으로 이동 하 여 **버전** 하위 폴더를 확인 합니다.
+검색 결과에는 컴퓨터에 대 한 하트 비트 레코드가 표시 되 고이 레코드가 서비스에 연결 되 고 보고 되 고 있음을 나타냅니다. 기본적으로 모든 에이전트는 하트 비트 레코드를 할당 된 작업 영역으로 전달 합니다. 
+
+에이전트 설치 및 설정을 완료 하려면 다음 단계를 따르십시오.
+
+1. 솔루션을 사용 하도록 설정 하 여 에이전트 컴퓨터를 등록 합니다. [작업 영역의 온보드 컴퓨터](https://docs.microsoft.com/azure/automation/automation-onboard-solutions-from-automation-account#onboard-machines-in-the-workspace)를 참조 하세요.
+2. 에이전트가 자동화 솔루션을 올바르게 다운로드 했는지 확인 합니다. **C:\Program Files\Microsoft Monitoring Agent\Agent**에 **azureautomationfiles** 라는 폴더가 있어야 합니다. 
+3. Hybrid Runbook Worker 버전을 확인 하려면 **C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation** 으로 이동 하 여 **버전** 하위 폴더를 확인 합니다.
 
 ### <a name="step-4---install-the-runbook-environment-and-connect-to-azure-automation"></a>4 단계-runbook 환경을 설치 하 고 Azure Automation에 연결
 

@@ -7,12 +7,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2019
-ms.openlocfilehash: 64f285ea27bde4565d051a84a65c5b4d7b8e9e8c
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 71a5737434e78bc39bccdfeb950e0dbc32ed0052
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78396514"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78968078"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>참조 - IoT Hub 할당량 및 제한
 
@@ -105,7 +105,7 @@ IoT Hub에는 다른 작업 제한도 적용됩니다.
 | 클라우드-디바이스 메시징<sup>1</sup> | 최대 메시지 크기 64KB 배달 보류 중인 최대 메시지 수는 장치당 50입니다. |
 | 직접 메서드<sup>1</sup> | 최대 직접 메서드 페이로드 크기는 128KB입니다. |
 | 자동 장치 및 모듈 구성<sup>1</sup> | 유료 SKU 허브당 100개 구성입니다. 체험 SKU 허브당 20개 구성입니다. |
-| 자동 배포 IoT Edge<sup>1</sup> | 배포당 20개의 모듈 100 유료 SKU 허브 당 배포 (계층화 된 배포 포함) 무료 SKU 허브 당 10 개의 배포. |
+| 자동 배포 IoT Edge<sup>1</sup> | 배포 당 50 모듈 100 유료 SKU 허브 당 배포 (계층화 된 배포 포함) 무료 SKU 허브 당 10 개의 배포. |
 | 쌍<sup>1</sup> | Desired 속성의 최대 크기 및 보고 된 속성 섹션은 각각 32 KB입니다. 태그 섹션의 최대 크기는 8kb입니다. |
 | 공유 액세스 정책 | 공유 액세스 정책의 최대 수는 16입니다. |
 

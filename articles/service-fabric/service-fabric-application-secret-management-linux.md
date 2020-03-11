@@ -5,12 +5,12 @@ author: shsha
 ms.topic: conceptual
 ms.date: 01/04/2019
 ms.author: shsha
-ms.openlocfilehash: 350718e4ce890fcbfaa7f2b10cc4c47dfac4da90
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: b8e0a19e3f654fc561e7c7e26c6a2da463e24d5f
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75614709"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78969026"
 ---
 # <a name="set-up-an-encryption-certificate-and-encrypt-secrets-on-linux-clusters"></a>Linux 클러스터에서 암호화 인증서 설정 및 비밀 암호화
 이 문서에서는 Linux 클러스터에서 암호화 인증서를 설정하고 이를 사용하여 비밀을 암호화하는 방법을 알아봅니다. Windows 클러스터의 경우 [windows 클러스터에서 암호화 인증서 설정 및 암호 암호화][secret-management-windows-specific-link]를 참조 하세요.
@@ -29,14 +29,14 @@ ms.locfileid: "75614709"
   ```
 
 ## <a name="install-the-certificate-in-your-cluster"></a>클러스터에 인증서 설치
-`/var/lib/sfcerts` 아래에 있는 클러스터의 각 노드에 인증서를 설치해야 합니다. 서비스가 실행 중인 사용자 계정(기본적으로 sfuser)에 설치된 인증서(즉, 현재 예제의 경우 `/var/lib/sfcerts/TestCert.pem`)에 대한 **읽기 권한이 있어야 합니다**.
+`/var/lib/sfcerts` 아래에 있는 클러스터의 각 노드에 인증서를 설치해야 합니다. 서비스가 실행 중인 사용자 계정(기본적으로 sfuser)에 설치된 인증서(즉, 현재 예제의 경우 **)에 대한** 읽기 권한이 있어야 합니다`/var/lib/sfcerts/TestCert.pem`.
 
 ## <a name="encrypt-secrets"></a>비밀 암호화
 다음 코드 조각은 비밀을 암호화하는 데 사용할 수 있습니다. 이 코드 조각은 값만 암호화하며, 암호화 텍스트에 서명하지 **않습니다**. 비밀 값의 암호 텍스트를 생성하려면 클러스터에 설치된 것과 동일한 암호화 인증서를 **사용해야 합니다**.
 
 ```console
 user@linux:$ echo "Hello World!" > plaintext.txt
-user@linux:$ iconv -f ASCII -t UTF-16LE plaintext.txt -o plaintext_UTF-16.txt
+user@linux:$ iconv -f ASCII -t UTF-16LE plaintext.txt | tr -d '\n' > plaintext_UTF-16.txt
 user@linux:$ openssl smime -encrypt -in plaintext_UTF-16.txt -binary -outform der TestCert.pem | base64 > encrypted.txt
 ```
 그 결과 encrypted.txt에 대한 기본 64로 인코딩된 문자열 출력에는 비밀 암호 텍스트와 암호화에 사용된 인증서에 대한 정보가 모두 포함되어 있습니다. OpenSSL을 사용하여 암호를 해독하여 유효성을 확인할 수 있습니다.

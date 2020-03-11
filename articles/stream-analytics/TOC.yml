@@ -120,6 +120,8 @@
           href: blob-output-managed-identity.md
         - name: 관리 ID를 사용하여 인증 - Power BI
           href: powerbi-output-managed-identity.md
+        - name: 데이터 암호화
+          href: data-protection.md
     - name: 솔루션 빌드
       items:
         - name: Twitter 감정 분석
@@ -167,6 +169,8 @@
           href: 'https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick'
         - name: IoT Edge 작업용 API 사용
           href: stream-analytics-cicd-api.md
+        - name: Azure Resource Manager를 사용하여 내보내기 및 배포
+          href: resource-manager-export.md
     - name: Visual Studio
       items:
         - name: 도구 설치

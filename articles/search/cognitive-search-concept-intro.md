@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 14c120af69a94331586f9264a12f5d2333a5d87d
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 0a4dd3247a9931de3ae2c699bdf7800407695c86
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77586753"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79080207"
 ---
 # <a name="introduction-to-ai-in-azure-cognitive-search"></a>Azure Cognitive Search의 AI 소개
 
@@ -21,7 +21,7 @@ AI 보강은 이미지, Blob 및 기타 비정형 데이터 원본에서 텍스�
 
 + **자연어 처리** 기술에는 [엔터티 인식](cognitive-search-skill-entity-recognition.md), [언어 검색](cognitive-search-skill-language-detection.md), [핵심 구 추출](cognitive-search-skill-keyphrases.md), 텍스트 조작, [감정 검색](cognitive-search-skill-sentiment.md) 및 [PII 검색](cognitive-search-skill-pii-detection.md)이 포함됩니다. 해당 기술을 사용하면 비정형 텍스트가 인덱스에서 검색 및 필터링 가능한 필드로 매핑되는 새 양식을 가정할 수 있습니다.
 
-+ **이미지 처리** 기술에는 [OCR(광학 인식)](cognitive-search-skill-ocr.md)을 비롯하여 얼굴 감지, 이미지 해석, 이미지 인식(유명한 사람 및 랜드마크) 또는 색상이나 이미지 방향과 같은 특성 등의 [시각적 특징](cognitive-search-skill-image-analysis.md) 식별이 포함됩니다. Azure Cognitive Search의 모든 쿼리 기능을 사용하여 검색 가능한 이미지 콘텐츠의 텍스트 표현을 만들 수 있습니다.
++ **이미지 처리** 기술에는 시각 [인식 (OCR)](cognitive-search-skill-ocr.md) 및 [시각적 기능](cognitive-search-skill-image-analysis.md)(예: 얼굴 감지, 이미지 해석, 이미지 인식 (유명한 사용자 및 랜드마크) 또는 이미지 방향과 같은 특성)의 id가 포함 됩니다. Azure Cognitive Search의 모든 쿼리 기능을 사용하여 검색 가능한 이미지 콘텐츠의 텍스트 표현을 만들 수 있습니다.
 
 ![보강 파이프라인 다이어그램](./media/cognitive-search-intro/cogsearch-architecture.png "보강 파이프라인 개요")
 
@@ -131,7 +131,7 @@ Azure Cognitive Search의 인식 기술은 Cognitive Services API: [Computer Vis
 + [자습서(HTTP 요청)](cognitive-search-tutorial-blob.md)
 + [예: AI 보강 (C#)에 대 한 사용자 지정 기술 만들기](cognitive-search-create-custom-skill-example.md)
 
-학습 목적이라면 무료 서비스를 추천하지만, 무료 트랜잭션 수는 하루에 문서 20개로 제한됩니다. 단원을 여러 번 실행 하려면 인덱서를 삭제 하 고 다시 만들어 카운터를 0으로 다시 설정 합니다.
+학습 목적이라면 무료 서비스를 추천하지만, 무료 트랜잭션 수는 하루에 문서 20개로 제한됩니다. 단원을 여러 번 실행하려면 인덱서를 삭제하고 다시 만들어 카운터를 0으로 재설정합니다.
 
 **3 단계: API 검토**
 

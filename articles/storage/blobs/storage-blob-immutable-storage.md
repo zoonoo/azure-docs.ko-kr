@@ -9,12 +9,12 @@ ms.date: 11/18/2019
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: b8b5de910195b14c279fe395cc35c12768536728
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: 55dbcc15afb12c03c98fb8d6e4e7f4acb269f620
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78365434"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78968185"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>변경할 수 없는 저장소로 비즈니스에 중요 한 blob 데이터 저장
 
@@ -68,7 +68,7 @@ Azure Blob Storage에 대한 변경 불가능한 스토리지는 두 가지 유�
 보존 정책에는 다음과 같은 제한이 적용 됩니다.
 
 - 저장소 계정의 경우 잠긴 시간 기반 변경 불가능 정책을 사용 하는 최대 컨테이너 수는 1만입니다.
-- 보존 간격의 최솟값은 1일이고, 최대값은 146000 일 (400 년)입니다.
+- 최소 보존 기간은 1 일입니다. 최대값은 146000 일 (400 년)입니다.
 - 컨테이너의 경우 잠긴 시간 기반 변경 불가능 정책에 대 한 보존 기간을 연장 하는 최대 편집 수는 5입니다.
 - 컨테이너의 경우 잠긴 정책에 대해 최대 7 개의 시간 기반 보존 정책 감사 로그가 보존 됩니다.
 
@@ -84,15 +84,7 @@ Azure Blob Storage에 대한 변경 불가능한 스토리지는 두 가지 유�
 
 잠금 해제 된 시간 기반 보존 정책을 사용 하면 언제 든 지 `allowProtectedAppendWrites` 설정을 사용 하도록 설정 하 고 사용 하지 않도록 설정할 수 있습니다. 시간 기반 보존 정책이 잠기면 `allowProtectedAppendWrites` 설정을 변경할 수 없습니다.
 
-법적 보류 정책은 `allowProtectedAppendWrites`를 사용 하도록 설정할 수 없으며 추가 blob에 새 블록을 추가 하는 것을 허용 하지 않습니다. `allowProtectedAppendWrites` 사용 하도록 설정 된 시간 기반 보존 정책에 법적 보류가 적용 되는 경우에는 법률 보류가 중단 될 때까지 *Appendblock* API가 실패 합니다.
-
-> [!IMPORTANT] 
-> 시간 기반 보존에서 보호 된 추가 blob 쓰기 허용 설정은 현재 다음 지역에서 사용할 수 있습니다.
-> - 미국 동부
-> - 미국 중남부
-> - 미국 서부 2
->
-> 현재는 일시적인 오류를 발생 하 고 추가 blob에 대 한 준수에 영향을 줄 수 있으므로 지정 된 것 외에 다른 지역에서 `allowProtectedAppendWrites`를 사용 하도록 설정 하지 않는 것이 좋습니다. 시간 기반 보존 정책을 설정 하 고 잠그는 방법에 대 한 자세한 내용은 [보호 된 추가 blob 쓰기 허용 사용](storage-blob-immutability-policies-manage.md#enabling-allow-protected-append-blobs-writes)을 참조 하세요.
+법적 보류 정책은 `allowProtectedAppendWrites`를 사용 하도록 설정할 수 없으며 모든 법적 보류가 ' allowProtectedAppendWrites ' 속성을 무효화 합니다. `allowProtectedAppendWrites` 사용 하도록 설정 된 시간 기반 보존 정책에 법적 보류가 적용 되는 경우에는 법률 보류가 중단 될 때까지 *Appendblock* API가 실패 합니다.
 
 ## <a name="legal-holds"></a>법적 보존
 
@@ -140,7 +132,7 @@ Azure Blob Storage에 대한 변경 불가능한 스토리지는 두 가지 유�
 
 **법적 보류 및 시간 기반 보존 정책을 모두 적용할 수 있나요?**
 
-예, 한 컨테이너에는 법적 보류와 시간 기반 보존 정책이 동시에 모두 포함 될 수 있습니다. 유효 보존 기간이 만료된 경우에도 법적 보존이 지워질 때까지 해당 컨테이너의 모든 Blob은 변경 불가능한 상태로 유지됩니다. 반대로, 모든 법적 보존이 지워진 경우에도 유효 보존 기간이 만료될 때까지 Blob은 변경 불가능한 상태로 유지됩니다.
+예, 한 컨테이너에는 법적 유지와 시간 기반 보존 정책이 동시에 모두 포함 될 수 있습니다. 그러나 ' allowProtectedAppendWrites ' 설정은 법적 보류를 지울 때까지 적용 되지 않습니다. 유효 보존 기간이 만료된 경우에도 법적 보존이 지워질 때까지 해당 컨테이너의 모든 Blob은 변경 불가능한 상태로 유지됩니다. 반대로, 모든 법적 보존이 지워진 경우에도 유효 보존 기간이 만료될 때까지 Blob은 변경 불가능한 상태로 유지됩니다. 
 
 **법률 proceedings of the에 대 한 법률 보유 정책 이거나 다른 사용 시나리오가 있나요?**
 
@@ -164,7 +156,7 @@ Azure Blob Storage에 대한 변경 불가능한 스토리지는 두 가지 유�
 
 **보존 기간이 만료되지는 않았지만 요금을 지불하지 않은 경우 어떻게 되나요?**
 
-요금을 지불하지 않으면 Microsoft와 맺은 사용 약관에 명시된 대로 일반 데이터 보존 정책이 적용됩니다.
+요금을 지불하지 않으면 Microsoft와 맺은 사용 약관에 명시된 대로 일반 데이터 보존 정책이 적용됩니다. 일반 정보는 Microsoft의 [데이터 관리](https://www.microsoft.com/en-us/trust-center/privacy/data-management)를 참조 하세요. 
 
 **기능을 경험해 볼 수 있는 평가판 또는 유예 기간이 제공되나요?**
 

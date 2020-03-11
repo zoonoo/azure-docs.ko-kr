@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 02/20/2020
 ms.author: wieastbu
 ms.custom: fasttrack-new
-ms.openlocfilehash: daf38baf9daff5fd192091be977a996c9bd5cfc2
-ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
+ms.openlocfilehash: fde48d63bd343fbed1f82e60819131ffb043a795
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77539865"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78967624"
 ---
 # <a name="protect-spa-backend-with-oauth-20-azure-active-directory-b2c-and-azure-api-management"></a>OAuth 2.0, Azure Active Directory B2C 및 Azure API Management를 사용 하 여 SPA 백 엔드 보호
 
 이 시나리오에서는 API를 보호 하도록 Azure API Management 인스턴스를 구성 하는 방법을 보여 줍니다.
-EasyAuth를 사용 하 여 Azure Functions 백 엔드를 보호 하기 위해 API Management와 함께 Openid connect Connect 프로토콜을 사용 하 여 Azure AD B2C 합니다.
+EasyAuth를 사용 하 여 Azure Functions 백 엔드를 보호 하는 API Management 함께 Azure AD B2C와 함께 OAuth 2.0 프로토콜을 사용 합니다.
 
 ## <a name="aims"></a>목표
 Azure Functions 및 Azure AD B2C를 사용 하 여 간소화 된 시나리오에서 API Management를 사용 하는 방법을 살펴보겠습니다. Azure AD B2C를 사용 하 여 사용자를 로그인 하는 API를 호출 하는 JavaScript (JS) 앱을 만듭니다. 그런 다음 API Management의 jwt 유효성 검사 기능을 사용 하 여 백 엔드 API를 보호 합니다.
@@ -66,11 +66,11 @@ Azure Functions 및 Azure AD B2C를 사용 하 여 간소화 된 시나리오에
    * 프런트 엔드 클라이언트입니다.
    * 백엔드 함수 API입니다.
    * 필드 API Management 개발자 포털 (소비 계층에서 Azure API Management를 실행 하는 경우가 아니면 나중에이 시나리오에 대 한 자세한 정보).
-1. WebApp/Web API를 설정 하 고 암시적 흐름 허용을 예로 설정 합니다.
+1. 3 개 응용 프로그램 모두에 대해 WebApp/Web API를 설정 하 고 프런트 엔드 클라이언트만 ' 암시적 흐름 허용 '을 예로 설정 합니다.
 1. 이제 앱 ID URI를 설정 하 고, 생성 되는 서비스와 관련 된 고유한 항목을 선택 합니다.
 1. 현재 https://localhost와 같이 회신 url에 대 한 자리 표시자를 사용 하 여 나중에 해당 url을 업데이트 합니다.
 1. ' 만들기 '를 클릭 한 다음 위의 세 앱 각각에 대해 2-5 단계를 반복 하 여 세 앱 모두에 대해 나중에 사용할 AppID URI, 이름 및 응용 프로그램 ID를 기록 합니다.
-1. 응용 프로그램 목록에서 백 엔드 API를 열고 *키* 탭 (일반)을 선택한 다음 ' 키 생성 '을 클릭 하 여 인증 키를 생성 합니다.
+1. 응용 프로그램 목록에서 API Management 개발자 포털 응용 프로그램을 열고 일반에서 *키* 탭을 선택한 후 ' 키 생성 '을 클릭 하 여 인증 키를 생성 합니다.
 1. 저장을 클릭 하면 나중에 사용 하기 위해 안전 하 게 키를 기록 합니다 .이 위치는이 키를 보고 복사 하는 유일한 기회입니다.
 1. 이제 게시 된 *범위* 탭 (API 액세스 아래)을 선택 합니다.
 1. 함수 API에 대 한 범위를 만들고 이름을 지정한 후 범위를 기록 하 고 전체 범위 값을 채운 후 ' 저장 '을 클릭 합니다.
@@ -85,7 +85,7 @@ Azure Functions 및 Azure AD B2C를 사용 하 여 간소화 된 시나리오에
 1. "사용자 흐름 (정책)"을 선택 하 고 "새 사용자 흐름"을 클릭 합니다.
 1. ' 등록 및 로그인 ' 사용자 흐름 유형 선택
 1. 정책에 이름을 지정 하 고 나중에 기록 합니다.
-1. 그런 다음 ' Id 공급자 ' 아래에서 ' 사용자 ID 등록 '을 선택 하 고 확인을 클릭 합니다. 
+1. ' Id 공급자 ' 아래에서 ' 사용자 ID 등록 ' (' 전자 메일 등록 ')을 선택 하 고 확인을 클릭 합니다. 
 1. ' 사용자 특성 및 클레임 '에서 ' 자세히 표시 ... '를 클릭 합니다. 그런 다음 사용자가 입력 하 고 토큰에서 반환 하려는 클레임 옵션을 선택 합니다. ' 표시 이름 ' 및 ' 전자 메일 주소 '를 확인 하 여 수집 하 여 반환 하 고 ' 확인 '을 클릭 한 다음 ' 만들기 '를 클릭 합니다.
 1. 목록에서 만든 정책을 선택한 다음 ' 사용자 흐름 실행 ' 단추를 클릭 합니다.
 1. 이 작업은 사용자 흐름 실행 블레이드를 열고, 프런트 엔드 응용 프로그램을 선택한 다음, ' 도메인 선택 ' 드롭다운 아래에 표시 되는 b2clogin.com 도메인의 주소를 기록 합니다.
@@ -98,6 +98,7 @@ Azure Functions 및 Azure AD B2C를 사용 하 여 간소화 된 시나리오에
    > 원하는 경우 여기에서 ' 사용자 흐름 실행 ' 단추를 클릭 하 고 (등록 또는 로그인 프로세스를 진행 하는 경우), 앱이 아직 배포 되지 않았기 때문에 끝에 있는 리디렉션 단계가 실패 합니다.
 
 ## <a name="build-the-function-api"></a>함수 API 빌드
+1. 구독에서 항목을 다시 구성할 수 있도록 Azure Portal에서 표준 Azure AD 테 넌 트로 다시 전환 합니다. 
 1. Azure Portal의 함수 앱 블레이드로 이동 하 여 빈 함수 앱을 연 다음 퀵 스타트를 통해 포털 내 새 ' Webhook + API ' 함수를 만듭니다.
 1. 아래에 있는 샘플 코드를 표시 되는 기존 코드에 대해 csx에 붙여넣습니다.
 
@@ -156,15 +157,16 @@ Azure Functions 및 Azure AD B2C를 사용 하 여 간소화 된 시나리오에
 1. 그런 다음 ' 플랫폼 기능 ' 탭을 선택 하 고 ' 인증/권한 부여 '를 선택 합니다.
 1. App Service 인증 기능을 설정 합니다.
 1. ' 인증 공급자 '에서 ' Azure Active Directory '를 선택 하 고 관리 모드 스위치에서 ' 고급 '을 선택 합니다.
-1. 백 엔드 API의 응용 프로그램 ID를 Azure AD B2C에서 ' 클라이언트 ID ' 상자로 붙여넣습니다.
+1. Azure AD B2C에서 ' 클라이언트 ID ' 상자에 백 엔드 함수 API의 응용 프로그램 ID를 붙여 넣습니다.
 1. 등록 또는 로그인 정책에서 잘 알려진 오픈 id 구성 끝점을 발급자 URL 상자에 붙여넣습니다 (이전에이 구성을 기록 함).
-1. Azure AD B2C 응용 프로그램에 대해 이전에 기록한 토큰을 허용 된 토큰 대상에 기록한 3 개 (API Management 사용 모델을 사용 하는 경우 두 개의 응용 프로그램 Id를 추가 합니다 .이 설정은 수신 된 토큰에 허용 되는 AUD 클레임 값을 EasyAuth에 알려 줍니다.
-1. 확인을 선택 하 고 저장을 클릭 합니다.
+1. 확인을 선택합니다.
+1. 요청이 인증 되지 않은 경우 수행할 작업 드롭다운을 "Azure Active Directory 사용 하 여 로그인"으로 설정 하 고 저장을 클릭 합니다.
 
    > [!NOTE]
-   > 이제 함수 API가 배포 되 고, 권한 없는 요청에 대해 401 또는 403 오류를 throw 하 고, 유효한 요청이 표시 될 때 데이터를 반환 해야 합니다.
-   > 그러나 여전히 IP 보안이 없습니다. 유효한 키가 있는 경우 어디에서 나 호출할 수 있습니다. 모든 요청을 API Management를 통해 적용 하는 것이 좋습니다.
-   > 또한 API Management 소비 계층을 사용 하는 경우 해당 계층에 대 한 전용 고정 IP가 없기 때문에 VIP를 사용 하 여이 잠금을 수행할 수 없습니다. 공유 비밀 기능 키를 통해 API 호출을 잠그는 방법을 사용 해야 합니다. 따라서 11-14 단계를 수행할 수 없습니다.
+   > 이제 함수 API가 배포 되 고 올바른 키가 제공 되지 않은 경우 401 응답을 throw 하 고 유효한 요청이 표시 될 때 데이터를 반환 해야 합니다.
+   > 인증 되지 않은 요청을 처리 하기 위해 ' Azure AD를 사용 하 여 로그인 ' 옵션을 구성 하 여 EasyAuth에서 심층 방어 보안을 추가 했습니다. EasyAuth는 백 엔드 함수 앱와 프런트 엔드 SPA 간에 인증 되지 않은 요청 동작을 변경 합니다 .이는 401 권한이 부여 되지 않은 응답 대신 AAD에 302 리디렉션을 실행 하므로 나중에 API Management를 사용 하 여 해결할 수 있습니다.
+   > 여전히 IP 보안이 적용 되지 않습니다. 유효한 키 및 OAuth2 토큰이 있는 경우 누구나이를 호출할 수 있습니다. 모든 요청을 API Management를 통해 적용 하는 것이 좋습니다.
+   > API Management 소비 계층을 사용 하는 경우 해당 계층에 대 한 전용 고정 IP가 없기 때문에 VIP를 사용 하 여이 잠금을 수행할 수 없습니다. 공유 비밀 기능 키를 통해 API 호출을 잠그는 방법을 사용 해야 합니다. 따라서 11-13 단계를 수행할 수 없습니다.
 
 1. ' 인증/권한 부여 ' 블레이드를 닫습니다. 
 1. ' 네트워킹 '을 선택한 후 ' 액세스 제한 '을 선택 합니다.
@@ -172,13 +174,13 @@ Azure Functions 및 Azure AD B2C를 사용 하 여 간소화 된 시나리오에
 1. 계속 해 서 함수 포털과 상호 작용 하 고 아래에서 선택적 단계를 수행 하려는 경우 사용자 고유의 공용 IP 주소 또는 CIDR 범위만 추가 해야 합니다.
 1. 목록에 허용 항목이 있으면 Azure는 다른 모든 주소를 차단 하는 암시적인 거부 규칙을 추가 합니다. 
 
-IP 제한 패널에 CIDR 형식 주소 블록을 추가 해야 합니다. API Management VIP와 같은 단일 주소를 추가 해야 하는 경우에는 xx. xx. xx/32 형식으로 추가 해야 합니다.
+IP 제한 패널에 CIDR 형식 주소 블록을 추가 해야 합니다. API Management VIP와 같은 단일 주소를 추가 해야 하는 경우에는 xx. xx. xx. xx. xx. xx 형식으로 추가 해야 합니다.
 
    > [!NOTE]
    > 이제 API management 나 사용자의 주소를 제외한 모든 위치에서 함수 API를 호출할 수 없습니다.
-
+   
 ## <a name="import-the-function-app-definition"></a>함수 앱 정의 가져오기
-1. API Management 포털 블레이드를 열고 API Management 인스턴스를 선택 합니다.
+1. *API Management 블레이드*를 연 후 *인스턴스*를 엽니다.
 1. 인스턴스의 API Management 섹션에서 Api 블레이드를 선택 합니다.
 1. ' 새 API 추가 ' 창에서 ' 함수 앱 '를 선택한 다음 팝업 위쪽에서 ' 전체 '를 선택 합니다.
 1. 찾아보기를 클릭 하 고 내에서 API를 호스트 하는 함수 앱을 선택한 다음 선택을 클릭 합니다.
@@ -186,13 +188,13 @@ IP 제한 패널에 CIDR 형식 주소 블록을 추가 해야 합니다. API Ma
 1. 나중에 사용할 수 있도록 기준 URL을 기록한 다음 만들기를 클릭 합니다.
 
 ## <a name="configure-oauth2-for-api-management"></a>API Management에 대 한 Oauth2 구성
-1. 구독에서 항목을 다시 구성 하 고 *API Management 블레이드*를 연 후 *인스턴스*를 열 수 있도록 AZURE PORTAL에서 표준 Azure AD 테 넌 트로 다시 전환 합니다.
+
 1. 그런 다음 보안 탭에서 Oauth 2.0 블레이드를 선택 하 고 ' 추가 '를 클릭 합니다.
 1. 추가 된 Oauth 끝점에 대 한 *표시 이름* 및 *설명* 값을 지정 합니다. 이러한 값은 다음 단계에서 Oauth2 끝점으로 표시 됩니다.
 1. 이 값은 사용 되지 않으므로 클라이언트 등록 페이지 URL에 값을 입력할 수 있습니다.
-1. *암시적 인증* 권한 유형을 확인 하 고 필요에 따라 인증 코드 권한 유형을 선택 취소 합니다.
+1. *암시적 인증* 권한 유형을 확인 하 고 인증 코드 부여 유형을 확인 된 상태로 둡니다.
 1. *권한 부여* 및 *토큰* 끝점 필드로 이동 하 고 앞의 잘 알려진 구성 xml 문서에서 캡처한 값을 입력 합니다.
-1. 아래로 스크롤하여 ' resource ' 라는 *추가 본문 매개 변수* 를 Azure AD B2C 앱 등록의 함수 API 클라이언트 ID로 채웁니다.
+1. 아래로 스크롤하여 ' resource ' 라는 *추가 본문 매개 변수* 를 Azure AD B2C 앱 등록의 백엔드 함수 API 클라이언트 ID로 채웁니다.
 1. ' 클라이언트 자격 증명 '을 선택 하 고, 클라이언트 ID를 개발자 콘솔 앱의 앱 ID로 설정 합니다. 소비 API Management 모델을 사용 하는 경우이 단계를 건너뜁니다.
 1. 클라이언트 암호를 앞에서 기록한 키로 설정 합니다. 소비 API Management 모델을 사용 하는 경우이 단계를 건너뜁니다.
 1. 마지막으로, 나중에 사용할 API Management에서 인증 코드의 redirect_uri를 기록 합니다.
@@ -242,7 +244,6 @@ IP 제한 패널에 CIDR 형식 주소 블록을 추가 해야 합니다. API Ma
    ```
 1. 등록 또는 로그인 정책에 대해 잘 알려진 Azure AD B2C 끝점과 일치 하도록 openid connect url을 편집 합니다.
 1. 백 엔드 API 응용 프로그램에 대 한 클라이언트 ID 라고도 하는 유효한 응용 프로그램 ID와 일치 하도록 클레임 값을 편집 하 고 저장 합니다.
-1. "모든 Api" 아래에서 api 작업을 선택 합니다.
 
    > [!NOTE]
    > 이제 API management는 JS SPA 앱에 대 한 원본 간 요청에 응답할 수 있으며, 요청을 함수 API로 전달 하기 전에 전달 되는 JWT 인증 토큰의 제한, 요율 제한 및 사전 유효성 검사를 수행 합니다.

@@ -1,19 +1,19 @@
 ---
 title: 파트너 센터에서 상용 마켓플레이스 계정 만들기
 description: 파트너 센터에서 상업적 Marketplace 계정을 만드는 방법에 대해 알아봅니다.
-author: ChJenk
+author: qianw211
 manager: evansma
-ms.author: v-chjen
+ms.author: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: guide
-ms.date: 09/26/2019
-ms.openlocfilehash: df857fb938ade329a971578ac206f16f1357d7e5
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.date: 03/10/2020
+ms.openlocfilehash: 59f37585dfea08e9343cf052f680fd6e9531852b
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838751"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78968835"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>파트너 센터에서 상용 마켓플레이스 계정 만들기
 
@@ -50,7 +50,7 @@ ms.locfileid: "73838751"
 
 ### <a name="register-on-the-partner-center-enrollment-page"></a>파트너 센터 등록 페이지에 등록
 
-[**Microsoft 파트너 센터 등록 시작**](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) 페이지의 정보를 검토 한 다음 계정에 등록 합니다.
+[**Microsoft 파트너 센터 등록 시작**](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) 페이지의 정보를 검토 한 다음 계정에 등록 합니다.
 
 ### <a name="sign-in-with-a-work-account"></a>회사 계정으로 로그인
 

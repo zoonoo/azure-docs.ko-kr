@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 11/19/2019
-ms.openlocfilehash: d39ac40e8e29c7ff90e2accc3a519449571c1d58
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.date: 03/10/2020
+ms.openlocfilehash: 2e12952c04373fe47eaebb24b61a4fc563121185
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77917410"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79037138"
 ---
 # <a name="execute-r-script"></a>R 스크립트 실행
 
@@ -67,11 +67,43 @@ azureml_main <- function(dataframe1, dataframe2){
  > [!NOTE]
   > 설치를 반복 하지 않으려면 패키지가 이미 있는지 확인 하세요. 위의 샘플 코드에 `  if(!require(zoo)) install.packages("zoo",repos = "http://cran.us.r-project.org")`와 같습니다. 설치를 반복 하면 웹 서비스 요청 시간이 초과 될 수 있습니다.     
 
+## <a name="upload-files"></a>파일 업로드
+**R 스크립트 실행** 은 AZURE MACHINE LEARNING r SDK를 사용 하 여 파일 업로드를 지원 합니다.
+
+다음 예제에서는 **R 스크립트 실행**에서 이미지 파일을 업로드 하는 방법을 보여 줍니다.
+```R
+
+# R version: 3.5.1
+# The script MUST contain a function named azureml_main
+# which is the entry point for this module.
+
+# The entry point function can contain up to two input arguments:
+#   Param<dataframe1>: a R DataFrame
+#   Param<dataframe2>: a R DataFrame
+azureml_main <- function(dataframe1, dataframe2){
+  print("R script run.")
+
+  # Generate a jpeg graph
+  img_file_name <- "rect.jpg"
+  jpeg(file=img_file_name)
+  example(rect)
+  dev.off()
+
+  upload_files_to_run(names = list(file.path("graphic", img_file_name)), paths=list(img_file_name))
+
+
+  # Return datasets as a Named List
+  return(list(dataset1=dataframe1, dataset2=dataframe2))
+}
+```
+
+파이프라인이 성공적으로 제출 되 면 모듈의 오른쪽 패널에서 이미지를 미리 볼 수 ![업로드 이미지](media/module/upload-image-in-r-script.png)
+
 ## <a name="how-to-configure-execute-r-script"></a>R 스크립트 실행을 구성 하는 방법
 
 **R 스크립트 실행** 모듈에는 시작 지점으로 사용할 수 있는 샘플 코드가 포함 되어 있습니다. **R 스크립트 실행** 모듈을 구성 하려면 실행할 입력 및 코드 집합을 제공 합니다.
 
-![R 모듈](media/module/execute-r-script.png)
+![R 모듈](media/module/upload-image-in-r-script.png)
 
 이 모듈을 사용 하 여 로드 하면 디자이너에 저장 된 데이터 집합이 자동으로 R 데이터 프레임으로 변환 됩니다.
 
@@ -284,7 +316,7 @@ azureml_main <- function(dataframe1, dataframe2){
 | 크레용       | 1.3.4      | 
 | curl         | 3.3        | 
 | data. table   | 1.12.2     | 
-| 데이터 집합     | 3.5.1      | 
+| 데이터 세트     | 3.5.1      | 
 | DBI          | 1.0.0      | 
 | dbplyr       | 1.4.1      | 
 | digest       | 0.6.19     | 
@@ -305,7 +337,7 @@ azureml_main <- function(dataframe1, dataframe2){
 | gplots       | 3.0.1.1    | 
 | 그래픽     | 3.5.1      | 
 | grDevices    | 3.5.1      | 
-| Grid         | 3.5.1      | 
+| (grid)         | 3.5.1      | 
 | gtable       | 0.3.0      | 
 | gtools       | 3.8.1      | 
 | 되지 않았고        | 2.1.0      | 

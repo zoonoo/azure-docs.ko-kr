@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 01/17/2020
 author: dkkapur
 ms.author: dekapur
-ms.openlocfilehash: 41c7fc7380ca2b58326c4a35a3b5fdab1c64c4a3
-ms.sourcegitcommit: 78f367310e243380b591ff10f2500feca93f5d0a
+ms.openlocfilehash: ad232c5d9df9f6bfae3a79dbd72e2c68143be949
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77544320"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79080363"
 ---
 # <a name="encrypt-deployment-data"></a>배포 데이터 암호화
 
@@ -41,6 +41,10 @@ Microsoft 관리 키를 사용 하 여 컨테이너 데이터의 암호화를 �
 
 첫 번째 단계는 [Azure 테 넌 트](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 에 Azure Container Instances 서비스에 대 한 사용 권한을 부여 하기 위해 할당 된 서비스 주체가 있는지 확인 하는 것입니다. 
 
+> [!IMPORTANT]
+> 다음 명령을 실행 하 고 서비스 주체를 성공적으로 만들기 위해 테 넌 트에서 서비스 사용자를 만들 수 있는 권한이 있는지 확인 합니다.
+>
+
 다음 CLI 명령은 Azure 환경에서 ACI SP를 설정 합니다.
 
 ```azurecli-interactive
@@ -48,6 +52,10 @@ az ad sp create --id 6bb8e274-af5d-4df2-98a3-4fd78b4cafd9
 ```
 
 이 명령을 실행 하면 "displayName": "Azure Container Instance Service"로 설정 된 서비스 사용자가 표시 되어야 합니다.
+
+서비스 주체를 성공적으로 만들 수 없는 경우:
+* 테 넌 트에서이 작업을 수행할 수 있는 권한이 있는지 확인 합니다.
+* 서비스 주체가 ACI에 배포 하기 위해 테 넌 트에 이미 있는지 확인 합니다. `az ad sp show --id 6bb8e274-af5d-4df2-98a3-4fd78b4cafd9`를 실행 하 고 대신 해당 서비스 주체를 사용 하 여이 작업을 수행할 수 있습니다.
 
 ### <a name="create-a-key-vault-resource"></a>Key Vault 리소스 만들기
 

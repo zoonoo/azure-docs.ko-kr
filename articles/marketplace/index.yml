@@ -1,0 +1,131 @@
+### YamlMime:Landing
+title: Microsoft 상업용 마켓플레이스 시작
+summary: 엔터프라이즈의 신생 기업에서 전 세계 고객에게 솔루션을 제공할 수 있는 온라인 애플리케이션 및 서비스 마켓플레이스인 Microsoft의 상업용 마켓플레이스에 대해 알아봅니다.
+metadata:
+  title: Microsoft 상업용 마켓플레이스 시작
+  description: 엔터프라이즈의 신생 기업에서 전 세계 고객에게 솔루션을 제공할 수 있는 온라인 애플리케이션 및 서비스 마켓플레이스인 Microsoft의 상업용 마켓플레이스에 대해 알아봅니다.
+  ms.service: marketplace
+  ms.subservice: partnercenter-marketplace-publisher
+  ms.topic: landing-page
+  author: MaggiePucciEvans
+  ms.author: evansma
+  ms.date: 03/04/2020
+  ms.openlocfilehash: 3dced8953c09520b96a9aa24cf7b5db1022de6ce
+  ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 03/08/2020
+  ms.locfileid: "78927599"
+landingContent:
+- title: Microsoft 상업용 마켓플레이스에서 작업
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: 새 계정 만들기
+      url: ./partner-center-portal/create-account.md
+    - text: 게시 옵션 확인
+      url: ./determine-your-listing-type.md
+    - text: Microsoft 상업용 마켓플레이스 FAQ
+      url: ./marketplace-faq-publisher-guide.md
+    - text: 릴리스 정보
+      url: https://aka.ms/publicmarketplaceroadmap
+    - text: 정책 및 용어
+      url: ./policies-terms.md
+- title: 일반적인 시나리오 및 작업
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 마케팅 모범 사례
+      url: ./gtm-marketing-best-practices.md
+    - text: 목록에 제품 추가 모범 사례
+      url: ./gtm-offer-listing-best-practices.md
+    - text: SaaS 애플리케이션 제품 게시 가이드
+      url: ./marketplace-saas-applications-technical-publishing-guide.md
+  - linkListType: get-started
+    links:
+    - text: Azure Marketplace 및 AppSource 커뮤니티 포럼 참여
+      url: https://aka.ms/MarketplaceCommunity
+    - text: 웨비나 토론 참여 및 요청 시 나중에 시청하기 위한 등록
+      url: https://aka.ms/allwebinars
+    - text: Microsoft AppSource 및 Office 내에서 솔루션을 사용할 수 있도록 설정
+      url: https://docs.microsoft.com/office/dev/store/submit-to-appsource-via-partner-center
+- title: 제품 및 고객 데이터 분석
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 요약 대시보드
+      url: ./partner-center-portal/summary-dashboard.md
+    - text: 주문 대시보드
+      url: ./partner-center-portal/orders-dashboard.md
+    - text: 고객 대시보드
+      url: ./partner-center-portal/customer-dashboard.md
+    - text: 사용량 대시보드
+      url: ./partner-center-portal/usage-dashboard.md
+    - text: Marketplace 인사이트 대시보드
+      url: ./partner-center-portal/insights-dashboard.md
+    - text: 다운로드 대시보드
+      url: ./partner-center-portal/downloads-dashboard.md
+    - text: 평점 및 리뷰 대시보드
+      url: ./partner-center-portal/ratings-reviews.md
+- title: 제품 관리
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Azure 애플리케이션 제품
+      url: ./partner-center-portal/create-new-azure-apps-offer.md
+    - text: Dynamics 365 for Customer Engagement/PowerApps 제품
+      url: ./partner-center-portal/create-new-customer-engagement-offer.md
+    - text: Dynamics 365 for Operations 제품
+      url: ./partner-center-portal/create-new-operations-offer.md
+    - text: Dynamics 365 Business Central 제품
+      url: ./partner-center-portal/create-new-business-central-offer.md
+    - text: SaaS 제품
+      url: ./partner-center-portal/create-new-saas-offer.md
+    - text: 가상 머신 제품
+      url: ./cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer.md
+    - text: 추가 제품 유형
+      url: ./cloud-partner-portal/cpp-marketplace-offers.md
+- title: 결제
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 지급 계정 및 세금 양식 설정
+      url: ./partner-center-portal/set-up-your-payout-account-tax-forms.md
+    - text: 상업용 마켓플레이스 청구
+      url: ./partner-center-portal/billing-details.md
+    - text: 지불 임계값, 방법 및 시간 프레임
+      url: ./partner-center-portal/payment-thresholds-methods-timeframes.md
+    - text: 지급 보고
+      url: ./partner-center-portal/payout-summary.md
+    - text: 세금 세부 정보
+      url: ./partner-center-portal/tax-details-paid-transactions.md
+- title: API 참조
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: API 사전 요구 사항
+      url: ./cloud-partner-portal-orig/cloud-partner-portal-api-prerequisites.md
+    - text: SaaS 처리 API
+      url: ./partner-center-portal/pc-saas-fulfillment-api-v2.md
+    - text: Cloud 파트너 포털 API 참조
+      url: ./cloud-partner-portal-orig/cloud-partner-portal-api-overview.md
+    - text: Marketplace 계량 서비스 API
+      url: ./partner-center-portal/marketplace-metering-service-apis-faq.md
+    - text: 제안 만들기 또는 수정
+      url: ./cloud-partner-portal-orig/cloud-partner-portal-api-creating-offer.md
+    - text: 제품 검색
+      url: .//cloud-partner-portal-orig/cloud-partner-portal-api-retrieve-offers.md
+    - text: 실시간 전송
+      url: ./cloud-partner-portal-orig/cloud-partner-portal-api-go-live.md
+    - text: 가상 머신 제품 가격 책정
+      url: ./cloud-partner-portal-orig/cloud-partner-portal-api-setting-price.md
+- title: 지원 받기
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: 지원 옵션
+      url: ./partner-center-portal/support.md
+    - text: 지리적 가용성 및 통화
+      url: ./marketplace-geo-availability-currencies.md
+    - text: 인증 오류 문제 해결
+      url: ./cloud-partner-portal-orig/cloud-partner-portal-api-troubleshooting-authentication-errors.md

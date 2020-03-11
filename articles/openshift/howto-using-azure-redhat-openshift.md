@@ -7,17 +7,20 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/06/2020
 keywords: aro, openshift, az aro, red hat, cli
-ms.openlocfilehash: 81f8edb42be1f73692062d36440890ef5a1e7c9a
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.openlocfilehash: 3c336a1fbfb9f991ff824e8deafe84f3d899771d
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78899309"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082832"
 ---
 # <a name="create-access-and-manage-an-azure-red-hat-openshift-43-cluster"></a>Azure Red Hat OpenShift 4.3 클러스터 만들기, 액세스 및 관리
 
 > [!IMPORTANT]
-> Azure Red Hat OpenShift (ARO) 4.3는 미리 보기로 제공 됩니다. 미리 보기 기능은 셀프 서비스 이며 제공 되는 그대로 제공 되며 서비스 수준 계약 (SLA) 및 제한 된 보증에서 제외 됩니다. 따라서이 기능은 프로덕션 용도로 사용 되지 않습니다.
+> Azure Red Hat OpenShift 4.3은 현재 미국 동부에서 비공개 미리 보기 에서만 사용할 수 있습니다. 비공개 미리 보기 수락은 초대 전용입니다. 이 기능을 사용 하도록 설정 하기 전에 구독을 등록 해야 합니다. [Azure Red Hat OpenShift 비공개 미리 보기 등록](https://aka.ms/aro-preview-register)
+
+> [!NOTE]
+> 미리 보기 기능은 셀프 서비스 이며 제공 되는 그대로 제공 되며 서비스 수준 계약 (SLA) 및 제한 된 보증에서 제외 됩니다. 따라서이 기능은 프로덕션 용도로 사용 되지 않습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

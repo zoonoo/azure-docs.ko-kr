@@ -6,13 +6,13 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 2/1/2020
-ms.openlocfilehash: aaff56ba1de69485d1c3b93bc7ed95ce1a3cbd88
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.date: 3/9/2020
+ms.openlocfilehash: 3e99263f6bf472c256e1747b8567249bbd62a445
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76983552"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78969629"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Azure Stream Analytics 미리 보기 기능
 
@@ -33,13 +33,6 @@ ms.locfileid: "76983552"
 
 클라우드 또는 IoT Edge에서 Stream Analytics 모듈을 만드는 개발자는 사용자 지정 C# 함수를 작성 하거나 다시 사용 하 고 [사용자 정의 함수](stream-analytics-edge-csharp-udf-methods.md)를 통해 쿼리에서 직접 호출할 수 있습니다.
 
-### <a name="managed-identity-authentication-with-power-bi"></a>Power BI를 사용 하 여 관리 Id 인증
-
-Azure Stream Analytics는 동적 대시보드를 위한 Power BI에 대 한 관리 되는 Id 기반 인증을 완벽 하 게 지원 합니다.
-
-### <a name="anomaly-detection"></a>변칙 검색
-
-Azure Stream Analytics ' 기계 학습 모델은 양방향, 저속, 기동성이 낮은 부정적 추세 검색 외에도 *스파이크* 및 *dip* 검색을 지원 합니다. 자세한 내용은 [Azure Stream Analytics의 변칙 검색](stream-analytics-machine-learning-anomaly-detection.md)을 참조 하세요.
 
 ### <a name="debug-query-steps-in-visual-studio"></a>Visual Studio에서 쿼리 단계 디버그
 

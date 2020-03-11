@@ -1,19 +1,17 @@
 ---
-title: Linux Vm에 대 한 Azure 가용성 옵션
+title: Linux Vm에 대 한 가용성 옵션
 description: Azure에서 Linux 가상 머신을 실행 하기 위한 가용성 기능에 대해 알아봅니다.
 author: cynthn
 ms.author: cynthn
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
 ms.date: 05/10/2019
-ms.openlocfilehash: 92e7301ead59095b138a05d36f28e097774c4825
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: d1cf3877c8c59f3540d6a933f52c7159c19d7bff
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76275235"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78969344"
 ---
 # <a name="availability-options-for-virtual-machines-in-azure"></a>Azure의 가상 컴퓨터에 대 한 가용성 옵션
 [!INCLUDE [virtual-machines-common-availability](../../../includes/virtual-machines-common-availability.md)]

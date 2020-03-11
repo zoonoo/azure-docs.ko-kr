@@ -1,20 +1,17 @@
 ---
 title: Azure Portal를 사용 하 여 Azure 전용 호스트 배포
 description: Azure Portal를 사용 하 여 전용 호스트에 Vm을 배포 합니다.
-services: virtual-machines-linux
 author: cynthn
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure
 ms.date: 01/09/2020
 ms.author: cynthn
-ms.openlocfilehash: c8e2ac929b3285b0ba122928485b423e34dc8f4f
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
-ms.translationtype: MT
+ms.openlocfilehash: 5af09cf7ef6c811a239a64c5c6349c3625316177
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75835126"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78970743"
 ---
 # <a name="deploy-vms-to-dedicated-hosts-using-the-portal"></a>포털을 사용 하 여 전용 호스트에 Vm 배포
 
@@ -27,7 +24,7 @@ ms.locfileid: "75835126"
 1. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기**를 선택합니다.
 1. Azure Marketplace 리소스 목록 위에 있는 검색 상자에서 Canonical의 **Ubuntu Server 16.04 LTS**를 검색하고 선택한 다음, **만들기**를 선택합니다.
 1. **기본** 정보 탭의 **프로젝트 세부 정보**에서 올바른 구독을 선택 했는지 확인 한 다음 **리소스 그룹**으로 *myDedicatedHostsRG* 을 선택 합니다. 
-1. **인스턴스 세부 정보** 아래에서 **가상 머신 이름**에 *myVM*을 입력하고 **위치**에 *미국 동부*를 선택합니다.
+1. **인스턴스 세부 정보** 아래에서 *가상 머신 이름*에 **myVM**을 입력하고 *위치*에 **미국 동부**를 선택합니다.
 1. **가용성 옵션** 에서 **가용성 영역**을 선택 하 고 드롭다운에서 *1* 을 선택 합니다.
 1. 크기에 대해 **크기 변경**을 선택 합니다. 사용 가능한 크기 목록에서 **표준 E2s v3**과 같은 Esv3 시리즈 중 하나를 선택 합니다. 사용 가능한 모든 크기를 보려면 필터를 지워야 할 수 있습니다.
 1. **관리자 계정** 아래에서 **SSH 공개 키**를 선택하고, 사용자 이름을 입력한 다음, 공개 키를 텍스트 상자에 붙여넣습니다. 공개 키에서 선행 또는 후행 공백을 모두 제거합니다.

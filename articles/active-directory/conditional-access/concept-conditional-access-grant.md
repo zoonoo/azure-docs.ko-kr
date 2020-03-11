@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09a720be10b09e11adc8acdc8ab26a06870311b0
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: 0716c2d4475bb538c06b9a591521fbdcfc0c80e4
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78892711"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78968010"
 ---
 # <a name="conditional-access-grant"></a>조건부 액세스: Grant
 
@@ -67,7 +67,7 @@ Microsoft Intune를 배포한 조직은 장치에서 반환 된 정보를 사용
 
 조직에서 선택한 클라우드 앱에 대 한 액세스를 승인 된 클라이언트 앱에서 수행 해야 하도록 요구할 수 있습니다. 이러한 승인 된 클라이언트 앱은 모든 MDM (모바일 장치 관리) 솔루션과 독립적인 [Intune 앱 보호 정책을](/intune/app-protection-policy) 지원 합니다.
 
-이 설정은 다음 클라이언트 앱에 적용됩니다.
+이 설정은 다음 iOS 및 Android 앱에 적용 됩니다.
 
 - Microsoft Azure Information Protection
 - Microsoft 예약
@@ -80,6 +80,7 @@ Microsoft Intune를 배포한 조직은 장치에서 반환 된 정보를 사용
 - Microsoft Invoicing
 - Microsoft Kaizala
 - Microsoft Launcher
+- Microsoft Office
 - Microsoft OneDrive
 - Microsoft OneNote
 - Microsoft Outlook

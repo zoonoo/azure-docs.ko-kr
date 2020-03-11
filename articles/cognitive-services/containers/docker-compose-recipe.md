@@ -8,14 +8,14 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 01/23/2020
+ms.date: 03/10/2020
 ms.author: dapine
-ms.openlocfilehash: 54a2aac3db47d60f02a45adae9aaa6077d675a43
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: bfbaa03469ee04ff900a215aadd8c814efcba761
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76716903"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79037527"
 ---
 # <a name="use-docker-compose-to-deploy-multiple-containers"></a>Docker Compose를 사용하여 여러 컨테이너 배포
 
@@ -23,7 +23,7 @@ ms.locfileid: "76716903"
 
 > [Docker Compose](https://docs.docker.com/compose/) 는 다중 컨테이너 Docker 응용 프로그램을 정의 하 고 실행 하기 위한 도구입니다. 작성 시 YAML 파일을 사용 하 여 응용 프로그램의 서비스를 구성 합니다. 그런 다음 단일 명령을 실행 하 여 구성에서 모든 서비스를 만들고 시작 합니다.
 
-단일 호스트 컴퓨터에서 여러 컨테이너 이미지를 오케스트레이션 하는 것이 유용할 수 있습니다. 이 문서에서는 텍스트 인식 및 폼 인식기 컨테이너를 함께 가져옵니다.
+단일 호스트 컴퓨터에서 여러 컨테이너 이미지를 오케스트레이션 하는 것이 유용할 수 있습니다. 이 문서에서는 읽기 및 폼 인식기 컨테이너를 함께 가져옵니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -70,11 +70,11 @@ services:
       - "5010:5000"
 
   ocr:
-    image: "containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text"
+    image: "containerpreview.azurecr.io/microsoft/cognitive-services-read"
     environment:
       eula: accept
-      apikey: # < Your recognize text API key >
-      billing: # < Your recognize text billing URL >
+      apikey: # < Your computer vision API key >
+      billing: # < Your computer vision billing URL >
     ports:
       - "5021:5000"
 ```
@@ -87,9 +87,9 @@ services:
 Docker Compose 파일을 사용 하면 정의 된 서비스의 수명 주기 (서비스 시작, 중지 및 다시 작성)의 모든 단계를 관리할 수 있습니다. 서비스 상태 보기 및 로그 스트리밍이 있습니다. 프로젝트 디렉터리 (docker 작성 .yaml 파일이 있는)에서 명령줄 인터페이스를 엽니다.
 
 > [!NOTE]
-> 오류를 방지 하려면 호스트 컴퓨터가 Docker 엔진과 드라이브를 올바르게 공유 하는지 확인 합니다. 예를 들어 E:\publicpreview이 docker-작성 .yaml 파일에서 디렉터리로 사용 되는 경우 드라이브 E를 Docker와 공유 합니다.
+> 오류를 방지 하려면 호스트 컴퓨터가 Docker 엔진과 드라이브를 올바르게 공유 하는지 확인 합니다. 예를 들어 *E:\publicpreview* 이 *docker-작성 .yaml* 파일에서 디렉터리로 사용 되는 경우 드라이브 **E** 를 docker와 공유 합니다.
 
-명령줄 인터페이스에서 다음 명령을 실행 하 여 docker-작성 .yaml 파일에 정의 된 모든 서비스를 시작 하거나 다시 시작 합니다.
+명령줄 인터페이스에서 다음 명령을 실행 하 여 *docker-작성 .yaml* 파일에 정의 된 모든 서비스를 시작 하거나 다시 시작 합니다.
 
 ```console
 docker-compose up
@@ -113,8 +113,8 @@ fd93b5f95865: Pull complete
 ef41dcbc5857: Pull complete
 4d05c86a4178: Pull complete
 34e811d37201: Pull complete
-Pulling ocr (containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:)...
-latest: Pulling from microsoft/cognitive-services-recognize-text
+Pulling ocr (containerpreview.azurecr.io/microsoft/cognitive-services-read:)...
+latest: Pulling from microsoft/cognitive-services-read
 f476d66f5408: Already exists
 8882c27f669e: Already exists
 d9af21273955: Already exists
@@ -167,18 +167,12 @@ ocr_1    | Application started. Press Ctrl+C to shut down.
 ```
 IMAGE ID            REPOSITORY                                                                 TAG
 2ce533f88e80        containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer   latest
-4be104c126c5        containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text    latest
+4be104c126c5        containerpreview.azurecr.io/microsoft/cognitive-services-read              latest
 ```
 
-### <a name="test-the-recognize-text-container"></a>텍스트 인식 컨테이너 테스트
+### <a name="test-containers"></a>테스트 컨테이너
 
-호스트 컴퓨터에서 브라우저를 열고 docker에서 지정 된 포트 (예: http://localhost:5021/swagger/index.html)를 사용 하 여 **localhost** 로 이동 합니다. API에서 "사용해 보세요." 기능을 사용 하 여 텍스트 인식 끝점을 테스트할 수 있습니다.
-
-![텍스트 인식 컨테이너](media/recognize-text-swagger-page.png)
-
-### <a name="test-the-form-recognizer-container"></a>양식 인식기 컨테이너 테스트
-
-호스트 컴퓨터에서 브라우저를 열고 docker에서 지정 된 포트 (예: http://localhost:5010/swagger/index.html)를 사용 하 여 **localhost** 로 이동 합니다. API에서 "사용해 보세요." 기능을 사용 하 여 폼 인식기 끝점을 테스트할 수 있습니다.
+호스트 컴퓨터에서 브라우저를 열고 docker에서 지정 된 포트 (예: http://localhost:5021/swagger/index.html)를 사용 하 여 **localhost** 로 이동 합니다 *.* 예를 들어 API에서 **사용해 보기** 기능을 사용 하 여 폼 인식기 끝점을 테스트할 수 있습니다. 두 컨테이너 swagger 페이지가 모두 사용 가능 하 고 테스트 가능 해야 합니다.
 
 ![양식 인식기 컨테이너](media/form-recognizer-swagger-page.png)
 

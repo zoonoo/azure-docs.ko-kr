@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 02/26/2020
+ms.date: 03/10/2020
 ms.author: victorh
-ms.openlocfilehash: 69c0c13c7027707cdadb2f1f1de9cc1655c9c625
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: d3f8e52b4582c9467ae3ec61ee984771b801fe4f
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78396044"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79081871"
 ---
 # <a name="azure-firewall-rule-processing-logic"></a>Azure Firewall 규칙 처리 논리
 Azure 방화벽에서 NAT 규칙, 네트워크 규칙 및 응용 프로그램 규칙을 구성할 수 있습니다. 규칙은 규칙 유형에 따라 처리됩니다. 
@@ -63,7 +63,7 @@ Azure 방화벽에서 NAT 규칙, 네트워크 규칙 및 응용 프로그램 �
 
 패킷이 *허용-웹* 네트워크 규칙과 일치 하기 때문에 google.com에 대 한 연결이 허용 됩니다. 이 시점에서 규칙 처리를 중지 합니다.
 
-### <a name="example-2"></a>예 2
+### <a name="example-2"></a>예제 2
 
 높은 우선 순위의 *거부* 네트워크 규칙 컬렉션은이를 차단 하므로 SSH 트래픽이 거부 됩니다.
 
@@ -90,6 +90,10 @@ Azure 방화벽에서 NAT 규칙, 네트워크 규칙 및 응용 프로그램 �
 **결과**
 
 우선 순위가 높은 네트워크 규칙 컬렉션에서 차단 하므로 SSH 연결이 거부 됩니다. 이 시점에서 규칙 처리를 중지 합니다.
+
+## <a name="rule-changes"></a>규칙 변경
+
+이전에 허용 된 트래픽을 거부 하는 규칙을 변경 하면 관련 된 모든 기존 세션이 삭제 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

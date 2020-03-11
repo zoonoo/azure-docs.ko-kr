@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: sumi
-ms.openlocfilehash: 97515b308323452e88cf6fd8a517c1f169c9ba6f
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 2cc6c577abdb3698ef6aca1f1f04d239f09d119c
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77587416"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082968"
 ---
 # <a name="what-is-azure-private-link-service"></a>Azure 개인 링크 서비스 란?
 
@@ -112,7 +112,7 @@ Azure Private Link 서비스는 Azure Private Link에서 제공하는 자체 서
 |  |4        |UINT32 (4 바이트)-개인 끝점의 LINKID을 나타냅니다. Little endian 형식으로 인코딩됩니다.|
 
  > [!NOTE]
- > 서비스 공급자는 표준 부하 분산 장치 뒤에 있는 서비스가 개인 링크 서비스에서 프록시 프로토콜을 사용 하도록 설정 된 경우 [사양](https://www.haproxy.org/download/1.8/doc/proxy-protocol.txt) 에 따라 프록시 프로토콜 헤더를 구문 분석 하도록 구성 되었는지 확인 해야 합니다. 프록시 프로토콜 설정이 개인 링크 서비스에서 사용 되 고 서비스가 헤더를 구문 분석 하도록 구성 되지 않은 경우 요청이 실패 합니다. 마찬가지로 개인 링크 서비스에서 설정을 사용 하도록 설정 하지 않은 상태에서 서비스에 프록시 프로토콜 헤더가 필요한 경우 요청은 실패 합니다. 프록시 프로토콜 설정을 사용 하도록 설정 하면 헤더에 클라이언트 정보가 없는 경우에도 프록시 프로토콜 헤더가 호스트에서 백 엔드 가상 머신으로 HTTP/TCP 상태 프로브에 포함 됩니다. 
+ > 서비스 공급자는 표준 부하 분산 장치 뒤에 있는 서비스가 개인 링크 서비스에서 프록시 프로토콜을 사용 하도록 설정 된 경우 [사양](https://www.haproxy.org/download/1.8/doc/proxy-protocol.txt) 에 따라 프록시 프로토콜 헤더를 구문 분석 하도록 구성 되었는지 확인 해야 합니다. 개인 링크 서비스에서 프록시 프로토콜 설정을 사용 하도록 설정 했지만 서비스 공급자의 서비스가 헤더를 구문 분석 하도록 구성 되지 않은 경우 요청이 실패 합니다. 마찬가지로 개인 링크 서비스에서 설정을 사용 하도록 설정 하지 않은 상태에서 서비스 공급자의 서비스가 프록시 프로토콜 헤더를 필요로 하는 경우 요청이 실패 합니다. 프록시 프로토콜 설정을 사용 하도록 설정 하면 헤더에 클라이언트 정보가 없는 경우에도 프록시 프로토콜 헤더가 호스트에서 백 엔드 가상 머신으로 HTTP/TCP 상태 프로브에 포함 됩니다. 
 
 ## <a name="limitations"></a>제한 사항
 

@@ -1,25 +1,17 @@
 ---
 title: Azure에서 IBM DB2 pureScale 배포
 description: z/OS에서 실행되는 IBM DB2 환경에서 Azure의 IBM Db2 pureScale로 엔터프라이즈를 마이그레이션하는 데 최근 사용된 예제 아키텍처를 배포하는 방법을 알아봅니다.
-services: virtual-machines-linux
-documentationcenter: ''
 author: njray
-manager: edprice
-editor: edprice
-tags: ''
-ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 11/09/2018
 ms.author: edprice
-ms.openlocfilehash: c4db27b938934aafa350866991ff174cbdbed0ac
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 98e912894a4d93a057a2f6a2153d0690deaed250
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76291552"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78968887"
 ---
 # <a name="deploy-ibm-db2-purescale-on-azure"></a>Azure에서 IBM DB2 pureScale 배포
 
@@ -85,7 +77,7 @@ GitHub 리포지토리에는 DB2 pureScale 설치용 자동 스크립트를 생�
 | 제품 선택          |                                              | DB2 버전 11.1.3.3. DB2 pureScale이 포함된 Server Edition                                              |
 | 구성             | 디렉터리                                    | /data1/opt/ibm/db2/V11.1                                                                              |
 |                           | 설치 유형 선택                 | 일반                                                                                               |
-|                           | IBM 사용 약관에 동의함                     | 확인됨                                                                                               |
+|                           | IBM 사용 약관에 동의함                     | 선택                                                                                               |
 | 인스턴스 소유자            | 인스턴스, 사용자 이름에 대한 기존 사용자        | DB2sdin1                                                                                              |
 | 펜스된 사용자               | 기존 사용자, 사용자 이름                     | DB2sdin1                                                                                              |
 | 클러스터 파일 시스템       | 공유 디스크 파티션 디바이스 경로            | /dev/dm-2                                                                                             |

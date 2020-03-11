@@ -1,6 +1,6 @@
 ---
 title: 사용자 고유의 구독 Azure 이미지를 가져오는 Red Hat Enterprise Linux | Microsoft Docs
-description: Azure에서 Red Hat Enterprise Linux에 대 한 사용자 고유의 구독 이미지 만들기에 대해 알아봅니다.
+description: Azure에서 Red Hat Enterprise Linux에 대 한 사용자 고유의 구독 이미지를 확인 하는 방법에 대해 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: ''
 author: asinn826
@@ -14,81 +14,80 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: 712626345e10ab0e4290ac91b0f121ff6960303e
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: 825d26307f2b462d51b143b88127e229508f2f25
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78396840"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78970459"
 ---
 # <a name="red-hat-enterprise-linux-bring-your-own-subscription-gold-images-in-azure"></a>Azure에서 사용자 고유의 구독 골드 이미지를 가져오는 Red Hat Enterprise Linux
 
-RHEL (Red Hat Enterprise Linux) 이미지는 PAYG (종 량 제) 또는 사용자 고유의 구독 (Red Hat 골드 이미지) 모델을 통해 Azure에서 사용할 수 있습니다. 이 문서에서는 Azure의 Red Hat 골드 이미지에 대 한 개요를 제공 합니다.
+RHEL (Red Hat Enterprise Linux) 이미지는 종 량 제 또는 BYOS (BYOS) (Red Hat 골드 이미지) 모델을 통해 Azure에서 사용할 수 있습니다. 이 문서에서는 Azure의 Red Hat 골드 이미지에 대 한 개요를 제공 합니다.
 
 >[!NOTE]
 > RHEL BYOS 골드 이미지는 Azure 공용 (상용) 및 Azure Government 클라우드에서 사용할 수 있습니다. Azure 중국 또는 Azure 블랙 포리스트 클라우드에서 사용할 수 없습니다.
 
 ## <a name="important-points-to-consider"></a>고려해 야 할 중요 사항
 
-- 이 프로그램에서 제공 하는 Red Hat 골드 이미지는 Azure 갤러리/Marketplace의 RHEL PAYG 이미지와 비슷한 프로덕션에 사용할 수 있는 RHEL 이미지입니다.
-
-- 이미지는 [Azure의 Red Hat Enterprise Linux 이미지](./redhat-images.md) 에 설명 된 현재 정책을 따릅니다.
-
+- 이 프로그램에서 제공 하는 Red Hat 골드 이미지는 Azure Marketplace의 RHEL 종 량 제 이미지와 비슷한 프로덕션 준비 RHEL 이미지입니다.
+- 이미지는 [Azure의 Red Hat Enterprise Linux 이미지](./redhat-images.md)에 설명 된 현재 정책을 따릅니다.
 - 표준 지원 정책은 이러한 이미지에서 만든 Vm에 적용 됩니다.
-
-- Red Hat 골드 이미지에서 프로 비전 된 Vm은 RHEL PAYG 이미지와 연결 된 RHEL 요금을 운반 하지 않습니다.
-
-- 이미지의 자격이 부여 되지 않으므로, 구독 관리자를 사용 하 여 Red Hat에서 직접 업데이트를 가져오기 위해 Vm을 등록 하 고 구독 해야 합니다.
-
-- 현재는 BYOS와 Linux 이미지에 대 한 PAYG 청구 모델 간을 동적으로 전환할 수 없습니다. 청구 모델을 전환 하려면 각 이미지에서 VM을 다시 배포 해야 합니다.
+- Red Hat 골드 이미지에서 프로 비전 된 Vm은 RHEL 종 량 제 이미지와 관련 된 RHEL 요금을 운반 하지 않습니다.
+- 이미지에 대 한 자격이 없습니다. Red hat 구독 관리자를 사용 하 여 Red Hat에서 직접 업데이트를 가져오도록 Vm을 등록 하 고 구독 해야 합니다.
+- 현재는 BYOS와 Linux 이미지에 대 한 종 량 제 청구 모델 간을 동적으로 전환할 수 없습니다. 청구 모델을 전환 하려면 해당 이미지에서 VM을 다시 배포 해야 합니다.
 
 >[!NOTE]
-> 2 세대 RHEL BYOS 이미지는 현재 marketplace 제품을 통해 사용할 수 없습니다. Gen 2 RHEL BYOS 이미지를 필요로 하는 경우 Red Hat 구독 관리의 그림 액세스 대시보드를 방문 하세요. 자세한 내용은 [Red Hat 설명서](https://access.redhat.com/articles/4847681)에서 확인할 수 있습니다.
+> 2 세대 RHEL BYOS 이미지는 현재 marketplace 제품을 통해 사용할 수 없습니다. 2 세대 RHEL BYOS 이미지가 필요한 경우 Red Hat 구독 관리에서 클라우드 액세스 대시보드를 방문 합니다. 자세한 내용은 [Red Hat 설명서](https://access.redhat.com/articles/4847681)를 참조 하세요.
 
 ## <a name="requirements-and-conditions-to-access-the-red-hat-gold-images"></a>Red Hat 골드 이미지에 액세스 하기 위한 요구 사항 및 조건
 
-1. Red hat [Cloud access 프로그램](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) 용어에 대해 잘 알고 Red Hat [Subscription Manager](https://access.redhat.com/management/cloud)에서 클라우드 액세스에 대 한 red hat 구독을 사용 하도록 설정 하세요. 클라우드 액세스를 위해 등록 될 Azure 구독을 직접 보유 해야 합니다.
+1. [Red Hat Cloud Access 프로그램](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) 용어에 대해 알아봅니다. [Red Hat 구독 관리자](https://access.redhat.com/management/cloud)에서 클라우드 액세스에 대 한 red hat 구독을 사용 하도록 설정 합니다. 클라우드 액세스를 위해 등록 하려는 Azure 구독을 보유 해야 합니다.
 
-1. 적절 한 자격 요구 사항을 충족 하는 클라우드 액세스에 대 한 Red Hat 구독을 사용 하도록 설정한 경우 골드 이미지 액세스를 위해 Azure 구독을 자동으로 사용할 수 있습니다.
+1. 클라우드 액세스를 사용 하도록 설정 하는 Red Hat 구독이 자격 요구 사항을 충족 하는 경우 Azure 구독은 골드 이미지 액세스에 대해 자동으로 사용 하도록 설정 됩니다.
 
 ### <a name="expected-time-for-image-access"></a>이미지 액세스 예상 시간
 
-클라우드 액세스 사용 단계가 완료 되 면 Red Hat는 Red Hat 골드 이미지에 대 한 자격의 유효성을 검사 합니다. 유효성 검사에 성공 하면 3 시간 이내에 골드 이미지에 대 한 액세스 권한을 받게 됩니다.
+클라우드 액세스 사용 단계를 완료 한 후 Red Hat는 Red Hat 골드 이미지에 대 한 자격의 유효성을 검사 합니다. 유효성 검사가 성공 하면 3 시간 이내에 골드 이미지에 대 한 액세스 권한이 부여 됩니다.
 
 ## <a name="use-the-red-hat-gold-images-from-the-azure-portal"></a>Azure Portal의 Red Hat 금색 이미지를 사용 합니다.
 
-1. Red Hat 골드 이미지에 **대 한 액세스**를 받은 후 Azure 구독에서 **리소스 만들기** 로 이동 하 여 [Azure Portal](https://portal.azure.com) 에서 찾을 수 있습니다.
+1. Azure 구독이 Red Hat 골드 이미지에 대 한 액세스를 받은 후 [Azure Portal](https://portal.azure.com)에서 찾을 수 있습니다. **리소스 만들기** > **모두 표시**로 이동 합니다.
 
 1. 페이지 맨 위에 개인 제안이 있는 것을 볼 수 있습니다.
 
     ![Marketplace 개인 제안](./media/rhel-byos-privateoffers.png)
 
-1. 자주색 링크를 클릭 하거나 페이지 아래쪽으로 스크롤하여 개인 제품을 볼 수 있습니다.
+1. 자주색 링크를 선택 하거나 페이지 아래쪽으로 스크롤하여 개인 제품을 확인 합니다.
 
 1. UI에서의 나머지 부분은 기존 Red Hat 이미지와 다르지 않습니다. RHEL 버전을 선택 하 고 프롬프트에 따라 VM을 프로 비전 합니다. 이 프로세스를 통해 최종 단계에서 이미지의 조건에 동의할 수도 있습니다.
 
 >[!NOTE]
->지금까지 이러한 단계를 통해 Red Hat 골드 이미지 이미지를 프로그래밍 방식으로 배포할 수 없습니다. 아래 "추가 정보" 섹션에 설명 된 대로 추가 단계가 필요 합니다.
+>지금까지 이러한 단계는 프로그래밍 방식 배포를 위해 Red Hat 금색 이미지를 사용 하도록 설정 하지 않습니다. "추가 정보" 섹션에 설명 된 대로 추가 단계가 필요 합니다.
 
 이 문서의 나머지 부분에서는 CLI 메서드를 사용 하 여 이미지에서 용어를 프로 비전 하 고 사용 하는 방법에 중점을 둡니다. UI 및 CLI는 최종 결과 (프로 비전 된 RHEL 골드 이미지 VM)와 관련 하 여 완벽 하 게 교환할 수 있습니다.
 
 ## <a name="use-the-red-hat-gold-images-from-the-azure-cli"></a>Azure CLI의 Red Hat 금색 이미지를 사용 합니다.
-다음 지침 집합에서는 Azure CLI 사용 하 여 RHEL VM에 대 한 초기 배포 프로세스를 안내 합니다. 이 지침에서는 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)되어 있다고 가정 합니다.
+
+다음 지침에서는 Azure CLI 사용 하 여 RHEL VM에 대 한 초기 배포 프로세스를 안내 합니다. 이 지침에서는 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)되어 있다고 가정 합니다.
 
 >[!IMPORTANT]
 >다음 모든 명령에 대 한 게시자, 제품, 계획 및 이미지 참조의 모든 소문자를 사용 해야 합니다.
 
 1. 원하는 구독에 있는지 확인 합니다.
+
     ```azurecli
     az account show -o=json
     ```
 
 1. Red Hat 골드 이미지 VM에 대 한 리소스 그룹을 만듭니다.
+
     ```azurecli
     az group create --name <name> --location <location>
     ```
 
-1. 이미지 사용 조건에 동의 합니다.
+1. 이미지 조건에 동의 합니다.
+
     ```azurecli
     az vm image terms accept --publisher redhat --offer rhel-byos --plan <SKU value here> -o=jsonc
 
@@ -99,10 +98,12 @@ RHEL (Red Hat Enterprise Linux) 이미지는 PAYG (종 량 제) 또는 사용자
 
     az vm image terms accept --urn RedHat:rhel-byos:rhel-lvm8:8.0.20190620
     ```
+
     >[!NOTE]
     >이러한 용어 *는 이미지 SKU 당 Azure 구독 당 한 번만*허용 해야 합니다.
 
 1. 필드 다음 명령을 사용 하 여 VM 배포의 유효성을 검사 합니다.
+
     ```azurecli
     az vm create -n <VM name> -g <resource group name> --image <image urn> --validate
 
@@ -110,19 +111,20 @@ RHEL (Red Hat Enterprise Linux) 이미지는 PAYG (종 량 제) 또는 사용자
     az vm create -n rhel-byos-vm -g rhel-byos-group --image RedHat:rhel-byos:rhel-lvm75:7.5.20190620
     ```
 
-1. `--validate` 인수 없이 위와 동일한 명령을 실행 하 여 VM을 프로 비전 합니다.
+1. 이전 예제와 같이 `--validate` 인수 없이 동일한 명령을 실행 하 여 VM을 프로 비전 합니다.
+
     ```azurecli
     az vm create -n <VM name> -g <resource group name> --image <image urn> --validate
     ```
 
-1. VM에 SSH를 적용 하 고 자격이 없는 이미지가 있는지 확인 합니다. 이렇게 하려면 `sudo yum repolist`를 실행 합니다 (RHEL 8의 `sudo dnf repolist`사용). 출력에는 구독 관리자를 사용 하 여 Red Hat에 VM을 등록 하 라는 메시지가 표시 됩니다.
+1. VM에 SSH를 적용 하 고, 자격이 없는 이미지가 있는지 확인 합니다. 이 단계를 수행 하려면 `sudo yum repolist`를 실행 합니다. RHEL 8의 경우 `sudo dnf repolist`를 사용 합니다. 출력에는 구독 관리자를 사용 하 여 Red Hat에 VM을 등록 하 라는 메시지가 표시 됩니다.
 
 >[!NOTE]
->RHEL 8 `dnf`와 `yum`는 서로 교환할 수 있습니다 .이에 대 한 자세한 내용은 [RHEL 8 관리자 가이드를 참조](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_basic_system_settings/installing-software-with-yum_configuring-basic-system-settings)하세요.
-
+>RHEL 8에서 `dnf`와 `yum`는 서로 교환할 수 있습니다. 자세한 내용은 [RHEL 8 관리자 가이드](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_basic_system_settings/installing-software-with-yum_configuring-basic-system-settings)를 참조 하세요.
 
 ## <a name="use-the-red-hat-gold-images-from-powershell"></a>PowerShell에서 Red Hat 금색 이미지 사용
-예제 스크립트는 다음과 같습니다. 리소스 그룹, 위치, VM 이름, 로그인 정보 및 기타 변수를 선택한 구성으로 바꾸어야 합니다. 게시자 및 계획 정보는 소문자 여야 합니다.
+
+다음 스크립트는 예제입니다. 리소스 그룹, 위치, VM 이름, 로그인 정보 및 기타 변수를 원하는 구성으로 바꿉니다. 게시자 및 계획 정보는 소문자 여야 합니다.
 
 ```powershell-interactive
     # Variables for common values
@@ -179,15 +181,15 @@ RHEL (Red Hat Enterprise Linux) 이미지는 PAYG (종 량 제) 또는 사용자
 
 ## <a name="encrypt-red-hat-enterprise-linux-bring-your-own-subscription-gold-images"></a>사용자 고유의 구독 골드 이미지를 암호화 Red Hat Enterprise Linux
 
-[Azure Disk Encryption](../../linux/disk-encryption-overview.md)를 사용 하 여 사용자 고유의 구독 골드 이미지를 보호할 수 Red Hat Enterprise Linux. 그러나 암호화를 사용 하도록 설정 하기 전에 구독을 등록 **해야** 합니다.  RHEL BYOS 골드 이미지 등록에 대 한 세부 정보는 Red Hat 사이트에서 사용할 수 있습니다. [Red Hat 구독 관리자를 사용 하 여 Red Hat 고객 포털에 시스템을 등록 및 구독 하는 방법을](https://access.redhat.com/solutions/253273)참조 하세요. 활성 Red Hat 구독이 있는 경우 [Red Hat 고객 포털 활성화 키 만들기](https://access.redhat.com/articles/1378093)를 읽을 수도 있습니다.
+Red Hat Enterprise Linux BYOS 골드 이미지는 [Azure Disk Encryption](../../linux/disk-encryption-overview.md)를 사용 하 여 보호할 수 있습니다. 암호화를 사용 하려면 먼저 구독을 등록 *해야* 합니다. RHEL BYOS 골드 이미지를 등록 하는 방법에 대 한 자세한 내용은 [Red Hat 구독 관리자를 사용 하 여 Red Hat 고객 포털에 시스템을 등록 및 구독 하는 방법](https://access.redhat.com/solutions/253273)을 참조 하세요. 활성 Red Hat 구독이 있는 경우 [Red Hat 고객 포털 활성화 키 만들기](https://access.redhat.com/articles/1378093)를 읽을 수도 있습니다.
 
-[Red Hat 사용자 지정 이미지](../../linux/redhat-create-upload-vhd.md)에서는 Azure Disk Encryption 지원 되지 않습니다. 추가 ADE 요구 사항 및 필수 구성 요소는 [Linux vm에 대 한 Azure Disk Encryption](../../linux/disk-encryption-overview.md#additional-vm-requirements)에 설명 되어 있습니다.
+[Red Hat 사용자 지정 이미지](../../linux/redhat-create-upload-vhd.md)에서는 Azure Disk Encryption 지원 되지 않습니다. 추가 Azure Disk Encryption 요구 사항 및 필수 구성 요소는 [Linux vm에 대 한 Azure Disk Encryption](../../linux/disk-encryption-overview.md#additional-vm-requirements)에 설명 되어 있습니다.
 
-Azure Disk Encryption를 적용 하는 단계는 [Linux vm 및 관련 문서에서 Azure Disk Encryption 시나리오](../../linux/disk-encryption-linux.md) 에서 사용할 수 있습니다.
+Azure Disk Encryption를 적용 하는 단계는 [Linux vm에 대 한 Azure Disk Encryption 시나리오](../../linux/disk-encryption-linux.md) 및 관련 문서를 참조 하세요.
 
 ## <a name="additional-information"></a>추가 정보
 
-- 이 제품에 대해 사용 하도록 설정 되지 않은 구독에서 VM을 프로 비전 하려고 하면 다음과 같은 오류가 표시 됩니다.
+- 이 제품에 대해 사용 하도록 설정 되지 않은 구독에서 VM을 프로 비전 하려고 하면 다음과 같은 메시지가 표시 됩니다.
 
     ```
     "Offer with PublisherId: redhat, OfferId: rhel-byos, PlanId: rhel-lvm75 is private and can not be purchased by subscriptionId: GUID"
@@ -203,15 +205,17 @@ Azure Disk Encryption를 적용 하는 단계는 [Linux vm 및 관련 문서에�
     -g AnotherGroupName --location EastUS2 -n VMName \
     --plan-publisher redhat --plan-product rhel-byos --plan-name rhel-lvm75
     ```
-    위의 마지막 줄에서 계획 매개 변수를 확인 합니다.
+
+    마지막 줄의 계획 매개 변수를 확인 합니다.
 
     [Azure Disk Encryption](#encrypt-red-hat-enterprise-linux-bring-your-own-subscription-gold-images) 은 사용자 지정 이미지에서 지원 되지 않습니다.
 
-- Automation을 사용 하 여 RHEL BYOS 이미지에서 Vm을 프로 비전 하는 경우 위에 표시 된 것과 유사한 계획 매개 변수를 제공 해야 합니다. 예를 들어 Terraform을 사용 하는 경우 계획 [블록](https://www.terraform.io/docs/providers/azurerm/r/virtual_machine.html#plan)에 계획 정보를 제공 합니다.
+- Automation을 사용 하 여 RHEL BYOS 이미지에서 Vm을 프로 비전 하는 경우 샘플 명령에 표시 된 것과 유사한 계획 매개 변수를 제공 해야 합니다. 예를 들어 Terraform을 사용 하는 경우 계획 [블록](https://www.terraform.io/docs/providers/azurerm/r/virtual_machine.html#plan)에 계획 정보를 제공 합니다.
 
 ## <a name="next-steps"></a>다음 단계
-- 클라우드 액세스에 대 한 단계별 가이드 및 프로그램 세부 정보는 [Red Hat Cloud access 설명서](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/index) 에서 확인할 수 있습니다.
-- [Azure Red Hat 업데이트 인프라](./redhat-rhui.md)에 대해 자세히 알아보세요.
-- Azure의 모든 Red Hat 이미지에 대해 자세히 알아보려면 [설명서 페이지로](./redhat-images.md)이동 합니다.
-- 모든 RHEL 버전에 대한 Red Hat 지원 정책 관련 정보는 [Red Hat Enterprise Linux 수명 주기](https://access.redhat.com/support/policy/updates/errata) 페이지에서 확인할 수 있습니다.
-- RHEL 골드 이미지에 대 한 추가 설명서는 [Red Hat 설명서](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/using_red_hat_gold_images#con-gold-image-azure)에서 찾을 수 있습니다.
+
+- 클라우드 액세스를 위한 단계별 가이드 및 프로그램 세부 정보는 [Red Hat Cloud access 설명서](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/index)를 참조 하세요.
+- Red Hat 업데이트 인프라에 대해 자세히 알아보려면 [Azure Red Hat 업데이트 인프라](./redhat-rhui.md)를 참조 하세요.
+- Azure의 모든 Red Hat 이미지에 대해 자세히 알아보려면 [설명서 페이지](./redhat-images.md)를 참조 하세요.
+- 모든 버전의 RHEL에 대 한 Red Hat 지원 정책에 대 한 자세한 내용은 [Red Hat Enterprise Linux 수명 주기](https://access.redhat.com/support/policy/updates/errata) 페이지를 참조 하세요.
+- RHEL 골드 이미지에 대 한 추가 설명서는 [Red Hat 설명서](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/using_red_hat_gold_images#con-gold-image-azure)를 참조 하세요.

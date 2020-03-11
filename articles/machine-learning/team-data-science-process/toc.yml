@@ -185,47 +185,29 @@
         - name: 모델을 만들고 학습 수행
           items:
             - name: 알고리즘 선택
-              href: /azure/machine-learning/studio/algorithm-choice?context=azure/machine-learning/team-data-science-process/context/ml-context
+              href: /azure/machine-learning/how-to-select-algorithms?context=azure/machine-learning/team-data-science-process/context/ml-context
             - name: 알고리즘 치트 시트
-              href: /azure/machine-learning/studio/algorithm-cheat-sheet?context=azure/machine-learning/team-data-science-process/context/ml-context
+              href: /azure/machine-learning/algorithm-cheat-sheet?context=azure/machine-learning/team-data-science-process/context/ml-context
     - name: 프로덕션 환경에서 모델 배포
       href: deploy-models-in-production.md
 - name: 관련 항목
   items:
     - name: Azure Machine Learning
       href: ../
-    - name: Azure AI 갤러리
-      href: 'https://gallery.azure.ai'
-    - name: Cortana 분석
+    - name: Cognitive Services
+      href: 'https://docs.microsoft.com/azure/cognitive-services/'
+    - name: 이상 감지
+      href: apps-anomaly-detection-api.md
+    - name: 예측 유지 관리
       items:
-        - name: 이상 감지
-          href: apps-anomaly-detection-api.md
-        - name: Cognitive Services
-          href: 'https://docs.microsoft.com/azure/cognitive-services/'
-        - name: 예측 유지 관리
-          items:
-            - name: 개요
-              href: cortana-analytics-playbook-predictive-maintenance.md
-            - name: Architecture
-              href: cortana-analytics-architecture-predictive-maintenance.md
-            - name: 기술 가이드
-              href: cortana-analytics-technical-guide-predictive-maintenance.md
+        - name: 개요
+          href: predictive-maintenance-playbook.md
+        - name: Architecture
+          href: predictive-maintenance-architecture.md
+        - name: 기술 가이드
+          href: predictive-maintenance-technical-guide.md
 - name: 리소스
   items:
-    - name: 블로그
-      items:
-        - name: TDSP용 최신 업데이트
-          href: 'https://blogs.technet.microsoft.com/machinelearning/2017/10/09/the-microsoft-team-data-science-process-tdsp-recent-updates/'
-        - name: Azure Machine Learning에서 TDSP 사용
-          href: 'https://blogs.technet.microsoft.com/machinelearning/2017/09/25/using-the-team-data-science-process-tdsp-in-azure-machine-learning/'
-        - name: TDSP용 데이터 과학 유틸리티 v.0.11
-          href: 'https://blogs.technet.microsoft.com/machinelearning/2017/01/11/announcing-data-science-utilities-version-0-11-for-the-team-data-science-process/'
-        - name: TDSP용 최신 유틸리티
-          href: 'https://blogs.technet.microsoft.com/machinelearning/2017/04/05/latest-rev-of-utilities-for-microsoft-team-data-science-process-tdsp-now-available/'
-        - name: 데이터 과학 프로젝트 계획 템플릿
-          href: 'https://blogs.msdn.microsoft.com/buckwoody/2017/10/24/a-data-science-microsoft-project-template-you-can-use-in-your-solutions/'
-        - name: Cortana Intelligence 및 Machine Learning 블로그
-          href: 'https://blogs.technet.microsoft.com/machinelearning/'
     - name: TDSP를 사용하는 조직
       items:
         - name: 새 서명

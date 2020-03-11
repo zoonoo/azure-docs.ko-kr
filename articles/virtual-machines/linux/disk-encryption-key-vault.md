@@ -1,18 +1,18 @@
 ---
 title: Azure Disk Encryption 키 자격 증명 모음 만들기 및 구성
 description: 이 문서에서는에서 사용할 키 자격 증명 모음을 만들고 구성 하는 단계를 제공 Azure Disk Encryption
-ms.service: virtual-machines
+ms.service: virtual-machines-linux
 ms.topic: article
 author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 90306c55d976670f432d146d94764c4d90b8667d
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: a818d9fe9707d1789fbe8e77489fc380fd2c92dd
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828496"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78970637"
 ---
 # <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption"></a>Azure Disk Encryption 키 자격 증명 모음 만들기 및 구성
 
@@ -155,7 +155,7 @@ Azure 플랫폼은 VM을 부팅하고 볼륨을 해독할 수 있도록 Key Vaul
      Set-AzKeyVaultAccessPolicy -VaultName "<your-unique-keyvault-name>" -ResourceGroupName "MyResourceGroup" -EnabledForTemplateDeployment
      ```
 
-### <a name="azure-portal"></a>Azure 포털
+### <a name="azure-portal"></a>Azure portal
 
 1. 키 자격 증명 모음을 선택 하 고 **액세스 정책**으로 이동한 다음 **고급 액세스 정책을 클릭 하 여 표시**합니다.
 2. **볼륨 암호화를 위해 Azure Disk Encryption에 대한 액세스 사용**이라는 레이블이 있는 상자를 선택합니다.

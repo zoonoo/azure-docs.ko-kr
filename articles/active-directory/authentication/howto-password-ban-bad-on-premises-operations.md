@@ -11,14 +11,14 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d4c0b0c6ec68c818f107c7e3e3241e4acc0edb7
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: d00a8b84477226b68913f95c5121bbbdfc2eb09d
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78671760"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082406"
 ---
-# <a name="enable-on-premises-azure-active-password-protection"></a>온-프레미스 Azure Active 암호 보호 사용
+# <a name="enable-on-premises-azure-active-directory-password-protection"></a>온-프레미스 Azure Active Directory 암호 보호 사용
 
 사용자는 종종 학교, 스포츠 팀 또는 유명한 사용자와 같은 일반적인 로컬 단어를 사용 하는 암호를 만듭니다. 이러한 암호는 추측 하기 쉬우며 사전 기반 공격에 취약 합니다. 조직에서 강력한 암호를 적용 하기 위해 Azure Active Directory (Azure AD) 암호 보호는 전역 및 사용자 지정 금지 된 암호 목록을 제공 합니다. 이러한 금지 된 암호 목록에 일치 하는 항목이 있으면 암호 변경 요청이 실패 합니다.
 

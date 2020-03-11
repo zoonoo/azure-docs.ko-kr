@@ -16,25 +16,25 @@ ms.date: 11/01/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a78a69301ab2ae637531f8643d9d57a8b44b563f
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 99de022b7259b33baab3aa825673a8f85e932bff
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73608931"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78968738"
 ---
 # <a name="review-access-of-an-access-package-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 액세스 패키지의 액세스 검토
 
 Azure AD 자격 관리는 기업에서 그룹, 응용 프로그램 및 SharePoint 사이트에 대 한 액세스를 관리 하는 방법을 간소화 합니다. 이 문서에서는 지정 된 검토자로 액세스 패키지에 할당 된 다른 사용자에 대 한 액세스 검토를 수행 하는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 사용자의 활성 액세스 패키지 할당을 검토 하려면 액세스 검토를 수행 하기 위한 필수 구성 요소를 충족 해야 합니다.
 - Azure AD Premium P2
 - 전역 관리자
 - 지정 된 사용자 관리자, 카탈로그 소유자 또는 액세스 패키지 관리자
 
-자세한 내용은 [라이선스 요구 사항](entitlement-management-overview.md#license-requirements)을 참조 하세요.
+자세한 내용은 [라이선스 요구 사항](entitlement-management-overview.md#license-requirements)을 참조하세요.
 
 
 ## <a name="open-the-access-review"></a>액세스 검토 열기
@@ -47,7 +47,7 @@ Azure AD 자격 관리는 기업에서 그룹, 응용 프로그램 및 SharePoin
 
 1. **사용자 액세스 검토** 링크를 클릭 하 여 액세스 검토를 엽니다. 
 
-1. 전자 메일이 없는 경우 https://myaccess.microsoft.com으로 직접 이동 하 여 보류 중인 액세스 검토를 찾을 수 있습니다.
+1. 전자 메일이 없는 경우 https://myaccess.microsoft.com으로 직접 이동 하 여 보류 중인 액세스 검토를 찾을 수 있습니다.  (미국 정부의 경우 대신 `https://myaccess.microsoft.us`를 사용 합니다.)
 
 1. 왼쪽 탐색 모음에서 **액세스 검토** 를 클릭 하 여 사용자에 게 할당 된 보류 중인 액세스 검토 목록을 표시 합니다.
     

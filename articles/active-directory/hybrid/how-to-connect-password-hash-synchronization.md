@@ -15,12 +15,12 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3f7d7c9af807120457b119e0be047c7a342b961
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: f6451507eb5a25f432c73468d0da0db1838c8c9a
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78378483"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082484"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Azure AD Connect 동기화를 사용하여 암호 해시 동기화 구현
 이 문서에서는 온-프레미스 Active Directory 인스턴스에서 클라우드 기반 Azure Active Directory(Azure AD) 인스턴스로 사용자 암호를 동기화하는 데 필요한 정보를 제공합니다.
@@ -124,6 +124,7 @@ Azure AD는 등록 된 도메인 마다 별도의 암호 만료 정책을 지원
 
 > [!NOTE]
 > 이 기능은 현재 공개 미리 보기 상태입니다.
+> Set-msolpasswordpolicy PowerShell 명령은 페더레이션된 도메인에서 작동 하지 않습니다. 
 
 #### <a name="public-preview-of-synchronizing-temporary-passwords-and-force-password-change-on-next-logon"></a>임시 암호 동기화 및 "다음 로그온 시 암호 변경 적용"의 공개 미리 보기
 

@@ -6,17 +6,20 @@ ms.author: suvetriv
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/06/2020
-ms.openlocfilehash: 1a372ef12ef7b0afb06ed3c540daaee5e38c3374
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.openlocfilehash: a784fc070400995c56d16a3bc264d589bcb1f64e
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78899166"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082849"
 ---
 # <a name="azure-monitor-integration-for-azure-red-hat-openshift-43"></a>Azure Red Hat OpenShift 4.3에 대 한 Azure Monitor 통합
 
-> [!IMPORTANT]
-> Azure Red Hat OpenShift 4.3는 미리 보기로 제공 됩니다. 미리 보기 기능은 셀프 서비스 이며 제공 되는 그대로 제공 되며 서비스 수준 계약 (SLA) 및 제한 된 보증에서 제외 됩니다. 따라서이 기능은 프로덕션 용도로 사용 되지 않습니다. 
+> [!IMPORTANT] 
+> Azure Red Hat OpenShift 4.3은 현재 미국 동부에서 비공개 미리 보기 에서만 사용할 수 있습니다. 비공개 미리 보기 수락은 초대 전용입니다. 이 기능을 사용 하도록 설정 하기 전에 구독을 등록 해야 합니다. [Azure Red Hat OpenShift 비공개 미리 보기 등록](https://aka.ms/aro-preview-register)
+
+> [!NOTE]
+> 미리 보기 기능은 셀프 서비스 이며 제공 되는 그대로 제공 되며 서비스 수준 계약 (SLA) 및 제한 된 보증에서 제외 됩니다. 따라서이 기능은 프로덕션 용도로 사용 되지 않습니다.
 
 이 문서에서는 온-프레미스 또는 모든 클라우드 환경에서 호스트 되는 OpenShift 4.3 클러스터의 컨테이너에 대 한 Azure Monitor 비공개 미리 보기를 사용 하도록 설정 하는 방법을 설명 합니다. Azure Red Hat OpenShift (ARO) 4.3 클러스터에 대해 모니터링을 사용 하도록 설정 하는 경우에도 동일한 지침이 적용 됩니다.  
 

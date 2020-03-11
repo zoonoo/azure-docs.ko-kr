@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/22/2019
-ms.openlocfilehash: 91480b3ba0a2bbd3e8c31adb931f5baabe1b07ce
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.date: 03/10/2020
+ms.openlocfilehash: 52eb3bdb463389d075421661610b5ee94d14d77d
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77605584"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79037077"
 ---
 # <a name="execute-python-script-module"></a>Python 스크립트 실행 모듈
 
@@ -75,7 +75,48 @@ import os
 os.system(f"pip install scikit-misc")
 ```
 
-## <a name="how-to-use"></a>사용 방법
+## <a name="upload-files"></a>파일 업로드
+**Python 실행 스크립트** 는 [Azure Machine Learning python SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py#upload-file-name--path-or-stream-)를 사용 하 여 파일 업로드를 지원 합니다.
+
+다음 예제에서는 **Python 스크립트 실행** 모듈에서 이미지 파일을 업로드 하는 방법을 보여 줍니다.
+
+```Python
+
+# The script MUST contain a function named azureml_main
+# which is the entry point for this module.
+
+# imports up here can be used to
+import pandas as pd
+
+# The entry point function can contain up to two input arguments:
+#   Param<dataframe1>: a pandas.DataFrame
+#   Param<dataframe2>: a pandas.DataFrame
+def azureml_main(dataframe1 = None, dataframe2 = None):
+
+    # Execution logic goes here
+    print(f'Input pandas.DataFrame #1: {dataframe1}')
+
+    from matplotlib import pyplot as plt
+    plt.plot([1, 2, 3, 4])
+    plt.ylabel('some numbers')
+    img_file = "line.png"
+    plt.savefig(img_file)
+
+    from azureml.core import Run
+    run = Run.get_context(allow_offline=True)
+    run.upload_file(f"graphics/{img_file}", img_file)
+
+    # Return value must be of a sequence of pandas.DataFrame
+    # E.g.
+    #   -  Single return value: return dataframe1,
+    #   -  Two return values: return dataframe1, dataframe2
+    return dataframe1,
+}
+```
+
+파이프라인이 성공적으로 제출 되 면 모듈의 오른쪽 패널에서 이미지를 미리 볼 수 ![업로드 이미지](media/module/upload-image-in-python-script.png)
+
+## <a name="how-to-configure-execute-python-script"></a>Python 스크립트 실행을 구성 하는 방법
 
 **Python 스크립트 실행** 모듈에는 시작 지점으로 사용할 수 있는 샘플 python 코드가 포함 되어 있습니다. **Python 스크립트 실행** 모듈을 구성 하려면 **python 스크립트** 텍스트 상자에 실행할 입력 및 python 코드 집합을 제공 합니다.
 

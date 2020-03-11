@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: ambapat
-ms.openlocfilehash: 0e3246f9da202b54cc0d1285795c25cfafb678d8
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: 08a4330f4a786deca8ddb2f1c6803b29152e7f50
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78207033"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79080137"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault-preview"></a>Key Vault로 HSM 보호 키 가져오기(미리 보기)
 
@@ -58,9 +58,11 @@ Azure Key Vault 사용 하는 경우 보증을 추가 하기 위해 HSM (하드�
 
 ## <a name="supported-hsms"></a>지원 되는 Hsm
 
-|HSM 공급 업체 이름|지원 되는 HSM 모델|자세한 정보|
-|---|---|---|
-|Thales|펌웨어 버전 7.3 이상을 사용 하는 Luna HSM 7 제품군| [Luna BYOK BYOK 도구 및 설명서](https://supportportal.thalesgroup.com/csm?id=kb_article_view&sys_kb_id=3892db6ddb8fc45005c9143b0b961987&sysparm_article=KB0021016)|
+|공급 업체 이름|공급 업체 유형|지원 되는 HSM 모델|자세한 정보|
+|---|---|---|---|
+|Thales|제조업체|펌웨어 버전 7.3 이상을 사용 하는 Luna HSM 7 제품군| [Luna BYOK BYOK 도구 및 설명서](https://supportportal.thalesgroup.com/csm?id=kb_article_view&sys_kb_id=3892db6ddb8fc45005c9143b0b961987&sysparm_article=KB0021016)|
+|Fortanix|HSM을 서비스로|자체 방어 키 관리 서비스 (SDKMS)|[BYOK에 대해 SDKMS 키를 클라우드 공급자로 내보내기-Azure Key Vault](https://support.fortanix.com/hc/en-us/articles/360040071192-Exporting-SDKMS-keys-to-Cloud-Providers-for-BYOK-Azure-Key-Vault)|
+
 
 > [!NOTE]
 > HSM 보호 된 키를 nCipher nShield 집합에서 가져오려면 [레거시 BYOK 절차](hsm-protected-keys-legacy.md)를 사용 합니다.

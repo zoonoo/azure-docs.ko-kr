@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/15/2020
 ms.author: iainfou
-ms.openlocfilehash: 86097a8706956a768def107dd312c9a20c63c6ff
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 14b3292a08e9bb0a60710053cd0b7ffc9d0db115
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78378488"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082290"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance"></a>자습서: Azure Active Directory Domain Services 인스턴스 만들기 및 구성
 
@@ -136,7 +136,7 @@ Azure AD DS가 성공적으로 배포되면 이제 연결된 다른 VM과 애플
 
 1. 관리되는 도메인에 대한 **개요** 탭에는 몇 가지 **필수 구성 단계**가 표시됩니다. 첫 번째 구성 단계는 가상 네트워크에 대한 DNS 서버 설정을 업데이트하는 것입니다. DNS 설정이 올바르게 구성되면 이 단계가 더 이상 표시되지 않습니다.
 
-    나열된 주소는 가상 네트워크에서 사용할 도메인 컨트롤러입니다. 다음 예에서 해당 주소는 *10.1.0.4* 및 *10.1.0.5*입니다. 이러한 IP 주소는 나중에 **속성** 탭에서 확인할 수 있습니다.
+    나열된 주소는 가상 네트워크에서 사용할 도메인 컨트롤러입니다. 이 예제에서 해당 주소는 *10.0.1.4* 및 *10.0.1.5*입니다. 이러한 IP 주소는 나중에 **속성** 탭에서 확인할 수 있습니다.
 
     ![Azure AD Domain Services IP 주소를 사용하여 가상 네트워크에 대한 DNS 설정 구성](./media/tutorial-create-instance/configure-dns.png)
 

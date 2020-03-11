@@ -3,12 +3,12 @@ title: 테 넌 트에 리소스 배포
 description: Azure Resource Manager 템플릿의 테 넌 트 범위에서 리소스를 배포 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: aa72116c3e6e98293b28b2d4413fd1dafb1372d9
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
-ms.translationtype: HT
+ms.openlocfilehash: 64090f1a0bac4b2b5f18d8dec14be0c3b051ac17
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78942734"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78968872"
 ---
 # <a name="create-resources-at-the-tenant-level"></a>테 넌 트 수준에서 리소스 만들기
 
@@ -70,7 +70,7 @@ Azure PowerShell의 경우 [AzTenantDeployment](/powershell/module/az.resources/
 ```azurepowershell-interactive
 New-AzTenantDeployment `
   -Location "West US" `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-level-deployments/new-mg/azuredeploy.json
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-level-deployments/new-mg/azuredeploy.json"
 ```
 
 REST API의 경우, [테 넌 트 범위에서 배포-만들기 또는 업데이트](/rest/api/resources/deployments/createorupdateattenantscope)를 사용 합니다.

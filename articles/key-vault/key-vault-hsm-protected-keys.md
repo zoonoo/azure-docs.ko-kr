@@ -10,12 +10,12 @@ ms.subservice: keys
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: ambapat
-ms.openlocfilehash: d7f9527aa5aa3353dc9087f4bcc5f3a5fb241637
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 048e5072c592cf2de32e533014c99034572a1c47
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78184556"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082900"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault"></a>Key Vault에 대 한 HSM 보호 된 키 가져오기
 
@@ -31,10 +31,19 @@ Azure 중국 21Vianet에는이 기능을 사용할 수 없습니다.
 
 HSM으로 보호 되는 키를 Key Vault으로 전송 하는 것은 사용 하는 Hsm에 따라 두 가지 방법을 통해 지원 됩니다. 아래 표를 사용 하 여 Hsm에서 생성 하는 데 사용 해야 하는 방법을 결정 한 다음 Azure Key Vault와 함께 사용 하기 위해 고유한 HSM 보호 키를 전송 합니다. 
 
-|HSM 공급 업체 이름|지원 되는 HSM 모델|지원 되는 HSM-키 전송 방법|
-|---|---|---|
-|Thales|<ul><li>펌웨어 버전 7.3 이상을 사용 하는 Luna HSM 7 제품군</li></ul>| [새 BYOK 메서드 사용 (미리 보기)](hsm-protected-keys-vendor-agnostic-byok.md)|
-|nCipher|<ul><li>nShield Hsm 제품군</li></ul>|[레거시 BYOK 메서드 사용](hsm-protected-keys-legacy.md)|
+|공급 업체 이름|공급 업체 유형|지원 되는 HSM 모델|지원 되는 HSM-키 전송 방법|
+|---|---|---|---|
+|nCipher|제조업체|<ul><li>nShield Hsm 제품군</li></ul>|[레거시 BYOK 메서드 사용](hsm-protected-keys-legacy.md)|
+|Thales|제조업체|<ul><li>펌웨어 버전 7.3 이상을 사용 하는 Luna HSM 7 제품군</li></ul>| [새 BYOK 메서드 사용 (미리 보기)](hsm-protected-keys-vendor-agnostic-byok.md)|
+|Fortanix|HSM을 서비스로|<ul><li>자체 방어 키 관리 서비스 (SDKMS)</li></ul>|[새 BYOK 메서드 사용 (미리 보기)](hsm-protected-keys-vendor-agnostic-byok.md)|
+
+
+
+
+
+
+
+
 
 
 ## <a name="next-steps"></a>다음 단계

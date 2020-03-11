@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 03/10/2020
 ms.author: dapine
-ms.openlocfilehash: 6e05dc2136211bcd15a9f0583358b05ccbf96f5a
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 65033f9b6599d690b1097b4b78aa01148a40fc39
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383155"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79037515"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Text Analytics 컨테이너 설치 및 실행
 
@@ -24,7 +24,10 @@ ms.locfileid: "74383155"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>전제 조건
+> [!IMPORTANT]
+> 무료 계정은 매월 5000 개의 트랜잭션으로 제한 되며, **무료** 및 **표준** <a href="https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics" target="_blank">가격 책정 계층만 <span class="docon docon-navigate-external x-hidden-focus"></span> </a> 컨테이너에 대해 유효 합니다. 트랜잭션 요청 요금에 대 한 자세한 내용은 [데이터 제한](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview#data-limits)을 참조 하세요.
+
+## <a name="prerequisites"></a>사전 요구 사항
 
 Text Analytics 컨테이너를 실행 하려면 호스트 컴퓨터와 컨테이너 환경이 있어야 합니다.
 
@@ -32,7 +35,7 @@ Text Analytics 컨테이너를 실행 하려면 호스트 컴퓨터와 컨테이
 
 Text Analytics 컨테이너를 사용하려면 다음 필수 조건을 충족해야 합니다.
 
-|필수|용도|
+|필수|목적|
 |--|--|
 |Docker 엔진| [호스트 컴퓨터](#the-host-computer)에 설치된 Docker 엔진이 필요합니다. Docker는 [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) 및 [Linux](https://docs.docker.com/engine/installation/#supported-platforms)에서 Docker 환경을 구성하는 패키지를 제공합니다. Docker 및 컨테이너에 대한 기본 사항은 [Docker 개요](https://docs.docker.com/engine/docker-overview/)를 참조하세요.<br><br> Docker는 컨테이너에서 Azure에 연결하여 청구 데이터를 보낼 수 있도록 구성해야 합니다. <br><br> **Windows**에서 Docker는 Linux 컨테이너를 지원하도록 구성해야 합니다.<br><br>|
 |Docker 사용 경험 | 기본 `docker`명령에 대한 지식뿐만 아니라 레지스트리, 리포지토리, 컨테이너 및 컨테이너 이미지와 같은 Docker 개념에 대해 기본적으로 이해해야 합니다.| 
@@ -48,15 +51,15 @@ Text Analytics 컨테이너를 사용하려면 다음 필수 조건을 충족해
 
 다음 표에서는 각 Text Analytics 컨테이너에 할당할 CPU 코어(2.6GHz 이상) 수 및 메모리(GB) 양에 대한 최소 및 권장 크기에 대해 설명합니다.
 
-# <a name="key-phrase-extractiontabkeyphrase"></a>[핵심 구 추출](#tab/keyphrase)
+# <a name="key-phrase-extraction"></a>[핵심 구 추출](#tab/keyphrase)
 
 [!INCLUDE [key-phrase-extraction-container-requirements](../includes/key-phrase-extraction-container-requirements.md)]
 
-# <a name="language-detectiontablanguage"></a>[언어 감지](#tab/language)
+# <a name="language-detection"></a>[언어 감지](#tab/language)
 
 [!INCLUDE [language-detection-container-requirements](../includes/language-detection-container-requirements.md)]
 
-# <a name="sentiment-analysistabsentiment"></a>[감정 분석](#tab/sentiment)
+# <a name="sentiment-analysis"></a>[감정 분석](#tab/sentiment)
 
 [!INCLUDE [sentiment-analysis-container-requirements](../includes/sentiment-analysis-container-requirements.md)]
 
@@ -65,21 +68,21 @@ Text Analytics 컨테이너를 사용하려면 다음 필수 조건을 충족해
 * 각 코어는 속도가 2.6GHz 이상이어야 합니다.
 * TPS - 초당 트랜잭션 수
 
-`docker run` 명령의 일부로 사용되는 `--cpus` 및 `--memory` 설정에 해당하는 코어 및 메모리.
+`--cpus` 명령의 일부로 사용되는 `--memory` 및 `docker run` 설정에 해당하는 코어 및 메모리.
 
 ## <a name="get-the-container-image-with-docker-pull"></a>`docker pull`을 사용하여 컨테이너 이미지 가져오기
 
 Text Analytics에 대 한 컨테이너 이미지는 Microsoft Container Registry에서 사용할 수 있습니다.
 
-# <a name="key-phrase-extractiontabkeyphrase"></a>[핵심 구 추출](#tab/keyphrase)
+# <a name="key-phrase-extraction"></a>[핵심 구 추출](#tab/keyphrase)
 
 [!INCLUDE [key-phrase-extraction-container-repository](../includes/key-phrase-extraction-container-repository.md)]
 
-# <a name="language-detectiontablanguage"></a>[언어 감지](#tab/language)
+# <a name="language-detection"></a>[언어 감지](#tab/language)
 
 [!INCLUDE [language-detection-container-repository](../includes/language-detection-container-repository.md)]
 
-# <a name="sentiment-analysistabsentiment"></a>[감정 분석](#tab/sentiment)
+# <a name="sentiment-analysis"></a>[감정 분석](#tab/sentiment)
 
 [!INCLUDE [sentiment-analysis-container-repository](../includes/sentiment-analysis-container-repository.md)]
 
@@ -89,15 +92,15 @@ Text Analytics에 대 한 컨테이너 이미지는 Microsoft Container Registry
 
 ### <a name="docker-pull-for-the-text-analytics-containers"></a>Text Analytics 컨테이너에 대 한 Docker 풀
 
-# <a name="key-phrase-extractiontabkeyphrase"></a>[핵심 구 추출](#tab/keyphrase)
+# <a name="key-phrase-extraction"></a>[핵심 구 추출](#tab/keyphrase)
 
 [!INCLUDE [docker-pull-key-phrase-extraction-container](../includes/docker-pull-key-phrase-extraction-container.md)]
 
-# <a name="language-detectiontablanguage"></a>[언어 감지](#tab/language)
+# <a name="language-detection"></a>[언어 감지](#tab/language)
 
 [!INCLUDE [docker-pull-language-detection-container](../includes/docker-pull-language-detection-container.md)]
 
-# <a name="sentiment-analysistabsentiment"></a>[감정 분석](#tab/sentiment)
+# <a name="sentiment-analysis"></a>[감정 분석](#tab/sentiment)
 
 [!INCLUDE [docker-pull-sentiment-analysis-container](../includes/docker-pull-sentiment-analysis-container.md)]
 
@@ -107,7 +110,7 @@ Text Analytics에 대 한 컨테이너 이미지는 Microsoft Container Registry
 
 컨테이너가 [호스트 컴퓨터](#the-host-computer)에 있으면 다음 프로세스를 사용하여 컨테이너 작업을 수행합니다.
 
-1. 필수 청구 설정을 사용하여 [컨테이너를 실행](#run-the-container-with-docker-run)합니다. `docker run` 명령의 자세한 [예제](../text-analytics-resource-container-config.md#example-docker-run-commands)를 사용할 수 있습니다.
+1. 필수 청구 설정을 사용하여 [컨테이너를 실행](#run-the-container-with-docker-run)합니다. [ 명령의 자세한 ](../text-analytics-resource-container-config.md#example-docker-run-commands)예제`docker run`를 사용할 수 있습니다.
 1. [컨테이너의 예측 엔드포인트를 쿼리합니다](#query-the-containers-prediction-endpoint).
 
 ## <a name="run-the-container-with-docker-run"></a>`docker run`을 사용하여 컨테이너 실행
@@ -116,15 +119,15 @@ Text Analytics에 대 한 컨테이너 이미지는 Microsoft Container Registry
 
 `docker run` 명령의 [예](../text-analytics-resource-container-config.md#example-docker-run-commands) 를 사용할 수 있습니다.
 
-# <a name="key-phrase-extractiontabkeyphrase"></a>[핵심 구 추출](#tab/keyphrase)
+# <a name="key-phrase-extraction"></a>[핵심 구 추출](#tab/keyphrase)
 
 [!INCLUDE [docker-run-key-phrase-extraction-container](../includes/docker-run-key-phrase-extraction-container.md)]
 
-# <a name="language-detectiontablanguage"></a>[언어 감지](#tab/language)
+# <a name="language-detection"></a>[언어 감지](#tab/language)
 
 [!INCLUDE [docker-run-language-detection-container](../includes/docker-run-language-detection-container.md)]
 
-# <a name="sentiment-analysistabsentiment"></a>[감정 분석](#tab/sentiment)
+# <a name="sentiment-analysis"></a>[감정 분석](#tab/sentiment)
 
 [!INCLUDE [docker-run-sentiment-analysis-container](../includes/docker-run-sentiment-analysis-container.md)]
 
@@ -155,7 +158,7 @@ Text Analytics에 대 한 컨테이너 이미지는 Microsoft Container Registry
 
 [!INCLUDE [Cognitive Services FAQ note](../../containers/includes/cognitive-services-faq-note.md)]
 
-## <a name="billing"></a>청구
+## <a name="billing"></a>결제
 
 Text Analytics 컨테이너는 Azure 계정의 _Text Analytics_ 리소스를 사용하여 청구 정보를 Azure로 보냅니다. 
 

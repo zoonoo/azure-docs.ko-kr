@@ -1,26 +1,18 @@
 ---
-title: 패키지를 사용 하 여 Linux Azure VM 이미지를 만드는 방법
+title: 팩을 사용 하 여 Linux Azure VM 이미지 만들기
 description: Azure에서 Packer를 사용하여 Linux 가상 머신의 이미지를 만드는 방법에 대해 알아보기
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-editor: tysonn
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: azurecli
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/07/2019
 ms.author: cynthn
-ms.openlocfilehash: a9f0750908123c236596683ec2ad6de505c46213
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 338541661b335e3d96a267f01590173f8ce8ee89
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036957"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78969280"
 ---
 # <a name="how-to-use-packer-to-create-linux-virtual-machine-images-in-azure"></a>Azure에서 Packer를 사용하여 Linux 가상 머신 이미지를 만드는 방법
 Azure의 각 VM(가상 컴퓨터)은 Linux 배포판 및 OS 버전을 정의하는 이미지에서 만들어집니다. 이미지는 사전 설치된 애플리케이션 및 구성을 포함할 수 있습니다. Azure Marketplace는 가장 일반적인 배포 및 애플리케이션 환경에 대한 다양한 자사 및 타사 이미지를 제공하거나 사용자 요구에 맞게 사용자 지정 이미지를 만들 수 있습니다. 이 문서에는 오픈 소스 도구 [Packer](https://www.packer.io/)를 사용하여 Azure에서 사용자 지정 이미지를 정의하고 작성하는 방법을 자세히 설명합니다.
@@ -40,7 +32,7 @@ az group create -n myResourceGroup -l eastus
 
 
 ## <a name="create-azure-credentials"></a>Azure 자격 증명 만들기
-Packer는 서비스 사용자를 사용하여 Azure를 인증합니다. Azure 서비스 사용자는 앱, 서비스 및 Packer와 같은 자동화 도구를 사용할 수 있는 보안 ID입니다. 서비스 사용자가 Azure에서 수행할 수 있는 작업에 대한 사용 권한은 사용자가 제어하고 정의합니다.
+Packer는 서비스 사용자를 사용하여 Azure를 인증합니다. Azure 서비스 사용자는 앱, 서비스 및 Packer와 같은 자동화 도구를 사용할 수 있는 보안 ID입니다. 서비스 주체가 Azure에서 수행할 수 있는 작업에 대한 사용 권한은 사용자가 제어하고 정의합니다.
 
 [az ad sp create-for-rbac](/cli/azure/ad/sp)를 사용하여 서비스 사용자를 만들고 Packer가 필요로 하는 자격 증명을 출력합니다.
 
@@ -72,7 +64,7 @@ az account show --query "{ subscription_id: id }"
 
 *ubuntu.json*이라는 파일을 만들고 다음 콘텐츠를 붙여 넣습니다. 다음에 대해 사용자 고유의 값을 입력합니다.
 
-| 매개 변수를 포함해야 합니다.                           | 얻을 수 있는 위치 |
+| 매개 변수                           | 얻을 수 있는 위치 |
 |-------------------------------------|----------------------------------------------------|
 | *client_id*                         | `az ad sp` create 명령의 첫 번째 출력 줄 - *appId* |
 | *client_secret*                     | `az ad sp` create 명령의 두 번째 출력 줄 - *password* |

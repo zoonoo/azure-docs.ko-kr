@@ -2,17 +2,18 @@
 title: Azure Disk Encryption 샘플 스크립트
 description: 이 문서는 Linux Vm에 대 한 Microsoft Azure 디스크 암호화에 대 한 부록입니다.
 author: msmbaldwin
-ms.service: security
+ms.service: virtual-machines-linux
+ms.subservice: security
 ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: ad0e3bbba729436c3a07f44d989a40f5349dfb3e
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: c98da4b41da183f56d80fad1e8c01706d1cfcf23
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74326359"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78970503"
 ---
 # <a name="azure-disk-encryption-sample-scripts"></a>Azure Disk Encryption 샘플 스크립트 
 
@@ -42,12 +43,12 @@ Azure Disk Encryption에 대한 필수 구성 요소에 이미 익숙한 경우 
 다음 표는 PowerShell 스크립트에서 사용할 수 있는 매개 변수를 보여줍니다. 
 
 
-|매개 변수|설명|필수?|
+|매개 변수|Description|필수?|
 |------|------|------|
-|$resourceGroupName| KeyVault가 속해 있는 리소스 그룹의 이름입니다.  이 이름을 가진 새 리소스 그룹이 없는 경우 생성됩니다.| true|
-|$keyVaultName|암호화 키가 배치된 KeyVault의 이름입니다. 이 이름을 가진 새 자격 증명 모음이 없는 경우 생성됩니다.| true|
-|$location|KeyVault의 위치입니다. 암호화할 KeyVault 및 VM이 동일한 위치에 있는지 확인합니다. `Get-AzLocation`을 사용하여 위치 목록을 가져옵니다.|true|
-|$subscriptionId|사용할 Azure 구독의 식별자입니다.  구독 ID는 `Get-AzSubscription`을 사용하여 가져올 수 있습니다.|true|
+|$resourceGroupName| KeyVault가 속해 있는 리소스 그룹의 이름입니다.  이 이름을 가진 새 리소스 그룹이 없는 경우 생성됩니다.| True|
+|$keyVaultName|암호화 키가 배치된 KeyVault의 이름입니다. 이 이름을 가진 새 자격 증명 모음이 없는 경우 생성됩니다.| True|
+|$location|KeyVault의 위치입니다. 암호화할 KeyVault 및 VM이 동일한 위치에 있는지 확인합니다. `Get-AzLocation`을 사용하여 위치 목록을 가져옵니다.|True|
+|$subscriptionId|사용할 Azure 구독의 식별자입니다.  구독 ID는 `Get-AzSubscription`을 사용하여 가져올 수 있습니다.|True|
 |$aadAppName|KeyVault에 비밀을 쓰는 데 사용할 Azure AD 애플리케이션의 이름입니다. 이 이름을 가진 새 애플리케이션이 없는 경우 생성됩니다. 이 앱이 이미 있는 경우 스크립트에 aadClientSecret 매개 변수를 전달합니다.|False|
 |$aadClientSecret|이전에 만든 Azure AD 애플리케이션의 클라이언트 비밀입니다.|False|
 |$keyEncryptionKeyName|KeyVault의 선택적 키 암호화 키의 이름입니다. 이 이름을 가진 새 키가 없는 경우 생성됩니다.|False|
@@ -370,7 +371,7 @@ Azure로 작업할 암호화를 구성하려면 다음 단계를 수행합니다
    ```bash
     if [ -z "$DRACUT_SYSTEMD" ]; then
    ```
-   다음으로 변경:
+   to
    ```bash
     if [ 1 ]; then
    ```
