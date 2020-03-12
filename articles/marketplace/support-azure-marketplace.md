@@ -7,14 +7,14 @@ manager: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 7/25/2019
+ms.date: 3/11/2020
 ms.author: evansma
-ms.openlocfilehash: 40d466bd4e5959453f8c3042c4b14f6c3ef605bf
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 80911ce7858308302b1736328b6c7954c0e05a86
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75933468"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79095533"
 ---
 # <a name="support-for-the-marketplace"></a>Marketplace에 대한 지원  
 다음은 Marketplace에 대한 지원 옵션 목록입니다.  
@@ -23,13 +23,13 @@ ms.locfileid: "75933468"
 
 ## <a name="onboarding"></a>온보딩
 
-온 보 딩 및 시작 관련 문제에 대 한 Microsoft [marketplace 게시자 지원](https://support.microsoft.com/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&forceorigin=esmc&ccsid=636595105151894820) 또는 Microsoft 파트너 네트워크에 대 한 질문이 있는 경우 microsoft [파트너 지원](https://partner.microsoft.com/support) 에 대 한 티켓을 엽니다.
+온 보 딩 및 시작에 대 한 문제에 대 한 Microsoft [marketplace 게시자 지원](https://aka.ms/marketplacepublishersupport) 으로 티켓을 엽니다.
 
 ## <a name="partner-center-or-cloud-partner-portal"></a>파트너 센터 또는 Cloud 파트너 포털  
 
 | 지원 채널 | Description | 가용성 |  
 |:--- |:--- |:--- |  
-| 도움이 필요하면 [Marketplace 지원](https://go.microsoft.com/fwlink/?linkid=844975)의 인시던트 만들기 페이지를 방문하세요.</li> </ul> | 파트너 센터 또는 Cloud 파트너 포털에 대 한 지원. | PST 오전 6시~오후 6시에 지원이 제공됩니다. |  
+| 도움이 필요하면 [Marketplace 지원](https://aka.ms/marketplacepublishersupport)의 인시던트 만들기 페이지를 방문하세요.</li> </ul> | 파트너 센터 또는 Cloud 파트너 포털에 대 한 지원. | 지원 24x5 제공 됩니다. |  
 
 ## <a name="technical"></a>기술  
 

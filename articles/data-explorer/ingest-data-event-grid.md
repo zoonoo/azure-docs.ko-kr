@@ -7,12 +7,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: a07a5a5956d8ea295d269d81ed264177bc8805f2
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 47870410741cf96e289014fab5a9c2eab26759b1
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77424986"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096427"
 ---
 # <a name="ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Event Grid 알림을 구독하여 Azure Data Explorer에 Blob 수집
 
@@ -118,7 +118,7 @@ Azure Data Explorer에서 Event Hubs가 데이터를 보낼 테이블을 만듭�
      **설정** | **제안 값** | **필드 설명**
     |---|---|---|
     | 테이블 | *TestTable* | **TestDatabase**에 만든 테이블입니다. |
-    | 데이터 형식 | *JSON* | 지원되는 형식은 Avro, CSV, JSON, MULTILINE JSON, PSV, SOH, SCSV, TSV 및 TXT입니다. 지원 되는 압축 옵션: Zip 및 GZip |
+    | 데이터 형식 | *JSON* | 지원 되는 형식은 Avro, CSV, JSON, MULTILINE JSON, PSV, SOH, SCSV, TSV, RAW 및 TXT입니다. 지원 되는 압축 옵션: Zip 및 GZip |
     | 열 매핑 | *TestMapping* | **TestDatabase**에서 생성된 것으로, 들어오는 JSON 데이터를 **TestTable**의 열 이름 및 데이터 형식에 매핑.|
     | | |
     
@@ -150,13 +150,32 @@ Azure Storage 리소스와 상호 작용하는 몇 가지 기본 Azure CLI 명�
     az storage container create --name $container_name
 
     echo "Uploading the file..."
-    az storage blob upload --container-name $container_name --file $file_to_upload --name $blob_name
+    az storage blob upload --container-name $container_name --file $file_to_upload --name $blob_name --metadata "rawSizeBytes=1024"
 
     echo "Listing the blobs..."
     az storage blob list --container-name $container_name --output table
 
     echo "Done"
 ```
+
+> [!NOTE]
+> 최상의 수집 성능을 얻으려면 수집을 위해 전송 된 압축 blob *의 압축 되지 않은 크기를* 전달 해야 합니다. Event Grid 알림에는 기본 정보만 포함 되어 있으므로 크기 정보를 명시적으로 전달 해야 합니다. 압축 되지 않은 크기 정보는 *압축* 되지 않은 데이터 크기 (바이트)를 사용 하 여 blob 메타 데이터에 대 한 `rawSizeBytes` 속성을 설정 하 여 제공할 수 있습니다.
+
+### <a name="ingestion-properties"></a>수집 속성
+
+Blob 메타 데이터를 통해 blob 수집의 수집 [속성](https://docs.microsoft.com/azure/kusto/management/data-ingestion/#ingestion-properties) 을 지정할 수 있습니다.
+
+이러한 속성은 다음과 같이 설정할 수 있습니다.
+
+|**속성** | **속성 설명**|
+|---|---|
+| `rawSizeBytes` | 원시 (압축 되지 않은) 데이터의 크기입니다. Avro/ORC/Parquet의 경우 서식 지정 압축을 적용 하기 전의 크기입니다.|
+| `kustoTable` |  기존 대상 테이블의 이름입니다. `Data Connection` 블레이드에서 설정 된 `Table`를 재정의 합니다. |
+| `kustoDataFormat` |  데이터 형식입니다. `Data Connection` 블레이드에서 설정 된 `Data format`를 재정의 합니다. |
+| `kustoIngestionMappingReference` |  사용할 기존 수집 매핑의 이름입니다. `Data Connection` 블레이드에서 설정 된 `Column mapping`를 재정의 합니다.|
+| `kustoIgnoreFirstRecord` | `true`로 설정 된 경우 Kusto는 blob의 첫 번째 행을 무시 합니다. 테이블 형식 데이터 (CSV, TSV 또는 이와 유사한)를 사용 하 여 헤더를 무시 합니다. |
+| `kustoExtentTags` | 결과 범위에 첨부 될 [태그](/azure/kusto/management/extents-overview#extent-tagging) 를 나타내는 문자열입니다. |
+| `kustoCreationTime` |  ISO 8601 문자열로 형식이 지정 된 blob에 대 한 [$IngestionTime](/azure/kusto/query/ingestiontimefunction?pivots=azuredataexplorer) 를 재정의 합니다. 백필에 사용 합니다. |
 
 > [!NOTE]
 > Azure 데이터 탐색기는 blob 사후 수집을 삭제 하지 않습니다.

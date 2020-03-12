@@ -7,18 +7,19 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 04/12/2019
 ms.author: helohr
-ms.openlocfilehash: 23bf9be8e3e5f1c52546faa9ed5171c140eba59a
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+manager: lizross
+ms.openlocfilehash: 33d058f028b7032f296ffcf82f0e5fe2c993e6fb
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676616"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127911"
 ---
 # <a name="windows-virtual-desktop-environment"></a>Windows Virtual Desktop 환경
 
 Windows 가상 데스크톱은 사용자에 게 가상화 된 데스크톱 및 Remoteapp에 대 한 액세스를 쉽고 안전 하 게 제공 하는 서비스입니다. 이 항목에서는 Windows 가상 데스크톱 환경의 일반적인 구조에 대해 자세히 설명 합니다.
 
-## <a name="tenants"></a>테 넌 트
+## <a name="tenants"></a>테넌트
 
 Windows 가상 데스크톱 테 넌 트는 Windows 가상 데스크톱 환경을 관리 하기 위한 기본 인터페이스입니다. 각 Windows 가상 데스크톱 테 넌 트는 환경에 로그인 할 사용자를 포함 하는 Azure Active Directory 연결 되어야 합니다. Windows 가상 데스크톱 테 넌 트에서 사용자의 워크 로드를 실행 하는 호스트 풀 만들기를 시작할 수 있습니다.
 

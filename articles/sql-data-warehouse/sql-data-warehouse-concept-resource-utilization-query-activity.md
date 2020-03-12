@@ -7,25 +7,25 @@ manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 02/04/2020
+ms.date: 03/11/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 47f142a19ac470fb29e9542941cd94a6b29ce240
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 82bf6f9a78a46659cc2e0955895c6e1a6e6eb3aa
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78195926"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096634"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 리소스 사용률 및 쿼리 작업 모니터링
-Azure Synapse Analytics는 데이터 웨어하우스 워크 로드에 대 한 통찰력을 제공 하기 위해 Azure Portal 내에서 풍부한 모니터링 환경을 제공 합니다. 데이터 웨어하우스를 모니터링할 때는 구성 가능한 보존 기간, 경고, 권장 사항, 메트릭과 로그용 사용자 지정 가능한 차트 및 대시보드를 제공하는 도구인 Azure Portal을 사용하는 것이 좋습니다. 또한 포털에서는 OMS (Operations Management Suite) 및 Azure Monitor (로그)와 같은 다른 Azure 모니터링 서비스와 통합 하 여 데이터 웨어하우스 뿐만 아니라 전체 Azure 분석에 대해 전체적인 모니터링 환경을 제공할 수 있습니다. 통합 모니터링 환경을 위한 플랫폼입니다. 이 설명서에서는 SQL Analytics를 사용 하 여 분석 플랫폼을 최적화 하 고 관리 하는 데 사용할 수 있는 모니터링 기능에 대해 설명 합니다. 
+Azure Synapse Analytics는 데이터 웨어하우스 워크 로드와 관련 된 정보를 노출 하기 위해 Azure Portal 내에서 풍부한 모니터링 환경을 제공 합니다. 데이터 웨어하우스를 모니터링할 때는 구성 가능한 보존 기간, 경고, 권장 사항, 메트릭과 로그용 사용자 지정 가능한 차트 및 대시보드를 제공하는 도구인 Azure Portal을 사용하는 것이 좋습니다. 또한 포털에서는 Log analytics를 사용 하 여 Azure Monitor (로그)와 같은 다른 Azure 모니터링 서비스와 통합 하 여 데이터 웨어하우스 뿐만 아니라 통합을 위한 전체 Azure 분석 플랫폼에도 전체적인 모니터링 환경을 제공할 수 있습니다. 모니터링 환경. 이 설명서에서는 SQL Analytics를 사용 하 여 분석 플랫폼을 최적화 하 고 관리 하는 데 사용할 수 있는 모니터링 기능에 대해 설명 합니다. 
 
 ## <a name="resource-utilization"></a>리소스 사용률 
 SQL Analytics의 Azure Portal에서 다음 메트릭을 사용할 수 있습니다. 이러한 메트릭은 [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-collection#metrics)를 통해 나타납니다.
 
 
-| 메트릭 이름             | 설명                                                  | 집계 형식 |
+| 메트릭 이름             | Description                                                  | 집계 형식 |
 | ----------------------- | ------------------------------------------------------------ | ---------------- |
 | CPU 비율          | 데이터 웨어하우스에 대한 모든 노드에서의 CPU 사용률      | 평균, 최소값, 최대값    |
 | 데이터 IO 비율      | 데이터 웨어하우스에 대한 모든 노드에서의 IO 사용률       | 평균, 최소값, 최대값    |
@@ -41,9 +41,13 @@ SQL Analytics의 Azure Portal에서 다음 메트릭을 사용할 수 있습니�
 | 캐시 적중 비율    | (캐시 적중/캐시 누락) * 100, 여기서 캐시 적중은 로컬 SSD 캐시에서 적중된 모든 columnstore 세그먼트에 대한 합계이며, 캐시 누락은 모든 노드에 걸쳐 로컬 SSD 캐시에서 누락된 columnstore 세그먼트에 대한 합계입니다. | 평균, 최소값, 최대값    |
 | 캐시 사용 비율   | (사용된 캐시/캐시 용량) * 100, 여기서 사용된 캐시는 모든 노드에 걸친 로컬 SSD 캐시의 모든 바이트에 대한 합계이며, 캐시 용량은 모든 노드에 걸친 로컬 SSD 캐시의 스토리지 용량에 대한 합계입니다 | 평균, 최소값, 최대값    |
 | 로컬 tempdb 백분율 | 모든 컴퓨팅 노드의 로컬 tempdb 사용률 - 5분마다 값을 내보냅니다. | 평균, 최소값, 최대값    |
+| 데이터 저장소 크기 | 데이터베이스에 로드 된 데이터의 총 크기입니다. 여기에는 cci가 아닌 테이블의 크기가 전체 데이터베이스 파일 크기에 따라 측정 되는 cci 및 비 CCI 테이블에 있는 데이터가 포함 됩니다. | 합계 |
+| 재해 복구 크기 | 24 시간 마다 수행 된 지역 백업 전체 크기 | 합계 |
+| 스냅숏 저장소 크기 | 데이터베이스 복원 지점이 제공 되는 데 걸린 총 스냅숏 크기입니다. 여기에는 자동화 된 사용자 정의 스냅숏이 포함 됩니다. | 합계 |
 
 메트릭을 보고 경고를 설정할 때 고려해 야 할 사항:
 
+- DWU는 SQL 풀에서 **의 사용에 대 한 상위 수준 표시** 만을 나타내며 포괄적인 사용률 지표를 의미 하지는 않습니다. 규모를 확장 또는 축소할 지를 결정 하려면 DWU의 영향을 받을 수 있는 모든 요소 (예: 동시성, 메모리, tempdb 및 적응 캐시 용량)를 고려 합니다. [다른 DWU 설정에서 워크 로드를 실행](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-compute-overview#finding-the-right-size-of-data-warehouse-units) 하 여 비즈니스 목표를 충족 하는 데 가장 적합 한 방식을 결정 하는 것이 좋습니다.
 - 논리 서버가 아닌 특정 데이터 웨어하우스에 대해 실패 한 연결 및 성공한 연결 보고
 - 메모리 백분율은 데이터 웨어하우스가 유휴 상태에 있는 경우에도 사용률을 반영 합니다 .이는 활성 작업 메모리 사용을 반영 하지 않습니다. 다른 (tempdb, gen2 cache)와 함께이 메트릭을 사용 하 고 추적 하 여 추가 캐시 용량을 조정 하면 요구 사항에 맞게 워크 로드 성능이 향상 되는 경우에 대 한 전체적인 의사 결정을 내릴 수 있습니다.
 

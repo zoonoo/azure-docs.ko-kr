@@ -3,12 +3,12 @@ title: 태그 및 매니페스트 제거
 description: 제거 명령을 사용 하 여 연령 및 태그 필터를 기반으로 Azure container registry에서 여러 태그와 매니페스트를 삭제 하 고 선택적으로 제거 작업을 예약 합니다.
 ms.topic: article
 ms.date: 08/14/2019
-ms.openlocfilehash: 0ec1f5f6f5c3c572b8558c971b58e46cce36e3fd
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: f9d86b628bdd0ce0db3067b02a47517d8aadcba3
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74923100"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79087332"
 ---
 # <a name="automatically-purge-images-from-an-azure-container-registry"></a>Azure container registry에서 자동으로 이미지 제거
 
@@ -47,7 +47,7 @@ Azure CLI 명령을 사용 하 여 단일 이미지 태그나 매니페스트를
 
 추가 매개 변수를 `acr purge --help`를 실행 합니다. 
 
-`acr purge`는 스트리밍 및 나중에 검색할 수 있도록 저장 된 [변수 실행](container-registry-tasks-reference-yaml.md#run-variables) 및 [작업 실행 로그](container-registry-tasks-overview.md#view-task-logs) 를 비롯 하 여 ACR 작업 명령의 다른 기능을 지원 합니다.
+`acr purge`은 스트리밍된 [실행 변수와](container-registry-tasks-reference-yaml.md#run-variables) 나중에 검색할 수 있도록 저장 되는 [태스크 실행 로그](container-registry-tasks-logs.md) 를 비롯 하 여 ACR 작업 명령의 다른 기능을 지원 합니다.
 
 ### <a name="run-in-an-on-demand-task"></a>요청 시 작업에서 실행
 

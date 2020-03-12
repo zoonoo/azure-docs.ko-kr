@@ -7,12 +7,13 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 02/21/2020
 ms.author: helohr
-ms.openlocfilehash: 354ee312099902372863ce2ea636d2f9f9943d5c
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+manager: lizross
+ms.openlocfilehash: 37c3e57fd96a0161564b23ce18d01573d0dd73f9
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2020
-ms.locfileid: "77566427"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127902"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>새 세션 호스트를 사용 하 여 기존 호스트 풀 확장
 
@@ -76,13 +77,13 @@ ms.locfileid: "77566427"
 
 *기본 데스크톱 사용자*를 제외 하 고이 섹션의 모든 값은 호스트 풀 및 세션 호스트 vm을 처음 만들 때 입력 한 값과 일치 해야 합니다.
 
-1.  *구독*에서 호스트 풀을 처음 만든 구독을 선택 합니다.
-2.  *리소스 그룹*에 대해 기존 호스트 풀 세션 호스트 vm이 있는 리소스 그룹을 선택 합니다.
-3.  *지역*에서 기존 호스트 풀 세션 호스트 vm이 있는 지역을 선택 합니다.
-4.  *Hostpool 이름*에 기존 호스트 풀의 이름을 입력 합니다.
-5.  *바탕 화면 유형*에서 기존 호스트 풀과 일치 하는 데스크톱 유형을 선택 합니다.
-6.  *기본 데스크톱 사용자*의 경우 Windows 가상 데스크톱 클라이언트에 로그인 할 추가 사용자의 쉼표로 구분 된 목록을 입력 하 고 Azure Marketplace 제공이 완료 되 면 데스크톱에 액세스 합니다. 예를 들어 user3@contoso.com를 할당 하 고 액세스를 user4@contoso.com 하려면 user3@contoso.com를 입력user4@contoso.com합니다.
-7.  **다음: 가상 머신 구성**을 선택 합니다.
+1.    *구독*에서 호스트 풀을 처음 만든 구독을 선택 합니다.
+2.    *리소스 그룹*에 대해 기존 호스트 풀 세션 호스트 vm이 있는 리소스 그룹을 선택 합니다.
+3.    *지역*에서 기존 호스트 풀 세션 호스트 vm이 있는 지역을 선택 합니다.
+4.    *Hostpool 이름*에 기존 호스트 풀의 이름을 입력 합니다.
+5.    *바탕 화면 유형*에서 기존 호스트 풀과 일치 하는 데스크톱 유형을 선택 합니다.
+6.    *기본 데스크톱 사용자*의 경우 Windows 가상 데스크톱 클라이언트에 로그인 할 추가 사용자의 쉼표로 구분 된 목록을 입력 하 고 Azure Marketplace 제공이 완료 되 면 데스크톱에 액세스 합니다. 예를 들어 user3@contoso.com를 할당 하 고 액세스를 user4@contoso.com 하려면 user3@contoso.com를 입력user4@contoso.com합니다.
+7.    **다음: 가상 머신 구성**을 선택 합니다.
 
 >[!NOTE]
 >*기본 데스크톱 사용자*를 제외 하 고 모든 필드는 기존 호스트 풀에서 구성 된 것과 정확히 일치 해야 합니다. 일치 하는 항목이 없으면 새 호스트 풀이 생성 됩니다.
@@ -100,7 +101,7 @@ ms.locfileid: "77566427"
 3. 가상 머신의 이름에 사용할 접두사를 입력합니다. 예를 들어, “prefix”라는 이름을 입력하는 경우 가상 머신은 “prefix-0”, “prefix-1” 등으로 불립니다.
 4. **다음: 가상 머신 설정**을 선택 합니다.
 
-### <a name="virtual-machine-settings"></a>가상 컴퓨터 설정
+### <a name="virtual-machine-settings"></a>가상 머신 설정
 
 이 섹션의 모든 매개 변수 값은 호스트 풀 및 세션 호스트 Vm을 처음 만들 때 입력 한 값과 일치 해야 합니다.
 

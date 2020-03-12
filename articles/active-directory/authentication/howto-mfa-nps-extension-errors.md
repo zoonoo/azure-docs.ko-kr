@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8d67d1d318bf823145a57d2e55774695d151996
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f4f086b7c2f24cfe5d3fe74c25f6f5690b090800
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75425313"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79086378"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Azure Multi-factor Authentication용 NPS 확장의 오류 메시지 해결
 
@@ -29,8 +29,8 @@ Azure Multi-factor Authentication용 NPS 확장에서 오류가 발생하는 경
 | **CONTACT_SUPPORT** | [지원에 문의](#contact-microsoft-support)하고 로그를 수집하기 위한 단계 목록을 설명합니다. 테넌트 ID 및 UPN(사용자 계정 이름)을 포함하여 오류 발생 전에 진행된 작업에 대해 최대한 많은 정보를 제공합니다. |
 | **CLIENT_CERT_INSTALL_ERROR** | 클라이언트 인증서가 설치되었거나 테넌트와 연결된 방식에 대해 문제가 있을 수 있습니다. [MFA NPS 확장 문제 해결](howto-mfa-nps-extension.md#troubleshooting)의 지침에 따라 클라이언트 인증서 문제를 조사합니다. |
 | **ESTS_TOKEN_ERROR** | [MFA NPS 확장 문제 해결](howto-mfa-nps-extension.md#troubleshooting)의 지침에 따라 클라이언트 인증서 및 ADAL 토큰 문제를 조사합니다. |
-| **HTTPS_COMMUNICATION_ERROR** | NPS 서버는 Azure MFA에서 응답을 받을 수 없습니다. 방화벽이 https://adnotifications.windowsazure.com 과의 트래픽을 위해 양방향으로 열려 있는지 확인합니다. |
-| **HTTP_CONNECT_ERROR** | NPS 확장을 실행하는 서버에서 https://adnotifications.windowsazure.com 과 https://login.microsoftonline.com/ 에 연결할 수 있는지 확인합니다. 해당 사이트가 로드되지 않으면 해당 서버의 연결 문제를 해결합니다. |
+| **HTTPS_COMMUNICATION_ERROR** | NPS 서버는 Azure MFA에서 응답을 받을 수 없습니다. 방화벽이 https://adnotifications.windowsazure.com과의 트래픽을 위해 양방향으로 열려 있는지 확인합니다. |
+| **HTTP_CONNECT_ERROR** | NPS 확장을 실행하는 서버에서 https://adnotifications.windowsazure.com과 https://login.microsoftonline.com/에 연결할 수 있는지 확인합니다. 해당 사이트가 로드되지 않으면 해당 서버의 연결 문제를 해결합니다. |
 | **Azure MFA용 NPS 확장:** <br> Azure MFA용 NPS 확장만 AccessAccept 상태에서 Radius 요청에 대해 보조 인증을 수행합니다. 요청을 무시하고 AccessReject 응답 상태를 통해 사용자 이름에 대해 받은 요청입니다. | 이 오류는 일반적으로 AD에서 인증 오류를 나타내거나, NPS 서버가 Azure AD에서 응답을 받을 수 없음을 보여줍니다. 포트 80 및 443을 사용하여 https://adnotifications.windowsazure.com 및 https://login.microsoftonline.com 간의 트래픽을 위해 방화벽이 양방향으로 열려 있는지 확인합니다. 네트워크 액세스 권한의 전화 접속 탭에서 설정이 "NPS 네트워크 정책을 통한 액세스 제어"로 설정되어 있는지 확인해야 합니다. 이 오류는 사용자에 게 라이선스가 할당 되지 않은 경우에도 트리거될 수 있습니다. |
 | **REGISTRY_CONFIG_ERROR** | 설치 후에 [PowerShell 스크립트](howto-mfa-nps-extension.md#install-the-nps-extension)가 실행되지 않았으므로 레지스트리에 애플리케이션에 대한 키가 없습니다. 오류 메시지에 누락된 키가 포함됩니다. HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa 아래에 키가 있는지 확인합니다. |
 | **REQUEST_FORMAT_ERROR** <br> Radius 요청에 필수 Radius userName\Identifier 특성이 없습니다. NPS가 RADIUS 요청을 수신하는지 확인합니다. | 이 오류는 일반적으로 설치 문제를 반영합니다. RADIUS 요청을 받을 수 있는 NPS 확장을 NPS 서버에 설치해야 합니다. RRAS 및 RDG와 같은 서비스에 대한 종속성으로 설치된 NPS 서버가 radius 요청을 수신하지 않습니다. 이러한 설치 위에 설치된 NPS 확장은 작동하지 않으며 인증 요청의 세부 정보를 읽을 수 없으므로 오류가 발생합니다. |
@@ -98,7 +98,7 @@ Azure Multi-factor Authentication용 NPS 확장에서 오류가 발생하는 경
 
 ### <a name="health-check-script"></a>상태 검사 스크립트
 
-[AZURE MFA Nps 확장 상태 검사 스크립트](https://gallery.technet.microsoft.com/Azure-MFA-NPS-Extension-648de6bb) 는 TechNet 갤러리에서 nps 확장 문제를 해결할 때 기본 상태 검사를 수행 하는 데 사용할 수 있습니다. 스크립트를 실행 하 고 옵션 3을 선택 합니다.
+[AZURE MFA Nps 확장 상태 검사 스크립트](https://docs.microsoft.com/samples/azure-samples/azure-mfa-nps-extension-health-check/azure-mfa-nps-extension-health-check/) 는 nps 확장 문제를 해결할 때 기본 상태 검사를 수행 합니다. 스크립트를 실행 하 고 옵션 3을 선택 합니다.
 
 ### <a name="contact-microsoft-support"></a>Microsoft 지원에 문의
 

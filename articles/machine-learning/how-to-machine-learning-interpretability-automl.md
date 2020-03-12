@@ -10,18 +10,20 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: trbye
 ms.date: 10/25/2019
-ms.openlocfilehash: 4ab3bc43cf8ef479cb91d187a4c177db03415b86
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: b2c7825b10feab45df9cb89dbe2b82da1c143866
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77525586"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129758"
 ---
 # <a name="model-interpretability-in-automated-machine-learning"></a>자동화 된 machine learning에서 모델 interpretability
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-이 문서에서는 Azure Machine Learning의 ML (자동화 된 기계 학습)에 interpretability 기능을 사용 하도록 설정 하는 방법에 대해 알아봅니다. 자동화 된 ML을 사용 하면 원시 기능과 엔지니어링 된 기능 중요도를 모두 이해할 수 있습니다. 모델 interpretability를 사용 하려면 `AutoMLConfig` 개체에 `model_explainability=True`를 설정 합니다.  
+이 문서에서는 Azure Machine Learning의 ML (자동화 된 기계 학습)에 interpretability 기능을 사용 하도록 설정 하는 방법에 대해 알아봅니다. 자동화 된 ML은 엔지니어링 된 기능 중요도를 이해 하는 데 도움이 됩니다. 
+
+1\.0.85가 설정 된 이후의 모든 SDK 버전은 기본적으로 `model_explainability=True` 합니다. SDK 버전 1.0.85 이전 버전에서는 사용자가 모델 interpretability을 사용 하기 위해 `AutoMLConfig` 개체에 `model_explainability=True`를 설정 해야 합니다. 
 
 이 문서에서는 다음 방법을 설명합니다.
 
@@ -36,14 +38,14 @@ ms.locfileid: "77525586"
 
 ## <a name="interpretability-during-training-for-the-best-model"></a>최상의 모델을 위한 학습 중에 Interpretability
 
-`best_run`에서 설명 하는 설명을 검색 합니다. 여기에는 엔지니어링 된 기능과 원시 기능에 대 한 설명이 포함 되어 있습니다.
+엔지니어링 된 기능에 대 한 설명이 포함 된 `best_run`에서 설명을 검색 합니다.
 
 ### <a name="download-engineered-feature-importance-from-artifact-store"></a>아티팩트 저장소에서 엔지니어링 된 기능 중요도 다운로드
 
-`ExplanationClient`를 사용 하 여 `best_run`의 아티팩트 저장소에서 엔지니어링 된 기능 설명을 다운로드할 수 있습니다. 원시 기능 집합에 대 한 설명을 보려면 `raw=True`합니다.
+`ExplanationClient`를 사용 하 여 `best_run`의 아티팩트 저장소에서 엔지니어링 된 기능 설명을 다운로드할 수 있습니다. 
 
 ```python
-from azureml.contrib.interpret.explanation.explanation_client import ExplanationClient
+from azureml.explain.model._internal.explanation_client import ExplanationClient
 
 client = ExplanationClient.from_run(best_run)
 engineered_explanations = client.download_model_explanation(raw=False)
@@ -52,26 +54,26 @@ print(engineered_explanations.get_feature_importance_dict())
 
 ## <a name="interpretability-during-training-for-any-model"></a>모델에 대해 학습 하는 동안 Interpretability 
 
-모델 설명을 계산 하 고 시각화 하는 경우 자동화 된 ML 모델에 대 한 기존 모델 설명으로 제한 되지 않습니다. 다른 테스트 데이터를 사용 하 여 모델에 대 한 설명을 볼 수도 있습니다. 이 단원의 단계에서는 테스트 데이터를 기반으로 하 여 엔지니어링 된 기능 중요도와 원시 기능 중요도를 계산 하 고 시각화 하는 방법을 보여 줍니다.
+모델 설명을 계산 하 고 시각화 하는 경우 자동화 된 ML 모델에 대 한 기존 모델 설명으로 제한 되지 않습니다. 다른 테스트 데이터를 사용 하 여 모델에 대 한 설명을 볼 수도 있습니다. 이 단원의 단계에서는 테스트 데이터를 기반으로 엔지니어링 된 기능 중요도를 계산 하 고 시각화 하는 방법을 보여 줍니다.
 
 ### <a name="retrieve-any-other-automl-model-from-training"></a>학습에서 다른 AutoML 모델 검색
 
 ```python
-automl_run, fitted_model = local_run.get_output(metric='r2_score')
+automl_run, fitted_model = local_run.get_output(metric='accuracy')
 ```
 
 ### <a name="set-up-the-model-explanations"></a>모델 설명 설정
 
-`automl_setup_model_explanations`를 사용 하 여 엔지니어링 및 원시 기능 설명을 가져옵니다. `fitted_model`는 다음 항목을 생성할 수 있습니다.
+`automl_setup_model_explanations`를 사용 하 여 엔지니어링 된 설명을 가져옵니다. `fitted_model`는 다음 항목을 생성할 수 있습니다.
 
 - 학습 된 또는 테스트 샘플의 주요 데이터
-- 엔지니어링 및 원시 기능 이름 목록
+- 엔지니어링 된 기능 이름 목록
 - 분류 시나리오에서 레이블이 지정 된 열의 findable 클래스
 
 `automl_explainer_setup_obj`는 위의 목록에 있는 모든 구조를 포함 합니다.
 
 ```python
-from azureml.train.automl.runtime.automl_explain_utilities import AutoMLExplainerSetupClass, automl_setup_model_explanations
+from azureml.train.automl.runtime.automl_explain_utilities import automl_setup_model_explanations
 
 automl_explainer_setup_obj = automl_setup_model_explanations(fitted_model, X=X_train, 
                                                              X_test=X_test, y=y_train, 
@@ -86,16 +88,16 @@ AutoML 모델에 대 한 설명을 생성 하려면 `MimicWrapper` 클래스를 
 - 작업 영역
 - `fitted_model` 자동화 된 ML 모델에 대 한 서로게이트 역할을 하는 LightGBM 모델
 
-또한 MimicWrapper는 원시 및 엔지니어링 된 설명이 업로드 되는 `automl_run` 개체를 사용 합니다.
+또한 MimicWrapper는 엔지니어링 된 설명이 업로드 될 `automl_run` 개체를 사용 합니다.
 
 ```python
 from azureml.explain.model.mimic.models.lightgbm_model import LGBMExplainableModel
 from azureml.explain.model.mimic_wrapper import MimicWrapper
 
 # Initialize the Mimic Explainer
-explainer = MimicWrapper(ws, automl_explainer_setup_obj.automl_estimator, LGBMExplainableModel,
+explainer = MimicWrapper(ws, automl_explainer_setup_obj.automl_estimator, LGBMExplainableModel, 
                          init_dataset=automl_explainer_setup_obj.X_transform, run=automl_run,
-                         features=automl_explainer_setup_obj.engineered_feature_names,
+                         features=automl_explainer_setup_obj.engineered_feature_names, 
                          feature_maps=[automl_explainer_setup_obj.feature_map],
                          classes=automl_explainer_setup_obj.classes)
 ```
@@ -105,27 +107,8 @@ explainer = MimicWrapper(ws, automl_explainer_setup_obj.automl_estimator, LGBMEx
 변환 된 테스트 샘플을 사용 하 여 MimicWrapper의 `explain()` 메서드를 호출 하 여 생성 된 엔지니어링 된 기능에 대 한 기능 중요도를 가져올 수 있습니다. 또한 `ExplanationDashboard`를 사용 하 여 자동화 된 ML featurizers 생성 된 엔지니어링 기능의 기능 중요도 값에 대 한 대시보드 시각화를 볼 수 있습니다.
 
 ```python
-from azureml.contrib.interpret.visualize import ExplanationDashboard
-engineered_explanations = explainer.explain(['local', 'global'],              
-                                            eval_dataset=automl_explainer_setup_obj.X_test_transform)
-
+engineered_explanations = explainer.explain(['local', 'global'], eval_dataset=automl_explainer_setup_obj.X_test_transform)
 print(engineered_explanations.get_feature_importance_dict())
-ExplanationDashboard(engineered_explanations, automl_explainer_setup_obj.automl_estimator, automl_explainer_setup_obj.X_test_transform)
-```
-
-### <a name="use-mimic-explainer-for-computing-and-visualizing-raw-feature-importance"></a>원시 기능 중요도를 계산 하 고 시각화 하는 데 모방 설명 사용
-
-변환 된 테스트 샘플을 사용 하 여 MimicWrapper에서 `explain()` 메서드를 다시 호출 하 고, `get_raw=True`를 설정 하 여 원시 기능에 대 한 기능 중요도를 가져올 수 있습니다. `ExplanationDashboard`를 사용 하 여 원시 기능의 기능 중요도 값의 대시보드 시각화를 볼 수도 있습니다.
-
-```python
-from azureml.contrib.interpret.visualize import ExplanationDashboard
-
-raw_explanations = explainer.explain(['local', 'global'], get_raw=True, 
-                                     raw_feature_names=automl_explainer_setup_obj.raw_feature_names,
-                                     eval_dataset=automl_explainer_setup_obj.X_test_transform)
-
-print(raw_explanations.get_feature_importance_dict())
-ExplanationDashboard(raw_explanations, automl_explainer_setup_obj.automl_pipeline, automl_explainer_setup_obj.X_test_raw)
 ```
 
 ### <a name="interpretability-during-inference"></a>유추 중 Interpretability
@@ -134,7 +117,7 @@ ExplanationDashboard(raw_explanations, automl_explainer_setup_obj.automl_pipelin
 
 ### <a name="register-the-model-and-the-scoring-explainer"></a>모델 및 점수 매기기 설명을 등록 합니다.
 
-`TreeScoringExplainer`를 사용 하 여 유추 시 원시 및 엔지니어링 된 기능 중요도 값을 계산 하는 점수 매기기 설명을 만듭니다. 이전에 계산 된 `feature_map`를 사용 하 여 점수 매기기 설명를 초기화 합니다. 점수 매기기 설명는 `feature_map`을 사용 하 여 원시 기능 중요도를 반환 합니다.
+유추 시간에 엔지니어링 된 기능 중요도 값을 계산 하는 점수 매기기 설명을 만들려면 `TreeScoringExplainer`를 사용 합니다. 이전에 계산 된 `feature_map`를 사용 하 여 점수 매기기 설명를 초기화 합니다. 
 
 점수 매기기 설명을 저장 한 다음 모델 및 점수 매기기 설명를 모델 관리 서비스에 등록 합니다. 다음 코드를 실행합니다.
 
@@ -208,21 +191,19 @@ service.wait_for_deployment(show_output=True)
 
 ### <a name="inference-with-test-data"></a>테스트 데이터를 사용한 유추
 
-자동화 된 ML 모델의 예측 값을 보기 위해 일부 테스트 데이터를 사용 하는 유추 예측 값에 대해 엔지니어링 된 기능 중요도와 예측 값에 대 한 원시 기능 중요도를 확인 합니다.
+자동화 된 ML 모델의 예측 값을 보기 위해 일부 테스트 데이터를 사용 하는 유추 예측 값에 대 한 엔지니어링 된 기능 중요도를 확인 합니다.
 
 ```python
 if service.state == 'Healthy':
     # Serialize the first row of the test data into json
     X_test_json = X_test[:1].to_json(orient='records')
     print(X_test_json)
-    # Call the service to get the predictions and the engineered and raw explanations
+    # Call the service to get the predictions and the engineered explanations
     output = service.run(X_test_json)
     # Print the predicted value
     print(output['predictions'])
     # Print the engineered feature importances for the predicted value
     print(output['engineered_local_importance_values'])
-    # Print the raw feature importances for the predicted value
-    print(output['raw_local_importance_values'])
 ```
 
 ### <a name="visualize-to-discover-patterns-in-data-and-explanations-at-training-time"></a>학습 시간에 데이터 및 설명의 패턴을 검색 하는 시각화

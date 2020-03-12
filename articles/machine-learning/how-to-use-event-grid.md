@@ -9,26 +9,30 @@ ms.topic: conceptual
 ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
-ms.date: 03/05/2020
-ms.openlocfilehash: 8a9dc92baf47242af502862edebffe686263dd5d
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.date: 03/11/2020
+ms.openlocfilehash: fe6125682f669e453100488b7e0afc4c49409588
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78399671"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129696"
 ---
 # <a name="create-event-driven-machine-learning-workflows-preview"></a>이벤트 기반 기계 학습 워크플로 만들기 (미리 보기)
 
-[Azure Event Grid](https://docs.microsoft.com/azure/event-grid/) 는 Azure Machine Learning 이벤트를 지원 합니다. 예를 들어 실행 완료, 모델 등록, 모델 배포 및 작업 영역으로 범위가 지정 된 데이터 드리프트 검색의 이벤트를 사용할 수 있습니다.
+[Azure Event Grid](https://docs.microsoft.com/azure/event-grid/) 는 Azure Machine Learning 이벤트를 지원 합니다. 작업 영역 내에서 변경 된 실행 상태, 실행 완료, 모델 등록, 모델 배포 및 데이터 드리프트 감지와 같은 이벤트를 구독 하 고 사용할 수 있습니다.
 
-자세한 내용은 [Azure Machine Learning Event Grid와 통합](concept-event-grid-integration.md) 및 [Azure Machine Learning Event Grid 스키마](/azure/event-grid/event-schema-machine-learning)를 참조 하세요.
+이벤트 유형에 대 한 자세한 내용은 [Azure Machine Learning Event Grid와 통합](concept-event-grid-integration.md) 및 [Azure Machine Learning event Grid 스키마](/azure/event-grid/event-schema-machine-learning)를 참조 하세요.
 
 Event Grid를 사용 하 여 다음과 같은 일반적인 시나리오를 사용할 수 있습니다.
 
-* 실행 완료 시 전자 메일 보내기
+* 실행 실패 시 전자 메일을 보내고 완료를 실행 합니다.
 * 모델을 등록 한 후 azure function 사용
 * Azure Machine Learning에서 다양 한 끝점으로 이벤트 스트리밍
 * 드리프트가 검색 되 면 ML 파이프라인 트리거
+
+> [!NOTE] 
+> 현재 runStatusChanged 이벤트는 실행 상태가 failed 인 경우에만 트리거됩니다 **.**
+>
 
 ## <a name="prerequisites"></a>사전 요구 사항
 * Azure Machine Learning 작업 영역에 대 한 참가자 또는 소유자 액세스는 이벤트를 만들 수 있습니다.
@@ -43,13 +47,14 @@ Event Grid를 사용 하 여 다음과 같은 일반적인 시나리오를 사�
 
 1. 사용할 이벤트 유형을 선택 합니다. 예를 들어 다음 스크린샷에서는 선택한 __모델을 등록__하 고, __모델을 배포__하 고, 실행을 __완료__하 고, __데이터 집합 드리프트를 검색__했습니다.
 
-    ![-이벤트 유형 추가](./media/how-to-use-event-grid/add-event-type.png)
+    ![-이벤트 유형 추가](./media/how-to-use-event-grid/add-event-type-updated.png)
 
 1. 이벤트를 게시할 끝점을 선택 합니다. 다음 스크린샷에서 __이벤트 허브__ 는 선택 된 끝점입니다.
 
     ![select-이벤트 처리기](./media/how-to-use-event-grid/select-event-handler.png)
 
 선택 항목을 확인 한 후 __만들기__를 클릭 합니다. 구성 후 이러한 이벤트는 끝점으로 푸시됩니다.
+
 
 ### <a name="configure-eventgrid-using-the-cli"></a>CLI를 사용 하 여 EventGrid 구성
 
@@ -76,13 +81,17 @@ az eventgrid event-subscription create \
   --subject-begins-with "models/mymodelname"
 ```
 
+## <a name="filter-events"></a>이벤트 필터링
+
+이벤트를 설정할 때 특정 이벤트 데이터에 대 한 트리거로만 필터를 적용할 수 있습니다. 아래 예제에서는 실행 상태 변경 이벤트에 대해 실행 형식으로 필터링 할 수 있습니다. 이 이벤트는 조건이 충족 될 때만 트리거됩니다. 필터링 할 수 있는 이벤트 데이터에 대 한 자세한 내용은 [Azure Machine Learning event grid 스키마](/azure/event-grid/event-schema-machine-learning) 를 참조 하세요. 
+
+1. Azure Portal로 이동 하 여 새 구독 또는 기존 구독을 선택 합니다. 
+
+1. 필터 탭을 선택 하 고 아래로 스크롤하여 고급 필터를 선택 합니다. **키** 및 **값** 에서 필터링 기준으로 사용할 속성 형식을 제공 합니다. 여기서는 실행 유형이 파이프라인 실행 또는 파이프라인 단계 실행 인 경우에만 트리거되는 이벤트를 확인할 수 있습니다.  
+
+    :::image type="content" source="media/how-to-use-event-grid/select-event-filters.png" alt-text="이벤트 필터링":::
+
 ## <a name="sample-scenarios"></a>샘플 시나리오
-
-### <a name="use-azure-functions-to-deploy-a-model-based-on-tags"></a>Azure Functions를 사용 하 여 태그를 기반으로 모델 배포
-
-Azure Machine Learning 모델 개체에는 모델 이름, 버전, 태그 및 속성과 같이 배포를 피벗할 수 있는 매개 변수가 포함 되어 있습니다. 모델 등록 이벤트는 끝점을 트리거할 수 있으며 Azure 함수를 사용 하 여 해당 매개 변수의 값을 기반으로 모델을 배포할 수 있습니다.
-
-예제는 [https://github.com/Azure-Samples/MachineLearningSamples-NoCodeDeploymentTriggeredByEventGrid](https://github.com/Azure-Samples/MachineLearningSamples-NoCodeDeploymentTriggeredByEventGrid) 리포지토리를 참조 하 고 **추가 정보** 파일의 단계를 따릅니다.
 
 ### <a name="use-a-logic-app-to-send-email-alerts"></a>논리 앱을 사용 하 여 전자 메일 알림 보내기
 
@@ -100,7 +109,7 @@ Azure Machine Learning 모델 개체에는 모델 이름, 버전, 태그 및 속
 
     ![select-이벤트-runcomplete](./media/how-to-use-event-grid/select-event-runcomplete.png)
 
-1. 필터를 추가 하 여 이벤트 유형의 하위 집합에 대 한 논리 앱만 트리거할 수도 있습니다. 다음 스크린샷에서는 __/datadriftID/runs/__ 의 __접두사 필터__ 를 사용 합니다.
+1. 위의 섹션에서 필터링 방법을 사용 하거나 필터를 추가 하 여 이벤트 형식의 하위 집합에 대 한 논리 앱만 트리거할 수 있습니다. 다음 스크린샷에서는 __/datadriftID/runs/__ 의 __접두사 필터__ 를 사용 합니다.
 
     ![필터-이벤트](./media/how-to-use-event-grid/filtering-events.png)
 
@@ -164,6 +173,11 @@ Azure Machine Learning 모델 개체에는 모델 이름, 버전, 태그 및 속
 
 ![작업 영역 보기](./media/how-to-use-event-grid/view-in-workspace.png)
 
+### <a name="use-azure-functions-to-deploy-a-model-based-on-tags"></a>Azure Functions를 사용 하 여 태그를 기반으로 모델 배포
+
+Azure Machine Learning 모델 개체에는 모델 이름, 버전, 태그 및 속성과 같이 배포를 피벗할 수 있는 매개 변수가 포함 되어 있습니다. 모델 등록 이벤트는 끝점을 트리거할 수 있으며 Azure 함수를 사용 하 여 해당 매개 변수의 값을 기반으로 모델을 배포할 수 있습니다.
+
+예제는 [https://github.com/Azure-Samples/MachineLearningSamples-NoCodeDeploymentTriggeredByEventGrid](https://github.com/Azure-Samples/MachineLearningSamples-NoCodeDeploymentTriggeredByEventGrid) 리포지토리를 참조 하 고 **추가 정보** 파일의 단계를 따릅니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -5,20 +5,20 @@ services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 01/09/2020
+ms.date: 03/10/2020
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 0e7a814c1607b15e3af0e76a5ae6dfad1594a3b3
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 427117fe47294a1db1fa8d3fa1e46ee1efb91b4d
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77474131"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129109"
 ---
 ## <a name="limitations"></a>제한 사항
 
 - 가상 머신 확장 집합은 현재 전용 호스트에서 지원 되지 않습니다.
-- 초기 릴리스는 다음 VM 시리즈를 지원 합니다. DSv3, ESv3, FSv2, LSv2 및 MSv2. 
+- 전용 호스트에 사용할 수 있는 크기 및 하드웨어 유형은 지역에 따라 다릅니다. 자세한 내용은 호스트 [가격 책정 페이지](https://aka.ms/ADHPricing) 를 참조 하세요.
 
 ## <a name="create-a-host-group"></a>호스트 그룹 만들기
 
@@ -36,8 +36,6 @@ ms.locfileid: "77474131"
 1. Azure [portal](https://portal.azure.com)을 엽니다.
 1. 왼쪽 위 모서리에서 **리소스 만들기** 를 선택 합니다.
 1. **호스트 그룹** 을 검색 하 고 결과에서 **호스트 그룹** 을 선택 합니다.
-
-    ![호스트 그룹 검색 결과입니다.](./media/virtual-machines-common-dedicated-hosts-portal/host-group.png)
 1. **호스트 그룹** 페이지에서 **만들기**를 선택 합니다.
 1. 사용할 구독을 선택한 다음 **새로 만들기** 를 선택 하 여 새 리소스 그룹을 만듭니다.
 1. **이름** 으로 *myDedicatedHostsRG* 를 입력 한 다음 **확인을**선택 합니다.
@@ -46,8 +44,6 @@ ms.locfileid: "77474131"
 1. **가용성 영역**에 대해 **1**을 선택 합니다.
 1. **오류 도메인 수**에 대해 **2**를 선택 합니다.
 1. **검토 + 만들기** 를 선택한 다음 유효성 검사를 기다립니다.
-
-    ![호스트 그룹 설정](./media/virtual-machines-common-dedicated-hosts-portal/host-group-settings.png)
 1. **유효성 검사 통과** 메시지가 표시 되 면 **만들기** 를 선택 하 여 호스트 그룹을 만듭니다.
 
 호스트 그룹을 만드는 데 몇 분 밖에 걸리지 않습니다.
@@ -62,16 +58,12 @@ ms.locfileid: "77474131"
 
 1. 왼쪽 위 모서리에서 **리소스 만들기** 를 선택 합니다.
 1. **전용 호스트** 를 검색 한 다음 결과에서 **전용 호스트** 를 선택 합니다.
-
-    ![호스트 그룹 검색 결과입니다.](./media/virtual-machines-common-dedicated-hosts-portal/host.png)
 1. **전용 호스트** 페이지에서 **만들기**를 선택 합니다.
 1. 사용할 구독을 선택 합니다.
 1. **리소스 그룹**으로 *myDedicatedHostsRG* 을 선택 합니다.
 1. **인스턴스 세부 정보**에서 **이름** 에 *myhost* 를 입력 하 고 위치에 대해 *미국 동부* 를 선택 합니다.
-1. **하드웨어 프로필**에서 **크기 제품군**에 대해 *Standard Es3 family-Type 1* 을 선택 하 고 **호스트 그룹** 에 대해 *myhostgrup* 을 선택한 다음 **장애 도메인**에 대해 *1* 을 선택 합니다. 나머지 필드에 대해서는 기본값을 그대로 둡니다.
+1. **하드웨어 프로필**에서 **크기 제품군**에 대해 *Standard Es3 family-Type 1* 을 선택 하 고 **호스트 그룹** 에 대해 *myHostGroup* 를 선택한 다음 **장애 도메인**에 대해 *1* 을 선택 합니다. 나머지 필드에 대해서는 기본값을 그대로 둡니다.
 1. 완료 되 면 **검토 + 만들기** 를 선택 하 고 유효성 검사를 기다립니다.
-
-    ![호스트 설정](./media/virtual-machines-common-dedicated-hosts-portal/host-settings.png)
 1. **유효성 검사 통과** 메시지가 표시 되 면 **만들기** 를 선택 하 여 호스트를 만듭니다.
 
 

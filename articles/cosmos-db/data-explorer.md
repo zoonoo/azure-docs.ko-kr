@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: dech
-ms.openlocfilehash: 04cfdd1f96f83898710b6f292116f0afddc8df96
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 57ba647ade45928f03cd7fb2b037642d5e4d52cc
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66237244"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096807"
 ---
 # <a name="work-with-data-using-azure-cosmos-explorer"></a>Azure Cosmos 탐색기를 사용하여 데이터 작업 
 
@@ -29,7 +29,7 @@ Azure Cosmos DB 탐색기는 Azure Cosmos DB에 저장된 데이터를 보고 �
 
 2. **모든 리소스**에서 Azure Cosmos DB 계정을 찾아서 탐색한 다음, 키를 선택하고 **기본 연결 문자열**을 복사합니다.  
 
-3. https://cosmos.azure.com/ 으로 이동하여 연결 문자열을 붙여넣고 **연결**을 선택합니다. 연결 문자열을 사용하면 시간 제한 없이 Azure Cosmos DB 탐색기에 액세스할 수 있습니다.  
+3. https://cosmos.azure.com/으로 이동하여 연결 문자열을 붙여넣고 **연결**을 선택합니다. 연결 문자열을 사용하면 시간 제한 없이 Azure Cosmos DB 탐색기에 액세스할 수 있습니다.  
 
    Azure Cosmos DB 계정에 대한 임시 액세스를 다른 사용자에게 제공하려는 경우, 읽기/쓰기 및 읽기 권한 URL을 사용하면 됩니다. 
 
@@ -46,6 +46,8 @@ Azure Cosmos DB 탐색기는 Azure Cosmos DB에 저장된 데이터를 보고 �
 ## <a name="known-issues"></a>알려진 문제
 
 현재, 임시 읽기/쓰기 또는 읽기 권한을 공유할 수 있는 **전체 화면 열기** 환경은 Azure Cosmos DB Gremlin 및 Table API 계정에 대해 아직 지원되지 않습니다. 하지만 Azure Cosmos DB 탐색기에 연결 문자열을 전달하면 Gremlin 및 Table API 계정을 볼 수 있습니다. 
+
+현재는 데이터 탐색기에서 UUID가 포함 된 문서 보기를 지원 하지 않습니다. 이러한 문서를 포함 하는 개별 문서 또는 쿼리를 보기만 하 여 컬렉션을 로드 하는 데에는 영향을 주지 않습니다. 이러한 문서를 보고 관리 하려면 사용자가 원래 이러한 문서를 만드는 데 사용 된 도구를 계속 사용 해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 Azure Cosmos DB 탐색기를 시작하여 데이터를 관리하는 방법을 배웠으므로 이제 다음 작업을 수행할 수 있습니다.

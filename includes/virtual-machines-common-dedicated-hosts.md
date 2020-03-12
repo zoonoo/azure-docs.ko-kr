@@ -5,20 +5,19 @@ services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 07/26/2019
+ms.date: 03/10/2020
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 3369dc7cde7082659df556e008adb5e45b4c011c
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 2daaf9bbdf90029f0aad4333ab94e2d1d1d3d7ff
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78246229"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129558"
 ---
 ## <a name="limitations"></a>제한 사항
 
 - 가상 머신 확장 집합은 현재 전용 호스트에서 지원 되지 않습니다.
-- DSv3, ESv3 및 Fsv2 VM 시리즈는 다음과 같이 지원 됩니다. 
 
 ## <a name="benefits"></a>이점 
 
@@ -101,17 +100,15 @@ Azure에서 VM을 만들 때 VM에 사용할 전용 호스트를 선택할 수 �
 
 [Azure 전용 호스트의 예약 인스턴스](../articles/virtual-machines/prepay-dedicated-hosts-reserved-instances.md)를 사용 하 여 비용을 절감할 수도 있습니다.
  
-## <a name="vm-families-and-hardware-generations"></a>VM 제품군 및 하드웨어 세대
+## <a name="sizes-and-hardware-generations"></a>크기 및 하드웨어 세대
 
-SKU는 호스트에 대해 정의 되며 VM 크기 계열과 유형을 나타냅니다. 단일 호스트 내에서 크기가 같은 여러 Vm을 동일한 크기의 계열로 혼합할 수 있습니다. 유형은 현재 지역에서 사용할 수 있는 하드웨어 생성입니다.
+SKU는 호스트에 대해 정의 되며 VM 크기 계열과 유형을 나타냅니다. 단일 호스트 내에서 크기가 같은 여러 Vm을 동일한 크기의 계열로 혼합할 수 있습니다. 
 
-동일한 VM 시리즈에 대 한 다른 `types`는 서로 다른 CPU 공급 업체에서 제공 되며 CPU 생성 및 코어 수가 서로 다릅니다.
+하드웨어 생성 *유형* 입니다. 동일한 VM 시리즈에 대 한 다른 하드웨어 유형은 서로 다른 CPU 공급 업체에서 제공 되며 CPU 생성 및 코어 수가 서로 다릅니다. 
 
-자세한 내용은 호스트 [가격 책정 페이지](https://aka.ms/ADHPricing) 를 참조 하세요.
+크기와 하드웨어 유형은 지역에 따라 다릅니다. 자세한 내용은 호스트 [가격 책정 페이지](https://aka.ms/ADHPricing) 를 참조 하세요.
 
-전용 호스트는 다음과 같은 호스트 기능을 지원 합니다. DSv3_Type1 및 ESv3_Type1
 
- 
 ## <a name="host-life-cycle"></a>호스트 수명 주기
 
 

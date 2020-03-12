@@ -5,23 +5,26 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.date: 03/05/2020
-ms.openlocfilehash: a0330ae8e69691f431756e6ea9a3027e1ac07b1c
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.date: 03/12/2020
+ms.openlocfilehash: 9d5e0c088fe773f16e1fc57f292ca812906aa09c
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78303378"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127254"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>ISE(통합 서비스 환경)를 사용하여 Azure Logic Apps에서 Azure Virtual Network 리소스에 액세스
 
-경우에 따라 논리 앱 및 통합 계정에는 [Azure virtual network](../virtual-network/virtual-networks-overview.md)내에 있는 vm (가상 머신), 기타 시스템 또는 서비스와 같은 보안 리소스에 대 한 액세스 권한이 필요 합니다. 이 액세스를 설정 하기 위해 [ISE ( *integration service environment* )를 만들](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)수 있습니다. ISE는 전용 리소스를 사용 하 고 "전역" 다중 테 넌 트 Logic Apps 서비스와 별도로 실행 되는 Logic Apps 서비스의 격리 된 인스턴스입니다.
+경우에 따라 논리 앱은 [Azure virtual network](../virtual-network/virtual-networks-overview.md)내에 있는 vm (가상 머신), 기타 시스템 또는 서비스와 같은 보안 리소스에 액세스 해야 합니다. 이 액세스를 설정 하기 위해 [ISE ( *integration service environment* )를 만들](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)수 있습니다. ISE는 전용 리소스를 사용 하 고 "전역" 다중 테 넌 트 Logic Apps 서비스와 별도로 실행 되는 Logic Apps 서비스의 격리 된 인스턴스입니다.
 
 고유 하 게 분리 된 개별 인스턴스에서 논리 앱을 실행 하면 다른 Azure 테 넌 트가 응용 프로그램의 성능에 미치는 영향을 줄일 수 있습니다 .이는 ["잡음이 있는 환경" 효과](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors)라고도 합니다. ISE는 다음과 같은 이점도 제공 합니다.
 
 * 다중 테 넌 트 서비스의 논리 앱에서 공유 하는 고정 IP 주소와는 별개의 고정 IP 주소입니다. 대상 시스템과 통신 하도록 단일 공용, 정적 및 예측 가능한 아웃 바운드 IP 주소를 설정할 수도 있습니다. 이런 방식으로 각 ISE에 대 한 해당 대상 시스템에서 추가 방화벽을 설정할 필요가 없습니다.
 
 * 실행 지속 시간, 저장소 보존, 처리량, HTTP 요청 및 응답 시간 제한, 메시지 크기 및 사용자 지정 커넥터 요청에 대 한 제한이 증가 합니다. 자세한 내용은 [Azure Logic Apps에 대 한 제한 및 구성](logic-apps-limits-and-config.md)을 참조 하세요.
+
+> [!NOTE]
+> 일부 Azure virtual network는 azure에서 호스트 되는 Azure Storage, Azure Cosmos DB, Azure SQL Database, 파트너 서비스 또는 고객 서비스와 같은 Azure PaaS 서비스에 대 한 액세스를 제공 하기 위해 개인 끝점 ([Azure 개인 링크](../private-link/private-link-overview.md))을 사용 합니다. 논리 앱에서 개인 끝점을 사용 하는 가상 네트워크에 액세스 해야 하는 경우에는 ISE 내에서 해당 논리 앱을 만들고, 배포 하 고, 실행 해야 합니다.
 
 ISE를 만들 때 Azure는 해당 ISE를 Azure 가상 네트워크에 *삽입* 하거나 배포 합니다. 그런 다음 액세스 해야 하는 논리 앱 및 통합 계정의 위치로이 ISE를 사용할 수 있습니다.
 
@@ -42,7 +45,7 @@ ISE를 만들 때 Azure는 해당 ISE를 Azure 가상 네트워크에 *삽입* �
 > [!IMPORTANT]
 > ISE에서 실행 되는 논리 앱, 기본 제공 트리거, 기본 제공 작업 및 커넥터는 소비 기반 요금제와는 다른 요금제를 사용 합니다. 자세한 내용은 [Logic Apps 가격 책정 모델](../logic-apps/logic-apps-pricing.md#fixed-pricing)을 참조 하세요. 가격 책정에 대 한 자세한 내용은 [Logic Apps 가격 책정](../logic-apps/logic-apps-pricing.md)을 참조 하세요.
 
-이 개요에서는 ISE에서 논리 앱 및 통합 계정에 Azure 가상 네트워크에 직접 액세스 하는 방법에 대 한 자세한 정보를 제공 하 고 ISE와 다중 테 넌 트 Logic Apps 서비스의 차이점을 비교 합니다.
+이 개요에서는 ISE에서 논리 앱에 Azure virtual network에 대 한 직접 액세스를 제공 하 고 ISE와 다중 테 넌 트 Logic Apps 서비스의 차이점을 비교 하는 방법에 대해 자세히 설명 합니다.
 
 <a name="difference"></a>
 
@@ -51,8 +54,6 @@ ISE를 만들 때 Azure는 해당 ISE를 Azure 가상 네트워크에 *삽입* �
 ISE에서 논리 앱을 만들고 실행 하는 경우 다중 테 넌 트 Logic Apps 서비스와 동일한 사용자 환경 및 유사한 기능을 사용할 수 있습니다. 다중 테 넌 트 Logic Apps 서비스에서 사용할 수 있는 동일한 기본 제공 트리거, 작업 및 관리 되는 커넥터를 모두 사용할 수 있습니다. 일부 관리 되는 커넥터는 추가 ISE 버전을 제공 합니다. Ise 커넥터와 ise가 아닌 커넥터 간의 차이점은 ise 내에서 작업할 때 실행 되는 위치와 논리 앱 디자이너에 있는 레이블이 있습니다.
 
 ![ISE에 레이블이 있거나 없는 커넥터](./media/connect-virtual-network-vnet-isolated-environment-overview/labeled-trigger-actions-integration-service-environment.png)
-
-
 
 * 기본 제공 트리거 및 작업은 **핵심** 레이블을 표시 합니다. 항상 논리 앱과 동일한 ISE에서 실행 됩니다. **Ise** 레이블을 표시 하는 관리 커넥터는 논리 앱과 동일한 ISE 에서도 실행 됩니다.
 
@@ -129,8 +130,6 @@ ISE(통합 서비스 환경) 내에서 논리 앱을 통해 통합 계정을 사
 
 ## <a name="next-steps"></a>다음 단계
 
-* [격리 된 논리 앱에서 Azure virtual network에 연결](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)
-* [Integration service environment에 아티팩트 추가](../logic-apps/add-artifacts-integration-service-environment-ise.md)
-* [통합 서비스 환경 관리](../logic-apps/ise-manage-integration-service-environment.md)
+* [Azure Logic Apps에서 Azure virtual networks에 연결](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)
 * [Azure Virtual Network](../virtual-network/virtual-networks-overview.md)에 대해 자세히 알아보기
 * [Azure 서비스에 대한 가상 네트워크 통합](../virtual-network/virtual-network-for-azure-services.md)에 대해 알아보기

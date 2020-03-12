@@ -2,41 +2,57 @@
 author: orspod
 ms.service: data-explorer
 ms.topic: include
-ms.date: 01/08/2020
+ms.date: 02/27/2020
 ms.author: orspodek
-ms.openlocfilehash: f9788e4623ce60ad55d79558d1d77a17eb2a9f26
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: a2297301a0b9c0540c73c0f50483cccfc3181a0f
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75779956"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79128754"
 ---
 ### <a name="event-system-properties-mapping"></a>이벤트 시스템 속성 매핑
 
-위의 테이블의 **데이터 원본** 섹션에서 **이벤트 시스템 속성** 을 선택한 경우 [웹 UI](https://dataexplorer.azure.com/) 로 이동 하 여 적절 한 매핑 생성을 위해 관련 KQL 명령을 실행 합니다.
+> [!Note]
+> * 시스템 속성은 단일 레코드 이벤트에 대해 지원 됩니다.
+> * `csv` 매핑의 경우 레코드의 시작 부분에 속성이 추가 됩니다. `json` 매핑의 경우 드롭다운 목록에 표시 되는 이름에 따라 속성이 추가 됩니다.
 
-   **Csv 매핑:**
+테이블의 **데이터 원본** 섹션에서 **이벤트 시스템 속성** 을 선택한 경우 테이블 스키마 및 매핑에 다음 속성을 포함 해야 합니다.
 
-    ```kusto
-    .create table MyTable ingestion csv mapping "CsvMapping1"
+**테이블 스키마 예제**
+
+데이터에 세 개의 열 (`Timespan`, `Metric`및 `Value`)이 포함 되어 있는 경우 포함 하는 속성은 `x-opt-enqueued-time` 하 고 `x-opt-offset`다음 명령을 사용 하 여 테이블 스키마를 만들거나 변경 합니다.
+
+```kusto
+    .create-merge table TestTable (TimeStamp: datetime, Metric: string, Value: int, EventHubEnqueuedTime:datetime, EventHubOffset:string)
+```
+
+**CSV 매핑 예**
+
+다음 명령을 실행 하 여 레코드의 시작 부분에 데이터를 추가 합니다. 서 수 값을 메모 합니다.
+
+```kusto
+    .create table TestTable ingestion csv mapping "CsvMapping1"
     '['
-    '   { "column" : "messageid", "DataType":"string", "Properties":{"Ordinal":"0"}},'
-    '   { "column" : "userid", "DataType":"string", "Properties":{"Ordinal":"1"}},'
-    '   { "column" : "other", "DataType":"int", "Properties":{"Ordinal":"2"}}'
+    '   { "column" : "Timespan", "Properties":{"Ordinal":"2"}},'
+    '   { "column" : "Metric", "Properties":{"Ordinal":"3"}},'
+    '   { "column" : "Value", "Properties":{"Ordinal":"4"}},'
+    '   { "column" : "EventHubEnqueuedTime", "Properties":{"Ordinal":"0"}},'
+    '   { "column" : "EventHubOffset", "Properties":{"Ordinal":"1"}}'
     ']'
-    ```
+```
  
-   **For json 매핑:**
+**JSON 매핑 예**
 
-    ```kusto
-    .create table MyTable ingestion json mapping "JsonMapping1"
+데이터는 **데이터 연결** 블레이드 **이벤트 시스템 속성** 목록에 표시 되는 시스템 속성 이름을 사용 하 여 추가 됩니다. 다음 명령을 실행합니다.
+
+```kusto
+    .create table TestTable ingestion json mapping "JsonMapping1"
     '['
-    '    { "column" : "messageid", "datatype" : "string", "Properties":{"Path":"$.message-id"}},'
-    '    { "column" : "userid", "Properties":{"Path":"$.user-id"}},'
-    '    { "column" : "other", "Properties":{"Path":"$.other"}}'
+    '    { "column" : "Timespan", "Properties":{"Path":"$.timestamp"}},'
+    '    { "column" : "Metric", "Properties":{"Path":"$.metric"}},'
+    '    { "column" : "Value", "Properties":{"Path":"$.metric_value"}},'
+    '    { "column" : "EventHubEnqueuedTime", "Properties":{"Path":"$.x-opt-enqueued-time"}},'
+    '    { "column" : "EventHubOffset", "Properties":{"Path":"$.x-opt-offset"}}'
     ']'
-    ```
-
-   > [!TIP]
-   > * 선택한 모든 속성을 매핑에 포함 해야 합니다. 
-   > * Csv 매핑에서 속성 순서는 중요 합니다. 시스템 속성은 다른 모든 속성과 **이벤트 시스템 속성** 드롭다운에서 표시 되는 순서와 동일한 순서로 나열 되어야 합니다.
+```

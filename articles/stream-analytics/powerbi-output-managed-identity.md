@@ -1,25 +1,25 @@
 ---
-title: 관리 Id를 사용 하 여 Power BI 출력에 Azure Stream Analytics 작업 인증 (미리 보기)
+title: 관리 Id를 사용 하 여 Power BI 출력에 Azure Stream Analytics 작업 인증
 description: 이 문서에서는 관리 되는 id를 사용 하 여 Azure Stream Analytics 작업을 Power BI 출력에 인증 하는 방법을 설명 합니다.
 author: cedarbaum
 ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/31/2019
-ms.openlocfilehash: 264c434849d5d5afb5934873c75d172a3783ac86
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 3/10/2020
+ms.openlocfilehash: 8a7dfd7c690d79d8430f7c33a25b38949dbd06c4
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75459680"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79086336"
 ---
-# <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-power-bi-preview"></a>관리 Id를 사용 하 여 Power BI에 Azure Stream Analytics 작업 인증 (미리 보기)
+# <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-power-bi"></a>관리 Id를 사용 하 여 Power BI에 대 한 Azure Stream Analytics 작업 인증
 
-Power BI 출력을 위한 [관리 되는 id 인증은](../active-directory/managed-identities-azure-resources/overview.md) Azure Stream Analytics에 미리 보기로 제공 됩니다. 이렇게 하면 Stream Analytics 작업에서 Power BI 계정 내 작업 영역에 직접 액세스할 수 있습니다. 이 기능을 사용 하면 사용자가 Azure Portal를 통해 Power BI에 대화형으로 로그인 하는 데 더 이상 필요 하지 않으므로 Stream Analytics 작업의 배포가 완전히 자동화 될 수 있습니다. 또한 Power BI에 기록 하는 장기 실행 작업이 이제 정기적으로 다시 인증 작업을 수행 하지 않아도 되므로 더 잘 지원 됩니다.
+Power BI 출력을 위한 [관리 되는 id 인증은](../active-directory/managed-identities-azure-resources/overview.md) Power BI 계정 내의 작업 영역에 대 한 직접 액세스를 Stream Analytics 작업에 제공 합니다. 이 기능을 사용 하면 사용자가 Azure Portal를 통해 Power BI에 대화형으로 로그인 하는 데 더 이상 필요 하지 않으므로 Stream Analytics 작업의 배포가 완전히 자동화 될 수 있습니다. 또한 Power BI에 기록 하는 장기 실행 작업이 이제 정기적으로 다시 인증 작업을 수행 하지 않아도 되므로 더 잘 지원 됩니다.
 
 이 문서에서는 Azure Portal 및 Azure Resource Manager 배포를 통해 Stream Analytics 작업의 Power BI 출력에 대해 관리 되는 Id를 사용 하도록 설정 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 기능을 사용 하려면 다음이 필요 합니다.
 

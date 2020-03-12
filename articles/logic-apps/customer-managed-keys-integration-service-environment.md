@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 01/14/2020
-ms.openlocfilehash: 6f4e0744aad5f053cdda0a52b382ad3c86982c2f
-ms.sourcegitcommit: d48afd9a09f850b230709826d4a5cd46e57d19fa
+ms.date: 03/11/2020
+ms.openlocfilehash: fa39c8f65b00283044ef31dc7577a4668b3e634b
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75904981"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127641"
 ---
 # <a name="set-up-customer-managed-keys-to-encrypt-data-at-rest-for-integration-service-environments-ises-in-azure-logic-apps"></a>고객 관리 키를 설정 하 여 ISEs (integration service environment)에 대 한 미사용 데이터를 암호화 Azure Logic Apps
 
@@ -19,7 +19,7 @@ Azure Logic Apps은 Azure Storage를 사용 하 여 [미사용 데이터](../sto
 
 논리 앱을 호스팅하기 위한 [ISE (통합 서비스 환경](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) )를 만들 때 Azure Storage에 사용 되는 암호화 키를 더 많이 제어 하려는 경우 [Azure Key Vault](../key-vault/key-vault-overview.md)를 사용 하 여 사용자 고유의 키를 설정, 사용 및 관리할 수 있습니다. 이 기능은 BYOK ("Bring Your Own Key") 라고도 하며, 키를 "고객 관리 키" 라고 합니다.
 
-이 항목에서는 ISE를 만들 때 사용할 사용자 고유의 암호화 키를 설정 하 고 지정 하는 방법을 보여 줍니다. 
+이 항목에서는 Logic Apps REST API를 사용 하 여 ISE를 만들 때 사용할 사용자 고유의 암호화 키를 설정 하 고 지정 하는 방법을 보여 줍니다. Logic Apps REST API 통해 ISE를 만드는 일반적인 단계는 [Logic Apps REST API를 사용 하 여 ise (integration service environment) 만들기](../logic-apps/create-integration-service-environment-rest-api.md)를 참조 하세요.
 
 ## <a name="considerations"></a>고려 사항
 
@@ -33,9 +33,9 @@ Azure Logic Apps은 Azure Storage를 사용 하 여 [미사용 데이터](../sto
 
 * ISE를 만드는 HTTPS PUT 요청을 보낸 후 *30 분* 이내에 [ise의 시스템 할당 id에 대 한 key vault 액세스 권한을 부여](#identity-access-to-key-vault)해야 합니다. 그렇지 않으면 ISE 만들기가 실패 하 고 권한 오류가 throw 됩니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-* Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
+* Azure Portal ISE를 만들 때 [ise에 대 한 액세스를 가능 하 게 하](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#enable-access) 는 동일한 [필수 구성 요소](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#prerequisites) 및 요구 사항
 
 * **일시 삭제** 및 **제거 안 함** 속성을 사용 하는 Azure key vault
 
@@ -47,7 +47,7 @@ Azure Logic Apps은 Azure Storage를 사용 하 여 [미사용 데이터](../sto
   |----------|-------|
   | **키 유형** | RSA |
   | **RSA 키 크기** | 2048 |
-  | **Enabled** | 예 |
+  | **Enabled** | yes |
   |||
 
   ![고객이 관리 하는 암호화 키 만들기](./media/customer-managed-keys-integration-service-environment/create-customer-managed-key-for-encryption.png)
@@ -66,6 +66,15 @@ Logic Apps REST API 호출 하 여 ISE를 만들려면 HTTPS PUT 요청을 만�
 
 > [!IMPORTANT]
 > Logic Apps REST API 2019-05-01 버전을 사용 하려면 ISE 커넥터에 대 한 HTTP PUT 요청을 직접 수행 해야 합니다.
+
+배포는 일반적으로 완료 하는 데 2 시간 이내에 수행 됩니다. 경우에 따라 배포에 최대 4 시간이 걸릴 수 있습니다. 배포 상태를 확인 하려면 [Azure Portal](https://portal.azure.com)의 Azure 도구 모음에서 알림 아이콘을 선택 합니다. 그러면 알림 창이 열립니다.
+
+> [!NOTE]
+> 배포가 실패 하거나 ISE를 삭제 하는 경우 Azure는 서브넷을 해제 하기 전까지 최대 한 시간이 걸릴 수 있습니다. 이 지연은 다른 ISE에서 해당 서브넷을 다시 사용 하기 전에 기다려야 한다는 것을 의미 합니다.
+>
+> 가상 네트워크를 삭제 하는 경우 Azure는 일반적으로 서브넷을 해제 하기 전까지 최대 2 시간이 걸리지만이 작업은 더 오래 걸릴 수 있습니다. 
+> 가상 네트워크를 삭제 하는 경우 아직 연결 된 리소스가 없는지 확인 합니다. 
+> [가상 네트워크 삭제](../virtual-network/manage-virtual-network.md#delete-a-virtual-network)를 참조 하세요.
 
 ### <a name="request-header"></a>요청 헤더
 
@@ -220,4 +229,4 @@ ISE를 만들기 위해 HTTP PUT 요청을 보낸 후 *30 분* 이내에 ise의 
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Key Vault](../key-vault/key-vault-overview.md) 에 대 한 자세한 정보
+* [Azure Key Vault](../key-vault/key-vault-overview.md)에 대해 자세히 알아봅니다.

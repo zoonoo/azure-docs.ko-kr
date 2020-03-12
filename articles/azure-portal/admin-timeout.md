@@ -9,12 +9,12 @@ ms.date: 02/10/2020
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 950580048f0496fd8436901938a5b6768c61bab6
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: e27135d09da7060f2a948e37f6026fe66fbef5b3
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77132084"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096618"
 ---
 # <a name="set-directory-level-inactivity-timeout"></a>디렉터리 수준 비활성 시간 제한 설정
 
@@ -43,7 +43,7 @@ ms.locfileid: "77132084"
 이 설정은 새 세션에 적용 됩니다. 이미 로그인 한 사용자에 게는 즉시 적용 되지 않습니다.
 
 > [!NOTE]
-> 관리자가 디렉터리 수준 시간 제한 설정을 구성한 경우 사용자는 정책을 재정의 하 고 자신의 비활성 로그 아웃 기간을 설정할 수 있습니다. 그러나 사용자는 디렉터리 수준에서 설정 된 것 보다 작은 시간 간격을 선택 해야 합니다.
+> 전역 관리자가 디렉터리 수준 시간 제한 설정을 구성한 경우 사용자는 정책을 재정의 하 고 자신의 비활성 로그 아웃 기간을 설정할 수 있습니다. 그러나 사용자는 전역 관리자가 디렉터리 수준에 설정 된 것 보다 작은 시간 간격을 선택 해야 합니다.
 >
 
 ## <a name="next-steps"></a>다음 단계
