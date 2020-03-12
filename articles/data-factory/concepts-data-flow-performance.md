@@ -6,19 +6,22 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 02/24/2020
-ms.openlocfilehash: cca22c499efde74bb1469222d2f8a6e576452aa2
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.date: 03/11/2020
+ms.openlocfilehash: 1a6b50456a5dc3ff89fe7b513f406dc68bd2401e
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78381938"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79128934"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>데이터 흐름 매핑 성능 및 튜닝 가이드
 
 Azure Data Factory에서 데이터 흐름을 매핑하면 대규모로 데이터 변환을 디자인, 배포 및 오케스트레이션 할 수 있는 코드 없는 인터페이스를 제공 합니다. 데이터 흐름 매핑을 잘 모르는 경우 [데이터 흐름 매핑 개요](concepts-data-flow-overview.md)를 참조 하세요.
 
 ADF UX에서 데이터 흐름을 디자인 하 고 테스트할 때 클러스터가 준비 될 때까지 기다리지 않고 실시간으로 데이터 흐름을 실행 하려면 디버그 모드로 전환 해야 합니다. 자세한 내용은 [디버그 모드](concepts-data-flow-debug-mode.md)를 참조 하세요.
+
+이 비디오는 데이터 흐름을 사용 하 여 데이터를 변환 하는 몇 가지 샘플 시간을 보여줍니다.
+> [!VIDEO https://www.youtube.com/watch?v=6CSbWm4lRhw]
 
 ## <a name="monitoring-data-flow-performance"></a>데이터 흐름 성능 모니터링
 

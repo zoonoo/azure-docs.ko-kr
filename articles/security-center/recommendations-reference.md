@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/18/2019
+ms.date: 03/11/2020
 ms.author: memildin
-ms.openlocfilehash: a6a1371553ccd9b810ba4649af448fb8847d0ed8
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 1d8a42a4ec106418b481ac705d3ce1b33f58a312
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78380742"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79086504"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>보안 권장 사항-참조 가이드
 
@@ -25,7 +25,10 @@ ms.locfileid: "78380742"
 
 이러한 권장 사항에 응답 하는 방법에 대 한 자세한 내용은 [Azure Security Center의 권장 사항](security-center-remediate-recommendations.md)수정을 참조 하세요.
 
-보안 점수는 완화 된 Security Center 권장 사항의 수를 기준으로 합니다. 권장 사항에 우선 순위를 지정 하려면 각각의 심각도를 고려 합니다.
+보안 점수는 완료 한 Security Center 권장 사항의 수를 기준으로 합니다. 먼저 해결할 권장 사항을 결정 하려면 각각의 심각도와 보안 점수에 대 한 잠재적 영향을 확인 합니다.
+
+>[!TIP]
+> 권장 사항에 대 한 설명이 "관련 정책 없음"으로 표시 되는 경우이 권장 사항은 일반적으로 다른 권장 *사항 및 정책* 에 따라 결정 되기 때문입니다. 예를 들어 "Endpoint protection 상태 오류를 재구성 해야 합니다." 권장 사항은 endpoint protection 솔루션이 *설치* 되어 있는지 여부를 확인 하는 권장 사항 ("endpoint protection 솔루션을 설치 해야 합니다.")을 사용 합니다. 기본 권장 사항에는 *정책이 있습니다.* 정책을 기본적인 권장 구성 으로만 제한 하면 정책 관리가 간단해 집니다.
 
 ## <a name="recs-network"></a>네트워크 권장 사항
 
@@ -106,7 +109,7 @@ ms.locfileid: "78380742"
 |**취약성 평가 솔루션으로 취약성을 수정해야 합니다.**|취약성 평가 타사 솔루션이 배포된 가상 머신이 애플리케이션 및 OS 취약성에 대해 연속적으로 평가됩니다. 이러한 취약성 항목이 발견될 때마다 이 내용을 자세한 권장 구성의 일부로 사용할 수 있습니다.<br>(관련 정책: 취약점 평가 솔루션에서 취약점을 재구성 해야 함)|높음|N|컴퓨터|
 |**머신 보안 구성의 취약성을 수정해야 합니다.**|머신의 보안 구성에서 취약성을 수정하여 공격으로부터 보호합니다.<br>(관련 정책: 컴퓨터에서 보안 구성의 취약성을 재구성 해야 함)|낮음|N|컴퓨터|
 |**컨테이너 보안 구성의 취약성을 수정해야 합니다.**|Docker가 설치된 머신의 보안 구성에서 취약성을 수정하여 공격으로부터 보호합니다.<br>(관련 정책: 컨테이너 보안 구성의 취약성을 재구성 해야 함)|높음|N|컴퓨터|
-|**컴퓨터에서 Endpoint protection 상태 문제를 해결 해야 합니다.**|완벽한 Security Center 보호를 위해 문제 해결 가이드의 지침에 따라 머신에서 모니터링 에이전트 문제를 해결합니다.<br>("컴퓨터에 endpoint protection 솔루션 설치"에 따라 관련 된 정책 없음)|중간|N|컴퓨터|
+|**컴퓨터에서 Endpoint protection 상태 문제를 해결 해야 합니다.**|완벽한 Security Center 보호를 위해 문제 해결 가이드의 지침에 따라 머신에서 모니터링 에이전트 문제를 해결합니다.<br>이 권장 사항은 "컴퓨터에 endpoint protection 솔루션 설치" 및 해당 정책에 대 한 권장 사항에 따라 달라 집니다.|중간|N|컴퓨터|
 ||||||
 
 

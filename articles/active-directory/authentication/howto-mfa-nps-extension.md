@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43f355f22774477466d2965cef02adcc4ec4f497
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: b3cd858653d54ae622758d218bb887d94bceb697
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78378114"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79086389"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>기존 NPS 인프라를 Azure Multi-Factor Authentication과 통합
 
@@ -29,7 +29,7 @@ Azure MFA용 NPS 확장을 사용하면 인증 흐름에 다음 구성 요소가
 1. **NAS/VPN 서버** - VPN 클라이언트로부터 요청을 받고, 이 요청을 NPS 서버에 대한 RADIUS 요청으로 변환합니다. 
 2. **NPS 서버** - Active Directory에 연결하여 RADIUS 요청에 대한 기본 인증을 수행하고, 성공하면 요청을 설치된 모든 확장에 전달합니다.  
 3. **NPS 확장** - 보조 인증을 위해 Azure MFA에 요청을 트리거합니다. 확장에서 응답을 받고 MFA 요청이 성공하면 Azure STS에서 발급한 MFA 클레임이 포함된 보안 토큰을 NPS 서버에 제공하여 인증 요청을 완료합니다.  
-4. **Azure MFA** - Azure Active Directory와 통신하여 사용자의 세부 정보를 검색하고 구성된 인증 방법을 사용하여 사용자에게 보조 인증을 수행합니다.
+4. **AZURE MFA** 는 Azure Active Directory와 통신 하 여 사용자의 세부 정보를 검색 하 고 사용자에 게 구성 된 인증 방법을 사용 하 여 보조 인증을 수행 합니다.
 
 다음 다이어그램에서는 이러한 높은 수준의 인증 요청 흐름을 보여 줍니다. 
 
@@ -168,7 +168,7 @@ NPS 확장 프로그램을 사용하고 배포하기 전에 2단계 인증을 �
 - 자체 서명된 인증서를 만듭니다.
 - 인증서의 공개 키를 Azure AD의 서비스 주체에 연결합니다.
 - 로컬 컴퓨터 인증서 저장소에 인증서를 저장합니다.
-- 네트워크 사용자에게 인증서의 프라이빗 키에 대한 액세스 권한을 부여합니다.
+- 네트워크 사용자에 게 인증서의 개인 키에 대 한 액세스 권한을 부여 합니다.
 - NPS를 다시 시작합니다.
 
 PowerShell 스크립트에서 생성하는 자체 서명된 인증서 대신 사용자 고유의 인증서를 사용하려는 경우가 아니면 PowerShell 스크립트를 실행하여 설치를 완료합니다. 여러 서버에 확장을 설치하는 경우 각각 자체 인증서가 있어야 합니다.
@@ -250,9 +250,9 @@ MFA에 등록되지 않은 사용자가 있는 경우 인증을 시도할 때 �
 
 ### <a name="nps-extension-health-check-script"></a>NPS 확장 상태 검사 스크립트
 
-다음 스크립트는 TechNet 갤러리에서 NPS 확장 문제를 해결할 때 기본 상태 검사 단계를 수행 하는 데 사용할 수 있습니다.
+다음 스크립트는 NPS 확장 문제를 해결할 때 기본 상태 검사 단계를 수행 하는 데 사용할 수 있습니다.
 
-[MFA_NPS_Troubleshooter. ps1](https://gallery.technet.microsoft.com/Azure-MFA-NPS-Extension-648de6bb)
+[MFA_NPS_Troubleshooter. ps1](https://docs.microsoft.com/samples/azure-samples/azure-mfa-nps-extension-health-check/azure-mfa-nps-extension-health-check/)
 
 ---
 
@@ -334,6 +334,8 @@ NPS 확장을 실행하는 서버에서 https://adnotifications.windowsazure.com
 추가 문제 해결 지침과 가능한 해결 방법은 [Azure MULTI-FACTOR AUTHENTICATION NPS 확장에서 오류 메시지 해결](howto-mfa-nps-extension-errors.md)문서를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
+
+- [Windows Server의 네트워크 정책 서버 개요 및 구성](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top)
 
 - [Multi-Factor Authentication에 대한 NPS 확장을 위한 고급 구성 옵션](howto-mfa-nps-extension-advanced.md)에서 2단계 확인을 수행하지 않아야 하는 IP 예외 목록 설정 또는 로그인에 대한 대체 ID 구성
 

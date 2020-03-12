@@ -10,12 +10,12 @@ ms.date: 02/25/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 6b36694c2fe1bf264c876944b054d39371db616c
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: 7ae5f59a1bd96362d5466b2f6363185ba168d942
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78674280"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79130038"
 ---
 # <a name="azure-storage-redundancy"></a>Azure Storage 중복성
 
@@ -61,7 +61,7 @@ ZRS를 사용 하는 저장소 계정에 대 한 쓰기 요청은 동기적으�
 
 |    Storage 계정 유형    |    지원되는 지역    |    지원되는 서비스    |
 |----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
-|    범용 v2<sup>1</sup>    | 동남아시아<br /> 북유럽<br />  서유럽<br /> 프랑스 중부<br /> 일본 동부<br /> 영국 남부<br /> 미국 중부<br /> 미국 동부<br /> 미국 동부 2<br /> 미국 서부 2    |    블록 Blob<br /> 페이지 blob<sup>2</sup><br /> 파일 공유 (표준)<br /> 테이블<br /> 큐<br /> |
+|    범용 v2<sup>1</sup>    | 동남아시아<br /> 오스트레일리아 동부<br /> 북유럽<br />  서유럽<br /> 프랑스 중부<br /> 일본 동부<br /> 남아프리카 북부<br /> 영국 남부<br /> 미국 중부<br /> 미국 동부<br /> 미국 동부 2<br /> 미국 서부 2    |    블록 Blob<br /> 페이지 blob<sup>2</sup><br /> 파일 공유 (표준)<br /> 테이블<br /> 큐<br /> |
 |    BlockBlobStorage<sup>1</sup>    | 서유럽<br /> 미국 동부    |    블록 Blob만 해당    |
 |    FileStorage    | 서유럽<br /> 미국 동부    |    Azure Files만    |
 
@@ -109,10 +109,12 @@ GZRS 및 RA-GZRS는 현재 다음 지역에서 미리 보기로 제공 됩니다
 - 동남아시아
 - 북유럽
 - 서유럽
+- 일본 동부
 - 영국 남부
 - 미국 동부
 - 미국 동부 2
 - 미국 중부
+- 미국 서부 2
 
 Microsoft는 추가 Azure 지역에서 GZRS 및 RA GZRS을 계속 사용할 수 있습니다. 지원 되는 지역에 대 한 자세한 내용은 [Azure 서비스 업데이트](https://azure.microsoft.com/updates/) 페이지를 정기적으로 확인 하세요.
 

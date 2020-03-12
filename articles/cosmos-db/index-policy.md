@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: thweiss
-ms.openlocfilehash: 886d17098259ddbb78698a3c1280f797e370c714
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 86dbcee7150adacd0e961dbe07cf66ad117d2041
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78386968"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79128521"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Azure Cosmos DB의 인덱싱 정책
 
@@ -34,7 +34,7 @@ Azure Cosmos DB는 두 가지 인덱싱 모드를 지원 합니다.
 
 기본적으로 인덱싱 정책은 `automatic`로 설정 됩니다. 인덱싱 정책에서 `automatic` 속성을 `true`설정 하 여 수행 합니다. 이 속성을 `true`로 설정 하면 Azure CosmosDB가 작성 된 문서를 자동으로 인덱싱할 수 있습니다.
 
-## <a name="including-and-excluding-property-paths"></a>속성 경로 포함 및 제외
+## <a id="include-exclude-paths"></a>속성 경로 포함 및 제외
 
 사용자 지정 인덱싱 정책은 명시적으로 포함 되거나 인덱싱에서 제외 되는 속성 경로를 지정할 수 있습니다. 인덱싱되는 경로 수를 최적화 하 여 컨테이너에서 사용 되는 저장소의 양을 줄이고 쓰기 작업의 대기 시간을 높일 수 있습니다. 이러한 경로는 [인덱싱 개요 섹션에 설명 된 방법](index-overview.md#from-trees-to-property-paths) 에 따라 다음과 같이 추가 됩니다.
 
@@ -75,7 +75,7 @@ Azure Cosmos DB는 두 가지 인덱싱 모드를 지원 합니다.
 
 - 영숫자 문자 및 _ (밑줄)를 포함 하는 일반 문자를 포함 하는 경로의 경우 큰따옴표를 기준으로 경로 문자열을 이스케이프할 필요가 없습니다 (예: "/path/?"). 다른 특수 문자를 포함 하는 경로의 경우 큰따옴표 앞뒤에 경로 문자열을 이스케이프 해야 합니다 (예: "/\"경로-abc\"/?"). 경로에 특수 문자가 필요한 경우 안전을 위해 모든 경로를 이스케이프할 수 있습니다. 모든 경로와 특수 문자를 포함 하는 모든 경로를 이스케이프 하는 경우에는 차이점이 없습니다.
 
-- 인덱싱에 대 한 포함 된 경로에 etag를 추가 하지 않으면 기본적으로 시스템 속성 "etag"가 인덱싱에서 제외 됩니다.
+- 인덱싱에 대 한 포함 된 경로에 etag를 추가 하지 않으면 시스템 속성 "_etag"은 기본적으로 인덱싱에서 제외 됩니다.
 
 경로를 포함 하거나 제외 하는 경우 다음과 같은 특성이 발생할 수 있습니다.
 

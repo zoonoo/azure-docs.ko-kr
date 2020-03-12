@@ -10,12 +10,12 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 12/09/2019
-ms.openlocfilehash: 4149e90e07bbcd03a0df41060b42b8902b89e774
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: a2af1e87ce7b17183ae09fb02b2652a04f585e84
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78396195"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129503"
 ---
 # <a name="data-access-in-azure-machine-learning"></a>Azure Machine Learning에서 데이터 액세스
 
@@ -53,12 +53,12 @@ Datastores로 등록할 수 있는 지원 되는 Azure storage 서비스:
 + Azure 파일 공유
 + Azure 데이터 레이크
 + Azure Data Lake Gen2
-+ Azure SQL 데이터베이스
++ Azure SQL Database
 + Azure Database for PostgreSQL
 + Databricks 파일 시스템
 + Azure Database for MySQL
 
-### <a name="datasets"></a>데이터 집합
+### <a name="datasets"></a>데이터 세트
 
 데이터 저장소의 데이터와 상호 작용 하 [는 Azure Machine Learning 데이터 집합을 만들고](how-to-create-register-datasets.md) , 기계 학습 작업을 위한 사용 가능한 개체에 데이터를 패키지할 수 있습니다. 데이터 집합을 작업 영역에 등록 하 여 데이터 수집 복잡성 없이 다른 실험에서 데이터 집합을 공유 하 고 다시 사용할 수 있습니다.
 
@@ -83,7 +83,7 @@ Datastores로 등록할 수 있는 지원 되는 Azure storage 서비스:
 
 + [기계 학습 모델을 학습](how-to-train-with-datasets.md)합니다.
 + 에서 데이터 집합 사용 
-     + [자동 ML 실험](how-to-create-portal-experiments.md)
+     + [자동 ML 실험](how-to-use-automated-ml-for-ml-models.md)
      + [디자이너](tutorial-designer-automobile-price-train-score.md#import-data) 
 + [기계 학습 파이프라인](how-to-create-your-first-pipeline.md)에서 일괄 처리 유추를 사용 하 여 점수 매기기를 위한 데이터 집합에 액세스 합니다.
 + [데이터 레이블 지정 프로젝트](#label)를 만듭니다.

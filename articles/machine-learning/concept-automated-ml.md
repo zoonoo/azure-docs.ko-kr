@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 02/28/2020
-ms.openlocfilehash: 9739c0a6b66099a2bebb1d42922d8653a92e650b
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 501158ffa8d05bc34dd39c21680012b1f3308def
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78396421"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127219"
 ---
 # <a name="what-is-automated-machine-learning"></a>자동화된 Machine Learning이란?
 
@@ -95,9 +95,9 @@ ms.locfileid: "78396421"
 
 ### <a name="advanced-preprocessing-optional-featurization"></a>고급 전처리: 선택적 기능화
 
-데이터 guardrails, 인코딩, 변환 등의 추가 고급 전처리 및 기능화도 사용할 수 있습니다. [기능화 포함 된 항목에 대해 자세히 알아보세요](how-to-create-portal-experiments.md#featurization). 다음을 사용 하 여이 설정 사용:
+데이터 guardrails, 인코딩, 변환 등의 추가 고급 전처리 및 기능화도 사용할 수 있습니다. [기능화 포함 된 항목에 대해 자세히 알아보세요](how-to-use-automated-ml-for-ml-models.md#featurization). 다음을 사용 하 여이 설정 사용:
 
-+ Azure Machine Learning studio: **추가 구성 보기** 섹션에서 [다음 단계를 수행 하](how-to-create-portal-experiments.md#create-and-run-experiment)여 **자동 기능화** 를 사용 하도록 설정 합니다.
++ Azure Machine Learning studio: **추가 구성 보기** 섹션에서 [다음 단계를 수행 하](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment)여 **자동 기능화** 를 사용 하도록 설정 합니다.
 
 + Python SDK: [`AutoMLConfig` 클래스](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig)에 대 한 `"feauturization": 'auto' / 'off' / 'FeaturizationConfig'`를 지정 합니다. 
 
@@ -153,7 +153,7 @@ CV (교차 유효성 검사)는 전체 학습 데이터의 여러 하위 집합�
 
 ## <a name="classification--regression"></a>분류 & 회귀
 
-분류 및 회귀는 가장 일반적인 유형의 기계 학습 작업입니다. 두 가지 모두 모델에서 학습 데이터를 사용 하는 방법을 학습 하 고 이러한 학습를 새 데이터에 적용 하는 감독 학습의 유형입니다. Azure Machine Learning는 분류를 위한 심층 신경망 텍스트 featurizers와 같은 이러한 작업에 대해 특별히 featurizations을 제공 합니다. [기능화 옵션](how-to-create-portal-experiments.md#featurization)에 대해 자세히 알아보세요. 
+분류 및 회귀는 가장 일반적인 유형의 기계 학습 작업입니다. 두 가지 모두 모델에서 학습 데이터를 사용 하는 방법을 학습 하 고 이러한 학습를 새 데이터에 적용 하는 감독 학습의 유형입니다. Azure Machine Learning는 분류를 위한 심층 신경망 텍스트 featurizers와 같은 이러한 작업에 대해 특별히 featurizations을 제공 합니다. [기능화 옵션](how-to-use-automated-ml-for-ml-models.md#featurization)에 대해 자세히 알아보세요. 
 
 분류 모델의 주요 목표는 학습 데이터의 학습을 기반으로 새 데이터를 넣을 범주를 예측 하는 것입니다. 일반적인 분류 예에는 사기 감지, 필기 인식 및 개체 검색이 포함 됩니다.  [자동화 된 machine learning을 사용 하 여 분류](tutorial-train-models-with-aml.md)의 예제를 자세히 알아보고 확인 하세요.
 
@@ -286,7 +286,7 @@ Guardrails 가져오기| ✓|✓
 + [자습서: 자동으로 회귀 모델 학습 Azure Machine Learning](tutorial-auto-train-models.md)
 
 + 자동 학습 실험의 설정 구성:
-  + Azure Machine Learning studio에서 [다음 단계를 사용](how-to-create-portal-experiments.md)합니다.
+  + Azure Machine Learning studio에서 [다음 단계를 사용](how-to-use-automated-ml-for-ml-models.md)합니다.
   + Python SDK를 사용 하 여 [다음 단계를 수행](how-to-configure-auto-train.md)합니다.
 
 + 시계열 데이터를 사용 하 여 자동으로 학습 하는 방법에 대해 설명 하 고 [다음 단계를 사용](how-to-auto-train-forecast.md)합니다.

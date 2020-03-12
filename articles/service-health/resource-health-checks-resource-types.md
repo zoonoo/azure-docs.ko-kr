@@ -3,12 +3,12 @@ title: Azure Resource Health를 통해 지원되는 리소스 유형 | Microsoft
 description: Azure Resource Health를 통해 지원되는 리소스 유형
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: ec194287e8a8e06d3bb14c4b202cc2f11063d1dd
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.openlocfilehash: 3ba7b308c0c7671df8a652194830cb910cb89acc
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78925577"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79128935"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Azure Resource Health에서 리소스 유형 및 상태 검사
 다음은 리소스 유형별 리소스 상태를 통해 실행되는 모든 검사 목록입니다.
@@ -188,6 +188,11 @@ ms.locfileid: "78925577"
 |실행된 검사|
 |---|
 |<ul><li>고객에게 사용자가 생성한 Service Bus 오류가 발생하나요?</li><li>Service Bus 네임스페이스 업그레이드로 인해 사용자에게 일시적인 오류가 증가하고 있나요?</li></ul>|
+
+## <a name="microsoftservicefabricclusters"></a>Microsoft.ServiceFabric/clusters
+|실행된 검사|
+|---|
+|<ul><li>Service Fabric 클러스터가 작동 하 고 있습니까?</li><li>Azure Resource Manager를 통해 Service Fabric 클러스터를 관리할 수 있나요?</li></ul>|
 
 ## <a name="microsoftsqlmanagedinstancesdatabases"></a>Microsoft .SQL/managedInstances/databases
 |실행된 검사|

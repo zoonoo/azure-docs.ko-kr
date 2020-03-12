@@ -5,14 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 03/10/2020
 ms.author: helohr
-ms.openlocfilehash: 9c907052f10fa7d1cfd1ff79e981fdccef874ee5
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+manager: lizross
+ms.openlocfilehash: ce85fb70e1480ad285eee78fe20faa8d77b9a147
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78383656"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127971"
 ---
 # <a name="identify-and-diagnose-issues"></a>문제 식별 및 진단
 
@@ -34,23 +35,66 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 
 Windows 가상 데스크톱 진단은 하나의 PowerShell cmdlet만 사용 하 고 여러 개의 선택적 매개 변수를 포함 하 여 문제를 축소 하 고 격리할 수 있도록 합니다. 다음 섹션에는 문제를 진단 하기 위해 실행할 수 있는 cmdlet이 나열 되어 있습니다. 대부분의 필터는 함께 적용할 수 있습니다. 괄호 안에 표시 되는 값 (예: `<tenantName>`)은 사용자의 상황에 적용 되는 값으로 바꾸어야 합니다.
 
-### <a name="retrieve-diagnostic-activities-in-your-tenant"></a>테 넌 트에서 진단 활동을 검색 합니다.
+>[!IMPORTANT]
+>진단 기능은 단일 사용자 문제 해결에 사용 됩니다. PowerShell을 사용 하는 모든 쿼리는 *-UserName* 또는 *-활동* 매개 변수를 포함 해야 합니다. 모니터링 기능을 사용 하려면 Log Analytics을 사용 합니다. 진단 데이터를 작업 영역으로 보내는 방법에 대 한 자세한 내용은 [진단 기능에 Log Analytics 사용](diagnostics-log-analytics.md) 을 참조 하세요. 
 
-**RdsDiagnosticActivities** cmdlet을 입력 하 여 진단 활동을 검색할 수 있습니다. 다음 예제 cmdlet은 가장 최근부터 최소까지 정렬 된 진단 활동 목록을 반환 합니다.
+### <a name="filter-diagnostic-activities-by-user"></a>사용자별 진단 작업 필터링
 
-```powershell
-Get-RdsDiagnosticActivities -TenantName <tenantName>
-```
-
-다른 Windows 가상 데스크톱 PowerShell cmdlet과 마찬가지로 **-tenantname** 매개 변수를 사용 하 여 쿼리에 사용 하려는 테 넌 트의 이름을 지정 해야 합니다. 테 넌 트 이름은 거의 모든 진단 활동 쿼리에 적용 됩니다.
-
-### <a name="retrieve-detailed-diagnostic-activities"></a>자세한 진단 작업 검색
-
-**-Detailed** 매개 변수는 반환 되는 각 진단 작업에 대 한 추가 세부 정보를 제공 합니다. 각 활동의 형식은 활동 유형에 따라 달라 집니다. **-Detailed** 매개 변수는 다음 예제와 같이 **RdsDiagnosticActivities** 쿼리에 추가할 수 있습니다.
+**-UserName** 매개 변수는 다음 예제 cmdlet와 같이 지정 된 사용자가 시작 하는 진단 활동의 목록을 반환 합니다.
 
 ```powershell
-Get-RdsDiagnosticActivities -TenantName <tenantName> -Detailed
+Get-RdsDiagnosticActivities -TenantName <tenantName> -UserName <UserUPN>
 ```
+
+**-UserName** 매개 변수를 다른 선택적 필터링 매개 변수와 함께 사용할 수도 있습니다.
+
+### <a name="filter-diagnostic-activities-by-time"></a>시간별 진단 작업 필터링
+
+**-StartTime** 및 **-EndTime** 매개 변수를 사용 하 여 반환 된 진단 작업 목록을 필터링 할 수 있습니다. **-StartTime** 매개 변수는 다음 예제와 같이 특정 날짜에서 시작 하는 진단 활동 목록을 반환 합니다.
+
+```powershell
+Get-RdsDiagnosticActivities -TenantName <tenantName> -UserName <UserUPN> -StartTime "08/01/2018"
+```
+
+\- **EndTime** 매개 변수를 cmdlet에 추가 하 여 결과를 수신 하려는 특정 기간을 지정할 수 있습니다. 다음 예제 cmdlet은 8 월 1 일부 터 8 월 10 일 사이에서 진단 활동의 목록을 반환 합니다.
+
+```powershell
+Get-RdsDiagnosticActivities -TenantName <tenantName> -UserName <UserUPN> -StartTime "08/01/2018" -EndTime "08/10/2018"
+```
+
+**-StartTime** 및 **-EndTime** 매개 변수는 다른 선택적 필터링 매개 변수와 함께 사용할 수도 있습니다.
+
+### <a name="filter-diagnostic-activities-by-activity-type"></a>활동 유형별 진단 작업 필터링
+
+**-ActivityType** 매개 변수를 사용 하 여 활동 유형별로 진단 활동을 필터링 할 수도 있습니다. 다음 cmdlet은 최종 사용자 연결의 목록을 반환 합니다.
+
+```powershell
+Get-RdsDiagnosticActivities -TenantName <tenantName> -UserName <UserUPN> -ActivityType Connection
+```
+
+다음 cmdlet은 관리자 관리 작업의 목록을 반환 합니다.
+
+```powershell
+Get-RdsDiagnosticActivities -TenantName <tenantName> -ActivityType Management
+```
+
+**RdsDiagnosticActivities** cmdlet은 현재 ActivityType로 피드를 지정 하는 것을 지원 하지 않습니다.
+
+### <a name="filter-diagnostic-activities-by-outcome"></a>결과로 진단 작업 필터링
+
+반환 된 진단 작업 목록을 결과에 따라 **-결과** 매개 변수로 필터링 할 수 있습니다. 다음 예제 cmdlet은 성공적인 진단 활동의 목록을 반환 합니다.
+
+```powershell
+Get-RdsDiagnosticActivities -TenantName <tenantName> -UserName <UserUPN> -Outcome Success
+```
+
+다음 예제 cmdlet은 실패 한 진단 활동의 목록을 반환 합니다.
+
+```powershell
+Get-RdsDiagnosticActivities -TenantName <tenantName> -Outcome Failure
+```
+
+**-결과** 매개 변수를 다른 선택적 필터링 매개 변수와 결합할 수도 있습니다.
 
 ### <a name="retrieve-a-specific-diagnostic-activity-by-activity-id"></a>활동 ID로 특정 진단 활동 검색
 
@@ -68,63 +112,13 @@ Get-RdsDiagnosticActivities -TenantName <tenantName> -ActivityId <ActivityIdGuid
 Get-RdsDiagnosticActivities -TenantName <tenantname> -ActivityId <ActivityGuid> -Detailed | Select-Object -ExpandProperty Errors
 ```
 
-### <a name="filter-diagnostic-activities-by-user"></a>사용자별 진단 작업 필터링
+### <a name="retrieve-detailed-diagnostic-activities"></a>자세한 진단 작업 검색
 
-**-UserName** 매개 변수는 다음 예제 cmdlet와 같이 지정 된 사용자가 시작 하는 진단 활동의 목록을 반환 합니다.
-
-```powershell
-Get-RdsDiagnosticActivities -TenantName <tenantName> -UserName <UserUPN>
-```
-
-**-UserName** 매개 변수를 다른 선택적 필터링 매개 변수와 함께 사용할 수도 있습니다.
-
-### <a name="filter-diagnostic-activities-by-time"></a>시간별 진단 작업 필터링
-
-**-StartTime** 및 **-EndTime** 매개 변수를 사용 하 여 반환 된 진단 작업 목록을 필터링 할 수 있습니다. **-StartTime** 매개 변수는 다음 예제와 같이 특정 날짜에서 시작 하는 진단 활동 목록을 반환 합니다.
+**-Detailed** 매개 변수는 반환 되는 각 진단 작업에 대 한 추가 세부 정보를 제공 합니다. 각 활동의 형식은 활동 유형에 따라 달라 집니다. **-Detailed** 매개 변수는 다음 예제와 같이 **RdsDiagnosticActivities** 쿼리에 추가할 수 있습니다.
 
 ```powershell
-Get-RdsDiagnosticActivities -TenantName <tenantName> -StartTime "08/01/2018"
+Get-RdsDiagnosticActivities -TenantName <tenantName> -ActivityId <ActivityGuid> -Detailed
 ```
-
-\- **EndTime** 매개 변수를 cmdlet에 추가 하 여 결과를 수신 하려는 특정 기간을 지정할 수 있습니다. 다음 예제 cmdlet은 8 월 1 일부 터 8 월 10 일 사이에서 진단 활동의 목록을 반환 합니다.
-
-```powershell
-Get-RdsDiagnosticActivities -TenantName <tenantName> -StartTime "08/01/2018" -EndTime "08/10/2018"
-```
-
-**-StartTime** 및 **-EndTime** 매개 변수는 다른 선택적 필터링 매개 변수와 함께 사용할 수도 있습니다.
-
-### <a name="filter-diagnostic-activities-by-activity-type"></a>활동 유형별 진단 작업 필터링
-
-**-ActivityType** 매개 변수를 사용 하 여 활동 유형별로 진단 활동을 필터링 할 수도 있습니다. 다음 cmdlet은 최종 사용자 연결의 목록을 반환 합니다.
-
-```powershell
-Get-RdsDiagnosticActivities -TenantName <tenantName> -ActivityType Connection
-```
-
-다음 cmdlet은 관리자 관리 작업의 목록을 반환 합니다.
-
-```powershell
-Get-RdsDiagnosticActivities -TenantName <tenantName> -ActivityType Management
-```
-
-**RdsDiagnosticActivities** cmdlet은 현재 ActivityType로 피드를 지정 하는 것을 지원 하지 않습니다.
-
-### <a name="filter-diagnostic-activities-by-outcome"></a>결과로 진단 작업 필터링
-
-반환 된 진단 작업 목록을 결과에 따라 **-결과** 매개 변수로 필터링 할 수 있습니다. 다음 예제 cmdlet은 성공적인 진단 활동의 목록을 반환 합니다.
-
-```powershell
-Get-RdsDiagnosticActivities -TenantName <tenantName> -Outcome Success
-```
-
-다음 예제 cmdlet은 실패 한 진단 활동의 목록을 반환 합니다.
-
-```powershell
-Get-RdsDiagnosticActivities -TenantName <tenantName> -Outcome Failure
-```
-
-**-결과** 매개 변수를 다른 선택적 필터링 매개 변수와 결합할 수도 있습니다.
 
 ## <a name="common-error-scenarios"></a>일반적인 오류 시나리오
 

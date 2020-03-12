@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: thweiss
-ms.openlocfilehash: 171542c89b900eb8bf282156c79303a1deb5a5f7
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 58a1ee13afa76b152723cb71d4037f9c31cc8d4e
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78364494"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79128895"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Azure Cosmos DB의 인덱싱 정책 관리
 
@@ -19,7 +19,7 @@ Azure Cosmos DB에서 데이터는 각 컨테이너에 대해 정의된 [인덱�
 
 ## <a name="indexing-policy-examples"></a>인덱싱 정책 예제
 
-다음은 JSON 형식(정책이 Azure Portal에 표시되는 방법)으로 표시한 인덱싱 정책의 몇몇 예입니다. Azure CLI 또는 임의의 SDK를 통해 같은 매개 변수를 설정할 수 있습니다.
+다음은 [JSON 형식](index-policy.md#include-exclude-paths)으로 표시 되는 인덱싱 정책에 대 한 몇 가지 예입니다 .이는 Azure Portal에 노출 되는 방법입니다. Azure CLI 또는 임의의 SDK를 통해 같은 매개 변수를 설정할 수 있습니다.
 
 ### <a name="opt-out-policy-to-selectively-exclude-some-property-paths"></a>일부 속성 경로를 선택적으로 제외하는 옵트아웃 정책
 
@@ -153,7 +153,7 @@ Azure Cosmos DB에서 데이터는 각 컨테이너에 대해 정의된 [인덱�
     ],
     "excludedPaths": [
         {
-            "path": "/\"_etag\"/?"
+            "path": "/_etag/?"
         }
     ],
     "spatialIndexes": [

@@ -6,12 +6,12 @@ ms.topic: reference
 author: bwren
 ms.author: bwren
 ms.date: 01/20/2020
-ms.openlocfilehash: 3adf4b59c0605859ada75577c083094541815984
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 4c711e1b0a63fbcf978c0e4467eadaed8d91f3de
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78384134"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79128713"
 ---
 # <a name="windows-diagnostics-extension-schema"></a>Windows 진단 확장 스키마
 Azure 진단 확장은 게스트 운영 체제에서 모니터링 데이터를 수집 하 고 Azure compute 리소스의 작업을 수집 하는 Azure Monitor의 에이전트입니다. 이 문서에서는 Windows 가상 머신과 기타 계산 리소스에서 진단 확장을 구성 하는 데 사용 되는 스키마에 대해 자세히 설명 합니다.
@@ -506,7 +506,7 @@ Azure 진단 확장은 게스트 운영 체제에서 모니터링 데이터를 �
 ```
 
 > [!NOTE]
-> 공용 구성 Azure Monitor 싱크 정의에는 *Principalid* 와 *Secret*의 두 속성이 있습니다. 두 속성은 클래식 VM 및 클래식 클라우드 서비스에만 필요합니다. 이러한 속성은 다른 리소스에 사용 하면 안 됩니다.
+> 개인 구성 Azure Monitor 싱크 정의에는 *Principalid* 와 *Secret*의 두 속성이 있습니다. 두 속성은 클래식 VM 및 클래식 클라우드 서비스에만 필요합니다. 이러한 속성은 다른 리소스에 사용 하면 안 됩니다.
 
 
 ```json
