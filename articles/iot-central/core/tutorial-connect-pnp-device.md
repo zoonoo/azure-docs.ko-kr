@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 84db3996b49a95d1ef6a9f1e80299605cc31d669
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: e22a9ae2888187dc877876ee5d4d4ec4ecb7c6e5
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77602603"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78329445"
 ---
 # <a name="tutorial-use-a-device-capability-model-to-create-an-iot-plug-and-play-preview-device-and-connect-it-to-your-iot-central-application"></a>자습서: 디바이스 기능 모델을 사용하여 IoT 플러그 앤 플레이(미리 보기) 디바이스를 만들고 및 IoT Central 애플리케이션에 연결
 
@@ -169,10 +169,10 @@ _DCM(디바이스 기능 모델)_ 은 [IoT 플러그 앤 플레이(미리 보기
     cmake .. -G "Visual Studio 14 2015" -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON -DCMAKE_TOOLCHAIN_FILE="<directory of your Vcpkg repo>\scripts\buildsystems\vcpkg.cmake"
     ```
 
-1. 빌드가 성공적으로 완료되면 동일한 명령 프롬프트에서 애플리케이션을 실행합니다. `<scopeid>`, `<primarykey>`를 이전에 적어 둔 값으로 바꿉니다.
+1. 빌드가 성공적으로 완료되면 동일한 명령 프롬프트에서 애플리케이션을 실행합니다. `<scopeid>`, `<devicekey>`를 이전에 적어 둔 값으로 바꿉니다.
 
     ```cmd
-    .\Release\devkit_device.exe mxchip-001 <scopeid> <primarykey>
+    .\Release\devkit_device.exe mxchip-001 <scopeid> <devicekey>
     ```
 
 1. 디바이스 애플리케이션이 IoT Hub로 데이터를 보내기 시작합니다. 이전 명령을 처음 실행할 때 `Error registering device for DPS` 오류가 표시되는 경우도 있습니다. 이 오류가 표시되면 명령을 다시 시도합니다.

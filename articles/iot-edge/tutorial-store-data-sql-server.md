@@ -9,12 +9,12 @@ ms.date: 03/28/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 44d1c6e5b119ae0639398c8be69ab7fb0d50fcf4
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 3d1b5ea9a9f78bc8a83159a34026d58d7a8cc89b
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76772207"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944265"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>자습서: SQL Server 데이터베이스로 에지에 데이터 저장
 
@@ -48,7 +48,7 @@ Azure IoT Edge 및 SQL Server를 사용하여 에지에 데이터를 저장하�
 
 이 자습서에서는 SQL Server에 데이터를 보내도록 Azure Functions 모듈을 사용합니다. Azure Functions를 사용하여 IoT Edge 모듈을 개발하려면 다음과 같은 추가 필수 구성 요소를 개발 머신에 설치합니다.
 
-* Visual Studio Code에 대한 [C# for Visual Studio Code(OmniSharp 제공) 확장](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
+* Visual Studio Code에 대한 [C# for Visual Studio Code(OmniSharp 제공) 확장](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
 * [.NET Core 2.1 SDK](https://www.microsoft.com/net/download).
 
 ## <a name="create-a-function-project"></a>함수 프로젝트 만들기

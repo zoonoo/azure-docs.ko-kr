@@ -4,12 +4,12 @@ description: 이 자습서에서는 기본 이미지가 동일한 레지스트�
 ms.topic: tutorial
 ms.date: 01/22/2020
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 3870bc70e9d18a3c1c854055cb0c27018554a556
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 4797dd1f1fe19b98ab94c4743ad4af3c43ce0627
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78249972"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78402863"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>자습서: Azure Container Registry에서 기본 이미지가 업데이트될 때 컨테이너 이미지 빌드 자동화 
 
@@ -99,7 +99,7 @@ az acr task create \
 
 이 작업은 [이전 자습서](container-registry-tutorial-build-task.md)에서 만든 작업과 비슷합니다. 커밋이 `--context`에 지정된 리포지토리에 푸시될 때 ACR 작업에서 이미지 빌드를 트리거하도록 지시합니다. 이전 자습서에서 이미지를 빌드하는 데 사용된 Dockerfile은 공용 기본 이미지(`FROM node:9-alpine`)를 지정하지만 이 작업의 Dockerfile([dockerfile-app][dockerfile-app])은 동일한 레지스트리의 기본 이미지를 지정합니다.
 
-```Dockerfile
+```dockerfile
 FROM ${REGISTRY_NAME}/baseimages/node:9-alpine
 ```
 
@@ -151,9 +151,7 @@ az acr task list-runs --registry $ACR_NAME --output table
 
 이전 자습서를 완료했으면(레지스트리를 삭제하지 않은 경우) 다음과 비슷한 출력이 표시됩니다. 다음 섹션에서 기본 이미지를 업데이트한 후 출력을 비교할 수 있도록 작업 실행 횟수와 최신 RUN ID를 적어 둡니다.
 
-```console
-$ az acr task list-runs --registry $ACR_NAME --output table
-
+```output
 RUN ID    TASK            PLATFORM    STATUS     TRIGGER     STARTED               DURATION
 --------  --------------  ----------  ---------  ----------  --------------------  ----------
 da6       taskhelloworld  Linux       Succeeded  Manual      2018-09-17T23:07:22Z  00:00:38
@@ -168,7 +166,7 @@ da1                       Linux       Succeeded  Manual      2018-09-17T22:29:59
 
 여기서는 기본 이미지의 프레임워크 패치를 시뮬레이션합니다. **Dockerfile-base**를 편집하고, `NODE_VERSION`에 정의된 버전 번호 뒤에 "a"를 추가합니다.
 
-```Dockerfile
+```dockerfile
 ENV NODE_VERSION 9.11.2a
 ```
 
@@ -190,9 +188,7 @@ az acr task list-runs --registry $ACR_NAME --output table
 
 출력은 다음과 유사합니다. 마지막으로 실행된 빌드에 대한 TRIGGER는 기본 이미지의 빠른 작업에서 작업을 시작했음을 나타내는 "Image Update"(이미지 업데이트)여야 합니다.
 
-```console
-$ az acr task list-runs --registry $ACR_NAME --output table
-
+```output
 Run ID    TASK            PLATFORM    STATUS     TRIGGER       STARTED               DURATION
 --------  --------------  ----------  ---------  ------------  --------------------  ----------
 da8       taskhelloworld  Linux       Succeeded  Image Update  2018-09-17T23:11:50Z  00:00:33

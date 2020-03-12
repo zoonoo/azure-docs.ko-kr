@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: tutorial
-ms.date: 12/19/2019
+ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: 1d1f71ed56138f2c799c7410508c0bc4899e7887
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1b486aaf0ce33e31433c2c3d0f7a1ff2c7089132
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448845"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78402655"
 ---
 # <a name="tutorial-visualize-anomalies-using-batch-detection-and-power-bi"></a>자습서: 일괄 처리 검색 및 Power BI를 사용하여 변칙 시각화
 
@@ -29,13 +29,13 @@ ms.locfileid: "75448845"
 > * 예상 값, 표시 값 및 변칙 검색 경계를 포함하여 데이터 내에서 검색된 변칙 시각화
 
 ## <a name="prerequisites"></a>사전 요구 사항
-
+* [Azure 구독](https://azure.microsoft.com/free/)
 * [Microsoft Power BI Desktop](https://powerbi.microsoft.com/get-started/)(평가판으로 사용 가능)
 * 시계열 데이터 요소가 포함된 Excel 파일(.xlsx). 이 빠른 시작의 예제 데이터는 [GitHub](https://go.microsoft.com/fwlink/?linkid=2090962)에서 찾을 수 있습니다.
+* Azure 구독을 보유한 후에는 Azure Portal에서 <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Text Analytics 리소스를 만들어"  target="_blank">Text Analytics 리소스를 만들어<span class="docon docon-navigate-external x-hidden-focus"></span></a> 키와 엔드포인트를 가져옵니다. 
+    * 애플리케이션을 Text Analytics API에 연결하려면 만든 리소스의 키와 엔드포인트가 필요합니다. 이 작업은 나중에 빠른 시작에서 수행합니다.
 
 [!INCLUDE [cognitive-services-anomaly-detector-data-requirements](../../../../includes/cognitive-services-anomaly-detector-data-requirements.md)]
-
-[!INCLUDE [cognitive-services-anomaly-detector-signup-requirements](../../../../includes/cognitive-services-anomaly-detector-signup-requirements.md)]
 
 ## <a name="load-and-format-the-time-series-data"></a>시계열 데이터 로드 및 형식 지정
 

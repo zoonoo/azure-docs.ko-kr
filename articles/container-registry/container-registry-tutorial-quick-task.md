@@ -4,12 +4,12 @@ description: 이 자습서에서는 ACR 작업(Azure Container Registry 작업)�
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 51891d7b17fad7e438cc31652b6a0769d024e8e0
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 82b539ba8f275755ee31a00c2127a0dba7c38d9f
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78252105"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78398505"
 ---
 # <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>자습서: Azure Container Registry 작업을 사용하여 클라우드에 컨테이너 이미지 빌드 및 배포
 
@@ -36,7 +36,7 @@ Azure CLI를 로컬로 사용하려면 Azure CLI 버전 **2.0.46** 이상이 설
 
 ### <a name="github-account"></a>GitHub 계정
 
-아직 계정이 없는 경우 https://github.com 에서 계정을 만듭니다. 이 자습서 시리즈에서는 GitHub 리포지토리를 사용하여 ACR 작업에서 자동화된 이미지 빌드를 보여 줍니다.
+아직 계정이 없는 경우  https://github.com 에서 계정을 만듭니다. 이 자습서 시리즈에서는 GitHub 리포지토리를 사용하여 ACR 작업에서 자동화된 이미지 빌드를 보여 줍니다.
 
 ### <a name="fork-sample-repository"></a>샘플 리포지토리 포크
 
@@ -95,8 +95,7 @@ az acr build --registry $ACR_NAME --image helloacrtasks:v1 .
 
 [az acr build][az-acr-build] 명령의 출력은 다음과 비슷합니다. Azure에 대한 소스 코드("context") 업로드 및 ACR 작업이 클라우드에서 실행하는 `docker build` 작업의 세부 정보를 확인할 수 있습니다. ACR 작업에서 `docker build`를 사용하여 이미지를 빌드하므로 ACR 작업을 즉시 사용하기 위해 Dockerfile을 변경할 필요가 없습니다.
 
-```console
-$ az acr build --registry $ACR_NAME --image helloacrtasks:v1 .
+```output
 Packing source code into tar file to upload...
 Sending build context (4.813 KiB) to ACR...
 Queued a build with build ID: da1
@@ -244,17 +243,7 @@ az container create \
 
 `--dns-name-label` 값은 Azure 내에서 고유해야 하므로, 이전 명령은 컨테이너 레지스트리의 이름을 컨테이너의 DNS 이름 레이블에 추가합니다. 명령의 출력에는 컨테이너의 FQDN(정규화된 도메인 이름)이 표시됩니다. 예를 들면 다음과 같습니다.
 
-```console
-$ az container create \
->     --resource-group $RES_GROUP \
->     --name acr-tasks \
->     --image $ACR_NAME.azurecr.io/helloacrtasks:v1 \
->     --registry-login-server $ACR_NAME.azurecr.io \
->     --registry-username $(az keyvault secret show --vault-name $AKV_NAME --name $ACR_NAME-pull-usr --query value -o tsv) \
->     --registry-password $(az keyvault secret show --vault-name $AKV_NAME --name $ACR_NAME-pull-pwd --query value -o tsv) \
->     --dns-name-label acr-tasks-$ACR_NAME \
->     --query "{FQDN:ipAddress.fqdn}" \
->     --output table
+```output
 FQDN
 ----------------------------------------------
 acr-tasks-myregistry.eastus.azurecontainer.io
@@ -272,8 +261,7 @@ az container attach --resource-group $RES_GROUP --name acr-tasks
 
 `az container attach` 출력은 먼저 이미지를 가져와서 시작할 때 컨테이너의 상태를 표시한 다음, 로컬 콘솔의 STDOUT 및 STDERR을 컨테이너의 STDOUT 및 STDERR에 바인딩합니다.
 
-```console
-$ az container attach --resource-group $RES_GROUP --name acr-tasks
+```output
 Container 'acr-tasks' is in state 'Running'...
 (count: 1) (last timestamp: 2018-08-22 18:39:10+00:00) pulling image "myregistry.azurecr.io/helloacrtasks:v1"
 (count: 1) (last timestamp: 2018-08-22 18:39:15+00:00) Successfully pulled image "myregistry.azurecr.io/helloacrtasks:v1"

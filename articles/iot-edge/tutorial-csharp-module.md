@@ -9,12 +9,12 @@ ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: c13d6ed773b582e1ca59ec31de9101fa1541dcb5
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 53e1863f6f3421a6d8df9112f463f16443cff93e
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759963"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943053"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-linux-devices"></a>자습서: Linux 디바이스용 C# IoT Edge 모듈 개발
 
@@ -59,7 +59,7 @@ Visual Studio Code를 사용하여 C# 코드를 개발하고 Azure IoT Edge를 �
 
 이러한 자습서를 완료하려면 개발 컴퓨터에서 다음 추가 필수 구성 요소를 준비하세요.
 
-* [C# for Visual Studio Code(OmniSharp 제공) 확장](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
+* [C# for Visual Studio Code(OmniSharp 제공) 확장](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
 * [.NET Core 2.1 SDK](https://www.microsoft.com/net/download).
 
 ## <a name="create-a-module-project"></a>모듈 프로젝트 만들기

@@ -5,12 +5,12 @@ author: msangapu-msft
 ms.author: msangapu
 ms.topic: tutorial
 ms.date: 2/28/2020
-ms.openlocfilehash: c4aee7c7e78c6799874194697fb3bc9c4aa33b38
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.openlocfilehash: d543a9364311b2cf5f0258fbf9185d27bb1bfb2f
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78227983"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399522"
 ---
 # <a name="tutorial-troubleshoot-an-app-service-app-with-azure-monitor"></a>자습서: Azure Monitor를 사용하여 App Service 앱 문제 해결
 
@@ -127,7 +127,7 @@ ImageConverter 샘플 앱은 포함된 이미지를 `JPG`에서 `PNG`로 변환�
 
 Log Analytics 작업 영역에서 사용할 수 있는 로그를 확인해 보겠습니다. 
 
-이 [Log Analytics 작업 영역 링크](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.OperationalInsights%2Fworkspaces)를 클릭하여 Azure Portal의 작업 영역에 액세스합니다.
+이 [Log Analytics 작업 영역 링크](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.OperationalInsights%2Fworkspaces)를 클릭하여 Azure Portal의 작업 영역에 액세스합니다.
 
 Azure Portal에서 Log Analytics 작업 영역을 선택합니다.
 

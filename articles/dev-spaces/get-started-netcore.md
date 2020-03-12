@@ -5,12 +5,12 @@ ms.date: 09/26/2018
 ms.topic: tutorial
 description: 이 자습서에서는 Azure Dev Spaces 및 Visual Studio Code를 사용하여 Azure Kubernetes Service에서 .NET Core 애플리케이션을 디버깅하고 신속하게 반복하는 방법을 보여줍니다.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s
-ms.openlocfilehash: e23685d410b2d663efde8c530be01adaab637bf8
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 306e1c7a43ddd10faa0a537d567257fe95336c23
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78252435"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942501"
 ---
 # <a name="create-a-kubernetes-dev-space-visual-studio-code-and-net-core-with-azure-dev-spaces"></a>Kubernetes 개발 공간 만들기: Azure Dev Spaces가 포함된 Visual Studio Code 및 .NET Core
 
@@ -81,7 +81,7 @@ AKS 클러스터를 포함하는 리소스 그룹을 사용하여 다음 Azure C
 Kubernetes 디버깅과 같은 다양한 기능은 VS Code를 사용하는 .NET Core 및 Node.js 개발자가 사용할 수 있습니다.
 
 1. [VS Code](https://code.visualstudio.com/Download)가 없으면 이를 설치합니다.
-1. [VS Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) 및 [C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) 확장을 다운로드하여 설치합니다. 각 확장에 대해 확장의 Marketplace 페이지에서 설치를 클릭하고 VS Code에서 다시 설치를 클릭합니다.
+1. [VS Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) 및 [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) 확장을 다운로드하여 설치합니다. 각 확장에 대해 확장의 Marketplace 페이지에서 설치를 클릭하고 VS Code에서 다시 설치를 클릭합니다.
 
 ## <a name="create-a-web-app-running-in-a-container"></a>컨테이너에서 실행되는 웹앱 만들기
 

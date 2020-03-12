@@ -1,14 +1,16 @@
 ---
 title: '빠른 시작: cURL 및 REST를 사용하여 기술 자료 관리 - QnA Maker'
 description: 이 빠른 시작에서는 REST API를 사용하여 기술 자료를 만들고, 게시하고, 쿼리하는 방법을 보여 줍니다.
+ms.date: 02/27/2020
+ROBOTS: NOINDEX,NOFOLLOW
+ms.custom: RESTCURL2020FEB27
 ms.topic: quickstart
-ms.date: 12/16/2019
-ms.openlocfilehash: d2542a0307387cef1c96ecfb426a8e7c01621ee2
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.openlocfilehash: 00ec52fe20fb0e6a976f3e7142386e835713c98c
+ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78165392"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78851196"
 ---
 # <a name="quickstart-use-curl-and-rest-to-manage-knowledge-base"></a>빠른 시작: cURL 및 REST를 사용하여 기술 자료 관리
 

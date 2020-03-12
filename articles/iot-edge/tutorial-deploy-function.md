@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: e490f9a5b6801ed86ca7d594dfd6069a380d5fe5
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 1f4b3387375b52b28600590a099884277f3de63e
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76772280"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943024"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>자습서: IoT Edge 모듈로 Azure 함수 배포
 
@@ -51,7 +51,7 @@ ms.locfileid: "76772280"
 
 Azure Functions를 사용하여 IoT Edge 모듈을 개발하려면 다음과 같은 추가 필수 구성 요소를 개발 머신에 설치합니다.
 
-* [C# for Visual Studio Code(OmniSharp 제공) 확장](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
+* [C# for Visual Studio Code(OmniSharp 제공) 확장](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
 * [.NET Core 2.1 SDK](https://www.microsoft.com/net/download).
 
 ## <a name="create-a-function-project"></a>함수 프로젝트 만들기

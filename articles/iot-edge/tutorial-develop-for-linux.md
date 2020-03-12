@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 38ffd4931f318b15f1ac06fcfd742bde8e5c6838
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 4a127c8c77f97708729cf91d6ced214e98924fb6
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76772961"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943021"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-linux-devices"></a>자습서: Linux 디바이스를 위한 IoT Edge 모듈 개발
 
@@ -65,7 +65,7 @@ IoT Edge 모듈을 개발할 때 개발 머신과 모듈을 결과적으로 배�
   * 개발 머신에서 중첩된 가상화를 지원하는지 확인합니다. 이 기능은 다음 섹션에서 설치하는 컨테이너 엔진을 실행하는 데 필요합니다.
 * 컨테이너 엔진을 실행할 수 있는 대부분의 운영 체제에서 Linux 디바이스용 IoT Edge 모듈을 개발할 수 있습니다. 이 자습서에서는 Windows 머신을 사용하지만 MacOS 또는 Linux에서 알려진 차이점을 설명합니다.
 * 이 자습서의 뒷부분에 나오는 모듈 템플릿 패키지를 끌어오려면 [Git](https://git-scm.com/)을 설치하세요.  
-* [C# for Visual Studio Code(OmniSharp 제공) 확장](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
+* [C# for Visual Studio Code(OmniSharp 제공) 확장](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
 * [.NET Core 2.1 SDK](https://www.microsoft.com/net/download).
 
 Linux의 Azure IoT Edge 디바이스:

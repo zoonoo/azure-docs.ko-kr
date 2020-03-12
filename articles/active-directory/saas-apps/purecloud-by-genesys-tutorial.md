@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 779328f4c21afb4392663e6f8840749ea505c529
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: dac8e0f2e10906f2cc56ecf86e0cc70947cb7e85
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73242431"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78897778"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-purecloud-by-genesys"></a>자습서: PureCloud by Genesys와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -33,7 +33,7 @@ ms.locfileid: "73242431"
 
 Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -123,9 +123,9 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 또한 다음 표와 같이 PureCloud by Genesys 애플리케이션에는 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. 이러한 특성도 미리 채워져 있지만 요구 사항에 따라 검토할 수 있습니다.
 
-    | Name | 원본 특성|
+    | 속성 | 원본 특성|
     | ---------------| --------------- |
-    | Email | user.userprinicipalname |
+    | Email | user.userprincipalname |
     | OrganizationName | `Your organization name` |
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 찾은 후 **다운로드**를 선택하여 인증서를 다운로드하고 본인의 컴퓨터에 저장합니다.
@@ -172,11 +172,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 맨 위에서 **관리자**를 선택한 다음, **통합** 아래에 있는 **Single Sign-On**으로 이동합니다.
 
-    ![Configure Single Sign-On](./media/purecloud-by-genesys-tutorial/configure01.png)
+    ![Single Sign-on 구성](./media/purecloud-by-genesys-tutorial/configure01.png)
 
 1. **ADFS/Azure AD(Premium)** 탭으로 전환한 다음, 다음 단계를 수행합니다.
 
-    ![Configure Single Sign-On](./media/purecloud-by-genesys-tutorial/configure02.png)
+    ![Single Sign-on 구성](./media/purecloud-by-genesys-tutorial/configure02.png)
 
     a. **찾아보기**를 선택하여 Azure Portal에서 다운로드한 base-64 인코딩 인증서를 **ADFS 인증서**에 업로드합니다.
 
@@ -186,7 +186,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     d. **신뢰 당사자 식별자** 값의 경우, Azure Portal로 이동한 다음, **PureCloud by Genesys** 애플리케이션 통합 페이지에서 **속성** 탭을 선택하고 **애플리케이션 ID** 값을 복사합니다. 이것을 **신뢰 당사자 식별자** 상자에 붙여넣습니다.
 
-    ![Configure Single Sign-On](./media/purecloud-by-genesys-tutorial/configure06.png)
+    ![Single Sign-on 구성](./media/purecloud-by-genesys-tutorial/configure06.png)
 
     e. **저장**을 선택합니다.
 
@@ -200,17 +200,17 @@ Azure AD 사용자가 PureCloud by Genesys에 로그인할 수 있도록 하려�
 
 1. 맨 위에서 **관리자**를 선택하고 **사용자 및 사용 권한** 아래에 있는 **사용자**로 이동합니다.
 
-    ![Configure Single Sign-On](./media/purecloud-by-genesys-tutorial/configure03.png)
+    ![Single Sign-on 구성](./media/purecloud-by-genesys-tutorial/configure03.png)
 
 1. **사용자** 페이지에서 **사람 추가**를 선택합니다.
 
-    ![Configure Single Sign-On](./media/purecloud-by-genesys-tutorial/configure04.png)
+    ![Single Sign-on 구성](./media/purecloud-by-genesys-tutorial/configure04.png)
 
 1. **조직에 사람 추가** 대화 상자에서 다음 단계를 수행합니다.
 
-    ![Configure Single Sign-On](./media/purecloud-by-genesys-tutorial/configure05.png)
+    ![Single Sign-on 구성](./media/purecloud-by-genesys-tutorial/configure05.png)
 
-    a. **전체 이름** 상자에서 사용자의 이름을 입력합니다. 예:  **B.simon**.
+    a. **전체 이름** 상자에서 사용자의 이름을 입력합니다. 다음은 그 예입니다.  **B.simon**.
 
     b. **이메일** 상자에서 사용자의 이메일을 입력합니다. 예: **b.simon\@contoso.com**.
 

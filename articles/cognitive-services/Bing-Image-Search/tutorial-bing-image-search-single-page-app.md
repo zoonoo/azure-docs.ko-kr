@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: tutorial
-ms.date: 12/18/2019
+ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: decfeb9c46c32c6388228de6597db0c840354c19
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9227417d28eb09a322dd4757033ee62fee97d91c
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448578"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943897"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-image-search-api"></a>자습서: Bing Image Search API를 사용하여 단일 페이지 앱 만들기
 

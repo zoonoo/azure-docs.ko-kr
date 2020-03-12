@@ -4,12 +4,12 @@ description: Azure 컨테이너 인스턴스 만들기를 자동화하는 HTTP �
 ms.topic: tutorial
 ms.date: 09/20/2019
 ms.custom: ''
-ms.openlocfilehash: 51146886e3f52cb6a60d49da0d57aea1e2c55106
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 9dbb22a2449e4c41bff802ab827da4489fc7ffeb
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78196538"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78331028"
 ---
 # <a name="tutorial-use-an-http-triggered-azure-function-to-create-a-container-group"></a>자습서: HTTP 트리거 Azure 함수를 사용하여 컨테이너 그룹 만들기
 
@@ -42,7 +42,7 @@ Azure Functions를 사용하여 OS에 Visual Studio Code를 설치하고 사용�
 
 ## <a name="enable-an-azure-managed-identity-in-the-function-app"></a>함수 앱에서 Azure 관리 ID 사용
 
-이제 함수 앱에서 시스템 할당 [관리 ID](../app-service/overview-managed-identity.md?toc=/azure/azure-functions/toc.json#adding-a-system-assigned-identity)를 사용하도록 설정합니다. 앱을 실행하는 PowerShell 호스트는 이 ID를 사용하여 자동으로 인증할 수 있으며, 함수는 ID에 액세스 권한이 부여된 Azure 서비스에 대한 작업을 수행할 수 있습니다. 이 자습서에서는 함수 앱의 리소스 그룹에 리소스를 만들 수 있는 권한을 관리 ID에 부여합니다. 
+이제 함수 앱에서 시스템 할당 [관리 ID](../app-service/overview-managed-identity.md?toc=/azure/azure-functions/toc.json#add-a-system-assigned-identity)를 사용하도록 설정합니다. 앱을 실행하는 PowerShell 호스트는 이 ID를 사용하여 자동으로 인증할 수 있으며, 함수는 ID에 액세스 권한이 부여된 Azure 서비스에 대한 작업을 수행할 수 있습니다. 이 자습서에서는 함수 앱의 리소스 그룹에 리소스를 만들 수 있는 권한을 관리 ID에 부여합니다. 
 
 먼저 [az group show][az-group-show] 명령을 사용하여 함수 앱의 리소스 그룹 ID를 가져와서 환경 변수에 저장합니다. 이 예제에서는 Bash 셸에서 명령을 실행한다고 가정합니다.
 
