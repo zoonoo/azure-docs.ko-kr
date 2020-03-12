@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 340ea35bc3ed0c889a1a851da47f7e955116e103
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 056dac7977115f97892d8dbfde0710e00237804e
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084459"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78674335"
 ---
 # <a name="tutorial-use-the-azure-cli-to-configure-iot-hub-message-routing"></a>자습서: Azure CLI를 사용하여 IoT Hub 메시지 라우팅 구성
 
@@ -55,7 +55,7 @@ randomValue=$RANDOM
 # This command installs the IOT Extension for Azure CLI.
 # You only need to install this the first time.
 # You need it to create the device identity. 
-az extension add --name azure-cli-iot-ext
+az extension add --name azure-iot
 
 # Set the values for the resource names that 
 #   don't have to be globally unique.
@@ -302,7 +302,7 @@ az iot hub route create --name $routeName \
 
 ## <a name="next-steps"></a>다음 단계
 
-리소스가 설정되고 메시지 경로가 구성되었으면, 다음 자습서로 진행하여 IoT 허브에 메시지를 보내서, 다른 대상으로 라우팅되는 것을 확인하는 방법을 살펴보세요. 
+리소스가 설정되고 메시지 경로가 구성되었으면 다음 자습서로 진행하여, IoT 허브에 메시지를 보낸 후 다른 대상으로 라우팅되는 과정을 확인하는 방법을 살펴보세요. 
 
 > [!div class="nextstepaction"]
 > [2부 - 메시지 라우팅 결과 보기](tutorial-routing-view-message-routing-results.md)

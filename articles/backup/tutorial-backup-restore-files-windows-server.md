@@ -4,12 +4,12 @@ description: 이 자습서에서는 MARS(Microsoft Azure Recovery Services Agent
 ms.topic: tutorial
 ms.date: 02/14/2018
 ms.custom: mvc
-ms.openlocfilehash: 5958f6574f8c559bae8f500b1cb555e96e007d0e
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: c9258b7f95337330e4f1de36e389f6b8f2276976
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74171813"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672955"
 ---
 # <a name="recover-files-from-azure-to-a-windows-server"></a>Azure에서 Windows Server로 파일 복구
 
@@ -21,7 +21,7 @@ Azure Backup을 사용하면 Windows Server의 백업에서 개별 항목을 복
 > * 복구 지점 선택
 > * 복구 지점에서 항목 복원
 
-이 자습서에서는 [Windows Server를 Azure에 백업](backup-configure-vault.md)하는 단계를 이미 수행했으며 Azure에 Windows Server 파일의 백업이 하나 이상 있다고 가정합니다.
+이 자습서에서는 [Windows Server를 Azure에 백업](backup-windows-with-mars-agent.md)하는 단계를 이미 수행했으며 Azure에 Windows Server 파일의 백업이 하나 이상 있다고 가정합니다.
 
 ## <a name="initiate-recovery-of-individual-items"></a>개별 항목의 복구 시작
 
