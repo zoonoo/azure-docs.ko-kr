@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 6ff12122d541a9dbb160a424e0d11cf03fdcb9fe
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 51fa6d4859eb4b7f059b499ba73d84d9fc65e6f6
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74970230"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78398984"
 ---
 # <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>자습서: 카메라 사진에서 Azure 서비스 로고 인식
 
@@ -30,7 +30,7 @@ ms.locfileid: "74970230"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - [Visual Studio 2017 이상](https://www.visualstudio.com/downloads/)
 - Visual Studio용 Xamarin 워크로드([Xamarin 설치](https://docs.microsoft.com/xamarin/cross-platform/get-started/installation/windows) 참조)
@@ -107,7 +107,7 @@ Azure 구독에 서비스를 배포하려면 앱에 Azure 서비스 주체 계�
 
 다음과 같이 Azure Cloud Shell 또는 Azure CLI를 사용하여 서비스 주체를 만들 수 있습니다. 시작하려면 로그인하고 사용할 구독을 선택합니다.
 
-```console
+```azurecli
 az login
 az account list
 az account set --subscription "<subscription name or subscription id>"
@@ -115,7 +115,7 @@ az account set --subscription "<subscription name or subscription id>"
 
 그런 다음, 서비스 주체를 만듭니다. (이 프로세스는 완료하는 데 다소 시간이 걸릴 수 있습니다.)
 
-```console
+```azurecli
 az ad sp create-for-rbac --name <servicePrincipalName> --password <yourSPStrongPassword>
 ```
 
