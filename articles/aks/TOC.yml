@@ -216,7 +216,7 @@
           href: api-server-authorized-ip-ranges.md
         - name: Azure Policy로 컨트롤 배포(미리 보기)
           href: ../governance/policy/concepts/rego-for-aks.md?toc=/azure/aks/toc.json
-        - name: 클러스터 서비스 주체 자격 증명 업데이트
+        - name: 클러스터 자격 증명 업데이트
           href: update-credentials.md
         - name: 클러스터 송신 트래픽 제한 및 제어
           href: limit-egress-traffic.md

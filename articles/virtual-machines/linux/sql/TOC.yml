@@ -10,6 +10,8 @@
   items:
     - name: STONITH를 사용하여 Azure RHEL VM 가용성 그룹 설정
       href: sql-server-linux-rhel-ha-stonith-tutorial.md
+    - name: Azure에서 RHEL 가상 머신의 SQL Server에 대한 가용성 그룹 수신기 구성
+      href: sql-server-linux-rhel-ha-listener-tutorial.md
 - name: 참조
   items:
     - name: Azure CLI
