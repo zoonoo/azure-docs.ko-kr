@@ -9,6 +9,8 @@
       href: generate-soil-moisture-map-in-azure-farmbeats.md
     - name: 기록 원격 분석 데이터 수집
       href: ingest-historical-telemetry-data-in-azure-farmbeats.md
+    - name: 수집된 원격 분석 데이터 쿼리
+      href: query-telemetry-data-from-azure-farmbeats.md
 - name: 개념
   items:
     - name: 통합 패턴
