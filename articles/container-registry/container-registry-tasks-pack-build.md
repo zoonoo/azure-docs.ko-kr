@@ -3,12 +3,12 @@ title: 클라우드 네이티브 Buildpack을 사용 하 여 이미지 빌드
 description: Az acr pack build 명령을 사용 하 여 앱에서 컨테이너 이미지를 빌드하고 Dockerfile을 사용 하지 않고 Azure Container Registry에 푸시합니다.
 ms.topic: article
 ms.date: 10/24/2019
-ms.openlocfilehash: 9cd1ae464213027cba3012c93c0ca3894c804750
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: c42bde6bbab5973094302a2d41f004d7600bdf9e
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456126"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79087073"
 ---
 # <a name="build-and-push-an-image-from-an-app-using-a-cloud-native-buildpack"></a>클라우드 네이티브 Buildpack을 사용 하 여 앱에서 이미지 빌드 및 푸시
 
@@ -30,7 +30,7 @@ Azure Cloud Shell 또는 Azure CLI의 로컬 설치를 사용 하 여이 문서�
 * 로컬 디렉터리, GitHub 리포지토리 또는 원격 tarball 같이 ACR 작업에 대해 [지원 되는 컨텍스트 위치](container-registry-tasks-overview.md#context-locations) 중 하나입니다.
 * 응용 프로그램에 적합 한 Buildpack builder 이미지의 이름입니다. Azure Container Registry는 더 빠른 빌드를 위해 `cloudfoundry/cnb:0.0.34-cflinuxfs3` 등의 작성기 이미지를 캐시 합니다.  
 
-`az acr pack build`은 스트리밍된 [실행 변수와](container-registry-tasks-reference-yaml.md#run-variables) 나중에 검색할 수 있도록 저장 되는 [태스크 실행 로그](container-registry-tasks-overview.md#view-task-logs) 를 비롯 하 여 ACR 작업 명령의 다른 기능을 지원 합니다.
+`az acr pack build`은 스트리밍된 [실행 변수와](container-registry-tasks-reference-yaml.md#run-variables) 나중에 검색할 수 있도록 저장 되는 [태스크 실행 로그](container-registry-tasks-logs.md) 를 비롯 하 여 ACR 작업 명령의 다른 기능을 지원 합니다.
 
 ## <a name="example-build-nodejs-image-with-cloud-foundry-builder"></a>예: Cloud Foundry builder를 사용 하 여 node.js 이미지 빌드
 

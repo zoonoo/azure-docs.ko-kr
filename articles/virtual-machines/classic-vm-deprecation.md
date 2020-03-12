@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 02/10/2020
 ms.author: tagore
-ms.openlocfilehash: 9f3fd59fa040ab46a5fc4ef8272a17cba4c631b8
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 764567bffd2a08ebb5beb17e3063998848b3f110
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77925775"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127342"
 ---
 # <a name="migrate-your-iaas-resources-to-azure-resource-manager-by-march-1-2023"></a>2023 년 3 월 1 일 Azure Resource Manager IaaS 리소스 마이그레이션 
 
@@ -23,7 +23,7 @@ ms.locfileid: "77925775"
 
 현재 IaaS Vm의 약 90%가 Azure Resource Manager를 사용 하 고 있습니다. ASM (Azure Service Manager)을 통해 IaaS 리소스를 사용 하는 경우 지금 마이그레이션 계획을 시작 하 고 2023 년 3 월 1 일까 지 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/)를 활용 하 여 완료 합니다.
 
-클래식 Vm은 사용 중단에 대 한 [최신 수명 주기 정책](https://support.microsoft.com/help/30881/modern-lifecycle-policy) 에 따라 수행 됩니다.
+클래식 Vm은 [최신 수명 주기 정책](https://support.microsoft.com/help/30881/modern-lifecycle-policy) 에 따라 만료 됩니다.
 
 ## <a name="how-does-this-affect-me"></a>이는 어떻게 영향을 미칩니까? 
 
@@ -31,7 +31,7 @@ ms.locfileid: "77925775"
 2) 2023 년 3 월 1 일부 터 고객은 더 이상 Azure Service Manager를 사용 하 여 IaaS Vm을 시작할 수 없으며 계속 실행 중이거나 할당 된이 중지 되 고 할당이 취소 됩니다. 
 2) 2023 년 3 월 1 일부 터 Azure Resource Manager로 마이그레이션되지 않은 구독은 남은 클래식 Vm을 삭제 하는 일정에 대 한 알림을 받습니다.  
 
-다음 Azure 서비스 및 기능은이 사용 중지에 영향을 **받지 않습니다** . 
+다음 Azure 서비스 및 기능은 이 사용 중지로 인해 영향을 받지 **않습니다**. 
 - Cloud Services 
 - 클래식 Vm에서 사용 **하지 않는** 저장소 계정 
 - Vnet (가상 네트워크)는 클래식 Vm에서 사용 **되지 않습니다** . 

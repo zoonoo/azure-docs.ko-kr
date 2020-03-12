@@ -5,14 +5,14 @@ services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
 ms.topic: article
-ms.date: 02/04/2020
+ms.date: 03/10/2020
 ms.author: lahugh
-ms.openlocfilehash: 6654506a1e53165ef0891ba0de32a7937c21c904
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.openlocfilehash: a71b7b7de6f6039106b43576847675f48de803c8
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78164817"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79088067"
 ---
 # <a name="h-series"></a>H 시리즈
 
@@ -40,6 +40,52 @@ Premium Storage 캐싱: 지원되지 않음
 <sup>1</sup> MPI 응용 프로그램의 경우 Fdr InfiniBand 네트워크를 통해 전용 RDMA 백 엔드 네트워크를 사용할 수 있습니다.
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
+
+
+## <a name="supported-os-images-linux"></a>지원 되는 OS 이미지 (Linux)
+ 
+Azure Marketplace에는 RDMA 연결을 지 원하는 다양 한 Linux 배포판이 있습니다.
+  
+* **CentOS 기반 HPC** -sr-iov를 사용 하도록 설정 되지 않은 vm의 경우 CentOS 기반 버전 6.5 hpc 이상 버전의 경우 최대 7.5가 적합 합니다. H 시리즈 Vm의 경우 7.1 ~ 7.5 버전을 권장 합니다. RDMA 드라이버 및 Intel MPI 5.1은 VM에 설치됩니다.
+  SR-IOV Vm의 경우 CentOS-HPC 7.6는 RDMA 드라이버와 다양 한 MPI 패키지가 설치 된 상태에서 최적화 및 미리 로드 됩니다.
+  다른 RHEL/CentOS VM 이미지에 대 한 InfiniBandLinux 확장을 추가 하 여 InfiniBand를 사용 하도록 설정 합니다. 이 Linux VM 확장은 RDMA 연결에 대 한 Mellanox OFED 드라이버 (SR-IOV Vm)를 설치 합니다. 다음 PowerShell cmdlet은 기존 RDMA 지원 VM에 InfiniBandDriverLinux 확장의 최신 버전 (버전 1.0)을 설치 합니다. RDMA 지원 VM 이름은 *Myvm* 으로 지정 되며 다음과 같이 *미국 서 부* 지역에 *myvm* 이라는 리소스 그룹에 배포 됩니다.
+
+  ```powershell
+  Set-AzVMExtension -ResourceGroupName "myResourceGroup" -Location "westus" -VMName "myVM" -ExtensionName "InfiniBandDriverLinux" -Publisher "Microsoft.HpcCompute" -Type "InfiniBandDriverLinux" -TypeHandlerVersion "1.0"
+  ```
+  또는 다음 JSON 요소를 사용 하 여 쉽게 배포할 수 있도록 VM 확장을 Azure Resource Manager 템플릿에 포함할 수 있습니다.
+  ```json
+  "properties":{
+  "publisher": "Microsoft.HpcCompute",
+  "type": "InfiniBandDriverLinux",
+  "typeHandlerVersion": "1.0",
+  } 
+  ```
+  
+  다음 명령은 *Myresourcegroup*이라는 리소스 그룹에 배포 된 *myvmss* 라는 기존 가상 머신 확장 집합의 모든 RDMA 지원 vm에 최신 버전 1.0 InfiniBandDriverLinux 확장을 설치 합니다.
+  ```powershell
+  $VMSS = Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myVMSS"
+  Add-AzVmssExtension -VirtualMachineScaleSet $VMSS -Name "InfiniBandDriverLinux" -Publisher "Microsoft.HpcCompute" -Type "InfiniBandDriverLinux" -TypeHandlerVersion "1.0"
+  Update-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "MyVMSS" -VirtualMachineScaleSet $VMSS
+  Update-AzVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "myVMSS" -InstanceId "*"
+  ```
+  
+  > [!NOTE]
+  > CentOS 기반 HPC 이미지에서 커널 업데이트는 **yum** 구성 파일에서 사용할 수 없습니다. 이는 Linux RDMA 드라이버가 RPM 패키지로 배포 되 고 커널이 업데이트 되는 경우 드라이버 업데이트가 작동 하지 않기 때문입니다.
+  >
+  
+
+* **SUSE Linux Enterprise Server** -hpc 용 SLES 12 sp3, HPC 용 SLES 12 Sp3 (프리미엄), HPC 용 SLES 12 sp1, HPC 용 SLES 12 Sp1 (premium), SLES 12 SP4 및 SLES 15. RDMA 드라이버가 설치되고 Intel MPI 패키지가 VM에 배포됩니다. 다음 명령을 실행하여 MPI를 설치합니다.
+
+  ```bash
+  sudo rpm -v -i --nodeps /opt/intelMPI/intel_mpi_packages/*.rpm
+  ```
+  
+* **Ubuntu** -ubuntu Server 16.04 lts, 18.04 lts Intel MPI를 다운로드하도록 VM에서 RDMA 드라이버를 구성하고 Intel에 등록:
+
+  [!INCLUDE [virtual-machines-common-ubuntu-rdma](../../includes/virtual-machines-common-ubuntu-rdma.md)]  
+
+  InfiniBand를 설정 하는 방법에 대 한 자세한 내용은 [InfiniBand 사용](/workloads/hpc/enable-infiniband.md)을 참조 하세요.
 
 ## <a name="other-sizes"></a>기타 크기
 

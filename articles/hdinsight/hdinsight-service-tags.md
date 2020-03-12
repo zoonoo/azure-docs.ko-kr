@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 12/05/2019
-ms.openlocfilehash: 24ecf90c2ffc88415afbf84f54af3efa7d5f4a39
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 03/10/2020
+ms.openlocfilehash: a72753d5553e79a8ed28c3afcc7e54af6c2d230c
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435401"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79117243"
 ---
 # <a name="network-security-group-nsg-service-tags-for-azure-hdinsight"></a>Azure HDInsight에 대 한 NSG (네트워크 보안 그룹) 서비스 태그
 
@@ -40,7 +40,7 @@ HDInsight 클러스터에서 서비스 태그 사용을 시작 하는 가장 쉬
 
 1. **원본 서비스 태그** 드롭다운 목록에서 **HDInsight**를 선택 합니다.
 
-    ![서비스 태그 추가 Azure Portal](./media/hdinisght-service-tags/azure-portal-add-service-tag.png)
+    ![서비스 태그 추가 Azure Portal](./media/hdinsight-service-tags/azure-portal-add-service-tag.png)
 
 이 태그에는 HDInsight를 사용할 수 있는 모든 지역에 대 한 상태 및 관리 서비스의 IP 주소가 포함 되어 있으며, 클러스터가 만들어진 위치에 상관 없이 클러스터가 필요한 상태 및 관리 서비스와 통신할 수 있도록 합니다.
 
@@ -64,7 +64,7 @@ HDInsight 클러스터에서 서비스 태그 사용을 시작 하는 가장 쉬
 | 미국 | 미국 중북부 | NorthCentralUS |
 | &nbsp; | 미국 서부 2 | WestUS2 |
 | &nbsp; | 미국 중서부 | WestCentralUS |
-| 캐나다 | 캐나다 동부 | CanadaEast |
+| Canada | 캐나다 동부 | CanadaEast |
 | 브라질 | 브라질 남부 | BrazilSouth |
 | 한국 | 한국 중부 | KoreaCentral |
 | &nbsp; | 한국 남부 | KoreaSouth |
@@ -76,6 +76,7 @@ HDInsight 클러스터에서 서비스 태그 사용을 시작 하는 가장 쉬
 | Azure Government | USDoD Central   | USDoDCentral |
 | &nbsp; | USGov 텍사스 | HDInsight. USGovTexas |
 | &nbsp; | UsDoD 동부 | HDInsight. USDoDEast |
+| &nbsp; | USGov 애리조나 | USGovArizona |
 
 ### <a name="use-multiple-regional-service-tags"></a>여러 지역 서비스 태그 사용
 

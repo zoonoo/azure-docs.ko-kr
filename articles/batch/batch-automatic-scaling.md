@@ -14,12 +14,12 @@ ms.workload: multiple
 ms.date: 10/24/2019
 ms.author: labrenne
 ms.custom: H1Hack27Feb2017,fasttrack-edit
-ms.openlocfilehash: 9f4831fd60038a2265990c0774106a5ea2f98a5a
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: f3edbc4fc48abd9c7df92aedcdea50dd77a0fd4b
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78672058"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79086275"
 ---
 # <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Batch 풀에서 계산 노드의 크기를 조정 하기 위한 자동 수식 만들기
 
@@ -128,7 +128,7 @@ $NodeDeallocationOption = taskcompletion;
 | $NetworkInBytes |인바운드 바이트 수. |
 | $NetworkOutBytes |아웃바운드 바이트 수. |
 | $SampleNodeCount |컴퓨팅 노드 수. |
-| $ActiveTasks |실행할 준비가 되었지만 아직 실행되지 않은 작업 수입니다. $ActiveTasks 수에는 활성 상태에 있고 종속성이 충족된 작업이 모두 포함됩니다. 활성 상태이지만 종속성이 충족되지 않은 작업은 모두 $ActiveTasks 수에서 제외됩니다.|
+| $ActiveTasks |실행할 준비가 되었지만 아직 실행되지 않은 작업 수입니다. $ActiveTasks 수에는 활성 상태에 있고 종속성이 충족된 작업이 모두 포함됩니다. 활성 상태이지만 종속성이 충족되지 않은 작업은 모두 $ActiveTasks 수에서 제외됩니다. 다중 인스턴스 태스크의 경우 작업에 설정 된 인스턴스 수를 포함 $ActiveTasks 합니다.|
 | $RunningTasks |실행 중 상태인 태스크 수. |
 | $PendingTasks |$ActiveTasks 및 $RunningTasks의 합입니다. |
 | $SucceededTasks |성공적으로 완료된 태스크 수. |

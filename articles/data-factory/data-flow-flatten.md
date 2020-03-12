@@ -7,12 +7,12 @@ ms.review: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: 9b09771f51c8b7e6762dac23cc7390d75f47a387
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
-ms.translationtype: HT
+ms.openlocfilehash: 74f6df1fbc749a5ec015afb954ca6b12cbe0f18f
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78969096"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79086966"
 ---
 # <a name="flatten-transformation-in-mapping-data-flow"></a>데이터 흐름 매핑의 결합 변환
 
@@ -43,23 +43,23 @@ ms.locfileid: "78969096"
 평면화 변환의 아래 예제에 대해서는 다음 JSON 개체를 참조 하세요.
 
 ``` json
-{
+[{
   "name":"MSFT","location":"Redmond", "satellites": ["Bay Area", "Shanghai"],
   "goods": {
     "trade":true, "customers":["government", "distributer", "retail"],
     "orders":[
         {"orderId":1,"orderTotal":123.34,"shipped":{"orderItems":[{"itemName":"Laptop","itemQty":20},{"itemName":"Charger","itemQty":2}]}},
         {"orderId":2,"orderTotal":323.34,"shipped":{"orderItems":[{"itemName":"Mice","itemQty":2},{"itemName":"Keyboard","itemQty":1}]}}
-    ]}}
+    ]}},
 {"name":"Company1","location":"Seattle", "satellites": ["New York"],
   "goods":{"trade":false, "customers":["store1", "store2"],
   "orders":[
       {"orderId":4,"orderTotal":123.34,"shipped":{"orderItems":[{"itemName":"Laptop","itemQty":20},{"itemName":"Charger","itemQty":3}]}},
       {"orderId":5,"orderTotal":343.24,"shipped":{"orderItems":[{"itemName":"Chair","itemQty":4},{"itemName":"Lamp","itemQty":2}]}}
-    ]}}
+    ]}},
 {"name": "Company2", "location": "Bellevue",
-  "goods": {"trade": true, "customers":["Bank"], "orders": [{"orderId": 4, "orderTotal": 123.34}]}}
-{"name": "Company3", "location": "Kirkland"}
+  "goods": {"trade": true, "customers":["Bank"], "orders": [{"orderId": 4, "orderTotal": 123.34}]}},
+{"name": "Company3", "location": "Kirkland"}]
 ```
 
 ### <a name="no-unroll-root-with-string-array"></a>문자열 배열이 있는 언 롤 root 없음

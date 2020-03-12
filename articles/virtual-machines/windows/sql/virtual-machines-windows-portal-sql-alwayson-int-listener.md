@@ -15,11 +15,11 @@ ms.date: 02/16/2017
 ms.author: mikeray
 ms.custom: seo-lt-2019
 ms.openlocfilehash: aefd7a55090da7f55404d6f551ab61268582ff5a
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039659"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096327"
 ---
 # <a name="configure-a-load-balancer-for-an-availability-group-on-azure-sql-server-vms"></a>Azure SQL Server Vm에서 가용성 그룹에 대 한 부하 분산 장치 구성
 이 문서에서는 Azure Resource Manager로 실행 중인 Azure Virtual Machines에서 SQL Server Always On 가용성 그룹에 대한 부하 분산 장치를 만드는 방법을 설명합니다. SQL Server 인스턴스가 Azure 가상 머신에 있는 경우 가용성 그룹을 사용하려면 부하 분산 장치가 필요합니다. 부하 분산 장치는 가용성 그룹 수신기의 IP 주소를 저장합니다. 가용성 그룹이 여러 지역에 분산된 경우 각 지역에 부하 분산 장치가 있어야 합니다.
@@ -165,7 +165,7 @@ Azure는 프로브를 만든 후 가용성 그룹에 대한 수신기가 있는 
 
 1. 장애 조치(failover) 클러스터에서 가용성 그룹 수신기 만들기 
 
-2. 수신기를 온라인 상태로 만들기
+2. 수신기를 온라인 상태로 전환합니다.
 
 ### <a name="step-5-create-the-availability-group-listener-on-the-failover-cluster"></a>5단계: 장애 조치(failover) 클러스터에서 가용성 그룹 수신기 만들기
 이 단계에서는 장애 조치(Failover) 클러스터 관리자와 SQL Server Management Studio에서 가용성 그룹 수신기를 수동으로 만듭니다.
@@ -244,9 +244,9 @@ Azure Portal을 사용하여 부하 분산 장치에 IP 주소를 추가하려�
     |**백 엔드 포트** |**포트**와 동일한 값을 사용합니다.
     |**백 엔드 풀** |SQL Server 인스턴스가 포함된 가상 머신을 포함하는 풀입니다. 
     |**상태 프로브** |만든 프로브를 선택합니다.
-    |**세션 지속성** |없음
+    |**세션 지속성** |None
     |**유휴 제한 시간(분)** |기본값(4)
-    |**부동 IP(Direct Server Return)** | Enabled
+    |**부동 IP(Direct Server Return)** | 사용
 
 ### <a name="configure-the-availability-group-to-use-the-new-ip-address"></a>새 IP 주소를 사용하도록 가용성 그룹 구성
 
@@ -293,9 +293,9 @@ Azure Portal을 사용하여 부하 분산 장치에 IP 주소를 추가하려�
    |**백 엔드 포트** | 5022 - **포트**와 동일한 값을 사용합니다.
    |**백 엔드 풀** |SQL Server 인스턴스가 포함된 가상 머신을 포함하는 풀입니다. 
    |**상태 프로브** |만든 프로브를 선택합니다.
-   |**세션 지속성** |없음
+   |**세션 지속성** |None
    |**유휴 제한 시간(분)** |기본값(4)
-   |**부동 IP(Direct Server Return)** | Enabled
+   |**부동 IP(Direct Server Return)** | 사용
 
 분산 가용성 그룹에 참여하는 다른 가용성 그룹의 부하 분산 장치에 대해 이 단계를 반복합니다.
 

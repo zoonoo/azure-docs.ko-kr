@@ -6,16 +6,18 @@ author: yunjchoi
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: yunjchoi
-ms.openlocfilehash: 11b469425a80d588462e0332c973260cc3b56992
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 03bb7b786280dfcbb64190adac51b8d001d59c18
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77596184"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79126598"
 ---
-# <a name="azure-kubernetes-service-aks-diagnostics-overview"></a>AKS (Azure Kubernetes Service) 진단 개요
+# <a name="azure-kubernetes-service-diagnostics-preview-overview"></a>Azure Kubernetes Service 진단 (미리 보기) 개요
 
 AKS (Azure Kubernetes Service) 클러스터 문제를 해결 하는 작업은 클러스터를 유지 관리 하는 데 중요 한 부분입니다. 특히 클러스터에서 중요 한 작업을 실행 하는 경우에 해당 합니다. AKS 진단은 클러스터의 문제를 식별 하 고 해결 하는 데 도움이 되는 지능형 자체 진단 환경입니다. AKS 진단은 클라우드 네이티브 이며 추가 구성 또는 청구 비용 없이 사용할 수 있습니다.
+
+이 기능은 현재 공개 미리 보기로 제공 됩니다.
 
 ## <a name="open-aks-diagnostics"></a>AKS 진단 열기
 

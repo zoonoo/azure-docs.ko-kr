@@ -1,17 +1,17 @@
 ---
-title: 진단 설정을 사용 하 여 Azure 활동 로그 수집 (미리 보기)-Azure Monitor | Microsoft Docs
+title: 진단 설정을 사용 하 여 Azure 활동 로그 수집-Azure Monitor | Microsoft Docs
 description: 진단 설정을 사용 하 여 Azure 활동 로그를 Azure Monitor 로그, Azure storage 또는 Azure Event Hubs에 전달 합니다.
 author: bwren
 ms.subservice: logs
 ms.topic: conceptual
 ms.author: bwren
 ms.date: 02/04/2020
-ms.openlocfilehash: fcf7eef269c9fa8b62217fb64ed792aece1fce4e
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 6d4c724c7cfb4c1779f0fc6592a7e61e060755b9
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77670341"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096900"
 ---
 # <a name="update-to-azure-activity-log-collection-and-export"></a>Azure 활동 로그 수집 및 내보내기에 대 한 업데이트
 [Azure 활동 로그](platform-logs-overview.md) 는 azure에서 발생 한 구독 수준 이벤트에 대 한 통찰력을 제공 하는 [플랫폼 로그](platform-logs-overview.md) 입니다. 활동 로그 항목을 [이벤트 허브 또는 저장소 계정](activity-log-export.md) 또는 [Log Analytics 작업 영역](activity-log-collect.md) 으로 보내는 메서드가 [진단 설정을](diagnostic-settings.md)사용 하도록 변경 되었습니다. 이 문서에서는 메서드와 진단 설정 변경 준비에서 레거시 설정을 지우는 방법 간의 차이점을 설명 합니다.

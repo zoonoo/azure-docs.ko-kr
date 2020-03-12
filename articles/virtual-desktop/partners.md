@@ -5,14 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 03/10/2020
 ms.author: helohr
-ms.openlocfilehash: f75e404e37ff45eb7d9f540cf6acba71fa83349f
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+manager: lizross
+ms.openlocfilehash: e10908a3ce0ad372ab7d05fda9a15481d0efc5a8
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201784"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127580"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Windows 가상 데스크톱 파트너 통합
 
@@ -159,7 +160,7 @@ Liquit 응용 프로그램 집계 및 배달 소프트웨어를 사용 하 여 �
 
 로그인 .VSI는 windows 가상 데스크톱의 응용 프로그램 성능 테스트를 위한 소프트웨어를 제공 하는 Windows 가상 데스크톱 값 추가 서비스 공급자 및 Microsoft 파트너입니다. 온-프레미스 비즈니스 서비스를 Windows 가상 데스크톱으로 이동 하는 고객은 로그인 .VSI Enterprise Edition을 사용 하 여 Windows 10 Enterprise 다중 세션, Windows 10 Enterprise 및의 최적 성능, 확장성 및 가용성을 평가 하 고 유지 관리 합니다. Windows 7에는 업무상 중요 한 응용 프로그램이 사용 됩니다.
 
-- [파트너 웹 사이트로 이동](https://www.loginvsi.com)합니다.
+- [파트너 웹 사이트로 이동](https://www.loginvsi.com/use-cases-initiatives/windows-virtual-desktop)합니다.
 
 ## <a name="nerdio"></a>Nerdio
 
@@ -253,6 +254,16 @@ Tricerat는 Windows 가상 데스크톱 및 기타 데스크톱 플랫폼을 위
 Tricerat를 사용 하면 Windows 가상 데스크톱 이상에서 인쇄를 원활 하 게 진행 합니다. Tricerat software를 사용 하면 관리자가 온-프레미스 프린터를 클라우드에 쉽게 연결 하 여 기존 환경에서 새로운 최신 작업 영역으로 엔터프라이즈 인쇄 관리를 확장할 수 있습니다.
 
 - [파트너 웹 사이트로 이동](https://www.tricerat.com/microsoft-printing)합니다.
+
+## <a name="vast-limits"></a>방대한 제한
+
+![방대한 제한 로고](./media/partners/vast-limits.png)
+
+uberAgent 회사에서 제공 하는 방대한 제한은 Windows 가상 데스크톱 배포에 대 한 가시성을 제공 합니다. It 전문가 들이 어떤 도구를 필요로 하는지 파악 하 고 엔터프라이즈 IT를 위한 소프트웨어를 만듭니다. 이를 통해 IT 전문가는 작업을 수행 하는 데 필요한 것을 정확 하 게 제공 하 여 IT 전문가의 효율성을 높일 수 있습니다. 더 이상 없습니다.
+
+uberAgent는 데이터를 수집 하지 않는 최종 사용자 컴퓨팅을 위해 설계 된 모니터링 및 분석 제품으로, 고객에 게 중요 한 정보를 제공 합니다. uberAgent에는 사용자 환경, 응용 프로그램 성능 및 끝점 보안의 주요 측면을 포함 하 여 시스템의 사용자 밀도에 영향을 주지 않고 Windows 가상 데스크톱 Vm에 대해 알고 있어야 하는 모든 것을 설명 하는 고유한 메트릭이 있습니다. uberAgent는 문제 해결을 간소화 하 고 크기 조정에 도움이 되며 정보 보안을 위해 중요 한 정보를 제공 합니다.
+
+- [파트너 웹 사이트로 이동](https://uberagent.com/docs/uberagent/latest/about-uberagent/system-requirements/#windows-virtual-desktop)
 
 ## <a name="workspot"></a>워크 지점
 

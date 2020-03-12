@@ -11,12 +11,12 @@ author: jpe316
 ms.author: jordane
 ms.date: 02/21/2020
 ms.custom: seodec18
-ms.openlocfilehash: 82866d452289a29dcdcacc12db8048acb7a351ba
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 6671b9c83ab71b4a92fe36d647e5a4e4d781154e
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250871"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096168"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: Azure Machine Learning을 사용 하 여 모델 관리, 배포 및 모니터링
 
@@ -70,11 +70,6 @@ Azure Machine Learning 환경을 사용 하면 프로젝트의 소프트웨어 �
 
 활성 배포에서 사용 중인 등록 된 모델은 삭제할 수 없습니다.
 자세한 내용은 [모델 배포](how-to-deploy-and-where.md#registermodel)의 모델 등록 섹션을 참조하세요.
-
-### <a name="profile-models"></a>모델 프로 파일링
-
-Azure Machine Learning은 모델을 배포할 때 생성 될 서비스의 CPU 및 메모리 요구 사항을 이해 하는 데 도움이 될 수 있습니다. 프로 파일링은 모델을 실행 하는 서비스를 테스트 하 고 CPU 사용량, 메모리 사용량, 응답 대기 시간 등의 정보를 반환 합니다. 또한 리소스 사용량에 따라 CPU 및 메모리 권장 사항을 제공 합니다.
-자세한 내용은 [모델 배포](how-to-deploy-and-where.md#profilemodel)의 프로 파일링 섹션을 참조 하세요.
 
 ### <a name="package-and-debug-models"></a>패키지 및 디버그 모델
 

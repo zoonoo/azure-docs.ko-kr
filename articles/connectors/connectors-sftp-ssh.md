@@ -8,12 +8,12 @@ ms.reviewer: estfan, klam, logicappspm
 ms.topic: article
 ms.date: 03/7/2020
 tags: connectors
-ms.openlocfilehash: 0f62fb835fdd2353557a4aff47128bb94ba91a31
-ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
+ms.openlocfilehash: d4ab7425c967d3a176c0a576d0be38ece1701b8b
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78851497"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79128404"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>SSH 및 Azure Logic Apps를 사용하여 SFTP 파일 모니터링, 만들기 및 관리
 
@@ -55,9 +55,6 @@ SFTP-SSH 커넥터와 SFTP 커넥터 간의 차이점을 보려면이 항목의 
   | **파일 이름 바꾸기** | 해당 없음 | 해당 없음 |
   | **파일 업데이트** | 예 | 해당 없음 |
   ||||
-
-  > [!NOTE]
-  > 용량이 많은 파일을 업로드 하려면 SFTP 서버의 루트 폴더에 대 한 읽기 및 쓰기 권한이 모두 필요 합니다.
 
 * SFTP-SSH 트리거는 메시지 청크를 지원 하지 않습니다. 파일 콘텐츠를 요청 하는 경우 트리거는 15MB 미만의 파일만 선택 합니다. 64MB 보다 큰 파일을 가져오려면 대신 다음 패턴을 따릅니다.
 

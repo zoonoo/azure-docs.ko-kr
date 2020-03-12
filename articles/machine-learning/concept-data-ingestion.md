@@ -10,12 +10,12 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 02/26/2020
-ms.openlocfilehash: 71a02e47db288890d1392f5423da0ef817ecd690
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: 6b1c671d2079c7d8ab59e9afe981ccef3f58ef27
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78303123"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79086892"
 ---
 # <a name="data-ingestion-in-azure-machine-learning"></a>Azure Machine Learning에서 데이터 수집
 
@@ -26,7 +26,7 @@ ms.locfileid: "78303123"
 
 데이터 수집은 구조화 되지 않은 데이터가 하나 이상의 원본에서 추출 된 후 기계 학습 모델 학습을 준비 하는 프로세스입니다. 특히 수동으로 수행 하는 경우와 여러 원본에서 많은 양의 데이터가 있는 경우 시간이 많이 소요 됩니다. 이러한 작업을 자동화 하면 리소스를 확보 하 고 모델에서 가장 최근의 데이터와 적용 가능한 데이터를 사용할 수 있습니다.
 
-처음에는 데이터를 추출, 로드 및 변환 하기 위해 특별히 작성 된 Azure Data Factory (ADF)를 사용 하 여 평가 하는 것이 좋습니다. ADF를 사용 하 여 요구 사항을 충족할 수 없는 경우 Python SDK를 사용 하 여 사용자 지정 코드 솔루션을 개발 하거나 ADF와 Python SDK를 함께 사용 하 여 요구 사항에 맞는 전체 데이터 수집 워크플로를 만들 수 있습니다.
+ADF (Azure Data Factory)를 사용 하 여 데이터를 추출, 로드 및 변환할 수 있지만 Python SDK를 사용 하면 기본 데이터 수집 작업을 위한 사용자 지정 코드 솔루션을 개발할 수 있습니다. 필요한 것이 하나도 없는 경우 ADF와 Python SDK를 함께 사용 하 여 요구 사항을 충족 하는 전체 데이터 수집 워크플로를 만들 수도 있습니다. 
 
 ## <a name="use-azure-data-factory"></a>Azure Data Factory 사용
 
@@ -52,6 +52,8 @@ Azure Data Factory 데이터 흐름에 대 한 포함 된 데이터 계보 기�
 
 
     ![ADF 데이터 수집](media/concept-data-ingestion/data-ingest-option-one.svg)
+    
+[Azure Data Factory](how-to-data-ingest-adf.md)를 사용 하 여 Machine Learning에 대 한 데이터 수집 파이프라인을 빌드하는 방법에 대해 알아봅니다.
 
 ## <a name="use-the-python-sdk"></a>Python SDK 사용 
 

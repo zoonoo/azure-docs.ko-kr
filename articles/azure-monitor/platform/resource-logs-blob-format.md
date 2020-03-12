@@ -7,17 +7,17 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: b90b6f8eabbda229fbed4dcef6a5d863ea721faf
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 001dfbc78c0027249143e933684523d47af383d1
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77659138"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096785"
 ---
 # <a name="prepare-for-format-change-to-azure-monitor-platform-logs-archived-to-a-storage-account"></a>저장소 계정에 보관 된 Azure Monitor 플랫폼 로그의 형식 변경 준비
 
 > [!WARNING]
-> [로그 프로필을 사용 하 여 저장소 계정에 대](activity-log-export.md)한 진단 설정 또는 활동 로그를 [사용 하 여 저장소 계정에 Azure 리소스 로그 또는 메트릭을](resource-logs-collect-storage.md) 전송 하는 경우 저장소 계정의 데이터 형식이 11 월 1 일에 JSON 줄로 변경 됩니다. 1, 2018. 아래 지침에서는 새 형식을 처리하도록 도구를 업데이트하는 방법 및 영향에 대해 설명합니다.
+> [로그 프로필을 사용 하 여 저장소 계정에 대](resource-logs-collect-storage.md)한 진단 설정 또는 활동 로그를 [사용 하 여 저장소 계정에 Azure 리소스 로그 또는 메트릭을](resource-logs-collect-storage.md) 전송 하는 경우 저장소 계정의 데이터 형식이 11 월 1 일에 JSON 줄로 변경 됩니다. 1, 2018. 아래 지침에서는 새 형식을 처리하도록 도구를 업데이트하는 방법 및 영향에 대해 설명합니다.
 >
 
 ## <a name="what-changed"></a>변경 내용

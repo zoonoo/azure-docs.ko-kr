@@ -7,18 +7,19 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 12/13/2019
 ms.author: helohr
-ms.openlocfilehash: 81ba2b3b5834e06922f694d6eb5338465bfb0ab7
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+manager: lizross
+ms.openlocfilehash: 57d5198cb54dc096fb09bb52d76539b1e4bbc1f2
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75975462"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127451"
 ---
 # <a name="windows-virtual-desktop-service-connections"></a>Windows 가상 데스크톱 서비스 연결
 
 이 문서를 사용 하 여 Windows 가상 데스크톱 클라이언트 연결 문제를 해결할 수 있습니다.
 
-## <a name="provide-feedback"></a>피드백 제공하기
+## <a name="provide-feedback"></a>피드백 제공
 
 사용자 의견을 제공 하 고 windows 가상 [데스크톱 기술 커뮤니티](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop)에서 제품 팀 및 기타 활성 커뮤니티 구성원에 게 Windows 가상 데스크톱 서비스에 대해 논의할 수 있습니다.
 
@@ -51,11 +52,11 @@ Get-RdsSessionHost -TenantName $TenantName -HostPoolName $HostPool | ft SessionH
 ```powershell
 SessionHostName          LastHeartBeat     AllowNewSession    Status 
 ---------------          -------------     ---------------    ------ 
-WVDHost1.contoso.com     21-Nov-19 5:21:35            True  Available 
-WVDHost2.contoso.com     21-Nov-19 5:21:35            True  Available 
-WVDHost3.contoso.com     21-Nov-19 5:21:35            True  NoHeartBeat 
-WVDHost4.contoso.com     21-Nov-19 5:21:35            True  NoHeartBeat 
-WVDHost5.contoso.com     21-Nov-19 5:21:35            True  NoHeartBeat 
+WVDHost1.contoso.com     21-Nov-19 5:21:35            True     Available 
+WVDHost2.contoso.com     21-Nov-19 5:21:35            True     Available 
+WVDHost3.contoso.com     21-Nov-19 5:21:35            True     NoHeartBeat 
+WVDHost4.contoso.com     21-Nov-19 5:21:35            True     NoHeartBeat 
+WVDHost5.contoso.com     21-Nov-19 5:21:35            True     NoHeartBeat 
 ```
 
 NoHeartBeat 비트 상태를 수정 하기 위해 수행할 수 있는 몇 가지 작업이 있습니다.

@@ -5,14 +5,14 @@ services: batch
 author: mscurrell
 ms.service: batch
 ms.topic: article
-ms.date: 12/01/2019
+ms.date: 03/10/2019
 ms.author: markscu
-ms.openlocfilehash: c4e36d76bf85b9715a817dbeb7c690aa77f8d978
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 4ace0de6d252680eb64990277b9478adf752f54d
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74852186"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79087013"
 ---
 # <a name="job-and-task-error-checking"></a>작업 및 태스크 오류 검사
 
@@ -72,6 +72,17 @@ ms.locfileid: "74852186"
 작업에 대 한 태스크 실패의 영향과 작업 종속성을 고려해 야 합니다.  태스크가 종속성 및 작업에 대 한 작업을 구성 하는 데 [Exitconditions](https://docs.microsoft.com/rest/api/batchservice/task/add#exitconditions) 속성을 지정할 수 있습니다.
 - 종속성의 경우 [DependencyAction](https://docs.microsoft.com/rest/api/batchservice/task/add#dependencyaction) 는 실패 한 태스크에 종속 된 태스크가 차단 되는지 아니면 실행 되는지를 제어 합니다.
 - 작업의 경우 [JobAction](https://docs.microsoft.com/rest/api/batchservice/task/add#jobaction) 은 실패 한 태스크에서 작업을 사용 하지 않도록 설정 하거나, 종료 하거나, 그대로 유지 하도록 할지 여부를 제어 합니다.
+
+### <a name="task-command-line-failures"></a>작업 명령줄 오류
+
+작업 명령줄이 실행 되 면 출력은 `stderr.txt`에 기록 되 고 `stdout.txt`됩니다. 또한 응용 프로그램에서 응용 프로그램 관련 로그 파일에 쓸 수 있습니다.
+
+태스크가 실행 된 풀 노드가 여전히 있는 경우 로그 파일을 가져와 볼 수 있습니다. 예를 들어 Azure Portal는 태스크 또는 풀 노드에 대 한 로그 파일을 나열 하 고 볼 수 있습니다. 여러 Api를 사용 하 여 작업 파일을 나열 하 고 가져올 수 있습니다 (예: [작업에서 가져오기](https://docs.microsoft.com/rest/api/batchservice/file/getfromtask)).
+
+풀 및 풀 노드는 자주 삭제 되 고 노드를 계속 추가 하 고 삭제 하는 것으로 인해 로그 파일을 유지 하는 것이 좋습니다. [태스크 출력 파일](https://docs.microsoft.com/azure/batch/batch-task-output-files) 은 로그 파일을 Azure Storage에 저장 하는 편리한 방법입니다.
+
+### <a name="output-file-failures"></a>출력 파일 오류
+모든 파일 업로드에서 Batch는 두 개의 로그 파일을 `fileuploadout.txt` 및 `fileuploaderr.txt` 컴퓨팅 노드에 씁니다. 이러한 로그 파일을 검사하여 특정 오류에 대해 자세히 확인할 수 있습니다. 예를 들어 작업 자체를 실행할 수 없기 때문에 파일 업로드가 시도 되지 않은 경우에는 이러한 로그 파일이 존재 하지 않습니다.  
 
 ## <a name="next-steps"></a>다음 단계
 

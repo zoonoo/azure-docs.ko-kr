@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/25/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: bd5c026da27c68e249532b70629ba01afea655fe
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 14ba5f270138db22a76fd697b264046e22577427
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513068"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79086738"
 ---
 # <a name="tutorial-use-drm-dynamic-encryption-and-license-delivery-service"></a>자습서: DRM 동적 암호화 및 라이선스 배달 서비스 사용
 
@@ -46,7 +46,9 @@ Azure Media Services를 사용하여 Microsoft PlayReady, Google Widevine 또는
 > * 지정 된 스트리밍 정책을 사용 하 여 StreamingLocator를 만듭니다.
 > * 파일을 재생 하는 데 사용 되는 URL을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+## <a name="prerequisites"></a>사전 요구 사항
 
 자습서를 완료하는 데 필요한 항목은 다음과 같습니다.
 
@@ -186,7 +188,7 @@ az group delete --name amsResourceGroup
 
 ## <a name="next-steps"></a>다음 단계
 
-혁신적인 프로젝트 팀에서
+체크 아웃
 
 > [!div class="nextstepaction"]
 > [AES-128로 보호](protect-with-aes128.md)

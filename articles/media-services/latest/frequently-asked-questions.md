@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 06/21/2019
+ms.date: 03/09/2020
 ms.author: juliako
-ms.openlocfilehash: c9da29ad288811bbed225fd906f2a7eb1fd9edf7
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: a2619293bf3641cdca370ff528a87ae879460a3b
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977729"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79086787"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>Media Services v3 질문과 대답
 
@@ -28,6 +28,10 @@ ms.locfileid: "74977729"
 
 [Media Services 계정에 대 한 RBAC (역할 기반 액세스 제어)를](rbac-overview.md)참조 하세요.
 
+### <a name="how-do-you-stream-to-apple-ios-devices"></a>Apple iOS 디바이스에 스트리밍하려면 어떻게 하나요?
+
+경로 끝에 "(format = m3u8-aapl-v3-aapl)"가 있는지 확인 합니다 (URL의 "/매니페스트" 부분 뒤에) .이를 통해 스트리밍 원본 서버가 Apple iOS 네이티브 장치에서 사용 하기 위한 HLS 콘텐츠를 반환 하도록 지시할 수 있습니다 (자세한 내용은 [콘텐츠 배달](dynamic-packaging-overview.md)참조).
+
 ### <a name="how-do-i-configure-media-reserved-units"></a>미디어 예약 단위를 구성하려면 어떻게 할까요?
 
 Media Services v3 또는 Video Indexer에 의해 트리거되는 오디오 분석 및 비디오 분석 작업의 경우 10개의 S3 MRU를 사용하여 계정을 프로비전하는 것이 좋습니다. 10개가 넘는 S3 MRU가 필요한 경우 [Azure Portal](https://portal.azure.com/)을 사용하여 지원 티켓을 엽니다.
@@ -38,13 +42,17 @@ Media Services v3 또는 Video Indexer에 의해 트리거되는 오디오 분�
 
 [Transforms](https://docs.microsoft.com/rest/api/media/transforms)는 비디오 인코딩 또는 분석에 대한 일반적인 작업을 구성하는 데 사용할 수 있습니다. 각 **변환**은 비디오 또는 오디오 파일을 처리하는 작업의 작성법 또는 워크플로를 설명합니다. [작업](https://docs.microsoft.com/rest/api/media/jobs) 은 지정 된 입력 비디오 또는 오디오 콘텐츠에 **변환을** 적용 하는 Media Services에 대 한 실제 요청입니다. 변환을 만든 후에는 Media Services API 또는 게시된 SDK를 사용하여 작업을 제출할 수 있습니다. 자세한 내용은 [Transform 및 Jobs](transforms-jobs-concept.md)를 참조하세요.
 
+### <a name="i-uploaded-encoded-and-published-a-video-what-would-be-the-reason-the-video-does-not-play-when-i-try-to-stream-it"></a>비디오를 업로드, 인코딩 및 게시합니다. 스트리밍하려고 할 때 어떤 이유로 비디오가 재생되지 않는 걸까요?
+
+가장 일반적인 이유 중 하나는 실행 중인 상태로 재생 하려고 하는 스트리밍 끝점이 없는 것입니다.
+
 ### <a name="how-does-pagination-work"></a>페이지 매김은 어떻게 작동하나요?
 
 페이지 매김을 사용할 때는 항상 다음 링크를 사용하여 컬렉션을 열거하고, 특정 페이지 크기에 따라 달라지지 않아야 합니다. 자세한 내용과 예제는 [필터링, 정렬, 페이징](entities-overview.md)을 참조하세요.
 
 ### <a name="what-features-are-not-yet-available-in-azure-media-services-v3"></a>Azure Media Services v3에서 아직 사용할 수 없는 기능은 무엇입니까?
 
-자세한 내용은 [V2 api에 대 한 기능 간격](migrate-from-v2-to-v3.md#feature-gaps-with-respect-to-v2-apis)을 참조 하세요.
+자세한 내용은 [V2 api에 대 한 기능 간격](media-services-v2-vs-v3.md#feature-gaps-with-respect-to-v2-apis)을 참조 하세요.
 
 ### <a name="what-is-the-process-of-moving-a-media-services-account-between-subscriptions"></a>구독 간에 Media Services 계정을 이동 하는 프로세스는 무엇 인가요?  
 
@@ -126,13 +134,19 @@ ASP.NET 플레이어 애플리케이션은 HTTPS를 사용하는 것이 가장 �
 
 ### <a name="can-i-use-the-azure-portal-to-manage-v3-resources"></a>Azure Portal을 사용하여 v3 리소스를 관리할 수 있나요?
 
-현재는 Azure Portal을 사용하여 v3 리소스를 관리할 수 없습니다. [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) 또는 지원되는 [SDK](media-services-apis-overview.md#sdks) 중 하나를 사용하세요.
+현재 [Azure Portal](https://portal.azure.com/) 를 사용 하 여 다음을 수행할 수 있습니다.
+
+* Media Services v3 [라이브 이벤트](live-events-outputs-concept.md)관리 
+* v3 [자산](assets-concept.md)보기 (관리 안 함) 
+* [api에 액세스 하는 방법에 대 한 정보를 가져옵니다](access-api-portal.md). 
+
+다른 모든 관리 작업 (예: [변환 및 작업](transforms-jobs-concept.md) 및 [콘텐츠 보호](content-protection-overview.md))의 경우 [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref)또는 지원 되는 [sdk](media-services-apis-overview.md#sdks)중 하나를 사용 합니다.
 
 ### <a name="is-there-an-assetfile-concept-in-v3"></a>v3에 AssetFile 개념이 있나요?
 
 Media Services를 Storage SDK 종속성과 분리하기 위해 AssetFiles가 AMS API에서 제거되었습니다. 이제 Media Services가 아닌 Storage에서 해당 Storage에 속한 정보를 보관합니다. 
 
-자세한 내용은 [Media Services v3로 마이그레이션](migrate-from-v2-to-v3.md)을 참조하세요.
+자세한 내용은 [Media Services v3로 마이그레이션](media-services-v2-vs-v3.md)을 참조하세요.
 
 ### <a name="where-did-client-side-storage-encryption-go"></a>클라이언트 쪽 스토리지 암호화는 어디에 있나요?
 

@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 02/26/2020
-ms.openlocfilehash: 72534225acffa176d248901f363100955e36c6f6
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.date: 03/10/2020
+ms.openlocfilehash: 98d71434ac9e3f712be0cbd8c505b7d5a537e7cc
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78898921"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79095538"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터에 사용할 스토리지 옵션 비교
 
@@ -46,7 +46,6 @@ Azure Storage 액세스 계층에 대 한 자세한 내용은 [Azure Blob storag
 |---|---|---|---|
 | 3.6 & 4.0 | 범용 V1, 범용 V2 | 범용 V1, 범용 V2, BlobStorage (블록 Blob) | yes |
 | 3.6 & 4.0 | 범용 V1, 범용 V2 | Data Lake Storage Gen2 | 예 |
-| 3.6 & 4.0 | 범용 V1, 범용 V2 | Data Lake Storage Gen1 | yes |
 | 3.6 & 4.0 | Data Lake Storage Gen2 * | Data Lake Storage Gen2 | yes |
 | 3.6 & 4.0 | Data Lake Storage Gen2 * | 범용 V1, 범용 V2, BlobStorage (블록 Blob) | yes |
 | 3.6 & 4.0 | Data Lake Storage Gen2 | Data Lake Storage Gen1 | 예 |
@@ -54,6 +53,7 @@ Azure Storage 액세스 계층에 대 한 자세한 내용은 [Azure Blob storag
 | 3.6 | Data Lake Storage Gen1 | 범용 V1, 범용 V2, BlobStorage (블록 Blob) | yes |
 | 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen2 | 예 |
 | 4.0 | Data Lake Storage Gen1 | 모두 | 예 |
+| 4.0 | 범용 V1, 범용 V2 | Data Lake Storage Gen1 | 예 |
 
 \* = 클러스터 액세스에 동일한 관리 되는 id를 사용 하도록 모두 설정 되어 있는 한 하나 또는 여러 개의 Data Lake Storage Gen2 계정일 수 있습니다.
 

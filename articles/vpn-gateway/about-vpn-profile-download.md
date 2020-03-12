@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 11/04/2019
+ms.date: 03/11/2020
 ms.author: cherylmc
-ms.openlocfilehash: 5386cace7191be60534f0d2fbf4a85b592d1ecdd
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 762f62fa0901672c447da42f416e5b003e7419b2
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74151629"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127306"
 ---
 # <a name="about-p2s-vpn-client-profiles"></a>P2S VPN 클라이언트 프로필 정보
 
@@ -33,7 +33,7 @@ $PROFILE.VpnProfileSASUrl
 zip 파일의 압축을 풉니다. 파일에는 다음 폴더가 포함 되어 있습니다.
 
 * AzureVPN
-* 제네릭
+* 일반
 * OpenVPN (게이트웨이에서 OpenVPN 및 Azure AD 인증 설정을 사용 하도록 설정한 경우) [테 넌 트 만들기를](openvpn-azure-ad-tenant.md)참조 하세요.)
 
 ## <a name="3-retrieve-information"></a>3. 정보 검색
@@ -60,7 +60,7 @@ zip 파일의 압축을 풉니다. 파일에는 다음 폴더가 포함 되어 �
 
 ## <a name="folder-contents"></a>폴더 내용
 
-* **Openvpn 폴더** 에는 키와 인증서를 포함 하도록 수정 해야 하는 *ovpn* 프로필이 포함 되어 있습니다. 자세한 내용은 [Azure VPN Gateway에 대 한 OpenVPN 클라이언트 구성](vpn-gateway-howto-openvpn-clients.md#windows)을 참조 하세요.
+* **Openvpn 폴더** 에는 키와 인증서를 포함 하도록 수정 해야 하는 *ovpn* 프로필이 포함 되어 있습니다. 자세한 내용은 [Azure VPN Gateway에 대 한 OpenVPN 클라이언트 구성](vpn-gateway-howto-openvpn-clients.md#windows)을 참조 하세요. VPN 게이트웨이에서 Azure AD 인증을 선택 하는 경우이 폴더는 zip 파일에 표시 되지 않습니다. 대신, azurevpnconfig는 AzureVPN 폴더에 있게 됩니다.
 
 * **일반 폴더** 에는 공용 서버 인증서와 vpnsettings.xml 파일이 포함 되어 있습니다. Vpnsettings.xml 파일에는 일반 클라이언트를 구성 하는 데 필요한 정보가 포함 되어 있습니다.
 

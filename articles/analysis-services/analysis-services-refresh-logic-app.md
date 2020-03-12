@@ -6,12 +6,12 @@ ms.service: analysis-services
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: chlound
-ms.openlocfilehash: a44aa5b355bea675f5d99761d97b8876a9b2a7d7
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 78bc629598c0635b7760285d0507b7a85a4ab551
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73572334"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79126931"
 ---
 # <a name="refresh-with-logic-apps"></a>Logic Apps를 사용하여 새로 고침
 
@@ -26,9 +26,9 @@ Azure Analysis Services에서 REST Api를 사용 하는 방법에 대 한 자세
 ## <a name="design-the-logic-app"></a>논리 앱 디자인
 
 > [!IMPORTANT]
-> 다음 예에서는 Azure Analysis Services 방화벽을 사용 하지 않는 것으로 가정 합니다.  방화벽이 사용 되는 경우 요청 개시자의 공용 IP 주소를 Azure Analysis Services 방화벽에서 허용 목록 해야 합니다. 지역별 논리 앱 IP 범위에 대해 자세히 알아보려면 [Azure Logic Apps에 대 한 제한 및 구성 정보](../logic-apps/logic-apps-limits-and-config.md#firewall-configuration-ip-addresses)를 참조 하세요.
+> 다음 예에서는 Azure Analysis Services 방화벽을 사용 하지 않는 것으로 가정 합니다. 방화벽이 사용 되는 경우 요청 개시자의 공용 IP 주소를 Azure Analysis Services 방화벽에서 허용 목록 해야 합니다. 지역별 Azure Logic Apps IP 범위에 대해 자세히 알아보려면 [Azure Logic Apps에 대 한 제한 및 구성 정보](../logic-apps/logic-apps-limits-and-config.md#configuration)를 참조 하세요.
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>사전 요구 사항
 
 #### <a name="create-a-service-principal-spn"></a>SPN (서비스 사용자) 만들기
 
@@ -65,17 +65,17 @@ HTTP 작업을 다음과 같이 구성 합니다.
 |속성  |값  |
 |---------|---------|
 |**메서드**     |POST         |
-|**URI**     | *서버 지역*/servers/https://*서버 이름*/models/*데이터베이스 이름*/새로 고침 <br /> <br /> 예: https: \//westus/서버/p s/모델/AdventureWorks/새로 고침|
-|**헤더**     |   Content-type, application/json <br /> <br />  ![헤더](./media/analysis-services-async-refresh-logic-app/6.png)    |
+|**URI**     | *서버 지역*/servers/https://*서버 이름*/models/*데이터베이스 이름*/새로 고침 <br /> <br /> 예: https:\//westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refreshes|
+|**헤더**     |   Content-type, application/json <br /> <br />  ![headers](./media/analysis-services-async-refresh-logic-app/6.png)    |
 |**본문**     |   요청 본문을 형성 하는 방법에 대 한 자세한 내용은 [REST API-사후 게시/새로 고침을 사용 하 여 비동기 새로 고침](analysis-services-async-refresh.md#post-refreshes)을 참조 하세요. |
 |**인증**     |Active Directory OAuth         |
 |**넌**     |Azure Active Directory TenantId를 입력 합니다.         |
-|**대상**     |https://* .casoms. net         |
+|**대상**     |https://*.asazure.windows.net         |
 |**클라이언트 ID**     |서비스 사용자 이름 ClientID 입력         |
-|**자격 증명 유형**     |Secret         |
+|**자격 증명 유형**     |비밀         |
 |**비밀**     |서비스 사용자 이름 암호를 입력 하세요.         |
 
-예:
+예제:
 
 ![완료 된 HTTP 작업](./media/analysis-services-async-refresh-logic-app/7.png)
 

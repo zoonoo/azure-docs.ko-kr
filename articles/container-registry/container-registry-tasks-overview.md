@@ -3,12 +3,12 @@ title: ACR 작업 개요
 description: 안전 하 고 자동화 된 컨테이너 이미지 빌드, 관리 및 클라우드에서 패치를 제공 하는 Azure Container Registry의 기능 모음인 ACR 작업에 대해 소개 합니다.
 ms.topic: article
 ms.date: 01/22/2020
-ms.openlocfilehash: cb5f0a71c31c26d679efd8a17b360dab2ad0862b
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: 4fda57c1d7c866f2e6f72b04d75e53f91e995baf
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77615946"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79087280"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>ACR 작업을 사용 하 여 컨테이너 이미지 빌드 및 유지 관리 자동화
 
@@ -58,8 +58,8 @@ ACR 태스크는 Git 리포지토리를 작업의 컨텍스트로 설정할 때 
 
 | 트리거 | 기본적으로 사용 |
 | ------- | ------------------ |
-| Commit | 예 |
-| 끌어오기 요청 | 아니요 |
+| Commit | yes |
+| 끌어오기 요청 | 예 |
 
 소스 코드 업데이트 트리거를 구성 하려면 공용 또는 개인 GitHub 또는 Azure DevOps 리포지토리에서 webhook를 설정 하기 위해 작업에 PAT (개인용 액세스 토큰)를 제공 해야 합니다.
 
@@ -102,7 +102,7 @@ ACR 작업의 [기본 이미지 업데이트 트리거에](container-registry-ta
 
 다음 표에서는 ACR 작업에 지원되는 컨텍스트 위치의 몇 가지 예를 보여 줍니다.
 
-| 컨텍스트 위치 | 설명 | 예제 |
+| 컨텍스트 위치 | Description | 예제 |
 | ---------------- | ----------- | ------- |
 | 로컬 파일 시스템 | 로컬 파일 시스템의 디렉터리 내에 있는 파일. | `/home/user/projects/myapp` |
 | GitHub 마스터 분기 | 공용 또는 개인 GitHub 리포지토리의 마스터 (또는 다른 기본) 분기 내에 있는 파일입니다.  | `https://github.com/gituser/myapp-repo.git` |
@@ -119,20 +119,16 @@ ACR 작업의 [기본 이미지 업데이트 트리거에](container-registry-ta
 
 기본적으로 ACR 작업은 Linux OS 및 amd64 아키텍처용 이미지를 빌드합니다. 다른 아키텍처에 대 한 Windows 이미지 또는 Linux 이미지를 빌드하기 위해 `--platform` 태그를 지정 합니다. Os를 지정 하 고 필요에 따라 OS/아키텍처 형식으로 지원 되는 아키텍처를 지정 합니다 (예: `--platform Linux/arm`). ARM 아키텍처의 경우 필요에 따라 OS/아키텍처/변형 형식 (예: `--platform Linux/arm64/v8`)에서 variant를 지정 합니다.
 
-| OS | 아키텍처|
+| OS | Architecture|
 | --- | ------- | 
 | Linux | amd64<br/>암<br/>arm64<br/>386 |
 | Windows | amd64 |
 
-## <a name="view-task-logs"></a>작업 로그 보기
+## <a name="view-task-output"></a>태스크 출력 보기
 
-각 태스크 실행은 작업 단계가 성공적으로 실행 되었는지 여부를 확인 하기 위해 검사할 수 있는 로그 출력을 생성 합니다. [Az acr build](/cli/azure/acr#az-acr-build), [az acr run](/cli/azure/acr#az-acr-run)또는 [az acr task run](/cli/azure/acr/task#az-acr-task-run) 명령을 사용 하 여 작업을 트리거하는 경우에는 태스크 실행에 대 한 로그 출력이 콘솔로 스트리밍되 고 나중에 검색할 수 있도록 저장 됩니다. 소스 코드 커밋 또는 기본 이미지 업데이트 등에서 태스크가 자동으로 트리거되면 작업 로그만 저장 됩니다. Azure Portal에서 실행 되는 작업에 대 한 로그를 보거나 [az acr task logs](/cli/azure/acr/task#az-acr-task-logs) 명령을 사용 합니다.
+각 태스크 실행은 작업 단계가 성공적으로 실행 되었는지 여부를 확인 하기 위해 검사할 수 있는 로그 출력을 생성 합니다. 작업을 수동으로 트리거하는 경우 태스크 실행에 대 한 로그 출력이 콘솔로 스트리밍되 고 나중에 검색할 수 있도록 저장 됩니다. 소스 코드 커밋 또는 기본 이미지 업데이트 등에서 태스크가 자동으로 트리거되면 작업 로그만 저장 됩니다. Azure Portal에서 실행 로그를 보거나 [az acr task logs](/cli/azure/acr/task#az-acr-task-logs) 명령을 사용 합니다.
 
-기본적으로 레지스트리의 태스크 실행에 대 한 데이터 및 로그는 30 일 동안 보존 된 후 자동으로 제거 됩니다. 태스크 실행에 대 한 데이터를 보관 하려면 [az acr 작업 업데이트-실행](/cli/azure/acr/task#az-acr-task-update-run) 명령을 사용 하 여 보관을 사용 하도록 설정 합니다. 다음 예에서는 registry *myregistry*에서 *cf11* 작업 실행을 위해 보관을 사용 하도록 설정 합니다.
-
-```azurecli
-az acr task update-run --registry myregistry --run-id cf11 --no-archive false
-```
+[작업 로그 보기 및 관리](container-registry-tasks-logs.md)에 대 한 자세한 내용을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

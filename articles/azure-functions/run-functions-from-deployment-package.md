@@ -3,12 +3,12 @@ title: 패키지에서 Azure Functions 실행
 description: 함수 앱 프로젝트 파일을 포함하는 배포 패키지 파일을 탑재하여 Azure Functions 런타임이 함수를 실행하게 합니다.
 ms.topic: conceptual
 ms.date: 07/15/2019
-ms.openlocfilehash: a3e11a7c4f3fd91df2fd9dd7a44f3922c4922585
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 3ae287939f22469b03f0e10f184f067274464905
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77921116"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79087027"
 ---
 # <a name="run-your-azure-functions-from-a-package-file"></a>패키지에서 Azure Functions 실행
 
@@ -35,7 +35,7 @@ Azure의 함수 앱의 배포 패키지 파일에서 직접 함수를 실행할 
 
 패키지에서 함수 앱을 실행하도록 설정하려면 함수 앱 설정에 `WEBSITE_RUN_FROM_PACKAGE` 설정을 추가하면 됩니다. `WEBSITE_RUN_FROM_PACKAGE` 설정에는 다음 값 중 하나가 있어야 합니다.
 
-| 값  | 설명  |
+| 값  | Description  |
 |---------|---------|
 | **`1`**  | Windows에서 실행 되는 함수 앱에 권장 됩니다. 함수 앱의 `d:\home\data\SitePackages` 폴더의 패키지 파일에서 실행합니다. [Zip 배포를 사용 하 여 배포](#integration-with-zip-deployment)하지 않는 경우이 옵션을 사용 하려면 폴더에 `packagename.txt`라는 파일이 있어야 합니다. 이 파일에는 공백 없이 폴더에 패키지 파일 이름만 포함됩니다. |
 |**`<URL>`**  | 실행하려는 특정 패키지 파일의 위치입니다. Blob Storage를 사용하는 경우 [SAS(공유 액세스 서명)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer)가 포함된 프라이빗 컨테이너를 사용하여 Functions 런타임이 패키지에 액세스할 수 있게 해야 합니다. [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md)를 사용하여 Blob 스토리지 계정에 패키지 파일을 업로드할 수 있습니다. URL을 지정 하는 경우 업데이트 된 패키지를 게시 한 후에도 [트리거를 동기화](functions-deployment-technologies.md#trigger-syncing) 해야 합니다. |
@@ -91,6 +91,7 @@ Azure의 함수 앱의 배포 패키지 파일에서 직접 함수를 실행할 
 - Tar 및 gzip 형식은 지원 되지 않습니다.
 - 이 기능은 로컬 캐시로 구성 되지 않습니다.
 - 콜드 부팅 성능을 향상 시키려면 로컬 Zip 옵션 (`WEBSITE_RUN_FROM_PACKAGE`= 1)을 사용 합니다.
+- 패키지에서 실행은 배포 사용자 지정 옵션 (`SCM_DO_BUILD_DURING_DEPLOYMENT=true`)과 호환 되지 않으므로 배포 중에 빌드 단계가 무시 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

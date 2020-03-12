@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: mjbrown
-ms.openlocfilehash: 145473dfce3d9036b2262ccf3f65f570a2939ef3
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 0c97d70ea3e5c7fdd14b0f97c5e393359f2b948e
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77524583"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79087230"
 ---
 # <a name="security-in-azure-cosmos-db---overview"></a>Azure Cosmos DB의 보안 - 개요
 
@@ -59,7 +59,7 @@ ms.locfileid: "77524583"
 
 |보안 요구 사항|Azure Cosmos DB의 보안 접근 방식|
 |---|---|
-|네트워크 보안|IP 방화벽을 사용하는 것이 데이터베이스를 보호하기 위한 첫 번째 보호 계층입니다. Azure Cosmos DB는 인바운드 방화벽 지원을 위해 정책 중심 IP 기반 액세스 제어를 지원합니다. IP 기반 액세스 제어는 기존 데이터베이스 시스템에서 사용 하는 방화벽 규칙과 유사 하지만, Azure Cosmos 데이터베이스 계정을 승인 된 컴퓨터 또는 클라우드 서비스 집합 에서만 액세스할 수 있도록 확장 됩니다. <br><br>Azure Cosmos DB를 통해 특정 IP 주소(168.61.48.0), IP 범위(168.61.48.0/8), IP와 범위 조합을 사용하도록 할 수 있습니다. <br><br>이 허용된 목록 이외의 컴퓨터에서 보내는 모든 요청은 Azure Cosmos DB에서 차단됩니다. 승인된 컴퓨터 및 클라우드 서비스에서 보내는 요청은 리소스에 대한 액세스 제어를 부여 받기 위해 인증 과정을 완료해야 합니다.<br><br>자세한 내용은 [Azure Cosmos DB 방화벽 지원](firewall-support.md)을 참조하세요.|
+|네트워크 보안|IP 방화벽을 사용하는 것이 데이터베이스를 보호하기 위한 첫 번째 보호 계층입니다. Azure Cosmos DB는 인바운드 방화벽 지원을 위해 정책 중심 IP 기반 액세스 제어를 지원합니다. IP 기반 액세스 제어는 기존 데이터베이스 시스템에서 사용 하는 방화벽 규칙과 유사 하지만, Azure Cosmos 데이터베이스 계정을 승인 된 컴퓨터 또는 클라우드 서비스 집합 에서만 액세스할 수 있도록 확장 됩니다. 자세한 내용은 [Azure Cosmos DB 방화벽 지원](firewall-support.md) 문서를 참조 하세요.<br><br>Azure Cosmos DB를 통해 특정 IP 주소(168.61.48.0), IP 범위(168.61.48.0/8), IP와 범위 조합을 사용하도록 할 수 있습니다. <br><br>이 허용된 목록 이외의 컴퓨터에서 보내는 모든 요청은 Azure Cosmos DB에서 차단됩니다. 승인된 컴퓨터 및 클라우드 서비스에서 보내는 요청은 리소스에 대한 액세스 제어를 부여 받기 위해 인증 과정을 완료해야 합니다.<br><br> [가상 네트워크 서비스 태그](../virtual-network/service-tags-overview.md) 를 사용 하 여 네트워크 격리를 수행 하 고 일반 인터넷에서 Azure Cosmos DB 리소스를 보호할 수 있습니다. 보안 규칙을 만들 때 특정 IP 주소 대신 서비스 태그를 사용 합니다. 규칙의 적절 한 원본 또는 대상 필드에서 서비스 태그 이름 (예: Microsoft.azurecosmosdb)을 지정 하 여 해당 서비스에 대 한 트래픽을 허용 하거나 거부할 수 있습니다.|
 |권한 부여|Azure Cosmos DB는 권한 부여를 위해 HMAC(해시 기반 메시지 인증 코드)를 사용합니다. <br><br>각 요청은 비밀 계정 키를 사용하여 해시되고, Azure Cosmos DB를 호출할 때마다 base-64로 인코드된 후속 해시가 전송됩니다. 요청의 유효성을 검사하기 위해 Azure Cosmos DB 서비스는 올바른 비밀 키와 속성을 사용하여 해시를 생성한 후 요청에 있는 값과 비교합니다. 두 값이 일치하면 작업이 성공적으로 인증되어 요청이 처리되고 그렇지 않은 경우 권한 부여 오류로 요청이 거부됩니다.<br><br>문서와 같은 리소스에 세분화된 액세스를 허용하는 [마스터 키](secure-access-to-data.md#master-keys) 또는 [리소스 토큰](secure-access-to-data.md#resource-tokens)을 사용할 수 있습니다.<br><br>자세한 내용은 [Azure Cosmos DB 리소스에 대한 액세스 보호](secure-access-to-data.md)를 참조하세요.|
 |사용자 및 사용 권한|계정에 마스터 키를 사용하여 데이터베이스당 사용자 리소스 및 권한 리소스를 만들 수 있습니다. 리소스 토큰은 데이터베이스에 있는 권한과 연결되며 사용자가 데이터베이스에 있는 애플리케이션 리소스에 대한 액세스 권한(읽기-쓰기, 읽기 전용 또는 액세스 권한 없음)을 보유하는지 확인합니다. 애플리케이션 리소스에는 컨테이너, 문서, 첨부 파일, 저장 프로시저, 트리거 및 UDF가 포함됩니다. 그리고 인증 중에는 리소스 토큰이 사용되어 리소스에 대한 액세스를 제공 또는 거부합니다.<br><br>자세한 내용은 [Azure Cosmos DB 리소스에 대한 액세스 보호](secure-access-to-data.md)를 참조하세요.|
 |Active Directory 통합(RBAC)| Azure Portal에서 액세스 제어 (IAM)를 사용 하 여 Cosmos 계정, 데이터베이스, 컨테이너 및 제안 (처리량)에 대 한 액세스를 제공 하거나 제한할 수도 있습니다. IAM은 역할 기반 액세스 제어를 제공하며 Active Directory와 통합됩니다. 개인 및 그룹에 기본 제공 역할 또는 사용자 지정 역할을 사용할 수 있습니다. 자세한 내용은 [Active Directory 통합](role-based-access-control.md) 문서를 참조 하세요.|

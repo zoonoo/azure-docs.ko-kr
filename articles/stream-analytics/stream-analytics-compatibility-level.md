@@ -5,13 +5,13 @@ author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 02/14/2020
-ms.openlocfilehash: 14b04f7d6068863c79c7060d29b58232be1f40cb
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.date: 03/10/2020
+ms.openlocfilehash: 8f22b1ff97826dc318794aca58973b1276e74209
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201801"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79087854"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Azure Stream Analytics 작업의 호환성 수준
 
@@ -25,11 +25,9 @@ ms.locfileid: "77201801"
 
 현재 Azure Stream Analytics는 다음과 같은 세 가지 호환성 수준을 지원 합니다.
 
-* 1.0-이전 동작
-* 1.1-기본 동작
+* 1.0-일반 공급 중에 Azure Stream Analytics 몇 년 전에 도입 된 원래 호환성 수준입니다.
+* 1.1-이전 동작
 * 1.2-최신 개선 사항에 대 한 최신 동작
-
-원래 1.0 호환성 수준은 몇 년 전 Azure Stream Analytics의 일반 공급 중에 도입 되었습니다.
 
 새 Stream Analytics 작업을 만들 때 최신 호환성 수준을 사용 하 여 만드는 것이 가장 좋습니다. 나중에 변경 및 복잡성이 추가 되지 않도록 하기 위해 최신 동작에 의존 하는 작업 설계를 시작 합니다.
 

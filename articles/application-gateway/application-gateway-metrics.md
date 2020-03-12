@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 2/5/2019
 ms.author: absha
-ms.openlocfilehash: 2d1e6e484fd704669951bd37b17356fd3689cc91
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 8b63233aa2b20862e4654c89f1a6dd5d00c78940
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77485185"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096089"
 ---
 # <a name="metrics-for-application-gateway"></a>Application Gateway에 대 한 메트릭
 
@@ -125,10 +125,6 @@ Application Gateway에는 다음 메트릭이 지원됩니다.
 
    Application Gateway에서 처리 한 성공한 요청 수입니다. 각/특정 백 엔드 풀-http 설정 조합의 수를 표시 하도록 요청 수를 추가로 필터링 할 수 있습니다.
 
-- **웹 응용 프로그램 방화벽 일치 규칙**
-
-- **웹 응용 프로그램 방화벽 트리거 규칙**
-
 ### <a name="backend-metrics"></a>백 엔드 메트릭
 
 Application Gateway에는 다음 메트릭이 지원됩니다.
@@ -180,9 +176,9 @@ Application Gateway에는 다음 메트릭이 지원됩니다.
 
   Application Gateway에서 처리 한 성공한 요청 수입니다. 각/특정 백 엔드 풀-http 설정 조합의 수를 표시 하도록 요청 수를 추가로 필터링 할 수 있습니다.
 
-- **웹 응용 프로그램 방화벽 일치 규칙**
-
-- **웹 응용 프로그램 방화벽 트리거 규칙**
+- **웹 응용 프로그램 방화벽 차단 된 요청 수**
+- **웹 응용 프로그램 방화벽 차단 된 요청 배포**
+- **웹 응용 프로그램 방화벽 총 규칙 배포**
 
 ### <a name="backend-metrics"></a>백 엔드 메트릭
 

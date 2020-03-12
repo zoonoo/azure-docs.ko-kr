@@ -5,12 +5,12 @@ ms.date: 01/28/2020
 ms.topic: conceptual
 description: Azure Dev Spaces에 대 한 일반적인 질문에 대 한 답변을 찾습니다.
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s '
-ms.openlocfilehash: 526e8a247241bd3ea0e61b6cd3b025cd473b29aa
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: 7439af9c5f936d309df655ca6fa301c39fa3f9ec
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78942518"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79117776"
 ---
 # <a name="frequently-asked-questions-about-azure-dev-spaces"></a>Azure Dev Spaces에 대 한 질문과 대답
 
@@ -77,11 +77,17 @@ ms.locfileid: "78942518"
 
 Visual Studio를 사용 하 여 프로젝트를 준비할 때 서비스에 대 한 수신을 사용 하도록 설정 하는 옵션이 있습니다. 수신을 사용 하도록 설정 하면 AKS 클러스터에서 실행 될 때 서비스에 액세스할 수 있는 공용 끝점이 생성 됩니다 (선택 사항). 수신을 사용 하지 않는 경우 서비스는 AKS 클러스터 내 에서만 액세스할 수 있습니다.
 
+## <a name="can-i-use-pod-managed-identities-with-azure-dev-spaces"></a>Azure Dev Spaces에서 pod 관리 id를 사용할 수 있나요?
+
+현재 Azure Dev Spaces에서는 Azure Dev Spaces 사용 하도록 설정 된 AKS 클러스터에서 [pod 관리 id][aks-pod-managed-id] 사용을 지원 하지 않습니다. Pod 관리 id가 설치 되어 있고 제거 하려는 경우 [제거 노트][aks-pod-managed-id-uninstall]에서 자세한 내용을 확인할 수 있습니다.
+
 [aks-auth-range]: ../aks/api-server-authorized-ip-ranges.md
 [aks-auth-range-create]: ../aks/api-server-authorized-ip-ranges.md#create-an-aks-cluster-with-api-server-authorized-ip-ranges-enabled
 [aks-auth-range-ranges]: https://github.com/Azure/dev-spaces/tree/master/public-ips
 [aks-auth-range-update]: ../aks/api-server-authorized-ip-ranges.md#update-a-clusters-api-server-authorized-ip-ranges
 [aks-migration]: ../aks/aks-migration.md
+[aks-pod-managed-id]: ../aks/developer-best-practices-pod-security.md#use-pod-managed-identities
+[aks-pod-managed-id-uninstall]: https://github.com/Azure/aad-pod-identity#uninstall-notes
 [aks-restrict-egress-traffic]: ../aks/limit-egress-traffic.md
 [dev-spaces-prep]: how-dev-spaces-works.md#prepare-your-code
 [dev-spaces-routing]: how-dev-spaces-works.md#how-routing-works

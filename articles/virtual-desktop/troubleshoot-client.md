@@ -7,12 +7,13 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 12/13/2019
 ms.author: helohr
-ms.openlocfilehash: bcf22ec1eaf05f5dda6396cca017fa21fd6ddbf5
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+manager: lizross
+ms.openlocfilehash: e3a240901ffca2c126e2b61eaee0cf287cc31d6e
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75968189"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127498"
 ---
 # <a name="troubleshoot-the-remote-desktop-client"></a>원격 데스크톱 클라이언트 문제 해결
 
@@ -60,7 +61,7 @@ Windows 7 또는 Windows 10 용 원격 데스크톱 클라이언트와 같은 �
 
 웹 클라이언트를 사용 하는 동안 브라우저가 작동을 시작 하거나 작동을 중지 하는 경우 다음 지침에 따라 문제를 해결 합니다.
 
-1. 브라우저를 다시 시작합니다.
+1. 브라우저를 다시 시작 합니다.
 2. 브라우저 쿠키를 지웁니다. [Internet Explorer에서 쿠키 파일을 삭제 하는 방법을](https://support.microsoft.com/help/278835/how-to-delete-cookie-files-in-internet-explorer)참조 하세요.
 3. 브라우저 캐시를 지웁니다. [브라우저에 대 한 브라우저 캐시 지우기를](https://binged.it/2RKyfdU)참조 하세요.
 4. 비공개 모드에서 브라우저를 엽니다.

@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: ferno
 ms.reviewer: mathoma
 ms.date: 02/07/2019
-ms.openlocfilehash: fd881142e0260d313e197d5e40ae25a2621646df
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7356f627c8a85cb89f3900e1af84d5e0a7d4be17
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75372478"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096212"
 ---
 # <a name="configure-replication-in-an-azure-sql-database-managed-instance-database"></a>Azure SQL Database 관리형 인스턴스 데이터베이스에서 복제 구성
 
@@ -81,9 +81,9 @@ Azure SQL Database의 관리형 인스턴스에서는 다음과 같은 기능이
 
 ## <a name="3---create-azure-storage-account"></a>3-Azure Storage 계정 만들기
 
-작업 디렉터리에 대 한 [Azure Storage 계정을 만든](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) 다음 저장소 계정 내에서 [파일 공유](../storage/files/storage-how-to-create-file-share.md) 를 만듭니다. 
+작업 디렉터리에 대한 [Azure Storage 계정](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account)을 만든 다음, 스토리지 계정 내에서 [ 파일 공유](../storage/files/storage-how-to-create-file-share.md)를 만듭니다. 
 
-다음 형식으로 파일 공유 경로를 복사 합니다. `\\storage-account-name.file.core.windows.net\file-share-name`
+파일 공유 경로를 `\\storage-account-name.file.core.windows.net\file-share-name` 형식으로 복사합니다.
 
 예: `\\replstorage.file.core.windows.net\replshare`
 
@@ -91,7 +91,7 @@ Azure SQL Database의 관리형 인스턴스에서는 다음과 같은 기능이
 
 예: `DefaultEndpointsProtocol=https;AccountName=replstorage;AccountKey=dYT5hHZVu9aTgIteGfpYE64cfis0mpKTmmc8+EP53GxuRg6TCwe5eTYWrQM4AmQSG5lb3OBskhg==;EndpointSuffix=core.windows.net`
 
-자세한 내용은 [저장소 계정 액세스 키 관리](../storage/common/storage-account-keys-manage.md)를 참조 하세요. 
+자세한 내용은 [스토리지 계정 액세스 키 관리](../storage/common/storage-account-keys-manage.md)를 참조하세요. 
 
 ## <a name="4---create-a-publisher-database"></a>4-게시자 데이터베이스 만들기
 
@@ -185,7 +185,7 @@ EXEC sp_adddistpublisher
 ```
 
    > [!NOTE]
-   > File_storage 매개 변수에는 백슬래시 (`\`)만 사용 해야 합니다. 슬래시 (`/`)를 사용 하면 파일 공유에 연결할 때 오류가 발생할 수 있습니다. 
+   > File_storage 매개 변수에는 백슬래시 (`\`)만 사용 해야 합니다. 슬래시(`/`)를 사용하면 파일 공유에 연결할 때 오류가 발생할 수 있습니다. 
 
 이 스크립트는 관리 되는 인스턴스에서 로컬 게시자를 구성 하 고, 연결 된 서버를 추가 하 고, SQL Server 에이전트 작업 집합을 만듭니다. 
 
@@ -260,8 +260,8 @@ EXEC sp_addpushsubscription_agent
   @subscriber_security_mode = 0,
   @subscriber_login = N'$(target_username)',
   @subscriber_password = N'$(target_password)',
-  @job_login = N'$(target_username)',
-  @job_password = N'$(target_password)';
+  @job_login = N'$(username)',
+  @job_password = N'$(password)';
 
 -- Initialize the snapshot
 EXEC sp_startpublication_snapshot
@@ -292,15 +292,15 @@ where subsystem in ('Distribution','LogReader','Snapshot') and command not like 
 
 ## <a name="10---test-replication"></a>10-복제 테스트
 
-복제가 구성 되 면 게시자에 새 항목을 삽입 하 고 구독자에 전파 되는 변경 내용을 감시 하 여 테스트할 수 있습니다. 
+복제가 구성되면 새 항목을 게시자에 삽입하고 구독자에 전파되는 변경 내용을 감시하여 이를 테스트할 수 있습니다. 
 
-다음 T-sql 코드 조각을 실행 하 여 구독자의 행을 확인 합니다.
+다음 T-SQL 코드 조각을 실행하여 구독자의 행을 확인합니다.
 
 ```sql
 select * from dbo.ReplTest
 ```
 
-다음 T-sql 코드 조각을 실행 하 여 게시자에 추가 행을 삽입 한 다음 구독자에서 행을 다시 확인 합니다. 
+다음 T-SQL 코드 조각을 실행하여 추가 행을 게시자에 삽입한 다음, 구독자에서 해당 행을 다시 확인합니다. 
 
 ```sql
 INSERT INTO ReplTest (ID, c1) VALUES (15, 'pub')

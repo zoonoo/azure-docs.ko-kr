@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/19/2019
-ms.openlocfilehash: b2ec9fd70d1eb64c5968de0312941bfbc98d3033
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 2a5d1178bd6dbd6f7cfdd2ec2af17b78836a38d7
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77670528"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096723"
 ---
 # <a name="sources-of-monitoring-data-for-azure-monitor"></a>Azure Monitor에 대 한 모니터링 데이터의 원본
 Azure Monitor는 [로그](data-platform-logs.md) 및 [메트릭을](data-platform-metrics.md)포함 하는 [일반적인 모니터링 데이터 플랫폼](data-platform.md) 을 기반으로 합니다. 이 플랫폼에 데이터를 수집 하면 Azure Monitor의 공통 도구 집합을 사용 하 여 여러 리소스의 데이터를 함께 분석할 수 있습니다. 모니터링 데이터는 특정 시나리오를 지원 하기 위해 다른 위치로 전송 될 수도 있으며, 일부 리소스는 로그 나 메트릭에 수집 되기 전에 다른 위치에 기록 될 수 있습니다.
@@ -72,8 +72,8 @@ Azure [활동 로그](platform-logs-overview.md) 에는 azure 구독의 리소�
 |:---|:---|
 | 활동 로그 | 활동 로그는 Azure Monitor 메뉴에서 보거나 활동 로그 경고를 만드는 데 사용할 수 있는 자체 데이터 저장소로 수집 됩니다. | [Azure Portal에서 활동 로그를 쿼리 합니다.](activity-log-view.md#azure-portal) |
 | Azure Monitor 로그 | 활동 로그를 수집 하 여 다른 모니터링 데이터를 사용 하 여 분석 하도록 Azure Monitor 로그를 구성 합니다. | [Azure Monitor의 Log Analytics 작업 영역에서 Azure 활동 로그를 수집 하 고 분석 합니다.](activity-log-collect.md) |
-| Azure Storage | 작업 로그를 보관을 위해 Azure Storage로 내보냅니다. | [활동 로그 보관](activity-log-export.md#archive-activity-log)  |
-| Event Hubs | Event Hubs를 사용 하 여 다른 위치로 활동 로그 스트림 | [활동 로그를 이벤트 허브로 스트림](activity-log-export.md#stream-activity-log-to-event-hub)합니다. |
+| Azure Storage | 작업 로그를 보관을 위해 Azure Storage로 내보냅니다. | [활동 로그 보관](resource-logs-collect-storage.md)  |
+| Event Hubs | Event Hubs를 사용 하 여 다른 위치로 활동 로그 스트림 | [활동 로그를 이벤트 허브로 스트림](resource-logs-stream-event-hubs.md)합니다. |
 
 ### <a name="azure-service-health"></a>Azure Service Health
 [Azure Service Health](../../service-health/service-health-overview.md)는 애플리케이션 및 리소스가 의존하는 구독에서 Azure 서비스의 상태에 대한 정보를 제공합니다.

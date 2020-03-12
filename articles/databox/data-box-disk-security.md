@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: alkohli
-ms.openlocfilehash: 5db65ab6f1c96ff816252ecaba2170adf358001c
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 59cce6d89bc863ad489a8ed37c7f284d3085c775
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606570"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79117279"
 ---
 # <a name="azure-data-box-disk-security-and-data-protection"></a>Azure Data Box Disk 보안 및 데이터 보호
 
@@ -34,7 +34,7 @@ Microsoft Azure Data Box 솔루션은 서로 상호 작용 하는 네 가지 기
 
 ## <a name="security-features"></a>보안 기능
 
-Data Box Disk는 인증된 엔터티만 데이터를 보고, 수정하거나 삭제할 수 있도록 하여 데이터 보호에 대한 보안 솔루션을 제공합니다. 이 솔루션에 대한 보안 기능은 저장된 데이터의 보안을 보장하는 디스크 및 연결된 서비스를 위한 것입니다. 
+Data Box Disk는 인증된 엔터티만 데이터를 보고, 수정하거나 삭제할 수 있도록 하여 데이터 보호에 대한 보안 솔루션을 제공합니다. 이 솔루션에 대한 보안 기능은 저장된 데이터의 보안을 보장하는 디스크 및 연결된 서비스를 위한 것입니다.
 
 ### <a name="data-box-disk-protection"></a>Data Box Disk 보호
 
@@ -48,7 +48,7 @@ Data Box Disk는 다음 기능을 통해 보호됩니다.
 
 Data Box Disk의 내부 및 외부로 흐르는 데이터는 다음 기능을 통해 보호됩니다.
 
-- 데이터의 상시 BitLocker 암호화 
+- 데이터의 상시 BitLocker 암호화
 - Azure에 대한 데이터 업로드가 완료되면 디스크에서 데이터 지우기를 보호합니다. 데이터 지우기는 NIST 800-88r1 표준을 따릅니다.
 
 ### <a name="data-box-service-protection"></a>Data Box 서비스 보호
@@ -56,10 +56,9 @@ Data Box Disk의 내부 및 외부로 흐르는 데이터는 다음 기능을 �
 Data Box 서비스는 다음 기능을 통해 보호됩니다.
 
 - Data Box Disk 서비스에 액세스하려면 Data Box Disk를 포함하는 Azure 구독 조직에 있어야 합니다. 구독은 Azure Portal에서 액세스할 수 있는 기능을 제어합니다.
-- Data Box Disk 서비스는 Azure에서 호스팅되므로 Azure 보안 기능으로 보호됩니다. Microsoft Azure에서 제공하는 보안 기능에 대한 자세한 내용은 [Microsoft Azure 보안 센터](https://www.microsoft.com/TrustCenter/Security/default.aspx)로 이동합니다. 
+- Data Box Disk 서비스는 Azure에서 호스팅되므로 Azure 보안 기능으로 보호됩니다. Microsoft Azure에서 제공하는 보안 기능에 대한 자세한 내용은 [Microsoft Azure 보안 센터](https://www.microsoft.com/TrustCenter/Security/default.aspx)로 이동합니다.
 - Data Box Disk는 서비스에서 디스크를 잠금 해제하는 데 사용되는 디스크 암호를 저장합니다. 
-- Data Box Disk 서비스는 서비스에 주문 세부 정보 및 상태를 저장합니다. 이 정보는 주문이 삭제될 때 삭제됩니다. 
-
+- Data Box Disk 서비스는 서비스에 주문 세부 정보 및 상태를 저장합니다. 이 정보는 주문이 삭제될 때 삭제됩니다.
 
 ## <a name="managing-personal-data"></a>개인 데이터 관리
 

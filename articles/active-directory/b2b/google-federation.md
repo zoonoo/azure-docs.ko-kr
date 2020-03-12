@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 11/1/2019
+ms.date: 03/05/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6da9aed857524e9b71aad4dfc99f1d2e54306dc9
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 72c18e48c27942c7bea47931ec79a31af941064e
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74272890"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79126672"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Google을 B2B 게스트 사용자에 대한 ID 공급자로 추가
 
@@ -55,25 +55,24 @@ Google 게스트 사용자에 게 응용 프로그램 또는 리소스에 대 �
    
    ![Google의 새 프로젝트 페이지를 보여 주는 스크린샷](media/google-federation/google-new-project.png)
 
-3. 새 프로젝트가 프로젝트 메뉴에서 선택되어 있는지 확인합니다. 그런 다음, 왼쪽 위에 있는 메뉴를 열고 **API 및 서비스** > **자격 증명**을 선택합니다.
+3. 새 프로젝트가 프로젝트 메뉴에서 선택되어 있는지 확인합니다. 그런 다음 **api & 서비스**에서 **OAuth 동의 화면**을 선택 합니다.
 
-   ![Google API 자격 증명 옵션을 보여 주는 스크린샷](media/google-federation/google-api.png)
- 
-4. **OAuth 동의 화면** 탭을 선택하고 **애플리케이션 이름**을 입력합니다. (다른 설정은 변경하지 말고 그대로 둡니다.)
+4. **외부**를 선택 하 고 **만들기**를 선택 합니다. 
+5. **OAuth 동의 화면**에서 **응용 프로그램 이름을**입력 합니다. (다른 설정은 변경하지 말고 그대로 둡니다.)
 
    ![Google OAuth 동의 화면 옵션을 보여 주는 스크린샷](media/google-federation/google-oauth-consent-screen.png)
 
-5. **권한 있는 도메인** 섹션으로 스크롤하고 microsoftonline.com을 입력합니다.
+6. **권한 있는 도메인** 섹션으로 스크롤하고 microsoftonline.com을 입력합니다.
 
    ![권한 있는 도메인 섹션을 보여 주는 스크린샷](media/google-federation/google-oauth-authorized-domains.png)
 
-6. **저장**을 선택합니다.
+7. **저장**을 선택합니다.
 
-7. **자격 증명** 탭을 선택 합니다. **자격 증명 만들기** 메뉴에서 **OAuth 클라이언트 ID**를 선택 합니다.
+8. **자격 증명**을 선택 합니다. **자격 증명 만들기** 메뉴에서 **OAuth 클라이언트 ID**를 선택합니다.
 
    ![Google Api 자격 증명 만들기 옵션을 보여 주는 스크린샷](media/google-federation/google-api-credentials.png)
 
-8. **애플리케이션 유형**에서 **웹 애플리케이션**을 선택한 다음, **권한이 부여된 리디렉션 URI**에서 다음 URI를 입력합니다.
+9. **애플리케이션 유형**에서 **웹 애플리케이션**을 선택한 다음, **권한이 부여된 리디렉션 URI**에서 다음 URI를 입력합니다.
    - `https://login.microsoftonline.com` 
    - `https://login.microsoftonline.com/te/<directory id>/oauth2/authresp` <br>(여기서 `<directory id>`는 디렉터리 ID입니다.)
    
@@ -82,7 +81,7 @@ Google 게스트 사용자에 게 응용 프로그램 또는 리소스에 대 �
 
    ![권한 있는 리디렉션 Uri 섹션을 보여 주는 스크린샷](media/google-federation/google-create-oauth-client-id.png)
 
-9. **만들기**를 선택합니다. 클라이언트 ID 및 클라이언트 비밀을 복사합니다. Azure AD 포털에서 ID 공급자를 추가할 때 사용하게 됩니다.
+10. **만들기**를 선택합니다. 클라이언트 ID 및 클라이언트 비밀을 복사합니다. Azure AD 포털에서 ID 공급자를 추가할 때 사용하게 됩니다.
 
    ![OAuth 클라이언트 ID 및 클라이언트 암호를 보여 주는 스크린샷](media/google-federation/google-auth-client-id-secret.png)
 
@@ -99,7 +98,7 @@ Google 게스트 사용자에 게 응용 프로그램 또는 리소스에 대 �
 
 #### <a name="to-configure-google-federation-by-using-powershell"></a>PowerShell을 사용하여 Google 페더레이션을 구성하려면 다음을 수행합니다.
 1. 그래프 모듈에 대한 Azure AD PowerShell의 최신 버전을 설치합니다([AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview)).
-2. 다음 명령을 실행합니다. `Connect-AzureAD`
+2. 명령 `Connect-AzureAD`를 실행합니다.
 3. 로그인 프롬프트에서 관리되는 글로벌 관리자 계정으로 로그인합니다.  
 4. 다음 명령 실행: 
    

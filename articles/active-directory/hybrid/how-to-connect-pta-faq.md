@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/15/2019
+ms.date: 03/09/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2cfa5e2117b2d6fce525e66b25ec44f696d7d450
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: dd923a47c49bfa7a6ab16e822a80c8e7f4f9a3e0
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77484420"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096049"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory 통과 인증: 질문과 대답
 
@@ -44,7 +44,7 @@ ms.locfileid: "77484420"
 예. Azure Multi-Factor Authentication을 비롯 한 모든 조건부 액세스 기능이 통과 인증을 사용 합니다.
 
 ## <a name="does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>통과 인증은 "userPrincipalName" 대신 "Alternate ID"를 사용자 이름으로 지원하나요?
-제한 된 범위까지 통과 인증은 Azure AD Connect에서 구성 된 경우 대체 ID를 사용자 이름으로 지원 합니다. 전제 조건으로 Azure AD Connect는 온-프레미스 Active Directory `UserPrincipalName` 특성을 Azure AD로 동기화해야 합니다. 이렇게 하면 온-프레미스 AD 및 Azure AD에서 `UserPrincipalName`가 동일 하 게 됩니다. 다른 특성을 사용 하 여 온-프레미스 AD에서 Azure AD로 동기화 하는 경우에는 암호 해시 동기화 또는 AD FS을 사용 해야 합니다. 자세한 내용은 [Azure AD Connect의 사용자 지정 설치](how-to-connect-install-custom.md)를 참조하세요. 모든 Office 365 애플리케이션에서 `Alternate ID`를 지원하지는 않습니다. 특정 애플리케이션의 설명서 지원 부분을 참조하세요.
+대체 메일과 같이 UPN이 아닌 값을 사용 하 여 로그인 하는 것은 현재 PTA (통과 인증) 및 PHS (암호 해시 동기화) 모두에 대해 비공개 미리 보기로 테스트 되 고 있습니다.
 
 ## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>암호 해시 동기화가 통과 인증을 대체하는 역할을 하나요?
 

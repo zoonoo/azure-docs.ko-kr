@@ -1,5 +1,5 @@
 ---
-title: Virtual Network (미리 보기)에 Azure 데이터 탐색기 배포
+title: Virtual Network에 Azure 데이터 탐색기 배포
 description: Virtual Network에 Azure 데이터 탐색기를 배포 하는 방법을 알아봅니다.
 author: basaba
 ms.author: basaba
@@ -7,14 +7,14 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/31/2019
-ms.openlocfilehash: e845b44c51b7611cd3f23f8b33e6576aced2d6ca
-ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
+ms.openlocfilehash: 5a2731e26ba4f371177cf2ae649f0695f27e6304
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78851457"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096761"
 ---
-# <a name="deploy-azure-data-explorer-into-your-virtual-network-preview"></a>Virtual Network (미리 보기)에 Azure 데이터 탐색기 배포
+# <a name="deploy-azure-data-explorer-into-your-virtual-network"></a>Virtual Network에 Azure 데이터 탐색기 배포
 
 이 문서에서는 Azure 데이터 탐색기 클러스터를 사용자 지정 Azure Virtual Network에 배포할 때 표시 되는 리소스에 대해 설명 합니다. 이 정보는 클러스터를 Virtual Network (VNet)의 서브넷에 배포 하는 데 도움이 됩니다. Azure Virtual Network에 대 한 자세한 내용은 [azure Virtual Network 란?](/azure/virtual-network/virtual-networks-overview) 을 참조 하세요.
 
@@ -25,9 +25,6 @@ Azure 데이터 탐색기는 VNet (Virtual Network)의 서브넷에 클러스터
 * Azure 데이터 탐색기 클러스터 트래픽에 nsg ( [네트워크 보안 그룹](/azure/virtual-network/security-overview) ) 규칙을 적용 합니다.
 * 온-프레미스 네트워크를 Azure 데이터 탐색기 클러스터의 서브넷에 연결 합니다.
 * [서비스 엔드포인트](/azure/virtual-network/virtual-network-service-endpoints-overview)를 사용 하 여 데이터 연결 원본 ([이벤트 허브](/azure/event-hubs/event-hubs-about) 및 [Event Grid](/azure/event-grid/overview))을 보호 합니다.
-
-> [!NOTE]
-> Virtual Network 통합 및 배포는 미리 보기 모드입니다. 이 기능을 사용 하도록 설정 하려면 [지원 티켓](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)을 엽니다.
 
 ## <a name="access-your-azure-data-explorer-cluster-in-your-vnet"></a>VNet에서 Azure 데이터 탐색기 클러스터에 액세스
 

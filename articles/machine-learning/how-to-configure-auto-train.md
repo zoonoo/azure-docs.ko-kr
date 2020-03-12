@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.custom: seodec18
-ms.openlocfilehash: c3ea40ed02fd6b585cfdc9c30fe59bd4e247395c
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.openlocfilehash: 6f49529b0599f36ae4a26939bbbe171a45a1a53a
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79081831"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127187"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Python에서 자동화 된 ML 실험 구성
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -35,7 +35,7 @@ ms.locfileid: "79081831"
 * 모델 메트릭 탐색
 * 모델 등록 및 배포
 
-코드를 사용 하지 않으려는 경우 [Azure Machine Learning studio에서 자동화 된 기계 학습 실험을 만들](how-to-create-portal-experiments.md)수도 있습니다.
+코드를 사용 하지 않으려는 경우 [Azure Machine Learning studio에서 자동화 된 기계 학습 실험을 만들](how-to-use-automated-ml-for-ml-models.md)수도 있습니다.
 
 ## <a name="select-your-experiment-type"></a>실험 유형 선택
 
@@ -174,7 +174,7 @@ automl_config = AutoMLConfig(task = "classification")
 
 세 가지 다른 `task` 매개 변수 값 (세 번째 작업 유형은 `forecasting`이며 `regression` 작업과 유사한 알고리즘 풀 사용)은 적용할 모델 목록을 결정 합니다. `whitelist` 또는 `blacklist` 매개 변수를 사용 하 여 포함 하거나 제외할 사용 가능한 모델로 반복을 수정 합니다. 지원 되는 모델 목록은 ([분류](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.classification), [예측](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.forecasting)및 [회귀](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.regression))의 [supportedmodels 클래스](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels) 에서 찾을 수 있습니다.
 
-자동 ML의 유효성 검사를 수행 하려면 시험 시간 제한 오류를 방지 하기 위해 `experiment_timeout_minutes`를 최소 시간 제한 (15 분)으로 설정 해야 합니다.
+자동 ML의 유효성 검사 서비스를 사용 하려면 실험 시간 제한 오류를 방지 하기 위해 `experiment_timeout_minutes`를 최소 시간 제한 (15 분)으로 설정 해야 합니다.
 
 ### <a name="primary-metric"></a>기본 메트릭
 기본 메트릭은 최적화를 위해 모델 학습 중에 사용할 메트릭을 결정 합니다. 선택할 수 있는 메트릭은 선택한 작업 유형에 따라 결정 되며, 다음 표에서는 각 작업 유형에 대 한 유효한 기본 메트릭을 보여 줍니다.
@@ -191,7 +191,7 @@ automl_config = AutoMLConfig(task = "classification")
 
 ### <a name="data-featurization"></a>데이터 기능화
 
-자동화 된 모든 기계 학습 실험에서 데이터의 [크기를 자동으로 조정 하 고 표준화](concept-automated-ml.md#preprocess) 하 여 다양 한 규모의 기능에 영향을 주는 *특정* 알고리즘을 지원 합니다.  그러나 누락 값 대체, 인코딩 및 변환과 같은 추가 기능화를 사용 하도록 설정할 수도 있습니다. [기능화 포함 된 항목에 대해 자세히 알아보세요](how-to-create-portal-experiments.md#featurization).
+자동화 된 모든 기계 학습 실험에서 데이터의 [크기를 자동으로 조정 하 고 표준화](concept-automated-ml.md#preprocess) 하 여 다양 한 규모의 기능에 영향을 주는 *특정* 알고리즘을 지원 합니다.  그러나 누락 값 대체, 인코딩 및 변환과 같은 추가 기능화를 사용 하도록 설정할 수도 있습니다. [기능화 포함 된 항목에 대해 자세히 알아보세요](how-to-use-automated-ml-for-ml-models.md#featurization).
 
 실험을 구성할 때 고급 설정 `featurization`을 사용 하도록 설정할 수 있습니다. 다음 표에서는 [`AutoMLConfig` 클래스](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py)에서 기능화에 대해 허용 되는 설정을 보여 줍니다.
 
@@ -199,7 +199,7 @@ automl_config = AutoMLConfig(task = "classification")
 | ------------- | ------------- |
 |`"featurization":`&nbsp;`'FeaturizationConfig'`| 사용자 지정 된 기능화 단계를 사용 해야 함을 나타냅니다. [기능화를 사용자 지정 하는 방법을 알아봅니다](how-to-configure-auto-train.md#customize-feature-engineering).|
 |`"featurization": 'off'`| 기능화 단계를 자동으로 수행 하지 않음을 나타냅니다.|
-|`"featurization": 'auto'`| 전처리의 일부로 [데이터 guardrails 및 기능화 단계가](how-to-create-portal-experiments.md#advanced-featurization-options) 자동으로 수행 됨을 나타냅니다.|
+|`"featurization": 'auto'`| 전처리의 일부로 [데이터 guardrails 및 기능화 단계가](how-to-use-automated-ml-for-ml-models.md#advanced-featurization-options) 자동으로 수행 됨을 나타냅니다.|
 
 > [!NOTE]
 > 자동화 된 machine learning 기능화 단계 (기능 정규화, 누락 된 데이터 처리, 텍스트를 숫자로 변환 등)는 기본 모델의 일부가 됩니다. 예측에 모델을 사용 하는 경우 학습 중에 적용 되는 것과 동일한 기능화 단계가 입력 데이터에 자동으로 적용 됩니다.

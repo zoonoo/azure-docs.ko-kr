@@ -11,92 +11,55 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2019
+ms.date: 03/06/2020
 ms.author: memildin
-ms.openlocfilehash: 6b262baddd10c9d0dff4b196b733972b97d99872
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: 183b81134b2fe72a539cc6460a05d828342aafbb
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552987"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79086508"
 ---
-# <a name="monitor-identity-and-access-preview"></a>Id 및 액세스 모니터링 (미리 보기)
+# <a name="monitor-identity-and-access"></a>ID 및 액세스 모니터링
+
+> [!TIP]
+> 3 월 2020부터 Azure Security Center의 id 및 액세스 권장 사항은 무료 가격 책정 계층의 모든 구독에 포함 됩니다. 무료 계층에 대 한 구독이 있는 경우 이전에 id 및 액세스 보안을 평가 하지 않았으므로 보안 점수가 영향을 받게 됩니다. 
+
 Security Center에서 잠재적인 보안 취약점을 식별하는 경우 리소스를 보호하고 강화하는 데 필요한 컨트롤을 구성하는 과정을 안내하는 권장 사항을 만듭니다.
 
-이 문서에서는 Azure Security Center 리소스 보안 섹션의 **id 및 액세스** 페이지에 대해 설명 합니다.
+보안 경계가 네트워크 경계에서 ID 경계로 발전되었습니다. 보안 수준이 네트워크 보호에 대해서는 낮아지고 데이터를 보호하고 앱과 사용자의 보안을 관리하는 방법에 대해서는 높아집니다. 오늘날에는 추가 데이터와 앱을 클라우드로 이동하면 ID는 새 경계가 됩니다.
 
-이 페이지에 표시 될 수 있는 권장 사항의 전체 목록은 [id 및 액세스 권장 사항](recommendations-reference.md#recs-identity)을 참조 하세요.
+ID 작업을 모니터링하여 문제가 발생하기 전에 사전 대응 조치를 취하거나 사후 대응을 통해 공격 시도를 중단할 수 있습니다. Azure Security Center의 **id 및 액세스** 리소스 보안 섹션에서 볼 수 있는 권장 사항의 예는 다음과 같습니다.
 
-> [!NOTE]
-> ID 및 액세스 모니터링은 미리 보기로 제공되며 Security Center의 표준 계층에서만 사용할 수 있습니다. Security Center의 가격 책정 계층에 대해 자세히 알아보려면 [가격 책정](security-center-pricing.md)을 참조하세요.
->
+- 구독에서 소유자 권한이 있는 계정에 MFA를 사용하도록 설정해야 합니다.
+- 구독에 최대 3명의 소유자를 지정해야 합니다.
+- 더 이상 사용되지 않는 계정은 구독에서 제거해야 합니다.
+- 읽기 권한이 있는 외부 계정을 구독에서 제거해야 합니다.
 
-Id는 엔터프라이즈의 제어 평면 이어야 하 고 id를 보호 하는 것이 가장 중요 합니다. 보안 경계가 네트워크 경계에서 ID 경계로 발전되었습니다. 보안 수준이 네트워크 보호에 대해서는 낮아지고 데이터를 보호하고 앱과 사용자의 보안을 관리하는 방법에 대해서는 높아집니다. 오늘날에는 추가 데이터와 앱을 클라우드로 이동하면 ID는 새 경계가 됩니다.
-
-ID 작업을 모니터링하여 문제가 발생하기 전에 사전 대응 조치를 취하거나 사후 대응을 통해 공격 시도를 중단할 수 있습니다. ID 및 액세스 대시보드는 다음과 같은 권장 사항을 제공합니다.
-
-- 구독에 대한 권한이 있는 계정에 대해 MFA 사용
-- 구독에서 쓰기 권한이 있는 외부 계정 제거
-- 구독에서 권한 있는 외부 계정 제거
+여기에 표시 될 수 있는 권장 사항의 전체 목록은 [id 및 액세스 권장 사항](recommendations-reference.md#recs-identity)을 참조 하세요.
 
 > [!NOTE]
 > 구독에 600개 초과의 계정이 있는 경우 Security Center는 사용자 구독에 대해 ID 권장 사항을 실행할 수 없습니다. 실행 되지 않는 권장 사항은 아래의 "사용할 수 없는 평가" 아래에 나열 됩니다.
 Security Center는 CSP(클라우드 솔루션 공급자) 파트너의 관리 에이전트에 대해 ID 권장 사항을 실행할 수 없습니다.
 >
 
-## <a name="monitor-identity-and-access"></a>ID 및 액세스 모니터링
 
-Security Center 사이드바 ( **리소스**아래) 또는 개요 페이지에서 **id & 액세스** 를 선택 하 여 식별 된 id 및 액세스 문제 목록을 엽니다. 
+모든 id 및 액세스 권장 사항은 **권장 사항** 페이지의 두 가지 보안 제어 내에서 사용할 수 있습니다.
 
-**ID 및 액세스**에는 두 개의 탭이 있습니다.
+- 액세스 및 사용 권한 관리 
+- MFA 사용
 
-- **개요**: Security Center에 의해 식별된 권장 사항입니다.
-- **구독**: 구독의 목록 및 각각의 현재 보안 상태입니다.
+![Id 및 액세스와 관련 된 권장 사항이 있는 두 보안 제어](media/security-center-identity-access/two-security-controls-for-identity-and-access.png)
 
-[![Id & 액세스](./media/security-center-identity-access/identity-dashboard.png)](./media/security-center-identity-access/identity-dashboard.png#lightbox)
 
-### <a name="overview-section"></a>개요 섹션
-**개요**에 권장 사항의 목록이 있습니다. 첫 번째 열에는 권장 사항이 나열되고, 두 번째 열에는 해당 권장 사항의 영향을 받은 구독의 총 수가 표시됩니다. 세 번째 열은 문제의 심각도를 보여 줍니다.
+## <a name="enable-multi-factor-authentication-mfa"></a>MFA (multi-factor authentication) 사용
 
-1. 권장 사항을 선택합니다. 권장 구성 창이 열리고 다음을 표시 합니다.
+MFA를 사용 하도록 설정 하려면 [AD (Azure Active Directory) 테 넌 트 권한이](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles)필요 합니다. 
 
-   - 권장 사항의 설명
-   - 비정상 및 정상 상태의 구독 목록
-   - 실패한 평가로 인해 검색되지 않는 리소스 또는 무료 계층에서 실행되는 구독에 있는 리소스와 평가되지 않은 리소스의 목록
+- 프리미엄 버전의 AD를 사용 하는 경우 [조건부 액세스](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)를 사용 하 여 MFA를 사용 하도록 설정 합니다.
 
-    [![권장 사항 창](./media/security-center-identity-access/select-subscription.png)](./media/security-center-identity-access/select-subscription.png#lightbox)
+- Ad 무료 버전의 사용자는 [ad 설명서](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults) 에 설명 된 대로 Azure Active Directory에서 **보안 기본값** 을 사용 하도록 설정할 수 있지만 MFA를 사용 하도록 설정 하는 Security Center 권장 사항은 계속 표시 됩니다.
 
-1. 추가 세부 정보는 목록에서 구독을 선택합니다.
-
-### <a name="subscriptions-section"></a>구독 섹션
-**구독**에는 구독의 목록이 있습니다. 첫 번째 열에는 구독이 나열되고, 두 번째 열에는 각 구독에 대한 권장 사항의 총 수를 보여 줍니다. 세 번째 열은 문제의 심각도를 보여 줍니다.
-
-[![구독 탭](./media/security-center-identity-access/subscriptions.png)](./media/security-center-identity-access/subscriptions.png#lightbox)
-
-1. 구독을 선택합니다. 요약 보기는 다음과 같은 세 개의 탭으로 열립니다.
-
-   - **권장 사항**: 실패한 Security Center에서 수행된 평가를 기반으로 합니다.
-   - **통과된 평가**: 전달된 Security Center에서 수행된 평가의 목록입니다.
-   - **사용할 수 없는 평가**: 오류로 인해 또는 구독에 600개 초과의 계정이 있어서 실행에 실패한 평가 목록입니다.
-
-   **권장 사항**에는 선택한 구독에 대한 권장 사항 목록과 각 권장 사항의 심각도가 표시됩니다.
-
-   [구독 선택에 대 한 ![권장 사항](./media/security-center-identity-access/recommendations.png)](./media/security-center-identity-access/recommendations.png#lightbox)
-
-1. 권장 사항의 설명, 비정상 및 정상 구독의 목록 및 검사되지 않은 리소스의 목록을 보려면 권장 사항을 선택합니다.
-
-   [권장 사항에 대 한 ![설명](./media/security-center-identity-access/designate.png)](./media/security-center-identity-access/designate.png#lightbox)
-
-   **통과된 평가**에는 통과된 평가의 목록이 나와 있습니다.  이러한 평가의 심각도는 항상 녹색입니다.
-
-   [![통과 평가](./media/security-center-identity-access/passed-assessments.png)](./media/security-center-identity-access/passed-assessments.png#lightbox)
-
-1. 평가의 설명 및 정상 구독 목록을 보려면 목록에서 통과된 평가를 선택합니다. 실패한 모든 구독을 나열하는 비정상 구독에 대한 탭이 있습니다.
-
-   [![통과 평가](./media/security-center-identity-access/remove.png)](./media/security-center-identity-access/remove.png#lightbox)
-
-> [!NOTE]
-> MFA를 필요 하지만 제외가 설정 된 조건부 액세스 정책을 만든 경우 Security Center MFA 권장 평가는 정책을 준수 하지 않는 것으로 간주 하므로 일부 사용자는 MFA 없이 Azure에 로그인 할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 다른 Azure 리소스 유형에 적용 되는 권장 사항에 대해 자세히 알아보려면 다음 문서를 참조 하세요.

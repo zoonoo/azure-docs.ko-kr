@@ -4,14 +4,15 @@ description: Azure Portal를 사용 하 여 전용 호스트에 Vm을 배포 합
 author: cynthn
 ms.service: virtual-machines
 ms.topic: article
-ms.date: 01/09/2020
+ms.workload: infrastructure
+ms.date: 03/10/2020
 ms.author: cynthn
-ms.openlocfilehash: 5af09cf7ef6c811a239a64c5c6349c3625316177
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
-ms.translationtype: HT
+ms.openlocfilehash: 195a19ef881f235ad8e42f23b53da9e667ef88d0
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78970743"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79086772"
 ---
 # <a name="deploy-vms-to-dedicated-hosts-using-the-portal"></a>포털을 사용 하 여 전용 호스트에 Vm 배포
 
@@ -38,6 +39,26 @@ ms.locfileid: "78970743"
 1. 유효성 검사에 통과 되었다는 메시지가 표시 되 면 **만들기**를 선택 합니다.
 
 VM 배포에는 몇 분 정도 걸립니다.
+
+## <a name="add-an-existing-vm"></a>기존 VM 추가 
+
+종료 된 VM을 전용 호스트에 추가할 수 있지만 VM은 먼저 Stop\Deallocated. VM을 전용 호스트로 이동 하기 전에 VM 구성이 지원 되는지 확인 합니다.
+
+- VM 크기는 전용 호스트와 동일한 크기의 패밀리에 있어야 합니다. 예를 들어 전용 호스트가 DSv3 인 경우 VM 크기를 Standard_D4s_v3 수 있지만 Standard_A4_v2 수는 없습니다. 
+- VM은 전용 호스트와 동일한 지역에 있어야 합니다.
+- VM은 근접 배치 그룹에 포함 될 수 없습니다. 전용 호스트로 이동 하기 전에 근접 배치 그룹에서 VM을 제거 합니다. 자세한 내용은 [근접 배치 그룹에서 VM 이동](https://docs.microsoft.com/azure/virtual-machines/windows/proximity-placement-groups#move-an-existing-vm-out-of-a-proximity-placement-group) 을 참조 하세요.
+- VM은 가용성 집합에 있을 수 없습니다.
+- VM이 가용성 영역에 있는 경우 호스트 그룹과 동일한 가용성 영역 이어야 합니다. VM 및 호스트 그룹의 가용성 영역 설정이 일치 해야 합니다.
+
+[포털](https://portal.azure.com)을 사용 하 여 VM을 전용 호스트로 이동 합니다.
+
+1. VM에 대 한 페이지를 엽니다.
+1. 중지를 선택 하 여 VM을 **중지** 합니다.
+1. 왼쪽 메뉴에서 **구성** 을 선택 합니다.
+1. 드롭다운 메뉴에서 호스트 그룹 및 호스트를 선택 합니다.
+1. 완료 되 면 페이지 위쪽에서 **저장** 을 선택 합니다.
+1. VM이 호스트에 추가 된 후 왼쪽 메뉴에서 **개요** 를 선택 합니다.
+1. 페이지 위쪽에서 **시작** 을 선택 하 여 VM을 다시 시작 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

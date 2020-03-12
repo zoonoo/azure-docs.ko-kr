@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
-ms.openlocfilehash: 0ef50dfd4d9c6eb0066e54b76167b9934fbb9cf0
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 443e4b44633e949dd9bd55df1ec7d18ca93d6e04
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77654436"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096220"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>네트워크 성능 모니터 솔루션 FAQ
 
@@ -183,7 +183,7 @@ NPM은 경로 추적의 수정된 버전을 사용하여 원본 에이전트에�
 * 네트워크 디바이스가 ICMP_TTL_EXCEEDED 트래픽을 허용하지 않습니다.
 * 방화벽이 네트워크 디바이스에서 ICMP_TTL_EXCEEDED 응답을 차단합니다.
 
-Azure에 끝점 중 하나가 있는 경우 Azure ndrastructure에서 경로 추적에 id를 표시 하지 않으므로 경로 추적는 식별 되지 않은 홉을 표시 합니다. 
+끝점 중 하나가 Azure에 있는 경우 Azure 인프라에서 id를 경로 추적로 표시 하지 않으므로 경로 추적는 식별 되지 않은 홉을 표시 합니다. 
 
 ### <a name="i-get-alerts-for-unhealthy-tests-but-i-do-not-see-the-high-values-in-npms-loss-and-latency-graph-how-do-i-check-what-is-unhealthy"></a>비정상 테스트에 대 한 경고를 가져오지만 NPM의 손실 및 대기 시간 그래프에 높은 값이 표시 되지 않습니다. 비정상 상태를 확인 어떻게 할까요?
 NPM는 원본과 대상 사이의 종단 간 대기 시간이 임계값을 초과 하는 경우 경고를 발생 시킵니다. 일부 네트워크에는 동일한 원본 및 대상을 연결 하는 경로가 여러 개 있습니다. NPM는 상태가 비정상 인 경우 경고를 발생 시킵니다. 그래프에 표시 되는 손실 및 대기 시간은 모든 경로의 평균 값 이므로 단일 경로의 정확한 값을 표시 하지 않을 수 있습니다. 임계값이 위반 된 위치를 이해 하려면 경고의 "하위 유형" 열을 찾습니다. 경로 때문에 문제가 발생 하는 경우 하위 유형 값은 NetworkPath (성능 모니터 테스트의 경우), EndpointPath (서비스 연결 모니터 테스트의 경우) 및 ExpressRoutePath (ExpressRotue Monitor 테스트의 경우)입니다. 
