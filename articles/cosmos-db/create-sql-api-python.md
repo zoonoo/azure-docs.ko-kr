@@ -6,18 +6,18 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 11/03/2019
+ms.date: 03/09/2020
 ms.author: sngun
 ms.custom:
 - seodec18
 - seo-javascript-september2019
 - seo-python-october2019
-ms.openlocfilehash: 113955b0404b951360b670ee75789d0a74ffa534
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: 10247e22b3fbe1250a15b06a0cce974905ca6b7f
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78274094"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942623"
 ---
 # <a name="quickstart-build-a-python-application-using-an-azure-cosmos-db-sql-api-account"></a>빠른 시작: Azure Cosmos DB SQL API 계정을 사용하여 Python 애플리케이션 빌드
 
@@ -57,7 +57,7 @@ ms.locfileid: "78274094"
 
     |설정|제안 값|Description
     |---|---|---|
-    |**데이터베이스 ID**|작업|새 데이터베이스의 이름으로 *ToDoList*를 입력합니다. 데이터베이스 이름은 1~255자여야 하며, `/, \\, #, ?` 또는 후행 공백은 포함할 수 없습니다. **데이터베이스 처리량 프로비전** 옵션을 선택합니다. 그러면 데이터베이스에 프로비저닝된 처리량을 데이터베이스 내 모든 컨테이너가 공유할 수 있습니다. 이 옵션은 비용 절감에도 도움이 됩니다. |
+    |**데이터베이스 ID**|작업|새 데이터베이스의 이름으로 *작업*을 입력합니다. 데이터베이스 이름은 1~255자여야 하며, `/, \\, #, ?` 또는 후행 공백은 포함할 수 없습니다. **데이터베이스 처리량 프로비전** 옵션을 선택합니다. 그러면 데이터베이스에 프로비저닝된 처리량을 데이터베이스 내 모든 컨테이너가 공유할 수 있습니다. 이 옵션은 비용 절감에도 도움이 됩니다. |
     |**처리량**|400|처리량을 400 RU/s(초당 요청 단위)로 유지합니다. 대기 시간을 줄이면 나중에 처리량을 늘릴 수 있습니다.| 
     |**컨테이너 ID**|Items|새 컨테이너의 이름으로 *Items*를 입력합니다. 컨테이너 ID에는 데이터베이스 이름과 동일한 문자 요구 사항이 적용됩니다.|
     |**파티션 키**| /category| 이 문서에 설명된 샘플은 파티션 키로 */category*를 사용합니다.|

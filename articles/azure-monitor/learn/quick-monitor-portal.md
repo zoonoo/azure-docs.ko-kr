@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/26/2019
 ms.custom: mvc
-ms.openlocfilehash: 6ba7bca0756b4e2f6fdcb89208fe15e3517a9513
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 3775070320b8c6e96dd06031bd87ea53f37046c5
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77661706"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78894847"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>ASP.NET 웹 애플리케이션 모니터링 시작
 
@@ -23,7 +23,7 @@ Azure Application Insights를 사용하면 웹 애플리케이션의 가용성, 
 ## <a name="prerequisites"></a>사전 요구 사항
 이 빠른 시작을 완료하려면 다음이 필요합니다.
 
-- 다음 워크로드로 [Visual Studio 2019](https://www.visualstudio.com/downloads/)를 설치합니다.
+- 다음 워크로드로 [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019)를 설치합니다.
     - ASP.NET 및 웹 개발
     - Azure 개발
 

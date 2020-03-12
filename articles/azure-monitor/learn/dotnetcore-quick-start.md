@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/26/2019
 ms.custom: mvc
-ms.openlocfilehash: fa1651e88226080cca970cc756f2c0522b39f1be
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: ef46b86186d1f5e26360de891b3a090ab0ece66b
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77670630"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78894826"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>ASP.NET Core 웹 애플리케이션 모니터링 시작
 
@@ -24,10 +24,10 @@ Azure Application Insights를 사용하면 웹 애플리케이션의 가용성, 
 
 이 빠른 시작을 완료하려면 다음이 필요합니다.
 
-- 다음 워크로드로 [Visual Studio 2019](https://www.visualstudio.com/downloads/)를 설치합니다.
+- 다음 워크로드로 [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019)를 설치합니다.
   - ASP.NET 및 웹 개발
   - Azure 개발
-- [.NET Core SDK 2.0 설치](https://www.microsoft.com/net/core)
+- [.NET Core SDK 2.0 설치](https://dotnet.microsoft.com/download)
 - Azure 구독 및 기존 .NET Core 웹 애플리케이션이 필요합니다.
 
 ASP.NET Core 웹 애플리케이션이 없는 경우 단계별 가이드에 따라 [ASP.NET Core 앱을 만들고 Application Insights를 추가](../../azure-monitor/app/asp-net-core.md)할 수 있습니다.

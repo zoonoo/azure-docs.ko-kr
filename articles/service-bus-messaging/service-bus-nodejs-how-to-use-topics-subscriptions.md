@@ -14,21 +14,20 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 01/16/2020
 ms.author: aschhab
-ms.openlocfilehash: e6ac3c74a0a8346ad8a6820c676224bfcba0e8b4
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: c85b63b4a56e74b0fef9a122ec995b4106496cbe
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264444"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78330449"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azure-sb-package"></a>빠른 시작: Node.js와 azure-sb 패키지에서 Service Bus 토픽 및 구독을 사용하는 방법
-> [!div class="op_multi_selector" title1="프로그래밍 언어" title2="Node.js 패키지"]
-> - [(Node.js | azure-sb)](service-bus-nodejs-how-to-use-topics-subscriptions.md)
-> - [(Node.js | @azure/service-bus)](service-bus-nodejs-how-to-use-topics-subscriptions-new-package.md)
-
 이 자습서에서는 [azure-sb](https://www.npmjs.com/package/azure-sb) 패키지를 사용하여 Service Bus 토픽으로 메시지를 보내고 Service Bus 구독에서 메시지를 받는 Node.js 애플리케이션을 만드는 방법에 대해 알아봅니다. 샘플은 JavaScript로 작성되었으며 내부적으로 `azure-sb` 패키지를 사용하는 Node.js [Azure 모듈](https://www.npmjs.com/package/azure)을 사용합니다.
 
-[azure-sb](https://www.npmjs.com/package/azure-sb) 패키지는 [Service Bus REST 런타임 API](/rest/api/servicebus/service-bus-runtime-rest)를 사용합니다. 더 빠른 [AMQP 1.0 프로토콜](service-bus-amqp-overview.md)을 사용하는 새 [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) 패키지를 사용하면 더 빠른 환경을 얻을 수 있습니다. 새 패키지에 대한 자세한 내용은 [Node.js 및 @azure/service-bus 패키지에서 Service Bus 토픽 및 구독을 사용하는 방법](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-topics-subscriptions-new-package)을 참조하거나 [azure](https://www.npmjs.com/package/azure) 패키지를 사용하는 방법을 계속 읽으세요.
+> [!IMPORTANT]
+> [azure-sb](https://www.npmjs.com/package/azure-sb) 패키지는 [Service Bus REST 런타임 API](/rest/api/servicebus/service-bus-runtime-rest)를 사용합니다. 더 빠른 [AMQP 1.0 프로토콜](service-bus-amqp-overview.md)을 사용하는 새 [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) 패키지를 사용하면 더 빠른 환경을 얻을 수 있습니다. 
+> 
+> 새 패키지에 대한 자세한 내용은 [Node.js 및 @azure/service-bus 패키지에서 Service Bus 토픽 및 구독을 사용하는 방법](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-topics-subscriptions-new-package)을 참조하거나 [azure](https://www.npmjs.com/package/azure) 패키지를 사용하는 방법을 계속 읽으세요.
 
 여기서 다루는 시나리오는 다음과 같습니다.
 

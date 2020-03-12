@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 08/20/2019
 ms.author: robinsh
-ms.openlocfilehash: e00df18fb0e62d79b3402437c4be12a9c5650a61
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: 52f9e6529329c5bb1abb176082294dc26e64baa3
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77461928"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78675538"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>빠른 시작: IoT Hub 디바이스 스트림을 통해 C에서 디바이스 애플리케이션과 통신(미리 보기)
 
@@ -51,8 +51,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 * 다음 명령을 실행하여 Azure CLI용 Azure IoT 확장을 Cloud Shell 인스턴스에 추가합니다. IoT 확장은 IoT Hub, IoT Edge 및 IoT DPS(Device Provisioning Service) 관련 명령을 Azure CLI에 추가합니다.
 
    ```azurecli-interactive
-   az extension add --name azure-cli-iot-ext
+   az extension add --name azure-iot
    ```
+
+   [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 디바이스 스트림 미리 보기는 현재 다음 Azure 지역에서 만든 IoT Hub만 지원합니다.
 

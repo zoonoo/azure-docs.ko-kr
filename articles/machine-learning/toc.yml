@@ -257,7 +257,7 @@
           displayName: SDK automl
           href: how-to-configure-auto-train.md
         - name: 자동화된 ML 사용(인터페이스)
-          href: how-to-create-portal-experiments.md
+          href: how-to-use-automated-ml-for-ml-models.md
         - name: 원격 컴퓨팅 대상 사용
           displayName: automl automated auto ml
           href: how-to-auto-train-remote.md

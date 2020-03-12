@@ -10,12 +10,12 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/21/2019
-ms.openlocfilehash: 8ecd0ebbd242135f0d3b0c6e365d6e97586031cb
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: f542c07456d60572dc70692a1ab0111acc9103f5
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77121221"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78675575"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-net"></a>빠른 시작: 디바이스에서 IoT Hub로 원격 분석을 보내고 백 엔드 애플리케이션(.NET)으로 읽습니다.
 
@@ -44,8 +44,10 @@ dotnet --version
 다음 명령을 실행하여 Cloud Shell 인스턴스에 Azure CLI용 Microsoft Azure IoT 확장을 추가합니다. IOT 확장은 Azure CLI에 IoT Hub, IoT Edge 및 IoT DPS(Device Provisioning Service) 고유의 명령을 추가합니다.
 
 ```azurecli-interactive
-az extension add --name azure-cli-iot-ext
+az extension add --name azure-iot
 ```
+
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 [https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip)에서 Azure IoT C# 샘플을 다운로드하고 ZIP 보관 파일을 추출합니다.
 

@@ -10,12 +10,12 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/21/2019
-ms.openlocfilehash: 3e01f02026bfd788c398e580a78812d1a69f8f1d
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.openlocfilehash: 740cb3a046514ffee9b2151315133220465878cf
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77108939"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78673465"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-net"></a>빠른 시작: IoT Hub에 연결된 디바이스 제어(.NET)
 
@@ -48,8 +48,10 @@ dotnet --version
 다음 명령을 실행하여 Cloud Shell 인스턴스에 Azure CLI용 Microsoft Azure IoT 확장을 추가합니다. IOT 확장은 Azure CLI에 IoT Hub, IoT Edge 및 IoT DPS(Device Provisioning Service) 고유의 명령을 추가합니다.
 
 ```azurecli-interactive
-az extension add --name azure-cli-iot-ext
+az extension add --name azure-iot
 ```
+
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 아직 그렇게 하지 않았다면 https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip 에서 Azure IoT C# 샘플을 다운로드하고 ZIP 보관 파일을 추출합니다.
 

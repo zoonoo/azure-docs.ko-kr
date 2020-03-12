@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 1232177c8fd856d704c92694edb26ff8e12ad217
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: c8ef6a87e839e6d8dfb296e7b24f3d0d95843d1c
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77461935"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78675471"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>빠른 시작: C# 프록시 애플리케이션을 사용하여 IoT Hub 디바이스 스트림을 통해 SSH 및 RDP 사용(미리 보기)
 
@@ -69,8 +69,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 * 다음 명령을 실행하여 Azure CLI용 Azure IoT 확장을 Cloud Shell 인스턴스에 추가합니다. IoT 확장은 IoT Hub, IoT Edge 및 IoT DPS(Device Provisioning Service) 관련 명령을 Azure CLI에 추가합니다.
 
    ```azurecli-interactive
-   az extension add --name azure-cli-iot-ext
+   az extension add --name azure-iot
    ```
+
+   ```azurecli-interactive
+   az extension add --name azure-iot
+   ```
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 * [Azure IoT C# 샘플을 다운로드](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip)하고 ZIP 보관 파일을 추출합니다.
 

@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 1/11/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 381f1486f13907aa52558029789e49bc4e5c4961
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 65352b8f8f85f5e7a2e25ae99d5ca3368ad78711
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687608"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79126523"
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Linux의 Azure App Service 소개
 
@@ -91,7 +91,7 @@ Linux 기반 App Service에 대한 자세한 내용은 다음 항목을 참조�
 * [App Service에서 스테이징 환경 설정](../../app-service/deploy-staging-slots.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 * [Docker 허브 지속적인 배포](app-service-linux-ci-cd.md)
 
-[당사 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview)에 질문 및 문제를 게시할 수 있습니다.
+[당사 포럼](https://docs.microsoft.com/answers/topics/azure-webapps.html)에 질문 및 문제를 게시할 수 있습니다.
 
 <!--Image references-->
 [1]: ./media/app-service-linux-intro/kudu-docker-logs.png

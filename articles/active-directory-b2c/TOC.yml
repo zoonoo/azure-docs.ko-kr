@@ -182,9 +182,13 @@
             - name: UI 사용자 지정
               href: custom-policy-ui-customization.md
               displayName: 'ux, input, cors, html, css'
+            - name: 언어 사용자 지정
+              href: custom-policy-localization.md
             - name: 사용자 지정 이메일
               href: custom-email.md
               displayName: verification
+            - name: 메일 검증을 사용하지 않도록 설정
+              href: custom-policy-disable-email-verification.md
             - name: JavaScript 사용
               href: javascript-samples.md
             - name: 암호 복잡성

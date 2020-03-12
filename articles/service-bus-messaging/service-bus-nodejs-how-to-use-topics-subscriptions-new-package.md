@@ -14,18 +14,14 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 01/16/2020
 ms.author: aschhab
-ms.openlocfilehash: 348a6a50583594d3e608bb16fcef65879b595e67
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 6088b4c54ed16c5ef46d2c0671e619884cad29d4
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76263322"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78330620"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azureservice-bus-package"></a>빠른 시작: Node.js와 azure/service-bus 패키지에서 Service Bus 토픽 및 구독을 사용하는 방법
-> [!div class="op_multi_selector" title1="프로그래밍 언어" title2="Node.js 패키지"]
-> - [(Node.js | azure-sb)](service-bus-nodejs-how-to-use-topics-subscriptions.md)
-> - [(Node.js | @azure/service-bus)](service-bus-nodejs-how-to-use-topics-subscriptions-new-package.md)
-
 이 자습서에서는 새 [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) 패키지를 사용하여 Service Bus 토픽으로 메시지를 보내고 Service Bus 구독에서 메시지를 받는 Node.js 프로그램을 작성하는 방법에 대해 알아봅니다. 이 패키지는 더 빠른 [AMQP 1.0 프로토콜](service-bus-amqp-overview.md)을 사용하는 반면, 이전 [azure-sb](https://www.npmjs.com/package/azure-sb) 패키지는 [Service Bus REST 런타임 API](/rest/api/servicebus/service-bus-runtime-rest)를 사용했습니다. 샘플은 JavaScript로 작성되었습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항

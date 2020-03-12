@@ -7,12 +7,12 @@ ms.date: 01/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 1eff8bbd7ce601a0145bb3c6c05bc09ee0024daf
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 19a35a6586b04818c09190899714345d21e0088d
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78196759"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78330756"
 ---
 # <a name="quickstart-manage-blobs-with-python-v12-sdk"></a>빠른 시작: Python v12 SDK로 Blob 관리
 
@@ -103,7 +103,7 @@ Azure Blob Storage는 대량의 비정형 데이터를 저장하도록 최적화
 
 다음 다이어그램에서는 이러한 리소스 간의 관계를 보여줍니다.
 
-![Blob Storage 아키텍처 다이어그램](./media/storage-blob-introduction/blob1.png)
+![Blob Storage 아키텍처 다이어그램](./media/storage-blobs-introduction/blob1.png)
 
 다음 Python 클래스를 사용하여 이러한 리소스와 상호 작용합니다.
 

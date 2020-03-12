@@ -15,22 +15,20 @@ ms.topic: quickstart
 ms.date: 01/27/2020
 ms.author: aschhab
 ms.custom: seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: fee7ff6ffbd18cf514ce1bfda81aca727ed362c3
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 7ee3939c1a1b450f2458267ab0b70e3924a4869b
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773516"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78330603"
 ---
 # <a name="quickstart-use-service-bus-queues-in-azure-with-nodejs-and-the-azure-sb-package"></a>빠른 시작: Azure에서 Node.js 및 azure-sb 패키지를 통해 Service Bus 큐 사용
-
-> [!div class="op_multi_selector" title1="프로그래밍 언어" title2="Node.js 패키지"]
-> - [(Node.js | azure-sb)](service-bus-nodejs-how-to-use-queues.md)
-> - [(Node.js | @azure/service-bus)](service-bus-nodejs-how-to-use-queues-new-package.md)
-
 이 자습서에서는 [azure-sb](https://www.npmjs.com/package/azure-sb) 패키지를 사용하여 Azure Service Bus 큐와 메시지를 주고 받는 Node.js 애플리케이션을 만드는 방법에 대해 알아봅니다. 샘플은 JavaScript로 작성되었으며 내부적으로 azure-sb 패키지를 사용하는 Node.js [Azure 모듈](https://www.npmjs.com/package/azure)을 사용합니다.
 
-[azure-sb](https://www.npmjs.com/package/azure-sb) 패키지는 [Service Bus REST 런타임 API](/rest/api/servicebus/service-bus-runtime-rest)를 사용합니다. 더 빠른 [AMQP 1.0 프로토콜](service-bus-amqp-overview.md)을 사용하는 새 [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus)를 사용하면 더 빠른 환경을 얻을 수 있습니다. 새 패키지에 대한 자세한 내용은 [Node.js 및 @azure/service-bus 패키지에서 Service Bus 큐를 사용하는 방법](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-queues-new-package)을 참조하거나 [azure](https://www.npmjs.com/package/azure) 패키지를 사용하는 방법을 계속 읽으세요.
+> [!IMPORTANT]
+> [azure-sb](https://www.npmjs.com/package/azure-sb) 패키지는 [Service Bus REST 런타임 API](/rest/api/servicebus/service-bus-runtime-rest)를 사용합니다. 더 빠른 [AMQP 1.0 프로토콜](service-bus-amqp-overview.md)을 사용하는 새 [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus)를 사용하면 더 빠른 환경을 얻을 수 있습니다. 
+> 
+> 새 패키지에 대한 자세한 내용은 [Node.js 및 @azure/service-bus 패키지에서 Service Bus 큐를 사용하는 방법](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-queues-new-package)을 참조하거나 [azure](https://www.npmjs.com/package/azure) 패키지를 사용하는 방법을 계속 읽으세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 - Azure 구독 이 자습서를 완료하려면 Azure 계정이 필요합니다. [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF)을 활성화해도 되고, 또는 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)에 가입해도 됩니다.

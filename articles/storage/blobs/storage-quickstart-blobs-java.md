@@ -7,12 +7,12 @@ ms.date: 01/27/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 8f05ab3298f0475bda0e79565c13cd7a120632f0
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: c883653754e1f69d3b2d79b256d57a036c70b58e
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78196045"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78330145"
 ---
 # <a name="quickstart-manage-blobs-with-java-v12-sdk"></a>빠른 시작: Java v12 SDK로 Blob 관리
 
@@ -152,7 +152,7 @@ Azure Blob Storage는 대량의 비정형 데이터를 저장하도록 최적화
 
 다음 다이어그램에서는 이러한 리소스 간의 관계를 보여줍니다.
 
-![Blob Storage 아키텍처 다이어그램](./media/storage-blob-introduction/blob1.png)
+![Blob Storage 아키텍처 다이어그램](./media/storage-blobs-introduction/blob1.png)
 
 다음 Java 클래스를 사용하여 이러한 리소스와 상호 작용합니다.
 

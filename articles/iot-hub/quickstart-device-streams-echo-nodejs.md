@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 3bc5dc754509260591acf7c5d5809d5e85794d9b
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 0757c5eb8639e4a864b049adc92c97a7cf69adba
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77471927"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78675499"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-nodejs-via-iot-hub-device-streams-preview"></a>빠른 시작: IoT Hub 디바이스 스트림을 통해 Node.js에서 디바이스 애플리케이션과 통신(미리 보기)
 
@@ -55,8 +55,10 @@ Microsoft Azure IoT Hub는 현재 디바이스 스트림을 [미리 보기 기�
 다음 명령을 실행하여 Cloud Shell 인스턴스에 Azure CLI용 Microsoft Azure IoT 확장을 추가합니다. IoT 확장은 Azure CLI에 IoT Hub, IoT Edge 및 IoT DPS(Device Provisioning Service) 명령을 추가합니다.
 
 ```azurecli-interactive
-az extension add --name azure-cli-iot-ext
+az extension add --name azure-iot
 ```
+
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 

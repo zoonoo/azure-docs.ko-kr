@@ -9,12 +9,12 @@ services: iot-hub
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/03/2019
-ms.openlocfilehash: ef743285c993d554633b37ca675ea7efd3c8eef9
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 3bb51db139dbdafef63c0c2da71a1ca4ce582338
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78196810"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78675411"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-ios"></a>빠른 시작: 디바이스에서 IoT Hub로 원격 분석 데이터 보내기(iOS)
 
@@ -31,15 +31,21 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 ## <a name="prerequisites"></a>사전 요구 사항
 
 - [Azure 샘플](https://github.com/Azure-Samples/azure-iot-samples-ios/archive/master.zip)에서 코드 샘플 다운로드
+
 - 최신 버전의 iOS SDK를 실행 중인 최신 버전의 [XCode](https://developer.apple.com/xcode/). 이 빠른 시작은 XCode 10.2 및 iOS 12.2에서 테스트되었습니다.
+
 - 최신 버전의 [CocoaPods](https://guides.cocoapods.org/using/getting-started.html).
+
+- 방화벽에서 포트 8883이 열려 있는지 확인합니다. 이 빠른 시작의 디바이스 샘플은 포트 8883을 통해 통신하는 MQTT 프로토콜을 사용합니다. 이 포트는 일부 회사 및 교육용 네트워크 환경에서 차단될 수 있습니다. 이 문제를 해결하는 자세한 내용과 방법은 [IoT Hub에 연결(MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub)을 참조하세요.
+
+
 - 다음 명령을 실행하여 Cloud Shell 인스턴스에 Azure CLI용 Microsoft Azure IoT 확장을 추가합니다. IoT 확장은 Azure CLI에 IoT Hub, IoT Edge 및 IoT DPS(Device Provisioning Service) 고유의 명령을 추가합니다.
 
    ```azurecli-interactive
-   az extension add --name azure-cli-iot-ext
+   az extension add --name azure-iot
    ```
 
-- 방화벽에서 포트 8883이 열려 있는지 확인합니다. 이 빠른 시작의 디바이스 샘플은 포트 8883을 통해 통신하는 MQTT 프로토콜을 사용합니다. 이 포트는 일부 회사 및 교육용 네트워크 환경에서 차단될 수 있습니다. 이 문제를 해결하는 자세한 내용과 방법은 [IoT Hub에 연결(MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub)을 참조하세요.
+   [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 

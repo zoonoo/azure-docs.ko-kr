@@ -12,17 +12,6 @@
       href: quick-create-powershell.md
     - name: 가상 네트워크 만들기 - Azure CLI
       href: quick-create-cli.md
-    - name: NAT
-      items:
-        - name: NAT 게이트웨이 만들기 - 포털
-          href: quickstart-create-nat-gateway-portal.md
-        - name: NAT 게이트웨이 만들기 - PowerShell
-          href: quickstart-create-nat-gateway-powershell.md
-        - name: NAT 게이트웨이 만들기 - CLI
-          href: quickstart-create-nat-gateway-cli.md
-        - name: NAT 게이트웨이 만들기 - ARM 템플릿
-          displayname: Resource Manager
-          href: quickstart-create-nat-gateway-template.md
   expanded: true
 - name: 자습서
   items:
@@ -36,6 +25,15 @@
       href: tutorial-connect-virtual-networks-portal.md
     - name: NAT
       items:
+        - name: NAT 게이트웨이 만들기 - 포털
+          href: quickstart-create-nat-gateway-portal.md
+        - name: NAT 게이트웨이 만들기 - PowerShell
+          href: quickstart-create-nat-gateway-powershell.md
+        - name: NAT 게이트웨이 만들기 - CLI
+          href: quickstart-create-nat-gateway-cli.md
+        - name: NAT 게이트웨이 만들기 - ARM 템플릿
+          displayname: Resource Manager
+          href: quickstart-create-nat-gateway-template.md
         - name: NAT 게이트웨이 만들기 및 유효성 검사 - 포털
           href: tutorial-create-validate-nat-gateway-portal.md
         - name: NAT 게이트웨이 만들기 및 유효성 검사 - PowerShell

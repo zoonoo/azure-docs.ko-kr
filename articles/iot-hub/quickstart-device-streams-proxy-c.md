@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: f47c2c30f71d6510ee66bb19bdd936e0780e242c
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: af303928490d2570fa9430bd4b9d30c4a49df304
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77461868"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78675486"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>빠른 시작: C 프록시 애플리케이션을 사용하여 IoT Hub 디바이스 스트림을 통해 SSH 및 RDP 사용(미리 보기)
 
@@ -65,8 +65,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 * 다음 명령을 실행하여 Azure CLI용 Azure IoT 확장을 Cloud Shell 인스턴스에 추가합니다. IoT 확장은 IoT Hub, IoT Edge 및 IoT DPS(Device Provisioning Service) 관련 명령을 Azure CLI에 추가합니다.
 
    ```azurecli-interactive
-   az extension add --name azure-cli-iot-ext
+   az extension add --name azure-iot
    ```
+
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 ## <a name="prepare-the-development-environment"></a>개발 환경 준비
 

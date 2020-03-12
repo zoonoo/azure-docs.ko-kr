@@ -10,12 +10,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/09/2020
-ms.openlocfilehash: bd9d7f9d261ac9f5f433abbfc2e5f5ac36a8f1b0
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 0ff404e4b13fdb3e174387c17064c5ae58acd246
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77470822"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78675559"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-python"></a>빠른 시작: IoT Hub에 연결된 디바이스 제어(Python)
 
@@ -40,8 +40,10 @@ ms.locfileid: "77470822"
 다음 명령을 실행하여 Cloud Shell 인스턴스에 Azure CLI용 Microsoft Azure IoT 확장을 추가합니다. IoT 확장은 Azure CLI에 IoT Hub, IoT Edge 및 IoT DPS(Device Provisioning Service) 고유의 명령을 추가합니다.
 
 ```azurecli-interactive
-az extension add --name azure-cli-iot-ext
+az extension add --name azure-iot
 ```
+
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 
