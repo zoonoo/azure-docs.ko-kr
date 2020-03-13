@@ -116,6 +116,8 @@
       href: how-to-modify-assessment.md
     - name: 마이그레이션 도구 추가
       href: how-to-migrate.md
+    - name: VMware VM을 SSE 및 CMK로 암호화된 Azure VM으로 마이그레이션
+      href: how-to-migrate-vmware-vms-with-cmk-disks.md
     - name: 마이그레이션을 위한 머신 준비
       href: prepare-for-migration.md
     - name: Azure Migrate 프로젝트 삭제

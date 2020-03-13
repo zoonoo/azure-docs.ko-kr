@@ -50,6 +50,8 @@
       href: named-entity-types.md
     - name: 언어 및 지역 지원
       href: language-support.md
+    - name: 텍스트 오프셋
+      href: concepts/text-offsets.md
 - name: 방법 가이드
   items:
     - name: 텍스트 분석 API 호출

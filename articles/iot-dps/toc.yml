@@ -97,6 +97,8 @@
       href: concepts-security.md
     - name: 서비스
       href: concepts-service.md
+    - name: DPS IP 주소 이해
+      href: iot-dps-understand-ip-address.md
     - name: TPM 증명
       href: concepts-tpm-attestation.md
     - name: 대칭 키 증명
@@ -127,6 +129,8 @@
           href: how-to-manage-dps-with-cli.md
         - name: 프로비저닝 서비스 API에 대한 액세스 제어
           href: how-to-control-access.md
+        - name: IP 필터링 구성
+          href: iot-dps-ip-filtering.md
     - name: IoT Edge 디바이스 프로비전
       items:
         - name: Linux

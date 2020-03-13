@@ -1,27 +1,37 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Microsoft Genomics 설명서
+summary: Microsoft Genomics에서 보조 분석을 위해 BWA(Burrows-Wheeler Aligner) 및 GATK(Genome Analysis Toolkit)의 클라우드 구현을 사용하여 게놈 시퀀싱을 사용할 수 있는 방법을 알아봅니다.
 metadata:
   title: Microsoft Genomics 설명서
-  meta.description: Learn how Microsoft Genomics can power genome sequencing using a cloud implementation of the Burrows-Wheeler Aligner (BWA) and the Genome Analysis Toolkit (GATK) for secondary analysis.
+  description: Microsoft Genomics에서 보조 분석을 위해 BWA(Burrows-Wheeler Aligner) 및 GATK(Genome Analysis Toolkit)의 클라우드 구현을 사용하여 게놈 시퀀싱을 사용할 수 있는 방법을 알아봅니다.
   services: genomics
-  author: grhuynh
-  manager: cgronlun
-  ms.author: grhuynh
   ms.service: genomics
   ms.topic: landing-page
-  ms.date: 12/07/2017
-abstract:
-  description: Microsoft Genomics에서 보조 분석을 위해 BWA(Burrows-Wheeler Aligner) 및 GATK(Genome Analysis Toolkit)의 클라우드 구현을 사용하여 게놈 시퀀싱을 사용할 수 있는 방법을 알아봅니다.
-sections:
-  - title: 5분 빠른 시작
-    items:
-      - type: paragraph
-        text: Microsoft Genomics 서비스를 통해 워크플로를 제출합니다.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: media/index/helix-blue-orange.svg
-            text: 워크플로 제출
-            href: quickstart-run-genomics-workflow-portal
+  author: grhuynh
+  ms.author: grhuynh
+  ms.date: 03/11/2020
+  ms.openlocfilehash: 36b5898aca2f019351aaeda8438fb6771a09b6c4
+  ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 03/12/2020
+  ms.locfileid: "79137044"
+landingContent:
+- title: 시작하기
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Microsoft Genomics란?
+      url: overview-what-is-genomics.md
+    - text: 일반적인 질문
+      url: frequently-asked-questions-genomics.md
+  - linkListType: quickstart
+    links:
+    - text: 샘플 워크플로 실행
+      url: quickstart-run-genomics-workflow-portal.md
+  - linkListType: how-to-guide
+    links:
+    - text: FASTQ 파일 입력 사용
+      url: quickstart-input-pair-fastq.md
+    - text: BAM 파일 입력 사용
+      url: quickstart-input-bam.md

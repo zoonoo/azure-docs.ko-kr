@@ -161,6 +161,9 @@
         - name: 갤러리 데이터
           displayName: export
           href: ai-gallery-control-personal-data-dsr.md
+        - name: Notebook 다운로드
+          displayName: export
+          href: download-notebooks-data.md
 - name: 참조
   items:
     - name: 알고리즘 및 모듈 참조

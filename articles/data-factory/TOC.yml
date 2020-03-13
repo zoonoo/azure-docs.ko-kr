@@ -392,14 +392,22 @@
       items:
         - name: 복사 작업을 사용하여 데이터 복사
           href: copy-activity-overview.md
+        - name: 복사 작업 모니터
+          href: copy-activity-monitoring.md
         - name: 삭제 작업을 사용하여 파일 삭제
           href: delete-activity.md
         - name: 데이터 복사 도구
           href: copy-data-tool.md
         - name: 형식 및 압축 지원
           href: supported-file-formats-and-compression-codecs.md
-        - name: 성능 및 튜닝
-          href: copy-activity-performance.md
+        - name: 복사 작업 성능
+          items:
+            - name: 성능 및 확장성 가이드
+              href: copy-activity-performance.md
+            - name: 성능 문제 해결
+              href: copy-activity-performance-troubleshooting.md
+            - name: 성능 기능
+              href: copy-activity-performance-features.md
         - name: 메타데이터 및 ACL 유지
           href: copy-activity-preserve-metadata.md
         - name: 스키마 및 형식 매핑
@@ -689,6 +697,8 @@
       href: frequently-asked-questions.md
     - name: 서비스 업데이트
       href: 'https://azure.microsoft.com/updates/?product=data-factory'
+    - name: 블로그
+      href: 'https://techcommunity.microsoft.com/t5/azure-data-factory/bg-p/AzureDataFactoryBlog#'
     - name: 질문하기 - MSDN 포럼
       href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataFactory&filter=alltypes&sort=lastpostdesc'
     - name: 질문하기 - 스택 오버플로

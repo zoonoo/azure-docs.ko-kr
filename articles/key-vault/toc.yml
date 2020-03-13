@@ -125,6 +125,8 @@
       href: event-grid-tutorial.md
     - name: Event Grid 및 Logic Apps를 통해 알림 받기
       href: event-grid-logicapps.md
+    - name: 단일 사용자 리소스에 대한 비밀 회전
+      href: tutorial-rotation.md
     - name: Azure Policy와 통합
       href: azure-policy.md
     - name: Azure Private Link Service와 통합(미리 보기)

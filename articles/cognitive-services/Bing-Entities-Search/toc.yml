@@ -26,14 +26,8 @@
           href: quickstarts/ruby.md
     - name: SDK)
       items:
-        - name: 'C# 사용'
-          href: quickstarts/entity-sdk-csharp-quickstart.md
-        - name: Node.js 사용
-          href: quickstarts/entity-sdk-node-quickstart.md
-        - name: Python 사용
-          href: quickstarts/entity-sdk-python-quickstart.md
-        - name: Java 사용
-          href: quickstarts/entity-sdk-java-quickstart.md
+        - name: Bing Entity Search 클라이언트 라이브러리
+          href: ./quickstarts/client-libraries.md
 - name: 자습서
   items:
     - name: 단일 페이지 웹앱 빌드
@@ -53,7 +47,7 @@
       href: concepts/search-for-entities.md
     - name: 검색 요청 보내기
       href: concepts/sending-requests.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: Bing Search API 사용 및 표시 요구 사항
       href: ../Bing-Web-Search/use-display-requirements.md
@@ -74,7 +68,7 @@
           href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/entitysearch'
 - name: 리소스
   items:
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/bing-entity-search-api/'
     - name: UserVoice
       href: 'https://cognitive.uservoice.com/forums/601036-bing-entity-search-api'

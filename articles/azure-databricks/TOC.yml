@@ -31,43 +31,8 @@
   items:
     - name: 시작
       items:
-        - name: 데이터 개요
-          href: /azure/databricks/getting-started/data
-          maintainContext: true
         - name: Azure Databricks 개념
           href: /azure/databricks/getting-started/concepts
-          maintainContext: true
-        - name: Azure Databricks 데이터 세트
-          href: /azure/databricks/getting-started/databricks-datasets
-          maintainContext: true
-        - name: Apache Spark
-          items:
-            - name: Apache Spark 개요
-              href: /azure/databricks/getting-started/spark/index
-              maintainContext: true
-            - name: Apache Spark 시작
-              href: /azure/databricks/getting-started/spark/quick-start
-              maintainContext: true
-            - name: 데이터 프레임
-              href: /azure/databricks/getting-started/spark/dataframes
-              maintainContext: true
-            - name: 데이터 세트
-              href: /azure/databricks/getting-started/spark/datasets
-              maintainContext: true
-            - name: 기계 학습
-              href: /azure/databricks/getting-started/spark/machine-learning
-              maintainContext: true
-            - name: 구조적 스트리밍
-              href: /azure/databricks/getting-started/spark/streaming
-              maintainContext: true
-            - name: 다음 단계
-              href: /azure/databricks/getting-started/spark/next
-              maintainContext: true
-        - name: 학습 및 FAQ
-          href: /azure/databricks/getting-started/training-faq
-          maintainContext: true
-        - name: 지원되는 브라우저
-          href: /azure/databricks/getting-started/supported-browsers
           maintainContext: true
     - name: Databricks 런타임
       items:
@@ -220,6 +185,9 @@
       maintainContext: true
     - name: 데이터
       items:
+        - name: 데이터 개요
+          href: /azure/databricks/getting-started/data
+          maintainContext: true
         - name: 데이터베이스 및 테이블
           href: /azure/databricks/data/tables
           maintainContext: true
@@ -310,6 +278,9 @@
               maintainContext: true
         - name: DBFS(Databricks 파일 시스템)
           href: /azure/databricks/data/databricks-file-system
+          maintainContext: true
+        - name: Azure Databricks 데이터 세트
+          href: /azure/databricks/getting-started/databricks-datasets
           maintainContext: true
         - name: FileStore
           href: /azure/databricks/data/filestore
@@ -731,6 +702,9 @@
           maintainContext: true
         - name: Azure Databricks의 RStudio
           href: /azure/databricks/spark/latest/sparkr/rstudio
+          maintainContext: true
+        - name: Azure Databricks의 Shiny
+          href: /azure/databricks/spark/latest/sparkr/shiny
           maintainContext: true
     - name: 기계 학습
       items:
@@ -1385,6 +1359,9 @@
             - name: 멱등성 확인
               href: /azure/databricks/kb/jobs/jobs-idempotency
               maintainContext: true
+            - name: 긴 작업이 자격 증명 통과에 실패함
+              href: /azure/databricks/kb/jobs/azure-long-job-failed-auth
+              maintainContext: true
         - name: 라이브러리
           items:
             - name: UI에서 라이브러리를 제거할 수 없음
@@ -1494,6 +1471,12 @@
               maintainContext: true
             - name: SQL 쿼리 실행
               href: /azure/databricks/kb/python/sql-in-python
+              maintainContext: true
+            - name: HDFS API를 사용하여 Python에서 파일 읽기
+              href: /azure/databricks/kb/python/hdfs-to-read-files
+              maintainContext: true
+            - name: Python 2 일몰 상태
+              href: /azure/databricks/kb/python/python-2-eol
               maintainContext: true
         - name: R(Spark 포함)
           items:
@@ -1650,6 +1633,35 @@
       href: /azure/templates/microsoft.databricks/workspaces
 - name: 리소스
   items:
+    - name: Apache Spark
+      items:
+        - name: Apache Spark 개요
+          href: /azure/databricks/getting-started/spark/index
+          maintainContext: true
+        - name: Apache Spark 시작
+          href: /azure/databricks/getting-started/spark/quick-start
+          maintainContext: true
+        - name: 데이터 프레임
+          href: /azure/databricks/getting-started/spark/dataframes
+          maintainContext: true
+        - name: 데이터 세트
+          href: /azure/databricks/getting-started/spark/datasets
+          maintainContext: true
+        - name: 기계 학습
+          href: /azure/databricks/getting-started/spark/machine-learning
+          maintainContext: true
+        - name: 구조적 스트리밍
+          href: /azure/databricks/getting-started/spark/streaming
+          maintainContext: true
+        - name: 다음 단계
+          href: /azure/databricks/getting-started/spark/next
+          maintainContext: true
+    - name: 학습 및 FAQ
+      href: /azure/databricks/getting-started/training-faq
+      maintainContext: true
+    - name: 지원되는 브라우저
+      href: /azure/databricks/getting-started/supported-browsers
+      maintainContext: true
     - name: 릴리스 정보
       items:
         - name: 플랫폼

@@ -4,6 +4,10 @@
   items:
     - name: Azure Bastion 정보
       href: bastion-overview.md
+- name: 빠른 시작
+  items:
+    - name: VM 설정에서 베스천 호스트 만들기
+      href: quickstart-host-portal.md
 - name: 방법 가이드
   items:
     - name: 요새 호스트 만들기
