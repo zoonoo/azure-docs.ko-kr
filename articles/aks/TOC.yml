@@ -117,18 +117,12 @@
   items:
     - name: 클러스터 작업
       items:
-        - name: AKS 클러스터 만들기
-          href: '/cli/azure/aks#az-aks-create'
-          maintainContext: true
         - name: AKS 클러스터 크기 조정
           href: scale-cluster.md
         - name: AKS 클러스터 업그레이드
           href: upgrade-cluster.md
         - name: 프로세스 노드 OS 업데이트
           href: node-updates-kured.md
-        - name: AKS 클러스터 삭제
-          href: '/cli/azure/aks#az-aks-delete'
-          maintainContext: true
         - name: ACR을 AKS 클러스터와 통합
           href: cluster-container-registry-integration.md
         - name: 가상 노드 만들기

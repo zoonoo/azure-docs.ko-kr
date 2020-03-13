@@ -94,7 +94,7 @@
         - name: Access Control
           items:
             - name: 개요
-              href: ../sql-database/sql-database-control-access.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
+              href: ../sql-database/sql-database-manage-logins.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
             - name: 열 수준 보안
               href: column-level-security.md
             - name: 행 수준 보안
@@ -205,7 +205,7 @@
               href: sql-data-warehouse-develop-user-defined-schemas.md
             - name: 변수 할당
               href: sql-data-warehouse-develop-variable-assignment.md
-            - name: 뷰
+            - name: 보기
               href: sql-data-warehouse-develop-views.md
     - name: 쿼리
       items:
@@ -381,7 +381,7 @@
       href: 'https://azure.microsoft.com/roadmap/?category=databases'
     - name: 포럼
       href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSQLDataWarehouse'
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/sql-data-warehouse/'
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'

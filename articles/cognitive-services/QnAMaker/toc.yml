@@ -68,6 +68,8 @@
           displayName: 'azure, resource, key, upgrade, pricing, tier,'
         - name: 비즈니스 연속성 계획 만들기
           href: How-To/business-continuity-plan.md
+        - name: 공동 작업
+          href: How-To/collaborate-knowledge-base.md
     - name: 기술 자료 관리
       items:
         - name: 기술 자료 만들기
@@ -79,8 +81,6 @@
         - name: 새 기술 자료로 마이그레이션
           href: Tutorials/migrate-knowledge-base.md
           displayName: 'metadata, pair'
-        - name: 공동 작업
-          href: How-To/collaborate-knowledge-base.md
         - name: 테스트
           href: How-To/test-knowledge-base.md
     - name: QnA 세트 관리
