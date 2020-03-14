@@ -7,11 +7,11 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.openlocfilehash: ddf7999153e9d9722e627d148b116750fe3aaecf
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433461"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79278715"
 ---
 # <a name="azure-cache-for-redis-faq"></a>Azure Cache for Redis FAQ
 Azure Cache for Redis에 대한 일반적인 질문과 대답, 패턴 및 모범 사례를 알아봅니다.
@@ -96,18 +96,18 @@ Azure 계정이 없는 경우 다음을 수행할 수 있습니다.
 
 캐시 제품을 선택할 때는 다음을 고려해야 합니다.
 
-* **메모리**: 기본 및 표준 계층에서 250MB-53GB를 제공합니다. 프리미엄 계층은 최대 1.2 TB (클러스터) 또는 120 GB (비클러스터형)를 제공 합니다. 자세한 내용은 [Azure Cache for Redis 가격](https://azure.microsoft.com/pricing/details/cache/)을 참조하세요.
-* **네트워크 성능**: 높은 처리량이 필요한 워크로드가 있는 경우 프리미엄 계층이 표준이나 기본에 비해 더 높은 대역폭을 제공합니다. 또한 각 계층 안에서는 캐시를 호스팅하는 기본 VM으로 인해 캐시 크기가 클수록 대역폭이 큽니다. 자세한 내용은 [다음 표](#cache-performance)를 참조 하세요.
-* **처리량**: 프리미엄 계층은 사용 가능한 최대 처리량을 제공합니다. 캐시 서버 또는 클라이언트가 대역폭 제한에 도달하면 클라이언트 측에서 시간 초과를 수신할 수 있습니다. 자세한 내용은 다음 표를 참조하세요.
-* **고가용성/SLA**: Azure Cache for Redis는 표준/프리미엄 캐시가 최소 99.9%의 시간 동안 사용할 수 있도록 보장 합니다. SLA에 대한 자세한 내용은 [Azure Cache for Redis 가격](https://azure.microsoft.com/support/legal/sla/cache/v1_0/)을 참조하세요. SLA에서는 캐시 엔드포인트에 대한 연결만 다룹니다. 데이터 손실 방지에는 SLA가 적용되지 않습니다. 데이터 손실에 대한 복원력을 늘리기 위해 프리미엄 계층에서 Redis 데이터 지속성 기능을 사용하는 것이 좋습니다.
+* **메모리**: 기본 및 표준 계층에서는 250MB-53GB를 제공합니다. 프리미엄 계층은 최대 1.2 TB (클러스터) 또는 120 GB (비클러스터형)를 제공 합니다. 자세한 내용은 [Azure Cache for Redis 가격](https://azure.microsoft.com/pricing/details/cache/)을 참조하세요.
+* **네트워크 성능**: 높은 처리량이 필요한 워크로드가 있는 경우 프리미엄 계층에서 표준 또는 기본 계층보다 더 높은 대역폭을 제공합니다. 또한 각 계층 안에서는 캐시를 호스팅하는 기본 VM으로 인해 캐시 크기가 클수록 대역폭이 큽니다. 자세한 내용은 [다음 표](#cache-performance)를 참조 하세요.
+* **처리량**: 프리미엄 계층에서 사용 가능한 최대 처리량을 제공합니다. 캐시 서버 또는 클라이언트가 대역폭 제한에 도달하면 클라이언트 측에서 시간 초과를 수신할 수 있습니다. 자세한 내용은 다음 표를 참조하세요.
+* **고가용성/SLA**: Azure Cache for Redis는 표준/프리미엄 캐시를 99.9% 이상의 시간 동안 사용할 수 있도록 보장합니다. SLA에 대한 자세한 내용은 [Azure Cache for Redis 가격](https://azure.microsoft.com/support/legal/sla/cache/v1_0/)을 참조하세요. SLA에서는 캐시 엔드포인트에 대한 연결만 다룹니다. SLA는 데이터 손실로부터의 보호는 다루지 않습니다. 데이터 손실에 대한 복원력을 늘리기 위해 프리미엄 계층에서 Redis 데이터 지속성 기능을 사용하는 것이 좋습니다.
 * **Redis 데이터 지속성**: 프리미엄 계층을 사용하면 Azure Storage 계정에서 캐시 데이터를 유지할 수 있습니다. 기본/표준 캐시에서 모든 데이터는 메모리에만 저장됩니다. 기본 인프라 문제로 인해 데이터 손실이 발생할 수 있습니다. 데이터 손실에 대한 복원력을 늘리기 위해 프리미엄 계층에서 Redis 데이터 지속성 기능을 사용하는 것이 좋습니다. Azure Cache for Redis는 Redis 지속성에서 RDB 및 AOF(출시 예정) 옵션을 제공합니다. 자세한 내용은 [프리미엄 Azure Redis Cache에 대한 지속성을 구성하는 방법](cache-how-to-premium-persistence.md)을 참조하세요.
-* **Redis Cluster**: 120 GB 보다 큰 캐시를 만들거나 여러 Redis 노드에 걸친 데이터를 분할 하기 위해 프리미엄 계층에서 사용할 수 있는 Redis 클러스터링을 사용할 수 있습니다. 각 노드는 고가용성을 위해 주/복제본 캐시 쌍으로 구성됩니다. 자세한 내용은 [프리미엄 Azure Cache for Redis에 대한 클러스터링을 구성하는 방법](cache-how-to-premium-clustering.md)을 참조하세요.
-* **향상 된 보안 및 네트워크 격리**: VNET (azure Virtual Network) 배포는 Redis 용 azure 캐시 뿐만 아니라 서브넷, 액세스 제어 정책 및 액세스를 추가로 제한 하는 기타 기능에 대 한 향상 된 보안 및 격리를 제공 합니다. 자세한 내용은 [프리미엄 Azure Cache for Redis에 대한 Virtual Network 지원을 구성하는 방법](cache-how-to-premium-vnet.md)을 참조하세요.
-* **Redis 구성**: 표준과 프리미엄 계층에서 Redis Keyspace 알림을 구성할 수 있습니다.
-* **최대 클라이언트 연결 수**: 프리미엄 계층은 더 큰 캐시에 대해 더 많은 수의 연결과, Redis에 연결 가능한 최대 클라이언트 수를 제공합니다. 클러스터링은 클러스터형 캐시에 사용할 수 있는 연결 수를 늘리지 않습니다. 자세한 내용은 [Azure Cache for Redis 가격](https://azure.microsoft.com/pricing/details/cache/)을 참조하세요.
-* **Redis 서버에 대한 전용 코어**: 프리미엄 계층에서는 모든 캐시 크기에 Redis 전용 코어가 있습니다. 기본/표준 계층에서는 C1 크기 이상에 Redis 서버 전용 코어가 있습니다.
+* **Redis 클러스터**: 120 GB 보다 큰 캐시를 만들거나 여러 Redis 노드에 걸쳐 데이터를 분할 하려면 프리미엄 계층에서 사용할 수 있는 Redis 클러스터링을 사용할 수 있습니다. 각 노드는 고가용성을 위해 주/복제본 캐시 쌍으로 구성됩니다. 자세한 내용은 [프리미엄 Azure Cache for Redis에 대한 클러스터링을 구성하는 방법](cache-how-to-premium-clustering.md)을 참조하세요.
+* **향상된 보안 및 네트워크 격리**: Azure VNET(Virtual Network) 배포는 액세스를 추가로 제한하는 서브넷, 액세스 제어 정책 및 기타 기능을 포함하여 Azure Cache for Redis에 대한 향상된 보안 및 격리를 제공합니다. 자세한 내용은 [프리미엄 Azure Cache for Redis에 대한 Virtual Network 지원을 구성하는 방법](cache-how-to-premium-vnet.md)을 참조하세요.
+* **Redis 구성**: 표준과 프리미엄 계층 모두에서 Redis for Keyspace 알림을 구성할 수 있습니다.
+* **최대 클라이언트 연결 수**: 프리미엄 계층에서는 Redis에 연결할 수 있는 최대 클라이언트 수를 제공하여 더 큰 크기의 캐시에 대해 더 많은 수의 연결을 제공할 수 있습니다. 클러스터링은 클러스터형 캐시에 사용할 수 있는 연결 수를 늘리지 않습니다. 자세한 내용은 [Azure Cache for Redis 가격](https://azure.microsoft.com/pricing/details/cache/)을 참조하세요.
+* **Redis 서버 전용 코어**: 프리미엄 계층의 모든 캐시 크기에는 Redis 전용 코어가 있습니다. 기본/표준 계층에서는 C1 크기 이상에 Redis 서버 전용 코어가 있습니다.
 * **Redis는 단일 스레드** 이므로 3개 이상의 코어를 사용해도 2개 코어만 사용하는 경우에 비해 추가적인 이점이 없지만 VM 크기가 더 크면 일반적으로 작은 크기보다 대역폭이 더 큽니다. 캐시 서버 또는 클라이언트가 대역폭 제한에 도달하면 클라이언트 쪽에 시간 초과가 수신됩니다.
-* **성능 향상**: 프리미엄 계층의 캐시는 더 빠른 프로세서가 포함되고 기본 또는 표준 계층에 비해 더 나은 성능을 제공하는 하드웨어에 배포됩니다. 프리미엄 계층 캐시는 처리량은 더 높고 대기 시간은 더 짧습니다.
+* **향상된 성능**: 프로세서가 더 빠른 하드웨어에 프리미엄 계층의 캐시가 배포되어 기본 또는 표준 계층에 비해 더 나은 성능을 제공합니다. 프리미엄 계층 캐시는 처리량은 더 높고 대기 시간은 더 짧습니다.
 
 <a name="cache-performance"></a>
 
@@ -125,13 +125,13 @@ Azure 계정이 없는 경우 다음을 수행할 수 있습니다.
 * Redis 클러스터를 사용하여 클러스터에서 분할된 데이터베이스(노드) 수를 늘림에 따라 처리량이 선형으로 늘어납니다. 예를 들어 10 개의 분할 P4 클러스터를 만드는 경우 사용 가능한 처리량은 40만 * 10 = 400만 RPS입니다.
 * 큰 크기의 키에 대한 처리량이 표준 계층에 비해 프리미엄 계층에서 더 높습니다.
 
-| 가격 책정 계층 | 크기 | CPU 코어 수 | 사용 가능한 대역폭 | 1kb 값 크기 | 1kb 값 크기 |
+| 가격 책정 계층 | Size | CPU 코어 | 사용 가능한 대역폭 | 1kb 값 크기 | 1kb 값 크기 |
 | --- | --- | --- | --- | --- | --- |
 | **표준 캐시 크기** | | |**Mb/s(초당 메가비트) / MB/s(초당 메가바이트)** |**RPS(초당 요청 수) 비 SSL** |**RPS(초당 요청 수) SSL** |
-| C0 | 250MB | 공유 | 100/12.5  |  15,000 |   7,500 |
+| C0 | 250MB | Shared | 100/12.5  |  15,000 |   7,500 |
 | C1 |   1GB | 1      | 500/62.5  |  38,000 |  20,720 |
 | C2 | 2.5GB | 2      | 500/62.5  |  41,000 |  37,000 |
-| C3 |   6GB | 4      | 1000/125  | 100,000개의 |  90,000 |
+| C3 |   6GB | 4      | 1000/125  | 100,000 |  90,000 |
 | C4 |  13GB | 2      | 500/62.5  |  60,000 |  55,000 |
 | C5 |  26GB | 4      | 1,000 / 125 | 102,000 |  93,000 |
 | C6 |  53GB | 8      | 2,000 / 250 | 126,000 | 120,000 |
@@ -159,7 +159,7 @@ Azure Cache for Redis 가격은 [여기](https://azure.microsoft.com/pricing/det
 
 | 클라우드   | Redis에 대한 Dns 접미사            |
 |---------|---------------------------------|
-| 공용  | *.redis.cache.windows.net       |
+| Public  | *.redis.cache.windows.net       |
 | US Gov  | *.redis.cache.usgovcloudapi.net |
 | 독일 | *.redis.cache.cloudapi.de       |
 | 중국   | *.redis.cache.chinacloudapi.cn  |
@@ -177,7 +177,7 @@ Azure Government 클라우드, Azure 중국 21Vianet 클라우드 및 Microsoft 
 ### <a name="what-do-the-stackexchangeredis-configuration-options-do"></a>StackExchange.Redis 구성 옵션은 어떤 기능을 수행하나요?
 StackExchange.Redis에는 많은 옵션이 있습니다. 이 섹션에서는 몇 가지 일반적인 설정에 대해 설명합니다. StackExchange.Redis 옵션에 대한 자세한 내용은 [StackExchange.Redis 구성](https://stackexchange.github.io/StackExchange.Redis/Configuration)을 참조하세요.
 
-| ConfigurationOptions | Description | 권장 |
+| ConfigurationOptions | 설명 | 권장 |
 | --- | --- | --- |
 | AbortOnConnectFail |true로 설정하면 네트워크 오류가 발생한 후 연결이 다시 연결되지 않습니다. |false로 설정하여 StackExchange.Redis가 자동으로 다시 연결하도록 합니다. |
 | ConnectRetry |초기 연결 중에 연결 시도를 반복할 횟수입니다. |지침은 다음 사항을 참조하세요. |
@@ -196,7 +196,7 @@ StackExchange.Redis에는 많은 옵션이 있습니다. 이 섹션에서는 몇
   * 애플리케이션에 단일 ConnectionMultiplexer 인스턴스를 사용합니다. [ConnectionMultiplexer 클래스를 사용하여 캐시에 연결](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache)에 표시된 대로, LazyConnection을 사용하여 Connection 속성에 의해 반환되는 단일 인스턴스를 만들 수 있습니다.
   * 진단 목적으로 `ConnectionMultiplexer.ClientName` 속성을 앱 인스턴스 고유 이름으로 설정합니다.
   * 사용자 지정 작업에 여러 개의 `ConnectionMultiplexer` 인스턴스를 사용합니다.
-      * 애플리케이션에 다양한 부하가 있는 경우 이 모델을 따를 수 있습니다. 예:
+      * 애플리케이션에 다양한 부하가 있는 경우 이 모델을 따를 수 있습니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
       * 큰 키를 처리하기 위한 멀티플렉서 1개가 있습니다.
       * 작은 키를 처리하기 위한 멀티플렉서 1개가 있습니다.
       * 사용하는 각 ConnectionMultiplexer의 연결 시간 제한 및 다시 시도 논리에 대해 다른 값을 설정할 수 있습니다.
@@ -300,7 +300,7 @@ Redis 도구 다운로드에 대한 지침은 [어떻게 Redis 명령을 실행�
 
 #### <a name="stackexchangeredis-best-practices"></a>StackExchange.Redis 모범 사례
 * `AbortConnect` 를 false로 설정하고 ConnectionMultiplexer가 자동으로 다시 연결되도록 합니다. [자세한 내용을 보려면 여기를 참조하세요](https://gist.github.com/JonCole/36ba6f60c274e89014dd#file-se-redis-setabortconnecttofalse-md).
-* ConnectionMultiplexer를 다시 사용합니다. 요청마다 새로 만들지 마세요. [여기에 표시된](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache)`Lazy<ConnectionMultiplexer>` 패턴을 사용하는 것이 좋습니다.
+* ConnectionMultiplexer를 다시 사용합니다. 요청마다 새로 만들지 마세요. [여기에 표시된](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache) `Lazy<ConnectionMultiplexer>` 패턴을 사용하는 것이 좋습니다.
 * Redis는 더 작은 값에서 가장 잘 작동하므로 더 큰 데이터를 여러 개의 키로 분할하는 것을 고려합니다. [이 Redis 토론](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ)에서 100 kb는 크게 간주 됩니다. 큰 값을 사용할 때 야기될 수 있는 문제 예에 대해서는 [이 문서](https://gist.github.com/JonCole/db0e90bedeb3fc4823c2#large-requestresponse-size) 를 읽어보세요.
 * 시간 초과를 방지하도록 [ThreadPool 설정](#important-details-about-threadpool-growth) 을 구성합니다.
 * 기본 connectTimeout인 5초 이상을 사용합니다. 이 간격은 StackExchange를 제공 합니다. 네트워크를 Redis 경우 연결을 다시 설정 하는 데 충분 한 시간이 소요 됩니다.
@@ -343,7 +343,7 @@ Redis 도구 다운로드에 대한 지침은 [어떻게 Redis 명령을 실행�
 
   `redis-benchmark.exe -h **yourcache**.redis.cache.windows.net -a **yourAccesskey** -t SET -n 1000000 -d 1024 -P 50`
 * 1K 페이로드를 사용하여 파이프라인 GET 요청 테스트
-  참고: 먼저 위에 표시된 SET 테스트를 실행하여 캐시 채우기
+  참고:  먼저 위에 표시된 SET 테스트를 실행하여 캐시를 채웁니다.
 
   `redis-benchmark.exe -h **yourcache**.redis.cache.windows.net -a **yourAccesskey** -t GET -n 1000000 -d 1024 -P 50`
 
@@ -381,7 +381,7 @@ IOCP 또는 작업자 스레드의 증가에 제한이 있는 경우 StackExchan
 
 이 설정을 구성하는 방법
 
-* `global.asax.cs`에서 [ThreadPool. SetMinThreads (...)](/dotnet/api/system.threading.threadpool.setminthreads#System_Threading_ThreadPool_SetMinThreads_System_Int32_System_Int32_) 메서드를 사용 하 여 프로그래밍 방식으로이 설정을 변경 하는 것이 좋습니다. 예:
+* `global.asax.cs`에서 [ThreadPool. SetMinThreads (...)](/dotnet/api/system.threading.threadpool.setminthreads#System_Threading_ThreadPool_SetMinThreads_System_Int32_System_Int32_) 메서드를 사용 하 여 프로그래밍 방식으로이 설정을 변경 하는 것이 좋습니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
 
 ```cs
 private readonly int minThreads = 200;
@@ -431,7 +431,7 @@ Microsoft Azure Cache for Redis 인스턴스는 [Azure Portal](https://portal.az
 * **리소스 상태** 기능은 리소스를 감시하고 예상대로 실행되는지를 알려줍니다. Azure 리소스 상태 관리 서비스에 대한 자세한 내용은 [Azure 리소스 상태 개요](../resource-health/resource-health-overview.md)를 참조하세요.
 * **새 지원 요청** 을 클릭하여 캐시에 대한 지원 요청을 엽니다.
 
-이러한 도구는 Azure Cache for Redis 인스턴스의 상태를 모니터링할 수 있게 해주며 캐싱 애플리케이션 관리에 도움이 됩니다. 자세한 내용은 [Azure Cache for Redis를 구성하는 방법](cache-configure.md)의 "지원 및 문제 해결 설정" 섹션을 참조하세요.
+이러한 도구를 사용하면 Azure Cache for Redis 인스턴스의 상태를 모니터링하고 캐싱 애플리케이션을 관리할 수 있습니다. 자세한 내용은 [Azure Cache for Redis를 구성하는 방법](cache-configure.md)의 "지원 및 문제 해결 설정" 섹션을 참조하세요.
 
 <a name="cache-timeouts"></a>
 
@@ -456,7 +456,7 @@ Microsoft Azure Cache for Redis 인스턴스는 [Azure Portal](https://portal.az
   * Azure에서 캐시가 배포된 인스턴스에 패치를 적용하고 있었습니다.
     * 이 작업은 Redis 서버 업데이트 또는 일반적인 VM 유지 관리를 위한 것일 수 있습니다.
 
-### <a name="which-azure-cache-offering-is-right-for-me"></a>내게 적합한 Azure Cache 제품은 무엇인가요?
+### <a name="which-azure-cache-offering-is-right-for-me"></a>내게 적합한 Azure 캐시 기능은?
 > [!IMPORTANT]
 > 작년 [공지](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)에 따라 Azure Managed Cache Service 및 Azure In-Role Cache Service가 2016년 11월 30일에 **중지되었습니다**. [Azure Cache for Redis](https://azure.microsoft.com/services/cache/)를 사용하는 것이 좋습니다. 마이그레이션에 대한 자세한 내용은 [Managed Cache Service에서 Azure Cache for Redis로 마이그레이션](cache-migrate-to-redis.md)을 참조하세요.
 >

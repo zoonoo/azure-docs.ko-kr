@@ -4,11 +4,11 @@ description: 디바이스 또는 데스크톱 앱, 웹 페이지, 서비스에 �
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.openlocfilehash: 74736966013581296483d1444f4ab2b8a35bbd98
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78362245"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79276362"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>사용자 지정 이벤트 및 메트릭용 Application Insights API
 

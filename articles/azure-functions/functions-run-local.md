@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 559c9ee237f95f9d175aaefb487131466700e899
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 19691a654162ee3855cb257fd42e29d2e1fc0157
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78190792"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79276661"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Azure Functions 핵심 도구 작업
 
@@ -65,13 +65,13 @@ Tools의 버전 2.x/2.x는 .NET Core를 기반으로 하는 Azure Functions 런�
 
     ##### <a name="v2x"></a>v2.x
 
-    ```bash
+    ```cmd
     npm install -g azure-functions-core-tools
     ```
 
     ##### <a name="v3x"></a>v3. x
 
-    ```bash
+    ```cmd
     npm install -g azure-functions-core-tools@3
     ```
 
@@ -79,7 +79,7 @@ Tools의 버전 2.x/2.x는 .NET Core를 기반으로 하는 Azure Functions 런�
 
 1. [확장 번들]을 사용 하지 않으려는 경우 [Windows 용 .NET Core 2.x SDK](https://www.microsoft.com/net/download/windows)를 설치 합니다.
 
-# <a name="macos"></a>[MacOS](#tab/macos)
+# <a name="macos"></a>[macOS](#tab/macos)
 
 다음 단계에서는 Homebrew를 사용하여 macOS에 핵심 도구를 설치합니다.
 
@@ -163,33 +163,33 @@ Tools의 버전 2.x/2.x는 .NET Core를 기반으로 하는 Azure Functions 런�
 
 터미널 창이나 명령 프롬프트에서 다음 명령을 실행하여 프로젝트 및 로컬 Git 리포지토리를 만듭니다.
 
-```bash
+```
 func init MyFunctionProj
 ```
 
 프로젝트 이름을 제공하면 해당 이름을 사용한 새 폴더가 생성되고 초기화됩니다. 그렇지 않으면 현재 폴더는 초기화됩니다.  
 버전 2.x에서는 명령을 실행할 때 프로젝트에 대한 런타임을 선택해야 합니다. 
 
-```output
+<pre>
 Select a worker runtime:
 dotnet
 node
 python 
 powershell
-```
+</pre>
 
 위쪽/아래쪽 화살표 키를 사용하여 언어를 선택한 다음, Enter 키를 누릅니다. JavaScript 또는 TypeScript 함수를 개발 하려는 경우에는 **노드**를 선택 하 고 언어를 선택 합니다. TypeScript에는 [몇 가지 추가 요구 사항이](functions-reference-node.md#typescript)있습니다. 
 
 출력은 JavaScript 프로젝트에 대한 다음 예제와 유사합니다.
 
-```output
+<pre>
 Select a worker runtime: node
 Writing .gitignore
 Writing host.json
 Writing local.settings.json
 Writing C:\myfunctions\myMyFunctionProj\.vscode\extensions.json
 Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
-```
+</pre>
 
 별도의 설명이 없으면 `func init`는 다음 옵션(버전 2.x 전용)을 지원합니다.
 
@@ -247,12 +247,12 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 
   + 기존 함수 앱에서 모든 설정을 다운로드합니다.
 
-    ```bash
+    ```
     func azure functionapp fetch-app-settings <FunctionAppName>
     ```
   + 특정 스토리지 계정에 대한 연결 문자열을 가져옵니다.
 
-    ```bash
+    ```
     func azure storage fetch-connection-string <StorageAccountName>
     ```
 
@@ -262,13 +262,13 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 
 함수를 만들려면 다음 명령을 실행합니다.
 
-```bash
+```
 func new
 ```
 
 버전 2.x에서 `func new`를 실행하는 경우 함수 앱의 기본 언어에서 템플릿을 선택하라는 메시지가 나타난 다음, 함수에 대한 이름을 선택하라는 메시지도 표시됩니다. 버전 1.x에서는 언어를 선택하라는 메시지도 표시됩니다.
 
-```output
+<pre>
 Select a language: Select a template:
 Blob trigger
 Cosmos DB trigger
@@ -279,18 +279,18 @@ SendGrid
 Service Bus Queue trigger
 Service Bus Topic trigger
 Timer trigger
-```
+</pre>
 
 함수 코드는 다음 큐 트리거 출력에서 알 수 있듯이 제공된 함수 이름으로 하위 폴더에 생성됩니다.
 
-```output
+<pre>
 Select a language: Select a template: Queue trigger
 Function name: [QueueTriggerJS] MyQueueTrigger
 Writing C:\myfunctions\myMyFunctionProj\MyQueueTrigger\index.js
 Writing C:\myfunctions\myMyFunctionProj\MyQueueTrigger\readme.md
 Writing C:\myfunctions\myMyFunctionProj\MyQueueTrigger\sample.dat
 Writing C:\myfunctions\myMyFunctionProj\MyQueueTrigger\function.json
-```
+</pre>
 
 다음 인수를 사용하는 명령에서 이러한 옵션을 지정할 수도 있습니다.
 
@@ -303,62 +303,65 @@ Writing C:\myfunctions\myMyFunctionProj\MyQueueTrigger\function.json
 
 예를 들어 단일 명령에서 JavaScript HTTP 트리거를 만들려면 다음을 실행합니다.
 
-```bash
+```
 func new --template "Http Trigger" --name MyHttpTrigger
 ```
 
 단일 명령에서 큐 트리거 함수를 만들려면 다음을 실행합니다.
 
-```bash
+```
 func new --template "Queue Trigger" --name QueueTriggerJS
 ```
 
 ## <a name="start"></a>로컬로 함수 실행
 
-Functions 프로젝트를 실행하려면 Functions 호스트를 실행합니다. 호스트는 프로젝트의 모든 함수에 대해 트리거를 사용 하도록 설정 합니다. 
+Functions 프로젝트를 실행하려면 Functions 호스트를 실행합니다. 호스트는 프로젝트의 모든 함수에 대해 트리거를 사용 하도록 설정 합니다. 시작 명령은 프로젝트 언어에 따라 달라집니다.
 
-### <a name="version-2x"></a>버전 2.x
+# <a name="c"></a>[C\#](#tab/csharp)
 
-런타임의 버전 2.x에서 시작 명령은 프로젝트 언어에 따라 달라 집니다.
-
-#### <a name="c"></a>C\#
-
-```command
+```
 func start --build
 ```
+# <a name="javascript"></a>[JavaScript](#tab/node)
 
-#### <a name="javascript"></a>JavaScript
-
-```command
+```
 func start
 ```
 
-#### <a name="typescript"></a>TypeScript
+# <a name="python"></a>[Python](#tab/python)
 
-```command
+```
+func start
+```
+이 명령은 [가상 환경에서 실행](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-python#create-venv)해야 합니다.
+
+# <a name="typescript"></a>[TypeScript](#tab/ts)
+
+```
 npm install
 npm start     
 ```
 
-### <a name="version-1x"></a>버전 1.x
+---
 
-함수 런타임의 버전 1.x에는 다음 예제와 같이 `host` 명령이 필요 합니다.
-
-```command
-func host start
-```
+>[!NOTE]  
+> 함수 런타임의 버전 1.x에는 다음 예제와 같이 `host` 명령이 필요 합니다.
+>
+> ```
+> func host start
+> ```
 
 `func start`은 다음 옵션을 지원합니다.
 
 | 옵션     | Description                            |
 | ------------ | -------------------------------------- |
-| **`--no-build`** | 실행 전에 현재 프로젝트를 빌드하지 않도록 합니다. dotnet 프로젝트에만 해당합니다. 기본값은 false로 설정하는 것입니다. 버전 2.x 전용입니다. |
-| **`--cert`** | 프라이빗 키가 포함된 .pfx 파일에 대한 경로입니다. `--useHttps`을 통해서만 사용됩니다. 버전 2.x 전용입니다. |
-| **`--cors-credentials`** | 원본 간 인증된 요청(즉, 쿠키 및 인증 헤더)을 허용하며, 버전 2.x 전용입니다. |
+| **`--no-build`** | 실행 전에 현재 프로젝트를 빌드하지 않도록 합니다. dotnet 프로젝트에만 해당합니다. 기본값은 false로 설정하는 것입니다. 버전 1.x에는 지원 되지 않습니다. |
+| **`--cert`** | 프라이빗 키가 포함된 .pfx 파일에 대한 경로입니다. `--useHttps`을 통해서만 사용됩니다. 버전 1.x에는 지원 되지 않습니다. |
+| **`--cors-credentials`** | 버전 1.x에 대해 지원 되지 않는 크로스-원본 인증 된 요청 (즉, 쿠키 및 인증 헤더)을 허용 합니다. |
 | **`--cors`** | CORS 원본의 공백 없이 쉼표로 구분된 목록입니다. |
-| **`--language-worker`** | 언어 작업자를 구성하는 인수입니다. 예를 들어 [디버그 포트 및 기타 필수 인수](https://github.com/Azure/azure-functions-core-tools/wiki/Enable-Debugging-for-language-workers)를 제공 하 여 언어 작업자에 대해 디버깅을 사용 하도록 설정할 수 있습니다. 버전 2.x 전용입니다. |
+| **`--language-worker`** | 언어 작업자를 구성하는 인수입니다. 예를 들어 [디버그 포트 및 기타 필수 인수](https://github.com/Azure/azure-functions-core-tools/wiki/Enable-Debugging-for-language-workers)를 제공 하 여 언어 작업자에 대해 디버깅을 사용 하도록 설정할 수 있습니다. 버전 1.x에는 지원 되지 않습니다. |
 | **`--nodeDebugPort`** , **`-n`** | 사용할 node.js 디버거의 포트입니다. 기본값: launch.json 값 또는 5858. 버전 1.x 전용입니다. |
-| **`--password`** | .pfx 파일에 대한 암호가 포함된 암호 또는 파일입니다. `--cert`을 통해서만 사용됩니다. 버전 2.x 전용입니다. |
+| **`--password`** | .pfx 파일에 대한 암호가 포함된 암호 또는 파일입니다. `--cert`을 통해서만 사용됩니다. 버전 1.x에는 지원 되지 않습니다. |
 | **`--port`** , **`-p`** | 수신 대기할 로컬 포트입니다. 기본값: 7071. |
 | **`--pause-on-error`** | 프로세스를 종료하기 전에 추가 입력에 대해 일시 중지합니다. IDE(통합 개발 환경)에서 Core Tools를 시작할 때만 사용됩니다.|
 | **`--script-root`** , **`--prefix`** | 실행하거나 배포할 함수 앱의 루트 경로를 지정하는 데 사용됩니다. 하위 폴더에 프로젝트 파일을 생성하는 컴파일된 프로젝트용으로 사용됩니다. 예를 들어 C# 클래스 라이브러리 프로젝트를 작성할 때는 `MyProject/bin/Debug/netstandard2.0`과 같은 경로를 사용하여 *root* 하위 폴더에 host.json, local.settings.json 및 function.json 파일이 생성됩니다. 이 경우 접두사를 `--script-root MyProject/bin/Debug/netstandard2.0`으로 설정합니다. 이 접두사는 Azure에서 실행할 때의 함수 앱 루트입니다. |
@@ -367,13 +370,13 @@ func host start
 
 Functions 호스트가 시작되면 HTTP 트리거 함수의 URL이 출력됩니다.
 
-```output
+<pre>
 Found the following functions:
 Host.Functions.MyHttpTrigger
 
 Job host started
 Http Function MyHttpTrigger: http://localhost:7071/api/MyHttpTrigger
-```
+</pre>
 
 >[!IMPORTANT]
 >로컬로 실행 하는 경우 HTTP 끝점에 대 한 권한 부여는 적용 되지 않습니다. 즉, 모든 로컬 HTTP 요청은 `authLevel = "anonymous"`로 처리됩니다. 자세한 내용은 [HTTP 바인딩 문서](functions-bindings-http-webhook-trigger.md#authorization-keys)를 참조하세요.
@@ -397,21 +400,31 @@ Functions 호스트가 수신 대기 중인 동일한 서버 이름 및 포트�
 
 다음 cURL 명령은 _이름_ 매개 변수를 쿼리 문자열에 전달한 GET 요청에서 `MyHttpTrigger` 빠른 시작 함수를 트리거합니다.
 
-```bash
+```
 curl --get http://localhost:7071/api/MyHttpTrigger?name=Azure%20Rocks
 ```
 
 다음 예제는 요청 본문에서 _이름_을 전달하는 POST 요청에서 호출되는 동일한 함수입니다.
 
+# <a name="bash"></a>[Bash](#tab/bash)
 ```bash
 curl --request POST http://localhost:7071/api/MyHttpTrigger --data '{"name":"Azure Rocks"}'
 ```
+# <a name="cmd"></a>[Cmd](#tab/cmd)
+```cmd
+curl --request POST http://localhost:7071/api/MyHttpTrigger --data "{'name':'Azure Rocks'}"
+```
+---
 
 쿼리 문자열에서 데이터를 전달하는 브라우저에서 GET 요청을 수행할 수 있습니다. 다른 모든 HTTP 메서드에서 cURL, Fiddler, Postman 또는 비슷한 HTTP 테스트 도구를 사용해야 합니다.
 
 #### <a name="non-http-triggered-functions"></a>HTTP가 아닌 트리거된 함수
 
-HTTP 트리거와 웹후크가 아닌 다른 모든 종류의 함수에서 관리 엔드포인트를 호출하여 로컬로 함수를 테스트할 수 있습니다. 로컬 서버에서 HTTP POST 요청으로 이 엔드포인트를 호출하면 함수를 트리거합니다. 필요에 따라 POST 요청의 본문에서 실행에 테스트 데이터를 전달할 수 있습니다. 이 기능은 Azure Portal에서 **테스트** 탭과 비슷합니다.
+HTTP 트리거와 웹 후크 및 Event Grid 트리거와는 다른 모든 종류의 함수에는 관리 끝점을 호출 하 여 로컬에서 함수를 테스트할 수 있습니다. 로컬 서버에서 HTTP POST 요청으로 이 엔드포인트를 호출하면 함수를 트리거합니다. 
+
+트리거된 함수를 로컬로 Event Grid 테스트 하려면 [뷰어 웹 앱을 사용 하 여 로컬 테스트](functions-bindings-event-grid-trigger.md#local-testing-with-viewer-web-app)를 참조 하세요.
+
+필요에 따라 POST 요청의 본문에서 실행에 테스트 데이터를 전달할 수 있습니다. 이 기능은 Azure Portal에서 **테스트** 탭과 비슷합니다.
 
 다음 관리자 엔드포인트를 호출하여 HTTP가 아닌 함수를 트리거합니다.
 
@@ -427,16 +440,22 @@ HTTP 트리거와 웹후크가 아닌 다른 모든 종류의 함수에서 관�
 
 `<trigger_input>` 값에는 함수에 필요한 형식의 데이터가 포함됩니다. 다음 cURL 예제는 `QueueTriggerJS` 함수에 대한 POST 요청입니다. 이 경우에 입력은 큐에 위치해야 하는 메시지에 해당하는 문자열입니다.
 
+# <a name="bash"></a>[Bash](#tab/bash)
 ```bash
-curl --request POST -H "Content-Type:application/json" --data '{"input":"sample queue data"}' http://localhost:7071/admin/functions/QueueTriggerJS
+curl --request POST -H "Content-Type:application/json" --data '{"input":"sample queue data"}' http://localhost:7071/admin/functions/QueueTrigger
 ```
+# <a name="cmd"></a>[Cmd](#tab/cmd)
+```bash
+curl --request POST -H "Content-Type:application/json" --data "{'input':'sample queue data'}" http://localhost:7071/admin/functions/QueueTrigger
+```
+---
 
-#### <a name="using-the-func-run-command-in-version-1x"></a>1\.x 버전에서 `func run` 명령 사용
+#### <a name="using-the-func-run-command-version-1x-only"></a>`func run` 명령 사용 (버전 1.x에만 해당)
 
 >[!IMPORTANT]
-> `func run` 명령은 도구의 2.x 버전에서 지원되지 않습니다. 자세한 내용은 [Azure Functions 런타임 버전을 대상으로 지정하는 방법](set-runtime-version.md) 항목을 참조하세요.
+> `func run` 명령은 도구의 버전 1.x 에서만 지원 됩니다. 자세한 내용은 [Azure Functions 런타임 버전을 대상으로 지정하는 방법](set-runtime-version.md) 항목을 참조하세요.
 
-`func run <FunctionName>`을 사용하여 함수를 직접 호출하고 함수에 대한 입력 데이터를 제공할 수도 있습니다. 이 명령은 Azure Portal에서 **테스트** 탭을 사용하여 함수를 실행하는 것과 비슷합니다.
+버전 1.x에서는 `func run <FunctionName>`를 사용 하 여 함수를 직접 호출 하 고 함수에 대 한 입력 데이터를 제공할 수도 있습니다. 이 명령은 Azure Portal에서 **테스트** 탭을 사용하여 함수를 실행하는 것과 비슷합니다.
 
 `func run`은 다음 옵션을 지원합니다.
 
@@ -450,7 +469,7 @@ curl --request POST -H "Content-Type:application/json" --data '{"input":"sample 
 
 예를 들어 HTTP 트리거 함수를 호출하고 콘텐츠 본문을 전달하려면 다음 명령을 실행합니다.
 
-```bash
+```
 func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 ```
 
@@ -467,7 +486,7 @@ Azure Functions Core Tools는 [Zip](functions-deployment-technologies.md#zip-dep
 
 Azure의 함수 앱에 로컬 코드를 게시 하려면 `publish` 명령을 사용 합니다.
 
-```bash
+```
 func azure functionapp publish <FunctionAppName>
 ```
 
@@ -504,7 +523,7 @@ func azure functionapp publish <FunctionAppName>
 
 Azure Functions를 사용 하 여 [사용자 지정 Docker 컨테이너](functions-deployment-technologies.md#docker-container)에 함수 프로젝트를 배포할 수 있습니다. 자세한 내용은 [사용자 지정 이미지를 사용하여 Linux에서 함수 만들기](functions-create-function-linux-custom-image.md)를 참조하세요. 사용자 지정 컨테이너에는 Dockerfile이 있어야 합니다. Dockerfile을 사용 하 여 앱을 만들려면 `func init`에서--dockerfile 옵션을 사용 합니다.
 
-```bash
+```
 func deploy
 ```
 
