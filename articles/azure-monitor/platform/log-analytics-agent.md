@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 02/04/2020
 ms.openlocfilehash: 99083cd08db98a6d6ac56d4cf55aaf9d0e64e2b4
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78362324"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79274607"
 ---
 # <a name="log-analytics-agent-overview"></a>Log Analytics 에이전트 개요
 Azure Log Analytics 에이전트는 모든 클라우드, 온-프레미스 컴퓨터 및 [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/)에서 모니터링 하는 가상 컴퓨터에서 종합적인 관리를 위해 개발 되었습니다. Windows 및 Linux 에이전트는 다양 한 원본에서 수집 된 데이터를 Azure Monitor의 Log Analytics 작업 영역으로 보내고, 모니터링 솔루션에 정의 된 대로 고유한 로그 나 메트릭을 전송 합니다. 또한 Log Analytics 에이전트는 Azure Monitor에서 [VM용 Azure Monitor](../insights/vminsights-enable-overview.md), [Azure Security Center](/azure/security-center/), [Azure Automation](../../automation/automation-intro.md)등의 기타 서비스와 정보를 지원 합니다.

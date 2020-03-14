@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: b764799d3f40cef24a0412ac950026af650d4ec7
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78382084"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79272852"
 ---
 # <a name="backends-and-backend-pools-in-azure-front-door-service"></a>Azure Front Door Service의 백 엔드 및 백 엔드 풀
 이 문서에서는 Azure Front 도어 서비스를 사용 하 여 앱 배포를 매핑하는 방법에 대 한 개념을 설명 합니다. 또한 앱 백 엔드에 대 한 Front 도어 구성의 다양 한 용어에 대해 설명 합니다.

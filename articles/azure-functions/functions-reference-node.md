@@ -4,12 +4,12 @@ description: JavaScript를 사용하여 함수를 개발하는 방법을 알아�
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: reference
 ms.date: 12/17/2019
-ms.openlocfilehash: b0cd9541deac106525cfe80244d1867f513825f0
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 345df8e1ea88caa6f8dbe941245c1f989c3e81c6
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77584492"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79276830"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript 개발자 가이드
 
@@ -363,6 +363,7 @@ HTTP, 웹후크 트리거 및 HTTP 출력 바인딩은 요청 및 응답 개체�
 | _headers_ | 응답 헤더를 포함하는 개체입니다.             |
 | _isRaw_   | 응답에 대한 서식 지정을 건너뜀을 나타냅니다.    |
 | _status_  | 응답의 HTTP 상태 코드입니다.                     |
+| _쿠키_ | 응답에 설정 된 HTTP 쿠키 개체의 배열입니다. HTTP 쿠키 개체에는 `name`, `value`및 다른 쿠키 속성 (예: `maxAge` 또는 `sameSite`)이 있습니다. |
 
 ### <a name="accessing-the-request-and-response"></a>요청 및 응답 액세스 
 

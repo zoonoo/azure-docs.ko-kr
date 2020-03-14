@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: yegu
 ms.openlocfilehash: a385d3ed7ef46389f96de72c98ffc29cebf60ec4
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78357450"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79278533"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Cache for Redis 관리
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ ms.locfileid: "78357450"
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
-클래식 배포 모델에 대한 자세한 내용은 [Azure Resource Manager 및 클래식 배포: 배포 모델 및 리소스 상태 이해](../azure-resource-manager/management/deployment-models.md)를 참조하세요.
+두 배포 모델에 대한 자세한 내용은 [Azure Resource Manager 및 클래식 배포: 배포 모델 및 리소스 상태 이해](../azure-resource-manager/management/deployment-models.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 Azure PowerShell을 이미 설치한 경우 Azure PowerShell 버전 1.0.0 이상이 있어야 합니다. Azure PowerShell 명령 프롬프트에서 다음 명령을 사용하여 설치한 Azure PowerShell의 버전을 확인할 수 있습니다.
@@ -61,7 +61,7 @@ Azure 리소스 관리자에서 Windows PowerShell을 사용하려면 다음이 
     Get-Help New-AzRedisCache -Detailed
 
 ### <a name="how-to-connect-to-other-clouds"></a>다른 클라우드에 연결하는 방법
-기본적으로 Azure 환경은 글로벌 Azure 클라우드 인스턴스를 나타내는 `AzureCloud`입니다. 다른 인스턴스에 연결하려면 원하는 환경 또는 환경 이름을 사용하여 `-Environment` 또는 -`EnvironmentName` 명령줄 스위치와 함께 `Connect-AzAccount` 명령을 사용합니다.
+기본적으로 Azure 환경은 글로벌 Azure 클라우드 인스턴스를 나타내는 `AzureCloud`입니다. 다른 인스턴스에 연결하려면 원하는 환경 또는 환경 이름을 사용하여 `Connect-AzAccount` 또는 -`-Environment` 명령줄 스위치와 함께 `EnvironmentName` 명령을 사용합니다.
 
 사용 가능한 환경 목록을 보려면 `Get-AzEnvironment` cmdlet을 실행합니다.
 
@@ -122,16 +122,16 @@ Microsoft Azure Germany에 대한 자세한 내용은 [Microsoft Azure Germany](
 | 속성 |캐시의 이름 | |
 | 위치 |캐시의 위치 | |
 | ResourceGroupName |캐시를 만들 리소스 그룹 이름 | |
-| 크기 |캐시의 크기. 유효한 값은 다음과 같습니다. P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250MB, 1GB, 2.5GB, 6GB, 13GB, 26GB, 53GB |1GB |
-| ShardCount |클러스터링을 사용하는 프리미엄 캐시를 만들 때 만들 분할된 데이터베이스 수. 유효한 값은 다음과 같습니다. 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | |
-| SKU |캐시의 SKU를 지정합니다. 유효한 값은 다음과 같습니다. Basic, Standard, Premium |Standard |
+| 크기 |캐시의 크기. 유효한 값: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250MB, 1GB, 2.5GB, 6GB, 13GB, 26GB, 53GB |1GB |
+| ShardCount |클러스터링을 사용하는 프리미엄 캐시를 만들 때 만들 분할된 데이터베이스 수. 유효한 값: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | |
+| SKU |캐시의 SKU를 지정합니다. 유효한 값: 기본, 표준, 프리미엄 |Standard |
 | RedisConfiguration |Redis 구성 설정을 지정합니다. 각 설정에 대한 자세한 내용은 다음 [RedisConfiguration 속성](#redisconfiguration-properties) 테이블을 참조하세요. | |
 | EnableNonSslPort |비 SSL 포트를 사용하는지 여부를 나타냅니다. |False |
 | MaxMemoryPolicy |이 매개 변수는 더 이상 사용되지 않으며 대신 RedisConfiguration을 사용합니다. | |
 | StaticIP |VNET에서 캐시를 호스팅하는 경우 서브넷에서 캐시에 대한 고유 IP 주소를 지정합니다. 제공되지 않으면 하나의 IP 주소가 서브넷에서 자동으로 선택됩니다. | |
 | 서브넷 |VNET에서 캐시를 호스팅하는 경우에 캐시를 배포할 서브넷의 이름을 지정합니다. | |
 | VirtualNetwork |VNET에서 캐시를 호스팅하는 경우에 캐시를 배포할 VNET의 리소스 ID를 지정합니다. | |
-| KeyType |액세스 키를 갱신할 때 다시 생성할 액세스 키를 지정합니다. 유효한 값은 다음과 같습니다. Primary, Secondary | |
+| KeyType |액세스 키를 갱신할 때 다시 생성할 액세스 키를 지정합니다. 유효한 값: 주, 보조 | |
 
 ### <a name="redisconfiguration-properties"></a>RedisConfiguration 속성
 | 속성 | Description | 가격 책정 계층 |
@@ -243,7 +243,7 @@ Microsoft Azure Germany에 대한 자세한 내용은 [Microsoft Azure Germany](
 
     New-AzRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US" -Sku Premium -Size P1 -ShardCount 3
 
-`RedisConfiguration` 매개 변수에 대한 값을 지정하려면 `@{"maxmemory-policy" = "allkeys-random", "notify-keyspace-events" = "KEA"}`처럼 키/값 쌍으로 값을 `{}`로 묶습니다. 다음 예제에서는 `allkeys-random` 최대 정책을 사용하고 `KEA`의 keyspace 알림이 구성된 표준 1GB 캐시를 만듭니다. 자세한 내용은 [Keyspace 알림(고급 설정)](cache-configure.md#keyspace-notifications-advanced-settings) 및 [메모리 정책](cache-configure.md#memory-policies)을 참조하세요.
+`RedisConfiguration` 매개 변수에 대한 값을 지정하려면 `{}`처럼 키/값 쌍으로 값을 `@{"maxmemory-policy" = "allkeys-random", "notify-keyspace-events" = "KEA"}`로 묶습니다. 다음 예제에서는 `allkeys-random` 최대 정책을 사용하고 `KEA`의 keyspace 알림이 구성된 표준 1GB 캐시를 만듭니다. 자세한 내용은 [Keyspace 알림(고급 설정)](cache-configure.md#keyspace-notifications-advanced-settings) 및 [메모리 정책](cache-configure.md#memory-policies)을 참조하세요.
 
     New-AzRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US" -RedisConfiguration @{"maxmemory-policy" = "allkeys-random", "notify-keyspace-events" = "KEA"}
 
@@ -313,7 +313,7 @@ Microsoft Azure Germany에 대한 자세한 내용은 [Microsoft Azure Germany](
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
             about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
-`Size`, `Sku`, `EnableNonSslPort`의 속성과 `RedisConfiguration` 값을 업데이트하는 데 `Set-AzRedisCache` cmdlet을 사용할 수 있습니다. 
+`Set-AzRedisCache`, `Size`, `Sku`의 속성과 `EnableNonSslPort` 값을 업데이트하는 데 `RedisConfiguration` cmdlet을 사용할 수 있습니다. 
 
 다음 명령은 myCache라는 Azure Cache for Redis에 대한 maxmemory-policy를 업데이트합니다.
 
@@ -322,7 +322,7 @@ Microsoft Azure Germany에 대한 자세한 내용은 [Microsoft Azure Germany](
 <a name="scale"></a>
 
 ## <a name="to-scale-an-azure-cache-for-redis"></a>Azure Cache for Redis 크기를 조정하려면
-`Size`, `Sku` 또는 `ShardCount` 속성이 수정될 때 Azure Cache for Redis 인스턴스 크기를 조정하는 데 `Set-AzRedisCache`를 사용할 수 있습니다. 
+`Set-AzRedisCache`, `Size` 또는 `Sku` 속성이 수정될 때 Azure Cache for Redis 인스턴스 크기를 조정하는 데 `ShardCount`를 사용할 수 있습니다. 
 
 > [!NOTE]
 > PowerShell을 사용하여 캐시 크기를 조정할 경우 Azure 포털에서 캐시 크기를 조정할 때와 동일한 한도 및 지침이 적용됩니다. 다른 가격 책정 계층으로 크기를 조정할 수 있지만 다음과 같은 제한 사항이 있습니다.
@@ -421,11 +421,11 @@ Microsoft Azure Germany에 대한 자세한 내용은 [Microsoft Azure Germany](
 
     Get-AzRedisCache
 
-특정 리소스 그룹의 모든 캐시에 대한 정보를 반환하려면 `ResourceGroupName` 매개 변수와 함께 `Get-AzRedisCache`를 실행합니다.
+특정 리소스 그룹의 모든 캐시에 대한 정보를 반환하려면 `Get-AzRedisCache` 매개 변수와 함께 `ResourceGroupName`를 실행합니다.
 
     Get-AzRedisCache -ResourceGroupName myGroup
 
-특정 캐시에 대한 정보를 반환하려면 캐시 이름을 포함하는 `Name` 매개 변수와 해당 캐시를 포함하는 리소스 그룹이 있는 `ResourceGroupName` 매개 변수와 함께 `Get-AzRedisCache`를 실행합니다.
+특정 캐시에 대한 정보를 반환하려면 캐시 이름을 포함하는 `Get-AzRedisCache` 매개 변수와 해당 캐시를 포함하는 리소스 그룹이 있는 `Name` 매개 변수와 함께 `ResourceGroupName`를 실행합니다.
 
     PS C:\> Get-AzRedisCache -Name myCache -ResourceGroupName myGroup
 
@@ -529,7 +529,7 @@ Microsoft Azure Germany에 대한 자세한 내용은 [Microsoft Azure Germany](
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
             about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
-캐시에 대한 주 및 보조 키를 다시 생성하려면 `New-AzRedisCacheKey` cmdlet을 호출하고 이름, 리소스 그룹을 전달하고 `KeyType` 매개 변수에 대해 `Primary` 또는 `Secondary`를 지정합니다. 다음 예제에서는 캐시에 대한 보조 액세스 키가 다시 생성됩니다.
+캐시에 대한 주 및 보조 키를 다시 생성하려면 `New-AzRedisCacheKey` cmdlet을 호출하고 이름, 리소스 그룹을 전달하고 `Primary` 매개 변수에 대해 `Secondary` 또는 `KeyType`를 지정합니다. 다음 예제에서는 캐시에 대한 보조 액세스 키가 다시 생성됩니다.
 
     PS C:\> New-AzRedisCacheKey -Name myCache -ResourceGroupName myGroup -KeyType Secondary
 
@@ -775,8 +775,8 @@ Azure Cache for Redis를 삭제하려면 [Remove-AzRedisCache](https://docs.micr
 Azure에서 Windows PowerShell 사용에 대한 자세한 내용은 다음 리소스를 참조하십시오.
 
 * [MSDN에 있는 Azure Cache for Redis cmdlet 설명서](https://docs.microsoft.com/powershell/module/az.rediscache)
-* [Azure Resource Manager cmdlet](https://go.microsoft.com/fwlink/?LinkID=394765) Azure Resource Manager 모듈에서 cmdlet을 사용하는 방법을 알아봅니다.
-* [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/templates/deploy-portal.md): Azure Portal에서 리소스 그룹을 만들고 관리하는 방법
+* [Azure Resource Manager Cmdlet](https://go.microsoft.com/fwlink/?LinkID=394765): Azure Resource Manager 모듈에서 cmdlet을 사용하는 방법을 알아봅니다.
+* [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/templates/deploy-portal.md): Azure 포털에서 리소스 그룹을 만들고 관리하는 방법에 대해 알아봅니다.
 * [Azure 블로그](https://azure.microsoft.com/blog/): Azure의 새로운 기능에 대해 알아봅니다.
 * [Windows PowerShell 블로그](https://blogs.msdn.com/powershell): Windows PowerShell의 새로운 기능에 대해 알아봅니다.
 * ["Hey, Scripting Guy!" 블로그](https://blogs.technet.com/b/heyscriptingguy/): Windows PowerShell 커뮤니티에서 실제 팁과 요령을 확인합니다.

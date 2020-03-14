@@ -3,12 +3,12 @@ title: Azure Migrate에서 VMware 마이그레이션 지원
 description: Azure Migrate에서 VMware VM 마이그레이션에 대 한 지원에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: eea2ef1f84e5c31dd18ea4ef65ccf2796231352b
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 9d8dc4dadc975a0fb69ea207f6062b72231460ef
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77597986"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79269511"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>VMware 마이그레이션을 위한 지원 매트릭스
 
@@ -35,7 +35,7 @@ VMware Vm은 몇 가지 방법으로 마이그레이션할 수 있습니다.
 --- | ---
 **VMware vCenter Server** | 버전 5.5, 6.0, 6.5 또는 6.7입니다.
 **VMware vSphere ESXI 호스트** | 버전 5.5, 6.0, 6.5 또는 6.7입니다.
-**vCenter Server 권한** | 에이전트 없는 마이그레이션은 마이그레이션 [어플라이언스](migrate-appliance.md)를 사용 합니다. 어플라이언스에는 다음 권한이 필요 합니다.<br/><br/> - **데이터 저장소. 찾아보기**: VM 로그 파일을 검색 하 여 스냅숏 만들기 및 삭제 문제를 해결할 수 있습니다.<br/><br/> **데이터 저장소. LowLevelFileOperations**: 데이터 저장소 브라우저에서 읽기/쓰기/삭제/이름 바꾸기 작업을 허용 하 여 스냅숏 생성 및 삭제 문제를 해결 합니다. - <br/><br/> - **VirtualMachine. DiskChangeTracking**: VM 디스크의 변경 내용 추적을 사용 하거나 사용 하지 않도록 설정 하 여 스냅숏 간에 변경 된 데이터 블록을 가져옵니다.<br/><br/> - **VirtualMachine**: VM에 대 한 디스크 임대 작업을 허용 하 VMware vSphere VDDK (가상 디스크 개발 키트)를 사용 하 여 디스크를 읽습니다.<br/><br/> - **VirtualMachine Diskaccess**: (특히 vsphere 6.0 이상) VDDK를 사용 하 여 디스크에서 임의 읽기 액세스를 위해 VM에서 디스크를 열 수 있도록 허용 합니다.<br/><br/> - **VirtualMachine. AllowReadOnlyDiskAccess**: VM에서 디스크를 열고 VDDK를 사용 하 여 디스크를 읽을 수 있습니다.<br/><br/>- **VirtualMachine Virtualmachinedownload**: VM과 연결 된 파일에 대 한 읽기 작업을 허용 하 여 로그를 다운로드 하 고 오류가 발생 하는 경우 문제를 해결 합니다.<br/><br/> -* * VirtualMachine. * * *: 복제에 대 한 VM 스냅숏의 생성 및 관리를 허용 합니다.<br/><br/> **가상 컴퓨터를 - 합니다. 전원 끄기**: Azure로 마이그레이션하는 동안 VM의 전원을 끌 수 있습니다.
+**vCenter Server 권한** | 에이전트 없는 마이그레이션은 마이그레이션 [어플라이언스](migrate-appliance.md)를 사용 합니다. 어플라이언스에는 다음 권한이 필요 합니다.<br/><br/> - **데이터 저장소. 찾아보기**: VM 로그 파일을 검색 하 여 스냅숏 만들기 및 삭제 문제를 해결할 수 있습니다.<br/><br/> **데이터 저장소. LowLevelFileOperations**: 데이터 저장소 브라우저에서 읽기/쓰기/삭제/이름 바꾸기 작업을 허용 하 여 스냅숏 생성 및 삭제 문제를 해결 합니다. - <br/><br/> - **VirtualMachine. DiskChangeTracking**: VM 디스크의 변경 내용 추적을 사용 하거나 사용 하지 않도록 설정 하 여 스냅숏 간에 변경 된 데이터 블록을 가져옵니다.<br/><br/> - **VirtualMachine**: VM에 대 한 디스크 임대 작업을 허용 하 VMware vSphere VDDK (가상 디스크 개발 키트)를 사용 하 여 디스크를 읽습니다.<br/><br/> - **VirtualMachine Diskaccess**: (특히 vsphere 6.0 이상) VDDK를 사용 하 여 디스크에서 임의 읽기 액세스를 위해 VM에서 디스크를 열 수 있도록 허용 합니다.<br/><br/> - **VirtualMachine. AllowReadOnlyDiskAccess**: VM에서 디스크를 열고 VDDK를 사용 하 여 디스크를 읽을 수 있습니다.<br/><br/> - **VirtualMachine. AllowDiskRandomAccess**: VM에서 디스크를 열고 VDDK를 사용 하 여 디스크를 읽을 수 있습니다.<br/><br/> - **VirtualMachine Virtualmachinedownload**: VM과 연결 된 파일에 대 한 읽기 작업을 허용 하 여 로그를 다운로드 하 고 오류가 발생 하는 경우 문제를 해결 합니다.<br/><br/> -* * VirtualMachine. * * *: 복제에 대 한 VM 스냅숏의 생성 및 관리를 허용 합니다.<br/><br/> **가상 컴퓨터를 - 합니다. 전원 끄기**: Azure로 마이그레이션하는 동안 VM의 전원을 끌 수 있습니다.
 
 
 

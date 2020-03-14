@@ -13,11 +13,11 @@ ms.date: 06/06/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 90fccba016a3db9ff85f8ec7c8fd426ef3c896a2
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78387440"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79281289"
 ---
 # <a name="move-data-from-mysql-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 MySQL에서 데이터 이동
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -32,7 +32,7 @@ ms.locfileid: "78387440"
 
 온-프레미스 MySQL 데이터 저장소의 데이터를 지원되는 싱크 데이터 저장소로 복사할 수 있습니다. 복사 작업의 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 테이블을 참조하세요. 현재 데이터 팩터리는 다른 데이터 저장소에서 MySQL 데이터 저장소로 데이터 이동이 아닌 MySQL 데이터 저장소에서 다른 데이터 저장소로 데이터 이동만을 지원합니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 데이터 팩터리 서비스는 데이터 관리 게이트웨이를 사용하여 온-프레미스 MySQL 원본에 연결을 지원합니다. 데이터 관리 게이트웨이 및 게이트웨이 설정에 대한 단계별 지침을 알아보려면 [온-프레미스 위치 및 클라우드 간 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) 문서를 참조하세요.
 
 게이트웨이는 MySQL 데이터베이스가 Azure IaaS 가상 머신 (VM)에 호스팅되더라도 필요합니다. 게이트웨이를 데이터베이스에 연결할 수 있는 한 데이터 저장소와 동일한 VM 또는 다른 VM에 게이트웨이를 설치할 수 있습니다.
@@ -65,23 +65,23 @@ ms.locfileid: "78387440"
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
 다음 테이블은 MySQL 연결된 서비스에 특정된 JSON 요소에 대한 설명을 제공합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 | --- | --- | --- |
-| 형식 |형식 속성은 **OnPremisesMySql** |예 |
-| 서버 |MySQL 서버의 이름입니다. |예 |
-| 데이터베이스 |MySQL 데이터베이스의 이름입니다. |예 |
-| 스키마 |데이터베이스에서 스키마의 이름입니다. |아니요 |
-| authenticationType |MySQL 데이터베이스에 연결하는 데 사용되는 인증 형식입니다. 가능한 값은 `Basic`입니다. |예 |
-| userName |MySQL 데이터베이스에 연결할 사용자 이름을 지정합니다. |예 |
-| password |지정한 사용자 계정의 암호를 지정합니다. |예 |
-| gatewayName |데이터 팩터리 서비스가 온-프레미스 MySQL 데이터 베이스에 연결하는 데 사용해야 하는 게이트웨이의 이름입니다. |예 |
+| type |형식 속성은 **OnPremisesMySql** |yes |
+| 서버 |MySQL 서버의 이름입니다. |yes |
+| 데이터베이스 |MySQL 데이터베이스의 이름입니다. |yes |
+| 스키마 |데이터베이스에서 스키마의 이름입니다. |예 |
+| authenticationType |MySQL 데이터베이스에 연결하는 데 사용되는 인증 형식입니다. 가능한 값은 `Basic`입니다. |yes |
+| userName |MySQL 데이터베이스에 연결할 사용자 이름을 지정합니다. |yes |
+| password |지정한 사용자 계정의 암호를 지정합니다. |yes |
+| gatewayName |데이터 팩터리 서비스가 온-프레미스 MySQL 데이터 베이스에 연결하는 데 사용해야 하는 게이트웨이의 이름입니다. |yes |
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트 만들기](data-factory-create-datasets.md) 문서를 참조하세요. 구조, 가용성 및 JSON 데이터 세트의 정책과 같은 섹션이 모든 데이터 세트 형식에 대해 유사합니다(Azure SQL, Azure blob, Azure 테이블 등).
 
 **typeProperties** 섹션은 데이터 세트의 각 형식에 따라 다르며 데이터 저장소에 있는 데이터의 위치에 대한 정보를 제공합니다. **RelationalTable** 형식의 데이터 세트(MySQL 데이터 세트를 포함)에 대한 typeProperties 섹션에는 다음 속성이 있습니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 | --- | --- | --- |
 | tableName |연결된 서비스가 참조하는 MySQL 데이터베이스 인스턴스에서 테이블의 이름입니다. |아니요(**RelationalSource**의 **쿼리**가 지정된 경우) |
 
@@ -92,9 +92,9 @@ ms.locfileid: "78387440"
 
 복사 작업의 원본이 **RelationalSource**(MySQL 포함) 형식인 경우 typeProperties 섹션에서 다음과 같은 속성을 사용할 수 있습니다.
 
-| 속성 | 설명 | 허용되는 값 | 필수 |
+| 속성 | Description | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예: select * from MyTable. |아니요(**데이터 세트**의 **tableName**이 지정된 경우) |
+| Query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예: select * from MyTable. |아니요(**데이터 세트**의 **tableName**이 지정된 경우) |
 
 
 ## <a name="json-example-copy-data-from-mysql-to-azure-blob"></a>JSON 예: MySQL에서 Azure Blob으로 데이터 복사
@@ -307,11 +307,11 @@ MySQL에 데이터를 이동하는 경우 MySQL 형식에서 .NET 형식으로 �
 | bool |부울 |
 | char |String |
 | date |DateTime |
-| datetime |DateTime |
+| Datetime |DateTime |
 | decimal |Decimal |
 | double precision |Double |
 | double |Double |
-| 열거형 |String |
+| enum |String |
 | float |Single |
 | int unsigned |Int64 |
 | int |Int32 |
@@ -330,7 +330,7 @@ MySQL에 데이터를 이동하는 경우 MySQL 형식에서 .NET 형식으로 �
 | set |String |
 | smallint unsigned |Int32 |
 | smallint |Int16 |
-| 텍스트 |String |
+| text |String |
 | time |TimeSpan |
 | timestamp |DateTime |
 | tinyblob |Byte[] |

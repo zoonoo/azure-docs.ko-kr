@@ -6,11 +6,11 @@ ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
 ms.openlocfilehash: d4dbf43fb5684d829e581be29832e94ad46b2936
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77589754"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79277428"
 ---
 # <a name="azure-iot-hub-output-binding-for-azure-functions"></a>Azure Functions에 대 한 Azure IoT Hub 출력 바인딩
 

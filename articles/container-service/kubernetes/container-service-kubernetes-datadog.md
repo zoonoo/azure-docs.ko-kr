@@ -7,26 +7,26 @@ ms.topic: conceptual
 ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: c8ed146a224ec4225a7a0e85c76227fb1dc71b0b
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 1f3f70c30ab397bd549a2f3305a738274ee4f64f
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76271043"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79371174"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-cluster-with-datadog"></a>(사용되지 않음) Datadog을 사용하여 Azure Container Service 클러스터 모니터링
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 이 연습에서는 [Azure Container Service를 사용하여 Kubernetes 클러스터를 만들었다고](container-service-kubernetes-walkthrough.md) 가정합니다.
 
 또한 `az` Azure CLI 및 `kubectl` 도구가 설치되어 있다고 가정합니다.
 
 다음을 실행하여 `az` 도구가 설치되어 있는지 테스트할 수 있습니다.
 
-```console
-$ az --version
+```azurecli
+az --version
 ```
 
 `az` 도구가 설치되어 있지 않으면 [여기](https://github.com/azure/azure-cli#installation)의 지침을 따르세요.
@@ -34,13 +34,13 @@ $ az --version
 다음을 실행하여 `kubectl` 도구가 설치되어 있는지 테스트할 수 있습니다.
 
 ```console
-$ kubectl version
+kubectl version
 ```
 
 `kubectl`이 설치되어 있지 않으면 다음을 실행할 수 있습니다.
 
-```console
-$ az acs kubernetes install-cli
+```azurecli
+az acs kubernetes install-cli
 ```
 
 ## <a name="datadog"></a>DataDog

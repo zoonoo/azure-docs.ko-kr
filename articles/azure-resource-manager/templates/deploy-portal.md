@@ -4,11 +4,11 @@ description: Azure Portal 및 Azure 리소스 관리를 사용 하 여 구독의
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.openlocfilehash: 32c807b4881bc59b6bec0d26ab3664abdb200628
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75485105"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79274360"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>리소스 관리자 템플릿과 Azure 포털로 리소스 배포
 

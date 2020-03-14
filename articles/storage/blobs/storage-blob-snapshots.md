@@ -8,18 +8,20 @@ ms.topic: article
 ms.date: 09/06/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: fb2da8acb0aa4d105f23ab5d1ad42f08a6ae722c
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 17cd57fbcf9b1c14fb275a070bdefdd1282c4d6e
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595244"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79370528"
 ---
 # <a name="create-and-manage-a-blob-snapshot-in-net"></a>.NET에서 blob 스냅숏 만들기 및 관리
 
-스냅샷은 특정 시점에 생성된 Blob의 읽기 전용 버전입니다. 스냅샷은 blob를 백업하는데 유용합니다. 이 문서에서는 [.net 용 Azure Storage 클라이언트 라이브러리](/dotnet/api/overview/azure/storage/client)를 사용 하 여 blob 스냅숏을 만들고 관리 하는 방법을 보여 줍니다.
+스냅샷은 특정 시점에 생성된 Blob의 읽기 전용 버전입니다. 스냅샷은 blob를 백업하는데 유용합니다. 이 문서에서는 [.net 용 Azure Storage 클라이언트 라이브러리](/dotnet/api/overview/azure/storage?view=azure-dotnet)를 사용 하 여 blob 스냅숏을 만들고 관리 하는 방법을 보여 줍니다.
 
 ## <a name="about-blob-snapshots"></a>Blob 스냅숏 정보
+
+[!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
 
 Blob URI에 스냅샷이 만들어진 시점의 시간을 나타내는 Blob URI에 추가된 **DateTime** 값이 있다는 점을 제외하고 Blob의 스냅샷은 해당 Blob와 동일합니다. 예를 들어 페이지 Blob URI가 `http://storagesample.core.blob.windows.net/mydrives/myvhd`이면 스냅샷 URI는 `http://storagesample.core.blob.windows.net/mydrives/myvhd?snapshot=2011-03-09T01:42:34.9360000Z`과 유사합니다.
 
@@ -83,7 +85,7 @@ Blob을 삭제 하려면 먼저 해당 blob의 모든 스냅숏을 삭제 해야
 
 Blob 스냅숏을 삭제 하려면 다음 blob 삭제 방법 중 하나를 사용 하 고 [DeleteSnapshotsOption](/dotnet/api/microsoft.azure.storage.blob.deletesnapshotsoption) 열거형을 포함 합니다.
 
-- [삭제](/dotnet/api/microsoft.azure.storage.blob.cloudblob.delete)
+- [Delete](/dotnet/api/microsoft.azure.storage.blob.cloudblob.delete)
 - [DeleteAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.deleteasync)
 - [DeleteIfExists](/dotnet/api/microsoft.azure.storage.blob.cloudblob.deleteifexists)
 - [DeleteIfExistsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.deleteifexistsasync)

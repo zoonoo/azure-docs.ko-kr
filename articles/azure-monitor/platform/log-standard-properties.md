@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 07/18/2019
 ms.openlocfilehash: 252ddeb372744986df0b8ba9b742d0462a4e8202
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78372286"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79274477"
 ---
 # <a name="standard-properties-in-azure-monitor-logs"></a>Azure Monitor 로그의 표준 속성
 Azure Monitor 로그의 데이터는 [Log Analytics 작업 영역 또는 Application Insights 응용 프로그램에](../log-query/logs-structure.md)각각 고유한 속성 집합이 있는 특정 데이터 형식의 레코드 집합으로 저장 됩니다. 많은 데이터 형식에는 여러 형식에 공통적인 표준 속성이 있습니다. 이 문서에서는 이러한 속성에 대해 설명하고 쿼리에 속성을 사용하는 방법의 예를 제공합니다.

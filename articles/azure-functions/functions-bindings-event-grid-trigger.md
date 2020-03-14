@@ -7,11 +7,11 @@ ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 2027629e1e9e297c97cbf40485ebe7dc2e3e6c0d
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368962"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79277727"
 ---
 # <a name="azure-event-grid-trigger-for-azure-functions"></a>Azure Functions에 대 한 Azure Event Grid 트리거
 
@@ -21,7 +21,7 @@ ms.locfileid: "77368962"
 
 ## <a name="example"></a>예제
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 HTTP 트리거 예제는 [http 끝점으로 이벤트 수신](../event-grid/receive-events.md)을 참조 하세요.
 
@@ -76,7 +76,7 @@ namespace Company.Function
 }
 ```
 
-# <a name="c-scripttabcsharp-script"></a>[C#스크립트도](#tab/csharp-script)
+# <a name="c-script"></a>[C#스크립트도](#tab/csharp-script)
 
 다음 예제는 *function.json* 파일의 트리거 바인딩 및 바인딩을 사용하는 [C# 스크립트 함수](functions-reference-csharp.md)를 보여줍니다.
 
@@ -128,7 +128,7 @@ public static void Run(JObject eventGridEvent, TraceWriter log)
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 다음 예제는 *function.json* 파일의 트리거 바인딩과 바인딩을 사용하는 [JavaScript 함수](functions-reference-node.md)를 보여줍니다.
 
@@ -159,7 +159,7 @@ module.exports = function (context, eventGridEvent) {
 };
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 다음 예제는 *function.json* 파일의 트리거 바인딩 및 바인딩을 사용하는 [Python 함수](functions-reference-python.md)를 보여줍니다.
 
@@ -200,7 +200,7 @@ def main(event: func.EventGridEvent):
     logging.info('Python EventGrid trigger processed an event: %s', result)
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 이 섹션에는 다음 예제가 포함되어 있습니다.
 
@@ -269,7 +269,7 @@ public class EventSchema {
 
 ## <a name="attributes-and-annotations"></a>특성 및 주석
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 [C# 클래스 라이브러리](functions-dotnet-class-library.md)에서 [EventGridTrigger](https://github.com/Azure/azure-functions-eventgrid-extension/blob/master/src/EventGridExtension/TriggerBinding/EventGridTriggerAttribute.cs) 특성을 사용합니다.
 
@@ -285,19 +285,19 @@ public static void EventGridTest([EventGridTrigger] JObject eventGridEvent, ILog
 
 전체 예제는 C# 예제를 참조하세요.
 
-# <a name="c-scripttabcsharp-script"></a>[C#스크립트도](#tab/csharp-script)
+# <a name="c-script"></a>[C#스크립트도](#tab/csharp-script)
 
 스크립트에서 C# 특성을 지원 하지 않습니다.
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 JavaScript에서는 특성을 지원 하지 않습니다.
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Python에서 특성을 지원 하지 않습니다.
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 [Eventgridtrigger](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/annotation/EventGridTrigger.java) 주석을 사용 하면 구성 값을 제공 하 여 Event Grid 바인딩을 선언적으로 구성할 수 있습니다. 자세한 내용은 [예제](#example) 및 [구성](#configuration) 섹션을 참조 하세요.
 
@@ -315,7 +315,7 @@ Python에서 특성을 지원 하지 않습니다.
 
 ## <a name="usage"></a>사용
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 1\.x Azure Functions에서는 Event Grid 트리거에 대해 다음 매개 변수 형식을 사용할 수 있습니다.
 
@@ -329,7 +329,7 @@ Azure Functions 2.x 이상에서 Event Grid 트리거에 대해 다음 매개 �
 > [!NOTE]
 > Functions v1에서 `Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent`에 바인딩하려는 경우 컴파일러에서는 "사용되지 않음" 메시지를 표시하고 대신 `Microsoft.Azure.EventGrid.Models.EventGridEvent`를 사용하도록 권고합니다. 최신 형식을 사용하려면 [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) NuGet 패키지를 참조하고, `EventGridEvent`를 접두사로 사용하여 `Microsoft.Azure.EventGrid.Models` 형식 이름을 정규화합니다.
 
-# <a name="c-scripttabcsharp-script"></a>[C#스크립트도](#tab/csharp-script)
+# <a name="c-script"></a>[C#스크립트도](#tab/csharp-script)
 
 1\.x Azure Functions에서는 Event Grid 트리거에 대해 다음 매개 변수 형식을 사용할 수 있습니다.
 
@@ -343,15 +343,15 @@ Azure Functions 2.x 이상에서 Event Grid 트리거에 대해 다음 매개 �
 > [!NOTE]
 > Functions v1에서 `Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent`에 바인딩하려는 경우 컴파일러에서는 "사용되지 않음" 메시지를 표시하고 대신 `Microsoft.Azure.EventGrid.Models.EventGridEvent`를 사용하도록 권고합니다. 최신 형식을 사용하려면 [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) NuGet 패키지를 참조하고, `EventGridEvent`를 접두사로 사용하여 `Microsoft.Azure.EventGrid.Models` 형식 이름을 정규화합니다. C# 스크립트 함수에서 NuGet 패키지를 참조하는 방법에 대한 정보는 [NuGet 패키지 사용](functions-reference-csharp.md#using-nuget-packages)을 참조하세요.
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Event Grid 인스턴스는 *함수 json* 파일의 `name` 속성에서 구성 된 매개 변수를 통해 사용할 수 있습니다.
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Event Grid 인스턴스는 `func.EventGridEvent`으로 형식화 된 *함수 json* 파일의 `name` 속성에 구성 된 매개 변수를 통해 사용할 수 있습니다.
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 Event Grid 이벤트 인스턴스는 `EventSchema`으로 형식화 된 `EventGridTrigger` 특성과 연결 된 매개 변수를 통해 사용할 수 있습니다. 자세한 내용은 [예제](#example) 를 참조 하세요.
 

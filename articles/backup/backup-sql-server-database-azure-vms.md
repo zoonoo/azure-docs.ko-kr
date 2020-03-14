@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Backup를 사용 하 여 Azure virtual ma
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 7a6bae3a850b5e67af8da80a06b862e7e2e7561d
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 5b10907738feeecbec06669175e82578f2915f92
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77120842"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79273333"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Azure VM의 SQL Server 데이터베이스 백업
 
@@ -97,6 +97,10 @@ IP 범위 허용 | 추가 비용 없음 | 시간이 지남에 따라 IP 주소 �
 NSG 서비스 태그 사용 | 범위 변경이 자동으로 병합되어 관리가 더 쉬움 <br/><br/> 추가 비용 없음 <br/><br/> | NSG에만 사용할 수 있음 <br/><br/> 전체 서비스에 대한 액세스 제공
 Azure Firewall FQDN 태그 사용 | 필요한 FQDN이 자동으로 관리되어 관리가 더 쉬움 | Azure Firewall하고만 함께 사용할 수 있음
 HTTP 프록시 사용 | VM에 대한 인터넷 액세스의 단일 지점 <br/> | 프록시 소프트웨어로 VM을 실행하기 위해 추가 비용이 있음 <br/> 게시 된 FQDN 주소가 없는 경우 허용 규칙은 Azure IP 주소 변경 내용이 적용 됩니다.
+
+#### <a name="private-endpoints"></a>전용 끝점
+
+[!INCLUDE [Private Endpoints](../../includes/backup-private-endpoints.md)]
 
 ### <a name="database-naming-guidelines-for-azure-backup"></a>Azure Backup에 대 한 데이터베이스 명명 지침
 

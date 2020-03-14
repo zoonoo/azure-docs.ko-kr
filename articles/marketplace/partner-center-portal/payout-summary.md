@@ -8,11 +8,11 @@ ms.service: marketplace
 ms.topic: guide
 ms.date: 12/10/2019
 ms.openlocfilehash: 6ee6b6f325ba58ecaa3c3acb5d5ded173262bafb
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76715437"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79269901"
 ---
 # <a name="payout-reporting"></a>지급 보고
 
@@ -32,7 +32,7 @@ Azure Marketplace에서 제품을 판매 하는 경우 **지급 요약**에 성�
 
 ## <a name="roles-and-permission-to-access-the-payout-report"></a>지급 보고서에 액세스할 수 있는 역할 및 사용 권한
 
-| 보고서/페이지    | 계정 소유자    | Manager  | 개발자 | 비즈니스 참여자 |  재무 참여자 | 마케터 |
+| 보고서/페이지    | 계정 소유자    | Manager  | Developer | 비즈니스 참여자 |  재무 참여자 | 마케터 |
 |------------------|------------------|----------|-----------|----|----|-----|
 | 취득 보고서 (거의 실시간 데이터 포함) | 보기 가능 | 보기 가능 | 액세스 권한 없음 | 액세스 권한 없음 | 보기 가능 | 액세스 권한 없음 |
 | 사용자 의견 보고서/응답 | 사용자 의견을 보고 보낼 수 있습니다. | 사용자 의견을 보고 보낼 수 있습니다. | 사용자 의견을 보고 보낼 수 있습니다. | 액세스 권한 없음 | 액세스 권한 없음 | 사용자 의견을 보고 보낼 수 있습니다. |
@@ -68,23 +68,23 @@ Azure Marketplace에서 제품을 판매 하는 경우 **지급 요약**에 성�
 
 ## <a name="corelation-between-payout-and-usage"></a>지급와 usage 간의 Corelation
 
-|설명    |    Date  | 주문/사용  | 지급액 |
+|Description    |    Date  | 주문/사용  | 지급액 |
 |----------|----------|-----------|-------------|
-|주문 기간   | 8 월 15 일, 2019-8 월 30 일, 2019 | **상관 관계 특성 주문** <br> <ul> <li>OrderId</li> <li>CustomerId</li> </ul> <br> **사용 현황** <br> <ul> <li>CustomerId </li> <li>Customer Name</li> <li>(UsageReference) PurchaseRecordId/LineItemId</li> <li> 예상 연장 요금 <br> 예상 지급액(PC) </li> </ul> |  |
+|주문 기간   | 8 월 15 일, 2019-8 월 30 일, 2019 | **상관 관계 특성 주문** <br> <ul> <li>OrderId</li> <li>CustomerId</li> </ul> <br> **사용 현황** <br> <ul> <li>CustomerId </li> <li>고객 이름</li> <li>(UsageReference) PurchaseRecordId/LineItemId</li> <li> 예상 연장 요금 <br> 예상 지급액(PC) </li> </ul> |  |
 |기간 종료일(월)   | 8 월 30 일, 2019 | | |
 |청구 날짜 | 2019 년 9 월 1 일 | | |
 |고객 지불 날짜 | 2019 년 9 월 1 일 | | |
-|에스크로 기간(신용 카드만 해당, 30일) | 2019 년 9 월 1 일-9 월 30 2019 일 | | **상관 관계 특성 주문:** <br> <ul><li>AssetId</li> <li>고객 ID</li> <li> Customer Name</li> </ul> <br> **사용 현황** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Customer Name</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **지급 상태:** 일별 |
+|에스크로 기간(신용 카드만 해당, 30일) | 2019 년 9 월 1 일-9 월 30 2019 일 | | **상관 관계 특성 주문:** <br> <ul><li>AssetId</li> <li>고객 ID</li> <li> 고객 이름</li> </ul> <br> **사용 현황** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>고객 이름</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>earningAmountInLastPaymentCurrency</li> </ul> <br> **지급 상태:** 일별 |
 |수금 기간 시작일 | 2019 년 9 월 1 일 | | |
 |수금 기간 종료일(최대 30일) | 2019 년 9 월 30 일 | | |
-|지불 계산 날짜(매월 15일) | 2019 년 10 월 1 일 | | **상관 관계 특성** <br> <ul><li>AssetId</li> <li>고객 ID</li> <li>Customer Name</li> </ul> <br> **사용 현황** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Customer Name</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **지급 상태:** 그 |
-|지급 날짜 | 2019 년 10 월 15 일 | | **상관 관계 특성** <br> <ul><li>AssetId</li> <li>고객 ID</li> <li> Customer Name</li> </ul> <br> **사용 현황** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Customer Name</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **지급 상태:** 지불 전송 |
+|지불 계산 날짜(매월 15일) | 2019 년 10 월 1 일 | | **상관 관계 특성** <br> <ul><li>AssetId</li> <li>고객 ID</li> <li>고객 이름</li> </ul> <br> **사용 현황** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>고객 이름</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>earningAmountInLastPaymentCurrency</li> </ul> <br> **지급 상태:** 그 |
+|지급 날짜 | 2019 년 10 월 15 일 | | **상관 관계 특성** <br> <ul><li>AssetId</li> <li>고객 ID</li> <li> 고객 이름</li> </ul> <br> **사용 현황** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>고객 이름</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>earningAmountInLastPaymentCurrency</li> </ul> <br> **지급 상태:** 지불 전송 |
 
 ### <a name="enterprise-agreement-quarterlymonthly-customers"></a>기업 계약 (분기별/월별 고객)
 
-| 설명 |    Date  | 사용 | 지급액 |
+| Description |    Date  | 사용 | 지급액 |
 |----------|----------|---------|-----------|
-|주문 기간 | 8 월 15 일, 2019-8 월 30 일, 2019 | **상관 관계 특성 주문** <br> <ul> <li>OrderId</li> <li>CustomerId</li> </ul> <br> **사용 보고서** <br> <ul> <li>CustomerId </li> <li>Customer Name</li> <li>(UsageReference) PurchaseRecordId/LineItemId</li> <li> 예상 연장 요금 <br> 예상 지급액(PC) </li> </ul> | |
+|주문 기간 | 8 월 15 일, 2019-8 월 30 일, 2019 | **상관 관계 특성 주문** <br> <ul> <li>OrderId</li> <li>CustomerId</li> </ul> <br> **사용 보고서** <br> <ul> <li>CustomerId </li> <li>고객 이름</li> <li>(UsageReference) PurchaseRecordId/LineItemId</li> <li> 예상 연장 요금 <br> 예상 지급액(PC) </li> </ul> | |
 |기간 종료일(분기) | 2019 년 9 월 30 일 | | |
 |청구 날짜 | 2019 년 10 월 15 일 | | |
 |에스크로 기간(신용 카드만 해당, 30일) | 해당 없음 | | |
@@ -93,13 +93,13 @@ Azure Marketplace에서 제품을 판매 하는 경우 **지급 요약**에 성�
 |수금 기간 종료일(최대 90일) | 2020 년 1 월 15 일 | | |
 |고객 지불 날짜 | 2019 년 12 월 30 일 | | |
 |지급 계산 | 2020 년 1 월 15 일 | | |
-|지급 날짜 | 2 월 15 일 2020 | | **분기별 기반 고객의 경우** <br> <br> **주문 보고서** <br> <ul><li>AssetId</li> <li>고객 ID</li> <li> Customer Name</li> </ul> <br> **사용 현황** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Customer Name</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **지급 상태:** 보냄 |
+|지급 날짜 | 2 월 15 일 2020 | | **분기별 기반 고객의 경우** <br> <br> **주문 보고서** <br> <ul><li>AssetId</li> <li>고객 ID</li> <li> 고객 이름</li> </ul> <br> **사용 현황** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>고객 이름</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>earningAmountInLastPaymentCurrency</li> </ul> <br> **지급 상태:** 보냄 |
 
 ## <a name="transaction-history-download-export"></a>트랜잭션 기록 다운로드 내보내기
 
 이 옵션은 트랜잭션 기록 페이지에 표시 되는 각 줄 항목의 다운로드를 제공 하 고, 형식, 날짜, 연결 된 트랜잭션 금액, 고객, 제품 및 성과급 프로그램에 적용할 수 있는 기타 트랜잭션 정보를 제공 합니다.
 
-| 열 이름     | 설명    |
+| 열 이름     | Description    |
 |-------------|-------------------------------|
 | earningId                      | 각 획득에 대 한 고유 식별자                                                                                                       |
 | participantId                  | 파트너의 주 id는 프로그램에서 획득 합니다.                                                                            |
@@ -162,7 +162,7 @@ Azure Marketplace에서 제품을 판매 하는 경우 **지급 요약**에 성�
 | taxZipCode       | 고객 Zip에 판매                                                                                                                  |
 | LicensingProgramName       |                                                                                                                   |
 | 프로그램 코드       | 프로그램 이름으로 매핑할 문자열                                                                                                                   |
-| EarningAmountInLastPaymentCurrency       | 마지막 지불 통화 금액을 획득 합니다 (이전 지불액을 지불 하지 않은 경우 필드는 비어 있음).                                                                                                                   |
+| earningAmountInLastPaymentCurrency       | 마지막 지불 통화 금액을 획득 합니다 (이전 지불액을 지불 하지 않은 경우 필드는 비어 있음).                                                                                                                   |
 | lastPaymentCurrency       | 마지막 지불 통화 (지불 되지 않은 경우 필드는 비어 있음)                                                                                                                   |
 | AssetId       | Marketplace 서비스의 고객 주문에 대 한 고유 식별자입니다.  트랜잭션 된 구매 라인 항목을 나타냅니다. 여러 자산이 있을 수 있습니다.                                                                                                                   |
 | OrderId       | 고객의 청구서와 관련이 있습니다.                                                                                                                   |

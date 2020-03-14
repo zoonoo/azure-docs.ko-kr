@@ -8,12 +8,12 @@ ms.date: 03/11/2020
 ms.service: storage
 ms.reviewer: rukmani-msft
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: e8266e5750a14542e7f115e021daa40b2b0bf8f6
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: 245bcac81189ac8aa63f81fbe4ed30655a457bc8
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79130010"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79371877"
 ---
 # <a name="migrate-azure-data-lake-storage-from-gen1-to-gen2"></a>Gen1에서 Gen2로 Azure Data Lake Storage 마이그레이션
 
@@ -132,7 +132,8 @@ Gen2로 마이그레이션하려면 다음 방법을 사용 하는 것이 좋습
 
 4. Gen1 서비스를 해제 합니다.
 
-![리프트 및 시프트 패턴](./media/data-lake-storage-migrate-gen1-to-gen2/lift-and-shift.png)
+> [!div class="mx-imgBorder"]
+> ![리프트 및 시프트 패턴](./media/data-lake-storage-migrate-gen1-to-gen2/lift-and-shift.png)
 
 #### <a name="considerations-for-using-the-lift-and-shift-pattern"></a>리프트 및 시프트 패턴 사용에 대 한 고려 사항
 
@@ -152,7 +153,8 @@ Gen2로 마이그레이션하려면 다음 방법을 사용 하는 것이 좋습
 
 4. Gen1 서비스를 해제 합니다.
 
-![증분 복사 패턴](./media/data-lake-storage-migrate-gen1-to-gen2/incremental-copy.png)
+> [!div class="mx-imgBorder"]
+> 증분 복사 패턴을 ![](./media/data-lake-storage-migrate-gen1-to-gen2/incremental-copy.png)
 
 #### <a name="considerations-for-using-the-incremental-copy-pattern"></a>증분 복사 패턴 사용에 대 한 고려 사항:
 
@@ -172,7 +174,8 @@ Gen2로 마이그레이션하려면 다음 방법을 사용 하는 것이 좋습
 
 4. Gen1에 대 한 모든 쓰기를 중지 한 다음 Gen1를 해제 합니다.
 
-![이중 파이프라인 패턴](./media/data-lake-storage-migrate-gen1-to-gen2/dual-pipeline.png)
+> [!div class="mx-imgBorder"]
+> ![이중 파이프라인 패턴](./media/data-lake-storage-migrate-gen1-to-gen2/dual-pipeline.png)
 
 #### <a name="considerations-for-using-the-dual-pipeline-pattern"></a>이중 파이프라인 패턴 사용에 대 한 고려 사항:
 
@@ -190,7 +193,8 @@ Gen2로 마이그레이션하려면 다음 방법을 사용 하는 것이 좋습
 
 4. Gen1 서비스를 해제 합니다.
 
-![양방향 패턴](./media/data-lake-storage-migrate-gen1-to-gen2/bidirectional-sync.png)
+> [!div class="mx-imgBorder"]
+> 양방향 패턴을 ![](./media/data-lake-storage-migrate-gen1-to-gen2/bidirectional-sync.png)
 
 #### <a name="considerations-for-using-the-bi-directional-sync-pattern"></a>양방향 동기화 패턴 사용에 대 한 고려 사항:
 

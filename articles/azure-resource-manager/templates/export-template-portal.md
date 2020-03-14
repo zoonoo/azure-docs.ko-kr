@@ -4,11 +4,11 @@ description: Azure Portal를 사용 하 여 구독의 리소스에서 Azure Reso
 ms.topic: conceptual
 ms.date: 12/12/2019
 ms.openlocfilehash: 8cdba58a7a2ba998bac7fc0225ff957047cd69b0
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78384988"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79273736"
 ---
 # <a name="single-and-multi-resource-export-to-a-template-in-azure-portal"></a>Azure Portal에서 템플릿에 대 한 단일 및 다중 리소스 내보내기
 

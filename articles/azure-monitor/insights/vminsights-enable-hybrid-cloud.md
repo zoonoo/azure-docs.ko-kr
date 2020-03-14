@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 10/15/2019
 ms.openlocfilehash: bd44eebf8aceaf7fe32cf8cf1b1152db32acb344
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78362275"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79275140"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-for-a-hybrid-environment"></a>하이브리드 환경에 대 한 VM용 Azure Monitor (미리 보기) 사용
 
@@ -48,7 +48,7 @@ ms.locfileid: "78362275"
 
 다음 표에는 명령줄에서 에이전트 설정을 통해 지원되는 매개 변수가 강조 표시되어 있습니다.
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 |:--|:--|
 | /? | 명령줄 옵션의 목록을 반환합니다. |
 | /S | 사용자 상호 작용 없이 자동 설치를 수행합니다. |
@@ -65,10 +65,10 @@ Dependency Agent는 셀프 추출 이진이 포함된 셸 스크립트인 *Insta
 > 에이전트를 설치 또는 구성하려면 루트 액세스가 필요합니다.
 >
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 |:--|:--|
 | -help | 명령줄 옵션 목록을 가져옵니다. |
-| -s | 사용자 프롬프트 없이 자동 설치를 수행합니다. |
+| -S | 사용자 프롬프트 없이 자동 설치를 수행합니다. |
 | --check | 권한 및 운영 체제를 확인하지만 에이전트는 설치하지 않습니다. |
 
 예를 들어 `-help` 매개 변수를 사용 하 여 설치 프로그램을 실행 하려면 **installdependencyagent-linux64.bin-help**를 입력 합니다.
@@ -79,7 +79,7 @@ Dependency Agent를 시작하지 못하는 경우 로그에서 자세한 오류 
 
 Dependency Agent에 대한 파일은 다음 디렉터리에 있습니다.
 
-| Files | 위치 |
+| 파일 | 위치 |
 |:--|:--|
 | 코어 파일 | /opt/microsoft/dependency-agent |
 | 로그 파일 | /var/opt/microsoft/dependency-agent/log |

@@ -4,11 +4,11 @@ description: Azure 위임 리소스 관리를 사용하는 경우 보안 및 액
 ms.date: 07/11/2019
 ms.topic: conceptual
 ms.openlocfilehash: 8972d6548eccb1006d90bfcbb4dba8c01b05a981
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78394052"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79270707"
 ---
 # <a name="recommended-security-practices"></a>권장 보안 방법
 

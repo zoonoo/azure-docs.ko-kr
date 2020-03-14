@@ -7,11 +7,11 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.openlocfilehash: 2636e9a225002148e4cd79bb2176e0883aed623a
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76844941"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79280496"
 ---
 # <a name="logs-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL의 로그-단일 서버
 Azure Database for PostgreSQL를 사용 하 여 Postgres의 표준 로그를 구성 하 고 액세스할 수 있습니다. 로그를 사용 하 여 구성 오류를 식별 하 고, 문제를 해결 하 고, 문제를 해결할 수 있습니다. 구성 및 액세스할 수 있는 로깅 정보에는 오류, 쿼리 정보, autovacuum 레코드, 연결 및 검사점이 포함 됩니다. (트랜잭션 로그에 대 한 액세스를 사용할 수 없습니다.)
@@ -50,7 +50,7 @@ Azure Database for PostgreSQL는 .log 파일에 대 한 단기 저장 위치를 
 Azure Database for PostgreSQL은 Azure Monitor 진단 설정과 통합 됩니다. 진단 설정을 사용 하면 분석 및 경고를 위해 Postgres 로그를 JSON 형식으로 Azure Monitor 하 고, 스트리밍 Event Hubs 하 고, 보관에 Azure Storage 보낼 수 있습니다. 
 
 > [!IMPORTANT]
-> 이 서버 로그에 대한 진단 기능은 범용 및 메모리 최적화 [가격 책정 계층](concepts-pricing-tiers.md)에서만 사용할 수 있습니다.
+> 서버 로그에 대 한이 진단 기능은 범용 및 메모리 액세스에 최적화 된 [가격 책정 계층](concepts-pricing-tiers.md)에서만 사용할 수 있습니다.
 
 
 ### <a name="configure-diagnostic-settings"></a>진단 설정 구성
@@ -99,14 +99,14 @@ AzureDiagnostics
 | TenantId | 테넌트 ID |
 | SourceSystem | `Azure` |
 | TimeGenerated [UTC] | UTC에 로그가 기록된 때의 타임스탬프 |
-| 유형 | 로그의 형식 항상 `AzureDiagnostics` |
+| Type | 로그의 형식 항상 `AzureDiagnostics` |
 | SubscriptionId | 서버가 속한 구독의 GUID |
 | ResourceGroup | 서버가 속한 리소스 그룹의 이름 |
 | ResourceProvider | 리소스 공급자의 이름. 항상 `MICROSOFT.DBFORPOSTGRESQL` |
 | ResourceType | `Servers` |
 | ResourceId | 리소스 URI |
 | 리소스 | 서버의 이름 |
-| 범주 | `PostgreSQLLogs` |
+| Category | `PostgreSQLLogs` |
 | OperationName | `LogEvent` |
 | errorLevel | 로깅 수준(예: LOG, ERROR, NOTICE) |
 | 메시지 | 기본 로그 메시지 | 

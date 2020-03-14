@@ -3,12 +3,12 @@ title: 정책 정의 구조에 대한 세부 정보
 description: 정책 정의를 사용 하 여 조직의 Azure 리소스에 대 한 규칙을 설정 하는 방법을 설명 합니다.
 ms.date: 02/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1100248b43dbdf668dc1164651f3d9f941f3f016
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 95625894d0eb603ae9a37c96c91d01f3720346b1
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77920215"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79280730"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy 정의 구조
 
@@ -21,7 +21,7 @@ Azure Policy는 리소스에 대 한 규칙을 설정 합니다. 정책 정의�
 
 JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 요소가 포함됩니다.
 
-- 모드
+- mode
 - 매개 변수
 - 표시 이름
 - description
@@ -65,7 +65,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 
 모든 Azure Policy 샘플은 [Azure Policy 샘플](../samples/index.md)에 있습니다.
 
-## <a name="mode"></a>모드
+## <a name="mode"></a>Mode
 
 **모드** 는 정책이 Azure Resource Manager 속성을 대상으로 하는지 아니면 리소스 공급자 속성을 대상으로 하는지에 따라 구성 됩니다.
 
@@ -234,7 +234,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 },
 ```
 
-### <a name="conditions"></a>상태
+### <a name="conditions"></a>조건
 
 조건은 **field** 또는 **value** 접근자가 특정 기준을 충족하는지 여부를 평가합니다. 지원되는 조건은 다음과 같습니다.
 
@@ -580,14 +580,14 @@ Azure Policy는 다음과 같은 유형의 효과를 지원 합니다.
 
 다음 함수는 정책 규칙에서 사용할 수 있지만 Azure Resource Manager 템플릿에 사용 되는 것과는 다릅니다.
 
-- `addDays(dateTime, numberOfDaysToAdd)`
-  - **datetime**: [Required] Universal ISO 8601 datetime 형식 ' YYYY-Mm-yyyy-mm-ddthh: MM: Ss. fffffffZ '의 문자열 문자열
-  - **Numberofdaystoadd**: [필수] 정수-더할 일 수
 - `utcNow()`-리소스 관리자 템플릿과 달리 defaultValue 외부에서 사용할 수 있습니다.
   - 유니버설 ISO 8601 DateTime 형식 ' yyyy-MM-Yyyy-mm-ddthh: MM: ss. fffffffZ '의 현재 날짜 및 시간으로 설정 된 문자열을 반환 합니다.
 
 다음 함수는 정책 규칙 에서만 사용할 수 있습니다.
 
+- `addDays(dateTime, numberOfDaysToAdd)`
+  - **datetime**: [Required] Universal ISO 8601 datetime 형식 ' YYYY-Mm-yyyy-mm-ddthh: MM: Ss. fffffffZ '의 문자열 문자열
+  - **Numberofdaystoadd**: [필수] 정수-더할 일 수
 - `field(fieldName)`
   - **fieldName**: [필수] 문자열-검색할 [필드](#fields) 의 이름입니다.
   - If 조건에 의해 계산 되는 리소스에서 해당 필드의 값을 반환 합니다.
@@ -678,14 +678,14 @@ Azure Policy는 다음과 같은 유형의 효과를 지원 합니다.
 
 ### <a name="understanding-the--alias"></a>[*] 별칭 이해
 
-사용할 수 있는 여러 별칭에는 ' normal ' 이름으로 표시 되 고 다른 **\[\*\]** 연결 된 버전이 있습니다. 예를 들면 다음과 같습니다.
+사용할 수 있는 여러 별칭에는 ' normal ' 이름으로 표시 되 고 다른 **\[\*\]** 연결 된 버전이 있습니다. 다음은 그 예입니다.
 
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`
 
 ' Normal ' 별칭은 필드를 단일 값으로 나타냅니다. 이 필드는 전체 값 집합을 정의 된 대로 정확 하 게 지정 해야 하는 경우에만 정확 하 게 일치 하는 비교 시나리오를 위한 것입니다.
 
-**\[\*\]** 별칭을 사용 하 여 배열에 있는 각 요소의 값과 각 요소의 특정 속성을 비교할 수 있습니다. 이 방법을 사용 하면 ' 있는 경우 ', ' 있는 경우 ', ' 모든 ' 시나리오에 대 한 요소 속성을 비교할 수 있습니다. 더 복잡 한 시나리오의 경우 [개수](#count) 조건 식을 사용 합니다. **IpRules\[\*\]** 를 사용 하는 경우, 예를 들어 모든 동작이 _거부_되는지 여부를 확인 하는 _것은 유효성_ 을 검사 하는 것입니다.
+**\[\*\]** 별칭을 사용 하 여 배열에 있는 각 요소의 값과 각 요소의 특정 속성을 비교할 수 있습니다. 이 방법을 사용 하면 ' 있는 경우 ', ' 있는 경우 ', ' 모든 ' 시나리오에 대 한 요소 속성을 비교할 수 있습니다. 더 복잡 한 시나리오의 경우 [개수](#count) 조건 식을 사용 합니다. **IpRules\[\*\]** 를 사용 하는 경우, 예를 들어 _action_ 모든 동작이 _거부_되는지 여부를 확인 하는 _것은 유효성_ 을 검사 하는 것입니다.
 이 샘플 규칙은 **10.0.4.1** 에 대 한 **ipRules\[\]\*** 일치 항목을 확인 하 고 하나 이상의 일치 항목을 찾을 수 없는 경우에만 **effectType** 을 적용 합니다.
 
 ```json

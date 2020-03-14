@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 11/08/2017
 ms.author: alkohli
 ms.openlocfilehash: 01ce952ea774ba852c83d0d6aa3fe38d5dfd677e
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68965722"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79267990"
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Azure에서 StorSimple Cloud Appliance 배포 및 관리(업데이트 3 이상)
 
@@ -50,9 +50,9 @@ StorSimple Cloud Appliance는 두 가지 모델 즉, 표준 8010(이전의 1100)
 | **스토리지 유형** |로컬 디스크에 Azure Standard Storage 사용<br></br> [Standard Storage 계정을 만드는](../storage/common/storage-create-storage-account.md) |로컬 디스크용 Azure Premium Storage 사용<sup>2</sup> <br></br> |
 | **워크로드 지침** |백업으로부터 항목 수준 파일 읽어오기 |클라우드 개발 및 테스트 시나리오 <br></br>짧은 대기 시간 및 더 높은 성능 워크로드<br></br>재해 복구용 보조 디바이스 |
 
-<sup>1</sup> *이전에 1100로 알려짐*.
+<sup>1</sup> *이전의 1100*이라고 합니다.
 
-<sup>2</sup>*8010와 8020은 모두 클라우드 계층에 Azure Standard Storage를 사용합니다. 차이점은 디바이스* 내의 로컬 계층에만 존재한다는 것입니다.
+<sup>2</sup> *8010 및 8020 모두 클라우드 계층에 Azure Standard Storage를 사용 합니다. 차이점은 장치 내의 로컬 계층에만 존재 합니다*.
 
 ## <a name="how-the-cloud-appliance-differs-from-the-physical-device"></a>클라우드 어플라이언스와 물리적 디바이스의 차이
 
@@ -65,7 +65,7 @@ StorSimple Cloud Appliance는 Microsoft Azure Virtual Machine의 단일 노드�
 |  | 물리적 디바이스 | 클라우드 어플라이언스 |
 | --- | --- | --- |
 | **위치** |데이터 센터에 상주합니다. |Azure에서 실행됩니다. |
-| **네트워크 인터페이스** |네트워크 인터페이스가 6개(DATA 0부터 DATA 5까지) 있습니다. |네트워크 인터페이스가 하나만(DATA 0) 있습니다. |
+| **네트워크 인터페이스** |네트워크 인터페이스가 여섯 개(DATA 0에서 DATA 5까지 ) 있습니다. |네트워크 인터페이스가 하나만(DATA 0) 있습니다. |
 | **등록** |초기 구성 단계 중에 등록됩니다. |등록은 별도의 작업입니다. |
 | **서비스 데이터 암호화 키** |물리적 디바이스에서 다시 생성된 후 새 키로 클라우드 어플라이언스를 업데이트합니다. |클라우드 어플라이언스에서 다시 생성할 수 없습니다. |
 | **지원되는 볼륨 유형** |로컬로 고정된 볼륨과 계층화된 볼륨을 모두 지원합니다. |계층화된 볼륨만 지원합니다. |
@@ -267,7 +267,7 @@ StorSimple Cloud Appliance를 이전에 구성하고 사용했지만 이제 용�
 ## <a name="troubleshoot-internet-connectivity-errors"></a>인터넷 연결 오류 문제 해결
 클라우드 어플라이언스를 만드는 동안 인터넷에 연결되지 않은 경우 생성 단계가 실패합니다. 인터넷 연결 오류 문제를 해결하려면 Azure Portal에서 다음 단계를 수행합니다.
 
-1. [Azure Portal에서 Windows 가상 머신 만들기](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal) 이 가상 머신은 클라우드 어플라이언스에서 사용한 동일한 스토리지 계정, VNet 및 서브넷을 사용해야 합니다. Azure에서 동일한 스토리지 계정, VNet 및 서브넷을 사용하는 기존 Windows Server 호스트가 있는 경우 인터넷 연결 문제를 해결하는 데 사용할 수 있습니다.
+1. [Azure Portal에서 Windows 가상 머신 만들기](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal) 이 가상 컴퓨터는 클라우드 어플라이언스에서 사용한 동일한 스토리지 계정, VNet 및 서브넷을 사용해야 합니다. Azure에서 동일한 스토리지 계정, VNet 및 서브넷을 사용하는 기존 Windows Server 호스트가 있는 경우 인터넷 연결 문제를 해결하는 데 사용할 수 있습니다.
 2. 이전 단계에서 만든 가상 머신에 원격 로그인합니다.
 3. 가상 머신 내의 명령 창을 엽니다(Win + R 및 `cmd`을 입력).
 4. 프롬프트에서 다음 cmd를 실행합니다.

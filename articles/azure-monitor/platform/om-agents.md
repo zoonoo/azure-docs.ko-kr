@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 08/13/2019
 ms.openlocfilehash: 92b6737f48d8d8704f461c9adac92284b323b05f
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78373264"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79274347"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Azure Monitor에 Operations Manager 연결
 
@@ -33,7 +33,7 @@ Operations Manager 관리 그룹에 보고 하는 에이전트는 작업 영역�
 
 IT 보안 정책이 네트워크의 컴퓨터가 인터넷에 연결하도록 허용하지 않을 경우 Log Analytics 게이트웨이에 연결하여 구성 정보를 받고 사용하도록 설정한 솔루션에 따라 수집된 데이터를 보내도록 관리 서버를 구성할 수 있습니다. Operations Manager 관리 그룹을 구성 하 여 Log Analytics 게이트웨이를 통해 Azure Monitor으로 통신 하도록 구성 하는 방법에 대 한 자세한 내용 및 단계는 [Log Analytics 게이트웨이를 사용 하 여 Azure Monitor에 컴퓨터 연결](../../azure-monitor/platform/gateway.md)을 참조 하세요.  
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작에 앞서 다음 요구 사항을 검토합니다.
 
@@ -72,15 +72,15 @@ IT 보안 정책이 네트워크의 컴퓨터가 인터넷에 연결하도록 �
 |리소스 | 포트 번호| HTTP 검사 무시|  
 |---------|------|-----------------------|  
 |**에이전트**|||  
-|\*.ods.opinsights.azure.com| 443 |예|  
-|\*.oms.opinsights.azure.com| 443|예|  
-|\*.blob.core.windows.net| 443|예|  
-|\*.azure-automation.net| 443|예|  
+|\*.ods.opinsights.azure.com| 443 |yes|  
+|\*.oms.opinsights.azure.com| 443|yes|  
+|\*.blob.core.windows.net| 443|yes|  
+|\*.azure-automation.net| 443|yes|  
 |**관리 서버**|||  
 |\*.service.opinsights.azure.com| 443||  
-|\*.blob.core.windows.net| 443| 예|  
-|\*.ods.opinsights.azure.com| 443| 예|  
-|\* .azure-automation.net | 443| 예|  
+|\*.blob.core.windows.net| 443| yes|  
+|\*.ods.opinsights.azure.com| 443| yes|  
+|\* .azure-automation.net | 443| yes|  
 |**콘솔 Operations Manager Azure Monitor**|||  
 |service.systemcenteradvisor.com| 443||  
 |\*.service.opinsights.azure.com| 443||  
@@ -247,7 +247,7 @@ Operations Manager와 통합 하는 데 사용 하도록 설정한 솔루션에 
     > 14일간 연결된 관리 그룹에서 감지된 활동이 없을 경우 그 후에는 **제거** 링크를 사용할 수 없습니다.  
     >
 
-1. 제거를 계속할지 확인하라는 창이 나타납니다.  **예**를 클릭하여 작업을 계속 진행합니다.
+1. 제거를 계속할지 확인하라는 창이 나타납니다.  계속하려면 **예** 를 클릭합니다.
 
 두 커넥터(Microsoft.SystemCenter.Advisor.DataConnector 및 Advisor 커넥터)를 삭제하려면 PowerShell 스크립트를 컴퓨터에 저장하고 다음 예제를 사용하여 실행합니다.
 

@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 01/20/2020
 ms.openlocfilehash: 4c711e1b0a63fbcf978c0e4467eadaed8d91f3de
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79128713"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79274711"
 ---
 # <a name="windows-diagnostics-extension-schema"></a>Windows 진단 확장 스키마
 Azure 진단 확장은 게스트 운영 체제에서 모니터링 데이터를 수집 하 고 Azure compute 리소스의 작업을 수집 하는 Azure Monitor의 에이전트입니다. 이 문서에서는 Windows 가상 머신과 기타 계산 리소스에서 진단 확장을 구성 하는 데 사용 되는 스키마에 대해 자세히 설명 합니다.

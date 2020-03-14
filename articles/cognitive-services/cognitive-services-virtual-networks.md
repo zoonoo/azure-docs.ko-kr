@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: dapine
-ms.openlocfilehash: 1ae3caa2d1f90bbbae1070d95d676eb206a361a0
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 0988c8154c63bb408493edf3243078e625c80d53
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647343"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79371225"
 ---
 # <a name="configure-azure-cognitive-services-virtual-networks"></a>Azure Cognitive Services 가상 네트워크 구성
 
@@ -39,7 +39,7 @@ Cognitive Services 리소스를 보호 하려면 먼저 기본적으로 모든 �
 
 ## <a name="supported-regions-and-service-offerings"></a>지원 되는 지역 및 서비스 제공
 
-Cognitive Services에 대 한 가상 네트워크 지원은 *카나리아 중부 미국 EUAP*, *유럽 서부*및 *미국 서 부 2* Azure 지역으로 제한 됩니다. 또한 모든 인식 서비스 제공이 가상 네트워크를 지원 하지는 않습니다. 다음 인식 서비스 제공을 통해 가상 네트워크를 사용할 수 있습니다. 서비스 제공이 여기에 나열 되어 있지 않으면 가상 네트워크를 지원 하지 않습니다.
+아래에 나열 된 Cognitive Services에 대 한 가상 네트워크 지원은 미국 *중부 EUAP*, *미국*중 북부, 미국 *동부*, *미국 서 부 2*, *북부 유럽*, *남아프리카 공화국 북부*, *유럽 서부*, *인도 중부*, *오스트레일리아 동부*, *미국 서 부*및 *US Gov 버지니아* Azure 지역으로 제한 됩니다. 서비스 제공이 여기에 나열 되어 있지 않으면 가상 네트워크를 지원 하지 않습니다.
 
 > [!div class="checklist"]
 > * [변칙 탐지기](./anomaly-detector/index.yml)
@@ -51,6 +51,27 @@ Cognitive Services에 대 한 가상 네트워크 지원은 *카나리아 중부
 > * [LUIS](./luis/index.yml)
 > * [Personalizer](./personalizer/index.yml)
 > * [텍스트 분석](./text-analytics/index.yml)
+> * [QnA Maker](./qnamaker/index.yml)
+
+아래에 나열 된 Cognitive Services에 대 한 가상 네트워크 지원은 미국 *중부 EUAP*, 미국 *중부*, 미국 *동부*, 미국 *서 부 2*, *글로벌*및 *US Gov 버지니아* Azure 지역으로 제한 됩니다.
+> [!div class="checklist"]
+> * [Translator Text](./translator/index.yml)
+
+## <a name="service-tags"></a>서비스 태그
+위의 서비스에 대 한 가상 네트워크 서비스 엔드포인트를 지 원하는 것 외에도 Cognitive Services 아웃 바운드 네트워크 규칙 구성에 대 한 서비스 태그를 지원 합니다. CognitiveServicesManagement service 태그에는 다음과 같은 서비스가 포함 됩니다.
+> [!div class="checklist"]
+> * [변칙 탐지기](./anomaly-detector/index.yml)
+> * [Computer Vision](./computer-vision/index.yml)
+> * [Content Moderator](./content-moderator/index.yml)
+> * [Custom Vision](./custom-vision-service/index.yml)
+> * [Face](./face/index.yml)
+> * [폼 인식기](./form-recognizer/index.yml)
+> * [LUIS](./luis/index.yml)
+> * [Personalizer](./personalizer/index.yml)
+> * [텍스트 분석](./text-analytics/index.yml)
+> * [QnA Maker](./qnamaker/index.yml)
+> * [Translator Text](./translator/index.yml)
+> * [Speech Service](./speech-service/index.yml)
 
 ## <a name="change-the-default-network-access-rule"></a>기본 네트워크 액세스 규칙 변경
 
@@ -63,7 +84,7 @@ Cognitive Services에 대 한 가상 네트워크 지원은 *카나리아 중부
 
 Azure Portal, PowerShell 또는 Azure CLI를 통해 Cognitive Services 리소스에 대 한 기본 네트워크 액세스 규칙을 관리할 수 있습니다.
 
-# <a name="azure-portaltabportal"></a>[Azure Portal](#tab/portal)
+# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 
 1. 보안을 유지 하려는 Cognitive Services 리소스로 이동 합니다.
 
@@ -78,7 +99,7 @@ Azure Portal, PowerShell 또는 Azure CLI를 통해 Cognitive Services 리소스
 
 1. **저장**을 선택하여 변경 내용을 적용합니다.
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 1. [Azure PowerShell](/powershell/azure/install-az-ps) 를 설치 하 고 [로그인](/powershell/azure/authenticate-azureps)하거나 **체험**을 선택 합니다.
 
@@ -114,7 +135,7 @@ Azure Portal, PowerShell 또는 Azure CLI를 통해 Cognitive Services 리소스
     Update-AzCognitiveServicesAccountNetworkRuleSet @parameters
     ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 1. [Azure CLI](/cli/azure/install-azure-cli) 를 설치 하 고 [로그인](/cli/azure/authenticate-azure-cli)하거나 **체험**을 선택 합니다.
 
@@ -165,7 +186,7 @@ Cognitive Services 리소스에 가상 네트워크 규칙을 적용 하려면 �
 
 Azure Portal, PowerShell 또는 Azure CLI를 통해 Cognitive Services 리소스에 대 한 가상 네트워크 규칙을 관리할 수 있습니다.
 
-# <a name="azure-portaltabportal"></a>[Azure Portal](#tab/portal)
+# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 
 1. 보안을 유지 하려는 Cognitive Services 리소스로 이동 합니다.
 
@@ -200,7 +221,7 @@ Azure Portal, PowerShell 또는 Azure CLI를 통해 Cognitive Services 리소스
 
 1. **저장**을 선택하여 변경 내용을 적용합니다.
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 1. [Azure PowerShell](/powershell/azure/install-az-ps) 를 설치 하 고 [로그인](/powershell/azure/authenticate-azureps)하거나 **체험**을 선택 합니다.
 
@@ -260,7 +281,7 @@ Azure Portal, PowerShell 또는 Azure CLI를 통해 Cognitive Services 리소스
     Remove-AzCognitiveServicesAccountNetworkRule @parameters
     ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 1. [Azure CLI](/cli/azure/install-azure-cli) 를 설치 하 고 [로그인](/cli/azure/authenticate-azure-cli)하거나 **체험**을 선택 합니다.
 
@@ -340,7 +361,7 @@ IP 네트워크 규칙을 사용 하 여 온-프레미스 네트워크에서 Cog
 
 Azure Portal, PowerShell 또는 Azure CLI를 통해 Cognitive Services 리소스에 대 한 IP 네트워크 규칙을 관리할 수 있습니다.
 
-# <a name="azure-portaltabportal"></a>[Azure Portal](#tab/portal)
+# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 
 1. 보안을 유지 하려는 Cognitive Services 리소스로 이동 합니다.
 
@@ -358,7 +379,7 @@ Azure Portal, PowerShell 또는 Azure CLI를 통해 Cognitive Services 리소스
 
 1. **저장**을 선택하여 변경 내용을 적용합니다.
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 1. [Azure PowerShell](/powershell/azure/install-az-ps) 를 설치 하 고 [로그인](/powershell/azure/authenticate-azureps)하거나 **체험**을 선택 합니다.
 
@@ -416,7 +437,7 @@ Azure Portal, PowerShell 또는 Azure CLI를 통해 Cognitive Services 리소스
     Remove-AzCognitiveServicesAccountNetworkRule @parameters
     ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 1. [Azure CLI](/cli/azure/install-azure-cli) 를 설치 하 고 [로그인](/cli/azure/authenticate-azure-cli)하거나 **체험**을 선택 합니다.
 
