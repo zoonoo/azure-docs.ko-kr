@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/28/2020
 ms.openlocfilehash: 194bc7983019a616d534a4146f86fff59f9719dc
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76990524"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79246670"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Azure Data Factory의 통합 런타임
 IR(통합 런타임)은 서로 다른 네트워크 환경 간에 다음과 같은 데이터 통합 기능을 제공하기 위해 Azure Data Factory에서 사용하는 컴퓨팅 인프라입니다.
@@ -40,7 +40,7 @@ Data Factory는 세 유형의 통합 런타임을 제공하며, 데이터 통합
 
 IR 유형 | 공용 네트워크 | 프라이빗 네트워크
 ------- | -------------- | ---------------
-Azure | Data Flow<br/>데이터 이동<br/>작업 디스패치 | &nbsp;
+Azure | 데이터 흐름<br/>데이터 이동<br/>작업 디스패치 | &nbsp;
 자체 호스팅 | 데이터 이동<br/>작업 디스패치 | 데이터 이동<br/>작업 디스패치
 Azure-SSIS | SSIS 패키지 실행 | SSIS 패키지 실행
 
@@ -48,7 +48,7 @@ Azure-SSIS | SSIS 패키지 실행 | SSIS 패키지 실행
 
 ![통합 런타임의 다양한 유형](media/concepts-integration-runtime/different-integration-runtimes.png)
 
-## <a name="azure-integration-runtime"></a>Azure Integration Runtime
+## <a name="azure-integration-runtime"></a>Azure 통합 런타임
 Azure 통합 런타임은 다음을 수행할 수 있습니다.
 
 - Azure에서 데이터 흐름 실행 

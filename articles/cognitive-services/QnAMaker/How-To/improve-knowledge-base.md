@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 02/27/2020
 ms.author: diberry
 ms.openlocfilehash: dea2bf3b34ca336f3932dd85bf587184ab6881db
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77914996"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79221456"
 ---
 # <a name="use-active-learning-to-improve-your-knowledge-base"></a>활성 학습을 사용하여 기술 자료 개선
 
@@ -157,21 +157,21 @@ Content-Type: application/json
 {"feedbackRecords": [{"userId": "1","userQuestion": "<question-text>","qnaId": 1}]}
 ```
 
-|HTTP 요청 속성|이름|형식|목적|
+|HTTP 요청 속성|속성|Type|목적|
 |--|--|--|--|
-|URL 경로 매개 변수|기술 자료 ID|string|기술 자료를 위한 GUID입니다.|
-|사용자 지정 하위 도메인|QnAMaker 리소스 이름|string|리소스 이름은 QnA Maker에 대 한 사용자 지정 하위 도메인으로 사용 됩니다. 이 기능은 기술 자료를 게시 한 후 설정 페이지에서 사용할 수 있습니다. `host`으로 나열 됩니다.|
-|헤더|Content-Type|string|API로 전송되는 본문의 미디어 유형입니다. 기본값은 `application/json`입니다.|
-|헤더|권한 부여|string|엔드포인트 키(EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)입니다.|
+|URL 경로 매개 변수|기술 자료 ID|문자열|기술 자료를 위한 GUID입니다.|
+|사용자 지정 하위 도메인|QnAMaker 리소스 이름|문자열|리소스 이름은 QnA Maker에 대 한 사용자 지정 하위 도메인으로 사용 됩니다. 이 기능은 기술 자료를 게시 한 후 설정 페이지에서 사용할 수 있습니다. `host`으로 나열 됩니다.|
+|헤더|콘텐츠 형식|문자열|API로 전송되는 본문의 미디어 유형입니다. 기본값은 `application/json`입니다.|
+|헤더|권한 부여|문자열|엔드포인트 키(EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)입니다.|
 |본문 게시|JSON 개체|JSON|학습 피드백|
 
 JSON 본문에는 다음과 같은 몇 가지 설정이 있습니다.
 
-|JSON 본문 속성|형식|목적|
+|JSON 본문 속성|Type|목적|
 |--|--|--|--|
 |`feedbackRecords`|array|사용자 의견 목록입니다.|
-|`userId`|string|제안 된 질문을 수락 하는 사람의 사용자 ID입니다. 사용자 ID 형식은 사용자에 게 있습니다. 예를 들어, 전자 메일 주소는 아키텍처에서 유효한 사용자 ID가 될 수 있습니다. (선택 사항)|
-|`userQuestion`|string|사용자 쿼리의 정확한 텍스트입니다. 필수입니다.|
+|`userId`|문자열|제안 된 질문을 수락 하는 사람의 사용자 ID입니다. 사용자 ID 형식은 사용자에 게 있습니다. 예를 들어, 전자 메일 주소는 아키텍처에서 유효한 사용자 ID가 될 수 있습니다. (선택 사항)|
+|`userQuestion`|문자열|사용자 쿼리의 정확한 텍스트입니다. 필수 사항입니다.|
 |`qnaID`|number|[Generateanswer 응답](metadata-generateanswer-usage.md#generateanswer-response-properties)에 있는 질문의 ID입니다. |
 
 예제 JSON 본문은 다음과 같습니다.

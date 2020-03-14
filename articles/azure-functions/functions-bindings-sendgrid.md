@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 11/29/2017
 ms.author: cshoe
-ms.openlocfilehash: e318e5f9b192b9f857a0b97d076ce4cc87cfb73d
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 9ed2b81c12c698822b9542bb6903189c865b572b
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76710988"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79277467"
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Azure Functions SendGrid 바인딩
 
@@ -32,13 +32,17 @@ SendGrid 바인딩은 [Microsoft.Azure.WebJobs.Extensions.SendGrid](https://www.
 
 ## <a name="example"></a>예제
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 다음 예제에서는 Service Bus 큐 트리거와 SendGrid 출력 바인딩을 사용하는 [C# 함수](functions-dotnet-class-library.md)를 보여줍니다.
 
-### <a name="synchronous"></a>Synchronous
+### <a name="synchronous"></a>동기
 
 ```cs
+using SendGrid.Helpers.Mail;
+
+...
+
 [FunctionName("SendEmail")]
 public static void Run(
     [ServiceBusTrigger("myqueue", Connection = "ServiceBusConnection")] Message email,
@@ -65,6 +69,10 @@ public class OutgoingEmail
 ### <a name="asynchronous"></a>비동기
 
 ```cs
+using SendGrid.Helpers.Mail;
+
+...
+
 [FunctionName("SendEmail")]
 public static async void Run(
  [ServiceBusTrigger("myqueue", Connection = "ServiceBusConnection")] Message email,
@@ -92,7 +100,7 @@ public class OutgoingEmail
 
 "AzureWebJobsSendGridApiKey"라는 앱 설정에 API 키가 있는 경우 특성의 `ApiKey` 속성 설정을 생략할 수 있습니다.
 
-# <a name="c-scripttabcsharp-script"></a>[C#스크립트도](#tab/csharp-script)
+# <a name="c-script"></a>[C#스크립트도](#tab/csharp-script)
 
 다음 예에서는 *function.json* 파일의 SendGrid 출력 바인딩 및 바인딩을 사용하는 [C# 스크립트 함수](functions-reference-csharp.md)를 보여줍니다.
 
@@ -151,7 +159,7 @@ public class Message
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 다음 예에서는 *function.json* 파일의 SendGrid 출력 바인딩 및 바인딩을 사용하는 [JavaScript 함수](functions-reference-node.md)를 보여줍니다.
 
@@ -193,7 +201,7 @@ module.exports = function (context, input) {
 };
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 다음 예제에서는 SendGrid 바인딩을 사용 하 여 전자 메일을 보내는 HTTP 트리거 함수를 보여 줍니다. 바인딩 구성에서 기본값을 제공할 수 있습니다. 예를 들어 *보낸* 사람 전자 메일 주소는 *함수 json*에서 구성 됩니다. 
 
@@ -250,7 +258,7 @@ def main(req: func.HttpRequest, sendGridMessage: func.Out[str]) -> func.HttpResp
     return func.HttpResponse(f"Sent")
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 다음 예제에서는 [Java 함수 런타임 라이브러리](/java/api/overview/azure/functions/runtime) 의 `@SendGridOutput` 주석을 사용 하 여 SendGrid 출력 바인딩을 사용 하는 전자 메일을 보냅니다.
 
@@ -306,7 +314,7 @@ public class HttpTriggerSendGrid {
 
 ## <a name="attributes-and-annotations"></a>특성 및 주석
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 [C# 클래스 라이브러리](functions-dotnet-class-library.md)에서 [SendGrid](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/SendGridAttribute.cs) 특성을 사용합니다.
 
@@ -324,19 +332,19 @@ public static void Run(
 
 전체 예제는 [C# 예제](#example)를 참조하세요.
 
-# <a name="c-scripttabcsharp-script"></a>[C#스크립트도](#tab/csharp-script)
+# <a name="c-script"></a>[C#스크립트도](#tab/csharp-script)
 
 스크립트에서 C# 특성을 지원 하지 않습니다.
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 JavaScript에서는 특성을 지원 하지 않습니다.
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Python에서 특성을 지원 하지 않습니다.
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 [Sendgridoutput](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/annotation/SendGridOutput.java) 주석을 사용 하면 구성 값을 제공 하 여 SendGrid 바인딩을 선언적으로 구성할 수 있습니다. 자세한 내용은 [예제](#example) 및 [구성](#configuration) 섹션을 참조 하세요.
 
@@ -346,7 +354,7 @@ Python에서 특성을 지원 하지 않습니다.
 
 다음 표에서는 *함수 json* 파일 및 `SendGrid` 특성/주석에서 사용할 수 있는 바인딩 구성 속성을 보여 줍니다.
 
-| *function. json* 속성 | 특성/주석 속성 | 설명 | 옵션 |
+| *function. json* 속성 | 특성/주석 속성 | Description | 옵션 |
 |--------------------------|-------------------------------|-------------|----------|
 | type |해당 없음| `sendGrid`로 설정해야 합니다.| 예 |
 | direction |해당 없음| `out`로 설정해야 합니다.| 예 |
@@ -381,7 +389,7 @@ Python에서 특성을 지원 하지 않습니다.
 }
 ```  
 
-|속성  |기본값 | 설명 |
+|속성  |기본값 | Description |
 |---------|---------|---------| 
 |원본|해당 없음|모든 함수에서 보낸 사람의 이메일 주소입니다.| 
 

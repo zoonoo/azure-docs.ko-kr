@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 04/08/2019
-ms.openlocfilehash: 7b084954cb53d19739a0f633661e0c76fa82dd13
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 7bca36bdb41c5800a8718f76d48afcfde6f9333e
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820934"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79208831"
 ---
 # <a name="what-is-a-single-database-in-azure-sql-database"></a>Azure SQL Database의 단일 데이터베이스란?
 
@@ -37,7 +37,7 @@ ms.locfileid: "73820934"
 
 ## <a name="monitoring-and-alerting"></a>모니터링 및 경고
 
-성능 등급과 결합된 [기본 제공 성능 모니터링](sql-database-performance.md) 및 [경고](sql-database-insights-alerts-portal.md) 도구를 사용합니다. 이 도구를 사용하면 현재 또는 프로젝트의 성능 요구에 기반하여 확장 또는 축소의 영향을 신속하게 평가할 수 있습니다. 또한 SQL Database는 쉬운 모니터링을 위해 [메트릭 및 진단 로그를 내보낼](sql-database-metrics-diag-logging.md) 수 있습니다.
+성능 등급과 결합된 [기본 제공 성능 모니터링](sql-database-performance.md) 및 [경고](sql-database-insights-alerts-portal.md) 도구를 사용합니다. 이 도구를 사용하면 현재 또는 프로젝트의 성능 요구에 기반하여 확장 또는 축소의 영향을 신속하게 평가할 수 있습니다. 또한 보다 쉽게 모니터링할 수 있도록 [메트릭과 리소스 로그를 내보낼](sql-database-metrics-diag-logging.md) 수 SQL Database.
 
 ## <a name="availability-capabilities"></a>가용성 기능
 

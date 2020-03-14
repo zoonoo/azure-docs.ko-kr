@@ -6,11 +6,11 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 12/19/2019
 ms.openlocfilehash: ef8f5d1e011990e1d98a492ab8bfd871b7f429aa
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78381243"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79275920"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Application Insights 및 Log Analytics에서 사용되는 IP 주소
 [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) 서비스는 많은 IP 주소를 사용합니다. 모니터링하는 앱이 방화벽 뒤에서 호스팅되는 경우 이러한 주소를 알아야 할 수도 있습니다.

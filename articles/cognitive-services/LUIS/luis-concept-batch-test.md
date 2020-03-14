@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: diberry
 ms.openlocfilehash: e9ad7c52af20762633c710b39a64fbebf0cf6213
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73487734"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79221340"
 ---
 # <a name="batch-testing-with-1000-utterances-in-luis-portal"></a>LUIS 포털에서 1000개 발언을 사용한 일괄 처리 테스트
 
@@ -30,7 +30,7 @@ ms.locfileid: "73487734"
 
 일괄 테스트를 위해 *데이터 집합*으로 알려진 길이 발언의 배치 파일을 제출 합니다. 데이터 집합은 **중복 되지 않은** 길이 발언 레이블이 지정 된 최대 1000를 포함 하는 JSON 형식의 파일입니다. 앱에서 최대 10 개의 데이터 집합을 테스트할 수 있습니다. 더 많은 테스트를 수행 해야 하는 경우 데이터 집합을 삭제 한 다음 새 데이터 집합을 추가 합니다.
 
-|**규칙**|
+|**규칙.**|
 |--|
 |*중복 발언 없음|
 |1000개 이하의 발언|

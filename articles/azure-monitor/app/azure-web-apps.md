@@ -4,11 +4,11 @@ description: Azure App Services에 대한 애플리케이션 성능 모니터링
 ms.topic: conceptual
 ms.date: 12/11/2019
 ms.openlocfilehash: 03d332af182f8f40ede634fbd563f7b064751f32
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78367700"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79276167"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Azure App Service 성능 모니터링
 

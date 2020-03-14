@@ -11,11 +11,11 @@ ms.topic: reference
 ms.date: 10/25/2019
 ms.author: diberry
 ms.openlocfilehash: 4f78b4c50f4cd65f3dc32c48cea81b705dc44de1
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78361191"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79221504"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>일반적인 용어 및 개념의 언어 이해 용어집
 Language Understanding(LUIS) 용어집에서는 LUIS API 서비스를 사용할 때 나타날 수 있는 용어에 대해 설명합니다.

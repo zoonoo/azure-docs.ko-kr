@@ -7,11 +7,11 @@ ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
 ms.openlocfilehash: 76af5f398edd736874fa79095f2e80c02298eac0
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78164647"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79277337"
 ---
 # <a name="azure-queue-storage-output-bindings-for-azure-functions"></a>Azure Functions에 대 한 Azure Queue storage 출력 바인딩
 
@@ -300,7 +300,7 @@ public class HttpTriggerQueueOutput {
 }
 ```
 
-| 속성    | 설명 |
+| 속성    | Description |
 |-------------|-----------------------------|
 |`name`       | 함수 시그니처의 매개 변수 이름을 선언 합니다. 함수가 트리거되면이 매개 변수의 값에 큐 메시지의 내용이 포함 됩니다. |
 |`queueName`  | 저장소 계정에서 큐 이름을 선언 합니다. |
@@ -314,7 +314,7 @@ public class HttpTriggerQueueOutput {
 
 다음 표에서는 *function.json* 파일 및 `Queue` 특성에 설정된 바인딩 구성 속성을 설명합니다.
 
-|function.json 속성 | 특성 속성 |설명|
+|function.json 속성 | 특성 속성 |Description|
 |---------|---------|----------------------|
 |**type** | 해당 없음 | `queue`로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다.|
 |**direction** | 해당 없음 | `out`로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다. |
@@ -324,7 +324,7 @@ public class HttpTriggerQueueOutput {
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
-## <a name="usage"></a>사용법
+## <a name="usage"></a>사용
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -412,7 +412,7 @@ C# 및 C# 스크립트에서 다음 형식 중 하나를 사용하여 여러 큐
 }
 ```
 
-|속성  |기본 | 설명 |
+|속성  |기본값 | Description |
 |---------|---------|---------|
 |maxPollingInterval|00:00:01|큐 폴링 사이의 최대 간격입니다. 최소는 00:00:00:00.100 (100 밀리초)이 고 최대 00:01:00 (1 분) 씩 증가 합니다.  1\.x에서 데이터 형식은 밀리초이 고, 2.x 이상에서 TimeSpan입니다.|
 |visibilityTimeout|00:00:00|메시지 처리가 실패하는 경우 재시도 사이의 간격입니다. |

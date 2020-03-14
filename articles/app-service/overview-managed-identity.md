@@ -3,15 +3,15 @@ title: 관리 ID
 description: Azure App Service 및 Azure Functions에서 관리 id가 작동 하는 방법, 관리 되는 id를 구성 하 고 백 엔드 리소스에 대 한 토큰을 생성 하는 방법에 대해 알아봅니다.
 author: mattchenderson
 ms.topic: article
-ms.date: 10/30/2019
+ms.date: 03/04/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
-ms.openlocfilehash: 3e414e40cb92f5c7e8c2e1d083419d57e06a0995
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 6e3169f2bfcba0a02af1490f875cbab8a14d02f6
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77161922"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79280028"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>App Service 및 Azure Functions에 대한 관리 ID를 사용하는 방법
 
@@ -22,9 +22,9 @@ ms.locfileid: "77161922"
 
 애플리케이션에 두 가지 형식의 ID를 부여할 수 있습니다. 
 - **시스템 할당 ID**는 애플리케이션에 연결되어 있어 해당 앱을 삭제하면 이 ID도 삭제됩니다. 앱에는 하나의 시스템 할당 ID만 있을 수 있습니다.
-- **사용자 할당 ID**는 앱에 할당할 수 있는 독립 실행형 Azure 리소스입니다. 앱에는 여러 사용자 할당 ID가 있을 수 있습니다.
+- **사용자 할당 id** 는 앱에 할당할 수 있는 독립 실행형 Azure 리소스입니다. 앱에는 여러 사용자 할당 ID가 있을 수 있습니다.
 
-## <a name="adding-a-system-assigned-identity"></a>시스템 할당 ID 추가
+## <a name="add-a-system-assigned-identity"></a>시스템 할당 id 추가
 
 시스템 할당 ID를 사용하여 앱을 만들려면 애플리케이션에서 추가 속성을 설정해야 합니다.
 
@@ -47,12 +47,12 @@ ms.locfileid: "77161922"
 Azure CLI를 사용하여 관리 ID를 설정하려면 기존 애플리케이션에 대해 `az webapp identity assign` 명령을 사용해야 합니다. 이 섹션의 예제를 실행하는 옵션은 세 가지가 있습니다.
 
 - Azure Portal에서 [Azure Cloud Shell](../cloud-shell/overview.md)을 사용합니다.
-- 아래 각 코드 블록의 오른쪽 위에 있는 "사용해 보세요" 단추를 통해 포함된 Azure Cloud Shell을 사용합니다.
+- 아래 각 코드 블록의 오른쪽 위 모퉁이에 있는 "사용해 보세요." 단추를 통해 포함 된 Azure Cloud Shell를 사용 합니다.
 - 로컬 CLI 콘솔을 사용하려면 [최신 버전의 Azure CLI(2.0.31 이상)를 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)합니다. 
 
 다음 단계는 웹앱을 만들고 CLI를 사용하여 ID를 할당하는 과정을 안내합니다.
 
-1. Azure CLI를 로컬 콘솔에서 사용하는 경우 [az login](/cli/azure/reference-index#az-login)을 사용하여 먼저 Azure에 로그인합니다. 애플리케이션을 배포하려는 Azure 구독과 연결된 계정을 사용합니다.
+1. Azure CLI를 로컬 콘솔에서 사용하는 경우 [az login](/cli/azure/reference-index#az-login)을 사용하여 먼저 Azure에 로그인합니다. 응용 프로그램을 배포 하려는 Azure 구독과 연결 된 계정을 사용 합니다.
 
     ```azurecli-interactive
     az login
@@ -146,10 +146,10 @@ Azure Resource Manager 템플릿을 사용하여 Azure 리소스 배포를 자�
 }
 ```
 
-여기서 `<TENANTID>` 및 `<PRINCIPALID>`는 GUID로 대체됩니다. tenantId 속성은 ID가 속한 AAD 테넌트를 식별합니다. principalId는 애플리케이션 새 ID의 고유 식별자입니다. AAD 내에서 서비스 주체는 사용자가 App Service 또는 Azure Functions 인스턴스에 지정한 이름과 동일한 이름을 갖습니다.
+tenantId 속성은 ID가 속한 AAD 테넌트를 식별합니다. principalId는 애플리케이션 새 ID의 고유 식별자입니다. AAD 내에서 서비스 주체는 사용자가 App Service 또는 Azure Functions 인스턴스에 지정한 이름과 동일한 이름을 갖습니다.
 
 
-## <a name="adding-a-user-assigned-identity"></a>사용자 할당 id 추가
+## <a name="add-a-user-assigned-identity"></a>사용자 할당 id 추가
 
 사용자 할당 ID로 앱을 만들려면 ID를 만든 다음, 앱 구성에 리소스 ID를 추가해야 합니다.
 
@@ -230,15 +230,17 @@ Azure Resource Manager 템플릿을 사용하여 Azure 리소스 배포를 자�
 }
 ```
 
-여기서 `<PRINCIPALID>` 및 `<CLIENTID>`는 GUID로 대체됩니다. principalId는 AAD 관리에 사용되는 ID의 고유 식별자입니다. clientId는 런타임 호출 중 사용할 ID 지정에 사용하는 애플리케이션의 새 ID에 대한 고유 식별자입니다.
+PrincipalId는 AAD 관리에 사용 되는 id의 고유 식별자입니다. ClientId는 런타임 호출 중 사용할 id를 지정 하는 데 사용 되는 응용 프로그램의 새 id에 대 한 고유 식별자입니다.
 
 
-## <a name="obtaining-tokens-for-azure-resources"></a>Azure 리소스 토큰 가져오기
+## <a name="obtain-tokens-for-azure-resources"></a>Azure 리소스에 대 한 토큰 가져오기
 
 앱은 관리 되는 id를 사용 하 여 Azure Key Vault와 같이 AAD로 보호 되는 다른 리소스에 액세스 하는 토큰을 가져올 수 있습니다. 이러한 토큰은 애플리케이션의 특정 사용자가 아닌 리소스에 액세스하는 애플리케이션을 나타냅니다. 
 
+애플리케이션의 액세스를 허용하도록 대상 리소스를 구성해야 할 수도 있습니다. 예를 들어 Key Vault에 액세스 하는 토큰을 요청 하는 경우 응용 프로그램의 id를 포함 하는 액세스 정책을 추가 했는지 확인 해야 합니다. 그렇지 않으면 토큰이 포함되어 있더라도 Key Vault 호출이 거부됩니다. Azure Active Directory 토큰을 지원하는 리소스에 대한 자세한 내용은 [Azure AD 인증을 지원하는 Azure 서비스](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)를 참조하세요.
+
 > [!IMPORTANT]
-> 애플리케이션의 액세스를 허용하도록 대상 리소스를 구성해야 할 수도 있습니다. 예를 들어 Key Vault에 액세스 하는 토큰을 요청 하는 경우 응용 프로그램의 id를 포함 하는 액세스 정책을 추가 했는지 확인 해야 합니다. 그렇지 않으면 토큰이 포함되어 있더라도 Key Vault 호출이 거부됩니다. Azure Active Directory 토큰을 지원하는 리소스에 대한 자세한 내용은 [Azure AD 인증을 지원하는 Azure 서비스](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)를 참조하세요.
+> 관리 id에 대 한 백 엔드 서비스는 약 8 시간 동안 리소스 URI 당 캐시를 유지 관리 합니다. 특정 대상 리소스의 액세스 정책을 업데이트 하 고 해당 리소스에 대 한 토큰을 즉시 검색 하는 경우 토큰이 만료 될 때까지 오래 된 권한으로 캐시 된 토큰을 계속 가져올 수 있습니다. 현재 토큰 새로 고침을 강제로 적용할 수 있는 방법은 없습니다.
 
 App Service 및 Azure Functions에서 토큰을 가져오는 간단한 REST 프로토콜이 있습니다. 이는 모든 응용 프로그램 및 언어에 사용할 수 있습니다. .NET 및 Java의 경우 Azure SDK는이 프로토콜에 대 한 추상화를 제공 하 고 로컬 개발 환경을 용이 하 게 합니다.
 
@@ -301,7 +303,7 @@ Content-Type: application/json
 
 ### <a name="code-examples"></a>코드 예제
 
-# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
+# <a name="net"></a>[.NET](#tab/dotnet)
 
 > [!TIP]
 > .NET 언어의 경우 이 요청을 직접 만드는 대신 [Microsoft.Azure.Services.AppAuthentication](#asal)을 사용해도 됩니다.
@@ -317,7 +319,7 @@ public async Task<HttpResponseMessage> GetToken(string resource)  {
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const rp = require('request-promise');
@@ -333,7 +335,7 @@ const getToken = function(resource, cb) {
 }
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 ```python
 import os
@@ -352,7 +354,7 @@ def get_bearer_token(resource_uri):
     return access_token
 ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 ```powershell
 $resourceURI = "https://<AAD-resource-URI-for-resource-to-obtain-token>"
@@ -411,9 +413,9 @@ Java 응용 프로그램 및 함수의 경우 관리 되는 id를 사용 하는 
     ```
 
 
-## <a name="remove"></a>ID 제거
+## <a name="remove"></a>Id 제거
 
-사용자 할당 ID는 포털, PowerShell 또는 CLI를 사용하여 생성할 때와 같은 방식으로 기능을 사용하지 않도록 설정하여 제거할 수 있습니다. 사용자 할당 ID는 개별 제거할 수 있습니다. REST/ARM 템플릿 프로토콜에서는 이 형식을 "None"으로 설정하면 모든 ID가 제거됩니다.
+사용자 할당 ID는 포털, PowerShell 또는 CLI를 사용하여 생성할 때와 같은 방식으로 기능을 사용하지 않도록 설정하여 제거할 수 있습니다. 사용자 할당 ID는 개별 제거할 수 있습니다. 모든 id를 제거 하려면 [ARM 템플릿에서](#using-an-azure-resource-manager-template)유형을 "None"으로 설정 합니다.
 
 ```json
 "identity": {

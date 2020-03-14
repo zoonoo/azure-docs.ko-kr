@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 12/05/2019
 ms.author: chmutali
 ms.openlocfilehash: d9317a68c8967fbe0728e8c47e59dd33367c6163
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78374778"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79249686"
 ---
 # <a name="tutorial-configure-sap-successfactors-to-active-directory-user-provisioning-preview"></a>자습서: 사용자 프로 비전을 Active Directory SAP SuccessFactors 구성 (미리 보기)
 이 자습서는 SuccessFactors Employee Central에서 Active Directory (AD) 및 Azure AD로 사용자를 프로 비전 하기 위해 수행 해야 하는 단계를 설명 하 고, 전자 메일 주소를 SuccessFactors에 선택적으로 쓸 수 있도록 합니다. 이 통합은 공개 미리 보기 상태 이며 SuccessFactors Employee Central에서 70 개 이상의 [사용자 특성](../app-provisioning/sap-successfactors-attribute-reference.md) 검색을 지원 합니다.

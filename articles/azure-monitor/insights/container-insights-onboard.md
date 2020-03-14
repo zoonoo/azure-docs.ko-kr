@@ -4,11 +4,11 @@ description: 이 문서에서는 컨테이너의 작동 방식 및 식별 된 �
 ms.topic: conceptual
 ms.date: 11/18/2019
 ms.openlocfilehash: 7aad7e7dd5ec2569377f9276c2e4793c7afd631a
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78395366"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79275309"
 ---
 # <a name="how-to-enable-azure-monitor-for-containers"></a>컨테이너에 대해 Azure Monitor를 사용 하도록 설정 하는 방법
 

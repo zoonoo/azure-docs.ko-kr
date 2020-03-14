@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: diberry
 ms.openlocfilehash: b151043babd6c67a17f704bb671a415fcc3ba7b2
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280909"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79221512"
 ---
 # <a name="machine-learned-features"></a>컴퓨터에서 학습 한 기능 
 

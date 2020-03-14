@@ -3,12 +3,12 @@ title: Azure VM Backup의 지원 매트릭스
 description: Azure Backup 서비스를 사용하여 Azure VM을 백업할 때의 지원 설정 및 제한 사항에 대한 요약을 제공합니다.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 93ee900eb936bdc3f03c96d0b1196227d05dd03f
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.openlocfilehash: c30a1d1b30fcc7a12449b44d35704b3b43daa385
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78669253"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79247905"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM Backup의 지원 매트릭스
 
@@ -43,8 +43,6 @@ Backup server에 Azure VM 백업  | 파일/폴더/볼륨 백업 시스템 상태
 
 **동작** | **지원**
 --- | ---
-Microsoft Azure VM을 만들 때 백업 사용 | 지원 대상: <br/><br/> -Windows Server 2019 (Datacenter/Datacenter Core/Standard) <br/><br/> -Windows Server 2016 (Datacenter/Datacenter Core/Standard) <br/><br/> -Windows Server 2012 R2 (Datacenter/Standard) <br/><br/> -Windows Server 2008 R2 (RTM 및 SP1 Standard)
-Linux VM을 만들 때 백업 사용 | 지원 대상:<br/><br/> -Ubuntu 서버: 18.04, 17.10, 17.04, 16.04 (LTS), 14.04 (LTS)<br/><br/> -Red Hat: RHEL 6.7, 6.8, 6.9, 7.2, 7.3, 7.4<br/><br/> -SUSE Linux Enterprise Server: 11 SP4, 12 SP2, 12 SP3, 15 <br/><br/> -Debian: 8, 9<br/><br/> -CentOS: 6.9, 7.3<br/><br/> -Oracle Linux: 6.7, 6.8, 6.9, 7.2, 7.3
 종료/오프 라인 VM 인 VM 백업 | 지원됩니다.<br/><br/> 스냅샷이 충돌 일치 특성만 있고 앱 일치 특성은 없습니다.
 관리 디스크로 마이그레이션한 후 디스크 백업 | 지원됩니다.<br/><br/> 백업이 계속 작동합니다. 사용자가 조치할 필요는 없습니다.
 리소스 그룹 잠금을 사용하도록 설정한 후 Managed Disks를 백업합니다. | 지원되지 않습니다.<br/><br/> 이전 복원 지점은 삭제할 수 없는 Azure Backup 복원 지점의 최대 제한에 도달 하면 백업이 실패 하기 시작 합니다.
@@ -83,7 +81,7 @@ DPM/MABS를 사용하여 Linux Azure VM 백업 | 지원되지 않습니다.
 
 ## <a name="operating-system-support-linux"></a>운영 체제 지원(Linux)
 
-Azure VM Linux 백업의 경우 Azure Backup은 [Azure 인증 Linux 배포 목록](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)을 지원합니다. 다음에 유의하세요.
+Azure VM Linux 백업의 경우 Azure Backup은 [Azure 인증 Linux 배포 목록](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)을 지원합니다. 다음 사항에 유의하세요.
 
 - Azure Backup은 Core OS Linux를 지원하지 않습니다.
 - Azure Backup은 32비트 운영 체제를 지원하지 않습니다.
@@ -213,24 +211,24 @@ Azure로의 네트워크 트래픽:
 
 **머신** | **전송 중** | **저장**
 --- | --- | ---
-온-프레미스 Windows 머신(DPM/MABS 사용 안 함) | ![예][green] | ![예][green]
-Azure VM | ![예][green] | ![예][green]
-온-프레미스/Azure VM(DPM 사용) | ![예][green] | ![예][green]
-온-프레미스/Azure VM(MABS 사용) | ![예][green] | ![예][green]
+온-프레미스 Windows 머신(DPM/MABS 사용 안 함) | ![yes][green] | ![yes][green]
+Azure VM | ![yes][green] | ![yes][green]
+온-프레미스/Azure VM(DPM 사용) | ![yes][green] | ![yes][green]
+온-프레미스/Azure VM(MABS 사용) | ![yes][green] | ![yes][green]
 
 ## <a name="vm-compression-support"></a>VM 압축 지원
 
-Backup은 다음 표에 요약 된 것 처럼 백업 트래픽의 압축을 지원 합니다. 다음에 유의하세요.
+Backup은 다음 표에 요약 된 것 처럼 백업 트래픽의 압축을 지원 합니다. 다음 사항에 유의하세요.
 
 - Azure Vm의 경우 VM 확장은 저장소 네트워크를 통해 Azure storage 계정에서 직접 데이터를 읽습니다. 이 트래픽을 압축할 필요는 없습니다.
 - DPM 또는 MABS를 사용 하는 경우 데이터를 DPM/MABS에 백업 하기 전에 압축 하 여 대역폭을 절약할 수 있습니다.
 
 **머신** | **MABS/DPM에 압축(TCP)** | **자격 증명 모음으로 압축 (HTTPS)**
 --- | --- | ---
-온-프레미스 Windows 머신(DPM/MABS 사용 안 함) | NA | ![예][green]
-Azure VM | NA | NA
-온-프레미스/Azure VM(DPM 사용) | ![예][green] | ![예][green]
-온-프레미스/Azure VM(MABS 사용) | ![예][green] | ![예][green]
+온-프레미스 Windows 머신(DPM/MABS 사용 안 함) | 해당 없음 | ![yes][green]
+Azure VM | 해당 없음 | 해당 없음
+온-프레미스/Azure VM(DPM 사용) | ![yes][green] | ![yes][green]
+온-프레미스/Azure VM(MABS 사용) | ![yes][green] | ![yes][green]
 
 ## <a name="next-steps"></a>다음 단계
 

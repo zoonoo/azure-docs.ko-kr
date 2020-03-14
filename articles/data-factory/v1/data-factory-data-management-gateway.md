@@ -13,15 +13,15 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 9d86fa9bfe9c17867b8a30519b79d9ee8c5af363
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74932014"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79281874"
 ---
 # <a name="data-management-gateway"></a>데이터 관리 게이트웨이
 > [!NOTE]
-> 이 문서는 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [Data Factory의 자체 호스팅 통합 런타임](../create-self-hosted-integration-runtime.md)을 참조하세요.
+> 이 아티클은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [Data Factory의 자체 호스팅 통합 런타임](../create-self-hosted-integration-runtime.md)을 참조하세요.
 
 > [!NOTE]
 > 데이터 관리 게이트웨이를 이제는 자체 호스트 Integration Runtime이라고 합니다.
@@ -71,7 +71,7 @@ ms.locfileid: "74932014"
 * 데이터 저장소가 **Azure IaaS VM**의 클라우드에 있더라도 **게이트웨이를 사용**해야 합니다.
 
 ## <a name="installation"></a>설치
-### <a name="prerequisites"></a>전제 조건
+### <a name="prerequisites"></a>사전 요구 사항
 * 지원되는 **운영 체제** 버전은 Windows 7, Windows 8/8.1, Windows 10, Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2입니다. 현재 도메인 컨트롤러에 데이터 관리 게이트웨이를 설치하도록 지원되지 않습니다.
 * .NET Framework 4.5.1 이상이 필요합니다. Windows 7 컴퓨터에 게이트웨이를 설치하는 경우 .NET Framework 4.5 이상을 설치하세요. 자세한 내용은 [.NET Framework 시스템 요구 사항](https://msdn.microsoft.com/library/8z6watww.aspx)을 참조하세요.
 * 게이트웨이 컴퓨터에 대한 권장 **구성**은 최소 2GHz, 4개 코어, 8GB RAM 및 80GB 디스크입니다.
@@ -140,7 +140,7 @@ ms.locfileid: "74932014"
 
 회사 방화벽 수준에서 다음 도메인 및 아웃바운드 포트를 구성 해야 합니다.
 
-| 도메인 이름 | 포트 | 설명 |
+| 도메인 이름 | 포트 | Description |
 | --- | --- | --- |
 | \*.servicebus.windows.net |443 |데이터 이동 서비스 백 엔드와 통신에 사용됨 |
 | *.core.windows.net |443 |Azure Blob를 사용하여 준비된 복사에 사용됨(구성된 경우)|
@@ -158,7 +158,7 @@ Windows 방화벽 수준에서 이러한 아웃바운드 포트를 일반적으�
 #### <a name="copy-data-from-a-source-data-store-to-a-sink-data-store"></a>소스 데이터 저장소의 데이터를 싱크 데이터 저장소에 복사
 방화벽 규칙이 회사 방화벽, 게이트웨이 컴퓨터의 Windows 방화벽 및 데이터 저장소 자체에 올바르게 설정되어 있는지 확인합니다. 이러한 규칙을 사용하면 게이트웨이가 소스와 싱크에 모두 정상적으로 연결할 수 있습니다. 복사 작업과 관련된 각 데이터 저장소에 대해 규칙을 사용하도록 설정합니다.
 
-예를 들어 **온-프레미스 데이터 저장소에서 Azure SQL Database 싱크 또는 Azure SQL Data Warehouse 싱크로** 복사하려면 다음 단계를 수행합니다.
+예를 들어 **온-프레미스 데이터 저장소에서 Azure SQL Database 싱크 또는 Azure SQL Data Warehouse 싱크**로 복사하려면 다음 단계를 수행합니다.
 
 * Windows 방화벽 및 회사 방화벽 둘 다에 대해 포트 **1433**에서 아웃바운드 **TCP** 통신을 허용합니다.
 * Azure SQL Server의 방화벽 설정을 구성하여 허용된 IP 주소 목록에 게이트웨이 컴퓨터의 IP 주소를 추가합니다.
@@ -243,15 +243,15 @@ HTTP 프록시에 대해 **시스템 프록시 사용** 설정을 선택 하는 
    `A component of Data Management Gateway has become unresponsive and restarts automatically. Component name: Gateway.`
 
 ### <a name="open-port-8050-for-credential-encryption"></a>자격 증명 암호화용 8050 포트 열기
-Azure 포털에서 온-프레미스 연결된 서비스를 설정할 때 **자격 증명 설정** 애플리케이션은 인바운드 포트 **8050**을 사용하여 게이트웨이로 자격 증명을 릴레이합니다. 게이트웨이를 설정하는 동안 기본적으로 게이트웨이를 설치하면 게이트웨이 컴퓨터에 이 포트가 열립니다.
+Azure Portal에서 온-프레미스 연결된 서비스를 설정할 때 **자격 증명 설정** 애플리케이션은 인바운드 포트 **8050**을 사용하여 게이트웨이로 자격 증명을 릴레이합니다. 게이트웨이를 설정하는 동안 기본적으로 게이트웨이를 설치하면 게이트웨이 컴퓨터에 이 포트가 열립니다.
 
 타사 방화벽을 사용 중인 경우 포트 8050을 수동으로 열 수 있습니다. 게이트웨이를 설치하는 동안 방화벽 문제가 발생하는 경우 다음 명령을 사용하여 방화벽을 구성하지 않고 게이트웨이를 설치할 수 있습니다.
 
     msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
 
-게이트웨이 컴퓨터에서 포트 8050을 열지 않는 경우 **자격 증명 설정** 애플리케이션을 사용하는 방식 이외의 메커니즘을 사용하여 데이터 저장소 자격 증명을 구성합니다. 예를 들어 [AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) PowerShell cmdlet을 사용할 수 있습니다. 데이터 저장소 자격 증명을 설정할 수 있는 방법은 자격 증명 및 보안 설정 섹션을 참조하세요.
+게이트웨이 머신에서 포트 8050을 열지 않는 경우 **자격 증명 설정** 애플리케이션을 사용하는 방식 이외의 메커니즘을 사용하여 데이터 스토리지 자격 증명을 구성합니다. 예를 들어 [AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) PowerShell cmdlet을 사용할 수 있습니다. 데이터 저장소 자격 증명을 설정할 수 있는 방법은 자격 증명 및 보안 설정 섹션을 참조하세요.
 
-## <a name="update"></a>주 지역에서
+## <a name="update"></a>업데이트
 기본적으로 데이터 관리 게이트웨이는 게이트웨이의 새 버전을 사용할 수 있을 때 자동으로 업데이트됩니다. 게이트웨이는 모든 예약된 작업이 완료될 때까지 업데이트되지 않습니다. 업데이트 작업이 완료될 때까지 게이트웨이가 더 이상 작업을 처리하지 않습니다. 업데이트가 실패하면 게이트웨이는 이전 버전으로 다시 롤백됩니다.
 
 예약된 업데이트 시간은 다음 위치에 표시됩니다.
@@ -262,7 +262,7 @@ Azure 포털에서 온-프레미스 연결된 서비스를 설정할 때 **자�
 
 데이터 관리 게이트웨이 구성 관리자의 홈 탭에 업데이트 일정 및 게이트웨이가 마지막 설치/업데이트된 시간이 표시됩니다.
 
-![업데이트 예약](media/data-factory-data-management-gateway/UpdateSection.png)
+![업데이트를 예약](media/data-factory-data-management-gateway/UpdateSection.png)
 
 업데이트를 즉시 설치할 수도 있고, 게이트웨이가 예약된 시간에 자동으로 업데이트되도록 기다릴 수도 있습니다. 예를 들어 다음 이미지에는 게이트웨이 구성 관리자에 표시된 알림 메시지와, 업데이트를 즉시 설치하려는 경우 클릭할 수 있는 업데이트 단추가 나와 있습니다.
 
@@ -305,7 +305,7 @@ Azure 포털에서 온-프레미스 연결된 서비스를 설정할 때 **자�
     .\IntegrationRuntimeAutoUpdateToggle.ps1 -on -AuthKey <your auth key>
     ```
 
-## <a name="configuration-manager"></a>Configuration Manager
+## <a name="configuration-manager"></a>구성 관리자
 게이트웨이를 설치하면 다음 방법 중 하나로 데이터 관리 게이트웨이 구성 관리자를 시작할 수 있습니다.
 
 1. **Search** 창에서 **데이터 관리 게이트웨이**를 입력하여 이 유틸리티에 액세스합니다.
@@ -362,9 +362,9 @@ Azure Portal에서 게이트웨이 컴퓨터의 리소스 사용률(CPU, 메모�
 
 다음 표에서는 **게이트웨이 노드** 목록의 열에 대해 설명합니다.
 
-모니터링 속성 | 설명
+모니터링 속성 | Description
 :------------------ | :----------
-name | 논리 게이트웨이 및 이 게이트웨이와 연결된 노드의 이름입니다. 노드는 게이트웨이가 설치되는 온-프레미스 Windows 컴퓨터입니다. 단일 논리 게이트웨이에서 하나 이상의 노드(최대 4개의 노드)를 포함하는 방법은 [데이터 관리 게이트웨이 - 고가용성 및 확장성](data-factory-data-management-gateway-high-availability-scalability.md)을 참조하세요.
+속성 | 논리 게이트웨이 및 이 게이트웨이와 연결된 노드의 이름입니다. 노드는 게이트웨이가 설치되는 온-프레미스 Windows 컴퓨터입니다. 단일 논리 게이트웨이에서 하나 이상의 노드(최대 4개의 노드)를 포함하는 방법은 [데이터 관리 게이트웨이 - 고가용성 및 확장성](data-factory-data-management-gateway-high-availability-scalability.md)을 참조하세요.
 상태 | 논리 게이트웨이 및 게이트웨이 노드의 상태입니다. 예: 온라인/오프 라인/제한 됨/등 이러한 상태에 대 한 자세한 내용은 [게이트웨이 상태](#gateway-status) 섹션을 참조 하세요.
 버전 | 논리 게이트웨이 및 각 게이트웨이 노드의 버전을 표시합니다. 논리 게이트웨이의 버전은 그룹에 있는 대다수 노드의 버전에 따라 결정됩니다. 논리 게이트웨이 설정에 다른 버전의 노드가 있으면 논리 게이트웨이와 버전 번호가 동일한 노드만 제대로 작동합니다. 다른 버전의 노드는 제한된 모드에 있으므로 수동으로 업데이트해야 합니다(자동 업데이트가 실패할 경우에만).
 사용 가능한 메모리 | 게이트웨이 노드에서 사용 가능한 메모리입니다. 이 값은 거의 실시간 스냅샷입니다.
@@ -388,7 +388,7 @@ CPU 사용률 | 게이트웨이 노드의 CPU 사용률입니다. 이 값은 거
 
 다음 표에서는 **논리 게이트웨이**에 가능한 상태에 대해 설명합니다. 게이트웨이 상태는 게이트웨이 노드의 상태에 따라 달라집니다.
 
-상태 | 의견
+상태 | 주석
 :----- | :-------
 등록이 필요합니다. | 이 논리 게이트웨이에 노드가 아직 등록되지 않았습니다.
 온라인 | 게이트웨이 노드가 온라인 상태입니다.
@@ -420,7 +420,7 @@ CPU 사용률 | 게이트웨이 노드의 CPU 사용률입니다. 이 값은 거
     ![구성 페이지](./media/data-factory-data-management-gateway/ConfigureBlade.png)
 5. **Microsoft 데이터 관리 게이트웨이 구성 관리자**를 열어 둡니다.
 
-    ![Configuration Manager](./media/data-factory-data-management-gateway/ConfigurationManager.png)
+    ![구성 관리자](./media/data-factory-data-management-gateway/ConfigurationManager.png)
 6. 포털의 **구성** 페이지에서 명령 모음에 있는 **키 다시 만들기**를 클릭하고 경고 메시지가 나타나면 **예**를 클릭합니다. 키 텍스트 옆의 **복사 단추**를 클릭하여 키를 클립보드에 복사합니다. 키를 다시 만드는 즉시 이전 컴퓨터의 게이트웨이가 작동 중지됩니다.
 
     ![키 다시 만들기](./media/data-factory-data-management-gateway/RecreateKey.png)
@@ -468,7 +468,7 @@ Data Factory 편집기에서 자격 증명을 암호화하려면 다음 단계�
     ```
    게이트웨이 컴퓨터와 다른 컴퓨터에서 포털에 액세스하는 경우 자격 증명 관리자 애플리케이션이 게이트웨이 컴퓨터에 연결할 수 있는지 확인해야 합니다. 애플리케이션이 게이트웨이 컴퓨터에 연결할 수 없는 경우, 데이터 원본에 대한 자격 증명을 설정하고 데이터 원본에 대한 연결을 테스트할 수 없습니다.
 
-**자격 증명 설정** 애플리케이션을 사용하는 경우 포털은 게이트웨이 컴퓨터에서 **게이트웨이 구성 관리자**의 **인증서** 탭에 지정한 인증서를 사용하여 자격 증명을 암호화합니다.
+**자격 증명 설정** 애플리케이션을 사용하는 경우 포털은 게이트웨이 머신에서 **게이트웨이 구성 관리자**의 **인증서** 탭에 지정한 인증서를 사용하여 자격 증명을 암호화합니다.
 
 자격 증명을 암호화 하기 위한 API 기반 접근 방식을 찾고 있는 경우 [AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) PowerShell cmdlet을 사용 하 여 자격 증명을 암호화할 수 있습니다. Cmdlet은 해당 게이트웨이 구성하는 인증서를 사용하여 자격 증명을 암호화를 사용합니다. 암호화된 자격 증명을 JSON에서 **connectionString**의 **EncryptedCredential** 요소에 추가합니다. [AzDataFactoryLinkedService](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactorylinkedservice) cmdlet 또는 Data Factory 편집기에서 JSON을 사용 합니다.
 
@@ -510,7 +510,7 @@ Data Factory 편집기에서 자격 증명을 암호화하려면 다음 단계�
     Key               : ADF#00000000-0000-4fb8-a867-947877aef6cb@fda06d87-f446-43b1-9485-78af26b8bab0@4707262b-dc25-4fe5-881c-c8a7c3c569fe@wu#nfU4aBlq/heRyYFZ2Xt/CD+7i73PEO521Sj2AFOCmiI
     ```
 
-1. Azure PowerShell에서 *C:\\\\Program Files\\Microsoft Integration Runtime\\3.0\\PowerShellScript\\* 폴더로 전환 합니다. 다음 명령에 나와 있는 대로 로컬 변수 **$Key** 와 연결된 *RegisterGateway.ps1* 을 실행합니다. 이 스크립트는 컴퓨터에 설치된 클라이언트 에이전트를 앞에서 만든 논리적 게이트웨이에 등록합니다.
+1. Azure PowerShell에서 *C:\\\\Program Files\\Microsoft Integration Runtime\\3.0\\PowerShellScript\\* 폴더로 전환 합니다. 다음 명령에 나와 있는 대로 로컬 변수 *$Key* 와 연결된 **RegisterGateway.ps1** 을 실행합니다. 이 스크립트는 컴퓨터에 설치된 클라이언트 에이전트를 앞에서 만든 논리적 게이트웨이에 등록합니다.
 
     ```powershell
     PS C:\> .\RegisterGateway.ps1 $MyDMG.Key

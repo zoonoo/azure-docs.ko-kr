@@ -8,12 +8,12 @@ ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/30/2020
-ms.openlocfilehash: 32ccc5ad236c87d3609798a8432db14ee440d067
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 7b1c7825beb769b610d661cb9644fc3f3919d548
+ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77064566"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79139065"
 ---
 # <a name="data-visualization-with-azure-data-explorer"></a>Azure 데이터 탐색기를 사용 하 여 데이터 시각화 
 
@@ -42,6 +42,10 @@ Azure 데이터 탐색기는 [기본 제공 기본 Excel 커넥터](excel-connec
 ## <a name="grafana"></a>Grafana
 
 [Grafana](https://grafana.com) 는 azure 데이터 탐색기에서 데이터를 시각화할 수 있도록 하는 azure 데이터 탐색기 플러그 인을 제공 합니다. [Grafana에 대 한 데이터 원본으로 Azure 데이터 탐색기를 설정 하 고 데이터를 시각화](/azure/data-explorer/grafana)합니다. 
+
+## <a name="kibana"></a>Kibana
+
+Azure 데이터 탐색기는 오픈 소스 커넥터용 K2Bridge를 사용 하 여 [Kibana (검색 페이지)](https://www.elastic.co/guide/en/kibana/6.8/discover.html) 에 연결 하는 기능을 제공 합니다. [Kibana에 대 한 데이터 원본으로 Azure 데이터 탐색기를 설정 하 고 데이터를 시각화](/azure/data-explorer/k2bridge)합니다.
 
 ## <a name="odbc-connector"></a>ODBC 커넥터
 

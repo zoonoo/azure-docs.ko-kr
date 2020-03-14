@@ -10,14 +10,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/12/2019
-ms.openlocfilehash: ec210fcdf521413438edd256cc3ee988b67f293f
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: c79f6bd63fa5d8d8c6b22ff271d8ca513a94fd64
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77168655"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79218077"
 ---
 # <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio에서 Python 기계 학습 스크립트 실행 (클래식)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Python은 다양 한 데이터 과학자 도구 상자에 유용한 도구입니다. 데이터 탐색, 기능 추출, 모델 학습 및 유효성 검사, 배포 등 일반적인 기계 학습 워크플로의 모든 단계에서 사용 됩니다.
 
@@ -71,7 +73,7 @@ Python을 실행 하는 데 사용 되는 백 엔드는 널리 사용 되는 과
 
 일반적인 사용 사례는 기존 Python 스크립트를 스튜디오 (클래식) 실험에 통합 하는 것입니다. [Python 스크립트 실행][execute-python-script] 모듈은 세 번째 입력 포트에서 python 모듈을 포함 하는 zip 파일을 허용 합니다. 이 파일은 런타임에 입력 프레임워크에서 압축이 풀리며, 파일의 내용은 Python 인터프리터의 라이브러리 경로에 추가됩니다. 그러면 `azureml_main` 진입점 함수가 이러한 모듈을 직접 가져올 수 있습니다. 
 
-예를 들어, 간단한 “Hello, World” 함수를 포함하는 Hello.py라는 파일을 살펴보겠습니다.
+예를 들어 간단한 "Hello, 세계" 함수를 포함 하는 Hello.py 파일을 생각해 보겠습니다.
 
 ![Hello.py 파일의 사용자 정의 함수](./media/execute-python-scripts/figure4.png)
 

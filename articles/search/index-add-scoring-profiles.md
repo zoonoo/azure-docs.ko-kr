@@ -20,11 +20,11 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 516637b812afece1966006ce6d894dd1e32e6293
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74666310"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79245461"
 ---
 # <a name="add-scoring-profiles-to-an-azure-cognitive-search-index"></a>Azure Cognitive Search 인덱스에 점수 매기기 프로필 추가
 
@@ -87,7 +87,7 @@ GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentL
 
  또한 관련성 기반 순서 지정도 점수 매기기 프로필을 통해 구현됩니다. 이전에 사용했던 검색 결과 페이지에서는 가격, 날짜, 등급 또는 관련성을 기준으로 결과를 정렬했다면, Azure Cognitive Search에서는 점수 매기기 프로필을 통해 ' 관련성 ' 옵션을 구동 합니다. 관련성의 정의는 제공하려는 검색 환경의 유형과 비즈니스 목표를 통해 직접 제어할 수 있습니다.  
 
-##  <a name="bkmk_ex"></a> 예  
+##  <a name="bkmk_ex"></a> 예제  
  앞에서 설명한 것처럼 인덱스 스키마에 정의된 하나 이상의 점수 매기기 프로필을 통해 사용자 지정 점수 매기기를 구현합니다.  
 
  아래 예제에서는 `boostGenre` 및 `newAndHighlyRated`의 두 점수 매기기 프로필이 포함된 인덱스의 스키마를 보여 줍니다. 쿼리 매개 변수로 두 프로필 중 하나를 포함하는 쿼리를 이 인덱스에 대해 실행하는 경우 해당 프로필을 사용하여 결과 집합의 점수를 계산합니다.  
@@ -232,12 +232,12 @@ GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentL
 > [!NOTE]  
 >  점수 매기기 함수는 필터링 가능한 필드에만 적용할 수 있습니다.  
 
-|특성|설명|  
+|attribute|Description|  
 |---------------|-----------------|  
 |`name`|필수 사항입니다. 점수 매기기 프로필의 이름입니다. 필드와 동일한 이름 지정 규칙을 따릅니다. 즉, 이름은 문자로 시작해야 하고 마침표, 콜론 또는 @ 기호를 포함할 수 없으며 ‘azureSearch’ 구(대/소문자 구분)로 시작할 수 없습니다.|  
 |`text`|가중치 속성을 포함 합니다.|  
-|`weights`|선택 사항입니다. 각각 필드 이름과 상대적 가중치를 지정 하는 이름-값 쌍을 포함 합니다. 상대적 가중치는 양의 정수 또는 부동 소수점 숫자여야 합니다.<br /><br /> 가중치는 다른 검색 가능한 필드를 기준으로 한 검색 가능한 필드의 중요도를 나타내는 데 사용 됩니다.|  
-|`functions`|선택 사항입니다. 점수 매기기 함수는 필터링 가능한 필드에만 적용할 수 있습니다.|  
+|`weights`|(선택 사항) 각각 필드 이름과 상대적 가중치를 지정 하는 이름-값 쌍을 포함 합니다. 상대적 가중치는 양의 정수 또는 부동 소수점 숫자여야 합니다.<br /><br /> 가중치는 다른 검색 가능한 필드를 기준으로 한 검색 가능한 필드의 중요도를 나타내는 데 사용 됩니다.|  
+|`functions`|(선택 사항) 점수 매기기 함수는 필터링 가능한 필드에만 적용할 수 있습니다.|  
 |`type`|점수 매기기 함수의 필수 항목으로, 점수 매기기 함수는 인덱스 필드 컬렉션의 일부이며 필터링 가능한 필드에만 적용할 수 있습니다. 사용할 함수의 유형을 나타냅니다. 유효한 값에는 magnitude, freshness, distance, tag 등이 있습니다. 각 점수 매기기 프로필에 둘 이상의 함수를 포함할 수 있습니다. 함수 이름은 소문자여야 합니다.|  
 |`boost`|점수 매기기 함수의 필수 항목으로, 점수 매기기 함수는 인덱스 필드 컬렉션의 일부이며 필터링 가능한 필드에만 적용할 수 있습니다. 원점수의 승수로 사용되는 양수입니다. 값이 1일 수는 없습니다.|  
 |`fieldname`|점수 매기기 함수의 필수 항목으로, 점수 매기기 함수는 인덱스 필드 컬렉션의 일부이며 필터링 가능한 필드에만 적용할 수 있습니다. 또한 각 함수 유형에서는 추가적인 제한이 적용됩니다. 또한 각 함수 형식마다 추가 제한 사항이 도입됩니다. 예를 들어 freshness는 datetime 필드에, magnitude는 integer/double 필드에, distance는 location 필드에 사용됩니다.다. 필드는 함수 정의당 하나만 지정할 수 있습니다. 예를 들어 같은 프로필에서 magnitude를 두 번 사용하려면 각 필드에 하나씩 두 개의 magnitude 정의를 포함해야 합니다.|  
@@ -253,7 +253,7 @@ GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentL
 |`distance` &#124; `boostingDistance`|참조 위치로부터 상승 범위가 종료되는 거리(km)를 설정합니다.|  
 |`tag`|tag 점수 매기기 함수는 문서 및 검색 쿼리의 태그를 기반으로 문서 점수에 영향을 주는 데 사용됩니다. 검색 쿼리와 공통적인 태그가 있는 문서가 상승됩니다. 검색 쿼리에 대한 태그는 각 검색 요청에서 점수 매기기 매개 변수로 제공됩니다(`scoringParameterquery` 문자열 옵션 사용).|  
 |`tag` &#124; `tagsParameter`|특정 요청에 대한 태그를 지정하도록 쿼리에 전달할 매개 변수입니다. `scoringParameter` 은(는) 쿼리 매개 변수입니다. 쿼리 매개 변수에 대 한 설명은 [Azure Cognitive Search REST API &#40;&#41; 문서 검색](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) 을 참조 하세요.|  
-|`functionAggregation`|선택 사항입니다. 함수를 지정할 때만 적용됩니다. 유효한 값에는 sum(기본값), average, minimum, maximum, firstMatching 등이 있습니다. 검색 점수는 여러 함수를 비롯한 여러 변수에서 계산되는 단일 값입니다. 이 특성은 모든 함수의 순위 상승이 단일 집계 상승으로 결합된 다음, 기본 문서 점수에 적용되는 방식을 나타냅니다. 기본 점수는 문서 및 검색 쿼리에서 계산되는 [tf-idf](http://www.tfidf.com/) 값을 기준으로 합니다.|  
+|`functionAggregation`|(선택 사항) 함수를 지정할 때만 적용됩니다. 유효한 값에는 sum(기본값), average, minimum, maximum, firstMatching 등이 있습니다. 검색 점수는 여러 함수를 비롯한 여러 변수에서 계산되는 단일 값입니다. 이 특성은 모든 함수의 순위 상승이 단일 집계 상승으로 결합된 다음, 기본 문서 점수에 적용되는 방식을 나타냅니다. 기본 점수는 문서 및 검색 쿼리에서 계산되는 [tf-idf](http://www.tfidf.com/) 값을 기준으로 합니다.|  
 |`defaultScoringProfile`|검색 요청을 실행할 때 점수 매기기 프로필이 지정되어 있지 않으면 기본 점수 매기기가 사용됩니다([tf-idf](http://www.tfidf.com/)만 사용).<br /><br /> 여기서 기본 점수 매기기 프로필 이름을 설정할 수 있으며, 검색 요청에 특정 프로필이 지정 되지 않은 경우 Azure Cognitive Search에서 해당 프로필을 사용 하도록 합니다.|  
 
 ##  <a name="bkmk_interpolation"></a> 보간 설정  
@@ -275,7 +275,7 @@ GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentL
 
  다음 표에 여러 예제가 나와 있습니다.  
 
-|기간|boostingDuration|  
+|Duration|boostingDuration|  
 |--------------|----------------------|  
 |1일|"P1D"|  
 |2일 12시간|"P2DT12H"|  

@@ -8,11 +8,11 @@ ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: 0c570702e4c3899ef2847883e6fc8649e603a787
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039681"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79281679"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-in-vmm-clouds-to-azure"></a>VMM 클라우드의 온-프레미스 Hyper-V VM에서 Azure로의 재해 복구 설정
 
@@ -20,7 +20,7 @@ ms.locfileid: "74039681"
 
 이 자습서는 온-프레미스 VMware VM을 Azure로 재해 복구하도록 설정하는 방법을 보여주는 자습서 시리즈 중 세 번째 자습서입니다. 이전 자습서에서는 Azure로의 재해 복구를 위해 [온-프레미스 hyper-v 환경을 준비](hyper-v-prepare-on-premises-tutorial.md) 했습니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 복제 원본 및 대상을 선택합니다.
@@ -63,7 +63,7 @@ ms.locfileid: "74039681"
 원본 환경을 설정할 때 VMM 서버에 Azure Site Recovery 공급자를 설치 하 고 자격 증명 모음에 서버를 등록 합니다. 각 Hyper-v 호스트에 Azure Recovery Services 에이전트를 설치 합니다.
 
 1. **인프라 준비**에서 **원본**을 선택 합니다.
-2. **원본 준비**에서 **+ vmm** 을 선택 하 여 vmm 서버를 추가 합니다. **서버 추가**에서 **서버 유형**에 **System Center VMM server**(System Center VMM 서버)가 표시되는지 확인합니다.
+2. **원본 준비**에서 **+ vmm** 을 선택 하 여 vmm 서버를 추가 합니다. **서버 추가**의 **서버 유형**에서 **System Center VMM 서버**가 표시되는지 확인합니다.
 3. Microsoft Azure Site Recovery Provider용 설치 관리자를 다운로드합니다.
 4. 자격 증명 모음 등록 키를 다운로드합니다. 공급자 설치 프로그램을 실행할 때이 키가 필요 합니다. 이 키는 생성된 날로부터 5일간 유효합니다.
 5. Microsoft Azure Recovery Services 에이전트에 대 한 설치 관리자를 다운로드 합니다.
@@ -123,7 +123,7 @@ Site Recovery가 호환되는 Azure Storage 계정 및 네트워크가 하나 �
     - **Azure에 저장 된 데이터 암호화** 는 기본값 (**꺼짐**)으로 설정 되며, azure의 미사용 데이터가 암호화 되지 않음을 나타냅니다.
 4. 정책이 만들어지면 **확인**을 선택합니다. 새 정책을 만들면 VMM 클라우드와 자동으로 연결 됩니다.
 
-## <a name="enable-replication"></a>복제 활성화
+## <a name="enable-replication"></a>복제 사용
 
 1. **애플리케이션 복제**에서 **원본**을 선택합니다.
 2. **원본**에서 VMM 클라우드를 선택합니다. 그런 다음 **확인**을 선택합니다.

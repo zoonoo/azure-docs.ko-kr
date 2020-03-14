@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: dapine
 ms.openlocfilehash: d75962b98543991a065f6b165279215614175925
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75866933"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79221224"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Azure Cognitive Services의 컨테이너 지원
 
@@ -41,7 +41,7 @@ Cognitive Services 리소스는 [Microsoft Azure](https://azure.microsoft.com)�
 - 변경할 수 없는 **인프라**: devops 팀을 사용 하도록 설정 하 여 일관 되 고 신뢰할 수 있는 알려진 시스템 매개 변수 집합을 활용할 수 있습니다. 컨테이너는 예측 가능한 에코 시스템 내에서 피벗을 위한 유연성을 제공 하 고 구성 드리프트를 방지 합니다.
 - **데이터 제어**: 고객이 이러한 Cognitive Services 데이터를 처리 하는 위치를 선택할 수 있습니다. 이는 클라우드로 데이터를 전송할 수는 없지만 Cognitive Services 기술에 액세스해야 하는 고객에게 필수입니다. 하이브리드 환경의 데이터, 관리, ID 및 보안에 걸쳐 일관성을 지원합니다.
 - **모델 업데이트 제어**: 고객이 솔루션에 배포된 모델의 버전 관리 및 업데이트를 유연하게 처리할 수 있습니다.
-- **이식 가능한 아키텍처**: Azure, 온-프레미스 및에 지에 배포할 수 있는 이식 가능한 응용 프로그램 아키텍처를 만들 수 있습니다. 컨테이너는 [Azure Kubernetes Service](../aks/index.yml), [Azure Container Instances](../container-instances/index.yml) 또는 [Azure Stack](/azure-stack/operator)에 배포된 [Kubernetes](https://kubernetes.io/) 클러스터에 직접 배포할 수 있습니다. 자세한 내용은 [Azure Stack에 Kubernetes 배포](/azure-stack/user/azure-stack-solution-template-kubernetes-deploy)를 참조하세요.
+- **이식 가능한 아키텍처**: Azure, 온-프레미스 및에 지에 배포할 수 있는 이식 가능한 응용 프로그램 아키텍처를 만들 수 있습니다. 컨테이너는 [Azure Kubernetes Service](../aks/index.yml), [Azure Container Instances](../container-instances/index.yml) 또는 [Azure Stack](https://kubernetes.io/)에 배포된 [Kubernetes](/azure-stack/operator) 클러스터에 직접 배포할 수 있습니다. 자세한 내용은 [Azure Stack에 Kubernetes 배포](/azure-stack/user/azure-stack-solution-template-kubernetes-deploy)를 참조하세요.
 - **높은 처리량/짧은 대기 시간**: Cognitive Services을 사용 하 여 응용 프로그램 논리 및 데이터에 물리적으로 가깝게 실행 되도록 하 여 높은 처리량 및 짧은 대기 시간 요구 사항에 맞게 확장할 수 있는 기능을 고객에 게 제공 합니다. 컨테이너는 TPS(초당 트랜잭션 수)를 제한하지 않으며, 고객이 필요한 하드웨어 리소스를 제공한다면 스케일업 및 스케일아웃이 가능합니다.
 - **확장성**: 컨테이너 화 및 컨테이너 오케스트레이션 소프트웨어 (예: Kubernetes)의 인기를 활용 합니다. 확장성은 기술적으로 발전 하 고 있습니다. 확장성 있는 클러스터 파운데이션을 기반으로 하는 응용 프로그램 개발은 고가용성을 맞춘 합니다.
 
@@ -70,10 +70,10 @@ Azure Cognitive Services 컨테이너는 다음과 같은 Docker 컨테이너 �
 
 또한 일부 컨테이너는 Cognitive Services 제공 리소스 키를 [**제공**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) 합니다. 하나의 단일 Cognitive Services 단일 리소스를 만들고 다음 서비스에 대해 지원 되는 서비스에서 동일한 청구 키를 사용할 수 있습니다.
 
-* Computer Vision API
+* Computer Vision
 * Face
 * LUIS
-* Text Analytics
+* 텍스트 분석
 
 ## <a name="container-availability-in-azure-cognitive-services"></a>Azure Cognitive Services의 컨테이너 가용성
 
@@ -89,7 +89,7 @@ Azure Cognitive Services 컨테이너는 Azure 구독을 통해 공개적으로 
 
 [!INCLUDE [Container repositories and images](containers/includes/cognitive-services-container-images.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure Cognitive Services 컨테이너를 사용하려면 다음 필수 조건을 충족해야 합니다.
 

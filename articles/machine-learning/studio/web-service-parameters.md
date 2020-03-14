@@ -12,14 +12,17 @@ ms.subservice: studio
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/12/2017
-ms.openlocfilehash: 984d2e02ff75df459275fd10e313a4950c8d79c0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d6ddd9603f22bd3820d18be020b9c620cf06aa42
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432172"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79204412"
 ---
 # <a name="use-azure-machine-learning-studio-classic-web-service-parameters"></a>Azure Machine Learning Studio (클래식) 웹 서비스 매개 변수 사용
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+
 Azure Machine Learning 웹 서비스는 구성 가능한 매개 변수로 모듈이 포함된 실험을 게시하여 만듭니다. 경우에 따라 웹 서비스가 실행되는 동안 모듈 동작을 변경할 수도 있습니다. *웹 서비스 매개 변수*를 통해 이 태스크를 수행할 수 있습니다. 
 
 일반적인 예는 게시 된 웹 서비스의 사용자가 웹 서비스에 액세스할 때 다른 데이터 원본을 지정할 수 있도록 [데이터 가져오기][reader] 모듈을 설정 하는 것입니다. 또는 다른 대상을 지정할 수 있도록 [데이터 내보내기][writer] 모듈을 구성 합니다. 다른 예로는 [기능 해싱][feature-hashing] 모듈의 비트 수 또는 [필터 기반 기능 선택][filter-based-feature-selection] 모듈의 원하는 기능 수를 변경 하는 경우가 있습니다. 
@@ -38,12 +41,12 @@ Azure Machine Learning 웹 서비스는 구성 가능한 매개 변수로 모듈
 웹 서비스에 대한 API 설명서에는 웹 서비스에 액세스할 때 프로그래밍 방식으로 웹 서비스 매개 변수를 지정하는 방법과 관련해서 웹 서비스 사용자를 위한 정보가 포함됩니다.
 
 > [!NOTE]
-> 클래식 웹 서비스에 대 한 API 설명서는 Machine Learning Studio (클래식)의 웹 서비스 **대시보드에서** **api 도움말 페이지** 링크를 통해 제공 됩니다. 새 웹 서비스에 대한 API 설명서는 웹 서비스에 대한 **사용** 및 **Swagger API** 페이지의 [Azure Machine Learning 웹 서비스](https://services.azureml.net/Quickstart) 포털을 통해 제공됩니다.
+> 클래식 웹 서비스에 대 한 API 설명서는 Machine Learning Studio (클래식)의 웹 서비스 **대시보드에서** **api 도움말 페이지** 링크를 통해 제공 됩니다. 새 웹 서비스에 대한 API 설명서는 웹 서비스에 대한 [사용](https://services.azureml.net/Quickstart) 및 **Swagger API** 페이지의 **Azure Machine Learning 웹 서비스** 포털을 통해 제공됩니다.
 > 
 > 
 
-## <a name="example"></a>예
-예를 들어 Azure blob 저장소로 정보를 전송 하는 [데이터 내보내기][writer] 모듈이 있는 실험이 있다고 가정 하겠습니다. 고객이 새 데이터(PUT Blob, PUT 블록, PUT 페이지, PUT 파일 등)를 Blob 또는 File Storage에 기록할 경우 모든 기록 내용이 가장 강력한 블록 암호화 중 하나인 256비트 AES 암호화를 사용하여 암호화됩니다.
+## <a name="example"></a>예제
+예를 들어 Azure blob 저장소로 정보를 전송 하는 [데이터 내보내기][writer] 모듈이 있는 실험이 있다고 가정 하겠습니다. 고객이 새 데이터(PUT Blob, PUT 블록, PUT 페이지, PUT 파일 등)를 Blob 또는 File Storage에 기록할 경우 모든 기록 내용이 가장 강력한 블록 암호화 중 하나인 256비트 {1}AES 암호화{2}를 사용하여 암호화됩니다.
 
 1. Machine Learning Studio (클래식)에서 [데이터 내보내기][writer] 모듈을 클릭 하 여 선택 합니다. 실험 캔버스 오른쪽에 있는 속성 창에 해당 속성이 표시됩니다.
 2. 스토리지 형식을 지정합니다.

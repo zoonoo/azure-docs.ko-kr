@@ -4,11 +4,11 @@ description: SDK용 원격 분석 프로세서 및 원격 분석 이니셜라이
 ms.topic: conceptual
 ms.date: 11/23/2016
 ms.openlocfilehash: 9f4df83ed60ba94913702b9a32a298f0ac62f9f4
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78362231"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79276323"
 ---
 # <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>Application Insights SDK에서 원격 분석 필터링 및 전처리
 
@@ -19,7 +19,7 @@ Application Insights SDK에 대 한 플러그 인을 작성 하 고 구성 하 �
 * [원격 분석 이니셜라이저](#add-properties) 표준 모듈의 원격 분석을 포함 하 여 앱에서 전송 된 원격 분석에 속성을 추가 하거나 수정 합니다. 예를 들어 계산된 값을 추가하거나 포털에서 데이터를 필터링하는 데 사용할 버전 번호를 추가할 수 있습니다.
 * [SDK API](../../azure-monitor/app/api-custom-events-metrics.md) 사용자 지정 이벤트 및 메트릭을 보내는 데 사용됩니다.
 
-시작하기 전 주의 사항:
+시작하기 전에 다음을 수행합니다.
 
 * 응용 프로그램에 적합 한 SDK 설치: [ASP.NET](asp-net.md), [ASP.NET Core](asp-net-core.md), .net/.net Core, [Java](../../azure-monitor/app/java-get-started.md) 또는 [JavaScript](javascript.md) [에 대 한 비 HTTP/Worker](worker-service.md)
 

@@ -7,11 +7,11 @@ ms.date: 06/28/2019
 ms.topic: conceptual
 ms.author: ramamill
 ms.openlocfilehash: 10b3e572ec61d1eff342f24a6a5a7bcba6276983
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75495378"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79257317"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>VMware VM에 대해 Azure로의 복제를 사용하도록 설정
 
@@ -23,7 +23,7 @@ ms.locfileid: "75495378"
 * OS 디스크는 동적 디스크가 아닌 기본 디스크 여야 합니다.
 * 2 세대/UEFI 지원 가상 컴퓨터의 경우 운영 체제 제품군이 Windows이 고 부팅 디스크는 300 보다 작아야 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서에서는 사용자가 다음 작업을 수행한 것으로 가정합니다.
 

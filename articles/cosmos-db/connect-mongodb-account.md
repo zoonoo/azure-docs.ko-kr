@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 0f2cd1b7228f2cc9cadb84232222f658a512a81f
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872165"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79246852"
 ---
 # <a name="connect-a-mongodb-application-to-azure-cosmos-db"></a>Azure Cosmos DB에 MongoDB 애플리케이션 연결
 MongoDB 연결 문자열을 사용하여 MongoDB 앱을 Azure Cosmos DB에 연결하는 방법에 대해 알아봅니다. 그런 다음 Azure Cosmos 데이터베이스를 MongoDB 앱의 데이터 저장소로 사용할 수 있습니다. 
@@ -23,7 +23,7 @@ MongoDB 연결 문자열을 사용하여 MongoDB 앱을 Azure Cosmos DB에 연�
 - [빠른 시작 방법](#QuickstartConnection) - .NET, Node.js, MongoDB Shell, Java 및 Python 드라이버와 함께 사용
 - [사용자 지정 연결 문자열 방법](#GetCustomConnection) - 다른 드라이버와 함께 사용
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 계정. Azure 계정이 없으면 지금 [무료 Azure 계정](https://azure.microsoft.com/free/)을 만듭니다. 
 - Cosmos 계정입니다. 지침은 [Azure Cosmos DB의 API for MongoDB 및 .NET SDK를 사용하여 웹앱 빌드](create-mongodb-dotnet.md)를 참조하세요.
@@ -72,4 +72,4 @@ Azure Cosmos DB는 두 가지 특정 요구 사항을 포함한 표준 MongoDB �
 
 - Azure Cosmos DB의 API for MongoDB와 함께 [Studio 3T를 사용](mongodb-mongochef.md)하는 방법을 알아봅니다.
 - Azure Cosmos DB의 API for MongoDB와 함께 [Robo 3T를 사용](mongodb-robomongo.md)하는 방법을 알아봅니다.
-- Azure Cosmos DB의 MongoDB용 API를 사용하여 MongoDB [샘플](mongodb-samples.md)을 살펴봅니다.
+- Azure Cosmos DB의 API for MongoDB를 사용하여 MongoDB [샘플](mongodb-samples.md)을 살펴봅니다.

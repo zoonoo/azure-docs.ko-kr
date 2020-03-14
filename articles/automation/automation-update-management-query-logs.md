@@ -3,14 +3,14 @@ title: Azure 업데이트 관리 로그 쿼리
 description: 이 문서에서는 Log Analytics 작업 영역에서 업데이트 관리에 대 한 로그를 쿼리 하는 방법을 설명 합니다.
 services: automation
 ms.subservice: update-management
-ms.date: 01/10/2020
+ms.date: 03/11/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5a1979b0e714f35694999c04e1f890b710d54ac9
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: f31168d47f31d8e740c95cb3d9e449f473cc78dc
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867059"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79216840"
 ---
 # <a name="query-update-records-for-update-management-in-azure-monitor-logs"></a>Azure Monitor 로그의 업데이트 관리에 대 한 업데이트 레코드 쿼리
 
@@ -31,16 +31,16 @@ Windows 및 Linux Vm의 업데이트 관리에 의해 수집 된 레코드 및 �
 | Computer | 보고 컴퓨터의 정규화 된 도메인 이름입니다. |
 | KBID | Windows 업데이트에 대 한 기술 자료 문서 ID입니다. |
 | ManagementGroupName | Operations Manager 관리 그룹 또는 Log Analytics 작업 영역의 이름입니다. | 
-| 제품 | 업데이트를 적용할 수 있는 제품입니다. | 
+| Product | 업데이트를 적용할 수 있는 제품입니다. | 
 | PublishDate | 업데이트를 Windows 업데이트에서 다운로드 하 여 설치할 준비가 된 날짜입니다. |
 | 서버 | | 
 | SourceHealthServiceId | Log Analytics Windows 에이전트 ID를 나타내는 고유 식별자입니다. |
 | SourceSystem | *OperationsManager* | 
 | TenantId | Azure Active Directory의 조직 인스턴스를 나타내는 고유 식별자입니다. | 
 | TimeGenerated | 레코드가 생성된 날짜 및 시간입니다. | 
-| 유형 | *Update* | 
+| Type | *Update* | 
 | UpdateClassification | 적용할 수 있는 업데이트 유형을 나타냅니다. Windows의 경우:<br> *중요 업데이트*<br> *보안 업데이트*<br> *업데이트 롤업*<br> *기능 팩*<br> *서비스 팩*<br> *정의 업데이트*<br> *Tools*<br> *업데이트*. Linux의 경우:<br> *중요 및 보안 업데이트*<br> *기타* |
-| UpdateSeverity | 취약성에 대 한 심각도입니다. 값은 다음과 같습니다.<br> *심각*<br> *중요*<br> *Moderate*<br> *낮음* |
+| UpdateSeverity | 취약성에 대 한 심각도입니다. 값은 다음과 같습니다.<br> *심각*<br> *중요*<br> *일반*<br> *거의* |
 | UpdateTitle | 업데이트의 제목입니다.|
 
 ### <a name="update"></a>업데이트
@@ -55,15 +55,15 @@ Windows 및 Linux Vm의 업데이트 관리에 의해 수집 된 레코드 및 �
 | Computer | 보고 컴퓨터의 정규화 된 도메인 이름입니다. |
 | ComputerEnvironment | *Azure* 또는 *비 azure*. |
 | MSRCBulletinID | 보안 공지 ID 번호 | 
-| MSRCSeverity | 취약성에 대 한 심각도입니다. 값은 다음과 같습니다.<br> *심각*<br> *중요*<br> *Moderate*<br> *낮음* |  
+| MSRCSeverity | 취약성에 대 한 심각도입니다. 값은 다음과 같습니다.<br> *심각*<br> *중요*<br> *일반*<br> *거의* |  
 | KBID | Windows 업데이트에 대 한 기술 자료 문서 ID입니다. |
 | ManagementGroupName | Operations Manager 관리 그룹 또는 Log Analytics 작업 영역의 이름입니다. |
 | UpdateID | 소프트웨어 업데이트의 고유 식별자입니다. |
 | RevisionNumber | 업데이트의 특정 수정 버전에 대 한 수정 번호입니다. |
-| 선택 사항 | *True* 또는 *False* | 
+| 옵션 | *True* 또는 *False* | 
 | RebootBehavior | 업데이트를 설치/제거한 후의 재부팅 동작입니다. |
 | _ResourceId | 레코드가 연결 된 리소스의 고유 식별자입니다. |
-| 유형 | *Update* |
+| Type | *Update* |
 | VMUUID | 가상 컴퓨터에 대 한 고유 식별자입니다. |
 | MG | 관리 그룹 또는 Log Analytics 작업 영역에 대 한 고유 식별자입니다. | 
 | TenantId | Azure Active Directory의 조직 인스턴스를 나타내는 고유 식별자입니다. | 
@@ -73,7 +73,7 @@ Windows 및 Linux Vm의 업데이트 관리에 의해 수집 된 레코드 및 �
 | 제목 | 업데이트의 제목입니다. |
 | PublishedDate (UTC) | 업데이트를 Windows 업데이트에서 다운로드 하 여 설치할 준비가 된 날짜입니다.  |
 | UpdateState | 업데이트의 현재 상태입니다. | 
-| 제품 | 업데이트를 적용할 수 있는 제품입니다. |
+| Product | 업데이트를 적용할 수 있는 제품입니다. |
 | SubscriptionId | Azure 구독의 고유 식별자입니다. | 
 | ResourceGroup | 리소스가 속한 리소스 그룹의 이름입니다. | 
 | ResourceProvider | 리소스 공급자를 지정 합니다. | 
@@ -97,7 +97,7 @@ Windows 및 Linux Vm의 업데이트 관리에 의해 수집 된 레코드 및 �
 | SourceSystem | *OperationsManager* | 
 | TenantId | Azure Active Directory의 조직 인스턴스를 나타내는 고유 식별자입니다. |
 | TimeGenerated | 레코드가 생성된 날짜 및 시간입니다. |
-| 유형 | *Update* | 
+| Type | *Update* | 
 | WindowsUpdateAgentVersion | Windows 업데이트 에이전트의 버전입니다. |
 | WSUSServer | Windows 업데이트 에이전트에서 문제 해결에 도움이 되는 문제가 발생 하는 경우 오류를 표시 합니다. |
 
@@ -116,7 +116,7 @@ Windows 및 Linux Vm의 업데이트 관리에 의해 수집 된 레코드 및 �
 | KBID | Windows 업데이트에 대 한 기술 자료 문서 ID입니다. | 
 | ManagementGroupName | Operations Manager 관리 그룹 또는 Log Analytics 작업 영역의 이름입니다. |
 | OSType | 운영 체제, *Windows* 또는 *Linux*의 유형을 지정 합니다. | 
-| 제품 | 업데이트를 적용할 수 있는 제품입니다. |
+| Product | 업데이트를 적용할 수 있는 제품입니다. |
 | 리소스 | 리소스의 이름입니다. | 
 | ResourceId | 레코드가 연결 된 리소스의 고유 식별자입니다. |
 | ResourceProvider | 리소스 공급자를 지정 합니다. | 
@@ -128,7 +128,7 @@ Windows 및 Linux Vm의 업데이트 관리에 의해 수집 된 레코드 및 �
 | SucceededOnRetry | 첫 번째 시도에서 업데이트 실행이 실패 하 고 현재 작업을 다시 시도 하는 경우를 표시 합니다. |
 | TimeGenerated | 레코드가 생성된 날짜 및 시간입니다. |
 | 제목 | 업데이트의 제목입니다. |
-| 유형 | *UpdateRunProgress* |
+| Type | *UpdateRunProgress* |
 | UpdateId | 소프트웨어 업데이트의 고유 식별자입니다. |
 | VMUUID | 가상 컴퓨터에 대 한 고유 식별자입니다. |
 | _ResourceId | 레코드가 연결 된 리소스의 고유 식별자입니다. |
@@ -144,8 +144,8 @@ Windows 및 Linux Vm의 업데이트 관리에 의해 수집 된 레코드 및 �
 | CriticalUpdatesMissing | 적용 가능한 중요 업데이트 수가 누락 되었습니다. | 
 | ManagementGroupName | Operations Manager 관리 그룹 또는 Log Analytics 작업 영역의 이름입니다. |
 | NETRuntimeVersion | Windows 컴퓨터에 설치 된 .NET Framework 버전입니다. |
-| OldestMissingSecurityUpdateBucket | | 
-| OldestMissingSecurityUpdateInDays | |
+| OldestMissingSecurityUpdateBucket | 값은 다음과 같습니다.<br> *최근*<br> *30 일 전*<br> *60 일 전*<br> *아닌* | 
+| OldestMissingSecurityUpdateInDays | 설치 되지 않은 것으로 검색 된 가장 오래 된 업데이트의 총 일 수입니다. |
 | OsVersion | 운영 체제의 버전입니다. |
 | OtherUpdatesMissing | 누락 된 검색 된 업데이트 수입니다. |
 | 리소스 |  리소스의 이름입니다. | 
@@ -160,7 +160,7 @@ Windows 및 Linux Vm의 업데이트 관리에 의해 수집 된 레코드 및 �
 | SubscriptionId | Azure 구독의 고유 식별자입니다. |
 | TimeGenerated | 레코드가 생성된 날짜 및 시간입니다. |
 | TotalUpdatesMissing | 적용 가능한 업데이트 누락의 총 수입니다. | 
-| 유형 | *UpdateSummary* |
+| Type | *UpdateSummary* |
 | VMUUID | 가상 컴퓨터에 대 한 고유 식별자입니다. |
 | WindowsUpdateAgentVersion | Windows 업데이트 에이전트의 버전입니다. |
 | WindowsUpdateSetting | Windows 업데이트 에이전트의 상태를 표시 합니다. 가능한 값은 다음과 같습니다.<br> *예약 된 설치*<br> *설치 전 알림*<br> 비정상 WUA 에이전트에서 오류가 반환 되었습니다. | 

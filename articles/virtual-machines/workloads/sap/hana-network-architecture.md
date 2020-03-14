@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 068cc2ed9743a62aa2249a815893c71499711092
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: ca05603ebf06906349a7f94443eafb773a0764f9
+ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77617026"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79138997"
 ---
 # <a name="sap-hana-large-instances-network-architecture"></a>SAP HANA(대규모 인스턴스) 네트워크 아키텍처
 
@@ -77,7 +77,7 @@ HANA 큰 인스턴스 스탬프의 수정 버전 3을 사용 하는 경우 vm과
 
 HANA Large Instance 스탬프의 수정 버전 4를 사용 하면 [SAP Note #1100926-FAQ:](https://launchpad.support.sap.com/#/notes/1100926/E) Azure Express 경로 빠른 경로가 구성 된 경우 네트워크 성능 (아래 참조)에 설명 된 대로 평균을 초과 하는 것과 같은 평균 분류를 만족 하는 것이 좋습니다. 수정 버전 4의 HANA Large Instance 장치에 근접 하 게 Azure Vm을 배포 하려면 [Azure 근접 배치 그룹](https://docs.microsoft.com/azure/virtual-machines/linux/co-location)을 활용 해야 합니다. [Sap 응용 프로그램을 사용 하 여 네트워크 대기 시간을 최적화 하려면 Azure 근접 배치 그룹에서 Azure 근접 배치](sap-proximity-placement-scenarios.md)그룹에 설명 된 것 처럼 근접 배치 그룹을 사용 하 여 동일한 azure 데이터 센터에서 sap 응용 프로그램 계층을 찾을 수 있는 방법을 설명 합니다.
 
-Vm과 HANA Large Instance 간에 결정적인 네트워크 대기 시간을 제공 하기 위해 Express 경로 게이트웨이 SKU를 선택 하는 것이 필수적입니다. 온-프레미스와 VM 간의 트래픽 패턴과는 달리, VM과 HANA 대규모 인스턴스 간의 트래픽 패턴은 작지만 높은 버스트의 요청 및 데이터 볼륨을 전송하도록 개발할 수 있습니다. 이러한 버스트를 잘 처리하려면 UltraPerformance 게이트웨이 SKU를 사용하는 것이 좋습니다. HANA Large Instance Sku의 Type II 클래스에서 UltraPerformance 게이트웨이 SKU를 ExpressRotue 게이트웨이로 사용 하는 것은 필수입니다.
+Vm과 HANA Large Instance 간에 결정적인 네트워크 대기 시간을 제공 하기 위해 Express 경로 게이트웨이 SKU를 선택 하는 것이 필수적입니다. 온-프레미스와 VM 간의 트래픽 패턴과는 달리, VM과 HANA 대규모 인스턴스 간의 트래픽 패턴은 작지만 높은 버스트의 요청 및 데이터 볼륨을 전송하도록 개발할 수 있습니다. 이러한 버스트를 잘 처리하려면 UltraPerformance 게이트웨이 SKU를 사용하는 것이 좋습니다. HANA Large Instance Sku의 Type II 클래스에서 UltraPerformance 게이트웨이 SKU를 Express 경로 게이트웨이로 사용 하는 것은 필수입니다.
 
 > [!IMPORTANT] 
 > SAP 애플리케이션과 데이터베이스 계층 간의 전체 네트워크 트래픽을 고려할 때, SAP HANA on Azure(대규모 인스턴스) 연결에는 가상 네트워크용 HighPerformance 또는 UltraPerformance 게이트웨이 SKU만 지원됩니다. HANA Large Instance Type II Sku의 경우 UltraPerformance 게이트웨이 SKU만 Express 경로 게이트웨이로 지원 됩니다. Express 경로 빠른 경로를 사용 하는 경우 예외 적용 (아래 참조)

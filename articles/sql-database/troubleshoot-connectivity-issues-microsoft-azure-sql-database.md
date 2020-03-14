@@ -9,16 +9,16 @@ author: ramakoni1
 ms.author: ramakoni
 ms.reviewer: carlrab,vanto
 ms.date: 01/14/2020
-ms.openlocfilehash: 6baf9d4edba9ba8db008c5c6a8d7af6832ba3273
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 578d076dfc2fc383051c0c3a8528cdbb0fbcdb15
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77591237"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79208777"
 ---
 # <a name="troubleshooting-connectivity-issues-and-other-errors-with-microsoft-azure-sql-database"></a>Microsoft Azure SQL Database 연결 문제 및 기타 오류 문제 해결
 
-Azure SQL Database에 대한 연결이 실패하면 오류 메시지가 표시됩니다. 이러한 연결 문제는 Azure SQL Database 재구성, 방화벽 설정, 연결 제한 시간, 잘못 된 로그인 정보 또는 [응용 프로그램 디자인] 동안 모범 사례 및 디자인 지침을 적용 하지 못한 경우에 발생할 수 있습니다. sql-database-develop-overview.md)를 처리 합니다. 또한 일부 Azure SQL Database 리소스에 대 한 최대 제한에 도달 하는 경우 Azure SQL Database에 연결할 수 없습니다.
+Azure SQL Database에 대한 연결이 실패하면 오류 메시지가 표시됩니다. 이러한 연결 문제는 Azure SQL Database 재구성, 방화벽 설정, 연결 제한 시간, 잘못 된 로그인 정보 또는 [응용 프로그램 디자인](sql-database-develop-overview.md) 프로세스 중에 모범 사례 및 디자인 지침을 적용 하지 못한 경우에 발생할 수 있습니다. 또한 일부 Azure SQL Database 리소스에 대 한 최대 제한에 도달 하는 경우 Azure SQL Database에 연결할 수 없습니다.
 
 ## <a name="transient-fault-error-messages-40197-40613-and-others"></a>일시적인 오류 메시지 (40197, 40613 및 기타)
 

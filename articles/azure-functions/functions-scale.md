@@ -5,12 +5,12 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c4ff3ebf6239f9b62409ff0885f23115711e33cb
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 0a54d7490fb306bfbc8e1b111e7b7d64c09d2292
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77584544"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79276609"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions 크기 조정 및 호스팅
 
@@ -63,7 +63,7 @@ App Service 계획을 사용 하면 관리 하는 전용 인프라를 활용할 
 
 * 콜드 시작을 방지 하기 위해 웜 인스턴스 영구적으로
 * VNet 연결
-* 무제한 실행 기간
+* 무제한 실행 지속 시간 (60 분 보장)
 * 프리미엄 인스턴스 크기 (1 개 코어, 2 개 코어 및 4 개 코어 인스턴스)
 * 보다 예측 가능한 가격 책정
 * 여러 함수 앱이 포함 된 계획에 대 한 고밀도 앱 할당
@@ -153,12 +153,10 @@ Azure Functions 확장 단위는 함수 앱입니다. 함수 앱을 확장하면
 크기 조정은 다양한 요인에 따라 다르고, 선택한 트리거 및 언어에 따라 달라질 수 있습니다. 유의 해야 할 몇 가지 확장 동작은 다음과 같습니다.
 
 * 단일 함수 앱은 최대 200 개의 인스턴스로 확장할 수 있습니다. 단일 인스턴스는 동시에 둘 이상의 메시지 또는 요청을 처리할 수 있지만 동시 실행 수를 제한하지 않습니다.
-* HTTP 트리거의 경우 새 인스턴스는 1 초 마다 한 번만 할당 됩니다.
-* HTTP가 아닌 트리거의 경우 새 인스턴스는 30 초 마다 한 번만 할당 됩니다.
-
-다른 트리거에는 아래에 문서화된 대로 다른 규모 조정 제한이 있을 수도 있습니다.
-
-* [이벤트 허브](functions-bindings-event-hubs-trigger.md#scaling)
+* HTTP 트리거의 경우 새 인스턴스는 초당 한 번만 할당 됩니다.
+* HTTP가 아닌 트리거의 경우 새 인스턴스는 최대 30 초 마다 한 번씩 할당 됩니다. 확장성은 [프리미엄 계획](#premium-plan)에서 실행 하는 경우 더 빠릅니다.
+* Service Bus 트리거의 경우 가장 효율적인 크기 조정을 위해 리소스에 대 한 _관리_ 권한을 사용 합니다. _수신_ 권한을 사용 하면 크기 조정 결정을 알리는 데 큐 길이를 사용할 수 없으므로 크기 조정이 정확 하지 않습니다. Service Bus 액세스 정책에서 권한을 설정 하는 방법에 대 한 자세한 내용은 [공유 액세스 권한 부여 정책](../service-bus-messaging/service-bus-sas.md#shared-access-authorization-policies)을 참조 하세요.
+* 이벤트 허브 트리거의 경우 참조 문서에서 [크기 조정 지침](functions-bindings-event-hubs-trigger.md#scaling) 을 참조 하세요. 
 
 ### <a name="best-practices-and-patterns-for-scalable-apps"></a>확장성 있는 앱의 모범 사례 및 패턴
 

@@ -10,12 +10,12 @@ ms.subservice: secrets
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: f7fbc82c08d89d73d671a49fb31b9d3cca01c721
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 6962a264787bd8a55b6f6a2ebdb6eeb615c33d5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78195518"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79218413"
 ---
 # <a name="set-up-azure-key-vault-with-key-rotation-and-auditing"></a>키 회전 및 감사를 사용하여 Azure Key Vault 설정
 
@@ -23,21 +23,16 @@ ms.locfileid: "78195518"
 
 Key Vault가 있으면 이를 사용하여 키 및 암호를 저장할 수 있습니다. 사용자 애플리케이션에서는 키 또는 암호 정보를 더 이상 유지할 필요가 없으며, 필요에 따라 자격 증명 모음에서 요청할 수 있습니다. Key vault를 사용 하면 응용 프로그램의 동작에 영향을 주지 않고 키 및 암호를 업데이트할 수 있으므로 키 및 비밀 관리를 위한 다양 한 가능성이 열립니다.
 
->[!IMPORTANT]
-> 이 문서의 예제는 설명 용도로만 제공됩니다. 프로덕션 용도로는 사용할 수 없습니다. 
+이 문서에서는 저장소 계정 키의 예약 된 회전을 구현 하 고, 주요 자격 증명 모음 감사 로그를 모니터링 하 고, 예기치 않은 요청이 발생 했을 때 경고를 생성 하는 방법을 안내 합니다. 
 
-이 문서에서는 다음을 안내합니다.
+먼저 선택한 방법을 사용 하 여 주요 자격 증명 모음을 만들어야 합니다.
 
-- Azure Key Vault를 사용하여 암호를 저장하는 예. 이 문서에서 저장 된 암호는 응용 프로그램에서 액세스 하는 Azure storage 계정 키입니다. 
-- 해당 저장소 계정 키의 예약 된 회전을 구현 하는 방법입니다.
-- 주요 자격 증명 모음 감사 로그를 모니터링 하 고 예기치 않은 요청이 발생 했을 때 경고를 생성 하는 방법입니다.
+- [Azure CLI를 사용 하 여 Azure Key Vault에서 비밀 설정 및 검색](quick-create-cli.md)
+- [Azure PowerShell를 사용 하 여 Azure Key Vault에서 비밀 설정 및 검색](quick-create-powershell.md)
+- [Azure Portal를 사용 하 여 Azure Key Vault에서 비밀 설정 및 검색](quick-create-portal.md)
 
-> [!NOTE]
-> 이 문서에서는 주요 자격 증명 모음의 초기 설정에 대해 자세히 설명 하지 않습니다. 자세한 내용은 [Azure Key Vault란?](key-vault-overview.md)을 참조하세요. 플랫폼 간 명령줄 인터페이스 지침은 [Azure CLI를 사용 하 여 Key Vault 관리](key-vault-manage-with-cli2.md)를 참조 하세요.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-## <a name="set-up-key-vault"></a>주요 자격 증명 모음 설정
+## <a name="store-a-secret"></a>비밀 저장
 
 애플리케이션을 통해 Azure Key Vault에서 비밀을 검색하려면 먼저 비밀을 만들어 Key Vault에 업로드해야 합니다.
 

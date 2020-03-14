@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: cc8ccbbde56b57af684ad47840002a846bdcd8c0
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 0af476b69f2effd836fe76d62059259076c16f53
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827961"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79214151"
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>다중 테넌트 SaaS 앱에서 분할된 다중 테넌트 Azure SQL 데이터베이스의 성능 모니터링 및 관리
 
@@ -47,15 +47,15 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스 앱은 테넌트 ID에 
 * 수동으로 성능을 모니터링할 필요가 없도록 하려면 **데이터베이스가 정상 범위를 벗어난 경우 트리거되는 경고를 설정**하는 것이 가장 효과적입니다.
 * 데이터베이스 컴퓨팅 크기의 단기적 변동에 대응하기 위해 **DTU 수준을 확장하거나 축소할 수 있습니다**. 이러한 변동이 정기적으로 또는 예측 가능한 단위로 발생하는 경우 **데이터베이스 크기 조정을 자동으로 일어나도록 예약**할 수 있습니다. 예를 들어 워크로드가 가볍다고 알고 있는 경우 야간 또는 주말 중으로 규모를 축소할 수 있습니다.
 * 더 장기적인 변동 또는 테넌트 변화에 대응하기 위해 **개별 테넌트를 다른 데이터베이스로 이동**할 수 있습니다.
-* *개별* 테넌트 부하의 단기적 증가에 대응하기 위해 **개별 테넌트를 데이터베이스에서 제외하고 개별 컴퓨팅 크기를 할당**할 수 있습니다. 부하가 감소하면 테넌트를 다중 테넌트 데이터베이스로 반환할 수 있습니다. 이러한 상황을 미리 안다면 데이터베이스에 언제나 필요한 리소스가 있도록 하고 다중 테넌트 데이터베이스에 있는 다른 테넌트에 영향을 미치지 않도록 테넌트를 선제적으로 이동할 수 있습니다. 이 요구 사항이 예측 가능하다면 인기 있는 이벤트에 대한 티켓 판매의 급격한 증가를 경험한 영역을 애플리케이션에 통합할 수 있습니다.
+* *개별* 테넌트 부하의 단기적 증가에 대응하기 위해 **개별 테넌트를 데이터베이스에서 제외하고 개별 컴퓨팅 크기를 할당**할 수 있습니다. 부하가 감소하면 테넌트를 다중 테넌트 데이터베이스로 반환할 수 있습니다. 이를 미리 알고 있는 경우 테 넌 트를 이동 하 여 데이터베이스에 항상 필요한 리소스가 있는지 확인 하 고 다중 테 넌 트 데이터베이스의 다른 테 넌 트에 영향을 미리 수 있습니다. 이 요구 사항이 예측 가능하다면 인기 있는 이벤트에 대한 티켓 판매의 급격한 증가를 경험한 영역을 애플리케이션에 통합할 수 있습니다.
 
 [Azure Portal](https://portal.azure.com)은 대부분의 리소스에 대한 기본 제공 모니터링 및 경고를 제공합니다. SQL Database의 경우 데이터베이스에 대한 모니터링 및 경고가 가능합니다. 이 기본 제공 모니터링 및 경고는 리소스별로 다르므로 소수의 리소스에 사용하면 편리하지만 많은 리소스에 작업하는 경우 편리하지 않을 수 있습니다.
 
-많은 리소스를 사용 하 여 작업 하는 고용량 시나리오의 경우 [Azure Monitor 로그](https://azure.microsoft.com/services/log-analytics/) 를 사용할 수 있습니다. 이는 Log Analytics 작업 영역에서 수집 된 진단 로그 및 원격 분석에 대 한 분석을 제공 하는 별도의 Azure 서비스입니다. Azure Monitor 로그는 여러 서비스에서 원격 분석을 수집 하 고 경고를 쿼리 및 설정 하는 데 사용할 수 있습니다.
+많은 리소스를 사용 하 여 작업 하는 고용량 시나리오의 경우 [Azure Monitor 로그](https://azure.microsoft.com/services/log-analytics/) 를 사용할 수 있습니다. 이는 Log Analytics 작업 영역에 수집 된 내보낸 로그에 대 한 분석을 제공 하는 별도의 Azure 서비스입니다. Azure Monitor 로그는 여러 서비스에서 원격 분석을 수집 하 고 경고를 쿼리 및 설정 하는 데 사용할 수 있습니다.
 
 ## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Wingtip Tickets SaaS 다중 테넌트 데이터베이스 애플리케이션 소스 코드 및 스크립트 가져오기
 
-Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 애플리케이션 소스 코드는 [WingtipTicketsSaaS-MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) GitHub 리포지토리에서 확인할 수 있습니다. [일반 지침](saas-tenancy-wingtip-app-guidance-tips.md)에서 Wingtip Tickets SaaS 스크립트를 다운로드하고 차단을 해제하는 단계를 확인하세요.
+Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 애플리케이션 소스 코드는 [WingtipTicketsSaaS-MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) GitHub 리포지토리에서 확인할 수 있습니다. Wingtip Tickets SaaS 스크립트를 다운로드하고 차단을 해제하는 단계는 [일반 지침](saas-tenancy-wingtip-app-guidance-tips.md)을 확인하세요.
 
 ## <a name="provision-additional-tenants"></a>추가 테넌트 프로비전
 
@@ -63,7 +63,7 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 애플
 
 이미 이전 자습서에서 테넌트의 배치를 프로비전한 경우 [모든 테넌트 데이터베이스에 대한 사용량 시뮬레이션](#simulate-usage-on-all-tenant-databases) 섹션을 건너뛸 수 있습니다.
 
-1. **PowerShell ISE**에서 …\\Learning Modules\\Performance Monitoring and Management\\*Demo-PerformanceMonitoringAndManagement.ps1*을 엽니다. 이 자습서를 실행하는 동안 여러 시나리오를 실행할 때 이 스크립트를 열어 두세요.
+1. **PowerShell ISE**에서 ...\\Learning Modules\\Performance Monitoring and Management\\*Demo-PerformanceMonitoringAndManagement.ps1*을 엽니다. 이 자습서를 실행하는 동안 여러 시나리오를 실행할 때 이 스크립트를 열어 두세요.
 1. **$DemoScenario** = **1**, _Provision a batch of tenants_ 설정
 1. **F5** 키를 눌러 스크립트를 실행합니다.
 
@@ -84,7 +84,7 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 애플
 
 부하 생성기는 *가상* CPU만의 부하를 모든 테넌트 데이터베이스에 적용합니다. 이 생성기는 각 테넌트 데이터베이스에 대해 작업을 시작하여 부하를 생성하는 저장 프로세서를 주기적으로 호출합니다. 부하 수준(DTU 단위), 기간 및 간격은 모든 데이터베이스에 걸쳐 변화하여 예측 불가능한 테넌트 작업을 시뮬레이션합니다.
 
-1. **PowerShell ISE**에서 …\\Learning Modules\\Performance Monitoring and Management\\*Demo-PerformanceMonitoringAndManagement.ps1*을 엽니다. 이 자습서를 실행하는 동안 여러 시나리오를 실행할 때 이 스크립트를 열어 두세요.
+1. **PowerShell ISE**에서 ...\\Learning Modules\\Performance Monitoring and Management\\*Demo-PerformanceMonitoringAndManagement.ps1*을 엽니다. 이 자습서를 실행하는 동안 여러 시나리오를 실행할 때 이 스크립트를 열어 두세요.
 1. **$DemoScenario** = **2**, _일반 강도 부하 생성_을 설정합니다.
 1. **F5** 키를 눌러 모든 테넌트에 부하를 적용합니다.
 
@@ -147,7 +147,7 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스는 SaaS 앱이며 SaaS 
 
 데이터베이스는 프로세스 전체에 걸쳐 온라인이고 완전하게 사용할 수 있도록 남아 있습니다. 애플리케이션 코드는 언제나 끊어진 연결을 재시도하도록 작성해야 합니다. 따라서 데이터베이스 연결이 다시 수행됩니다.
 
-## <a name="provision-a-new-tenant-in-its-own-database"></a>새로운 테넌트를 자체 데이터베이스에서 프로비전하기 
+## <a name="provision-a-new-tenant-in-its-own-database"></a>새로운 테넌트를 자체 데이터베이스에서 프로비전 
 
 분할된 다중 테넌트 모델을 사용하면 다중 테넌트 데이터베이스에서 다른 테넌트와 함께 새 테넌트를 프로비전할지 아니면 자체 데이터베이스에서 테넌트를 프로비전할지 선택할 수 있습니다. 자체 데이터베이스에서 테 넌 트를 프로 비전 하 여 별도의 데이터베이스에 내재 된 격리를 활용 하 여 다른 사용자와 독립적으로 해당 테 넌 트의 성능을 관리 하 고 다른 테 넌 트와 독립적으로 해당 테 넌 트를 복원할 수 있습니다. 예를 들어 다중 테 넌 트 데이터베이스에 무료 평가판 또는 정규 고객을 배치 하 고 개별 데이터베이스에 프리미엄 고객을 배치 하도록 선택할 수 있습니다.  격리된 단일 테넌트 데이터베이스를 만든 경우에도 탄력적 풀에서 함께 관리하여 리소스 비용을 최적화할 수 있습니다.
 

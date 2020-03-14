@@ -5,15 +5,15 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 03/10/2020
 ms.author: victorh
 ms.reviewer: tyao
-ms.openlocfilehash: dd9c3f972a2b598c0c03db2cb80986c08900c609
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: abcef61d478eccb4e979b60eb845ac8d398a49f9
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73517125"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79135873"
 ---
 # <a name="set-up-a-geo-filtering-waf-policy-for-your-front-door"></a>프런트 도어의 지역 필터링 WAF 정책 설정
 
@@ -21,7 +21,7 @@ ms.locfileid: "73517125"
 
 Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 지금 만드세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 지역 필터링 정책을 설정하기 전에 PowerShell 환경을 설정하고 Front Door 프로필을 만듭니다.
 ### <a name="set-up-your-powershell-environment"></a>PowerShell 환경 설정

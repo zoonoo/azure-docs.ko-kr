@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: diberry
 ms.openlocfilehash: e3028a9f046edb4013d8a2d6ec88d8c3cb2ca489
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639228"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79221334"
 ---
 # <a name="data-storage-and-removal-in-language-understanding-luis-cognitive-services"></a>Language Understanding(LUIS) Cognitive Services의 데이터 스토리지 및 제거
 LUIS는 키를 통해 지정된 지역에 해당하는 Azure 데이터 저장소에 암호화된 데이터를 저장합니다. 이 데이터는 30일 동안 저장됩니다. 
@@ -28,7 +28,7 @@ LUIS는 키를 통해 지정된 지역에 해당하는 Azure 데이터 저장소
 
 길이 발언는 서로 다른 두 위치에 저장할 수 있습니다. 
 
-* **제작 프로세스**중에 길이 발언가 생성 되 고 의도에 저장 됩니다. 길이 발언는 성공적인 LUIS 앱에 필요 합니다. 앱이 게시 되 고 끝점에서 쿼리를 수신 하면 끝점 요청의 querystring `log=false`은 끝점이 utterance 저장 되었는지 여부를 확인 합니다. 끝점이 저장 되 면 endpoint **길이 발언 검토** 섹션에서 포털의 **빌드** 섹션에 있는 활성 학습 길이 발언의 일부가 됩니다. 
+* **제작 프로세스**중에 길이 발언가 생성 되 고 의도에 저장 됩니다. 길이 발언는 성공적인 LUIS 앱에 필요 합니다. 앱이 게시 되 고 끝점에서 쿼리를 수신 하면 끝점 요청의 querystring `log=false`은 끝점 utterance 저장 되었는지 여부를 확인 합니다. 끝점이 저장 되 면 endpoint **길이 발언 검토** 섹션에서 포털의 **빌드** 섹션에 있는 활성 학습 길이 발언의 일부가 됩니다. 
 * **길이 발언 끝점을 검토**하 고 utterance를 의도에 추가 하면 utterance가 더 이상 검토할 끝점 길이 발언의 일부로 저장 되지 않습니다. 앱의 의도에 추가 됩니다. 
 
 <a name="utterances-in-an-intent"></a>

@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 01/28/2020
 ms.author: raynew
 ms.openlocfilehash: 5c3adecf62f9bd15c820baf116dbc01e5d3542fa
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78362161"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79245799"
 ---
 # <a name="azure-migrate-support-matrix"></a>Azure Migrate 지원 매트릭스
 
@@ -33,18 +33,18 @@ ms.locfileid: "78362161"
 **도구** | **평가** | **마이그레이션** 
 --- | --- | ---
 Azure Migrate 서버 평가 | [VMware vm](tutorial-prepare-vmware.md), [hyper-v vm](tutorial-prepare-hyper-v.md)및 [물리적 서버](tutorial-prepare-physical.md)를 평가 합니다. |  사용할 수 없음 (NA)
-Azure Migrate 서버 마이그레이션 | NA | [VMware vm](tutorial-migrate-vmware.md), [hyper-v vm](tutorial-migrate-hyper-v.md)및 [물리적 서버](tutorial-migrate-physical-virtual-machines.md)를 마이그레이션합니다.
-[Carbonite](https://www.carbonite.com/data-protection-resources/resource/Datasheet/carbonite-migrate-for-microsoft-azure) | NA | VMware Vm, Hyper-v Vm, 물리적 서버, 공용 클라우드 워크 로드를 마이그레이션합니다. 
-[Cloudamize](https://www.cloudamize.com/platform#tab-0)| VMware Vm, Hyper-v Vm, 물리적 서버, 공용 클라우드 워크 로드를 평가 합니다. | NA
+Azure Migrate 서버 마이그레이션 | 해당 없음 | [VMware vm](tutorial-migrate-vmware.md), [hyper-v vm](tutorial-migrate-hyper-v.md)및 [물리적 서버](tutorial-migrate-physical-virtual-machines.md)를 마이그레이션합니다.
+[Carbonite](https://www.carbonite.com/data-protection-resources/resource/Datasheet/carbonite-migrate-for-microsoft-azure) | 해당 없음 | VMware Vm, Hyper-v Vm, 물리적 서버, 공용 클라우드 워크 로드를 마이그레이션합니다. 
+[Cloudamize](https://www.cloudamize.com/platform#tab-0)| VMware Vm, Hyper-v Vm, 물리적 서버, 공용 클라우드 워크 로드를 평가 합니다. | 해당 없음
 [Corent Technology](https://go.microsoft.com/fwlink/?linkid=2084928) | VMware Vm, Hyper-v Vm, 물리적 서버, 공용 클라우드 워크 로드를 평가 하 고 마이그레이션합니다. |  VMware Vm, Hyper-v Vm, 물리적 서버, 공용 클라우드 워크 로드를 마이그레이션합니다.
-[Device 42](https://go.microsoft.com/fwlink/?linkid=2097158) | VMware Vm, Hyper-v Vm, 물리적 서버, 공용 클라우드 워크 로드를 평가 합니다.| NA
-[DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017) | 온-프레미스 SQL Server 데이터베이스를 평가 합니다. | NA
-[DMS](https://docs.microsoft.com/azure/dms/dms-overview) | NA | SQL Server, Oracle, MySQL, PostgreSQL, MongoDB를 마이그레이션합니다. 
-[Lakeside](https://go.microsoft.com/fwlink/?linkid=2104908) | VDI (가상 데스크톱 인프라) 평가 | NA
-[Movere](https://go.microsoft.com/fwlink/?linkid=2109528) | VMWare Vm, Hyper-v Vm, Xen Vm, 물리적 컴퓨터, 워크스테이션 (VDI 포함), 공용 클라우드 워크 로드 평가 | NA
-[RackWare](https://go.microsoft.com/fwlink/?linkid=2102735) | NA | VMWare Vm, Hyper-v Vm, Xen Vm, KVM Vm, 물리적 컴퓨터, 공용 클라우드 워크 로드 마이그레이션 
-[Turbonomic](https://go.microsoft.com/fwlink/?linkid=2094295)  | VMware Vm, Hyper-v Vm, 물리적 서버, 공용 클라우드 워크 로드를 평가 합니다. | NA
-[UnifyCloud](https://go.microsoft.com/fwlink/?linkid=2097195) | VMware Vm, Hyper-v Vm, 물리적 서버, 공용 클라우드 워크 로드 및 SQL Server 데이터베이스를 평가 합니다. | NA
+[Device 42](https://go.microsoft.com/fwlink/?linkid=2097158) | VMware Vm, Hyper-v Vm, 물리적 서버, 공용 클라우드 워크 로드를 평가 합니다.| 해당 없음
+[DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017) | 온-프레미스 SQL Server 데이터베이스를 평가 합니다. | 해당 없음
+[DMS](https://docs.microsoft.com/azure/dms/dms-overview) | 해당 없음 | SQL Server, Oracle, MySQL, PostgreSQL, MongoDB를 마이그레이션합니다. 
+[Lakeside](https://go.microsoft.com/fwlink/?linkid=2104908) | VDI (가상 데스크톱 인프라) 평가 | 해당 없음
+[Movere](https://go.microsoft.com/fwlink/?linkid=2109528) | VMWare Vm, Hyper-v Vm, Xen Vm, 물리적 컴퓨터, 워크스테이션 (VDI 포함), 공용 클라우드 워크 로드 평가 | 해당 없음
+[RackWare](https://go.microsoft.com/fwlink/?linkid=2102735) | 해당 없음 | VMWare Vm, Hyper-v Vm, Xen Vm, KVM Vm, 물리적 컴퓨터, 공용 클라우드 워크 로드 마이그레이션 
+[Turbonomic](https://go.microsoft.com/fwlink/?linkid=2094295)  | VMware Vm, Hyper-v Vm, 물리적 서버, 공용 클라우드 워크 로드를 평가 합니다. | 해당 없음
+[UnifyCloud](https://go.microsoft.com/fwlink/?linkid=2097195) | VMware Vm, Hyper-v Vm, 물리적 서버, 공용 클라우드 워크 로드 및 SQL Server 데이터베이스를 평가 합니다. | 해당 없음
 [Webapp Migration Assistant](https://appmigration.microsoft.com/) | 웹 앱 평가 | 웹 앱을 마이그레이션합니다.
 
 
@@ -52,7 +52,7 @@ Azure Migrate 서버 마이그레이션 | NA | [VMware vm](tutorial-migrate-vmwa
 
 **지원** | **세부 정보**
 --- | ---
-구독 | 구독에서 여러 Azure Migrate 프로젝트를 사용할 수 있습니다.
+Subscription | 구독에서 여러 Azure Migrate 프로젝트를 사용할 수 있습니다.
 Azure 권한 | Azure Migrate 프로젝트를 만들려면 구독에 대 한 참가자 또는 소유자 권한이 있어야 합니다.
 VMware VM  | 단일 프로젝트에서 최대 35000 VMware Vm을 평가 합니다.
 Hyper-V VM | 단일 프로젝트에서 최대 35000 Hyper-v Vm을 평가 합니다.
@@ -79,13 +79,13 @@ Azure Government | US Gov 버지니아
 아시아 태평양 | 동아시아 또는 동남 아시아
 오스트레일리아 | 오스트레일리아 동부 또는 오스트레일리아 남동쪽
 브라질 | 브라질 남부
-캐나다 | 캐나다 중부 또는 캐나다 동부
-Europe | 북유럽 또는 서유럽
+Canada | 캐나다 중부 또는 캐나다 동부
+유럽 | 북유럽 또는 서유럽
 프랑스 | 프랑스 중부
 인도 | 인도 중부 또는 인도 남부
 일본 |  일본 동부 또는 일본 서 부
-대한민국 | 대한민국 중부 또는 한국 남부
-영국 | 영국 남부 또는 영국 서부
+한국 | 대한민국 중부 또는 한국 남부
+United Kingdom | 영국 남부 또는 영국 서부
 미국 | 미국 중부 또는 미국 서 부 2
 
 

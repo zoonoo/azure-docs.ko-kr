@@ -5,11 +5,11 @@ ms.topic: article
 ms.date: 10/24/2019
 ms.custom: seodec18
 ms.openlocfilehash: d57b196bf95ebdf31bc459ad4b9d718fd32ca495
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672222"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79280834"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Azure App Service의 고급 인증 및 권한 부여 사용
 
@@ -66,7 +66,7 @@ Content-Type: application/json
 
 토큰 형식은 공급자에 따라 약간 다릅니다. 자세한 내용은 다음 표를 참조하세요.
 
-| 공급자 값 | 요청 본문에 필요 | 의견 |
+| 공급자 값 | 요청 본문에 필요 | 주석 |
 |-|-|-|
 | `aad` | `{"access_token":"<access_token>"}` | |
 | `microsoftaccount` | `{"access_token":"<token>"}` | `expires_in` 속성은 선택 사항입니다. <br/>Live 서비스에서 토큰을 요청하는 경우 항상 `wl.basic` 범위를 요청합니다. |
@@ -95,7 +95,7 @@ X-ZUMO-AUTH: <authenticationToken_value>
 
 ## <a name="sign-out-of-a-session"></a>세션에서 로그아웃
 
-사용자는 앱의 `/.auth/logout` 엔드포인트에 `GET` 요청을 전송하여 로그아웃을 시작할 수 있습니다. `GET` 요청은 다음을 수행합니다.
+사용자는 앱의 `GET` 엔드포인트에 `/.auth/logout` 요청을 전송하여 로그아웃을 시작할 수 있습니다. `GET` 요청은 다음을 수행합니다.
 
 - 현재 세션에서 인증 쿠키를 지웁니다.
 - 토큰 저장소에서 현재 사용자의 토큰을 삭제합니다.
@@ -113,7 +113,7 @@ X-ZUMO-AUTH: <authenticationToken_value>
 GET /.auth/logout?post_logout_redirect_uri=/index.html
 ```
 
-`post_logout_redirect_uri`의 값을 [인코딩](https://wikipedia.org/wiki/Percent-encoding)하는 것이 좋습니다.
+[의 값을 ](https://wikipedia.org/wiki/Percent-encoding)인코딩`post_logout_redirect_uri`하는 것이 좋습니다.
 
 정규화된 URL을 사용하는 경우 URL은 동일한 도메인에 호스팅되거나 앱에 대한 허용되는 외부 리디렉션 URL로 구성되어야 합니다. 다음 예제에서 동일한 도메인에서 호스팅되지 않는 `https://myexternalurl.com`으로 리디렉션하려면:
 
@@ -168,7 +168,7 @@ App Service는 특수 헤더를 사용하여 사용자 클레임을 애플리케
 
 ## <a name="refresh-identity-provider-tokens"></a>ID 공급자 토큰 새로 고침
 
-[세션 토큰](#extend-session-token-expiration-grace-period)이 아닌 공급자의 액세스 토큰이 만료되면 사용자를 다시 인증해야 해당 토큰을 다시 사용할 수 있습니다. 애플리케이션의 `/.auth/refresh` 엔드포인트에 대한 `GET` 호출을 수행하면 토큰 만료를 방지할 수 있습니다. 호출되면 App Service에서는 인증된 사용자에 대한 토큰 저장소의 액세스 토큰을 자동으로 새로 고칩니다. 이후에 앱 코드에서 토큰을 요청하면 새로 고쳐진 토큰을 가져옵니다. 단, 토큰 새로 고침을 실행하기 위해서는 토큰 저장소에 사용자 공급자에 대한 [토큰 새로 고침](https://auth0.com/learn/refresh-tokens/)이 포함되어야 합니다. 새로 고침 토큰을 얻는 방법은 각 공급자에서 제공하는 문서에 나와 있으며, 다음 목록은 간단한 요약입니다.
+[세션 토큰](#extend-session-token-expiration-grace-period)이 아닌 공급자의 액세스 토큰이 만료되면 사용자를 다시 인증해야 해당 토큰을 다시 사용할 수 있습니다. 애플리케이션의 `GET` 엔드포인트에 대한 `/.auth/refresh` 호출을 수행하면 토큰 만료를 방지할 수 있습니다. 호출되면 App Service에서는 인증된 사용자에 대한 토큰 저장소의 액세스 토큰을 자동으로 새로 고칩니다. 이후에 앱 코드에서 토큰을 요청하면 새로 고쳐진 토큰을 가져옵니다. 단, 토큰 새로 고침을 실행하기 위해서는 토큰 저장소에 사용자 공급자에 대한 [토큰 새로 고침](https://auth0.com/learn/refresh-tokens/)이 포함되어야 합니다. 새로 고침 토큰을 얻는 방법은 각 공급자에서 제공하는 문서에 나와 있으며, 다음 목록은 간단한 요약입니다.
 
 - **Google**: `access_type=offline` 쿼리 문자열 매개 변수를 `/.auth/login/google` API 호출에 추가합니다. Mobile Apps SDK를 사용하는 경우 `LogicAsync` 오버로드 중 하나에 매개 변수를 추가할 수 있습니다([Google 새로 고침 토큰](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens) 참조).
 - **Facebook**: 새로 고침 토큰을 제공하지 않습니다. 수명이 긴 토큰은 60일 후에 만료됩니다([액세스 토큰의 Facebook 만료 및 확장](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension) 참조).
@@ -223,7 +223,7 @@ az webapp auth update --resource-group <group_name> --name <app_name> --token-re
 
 Microsoft 계정과 Azure Active Directory는 모두 여러 도메인에서 로그인할 수 있습니다. 예를 들어 Microsoft 계정은 _outlook.com_, _live.com_ 및 _hotmail.com_ 계정을 허용합니다. Azure AD는 로그인 계정에 대해 원하는 수의 사용자 지정 도메인을 허용 합니다. 그러나 사용자의 브랜드 Azure AD 로그인 페이지 (예: `contoso.com`)로 직접 사용자를 가속화 하는 것이 좋습니다. 로그인 계정의 도메인 이름을 제안 하려면 다음 단계를 수행 합니다.
 
-[https://resources.azure.com](https://resources.azure.com)에서 **subscriptions** >  **_\< subscription\_ name_**  > **resourceGroups** >  **_\< resource\_ group\_ name>_**  > **providers** > **Microsoft.Web** > **사이트** >  **_\< app\_ name>_**  > **config** > **authsettings**로 이동합니다. 
+[https://resources.azure.com](https://resources.azure.com)에서 **subscriptions** >  **_\<subscription\_name_**  > **resourceGroups** >  **_\<resource\_group\_name>_**  > **providers** > **Microsoft.Web** > **사이트** >  **_\<app\_name>_**  > **config** > **authsettings**로 이동합니다. 
 
 **편집**을 클릭하고 다음 속성을 수정한 다음, **배치**를 클릭합니다. _\<domain\_name>_ 을 원하는 도메인으로 바꿨는지 확인합니다.
 
@@ -249,7 +249,7 @@ App Service는 가장 간단한 인증 사례 (예: 인증 되지 않은 요청 
 
 모든 Windows 앱의 경우 *web.config 파일을* 편집 하 여 IIS 웹 서버의 권한 부여 동작을 정의할 수 있습니다. Linux 앱은 IIS를 사용 하지 않으며 *web.config*를 통해 구성할 수 없습니다.
 
-1. `https://<app-name>.scm.azurewebsites.net/DebugConsole` 탐색
+1. `https://<app-name>.scm.azurewebsites.net/DebugConsole`로 이동합니다.
 
 1. App Service 파일의 브라우저 탐색기에서 *site/wwwroot*로 이동 합니다. *Web.config가 존재 하지 않는* 경우 **+**  > **새 파일**을 선택 하 여 만듭니다. 
 

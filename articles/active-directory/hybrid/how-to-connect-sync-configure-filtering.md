@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 983699dfbfe3e8fa332da4810d1514a11029077f
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78376246"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79261100"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Azure AD Connect 동기화 구성 필터링
 필터링을 사용하여 온-프레미스 디렉터리에서 Azure Active Directory(Azure AD)에 표시할 개체를 제어할 수 있습니다. 기본 구성은 모든 도메인에 구성된 포리스트의 모든 개체를 사용합니다. 일반적으로 권장되는 구성입니다. Exchange Online 및 비즈니스용 Skype 등의 Office 365 워크로드를 사용하면 완전한 전체 주소 목록이 도움이 되므로 모든 사람에게 메일을 보내거나 호출할 수 있습니다. 기본 구성을 사용하여 Exchange 또는 Lync의 온-프레미스 구현과 같은 환경을 가져올 수 있습니다.
@@ -123,7 +123,7 @@ Azure AD Connect를 설치하거나 최신 버전으로 업그레이드할 때 �
 도메인 필터를 설정하려면 다음 단계를 수행합니다.
 
 1.  Azure AD Connect 마법사 시작
-2.  **구성**을 클릭합니다.
+2.  **Configure**를 클릭합니다.
 3.  **동기화 옵션 사용자 지정** 을 선택 하 고 **다음**을 클릭 합니다.
 4.  Azure AD 자격 증명 입력
 5.  **연결 된 디렉터리** 화면에서 **다음**을 클릭 합니다.
@@ -140,11 +140,11 @@ Azure AD Connect를 설치하거나 최신 버전으로 업그레이드할 때 �
     * 전체 동기화
     * 델타 가져오기
     * 델타 동기화
-    * Export
+    * 내보내기
 3. 각 프로필에 대해 **추가된** 도메인과 **제거된** 도메인을 조정합니다.
     1. 각각의 5개 프로필에 대해 **추가된** 각 도메인에 다음 단계를 수행합니다.
         1. 실행 프로필을 선택하고 **새 단계**를 클릭합니다.
-        2. **구성 단계** 페이지의 **형식** 드롭다운 메뉴에서 구성할 프로필과 같은 이름의 단계 유형을 선택합니다. 그런 다음 **다음**을 클릭합니다.  
+        2. **구성 단계** 페이지의 **형식** 드롭다운 메뉴에서 구성할 프로필과 같은 이름의 단계 유형을 선택합니다. 그런 후 **Next** 를 클릭합니다.  
         ![커넥터 실행 프로필 2](./media/how-to-connect-sync-configure-filtering/runprofilesnewstep1.png)  
         3. **커넥터 구성** 페이지의 **파티션** 드롭다운 메뉴에서 도메인 필터에 추가한 파티션의 이름을 선택합니다.  
         ![커넥터 실행 프로필 3](./media/how-to-connect-sync-configure-filtering/runprofilesnewstep2.png)  
@@ -235,7 +235,7 @@ Active Directory에서 메타버스로의 [인바운드](#inbound-filtering) 및
 5. **범위 지정 필터**에서 **그룹 추가**를 클릭하고 **절 추가**를 클릭합니다. **특성**에서 **ExtensionAttribute15**를 선택합니다. **연산자**가 **EQUAL**로 설정되어 있는지 확인하고 **값** 상자에 값 **NoSync**를 입력합니다. **다음**을 클릭합니다.  
    ![인바운드 2 범위](./media/how-to-connect-sync-configure-filtering/inbound2.png)  
 6. **조인**을 비워두고 **다음**을 클릭합니다.
-7. **변환 추가**를 클릭하고 **상수**로 **FlowType**을 선택하고 **대상 특성**으로 **cloudFiltered**로 선택합니다. **소스** 텍스트 상자에서 **True**를 입력합니다. **추가**를 클릭하여 규칙을 저장합니다.  
+7. **변환 추가**를 클릭하고 **상수**로 **FlowType**을 선택하고 **대상 특성**으로 **cloudFiltered**로 선택합니다. **소스** 텍스트 상자에서 **True**를 입력합니다. **추가** 를 클릭하여 규칙을 저장합니다.  
    ![인바운드 3 변환](./media/how-to-connect-sync-configure-filtering/inbound3.png)
 8. 구성을 완료 하려면 **전체 동기화**를 실행 해야 합니다. [변경 내용 적용 및 확인](#apply-and-verify-changes)섹션을 계속 읽습니다.
 
@@ -254,14 +254,14 @@ Active Directory에서 메타버스로의 [인바운드](#inbound-filtering) 및
 5. **범위 지정 필터**에서 **그룹 추가**를 클릭하고 **절 추가**를 클릭합니다. **특성**에서 **부서**를 선택합니다. 연산자가 **EQUAL**로 설정되어 있는지 확인하고 **값** 상자에 값 **Sales**를 입력합니다. **다음**을 클릭합니다.  
    ![인바운드 5 범위](./media/how-to-connect-sync-configure-filtering/inbound5.png)  
 6. **조인**을 비워두고 **다음**을 클릭합니다.
-7. **변환 추가**를 클릭하고 **FlowType**으로 **상수**를 선택하고 **대상 특성**으로 **cloudFiltered**를 선택합니다. **소스** 상자에 **False**를 입력합니다. **추가**를 클릭하여 규칙을 저장합니다.  
+7. **변환 추가**를 클릭하고 **FlowType**으로 **상수**를 선택하고 **대상 특성**으로 **cloudFiltered**를 선택합니다. **소스** 상자에 **False**를 입력합니다. **추가** 를 클릭하여 규칙을 저장합니다.  
    ![인바운드 6 변환](./media/how-to-connect-sync-configure-filtering/inbound6.png)  
    이는 cloudFiltered를 명시적으로 **False**로 설정하는 특수한 경우입니다.
 8. 이제 범용 동기화 규칙을 만들어야 합니다. “*In from AD – User Catch-all filter*”와 같이 설명이 포함된 이름을 규칙에 지정합니다. 올바른 포리스트를 선택하고, **CS 개체 형식**으로 **사용자**를 선택하고 **MV 개체 형식**으로 **개인**을 선택합니다. **링크 형식**에서 **조인**을 선택합니다. **우선 순위**에서 현재 다른 동기화 규칙에서 사용하지 않는 값(예: 99)을 입력합니다. 이전 동기화 규칙보다 더 높은 우선 순위(더 낮은 우선 순위) 값을 선택했습니다. 하지만 추가 부서 동기화를 시작하려는 경우 더 많은 필터링 동기화 규칙을 나중에 추가할 수 있도록 약간의 공간도 남겨두었습니다. **다음**을 클릭합니다.  
    ![인바운드 7 설명](./media/how-to-connect-sync-configure-filtering/inbound7.png)  
 9. **범위 지정 필터**를 비워 두고 **다음**을 클릭합니다. 빈 필터는 규칙이 모든 개체에 적용되어야 한다는 것을 나타냅니다.
 10. **조인**을 비워두고 **다음**을 클릭합니다.
-11. **변환 추가**를 클릭하고 **FlowType**으로 **상수**를 선택하고 **대상 특성**으로 **cloudFiltered**를 선택합니다. **소스** 상자에 **True**를 입력합니다. **추가**를 클릭하여 규칙을 저장합니다.  
+11. **변환 추가**를 클릭하고 **FlowType**으로 **상수**를 선택하고 **대상 특성**으로 **cloudFiltered**를 선택합니다. **소스** 상자에 **True**를 입력합니다. **추가** 를 클릭하여 규칙을 저장합니다.  
     ![인바운드 3 변환](./media/how-to-connect-sync-configure-filtering/inbound3.png)  
 12. 구성을 완료 하려면 **전체 동기화**를 실행 해야 합니다. [변경 내용 적용 및 확인](#apply-and-verify-changes)섹션을 계속 읽습니다.
 

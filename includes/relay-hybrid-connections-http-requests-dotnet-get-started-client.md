@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/16/2018
 ms.author: clemensv
 ms.custom: include file
-ms.openlocfilehash: 8d73a22473ffff358c7424249c7581f6af740718
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: ce29cd03de46e1d93d7f1f28f9f5184cd59a57e7
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67182792"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79199887"
 ---
 ### <a name="create-a-console-application"></a>콘솔 애플리케이션 만들기
 
@@ -69,7 +69,7 @@ Visual Studio에서 새 **콘솔 앱(.NET Framework)** 프로젝트를 만듭니
         Console.WriteLine(await response.Content.ReadAsStringAsync());        Console.ReadLine();
     }
     ```
-4. `Program` 클래스의 `Main` 메서드에 다음 코드 줄을 추가합니다.
+4. `Main` 클래스의 `Program` 메서드에 다음 코드 줄을 추가합니다.
    
     ```csharp
     RunAsync().GetAwaiter().GetResult();
@@ -82,6 +82,7 @@ Visual Studio에서 새 **콘솔 앱(.NET Framework)** 프로젝트를 만듭니
     using System.IO;
     using System.Threading;
     using System.Threading.Tasks;
+    using System.Net.Http;
     using Microsoft.Azure.Relay;
    
     namespace Client

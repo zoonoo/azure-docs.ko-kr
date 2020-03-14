@@ -9,11 +9,11 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: cc3f38e9bb96ce76263a3124f8bfdc49dc638bfd
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113786"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79282758"
 ---
 # <a name="data-import-overview---azure-cognitive-search"></a>데이터 가져오기 개요-Azure Cognitive Search
 
@@ -48,7 +48,7 @@ REST API에서 Azure Cognitive Search 인덱스의 끝점 URL에 대 한 JSON �
 .NET SDK에서 데이터를 `IndexBatch` 개체에 패키지 합니다. `IndexBatch`은 각각 문서를 포함 하는 `IndexAction` 개체의 컬렉션과 해당 문서에 대해 수행할 작업을 Azure Cognitive Search에 게 알려 주는 속성을 캡슐화 합니다. 코드 예제는 [ C# 빠른](search-get-started-dotnet.md)시작을 참조 하세요.
 
 
-| @search.action | 설명 | 각 문서에 대해 필요한 필드 | 참고 사항 |
+| @search.action | Description | 각 문서에 대해 필요한 필드 | 메모 |
 | -------------- | ----------- | ---------------------------------- | ----- |
 | `upload` |`upload` 작업은 새 문서는 삽입하고 기존 문서는 업데이트/교체하는 "upsert"와 비슷합니다. |키, 더하기 정의하려는 기타 필드 |기존 문서를 업데이트/교체하는 경우 요청에 지정되지 않은 필드는 해당 필드를 `null`로 설정합니다. 필드가 이전에 null이 아닌 값으로 설정된 경우에 발생합니다. |
 | `merge` |기존 문서를 지정한 필드로 업데이트합니다. 인덱스에 문서가 없으면 병합이 실패합니다. |키, 더하기 정의하려는 기타 필드 |문서의 기존 필드는 병합에서 지정하는 필드로 바뀝니다. .NET SDK에서 여기에는 `DataType.Collection(DataType.String)`형식의 필드가 포함 됩니다. REST API에는 `Collection(Edm.String)`형식의 필드가 포함 됩니다. 예를 들어 값이 `tags`인 `["budget"]` 필드가 포함되어 있는 문서에서 `["economy", "pool"]`에 대해 `tags` 값과의 병합을 실행하면 `tags` 필드의 최종 값은 `["economy", "pool"]`이 됩니다. `["budget", "economy", "pool"]`이 아닙니다. |
@@ -72,7 +72,7 @@ REST API에서 Azure Cognitive Search 인덱스의 끝점 URL에 대 한 JSON �
 ## <a name="pulling-data-into-an-index"></a>인덱스로 데이터 끌어오기
 끌어오기 모델은 지원되는 데이터 원본을 탐색하고 인덱스에 데이터를 자동으로 업로드합니다. Azure Cognitive Search에서이 기능은 *인덱서*를 통해 구현 되며, 현재 이러한 플랫폼에 사용할 수 있습니다.
 
-+ [Blob storage](search-howto-indexing-azure-blob-storage.md)
++ [Blob Storage](search-howto-indexing-azure-blob-storage.md)
 + [Table Storage](search-howto-indexing-azure-tables.md)
 + [Azure Cosmos DB](https://aka.ms/documentdb-search-indexer)
 + [Azure SQL 데이터베이스 및 Azure VM의 SQL Server](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
@@ -93,7 +93,7 @@ REST API에서 Azure Cognitive Search 인덱스의 끝점 URL에 대 한 JSON �
 > [!TIP]
 > 수많은 [Azure Cognitive Search 코드 샘플](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search) 에는 포함 되거나 즉시 사용 가능한 데이터 집합이 포함 되어 쉽게 시작할 수 있는 방법이 제공 됩니다. 또한 포털에서는 작은 부동산 데이터 세트("realestate-us-sample")로 구성된 샘플 인덱서 및 데이터 원본도 제공합니다. 샘플 데이터 원본에 미리 구성된 인덱서를 실행하면 인덱스가 검색 탐색기 또는 작성한 코드로 쿼리할 수 있는 문서로 만들어지고 로드됩니다.
 
-## <a name="see-also"></a>참고 항목:
+## <a name="see-also"></a>참고 항목
 
 + [인덱서 개요](search-indexer-overview.md)
 + [포털 연습: 인덱스 만들기, 로드, 쿼리](search-get-started-portal.md)

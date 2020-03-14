@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: mjbrown
 ms.openlocfilehash: 711e961bd5eb1607e2e6f11b0b5762423d78c0e7
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78898780"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79246579"
 ---
 # <a name="keywords-in-azure-cosmos-db"></a>Azure Cosmos DB의 키워드
 이 문서에서는 SQL 쿼리에서 Azure Cosmos DB는 데 사용할 수 있는 키워드에 대해 자세히 설명 합니다.

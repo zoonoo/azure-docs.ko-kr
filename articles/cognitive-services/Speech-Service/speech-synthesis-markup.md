@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/18/2020
+ms.date: 03/05/2020
 ms.author: dapine
-ms.openlocfilehash: b39b8712f3e8b869d7dbe496dd30f0599aa4150d
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.openlocfilehash: 68691ad60542c55db4d381e2923a9f928a22995a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78254782"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79221422"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>SSML (음성 합성 마크업) 언어를 사용 하 여 합성 향상
 
@@ -329,7 +329,7 @@ Phonetic 영문자는 문자, 숫자 또는 문자로 구성 된 전화로 구�
 
 | attribute | Description | 필수/선택 |
 |-----------|-------------|---------------------|
-| `alphabet` | `ph` 특성에서 문자열의 발음을 synthesizing 때 사용할 발음 문자를 지정 합니다. 영문자를 지정 하는 문자열은 소문자로 지정 해야 합니다. 지정할 수 있는 알파벳은 다음과 같습니다.<ul><li>ipa &ndash; 국제 발음 영문자</li><li>sapi &ndash; Speech API Phone 집합</li><li>ups &ndash; 범용 전화 집합</li></ul>알파벳은 요소의 음소 적용 됩니다. 자세한 내용은 [Phonetic 영문자 참조](https://msdn.microsoft.com/library/hh362879(v=office.14).aspx)를 참조 하세요. | 옵션 |
+| `alphabet` | `ph` 특성에서 문자열의 발음을 synthesizing 때 사용할 발음 문자를 지정 합니다. 영문자를 지정 하는 문자열은 소문자로 지정 해야 합니다. 지정할 수 있는 알파벳은 다음과 같습니다.<ul><li>`ipa` &ndash; 국제 발음 영문자</li><li>`sapi` &ndash; Speech service 발음 영문자</li><li>범용 전화 번호 설정 `ups` &ndash;</li></ul><br>알파벳은 요소의 `phoneme`에만 적용 됩니다. 자세한 내용은 [Phonetic 영문자 참조](https://en.wikipedia.org/wiki/International_Phonetic_Alphabet)를 참조 하세요. | 옵션 |
 | `ph` | `phoneme` 요소에서 단어의 발음을 지정 하는 전화를 포함 하는 문자열입니다. 지정 된 문자열이 인식할 수 없는 휴대폰을 포함 하는 경우 TTS (텍스트 음성 변환) 서비스는 전체 SSML 문서를 거부 하 고 문서에 지정 된 음성 출력을 생성 하지 않습니다. | 음소를 사용 하는 경우 필수입니다. |
 
 **예**
@@ -418,13 +418,11 @@ Could you help leave a message to Robert Benigni for me?
 - 파일 크기: 사용자 지정 사전 파일 크기 최대 제한은 100KB이 크기를 초과 하면 합성 요청이 실패 합니다.
 - 어휘 집 캐시 새로 고침: 사용자 지정 어휘는 처음 로드 될 때 TTS 서비스에서 키로 URI를 사용 하 여 캐시 됩니다. 동일한 URI를 사용 하는 어휘는 15 분 이내에 다시 로드 되지 않으므로 사용자 지정 어휘 변화는 최대 15 분이 지나야 적용 됩니다.
 
-**SAPI 전화 집합**
+**음성 서비스 음성 서비스 음성 설정**
 
-위의 샘플에서는 IPA (국제 음성 협회) 전화 번호 집합을 사용 합니다. IPA가 국제 표준 이기 때문에 개발자가 IPA를 사용 하는 것이 좋습니다. 
+위의 샘플에서는 IPA phone 집합이 라고도 하는 국제 발음 문자를 사용 합니다. 개발자는 국제 표준 이기 때문에 IPA를 사용 하는 것이 좋습니다. IPA를 기억할 수 없는 것으로 생각 하는 음성 서비스는 7 가지 언어 (`en-US`, `fr-FR`, `de-DE`, `es-ES`, `ja-JP`, `zh-CN`및 `zh-TW`)에 대 한 음성 집합을 정의 합니다.
 
-IPA를 기억할 수 없는 것으로 간주 하 여 Microsoft는 7 개 언어 (`en-US`, `fr-FR`, `de-DE`, `es-ES`, `ja-JP`, `zh-CN`및 `zh-TW`)에 대해 SAPI 전화 번호 집합을 정의 합니다. 자세한 내용은 [Phonetic 영문자 참조](https://msdn.microsoft.com/library/hh362879(v=office.14).aspx)를 참조 하세요.
-
-아래와 같이 사용자 지정 lexicons에서 SAPI 휴대폰을 사용할 수 있습니다. **Sapi**를 사용 하 여 영문자 값을 설정 합니다.
+아래와 같이 사용자 지정 lexicons를 사용 하 여 `alphabet` 특성의 베일로 `sapi`을 사용할 수 있습니다.
 
 ```xml
 <?xml version="1.0" encoding="UTF-16"?>
@@ -445,7 +443,7 @@ IPA를 기억할 수 없는 것으로 간주 하 여 Microsoft는 7 개 언어 (
 </lexicon>
 ```
 
-자세한 SAPI 알파벳에 대 한 자세한 내용은 [Sapi 알파벳 참조](sapi-phoneset-usage.md)를 참조 하세요.
+음성 서비스에 대 한 자세한 내용은 [음성 서비스 음성 서비스 윗주 집합](speech-ssml-phonetic-sets.md)을 참조 하세요.
 
 ## <a name="adjust-prosody"></a>Prosody 조정
 

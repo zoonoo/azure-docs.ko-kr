@@ -8,38 +8,38 @@ ms.date: 08/20/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.openlocfilehash: 9b3dba0041b38d9d59a10eaf80592bab91f65b98
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 9ffa69980f020580376aea447f40ac615f26cf03
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72600281"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79135890"
 ---
 # <a name="copy-a-blob-with-net"></a>.NET을 사용 하 여 blob 복사
 
-이 문서에서는 Azure Storage 계정으로 blob을 복사 하는 방법을 보여 줍니다. 또한 비동기 복사 작업을 중단 하는 방법을 보여 줍니다. 예제 코드는 [.net 용 Azure Storage 클라이언트 라이브러리](/dotnet/api/overview/azure/storage/client)를 사용 합니다.
+이 문서에서는 Azure Storage 계정으로 blob을 복사 하는 방법을 보여 줍니다. 또한 비동기 복사 작업을 중단 하는 방법을 보여 줍니다. 예제 코드는 [.net 용 Azure Storage 클라이언트 라이브러리](/dotnet/api/overview/azure/storage?view=azure-dotnet)를 사용 합니다.
 
 ## <a name="about-copying-blobs"></a>Blob 복사 정보
 
 동일한 저장소 계정 내에서 blob을 복사 하는 경우 동기 작업입니다. 계정 간에 복사 하는 경우이 작업은 비동기 작업입니다. [Startcopy](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopy?view=azure-dotnet) 및 [startcopyasync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopyasync?view=azure-dotnet) 메서드는 상태를 확인 하거나 복사 작업을 중단 하는 데 사용 되는 복사본 ID 값을 반환 합니다.
 
-복사 작업의 원본 blob은 블록 blob, 추가 blob, 페이지 blob 또는 스냅숏으로 지정할 수 있습니다. 대상 blob이 이미 있는 경우 원본 blob과 동일한 blob 유형 이어야 합니다. 기존 대상 blob을 덮어씁니다. 
+복사 작업의 원본 blob은 블록 blob, 추가 blob, 페이지 blob 또는 스냅숏으로 지정할 수 있습니다. 대상 blob가 이미 있으면 원본 blob와 동일한 blob 유형이어야 합니다. 기존 대상 blob는 덮어씁니다. 
 
-복사 작업이 진행 되는 동안에는 대상 blob을 수정할 수 없습니다. 대상 blob은 처리 중인 blob 복사 작업을 하나만 포함할 수 있습니다. 즉, blob은 여러 보류 중인 복사 작업의 대상이 될 수 없습니다.
+복사 작업이 진행 되는 동안에는 대상 blob을 수정할 수 없습니다. 대상 blob는 처리되지 않은 blob 복사 작업을 하나만 포함할 수 있습니다. 즉, blob은 여러 보류 중인 복사 작업의 대상이 될 수 없습니다.
 
 전체 원본 blob 또는 파일은 항상 복사 됩니다. 바이트 범위 또는 블록 집합은 복사할 수 없습니다.
 
 Blob을 복사 하는 경우 해당 시스템 속성은 동일한 값을 사용 하 여 대상 blob에 복사 됩니다.
 
-모든 blob 유형에 대해 대상 blob의 [Copystate. status](/dotnet/api/microsoft.azure.storage.blob.copystate.status?view=azure-dotnet) 속성을 확인 하 여 복사 작업의 상태를 가져올 수 있습니다. 복사가 완료 되 면 최종 blob이 커밋됩니다.
+모든 blob 유형에 대해 대상 blob의 [Copystate. status](/dotnet/api/microsoft.azure.storage.blob.copystate.status?view=azure-dotnet) 속성을 확인 하 여 복사 작업의 상태를 가져올 수 있습니다. 복사가 완료되면 최종 blob가 커밋됩니다.
 
 복사 작업은 다음 형식 중 하나를 사용할 수 있습니다.
 
-  - 원본 blob을 다른 이름으로 대상 blob에 복사할 수 있습니다. 대상 blob은 동일한 blob 유형 (블록, 추가 또는 페이지)의 기존 blob 이거나 복사 작업으로 만들어진 새 blob 일 수 있습니다.
+  - 다른 이름을 사용해서 원본 blob를 대상 blob에 복사할 수 있습니다. 대상 blob은 동일한 blob 유형 (블록, 추가 또는 페이지)의 기존 blob 이거나 복사 작업으로 만들어진 새 blob 일 수 있습니다.
   - 원본 blob을 동일한 이름의 대상 blob에 복사 하 여 대상 blob을 효과적으로 바꿀 수 있습니다. 이러한 복사 작업은 커밋되지 않은 모든 블록을 제거 하 고 대상 blob의 메타 데이터를 덮어씁니다.
   - Azure 파일 서비스의 원본 파일을 대상 blob에 복사할 수 있습니다. 대상 blob은 기존 블록 blob 이거나 복사 작업을 통해 생성 되는 새 블록 blob 일 수 있습니다. 파일에서 페이지 blob으로 복사 또는 blob 추가는 지원 되지 않습니다.
   - 기본 Blob에 대해 스냅샷을 복사할 수 있습니다. 스냅샷의 수준을 기본 Blob 위치로 올리면 이전 Blob 버전을 복원할 수 있습니다.
-  - 스냅샷을 다른 이름으로 대상 Blob에 복사할 수 있습니다. 결과 대상 blob은 스냅숏이 아닌 쓰기 가능한 blob입니다.
+  - 스냅샷을 다른 이름으로 대상 Blob에 복사할 수 있습니다. 복사된 대상 Blob는 쓰기 가능한 Blob이고 스냅숏이 아닙니다.
 
 ## <a name="copy-a-blob"></a>Blob 복사
 

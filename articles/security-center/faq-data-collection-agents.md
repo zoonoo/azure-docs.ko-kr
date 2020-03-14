@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
 ms.openlocfilehash: 8317a13b9ef87679836f55627268deefa4500dce
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78372938"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79245474"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>FAQ-데이터 수집, 에이전트 및 작업 영역에 대 한 질문
 

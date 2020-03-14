@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb7fed7cf5f38f9f7677126aff92492ccacd6e12
-ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
+ms.openlocfilehash: 676a1dd2435d17db2151bdf21f1989e7f182701b
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75707947"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136486"
 ---
 # <a name="troubleshooting-devices-using-the-dsregcmd-command"></a>Dsregcmd.exe 명령을 사용 하 여 장치 문제 해결
 
@@ -29,7 +29,7 @@ Dsregcmd.exe/status 유틸리티는 도메인 사용자 계정으로 실행 해�
 | AzureAdJoined | EnterpriseJoined 됨 | DomainJoined | 디바이스 상태 |
 | ---   | ---   | ---   | ---   |
 | YES | 아니요 | 아니요 | Azure AD 조인 됨 |
-| 아니요 | 아니요 | YES | 도메인에 가입된 경우 |
+| 아니요 | 아니요 | YES | 도메인 가입 |
 | YES | 아니요 | YES | 하이브리드 AD 조인 됨 |
 | 아니요 | YES | YES | 온-프레미스 DRS 조인 됨 |
 
@@ -81,7 +81,7 @@ Dsregcmd.exe/status 유틸리티는 도메인 사용자 계정으로 실행 해�
 +----------------------------------------------------------------------+
 ```
 
-## <a name="tenant-details"></a>테넌트 세부 정보
+## <a name="tenant-details"></a>테 넌 트 세부 정보
 
 장치가 Azure AD에 가입 된 경우 또는 하이브리드 Azure AD에 가입 된 경우에만 표시 됩니다 (Azure AD가 등록 되지 않음). 이 섹션에서는 장치가 Azure AD에 가입 된 경우 일반적인 테 넌 트 세부 정보를 나열 합니다.
 
@@ -136,7 +136,7 @@ Dsregcmd.exe/status 유틸리티는 도메인 사용자 계정으로 실행 해�
 - **WorkplaceJoined:** -Azure AD 등록 된 계정이 현재 ntuser.man 파일 컨텍스트의 장치에 추가 된 경우 "예"로 설정 합니다.
 - **WamDefaultSet:** -로그인 한 사용자에 대해 WAM default WebAccount가 생성 되 면 "예"로 설정 합니다. Dsreg/status를 관리자 컨텍스트에서 실행 하는 경우이 필드에 오류가 표시 될 수 있습니다. 
 - **WamDefaultAuthority:** -Azure AD의 "조직"으로 설정 합니다.
-- **WamDefaultId:** -Azure AD “https://login.microsoft.com” 의 경우-항상 ""입니다.
+- **WamDefaultId:** -Azure AD의 경우 항상 "https://login.microsoft.com"입니다.
 - **고 wamdefaultguid:** -기본 WAM WebAccount에 대 한 WAM 공급자의 (Azure AD/MICROSOFT 계정) GUID입니다. 
 
 ### <a name="sample-user-state-output"></a>샘플 사용자 상태 출력
@@ -211,8 +211,16 @@ Dsregcmd.exe/status 유틸리티는 도메인 사용자 계정으로 실행 해�
 - **AD 구성 테스트:** -테스트는 SCP 개체가 온-프레미스 AD 포리스트에서 올바르게 구성 되었는지 여부를 읽고 확인 합니다. 이 테스트의 오류는 검색 단계에서 오류 코드 0x801c001d와 함께 조인 오류가 발생할 수 있습니다.
 - **DRS 검색 테스트:** -테스트는 검색 메타 데이터 끝점에서 DRS 끝점을 가져오고 사용자 영역 요청을 수행 합니다. 이 테스트의 오류는 검색 단계에서 조인 오류가 발생할 수 있습니다.
 - **Drs 연결 테스트:** -테스트는 DRS 끝점에 대 한 기본 연결 테스트를 수행 합니다.
-- **토큰 획득 테스트:** -테스트 사용자 테 넌 트가 페더레이션 된 경우 Azure AD 인증 토큰을 가져오려고 시도 합니다. 이 테스트에서 오류가 발생 하면 인증 단계에서 조인 오류가 발생할 수 있습니다. 키를 사용 하 여 명시적으로 사용 하지 않도록 설정 된 경우를 제외 하 고 인증 실패 동기화 조인은 대체 (fallback)로 시도 됩니다.
-- **Sync로 대체-조인:** -대체가 인증 실패와의 동기화를 방지 하기 위해 레지스트리 키가 없는 경우 "사용"으로 설정 합니다. 이 옵션은 Windows 10 1803 이상에서 사용할 수 있습니다.
+- **토큰 획득 테스트:** -테스트 사용자 테 넌 트가 페더레이션 된 경우 Azure AD 인증 토큰을 가져오려고 시도 합니다. 이 테스트에서 오류가 발생 하면 인증 단계에서 조인 오류가 발생할 수 있습니다. 아래의 레지스트리 키 설정을 사용 하 여 대체 (fallback)가 명시적으로 비활성화 되지 않은 경우 인증 실패 동기화 조인이 대체 (fallback)로 시도 됩니다.
+```
+    Keyname: Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ
+    Value: FallbackToSyncJoin
+    Type:  REG_DWORD
+    Value: 0x0 -> Disabled
+    Value: 0x1 -> Enabled
+    Default (No Key): Enabled
+ ```
+- **Sync로 대체-조인:** -위의 레지스트리 키가 인증 실패와의 동기화 조인을 방지 하기 위해 "사용"으로 설정 되어 있지 않습니다. 이 옵션은 Windows 10 1803 이상에서 사용할 수 있습니다.
 - **이전 등록:** -이전 조인 시도가 발생 한 시간입니다. 실패 한 조인 시도만 로깅됩니다.
 - **오류 단계:** -중단 된 조인의 단계입니다. 가능한 값은 사전 검사, 검색, 인증, 조인입니다.
 - **클라이언트 ErrorCode:** -클라이언트 오류 코드가 반환 되었습니다 (HRESULT).

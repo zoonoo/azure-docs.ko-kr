@@ -10,14 +10,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 35046d33a85eaed913454f188f2a4526715526a9
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 5b8dab14a9416795eccef1f71988a048c8bedb48
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77168774"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79218173"
 ---
 # <a name="define-custom-r-modules-for-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio에 대 한 사용자 지정 R 모듈 정의 (클래식)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 이 항목에서는 사용자 지정 R Studio (클래식)를 작성 하 고 배포 하는 방법에 대해 설명 합니다. 사용자 지정 R 모듈의 정의와 이를 정의하는 데 사용되는 파일을 설명합니다. 또한 이러한 파일을 생성하여 Machine Learning 작업 영역에서 모듈을 정의하는 파일을 구조화하고 배포용 모듈을 등록하는 방법을 보여 줍니다. 그런 다음 사용자 지정 모듈의 정의에 사용되는 요소 및 특성에 대해 자세히 설명합니다. 보조 기능과 파일 및 여러 출력을 사용하는 방법도 소개합니다. 
 
@@ -200,7 +202,7 @@ XML 정의 파일의 **Language** 요소는 사용자 지정 모듈 언어를 �
     </Ports> 
 
 
-그런 다음 ‘CustomAddRows.R’에서 올바른 순서로 목록에 있는 개체 목록을 반환합니다.
+및는 ' CustomAddRows. R '에서 올바른 순서로 목록의 개체 목록을 반환 합니다.
 
     CustomAddRows <- function(dataset1, dataset2, swap=FALSE) { 
         if (swap) { dataset <- rbind(dataset2, dataset1)) } 
@@ -333,11 +335,11 @@ defaultValue, minValue 및 maxValue와 같은 모듈의 선택적 속성을 **Pr
 사용자 지정 모듈 ZIP 파일에 있는 모든 파일은 실행 시간 동안 사용할 수 있습니다. 모든 디렉터리 구조는 있는 그대로 유지됩니다. 즉, 파일 소싱은 로컬 및 Azure Machine Learning Studio (클래식) 실행에서 동일 하 게 작동 합니다. 
 
 > [!NOTE]
-> 모든 파일은 'src' 디렉터리로 추출되므로 모든 경로에 'src/' 접두사가 있어야 합니다.
+> 모든 파일은 ' src ' 디렉터리로 추출 되므로 모든 경로에 ' src/' 접두사가 있어야 합니다.
 > 
 > 
 
-예를 들어 데이터 세트를 CustomAddRows에 출력하기 전에 NA가 있는 모든 행과 모든 중복 행을 데이터 세트에서 제거하려는 경우 RemoveDupNARows.R 파일에서 이 작업을 수행하는 R 함수를 이미 작성했다고 가정해 보겠습니다.
+예를 들어 데이터 집합에서 NAs를 사용 하는 모든 행을 제거 하 고, CustomAddRows에 출력 하기 전에 중복 행을 제거 하 고 Removedupnarows.r 파일에서이를 수행 하는 R 함수를 이미 작성 했다고 가정 합니다.
 
     RemoveDupNARows <- function(dataFrame) {
         #Remove Duplicate Rows:
@@ -359,7 +361,7 @@ CustomAddRows 함수에서 보조 파일 RemoveDupNARows.R을 소싱할 수 있�
         return (dataset)
     }
 
-그런 다음 ‘CustomAddRows.R’, ‘CustomAddRows.xml’ 및 ‘RemoveDupNARows.R’이 포함된 zip 파일을 사용자 지정 R 모듈로 업로드합니다.
+그런 다음 ' CustomAddRows. R ', ' CustomAddRows .xml ' 및 ' Removedupnarows.r '를 포함 하는 zip 파일을 사용자 지정 R 모듈로 업로드 합니다.
 
 ## <a name="execution-environment"></a>실행 환경
 R 스크립트의 실행 환경에서는 **R 스크립트 실행** 모듈과 동일한 버전의 R을 사용하며, 동일한 기본 패키지를 사용할 수 있습니다. 사용자 지정 모듈 zip 패키지에 포함하여 사용자 지정 모듈에 추가 R 패키지를 추가할 수 있습니다. 사용자 고유의 R 환경과 마찬가지로 R 스크립트에서 로드합니다. 

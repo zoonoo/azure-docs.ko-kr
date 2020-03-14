@@ -11,12 +11,12 @@ author: srinia
 ms.author: srinia
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: 633c3ffc8e266087c88116a15c43469727a9a50d
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: e5b07ac0e9421cbca034b17c573cab16641f49f7
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77133641"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79214488"
 ---
 # <a name="create-configure-and-manage-elastic-jobs"></a>탄력적 작업 만들기, 구성 및 관리
 
@@ -35,7 +35,7 @@ ms.locfileid: "77133641"
 
 1. [PowerShell](elastic-jobs-powershell.md) 또는 [t-sql](elastic-jobs-tsql.md#create-a-credential-for-job-execution)을 사용 하 여 *작업 데이터베이스* 에서 작업 실행을 위한 자격 증명을 만듭니다.
 2. [PowerShell](elastic-jobs-powershell.md) 또는 [t-sql](elastic-jobs-tsql.md#create-a-target-group-servers)을 사용 하 여 대상 그룹 (작업을 실행 하려는 데이터베이스)을 정의 합니다.
-3. 작업을 실행할 각 데이터베이스에서 작업 에이전트 자격 증명을 만듭니다[(그룹의 각 데이터베이스에서 사용자(또는 역할)를 추가합니다)](sql-database-control-access.md). 예를 들어 [PowerShell 자습서](elastic-jobs-powershell.md)를 참조합니다.
+3. 작업을 실행할 각 데이터베이스에서 작업 에이전트 자격 증명을 만듭니다[(그룹의 각 데이터베이스에서 사용자(또는 역할)를 추가합니다)](sql-database-manage-logins.md). 예를 들어 [PowerShell 자습서](elastic-jobs-powershell.md)를 참조합니다.
 4. [PowerShell](elastic-jobs-powershell.md) 또는 [t-sql](elastic-jobs-tsql.md#deploy-new-schema-to-many-databases)을 사용 하 여 작업을 만듭니다.
 5. [PowerShell](elastic-jobs-powershell.md) 또는 [T-SQL](elastic-jobs-tsql.md#deploy-new-schema-to-many-databases)을 사용하여 작업 단계를 추가합니다.
 6. [PowerShell](elastic-jobs-powershell.md#run-the-job) 또는 [t-sql](elastic-jobs-tsql.md#begin-ad-hoc-execution-of-a-job)을 사용 하 여 작업을 실행 합니다.

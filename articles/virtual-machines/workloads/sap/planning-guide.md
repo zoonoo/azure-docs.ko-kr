@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/05/2020
+ms.date: 03/11/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7349c22a2478020c9ac79655ad1e7c23c4cf5034
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: 6fef1829e008b58f50546e9e6e7ad2ccee037224
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78892827"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79245266"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현
 
@@ -495,9 +495,17 @@ SAP 워크 로드의 경우 SAP 워크 로드 및 SAP HANA 워크 로드에 적�
 
 또한 Azure는 전용 호스트의 개념을 제공 합니다. 전용 호스트 개념은 Azure에서 수행 하는 패치 주기를 보다 세밀 하 게 제어할 수 있도록 합니다. 사용자의 일정에 따라 패치 적용에 시간을 지정할 수 있습니다. 이 제품은 일반적인 워크 로드 주기를 따르지 않을 수 있는 워크 로드를 대상으로 하는 고객을 대상으로 합니다. Azure 전용 호스트 제품의 개념에 대 한 자세한 내용은 [Azure 전용 호스트](https://docs.microsoft.com/azure/virtual-machines/windows/dedicated-hosts)문서를 참조 하세요. 이 제품을 사용 하는 것은 SAP 워크 로드에 대해 지원 되며, 인프라 및 Microsoft의 최종 유지 관리 계획에 대 한 패치를 보다 세밀 하 게 제어 하려는 여러 SAP 고객이 사용 합니다. Microsoft에서 가상 컴퓨터를 호스트 하는 Azure 인프라를 유지 관리 하 고 패치 하는 방법에 대 한 자세한 내용은 [azure에서 가상 컴퓨터에 대 한 유지 관리](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates)문서를 참조 하세요.
 
+#### <a name="generation-1-and-generation-2-virtual-machines"></a>1 세대 및 2 세대 가상 컴퓨터
+Microsoft의 하이퍼바이저는 가상 컴퓨터의 서로 다른 두 세대를 처리할 수 있습니다. 이러한 형식을 **1 세대** 및 **2 세대**라고 합니다. **2 세대** 는 Windows Server 2012 하이퍼바이저에서 2012 년에 도입 되었습니다. 1 세대 가상 컴퓨터를 사용 하 여 Azure를 시작 했습니다. Azure virtual machines를 배포 하는 경우 기본값은 여전히 1 세대 형식을 사용 합니다. 한편 2 세대 VM 형식도 배포할 수 있습니다. [Azure의 2 세대 vm에 대 한 지원](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2) 문서에서는 2 세대 vm으로 배포할 수 있는 azure vm 제품군을 나열 합니다. 이 문서에는 Hyper-v 사설 클라우드 및 Azure에서 실행할 수 있는 2 세대 가상 컴퓨터의 매우 중요 한 기능 차이가 나와 있습니다. 또한이 문서에는 Azure에서 실행 되는 Vm 1 세대와 2 세대 Vm 간의 기능적 차이점이 나열 되어 있습니다. 
+
+> [!NOTE]
+> Azure에서 실행 되는 1 세대 및 2 세대 Vm의 기능 차이가 있습니다. [Azure의 2 세대 vm에 대 한 지원](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2) 문서를 읽고 이러한 차이점의 목록을 확인 하세요.  
+ 
+기존 VM을 한 세대에서 다른 세대로 이동 하는 것은 불가능 합니다. 가상 컴퓨터 세대를 변경 하려면 원하는 세대의 새 VM을 배포 하 고 세대의 가상 머신에서 실행 중인 소프트웨어를 다시 설치 해야 합니다. 이는 VM의 기본 VHD 이미지에만 영향을 주며 데이터 디스크나 연결 된 NFS 또는 SMB 공유에는 영향을 주지 않습니다. 원래 할당 된 데이터 디스크, NFS 또는 SMB 공유 (예: 1 세대 VM)
+
+지금은 Azure M 시리즈 Vm과 Mv2 시리즈 Vm 간에 특히이 문제가 발생 합니다. 1 세대 VM 형식의 제한 사항으로 인해 Mv2 패밀리의 규모가 많은 Vm을 1 세대 형식으로 제공할 수는 없지만 2 세대에 독점적으로 제공 해야 합니다. 반면에 M 시리즈 VM 제품군은 아직 2 세대에 배포 되지 않습니다. 따라서 M 시리즈와 Mv2 시리즈 가상 머신 간의 크기를 조정 하려면 다른 VM 제품군을 대상으로 하는 가상 머신에서 소프트웨어를 다시 설치 해야 합니다. Microsoft는 2 세대 배포를 위해 M 시리즈 Vm을 배포할 수 있도록 노력 하 고 있습니다. M 시리즈 Vm을 나중에 2 세대 Vm으로 배포 하는 것은 M 시리즈와 Mv2 시리즈 가상 머신 간에 원활한 작은 크기 조정을 사용 하도록 설정 하는 것입니다. 양방향에서 M 시리즈에서 더 큰 Mv2 시리즈 virtual machines로 크기를 조정 하거나 더 큰 Mv2 시리즈 Vm에서 더 작은 M 시리즈 Vm으로 크기를 조정 합니다. M 시리즈 Vm을 2 세대 Vm으로 배포할 수 있는 즉시 설명서가 업데이트 될 예정입니다.    
 
  
-
 
 ### <a name="a72afa26-4bf4-4a25-8cf7-855d6032157f"></a>스토리지: Microsoft Azure Storage 및 데이터 디스크
 Microsoft Azure Virtual Machines는 다양한 스토리지 유형을 활용합니다. Azure Virtual Machine 서비스에서 SAP를 구현할 때는 다음 두 가지 주요 스토리지 유형 간의 차이점을 이해하는 것이 중요합니다.

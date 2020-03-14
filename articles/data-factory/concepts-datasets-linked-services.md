@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/25/2019
 ms.openlocfilehash: 878ad98b118fa02a6659584ac60e3343a948cd20
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928487"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79246267"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Azure 데이터 팩터리의 데이터 세트
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -67,12 +67,12 @@ Data Factory의 데이터 집합은 다음과 같은 JSON 형식으로 정의 �
 ```
 다음 표에서는 위의 JSON에서 속성을 설명합니다.
 
-자산 | 설명 | 필수 |
+속성 | Description | 필수 |
 -------- | ----------- | -------- |
-이름 | 데이터 세트의 이름입니다. [Azure Data Factory - 이름 지정 규칙](naming-rules.md)을 참조하세요. |  yes |
+name | 데이터 세트의 이름입니다. [Azure Data Factory - 이름 지정 규칙](naming-rules.md)을 참조하세요. |  yes |
 type | 데이터 세트의 형식입니다. Data Factory에서 지원하는 형식(예: AzureBlob, AzureSqlTable) 중 하나를 지정합니다. <br/><br/>자세한 내용은 [데이터 세트 형식](#dataset-type)을 참조하세요. | yes |
-structure | 데이터 세트의 스키마입니다. 자세한 내용은 [데이터 집합 스키마](#dataset-structure-or-schema)를 참조 하세요. | 아닙니다. |
-typeProperties | 형식 속성은 각 형식마다 다릅니다(예: Azure Blob, Azure SQL 테이블). 지원되는 형식 및 해당 속성에 대한 자세한 내용은 [데이터 세트 형식](#dataset-type)을 참조하세요. | yes |
+structure | 데이터 세트의 스키마입니다. 자세한 내용은 [데이터 집합 스키마](#dataset-structure-or-schema)를 참조 하세요. | 예 |
+typeProperties | 형식 속성은 형식마다 다릅니다(예: Azure Blob, Azure SQL 테이블). 지원되는 형식 및 해당 속성에 대한 자세한 내용은 [데이터 세트 형식](#dataset-type)을 참조하세요. | yes |
 
 ### <a name="data-flow-compatible-dataset"></a>데이터 흐름 호환 데이터 집합
 
@@ -112,12 +112,12 @@ typeProperties | 형식 속성은 각 형식마다 다릅니다(예: Azure Blob,
 
 다음 표에서는 위의 JSON에서 속성을 설명합니다.
 
-자산 | 설명 | 필수 |
+속성 | Description | 필수 |
 -------- | ----------- | -------- |
-이름 | 데이터 세트의 이름입니다. [Azure Data Factory - 이름 지정 규칙](naming-rules.md)을 참조하세요. |  yes |
+name | 데이터 세트의 이름입니다. [Azure Data Factory - 이름 지정 규칙](naming-rules.md)을 참조하세요. |  yes |
 type | 데이터 세트의 형식입니다. Data Factory에서 지원하는 형식(예: AzureBlob, AzureSqlTable) 중 하나를 지정합니다. <br/><br/>자세한 내용은 [데이터 세트 형식](#dataset-type)을 참조하세요. | yes |
-schema | 데이터 세트의 스키마입니다. 자세한 내용은 [데이터 흐름 호환 데이터 집합](#dataset-type)을 참조 하세요. | 아닙니다. |
-typeProperties | 형식 속성은 각 형식마다 다릅니다(예: Azure Blob, Azure SQL 테이블). 지원되는 형식 및 해당 속성에 대한 자세한 내용은 [데이터 세트 형식](#dataset-type)을 참조하세요. | yes |
+스키마 | 데이터 세트의 스키마입니다. 자세한 내용은 [데이터 흐름 호환 데이터 집합](#dataset-type)을 참조 하세요. | 예 |
+typeProperties | 형식 속성은 형식마다 다릅니다(예: Azure Blob, Azure SQL 테이블). 지원되는 형식 및 해당 속성에 대한 자세한 내용은 [데이터 세트 형식](#dataset-type)을 참조하세요. | yes |
 
 
 ## <a name="dataset-example"></a>데이터 세트 예제
@@ -178,12 +178,12 @@ typeProperties | 형식 속성은 각 형식마다 다릅니다(예: Azure Blob,
 
 structure의 각 열에는 다음과 같은 속성이 포함됩니다.
 
-자산 | 설명 | 필수
+속성 | Description | 필수
 -------- | ----------- | --------
-이름 | 열의 이름입니다. | yes
-type | 열의 데이터 형식입니다. Data Factory는 **Int16, Int32, Int64, Single, Double, Decimal, Byte[], Boolean, String, Guid, Datetime, Datetimeoffset 및 Timespan** 값을 허용하는 중간 데이터 형식을 지원합니다. | 아닙니다.
-culture | type이 `Datetime` 또는 `Datetimeoffset` .NET 형식일 때 사용할 .NET 기반 culture(문화권)입니다. 기본값은 `en-us`입니다. | 아닙니다.
-format | type이 `Datetime` 또는 `Datetimeoffset` .NET 형식일 때 사용할 format(서식) 문자열입니다. 날짜/시간 형식을 지정하는 방법은 [사용자 지정 날짜 및 시간 형식 문자열](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)을 참조하세요. | 아닙니다.
+name | 열의 이름입니다. | yes
+type | 열의 데이터 형식입니다. Data Factory는 **Int16, Int32, Int64, Single, Double, Decimal, Byte[], Boolean, String, Guid, Datetime, Datetimeoffset 및 Timespan** 값을 허용하는 중간 데이터 형식을 지원합니다. | 예
+culture | type이 `Datetime` 또는 `Datetimeoffset` .NET 형식일 때 사용할 .NET 기반 culture(문화권)입니다. 기본값은 `en-us`입니다. | 예
+format | type이 `Datetime` 또는 `Datetimeoffset` .NET 형식일 때 사용할 format(서식) 문자열입니다. 날짜/시간 형식을 지정하는 방법은 [사용자 지정 날짜 및 시간 형식 문자열](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)을 참조하세요. | 예
 
 ### <a name="example"></a>예제
 다음 예제에서는 원본 Blob 데이터가 CSV 형식이며 userid, name 및 lastlogindate의 세 열을 포함한다고 가정합니다. 요일에 축약된 프랑스 이름을 사용하여 사용자 지정 날짜/시간 형식을 사용하는 Int64, String 및 Datetime 형식입니다.
@@ -199,7 +199,7 @@ format | type이 `Datetime` 또는 `Datetimeoffset` .NET 형식일 때 사용할
 ]
 ```
 
-### <a name="guidance"></a>인도
+### <a name="guidance"></a>지침
 
 다음 지침은 structure 정보를 포함할 시기 및 **structure** 섹션에 포함할 내용을 결정하는 데 도움이 됩니다. [스키마 및 형식 매핑](copy-activity-schema-and-type-mapping.md)에서 데이터 팩터리에서 원본 데이터를 싱크로 매핑하는 방법 및 구조 정보를 지정하는 시기에 대해 알아봅니다.
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/12/2019
 ms.author: rogara
 ms.custom: include file
-ms.openlocfilehash: 7246a072c1bf2253b822fca53b0b69700c66221d
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.openlocfilehash: 23550c83e76631e44d5036e0a038f01b61a79f1b
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2020
-ms.locfileid: "77565264"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79208239"
 ---
 ## <a name="assign-access-permissions-to-an-identity"></a>ID에 액세스 권한 할당
 
@@ -26,14 +26,14 @@ Id 기반 인증을 사용 하 여 Azure Files 리소스에 액세스 하려면 
 - **저장소 파일 데이터 Smb 공유 승격 된 참가자** 는 SMB를 통한 Azure Storage 파일 공유에서 NTFS 읽기, 쓰기, 삭제 및 수정 권한을 허용 합니다.
 
 > [!IMPORTANT]
-> ID에 역할을 할당하는 기능을 비롯하여 파일 공유에 대한 모든 관리 권한을 할당하려면 스토리지 계정 키를 사용해야 합니다. Azure AD 자격 증명으로는 관리 권한이 지원되지 않습니다.
+> 파일 소유권을 가져오는 기능을 포함 하 여 파일 공유에 대 한 모든 관리 권한을 저장소 계정 키를 사용 해야 합니다. Azure AD 자격 증명으로는 관리 권한이 지원되지 않습니다.
 
 Azure Portal, PowerShell 또는 Azure CLI를 사용 하 여 공유 수준 권한을 부여 하는 사용자의 Azure AD id에 기본 제공 역할을 할당할 수 있습니다.
 
 > [!NOTE]
 > 인증에 AD를 사용할 계획인 경우 AD 자격 증명을 Azure AD와 동기화 해야 합니다. AD에서 Azure AD로의 암호 해시 동기화는 선택 사항입니다. 공유 수준 권한은 AD에서 동기화 되는 Azure AD id에 부여 됩니다.
 
-#### <a name="azure-portal"></a>Azure 포털
+#### <a name="azure-portal"></a>Azure portal
 [Azure Portal](https://portal.azure.com)를 사용 하 여 Azure AD ID에 RBAC 역할을 할당 하려면 다음 단계를 수행 합니다.
 
 1. Azure Portal에서 파일 공유로 이동 하거나 [파일 공유를 만듭니다](../articles/storage/files/storage-how-to-create-file-share.md).

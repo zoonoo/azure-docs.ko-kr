@@ -12,11 +12,11 @@ ms.reviewer: larryfr
 ms.date: 01/07/2020
 ms.custom: seodec18
 ms.openlocfilehash: 4c3e60e9c296dc8e3a1e31a52a262d8462237407
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75765666"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79283694"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>웹 서비스로 배포된 Azure Machine Learning 모델 사용
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -88,7 +88,7 @@ Azure Machine Learning은 웹 서비스에 대 한 액세스를 제어 하는 �
 
 |인증 방법|ACI|AKS|
 |---|---|---|
-|키|기본적으로 사용할 수 없게 설정되어 있습니다.| 기본적으로 사용하도록 설정됨|
+|키|기본적으로 사용할 수 없게 설정되어 있습니다.| 기본적으로 사용|
 |토큰| 사용할 수 없음| 기본적으로 사용할 수 없게 설정되어 있습니다. |
 
 키 또는 토큰으로 보안이 설정 된 서비스로 요청을 보낼 때 __권한 부여__ 헤더를 사용 하 여 키 또는 토큰을 전달 합니다. 키 또는 토큰은 `Bearer <key-or-token>`형식 이어야 합니다. 여기서 `<key-or-token>`는 키 또는 토큰 값입니다.

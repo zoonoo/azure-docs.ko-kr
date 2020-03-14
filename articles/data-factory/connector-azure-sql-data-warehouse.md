@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/12/2019
-ms.openlocfilehash: f009b438cb0dc227289d65604d89c11fd382b675
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.date: 03/12/2020
+ms.openlocfilehash: dce1697ccb40c67f8628c220799018a673be8e09
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75892971"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79246306"
 ---
 # <a name="copy-and-transform-data-in-azure-synapse-analytics-formerly-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 Azure Synapse Analytics (이전의 Azure SQL Data Warehouse)에서 데이터 복사 및 변환 
 
@@ -60,12 +60,12 @@ Azure Synapse Analytics 연결 된 서비스에 대해 지원 되는 속성은 �
 
 | 속성            | Description                                                  | 필수                                                     |
 | :------------------ | :----------------------------------------------------------- | :----------------------------------------------------------- |
-| type                | type 속성은 **AzureSqlDW**로 설정해야 합니다.             | 예                                                          |
-| connectionString    | **ConnectionString** 속성에 대 한 Azure Synapse Analytics 인스턴스에 연결 하는 데 필요한 정보를 지정 합니다. <br/>이 필드를 SecureString으로 표시하여 Data Factory에서 안전하게 저장합니다. 암호/서비스 주체 키를 Azure Key Vault에 넣고, SQL 인증인 경우 연결 문자열에서 `password` 구성을 끌어올 수도 있습니다. 자세한 내용은 표 아래의 JSON 예제 및 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md) 문서를 참조하세요. | 예                                                          |
+| type                | type 속성은 **AzureSqlDW**로 설정해야 합니다.             | yes                                                          |
+| connectionString    | **ConnectionString** 속성에 대 한 Azure Synapse Analytics 인스턴스에 연결 하는 데 필요한 정보를 지정 합니다. <br/>이 필드를 SecureString으로 표시하여 Data Factory에서 안전하게 저장합니다. 암호/서비스 주체 키를 Azure Key Vault에 넣고, SQL 인증인 경우 연결 문자열에서 `password` 구성을 끌어올 수도 있습니다. 자세한 내용은 표 아래의 JSON 예제 및 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md) 문서를 참조하세요. | yes                                                          |
 | servicePrincipalId  | 애플리케이션의 클라이언트 ID를 지정합니다.                         | 서비스 주체와 함께 Azure AD 인증을 사용하는 경우 예 |
 | servicePrincipalKey | 애플리케이션의 키를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 서비스 주체와 함께 Azure AD 인증을 사용하는 경우 예 |
 | tenant              | 애플리케이션이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모서리에 마우스를 이동하여 검색할 수 있습니다. | 서비스 주체와 함께 Azure AD 인증을 사용하는 경우 예 |
-| connectVia          | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 통합 런타임을 사용할 수 있습니다(데이터 저장소가 프라이빗 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. | 아닙니다.                                                           |
+| connectVia          | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 통합 런타임을 사용할 수 있습니다(데이터 저장소가 프라이빗 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. | 예                                                           |
 
 다른 인증 형식의 경우, 각각의 필수 조건 및 JSON 샘플에 대한 다음 섹션을 참조하세요.
 
@@ -221,7 +221,7 @@ Azure Synapse Analytics 데이터 집합에 대해 지원 되는 속성은 다�
 
 | 속성  | Description                                                  | 필수                    |
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
-| type      | 데이터 세트의 **type** 속성을 **AzureSqlDWTable**로 설정해야 합니다. | 예                         |
+| type      | 데이터 세트의 **type** 속성을 **AzureSqlDWTable**로 설정해야 합니다. | yes                         |
 | 스키마 | 스키마의 이름입니다. |원본에는 아니요이고 싱크에는 예입니다  |
 | 테이블 | 테이블/뷰의 이름입니다. |원본에는 아니요이고 싱크에는 예입니다  |
 | tableName | 스키마가 포함 된 테이블/뷰의 이름입니다. 이 속성은 이전 버전과의 호환성을 위해 지원 됩니다. 새 워크 로드의 경우 `schema` 및 `table`를 사용 합니다. | 원본에는 아니요이고 싱크에는 예입니다 |
@@ -257,10 +257,11 @@ Azure Synapse Analytics에서 데이터를 복사 하려면 복사 작업 원본
 
 | 속성                     | Description                                                  | 필수 |
 | :--------------------------- | :----------------------------------------------------------- | :------- |
-| type                         | 복사 작업 원본의 **type** 속성을 **SqlDWSource**로 설정해야 합니다. | 예      |
-| SqlReaderQuery               | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `select * from MyTable`. | 아닙니다.       |
-| sqlReaderStoredProcedureName | 원본 테이블에서 데이터를 읽는 저장 프로시저의 이름입니다. 마지막 SQL 문은 저장 프로시저의 SELECT 문이어야 합니다. | 아닙니다.       |
-| storedProcedureParameters    | 저장 프로시저에 대한 매개 변수입니다.<br/>허용되는 값은 이름 또는 값 쌍입니다. 매개 변수의 이름 및 대소문자와, 저장 프로시저 매개변수의 이름 및 대소문자와 일치해야 합니다. | 아닙니다.       |
+| type                         | 복사 작업 원본의 **type** 속성을 **SqlDWSource**로 설정해야 합니다. | yes      |
+| SqlReaderQuery               | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `select * from MyTable`. | 예       |
+| sqlReaderStoredProcedureName | 원본 테이블에서 데이터를 읽는 저장 프로시저의 이름입니다. 마지막 SQL 문은 저장 프로시저의 SELECT 문이어야 합니다. | 예       |
+| storedProcedureParameters    | 저장 프로시저에 대한 매개 변수입니다.<br/>허용되는 값은 이름 또는 값 쌍입니다. 매개 변수의 이름 및 대소문자와, 저장 프로시저 매개변수의 이름 및 대소문자와 일치해야 합니다. | 예       |
+| isolationLevel | SQL 원본에 대 한 트랜잭션 잠금 동작을 지정 합니다. 허용 되는 값은 **ReadCommitted** (기본값), **ReadUncommitted**, **RepeatableRead**, **Serializable**, **Snapshot**입니다. 자세한 내용은 [이 문서](https://docs.microsoft.com/dotnet/api/system.data.isolationlevel) 를 참조 하세요. | 예 |
 
 **예: SQL 쿼리 사용**
 
@@ -365,15 +366,15 @@ Azure SQL Data Warehouse에 데이터를 복사하려면 복사 작업의 싱크
 
 | 속성          | Description                                                  | 필수                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
-| type              | 복사 작업 싱크의 **type** 속성은 **SqlDWSink**로 설정해야 합니다. | 예                                           |
-| allowPolyBase     | PolyBase를 사용 하 여 데이터를 SQL Data Warehouse에 로드할지 여부를 나타냅니다. `allowCopyCommand`와 `allowPolyBase`는 모두 true 일 수 없습니다. <br/><br/>제약 조건 및 세부 정보는 [PolyBase를 사용하여 Azure SQL Data Warehouse로 데이터 로드](#use-polybase-to-load-data-into-azure-sql-data-warehouse) 섹션을 참조하세요.<br/><br/>허용되는 값은 **True** 및 **False**(기본값)입니다. | 아닙니다.<br/>PolyBase를 사용 하는 경우 적용 합니다.     |
-| polyBaseSettings  | `allowPolybase` 속성이 **true**로 설정 된 경우 지정할 수 있는 속성 그룹입니다. | 아닙니다.<br/>PolyBase를 사용 하는 경우 적용 합니다. |
-| allowCopyCommand | [COPY 문](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) (미리 보기)을 사용 하 여 데이터를 SQL Data Warehouse에 로드할지 여부를 나타냅니다. `allowCopyCommand`와 `allowPolyBase`는 모두 true 일 수 없습니다. <br/><br/>제약 조건 및 세부 정보는 [COPY 문을 사용 하 여 Azure SQL Data Warehouse에 데이터 로드](#use-copy-statement) 섹션을 참조 하세요.<br/><br/>허용되는 값은 **True** 및 **False**(기본값)입니다. | 아닙니다.<br>COPY를 사용할 때 적용 됩니다. |
-| copyCommandSettings | `allowCopyCommand` 속성이 TRUE로 설정 된 경우 지정할 수 있는 속성 그룹입니다. | 아닙니다.<br/>COPY를 사용할 때 적용 됩니다. |
-| writeBatchSize    | **일괄**처리당 SQL 테이블에 삽입할 행 수입니다.<br/><br/>허용되는 값은 **정수**(행 수)입니다. 기본적으로 Data Factory는 행 크기에 따라 적절 한 일괄 처리 크기를 동적으로 결정 합니다. | 아닙니다.<br/>Bulk insert를 사용할 때 적용 됩니다.     |
-| writeBatchTimeout | 시간 초과되기 전에 배치 삽입 작업을 완료하기 위한 대기 시간입니다.<br/><br/>허용되는 값은 **시간 범위**입니다. 예: “00:30:00”(30분). | 아닙니다.<br/>Bulk insert를 사용할 때 적용 됩니다.        |
-| preCopyScript     | 각 실행 시 Azure SQL Data Warehouse에 데이터를 쓰기 전에 실행할 복사 작업에 대한 SQL 쿼리를 지정합니다. 이 속성을 사용하여 미리 로드된 데이터를 정리합니다. | 아닙니다.                                            |
-| tableOption | 원본 스키마에 따라 존재 하지 않는 경우 싱크 테이블을 자동으로 만들지 여부를 지정 합니다. 준비 된 복사본이 복사 작업에서 구성 된 경우 자동 테이블 만들기가 지원 되지 않습니다. 허용 되는 값은 `none` (기본값) `autoCreate`입니다. |아닙니다. |
+| type              | 복사 작업 싱크의 **type** 속성은 **SqlDWSink**로 설정해야 합니다. | yes                                           |
+| allowPolyBase     | PolyBase를 사용 하 여 데이터를 SQL Data Warehouse에 로드할지 여부를 나타냅니다. `allowCopyCommand`와 `allowPolyBase`는 모두 true 일 수 없습니다. <br/><br/>제약 조건 및 세부 정보는 [PolyBase를 사용하여 Azure SQL Data Warehouse로 데이터 로드](#use-polybase-to-load-data-into-azure-sql-data-warehouse) 섹션을 참조하세요.<br/><br/>허용되는 값은 **True** 및 **False**(기본값)입니다. | 아니요.<br/>PolyBase를 사용 하는 경우 적용 합니다.     |
+| polyBaseSettings  | `allowPolybase` 속성이 **true**로 설정 된 경우 지정할 수 있는 속성 그룹입니다. | 아니요.<br/>PolyBase를 사용 하는 경우 적용 합니다. |
+| allowCopyCommand | [COPY 문](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) (미리 보기)을 사용 하 여 데이터를 SQL Data Warehouse에 로드할지 여부를 나타냅니다. `allowCopyCommand`와 `allowPolyBase`는 모두 true 일 수 없습니다. <br/><br/>제약 조건 및 세부 정보는 [COPY 문을 사용 하 여 Azure SQL Data Warehouse에 데이터 로드](#use-copy-statement) 섹션을 참조 하세요.<br/><br/>허용되는 값은 **True** 및 **False**(기본값)입니다. | 아니요.<br>COPY를 사용할 때 적용 됩니다. |
+| copyCommandSettings | `allowCopyCommand` 속성이 TRUE로 설정 된 경우 지정할 수 있는 속성 그룹입니다. | 아니요.<br/>COPY를 사용할 때 적용 됩니다. |
+| writeBatchSize    | **일괄**처리당 SQL 테이블에 삽입할 행 수입니다.<br/><br/>허용되는 값은 **정수**(행 수)입니다. 기본적으로 Data Factory는 행 크기에 따라 적절 한 일괄 처리 크기를 동적으로 결정 합니다. | 아니요.<br/>Bulk insert를 사용할 때 적용 됩니다.     |
+| writeBatchTimeout | 시간 초과되기 전에 배치 삽입 작업을 완료하기 위한 대기 시간입니다.<br/><br/>허용되는 값은 **시간 범위**입니다. 예: “00:30:00”(30분). | 아니요.<br/>Bulk insert를 사용할 때 적용 됩니다.        |
+| preCopyScript     | 각 실행 시 Azure SQL Data Warehouse에 데이터를 쓰기 전에 실행할 복사 작업에 대한 SQL 쿼리를 지정합니다. 이 속성을 사용하여 미리 로드된 데이터를 정리합니다. | 예                                            |
+| tableOption | 원본 스키마에 따라 존재 하지 않는 경우 싱크 테이블을 자동으로 만들지 여부를 지정 합니다. 준비 된 복사본이 복사 작업에서 구성 된 경우 자동 테이블 만들기가 지원 되지 않습니다. 허용 되는 값은 `none` (기본값) `autoCreate`입니다. |예 |
 | disableMetricsCollection | Data Factory 복사 성능 최적화 및 권장 사항에 대 한 SQL Data Warehouse DWUs와 같은 메트릭을 수집 합니다. 이 동작에 관심이 있는 경우 `true` 지정 하 여 해제 합니다. | 아니요(기본값: `false`) |
 
 #### <a name="sql-data-warehouse-sink-example"></a>SQL Data Warehouse 싱크 예제
@@ -406,10 +407,10 @@ Azure SQL Data Warehouse에 데이터를 복사하려면 복사 작업의 싱크
 
 | 속성          | Description                                                  | 필수                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
-| rejectValue       | 쿼리가 실패하기 전에 거부될 수 있는 행의 수 또는 백분율을 지정합니다.<br/><br/>[CREATE EXTERNAL TABLE(Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx)의 인수 섹션에서 PolyBase의 거부 옵션에 대해 자세히 알아봅니다. <br/><br/>허용되는 값은 0(기본값), 1, 2 등입니다. | 아닙니다.                                            |
-| rejectType        | **rejectValue** 옵션이 리터럴 값인지 또는 백분율인지를 지정합니다.<br/><br/>허용되는 값은 **Value**(기본값) 및 **Percentage**입니다. | 아닙니다.                                            |
+| rejectValue       | 쿼리가 실패하기 전에 거부될 수 있는 행의 수 또는 백분율을 지정합니다.<br/><br/>[CREATE EXTERNAL TABLE(Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx)의 인수 섹션에서 PolyBase의 거부 옵션에 대해 자세히 알아봅니다. <br/><br/>허용되는 값은 0(기본값), 1, 2 등입니다. | 예                                            |
+| rejectType        | **rejectValue** 옵션이 리터럴 값인지 또는 백분율인지를 지정합니다.<br/><br/>허용되는 값은 **Value**(기본값) 및 **Percentage**입니다. | 예                                            |
 | rejectSampleValue | PolyBase가 거부된 행의 백분율을 다시 계산하기 전에 검색할 행 수를 결정합니다.<br/><br/>허용되는 값은 1, 2 등입니다. | **rejectType**이 **percentage**인 경우 예 |
-| useTypeDefault    | PolyBase가 텍스트 파일에서 데이터를 검색할 경우 구분된 텍스트 파일에서 누락된 값을 처리하는 방법을 지정합니다.<br/><br/>[외부 파일 서식 만들기(Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx)를 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공합니다.<br/><br/>허용되는 값은 **True** 및 **False**(기본값)입니다.<br><br> | 아닙니다.                                            |
+| useTypeDefault    | PolyBase가 텍스트 파일에서 데이터를 검색할 경우 구분된 텍스트 파일에서 누락된 값을 처리하는 방법을 지정합니다.<br/><br/>[외부 파일 서식 만들기(Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx)를 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공합니다.<br/><br/>허용되는 값은 **True** 및 **False**(기본값)입니다.<br><br> | 예                                            |
 
 ### <a name="direct-copy-by-using-polybase"></a>PolyBase를 사용한 직접 복사
 
@@ -629,8 +630,8 @@ COPY 문을 사용 하면 다음 구성이 지원 됩니다.
 
 | 속성          | Description                                                  | 필수                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
-| defaultValues | SQL DW의 각 대상 열에 대 한 기본값을 지정 합니다.  속성의 기본값은 데이터 웨어하우스의 기본 제약 조건 집합을 덮어쓰고 id 열에는 기본값을 사용할 수 없습니다. | 아닙니다. |
-| additionalOptions | [Copy 문의](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest)"With" 절에서 직접 SQL DW 복사 문에 전달 되는 추가 옵션입니다. COPY 문 요구 사항에 맞게 조정 하는 데 필요한 값을 따옴표로 묶습니다. | 아닙니다. |
+| defaultValues | SQL DW의 각 대상 열에 대 한 기본값을 지정 합니다.  속성의 기본값은 데이터 웨어하우스의 기본 제약 조건 집합을 덮어쓰고 id 열에는 기본값을 사용할 수 없습니다. | 예 |
+| additionalOptions | [Copy 문의](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest)"With" 절에서 직접 SQL DW 복사 문에 전달 되는 추가 옵션입니다. COPY 문 요구 사항에 맞게 조정 하는 데 필요한 값을 따옴표로 묶습니다. | 예 |
 
 ```json
 "activities":[
@@ -760,14 +761,14 @@ Azure Synapse Analytics에서 데이터를 복사 하는 경우 Azure Synapse An
 | nchar                                 | String, Char[]                 |
 | numeric                               | Decimal                        |
 | nvarchar                              | String, Char[]                 |
-| real                                  | 단일                         |
+| real                                  | Single                         |
 | rowversion                            | Byte[]                         |
 | smalldatetime                         | DateTime                       |
 | smallint                              | Int16                          |
 | smallmoney                            | Decimal                        |
 | time                                  | TimeSpan                       |
 | tinyint                               | Byte                           |
-| uniqueidentifier                      | GUID                           |
+| uniqueidentifier                      | Guid                           |
 | varbinary                             | Byte[]                         |
 | varchar                               | String, Char[]                 |
 

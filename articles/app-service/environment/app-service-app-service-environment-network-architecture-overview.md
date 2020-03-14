@@ -8,11 +8,11 @@ ms.date: 10/04/2016
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: b1b866f3be789c59eea38c5c22b5557d557440be
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78374154"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79243849"
 ---
 # <a name="network-architecture-overview-of-app-service-environments"></a>App Service Environment의 네트워크 아키텍처 개요
 App Service 환경은 항상 [가상 네트워크][virtualnetwork] 의 서브넷 내에 생성 됩니다. App Service Environment에서 실행 되는 앱은 동일한 가상 네트워크 토폴로지 내에 위치한 개인 끝점과 통신할 수 있습니다.  고객은 그들의 가상 네트워크 일부를 잠글 수 있기 때문에 App Service Environment에서 일어나는 네트워크 통신 흐름의 유형을 이해하는 것은 중요합니다.

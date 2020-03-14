@@ -4,11 +4,11 @@ description: Azure Migrate에서 프로젝트를 찾고 만들고 관리 하 고
 ms.topic: how-to
 ms.date: 02/17/2020
 ms.openlocfilehash: a49595f0580e71048239d5c5d8f4d1a66e24fe6d
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78392742"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79269641"
 ---
 # <a name="create-and-manage-azure-migrate-projects"></a>Azure Migrate 프로젝트 만들기 및 관리
 

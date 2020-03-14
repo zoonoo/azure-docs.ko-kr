@@ -16,11 +16,11 @@ ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
 ms.openlocfilehash: ed5fc923c82fb0d0e4004e18159d943564c6f55e
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045813"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79249855"
 ---
 # <a name="tutorial-configure-availability-group-on-azure-sql-server-vm-manually"></a>자습서: Azure SQL Server VM에서 수동으로 가용성 그룹 구성
 
@@ -32,7 +32,7 @@ ms.locfileid: "76045813"
 
 ![가용성 그룹](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/00-EndstateSampleNoELB.png)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서는 사용자가 SQL Server Always On 가용성 그룹을 기본적으로 이해하고 있다고 가정합니다. 자세한 내용은 [Always On 가용성 그룹 개요(SQL Server)](https://msdn.microsoft.com/library/ff877884.aspx)를 참조하세요.
 
@@ -72,7 +72,7 @@ ms.locfileid: "76045813"
    ![클러스터 만들기](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/40-createcluster.png)
 4. 클러스터 만들기 마법사에서 아래 표에 나온 설정으로 페이지를 단계별로 진행하여 1노드 클러스터를 만듭니다.
 
-   | 페이지 | 설정 |
+   | 호출 | 설정 |
    | --- | --- |
    | 시작하기 전에 |기본값 사용 |
    | 서버 선택 |첫 번째 SQL Server 이름을 **서버 이름 입력**에 입력하고 **추가**를 클릭합니다. |
@@ -402,7 +402,7 @@ Azure Load Balancer는 표준 Load Balancer 또는 기본 Load Balancer일 수 �
 
 1. 다음과 같이 수신기 상태 프로브를 설정합니다.
 
-   | 설정 | Description | 예
+   | 설정 | Description | 예제
    | --- | --- |---
    | **이름** | 텍스트 | SQLAlwaysOnEndPointProbe |
    | **프로토콜** | TCP 선택 | TCP |
@@ -418,7 +418,7 @@ Azure Load Balancer는 표준 Load Balancer 또는 기본 Load Balancer일 수 �
 
 1. 수신기 부하 분산 규칙을 다음과 같이 설정합니다.
 
-   | 설정 | Description | 예
+   | 설정 | Description | 예제
    | --- | --- |---
    | **이름** | 텍스트 | SQLAlwaysOnEndPointListener |
    | **프런트 엔드 IP 주소** | 주소 선택 |부하 분산 장치를 만들 때 생성된 주소를 사용합니다. |
@@ -445,7 +445,7 @@ WSFC IP 주소는 부하 분산 장치에 배치되어야 합니다.
 
 1. WSFC 클러스터 코어 IP 주소 상태 프로브를 다음과 같이 설정합니다.
 
-   | 설정 | Description | 예
+   | 설정 | Description | 예제
    | --- | --- |---
    | **이름** | 텍스트 | WSFCEndPointProbe |
    | **프로토콜** | TCP 선택 | TCP |
@@ -459,7 +459,7 @@ WSFC IP 주소는 부하 분산 장치에 배치되어야 합니다.
 
 1. 클러스터 코어 IP 주소 부하 분산 규칙을 다음과 같이 설정합니다.
 
-   | 설정 | Description | 예
+   | 설정 | Description | 예제
    | --- | --- |---
    | **이름** | 텍스트 | WSFCEndPoint |
    | **프런트 엔드 IP 주소** | 주소 선택 |WSFC IP 주소를 구성할 때 생성된 주소를 사용합니다. 수신기 IP 주소와는 다릅니다. |

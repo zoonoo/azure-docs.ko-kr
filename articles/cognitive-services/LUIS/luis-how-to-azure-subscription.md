@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: diberry
-ms.openlocfilehash: 876026b5399631728331c4a9e67482a34f9d0b2d
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: a5140da32eb6fce03131a42bfa90e71e64552431
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225554"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79221326"
 ---
 # <a name="using-authoring-and-runtime-resource-keys"></a>제작 및 런타임 리소스 키 사용
 
@@ -58,7 +58,7 @@ LUIS 포털의 **사용자 설정** 페이지와 **관리-> Azure 리소스** �
 
     ![언어 이해 리소스 만들기](./media/luis-how-to-azure-subscription/create-resource-in-azure.png)
 
-    |name|용도|
+    |속성|목적|
     |--|--|
     |리소스 이름| 사용자가 선택한 사용자 지정 이름으로, 작성 및 예측 끝점 쿼리의 URL의 일부로 사용 됩니다.|
     |구독 이름| 리소스에 대해 요금이 청구 되는 구독입니다.|
@@ -81,7 +81,7 @@ LUIS 포털의 **사용자 설정** 페이지와 **관리-> Azure 리소스** �
 
 1. Azure CLI에 로그인 합니다.
 
-    ```console
+    ```azurecli
     az login
     ```
 
@@ -89,13 +89,13 @@ LUIS 포털의 **사용자 설정** 페이지와 **관리-> Azure 리소스** �
 
 1. `westus` 영역에 대 한 `my-resource-group` 이라는 _기존_ 리소스 그룹에 `my-luis-authoring-resource` 이라는 종류 `LUIS.Authoring`의 **LUIS authoring 리소스**를 만듭니다. 
 
-    ```console
+    ```azurecli
     az cognitiveservices account create -n my-luis-authoring-resource -g my-resource-group --kind LUIS.Authoring --sku F0 -l westus --yes
     ```
 
 1. `westus` 영역에 대 한 `my-resource-group` 이라는 _기존_ 리소스 그룹에 `my-luis-prediction-resource` 이라는 종류 `LUIS`의 **LUIS 예측 끝점 리소스**를 만듭니다. 무료 계층 보다 높은 처리량을 원하는 경우 `F0`를 `S0`으로 변경 합니다. [가격 책정 계층 및 처리량](luis-boundaries.md#key-limits)에 대해 자세히 알아보세요.
 
-    ```console
+    ```azurecli
     az cognitiveservices account create -n my-luis-prediction-resource -g my-resource-group --kind LUIS --sku F0 -l westus --yes
     ```
 
@@ -106,7 +106,7 @@ LUIS 포털의 **사용자 설정** 페이지와 **관리-> Azure 리소스** �
 
 단일 앱 또는 LUIS의 모든 앱에 대 한 제작 리소스를 할당할 수 있습니다. 다음 절차에서는 단일 제작 리소스에 모든 앱을 할당 합니다.
 
-1. [LUIS 포털](https://www.luis.ai)에 로그인 합니다.
+1. [LUIS 포털](https://www.luis.ai)에 로그인합니다.
 1. 위쪽 탐색 모음에서 맨 오른쪽의 사용자 계정을 선택한 다음 **설정**을 선택 합니다.
 1. **사용자 설정** 페이지에서 **제작 리소스 추가** 를 선택 하 고 기존 제작 리소스를 선택 합니다. **저장**을 선택합니다. 
 
@@ -134,7 +134,7 @@ CI/CD 파이프라인과 같은 자동화를 위해 LUIS 앱에 대 한 LUIS 런
 
     이 POST API에는 다음 설정이 필요합니다.
 
-    |헤더|Value|
+    |헤더|값|
     |--|--|
     |`Authorization`|`Authorization`의 값은 `Bearer {token}`입니다. 토큰 값 앞에 단어 `Bearer`와 공백이 와야 합니다.| 
     |`Ocp-Apim-Subscription-Key`|제작 키입니다.|
@@ -145,7 +145,7 @@ CI/CD 파이프라인과 같은 자동화를 위해 LUIS 앱에 대 한 LUIS 런
 
     이 POST API에는 다음 설정이 필요합니다.
 
-    |Type|설정|Value|
+    |Type|설정|값|
     |--|--|--|
     |헤더|`Authorization`|`Authorization`의 값은 `Bearer {token}`입니다. 토큰 값 앞에 단어 `Bearer`와 공백이 와야 합니다.|
     |헤더|`Ocp-Apim-Subscription-Key`|제작 키입니다.|
@@ -187,7 +187,7 @@ CI/CD 파이프라인과 같은 자동화를 위해 LUIS 앱에 대 한 LUIS 런
     ![LUIS 결제 계층 변경](./media/luis-usage-tiers/plans.png)
 1.  가격 변경이 완료되면 팝업 창에서 새로운 가격 책정 계층을 확인합니다. 
     ![LUIS 결제 계층 확인](./media/luis-usage-tiers/updated.png)
-1. **게시** 페이지에서 [이 엔드포인트 키를 할당](#assign-a-resource-to-an-app)하고 모든 엔드포인트 쿼리에서 이 엔드포인트 키를 사용해야 합니다. 
+1. [게시](#assign-a-resource-to-an-app) 페이지에서 **이 엔드포인트 키를 할당**하고 모든 엔드포인트 쿼리에서 이 엔드포인트 키를 사용해야 합니다. 
 
 ## <a name="viewing-azure-resource-metrics"></a>Azure 리소스 메트릭 보기
 

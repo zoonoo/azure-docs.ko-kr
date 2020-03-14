@@ -4,11 +4,11 @@ description: 보상 점수는 사용자에 대한 맞춤 설정 선택 항목인
 ms.date: 02/20/2020
 ms.topic: conceptual
 ms.openlocfilehash: 734e4d0fdcec25884f8535ec61ccd10569fa8890
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77623775"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79221216"
 ---
 # <a name="reward-scores-indicate-success-of-personalization"></a>보상 점수는 맞춤 설정의 성공을 나타냅니다.
 

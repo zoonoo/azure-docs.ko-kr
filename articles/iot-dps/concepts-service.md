@@ -9,11 +9,11 @@ ms.service: iot-dps
 services: iot-dps
 manager: briz
 ms.openlocfilehash: f42502ac4db12a060af5906243d3f8e7584c5df3
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975604"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79285215"
 ---
 # <a name="iot-hub-device-provisioning-service-concepts"></a>IoT Hub Device Provisioning Service 개념
 
@@ -73,6 +73,6 @@ Device Provisioning 서비스에는 다음 두 가지 유형의 등록을 지원
 
 등록은 Device Provisioning 서비스를 통해 IoT Hub에 성공적으로 등록/프로비전하는 디바이스의 레코드입니다. 등록 레코드는 자동으로 생성됩니다. 삭제될 수 있지만 업데이트할 수 없습니다.
 
-## <a name="operations"></a>운영
+## <a name="operations"></a>작업
 
 작업은 Device Provisioning 서비스의 대금 청구 단위입니다. 하나의 작업은 서비스에 대한 하나의 명령의 성공적인 완료입니다. 작업에는 디바이스 등록 및 재등록이 포함되며, 등록 목록 항목 추가, 등록 목록 항목 업데이트 같은 서비스 쪽 변경도 포함됩니다.

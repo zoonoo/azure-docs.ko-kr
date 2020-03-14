@@ -1,6 +1,6 @@
 ---
 title: Azure Security Center의 적응 네트워크 강화 | Microsoft Docs
-description: 실제 트래픽 패턴, NSG (네트워크 보안 그룹) 규칙에 따라 확정 하 고 보안 상태를 더욱 개선 하는 방법에 대해 알아봅니다.
+description: 실제 트래픽 패턴을 사용 하 여 NSG (네트워크 보안 그룹) 규칙을 강화 하 고 보안 상태를 강화 하는 방법을 알아봅니다.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/24/2019
+ms.date: 03/11/2020
 ms.author: memildin
-ms.openlocfilehash: fb1e381f9b956a0c6414a82505aced2cbdb2d680
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.openlocfilehash: bc610fa1d7a5fa1a10db3298164404b92d5d9f85
+ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74559270"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79139592"
 ---
 # <a name="adaptive-network-hardening-in-azure-security-center"></a>Azure Security Center의 적응 네트워크 강화
 Azure Security Center에서 적응 네트워크 강화를 구성 하는 방법에 대해 알아봅니다.
@@ -30,10 +30,12 @@ Azure Security Center에서 적응 네트워크 강화를 구성 하는 방법�
 
 예를 들어 기존 NSG 규칙은 포트 22에서 140.20.30.10/24의 트래픽을 허용 하는 것 이라고 가정 합니다. 적응 네트워크 강화의 권장 사항은 분석에 따라 범위를 좁히고 140.23.30.10/29의 트래픽을 허용 하는 것입니다 .이는 더 좁은 IP 범위 이며 해당 포트에 대 한 다른 모든 트래픽을 거부 합니다.
 
+>[!TIP]
+> 적응 네트워크 강화 권장 사항은 특정 포트 에서만 지원 됩니다. 전체 목록은 아래에서 [지원 되는 포트](#which-ports-are-supported) 를 참조 하세요. 
+
+
 ![네트워크 강화 보기](./media/security-center-adaptive-network-hardening/traffic-hardening.png)
 
-> [!NOTE]
-> 적응 네트워크 강화 권장 사항은 다음 포트에서 지원 됩니다. 22, 3389, 21, 23, 445, 4333, 3306, 1433, 1434, 53, 20, 5985, 5986, 5432, 139, 66, 1128
 
 ## <a name="view-adaptive-network-hardening-alerts-and-rules"></a>적응 네트워크 강화 경고 및 규칙 보기
 
@@ -73,7 +75,7 @@ Azure Security Center에서 적응 네트워크 강화를 구성 하는 방법�
     ![규칙 적용](./media/security-center-adaptive-network-hardening/enforce-hard-rule2.png)
 
 
-### 규칙 <a name ="modify-rule"></a> 수정
+### 규칙 <a name ="modify-rule"> </a> 수정
 
 권장 되는 규칙의 매개 변수를 수정할 수 있습니다. 예를 들어 권장 되는 IP 범위를 변경할 수 있습니다.
 
@@ -106,7 +108,7 @@ Azure Security Center에서 적응 네트워크 강화를 구성 하는 방법�
 
     ![규칙 적용](./media/security-center-adaptive-network-hardening/enforce-hard-rule.png)
 
-### 새 규칙 <a name ="add-rule"></a> 추가
+### 새 규칙 <a name ="add-rule"> </a> 추가
 
 Security Center에서 권장 하지 않은 "허용" 규칙을 추가할 수 있습니다.
 
@@ -129,7 +131,7 @@ Security Center에서 권장 하지 않은 "허용" 규칙을 추가할 수 있�
     ![규칙 적용](./media/security-center-adaptive-network-hardening/enforce-hard-rule.png)
 
 
-### 규칙 <a name ="delete-rule"></a> 삭제
+### 규칙 <a name ="delete-rule"> </a> 삭제
 
 필요한 경우 현재 세션에 대 한 권장 규칙을 삭제할 수 있습니다. 예를 들어 제안 된 규칙을 적용 하면 합법적인 트래픽을 차단할 수 있음을 확인할 수 있습니다.
 
@@ -139,11 +141,72 @@ Security Center에서 권장 하지 않은 "허용" 규칙을 추가할 수 있�
 
     ![규칙 강화](./media/security-center-adaptive-network-hardening/delete-hard-rule.png)
 
-
-
-
-
-
-
  
 
+## <a name="which-ports-are-supported"></a>지원 되는 포트는 무엇 인가요?
+
+적응 네트워크 강화 권장 사항은 특정 포트 에서만 지원 됩니다. 이 표에서는 전체 목록을 제공 합니다.
+
+|포트|프로토콜|연결 된 서비스|
+|:---:|:----:|:----|
+|13|UDP|주간 서비스|
+|17|UDP|QOTD 프로토콜|
+|19|UDP|CHARGEN 프로토콜|
+|22|TCP|SSH|
+|23|TCP|텔넷|
+|53|UDP|DNS|
+|69|UDP|TFTP|
+|81|TCP|잠재적 악성 (종료 노드)|
+|111|TCP/UDP|RPC|
+|119|TCP|NNTP|
+|123|UDP|NTP|
+|135|TCP/UDP|엔드포인트 매퍼 상관 DCE|
+|137|TCP/UDP|NetBIOS 이름 서비스|
+|138|TCP/UDP|NetBIOS 데이터그램 서비스|
+|139|TCP|NetBIOS 세션 서비스|
+|161|TCP/UDP|SNMP|
+|162|TCP/UDP|SNMP|
+|389|TCP|LDAP|
+|445|TCP|SMB|
+|512|TCP|Rexec|
+|514|TCP|원격 셸|
+|593|TCP/UDP|HTTP RPC|
+|636|TCP|LDAP|
+|873|TCP|Rsync|
+|1433|TCP|MS SQL|
+|1434|UDP|MS SQL|
+|1900|UDP|SSDP|
+|1900|UDP|SSDP|
+|2049|TCP/UDP|NFS|
+|2301|TCP|Compaq 관리 서비스|
+|2323|TCP|3d-nfsd|
+|2381|TCP|Compaq 관리 서비스|
+|3268|TCP|LDAP|
+|3306|TCP|MySQL|
+|3389|TCP|RDP|
+|4333|TCP|mSQL|
+|5353|UDP|Mdn|
+|5432|TCP|PostgreSQL|
+|5555|TCP|개인 에이전트; HP OmniBack|
+|5800|TCP|VNC|
+|5900|TCP|원격 프레임 버퍼; VNC|
+|5900|TCP|VNC|
+|5985|TCP|Windows PowerShell|
+|5986|TCP|Windows PowerShell|
+|6379|TCP|Redis|
+|6379|TCP|Redis|
+|7000|TCP|Cassandra|
+|7001|TCP|Cassandra|
+|7199|TCP|Cassandra|
+|8081|TCP|CosmosDB Sun 프록시 관리자|
+|8089|TCP|Splunk|
+|8545|TCP|잠재적 악성 (Cryptominer)|
+|9042|TCP|Cassandra|
+|9160|TCP|Cassandra|
+|9300|TCP|Elasticsearch|
+|11211|UDP|Memcached|
+|16379|TCP|Redis|
+|26379|TCP|Redis|
+|27017|TCP|MongoDB|
+|37215|TCP|잠재적 악성|
+||||

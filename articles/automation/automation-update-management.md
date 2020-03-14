@@ -6,11 +6,11 @@ ms.subservice: update-management
 ms.date: 02/27/2020
 ms.topic: conceptual
 ms.openlocfilehash: c76b14e4f08ec930159498da4a35fdad0341929e
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78372806"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79278507"
 ---
 # <a name="update-management-solution-in-azure"></a>Azure의 업데이트 관리 솔루션
 
@@ -77,7 +77,7 @@ Azure Automation의 runbook에서 업데이트가 설치됩니다. 이러한 run
 
 다음 표에는 업데이트 평가에 대해 지원 되는 운영 체제가 나와 있습니다. 패치를 적용 하려면 Hybrid Runbook Worker 필요 합니다. Hybrid Runbook Worker 요구 사항에 대 한 자세한 내용은 [Windows Hybrid Runbook Worker](automation-windows-hrw-install.md) 및 [Linux Hybrid Runbook Worker](automation-linux-hrw-install.md#installing-a-linux-hybrid-runbook-worker)설치를 위한 설치 가이드를 참조 하세요.
 
-|운영 체제  |참고  |
+|운영 체제  |메모  |
 |---------|---------|
 |Windows Server 2019 (Datacenter/Datacenter Core/Standard)<br><br>Windows Server 2016 (Datacenter/Datacenter Core/Standard)<br><br>Windows Server 2012 R2 (Datacenter/Standard)<br><br>Windows Server 2012 || 
 |Windows Server 2008 R2 (RTM 및 SP1 표준)| 이 운영 체제에 대 한 평가를 수행 하도록 지원 업데이트 관리 Windows Server 2008 r 2에서 [Hybrid Runbook Worker](automation-windows-hrw-install.md) 지원 되지 않으므로 패치가 지원 되지 않습니다. |
@@ -94,7 +94,7 @@ Azure Automation의 runbook에서 업데이트가 설치됩니다. 이러한 run
 
 다음 표에서는 지원 되지 않는 운영 체제를 보여 줍니다.
 
-|운영 체제  |참고  |
+|운영 체제  |메모  |
 |---------|---------|
 |Windows 클라이언트     | 클라이언트 운영 체제(예: Windows 7 및 Windows 10)는 지원되지 않습니다.        |
 |Windows Server 2016 Nano Server     | 지원되지 않습니다.       |
@@ -125,7 +125,7 @@ Linux 용 Log Analytics 에이전트를 설치 하 고 최신 버전을 다운�
 
 Azure Marketplace에서 사용할 수 있는 주문형 Red Hat Enterprise Linux (RHEL) 이미지에서 만든 Vm은 Azure에 배포 된 [RHUI (Red Hat Update Infrastructure)](../virtual-machines/workloads/redhat/redhat-rhui.md) 에 액세스 하도록 등록 됩니다. 배포의 지원 되는 메서드를 사용 하 여 배포의 온라인 파일 리포지토리에서 다른 모든 Linux 배포를 업데이트 해야 합니다.
 
-## <a name="permissions"></a>권한
+## <a name="permissions"></a>사용 권한
 
 업데이트 배포를 만들고 관리하려면 특정 권한이 필요합니다. 이러한 사용 권한에 대 한 자세한 내용은 [역할 기반 액세스 – 업데이트 관리](automation-role-based-access-control.md#update-management)를 참조 하세요.
 
@@ -163,13 +163,13 @@ System Center Operations Manager 관리 그룹이 [Log Analytics 작업 영역�
 
 다음 표에서는 솔루션이 지원하는 연결된 원본을 설명합니다.
 
-| 연결된 원본 | 지원됨 | 설명 |
+| 연결된 원본 | 지원됨 | Description |
 | --- | --- | --- |
-| Windows 에이전트 |예 |솔루션은 Windows 에이전트에서 시스템 업데이트에 대한 정보를 수집한 후 필수 업데이트를 설치하기 시작합니다. |
-| Linux 에이전트 |예 |이 솔루션은 Linux 에이전트에서 시스템 업데이트에 대한 정보를 수집하고 지원되는 배포판에서 필수 업데이트 설치를 시작합니다. |
-| Operations Manager 관리 그룹 |예 |솔루션은 연결된 관리 그룹의 에이전트에서 시스템 업데이트에 대한 정보를 수집합니다.<br/><br/>Operations Manager 에이전트에서 Azure Monitor 로그로 직접 연결 하는 것은 필요 하지 않습니다. 데이터는 관리 그룹에서 Log Analytics 작업 영역으로 전달됩니다. |
+| Windows 에이전트 |yes |솔루션은 Windows 에이전트에서 시스템 업데이트에 대한 정보를 수집한 후 필수 업데이트를 설치하기 시작합니다. |
+| Linux 에이전트 |yes |이 솔루션은 Linux 에이전트에서 시스템 업데이트에 대한 정보를 수집하고 지원되는 배포판에서 필수 업데이트 설치를 시작합니다. |
+| Operations Manager 관리 그룹 |yes |솔루션은 연결된 관리 그룹의 에이전트에서 시스템 업데이트에 대한 정보를 수집합니다.<br/><br/>Operations Manager 에이전트에서 Azure Monitor 로그로 직접 연결 하는 것은 필요 하지 않습니다. 데이터는 관리 그룹에서 Log Analytics 작업 영역으로 전달됩니다. |
 
-### <a name="collection-frequency"></a>컬렉션 빈도
+### <a name="collection-frequency"></a>수집 빈도
 
 검색은 각 관리 되는 Windows 컴퓨터에 대해 하루에 두 번 수행 됩니다. 15분마다 Windows API가 호출되어 마지막 업데이트 시간을 쿼리하고 상태가 변경되었는지 확인합니다. 상태가 변경되었으면 준수 검사가 시작됩니다.
 
@@ -206,7 +206,7 @@ Hybrid Runbook Worker에 필요한 포트에 대 한 자세한 내용은 [Hybrid
 
 ### <a name="windows"></a>Windows
 
-|분류  |설명  |
+|분류  |Description  |
 |---------|---------|
 |중요 업데이트     | 보안 관련 중요 버그를 해결하는 특정 문제에 대한 업데이트입니다.        |
 |보안 업데이트     | 제품이 특정된 보안 관련 문제에 대한 업데이트입니다.        |
@@ -219,7 +219,7 @@ Hybrid Runbook Worker에 필요한 포트에 대 한 자세한 내용은 [Hybrid
 
 ### <a name="linux-2"></a>Linux
 
-|분류  |설명  |
+|분류  |Description  |
 |---------|---------|
 |중요 업데이트 및 보안 업데이트     | 특정 문제 또는 제품이 특정된 보안 관련 문제에 대한 업데이트입니다.         |
 |다른 업데이트     | 기본적으로 중요 하지 않거나 보안 업데이트가 아닌 다른 모든 업데이트.        |

@@ -1,14 +1,14 @@
 ---
 title: 테넌트 간 관리 환경
 description: Azure 위임 리소스 관리를 통해 테넌트 간 관리 환경을 사용하도록 설정할 수 있습니다.
-ms.date: 03/05/2020
+ms.date: 03/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 42368bcbc9f15f9ff5ef957b4c88f15bf070f25b
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.openlocfilehash: 0e55923e688d1062adc5838a88e8d3202864282a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78402093"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79218382"
 ---
 # <a name="cross-tenant-management-experiences"></a>테넌트 간 관리 환경
 
@@ -29,7 +29,7 @@ Azure 위임 리소스 관리를 사용하면 다른 테넌트의 다른 계정�
 
 ![서비스 공급자의 책임을 보여 주는 세 개의 고객 테넌트](../media/azure-delegated-resource-management-customer-tenants.jpg)
 
-권한 있는 사용자는 Azure 위임 리소스 관리를 사용하여 다음과 같이 서비스 공급자의 테넌트에 로그인하여 이러한 리소스에 액세스할 수 있습니다.
+권한 있는 사용자는 Azure 위임 된 리소스 관리를 사용 하 여 다음과 같이 서비스 공급자의 테 넌 트에 로그인 하 여 이러한 리소스에 액세스할 수 있습니다.
 
 ![하나의 서비스 공급자 테넌트를 통해 관리되는 고객 리소스](../media/azure-delegated-resource-management-service-provider-tenant.jpg)
 
@@ -63,6 +63,7 @@ Azure PowerShell [AzSubscription cmdlet](https://docs.microsoft.com/powershell/m
 
 - 고객 테넌트의 고객 데이터를 백업 및 복원합니다.
 - 백업 [탐색기](../../backup/monitor-azure-backup-with-backup-explorer.md) 를 사용 하 여 백업 항목 (백업에 대해 아직 구성 되지 않은 Azure 리소스 포함) 및 위임 된 구독의 모니터링 정보 (작업 및 경고)에 대 한 작업 정보를 볼 수 있습니다. 백업 탐색기는 현재 Azure VM 데이터에만 사용할 수 있습니다.
+- 위임 된 구독에서 [백업 보고서](../../backup/configure-reports.md) 를 사용 하 여 기록 추세를 추적 하 고, 백업 저장소 사용량을 분석 하 고, 백업 및 복원을 감사 합니다.
 
 [AKS(Azure Kubernetes Service)](../../aks/index.yml):
 
@@ -90,7 +91,7 @@ Azure PowerShell [AzSubscription cmdlet](https://docs.microsoft.com/powershell/m
 [Azure Security Center](../../security-center/index.yml):
 
 - 테넌트 간 표시 유형
-  - 보안 정책에 대한 규정 준수를 모니터링하고 모든 테넌트의 리소스에서 보안 검사를 보장합니다.
+  - 보안 정책에 대 한 준수를 모니터링 하 고 모든 테 넌 트의 리소스에서 보안 검사 보장
   - 단일 보기에서 여러 고객에 대한 지속적인 규정 준수 모니터링
   - 보안 점수 계산을 통해 실행 가능한 보안 권장 사항을 모니터링하고, 심사하고, 우선 순위를 지정합니다.
 - 테넌트 간 보안 상태 관리
@@ -98,7 +99,7 @@ Azure PowerShell [AzSubscription cmdlet](https://docs.microsoft.com/powershell/m
   - 실행 가능한 보안 권장 사항을 준수하지 않는 리소스에 대해 조치를 취합니다.
   - 보안 관련 데이터를 수집 및 저장합니다.
 - 테넌트 간 위협 검색 및 보호
-  - 테넌트의 리소스에서 위협을 검색합니다.
+  - 테 넌 트의 리소스에서 위협 감지
   - JIT(Just-In-Time) VM 액세스와 같은 지능형 위협 방지 제어를 적용합니다.
   - 적응형 네트워크 강화로 네트워크 보안 그룹 구성을 강화합니다.
   - 적응형 애플리케이션 제어를 사용하여 서버가 필요한 애플리케이션 및 프로세스만 실행하는지 확인합니다.
@@ -136,10 +137,10 @@ Azure PowerShell [AzSubscription cmdlet](https://docs.microsoft.com/powershell/m
 ## <a name="current-limitations"></a>현재 제한 사항
 모든 시나리오에서 다음과 같은 현재 제한 사항을 알고 있어야 합니다.
 
-- Azure Resource Manager에서 처리되는 요청은 Azure 위임 리소스 관리를 사용하여 수행할 수 있습니다. 이러한 요청에 대한 작업 URI는 `https://management.azure.com`으로 시작합니다. 그러나 리소스 유형의 인스턴스가 처리하는 요청(예: KeyVault 비밀 액세스 또는 스토리지 데이터 액세스)은 Azure 위임 리소스 관리에서 지원되지 않습니다. 이러한 요청에 대한 작업 URI는 일반적으로 `https://myaccount.blob.core.windows.net` 또는 `https://mykeyvault.vault.azure.net/`과 같이 사용자 인스턴스에 고유한 주소로 시작합니다. 후자는 일반적으로 관리 작업이 아니라 데이터 작업입니다. 
+- Azure Resource Manager에서 처리되는 요청은 Azure 위임 리소스 관리를 사용하여 수행할 수 있습니다. 이러한 요청에 대한 작업 URI는 `https://management.azure.com`으로 시작합니다. 그러나 리소스 유형 (예: KeyVault 비밀 액세스 또는 저장소 데이터 액세스)의 인스턴스에서 처리 되는 요청은 Azure 위임 된 리소스 관리에서 지원 되지 않습니다. 이러한 요청에 대한 작업 URI는 일반적으로 `https://myaccount.blob.core.windows.net` 또는 `https://mykeyvault.vault.azure.net/`과 같이 사용자 인스턴스에 고유한 주소로 시작합니다. 후자는 일반적으로 관리 작업이 아니라 데이터 작업입니다. 
 - 역할 할당은 RBAC(역할 기반 액세스 제어) [기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 사용해야 합니다. 현재, 소유자 또는 [DataActions](../../role-based-access-control/role-definitions.md#dataactions) 권한이 있는 기본 제공 역할을 제외한 모든 기본 제공 역할이 Azure 위임 리소스 관리에서 지원됩니다. 사용자 액세스 관리자 역할은 [관리 ID에 역할 할당](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant)에서 제한된 용도로만 지원됩니다.  사용자 지정 역할 및 [클래식 구독 관리자 역할](../../role-based-access-control/classic-administrators.md)은 지원되지 않습니다.
 - Azure Databricks를 사용 하는 구독을 등록할 수 있지만 관리 테 넌 트의 사용자는 지금은 위임 된 구독에서 Azure Databricks 작업 영역을 시작할 수 없습니다.
-- 리소스 잠금이 있는 Azure 위임 리소스 관리에 대한 구독 및 리소스 그룹을 온보드할 수 있지만 이러한 잠금으로 인해 관리 테넌트의 사용자가 작업을 수행할 수 없습니다. Azure 관리 애플리케이션 또는 Azure Blueprints(시스템이 할당한 거부 할당)에서 만든 것과 같이 시스템 관리 리소스를 보호하는 [거부 할당](../../role-based-access-control/deny-assignments.md)은 관리 테넌트의 사용자가 해당 리소스에 대해 작업을 수행하지 못하도록 합니다. 그러나 현재 고객 테넌트의 사용자는 자신의 거부 할당(사용자가 할당한 거부 할당)을 만들 수 없습니다.
+- 리소스 잠금이 있는 Azure 위임 리소스 관리에 대한 구독 및 리소스 그룹을 온보드할 수 있지만 이러한 잠금으로 인해 관리 테넌트의 사용자가 작업을 수행할 수 없습니다. Azure 관리 되는 응용 프로그램 또는 Azure 청사진 (시스템 할당 거부 할당)에서 만든 리소스와 같이 시스템 관리 리소스를 보호 하는 [거부 할당](../../role-based-access-control/deny-assignments.md) 은 관리 테 넌 트의 사용자가 해당 리소스에 대해 작업을 수행 하지 못하도록 합니다. 그러나 이번에는 고객 테 넌 트의 사용자가 자신의 거부 할당 (사용자 할당 거부 할당)을 만들 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

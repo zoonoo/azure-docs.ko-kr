@@ -3,12 +3,12 @@ title: 컨테이너의 Azure Monitor 사용 하 여 라이브 데이터 (미리 
 description: 이 문서에서는 컨테이너에 Azure Monitor kubectl을 사용 하지 않고 Kubernetes 로그, 이벤트 및 pod 메트릭에 대 한 실시간 보기를 설명 합니다.
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: 18ae091a32d0256288d27ad1439ffc7be26db5f1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9e7c7a7b7bf276b3451cee1d289b8b07ac0f40ba
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75404750"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79216562"
 ---
 # <a name="how-to-view-kubernetes-logs-events-and-pod-metrics-in-real-time"></a>Kubernetes 로그, 이벤트 및 pod 메트릭을 실시간으로 보는 방법
 
@@ -84,7 +84,7 @@ ms.locfileid: "75404750"
     
 선택한 개체가 컨테이너 인 경우 창에서 **이벤트** 옵션을 선택 합니다. Node, Pod 또는 controller를 선택 하면 이벤트 보기가 자동으로 선택 됩니다. 
 
-    ![Controller properties pane view events](./media/container-insights-livedata-overview/controller-properties-live-events.png)  
+![컨트롤러 속성 창 보기 이벤트](./media/container-insights-livedata-overview/controller-properties-live-event.png)  
 
 창 제목은 컨테이너를 그룹화 할 Pod의 이름을 표시 합니다.
 

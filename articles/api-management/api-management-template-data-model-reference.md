@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 5625ff7e4fc51b9b6b894698719247902a480f44
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78374495"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79243940"
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Azure API Management 템플릿 데이터 모델 참조
 이 항목에서는 Azure API Management에서 개발자 포털 템플릿용 데이터 모델에서 사용되는 일반적인 항목에 대한 엔터티 및 유형 표현을 설명합니다.  

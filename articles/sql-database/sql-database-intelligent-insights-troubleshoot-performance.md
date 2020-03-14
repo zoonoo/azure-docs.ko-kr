@@ -10,25 +10,24 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-ms.date: 01/25/2019
-ms.openlocfilehash: c4923e43613653bf3dfe8055754039ab0cf57fca
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.date: 03/10/2020
+ms.openlocfilehash: 739bba7ed9ab4770a762c08fccc422ce048ae11d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77587382"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79214084"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Intelligent Insights를 사용하여 Azure SQL Database 성능 문제 해결
 
-이 페이지에서는 [Intelligent Insights](sql-database-intelligent-insights.md) 데이터베이스 성능 진단 로그를 통해 감지되는 Azure SQL Database 및 Managed Instance 성능 문제에 대한 정보를 제공합니다. 진단 로그 원격 분석은 사용자 지정 DevOps 경고 및 보고 기능을 위해 [Azure Monitor 로그](../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../azure-monitor/platform/resource-logs-stream-event-hubs.md), [Azure Storage](sql-database-metrics-diag-logging.md#stream-diagnostic-telemetry-into-azure-storage)또는 타사 솔루션으로 스트리밍할 수 있습니다.
+이 페이지에서는 [Intelligent Insights](sql-database-intelligent-insights.md) 리소스 로그를 통해 검색 된 Azure SQL Database 및 Managed Instance 성능 문제에 대 한 정보를 제공 합니다. 메트릭 및 리소스 로그는 사용자 지정 DevOps 경고 및 보고 기능을 위해 [Azure Monitor 로그](../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../azure-monitor/platform/resource-logs-stream-event-hubs.md), [Azure Storage](sql-database-metrics-diag-logging.md#stream-into-azure-storage)또는 타사 솔루션으로 스트리밍할 수 있습니다.
 
 > [!NOTE]
 > Intelligent Insights를 사용한 빠른 SQL Database 성능 문제 해결 가이드는 이 문서의 [권장되는 문제 해결 흐름](sql-database-intelligent-insights-troubleshoot-performance.md#recommended-troubleshooting-flow) 순서도를 참조하세요.
->
 
 ## <a name="detectable-database-performance-patterns"></a>검색 가능한 데이터베이스 성능 패턴
 
-Intelligent Insights는 쿼리 실행 대기 시간, 오류 또는 시간 제한을 기준으로 SQL Database 및 Managed Instance 데이터베이스의 성능 문제를 자동으로 감지합니다. 감지된 성능 패턴을 진단 로그로 출력합니다. 검색 가능한 성능 패턴은 다음 테이블에 요약되어 있습니다.
+Intelligent Insights는 쿼리 실행 대기 시간, 오류 또는 제한 시간을 기준으로 Azure SQL Database 데이터베이스의 성능 문제를 자동으로 검색 합니다. Intelligent Insights 검색 된 성능 패턴을 SQL Database 리소스 로그에 출력 합니다. 검색 가능한 성능 패턴은 다음 테이블에 요약되어 있습니다.
 
 | 검색 가능한 성능 패턴 | Azure SQL Database 및 탄력적 풀에 대한 설명 | Managed Instance에서 데이터베이스에 대한 설명 |
 | :------------------- | ------------------- | ------------------- |
@@ -82,7 +81,7 @@ SQL Database의 리소스는 일반적으로 [DTU](sql-database-what-is-a-dtu.md
 
 이러한 검색은 여러 메트릭의 조합으로 수행됩니다. 측정되는 기본 메트릭은 과거 워크로드 기준과 비교하여 워크로드의 증가를 검색합니다. 다른 형태의 검색은 쿼리 성능에 영향을 줄 만큼 심각한 대량의 활성 작업자 스레드 증가를 측정하는 것을 기반으로 합니다.
 
-더 심각한 경우 SQL Database에서 워크로드를 처리할 수 없어 워크로드가 계속 누적될 수 있습니다. 결과적으로 워크로드 크기가 지속적으로 증가해 워크로드가 누적되는 상태가 됩니다. 이러한 상태로 인해 워크로드가 실행을 대기하는 시간이 증가합니다. 이 상태는 가장 심각한 데이터베이스 성능 문제 중 하나입니다. 이 문제는 중단된 작업자 스레드 수의 증가를 모니터링하여 검색됩니다. 
+더 심각한 경우 SQL Database에서 워크로드를 처리할 수 없어 워크로드가 계속 누적될 수 있습니다. 결과적으로 워크로드 크기가 지속적으로 증가해 워크로드가 누적되는 상태가 됩니다. 이러한 상태로 인해 워크로드가 실행을 대기하는 시간이 증가합니다. 이 상태는 가장 심각한 데이터베이스 성능 문제 중 하나입니다. 이 문제는 중단된 작업자 스레드 수의 증가를 모니터링하여 검색됩니다.
 
 ### <a name="troubleshooting"></a>문제 해결
 
@@ -102,29 +101,29 @@ SQL Database의 리소스는 일반적으로 [DTU](sql-database-what-is-a-dtu.md
 
 ### <a name="troubleshooting"></a>문제 해결
 
-진단 로그는 높은 메모리 사용량 및 관련 타임스탬프에 대한 가장 큰 이유로 표시된 클럭(즉, 작업자 스레드)과 함께 메모리 개체 저장소 세부 정보를 출력합니다. 이 정보를 문제 해결의 기초로 사용할 수 있습니다. 
+진단 로그는 높은 메모리 사용량 및 관련 타임스탬프에 대한 가장 큰 이유로 표시된 클럭(즉, 작업자 스레드)과 함께 메모리 개체 저장소 세부 정보를 출력합니다. 이 정보를 문제 해결의 기초로 사용할 수 있습니다.
 
 가장 높은 메모리 사용량이 있는 클럭과 관련된 쿼리를 최적화하거나 제거할 수 있습니다. 또한 사용하지 않을 데이터는 쿼리하지 않도록 해야 합니다. 쿼리에서 항상 WHERE 절을 사용하는 것이 좋습니다. 또한 데이터를 검사하기보다 검색할 수 있도록 클러스터되지 않은 인덱스를 만드는 것이 좋습니다.
 
 또한 워크로드를 최적화하거나 여러 데이터베이스에 분산하여 워크로드를 줄일 수 있습니다. 또는 여러 데이터베이스에 워크로드를 분산할 수도 있습니다. 이러한 방법을 사용할 수 없는 경우 SQL 데이터베이스 구독의 가격 책정 계층을 높여 데이터베이스에 사용 가능한 메모리 리소스의 양을 늘려 보십시오.
 
-문제 해결에 대한 자세한 제안 사항은 [메모리 부여에 대한 명상: 다양한 이름으로 정체를 알 수 없는 SQL Server 메모리 소비자(영문)](https://blogs.msdn.microsoft.com/sqlmeditation/20../../memory-meditation-the-mysterious-sql-server-memory-consumer-with-many-names/)를 참조하세요.
+문제 해결에 대한 자세한 제안 사항은 [메모리 부여에 대한 명상: 다양한 이름으로 정체를 알 수 없는 SQL Server 메모리 소비자(영문)](https://techcommunity.microsoft.com/t5/sql-server-support/memory-grants-meditation-the-mysterious-sql-server-memory/ba-p/333994)를 참조하세요.
 
 ## <a name="locking"></a>잠금
 
 ### <a name="what-is-happening"></a>설명
 
-이 성능 패턴은 지난 7일간의 성능 기준과 비교하여 과도한 데이터베이스 잠금이 감지된 현재 데이터베이스의 성능 저하를 나타냅니다. 
+이 성능 패턴은 지난 7일간의 성능 기준과 비교하여 과도한 데이터베이스 잠금이 감지된 현재 데이터베이스의 성능 저하를 나타냅니다.
 
 최신 RDBMS 잠금은 여러 동시 작업자와 가능한 경우 병렬 데이터베이스 트랜잭션을 실행하여 성능이 최대화되는 다중 스레드 시스템을 구현하는 데 필수적입니다. 이 컨텍스트의 잠금은 단일 트랜잭션만 단독으로 필요한 행, 페이지, 테이블 및 파일에 액세스할 수 있고, 다른 트랜잭션과 리소스에 대해 경쟁하지 않는 기본 제공 액세스 메커니즘을 의미합니다. 사용할 리소스를 잠근 트랜잭션이 완료되면 해당 리소스에 대한 잠금이 해제되어 다른 트랜잭션에서 필요한 리소스에 액세스할 수 있습니다. 잠금에 대한 자세한 내용은 [데이터베이스 엔진에서의 잠금](https://msdn.microsoft.com/library/ms190615.aspx)을 참조하세요.
 
-SQL 엔진에서 실행한 트랜잭션이 사용할 수 없도록 잠긴 리소스에 액세스하는 데 오랫동안 대기하는 경우 이로 인해 워크로드 실행 성능이 느려집니다. 
+SQL 엔진에서 실행한 트랜잭션이 사용할 수 없도록 잠긴 리소스에 액세스하는 데 오랫동안 대기하는 경우 이로 인해 워크로드 실행 성능이 느려집니다.
 
 ### <a name="troubleshooting"></a>문제 해결
 
 진단 로그는 문제 해결의 기초로 사용할 수 있는 잠금 세부 정보를 출력합니다. 보고된 차단 쿼리, 즉 잠금 성능 저하가 발생하는 쿼리를 분석하여 제거할 수 있습니다. 경우에 따라 차단 쿼리를 성공적으로 최적화할 수 있습니다.
 
-이 문제를 완화하는 가장 간단하고 안전한 방법은 트랜잭션을 짧게 유지하고 비용이 가장 많이 드는 쿼리의 잠금 범위를 좁히는 것입니다. 큰 작업 배치를 작은 작업으로 분할할 수 있습니다. 쿼리를 최대한 효율적으로 만들어 쿼리 잠금 범위를 좁히는 것이 좋습니다. 교착 상태가 발생할 가능성이 높아지고 전체 데이터베이스 성능에 부정적인 영향을 줄 수 있으므로 대량 스캔을 줄이십시오. 잠금을 유발하는 쿼리가 식별된 경우 새 인덱스를 만들거나 기존 인덱스에 열을 추가하여 테이블 스캔을 방지할 수 있습니다. 
+이 문제를 완화하는 가장 간단하고 안전한 방법은 트랜잭션을 짧게 유지하고 비용이 가장 많이 드는 쿼리의 잠금 범위를 좁히는 것입니다. 큰 작업 배치를 작은 작업으로 분할할 수 있습니다. 쿼리를 최대한 효율적으로 만들어 쿼리 잠금 범위를 좁히는 것이 좋습니다. 교착 상태가 발생할 가능성이 높아지고 전체 데이터베이스 성능에 부정적인 영향을 줄 수 있으므로 대량 스캔을 줄이십시오. 잠금을 유발하는 쿼리가 식별된 경우 새 인덱스를 만들거나 기존 인덱스에 열을 추가하여 테이블 스캔을 방지할 수 있습니다.
 
 자세한 제안 사항은 [SQL Server 잠금 에스컬레이션으로 인해 발생하는 차단 문제를 해결하는 방법](https://support.microsoft.com/help/323630/how-to-resolve-blocking-problems-that-are-caused-by-lock-escalation-in)을 참조하세요.
 
@@ -136,7 +135,7 @@ SQL 엔진에서 실행한 트랜잭션이 사용할 수 없도록 잠긴 리소
 
 전문가 시스템은 기준 기간과 비교하여 현재 데이터베이스 성능을 분석합니다. 이 시스템은 쿼리 실행 계획이 정상보다 더 병렬 처리되어 이전에 실행하던 쿼리가 더 느리게 실행되고 있는지 여부를 판단합니다.
 
-SQL Database의 MAXDOP 서버 구성 옵션은 동일한 쿼리를 병렬로 실행하는 데 사용할 수 있는 CPU 코어 수를 제어하는 데 사용됩니다. 
+SQL Database의 MAXDOP 서버 구성 옵션은 동일한 쿼리를 병렬로 실행하는 데 사용할 수 있는 CPU 코어 수를 제어하는 데 사용됩니다.
 
 ### <a name="troubleshooting"></a>문제 해결
 
@@ -164,7 +163,7 @@ SQL 데이터베이스에는 사용할 수 있는 다양한 유형의 래치가 
 
 페이지 래치는 SQL Database의 내부 제어 메커니즘이므로 사용할 시기를 자동으로 결정합니다. 스키마 디자인을 포함한 애플리케이션 결정은 래치의 결정적 동작으로 인해 페이지 래치 동작에 영향을 줄 수 있습니다.
 
-래치 경합을 처리하는 한 가지 방법은 순차적 인덱스 키를 순차적이지 않은 키로 바꿔 인덱스 범위에서 삽입을 균등하게 분산하는 것입니다. 일반적으로 인덱스의 선행 열이 워크로드를 비례적으로 배포합니다. 고려해야 할 다른 방법은 테이블 분할입니다. 과도한 래치 경합을 완화하기 위한 일반적인 방법은 분할된 테이블에 계산 열이 있는 해시 분할 스키마를 만드는 것입니다. 페이지 래치 IO 경합이 발생하는 경우 인덱스를 사용하면 이 성능 문제를 완화할 수 있습니다. 
+래치 경합을 처리하는 한 가지 방법은 순차적 인덱스 키를 순차적이지 않은 키로 바꿔 인덱스 범위에서 삽입을 균등하게 분산하는 것입니다. 일반적으로 인덱스의 선행 열이 워크로드를 비례적으로 배포합니다. 고려해야 할 다른 방법은 테이블 분할입니다. 과도한 래치 경합을 완화하기 위한 일반적인 방법은 분할된 테이블에 계산 열이 있는 해시 분할 스키마를 만드는 것입니다. 페이지 래치 IO 경합이 발생하는 경우 인덱스를 사용하면 이 성능 문제를 완화할 수 있습니다.
 
 자세한 내용은 [SQL Server에서 래치 경합 진단 및 해결](https://download.microsoft.com/download/B/9/E/B9EDF2CD-1DBF-4954-B81E-82522880A2DC/SQLServerLatchContention.pdf)(PDF 다운로드)을 참조하세요.
 
@@ -208,13 +207,13 @@ SQL 데이터베이스에는 사용할 수 있는 다양한 유형의 래치가 
 
 검색 가능한 이 성능 패턴은 지난 7일간의 워크로드 기준과 비교하여 성능이 저하된 쿼리가 식별된 워크로드 성능 저하를 나타냅니다.
 
-이 경우 시스템은 검색 가능한 다른 기본 성능 범주에서 성능이 저하된 쿼리를 분류할 수 없지만 회귀의 원인인 대기 통계를 검색했습니다. 따라서 시스템은 회귀의 원인인 대기 통계도 노출되는 *대기 통계 증가*를 사용하여 쿼리로 간주합니다. 
+이 경우 시스템은 검색 가능한 다른 기본 성능 범주에서 성능이 저하된 쿼리를 분류할 수 없지만 회귀의 원인인 대기 통계를 검색했습니다. 따라서 시스템은 회귀의 원인인 대기 통계도 노출되는 *대기 통계 증가*를 사용하여 쿼리로 간주합니다.
 
 ### <a name="troubleshooting"></a>문제 해결
 
 진단 로그는 영향을 받은 쿼리의 쿼리 해시 및 대기 시간 증가에 대한 정보를 출력합니다.
 
-시스템은 성능이 저하된 쿼리의 근본 원인을 성공적으로 식별할 수 없으므로 가장 먼저 진단 정보를 사용하여 문제를 수동으로 해결할 수 있습니다. 이러한 쿼리의 성능을 최적화할 수 있습니다. 사용해야 하는 데이터만 가져오고 복잡한 쿼리를 간소화하여 작게 분할하는 것이 좋습니다. 
+시스템은 성능이 저하된 쿼리의 근본 원인을 성공적으로 식별할 수 없으므로 가장 먼저 진단 정보를 사용하여 문제를 수동으로 해결할 수 있습니다. 이러한 쿼리의 성능을 최적화할 수 있습니다. 사용해야 하는 데이터만 가져오고 복잡한 쿼리를 간소화하여 작게 분할하는 것이 좋습니다.
 
 쿼리 성능 최적화에 대한 자세한 내용은 [쿼리 튜닝](https://msdn.microsoft.com/library/ms176005.aspx)을 참조하세요.
 
@@ -226,15 +225,15 @@ SQL 데이터베이스에는 사용할 수 있는 다양한 유형의 래치가 
 
 ### <a name="troubleshooting"></a>문제 해결
 
-진단 로그는 TempDB 경합 세부 정보를 출력합니다. 문제를 해결할 때 가장 먼저 이 정보를 참고할 수 있습니다. 이러한 유형의 경합을 완화하고 전체 워크로드의 처리량을 늘리려는 경우 두 가지 방법을 시도할 수 있습니다. 임시 테이블 사용을 중단합니다. 또는 메모리 최적화 테이블을 사용할 수 있습니다. 
+진단 로그는 TempDB 경합 세부 정보를 출력합니다. 문제를 해결할 때 가장 먼저 이 정보를 참고할 수 있습니다. 이러한 유형의 경합을 완화하고 전체 워크로드의 처리량을 늘리려는 경우 두 가지 방법을 시도할 수 있습니다. 임시 테이블 사용을 중단합니다. 또는 메모리 최적화 테이블을 사용할 수 있습니다.
 
-자세한 내용은 [메모리 최적화 테이블 소개(영문)](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables)를 참조하세요. 
+자세한 내용은 [메모리 최적화 테이블 소개(영문)](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables)를 참조하세요.
 
 ## <a name="elastic-pool-dtu-shortage"></a>탄력적 풀 DTU 부족
 
 ### <a name="what-is-happening"></a>설명
 
-검색 가능한 이 성능 패턴은 지난 7일간의 기준과 비교하여 현재 데이터베이스 워크로드의 성능이 저하되었음을 나타냅니다. 구독의 탄력적 풀에서 사용 가능한 DTU가 부족하기 때문입니다 
+검색 가능한 이 성능 패턴은 지난 7일간의 기준과 비교하여 현재 데이터베이스 워크로드의 성능이 저하되었음을 나타냅니다. 구독의 탄력적 풀에서 사용 가능한 DTU가 부족하기 때문입니다
 
 SQL Database의 리소스는 일반적으로 CPU 및 IO(데이터 및 트랜잭션 로그 IO) 리소스가 복합된 측정값으로 구성되는 [DTU 리소스](sql-database-purchase-models.md#dtu-based-purchasing-model)라고 합니다. [Azure 탄력적 풀 리소스](sql-database-elastic-pool.md)은 크기 조정을 위해 여러 데이터베이스 간에 공유되는 사용 가능한 eDTU 리소스의 풀로 사용됩니다. 탄력적 풀에서 사용 가능한 eDTU 리소스가 충분하지 않아 풀의 모든 데이터베이스를 지원할 수 없는 경우 시스템에서 탄력적 풀 DTU 부족 성능 문제를 감지합니다.
 
@@ -258,13 +257,13 @@ SQL 데이터베이스는 쿼리 실행 비용을 최소화하는 쿼리 실행 
 
 새 계획 회귀 상태는 SQL Database가 기존 계획만큼 효율적이지 않은 새 쿼리 실행 계획을 시작하는 상태를 가리킵니다. 이전 계획 회귀 상태란 SQL Database가 더 효율적인 새 계획에서 새 계획만큼 효율적이지 않은 이전 계획으로 전환하는 상태를 가리킵니다. 기존 계획 변경 워크로드 회귀는 이전 계획과 새 계획이 성능이 낮은 계획으로 균형을 이동하면서 계속해서 이전 계획과 새 계획을 교대하는 상태를 나타냅니다.
 
-계획 회귀에 대한 자세한 내용은 [SQL 서버의 계획 회귀란?(영문)](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../what-is-plan-regression-in-sql-server/)을 참조하세요. 
+계획 회귀에 대한 자세한 내용은 [SQL 서버의 계획 회귀란?(영문)](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../what-is-plan-regression-in-sql-server/)을 참조하세요.
 
 ### <a name="troubleshooting"></a>문제 해결
 
 진단 로그는 쿼리 해시, 좋은 계획 ID, 나쁜 계획 ID, 쿼리 ID를 출력합니다. 이 정보를 문제 해결의 기초로 사용할 수 있습니다.
 
-제공된 쿼리 해시로 식별할 수 있는 특정 쿼리에 대해 성능을 향상시킬 수 있는 계획을 분석할 수 있습니다. 쿼리에 대해 더 효율적으로 작동하는 계획을 결정한 후에는 계획을 수동으로 적용할 수 있습니다. 
+제공된 쿼리 해시로 식별할 수 있는 특정 쿼리에 대해 성능을 향상시킬 수 있는 계획을 분석할 수 있습니다. 쿼리에 대해 더 효율적으로 작동하는 계획을 결정한 후에는 계획을 수동으로 적용할 수 있습니다.
 
 자세한 내용은 [SQL Server에서 계획 회귀를 방지하는 방법 알아보기(영문)](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../you-shall-not-regress-how-sql-server-2017-prevents-plan-regressions/)를 참조하세요.
 
@@ -300,7 +299,7 @@ SQL 데이터베이스는 쿼리 실행 비용을 최소화하는 쿼리 실행 
 
 검색 가능한 이 성능 패턴은 클라이언트측 상태를 나타냅니다. 클라이언트 측 애플리케이션 또는 클라이언트 측 네트워크에서 문제를 해결해야 합니다. 진단 로그는 지난 2시간 이내에 클라이언트에서 사용하기를 가장 많이 기다리는 것처럼 보이는 쿼리 해시와 대기 시간을 출력합니다. 이 정보를 문제 해결의 기초로 사용할 수 있습니다.
 
-이러한 쿼리를 사용하기 위해 애플리케이션의 성능을 최적화할 수 있습니다. 발생 가능한 네트워크 대기 시간 문제를 고려해야 할 수도 있습니다. 성능 저하 문제를 판단하는 기준은 지난 7일간의 성능 기준 변경이므로 최근 애플리케이션 또는 네트워크 상태 변경이 이 성능 회귀 이벤트의 원인인지 여부를 조사하는 것이 좋습니다. 
+이러한 쿼리를 사용하기 위해 애플리케이션의 성능을 최적화할 수 있습니다. 발생 가능한 네트워크 대기 시간 문제를 고려해야 할 수도 있습니다. 성능 저하 문제를 판단하는 기준은 지난 7일간의 성능 기준 변경이므로 최근 애플리케이션 또는 네트워크 상태 변경이 이 성능 회귀 이벤트의 원인인지 여부를 조사하는 것이 좋습니다.
 
 ## <a name="pricing-tier-downgrade"></a>가격 책정 계층 다운그레이드
 
@@ -318,7 +317,7 @@ SQL 데이터베이스는 쿼리 실행 비용을 최소화하는 쿼리 실행 
 
  Intelligent Insights를 사용하여 성능 문제를 해결하는 데 권장되는 방법은 순서도를 따르세요.
 
-Azure SQL 분석으로 이동하여 Azure Portal을 통해 Intelligent Insight에 액세스합니다. 들어오는 성능 경고를 찾아서 선택합니다. 검색 페이지에서 진행되는 상황을 확인합니다. 제공되는 문제의 근본 원인 분석, 쿼리 텍스트, 쿼리 시간 추세 및 인시던트 진화를 관찰합니다. 성능 문제 완화에 대한 Intelligent Insights 권장 사항을 사용하여 문제를 해결합니다. 
+Azure SQL 분석으로 이동하여 Azure Portal을 통해 Intelligent Insight에 액세스합니다. 들어오는 성능 경고를 찾아서 선택합니다. 검색 페이지에서 진행되는 상황을 확인합니다. 제공되는 문제의 근본 원인 분석, 쿼리 텍스트, 쿼리 시간 추세 및 인시던트 진화를 관찰합니다. 성능 문제 완화에 대한 Intelligent Insights 권장 사항을 사용하여 문제를 해결합니다.
 
 [![권장되는 문제 해결 흐름](./media/sql-database-intelligent-insights/intelligent-insights-troubleshooting-flowchart.png)](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/intelligent-insight/Troubleshoot%20Azure%20SQL%20Database%20performance%20issues%20using%20Intelligent%20Insight.pdf)
 
@@ -328,6 +327,7 @@ Azure SQL 분석으로 이동하여 Azure Portal을 통해 Intelligent Insight�
 Intelligent Insights는 일반적으로 성능 문제에 대한 근본 원인 분석을 수행하는 데 1시간이 필요합니다. Intelligent Insights에서 문제를 찾을 수 없고 사용자에게 중요한 경우 쿼리 저장소를 사용하여 성능문제의 근본 원인을 수동으로 식별합니다. (일반적으로 이러한 문제는 1 시간 이내입니다.) 자세한 내용은 [쿼리 저장소를 사용 하 여 성능 모니터링](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
+
 - [Intelligent Insights](sql-database-intelligent-insights.md) 개념을 알아봅니다.
 - [Intelligent Insights의 Azure SQL Database 성능 진단 로그](sql-database-intelligent-insights-use-diagnostics-log.md)를 사용합니다.
 - [Azure SQL 분석을 사용하여 Azure SQL Database](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql)를 모니터링합니다.

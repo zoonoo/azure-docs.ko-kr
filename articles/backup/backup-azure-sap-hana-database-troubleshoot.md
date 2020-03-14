@@ -4,11 +4,11 @@ description: Azure Backup를 사용 하 여 SAP HANA 데이터베이스를 백�
 ms.topic: troubleshooting
 ms.date: 11/7/2019
 ms.openlocfilehash: 8872cfe87df9b8d0553d777f72fe7102d08dea4d
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78382474"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79273294"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Azure에서 SAP HANA 데이터베이스의 백업 문제 해결
 

@@ -3,7 +3,7 @@ title: 확장 이벤트
 description: Azure SQL Database의 확장 이벤트(XEvents)와 Microsoft SQL Server의 이벤트 세션 간 차이점에 대해 설명합니다.
 services: sql-database
 ms.service: sql-database
-ms.subservice: monitor
+ms.subservice: performance
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
-ms.openlocfilehash: cab5b5baf318eb9eadc398ce525e0de716d0df2d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: cb4eb4474ad074a3e69dc146c97b48d54343595b
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822294"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79213956"
 ---
 # <a name="extended-events-in-sql-database"></a>SQL Database의 확장 이벤트
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
@@ -27,14 +27,14 @@ ms.locfileid: "73822294"
 - SQL Server는 2008년 이후 확장 이벤트를 추가해 왔습니다.
 - SQL Database의 확장 이벤트 기능 집합은 SQL Server 기능의 견고한 하위 집합입니다.
 
-*XEvent* 는 블로그 및 기타 비공식 위치에서 '확장 이벤트'를 가리키는 비공식적 별명입니다.
+*XEvents*는 블로그 및 기타 비공식 위치에서 '확장 이벤트'를 가리키는 비공식적 별명입니다.
 
 Azure SQL Database 및 Microsoft SQL Server용 확장 이벤트에 대한 추가 정보는 다음에 제공됩니다.
 
 - [빠른 시작: SQL Server의 확장 이벤트](https://msdn.microsoft.com/library/mt733217.aspx)
 - [확장 이벤트](https://msdn.microsoft.com/library/bb630282.aspx)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 항목은 다음에 대한 어느 정도의 지식이 있는 것으로 가정합니다.
 
@@ -81,25 +81,25 @@ Azure SQL Database 및 Microsoft SQL Server용 확장 이벤트에 대한 추가
 
 확장 이벤트 기능은 여러 [카탈로그 뷰](https://msdn.microsoft.com/library/ms174365.aspx)에서 지원합니다. 카탈로그 뷰를 통해 현재 데이터베이스에서 사용자가 만든 이벤트 세션의 *메타데이터 또는 정의* 를 확인할 수 있습니다. 뷰는 활성 이벤트 세션의 인스턴스에 대한 정보를 반환하지 않습니다.
 
-| 카탈로그 뷰의<br/>이름 | 설명 |
+| 카탈로그 뷰의<br/>이름 | Description |
 |:--- |:--- |
-| **sys.database_event_session_actions** |이벤트 세션의 각 이벤트에 있는 각 작업에 대한 행을 반환합니다. |
+| **sys.database_event_session_actions** |이벤트 세션의 각 이벤트의 동작에 대해 한 행을 반환합니다. |
 | **sys.database_event_session_events** |이벤트 세션의 각 이벤트에 대한 행을 반환합니다. |
 | **sys.database_event_session_fields** |이벤트 및 대상에 명시적으로 설정된 사용자 지정 가능한 각 열에 대한 행을 반환합니다. |
-| **sys.database_event_session_targets** |이벤트 세션의 각 이벤트 대상에 대한 행을 반환합니다. |
+| **sys.database_event_session_targets** |이벤트 세션의 각 이벤트 대상에 대해 한 행을 반환합니다. |
 | **sys.database_event_sessions** |SQL Database의 각 이벤트 세션에 대한 행을 반환합니다. |
 
 Microsoft SQL Server에서 유사한 카탈로그 뷰의 이름에는 *.database\_* 가 아닌 *.server\_* 가 포함됩니다. 이름 패턴은 **sys.server_event_%** 와 같습니다.
 
-## <a name="new-dynamic-management-views-dmvshttpsmsdnmicrosoftcomlibraryms188754aspx"></a>새로운 [DMV](https://msdn.microsoft.com/library/ms188754.aspx)
+## <a name="new-dynamic-management-views-dmvs"></a>새로운 [DMV](https://msdn.microsoft.com/library/ms188754.aspx)
 
 Azure SQL Database에는 확장 이벤트를 지원하는 [DMV(동적 관리 뷰)](https://msdn.microsoft.com/library/bb677293.aspx)가 있습니다. DMV를 통해 *활성* 이벤트 세션을 확인할 수 있습니다.
 
-| DMV의 이름 | 설명 |
+| DMV의 이름 | Description |
 |:--- |:--- |
-| **sys.dm_xe_database_session_event_actions** |이벤트 세션 작업에 대한 정보를 반환합니다. |
+| **sys.dm_xe_database_session_event_actions** |이벤트 세션 동작에 대한 정보를 반환합니다. |
 | **sys.dm_xe_database_session_events** |세션 이벤트에 대한 정보를 반환합니다. |
-| **sys.dm_xe_database_session_object_columns** |세션에 바인딩되는 개체에 대한 구성 값을 보여줍니다. |
+| **sys.dm_xe_database_session_object_columns** |세션에 바인딩된 개체의 구성 값을 표시합니다. |
 | **sys.dm_xe_database_session_targets** |세션 작업에 대한 정보를 반환합니다. |
 | **sys.dm_xe_database_sessions** |현재 데이터베이스로 범위가 한정된 각 이벤트 세션에 대한 행을 반환합니다. |
 
@@ -171,7 +171,7 @@ Azure Storage 컨테이너에 대해 만드는 SAS 토큰은 권한에 대해 **
 
 - 읽기
 - 쓰기
-- 나열
+- 목록
 
 ## <a name="performance-considerations"></a>성능 고려 사항
 

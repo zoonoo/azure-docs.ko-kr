@@ -4,11 +4,11 @@ description: 이 문서에서는 MARS (Microsoft Azure Recovery Services) 에이
 ms.date: 08/30/2019
 ms.topic: conceptual
 ms.openlocfilehash: 6085bc647c06b5907282460a2d8706b8549e1bc2
-ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2020
-ms.locfileid: "78932615"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79247866"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>MARS(Microsoft Azure Recovery Services) 에이전트를 통한 백업 매트릭스 지원
 

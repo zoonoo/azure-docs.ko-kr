@@ -11,16 +11,16 @@ author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
 ms.date: 07/11/2019
-ms.openlocfilehash: 802dfa7e3b2d0b9deac957662ac1e7604d085fd9
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 6bae9e871be2a5d56d057d2a077de53329b8c3ec
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73828087"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79208937"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>SQL Server 인스턴스를 Azure SQL Database 관리형 인스턴스로 마이그레이션
 
-이 문서에서는 SQL Server 2005 이상 버전 인스턴스를 [Azure SQL Database 관리형 인스턴스](sql-database-managed-instance.md)로 마이그레이션하는 방법에 대해 설명합니다. 단일 데이터베이스 또는 탄력적 풀로 마이그레이션하는 방법에 대한 자세한 내용은 [단일 또는 풀링된 데이터베이스로 마이그레이션](sql-database-cloud-migrate.md)을 참조하세요. 다른 플랫폼에서 마이그레이션하는 방법에 대한 마이그레이션 정보는 [Azure 데이터베이스 마이그레이션 가이드](https://datamigration.microsoft.com/)를 참조하세요.
+이 문서에서는 SQL Server 2005 이상 버전 인스턴스를 [Azure SQL Database 관리형 인스턴스](sql-database-managed-instance.md)로 마이그레이션하는 방법에 대해 설명합니다. 단일 데이터베이스 또는 탄력적 풀로 마이그레이션하는 방법에 대한 자세한 내용은 [단일 또는 풀링된 데이터베이스로 마이그레이션](sql-database-cloud-migrate.md)을 참조하세요. 다른 플랫폼에서 마이그레이션하는 방법에 대한 마이그레이션 정보는 [Azure Database 마이그레이션 가이드](https://datamigration.microsoft.com/)를 참조하세요.
 
 > [!NOTE]
 > 신속 하 게 시작 하 고 Managed Instance 하려는 경우이 페이지 대신 [빠른 시작 가이드](sql-database-managed-instance-quickstart-guide.md) 로 이동 하는 것이 좋습니다. 
@@ -45,7 +45,7 @@ ms.locfileid: "73828087"
 
 [DMA(Data Migration Assistant)](https://docs.microsoft.com/sql/dma/dma-overview)를 사용하여 Azure SQL Database에서 데이터베이스 기능에 영향을 주는 잠재적인 호환성 문제를 검색합니다. DMA는 아직 관리형 인스턴스를 마이그레이션 대상으로 지원하지 않지만, Azure SQL Database에 대한 평가를 실행하고 제품 설명서에 대해 보고된 기능 패리티 및 호환성 문제 목록을 신중하게 검토하는 것이 좋습니다. Azure SQL Database로 마이그레이션하지 못하도록 차단하는 대부분의 문제는 관리형 인스턴스를 통해 제거되었으므로 관리되는 인스턴스에서 차단하지 않는 일부 보고된 차단 문제가 있는지 확인하려면 [Azure SQL Database 기능](sql-database-features.md)을 참조하세요. 예를 들어 데이터베이스 간 쿼리, 동일한 인스턴스 내의 데이터베이스 간 트랜잭션, 다른 SQL 원본에 연결된 서버, CLR, 글로벌 임시 테이블, 인스턴스 수준 보기, Service Broker 등과 같은 기능은 관리되는 인스턴스에서 사용할 수 있습니다.
 
-관리되는 인스턴스 배포 옵션에서 제거되지 않은 일부 보고된 차단 문제가 있는 경우 [Azure 가상 머신의 SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/)와 같은 대체 옵션을 고려해야 합니다. 다음은 몇 가지 예입니다.
+관리되는 인스턴스 배포 옵션에서 제거되지 않은 일부 보고된 차단 문제가 있는 경우 [Azure 가상 머신의 SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/)와 같은 대체 옵션을 고려해야 합니다. 예를 들어 다음과 같은 노래를 선택할 수 있다.
 
 - 운영 체제 또는 파일 시스템에 직접 액세스해야 하는 경우(예: SQL Server가 있는 동일한 가상 머신에 타사 또는 사용자 지정 에이전트를 설치하는 경우)
 - FileStream/FileTable, PolyBase 및 인스턴스 간 트랜잭션과 같이 아직 지원되지 않는 기능에 대한 엄격한 종속성이 있는 경우
@@ -72,14 +72,14 @@ SQL Server 인스턴스에서 측정 해야 하는 매개 변수는 다음과 �
 - SQL Server 2016 이상 버전에서 마이그레이션하는 경우 동적 관리 뷰 또는 쿼리 저장소를 검토 하 여 워크 로드 및 쿼리 성능 또는 SQL Server 인스턴스를 모니터링할 수 있습니다. 작업에서 가장 중요 한 쿼리의 평균 기간 및 CPU 사용량을 확인 하 여 Managed Instance에서 실행 되는 쿼리와 비교 합니다.
 
 > [!Note]
-> 높은 CPU 사용량, 상수 메모리가 중, tempdb 또는 parametrization 문제 등 SQL Server에 대 한 문제에 대 한 문제가 발생 하는 경우에는 기준선 및 마이그레이션을 수행 하기 전에 원본 SQL Server 인스턴스에서 문제를 해결 해야 합니다. 새 시스템 migh에 대 한 알려진 문제를 마이그레이션하면 예기치 않은 결과가 발생 하 고 성능 비교가 무효화 됩니다.
+> 높은 CPU 사용량, 상수 메모리 압력, tempdb 또는 매개 변수화 문제와 같은 SQL Server 작업에 문제가 있는 경우에는 기준선 및 마이그레이션을 수행 하기 전에 원본 SQL Server 인스턴스에서이를 해결 해야 합니다. 새 시스템 migh에 대 한 알려진 문제를 마이그레이션하면 예기치 않은 결과가 발생 하 고 성능 비교가 무효화 됩니다.
 
 이 작업의 결과로 원본 시스템의 CPU, 메모리 및 IO 사용에 대 한 평균 및 최대 기간과 작업에서 가장 중요 한 쿼리의 평균 및 최대 기간과 CPU 사용량을 문서화 해야 합니다. 나중에 이러한 값을 사용 하 여 Managed Instance에 대 한 작업의 성능을 원본 SQL Server에 대 한 작업의 기준 성능과 비교할 수 있습니다.
 
 ## <a name="deploy-to-an-optimally-sized-managed-instance"></a>최적 크기의 관리되는 인스턴스에 배포
 
 관리되는 인스턴스는 클라우드로 이동할 온-프레미스 워크로드에 맞게 조정됩니다. 작업에 적합한 수준의 리소스를 선택할 때 유연성이 높은 [새 구매 모델](sql-database-service-tiers-vcore.md)이 도입되었습니다. 온-프레미스 환경에서는 실제 코어 및 IO 대역폭을 사용하여 이러한 작업의 크기를 조정하는 데 익숙할 것입니다. 관리되는 인스턴스에 대한 구매 모델은 가상 코어 수 또는 "vCore 수"를 기반으로 하며, 추가 스토리지 및 IO를 별도로 사용할 수 있습니다. vCore 모델은 현재 온-프레미스에서 사용하는 제품과 비교하여 클라우드의 컴퓨팅 요구 사항을 더 쉽게 이해할 수 있는 방법입니다. 새로운 이 모델을 사용하면 클라우드에서 대상 환경의 크기를 올바르게 조정할 수 있습니다. 올바른 서비스 계층 및 특성을 선택 하는 데 도움이 되는 몇 가지 일반적인 지침은 여기에 설명 되어 있습니다.
-- 기준 CPU 사용량에 따라 SQL Server에서 사용 하는 코어 수와 일치 하는 Managed Instance 프로 비전 할 수 있습니다. [Managed Instance 설치 된 VM 특성과 일치 하도록 CPU 특성을 확장 해야 할 수도 있습니다. ](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics).
+- 기준 CPU 사용량에 따라 SQL Server에서 사용 하는 코어 수와 일치 하는 Managed Instance를 프로 비전 할 수 있습니다. [Managed Instance 설치 된 VM 특성과](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics)일치 하도록 CPU 특성을 확장 해야 할 수도 있습니다.
 - 기준 메모리 사용량에 따라 [일치 하는 메모리가 있는 서비스 계층을](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics)선택 합니다. 메모리 크기를 직접 선택할 수 없기 때문에 일치 하는 메모리가 있는 Vcores의 크기 (예: Gen5의 5.1 g b/Vcores)를 사용 하 여 Managed Instance를 선택 해야 합니다. 
 - 파일 하위 시스템의 기준 IO 대기 시간에 따라 일반적인 용도 (5ms 보다 긴 대기 시간)를 선택 하 고 서비스 계층 (대기 시간 3 밀리초 미만)을 중요 비즈니스용 합니다.
 - 기준 처리량에 따라 데이터 또는 로그 파일의 크기를 미리 할당 하 여 예상 IO 성능을 얻습니다.

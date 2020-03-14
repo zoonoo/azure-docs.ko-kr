@@ -8,12 +8,12 @@ ms.author: klam
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 07/19/2019
-ms.openlocfilehash: 6c7112b6b5944042036fd3e7af6ec6f6dfbde0c0
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 795acd67a8d4a9f8b8b7d78799a92134f249cf8d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77526147"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79270460"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Azure Logic Apps용 가격 책정 모델
 
@@ -64,7 +64,7 @@ ms.locfileid: "77526147"
 
   통합 계정 제한에 대 한 자세한 내용은 [Logic Apps 제한 및 구성](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits)을 참조 하세요. [통합 계정 계층 및 해당 가격 책정 모델](#integration-accounts) 에 대 한 자세한 내용은이 항목의 뒷부분에서 확인할 수 있습니다.
 
-프리미엄 ISE SKU를 선택 하는 경우 기본 단위에 고정 용량이 있습니다. 더 많은 처리량이 필요한 경우 생성 중에 또는 나중에 [확장 단위를 추가할](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity)수 있습니다. 개발자 ISE SKU에는 배율 단위를 추가 하는 기능이 없습니다. ISE에서 실행 되는 논리 앱은 데이터 보존 비용을 초래 하지 않습니다.
+프리미엄 ISE SKU를 선택 하는 경우 기본 단위에 고정 용량이 있습니다. 더 많은 처리량이 필요한 경우 생성 중에 또는 나중에 [확장 단위를 추가할](../logic-apps/ise-manage-integration-service-environment.md#add-capacity)수 있습니다. 개발자 ISE SKU에는 배율 단위를 추가 하는 기능이 없습니다. ISE에서 실행 되는 논리 앱은 데이터 보존 비용을 초래 하지 않습니다.
 
 가격 책정 요금은 [Logic Apps 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps)을 참조 하세요.
 

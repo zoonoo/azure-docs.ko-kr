@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: ddf011724f72a8a5eaf4e6398c28b28fffa5bfac
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: dab13f222b441c7415a8d09d0d91ab3af5aaf836
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78247000"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79280184"
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>Linux의 Azure App Service에 대한 SSH 지원
 
@@ -113,7 +113,7 @@ Load average: 0.07 0.04 0.08 4/765 45738
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview)에 질문 및 문제를 게시할 수 있습니다.
+[Azure 포럼](https://docs.microsoft.com/answers/topics/azure-webapps.html)에 질문 및 문제를 게시할 수 있습니다.
 
 컨테이너용 웹앱에 대한 자세한 내용은 다음을 참조하세요.
 

@@ -3,12 +3,12 @@ title: Azure Advisor를 사용하여 서비스 비용 절감
 description: Azure Advisor를 사용하여 Azure 배포 비용을 최적화합니다.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: afa5a4068d2ec5f4730d261801760fe68d7a330e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0237feab59551ecab87d78b0d4d66b9fc7b47e90
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75443118"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79259696"
 ---
 # <a name="reduce-service-costs-using-azure-advisor"></a>Azure Advisor를 사용하여 서비스 비용 절감
 
@@ -46,6 +46,9 @@ Azure Advisor은 반복적으로 실패 하는 Azure Data Factory 파이프라�
 
 ## <a name="use-standard-snapshots-for-managed-disks"></a>Managed Disks에 대 한 표준 스냅숏 사용
 60%의 비용을 절감하려면 부모 디스크의 스토리지 유형과 관계없이 Standard Storage에 스냅샷을 저장하는 것이 좋습니다. 이 옵션은 Managed Disks 스냅숏의 기본 옵션입니다. Azure Advisor는 Premium Storage 저장 된 스냅숏을 식별 하 고 Premium에서 Standard Storage로 스냅숏을 마이그레이션하는 것이 좋습니다. [관리 디스크 가격 책정에 대 한 자세한 정보](https://aka.ms/aa_manageddisksnapshot_learnmore)
+
+## <a name="utilize-lifecycle-management"></a>수명 주기 관리 활용
+Azure Advisor는 Azure blob 저장소 개체 수, 총 크기 및 트랜잭션과 관련 된 인텔리전스를 활용 하 여 수명 주기 관리를 통해 데이터를 계층화 하는 데 가장 적합 한 저장소 계정이 있는지 검색 합니다. 응용 프로그램 호환성을 위해 Azure blob storage에 데이터를 유지 하면서 데이터를 쿨 또는 보관으로 자동 계층화 하 여 저장소 비용을 최적화 하는 수명 주기 관리 규칙을 만들라는 메시지를 표시 합니다.
 
 ## <a name="how-to-access-cost-recommendations-in-azure-advisor"></a>Azure Advisor에서 비용 권장 사항에 액세스하는 방법
 

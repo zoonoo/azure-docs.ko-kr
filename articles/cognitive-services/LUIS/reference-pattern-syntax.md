@@ -11,11 +11,11 @@ ms.topic: reference
 ms.date: 12/09/2019
 ms.author: diberry
 ms.openlocfilehash: 696f4bdc22bed01a4b5be8bff63ade482a8dbe0a
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75890273"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79221282"
 ---
 # <a name="pattern-syntax"></a>패턴 구문
 
@@ -28,7 +28,7 @@ ms.locfileid: "75890273"
 
 패턴 구문에서는 다음 구문을 지원 합니다.
 
-|함수|구문|중첩 수준|예|
+|함수|구문|중첩 수준|예제|
 |--|--|--|--|
 |엔터티| {}-중괄호|2|{Entity-name} 형식은 어디에 있나요?|
 |선택 사항|[]-대괄호<BR><BR>선택 항목 및 그룹화 조합의 중첩 수준에는 3의 제한이 있습니다. |2|물음표는 선택적인 [?]입니다.|
@@ -54,25 +54,25 @@ Entity1이 원본 (시애틀) 및 대상 (카이로)과 같은 역할이 있는 
 |--|--|
 |RedWest-C|외부 그룹화 엔터티와 일치|
 |Seattle|내부 그룹화 엔터티 중 하 나와 일치|
-|Cairo|내부 그룹화 엔터티 중 하 나와 일치|
+|카이로|내부 그룹화 엔터티 중 하 나와 일치|
 
 ## <a name="nesting-limits-for-groups-with-optional-syntax"></a>선택적인 구문을 사용 하 여 그룹에 대 한 중첩 제한
 
 **선택적** 구문의 **그룹화** 조합에는 중첩 수준 3 개로 제한 됩니다.
 
-|허용됨|예|
+|허용됨|예제|
 |--|--|
-|예|([(test1 &#x7c; test2)] &#x7c; test3)|
-|아닙니다.|([([test1] &#x7c; test2)] &#x7c; test3)|
+|yes|([(test1 &#x7c; test2)] &#x7c; test3)|
+|예|([([test1] &#x7c; test2)] &#x7c; test3)|
 
 ## <a name="nesting-limits-for-groups-with-or-ing-syntax"></a>또는 구문을 사용 하 여 그룹에 대 한 중첩 제한
 
 **Or** of 구문을 사용한 **grouping** 의 조합에는 세로 막대 2 개로 제한 됩니다.
 
-|허용됨|예|
+|허용됨|예제|
 |--|--|
-|예|(test1 &#x7c; test2 &#x7c; (test3 &#x7c; test4))|
-|아닙니다.|(test1 &#x7c; test2 &#x7c; test3 &#x7c; (test4 &#x7c; test5)) |
+|yes|(test1 &#x7c; test2 &#x7c; (test3 &#x7c; test4))|
+|예|(test1 &#x7c; test2 &#x7c; test3 &#x7c; (test4 &#x7c; test5)) |
 
 ## <a name="syntax-to-add-an-entity-to-a-pattern-template"></a>패턴 템플릿에 엔터티를 추가하는 구문
 패턴 템플릿에 엔터티를 추가하려면 엔터티 이름을 중괄호로 묶습니다(예: `Who does {Employee} manage?`).
@@ -125,7 +125,7 @@ LUIS는 패턴에 따라 책 제목이 끝나는 위치를 알 수 있기 때문
 
 위의 표에서 제목은 `the man from La Mancha` (책 제목) 이어야 하지만 제목에는 선택적 word `from`포함 되어 있으므로 제목은 잘못 예측 됩니다.
 
-패턴에서 이러한 예외를 해결하려면 [명시적 목록에 대한 API 작성](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5ade550bd5b81c209ce2e5a8)을 사용하여 {subject} 엔터티에 대한 명시적 목록 일치로 `the man from la mancha`를 추가합니다.
+패턴에서 이러한 예외를 해결하려면 `the man from la mancha`명시적 목록에 대한 API 작성[을 사용하여 {subject} 엔터티에 대한 명시적 목록 일치로 ](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5ade550bd5b81c209ce2e5a8)를 추가합니다.
 
 ## <a name="syntax-to-mark-optional-text-in-a-template-utterance"></a>템플릿 발언에서 선택적 텍스트를 표시하는 구문
 정규식 대괄호 구문 `[]`을 사용하여 발언의 선택적 텍스트에 표시합니다. 선택적 텍스트는 대괄호에 최대 2개의 중괄호를 중첩할 수 있습니다.

@@ -4,11 +4,11 @@ description: 선언적 JSON 구문을 사용하여 Azure Resource Manager 템플
 ms.topic: conceptual
 ms.date: 02/25/2020
 ms.openlocfilehash: 08c688da3e812a4a67070c926cf11512bfc60667
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77622891"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79248243"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿의 구조 및 구문 이해
 

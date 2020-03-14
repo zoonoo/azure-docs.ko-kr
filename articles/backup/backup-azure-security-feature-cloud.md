@@ -3,12 +3,12 @@ title: 클라우드 워크 로드를 보호 하는 데 도움이 되는 보안 �
 description: Azure Backup의 보안 기능을 사용 하 여 백업을 더 안전 하 게 만드는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 3435b9455af3362cdce2dceb20e183a8b05a15dd
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: f89d9ab3ef373ecd9a7d15ef4ec9b2109750f8de
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78395536"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79248074"
 ---
 # <a name="security-features-to-help-protect-cloud-workloads-that-use-azure-backup"></a>Azure Backup를 사용 하는 클라우드 워크 로드를 보호 하는 데 도움이 되는 보안 기능
 
@@ -178,24 +178,23 @@ REST API를 사용 하 여 일시 삭제 기능을 사용 하지 않도록 설�
 1. [일시 삭제를 사용 하지 않도록 설정](#disabling-soft-delete)하는 단계를 수행 합니다.
 2. Azure Portal에서 자격 증명 모음으로 이동 하 고, **백업 항목**으로 이동 하 고, 일시 삭제 된 VM을 선택 합니다.
 
-![일시 삭제 된 VM 선택](./media/backup-azure-security-feature-cloud/vm-soft-delete.png)
+   ![일시 삭제 된 VM 선택](./media/backup-azure-security-feature-cloud/vm-soft-delete.png)
 
 3. **삭제 취소**옵션을 선택 합니다.
 
-![삭제 취소 선택](./media/backup-azure-security-feature-cloud/choose-undelete.png)
-
+   ![삭제 취소 선택](./media/backup-azure-security-feature-cloud/choose-undelete.png)
 
 4. 창이 표시 됩니다. **삭제 취소**를 선택 합니다.
 
-![삭제 취소 선택](./media/backup-azure-security-feature-cloud/undelete-vm.png)
+   ![삭제 취소 선택](./media/backup-azure-security-feature-cloud/undelete-vm.png)
 
 5. 백업 데이터 **삭제** 를 선택 하 여 백업 데이터를 영구적으로 삭제 합니다.
 
-![백업 데이터 삭제 선택](https://docs.microsoft.com/azure/backup/media/backup-azure-manage-vms/delete-backup-buttom.png)
+   ![백업 데이터 삭제 선택](https://docs.microsoft.com/azure/backup/media/backup-azure-manage-vms/delete-backup-buttom.png)
 
 6. 복구 지점이 삭제 되도록 확인할 백업 항목의 이름을 입력 합니다.
 
-![백업 항목의 이름 입력](https://docs.microsoft.com/azure/backup/media/backup-azure-manage-vms/delete-backup-data1.png)
+   ![백업 항목의 이름 입력](https://docs.microsoft.com/azure/backup/media/backup-azure-manage-vms/delete-backup-data1.png)
 
 7. 항목에 대 한 백업 데이터를 삭제 하려면 **삭제**를 선택 합니다. 알림 메시지를 통해 백업 데이터가 삭제 되었음을 알 수 있습니다.
 
@@ -268,6 +267,10 @@ Azure Backup를 사용 하면 고객이 관리 하는 키를 사용 하 여 암�
 ### <a name="backup-of-encrypted-vms"></a>암호화 된 Vm 백업
 
 Azure Backup 서비스를 사용 하 여 암호화 된 디스크로 Windows 또는 Linux Azure Vm (가상 머신)을 백업 하 고 복원할 수 있습니다. 지침은 [Azure Backup를 사용 하 여 암호화 된 가상 머신 백업 및 복원](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption)을 참조 하세요.
+
+## <a name="private-endpoints"></a>전용 끝점
+
+[!INCLUDE [Private Endpoints](../../includes/backup-private-endpoints.md)]
 
 ## <a name="other-security-features"></a>기타 보안 기능
 

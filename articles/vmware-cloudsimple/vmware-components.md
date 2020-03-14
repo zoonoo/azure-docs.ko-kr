@@ -10,11 +10,11 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 9c9b80cd4d8a7a7ac5597d10bbb87095564bd461
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78386867"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79279508"
 ---
 # <a name="private-cloud-vmware-components"></a>사설 클라우드 VMware 구성 요소
 

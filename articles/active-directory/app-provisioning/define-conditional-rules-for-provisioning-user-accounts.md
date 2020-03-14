@@ -15,12 +15,12 @@ ms.date: 09/11/2018
 ms.author: mimart
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12ba93a7e3de3c290d5952227b67843c0a9846d3
-ms.sourcegitcommit: 78f367310e243380b591ff10f2500feca93f5d0a
+ms.openlocfilehash: 2c667409f2abb9f1cf89ae3b34f08e0f9eec067e
+ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77544269"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79138538"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>범위 지정 필터를 사용한 특성 기반 애플리케이션 프로비전
 이 문서에서는 범위 지정 필터를 사용하여 어떤 사용자를 애플리케이션에 프로비전할지 결정하는 특성 기반 규칙을 정의하는 방법을 설명합니다.
@@ -103,7 +103,8 @@ Azure AD 프로비전 서비스에서 처리한 각 사용자 또는 그룹은 �
 
 
 >[!IMPORTANT] 
-> IsMemberOf 필터는 현재 지원 되지 않습니다.
+> - IsMemberOf 필터는 현재 지원 되지 않습니다.
+> - 같음 및 같지 않음은 다중 값 특성에 지원 되지 않습니다.
 
 9. 필요에 따라 7~8단계를 반복하여 다른 범위 지정 절을 추가합니다.
 

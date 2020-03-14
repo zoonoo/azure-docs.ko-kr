@@ -10,11 +10,11 @@ ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
 ms.openlocfilehash: f90ada6b6cd1760b3b779010625f252533fa611d
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68595772"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79221242"
 ---
 # <a name="how-to-manage-settings"></a>설정을 관리하는 방법
 
@@ -85,11 +85,11 @@ Custom Translator에서는 작업의 다른 부분을 다른 사람들과 공유
 
 ## <a name="sharing-permissions"></a>공유 권한
 
-1.  **읽기 권한자:** 작업 영역의 읽기 권한자는 작업 영역에서 모든 정보를 볼 수 있습니다.
+1.  **읽기 권한자:** 작업 영역의 읽기 권한자는 작업 영역에서 모든 정보를 볼 수 있게 됩니다.
 
-2.  **편집자:** 작업 영역의 편집자는 문서를 추가하고, 모델을 학습시키고, 문서 및 프로젝트를 삭제할 수 있습니다. 구독 키를 추가할 수는 있지만 작업 영역을 공유하는 사람을 수정하거나 작업 영역을 삭제하거나 작업 영역 이름을 변경할 수는 없습니다.
+2.  **편집자:** 작업 영역의 편집자는 문서를 추가하고, 모델을 학습하고, 문서 및 프로젝트를 삭제할 수 있습니다. 구독 키를 추가할 수는 있지만 작업 영역을 공유하는 사람을 수정하거나 작업 영역을 삭제하거나 작업 영역 이름을 변경할 수는 없습니다.
 
-3.  **소유자:** 소유자에게는 작업 영역에 대한 모든 권한이 있습니다.
+3.  **소유자:** 소유자는 작업 영역에 대한 모든 권한을 갖습니다.
 
 ## <a name="change-sharing-permission"></a>공유 권한 변경
 
@@ -103,4 +103,4 @@ Custom Translator에서는 작업의 다른 부분을 다른 사람들과 공유
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Microsoft Translator Hub](https://hub.microsofttranslator.com)에서 [작업 영역과 프로젝트를 마이그레이션하는 방법](how-to-migrate.md)을 알아봅니다.
+- [Microsoft Translator Hub](how-to-migrate.md)에서 [작업 영역과 프로젝트를 마이그레이션하는 방법](https://hub.microsofttranslator.com)을 알아봅니다.

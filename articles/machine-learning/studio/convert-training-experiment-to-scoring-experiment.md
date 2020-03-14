@@ -9,14 +9,16 @@ ms.topic: conceptual
 author: likebupt
 ms.author: keli19
 ms.date: 03/28/2017
-ms.openlocfilehash: fa9c5e5fa84a1ea6718bd82cd349f9248d283722
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 061c340f8c4952d5a0f2a3873f7475e4f733c290
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77168845"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79204514"
 ---
 # <a name="how-to-prepare-your-model-for-deployment-in-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio에서 배포용 모델을 준비 하는 방법 (클래식)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Azure Machine Learning Studio (클래식)은 예측 분석 모델을 개발 하 고 Azure 웹 서비스로 배포 하 여 운영 하는 데 필요한 도구를 제공 합니다.
 

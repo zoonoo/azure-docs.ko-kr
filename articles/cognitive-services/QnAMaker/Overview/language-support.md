@@ -11,11 +11,11 @@ ms.topic: reference
 ms.date: 09/24/2019
 ms.author: diberry
 ms.openlocfilehash: 96440bf0e9c26e6f222f3bc94c8fabb0bc8f488d
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720992"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79221432"
 ---
 # <a name="language-support-for-a-qna-maker-resource-and-knowledge-bases"></a>QnA Maker 리소스 및 기술 자료에 대 한 언어 지원
 
@@ -29,7 +29,7 @@ ms.locfileid: "73720992"
 
 다음 목록에는 QnA Maker 리소스에 대해 지원 되는 언어가 나와 있습니다. 
 
-|language|
+|언어|
 |--|
 |아랍어|
 |아르메니아어|
@@ -37,7 +37,7 @@ ms.locfileid: "73720992"
 |바스크어|
 |불가리아어|
 |카탈로니아어|
-|Chinese_Simplified|
+|중국어 간체|
 |중국어 번체|
 |크로아티아어|
 |체코어|
@@ -72,7 +72,7 @@ ms.locfileid: "73720992"
 |루마니아어|
 |러시아어|
 |세르비아어 키릴 자모|
-|Serbian_Latin|
+|세르비아어 라틴어|
 |슬로바키아어|
 |슬로베니아어|
 |스페인어|

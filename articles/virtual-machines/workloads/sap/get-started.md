@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/10/2020
+ms.date: 03/11/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: be403815838233350929c7d4ca0eed979d7dfa8c
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.openlocfilehash: 27fdf966f99ac2cba394515cb654ed74178d6673
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79080328"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79137648"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Azure를 사용 하 여 SAP 워크 로드 시나리오 호스트 및 실행
 
@@ -43,7 +43,7 @@ Azure의 SAP 워크 로드 섹션에서 문서에 대 한 변경 내용은이 �
 - Azure Vm 및 HANA Large Instances에서 지원 되는 SAP 배포 시나리오 지원 되는 시나리오에 대 한 정보는 다음 문서에서 찾을 수 있습니다.
     - [Azure virtual machine의 SAP 워크 로드 지원 시나리오](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-planning-supported-configurations)
     - [HANA Large Instance에 대해 지원 되는 시나리오](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario)
-- 다른 Azure 지역에서 사용할 수 있는 Azure 서비스, Azure VM 유형 및 Azure storage는 [지역별 사용 가능한 사이트 제품](https://azure.microsoft.com/global-infrastructure/services/) 을 확인 하세요. 
+- 다른 Azure 지역에서 사용할 수 있는 Azure 서비스, Azure VM 유형 및 Azure storage 서비스는 [지역별 사용 가능한 사이트 제품](https://azure.microsoft.com/global-infrastructure/services/) 을 확인 하세요. 
 
  
 ## <a name="sap-hana-on-azure-large-instances"></a>Azure(큰 인스턴스)에서 SAP HANA 사용
@@ -110,6 +110,8 @@ SAP 구성 요소에 Azure 서비스를 통합 하는 방법에 대 한 자세�
 
 
 ## <a name="change-log"></a>변경 로그
+- 03/11/2020: DBMS 인스턴스당 여러 데이터베이스를 명확 하 게 설명 하기 위해 [Azure 가상 머신에서 SAP 워크 로드](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-planning-supported-configurations) 를 변경 합니다.
+- 03/11/2020: [SAP NetWeaver의 Azure Virtual Machines 계획 및 구현](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide) 에서 변경 1 세대 및 2 세대 vm 설명
 - 03/10/2020: [Azure 가상 머신 저장소 구성을 SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) 변경 하 여 anf의 실제 기존 처리량 제한을 명확히 합니다.
 - 03/09/2020: sap [응용](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse)프로그램에 대 한 SUSE Linux Enterprise Server의 sap NetWeaver에 대 한 고가용성, sap 응용 프로그램에 대 한 Azure NetApp Files를 사용 하는 [SUSE Linux Enterprise Server의](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files)azure vm에 대 한 고가용성, [SUSE LINUX ENTERPRISE SERVER의 azure vm에서 NFS에 대 한](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs)고가용성, [azure에서 SUSE Linux Enterprise Server 설정, azure에서 SUSE Linux Enterprise Server 설정](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker), azure [vm에서 IBM Db2 LUW의 고가용성, Pacemaker 사용](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms-guide-ha-ibm) [RHEL 다중 SID 가이드](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-multi-sid) 의 azure VM에서 SAP NetWeaver에 대 한 고가용성 및 고가용성을 제공 하 [SAP HANA는 azure SUSE Linux Enterprise Server vm에서](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability) azure vm을 사용 하 여 리소스 에이전트를 사용 하 여 클러스터 리소스 업데이트-lb 
 - 03/05/2020: Azure에서 azure 지역 및 Azure 가상 머신에 대 한 구조 변경 및 콘텐츠 변경 [VIRTUAL MACHINES SAP NetWeaver 계획 및 구현](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide)

@@ -13,11 +13,11 @@ ms.date: 12/05/2017
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: fbaa8c3544b35978786404619879f59ab91a6979
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931930"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79281887"
 ---
 # <a name="move-data-by-using-copy-activity"></a>복사 활동을 사용하여 데이터 이동
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -25,7 +25,7 @@ ms.locfileid: "74931930"
 > * [버전 2(현재 버전)](../copy-activity-overview.md)
 
 > [!NOTE]
-> 이 문서는 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [V2에서 복사 작업](../copy-activity-overview.md)을 참조하세요.
+> 이 아티클은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [V2에서 복사 작업](../copy-activity-overview.md)을 참조하세요.
 
 ## <a name="overview"></a>개요
 Azure Data Factory에서는 복사 작업을 사용해 온-프레미스 및 클라우드 데이터 저장소 간에 데이터를 복사할 수 있습니다. 복사한 데이터는 추가로 변환하고 분석할 수 있습니다. 복사 활동을 통해 BI(비즈니스 인텔리전스) 및 애플리케이션에서 사용할 수 있도록 변환 및 분석 결과를 게시할 수도 있습니다.
@@ -102,12 +102,12 @@ Azure Data Factory는 미국 서부, 미국 동부 및 북유럽 지역에서만
 | &nbsp; | 미국 중서부 | 미국 중서부 |
 | &nbsp; | 미국 서부 | 미국 서부 |
 | &nbsp; | 미국 서부 2 | 미국 서부 2 |
-| 캐나다 | 캐나다 동부 | 캐나다 중부 |
+| Canada | 캐나다 동부 | 캐나다 중부 |
 | &nbsp; | 캐나다 중부 | 캐나다 중부 |
 | 브라질 | 브라질 남부 | 브라질 남부 |
 | 유럽 | 북유럽 | 북유럽 |
 | &nbsp; | 서유럽 | 서유럽 |
-| 영국 | 영국 서부 | 영국 남부 |
+| United Kingdom | 영국 서부 | 영국 남부 |
 | &nbsp; | 영국 남부 | 영국 남부 |
 | 아시아 태평양 | 동남아시아 | 동남아시아 |
 | &nbsp; | 동아시아 | 동남아시아 |
@@ -121,7 +121,7 @@ Azure Data Factory는 미국 서부, 미국 동부 및 북유럽 지역에서만
 | 한국 | 한국 중부 | 한국 중부 |
 | &nbsp; | 한국 남부 | 한국 중부 |
 
-또는 복사 작업 `typeProperties`에서 `executionLocation` 속성을 지정하여 복사를 수행하는 데 사용할 Data Factory 서비스의 지역을 명시적으로 지정할 수 있습니다. 이 속성에 대한 지원되는 값은 위의 **데이터 이동에 사용되는 지역** 열에 나열됩니다. 데이터는 복사 동안 유선을 통해 해당 하위 지역으로 이동됩니다. 예를 들어 영국의 Azure 저장소 간을 복사하려면 `"executionLocation": "Japan East"`를 지정하여 일본을 통해 라우팅되도록 할 수 있습니다([샘플 JSON](#by-using-json-scripts) 참조).
+또는 복사 작업 `executionLocation`에서 `typeProperties` 속성을 지정하여 복사를 수행하는 데 사용할 Data Factory 서비스의 지역을 명시적으로 지정할 수 있습니다. 이 속성에 대한 지원되는 값은 위의 **데이터 이동에 사용되는 지역** 열에 나열됩니다. 데이터는 복사 동안 유선을 통해 해당 하위 지역으로 이동됩니다. 예를 들어 영국의 Azure 저장소 간을 복사하려면 `"executionLocation": "Japan East"`를 지정하여 일본을 통해 라우팅되도록 할 수 있습니다([샘플 JSON](#by-using-json-scripts) 참조).
 
 > [!NOTE]
 > 대상 데이터 저장소의 지역이 위의 목록에 없거나 검색 가능하지 않을 경우 `executionLocation`을 지정하지 않을 경우 기본적으로 복사 작업이 대체 지역을 거치지 않고 실패합니다. 지원되는 지역 목록은 시간이 지남에 따라 확장됩니다.

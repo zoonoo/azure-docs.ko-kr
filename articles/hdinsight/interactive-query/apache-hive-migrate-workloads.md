@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/13/2019
-ms.openlocfilehash: eceb4b312476d701ec8ce4eb0ce4886621824b3a
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: ec96189185a06c1fcbd95eed6216ade47f3089c3
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76841594"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79214652"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>HDInsight 4.0로 Azure HDInsight 3.6 Hive 워크 로드 마이그레이션
 
@@ -39,33 +39,81 @@ HDInsight 3.6 및 HDInsight 4.0에는 다른 metastore 스키마가 필요 하�
 
 내부 metastore를 사용 하는 경우 쿼리를 사용 하 여 Hive metastore에서 개체 정의를 내보내고 새 데이터베이스로 가져올 수 있습니다.
 
+이 스크립트가 완료 되 면 이전 클러스터가 스크립트에서 참조 되는 테이블 또는 데이터베이스에 액세스 하는 데 더 이상 사용 되지 않는 것으로 간주 됩니다.
+
+> [!NOTE]
+> ACID 테이블의 경우 테이블 아래에 있는 데이터의 새 복사본이 생성 됩니다.
+
 1. [Secure Shell (SSH) 클라이언트](../hdinsight-hadoop-linux-use-ssh-unix.md)를 사용 하 여 HDInsight 클러스터에 연결 합니다.
 
 1. 다음 명령을 입력 하 여 열려 있는 SSH 세션에서 [Beeline 클라이언트](../hadoop/apache-hadoop-use-hive-beeline.md) 를 사용 하 여 HiveServer2에 연결 합니다.
 
     ```hiveql
-    for d in `beeline -u "jdbc:hive2://localhost:10001/;transportMode=http" --showHeader=false --silent=true --outputformat=tsv2 -e "show databases;"`; do echo "create database $d; use $d;" >> alltables.sql; for t in `beeline -u "jdbc:hive2://localhost:10001/$d;transportMode=http" --showHeader=false --silent=true --outputformat=tsv2 -e "show tables;"` ; do ddl=`beeline -u "jdbc:hive2://localhost:10001/$d;transportMode=http" --showHeader=false --silent=true --outputformat=tsv2 -e "show create table $t;"`; echo "$ddl ;" >> alltables.sql ; echo "$ddl" | grep -q "PARTITIONED\s*BY" && echo "MSCK REPAIR TABLE $t ;" >> alltables.sql ; done; done
+    for d in `beeline -u "jdbc:hive2://localhost:10001/;transportMode=http" --showHeader=false --silent=true --outputformat=tsv2 -e "show databases;"`; 
+    do
+        echo "Scanning Database: $d"
+        echo "create database if not exists $d; use $d;" >> alltables.hql; 
+        for t in `beeline -u "jdbc:hive2://localhost:10001/$d;transportMode=http" --showHeader=false --silent=true --outputformat=tsv2 -e "show tables;"`;
+        do
+            echo "Copying Table: $t"
+            ddl=`beeline -u "jdbc:hive2://localhost:10001/$d;transportMode=http" --showHeader=false --silent=true --outputformat=tsv2 -e "show create table $t;"`;
+
+            echo "$ddl;" >> alltables.hql;
+            lowerddl=$(echo $ddl | awk '{print tolower($0)}')
+            if [[ $lowerddl == *"'transactional'='true'"* ]]; then
+                if [[ $lowerddl == *"partitioned by"* ]]; then
+                    # partitioned
+                    raw_cols=$(beeline -u "jdbc:hive2://localhost:10001/$d;transportMode=http" --showHeader=false --silent=true --outputformat=tsv2 -e "show create table $t;" | tr '\n' ' ' | grep -io "CREATE TABLE .*" | cut -d"(" -f2- | cut -f1 -d")" | sed 's/`//g');
+                    ptn_cols=$(beeline -u "jdbc:hive2://localhost:10001/$d;transportMode=http" --showHeader=false --silent=true --outputformat=tsv2 -e "show create table $t;" | tr '\n' ' ' | grep -io "PARTITIONED BY .*" | cut -f1 -d")" | cut -d"(" -f2- | sed 's/`//g');
+                    final_cols=$(echo "(" $raw_cols "," $ptn_cols ")")
+
+                    beeline -u "jdbc:hive2://localhost:10001/$d;transportMode=http" --showHeader=false --silent=true --outputformat=tsv2 -e "create external table ext_$t $final_cols TBLPROPERTIES ('transactional'='false');";
+                    beeline -u "jdbc:hive2://localhost:10001/$d;transportMode=http" --showHeader=false --silent=true --outputformat=tsv2 -e "insert into ext_$t select * from $t;";
+                    staging_ddl=`beeline -u "jdbc:hive2://localhost:10001/$d;transportMode=http" --showHeader=false --silent=true --outputformat=tsv2 -e "show create table ext_$t;"`;
+                    dir=$(echo $staging_ddl | grep -io " LOCATION .*" | grep -m1 -o "'.*" | sed "s/'[^-]*//2g" | cut -c2-);
+
+                    parsed_ptn_cols=$(echo $ptn_cols| sed 's/ [a-z]*,/,/g' | sed '$s/\w*$//g');
+                    echo "create table flattened_$t $final_cols;" >> alltables.hql;
+                    echo "load data inpath '$dir' into table flattened_$t;" >> alltables.hql;
+                    echo "insert into $t partition($parsed_ptn_cols) select * from flattened_$t;" >> alltables.hql;
+                    echo "drop table flattened_$t;" >> alltables.hql;
+                    beeline -u "jdbc:hive2://localhost:10001/$d;transportMode=http" --showHeader=false --silent=true --outputformat=tsv2 -e "drop table ext_$t";
+                else
+                    # not partitioned
+                    beeline -u "jdbc:hive2://localhost:10001/$d;transportMode=http" --showHeader=false --silent=true --outputformat=tsv2 -e "create external table ext_$t like $t TBLPROPERTIES ('transactional'='false');";
+                    staging_ddl=`beeline -u "jdbc:hive2://localhost:10001/$d;transportMode=http" --showHeader=false --silent=true --outputformat=tsv2 -e "show create table ext_$t;"`;
+                    dir=$(echo $staging_ddl | grep -io " LOCATION .*" | grep -m1 -o "'.*" | sed "s/'[^-]*//2g" | cut -c2-);
+
+                    beeline -u "jdbc:hive2://localhost:10001/$d;transportMode=http" --showHeader=false --silent=true --outputformat=tsv2 -e "insert into ext_$t select * from $t;";
+                    echo "load data inpath '$dir' into table $t;" >> alltables.hql;
+                    beeline -u "jdbc:hive2://localhost:10001/$d;transportMode=http" --showHeader=false --silent=true --outputformat=tsv2 -e "drop table ext_$t";
+                fi
+            fi
+            echo "$ddl" | grep -q "PARTITIONED\s*BY" && echo "MSCK REPAIR TABLE $t;" >> alltables.hql;
+        done;
+    done
     ```
 
-    이 명령은 **alltables.sql**이라는 파일을 생성 합니다. 기본 데이터베이스를 삭제 하거나 다시 만들 수 없으므로 **alltables.sql**에서 `create database default;` 문을 제거 하십시오.
+    이 명령은 **alltables.sql. hql**라는 파일을 생성 합니다.
 
-1. SSH 세션을 종료 합니다. 그런 다음 scp 명령을 입력 하 여 **alltables.sql** 를 로컬로 다운로드 합니다.
+1. SSH 세션을 종료 합니다. 그런 다음 scp 명령을 입력 하 여 **alltables.sql. hql** 를 로컬로 다운로드 합니다.
 
     ```bash
-    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:alltables.sql c:/hdi
+    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:alltables.hql c:/hdi
     ```
 
-1. *새* HDInsight 클러스터에 **alltables.sql** 를 업로드 합니다.
+1. *새* HDInsight 클러스터에 alltables.sql를 업로드 **합니다** .
 
     ```bash
-    scp c:/hdi/alltables.sql sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/home/sshuser/
+    scp c:/hdi/alltables.hql sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/home/sshuser/
     ```
 
 1. 그런 다음 SSH를 사용 하 여 *새* HDInsight 클러스터에 연결 합니다. SSH 세션에서 다음 코드를 실행 합니다.
 
     ```bash
-    beeline -u "jdbc:hive2://localhost:10001/;transportMode=http" -i alltables.sql
+    beeline -u "jdbc:hive2://localhost:10001/;transportMode=http" -i alltables.hql
     ```
+
 
 ## <a name="upgrade-metastore"></a>업그레이드 metastore
 
@@ -76,7 +124,7 @@ Metastore **복사가** 완료 되 면 기존 HDInsight 3.6 클러스터의 [스
 |속성 | 값 |
 |---|---|
 |스크립트 유형|- 사용자 지정|
-|이름|Hive 업그레이드|
+|속성|Hive 업그레이드|
 |Bash 스크립트 URI|`https://hdiconfigactions.blob.core.windows.net/hivemetastoreschemaupgrade/launch-schema-upgrade.sh`|
 |노드 유형|Head|
 |매개 변수|SQLSERVERNAME DATABASENAME 사용자 이름 암호|
@@ -179,7 +227,7 @@ HDInsight 3.6에서 Hive 서버와 상호 작용 하는 GUI 클라이언트는 A
 |속성 | 값 |
 |---|---|
 |스크립트 유형|- 사용자 지정|
-|이름|DAS|
+|속성|DAS|
 |Bash 스크립트 URI|`https://hdiconfigactions.blob.core.windows.net/dasinstaller/LaunchDASInstaller.sh`|
 |노드 유형|Head|
 

@@ -4,7 +4,7 @@ description: 이 문서에서는 기본 제공 Azure 기능을 사용한 데이�
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: barbkess
+manager: rkarlin
 editor: TomSh
 ms.assetid: 17ba67ad-e5cd-4a8f-b435-5218df753ca4
 ms.service: security
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/06/2019
+ms.date: 03/09/2020
 ms.author: terrylan
-ms.openlocfilehash: 83b4f2fce3dbae2168627194a45e62a2d4479936
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: c5bf62f434b2095f7200b5562c38c252a0195c5b
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78389984"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79243498"
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Azure 데이터 보안 및 암호화 모범 사례
 이 문서에서는 데이터 보안 및 암호화에 대 한 모범 사례를 설명 합니다.
@@ -108,7 +108,7 @@ Azure VPN Gateway, SSL/TLS 및 HTTPS를 사용하는 데 관련된 모범 사례
 **세부 정보**: [지점 및 사이트 간 VPN](/azure/vpn-gateway/vpn-gateway-point-to-site-create)을 사용합니다.
 
 **모범 사례**: 전용 고속 WAN 링크를 통해 대량 데이터 집합 이동   
-**세부 정보**: [ExpressRoute](/azure/expressroute/expressroute-introduction)를 사용합니다. ExpressRoute를 사용하기로 선택하는 경우 [SSL/TLS](https://support.microsoft.com/kb/257591) 또는 기타 프로토콜을 사용하여 애플리케이션 수준에서 데이터를 암호화하면 보안 수준을 더욱 높일 수 있습니다.
+**세부 정보**: [ExpressRoute](/azure/expressroute/expressroute-introduction)를 사용합니다. Express 경로를 사용 하도록 선택 하는 경우 보호를 강화 하기 위해 SSL/TLS 또는 다른 프로토콜을 사용 하 여 응용 프로그램 수준에서 데이터를 암호화할 수도 있습니다.
 
 **모범 사례**: Azure Portal을 통해 Azure Storage와 상호 작용   
 **세부 정보**: 모든 트랜잭션은 HTTPS를 통해 발생합니다. HTTPS를 통해 [저장소 REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx) 을 사용 하 여 [Azure Storage](https://azure.microsoft.com/services/storage/)와 상호 작용할 수도 있습니다.
