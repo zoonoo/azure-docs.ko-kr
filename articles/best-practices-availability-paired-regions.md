@@ -7,12 +7,12 @@ ms.service: multiple
 ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: jeconnoc
-ms.openlocfilehash: 0e47bde280e9483f3c265e0d3147eadcbb128612
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: 778943dad9a04632797d5d9165b6f1f9a3eb9850
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78271002"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79248256"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>BCDR(무중단 업무 방식 및 재해 복구): Azure 쌍을 이루는 지역
 
@@ -26,7 +26,7 @@ Azure 지리는 하나 이상의 Azure 지역을 포함 하는 전 세계 영역
 
 ![AzureGeography](./media/best-practices-availability-paired-regions/GeoRegionDataCenter.png)
 
-일부 Azure 서비스는 비즈니스 연속성을 보장 하 고 데이터 손실을 방지 하기 위해 쌍을 이루는 지역의 추가 이점을 활용 합니다.  Azure는 데이터 가용성을 보장 하기 위해 쌍을 이루는 지역을 활용 하는 여러 [저장소 솔루션](/storage/common/storage-redundancy.md#redundancy-in-a-secondary-region) 을 제공 합니다. 예를 들어 [Azure GRS (지역 중복 저장소](/storage/common/storage-redundancy.md#geo-redundant-storage) )는 데이터를 보조 지역에 자동으로 복제 하 여 주 지역이 복구 되지 않는 경우에도 데이터가 지속 되도록 합니다. 
+일부 Azure 서비스는 비즈니스 연속성을 보장 하 고 데이터 손실을 방지 하기 위해 쌍을 이루는 지역의 추가 이점을 활용 합니다.  Azure는 데이터 가용성을 보장 하기 위해 쌍을 이루는 지역을 활용 하는 여러 [저장소 솔루션](./storage/common/storage-redundancy.md#redundancy-in-a-secondary-region) 을 제공 합니다. 예를 들어 [Azure GRS (지역 중복 저장소](./storage/common/storage-redundancy.md#geo-redundant-storage) )는 데이터를 보조 지역에 자동으로 복제 하 여 주 지역이 복구 되지 않는 경우에도 데이터가 지속 되도록 합니다. 
 
 모든 Azure 서비스에서 자동으로 데이터를 복제 하는 것은 아니며, 모든 Azure 서비스가 실패 한 지역에서 해당 쌍으로 자동으로 복구 되지 않습니다.  이러한 경우 고객은 복구 및 복제를 구성 해야 합니다.
 

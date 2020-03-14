@@ -10,16 +10,18 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/01/2018
-ms.openlocfilehash: 3314852de2a5fc76ff152d05649fabb5eac2757e
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 333ed411ab818cff77a7cba6c7de4f42c36f5b6b
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77168879"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79218222"
 ---
 # <a name="consuming-an-azure-machine-learning-studio-classic-web-service-from-excel"></a>Excel에서 Azure Machine Learning Studio (클래식) 웹 서비스 사용
 
- Azure Machine Learning Studio (클래식)을 사용 하면 코드를 작성할 필요 없이 Excel에서 직접 웹 서비스를 쉽게 호출할 수 있습니다.
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+
+Azure Machine Learning Studio (클래식)을 사용 하면 코드를 작성할 필요 없이 Excel에서 직접 웹 서비스를 쉽게 호출할 수 있습니다.
 
 Excel 2013(이후 버전) 또는 Excel Online을 사용하는 경우 [Excel 추가 기능](excel-add-in-for-web-services.md)을 사용하는 것이 좋습니다.
 

@@ -13,17 +13,17 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/24/2020
+ms.date: 03/11/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 28a9de63bb04a95fc2e655b05727963feaa3ec40
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 564c648a550b41017ffc684ca19ff03612fc63d3
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77599185"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79137631"
 ---
-# <a name="sap-workload-on-azure-virtual-machine-supported-scenarios"></a>Azure virtual machine의 SAP 워크 로드 지원 시나리오
+# <a name="sap-workload-on-azure-virtual-machine-supported-scenarios"></a>Azure 가상 머신의 SAP 워크로드 지원 시나리오
 Azure에서 SAP NetWeaver, Business one, `Hybris` 또는 S/4HANA 시스템 아키텍처를 설계할 때 다양 한 아키텍처 및 도구를 사용 하 여 확장 가능 하 고 효율적 이며 가용성이 높은 배포를 수행할 수 있습니다. 사용 된 운영 체제 또는 DBMS에 따라 다르지만 제한이 있습니다. 또한 온-프레미스에서 지원 되는 모든 시나리오가 Azure에서 동일한 방식으로 지원 되는 것은 아닙니다. 이 문서에서는 Azure Vm을 독점적으로 사용 하는 지원 되는 고가용성 구성과 고가용성 구성 및 아키텍처를 안내 합니다. [Hana Large instances](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)에서 지원 되는 시나리오는 [hana large Instances에 대해 지원 되는 시나리오](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario)문서를 참조 하세요. 
 
 
@@ -66,7 +66,8 @@ Azure에서 지원 되는 모든 OS/DBMS 조합의 경우이 유형의 구성이
 - Windows의 SQL Server
 - IBM Db2. [여러 인스턴스 (Linux, UNIX)](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.admin.dbobj.doc/doc/c0004904.html) 문서에서 세부 정보 찾기
 - Oracle의 경우 자세한 내용은 [sap support note #1778431](https://launchpad.support.sap.com/#/notes/1778431) 및 관련 sap note를 참조 하세요.
-- SAP HANA 한 VM의 여러 인스턴스는이 배포 메서드 MCOS를 호출 합니다. 자세한 내용은 SAP 문서 [한 호스트의 여러 SAP HANA 시스템 (MCOS)](https://help.sap.com/viewer/eb3777d5495d46c5b2fa773206bbfb46/2.0.02/en-US/b2751fd43bec41a9a14e01913f1edf18.html) 을 참조 하세요.
+- SAP HANA 한 VM의 여러 인스턴스는이 배포 메서드 MCOS를 호출 합니다. 자세한 내용은 SAP 문서 [한 호스트의 여러 SAP HANA 시스템 (MCOS)] (https://help.sap.com/viewer/eb3777d5495d46c5b2fa773206bbfb46/2.0.02/
+- /b2751fd43bec41a9a14e01913f1edf18.html)
 
 한 호스트에서 여러 데이터베이스 인스턴스를 실행 하는 경우 서로 다른 인스턴스가 리소스에 대해 경쟁 하지 않으며 VM의 물리적 리소스 제한을 초과 하는지 확인 해야 합니다. 이는 VM을 공유 하는 모든 사용자가 할당할 수 있는 메모리의 일부를 제한 해야 하는 메모리의 경우 특히 그렇습니다. 이는 여러 데이터베이스 인스턴스에서 활용할 수 있는 CPU 리소스에도 적용 될 수 있습니다. 언급 된 모든 DBMS에는 인스턴스 수준에서 메모리 할당과 CPU 리소스를 제한할 수 있는 구성이 있습니다.
 Azure Vm에 대 한 이러한 구성을 지원 하기 위해 다른 인스턴스에서 관리 하는 데이터베이스의 데이터 및 로그/다시 실행 로그 파일에 사용 되는 디스크 또는 볼륨이 분리 된 것으로 예상 됩니다. 또는 다른 DBMS 인스턴스에서 관리 하는 데이터베이스의 데이터 또는 로그/다시 실행 로그 파일은 동일한 디스크 또는 볼륨을 공유할 수 없습니다. 
@@ -121,6 +122,8 @@ Azure Vm의 경우 다음과 같은 고가용성 구성이 DBMS 수준에서 지
 
 > [!IMPORTANT]
 > 위에서 설명한 시나리오는 없지만 한 VM에서 여러 DBMS 인스턴스의 구성을 지원 합니다. 즉, 각 사례에서 하나의 데이터베이스 인스턴스만 VM 당 배포 하 고 설명 된 고가용성 메서드로 보호할 수 있습니다. 동일한 Windows 또는 Pacemaker 장애 조치 (failover) 클러스터에서 여러 DBMS 인스턴스를 보호 하는 것은 현재 시점에서 지원 **되지 않습니다** . 또한 Oracle Data Guard는 VM 배포 사례 당 단일 인스턴스에 대해서만 지원 됩니다. 
+
+다양 한 데이터베이스 시스템에서 하나의 DBMS 인스턴스에서 여러 데이터베이스를 호스트할 수 있습니다. SAP HANA의 경우와 같이 여러 데이터베이스를 여러 데이터베이스 컨테이너 (MDC)에서 호스트할 수 있습니다. 이러한 다중 데이터베이스 구성이 하나의 장애 조치 (failover) 클러스터 리소스 내에서 작동 하는 경우 이러한 구성이 지원 됩니다. 지원 되지 않는 구성은 여러 클러스터 리소스를 필요로 하는 경우입니다. 여러 SQL Server 가용성 그룹을 정의 하는 구성의 경우에는 한 SQL Server 인스턴스를 사용 합니다.
 
 
 ![DBMS HA 구성](./media/sap-planning-supported-configurations/database-high-availability-configuration.png)

@@ -11,14 +11,17 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 ms.date: 06/15/2017
-ms.openlocfilehash: 0b0dfeb6a19e2f6f24568de0b4712758d2b7ad4a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 90e7692fe0e254074d8176d719d0ca9abad54a9b
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75427407"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79217856"
 ---
 # <a name="enable-logging-for-azure-machine-learning-studio-classic-web-services"></a>Azure Machine Learning Studio (클래식) 웹 서비스에 대 한 로깅 사용
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+
 이 문서에서는 Machine Learning Studio (클래식) 웹 서비스의 로깅 기능에 대 한 정보를 제공 합니다. 로깅은 오류 번호 및 메시지 외에도 Machine Learning Studio (클래식) Api에 대 한 호출 문제를 해결 하는 데 도움이 될 수 있는 추가 정보를 제공 합니다.  
 
 ## <a name="how-to-enable-logging-for-a-web-service"></a>웹 서비스에서 로깅을 사용하도록 설정하는 방법
@@ -61,7 +64,7 @@ ms.locfileid: "75427407"
 
 
 ## <a name="the-effects-of-enabling-logging"></a>로깅 활성화의 효과
-로깅을 사용하도록 설정하면 웹 서비스 엔드포인트의 진단 및 오류가 사용자 작업 영역과 연결된 Azure Storage 계정의 **ml-diagnostics** blob 컨테이너에 로깅됩니다. 이 컨테이너는 이 스토리지 계정과 연결된 모든 작업 영역의 모든 웹 서비스 엔드포인트에 대한 모든 진단 정보를 포함합니다.
+로깅을 사용 하도록 설정 하면 웹 서비스 끝점의 진단 및 오류가 사용자 작업 영역과 연결 된 Azure Storage 계정의 **ml 진단** blob 컨테이너에 기록 됩니다. 이 컨테이너는 이 스토리지 계정과 연결된 모든 작업 영역의 모든 웹 서비스 엔드포인트에 대한 모든 진단 정보를 포함합니다.
 
 Azure Storage 계정을 살펴보는 데 사용할 수 있는 여러 도구 중 하나를 통해 로그를 볼 수 있습니다. 가장 쉬운 방법은 Azure Portal에서 스토리지 계정으로 이동한 다음, **컨테이너**를 클릭하고 컨테이너 **ml-diagnostics**를 클릭하는 것입니다.  
 
@@ -80,7 +83,7 @@ Azure Storage 계정을 살펴보는 데 사용할 수 있는 여러 도구 중 
 
 _로그 형식_은 다음 값 중 하나를 사용합니다.  
 
-* batch  
+* 일괄 처리  
 * score/requests  
 * score/init  
 

@@ -7,11 +7,11 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 10/18/2019
 ms.openlocfilehash: 4b8cfed883ffef780de2e82e3f309e97bcb5515c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75412083"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79278247"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-timeouts"></a>Redis 시간 초과에 대 한 Azure 캐시 문제 해결
 

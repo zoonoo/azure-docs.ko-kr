@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: terrylan
-ms.openlocfilehash: f7d993799fed637fbec55afc8f06d90c8fc6910f
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 1b0a4627d377f5fa9ca997d1cc96bc38b0a6c37f
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726788"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79217216"
 ---
 # <a name="best-practices-for-securing-paas-databases-in-azure"></a>Azure에서 PaaS 데이터베이스 보안을 유지하기 위한 모범 사례
 
@@ -30,7 +30,7 @@ Azure SQL Database 및 SQL Data Warehouse는 인터넷 기반 애플리케이션
 
 - Azure Active Directory 인증(SQL Server 인증 대신)
 - Azure SQL 방화벽
-- 투명한 데이터 암호화
+- TDE(투명한 데이터 암호화)
 
 ## <a name="use-a-centralized-identity-repository"></a>중앙 집중식 ID 리포지토리 사용
 Azure SQL 데이터베이스는 다음 두 가지 인증 유형 중 하나를 사용하도록 구성할 수 있습니다.
@@ -68,7 +68,7 @@ SQL Database의 기본 원본 IP 주소를 제한하면 Azure 주소(다른 구�
 
 Azure SQL 방화벽 및 IP 제한에 대한 자세한 내용은 다음을 참조하세요.
 
-- [Azure SQL Database 및 SQL Data Warehouse 액세스 제어](../../sql-database/sql-database-control-access.md)
+- [Azure SQL Database 및 SQL Data Warehouse 액세스 제어](../../sql-database/sql-database-manage-logins.md)
 - [Azure SQL Database 및 SQL Data Warehouse 방화벽 규칙](../../sql-database/sql-database-firewall-configure.md)
 
 

@@ -5,11 +5,11 @@ author: dkkapur
 ms.topic: article
 ms.date: 01/07/2020
 ms.openlocfilehash: 4a3fb4c1818d86f7fe2913790fd9e573c630cbfd
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78365022"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79247177"
 ---
 # <a name="frequently-asked-questions-about-azure-container-instances"></a>Azure Container Instances에 대 한 질문과 대답
 

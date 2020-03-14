@@ -19,11 +19,11 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bbd1ad6178e0120bf8414fc424b79254e306d2c2
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78375944"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79261568"
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>Azure AD Connect Health를 사용하여 AD FS 모니터링
 다음 문서는 AZure AD Connect Health와 함께 AD FS 인프라 모니터링에 중점을 둡니다. Azure AD Connect Health에서 Azure AD Connect (동기화)를 모니터링 하는 방법에 대 한 자세한 내용은 [동기화에 Azure AD Connect Health 사용](how-to-connect-health-sync.md)을 참조 하세요. 또한 Azure AD Connect Health Active Directory Domain Services 모니터링에 대 한 자세한 내용은 AD DS에서 [Azure AD Connect Health 사용](how-to-connect-health-adds.md)을 참조 하세요.

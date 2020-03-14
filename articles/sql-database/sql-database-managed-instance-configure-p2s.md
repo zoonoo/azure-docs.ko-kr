@@ -12,19 +12,19 @@ ms.author: srbozovi
 ms.reviewer: sstein, carlrab, bonova, jovanpop
 ms.date: 03/13/2019
 ms.openlocfilehash: 30b2ba92174996ea2bae34e7553a3258d8ebee27
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818925"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79268887"
 ---
 # <a name="quickstart-configure-a-point-to-site-connection-to-an-azure-sql-database-managed-instance-from-on-premises"></a>빠른 시작: 온-프레미스에서 Azure SQL Database Managed Instance로의 지점 및 사이트 간 연결 구성
 
 이 빠른 시작에서는 온-프레미스 클라이언트 컴퓨터에서 [SSMS(SQL Server Management Studio)](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms)를 사용하여 지점 및 사이트 간 연결을 통해 Azure SQL Database Managed Instance에 연결하는 방법을 보여줍니다. 지점 및 사이트 간 연결에 대한 자세한 내용은 [지점 및 사이트 간 VPN 정보](../vpn-gateway/point-to-site-about.md)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-이 빠른 시작의 필수 조건은 다음과 같습니다.
+이 빠른 시작의 특징은 다음과 같습니다.
 
 - [Managed Instance 만들기](sql-database-managed-instance-get-started.md)에서 만든 리소스를 시작점으로 사용합니다.
 - 온-프레미스 클라이언트 컴퓨터에서 PowerShell 5.1 및 AZ PowerShell 1.4.0 이상이 필요 합니다. 필요한 경우 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-az-ps#install-the-azure-powershell-module) 지침을 참조하세요.
@@ -63,7 +63,7 @@ ms.locfileid: "73818925"
 
 ## <a name="create-a-vpn-connection-to-your-managed-instance"></a>Managed Instance에 대한 VPN 연결 만들기
 
-1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. 가상 네트워크 게이트웨이를 만든 리소스 그룹을 연 다음, 가상 네트워크 게이트웨이 리소스를 엽니다.
 3. **지점 및 사이트 간 구성**을 선택하고 **VPN 클라이언트 다운로드**를 선택합니다.
 

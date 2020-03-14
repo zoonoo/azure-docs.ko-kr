@@ -18,11 +18,11 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: 0ed1cb6a080a35fa81c6a859f88d987020c8504c
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773316"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79262296"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Microsoft id 플랫폼 및 Openid connect Connect 프로토콜
 
@@ -31,7 +31,7 @@ OpenID Connect는 웹 애플리케이션에 사용자를 안전하게 로그인�
 > [!NOTE]
 > Microsoft id 플랫폼 끝점은 모든 Azure Active Directory (Azure AD) 시나리오 및 기능을 지원 하지 않습니다. Microsoft id 플랫폼 끝점을 사용 해야 하는지 여부를 확인 하려면 [microsoft id 플랫폼 제한 사항](active-directory-v2-limitations.md)을 참조 하세요.
 
-[OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html)는 OAuth를 통해 Single Sign-On을 수행할 수 있도록 OAuth 2.0 *권한 부여* 프로토콜을 확장하여 *인증* 프로토콜로 사용합니다. OpenID Connect는 클라이언트가 사용자 ID를 확인할 수 있게 하는 보안 토큰인 *ID 토큰*의 개념을 소개합니다. ID 토큰은 사용자에 대한 기본 프로필 정보도 가져옵니다. OpenID Connect는 OAuth 2.0을 확장하기 때문에 앱에서 [권한 부여 서버](active-directory-v2-protocols.md#the-basics)로 보안이 유지되는 리소스에 액세스하는 데 사용할 수 있는 *액세스 토큰*을 안전하게 획득할 수 있습니다. Microsoft id 플랫폼 끝점을 사용 하면 Azure AD에 등록 된 타사 앱에서 웹 Api와 같은 보안 리소스에 대 한 액세스 토큰을 발급할 수도 있습니다. 액세스 토큰을 발급 하도록 응용 프로그램을 설정 하는 방법에 대 한 자세한 내용은 [Microsoft id 플랫폼 끝점을 사용 하 여 앱을 등록 하는 방법](quickstart-register-app.md)을 참조 하세요. 서버에서 호스트되고 브라우저를 통해 액세스되는 [웹 애플리케이션](v2-app-types.md#web-apps)을 빌드하는 경우 OpenID Connect를 사용하는 것이 좋습니다.
+[OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html)는 OAuth를 통해 Single Sign-On을 수행할 수 있도록 OAuth 2.0 *권한 부여* 프로토콜을 확장하여 *인증* 프로토콜로 사용합니다. OpenID Connect는 클라이언트가 사용자 ID를 확인할 수 있게 하는 보안 토큰인 *ID 토큰*의 개념을 소개합니다. ID 토큰은 사용자에 대한 기본 프로필 정보도 가져옵니다. OpenID Connect는 OAuth 2.0을 확장하기 때문에 앱에서 *권한 부여 서버*로 보안이 유지되는 리소스에 액세스하는 데 사용할 수 있는 [액세스 토큰](active-directory-v2-protocols.md#the-basics)을 안전하게 획득할 수 있습니다. Microsoft id 플랫폼 끝점을 사용 하면 Azure AD에 등록 된 타사 앱에서 웹 Api와 같은 보안 리소스에 대 한 액세스 토큰을 발급할 수도 있습니다. 액세스 토큰을 발급 하도록 응용 프로그램을 설정 하는 방법에 대 한 자세한 내용은 [Microsoft id 플랫폼 끝점을 사용 하 여 앱을 등록 하는 방법](quickstart-register-app.md)을 참조 하세요. 서버에서 호스트되고 브라우저를 통해 액세스되는 [웹 애플리케이션](v2-app-types.md#web-apps)을 빌드하는 경우 OpenID Connect를 사용하는 것이 좋습니다.
 
 ## <a name="protocol-diagram-sign-in"></a>프로토콜 다이어그램: 로그인
 
@@ -90,7 +90,7 @@ https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
 > [!IMPORTANT]
 > /Cauthentication 끝점에서 ID 토큰을 성공적으로 요청 하려면 [등록 포털](https://portal.azure.com) 의 앱 등록에 인증 탭에서 사용 하도록 설정 된 id_tokens의 암시적 허용이 있어야 합니다 ( [응용 프로그램 매니페스트의](reference-app-manifest.md) `oauth2AllowIdTokenImplicitFlow` 플래그를 `true`로 설정). 사용할 수 없는 경우 `unsupported_response` 오류가 반환 됩니다. "입력 매개 변수 ' response_type '에 대해 제공 된 값이이 클라이언트에 허용 되지 않습니다. 필요한 값은 'code'입니다."가 반환됩니다.
 
-예:
+다음은 그 예입니다.
 
 ```
 // Line breaks are for legibility only.
@@ -113,15 +113,15 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | --- | --- | --- |
 | `tenant` | 필수 | 요청의 경로에 있는 `{tenant}` 값을 사용하여 애플리케이션에 로그인할 수 있는 사용자를 제어할 수 있습니다. 허용되는 값은 `common`, `organizations`, `consumers` 및 테넌트 ID입니다. 자세한 내용은 [프로토콜 기본 사항](active-directory-v2-protocols.md#endpoints)을 참조하세요. |
 | `client_id` | 필수 | [Azure Portal – 앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 환경에서 앱에 할당 한 **응용 프로그램 (클라이언트) ID** 입니다. |
-| `response_type` | 필수 | OpenID Connect 로그인을 위한 `id_token` 이 포함되어야 합니다. `code`와 같은 다른 `response_type` 값을 포함할 수도 있습니다. |
+| `response_type` | 필수 | OpenID Connect 로그인을 위한 `id_token` 이 포함되어야 합니다. `response_type`와 같은 다른 `code` 값을 포함할 수도 있습니다. |
 | `redirect_uri` | 권장 | 앱이 인증 응답을 보내고 받을 수 있는 앱의 리디렉션 URI입니다. URL로 인코딩되어야 한다는 점을 제외하고 포털에서 등록한 리디렉션 URI 중 하나와 정확히 일치해야 합니다. 없는 경우 끝점은 임의로 등록 된 redirect_uri 하나를 선택 하 여 사용자를로 다시 보냅니다. |
 | `scope` | 필수 | 공백으로 구분된 범위 목록입니다. OpenID Connect의 경우 동의 UI에서 "로그인" 권한으로 해석되는 `openid`범위가 포함되어야 합니다. 동의를 요청하기 위해 이 요청에 다른 범위를 포함할 수도 있습니다. |
 | `nonce` | 필수 | 앱에서 생성한 요청에 포함되는 값이며, 결과 id_token 값에 클레임으로 포함됩니다. 앱은 이 값을 확인하여 토큰 재생 공격을 완화할 수 있습니다. 이 값은 일반적으로 요청의 출처를 식별하는 데 사용할 수 있는 임의의 고유 문자열입니다. |
 | `response_mode` | 권장 | 결과 권한 부여 코드를 앱에 다시 보내는 데 사용해야 하는 방법을 지정합니다. `form_post` 또는 `fragment`일 수 있습니다. 웹 애플리케이션의 경우 애플리케이션에 대한 가장 안전한 토큰 전송을 보장하기 위해 `response_mode=form_post`를 사용하는 것이 좋습니다. |
 | `state` | 권장 | 토큰 응답에도 반환되는 요청에 포함된 값입니다. 원하는 모든 콘텐츠의 문자열일 수 있습니다. 일반적으로 [교차 사이트 요청 위조 공격을 방지](https://tools.ietf.org/html/rfc6749#section-10.12)하기 위해 임의로 생성된 고유 값이 사용됩니다. 또한 상태는 인증 요청이 발생하기 전에 앱에서 사용자 상태에 대한 정보(예: 사용한 페이지 또는 보기)를 인코딩하는 데 사용됩니다. |
-| `prompt` | 선택 사항 | 필요한 사용자 상호 작용 유형을 나타냅니다. 이 경우 유효한 값은 `login`, `none` 및 `consent`뿐입니다. `prompt=login` 클레임은 사용자가 해당 요청에 자격 증명을 입력하도록 하여 Single-Sign On을 무효화합니다. `prompt=none` 클레임은 반대입니다. 이 클레임은 사용자가에 대화형 프롬프트를 표시 하지 않도록 합니다. Single Sign-On를 통해 요청을 자동으로 완료할 수 없는 경우 Microsoft id 플랫폼 끝점에서 오류를 반환 합니다. `prompt=consent` 클레임은 사용자가 로그인 한 후 OAuth 동의 대화 상자를 트리거합니다. 이 대화 상자에서는 앱에 권한을 부여하도록 사용자에게 요청합니다. |
-| `login_hint` | 선택 사항 | 사용자 이름을 미리 알고 있는 경우 이 매개 변수를 사용하여 사용자를 위해 로그인 페이지의 사용자 이름 및 전자 메일 주소 필드를 미리 채울 수 있습니다. 앱에서는 종종 `preferred_username` 클레임을 사용하여 이전 로그인에서 사용자 이름을 이미 추출한 후 재인증 과정에서 이 매개 변수를 사용합니다. |
-| `domain_hint` | 선택 사항 | 페더레이션된 디렉터리에 있는 사용자의 영역입니다.  이렇게 하면 사용자가 로그인 페이지에서 이동 하는 전자 메일 기반 검색 프로세스를 건너뛰고 약간 더 간소화 된 사용자 환경을 제공 합니다. AD FS 같은 온-프레미스 디렉터리를 통해 페더레이션된 테 넌 트의 경우 기존 로그인 세션 때문에 원활한 로그인이 발생 하는 경우가 많습니다. |
+| `prompt` | 옵션 | 필요한 사용자 상호 작용 유형을 나타냅니다. 이 경우 유효한 값은 `login`, `none` 및 `consent`뿐입니다. `prompt=login` 클레임은 사용자가 해당 요청에 자격 증명을 입력하도록 하여 Single-Sign On을 무효화합니다. `prompt=none` 클레임은 반대입니다. 이 클레임은 사용자가에 대화형 프롬프트를 표시 하지 않도록 합니다. Single Sign-On를 통해 요청을 자동으로 완료할 수 없는 경우 Microsoft id 플랫폼 끝점에서 오류를 반환 합니다. `prompt=consent` 클레임은 사용자가 로그인 한 후 OAuth 동의 대화 상자를 트리거합니다. 이 대화 상자에서는 앱에 권한을 부여하도록 사용자에게 요청합니다. |
+| `login_hint` | 옵션 | 사용자 이름을 미리 알고 있는 경우 이 매개 변수를 사용하여 사용자를 위해 로그인 페이지의 사용자 이름 및 전자 메일 주소 필드를 미리 채울 수 있습니다. 앱에서는 종종 `preferred_username` 클레임을 사용하여 이전 로그인에서 사용자 이름을 이미 추출한 후 재인증 과정에서 이 매개 변수를 사용합니다. |
+| `domain_hint` | 옵션 | 페더레이션된 디렉터리에 있는 사용자의 영역입니다.  이렇게 하면 사용자가 로그인 페이지에서 이동 하는 전자 메일 기반 검색 프로세스를 건너뛰고 약간 더 간소화 된 사용자 환경을 제공 합니다. AD FS 같은 온-프레미스 디렉터리를 통해 페더레이션된 테 넌 트의 경우 기존 로그인 세션 때문에 원활한 로그인이 발생 하는 경우가 많습니다. |
 
 이 시점에서 사용자에게 자격 증명을 입력하고 인증을 완료하라는 메시지가 표시됩니다. Microsoft id 플랫폼 끝점은 사용자가 `scope` 쿼리 매개 변수에 표시 된 사용 권한에 동의한 확인 합니다. 사용자가 이러한 사용 권한 중 하나에 동의한 하지 않은 경우 Microsoft identity platform 끝점에서 사용자에 게 필요한 사용 권한에 동의 하 라는 메시지를 표시 합니다. [권한, 동의 및 다중 테 넌 트 앱](v2-permissions-and-consent.md)에 대해 자세히 알아볼 수 있습니다.
 
@@ -179,7 +179,7 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 Id_token 수신 하는 것 만으로는 사용자를 인증할 수 없습니다. id_token 서명의 유효성을 검사 하 고 앱의 요구 사항에 따라 토큰의 클레임을 확인 해야 합니다. Microsoft id 플랫폼 끝점은 jwt [(JSON 웹 토큰)](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) 및 공개 키 암호화를 사용 하 여 토큰에 서명 하 고 토큰이 유효한 지 확인 합니다.
 
-클라이언트 코드에서 `id_token`의 유효성을 검사 하도록 선택할 수 있지만, 일반적으로 `id_token`을 백 엔드 서버로 보내고 그에 대 한 유효성 검사를 수행 하는 것이 좋습니다. Id_token 서명의 유효성을 검사 한 후에는 확인 해야 할 몇 가지 클레임이 있습니다. [토큰 유효성 검사](id-tokens.md#validating-an-id_token) 및 [서명 키 롤오버에 대한 중요한 정보](active-directory-signing-key-rollover.md)를 포함한 자세한 내용은 [`id_token` 참조](id-tokens.md)를 확인하세요. 대부분의 언어 및 플랫폼에서 사용할 수 있는 하나 이상의 토큰의 구문 분석 및 유효성 검사에 대한 라이브러리를 사용하는 것이 좋습니다.
+클라이언트 코드에서 `id_token`의 유효성을 검사 하도록 선택할 수 있지만, 일반적으로 `id_token`을 백 엔드 서버로 보내고 그에 대 한 유효성 검사를 수행 하는 것이 좋습니다. Id_token 서명의 유효성을 검사 한 후에는 확인 해야 할 몇 가지 클레임이 있습니다. [토큰 유효성 검사`id_token` 및 ](id-tokens.md)서명 키 롤오버에 대한 중요한 정보[를 포함한 자세한 내용은 ](id-tokens.md#validating-an-id_token)[ 참조](active-directory-signing-key-rollover.md)를 확인하세요. 대부분의 언어 및 플랫폼에서 사용할 수 있는 하나 이상의 토큰의 구문 분석 및 유효성 검사에 대한 라이브러리를 사용하는 것이 좋습니다.
 
 시나리오에 따라 추가 클레임의 유효성을 검사할 수도 있습니다. 몇 가지 일반적인 유효성 검사는 다음과 같습니다.
 

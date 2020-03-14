@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 7/13/2019
 ms.author: rohink
 ms.openlocfilehash: d84a7a908bd3bb5cfb2958a617be437f3b6b154e
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76934895"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79266235"
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>Azure DNS를 사용하여 Azure 서비스에 대해 사용자 지정 도메인 설정 제공
 
 Azure DNS는 사용자 지정 도메인을 지원하거나 FQDN(정규화된 도메인 이름)이 있는 모든 Azure 리소스에 대해 사용자 지정 도메인용 DNS를 제공합니다. Azure 웹 앱이 있고 사용자가 contoso.com 또는 www\.contoso.com를 FQDN으로 사용 하 여 액세스 하도록 하려는 경우를 예로 들 수 있습니다. 이 문서에서는 사용자 지정 도메인을 사용하기 위해 Azure DNS로 Azure 서비스를 구성하는 과정을 안내합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 사용자 지정 도메인에 대해 Azure DNS를 사용하려면 먼저 도메인을 Azure DNS에 위임해야 합니다. 위임을 위해 이름 서버를 구성하는 방법에 대한 지침은 [도메인을 Azure DNS에 위임](./dns-delegate-domain-azure-dns.md)을 참조하세요. 도메인이 Azure DNS 영역에 위임되면 필요한 DNS 레코드를 구성할 수 있습니다.
 
@@ -40,8 +40,8 @@ DNS 영역으로 이동하고 **+ 레코드 집합**을 클릭합니다. **레�
 
 |속성  |값  |Description  |
 |---------|---------|---------|
-|이름     | myfunctionapp        | 이 값과 도메인 이름 레이블을 함께 사용하면 사용자 지정 도메인 이름에 대한 FQDN입니다.        |
-|유형     | CNAME        | 별칭을 사용하는 CNAME 레코드를 사용합니다.        |
+|속성     | myfunctionapp        | 이 값과 도메인 이름 레이블을 함께 사용하면 사용자 지정 도메인 이름에 대한 FQDN입니다.        |
+|Type     | CNAME        | 별칭을 사용하는 CNAME 레코드를 사용합니다.        |
 |TTL     | 1        | 1은 1시간 동안 사용됩니다.        |
 |TTL 단위     | 시간        | 시간 측정으로 시간(Hour)이 사용됩니다.         |
 |Alias     | adatumfunction.azurewebsites.net        | 이 예에서 별칭을 만드는 DNS 이름은 함수 앱에 기본적으로 제공된 DNS 이름인 adatumfunction.azurewebsites.net입니다.        |
@@ -65,8 +65,8 @@ DNS 영역으로 이동하고 **+ 레코드 집합**을 클릭합니다. **레�
 
 |속성  |값  |Description  |
 |---------|---------|---------|
-|이름     | mywebserver        | 이 값과 도메인 이름 레이블을 함께 사용하면 사용자 지정 도메인 이름에 대한 FQDN입니다.        |
-|유형     | A        | 리소스가 IP 주소이므로 A 레코드를 사용합니다.        |
+|속성     | mywebserver        | 이 값과 도메인 이름 레이블을 함께 사용하면 사용자 지정 도메인 이름에 대한 FQDN입니다.        |
+|Type     | A        | 리소스가 IP 주소이므로 A 레코드를 사용합니다.        |
 |TTL     | 1        | 1은 1시간 동안 사용됩니다.        |
 |TTL 단위     | 시간        | 시간 측정으로 시간(Hour)이 사용됩니다.         |
 |IP 주소     | `<your ip address>`       | 공용 IP 주소입니다.|
@@ -92,8 +92,8 @@ DNS 영역으로 이동하고 **+ 레코드 집합**을 클릭합니다. **레�
 
 |속성  |값  |Description  |
 |---------|---------|---------|
-|이름     | mywebserver        | 이 값과 도메인 이름 레이블을 함께 사용하면 사용자 지정 도메인 이름에 대한 FQDN입니다.        |
-|유형     | CNAME        | 별칭을 사용하는 CNAME 레코드를 사용합니다. 리소스에서 IP 주소를 사용한 경우 A 레코드가 사용됩니다.        |
+|속성     | mywebserver        | 이 값과 도메인 이름 레이블을 함께 사용하면 사용자 지정 도메인 이름에 대한 FQDN입니다.        |
+|Type     | CNAME        | 별칭을 사용하는 CNAME 레코드를 사용합니다. 리소스에서 IP 주소를 사용한 경우 A 레코드가 사용됩니다.        |
 |TTL     | 1        | 1은 1시간 동안 사용됩니다.        |
 |TTL 단위     | 시간        | 시간 측정으로 시간(Hour)이 사용됩니다.         |
 |Alias     | webserver.azurewebsites.net        | 이 예에서 별칭을 만드는 DNS 이름은 웹앱에 기본적으로 제공된 DNS 이름인 webserver.azurewebsites.net입니다.        |
@@ -128,8 +128,8 @@ DNS 영역으로 이동하고 **+ 레코드 집합**을 클릭합니다. **레�
 
 |속성  |값  |Description  |
 |---------|---------|---------|
-|이름     | asverify.mystorageaccount        | 이 값과 도메인 이름 레이블을 함께 사용하면 사용자 지정 도메인 이름에 대한 FQDN입니다.        |
-|유형     | CNAME        | 별칭을 사용하는 CNAME 레코드를 사용합니다.        |
+|속성     | asverify.mystorageaccount        | 이 값과 도메인 이름 레이블을 함께 사용하면 사용자 지정 도메인 이름에 대한 FQDN입니다.        |
+|Type     | CNAME        | 별칭을 사용하는 CNAME 레코드를 사용합니다.        |
 |TTL     | 1        | 1은 1시간 동안 사용됩니다.        |
 |TTL 단위     | 시간        | 시간 측정으로 시간(Hour)이 사용됩니다.         |
 |Alias     | asverify.adatumfunctiona9ed.blob.core.windows.net        | 이 예에서 별칭을 만드는 DNS 이름은 스토리지 계정에 기본적으로 제공된 DNS 이름인 asverify.adatumfunctiona9ed.blob.core.windows.net입니다.        |
@@ -156,8 +156,8 @@ DNS 영역으로 이동하고 **+ 레코드 집합**을 클릭합니다. **레�
 
 |속성  |값  |Description  |
 |---------|---------|---------|
-|이름     | cdnverify.mycdnendpoint        | 이 값과 도메인 이름 레이블을 함께 사용하면 사용자 지정 도메인 이름에 대한 FQDN입니다.        |
-|유형     | CNAME        | 별칭을 사용하는 CNAME 레코드를 사용합니다.        |
+|속성     | cdnverify.mycdnendpoint        | 이 값과 도메인 이름 레이블을 함께 사용하면 사용자 지정 도메인 이름에 대한 FQDN입니다.        |
+|Type     | CNAME        | 별칭을 사용하는 CNAME 레코드를 사용합니다.        |
 |TTL     | 1        | 1은 1시간 동안 사용됩니다.        |
 |TTL 단위     | 시간        | 시간 측정으로 시간(Hour)이 사용됩니다.         |
 |Alias     | cdnverify.adatumcdnendpoint.azureedge.net        | 이 예에서 별칭을 만드는 DNS 이름은 스토리지 계정에 기본적으로 제공된 DNS 이름인 cdnverify.adatumcdnendpoint.azureedge.net입니다.        |

@@ -10,12 +10,12 @@ ms.date: 01/02/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: f592872e67ff8559060706ddb3b1e45839b6acaf
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.openlocfilehash: 5f091341bee65d17b42e289bab1192142d095637
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2020
-ms.locfileid: "75665460"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136128"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure Key Vault으로 고객 관리 키 구성
 
@@ -94,7 +94,7 @@ Azure Storage 암호화에 사용 되는 키를 변경 하려면 다음 단계�
 
 ## <a name="disable-customer-managed-keys"></a>고객 관리 키 사용 안 함
 
-고객 관리 키를 사용 하지 않도록 설정 하면 저장소 계정이 Microsoft 관리 키를 사용 하 여 암호화 됩니다. 고객 관리 키를 사용 하지 않도록 설정 하려면 다음 단계를 수행 합니다.
+고객 관리 키를 사용 하지 않도록 설정 하면 저장소 계정이 Microsoft 관리 키로 다시 암호화 됩니다. 고객 관리 키를 사용 하지 않도록 설정 하려면 다음 단계를 수행 합니다.
 
 1. 저장소 계정으로 이동 하 여 **암호화** 설정을 표시 합니다.
 1. 사용자의 **키 사용** 설정 옆에 있는 확인란의 선택을 취소 합니다.

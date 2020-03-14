@@ -4,11 +4,11 @@ description: 에이전트 기반 VMWare 마이그레이션의 Azure Migrate 복�
 ms.topic: conceptual
 ms.date: 01/30/2020
 ms.openlocfilehash: 4521fce6310b319d155a2f0c418cd934be7e2cb8
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901565"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79245864"
 ---
 # <a name="replication-appliance"></a>복제 어플라이언스
 
@@ -41,14 +41,14 @@ Azure Migrate 허브에 제공 된 OVA 템플릿을 사용 하 여 복제 어플
 PowerCLI | VMware VM에서 복제 어플라이언스를 실행 하는 경우에는 [Powercli 버전 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) 을 설치 해야 합니다.
 NIC 유형 | VMXNET3 (기기가 VMware VM 인 경우)
  | **하드웨어 설정**
-CPU 코어 수 | 8
+CPU 코어 | 8
 RAM | 16GB
 디스크 수 | 3: OS 디스크, 프로세스 서버 캐시 디스크, 보존 드라이브입니다.
 사용 가능한 디스크 공간 (캐시) | 600GB
 사용 가능한 디스크 공간(보존 디스크) | 600GB
 **소프트웨어 설정** |
 운영 체제 | Windows Server 2016 또는 Windows Server 2012 R2
-라이선스 | 어플라이언스는 180 일 동안 유효한 Windows Server 2016 evaluation 라이선스와 함께 제공 됩니다.<br/><br/> 평가 기간이 만료에 근접 한 경우 새 어플라이언스를 다운로드 하 여 배포 하거나 어플라이언스 VM의 운영 체제 라이선스를 활성화 하는 것이 좋습니다.
+License | 어플라이언스는 180 일 동안 유효한 Windows Server 2016 evaluation 라이선스와 함께 제공 됩니다.<br/><br/> 평가 기간이 만료에 근접 한 경우 새 어플라이언스를 다운로드 하 여 배포 하거나 어플라이언스 VM의 운영 체제 라이선스를 활성화 하는 것이 좋습니다.
 운영 체제 로케일 | 미국 영어(en-us)
 TLS | TLS 1.2를 사용 하도록 설정 해야 합니다.
 .NET Framework | .NET Framework 4.6 이상이 컴퓨터에 설치 되어 있어야 합니다 (강력한 암호화를 사용 하도록 설정 됨).
@@ -110,7 +110,7 @@ VM | Vm에서 실행 되는 모바일 서비스는 복제 관리를 위해 HTTPS
     - 프로세스 서버는 복제 데이터를 수신하고, 이를 최적화 및 암호화하며, 443 아웃바운드 포트를 통해 Azure Storage로 보냅니다.
 5. 복제 데이터 로그는 먼저 Azure의 캐시 저장소 계정에 저장 됩니다. 이러한 로그는 처리 되 고 데이터는 Azure 관리 디스크에 저장 됩니다.
 
-![아키텍처](./media/migrate-replication-appliance/architecture.png)
+![Architecture](./media/migrate-replication-appliance/architecture.png)
 
 ## <a name="appliance-upgrades"></a>어플라이언스 업그레이드
 

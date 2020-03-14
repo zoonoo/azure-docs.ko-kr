@@ -5,15 +5,15 @@ services: storage
 author: SnehaGunda
 ms.service: storage
 ms.topic: article
-ms.date: 04/23/2018
+ms.date: 03/09/2020
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 95272956da4567ec21e1c4603b88472e45373a39
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 8df639eea757c374554fa19e57c43cef79308e98
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78387098"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79255146"
 ---
 # <a name="design-scalable-and-performant-tables"></a>확장 가능하고 성능이 우수한 테이블 설계
 
@@ -140,19 +140,8 @@ Table service에서 EGT(엔터티 그룹 트랜잭션)는 여러 엔터티 간�
 EGT는 디자인을 평가하기 위해 잠재적인 장단점에 대해서도 소개합니다. 즉, Azure가 노드에 대한 요청의 부하를 용이하게 분산할 수 있기 때문에 더 많은 파티션을 사용하면 애플리케이션의 확장성을 증가시킵니다. 하지만 많은 파티션을 사용하면 원자성 트랜잭션을 수행하고 데이터에 강력한 일관성을 유지하는 애플리케이션의 기능을 제한할 수 있습니다. 또한 단일 노드에서 예상할 수 있는 트랜잭션 처리량을 제한할 수 있는 파티션 수준에서 특정 확장성 목표가 있습니다. Azure standard storage 계정에 대 한 확장성 목표에 대 한 자세한 내용은 [standard storage 계정에 대 한 확장성 목표](../common/scalability-targets-standard-account.md)를 참조 하세요. Table Service의 확장성 목표에 대한 자세한 내용은 [Table Storage에 대한 확장성 및 성능 목표](scalability-targets.md)를 참조하세요.
 
 ## <a name="capacity-considerations"></a>용량 고려 사항
-다음 표에서는 Table service 솔루션을 디자인할 때 알아야 할 몇 가지 키 값을 설명합니다.  
 
-| Azure Storage 계정의 총 용량 | 500TB |
-| --- | --- |
-| Azure Storage 계정에서 테이블의 수 |스토리지 계정의 용량에 의해서만 제한됨 |
-| 테이블에 있는 파티션 수 |스토리지 계정의 용량에 의해서만 제한됨 |
-| 파티션의 엔터티 수 |스토리지 계정의 용량에 의해서만 제한됨 |
-| 개별 엔터티의 크기 |최대 255개 속성을 포함하여 최대 1MB(**PartitionKey**, **RowKey** 및 **타임스탬프** 포함) |
-| **PartitionKey** |최대 1KB의 크기 문자열 |
-| **RowKey** |최대 1KB의 크기 문자열 |
-| 엔터티 그룹 트랜잭션의 크기 |한 개 트랜잭션에는 최대 100개의 엔터티가 포함될 수 있고, 페이로드 크기는 4MB 미만이어야 합니다. EGT는 한 번에 하나의 엔터티만 업데이트할 수 있음 |
-
-자세한 내용은 [테이블 서비스 데이터 모델 이해](https://msdn.microsoft.com/library/azure/dd179338.aspx)를 참조하세요.  
+[!INCLUDE [storage-table-scale-targets](../../../includes/storage-tables-scale-targets.md)]
 
 ## <a name="cost-considerations"></a>비용 고려 사항
 Table Storage는 비교적 저렴하지만 용량 사용량 및 트랜잭션 수량 모두에 대한 예상 비용을 Table service 솔루션 평가의 일부로 포함시켜야 합니다. 그러나 대부분의 시나리오에서는 비정규화되거나 중복된 데이터를 저장하여 솔루션의 성능 또는 확장성을 개선하는 것이 유효한 접근 방식입니다. 가격 책정에 대한 자세한 내용은 [Azure Storage 가격 책정](https://azure.microsoft.com/pricing/details/storage/)을 참조하세요.  

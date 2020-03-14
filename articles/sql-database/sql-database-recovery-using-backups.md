@@ -12,15 +12,15 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 ms.date: 09/26/2019
 ms.openlocfilehash: b98331a9cdb359aeefac5db1546f3a15b54010ba
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78194487"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79268744"
 ---
 # <a name="recover-an-azure-sql-database-by-using-automated-database-backups"></a>자동화 된 데이터베이스 백업을 사용 하 여 Azure SQL 데이터베이스 복구
 
-기본적으로 Azure SQL Database 백업은 지역 복제 blob 저장소 (RA-GRS 저장소 유형)에 저장 됩니다. [자동화 된 데이터베이스 백업을](sql-database-automated-backups.md)사용 하 여 데이터베이스 복구에 사용할 수 있는 옵션은 다음과 같습니다. 다음을 할 수 있습니다.
+기본적으로 Azure SQL Database 백업은 지역 복제 blob 저장소 (RA-GRS 저장소 유형)에 저장 됩니다. [자동화 된 데이터베이스 백업을](sql-database-automated-backups.md)사용 하 여 데이터베이스 복구에 사용할 수 있는 옵션은 다음과 같습니다. 다음을 수행할 수 있습니다.
 
 - 보존 기간 내에 지정 된 특정 시점으로 복구 되는 동일한 SQL Database 서버에 새 데이터베이스를 만듭니다.
 - 삭제 된 데이터베이스에 대 한 삭제 시간으로 복구 된 동일한 SQL Database 서버에서 데이터베이스를 만듭니다.
@@ -200,7 +200,7 @@ Azure Portal에서 관리 되는 인스턴스 데이터베이스를 선택한 �
 
 독립 실행형 또는 풀링된 데이터베이스를 복원 하려면 [AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase)을 참조 하세요.
 
-  | Cmdlet | 설명 |
+  | Cmdlet | Description |
   | --- | --- |
   | [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase) |하나 이상의 데이터베이스를 가져옵니다. |
   | [Get-AzSqlDeletedDatabaseBackup](/powershell/module/az.sql/get-azsqldeleteddatabasebackup) | 복원할 수 있는 삭제된 데이터베이스를 가져옵니다. |
@@ -214,7 +214,7 @@ Azure Portal에서 관리 되는 인스턴스 데이터베이스를 선택한 �
 
 관리 되는 인스턴스 데이터베이스를 복원 하려면 [AzSqlInstanceDatabase](/powershell/module/az.sql/restore-azsqlinstancedatabase)을 참조 하세요.
 
-  | Cmdlet | 설명 |
+  | Cmdlet | Description |
   | --- | --- |
   | [Get-AzSqlInstance](/powershell/module/az.sql/get-azsqlinstance) |하나 이상의 관리 되는 인스턴스를 가져옵니다. |
   | [AzSqlInstanceDatabase](/powershell/module/az.sql/get-azsqlinstancedatabase) | 인스턴스 데이터베이스를 가져옵니다. |
@@ -224,7 +224,7 @@ Azure Portal에서 관리 되는 인스턴스 데이터베이스를 선택한 �
 
 REST API를 사용 하 여 단일 또는 풀링된 데이터베이스를 복원 하려면 다음을 수행 합니다.
 
-| API | 설명 |
+| API | Description |
 | --- | --- |
 | [REST(createMode=Recovery)](https://docs.microsoft.com/rest/api/sql/databases) |데이터베이스를 복원 합니다. |
 | [데이터베이스 만들기 또는 업데이트 상태 가져오기](https://docs.microsoft.com/rest/api/sql/operations) |복원 작업 중에 상태를 반환 합니다. |

@@ -15,11 +15,11 @@ ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 01e683e31905281d25fdcf976bc58397c052a6c3
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201631"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79243186"
 ---
 # <a name="register-a-sql-server-virtual-machine-in-azure-with-the-sql-vm-resource-provider"></a>SQL VM 리소스 공급자를 사용 하 여 Azure에 SQL Server 가상 머신 등록
 
@@ -35,14 +35,14 @@ Azure Portal를 통해 SQL Server VM Azure Marketplace 이미지를 배포 하�
 
 - **간소화 된 라이선스 관리**: SQL VM 리소스 공급자를 사용 하 여 등록 하면 SQL Server 라이선스 관리가 간소화 되 고 [AZURE PORTAL](virtual-machines-windows-sql-manage-portal.md), Az CLI 또는 PowerShell을 사용 하 여 Azure 하이브리드 혜택 사용 하도록 설정 된 SQL Server vm을 빠르게 식별할 수 있습니다. 
 
-   # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+   # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
    ```azurecli-interactive
    $vms = az sql vm list | ConvertFrom-Json
    $vms | Where-Object {$_.sqlServerLicenseType -eq "AHUB"}
    ```
 
-   # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+   # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
    ```powershell-interactive
    Get-AzSqlVM | Where-Object {$_.LicenseType -eq 'AHUB'}
@@ -106,14 +106,14 @@ SQL VM 리소스 공급자에 SQL Server VM를 등록 하려면 먼저 리소스
 
 Az CLI 또는 PowerShell을 사용 하 여 Azure 구독에 SQL VM 리소스 공급자를 등록 합니다. 
 
-# <a name="az-clitabbash"></a>[AZ CLI](#tab/bash)
+# <a name="az-cli"></a>[AZ CLI](#tab/bash)
 
 ```azurecli-interactive
 # Register the SQL VM resource provider to your subscription 
 az provider register --namespace Microsoft.SqlVirtualMachine 
 ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 ```powershell-interactive
 # Register the SQL VM resource provider to your subscription
@@ -132,7 +132,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.SqlVirtualMachine
 
 장애 조치 (Failover) 클러스터 인스턴스 및 다중 인스턴스 배포는 경량 모드의 SQL VM 리소스 공급자에만 등록할 수 있습니다. 
 
-# <a name="az-clitabbash"></a>[AZ CLI](#tab/bash)
+# <a name="az-cli"></a>[AZ CLI](#tab/bash)
 
 Az CLI를 사용 하 여 SQL Server VM를 경량 모드로 등록 합니다. 
 
@@ -142,7 +142,7 @@ Az CLI를 사용 하 여 SQL Server VM를 경량 모드로 등록 합니다.
   ```
 
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 PowerShell을 사용 하 여 경량 모드에서 SQL Server VM를 등록 합니다.  
 
@@ -183,7 +183,7 @@ Windows Server 2008 (_R2 아님_)에 설치 된 SQL Server 2008 및 2008 R2는 [
 Windows Server 2008 인스턴스에 SQL Server 2008 또는 2008 R2 인스턴스를 등록 하려면 다음 Az CLI 또는 PowerShell 코드 조각을 사용 합니다. 
 
 
-# <a name="az-clitabbash"></a>[AZ CLI](#tab/bash)
+# <a name="az-cli"></a>[AZ CLI](#tab/bash)
 
 Az CLI를 사용 하 여 NoAgent 모드에서 SQL Server 2008 VM을 등록 합니다. 
 
@@ -202,7 +202,7 @@ Az CLI를 사용 하 여 NoAgent 모드에서 SQL Server 2008 R2 VM을 등록 �
    --image-sku Enterprise --image-offer SQL2008R2-WS2008R2
  ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 PowerShell을 사용 하 여 NoAgent 모드에서 SQL Server 2008 VM을 등록 합니다. 
 
@@ -258,7 +258,7 @@ PowerShell을 사용 하 여 SQL Server IaaS 에이전트의 현재 모드를 �
 
 ### <a name="command-line"></a>명령 줄
 
-# <a name="az-clitabbash"></a>[AZ CLI](#tab/bash)
+# <a name="az-cli"></a>[AZ CLI](#tab/bash)
 
 다음 Az CLI 코드 조각을 실행 합니다.
 
@@ -267,7 +267,7 @@ PowerShell을 사용 하 여 SQL Server IaaS 에이전트의 현재 모드를 �
   az sql vm update --name <vm_name> --resource-group <resource_group_name> --sql-mgmt-type full  
   ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 다음 PowerShell 코드 조각을 실행 합니다.
 
@@ -297,14 +297,14 @@ Azure Portal, Azure CLI 또는 PowerShell을 사용 하 여 SQL Server VM SQL VM
 
 Az CLI 또는 PowerShell을 사용 하 여 현재 SQL Server VM 등록 상태를 확인 합니다. 등록에 성공 하면 `ProvisioningState` `Succeeded` 표시 됩니다. 
 
-# <a name="az-clitabbash"></a>[AZ CLI](#tab/bash)
+# <a name="az-cli"></a>[AZ CLI](#tab/bash)
 
 
   ```azurecli-interactive
   az sql vm show -n <vm_name> -g <resource_group>
  ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
   ```powershell-interactive
   Get-AzSqlVM -Name <vm_name> -ResourceGroupName <resource_group>
@@ -345,7 +345,7 @@ Azure Portal를 사용 하 여 리소스 공급자에 SQL Server VM 등록을 �
 
 ### <a name="command-line"></a>명령 줄
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 Azure CLI를 사용 하 여 리소스 공급자에서 SQL Server 가상 컴퓨터의 등록을 취소 하려면 [az SQL vm delete](/cli/azure/sql/vm?view=azure-cli-latest#az-sql-vm-delete) 명령을 사용 합니다. 그러면 SQL Server 가상 컴퓨터 *리소스가* 제거 되지만 가상 컴퓨터는 삭제 되지 않습니다. 
 
 
@@ -356,7 +356,7 @@ az sql vm delete
   --yes 
 ```
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 Azure CLI를 사용 하 여 리소스 공급자에서 SQL Server 가상 컴퓨터의 등록을 취소 하려면 [AzSqlVM](/powershell/module/az.sqlvirtualmachine/new-azsqlvm)명령을 사용 합니다. 그러면 SQL Server 가상 컴퓨터 *리소스가* 제거 되지만 가상 컴퓨터는 삭제 되지 않습니다. 
 
 ```powershell-interactive

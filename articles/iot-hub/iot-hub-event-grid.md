@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: robinsh
 ms.openlocfilehash: a1fd99ee595c4ae91ccd06aa41fa421ca8fcc074
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851703"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79284552"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>작업을 트리거하기 위해 Event Grid를 사용하여 IoT Hub 이벤트에 대응
 
@@ -23,7 +23,7 @@ Azure IoT Hub는 이벤트 알림을 다른 서비스에 보내고 다운스트�
 
 ![Azure Event Grid 아키텍처](./media/iot-hub-event-grid/event-grid-functional-model.png)
 
-## <a name="regional-availability"></a>지역별 가용성
+## <a name="regional-availability"></a>국가별 가용성
 
 Event Grid가지 원되는 지역의 IoT Hub에 대해 Event Grid 통합을 사용할 수 있습니다. 최신 지역 목록을 보려면 [Azure Event Grid 소개](../event-grid/overview.md)를 참조하세요.
 
@@ -31,7 +31,7 @@ Event Grid가지 원되는 지역의 IoT Hub에 대해 Event Grid 통합을 사�
 
 IoT Hub는 다음과 같은 이벤트 유형을 게시합니다.
 
-| 이벤트 유형 | 설명 |
+| 이벤트 유형 | Description |
 | ---------- | ----------- |
 | Microsoft.Devices.DeviceCreated | IoT 허브에 디바이스를 등록하는 경우 게시합니다. |
 | Microsoft.Devices.DeviceDeleted | IoT 허브에서 디바이스를 삭제하는 경우 게시합니다. |

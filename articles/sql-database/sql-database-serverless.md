@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 12/03/2019
-ms.openlocfilehash: 750d08f3667317e9e1e396cff50884101d7ff55d
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.date: 3/11/2020
+ms.openlocfilehash: 5c36dbfbe63314ef97edfa3dfbaae34667db002d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77131960"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79268705"
 ---
 # <a name="azure-sql-database-serverless"></a>서버를 사용 하지 않는 Azure SQL Database
 
@@ -66,8 +66,8 @@ ms.locfileid: "77131960"
 | | **서버리스 컴퓨팅** | **프로비저닝된 컴퓨팅** |
 |:---|:---|:---|
 |**데이터베이스 사용 패턴**| 시간이 지남에 따라 평균 계산 사용률이 낮은 간헐적이 고 예측할 수 없는 사용 |  시간이 지남에 따라 더 높은 평균 계산 사용률 또는 탄력적 풀을 사용 하는 여러 데이터베이스를 사용 하는 보다 일반적인 사용 패턴.|
-| **성능 관리 작업** |Lower|더 많음|
-|**컴퓨팅 크기 조정**|자동|수동|
+| **성능 관리 작업** |더 적음|더 많음|
+|**컴퓨팅 크기 조정**|자동|설명서|
 |**컴퓨팅 응답성**|비활성 기간 후 낮음|즉시|
 |**청구 세분성**|초당|시간당|
 
@@ -148,6 +148,10 @@ Autoresuming는 데이터베이스를 온라인 상태로 만들어야 하는 �
 ### <a name="latency"></a>대기 시간
 
 서버를 사용 하지 않는 데이터베이스를 autoresume 및 autopause 하는 대기 시간은 일반적으로 1 분에서 autoresume로, 1-10 분에서 autopause로 정렬 됩니다.
+
+### <a name="customer-managed-transparent-data-encryption-byok"></a>고객 관리 BYOK (투명 한 데이터 암호화)
+
+키를 삭제 하거나 해지가 수행 될 때 [고객이 관리 하지 않는 투명 한 데이터 암호화](transparent-data-encryption-byok-azure-sql.md) (byok)를 사용 하 고 서버를 사용 하지 않는 데이터베이스를 자동으로 일시 중지 한 경우 데이터베이스가 자동으로 일시 중지 된 상태로 유지 됩니다.  이 경우 다시 시작이 다음에 시도 될 때 약 10 분 이내에 해당 상태가 액세스 불가능으로 전환 될 때까지 데이터베이스가 일시 중지 된 상태로 유지 됩니다.  데이터베이스에 액세스할 수 없게 되 면 복구 프로세스가 프로 비전 된 계산 데이터베이스의 경우와 동일 합니다.  키를 삭제 하거나 해지가 수행 될 때 서버 리스 데이터베이스가 온라인 상태 이면 프로 비전 된 계산 데이터베이스와 동일한 방법으로 약 10 분 이내에 데이터베이스에 액세스할 수 없게 됩니다.
 
 ## <a name="onboarding-into-serverless-compute-tier"></a>서버를 사용 하지 않는 계산 계층에 온 보 딩
 
@@ -275,7 +279,7 @@ MODIFY ( SERVICE_OBJECTIVE = 'GP_S_Gen5_1') ;
 
 응용 프로그램 패키지의 리소스 사용 및 서버를 사용 하지 않는 데이터베이스의 사용자 풀 모니터링에 대 한 메트릭은 다음 표에 나와 있습니다.
 
-|엔터티|메트릭|설명|Units|
+|엔터티|메트릭|Description|Units|
 |---|---|---|---|
 |앱 패키지|app_cpu_percent|앱에 허용되는 최대 vCore 수에 대한 앱에서 사용한 vCore 수의 백분율입니다.|백분율|
 |앱 패키지|app_cpu_billed|보고 기간 동안 앱에 대해 요금이 청구되는 컴퓨팅의 양입니다. 이 기간 동안에 대한 지불 금액은 이 메트릭과 vCore 단가를 곱한 값입니다. <br><br>이 메트릭의 값은 시간이 지남에 따라 사용된 최대 CPU와 사용된 초당 메모리를 집계하여 결정됩니다. 사용된 양이 최소 vCore 수 및 최소 메모리로 설정된 최소 프로비저닝된 양보다 적으면 최소 프로비저닝된 양에 대한 요금이 청구됩니다. 청구 목적으로 CPU와 CPU를 비교 하기 위해 메모리는 Vcores 당 3gb의 메모리 용량을 크기 조정 하 여 vCores 단위로 정규화 됩니다.|vCore 시간(초)|

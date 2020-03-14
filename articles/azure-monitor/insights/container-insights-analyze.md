@@ -4,11 +4,11 @@ description: 이 문서는 컨테이너에 대 한 Azure Monitor를 사용 하 �
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.openlocfilehash: f57f8982b2aa045156e6f48316610137260d6597
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78385528"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79275478"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>컨테이너에 대 한 Azure Monitor를 사용 하 여 Kubernetes 클러스터 성능 모니터링
 

@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
 ms.openlocfilehash: 87ccb1c4995337b385f685797980a9fc3962bc6f
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78381674"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79267002"
 ---
 # <a name="azure-serial-console-for-windows"></a>Windows 용 Azure 직렬 콘솔
 

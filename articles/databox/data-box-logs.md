@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 08/08/2019
 ms.author: alkohli
 ms.openlocfilehash: 72e1d3b0ad72b1e68b88eb0550cbe839ade9d929
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69535166"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79260021"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy"></a>Azure Data Box 및 Azure Data Box Heavy에 대 한 추적 및 이벤트 로깅
 
@@ -24,7 +24,7 @@ Data Box 또는 Data Box Heavy 순서는 순서, 설정, 데이터 복사, 반�
 | Data Box 주문 단계       | 추적 및 감사 도구                                                                        |
 |----------------------------|------------------------------------------------------------------------------------------------|
 | 주문 만들기               | [RBAC를 통해 주문에 대 한 액세스 제어 설정](#set-up-access-control-on-the-order)                                                    |
-| 처리 된 주문            | [주문 추적](#track-the-order) <ul><li> Azure Portal </li><li> 운송 업체 웹 사이트 </li><li>메일 알림</ul> |
+| 처리 된 주문            | [주문 추적](#track-the-order) <ul><li> Azure portal </li><li> 운송 업체 웹 사이트 </li><li>이메일 알림</ul> |
 | 디바이스 설정              | 장치 자격 증명 액세스는 [활동 로그](#query-activity-logs-during-setup) 에 기록 됩니다.                                              |
 | 장치에 데이터 복사        | 데이터 복사를 위한 [ *오류 .Xml* 파일 보기](#view-error-log-during-data-copy)                                                             |
 | 배송 준비            | 장치에서 BOM 파일 또는 매니페스트 파일 [을 검사 합니다](#inspect-bom-during-prepare-to-ship) .                                      |
@@ -64,7 +64,7 @@ Azure Portal 및 운송 업체 웹 사이트를 통해 주문을 추적할 수 �
 
 - Data Box가 잠긴 상태에서 온-프레미스에 도착 합니다. Azure Portal에서 사용할 수 있는 장치 자격 증명을 순서 대로 사용할 수 있습니다.  
 
-    Data Box 설정 되 면 장치 자격 증명에 액세스 한 사람을 알아야 할 수 있습니다. **장치 자격 증명** 블레이드에 액세스 한 사람을 파악 하기 위해 활동 로그를 쿼리할 수 있습니다.  **장치 세부 정보 > 자격 증명에 대** 한 액세스를 포함 하는 모든 작업은 `ListCredentials` 작업으로 작업 로그에 기록 됩니다.
+    Data Box 설정 되 면 장치 자격 증명에 액세스 한 사람을 알아야 할 수 있습니다. **장치 자격 증명** 블레이드에 액세스 한 사람을 파악 하기 위해 활동 로그를 쿼리할 수 있습니다.  **장치 세부 정보 > 자격 증명에 대** 한 액세스를 포함 하는 모든 작업은 `ListCredentials` 작업으로 활동 로그에 기록 됩니다.
 
     ![활동 로그 쿼리](media/data-box-logs/query-activity-log-1.png)
 
@@ -205,7 +205,7 @@ Azure로 업로드 하는 동안 CRC (순환 중복 검사) 계산이 수행 됩
 
 기본적으로 로그는 `copylog`라는 컨테이너에 기록됩니다. 로그는 다음과 같은 명명 규칙을 사용 하 여 저장 됩니다.
 
-`storage-account-name/databoxcopylog/ordername_device-serial-number_CopyLog_guid.xml`.
+`storage-account-name/databoxcopylog/ordername_device-serial-number_CopyLog_guid.xml`입니다.
 
 또한 포털에 대 한 **개요** 블레이드에서 복사 로그 경로도 표시 됩니다.
 
@@ -257,7 +257,7 @@ Azure로의 업로드는 Azure 명명 규칙을 준수 하지 않는 컨테이�
 
 Azure로 데이터를 업로드 하는 동안 Azure 명명 규칙을 준수 하지 않는 컨테이너의 이름이 바뀐 복사 로그의 예는 다음과 같습니다.
 
-컨테이너의 새로운 고유 이름은 형식이 `DataBox-GUID` 며 컨테이너의 데이터는 이름이 바뀐 새 컨테이너에 저장 됩니다. 복사 로그는 컨테이너에 대 한 이전 및 새 컨테이너 이름을 지정 합니다.
+컨테이너의 새로운 고유 이름은 `DataBox-GUID` 형식으로 되어 있으며 컨테이너의 데이터는 이름이 바뀐 새 컨테이너에 저장 됩니다. 복사 로그는 컨테이너에 대 한 이전 및 새 컨테이너 이름을 지정 합니다.
 
 ```xml
 <ErroredEntity Path="New Folder">
@@ -270,7 +270,7 @@ Azure로 데이터를 업로드 하는 동안 Azure 명명 규칙을 준수 하�
 
 Azure로 데이터를 업로드 하는 동안 Azure 명명 규칙을 따르지 않는 blob 또는 파일의 이름이 바뀐 복사 로그의 예는 다음과 같습니다. 새 blob 또는 파일 이름은 컨테이너에 대 한 상대 경로의 SHA256 다이제스트로 변환 되 고 대상 유형에 따라 경로에 업로드 됩니다. 대상은 블록 blob, 페이지 blob 또는 Azure Files 수 있습니다.
 
-는 `copylog` Azure에서 이전 및 새 blob 또는 파일 이름과 경로를 지정 합니다.
+`copylog`은 Azure에서 이전 및 새 blob 또는 파일 이름과 경로를 지정 합니다.
 
 ```xml
 <ErroredEntity Path="TesDir028b4ba9-2426-4e50-9ed1-8e89bf30d285\Ã">
@@ -297,7 +297,7 @@ NIST SP 800-88 수정 1 지침에 따라 Data Box 디스크에서 데이터를 �
 
 ### <a name="audit-logs"></a>감사 로그
 
-감사 로그에는 Azure 데이터 센터 외부에 있을 때 Data Box 또는 Data Box Heavy에서 전원 켜기 및 액세스 하는 방법에 대 한 정보가 포함 되어 있습니다. 이러한 로그는 다음 위치에 있습니다.`storage-account/azuredatabox-chainofcustodylogs`
+감사 로그에는 Azure 데이터 센터 외부에 있을 때 Data Box 또는 Data Box Heavy에서 전원 켜기 및 액세스 하는 방법에 대 한 정보가 포함 되어 있습니다. 이러한 로그는: `storage-account/azuredatabox-chainofcustodylogs`에 있습니다.
 
 다음은 Data Box의 감사 로그 샘플입니다.
 

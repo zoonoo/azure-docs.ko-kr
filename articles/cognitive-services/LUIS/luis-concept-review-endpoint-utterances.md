@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: diberry
 ms.openlocfilehash: 375d4b4e7c3fcafbdfde1ff447bedc3e16aff2f2
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78393705"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79221320"
 ---
 # <a name="concepts-for-enabling-active-learning-by-reviewing-endpoint-utterances"></a>엔드포인트 발언을 검토하여 활성 학습을 사용하도록 설정하는 데 관한 개념입니다.
 활성 학습은 예측 정확도를 향상시키는 세 가지 전략 중 하나이며 구현하기에 가장 쉽습니다. 활성 학습을 사용하여 올바른 의도 및 엔터티에 대한 엔드포인트 발언을 검토하세요. LUIS는 알 수 없는 엔드포인트 발언을 선택합니다.

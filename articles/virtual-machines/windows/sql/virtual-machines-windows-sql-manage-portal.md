@@ -14,11 +14,11 @@ ms.date: 05/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 244ad7d079fd7baf25f8079557576c42d25ca785
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102059"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79243212"
 ---
 # <a name="manage-sql-server-vms-in-azure-by-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure에서 SQL Server Vm 관리
 
@@ -39,7 +39,7 @@ ms.locfileid: "70102059"
 1. [Azure Portal](https://portal.azure.com)을 엽니다. 
 1. **모든 서비스**를 선택합니다. 
 1. 검색 상자에 **SQL 가상 컴퓨터** 를 입력 합니다.
-1. (선택 사항): **SQL virtual machines** 옆의 별표를 선택 하 여이 옵션을 **즐겨찾기** 메뉴에 추가 합니다. 
+1. (선택 사항):이 옵션을 **즐겨찾기** 메뉴에 추가 하려면 **SQL virtual machines** 옆의 별표를 선택 합니다. 
 1. **SQL 가상 컴퓨터**를 선택 합니다. 
 
    ![모든 서비스에서 SQL Server 가상 컴퓨터 찾기](media/virtual-machines-windows-sql-manage-portal/sql-vm-search.png)
@@ -64,7 +64,7 @@ ms.locfileid: "70102059"
 1. [Azure Portal](https://portal.azure.com)을 엽니다. 
 1. **모든 서비스**를 선택합니다. 
 1. 검색 상자에 **가상 컴퓨터** 를 입력 합니다.
-1. (선택 사항): **Virtual machines** 옆의 별표를 선택 하 여이 옵션을 **즐겨찾기** 메뉴에 추가 합니다. 
+1. (선택 사항):이 옵션을 **즐겨찾기** 메뉴에 추가 하려면 **Virtual machines** 옆의 별표를 선택 합니다. 
 1. **가상 머신**을 선택합니다. 
 
    ![가상 컴퓨터 검색](media/virtual-machines-windows-sql-manage-portal/vm-search.png)

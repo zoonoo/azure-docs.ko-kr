@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 01/22/2020
 ms.author: kumud
 ms.openlocfilehash: a2a85d98bf29e78d58bf0c578ce79943bae21fc1
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76543089"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79244967"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Azure 네트워크 인터페이스용 IP 주소 추가, 변경 또는 제거
 
@@ -35,11 +35,11 @@ ms.locfileid: "76543089"
 이 문서에서 설명하는 모든 섹션의 단계를 수행하기 전에 다음 작업을 완료해야 합니다.
 
 - 아직 Azure 계정이 없으면 [평가판 계정](https://azure.microsoft.com/free)에 등록합니다.
-- 포털을 사용하는 경우 https://portal.azure.com 을 열고 Azure 계정으로 로그인합니다.
+- 포털을 사용하는 경우 https://portal.azure.com을 열고 Azure 계정으로 로그인합니다.
 - 이 문서의 작업을 완료하기 위해 PowerShell 명령을 사용하는 경우 [Azure Cloud Shell](https://shell.azure.com/powershell)에서 명령을 실행하거나 컴퓨터에서 PowerShell을 실행합니다. Azure Cloud Shell은 이 항목의 단계를 실행하는 데 무료로 사용할 수 있는 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 이 자습서에는 Azure PowerShell 모듈 버전 1.0.0 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable Az`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzAccount`를 실행하여 Azure와 연결해야 합니다.
 - 이 문서의 작업을 완료하기 위해 Azure CLI(명령줄 인터페이스)를 사용하는 경우 [Azure Cloud Shell](https://shell.azure.com/bash)에서 명령을 실행하거나 컴퓨터에서 CLI를 실행합니다. 이 자습서에는 Azure CLI 버전 2.0.31 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. 또한 Azure CLI를 로컬로 실행하는 경우 `az login`를 실행하여 Azure와 연결해야 합니다.
 
-Azure에 로그인하거나 연결할 때 사용하는 계정이 [네트워크 인터페이스 권한](virtual-network-network-interface.md#permissions)에 나열된 적절한 작업이 할당된 [사용자 지정 역할](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)이나 [네트워크 기여자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) 역할에 할당되어야 합니다.
+Azure에 로그인하거나 연결할 때 사용하는 계정이 [네트워크 인터페이스 권한](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)에 나열된 적절한 작업이 할당된 [사용자 지정 역할](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)이나 [네트워크 기여자](virtual-network-network-interface.md#permissions) 역할에 할당되어야 합니다.
 
 ## <a name="add-ip-addresses"></a>IP 주소 추가
 
@@ -53,10 +53,10 @@ Azure에 로그인하거나 연결할 때 사용하는 계정이 [네트워크 �
 
    |설정|필수 여부|세부 정보|
    |---|---|---|
-   |이름|예|네트워크 인터페이스에 대해 고유해야 합니다.|
-   |유형|예|기존 네트워크 인터페이스에 IP 구성을 추가할 것이며, 각 NIC에는 [기본](#primary) IP 구성이 있어야 하므로 **보조** 옵션만 선택 가능합니다.|
-   |개인 IP 주소 할당 방법|예|[**동적**](#dynamic): Azure는 네트워크 인터페이스가 배포된 서브넷 주소 범위에 대해 사용 가능한 다음 주소를 할당합니다. [**정적**](#static): 네트워크 인터페이스가 배포된 서브넷 주소 범위에 대해 사용되지 않는 주소를 할당합니다.|
-   |공용 IP 주소|아닙니다.|**사용 안 함:** 현재 공용 IP 주소 리소스는 IP 구성과 연결되지 않습니다. **사용:** 기존 IPv4 공용 IP 주소를 선택하거나 새 공용 IP 주소를 만듭니다. 공용 IP 주소를 만드는 방법에 대한 자세한 내용은 [공용 IP 주소](virtual-network-public-ip-address.md#create-a-public-ip-address) 문서를 참조하세요.|
+   |속성|yes|네트워크 인터페이스에 대해 고유해야 합니다.|
+   |Type|yes|기존 네트워크 인터페이스에 IP 구성을 추가할 것이며, 각 NIC에는 [기본](#primary) IP 구성이 있어야 하므로 **보조** 옵션만 선택 가능합니다.|
+   |개인 IP 주소 할당 방법|yes|[**동적**](#dynamic): Azure는 네트워크 인터페이스가 배포된 서브넷 주소 범위에 대해 사용 가능한 다음 주소를 할당합니다. [**정적**](#static): 네트워크 인터페이스가 배포된 서브넷 주소 범위에 대해 사용되지 않는 주소를 할당합니다.|
+   |공용 IP 주소|예|**사용 안 함:** 현재 공용 IP 주소 리소스는 IP 구성과 연결되지 않습니다. **사용:** 기존 IPv4 공용 IP 주소를 선택하거나 새 공용 IP 주소를 만듭니다. 공용 IP 주소를 만드는 방법에 대한 자세한 내용은 [공용 IP 주소](virtual-network-public-ip-address.md#create-a-public-ip-address) 문서를 참조하세요.|
 6. [가상 머신 운영 체제에 여러 IP 주소 할당](virtual-network-multiple-ip-addresses-portal.md#os-config) 문서의 지침을 수행하여 가상 머신 운영 체제에 보조 개인 IP 주소를 수동으로 추가합니다. 가상 머신 운영 체제에 IP 주소를 수동으로 추가하기 전에 고려해야 하는 특수한 사항은 [프라이빗](#private) IP 주소를 참조하세요. 가상 머신 운영 체제에는 공용 IP 주소를 추가하지 마세요.
 
 **명령**
@@ -64,7 +64,7 @@ Azure에 로그인하거나 연결할 때 사용하는 계정이 [네트워크 �
 |도구|명령|
 |---|---|
 |CLI|[az network nic ip-config create](/cli/azure/network/nic/ip-config)|
-|PowerShell|[Add-AzNetworkInterfaceIpConfig](/powershell/module/az.network/add-aznetworkinterfaceipconfig)|
+|PowerShell|[AzNetworkInterfaceIpConfig](/powershell/module/az.network/add-aznetworkinterfaceipconfig)|
 
 ## <a name="change-ip-address-settings"></a>IP 주소 설정 변경
 
@@ -85,7 +85,7 @@ IPv4 주소의 할당 방법을 변경하거나, 고정 IPv4 주소를 변경하
 |도구|명령|
 |---|---|
 |CLI|[az network nic ip-config update](/cli/azure/network/nic/ip-config)|
-|PowerShell|[Set-AzNetworkInterfaceIpConfig](/powershell/module/az.network/set-aznetworkinterfaceipconfig)|
+|PowerShell|[AzNetworkInterfaceIpConfig](/powershell/module/az.network/set-aznetworkinterfaceipconfig)|
 
 ## <a name="remove-ip-addresses"></a>IP 주소 제거
 
@@ -101,7 +101,7 @@ IPv4 주소의 할당 방법을 변경하거나, 고정 IPv4 주소를 변경하
 |도구|명령|
 |---|---|
 |CLI|[az network nic ip-config delete](/cli/azure/network/nic/ip-config)|
-|PowerShell|[Remove-AzNetworkInterfaceIpConfig](/powershell/module/az.network/remove-aznetworkinterfaceipconfig)|
+|PowerShell|[AzNetworkInterfaceIpConfig](/powershell/module/az.network/remove-aznetworkinterfaceipconfig)|
 
 ## <a name="ip-configurations"></a>IP 구성
 
@@ -129,7 +129,7 @@ IPv4 주소의 할당 방법을 변경하거나, 고정 IPv4 주소를 변경하
 
 [IP 구성](#ip-configurations)에 할당할 수 있는 IP 주소 유형은 다음과 같습니다.
 
-### <a name="private"></a>사설
+### <a name="private"></a>프라이빗
 
 사설 [IPv4](#ipv4) 또는 IPv6 주소를 사용 하면 가상 머신이 가상 네트워크 또는 다른 연결 된 네트워크의 다른 리소스와 통신할 수 있습니다. 
 
@@ -183,7 +183,7 @@ IPv4 주소의 할당 방법을 변경하거나, 고정 IPv4 주소를 변경하
 
 ### <a name="ipv4"></a>IPv4
 
-각 네트워크 인터페이스에는 [개인](#private) [IPv4](#ipv4) 주소가 할당 된 하나의 [기본](#primary) IP 구성이 있어야 합니다. 각각 IPv4 개인 IP 주소와 IPv4 [공용](#public) IP 주소(선택 사항)를 포함하는 [보조](#secondary) IP 구성을 하나 이상 추가할 수 있습니다.
+각 네트워크 인터페이스에는 [개인](#private) [IPv4](#ipv4) 주소가 할당 된 하나의 [기본](#primary) IP 구성이 있어야 합니다. 각각 IPv4 개인 IP 주소와 IPv4 [공용](#secondary) IP 주소(선택 사항)를 포함하는 [보조](#public) IP 구성을 하나 이상 추가할 수 있습니다.
 
 ### <a name="ipv6"></a>IPv6
 

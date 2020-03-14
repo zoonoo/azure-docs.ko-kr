@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dff80d849268c770e4227ff8c99b8f4d133c4d78
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: b9e6d2d6cf602bca74c8899586eef0a8108fde3c
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77620723"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79263336"
 ---
 # <a name="conditional-access-conditions"></a>조건부 액세스: 조건
 
@@ -60,7 +60,7 @@ Azure AD 조건부 액세스는 다음과 같은 장치 플랫폼을 지원 합�
 
 기본적으로 조건부 액세스 정책은 최신 인증 프로토콜을 활용 하는 브라우저 기반 응용 프로그램 및 응용 프로그램에 적용 됩니다. 이러한 응용 프로그램 외에도 관리자는 Exchange ActiveSync 클라이언트 및 레거시 프로토콜을 활용 하는 다른 클라이언트를 포함 하도록 선택할 수 있습니다.
 
-- 브라우저.
+- 브라우저
    - 여기에는 SAML, WS-FEDERATION, Openid connect Connect 또는 OAuth 기밀 클라이언트로 등록 된 서비스와 같은 프로토콜을 사용 하는 웹 기반 응용 프로그램이 포함 됩니다.
 - 모바일 앱 및 데스크톱 클라이언트
    - 최신 인증 클라이언트
@@ -72,7 +72,7 @@ Azure AD 조건부 액세스는 다음과 같은 장치 플랫폼을 지원 합�
       - 이 옵션은 최신 인증을 지원 하지 않는 기본/레거시 인증 프로토콜을 사용 하는 클라이언트를 포함 합니다.
          - 인증 된 SMTP-POP 및 IMAP 클라이언트에서 전자 메일 메시지를 보내는 데 사용 됩니다.
          - 자동 검색-Outlook 및 EAS 클라이언트에서 Exchange Online의 사서함을 찾아 연결 하는 데 사용 됩니다.
-         - Exchange Online PowerShell-원격 PowerShell을 사용 하 여 Exchange Online에 연결 하는 데 사용 됩니다. Exchange Online PowerShell에 대 한 기본 인증을 차단 하는 경우 Exchange Online PowerShell 모듈을 사용 하 여 연결 해야 합니다. 지침은 [multi-factor authentication을 사용 하 여 Exchange Online PowerShell에 연결](https://docs.microsoft.com/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell)을 참조 하세요.
+         - Exchange Online PowerShell-원격 PowerShell을 사용 하 여 Exchange Online에 연결 하는 데 사용 됩니다. Exchange Online PowerShell에 대 한 기본 인증을 차단 하는 경우 Exchange Online PowerShell 모듈을 사용 하 여 연결 해야 합니다. 지침은 [multi-factor authentication을 사용 하 여 Exchange Online PowerShell에 연결](/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell)을 참조 하세요.
          - EWS (Exchange 웹 서비스)-Outlook, Mac 용 Outlook 및 타사 앱에서 사용 하는 프로그래밍 인터페이스입니다.
          - IMAP4-IMAP 메일 클라이언트에서 사용 합니다.
          - MAPI over HTTP (MAPI/HTTP)-Outlook 2010 이상에서 사용 됩니다.
@@ -90,7 +90,7 @@ Azure AD 조건부 액세스는 다음과 같은 장치 플랫폼을 지원 합�
 
 | OS | 브라우저 |
 | :-- | :-- |
-| Windows 10 | Microsoft Edge, Internet Explorer, Chrome |
+| 윈도우 10 | Microsoft Edge, Internet Explorer, Chrome |
 | Windows 8 / 8.1 | Internet Explorer, 크롬 |
 | Windows 7 | Internet Explorer, 크롬 |
 | iOS | Microsoft Edge, Intune Managed Browser, Safari |
@@ -115,18 +115,18 @@ Windows 7, iOS, Android 및 macOS Azure AD는 장치가 Azure AD에 등록 될 �
 |    |    |
 | --- | --- |
 | 경로 | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
-| 이름 | 1 |
-| 형식 | REG_SZ (String) |
-| 데이터 | ppnbnpeolgkicgegkbkbjmhlideopiji; https\://clients2.google.com/service/update2/crx |
+| 속성 | 1 |
+| Type | REG_SZ (String) |
+| data | ppnbnpeolgkicgegkbkbjmhlideopiji; https\://clients2.google.com/service/update2/crx |
 
 **Windows 8.1 및 7**에서 Chrome을 지원하려면 다음 레지스트리 키를 만듭니다.
 
 |    |    |
 | --- | --- |
 | 경로 | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
-| 이름 | 1 |
-| 형식 | REG_SZ (String) |
-| 데이터 | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}} |
+| 속성 | 1 |
+| Type | REG_SZ (String) |
+| data | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}} |
 
 이러한 브라우저는 디바이스 인증을 지원하므로 정책에 대해 디바이스 유효성을 검사하고 식별하는 것이 가능합니다. 브라우저가 개인 모드로 실행 중이면 디바이스 검사가 실패합니다.
 
@@ -139,11 +139,11 @@ Windows 7, iOS, Android 및 macOS Azure AD는 장치가 Azure AD에 등록 될 �
 | 클라이언트 앱 | 대상 서비스 | 플랫폼 |
 | --- | --- | --- |
 | Dynamics CRM 앱 | Dynamics CRM | Windows 10, Windows 8.1, iOS 및 Android |
-| 메일/달력/사람 앱, Outlook 2016, Outlook 2013(최신 인증 포함)| Office 365 Exchange Online | Windows 10 |
+| 메일/달력/사람 앱, Outlook 2016, Outlook 2013(최신 인증 포함)| Office 365 Exchange Online | 윈도우 10 |
 | 앱에 대한 MFA 및 위치 정책입니다. 디바이스 기반 정책은 지원되지 않습니다.| 모든 My Apps 앱 서비스 | Android 및 iOS |
 | Microsoft Teams Services - Microsoft Teams 및 모든 클라이언트 앱(Windows 데스크톱, iOS, Android, WP 및 웹 클라이언트)을 지원하는 서비스를 모두 제어합니다. | Microsoft 팀 | Windows 10, Windows 8.1, Windows 7, iOS, Android 및 macOS |
-| Office 2016 앱, Office 2013 (최신 인증 사용), [OneDrive 동기화 클라이언트](https://docs.microsoft.com/onedrive/enable-conditional-access) | Office 365 SharePoint Online | Windows 8.1, Windows 7 |
-| Office 2016 앱, Universal Office 앱, Office 2013 (최신 인증 사용), [OneDrive 동기화 클라이언트](https://docs.microsoft.com/onedrive/enable-conditional-access) | Office 365 SharePoint Online | Windows 10 |
+| Office 2016 앱, Office 2013 (최신 인증 사용), [OneDrive 동기화 클라이언트](/onedrive/enable-conditional-access) | Office 365 SharePoint Online | Windows 8.1, Windows 7 |
+| Office 2016 앱, Universal Office 앱, Office 2013 (최신 인증 사용), [OneDrive 동기화 클라이언트](/onedrive/enable-conditional-access) | Office 365 SharePoint Online | 윈도우 10 |
 | Office 2016(Word, Excel, PowerPoint, OneNote만 해당) | Office 365 SharePoint Online | macOS |
 | Office 2019| Office 365 SharePoint Online | Windows 10, macOS |
 | Office 모바일 앱 | Office 365 SharePoint Online | Android, iOS |

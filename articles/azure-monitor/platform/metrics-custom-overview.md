@@ -8,11 +8,11 @@ ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
 ms.openlocfilehash: 0050112dc7d9d2fa20da612691f1ff0927df93fb
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78385339"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79274373"
 ---
 # <a name="custom-metrics-in-azure-monitor"></a>Azure Monitor의 사용자 지정 메트릭
 
@@ -59,7 +59,7 @@ Azure Monitor에 전송되는 각 데이터 요소는 타임스탬프를 사용�
 ### <a name="namespace"></a>네임스페이스
 네임스페이스는 유사한 메트릭을 함께 분류 또는 그룹화하는 방법입니다. 네임스페이스를 사용하면 각기 다른 인사이트 또는 성능 지표를 수집할 수 있는 메트릭 그룹을 격리할 수 있습니다. 예를 들어 앱을 프로 파일링 하는 메모리 사용 메트릭을 추적 하는 **contosomemorymetrics** 라는 네임 스페이스가 있을 수 있습니다. **Contosoapptransaction** 라는 다른 네임 스페이스는 응용 프로그램의 사용자 트랜잭션에 대 한 모든 메트릭을 추적할 수 있습니다.
 
-### <a name="name"></a>이름
+### <a name="name"></a>속성
 **이름**은 보고되는 메트릭의 이름입니다. 일반적으로 이름은 측정 대상을 식별하기에 충분한 정보를 제공합니다. 예를 들어, 지정된 VM에서 사용된 메모리 바이트 수를 측정하는 메트릭이 있습니다. 메트릭 이름은 **사용 중인 메모리 바이트**일 수 있습니다.
 
 ### <a name="dimension-keys"></a>차원 키
@@ -200,7 +200,7 @@ Azure Monitor에 대한 결과 메트릭 게시는 다음과 같습니다.
 ## <a name="quotas-and-limits"></a>할당량 및 제한
 Azure Monitor는 사용자 지정 메트릭에 대해 다음과 같은 사용량 한도를 적용합니다.
 
-|범주|제한|
+|Category|제한|
 |---|---|
 |활성 시계열/구독/지역|50,000|
 |메트릭당 차원 키|10|

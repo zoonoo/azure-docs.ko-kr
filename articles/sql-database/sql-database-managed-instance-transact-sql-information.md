@@ -9,14 +9,14 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova, danil
-ms.date: 02/10/2020
+ms.date: 03/11/2020
 ms.custom: seoapril2019
-ms.openlocfilehash: d3e631fae4899fffafad9bd140abaae4fb170624
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 8c995a40e621f7155ad0741004d10b1146523489
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78360064"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79256056"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>관리 되는 인스턴스 T-sql의 차이점, 제한 사항 및 알려진 문제
 
@@ -48,7 +48,7 @@ Managed Instance에서 도입 된 몇 가지 PaaS 제한 사항이 있으며 SQL
 - [DROP AVAILABILITY GROUP](/sql/t-sql/statements/drop-availability-group-transact-sql)
 - [ALTER database](/sql/t-sql/statements/alter-database-transact-sql) 문의 [SET HADR](/sql/t-sql/statements/alter-database-transact-sql-set-hadr) 절
 
-### <a name="backup"></a>백업
+### <a name="backup"></a>Backup
 
 관리 되는 인스턴스에는 자동 백업이 있으므로 사용자는 전체 데이터베이스 `COPY_ONLY` 백업을 만들 수 있습니다. 차등, 로그 및 파일 스냅숏 백업은 지원 되지 않습니다.
 
@@ -65,8 +65,7 @@ Managed Instance에서 도입 된 몇 가지 PaaS 제한 사항이 있으며 SQL
 
 - 관리 되는 인스턴스를 사용 하면 최대 32 개의 스트라이프를 사용 하 여 백업에 인스턴스 데이터베이스를 백업할 수 있습니다. 백업 압축을 사용 하는 경우 최대 2TB의 데이터베이스에 충분 합니다.
 - TDE (서비스 관리 투명한 데이터 암호화)를 사용 하 여 암호화 된 데이터베이스에서 `BACKUP DATABASE ... WITH COPY_ONLY`를 실행할 수 없습니다. 서비스 관리 TDE는 내부 TDE 키를 사용 하 여 백업을 암호화 합니다. 키를 내보낼 수 없으므로 백업을 복원할 수 없습니다. 자동 백업 및 지정 시간 복원을 사용 하거나 대신 [고객 관리 (BYOK) TDE](transparent-data-encryption-azure-sql.md#customer-managed-transparent-data-encryption---bring-your-own-key) 를 사용 합니다. 데이터베이스에서 암호화를 사용 하지 않도록 설정할 수도 있습니다.
-- Azure Blob 저장소에 대 한 수동 백업은 [Blockblobstorage 계정](/azure/storage/common/storage-account-overview#types-of-storage-accounts)에만 지원 됩니다.
-- 관리 되는 인스턴스에서 `BACKUP` 명령을 사용 하 여 최대 백업 스트라이프 크기는 최대 blob 크기인 195 GB입니다. 백업 명령에서 스트라이프 수를 늘려 개별 스트라이프 크기를 줄이고 이 제한 내에서 유지합니다.
+- 관리 되는 인스턴스에서 `BACKUP` 명령을 사용 하 여 최대 백업 스트라이프 크기는 최대 blob 크기인 195 GB입니다. 개별 스트라이프 크기를 줄이고 이 제한 내로 유지하려면 백업 명령에서 스트라이프 수를 늘립니다.
 
     > [!TIP]
     > 이 제한을 해결 하기 위해 온-프레미스 환경 또는 가상 머신에서 SQL Server에서 데이터베이스를 백업 하는 경우 다음 작업을 수행할 수 있습니다.
@@ -96,7 +95,7 @@ Azure Blob Storage에 대한 감사에서 `CREATE AUDIT` 구문의 주요 차이
 - `.xel` 파일이 배치 되는 Azure Blob 저장소 컨테이너의 URL을 지정 하는 데 사용할 수 있는 `TO URL` 새 구문이 제공 됩니다.
 - 관리 되는 인스턴스에서 Windows 파일 공유에 액세스할 수 없으므로 구문 `TO FILE` 지원 되지 않습니다.
 
-참조 항목: 
+자세한 내용은 다음을 참조하세요. 
 
 - [CREATE SERVER AUDIT](/sql/t-sql/statements/create-server-audit-transact-sql) 
 - [ALTER SERVER AUDIT](/sql/t-sql/statements/alter-server-audit-transact-sql)
@@ -140,8 +139,8 @@ Azure Key Vault 및 `SHARED ACCESS SIGNATURE` ID만 지원됩니다. Windows 사
     관리 되는 인스턴스는 `CREATE USER [AADUser/AAD group] FROM EXTERNAL PROVIDER`구문을 사용 하 여 Azure AD 데이터베이스 보안 주체를 지원 합니다. 이 기능은 Azure AD에 포함 된 데이터베이스 사용자 라고도 합니다.
 
 - `CREATE LOGIN ... FROM WINDOWS` 구문을 사용 하 여 만든 Windows 로그인은 지원 되지 않습니다. Azure Active Directory 로그인 및 사용자를 사용합니다.
-- 인스턴스를 만든 Azure AD 사용자에 게는 [무제한 관리자 권한이](sql-database-manage-logins.md#unrestricted-administrative-accounts)있습니다.
-- 관리자가 아닌 Azure AD 데이터베이스 수준 사용자는 `CREATE USER ... FROM EXTERNAL PROVIDER` 구문을 사용 하 여 만들 수 있습니다. 사용자 만들기를 참조 하세요. [ 외부 공급자](sql-database-manage-logins.md#non-administrator-users)
+- 인스턴스를 만든 Azure AD 사용자에 게는 [무제한 관리자 권한이](sql-database-manage-logins.md)있습니다.
+- 관리자가 아닌 Azure AD 데이터베이스 수준 사용자는 `CREATE USER ... FROM EXTERNAL PROVIDER` 구문을 사용 하 여 만들 수 있습니다. 사용자 만들기를 참조 하세요. [ 외부 공급자](sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)
 - Azure AD 서버 보안 주체 (로그인)는 하나의 관리 되는 인스턴스 내 에서만 SQL 기능을 지원 합니다. 동일한 Azure AD 테 넌 트 또는 다른 테 넌 트 내에 있든 관계 없이 크로스 인스턴스 상호 작용이 필요한 기능은 Azure AD 사용자에 대해 지원 되지 않습니다. 이러한 기능의 예는 다음과 같습니다.
 
   - SQL 트랜잭션 복제.
@@ -185,7 +184,7 @@ Azure Key Vault 및 `SHARED ACCESS SIGNATURE` ID만 지원됩니다. Windows 사
 - [서비스 마스터 키 백업은](/sql/t-sql/statements/backup-service-master-key-transact-sql) 지원 되지 않습니다 (SQL Database 서비스에서 관리).
 - [서비스 마스터 키 복원은](/sql/t-sql/statements/restore-service-master-key-transact-sql) 지원 되지 않습니다 (SQL Database 서비스에서 관리).
 
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 
 ### <a name="buffer-pool-extension"></a>버퍼 풀 확장
 
@@ -275,13 +274,13 @@ Azure Key Vault 및 `SHARED ACCESS SIGNATURE` ID만 지원됩니다. Windows 사
 
 ### <a name="sql-server-agent"></a>SQL Server 에이전트
 
-- SQL Server 에이전트 활성화 및 비활성화는 현재 관리 되는 인스턴스에서 지원 되지 않습니다. SQL 에이전트는 항상 실행되고 있습니다.
+- SQL Server 에이전트 활성화 및 비활성화는 현재 관리 되는 인스턴스에서 지원 되지 않습니다. SQL 에이전트는 항상 실행됩니다.
 - SQL Server 에이전트 설정은 읽기 전용입니다. `sp_set_agent_properties` 프로시저는 관리 되는 인스턴스에서 지원 되지 않습니다. 
-- 에서
+- 교육
   - T-SQL 작업 단계가 지원됩니다.
   - 다음 복제 작업이 지원됩니다.
     - 트랜잭션 로그 판독기
-    - 스냅숏
+    - 스냅샷
     - 배포자
   - SSIS 작업 단계가 지원 됩니다.
   - 다른 유형의 작업 단계는 현재 지원 되지 않습니다.
@@ -303,7 +302,7 @@ Azure Key Vault 및 `SHARED ACCESS SIGNATURE` ID만 지원됩니다. Windows 사
 - 프록시
 - 유휴 CPU에서 작업 예약
 - 에이전트 사용 또는 사용 안 함
-- ,
+- 경고
 
 SQL Server 에이전트에 대한 자세한 내용은 [SQL Server 에이전트](/sql/ssms/agent/sql-server-agent)를 참조하세요.
 
@@ -425,7 +424,7 @@ HDFS 또는 Azure Blob storage의 파일을 참조 하는 외부 테이블은 �
 - 지원 되지 않는 구문:
   - `RESTORE LOG ONLY`
   - `RESTORE REWINDONLY ONLY`
-- 출처: 
+- 원본: 
   - `FROM URL` (Azure Blob storage) 유일 하 게 지원 되는 옵션입니다.
   - `FROM DISK`/`TAPE`/백업 디바이스는 지원되지 않습니다.
   - 백업 세트는 지원되지 않습니다.
@@ -470,6 +469,7 @@ Restore 문에 대 한 자세한 내용은 [restore 문](/sql/t-sql/statements/r
   - `allow polybase export`
   - `allow updates`
   - `filestream_access_level`
+  - `remote access`
   - `remote data archive`
   - `remote proc trans`
 - `sp_execute_external_scripts`는 지원되지 않습니다. [sp_execute_external_scripts](/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql#examples)를 참조하세요.
@@ -491,7 +491,7 @@ Restore 문에 대 한 자세한 내용은 [restore 문](/sql/t-sql/statements/r
 
 ## <a name="Environment"></a>환경 제약 조건
 
-### <a name="subnet"></a>Subnet
+### <a name="subnet"></a>서브넷
 -  관리 되는 인스턴스를 배포한 서브넷에 다른 리소스 (예: 가상 컴퓨터)를 배치할 수 없습니다. 다른 서브넷을 사용 하 여 이러한 리소스를 배포 합니다.
 - 서브넷에 사용 가능한 [IP 주소](sql-database-managed-instance-connectivity-architecture.md#network-requirements)수가 충분 해야 합니다. 최소는 16 이지만 권장 구성에는 서브넷의 IP 주소를 32 개 이상 포함 하는 것이 좋습니다.
 - [서비스 끝점을 관리 되는 인스턴스의 서브넷과 연결할 수 없습니다](sql-database-managed-instance-connectivity-architecture.md#network-requirements). 가상 네트워크를 만들 때 서비스 끝점 옵션이 사용 하지 않도록 설정 되어 있는지 확인 합니다.

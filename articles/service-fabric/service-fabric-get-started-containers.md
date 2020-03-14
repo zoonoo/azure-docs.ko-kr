@@ -4,11 +4,11 @@ description: Azure Service Fabric에서 첫 번째 Windows 컨테이너 애플�
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.openlocfilehash: 8e1de48874655721f708bfd1dfdda8d975f94c4b
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906256"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79258474"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Windows에서 첫 번째 Service Fabric 컨테이너 애플리케이션 만들기
 
@@ -24,7 +24,7 @@ Service Fabric 클러스터의 Windows 컨테이너에서 기존 애플리케이
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 다음을 실행하는 개발 컴퓨터
   * Visual Studio 2015 또는 Visual Studio 2019.
@@ -37,8 +37,8 @@ Service Fabric 클러스터의 Windows 컨테이너에서 기존 애플리케이
   
 클러스터에 필요한 컨테이너가 포함된 Windows Server의 버전을 확인하려면 개발 컴퓨터의 Windows 명령 프롬프트에서 `ver` 명령을 실행합니다.
 
-* 버전에 *x.x.14323.x*가 포함되어 있으면 [클러스터를 만들](service-fabric-cluster-creation-via-portal.md) 때 운영 체제에 대해 *WindowsServer 2016-Datacenter-with-Containers*를 선택합니다.
-  * 버전에 *x.x.16299.x*가 포함되어 있으면 [클러스터를 만들](service-fabric-cluster-creation-via-portal.md) 때 운영 체제에 대해 *WindowsServerSemiAnnual Datacenter-Core-1709-with-Containers*를 선택합니다.
+* 버전에 *x.x.14323.x*가 포함되어 있으면 *클러스터를 만들* 때 운영 체제에 대해 [WindowsServer 2016-Datacenter-with-Containers](service-fabric-cluster-creation-via-portal.md)를 선택합니다.
+  * 버전에 *x.x.16299.x*가 포함되어 있으면 *클러스터를 만들* 때 운영 체제에 대해 [WindowsServerSemiAnnual Datacenter-Core-1709-with-Containers](service-fabric-cluster-creation-via-portal.md)를 선택합니다.
 
 * Azure Container Registry의 레지스트리 - Azure 구독 내에서 [컨테이너 레지스트리를 만듭니다](../container-registry/container-registry-get-started-portal.md).
 
@@ -238,7 +238,7 @@ Service Fabric SDK 및 도구에서는 Service Fabric 클러스터에 컨테이�
 ```
 
 ## <a name="configure-container-port-to-host-port-mapping-and-container-to-container-discovery"></a>컨테이너 포트-호스트 포트 매핑 및 컨테이너-컨테이너 검색 구성
-컨테이너와 통신하는 데 사용되는 호스트 포트를 구성합니다. 포트를 바인딩하면 서비스가 컨테이너 내에서 수신 대기 중인 포트를 호스트의 포트에 매핑합니다. ApplicationManifest.xml 파일의 `ContainerHostPolicies` 요소에 `PortBinding` 요소를 추가합니다. 이 문서에서 `ContainerPort`는 80(Dockerfile에서 지정된 대로 컨테이너에서 80 포트를 노출함)이고, `EndpointRef`는 "Guest1TypeEndpoint"(이전에 서비스 매니페스트에서 정의된 엔드포인트임)입니다. 8081 포트에서 서비스로 들어오는 요청은 컨테이너의 80 포트에 매핑됩니다.
+컨테이너와 통신하는 데 사용되는 호스트 포트를 구성합니다. 포트를 바인딩하면 서비스가 컨테이너 내에서 수신 대기 중인 포트를 호스트의 포트에 매핑합니다. ApplicationManifest.xml 파일의 `PortBinding` 요소에 `ContainerHostPolicies` 요소를 추가합니다. 이 문서에서 `ContainerPort`는 80(Dockerfile에서 지정된 대로 컨테이너에서 80 포트를 노출함)이고, `EndpointRef`는 "Guest1TypeEndpoint"(이전에 서비스 매니페스트에서 정의된 엔드포인트임)입니다. 8081 포트에서 서비스로 들어오는 요청은 컨테이너의 80 포트에 매핑됩니다.
 
 ```xml
 <ServiceManifestImport>
@@ -283,7 +283,7 @@ Windows는 컨테이너, 즉 프로세스 및 Hyper-V에 대한 두 가지 격�
 ```
 ## <a name="configure-docker-healthcheck"></a>Docker HEALTHCHECK 구성 
 
-v6.1을 시작하면 Service Fabric에서 자동으로 [Docker HEALTHCHECK](https://docs.docker.com/engine/reference/builder/#healthcheck) 이벤트를 시스템 상태 보고서에 통합합니다. 즉 컨테이너에 **HEALTHCHECK**를 사용하도록 설정된 경우, Docker에서 보고한 대로 컨테이너의 상태가 변경될 때마다 Service Fabric에서 상태를 보고합니다. *health_status*가 *healthy*이면 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)에서 **OK** 상태 보고서가 표시되고, *health_status*가 *unhealthy*이면 **경고**가 표시됩니다. 
+v6.1을 시작하면 Service Fabric에서 자동으로 [Docker HEALTHCHECK](https://docs.docker.com/engine/reference/builder/#healthcheck) 이벤트를 시스템 상태 보고서에 통합합니다. 즉 컨테이너에 **HEALTHCHECK**를 사용하도록 설정된 경우, Docker에서 보고한 대로 컨테이너의 상태가 변경될 때마다 Service Fabric에서 상태를 보고합니다. **health_status**가 [healthy](service-fabric-visualizing-your-cluster.md)이면 *Service Fabric Explorer*에서 *OK* 상태 보고서가 표시되고, **health_status**가 *unhealthy*이면 *경고*가 표시됩니다. 
 
 V 6.4의 최신 새로 고침 릴리스부터 docker HEALTHCHECK 평가를 오류로 보고 하도록 지정할 수 있습니다. 이 옵션을 사용 하도록 설정 하면 *health_status* *정상* **상태 이면 정상 상태** 보고서가 표시 되 고 *health_status* *비정상*상태 이면 **오류가** 표시 됩니다.
 
@@ -343,7 +343,7 @@ docker rmi myregistry.azurecr.io/samples/helloworldapp
 
 ## <a name="windows-server-container-os-and-host-os-compatibility"></a>Windows Server 컨테이너 OS 및 호스트 OS 호환성
 
-Windows Server 컨테이너는 일부 버전의 호스트 OS에서 호환되지 않습니다. 예:
+Windows Server 컨테이너는 일부 버전의 호스트 OS에서 호환되지 않습니다. 다음은 그 예입니다.
  
 - Windows Server 버전 1709를 사용하여 빌드된 Windows Server 컨테이너는 Windows Server 버전 2016을 실행하는 호스트에서 작동하지 않습니다. 
 - Windows server 2016를 사용 하 여 빌드된 windows Server 컨테이너는 Windows Server 버전 1709을 실행 하는 호스트 에서만 Hyper-v 격리 모드로 작동 합니다. 
@@ -351,7 +351,7 @@ Windows Server 컨테이너는 일부 버전의 호스트 OS에서 호환되지 
  
 자세한 내용은 [Windows 컨테이너 버전 호환성](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility)을 참조하세요.
 
-Service Fabric 클러스터에 컨테이너를 배포할 때 호스트 OS와 컨테이너 OS의 호환성을 고려해야 합니다. 예:
+Service Fabric 클러스터에 컨테이너를 배포할 때 호스트 OS와 컨테이너 OS의 호환성을 고려해야 합니다. 다음은 그 예입니다.
 
 - OS가 클러스터 노드의 OS와 호환되는 컨테이너를 배포해야 합니다.
 - 컨테이너 앱에 대해 지정된 격리 모드가 배포 중인 노드의 컨테이너 OS에 대한 지원과 일치하는지 확인합니다.

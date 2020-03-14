@@ -4,11 +4,11 @@ description: 이 문서에서는 Azure virtual machines에서 실행 되는 SAP 
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.openlocfilehash: a9462f8608fc5ae35255ac321a0742b3f1834fde
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78382469"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79252403"
 ---
 # <a name="manage-and-monitor-backed-up-sap-hana-databases"></a>백업한 SAP HANA 데이터베이스 관리 및 모니터링
 

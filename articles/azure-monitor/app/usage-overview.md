@@ -4,11 +4,11 @@ description: 어떤 사용자가 앱으로 어떤 작업을 수행하는지 이�
 ms.topic: conceptual
 ms.date: 09/19/2019
 ms.openlocfilehash: 9f34267a1820f8b2365a41569bd3c8eaed9f2f9c
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77671021"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79275647"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Application Insights를 사용하여 사용량 분석
 

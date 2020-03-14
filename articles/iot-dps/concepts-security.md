@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: 3191e9886604af9b2a26b71a89cee699197585c4
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74973461"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79271565"
 ---
 # <a name="iot-hub-device-provisioning-service-security-concepts"></a>IoT Hub Device Provisioning Service 보안 개념 
 
@@ -28,7 +28,7 @@ IoT Hub Device Provisioning Service는 지정된 IoT 허브에 대한 제로 터
 Device Provisioning Service는 다음과 같은 형식의 증명을 지원합니다.
 * 표준 X.509 인증서 인증 흐름을 기반으로 하는 **X.509 인증서**
 * nonce 문제를 기반으로 하는 **TPM(신뢰할 수 있는 플랫폼 모듈)** 은 서명된 SAS(공유 액세스 서명) 토큰을 표시하기 위해 키에 TPM 표준을 사용합니다. 이 증명 형식을 사용하는 경우 디바이스에 실제 TPM이 필요하지는 않지만, [TPM 사양](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/)에 따라 인증 키를 사용하여 증명을 해야 합니다.
-* 해시된 서명과 포함된 만료 날짜가 들어 있는 SAS(공유 액세스 서명) [보안 토큰](../iot-hub/iot-hub-devguide-security.md#security-tokens)을 기반으로 하는 **대칭 키**. 자세한 내용은 [대칭 키 증명](concepts-symmetric-key-attestation.md)을 참조하세요.
+* 해시된 서명과 포함된 만료 날짜가 들어 있는 SAS(공유 액세스 서명) **보안 토큰**을 기반으로 하는 [대칭 키](../iot-hub/iot-hub-devguide-security.md#security-tokens). 자세한 내용은 [대칭 키 증명](concepts-symmetric-key-attestation.md)을 참조하세요.
 
 
 ## <a name="hardware-security-module"></a>하드웨어 보안 모듈

@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: kumud
 ms.openlocfilehash: de80094c3fd2df7d2f8b32d1e968e9bebea847a1
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77064345"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79245045"
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>가상 네트워크 서브넷 추가, 변경 또는 삭제
 
@@ -67,7 +67,7 @@ Azure에 로그인하거나 연결할 때 사용하는 계정이 [권한](../rol
 1. 포털 맨 위에 있는 검색 상자에 *가상 네트워크*를 입력합니다. 검색 결과에 **가상 네트워크**가 표시되면 이를 선택합니다.
 2. 가상 네트워크의 목록에서 설정을 변경할 서브넷이 포함된 가상 네트워크를 선택합니다.
 3. **설정**에서 **서브넷**을 선택합니다.
-4. 서브넷의 목록에서 설정을 변경할 서브넷을 선택합니다. 변경할 수 있는 설정은 다음과 같습니다.
+4. 서브넷의 목록에서 설정을 변경할 서브넷을 선택합니다. 다음 설정을 변경할 수 있습니다.
 
     - **주소 범위:** 서브넷 내에 배포된 리소스가 없는 경우 주소 범위를 변경할 수 있습니다. 서브넷에 리소스가 있으면 먼저 다른 서브넷으로 리소스를 이동하거나 서브넷에서 삭제해야 합니다. 리소스 이동 또는 삭제를 수행하는 단계는 리소스에 따라 다릅니다. 서브넷에 있는 리소스를 이동 또는 삭제하는 방법에 대해 알아보려면 이동 또는 삭제하려는 각 리소스 종류의 설명서를 참조하세요. **서브넷 추가**의 5단계에서 [주소 범위](#add-a-subnet)에 대한 제약 조건을 참조하세요.
     - **사용자**: 기본 제공 역할 또는 사용자 지정 역할을 사용하여 서브넷에 대한 액세스를 제어할 수 있습니다. 역할과 사용자를 할당하여 서브넷에 액세스하는 방법에 대한 자세한 내용은 [역할 할당을 사용하여 Azure 리소스에 대한 액세스 관리](../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-role-assignment)를 참조하세요.
@@ -96,11 +96,11 @@ Azure에 로그인하거나 연결할 때 사용하는 계정이 [권한](../rol
 - Azure CLI: [az network vnet subnet delete](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-delete)
 - PowerShell: [AzVirtualNetworkSubnetConfig](/powershell/module/az.network/remove-azvirtualnetworksubnetconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
-## <a name="permissions"></a>권한
+## <a name="permissions"></a>사용 권한
 
 서브넷에 대한 작업을 수행하려면 다음 표에 나열된 적절한 작업이 할당된 [사용자 지정](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) 역할 또는 [네트워크 참가자](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 역할에 계정이 할당되어야 합니다.
 
-|작업                                                                   |   이름                                       |
+|작업                                                                   |   속성                                       |
 |-----------------------------------------------------------------------  |   -----------------------------------------  |
 |Microsoft.Network/virtualNetworks/subnets/read                           |   가상 네트워크 서브넷 읽기              |
 |Microsoft.Network/virtualNetworks/subnets/write                          |   가상 네트워크 서브넷 만들기 또는 업데이트  |

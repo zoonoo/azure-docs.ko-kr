@@ -12,11 +12,11 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ms.openlocfilehash: 5e7a4eff57841fdcf3bab87eda4e9771d9742bc5
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78190387"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79256680"
 ---
 # <a name="tutorial-load-the-new-york-taxicab-dataset"></a>자습서: 뉴욕 택시 데이터 집합 로드
 
@@ -34,7 +34,7 @@ ms.locfileid: "78190387"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
+## <a name="before-you-begin"></a>시작하기 전에
 
 이 자습서를 시작하기 전에 최신 버전의 SSMS([SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms))를 다운로드하여 설치합니다.
 
@@ -57,7 +57,7 @@ SQL 풀은 정의 된 [compute 리소스] 메모리 limits.md) 집합으로 만�
 
 3. 다음 정보로 양식을 작성합니다. 
 
-   | 설정            | 제안된 값       | 설명                                                  |
+   | 설정            | 제안 값       | Description                                                  |
    | ------------------ | --------------------- | ------------------------------------------------------------ |
    | *이름**            | mySampleDataWarehouse | 유효한 데이터베이스 이름은 [데이터베이스 식별자](/sql/relational-databases/databases/database-identifiers)를 참조하세요. |
    | **구독**   | 사용자의 구독     | 구독에 대한 자세한 내용은 [구독](https://account.windowsazure.com/Subscriptions)을 참조하세요. |
@@ -68,7 +68,7 @@ SQL 풀은 정의 된 [compute 리소스] 메모리 limits.md) 집합으로 만�
 
 4. **서버** 를 선택 하 여 새 데이터베이스에 대 한 새 서버를 만들고 구성 합니다. 다음 정보로 **새 서버 폼**을 작성합니다. 
 
-    | 설정                | 제안된 값          | 설명                                                  |
+    | 설정                | 제안 값          | Description                                                  |
     | ---------------------- | ------------------------ | ------------------------------------------------------------ |
     | **서버 이름**        | 전역적으로 고유한 이름 | 유효한 서버 이름은 [명명 규칙 및 제한 사항](/azure/architecture/best-practices/resource-naming)을 참조하세요. |
     | **서버 관리자 로그인** | 유효한 이름           | 유효한 로그인 이름은 [데이터베이스 식별자](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)를 참조하세요. |
@@ -81,12 +81,12 @@ SQL 풀은 정의 된 [compute 리소스] 메모리 limits.md) 집합으로 만�
 
 6. **성능 수준** 을 선택 하 여 데이터 웨어하우스의 Gen1 또는 Gen2를 지정 하 고 데이터 웨어하우스 단위 수를 지정 합니다. 
 
-7. 이 자습서에서는 SQL 풀 **Gen2**를 선택 합니다. 슬라이더는 기본적으로 **DW1000c** 로 설정 됩니다.  오른쪽 왼쪽으로 이동하면서 작동 방식을 확인하세요. 
+7. 이 자습서에서는 SQL 풀 **Gen2**를 선택 합니다. 슬라이더는 기본적으로 **DW1000c** 로 설정 됩니다.  위아래로 이동하면서 작동 방식을 확인하세요. 
 
     ![성능 구성](media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 
 8. **적용**을 선택합니다.
-9. 프로 비전 블레이드에서 빈 데이터베이스의 **데이터 정렬을** 선택 합니다. 이 자습서에서는 기본값을 사용합니다. 데이터 정렬에 대한 자세한 내용은 [데이터 정렬](/sql/t-sql/statements/collations)을 참조하세요.
+9. 프로 비전 블레이드에서 빈 데이터베이스의 **데이터 정렬을** 선택 합니다. 이 자습서에서는 기본 포트를 사용합니다. 데이터 정렬에 대한 자세한 내용은 [데이터 정렬](/sql/t-sql/statements/collations)을 참조하세요.
 
 11. 양식을 완료 했으므로 **만들기** 를 선택 하 여 데이터베이스를 프로 비전 합니다. 프로비전하는 데 몇 분이 걸립니다. 
 
@@ -103,7 +103,7 @@ SQL 풀은 정의 된 [compute 리소스] 메모리 limits.md) 집합으로 만�
 
 1. 배포가 완료 되 면 왼쪽 메뉴에서 **sql 데이터베이스** 를 선택한 다음 **sql 데이터베이스** 페이지에서 **mySampleDatabase** 를 선택 합니다. 데이터베이스에 대한 개요 페이지가 열려 정규화된 서버 이름(예: **mynewserver-20180430.database.windows.net**)을 표시하고 추가 구성을 위한 옵션을 제공합니다. 
 
-2. 뒷부분의 빠른 시작에서 서버 및 해당 데이터베이스에 연결하는데 사용하기 위해 이 정규화된 서버 이름을 복사합니다. 그런 다음 서버 이름을 선택 하 여 서버 설정을 엽니다.
+2. 후속 빠른 시작에서 서버 및 해당 데이터베이스에 연결하는 데 사용하기 위해 이 정규화된 서버 이름을 복사합니다. 그런 다음 서버 이름을 선택 하 여 서버 설정을 엽니다.
 
     ![서버 이름 찾기](media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png) 
 
@@ -144,13 +144,13 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
 
 2. **서버에 연결** 대화 상자에 다음 정보를 입력합니다.
 
-    | 설정        | 제안된 값                            | 설명                                                  |
+    | 설정        | 제안 값                            | Description                                                  |
     | -------------- | ------------------------------------------ | ------------------------------------------------------------ |
     | 서버 유형    | 데이터베이스 엔진                            | 이 값은 필수입니다.                                       |
     | 서버 이름    | 정규화된 서버 이름            | 이름은 **mynewserver-20180430.database.windows.net**과 비슷해야 합니다. |
     | 인증 | SQL Server 인증                  | SQL 인증은 이 자습서에서 구성한 유일한 인증 유형입니다. |
     | 로그인          | 서버 관리자 계정                   | 서버를 만들 때 지정한 계정입니다. |
-    | Password       | 서버 관리자 계정의 암호 | 서버를 만들 때 지정한 암호입니다. |
+    | 암호       | 서버 관리자 계정의 암호 | 서버를 만들 때 지정한 암호입니다. |
 
     ![서버에 연결](media/load-data-from-azure-blob-storage-using-polybase/connect-to-server.png)
 
@@ -185,7 +185,7 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
 
     ![예제 데이터 웨어하우스에 대한 새 쿼리](media/load-data-from-azure-blob-storage-using-polybase/create-loading-user.png)
 
-5. 다음 T-SQL 명령을 입력하여 LoaderRC20 로그인에 대해 LoaderRC20이라는 데이터베이스 사용자를 만듭니다. 두 번째 줄은 새 데이터 웨어하우스에 대한 제어 권한을 새 사용자에게 부여합니다.  이러한 권한 부여는 해당 사용자를 데이터베이스의 소유자로 만드는 것과 비슷합니다. 세 번째 줄은 staticrc20 [리소스 클래스](resource-classes-for-workload-management.md)의 구성원으로 새 사용자를 추가합니다.
+5. 다음 T-SQL 명령을 입력하여 LoaderRC20 로그인에 대해 LoaderRC20이라는 데이터베이스 사용자를 만듭니다. 두 번째 줄은 새 데이터 웨어하우스에 대한 제어 권한을 새 사용자에게 부여합니다.  이러한 권한 부여은 해당 사용자를 데이터베이스의 소유자로 만드는 것과 비슷합니다. 세 번째 줄은 staticrc20 [리소스 클래스](resource-classes-for-workload-management.md)의 구성원으로 새 사용자를 추가합니다.
 
     ```sql
     CREATE USER LoaderRC20 FOR LOGIN LoaderRC20;
@@ -207,7 +207,7 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
 
 3. **연결**을 선택합니다.
 
-4. 연결이 준비되면 개체 탐색기에서 2개의 서버 연결이 표시됩니다. 한 연결은 ServerAdmin을 통한 연결이고 또 다른 연결은 LoaderRC20을 통한 연결입니다.
+4. 연결이 준비되면 개체 탐색기에서 2개의 서버 연결이 표시됩니다. 한 연결은 ServerAdmin을 통한 연결이고 또 다른 연결은 MedRCLogin을 통한 연결입니다.
 
     ![연결에 성공함](media/load-data-from-azure-blob-storage-using-polybase/connected-as-new-login.png)
 
@@ -229,7 +229,7 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
     CREATE MASTER KEY;
     ```
 
-4. 다음 [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql) 문을 실행하여 Azure Blob의 위치를 정의합니다. WideWorld Importers 데이터의 위치입니다.  쿼리 창에 추가 된 명령을 실행 하려면 실행 하려는 명령을 강조 표시 하 **고 실행을 선택 합니다**.
+4. 다음 [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql) 문을 실행하여 Azure Blob의 위치를 정의합니다. 외부 택시 데이터의 위치입니다.  쿼리 창에 추가 된 명령을 실행 하려면 실행 하려는 명령을 강조 표시 하 **고 실행을 선택 합니다**.
 
     ```sql
     CREATE EXTERNAL DATA SOURCE NYTPublic
@@ -445,7 +445,7 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
 이 섹션에서는 방금 정의한 외부 테이블을 사용 하 여 Azure Storage Blob에서 샘플 데이터를 로드 합니다.  
 
 > [!NOTE]
-> 이 자습서에서는 최종 테이블에 직접 데이터를 로드합니다. 프로덕션 환경에서는 일반적으로 CREATE TABLE AS SELECT를 사용하여 스테이징 테이블에 로드합니다. 데이터가 스테이징 테이블에 있는 동안에는 필요한 모든 변환을 수행할 수 있습니다. 스테이징 테이블의 데이터를 프로덕션 테이블에 추가하려면 INSERT...SELECT 문을 사용합니다. 자세한 내용은 [프로덕션 테이블에 데이터 삽입](guidance-for-loading-data.md#inserting-data-into-a-production-table)을 참조하세요.
+> 이 자습서에서는 최종 테이블에 직접 데이터를 로드합니다. 프로덕션 환경에서는 일반적으로 CREATE TABLE AS SELECT를 사용하여 준비 테이블에 로드합니다. 데이터가 준비 테이블에 있는 동안에는 필요한 모든 변환을 수행할 수 있습니다. 준비 테이블의 데이터를 프로덕션 테이블에 추가하려면 INSERT...SELECT 문을 사용합니다. 자세한 내용은 [프로덕션 테이블에 데이터 삽입](guidance-for-loading-data.md#inserting-data-into-a-production-table)을 참조하세요.
 
 이 스크립트는 [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) T-SQL 문을 사용하여 Azure Storage Blob에서 데이터 웨어하우스의 새로운 테이블로 데이터를 로드합니다. CTAS는 select 문의 결과에 따라 새 테이블을 만듭니다. 새 테이블은 select 문의 결과에 부합하는 동일한 열과 데이터 형식을 포함합니다. Select 문이 외부 테이블에서 선택 하는 경우 데이터 웨어하우스의 관계형 테이블로 데이터를 가져옵니다. 
 
@@ -561,7 +561,7 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
 ## <a name="authenticate-using-managed-identities-to-load-optional"></a>관리 되는 id를 사용 하 여 인증 (선택 사항)
 PolyBase를 사용 하 여 로드 하 고 관리 되는 id를 통해 인증 하는 것은 가장 안전한 메커니즘 이며 Azure Storage로 가상 네트워크 서비스 끝점을 활용할 수 있습니다. 
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>사전 요구 사항
 1.  [이 가이드](https://docs.microsoft.com/powershell/azure/install-az-ps)를 사용하여 Azure PowerShell을 설치합니다.
 2.  범용 v1 또는 Blob Storage 계정이 있는 경우 먼저 이 [가이드](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade)를 사용하여 범용 v2로 업그레이드해야 합니다.
 3.  Azure Storage 계정 **방화벽 및 가상 네트워크** 설정 메뉴에서 **신뢰할 수 있는 Microsoft 서비스가 이 스토리지 계정에 액세스하도록 허용합니다.** 를 설정해야 합니다. 자세한 내용은 이 [가이드](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)를 참조하세요.

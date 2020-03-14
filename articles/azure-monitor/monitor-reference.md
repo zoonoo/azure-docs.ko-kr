@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 01/17/2020
 ms.openlocfilehash: 3cd330e9c4ceba2feeb7a74cafe9f094fd03d690
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77669117"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79249166"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Azure Monitor에서 모니터링 되는 항목
 이 문서에서는 Azure Monitor에 의해 모니터링 되는 다양 한 응용 프로그램 및 서비스에 대해 설명 합니다. 

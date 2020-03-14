@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 02/2/2020
 ms.custom: seodec18
 ms.openlocfilehash: e58e36b3caa5a5ecd137cb9cb61dad7ddb95ff3a
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78364572"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79254444"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Azure Cosmos DB에 Azure Stream Analytics 출력  
 JSON 출력에 대 한 [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) 를 대상으로 할 수 AZURE STREAM ANALYTICS 비구조적 json 데이터에 대해 데이터 보관 및 짧은 대기 시간 쿼리를 사용할 수 있습니다. 이 문서에서는 이 구성을 구현하기 위한 몇 가지 모범 사례를 설명합니다.

@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 06/18/2019
 ms.author: rajanaki
 ms.openlocfilehash: a411fc9a95bef595a8fc49cad77189bb88fb7661
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78362855"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79257629"
 ---
 # <a name="remove-servers-and-disable-protection"></a>서버 제거 및 보호 사용 안 함
 
@@ -227,7 +227,7 @@ VMM에 의해 관리되지 않는 Hyper-V 호스트가 Hyper-V 사이트로 수�
         $vm = get-scvirtualmachine -Name "SQLVM1"
         Remove-SCVirtualMachine -VM $vm -Force
 5. 두 번째 VMM 서버에서 Hyper-V 호스트 서버에서 가상 머신을 새로 고쳐 보조 VM이 VMM 콘솔에서 다시 감지되도록 합니다.
-6. 위의 단계는 VMM 서버에서 복제 설정을 정리합니다. 가상 머신에 대한 복제를 중지하려면 주 및 보조 VM에서 다음 스크립트를 실행합니다. SQLVM1을 가상 컴퓨터의 이름으로 바꿉니다.
+6. 위의 단계는 VMM 서버에서 복제 설정을 정리합니다. 가상 머신에 대한 복제를 중지하려면 주 및 보조 VM에서 다음 스크립트를 실행합니다. SQLVM1을 가상 머신의 이름으로 바꿉니다.
 
         Remove-VMReplication –VMName “SQLVM1”
 

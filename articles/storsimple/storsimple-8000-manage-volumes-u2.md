@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 12/08/2017
 ms.author: alkohli
 ms.openlocfilehash: f32f8925bca33d90afa48071d0c0944ba63861cd
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78381876"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79254769"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-volumes-update-3-or-later"></a>StorSimple 디바이스 관리자 서비스를 사용하여 볼륨 관리(업데이트 3 이후)
 
@@ -57,8 +57,8 @@ StorSimple 볼륨은 다음과 같을 수 있습니다.
 | 8100 |64TB |8 TB |
 | 8600 |64TB |20TB |
 | **가상 디바이스** | | |
-| 8010 |30TB |해당 사항 없음 |
-| 8020 |64TB |해당 사항 없음 |
+| 8010 |30TB |해당 없음 |
+| 8020 |64TB |해당 없음 |
 
 ## <a name="the-volumes-blade"></a>볼륨 블레이드
 

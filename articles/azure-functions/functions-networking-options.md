@@ -5,12 +5,12 @@ author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: f06c50c35e25f2f64948c5f18672e00382d4ef42
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: d8c3357325eadefec7bb97faba5d600e9c6793a9
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78893239"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79276713"
 ---
 # <a name="azure-functions-networking-options"></a>Azure Functions 네트워킹 옵션
 
@@ -54,6 +54,8 @@ IP 제한을 사용 하 여 앱에 대 한 액세스가 허용 되거나 거부 
     * 자세한 내용은 [가상 네트워크 서비스 끝점](../virtual-network/virtual-network-service-endpoints-overview.md)을 참조 하세요.
     * 서비스 끝점을 사용 하는 경우 가상 네트워크 통합이 구성 된 경우에도 함수에서 인터넷에 대 한 전체 아웃 바운드 액세스를 계속 유지 합니다.
 * 개인 사이트 액세스는 ILB (내부 부하 분산 장치)를 사용 하 여 구성 된 App Service Environment 내 에서도 사용할 수 있습니다. 자세한 내용은 [App Service Environment를 사용 하 여 내부 부하 분산 장치 만들기 및 사용](../app-service/environment/create-ilb-ase.md)을 참조 하세요.
+
+개인 사이트 액세스를 설정 하는 방법을 알아보려면 [Azure Functions 개인 사이트 액세스](functions-create-private-site-access.md)설정을 참조 하세요.
 
 ## <a name="virtual-network-integration"></a>가상 네트워크 통합
 

@@ -4,11 +4,11 @@ description: Azure Functions 앱 설정 또는 환경 변수에 대한 참조 �
 ms.topic: conceptual
 ms.date: 09/22/2018
 ms.openlocfilehash: 3853ccbfd492bfaf4a82d62e6d31ab938285ee2e
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76963702"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79277831"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Azure Functions에 대한 앱 설정 참조
 
@@ -36,7 +36,7 @@ Application Insights를 사용하는 경우 Application Insights 계측 키입�
 
 |키|샘플 값|
 |---|------------|
-|AzureWebJobsDashboard|DefaultEndpointsProtocol = https; AccountName =<name>; AccountKey =<key>|
+|AzureWebJobsDashboard|DefaultEndpointsProtocol=https;AccountName=<name>;AccountKey=<key>|
 
 > [!NOTE]
 > 성능 및 환경을 향상 시키기 위해 런타임 버전 2.x 이상 버전에서는 `AzureWebJobsDashboard`대신 모니터링에 APPINSIGHTS_INSTRUMENTATIONKEY 및 App Insights를 사용 합니다.
@@ -204,7 +204,7 @@ Windows에서 함수 앱을 실행할 때 사용할 node.js의 버전을 설정 
 |AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|true|인코딩된 슬래시를 사용하는 경로 매개 변수는 해당 항목을 디코딩합니다. `example.com/api%2ftest`는 `example.com/api/test`가 됩니다.|
 |AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|false|기본 동작입니다. 모든 경로 매개 변수는 변경 안됨으로 전달됩니다.|
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 다음은 URL myfunction.com에서 함수 앱의 예제 proxies.json입니다.
 

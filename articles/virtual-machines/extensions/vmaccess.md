@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/10/2018
 ms.author: akjosh
 ms.openlocfilehash: bd9dc05a84a4ee54fce40e6c88e87ac90bfee8a5
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073600"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79250362"
 ---
 # <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli"></a>Azure CLI에서 VMAccess 확장을 사용하여 관리 사용자, SSH를 관리하고 Linux VM의 디스크를 검사 또는 복구
 ## <a name="overview"></a>개요
@@ -31,7 +31,7 @@ Linux VM의 디스크에 오류가 표시되어 있습니다. 사용자가 Linux
 > [!NOTE]
 > AAD 로그인 확장을 설치한 후에 VMAccess 확장을 사용하여 VM의 암호를 재설정하는 경우 AAD 로그인 확장을 다시 실행하여 머신에 대해 AAD 로그인을 다시 사용하도록 설정해야 합니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>사전 요구 사항
 ### <a name="operating-system"></a>운영 체제
 
 VM 액세스 확장은 다음 Linux 배포판에 대해 실행할 수 있습니다.

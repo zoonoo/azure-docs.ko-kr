@@ -12,11 +12,11 @@ ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 12/04/2018
 ms.openlocfilehash: fc328c34c1543a75fdc885087d44b28e24c0850a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818238"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79268679"
 ---
 # <a name="business-critical-tier---azure-sql-database"></a>중요 비즈니스용 계층 - Azure SQL Database
 
@@ -53,7 +53,7 @@ SQL 데이터베이스 엔진 프로세스와 기본 mdf/ldf 파일이 SSD 스�
 -   데이터를 수정 하는 장기 실행 트랜잭션입니다. 더 오랜 시간 동안 열리는 트랜잭션은 로그 크기와 [가상 로그 파일 (VLF)](https://docs.microsoft.com/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide#physical_arch)수를 늘릴 수 있는 로그 파일의 잘림을 방지 합니다. VLF 수가 높으면 장애 조치 (failover) 후 데이터베이스 복구 속도가 느려질 수 있습니다.
 -   무료 보조 읽기 전용 복제본으로 리디렉션될 수 있는 보고 및 분석 쿼리가 포함 된 작업입니다.
 - 복원 력이 향상 되 고 오류에서 복구 속도가 빨라집니다. 시스템 오류가 발생 하는 경우 주 인스턴스의 데이터베이스를 사용할 수 없게 되 고 보조 복제본 중 하나는 즉시 쿼리를 처리할 준비가 된 새로운 읽기/쓰기 주 데이터베이스가 됩니다. 데이터베이스 엔진은 로그 파일에서 트랜잭션을 분석 하 고 다시 실행 하 고 메모리 버퍼의 모든 데이터를 로드할 필요가 없습니다.
-- 고급 데이터 손상 방지-중요 비즈니스용 계층은 비즈니스 연속성을 위해 백그라운드에서 데이터베이스 복제본을 활용 하므로 서비스는 SQL Server 데이터베이스에 사용 되는 것과 동일한 기술인 자동 페이지 복구도 활용 합니다. [미러링 및 가용성 그룹](https://docs.microsoft.com/sql/sql-server/failover-clusters/automatic-page-repair-availability-groups-database-mirroring). 복제본이 데이터 무결성 문제로 인해 페이지를 읽을 수 없는 경우 다른 복제본에서 페이지의 새 복사본을 검색 하 여 데이터 손실 또는 고객의 가동 중지 시간 없이 읽을 수 없는 페이지를 대체 합니다. 이 기능은 데이터베이스에 지역 보조 복제본이 있는 경우 일반적인 용도 계층에서 적용할 수 있습니다.
+- 고급 데이터 손상 방지-중요 비즈니스용 계층은 비즈니스 연속성을 위해 백그라운드에서 사용 되는 데이터베이스 복제본을 활용 하므로 서비스는 SQL Server 데이터베이스 [미러링 및 가용성 그룹](https://docs.microsoft.com/sql/sql-server/failover-clusters/automatic-page-repair-availability-groups-database-mirroring)에 사용 되는 것과 동일한 기술인 자동 페이지 복구도 활용 합니다. 복제본이 데이터 무결성 문제로 인해 페이지를 읽을 수 없는 경우 다른 복제본에서 페이지의 새 복사본을 검색 하 여 데이터 손실 또는 고객의 가동 중지 시간 없이 읽을 수 없는 페이지를 대체 합니다. 이 기능은 데이터베이스에 지역 보조 복제본이 있는 경우 일반적인 용도 계층에서 적용할 수 있습니다.
 - Multi-factor configuration의 고가용성-중요 비즈니스용 계층은 일반적인 용도의 계층의 99.99%에 비해 99.995%의 가용성을 보장 합니다.
 - 지역 복제를 사용 하 여 구성 된 빠른 지역 복구-중요 비즈니스용 계층에는 배포 된 시간 100%에 대 한 보장 된 RPO (복구 지점 목표)가 5 초이 고 복구 시간 목표 (RTO)가 30 초입니다.
 

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 02/20/2020
 ms.author: wieastbu
 ms.custom: fasttrack-new
-ms.openlocfilehash: fde48d63bd343fbed1f82e60819131ffb043a795
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.openlocfilehash: ae776fc3fb1f9eb4b7fa9747f2769dcccb25e042
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78967624"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136349"
 ---
 # <a name="protect-spa-backend-with-oauth-20-azure-active-directory-b2c-and-azure-api-management"></a>OAuth 2.0, Azure Active Directory B2C 및 Azure API Management를 사용 하 여 SPA 백 엔드 보호
 
@@ -250,7 +250,7 @@ IP 제한 패널에 CIDR 형식 주소 블록을 추가 해야 합니다. API Ma
 
    > [!NOTE]
    > 다음 섹션은 선택 사항이 며 개발자 포털을 지원 하지 않는 **소비** 계층에는 적용 되지 않습니다.
-   > 개발자 포털을 사용 하지 않으려는 경우 또는 소비 계층을 사용 하 고 있으므로 사용할 수 없는 경우이 단계를 건너뛰고 바로 ["API를 사용 하는 JAVASCRIPT SPA 빌드"](##build-the-javascript-spa-to-consume-the-api)로 이동 하세요.
+   > 개발자 포털을 사용 하지 않으려는 경우 또는 소비 계층을 사용 하 고 있으므로 사용할 수 없는 경우이 단계를 건너뛰고 바로 ["API를 사용 하는 JAVASCRIPT SPA 빌드"](#build-the-javascript-spa-to-consume-the-api)로 이동 하세요.
 
 ## <a name="optional-configure-the-developer-portal"></a>필드 개발자 포털 구성
 

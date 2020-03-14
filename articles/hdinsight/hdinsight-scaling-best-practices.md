@@ -8,11 +8,11 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/26/2020
 ms.openlocfilehash: a88682cd2217850e336afc2f9ef5af84c0d8cb82
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78192646"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79272228"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터 크기 조정
 
@@ -29,7 +29,7 @@ HDInsight는 클러스터의 작업자 노드 수를 증가 및 감소하는 옵
 
 Microsoft는 클러스터 크기를 조정 하는 다음과 같은 유틸리티를 제공 합니다.
 
-|유틸리티 | 설명|
+|유틸리티 | Description|
 |---|---|
 |[PowerShell Az](https://docs.microsoft.com/powershell/azure)|[AzHDInsightClusterSize](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) -ClusterName \<Cluster Name >-TargetInstanceCount \<NewSize >|
 |[PowerShell AzureRM](https://docs.microsoft.com/powershell/azure/azurerm) |[AzureRmHDInsightClusterSize](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) -ClusterName \<Cluster Name >-TargetInstanceCount \<NewSize >|
@@ -126,7 +126,7 @@ Microsoft는 클러스터 크기를 조정 하는 다음과 같은 유틸리티�
 yarn application -kill <application_id>
 ```
 
-예를 들면 다음과 같습니다.
+다음은 그 예입니다.
 
 ```bash
 yarn application -kill "application_1499348398273_0003"

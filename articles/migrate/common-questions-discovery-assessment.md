@@ -4,11 +4,11 @@ description: Azure Migrate에서 검색, 평가 및 종속성 분석에 대 한 
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.openlocfilehash: e46d1e6ee1dd404e6e040eb394e89dd86a3d4d8e
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79082467"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79269875"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>검색, 평가 및 종속성 분석-일반적인 질문
 

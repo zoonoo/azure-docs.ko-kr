@@ -10,14 +10,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 05/25/2018
-ms.openlocfilehash: 5228e42a778714f0d656bc993007692bd32d84fb
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: c380d10d0c68794ec3810cea25341d68bb41400d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77168607"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79251688"
 ---
 # <a name="export-and-delete-in-product-user-data-from-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio에서 제품 내 사용자 데이터 내보내기 및 삭제 (클래식)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Azure Portal, Studio (클래식) 인터페이스, PowerShell 및 인증 된 REST Api를 사용 하 여 Azure Machine Learning Studio (클래식)에 저장 된 제품 내 데이터를 삭제 하거나 내보낼 수 있습니다. 이 문서에서는 이러한 작업을 수행하는 방법에 대해 설명합니다. 
 

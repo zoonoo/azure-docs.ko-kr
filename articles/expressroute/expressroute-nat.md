@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: cherylmc
 ms.openlocfilehash: 9f5c5cc3a943ad4a8882a91ffdcee89c2ad39743
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083371"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79272969"
 ---
 # <a name="expressroute-nat-requirements"></a>ExpressRoute NAT 요구 사항
 ExpressRoute를 사용하여 Microsoft 클라우드 서비스에 연결하려면 NAT을 설치하고 관리해야 합니다. 일부 연결 공급자는 NAT을 관리 서비스로 설치하고 관리해 줍니다. 연결 공급자를 확인하여 그런 서비스를 제공하는지를 확인합니다. 그렇지 않은 경우 아래에 설명한 요구 사항을 준수해야 합니다. 

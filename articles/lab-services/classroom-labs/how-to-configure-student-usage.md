@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2020
 ms.author: spelluru
-ms.openlocfilehash: 9fda1295bcdcd44b8a92c101c2aa445197ce6d4a
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: daa302e9be026157b464a12998f3faa52526aba6
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78358646"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79270941"
 ---
 # <a name="add-and-manage-lab-users"></a>랩 사용자 추가 및 관리
 이 문서에서는 랩에 사용자를 추가하고, 사용자를 랩에 등록하고, VM을 사용할 수 있는 시간을 제어하는 방법 등을 설명합니다. 
@@ -128,7 +128,7 @@ ms.locfileid: "78358646"
 ## <a name="set-additional-quota-for-a-specific-user"></a>특정 사용자에 대 한 추가 할당량 설정
 사용자에 대 한 추가 할당량을 지정할 수 있습니다. 이 할당량은 이전 섹션의 모든 사용자에 대해 설정 된 공통 할당량에 추가 됩니다. 예를 들어 (강사)가 모든 사용자에 대 한 할당량을 10 시간으로 설정 하 고 특정 사용자에 대해 5 시간의 추가 할당량을 설정 하는 경우 해당 사용자는 15 시간 (10 + 5)의 할당량을 가집니다. 나중에 15로 일반 할당량을 변경 하는 경우 사용자에 게 20 (15 + 5)의 할당량이 표시 됩니다. 이 전체 할당량은 예약 된 시간을 벗어납니다. 예약 시간 동안 학생이 랩 VM에서 소비한 시간은이 할당량에 대해 계산 되지 않습니다. 
 
-이 작업을 수행하려면 다음 단계를 수행합니다.
+이렇게 하려면 다음 단계를 따르십시오.
 
 1. **사용자 페이지의** 사용자 목록에서 사용자 (학생)를 선택 합니다.
 2. 그런 다음 도구 모음에서 **할당량 조정** 을 선택 합니다. 
@@ -144,7 +144,7 @@ ms.locfileid: "78358646"
 ## <a name="student-accounts"></a>학생 계정
 교실 랩에 학생을 추가 하려면 전자 메일 계정을 사용 합니다. 다음과 같은 유형의 전자 메일 계정을 사용할 수 있습니다.
 
-- 대학 AAD (Office 365 Azure Active Directory)에서 제공 하는 학생 전자 메일 계정입니다. 
+- 대학 Office 365 Azure Active Directory에서 제공 하는 학생 전자 메일 계정입니다. 
 - `@outlook.com`, `@hotmail.com`, `@msn.com`, `@live.com`등의 Microsoft 전자 메일 계정입니다.
 - Yahoo 또는 Google에서 제공 하는 것과 같은 타사 전자 메일 계정. 그러나 이러한 유형의 계정은 Microsoft 계정 연결 해야 합니다.
 - GitHub 계정. 이 계정은 Microsoft 계정 연결 해야 합니다.
@@ -173,6 +173,14 @@ Microsoft 계정에 등록 하려면 학생이 [http://signup.live.com](http://s
 ![GitHub 링크를 사용 하 여 로그인](../media/how-to-configure-student-usage/signin-github.png)
 
 마지막으로, GitHub 계정에 연결 된 Microsoft 계정를 만들라는 메시지가 표시 됩니다. 학생 들이 **다음**을 선택 하면 자동으로 발생 합니다.  그러면 학생이 즉시 로그인 되어 교실 랩에 연결 됩니다.
+
+## <a name="export-list-of-users-to-a-csv-file"></a>CSV 파일로 사용자 목록 내보내기
+
+1. **사용자** 탭으로 전환 합니다.
+2. 도구 모음에서 **...** (줄임표)를 선택 하 고 **CSV 내보내기**를 선택 합니다. 
+
+    ![사용자 목록 내보내기](../media/how-to-export-users-virtual-machines-csv/users-export-csv.png)
+
 
 ## <a name="next-steps"></a>다음 단계
 다음 문서를 참조하세요.

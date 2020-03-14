@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
 ms.openlocfilehash: 67df46742be52b03bd91af19654fbfac5df29646
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073757"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79250518"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Linux용 가상 머신 확장 및 기능
 
@@ -37,7 +37,7 @@ Azure VM(가상 머신) 확장은 Azure VM에서 배포 후 구성 및 Automatio
 
 프로세스 관련 확장 외에도 Windows 및 Linux 가상 머신에 대해 사용자 지정 스크립트 확장을 사용할 수 있습니다. Linux용 사용자 지정 스크립트 확장을 사용하면 Bash 스크립트를 VM에서 실행할 수 있습니다. 사용자 지정 스크립트는 네이티브 Azure 도구로 제공할 수 있는 것 이상의 구성이 필요한 Azure 배포를 디자인할 때 유용합니다. 자세한 내용은 [Linux VM 사용자 지정 스크립트 확장](custom-script-linux.md)을 참조하세요.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 VM에서 확장을 처리하려면 Azure Linux 에이전트를 설치해야 합니다. 일부 개별 확장에는 리소스에 대한 액세스 권한 또는 종속성 같은 필수 구성 요소가 있습니다.
 
@@ -105,7 +105,7 @@ info:    Executing command vm extension set
 info:    vm extension set command OK
 ```
 
-### <a name="azure-portal"></a>Azure 포털
+### <a name="azure-portal"></a>Azure portal
 
 Azure Portal을 통해 기존 VM에 VM 확장을 적용할 수 있습니다. 포털에서 VM을 선택하고, **확장**을 선택한 다음, **추가**를 선택합니다. 사용 가능한 확장 목록에서 원하는 확장을 선택하고 마법사의 지시를 따릅니다.
 
@@ -283,7 +283,7 @@ Goal state agent: 2.2.18
 
 #### <a name="identifying-if-the-extension-is-set-with-autoupgrademinorversion-on-a-vm"></a>확장이 VM에서 autoUpgradeMinorVersion로 설정되었는지를 식별합니다.
 
-확장이 'autoUpgradeMinorVersion'을 사용하여 프로비전된 경우 VM 모델에서 볼 수 있습니다. 확인하려면 [az vm show](/cli/azure/vm#az-vm-show)를 사용하고 다음과 같이 리소스 그룹 및 VM 이름을 제공합니다.
+확장이 ‘autoUpgradeMinorVersion’을 사용하여 프로비전된 경우 VM 모델에서 볼 수 있습니다. 확인하려면 [az vm show](/cli/azure/vm#az-vm-show)를 사용하고 다음과 같이 리소스 그룹 및 VM 이름을 제공합니다.
 
 ```azurecli
 az vm show --resource-group myResourceGroup --name myVM
@@ -403,7 +403,7 @@ az vm extension delete \
 
 ## <a name="common-vm-extension-reference"></a>일반적인 VM 확장 참조
 
-| 확장 이름 | 설명 | 자세한 정보 |
+| 확장 이름 | Description | 자세한 정보 |
 | --- | --- | --- |
 | Linux용 사용자 지정 스크립트 확장 |Azure Virtual Machine에 대해 스크립트 실행 |[Linux용 사용자 지정 스크립트 확장](custom-script-linux.md) |
 | VM 액세스 확장 |Azure Virtual Machine에 대한 액세스 권한 복구 |[VM 액세스 확장](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) |

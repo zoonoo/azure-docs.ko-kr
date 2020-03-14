@@ -4,11 +4,11 @@ description: Language Understanding(LUIS)에서 예측 전에 데이터를 변�
 ms.topic: conceptual
 ms.date: 02/11/2020
 ms.openlocfilehash: 5547724a6333d248a7ba4e9aeecaaa8f331feb7d
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78361190"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79221530"
 ---
 # <a name="alter-utterance-data-before-or-during-prediction"></a>예측 이전 또는 도중에 발언 데이터 변경
 LUIS는 예측 전이나 예측 중에 발화를 조작할 수 있는 방법을 제공합니다. 여기에는 미리 작성 한 [datetimeV2](luis-reference-prebuilt-datetimev2.md)에 대 한 [맞춤법 수정](luis-tutorial-bing-spellcheck.md), 표준 시간대 문제 해결 등이 포함 됩니다.

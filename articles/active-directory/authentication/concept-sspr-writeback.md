@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: aa66299753ab11dcad280361cb5fb6f0c31ef242
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78378322"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79263921"
 ---
 # <a name="what-is-password-writeback"></a>비밀번호 쓰기 저장이란?
 

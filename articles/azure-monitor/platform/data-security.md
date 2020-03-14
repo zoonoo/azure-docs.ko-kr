@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 03/04/2019
 ms.openlocfilehash: 0ac169060f7ba0e58aeb3e36e3af1629b6453fc1
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78362323"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79274867"
 ---
 # <a name="log-analytics-data-security"></a>Log Analytics 데이터 보안
 이 문서는 [Azure 보안 센터](../../security/fundamentals/trust-center.md)의 정보를 보완하기 위해 Azure Monitor의 기능인 Log Analytics에 고유한 정보를 제공합니다.  

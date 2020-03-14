@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: srrengar
 ms.openlocfilehash: 8435bb82afddd0070679768bb8d22ad9290f2279
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75464613"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79258513"
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>로컬 컴퓨터 개발 설정에서의 모니터링 및 진단 서비스
 > [!div class="op_single_selector"]
@@ -43,12 +43,12 @@ ms.locfileid: "75464613"
 **서비스 템플릿**(상태 비저장 또는 상태 저장)에서 만들어진 프로젝트의 경우 `RunAsync` 구현을 검색하기만 하면 됩니다.
 
 1. `ServiceEventSource.Current.ServiceMessage` in the `RunAsync` 호출은 애플리케이션 코드에서 사용자 지정 ETW 추적의 예를 보여 줍니다.
-2. **ServiceEventSource.cs`ServiceEventSource.ServiceMessage` 파일을 보면 성능상의 이유로 빈도가 높은 이벤트에 사용해야 하는** 메서드에서 오버로드를 확인할 수 있습니다.
+2. **ServiceEventSource.cs** 파일을 보면 성능상의 이유로 빈도가 높은 이벤트에 사용해야 하는`ServiceEventSource.ServiceMessage` 메서드에서 오버로드를 확인할 수 있습니다.
 
 **행위자 템플릿** (상태 비저장 또는 상태 저장)에서 만들어진 프로젝트의 경우:
 
 1. **ProjectName** 이 Visual Studio 프로젝트용으로 선택한 이름인 *“ProjectName”.cs* 파일을 엽니다.  
-2. *DoWorkAsync* 메서드에서 `ActorEventSource.Current.ActorMessage(this, "Doing Work");` 코드를 찾습니다.  이는 애플리케이션 코드에서 작성된 사용자 지정 ETW의 예제입니다.  
+2. `ActorEventSource.Current.ActorMessage(this, "Doing Work");`DoWorkAsync*메서드에서* 코드를 찾습니다.  이는 애플리케이션 코드에서 작성된 사용자 지정 ETW의 예제입니다.  
 3. **ActorEventSource.cs** 파일을 보면 성능상의 이유로 빈도가 높은 이벤트에 사용해야 하는 `ActorEventSource.ActorMessage` 메서드에서 오버로드를 확인할 수 있습니다.
 
 서비스 코드에 사용자 지정 ETW 추적을 추가한 다음에는 애플리케이션을 다시 빌드, 배포, 실행하여 진단 이벤트 뷰어에서 이벤트를 볼 수 있습니다. **F5**키를 눌러서 애플리케이션을 디버깅하면 진단 이벤트 뷰어가 자동으로 열립니다.

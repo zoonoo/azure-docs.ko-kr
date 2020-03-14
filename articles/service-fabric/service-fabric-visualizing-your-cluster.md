@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: mikhegn
 ms.openlocfilehash: 80e3d990b6e8026c57ffff0048d0447a95529564
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78364969"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79258188"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>서비스 패브릭 탐색기로 클러스터 시각화
 
@@ -80,7 +80,7 @@ Service Fabric 클러스터를 연결하려면 클러스터 관리 엔드포인�
 ### <a name="view-the-clusters-nodes"></a>클러스터의 노드 보기
 노드 보기는 클러스터의 물리적 레이아웃을 보여 줍니다. 지정된 노드의 경우 해당 노드에 배포된 코드를 가진 애플리케이션을 검사할 수 있습니다. 특히 현재 실행되고 있는 복제본을 확인할 수 있습니다.
 
-## <a name="actions"></a>작업
+## <a name="actions"></a>동작
 Service Fabric Explorer는 클러스터 내에서 노드, 애플리케이션 및 서비스에 대한 작업을 호출하는 빠른 방법을 제공합니다.
 
 예를 들어 애플리케이션 인스턴스를 삭제하려면 왼쪽 트리에서 애플리케이션을 선택한 다음 **작업** > **애플리케이션 삭제**로 이동하여 로컬 클러스터에서 Service Fabric 탐색기를 시작할 수 있습니다.
@@ -119,7 +119,7 @@ EventStore는 플랫폼에서 Service Fabric Explorer와 REST API를 통해 사�
 
 ![서비스 패브릭 탐색기 클러스터 맵][sfx-imagestore]
 
-## <a name="backup-and-restore"></a>백업 및 복원
+## <a name="backup-and-restore"></a>Backup 및 복원
 Service Fabric Explorer는 [백업 및 복원과](./service-fabric-reliable-services-backup-restore.md)상호 작용 하는 기능을 제공 합니다. SFX에서 백업 및 복원 기능을 확인 하려면 고급 모드를 사용 하도록 설정 해야 합니다.
 
 ![고급 모드 사용][0]

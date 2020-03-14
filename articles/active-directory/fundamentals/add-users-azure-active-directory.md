@@ -14,11 +14,11 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3d72616422934501e042375edfb10a25aa27c527
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073488"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79262114"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>Azure Active Directory를 사용한 사용자 추가 또는 삭제
 
@@ -40,9 +40,9 @@ Azure Active Directory 포털을 사용하여 새 사용자를 만들 수 있습
 
 1. **사용자** 페이지에서이 사용자에 대 한 정보를 입력 합니다.
 
-   - **이름**. 필수 요소. 새 사용자의 이름 및 성입니다. *Mary Parker*를 예를 들겠습니다.
+   - **이름**. 필수 사항입니다. 새 사용자의 이름 및 성입니다. 예를 들어, *Mary Parker*입니다.
 
-   - **사용자 이름**입니다. 필수 요소. 새 사용자의 사용자 이름입니다. 예: `mary@contoso.com`.
+   - **사용자 이름**입니다. 필수 사항입니다. 새 사용자의 사용자 이름입니다. `mary@contoso.com`)을 입력합니다.
 
      사용자 이름의 도메인 부분에는 초기 기본 도메인 이름,\<도메인 이름 *>* 를 사용 하거나 사용자 지정 도메인 이름 (예: *contoso.com*) 중 하나를 사용 해야 합니다. 사용자 지정 도메인 이름을 만드는 방법에 대 한 자세한 내용은 [Azure Active Directory 포털을 사용 하 여 사용자 지정 도메인 이름 추가](add-custom-domain.md)를 참조 하세요.
 
@@ -80,7 +80,7 @@ Azure Active Directory 포털을 사용하여 기존 사용자를 삭제할 수 
 
 1. 모든 페이지에서 *Azure Active Directory* 를 검색 하 고 선택 합니다.
 
-1. Azure AD 테 넌 트에서 삭제할 사용자를 검색 하 고 선택 합니다. _Mary Parker_를 예를 들겠습니다.
+1. Azure AD 테 넌 트에서 삭제할 사용자를 검색 하 고 선택 합니다. 예를 들어, _Mary Parker_입니다.
 
 1. **사용자 삭제**를 선택합니다.
 

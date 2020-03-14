@@ -16,11 +16,11 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
 ms.openlocfilehash: 67d624bb81105b8219030c57460b6d7bf7458671
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980982"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79245526"
 ---
 # <a name="troubleshoot-rbac-for-azure-resources"></a>Azure 리소스에 대한 RBAC 문제 해결
 
@@ -56,7 +56,7 @@ ms.locfileid: "75980982"
 
 ## <a name="role-assignments-with-unknown-security-principal"></a>보안 주체를 알 수 없는 역할 할당
 
-보안 주체 (사용자, 그룹, 서비스 주체 또는 관리 id)에 역할을 할당 하 고 나중에 역할 할당을 제거 하지 않고 해당 보안 주체를 삭제 하는 경우 역할 할당의 보안 주체 형식이 **알 수 없음**으로 나열 됩니다. 다음 스크린샷은 Azure Portal에서의 예를 보여줍니다. 보안 주체 이름이 **identity deleted** 로 나열 되 고 **id가 더 이상 존재 하지**않습니다. 
+보안 주체 (사용자, 그룹, 서비스 주체 또는 관리 id)에 역할을 할당 하 고 나중에 역할 할당을 제거 하지 않고 해당 보안 주체를 삭제 하는 경우 역할 할당의 보안 주체 형식이 **알 수 없음**으로 나열 됩니다. 다음 스크린샷은 Azure Portal의 예를 보여 줍니다. 보안 주체 이름이 **identity deleted** 로 나열 되 고 **id가 더 이상 존재 하지**않습니다. 
 
 ![웹앱 리소스 그룹](./media/troubleshooting/unknown-security-principal.png)
 

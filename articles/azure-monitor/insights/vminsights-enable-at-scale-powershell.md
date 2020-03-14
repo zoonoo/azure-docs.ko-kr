@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 10/14/2019
 ms.openlocfilehash: e28a5dce4dda677ef4e5eb0ed08c42ec1f03c308
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78251448"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79249192"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-using-azure-powershell-or-resource-manager-templates"></a>Azure PowerShell 또는 리소스 관리자 템플릿을 사용 하 여 VM용 Azure Monitor (미리 보기) 사용
 

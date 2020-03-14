@@ -8,14 +8,14 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 842c7c81e3bf9615eb56d50ee2d6fce794845b6e
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 5467794bf246fab4ff7ded9c445dbeee0c4093b8
+ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960705"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79139626"
 ---
-# <a name="integrate-azure-security-center-with-windows-admin-center-preview"></a>Windows 관리 센터와 Azure Security Center 통합 (미리 보기)
+# <a name="integrate-azure-security-center-with-windows-admin-center"></a>Windows 관리 센터와 Azure Security Center 통합
 
 Windows 관리 센터는 Windows server에 대 한 관리 도구입니다. 시스템 관리자가 가장 일반적으로 사용 되는 대부분의 관리 도구에 액세스할 수 있는 단일 위치입니다. Windows 관리 센터 내에서 온-프레미스 서버를 Azure Security Center에 직접 등록할 수 있습니다. 그러면 Windows 관리 센터 환경에서 직접 보안 권장 사항 및 경고에 대 한 요약을 볼 수 있습니다.
 

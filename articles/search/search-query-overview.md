@@ -9,11 +9,11 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 902f3628235cc8a4524ddc4dd8a5327592fe47e7
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793209"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79282823"
 ---
 # <a name="query-types-and-composition-in-azure-cognitive-search"></a>Azure Cognitive Search의 쿼리 유형 및 컴퍼지션
 
@@ -33,7 +33,7 @@ Azure Cognitive Search에서 쿼리는 라운드트립 작업의 전체 사양�
 }
 ```
 
-+ [기본 단순 쿼리 파서](search-query-simple-examples.md) (전체 텍스트 검색에 최적) 인 파서 또는 정규식, 근접 검색, 유사 항목 검색, 유사 항목 검색, 유사 항목 검색 등의 고급 쿼리 구문에 사용 되는 [전체 Lucene 쿼리 파서](search-query-lucene-examples.md) 를 설정 하 **`queryType`** 를 설정 합니다. 와일드 카드 검색 (몇 가지 이름)
++ [기본 단순 쿼리 파서](search-query-simple-examples.md) (전체 텍스트 검색에 적합) 또는 정규식, 근접 검색, 유사 항목 및 와일드 카드 검색 등의 고급 쿼리 구문에 사용 되는 [전체 Lucene 쿼리 파서는](search-query-lucene-examples.md) 파서를 설정 하 **`queryType`** 설정 합니다.
 
 + **`search`** 는 일치 조건을 제공하며, 일반적으로 텍스트이지만 부울 연산자가 자주 사용됩니다. 독립형 단일 용어는 용어 쿼리입니다. 따옴표로 묶인 여러 부분 쿼리는 핵심 구문 쿼리입니다. 검색은 **`search=*`** 처럼 정의되지 않을 수 있지만 예제에 나타나는 것과 유사한 용어, 구문 및 연산자로 구성될 가능성이 큽니다.
 
@@ -80,7 +80,7 @@ Azure Cognitive Search에서 쿼리 실행은 항상 요청에 제공 된 api �
 
 다음 표에는 쿼리를 제출하기 위한 API 및 도구 기반 접근 방법이 나와 있습니다.
 
-| 방법 | 설명 |
+| 방법 | Description |
 |-------------|-------------|
 | [검색 탐색기(포털)](search-explorer.md) | 검색 표시줄 및 인덱스와 api-version 선택을 위한 옵션을 제공합니다. 결과는 JSON 문서로 반환됩니다. 탐색, 테스트 및 유효성 검사에 권장 됩니다. <br/>[자세한 정보](search-get-started-portal.md#query-index) | 
 | [Postman 또는 기타 REST 도구](search-get-started-postman.md) | 웹 테스트 도구는 REST 호출 작성에 적합한 선택 항목입니다. REST API는 Azure Cognitive Search에서 가능한 모든 작업을 지원 합니다. 이 문서에서는 Azure Cognitive Search에 요청을 보내기 위한 HTTP 요청 헤더 및 본문을 설정 하는 방법에 대해 알아봅니다.  |
@@ -91,7 +91,7 @@ Azure Cognitive Search에서 쿼리 실행은 항상 요청에 제공 된 api �
 
 Azure Cognitive Search는 Apache Lucene 위에 있으며 일반적인 쿼리 및 특수 쿼리를 처리 하는 두 개의 쿼리 파서 사이에서 선택할 수 있습니다. 단순 파서를 사용하는 요청은 [단순 쿼리 구문](query-simple-syntax.md)을 사용하여 형성되며 자유 형식 텍스트 쿼리에서 속도와 효율성의 기본값으로 선택됩니다. 이 구문은 AND, OR, NOT, 구, 접미사 및 우선 순위 연산자를 포함한 여러 일반 검색 연산자를 지원합니다.
 
-요청에 `queryType=full`을 추가하면 사용되도록 설정되는 [전체 Lucene 쿼리 구문](query-Lucene-syntax.md#bkmk_syntax)은 [Apache Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html)의 일부로 개발된 널리 채택되고 표현적인 쿼리 언어를 공개합니다. 전체 구문은 단순 구문을 확장합니다. 단순 구문에 대해 작성한 쿼리는 전체 Lucene 파서에서 실행됩니다. 
+요청에 [을 추가하면 사용되도록 설정되는 ](query-Lucene-syntax.md#bkmk_syntax)전체 Lucene 쿼리 구문`queryType=full`은 [Apache Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html)의 일부로 개발된 널리 채택되고 표현적인 쿼리 언어를 공개합니다. 전체 구문은 단순 구문을 확장합니다. 단순 구문에 대해 작성한 쿼리는 전체 Lucene 파서에서 실행됩니다. 
 
 다음 예제는 이런 점을 보여줍니다. 동일한 쿼리이지만 다른 queryType 설정을 사용하면 다른 결과가 나타납니다. 첫 번째 쿼리에서 `historic` 후 `^3`는 검색 용어의 일부로 처리 됩니다. 이 쿼리에 대해 가장 순위가 높은 결과는 "Plaza & 도구 모음" 이며, 해당 설명에는 *바다* 가 있습니다.
 
@@ -111,7 +111,7 @@ queryType=full&search=ocean historic^3&searchFields=Description, Tags&$select=Ho
 
 Azure Cognitive Search는 광범위 한 쿼리 유형을 지원 합니다. 
 
-| 쿼리 유형 | 사용량 | 예제 및 자세한 정보 |
+| 쿼리 유형 | 사용 | 예제 및 자세한 정보 |
 |------------|--------|-------------------------------|
 | 자유 형식 텍스트 검색 | 매개 변수와 파서 중 하나를 검색| 전체 텍스트 검색은 인덱스의 *검색 가능한* 모든 필드에서 하나 이상의 단어를 검색하고 Google 또는 Bing과 같은 검색 엔진이 작동할 것으로 예상되는 방식으로 작동합니다. 소개의 예는 전체 텍스트 검색입니다.<br/><br/>전체 텍스트 검색은 표준 Lucene 분석기(기본값)를 사용하여 모든 용어를 소문자 텍스트로 분석하여 "the"와 같은 중지 단어를 제거합니다. 텍스트 분석을 수정하는 [영어가 아닌 분석기](index-add-language-analyzers.md#language-analyzer-list) 또는 [특수 언어 중립적 분석기](index-add-custom-analyzers.md#AnalyzerTable)로 기본값을 재정의할 수 있습니다. 필드의 전체 내용을 단일 토큰으로 취급하는 [키워드](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html)가 예입니다. 우편 번호, ID 및 일부 제품 이름과 같은 데이터에 유용합니다. | 
 | 필터링된 검색 | [OData 필터 식](query-odata-filter-orderby-syntax.md)과 파서 중 하나 | 필터 쿼리는 인덱스의 *필터링 가능한* 모든 필드에 걸쳐 부울 식을 계산합니다. 검색과 달리 필터 쿼리는 문자열 필드에서 대/소문자 구분을 포함하여 필드의 정확한 내용을 검색합니다. 또 다른 차이점은 필터 쿼리는 OData 구문으로 표현된다는 점입니다. <br/>[필터 식 예제](search-query-simple-examples.md#example-3-filter-queries) |
@@ -151,7 +151,7 @@ Azure Cognitive Search을 사용 하면 검색 결과의 페이징을 쉽게 구
 ### <a name="ordering-results"></a>결과 정렬
 검색 쿼리 결과를 받을 때 Azure Cognitive Search 특정 필드의 값을 기준으로 정렬 된 결과를 제공 하도록 요청할 수 있습니다. 기본적으로 Azure Cognitive Search는 [TF IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)에서 파생 된 각 문서 검색 점수의 순위에 따라 검색 결과를 정렬 합니다.
 
-Azure Cognitive Search 검색 점수 이외의 값으로 정렬 된 결과를 반환 하도록 하려면 **`orderby`** search 매개 변수를 사용할 수 있습니다. 지리 공간적 값의 [ **`geo.distance()` 함수**](query-odata-filter-orderby-syntax.md)에 대한 필드 이름과 호출을 포함하도록 **`orderby`** 매개 변수의 값을 지정할 수 있습니다. 식마다 뒤에 `asc`를 추가하여 결과가 오름차순으로 요청되었음을 나타내고 **`desc`** 를 추가하여 결과가 내림차순으로 요청되었음을 나타냅니다. 기본 순위는 오름차순입니다.
+Azure Cognitive Search 검색 점수 이외의 값으로 정렬 된 결과를 반환 하도록 하려면 **`orderby`** search 매개 변수를 사용할 수 있습니다. 지리 공간적 값의 **`orderby`** 함수[**에 대한 필드 이름과 호출을 포함하도록 `geo.distance()`** ](query-odata-filter-orderby-syntax.md) 매개 변수의 값을 지정할 수 있습니다. 식마다 뒤에 `asc`를 추가하여 결과가 오름차순으로 요청되었음을 나타내고 **`desc`** 를 추가하여 결과가 내림차순으로 요청되었음을 나타냅니다. 기본 순위는 오름차순입니다.
 
 
 ### <a name="hit-highlighting"></a>적중 항목 강조 표시

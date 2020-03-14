@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
-ms.openlocfilehash: c006aa8c46864b78ae46aa9c351605cca1d1e425
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: de8ad39ef731af3dc272d700eeee346acda64b53
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77606582"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79277571"
 ---
 # <a name="azure-cosmos-db-trigger-for-azure-functions-2x"></a>Azure Functions 2.x에 대 한 Azure Cosmos DB 트리거입니다.
 
@@ -236,7 +236,8 @@ Python에서 특성을 지원 하지 않습니다.
 |**leaseRenewInterval**| **LeaseRenewInterval**| (선택 사항) 설정하면 인스턴스가 현재 보유한 파티션의 모든 임대에 대한 갱신 간격을 밀리초로 정의합니다. 기본값은 17000(17초)입니다.
 |**checkpointFrequency**| **CheckpointFrequency**| (선택 사항) 설정하면 임대 검사점 간격을 밀리초로 정의합니다. 기본값은 항상 각 함수 호출 이후입니다.
 |**maxItemsPerInvocation**| **MaxItemsPerInvocation**| 필드 설정 되 면이 속성은 함수 호출 당 수신 되는 최대 항목 수를 설정 합니다. 모니터링 되는 컬렉션의 작업이 저장 프로시저를 통해 수행 되는 경우 변경 피드에서 항목을 읽을 때 [트랜잭션 범위가](../cosmos-db/stored-procedures-triggers-udfs.md#transactions) 유지 됩니다. 결과적으로, 받은 항목 수가 지정 된 값 보다 높을 수 있으므로 동일한 트랜잭션으로 변경 된 항목이 하나의 원자성 일괄 처리의 일부로 반환 됩니다.
-|**startFromBeginning**| **StartFromBeginning**| 필드 이 옵션은 현재 시간에서 시작 하는 대신 컬렉션의 변경 기록 시작 부분에서 변경 내용을 읽도록 트리거에 지시 합니다. 처음부터 시작 하 여 처음부터 다시 시작 하는 경우에만 트리거가 시작 됩니다. 후속 실행과 마찬가지로 검사점은 이미 저장 되어 있습니다. 이미 생성 된 임대가 있는 경우이 옵션을 `true` 설정 해도 아무런 효과가 없습니다.
+|**startFromBeginning**| **StartFromBeginning**| 필드 이 옵션은 현재 시간에서 시작 하는 대신 컬렉션의 변경 기록 시작 부분에서 변경 내용을 읽도록 트리거에 지시 합니다. 처음부터 시작 하 여 처음부터 다시 시작 하는 경우에만 트리거가 시작 됩니다. 후속 실행과 마찬가지로 검사점은 이미 저장 되어 있습니다. 이미 생성 된 임대가 있는 경우이 옵션을 `true` 설정 해도 아무런 효과가 없습니다. |
+|**preferredLocations**| **PreferredLocations**| 필드 Azure Cosmos DB 서비스에서 지역에서 복제 된 데이터베이스 계정에 대 한 기본 위치 (지역)를 정의 합니다. 값은 쉼표로 구분 해야 합니다. 예를 들면 "미국 동부, 미국 중 북부, 유럽 유럽"입니다. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

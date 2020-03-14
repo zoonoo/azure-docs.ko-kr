@@ -1,5 +1,5 @@
 ---
-title: 권한 관리란? -Azure AD
+title: 권한 관리란? - Azure AD
 description: Azure Active Directory 자격 관리에 대 한 개요와이를 사용 하 여 내부 및 외부 사용자의 그룹, 응용 프로그램 및 SharePoint Online 사이트에 대 한 액세스를 관리 하는 방법을 알아봅니다.
 services: active-directory
 documentationCenter: ''
@@ -17,11 +17,11 @@ ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1d1faf501aff8960a4b1961b34164be07b1d685d
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75932469"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79261763"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>Azure AD 권한 관리란?
 
@@ -38,7 +38,7 @@ Azure AD 자격 관리를 사용 하면 내부 사용자의 그룹, 응용 프�
 - 사용자는 액세스 권한이 무엇 인지 알 수 없으며, 사용자가 액세스 권한을 승인 하기 위해 올바른 개인을 찾는 데 어려움이 있을 수 있습니다.
 - 사용자가 리소스에 대 한 액세스를 찾고 받은 후에는 비즈니스 목적에 필요한 것 보다 더 긴 액세스를 유지할 수 있습니다.
 
-이러한 문제는 공급망 조직 또는 다른 비즈니스 파트너의 외부 사용자와 같은 다른 조직에서 액세스 해야 하는 사용자에 게 복잡해 집니다. 예:
+이러한 문제는 공급망 조직 또는 다른 비즈니스 파트너의 외부 사용자와 같은 다른 조직에서 액세스 해야 하는 사용자에 게 복잡해 집니다. 다음은 그 예입니다.
 
 - 아무도 초대할 수 있는 다른 조직의 디렉터리에 있는 특정 사용자를 모두 알지 못할 수 있습니다.
 - 이러한 사용자를 초대할 수 있는 경우에도 해당 조직의 사용자가 모든 사용자의 액세스를 일관 되 게 관리 하는 것을 기억할 수 있는 것은 아닙니다.
@@ -71,7 +71,7 @@ Azure AD 자격 관리는 이러한 문제를 해결 하는 데 도움이 될 �
 - 페더레이션/single sign on 및/또는 프로 비전을 지 원하는 SaaS 응용 프로그램 및 사용자 지정 통합 응용 프로그램을 포함 하 여 Azure AD 엔터프라이즈 응용 프로그램에 할당
 - SharePoint Online 사이트의 멤버 자격
 
-Azure AD 보안 그룹 또는 Office 365 그룹을 사용 하는 다른 리소스에 대 한 액세스를 제어할 수도 있습니다.  예:
+Azure AD 보안 그룹 또는 Office 365 그룹을 사용 하는 다른 리소스에 대 한 액세스를 제어할 수도 있습니다.  다음은 그 예입니다.
 
 - 액세스 패키지의 Azure AD 보안 그룹을 사용 하 고 해당 그룹에 대 한 [그룹 기반 라이선스](../users-groups-roles/licensing-groups-assign.md) 를 구성 하 여 Microsoft Office 365에 대 한 라이선스를 사용자에 게 제공할 수 있습니다.
 - 액세스 패키지의 Azure AD 보안 그룹을 사용 하 여 Azure 리소스를 관리 하 고 해당 그룹에 대 한 [azure 역할 할당](../../role-based-access-control/role-assignments-portal.md) 을 만들어 사용자에 게 액세스 권한을 부여할 수 있습니다.
@@ -114,7 +114,7 @@ Azure AD 보안 그룹 또는 Office 365 그룹을 사용 하는 다른 리소�
 
 권한 관리 및 해당 설명서를 더 잘 이해 하기 위해 다음 조건 목록을 다시 참조할 수 있습니다.
 
-| 조건 | Description |
+| 용어 | Description |
 | --- | --- |
 | 액세스 패키지 | 팀 또는 프로젝트에서 필요로 하 고 정책을 적용 하는 리소스 번들입니다. 액세스 패키지는 항상 카탈로그에 포함 되어 있습니다. 사용자가 액세스를 요청 해야 하는 시나리오에 대 한 새 액세스 패키지를 만듭니다.  |
 | 액세스 요청 | 액세스 패키지의 리소스에 액세스 하는 요청입니다. 요청은 일반적으로 승인 워크플로를 거칩니다.  승인 된 경우 요청 하는 사용자는 액세스 패키지 할당을 수신 합니다. |

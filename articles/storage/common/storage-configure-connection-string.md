@@ -11,11 +11,11 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: f617beec8a53570ede7755040cfbb92a7d1712b7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75460560"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79268354"
 ---
 # <a name="configure-azure-storage-connection-strings"></a>Azure Storage 연결 문자열 구성
 
@@ -113,7 +113,7 @@ AccountKey=<account-key>
 스토리지 엔드포인트를 사용자 지정 도메인에 매핑하고 연결 문자열에서 엔드포인트를 생략하면 해당 연결 문자열을 사용할 수 없어서 코드로부터 해당 서비스의 데이터에 액세스할 수 없습니다.
 
 > [!IMPORTANT]
-> 연결 문자열의 서비스 엔드포인트 값은 `https://`(권장) 또는 `http://`를 포함하는 올바른 형식의 URI여야 합니다. Azure Storage는 사용자 지정 도메인에 대해 HTTPS를 아직 지원하지 않으므로 사용자 지정 도메인을 가리키는 엔드포인트 URI에 대해 `http://`를 *지정해야* 합니다.
+> 연결 문자열의 서비스 엔드포인트 값은 `https://`(권장) 또는 `http://`를 포함하는 올바른 형식의 URI여야 합니다. Azure Storage는 사용자 지정 도메인에 대해 HTTPS를 아직 지원하지 않으므로 사용자 지정 도메인을 가리키는 엔드포인트 URI에 대해 *를* 지정해야`http://` 합니다.
 >
 
 ### <a name="create-a-connection-string-with-an-endpoint-suffix"></a>엔드포인트 접미사를 사용하여 연결 문자열 만들기

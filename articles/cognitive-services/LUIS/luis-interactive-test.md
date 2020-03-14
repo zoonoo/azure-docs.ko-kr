@@ -4,11 +4,11 @@ description: Language Understanding(LUIS)을 사용하여 애플리케이션을 
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.openlocfilehash: ba7e23a72cd308dd4393bf9a581571e2bc9f5fa0
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152910"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79221298"
 ---
 # <a name="test-your-luis-app-in-the-luis-portal"></a>LUIS 포털에서 LUIS 앱 테스트
 

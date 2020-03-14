@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1cc8a62bd75a01cb6b7184cb52585c4f8b08cadb
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 145439ebedd2ddf7c081339146010c66f37fe1af
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78378231"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136537"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Azure Active Directory에서 암호 없는 인증 배포 계획
 
@@ -130,7 +130,7 @@ Microsoft는 Multi-factor authentication [통신 템플릿](https://aka.ms/mfate
 
 ## <a name="plan-passwordless-authentication-with-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱을 사용 하 여 암호 없는 인증 계획
 
-Microsoft Authenticator 앱은 Google Play 또는 Apple 앱 스토어에서 무료로 다운로드할 수 있습니다. [Microsoft Authenticator 앱 다운로드에 대해 자세히 알아보세요](https://www.microsoft.com/account/authenticator?cmp=h66ftb_42hbak). 사용자가 Microsoft Authenticator 앱을 다운로드 하도록 합니다. 지침에 따라 휴대폰 로그인을 사용 하도록 설정 합니다. 
+Microsoft Authenticator 앱은 Google Play 또는 Apple 앱 스토어에서 무료로 다운로드할 수 있습니다. [Microsoft Authenticator 앱 다운로드에 대해 자세히 알아보세요](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6). 사용자가 Microsoft Authenticator 앱을 다운로드 하도록 합니다. 지침에 따라 휴대폰 로그인을 사용 하도록 설정 합니다. 
 
 IOS 또는 Android 휴대폰을 강력 하 고 암호 없는 자격 증명으로 바꿉니다. 사용자가 휴대폰에 대 한 알림을 받고, 화면에 표시 되는 숫자를 휴대폰에 있는 것과 일치 하 고, 생체 인식 또는 PIN을 사용 하 여 확인 하 여 모든 플랫폼 또는 브라우저에 로그인 합니다. [Microsoft Authenticator 앱의 작동 방식에 대 한 세부 정보를 확인](https://docs.microsoft.com/azure/security/fundamentals/ad-passwordless#user-using-microsoft-authenticator-for-passwordless-sign-in)하세요. 
 

@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/10/2020
+ms.date: 03/10/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: bf21cd27fa290b9b9b863803aef043eccc815573
-ms.sourcegitcommit: e9776e6574c0819296f28b43c9647aa749d1f5a6
+ms.openlocfilehash: fcb4636263843143e685de2e3d2a27bf87cc5a90
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75912706"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79137410"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-azure-cli"></a>Azure CLI를 사용 하 여 Azure Key Vault에서 고객이 관리 하는 키 구성
 
@@ -120,11 +120,21 @@ az storage account update
 
 Azure Storage 암호화에 사용 되는 키를 변경 하려면 [고객이 관리 하는 키를 사용 하 여 암호화 구성](#configure-encryption-with-customer-managed-keys) 에 표시 된 것 처럼 [az Storage account update](/cli/azure/storage/account#az-storage-account-update) 를 호출 하 고 새 키 이름 및 버전을 제공 합니다. 새 키가 다른 키 자격 증명 모음에 있으면 키 자격 증명 모음 URI도 업데이트 합니다.
 
+## <a name="revoke-customer-managed-keys"></a>고객 관리 키 철회
+
+키가 손상 된 것으로 판단 되 면 키 자격 증명 모음 액세스 정책을 제거 하 여 고객 관리 키를 해지할 수 있습니다. 고객 관리 키를 해지 하려면 다음 예제와 같이 [az keyvault delete-policy](/cli/azure/keyvault#az-keyvault-delete-policy) 명령을 호출 합니다. 괄호 안의 자리 표시자 값을 고유한 값으로 바꾸고 앞의 예제에 정의 된 변수를 사용 해야 합니다.
+
+```azurecli-interactive
+az keyvault delete-policy \
+    --name <key-vault> \
+    --object-id $storage_account_principal
+```
+
 ## <a name="disable-customer-managed-keys"></a>고객 관리 키 사용 안 함
 
-고객 관리 키를 사용 하지 않도록 설정 하면 저장소 계정이 Microsoft 관리 키를 사용 하 여 암호화 됩니다. 고객 관리 키를 사용 하지 않도록 설정 하려면 다음 예제와 같이 [az storage account update](/cli/azure/storage/account#az-storage-account-update) 를 호출 하 고 `--encryption-key-source parameter`를 `Microsoft.Storage`로 설정 합니다. 괄호 안의 자리 표시자 값을 고유한 값으로 바꾸고 앞의 예제에 정의 된 변수를 사용 해야 합니다.
+고객 관리 키를 사용 하지 않도록 설정 하면 저장소 계정이 Microsoft 관리 키로 다시 암호화 됩니다. 고객 관리 키를 사용 하지 않도록 설정 하려면 다음 예제와 같이 [az storage account update](/cli/azure/storage/account#az-storage-account-update) 를 호출 하 고 `--encryption-key-source parameter`를 `Microsoft.Storage`로 설정 합니다. 괄호 안의 자리 표시자 값을 고유한 값으로 바꾸고 앞의 예제에 정의 된 변수를 사용 해야 합니다.
 
-```powershell
+```azurecli-interactive
 az storage account update
     --name <storage-account> \
     --resource-group <resource_group> \

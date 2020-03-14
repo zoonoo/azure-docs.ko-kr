@@ -11,11 +11,11 @@ ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
 ms.openlocfilehash: c6b7e3da6cb6fd87e3b43d6f310e3b76f8fc4d30
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77526096"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79283837"
 ---
 # <a name="machine-learning-and-data-science-tools-on-azure-data-science-virtual-machines"></a>Azure 데이터 과학 Virtual Machines의 기계 학습 및 데이터 과학 도구
 Azure DSVMs (데이터 과학 Virtual Machines)에는 Python, R, 줄리아 등 인기 있는 언어로 제공 되는 기계 학습을 위한 다양 한 도구 및 라이브러리 집합이 있습니다.

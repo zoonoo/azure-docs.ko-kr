@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: masnider
 ms.openlocfilehash: 17827342b67d37d9fbeb56654824e004367823ef
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78378935"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79282563"
 ---
 # <a name="scaling-in-service-fabric"></a>Service Fabric에서 크기 조정
 Azure Service Fabric을 사용하면 클러스터 노드의 서비스, 파티션 및 복제본을 관리하여 확장 가능한 애플리케이션을 쉽게 빌드할 수 있습니다. 동일한 하드웨어에서 많은 워크로드를 실행하면 리소스를 최대한 활용할 수 있을 뿐만 아니라 워크로드의 크기를 조정하기 위해 선택하는 방법에 유연성도 제공합니다. 이 채널 9 비디오에서는 확장 가능한 마이크로 서비스 애플리케이션을 구축하는 방법을 설명합니다.

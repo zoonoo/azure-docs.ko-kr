@@ -10,14 +10,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
-ms.openlocfilehash: 482dc0ab549ec6b9f05bc9f74a3d31ac13646ce5
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 6c81e50560de69f7702e852d4602680fde7f01f3
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169201"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79218137"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-classic-web-service"></a>Azure Machine Learning Studio (클래식) 웹 서비스 배포
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Azure Machine Learning Studio (클래식)를 사용 하 여 예측 분석 솔루션을 빌드 및 테스트할 수 있습니다. 그런 다음, 솔루션을 웹 서비스로 배포할 수 있습니다.
 

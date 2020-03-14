@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.service: key-vault
 ms.subservice: general
 ms.openlocfilehash: 6377edf72651c9cddf570d0c6db9d5ceb40409f4
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78200722"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79270889"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>.NET을 사용하여 Azure Key Vault에 서비스 간 인증
 
@@ -25,7 +25,7 @@ Azure Key Vault에 인증 하려면 공유 암호 또는 인증서 인 Azure Act
 
 `Microsoft.Azure.Services.AppAuthentication` 라이브러리는 인증을 자동으로 관리 합니다. 그러면 자격 증명이 아닌 솔루션에 집중할 수 있습니다. Microsoft Visual Studio, Azure CLI 또는 Azure AD 통합 인증을 사용 하 여 로컬 개발을 지원 합니다. 관리 ID를 지원하는 Azure 리소스에 배포된 라이브러리는 [Azure 리소스용 관리 ID](../active-directory/msi-overview.md)를 자동으로 사용합니다. 코드 또는 구성을 변경할 필요가 없습니다. 또한 라이브러리는 관리 되는 id를 사용할 수 없는 경우 또는 로컬 개발 중에 개발자의 보안 컨텍스트를 확인할 수 없는 경우 Azure AD [클라이언트 자격 증명](../azure-resource-manager/resource-group-authenticate-service-principal.md) 을 직접 사용 하도록 지원 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - [Visual studio 2019](https://www.visualstudio.com/downloads/) 또는 [visual studio 2017 v 15.5](https://blogs.msdn.microsoft.com/visualstudio/2017/10/11/visual-studio-2017-version-15-5-preview/).
 
@@ -108,7 +108,7 @@ Azure AD 인증을 사용하려면 다음을 확인합니다.
 
 Azure 서비스를 사용하면 사용자와 애플리케이션에 모두 액세스할 수 있으므로 서비스에서 Azure 서비스를 호출하는 경우 이전 단계가 작동합니다.
 
-사용자 지정 서비스를 호출하는 서비스를 만들 경우 로컬 개발 인증에 Azure AD 클라이언트 자격 증명을 사용합니다. 두 가지 옵션 중에서 선택할 수 있습니다.
+사용자 지정 서비스를 호출하는 서비스를 만들 경우 로컬 개발 인증에 Azure AD 클라이언트 자격 증명을 사용합니다. 옵션에는
 
 - 서비스 주체를 사용하여 Azure에 로그인:
 
@@ -168,7 +168,7 @@ Azure App Service 또는 활성화된 관리 ID를 사용하는 Azure VM에서 �
 
     *{AppId}* , *{TenantId}* 및 *{Thumbprint}* 를 1단계에서 생성된 값으로 바꿉니다. 배포 계획에 따라 *{CertificateStore}* 을 *LocalMachine*' 또는 *CurrentUser*로 바꿉니다.
 
-1. 응용 프로그램을 실행합니다.
+1. 애플리케이션을 실행합니다.
 
 ### <a name="use-a-shared-secret-credential-to-sign-into-azure-ad"></a>공유 암호 자격 증명을 사용 하 여 Azure AD에 로그인
 
@@ -186,7 +186,7 @@ Azure App Service 또는 활성화된 관리 ID를 사용하는 Azure VM에서 �
 
     _{AppId}_ , _{TenantId}_ 및 _{ClientSecret}_ 을 1단계에서 생성된 값으로 바꿉니다.
 
-1. 응용 프로그램을 실행합니다.
+1. 애플리케이션을 실행합니다.
 
 모두가 올바로 설정되면 더 이상 코드를 변경할 필요가 없습니다. `AzureServiceTokenProvider`는 환경 변수 및 인증서를 사용하여 Azure AD에 인증합니다.
 
@@ -230,7 +230,7 @@ Azure App Service 또는 활성화된 관리 ID를 사용하는 Azure VM에서 �
 
 다음과 같은 옵션이 지원됩니다.
 
-| 연결 문자열 옵션 | 시나리오 | 설명|
+| 연결 문자열 옵션 | 시나리오 | 주석|
 |:--------------------------------|:------------------------|:----------------------------|
 | `RunAs=Developer; DeveloperTool=AzureCli` | 로컬 개발 | `AzureServiceTokenProvider`는 AzureCli를 사용 하 여 토큰을 가져옵니다. |
 | `RunAs=Developer; DeveloperTool=VisualStudio` | 로컬 개발 | `AzureServiceTokenProvider` Visual Studio를 사용 하 여 토큰을 가져옵니다. |

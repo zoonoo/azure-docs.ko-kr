@@ -6,12 +6,12 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: 6e2437fadb743706d4f4215bbcbab8616817de5f
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: a2eade6c5a9c826d28d435a09861ba58463ae8c4
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78381495"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79280535"
 ---
 # <a name="azure-active-directory-integration-for-azure-red-hat-openshift"></a>Azure Red Hat OpenShift에 대 한 Azure Active Directory 통합
 
@@ -92,15 +92,20 @@ Azure 애플리케이션 개체에 대 한 자세한 내용은 [Azure Active Dir
 
 ## <a name="add-api-permissions"></a>API 사용 권한 추가
 
-1. **관리** 섹션에서 **API 권한**을 클릭 합니다.
-2. **권한 추가** 를 클릭 하 고 **Azure Active Directory 그래프** , **위임 된 권한**을 차례로 선택 합니다. 
-3. 아래 목록에서 **사용자** 를 확장 하 고 **사용자의 읽기** 권한을 사용 하도록 설정 합니다. **사용자** 가 기본적으로 사용 하도록 설정 되어 있는 경우에는 **Azure Active Directory Graph** 권한 **사용자**인지 확인 합니다. **Microsoft Graph** 권한 사용자는 읽을 수 *없습니다* . **읽기**.
+[//]: # (Microsoft Graph로 변경 하지 마십시오. Microsoft Graph에서는 작동 하지 않습니다.)
+1. **관리** 섹션에서 **API 권한** 을 클릭 합니다.
+2. **권한 추가** 를 클릭 하 고 **Azure Active Directory 그래프** , **위임 된 권한**을 차례로 선택 합니다.
+> [!NOTE]
+> "Microsoft Graph" 타일이 아니라 "Azure Active Directory 그래프"를 선택 했는지 확인 합니다.
+
+3. 아래 목록에서 **사용자** 를 확장 하 고 **사용자의 읽기** 권한을 사용 하도록 설정 합니다. **사용자** 가 기본적으로 사용 하도록 설정 되어 있으면 **Azure Active Directory Graph** 권한 사용자 인지 확인 합니다 **. 읽기**.
 4. 위로 스크롤하여 **응용 프로그램 사용 권한**을 선택 합니다.
-5. 아래 목록에서 **디렉터리** 를 확장 하 고 디렉터리를 사용 하도록 설정 **합니다. readall**
+5. 아래 목록에서 **디렉터리** 를 확장 하 고 디렉터리를 사용 하도록 설정 **합니다. readall**.
 6. **권한 추가** 를 클릭 하 여 변경 내용을 적용 합니다.
 7. 이제 API 사용 권한 패널에 *User. Read* 및 Directory를 모두 표시 해야 합니다 *. readall*. 디렉터리 옆에 있는 **관리자 동의 필요** 열에서 경고를 확인 하십시오 *. readall*.
 8. *Azure 구독 관리자*인 경우 아래  ***구독 이름* 에 대해 관리자 동의 부여** 를 클릭 합니다. *Azure 구독 관리자*가 아닌 경우 관리자에 게 동의를 요청 합니다.
-API 사용 권한 패널의 ![스크린샷 사용자. 읽기 및 디렉터리. 모든 권한이 추가 되었고 디렉터리에 관리자 동의가 필요 합니다. ReadAll](./media/howto-aad-app-configuration/permissions-required.png)
+
+![API 사용 권한 패널의 스크린샷 사용자. 읽기 및 디렉터리. 모든 권한이 추가 되었고 디렉터리에 관리자 동의가 필요 합니다. ReadAll](./media/howto-aad-app-configuration/permissions-required.png)
 
 > [!IMPORTANT]
 > 동의가 부여 된 후에만 클러스터 관리자 그룹의 동기화가 작동 합니다. *관리 동의 필요* 열에서 확인 표시와 메시지 " *구독 이름*에 대해 부여 됨" 메시지가 표시 된 녹색 원이 표시 됩니다.

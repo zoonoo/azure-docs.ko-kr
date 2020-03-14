@@ -4,11 +4,11 @@ description: 이 문서에서는 Azure 가상 컴퓨터 복구 지점에서 파�
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.openlocfilehash: 0e3061ea8fc26adcf39fe415cd9a662de739543a
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78363896"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79273307"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Azure Virtual Machine 백업에서 파일 복구
 
@@ -163,8 +163,8 @@ RAID 디스크에 다른 LVM이 구성 되어 있는 경우 LVM 파티션에 대
 
 |서버 OS | 호환되는 클라이언트 OS  |
 | --------------- | ---- |
-| Windows Server 2019    | Windows 10 |
-| Windows Server 2016    | Windows 10 |
+| Windows Server 2019    | 윈도우 10 |
+| Windows Server 2016    | 윈도우 10 |
 | Windows Server 2012 R2 | Windows 8.1 |
 | Windows Server 2012    | Windows 8  |
 | Windows Server 2008 R2 | Windows 7   |
@@ -192,7 +192,7 @@ Linux에서 파일을 복원하는 데 사용하는 컴퓨터의 OS는 보호된
 
 |구성 요소 | 버전  |
 | --------------- | ---- |
-| 백슬래시 | 4 이상 |
+| bash | 4 이상 |
 | python | 2.6.6 이상  |
 | TLS | 1.2가 지원되어야 합니다.  |
 

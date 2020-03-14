@@ -16,11 +16,11 @@ ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
 ms.openlocfilehash: 20c231e4f3052797eac79a3c97a3d8148690b8c5
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78388759"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79249803"
 ---
 # <a name="configure-a-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Azure virtual machines에서 SQL Server 장애 조치 (failover) 클러스터 인스턴스 구성
 

@@ -4,11 +4,11 @@ description: 고객은 Azure Portal의 서비스 공급자 페이지를 사용�
 ms.date: 02/25/2020
 ms.topic: conceptual
 ms.openlocfilehash: 94103c293ffa7ccfb9d7da0a237dc1b1c6540b72
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77649741"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79270629"
 ---
 # <a name="view-and-manage-service-providers"></a>서비스 공급자 보기 및 관리
 

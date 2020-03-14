@@ -4,12 +4,12 @@ description: Application Insights 사용할 수 있는 언어, 플랫폼 및 통
 ms.topic: conceptual
 ms.date: 07/18/2019
 ms.reviewer: olegan
-ms.openlocfilehash: d87b1d0aa74263f249db2030f2366b93b8c2b421
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: cbda252fece638393ee7757dc165c4b009a0195e
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77669831"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136726"
 ---
 # <a name="supported-languages"></a>지원되는 언어
 
@@ -17,7 +17,7 @@ ms.locfileid: "77669831"
 * [Java](../../azure-monitor/app/java-get-started.md)
 * [JavaScript](../../azure-monitor/app/javascript.md)
 * [Node.JS](../../azure-monitor/app/nodejs.md)
-* [Python(미리 보기)](../../azure-monitor/app/opencensus-python.md)
+* [Python](../../azure-monitor/app/opencensus-python.md)
 
 ## <a name="supported-platforms-and-frameworks"></a>지원되는 플랫폼 및 프레임워크
 
@@ -34,7 +34,7 @@ ms.locfileid: "77669831"
 * [iOS](../../azure-monitor/learn/mobile-center-quickstart.md)(App Center)
 * [Java EE](../../azure-monitor/app/java-get-started.md)
 * [Node.JS](https://www.npmjs.com/package/applicationinsights)
-* [Python(미리 보기)](../../azure-monitor/app/opencensus-python.md)
+* [Python](../../azure-monitor/app/opencensus-python.md)
 * [유니버설 Windows 앱](../../azure-monitor/learn/mobile-center-quickstart.md)(App Center)
 * [Windows 데스크톱 애플리케이션, 서비스 및 작업자 역할](../../azure-monitor/app/windows-desktop.md)
 

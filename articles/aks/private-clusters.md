@@ -4,100 +4,23 @@ description: AKS (개인 Azure Kubernetes Service) 클러스터를 만드는 방
 services: container-service
 ms.topic: article
 ms.date: 2/21/2020
-ms.openlocfilehash: 0a05bd15fff97d4f0020f6ce82ee90a2fe995edf
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: b8b4f8062d9f60648e22ab4eb0be78eb47159834
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78944210"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79205177"
 ---
-# <a name="create-a-private-azure-kubernetes-service-cluster-preview"></a>개인 Azure Kubernetes Service 클러스터 만들기 (미리 보기)
+# <a name="create-a-private-azure-kubernetes-service-cluster"></a>개인 Azure Kubernetes Service 클러스터 만들기
 
 개인 클러스터에서 제어 평면이 나 API 서버에는 [개인 인터넷 문서에 대 한 RFC1918 할당](https://tools.ietf.org/html/rfc1918) 에 정의 된 내부 IP 주소가 있습니다. 개인 클러스터를 사용 하 여 API 서버와 노드 풀 간의 네트워크 트래픽이 개인 네트워크에만 남아 있는지 확인할 수 있습니다.
 
 제어 평면 또는 API 서버는 Azure Kubernetes 서비스 (AKS)에서 관리 되는 Azure 구독에 있습니다. 고객의 클러스터 또는 노드 풀은 고객의 구독에 있습니다. 서버와 클러스터 또는 노드 풀은 API 서버 가상 네트워크의 [Azure 개인 링크 서비스][private-link-service] 및 고객의 AKS 클러스터의 서브넷에 노출 되는 개인 끝점을 통해 서로 통신할 수 있습니다.
 
-> [!IMPORTANT]
-> AKS 미리 보기 기능은 셀프 서비스 이며 옵트인 기반으로 제공 됩니다. 미리 *보기는 그대로 제공* 되며 *사용 가능* 하 고 SLA (서비스 수준 계약) 및 제한 된 보증에서 제외 됩니다. AKS 미리 보기는 *최상의 노력* 을 기반으로 고객 지원을 통해 부분적으로 검사 됩니다. 따라서이 기능은 프로덕션 용도로 사용 되지 않습니다. 자세한 내용은 다음 지원 문서를 참조 하세요.
->
-> * [AKS 지원 정책](support-policies.md)
-> * [Azure 지원 FAQ](faq.md)
-
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* Azure CLI 버전 2.0.77 이상 및 Azure CLI AKS Preview 확장 버전 0.4.18
+* Azure CLI 버전 2.2.0 이상
 
-## <a name="currently-supported-regions"></a>현재 지원 되는 지역
-
-* 오스트레일리아 동부
-* 오스트레일리아 남동부
-* 브라질 남부
-* 캐나다 중부
-* 캐나다 동부
-* 미국 Cenral
-* 동아시아
-* 미국 동부
-* 미국 동부 2
-* 미국 동부 2 EUAP
-* 프랑스 중부
-* 독일 북부
-* 일본 동부
-* 일본 서부
-* 한국 중부
-* 한국 남부
-* 미국 중북부
-* 북유럽
-* 북유럽
-* 미국 중남부
-* 영국 남부
-* 서유럽
-* 미국 서부
-* 미국 서부 2
-* 미국 동부 2
-
-## <a name="currently-supported-availability-zones"></a>현재 지원 가용성 영역
-
-* 미국 중부
-* 미국 동부
-* 미국 동부 2
-* 프랑스 중부
-* 일본 동부
-* 북유럽
-* 동남아시아
-* 영국 남부
-* 서유럽
-* 미국 서부 2
-
-## <a name="install-the-latest-azure-cli-aks-preview-extension"></a>최신 Azure CLI AKS Preview 확장을 설치 합니다.
-
-개인 클러스터를 사용 하려면 Azure CLI AKS Preview 확장 버전 0.4.18 이상이 필요 합니다. [Az extension add][az-extension-add] 명령을 사용 하 여 Azure CLI AKS Preview 확장을 설치 하 고 다음 [az extension update][az-extension-update] 명령을 사용 하 여 사용 가능한 업데이트를 확인 합니다.
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
-> [!CAUTION]
-> 구독에 기능을 등록 하면 현재 해당 기능을 등록 취소할 수 없습니다. 일부 미리 보기 기능을 사용 하도록 설정한 후에는 구독에서 만든 모든 AKS 클러스터에 대해 기본 설정을 사용할 수 있습니다. 프로덕션 구독에서 미리 보기 기능을 사용 하도록 설정 하지 마세요. 별도의 구독을 사용 하 여 미리 보기 기능을 테스트 하 고 피드백을 수집 합니다.
-
-```azurecli-interactive
-az feature register --name AKSPrivateLinkPreview --namespace Microsoft.ContainerService
-```
-
-등록 상태가 *등록*된 것으로 표시 되는 데 몇 분 정도 걸릴 수 있습니다. 다음 [az feature list][az-feature-list] 명령을 사용 하 여 상태를 확인할 수 있습니다.
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKSPrivateLinkPreview')].{Name:name,State:properties.state}"
-```
-
-상태가 등록 됨 인 경우 다음 [az provider register][az-provider-register] 명령을 사용 하 여 *ContainerService* 리소스 공급자의 등록을 새로 고칩니다.
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-az provider register --namespace Microsoft.Network
-```
 ## <a name="create-a-private-aks-cluster"></a>개인 AKS 클러스터 만들기
 
 ### <a name="create-a-resource-group"></a>리소스 그룹 만들기
@@ -159,6 +82,7 @@ AKS 클러스터와 동일한 VNET에 VM을 만드는 것이 가장 쉬운 옵�
 9. VM이 있는 가상 네트워크로 이동 하 **여 피어 링을 선택 하**고 AKS 가상 네트워크를 선택한 다음 피어 링을 만듭니다. AKS 가상 네트워크의 주소 범위와 VM의 가상 네트워크가 충돌 하는 경우 피어 링이 실패 합니다. 자세한 내용은 [가상 네트워크 피어 링][virtual-network-peering]을 참조 하세요.
 
 ## <a name="dependencies"></a>종속성  
+
 * 개인 링크 서비스는 표준 Azure Load Balancer 에서만 지원 됩니다. 기본 Azure Load Balancer 지원 되지 않습니다.  
 * 사용자 지정 DNS 서버를 사용 하려면 DNS를 사용 하 여이 IP 168.63.129.16 전달 되는 AD 서버를 배포 합니다.
 
@@ -173,7 +97,6 @@ AKS 클러스터와 동일한 VNET에 VM을 만드는 것이 가장 쉬운 옵�
 * 기존 AKS 클러스터를 개인 클러스터로 변환 하는 기능이 지원 되지 않음
 * 고객 서브넷에서 개인 끝점을 삭제 하거나 수정 하면 클러스터의 작동이 중지 됩니다. 
 * 컨테이너 라이브 데이터에 대 한 Azure Monitor 현재 지원 되지 않습니다.
-* *사용자 고유의 DNS 가져오기* 는 현재 지원 되지 않습니다.
 
 
 <!-- LINKS - internal -->

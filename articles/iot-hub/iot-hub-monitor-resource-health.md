@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: kgremban
 ms.openlocfilehash: f801abc40caf273c28a0c01dedf9735f5198c2af
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73929702"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79271084"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Azure IoT Hub 상태 모니터링 및 신속한 문제 진단
 
@@ -42,7 +42,7 @@ Watch Azure Monitor 하는 특정 메트릭 및 이벤트에 대 한 자세한 �
 
 Azure Monitor는 IoT Hub에서 발생하는 여러 작업을 추적합니다. 각 범주에는 해당 범주의 이벤트를 보고하는 방식을 정의하는 스키마가 있습니다.
 
-#### <a name="connections"></a>연결
+#### <a name="connections"></a>Connections
 
 연결 범주는 오류뿐 아니라 IoT Hub에서의 디바이스 연결 및 이벤트 분리를 추적합니다. 이 범주는 디바이스에 대한 연결을 분실한 경우 무단 연결 시도를 식별하고 경고하는 데 유용합니다.
 
@@ -343,9 +343,9 @@ IoT Hub는 유효한 추적 속성이 포함된 메시지가 IoT Hub에 도착�
 
 여기서 `durationMs`는 IoT Hub 시계가 디바이스 시계와 동기화되지 않아 기간 계산이 잘못될 수 있기 때문에 계산되지 않습니다. 디바이스-클라우드 대기 시간의 급증을 캡처하려면 `properties` 섹션에서 타임스탬프를 사용한 논리를 작성하는 것이 좋습니다.
 
-| 속성 | 에 | 설명 |
+| 속성 | Type | Description |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
-| **messageSize** | 정수, | 디바이스-클라우드 메시지의 크기(바이트) |
+| **messageSize** | 정수 | 디바이스-클라우드 메시지의 크기(바이트) |
 | **deviceId** | ASCII 7비트 영숫자 문자의 문자열 | 디바이스의 ID |
 | **callerLocalTimeUtc** | UTC 타임스탬프 | 디바이스 로컬 시계에서 보고한 메시지 생성 시간 |
 | **calleeLocalTimeUtc** | UTC 타임스탬프 | IoT Hub 서비스 쪽 시계에서 메시지가 IoT Hub의 게이트웨이에 도착했다고 보고한 시간 |
@@ -377,10 +377,10 @@ IoT Hub는 유효한 추적 속성이 포함된 메시지가 내부 또는 기�
 
 `properties` 섹션에서이 로그에는 메시지 수신에 대 한 추가 정보가 포함 되어 있습니다.
 
-| 속성 | 에 | 설명 |
+| 속성 | Type | Description |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
-| **isRoutingEnabled** | 문자열 | true 또는 false이며, IoT Hub에서 메시지 라우팅이 사용되는지 여부를 나타냅니다. |
-| **parentSpanId** | 문자열 | 부모 메시지(이 경우 D2C 메시지 추적)의 [span-id](https://w3c.github.io/trace-context/#parent-id)입니다. |
+| **isRoutingEnabled** | String | true 또는 false이며, IoT Hub에서 메시지 라우팅이 사용되는지 여부를 나타냅니다. |
+| **parentSpanId** | String | 부모 메시지(이 경우 D2C 메시지 추적)의 [span-id](https://w3c.github.io/trace-context/#parent-id)입니다. |
 
 ##### <a name="iot-hub-egress-logs"></a>IoT Hub 송신 로그
 
@@ -409,11 +409,11 @@ IoT Hub는 [라우팅](iot-hub-devguide-messages-d2c.md)이 사용되고 메시�
 
 `properties` 섹션에서이 로그에는 메시지 수신에 대 한 추가 정보가 포함 되어 있습니다.
 
-| 속성 | 에 | 설명 |
+| 속성 | Type | Description |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
-| **endpointName** | 문자열 | 라우팅 엔드포인트의 이름입니다. |
-| **endpointType** | 문자열 | 라우팅 엔드포인트의 유형입니다. |
-| **parentSpanId** | 문자열 | 부모 메시지(이 경우 IoT Hub 수신 메시지 추적)의 [span-id](https://w3c.github.io/trace-context/#parent-id)입니다. |
+| **endpointName** | String | 라우팅 엔드포인트의 이름입니다. |
+| **endpointType** | String | 라우팅 엔드포인트의 유형입니다. |
+| **parentSpanId** | String | 부모 메시지(이 경우 IoT Hub 수신 메시지 추적)의 [span-id](https://w3c.github.io/trace-context/#parent-id)입니다. |
 
 #### <a name="configurations"></a>구성
 

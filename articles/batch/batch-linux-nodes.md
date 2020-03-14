@@ -15,11 +15,11 @@ ms.date: 06/01/2018
 ms.author: labrenne
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 977504f41e93e37ae2c5ce9bdb1182a1cfe0a3fd
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77917501"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79252286"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>Batch 풀에서 Linux 컴퓨팅 노드 프로비전
 
@@ -30,7 +30,7 @@ Azure Batch를 사용하여 Linux 및 Windows 가상 머신에서 병렬 컴퓨�
 >
 >
 
-## <a name="virtual-machine-configuration"></a>가상 컴퓨터 구성
+## <a name="virtual-machine-configuration"></a>가상 머신 구성
 Batch에서 컴퓨팅 노드 풀을 만드는 경우 노드 크기와 운영 체제를 선택할 수 있는 두 가지 옵션인 Cloud Service 구성 및 Virtual Machine 구성이 있습니다.
 
 **Cloud Services 구성**은 Windows 컴퓨팅 노드*만*제공합니다. 사용 가능한 컴퓨팅 노드 크기는 [Cloud Services 크기](../cloud-services/cloud-services-sizes-specs.md)에 나열되고 사용 가능한 운영 체제는 [Azure 게스트 OS 릴리스 및 SDK 호환성 매트릭스](../cloud-services/cloud-services-guestos-update-matrix.md)에 나열됩니다. Azure Cloud Services 노드를 포함하는 풀을 만드는 경우 노드 크기 및 OS 제품군을 지정하며, 앞에서 언급한 문서에 설명되어 있습니다. Windows 컴퓨팅 노드의 풀에는 Cloud Services가 가장 일반적으로 사용됩니다.

@@ -9,18 +9,22 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: larryfr
 author: blackmist
-ms.date: 11/12/2019
-ms.openlocfilehash: 34aba3c00ac0026abebbdfc93143aa5e7f788e8b
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.date: 03/12/2020
+ms.openlocfilehash: 464ec1fcf0986dc04bd92bbe9e31b5675e5822d4
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78268473"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136196"
 ---
 # <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>ML 웹 서비스 끝점에서 데이터 모니터링 및 수집
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-이 문서에서는 Azure 애플리케이션 Insights를 사용 하 여 Azure Kubernetes Service Azure Container Instances (ACI)에서 웹 서비스 끝점에 배포 된 모델에서 데이터를 수집 하 고 모니터링 하는 방법에 대해 알아봅니다. 끝점의 입력 데이터 및 응답을 수집 하는 것 외에도 다음을 모니터링할 수 있습니다.
+이 문서에서는를 통해 Azure 애플리케이션 Insights를 사용 하도록 설정 하 여 Azure Kubernetes Service Azure Container Instances (ACI)에서 웹 서비스 끝점에 배포 된 모델에서 데이터를 수집 하 고 모니터링 하는 방법에 대해 알아봅니다. 
+* [Azure Machine Learning Python SDK](#python)
+* https://ml.azure.com [Azure Machine Learning studio](#studio)
+
+끝점의 출력 데이터와 응답을 수집 하는 것 외에도 다음을 모니터링할 수 있습니다.
 
 * 요청 속도, 응답 시간 및 실패율
 * 종속성 비율, 응답 시간 및 실패율
@@ -34,6 +38,7 @@ ms.locfileid: "78268473"
 * Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
 * Azure Machine Learning 작업 영역, 스크립트가 포함된 로컬 디렉터리 및 Python용 Azure Machine Learning SDK가 설치되어 있어야 합니다. 이러한 필수 구성 요소를 가져오는 방법을 알아보려면 [개발 환경을 구성](how-to-configure-environment.md) 하는 방법을 참조 하세요.
+
 * AKS(Azure Kubernetes Service) 또는 ACI(Azure Container Instances)에 배포할 학습된 Machine Learning 모델. 없는 경우 [학습 이미지 분류 모델](tutorial-train-models-with-aml.md) 자습서를 참조 하세요.
 
 ## <a name="web-service-metadata-and-response-data"></a>웹 서비스 메타 데이터 및 응답 데이터
@@ -42,6 +47,8 @@ ms.locfileid: "78268473"
 > Azure 애플리케이션 Insights는 최대 64kb의 페이로드를 기록 합니다. 이 제한에 도달 하면 모델의 가장 최근 출력만 기록 됩니다. 
 
 웹 서비스 메타 데이터 및 모델의 예측에 해당 하는 서비스에 대 한 메타 데이터 및 응답은 메시지 `"model_data_collection"`의 Azure 애플리케이션 Insights 추적에 기록 됩니다. 이 데이터에 액세스 하거나 더 긴 보존 또는 추가 처리를 위해 저장소 계정에 대 한 [연속 내보내기를](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) 설정 하기 위해 Azure 애플리케이션 Insights를 직접 쿼리할 수 있습니다. 모델 데이터는 Azure Machine Learning에서 레이블 지정, 재 학습, explainability, 데이터 분석 또는 기타 사용을 설정 하는 데 사용할 수 있습니다. 
+
+<a name="python"></a>
 
 ## <a name="use-python-sdk-to-configure"></a>Python SDK를 사용 하 여 구성 
 
@@ -86,11 +93,27 @@ Azure 애플리케이션 Insights를 사용 하지 않도록 설정 하려면 �
 <service_name>.update(enable_app_insights=False)
 ```
 
+<a name="studio"></a>
+
+## <a name="use-azure-machine-learning-studio-to-configure"></a>Azure Machine Learning studio를 사용 하 여 구성
+
+이러한 단계를 사용 하 여 모델을 배포할 준비가 되 면 Azure Machine Learning studio에서 Azure 애플리케이션 Insights를 사용 하도록 설정할 수도 있습니다.
+
+1. https://ml.azure.com/에서 작업 영역에 로그인 합니다.
+1. **모델** 로 이동 하 여 배포할 모델을 선택 합니다.
+1. **+ 배포** 선택
+1. **모델 배포** 양식 채우기
+1. **고급** 메뉴 확장
+
+    ![배포 양식](./media/how-to-enable-app-insights/deploy-form.png)
+1. **Application Insights 진단 및 데이터 수집 사용을** 선택 합니다.
+
+    ![앱 Insights 사용](./media/how-to-enable-app-insights/enable-app-insights.png)
 ## <a name="evaluate-data"></a>데이터 평가
 서비스의 데이터는 Azure Machine Learning와 동일한 리소스 그룹 내에 Azure 애플리케이션 Insights 계정에 저장 됩니다.
 이 데이터를 보려면:
 
-1. [Azure Machine Learning studio](https://ml.azure.com) 에서 Azure Machine Learning 작업 영역으로 이동 하 여 Application Insights 링크를 클릭 합니다.
+1. [Azure Portal](https://ms.portal.azure.com/) 에서 Azure Machine Learning 작업 영역으로 이동 하 여 Application Insights 링크를 클릭 합니다.
 
     [![AppInsightsLoc](./media/how-to-enable-app-insights/AppInsightsLoc.png)](././media/how-to-enable-app-insights/AppInsightsLoc.png#lightbox)
 

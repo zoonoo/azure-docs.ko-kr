@@ -10,14 +10,17 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/19/2018
-ms.openlocfilehash: e3668718e27a3dcb545428637b34de51ec621c60
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: b7b8606f7f15f8d6fdd66681a1c7ade60ff506f3
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169047"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79217777"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio (클래식)에서 샘플 데이터 집합 사용
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+
 [top]: #machine-learning-sample-datasets
 
 Azure Machine Learning Studio (클래식)에서 새 작업 영역을 만들 때 기본적으로 몇 가지 샘플 데이터 집합 및 실험을 포함 합니다. 이 샘플 데이터 세트 중 다수는 [Azure AI 갤러리](https://gallery.azure.ai/)의 샘플 모델에서 사용됩니다. 나머지는 Machine Learning에서 일반적으로 사용되는 다양한 유형의 데이터 예로 포함됩니다.

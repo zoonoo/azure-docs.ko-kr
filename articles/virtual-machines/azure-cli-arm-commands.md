@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 04/18/2017
 ms.author: cynthn
 ms.openlocfilehash: ad213cc02f707609a837ea66b79e51c6f2a617f8
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77919773"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79250882"
 ---
 # <a name="azure-classic-cli-commands"></a>Azure 클래식 CLI 명령 
 
@@ -1696,7 +1696,7 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
 
     tag show [options] [name]
 
-## <a name="virtual-machines"></a>가상 컴퓨터
+## <a name="virtual-machines"></a>Virtual Machines
 **VM 만들기**
 
     vm create [options] <resource-group> <name> <location> <os-type>

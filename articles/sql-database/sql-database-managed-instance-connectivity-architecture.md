@@ -12,11 +12,11 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 04/16/2019
 ms.openlocfilehash: ec1430e7dd79378473cce9dbb77bedecd14600c8
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78228278"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79256784"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Azure SQL Database에서 관리 되는 인스턴스의 연결 아키텍처
 

@@ -14,12 +14,12 @@ ms.date: 02/19/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, lenalepa, sureshja, kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: b3338edf644aee8409cfca05d4ac801594cbf66b
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 33116039d5e47b95322ffafb4e8f4eef31bd84cf
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77467762"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79262946"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>방법: 다중 테넌트 애플리케이션 패턴을 사용하여 Azure Active Directory 사용자 로그인
 
@@ -115,7 +115,7 @@ Microsoft id 플랫폼은/common 끝점에서 요청을 받으면 사용자에 �
 
 응용 프로그램 전용 권한은 테넌트 관리자의 동의를 항상 필요로 합니다. 애플리케이션이 애플리케이션 전용 사용 권한을 요청하고 사용자가 애플리케이션에 로그인을 시도하는 경우 사용자가 동의할 수 없음을 알리는 오류 메시지가 나타납니다.
 
-위임된 특정 권한은 또한 테넌트 관리자의 동의를 필요로 합니다. 예를 들어, 로그인한 사용자로 Azure AD에 쓰기 저장 기능은 테넌트 관리자의 동의가 필요합니다. 애플리케이션 전용 권한과 같이, 일반 사용자가 관리자 동의가 필요한 위임된 권한을 요청하는 애플리케이션에 로그인하려는 경우 애플리케이션에 오류가 발생합니다. 권한에 관리자 동의가 필요한지 여부는 리소스를 게시한 개발자가 결정하며 해당 리스스에 대한 설명서에서 확인할 수 있습니다. [AZURE AD Graph API][AAD-Graph-Perm-Scopes] 및 [Microsoft Graph API][MSFT-Graph-permission-scopes] 에 대 한 사용 권한 설명서는 관리자 동의가 필요한 권한을 표시 합니다.
+위임된 특정 권한은 또한 테넌트 관리자의 동의를 필요로 합니다. 예를 들어, 로그인한 사용자로 Azure AD에 쓰기 저장 기능은 테넌트 관리자의 동의가 필요합니다. 애플리케이션 전용 권한과 같이, 일반 사용자가 관리자 동의가 필요한 위임된 권한을 요청하는 애플리케이션에 로그인하려는 경우 애플리케이션에 오류가 발생합니다. 권한에 관리자 동의가 필요한지 여부는 리소스를 게시한 개발자가 결정하며 해당 리스스에 대한 설명서에서 확인할 수 있습니다. [MICROSOFT GRAPH API][MSFT-Graph-permission-scopes] 에 대 한 사용 권한 설명서는 관리자 동의가 필요한 사용 권한을 표시 합니다.
 
 애플리케이션이 관리자 동의가 필요한 권한을 사용할 경우, 관리자가 작업을 시작할 수 있도록 단추나 링크와 같은 제스처가 있어야 합니다. 애플리케이션에서 이 작업에 대해 보내는 요청은 `prompt=admin_consent` 쿼리 문자열 매개 변수도 포함된 일반적인 OAuth2/OpenID Connect 권한 부여 요청입니다. 일단 관리자가 동의했고 서비스 주체가 고객 테넌트에 만들어졌다면 차후의 로그인 요청은 `prompt=admin_consent` 매개 변수를 필요로 하지 않습니다. 관리자가 요청된 권한이 허용된다고 결정했다면 테넌트의 다른 사용자들에게 그 시점 이후로 동의하라는 메시지가 표시되지 않습니다.
 
@@ -182,7 +182,6 @@ Microsoft 이외의 조직에서 빌드한 API의 경우, API 개발자는 고�
 * [Azure Active Directory와 애플리케이션 통합][AAD-Integrating-Apps]
 * [승인 프레임 워크 개요][AAD-Consent-Overview]
 * [Microsoft Graph API 권한 범위][MSFT-Graph-permission-scopes]
-* [Azure AD Graph API 권한 범위][AAD-Graph-Perm-Scopes]
 
 <!--Reference style links IN USE -->
 [AAD-Access-Panel]:  https://myapps.microsoft.com
@@ -192,8 +191,6 @@ Microsoft 이외의 조직에서 빌드한 API의 경우, API 개발자는 고�
 [AAD-Auth-Scenarios]:authentication-scenarios.md
 [AAD-Consent-Overview]:consent-framework.md
 [AAD-Dev-Guide]:azure-ad-developers-guide.md
-[AAD-Graph-Overview]: https://azure.microsoft.com/documentation/articles/active-directory-graph-api/
-[AAD-Graph-Perm-Scopes]: https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes
 [AAD-Integrating-Apps]:quickstart-v1-integrate-apps-with-azure-ad.md
 [AAD-Samples-MT]: https://docs.microsoft.com/samples/browse/?products=azure-active-directory
 [AAD-Why-To-Integrate]: ./active-directory-how-to-integrate.md
@@ -213,10 +210,6 @@ Microsoft 이외의 조직에서 빌드한 API의 경우, API 개발자는 고�
 [AAD-Auth-Scenarios]:authentication-scenarios.md
 [AAD-Integrating-Apps]:quickstart-v1-integrate-apps-with-azure-ad.md
 [AAD-Dev-Guide]:azure-ad-developers-guide.md
-[AAD-Graph-Perm-Scopes]: https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes
-[AAD-Graph-App-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity
-[AAD-Graph-Sp-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity
-[AAD-Graph-User-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity
 [AAD-How-To-Integrate]: ./active-directory-how-to-integrate.md
 [AAD-Security-Token-Claims]: ./active-directory-authentication-scenarios/#claims-in-azure-ad-security-tokens
 [AAD-Tokens-Claims]:access-tokens.md

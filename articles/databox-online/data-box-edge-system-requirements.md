@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: alkohli
 ms.openlocfilehash: 458c062eef011363724cb894ce67ba75181ba8ba
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76757869"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79260229"
 ---
 # <a name="azure-data-box-edge-system-requirements"></a>Azure Data Box Edge 시스템 요구 사항
 
@@ -60,7 +60,7 @@ Azure IoT Edge 런타임을 호스트하는 서버의 포트 구성에 대한 �
 
 | 포트 번호 | 인 또는 아웃 | 포트 범위 | 필수 | 지침 |
 |----------|-----------|------------|----------|----------|
-| TCP 443(HTTPS)| 아웃       | WAN        | 예      | IoT Edge 프로비전을 위해 아웃바운드로 엽니다. 수동 스크립트 또는 Azure IoT DPS(디바이스 프로비저닝 서비스)를 사용하는 경우 이 구성이 필요합니다.|
+| TCP 443(HTTPS)| 아웃       | WAN        | yes      | IoT Edge 프로비전을 위해 아웃바운드로 엽니다. 수동 스크립트 또는 Azure IoT DPS(디바이스 프로비저닝 서비스)를 사용하는 경우 이 구성이 필요합니다.|
 
 전체 정보를 보려면 [IoT Edge 배포에 대한 방화벽 및 포트 구성 규칙](https://docs.microsoft.com/azure/iot-edge/troubleshoot)으로 이동하세요.
 
@@ -94,9 +94,9 @@ Data Box Edge 고정 IP 주소에 따라 대부분의 경우 자유롭게 아웃
 
 | URL 패턴                      | 구성 요소 또는 기능                     |  
 |----------------------------------|---------------------------------------------|
-| https:\//mcr.microsoft.com<br></br>https://\*.cdn.mscr.com | Microsoft 컨테이너 레지스트리(필수)               |
-| https://\*.azure-devices.us              | IoT Hub 액세스(필수)           |
-| https://\*.azurecr.us                    | 개인 및 타사 컨테이너 레지스트리(선택 사항) | 
+| https:\//mcr.microsoft.com<br></br>https://\*cdn.mscr.com | Microsoft 컨테이너 레지스트리(필수)               |
+| https://\*azure-devices.us              | IoT Hub 액세스(필수)           |
+| https://\*azurecr.us                    | 개인 및 타사 컨테이너 레지스트리(선택 사항) | 
 
 ## <a name="internet-bandwidth"></a>인터넷 대역폭
 

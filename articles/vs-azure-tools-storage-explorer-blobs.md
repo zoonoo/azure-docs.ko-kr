@@ -15,24 +15,24 @@ ms.workload: na
 ms.date: 05/21/2019
 ms.author: cawa
 ms.openlocfilehash: 56c20c995a95058b5039b7268c7b7b1426e900fa
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442974"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79244395"
 ---
 # <a name="manage-azure-blob-storage-resources-with-storage-explorer"></a>Storage Explorer를 사용하여 Azure Blob Storage 리소스 관리
 
 ## <a name="overview"></a>개요
 
-[Azure Blob Storage](storage/blobs/storage-dotnet-how-to-use-blobs.md)는 HTTP 또는 HTTPS를 통해 전 세계 어디에서든 액세스할 수 있는 다량의 구조화되지 않은 데이터(예: 텍스트 또는 이진 데이터)를 저장할 수 있는 서비스입니다.
+[Azure Blob Storage](storage/blobs/storage-dotnet-how-to-use-blobs.md) 는 HTTP 또는 HTTPS를 통해 전 세계 어디에서든 액세스할 수 있는 다량의 구조화되지 않은 데이터(예: 텍스트 또는 이진 데이터)를 저장할 수 있는 서비스입니다.
 Blob Storage를 사용하여 세상에 공개적으로 표시하거나 애플리케이션 데이터를 비공개적으로 저장할 수 있습니다. 이 문서에서는 Storage Explorer를 사용하여 Blob 컨테이너 및 Blob으로 작업하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서의 단계를 완료하려면 다음과 같이 하는 것이 필요합니다.
 
-* [Storage 탐색기 다운로드 및 설치](https://www.storageexplorer.com)
+* [Storage Explorer 다운로드 및 설치](https://www.storageexplorer.com)
 * [Azure storage 계정 또는 서비스에 연결](vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or-service)
 
 ## <a name="create-a-blob-container"></a>Blob 컨테이너 만들기
@@ -46,7 +46,7 @@ Blob Storage를 사용하여 세상에 공개적으로 표시하거나 애플리
 3. 마우스 오른쪽 단추로 **Blob 컨테이너**를 클릭하고, 상황에 맞는 메뉴에서 **Blob 컨테이너 만들기**를 선택합니다.
 
    ![Blob 컨테이너 상황에 맞는 메뉴 만들기][0]
-4. 텍스트 상자가 **Blob 컨테이너** 폴더 아래에 표시됩니다. Blob 컨테이너에 대한 이름을 입력합니다. 참조 [컨테이너를 만드는](storage/blobs/storage-quickstart-blobs-dotnet.md#create-a-container) 규칙 및 blob 컨테이너 이름 명명 제한 사항에 대 한 정보에 대 한 합니다.
+4. 텍스트 상자가 **Blob 컨테이너** 폴더 아래에 표시됩니다. Blob 컨테이너에 대한 이름을 입력합니다. Blob 컨테이너 이름 지정에 대 한 규칙 및 제한 사항에 대 한 자세한 내용은 [컨테이너 만들기](storage/blobs/storage-quickstart-blobs-dotnet.md#create-a-container) 를 참조 하세요.
 
    ![Blob 컨테이너 텍스트 상자 만들기][1]
 5. Blob 컨테이너 만들기가 끝나면 **Enter** 키를 누르거나 **Esc** 키를 눌러 취소합니다. Blob 컨테이너가 성공적으로 만들어졌다면 선택한 스토리지 계정에 대해 **Blob 컨테이너** 폴더 아래에 표시됩니다.
@@ -99,7 +99,7 @@ Storage Explorer를 사용하여 Blob 컨테이너를 클립보드에 복사한 
 4. 마우스 오른쪽 단추로 복사하려는 Blob 컨테이너를 클릭하고, 상황에 맞는 메뉴에서 **Blob 컨테이너 복사**를 클릭합니다.
 
    ![Blob 컨테이너 상황에 맞는 메뉴 복사][6]
-5. 마우스 오른쪽 단추로 blob 컨테이너를 붙여 넣을 원하는 "대상" 저장소 계정을 클릭하고, 상황에 맞는 메뉴에서 **Blob 컨테이너 붙여넣기**를 선택합니다.
+5. 마우스 오른쪽 단추로 blob 컨테이너를 붙여 넣을 원하는 &quot;대상&quot; 스토리지 계정을 클릭하고, 상황에 맞는 메뉴에서 **Blob 컨테이너 붙여넣기**를 선택합니다.
 
    ![Blob 컨테이너 상황에 맞는 메뉴 붙여넣기][7]
 
@@ -186,7 +186,7 @@ Blob 컨테이너를 만들었다면 blob 컨테이너에 blob 업로드, 로컬
      2. **파일 업로드** 대화 상자에서 **파일** 텍스트 상자 오른쪽에 있는 줄임표( **…** ) 단추를 선택하여 업로드할 파일을 선택합니다.
 
         ![파일 옵션 업로드][16]
-     3. **Blob 유형**을 지정합니다. 참조 [컨테이너를 만드는](storage/blobs/storage-quickstart-blobs-dotnet.md#create-a-container) 자세한 내용은 합니다.
+     3. **Blob 유형**을 지정합니다. 자세한 내용은 [컨테이너 만들기](storage/blobs/storage-quickstart-blobs-dotnet.md#create-a-container) 를 참조 하세요.
      4. 필요에 따라 선택한 파일을 업로드할 대상 폴더를 지정합니다. 대상 폴더가 없다면 폴더가 만들어집니다.
      5. **업로드**를 선택합니다.
    * **Blob 컨테이너에 폴더 업로드**
@@ -197,7 +197,7 @@ Blob 컨테이너를 만들었다면 blob 컨테이너에 blob 업로드, 로컬
      2. **폴더 업로드** 대화 상자에서 **폴더** 텍스트 상자 오른쪽에 있는 줄임표( **…** ) 단추를 선택하여 내용을 업로드할 폴더를 선택합니다.
 
         ![폴더 옵션 업로드][18]
-     3. **Blob 유형**을 지정합니다. 참조 [컨테이너를 만드는](storage/blobs/storage-quickstart-blobs-dotnet.md#create-a-container) 자세한 내용은 합니다.
+     3. **Blob 유형**을 지정합니다. 자세한 내용은 [컨테이너 만들기](storage/blobs/storage-quickstart-blobs-dotnet.md#create-a-container) 를 참조 하세요.
      4. 필요에 따라 선택한 폴더 내용을 업로드할 대상 폴더를 지정합니다. 대상 폴더가 없다면 폴더가 만들어집니다.
      5. **업로드**를 선택합니다.
    * **로컬 컴퓨터에 blob 다운로드**
@@ -225,7 +225,7 @@ Blob 컨테이너를 만들었다면 blob 컨테이너에 blob 업로드, 로컬
 
 ## <a name="next-steps"></a>다음 단계
 
-* [최신 Storage 탐색기 릴리스 정보 및 비디오](https://www.storageexplorer.com)를 보세요.
+* [최신 Storage Explorer 릴리스 정보 및 비디오](https://www.storageexplorer.com)를 보세요.
 * [Azure blob, 테이블, 큐 및 파일을 사용하여 애플리케이션을 작성](https://azure.microsoft.com/documentation/services/storage/)하는 방법 알아보기.
 
 [0]: ./media/vs-azure-tools-storage-explorer-blobs/blob-containers-create-context-menu.png

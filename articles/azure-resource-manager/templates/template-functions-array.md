@@ -4,11 +4,11 @@ description: 배열 및 개체 작업을 위해 Azure Resource Manager 템플릿
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.openlocfilehash: 1359951c00ba04e641ae84636459a8836924c729
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77591186"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79273697"
 ---
 # <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿에 대한 배열 및 개체 함수
 

@@ -13,11 +13,11 @@ ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 17e6708225262349d56c6e261895882e9c31677f
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78378233"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79262218"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Azure Active Directory 배포 계획
 Azure Active Directory (Azure AD) 기능 배포에 대 한 종단 간 지침을 찾으십니까? Azure AD 배포 계획은 일반적인 Azure AD 기능을 성공적으로 배포 하는 데 필요한 비즈니스 가치, 계획 고려 사항 및 운영 절차를 안내 합니다.

@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: thweiss
-ms.openlocfilehash: fde8829da3e523ced44143db0dee6b93cf9152bd
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 466f870f257ca4d93764cbfdb4208e8cf1f75553
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74147776"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79205035"
 ---
-# <a name="configure-azure-private-link-for-an-azure-cosmos-account-preview"></a>Azure Cosmos 계정에 대 한 Azure 개인 링크 구성 (미리 보기)
+# <a name="configure-azure-private-link-for-an-azure-cosmos-account"></a>Azure Cosmos 계정에 대 한 Azure 개인 링크 구성
 
 Azure 개인 링크를 사용 하 여 개인 끝점을 통해 Azure Cosmos 계정에 연결할 수 있습니다. 개인 끝점은 가상 네트워크 내의 서브넷에 있는 개인 IP 주소의 집합입니다. 그런 다음 개인 IP 주소를 통해 Azure Cosmos 계정에 대 한 액세스를 제한할 수 있습니다. 개인 링크를 제한 된 NSG 정책과 결합 하면 데이터 exfiltration의 위험을 줄일 수 있습니다. 개인 끝점에 대 한 자세한 내용은 [Azure 개인 링크](../private-link/private-link-overview.md) 문서를 참조 하세요.
 
@@ -22,6 +22,9 @@ Azure 개인 링크를 사용 하 여 개인 끝점을 통해 Azure Cosmos 계�
 자동 또는 수동 승인 방법을 사용 하 여 개인 링크로 구성 된 Azure Cosmos 계정에 연결할 수 있습니다. 자세히 알아보려면 개인 링크 설명서의 [승인 워크플로](../private-link/private-endpoint-overview.md#access-to-a-private-link-resource-using-approval-workflow) 섹션을 참조 하세요. 
 
 이 문서에서는 개인 끝점을 만드는 단계를 설명 합니다. 자동 승인 방법을 사용 하 고 있다고 가정 합니다.
+
+> [!NOTE]
+> 개인 끝점 지원은 현재 게이트웨이 연결 모드에 대해서만 지원 되는 지역에서 일반적으로 사용할 수 있습니다. 직접 모드의 경우에는 미리 보기 기능으로 사용할 수 있습니다.
 
 ## <a name="create-a-private-endpoint-by-using-the-azure-portal"></a>Azure Portal를 사용 하 여 개인 끝점을 만듭니다.
 
@@ -33,16 +36,16 @@ Azure Portal를 사용 하 여 기존 Azure Cosmos 계정에 대 한 개인 끝�
 
    ![Azure Portal에서 개인 끝점을 만들기 위한 선택 항목](./media/how-to-configure-private-endpoints/create-private-endpoint-portal.png)
 
-1. **개인 끝점 만들기 (미리 보기)-기본 사항** 창에서 다음 세부 정보를 입력 하거나 선택 합니다.
+1. **개인 끝점 만들기-기본 사항** 창에서 다음 세부 정보를 입력 하거나 선택 합니다.
 
     | 설정 | 값 |
     | ------- | ----- |
     | **프로젝트 세부 정보** | |
-    | 구독 | 사용 중인 구독을 선택합니다. |
-    | 리소스 그룹 | 리소스 그룹을 선택합니다.|
+    | Subscription | 구독을 선택합니다. |
+    | Resource group | 리소스 그룹을 선택합니다.|
     | **인스턴스 세부 정보** |  |
-    | 이름 | 개인 끝점의 이름을 입력 합니다. 이 이름을 사용 하는 경우 고유한 이름을 만듭니다. |
-    |Region| 개인 링크를 배포 하려는 지역을 선택 합니다. 가상 네트워크가 있는 위치와 동일한 위치에 개인 끝점을 만듭니다.|
+    | 속성 | 개인 끝점의 이름을 입력 합니다. 이 이름을 사용 하는 경우 고유한 이름을 만듭니다. |
+    |지역| 개인 링크를 배포 하려는 지역을 선택 합니다. 가상 네트워크가 있는 위치와 동일한 위치에 개인 끝점을 만듭니다.|
     |||
 1. **다음: 리소스**를 선택 합니다.
 1. **프라이빗 엔드포인트 만들기 - 리소스**에서 다음 정보를 입력하거나 선택합니다.
@@ -50,14 +53,14 @@ Azure Portal를 사용 하 여 기존 Azure Cosmos 계정에 대 한 개인 끝�
     | 설정 | 값 |
     | ------- | ----- |
     |연결 방법  | **내 디렉터리에서 Azure 리소스에 연결을**선택 합니다. <br/><br/> 그런 다음 리소스 중 하나를 선택 하 여 개인 링크를 설정할 수 있습니다. 또는 공유 된 리소스 ID 또는 별칭을 사용 하 여 다른 사용자의 리소스에 연결할 수 있습니다.|
-    | 구독| 사용 중인 구독을 선택합니다. |
-    | 리소스 형식 | **Microsoft.azurecosmosdb/databaseAccounts**를 선택 합니다. |
+    | Subscription| 구독을 선택합니다. |
+    | 리소스 유형 | **Microsoft.azurecosmosdb/databaseAccounts**를 선택 합니다. |
     | 리소스 |Azure Cosmos 계정을 선택 합니다. |
     |대상 하위 리소스 |매핑할 Azure Cosmos DB API 유형을 선택 합니다. 이 기본값은 SQL, MongoDB 및 Cassandra Api에 대해 선택 하는 옵션 중 하나입니다. Gremlin 및 Table Api의 경우 이러한 Api는 SQL API와 상호 운용할 수 있으므로 **sql** 을 선택할 수도 있습니다. |
     |||
 
 1. **다음: 구성**을 선택 합니다.
-1. **프라이빗 엔드포인트 만들기(미리 보기) - 구성**에서 다음 정보를 입력하거나 선택합니다.
+1. **개인 끝점 만들기-구성**에서 다음 정보를 입력 하거나 선택 합니다.
 
     | 설정 | 값 |
     | ------- | ----- |
@@ -83,8 +86,8 @@ Azure Cosmos 계정에 대 한 개인 링크를 승인한 경우 Azure Portal에
 |Mongo   |  MongoDB       |  privatelink.mongo.cosmos.azure.com    |
 |Gremlin     | Gremlin        |  privatelink.gremlin.cosmos.azure.com   |
 |Gremlin     |  Sql       |  privatelink.documents.azure.com    |
-|Table    |    Table     |   privatelink.table.cosmos.azure.com    |
-|Table     |   Sql      |  privatelink.documents.azure.com    |
+|테이블    |    테이블     |   privatelink.table.cosmos.azure.com    |
+|테이블     |   Sql      |  privatelink.documents.azure.com    |
 
 ### <a name="fetch-the-private-ip-addresses"></a>개인 IP 주소 가져오기
 
@@ -322,7 +325,7 @@ $deploymentOutput = New-AzResourceGroupDeployment -Name "PrivateCosmosDbEndpoint
 $deploymentOutput
 ```
 
-PowerShell 스크립트에서 `GroupId` 변수에는 하나의 값만 포함 될 수 있습니다. 이 값은 계정의 API 유형입니다. 허용 되는 값은 `Sql`, `MongoDB`, `Cassandra`, `Gremlin`및 `Table`입니다. 일부 Azure Cosmos 계정 유형은 여러 Api를 통해 액세스할 수 있습니다. 예를 들어:
+PowerShell 스크립트에서 `GroupId` 변수에는 하나의 값만 포함 될 수 있습니다. 이 값은 계정의 API 유형입니다. 허용 되는 값은 `Sql`, `MongoDB`, `Cassandra`, `Gremlin`및 `Table`입니다. 일부 Azure Cosmos 계정 유형은 여러 Api를 통해 액세스할 수 있습니다. 다음은 그 예입니다.
 
 * Gremlin API 계정은 Gremlin 및 SQL API 계정 모두에서 액세스할 수 있습니다.
 * Table API 계정은 테이블 및 SQL API 계정 모두에서 액세스할 수 있습니다.
@@ -349,7 +352,7 @@ PowerShell 스크립트에서 `GroupId` 변수에는 하나의 값만 포함 될
         },
         "VNetId": {
             "type": "string"
-        }       
+        }        
     },
     "resources": [
         {
@@ -374,7 +377,7 @@ PowerShell 스크립트에서 `GroupId` 변수에는 하나의 값만 포함 될
                     "id": "[parameters('VNetId')]"
                 }
             }
-        }       
+        }        
     ]
 }
 ```
@@ -391,7 +394,7 @@ PowerShell 스크립트에서 `GroupId` 변수에는 하나의 값만 포함 될
         },
         "IPAddress": {
             "type":"string"
-        }       
+        }        
     },
     "resources": [
          {
@@ -406,7 +409,7 @@ PowerShell 스크립트에서 `GroupId` 변수에는 하나의 값만 포함 될
                     }
                 ]
             }
-        }   
+        }    
     ]
 }
 ```
@@ -548,29 +551,13 @@ foreach ($ipconfig in $networkInterface.properties.ipConfigurations) {
 
 ## <a name="update-a-private-endpoint-when-you-add-or-remove-a-region"></a>영역을 추가 하거나 제거 하는 경우 개인 끝점 업데이트
 
-Azure Cosmos 계정에 지역을 추가 하거나 제거 하려면 해당 계정에 대 한 DNS 항목을 추가 하거나 제거 해야 합니다. 다음 단계를 사용 하 여 이러한 변경 내용을 개인 끝점에서 적절 하 게 업데이트 합니다.
-
-1. Azure Cosmos DB 관리자가 지역을 추가 하거나 제거 하면 네트워크 관리자는 보류 중인 변경 내용에 대 한 알림을 가져옵니다. Azure Cosmos 계정에 매핑된 개인 끝점의 경우 `ActionsRequired` 속성 값이 `None`에서 `Recreate`로 변경 됩니다. 그런 다음 네트워크 관리자는 해당 파일을 만드는 데 사용 된 것과 동일한 리소스 관리자 페이로드를 사용 하 여 PUT 요청을 실행 하 여 개인 끝점을 업데이트 합니다.
-
-1. 개인 끝점이 업데이트 된 후 추가 되거나 제거 된 DNS 항목과 해당 개인 IP 주소를 반영 하도록 서브넷의 개인 DNS 영역을 업데이트할 수 있습니다.
+Azure Cosmos 계정에 지역을 추가 하거나 제거 하려면 해당 계정에 대 한 DNS 항목을 추가 하거나 제거 해야 합니다. 영역을 추가 하거나 제거한 후에는 추가 되거나 제거 된 DNS 항목과 해당 개인 IP 주소를 반영 하도록 서브넷의 개인 DNS 영역을 업데이트할 수 있습니다.
 
 예를 들어, "미국 서 부", "미국 중부" 및 "유럽 서부"의 세 지역에서 Azure Cosmos 계정을 배포 한다고 가정 합니다. 계정에 대 한 개인 끝점을 만들 때 4 개의 개인 Ip가 서브넷에 예약 되어 있습니다. 세 지역 각각에 대해 하나의 IP가 있고 전역/지역에 구애 받지 않는 끝점에 대 한 하나의 IP가 있습니다.
 
-나중에 Azure Cosmos 계정에 새 지역 (예: "미국 동부")을 추가할 수 있습니다. 기본적으로 새 지역은 기존 개인 끝점에서 액세스할 수 없습니다. Azure Cosmos 계정 관리자는 새 지역에서 액세스 하기 전에 개인 끝점 연결을 새로 고쳐야 합니다. 
+나중에 Azure Cosmos 계정에 새 지역 (예: "미국 동부")을 추가할 수 있습니다. 새 지역을 추가한 후에는 해당 DNS 레코드를 개인 DNS 영역 또는 사용자 지정 DNS에 추가 해야 합니다.
 
-` Get-AzPrivateEndpoint -Name <your private endpoint name> -ResourceGroupName <your resource group name>` 명령을 실행 하면 명령의 출력에 `actionsRequired` 매개 변수가 포함 됩니다. 이 매개 변수는 `Recreate`로 설정 됩니다. 이 값은 개인 끝점을 새로 고쳐야 함을 나타냅니다. 다음으로, Azure Cosmos 계정 관리자는 `Set-AzPrivateEndpoint` 명령을 실행 하 여 개인 끝점 새로 고침을 트리거합니다.
-
-```powershell
-$pe = Get-AzPrivateEndpoint -Name <your private endpoint name> -ResourceGroupName <your resource group name>
-
-Set-AzPrivateEndpoint -PrivateEndpoint $pe
-```
-
-새 개인 IP는이 개인 끝점의 서브넷에서 자동으로 예약 됩니다. `actionsRequired` 값이 `None`됩니다. 개인 DNZ 영역 통합이 없는 경우 (즉, 사용자 지정 개인 DNS 영역을 사용 하는 경우) 새 지역에 해당 하는 개인 IP에 대 한 새 DNS 레코드를 추가 하도록 개인 DNS 영역을 구성 해야 합니다.
-
-지역을 제거할 때와 동일한 단계를 사용할 수 있습니다. 제거 된 영역의 개인 IP가 자동으로 회수 되 고 `actionsRequired` 플래그가 `None`됩니다. 개인 DNZ 영역 통합이 없는 경우에는 제거 된 지역에 대 한 DNS 레코드를 제거 하도록 개인 DNS 영역을 구성 해야 합니다.
-
-개인 끝점을 삭제 하거나 Azure Cosmos 계정의 지역이 제거 되 면 개인 DNS 영역의 DNS 레코드는 자동으로 제거 되지 않습니다. DNS 레코드를 수동으로 제거 해야 합니다.
+지역을 제거할 때와 동일한 단계를 사용할 수 있습니다. 영역을 제거한 후에는 개인 DNS 영역 또는 사용자 지정 DNS에서 해당 DNS 레코드를 제거 해야 합니다.
 
 ## <a name="current-limitations"></a>현재 제한 사항
 
@@ -583,9 +570,11 @@ Azure Cosmos 계정에 개인 링크를 사용 하는 경우 다음 제한 사�
 
 * 직접 모드 연결을 사용 하 여 Azure Cosmos 계정에 개인 링크를 사용 하는 경우 TCP 프로토콜만 사용할 수 있습니다. HTTP 프로토콜은 아직 지원 되지 않습니다.
 
+* 개인 끝점 지원은 현재 게이트웨이 연결 모드에 대해서만 지원 되는 지역에서 일반적으로 사용할 수 있습니다. 직접 모드의 경우에는 미리 보기 기능으로 사용할 수 있습니다.
+
 * MongoDB 계정에 대 한 Azure Cosmos DB의 API를 사용 하는 경우 전용 끝점은 서버 버전 3.6의 계정에 대해서만 지원 됩니다. 즉, `*.mongo.cosmos.azure.com`형식의 끝점을 사용 하는 계정에 대해서만 지원 됩니다. 서버 버전 3.2의 계정에 대해서는 개인 링크가 지원 되지 않습니다. 즉, `*.documents.azure.com`형식의 끝점을 사용 하는 계정입니다. 개인 링크를 사용 하려면 이전 계정을 새 버전으로 마이그레이션해야 합니다.
 
-* 개인 링크가 있는 MongoDB 계정에 대 한 Azure Cosmos DB API를 사용 하는 경우 Robo 3T, 스튜디오 3T 및 Mongoose와 같은 도구를 사용할 수 없습니다. `appName=<account name>` 매개 변수가 지정 된 경우에만 끝점이 개인 링크를 지원할 수 있습니다. 예는 `replicaSet=globaldb&appName=mydbaccountname`입니다. 이러한 도구는 연결 문자열의 앱 이름을 서비스에 전달 하지 않으므로 개인 링크를 사용할 수 없습니다. 그러나 3.6 버전의 SDK 드라이버를 사용 하 여 이러한 계정에 계속 액세스할 수 있습니다.
+* 개인 링크가 있는 MongoDB 계정에 대 한 Azure Cosmos DB API를 사용 하는 경우 Robo 3T, 스튜디오 3T 및 Mongoose와 같은 도구를 사용할 수 없습니다. `appName=<account name>` 매개 변수가 지정 된 경우에만 끝점이 개인 링크를 지원할 수 있습니다. 예제는 `replicaSet=globaldb&appName=mydbaccountname`입니다. 이러한 도구는 연결 문자열의 앱 이름을 서비스에 전달 하지 않으므로 개인 링크를 사용할 수 없습니다. 그러나 3.6 버전의 SDK 드라이버를 사용 하 여 이러한 계정에 계속 액세스할 수 있습니다.
 
 * 개인 링크를 포함 하는 경우에는 가상 네트워크를 이동 하거나 삭제할 수 없습니다.
 

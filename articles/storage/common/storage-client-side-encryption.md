@@ -9,18 +9,18 @@ ms.date: 10/20/2017
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 921ea148c12a23ece47688a26743e1195caf52f4
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 6cf19292c3675382789ca25af7f9b7f69e9066fe
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78391741"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79255419"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Microsoft Azure Storage용 클라이언트 쪽 암호화 및 Azure Key Vault
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
 
 ## <a name="overview"></a>개요
-[.Net 용 Azure Storage 클라이언트 라이브러리](/dotnet/api/overview/azure/storage/client) 는 Azure Storage에 업로드 하기 전에 클라이언트 응용 프로그램 내에서 데이터를 암호화 하 고 클라이언트에 다운로드 하는 동안 데이터 암호를 해독 합니다. 라이브러리 또한 스토리지 계정 키 관리를 위해 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)와의 통합을 지원합니다.
+[.Net 용 Azure Storage 클라이언트 라이브러리](/dotnet/api/overview/azure/storage?view=azure-dotnet) 는 Azure Storage에 업로드 하기 전에 클라이언트 응용 프로그램 내에서 데이터를 암호화 하 고 클라이언트에 다운로드 하는 동안 데이터 암호를 해독 합니다. 라이브러리 또한 스토리지 계정 키 관리를 위해 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)와의 통합을 지원합니다.
 
 클라이언트 쪽 암호화와 Azure Key Vault를 사용하여 Blob을 암호화하는 프로세스를 안내하는 단계별 자습서는 [Azure Key Vault를 사용하여 Microsoft Azure Storage에서 Blob 암호화 및 해독](../blobs/storage-encrypt-decrypt-blobs-key-vault.md)을 참조하세요.
 

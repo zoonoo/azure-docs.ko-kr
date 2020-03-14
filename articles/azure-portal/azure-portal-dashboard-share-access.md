@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/29/2020
 ms.author: mblythe
 ms.openlocfilehash: e8d251cef9e67cb8fc0c11df8ce546383f75a679
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78389722"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79248464"
 ---
 # <a name="share-azure-dashboards-by-using-role-based-access-control"></a>역할 기반 Access Control을 사용하여 Azure 대시보드 공유
 
@@ -36,7 +36,7 @@ ms.locfileid: "78389722"
 
 RBAC(역할 기반 Access Control)를 사용하여 세 개의 다른 수준 범위로 역할에 사용자를 할당할 수 있습니다.
 
-* 구독
+* subscription
 * 리소스 그룹
 * resource
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: e6e7beeb4c10098f36636aad2709e03d1a1a0fea
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 9be758c286e072b0fbefc5f8b20b7accc4e6741b
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73953641"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79256966"
 ---
 # <a name="manage-the-mobility-agent"></a>모바일 에이전트 관리 
 
@@ -37,11 +37,24 @@ Azure에 대 한 VMware Vm 및 물리적 서버 재해 복구를 위해 Azure Si
 
 ## <a name="update-mobility-service-through-powershell-script-on-windows-server"></a>Windows server의 powershell 스크립트를 통해 모바일 서비스 업데이트
 
+시작에 앞서, 보호되는 머신에서 Mobility 서비스를 업데이트하기 전에 배포의 일부인 구성 서버, 확장 프로세스 서버 및 마스터 대상 서버를 업데이트했는지 확인하세요.
+
 다음 스크립트를 사용 하 여 power shell cmdlet을 통해 서버에서 모바일 서비스를 업그레이드 합니다.
 
 ```azurepowershell
 Update-AzRecoveryServicesAsrMobilityService -ReplicationProtectedItem $rpi -Account $fabric.fabricSpecificDetails.RunAsAccounts[0]
 ```
+
+## <a name="update-mobility-service-manually-on-each-protected-server"></a>각 보호 된 서버에서 모바일 서비스를 수동으로 업데이트
+
+1. 시작에 앞서, 보호되는 머신에서 Mobility 서비스를 업데이트하기 전에 배포의 일부인 구성 서버, 확장 프로세스 서버 및 마스터 대상 서버를 업데이트했는지 확인하세요.
+
+2. 서버의 운영 체제에 따라 [에이전트 설치 관리자를 찾습니다](vmware-physical-mobility-service-overview.md#locate-installer-files) .
+
+>[!IMPORTANT]
+> 한 Azure 지역에서 다른 지역으로 Azure IaaS VM을 복제 하는 경우이 방법을 사용 하지 마세요. 사용 가능한 모든 옵션에 대 한 자세한 내용은 [microsoft의 지침](azure-to-azure-autoupdate.md) 을 참조 하세요.
+
+3. 보호 된 컴퓨터에 설치 파일을 복사 하 고 실행 하 여 모바일 에이전트를 업데이트 합니다.
 
 ## <a name="update-account-used-for-push-installation-of-mobility-service"></a>모바일 서비스의 푸시 설치에 사용 되는 계정 업데이트
 

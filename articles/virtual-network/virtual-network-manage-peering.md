@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: anavin
 ms.openlocfilehash: 4103930e0d089f5f7c17586f22616431c8aa11d9
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978350"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79279651"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>가상 네트워크 피어링 만들기, 변경 또는 삭제
 
@@ -33,11 +33,11 @@ ms.locfileid: "75978350"
 이 문서에서 설명하는 모든 섹션의 단계를 수행하기 전에 다음 작업을 완료해야 합니다.
 
 - 아직 Azure 계정이 없으면 [평가판 계정](https://azure.microsoft.com/free)에 등록합니다.
-- 포털을 사용하는 경우 https://portal.azure.com 을 열고, 피어링을 사용하는 데 [필요한 권한](#permissions)이 있는 계정으로 로그인합니다.
-- 이 문서의 작업을 완료하기 위해 PowerShell 명령을 사용하는 경우 [Azure Cloud Shell](https://shell.azure.com/powershell)에서 명령을 실행하거나 컴퓨터에서 PowerShell을 실행합니다. Azure Cloud Shell은 이 항목의 단계를 실행하는 데 무료로 사용할 수 있는 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 이 자습서에는 Azure PowerShell 모듈 버전 1.0.0 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable Az`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. PowerShell을 로컬로 실행 중인 경우 피어링을 사용하고 Azure와 연결을 만드는 데 [필요한 권한](#permissions)을 가진 계정으로 `Connect-AzAccount`도 실행해야 합니다.
-- 이 문서의 작업을 완료하기 위해 Azure CLI(명령줄 인터페이스)를 사용하는 경우 [Azure Cloud Shell](https://shell.azure.com/bash)에서 명령을 실행하거나 컴퓨터에서 CLI를 실행합니다. 이 자습서에는 Azure CLI 버전 2.0.31 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. Azure CLI를 로컬로 실행 중인 경우 피어링을 사용하고 Azure와 연결을 만드는 데 [필요한 권한](#permissions)을 가진 계정으로 `az login`도 실행해야 합니다.
+- 포털을 사용하는 경우 https://portal.azure.com을 열고, 피어링을 사용하는 데 [필요한 권한](#permissions)이 있는 계정으로 로그인합니다.
+- 이 문서의 작업을 완료하기 위해 PowerShell 명령을 사용하는 경우 [Azure Cloud Shell](https://shell.azure.com/powershell)에서 명령을 실행하거나 컴퓨터에서 PowerShell을 실행합니다. Azure Cloud Shell은 이 항목의 단계를 실행하는 데 무료로 사용할 수 있는 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 이 자습서에는 Azure PowerShell 모듈 버전 1.0.0 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable Az`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. PowerShell을 로컬로 실행 중인 경우 피어링을 사용하고 Azure와 연결을 만드는 데 `Connect-AzAccount`필요한 권한[을 가진 계정으로 ](#permissions)도 실행해야 합니다.
+- 이 문서의 작업을 완료하기 위해 Azure CLI(명령줄 인터페이스)를 사용하는 경우 [Azure Cloud Shell](https://shell.azure.com/bash)에서 명령을 실행하거나 컴퓨터에서 CLI를 실행합니다. 이 자습서에는 Azure CLI 버전 2.0.31 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. Azure CLI를 로컬로 실행 중인 경우 피어링을 사용하고 Azure와 연결을 만드는 데 `az login`필요한 권한[을 가진 계정으로 ](#permissions)도 실행해야 합니다.
 
-Azure에 로그인하거나 연결할 때 사용하는 계정이 [권한](#permissions)에 나열된 적절한 작업이 할당된 [사용자 지정 역할](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)이나 [네트워크 기여자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) 역할에 할당되어야 합니다.
+Azure에 로그인하거나 연결할 때 사용하는 계정이 [권한](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)에 나열된 적절한 작업이 할당된 [사용자 지정 역할](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)이나 [네트워크 기여자](#permissions) 역할에 할당되어야 합니다.
 
 ## <a name="create-a-peering"></a>피어링 만들기
 
@@ -133,7 +133,7 @@ Azure에 로그인하거나 연결할 때 사용하는 계정이 [권한](#permi
 - 가상 네트워크 피어링이 성공적으로 구성된 후 지점 및 사이트 간 VPN 클라이언트를 다시 다운로드하여 새 경로가 클라이언트에 다운로드되는지 확인해야 합니다.
 - 가상 네트워크 피어링을 활용하는 수신 및 송신 트래픽에 대한 명목 요금이 부과됩니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/virtual-network)를 참조하세요.
 
-## <a name="permissions"></a>권한
+## <a name="permissions"></a>사용 권한
 
 가상 네트워크 피어링 작업에 사용하는 계정을 다음 역할에 할당해야 합니다.
 
@@ -142,7 +142,7 @@ Azure에 로그인하거나 연결할 때 사용하는 계정이 [권한](#permi
 
 계정이 이전 역할 중 하나에 할당되지 않은 경우 다음 표에서 필요한 작업이 할당된 [사용자 지정 역할](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에 할당되어야 합니다.
 
-| 실행력                                                          | 이름 |
+| 작업                                                          | 속성 |
 |---                                                              |---   |
 | Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write  | 가상 네트워크 A에서 가상 네트워크 B로의 피어링을 만들어야 합니다. 가상 네트워크 A는 가상 네트워크(Resource Manager)이어야 함          |
 | Microsoft.Network/virtualNetworks/peer/action                   | 가상 네트워크 B(Resource Manager)에서 가상 네트워크 A로의 피어링을 만들어야 함                                                       |

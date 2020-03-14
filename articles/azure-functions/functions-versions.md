@@ -4,11 +4,11 @@ description: Azure Functions는 여러 버전의 런타임을 지원합니다. �
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.openlocfilehash: 21a7b25087efd5d4adf2154c935636c263df9afd
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77919756"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79276557"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Azure Functions 런타임 버전 개요
 
@@ -182,7 +182,7 @@ Visual Studio Code 개발의 경우 설치된 도구의 버전과 일치하도�
 </configuration>
 ```
 
-## <a name="bindings"></a>Bindings
+## <a name="bindings"></a>바인딩
 
 버전 2.x부터 런타임은 다음과 같은 이점을 제공 하는 새로운 [바인딩 확장성 모델](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview) 을 사용 합니다.
 
@@ -202,7 +202,7 @@ HTTP 및 타이머 트리거를 제외하고 모든 바인딩은 명시적으로
 
 ## <a name="next-steps"></a>다음 단계
 
-자세한 내용은 다음 참고 자료를 참조하십시오.
+자세한 내용은 다음 리소스를 참조하세요.
 
 * [Azure Functions를 로컬에서 코딩 및 테스트](functions-run-local.md)
 * [Azure Functions 런타임 버전을 대상으로 지정하는 방법](set-runtime-version.md)

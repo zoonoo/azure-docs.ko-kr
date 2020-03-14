@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 08/14/2019
 ms.custom: cc996988-fb4f-47
 ms.openlocfilehash: 662a04dbcc39f3fa95b0098eb8fe556b18b3495b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230567"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79276947"
 ---
 # <a name="manage-your-function-app"></a>함수 앱 관리 
 
@@ -25,7 +25,7 @@ Azure Functions에서 함수 앱은 개별 함수에 대한 실행 컨텍스트�
 > [!TIP]  
 > [Azure CLI]를 사용 하 여 많은 구성 옵션을 관리할 수도 있습니다. 
 
-## <a name="get-started-in-the-azure-portal"></a>Azure Portal에서 시작
+## <a name="get-started-in-the-azure-portal"></a>Azure Portal 시작
 
 시작하려면 [Azure Portal]로 이동한 후 Azure 계정으로 로그인합니다. 포털 맨 위에 있는 검색 표시줄에 함수 앱의 이름을 입력하고 목록에서 선택합니다. 함수 앱을 선택하면 다음 페이지가 표시됩니다.
 
@@ -79,7 +79,7 @@ az functionapp config appsettings set --name <FUNCTION_APP_NAME> \
 이 문서의 나머지 부분에서는 함수에 유용한 Azure Portal의 다음 App Service 기능에 대해 집중적으로 설명 합니다.
 
 + [App Service 편집기](#editor)
-+ [Console](#console)
++ [콘솔](#console)
 + [고급 도구(Kudu)](#kudu)
 + [배포 옵션](#deployment)
 + [CORS](#cors)

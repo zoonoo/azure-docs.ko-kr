@@ -3,12 +3,12 @@ title: 개인 링크 설정
 description: 컨테이너 레지스트리에서 개인 끝점을 설정 하 고 로컬 가상 네트워크에서 개인 링크를 사용 하도록 설정 합니다.
 ms.topic: article
 ms.date: 03/10/2020
-ms.openlocfilehash: b7dcf2d1eb1a77ea8b9660318ed2a7d4ec183b42
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: 57c2a59ad8b16c39c7c577173feae68dcb263277
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79128390"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79203358"
 ---
 # <a name="configure-azure-private-link-for-an-azure-container-registry"></a>Azure container registry에 대 한 Azure 개인 링크 구성 
 
@@ -28,7 +28,14 @@ Azure 가상 네트워크의 클라이언트가 [개인 링크](../private-link/
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * 이 문서의 Azure CLI 단계를 사용 하려면 Azure CLI 버전 2.2.0 이상을 사용 하는 것이 좋습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli]를 참조하세요. 또는 [Azure Cloud Shell](../cloud-shell/quickstart.md)에서 실행 합니다.
-* 컨테이너 레지스트리가 아직 없는 경우 하나 (프리미엄 계층 필요)를 만들고 Docker 허브에서 `hello-world`와 같은 샘플 이미지를 푸시합니다. 예를 들어 [Azure Portal][quickstart-portal] 또는 [Azure CLI][quickstart-cli] 를 사용 하 여 레지스트리를 만듭니다. 
+* 컨테이너 레지스트리가 아직 없는 경우 하나 (프리미엄 계층 필요)를 만들고 Docker 허브에서 `hello-world`와 같은 샘플 이미지를 푸시합니다. 예를 들어 [Azure Portal][quickstart-portal] 또는 [Azure CLI][quickstart-cli] 를 사용 하 여 레지스트리를 만듭니다.
+* 다른 Azure 구독의 개인 링크를 사용 하 여 레지스트리 액세스를 구성 하려면 해당 구독에 Azure Container Registry에 대 한 리소스 공급자를 등록 해야 합니다. 다음은 그 예입니다.
+
+  ```azurecli
+  az account set --subscription <Name or ID of subscription of private link>
+
+  az provider register --namespace Microsoft.ContainerRegistry
+  ``` 
 
 이 문서의 Azure CLI 예제에서는 다음 환경 변수를 사용 합니다. 사용자 환경에 적합 한 값으로 대체 합니다. 모든 예제는 Bash 셸에 대해 서식 지정 됩니다.
 

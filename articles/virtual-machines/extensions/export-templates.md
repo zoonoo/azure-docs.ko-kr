@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: akjosh
 ms.openlocfilehash: 79991dad96742109817d579b951082d1a30e3951
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073120"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79253911"
 ---
 # <a name="exporting-resource-groups-that-contain-vm-extensions"></a>VM 확장을 포함하는 리소스 그룹 내보내기
 
@@ -33,7 +33,7 @@ Azure 리소스 그룹을 새 Resource Manager 템플릿으로 내보낸 후 다
 
 Automation 스크립트 기능을 사용하여 다음 확장을 내보낼 수 있습니다.
 
-| 확장명 ||||
+| 내선 번호 ||||
 |---|---|---|---|
 | Acronis Backup | Datadog Windows Agent | OS Patching For Linux | VM Snapshot Linux
 | Acronis Backup Linux | Docker 확장 | Puppet Agent |
@@ -50,7 +50,7 @@ Automation 스크립트 기능을 사용하여 다음 확장을 내보낼 수 �
 
 리소스 그룹을 다시 사용할 수 있는 템플릿으로 내보내려면 다음 단계를 완료합니다.
 
-1. Azure 포털에 로그인합니다.
+1. Azure Portal에 로그인
 2. 허브 메뉴에서 리소스 그룹 클릭
 3. 목록에서 대상 리소스 그룹 선택
 4. 리소스 그룹 블레이드에서 Automation 스크립트 클릭

@@ -7,11 +7,11 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 09/01/2019
 ms.openlocfilehash: c56c31bb6f56efb10808ce25b6b232089391e831
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78358905"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79270525"
 ---
 # <a name="data-operation-code-samples-for-azure-logic-apps"></a>Azure Logic Apps용 데이터 작업 코드 샘플
 
@@ -322,7 +322,7 @@ ms.locfileid: "78358905"
 
 <a name="select-action-example"></a>
 
-## <a name="select"></a>선택
+## <a name="select"></a>여기서
 
 [**선택** 작업 예제](../logic-apps/logic-apps-perform-data-operations.md#select-action)를 사용하려면 다음과 같은 작업 정의를 사용할 수 있습니다.
 

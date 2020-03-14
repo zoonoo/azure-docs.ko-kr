@@ -4,11 +4,11 @@ description: SAS 토큰으로 보호 되는 Azure Resource Manager 템플릿을 
 ms.topic: conceptual
 ms.date: 08/14/2019
 ms.openlocfilehash: d30e685c35f33b6fc5d3872b9287e45190ad5713
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75484286"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79273710"
 ---
 # <a name="deploy-private-resource-manager-template-with-sas-token"></a>SAS 토큰을 사용하여 프라이빗 Resource Manager 템플릿 배포
 
@@ -18,7 +18,7 @@ ms.locfileid: "75484286"
 
 다음 스크립트는 공용 액세스를 해제 한 상태에서 저장소 계정 및 컨테이너를 만듭니다.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 New-AzResourceGroup `
@@ -37,7 +37,7 @@ New-AzStorageContainer `
   -Permission Off
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az group create \
@@ -65,7 +65,7 @@ az storage container create \
 
 이제 저장소 계정에 템플릿을 업로드할 준비가 되었습니다. 사용 하려는 템플릿에 대 한 경로를 제공 합니다.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Set-AzStorageBlobContent `
@@ -73,7 +73,7 @@ Set-AzStorageBlobContent `
   -File c:\Templates\azuredeploy.json
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az storage blob upload \
@@ -93,7 +93,7 @@ az storage blob upload \
 > 템플릿이 포함 된 blob은 계정 소유자만 액세스할 수 있습니다. 그러나 blob용 SAS 토큰을 생성하면 해당 blob은 해당 URI를 가진 사람이면 누구나 액세스할 수 있습니다. 다른 사용자가 URI를 가로채는 경우, 그 사용자가 템플릿에 액세스할 수 있습니다. SAS 토큰은 템플릿에 대 한 액세스를 제한 하는 좋은 방법 이지만, 암호와 같은 중요 한 데이터를 템플릿에 직접 포함 해서는 안 됩니다.
 >
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 # get the URI with the SAS token
@@ -109,7 +109,7 @@ New-AzResourceGroupDeployment `
   -TemplateUri $templateuri
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 expiretime=$(date -u -d '30 minutes' +%Y-%m-%dT%H:%MZ)

@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: yegu
 ms.openlocfilehash: e2b1ed693ea57e3414d465a57a5ba2b1203f67c5
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78372011"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79277987"
 ---
 # <a name="how-to-create-and-manage-azure-cache-for-redis-using-the-azure-classic-cli"></a>Azure 클래식 CLI를 사용하여 Azure Cache for Redis를 만들고 관리하는 방법
 > [!div class="op_single_selector"]
@@ -25,7 +25,7 @@ Azure 클래식 CLI를 사용하면 어떤 플랫폼에서나 Azure 인프라를
 > [!NOTE]
 > 최신 Azure CLI 샘플 스크립트는 [Azure CLI Azure Cache for Redis 샘플](cli-samples.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 Azure 클래식 CLI를 사용하여 Azure Cache for Redis 인스턴스를 만들고 관리하려면 다음 단계를 완료해야 합니다.
 
 * Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 [무료 계정](https://azure.microsoft.com/pricing/free-trial/) 을 만들 수 있습니다.
@@ -36,12 +36,12 @@ Azure 클래식 CLI를 사용하여 Azure Cache for Redis 인스턴스를 만들
 ## <a name="azure-cache-for-redis-properties"></a>Azure Cache for Redis 속성
 Azure Cache for Redis 인스턴스를 만들고 업데이트하는 경우 사용되는 속성은 다음과 같습니다.
 
-| 속성 | 스위치 | 설명 |
+| 속성 | 스위치 | Description |
 | --- | --- | --- |
 | name |-n, --name |Azure Cache for Redis의 이름입니다. |
 | 리소스 그룹 |-g, --resource-group |리소스 그룹의 이름입니다. |
 | 위치 |-l, --location |캐시를 만드는 위치입니다. |
-| size |-z, --size |Azure Cache for Redis의 크기입니다. 유효한 값: [C0, C1, C2, C3, C4, C5, C6, P1, P2, P3, P4] |
+| 크기 |-z, --size |Azure Cache for Redis의 크기입니다. 유효한 값: [C0, C1, C2, C3, C4, C5, C6, P1, P2, P3, P4] |
 | sku |-x, --sku |Redis SKU입니다. 다음 중 하나여야 합니다. [기본, 표준, 프리미엄] |
 | EnableNonSslPort |-e, --enable-non-ssl-port |Azure Cache for Redis의 EnableNonSslPort 속성입니다. 캐시에 대해 비 SSL 포트를 사용하도록 설정하려는 경우 이 플래그를 추가합니다. |
 | Redis 구성 |-c, --redis-configuration |Redis 구성입니다. 구성 키 및 값의 JSON 형식 문자열을 여기에 입력합니다. 형식:"{"":"","":""}" |

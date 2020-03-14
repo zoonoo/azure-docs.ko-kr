@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/03/2018
-ms.openlocfilehash: 15c661a1ef917dcf73b5a86cd450c94a35b08c88
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: e0870ac9dc818ca07e149421b486136c76dd61a4
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822489"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79208827"
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>SQL Database로의 마이그레이션 중 Transact-SQL 차이점 해결
 
@@ -38,14 +38,14 @@ SQL Database에서 지원되는 기능 및 지원되지 않는 기능 목록은 
 
 - CREATE 및 ALTER DATABASE 문에는 36개가 넘는 옵션이 있습니다. 이러한 문에는 SQL Server에만 적용되는 파일 배치, FILESTREAM 및 Service Broker 옵션이 포함되어 있습니다. 마이그레이션하기 전에 데이터베이스를 만드는 경우에는 문제가 되지 않지만 데이터베이스를 만드는 T-SQL 코드를 마이그레이션하는 경우에는 [CREATE DATABASE(Azure SQL Database)](https://msdn.microsoft.com/library/dn268335.aspx)를 [CREATE DATABASE(SQL Server Transact-SQL)](https://msdn.microsoft.com/library/ms176061.aspx)의 SQL Server 구문과 비교하여 사용하는 모든 옵션이 지원되는지 확인해야 합니다. Azure SQL Database의 CREATE DATABASE에는 SQL Database에만 적용되는 서비스 목표와 탄력적인 확장 옵션도 포함되어 있습니다.
 - CREATE 및 ALTER TABLE 문에는 FILESTREAM이 지원되지 않으므로 SQL Database에서 사용할 수 없는 FileTable 옵션이 포함되어 있습니다.
-- CREATE 및 ALTER login 문은 지원되지만 일부 옵션만 SQL Database에서 제공합니다. 데이터베이스 이식 가능성을 높이려면 SQL Database에서 가능한 경우 로그인 대신 포함된 데이터베이스 사용자를 사용하도록 권장합니다. 자세한 내용은 [CREATE/ALTER LOGIN](https://msdn.microsoft.com/library/ms189828.aspx) 및 [데이터베이스 액세스 제어 및 권한 부여](sql-database-manage-logins.md)를 참조하세요.
+- CREATE 및 ALTER login 문은 지원되지만 일부 옵션만 SQL Database에서 제공합니다. 데이터베이스 이식 가능성을 높이려면 SQL Database에서 가능한 경우 로그인 대신 포함된 데이터베이스 사용자를 사용하도록 권장합니다. 자세한 내용은 [로그인 만들기/변경](https://docs.microsoft.com/sql/t-sql/statements/alter-login-transact-sql) 및 로그인 [및 사용자 관리](sql-database-manage-logins.md)를 참조 하세요.
 
 ## <a name="transact-sql-syntax-not-supported-in-azure-sql-database"></a>Azure SQL Database에서 지원되지 않는 Transact-SQL 구문
 
  [Azure SQL Database 기능 비교](sql-database-features.md)에서 설명한 지원되지 않는 기능과 관련된 Transact-SQL 문 외에도 다음 명령문 및 명령문 그룹이 지원되지 않습니다. 따라서 마이그레이션할 데이터베이스에서 다음 기능을 사용하고 있는 경우 T-SQL을 다시 엔지니어링하여 해당 T-SQL 기능 및 문을 제거합니다.
 
 - 시스템 개체의 데이터 정렬
-- 연결 관련: 엔드포인트 문. SQL Database는 Windows 인증을 지원하지 않으며 비슷한 Azure Active Directory 인증은 지원합니다. 최신 버전의 SSMS를 사용해야 하는 인증 형식도 있습니다. 자세한 내용은 [Azure Active Directory 인증을 사용하여 SQL Database 또는 SQL Data Warehouse에 연결](sql-database-aad-authentication.md)을 참조하세요.
+- 연결 관련: 엔드포인트 문. SQL Database는 Windows 인증을 지원하지 않으며 비슷한 Azure Active Directory 인증은 지원합니다. 최신 버전의 SSMS를 사용해야 하는 인증 형식도 있습니다. 자세한 내용은 [Azure Active Directory 인증을 사용하여 SQL Database 및 SQL Data Warehouse에 연결](sql-database-aad-authentication.md)을 참조하세요.
 - 세 개 또는 네 개의 부분으로 된 이름을 사용하여 데이터베이스 쿼리를 교차합니다. 읽기 전용 데이터베이스 간 쿼리는 [탄력적 데이터베이스 쿼리](sql-database-elastic-query-overview.md)를 통해 지원됩니다.
 - 데이터베이스 간 소유권 체인, `TRUSTWORTHY` 설정
 - `EXECUTE AS LOGIN` 대신 '사용자로 실행'을 사용합니다.

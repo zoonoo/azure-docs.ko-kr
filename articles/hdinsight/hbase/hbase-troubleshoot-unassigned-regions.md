@@ -8,11 +8,11 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/16/2019
 ms.openlocfilehash: 85aeafb2c4461b50d399e40d9abff2ac04b677c0
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75887141"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79272761"
 ---
 # <a name="issues-with-region-servers-in-azure-hdinsight"></a>Azure HDInsight에서 지역 서버 문제
 
@@ -34,7 +34,7 @@ Apache HBase Master UI에서 모든 지역 서버에서 불균형 한 지역 수
 
 구멍은 오프 라인 영역으로 인해 발생할 수 있습니다.
 
-### <a name="resolution"></a>해상도
+### <a name="resolution"></a>해결 방법
 
 할당을 수정 합니다. 할당되지 않은 지역을 정상 상태로 전환하려면 다음 단계를 수행합니다.
 
@@ -66,7 +66,7 @@ Apache HBase Master UI에서 모든 지역 서버에서 불균형 한 지역 수
 
 1. `wals.out` 파일을 검사 합니다. 분할 디렉터리가 너무 많은 경우 (* 분할부터) 영역 서버는 이러한 디렉터리로 인해 실패할 수 있습니다.
 
-### <a name="resolution"></a>해상도
+### <a name="resolution"></a>해결 방법
 
 1. Ambari 포털에서 HBase를 중지 합니다.
 

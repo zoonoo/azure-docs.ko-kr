@@ -13,11 +13,11 @@ ms.author: abnarain
 manager: anandsub
 robots: noindex
 ms.openlocfilehash: 54cb06f1c77ab68818d8531b57d6eb936deda8d7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75438821"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79265728"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Azure Data Factory 파이프라인에서 사용자 지정 작업 사용
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -42,18 +42,18 @@ Data Factory에서 지원되지 않는 데이터 저장소에서 다른 위치�
 > - 사용자 지정 작업에서 데이터 관리 게이트웨이를 사용하여 온-프레미스 데이터 원본에 액세스할 수는 없습니다. 현재 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md)에서는 Data Factory의 복사 작업 및 저장 프로시저 작업만 지원합니다.
 
 ## <a name="walkthrough-create-a-custom-activity"></a>연습: 사용자 지정 작업 만들기
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>사전 요구 사항
 * Visual Studio 2012/2013/2015/2017
 * [Azure .NET SDK](https://azure.microsoft.com/downloads/)
 
 ### <a name="azure-batch-prerequisites"></a>Azure Batch 필수 조건
 이 연습에서는 Azure Batch를 컴퓨팅 리소스로 사용하여 사용자 지정 .NET 작업을 실행할 것입니다. **Azure Batch**는 클라우드에서 대규모 병렬 및 HPC(고성능 컴퓨팅) 애플리케이션을 효율적으로 실행하기 위한 플랫폼 서비스입니다. Azure Batch는 **가상 머신의 관리되는 컬렉션**에서 실행되는 컴퓨팅 집약적 작업을 예약하고, 작업 요구에 맞게 컴퓨팅 리소스의 규모를 자동으로 조정할 수 있습니다. Azure Batch 서비스에 대 한 자세한 개요는 [Azure Batch 기본 사항][batch-technical-overview] 문서를 참조 하세요.
 
-자습서를 위해 VM 풀과 함께 Azure Batch 계정을 만듭니다. 단계는 다음과 같습니다.
+자습서를 위해 VM 풀과 함께 Azure Batch 계정을 만듭니다. 다음 단계를 참조하십시오.
 
 1. **Azure Portal** 을 사용하여 [Azure Batch 계정](https://portal.azure.com)을 만듭니다. 지침은 [Azure Batch 계정 만들기 및 관리][batch-create-account] 문서를 참조 하세요.
 2. Azure Batch 계정 이름, 계정 키, URI 및 풀 이름을 적어둡니다. Azure Batch 연결된 서비스를 만드는 데 필요합니다.
-    1. Azure Batch 계정의 홈 페이지에서 `https://myaccount.westus.batch.azure.com` 형식의 **URL**이 표시됩니다. 이 예제에서 **myaccount**는 Azure Batch 계정 이름입니다. 연결된 서비스 정의에서 사용하는 URI는 계정 이름이 없는 URL입니다. 예: `https://<region>.batch.azure.com`
+    1. Azure Batch 계정의 홈 페이지에서 **형식의**URL`https://myaccount.westus.batch.azure.com`이 표시됩니다. 이 예제에서 **myaccount**는 Azure Batch 계정 이름입니다. 연결된 서비스 정의에서 사용하는 URI는 계정 이름이 없는 URL입니다. 예: `https://<region>.batch.azure.com`
     2. 왼쪽 메뉴에서 **키**를 클릭하고 **기본 액세스 키**를 복사합니다.
     3. 기존 풀을 사용하려면 메뉴에서 **풀**을 클릭하고 풀의 **ID**를 메모해둡니다. 기존 풀이 없는 경우 다음 단계로 이동합니다.
 2. **Azure Batch 풀**을 만듭니다.
@@ -372,7 +372,7 @@ public IDictionary<string, string> Execute(
     > 4\.5.2 버전의 .NET Framework를 프로젝트의 대상 프레임워크로 설정합니다. 프로젝트를 마우스 오른쪽 단추로 클릭하고 **속성**을 클릭하여 대상 프레임워크를 설정합니다. 데이터 팩터리는 .NET Framework 4.5.2 이후 버전에 대해 컴파일된 사용자 지정 작업을 지원하지 않습니다.
 
 11. **Windows 탐색기**를 시작하고 빌드 유형에 따라 **bin\debug** 또는 **bin\release** 폴더로 이동합니다.
-12. \<project folder\>\bin\Debug 폴더의 이진을 모두 포함하는 **MyDotNetActivity.zip** Zip 파일을 만듭니다. 오류가 있는 경우 문제를 발생시킨 소스 코드의 줄 번호 같은 추가 정보를 받을 수 있도록 **MyDotNetActivity.pdb** 파일을 포함합니다.
+12. **project folder**\bin\Debug 폴더의 이진을 모두 포함하는 \<MyDotNetActivity.zip\> Zip 파일을 만듭니다. 오류가 있는 경우 문제를 발생시킨 소스 코드의 줄 번호 같은 추가 정보를 받을 수 있도록 **MyDotNetActivity.pdb** 파일을 포함합니다.
 
     > [!IMPORTANT]
     > 사용자 지정 작업에 대한 zip 파일의 모든 파일은 하위 폴더가 없는 **최상위** 여야 합니다.
@@ -440,7 +440,7 @@ adftutorial\customactivityoutput 폴더에 1개 이상의 줄(입력 폴더에�
 2. 명령 모음에서 **새 데이터 스토리지**를 클릭하고 **Azure Storage**를 선택합니다. 편집기에 Azure Storage 연결된 서비스를 만들기 위한 JSON 스크립트가 표시됩니다.
 
     ![새 데이터 저장소 - Azure Storage](media/data-factory-use-custom-activities/new-data-store-menu.png)
-3. `<accountname>`을 Azure Storage 계정 이름으로 바꾸고 `<accountkey>`를 Azure Storage 계정의 액세스 키로 바꿉니다. 저장소 액세스 키를 가져오는 방법을 알아보려면 [저장소 계정 액세스 키 관리](../../storage/common/storage-account-keys-manage.md)를 참조 하세요.
+3. `<accountname>`을 Azure Storage 계정 이름으로 바꾸고 `<accountkey>`를 Azure Storage 계정의 액세스 키로 바꿉니다. 스토리지 액세스 키를 가져오는 방법을 알아보려면 [스토리지 계정 액세스 키 관리](../../storage/common/storage-account-keys-manage.md)를 참조하세요.
 
     ![Azure Storage 연결 서비스](media/data-factory-use-custom-activities/azure-storage-linked-service.png)
 4. 명령 모음에서 **배포**를 클릭하여 연결된 서비스를 배포합니다.
@@ -451,7 +451,7 @@ adftutorial\customactivityoutput 폴더에 1개 이상의 줄(입력 폴더에�
     ![새 컴퓨팅 - Azure Batch](media/data-factory-use-custom-activities/new-azure-compute-batch.png)
 2. JSON 스크립트를 다음과 같이 변경합니다.
 
-   1. **accountName** 속성의 Azure Batch 계정 이름을 지정합니다. **Azure Batch 계정 블레이드**의 **URL**은 `http://accountname.region.batch.azure.com` 형식을 사용합니다. JSON의 **batchUri** 속성에 대해 URL에서 `accountname.`을 제거하고 `accountName` JSON 속성에 대해 `accountname`을 사용합니다.
+   1. **accountName** 속성의 Azure Batch 계정 이름을 지정합니다. **Azure Batch 계정 블레이드**의 **URL**은 `http://accountname.region.batch.azure.com` 형식을 사용합니다. JSON의 **batchUri** 속성에 대해 URL에서 `accountname.`을 제거하고 `accountname` JSON 속성에 대해 `accountName`을 사용합니다.
    2. **accessKey** 속성에 대한 Azure Batch 계정 키를 지정합니다.
    3. **poolName** 속성에 대한 필수 조건의 일부로 만든 풀의 이름을 지정합니다. 풀 이름 대신 풀 ID를 지정할 수도 있습니다.
    4. **batchUri** 속성에 대한 Azure Batch URI를 지정합니다. 예: `https://westus.batch.azure.com`.

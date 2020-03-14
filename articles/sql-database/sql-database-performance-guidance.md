@@ -1,24 +1,24 @@
 ---
-title: 성능 튜닝 지침
-description: Azure SQL Database 쿼리 성능을 수동으로 튜닝하기 위한 권장 사항 사용 방법에 대해 알아봅니다.
+title: 응용 프로그램 및 데이터베이스에 대 한 성능 조정 지침
+description: Azure SQL Database의 성능을 위해 데이터베이스 응용 프로그램 및 데이터베이스를 튜닝 하는 방법에 대해 알아봅니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: juliemsft
-ms.author: jrasnick
-ms.reviewer: carlrab
-ms.date: 01/25/2019
-ms.openlocfilehash: 0dc3a121b30f33d533b1079d9c81501130487017
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+author: CarlRabeler
+ms.author: carlrab
+ms.reviewer: carlrab; jrasnick
+ms.date: 03/10/2020
+ms.openlocfilehash: 4f30ebe39d86db7076baa8c29b2a5cf060b07bf5
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74009096"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79255952"
 ---
-# <a name="manual-tune-query-performance-in-azure-sql-database"></a>Azure SQL Database에서 쿼리 성능 수동 튜닝
+# <a name="tune-applications-and-databases-for-performance-in-azure-sql-database"></a>Azure SQL Database의 성능을 위해 응용 프로그램 및 데이터베이스 조정
 
 SQL Database에서 직면한 성능 문제를 확인한 후 이 문서는 다음과 같은 작업을 돕기 위해 작성되었습니다.
 
@@ -232,6 +232,10 @@ ORDER BY start_time DESC
 
 워크로드에 반복되는 쿼리 집합이 포함된 경우 데이터베이스를 호스트하는 데 필요한 최소 리소스 크기 단위가 결정되므로 선택한 계획의 최적성을 파악하고 확인하는 것이 좋은 경우가 많습니다. 유효성을 검사한 후 가끔 계획을 다시 검사하면 성능이 저하되지 않도록 하는 데 도움이 됩니다. [쿼리 힌트(Transact-SQL)](https://msdn.microsoft.com/library/ms181714.aspx)에 대해 더 자세히 알아볼 수 있습니다.
 
+### <a name="very-large-database-architectures"></a>매우 큰 데이터베이스 아키텍처
+
+Azure SQL Database의 단일 데이터베이스에 대 한 하이퍼 [규모](sql-database-service-tier-hyperscale.md) 서비스 계층 릴리스 전에는 개별 데이터베이스에 대 한 용량 제한을 적중 하는 데 사용 되는 고객이 있습니다. 이러한 용량 제한은 탄력적 풀의 풀링된 데이터베이스와 관리 되는 인스턴스의 인스턴스 데이터베이스에 대해서도 계속 존재 합니다. 다음 두 섹션에서는 Hyperscale 서비스 계층을 사용할 수 없는 경우 Azure SQL Database에서 매우 큰 데이터베이스에 대 한 문제를 해결 하는 두 가지 옵션에 대해 설명 합니다.
+
 ### <a name="cross-database-sharding"></a>교차-데이터베이스 분할
 
 Azure SQL Database는 상용 하드웨어에서 실행되므로 기존 온-프레미스 SQL Server 설치보다 개별 데이터베이스의 용량 한도가 낮습니다. Azure SQL Database의 개별 데이터베이스 한도 내에서는 작업을 수행할 수 없는 경우 분할 기술을 사용해 여러 데이터베이스로 데이터베이스 작업을 분산시키는 고객도 있습니다. 현재 Azure SQL Database에 분할 기법을 사용하는 대부분의 고객은 여러 데이터베이스에서 단일 규격으로 데이터를 분할합니다. 이 방식에서는 OLTP 애플리케이션이 스키마 내에서 하나의 행 또는 작은 행 그룹에만 적용되는 트랜잭션을 수행하는 경우가 많다는 점을 이해해야 합니다.
@@ -243,7 +247,7 @@ Azure SQL Database는 상용 하드웨어에서 실행되므로 기존 온-프�
 
 데이터베이스 분할을 사용해도 솔루션에 대한 집계 리소스 용량이 줄지 않지만, 여러 데이터베이스에 분담되는 매우 큰 솔루션을 지원할 때 매우 효과적입니다. 각 데이터베이스는 리소스 요구사항이 큰 매우 크고 "효과적인" 데이터베이스를 지원하기 위해 다른 컴퓨팅 크기에서 실행될 수 있습니다.
 
-### <a name="functional-partitioning"></a>기능 분할
+#### <a name="functional-partitioning"></a>기능 분할
 
 SQL Server 사용자는 개별 데이터베이스 내에 여러 기능을 결합하는 경우가 많습니다. 예를 들어 애플리케이션에 매장 재고를 관리하는 논리가 포함되어 있을 경우 해당 데이터베이스에는 재고와 관련된 논리, 구매 주문서 추적, 저장된 프로시저, 그리고 월말 보고를 관리하는 인덱스가 되어 있거나 구체화된 뷰가 포함되어 있을 수 있습니다. 이 기법을 사용하면 데이터베이스에서 백업과 같은 작업을 쉽게 관리할 수 있지만 애플리케이션의 모든 기능에서 최고 부하를 처리할 수 있도록 하드웨어 규모를 늘려야 합니다.
 

@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/18/2019
 ms.openlocfilehash: e890289230b3215bd102d8c5a78dca4f1b7b90f8
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75494975"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79271903"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>Azure HDInsight에서 Apache Storm 토폴로지 배포 및 관리
 
 이 문서에서는 HDInsight의 Storm 클러스터에서 실행되는 [Apache Storm](https://storm.apache.org/) 토폴로지의 모니터링 및 관리에 관한 기본 사항을 알아봅니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * HDInsight의 Apache Storm 클러스터. [Azure Portal을 사용하여 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-portal.md)를 참조하고 **클러스터 유형**에 **Storm**을 선택합니다.
 
@@ -40,7 +40,7 @@ Visual Studio 용 Data Lake 도구를 사용 하 여 스톰 클러스터 C# 에 
 
 1. Visual Studio를 시작합니다.
 
-1. **시작** 창에서 **새 프로젝트 만들기**를 선택 합니다.
+1. **시작** 창에서 **새 프로젝트 만들기**를 선택합니다.
 
 1. **새 프로젝트 만들기** 창에서 검색 상자를 선택 하 고 `Storm`를 입력 합니다. 그런 다음 결과 목록에서 **스톰 샘플** 을 선택 하 고 **다음**을 선택 합니다.
 
@@ -251,9 +251,9 @@ Linux 기반 HDInsight 클러스터의 REST API에 대 한 기본 URI는 헤드 
 
 | FQDN 검색 방법 | Description |
 | --- | --- |
-| SSH 세션 | 클러스터에 대 한 SSH 세션에서 명령 `headnode -f`를 사용 합니다. |
+| SSH 세션 | SSH 세션에서 클러스터로 `headnode -f` 명령을 사용합니다. |
 | Ambari 웹 | Ambari cluster 웹 페이지 (`https://CLUSTERNAME.azurehdinsight.net`)의 페이지 위쪽에서 **서비스** 를 선택 하 고 **스톰**을 선택 합니다. **요약** 탭에서 **Storm UI 서버**를 선택합니다. Storm UI 및 REST API가 호스팅하는 노드의 FQDN은 페이지 맨 위에 표시됩니다. |
-| Ambari REST API | 명령 `curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"`를 사용 하 여 스톰 UI 및 REST API 실행 중인 노드에 대 한 정보를 검색 합니다. *CLUSTERNAME* 의 두 인스턴스를 클러스터 이름으로 바꿉니다. 메시지가 표시 되 면 사용자 (관리자) 계정에 대 한 암호를 입력 합니다. 응답에서 JSON 출력의 "host_name" 항목에는 노드의 FQDN이 포함 되어 있습니다. |
+| Ambari REST API | `curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` 명령을 사용하여 Storm UI 및 REST API가 실행 중인 노드에 관한 정보를 검색합니다. *CLUSTERNAME* 의 두 인스턴스를 클러스터 이름으로 바꿉니다. 메시지가 표시 되 면 사용자 (관리자) 계정에 대 한 암호를 입력 합니다. 응답에서 JSON 출력의 "host_name" 항목에는 노드의 FQDN이 포함 되어 있습니다. |
 
 ### <a name="authentication"></a>인증
 

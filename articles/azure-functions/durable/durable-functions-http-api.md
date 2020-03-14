@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 4e4081ecca4714c713d105d363a83a4f96a0d3fc
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769628"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79278169"
 ---
 # <a name="http-api-reference"></a>HTTP API 참조
 
@@ -24,7 +24,7 @@ Durable Functions 확장은 [오케스트레이션](durable-functions-types-feat
 | **`connection`** | 쿼리 문자열    | 스토리지 계정에 대한 연결 문자열의 **이름**입니다. 지정하지 않으면 함수 앱에 대한 기본 연결 문자열이 사용됩니다. |
 | **`systemKey`**  | 쿼리 문자열    | API를 호출하는 데 필요한 권한 부여 키입니다. |
 
-`systemKey`은 Azure Functions 호스트에서 자동으로 생성 되는 인증 키입니다. 특히 지속성 작업 확장 API에 대한 액세스 권한을 부여하고 [다른 권한 부여 키](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Key-management-API)와 동일한 방식으로 관리할 수 있습니다. .NET의 `CreateCheckStatusResponse` 및 `CreateHttpManagementPayload` APIs 또는 JavaScript의 `createCheckStatusResponse` 및 `createHttpManagementPayload`와 같은 [오케스트레이션 클라이언트 바인딩](durable-functions-bindings.md#orchestration-client) APIs를 사용하여 올바른 `taskHub`, `connection` 및 `systemKey` 쿼리 문자열 값을 포함 하는 url을 생성할 수 있습니다.
+`systemKey`은 Azure Functions 호스트에서 자동으로 생성 되는 인증 키입니다. 특히 지속성 작업 확장 API에 대한 액세스 권한을 부여하고 [다른 권한 부여 키](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Key-management-API)와 동일한 방식으로 관리할 수 있습니다. `taskHub`, `connection`및 `systemKey` 쿼리 문자열 값을 포함 하는 Url을 생성할 수 있습니다. 예를 들어, .NET의 `CreateCheckStatusResponse` 및 `CreateHttpManagementPayload` Api와 같은 [오케스트레이션 클라이언트 바인딩](durable-functions-bindings.md#orchestration-client) api를 사용 하거나 JavaScript의 `createCheckStatusResponse` 및 `createHttpManagementPayload` api를 사용할 수 있습니다.
 
 다음 몇 가지 섹션에서는 확장에서 지원되는 특정 HTTP API에 대해 설명하고 이 API를 사용하는 방법에 대한 예제를 제공합니다.
 
@@ -169,12 +169,12 @@ GET /runtime/webhooks/durabletask/instances/{instanceId}
 | 필드                 | 데이터 형식 | Description |
 |-----------------------|-----------|-------------|
 | **`runtimeStatus`**   | 문자열    | 인스턴스의 런타임 상태입니다. *Running*, *Pending*, *Failed*, *Canceled*, *Terminated*, *Completed* 값이 포함됩니다. |
-| **`input`**           | JSON      | 인스턴스를 초기화하는 데 사용되는 JSON 데이터입니다. `showInput` 쿼리 문자열 매개 변수가 `false`로 설정되면 이 필드는 `null`입니다.|
+| **`input`**           | JSON      | 인스턴스를 초기화하는 데 사용되는 JSON 데이터입니다. `null` 쿼리 문자열 매개 변수가 `showInput`로 설정되면 이 필드는 `false`입니다.|
 | **`customStatus`**    | JSON      | 사용자 지정 오케스트레이션 상태에 사용되는 JSON 데이터입니다. 이 필드는 설정하지 않으면 `null`입니다. |
 | **`output`**          | JSON      | 인스턴스의 JSON 출력입니다. 인스턴스가 완료된 상태가 아닌 경우 이 필드는 `null`입니다. |
 | **`createdTime`**     | 문자열    | 인스턴스를 만든 시간입니다. ISO 8601 확장 표기법을 사용합니다. |
 | **`lastUpdatedTime`** | 문자열    | 인스턴스가 마지막으로 유지된 시간입니다. ISO 8601 확장 표기법을 사용합니다. |
-| **`historyEvents`**   | JSON      | 오케스트레이션 실행 기록이 포함된 JSON 배열입니다. `showHistory` 쿼리 문자열 매개 변수가 `true`로 설정되지 않으면 이 필드는 `null`입니다. |
+| **`historyEvents`**   | JSON      | 오케스트레이션 실행 기록이 포함된 JSON 배열입니다. `null` 쿼리 문자열 매개 변수가 `showHistory`로 설정되지 않으면 이 필드는 `true`입니다. |
 
 다음은 오케스트레이션 실행 기록 및 작업 출력을 포함하는 응답 페이로드 예제입니다(읽기 쉽게 형식이 지정됨).
 
@@ -231,7 +231,7 @@ GET /runtime/webhooks/durabletask/instances/{instanceId}
 }
 ```
 
-**HTTP 202** 응답에는 앞에서 언급한 `statusQueryGetUri` 필드와 동일한 URL을 참조하는 **위치** 응답 헤더도 포함됩니다.
+**HTTP 202** 응답에는 앞에서 언급한 **필드와 동일한 URL을 참조하는**위치`statusQueryGetUri` 응답 헤더도 포함됩니다.
 
 ## <a name="get-all-instances-status"></a>모든 인스턴스 상태 가져오기
 
@@ -498,7 +498,7 @@ POST /runtime/webhooks/durabletask/instances/{instanceId}/raiseEvent/{eventName}
 * **HTTP 404(찾을 수 없음)** : 지정된 인스턴스를 찾을 수 없습니다.
 * **HTTP 410(없음)** : 지정된 인스턴스가 완료되었거나 실패했으며 발생된 이벤트를 처리할 수 없습니다.
 
-다음은 **operation**이라는 이벤트를 기다리는 인스턴스에 `"incr"` JSON 문자열을 보내는 요청 예제입니다.
+다음은 `"incr"`operation**이라는 이벤트를 기다리는 인스턴스에**  JSON 문자열을 보내는 요청 예제입니다.
 
 ```http
 POST /admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a/raiseEvent/operation?taskHub=DurableFunctionsHub&connection=Storage&code=XXX
@@ -682,7 +682,7 @@ GET /runtime/webhooks/durabletask/entities/{entityName}/{entityKey}
 
 성공적인 응답에는 엔터티의 JSON serialize 된 상태가 해당 콘텐츠로 포함 됩니다.
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 다음 예제 HTTP 요청은 `steps`이라는 기존 `Counter` 엔터티의 상태를 가져옵니다.
 
 ```http

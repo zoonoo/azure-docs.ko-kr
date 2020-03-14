@@ -9,11 +9,11 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: d46d0309b3d2ffb638016e88ba022e49009eedf2
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78379712"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79282940"
 ---
 # <a name="how-full-text-search-works-in-azure-cognitive-search"></a>Azure Cognitive Search에서 전체 텍스트 검색이 작동 하는 방식
 

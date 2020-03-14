@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 3/25/2019
 ms.author: rohink
 ms.openlocfilehash: fac6c29d5371c536c20eca58d90ee5d54d7e90d1
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77462669"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79244889"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Azure 가상 네트워크에서 리소스에 대한 이름 확인
 
@@ -44,7 +44,7 @@ IaaS, PaaS, 하이브리드 솔루션 호스팅에 Azure를 어떻게 사용할�
 | Azure의 VM 또는 역할 인스턴스에서 온-프레미스 컴퓨터와 서비스 이름을 확인합니다. |고객이 관리하는 DNS 서버(예: 온-프레미스 도메인 컨트롤러, 로컬 읽기 전용 도메인 컨트롤러 또는 영역 전송을 사용하여 동기화된 DNS 보조). [자체 DNS 서버를 이용한 이름 확인](#name-resolution-that-uses-your-own-dns-server). |FQDN만 |
 | 온-프레미스 컴퓨터에서 Azure 호스트 이름 확인. |해당 가상 네트워크에서 고객이 관리하는 DNS 프록시 서버에 쿼리를 전달하면 프록시 서버는 이름 확인을 위해 Azure에 쿼리를 전달합니다. [자체 DNS 서버를 이용한 이름 확인](#name-resolution-that-uses-your-own-dns-server). |FQDN만 |
 | 내부 IP에 대한 역방향 DNS |[자체 DNS 서버를 이용한 이름 확인](#name-resolution-that-uses-your-own-dns-server) |해당 없음 |
-| 서로 다른 클라우드 서비스에 위치하며 가상 네트워크에 존재하지 않는 VM 또는 역할 인스턴스 간 이름 확인 |적용할 수 없음 가상 네트워크 외부에 있는 VM과 역할 인스턴스가 서로 다른 클라우드 서비스에 위치한 경우에는 연결을 지원하지 않습니다. |해당 없음|
+| 서로 다른 클라우드 서비스에 위치하며 가상 네트워크에 존재하지 않는 VM 또는 역할 인스턴스 간 이름 확인 |해당 사항 없음 가상 네트워크 외부에 있는 VM과 역할 인스턴스가 서로 다른 클라우드 서비스에 위치한 경우에는 연결을 지원하지 않습니다. |해당 없음|
 
 ## <a name="azure-provided-name-resolution"></a>Azure에서 제공하는 이름 확인
 

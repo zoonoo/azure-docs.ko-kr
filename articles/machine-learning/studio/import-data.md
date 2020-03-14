@@ -10,14 +10,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 02/01/2019
-ms.openlocfilehash: 2d5bd8ea1cd8ce643e0bef8ae319d53a574ad2b4
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: cee49124a7547399889e425008a8580b9b25945a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77168520"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79217990"
 ---
 # <a name="import-your-training-data-into-azure-machine-learning-studio-classic-from-various-data-sources"></a>다양 한 데이터 원본에서 Azure Machine Learning Studio (클래식)으로 학습 데이터 가져오기
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Machine Learning Studio (클래식)에서 사용자 고유의 데이터를 사용 하 여 예측 분석 솔루션을 개발 하 고 학습 하려면 다음의 데이터를 사용할 수 있습니다. 
 

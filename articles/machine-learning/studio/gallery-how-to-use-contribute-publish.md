@@ -10,14 +10,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/11/2019
-ms.openlocfilehash: 6a82c4d6eecec3a3a9ef690536988c8402444ffc
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 882b52b74603465bd0a55a12fd9ef03f7b625046
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77168538"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79204327"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Azure AI 갤러리의 리소스 공유 및 검색
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 **[Azure AI Gallery](https://gallery.azure.ai)** .
 갤러리에는 자체 분석 솔루션을 개발하는 데 사용할 수 있는 다양한 리소스가 있습니다.
@@ -86,7 +88,7 @@ Studio (클래식) 내에서 리소스를 다운로드 하려면 다음을 수�
 
 1. 실험 캔버스 아래의 작업 목록에서 **Gallery에 게시**를 선택합니다.
 
-1. Gallery에서 설명을 포함하는 **이름** 및 **태그**를 입력합니다. 사용한 기법이나 해결하고 있는 실제 문제를 강조 표시합니다. 설명이 포함된 실험 제목의 예: “이진 분류: Twitter 감정 분석.”
+1. Gallery에서 설명을 포함하는 **이름** 및 **태그**를 입력합니다. 사용한 기법이나 해결하고 있는 실제 문제를 강조 표시합니다. 설명 실험 제목의 예는 "이진 분류: Twitter 감정 분석"입니다.
 
 1. **요약** 상자에 실험에 대한 요약을 입력합니다. 실험이 해결하는 문제와 해결 방법을 간략하게 설명합니다.
 

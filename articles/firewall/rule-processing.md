@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 03/10/2020
 ms.author: victorh
 ms.openlocfilehash: d3f8e52b4582c9467ae3ec61ee984771b801fe4f
-ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79081871"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79264779"
 ---
 # <a name="azure-firewall-rule-processing-logic"></a>Azure Firewall 규칙 처리 논리
 Azure 방화벽에서 NAT 규칙, 네트워크 규칙 및 응용 프로그램 규칙을 구성할 수 있습니다. 규칙은 규칙 유형에 따라 처리됩니다. 

@@ -11,11 +11,11 @@ ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
 ms.openlocfilehash: e7b32579712e89c0d5595303ee7e03d8b2462607
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75615425"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79283655"
 ---
 # <a name="languages-supported-on-the-data-science-virtual-machine"></a>데이터 과학 Virtual Machine에서 지원되는 언어 
 
@@ -118,7 +118,7 @@ DSVM (Data Science Virtual Machine)은 AI (인공 지능) 응용 프로그램을
 
 * 명령 프롬프트에서를 실행 합니다.
 
-  명령 프롬프트를 열고 `R`를 입력합니다.
+  명령 프롬프트를 열고 `R`를 입력 합니다.
 
 * IDE에서 사용:
 

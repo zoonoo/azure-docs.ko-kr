@@ -9,11 +9,11 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.openlocfilehash: 3d5f3ade3ef3b79ddb3996b5bf2d609b11aff8a5
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75748569"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79255965"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Microsoft Azure Storage 모니터링, 진단 및 문제 해결
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -473,12 +473,12 @@ Blob 다운로드 요청에 대해 **AverageServerLatency**가 높게 표시되�
 | Microsoft.Azure.Storage |정보 |3 |85d077ab-… |위치 모드 PrimaryOnly에 대해 위치 Primary로 작업을 시작하는 중입니다. |
 | Microsoft.Azure.Storage |정보 |3 |85d077ab -… |<https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&sr=c&si=mypolicy&sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&api-version=2014-02-14>에 대 한 동기 요청을 시작 하는 중 |
 | Microsoft.Azure.Storage |정보 |3 |85d077ab -… |응답을 기다리는 중입니다. |
-| Microsoft.Azure.Storage |경고 |2 |85d077ab -… |응답을 기다리는 동안 throw 된 예외: 원격 서버가 오류를 반환했습니다: (403) 사용할 수 없음. |
+| Microsoft.Azure.Storage |Warning |2 |85d077ab -… |응답을 기다리는 동안 throw 된 예외: 원격 서버가 오류를 반환했습니다: (403) 사용할 수 없음. |
 | Microsoft.Azure.Storage |정보 |3 |85d077ab -… |응답을 받았습니다. 상태 코드 = 403, 요청 ID = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, Content-MD5 = , ETag = . |
-| Microsoft.Azure.Storage |경고 |2 |85d077ab -… |작업하는 동안 throw 된 예외: 원격 서버 오류를 반환했습니다: (403) 사용할 수 없음. |
+| Microsoft.Azure.Storage |Warning |2 |85d077ab -… |작업하는 동안 throw 된 예외: 원격 서버 오류를 반환했습니다: (403) 사용할 수 없음. |
 | Microsoft.Azure.Storage |정보 |3 |85d077ab -… |작업을 다시 시도해야 하는지 확인하는 중입니다. 재시도 횟수 = 0, HTTP 상태 코드 403, 예외 = = 원격 서버 오류를 반환 했습니다: (403) 사용할 수 없음... |
 | Microsoft.Azure.Storage |정보 |3 |85d077ab -… |위치 모드에 따라 다음 위치가 Primary로 설정되었습니다. |
-| Microsoft.Azure.Storage |오류 |1 |85d077ab -… |다시 시도 정책에서 다시 시도를 허용하지 않았습니다. 원격서버에서 작업이 실패했습니다:(403) 사용할 수 없음 |
+| Microsoft.Azure.Storage |Error |1 |85d077ab -… |다시 시도 정책에서 다시 시도를 허용하지 않았습니다. 원격서버에서 작업이 실패했습니다:(403) 사용할 수 없음 |
 
 이 시나리오에서는 클라이언트가 서버에 토큰을 보내기 전에 SAS 토큰이 만료되는 이유를 조사해야 합니다.
 
@@ -506,7 +506,7 @@ Storage 클라이언트 라이브러리의 클라이언트 쪽 로그를 사용�
 
 Storage 클라이언트 라이브러리에서 생성한 다음 클라이언트 쪽 로그에는 클라이언트가 작성 중인 Blob에 대한 컨테이너를 찾을 수 없는 문제가 나와 있습니다. 이 로그에는 다음 스토리지 작업에 대한 세부 정보가 포함됩니다.
 
-| 요청 ID | 작업 |
+| 요청 ID | 작업(Operation) |
 | --- | --- |
 | 07b26a5d-... |**DeleteIfExists** 메서드를 호출합니다. 이 작업에는 컨테이너 유무를 확인하는 **HEAD** 요청이 포함됩니다. |
 | e2d06d78… |**CreateIfNotExists** 메서드를 호출합니다. 이 작업에는 컨테이너 유무를 확인하는 **HEAD** 요청이 포함됩니다. **HEAD** 는 404 메시지를 반환하지만 계속 실행됩니다. |
@@ -516,24 +516,24 @@ Storage 클라이언트 라이브러리에서 생성한 다음 클라이언트 �
 
 | 요청 ID | 작업 텍스트 |
 | --- | --- |
-| 07b26a5d-... |https://domemaildist.blob.core.windows.net/azuremmblobcontainer 에 대한 동기 요청을 시작하는 중입니다. |
+| 07b26a5d-... |https://domemaildist.blob.core.windows.net/azuremmblobcontainer에 대한 동기 요청을 시작하는 중입니다. |
 | 07b26a5d-... |StringToSign = HEAD............x-ms-client-request-id:07b26a5d-....x-ms-date:Tue, 03 Jun 2014 10:33:11 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | 07b26a5d-... |응답을 기다리는 중입니다. |
 | 07b26a5d-... |응답을 받았습니다. 상태 코드 = 200, 요청 ID = eeead849-...Content-MD5 = , ETag = &quot;0x8D14D2DC63D059B&quot; |
 | 07b26a5d-... |응답 헤더가 처리되었습니다. 나머지 작업을 진행합니다. |
 | 07b26a5d-... |응답 본문을 다운로드하는 중입니다. |
 | 07b26a5d-... |작업이 완료되었습니다. |
-| 07b26a5d-... |https://domemaildist.blob.core.windows.net/azuremmblobcontainer 에 대한 동기 요청을 시작하는 중입니다. |
+| 07b26a5d-... |https://domemaildist.blob.core.windows.net/azuremmblobcontainer에 대한 동기 요청을 시작하는 중입니다. |
 | 07b26a5d-... |StringToSign = DELETE............x-ms-client-request-id:07b26a5d-....x-ms-date:Tue, 03 Jun 2014 10:33:12    GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | 07b26a5d-... |응답을 기다리는 중입니다. |
 | 07b26a5d-... |응답을 받았습니다. 상태 코드 = 202, 요청 ID = 6ab2a4cf-..., Content-MD5 = , ETag = . |
 | 07b26a5d-... |응답 헤더가 처리되었습니다. 나머지 작업을 진행합니다. |
 | 07b26a5d-... |응답 본문을 다운로드하는 중입니다. |
 | 07b26a5d-... |작업이 완료되었습니다. |
-| e2d06d78-... |https://domemaildist.blob.core.windows.net/azuremmblobcontainer 에 대한 비동기 요청을 시작하는 중입니다.</td> |
+| e2d06d78-... |https://domemaildist.blob.core.windows.net/azuremmblobcontainer에 대한 비동기 요청을 시작하는 중입니다.</td> |
 | e2d06d78-... |StringToSign = HEAD............x-ms-client-request-id:e2d06d78-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | e2d06d78-... |응답을 기다리는 중입니다. |
-| de8b1c3c-... |https://domemaildist.blob.core.windows.net/azuremmblobcontainer/blobCreated.txt 에 대한 동기 요청을 시작하는 중입니다. |
+| de8b1c3c-... |https://domemaildist.blob.core.windows.net/azuremmblobcontainer/blobCreated.txt에 대한 동기 요청을 시작하는 중입니다. |
 | de8b1c3c-... |StringToSign = PUT...64.qCmF+TQLPhq/YYK50mP9ZQ==........x-ms-blob-type:BlockBlob.x-ms-client-request-id:de8b1c3c-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer/blobCreated.txt. |
 | de8b1c3c-... |요청 데이터 쓰기를 준비하는 중입니다. |
 | e2d06d78-... |응답을 기다리는 동안 throw 된 예외: 원격 서버 오류를 반환했습니다: (404) 찾을 수 없음. |
@@ -541,7 +541,7 @@ Storage 클라이언트 라이브러리에서 생성한 다음 클라이언트 �
 | e2d06d78-... |응답 헤더가 처리되었습니다. 나머지 작업을 진행합니다. |
 | e2d06d78-... |응답 본문을 다운로드하는 중입니다. |
 | e2d06d78-... |작업이 완료되었습니다. |
-| e2d06d78-... |https://domemaildist.blob.core.windows.net/azuremmblobcontainer 에 대한 비동기 요청을 시작하는 중입니다. |
+| e2d06d78-... |https://domemaildist.blob.core.windows.net/azuremmblobcontainer에 대한 비동기 요청을 시작하는 중입니다. |
 | e2d06d78-... |StringToSign = PUT...0.........x-ms-client-request-id:e2d06d78-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | e2d06d78-... |응답을 기다리는 중입니다. |
 | de8b1c3c-... |요청 데이터를 쓰는 중입니다. |
@@ -562,7 +562,7 @@ Storage 클라이언트 라이브러리에서 생성한 다음 클라이언트 �
 
 아래 표에는 스토리지 로깅 로그 파일의 샘플 서버 쪽 로그 메시지가 나와 있습니다.
 
-| 이름 | 값 |
+| 속성 | 값 |
 | --- | --- |
 | 요청 시작 시간 | 2014-05-30T06:17:48.4473697Z |
 | 작업 유형     | GetBlobProperties            |
@@ -627,7 +627,7 @@ client.SetServiceProperties(sp);
 ### <a name="the-client-is-receiving-409-messages"></a>클라이언트에 HTTP 409(충돌) 메시지가 표시됨
 아래 표에는 두 클라이언트 작업과 관련하여 서버 쪽 로그에서 발췌한 내용이 나와 있습니다. 같은 Blob 컨테이너 이름을 사용하여 **DeleteIfExists**를 수행한 직후에 **CreateIfNotExists**를 수행합니다. 각 클라이언트 작업에서는 서버에 두 개의 요청을 보냅니다. 먼저 **GetContainerProperties** 요청을 보내 컨테이너가 있는지 확인한 다음, **DeleteContainer** 또는 **CreateContainer** 요청을 보냅니다.
 
-| 타임스탬프 | 작업 | 결과 | 컨테이너 이름 | 클라이언트 요청 ID |
+| 타임스탬프 | 작업(Operation) | 결과 | 컨테이너 이름 | 클라이언트 요청 ID |
 | --- | --- | --- | --- | --- |
 | 05:10:13.7167225 |GetContainerProperties |200 |mmcont |c9f52c89-… |
 | 05:10:13.8167325 |DeleteContainer |202 |mmcont |c9f52c89-… |

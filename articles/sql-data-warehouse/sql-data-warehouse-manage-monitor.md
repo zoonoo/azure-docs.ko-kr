@@ -12,17 +12,17 @@ ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: synapse-analytics
 ms.openlocfilehash: f00ab883f9e2b1365c4e7486d61b55157cecb2a7
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78197269"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79256576"
 ---
 # <a name="monitor-your-azure-synapse-analytics-sql-pool-workload-using-dmvs"></a>Dmv를 사용 하 여 Azure Synapse Analytics SQL 풀 워크 로드 모니터링
 
 이 문서에서는 Dmv (동적 관리 뷰)를 사용 하 여 SQL 풀에서 쿼리 실행을 조사 하는 작업을 비롯 한 작업을 모니터링 하는 방법을 설명 합니다.
 
-## <a name="permissions"></a>권한
+## <a name="permissions"></a>사용 권한
 
 이 문서에서 Dmv를 쿼리하려면 **VIEW DATABASE STATE** 또는 **CONTROL** 권한이 필요 합니다. 일반적으로 **뷰 데이터베이스 상태** 를 부여 하는 것은 매우 제한적 이기 때문에 기본 설정 된 사용 권한입니다.
 
@@ -247,7 +247,7 @@ pc1.counter_name = 'Total Server Memory (KB)'
 AND pc2.counter_name = 'Target Server Memory (KB)'
 ```
 ## <a name="monitor-transaction-log-size"></a>트랜잭션 로그 크기 모니터링
-다음 쿼리는 각 분산에서 트랜잭션 로그 크기를 반환합니다. 로그 파일 중 하나가 160GB에 도달하는 경우 인스턴스를 확장하거나 트랜잭션 크기를 제한해야 합니다.
+다음 쿼리는 각 배포에서 트랜잭션 로그 크기를 반환합니다. 로그 파일 중 하나가 160GB에 도달하는 경우 인스턴스를 확장하거나 트랜잭션 크기를 제한해야 합니다.
 
 ```sql
 -- Transaction log size

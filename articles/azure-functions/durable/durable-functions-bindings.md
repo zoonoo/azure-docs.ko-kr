@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 1f42c6c9b0086d49e539040334c83cfc0c6feb42
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75410210"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79278221"
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>지속성 함수의 바인딩(Azure Functions)
 
@@ -21,7 +21,7 @@ ms.locfileid: "75410210"
 
 Azure Functions에 Visual Studio 도구를 사용하는 경우 오케스트레이션 트리거는 [OrchestrationTriggerAttribute](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.WebJobs.Extensions.DurableTask.OrchestrationTriggerAttribute?view=azure-dotnet) .NET 특성을 사용하여 구성됩니다.
 
-스크립팅 언어(예: JavaScript 또는 C# 스크립팅)에서 오케스트레이터 함수를 작성하는 경우 오케스트레이션 트리거는 *function.json* 파일의 `bindings` 배열에 있는 다음 JSON 개체에서 정의됩니다.
+스크립팅 언어(예: JavaScript 또는 C# 스크립팅)에서 오케스트레이터 함수를 작성하는 경우 오케스트레이션 트리거는 `bindings`function.json*파일의* 배열에 있는 다음 JSON 개체에서 정의됩니다.
 
 ```json
 {
@@ -128,7 +128,7 @@ module.exports = df.orchestrator(function*(context) {
 
 Visual Studio를 사용 하는 경우 `ActivityTriggerAttribute` .NET 특성을 사용 하 여 작업 트리거를 구성 합니다.
 
-개발을 위해 VS Code 또는 Azure Portal을 사용하는 경우 작업 트리거는 *function.json*의 `bindings` 배열에 있는 다음 JSON 개체에서 정의됩니다.
+개발을 위해 VS Code 또는 Azure Portal을 사용하는 경우 작업 트리거는 `bindings`function.json*의*  배열에 있는 다음 JSON 개체에서 정의됩니다.
 
 ```json
 {
@@ -456,7 +456,7 @@ public class Counter
 클래스 기반 구문과 이를 사용하는 방법에 대한 자세한 내용은 [엔터티 클래스 정의](durable-functions-dotnet-entities.md#defining-entity-classes)를 참조하세요.
 
 > [!NOTE]
-> 엔터티 클래스를 사용하는 경우 `[FunctionName]` 특성이 있는 함수 진입점 메서드를 `static`으로 *선언해야* 합니다. 비정적 진입점 메서드를 사용하면 여러 개체가 초기화되고 잠재적으로 정의되지 않은 다른 동작이 발생할 수 있습니다.
+> 엔터티 클래스를 사용하는 경우 `[FunctionName]` 특성이 있는 함수 진입점 메서드를 *으로* 선언해야`static` 합니다. 비정적 진입점 메서드를 사용하면 여러 개체가 초기화되고 잠재적으로 정의되지 않은 다른 동작이 발생할 수 있습니다.
 
 엔터티 클래스에는 바인딩과 .NET 종속성 주입을 상호 작용 하기 위한 특수 메커니즘이 있습니다. 자세한 내용은 [엔터티 생성](durable-functions-dotnet-entities.md#entity-construction)을 참조 하세요.
 
@@ -500,7 +500,7 @@ module.exports = df.entity(function(context) {
 ```
 
 > [!NOTE]
-> 지속성 엔터티는 `durable-functions` npm 패키지의 버전 **1.3.0**부터 JavaScript에서 사용할 수 있습니다.
+> 지속성 엔터티는 **npm 패키지의 버전**1.3.0`durable-functions`부터 JavaScript에서 사용할 수 있습니다.
 
 ## <a name="entity-client"></a>엔터티 클라이언트
 
@@ -634,7 +634,7 @@ module.exports = async function (context) {
 ```
 
 > [!NOTE]
-> 지속성 엔터티는 `durable-functions` npm 패키지의 버전 **1.3.0**부터 JavaScript에서 사용할 수 있습니다.
+> 지속성 엔터티는 **npm 패키지의 버전**1.3.0`durable-functions`부터 JavaScript에서 사용할 수 있습니다.
 
 <a name="host-json"></a>
 ## <a name="hostjson-settings"></a>host.json 설정

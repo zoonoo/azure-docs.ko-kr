@@ -12,11 +12,11 @@ ms.author: moslake
 ms.reviewer: ninarn, carlrab
 ms.date: 08/06/2019
 ms.openlocfilehash: 3c476393153f6bc1d18d5c163bcd69484583eb15
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78388825"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79256277"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>탄력적 풀이 여러 Azure SQL 데이터베이스를 관리하고 크기를 조정하는 데 도움을 주는 방식
 

@@ -10,11 +10,11 @@ ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
 ms.date: 10/29/2019
 ms.openlocfilehash: 4ad58bc2d61f063dce2c23f60a65dcbec48a2303
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825075"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79272787"
 ---
 # <a name="use-data-lake-tools-for-visual-studio-to-connect-to-azure-hdinsight-and-run-apache-hive-queries"></a>Data Lake Tools for Visual Studio를 사용하여 Azure HDInsight에 연결 및 Apache Hive 쿼리 실행
 
@@ -26,13 +26,13 @@ Apache Storm 클러스터에 연결 하는 방법에 대 한 자세한 [내용�
 
 Data Lake Tools for Visual Studio를 사용하여 Azure Data Lake Analytics 및 HDInsight에 액세스할 수 있습니다. Data Lake Tools에 대한 자세한 내용은 [Data Lake Tools for Visual Studio를 사용하여 U-SQL 스크립트 개발](../../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서를 완료 하 고 Visual Studio 용 Data Lake 도구를 사용 하려면 다음 항목이 필요 합니다.
 
 * Azure HDInsight 클러스터를 만듭니다. HDInsight 클러스터를 만들려면 [Azure HDInsight에서 Apache Hadoop 사용 시작](apache-hadoop-linux-tutorial-get-started.md)을 참조하세요. 대화형 Apache Hive 쿼리를 실행하려면 [HDInsight 대화형 쿼리](../interactive-query/apache-interactive-query-get-started.md) 클러스터가 필요합니다.  
 
-* [Visual Studio](https://visualstudio.microsoft.com/downloads/). [Visual Studio Community edition](https://visualstudio.microsoft.com/vs/community/) 은 무료입니다. 여기에 표시 된 지침은 [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)에 대 한 것입니다.
+* [Visual Studio](https://visualstudio.microsoft.com/downloads/) [Visual Studio Community edition](https://visualstudio.microsoft.com/vs/community/) 은 무료입니다. 여기에 표시 된 지침은 [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)에 대 한 것입니다.
 
 ## <a name="install-data-lake-tools-for-visual-studio"></a>Visual Studio용 Data Lake 도구 설치  
 
@@ -46,7 +46,7 @@ Data Lake Tools for Visual Studio를 사용하여 Azure Data Lake Analytics 및 
 
   ![작업 선택, Visual Studio 설치 관리자](./media/apache-hadoop-visual-studio-tools-get-started/vs-installation.png)
 
-- Visual Studio 2015의 경우:
+- For Visual Studio 2015:
 
     [Data Lake 도구를 다운로드](https://www.microsoft.com/download/details.aspx?id=49504)합니다. Visual Studio 버전과 일치하는 Data Lake Tools 버전을 선택하세요.
 

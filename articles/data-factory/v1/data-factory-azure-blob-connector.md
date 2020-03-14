@@ -13,11 +13,11 @@ ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: eab332f102b9e39981e2d8ed6e84f73fada87a1a
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981662"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79282134"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Blob Storage 사이에서 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -83,11 +83,11 @@ Azure Blob Storage에서 입력 또는 출력 데이터를 표시할 데이터 �
 
 | 속성 | Description | 필수 |
 | --- | --- | --- |
-| folderPath |Blob Storage에서 컨테이너 및 폴더에 대한 경로입니다. 예제: myblobcontainer\myblobfolder\ |예 |
-| fileName |Blob의 이름입니다. fileName은 선택 사항이며 대/소문자를 구분합니다.<br/><br/>filename을 지정하는 경우 활동(복사 포함)은 특정 Blob에서 작동합니다.<br/><br/>fileName을 지정하지 않으면 복사는 입력 데이터 세트에 대한 folderPath에 모든 Blob을 포함합니다.<br/><br/>**FileName** 이 출력 데이터 집합에 대해 지정 되지 않고 **preserveHierarchy** 가 활동 싱크에 지정 되지 않은 경우 생성 된 파일의 이름은 `Data.<Guid>.txt` (예: 0a405f8a-93ff-4c6f-b3be-f69616f1df7a) 형식입니다. |아닙니다. |
-| partitionedBy |partitionedBy는 선택적 속성입니다. 동적 folderPath 및 시계열 데이터에 대한 filename을 지정하는 데 사용할 수 있습니다. 예를 들어 folderPath는 매시간 데이터에 대한 매개 변수화됩니다. 자세한 내용과 예제는 [partitionedBy 속성 사용 섹션](#using-partitionedby-property)을 참조하세요. |아닙니다. |
-| format | **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**과 같은 서식 유형이 지원됩니다. 이 값 중 하나로 서식에서 **type** 속성을 설정합니다. 자세한 내용은 [텍스트 형식](data-factory-supported-file-and-compression-formats.md#text-format), [Json 형식](data-factory-supported-file-and-compression-formats.md#json-format), [Avro 형식](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc 형식](data-factory-supported-file-and-compression-formats.md#orc-format) 및 [Parquet 형식](data-factory-supported-file-and-compression-formats.md#parquet-format) 섹션을 참조하세요. <br><br> 파일 기반 저장소(이진 복사) 간에 **파일을 있는 그대로 복사**하려는 경우 입력 및 출력 데이터 세트 정의 둘 다에서 형식 섹션을 건너뜁니다. |아닙니다. |
-| 압축 | 데이터에 대한 압축 유형 및 수준을 지정합니다. 지원되는 형식은 **GZip**, **Deflate**, **BZip2** 및 **ZipDeflate**입니다. 지원되는 수준은 **최적** 및 **가장 빠름**입니다. 자세한 내용은 [Azure Data Factory의 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md#compression-support)을 참조하세요. |아닙니다. |
+| folderPath |Blob Storage에서 컨테이너 및 폴더에 대한 경로입니다. 예제: myblobcontainer\myblobfolder\ |yes |
+| fileName |Blob의 이름입니다. fileName은 선택 사항이며 대/소문자를 구분합니다.<br/><br/>filename을 지정하는 경우 활동(복사 포함)은 특정 Blob에서 작동합니다.<br/><br/>fileName을 지정하지 않으면 복사는 입력 데이터 세트에 대한 folderPath에 모든 Blob을 포함합니다.<br/><br/>**FileName** 이 출력 데이터 집합에 대해 지정 되지 않고 **preserveHierarchy** 가 활동 싱크에 지정 되지 않은 경우 생성 된 파일의 이름은 `Data.<Guid>.txt` (예: 0a405f8a-93ff-4c6f-b3be-f69616f1df7a) 형식입니다. |예 |
+| partitionedBy |partitionedBy는 선택적 속성입니다. 동적 folderPath 및 시계열 데이터에 대한 filename을 지정하는 데 사용할 수 있습니다. 예를 들어 folderPath는 매시간 데이터에 대한 매개 변수화됩니다. 자세한 내용과 예제는 [partitionedBy 속성 사용 섹션](#using-partitionedby-property)을 참조하세요. |예 |
+| format | **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**과 같은 서식 유형이 지원됩니다. 이 값 중 하나로 서식에서 **type** 속성을 설정합니다. 자세한 내용은 [텍스트 형식](data-factory-supported-file-and-compression-formats.md#text-format), [Json 형식](data-factory-supported-file-and-compression-formats.md#json-format), [Avro 형식](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc 형식](data-factory-supported-file-and-compression-formats.md#orc-format) 및 [Parquet 형식](data-factory-supported-file-and-compression-formats.md#parquet-format) 섹션을 참조하세요. <br><br> 파일 기반 저장소(이진 복사) 간에 **파일을 있는 그대로 복사**하려는 경우 입력 및 출력 데이터 세트 정의 둘 다에서 형식 섹션을 건너뜁니다. |예 |
+| 압축 | 데이터에 대한 압축 유형 및 수준을 지정합니다. 지원되는 형식은 **GZip**, **Deflate**, **BZip2** 및 **ZipDeflate**입니다. 지원되는 수준은 **최적** 및 **가장 빠름**입니다. 자세한 내용은 [Azure Data Factory의 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md#compression-support)을 참조하세요. |예 |
 
 ### <a name="using-partitionedby-property"></a>partitionedBy 속성 사용
 이전 섹션에서 설명했듯이 **partitionedBy** 속성, [Data Factory 함수 및 시스템 변수](data-factory-functions-variables.md)를 사용하여 시계열 데이터의 동적 folderPath와 filename을 지정할 수 있습니다.
@@ -129,13 +129,13 @@ Azure Blob Storage에서 입력 또는 출력 데이터를 표시할 데이터 �
 
 | 속성 | Description | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| recursive |하위 폴더에서 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. |True(기본값), False |아닙니다. |
+| recursive |하위 폴더에서 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. |True(기본값), False |예 |
 
 **BlobSink**는 **typeProperties** 섹션에서 다음 속성을 지원합니다.
 
 | 속성 | Description | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| copyBehavior |원본이 BlobSource 또는 FileSystem인 경우 복사 동작을 정의합니다. |<b>PreserveHierarchy</b>: 대상 폴더에서 파일 계층 구조를 유지합니다. 원본 폴더의 원본 파일 상대 경로는 대상 폴더의 대상 파일 상대 경로와 동일합니다.<br/><br/><b>FlattenHierarchy</b>: 원본 폴더의 모든 파일은 대상 폴더의 첫 번째 수준에 있게 됩니다. 대상 파일은 자동 생성된 이름을 갖습니다. <br/><br/><b>MergeFiles</b>: 원본 폴더의 모든 파일을 하나의 파일로 병합합니다. 파일/Blob 이름이 지정된 경우 지정된 이름이 병합된 파일 이름이 됩니다. 그렇지 않으면 자동 생성된 파일 이름이 병합된 파일 이름이 됩니다. |아닙니다. |
+| copyBehavior |원본이 BlobSource 또는 FileSystem인 경우 복사 동작을 정의합니다. |<b>PreserveHierarchy</b>: 대상 폴더에서 파일 계층 구조를 유지합니다. 원본 폴더의 원본 파일 상대 경로는 대상 폴더의 대상 파일 상대 경로와 동일합니다.<br/><br/><b>FlattenHierarchy</b>: 원본 폴더의 모든 파일은 대상 폴더의 첫 번째 수준에 있게 됩니다. 대상 파일은 자동 생성된 이름을 갖습니다. <br/><br/><b>MergeFiles</b>: 원본 폴더의 모든 파일을 하나의 파일로 병합합니다. 파일/Blob 이름이 지정된 경우 지정된 이름이 병합된 파일 이름이 됩니다. 그렇지 않으면 자동 생성된 파일 이름이 병합된 파일 이름이 됩니다. |예 |
 
 **BlobSource**에서도 이전 버전과의 호환성을 위해 이러한 두 속성을 지원합니다.
 
@@ -173,11 +173,11 @@ Azure Blob Storage에서 입력 또는 출력 데이터를 표시할 데이터 �
 ## <a name="walkthrough-use-copy-wizard-to-copy-data-tofrom-blob-storage"></a>연습: 복사 마법사를 사용하여 Blob Storage 간 데이터 복사
 이 스토리지를 만든 후에 쉽게 탑재 및 공유할 수 있도록 하려면 Azure File Storage 정보를 텍스트 파일에 저장하고 해당 위치에 대한 경로를 기록합니다. 이 연습에 나오는 원본 및 대상 데이터 저장소의 유형은 모두 Azure Blob Storage입니다. 이 연습의 파이프라인은 한 폴더의 데이터를 동일한 Blob 컨테이너의 다른 폴더로 복사합니다. 이 연습에서는 Blob Storage를 원본 또는 싱크로 사용할 때 설정 또는 속성을 표시하는 것이 간단합니다.
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>사전 요구 사항
 1. 아직 만들지 않은 경우 범용 **Azure Storage 계정**을 만듭니다. 이 연습에서는 Blob Storage를 **원본** 및 **대상** 데이터 스토리지로 사용합니다. Azure Storage 계정이 없는 경우 새로 만드는 단계는 [스토리지 계정 만들기](../../storage/common/storage-account-create.md) 문서를 참조하세요.
 2. 스토리지 계정에 **adfblobconnector**라는 Blob 컨테이너를 만듭니다.
 4. **adfblobconnector** 컨테이너에 **input**이라는 폴더를 만듭니다.
-5. [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/)와 같은 도구를 사용하여 다음 내용이 포함된 **emp.txt**라는 파일을 만들어 **input** 폴더에 업로드합니다.
+5. **Azure Storage Explorer**와 같은 도구를 사용하여 다음 내용이 포함된 **emp.txt**라는 파일을 만들어 [input](https://azurestorageexplorer.codeplex.com/) 폴더에 업로드합니다.
     ```json
     John, Doe
     Jane, Doe
@@ -270,7 +270,7 @@ Azure Blob Storage에서 입력 또는 출력 데이터를 표시할 데이터 �
 
 ### <a name="monitor-the-pipeline-copy-task"></a>파이프라인(복사 활동) 모니터링
 
-1. **배포** 페이지에서 `Click here to monitor copy pipeline` 링크를 클릭합니다.
+1. `Click here to monitor copy pipeline`배포**페이지에서** 링크를 클릭합니다.
 2. 별도의 탭에 **모니터링 및 관리 응용 프로그램이** 표시 됩니다.  앱](media/data-factory-azure-blob-connector/monitor-manage-app.png) 모니터링 및 관리 ![
 3. 상단의 **시작** 시간을 `04/19/2017` 및 **종료** 시간을 `04/27/2017`로 변경한 다음 **적용**을 클릭합니다.
 4. **활동 창** 목록에 5개의 활동 창이 표시됩니다. **WindowStart** 시간은 파이프라인 시작부터 파이프라인 종료 시간까지의 모든 날을 포함해야 합니다.
@@ -305,7 +305,7 @@ Azure Blob Storage에서 입력 또는 출력 데이터를 표시할 데이터 �
 #### <a name="linked-services"></a>연결된 서비스
 두 개의 연결된 서비스가 표시되어야 합니다. 하나는 원본을 위한 것이고 다른 하나는 목적지를 위한 것입니다. 이 연습에서는 이름을 제외하고 두 정의가 모두 동일하게 보입니다. 연결된 서비스의 **형식**이 **AzureStorage**로 설정되었습니다. 연결된 서비스 정의의 가장 중요한 속성은 **connectionString**입니다. 이는 Data Factory에서 런타임에 Azure Storage 계정에 연결하는 데 사용됩니다. 정의에서 hubName 특성을 무시합니다.
 
-##### <a name="source-blob-storage-linked-service"></a>(선택 사항) 전체 팀에게 유용한 데이터 자산을 저장하는 데 사용할 Azure File Storage를 만듭니다.
+##### <a name="source-blob-storage-linked-service"></a>(선택 사항) 전체 팀에게 유용한 데이터 자산을 저장하는 데 사용할 {1}Azure File Storage{2}를 만듭니다.
 ```json
 {
     "name": "Source-BlobStorage-z4y",
@@ -318,7 +318,7 @@ Azure Blob Storage에서 입력 또는 출력 데이터를 표시할 데이터 �
 }
 ```
 
-##### <a name="destination-blob-storage-linked-service"></a>Azure File Storage 정보 파일이 있는지 묻는 메시지가 나타나면 Enter 또는 y를 클릭하고 이전 단계에서 만든 파일의 *전체 경로와 이름을 입력합니다.
+##### <a name="destination-blob-storage-linked-service"></a>Azure File Storage 정보 파일이 있는지 묻는 메시지가 나타나면 {1}Enter{2} 또는 {3}y{4}를 클릭하고 이전 단계에서 만든 파일의 *{5}전체 경로와 이름{6}을 입력합니다.
 
 ```json
 {
@@ -472,9 +472,9 @@ BlobSource 및 BlobSink에서 지원하는 속성에 대한 자세한 내용은 
 
 1. [AzureSqlDatabase](data-factory-azure-sql-connector.md#linked-service-properties) 형식의 연결된 서비스입니다.
 2. [AzureStorage](#linked-service-properties) 형식의 연결된 서비스
-3. [AzureBlob](#dataset-properties) 형식의 입력 [데이터 세트](data-factory-create-datasets.md)입니다.
-4. [AzureSqlTable](data-factory-azure-sql-connector.md#dataset-properties) 형식의 출력 [데이터 세트](data-factory-create-datasets.md)입니다.
-5. [BlobSource](#copy-activity-properties) 및 [SqlSink](data-factory-azure-sql-connector.md#copy-activity-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)입니다.
+3. [AzureBlob](data-factory-create-datasets.md) 형식의 입력 [데이터 세트](#dataset-properties)입니다.
+4. [AzureSqlTable](data-factory-create-datasets.md) 형식의 출력 [데이터 세트](data-factory-azure-sql-connector.md#dataset-properties)입니다.
+5. [BlobSource](data-factory-create-pipelines.md) 및 [SqlSink](#copy-activity-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-azure-sql-connector.md#copy-activity-properties)입니다.
 
 샘플은 Azure Blob에서 Azure SQL 테이블로 매시간 시계열 데이터를 복사합니다. 이 샘플에 사용된 JSON 속성은 샘플 다음에 나오는 섹션에서 설명합니다.
 
@@ -620,9 +620,9 @@ Azure Data Factory는 두 가지 유형의 Azure Storage 연결된 서비스: **
 
 1. [AzureSqlDatabase](data-factory-azure-sql-connector.md#linked-service-properties) 형식의 연결된 서비스입니다.
 2. [AzureStorage](#linked-service-properties) 형식의 연결된 서비스
-3. [AzureSqlTable](data-factory-azure-sql-connector.md#dataset-properties) 형식의 입력 [데이터 세트](data-factory-create-datasets.md)입니다.
-4. [AzureBlob](#dataset-properties) 형식의 출력 [데이터 세트](data-factory-create-datasets.md)
-5. [SqlSource](data-factory-azure-sql-connector.md#copy-activity-properties) 및 [BlobSink](#copy-activity-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)입니다.
+3. [AzureSqlTable](data-factory-create-datasets.md) 형식의 입력 [데이터 세트](data-factory-azure-sql-connector.md#dataset-properties)입니다.
+4. [AzureBlob](data-factory-create-datasets.md) 형식의 출력 [데이터 세트](#dataset-properties)
+5. [SqlSource](data-factory-create-pipelines.md) 및 [BlobSink](data-factory-azure-sql-connector.md#copy-activity-properties)를 사용하는 복사 작업의 [파이프라인](#copy-activity-properties)입니다.
 
 샘플은 Azure SQL 테이블에서 Azure Blob으로 매시간 시계열 데이터를 복사합니다. 이 샘플에 사용된 JSON 속성은 샘플 다음에 나오는 섹션에서 설명합니다.
 

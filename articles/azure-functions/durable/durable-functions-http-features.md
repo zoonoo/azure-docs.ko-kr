@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: azfuncdf
 ms.openlocfilehash: a7d8891c6f925cfac326685f01ba5f6149a1b233
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76262863"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79278065"
 ---
 # <a name="http-features"></a>HTTP 기능
 
@@ -41,11 +41,11 @@ Durable Functions 확장에 의해 노출 되는 모든 기본 제공 HTTP Api�
 
 [오케스트레이션 클라이언트 바인딩은](durable-functions-bindings.md#orchestration-client) 편리한 HTTP 응답 페이로드를 생성할 수 있는 api를 노출 합니다. 예를 들어 특정 오케스트레이션 인스턴스에 대 한 관리 Api에 대 한 링크가 포함 된 응답을 만들 수 있습니다. 다음 예에서는 새 오케스트레이션 인스턴스에이 API를 사용 하는 방법을 보여 주는 HTTP 트리거 함수를 보여 줍니다.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpStart.cs)]
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 **index.js**
 
@@ -114,7 +114,7 @@ Durable Functions 2.0부터 오케스트레이션은 [오케스트레이션 트�
 
 다음 예제 코드는 아웃 바운드 HTTP 요청을 만드는 오 케 스트레이 터 함수를 보여 줍니다.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("CheckSiteAvailable")]
@@ -134,7 +134,7 @@ public static async Task CheckSiteAvailable(
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -172,7 +172,7 @@ Durable Functions은 권한 부여를 위해 Azure Active Directory (Azure AD) �
 
 다음 코드는 .NET orchestrator 함수의 예제입니다. 이 함수는 [REST API Azure Resource Manager 가상](https://docs.microsoft.com/rest/api/compute/virtualmachines)컴퓨터를 사용 하 여 가상 컴퓨터를 다시 시작 하도록 인증 된 호출을 수행 합니다.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("RestartVm")]
@@ -198,7 +198,7 @@ public static async Task RunOrchestrator(
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");

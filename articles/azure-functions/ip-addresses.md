@@ -4,11 +4,11 @@ description: 함수 앱의 인바운드 및 아웃바운드 IP 주소를 찾는 
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.openlocfilehash: a1c4174b8f1f2349cbd35c32cbee468ee5b4cd4a
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75612890"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79276492"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Azure Functions의 IP 주소
 
@@ -78,7 +78,7 @@ az webapp show --resource-group <group_name> --name <app_name> --query possibleO
 }
 ```
 
- 이 파일이 업데이트되는 시기와 IP 주소가 변경되는 시기에 대한 내용은 [다운로드 센터 페이지](https://www.microsoft.com/en-us/download/details.aspx?id=56519)의 **세부 정보** 섹션을 펼쳐보세요.
+ 이 파일이 업데이트되는 시기와 IP 주소가 변경되는 시기에 대한 내용은 **다운로드 센터 페이지**의 [세부 정보](https://www.microsoft.com/en-us/download/details.aspx?id=56519) 섹션을 펼쳐보세요.
 
 ## <a name="inbound-ip-address-changes"></a>인바운드 IP 주소 변경
 

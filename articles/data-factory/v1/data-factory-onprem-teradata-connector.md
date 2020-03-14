@@ -13,11 +13,11 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: ecde5784e759ef5259b8c67ed574cef6cae98f30
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74929046"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79281198"
 ---
 # <a name="move-data-from-teradata-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 Teradata에서 데이터 이동
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -25,13 +25,13 @@ ms.locfileid: "74929046"
 > * [버전 2(현재 버전)](../connector-teradata.md)
 
 > [!NOTE]
-> 이 문서는 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [V2의 Teradata 커넥터](../connector-teradata.md)를 참조하세요.
+> 이 아티클은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [V2의 Teradata 커넥터](../connector-teradata.md)를 참조하세요.
 
 이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 온-프레미스 Teradata 데이터베이스에서 데이터를 이동하는 방법을 설명합니다. 이 문서는 복사 작업을 사용한 데이터 이동의 일반적인 개요를 보여주는 [데이터 이동 작업](data-factory-data-movement-activities.md) 문서를 기반으로 합니다.
 
 온-프레미스 Teradata 데이터 저장소의 데이터를 지원되는 싱크 데이터 저장소로 복사할 수 있습니다. 복사 작업의 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 테이블을 참조하세요. 현재 데이터 팩터리는 다른 데이터 저장소에서 Teradata 데이터 저장소로 데이터 이동이 아닌 Teradata 데이터 저장소에서 다른 데이터 저장소로 데이터 이동만을 지원합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 데이터 팩터리는 데이터 관리 게이트웨이를 통해 온-프레미스 Teradata 원본에 연결을 지원합니다. 데이터 관리 게이트웨이 및 게이트웨이 설정에 대한 단계별 지침을 알아보려면 [온-프레미스 위치 및 클라우드 간 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) 문서를 참조하세요.
 
 게이트웨이는 Teradata가 Azure IaaS VM에 호스팅되더라도 필요합니다. 게이트웨이를 데이터베이스에 연결할 수 있는 한 데이터 저장소와 동일한 IaaS VM 또는 다른 VM에 게이트웨이를 설치할 수 있습니다.
@@ -61,13 +61,13 @@ Teradata 데이터베이스에 연결할 데이터 관리 게이트웨이의 경
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
 다음 표에서는 Teradata 연결된 서비스와 관련된 JSON 요소에 대한 설명을 제공합니다.
 
-| 자산 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 | --- | --- | --- |
 | type |형식 속성은 **OnPremisesTeradata** |yes |
 | 서버 |Teradata 서버의 이름입니다. |yes |
 | authenticationType |Teradata 데이터베이스에 연결하는 데 사용되는 인증 형식입니다. 가능한 값은 익명, 기본 및 Windows입니다. |yes |
-| username |기본 또는 Windows 인증을 사용하는 경우 사용자 이름을 지정합니다. |아닙니다. |
-| 암호 |사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. |아닙니다. |
+| 사용자 이름 |기본 또는 Windows 인증을 사용하는 경우 사용자 이름을 지정합니다. |예 |
+| password |사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. |예 |
 | gatewayName |데이터 팩터리 서비스가 온-프레미스 Teradata 데이터베이스에 연결하는 데 사용해야 하는 게이트웨이의 이름입니다. |yes |
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
@@ -82,20 +82,20 @@ Teradata 데이터베이스에 연결할 데이터 관리 게이트웨이의 경
 
 원본이 **RelationalSource**(Teradata 포함) 형식인 경우 **typeProperties** 섹션에서 다음과 같은 속성을 사용할 수 있습니다.
 
-| 자산 | 설명 | 허용되는 값 | 필수 |
+| 속성 | Description | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| 쿼리 |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예: select * from MyTable. |yes |
+| Query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예: select * from MyTable. |yes |
 
 ### <a name="json-example-copy-data-from-teradata-to-azure-blob"></a>JSON 예: Teradata에서 Azure Blob으로 데이터 복사
-다음 예제에서는 [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)를 사용 하 여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공 합니다. 이 샘플은 Teradata에서 Azure Blob Storage로 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure Data Factory의 복사 작업을 사용하여 [여기](data-factory-data-movement-activities.md#supported-data-stores-and-formats)에 설명한 싱크로 데이터를 복사할 수 있습니다.
+다음 예제에서는 [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)를 사용 하 여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공 합니다. 이 샘플은 Teradata에서 Azure Blob Storage로 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure Data Factory의 복사 작업을 사용하여 [여기](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 에 설명한 싱크로 데이터를 복사할 수 있습니다.
 
 이 샘플에는 다음 데이터 팩터리 엔터티가 있습니다.
 
 1. [OnPremisesTeradata](#linked-service-properties)형식의 연결된 서비스
 2. [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties) 형식의 연결된 서비스
-3. [RelationalTable](#dataset-properties) 형식의 입력 [데이터 세트](data-factory-create-datasets.md)
-4. [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties) 형식의 출력 [데이터 세트](data-factory-create-datasets.md)
-5. [RelationalSource](#copy-activity-properties) 및 [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)
+3. [RelationalTable](data-factory-create-datasets.md) 형식의 입력 [데이터 세트](#dataset-properties)
+4. [AzureBlob](data-factory-create-datasets.md) 형식의 출력 [데이터 세트](data-factory-azure-blob-connector.md#dataset-properties)
+5. [RelationalSource](data-factory-create-pipelines.md) 및 [BlobSink](#copy-activity-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-azure-blob-connector.md#copy-activity-properties)
 
 샘플은 Teradata 데이터베이스의 쿼리 결과에서 blob에 매시간 데이터를 복사합니다. 이 샘플에 사용된 JSON 속성은 샘플 다음에 나오는 섹션에서 설명합니다.
 
@@ -166,7 +166,7 @@ Teradata 데이터베이스에 연결할 데이터 관리 게이트웨이의 경
 
 **Azure Blob 출력 데이터 세트:**
 
-데이터는 매시간 새 blob에 기록됩니다(frequency: hour, interval: 1). Blob에 대한 폴더 경로는 처리 중인 조각의 시작 시간에 기반하여 동적으로 평가됩니다. 폴더 경로는 시작 시간에서 연도, 월, 일 및 시간 부분을 사용합니다.
+데이터는 매시간 새 blob에 기록됩니다.(빈도: 1시간, 간격:1회) Blob에 대한 폴더 경로는 처리 중인 조각의 시작 시간에 기반하여 동적으로 평가됩니다. 폴더 경로는 시작 시간에서 연도, 월, 일 및 시간 부분을 사용합니다.
 
 ```json
 {
@@ -284,45 +284,45 @@ Teradata로 데이터를 이동하는 경우 Teradata 형식에서 .NET 형식�
 
 | Teradata 데이터베이스 형식 | .NET Framework 형식 |
 | --- | --- |
-| Char |string |
-| Clob |string |
-| Graphic |string |
-| VarChar |string |
-| VarGraphic |string |
+| Char |String |
+| Clob |String |
+| Graphic |String |
+| VarChar |String |
+| VarGraphic |String |
 | Blob |Byte[] |
 | Byte |Byte[] |
 | VarByte |Byte[] |
 | BigInt |Int64 |
 | ByteInt |Int16 |
-| 10진수 |10진수 |
-| DOUBLE |DOUBLE |
+| Decimal |Decimal |
+| Double |Double |
 | 정수 |Int32 |
-| 수 |DOUBLE |
+| Number |Double |
 | SmallInt |Int16 |
-| 날짜 |DateTime |
-| 시간 |timespan |
-| Time With Time Zone |string |
-| Timestamp |DateTime |
+| Date |DateTime |
+| Time |TimeSpan |
+| Time With Time Zone |String |
+| 타임스탬프 |DateTime |
 | Timestamp With Time Zone |DateTimeOffset |
-| Interval Day |timespan |
-| Interval Day To Hour |timespan |
-| Interval Day To Minute |timespan |
-| Interval Day To Second |timespan |
-| Interval Hour |timespan |
-| Interval Hour To Minute |timespan |
-| Interval Hour To Second |timespan |
-| Interval Minute |timespan |
-| Interval Minute To Second |timespan |
-| Interval Second |timespan |
-| Interval Year |string |
-| Interval Year To Month |string |
-| Interval Month |string |
-| Period(Date) |string |
-| Period(Time) |string |
-| Period(Time With Time Zone) |string |
-| Period(Timestamp) |string |
-| Period(Timestamp With Time Zone) |string |
-| xml |string |
+| Interval Day |TimeSpan |
+| Interval Day To Hour |TimeSpan |
+| Interval Day To Minute |TimeSpan |
+| Interval Day To Second |TimeSpan |
+| Interval Hour |TimeSpan |
+| Interval Hour To Minute |TimeSpan |
+| Interval Hour To Second |TimeSpan |
+| Interval Minute |TimeSpan |
+| Interval Minute To Second |TimeSpan |
+| Interval Second |TimeSpan |
+| Interval Year |String |
+| Interval Year To Month |String |
+| Interval Month |String |
+| Period(Date) |String |
+| Period(Time) |String |
+| Period(Time With Time Zone) |String |
+| Period(Timestamp) |String |
+| Period(Timestamp With Time Zone) |String |
+| Xml |String |
 
 ## <a name="map-source-to-sink-columns"></a>원본을 싱크 열로 매핑
 원본 데이터 세트의 열을 싱크 데이터 세트의 열로 매핑하는 방법은 [Azure Data Factory의 데이터 세트 열 매핑](data-factory-map-columns.md)을 참조하세요.

@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: cb4bec8170466f0fc667b592d44b0858c41ccd84
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78392418"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79270993"
 ---
 # <a name="best-practices-to-use-key-vault"></a>Key Vault 사용에 대 한 모범 사례
 

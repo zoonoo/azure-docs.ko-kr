@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: ca4051e56f7d51ac7ac5fbe534cb8fc536d64a68
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: b43169b59425e97b0aa614eb64a5c86c20179a8d
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78368688"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136819"
 ---
 # <a name="getting-started-with-azure-maps-android-sdk"></a>Azure Maps Android SDK 시작
 
@@ -109,7 +109,7 @@ Android Studio를 사용하면 컴퓨터에 가상 Android 디바이스를 설�
     * Azure Maps 인증 정보 설정
     * **onCreate** 메서드에서 지도 컨트롤 인스턴스 가져오기
 
-    `setSubscriptionKey` 또는 `setAadProperties` 메서드를 사용 하 여 `AzureMaps` 클래스에 대 한 인증 정보를 전역적으로 설정 하면 모든 보기에 인증 정보를 추가할 필요가 없습니다. 
+    `AzureMaps` 또는 `setSubscriptionKey` 메서드를 사용하여 `setAadProperties` 클래스에 대한 인증 정보를 전역적으로 설정하면 보기마다 인증 정보를 추가할 필요가 없습니다. 
 
     지도 컨트롤에는 Android의 OpenGL 수명 주기를 관리하는 자체 수명 주기 메서드가 포함되어 있습니다. 이러한 수명 주기 메서드는 포함 하는 작업에서 직접 호출 해야 합니다. 응용 프로그램에서 맵 컨트롤의 수명 주기 메서드를 올바르게 호출 하려면 맵 컨트롤이 포함 된 활동에서 다음 수명 주기 메서드를 재정의 해야 합니다. 각 map 컨트롤 메서드를 호출 해야 합니다. 
 
@@ -273,7 +273,7 @@ Azure Maps ![프랑스어](./media/how-to-use-android-map-control-library/androi
 지도에 오버레이 데이터를 추가 하는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [Android 맵에 기호 계층 추가](https://review.docs.microsoft.com/azure/azure-maps/how-to-add-symbol-to-android-map)
+> [Android 맵에 기호 계층 추가](how-to-add-symbol-to-android-map.md)
 
 > [!div class="nextstepaction"]
 > [Android 맵에 셰이프 추가](https://docs.microsoft.com/azure/azure-maps/how-to-add-shapes-to-android-map)

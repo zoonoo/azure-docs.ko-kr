@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/04/2019
 ms.openlocfilehash: 84098901d58e2087c7ece77049e445bb5c76f2a9
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74923791"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79266027"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Open Hub를 통해 SAP Business Warehouse에서 데이터 복사
 
@@ -73,7 +73,7 @@ ADF SAP BW 열린 허브 커넥터는 두 가지 선택적 속성인 `excludeLas
 
 적절 한 델타 처리를 위해 동일한 열려 있는 허브 테이블에 있는 다른 DTPs의 요청 Id를 가질 수 없습니다. 따라서 각 OHD (개방형 허브 대상)에 대해 두 개 이상의 DTP를 만들지 않아야 합니다. 동일한 InfoProvider에서 전체 및 델타 추출을 필요로 하는 경우 동일한 InfoProvider에 대해 두 개의 OHDs를 만들어야 합니다. 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 SAP Business Warehouse 커넥터를 사용하려면 다음 작업을 수행해야 합니다.
 
@@ -104,18 +104,18 @@ ADF SAP BW 열린 허브 커넥터는 두 가지 선택적 속성인 `excludeLas
 
 SAP Business Warehouse Open Hub 연결된 서비스에 지원되는 속성은 다음과 같습니다.
 
-| 자산 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | Type 속성은 **SapOpenHub** 로 설정 해야 합니다. | yes |
 | 서버 | SAP BW 인스턴스가 상주하는 서버의 이름. | yes |
 | systemNumber | SAP BW 시스템의 시스템 번호.<br/>허용되는 값: 문자열로 표현되는 두 자리 10진수 | yes |
 | clientId | SAP W 시스템에 있는 클라이언트의 클라이언트 ID.<br/>허용되는 값: 문자열로 표현되는 세 자리 10진수 | yes |
-| language | SAP 시스템에서 사용하는 언어입니다. | No(기본값: **EN**)|
+| 언어 | SAP 시스템에서 사용하는 언어입니다. | No(기본값: **EN**)|
 | userName | SAP 서버에 대한 액세스 권한이 있는 사용자의 이름입니다. | yes |
-| 암호 | 사용자에 대한 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | yes |
+| password | 사용자에 대한 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | yes |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. [필수 조건](#prerequisites)에 설명된 대로 자체 호스팅 Integration Runtime이 필요합니다. |yes |
 
-**예제:**
+**예:**
 
 ```json
 {
@@ -144,16 +144,16 @@ SAP Business Warehouse Open Hub 연결된 서비스에 지원되는 속성은 �
 
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 SAP BW 열려 있는 허브 데이터 집합에서 지 원하는 속성의 목록을 제공 합니다.
 
-SAP BW Open Hub 간에 데이터를 복사하려면 데이터 세트의 형식 속성을 **SapOpenHubTable**로 설정합니다. 지원되는 속성은 다음과 같습니다.
+SAP BW Open Hub 간에 데이터를 복사하려면 데이터 세트의 형식 속성을 **SapOpenHubTable**로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
-| 자산 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 이 속성은 **SapOpenHubTable**로 설정해야 합니다.  | yes |
 | openHubDestinationName | 복사할 데이터가 있는 Open Hub 대상의 이름입니다. | yes |
 
 데이터 집합의 `excludeLastRequest` 및 `baseRequestId`를 설정 하는 경우 계속 해 서 있는 그대로 지원 되지만 작업 원본에서 새 모델을 사용 하는 것이 좋습니다.
 
-**예제:**
+**예:**
 
 ```json
 {
@@ -180,18 +180,18 @@ SAP BW Open Hub 간에 데이터를 복사하려면 데이터 세트의 형식 �
 
 SAP BW 열려 있는 허브에서 데이터를 복사 하려면 복사 작업 **원본** 섹션에서 다음 속성을 지원 합니다.
 
-| 자산 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 **type** 속성은 **SapOpenHubSource**로 설정 해야 합니다. | yes |
 | excludeLastRequest | 마지막 요청의 레코드를 제외할지 여부입니다. | No(기본값: **true**) |
-| baseRequestId | 델타 로드의 요청 ID입니다. 설정하는 경우 requestId가 이 속성의 값**보다 큰** 데이터만 검색됩니다.  | 아닙니다. |
+| baseRequestId | 델타 로드의 요청 ID입니다. 설정하는 경우 requestId가 이 속성의 값**보다 큰** 데이터만 검색됩니다.  | 예 |
 
 >[!TIP]
 >항상 테이블의 기존 데이터를 모두 로드하고 덮어쓰거나, 테스트를 위해 DTP를 한 번만 실행하는 등 Open Hub 테이블에 단일 요청 ID를 통해 생성된 데이터만 포함되는 경우에는 "excludeLastRequest" 옵션 선택을 취소하여 데이터를 외부로 복사해야 합니다.
 
 데이터 로드를 가속화 하기 위해 복사 작업에 [`parallelCopies`](copy-activity-performance.md#parallel-copy) 를 설정 하 여 SAP BW 열려 있는 허브의 데이터를 병렬로 로드할 수 있습니다. 예를 들어 `parallelCopies`를 4로 설정 하 고 Data Factory 동시에 4 개의 RFC 호출을 실행 하며 각 RFC 호출은 DTP 요청 ID 및 패키지 ID로 분할 된 SAP BW 열린 허브 테이블에서 데이터의 일부를 검색 합니다. 고유 DTP 요청 ID + 패키지 ID 수가 `parallelCopies`값 보다 큰 경우에 적용 됩니다. 파일 기반 데이터 저장소로 데이터를 복사 하는 경우에는 폴더에 여러 파일로 기록 (폴더 이름만 지정) 하는 것이 좋습니다 .이 경우에는 단일 파일에 쓰는 것 보다 성능이 좋습니다.
 
-**예제:**
+**예:**
 
 ```json
 "activities":[
@@ -230,14 +230,14 @@ SAP BW Open Hub에서 데이터를 복사할 때는 SAP BW 데이터 형식에�
 
 | SAP ABAP 형식 | Data Factory 중간 데이터 형식 |
 |:--- |:--- |
-| C(문자열) | string |
+| C(문자열) | String |
 | I(정수) | Int32 |
-| F(부동) | DOUBLE |
-| D(날짜) | string |
-| T(시간) | string |
-| P(BCD 압축, 통화, 10진수, 수량) | 10진수 |
-| N(숫자) | string |
-| X(이진 및 원시) | string |
+| F(부동) | Double |
+| D(날짜) | String |
+| T(시간) | String |
+| P(BCD 압축, 통화, 10진수, 수량) | Decimal |
+| N(숫자) | String |
+| X(이진 및 원시) | String |
 
 ## <a name="lookup-activity-properties"></a>조회 작업 속성
 

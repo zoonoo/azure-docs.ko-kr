@@ -4,16 +4,16 @@ description: Azure Red Hat OpenShift 클러스터에서 프로젝트, 템플릿,
 services: openshift
 keywords: red hat openshift 프로젝트는 자체 provisioner를 요청 합니다.
 author: mjudeikis
-ms.author: b-majude
+ms.author: gwallace
 ms.date: 07/19/2019
 ms.topic: conceptual
 ms.service: container-service
-ms.openlocfilehash: d88be50468f55a848b43613e1f7851621202052d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d4f53238951784a74e6e3fc8a73d1f112ce75608
+ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75378231"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79139116"
 ---
 # <a name="manage-projects-templates-image-streams-in-an-azure-red-hat-openshift-cluster"></a>Azure Red Hat OpenShift 클러스터에서 프로젝트, 템플릿, 이미지 스트림 관리 
 

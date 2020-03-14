@@ -8,12 +8,12 @@ ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: c2f774401f32ff02ced690173c418dafc4c789b5
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 178f56354120bf7a65c51f1c9cf54e34bd011d97
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76278803"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79137291"
 ---
 # <a name="api-versions-in-azure-cognitive-search"></a>Azure Cognitive Search의 API 버전
 
@@ -37,7 +37,7 @@ SDK 업데이트와 동일한 규칙이 적용됩니다. Azure Cognitive Search 
 | [서비스 REST API](https://docs.microsoft.com/rest/api/searchservice/) |2019-05-06 |일반 공급 |
 | [서비스 REST API 2019-05-06-미리 보기](search-api-preview.md) |2019-05-06-미리 보기 |미리 보기 |
 | [.NET 관리 SDK](https://aka.ms/search-mgmt-sdk) |3.0 |일반 공급 |
-| [관리 REST API](https://docs.microsoft.com/rest/api/searchmanagement/) |2015-08-19 |일반 공급 |
+| [관리 REST API](https://docs.microsoft.com/rest/api/searchmanagement/) |2020-03-13|일반 공급 |
 
 REST API의 경우 각 호출의 `api-version` 을 포함해야 합니다. `api-version`을 사용하면 API 미리 보기 등 특정 버전을 대상으로 하기 쉽습니다. 다음 예제에서는 `api-version` 매개 변수를 지정하는 방법을 보여 줍니다.
 
@@ -51,7 +51,7 @@ REST API의 경우 각 호출의 `api-version` 을 포함해야 합니다. `api-
 일반 공급(또는 GA) API는 프로덕션에서 사용할 수 있으며 Azure 서비스 수준 계약에 적용을 받습니다. 미리 보기 버전에는 GA 버전으로 항상 마이그레이션되지 않는 실험적 기능이 있습니다. **프로덕션 애플리케이션에서 미리 보기 API를 사용하지 않는 것이 좋습니다.**
 
 ## <a name="update-to-the-latest-version-of-the-rest-api-by-october-15-2020"></a>2020 년 10 월 15 일까 지 최신 버전의 REST API 업데이트
-Azure Cognitive Search REST API의 다음 버전은 사용 중지 되며 2020 년 10 월 15 일: **2014-07-31-미리 보기**, **2014-10-20-미리**보기, **2015-02-28-미리 보기**및 **2015-02-28**부터 더 이상 지원 되지 않습니다. 또한 3.0.0 보다 오래 된 Azure Cognitive Search .Net SDK 버전은 이러한 REST API 버전 중 하나를 대상으로 하기 때문에 **사용** 이 중지 됩니다. 이 날짜 이후에는 더 이상 사용 되지 않는 REST API 또는 SDK 버전 중 하나를 사용 하는 응용 프로그램이 더 이상 작동 하지 않으므로 업그레이드 해야 합니다. 이 유형을 변경 하는 경우와 마찬가지로 12 개월의 통지를 제공 하므로 적절 한 시간을 조정할 수 있습니다.  계속 해 서 Azure Cognitive Search을 사용 하려면 [REST API](search-api-migration.md) 를 대상으로 하는 기존 코드를 [REST API 버전 2019-05-06](https://docs.microsoft.com/rest/api/searchservice/) 이상 또는 .Net SDK를 년 10 월 15 2020 일에 [버전 3.0](search-dotnet-sdk-migration.md) 이상으로 마이그레이션 하세요.  최신 버전으로 업데이트 하는 방법에 대 한 질문이 있는 경우 2020 년 5 월 15 일 azuresearch_contact@microsoft.com 메일을 보내 코드를 업데이트할 시간이 충분 한지 확인 하세요.
+Azure Cognitive Search REST API의 다음 버전은 사용 중지 되며 2020 년 10 월 15 일: **2014-07-31-미리 보기**, **2014-10-20-미리**보기, **2015-02-28-미리 보기**및 **2015-02-28**부터 더 이상 지원 되지 않습니다. 또한 3.0.0 보다 오래 된 Azure Cognitive Search .NET SDK 버전은 이러한 REST API 버전 중 하나를 대상으로 하기 때문에 **사용** 이 중지 됩니다. 이 날짜 이후에는 더 이상 사용 되지 않는 REST API 또는 SDK 버전 중 하나를 사용 하는 응용 프로그램이 더 이상 작동 하지 않으므로 업그레이드 해야 합니다. 이 유형을 변경 하는 경우와 마찬가지로 12 개월의 통지를 제공 하므로 적절 한 시간을 조정할 수 있습니다.  계속 해 서 Azure Cognitive Search을 사용 하려면 [REST API](search-api-migration.md) 를 대상으로 하는 기존 코드를 [REST API 버전 2019-05-06](https://docs.microsoft.com/rest/api/searchservice/) 이상 또는 .Net SDK를 년 10 월 15 2020 일에 [버전 3.0](search-dotnet-sdk-migration.md) 이상으로 마이그레이션 하세요.  최신 버전으로 업데이트 하는 방법에 대 한 질문이 있는 경우 2020 년 5 월 15 일 azuresearch_contact@microsoft.com 메일을 보내 코드를 업데이트할 시간이 충분 한지 확인 하세요.
 
 ## <a name="about-preview-and-generally-available-versions"></a>미리 보기 및 일반 공급 버전 정보
 Azure Cognitive Search는 먼저 REST API를 통해 실험적 기능을 미리 릴리스한 후 시험판 버전의 .NET SDK를 통해 미리 릴리스 합니다.

@@ -14,11 +14,11 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: ed1f47ae99f6346a932d0fe94be7586dc25a672f
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78377388"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79262738"
 ---
 # <a name="using-web-browsers-msalnet"></a>웹 브라우저 사용 (MSAL.NET)
 
@@ -45,15 +45,15 @@ MSAL.NET는 다중 프레임 워크 라이브러리 이며 UI 컨트롤에서 �
 
 ### <a name="at-a-glance"></a>개요
 
-| 프레임워크        | 포함 | System | 기본 |
+| 프레임워크        | 포함된 | 시스템 | 기본값 |
 | ------------- |-------------| -----| ----- |
-| .NET 클래식     | 예 | 예 ^ | 포함 |
-| .NET Core     | 아니요 | 예 ^ | System |
-| .NET Standard | 아니요 | 예 ^ | System |
-| UWP | 예 | 아니요 | 포함 |
-| Xamarin.Android | 예 | 예  | System |
-| Xamarin.iOS | 예 | 예  | System |
-| Xamarin.ios| 예 | 아니요 | 포함 |
+| .NET 클래식     | yes | 예 ^ | 포함된 |
+| .NET Core     | 예 | 예 ^ | 시스템 |
+| .NET Standard | 예 | 예 ^ | 시스템 |
+| UWP | yes | 예 | 포함된 |
+| Xamarin.Android | yes | yes  | 시스템 |
+| Xamarin.iOS | yes | yes  | 시스템 |
+| Xamarin.ios| yes | 예 | 포함된 |
 
 ^ "http://localhost" 리디렉션 URI가 필요 합니다.
 

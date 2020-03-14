@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 02/19/2019
 ms.author: spelluru
-ms.openlocfilehash: 744151a1ce8cde630e26c17ccf06569ebd0efb61
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 77a768f907ad989a457ee498f26ad0f6e004f786
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771005"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79264935"
 ---
 # <a name="get-an-event-hubs-connection-string"></a>Event Hubs 연결 문자열 가져오기
 
@@ -55,7 +55,7 @@ Endpoint=sb://<FQDN>/;SharedAccessKeyName=<KeyName>;SharedAccessKey=<KeyValue>
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-[Get-AzEventHubNamespaceKey](/powershell/module/az.eventhub/get-azeventhubkey)를 사용하여 아래와 같은 특정 정책/규칙 이름에 대한 연결 문자열을 가져올 수 있습니다.
+[AzEventHubKey](/powershell/module/az.eventhub/get-azeventhubkey) 를 사용 하 여 아래와 같이 특정 정책/규칙 이름에 대 한 연결 문자열을 가져올 수 있습니다.
 
 ```azurepowershell-interactive
 Get-AzEventHubKey -ResourceGroupName dummyresourcegroup -NamespaceName dummynamespace -AuthorizationRuleName RootManageSharedAccessKey

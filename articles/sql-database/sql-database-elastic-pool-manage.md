@@ -12,11 +12,11 @@ ms.author: moslake
 ms.reviewer: carlrab
 ms.date: 03/12/2019
 ms.openlocfilehash: 4ae2e84ab5f6108de4e8236c39371cf9658809d8
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823842"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79256329"
 ---
 # <a name="manage-elastic-pools-in-azure-sql-database"></a>Azure SQL Database에서 탄력적 풀 관리
 
@@ -48,7 +48,7 @@ Azure PowerShell을 사용하여 SQL Database 탄력적 풀 및 풀링된 데이
 > PowerShell 예제 스크립트의 경우 [PowerShell을 사용하여 탄력적 풀 만들기 및 풀 간에 데이터베이스 이동](scripts/sql-database-move-database-between-pools-powershell.md) 및 [PowerShell을 사용하여 Azure SQL Database에서 SQL 탄력적 풀 모니터링 및 크기 조정](scripts/sql-database-monitor-and-scale-pool-powershell.md)을 참조하세요.
 >
 
-| Cmdlet | 설명 |
+| Cmdlet | Description |
 | --- | --- |
 |[New-AzSqlElasticPool](/powershell/module/az.sql/new-azsqlelasticpool)|탄력적 풀을 만듭니다.|
 |[AzSqlElasticPool](/powershell/module/az.sql/get-azsqlelasticpool)|탄력적 풀과 해당 속성 값을 가져옵니다.|
@@ -71,7 +71,7 @@ Azure PowerShell을 사용하여 SQL Database 탄력적 풀 및 풀링된 데이
 > Azure CLI 예제 스크립트의 경우 [CLI를 사용하여 SQL 탄력적 풀에서 Azure SQL 데이터베이스 이동](scripts/sql-database-move-database-between-pools-cli.md) 및 [Azure CLI를 사용하여 Azure SQL Database에서 SQL 탄력적 풀 크기 조정](scripts/sql-database-scale-pool-cli.md)을 참조하세요.
 >
 
-| Cmdlet | 설명 |
+| Cmdlet | Description |
 | --- | --- |
 |[az sql elastic-pool create](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-create)|탄력적 풀을 만듭니다.|
 |[az sql elastic-pool list](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-list)|서버에서 탄력적 풀의 목록을 반환합니다.|
@@ -88,9 +88,9 @@ Azure PowerShell을 사용하여 SQL Database 탄력적 풀 및 풀링된 데이
 > Transact-SQL을 사용하여 Azure SQL Database 탄력적 풀을 만들거나, 업데이트하거나 삭제할 수는 없습니다. 탄력적 풀에서 데이터베이스를 추가하거나 제거할 수는 있으며, DMV를 사용하여 기존 탄력적 풀에 대한 정보를 반환할 수 있습니다.
 >
 
-| 명령 | 설명 |
+| 명령 | Description |
 | --- | --- |
-|[데이터베이스 만들기(Azure SQL Database)](/sql/t-sql/statements/create-database-azure-sql-database)|기존 풀 또는 단일 데이터베이스에서 새 데이터베이스를 만듭니다. 새 데이터베이스를 만들려면 master 데이터베이스에 연결되어 있어야 합니다.|
+|[데이터베이스 만들기(Azure SQL Database)](/sql/t-sql/statements/create-database-azure-sql-database)|기존 풀 또는 단일 데이터베이스에서 새 데이터베이스를 만듭니다. 새 데이터베이스를 만들려면 master 데이터베이스에 연결해야 합니다.|
 | [ALTER DATABASE (Azure SQL Database)](/sql/t-sql/statements/alter-database-azure-sql-database) |탄력적 풀 간에 데이터베이스를 이동합니다.|
 |[DROP DATABASE(Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|데이터베이스를 삭제합니다.|
 |[sys.elastic_pool_resource_stats (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)|SQL Database 서버에서 모든 탄력적 풀에 대한 리소스 사용량 통계를 반환합니다. 각 탄력적 풀에는 15초의 보고 기간마다 행이 하나씩 있습니다(분당 행 4개) 여기에는 풀의 모든 데이터베이스에 의한 CPU, IO, 로그, 스토리지 계산 및 동시 요청/세션 사용률이 포함됩니다.|
@@ -100,7 +100,7 @@ Azure PowerShell을 사용하여 SQL Database 탄력적 풀 및 풀링된 데이
 
 SQL Database 탄력적 풀 및 풀링된 데이터베이스를 만들고 관리하려면 다음 REST API 요청을 사용합니다.
 
-| 명령 | 설명 |
+| 명령 | Description |
 | --- | --- |
 |[탄력적 풀 - Create 또는 Update](https://docs.microsoft.com/rest/api/sql/elasticpools/createorupdate)|새 탄력적 풀을 만들거나 기존 탄력적 풀을 업데이트합니다.|
 |[탄력적 풀 - Delete](https://docs.microsoft.com/rest/api/sql/elasticpools/delete)|탄력적 풀을 삭제합니다.|

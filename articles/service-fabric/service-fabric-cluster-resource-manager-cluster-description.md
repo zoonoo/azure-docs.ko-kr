@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 7142e3f9aaa25e7ba327194c04ad6a9b5f4e3ad1
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78389183"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79258773"
 ---
 # <a name="describe-a-service-fabric-cluster-by-using-cluster-resource-manager"></a>클러스터를 사용 하 여 Service Fabric 클러스터 설명 리소스 관리자
 Azure Service Fabric의 클러스터 리소스 관리자 기능은 클러스터를 설명 하는 몇 가지 메커니즘을 제공 합니다.

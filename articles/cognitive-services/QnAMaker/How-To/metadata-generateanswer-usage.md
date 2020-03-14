@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.author: diberry
-ms.openlocfilehash: e84a6c93ad8757b302670af202f9d4b407f3ef57
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: 6a8cbabfd4e47c50d2c2e6f4a23c50a931e645a0
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75945308"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79221448"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>GenerateAnswer API 및 메타 데이터를 사용 하 여 답변 받기
 
@@ -64,7 +64,7 @@ HTTP POST 요청을 사용하여 GenerateAnswer를 호출합니다. GenerateAnsw
 POST 요청은 다음을 사용 합니다.
 
 * 필수 [URI 매개 변수](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#uri-parameters)
-* 보안을 위해 필요한 [헤더 속성](https://docs.microsoft.com/azure/cognitive-services/qnamaker/quickstarts/get-answer-from-knowledge-base-nodejs#add-a-post-request-to-send-question-and-get-an-answer)`Authorization`입니다.
+* 보안을 위해 필요한 헤더 속성 `Authorization`입니다.
 * 필수 [본문 속성](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#feedbackrecorddto)입니다.
 
 GenerateAnswer URL의 형식은 다음과 같습니다.

@@ -4,11 +4,11 @@ description: Azure Resource Manager 템플릿에서 연결된 템플릿을 사�
 ms.topic: conceptual
 ms.date: 12/11/2019
 ms.openlocfilehash: e26b795a645ab9128dd738ba6a54b66ac0b7da2a
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78272586"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79274256"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Azure 리소스를 배포할 때 연결 및 중첩된 템플릿 사용
 

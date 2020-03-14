@@ -10,11 +10,11 @@ ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: dc8a870d692108f3a33b89a1c3826d421dfd1f63
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824392"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79283629"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Windows 데이터 과학 Virtual Machine으로 할 수 있는 10가지 작업
 
@@ -40,7 +40,7 @@ DSVM은 Azure 서비스와 긴밀 하 게 연동 됩니다. Azure에 이미 저�
 > 
 > 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독이 필요합니다. [무료 평가판](https://azure.microsoft.com/free/)에 등록할 수 있습니다.
 * Azure Portal에서 Data Science Virtual Machine를 프로 비전 하는 방법에 대 한 지침은 [가상 컴퓨터를 만들](https://portal.azure.com/#create/microsoft-dsvm.dsvm-windowsserver-2016)때 제공 됩니다.
@@ -134,7 +134,7 @@ IrisPredictor(3,2,3,4)
 > 
 
 ### <a name="build-and-operationalize-r-models"></a>R 모델 빌드 및 운영
-Data Science Virtual Machine에서 작성 된 R 모델을 Python의 작업 방식과 유사한 방식으로 Azure Machine Learning에 배포할 수 있습니다. 단계는 다음과 같습니다.
+Data Science Virtual Machine에서 작성 된 R 모델을 Python의 작업 방식과 유사한 방식으로 Azure Machine Learning에 배포할 수 있습니다. 다음 단계를 참조하십시오.
 
 1. 작업 영역 ID 및 인증 토큰을 제공 하는 설정 json 파일을 만듭니다. 
 2. 모델의 예측 함수에 대 한 래퍼를 작성 합니다.
@@ -262,10 +262,10 @@ Visual Studio에서 동일한 복제 작업을 수행할 수 있습니다. 다�
 Git을 사용 하 여 github.com에서 사용할 수 있는 리소스에서 GitHub 리포지토리로 작업 하는 방법에 대 한 자세한 내용을 확인할 수 있습니다. [참고 자료](https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf) 를 보시면 많은 도움이 될 것입니다.
 
 ## <a name="access-azure-data-and-analytics-services"></a>Azure 데이터 및 분석 서비스에 액세스
-### <a name="azure-blob-storage"></a>Linux에서 File Storage 사용에 대한 자세한 내용은 {1}Linux에서 Azure 파일 스토리지 사용 방법{2}을 참조하세요.
+### <a name="azure-blob-storage"></a>Azure BLOB 스토리지
 Azure Blob storage는 크고 작은 데이터를 위한 안정적이 고 경제적인 클라우드 저장소 서비스입니다. 이 섹션에서는 Blob 저장소로 데이터를 이동 하 고 Azure blob에 저장 된 데이터에 액세스 하는 방법을 설명 합니다.
 
-#### <a name="prerequisites"></a>필수 조건
+#### <a name="prerequisites"></a>사전 요구 사항
 
 * [Azure Portal](https://portal.azure.com)에서 Azure Blob storage 계정을 만듭니다.
 
@@ -367,7 +367,7 @@ print 'the size of the data is: %d rows and  %d columns' % df1.shape
 ### <a name="azure-data-lake"></a>Azure 데이터 레이크
 Azure Data Lake Storage는 빅 데이터 분석 워크 로드에 대 한 하이퍼 확장 리포지토리 이며, HDFS (Hadoop 분산 파일 시스템)와 호환 됩니다. Hadoop, Spark 및 Azure Data Lake Analytics와 작동합니다. 이 섹션에서는 Azure Data Lake Analytics를 사용 하 여 데이터를 Azure Data Lake Storage로 이동 하 고 분석을 실행 하는 방법을 알아봅니다.
 
-#### <a name="prerequisites"></a>필수 조건
+#### <a name="prerequisites"></a>사전 요구 사항
 
 * [Azure Portal](https://portal.azure.com)에서 Azure Data Lake Analytics 인스턴스를 만듭니다.
 
@@ -452,7 +452,7 @@ Azure Data Lake 데이터 집합을 수집 한 후에는 [U-SQL 언어](../../da
 ### <a name="hdinsight-hadoop-clusters"></a>HDInsight Hadoop 클러스터
 Azure HDInsight는 클라우드에서 관리 되는 Apache Hadoop Spark, HBase 및 스톰 서비스입니다. Data Science Virtual Machine에서 Azure HDInsight 클러스터를 쉽게 사용할 수 있습니다.
 
-#### <a name="prerequisites"></a>필수 조건
+#### <a name="prerequisites"></a>사전 요구 사항
 
 * [Azure Portal](https://portal.azure.com)에서 Azure Blob storage 계정을 만듭니다. 이 스토리지 계정은 HDInsight 클러스터에 대한 데이터를 저장하는 데 사용됩니다.
 

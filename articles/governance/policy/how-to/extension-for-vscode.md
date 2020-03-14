@@ -1,14 +1,14 @@
 ---
 title: Visual Studio Code Azure Policy 확장
 description: Visual Studio Code Azure Policy 확장을 사용 하 여 리소스 관리자 별칭을 조회 하는 방법에 대해 알아봅니다.
-ms.date: 11/04/2019
+ms.date: 03/07/2020
 ms.topic: how-to
-ms.openlocfilehash: 48ef098cf970b5128185c40c92f8bb02ad8d9698
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 0e9123f2975bda0d61e9d6e9bf894ecd359e6c5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873117"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79264675"
 ---
 # <a name="use-azure-policy-extension-for-visual-studio-code"></a>Visual Studio Code Azure Policy 확장 사용
 
@@ -21,11 +21,11 @@ Visual Studio Code에 대 한 Azure Policy 확장은 Visual Studio Code에서 �
 > [!NOTE]
 > Visual Studio Code에 대 한 Azure Policy 확장에 표시 된 정책에서 로컬로 변경한 내용은 Azure와 동기화 되지 않습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서의 단계를 완료하려면 다음 항목이 필요합니다.
 
-- Azure 구독. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
+- Azure 구독 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 - [Visual Studio Code](https://code.visualstudio.com)
 
 ## <a name="install-azure-policy-extension"></a>Azure Policy 확장 설치
@@ -82,7 +82,7 @@ Visual Studio Code에 대 한 Azure Policy 확장은 Visual Studio Code에서 �
 
    - 명령 팔레트: 
 
-     메뉴 모음에서 **보기** > **명령 팔레트**로 이동 하 고 **Azure Policy: 구독을 선택**합니다.
+     메뉴 모음에서 **보기** > **명령 팔레트**로 이동 하 고 **Azure: 구독 선택**을 입력 합니다.
 
    - 창 바닥글
 

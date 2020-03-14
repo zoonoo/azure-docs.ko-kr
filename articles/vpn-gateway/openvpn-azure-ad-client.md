@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 02/28/2020
 ms.author: alzam
-ms.openlocfilehash: fc48b0ae9cf4162b4b9abba14c6e909ca091fd23
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 3559a139ff89c949ee691310ae25af7d6950abdf
+ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78251609"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79138963"
 ---
 # <a name="configure-a-vpn-client-for-p2s-openvpn-protocol-connections-azure-ad-authentication"></a>P2S OpenVPN 프로토콜 연결용 VPN 클라이언트 구성: Azure AD 인증
 
@@ -184,6 +184,10 @@ ms.locfileid: "78251609"
 </clientconfig>
 </azvpnprofile>
 ```
+
+> [!NOTE]
+> OpenVPN Azure AD 클라이언트는 DNS (이름 확인 정책 테이블) 항목을 사용 합니다. 즉, DNS 서버는 `ipconfig /all`의 출력에 나열 되지 않습니다. 사용 중인 DNS 설정을 확인 하려면 PowerShell에서 [get-dnsclientnrptpolicy](https://docs.microsoft.com/powershell/module/dnsclient/get-dnsclientnrptpolicy?view=win10-ps) 를 참조 하세요.
+>
 
 ### <a name="how-do-i-add-custom-routes-to-the-vpn-client"></a>VPN 클라이언트에 사용자 지정 경로를 추가 어떻게 할까요??
 

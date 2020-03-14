@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 1/3/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 88c35b7b1420b5d89f9215f7da3ccf24870024e9
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: b5bf5cc5c44226236f39a6e32c33ebe346e36eeb
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77597883"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79269017"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Azure Files 배포에 대한 계획
 [Azure Files](storage-files-introduction.md) 는 서버를 사용 하지 않는 azure 파일 공유를 직접 탑재 하거나 Azure File Sync를 사용 하 여 온-프레미스에서 azure 파일 공유를 캐시 하는 두 가지 주요 방법으로 배포할 수 있습니다. 선택 하는 배포 옵션에 따라 배포를 계획할 때 고려해 야 할 사항이 변경 됩니다. 
@@ -45,7 +45,7 @@ Azure 파일 공유에 액세스 하려면 파일 공유의 사용자를 인증 
 저장소 계정 키를 사용 하 여 Azure 파일 공유에 액세스 하려는 경우 [네트워킹](#networking) 섹션에 설명 된 대로 서비스 끝점을 사용 하는 것이 좋습니다.
 
 ## <a name="networking"></a>네트워킹
-Azure 파일 공유는 저장소 계정의 공용 끝점을 통해 어디에서 나 액세스할 수 있습니다. 즉, 사용자의 로그온 id에 의해 권한이 부여 된 요청과 같은 인증 된 요청은 Azure 내부 또는 외부에서 안전 하 게 시작 될 수 있습니다. 많은 고객 환경에서 Azure Vm의 탑재가 성공한 경우에도 온-프레미스 워크스테이션에서 Azure 파일 공유의 초기 탑재가 실패 합니다. 그 이유는 많은 조직 및 Isp (인터넷 서비스 공급자)가 SMB에서 통신 하는 데 사용 하는 포트 (포트 445)를 차단 하기 때문입니다. 
+Azure 파일 공유는 저장소 계정의 공용 끝점을 통해 어디에서 나 액세스할 수 있습니다. 즉, 사용자의 로그온 id에 의해 권한이 부여 된 요청과 같은 인증 된 요청은 Azure 내부 또는 외부에서 안전 하 게 시작 될 수 있습니다. 많은 고객 환경에서 Azure Vm의 탑재가 성공한 경우에도 온-프레미스 워크스테이션에서 Azure 파일 공유의 초기 탑재가 실패 합니다. 그 이유는 많은 조직 및 Isp (인터넷 서비스 공급자)가 SMB에서 통신 하는 데 사용 하는 포트 (포트 445)를 차단 하기 때문입니다. 포트 445에서 시작되는 액세스를 허용하거나 거부하는 ISP에 대한 요약을 확인하려면 [TechNet](https://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx)으로 이동합니다.
 
 Azure 파일 공유에 대 한 액세스를 차단 해제 하기 위해 다음 두 가지 기본 옵션이 있습니다.
 

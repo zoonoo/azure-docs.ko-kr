@@ -4,11 +4,11 @@ description: Azure Notebooks 미리 보기 프로젝트는 다른 원본에서 �
 ms.topic: how-to
 ms.date: 02/25/2019
 ms.openlocfilehash: b29ff336c09a3bbf05a57c8a3a503b1875b76e54
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646248"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79280574"
 ---
 # <a name="create-and-clone-projects-in-azure-notebooks-preview"></a>Azure Notebooks 미리 보기에서 프로젝트 만들기 및 복제
 
@@ -20,7 +20,7 @@ Azure Notebooks는 Jupyter Notebook 및 관련 파일을 *프로젝트*라고 �
 
 ## <a name="use-the-my-projects-dashboard"></a>[내 프로젝트] 대시보드 사용
 
-`https://notebooks.azure.com/<userID>/projects`의 **내 프로젝트** 대시보드에서 프로젝트를 보고, 관리하고, 만들 수 있습니다.
+**의** 내 프로젝트`https://notebooks.azure.com/<userID>/projects` 대시보드에서 프로젝트를 보고, 관리하고, 만들 수 있습니다.
 
 [![Azure Notebooks의 내 프로젝트 대시보드](media/my-projects-dashboard.png)](media/my-projects-dashboard.png#lightbox)
 
@@ -70,8 +70,8 @@ Azure Notebooks 프로젝트가 없는 경우 다음 템플릿을 사용하여 �
 
 | | | | | | |
 | --- | --- | --- | --- | --- | --- |
-| 정보 | account | 관리 | api | 블로그 | 교실 |
-| content | dashboard | 탐색 | 자주 묻는 질문(FAQ) | help | html |
+| 정보 | account | 관리 | api | 블로그를 방문하세요. | 단체 |
+| content | dashboard | 탐험 | 자주 묻는 질문(FAQ) | help | html |
 | home | 수입 | 도서관 | 관리 | 신규 | Notebook |
 | notebooks | pdf | 미리 보기 | 가격 책정 | 프로필 | 검색 |
 | 상태 | support | test | | | |

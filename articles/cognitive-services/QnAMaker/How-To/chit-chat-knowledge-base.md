@@ -12,11 +12,11 @@ ms.date: 11/04/2019
 ms.author: diberry
 ms.custom: seodec18
 ms.openlocfilehash: a9a14056e6be62fc1c1b5e542c1a3acceb738eac
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74901206"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79221460"
 ---
 # <a name="add-chit-chat-to-a-knowledge-base"></a>기술 자료에 잡담 추가
 
@@ -31,7 +31,7 @@ ms.locfileid: "74901206"
 <!-- added quotes so acrolinx doesn't score these sentences -->
 |성격|예제|
 |--|--|
-|전문가|나이는 전혀 적용 되지 않습니다.|
+|Professional|나이는 전혀 적용 되지 않습니다.|
 |친숙한|나의 나이가 없습니다.|
 |Witty|나이-무료입니다.|
 |신경쓰지|나이가 없습니다.|
@@ -46,7 +46,7 @@ Chit-채팅 데이터 집합은 다음 언어로 지원 됩니다.
 |언어|
 |--|
 |중국어|
-|한국어|
+|영어|
 |프랑스어|
 |독일|
 |이탈리아어|

@@ -4,11 +4,11 @@ description: Java로 함수를 개발하는 방법을 이해합니다.
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.openlocfilehash: 4af2a860657f6066112146e1f88d81861d9430ea
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769033"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79276752"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java 개발자 가이드
 
@@ -102,7 +102,7 @@ _* Kotlin 프로젝트는 여전히 Maven 있으므로 매우 유사 합니다._
 > [!IMPORTANT] 
 > 로컬에서 Azure Blob storage, Azure Queue storage 또는 Azure Table storage 트리거를 실행 하려면 [로컬. 설정](/azure/azure-functions/functions-run-local#local-settings-file) 에서 Azure Storage 계정을 구성 해야 합니다.
 
-예:
+예제:
 
 ```java
 public class Function {
@@ -156,7 +156,7 @@ JDKs 및 함수 앱과 관련 된 문제에 대 한 [Azure 지원은](https://az
 
 `JAVA_OPTS`이라는 앱 설정에서 추가 인수를 제공할 수 있습니다. Azure Portal 또는 Azure CLI에서 Azure에 배포 된 함수 앱에 앱 설정을 추가할 수 있습니다.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
 [Azure Portal](https://portal.azure.com)에서 [응용 프로그램 설정 탭](functions-how-to-use-azure-function-app-settings.md#settings) 을 사용 하 여 `JAVA_OPTS` 설정을 추가 합니다.
 
@@ -291,7 +291,7 @@ public class Function {
 
 여러 개의 출력 바인딩이 있으면 둘 중 하나에 대한 반환 값을 사용합니다.
 
-여러 출력 값을 보내려면 `azure-functions-java-library` 패키지에 정의된 `OutputBinding<T>`를 사용합니다. 
+여러 출력 값을 보내려면 `OutputBinding<T>` 패키지에 정의된 `azure-functions-java-library`를 사용합니다. 
 
 ```java
 @FunctionName("QueueOutputPOJOList")
@@ -331,7 +331,7 @@ HttpRequest에 대해이 함수를 호출 합니다. 큐 저장소에 여러 값
 
  이러한 설정은 `azure-functions-java-library`에 정의 되어 있습니다. HttpTrigger 함수를 사용 하는 도우미 형식입니다.
 
-| 특수 형식      |       대상 파악        | 일반적인 용도                  |
+| 특수 형식      |       대상        | 일반적인 용도                  |
 | --------------------- | :-----------------: | ------------------------------ |
 | `HttpRequestMessage<T>`  |    HTTP 트리거     | 메서드, 헤더 또는 쿼리를 가져옵니다. |
 | `HttpResponseMessage` | HTTP 출력 바인딩 | 200 이외의 상태를 반환 합니다.   |
@@ -385,7 +385,7 @@ public class Function {
 
 `ExecutionContext`에 정의 된 `getLogger`를 사용 하 여 함수 코드에서 로그를 작성 합니다.
 
-예:
+예제:
 
 ```java
 

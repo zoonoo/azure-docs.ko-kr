@@ -10,14 +10,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodc18
 ms.date: 03/04/2019
-ms.openlocfilehash: 7a82c8af518ec062eb38f921ebf85848d10da129
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 34316b13c93ca2739e87262dd09dcbaf38186b16
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77168910"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79204480"
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>다운로드 가능한 인포그래픽: 알고리즘 예제를 포함한 기계 학습 기본 사항
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 기계 학습 기본 사항에 대한 이해하기 쉬운 인포그래픽 개요를 다운로드하여 일반적인 기계 학습 질문에 답변하는 데 널리 사용되는 알고리즘을 알아봅니다. 알고리즘 예제를 통해 기계 학습 초보자는 사용할 알고리즘과 용도를 이해할 수 있습니다.
 

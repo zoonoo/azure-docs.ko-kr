@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 11/24/2018
 ms.openlocfilehash: 7bace6ff6eb7dd1c02e4907e338fc0be9d66471c
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78372290"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79274113"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Azure Monitor의 데이터 시각화
 이 문서에서는 Azure Monitor에 저장된 로그 및 메트릭 데이터를 시각화하는 데 사용할 수 있는 방법을 요약해서 보여 줍니다.

@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: diberry
 ms.openlocfilehash: 1f2b293acdc77e25e6b932c47d466cc28a04a2b6
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383670"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79221496"
 ---
 # <a name="add-entities-to-extract-data"></a>데이터를 추출 하는 엔터티 추가 
 
@@ -43,7 +43,7 @@ LUIS (user 길이 발언 in Language Understanding) 앱에서 키 데이터를 �
 
 다음 표를 사용 하 여 각 엔터티를 만들거나 앱에 추가할 엔터티를 파악 합니다. 
 
-|엔터티 형식|LUIS 포털에서 엔터티를 만들 위치|
+|엔터티 유형|LUIS 포털에서 엔터티를 만들 위치|
 |--|--|
 |기계 학습된 엔터티|엔터티 또는 의도 세부 정보|
 |목록 엔터티|엔터티 또는 의도 세부 정보|
@@ -62,7 +62,7 @@ LUIS (user 길이 발언 in Language Understanding) 앱에서 키 데이터를 �
 
 텍스트 일치 엔터티를 사용 하 여 데이터를 추출 하는 여러 가지 방법을 제공 합니다.
 
-|텍스트 일치 엔터티|용도|
+|텍스트 일치 엔터티|목적|
 |--|--|
 |[엔터티 나열](#add-list-entities-for-exact-matches)|다른 형태의 동의어와 함께 정식 이름 목록|
 |정규식 엔터티|정규식 엔터티를 사용 하 여 텍스트 일치|
@@ -167,7 +167,7 @@ LUIS (user 길이 발언 in Language Understanding) 앱에서 키 데이터를 �
 
 ### <a name="create-a-pattern-template-utterance-to-use-patternany-entity"></a>패턴을 사용할 패턴 템플릿 utterance를 만듭니다. 모든 엔터티
 
-pattern.any 엔터티를 사용하려면 올바른 중괄호 구문(예: `Where is **{HumanResourcesFormTitle}** on the server?`)을 사용하여 **앱 성능 개선** 섹션의 **패턴** 페이지에서 패턴을 추가합니다.
+pattern.any 엔터티를 사용하려면 올바른 중괄호 구문(예: **)을 사용하여** 앱 성능 개선**섹션의**패턴`Where is **{HumanResourcesFormTitle}** on the server?` 페이지에서 패턴을 추가합니다.
 
 Pattern.any가 포함된 패턴이 엔터티를 잘못 추출한 것을 발견하면 [명시적 목록](reference-pattern-syntax.md#explicit-lists)을 사용하여 이 문제를 정정합니다. 
 

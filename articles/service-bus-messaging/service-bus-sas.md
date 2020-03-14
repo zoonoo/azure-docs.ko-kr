@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 12/20/2019
 ms.author: aschhab
 ms.openlocfilehash: c381d9413c4003bc2ab9a9357ff2769e84d14c3e
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76121746"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79259475"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>공유 액세스 서명을 사용한 Service Bus 액세스 제어
 
@@ -98,7 +98,7 @@ SHA-256('https://<yournamespace>.servicebus.windows.net/'+'\n'+ 1438205742)
 
 이 URI로 또는 부모 계층 중 하나에 의해 지정된 엔터티에 서명에 사용된 공유 액세스 권한 부여 규칙을 구성해야 합니다. 예를 들어 이전 예에서 `http://contoso.servicebus.windows.net/contosoTopics/T1` 또는 `http://contoso.servicebus.windows.net`입니다.
 
-SAS 토큰은 `signature-string`에서 사용된 `<resourceURI>`를 접두사로 추가하는 모든 리소스에 유효합니다.
+SAS 토큰은 `<resourceURI>`에서 사용된 `signature-string`를 접두사로 추가하는 모든 리소스에 유효합니다.
 
 ## <a name="regenerating-keys"></a>키 다시 생성
 
@@ -114,7 +114,7 @@ SAS 토큰은 `signature-string`에서 사용된 `<resourceURI>`를 접두사로
 
 ## <a name="access-shared-access-authorization-rules-on-an-entity"></a>엔터티에 대한 공유 액세스 권한 부여 규칙 액세스
 
-Service Bus .NET Framework 라이브러리를 사용하여 해당하는 [QueueDescription](/dotnet/api/microsoft.servicebus.messaging.queuedescription) 또는 [TopicDescription](/dotnet/api/microsoft.servicebus.messaging.topicdescription)에서 [AuthorizationRules](/dotnet/api/microsoft.servicebus.messaging.authorizationrules) 컬렉션을 통해 Service Bus 큐나 토픽에 구성된 [Microsoft.ServiceBus.Messaging.SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) 개체에 액세스할 수 있습니다.
+Service Bus .NET Framework 라이브러리를 사용하여 해당하는 [QueueDescription](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) 또는 [TopicDescription](/dotnet/api/microsoft.servicebus.messaging.authorizationrules)에서 [AuthorizationRules](/dotnet/api/microsoft.servicebus.messaging.queuedescription) 컬렉션을 통해 Service Bus 큐나 토픽에 구성된 [Microsoft.ServiceBus.Messaging.SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.topicdescription) 개체에 액세스할 수 있습니다.
 
 다음 코드는 큐에 대한 권한 부여 규칙을 추가하는 방법을 보여줍니다.
 
@@ -244,7 +244,7 @@ private bool PutCbsToken(Connection connection, string sasToken)
 }
 ```
 
-위의 `PutCbsToken()` 메서드는 서비스에 대한 TCP 연결 및 전송할 SAS 토큰인 *sasToken* 매개 변수를 나타내는 *연결*([AMQP .NET Lite 라이브러리](https://github.com/Azure/amqpnetlite)에서 제공하는 대로 AMQP 연결 클래스 인스턴스)을 수신합니다.
+위의 `PutCbsToken()` 메서드는 서비스에 대한 TCP 연결 및 전송할 SAS 토큰인 *sasToken* 매개 변수를 나타내는 [연결](https://github.com/Azure/amqpnetlite)(*AMQP .NET Lite 라이브러리*에서 제공하는 대로 AMQP 연결 클래스 인스턴스)을 수신합니다.
 
 > [!NOTE]
 > 연결이 **ANONYMOUS로 설정된 SASL 인증 메커니즘**(SAS 토큰을 보낼 필요가 없을 때 사용하는 사용자 이름 및 암호를 가진 기본 PLAIN이 아님)으로 생성된다는 사실이 중요합니다.
@@ -253,7 +253,7 @@ private bool PutCbsToken(Connection connection, string sasToken)
 
 그런 다음 게시자는 SAS 토큰을 보내고 서비스로부터 회신(토큰 유효성 검사 결과)을 받기 위한 2개의 AMQP 링크를 만듭니다.
 
-AMQP 메시지는 간단한 메시지보다 정보가 많고 속성이 많습니다. SAS 토큰은 해당 생성자를 사용하여 메시지의 본문으로 배치됩니다. **"ReplyTo"** 속성은 수신기 링크에 대한 유효성 검사 결과를 받기 위한 노드 이름으로 설정됩니다(원하는 대로 이름을 변경할 수 있으며 서비스에서 동적으로 생성함). 마지막 세 애플리케이션/사용자 지정 속성은 서비스에서 실행하는 작업의 종류를 나타내는 데 사용합니다. CBS 초안 사양에서 설명한 것처럼 이들은 **토큰의 형식**(이 경우 `servicebus.windows.net:sastoken`)인 **작업 이름**("put-token")이 되고 토큰이 적용되는 **청중의 "이름"** 이어야 합니다(전체 엔터티).
+AMQP 메시지는 간단한 메시지보다 정보가 많고 속성이 많습니다. SAS 토큰은 해당 생성자를 사용하여 메시지의 본문으로 배치됩니다. **"ReplyTo"** 속성은 수신기 링크에 대한 유효성 검사 결과를 받기 위한 노드 이름으로 설정됩니다(원하는 대로 이름을 변경할 수 있으며 서비스에서 동적으로 생성함). 마지막 세 애플리케이션/사용자 지정 속성은 서비스에서 실행하는 작업의 종류를 나타내는 데 사용합니다. CBS 초안 사양에서 설명한 것처럼 이들은 **토큰의 형식**(이 경우 **)인** 작업 이름`servicebus.windows.net:sastoken`("put-token")이 되고 토큰이 적용되는 **청중의 "이름"** 이어야 합니다(전체 엔터티).
 
 보낸 사람 링크에서 SAS 토큰을 보낸 후 게시자는 수신자 링크에서 회신을 읽어야 합니다. 회신은 HTTP 상태 코드와 동일한 값을 포함할 수 있는 **"status-code"** 라는 이름의 애플리케이션 속성을 가진 간단한 AMQP 메시지입니다.
 
@@ -261,7 +261,7 @@ AMQP 메시지는 간단한 메시지보다 정보가 많고 속성이 많습니
 
 다음 테이블에서는 Service Bus 리소스의 다양한 작업에 필요한 액세스 권한을 보여줍니다.
 
-| 작업 | 필요한 클레임 | 클레임 범위 |
+| 작업(Operation) | 필요한 클레임 | 클레임 범위 |
 | --- | --- | --- |
 | **Namespace** | | |
 | 네임스페이스에서 권한 부여 규칙 구성 |관리 |네임스페이스 주소 |

@@ -13,11 +13,11 @@ ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 9ca44b1917cfaed5d01c31f8f06d98e5e4b611a8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75438932"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79281939"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>복사 작업 성능 및 조정 가이드
 
@@ -207,10 +207,10 @@ Azure는 엔터프라이즈급 데이터 스토리지 및 데이터 웨어하우
 
 | 속성 | Description | 기본값 | 필수 |
 | --- | --- | --- | --- |
-| **enableStaging** |중간 준비 저장소를 통해 데이터를 복사할지 여부를 지정합니다. |거짓 |아닙니다. |
-| **linkedServiceName** |중간 준비 저장소로 사용할 Storage 인스턴스를 참조하여 이름을 [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) 또는 [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) 연결된 서비스로 지정합니다. <br/><br/> PolyBase를 통해 SQL Data Warehouse로 데이터를 로드하는 데 공유 액세스 서명을 포함한 스토리지를 사용할 수 없습니다. 다른 모든 시나리오에서는 사용할 수 있습니다. |N/A |예, **enableStaging**이 TRUE로 설정된 경우입니다. |
-| **path** |준비 데이터를 포함할 Blob Storage 경로를 지정합니다. 경로를 제공하지 않으면 서비스는 임시 데이터를 저장하는 컨테이너를 만듭니다. <br/><br/> 공유 액세스 서명을 포함한 스토리지를 사용하거나 특정 위치에 임시 데이터가 필요한 경우에만 경로를 지정합니다. |N/A |아닙니다. |
-| **enableCompression** |대상에 복사하기 전에 데이터를 압축할지 여부를 지정합니다. 이 설정은 전송되는 데이터 양을 줄입니다. |거짓 |아닙니다. |
+| **enableStaging** |중간 준비 저장소를 통해 데이터를 복사할지 여부를 지정합니다. |False |예 |
+| **linkedServiceName** |중간 준비 저장소로 사용할 Storage 인스턴스를 참조하여 이름을 [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) 또는 [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) 연결된 서비스로 지정합니다. <br/><br/> PolyBase를 통해 SQL Data Warehouse로 데이터를 로드하는 데 공유 액세스 서명을 포함한 스토리지를 사용할 수 없습니다. 다른 모든 시나리오에서는 사용할 수 있습니다. |해당 없음 |예, **enableStaging**이 TRUE로 설정된 경우입니다. |
+| **path** |준비 데이터를 포함할 Blob Storage 경로를 지정합니다. 경로를 제공하지 않으면 서비스는 임시 데이터를 저장하는 컨테이너를 만듭니다. <br/><br/> 공유 액세스 서명을 포함한 스토리지를 사용하거나 특정 위치에 임시 데이터가 필요한 경우에만 경로를 지정합니다. |해당 없음 |예 |
+| **enableCompression** |대상에 복사하기 전에 데이터를 압축할지 여부를 지정합니다. 이 설정은 전송되는 데이터 양을 줄입니다. |False |예 |
 
 앞의 표에 설명된 속성이 있는 복사 작업의 샘플 정의는 다음과 같습니다.
 

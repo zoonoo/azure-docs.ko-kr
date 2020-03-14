@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: sutalasi
 ms.openlocfilehash: 45921bdf802a649b7b802f44d2842a543e44f02b
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78362799"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79257122"
 ---
 # <a name="configure-and-manage-replication-policies-for-vmware-disaster-recovery"></a>VMware 재해 복구에 대 한 복제 정책 구성 및 관리
 

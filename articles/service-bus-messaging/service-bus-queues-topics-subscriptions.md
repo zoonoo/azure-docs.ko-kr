@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 01/16/2020
 ms.author: aschhab
 ms.openlocfilehash: 3dc78a22e0e596d812d90fec63475a0b21e9164f
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759587"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79259514"
 ---
 # <a name="service-bus-queues-topics-and-subscriptions"></a>Service Bus 큐, 토픽 및 구독
 
@@ -45,11 +45,11 @@ Service Bus에서 메시지를 받는 두 가지 다른 모드(*ReceiveAndDelete
 
 [PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode) 모드에서는 수신 작업이 2단계이므로 메시지 누락이 허용되지 않는 애플리케이션을 지원할 수 있습니다. Service Bus는 요청을 받으면 소비할 다음 메시지를 찾아서 다른 소비자가 수신할 수 없도록 잠근 후 애플리케이션에 반환합니다. 애플리케이션에서 메시지 처리가 완료되면(또는 추가 처리를 위해 안정적으로 저장되면), 수신된 메시지에서 [CompleteAsync](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync)를 호출하여 수신 프로세스의 두 번째 단계를 완료합니다. Service Bus에서 **CompleteAsync** 호출이 확인되면 메시지를 사용 중인 것으로 표시합니다.
 
-수신 애플리케이션에서 어떤 이유로 메시지를 처리할 수 없는 경우 받은 메시지에서 [CompleteAsync](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync) 메서드 대신 [AbandonAsync](/dotnet/api/microsoft.azure.servicebus.queueclient.abandonasync) 메서드를 호출할 수 있습니다. 이 메서드를 사용하면 Service Bus에서 메시지의 잠금을 해제하고 동일한 소비자 또는 다른 경쟁 소비자에서 메시지를 다시 받을 수 있습니다. 두 번째로, 잠금과 연결된 시간 제한이 있으며, 잠금 시간 제한이 만료되기 전에 애플리케이션에서 메시지를 처리하지 못하는 경우(예: 애플리케이션이 충돌하는 경우) Service Bus에서 메시지의 잠금을 해제하여 다시 받을 수 있게 합니다(기본적으로 [AbandonAsync](/dotnet/api/microsoft.azure.servicebus.queueclient.abandonasync) 작업 수행).
+수신 애플리케이션에서 어떤 이유로 메시지를 처리할 수 없는 경우 받은 메시지에서 [CompleteAsync](/dotnet/api/microsoft.azure.servicebus.queueclient.abandonasync) 메서드 대신 [AbandonAsync](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync) 메서드를 호출할 수 있습니다. 이 메서드를 사용하면 Service Bus에서 메시지의 잠금을 해제하고 동일한 소비자 또는 다른 경쟁 소비자에서 메시지를 다시 받을 수 있습니다. 두 번째로, 잠금과 연결된 시간 제한이 있으며, 잠금 시간 제한이 만료되기 전에 애플리케이션에서 메시지를 처리하지 못하는 경우(예: 애플리케이션이 충돌하는 경우) Service Bus에서 메시지의 잠금을 해제하여 다시 받을 수 있게 합니다(기본적으로 [AbandonAsync](/dotnet/api/microsoft.azure.servicebus.queueclient.abandonasync) 작업 수행).
 
 메시지를 처리한 후 애플리케이션이 충돌하지만 **CompleteAsync** 요청이 실행되기 전에 메시지가 다시 시작되면 애플리케이션에 다시 전달됩니다. 이 프로세스는 종종 *한 번 이상* 처리라고 합니다. 즉, 각 메시지가 한 번 이상 처리됩니다. 그러나 특정 상황에서는 동일한 메시지가 다시 배달될 수 있습니다. 시나리오가 중복 처리를 허용하지 않는 경우 메시지의 [MessageId](/dotnet/api/microsoft.azure.servicebus.message.messageid) 속성에 따라 얻을 수 있는 중복을 검색하려면 애플리케이션에 추가 논리가 필요하며 이는 전달 시도를 걸쳐 일관성을 유지합니다. 이 기능은 *정확히 한번* 처리라고 합니다.
 
-## <a name="topics-and-subscriptions"></a>항목 및 구독
+## <a name="topics-and-subscriptions"></a>토픽 및 구독
 
 각 메시지가 단일 소비자에 의해 처리되는 큐와 반대로, *토픽*과 *구독*은 *게시/구독* 패턴을 사용하여 일 대 다 형태의 통신을 제공합니다. 크기를 많은 수의 받는 사람으로 조정하는 데 유용하며, 게시된 각 메시지는 토픽에 등록된 각 구독에서 사용할 수 있습니다. 메시지를 토픽에 보내고 구독 단위로 설정할 수 있는 필터 규칙에 따라 하나 이상의 연결된 구독에 전달합니다. 구독은 추가 필터를 사용하여 수신하려는 메시지를 제한할 수 있습니다. 메시지는 큐로 전송된 것과 동일한 방식으로 토픽에 전송되지만 메시지는 토픽에서 직접 수신되지 않습니다. 대신 구독에서 수신합니다. 토픽 구독은 토픽에 전송된 메시지의 복사본을 받는 가상 큐와 유사합니다. 메시지는 큐에서 수신하는 방식과 동일하게 구독에서 수신됩니다.
 
@@ -57,7 +57,7 @@ Service Bus에서 메시지를 받는 두 가지 다른 모드(*ReceiveAndDelete
 
 ### <a name="create-topics-and-subscriptions"></a>토픽 및 구독 만들기
 
-토픽을 만드는 것은 이전 섹션에서 설명한 대로 큐를 만드는 것과 비슷합니다. 그런 다음, [TopicClient](/dotnet/api/microsoft.azure.servicebus.topicclient) 클래스를 사용하여 메시지를 보냅니다. 메시지를 받으려면 토픽에 대한 구독을 하나 이상 만듭니다. 큐와 마찬가지로 [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient) 개체 대신 [SubscriptionClient](/dotnet/api/microsoft.azure.servicebus.subscriptionclient) 개체를 사용하여 구독에서 메시지를 수신합니다. 토픽의 이름, 구독의 이름 및 (선택 사항)수신 모드를 매개 변수로 전달하는 구독 클라이언트를 만듭니다.
+토픽을 만드는 것은 이전 섹션에서 설명한 대로 큐를 만드는 것과 비슷합니다. 그런 다음, [TopicClient](/dotnet/api/microsoft.azure.servicebus.topicclient) 클래스를 사용하여 메시지를 보냅니다. 메시지를 받으려면 토픽에 대한 구독을 하나 이상 만듭니다. 큐와 마찬가지로 [QueueClient](/dotnet/api/microsoft.azure.servicebus.subscriptionclient) 개체 대신 [SubscriptionClient](/dotnet/api/microsoft.azure.servicebus.queueclient) 개체를 사용하여 구독에서 메시지를 수신합니다. 토픽의 이름, 구독의 이름 및 (선택 사항)수신 모드를 매개 변수로 전달하는 구독 클라이언트를 만듭니다.
 
 전체 작업 예제를 보려면 GitHub의 [BasicSendReceiveUsingTopicSubscriptionClient 샘플](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/BasicSendReceiveUsingTopicSubscriptionClient)을 참조하세요.
 

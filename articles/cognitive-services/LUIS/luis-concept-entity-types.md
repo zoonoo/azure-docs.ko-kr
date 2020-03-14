@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: diberry
 ms.openlocfilehash: 6ee156efb5512c92d86ba05513b6a2b91df4eae8
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976964"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79221518"
 ---
 # <a name="entities-and-their-purpose-in-luis"></a>LUIS에서 엔터티 및 해당 용도
 
@@ -37,10 +37,10 @@ ms.locfileid: "74976964"
 
  사용자 고유의 엔터티를 정의 하거나 미리 작성 된 엔터티를 사용 하 여 [datetimeV2](luis-reference-prebuilt-datetimev2.md), [서 수](luis-reference-prebuilt-ordinal.md), [전자 메일](luis-reference-prebuilt-email.md)및 [전화 번호](luis-reference-prebuilt-phonenumber.md)와 같은 일반적인 개념의 시간을 절약할 수 있습니다.
 
-|발화|엔터티|데이터|
+|발화|엔터티|data|
 |--|--|--|
 |Buy 3 tickets to New York|미리 빌드된 숫자<br>Location.Destination|3<br>뉴욕|
-|Buy a ticket from New York to London on March 5|Location.Origin<br>Location.Destination<br>미리 빌드된 datetimeV2|뉴욕<br>런던<br>2018년 3월 5일|
+|Buy a ticket from New York to London on March 5|Location.Origin<br>Location.Destination<br>미리 빌드된 datetimeV2|뉴욕<br>London<br>March 5, 2018|
 
 ### <a name="entities-are-optional"></a>엔터티는 선택 사항입니다.
 
@@ -65,7 +65,7 @@ Utterance는 엔터티를 선택적으로 포함할 수 있습니다. 비교 하
 
 ## <a name="design-entities-for-decomposition"></a>분해를 위한 엔터티 디자인
 
-최상위 엔터티를 컴퓨터에서 학습 한 엔터티로 만들기 위한 좋은 엔터티 디자인입니다. 이를 통해 시간에 따라 엔터티 디자인을 변경 하 고, 필요 에 따라 **제약 조건** 및 **설명자**를 사용 하 여 최상위 엔터티를 클라이언트 응용 프로그램에 필요한 부분으로 분해할 수 있습니다.
+최상위 엔터티를 컴퓨터에서 학습 한 엔터티로 만들기 위한 좋은 엔터티 디자인입니다. 이를 통해 시간에 따라 엔터티 디자인을 변경 하 고, 필요 **subcomponents** 에 따라 **제약 조건** 및 **설명자**를 사용 하 여 최상위 엔터티를 클라이언트 응용 프로그램에 필요한 부분으로 분해할 수 있습니다.
 
 분해를 위한 디자인을 통해 LUIS은 클라이언트 응용 프로그램에 깊이 있는 엔터티 해상도를 반환할 수 있습니다. 이렇게 하면 클라이언트 응용 프로그램이 비즈니스 규칙에 집중 하 고 데이터 확인을 LUIS로 유지할 수 있습니다.
 
@@ -90,7 +90,7 @@ LUIS 앱에서 구 목록 기능을 만들 때 기본적으로 전역으로 설�
 
 데이터를 추출해야 하는 방법 및 추출된 후에 데이터를 표시하는 방법에 따라 엔터티를 선택합니다.
 
-|엔터티 형식|용도|
+|엔터티 유형|목적|
 |--|--|
 |[**컴퓨터-학습**](tutorial-machine-learned-entity.md)|컴퓨터에서 배운 엔터티는 utterance의 컨텍스트에서 학습 합니다. 엔터티 형식에 관계 없이 엔터티의 부모 그룹입니다. 이렇게 하면 예 길이 발언에서 배치의 변형이 중요 합니다. |
 |[**목록**](reference-entity-list.md)|**정확히 일치**하는 텍스트를 사용 하 여 추출 된 항목 및 해당 동의어의 목록입니다.|

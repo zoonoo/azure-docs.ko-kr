@@ -4,14 +4,14 @@ description: Active Directory를 통해 Azure 파일 공유에 대 한 SMB를 �
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/03/2020
+ms.date: 03/11/2020
 ms.author: rogarana
-ms.openlocfilehash: 1f904435622c8128810bb0e381308c8a308dd360
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: d9d2e06cc3beae8a7bb8ea1b4eee15fb1641ddd4
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79129619"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79255224"
 ---
 # <a name="enable-active-directory-authentication-over-smb-for-azure-file-shares"></a>Azure 파일 공유에 대해 SMB를 통한 Active Directory 인증 사용
 
@@ -129,7 +129,8 @@ Connect-AzAccount
 #Select the target subscription for the current session
 Select-AzSubscription -SubscriptionId "<your-subscription-id-here>"
 
-#Register the target storage account with your active directory environment under the target OU
+#Register the target storage account with your active directory environment under the target OU (for example: "OU=ComputersOU,DC=prod,DC=corp,DC=contoso,DC=com")
+#You can choose to create the identity that represents the storage account as either a Service Logon Account or Computer Account, depends on the AD permission you have and preference. 
 join-AzStorageAccountForAuth -ResourceGroupName "<resource-group-name-here>" -Name "<storage-account-name-here>" -DomainAccountType "<ServiceLogonAccount|ComputerAccount>" -OrganizationalUnitName "<ou-name-here>"
 ```
 
@@ -150,7 +151,7 @@ join-AzStorageAccountForAuth -ResourceGroupName "<resource-group-name-here>" -Na
 
 OU에서 암호 만료를 적용 하는 경우 Azure 파일 공유에 액세스할 때 인증 오류가 발생 하지 않도록 최대 암호 사용 기간 전에 암호를 업데이트 해야 합니다. 자세한 내용은 [AD 계정 암호 업데이트](#update-ad-account-password) 를 참조 하세요.
 
-새로 만든 계정의 SID를 유지 하 고 다음 단계에 필요 합니다.
+새로 만든 계정의 SID를 유지 하 고 다음 단계에 필요 합니다. 저장소 계정을 나타내는 방금 만든 AD id를 Azure AD에 동기화 할 필요가 없습니다.
 
 ##### <a name="c-enable-the-feature-on-your-storage-account"></a>다. 저장소 계정에서 기능을 사용 하도록 설정
 

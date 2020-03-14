@@ -7,11 +7,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
 ms.openlocfilehash: 1c9fba3c13cc6e5476377d59130a95a2edaa324d
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78373998"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79249374"
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>Azure Mobile Apps에 관리되는 클라이언트를 사용하는 방법
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -84,7 +84,7 @@ var client = new MobileServiceClient("MOBILE_APP_URL");
 위의 코드에서 `MOBILE_APP_URL` 을 모바일 앱 백 엔드의 URL로 대체하며 이는 [Azure Portal]의 모바일 앱 백 엔드에 대한 블레이드에서 찾을 수 있습니다. MobileServiceClient 개체는 단일 항목이어야 합니다.
 
 ## <a name="work-with-tables"></a>테이블 작업
-다음 섹션에는 레코드를 검색하고 테이블 내에서 데이터를 수정하는 방법을 자세히 설명합니다.  이 섹션에서 다루는 항목은 다음과 같습니다.
+다음 섹션에는 레코드를 검색하고 테이블 내에서 데이터를 수정하는 방법을 자세히 설명합니다.  다음과 같은 주제를 다룹니다.
 
 * [테이블 참조 만들기](#instantiating)
 * [쿼리 데이터](#querying)
@@ -370,7 +370,7 @@ await table.DeleteAsync(jo);
 
 Mobile Apps는 Mobile App 백 엔드의 각 테이블에 대해 정의된 `version` 시스템 속성 열을 사용하는 각 항목의 변경 내용을 추적하여 낙관적 동시성 제어를 지원합니다. 레코드가 업데이트될 때마다 Mobile Apps는 해당 레코드의 `version` 속성을 새 값으로 설정합니다. 각 업데이트 요청 중에 요청에 포함된 레코드의 `version` 속성이 서버에 있는 레코드의 동일 속성과 비교됩니다. 요청과 함께 전달된 버전이 백 엔드와 일치하지 않는 경우 클라이언트 라이브러리는 `MobileServicePreconditionFailedException<T>` 예외를 발생시킵니다. 예외에 포함된 형식은 백 엔드의 레코드이며 서버 버전의 레코드를 포함하고 있습니다. 그러면 애플리케이션은 이 정보를 사용하여 변경을 커밋하기 위해 백 엔드의 올바른 `version` 값으로 업데이트 요청을 다시 실행할지 여부를 결정할 수 있습니다.
 
-낙관적 동시성을 사용하기 위해 `version` 시스템 속성의 테이블 클래스에 대해 열을 정의합니다. 예를 들면 다음과 같습니다.
+낙관적 동시성을 사용하기 위해 `version` 시스템 속성의 테이블 클래스에 대해 열을 정의합니다. 다음은 그 예입니다.
 
 ```csharp
 public class TodoItem
@@ -608,7 +608,7 @@ var result = await client.InvokeApiAsync<MarkAllResult>("completeAll", System.Ne
 이 양식은 형식화된 메서드 호출이며 **MarkAllResult** 반환 형식을 정의해야 합니다. 형식화된 메서드와 형식화되지 않은 메서드가 모두 지원됩니다.
 
 InvokeApiAsync() 메소드는 API가 '/'로 시작하는 경우를 제외하고 호출하려는 API 앞에 '/api/'를 추가합니다.
-예를 들면 다음과 같습니다.
+다음은 그 예입니다.
 
 * `InvokeApiAsync("completeAll",...)` - 백 엔드에서 /api/completeAll 호출
 * `InvokeApiAsync("/.auth/me",...)` - 백 엔드에서 /.auth/me 호출
@@ -625,7 +625,7 @@ Mobile Apps는 Facebook, Google, Microsoft 계정, Twitter 및 Azure Active Dire
 
 인증을 설정하려면 하나 이상의 ID 공급자로 앱을 등록해야 합니다.  ID 공급자는 앱의 클라이언트 ID 및 클라이언트 암호를 생성합니다.  그러면 Azure App Service 인증/권한 부여를 사용할 수 있도록 백 엔드에서 이러한 값이 설정됩니다.  자세한 내용은 [앱에 인증 추가]자습서의 자세한 지침을 따르세요.
 
-이 섹션에서 다루는 항목은 다음과 같습니다.
+이 섹션에서 다루는 토픽은 다음과 같습니다.
 
 * [클라이언트 관리 인증](#clientflow)
 * [서버 관리 인증](#serverflow)

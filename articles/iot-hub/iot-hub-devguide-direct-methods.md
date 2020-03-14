@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 07/17/2018
 ms.author: rezas
 ms.openlocfilehash: 4732304384b8c221ae7c8d99da7f714613ad9050
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78396495"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79271279"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>IoT Hub의 직접 메서드 호출 및 이해
 

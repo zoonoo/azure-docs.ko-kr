@@ -5,12 +5,12 @@ author: sunasing
 ms.topic: article
 ms.date: 03/11/2020
 ms.author: sunasing
-ms.openlocfilehash: 2786519bfc54b39c986ba57c78d9d6409a596351
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: b871ccb5cb110cfc6154a415059541c4b94f4106
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79129788"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79137308"
 ---
 # <a name="query-ingested-telemetry-data"></a>수집 원격 분석 데이터 쿼리
 
@@ -108,8 +108,8 @@ FarmBeats [Azure Time Series Insights (TSI)](https://azure.microsoft.com/service
 
 아래 단계에 따라 TSI에서 데이터를 시각화 합니다.
 
-1. Azure Portal-> FarmBeats DataHub 리소스 그룹으로 이동 하 > Time Series Insights 환경 (tsi-xxxx)-> 데이터 액세스 정책을 클릭 합니다. 판독기 또는 참가자 액세스 권한이 있는 사용자를 추가 합니다.
-2. Time Series Insights 환경 (tsi-xxxx)의 개요 페이지로 이동 하 고 "Time Series Insights 탐색기 URL"을 클릭 합니다. 이제 수집 원격 분석을 시각화할 수 있습니다.
+1. Azure Portal로 이동-> FarmBeats DataHub 리소스 그룹-> Time Series Insights 환경 (tsi-xxxx)-> 데이터 액세스 정책을 선택 합니다. 판독기 또는 참가자 액세스 권한이 있는 사용자를 추가 합니다.
+2. Time Series Insights 환경 (tsi-xxxx)의 개요 페이지로 이동 하 고 "Time Series Insights 탐색기 URL"을 선택 합니다. 이제 수집 원격 분석을 시각화할 수 있습니다.
 
 TSI는 원격 분석을 저장, 쿼리 및 시각화 하는 것 외에도 Power BI 대시보드를 통합할 수 있도록 합니다. [자세한 내용]( https://docs.microsoft.com/azure/time-series-insights/how-to-connect-power-bi)
 

@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 04/03/2018
 ms.author: srrengar
 ms.openlocfilehash: b9a448ff41c66fa3a38c124f7acde062bacbe9ba
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980200"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79282498"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Miscrosoft Azure Diagnostics를 사용하여 이벤트 집계 및 수집
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ Azure Service Fabric 클러스터를 실행할 때 모든 노드의 로그를 �
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 이 문서에서는 다음 도구가 사용됩니다.
 
 * [Azure 리소스 관리자](../azure-resource-manager/management/overview.md)
@@ -193,7 +193,7 @@ template.json 파일을 설명대로 수정한 후에는 Resource Manager 템플
 
 ### <a name="update-storage-quota"></a>스토리지 할당량 업데이트
 
-확장으로 채워진 테이블은 할당량에 도달할 때까지 계속 확장되므로 할당량 크기를 줄이는 방안을 고려해 볼 수 있습니다. 기본값은 50GB이며 `DiagnosticMonitorConfiguration` 아래의 `overallQuotaInMB` 필드에 있는 템플릿에서 구성할 수 있습니다.
+확장으로 채워진 테이블은 할당량에 도달할 때까지 계속 확장되므로 할당량 크기를 줄이는 방안을 고려해 볼 수 있습니다. 기본값은 50GB이며 `overallQuotaInMB` 아래의 `DiagnosticMonitorConfiguration` 필드에 있는 템플릿에서 구성할 수 있습니다.
 
 ```json
 "overallQuotaInMB": "50000",
@@ -229,7 +229,7 @@ template.json 파일을 설명대로 수정한 후에는 Resource Manager 템플
 >이 채널에는 많은 이벤트가 있으므로 이 상세 채널에서 이벤트 수집을 설정하면 많은 추적이 빠르게 생성되어 스토리지 용량을 소비할 수 있습니다. 반드시 필요한 경우에만 이 옵션을 설정하세요.
 
 
-**기본 작동 채널**을 사용하도록 설정하려면 노이즈가 가장 적은 포괄적인 로깅을 사용하는 것이 좋습니다. 템플릿의 `WadCfg`에 있는 `EtwManifestProviderConfiguration`은 다음과 같습니다.
+**기본 작동 채널**을 사용하도록 설정하려면 노이즈가 가장 적은 포괄적인 로깅을 사용하는 것이 좋습니다. 템플릿의 `EtwManifestProviderConfiguration`에 있는 `WadCfg`은 다음과 같습니다.
 
 ```json
   "WadCfg": {
@@ -300,7 +300,7 @@ template.json 파일을 설명대로 수정한 후에는 Resource Manager 템플
 
 ## <a name="collect-performance-counters"></a>성능 카운터 수집
 
-클러스터에서 성능 메트릭을 수집하려면 클러스터에 대한 Resource Manager 템플릿에서 "WadCfg > DiagnosticMonitorConfiguration"에 성능 카운터를 추가합니다. 특정 성능 카운터를 수집하는 `WadCfg` 수정에 대한 단계는 [WAD를 사용하여 성능 모니터링](service-fabric-diagnostics-perf-wad.md)을 참조하세요. 수집을 권장하는 성능 카운터 목록에 대해서는 [Service Fabric 성능 카운터](service-fabric-diagnostics-event-generation-perf.md)를 참조하세요.
+클러스터에서 성능 메트릭을 수집하려면 클러스터에 대한 Resource Manager 템플릿에서 "WadCfg > DiagnosticMonitorConfiguration"에 성능 카운터를 추가합니다. 특정 성능 카운터를 수집하는 [ 수정에 대한 단계는 ](service-fabric-diagnostics-perf-wad.md)WAD를 사용하여 성능 모니터링`WadCfg`을 참조하세요. 수집을 권장하는 성능 카운터 목록에 대해서는 [Service Fabric 성능 카운터](service-fabric-diagnostics-event-generation-perf.md)를 참조하세요.
   
 아래 섹션에 설명된 대로 Application Insights 싱크를 사용하고 있을 때 이러한 메트릭을 Application Insights에 표시하려면 위에 표시된 대로 "sinks" 섹션에 싱크 이름을 추가해야 합니다. Application Insights 리소스에 개별적으로 구성된 성능 카운터를 자동으로 보냅니다.
 
@@ -338,7 +338,7 @@ Resource Manager 템플릿의 "WadCfg"에서 다음 두 가지 변경 사항을 
 
     ```
 
-2. `WadCfg`의 `DiagnosticMonitorConfiguration`에 다음 줄을 추가하여(`EtwProviders` 선언 직전) `DiagnosticMonitorConfiguration`에 Sink를 포함합니다.
+2. `DiagnosticMonitorConfiguration`의 `DiagnosticMonitorConfiguration`에 다음 줄을 추가하여(`WadCfg` 선언 직전) `EtwProviders`에 Sink를 포함합니다.
 
     ```json
     "sinks": "applicationInsights"

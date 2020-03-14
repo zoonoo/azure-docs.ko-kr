@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 06/03/2019
 ms.author: alkohli
 ms.openlocfilehash: e2e82c551117f2ae96e026b39c08ccf56e7ce8e2
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77561819"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79265455"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-gateway"></a>Azure Data Box Gateway에 대 한 액세스, 기능 및 연결 모드 관리
 
@@ -47,12 +47,12 @@ Data Box Gateway 장치에 대 한 액세스는 장치 암호를 사용 하 여 
 
 1. Azure Portal에서 **개요 > 관리자 암호 재설정**으로 이동합니다.
 
-    ![암호 다시 설정](media/data-box-gateway-manage-access-power-connectivity-mode/reset-password-1.png)
+    ![암호 재설정](media/data-box-gateway-manage-access-power-connectivity-mode/reset-password-1.png)
 
  
 2. 새 암호를 입력하고 확인합니다. 제공된 암호는 8 ~ 16자 사이여야 합니다. 암호에 대문자, 소문자, 숫자, 특수 문자 중 3가지가 포함되어야 합니다. **재설정**을 클릭합니다.
 
-    ![암호 다시 설정](media/data-box-gateway-manage-access-power-connectivity-mode/reset-password-2.png)
+    ![암호 재설정](media/data-box-gateway-manage-access-power-connectivity-mode/reset-password-2.png)
 
 ## <a name="manage-resource-access"></a>리소스 액세스 관리
 

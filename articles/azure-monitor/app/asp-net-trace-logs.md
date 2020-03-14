@@ -4,11 +4,11 @@ description: 추적, NLog 또는 Log4Net에서 생성 된 로그를 검색 합�
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.openlocfilehash: 273d5a2f4e1155541e159332312bdaa68aa175d7
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77665989"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79276271"
 ---
 # <a name="explore-netnet-core-and-python-trace-logs-in-application-insights"></a>Application Insights에서 .NET/.NET Core 및 Python 추적 로그 살펴보기
 

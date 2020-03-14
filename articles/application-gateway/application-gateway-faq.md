@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 08/31/2019
+ms.date: 03/06/2020
 ms.author: victorh
-ms.openlocfilehash: 27048a8464fc7380a5c11ab6bbb543e35c089774
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: ad3289d9b93421df6776c685325f388d552bdba4
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77919603"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79279235"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Application Gateway에 대 한 질문과 대답
 
@@ -66,6 +66,8 @@ Application Gateway는 가상 네트워크에서 전용 배포입니다.
 
 공용 IP 주소를 끝점으로 사용 하는 경우 공용 IP 주소 리소스에 대 한 IP 및 DNS 정보를 찾을 수 있습니다. 또는 포털의 응용 프로그램 게이트웨이에 대 한 개요 페이지에서 찾을 수 있습니다. 내부 IP 주소를 사용 하는 경우 개요 페이지에서 정보를 확인 하세요.
 
+V2 SKU의 경우 공용 IP 리소스를 열고 **구성**을 선택 합니다. Dns 이름 **레이블 (선택 사항)** 필드를 사용 하 여 dns 이름을 구성할 수 있습니다.
+
 ### <a name="what-are-the-settings-for-keep-alive-timeout-and-tcp-idle-timeout"></a>Keep-alive 시간 제한 및 TCP 유휴 시간 제한에 대 한 설정은 무엇 인가요?
 
 *Keep-alive 제한 시간은* 클라이언트가 영구적 연결을 다시 사용 하거나 닫기 전에 다른 HTTP 요청을 전송 하기 위해 대기 Application Gateway 하는 시간을 제어 합니다. *Tcp 유휴 시간 제한은* 작업이 없는 경우 tcp 연결이 열린 상태로 유지 되는 기간을 제어 합니다. 
@@ -106,7 +108,7 @@ V2 SKU를 사용 하는 대부분의 배포는 프로 비전 하는 데 약 6 �
 
 ### <a name="can-i-use-exchange-server-as-a-backend-with-application-gateway"></a>Application Gateway를 사용 하 여 백 엔드로 Exchange Server를 사용할 수 있나요?
 
-No. Application Gateway는 SMTP, IMAP, POP3 등의 메일 프로토콜을 지원 하지 않습니다. 
+아니요. Application Gateway는 SMTP, IMAP, POP3 등의 메일 프로토콜을 지원 하지 않습니다. 
 
 ## <a name="performance"></a>성능
 
@@ -126,11 +128,11 @@ Traffic Manager를 사용 하 여 여러 데이터 센터의 여러 응용 프�
 
 ### <a name="does-manual-or-automatic-scale-up-or-scale-down-cause-downtime"></a>수동 또는 자동 확장 또는 규모 축소를 수행 하면 가동 중지 시간이 발생 하나요?
 
-No. 인스턴스가 업그레이드 도메인 및 장애 도메인 간에 배포됩니다.
+아니요. 인스턴스가 업그레이드 도메인 및 장애 도메인 간에 배포됩니다.
 
 ### <a name="does-application-gateway-support-connection-draining"></a>Application Gateway는 연결 드레이닝을 지원하나요?
 
-예. 연결 드레이닝을 설정 하 여 중단 없이 백 엔드 풀 내에서 구성원을 변경할 수 있습니다. 자세한 내용은 [Application Gateway의 연결 드레이닝 섹션](overview.md#connection-draining)을 참조 하십시오.
+예. 연결 드레이닝을 설정 하 여 중단 없이 백 엔드 풀 내에서 구성원을 변경할 수 있습니다. 자세한 내용은 [Application Gateway의 연결 드레이닝 섹션](features.md#connection-draining)을 참조 하십시오.
 
 ### <a name="can-i-change-instance-size-from-medium-to-large-without-disruption"></a>중단 없이 인스턴스 크기를 중간에서 큼으로 변경할 수 있나요?
 
@@ -148,7 +150,7 @@ IP 연결이 있는 한 Application Gateway는 가상 네트워크 외부의 인
 
 ### <a name="can-i-deploy-anything-else-in-the-application-gateway-subnet"></a>Application Gateway 서브넷에서 다른 항목을 배포할 수 있나요?
 
-No. 그러나 서브넷에 다른 응용 프로그램 게이트웨이를 배포할 수 있습니다.
+아니요. 그러나 서브넷에 다른 응용 프로그램 게이트웨이를 배포할 수 있습니다.
 
 ### <a name="are-network-security-groups-supported-on-the-application-gateway-subnet"></a>Application gateway 서브넷에서 네트워크 보안 그룹이 지원 되나요?
 
@@ -180,7 +182,7 @@ No. 그러나 서브넷에 다른 응용 프로그램 게이트웨이를 배포�
 
 ### <a name="do-custom-probes-support-wildcards-or-regex-on-response-data"></a>사용자 지정 프로브는 응답 데이터에서 와일드 카드나 정규식을 지원 하나요?
 
-No. 
+아니요. 
 
 ### <a name="how-are-routing-rules-processed-in-application-gateway"></a>Application Gateway에서 라우팅 규칙은 어떻게 처리 되나요?
 
@@ -196,7 +198,7 @@ No.
 
 ### <a name="can-i-use-the-same-port-for-both-public-facing-and-private-facing-listeners"></a>공용 및 개인 연결 수신기 모두에 동일한 포트를 사용할 수 있나요?
 
-No.
+아니요.
 
 ### <a name="is-there-guidance-available-to-migrate-from-the-v1-sku-to-the-v2-sku"></a>V1 SKU에서 v2 SKU로 마이그레이션하는 데 사용할 수 있는 지침이 있나요?
 
@@ -300,7 +302,7 @@ Application Gateway는 최대 100 인증 인증서를 지원 합니다.
 
 ### <a name="does-detection-mode-block-traffic"></a>검색 모드에서 트래픽을 차단하나요?
 
-No. 검색 모드는 WAF 규칙을 트리거하는 트래픽만 로깅합니다.
+아니요. 검색 모드는 WAF 규칙을 트리거하는 트래픽만 로깅합니다.
 
 ### <a name="can-i-customize-waf-rules"></a>WAF 규칙을 사용자 지정할 수 있나요?
 
@@ -401,16 +403,16 @@ Application Gateway 액세스 로그를 위해 인기 있는 [Goaccess](https://
     
     b. 원본에서 **Azureloadbalancer** 서비스 태그로 트래픽 및 대상 및 대상 포트를 **Any** 로 허용
     
-    c. 원본에서 **인터넷** 서비스 태그로 모든 인바운드 트래픽을 거부 하 고 대상 및 대상 포트를 **Any**로 거부 합니다. 인바운드 규칙에서이 규칙의 *최소 우선 순위* 를 지정 합니다.
+    다. 원본에서 **인터넷** 서비스 태그로 모든 인바운드 트래픽을 거부 하 고 대상 및 대상 포트를 **Any**로 거부 합니다. 인바운드 규칙에서이 규칙의 *최소 우선 순위* 를 지정 합니다.
     
-    . 개인 IP 주소에 대 한 액세스가 차단 되지 않도록 VirtualNetwork 인바운드 허용과 같은 기본 규칙을 유지 합니다.
+    d. 개인 IP 주소에 대 한 액세스가 차단 되지 않도록 VirtualNetwork 인바운드 허용과 같은 기본 규칙을 유지 합니다.
     
     e. 아웃바운드 인터넷 연결은 차단할 수 없습니다. 그렇지 않으면 로깅, 메트릭 등의 문제를 발생 시킵니다.
 
 개인 IP 전용 액세스에 대 한 샘플 NSG 구성: 개인 IP 액세스 전용 ![Application Gateway V2 NSG 구성](./media/application-gateway-faq/appgw-privip-nsg.png)
 
 ### <a name="does-application-gateway-affinity-cookie-support-samesite-attribute"></a>선호도 쿠키 지원 SameSite 특성을 Application Gateway 합니까?
-예, [Chromium browser](https://www.chromium.org/Home) [V80 업데이트](https://chromiumdash.appspot.com/schedule) 는 SameSite 특성이 없는 HTTP 쿠키에 대 한 요구를 SameSite = 느슨한으로 처리 했습니다. 즉, 브라우저에서 Application Gateway 선호도 쿠키를 세 번째 pary 컨텍스트로 보내지 않습니다. 이 시나리오를 지원 하기 위해 Application Gateway는 기존 *Applicationgatewayaffinity* 쿠키 외에도 *ApplicationGatewayAffinityCORS* 이라는 다른 쿠키를 삽입 합니다.  이러한 쿠키는 유사 하지만 *ApplicationGatewayAffinityCORS* 쿠키에 추가 된 두 개의 특성이 있습니다. *SameSite = None; 보안*. 이러한 특성은 원본 간 요청에 대해서도 고정 세션을 유지 합니다. 자세한 내용은 [쿠키 기반 선호도 섹션](configuration-overview.md#cookie-based-affinity) 을 참조 하세요.
+예, [Chromium browser](https://www.chromium.org/Home) [V80 업데이트](https://chromiumdash.appspot.com/schedule) 는 SameSite 특성이 없는 HTTP 쿠키에 대 한 요구를 SameSite = 느슨한으로 처리 했습니다. 즉, 브라우저에서 타사 컨텍스트의 Application Gateway 선호도 쿠키를 보내지 않습니다. 이 시나리오를 지원 하기 위해 Application Gateway는 기존 *Applicationgatewayaffinity* 쿠키 외에도 *ApplicationGatewayAffinityCORS* 이라는 다른 쿠키를 삽입 합니다.  이러한 쿠키는 유사 하지만 *ApplicationGatewayAffinityCORS* 쿠키에 추가 된 두 개의 특성이 있습니다. *SameSite = None; 보안*. 이러한 특성은 원본 간 요청에 대해서도 고정 세션을 유지 합니다. 자세한 내용은 [쿠키 기반 선호도 섹션](configuration-overview.md#cookie-based-affinity) 을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

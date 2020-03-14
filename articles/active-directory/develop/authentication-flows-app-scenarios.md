@@ -13,11 +13,11 @@ ms.date: 03/03/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
 ms.openlocfilehash: 89bafeb077fc83f4f3165d591006831bf8287875
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78190486"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79263024"
 ---
 # <a name="authentication-flows-and-application-scenarios"></a>인증 흐름 및 애플리케이션 시나리오
 
@@ -200,7 +200,7 @@ MSAL **ConfidentialClientApplication** 클래스의 [클라이언트 자격 증�
 
 <table>
  <thead>
-  <tr><th>시나리오</th> <th>자세한 시나리오 연습</th> <th>OAuth 2.0 흐름 및 권한 부여</th> <th>대상 그룹</th></tr>
+  <tr><th>시나리오</th> <th>자세한 시나리오 연습</th> <th>OAuth 2.0 흐름 및 권한 부여</th> <th>사용자</th></tr>
  </thead>
  <tbody>
   <tr>

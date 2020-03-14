@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: jaredro
-ms.openlocfilehash: 9f2b106df531dfdf26c2c83b765e3f7270a63df5
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 845c53ec970777901ae8d1c0abf5032ac705d3e3
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78361734"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79264922"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute FAQ
 
@@ -51,6 +51,14 @@ ExpressRoute 연결은 공용 인터넷을 통해 이동하지 않습니다. 인
 ### <a name="how-are-vnets-advertised-on-expressroute-private-peering"></a>Vnet는 Express 경로 개인 피어 링에서 보급 되는 방법
 
 Express 경로 게이트웨이는 Azure VNet의 *주소 공간* 을 보급 하므로 서브넷 수준에서 포함/제외할 수 없습니다. 항상 보급 된 VNet 주소 공간입니다. 또한 VNet 피어 링을 사용 하 고 피어 링 VNet에 "원격 게이트웨이 사용"이 사용 하도록 설정 된 경우 피어 링 VNet의 주소 공간도 보급 됩니다.
+
+### <a name="how-many-prefixes-can-be-advertised-from-a-vnet-to-on-premises-on-expressroute-private-peering"></a>Express 경로 개인 피어 링의 VNet에서 온-프레미스로 알릴 수 있는 접두사는 몇 개입니까?
+
+단일 Express 경로 연결에서 또는 게이트웨이 전송을 사용 하 여 VNet 피어 링을 통해 보급 된 최대 200 개의 접두사가 있습니다. 예를 들어 Express 경로 회로에 연결 된 단일 VNet에 199 주소 공간이 있는 경우 해당 접두사의 모든 199은 온-프레미스에 알려집니다. 또는 "원격 게이트웨이 허용" 옵션을 사용 하 여 1 개의 주소 공간 및 150 스포크 Vnet를 사용 하는 게이트웨이 전송을 허용 하도록 VNet을 사용 하는 경우 게이트웨이를 사용 하 여 배포 된 VNet은 151 접두사를 온-프레미스에 보급 합니다.
+
+### <a name="what-happens-if-i-exceed-the-prefix-limit-on-an-expressroute-connection"></a>Express 경로 연결에서 접두사 제한을 초과 하면 어떻게 되나요?
+
+Express 경로 회로와 게이트웨이 간의 연결 (해당 하는 경우 게이트웨이 전송 사용 피어 링 Vnet)은 중단 됩니다. 접두사 제한을 더 이상 초과 하지 않는 경우 다시 설정 됩니다.  
 
 ### <a name="can-i-filter-routes-coming-from-my-on-premises-network"></a>온-프레미스 네트워크에서 오는 경로를 필터링 할 수 있나요?
 

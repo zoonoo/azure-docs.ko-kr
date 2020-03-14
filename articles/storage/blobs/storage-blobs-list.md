@@ -8,18 +8,18 @@ ms.topic: article
 ms.date: 02/25/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: b51016b1b73b51cd1f1ec827f05fc9a93dd4cb38
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: eb62883859a3efeb1c05deb38d8a40fba76e9cdf
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77650710"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79137923"
 ---
 # <a name="list-blobs-with-net"></a>.NET을 사용 하 여 blob 나열
 
 코드에서 blob을 나열 하는 경우 Azure Storage에서 결과가 반환 되는 방식을 관리 하는 다양 한 옵션을 지정할 수 있습니다. 결과의 각 집합에서 반환할 결과 수를 지정 하 고 다음 집합을 검색할 수 있습니다. 이름이 해당 문자 또는 문자열로 시작 하는 blob을 반환 하는 접두사를 지정할 수 있습니다. 플랫 목록 구조 나 계층적으로 blob을 나열할 수 있습니다. 계층적 목록은 폴더로 구성 된 것 처럼 blob을 반환 합니다. 
 
-이 문서에서는 [.net 용 Azure Storage 클라이언트 라이브러리](/dotnet/api/overview/azure/storage/client)를 사용 하 여 blob을 나열 하는 방법을 보여 줍니다.  
+이 문서에서는 [.net 용 Azure Storage 클라이언트 라이브러리](/dotnet/api/overview/azure/storage?view=azure-dotnet)를 사용 하 여 blob을 나열 하는 방법을 보여 줍니다.  
 
 ## <a name="understand-blob-listing-options"></a>Blob 목록 옵션 이해
 

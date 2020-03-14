@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d024382f816e98fb5cb83331dd417f0c41362bc4
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: b7c26a40d5c5feebe122db911b88dc5a0caa9042
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78207050"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79254210"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory에서 관리자 역할 사용 권한
 
@@ -409,7 +409,7 @@ Windows Defender ATP 및 EDR | 경고를 확인 하 고 조사 합니다. Window
 이 역할을 가진 사용자는 Azure 및 Office 365 서비스에 대해 Microsoft를 사용 하 여 지원 요청을 열 수 있으며, [Azure Portal](https://portal.azure.com) 및 [Microsoft 365 관리 센터](https://admin.microsoft.com)에서 서비스 대시보드와 메시지 센터를 볼 수 있습니다. [관리 역할에 대 한](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)자세한 정보.
 
 > [!NOTE]
-> Microsoft Graph API 및 Azure AD PowerShell에서이 역할은 "서비스 지원 관리자"로 식별 됩니다. [Azure Portal](https://portal.azure.com), [Microsoft 365 관리 센터](https://admin.microsoft.com)및 Intune 포털에서 "서비스 관리자"입니다.
+> 이전에는이 역할을 [Azure Portal](https://portal.azure.com) 및 [Microsoft 365 관리 센터](https://admin.microsoft.com)에서 "서비스 관리자" 라고 했습니다. Microsoft Graph API, Azure AD Graph API 및 Azure AD PowerShell에서 exsiting 이름에 맞게 "서비스 지원 관리자"로 이름이 변경 되었습니다.
 
 ### <a name="sharepoint-administrator"></a>[SharePoint 관리자](#sharepoint-service-administrator-permissions)
 
@@ -990,18 +990,19 @@ Exchange 제품의 모든 측면을 관리할 수 있습니다.
 
 | **actions** | **설명** |
 | --- | --- |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Azure Service Health를 읽고 구성합니다. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Azure 지원 티켓을 만들고 관리합니다. |
 | microsoft. directory/groups/통합/appRoleAssignments/update | Azure Active Directory에서 groups.unified 속성을 업데이트합니다. |
 | microsoft. directory/groups/통합/기본/업데이트 | Office 365 그룹의 기본 속성을 업데이트합니다. |
 | microsoft. directory/groups/통합/만들기 | Office 365 그룹을 만듭니다. |
 | microsoft. directory/groups/통합/삭제 | Office 365 그룹을 삭제합니다. |
 | microsoft. directory/groups/통합/멤버/업데이트 | Office 365 그룹의 멤버 자격을 업데이트합니다. |
 | microsoft. directory/groups/통합/소유자/업데이트 | Office 365 그룹의 소유권을 업데이트합니다. |
-| microsoft.azure.serviceHealth/allEntities/allTasks | Azure Service Health를 읽고 구성합니다. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Azure 지원 티켓을 만들고 관리합니다. |
-| microsoft.office365.webPortal/allEntities/basic/read | microsoft.office365.webPortal에서 모든 리소스에 대한 기본 속성을 읽습니다. |
 | microsoft.office365.exchange/allEntities/allTasks | Exchange Online의 모든 측면을 관리합니다. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Office 365 Service Health를 읽고 구성합니다. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Office 365 지원 티켓을 만들고 관리합니다. |
+| microsoft.office365.usageReports/allEntities/read | Office 365 사용 보고서를 읽습니다. |
+| microsoft.office365.webPortal/allEntities/basic/read | microsoft.office365.webPortal에서 모든 리소스에 대한 기본 속성을 읽습니다. |
 
 ### <a name="external-identity-provider-administrator-permissions"></a>외부 Id 공급자 관리자 권한
 
@@ -1101,7 +1102,6 @@ Exchange 제품의 모든 측면을 관리할 수 있습니다.
 | microsoft.office365.messageCenter/messages/read | microsoft.office365.messageCenter에서 메시지를 읽습니다. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Office 365 Service Health를 읽고 구성합니다. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Office 365 지원 티켓을 만들고 관리합니다. |
-| microsoft.office365.usageReports/allEntities/read | Office 365 사용 보고서를 읽습니다. |
 
 ### <a name="guest-inviter-permissions"></a>게스트 초대자 권한
 ‘멤버가 게스트를 초대할 수 있음’ 설정에 관계없이 게스트 사용자를 초대할 수 있습니다.
@@ -1212,10 +1212,12 @@ Microsoft Kaizala에 대 한 설정을 관리할 수 있습니다.
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Azure Service Health를 읽고 구성합니다. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Azure 지원 티켓을 만들고 관리합니다. |
-| microsoft.office365.webPortal/allEntities/basic/read | microsoft.office365.webPortal에서 모든 리소스에 대한 기본 속성을 읽습니다. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Office 365 Service Health를 읽고 구성합니다. |
 | microsoft.office365.skypeForBusiness/allEntities/allTasks | 비즈니스용 Skype Online의 모든 측면을 관리합니다. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Office 365 지원 티켓을 만들고 관리합니다. |
+| microsoft.office365.usageReports/allEntities/read | Office 365 사용 보고서를 읽습니다. |
+| microsoft.office365.webPortal/allEntities/basic/read | microsoft.office365.webPortal에서 모든 리소스에 대한 기본 속성을 읽습니다. |
+
 
 ### <a name="message-center-privacy-reader-permissions"></a>메시지 센터 개인 정보 판독기 권한
 
@@ -1260,7 +1262,6 @@ Office 365 메시지 센터에서만 조직의 메시지 및 업데이트를 읽
 | microsoft.office365.messageCenter/messages/read | microsoft.office365.messageCenter에서 메시지를 읽습니다. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Office 365 Service Health를 읽고 구성합니다. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Office 365 지원 티켓을 만들고 관리합니다. |
-| microsoft.office365.usageReports/allEntities/read | Office 365 사용 보고서를 읽습니다. |
 | office365/allEntities/Allentities | 새 메시지 표시 유형을 읽고 업데이트 합니다. |
 | microsoft.office365.webPortal/allEntities/basic/read | microsoft.office365.webPortal에서 모든 리소스에 대한 기본 속성을 읽습니다. |
 
@@ -1442,7 +1443,6 @@ Microsoft 검색 설정의 모든 측면을 만들고 관리할 수 있습니다
 | microsoft.office365.search/allEntities/allProperties/allTasks | 모든 리소스를 만들고 삭제 하 고 office365에서 모든 속성을 읽고 업데이트 합니다. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Office 365 Service Health를 읽고 구성합니다. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Office 365 지원 티켓을 만들고 관리합니다. |
-| microsoft.office365.usageReports/allEntities/read | Office 365 사용 보고서를 읽습니다. |
 | microsoft.office365.webPortal/allEntities/basic/read | microsoft.office365.webPortal에서 모든 리소스에 대한 기본 속성을 읽습니다. |
 
 ### <a name="search-editor-permissions"></a>검색 편집기 사용 권한
@@ -1458,7 +1458,6 @@ Microsoft 검색 설정의 모든 측면을 만들고 관리할 수 있습니다
 | --- | --- |
 | microsoft.office365.messageCenter/messages/read | microsoft.office365.messageCenter에서 메시지를 읽습니다. |
 | microsoft.office365.search/content/allProperties/allTasks | Office365에서 콘텐츠를 만들고 삭제 하 고, 모든 속성을 읽고 업데이트 합니다. |
-| microsoft.office365.usageReports/allEntities/read | Office 365 사용 보고서를 읽습니다. |
 
 ### <a name="security-administrator-permissions"></a>보안 관리자 권한
 
@@ -1507,7 +1506,6 @@ Microsoft 검색 설정의 모든 측면을 만들고 관리할 수 있습니다
 | microsoft.azure.advancedThreatProtection/allEntities/read | Azure AD Advanced Threat Protection을 읽고 구성 합니다. |
 | microsoft.intune/allEntities/allTasks | Intune의 모든 측면을 관리합니다. |
 | microsoft.office365.securityComplianceCenter/allEntities/allTasks | 보안 및 준수 센터를 읽고 구성 합니다. |
-| microsoft.office365.usageReports/allEntities/read | Office 365 사용 보고서를 읽습니다. |
 | microsoft.windows.defenderAdvancedThreatProtection/allEntities/read | Windows Defender Advanced Threat Protection을 읽고 구성 합니다. |
 
 ### <a name="security-reader-permissions"></a>보안 읽기 권한자 권한
@@ -1560,18 +1558,19 @@ SharePoint 서비스의 모든 측면을 관리할 수 있습니다.
 
 | **actions** | **설명** |
 | --- | --- |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Azure Service Health를 읽고 구성합니다. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Azure 지원 티켓을 만들고 관리합니다. |
 | microsoft. directory/groups/통합/appRoleAssignments/update | Azure Active Directory에서 groups.unified 속성을 업데이트합니다. |
 | microsoft. directory/groups/통합/기본/업데이트 | Office 365 그룹의 기본 속성을 업데이트합니다. |
 | microsoft. directory/groups/통합/만들기 | Office 365 그룹을 만듭니다. |
 | microsoft. directory/groups/통합/삭제 | Office 365 그룹을 삭제합니다. |
 | microsoft. directory/groups/통합/멤버/업데이트 | Office 365 그룹의 멤버 자격을 업데이트합니다. |
 | microsoft. directory/groups/통합/소유자/업데이트 | Office 365 그룹의 소유권을 업데이트합니다. |
-| microsoft.azure.serviceHealth/allEntities/allTasks | Azure Service Health를 읽고 구성합니다. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Azure 지원 티켓을 만들고 관리합니다. |
-| microsoft.office365.webPortal/allEntities/basic/read | microsoft.office365.webPortal에서 모든 리소스에 대한 기본 속성을 읽습니다. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Office 365 Service Health를 읽고 구성합니다. |
 | microsoft.office365.sharepoint/allEntities/allTasks | microsoft.office365.sharepoint에서 모든 리소스를 만들고 삭제하고, 표준 속성을 읽고 업데이트합니다. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Office 365 지원 티켓을 만들고 관리합니다. |
+| microsoft.office365.usageReports/allEntities/read | Office 365 사용 보고서를 읽습니다. |
+| microsoft.office365.webPortal/allEntities/basic/read | microsoft.office365.webPortal에서 모든 리소스에 대한 기본 속성을 읽습니다. |
 
 ### <a name="teams-communications-administrator-permissions"></a>팀 통신 관리자 권한
 
@@ -1741,7 +1740,7 @@ Power BI 서비스 관리자 | Power BI 관리자 | a9ea8996-122f-4c74-9520-8edc
 보안 관리자 | 보안 관리자 | 194ae4cb-b126-40b2-bd5b-6091b380977d
 보안 운영자 | 보안 운영자 | 5f2222b1-57c3-48ba-8ad5-d4759f1fde6f
 보안 판독기 | 보안 판독기 | 5d6b6bb7-de71-4623-b4af-96380a352509
-서비스 지원 관리자 | 서비스 관리자 | f023fd81-a637-4b56-95fd-791ac0226033
+서비스 지원 관리자 | 서비스 지원 관리자 | f023fd81-a637-4b56-95fd-791ac0226033
 SharePoint 서비스 관리자 | SharePoint 관리자 | f28a1f50-f6e7-4571-818b-6a12f2af6b6c
 Teams 통신 관리자 | Teams 통신 관리자 | baf37b3a-610e-45da-9e62-d9d1e5e8914b
 Teams 통신 지원 엔지니어 | Teams 통신 지원 엔지니어 | f70938a0-fc10-4177-9e90-2178f8765737

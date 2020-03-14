@@ -9,17 +9,17 @@ ms.topic: article
 ms.date: 04/14/2019
 ms.author: ramamill
 ms.openlocfilehash: ff01aed92669acb193ff149ea9298550134f42a3
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78391798"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79257057"
 ---
 # <a name="set-up-the-source-environment-for-vmware-to-azure-replication"></a>Azure 복제에 대한 VMware의 원본 환경 설정
 
 이 아티클에서는 VMware VM을 Azure에 복제하도록 원본 온-프레미스 환경을 설정하는 방법을 설명합니다. 이 문서에는 복제 시나리오를 선택 하 고, 온-프레미스 컴퓨터를 Site Recovery 구성 서버로 설정 하 고, 온-프레미스 Vm을 자동으로 검색 하는 단계가 포함 되어 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서에서는 사용자가 다음 작업을 이미 수행한 것으로 가정합니다.
 

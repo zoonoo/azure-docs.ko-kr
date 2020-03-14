@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 12/27/2019
 ms.custom: seodec18
-ms.openlocfilehash: 70d843f5773f66e6e17c40d0441553e3cb096c64
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: 39e6e9d500a398fd34b8b61727dee8bf11da7430
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77462159"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79270486"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Azure Machine Learning 작동 방법: 아키텍처 및 개념
 
@@ -135,7 +135,7 @@ Azure Machine Learning 다음 도구를 사용 합니다.
 
 기계 학습 파이프라인을 사용하여 기계 학습 단계를 연결하는 워크플로를 만들고 관리합니다. 예를 들어 파이프라인에는 데이터 준비, 모델 학습, 모델 배포 및 유추/점수 매기기 단계가 포함 될 수 있습니다. 각 단계(phase)는 각각 다양한 컴퓨팅 대상에서 자동으로 실행될 수 있는 여러 단계(step)를 포함할 수 있습니다. 
 
-파이프라인 단계는 다시 사용할 수 있으며 해당 단계의 출력이 변경 되지 않은 경우 후속 단계를 다시 실행 하지 않고 실행할 수 있습니다. 예를 들어 데이터가 변경 되지 않은 경우 비용이 많이 드는 데이터 준비 단계를 다시 실행 하지 않고 모델을 다시 학습 수 있습니다. 파이프라인을 사용 하면 기계 학습 워크플로의 개별 영역에서 작업 하는 동안 데이터 과학자 공동 작업을 수행할 수 있습니다.
+파이프라인 단계는 다시 사용할 수 있으며 해당 단계의 출력이 변경 되지 않은 경우 이전 단계를 다시 실행 하지 않고 실행할 수 있습니다. 예를 들어 데이터가 변경 되지 않은 경우 비용이 많이 드는 데이터 준비 단계를 다시 실행 하지 않고 모델을 다시 학습 수 있습니다. 파이프라인을 사용 하면 기계 학습 워크플로의 개별 영역에서 작업 하는 동안 데이터 과학자 공동 작업을 수행할 수 있습니다.
 
 이 서비스를 사용한 기계 학습 파이프라인에 대한 자세한 내용은 [파이프라인 및 Azure Machine Learning](concept-ml-pipelines.md)를 참조하세요.
 

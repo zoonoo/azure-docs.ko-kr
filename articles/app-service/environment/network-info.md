@@ -8,11 +8,11 @@ ms.date: 01/24/2020
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: fb931c309b5f85902d8abc9cc6da45576bff4041
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76713186"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79259826"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>App Service Environment에 대한 네트워킹 고려 사항 #
 
@@ -53,7 +53,7 @@ ASE를 배포한 후에는 ASE를 호스팅하는 데 사용되는 서브넷의 
 
 Ase가 작동 하려면 ASE가 다음 포트를 열어야 합니다.
 
-| 기능 | 보낸 사람 | 수행할 작업 |
+| 사용 | 보낸 사람 | 수행할 작업 |
 |-----|------|----|
 | 관리 | App Service 관리 주소 | ASE 서브넷: 454, 455 |
 |  ASE 내부 통신 | ASE 서브넷: 모든 포트 | ASE 서브넷: 모든 포트
@@ -69,7 +69,7 @@ Azure Load Balancer 및 ASE 서브넷 간의 통신을 위해서는 최소 포�
 
 사용자가 고려해 야 하는 다른 포트는 응용 프로그램 포트입니다.
 
-| 기능 | 포트 |
+| 사용 | 포트 |
 |----------|-------------|
 |  HTTP/HTTPS  | 80, 443 |
 |  FTP/FTPS    | 21, 990, 10001-10020 |
@@ -166,7 +166,7 @@ ASE가 작동 하기 위해 NSG에서 필요한 항목은 트래픽을 허용 �
 
 Dns에 대 한 트래픽이 NSG 규칙의 영향을 받지 않으므로 DNS 포트를 추가할 필요가 없습니다. 이러한 포트에는 앱이 성공적으로 사용 하기 위해 필요한 포트가 포함 되지 않습니다. 기본 앱 액세스 포트는 다음과 같습니다.
 
-| 기능 | 포트 |
+| 사용 | 포트 |
 |----------|-------------|
 |  HTTP/HTTPS  | 80, 443 |
 |  FTP/FTPS    | 21, 990, 10001-10020 |

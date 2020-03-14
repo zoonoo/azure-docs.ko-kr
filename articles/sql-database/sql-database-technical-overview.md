@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/08/2019
-ms.openlocfilehash: 3932c22ff003a343e4c32aee117a7ddea922fbdb
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: fd9e41418eac670bd1cb52be40dbd25c17af6fac
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78360081"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79255692"
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>Azure SQL Database 서비스란?
 
@@ -68,7 +68,7 @@ SQL Database는 다음과 같은 구매 모델을 제공 합니다.
 Azure SQL Database는 다음과 같은 다양 한 유형의 응용 프로그램을 위해 설계 된 세 가지 서비스 계층을 제공 합니다.
 - 일반적인 작업을 위해 설계 된 범용 [/표준](sql-database-service-tier-general-purpose.md) 서비스 계층입니다. 예산 중심의 분산 된 계산 및 저장소 옵션을 제공 합니다.
 - 트랜잭션 전송률이 높고 대기 시간이 짧은 i/o를 사용 하는 OLTP 응용 프로그램용으로 설계 된 [중요 비즈니스용/프리미엄](sql-database-service-tier-business-critical.md) 서비스 계층입니다. 여러 개의 격리 된 복제본을 사용 하 여 오류에 대 한 가장 높은 복원 력을 제공 합니다.
-- 매우 큰 OLTP 데이터베이스용으로 설계 된 [대규모로 확장 된 서비스 계층](sql-database-service-tier-hyperscale.md) 및 저장소의 크기를 자동으로 조정 하 고 계산 유동적으로를 확장 하는 기능입니다. 
+- 매우 큰 OLTP 데이터베이스용으로 설계 된 [대규모로 확장 된 서비스 계층](sql-database-service-tier-hyperscale.md) 및 저장소의 크기를 자동으로 조정 하 고 계산 유동적으로를 확장 하는 기능입니다.    
 
 ### <a name="elastic-pools-to-maximize-resource-utilization"></a>리소스 사용률 극대화를 위한 탄력적 풀
 
@@ -76,7 +76,7 @@ Azure SQL Database는 다음과 같은 다양 한 유형의 응용 프로그램�
 
    ![기본, 표준 및 프리미엄 버전에서 탄력적 풀을 보여 주는 그래픽](./media/sql-database-what-is-a-dtu/sqldb_elastic_pools.png)
 
-탄력적 풀을 사용하면 리소스에 대한 요구가 변동함에 따라 데이터베이스 성능을 높이거나 낮추는 데 집중할 필요가 없습니다. 풀링된 데이터베이스는 필요에 따라 탄력적 풀의 성능 리소스를 사용합니다. 풀링된 데이터베이스는 풀의 한도를 사용하지만 초과하지 않으므로 개별 데이터베이스 사용량을 예측할 수 없는 경우에도 비용을 계속 예측할 수 있습니다.
+탄력적 풀을 사용 하는 경우 리소스에 대 한 수요가 변동 됨에 따라 데이터베이스 성능을 높이 거 나 축소 하는 데 집중할 필요가 없습니다. 풀링된 데이터베이스는 필요에 따라 탄력적 풀의 성능 리소스를 사용합니다. 풀링된 데이터베이스는 풀의 한도를 초과 하 여 사용 하지 않으므로 개별 데이터베이스 사용이 아닌 경우에도 비용이 예측 가능 하 게 유지 됩니다.
 
 [풀에 데이터베이스를 추가 및 제거 하 고](sql-database-elastic-pool-manage-portal.md), 소수의 데이터베이스에서 수천 개의 응용 프로그램을 사용자가 제어 하는 예산에 맞게 확장할 수 있습니다. 풀의 데이터베이스에서 사용할 수 있는 최소 및 최대 리소스를 제어 하 여 풀의 어떤 데이터베이스도 풀 리소스를 모두 사용 하지 않도록 하 고 풀링된 모든 데이터베이스에 최소한의 리소스를 보장할 수 있습니다. 탄력적 풀을 사용 하는 SaaS (software as a service) 응용 프로그램의 디자인 패턴에 대 한 자세한 내용은 [SQL Database를 사용 하 여 다중 테 넌 트 saas 응용 프로그램에 대 한 디자인 패턴](sql-database-design-patterns-multi-tenancy-saas-applications.md)을 참조 하세요.
 
@@ -95,7 +95,7 @@ Azure SQL Database는 작업 특성에 대 한 심층적인 통찰력을 얻는 
  - 최신 버전의 SQL Server 데이터베이스 엔진에서 제공 하는 기본 제공 모니터링 기능. 실시간 성능 정보를 찾을 수 있습니다. 
  - Azure에서 제공 하는 PaaS 모니터링 기능을 통해 많은 수의 데이터베이스 인스턴스를 모니터링 하 고 문제를 해결할 수 있습니다.
 
-기본적으로 제공 되는 SQL Server 모니터링 기능인 [쿼리 저장소](sql-database-operate-query-store.md)는 쿼리 성능을 실시간으로 기록 하 고 잠재적인 성능 문제와 상위 리소스 소비자를 식별할 수 있도록 합니다. 자동 조정 및 권장 사항은 재발 된 성능 및 누락 되거나 중복 된 인덱스를 사용 하 여 쿼리에 대 한 조언을 제공 합니다. SQL Database 자동 조정 기능을 사용 하면 문제를 해결할 수 있는 스크립트를 수동으로 적용 하거나 수정 SQL Database 적용할 수 있습니다. 또한 수정이 몇 가지 이점을 제공 하는지 테스트 하 고 확인 하 고 결과에 따라 변경 내용을 유지 하거나 되돌릴 수 SQL Database. 쿼리 저장소 및 자동 조정 기능 외에도 표준 [dmv 및 XEvent](sql-database-monitoring-with-dmvs.md) 를 사용 하 여 워크 로드 성능을 모니터링할 수 있습니다.
+기본적으로 제공 되는 SQL Server 모니터링 기능인 [쿼리 저장소](https://docs.microsoft.com/sql/relational-databases/performance/best-practice-with-the-query-store)는 쿼리 성능을 실시간으로 기록 하 고 잠재적인 성능 문제와 상위 리소스 소비자를 식별할 수 있도록 합니다. 자동 조정 및 권장 사항은 재발 된 성능 및 누락 되거나 중복 된 인덱스를 사용 하 여 쿼리에 대 한 조언을 제공 합니다. SQL Database 자동 조정 기능을 사용 하면 문제를 해결할 수 있는 스크립트를 수동으로 적용 하거나 수정 SQL Database 적용할 수 있습니다. 또한 수정이 몇 가지 이점을 제공 하는지 테스트 하 고 확인 하 고 결과에 따라 변경 내용을 유지 하거나 되돌릴 수 SQL Database. 쿼리 저장소 및 자동 조정 기능 외에도 표준 [dmv 및 XEvent](sql-database-monitoring-with-dmvs.md) 를 사용 하 여 워크 로드 성능을 모니터링할 수 있습니다.
 
 Azure는 성능 등급과 결합 된 [기본 제공 성능 모니터링](sql-database-performance.md) 및 [경고](sql-database-insights-alerts-portal.md) 도구를 제공 하 여 수천 개의 데이터베이스 상태를 모니터링할 수 있도록 합니다. 이러한 도구를 사용 하면 현재 또는 예상 되는 성능 요구 사항에 따라 확장 또는 축소의 영향을 신속 하 게 평가할 수 있습니다. 또한 SQL Database는 쉬운 모니터링을 위해 [메트릭 및 진단 로그를 내보낼](sql-database-metrics-diag-logging.md) 수 있습니다. 리소스 사용량, 작업자와 세션 및 연결을 이러한 Azure 리소스 중 하나에 저장하도록 SQL Database를 구성할 수 있습니다.
 
@@ -157,7 +157,7 @@ SQL Database를 기반으로 [SaaS 다중 테 넌 트 앱](sql-database-design-p
 
 ### <a name="adaptive-query-processing"></a>적응 쿼리 처리
 
-다중 문 테이블 반환 함수, 일괄 처리 모드 메모리 부여 피드백 및 일괄 처리 모드 적응 조인에 대 한 인터리브 실행을 포함 하 여 [적응 쿼리 처리](/sql/relational-databases/performance/intelligent-query-processing)를 사용할 수 있습니다. 이러한 적응 쿼리 처리 기능은 각각 유사한 "알아보기 및 적용" 방법을 적용하고 지금까지 다루기 힘든 쿼리 최적화 문제와 관련된 성능 문제를 추가로 해결할 수 있도록 합니다.
+다중 문 테이블 반환 함수, 일괄 처리 모드 메모리 부여 피드백 및 일괄 처리 모드 적응 조인에 대 한 인터리브 실행을 포함 하 여 [적응 쿼리 처리](/sql/relational-databases/performance/intelligent-query-processing)를 사용할 수 있습니다. 이러한 적응 쿼리 처리 기능 각각은 유사한 "학습 및 적응" 기법을 적용 하 여, 지금까지 intractable 쿼리 최적화 문제와 관련 된 성능 문제를 해결 하는 데 도움이 됩니다.
 
 ## <a name="advanced-security-and-compliance"></a>고급 보안 및 규정 준수
 

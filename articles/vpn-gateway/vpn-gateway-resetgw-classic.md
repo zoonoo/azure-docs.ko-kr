@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 01/09/2020
 ms.author: cherylmc
 ms.openlocfilehash: e3a5807a0ccfa39cc80acacedaa5fb4d3afaaed3
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78379245"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79244421"
 ---
 # <a name="reset-a-vpn-gateway"></a>VPN Gateway 다시 설정
 
@@ -63,7 +63,7 @@ $gw = Get-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1
 Reset-AzVirtualNetworkGateway -VirtualNetworkGateway $gw
 ```
 
-Result:
+결과:
 
 반환 결과를 받으면 게이트웨이 재설정에 성공한 것으로 가정할 수 있습니다. 그러나 반환 결과에는 재설정에 성공했음을 명시적으로 나타내는 항목이 없습니다. 기록을 면밀히 확인하여 게이트웨이 재설정이 발생한 시점을 정확히 알아보려면 [Azure Portal](https://portal.azure.com)에서 해당 정보를 보면 됩니다. 포털에서 **'GatewayName' -> Resource Health**로 이동합니다.
 
@@ -77,7 +77,7 @@ Result:
 Reset-AzureVNetGateway –VnetName 'Group TestRG1 TestVNet1'
 ```
 
-Result:
+결과:
 
 ```powershell
 Error          :
@@ -96,6 +96,6 @@ StatusCode     : OK
 az network vnet-gateway reset -n VNet5GW -g TestRG5
 ```
 
-Result:
+결과:
 
 반환 결과를 받으면 게이트웨이 재설정에 성공한 것으로 가정할 수 있습니다. 그러나 반환 결과에는 재설정에 성공했음을 명시적으로 나타내는 항목이 없습니다. 기록을 면밀히 확인하여 게이트웨이 재설정이 발생한 시점을 정확히 알아보려면 [Azure Portal](https://portal.azure.com)에서 해당 정보를 보면 됩니다. 포털에서 **'GatewayName' -> Resource Health**로 이동합니다.

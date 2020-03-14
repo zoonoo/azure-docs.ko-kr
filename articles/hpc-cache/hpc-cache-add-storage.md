@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 12/30/2019
 ms.author: rohogue
 ms.openlocfilehash: a68bf06bad995f71bedf6a5bdedcb676737a8c61
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76990609"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79271890"
 ---
 # <a name="add-storage-targets"></a>스토리지 대상 추가
 
@@ -148,9 +148,9 @@ NFS 저장소 시스템을 가리키는 저장소 대상을 만들 때 해당 �
 
 | 사용 모델 | 캐싱 모드 | 백 엔드 확인 | 최대 다시 쓰기 지연 |
 | ---- | ---- | ---- | ---- |
-| 자주 발생 하지 않는 매우 많은 쓰기 읽기 | 읽기 | 사용 안 함 | 없음 |
-| 쓰기 15% 초과 | 읽기/쓰기 | 사용 안 함 | 1시간 |
-| 클라이언트에서 캐시 무시 | 읽기 | 30초 | 없음 |
+| 자주 발생 하지 않는 매우 많은 쓰기 읽기 | 읽기 | 안 함 | None |
+| 쓰기 15% 초과 | 읽기/쓰기 | 안 함 | 1시간 |
+| 클라이언트에서 캐시 무시 | 읽기 | 30초 | None |
 
 ## <a name="next-steps"></a>다음 단계
 

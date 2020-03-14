@@ -1,18 +1,18 @@
 ---
 title: Azure Red Hat OpenShift 4.3 클러스터 만들기 | Microsoft Docs
-description: Azure Red Hat OpenShift 3.11를 사용 하 여 클러스터 만들기
+description: Azure Red Hat OpenShift 4.3를 사용 하 여 클러스터 만들기
 author: lamek
 ms.author: suvetriv
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/06/2020
 keywords: aro, openshift, az aro, red hat, cli
-ms.openlocfilehash: 3c336a1fbfb9f991ff824e8deafe84f3d899771d
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.openlocfilehash: 23d7c950396c36925ce50d746195916292d360ad
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79082832"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79201045"
 ---
 # <a name="create-access-and-manage-an-azure-red-hat-openshift-43-cluster"></a>Azure Red Hat OpenShift 4.3 클러스터 만들기, 액세스 및 관리
 
@@ -56,7 +56,7 @@ Azure Red Hat OpenShift 4.3 클러스터를 만들려면 다음이 필요 합니
 2. 다음 명령을 실행 하 여 `az aro` 확장을 설치 합니다.
 
    ```console
-   az extension add --source https://arosvc.blob.core.windows.net/az-preview/aro-0.1.0-py2.py3-none-any.whl
+   az extension add -n aro --index https://az.aroapp.io/preview
    ```
 
 3. ARO 확장이 등록 되어 있는지 확인 합니다.

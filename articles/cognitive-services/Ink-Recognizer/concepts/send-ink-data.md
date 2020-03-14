@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
 ms.openlocfilehash: 0ad961495d44f13522a3c02224a5612aaedaf076
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70274482"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79221532"
 ---
 # <a name="send-ink-data-to-the-ink-recognizer-api"></a>Ink Recognizer API에 잉크 데이터 보내기 
 
-디지털 잉크 입력은 필기 및 그리기와 같은 입력의 디지털 표현을 가능하게 하는 기술을 나타냅니다. 이는 일반적으로 스타일러스와 같은 입력 디바이스의 움직임을 캡처하는 디지타이저를 사용하여 수행됩니다. 디바이스에서 풍부한 디지털 잉크 입력 환경을 계속 사용할 수 있게 함에 따라 AI 및 기계 학습은 어떤 상황에서도 작성한 도형과 텍스트를 인식할 수 있습니다. Ink Recognizer API를 사용하면 잉크 스트로크를 보내고 이에 대한 자세한 정보를 얻을 수 있습니다. 
+디지털 잉크 입력이란 필기 및 그리기 같은 입력을 디지털로 표현할 수 있는 기술입니다. 이는 일반적으로 스타일러스와 같은 입력 디바이스의 움직임을 캡처하는 디지타이저를 사용하여 수행됩니다. 디바이스에서 풍부한 디지털 잉크 입력 환경을 계속 사용할 수 있게 되면서, AI 및 기계 학습은 어떤 상황에서도 손으로 그린 도형과 텍스트를 인식할 수 있습니다. Ink Recognizer API를 사용하면 잉크 스트로크를 보내고 이에 대한 자세한 정보를 얻을 수 있습니다. 
 
-## <a name="the-ink-recognizer-api-vs-ocr-services"></a>Ink Recognizer API 및 OCR 서비스
+## <a name="the-ink-recognizer-api-vs-ocr-services"></a>잉크 인식기 API와 OCR 서비스 비교
 
 Ink Recognizer API는 OCR(광학 문자 인식)을 사용하지 않습니다. OCR 서비스는 이미지의 픽셀 데이터를 처리하여 필기 및 텍스트 인식을 제공합니다. 이를 오프라인 인식이라고도 합니다. 대신 Ink Recognizer API를 사용하려면 입력 디바이스가 사용될 때 캡처되는 디지털 잉크 스트로크 데이터가 필요합니다. 디지털 잉크 데이터를 이 방식으로 처리하면 OCR 서비스에 비해 더 정확한 인식 결과를 얻을 수 있습니다. 
 

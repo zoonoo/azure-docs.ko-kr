@@ -4,11 +4,11 @@ description: 기술 자료가 게시 되어야 합니다. 게시 된 후에는 g
 ms.topic: conceptual
 ms.date: 01/27/2020
 ms.openlocfilehash: cb777aa16fada50811cce1bbf49f28662c62b49b
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846347"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79221462"
 ---
 # <a name="query-the-knowledge-base-for-answers"></a>기술 자료에서 답변을 쿼리 합니다.
 
@@ -24,7 +24,7 @@ ms.locfileid: "76846347"
 
 프로세스는 다음 표에 설명 되어 있습니다.
 
-|단계|용도|
+|단계|목적|
 |--|--|
 |1|클라이언트 응용 프로그램이 사용자 쿼리를 [Generateanswer API](/azure/cognitive-services/qnamaker/how-to/metadata-generateanswer-usage)로 보냅니다.|
 |2|QnA Maker 언어 검색, spellers 및 단어 분리기를 사용 하 여 사용자 쿼리를 전처리 합니다.|

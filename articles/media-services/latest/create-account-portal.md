@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 03/09/2020
 ms.author: juliako
-ms.openlocfilehash: c90278eccf889595378d3b6b07de2468910c660c
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.openlocfilehash: 5b05cd31a1747da0170556003e7a8534752e2fde
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79080879"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79137197"
 ---
 # <a name="use-the-azure-portal-to-create-a-media-services-account"></a>Azure Portal를 사용 하 여 Media Services 계정 만들기
 
@@ -54,8 +54,6 @@ Azure Portal은 Azure Media Services 계정을 신속 하 게 만드는 방법�
     
 1. 계정 배포 진행 상태를 보려면 **대시보드에 고정** 을 선택합니다.
 1. 양식 맨 아래에 있는 **만들기** 를 클릭합니다.
-   
-    계정이 성공적으로 만들어지면 개요 페이지가 로드됩니다. 스트리밍 끝점 테이블에서 계정은 **중지 됨** 상태의 기본 스트리밍 끝점을 가집니다. 
 
     Azure Media Services 계정이 만들어지면 **기본** 스트리밍 엔드포인트가 **중지됨** 상태에 있는 계정에 추가됩니다. 콘텐츠 스트리밍을 시작 하 고 [동적 패키징](dynamic-packaging-overview.md) 및 [동적 암호화](content-protection-overview.md)를 활용 하려면 콘텐츠를 스트리밍 하려는 스트리밍 끝점이 **실행** 상태에 있어야 합니다. 
 

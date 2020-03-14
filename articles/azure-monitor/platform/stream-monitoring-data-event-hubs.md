@@ -8,11 +8,11 @@ ms.date: 11/15/2019
 ms.author: bwren
 ms.subservice: ''
 ms.openlocfilehash: 08177165439ff7d3205e31757e5d1e28759a9836
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79129262"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79274191"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub"></a>Azure 모니터링 데이터를 이벤트 허브로 스트리밍
 Azure Monitor는 Azure, 다른 클라우드 및 온-프레미스에서 응용 프로그램 및 서비스에 대 한 전체 스택 모니터링 솔루션을 제공 합니다. Azure Monitor 사용 하 여 해당 데이터를 분석 하 고 다양 한 모니터링 시나리오에 활용 하는 것 외에도 사용자 환경의 다른 모니터링 도구에 해당 데이터를 전송 해야 할 수 있습니다. 대부분의 경우 모니터링 데이터를 외부 도구로 스트리밍하는 가장 효과적인 방법은 [Azure Event Hubs](/azure/event-hubs/)를 사용 하는 것입니다. 이 문서에서는 다양 한 원본에서 이벤트 허브로 모니터링 데이터를 스트리밍하는 방법에 대 한 간략 한 설명을 제공 하 고 자세한 지침에 대 한 링크를 제공 합니다.

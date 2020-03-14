@@ -5,14 +5,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 01/10/2020
+ms.date: 03/05/2020
 ms.author: yushwang
-ms.openlocfilehash: c556b71acf814203a67317039dafeede5f7b65a6
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 027047a212df72479a4f1b2511729365f3fa09e4
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77016751"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79279885"
 ---
 # <a name="vpn-gateway-faq"></a>VPN Gateway FAQ
 
@@ -32,7 +32,7 @@ Windows PowerShell 및 Azure REST API를 사용하여 여러 사이트에 연결
 
 ### <a name="is-there-an-additional-cost-for-setting-up-a-vpn-gateway-as-active-active"></a>VPN 게이트웨이를 활성-활성으로 설정기 위한 추가 비용이 있나요?
 
-아닙니다. 
+아니요. 
 
 ### <a name="what-are-my-cross-premises-connection-options"></a>내 프레미스 간 연결 옵션은 무엇입니까?
 
@@ -70,7 +70,7 @@ VPN Gateway는 가상 네트워크 게이트웨이의 유형입니다. VPN Gatew
 
 ### <a name="can-i-update-my-policy-based-vpn-gateway-to-route-based"></a>내 정책 기반 VPN 게이트웨이를 경로 기반으로 업데이트할 수 있나요?
 
-아닙니다. Azure Vnet 게이트웨이 형식은 정책 기반에서 경로 기반으로 또는 다른 방식으로 변경할 수 없습니다. 게이트웨이를 삭제하고 다시 만들어야 합니다. 이 프로세스는 60분 정도가 걸립니다. 게이트웨이의 IP 주소가 유지되거나 PSK(미리 공유한 키)가 유지되지 않습니다.
+아니요. Azure Vnet 게이트웨이 형식은 정책 기반에서 경로 기반으로 또는 다른 방식으로 변경할 수 없습니다. 게이트웨이를 삭제하고 다시 만들어야 합니다. 이 프로세스는 60분 정도가 걸립니다. 게이트웨이의 IP 주소가 유지되거나 PSK(미리 공유한 키)가 유지되지 않습니다.
 1. 삭제할 게이트웨이와 연결된 모든 연결을 삭제합니다.
 1. 게이트웨이를 삭제합니다.
    - [Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
@@ -86,7 +86,7 @@ VPN Gateway는 가상 네트워크 게이트웨이의 유형입니다. VPN Gatew
 
 ### <a name="can-i-deploy-virtual-machines-or-role-instances-to-my-gateway-subnet"></a>Virtual Machines 또는 역할 인스턴스를 내 게이트웨이 서브넷에 배포할 수 있습니까?
 
-아닙니다.
+아니요.
 
 ### <a name="can-i-get-my-vpn-gateway-ip-address-before-i-create-it"></a>VPN 게이트웨이 IP 주소를 만들기 전에 내 VPN 게이트웨이 IP 주소를 가져올 수 있나요?
 
@@ -169,6 +169,10 @@ IPsec/IKE 매개 변수는 [매개 변수](vpn-gateway-about-vpn-devices.md#ipse
 
 다른 소프트웨어 VPN 솔루션은 업계 표준 IPsec 구현을 따르는 경우에만 Microsoft 게이트웨이에 사용할 수 있습니다. 구성 및 지원 지침은 소프트웨어 공급 업체에 문의하세요.
 
+## <a name="how-do-i-change-the-authentication-type-for-my-point-to-site-connections"></a>내 지점 및 사이트 간 연결에 대 한 인증 유형을 변경 어떻게 할까요??
+
+VPN Gateway 아래에서 지점 및 사이트 간 **구성** 섹션으로 이동 하 여 원하는 라디오 단추를 선택 하 여 지점 및 사이트 간 연결에 대 한 인증 방법을 변경할 수 있습니다. 현재 옵션은 **Azure 인증서, RADIUS 인증 및 Azure Active Directory**입니다. 새 프로필이 다운로드 되어 클라이언트에 구성 될 때까지 현재 클라이언트는 변경 후에 **연결 하지 못할 수 있습니다** .
+
 ## <a name="P2S"></a>네이티브 Azure 인증서 인증을 사용하는 지점 및 사이트 간 연결
 
 이 섹션은 Resource Manager 배포 모델에 적용됩니다.
@@ -232,7 +236,7 @@ Azure VPN 게이트웨이 통한 전송 트래픽은 클래식 배포 모델을 
 
 ### <a name="if-my-virtual-machine-is-in-a-virtual-network-with-cross-premises-connectivity-does-all-the-traffic-from-my-vm-go-through-that-connection"></a>내 가상 머신이 프레미스 간 연결을 사용하는 가상 네트워크에 포함된 경우 내 VM의 모든 트래픽이 해당 연결을 통해 이동됩니까?
 
-아닙니다. 대상 IP가 지정된 가상 네트워크 로컬 네트워크 IP 주소 범위에 포함되는 트래픽만 가상 네트워크 게이트웨이를 통해 이동됩니다. 대상 IP가 가상 네트워크 내에 있는 트래픽은 가상 네트워크 내에 유지됩니다. 다른 트래픽은 부하 분산 장치를 통해 공용 네트워크에 전송되고, 강제 터널링을 사용하는 경우 Azure VPN 게이트웨이를 통해 전송됩니다.
+아니요. 대상 IP가 지정된 가상 네트워크 로컬 네트워크 IP 주소 범위에 포함되는 트래픽만 가상 네트워크 게이트웨이를 통해 이동됩니다. 대상 IP가 가상 네트워크 내에 있는 트래픽은 가상 네트워크 내에 유지됩니다. 다른 트래픽은 부하 분산 장치를 통해 공용 네트워크에 전송되고, 강제 터널링을 사용하는 경우 Azure VPN 게이트웨이를 통해 전송됩니다.
 
 ### <a name="how-do-i-troubleshoot-an-rdp-connection-to-a-vm"></a>VM에 대한 RDP 연결 문제를 해결하려면 어떻게 하나요?
 

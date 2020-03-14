@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.openlocfilehash: 6342e6a75c8397712e028874b4d727bf3d6f5ff4
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: 98326d23f5aca1264bc47168cc25b427c3db331d
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77087112"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79135958"
 ---
 # <a name="safely-manage-python-environment-on-azure-hdinsight-using-script-action"></a>스크립트 작업을 사용하여 Azure HDInsight에서 Python 환경을 안전하게 관리
 
@@ -74,12 +74,38 @@ HDInsight 클러스터는 Python 2.7 및 Python 3.5의 기본 제공 Python 환�
 
     사용할 수 있는 패키지의 전체 목록은 [패키지 인덱스](https://pypi.python.org/pypi)를 검색할 수 있습니다. 다른 소스에서 사용 가능한 패키지 목록을 가져올 수도 있습니다. 예를 들어 [conda-forge](https://conda-forge.org/feedstocks/)를 통해 제공되는 패키지를 설치할 수 있습니다.
 
-    -   `seaborn`는 설치 하려는 패키지 이름입니다.
-    -   방금 만든 가상 환경 이름을 지정 `-n py35new` 합니다. 가상 환경 만들기에 따라 이름을 변경 해야 합니다.
+    최신 버전의 라이브러리를 설치 하려면 아래 명령을 사용 하세요.
+    
+    - Conda 채널 사용:
 
-    ```bash
-    sudo /usr/bin/anaconda/bin/conda install seaborn -n py35new --yes
-    ```
+        -   `seaborn`는 설치 하려는 패키지 이름입니다.
+        -   방금 만든 가상 환경 이름을 지정 `-n py35new` 합니다. 가상 환경 만들기에 따라 이름을 변경 해야 합니다.
+
+        ```bash
+        sudo /usr/bin/anaconda/bin/conda install seaborn -n py35new --yes
+        ```
+
+    - 또는 PyPi 리포지토리를 사용 하 고 `seaborn` 및 `py35new`를 변경 합니다.
+        ```bash
+        sudo /usr/bin/anaconda/env/py35new/bin/pip install seaborn
+        ```        
+
+    특정 버전의 라이브러리를 설치 하려면 아래 명령을 사용 하세요.
+
+    - Conda 채널 사용:
+
+        -   `numpy=1.16.1`은 설치할 패키지 이름 및 버전입니다.
+        -   방금 만든 가상 환경 이름을 지정 `-n py35new` 합니다. 가상 환경 만들기에 따라 이름을 변경 해야 합니다.
+
+        ```bash
+        sudo /usr/bin/anaconda/bin/conda install numpy=1.16.1 -n py35new --yes
+        ```
+
+    - 또는 PyPi 리포지토리를 사용 하 고 `numpy==1.16.1` 및 `py35new`를 변경 합니다.
+
+        ```bash
+        sudo /usr/bin/anaconda/env/py35new/bin/pip install numpy==1.16.1
+        ```
 
     가상 환경 이름을 모르는 경우 클러스터의 헤드 노드로 SSH를 실행 하 고 `/usr/bin/anaconda/bin/conda info -e`를 실행 하 여 모든 가상 환경을 표시할 수 있습니다.
 

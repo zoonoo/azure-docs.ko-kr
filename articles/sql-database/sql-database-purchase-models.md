@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-ms.date: 02/01/2020
-ms.openlocfilehash: 20c93d214195f8fe389f4982e1d8b10998c7057d
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.date: 03/09/2020
+ms.openlocfilehash: 97ce402045cfd2c990b457c5d4d06888cda632d5
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78379552"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79255991"
 ---
 # <a name="choose-between-the-vcore-and-the-dtu-purchasing-models"></a>VCore와 DTU 구매 모델 중에서 선택 합니다.
 
@@ -85,6 +85,11 @@ DTU 기반 구매 모델에서 vCore 기반 구매 모델로 변환 하려면 �
 
 - 표준 계층의 모든 100 Dtu에는 범용 서비스 계층의 vCore가 하나 이상 필요 합니다.
 - 프리미엄 계층의 125 Dtu 마다 중요 비즈니스용 서비스 계층에서 vCore가 하나 이상 필요 합니다.
+
+> [!NOTE]
+> DTU에서 vCore 크기 조정 지침은 대략적 이며 대상 데이터베이스 서비스 목표의 초기 추정에 도움이 되도록 제공 됩니다. 대상 데이터베이스의 최적 구성은 워크 로드에 따라 달라 집니다. 
+> 
+> 최적의 가격/성능 비율을 달성 하려면 vCore 모델의 유연성을 활용 하 여 Vcore, [하드웨어 생성](sql-database-service-tiers-vcore.md#hardware-generations), [서비스](sql-database-service-tiers-vcore.md#service-tiers) 및 [계산](sql-database-service-tiers-vcore.md#compute-tiers) 계층의 수를 조정 하 고 [최대 병렬 처리 수준과](https://docs.microsoft.com/sql/relational-databases/query-processing-architecture-guide#parallel-query-processing)같은 다른 데이터베이스 구성 매개 변수를 조정 해야 할 수 있습니다.
 
 ## <a name="dtu-based-purchasing-model"></a>DTU 기반 구매 모델
 

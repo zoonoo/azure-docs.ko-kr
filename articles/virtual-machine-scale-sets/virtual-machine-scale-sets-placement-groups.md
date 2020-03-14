@@ -9,11 +9,11 @@ ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 11/9/2017
 ms.openlocfilehash: 618b677ee836327e8ed4ab7798ab35d92b364c98
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78393081"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79254054"
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>대규모 가상 머신 확장 집합과 작동
 이제 최대 1,000대 VM의 용량을 갖춘 Azure [가상 머신 확장 집합](/azure/virtual-machine-scale-sets/)을 만들 수 있습니다. 이 문서에서는 _대규모 가상 머신 확장 집합_이 100대 이상의 VM까지 확장할 수 있는 확장 집합으로 정의됩니다. 이 기능은 확장 집합 속성에 의해 설정됩니다(_singlePlacementGroup=False_). 

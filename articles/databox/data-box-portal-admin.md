@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 08/07/2019
 ms.author: alkohli
 ms.openlocfilehash: 581f95bd813445d2cc9bd83d91917ea83f0bf04f
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68987481"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79259995"
 ---
 # <a name="use-the-azure-portal-to-administer-your-azure-data-box-and-azure-data-box-heavy"></a>Azure Portal를 사용 하 여 Azure Data Box를 관리 하 고 Azure Data Box Heavy
 
@@ -77,7 +77,7 @@ Data Box의 E-ink 디스플레이가 작동하지 않아 반송 레이블이 표
 
     ![포장용 레이블 다운로드](media/data-box-portal-admin/download-shipping-label.png)
 
-2.  다음 반송 포장용 레이블을 다운로드합니다. 레이블을 저장 및 인쇄합니다. 레이블을 접어 디바이스의 투명 슬리브 안에 넣습니다. 레이블이 표시되는지 확인합니다. 이전 배송 시 부착된 디바이스의 스티커를 제거합니다.
+2.  다음 반송 포장용 레이블을 다운로드합니다. 레이블을 저장 하 고 인쇄 합니다. 장치에서 일반 슬리브에 레이블을 넣고 삽입 합니다. 레이블이 표시되는지 확인합니다. 이전 배송 시 부착된 디바이스의 스티커를 제거합니다.
 
     ![예제 포장용 레이블](media/data-box-portal-admin/example-shipping-label.png)
 
@@ -199,17 +199,17 @@ Data Box 주문이 완료되면 디바이스 디스크의 데이터가 삭제됩
 
 |주문 상태 |Description |
 |---------|---------|
-|Ordered     | 주문을 성공적으로 배치했습니다. <br>디바이스 재고가 있으면 Microsoft에서 배송할 디바이스를 확인하여 준비합니다. <br> 디바이스를 즉시 배송할 수 없는 경우에는 디바이스가 배송 가능해지면 주문이 처리됩니다. 주문 처리 과정은 며칠에서 몇 달까지 걸릴 수 있습니다. 90일 이내에 처리할 수 없는 주문은 취소되며 취소 알림이 전송됩니다.         |
+|주문됨     | 주문을 성공적으로 배치했습니다. <br>디바이스 재고가 있으면 Microsoft에서 배송할 디바이스를 확인하여 준비합니다. <br> 디바이스를 즉시 배송할 수 없는 경우에는 디바이스가 배송 가능해지면 주문이 처리됩니다. 주문 처리 과정은 며칠에서 몇 달까지 걸릴 수 있습니다. 90일 이내에 처리할 수 없는 주문은 취소되며 취소 알림이 전송됩니다.         |
 |처리됨     | 주문 처리가 완료되었습니다. 주문에 따라 데이터 센터에서 디바이스 배송이 준비됩니다.         |
 |발송됨     | 주문이 배송되었습니다. 포털에서 주문에 표시된 추적 ID를 사용하여 배송을 추적합니다.        |
-|Delivered     | 배송한 장치가 주문에 지정된 주소로 배달되었습니다.        |
-|픽업됨     |반송한 장치가 수령되어 운송업체에서 스캔을 했습니다.         |
-|받음     | 디바이스가 Azure 데이터 센터에서 수신되어 스캔되었습니다. <br> 배송된 디바이스 검사가 완료되면 디바이스 업로드가 시작됩니다.      |
+|배달됨     | 배송한 장치가 주문에 지정된 주소로 배달되었습니다.        |
+|선택됨     |반송한 장치가 수령되어 운송업체에서 스캔을 했습니다.         |
+|수신됨     | 디바이스가 Azure 데이터 센터에서 수신되어 스캔되었습니다. <br> 배송된 디바이스 검사가 완료되면 디바이스 업로드가 시작됩니다.      |
 |데이터 복사     | 데이터 복사가 진행 중입니다. Azure Portal에서 주문에 대한 복사 진행률을 추적합니다. <br> 데이터 복사가 완료될 때까지 기다립니다. |
-|완료       |주문이 성공적으로 완료되었습니다.<br> 서버에서 온-프레미스 데이터를 삭제하기 전에 Azure에 데이터가 있는지 확인합니다.         |
-|완료되었지만 오류가 발생했습니다.| 데이터 복사가 완료되었지만 복사 중에 오류가 발생했습니다. <br> Azure Portal에 제공된 경로를 사용하여 복사 로그를 검토합니다. [업로드가 완료 되 고 오류가 발생 한 경우 복사 로그의 예](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-errors)를 참조 하세요.   |
-|완료되었으나 경고가 발생함| 데이터 복사가 완료 되었지만 데이터가 수정 되었습니다. 데이터에 파일 또는 blob 이름을 변경 하 여 수정 된 중요 하지 않은 blob 또는 파일 이름 오류가 있습니다. <br> Azure Portal에 제공된 경로를 사용하여 복사 로그를 검토합니다. 데이터의 수정 사항을 기록해 둡니다. [업로드가 완료 되 고 경고가 발생 한 경우 복사 로그의 예](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-warnings)를 참조 하세요.   |
-|Canceled            |주문이 취소되었습니다. <br> 주문을 취소했거나 오류가 발생했고 서비스에서 주문을 취소했습니다. 90일 이내에 처리할 수 없는 주문도 취소되며 취소 알림이 전송됩니다.     |
+|Completed       |주문이 성공적으로 완료되었습니다.<br> 서버에서 온-프레미스 데이터를 삭제하기 전에 Azure에 데이터가 있는지 확인합니다.         |
+|오류와 함께 완료됨| 데이터 복사가 완료되었지만 복사 중에 오류가 발생했습니다. <br> Azure Portal에 제공된 경로를 사용하여 복사 로그를 검토합니다. [업로드가 완료 되 고 오류가 발생 한 경우 복사 로그의 예](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-errors)를 참조 하세요.   |
+|경고와 함께 완료됨| 데이터 복사가 완료 되었지만 데이터가 수정 되었습니다. 데이터에 파일 또는 blob 이름을 변경 하 여 수정 된 중요 하지 않은 blob 또는 파일 이름 오류가 있습니다. <br> Azure Portal에 제공된 경로를 사용하여 복사 로그를 검토합니다. 데이터의 수정 사항을 기록해 둡니다. [업로드가 완료 되 고 경고가 발생 한 경우 복사 로그의 예](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-warnings)를 참조 하세요.   |
+|취소됨            |주문이 취소되었습니다. <br> 주문을 취소했거나 오류가 발생했고 서비스에서 주문을 취소했습니다. 90일 이내에 처리할 수 없는 주문도 취소되며 취소 알림이 전송됩니다.     |
 |정리 | 디바이스 디스크의 데이터가 지워집니다. Azure Portal에서 다운로드에 주문 기록을 사용할 수 있게 되면 디바이스 정리가 완료된 것으로 간주됩니다.|
 
 

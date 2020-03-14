@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: kgremban
 ms.openlocfilehash: af53dea76670be500e7be20063487e3e4a2177b6
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548733"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79285085"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-debian-based-linux-systems"></a>Debian 기반 Linux 시스템에 Azure IoT Edge 런타임 설치
 
@@ -281,9 +281,9 @@ sudo iotedge list
 
 ## <a name="tips-and-troubleshooting"></a>팁 및 문제 해결
 
-`iotedge` 명령을 실행하려면 상승된 권한이 필요합니다. 런타임을 설치한 후 머신에서 로그아웃했다가 다시 로그인하면 권한이 자동으로 업데이트됩니다. 그 전까지는 `iotedge` 명령 앞에 **sudo**를 사용합니다.
+`iotedge` 명령을 실행하려면 상승된 권한이 필요합니다. 런타임을 설치한 후 머신에서 로그아웃했다가 다시 로그인하면 권한이 자동으로 업데이트됩니다. 그 전까지는 **명령 앞에**sudo`iotedge`를 사용합니다.
 
-리소스가 제한된 디바이스에서는 [문제 해결 가이드](troubleshoot.md)의 지침에 따라 *OptimizeForPerformance* 환경 변수를 *false*로 설정하는 것이 좋습니다.
+리소스가 제한된 디바이스에서는 *문제 해결 가이드*의 지침에 따라 *OptimizeForPerformance* 환경 변수를 [false](troubleshoot.md)로 설정하는 것이 좋습니다.
 
 프록시 서버가 있는 네트워크의 경우 [프록시 서버를 통해 통신하도록 IoT Edge 디바이스 구성](how-to-configure-proxy-support.md)의 단계를 수행합니다.
 

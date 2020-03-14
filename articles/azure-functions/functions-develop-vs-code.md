@@ -3,12 +3,12 @@ title: 을 사용 하 여 Azure Functions 개발 Visual Studio Code
 description: Visual Studio Code에 대 한 Azure Functions 확장을 사용 하 여 Azure Functions를 개발 하 고 테스트 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: 41a1a64be4823769f6bf23b251fec94fd68eb0f0
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 2d33b7dddf29d37d174bdb7734e9048bc1658840
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77484777"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79277168"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>을 사용 하 여 Azure Functions 개발 Visual Studio Code
 
@@ -299,7 +299,7 @@ Azure Functions 확장을 사용 하면 로컬 개발 컴퓨터에서 함수 프
 
     | 언어 | 요구 사항 |
     | -------- | --------- |
-    | **C#** | [C# 확장](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)<br/>[.NET Core CLI 도구](https://docs.microsoft.com/dotnet/core/tools/?tabs=netcore2x)   |
+    | **C#** | [C# 확장](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)<br/>[.NET Core CLI 도구](https://docs.microsoft.com/dotnet/core/tools/?tabs=netcore2x)   |
     | **Java** | [Java 용 디버거 확장](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)<br/>[Java 8](https://aka.ms/azure-jdks)<br/>[Maven 3 이상](https://maven.apache.org/) |
     | **JavaScript** | [Node.js](https://nodejs.org/)<sup>*</sup> |  
     | **Python** | [Python 확장](https://marketplace.visualstudio.com/items?itemName=ms-python.python)<br/>[Python 3.6.8](https://www.python.org/downloads/) 권장|

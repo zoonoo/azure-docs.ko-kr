@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6feed11fcfc597658f3ec148b5dd18bb7e3f8f83
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78376295"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79253547"
 ---
 # <a name="troubleshoot-password-hash-synchronization-with-azure-ad-connect-sync"></a>Azure AD Connect 동기화를 사용하여 암호 해시 동기화 문제 해결
 
@@ -235,7 +235,7 @@ Azure AD Connect 서버가 준비 모드에 있으면 암호 해시 동기화가
    Invoke-ADSyncDiagnostics -PasswordSync -ADConnectorName <Name-of-AD-Connector> -DistinguishedName <DistinguishedName-of-AD-object>
    ```
 
-   예를 들면 다음과 같습니다.
+   다음은 그 예입니다.
 
    ```powershell
    Invoke-ADSyncDiagnostics -PasswordSync -ADConnectorName "contoso.com" -DistinguishedName "CN=TestUserCN=Users,DC=contoso,DC=com"
@@ -313,9 +313,9 @@ Azure AD와 연결되어 있나요?
 
     b. **커넥터**를 클릭합니다.
 
-    c. 사용자가 있는 **Active Directory Connector**를 선택합니다.
+    다. 사용자가 있는 **Active Directory Connector**를 선택합니다.
 
-    . **커넥터 공간 검색**을 선택합니다.
+    d. **커넥터 공간 검색**을 선택합니다.
 
     e. **범위** 상자에서 **DN 또는 앵커**를 선택한 다음 문제를 해결하려는 사용자의 전체 DN을 입력합니다.
 
@@ -351,15 +351,15 @@ Azure AD와 연결되어 있나요?
 
 상태 열에는 다음과 같은 값을 포함할 수 있습니다.
 
-| 상태 | 설명 |
+| 상태 | Description |
 | --- | --- |
-| 성공 |암호가 성공적으로 동기화되었습니다. |
+| Success |암호가 성공적으로 동기화되었습니다. |
 | FilteredByTarget |**다음 로그인할 때 반드시 암호 변경**으로 암호가 설정됩니다. 암호가 동기화되지 않았습니다. |
 | NoTargetConnection |메타버스에 또는 Azure AD 커넥터 공간에 개체가 없습니다. |
 | SourceConnectorNotPresent |개체를 온-프레미스 Active Directory Connector 공간에서 찾을 수 없습니다. |
 | TargetNotExportedToDirectory |Azure AD 커넥터 공간에 있는 개체가 아직 내보내지지 않았습니다. |
 | MigratedCheckDetailsForMoreInfo |로그 항목 1.0.9125.0 빌드 전에 만들어졌으며 레거시 상태로 표시됩니다. |
-| 오류 |서비스에 알 수 없는 오류가 반환되었습니다. |
+| Error |서비스에 알 수 없는 오류가 반환되었습니다. |
 | 알 수 없음 |암호 해시의 배치를 처리하는 동안 오류가 발생했습니다.  |
 | MissingAttribute |Azure AD Domain Services에 필요한 특정 특성(예: Kerberos 해시)을 사용할 수 없습니다. |
 | RetryRequestedByTarget |Azure AD Domain Services에 필요한 특정 특성(예: Kerberos 해시)을 이전에 사용할 수 없었습니다. 사용자의 암호 해시를 다시 동기화하려고 합니다. |

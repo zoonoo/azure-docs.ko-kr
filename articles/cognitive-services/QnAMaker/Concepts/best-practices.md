@@ -4,11 +4,11 @@ description: 모범 사례를 사용하여 기술 자료를 개선하고 애플�
 ms.topic: conceptual
 ms.date: 02/15/2020
 ms.openlocfilehash: fb935aeed7b492a3a0c213d6d7166bd5d80144c1
-ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2020
-ms.locfileid: "77370106"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79221472"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>QnA Maker 기술 자료의 모범 사례
 
@@ -41,7 +41,7 @@ QnA Maker 서비스는 콘텐츠에서 QnA를 추출하고 지원되는 파일 �
 
 가장 좋은 답은 간단한 대답 이지만 너무 간단 하지 않습니다. `yes` 및 `no`와 같은 대답은 사용 하지 마십시오. 답변이 다른 소스에 연결 되거나 미디어 및 링크를 사용 하 여 풍부한 환경을 제공 해야 하는 경우 [메타 데이터 태깅](../how-to/edit-knowledge-base.md#add-metadata) 을 사용 하 여 답변을 구분 하 고 `strictFilters` 속성에서 메타 데이터 태그로 [쿼리를 제출](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration) 하 여 올바른 응답 버전을 가져옵니다.
 
-|대답|Follup 프롬프트|
+|Answer|Follup 프롬프트|
 |--|--|
 |키보드의 전원 단추를 사용 하 여 Surface 노트북의 전원을 켭니다.|* 중지, 종료 및 다시 시작에 대 한 키 조합입니다.<br>* Surface 노트북을 하드 부팅 하는 방법<br>* Surface 노트북에 대 한 BIOS를 변경 하는 방법<br>* 절전 모드, 종료 및 다시 시작 간의 차이점|
 |고객 서비스는 하루 24 시간 동안 전화, Skype 및 문자 메시지를 통해 사용할 수 있습니다.|* 판매에 대 한 연락처 정보입니다.<br> * 사용자가 방문 하는 사무실 및 스토어 위치 및 시간입니다.<br> * Surface 노트북의 액세서리|
@@ -69,11 +69,11 @@ Chit-채팅은 몇 가지 미리 정의 된 개성에 대해 지원 됩니다.
 
 잡담 QnA를 구체적으로 만드는 것이 좋습니다.
 
-* 귀하는 누구입니까?
-* 무엇을 할 수 있습니까?
+* 귀하는 누구인가요?
+* 무엇을 할 수 있나요?
 * 나이가 어떻게 되세요?
 * 만든 사람은 누구인가요?
-* Hello
+* 안녕하세요.
 
 ### <a name="adding-custom-chit-chat-with-a-metadata-tag"></a>메타 데이터 태그를 사용 하 여 사용자 지정 chit-채팅 추가
 

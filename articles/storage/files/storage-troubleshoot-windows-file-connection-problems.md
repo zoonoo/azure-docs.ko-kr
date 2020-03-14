@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 207a3a6c59012154d547bbd224782b90e1046c6a
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 17ecc80fee3b024c334b8d36533663f1f3cebe4d
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77597969"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136908"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Windows에서 Azure Files 문제 해결
 
@@ -43,6 +43,14 @@ ms.locfileid: "77597969"
 ### <a name="solution-for-cause-2"></a>원인 2의 해결 방법
 
 가상 네트워크 및 방화벽 규칙이 스토리지 계정에 제대로 구성되어 있는지 확인합니다. 가상 네트워크 또는 방화벽 규칙에서 문제가 발생하는지 테스트하려면 일시적으로 스토리지 계정의 설정을 **모든 네트워크에서 액세스 허용**으로 변경합니다. 자세한 내용은 [Azure Storage 방화벽 및 가상 네트워크 구성](https://docs.microsoft.com/azure/storage/common/storage-network-security)을 참조하세요.
+
+### <a name="cause-3-share-level-permissions-are-incorrect-when-using-identity-based-authentication"></a>원인 3: id 기반 인증을 사용 하는 경우 공유 수준 권한이 잘못 되었습니다.
+
+사용자가 AD (Active Directory) 또는 Azure Active Directory Domain Services (Azure AD DS) 인증을 사용 하 여 Azure 파일 공유에 액세스 하는 경우 공유 수준 권한이 올바르지 않으면 "액세스가 거부 되었습니다." 오류가 발생 하며 파일 공유에 대 한 액세스가 실패 합니다. 
+
+### <a name="solution-for-cause-3"></a>원인 3의 해결 방법
+
+공유 수준 권한을 업데이트 하려면 id에 대 한 [액세스 권한 할당](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-domain-service-enable#assign-access-permissions-to-an-identity)을 참조 하세요.
 
 <a id="error53-67-87"></a>
 ## <a name="error-53-error-67-or-error-87-when-you-mount-or-unmount-an-azure-file-share"></a>Azure 파일 공유를 탑재 또는 탑재 해제하는 경우 오류 53, 오류 67 또는 오류 87 발생

@@ -6,11 +6,11 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.openlocfilehash: 0cdff3ac6eb2faed0c0b6b8796fdb3b6b0411018
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77202087"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79277363"
 ---
 # <a name="azure-blob-storage-trigger-for-azure-functions"></a>Azure Functions에 대 한 Azure Blob storage 트리거
 
@@ -40,7 +40,7 @@ Blob을 처리 하는 또 다른 방법은 만들어지거나 수정 되는 blob
 
 ## <a name="example"></a>예제
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 다음 예제에서는 [ 컨테이너에서 Blob을 추가하거나 업데이트할 때 로그를 기록하는 ](functions-dotnet-class-library.md)C# 함수`samples-workitems`를 보여줍니다.
 
@@ -56,7 +56,7 @@ blob 트리거 경로 `{name}`의 문자열 `samples-workitems/{name}`은 함수
 
 `BlobTrigger` 특성에 대 한 자세한 내용은 [특성 및 주석](#attributes-and-annotations)을 참조 하세요.
 
-# <a name="c-scripttabcsharp-script"></a>[C#스크립트도](#tab/csharp-script)
+# <a name="c-script"></a>[C#스크립트도](#tab/csharp-script)
 
 다음 예제에서는 *함수. json* 파일의 blob 트리거 바인딩과 바인딩을 사용 하는 코드를 보여 줍니다. 함수는 `samples-workitems` [컨테이너](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources)에서 blob을 추가 하거나 업데이트할 때 로그를 기록 합니다.
 
@@ -103,7 +103,7 @@ public static void Run(CloudBlockBlob myBlob, string name, ILogger log)
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 다음 예에서는 바인딩을 사용하는 *function.json* 파일 및 [JavaScript 코드](functions-reference-node.md)의 Blob 트리거 바인딩을 보여줍니다. 함수는 `samples-workitems` 컨테이너에서 Blob을 추가하거나 업데이트할 때 로그를 씁니다.
 
@@ -137,7 +137,7 @@ module.exports = function(context) {
 };
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 다음 예제에서는 바인딩을 사용하는 *function.json* 파일 및 [Python 코드](functions-reference-python.md)의 Blob 트리거 바인딩을 보여 줍니다. 함수는 `samples-workitems` [컨테이너](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources)에서 blob을 추가 하거나 업데이트할 때 로그를 기록 합니다.
 
@@ -174,7 +174,7 @@ def main(myblob: func.InputStream):
     logging.info('Python Blob trigger function processed %s', myblob.name)
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 이 함수는 `myblob` 컨테이너에서 blob을 추가 하거나 업데이트할 때 로그를 기록 합니다.
 
@@ -196,7 +196,7 @@ public void run(
 
 ## <a name="attributes-and-annotations"></a>특성 및 주석
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 [C# 클래스 라이브러리](functions-dotnet-class-library.md)에서 다음 특성을 사용하여 Blob 트리거를 구성합니다.
 
@@ -252,19 +252,19 @@ public void run(
 * 클래스에 적용된 `StorageAccount` 특성
 * 함수 앱의 기본 스토리지 계정("AzureWebJobsStorage" 앱 설정)
 
-# <a name="c-scripttabcsharp-script"></a>[C#스크립트도](#tab/csharp-script)
+# <a name="c-script"></a>[C#스크립트도](#tab/csharp-script)
 
 스크립트에서 C# 특성을 지원 하지 않습니다.
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 JavaScript에서는 특성을 지원 하지 않습니다.
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Python에서 특성을 지원 하지 않습니다.
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 `@BlobTrigger` 특성은 함수를 트리거한 blob에 대 한 액세스 권한을 제공 하는 데 사용 됩니다. 자세한 내용은 [트리거 예](#example) 를 참조 하세요.
 
@@ -286,23 +286,23 @@ Python에서 특성을 지원 하지 않습니다.
 
 ## <a name="usage"></a>사용
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 [!INCLUDE [functions-bindings-blob-storage-trigger](../../includes/functions-bindings-blob-storage-trigger.md)]
 
-# <a name="c-scripttabcsharp-script"></a>[C#스크립트도](#tab/csharp-script)
+# <a name="c-script"></a>[C#스크립트도](#tab/csharp-script)
 
 [!INCLUDE [functions-bindings-blob-storage-trigger](../../includes/functions-bindings-blob-storage-trigger.md)]
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 `<NAME>`에서 `context.bindings.<NAME>`를 사용 하 여 blob 데이터에 액세스 합니다. 여기서는 *json*에 정의 된 값과 일치 합니다.
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 [InputStream](https://docs.microsoft.com/python/api/azure-functions/azure.functions.inputstream?view=azure-python)으로 형식화 된 매개 변수를 통해 blob 데이터에 액세스 합니다. 자세한 내용은 [트리거 예](#example) 를 참조 하세요.
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 `@BlobTrigger` 특성은 함수를 트리거한 blob에 대 한 액세스 권한을 제공 하는 데 사용 됩니다. 자세한 내용은 [트리거 예](#example) 를 참조 하세요.
 
@@ -352,15 +352,15 @@ Blob의 이름이 *{20140101}-soundfile.mp3*인 경우 함수 코드에서 `name
 
 ## <a name="metadata"></a>메타데이터
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 [!INCLUDE [functions-bindings-blob-storage-trigger](../../includes/functions-bindings-blob-storage-metadata.md)]
 
-# <a name="c-scripttabcsharp-script"></a>[C#스크립트도](#tab/csharp-script)
+# <a name="c-script"></a>[C#스크립트도](#tab/csharp-script)
 
 [!INCLUDE [functions-bindings-blob-storage-trigger](../../includes/functions-bindings-blob-storage-metadata.md)]
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 module.exports = function (context, myBlob) {
@@ -369,11 +369,11 @@ module.exports = function (context, myBlob) {
 };
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Python에서는 메타 데이터를 사용할 수 없습니다.
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 메타 데이터는 Java에서 사용할 수 없습니다.
 

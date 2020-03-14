@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
-ms.date: 12/19/2018
-ms.openlocfilehash: bea6a572e55f1a79515c385fd7b79881c54ae65e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 03/10/2020
+ms.openlocfilehash: 958dcd441d35b5c28746ff79a0b341e5aa7383a6
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73802912"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79214022"
 ---
 # <a name="monitoring-performance-azure-sql-database-using-dynamic-management-views"></a>동적 관리 뷰를 사용하여 Azure SQL Database 성능모니터링
 
@@ -28,9 +28,9 @@ SQL Database는 세 가지 범주의 동적 관리 뷰를 부분적으로 지원
 - 실행 관련 동적 관리 뷰.
 - 트랜잭션 관련 동적 관리 뷰
 
-동적 관리 뷰에 대한 자세한 내용은 SQL Server 온라인 설명서의 [동적 관리 뷰 및 함수(Transact-SQL)](https://msdn.microsoft.com/library/ms188754.aspx) 를 참조하세요. 
+동적 관리 뷰에 대한 자세한 내용은 SQL Server 온라인 설명서의 [동적 관리 뷰 및 함수(Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views) 를 참조하세요.
 
-## <a name="permissions"></a>권한
+## <a name="permissions"></a>사용 권한
 
 SQL Database에서 동적 관리 뷰를 쿼리하려면 **VIEW DATABASE STATE** 권한이 있어야 합니다. **VIEW DATABASE STATE** 권한은 현재 데이터베이스 내의 모든 개체에 대한 정보를 반환합니다.
 특정 데이터베이스 사용자에게 **VIEW DATABASE STATE** 권한을 부여하려면 다음 쿼리를 실행합니다.
@@ -40,6 +40,17 @@ GRANT VIEW DATABASE STATE TO database_user;
 ```
 
 온-프레미스 SQL 서버의 인스턴스에서 동적 관리 뷰는 서버 상태 정보를 반환합니다. SQL Database에서는 현재의 논리 데이터베이스에 관한 정보만 반환합니다.
+
+이 문서에는 다음과 같은 유형의 쿼리 성능 문제를 감지 하기 위해 SQL Server Management Studio 또는 Azure Data Studio를 사용 하 여 실행할 수 있는 DMV 쿼리 컬렉션이 포함 되어 있습니다.
+
+- [과도 한 CPU 사용량과 관련 된 쿼리 식별](#identify-cpu-performance-issues)
+- [IO 병목 지점과 관련 된 PAGELATCH_ * 및 WRITE_LOG 대기](#identify-io-performance-issues)
+- [PAGELATCH_ * bytTempDB 경합이 발생 한 대기 작업](#identify-tempdb-performance-issues)
+- [메모리 부여 대기 문제로 인 한 RESOURCE_SEMAHPORE 대기](#identify-memory-grant-wait-performance-issues)
+- [데이터베이스 및 개체 크기 식별](#calculating-database-and-objects-sizes)
+- [활성 세션에 대 한 정보 검색](#monitoring-connections)
+- [시스템 차원 및 데이터베이스 리소스 사용량 정보 검색](#monitor-resource-use)
+- [쿼리 성능 정보 검색](#monitoring-query-performance)
 
 ## <a name="identify-cpu-performance-issues"></a>CPU 성능 문제 식별
 
@@ -56,11 +67,11 @@ CPU 사용량이 오랫동안 80%를 초과하면 다음 문제 해결 단계를
 ```sql
 PRINT '-- top 10 Active CPU Consuming Queries (aggregated)--';
 SELECT TOP 10 GETDATE() runtime, *
-FROM(SELECT query_stats.query_hash, SUM(query_stats.cpu_time) 'Total_Request_Cpu_Time_Ms', SUM(logical_reads) 'Total_Request_Logical_Reads', MIN(start_time) 'Earliest_Request_start_Time', COUNT(*) 'Number_Of_Requests', SUBSTRING(REPLACE(REPLACE(MIN(query_stats.statement_text), CHAR(10), ' '), CHAR(13), ' '), 1, 256) AS "Statement_Text"
-     FROM(SELECT req.*, SUBSTRING(ST.text, (req.statement_start_offset / 2)+1, ((CASE statement_end_offset WHEN -1 THEN DATALENGTH(ST.text)ELSE req.statement_end_offset END-req.statement_start_offset)/ 2)+1) AS statement_text
+FROM (SELECT query_stats.query_hash, SUM(query_stats.cpu_time) 'Total_Request_Cpu_Time_Ms', SUM(logical_reads) 'Total_Request_Logical_Reads', MIN(start_time) 'Earliest_Request_start_Time', COUNT(*) 'Number_Of_Requests', SUBSTRING(REPLACE(REPLACE(MIN(query_stats.statement_text), CHAR(10), ' '), CHAR(13), ' '), 1, 256) AS "Statement_Text"
+    FROM (SELECT req.*, SUBSTRING(ST.text, (req.statement_start_offset / 2)+1, ((CASE statement_end_offset WHEN -1 THEN DATALENGTH(ST.text)ELSE req.statement_end_offset END-req.statement_start_offset)/ 2)+1) AS statement_text
           FROM sys.dm_exec_requests AS req
-               CROSS APPLY sys.dm_exec_sql_text(req.sql_handle) AS ST ) AS query_stats
-     GROUP BY query_hash) AS t
+                CROSS APPLY sys.dm_exec_sql_text(req.sql_handle) AS ST ) AS query_stats
+    GROUP BY query_hash) AS t
 ORDER BY Total_Request_Cpu_Time_Ms DESC;
 ```
 
@@ -72,14 +83,14 @@ ORDER BY Total_Request_Cpu_Time_Ms DESC;
 PRINT '--top 10 Active CPU Consuming Queries by sessions--';
 SELECT TOP 10 req.session_id, req.start_time, cpu_time 'cpu_time_ms', OBJECT_NAME(ST.objectid, ST.dbid) 'ObjectName', SUBSTRING(REPLACE(REPLACE(SUBSTRING(ST.text, (req.statement_start_offset / 2)+1, ((CASE statement_end_offset WHEN -1 THEN DATALENGTH(ST.text)ELSE req.statement_end_offset END-req.statement_start_offset)/ 2)+1), CHAR(10), ' '), CHAR(13), ' '), 1, 512) AS statement_text
 FROM sys.dm_exec_requests AS req
-     CROSS APPLY sys.dm_exec_sql_text(req.sql_handle) AS ST
+    CROSS APPLY sys.dm_exec_sql_text(req.sql_handle) AS ST
 ORDER BY cpu_time DESC;
 GO
 ```
 
 ### <a name="the-cpu-issue-occurred-in-the-past"></a>과거에 발생한 CPU 문제
 
-과거에 문제가 발생했고 근본 원인을 분석하려면 [쿼리 저장소](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)를 사용합니다. 데이터베이스 액세스 권한이 있는 사용자는 T-SQL을 사용하여 쿼리 저장소 데이터를 쿼리할 수 있습니다.  쿼리 저장소 기본 구성은 세분성 1시간을 사용합니다.  CPU 사용량이 많은 쿼리에 대한 작업을 살펴보려면 다음 쿼리를 사용합니다. 이 쿼리는 CPU 사용량이 많은 상위 15개 쿼리를 반환합니다.  잊지 말고 `rsi.start_time >= DATEADD(hour, -2, GETUTCDATE()`를 변경하세요.
+과거에 문제가 발생했고 근본 원인을 분석하려면 [쿼리 저장소](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)를 사용합니다. 데이터베이스 액세스 권한이 있는 사용자는 T-SQL을 사용하여 쿼리 저장소 데이터를 쿼리할 수 있습니다. 쿼리 저장소 기본 구성은 세분성 1시간을 사용합니다. CPU 사용량이 많은 쿼리에 대한 작업을 살펴보려면 다음 쿼리를 사용합니다. 이 쿼리는 CPU 사용량이 많은 상위 15개 쿼리를 반환합니다. 잊지 말고 `rsi.start_time >= DATEADD(hour, -2, GETUTCDATE()`를 변경하세요.
 
 ```sql
 -- Top 15 CPU consuming queries by query hash
@@ -541,7 +552,7 @@ FROM sys.dm_db_resource_stats;
 
 ![SQL Database 리소스 사용](./media/sql-database-performance-guidance/sql_db_resource_utilization.png)
 
-이 데이터베이스의 현재 최고 CPU 부하는 P2 컴퓨팅 크기에 비해 약 50% 더 많습니다(화요일 낮). CPU가 애플리케이션의 리소스 프로필에서 가장 지배적인 요인인 경우 P2가 항상 워크로드를 충족하는 데 적합한 컴퓨팅 크기임을 확인할 수 있습니다. 애플리케이션이 시간이 지남에 따라 성장할 것으로 예상되는 경우 애플리케이션이 성능 수준 한도에 도달하지 않도록 추가 리소스 버퍼를 두는 것이 좋습니다. 컴퓨팅 크기를 늘리면 특히 대기 시간이 중요한 환경에서 데이터베이스가 요청을 효과적으로 처리하므로 충분한 능력을 갖고 있지 않은 경우 발생할 수 있는 고객에게 보이는 오류를 방지하는 데 도움이 될 수 있습니다. 예를 들어 데이터베이스 호출의 결과를 기반으로 웹 페이지를 표시하는 애플리케이션을 지원하는 데이터베이스가 있습니다.
+이 데이터베이스의 현재 최고 CPU 부하는 P2 컴퓨팅 크기에 비해 약 50% 더 많습니다(화요일 낮). CPU가 응용 프로그램의 리소스 프로필에서 가장 중요 한 요소인 경우에는 작업 부하에 항상 부합 되도록 P2를 올바른 계산 크기로 결정할 수 있습니다. 애플리케이션이 시간이 지남에 따라 성장할 것으로 예상되는 경우 애플리케이션이 성능 수준 한도에 도달하지 않도록 추가 리소스 버퍼를 두는 것이 좋습니다. 컴퓨팅 크기를 늘리면 특히 대기 시간이 중요한 환경에서 데이터베이스가 요청을 효과적으로 처리하므로 충분한 능력을 갖고 있지 않은 경우 발생할 수 있는 고객에게 보이는 오류를 방지하는 데 도움이 될 수 있습니다. 예를 들어 데이터베이스 호출의 결과를 기반으로 웹 페이지를 표시하는 애플리케이션을 지원하는 데이터베이스가 있습니다.
 
 다른 애플리케이션 유형은 동일한 그래프를 다르게 해석할 수 있습니다. 예를 들어 애플리케이션에서 매일 급여 데이터를 처리하고 동일한 차트를 사용하는 경우와 같은 "일괄 처리 작업" 모델은 P1 컴퓨팅 크기로 충분할 수 있습니다. P1 컴퓨팅 크기는 DTU 100개를 제공하고 P2 컴퓨팅 크기는 DTU 200개를 제공합니다. P1 컴퓨팅 크기는 P2 컴퓨팅 크기의 절반 성능을 제공합니다. 따라서 P2에서 CPU 사용의 50%는 P1에서 100% CPU 사용과 같습니다. 애플리케이션에 시간 제한이 없는 경우 작업이 오늘 완료되기만 한다면 2시간이 소요되든 또는 2.5시간이 소요되든 중요하지 않을 수 있습니다. 이 범주의 애플리케이션은 P1 컴퓨팅 크기를 사용할 수도 있습니다. 하루 중 리소스 사용량이 낮은 시간대가 있다는 사실을 활용할 수 있습니다. 즉, "최고" 시간대의 작업을 하루 중 사용량이 낮은 시간대 중 하나로 나눌 수 있습니다. 작업을 매일 정시에 완료할 수 있는 경우 이러한 종류의 애플리케이션에는 P1 컴퓨팅 크기가 적합하며 비용도 절감할 수 있습니다.
 
@@ -563,7 +574,7 @@ ORDER BY start_time DESC
 
 다음 예제에서는 **sys.resource_stats** 카탈로그 뷰를 사용하여 SQL Database에서 리소스를 사용하는 방법에 대한 정보를 얻을 수 있는 다른 방법을 보여줍니다.
 
-1. 데이터베이스 userdb1에서 지난 주의 리소스 사용을 확인하고자 할 때 이 쿼리를 실행할 수 있습니다.
+1. 데이터베이스 userdb1에 대 한 지난 주의 리소스 사용을 확인 하려면 다음 쿼리를 실행 하면 됩니다.
 
     ```sql
     SELECT *
@@ -635,25 +646,25 @@ ORDER BY start_time DESC
 
 동시 요청 수를 보려면 SQL Database에서 이 Transact-SQL 쿼리를 실행하세요.
 
-    ```sql
-    SELECT COUNT(*) AS [Concurrent_Requests]
-    FROM sys.dm_exec_requests R;
-    ```
+```sql
+SELECT COUNT(*) AS [Concurrent_Requests]
+FROM sys.dm_exec_requests R;
+```
 
 온-프레미스 SQL Server 데이터베이스의 워크로드를 분석하려면 이 쿼리를 수정하여 분석할 특정 데이터베이스에서 필터링해야 합니다. 예를 들어 MyDatabase라는 온-프레미스 데이터베이스가 있다면 이 Transact-SQL 쿼리는 해당 데이터베이스의 동시 요청 수를 반환합니다.
 
-    ```sql
-    SELECT COUNT(*) AS [Concurrent_Requests]
-    FROM sys.dm_exec_requests R
-    INNER JOIN sys.databases D ON D.database_id = R.database_id
-    AND D.name = 'MyDatabase';
-    ```
+```sql
+SELECT COUNT(*) AS [Concurrent_Requests]
+FROM sys.dm_exec_requests R
+INNER JOIN sys.databases D ON D.database_id = R.database_id
+AND D.name = 'MyDatabase';
+```
 
 이는 단일 시점의 스냅샷일 뿐입니다. 워크로드 및 동시 요청 요구 사항을 더 깊이 이해하려면 시간 변화에 따라 여러 샘플을 수집해야 합니다.
 
 ### <a name="maximum-concurrent-logins"></a>최대 동시 로그인 수
 
-사용자 및 애플리케이션 패턴을 분석하여 로그인 빈도를 파악할 수 있습니다. 또한 테스트 환경에서 실제 부하를 실행하여 이 문서에서 설명한 이 한도 또는 기타 한도에 도달하지 않도록 보장할 수 있습니다. 동시 로그인 수 또는 기록을 표시할 수 있는 단일 쿼리 또는 동적 관리 뷰(DMV)는 없습니다.
+사용자 및 애플리케이션 패턴을 분석하여 로그인 빈도를 파악할 수 있습니다. 또한 테스트 환경에서 실제 부하를 실행하여 이 문서에서 설명한 이 한도 또는 기타 한도에 도달하지 않도록 보장할 수 있습니다. 동시 로그인 수 또는 기록을 표시 하는 단일 쿼리 또는 DMV (동적 관리 뷰)는 없습니다.
 
 여러 클라이언트에서 동일한 연결 문자열을 사용하는 경우 서비스에서는 각 로그인을 인증합니다. 10명의 사용자가 동일한 사용자 이름 및 암호를 사용하여 데이터베이스에 동시에 연결하는 경우 동시 로그인 수는 10개가 됩니다. 이 한도는 로그인 및 인증 기간에만 적용됩니다. 따라서 동일한 10명의 사용자가 특정 데이터베이스에 순차적으로 연결하는 경우 동시 로그인 수는 절대로 1보다 높을 수 없습니다.
 
@@ -664,18 +675,22 @@ ORDER BY start_time DESC
 
 현재 활성 세션 수를 보려면 SQL Database에서 이 Transact-SQL 쿼리를 실행하세요.
 
-    SELECT COUNT(*) AS [Sessions]
-    FROM sys.dm_exec_connections
+```sql
+SELECT COUNT(*) AS [Sessions]
+FROM sys.dm_exec_connections
+```
 
 온-프레미스 SQL Server 워크로드를 분석하려는 경우 특정 데이터베이스에 집중하도록 쿼리를 수정하세요. 이 쿼리는 데이터베이스를 Azure SQL Database로 이동을 고려할 때 가능한 세션 요구 사항을 확인하는 데 도움이 됩니다.
 
-    SELECT COUNT(*)  AS [Sessions]
-    FROM sys.dm_exec_connections C
-    INNER JOIN sys.dm_exec_sessions S ON (S.session_id = C.session_id)
-    INNER JOIN sys.databases D ON (D.database_id = S.database_id)
-    WHERE D.name = 'MyDatabase'
+```sql
+SELECT COUNT(*) AS [Sessions]
+FROM sys.dm_exec_connections C
+INNER JOIN sys.dm_exec_sessions S ON (S.session_id = C.session_id)
+INNER JOIN sys.databases D ON (D.database_id = S.database_id)
+WHERE D.name = 'MyDatabase'
+```
 
-역시 이러한 쿼리도 지정 시간 수를 반환합니다. 시간이 지남에 따라 여러 샘플을 수집하는 경우 자신의 세션 사용을 잘 이해해야 합니다.
+역시 이러한 쿼리도 지정 시간 수를 반환합니다. 시간이 지남에 따라 여러 샘플을 수집 하는 경우 세션 사용을 잘 이해 하 게 됩니다.
 
 SQL Database 분석의 경우 [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) 뷰를 쿼리하고 **active_session_count** 열을 검토하여 세션에 대한 통계 자료를 얻을 수 있습니다.
 
@@ -687,22 +702,22 @@ SQL Database 분석의 경우 [sys.resource_stats](https://msdn.microsoft.com/li
 
 다음 예제는 평균 CPU 시간별로 상위 5개의 쿼리에 대한 정보를 반환합니다. 이 예제는 쿼리 해시에 따라 쿼리를 집계하므로 논리적으로 동일한 쿼리는 해당 누적 리소스 소비량에 따라 그룹화됩니다.
 
-    ```sql
-    SELECT TOP 5 query_stats.query_hash AS "Query Hash",
-       SUM(query_stats.total_worker_time) / SUM(query_stats.execution_count) AS "Avg CPU Time",
-       MIN(query_stats.statement_text) AS "Statement Text"
-    FROM
-       (SELECT QS.*,
+```sql
+SELECT TOP 5 query_stats.query_hash AS "Query Hash",
+    SUM(query_stats.total_worker_time) / SUM(query_stats.execution_count) AS "Avg CPU Time",
+     MIN(query_stats.statement_text) AS "Statement Text"
+FROM
+    (SELECT QS.*,
         SUBSTRING(ST.text, (QS.statement_start_offset/2) + 1,
-        ((CASE statement_end_offset
-           WHEN -1 THEN DATALENGTH(ST.text)
-           ELSE QS.statement_end_offset END
-           - QS.statement_start_offset)/2) + 1) AS statement_text
-    FROM sys.dm_exec_query_stats AS QS
-    CROSS APPLY sys.dm_exec_sql_text(QS.sql_handle) as ST) as query_stats
-    GROUP BY query_stats.query_hash
-    ORDER BY 2 DESC;
-    ```
+            ((CASE statement_end_offset
+                WHEN -1 THEN DATALENGTH(ST.text)
+                ELSE QS.statement_end_offset END
+            - QS.statement_start_offset)/2) + 1) AS statement_text
+FROM sys.dm_exec_query_stats AS QS
+CROSS APPLY sys.dm_exec_sql_text(QS.sql_handle) as ST) as query_stats
+GROUP BY query_stats.query_hash
+ORDER BY 2 DESC;
+```
 
 ### <a name="monitoring-blocked-queries"></a>차단된 쿼리 모니터링
 
@@ -712,25 +727,25 @@ SQL Database 분석의 경우 [sys.resource_stats](https://msdn.microsoft.com/li
 
 또한 비효율적인 쿼리 계획 때문에 CPU 사용량이 증가할 수 있습니다. 다음 예제에서는 [sys.dm_exec_query_stats](https://msdn.microsoft.com/library/ms189741.aspx) 뷰를 사용하여 가장 많은 누적 CPU를 사용하는 쿼리를 확인합니다.
 
-    ```sql
-    SELECT
-       highest_cpu_queries.plan_handle,
-       highest_cpu_queries.total_worker_time,
-       q.dbid,
-       q.objectid,
-       q.number,
-       q.encrypted,
-       q.[text]
-    FROM
-       (SELECT TOP 50
+```sql
+SELECT
+    highest_cpu_queries.plan_handle,
+    highest_cpu_queries.total_worker_time,
+    q.dbid,
+    q.objectid,
+    q.number,
+    q.encrypted,
+    q.[text]
+FROM
+    (SELECT TOP 50
         qs.plan_handle,
         qs.total_worker_time
     FROM
         sys.dm_exec_query_stats qs
-    ORDER BY qs.total_worker_time desc) AS highest_cpu_queries
-    CROSS APPLY sys.dm_exec_sql_text(plan_handle) AS q
-    ORDER BY highest_cpu_queries.total_worker_time DESC;
-    ```
+ORDER BY qs.total_worker_time desc) AS highest_cpu_queries
+CROSS APPLY sys.dm_exec_sql_text(plan_handle) AS q
+ORDER BY highest_cpu_queries.total_worker_time DESC;
+```
 
 ## <a name="see-also"></a>참고 항목
 

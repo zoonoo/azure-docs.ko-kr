@@ -16,11 +16,11 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
 ms.openlocfilehash: 3ff4b2cb6a59a35dc6da4748a7c7fbb4758a4fcf
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981008"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79283226"
 ---
 # <a name="understand-role-definitions-for-azure-resources"></a>Azure 리소스에 대한 역할 정의 이해
 
@@ -56,7 +56,7 @@ AssignableScopes []
 | `action` | 가상 컴퓨터 다시 시작 (POST)과 같은 사용자 지정 작업을 사용 하도록 설정 합니다. |
 | `delete` | 삭제 작업(DELETE)을 사용하도록 설정합니다. |
 
-JSON 형식의 [기여자](built-in-roles.md#contributor) 역할 정의가 있습니다. `Actions`에 포함된 와일드카드(`*`) 작업은 이 역할에 할당된 주체가 모든 작업을 수행할 수 있음, 즉 모든 항목을 관리할 수 있음을 나타냅니다. 여기에는 나중에 Azure에서 새 리소스 종류를 추가함에 따라 정의되는 작업이 포함됩니다. `NotActions`에 속한 작업은 `Actions`에서 제외됩니다. [기여자](built-in-roles.md#contributor) 역할의 경우 `NotActions`는 리소스에 대한 액세스를 관리하고 할당하는 이 역할의 기능을 제거합니다.
+JSON 형식의 [기여자](built-in-roles.md#contributor) 역할 정의가 있습니다. `*`에 포함된 와일드카드(`Actions`) 작업은 이 역할에 할당된 주체가 모든 작업을 수행할 수 있음, 즉 모든 항목을 관리할 수 있음을 나타냅니다. 여기에는 나중에 Azure에서 새 리소스 종류를 추가함에 따라 정의되는 작업이 포함됩니다. `NotActions`에 속한 작업은 `Actions`에서 제외됩니다. [기여자](built-in-roles.md#contributor) 역할의 경우 `NotActions`는 리소스에 대한 액세스를 관리하고 할당하는 이 역할의 기능을 제거합니다.
 
 ```json
 {
@@ -98,7 +98,7 @@ JSON 형식의 [기여자](built-in-roles.md#contributor) 역할 정의가 있�
 - 컨테이너에 Storage Blob 쓰기
 - 큐의 메시지 삭제
 
-`Actions` 및 `DataActions` 속성의 작업을 포함 하는 [저장소 Blob 데이터 판독기](built-in-roles.md#storage-blob-data-reader) 역할 정의는 다음과 같습니다. 이 역할을 사용하면 Blob 컨테이너 및 기본 Blob 데이터를 읽을 수 있습니다.
+`Actions` 및 `DataActions` 속성 모두의 작업을 포함 하는 [저장소 Blob 데이터 판독기](built-in-roles.md#storage-blob-data-reader) 역할 정의는 다음과 같습니다. 이 역할을 사용하면 Blob 컨테이너 및 기본 Blob 데이터를 읽을 수 있습니다.
 
 ```json
 {
@@ -172,7 +172,7 @@ REST API에서 데이터 작업을 보고 사용하려면 **api-version** 매개
 
 - 2018-07-01
 
-## <a name="actions"></a>작업
+## <a name="actions"></a>동작
 
 `Actions` 권한은 역할에서 수행할 수 있는 관리 작업을 지정합니다. Azure 리소스 공급자의 보안 개체 작업을 식별하는 작업 문자열 모음입니다. `Actions`에서 사용할 수 있는 관리 작업의 몇 가지 예제는 다음과 같습니다.
 
@@ -186,7 +186,7 @@ REST API에서 데이터 작업을 보고 사용하려면 **api-version** 매개
 
 ## <a name="notactions"></a>NotActions
 
-`NotActions` 권한은 허용된 `Actions`에서 제외되는 관리 작업을 지정합니다. 제한된 작업을 제외하여 허용하려는 작업 집합을 더 쉽게 정의하는 경우 `NotActions` 권한을 사용합니다. 역할(유효 사용 권한)로 부여되는 액세스 권한은 `Actions` 작업에서 `NotActions` 작업을 제외하여 계산됩니다.
+`NotActions` 권한은 허용된 `Actions`에서 제외되는 관리 작업을 지정합니다. 제한된 작업을 제외하여 허용하려는 작업 집합을 더 쉽게 정의하는 경우 `NotActions` 권한을 사용합니다. 역할(유효 사용 권한)로 부여되는 액세스 권한은 `NotActions` 작업에서 `Actions` 작업을 제외하여 계산됩니다.
 
 > [!NOTE]
 > 사용자에게 `NotActions`에서 작업을 제외하는 역할이 할당되고 동일한 작업에 대한 액세스 권한을 부여하는 두 번째 역할이 할당된 경우 사용자는 해당 작업을 수행할 수 있습니다. `NotActions`는 거부 규칙이 아니며, 특정 작업을 제외해야 할 경우 허용되는 작업 집합을 만드는 편리한 방법일 뿐입니다.
@@ -205,7 +205,7 @@ REST API에서 데이터 작업을 보고 사용하려면 **api-version** 매개
 
 ## <a name="notdataactions"></a>NotDataActions
 
-`NotDataActions` 권한은 허용된 `DataActions`에서 제외되는 데이터 작업을 지정합니다. 역할(유효 사용 권한)로 부여되는 액세스 권한은 `DataActions` 작업에서 `NotDataActions` 작업을 제외하여 계산됩니다. 각 리소스 공급자는 데이터 작업을 수행하기 위한 각각의 API 집합을 제공합니다.
+`NotDataActions` 권한은 허용된 `DataActions`에서 제외되는 데이터 작업을 지정합니다. 역할(유효 사용 권한)로 부여되는 액세스 권한은 `NotDataActions` 작업에서 `DataActions` 작업을 제외하여 계산됩니다. 각 리소스 공급자는 데이터 작업을 수행하기 위한 각각의 API 집합을 제공합니다.
 
 > [!NOTE]
 > 사용자에게 `NotDataActions`에서 데이터 작업을 제외하는 역할이 할당되고 동일한 데이터 작업에 대한 액세스 권한을 부여하는 두 번째 역할이 할당된 경우 사용자는 해당 데이터 작업을 수행할 수 있습니다. `NotDataActions`는 거부 규칙이 아니며, 특정 데이터 작업을 제외해야 할 경우 허용되는 데이터 작업 집합을 만드는 편리한 방법일 뿐입니다.
@@ -215,9 +215,9 @@ REST API에서 데이터 작업을 보고 사용하려면 **api-version** 매개
 
 `AssignableScopes` 속성은이 역할 정의를 사용할 수 있는 범위 (관리 그룹, 구독, 리소스 그룹 또는 리소스)를 지정 합니다. 역할을 요구 하는 관리 그룹, 구독 또는 리소스 그룹 에서만 할당에 사용할 수 있도록 설정할 수 있습니다. 하나 이상의 관리 그룹, 구독, 리소스 그룹 또는 리소스 ID를 사용해야 합니다.
 
-기본 제공 역할에는 루트 범위(`"/"`)로 설정된 `AssignableScopes`가 있습니다. 루트 범위는 모든 범위에서 역할을 할당에 사용할 수 있음을 나타냅니다. 유효한 할당 가능한 범위의 예는 다음과 같습니다.
+기본 제공 역할에는 루트 범위(`AssignableScopes`)로 설정된 `"/"`가 있습니다. 루트 범위는 모든 범위에서 역할을 할당에 사용할 수 있음을 나타냅니다. 유효한 할당 가능한 범위의 예는 다음과 같습니다.
 
-| 역할을 할당에 사용할 수 있습니다. | 예 |
+| 역할을 할당에 사용할 수 있습니다. | 예제 |
 |----------|---------|
 | 구독 하나 사용 | `"/subscriptions/{subscriptionId1}"` |
 | 두 구독 | `"/subscriptions/{subscriptionId1}", "/subscriptions/{subscriptionId2}"` |

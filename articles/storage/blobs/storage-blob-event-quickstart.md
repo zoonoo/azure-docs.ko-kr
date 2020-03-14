@@ -8,14 +8,14 @@ ms.date: 03/05/2020
 ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
-ms.openlocfilehash: 7f2807783f2750dbf87d22dfc6e356914e560e5d
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
-ms.translationtype: HT
+ms.openlocfilehash: 93a146e481e6bb8b9180012d8c569d45521b4450
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78398235"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79269316"
 ---
-# <a name="quickstart-route-storage-events-to-web-endpoint-with-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 스토리지 이벤트를 웹 엔드포인트로 라우팅
+# <a name="quickstart-route-storage-events-to-web-endpoint-with-azure-cli"></a>빠른 시작: Azure CLI 사용 하 여 저장소 이벤트를 웹 끝점으로 라우팅
 
 Azure Event Grid는 클라우드에 대한 이벤트 서비스입니다. 이 문서에서는 Azure CLI를 사용하여 Blob Storage 이벤트를 구독하고 이벤트를 트리거하여 결과를 확인합니다.
 
@@ -29,7 +29,7 @@ Azure Event Grid는 클라우드에 대한 이벤트 서비스입니다. 이 문
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하여 사용하도록 선택하는 경우 이 문서에서는 최신 버전의 Azure CLI(2.0.24 이상)를 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
+CLI를 로컬로 설치 하 고 사용 하도록 선택 하는 경우이 문서에서는 최신 버전의 Azure CLI (2.0.70 이상)를 실행 해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
 Cloud Shell을 사용하지 않는 경우 먼저 `az login`을 사용하여 로그인해야 합니다.
 
@@ -39,7 +39,7 @@ Event Grid 토픽은 Azure 리소스이며 Azure 리소스 그룹에 배치해�
 
 [az group create](/cli/azure/group) 명령을 사용하여 리소스 그룹을 만듭니다. 
 
-다음 예제에서는 *westcentralus* 위치에 `<resource_group_name>`이라는 리소스 그룹을 만듭니다.  `<resource_group_name>`을 리소스 그룹의 고유한 이름으로 바꿉니다.
+다음 예제에서는 `<resource_group_name>`westcentralus*위치에*이라는 리소스 그룹을 만듭니다.  `<resource_group_name>`을 리소스 그룹의 고유한 이름으로 바꿉니다.
 
 ```azurecli-interactive
 az group create --name <resource_group_name> --location westcentralus

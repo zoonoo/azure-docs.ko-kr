@@ -5,11 +5,11 @@ services: container-service
 ms.topic: article
 ms.date: 06/03/2019
 ms.openlocfilehash: f7f8fe85b0a0e149859715b86abb08753a6ea65e
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77595980"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79253001"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Azure CNI 네트워킹 구성
 

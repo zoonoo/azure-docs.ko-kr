@@ -5,11 +5,11 @@ ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.openlocfilehash: dda62e3041d04d5becc9179fff1c56d0c587ba1e
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76292929"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79276869"
 ---
 # <a name="monitor-azure-functions"></a>Azure Functions 모니터링
 
@@ -119,9 +119,9 @@ requests
 
 사용할 수 있는 테이블이 왼쪽의 **스키마** 탭에 표시 됩니다. 다음 테이블에서 함수 호출에 의해 생성된 데이터를 찾을 수 있습니다.
 
-| Table | Description |
+| 테이블 | Description |
 | ----- | ----------- |
-| **traces** | 런타임과 함수 코드에 의해 생성 된 로그입니다. |
+| **아니라** | 런타임과 함수 코드에 의해 생성 된 로그입니다. |
 | **requests** | 각 함수 호출에 대해 하나의 요청 |
 | **exceptions** | 런타임에 의해 throw 되는 예외입니다. |
 | **customMetrics** | 성공 및 실패 한 호출 수, 성공률 및 기간입니다. |
@@ -160,10 +160,10 @@ Azure Functions 로거에는 모든 로그에 대한 *범주*가 포함되어 �
 |추적       | 0 |
 |디버그       | 1 |
 |정보 | 2 |
-|경고     | 3 |
-|오류       | 4 |
+|Warning     | 3 |
+|Error       | 4 |
 |위험    | 5 |
-|없음        | 6 |
+|None        | 6 |
 
 로그 수준 `None`은 다음 섹션에 설명되어 있습니다. 
 
@@ -209,7 +209,7 @@ Azure Functions 로거에는 모든 로그에 대한 *범주*가 포함되어 �
 이 예제에서는 다음 규칙을 설정합니다.
 
 * 범주가 `Host.Results` 또는 `Function`인 로그의 경우 `Error` 수준 이상만 Application Insights로 보냅니다. `Warning` 수준 이하 로그는 무시됩니다.
-* `Host.Aggregator` 범주의 로그는 모든 로그를 Application Insights로 보냅니다. `Trace` 로그 수준은 `Verbose`를 호출하는 일부 로거와 동일하지만, [호스트 json] 파일의 `Trace`를 사용합니다.
+* `Host.Aggregator` 범주의 로그는 모든 로그를 Application Insights로 보냅니다. `Trace` 로그 수준은 `Verbose`를 호출하는 일부 로거와 동일하지만, `Trace`host.json[호스트 json]를 사용합니다.
 * 그 외의 로그는 `Information` 수준 이상만 Application Insights로 보냅니다.
 
 [호스트 json]의 범주 값은 같은 값으로 시작하는 모든 범주에 대한 로깅을 제어합니다. 호스트의 `Host` `Host.General`, `Host.Executor`, `Host.Results`등에 대 한 로깅을 제어 합니다 [호스트 json]
@@ -335,7 +335,7 @@ Application Insights에서 traces로 표시되는 로그를 함수 코드로 작
 
 ### <a name="ilogger"></a>ILogger
 
-함수에 `TraceWriter` 매개 변수 대신 [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) 매개 변수를 사용합니다. `TraceWriter`를 사용 하 여 만든 로그는 Application Insights으로 이동 하지만, `ILogger`를 사용 하 여 [구조적 로깅을](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging)수행할 수 있습니다.
+함수에 [ 매개 변수 대신 ](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger)ILogger`TraceWriter` 매개 변수를 사용합니다. `TraceWriter`를 사용 하 여 만든 로그는 Application Insights으로 이동 하지만, `ILogger`를 사용 하 여 [구조적 로깅을](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging)수행할 수 있습니다.
 
 `ILogger` 개체를 사용 하 여 [ILogger에서 `Log<level>` 확장 메서드](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.loggerextensions#methods) 를 호출 하 여 로그를 만듭니다. 다음 코드는 "Function. < YOUR_FUNCTION_NAME > `Information` 로그를 작성 합니다. 사용자. "
 
@@ -378,7 +378,7 @@ logger.LogInformation("partitionKey={partitionKey}, rowKey={rowKey}", partitionK
 
 ### <a name="custom-metrics-logging"></a>사용자 지정 메트릭 로깅
 
-C# 스크립트 함수에서, `ILogger`에 `LogMetric` 확장 메서드를 사용하여 Application Insights에 사용자 지정 메트릭을 만들 수 있습니다. 다음은 샘플 메서드 호출입니다.
+C# 스크립트 함수에서, `LogMetric`에 `ILogger` 확장 메서드를 사용하여 Application Insights에 사용자 지정 메트릭을 만들 수 있습니다. 다음은 샘플 메서드 호출입니다.
 
 ```csharp
 logger.LogMetric("TestMetric", 1234);
@@ -668,7 +668,7 @@ Get-AzWebSiteLog -Name <FUNCTION_APP_NAME> -Tail
 
 Application Insights를 사용 하도록 설정 하는 경우 Azure Storage를 사용 하는 기본 제공 로깅을 사용 하지 않도록 설정 합니다. 기본 제공 로깅은 간단한 워크 로드를 사용 하 여 테스트 하는 데 유용 하지만, 고성능 프로덕션 용도로는 사용 되지 않습니다. 프로덕션 모니터링의 경우 Application Insights 하는 것이 좋습니다. 프로덕션에서 기본 제공 로깅이 사용 되는 경우 Azure Storage 제한으로 인해 로깅 레코드가 불완전할 수 있습니다.
 
-기본 제공 로깅을 사용하지 않도록 설정하려면 `AzureWebJobsDashboard` 앱 설정을 삭제합니다. Azure Portal에서 앱 설정을 삭제하는 방법에 대한 자세한 내용은 [함수 앱을 관리하는 방법](functions-how-to-use-azure-function-app-settings.md#settings)의 **애플리케이션 설정** 섹션을 참조하세요. 앱 설정을 삭제 하기 전에 동일한 함수 앱에 있는 기존 함수가 Azure Storage 트리거 또는 바인딩에 대해이 설정을 사용 하지 않도록 해야 합니다.
+기본 제공 로깅을 사용하지 않도록 설정하려면 `AzureWebJobsDashboard` 앱 설정을 삭제합니다. Azure Portal에서 앱 설정을 삭제하는 방법에 대한 자세한 내용은 **함수 앱을 관리하는 방법**의 [애플리케이션 설정](functions-how-to-use-azure-function-app-settings.md#settings) 섹션을 참조하세요. 앱 설정을 삭제 하기 전에 동일한 함수 앱에 있는 기존 함수가 Azure Storage 트리거 또는 바인딩에 대해이 설정을 사용 하지 않도록 해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

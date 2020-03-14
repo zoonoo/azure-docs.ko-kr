@@ -1,6 +1,6 @@
 ---
 title: Azure RBAC에 대 한 azure 기본 제공 역할
-description: Azure RBAC (역할 기반 액세스 제어)에 대 한 Azure 기본 제공 역할에 대해 설명 합니다. Actions, NotActions, DataActions 및 NotDataActions를 나열합니다.
+description: 이 문서에서는 Azure 역할 기반 액세스 제어 (RBAC)에 대 한 Azure 기본 제공 역할에 대해 설명 합니다. Actions, NotActions, DataActions 및 NotDataActions를 나열 합니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,26 +11,26 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 02/18/2020
+ms.date: 03/12/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: b7b944880074b64f6a9e66e177082e52632e9c9d
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: 5b6da05f07636f6a6dde16cf6d8061629a72adfa
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78205894"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79281107"
 ---
 # <a name="azure-built-in-roles"></a>Azure 기본 제공 역할
 
-Azure [RBAC (역할 기반 액세스 제어)](overview.md) 에는 사용자, 그룹, 서비스 사용자 및 관리 되는 id에 할당할 수 있는 몇 가지 azure 기본 제공 역할이 있습니다. 역할 할당은 Azure 리소스에 대한 액세스를 제어하는 방법입니다. 기본 제공 역할이 조직의 특정 요구를 충족 하지 않는 경우 고유한 [Azure 사용자 지정 역할](custom-roles.md)을 만들 수 있습니다.
+[Azure 역할 기반 access control (RBAC)](overview.md) 에는 사용자, 그룹, 서비스 사용자 및 관리 되는 id에 할당할 수 있는 몇 가지 azure 기본 제공 역할이 있습니다. 역할 할당은 Azure 리소스에 대한 액세스를 제어하는 방법입니다. 기본 제공 역할이 조직의 특정 요구를 충족 하지 않는 경우 고유한 [Azure 사용자 지정 역할](custom-roles.md)을 만들 수 있습니다.
 
-이 문서에는 계속 업데이트되는 Azure 리소스에 대한 기본 제공 역할이 나와 있습니다. 최신 역할을 가져오려면 [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) 또는 [az role definition list](/cli/azure/role/definition#az-role-definition-list)를 사용합니다. Azure Active Directory의 관리자 역할을 찾고 있는 경우 [Azure Active Directory의 관리자 역할 권한](../active-directory/users-groups-roles/directory-assign-admin-roles.md)을 참조하세요.
+이 문서에는 계속 업데이트되는 Azure 리소스에 대한 기본 제공 역할이 나와 있습니다. 최신 역할을 가져오려면 [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) 또는 [az role definition list](/cli/azure/role/definition#az-role-definition-list)를 사용합니다. Azure Active Directory (Azure AD)에 대 한 관리자 역할을 찾고 [있는 경우 Azure Active Directory의 관리자 역할 권한](../active-directory/users-groups-roles/directory-assign-admin-roles.md)을 참조 하세요.
 
 ## <a name="descriptions-and-ids"></a>설명 및 Id
 
-다음 표에서는 각 기본 제공 역할의 간단한 설명 및 고유 ID를 제공 합니다. 각 역할의 `Actions`, `NotActions`, `DataActions` 및 `NotDataActions` 목록을 보려면 역할 이름을 클릭합니다. 이러한 동작의 의미와 동작이 관리 및 데이터 평면에 적용되는 방식에 대한 자세한 내용은 [Azure 리소스에 대한 역할 정의 이해](role-definitions.md)를 참조하세요.
+다음 표에서는 각 기본 제공 역할의 간단한 설명 및 고유 ID를 제공 합니다. 역할 이름을 선택 하 여 각 역할에 대 한 `Actions`, `NotActions`, `DataActions`및 `NotDataActions` 목록을 표시 합니다. 이러한 동작의 의미와 동작이 관리 및 데이터 평면에 적용되는 방식에 대한 자세한 내용은 [Azure 리소스에 대한 역할 정의 이해](role-definitions.md)를 참조하세요.
 
 
 > [!div class="mx-tableFixed"]
@@ -77,10 +77,10 @@ Azure [RBAC (역할 기반 액세스 제어)](overview.md) 에는 사용자, 그
 > | [Blockchain 구성원 노드 액세스 (미리 보기)](#blockchain-member-node-access-preview) | Blockchain 멤버 노드에 대 한 액세스를 허용 합니다. | 31a002a1-acaf-453e-8a5b-297c9ca1ea24 |
 > | [청사진 기여자](#blueprint-contributor) | 청사진 정의를 관리할 수 있지만 할당할 수는 없습니다. | 41077137-e803-4205-871c-5a86e6a753b4 |
 > | [청사진 연산자](#blueprint-operator) | 는 게시 된 기존 청사진을 할당할 수 있지만 새 청사진을 만들 수는 없습니다. 참고: 사용자 할당 관리 id를 사용 하 여 할당을 수행 하는 경우에만 작동 합니다. | 437d2ced-4a38-4302-8479-ed2bcb43d090 |
-> | [CDN 엔드포인트 기여자](#cdn-endpoint-contributor) | CDN 엔드포인트를 관리할 수 있지만 다른 사용자에게 액세스 권한을 부여할 수는 없습니다. | 426e0c7f-0c7e-4658-b36f-ff54d6c29b45 |
-> | [CDN 엔드포인트 독자](#cdn-endpoint-reader) | CDN 엔드포인트를 볼 수 있지만 변경할 수는 없습니다. | 871e35f6-b5c1-49cc-a043-bde969a0f2cd |
-> | [CDN 프로필 기여자](#cdn-profile-contributor) | CDN 프로필과 해당 엔드포인트를 관리할 수 있지만 다른 사용자에게 액세스 권한을 부여할 수는 없습니다. | ec156ff8-a8d1-4d15-830c-5b80698ca432 |
-> | [CDN 프로필 독자](#cdn-profile-reader) | CDN 프로필과 해당 엔드포인트를 볼 수 있지만 변경할 수는 없습니다. | 8f96442b-4075-438f-813d-ad51ab4019af |
+> | [CDN 엔드포인트 기여자](#cdn-endpoint-contributor) | CDN 끝점을 관리할 수 있지만 다른 사용자에 게 액세스 권한을 부여할 수는 없습니다. | 426e0c7f-0c7e-4658-b36f-ff54d6c29b45 |
+> | [CDN 엔드포인트 독자](#cdn-endpoint-reader) | CDN 끝점을 볼 수 있지만 변경할 수는 없습니다. | 871e35f6-b5c1-49cc-a043-bde969a0f2cd |
+> | [CDN 프로필 기여자](#cdn-profile-contributor) | CDN 프로필과 해당 끝점을 관리할 수 있지만 다른 사용자에 게 액세스 권한을 부여할 수는 없습니다. | ec156ff8-a8d1-4d15-830c-5b80698ca432 |
+> | [CDN 프로필 독자](#cdn-profile-reader) | CDN 프로필과 해당 끝점을 볼 수 있지만 변경할 수는 없습니다. | 8f96442b-4075-438f-813d-ad51ab4019af |
 > | [클래식 네트워크 기여자](#classic-network-contributor) | 기본 네트워크를 관리할 수 있지만 액세스할 수는 없습니다. | b34d265f-36f7-4a0d-a4d4-e158ca92e90f |
 > | [클래식 Storage 계정 기여자](#classic-storage-account-contributor) | 클래식 Storage 계정을 관리할 수 있지만 여기에 액세스할 수는 없습니다. | 86e8f5dc-a6e9-4c67-9d15-de283e8eac25 |
 > | [클래식 스토리지 계정 키 운영자 서비스 역할](#classic-storage-account-key-operator-service-role) | 클래식 스토리지 계정 키 운영자가 클래식 스토리지 계정에서 키를 나열하고 다시 생성할 수 있습니다. | 985d6b00-f706-48f5-a6fe-d0ca12fb668d |
@@ -1059,7 +1059,7 @@ Blockchain 멤버 노드에 대 한 액세스를 허용 합니다.
   "assignableScopes": [
     "/"
   ],
-  "description": "Lets you manage classic virtual machines, but not access to them, and not the virtual network or storage account they’re connected to.",
+  "description": "Lets you manage classic virtual machines, but not access to them, and not the virtual network or storage account they're connected to.",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/d73bb868-a0df-4d4d-bd69-98a00b01fccb",
   "name": "d73bb868-a0df-4d4d-bd69-98a00b01fccb",
   "permissions": [
@@ -2052,7 +2052,7 @@ SQL 관리 되는 인스턴스 및 필요한 네트워크 구성을 관리할 �
   "assignableScopes": [
     "/"
   ],
-  "description": "Lets you manage SQL Managed Instances and required network configuration, but can’t give access to others.",
+  "description": "Lets you manage SQL Managed Instances and required network configuration, but can't give access to others.",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/4939a1f6-9ae0-4e48-a1e0-f2cbe897382d",
   "name": "4939a1f6-9ae0-4e48-a1e0-f2cbe897382d",
   "permissions": [
@@ -3853,10 +3853,7 @@ Runbook 작업을 만들려면 Runbook 속성을 읽어보세요.
 
 ### <a name="blueprint-operator"></a>청사진 연산자
 
-는 게시 된 기존 청사진을 할당할 수 있지만 새 청사진을 만들 수는 없습니다. 
-
-> [!NOTE] 
-> 사용자 할당 관리 id를 사용 하 여 할당을 수행 하는 경우에만 작동 합니다.
+는 게시 된 기존 청사진을 할당할 수 있지만 새 청사진을 만들 수는 없습니다. 참고: 사용자 할당 관리 id를 사용 하 여 할당을 수행 하는 경우에만 작동 합니다.
 
 > [!div class="mx-tableFixed"]
 > |  |  |
@@ -4316,6 +4313,8 @@ Runbook 작업을 만들려면 Runbook 속성을 읽어보세요.
 > | Microsoft.WorkloadMonitor/monitors/* |  |
 > | Microsoft.WorkloadMonitor/notificationSettings/* |  |
 > | AlertsManagement/smartDetectorAlertRules/* |  |
+> | AlertsManagement/actionRules/* |  |
+> | AlertsManagement/smartGroups/* |  |
 > | **NotActions** |  |
 > | *없음* |  |
 > | **DataActions** |  |
@@ -4359,7 +4358,9 @@ Runbook 작업을 만들려면 Runbook 속성을 읽어보세요.
         "Microsoft.Support/*",
         "Microsoft.WorkloadMonitor/monitors/*",
         "Microsoft.WorkloadMonitor/notificationSettings/*",
-        "Microsoft.AlertsManagement/smartDetectorAlertRules/*"
+        "Microsoft.AlertsManagement/smartDetectorAlertRules/*",
+        "Microsoft.AlertsManagement/actionRules/*",
+        "Microsoft.AlertsManagement/smartGroups/*"
       ],
       "notActions": [],
       "dataActions": [],
@@ -5296,7 +5297,7 @@ Site Recovery 상태를 볼 수 있지만 다른 관리 작업은 수행할 수 
 
 ### <a name="cdn-endpoint-contributor"></a>CD 엔드포인트 참가자
 
-CDN 엔드포인트를 관리할 수 있지만 다른 사용자에게 액세스 권한을 부여할 수는 없습니다.
+CDN 끝점을 관리할 수 있지만 다른 사용자에 게 액세스 권한을 부여할 수는 없습니다.
 
 > [!div class="mx-tableFixed"]
 > |  |  |
@@ -5322,7 +5323,7 @@ CDN 엔드포인트를 관리할 수 있지만 다른 사용자에게 액세스 
   "assignableScopes": [
     "/"
   ],
-  "description": "Can manage CDN endpoints, but can’t grant access to other users.",
+  "description": "Can manage CDN endpoints, but can't grant access to other users.",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/426e0c7f-0c7e-4658-b36f-ff54d6c29b45",
   "name": "426e0c7f-0c7e-4658-b36f-ff54d6c29b45",
   "permissions": [
@@ -5350,7 +5351,7 @@ CDN 엔드포인트를 관리할 수 있지만 다른 사용자에게 액세스 
 
 ### <a name="cdn-endpoint-reader"></a>CDN 엔드포인트 독자
 
-CDN 엔드포인트를 볼 수 있지만 변경할 수는 없습니다.
+CDN 끝점을 볼 수 있지만 변경할 수는 없습니다.
 
 > [!div class="mx-tableFixed"]
 > |  |  |
@@ -5376,7 +5377,7 @@ CDN 엔드포인트를 볼 수 있지만 변경할 수는 없습니다.
   "assignableScopes": [
     "/"
   ],
-  "description": "Can view CDN endpoints, but can’t make changes.",
+  "description": "Can view CDN endpoints, but can't make changes.",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/871e35f6-b5c1-49cc-a043-bde969a0f2cd",
   "name": "871e35f6-b5c1-49cc-a043-bde969a0f2cd",
   "permissions": [
@@ -5404,7 +5405,7 @@ CDN 엔드포인트를 볼 수 있지만 변경할 수는 없습니다.
 
 ### <a name="cdn-profile-contributor"></a>CDN 프로필 참가자
 
-CDN 프로필과 해당 엔드포인트를 관리할 수 있지만 다른 사용자에게 액세스 권한을 부여할 수는 없습니다.
+CDN 프로필과 해당 끝점을 관리할 수 있지만 다른 사용자에 게 액세스 권한을 부여할 수는 없습니다.
 
 > [!div class="mx-tableFixed"]
 > |  |  |
@@ -5430,7 +5431,7 @@ CDN 프로필과 해당 엔드포인트를 관리할 수 있지만 다른 사용
   "assignableScopes": [
     "/"
   ],
-  "description": "Can manage CDN profiles and their endpoints, but can’t grant access to other users.",
+  "description": "Can manage CDN profiles and their endpoints, but can't grant access to other users.",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/ec156ff8-a8d1-4d15-830c-5b80698ca432",
   "name": "ec156ff8-a8d1-4d15-830c-5b80698ca432",
   "permissions": [
@@ -5458,7 +5459,7 @@ CDN 프로필과 해당 엔드포인트를 관리할 수 있지만 다른 사용
 
 ### <a name="cdn-profile-reader"></a>CDN 프로필 독자
 
-CDN 프로필과 해당 엔드포인트를 볼 수 있지만 변경할 수는 없습니다.
+CDN 프로필과 해당 끝점을 볼 수 있지만 변경할 수는 없습니다.
 
 > [!div class="mx-tableFixed"]
 > |  |  |
@@ -5484,7 +5485,7 @@ CDN 프로필과 해당 엔드포인트를 볼 수 있지만 변경할 수는 �
   "assignableScopes": [
     "/"
   ],
-  "description": "Can view CDN profiles and their endpoints, but can’t make changes.",
+  "description": "Can view CDN profiles and their endpoints, but can't make changes.",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/8f96442b-4075-438f-813d-ad51ab4019af",
   "name": "8f96442b-4075-438f-813d-ad51ab4019af",
   "permissions": [
@@ -5731,7 +5732,7 @@ Azure 센티널 기여자
 > | **actions** |  |
 > | Microsoft SecurityInsights/* |  |
 > | Microsoft.OperationalInsights/workspaces/analytics/query/action | 새 엔진을 사용하여 검색합니다. |
-> | Microsoft.OperationalInsights/workspaces/read | 기존 작업 영역을 가져옵니다. |
+> | Microsoft.OperationalInsights/workspaces/*/read | Log analytics 데이터 보기 |
 > | Microsoft.OperationalInsights/workspaces/savedSearches/* |  |
 > | Microsoft.OperationsManagement/solutions/read | 기존 OMS 솔루션을 가져옵니다. |
 > | Microsoft.OperationalInsights/workspaces/query/read | 작업 영역의 데이터에서 쿼리를 실행 |
@@ -5763,7 +5764,7 @@ Azure 센티널 기여자
       "actions": [
         "Microsoft.SecurityInsights/*",
         "Microsoft.OperationalInsights/workspaces/analytics/query/action",
-        "Microsoft.OperationalInsights/workspaces/read",
+        "Microsoft.OperationalInsights/workspaces/*/read",
         "Microsoft.OperationalInsights/workspaces/savedSearches/*",
         "Microsoft.OperationsManagement/solutions/read",
         "Microsoft.OperationalInsights/workspaces/query/read",
@@ -5797,7 +5798,8 @@ Azure 센티널 판독기
 > | **actions** |  |
 > | Microsoft SecurityInsights/*/읽기 |  |
 > | Microsoft.OperationalInsights/workspaces/analytics/query/action | 새 엔진을 사용하여 검색합니다. |
-> | Microsoft.OperationalInsights/workspaces/read | 기존 작업 영역을 가져옵니다. |
+> | Microsoft.OperationalInsights/workspaces/*/read | Log analytics 데이터 보기 |
+> | OperationalInsights/작업 영역/Linkedservices.json 및 datasets.json/읽기 | 지정된 작업 영역에서 연결된 서비스를 가져옵니다. |
 > | Microsoft.OperationalInsights/workspaces/savedSearches/read | 저장된 검색 쿼리를 가져옵니다. |
 > | Microsoft.OperationsManagement/solutions/read | 기존 OMS 솔루션을 가져옵니다. |
 > | Microsoft.OperationalInsights/workspaces/query/read | 작업 영역의 데이터에서 쿼리를 실행 |
@@ -5829,7 +5831,8 @@ Azure 센티널 판독기
       "actions": [
         "Microsoft.SecurityInsights/*/read",
         "Microsoft.OperationalInsights/workspaces/analytics/query/action",
-        "Microsoft.OperationalInsights/workspaces/read",
+        "Microsoft.OperationalInsights/workspaces/*/read",
+        "Microsoft.OperationalInsights/workspaces/LinkedServices/read",
         "Microsoft.OperationalInsights/workspaces/savedSearches/read",
         "Microsoft.OperationsManagement/solutions/read",
         "Microsoft.OperationalInsights/workspaces/query/read",
@@ -5863,8 +5866,9 @@ Azure 센티널 응답자
 > | **actions** |  |
 > | Microsoft SecurityInsights/*/읽기 |  |
 > | Microsoft SecurityInsights/case/* |  |
+> | Microsoft SecurityInsights/인시던트/* |  |
 > | Microsoft.OperationalInsights/workspaces/analytics/query/action | 새 엔진을 사용하여 검색합니다. |
-> | Microsoft.OperationalInsights/workspaces/read | 기존 작업 영역을 가져옵니다. |
+> | Microsoft.OperationalInsights/workspaces/*/read | Log analytics 데이터 보기 |
 > | OperationalInsights/작업 영역/데이터 원본/읽기 | 작업 영역의 데이터 원본을 가져옵니다. |
 > | Microsoft.OperationalInsights/workspaces/savedSearches/read | 저장된 검색 쿼리를 가져옵니다. |
 > | Microsoft.OperationsManagement/solutions/read | 기존 OMS 솔루션을 가져옵니다. |
@@ -5897,8 +5901,9 @@ Azure 센티널 응답자
       "actions": [
         "Microsoft.SecurityInsights/*/read",
         "Microsoft.SecurityInsights/cases/*",
+        "Microsoft.SecurityInsights/incidents/*",
         "Microsoft.OperationalInsights/workspaces/analytics/query/action",
-        "Microsoft.OperationalInsights/workspaces/read",
+        "Microsoft.OperationalInsights/workspaces/*/read",
         "Microsoft.OperationalInsights/workspaces/dataSources/read",
         "Microsoft.OperationalInsights/workspaces/savedSearches/read",
         "Microsoft.OperationsManagement/solutions/read",
@@ -6655,6 +6660,7 @@ Avere vFXT 클러스터에서 클러스터를 관리 하는 데 사용 됩니다
 > | Microsoft.RecoveryServices/locations/operationStatus/read | 지정된 작업의 작업 상태를 가져옵니다. |
 > | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | 모든 백업 보호 의도를 나열합니다. |
 > | Microsoft.RecoveryServices/Vaults/usages/read | Recovery Services 자격 증명 모음에 대한 사용 세부 정보를 반환합니다. |
+> | Microsoft.RecoveryServices/locations/backupValidateFeatures/action | 기능의 유효성을 검사합니다. |
 > | **NotActions** |  |
 > | *없음* |  |
 > | **DataActions** |  |
@@ -6709,7 +6715,8 @@ Avere vFXT 클러스터에서 클러스터를 관리 하는 데 사용 됩니다
         "Microsoft.RecoveryServices/operations/read",
         "Microsoft.RecoveryServices/locations/operationStatus/read",
         "Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read",
-        "Microsoft.RecoveryServices/Vaults/usages/read"
+        "Microsoft.RecoveryServices/Vaults/usages/read",
+        "Microsoft.RecoveryServices/locations/backupValidateFeatures/action"
       ],
       "notActions": [],
       "dataActions": [],

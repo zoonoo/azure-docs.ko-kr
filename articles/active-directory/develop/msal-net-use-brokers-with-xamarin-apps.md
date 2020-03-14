@@ -12,12 +12,12 @@ ms.date: 09/08/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 25b8aa9b5e80720e9543dafce7970404a62b7d1f
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 1a57173311278c5e3e0304aeb12d4d6999379eb5
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78377444"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79262790"
 ---
 # <a name="use-microsoft-authenticator-or-intune-company-portal-on-xamarin-applications"></a>Xamarin 응용 프로그램에서 Microsoft Authenticator 또는 Intune 회사 포털 사용
 
@@ -75,12 +75,12 @@ public override bool OpenUrl(UIApplication app, NSUrl url,
     }
     
     else if (!AuthenticationContinuationHelper.SetAuthenticationContinuationEventArgs(url))
-    {               
-         return false;                
+    {                
+         return false;                  
     }
     
     return true;     
-}           
+}            
 ```
 
 이 메서드는 응용 프로그램이 시작 될 때마다 호출 됩니다. Broker에서 응답을 처리 하 고 MSAL.NET 시작 된 인증 프로세스를 완료 하는 기회를 사용 합니다.
@@ -96,20 +96,20 @@ public override bool OpenUrl(UIApplication app, NSUrl url,
 1. `AcquireTokenInteractive` 호출에서 `.WithParentActivityOrWindow(App.RootViewController)`를 사용 하 여 사용할 개체 창에 대 한 참조를 전달 합니다.
 
     `App.cs`의 경우:
-    
+
     ```csharp
        public static object RootViewController { get; set; }
     ```
-    
+
     `AppDelegate.cs`의 경우:
-    
+
     ```csharp
        LoadApplication(new App());
        App.RootViewController = new UIViewController();
     ```
-    
+
     `AcquireToken`에서 다음을 호출 합니다.
-    
+
     ```csharp
     result = await app.AcquireTokenInteractive(scopes)
                  .WithParentActivityOrWindow(App.RootViewController)
@@ -143,11 +143,12 @@ URL 체계에서 `BundleId`는 앱 `$"msauth.(BundleId)"`고유 하 게 식별 �
 ```
 
 ### <a name="step-6-add-the-broker-identifier-to-the-lsapplicationqueriesschemes-section"></a>6 단계: LSApplicationQueriesSchemes 섹션에 broker 식별자 추가
+
 MSAL은 `–canOpenURL:`를 사용 하 여 broker가 장치에 설치 되어 있는지 여부를 확인 합니다. IOS 9에서 Apple은 응용 프로그램에서 쿼리할 수 있는 스키마를 잠갔습니다. 
 
 다음 예제와 같이 `Info.plist` 파일의 `LSApplicationQueriesSchemes` 섹션에 `msauthv2`를 추가 합니다.
 
-```XML 
+```XML
 <key>LSApplicationQueriesSchemes</key>
     <array>
       <string>msauthv2</string>
@@ -156,16 +157,19 @@ MSAL은 `–canOpenURL:`를 사용 하 여 broker가 장치에 설치 되어 있
 ```
 
 ### <a name="step-7-register-your-redirect-uri-in-the-application-portal"></a>7 단계: 응용 프로그램 포털에서 리디렉션 URI 등록
+
 Broker를 사용 하는 경우 리디렉션 URI에는 추가 요구 사항이 있습니다. 리디렉션 URI의 형식은 다음과 _같아야 합니다_ .
+
 ```csharp
 $"msauth.{BundleId}://auth"
 ```
 
-예를 들면 다음과 같습니다. 
+예를 들면 다음과 같습니다.
 
 ```csharp
 public static string redirectUriOnIos = "msauth.com.yourcompany.XForms://auth"; 
 ```
+
 리디렉션 URI가 `Info.plist` 파일에 포함 된 `CFBundleURLSchemes` 이름과 일치 하는지 확인 합니다.
 
 ### <a name="step-8-make-sure-the-redirect-uri-is-registered-with-your-app"></a>8 단계: 리디렉션 URI가 앱에 등록 되었는지 확인
@@ -192,15 +196,114 @@ public static string redirectUriOnIos = "msauth.com.yourcompany.XForms://auth";
 
    ![번들 ID 입력](media/msal-net-use-brokers-with-xamarin-apps/60799477-7eaba580-a173-11e9-9f8b-431f5b09344e.png)
 
-단계를 완료 하면 리디렉션 URI가 계산 됩니다.
+단계를 완료 한 후에는 리디렉션 URI가 계산 됩니다.
 
 ![리디렉션 URI 복사](media/msal-net-use-brokers-with-xamarin-apps/60799538-9e42ce00-a173-11e9-860a-015a1840fd19.png)
 
 ## <a name="brokered-authentication-for-android"></a>Android에 대 한 조정 된 인증
 
-MSAL.NET는 Xamarin.ios 플랫폼만 지원 합니다. Xamarin Android 플랫폼용 broker를 아직 지원 하지 않습니다.
+### <a name="step-1-enable-broker-support"></a>1 단계: broker 지원 사용
 
-MSAL Android native library는 이미 조정 된 인증을 지원 합니다. 자세한 내용은 [Android에서](brokered-auth.md)조정 된 인증을 참조 하세요.
+Broker 지원은 PublicClientApplication 기준으로 설정 됩니다. 기본적으로 사용하지 않도록 설정되어 있습니다. `PublicClientApplicationBuilder`를 통해 `IPublicClientApplication`를 만들 때 `WithBroker()` 매개 변수를 사용 합니다 (기본적으로 true로 설정).
+
+```CSharp
+var app = PublicClientApplicationBuilder
+                .Create(ClientId)
+                .WithBroker()
+                .WithRedirectUri(redirectUriOnAndroid) //(see step 4 below)
+                .Build();
+```
+
+### <a name="step-2-update-appdelegate-to-handle-the-callback"></a>2 단계: 콜백을 처리 하도록 AppDelegate 업데이트
+
+MSAL.NET가 broker를 호출할 때 broker는 OnActivityResult () 메서드를 사용 하 여 응용 프로그램을 다시 호출 합니다. MSAL은 broker의 응답을 기다리기 때문에 응용 프로그램에서 결과를 MSAL.NET로 라우팅해야 합니다.
+이렇게 하려면 다음과 같이 OnActivityResult () 메서드를 재정의 하 여 결과를 `SetAuthenticationContinuationEventArgs(int requestCode, Result resultCode, Intent data)`로 라우팅합니다.
+
+```CSharp
+protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+{
+   base.OnActivityResult(requestCode, resultCode, data);
+   AuthenticationContinuationHelper.SetAuthenticationContinuationEventArgs(requestCode, resultCode, data);
+}
+```
+
+이 메서드는 broker 응용 프로그램이 시작 될 때마다 호출 되며, broker에서 응답을 처리 하 고 MSAL.NET에서 시작한 인증 프로세스를 완료할 수 있는 기회로 사용 됩니다.
+
+### <a name="step-3-set-an-activity"></a>3 단계: 활동 설정
+
+조정 된 인증이 작동 하려면 MSAL이 broker에서 응답을 보내고 받을 수 있도록 작업을 설정 해야 합니다.
+
+이렇게 하려면 작업 (일반적으로 MainActivity)을 부모 개체와 `WithParentActivityOrWindow(object parent)`에 제공 해야 합니다. 
+
+**예:**
+
+토큰 획득 호출에서 다음을 수행 합니다.
+
+```CSharp
+result = await app.AcquireTokenInteractive(scopes)
+             .WithParentActivityOrWindow((Activity)context))
+             .ExecuteAsync();
+```
+
+### <a name="step-4-register-your-redirecturi-in-the-application-portal"></a>4 단계: 응용 프로그램 포털에 RedirectUri 등록
+
+MSAL은 Url을 사용 하 여 broker를 호출한 다음 앱으로 돌아갑니다. 이 왕복을 완료 하려면 앱에 대 한 URL 체계를 등록 해야 합니다. 이 리디렉션 URI는 응용 프로그램에 대 한 유효한 리디렉션 URI로 Azure AD 앱 등록 포털에 등록 되어야 합니다.
+
+
+응용 프로그램에 필요한 리디렉션 URI는 APK에 서명 하는 데 사용 되는 인증서에 따라 달라 집니다.
+
+```
+Example: msauth://com.microsoft.xforms.testApp/hgbUYHVBYUTvuvT&Y6tr554365466=
+```
+
+URI의 마지막 부분인 `hgbUYHVBYUTvuvT&Y6tr554365466=`는 APK가 서명 된 서명 (base64 인코딩)입니다.
+그러나 Visual Studio를 사용 하는 응용 프로그램의 개발 단계 중에 특정 인증서를 사용 하 여 apk에 서명 하지 않고 코드를 디버깅 하는 경우 Visual Studio는 디버깅을 위해 apk에 서명 하 여 APK에 고유한 서명을 제공 합니다. 컴퓨터를 빌드할 수 있습니다. 따라서 다른 컴퓨터에서 앱을 빌드할 때마다 MSAL으로 인증 하기 위해 응용 프로그램 코드에서 리디렉션 URI를 업데이트 하 고 Azure Portal의 응용 프로그램 등록을 업데이트 해야 합니다. 
+
+디버깅 하는 동안 제공 된 리디렉션 URI가 잘못 되었음을 나타내는 MSAL 예외 (또는 로그 메시지)가 발생할 수 있습니다. **또한이 예외** 는 디버깅 중인 현재 컴퓨터에서 사용 해야 하는 리디렉션 URI를 제공 합니다. 이 리디렉션 URI를 사용 하 여 시간에 대 한 개발을 계속할 수 있습니다.
+
+코드를 종료할 준비가 되 면 코드의 리디렉션 URI와 Azure Portal의 응용 프로그램 등록을 업데이트 하 여 APK에 서명 하는 데 사용할 인증서의 서명을 사용 해야 합니다.
+
+실제로이는 팀의 각 멤버에 대 한 리디렉션 URI와 프로덕션 서명 된 APK 버전의 리디렉션 URI를 등록 해야 함을 의미 합니다.
+
+MSAL이이를 수행 하는 방법과 비슷하게이 서명을 직접 계산할 수도 있습니다. 
+
+```CSharp
+   private string GetRedirectUriForBroker()
+   {
+      string packageName = Application.Context.PackageName;
+      string signatureDigest = this.GetCurrentSignatureForPackage(packageName);
+      if (!string.IsNullOrEmpty(signatureDigest))
+      {
+            return string.Format(CultureInfo.InvariantCulture, "{0}://{1}/{2}", RedirectUriScheme,
+               packageName.ToLowerInvariant(), signatureDigest);
+      }
+
+      return string.Empty;
+   }
+
+   private string GetCurrentSignatureForPackage(string packageName)
+   {
+            PackageInfo info = Application.Context.PackageManager.GetPackageInfo(packageName,
+               PackageInfoFlags.Signatures);
+            if (info != null && info.Signatures != null && info.Signatures.Count > 0)
+            {
+               // First available signature. Applications can be signed with multiple signatures.
+               // The order of Signatures is not guaranteed.
+               Signature signature = info.Signatures[0];
+               MessageDigest md = MessageDigest.GetInstance("SHA");
+               md.Update(signature.ToByteArray());
+               return Convert.ToBase64String(md.Digest(), Base64FormattingOptions.None);
+               // Server side needs to register all other tags. ADAL will
+               // send one of them.
+            }
+   }
+```
+
+다음 명령을 사용 하 여 keytool을 사용 하 여 패키지에 대 한 서명을 가져오는 옵션도 있습니다.
+
+Windows의 경우: `keytool.exe -list -v -keystore "%LocalAppData%\Xamarin\Mono for Android\debug.keystore" -alias androiddebugkey -storepass android -keypass android`
+
+Mac: `keytool -exportcert -alias androiddebugkey -keystore ~/.android/debug.keystore | openssl sha1 -binary | openssl base64`
 
 ## <a name="next-steps"></a>다음 단계
 

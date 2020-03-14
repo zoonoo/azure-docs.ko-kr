@@ -3,12 +3,12 @@ title: 컨테이너에 대 한 Azure Monitor를 실시간으로 메트릭 보기
 description: 이 문서에서는 컨테이너의 Azure Monitor with kubectl를 사용 하지 않고 메트릭의 실시간 보기에 대해 설명 합니다.
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: fbb08a8ed3deeff061065916241ee2d724603be3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4604635c985057ec0b7f49a0d1cca7111dfc8eec
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75404942"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79216573"
 ---
 # <a name="how-to-view-metrics-in-real-time"></a>실시간으로 메트릭을 보는 방법
 
@@ -24,7 +24,7 @@ ms.locfileid: "75404942"
 
 라이브 데이터 (미리 보기) 기능 설정 또는 문제 해결에 대 한 도움말은 [설치 가이드](container-insights-livedata-setup.md)를 참조 하세요.
 
-## <a name="how-it-works"></a>적용 방법 
+## <a name="how-it-works"></a>작동 방식 
 
 라이브 데이터 (미리 보기) 기능은 Kubernetes API에 직접 액세스할 수 있으며 인증 모델에 대 한 추가 정보는 [여기](https://kubernetes.io/docs/concepts/overview/kubernetes-api/)에서 찾을 수 있습니다. 
 
@@ -34,7 +34,7 @@ ms.locfileid: "75404942"
 
 폴링 간격은 1, 5, 15 및 30 초 마다 새 데이터에 대 한 폴링을 설정할 수 있도록 **설정 된 간격** 드롭다운에서 구성 됩니다. 
 
-![라이브 이동 드롭다운 폴링 간격](./media/container-insights-livedata-metrics/cluster-view-polling-interval-dropdown.ping.png)
+![라이브 이동 드롭다운 폴링 간격](./media/container-insights-livedata-metrics/cluster-view-polling-interval-dropdown.png)
 
 >[!IMPORTANT]
 >짧은 시간 동안 문제를 해결 하는 동안 폴링 간격을 1 초로 설정 하는 것이 좋습니다. 이러한 요청은 클러스터의 Kubernetes API에 대 한 가용성 및 제한에 영향을 줄 수 있습니다. 그런 다음 더 긴 폴링 간격으로 다시 구성 합니다. 

@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 02/11/2019
-ms.openlocfilehash: 6812393b01172cda5d2fa4dcbe9de2bf4264a99f
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 9cec91ccc80b9072b1a3da756f26f47eb88b951c
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980762"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79268614"
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>Azure SQL Database로 SQL Server 데이터베이스 마이그레이션
 
@@ -40,7 +40,7 @@ Azure SQL Server 2005 이상 데이터베이스를 Azure SQL Database의 단일 
 
   ![VSSSDT 마이그레이션 다이어그램](./media/sql-database-cloud-migrate/azure-sql-migration-sql-db.png)
 
-1. [DMA(Data Migration Assistant)](https://www.microsoft.com/download/details.aspx?id=53595)의 최신 버전을 사용하여 데이터베이스 호환성에 대해 [평가](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem)합니다.
+1. [DMA(Data Migration Assistant)](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem)의 최신 버전을 사용하여 데이터베이스 호환성에 대해 [평가](https://www.microsoft.com/download/details.aspx?id=53595)합니다.
 2. Transact-SQL 스크립트와 같은 필요한 수정 프로그램을 준비합니다.
 3. 마이그레이션 진행되는 동안 원본 데이터베이스에 대해 일관된 트랜잭션의 복사본을 만들거나, 원본 데이터베이스에서 새 트랜잭션이 발생하지 않도록 합니다. 이 두 번째 방식을 진행하는 방법에는 클라이언트 연결을 사용하지 않도록 설정하거나 [데이터베이스 스냅샷](https://msdn.microsoft.com/library/ms175876.aspx)을 만드는 경우가 포함됩니다. 마이그레이션 후에 트랜잭션 복제를 사용하여 마이그레이션된 데이터베이스를 마이그레이션 구분 지점 이후에 발생한 변경 내용으로 업데이트할 수 있습니다. [트랜잭션 마이그레이션을 사용하여 마이그레이션](sql-database-single-database-migrate.md#method-2-use-transactional-replication)을 참조하세요.  
 4. Transact-SQL 스크립트를 배포하여 데이터베이스 복사본에는 수정 내용을 적용합니다.
@@ -62,7 +62,7 @@ Azure SQL Server 2005 이상 데이터베이스를 Azure SQL Database의 단일 
 
 ### <a name="optimize-performance-after-the-migration-completes"></a>마이그레이션이 완료된 후 성능 최적화
 
-마이그레이션이 완료된 후 전체 검색으로 [통계를 업데이트합니다](https://msdn.microsoft.com/library/ms187348.aspx).
+마이그레이션이 완료된 후 전체 검색으로 [통계를 업데이트합니다](https://docs.microsoft.com/sql/t-sql/statements/update-statistics-transact-sql).
 
 ## <a name="method-2-use-transactional-replication"></a>방법 2: 트랜잭션 복제 사용
 

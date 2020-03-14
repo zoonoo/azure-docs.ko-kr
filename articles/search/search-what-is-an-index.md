@@ -9,11 +9,11 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.openlocfilehash: d2b8b2fecbf85e6590294f1fbd7ff2a4453b9e87
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75460754"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79282784"
 ---
 # <a name="create-a-basic-index-in-azure-cognitive-search"></a>Azure Cognitive Search에서 기본 인덱스 만들기
 
@@ -29,7 +29,7 @@ Azure Cognitive Search에서 *인덱스* 는 azure Cognitive Search 서비스에
 
 1. [인덱서](search-indexer-overview.md#supported-data-sources)를 사용할 수 있는지 확인하세요. 외부 데이터가 지원되는 데이터 원본 중 하나인 경우 [**데이터 가져오기**](search-import-data-portal.md) 마법사를 사용하여 인덱스의 프로토타입을 제작하고 로드할 수 있습니다.
 
-2. **데이터 가져오기**를 사용할 수 없는 경우 **인덱스 추가** 페이지의 컨트롤을 사용하여 [포털에서 초기 인덱스를 만들고](search-create-index-portal.md), 필드 및 데이터 형식을 추가하고, 특성을 할당할 수 있습니다. 포털은 여러 데이터 형식에 사용할 수 있는 특성을 보여줍니다. 인덱스 설계를 처음 접하는 분들에게 유용합니다.
+2. **데이터 가져오기**를 사용할 수 없는 경우 [인덱스 추가](search-create-index-portal.md) 페이지의 컨트롤을 사용하여 **포털에서 초기 인덱스를 만들고**, 필드 및 데이터 형식을 추가하고, 특성을 할당할 수 있습니다. 포털은 여러 데이터 형식에 사용할 수 있는 특성을 보여줍니다. 인덱스 설계를 처음 접하는 분들에게 유용합니다.
 
    ![데이터 유형별 특성을 보여 주는 인덱스 페이지 추가](media/search-create-index-portal/field-attributes.png "데이터 유형별 특성을 보여 주는 인덱스 페이지 추가")
   
@@ -53,7 +53,7 @@ Azure Cognitive Search에서 *인덱스* 는 azure Cognitive Search 서비스에
 
 구조적으로 Azure Cognitive Search 인덱스는 다음 요소로 구성 됩니다. 
 
-일반적으로 [‘필드 컬렉션’](#fields-collection)이 인덱스의 가장 큰 파트이고, 각 필드에 이름과 유형이 지정되며 사용 방법을 결정하는 허용 가능한 동작으로 특성이 지정됩니다. 기타 요소에는 [확인 기](#suggesters), [점수 매기기 프로필](#scoring-profiles), 사용자 지정, [CORS](#cors) 및 [암호화 키](#encryption-key) 옵션을 지 원하는 구성 요소 부분이 포함 된 [분석기](#analyzers) 가 포함 됩니다.
+일반적으로 [‘필드 컬렉션’*이 인덱스의 가장 큰 파트이고, 각 필드에 이름과 유형이 지정되며 사용 방법을 결정하는 허용 가능한 동작으로 특성이 지정됩니다.* ](#fields-collection) 기타 요소에는 [확인 기](#suggesters), [점수 매기기 프로필](#scoring-profiles), 사용자 지정, [CORS](#cors) 및 [암호화 키](#encryption-key) 옵션을 지 원하는 구성 요소 부분이 포함 된 [분석기](#analyzers) 가 포함 됩니다.
 
 ```json
 {
@@ -145,7 +145,7 @@ Azure Cognitive Search에서 *인덱스* 는 azure Cognitive Search 서비스에
 스키마를 정의할 때 인덱스에서 각 필드의 이름, 형식 및 특성을 지정해야 합니다. 필드 형식은 해당 필드에 저장된 데이터를 분류합니다. 특성은 개별 필드에 설정되어 필드를 사용하는 방법을 지정합니다. 다음 표에서는 지정할 수 있는 형식 및 특성을 열거합니다.
 
 ### <a name="data-types"></a>데이터 형식
-| 유형 | Description |
+| Type | Description |
 | --- | --- |
 | *Edm.String* |전체 텍스트 검색을 위해 선택적으로 토큰화할 수 있는 텍스트입니다(단어 분리, 형태소 분석 등). |
 | *Collection(Edm.String)* |전체 텍스트 검색을 위해 선택적으로 토큰화할 수 있는 문자열 목록입니다. 컬렉션에 있는 항목 수에 이론적인 상한은 없지만 페이로드 크기의 16MB 상한이 컬렉션에 적용됩니다. |
@@ -183,19 +183,19 @@ Azure Cognitive Search [지원 되는 데이터 형식](https://docs.microsoft.c
 
 ![특성 선택에 따른 인덱스 크기](./media/search-what-is-an-index/realestate-index-size.png "특성 선택에 따른 인덱스 크기")
 
-이러한 인덱스 변형은 인위적이지만, 특성이 스토리지에 미치는 영향을 광범위하게 비교하는 데 참조할 수 있습니다. **retrievable**을 설정하면 인덱스 크기가 커지나요? 아닙니다. **Suggester**에 필드를 추가하면 인덱스 크기가 커지나요? 예.
+이러한 인덱스 변형은 인위적이지만, 특성이 스토리지에 미치는 영향을 광범위하게 비교하는 데 참조할 수 있습니다. **retrievable**을 설정하면 인덱스 크기가 커지나요? 아니요. **Suggester**에 필드를 추가하면 인덱스 크기가 커지나요? 예.
 
 필터와 정렬을 지 원하는 인덱스는 전체 텍스트 검색을 지 원하는 인덱스 보다 비례 하 게 커집니다. 필터 및 정렬 작업은 정확히 일치 하는 항목을 검색 하 여 손상 된 문서가 있는지 확인 합니다. 반면 전체 텍스트 및 유사 항목 검색을 지원하는 검색 가능 필드는 반전 인덱스를 사용하며, 반전 인덱스는 전체 문서보다 공간을 적게 사용하는 토큰화된 용어로 채워집니다. 
 
 > [!Note]
 > 저장소 아키텍처는 Azure Cognitive Search의 구현 세부 정보로 간주 되며, 예 고 없이 변경 될 수 있습니다. 현재 동작이 나중에도 유지된다는 보장은 없습니다.
 
-## <a name="suggesters"></a>제안
+## <a name="suggesters"></a>확인기
 제안기는 검색에서 자동 완성 또는 자동 완성 쿼리를 지원하는 데 사용되는 인덱스의 필드를 정의하는 스키마 섹션입니다. 일반적으로 사용자가 검색 쿼리를 입력 하는 동안 부분 검색 문자열이 [제안 (REST API)](https://docs.microsoft.com/rest/api/searchservice/suggestions) 으로 전송 되 고 API는 제안 된 문서 또는 구의 집합을 반환 합니다. 
 
 제안기에 추가된 필드는 검색어 미리 입력 기능을 빌드하는 데 사용됩니다. 모든 검색어는 인덱싱 중에 생성되어 별도로 저장됩니다. 제안기 구조체를 만드는 방법에 대한 자세한 내용은 [제안기 추가](index-add-suggesters.md)를 참조하세요.
 
-## <a name="scoring-profiles"></a>평가 프로필
+## <a name="scoring-profiles"></a>점수 매기기 프로필
 
 [점수 매기기 프로필](index-add-scoring-profiles.md)은 검색 결과에서 더 위쪽에 표시할 항목을 제어할 수 있는 사용자 지정 채점 동작을 정의하는 스키마 섹션입니다. 점수 매기기 프로필은 필드 가중치와 함수로 구성됩니다. 사용하려면 쿼리 문자열에서 이름별로 프로필을 지정합니다.
 
@@ -213,7 +213,7 @@ CORS에 대해 설정할 수 있는 옵션은 다음과 같습니다.
 
 + **allowedorigins** (필수): 인덱스에 대 한 액세스 권한이 부여 되는 원본 목록입니다. 이 원본에서 제공되는 모든 JavaScript 코드는 올바른 API 키를 제공하는 경우 인덱스를 쿼리하도록 허용됩니다. 각 원본은 보통 `protocol://<fully-qualified-domain-name>:<port>` 형식이지만 `<port>`는 대개 생략됩니다. 자세한 내용은 [원본 간 리소스 공유(위키백과)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)를 참조하세요.
 
-  모든 원본에 대한 액세스를 허용하려면 **allowedOrigins** 배열에서 `*`를 단일 항목으로 포함합니다. *프로덕션 검색 서비스에는 권장되지 않지만* 개발 및 디버깅에 유용한 경우가 많습니다.
+  모든 원본에 대한 액세스를 허용하려면 `*`allowedOrigins**배열에서**를 단일 항목으로 포함합니다. *프로덕션 검색 서비스에는 권장되지 않지만* 개발 및 디버깅에 유용한 경우가 많습니다.
 
 + **maxAgeInSeconds** (선택 사항): 브라우저는이 값을 사용 하 여 CORS 실행 전 응답을 캐시할 기간 (초)을 결정 합니다. 이 값은 음수가 아닌 정수여야 합니다. 이 값이 클수록 성능은 개선되지만 CORS 정책 변경 내용이 적용되는 시간은 더 오래 걸립니다. 이 값을 설정하지 않으면 기본 기간인 5분이 사용됩니다.
 

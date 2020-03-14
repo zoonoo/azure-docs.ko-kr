@@ -15,11 +15,11 @@ ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 76e614b605cd07cd5dc454824dd204447f806907
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78377438"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79262712"
 ---
 # <a name="considerations-for-using-xamarin-ios-with-msalnet"></a>MSAL.NET와 함께 Xamarin iOS 사용에 대 한 고려 사항
 Xamarin iOS에서 .NET 용 Microsoft Authentication Library (MSAL.NET)를 사용 하는 경우 다음을 수행 해야 합니다. 

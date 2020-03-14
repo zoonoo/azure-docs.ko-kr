@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-ms.date: 04/26/2019
-ms.openlocfilehash: 940baf219f1b3994585472f0eed9d171ba319d4e
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.date: 03/10/2020
+ms.openlocfilehash: 92d6dccec3ce6483072a81c8739b65e81ce2c7fe
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023143"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79268575"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Azure SQL Database에서 단일 데이터베이스 리소스 크기 조정
 
@@ -63,7 +63,7 @@ VCores 또는 Dtu 수를 처음 선택 하 고 나면 [Azure Portal](sql-databas
 
 서비스 계층 변경 또는 계산 크기 조정 작업을 취소할 수 있습니다.
 
-#### <a name="azure-portal"></a>Azure Portal
+#### <a name="azure-portal"></a>Azure portal
 
 데이터베이스 개요 블레이드에서 **알림으로** 이동 하 고 진행 중인 작업이 있음을 나타내는 타일을 클릭 합니다.
 
@@ -98,7 +98,7 @@ else {
 - 복원 서비스는 여러 서비스 계층에서 서로 다르게 제공됩니다. **기본** 계층으로 다운그레이드하는 경우 백업 보존 기간이 더 짧아집니다. [Azure SQL Database 백업](sql-database-automated-backups.md)을 참조하세요.
 - 데이터베이스의 새로운 속성은 변경이 완료될 때까지 적용되지 않습니다.
 
-## <a name="billing"></a>청구 
+## <a name="billing"></a>결제 
 
 사용량 또는 데이터베이스가 한 시간 미만 동안 활성 상태였는지 여부와 관계없이, 해당 시간에 적용된 최고 서비스 계층 + 컴퓨팅 크기를 사용하여 데이터베이스가 있었던 각 시간에 대해 요금이 청구됩니다. 예를 들어 단일 데이터베이스를 만들고 5분 후 삭제하더라도 청구서에는 데이터베이스 1시간 사용에 대한 요금이 반영됩니다.
 
@@ -106,10 +106,11 @@ else {
 
 ### <a name="vcore-based-purchasing-model"></a>vCore 기반 구매 모델
 
-- 스토리지는 1GB 증분 단위로 최대 크기 제한까지 프로비전할 수 있습니다. 구성 가능한 최소 데이터 스토리지는 5GB입니다.
-- 단일 데이터베이스에 대한 스토리지는 [Azure Portal](https://portal.azure.com), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), [Azure CLI](/cli/azure/sql/db#az-sql-db-update), 또는 [REST API](https://docs.microsoft.com/rest/api/sql/databases/update)를 사용하여 해당 최대 크기를 늘리거나 줄여서 프로비전할 수 있습니다.
-- SQL Database는 로그 파일에 대해 추가 스토리지의 30% 및 TempDB에 대해 vCore당 32GB를 자동으로 할당하지만 384GB를 초과하지 않도록 합니다. TempDB는 모든 서비스 계층의 연결형 SSD에 있습니다.
-- 단일 데이터베이스에 대한 스토리지의 가격은 데이터 스토리지 및 로그 스토리지 용량 합계에 해당 서비스 계층의 스토리지 단가를 곱한 값입니다. TempDB의 비용은 vCore 가격에 포함됩니다. 추가 스토리지 가격에 대한 자세한 내용은 [SQL Database 가격 책정](https://azure.microsoft.com/pricing/details/sql-database/)을 참조하세요.
+- 저장소는 1gb 증분을 사용 하 여 데이터 저장소 최대 크기 제한까지 프로 비전 할 수 있습니다. 구성 가능한 최소 데이터 저장소는 1gb입니다. 각 서비스 목표에서 [단일 데이터베이스](sql-database-vcore-resource-limits-single-databases.md) 및 [탄력적 풀](sql-database-vcore-resource-limits-elastic-pools.md) 에 대 한 리소스 제한 문서 페이지에서 데이터 저장소 최대 크기 제한을 참조 하세요.
+- 단일 데이터베이스에 대 한 데이터 저장소는 [Azure Portal](https://portal.azure.com), [transact-sql](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), [Azure CLI](/cli/azure/sql/db#az-sql-db-update)또는 [REST API](https://docs.microsoft.com/rest/api/sql/databases/update)를 사용 하 여 최대 크기를 늘리거나 줄여서 프로 비전 할 수 있습니다. 최대 크기 값을 바이트로 지정 하면 1gb (1073741824 바이트)의 배수 여야 합니다.
+- 데이터베이스의 데이터 파일에 저장할 수 있는 데이터의 양은 구성 된 데이터 저장소 최대 크기에 의해 제한 됩니다. 이 저장소 외에도 SQL Database는 트랜잭션 로그에 사용할 30% 더 많은 저장소를 자동으로 할당 합니다.
+- SQL Database는 `tempdb` 데이터베이스에 대해 vCore 당 32 GB를 자동으로 할당 합니다. `tempdb`은 모든 서비스 계층의 로컬 SSD 저장소에 있습니다.
+- 단일 데이터베이스 또는 탄력적 풀에 대 한 저장소 가격은 데이터 저장소 및 트랜잭션 로그 저장소의 합계와 서비스 계층의 저장소 단가를 곱한 값입니다. 가격에는 `tempdb` 비용이 포함 됩니다. 저장소 가격에 대 한 자세한 내용은 [SQL Database 가격 책정](https://azure.microsoft.com/pricing/details/sql-database/)을 참조 하세요.
 
 > [!IMPORTANT]
 > 경우에 따라 사용하지 않는 공간을 회수하기 위해 데이터베이스를 축소해야 할 수도 있습니다. 자세한 내용은 [Azure SQL Database의 파일 공간 관리](sql-database-file-space-management.md)를 참조하세요.

@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: f1be146a5173c86a8b19bca5c7b3b8c72d72b9c5
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 093f4b11d10396199e9fac1e22fd82197f3a5e79
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78362430"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79268185"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Azure Files에 대한 FAQ(질문과 대답)
 [Azure Files](storage-files-introduction.md)는 산업 표준 [SMB(서버 메시지 블록) 프로토콜](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)을 통해 액세스할 수 있는, 클라우드에서 완전히 관리되는 파일 공유를 제공합니다. Azure 파일 공유를 Windows, Linux 및 macOS의 클라우드 또는 온-프레미스 배포에 동시에 탑재할 수 있습니다. 데이터가 사용되는 위치 가까이에 대한 빠른 액세스를 위해 Azure 파일 동기화를 사용하여 Windows Server 컴퓨터에서 Azure 파일 공유를 캐시할 수도 있습니다.
@@ -81,6 +81,9 @@ ms.locfileid: "78362430"
   **Azure Files에 추가 된 특정 기능을 확인 하려고 합니다. 추가할 수 있나요?**  
     Azure Files 팀은 당사 서비스에 대한 여러분의 모든 의견을 환영합니다. [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files)에서 기능 요청에 투표하세요. 많은 새로운 기능으로 고객에게 만족을 드리고 싶습니다.
 
+  **파일 잠금을 지원 Azure Files?**  
+    예, Azure Files SMB/Windows 스타일 파일 잠금을 완벽 하 게 지원 합니다. [세부 정보를 참조](https://docs.microsoft.com/rest/api/storageservices/managing-file-locks)하세요. 
+    
 ## <a name="azure-file-sync"></a>Azure 파일 동기화
 
 * <a id="afs-region-availability"></a>
@@ -211,6 +214,11 @@ Azure Files**
 
     예, azure file sync에서 관리 하는 파일 공유에서 Azure AD DS 또는 AD 인증을 사용 하도록 설정할 수 있습니다. 로컬 파일 서버의 디렉터리/파일 NTFS Acl에 대 한 변경 내용은 Azure Files로 계층화 되며 그 반대의 경우도 마찬가지입니다.
 
+* <a id="ad-aad-smb-files"></a>**저장소 계정 및 ad 도메인 정보에서 ad 인증을 사용 하도록 설정 했는지 확인할 수 있는 방법** 
+
+
+    [여기](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable#enable-ad-authentication-for-your-account) 에 제공 된 지침을 참조 하 여 저장소 계정에 Azure Files ad 인증을 사용 하도록 설정 했는지 확인 하 고 ad 도메인 정보를 검색할 수 있습니다.
+    
 * <a id="encryption-at-rest"></a>
 **Azure 파일 공유가 미사용 암호화되도록 하려면 어떻게 해야 하나요?**  
 

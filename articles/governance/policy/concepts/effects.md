@@ -4,11 +4,11 @@ description: Azure Policy 정의에는 규정 준수를 관리 하 고 보고 �
 ms.date: 11/04/2019
 ms.topic: conceptual
 ms.openlocfilehash: 502c8a87c4e915ebd1fd764915daa9c89a307097
-ms.sourcegitcommit: 78f367310e243380b591ff10f2500feca93f5d0a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77544133"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79281185"
 ---
 # <a name="understand-azure-policy-effects"></a>Azure Policy의 영향 파악
 

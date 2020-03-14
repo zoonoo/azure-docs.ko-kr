@@ -4,11 +4,11 @@ description: Azure 리소스 그래프를 사용 하는 동안 대량 데이터 
 ms.date: 10/18/2019
 ms.topic: conceptual
 ms.openlocfilehash: 2c6aca0c468630cee79222bc77bdc20dc9d95b19
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78388608"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79259800"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>큰 Azure 리소스 데이터 세트 작업
 

@@ -5,11 +5,11 @@ services: container-service
 ms.topic: conceptual
 ms.date: 04/09/2019
 ms.openlocfilehash: 03e7396932f0813ef4bd00d644dcdaddfe229e6a
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78375171"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79252832"
 ---
 # <a name="quotas-virtual-machine-size-restrictions-and-region-availability-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스 (AKS)의 할당량, 가상 머신 크기 제한 및 지역 가용성
 

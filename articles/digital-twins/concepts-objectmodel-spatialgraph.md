@@ -9,11 +9,11 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 12/30/2019
 ms.openlocfilehash: cafec321e7c40e27d8de731feda1103451271507
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78382288"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79265208"
 ---
 # <a name="understand-digital-twins-object-models-and-spatial-intelligence-graph"></a>Digital Twins 개체 모델 및 공간 인텔리전스 그래프 이해
 

@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
-ms.openlocfilehash: 9360a90b457f99cb9c15deda80dce8233069100d
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 636903c20e07f11a2fd919654cfaa62037171f20
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77606556"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79277766"
 ---
 # <a name="azure-cosmos-db-output-binding-for-azure-functions-2x"></a>Azure Functions 2.x에 대 한 Azure Cosmos DB 출력 바인딩
 
@@ -574,6 +574,8 @@ Python에서 특성을 지원 하지 않습니다.
 |**partitionKey**|**PartitionKey** |`CreateIfNotExists` true 이면 생성 된 컬렉션에 대 한 파티션 키 경로를 정의 합니다.|
 |**collectionThroughput**|**CollectionThroughput**| `CreateIfNotExists` true 이면 생성 된 컬렉션의 [처리량](../cosmos-db/set-throughput.md) 을 정의 합니다.|
 |**connectionStringSetting**    |**ConnectionStringSetting** |Azure Cosmos DB 연결 문자열을 포함하는 앱 설정의 이름입니다.        |
+|**preferredLocations**| **PreferredLocations**| 필드 Azure Cosmos DB 서비스에서 지역에서 복제 된 데이터베이스 계정에 대 한 기본 위치 (지역)를 정의 합니다. 값은 쉼표로 구분 해야 합니다. 예를 들면 "미국 동부, 미국 중 북부, 유럽 유럽"입니다. |
+|**useMultipleWriteLocations**| **UseMultipleWriteLocations**| 필드 `PreferredLocations`와 함께 `true`로 설정 된 경우 Azure Cosmos DB 서비스에서 [다중 지역 쓰기](../cosmos-db/how-to-manage-database-account.md#configure-multiple-write-regions) 를 활용할 수 있습니다. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

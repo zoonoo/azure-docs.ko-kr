@@ -4,11 +4,11 @@ description: 이 문서에서는 azure backup을 사용 하 여 Azure Vm에 SAP 
 ms.topic: conceptual
 ms.date: 11/7/2019
 ms.openlocfilehash: 8496dc4996cac68535bfe9be30e4b5f72e2d5721
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78255972"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79252442"
 ---
 # <a name="support-matrix-for-backup-of-sap-hana-databases-on-azure-vms"></a>Azure VM의 SAP HANA 데이터베이스 백업에 대한 지원 매트릭스
 

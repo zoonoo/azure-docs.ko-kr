@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 9bbbcc38116c5681e3b5c867690c296f60507ad1
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: dd8be482009e067bf9016cc8e351fc42a2db39c7
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78196113"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79271734"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>키, 비밀 및 인증서 정보
 
@@ -70,7 +70,7 @@ Key Vault의 개체는 현재 식별자 또는 버전별 식별자를 사용하�
 
 `https://{keyvault-name}.vault.azure.net/{object-type}/{object-name}/{object-version}`  
 
-각 항목이 나타내는 의미는 다음과 같습니다.  
+위치:  
 
 |||  
 |-|-|  
@@ -120,6 +120,7 @@ Key Vault에서 사용하는 암호화 모듈(HSM 또는 소프트웨어)은 FIP
 -   **ES384** - 곡선 P-384를 사용하여 생성된 SHA-384 메시지 다이제스트 및 키에 대한 ECDSA입니다. 이 알고리즘은 [RFC7518](https://tools.ietf.org/html/rfc7518)에 설명되어 있습니다.
 -   **ES512** - 곡선 P-521을 사용하여 생성된 SHA-512 메시지 다이제스트 및 키에 대한 ECDSA입니다. 이 알고리즘은 [RFC7518](https://tools.ietf.org/html/rfc7518)에 설명되어 있습니다.
 
+
 ###  <a name="rsa-algorithms"></a>RSA 알고리즘  
  Key Vault의 RSA 및 RSA-HSM 키에서 지원되는 알고리즘 식별자는 다음과 같습니다.  
 
@@ -130,6 +131,9 @@ Key Vault에서 사용하는 암호화 모듈(HSM 또는 소프트웨어)은 FIP
 
 #### <a name="signverify"></a>SIGN/VERIFY
 
+-   [RFC7518](https://tools.ietf.org/html/rfc7518)에 설명 256 된 대로 sha-256 및 기능과 s h를 사용 하는 **PS256** -rsassa-pkcs-v1.5-PSS.
+-   [RFC7518](https://tools.ietf.org/html/rfc7518)에 설명 384 된 대로 sha-384 및 기능과 s h를 사용 하는 **PS384** -rsassa-pkcs-v1.5-PSS.
+-   [RFC7518](https://tools.ietf.org/html/rfc7518)에 설명 512 된 대로 sha-512 및 기능과 s h를 사용 하는 **PS512** -rsassa-pkcs-v1.5-PSS.
 -   **RS256** - SHA-256을 사용하는 RSASSA-PKCS-v1_5입니다. 애플리케이션에서 제공하는 다이제스트 값은 SHA-256을 사용하여 계산되어야 하며, 길이는 32바이트여야 합니다.  
 -   **RS384** - SHA-384를 사용하는 RSASSA-PKCS-v1_5입니다. 애플리케이션에서 제공하는 다이제스트 값은 SHA-384를 사용하여 계산되어야 하며, 길이는 48바이트여야 합니다.  
 -   **RS512** - SHA-512를 사용하는 RSASSA-PKCS-v1_5입니다. 애플리케이션에서 제공하는 다이제스트 값은 SHA-512를 사용하여 계산되어야 하며, 길이는 64바이트여야 합니다.  
@@ -331,7 +335,7 @@ Key Vault 인증서에 포함되는 특성은 다음과 같습니다.
 > [!Note] 
 > Key Vault 인증서가 만료되면 주소 지정 가능한 해당 키와 비밀이 작동하지 않게 됩니다.  
 
-#### <a name="tags"></a>Tags
+#### <a name="tags"></a>태그들
 
  클라이언트에서 지정하는 키 값 쌍의 사전이며, 키와 비밀의 태그와 비슷합니다.  
 
@@ -364,14 +368,14 @@ Key Vault 인증서를 처음부터 새로 만드는 경우 정책을 제공해�
 
 |**X509 키 사용 플래그**|**Key Vault 키 작업**|**기본 동작**|
 |----------|--------|--------|
-|DataEncipherment|encrypt, decrypt| N/A |
-|DecipherOnly|decrypt| N/A  |
+|DataEncipherment|encrypt, decrypt| 해당 없음 |
+|DecipherOnly|decrypt| 해당 없음  |
 |DigitalSignature|sign, verify| 인증서를 만들 때 사용하도록 지정하지 않은 Key Vault 기본값 | 
-|EncipherOnly|encrypt| N/A |
-|KeyCertSign|sign, verify|N/A|
+|EncipherOnly|encrypt| 해당 없음 |
+|KeyCertSign|sign, verify|해당 없음|
 |KeyEncipherment|wrapKey, unwrapKey| 인증서를 만들 때 사용하도록 지정하지 않은 Key Vault 기본값 | 
-|NonRepudiation|sign, verify| N/A |
-|crlsign|sign, verify| N/A |
+|NonRepudiation|sign, verify| 해당 없음 |
+|crlsign|sign, verify| 해당 없음 |
 
 ### <a name="certificate-issuer"></a>인증서 발급자
 
@@ -474,7 +478,7 @@ Key Vault는 Azure Storage 계정 키를 관리할 수 있습니다.
 
 자세한 내용은 [Key Vault REST API 참조의 스토리지 계정 작업](/rest/api/keyvault)을 참조하세요. 권한 설정에 대한 내용은 [자격 증명 모음 - 만들기 또는 업데이트](/rest/api/keyvault/vaults/createorupdate) 및 [자격 증명 모음 - 액세스 정책 업데이트](/rest/api/keyvault/vaults/updateaccesspolicy)를 참조하세요.
 
-## <a name="see-also"></a>관련 항목
+## <a name="see-also"></a>참고 항목
 
 - [인증, 요청 및 응답](authentication-requests-and-responses.md)
 - [Key Vault 개발자 가이드](/azure/key-vault/key-vault-developers-guide)

@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto, carlrab, emlisa
 ms.date: 05/14/2019
-ms.openlocfilehash: 4aa45cc1e8b79186d3ddd5d2b2964addb3929b1a
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 348b8fc44628437cbbcfbcd39a26d048284aa60e
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978583"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79208847"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Azure SQL Database 보안 기능의 개요
 
@@ -39,7 +39,7 @@ IP 방화벽 규칙은 각 요청이 시작된 IP 주소를 기준으로 하여 
 Azure SQL Database는 [가상 네트워크 규칙](sql-database-vnet-service-endpoint-rule-overview.md)을 통해 Virtual Network 내의 선택한 서브넷에서 전송된 통신만 수락할 수 있습니다.
 
 > [!NOTE]
-> 방화벽 규칙을 사용한 액세스 제어는 **관리되는 인스턴스**에 적용되지 *않습니다*. 필요한 네트워킹 구성에 대한 자세한 내용은 [관리되는 인스턴스에 연결](sql-database-managed-instance-connect-app.md)을 참조하세요.
+> 방화벽 규칙을 사용한 액세스 제어는 *관리되는 인스턴스*에 적용되지 **않습니다**. 필요한 네트워킹 구성에 대한 자세한 내용은 [관리되는 인스턴스에 연결](sql-database-managed-instance-connect-app.md)을 참조하세요.
 
 ## <a name="access-management"></a>액세스 관리
 
@@ -60,10 +60,10 @@ Azure SQL Database는 [가상 네트워크 규칙](sql-database-vnet-service-end
 
      SQL Database를 사용한 Azure AD 인증을 사용하려면 서버 관리자 **Active Directory 관리자**를 만들어야 합니다. 자세한 내용은 [Azure Active Directory 인증을 사용하여 SQL Database에 연결](sql-database-aad-authentication.md)을 참조하세요. Azure AD 인증에서는 관리 계정과 페더레이션된 계정이 모두 지원됩니다. 페더레이션된 계정은 Azure AD와 페더레이션된 고객 도메인용 Windows 사용자 및 그룹을 지원합니다.
 
-    사용 가능한 추가 Azure AD 인증 옵션으로는 [다단계 인증](../active-directory/authentication/concept-mfa-howitworks.md) 및 [조건부 액세스](sql-database-conditional-access.md)를 비롯한 [SQL Server Management Studio용 Active Directory 유니버설 인증](sql-database-ssms-mfa-authentication.md) 연결이 있습니다.
+    사용 가능한 추가 Azure AD 인증 옵션으로는 [다단계 인증](sql-database-ssms-mfa-authentication.md) 및 [조건부 액세스](../active-directory/authentication/concept-mfa-howitworks.md)를 비롯한 [SQL Server Management Studio용 Active Directory 유니버설 인증](sql-database-conditional-access.md) 연결이 있습니다.
 
 > [!IMPORTANT]
-> Azure 내에서 데이터베이스와 서버를 관리하는 작업은 포털 사용자 계정의 역할 할당을 통해 제어됩니다. 이 아티클에 대한 자세한 내용은 [Azure Portal의 역할 기반 액세스 제어](../role-based-access-control/overview.md)를 참조하세요. 방화벽 규칙을 사용한 액세스 제어는 **관리되는 인스턴스**에 적용되지 *않습니다*. 필요한 네트워킹 구성에 대한 자세한 내용은 [관리되는 인스턴스에 연결](sql-database-managed-instance-connect-app.md)에 관한 다음 문서를 참조하세요.
+> Azure 내에서 데이터베이스와 서버를 관리하는 작업은 포털 사용자 계정의 역할 할당을 통해 제어됩니다. 이 아티클에 대한 자세한 내용은 [Azure Portal의 역할 기반 액세스 제어](../role-based-access-control/overview.md)를 참조하세요. 방화벽 규칙을 사용한 액세스 제어는 *관리되는 인스턴스*에 적용되지 **않습니다**. 필요한 네트워킹 구성에 대한 자세한 내용은 [관리되는 인스턴스에 연결](sql-database-managed-instance-connect-app.md)에 관한 다음 문서를 참조하세요.
 
 ## <a name="authorization"></a>권한 부여
 
@@ -85,7 +85,7 @@ SQL Database는 감사 및 위협 검색 기능을 제공하여 고객 데이터
 
 SQL Database 감사는 데이터베이스 활동을 추적하며 고객이 소유한 Azure Storage 계정의 감사 로그에 데이터베이스 이벤트를 기록하여 보안 표준 규정 준수 상태를 유지할 수 있도록 지원합니다. 사용자는 감사를 통해 진행 중인 데이터베이스 활동을 모니터링하고 이전 활동을 분석 및 조사하여 잠재적 위협이나 악용 의심 사례 및 보안 위반을 식별할 수 있습니다. 자세한 내용은 [SQL Database 감사 시작](sql-database-auditing.md)을 참조하세요.  
 
-### <a name="advanced-threat-protection"></a>Advanced Threat Protection
+### <a name="advanced-threat-protection"></a>고급 위협 보호
 
 Advanced Threat Protection은 SQL Server 로그를 분석 하 여 비정상적인 동작을 감지 하 고 잠재적으로 유해한 데이터베이스 액세스 또는 악용 시도를 감지 합니다. 경고는 SQL 삽입, 잠재적 데이터 침입 및 무차별 암호 대입 공격과 같은 의심 스러운 활동에 대해 만들어지거나 권한 상승 및 위반 된 자격 증명 사용을 포착 하기 위한 액세스 패턴의 이상에서 발생 합니다. 경고는 [Azure Security Center](https://azure.microsoft.com/services/security-center/)에서 볼 수 있습니다. 여기에서 의심 스러운 활동에 대 한 세부 정보를 제공 하 고, 위협을 완화 하는 작업과 함께 제공 된 추가 조사에 대 한 권장 사항을 제공 합니다. 추가 요금을 위해 서버당 Advanced Threat Protection을 사용 하도록 설정할 수 있습니다. 자세한 내용은 [SQL Database Advanced Threat Protection 시작](sql-database-threat-detection.md)을 참조 하세요.
 
@@ -116,7 +116,7 @@ Azure에서는 새로 만드는 모든 SQL Database가 기본적으로 암호화
 
 ### <a name="key-management-with-azure-key-vault"></a>Azure Key Vault으로 키 관리
 
-고객은 TDE( [투명한 데이터 암호화](/sql/relational-databases/security/encryption/transparent-data-encryption))용으로 지원되는 BYOK([Bring Your Own Key](transparent-data-encryption-byok-azure-sql.md))를 활용해 Azure의 클라우드 기반 외부 키 관리 시스템인  [Azure Key Vault](../key-vault/key-vault-secure-your-key-vault.md)를 사용하여 키 관리 및 순환을 직접 제어할 수 있습니다. 데이터베이스의 키 자격 증명 모음 액세스 권한이 철회되면 데이터베이스를 암호 해독하여 메모리로 읽어들일 수 없습니다. 중앙 키 관리 플랫폼을 제공하며 철저하게 모니터링되는 HSM(하드웨어 보안 모듈)을 활용하는 Azure Key Vault를 사용하면 키와 데이터 관리 작업을 분리하여 보안 규정 준수 요구 사항을 충족할 수 있습니다.
+고객은 TDE([투명한 데이터 암호화](transparent-data-encryption-byok-azure-sql.md))용으로 지원되는 BYOK( [Bring Your Own Key](/sql/relational-databases/security/encryption/transparent-data-encryption))를 활용해 Azure의 클라우드 기반 외부 키 관리 시스템인  [Azure Key Vault](../key-vault/key-vault-secure-your-key-vault.md)를 사용하여 키 관리 및 순환을 직접 제어할 수 있습니다. 데이터베이스의 키 자격 증명 모음 액세스 권한이 철회되면 데이터베이스를 암호 해독하여 메모리로 읽어들일 수 없습니다. 중앙 키 관리 플랫폼을 제공하며 철저하게 모니터링되는 HSM(하드웨어 보안 모듈)을 활용하는 Azure Key Vault를 사용하면 키와 데이터 관리 작업을 분리하여 보안 규정 준수 요구 사항을 충족할 수 있습니다.
 
 ### <a name="always-encrypted-encryption-in-use"></a>Always Encrypted(사용 중인 데이터 암호화)
 
@@ -152,6 +152,6 @@ Azure SQL Database는 위의 기능 및 애플리케이션이 다양한 보안 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- SQL Database에서 액세스 제어 기능을 사용하는 방법에 대한 설명은 [액세스 제어](sql-database-control-access.md)를 참조하세요.
+- SQL Database 로그인, 사용자 계정, 데이터베이스 역할 및 사용 권한을 사용 하는 방법에 대 한 설명은 [로그인 및 사용자 계정 관리](sql-database-manage-logins.md)를 참조 하세요.
 - 데이터베이스 감사 내용은 [SQL Database 감사](sql-database-auditing.md)를 참조하세요.
 - 위협 요소 탐지 내용은 [SQL Database 위협 요소 탐지](sql-database-threat-detection.md)를 참조하세요.

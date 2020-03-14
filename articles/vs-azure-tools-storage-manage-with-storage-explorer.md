@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 11/08/2019
 ms.author: cawa
 ms.openlocfilehash: 7886d5a1ad0745550767b7d6f19592ca3c84b00a
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73891191"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79279794"
 ---
 # <a name="get-started-with-storage-explorer"></a>Storage Explorer 시작
 
@@ -23,25 +23,25 @@ Microsoft Azure Storage 탐색기은 Windows, macOS 및 Linux에서 Azure Storag
 
 ![Microsoft Azure Storage Explorer][0]
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+# <a name="windows"></a>[Windows](#tab/windows)
 
 다음 버전의 Windows에서는 Storage 탐색기을 지원 합니다.
 
 * Windows 10(권장)
 * Windows 8
-* 윈도우 7
+* Windows 7
 
 모든 버전의 Windows에서는 Storage 탐색기에 .NET Framework 4.6.2 이상이 필요 합니다.
 
-# <a name="macostabmacos"></a>[macOS](#tab/macos)
+# <a name="macos"></a>[macOS](#tab/macos)
 
 다음 버전의 macOS 지원 Storage 탐색기:
 
 * macOS 10.12 시에라리온 이상 버전
 
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+# <a name="linux"></a>[Linux](#tab/linux)
 
 Storage 탐색기은 Linux의 가장 일반적인 배포를 위해 [Snap 저장소](https://snapcraft.io/storage-explorer) 에서 사용할 수 있습니다. 이 설치에 대해 Snap Store를 권장 합니다. Storage 탐색기 snap는 새 버전이 Snap 저장소에 게시 될 때 모든 종속성 및 업데이트를 설치 합니다.
 

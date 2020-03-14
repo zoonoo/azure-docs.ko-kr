@@ -10,11 +10,11 @@ ms.workload: storage-backup-recovery
 ms.date: 01/08/2020
 ms.author: mayg
 ms.openlocfilehash: 6de37daa0b9e0ebc711a5dacbdce352e3675a3db
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75754429"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79257746"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>VMware VM 또는 물리적 머신을 Azure로 장애 조치(failover) 시 발생하는 오류 해결
 
@@ -122,7 +122,7 @@ RDP를 사용 하 여 컴퓨터에 연결할 수 있지만 직렬 콘솔을 열 
 
 장애 조치(failover) 후 Windows VM을 부팅할 때 복구된 VM에 예기치 않은 시스템 종료 메시지를 수신하는 경우 장애 조치(failover)에 사용된 복구 지점에서 VM 종료 상태가 캡처되지 않았음을 나타냅니다. 이 오류는 VM이 완전히 종료되지 않은 시점으로 복구할 때 발생합니다.
 
-일반적으로 문제를 유발하지는 않으며, 계획되지 않은 장애 조치(failover)의 경우 무시할 수 있습니다. 장애 조치 (failover)가 계획 된 경우 장애 조치 (failover) 전에 VM이 제대로 종료 되었는지 확인 하 고 온-프레미스에서 보류 중인 복제 데이터를 Azure로 전송 하는 데 충분 한 시간을 제공 합니다. 그런 다음, [장애 조치(failover) 화면](site-recovery-failover.md#run-a-failover)의 **최신** 옵션을 사용하여 Azure에서 보류 중인 데이터가 복구 지점으로 처리되어 VM 장애 조치(failover)에 사용되도록 합니다.
+일반적으로 문제를 유발하지는 않으며, 계획되지 않은 장애 조치(failover)의 경우 무시할 수 있습니다. 장애 조치 (failover)가 계획 된 경우 장애 조치 (failover) 전에 VM이 제대로 종료 되었는지 확인 하 고 온-프레미스에서 보류 중인 복제 데이터를 Azure로 전송 하는 데 충분 한 시간을 제공 합니다. 그런 다음, **장애 조치(failover) 화면**의 [최신](site-recovery-failover.md#run-a-failover) 옵션을 사용하여 Azure에서 보류 중인 데이터가 복구 지점으로 처리되어 VM 장애 조치(failover)에 사용되도록 합니다.
 
 ## <a name="unable-to-select-the-datastore"></a>데이터 저장소를 선택할 수 없습니다.
 
@@ -160,7 +160,7 @@ RegisterHostStaticInfo encountered exception config/talwrapper.cpp(107)[post] Cu
    - 도구를 사용 하 여 시스템 사용자 컨텍스트에 액세스 하 고 프록시 주소가 구성 되었는지 여부를 확인 합니다. 
    - 프록시가 구성 된 경우 PsExec 도구를 사용 하 여 시스템 사용자 컨텍스트에서 IE를 엽니다.
   
-     **psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"**
+     **psexec-i "%Programfiles%\internet explorer\ Explorer\iexplore.exe"**
 
    - 마스터 대상 서버가 구성 서버와 통신할 수 있는지 확인 하려면 다음을 수행 합니다.
   

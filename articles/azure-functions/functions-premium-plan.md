@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: jehollan
-ms.openlocfilehash: 19c136c7f312d800b76aa60f2cab6e8da992591c
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.openlocfilehash: dd7f6d0760f2b848435e7c77657e261517d29dd8
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78161570"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79276908"
 ---
 # <a name="azure-functions-premium-plan"></a>Azure Functions 프리미엄 계획
 
@@ -27,7 +27,7 @@ az functionapp plan create --resource-group <RESOURCE_GROUP> --name <PLAN_NAME> 
 --location <REGION> --sku EP1
 ```
 
-이 예제에서는 `<RESOURCE_GROUP>`를 리소스 그룹으로 바꾸고 리소스 그룹에서 고유한 계획의 이름을 사용 하 여 `<PLAN_NAME>` 합니다. [지원 되는 `<REGION>`](#regions)를 지정 합니다. Linux를 지 원하는 프리미엄 계획을 만들려면 `--is-linux` 옵션을 포함 합니다.
+이 예제에서는 `<RESOURCE_GROUP>`를 리소스 그룹으로 바꾸고 리소스 그룹에서 고유한 계획의 이름을 사용 하 여 `<PLAN_NAME>` 합니다. [지원 되는 `<REGION>`](https://azure.microsoft.com/global-infrastructure/services/?products=functions)를 지정 합니다. Linux를 지 원하는 프리미엄 계획을 만들려면 `--is-linux` 옵션을 포함 합니다.
 
 계획을 만든 후에는 [az functionapp create](/cli/azure/functionapp#az-functionapp-create) 를 사용 하 여 함수 앱을 만들 수 있습니다. 포털에서 계획과 앱은 동시에 생성 됩니다. 전체 Azure CLI 스크립트의 예는 [프리미엄 계획에서 함수 앱 만들기](scripts/functions-cli-create-premium-plan.md)를 참조 하세요.
 
@@ -65,7 +65,7 @@ az resource update -g <resource_group> -n <function_app_name>/config/web --set p
 
 ### <a name="longer-run-duration"></a>더 긴 실행 지속 시간
 
-소비 계획의 Azure Functions은 단일 실행에 대해 10 분으로 제한 됩니다.  프리미엄 계획에서 실행 기간은 기본적으로 30 분으로 설정 되어 런어웨이 실행을 방지 합니다. 그러나 프리미엄 계획 앱에 대해이 60 분이 되도록 [호스트 json 구성을 수정할](./functions-host-json.md#functiontimeout) 수 있습니다.
+소비 계획의 Azure Functions은 단일 실행에 대해 10 분으로 제한 됩니다.  프리미엄 계획에서 실행 기간은 기본적으로 30 분으로 설정 되어 런어웨이 실행을 방지 합니다. 그러나이를 프리미엄 계획 앱에 대해 제한 없이 사용할 수 있도록 [호스트. json 구성을 수정할](./functions-host-json.md#functiontimeout) 수 있습니다 (보장 60 분).
 
 ## <a name="plan-and-sku-settings"></a>요금제 및 SKU 설정
 
@@ -88,7 +88,7 @@ az resource update -g <resource_group> -n <premium_plan_name> --set properties.m
 
 계획을 만들거나 크기를 조정할 때 세 가지 인스턴스 크기 중에서 선택할 수 있습니다.  총 코어 수와 초당 사용 된 메모리에 대 한 요금이 청구 됩니다.  필요에 따라 앱이 여러 인스턴스로 자동 확장 될 수 있습니다.  
 
-|SKU|코어|메모리|스토리지|
+|SKU|코어 수|메모리|스토리지|
 |--|--|--|--|
 |EP1|1|3.5GB|250GB|
 |EP2|2|7GB|250GB|
@@ -99,44 +99,42 @@ az resource update -g <resource_group> -n <premium_plan_name> --set properties.m
 
 예를 들어 JavaScript 함수 앱은 node.js의 기본 메모리 제한에 의해 제한 됩니다. 이 고정 메모리 제한을 늘리려면 앱 설정 `languageWorkers:node:arguments` `--max-old-space-size=<max memory in MB>`값으로 추가 합니다.
 
-## <a name="regions"></a>영역
+## <a name="region-max-scale-out"></a>영역 최대 Scale Out
 
-다음은 각 OS에 대해 현재 지원 되는 지역입니다.
+다음은 각 지역 및 OS 구성에서 단일 계획에 대해 현재 지원 되는 최대 확장 값입니다. 증가를 요청 하려면 지원 티켓을 여세요.
+
+여기에서 함수의 전체 지역 가용성을 참조 하세요. [Azure.com](https://azure.microsoft.com/global-infrastructure/services/?products=functions)
 
 |지역| Windows | Linux |
 |--| -- | -- |
-|오스트레일리아 중부| ✔<sup>1</sup> | |
-|오스트레일리아 중부 2| ✔<sup>1</sup> | |
-|오스트레일리아 동부| ✔ | ✔<sup>1</sup> |
-|오스트레일리아 남동부 | ✔ | ✔<sup>1</sup> |
-|브라질 남부| ✔<sup>2</sup> | ✔<sup>1</sup> |
-|캐나다 중부| ✔ | ✔<sup>1</sup> |
-|미국 중부| ✔ | ✔<sup>1</sup> |
-|동아시아| ✔ | ✔<sup>1</sup> |
-|미국 동부 | ✔ | ✔<sup>1</sup> |
-|미국 동부 2| ✔ | ✔<sup>1</sup> |
-|프랑스 중부| ✔ | ✔<sup>1</sup> |
-|독일 중서부| ✔ | |
-|일본 동부| ✔ | ✔<sup>1</sup> |
-|일본 서부| ✔ | ✔<sup>1</sup> |
-|한국 중부| ✔ | ✔<sup>1</sup> |
-|미국 중북부| ✔ | ✔<sup>1</sup> |
-|북유럽| ✔ | ✔<sup>1</sup> |
-|노르웨이 동부| ✔<sup>1</sup> | ✔<sup>1</sup> |
-|미국 중남부| ✔ | ✔<sup>1</sup> |
-|인도 남부 | ✔ | |
-|동남아시아| ✔ | ✔<sup>1</sup> |
-|영국 남부| ✔ | ✔<sup>1</sup> |
-|영국 서부| ✔ | ✔<sup>1</sup> |
-|서유럽| ✔ | ✔<sup>1</sup> |
-|인도 서부| ✔ | ✔<sup>1</sup> |
-|미국 중서부| ✔<sup>1</sup> | ✔<sup>1</sup> |
-|미국 서부| ✔ | ✔<sup>1</sup> |
-|미국 서부 2| ✔ | ✔<sup>1</sup> |
-
-<sup>1</sup> 최대 확장은 20 개 인스턴스로 제한 됩니다.  
-<sup>2</sup> 최대 확장은 60 인스턴스로 제한 됩니다.
-
+|오스트레일리아 중부| 20 | 사용할 수 없음 |
+|오스트레일리아 중부 2| 20 | 사용할 수 없음 |
+|오스트레일리아 동부| 100 | 20 |
+|오스트레일리아 남동부 | 100 | 20 |
+|브라질 남부| 60 | 20 |
+|캐나다 중부| 100 | 20 |
+|미국 중부| 100 | 20 |
+|동아시아| 100 | 20 |
+|미국 동부 | 100 | 20 |
+|미국 동부 2| 100 | 20 |
+|프랑스 중부| 100 | 20 |
+|독일 중서부| 100 | 사용할 수 없음 |
+|일본 동부| 100 | 20 |
+|일본 서부| 100 | 20 |
+|한국 중부| 100 | 20 |
+|미국 중북부| 100 | 20 |
+|북유럽| 100 | 20 |
+|노르웨이 동부| 20 | 20 |
+|미국 중남부| 100 | 20 |
+|인도 남부 | 100 | 사용할 수 없음 |
+|동남아시아| 100 | 20 |
+|영국 남부| 100 | 20 |
+|영국 서부| 100 | 20 |
+|서유럽| 100 | 20 |
+|인도 서부| 100 | 20 |
+|미국 중서부| 20 | 20 |
+|미국 서부| 100 | 20 |
+|미국 서부 2| 100 | 20 |
 
 ## <a name="next-steps"></a>다음 단계
 

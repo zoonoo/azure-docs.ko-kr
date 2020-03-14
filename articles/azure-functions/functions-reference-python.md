@@ -3,12 +3,12 @@ title: Azure Functions에 대한 Python 개발자 참조
 description: Python으로 함수를 개발하는 방법 이해
 ms.topic: article
 ms.date: 12/13/2019
-ms.openlocfilehash: 1b94cb51bcb4e2634cdb04c389efbab44bb024bb
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: 30f40db33b6aa8b40202c023f301265565257180
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78206336"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79276687"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Azure Functions Python 개발자 가이드
 
@@ -65,16 +65,16 @@ Python 함수 프로젝트에 권장 되는 폴더 구조는 다음 예제와 �
 
 ```
  __app__
- | - MyFirstFunction
+ | - my_first_function
  | | - __init__.py
  | | - function.json
  | | - example.py
- | - MySecondFunction
+ | - my_second_function
  | | - __init__.py
  | | - function.json
- | - SharedCode
- | | - myFirstHelperFunction.py
- | | - mySecondHelperFunction.py
+ | - shared_code
+ | | - my_first_helper_function.py
+ | | - my_second_helper_function.py
  | - host.json
  | - requirements.txt
  tests
@@ -89,19 +89,47 @@ Python 함수 프로젝트에 권장 되는 폴더 구조는 다음 예제와 �
 
 각 함수에는 자체 코드 파일과 바인딩 구성 파일(function.json)이 있습니다. 
 
-공유 코드는 \_\_app\_\_에서 별도의 폴더에 유지 해야 합니다. SharedCode 폴더의 모듈을 참조하기 위해 다음 구문을 사용할 수 있습니다.
-
-```python
-from __app__.SharedCode import myFirstHelperFunction
-```
-
-함수에 대 한 로컬 모듈을 참조 하려면 다음과 같이 상대 가져오기 구문을 사용할 수 있습니다.
-
-```python
-from . import example
-```
-
 Azure에서 함수 앱에 프로젝트를 배포할 때 주 프로젝트 ( *\_\_app\_\_* ) 폴더의 전체 콘텐츠는 패키지에 포함 되어야 하지만 폴더 자체에는 포함 되지 않아야 합니다. 프로젝트 폴더와 별도의 폴더에 있는 테스트를 유지 관리 하는 것이 좋습니다 (이 예제에서는 `tests`. 그러면 응용 프로그램에 테스트 코드를 배포할 수 있습니다. 자세한 내용은 [단위 테스트](#unit-testing)를 참조 하십시오.
+
+## <a name="import-behavior"></a>가져오기 동작
+
+명시적 상대 참조와 절대 참조를 모두 사용 하 여 함수 코드에서 모듈을 가져올 수 있습니다. 위에 표시 된 폴더 구조를 기반으로 다음 가져오기는 함수 파일 내에서 작업 *\_\_app\_\_\my\_먼저 함수\__\\init\_\_. py을 \_합니다.*
+
+```python
+from . import example #(explicit relative)
+```
+
+```python
+from ..shared_code import my_first_helper_function #(explicit relative)
+```
+
+```python
+from __app__ import shared_code #(absolute)
+```
+
+```python
+import __app__.shared_code #(absolute)
+```
+
+다음 가져오기는 동일한 파일 내에서 *작동 하지 않습니다* .
+
+```python
+import example
+```
+
+```python
+from example import some_helper_code
+```
+
+```python
+import shared_code
+```
+
+공유 코드는 *\_\_app\_\_* 에서 별도의 폴더에 유지 해야 합니다. *공유\_코드* 폴더에서 모듈을 참조 하려면 다음 구문을 사용할 수 있습니다.
+
+```python
+from __app__.shared_code import my_first_helper_function
+```
 
 ## <a name="triggers-and-inputs"></a>트리거 및 입력
 
@@ -366,7 +394,18 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
 ## <a name="python-version"></a>Python 버전 
 
-현재 Azure Functions는 Python 3.6 및 3.7 .x를 모두 지원 합니다 (공식 CPython 배포). 로컬로 실행 하는 경우 런타임은 사용 가능한 Python 버전을 사용 합니다. Azure에서 함수 앱을 만들 때 특정 Python 버전을 요청 하려면 [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) 명령의 `--runtime-version` 옵션을 사용 합니다. 버전 변경은 함수 앱 만들기 에서만 허용 됩니다.  
+Azure Functions에서 지 원하는 Python 버전은 다음과 같습니다.
+
+| Functions 버전 | Python<sup>*</sup> 버전 |
+| ----- | ----- |
+| 3.x | 3.8<br/>3.7<br/>3.6 |
+| 2.x | 3.7<br/>3.6 |
+
+<sup>*</sup> 공식 CPython 배포
+
+Azure에서 함수 앱을 만들 때 특정 Python 버전을 요청 하려면 [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) 명령의 `--runtime-version` 옵션을 사용 합니다. 함수 런타임 버전은 `--functions-version` 옵션으로 설정 됩니다. Python 버전은 함수 앱을 만들 때 설정 되며 변경할 수 없습니다.  
+
+로컬로 실행 하는 경우 런타임은 사용 가능한 Python 버전을 사용 합니다. 
 
 ## <a name="package-management"></a>패키지 관리
 

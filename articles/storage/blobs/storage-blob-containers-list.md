@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 4ac8fe2e5bf1c338fa67619a675225eb80256c3f
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: 155b8f5d50c7b106daff8dab4df17200b844c988
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75690984"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79135907"
 ---
 # <a name="list-blob-containers-with-net"></a>.NET을 사용 하 여 blob 컨테이너 나열
 
-코드에서 Azure Storage 계정의 컨테이너를 나열 하는 경우 Azure Storage에서 결과가 반환 되는 방식을 관리 하는 다양 한 옵션을 지정할 수 있습니다. 이 문서에서는 [.net 용 Azure Storage 클라이언트 라이브러리](/dotnet/api/overview/azure/storage/client)를 사용 하 여 컨테이너를 나열 하는 방법을 보여 줍니다.  
+코드에서 Azure Storage 계정의 컨테이너를 나열 하는 경우 Azure Storage에서 결과가 반환 되는 방식을 관리 하는 다양 한 옵션을 지정할 수 있습니다. 이 문서에서는 [.net 용 Azure Storage 클라이언트 라이브러리](/dotnet/api/overview/azure/storage?view=azure-dotnet)를 사용 하 여 컨테이너를 나열 하는 방법을 보여 줍니다.  
 
 ## <a name="understand-container-listing-options"></a>컨테이너 목록 옵션 이해
 
@@ -100,5 +100,5 @@ private static async Task ListContainersWithPrefixAsync(CloudBlobClient blobClie
 
 ## <a name="see-also"></a>참고 항목
 
-[Blob 리소스를 열거하는](/rest/api/storageservices/list-containers2)
-[ 컨테이너 나열](/rest/api/storageservices/enumerating-blob-resources)
+[컨테이너 나열](/rest/api/storageservices/list-containers2)
+[Blob 리소스 열거](/rest/api/storageservices/enumerating-blob-resources)

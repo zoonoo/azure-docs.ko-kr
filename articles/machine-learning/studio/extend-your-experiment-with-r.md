@@ -10,14 +10,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: d6174459237399ea370ee9c36ba537391104a917
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 7b4b869695eb2073121a889cd81d99c4fc06d4b9
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77168568"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79218046"
 ---
 # <a name="azure-machine-learning-studio-classic-extend-your-experiment-with-r"></a>Azure Machine Learning Studio (클래식): R을 사용 하 여 실험 확장 
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 R [스크립트 실행][execute-r-script] 모듈을 사용 하 여 r 언어를 통해 Azure Machine Learning Studio (클래식)의 기능을 확장할 수 있습니다.
 
 이 모듈에서는 여러 입력 데이터 세트를 허용하고 출력으로 단일 데이터 세트를 생성합니다. R 스크립트 [실행][execute-r-script] 모듈의 **r** 스크립트 매개 변수에 r 스크립트를 입력할 수 있습니다.

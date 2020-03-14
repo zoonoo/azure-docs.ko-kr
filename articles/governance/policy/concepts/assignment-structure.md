@@ -4,11 +4,11 @@ description: Azure Policy에서 평가를 위해 리소스에 정책 정의 및 
 ms.date: 09/23/2019
 ms.topic: conceptual
 ms.openlocfilehash: f03c654dfc4c8dfdf2bdc5103a5961b4d8ce1e64
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75747211"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79265299"
 ---
 # <a name="azure-policy-assignment-structure"></a>Azure Policy 할당 구조
 
@@ -59,10 +59,10 @@ JSON을 사용 하 여 정책 할당을 만듭니다. 정책 할당에는 다음
 
 이 속성의 값은 다음과 같습니다.
 
-|Mode |JSON 값 |유형 |수동으로 재구성 |활동 로그 항목 |Description |
+|Mode |JSON 값 |Type |수동으로 재구성 |활동 로그 항목 |Description |
 |-|-|-|-|-|-|
-|사용 |기본값 |문자열 |예 |예 |정책 효과는 리소스를 만들거나 업데이트 하는 동안 적용 됩니다. |
-|사용 안 함 |DoNotEnforce |문자열 |예 |아닙니다. | 정책 효과는 리소스를 만들거나 업데이트 하는 동안 적용 되지 않습니다. |
+|사용 |기본값 |문자열 |yes |yes |정책 효과는 리소스를 만들거나 업데이트 하는 동안 적용 됩니다. |
+|사용 안 함 |DoNotEnforce |문자열 |yes |예 | 정책 효과는 리소스를 만들거나 업데이트 하는 동안 적용 되지 않습니다. |
 
 **EnforcementMode** 가 정책 또는 이니셔티브 정의에 지정 되지 않은 경우에는 _기본값_ 을 사용 합니다. **EnforcementMode** 가 _DoNotEnforce_로 설정 된 경우에도 [deployifnotexists](./effects.md#deployifnotexists) 정책에 대해 [재구성 작업](../how-to/remediate-resources.md) 을 시작할 수 있습니다.
 

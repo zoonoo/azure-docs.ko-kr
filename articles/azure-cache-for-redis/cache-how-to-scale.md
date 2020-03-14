@@ -7,11 +7,11 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 04/11/2017
 ms.openlocfilehash: 68c668561123aee943f54e6fdcbad7c6450957f4
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78372009"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79278000"
 ---
 # <a name="how-to-scale-azure-cache-for-redis"></a>Azure Cache for Redis 크기를 조정하는 방법
 Azure Cache for Redis에는 캐시 크기와 기능을 유연하게 선택할 수 있는 다양한 캐시 제안이 있습니다. 캐시를 만든 후 애플리케이션 요구 사항이 변경되면 캐시의 크기 및 가격 책정 계층의 크기를 조정할 수 있습니다. 이 문서에서는 Azure Portal과 Azure PowerShell 및 Azure CLI와 같은 도구를 사용하여 캐시 크기를 조정하는 방법을 보여 줍니다.
@@ -31,7 +31,7 @@ Azure Cache for Redis의 [모니터링](cache-how-to-monitor.md) 기능을 사�
 ## <a name="scale-a-cache"></a>캐시 크기 조정
 캐시 크기를 조정하려면 [Azure Portal](cache-configure.md#configure-azure-cache-for-redis-settings)에서 [캐시를 찾은](https://portal.azure.com) 다음 **리소스 메뉴**에서 **크기 조정**을 클릭합니다.
 
-![Scale](./media/cache-how-to-scale/redis-cache-scale-menu.png)
+![확장](./media/cache-how-to-scale/redis-cache-scale-menu.png)
 
 **가격 책정 계층 선택** 블레이드에서 원하는 가격 책정 계층을 선택하고 **선택**을 클릭합니다.
 
@@ -49,7 +49,7 @@ Azure Cache for Redis의 [모니터링](cache-how-to-monitor.md) 기능을 사�
  
 캐시의 크기를 새 가격 책정 계층으로 조정하는 동안에는 **Azure Cache for Redis** 블레이드에 **크기 조정 중** 상태가 표시됩니다.
 
-![배율 조정][redis-cache-scaling]
+![확장][redis-cache-scaling]
 
 크기 조정이 완료되면 상태가 **Scaling(크기 조정 중)** 에서 **실행 중**으로 변경됩니다.
 

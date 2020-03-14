@@ -3,7 +3,7 @@ title: XEvent 이벤트 파일 코드
 description: Azure SQL Database에서 확장 이벤트의 이벤트 파일 대상을 보여주는 2단계 코드 샘플에 대해 PowerShell 및 Transact-SQL을 제공합니다. Azure Storage는 이 시나리오의 필수 부분입니다.
 services: sql-database
 ms.service: sql-database
-ms.subservice: monitor
+ms.subservice: performance
 ms.custom: ''
 ms.devlang: PowerShell
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 03/12/2019
-ms.openlocfilehash: 00f31bdf147c4711715cd600fa8a8fd4bac2162a
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: a9bf28fb1b3c5278d25b417fc646d2ad3d6f1abc
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422485"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79213987"
 ---
 # <a name="event-file-target-code-for-extended-events-in-sql-database"></a>SQL Database의 확장 이벤트에 대한 이벤트 파일 대상 코드
 
@@ -34,7 +34,7 @@ Microsoft SQL Server의 [이벤트 파일 대상](https://msdn.microsoft.com/lib
   - Azure Storage 컨테이너를 이벤트 파일 대상에 할당합니다.
   - 이벤트 세션 등을 만들고 시작합니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -487,7 +487,7 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM gmTabEmployee;
 
 앞에 나오는 Transact-SQL 스크립트는 다음 시스템 함수를 사용해서 event_file을 읽었습니다.
 
-- [sys.fn_xe_file_target_read_file (Transact-SQL)](https://msdn.microsoft.com/library/cc280743.aspx)
+- [sys.fn_xe_file_target_read_file(Transact-SQL)](https://msdn.microsoft.com/library/cc280743.aspx)
 
 확장된 이벤트에서 데이터를 보기 위한 고급 옵션에 대한 설명은 다음에서 사용할 수 있습니다.
 
@@ -511,7 +511,7 @@ Azure Storage 서비스에서 계정 및 컨테이너에 대한 자세한 내용
 - [컨테이너, BLOB, 메타데이터 이름 명명 및 참조](https://msdn.microsoft.com/library/azure/dd135715.aspx)
 - [루트 컨테이너 사용](https://msdn.microsoft.com/library/azure/ee395424.aspx)
 - [단원 1: Azure 컨테이너에 저장된 액세스 정책 및 공유 액세스 서명 만들기](https://msdn.microsoft.com/library/dn466430.aspx)
-  - [단원 2: 공유 액세스 서명을 사용하여 SQL Server 자격 증명 만들기](https://msdn.microsoft.com/library/dn466435.aspx)
+  - [2단원: 공유 액세스 서명을 사용하여 SQL Server 자격 증명 만들기](https://msdn.microsoft.com/library/dn466435.aspx)
 - [Microsoft SQL Server의 확장 이벤트](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events).
 
 <!-- Image references. -->

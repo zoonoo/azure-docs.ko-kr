@@ -12,14 +12,16 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: reference
 ms.date: 11/16/2016
-ms.openlocfilehash: 15e73740f5d932d0fa4cfb9a56c9fe7b155555cc
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 9e25f2fbc10eb07cc71f2a7bd34247c0191f61b9
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73468166"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79217769"
 ---
 # <a name="azure-machine-learning-studio-classic-rest-api-error-codes"></a>Azure Machine Learning Studio (클래식) REST API 오류 코드
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
  
 Azure Machine Learning Studio (클래식) 웹 서비스에 대 한 작업에 의해 반환 되는 오류 코드는 다음과 같습니다.
  
@@ -27,7 +29,7 @@ Azure Machine Learning Studio (클래식) 웹 서비스에 대 한 작업에 의
  
 잘못된 인수가 제공되었습니다.
  
-이 오류 클래스는 어딘가에 제공된 인수가 잘못되었다는 의미입니다. 웹 서비스에 전달된 내용에 대한 Azure Storage의 위치 또는 자격 증명일 수 있습니다. 구체적으로 어떤 인수가 잘못되었는지 진단하려면 "세부 정보" 섹션의 오류 "코드" 필드를 살펴보세요.
+이 오류 클래스는 어딘가에 제공된 인수가 잘못되었다는 의미입니다. 웹 서비스에 전달된 내용에 대한 Azure Storage의 위치 또는 자격 증명일 수 있습니다. "세부 정보" 섹션의 오류 "코드" 필드를 확인 하 여 잘못 된 특정 인수를 진단 하십시오.
  
 | 오류 코드 | 사용자 메시지 |
 | ---------- |--------------|

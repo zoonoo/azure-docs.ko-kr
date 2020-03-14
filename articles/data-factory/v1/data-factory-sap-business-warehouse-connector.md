@@ -13,11 +13,11 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 108bdf057cd375e28b10a6838ec5c8c6f57749a8
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78387510"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79281055"
 ---
 # <a name="move-data-from-sap-business-warehouse-using-azure-data-factory"></a>Azure Data Factory를 사용하여 SAP Business Warehouse에서 데이터 이동
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -61,15 +61,15 @@ SAP BW 인스턴스에 대한 연결을 사용하도록 설정하려면 다음 �
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
 다음 테이블은 SAP Business Warehouse(BW) 연결된 서비스에 특정의 JSON 요소에 대한 설명을 제공합니다.
 
-속성 | 설명 | 허용되는 값 | 필수
+속성 | Description | 허용되는 값 | 필수
 -------- | ----------- | -------------- | --------
-서버 | SAP BW 인스턴스가 상주하는 서버의 이름. | string | 예
-systemNumber | SAP BW 시스템의 시스템 번호. | 문자열로 표현되는 두 자리 10진수. | 예
-clientId | SAP W 시스템에 있는 클라이언트의 클라이언트 ID. | 문자열로 표현되는 세 자리 10진수. | 예
-username | SAP 서버에 대한 액세스 권한이 있는 사용자의 이름 | string | 예
-password | 사용자에 대한 암호입니다. | string | 예
-gatewayName | Data Factory 서비스가 온-프레미스 SAP BW 인스턴스에 연결하는 데 사용해야 하는 게이트웨이의 이름. | string | 예
-encryptedCredential | 암호화된 자격 증명 문자열. | string | 아니요
+서버 | SAP BW 인스턴스가 상주하는 서버의 이름. | 문자열 | yes
+systemNumber | SAP BW 시스템의 시스템 번호. | 문자열로 표현되는 두 자리 10진수. | yes
+clientId | SAP W 시스템에 있는 클라이언트의 클라이언트 ID. | 문자열로 표현되는 세 자리 10진수. | yes
+사용자 이름 | SAP 서버에 대한 액세스 권한이 있는 사용자의 이름 | 문자열 | yes
+password | 사용자에 대한 암호입니다. | 문자열 | yes
+gatewayName | Data Factory 서비스가 온-프레미스 SAP BW 인스턴스에 연결하는 데 사용해야 하는 게이트웨이의 이름. | 문자열 | yes
+encryptedCredential | 암호화된 자격 증명 문자열. | 문자열 | 예
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트 만들기](data-factory-create-datasets.md) 문서를 참조하세요. 구조, 가용성 및 JSON 데이터 세트의 정책과 같은 섹션이 모든 데이터 세트 형식에 대해 유사합니다(Azure SQL, Azure blob, Azure 테이블 등).
@@ -84,9 +84,9 @@ encryptedCredential | 암호화된 자격 증명 문자열. | string | 아니요
 
 활동 복사의 원본이 **RelationalSource**(SAP BW 포함) 형식인 경우 typeProperties 섹션에서 다음과 같은 속성을 사용할 수 있습니다.
 
-| 속성 | 설명 | 허용되는 값 | 필수 |
+| 속성 | Description | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| query | SAP BW 인스턴스에서 데이터를 읽을 MDX 쿼리를 지정합니다. | MDX 쿼리. | 예 |
+| Query | SAP BW 인스턴스에서 데이터를 읽을 MDX 쿼리를 지정합니다. | MDX 쿼리. | yes |
 
 
 ## <a name="json-example-copy-data-from-sap-business-warehouse-to-azure-blob"></a>JSON 샘플: SAP Business Warehouse에서 Azure Blob에 데이터 복사

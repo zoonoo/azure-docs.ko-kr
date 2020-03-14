@@ -4,11 +4,11 @@ description: REST API를 사용 하 여 Recovery Services 자격 증명 모음�
 ms.topic: conceptual
 ms.date: 02/16/2020
 ms.openlocfilehash: 2cf385830ec1be17cb62432e6ef9cba7d82a9db1
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78393186"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79248100"
 ---
 # <a name="backup-azure-file-share-using-azure-backup-via-rest-api"></a>Rest API를 통해 Azure Backup를 사용 하 여 Azure 파일 공유 백업
 

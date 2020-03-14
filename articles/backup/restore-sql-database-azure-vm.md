@@ -3,12 +3,12 @@ title: Azure VM에서 SQL Server 데이터베이스 복원
 description: 이 문서에서는 Azure VM에서 실행 되 고 Azure Backup을 사용 하 여 백업 되는 SQL Server 데이터베이스를 복원 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.openlocfilehash: 58525069af28be250c3536db076a38fb350bc1da
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 642476c98ca223da01bda5c6eb79ee9b53732468
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75390758"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79252455"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Azure VM에서 SQL Server 데이터베이스 복원
 
@@ -23,7 +23,7 @@ ms.locfileid: "75390758"
 - 트랜잭션 로그 백업을 사용 하 여 특정 날짜 또는 시간 (초)으로 복원 합니다. Azure Backup은 선택 된 시간에 따라 복원 하는 데 필요한 적절 한 전체 차등 백업 및 로그 백업 체인을 자동으로 결정 합니다.
 - 특정 복구 지점으로 복원 하기 위해 특정 전체 또는 차등 백업을 복원 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 데이터베이스를 복원 하기 전에 다음 사항에 유의 하십시오.
 
@@ -70,7 +70,7 @@ ms.locfileid: "75390758"
 
 7. **복원 구성**에서 데이터를 복원할 위치 (또는 방법)를 지정 합니다.
    - **대체 위치**: 데이터베이스를 대체 위치로 복원 하 고 원래 원본 데이터베이스를 유지 합니다.
-   - **DB 덮어쓰기**: 원래 원본과 동일한 SQL Server 인스턴스에 데이터를 복원합니다. 이 옵션은 원본 데이터베이스를 덮어씁니다.
+   - **DB 덮어쓰기**: 원래 원본과 동일한 SQL Server 인스턴스에 데이터를 복원합니다. 이 옵션은 원래 데이터베이스를 덮어씁니다.
 
     > [!IMPORTANT]
     > 선택한 데이터베이스가 Always On 가용성 그룹에 속하면 SQL Server에서 데이터베이스를 덮어쓸 수 없습니다. **대체 위치**만 사용할 수 있습니다.
@@ -112,24 +112,25 @@ ms.locfileid: "75390758"
 2. 백업 파일을 복원 하려는 SQL Server 이름을 선택 합니다.
 3. **서버의 대상 경로** 에서 2 단계에서 선택한 서버의 폴더 경로를 입력 합니다. 서비스에서 필요한 모든 백업 파일을 덤프 하는 위치입니다. 일반적으로 대상 경로로 지정 된 경우 네트워크 공유 경로 또는 탑재 된 Azure 파일 공유의 경로를 사용 하면 동일한 네트워크에 있거나 동일한 Azure 파일 공유에 탑재 된 다른 컴퓨터에서 이러한 파일에 쉽게 액세스할 수 있습니다.<BR>
 
->대상으로 등록 된 VM에 탑재 된 Azure 파일 공유에서 데이터베이스 백업 파일을 복원 하려면 NT 권한 없음이 파일 공유에 액세스할 수 있는지 확인 합니다. 아래 지정 된 단계를 수행 하 여 VM에 탑재 된 AFS에 대 한 읽기/쓰기 권한을 부여할 수 있습니다.
->- `PsExec -s cmd`를 실행 하 여 NT 권한 없는 셸에 입력
->   - `cmdkey /add:<storageacct>.file.core.windows.net /user:AZURE\<storageacct> /pass:<storagekey>` 실행
->   - `dir \\<storageacct>.file.core.windows.net\<filesharename>` 사용 하 여 액세스 확인
->- 백업 자격 증명 모음에서 파일로 복원을 시작 하 여 경로로 `\\<storageacct>.file.core.windows.net\<filesharename>` 합니다.<BR>
-<https://docs.microsoft.com/sysinternals/downloads/psexec>을 통해 Psexec를 다운로드할 수 있습니다.
+    >대상으로 등록 된 VM에 탑재 된 Azure 파일 공유에서 데이터베이스 백업 파일을 복원 하려면 NT 권한 없음이 파일 공유에 액세스할 수 있는지 확인 합니다. 아래 지정 된 단계를 수행 하 여 VM에 탑재 된 AFS에 대 한 읽기/쓰기 권한을 부여할 수 있습니다.
+    >
+    >- `PsExec -s cmd`를 실행 하 여 NT 권한 없는 셸에 입력
+    >   - `cmdkey /add:<storageacct>.file.core.windows.net /user:AZURE\<storageacct> /pass:<storagekey>` 실행
+    >   - `dir \\<storageacct>.file.core.windows.net\<filesharename>` 사용 하 여 액세스 확인
+    >- 백업 자격 증명 모음에서 파일로 복원을 시작 하 여 경로로 `\\<storageacct>.file.core.windows.net\<filesharename>` 합니다.<BR>
+    <https://docs.microsoft.com/sysinternals/downloads/psexec>을 통해 Psexec를 다운로드할 수 있습니다.
 
 4. **확인**을 선택합니다.
 
-![파일로 복원 선택](./media/backup-azure-sql-database/restore-as-files.png)
+    ![파일로 복원 선택](./media/backup-azure-sql-database/restore-as-files.png)
 
 5. 사용 가능한 모든 .bak 파일이 복원 되는 **복원 지점을** 선택 합니다.
 
-![복원 지점 선택](./media/backup-azure-sql-database/restore-point.png)
+    ![복원 지점 선택](./media/backup-azure-sql-database/restore-point.png)
 
 6. 선택한 복구 지점과 연결 된 모든 백업 파일은 대상 경로로 덤프 됩니다. SQL Server Management Studio를 사용 하 여 있는 모든 컴퓨터의 데이터베이스로 파일을 복원할 수 있습니다.
 
-![대상 경로에서 백업 파일 복원 됨](./media/backup-azure-sql-database/sql-backup-files.png)
+    ![대상 경로에서 백업 파일 복원 됨](./media/backup-azure-sql-database/sql-backup-files.png)
 
 ### <a name="restore-to-a-specific-point-in-time"></a>특정 시점으로 복원
 
@@ -163,6 +164,9 @@ ms.locfileid: "75390758"
 1. 목록에서 복구 지점을 선택하고 **확인**을 선택하여 복원 지점 절차를 완료합니다.
 
     ![전체 복구 지점 선택](./media/backup-azure-sql-database/choose-fd-recovery-point.png)
+
+    >[!NOTE]
+    > 기본적으로 최근 30 일 동안의 복구 지점이 표시 됩니다. **필터** 를 클릭 하 고 사용자 지정 범위를 선택 하 여 30 일 보다 오래 된 복구 지점은 표시할 수 있습니다.
 
 1. 복원 후 데이터베이스 nonoperational을 유지 하려면 **고급 구성** 메뉴에서 **restore with NORECOVERY**를 사용 하도록 설정 합니다.
 1. 대상 서버에서 복원 위치를 변경하려면 새 대상 경로를 입력합니다.

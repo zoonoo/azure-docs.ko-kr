@@ -4,11 +4,11 @@ description: QnA Maker 기술 자료는 QnA (질문과 대답) 집합 및 각 Qn
 ms.topic: conceptual
 ms.date: 01/27/2020
 ms.openlocfilehash: d47d994366a8057521c1cc2ab1ab8a7ec3393965
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78389163"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79221274"
 ---
 # <a name="importing-from-data-sources"></a>데이터 원본에서 가져오기
 

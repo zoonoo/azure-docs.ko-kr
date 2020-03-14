@@ -4,11 +4,11 @@ description: Azure Resource Manager 템플릿에서 리소스에 대한 값을 �
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.openlocfilehash: 10476f5a29c12d7437beb9a9f707feda815d7ba1
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77207011"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79248672"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿용 리소스 함수
 

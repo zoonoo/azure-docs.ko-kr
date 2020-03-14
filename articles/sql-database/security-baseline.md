@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/28/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: ca3df9e68e1d7e82675a6765f0320d42599a63da
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: d9cf78f3cc5399a9e974cd9b4f0b3f24c80dacce
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78943647"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79214130"
 ---
 # <a name="azure-security-baseline-for-azure-sql-database"></a>Azure SQL Database에 대 한 Azure 보안 기준
 
@@ -238,13 +238,12 @@ https://docs.microsoft.com/azure/virtual-machines/windows/time-sync
 
 또한 azure sql 진단 원격 분석을 Azure SQL 데이터베이스, 탄력적 풀 및 여러 구독 간에 관리 되는 인스턴스의 성능을 모니터링 하는 클라우드 솔루션인 Azure SQL 분석로 스트리밍할 수 있습니다. Azure SQL Database 성능 메트릭을 수집 및 시각화하는 데 도움이 될 수 있고 성능 문제 해결을 위한 기본 제공 인텔리전스를 제공합니다.
 
-
 Azure SQL Database에 대 한 감사를 설정 하는 방법:
 
 https://docs.microsoft.com/azure/sql-database/sql-database-auditing
 
 
-Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법:
+Azure Monitor를 사용 하 여 메트릭 및 리소스 로그를 수집 하는 방법:
 
 https://docs.microsoft.com/azure/sql-database/sql-database-metrics-diag-logging
 

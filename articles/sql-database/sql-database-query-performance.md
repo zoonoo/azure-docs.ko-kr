@@ -1,6 +1,6 @@
 ---
 title: 쿼리
-description: 쿼리 성능 모니터링은 Azure SQL 데이터베이스에 대한 대부분의 CPU 사용 쿼리를 식별합니다.
+description: 쿼리 성능 모니터링은 Azure SQL database에서 단일 및 풀링된 데이터베이스에 대 한 가장 많은 CPU 사용 및 장기 실행 쿼리를 식별 합니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -10,37 +10,33 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-ms.date: 01/03/2019
-ms.openlocfilehash: 56daca0aa817d03298bad971506402739d71482e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 03/10/2020
+ms.openlocfilehash: f5998fde6659715de4fcb533cb0f41a8939b1c48
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821248"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79214051"
 ---
 # <a name="query-performance-insight-for-azure-sql-database"></a>Azure SQL Database에 대한 Query Performance Insight
 
-관계형 데이터베이스의 성능을 관리하고 조정하기 위해서는 전문 지식과 시간이 필요합니다. Query Performance Insight는 Azure SQL Database 지능형 성능 제품군의 일부입니다. 이를 통해 다음을 제공하여 데이터베이스 성능 문제 해결 시간을 줄일 수 있습니다.
+Query Performance Insight는 단일 및 풀링된 데이터베이스에 대 한 지능형 쿼리 분석을 제공 합니다. 작업에서 리소스를 많이 소비 하 고 장기 실행 되는 쿼리를 식별 하는 데 도움이 됩니다. 이를 통해 전체 워크 로드 성능을 개선 하 고 비용을 지불 하는 리소스를 효율적으로 사용할 수 있도록 최적화할 쿼리를 찾을 수 있습니다. Query Performance Insight를 사용 하면 다음을 제공 하 여 데이터베이스 성능 문제 해결 시간을 줄일 수 있습니다.
 
-* 데이터베이스 리소스(DTU) 사용에 대한 보다 자세한 정보를 확인합니다.
-* CPU, 기간 및 실행 횟수(성능 향상에 대한 잠재적 조정 후보)에 따른 상위 데이터베이스 쿼리의 세부 정보.
-* 리소스 사용률에 대한 텍스트 및 기록을 확인할 수 있도록 쿼리에 대한 세부 정보로 드릴다운하는 기능.
-* [SQL Database Advisor](sql-database-advisor.md)에서 성능 권장 사항을 표시하는 주석.
+* DTU (데이터베이스 리소스) 소비량에 대 한 심층 분석
+* CPU, 기간 및 실행 수 별 상위 데이터베이스 쿼리에 대 한 세부 정보 (성능 개선을 위한 잠재적 튜닝 후보)
+* 쿼리 정보를 확인 하 고 쿼리 텍스트 및 리소스 사용률 기록을 보기 위해 쿼리 정보를 드릴 다운할 수 있습니다.
+* [데이터베이스](sql-database-advisor.md) 관리자의 성능 권장 사항을 표시 하는 주석
 
 ![쿼리](./media/sql-database-query-performance/opening-title.png)
 
-> [!TIP]
-> Azure SQL Database를 사용한 기본 성능 모니터링의 경우 Query Performance Insight가 권장됩니다. 이 문서에 게시된 제품 제한 사항을 참고하세요. 규모가 큰 데이터베이스 성능의 고급 모니터링은 [Azure SQL Analytics](../azure-monitor/insights/azure-sql.md)가 권장됩니다. 자동화된 성능 문제 해결을 위한 인텔리전스가 기본 제공됩니다. 가장 일반적인 데이터베이스 성능 문제를 자동으로 조정하기 위해 [자동 조정](sql-database-automatic-tuning.md)이 권장됩니다.
-
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Query Performance Insight를 위해서는 데이터베이스에서 [쿼리 저장소](https://msdn.microsoft.com/library/dn817826.aspx) 가 활성 상태여야 합니다. 이는 기본적으로 모든 Azure SQL 데이터베이스에 대해 자동으로 활성화됩니다. 쿼리 저장소를 실행하지 않는 경우 Azure Portal에서 사용하도록 설정하라는 메시지가 나타납니다.
 
 > [!NOTE]
-> 포털에서 “쿼리 저장소가 이 데이터베이스에서 올바르게 구성되지 않음” 메시지가 표시되는 경우 [쿼리 저장소 구성 최적화](#optimize-the-query-store-configuration-for-query-performance-insight)를 참조하세요.
->
+> 포털에서 “쿼리 저장소가 이 데이터베이스에서 올바르게 구성되지 않음” 메시지가 표시되는 경우 [쿼리 저장소 구성 최적화](#optimize-the-query-store-configuration)를 참조하세요.
 
-## <a name="permissions"></a>권한
+## <a name="permissions"></a>사용 권한
 
 Query Performance Insight를 사용하려면 다음 [역할 기반 액세스 제어](../role-based-access-control/overview.md) 권한이 필요합니다.
 
@@ -65,6 +61,11 @@ Query Performance Insight는 쉽게 사용할 수 있습니다.
 
 > [!NOTE]
 > Query Performance Insight에서 정보를 렌더링하는 SQL Database의 경우 쿼리 저장소는 몇 시간의 데이터를 캡처해야 합니다. 데이터베이스에 아무런 작업이 없거나 쿼리 저장소가 특정 기간 동안 비활성 상태였다면 Query Performance Insight에서 해당 기간을 표시할 때 차트가 비어 있게 됩니다. 쿼리 저장소는 실행 중이 아닌 경우 언제든지 활성화할 수 있습니다. 자세한 내용은 [쿼리 저장소 모범 사례](https://docs.microsoft.com/sql/relational-databases/performance/best-practice-with-the-query-store)를 참조하세요.
+>
+
+데이터베이스 성능 권장 사항의 경우 Query Performance Insight 탐색 블레이드에서 [권장 사항](sql-database-advisor.md)을 선택합니다.
+
+![권장 사항 탭](./media/sql-database-query-performance/ia.png)
 
 ## <a name="review-top-cpu-consuming-queries"></a>최상위 CPU 소비 쿼리 검토
 
@@ -72,9 +73,9 @@ Query Performance Insight는 쉽게 사용할 수 있습니다.
 
 1. 확인란을 사용하여 개별 쿼리를 선택하거나 삭제하면 차트에 추가시키거나 삭제할 수 있습니다.
 
-    맨 윗 줄에는 데이터베이스에 대한 전체 DTU 백분율이 표시됩니다. 막대는 선택한 간격 동안 선택한 쿼리가 사용한 CPU 백분율을 보여줍니다. 예를 들어 경우 **지난주**를 선택하면 각 막대는 하루를 나타냅니다.
+   맨 윗 줄에는 데이터베이스에 대한 전체 DTU 백분율이 표시됩니다. 막대는 선택한 간격 동안 선택한 쿼리가 사용한 CPU 백분율을 보여줍니다. 예를 들어 경우 **지난주**를 선택하면 각 막대는 하루를 나타냅니다.
 
-    ![상위 쿼리](./media/sql-database-query-performance/top-queries.png)
+   ![상위 쿼리](./media/sql-database-query-performance/top-queries.png)
 
    > [!IMPORTANT]
    > 표시된 DTU 줄은 한 시간에 최대 사용량 값으로 집계됩니다. 이는 쿼리 실행 통계를 사용한 상위 수준 비교만을 위한 것입니다. 일부 경우에 DTU 사용률이 실행된 쿼리에 비해 너무 높아 보일 수도 있으나, 그렇지 않을 수도 있습니다.
@@ -192,7 +193,7 @@ Query Performance Insight의 기간 및 실행 수라는 두 메트릭은 잠재
 
 예를 들어, 많은 데이터 기반 웹 사이트는 사용자 요청이 있을 때마다 데이터베이스에 과도하게 액세스합니다. 연결 풀링이 도움이 되지만, 데이터베이스 서버에서 네트워크 트래픽 및 처리 부하가 높아져서 성능이 저하될 수 있습니다. 일반적으로 왕복을 최소로 유지합니다.
 
-자주 실행되는(“번잡한”) 쿼리를 식별하려면 다음을 수행합니다.
+자주 실행 되는 ("번잡") 쿼리를 식별 하려면 다음을 수행 합니다.
 
 1. 선택한 데이터베이스에 대한 Query Performance Insight에서 **사용자 지정** 탭을 엽니다.
 2. 메트릭을 **실행 횟수**로 변경합니다.
@@ -217,7 +218,7 @@ Advisor 권장 사항에 대해 자세히 알아보거나 적용하려는 경우
 
 쿼리 및 성능 조정 작업의 상관 관계를 파악하면 워크로드를 더 잘 이해할 수 있습니다.
 
-## <a name="optimize-the-query-store-configuration-for-query-performance-insight"></a>Query Performance Insight에 대한 쿼리 저장소 구성 최적화
+## <a name="optimize-the-query-store-configuration"></a>쿼리 저장소 구성 최적화
 
 Query Performance Insight를 사용하는 동안 다음 쿼리 저장소 오류 메시지가 나타날 수 있습니다.
 
@@ -260,7 +261,7 @@ Query Performance Insight를 사용하는 동안 다음 쿼리 저장소 오류 
 
 [SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 또는 Azure Portal을 통해 데이터베이스에 연결하고 다음 쿼리를 실행하여 쿼리 저장소의 크기를 늘립니다. (`YourDB`를 데이터베이스 이름으로 바꿉니다.)
 
-```T-SQL
+```SQL
     ALTER DATABASE [YourDB]
     SET QUERY_STORE (MAX_STORAGE_SIZE_MB = 1024);
 ```
@@ -274,16 +275,6 @@ Query Performance Insight를 사용하는 동안 다음 쿼리 저장소 오류 
     ALTER DATABASE [YourDB] SET QUERY_STORE CLEAR;
 ```
 
-## <a name="summary"></a>요약
-
-Query Performance Insight는 쿼리 워크로드의 영향을 파악하고 그것이 데이터베이스 리소스 사용과 어떻게 관련되는지를 이해하는 데 도움이 됩니다. 이 기능을 통해 데이터베이스에서 사용량이 높은 쿼리에 대해 알아보고, 문제가 되기 전에 최적화할 쿼리를 찾을 수 있습니다.
-
 ## <a name="next-steps"></a>다음 단계
 
-* 데이터베이스 성능 권장 사항의 경우 Query Performance Insight 탐색 블레이드에서 [권장 사항](sql-database-advisor.md)을 선택합니다.
-
-    ![권장 사항 탭](./media/sql-database-query-performance/ia.png)
-
-* 일반적인 데이터베이스 성능 문제의 경우 [자동 조정](sql-database-automatic-tuning.md)을 사용하도록 설정하는 것을 고려합니다.
-* [Intelligent Insights](sql-database-intelligent-insights.md)가 어떻게 자동으로 데이터베이스 성능 문제를 해결하는 데 도움이 되는지에 대해 알아봅니다.
-* 기본 제공 인텔리전스를 사용한 SQL Databases, 탄력적 풀 및 Managed Instances의 대규모 고급 성능 모니터링은 [Azure SQL Analytics]( ../azure-monitor/insights/azure-sql.md) 사용을 고려합니다.
+대량 단일 및 풀링된 데이터베이스, 탄력적 풀, 관리 되는 인스턴스 및 인스턴스 데이터베이스의 고급 성능 모니터링에 [Azure SQL 분석](../azure-monitor/insights/azure-sql.md) 를 사용 하는 것이 좋습니다.

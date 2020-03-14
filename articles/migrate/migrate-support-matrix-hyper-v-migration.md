@@ -4,11 +4,11 @@ description: Azure Migrate를 사용 하 여 Hyper-v 마이그레이션 지원�
 ms.topic: conceptual
 ms.date: 01/08/2020
 ms.openlocfilehash: 1eab96df7ee58a8170f75b41c5a2a06f033ced19
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77064464"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79245825"
 ---
 # <a name="support-matrix-for-hyper-v-migration"></a>Hyper-v 마이그레이션을 위한 지원 매트릭스
 

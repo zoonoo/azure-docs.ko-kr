@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/24/2020
-ms.openlocfilehash: c32e58a43b5409fd9f8ede536167d185270c6a22
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: e83ecb3888ed4b19933233f3ab511d1e86fb37af
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76721577"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136993"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Azure Cognitive Search에서 검색 결과를 사용 하는 방법
 이 문서에서는 총 개수, 문서 검색, 정렬 순서 및 탐색과 같은 검색 결과 페이지의 표준 요소를 구현하는 방법에 대한 지침을 제공합니다. 검색 결과에 데이터 또는 정보를 제공 하는 페이지 관련 옵션은 Azure Cognitive Search 서비스로 전송 되는 [문서 검색](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) 요청을 통해 지정 됩니다. 
@@ -25,7 +25,7 @@ REST API의 요청에는 GET 명령, 경로 및 서비스에 필요한 것과 �
 + 포털에서 [응용 프로그램 생성기](search-create-app-portal.md) 를 사용 하 여 검색 표시줄, 패싯 탐색 및 결과 영역을 포함 하는 HTML 페이지를 만듭니다.
 + 자습서 [의 C# 첫 번째 앱 만들기](tutorial-csharp-create-first-app.md) 를 따라 기능 클라이언트를 만듭니다.
 
-몇 가지 코드 샘플에는 [뉴욕 도시 작업 데모 앱](https://azjobsdemo.azurewebsites.net/), [라이브 데모 사이트를 사용 하는 JavaScript 샘플 코드](https://github.com/liamca/azure-search-javascript-samples), [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd)에서 찾을 수 있는 웹 프런트 엔드 인터페이스가 포함 되어 있습니다.
+몇 가지 코드 샘플에는 [뉴욕 도시 작업 데모 앱](https://aka.ms/azjobsdemo), [라이브 데모 사이트를 사용 하는 JavaScript 샘플 코드](https://github.com/liamca/azure-search-javascript-samples), [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd)에서 찾을 수 있는 웹 프런트 엔드 인터페이스가 포함 되어 있습니다.
 
 > [!NOTE]
 > 유효한 요청에는 서비스 URL 및 경로, HTTP 동사, `api-version` 등과 같은 요소의 숫자가 포함됩니다. 요약하자면, 페이지 매김에 관련된 구문만 강조하기 위해 예제를 잘라냈습니다. 요청 구문에 대 한 자세한 내용은 [Azure COGNITIVE SEARCH REST api](https://docs.microsoft.com/rest/api/searchservice)를 참조 하세요.

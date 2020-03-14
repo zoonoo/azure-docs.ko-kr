@@ -10,27 +10,27 @@ ms.date: 02/07/2020
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: c2d1e8b4975be0657983192df00cc434da00a6f7
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78397217"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79255406"
 ---
 # <a name="create-an-azure-storage-account"></a>Azure Storage 계정 만들기
 
-Azure Storage 계정에는 Blob, 파일, 큐, 테이블, 디스크 등 모든 Azure Storage 데이터 개체가 포함됩니다. 저장소 계정은 Azure Storage 데이터에 대한 고유한 네임 스페이스를 제공하며 전 세계 어디에서나 HTTP 또는 HTTPS를 통해 접근할 수 있게 합니다. Azure Storage 계정의 데이터는 내구성 및 고가용성을 제공하며 안전하고 대규모로 확장 가능합니다.
+Azure Storage 계정에는 Blob, 파일, 큐, 테이블, 디스크 등, 모든 Azure Storage 데이터 개체가 포함됩니다. 저장소 계정은 Azure Storage 데이터에 대한 고유한 네임 스페이스를 제공하며 전 세계 어디에서나 HTTP 또는 HTTPS를 통해 접근할 수 있게 합니다. Azure Storage 계정의 데이터는 내구성 및 고가용성을 제공하며 안전하고 대규모로 확장 가능합니다.
 
 이 방법 문서에서는 [Azure Portal](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview), [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest)또는 [Azure Resource Manager 템플릿을](../../azure-resource-manager/management/overview.md)사용 하 여 저장소 계정을 만드는 방법에 대해 알아봅니다.  
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
-None.
+없음
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -67,7 +67,7 @@ Azure CLI를 로컬에서 설치하여 사용할 수도 있습니다. 이 방법
 
 # <a name="template"></a>[템플릿](#tab/template)
 
-None.
+없음
 
 ---
 
@@ -97,7 +97,7 @@ az login
 
 # <a name="template"></a>[템플릿](#tab/template)
 
-N/A
+해당 없음
 
 ---
 

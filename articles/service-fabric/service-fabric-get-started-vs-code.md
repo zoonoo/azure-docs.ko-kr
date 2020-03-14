@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: article
 ms.date: 06/29/2018
 ms.author: pepogors
-ms.openlocfilehash: 67846293257661a4f7a907d76402d2e98c339225
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.openlocfilehash: 17bff459a0399d39c6bfdd772ad16d0b5b2f6771
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77251637"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79258487"
 ---
 # <a name="service-fabric-for-visual-studio-code"></a>Visual Studio Code용 Service Fabric
 
@@ -48,7 +48,7 @@ Java 개발을 위해서는 다음 필수 구성 요소를 설치해야 합니�
 .NET Core/C# 개발을 위해서는 다음 필수 구성 요소를 설치해야 합니다.
 
 * [.NET Core](https://www.microsoft.com/net/learn/get-started)(버전 2.0.0 이상)
-* [Visual Studio Code용 C#(OmniSharp 제공) VS Code 확장](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) C# 서비스 디버그에 필요합니다. VS Code의 **작업 막대**에서 확장 아이콘을 클릭하고 해당 확장을 검색하거나 VS Code Marketplace에서 설치할 수 있습니다.
+* [Visual Studio Code용 C#(OmniSharp 제공) VS Code 확장](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) C# 서비스 디버그에 필요합니다. VS Code의 **작업 막대**에서 확장 아이콘을 클릭하고 해당 확장을 검색하거나 VS Code Marketplace에서 설치할 수 있습니다.
 
 ## <a name="setup"></a>설치 프로그램
 

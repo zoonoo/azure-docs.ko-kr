@@ -1,24 +1,18 @@
 ---
 title: 2 세대 Vm에 대 한 Azure 지원
 description: 2 세대 Vm에 대 한 Azure 지원 개요
-services: virtual-machines-linux
-documentationcenter: ''
 author: ju-shim
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 02/11/2020
 ms.author: jushiman
-ms.openlocfilehash: 8b1acb4676d97ff16410543828493428059ad0fb
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: b68179caed4df5efd3696d7d6a3739a1e07a3c80
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77919892"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79267301"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Azure의 2 세대 Vm에 대 한 지원
 
@@ -54,7 +48,7 @@ ms.locfileid: "77919892"
 2 세대 Vm은 다음 Marketplace 이미지를 지원 합니다.
 
 * Windows Server 2019, 2016, 2012 R2, 2012
-* Windows 10
+* 윈도우 10
 * SUSE Linux Enterprise Server 15 SP1
 * SUSE Linux Enterprise Server 12 SP4
 * Ubuntu Server 16.04, 18.04, 19.04, 19.10 
@@ -86,7 +80,7 @@ Azure는 현재 온-프레미스 Hyper-v에서 2 세대 Vm에 대해 지 원하�
 
 ### <a name="generation-1-vs-generation-2-capabilities"></a>1 세대와 2 세대의 기능 비교
 
-| Capability | 1세대 | 2세대 |
+| 기능 | 1세대 | 2세대 |
 |------------|--------------|--------------|
 | OS 디스크 > 2tb                    | :x:                | :heavy_check_mark: |
 | 사용자 지정 디스크/이미지/스왑 OS         | :heavy_check_mark: | :heavy_check_mark: |
@@ -102,7 +96,7 @@ Azure는 현재 온-프레미스 Hyper-v에서 2 세대 Vm에 대해 지 원하�
 
 Azure Portal 또는 Azure CLI에서는 UEFI 부팅을 지 원하는 Marketplace 이미지에서 2 세대 Vm을 만들 수 있습니다.
 
-#### <a name="azure-portal"></a>Azure 포털
+#### <a name="azure-portal"></a>Azure portal
 
 Azure Portal에서 2 세대 (Gen2) VM을 만드는 단계는 다음과 같습니다.
 
@@ -157,7 +151,7 @@ OS로 Windows Server 2012를 사용 하 여 VM을 만드는 경우 1 세대 (BIO
     예. 하지만 모든 지역에서 [2 세대 VM 크기](#generation-2-vm-sizes) 를 사용할 수 있는 것은 아닙니다. 2 세대 VM의 가용성은 VM 크기의 가용성에 따라 달라 집니다.
 
 * **1 세대 및 2 세대 Vm 간에 가격 차이가 있나요?**  
-    No.
+    아니요.
 
 * **온-프레미스 2 세대 VM의 .vhd 파일이 있습니다. 이 .vhd 파일을 사용 하 여 Azure에서 2 세대 VM을 만들 수 있나요?**
   예, 2 세대 .vhd 파일을 Azure로 가져와서이를 사용 하 여 2 세대 VM을 만들 수 있습니다. 이렇게 하려면 다음 단계를 사용 합니다.

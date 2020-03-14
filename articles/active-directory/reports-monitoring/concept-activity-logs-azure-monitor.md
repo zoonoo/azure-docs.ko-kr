@@ -18,11 +18,11 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 46e29fff3308f35b16dbff2f9cead82abc222a5c
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014513"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79266547"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor"></a>Azure Monitor의 Azure AD 활동 로그
 
@@ -48,11 +48,11 @@ ms.locfileid: "74014513"
 > B2C 관련 감사 및 로그인 활동 로그는 현재 지원되지 않습니다.
 >
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 기능을 사용하려면 다음이 필요합니다.
 
-* Azure 구독. Azure 구독이 없으면 [평가판](https://azure.microsoft.com/free/)에 등록할 수 있습니다.
+* Azure 구독 Azure 구독이 없으면 [평가판](https://azure.microsoft.com/free/)에 등록할 수 있습니다.
 * Azure Portal에서 Azure AD 감사 로그에 액세스할 수 있는 Azure AD Free, Basic, Premium 1 또는 Premium 2 [라이선스](https://azure.microsoft.com/pricing/details/active-directory/). 
 * Azure AD 테넌트.
 * Azure AD 테넌트의 **글로벌 관리자** 또는 **보안 관리자**인 사용자.

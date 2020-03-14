@@ -10,17 +10,17 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-ms.date: 12/19/2018
-ms.openlocfilehash: 8272867f5b6144b92dbffcf96cc539eb82f75801
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.date: 03/10/2020
+ms.openlocfilehash: bb62b087451140261aee7aaa2fab0de14ea36283
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77587354"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79209457"
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Intelligent Insights Azure SQL Database 성능 진단 로그 사용
 
-이 페이지에서는 [Intelligent Insights](sql-database-intelligent-insights.md)에서 생성된 Azure SQL Database 성능 진단 로그, 해당 형식 및 사용자 지정 개발 요구 사항을 위해 포함된 데이터를 사용하는 방법을 설명합니다. 사용자 지정 DevOps 경고 및 보고 기능을 위해이 진단 로그를 [Azure Monitor 로그](../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../azure-monitor/platform/resource-logs-stream-event-hubs.md), [Azure Storage](sql-database-metrics-diag-logging.md#stream-diagnostic-telemetry-into-azure-storage)또는 타사 솔루션에 보낼 수 있습니다.
+이 페이지에서는 [Intelligent Insights](sql-database-intelligent-insights.md)에서 생성된 Azure SQL Database 성능 진단 로그, 해당 형식 및 사용자 지정 개발 요구 사항을 위해 포함된 데이터를 사용하는 방법을 설명합니다. 사용자 지정 DevOps 경고 및 보고 기능을 위해이 진단 로그를 [Azure Monitor 로그](../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../azure-monitor/platform/resource-logs-stream-event-hubs.md), [Azure Storage](sql-database-metrics-diag-logging.md#stream-into-azure-storage)또는 타사 솔루션에 보낼 수 있습니다.
 
 ## <a name="log-header"></a>로그 헤더
 
@@ -47,8 +47,8 @@ ms.locfileid: "77587354"
 ```json
 "intervalStartTime_t": "2017-9-25 11:00", // start of the issue reported time stamp
 "intervalEndTme_t":"2017-9-25 12:00", // end of the issue reported time stamp
-"elasticPoolName_s" : "", // resource elastic pool (if applicable) 
-"databaseName_s" : "db_name",  // database name
+"elasticPoolName_s" : "", // resource elastic pool (if applicable)
+"databaseName_s" : "db_name", // database name
 "issueId_d" : 1525, // unique ID of the issue detected
 "status_s" : "Active" // status of the issue – possible values: "Active", "Verifying", and "Complete"
 ```
@@ -64,7 +64,7 @@ Intelligent Insights 성능 로그의 다음 섹션에는 기본 제공 인공 �
 "impact" : 1 to 3, // impact of the issue detected, possible values 1-3 (1 low, 2 moderate, 3 high impact)
 "category" : "Detectable performance pattern", // performance issue detected, see the table
 "details": <Details outputted> // details of an issue (see the table)
-}] 
+}]
 ```
 
 진단 로그에 출력되는 검색 가능한 성능 패턴과 세부 정보가 다음 표에 나와 있습니다.
@@ -105,7 +105,7 @@ Intelligent Insights 로그의 다음 섹션에서는 검색된 성능 문제가
 
 ```json
 "impact" : [{
-"entity" : { 
+"entity" : {
 "Type" : "Query", // type of entity - query
 "Value" : "query hash value", // for example "0x9102EXZ4" query hash value },
 "Metric" : "DurationIncreaseSeconds", // measured metric and the measurement unit (in this case seconds)
@@ -137,10 +137,8 @@ Intelligent Insights 성능 로그의 마지막 부분은 식별된 성능 저�
 사용자 지정 DevOps 경고 및 보고 기능을 위해 [Azure Monitor 로그]( https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql) 또는 타사 솔루션과 Intelligent Insights 성능 로그를 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
+
 - [Intelligent Insights](sql-database-intelligent-insights.md) 개념에 대해 알아봅니다.
 - [인텔리전스 Insights를 사용하여 Azure SQL Database 성능 문제를 해결](sql-database-intelligent-insights-troubleshoot-performance.md)하는 방법을 알아봅니다.
 - [Azure SQL Analytics를 사용하여 Azure SQL Database를 모니터링](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql)하는 방법을 알아봅니다.
 - [Azure 리소스에서 로그 데이터 수집 및 소비](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)하는 방법을 알아봅니다.
-
-
-

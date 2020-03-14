@@ -11,11 +11,11 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.openlocfilehash: fcaa7a0c44851d6b48b40b01af4c8ec992c330b8
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77602574"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79283538"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Azure Machine Learning 리소스 및 워크플로에 대 한 인증 설정
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -297,12 +297,12 @@ aci_service.regen_key("Secondary")
 
 ### <a name="token-based-web-service-authentication"></a>토큰 기반 웹 서비스 인증
 
-웹 서비스에 대 한 토큰 인증을 사용 하도록 설정 하는 경우 사용자는 웹 서비스에 액세스 하는 Azure Machine Learning JSON Web Token를 제공 해야 합니다. 토큰은 지정 된 시간 프레임 후에 만료 되므로 계속 호출 하려면 새로 고쳐야 합니다.
+웹 서비스에 대 한 토큰 인증을 사용 하도록 설정 하는 경우 사용자는 웹 서비스에 액세스 하는 Azure Machine Learning JSON Web Token를 제공 해야 합니다. 토큰은 지정된 시간 프레임 후에 만료되므로 계속 호출하려면 새로 고쳐야 합니다.
 
 * 토큰 인증은 Azure Kubernetes Service에 배포할 때 **기본적으로 사용 하지 않도록 설정** 됩니다.
 * Azure Container Instances에 배포 하는 경우에는 토큰 인증이 **지원 되지 않습니다** .
 
-토큰 인증을 제어 하려면 배포를 만들거나 업데이트할 때 `token_auth_enabled` 매개 변수를 사용 합니다.
+토큰 인증을 제어하려면 배포를 만들거나 업데이트할 때 `token_auth_enabled` 매개 변수를 사용합니다.
 
 토큰 인증을 사용 하는 경우 `get_token` 메서드를 사용 하 여 JWT (JSON Web Token) 및 해당 토큰의 만료 시간을 검색할 수 있습니다.
 
@@ -312,7 +312,7 @@ print(token)
 ```
 
 > [!IMPORTANT]
-> 토큰의 `refresh_by` 시간 이후에 새 토큰을 요청 해야 합니다. Python SDK 외부에서 토큰을 새로 고쳐야 하는 경우 한 가지 옵션은 앞에서 설명한 대로 서비스 주체 인증과 함께 REST API를 사용 하 여 주기적으로 `service.get_token()` 호출 하는 것입니다.
+> 토큰의 `refresh_by` 시간 이후 새 토큰을 요청해야 합니다. Python SDK 외부에서 토큰을 새로 고쳐야 하는 경우 한 가지 옵션은 앞에서 설명한 대로 서비스 주체 인증과 함께 REST API를 사용 하 여 주기적으로 `service.get_token()` 호출 하는 것입니다.
 >
 > Azure Kubernetes Service 클러스터와 동일한 지역에 Azure Machine Learning 작업 영역을 만드는 것이 좋습니다. 
 >

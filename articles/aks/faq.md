@@ -4,11 +4,11 @@ description: Azure Kubernetes 서비스 (AKS)에 대 한 일반적인 질문에 
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.openlocfilehash: 1531308a8d0bd5a09952d8ad8ccd03c92f2f99eb
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78374656"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79252949"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 대한 질문과 대답
 

@@ -3,12 +3,12 @@ title: 리소스 공급자 및 리소스 종류
 description: 리소스 관리자, 스키마, 제공되는 API 버전 및 리소스를 호스팅할 수 있는 지역을 지원하는 리소스 공급자에 대해 설명합니다.
 ms.topic: conceptual
 ms.date: 08/29/2019
-ms.openlocfilehash: ce68762dae14f98a751cb4b619b75ff04a5f655b
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: 82b8251006a1a2d4edd198eca843489d3720f8d6
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78372213"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79273983"
 ---
 # <a name="azure-resource-providers-and-types"></a>Azure 리소스 공급자 및 종류
 
@@ -84,7 +84,7 @@ Get-AzResourceProvider -ListAvailable | Select-Object ProviderNamespace, Registr
 
 반환 결과는 다음과 비슷합니다.
 
-```powershell
+```output
 ProviderNamespace                RegistrationState
 -------------------------------- ------------------
 Microsoft.ClassicCompute         Registered
@@ -102,7 +102,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
 
 반환 결과는 다음과 비슷합니다.
 
-```powershell
+```output
 ProviderNamespace : Microsoft.Batch
 RegistrationState : Registering
 ResourceTypes     : {batchAccounts, operations, locations, locations/quotas}
@@ -119,7 +119,7 @@ Get-AzResourceProvider -ProviderNamespace Microsoft.Batch
 
 반환 결과는 다음과 비슷합니다.
 
-```powershell
+```output
 {ProviderNamespace : Microsoft.Batch
 RegistrationState : Registered
 ResourceTypes     : {batchAccounts}
@@ -136,7 +136,7 @@ Locations         : {West Europe, East US, East US 2, West US...}
 
 반환하는 내용은 다음과 같습니다.
 
-```powershell
+```output
 batchAccounts
 operations
 locations
@@ -153,7 +153,7 @@ API 버전은 리소스 공급자가 릴리스하는 REST API 작업의 버전�
 
 반환하는 내용은 다음과 같습니다.
 
-```powershell
+```output
 2017-05-01
 2017-01-01
 2015-12-01
@@ -171,7 +171,7 @@ API 버전은 리소스 공급자가 릴리스하는 REST API 작업의 버전�
 
 반환하는 내용은 다음과 같습니다.
 
-```powershell
+```output
 West Europe
 East US
 East US 2
@@ -189,7 +189,7 @@ az provider list --query "[].{Provider:namespace, Status:registrationState}" --o
 
 반환 결과는 다음과 비슷합니다.
 
-```azurecli
+```output
 Provider                         Status
 -------------------------------- ----------------
 Microsoft.ClassicCompute         Registered
@@ -217,7 +217,7 @@ az provider show --namespace Microsoft.Batch
 
 반환 결과는 다음과 비슷합니다.
 
-```azurecli
+```output
 {
     "id": "/subscriptions/####-####/providers/Microsoft.Batch",
     "namespace": "Microsoft.Batch",
@@ -236,7 +236,7 @@ az provider show --namespace Microsoft.Batch --query "resourceTypes[*].resourceT
 
 반환하는 내용은 다음과 같습니다.
 
-```azurecli
+```output
 Result
 ---------------
 batchAccounts
@@ -255,7 +255,7 @@ az provider show --namespace Microsoft.Batch --query "resourceTypes[?resourceTyp
 
 반환하는 내용은 다음과 같습니다.
 
-```azurecli
+```output
 Result
 ---------------
 2017-05-01
@@ -275,7 +275,7 @@ az provider show --namespace Microsoft.Batch --query "resourceTypes[?resourceTyp
 
 반환하는 내용은 다음과 같습니다.
 
-```azurecli
+```output
 Result
 ---------------
 West Europe

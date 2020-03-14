@@ -12,11 +12,11 @@ ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
 ms.openlocfilehash: 085b907b6a848fb534df63b5465948864048cc19
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78383773"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79256485"
 ---
 # <a name="troubleshooting-sql-analytics-in-azure-synapse"></a>Azure Synapse에서 SQL Analytics 문제 해결
 이 문서에서는 일반적인 문제 해결 질문을 나열합니다.

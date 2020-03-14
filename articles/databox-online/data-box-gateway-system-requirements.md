@@ -9,13 +9,13 @@ ms.topic: article
 ms.date: 05/08/2019
 ms.author: alkohli
 ms.openlocfilehash: e8932097bcdef782b1a551d386c2872e02d8abfd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65442391"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79260190"
 ---
-# <a name="azure-data-box-gateway-system-requirements"></a>Azure 데이터 상자 Gateway 시스템 요구 사항
+# <a name="azure-data-box-gateway-system-requirements"></a>Azure Data Box Gateway 시스템 요구 사항
 
 이 문서에서는 Microsoft Azure Data Box Gateway 솔루션 및 Azure Data Box Gateway에 연결하는 클라이언트에 대한 중요한 시스템 요구 사항을 설명합니다. Data Box Gateway를 배포하기 전에 정보를 신중하게 검토하고 배포 및 후속 작업 중 필요에 따라 다시 검토하는 것이 좋습니다.
 
@@ -29,12 +29,12 @@ Data Box Gateway 가상 디바이스의 시스템 요구 사항은 다음과 같
 
 Data Box Gateway용 기본 호스트 시스템은 다음 리소스를 전용으로 사용하여 다음과 같은 가상 디바이스를 프로비전할 수 있습니다.
 
-| 사양                                          | 설명              |
+| 사양                                          | Description              |
 |---------------------------------------------------------|--------------------------|
 | 가상 프로세서(코어)   | 최소 4개 |
 | 메모리  | 최소 8GB|
 | 가용성|단일 노드|
-| 디스크| OS 디스크: 250GB <br> 데이터 디스크: 최소 2TB, 씬 프로비저닝 및 SSD를 통해 지원해야 함|
+| 디스크| OS 디스크: 250GB <br> 데이터 디스크: 최소 2TB(씬 프로비저닝), SSD를 통해 지원해야 함|
 | 네트워크 인터페이스|가상 네트워크 인터페이스 하나 이상|
 
 

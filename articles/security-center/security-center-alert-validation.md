@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 10ea15168d61d5e73aff976ef641e07b6327dbca
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 5146878adf10e452f38fecb115ec40792ffa84f3
+ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77604573"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79140000"
 ---
 # <a name="alert-validation-eicar-test-file-in-azure-security-center"></a>Azure Security Center의 경고 유효성 검사 (EICAR 테스트 파일)
 이 문서에서는 시스템이 Azure Security Center 경고에 대해 제대로 구성되었는지 확인하는 방법을 알아봅니다.
@@ -75,8 +75,7 @@ Azure Kubernetes Service와 Azure Security Center를 통합 하는 방법에 대
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 경고 유효성 검사 프로세스에 대해 소개했습니다. 이제 유효성 검사에 익숙해졌으므로 다음 문서를 시도해 보세요.
 
+* [Azure Security Center에서 Azure Key Vault 위협 검색의 유효성 검사](https://techcommunity.microsoft.com/t5/azure-security-center/validating-azure-key-vault-threat-detection-in-azure-security/ba-p/1220336)
 * [Azure Security Center에서 보안 경고 관리 및 대응](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts) -경고를 관리 하 고 Security Center의 보안 인시던트에 대응 하는 방법을 알아봅니다.
 * [Azure Security Center에서 보안 상태 모니터링](security-center-monitoring.md) - Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.
 * [Azure Security Center의 보안 경고 이해](https://docs.microsoft.com/azure/security-center/security-center-alerts-type) -다양 한 유형의 보안 경고에 대해 알아봅니다.
-* [Azure Security Center 문제 해결 가이드](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide) -Security Center의 일반적인 문제를 해결 하는 방법을 알아봅니다.
-* [Azure 보안 블로그](https://blogs.msdn.com/b/azuresecurity/) -azure 보안 및 규정 준수에 대 한 블로그 게시물을 찾습니다.

@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 12/1/2016
 ms.author: alkohli
 ms.openlocfilehash: 92671206a4171ca838423f55b526191ef30e5c35
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78365712"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79254730"
 ---
 # <a name="use-the-web-ui-to-administer-your-storsimple-virtual-array"></a>웹 UI를 사용하여 StorSimple 가상 배열 관리
 ![설정 프로세스 흐름](./media/storsimple-ova-web-ui-admin/manage4.png)

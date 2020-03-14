@@ -11,17 +11,17 @@ ms.author: srbozovi
 ms.reviewer: vanto, carlrab
 ms.date: 05/07/2019
 ms.openlocfilehash: 1acd7d6a3b203997e3acd8d7959b1572e09845f3
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227996"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79256160"
 ---
 # <a name="configure-public-endpoint-in-azure-sql-database-managed-instance"></a>Azure SQL Database 관리 되는 인스턴스에서 공용 끝점 구성
 
 [관리 되는 인스턴스의](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index) 공용 끝점은 [가상 네트워크](../virtual-network/virtual-networks-overview.md)외부에서 관리 되는 인스턴스에 대 한 데이터 액세스를 가능 하 게 합니다. Power BI, Azure App Service 또는 온-프레미스 네트워크와 같은 다중 테 넌 트 Azure 서비스에서 관리 되는 인스턴스에 액세스할 수 있습니다. 관리 되는 인스턴스의 공용 끝점을 사용 하 여 vpn 처리량 문제를 방지 하는 데 도움이 될 수 있는 VPN을 사용할 필요가 없습니다.
 
-이 문서에서는 다음 방법을 설명합니다.
+이 문서에서는 다음을 수행하는 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > - Azure Portal에서 관리 되는 인스턴스에 대 한 공용 끝점 사용
@@ -92,14 +92,14 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
 
 1. **인바운드 보안 규칙** 탭을 선택 하 고 다음 설정을 사용 하 여 **deny_all_inbound** 규칙 보다 우선 순위가 높은 규칙을 **추가** 합니다. </br> </br>
 
-    |설정  |제안 값  |설명  |
+    |설정  |제안 값  |Description  |
     |---------|---------|---------|
     |**원본**     |모든 IP 주소 또는 서비스 태그         |<ul><li>Power BI와 같은 Azure 서비스의 경우 Azure 클라우드 서비스 태그를 선택 합니다.</li> <li>컴퓨터 또는 Azure VM의 경우 NAT IP 주소를 사용 합니다.</li></ul> |
     |**원본 포트 범위**     |*         |원본 포트가 일반적으로 동적으로 할당 되 고 예측할 수 없기 때문에 * (모두)로 그대로 둡니다. |
-    |**대상이**     |모두         |관리 되는 인스턴스 서브넷으로의 트래픽을 허용 하는 대상으로 유지 |
+    |**대상**     |모두         |관리 되는 인스턴스 서브넷으로의 트래픽을 허용 하는 대상으로 유지 |
     |**대상 포트 범위**     |3342         |대상 포트의 범위를 3342로,이는 관리 되는 인스턴스 공용 TDS 끝점입니다. |
     |**프로토콜**     |TCP         |관리 되는 인스턴스가 TDS에 TCP 프로토콜을 사용 합니다. |
-    |**작업**     |Allow         |공용 끝점을 통해 관리 되는 인스턴스에 대 한 인바운드 트래픽 허용 |
+    |**동작**     |Allow         |공용 끝점을 통해 관리 되는 인스턴스에 대 한 인바운드 트래픽 허용 |
     |**우선 순위**     |1300         |이 규칙이 **deny_all_inbound** 규칙 보다 높은 우선 순위 인지 확인 합니다. |
 
     ![mi-nsg-rules.png](media/sql-database-managed-instance-public-endpoint-configure/mi-nsg-rules.png)
@@ -110,7 +110,7 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
 ## <a name="obtaining-the-managed-instance-public-endpoint-connection-string"></a>관리 되는 인스턴스 공용 끝점 연결 문자열 가져오기
 
 1. 공용 끝점에 대해 사용 하도록 설정 된 SQL 관리 되는 인스턴스 구성 페이지로 이동 합니다. **설정** 구성에서 **연결 문자열** 탭을 선택 합니다.
-1. 공용 끝점 호스트 이름은 < mi_name > 형식으로 제공 됩니다.< dns_zone >. net.tcp를 사용 하 고 연결에 사용 되는 포트는 3342입니다.
+1. 공용 끝점 호스트 이름은 < mi_name > 형식으로 제공 됩니다. **public**< dns_zone >. net.tcp를 사용 하 고 연결에 사용 되는 포트는 3342입니다.
 
     ![mi-public-endpoint-conn-string.png](media/sql-database-managed-instance-public-endpoint-configure/mi-public-endpoint-conn-string.png)
 

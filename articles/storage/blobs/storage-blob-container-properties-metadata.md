@@ -8,16 +8,16 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 12/04/2019
 ms.author: tamram
-ms.openlocfilehash: 17ed10d424d606091bd2b7d6f3e325955c48a5a2
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: c66b521b5cd75825fcafe07b24d5d527c45f5153
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894201"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79135924"
 ---
 # <a name="manage-container-properties-and-metadata-with-net"></a>.NET을 사용 하 여 컨테이너 속성 및 메타 데이터 관리
 
-Blob 컨테이너는 시스템 속성 및 사용자 정의 메타 데이터와 포함 된 데이터를 지원 합니다. 이 문서에서는 [.net 용 Azure Storage 클라이언트 라이브러리](/dotnet/api/overview/azure/storage/client)를 사용 하 여 시스템 속성 및 사용자 정의 메타 데이터를 관리 하는 방법을 보여 줍니다.
+Blob 컨테이너는 시스템 속성 및 사용자 정의 메타 데이터와 포함 된 데이터를 지원 합니다. 이 문서에서는 [.net 용 Azure Storage 클라이언트 라이브러리](/dotnet/api/overview/azure/storage?view=azure-dotnet)를 사용 하 여 시스템 속성 및 사용자 정의 메타 데이터를 관리 하는 방법을 보여 줍니다.
 
 ## <a name="about-properties-and-metadata"></a>속성 및 메타 데이터 정보
 
