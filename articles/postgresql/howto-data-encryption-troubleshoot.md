@@ -1,17 +1,17 @@
 ---
-title: Azure Database for PostgreSQL에서 데이터 암호화 문제 해결-단일 서버
+title: 데이터 암호화 문제 해결-Azure Database for PostgreSQL 단일 서버
 description: Azure Database for PostgreSQL-단일 서버에서 데이터 암호화 문제를 해결 하는 방법을 알아봅니다.
 author: kummanish
 ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.openlocfilehash: bd3303117bae307bb562390cec1fdfb62c01b7c6
-ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
+ms.openlocfilehash: 2902ff17ac14a48f1a11259339c2ab1bc4595980
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78851080"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79299263"
 ---
 # <a name="troubleshoot-data-encryption-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL에서 데이터 암호화 문제 해결-단일 서버
 

@@ -1,21 +1,21 @@
 ---
-title: Azure Database for PostgreSQL-단일 서버 (미리 보기)에 대 한 개인 링크
+title: 개인 링크-Azure Database for PostgreSQL 단일 서버
 description: 개인 링크가 Azure Database for PostgreSQL 단일 서버에서 작동 하는 방식에 대해 알아봅니다.
 author: kummanish
 ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/09/2020
-ms.openlocfilehash: e3667a60a326838b490f9082fd55bdc92d038cf9
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.date: 03/10/2020
+ms.openlocfilehash: 4216abdf8cc8aae00e3ba0c57961c4b8b7403672
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75898366"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79371684"
 ---
-# <a name="private-link-for-azure-database-for-postgresql-single-server-preview"></a>Azure Database for PostgreSQL-단일 서버 (미리 보기)에 대 한 개인 링크
+# <a name="private-link-for-azure-database-for-postgresql-single-server"></a>Azure Database for PostgreSQL에 대 한 개인 링크-단일 서버
 
-개인 링크를 사용 하면 개인 끝점을 통해 Azure의 다양 한 PaaS 서비스에 연결할 수 있습니다. Azure 개인 링크는 기본적으로 VNet (개인 Virtual Network) 내에 Azure 서비스를 제공 합니다. PaaS 리소스는 VNet의 다른 리소스와 마찬가지로 개인 IP 주소를 사용 하 여 액세스할 수 있습니다.
+개인 링크를 사용 하면 Azure Database for PostgreSQL 단일 서버에 대 한 개인 끝점을 만들 수 있으므로 VNet (개인 Virtual Network) 내에 Azure 서비스를 사용할 수 있습니다. 개인 끝점은 VNet의 다른 리소스와 마찬가지로 데이터베이스 서버에 연결 하는 데 사용할 수 있는 개인 IP를 노출 합니다.
 
 개인 링크 기능을 지 원하는 PaaS 서비스 목록을 보려면 개인 링크 [설명서](https://docs.microsoft.com/azure/private-link/index)를 검토 하세요. 프라이빗 엔드포인트는 특정 [VNet](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) 및 서브넷 내의 개인 IP 주소입니다.
 
@@ -57,10 +57,7 @@ Azure Database for PostgreSQL 단일 서버에서 데이터를 필터링 하는 
 * [CLI](https://docs.microsoft.com/azure/postgresql/howto-configure-privatelink-cli)
 
 ### <a name="approval-process"></a>승인 프로세스
-네트워크 관리자가 PE (개인 끝점)를 만든 후에는 PostgreSQL 관리자가 PEC (개인 끝점 연결)를 관리 하 여 Azure Database for PostgreSQL 수 있습니다.
-
-> [!NOTE]
-> 현재 단일 서버 Azure Database for PostgreSQL 개인 끝점에 대 한 자동 승인만 지원 합니다.
+네트워크 관리자가 PE (개인 끝점)를 만든 후에는 PostgreSQL 관리자가 PEC (개인 끝점 연결)를 관리 하 여 Azure Database for PostgreSQL 수 있습니다. 네트워크 관리자와 DBA 간의 이러한 업무 분리는 Azure Database for PostgreSQL 연결을 관리 하는 데 유용 합니다. 
 
 * Azure Portal에서 Azure Database for PostgreSQL 서버 리소스로 이동 합니다. 
     * 왼쪽 창에서 개인 끝점 연결을 선택 합니다.
@@ -83,7 +80,7 @@ Azure Database for PostgreSQL 단일 서버에서 데이터를 필터링 하는 
 
 ## <a name="use-cases-of-private-link-for-azure-database-for-postgresql"></a>Azure Database for PostgreSQL에 대 한 개인 링크 사용 사례
 
-클라이언트는 동일한 VNet에서 프라이빗 엔드포인트에 연결하거나, 동일한 지역에서 피어링된 VNet에 연결하거나, 여러 지역의 VNet 간 연결을 통해 연결할 수 있습니다. 또한 클라이언트는 ExpressRoute, 프라이빗 피어링 또는 VPN 터널링을 사용하여 온-프레미스에서 연결할 수 있습니다. 다음은 일반적인 사용 사례를 보여 주는 간소화된 다이어그램입니다.
+클라이언트는 동일한 VNet, 동일한 지역의 피어 링 VNet 또는 지역 간에 VNet 간 연결을 통해 개인 끝점에 연결할 수 있습니다. 또한 클라이언트는 ExpressRoute, 프라이빗 피어링 또는 VPN 터널링을 사용하여 온-프레미스에서 연결할 수 있습니다. 다음은 일반적인 사용 사례를 보여 주는 간소화된 다이어그램입니다.
 
 ![개인 끝점 개요를 선택 합니다.](media/concepts-data-access-and-security-private-link/show-private-link-overview.png)
 
@@ -109,6 +106,19 @@ Azure Database for PostgreSQL 단일 서버에서 데이터를 필터링 하는 
 * 공용 트래픽 또는 서비스 끝점을 구성 하 고 개인 끝점을 만드는 경우 해당 유형의 방화벽 규칙에 따라 들어오는 트래픽 유형이 서로 다릅니다.
 
 * 공용 트래픽 또는 서비스 끝점을 구성 하지 않고 개인 끝점을 만들 경우 Azure Database for PostgreSQL 단일 서버는 전용 끝점을 통해서만 액세스할 수 있습니다. 공용 트래픽 또는 서비스 끝점을 구성 하지 않은 경우 승인 된 모든 개인 끝점을 거부 하거나 삭제 한 후에는 모든 트래픽이 Azure Database for PostgreSQL 단일 서버에 액세스할 수 없게 됩니다.
+
+## <a name="deny-public-access-for-azure-database-for-postgresql-single-server"></a>Azure Database for PostgreSQL 단일 서버에 대 한 공용 액세스 거부
+
+Azure Database for PostgreSQL 단일 서버에 액세스 하기 위한 전용 끝점만 사용 하려면 데이터베이스 서버에서 **공용 네트워크 액세스 거부** 구성을 설정 하 여 모든 공용 끝점 ([방화벽 규칙](concepts-firewall-rules.md) 및 [VNet 서비스 끝점](concepts-data-access-and-security-vnet.md))의 설정을 사용 하지 않도록 설정할 수 있습니다. 
+
+이 설정이 *예* 로 설정 된 경우 개인 끝점을 통한 연결만 Azure Database for PostgreSQL 허용 됩니다. 이 설정을로 설정 하면 클라이언트는 방화벽 또는 VNet 서비스 끝점 설정에 따라 Azure Database for PostgreSQL에 연결할 수 *없습니다* . 또한 개인 네트워크 액세스 값이 고객으로 설정 되 면 기존 ' 방화벽 규칙 ' 및 ' VNet 서비스 끝점 규칙을 추가 및/또는 업데이트할 수 없습니다.
+
+> [!Note]
+> 이 기능은 Azure Database for PostgreSQL 단일 서버가 범용 및 메모리 액세스에 최적화 된 가격 책정 계층을 지 원하는 모든 Azure 지역에서 사용할 수 있습니다.
+>
+> 이 설정은 Azure Database for PostgreSQL 단일 서버에 대 한 SSL 및 TLS 구성에 영향을 주지 않습니다.
+
+Azure Portal에서 Azure Database for PostgreSQL 단일 서버에 대 한 **공용 네트워크 액세스 거부** 를 설정 하는 방법을 알아보려면 [공용 네트워크 액세스 거부를 구성 하는 방법](howto-deny-public-network-access.md)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

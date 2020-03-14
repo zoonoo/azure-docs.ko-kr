@@ -1,30 +1,47 @@
 ---
-title: HTTP 및 HTTPS 끝점 호출
-description: Azure Logic Apps를 사용 하 여 HTTP 및 HTTPS 끝점에 보내는 요청 보내기
+title: HTTP 또는 HTTPS를 사용 하 여 서비스 끝점 호출
+description: Azure Logic Apps에서 서비스 끝점으로 아웃 바운드 HTTP 또는 HTTPS 요청을 보냅니다.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 03/12/2020
 tags: connectors
-ms.openlocfilehash: 9c1b2af8d06c9466ed6c82308de941b43510238a
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 8aefe851708c0b8d8780d03e4364e034e783bf4a
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77117985"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79297209"
 ---
-# <a name="send-outgoing-calls-to-http-or-https-endpoints-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용 하 여 HTTP 또는 HTTPS 끝점에 보내는 호출 보내기
+# <a name="call-service-endpoints-over-http-or-https-from-azure-logic-apps"></a>Azure Logic Apps에서 HTTP 또는 HTTPS를 통해 서비스 끝점 호출
 
-[Azure Logic Apps](../logic-apps/logic-apps-overview.md) 및 기본 제공 http 트리거 또는 작업을 사용 하 여 HTTP 또는 HTTPS 끝점으로 요청을 정기적으로 전송 하는 자동화 된 작업 및 워크플로를 만들 수 있습니다. 들어오는 HTTP 또는 HTTPS 호출을 수신 하 고 대신 응답 하려면 기본 제공 [요청 트리거 또는 응답 작업](../connectors/connectors-native-reqres.md)을 사용 합니다.
+[Azure Logic Apps](../logic-apps/logic-apps-overview.md) 및 기본 제공 http 트리거 또는 작업을 사용 하 여 HTTP 또는 HTTPS를 통해 서비스 끝점에 요청을 보내는 자동화 된 작업 및 워크플로를 만들 수 있습니다. 예를 들어 특정 일정에 따라 해당 끝점을 확인 하 여 웹 사이트에 대 한 서비스 끝점을 모니터링할 수 있습니다. 웹 사이트의 작동이 중단 되는 경우와 같이 해당 끝점에서 지정 된 이벤트가 발생 하면 이벤트는 논리 앱의 워크플로를 트리거하고 해당 워크플로에서 작업을 실행 합니다. 대신 인바운드 HTTPS 호출을 수신 하 고 응답 하려면 기본 제공 [요청 트리거 또는 응답 작업](../connectors/connectors-native-reqres.md)을 사용 합니다.
 
-예를 들어 지정 된 일정에 따라 해당 끝점을 확인 하 여 웹 사이트에 대 한 서비스 끝점을 모니터링할 수 있습니다. 웹 사이트의 작동이 중단 되는 경우와 같이 해당 끝점에서 특정 이벤트가 발생 하면 이벤트는 논리 앱의 워크플로를 트리거하고 지정 된 작업을 실행 합니다.
+> [!NOTE]
+> 대상 끝점의 기능을 기반으로 하는 HTTP 커넥터는 TLS (전송 계층 보안) 버전 1.0, 1.1 및 1.2을 지원 합니다. 가능 하면 지원 되는 가장 높은 버전을 사용 하 여 끝점에 대 한 Logic Apps 협상 합니다. 따라서 예를 들어 끝점이 1.2을 지 원하는 경우 커넥터는 1.2를 먼저 사용 합니다. 그렇지 않으면 커넥터에서 지원 되는 가장 높은 다음 버전을 사용 합니다.
 
-정기적으로 끝점을 검사 하거나 *폴링하기* 위해 워크플로의 첫 단계로 HTTP 트리거를 사용할 수 있습니다. 각 검사에서 트리거는 엔드포인트에 호출 또는 *요청*을 전송합니다. 엔드포인트의 응답은 논리 앱의 워크플로가 실행될지 여부를 결정합니다. 트리거는 응답에서 논리 앱의 작업으로 모든 콘텐츠를 전달합니다.
+되풀이 일정에 따라 끝점을 검사 하거나 *폴링* 하려면 워크플로의 첫 단계로 [HTTP 트리거를 추가](#http-trigger) 합니다. 트리거에서 끝점을 확인할 때마다 트리거는 끝점에 *요청* 을 호출 하거나 보냅니다. 엔드포인트의 응답은 논리 앱의 워크플로가 실행될지 여부를 결정합니다. 트리거는 끝점의 응답에서 논리 앱의 동작에 대 한 모든 콘텐츠를 전달 합니다.
 
-원하는 경우 엔드포인트 호출을 위해 워크플로의 다른 단계로 HTTP 작업을 사용할 수 있습니다. 엔드포인트의 응답은 워크플로의 나머지 작업을 실행하는 방법을 결정합니다.
+워크플로의 다른 위치에서 끝점을 호출 하려면 [HTTP 작업을 추가](#http-action)합니다. 엔드포인트의 응답은 워크플로의 나머지 작업을 실행하는 방법을 결정합니다.
 
-대상 끝점의 기능을 기반으로 하는 HTTP 커넥터는 TLS (전송 계층 보안) 버전 1.0, 1.1 및 1.2을 지원 합니다. 가능 하면 지원 되는 가장 높은 버전을 사용 하 여 끝점에 대 한 Logic Apps 협상 합니다. 따라서 예를 들어 끝점이 1.2을 지 원하는 경우 커넥터는 1.2를 먼저 사용 합니다. 그렇지 않으면 커넥터에서 지원 되는 가장 높은 다음 버전을 사용 합니다.
+> [!IMPORTANT]
+> HTTP 트리거 또는 작업에 이러한 헤더가 포함 된 경우 Logic Apps는 경고 또는 오류를 표시 하지 않고 생성 된 요청 메시지에서 이러한 헤더를 제거 합니다.
+>
+> * `Accept-*`
+> * `Allow`
+> * 다음과 같은 예외를 `Content-*` `Content-Disposition`, `Content-Encoding`및 `Content-Type`
+> * `Cookie`
+> * `Expires`
+> * `Host`
+> * `Last-Modified`
+> * `Origin`
+> * `Set-Cookie`
+> * `Transfer-Encoding`
+>
+> Logic Apps에서 HTTP 트리거 또는 작업을 사용 하는 논리 앱을 이러한 헤더와 함께 저장 하는 것을 중지 하지는 않지만 Logic Apps는 이러한 헤더를 무시 합니다.
+
+이 문서에서는 논리 앱의 워크플로에 HTTP 트리거 또는 작업을 추가 하는 방법을 보여 줍니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -36,13 +53,15 @@ ms.locfileid: "77117985"
 
 * 대상 끝점을 호출 하려는 논리 앱입니다. HTTP 트리거를 시작 하려면 [빈 논리 앱을 만듭니다](../logic-apps/quickstart-create-first-logic-app-workflow.md). HTTP 작업을 사용 하려면 원하는 트리거를 사용 하 여 논리 앱을 시작 합니다. 이 예제에서는 첫 번째 단계로 HTTP 트리거를 사용 합니다.
 
+<a name="http-trigger"></a>
+
 ## <a name="add-an-http-trigger"></a>HTTP 트리거 추가
 
 이 기본 제공 트리거는 끝점에 대해 지정 된 URL에 대 한 HTTP 호출을 수행 하 고 응답을 반환 합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 논리 앱 디자이너에서 빈 논리 앱을 엽니다.
 
-1. **작업 선택**아래의 검색 상자에 "http"를 필터로 입력 합니다. **트리거** 목록에서 **HTTP** 트리거를 선택 합니다.
+1. 디자이너의 검색 상자 아래에서 **기본 제공**을 선택 합니다. 검색 상자에서 필터로 `http`을 입력합니다. **트리거** 목록에서 **HTTP** 트리거를 선택 합니다.
 
    ![HTTP 트리거 선택](./media/connectors-native-http/select-http-trigger.png)
 
@@ -63,6 +82,8 @@ ms.locfileid: "77117985"
 
 1. 완료 되 면 논리 앱을 저장 해야 합니다. 디자이너 도구 모음에서 **저장**을 선택합니다.
 
+<a name="http-action"></a>
+
 ## <a name="add-an-http-action"></a>HTTP 동작 추가
 
 이 기본 제공 작업은 끝점에 대해 지정 된 URL에 대 한 HTTP 호출을 수행 하 고 응답을 반환 합니다.
@@ -75,7 +96,7 @@ ms.locfileid: "77117985"
 
    단계 사이에서 작업을 추가하려면 단계 사이에 있는 화살표 위로 포인터를 이동합니다. 표시 되는 더하기 기호 ( **+** )를 선택 하 고 **작업 추가**를 선택 합니다.
 
-1. **작업 선택**아래의 검색 상자에 "http"를 필터로 입력 합니다. **작업** 목록에서 **HTTP** 작업을 선택 합니다.
+1. **작업 선택** 아래에서 **기본 제공**을 선택합니다. 검색 상자에서 필터로 `http`을 입력합니다. **작업** 목록에서 **HTTP** 작업을 선택 합니다.
 
    ![HTTP 작업 선택](./media/connectors-native-http/select-http-action.png)
 

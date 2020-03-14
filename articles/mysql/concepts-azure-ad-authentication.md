@@ -1,17 +1,17 @@
 ---
-title: Active Directory 인증-Azure Database for MySQL 단일 서버
-description: Azure Database for MySQL 단일 서버 인증을 위한 Azure Active Directory의 개념에 대해 알아봅니다.
+title: Active Directory 인증-Azure Database for MySQL
+description: 을 사용 하 여 인증 Azure Active Directory의 개념에 대해 알아봅니다 Azure Database for MySQL
 author: lfittl-msft
 ms.author: lufittl
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/22/2019
-ms.openlocfilehash: eb26bc09ce273280b55a023c563427b5b323ace9
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 960536c3f80aa7870d6f2056d8e95cd1a4338dfe
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76706103"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79299025"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-mysql"></a>MySQL을 사용 하 여 인증을 위해 Azure Active Directory 사용
 
@@ -43,7 +43,7 @@ Azure Active Directory 인증을 구성 하 고 사용 하려면 다음 프로�
 > [!NOTE]
 > Azure AD를 만들고 채운 후 Azure Database for MySQL를 사용 하 여 Azure AD를 구성 하는 방법을 알아보려면 [Azure Database for MySQL에 대해 AZURE ad를 사용 하 여 구성 및 로그인](howto-configure-sign-in-azure-ad-authentication.md)을 참조 하세요.
 
-## <a name="architecture"></a>아키텍처
+## <a name="architecture"></a>Architecture
 
 다음 고급 다이어그램은 Azure Database for MySQL에서 Azure AD 인증을 사용 하 여 인증을 작동 하는 방법을 요약 합니다. 화살표는 통신 경로 나타냅니다.
 
@@ -55,7 +55,7 @@ Azure AD 인증을 사용 하는 경우 MySQL 서버에 대해 두 개의 관리
 
 ![관리자 구조][2]
 
-## <a name="permissions"></a>권한
+## <a name="permissions"></a>사용 권한
 
 Azure AD를 사용 하 여 인증할 수 있는 새 사용자를 만들려면 Azure AD 관리자 여야 합니다. 이 사용자는 특정 Azure Database for MySQL 서버에 대 한 Azure AD 관리자 계정을 구성 하 여 할당 됩니다.
 
@@ -90,7 +90,7 @@ Active Directory에 대해 인증 된 후에는 토큰을 검색 합니다. 이 
 ## <a name="next-steps"></a>다음 단계
 
 - Azure AD를 만들고 채운 후 Azure Database for MySQL를 사용 하 여 Azure AD를 구성 하는 방법을 알아보려면 [Azure Database for MySQL에 대해 AZURE ad를 사용 하 여 구성 및 로그인](howto-configure-sign-in-azure-ad-authentication.md)을 참조 하세요.
-- Azure Database for MySQL에 대 한 로그인 및 데이터베이스 사용자에 대 한 개요는 [Azure Database for MySQL에서 사용자 만들기-단일 서버](howto-create-users.md)를 참조 하세요.
+- 로그인 및 Azure Database for MySQL에 대 한 데이터베이스 사용자에 대 한 개요는 [Azure Database for MySQL에서 사용자 만들기](howto-create-users.md)를 참조 하세요.
 
 <!--Image references-->
 

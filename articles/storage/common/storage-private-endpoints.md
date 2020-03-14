@@ -1,32 +1,35 @@
 ---
-title: Azure Storage에서 전용 끝점 사용 | Microsoft Docs
+title: 전용 끝점 사용
+titleSuffix: Azure Storage
 description: 가상 네트워크에서 저장소 계정에 안전 하 게 액세스 하기 위한 개인 끝점의 개요입니다.
 services: storage
 author: santoshc
 ms.service: storage
 ms.topic: article
-ms.date: 09/25/2019
+ms.date: 03/12/2020
 ms.author: santoshc
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 44d8a9e71b0415dc5dc7f5d31441bdc1e2aeb372
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: c51f2db698f30368c9d4090d3d571fa0c131178a
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78252655"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79299059"
 ---
-# <a name="using-private-endpoints-for-azure-storage-preview"></a>Azure Storage에 대 한 개인 끝점 사용 (미리 보기)
+# <a name="use-private-endpoints-for-azure-storage"></a>Azure Storage에 대 한 개인 끝점 사용
 
 Azure Storage 계정에 대해 [개인 끝점](../../private-link/private-endpoint-overview.md) 을 사용 하 여 VNet (가상 네트워크)의 클라이언트가 [개인 링크](../../private-link/private-link-overview.md)를 통해 안전 하 게 데이터에 액세스할 수 있도록 할 수 있습니다. 개인 끝점은 저장소 계정 서비스에 대 한 VNet 주소 공간의 IP 주소를 사용 합니다. VNet 및 저장소 계정의 클라이언트 간의 네트워크 트래픽은 VNet을 통해 이동 하 여 공용 인터넷에서 노출 되는 것을 제거 하는 Microsoft 백본 네트워크의 개인 링크를 통해 이동 합니다.
 
 저장소 계정에 대해 개인 끝점을 사용 하면 다음 작업을 수행할 수 있습니다.
+
 - 저장소 서비스에 대 한 공용 끝점의 모든 연결을 차단 하도록 저장소 방화벽을 구성 하 여 저장소 계정을 보호 합니다.
 - Vnet에서 데이터의 반출을 차단할 수 있도록 하 여 vnet (가상 네트워크)에 대 한 보안을 강화 합니다.
 - 개인 피어 링을 사용 하 여 [VPN](../../vpn-gateway/vpn-gateway-about-vpngateways.md) 또는 [연결할 expressroutes](../../expressroute/expressroute-locations.md) 를 사용 하 여 VNet에 연결 하는 온-프레미스 네트워크에서 저장소 계정에 안전 하 게 연결 합니다.
 
 ## <a name="conceptual-overview"></a>개념적 개요
-![Azure Storage 개요에 대 한 개인 끝점](media/storage-private-endpoints/storage-private-endpoints-overview.jpg)
+
+![Azure Storage에 대 한 개인 끝점 개요](media/storage-private-endpoints/storage-private-endpoints-overview.jpg)
 
 개인 끝점은 VNet ( [Virtual Network](../../virtual-network/virtual-networks-overview.md) )의 Azure 서비스에 대 한 특별 한 네트워크 인터페이스입니다. 저장소 계정에 대 한 개인 끝점을 만들 때 VNet 및 저장소의 클라이언트 간에 보안 연결을 제공 합니다. 개인 끝점에는 VNet의 IP 주소 범위에서 IP 주소가 할당 됩니다. 개인 끝점과 저장소 서비스 간의 연결은 보안 개인 링크를 사용 합니다.
 
@@ -43,7 +46,7 @@ VNet에서 스토리지 서비스에 대한 프라이빗 엔드포인트를 만�
 
 기본적으로 공용 끝점을 통해 액세스를 거부 하도록 [저장소 방화벽을 구성](storage-network-security.md#change-the-default-network-access-rule) 하 여 VNet의 연결만 허용 하도록 저장소 계정을 보호할 수 있습니다. 저장소 방화벽은 공용 끝점을 통해서만 액세스를 제어 하므로 개인 끝점이 있는 VNet의 트래픽을 허용 하는 방화벽 규칙이 필요 하지 않습니다. 대신 개인 끝점은 서브넷에 저장소 서비스에 대 한 액세스 권한을 부여 하는 동의 흐름을 사용 합니다.
 
-### <a name="private-endpoints-for-storage-service"></a>저장소 서비스에 대 한 개인 끝점
+### <a name="private-endpoints-for-azure-storage"></a>Azure Storage에 대 한 개인 끝점
 
 개인 끝점을 만들 때 저장소 계정 및 해당 끝점을 연결 하는 저장소 서비스를 지정 해야 합니다. 액세스 해야 하는 저장소 계정 (즉, [blob](../blobs/storage-blobs-overview.md), [Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md), [파일](../files/storage-files-introduction.md), [큐](../queues/storage-queues-introduction.md), [테이블](../tables/table-storage-overview.md)또는 [정적 웹 사이트](../blobs/storage-blob-static-website.md))의 각 저장소 서비스에 대해 별도의 개인 끝점이 필요 합니다.
 
@@ -51,8 +54,6 @@ VNet에서 스토리지 서비스에 대한 프라이빗 엔드포인트를 만�
 > RA GRS 계정에 대 한 읽기 성능을 향상 시키기 위해 저장소 서비스의 보조 인스턴스에 대 한 별도의 개인 끝점을 만듭니다.
 
 지역 중복 저장소에 대해 구성 된 저장소 계정을 사용 하 여 보조 지역에 대 한 읽기 액세스의 경우 서비스의 기본 및 보조 인스턴스에 대해 별도의 개인 끝점을 사용 해야 합니다. **장애 조치 (failover)** 를 위해 보조 인스턴스의 개인 끝점을 만들 필요가 없습니다. 장애 조치 (failover) 후 개인 끝점은 새 주 인스턴스에 자동으로 연결 됩니다. 저장소 중복성 옵션에 대 한 자세한 내용은 [Azure Storage 중복성](storage-redundancy.md)을 참조 하세요.
-
-#### <a name="resources"></a>리소스
 
 저장소 계정에 대 한 개인 끝점을 만드는 방법에 대 한 자세한 내용은 다음 문서를 참조 하세요.
 
@@ -111,8 +112,6 @@ StorageAccountA에 대 한 DNS 리소스 레코드는 개인 끝점을 호스트
 | Table service          | `privatelink.table.core.windows.net` |
 | 정적 웹 사이트        | `privatelink.web.core.windows.net`   |
 
-#### <a name="resources"></a>리소스
-
 전용 끝점을 지원 하기 위해 자체 DNS 서버를 구성 하는 방법에 대 한 자세한 내용은 다음 문서를 참조 하세요.
 
 - [Azure 가상 네트워크의 리소스 이름 확인](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
@@ -124,16 +123,23 @@ StorageAccountA에 대 한 DNS 리소스 레코드는 개인 끝점을 호스트
 
 ## <a name="known-issues"></a>알려진 문제
 
+Azure Storage에 대 한 개인 끝점에 대 한 다음과 같은 알려진 문제를 염두에 두어야 합니다.
+
 ### <a name="copy-blob-support"></a>Blob 복사 지원
 
-미리 보기 중에는 원본 저장소 계정이 방화벽으로 보호 되는 경우 개인 끝점을 통해 액세스 되는 저장소 계정에 발급 된 [Blob 복사](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob) 명령을 지원 하지 않습니다.
+저장소 계정이 방화벽으로 보호 되 고 개인 끝점을 통해 계정에 액세스 하는 경우 해당 계정은 [Blob 복사](/rest/api/storageservices/copy-blob) 작업의 원본으로 사용할 수 없습니다.
 
 ### <a name="storage-access-constraints-for-clients-in-vnets-with-private-endpoints"></a>전용 끝점을 사용 하는 Vnet의 클라이언트에 대 한 저장소 액세스 제약 조건
 
-기존 개인 끝점을 사용 하는 Vnet의 클라이언트는 개인 끝점이 있는 다른 저장소 계정에 액세스할 때 제약 조건을 사용 합니다. 예를 들어 VNet N1에 blob 서비스에 대 한 저장소 계정 A1에 대 한 개인 끝점이 있다고 가정 합니다. 저장소 계정 A2에 blob 서비스에 대 한 VNet N2의 개인 끝점이 있는 경우 VNet N1의 클라이언트는 개인 끝점을 사용 하 여 계정 A2의 blob 서비스에도 액세스 해야 합니다. Storage 계정 A2에 blob service에 대 한 개인 끝점이 없는 경우 VNet N1의 클라이언트는 개인 끝점 없이 blob 서비스에 액세스할 수 있습니다.
+기존 개인 끝점을 사용 하는 Vnet의 클라이언트는 개인 끝점이 있는 다른 저장소 계정에 액세스할 때 제약 조건을 사용 합니다. 예를 들어 VNet N1에 Blob 저장소에 대 한 저장소 계정 A1에 대 한 개인 끝점이 있다고 가정 합니다. 저장소 계정 A2에 Blob 저장소에 대 한 VNet N2에 개인 끝점이 있는 경우 VNet N1의 클라이언트는 개인 끝점을 사용 하 여 A2 계정에 있는 Blob storage에도 액세스 해야 합니다. 저장소 계정 A2에 Blob 저장소에 대 한 개인 끝점이 없는 경우 VNet N1의 클라이언트는 개인 끝점 없이 해당 계정의 Blob 저장소에 액세스할 수 있습니다.
 
 이 제약 조건은 계정 A2가 개인 끝점을 만들 때 적용 되는 DNS 변경의 결과입니다.
 
 ### <a name="network-security-group-rules-for-subnets-with-private-endpoints"></a>전용 끝점을 사용 하는 서브넷에 대 한 네트워크 보안 그룹 규칙
 
 현재 개인 끝점에 대 한 nsg ( [네트워크 보안 그룹](../../virtual-network/security-overview.md) ) 규칙 및 사용자 정의 경로를 구성할 수 없습니다. 개인 끝점을 호스트 하는 서브넷에 적용 된 NSG 규칙은 개인 끝점에 적용 됩니다. 이 문제에 대 한 제한 된 해결 방법은 원본 서브넷의 개인 끝점에 대 한 액세스 규칙을 구현 하는 것입니다. 단,이 방법에는 더 높은 관리 오버 헤드가 필요할 수 있습니다.
+
+## <a name="next-steps"></a>다음 단계
+
+- [Azure Storage 방화벽 및 가상 네트워크 구성](storage-network-security.md)
+- [Blob 저장소에 대 한 보안 권장 사항](../blobs/security-recommendations.md)

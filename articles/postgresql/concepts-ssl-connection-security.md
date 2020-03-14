@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/13/2020
-ms.openlocfilehash: 5c5e1a8cee8cdad0659ae00829d170bf3fa7bf87
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.date: 03/10/2020
+ms.openlocfilehash: c235562834ae78a12b690fcd1b96d6a3640e0c66
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75941416"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79371667"
 ---
 # <a name="configure-ssl-connectivity-in-azure-database-for-postgresql---single-server"></a>PostgreSQL-단일 서버에 대한 Azure Database에서 SSL 연결 구성
 
@@ -29,9 +29,6 @@ Azure Portal 및 CLI를 통해 프로비전된 모든 MySQL용 Azure 데이터�
 
 필요에 따라 SSL 연결 적용을 사용하지 않도록 설정할 수 있습니다. Microsoft Azure는 항상 향상된 보안을 위해 **SSL 연결 적용** 설정을 사용하는 것을 권장합니다.
 
-> [!NOTE]
-> 현재 Azure Database for PostgreSQL에 대해 지원 되는 TLS 버전은 TLS 1.0, TLS 1.1, TLS 1.2입니다.
-
 ### <a name="using-the-azure-portal"></a>Azure Portal 사용
 
 PostgreSQL용 Azure 데이터베이스 서버를 방문하여 **연결 보안**을 클릭합니다. 설정/해제 단추를 사용하여 **SSL 연결 적용** 설정을 사용하거나 사용하지 않도록 설정합니다. 그런 다음 **저장**을 클릭합니다.
@@ -42,7 +39,7 @@ PostgreSQL용 Azure 데이터베이스 서버를 방문하여 **연결 보안**�
 
 ### <a name="using-azure-cli"></a>Azure CLI 사용
 
-Azure CLI에서 `Enabled` 또는 `Disabled` 값을 각각 사용하여 **ssl-enforcement** 매개 변수를 사용하거나 사용하지 않도록 설정할 수 있습니다.
+Azure CLI에서 **또는** 값을 각각 사용하여 `Enabled`ssl-enforcement`Disabled` 매개 변수를 사용하거나 사용하지 않도록 설정할 수 있습니다.
 
 ```azurecli
 az postgres server update --resource-group myresourcegroup --name mydemoserver --ssl-enforcement Enabled
@@ -54,7 +51,7 @@ az postgres server update --resource-group myresourcegroup --name mydemoserver -
 
 ## <a name="applications-that-require-certificate-verification-for-ssl-connectivity"></a>SSL 연결을 위해 인증서 확인이 필요한 애플리케이션
 
-경우에 따라 안전한 연결을 위해 애플리케이션에 신뢰할 수 있는 CA(인증 기관) 인증서 파일(.cer)에서 생성되는 로컬 인증서 파일이 필요합니다. Azure Database for PostgreSQL 서버에 연결 하기 위한 인증서는 https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem 에 있습니다. 인증서 파일을 다운로드 하 여 원하는 위치에 저장 합니다.
+경우에 따라 안전한 연결을 위해 애플리케이션에 신뢰할 수 있는 CA(인증 기관) 인증서 파일(.cer)에서 생성되는 로컬 인증서 파일이 필요합니다. Azure Database for PostgreSQL 서버에 연결 하기 위한 인증서는 https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem에 있습니다. 인증서 파일을 다운로드 하 여 원하는 위치에 저장 합니다.
 
 ### <a name="connect-using-psql"></a>Psql을 사용하여 연결
 
@@ -68,6 +65,31 @@ psql "sslmode=verify-full sslrootcert=BaltimoreCyberTrustRoot.crt host=mydemoser
 
 > [!TIP]
 > `sslrootcert` 전달 된 값이 저장 한 인증서의 파일 경로와 일치 하는지 확인 합니다.
+
+## <a name="tls-connectivity-in-azure-database-for-postgresql-single-server"></a>단일 서버 Azure Database for PostgreSQL의 TLS 연결
+
+Azure Database for PostgreSQL-단일 서버는 TLS (전송 계층 보안)를 사용 하 여 데이터베이스 서버에 연결 하는 클라이언트에 대 한 암호화를 지원 합니다. TLS는 데이터베이스 서버와 클라이언트 응용 프로그램 간에 보안 네트워크 연결을 보장 하 여 규정 준수 요구 사항을 준수할 수 있게 해 주는 업계 표준 프로토콜입니다.
+
+### <a name="tls-settings"></a>TLS 설정
+
+이제 고객은 Azure Database for PostgreSQL 단일 서버에 연결 하는 클라이언트에 TLS 버전을 적용할 수 있습니다. TLS 옵션을 사용 하려면 **최소 Tls 버전** 옵션 설정을 사용 합니다. 이 옵션 설정에 허용 되는 값은 다음과 같습니다.
+
+|  최소 TLS 설정             | 지원 되는 TLS 버전                |
+|:---------------------------------|-------------------------------------:|
+| TLSEnforcementDisabled (기본값) | TLS 필요 없음                      |
+| TLS1_0                           | TLS 1.0, TLS 1.1, TLS 1.2 이상 |
+| TLS1_1                           | TLS 1.1, TLS 1.2 이상          |
+| TLS1_2                           | TLS 버전 1.2 이상           |
+
+
+예를 들어이 최소 TLS 설정 버전을 TLS 1.0로 설정 하면 서버에서 TLS 1.0, 1.1 및 1.2 +를 사용 하는 클라이언트의 연결을 허용 하는 것입니다. 또는이를 1.2으로 설정 하면 TLS 1.2을 사용 하는 클라이언트의 연결만 허용 하 고 TLS 1.0 및 TLS 1.1을 사용한 모든 연결이 거부 됩니다.
+
+> [!Note] 
+> 단일 서버 기본값은 모든 새 서버에서 TLS를 사용 하지 않도록 설정 Azure Database for PostgreSQL 합니다.
+>
+> 현재 byAzure Database for PostgreSQL가 지 원하는 TLS 버전은 TLS 1.0, 1.1 및 1.2입니다.
+
+Azure Database for PostgreSQL 단일 서버에 대 한 TLS 설정을 설정 하는 방법에 대 한 자세한 내용은 [tls 설정을 구성 하는 방법](howto-tls-configurations.md)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

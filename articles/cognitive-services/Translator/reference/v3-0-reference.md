@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 11/14/2019
+ms.date: 3/13/2020
 ms.author: swmachan
-ms.openlocfilehash: 172bf452cc5197db95e0e1e55c7c687971194899
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 4180dc6127fb2d31465400b1b25fb7e2d68f4754
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123045"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79369168"
 ---
 # <a name="translator-text-api-v30"></a>Translator Text API v3.0
 
@@ -41,11 +41,11 @@ Microsoft Translator Text API에 대한 요청은 대부분 요청이 시작된 
 
 특정 Azure 지리에서 요청을 처리 하도록 강제 하려면 API 요청의 전역 끝점을 원하는 지역 끝점으로 변경 합니다.
 
-|설명|Azure 지리|기준 URL|
+|Description|Azure 지리|기준 URL|
 |:--|:--|:--|
 |Azure|Global (비 지역)|   api.cognitive.microsofttranslator.com|
 |Azure|미국|   api-nam.cognitive.microsofttranslator.com|
-|Azure|Europe|  api-eur.cognitive.microsofttranslator.com|
+|Azure|유럽|  api-eur.cognitive.microsofttranslator.com|
 |Azure|아시아 태평양|    api-apc.cognitive.microsofttranslator.com|
 
 ## <a name="authentication"></a>인증
@@ -54,21 +54,78 @@ Azure Cognitive Services에서 Translator Text API 또는 [Cognitive Services �
 
 구독을 인증하는 데 사용할 수 있는 헤더는 세 개가 있습니다. 다음 표에서는 각를 사용 하는 방법을 설명 합니다.
 
-|헤더|설명|
+|headers|Description|
 |:----|:----|
 |Ocp-Apim-Subscription-Key|*비밀 키를 전달하는 경우 Cognitive Services 구독에 사용합니다*.<br/>값은 Translator Text API 구독에 대한 Azure 비밀 키입니다.|
 |권한 부여|*인증 토큰을 전달하는 경우 Cognitive Services 구독에 사용합니다*.<br/>값은 전달자 토큰인 `Bearer <token>`입니다.|
-|Ocp-Apim-Subscription-Region|*다중 서비스 비밀 키를 전달 하는 경우 Cognitive Services 다중 서비스 구독과 함께 사용 합니다.*<br/>값은 다중 서비스 구독의 지역입니다. 다중 서비스 구독을 사용 하지 않는 경우이 값은 선택 사항입니다.|
+|Ocp-Apim-Subscription-Region|*Cognitive Services 다중 서비스 및 지역 변환기 리소스와 함께 사용 합니다.*<br/>값은 다중 서비스 또는 지역 변환기 리소스의 지역입니다. 전역 변환기 리소스를 사용 하는 경우이 값은 선택 사항입니다.|
 
 ###  <a name="secret-key"></a>비밀 키
 첫 번째 옵션은 `Ocp-Apim-Subscription-Key` 헤더를 사용하여 인증하는 것입니다. 요청에 `Ocp-Apim-Subscription-Key: <YOUR_SECRET_KEY>` 헤더를 추가 합니다.
 
-### <a name="authorization-token"></a>권한 부여 토큰
+#### <a name="authenticating-with-a-global-resource"></a>전역 리소스를 사용 하 여 인증
+
+[전역 변환기 리소스](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation)를 사용 하는 경우에는 하나의 헤더를 포함 하 여 translator API를 호출 해야 합니다.
+
+|headers|Description|
+|:-----|:----|
+|Ocp-Apim-Subscription-Key| 값은 Translator Text API 구독에 대한 Azure 비밀 키입니다.|
+
+전역 변환기 리소스를 사용 하 여 Translator API를 호출 하는 예제 요청은 다음과 같습니다.
+
+```curl
+// Pass secret key using headers
+curl -X POST "https://api.cognitive.microsoft.com/translate?api-version=3.0&to=es" \
+     -H "Ocp-Apim-Subscription-Key:<your-key>" \
+     -H "Content-Type: application/json" \
+     -d "[{'Text':'Hello, what is your name?'}]"
+```
+
+#### <a name="authenticating-with-a-regional-resource"></a>지역 리소스를 사용 하 여 인증
+
+[지역 변환기 리소스](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation)를 사용 하는 경우
+Translator API를 호출 하는 데 필요한 두 개의 헤더가 있습니다.
+
+|headers|Description|
+|:-----|:----|
+|Ocp-Apim-Subscription-Key| 값은 Translator Text API 구독에 대한 Azure 비밀 키입니다.|
+|Ocp-Apim-Subscription-Region| 값은 변환기 리소스의 지역입니다. |
+
+지역 변환기 리소스를 사용 하 여 Translator API를 호출 하는 예제 요청은 다음과 같습니다.
+
+```curl
+// Pass secret key and region using headers
+curl -X POST "https://api.cognitive.microsoft.com/translate?api-version=3.0&to=es" \
+     -H "Ocp-Apim-Subscription-Key:<your-key>" \
+     -H "Ocp-Apim-Subscription-Region:<your-region>" \
+     -H "Content-Type: application/json" \
+     -d "[{'Text':'Hello, what is your name?'}]"
+```
+
+#### <a name="authenticating-with-a-multi-service-resource"></a>다중 서비스 리소스로 인증
+
+인식 서비스의 다중 서비스 리소스를 사용 하는 경우 그러면 단일 비밀 키를 사용하여 여러 서비스에 대한 요청을 인증할 수 있습니다. 
+
+다중 서비스 비밀 키를 사용 하는 경우 요청에 인증 헤더를 두 개 포함 해야 합니다. Translator API를 호출 하는 데 필요한 두 개의 헤더가 있습니다.
+
+|headers|Description|
+|:-----|:----|
+|Ocp-Apim-Subscription-Key| 값은 다중 서비스 리소스에 대 한 Azure 비밀 키입니다.|
+|Ocp-Apim-Subscription-Region| 값은 다중 서비스 리소스의 지역입니다. |
+
+다중 서비스 텍스트 API 구독에는 지역이 필요 합니다. 선택한 지역은 다중 서비스 구독 키를 사용 하는 경우 텍스트 번역에 사용할 수 있는 유일한 지역 이며 Azure Portal를 통해 다중 서비스 구독에 등록할 때 선택한 것과 동일한 지역 이어야 합니다.
+
+사용 가능한 지역은 `australiaeast`, `brazilsouth`, `canadacentral`, `centralindia`, `centralus`, `centraluseuap`, `eastasia`, `eastus`, `eastus2`, `francecentral`, `japaneast`, `japanwest`, `koreacentral`, `northcentralus`, `northeurope`, `southcentralus`, `southeastasia`, `uksouth`, `westcentralus`, `westeurope`, `westus`, `westus2`, `southafricanorth`입니다.
+
+`Subscription-Key` 매개 변수를 사용한 쿼리 문자열에 비밀 키를 전달하는 경우 `Subscription-Region` 쿼리 매개 변수를 사용하여 지역을 지정해야 합니다.
+
+### <a name="authenticating-with-an-access-token"></a>액세스 토큰을 사용 하 여 인증
 또는 액세스 토큰에 대한 비밀 키를 교환할 수 있습니다. 이 토큰은 각 요청에 `Authorization` 헤더로 포함됩니다. 인증 토큰을 받으려면 다음 URL에 대해 `POST` 요청을 수행합니다.
 
-| 환경     | 인증 서비스 URL                                |
+| 리소스 유형     | 인증 서비스 URL                                |
 |-----------------|-----------------------------------------------------------|
-| Azure           | `https://api.cognitive.microsoft.com/sts/v1.0/issueToken` |
+| Global          | `https://api.cognitive.microsoft.com/sts/v1.0/issueToken` |
+| 지역 또는 다중 서비스 | `https://<your-region>.api.cognitive.microsoft.com/sts/v1.0/issueToken` |
 
 다음은 비밀 키가 제공된 경우 토큰을 얻기 위한 요청 예입니다.
 
@@ -88,22 +145,29 @@ Authorization: Bearer <Base64-access_token>
 
 인증 토큰은 10분 동안 유효합니다. Translator Api를 여러 번 호출 하는 경우 토큰을 다시 사용 해야 합니다. 그러나 프로그램에서 오랜 시간 동안 변환기 API에 대 한 요청을 수행 하는 경우 프로그램은 정기적으로 새 액세스 토큰을 요청 해야 합니다 (예: 8 분 마다).
 
-### <a name="multi-service-subscription"></a>다중 서비스 구독
+## <a name="virtual-network-support"></a>지원 Virtual Network
 
-마지막 인증 옵션은 인식 서비스의 다중 서비스 구독을 사용 하는 것입니다. 그러면 단일 비밀 키를 사용하여 여러 서비스에 대한 요청을 인증할 수 있습니다. 
+Translator 서비스는 이제 제한 된 지역 (`WestUS2`, `EastUS`, `SouthCentralUS`, `WestUS`, `Central US EUAP`, `global`)에서 Virtual Network 기능을 사용할 수 있습니다. Virtual Network를 사용 하도록 설정 하려면 [Azure Cognitive Services 가상 네트워크 구성](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal)을 참조 하세요. 
 
-다중 서비스 비밀 키를 사용 하는 경우 요청에 인증 헤더를 두 개 포함 해야 합니다. 첫 번째는 비밀 키를 전달하고, 두 번째는 구독과 관련된 지역을 지정합니다. 
-* `Ocp-Apim-Subscription-Key`
-* `Ocp-Apim-Subscription-Region`
+이 기능을 켜면 사용자 지정 끝점을 사용 하 여 Translator API를 호출 해야 합니다. 전역 변환기 끝점 ("api.cognitive.microsofttranslator.com")을 사용할 수 없으며 액세스 토큰을 사용 하 여 인증할 수 없습니다.
 
-다중 서비스 텍스트 API 구독에는 지역이 필요 합니다. 선택한 지역은 다중 서비스 구독 키를 사용 하는 경우 텍스트 번역에 사용할 수 있는 유일한 지역 이며 Azure Portal를 통해 다중 서비스 구독에 등록할 때 선택한 것과 동일한 지역 이어야 합니다.
+[Translator 리소스](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation)를 만든 후 사용자 지정 끝점을 찾을 수 있습니다.
 
-사용 가능한 지역은 `australiaeast`, `brazilsouth`, `canadacentral`, `centralindia`, `centralus`, `centraluseuap`, `eastasia`, `eastus`, `eastus2`, `francecentral`, `japaneast`, `japanwest`, `koreacentral`, `northcentralus`, `northeurope`, `southcentralus`, `southeastasia`, `uksouth`, `westcentralus`, `westeurope`, `westus`, `westus2`, `southafricanorth`입니다.
+|headers|Description|
+|:-----|:----|
+|Ocp-Apim-Subscription-Key| 값은 Translator Text API 구독에 대한 Azure 비밀 키입니다.|
+|Ocp-Apim-Subscription-Region| 값은 변환기 리소스의 지역입니다. 리소스가 `global` 이면이 값은 선택 사항입니다.|
 
-`Subscription-Key` 매개 변수를 사용한 쿼리 문자열에 비밀 키를 전달하는 경우 `Subscription-Region` 쿼리 매개 변수를 사용하여 지역을 지정해야 합니다.
+사용자 지정 끝점을 사용 하 여 Translator API를 호출 하는 예제 요청은 다음과 같습니다.
 
-전달자 토큰을 사용하는 경우 지역 엔드포인트에서 `https://<your-region>.api.cognitive.microsoft.com/sts/v1.0/issueToken` 토큰을 가져와야 합니다.
-
+```curl
+// Pass secret key and region using headers
+curl -X POST "https://<your-custom-domain>.cognitiveservices.azure.com/translator/text/v3.0/translate?api-version=3.0&to=es" \
+     -H "Ocp-Apim-Subscription-Key:<your-key>" \
+     -H "Ocp-Apim-Subscription-Region:<your-region>" \
+     -H "Content-Type: application/json" \
+     -d "[{'Text':'Hello, what is your name?'}]"
+```
 
 ## <a name="errors"></a>오류
 
@@ -124,7 +188,7 @@ Authorization: Bearer <Base64-access_token>
 ```
 오류 코드는 오류를 더 범주화하도록 뒤에 3자리 숫자가 오는 3자리 HTTP 상태 코드로 결합된 6자리 숫자입니다. 일반적인 오류 코드는 다음과 같습니다.
 
-| 코드 | 설명 |
+| 코드 | Description |
 |:----|:-----|
 | 400000| 요청 입력 중 하나가 올바르지 않습니다.|
 | 400001| "scope" 매개 변수가 올바르지 않습니다.|
@@ -172,7 +236,7 @@ Authorization: Bearer <Base64-access_token>
 
 다음 표에서는 번역 API 호출을 모니터링 하는 데 사용 되는 방법에 대 한 설명과 함께 사용 가능한 메트릭을 보여 줍니다.
 
-| 메트릭 | 설명 |
+| 메트릭 | Description |
 |:----|:-----|
 | TotalCalls| 총 API 호출 수.|
 | TotalTokenCalls| 인증 토큰을 사용 하 여 토큰 서비스를 통한 총 API 호출 수입니다.|

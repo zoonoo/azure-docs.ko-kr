@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 3126339a1eb8ff9c0ef34a330333635d3d0f6433
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 40d4dc898efe6b719ec5e1f1ec0471a9677d3c95
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76274360"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79371123"
 ---
 # <a name="deprecated-set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>(사용되지 않음) Container Service에서 Kubernetes 클러스터에 대한 Azure AD 서비스 주체 설정
 
@@ -71,12 +71,12 @@ Kubernetes 클러스터를 만들 때 기존 서비스 주체의 **클라이언�
 포털, [Azure CLI(명령줄 인터페이스)](container-service-kubernetes-walkthrough.md), [Azure Portal](../dcos-swarm/container-service-deployment.md) 또는 다른 방법을 사용하여 Kubernetes 클러스터를 배포할 때 이러한 매개 변수를 지정할 수 있습니다.
 
 >[!TIP]
->**클라이언트 ID**를 지정하는 경우 서비스 주체의 `ObjectId`가 아니라 `appId`를 사용해야 합니다.
+>**클라이언트 ID**를 지정하는 경우 서비스 주체의 `appId`가 아니라 `ObjectId`를 사용해야 합니다.
 >
 
 다음 예제에서는 Azure CLI에서 매개 변수를 전달하는 한 가지 방법을 보여 줍니다. 여기서는 [Kubernetes 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes)을 사용합니다.
 
-1. GitHub에서 템플릿 매개 변수 파일 `azuredeploy.parameters.json`을 [다운로드](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-acs-kubernetes/azuredeploy.parameters.json)합니다.
+1. GitHub에서 템플릿 매개 변수 파일 [을 ](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-acs-kubernetes/azuredeploy.parameters.json)다운로드`azuredeploy.parameters.json`합니다.
 
 2. 서비스 주체를 지정하려면 파일에 `servicePrincipalClientId` 및 `servicePrincipalClientSecret`의 값을 입력합니다. (또한 `dnsNamePrefix` 및 `sshRSAPublicKey`에 대한 고유한 값을 제공해야 합니다. 후자는 클러스터에 액세스 하는 SSH 공개 키입니다. 파일을 저장 합니다.
 
@@ -103,7 +103,7 @@ Kubernetes 클러스터를 만들 때 기존 서비스 주체의 **클라이언�
 
 다음 명령은 Kubernetes 클러스터를 만들고 SSH 키와 서비스 주체 자격 증명을 모두 생성합니다.
 
-```console
+```azurecli
 az acs create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-keys --orchestrator-type kubernetes
 ```
 
@@ -133,7 +133,7 @@ az acs create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-
 
 서비스 주체를 만들 때 `--years` 매개 변수를 사용하여 사용자 지정 유효 기간을 지정하지 않으면 해당 자격 증명이 생성된 후 1년 동안 유효합니다. 자격 증명이 만료되면 클러스터 노드가 **NotReady** 상태가 됩니다.
 
-서비스 주체의 만료 날짜를 확인하려면 [az ad app show](/cli/azure/ad/app#az-ad-app-show) 명령을 `--debug` 매개 변수와 함께 실행하고 출력 아래쪽에서 `passwordCredentials`의 `endDate` 값을 찾습니다.
+서비스 주체의 만료 날짜를 확인하려면 [az ad app show](/cli/azure/ad/app#az-ad-app-show) 명령을 `--debug` 매개 변수와 함께 실행하고 출력 아래쪽에서 `endDate`의 `passwordCredentials` 값을 찾습니다.
 
 ```azurecli
 az ad app show --id <appId> --debug

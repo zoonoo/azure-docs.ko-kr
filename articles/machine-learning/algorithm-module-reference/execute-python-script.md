@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 03/10/2020
-ms.openlocfilehash: 52eb3bdb463389d075421661610b5ee94d14d77d
-ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
+ms.openlocfilehash: 3370c7ebb8e0253543e6b9cb6ce7614811fb5bd0
+ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79037077"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79140793"
 ---
 # <a name="execute-python-script-module"></a>Python 스크립트 실행 모듈
 
@@ -114,7 +114,10 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
 }
 ```
 
-파이프라인이 성공적으로 제출 되 면 모듈의 오른쪽 패널에서 이미지를 미리 볼 수 ![업로드 이미지](media/module/upload-image-in-python-script.png)
+파이프라인이 성공적으로 제출 되 면 모듈의 오른쪽 패널에서 이미지를 미리 볼 수 있습니다.
+
+[!div class="mx-imgBorder"]
+업로드 ![-이미지](media/module/upload-image-in-python-script.png)
 
 ## <a name="how-to-configure-execute-python-script"></a>Python 스크립트 실행을 구성 하는 방법
 
@@ -132,7 +135,7 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
 
     ![Python 입력 맵 실행](media/module/python-module.png)
 
-4. 새 Python 패키지 또는 코드를 포함 하려면 **스크립트 번들**에 이러한 사용자 지정 리소스를 포함 하는 zip 파일을 추가 합니다. **스크립트 번들** 에 대 한 입력은 파일 형식 데이터 집합으로 작업 영역에 업로드 된 압축 파일 이어야 합니다. 
+4. 새 Python 패키지 또는 코드를 포함 하려면 **스크립트 번들**에 이러한 사용자 지정 리소스를 포함 하는 zip 파일을 추가 합니다. **스크립트 번들** 에 대 한 입력은 파일 형식 데이터 집합으로 작업 영역에 업로드 된 압축 파일 이어야 합니다. **데이터 집합 자산 페이지** 에서 데이터 집합을 업로드할 수 있으며, 디자이너 제작 페이지에서 왼쪽 모듈 트리의 **내 데이터** 집합 목록에서 데이터 집합 모듈을 끌어서 놓을 수 있습니다. 
 
     업로드 된 압축 된 보관 파일에 포함 된 모든 파일은 파이프라인 실행 중에 사용할 수 있습니다. 보관 파일에 디렉터리 구조가 포함 되어 있으면 구조가 유지 되지만 **src** 라는 디렉터리 앞에 경로를 추가 해야 합니다.
 

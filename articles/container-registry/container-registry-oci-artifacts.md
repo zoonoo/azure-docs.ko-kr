@@ -4,14 +4,14 @@ description: Azure에서 개인 컨테이너 레지스트리를 사용 하 여 O
 author: SteveLasker
 manager: gwallace
 ms.topic: article
-ms.date: 08/30/2019
+ms.date: 03/11/2020
 ms.author: stevelas
-ms.openlocfilehash: cb58a7ed51ae15d33ffdbb616c9b32ef03bcbfb7
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 2c6b66b635a2513ccc19e0352414d18d8389fef1
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456264"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79371055"
 ---
 # <a name="push-and-pull-an-oci-artifact-using-an-azure-container-registry"></a>Azure container registry를 사용 하 여 OCI 아티팩트 푸시 및 끌어오기
 
@@ -19,7 +19,7 @@ Azure container registry를 사용 하 여 [OCI (Open Container 이니셔티브)
 
 이 기능을 설명 하기 위해이 문서에서는 [OCI 레지스트리를 저장소 (ORAS)](https://github.com/deislabs/oras) 도구로 사용 하 여 샘플 아티팩트 (텍스트 파일)를 Azure container Registry로 푸시하는 방법을 보여 줍니다. 그런 다음 레지스트리에서 아티팩트를 가져옵니다. 각 아티팩트에 적합 한 다양 한 명령줄 도구를 사용 하 여 Azure container registry에서 다양 한 OCI 아티팩트를 관리할 수 있습니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * **Azure Container Registry** - Azure 구독 내에서 컨테이너 레지스트리를 만듭니다. 예를 들어 [Azure Portal](container-registry-get-started-portal.md) 또는 [Azure CLI](container-registry-get-started-azure-cli.md)를 사용합니다.
 * **Oras 도구** - [GitHub](https://github.com/deislabs/oras/releases)리포지토리에서 운영 체제에 대 한 현재 oras 릴리스를 다운로드 하 여 설치 합니다. 이 도구는 압축 된 tarball (`.tar.gz` 파일)로 릴리스됩니다. 운영 체제에 대 한 표준 절차를 사용 하 여 파일을 추출 하 고 설치 합니다.
@@ -66,10 +66,20 @@ echo "Here is an artifact!" > artifact.txt
 
 `oras push` 명령을 사용 하 여이 텍스트 파일을 레지스트리에 푸시합니다. 다음 예에서는 `samples/artifact` 리포지토리에 샘플 텍스트 파일을 푸시합니다. 레지스트리는 정규화 된 레지스트리 이름 *myregistry.azurecr.io* (모두 소문자)로 식별 됩니다. 아티팩트는 `1.0`태그가 지정 됩니다. 아티팩트에는 기본적으로 파일 이름 다음에 있는 *미디어 유형* 문자열로 식별 되는 정의 되지 않은 형식이 있습니다 `artifact.txt`. 추가 형식은 [OCI 아티팩트](https://github.com/opencontainers/artifacts) 를 참조 하세요. 
 
+**Linux**
+
 ```bash
 oras push myregistry.azurecr.io/samples/artifact:1.0 \
     --manifest-config /dev/null:application/vnd.unknown.config.v1+json \
     ./artifact.txt:application/vnd.unknown.layer.v1+txt
+```
+
+**Windows**
+
+```cmd
+.\oras.exe push myregistry.azurecr.io/samples/artifact:1.0 ^
+    --manifest-config NUL:application/vnd.unknown.config.v1+json ^
+    .\artifact.txt:application/vnd.unknown.layer.v1+txt
 ```
 
 성공적인 푸시에 대 한 출력은 다음과 유사 합니다.

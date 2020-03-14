@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 08/01/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c00ab8a5e0d307d89ae483db55bdb0b1258ae6a4
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 72aefb8de57e27718b14dba6a6d82deb8b63466f
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78246417"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79367281"
 ---
 # <a name="editing-textual-runbooks-in-azure-automation"></a>Azure Automation에서 텍스트 Runbook 편집
 
@@ -59,7 +59,7 @@ Azure Automation의 각 Runbook에는 초안과 게시 등 두 버전이 있습�
 
 ### <a name="insert-an-asset-into-a-runbook"></a>Runbook에 자산 삽입
 
-1. 텍스트 편집기의 캔버스에서 코드를 배치하려는 위치에 커서를 놓습니다.
+1. 텍스트 편집기의 Canvas 컨트롤에서 자식 runbook에 대 한 코드를 배치할 위치에 커서를 놓습니다.
 2. 라이브러리 컨트롤에서 **자산** 노드를 확장합니다.
 3. 원하는 자산 형식에 대 한 노드를 확장 합니다.
 4. 삽입할 자산 이름을 마우스 오른쪽 단추로 클릭 하 고 **캔버스에 추가**를 선택 합니다. [변수 자산](automation-variables.md)에 대해 변수를 가져오거나 설정할지 여부에 따라 **캔버스에 "변수 가져오기" 추가** 또는 **캔버스에 "변수 설정"** 추가 중 하나를 선택 합니다.
@@ -67,7 +67,7 @@ Azure Automation의 각 Runbook에는 초안과 게시 등 두 버전이 있습�
 
 ## <a name="editing-an-azure-automation-runbook-using-windows-powershell"></a>Windows PowerShell을 사용 하 여 Azure Automation runbook 편집
 
-Windows PowerShell을 사용 하 여 runbook을 편집 하려면 원하는 편집기를 사용 하 여 runbook을 "ps1" 파일에 저장 합니다. [AzAutomationRunbook](/powershell/module/Az.Automation/Export-AzAutomationRunbook) cmdlet을 사용 하 여 runbook의 콘텐츠를 검색할 수 있습니다. [AzAutomationRunbook](/powershell/module/Az.Automation/import-azautomationrunbook) cmdlet을 사용 하 여 기존 초안 runbook을 수정 된 runbook으로 바꿀 수 있습니다.
+Windows PowerShell을 사용 하 여 runbook을 편집 하려면 원하는 편집기를 사용 하 고 **ps1** 파일에 runbook을 저장 합니다. [AzAutomationRunbook](/powershell/module/Az.Automation/Export-AzAutomationRunbook) cmdlet을 사용 하 여 runbook의 콘텐츠를 검색할 수 있습니다. [AzAutomationRunbook](/powershell/module/Az.Automation/import-azautomationrunbook) cmdlet을 사용 하 여 기존 초안 runbook을 수정 된 runbook으로 바꿀 수 있습니다.
 
 ### <a name="retrieve-the-contents-of-a-runbook-using-windows-powershell"></a>Windows PowerShell을 사용 하 여 runbook 내용 검색
 

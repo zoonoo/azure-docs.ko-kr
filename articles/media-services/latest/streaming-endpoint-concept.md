@@ -12,12 +12,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/13/2020
 ms.author: juliako
-ms.openlocfilehash: 849d1187d6b854d48ad75ab1e55f600407420346
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: c71643adf3b34954ea5ce020351559abbfc60fab
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77562363"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79298940"
 ---
 # <a name="streaming-endpoints-origin-in-azure-media-services"></a>Azure Media Services의 스트리밍 끝점 (원본)
 
@@ -41,13 +41,13 @@ Media Services 계정을 만들 경우 **기본** 스트리밍 엔드포인트�
 * 스트리밍 끝점 이름의 최대 값은 24 자입니다.
 * 이름은 `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$`[regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference) 패턴을 따라야 합니다.
 
-## <a name="types"></a>형식
+## <a name="types"></a>유형
 
 **표준** (미리 보기) 및 **프리미엄**의 두 가지 **스트리밍 끝점** 유형이 있습니다. 이러한 유형은 스트리밍 엔드포인트에 할당하는 배율 단위(`scaleUnits`) 수로 정의됩니다.
 
 다음 표에 해당 유형이 설명되어 있습니다.
 
-|형식|배율 단위|설명|
+|Type|배율 단위|Description|
 |--------|--------|--------|  
 |**Standard**|0|기본 스트리밍 끝점은 **표준** 유형이 며 `scaleUnits`를 조정 하 여 프리미엄 유형으로 변경할 수 있습니다.|
 |**Premium**|>0|**프리미엄** 스트리밍 끝점은 고급 워크 로드에 적합 하며, 확장 가능한 전용 대역폭 용량을 제공 합니다. `scaleUnits` (스트리밍 단위)를 조정 하 여 **프리미엄** 유형으로 이동 합니다. `scaleUnits`는 200Mbps 단위로 구입할 수 있는 전용 송신 용량을 제공합니다. **프리미엄** 유형을 사용 하는 경우 사용 하도록 설정 된 각 단위는 앱에 추가 대역폭 용량을 제공 합니다. |
@@ -59,16 +59,16 @@ SLA에 대 한 자세한 내용은 [가격 책정 및 SLA](https://azure.microso
 
 ## <a name="comparing-streaming-types"></a>스트리밍 유형 비교
 
-기능|Standard|프리미엄
+기능|Standard|Premium
 ---|---|---
 처리량 |CDN을 사용 하는 경우 최대 600 Mbps 및 보다 효과적인 처리량을 제공할 수 있습니다.|SU(스트리밍 단위)당 200Mbps 는 CDN을 사용 하는 경우 훨씬 더 효율적인 처리량을 제공할 수 있습니다.
 CDN|Azure CDN, 타사 CDN 또는 CDN이 없습니다.|Azure CDN, 타사 CDN 또는 CDN이 없습니다.
 청구를 계산합니다.| 매일|매일
-동적 암호화|예|예
-동적 패키징|예|예
-Scale|대상 처리량까지 자동으로 확장합니다.|추가 SUs
-IP 필터링/G20/사용자 지정 호스트 <sup>1</sup>|예|예
-점진적 다운로드|예|예
+동적 암호화|yes|yes
+동적 패키징|yes|yes
+확장|대상 처리량까지 자동으로 확장합니다.|추가 SUs
+IP 필터링/G20/사용자 지정 호스트 <sup>1</sup>|yes|yes
+점진적 다운로드|yes|yes
 권장 사용량 |대부분의 스트리밍 시나리오에 권장됩니다.|전문 사용량입니다.
 
 <sup>1</sup> 끝점에서 CDN을 사용 하도록 설정 하지 않은 경우에만 스트리밍 끝점에서 직접 사용 됩니다.<br/>
@@ -102,7 +102,7 @@ IP 필터링/G20/사용자 지정 호스트 <sup>1</sup>|예|예
     - `media.azure.net`
     - `verifydns.media.azure.net`
 
-  - China:
+  - 중국:
 
     - `mediaservices.chinacloudapi.cn`
     - `verifydns.mediaservices.chinacloudapi.cn`
@@ -116,7 +116,7 @@ IP 필터링/G20/사용자 지정 호스트 <sup>1</sup>|예|예
     > [!NOTE]
     > 동일한 데이터 센터에 있는 스트리밍 끝점은 동일한 사용자 지정 호스트 이름을 공유할 수 없습니다.
 
-    현재 Media Services에서는 사용자 지정 도메인에 대 한 SSL을 지원 하지 않습니다.
+    현재 Media Services는 사용자 지정 도메인을 사용하는 SSL을 지원하지 않습니다.
 
 - `maxCacheAge`-미디어 조각과 주문형 매니페스트의 스트리밍 끝점에 의해 설정 된 기본 최대 기간 HTTP 캐시 제어 헤더를 재정의 합니다. 이 값은 초 단위로 설정됩니다.
 - `resourceState` -
@@ -150,7 +150,7 @@ IP 필터링/G20/사용자 지정 호스트 <sup>1</sup>|예|예
 
     고객이 라이브 콘텐츠를 주로 감시 하지만 가끔 주문형 콘텐츠를 감시 하 고 동일한 스트리밍 끝점에서 제공 되는 시나리오를 고려해 보세요. 주문형 콘텐츠를 적게 사용 하면 라이브 콘텐츠에 더 잘 저장 되는 캐시 공간을 차지 하 게 됩니다. 이 시나리오에서는 하나의 스트리밍 끝점에서 라이브 콘텐츠를 제공 하 고 다른 스트리밍 끝점에서 긴 비상 콘텐츠를 제공 하는 것이 좋습니다. 이렇게 하면 라이브 이벤트 콘텐츠의 성능이 향상 됩니다.
     
-## <a name="scaling-streaming-with-cdn"></a>CDN을 사용 하 여 스트리밍 크기 조정
+## <a name="scaling-streaming-with-cdn"></a>CDN을 사용하여 스트리밍 크기 조정
 
 다음 문서를 참조하세요.
 
@@ -163,4 +163,4 @@ IP 필터링/G20/사용자 지정 호스트 <sup>1</sup>|예|예
 
 ## <a name="next-steps"></a>다음 단계
 
-[이 리포지토리](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs)의 샘플은 .NET을 사용하여 기본 스트리밍 엔드포인트를 시작하는 방법을 보여 줍니다.
+[스트리밍 엔드포인트 관리](manage-streaming-endpoints-howto.md)

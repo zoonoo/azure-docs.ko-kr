@@ -5,12 +5,12 @@ ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Azure Dev Spaces를 사용 하도록 설정 하 고 사용 하는 경우 일반적인 문제를 해결 하는 방법을 알아봅니다.
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s '
-ms.openlocfilehash: 0cf8eb7b07622a989bc78637b1601ba68b9b5f6f
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: af6577684af559b7e152a53fbe4293740d676e6e
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78375232"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79370834"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Azure Dev Spaces 문제 해결
 
@@ -76,12 +76,15 @@ AKS 클러스터에서 untainted 노드를 찾을 수 없습니다. *준비* 상
 
 이 문제를 해결 하려면 AKS 클러스터에서 [taint 구성을 업데이트](../aks/operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations) 하 여 하나 이상의 Linux 노드에서 tolerations를 지정 하지 않고 pod 일정을 예약할 수 있도록 합니다. 또한 tolerations를 지정 하지 않고 pod 예약을 허용 하는 하나 이상의 Linux 노드가 *준비* 상태 인지 확인 합니다. 노드가 *준비* 상태에 도달 하는 데 오랜 시간이 걸리는 경우 노드를 다시 시작 해 볼 수 있습니다.
 
-### <a name="error-azure-dev-spaces-cli-not-installed-properly-when-running-az-aks-use-dev-spaces"></a>`az aks use-dev-spaces` 실행 시 "Azure Dev Spaces CLI가 제대로 설치 되지 않았습니다." 오류가 발생 함
+### <a name="error-azure-dev-spaces-cli-not-installed-properly-when-running-az-aks-use-dev-spaces"></a>Az aks을 실행 하는 동안 Azure Dev Spaces "CLI가 제대로 설치 되지 않았습니다." 오류가 발생 함
 
 Azure Dev Spaces CLI 업데이트가 설치 경로를 변경 했습니다. 2\.0.63 이전 버전의 Azure CLI 사용 하는 경우이 오류가 표시 될 수 있습니다. Azure CLI 버전을 표시 하려면 `az --version`를 사용 합니다.
 
 ```azurecli
 az --version
+```
+
+```output
 azure-cli                         2.0.60 *
 ...
 ```
@@ -126,7 +129,7 @@ Azure Dev Spaces는 C# 및 Node.js에 대해 네이티브 지원을 제공합니
 `azds up` 스위치를 사용하여 `--verbose`을 실행하거나 Visual Studio에서 자세한 정보 로깅을 사용하도록 설정하면 추가 정보가 표시됩니다.
 
 ```cmd
-$ azds up --verbose
+azds up --verbose
 
 Installed chart in 2s
 Waiting for container image build...
@@ -292,7 +295,7 @@ Azure Dev Spaces용 VS Code 확장은 최신 버전이지만 Azure Dev Spaces CL
 
 Visual Studio Code 디버거를 실행할 때이 오류가 표시 될 수 있습니다. 개발 컴퓨터에 VS Code 확장 프로그램이 C# 설치 되어 있지 않을 수 있습니다. 확장 C# 에는 CoreCLR (.net Core)에 대 한 디버깅 지원이 포함 됩니다.
 
-이 문제를 해결 하려면 [ C#용 VS Code 확장 ](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)을 설치 합니다.
+이 문제를 해결 하려면 [ C#용 VS Code 확장 ](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)을 설치 합니다.
 
 ### <a name="error-configured-debug-type-coreclr-is-not-supported"></a>"구성 된 디버그 형식 ' coreclr '은 지원 되지 않습니다." 오류
 
@@ -361,6 +364,9 @@ kubectl get pods --all-namespaces --include-uninitialized
 
 ```azurecli
 az aks get-credentials --resource-group <resource group name> --name <cluster name>
+```
+
+```bash
 kubectl delete InitializerConfiguration azds
 ```
 
@@ -495,5 +501,8 @@ Kubeconfig 파일이 Azure Dev Spaces 클라이언트 쪽 도구에서 사용 �
 
 ```azurecli
 az aks get-credentials -g <resource group name> -n <cluster name>
+```
+
+```console
 azds controller refresh-credentials -g <resource group name> -n <cluster name>
 ```

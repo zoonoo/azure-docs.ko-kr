@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: d2d353e6ccd7dad7be302a5f40c65012f32deba7
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: c82432a3d76a84eba1ad921d936b2f3ba064e2ae
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227119"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136836"
 ---
 # <a name="create-your-first-function-with-java-and-eclipse"></a>Java 및 Eclipse를 사용 하 여 첫 번째 함수 만들기 
 
@@ -43,8 +43,8 @@ Azure Functions를 실행 및 디버그하기 위한 로컬 환경을 제공하�
     - Archetype Group ID: com.microsoft.azure
     - Archetype Artifact ID: azure-functions-archetype
     - 버전: ![Eclipse Maven create](media/functions-create-first-java-eclipse/functions-create-eclipse.png)
-    [중앙 리포지토리에서](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype) 최신 버전 **1.22** 을 사용 합니다.  
-1. **확인** 을 클릭 한 후 **다음**을 클릭 합니다.  `resourceGroup`, `appName`및 `appRegion`를 포함 하 여 모든 필드에 대 한 값을 입력 해야 합니다. ( **fabrikam-함수-20170920120101928**이외의 다른 appName을 사용 하세요.) 결국 **완료**됩니다.
+    [중앙 리포지토리에서](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype) 최신 버전을 확인 하 고 사용 합니다.  
+1. **확인**을 클릭하고 **다음**을 클릭합니다.  `resourceGroup`, `appName`및 `appRegion`를 포함 하 여 모든 필드에 대 한 값을 입력 해야 합니다. ( **fabrikam-함수-20170920120101928**이외의 다른 appName을 사용 하세요.) 결국 **완료**됩니다.
     ![Eclipse Maven create2](media/functions-create-first-java-eclipse/functions-create-eclipse2.png)  
 
 Maven은 이름이 _artifactId_인 새 폴더에 프로젝트 파일을 만듭니다. 프로젝트에서 생성된 코드는 HTTP 트리거 요청의 본문을 에코하는 간단한 [HTTP 트리거](/azure/azure-functions/functions-bindings-http-webhook) 함수입니다.

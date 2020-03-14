@@ -1,20 +1,20 @@
 ---
-title: HTTPS 호출 받기 및 응답
-description: Azure Logic Apps를 사용 하 여 실시간으로 HTTPS 요청 및 이벤트 처리
+title: HTTPS를 사용 하 여 호출 수신 및 응답
+description: Azure Logic Apps를 사용 하 여 외부 서비스에서 인바운드 HTTPS 요청 처리
 services: logic-apps
 ms.suite: integration
 ms.reviewers: klam, logicappspm
 ms.topic: conceptual
-ms.date: 01/14/2020
+ms.date: 03/12/2020
 tags: connectors
-ms.openlocfilehash: 0949e50c5a4993dfbcc83b41ef01d2cea82350a8
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: d65b81f18d4dcb0ee97a21a7edec885e308bd8d4
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78386522"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79297301"
 ---
-# <a name="receive-and-respond-to-incoming-https-calls-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용 하 여 들어오는 HTTPS 호출 받기 및 응답
+# <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Azure Logic Apps에서 인바운드 HTTPS 요청을 수신 하 고 응답 합니다.
 
 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 및 기본 제공 요청 트리거 또는 응답 작업을 사용 하 여 들어오는 HTTPS 요청을 수신 하 고 응답 하는 자동화 된 작업 및 워크플로를 만들 수 있습니다. 예를 들어 논리 앱을 사용할 수 있습니다.
 
@@ -36,7 +36,7 @@ ms.locfileid: "78386522"
 > * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 > * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 구독이 없는 경우 [무료 Azure 계정에 등록할](https://azure.microsoft.com/free/)수 있습니다.
 
@@ -58,10 +58,10 @@ ms.locfileid: "78386522"
 
    ![요청 트리거](./media/connectors-native-reqres/request-trigger.png)
 
-   | 속성 이름 | JSON 속성 이름 | 필수 | 설명 |
+   | 속성 이름 | JSON 속성 이름 | 필수 | Description |
    |---------------|--------------------|----------|-------------|
-   | **HTTP 게시 URL** | {없음} | 예 | 논리 앱을 저장 한 후에 생성 되 고 논리 앱을 호출 하는 데 사용 되는 끝점 URL입니다. |
-   | **요청 본문 JSON 스키마** | `schema` | 아니요 | 들어오는 요청 본문의 속성 및 값을 설명 하는 JSON 스키마입니다. |
+   | **HTTP 게시 URL** | {없음} | yes | 논리 앱을 저장 한 후에 생성 되 고 논리 앱을 호출 하는 데 사용 되는 끝점 URL입니다. |
+   | **요청 본문 JSON 스키마** | `schema` | 예 | 들어오는 요청 본문의 속성 및 값을 설명 하는 JSON 스키마입니다. |
    |||||
 
 1. 필요에 따라 **본문 Json 스키마 요청** 상자에서 들어오는 요청의 본문을 설명 하는 JSON 스키마를 입력 합니다. 예를 들면 다음과 같습니다.
@@ -157,10 +157,10 @@ ms.locfileid: "78386522"
 
 1. 추가 속성을 지정 하려면 **새 매개 변수 추가** 목록을 열고 추가 하려는 매개 변수를 선택 합니다.
 
-   | 속성 이름 | JSON 속성 이름 | 필수 | 설명 |
+   | 속성 이름 | JSON 속성 이름 | 필수 | Description |
    |---------------|--------------------|----------|-------------|
-   | **메서드** | `method` | 아니요 | 들어오는 요청에서 논리 앱을 호출 하는 데 사용 해야 하는 메서드입니다. |
-   | **상대 경로** | `relativePath` | 아니요 | 논리 앱의 끝점 URL에서 수락할 수 있는 매개 변수의 상대 경로입니다. |
+   | **메서드** | `method` | 예 | 들어오는 요청에서 논리 앱을 호출 하는 데 사용 해야 하는 메서드입니다. |
+   | **상대 경로** | `relativePath` | 예 | 논리 앱의 끝점 URL에서 수락할 수 있는 매개 변수의 상대 경로입니다. |
    |||||
 
    이 예제에서는 **메서드** 속성을 추가 합니다.
@@ -189,10 +189,10 @@ ms.locfileid: "78386522"
 
 요청 트리거의 출력에 대 한 자세한 내용은 다음과 같습니다.
 
-| JSON 속성 이름 | 데이터 형식 | 설명 |
+| JSON 속성 이름 | 데이터 형식 | Description |
 |--------------------|-----------|-------------|
-| `headers` | 개체 | 요청의 헤더를 설명 하는 JSON 개체입니다. |
-| `body` | 개체 | 요청의 본문 콘텐츠를 설명 하는 JSON 개체입니다. |
+| `headers` | Object | 요청의 헤더를 설명 하는 JSON 개체입니다. |
+| `body` | Object | 요청의 본문 콘텐츠를 설명 하는 JSON 개체입니다. |
 ||||
 
 <a name="add-response"></a>
@@ -202,6 +202,19 @@ ms.locfileid: "78386522"
 응답 작업을 사용 하 여 들어오는 HTTPS 요청에 대 한 페이로드 (데이터)에 응답 하 고 HTTPS 요청에 의해 트리거되는 논리 앱 에서만 응답을 받을 수 있습니다. 워크플로의 어떤 지점에서 든 응답 작업을 추가할 수 있습니다. 이 트리거에 대 한 기본 JSON 정의에 대 한 자세한 내용은 [응답 작업 형식](../logic-apps/logic-apps-workflow-actions-triggers.md#response-action)을 참조 하세요.
 
 논리 앱은 1 분 동안만 들어오는 요청을 열어 둡니다. 논리 앱 워크플로에 응답 작업이 포함 되어 있다고 가정 하면 논리 앱이이 시간 경과 후 응답을 반환 하지 않는 경우 논리 앱은 호출자에 게 `504 GATEWAY TIMEOUT`을 반환 합니다. 그렇지 않고 논리 앱에 응답 동작이 포함 되지 않은 경우 논리 앱은 즉시 호출자에 게 `202 ACCEPTED` 응답을 반환 합니다.
+
+> [!IMPORTANT]
+> 응답 작업에 이러한 헤더가 포함 된 경우 Logic Apps는 경고 또는 오류를 표시 하지 않고 생성 된 응답 메시지에서 이러한 헤더를 제거 합니다.
+>
+> * `Allow`
+> * 다음과 같은 예외를 `Content-*` `Content-Disposition`, `Content-Encoding`및 `Content-Type`
+> * `Cookie`
+> * `Expires`
+> * `Last-Modified`
+> * `Set-Cookie`
+> * `Transfer-Encoding`
+>
+> Logic Apps이 헤더를 사용 하 여 응답 작업이 있는 논리 앱을 저장 하는 것을 중지 하지는 않지만 Logic Apps는 이러한 헤더를 무시 합니다.
 
 1. 논리 앱 디자이너에서 응답 작업을 추가 하려는 단계 아래에 있는 **새 단계**를 선택 합니다.
 
@@ -231,11 +244,11 @@ ms.locfileid: "78386522"
 
    응답 작업에서 설정할 수 있는 속성에 대 한 자세한 내용은 다음과 같습니다. 
 
-   | 속성 이름 | JSON 속성 이름 | 필수 | 설명 |
+   | 속성 이름 | JSON 속성 이름 | 필수 | Description |
    |---------------|--------------------|----------|-------------|
-   | **상태 코드** | `statusCode` | 예 | 응답에 반환할 상태 코드 |
-   | **헤더** | `headers` | 아니요 | 응답에 포함할 하나 이상의 헤더를 설명 하는 JSON 개체입니다. |
-   | **본문** | `body` | 아니요 | 응답 본문 |
+   | **상태 코드** | `statusCode` | yes | 응답에 반환할 상태 코드 |
+   | **헤더** | `headers` | 예 | 응답에 포함할 하나 이상의 헤더를 설명 하는 JSON 개체입니다. |
+   | **본문** | `body` | 예 | 응답 본문 |
    |||||
 
 1. 응답 본문에 대 한 JSON 스키마와 같은 추가 속성을 지정 하려면 **새 매개 변수 추가** 목록을 열고 추가 하려는 매개 변수를 선택 합니다.

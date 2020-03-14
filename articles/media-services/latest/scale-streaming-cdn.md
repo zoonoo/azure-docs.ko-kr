@@ -12,14 +12,14 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/13/2020
 ms.author: juliako
-ms.openlocfilehash: 90fa3b06e2696e9b45c333c75c8a8e117d5c0c96
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: e918f7ee64d4bc49d5da80bf9a3e7595555296dc
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77563116"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79203698"
 ---
-# <a name="scaling-streaming-with-cdn"></a>CDN을 사용 하 여 스트리밍 크기 조정
+# <a name="scaling-streaming-with-cdn"></a>CDN을 사용하여 스트리밍 크기 조정
 
 Azure CDN(콘텐츠 전송 네트워크)은 전 세계에 전략적으로 배치된 물리적 노드에서 콘텐츠를 캐싱하여 사용자에게 고대역폭 콘텐츠를 신속하게 전송할 수 있는 글로벌 솔루션을 개발자에게 제공합니다.  
 
@@ -86,11 +86,11 @@ CDN 캐싱은 사후 프로세스입니다. CDN에서 다음 개체를 요청 �
 
 *원본 지원 cdn-프리페치* 헤더 (라이브 및 비디오 주문형 스트리밍 모두에 대 한 cdn 지원)는 Akamai cdn을 직접 계약 하는 고객에 게 제공 됩니다. 이 기능에는 Akamai CDN과 Media Services 원본 간의 다음 HTTP 헤더 교환이 포함 됩니다.
 
-|HTTP 헤더|값|보낸 사람|수신기|목적|
+|HTTP 헤더|값|보낸 사람|받는 사람|목적|
 | ---- | ---- | ---- | ---- | ----- |
-|CDN-원본-지원-프리페치-사용 | 1 (기본값) 또는 0 |CDN|파생 위치|CDN에서 프리페치를 사용 하도록 지정 하려면|
-|CDN-지원-프리페치-경로| 예: <br/>조각 (video = 1400000000, format = mpd-cmaf)|파생 위치|CDN|CDN에 프리페치 경로를 제공 하려면|
-|CDN-원본-지원-프리페치-요청|1 (프리페치 요청) 또는 0 (일반 요청)|CDN|파생 위치|CDN의 요청이 프리페치 임을 나타내려면|
+|CDN-원본-지원-프리페치-사용 | 1 (기본값) 또는 0 |CDN|원본|CDN에서 프리페치를 사용 하도록 지정 하려면|
+|CDN-지원-프리페치-경로| 예제: <br/>조각 (video = 1400000000, format = mpd-cmaf)|원본|CDN|CDN에 프리페치 경로를 제공 하려면|
+|CDN-원본-지원-프리페치-요청|1 (프리페치 요청) 또는 0 (일반 요청)|CDN|원본|CDN의 요청이 프리페치 임을 나타내려면|
 
 작업 중인 헤더 exchange의 일부를 확인 하려면 다음 단계를 수행 합니다.
 
@@ -147,4 +147,5 @@ CDN 캐싱은 사후 프로세스입니다. CDN에서 다음 개체를 요청 �
 
 ## <a name="next-steps"></a>다음 단계
 
-[이 리포지토리](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs)의 샘플은 .NET을 사용하여 기본 스트리밍 엔드포인트를 시작하는 방법을 보여 줍니다.
+* [스트리밍 끝점 (원본)](streaming-endpoint-concept.md) 문서를 검토 확인 합니다.
+* [이 리포지토리](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs)의 샘플은 .NET을 사용하여 기본 스트리밍 엔드포인트를 시작하는 방법을 보여 줍니다.

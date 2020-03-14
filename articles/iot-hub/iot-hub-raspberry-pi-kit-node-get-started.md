@@ -2,20 +2,20 @@
 title: 클라우드의 Azure IoT Hub에 Raspberry Pi 연결 (node.js)
 description: Raspberry Azure IoT Hub Pi를 설정 하 고 Raspberry Pi에 연결 하 여이 자습서에서 Azure 클라우드 플랫폼으로 데이터를 전송 하는 방법에 대해 알아봅니다.
 author: wesmc7777
-manager: philmea
+manager: eliotgra
 keywords: azure iot raspberry pi, raspberry pi iot hub, raspberry pi에서 클라우드로 데이터 전송, raspberry pi-클라우드
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
-ms.date: 07/17/2019
+ms.date: 03/13/2020
 ms.author: wesmc
-ms.openlocfilehash: 5780477be71988653e89379ae17e9009337bbc0f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7c32ae73f065aa5cd1d0dabec421d354684fbb3c
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75457105"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79371507"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Raspberry Pi를 Azure IoT Hub에 연결(Node.js)
 
@@ -131,7 +131,7 @@ Raspbian 이미지를 설치를 위해 microSD 카드를 준비합니다.
 
 ### <a name="connect-the-sensor-to-pi"></a>Pi에 센서 연결
 
-실험용 회로판과 점퍼 와이어를 사용하여 LED 및 BME280 Pi를 다음과 같이 연결합니다. 센서가 없는 경우 [이 섹션을 건너뛰세요](#connect-pi-to-the-network).
+실험용 회로판과 점퍼 와이어를 사용하여 LED 및 BME280 Pi를 다음과 같이 연결합니다. 센서가 없는 경우 [이 섹션을 건너뜁니다](#connect-pi-to-the-network).
 
 ![Raspberry Pi와 센서 연결](./media/iot-hub-raspberry-pi-kit-node-get-started/3-raspberry-pi-sensor-connection.png)
 
@@ -202,13 +202,13 @@ BME280이 Raspberry Pi에 성공적으로 연결되면 아래 이미지처럼 �
 3. 샘플 애플리케이션을 복제합니다.
 
    ```bash
-   git clone https://github.com/Azure-Samples/iot-hub-node-raspberrypi-client-app
+   git clone https://github.com/Azure-Samples/azure-iot-samples-node.git
    ```
 
 4. 샘플의 모든 패키지를 설치합니다. 설치에는 Azure IoT 디바이스 SDK, BME280 센서 라이브러리 및 배선 Pi 라이브러리가 포함되어 있습니다.
 
    ```bash
-   cd iot-hub-node-raspberrypi-client-app
+   cd azure-iot-samples-node/iot-hub/Tutorials/RaspberryPiApp
    npm install
    ```
 
@@ -256,6 +256,6 @@ IoT Hub로 전송되는 센서 데이터와 메시지를 보여 주는 다음 �
 
 ## <a name="next-steps"></a>다음 단계
 
-샘플 애플리케이션을 실행하여 센서 데이터를 수집하고 IoT Hub로 전송했습니다.
+샘플 응용 프로그램을 실행 하 여 센서 데이터를 수집 하 고이를 IoT hub로 보냅니다.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/05/2019
+ms.date: 03/11/2020
 ms.author: travisw
-ms.openlocfilehash: 9349969f1f9b037a271cb727233517daba999acd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2e1b6ee0bd6c392804915fac6ff23278a00b6d33
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75446990"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79367842"
 ---
-# <a name="custom-commands-preview"></a>사용자 지정 명령(미리 보기)
+# <a name="what-are-custom-commands-preview"></a>사용자 지정 명령 (미리 보기) 이란?
 
 [음성 도우미](voice-assistants.md) 와 같은 음성 응용 프로그램은 사용자를 수신 대기 하 고 응답으로 작업을 수행 하는 경우가 많습니다. [음성 텍스트](speech-to-text.md) 를 사용 하 여 사용자의 음성을 높여줄 다음 텍스트에 대 한 자연어 이해에 대 한 작업을 수행 합니다. 이 작업에는 [텍스트를 음성](text-to-speech.md)으로 생성 하 여 생성 된 비서의 음성 출력이 포함 되는 경우가 많습니다. 장치는 Speech SDK의 `DialogServiceConnector` 개체를 사용 하 여 도우미에 연결 합니다.
 

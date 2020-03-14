@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 04/16/2018
 ms.author: srrengar
-ms.openlocfilehash: 8c8978a0114caf57d01f7add0bd9357c5d0775dc
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: c3c1bf511f3313e7408d6ce90b73de60bd1309f7
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75609947"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79366748"
 ---
 # <a name="performance-monitoring-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용 하 여 성능 모니터링
 
@@ -33,17 +33,17 @@ Log Analytics 에이전트를 클러스터에 추가하는 가장 좋은 방법�
 
 3. Windows 클러스터를 준비하는 경우 **Windows 서버**를 클릭하고 Linux 클러스터를 만드는 경우 **Linux 서버**를 클릭합니다. 이 페이지에는 `workspace ID` 및 `workspace key`(포털에 기본 키로 나열됨)가 표시됩니다. 두 가지 모두 다음 단계에서 필요합니다.
 
-4. 명령을 실행하여 Cloud Shell에서 `vmss extension set` API를 사용하여 클러스터에 Log Analytics 에이전트를 설치합니다.
+4. `vmss extension set` API를 사용 하 여 클러스터에 Log Analytics 에이전트를 설치 하려면 명령을 실행 합니다.
 
     Windows 클러스터의 경우:
 
-    ```sh
+    ```azurecli
     az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group <nameOfResourceGroup> --vmss-name <nameOfNodeType> --settings "{'workspaceId':'<Log AnalyticsworkspaceId>'}" --protected-settings "{'workspaceKey':'<Log AnalyticsworkspaceKey>'}"
     ```
 
     Linux 클러스터의 경우:
 
-    ```sh
+    ```azurecli
     az vmss extension set --name OmsAgentForLinux --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group <nameOfResourceGroup> --vmss-name <nameOfNodeType> --settings "{'workspaceId':'<Log AnalyticsworkspaceId>'}" --protected-settings "{'workspaceKey':'<Log AnalyticsworkspaceKey>'}"
     ```
 
@@ -53,7 +53,7 @@ Log Analytics 에이전트를 클러스터에 추가하는 가장 좋은 방법�
 
 5. 에이전트를 노드에 성공적으로 추가하기 위해서는 15분 미만이 소요됩니다. `az vmss extension list` API를 사용하여 에이전트가 추가되었는지 확인할 수 있습니다.
 
-    ```sh
+    ```azurecli
     az vmss extension list --resource-group <nameOfResourceGroup> --vmss-name <nameOfNodeType>
     ```
 

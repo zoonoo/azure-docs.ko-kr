@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 6a51e57bd2411c19dfd5e7740f9e918d0bd09e27
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: c8968eb72b29b004d94e25433da65d3262287147
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78372609"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79367145"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Azure Automation에서 Runbook 실행
 
@@ -123,7 +123,7 @@ If (($jobs.status -contains "Running" -And $runningCount -gt 1 ) -Or ($jobs.Stat
 
 ### <a name="working-with-multiple-subscriptions"></a>여러 구독 작업
 
-여러 구독을 처리 하려면 runbook에서 [AzContextAutosave](https://docs.microsoft.com/powershell/module/Az.Accounts/Disable-AzContextAutosave?view=azps-3.5.0) cmdlet을 사용 하 여 동일한 샌드박스에서 실행 되는 다른 runbook에서 인증 컨텍스트가 검색 되지 않도록 해야 합니다. 또한 runbook은 Az module cmdlet에 *AzContext* 매개 변수를 사용 하 고 적절 한 컨텍스트를 전달 합니다.
+여러 구독을 처리 하려면 runbook에서 [AzContextAutosave](https://docs.microsoft.com/powershell/module/Az.Accounts/Disable-AzContextAutosave?view=azps-3.5.0) cmdlet을 사용 하 여 동일한 샌드박스에서 실행 되는 다른 runbook에서 인증 컨텍스트가 검색 되지 않도록 해야 합니다. 또한 runbook은 Az module cmdlet의`AzContext` 매개 변수를 사용 하 여 적절 한 컨텍스트를 전달 합니다.
 
 ```powershell
 # Ensures that you do not inherit an AzContext in your runbook
@@ -156,7 +156,7 @@ Start-AzAutomationRunbook `
 
 [Erroractionpreference 설정](/powershell/module/microsoft.powershell.core/about/about_preference_variables#erroractionpreference) 변수는 PowerShell이 종료 되지 않는 오류에 응답 하는 방법을 결정 합니다. 종료 오류는 항상 종료 되며 *Erroractionpreference 설정*의 영향을 받지 않습니다.
 
-Runbook에서 *Erroractionpreference 설정을*사용 하는 경우 **Get-Childitem** Cmdlet의 **pathnotfound** 와 같은 일반적인 종료 되지 않는 오류는 runbook이 완료 되지 않도록 중지 합니다. 다음 예에서는 *Erroractionpreference 설정을*사용 하는 방법을 보여 줍니다. 스크립트를 중지 하면 최종 **쓰기 출력** 명령이 실행 되지 않습니다.
+Runbook에서 `ErrorActionPreference`사용 하는 경우 `Get-ChildItem` cmdlet의 **Pathnotfound** 와 같은 일반적으로 종료 되지 않는 오류는 runbook을 완료 하지 못하게 합니다. 다음 예에서는 `ErrorActionPreference`를 사용 하는 방법을 보여 줍니다. 스크립트를 중지 하면 최종 `Write-Output` 명령이 실행 되지 않습니다.
 
 ```powershell-interactive
 $ErrorActionPreference = 'Stop'
@@ -166,7 +166,7 @@ Write-Output "This message will not show"
 
 #### <a name="try-catch-finally"></a>마지막으로 Catch 시도
 
-[Try Catch Finally](/powershell/module/microsoft.powershell.core/about/about_try_catch_finally) 는 PowerShell 스크립트에서 종료 오류를 처리 하는 데 사용 됩니다. 스크립트는이 메커니즘을 사용 하 여 특정 예외 또는 일반 예외를 catch 할 수 있습니다. **Catch** 문은 오류를 추적 하거나 처리 하는 데 사용 해야 합니다. 다음 예에서는 존재 하지 않는 파일을 다운로드 하려고 시도 합니다. WebException 예외를 catch 하 고 다른 예외에 대 한 마지막 값을 반환 합니다.
+[Try Catch Finally](/powershell/module/microsoft.powershell.core/about/about_try_catch_finally) 는 PowerShell 스크립트에서 종료 오류를 처리 하는 데 사용 됩니다. 스크립트는이 메커니즘을 사용 하 여 특정 예외 또는 일반 예외를 catch 할 수 있습니다. 오류를 추적 하거나 처리 하려면 `catch` 문을 사용 해야 합니다. 다음 예에서는 존재 하지 않는 파일을 다운로드 하려고 시도 합니다. `System.Net.WebException` 예외를 catch 하 고 다른 예외에 대 한 마지막 값을 반환 합니다.
 
 ```powershell-interactive
 try
@@ -186,7 +186,7 @@ catch
 
 #### <a name="throw"></a>Throw
 
-[Throw](/powershell/module/microsoft.powershell.core/about/about_throw) 를 사용 하 여 종료 오류를 생성할 수 있습니다. 이 메커니즘은 runbook에서 고유한 논리를 정의할 때 유용할 수 있습니다. 스크립트가 중지 되어야 하는 조건을 충족 하는 경우 **throw** 문을 사용 하 여 중지할 수 있습니다. 다음 예에서는이 문을 사용 하 여 필수 함수 매개 변수를 표시 합니다.
+[Throw](/powershell/module/microsoft.powershell.core/about/about_throw) 를 사용 하 여 종료 오류를 생성할 수 있습니다. 이 메커니즘은 runbook에서 고유한 논리를 정의할 때 유용할 수 있습니다. 스크립트가 중지 되어야 하는 조건을 충족 하는 경우에는 `throw` 문을 사용 하 여 중지할 수 있습니다. 다음 예에서는이 문을 사용 하 여 필수 함수 매개 변수를 표시 합니다.
 
 ```powershell-interactive
 function Get-ContosoFiles
@@ -206,15 +206,15 @@ Azure 샌드박스에서 실행 되는 Runbook 작업은 장치나 응용 프로
 
 ## <a name="handling-errors"></a>오류 처리
 
-Runbook에서 오류를 처리할 수 있어야 합니다. PowerShell에는 종료 및 종료 되지 않는 두 가지 유형의 오류가 있습니다. 종료 오류가 발생 하면 runbook 실행이 중지 됩니다. 작업 상태가 **실패**로 인해 runbook이 중지 됩니다.
+Runbook에서 오류를 처리할 수 있어야 합니다. PowerShell에는 종료 및 종료 되지 않는 두 가지 유형의 오류가 있습니다. 종료 오류가 발생 하면 runbook 실행이 중지 됩니다. 작업 상태가 실패로 인해 runbook이 중지 됩니다.
 
-종료 되지 않는 오류는 스크립트가 발생 한 후에도 스크립트를 계속 실행할 수 있습니다. 종료 되지 않는 오류의 예는 runbook이 존재 하지 않는 경로를 사용 하 여 **Get ChildItem** cmdlet을 사용 하는 경우 발생 하는 오류입니다. PowerShell은 경로가 없다는 것을 확인하고 오류가 throw한 후 다음 폴더로 계속 진행됩니다. 이 경우 오류는 runbook 작업 상태 상태를 **실패**로 설정 하지 않으며 작업이 완료 될 수도 있습니다. 종료되지 않는 오류에서 강제로 Runbook을 중지하려면 cmdlet에서 `-ErrorAction Stop`을 사용할 수 있습니다.
+종료 되지 않는 오류는 스크립트가 발생 한 후에도 스크립트를 계속 실행할 수 있습니다. 종료 되지 않는 오류의 예는 runbook이 존재 하지 않는 경로를 사용 하 여 `Get-ChildItem` cmdlet을 사용 하는 경우 발생 하는 오류입니다. PowerShell은 경로가 없다는 것을 확인하고 오류가 throw한 후 다음 폴더로 계속 진행됩니다. 이 경우 오류는 runbook 작업 상태 상태를 실패로 설정 하지 않으며 작업이 완료 될 수도 있습니다. 종료되지 않는 오류에서 강제로 Runbook을 중지하려면 cmdlet에서 `-ErrorAction Stop`을 사용할 수 있습니다.
 
 ## <a name="handling-jobs"></a>작업 처리
 
 동일한 Automation 계정의 작업에 대 한 실행 환경을 다시 사용할 수 있습니다. 단일 Runbook에서 동시에 많은 작업을 실행할 수 있습니다. 더 많은 작업을 동시에 실행할 수록 동일한 샌드박스에 더 자주 디스패치될 수 있습니다.
 
-동일한 샌드박스 프로세스에서 실행 되는 작업은 서로 영향을 줄 수 있습니다. 한 가지 예는 **AzAccount** cmdlet을 실행 하는 것입니다. 이 cmdlet을 실행 하면 공유 샌드박스 프로세스에서 각 runbook 작업의 연결이 끊어집니다.
+동일한 샌드박스 프로세스에서 실행 되는 작업은 서로 영향을 줄 수 있습니다. 한 가지 예는 `Disconnect-AzAccount` cmdlet을 실행 하는 것입니다. 이 cmdlet을 실행 하면 공유 샌드박스 프로세스에서 각 runbook 작업의 연결이 끊어집니다.
 
 Azure 샌드박스에서 실행 되는 runbook에서 시작 된 PowerShell 작업은 전체 언어 모드에서 실행 되지 않을 수 있습니다. PowerShell 언어 모드에 대해 자세히 알아보려면 [powershell 언어 모드](/powershell/module/microsoft.powershell.core/about/about_language_modes)를 참조 하세요. Azure Automation에서 작업과 상호 작용 하는 방법에 대 한 자세한 내용은 [PowerShell을 사용 하 여 작업 상태 검색](#retrieving-job-status-using-powershell)을 참조 하세요.
 
@@ -234,7 +234,7 @@ Azure 샌드박스에서 실행 되는 runbook에서 시작 된 PowerShell 작�
 | Running, waiting for resources |작업이 공평 분배 한도에 도달 하 여 언로드 되었습니다. 잠시 후 마지막 검사점에서 작업이 다시 시작됩니다. |
 | 중지됨 |작업이 완료되기 전에 사용자에 의해 중지되었습니다. |
 | 중지 중 |시스템이 작업을 중지하는 중입니다. |
-| 일시 중단 |[그래픽 및 PowerShell 워크플로 runbook](automation-runbook-types.md) 에만 적용 됩니다. 작업이 Runbook의 사용자, 시스템 또는 명령에 의해 일시 중단되었습니다. Runbook에 검사점이 없으면 처음부터 시작 합니다. 검사점이 있으면 다시 시작되고 마지막 검사점에서 재개될 수 있습니다. 시스템은 예외가 발생 하는 경우에만 runbook을 일시 중단 합니다. 기본적으로 *Erroractionpreference 설정* 변수는 Continue로 설정 되며이는 작업이 오류 발생 시 **계속**실행 됨을 나타냅니다. 기본 설정 변수가 **Stop**으로 설정 된 경우에는 오류 발생 시 작업이 일시 중단 됩니다.  |
+| 일시 중단 |[그래픽 및 PowerShell 워크플로 runbook](automation-runbook-types.md) 에만 적용 됩니다. 작업이 Runbook의 사용자, 시스템 또는 명령에 의해 일시 중단되었습니다. Runbook에 검사점이 없으면 처음부터 시작 합니다. 검사점이 있으면 다시 시작되고 마지막 검사점에서 재개될 수 있습니다. 시스템은 예외가 발생 하는 경우에만 runbook을 일시 중단 합니다. 기본적으로 `ErrorActionPreference` 변수는 Continue로 설정 되어 작업이 오류 발생 시 계속 실행 됨을 나타냅니다. 기본 설정 변수가 Stop으로 설정 된 경우에는 오류 발생 시 작업이 일시 중단 됩니다.  |
 | Suspending |[그래픽 및 PowerShell 워크플로 runbook](automation-runbook-types.md) 에만 적용 됩니다. 시스템이 사용자의 요청에 따라 작업을 일시 중단하려고 합니다. Runbook의 다음 검사점에 도달해야만 Runbook을 일시 중단할 수 있습니다. 이미 마지막 검사점을 통과 한 경우 일시 중단 되기 전에 완료 됩니다. |
 
 ### <a name="viewing-job-status-from-the-azure-portal"></a>Azure Portal에서 작업 상태 보기
@@ -247,7 +247,7 @@ Azure 샌드박스에서 실행 되는 runbook에서 시작 된 PowerShell 작�
 
 이 타일에는 실행 된 각 작업에 대 한 작업 상태의 수와 그래픽 표현이 표시 됩니다.
 
-타일을 클릭하면 실행된 모든 작업의 요약 목록이 포함된 **작업** 페이지가 표시됩니다. 이 페이지에는 각 작업의 상태, runbook 이름, 시작 시간 및 완료 시간이 표시 됩니다.
+타일을 클릭 하면 실행 되는 모든 작업의 요약 된 목록이 포함 된 작업 페이지가 표시 됩니다. 이 페이지에는 각 작업의 상태, runbook 이름, 시작 시간 및 완료 시간이 표시 됩니다.
 
 ![Automation 계정 작업 페이지](./media/automation-runbook-execution/automation-account-jobs-status-blade.png)
 
@@ -255,7 +255,7 @@ Azure 샌드박스에서 실행 되는 runbook에서 시작 된 PowerShell 작�
 
 ![작업 상태 필터링](./media/automation-runbook-execution/automation-account-jobs-filter.png)
 
-또는 Automation 계정의 **runbook** 페이지에서 runbook을 선택 하 고 **작업** 타일을 선택 하 여 특정 runbook에 대 한 작업 요약 세부 정보를 볼 수 있습니다. 이 작업은 **작업** 페이지를 표시 합니다. 여기에서 작업 레코드를 클릭 하 여 세부 정보 및 출력을 볼 수 있습니다.
+또는 Automation 계정의 Runbook 페이지에서 runbook을 선택 하 고 **작업** 타일을 선택 하 여 특정 runbook에 대 한 작업 요약 세부 정보를 볼 수 있습니다. 이 작업은 작업 페이지를 표시 합니다. 여기에서 작업 레코드를 클릭 하 여 세부 정보 및 출력을 볼 수 있습니다.
 
 ![Automation 계정 작업 페이지](./media/automation-runbook-execution/automation-runbook-job-summary-blade.png)
 
@@ -267,13 +267,13 @@ Azure 샌드박스에서 실행 되는 runbook에서 시작 된 PowerShell 작�
 
 1. Azure Portal에서 **Automation**을 선택한 다음 Automation 계정의 이름을 선택합니다.
 2. 허브의 **프로세스 자동화**아래에서 **runbook** 을 선택 합니다.
-3. **Runbook** 페이지의 목록에서 runbook을 선택 합니다.
+3. Runbook 페이지의 목록에서 runbook을 선택 합니다.
 3. 선택한 Runbook에 대한 페이지에서 **작업** 타일을 클릭합니다.
 4. 목록에서 작업 중 하나를 클릭 하 고 runbook 작업 세부 정보 페이지에서 세부 정보 및 출력을 확인 합니다.
 
 ### <a name="retrieving-job-status-using-powershell"></a>PowerShell을 사용 하 여 작업 상태 검색
 
-**AzAutomationJob** cmdlet을 사용 하 여 runbook에 대해 만들어진 작업과 특정 작업의 세부 정보를 검색 합니다. **AzAutomationRunbook**를 사용 하 여 PowerShell을 사용 하 여 runbook을 시작 하는 경우 결과 작업을 반환 합니다. [AzAutomationJobOutput](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.5.0) 를 사용 하 여 작업 출력을 검색 합니다.
+`Get-AzAutomationJob` cmdlet을 사용 하 여 runbook에 대해 만들어진 작업과 특정 작업의 세부 정보를 검색 합니다. `Start-AzAutomationRunbook`를 사용 하 여 PowerShell을 사용 하 여 runbook을 시작 하는 경우 결과 작업을 반환 합니다. [AzAutomationJobOutput](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.5.0) 를 사용 하 여 작업 출력을 검색 합니다.
 
 다음 예에서는 샘플 runbook에 대 한 마지막 작업을 가져오고 해당 상태, runbook 매개 변수에 제공 된 값 및 작업 출력을 표시 합니다.
 
@@ -338,13 +338,13 @@ $JobInfo.GetEnumerator() | sort key -Descending | Select-Object -First 1
 
 ## <a name="fair-share"></a>Runbook 간 리소스 공유
 
-클라우드의 모든 runbook에서 리소스를 공유 하기 위해 Azure Automation는 3 시간 이상 실행 된 작업을 일시적으로 언로드 또는 중지 합니다. [PowerShell runbook](automation-runbook-types.md#powershell-runbooks) 및 [Python runbook](automation-runbook-types.md#python-runbooks) 에 대 한 작업은 중지 되며 다시 시작 되지 않으며, 작업 상태가 **중지 됨**이 됩니다.
+클라우드의 모든 runbook에서 리소스를 공유 하기 위해 Azure Automation는 3 시간 이상 실행 된 작업을 일시적으로 언로드 또는 중지 합니다. [PowerShell runbook](automation-runbook-types.md#powershell-runbooks) 및 [Python runbook](automation-runbook-types.md#python-runbooks) 에 대 한 작업은 중지 되며 다시 시작 되지 않으며, 작업 상태가 중지 됨이 됩니다.
 
 장기 실행 작업의 경우 Hybrid Runbook Worker를 사용 하는 것이 좋습니다. Hybrid Runbook Worker는 공평 분배로 제한되지 않으며, Runbook을 실행할 수 있는 기간에 대한 제한이 없습니다. 다른 작업 [제한](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits)은 Azure 샌드박스 및 Hybrid Runbook Worker에 모두 적용됩니다. Hybrid Runbook Worker는 3 시간 공평 공유 제한에 의해서만 제한 되지 않지만 예기치 않은 로컬 인프라 문제에서 다시 시작을 지 원하는 작업자에서 실행할 runbook을 개발 해야 합니다.
 
-또 다른 옵션은 자식 runbook을 사용 하 여 runbook을 최적화 하는 것입니다. 예를 들어 runbook은 여러 데이터베이스에서 데이터베이스 작업과 같은 여러 리소스에서 동일한 기능을 통해 반복 될 수 있습니다. 이 함수를 [자식 runbook](automation-child-runbooks.md) 으로 이동 하 고 Runbook에서 **AzAutomationRunbook**를 사용 하 여 호출 하도록 할 수 있습니다. 자식 runbook은 별도의 프로세스에서 병렬로 실행 됩니다.
+또 다른 옵션은 자식 runbook을 사용 하 여 runbook을 최적화 하는 것입니다. 예를 들어 runbook은 여러 데이터베이스에서 데이터베이스 작업과 같은 여러 리소스에서 동일한 기능을 통해 반복 될 수 있습니다. 이 함수를 [자식 runbook](automation-child-runbooks.md) 으로 이동 하 고 runbook에서 `Start-AzAutomationRunbook`를 사용 하 여 호출 하도록 할 수 있습니다. 자식 runbook은 별도의 프로세스에서 병렬로 실행 됩니다.
 
-자식 runbook을 사용 하면 부모 runbook을 완료 하는 데 걸리는 총 시간을 줄일 수 있습니다. **AzAutomationJob** cmdlet을 사용 하 여 자식 runbook에 대 한 작업 상태를 확인할 수 있습니다. 자식 runbook이 완료 된 후에도 작업을 수행할 수 있습니다.
+자식 runbook을 사용 하면 부모 runbook을 완료 하는 데 걸리는 총 시간을 줄일 수 있습니다. Runbook은 자식 runbook이 완료 된 후 수행 해야 하는 작업이 있는 경우에는 `Get-AzAutomationJob` cmdlet을 사용 하 여 자식 runbook에 대 한 작업 상태를 확인할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

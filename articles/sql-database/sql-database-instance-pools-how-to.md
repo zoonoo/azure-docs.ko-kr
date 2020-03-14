@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
-ms.openlocfilehash: 5a45b9e3ba59a91f580ce0f2dc180adf5d20c87d
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 4a27165d929cc9bc5f18e372f7f108887e466e43
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75754047"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79299365"
 ---
 # <a name="azure-sql-database-instance-pools-preview-how-to-guide"></a>Azure SQL Database instance 풀 (미리 보기) 방법 가이드
 
@@ -26,18 +26,18 @@ ms.locfileid: "75754047"
 
 다음 표에서는 Azure Portal 및 PowerShell에서 인스턴스 풀 및 해당 가용성과 관련 된 사용 가능한 작업을 보여 줍니다.
 
-|명령|Azure Portal|PowerShell|
+|명령|Azure portal|PowerShell|
 |:---|:---|:---|
-|인스턴스 풀 만들기|아닙니다.|예|
-|인스턴스 풀 업데이트 (제한 된 속성 수)|아닙니다. |예 |
-|인스턴스 풀 사용 및 속성 확인|아닙니다.|예 |
-|인스턴스 풀 삭제|아닙니다.|예|
-|인스턴스 풀 내에서 관리 되는 인스턴스 만들기|아닙니다.|예|
-|관리 되는 인스턴스 리소스 사용 현황 업데이트|예 |예|
-|관리 되는 인스턴스 사용 및 속성 확인|예|예|
-|풀에서 관리 되는 인스턴스 삭제|예|예|
-|풀에 배치 된 관리 되는 인스턴스에서 데이터베이스 만들기|예|예|
-|관리 되는 인스턴스에서 데이터베이스 삭제|예|예|
+|인스턴스 풀 만들기|예|yes|
+|인스턴스 풀 업데이트 (제한 된 속성 수)|예 |yes |
+|인스턴스 풀 사용 및 속성 확인|예|yes |
+|인스턴스 풀 삭제|예|yes|
+|인스턴스 풀 내에서 관리 되는 인스턴스 만들기|예|yes|
+|관리 되는 인스턴스 리소스 사용 현황 업데이트|yes |yes|
+|관리 되는 인스턴스 사용 및 속성 확인|yes|yes|
+|풀에서 관리 되는 인스턴스 삭제|yes|yes|
+|풀에 배치 된 관리 되는 인스턴스에서 데이터베이스 만들기|yes|yes|
+|관리 되는 인스턴스에서 데이터베이스 삭제|yes|yes|
 
 사용 가능한 [PowerShell 명령](https://docs.microsoft.com/powershell/module/az.sql/)
 
@@ -50,7 +50,7 @@ ms.locfileid: "75754047"
 |[AzSqlInstancePoolUsage](/powershell/module/az.sql/get-azsqlinstancepoolusage/) | Azure SQL 인스턴스 풀 사용에 대 한 정보를 반환 합니다. |
 
 
-PowerShell을 사용 하려면 [최신 버전의 Powershell Core를 설치](https://docs.microsoft.com/powershell/scripting/install/installing-powershell#powershell-core)하 고 지침에 따라 [Azure PowerShell 모듈을 설치](https://docs.microsoft.com/powershell/azure/install-az-ps)합니다.
+PowerShell을 사용 하려면 [최신 버전의 Powershell Core를 설치](https://docs.microsoft.com/powershell/scripting/install/installing-powershell#powershell)하 고 지침에 따라 [Azure PowerShell 모듈을 설치](https://docs.microsoft.com/powershell/azure/install-az-ps)합니다.
 
 풀과 단일 인스턴스 모두의 인스턴스와 관련 된 작업의 경우 표준 [관리 되는 인스턴스 명령을](sql-database-managed-instance-create-manage.md#powershell-create-and-manage-managed-instances)사용 하지만 풀의 인스턴스에 대해 이러한 명령을 사용 하는 경우 *인스턴스 풀 이름* 속성을 채워야 합니다.
 

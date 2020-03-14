@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 5527b96ddf6ccebb60ca8130e48f6aae87a3f715
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 42362a170f493afd51a5d4ee139620ad25b54e79
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78246542"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79367366"
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Azure Automation의 자식 runbook
 
@@ -35,13 +35,13 @@ runbook이 게시되면 호출하는 모든 자식 runbook은 이미 게시되�
 
 * Powershell [runbook](automation-runbook-types.md#powershell-runbooks) 및 [그래픽 Runbook](automation-runbook-types.md#graphical-runbooks) 은 모두 powershell 기반 이므로 서로 다른 인라인을 호출할 수 있습니다.
 * Powershell 워크플로 [runbook](automation-runbook-types.md#powershell-workflow-runbooks) 및 그래픽 powershell 워크플로 runbook은 모두 powershell 워크플로 기반 이므로 서로 다른 인라인을 호출할 수 있습니다.
-* PowerShell 유형 및 PowerShell 워크플로 유형은 서로 다른 인라인을 호출할 수 없으며 **AzAutomationRunbook**를 사용 해야 합니다.
+* PowerShell 유형 및 PowerShell 워크플로 유형은 서로 인라인으로 호출할 수 없으며 `Start-AzAutomationRunbook`를 사용 해야 합니다.
 
 게시 순서가 중요 한 경우
 
 Runbook의 게시 순서는 PowerShell 워크플로 및 그래픽 PowerShell 워크플로 runbook에만 중요 합니다.
 
-Runbook이 인라인 실행을 사용 하 여 그래픽 또는 PowerShell 워크플로 자식 runbook을 호출 하는 경우 runbook의 이름을 사용 합니다. 스크립트를 로컬 디렉터리에 배치 하도록 지정 하려면 이름을\\으로 시작 해야 합니다 **.**
+Runbook이 인라인 실행을 사용 하 여 그래픽 또는 PowerShell 워크플로 자식 runbook을 호출 하는 경우 runbook의 이름을 사용 합니다. 스크립트를 로컬 디렉터리에 배치 하도록 지정 하려면 이름을 `.\\`으로 시작 해야 합니다.
 
 ### <a name="example"></a>예제
 
@@ -62,15 +62,15 @@ $output = .\PS-ChildRunbook.ps1 –VM $vm –RepeatCount 2 –Restart $true
 ## <a name="starting-a-child-runbook-using-a-cmdlet"></a>Cmdlet을 사용 하 여 자식 runbook 시작
 
 > [!IMPORTANT]
-> Runbook이 *Wait* 매개 변수와 함께 **AzAutomationRunbook** cmdlet을 사용 하 여 자식 runbook을 호출 하 고 자식 runbook에서 개체 결과를 생성 하는 경우 작업에 오류가 발생할 수 있습니다. 이 오류를 해결 하려면 [AzAutomationJobOutputRecord](/powershell/module/az.automation/get-azautomationjoboutputrecord) cmdlet을 사용 하 여 결과를 폴링하는 논리를 구현 하는 방법을 알아보려면 [개체 출력이 있는 자식 runbook](troubleshoot/runbooks.md#child-runbook-object) 을 참조 하세요.
+> Runbook이 `Wait` 매개 변수를 사용 하 여 `Start-AzAutomationRunbook` cmdlet을 사용 하 여 자식 runbook을 호출 하 고 자식 runbook에서 개체 결과를 생성 하는 경우 작업에 오류가 발생할 수 있습니다. 이 오류를 해결 하려면 [AzAutomationJobOutputRecord](/powershell/module/az.automation/get-azautomationjoboutputrecord) cmdlet을 사용 하 여 결과를 폴링하는 논리를 구현 하는 방법을 알아보려면 [개체 출력이 있는 자식 runbook](troubleshoot/runbooks.md#child-runbook-object) 을 참조 하세요.
 
-Windows PowerShell을 사용 하 [여 runbook을 시작 하려면](start-runbooks.md#start-a-runbook-with-powershell)에 설명 된 대로 **AzAutomationRunbook** 를 사용 하 여 runbook을 시작할 수 있습니다. 이 cmdlet에 사용할 두 가지 모드가 있습니다. 한 모드에서 cmdlet은 자식 runbook에 대해 작업을 만들 때 작업 ID를 반환 합니다. 스크립트가 *Wait* 매개 변수를 지정 하 여 사용 하도록 설정 하는 다른 모드에서 cmdlet은 자식 작업이 완료 될 때까지 대기 하 고 자식 runbook의 출력을 반환 합니다.
+Windows PowerShell을 사용 하 [여 runbook을 시작 하려면](start-runbooks.md#start-a-runbook-with-powershell)에 설명 된 대로 `Start-AzAutomationRunbook`를 사용 하 여 runbook을 시작할 수 있습니다. 이 cmdlet에 사용할 두 가지 모드가 있습니다. 한 모드에서 cmdlet은 자식 runbook에 대해 작업을 만들 때 작업 ID를 반환 합니다. 스크립트가 *Wait* 매개 변수를 지정 하 여 사용 하도록 설정 하는 다른 모드에서 cmdlet은 자식 작업이 완료 될 때까지 대기 하 고 자식 runbook의 출력을 반환 합니다.
 
 Cmdlet을 사용 하 여 시작한 자식 runbook의 작업은 부모 runbook 작업과는 별도로 실행 됩니다. 이 동작은 runbook을 인라인으로 시작 하는 것 보다 더 많은 작업을 수행 하 고 작업을 추적 하기가 더 어려워집니다. 부모는 각 runbook이 완료 될 때까지 기다리지 않고 비동기적으로 둘 이상의 자식 runbook을 시작할 수 있습니다. 자식 runbook을 인라인으로 호출 하는이 병렬 실행에서는 부모 runbook이 [parallel 키워드](automation-powershell-workflow.md#parallel-processing)를 사용 해야 합니다.
 
-시간 때문에 자식 runbook 출력이 부모 runbook으로 안정적으로 반환 되지 않습니다. 또한 *$VerbosePreference*, *$WarningPreference*및 기타와 같은 변수는 자식 runbook으로 전파 되지 않을 수 있습니다. 이러한 문제를 방지 하기 위해 *대기* 매개 변수와 함께 **AzAutomationRunbook** 를 사용 하 여 별도의 자동화 작업으로 자식 runbook을 시작할 수 있습니다. 이 기술은 자식 runbook이 완료 될 때까지 부모 runbook을 차단 합니다.
+시간 때문에 자식 runbook 출력이 부모 runbook으로 안정적으로 반환 되지 않습니다. 또한 `$VerbosePreference`, `$WarningPreference`및 기타와 같은 변수는 자식 runbook으로 전파 되지 않을 수 있습니다. 이러한 문제를 방지 하기 위해 `Wait` 매개 변수와 함께 `Start-AzAutomationRunbook`를 사용 하 여 개별 Automation 작업으로 자식 runbook을 시작할 수 있습니다. 이 기술은 자식 runbook이 완료 될 때까지 부모 runbook을 차단 합니다.
 
-대기 상태에서 부모 runbook을 차단 하지 않으려면 *대기* 매개 변수 없이 **AzAutomationRunbook** 를 사용 하 여 자식 runbook을 시작할 수 있습니다. 이 경우 runbook에서 작업이 완료 될 때까지 대기 하려면 [AzAutomationJob](/powershell/module/az.automation/get-azautomationjob) 를 사용 해야 합니다. 또한 [AzAutomationJobOutput](/powershell/module/az.automation/get-azautomationjoboutput) 및 [AzAutomationJobOutputRecord](/powershell/module/az.automation/get-azautomationjoboutputrecord) 를 사용 하 여 결과를 검색 해야 합니다.
+대기 중인 부모 runbook을 차단 하지 않으려면 `Wait` 매개 변수 없이 `Start-AzAutomationRunbook`를 사용 하 여 자식 runbook을 시작할 수 있습니다. 이 경우 runbook에서 작업이 완료 될 때까지 대기 하려면 [AzAutomationJob](/powershell/module/az.automation/get-azautomationjob) 를 사용 해야 합니다. 또한 [AzAutomationJobOutput](/powershell/module/az.automation/get-azautomationjoboutput) 및 [AzAutomationJobOutputRecord](/powershell/module/az.automation/get-azautomationjoboutputrecord) 를 사용 하 여 결과를 검색 해야 합니다.
 
 [Runbook 매개 변수](start-runbooks.md#runbook-parameters)에서 설명한 대로 cmdlet으로 시작 하는 자식 runbook의 매개 변수는 해시 테이블로 제공 됩니다. 단순한 데이터 형식만 사용할 수 있습니다. runbook에 복잡한 데이터 형식을 가진 매개 변수가 있는 경우 인라인으로 호출해야 합니다.
 
@@ -80,7 +80,7 @@ Cmdlet을 사용 하 여 시작한 자식 runbook의 작업은 부모 runbook �
 
 ### <a name="example"></a>예제
 
-다음 예에서는 매개 변수가 있는 자식 runbook을 시작한 다음 *Wait* 매개 변수와 함께 **AzAutomationRunbook** cmdlet을 사용 하 여 완료 될 때까지 기다립니다. 완료 되 면이 예제에서는 자식 runbook의 cmdlet 출력을 수집 합니다. **AzAutomationRunbook**를 사용 하려면 스크립트가 Azure 구독에 인증 해야 합니다.
+다음 예에서는 매개 변수를 사용 하 여 자식 runbook을 시작한 다음 `Wait` 매개 변수와 함께 `Start-AzAutomationRunbook` cmdlet을 사용 하 여 완료 될 때까지 기다립니다. 완료 되 면이 예제에서는 자식 runbook의 cmdlet 출력을 수집 합니다. `Start-AzAutomationRunbook`를 사용 하려면 스크립트가 Azure 구독에 인증 해야 합니다.
 
 ```azurepowershell-interactive
 # Ensure that the runbook does not inherit an AzContext

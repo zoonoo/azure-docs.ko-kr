@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/31/2020
+ms.date: 03/11/2020
 ms.author: dapine
-ms.openlocfilehash: 230fbd14ce33b52b1e7a1f9cc9cd530ccdec169a
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 714cdefa7100160a510d1922a2547ae53692d76c
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77562533"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79367808"
 ---
-# <a name="about-direct-line-speech"></a>직접 선 음성 정보
+# <a name="what-is-direct-line-speech"></a>Direct Line Speech란?
 
 **직접 라인 음성** 은 유연 하 고 확장 가능한 음성 도우미를 만들기 위한 강력 하 고 종단 간 솔루션입니다. 봇 프레임 워크와 봇과의 음성 출력 상호 작용에 최적화 된 봇 프레임 워크 및 직접 라인 음성 채널을 기반으로 합니다.
 
@@ -35,7 +35,7 @@ ms.locfileid: "77562533"
 
 또한 코드를 실행 하 고 Api를 빠르게 학습할 수 있도록 설계 된 퀵 스타트를 제공 합니다. 이 표에는 언어 및 플랫폼 별로 구성 된 음성 도우미 빠른 시작 목록이 포함 되어 있습니다.
 
-| 퀵 스타트 | 플랫폼 | API 참조 |
+| 빠른 시작 | 플랫폼 | API 참조 |
 |------------|----------|---------------|
 | C#, UWP | Windows | [찾아보기](https://aka.ms/csspeech/csharpref) |
 | Java | Windows, macOS, Linux | [찾아보기](https://aka.ms/csspeech/javaref) |

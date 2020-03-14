@@ -6,14 +6,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 1/23/2020
+ms.date: 3/13/2020
 ms.author: sutalasi
-ms.openlocfilehash: aeab1960b065538635fdd63c43d779287f8cd9ee
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 5dcae83714ee3693288abf54afe8df7bb55dd578
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759826"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79371446"
 ---
 # <a name="about-networking-in-azure-vm-disaster-recovery"></a>Azure VM 재해 복구의 네트워킹 정보
 
@@ -52,6 +52,8 @@ URL 기반 방화벽 프록시를 사용하여 아웃바운드 연결을 제어�
 login.microsoftonline.com | Site Recovery 서비스 URL에 대한 권한 부여 및 인증에 필요합니다.
 \*.hypervrecoverymanager.windowsazure.com | VM에서 Site Recovery 서비스 통신이 발생할 수 있도록 하는 데 필요합니다.
 \*.servicebus.windows.net | VM에서 Site Recovery 모니터링 및 진단 데이터를 쓸 수 있도록 하는 데 필요합니다.
+*.vault.azure.net | 포털을 통해 ADE 지원 가상 컴퓨터에 대 한 복제를 사용 하도록 설정 하는 액세스 허용
+*. automation.ext.azure.com | 포털을 통해 복제 된 항목에 대해 모바일 에이전트의 자동 업그레이드를 사용 하도록 설정 합니다.
 
 ## <a name="outbound-connectivity-for-ip-address-ranges"></a>IP 주소 범위에 대한 아웃바운드 연결
 
@@ -63,6 +65,8 @@ NSG를 사용 하 여 아웃 바운드 연결을 제어 하는 경우 이러한 
 - AAD에 해당하는 모든 IP 주소에 대한 액세스를 허용하는 [AAD(Azure Active Directory) 서비스 태그](../virtual-network/security-overview.md#service-tags) 기반 NSG 규칙을 만드세요.
 - 대상 지역에 대 한 EventsHub 서비스 태그 기반 NSG 규칙을 만들어 Site Recovery 모니터링에 대 한 액세스를 허용 합니다.
 - 모든 지역에서 Site Recovery 서비스에 대 한 액세스를 허용 하는 NSG 규칙을 기반으로 AzureSiteRecovery 서비스 태그를 만듭니다.
+- AzureKeyVault 서비스 태그 기반 NSG 규칙을 만듭니다. 이는 포털을 통해 ADE 지원 가상 컴퓨터의 복제를 사용 하도록 설정 하는 경우에만 필요 합니다.
+- GuestAndHybridManagement service 태그 기반 NSG 규칙을 만듭니다. 이는 포털을 통해 복제 된 항목에 대 한 모바일 에이전트의 자동 업그레이드를 사용 하도록 설정 하는 경우에만 필요 합니다.
 - 프로덕션 NSG에서 규칙을 만들기 전에 테스트 NSG에서 필요한 NSG 규칙을 만들고 문제가 없는지 확인하는 것이 좋습니다.
 
 ## <a name="example-nsg-configuration"></a>NSG 구성 예제
@@ -115,7 +119,7 @@ NVA(네트워크 가상 어플라이언스)를 사용하여 VM에서 아웃바�
 >[!NOTE]
 >ASR에 사용되는 스토리지 계정에 대한 가상 네트워크 액세스를 제한하지 마십시오. '모든 네트워크'에서 액세스를 허용해야 합니다.
 
-### <a name="forced-tunneling"></a>터널링 적용
+### <a name="forced-tunneling"></a>강제 터널링
 
 [사용자 지정 경로](../virtual-network/virtual-networks-udr-overview.md#custom-routes)를 사용하여 Azure 기본 시스템 경로의 0.0.0.0/0 주소 접두사를 재정의하고 VM 트래픽을 온-프레미스 NVA(네트워크 가상 어플라이언스)로 우회시킬 수 있지만 Site Recovery 복제에는 이 구성이 권장되지 않습니다. 사용자 지정 경로를 사용하는 경우 복제 트래픽이 Azure 경계를 나가지 않도록 "Storage"에 대한 가상 네트워크에서 [가상 네트워크 서비스 엔드포인트를 생성](azure-to-azure-about-networking.md#create-network-service-endpoint-for-storage)해야 합니다.
 

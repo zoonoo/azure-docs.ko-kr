@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/31/2020
+ms.date: 03/11/2020
 ms.author: dapine
-ms.openlocfilehash: 8e36a5c4d9ce2bc38565d6c9c256ed2cc7efe357
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 8fc52428795b0dc8123d501dac9605c473f61456
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77561071"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79367825"
 ---
-# <a name="about-conversation-transcription-preview"></a>대화 기록 정보 (미리 보기)
+# <a name="what-is-conversation-transcription-preview"></a>대화 내용 (미리 보기) 이란 무엇 인가요?
 
 대화는 음성 인식, 스피커 식별 및 문장 특성을 각 스피커 ( _diarization_라고도 함)와 결합 하 여 대화에 대 한 실시간 및/또는 비동기 기록을 제공 하는 [음성-텍스트](speech-to-text.md) 솔루션입니다. 대화 기록을 통해 대화에서 스피커를 구분 하 여 및 시기를 확인 하 고 개발자가 다중 스피커 diarization을 수행 하는 응용 프로그램에 음성 텍스트를 쉽게 추가할 수 있습니다.
 
@@ -63,7 +63,7 @@ ms.locfileid: "77561071"
 
 오디오 데이터는 라이브 처리 되어 스피커 식별자 + 성적 증명서를 반환 합니다. 기록 솔루션 요구 사항으로 인해 대화 참가자에 게 진행 중인 대화에 대 한 라이브 성적 증명서 보기가 제공 되는 경우이 모드를 선택 합니다. 예를 들어, 회의에 더 쉽게 액세스할 수 있도록 응용 프로그램을 빌드하는 것은 실시간 기록을 위한 좋은 사용 사례입니다.
 
-### <a name="asynchronous"></a>Asynchronous
+### <a name="asynchronous"></a>비동기
 
 오디오 데이터는 스피커 식별자 및 성적 증명서를 반환 하기 위해 일괄 처리 됩니다. 기록 솔루션 요구 사항이 라이브 기록 보기 없이 더 높은 정확도를 제공 해야 하는 경우이 모드를 선택 합니다. 예를 들어 모임 참가자가 누락 된 모임을 쉽게 파악할 수 있도록 응용 프로그램을 빌드하려면 비동기 기록 모드를 사용 하 여 정확도가 높은 기록 결과를 얻을 수 있습니다.
 

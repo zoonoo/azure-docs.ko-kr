@@ -10,22 +10,24 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: 5831f83d8cd38cc07c64fdc398405c3a70935485
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 85bae9bfc10460b51935c6eb1e14e3a3dd816a8c
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169084"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79217807"
 ---
 # <a name="migrate-analytics-from-excel-to-azure-machine-learning-studio-classic"></a>Excel에서 Azure Machine Learning Studio로 분석 마이그레이션 (클래식)
 
-> *Kate Baroni*와 *Ben Boatman*은 Microsoft Data Insights Center of Excellence의 엔터프라이즈 솔루션 설계자입니다. 이 문서에서는 Azure Machine Learning Studio (클래식)를 사용 하 여 기존 회귀 분석 제품군을 클라우드 기반 솔루션으로 마이그레이션하는 환경을 설명 합니다.
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+
+> *Kate Baroni* 및 *이혜준 씨* 는 Microsoft의 Data Insights 센터에서 엔터프라이즈 솔루션 설계자입니다. 이 문서에서는 Azure Machine Learning Studio (클래식)를 사용 하 여 기존 회귀 분석 제품군을 클라우드 기반 솔루션으로 마이그레이션하는 환경을 설명 합니다.
 
 ## <a name="goal"></a>목표
 
 다음 두 가지 목표를 염두에 두고 프로젝트를 시작했습니다. 
 
-1. 예측 분석을 사용하여 조직의 월별 수익 예측에 대한 정확도 향상 
+1. 예측 분석을 사용 하 여 조직의 월간 수익 예측 정확도 향상 
 2. Azure Machine Learning Studio (클래식)를 사용 하 여 결과를 확인 하 고, 최적화 하 고, 속도를 높이고, 크기를 조정 합니다. 
 
 많은 기업과 마찬가지로 우리 조직에서도 월별 수익 예측 프로세스를 수행합니다. Microsoft의 소규모 비즈니스 분석가는 Azure Machine Learning Studio (클래식)를 사용 하 여 프로세스를 지원 하 고 예측 정확도를 개선 했습니다. 이 팀은 여러 소스에서 데이터를 수집하고 서비스 판매량 매출과 관련된 주요 특성을 식별하는 통계 분석을 통해 데이터 특성을 실행하는 데 몇 달을 보냈습니다. 다음 단계는 Excel에서 데이터에 대한 통계 회귀 모델 프로토타입 작성을 시작하는 것이었습니다. 몇 주 내에 현재 필드 및 재무 예측 프로세스를 능가하는 Excel 회귀 모델이 완성되었습니다. 이를 기준 예측 결과로 사용했습니다. 
@@ -132,8 +134,8 @@ Studio (클래식)에서 Excel로 예측 분석 예측을 전송 하는 기능�
 ## <a name="resources"></a>리소스
 회귀 작업에 유용한 일부 리소스는 다음과 같습니다. 
 
-* Excel의 회귀 Excel에서 회귀를 시도해보지 않은 경우 다음 자습서를 통해 쉽게 수행해 보세요. [https://www.excel-easy.com/examples/regression.html](https://www.excel-easy.com/examples/regression.html)
-* 회귀와 예측 Tyler Chessman이 Excel에서 시계열 예측을 수행하는 방법을 설명하는 블로그 문서를 작성했습니다. 여기에는 초보자를 위해 선형 회귀가 자세히 설명되어 있습니다. [https://www.itprotoday.com/sql-server/understanding-time-series-forecasting-concepts](https://www.itprotoday.com/sql-server/understanding-time-series-forecasting-concepts) 
+* Excel의 회귀 Excel에서 회귀를 시도한 적이 없는 경우이 자습서를 사용 하면 쉽게 수행할 수 있습니다 [https://www.excel-easy.com/examples/regression.html](https://www.excel-easy.com/examples/regression.html)
+* 회귀와 예측 Tyler Chessman은 Excel에서 시계열 예측을 수행 하는 방법을 설명 하는 블로그 문서를 작성 했습니다 .이 문서에는 선형 회귀에 대 한 유용한 초보자 설명이 포함 되어 있습니다. [https://www.itprotoday.com/sql-server/understanding-time-series-forecasting-concepts](https://www.itprotoday.com/sql-server/understanding-time-series-forecasting-concepts) 
 * 최소 자승법 선형 회귀: 결함, 문제점 및 단점 회귀에 대 한 소개 및 토론: [https://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/](https://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/)
 
 <!-- Module References -->

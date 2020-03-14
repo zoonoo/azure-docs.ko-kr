@@ -8,27 +8,27 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 85403442119f73b363fee98a9c225b9c0ec18119
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: e67a8f6b9cc175932b09e6f576148656dd9da9ba
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77026862"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79298821"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Azure IoT Central에 연결
 
 이 문서에서는 Microsoft Azure IoT Central의 디바이스 연결과 관련된 주요 개념을 소개합니다.
 
-Azure IoT Central는 [Azure IoT Hub 장치 프로 비전 서비스 (DPS)](../../iot-dps/about-iot-dps.md) 를 사용 하 여 모든 장치 등록 및 연결을 관리 합니다.
+Azure IoT Central은 모든 디바이스 등록 및 연결에 [Azure IoT Hub DPS(Device Provisioning Service)](../../iot-dps/about-iot-dps.md)를 사용합니다.
 
-DPS를 사용 하면 다음을 수행할 수 있습니다.
+DPS를 사용하면 다음과 같은 장점이 있습니다.
 
-- 대규모로 장치를 등록 하 고 연결 하는 것을 지원 IoT Central 합니다.
-- 장치 자격 증명을 생성 하 고 IoT Central UI를 통해 장치를 등록 하지 않고 오프 라인으로 장치를 구성 합니다.
+- IoT Central이 디바이스를 대규모로 온보딩하고 연결하는 것을 지원합니다.
+- IoT Central UI를 통해 디바이스를 등록할 필요 없이 오프라인으로 디바이스 자격 증명을 생성하고 디바이스를 구성할 수 있습니다.
 - SAS (공유 액세스 서명)를 사용 하 여 연결 하는 장치입니다.
-- 업계 표준 x.509 인증서를 사용 하 여 연결 하는 장치입니다.
-- 사용자 고유의 장치 Id를 사용 하 여 IoT Central에 장치를 등록할 수 있습니다. 사용자 고유의 장치 Id를 사용 하면 기존 백 오피스 시스템과의 통합이 간단해 집니다.
-- 장치를 IoT Central에 연결 하는 일관 된 단일 방법입니다.
+- 디바이스에서 업계 표준 X.509 인증서를 사용하여 연결할 수 있습니다.
+- 사용자의 고유한 디바이스 ID를 사용하여 IoT Central에서 디바이스를 등록할 수 있습니다. 사용자의 고유한 디바이스 ID를 사용하면 기존 백 오피스 시스템과 간편하게 통합할 수 있습니다.
+- 디바이스를 IoT Central에 연결하는 한 가지 일관적인 방법이 있습니다.
 
 이 문서에서는 다음과 같은 사용 사례에 대해 설명 합니다.
 
@@ -193,6 +193,9 @@ IoT 플러그 앤 플레이 (미리 보기 IoT Central)의 주요 기능 중 하
     - 장치 템플릿을 지정 하지 않고 장치 페이지에서 **가져오기** 를 사용 하 여 일련의 장치를 **추가 합니다.**
     - **장치** 페이지에 수동으로 등록 하지 않은 장치는 등록 중에 템플릿 ID를 지정 하지 않고 유효한 자격 증명으로 연결 됩니다.  
 운영자는 **마이그레이션** 단추를 사용 하 여 장치를 **장치** 페이지에서 템플릿에 연결할 수 있습니다.
+
+## <a name="best-practices"></a>모범 사례 
+1.  DPS를 사용 하 여 장치를 IoT Central에 연결 하는 경우 (IoT Hub) 장치 연결 문자열이 지속 되거나 캐시 되지 않았는지 확인 합니다. 장치를 다시 연결 하려면 정상적인 DPS 장치 등록 흐름을 통해 올바른 장치 연결 문자열을 가져옵니다. 연결 문자열이 캐시 된 경우 장치 소프트웨어는 IoT Central 기본 Azure IoT Hub를 업데이트 한 시나리오에서 오래 된 연결 문자열을 사용 하 게 될 위험이 있습니다. 
 
 ## <a name="sdk-support"></a>SDK 지원
 

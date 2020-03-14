@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: 34cbe5f23728c1fcff0555256575cc34b2b6a869
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.openlocfilehash: 1b3bdad0125b5bddbba20c8d807924fc3ea87e32
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79079851"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79299399"
 ---
 # <a name="data-protection-in-azure-stream-analytics"></a>Azure Stream Analytics의 데이터 보호 
 
@@ -53,8 +53,6 @@ Stream Analytics에서 유지 해야 하는 모든 개인 데이터는 저장소
 * 만든 쿼리와 관련 된 구성  
 
 * 사용자 정의 함수 
-
-* 입력에서 샘플링 한 데이터의 결과 
 
 * Stream Analytics 런타임에 필요한 검사점
 

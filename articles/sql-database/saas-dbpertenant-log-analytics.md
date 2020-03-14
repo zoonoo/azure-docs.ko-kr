@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
 ms.date: 01/25/2019
-ms.openlocfilehash: eca2dbe7589fdc7d59a84d21ecf59749d986ade9
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 7429a9d5e9a803f0e9a6f900c5d81e77e7477a48
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826422"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79214499"
 ---
 # <a name="set-up-and-use-azure-monitor-logs-with-a-multitenant-sql-database-saas-app"></a>다중 테 넌 트 SQL Database SaaS 앱을 사용 하 여 Azure Monitor 로그 설정 및 사용
 
@@ -41,7 +41,7 @@ SaaS 시나리오 및 패턴에 대한 논의와 모니터링 솔루션의 요�
 
 Azure SQL Database의 경우 Azure Portal에서 데이터베이스 및 풀에 대한 모니터링 및 경고 기능을 사용할 수 있습니다. 이 기본 제공 모니터링 및 경고는 편리하지만 리소스 특정적이기도 합니다. 즉, 대규모 설치를 모니터링하거나 리소스 및 구독에서 통합된 보기를 제공하기에는 덜 적합합니다.
 
-대용량 시나리오의 경우 모니터링 및 경고에 Azure Monitor 로그를 사용할 수 있습니다. Azure Monitor는 잠재적으로 많은 서비스에서 작업 영역에 수집 된 진단 로그 및 원격 분석에 대 한 분석을 가능 하 게 하는 별도의 Azure 서비스입니다. Azure Monitor 로그는 운영 데이터 분석을 허용 하는 기본 제공 쿼리 언어 및 데이터 시각화 도구를 제공 합니다. SQL 분석 솔루션은 몇 가지 사전 정의된 탄력적 풀 및 데이터베이스 모니터링과 함께 보기 및 쿼리 경고를 제공합니다. Azure Monitor 로그는 사용자 지정 뷰 디자이너도 제공 합니다.
+대용량 시나리오의 경우 모니터링 및 경고에 Azure Monitor 로그를 사용할 수 있습니다. Azure Monitor는 잠재적으로 많은 서비스에서 작업 영역에 수집 된 로그를 분석 하는 데 사용할 수 있는 별도의 Azure 서비스입니다. Azure Monitor 로그는 운영 데이터 분석을 허용 하는 기본 제공 쿼리 언어 및 데이터 시각화 도구를 제공 합니다. SQL 분석 솔루션은 몇 가지 사전 정의된 탄력적 풀 및 데이터베이스 모니터링과 함께 보기 및 쿼리 경고를 제공합니다. Azure Monitor 로그는 사용자 지정 뷰 디자이너도 제공 합니다.
 
 OMS 작업 영역을 이제 Log Analytics 작업 영역이라고 합니다. Log Analytics 작업 영역 및 분석 솔루션은 Azure Portal에 있습니다. Azure Portal이 더 최신 액세스 방법이지만 일부 지역에서는 Operations Management Suite 포털이 더 나을 수 있습니다.
 
@@ -60,7 +60,7 @@ OMS 작업 영역을 이제 Log Analytics 작업 영역이라고 합니다. Log 
 
     b. 스크립트를 실행하려면 F5 키를 누릅니다.
 
-## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Wingtip Tickets SaaS Database-per-Tenant 애플리케이션 스크립트 가져오기
+## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Wingtip Tickets SaaS 테넌트별 데이터베이스 애플리케이션 스크립트 가져오기
 
 Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 애플리케이션 소스 코드는 [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub 리포지토리에서 사용할 수 있습니다. Wingtip Tickets PowerShell 스크립트를 다운로드하고 차단을 해제하는 방법은 [일반 지침](saas-tenancy-wingtip-app-guidance-tips.md)을 참조하세요.
 

@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/05/2019
+ms.date: 03/11/2020
 ms.author: travisw
-ms.openlocfilehash: d687d1d353c1734c5d98121f658003afde2eb182
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 9219c9a72ce9e1cfba3504b0b8e16ade77f8a5e5
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74812914"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79369899"
 ---
-# <a name="about-voice-assistants"></a>음성 도우미 정보
+# <a name="what-is-a-voice-assistant"></a>음성 도우미란?
 
 음성 도우미는 음성 서비스를 사용 하 여 개발자가 응용 프로그램 및 환경에 대 한 자연 스러운 대화형 인터페이스를 만들 수 있습니다.
 
@@ -31,7 +31,7 @@ ms.locfileid: "74812914"
 
 음성 도우미를 만드는 첫 번째 단계는 수행할 작업을 결정 하는 것입니다. Speech service는 길잡이 상호 작용을 작성 하기 위한 여러 보충 솔루션을 제공 합니다. Bot Framework의 [Direct Line Speech](direct-line-speech.md) channel에서 제공 하는 유연성과 유연성을 원하는 지 여부에 관계 없이 간단한 시나리오에 대 한 [사용자 지정 명령 (미리 보기)](custom-commands.md) 을 선택 하면 적절 한 도구를 시작 하는 데 도움이 됩니다.
 
-| 수행하려는 작업 | 다음을 고려 하십시오. | 예를 들어... |
+| 원하는 경우... | 다음을 고려 하십시오. | 예를 들어... |
 |-------------------|------------------|----------------|
 |강력한 기술 통합 및 전체 배포 제어를 포함 하는 오픈 대화 종료 | Bot Framework의 [직접 선 음성](direct-line-speech.md) 채널 | <ul><li>"시애틀로 이동 해야 합니다."</li><li>"주문할 수 있는 피자 종류는 무엇 인가요?"</li></ul>
 |간단 하 게 작성 하 고 호스팅하는 명령 및 제어 또는 작업 기반 대화 | [사용자 지정 명령 (미리 보기)](custom-commands.md) | <ul><li>"오버 헤드 조명 켜기"</li><li>"핫을 5도로 설정"</ul>
@@ -46,7 +46,7 @@ ms.locfileid: "74812914"
 
 [직접 줄 음성](direct-line-speech.md) 또는 [사용자 지정 명령 (미리 보기)](custom-commands.md) 을 선택 하 여 길잡이 상호 작용을 만들려면 다양 한 사용자 지정 기능 집합을 사용 하 여 사용자의 브랜드, 제품 및 개성에 맞게 길잡이를 사용자 지정할 수 있습니다.
 
-| 범주 | 기능 |
+| Category | 기능 |
 |----------|----------|
 |[사용자 지정 키워드](speech-devices-sdk-create-kws.md) | 사용자는 "안녕하세요 Contoso"와 같은 사용자 지정 키워드를 사용 하 여 도우미와 대화를 시작할 수 있습니다. 앱은 [여기에서 생성할 수 있는](speech-devices-sdk-create-kws.md)사용자 지정 키워드를 사용 하 여 구성할 수 있는 Speech SDK의 사용자 지정 키워드 엔진을 사용 하 여이를 수행 합니다. 음성 도우미는 서비스 측 키워드 확인을 사용 하 여 키워드 활성화의 정확도를 향상 시킬 수 있습니다 (장치에 대해서만).
 |[음성 텍스트](speech-to-text.md) | 음성 도우미는 음성 서비스의 [음성 텍스트](speech-to-text.md) 를 사용 하 여 실시간 오디오를 인식 된 텍스트로 변환 합니다. 이 텍스트는 길잡이 구현 및 클라이언트 응용 프로그램 모두에 transcribed 수 있습니다.
@@ -58,11 +58,11 @@ ms.locfileid: "74812914"
 
 | 빠른 시작 | 플랫폼 | API 참조 |
 |------------|----------|---------------|
-| C#, UWP | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| Java | Windows, macOS, Linux | [Browse](https://aka.ms/csspeech/javaref) |
-| Java | Android | [Browse](https://aka.ms/csspeech/javaref) |
+| C#, UWP | Windows | [찾아보기](https://aka.ms/csspeech/csharpref) |
+| Java | Windows, macOS, Linux | [찾아보기](https://aka.ms/csspeech/javaref) |
+| Java | Android | [찾아보기](https://aka.ms/csspeech/javaref) |
 
-## <a name="sample-code"></a>샘플 코드
+## <a name="sample-code"></a>예제 코드
 
 음성 도우미를 만드는 샘플 코드는 GitHub에서 사용할 수 있습니다. 이러한 샘플은 몇 가지 인기 있는 프로그래밍 언어로 도우미에 연결 하기 위한 클라이언트 응용 프로그램을 포함 합니다.
 
@@ -78,7 +78,7 @@ ms.locfileid: "74812914"
 음성 서비스를 사용 하 여 빌드된 음성 도우미는 음성 [텍스트](speech-to-text.md), [텍스트 음성 변환](text-to-speech.md)및 [사용자 지정 키워드 선택](speech-devices-sdk-create-kws.md)에 사용할 수 있는 모든 사용자 지정 옵션을 사용할 수 있습니다.
 
 > [!NOTE]
-> 언어/로캘마다 사용자 지정 옵션이 다릅니다([지원되는 언어](supported-languages.md) 참조).
+> 사용자 지정 옵션은 언어/로캘에 따라 다릅니다 ( [지원 되는 언어](supported-languages.md)참조).
 
 ## <a name="reference-docs"></a>참조 문서
 

@@ -10,32 +10,32 @@ metadata:
   layout: LandingPage
   ms.service: speech-service
   ms.topic: landing-page
-  ms.date: 02/11/2020
+  ms.date: 03/10/2020
   ms.author: dapine
-  ms.openlocfilehash: ead45759891d4b2a41a380c88cf32f4e504b6e2c
-  ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+  ms.openlocfilehash: ff12c357ba273c6965b11db4eabc1890925439be
+  ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
   ms.translationtype: MT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 02/28/2020
-  ms.locfileid: "77920878"
+  ms.lasthandoff: 03/14/2020
+  ms.locfileid: "79366703"
 landingContent:
-- title: 시작
+- title: 호스팅 정보
   linkLists:
   - linkListType: concept
     links:
-    - text: 음성 서비스 컨테이너
+    - text: 음성 컨테이너 설치 및 실행
       url: speech-container-howto.md
-    - text: Kubernetes를 사용 하는 음성 서비스 컨테이너
+    - text: Kubernetes 및 투구가 있는 음성 컨테이너
       url: speech-container-howto-on-premises.md
-    - text: Azure Container Instances에서 음성 서비스 컨테이너
+    - text: Azure container instances의 음성 컨테이너
       url: deploy-speech-on-container-instances.md
-- title: 단계별 가이드
+- title: 만들기 및 구성
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Azure 음성 리소스 만들기
       url: get-started.md#new-resource
-    - text: 컨테이너 구성
+    - text: 음성 컨테이너 구성
       url: speech-container-configuration.md
 - title: 참조
   linkLists:
@@ -43,5 +43,5 @@ landingContent:
     links:
     - text: 지원되는 지역
       url: regions.md
-    - text: 소 버린 클라우드
+    - text: 소버린 클라우드
       url: sovereign-clouds.md

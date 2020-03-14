@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/21/2017
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: 6ce78ca19458b497980cf2cfc374f787d3a5d9f5
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 01abcc961d1c2ad9d3e2cf35f82e62929bc2fb89
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76276991"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79371140"
 ---
 # <a name="deprecated-using-the-kubernetes-web-ui-with-azure-container-service"></a>(사용되지 않음) Azure Container Service에서 Kubernetes 웹 UI 사용
 
@@ -21,7 +21,7 @@ ms.locfileid: "76276991"
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 이 연습에서는 [Azure Container Service를 사용하여 Kubernetes 클러스터를 만들었다고](container-service-kubernetes-walkthrough.md) 가정합니다.
 
 
@@ -29,8 +29,8 @@ ms.locfileid: "76276991"
 
 다음을 실행하여 `az` 도구가 설치되어 있는지 테스트할 수 있습니다.
 
-```console
-$ az --version
+```azurecli
+az --version
 ```
 
 `az` 도구가 설치되어 있지 않으면 [여기](https://github.com/azure/azure-cli#installation)의 지침을 따르세요.
@@ -38,13 +38,13 @@ $ az --version
 다음을 실행하여 `kubectl` 도구가 설치되어 있는지 테스트할 수 있습니다.
 
 ```console
-$ kubectl version
+kubectl version
 ```
 
 `kubectl`이 설치되어 있지 않으면 다음을 실행할 수 있습니다.
 
-```console
-$ az acs kubernetes install-cli
+```azurecli
+az acs kubernetes install-cli
 ```
 
 ## <a name="overview"></a>개요
@@ -52,8 +52,8 @@ $ az acs kubernetes install-cli
 ### <a name="connect-to-the-web-ui"></a>웹 UI에 연결
 다음을 실행하여 Kubernetes 웹 UI를 시작할 수 있습니다.
 
-```console
-$ az acs kubernetes browse -g [Resource Group] -n [Container service instance name]
+```azurecli
+az acs kubernetes browse -g [Resource Group] -n [Container service instance name]
 ```
 
 그러면 로컬 컴퓨터를 Kubernetes 웹 UI에 연결하는 보안 프록시와 통신하도록 구성된 웹 브라우저가 열립니다.

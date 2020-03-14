@@ -1,5 +1,5 @@
 ---
-title: Speech SDK를 사용 하 여 클라이언트에서 사용자 지정 명령을 수행 하는 방법
+title: Speech SDK를 사용 하 여 클라이언트에서 명령을 수행 하는 방법
 titleSuffix: Azure Cognitive Services
 description: 이 문서에서는 Speech SDK를 사용 하 여 클라이언트에서 사용자 지정 명령 활동을 처리 하는 방법을 설명 합니다.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 03/12/2020
 ms.author: donkim
-ms.openlocfilehash: b55bb1c8379cf0a80a95aa0ba1a29297154d5831
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: e109955774722da7f55defe1417de35ff202cce8
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76156508"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79367752"
 ---
-# <a name="how-to-fulfill-commands-on-the-client-with-the-speech-sdk-preview"></a>방법: 음성 SDK를 사용 하 여 클라이언트에서 명령 수행 (미리 보기)
+# <a name="fulfill-commands-from-a-client-with-the-speech-sdk-preview"></a>음성 SDK (미리 보기)를 사용 하 여 클라이언트에서 명령 충족
 
 사용자 지정 명령 응용 프로그램을 사용 하 여 작업을 완료 하려면 연결 된 클라이언트 장치에 사용자 지정 페이로드를 보낼 수 있습니다.
 
@@ -26,7 +26,7 @@ ms.locfileid: "76156508"
 - 사용자 지정 명령 응용 프로그램에서 사용자 지정 JSON 페이로드 정의 및 보내기
 - C# UWP Speech SDK 클라이언트 응용 프로그램에서 사용자 지정 JSON 페이로드 콘텐츠 수신 및 시각화
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
 - 음성 서비스에 대 한 Azure 구독 키
@@ -53,7 +53,7 @@ ms.locfileid: "76156508"
    | ------- | --------------- | ----------- |
    | 규칙 이름 | UpdateDeviceState | 규칙의 용도를 설명 하는 이름입니다. |
    | 조건 | 필수 매개 변수-`OnOff` 및 `SubjectDevice` | 규칙을 실행할 수 있는 시기를 결정 하는 조건 |
-   | 작업 | `SendActivity` (아래 참조) | 규칙 조건이 참인 경우 수행할 동작입니다. |
+   | 동작 | `SendActivity` (아래 참조) | 규칙 조건이 참인 경우 수행할 동작입니다. |
 
    > [!div class="mx-imgBorder"]
    > ![전송 작업 페이로드](media/custom-speech-commands/fulfill-sdk-send-activity-action.png)
@@ -131,7 +131,7 @@ connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
 };
 ```
 
-## <a name="try-it-out"></a>사용해 보기
+## <a name="try-it-out"></a>체험
 
 1. 애플리케이션 시작
 1. 마이크 사용을 선택 합니다.

@@ -9,16 +9,18 @@ ms.date: 01/23/2020
 ms.author: normesta
 ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: 892f8bb24da00f1bd5827725f40fdc4359be0937
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 9d05677ec47851557594ef47499da653accad141
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906548"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79370477"
 ---
 # <a name="map-a-custom-domain-to-an-azure-blob-storage-endpoint"></a>Azure Blob Storage 끝점에 사용자 지정 도메인 매핑
 
 사용자 지정 도메인을 blob service 끝점 또는 [정적 웹 사이트](storage-blob-static-website.md) 끝점에 매핑할 수 있습니다. 
+
+[!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
 
 > [!NOTE] 
 > 이 매핑은 하위 도메인에 대해서만 작동 합니다 (예: `www.contoso.com`). 웹 끝점을 루트 도메인 (예: `contoso.com`)에서 사용할 수 있도록 하려면 Azure CDN를 사용 해야 합니다. 지침은이 문서의 HTTPS를 [사용 하 여 사용자 지정 도메인 매핑](#enable-https) 섹션을 참조 하세요. 이 문서의 해당 섹션으로 이동 하 여 사용자 지정 도메인의 루트 도메인을 사용 하도록 설정 했기 때문에 HTTPS를 사용 하도록 설정 하는 단계는 선택 사항입니다. 
@@ -229,9 +231,9 @@ Azure에 사용자 지정 도메인을 미리 등록 하는 경우 도메인에 
 
 ### <a name="remove-a-custom-domain-mapping"></a>사용자 지정 도메인 매핑 제거
 
-사용자 지정 도메인 매핑을 제거 하려면 사용자 지정 도메인의 등록을 취소 합니다. 다음 절차 중 하나를 사용 합니다.
+사용자 지정 도메인 매핑을 제거 하려면 사용자 지정 도메인의 등록을 취소 합니다. 다음 절차 중 하나를 수행하십시오.
 
-#### <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
+#### <a name="portal"></a>[포털](#tab/azure-portal)
 
 사용자 지정 도메인 설정을 제거하려면 다음을 수행합니다.
 
@@ -246,9 +248,9 @@ Azure에 사용자 지정 도메인을 미리 등록 하는 경우 도메인에 
 
 사용자 지정 도메인이 성공적으로 제거 되 면 저장소 계정이 성공적으로 업데이트 되었음을 알리는 포털 알림이 표시 됩니다.
 
-#### <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+#### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-사용자 지정 도메인 등록을 제거하려면 [az storage account update](https://docs.microsoft.com/cli/azure/storage/account) CLI 명령을 사용한 다음, `--custom-domain` 인수 값에 빈 문자열(`""`)을 지정합니다.
+사용자 지정 도메인 등록을 제거하려면 [az storage account update](https://docs.microsoft.com/cli/azure/storage/account) CLI 명령을 사용한 다음, `""` 인수 값에 빈 문자열(`--custom-domain`)을 지정합니다.
 
 * 명령 형식:
 
@@ -268,11 +270,11 @@ Azure에 사용자 지정 도메인을 미리 등록 하는 경우 도메인에 
       --custom-domain ""
   ```
 
-#### <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+#### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-사용자 지정 도메인 등록을 제거하려면 [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) PowerShell cmdlet을 사용한 다음, `-CustomDomainName` 인수 값에 빈 문자열(`""`)을 지정합니다.
+사용자 지정 도메인 등록을 제거하려면 [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) PowerShell cmdlet을 사용한 다음, `""` 인수 값에 빈 문자열(`-CustomDomainName`)을 지정합니다.
 
 * 명령 형식:
 

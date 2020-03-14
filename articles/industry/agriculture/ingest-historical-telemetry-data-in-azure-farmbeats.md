@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 0d220d1d88d9d761d9f0eba6187abefb372681be
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: d47fdb9461786d80d65ee2448cc983a7a8348ff2
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77131892"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79298770"
 ---
 # <a name="ingest-historical-telemetry-data"></a>기록 원격 분석 데이터 수집
 
@@ -20,30 +20,29 @@ ms.locfileid: "77131892"
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 문서를 진행 하기 전에 IoT 장치에서 FarmBeats 및 수집 된 기록 데이터를 설치 했는지 확인 합니다.
-또한 다음 단계에 설명 된 대로 파트너 액세스를 사용 하도록 설정 해야 합니다.
+이 문서를 진행 하기 전에 IoT 장치에서 FarmBeats 및 수집 된 기록 데이터를 설치 했는지 확인 합니다. 또한 다음 단계에 설명 된 대로 파트너 액세스를 사용 하도록 설정 해야 합니다.
 
 ## <a name="enable-partner-access"></a>파트너 액세스 사용
 
 Azure FarmBeats 인스턴스에 파트너 통합을 사용 하도록 설정 해야 합니다. 이 단계에서는 Azure FarmBeats 인스턴스에 대 한 액세스 권한이 있는 장치 파트너로 클라이언트를 만들고 이후 단계에서 필요한 다음 값을 제공 합니다.
 
-- API 끝점: Datahub URL입니다 (예: https://\<datahub >).
+- API 끝점: Datahub URL (예: https://\<datahub >. azurewebsites. net
 - 테넌트 ID
 - 클라이언트 ID
 - 클라이언트 암호
 - EventHub 연결 문자열
 
-다음 단계를 수행합니다.
+다음 단계를 수행하세요.
 
 >[!NOTE]
 > 다음 단계를 수행 하려면 관리자 여야 합니다.
 
 1. [Zip 파일](https://aka.ms/farmbeatspartnerscriptv2)을 다운로드 하 고 로컬 드라이브에 압축을 풉니다. Zip 파일 안에는 파일이 하나 있습니다.
-2. https://portal.azure.com/에 로그인 하 고 Azure Active Directory-> 앱 등록으로 이동 합니다.
+2. https://portal.azure.com/에 로그인 하 고 **Azure Active Directory** > **앱 등록**으로 이동 합니다.
 
-3. FarmBeats 배포의 일부로 만들어진 앱 등록을 클릭 합니다. FarmBeats Datahub와 동일한 이름을 갖게 됩니다.
+3. FarmBeats 배포의 일부로 만들어진 **앱 등록** 을 선택 합니다. FarmBeats Datahub와 동일한 이름을 갖게 됩니다.
 
-4. "API 표시"를 클릭 하 > "클라이언트 응용 프로그램 추가"를 클릭 하 고 **04b07795-8ddb-461a-bbee-02f9e1bf7b46** 를 입력 한 후 "범위 권한 부여"를 선택 합니다. 그러면 아래 단계를 수행 하기 위해 Azure CLI (Cloud Shell)에 대 한 액세스 권한이 제공 됩니다.
+4. **API** 표시를 선택 하 > **클라이언트 응용 프로그램 추가** 를 선택 하 고 **04B07795-8ddb-461a-bbee-02f9e1bf7b46** 를 입력 한 다음 **권한 부여 범위**를 확인 합니다. 이렇게 하면 Azure CLI (Cloud Shell)에 대 한 액세스를 제공 하 여 다음 단계를 수행 합니다.
 
 5. Cloud Shell을 엽니다. 이 옵션은 Azure Portal의 오른쪽 위 모퉁이에 있는 도구 모음에서 사용할 수 있습니다.
 
@@ -59,9 +58,9 @@ Azure FarmBeats 인스턴스에 파트너 통합을 사용 하도록 설정 해�
 
 8. 파일이 업로드 된 디렉터리로 이동 합니다. 기본적으로 파일은 사용자 이름의 홈 디렉터리에 업로드 됩니다.
 
-9. 다음 스크립트를 실행합니다. 스크립트는 Azure Active Directory > 개요 페이지에서 가져올 수 있는 테 넌 트 ID를 요청 합니다.
+9. 다음 스크립트를 실행합니다. 스크립트는 **Azure Active Directory** > **개요 페이지**에서 가져올 수 있는 테 넌 트 ID를 요청 합니다.
 
-    ```azurepowershell-interactive 
+    ```azurepowershell-interactive
 
     ./generatePartnerCredentials.ps1   
 
@@ -72,7 +71,10 @@ Azure FarmBeats 인스턴스에 파트너 통합을 사용 하도록 설정 해�
 
  이제 필수 자격 증명이 있으므로 장치 및 센서를 정의할 수 있습니다. 이렇게 하려면 FarmBeats Api를 호출 하 여 메타 데이터를 만듭니다. 위의 섹션에서 만든 클라이언트 앱으로 Api를 호출 해야 합니다.
 
- FarmBeats Datahub에는 장치 또는 센서 메타 데이터를 생성 및 관리할 수 있도록 하는 다음과 같은 Api가 있습니다. 파트너는 메타 데이터를 읽고, 만들고, 업데이트 하는 데에만 액세스할 수 있습니다. **파트너는 삭제를 허용 하지 않습니다.**
+ FarmBeats Datahub에는 장치 또는 센서 메타 데이터를 생성 및 관리할 수 있도록 하는 다음과 같은 Api가 있습니다.
+
+ > [!NOTE]
+ > 파트너는 메타 데이터에 대 한 읽기, 만들기 및 업데이트에만 액세스할 수 있습니다. **삭제 옵션은 파트너 에게만 제한 됩니다.**
 
 - /**DeviceModel**: DeviceModel는 장치 (예: 제조업체 및 장치 유형 (예: 게이트웨이 또는 노드)의 메타 데이터에 해당 합니다.
 - /**장치**: 장치는 팜에 있는 물리적 장치에 해당 합니다.
@@ -86,8 +88,8 @@ Azure FarmBeats 인스턴스에 파트너 통합을 사용 하도록 설정 해�
 |          제조업체            |         제조업체의 이름입니다.    |
 |  ProductCode                    |  장치 제품 코드 또는 모델 이름 또는 번호입니다. 예: EnviroMonitor # 6800.  |
 |            포트          |     포트 이름 및 유형이 며 디지털 또는 아날로그 유형입니다.
-|     이름                 |  리소스를 식별 하는 이름입니다. 예를 들어 모델 이름 또는 제품 이름입니다.
-      설명     | 모델에 대 한 의미 있는 설명을 제공 합니다.
+|     속성                 |  리소스를 식별 하는 이름입니다. 예를 들어 모델 이름 또는 제품 이름입니다.
+      Description     | 모델에 대 한 의미 있는 설명을 제공 합니다.
 |    속성          |    제조업체의 추가 속성입니다.   |
 |    **디바이스**             |                      |
 |   DeviceModelId     |     연결 된 장치 모델의 ID입니다.  |
@@ -95,8 +97,8 @@ Azure FarmBeats 인스턴스에 파트너 통합을 사용 하도록 설정 해�
 |  ReportingInterval        |   보고 간격 (초)입니다.
 |  위치            |  장치 위도 (-90 ~ + 90), 경도 (-180 ~ 180) 및 권한 상승 (미터).   
 |ParentDeviceId       |    이 장치가 연결 된 부모 장치의 ID입니다. 예를 들어 게이트웨이에 연결 된 노드입니다. 노드에는 게이트웨이로 parentDeviceId가 있습니다.  |
-|    이름            | 리소스를 식별 하는 이름입니다. 장치 파트너는 파트너 측의 장치 이름과 일치 하는 이름을 보내야 합니다. 파트너 장치 이름이 사용자 정의 된 경우 동일한 사용자 정의 이름을 FarmBeats에 전파 해야 합니다.|
-|     설명       |      의미 있는 설명을 제공 합니다. |
+|    속성            | 리소스를 식별 하는 이름입니다. 장치 파트너는 파트너 측의 장치 이름과 일치 하는 이름을 보내야 합니다. 파트너 장치 이름이 사용자 정의 된 경우 동일한 사용자 정의 이름을 FarmBeats에 전파 해야 합니다.|
+|     Description       |      의미 있는 설명을 제공 합니다. |
 |     속성    |  제조업체의 추가 속성입니다.
 |     **SensorModel**        |          |
 |       유형 (아날로그, 디지털)          |      센서 유형 (아날로그 또는 디지털)입니다.       |
@@ -107,8 +109,8 @@ Azure FarmBeats 인스턴스에 파트너 통합을 사용 하도록 설정 해�
 |    SensorMeasures > 형식    |센서 원격 분석 데이터의 측정 유형입니다. 시스템 정의 형식은 AmbientTemperature, CO2, Depth, ElectricalConductivity, LeafWetness, Length, LiquidLevel, Nitrate, O2, PH, Phosphate, PointInTime, Potassium, 압력, RainGauge, RelativeHumidity, Salinity, SoilMoisture,,,,,,,,,, SoilTemperature, SolarRadiation, State, TimeDuration, UVRadiation, Uvradiation, Volume, WindDirection, WindRun, WindSpeed, Evapotranspiration,와 동일 합니다. 추가 정보를 추가 하려면/ExtendedType API를 참조 하세요.|
 |        SensorMeasures > Unit              | 센서 원격 분석 데이터의 단위입니다. 시스템 정의 단위는 NoUnit, 섭씨, 화씨, 온도, Rankine, 파스칼, 수, 인치, 피트, Mm, 센티미터, 미터, 인치, 피트, 마일, KiloMeter, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, 학위, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, 백분율, PartsPerMillion, MicroMol, MicroMolesPerLiter, SiemensPerSquareMeterPerMole, MilliSiemensPerCentiMeter, Centibar, DeciSiemensPerMeter, KiloPascal, VolumetricIonContent, 리터, MilliLiter, Seconds,, MicroMolPerMeterSquaredPerSecond, InchesPerHour,,,를 참조 하세요.|
 |    SensorMeasures > AggregationType    |  값은 없음, 평균, 최대값, 최소값 또는 StandardDeviation 일 수 있습니다.  |
-|          이름            | 리소스를 식별 하는 이름입니다. 예를 들어 모델 이름 또는 제품 이름입니다.  |
-|    설명        | 모델에 대 한 의미 있는 설명을 제공 합니다.  |
+|          속성            | 리소스를 식별 하는 이름입니다. 예를 들어 모델 이름 또는 제품 이름입니다.  |
+|    Description        | 모델에 대 한 의미 있는 설명을 제공 합니다.  |
 |   속성       |  제조업체의 추가 속성입니다.  |
 |    **수신**      |          |
 | HardwareId          |   제조업체에서 설정한 센서의 고유 ID입니다. |
@@ -116,8 +118,8 @@ Azure FarmBeats 인스턴스에 파트너 통합을 사용 하도록 설정 해�
 | 위치          |  센서 위도 (-90 ~ + 90), 경도 (-180 ~ 180) 및 권한 상승 (미터).|
 |   포트 > 이름        |  장치에서 센서가 연결 된 포트의 이름 및 유형입니다. 이 이름은 장치 모델에 정의 된 이름과 동일 해야 합니다. |
 |    DeviceID  |    센서가 연결 된 장치의 ID입니다.     |
-| 이름            |   리소스를 식별 하는 이름입니다. 예를 들어 센서 이름 또는 제품 이름과 모델 번호 또는 제품 코드를 사용할 수 있습니다.|
-|    설명      | 의미 있는 설명을 제공 합니다. |
+| 속성            |   리소스를 식별 하는 이름입니다. 예를 들어 센서 이름 또는 제품 이름과 모델 번호 또는 제품 코드를 사용할 수 있습니다.|
+|    Description      | 의미 있는 설명을 제공 합니다. |
 |    속성        |제조업체의 추가 속성입니다. |
 
 개체에 대 한 자세한 내용은 [Swagger](https://aka.ms/FarmBeatsDatahubSwagger)를 참조 하십시오.
@@ -196,7 +198,7 @@ DeviceModel
 }
 ```
 
-장치
+디바이스
 
 ```json
 {
@@ -284,6 +286,22 @@ curl -X POST "https://<datahub>.azurewebsites.net/Device" -H
 \"description\": \"Test Device 123\"}" *
 ```
 
+다음은 Python의 샘플 코드입니다. 이 샘플에서 사용 되는 액세스 토큰은 인증 하는 동안 수신 된 것과 동일 합니다.
+
+```python
+import requests
+import json
+
+# Got access token - Calling the Device Model API
+headers = {
+    "Authorization": "Bearer " + access_token,
+    "Content-Type" : "application/json"
+    }
+payload = '{"type" : "Node", "productCode" : "TestCode", "ports": [{"name": "port1","type": "Analog"}], "name" : "DummyDevice"}'
+response = requests.post(ENDPOINT + "/DeviceModel", data=payload, headers=headers)
+```
+
+
 > [!NOTE]
 > Api는 생성 된 각 인스턴스에 대 한 고유 Id를 반환 합니다. 해당 하는 원격 분석 메시지를 보내려면 Id를 유지 해야 합니다.
 
@@ -331,11 +349,11 @@ write_client.stop()
       "sensordata": [
         {
           "timestamp": "< timestamp in ISO 8601 format >",
-          "<sensor measure name (as defined in the Sensor Model)>": <value>
+          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
         },
         {
           "timestamp": "<timestamp in ISO 8601 format>",
-          "<sensor measure name (as defined in the Sensor Model)>": <value>
+          "<sensor measure name (as defined in the Sensor Model)>": "<values>"
         }
       ]
     }
@@ -392,8 +410,10 @@ write_client.stop()
 
 **수정 동작**:
 
-1. 파트너 등록이 올바르게 완료 되었는지 확인-datahub swagger로 이동 하 고,/파트너 API로 이동 하 고, Get을 수행 하 고, 파트너가 등록 되었는지 확인 하 여이를 확인할 수 있습니다. 그렇지 않은 경우 파트너를 추가 하려면 [여기의 단계](get-sensor-data-from-sensor-partner.md#enable-device-integration-with-farmbeats) 를 따르세요.
+1. 적절 한 파트너 등록을 완료 했는지 확인 합니다 .이를 확인 하려면 datahub swagger로 이동 하 고,/파트너 API로 이동 하 고, Get을 수행 하 고, 파트너가 등록 되었는지 확인 하면 됩니다. 그렇지 않은 경우 파트너를 추가 하려면 [여기의 단계](get-sensor-data-from-sensor-partner.md#enable-device-integration-with-farmbeats) 를 따르세요.
+
 2. 파트너 클라이언트 자격 증명을 사용 하 여 메타 데이터 (DeviceModel, Device, SensorModel, 센서)를 만들었는지 확인 합니다.
+
 3. 아래 지정 된 대로 올바른 원격 분석 메시지 형식을 사용 했는지 확인 합니다.
 
 ```json
@@ -407,11 +427,11 @@ write_client.stop()
       "sensordata": [
         {
           "timestamp": "< timestamp in ISO 8601 format >",
-          "<sensor measure name (as defined in the Sensor Model)>": <value>
+          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
         },
         {
           "timestamp": "<timestamp in ISO 8601 format>",
-          "<sensor measure name (as defined in the Sensor Model)>": <value>
+          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
         }
       ]
     }

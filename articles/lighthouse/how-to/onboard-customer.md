@@ -4,11 +4,11 @@ description: 고객을 Azure 위임 리소스 관리에 등록하여 고유한 �
 ms.date: 01/28/2020
 ms.topic: conceptual
 ms.openlocfilehash: 7cf0ff1d64603215a9607f5a25ebc4077f9fa9da
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78925074"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79270681"
 ---
 # <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>Azure 위임 리소스 관리에 고객 등록
 

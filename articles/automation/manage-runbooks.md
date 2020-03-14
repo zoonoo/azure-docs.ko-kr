@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: ec53c4b2f80fb095f58bee9c15ac5daafb8d59ef
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.openlocfilehash: ad8c05b3347ed4741d574a5e6bcc1d928db08411
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78226250"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79366839"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Azure Automation에서 Runbook 관리
 
@@ -33,7 +33,7 @@ Azure Portal 또는 Windows PowerShell 중 하나를 사용하여 Azure Automati
 
 ### <a name="create-a-runbook-with-powershell"></a>PowerShell을 사용하여 Runbook 만들기
 
-[AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationrunbook?view=azps-3.5.0) cmdlet을 사용 하 여 빈 [PowerShell 워크플로 runbook](automation-runbook-types.md#powershell-workflow-runbooks)을 만들 수 있습니다. *Type* 매개 변수를 사용 하 여 **AzAutomationRunbook**에 대해 정의 된 runbook 유형 중 하나를 지정 합니다.
+[AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationrunbook?view=azps-3.5.0) cmdlet을 사용 하 여 빈 [PowerShell 워크플로 runbook](automation-runbook-types.md#powershell-workflow-runbooks)을 만들 수 있습니다. `Type` 매개 변수를 사용 하 여 `New-AzAutomationRunbook`에 대해 정의 된 runbook 유형 중 하나를 지정 합니다.
 
 다음 예에서는 비어 있는 새 runbook을 만드는 방법을 보여 줍니다.
 
@@ -75,7 +75,7 @@ Azure Automation에 스크립트 파일을 가져오려면 다음 절차를 사�
 
 ### <a name="import-a-runbook-from-a-script-file-with-windows-powershell"></a>Windows PowerShell을 사용 하 여 스크립트 파일에서 runbook 가져오기
 
-[AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/import-azautomationrunbook?view=azps-3.5.0) cmdlet을 사용 하 여 스크립트 파일을 초안 PowerShell 워크플로 runbook으로 가져올 수 있습니다. Runbook이 이미 있는 경우 *Force* 매개 변수를 cmdlet과 함께 사용 하지 않으면 가져오기가 실패 합니다.
+[AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/import-azautomationrunbook?view=azps-3.5.0) cmdlet을 사용 하 여 스크립트 파일을 초안 PowerShell 워크플로 runbook으로 가져올 수 있습니다. Runbook이 이미 있는 경우 cmdlet에 `Force` 매개 변수를 사용 하지 않으면 가져오기가 실패 합니다.
 
 다음 예제에서는 스크립트 파일을 runbook으로 가져오는 방법을 보여 줍니다.
 
@@ -92,7 +92,7 @@ Import-AzAutomationRunbook -Name $runbookName -Path $scriptPath `
 
 ## <a name="test-a-runbook"></a>Runbook 테스트
 
-Runbook을 테스트할 때 [초안 버전](#publish-a-runbook) 이 실행되며 해당 Runbook에서 수행하는 모든 작업이 완료됩니다. 작업 기록은 생성 되지 않지만 [출력](automation-runbook-output-and-messages.md#output-stream) 및 [경고 및 오류](automation-runbook-output-and-messages.md#message-streams) 스트림은 테스트 출력 창에 표시 됩니다. VerbosePreference 변수] (자동화-runbook-출력 및- # 기본 설정)가 **Continue**로 설정 된 경우에만 [자세한 정보 표시 스트림으로](automation-runbook-output-and-messages.md#message-streams) 메시지가 출력 창에 표시 됩니다.
+Runbook을 테스트할 때 [초안 버전](#publish-a-runbook) 이 실행되며 해당 Runbook에서 수행하는 모든 작업이 완료됩니다. 작업 기록은 생성 되지 않지만 [출력](automation-runbook-output-and-messages.md#output-stream) 및 [경고 및 오류](automation-runbook-output-and-messages.md#message-streams) 스트림은 테스트 출력 창에 표시 됩니다. [자세한 정보 표시 스트림으로](automation-runbook-output-and-messages.md#message-streams) 의 메시지는 `VerbosePreference` 변수] (자동화-runbook-출력 및-메시지. md # 기본 설정-변수)가 Continue로 설정 된 경우에만 출력 창에 표시 됩니다.
 
 초안 버전을 실행하더라도 Runbook은 정상적으로 실행되며, 해당 환경의 리소스에 대해 모든 작업을 수행합니다. 이러한 이유로 비프로덕션 리소스에서만 Runbook을 테스트해야 합니다.
 

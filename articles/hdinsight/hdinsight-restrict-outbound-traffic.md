@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 10/23/2019
-ms.openlocfilehash: 6771cdb206920c8e3b746e28573de1742543b4c8
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.date: 03/11/2020
+ms.openlocfilehash: 6e0c98cffef06fb6d6345fc2b23bbc22715909b4
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646696"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79370188"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall"></a>방화벽을 사용 하 여 Azure HDInsight 클러스터에 대 한 아웃 바운드 네트워크 트래픽 구성
 
@@ -26,12 +26,13 @@ Azure HDInsight 클러스터는 일반적으로 자체 가상 네트워크에 �
 
 HDInsight 아웃 바운드 트래픽 종속성은 그 뒤에 고정 IP 주소가 없는 Fqdn을 사용 하 여 거의 완전히 정의 되어 있습니다. 고정 주소가 없으면 NSGs (네트워크 보안 그룹)를 사용 하 여 클러스터에서 아웃 바운드 트래픽을 잠글 수 없습니다. 주소는 현재 이름 확인을 기반으로 규칙을 설정 하 고이를 사용 하 여 NSG 규칙을 설정할 수 없는 경우에만 자주 변경 됩니다.
 
-아웃 바운드 주소를 보호 하는 솔루션은 도메인 이름에 따라 아웃 바운드 트래픽을 제어할 수 있는 방화벽 장치를 사용 하는 것입니다. Azure 방화벽은 대상 또는 [fqdn 태그](https://docs.microsoft.com/azure/firewall/fqdn-tags)의 fqdn에 따라 아웃 바운드 HTTP 및 HTTPS 트래픽을 제한할 수 있습니다.
+아웃 바운드 주소를 보호 하는 솔루션은 도메인 이름에 따라 아웃 바운드 트래픽을 제어할 수 있는 방화벽 장치를 사용 하는 것입니다. Azure 방화벽은 대상 또는 [fqdn 태그](../firewall/fqdn-tags.md)의 fqdn에 따라 아웃 바운드 HTTP 및 HTTPS 트래픽을 제한할 수 있습니다.
 
 ## <a name="configuring-azure-firewall-with-hdinsight"></a>HDInsight를 사용 하 여 Azure 방화벽 구성
 
 Azure 방화벽을 사용 하 여 기존 HDInsight에서 송신을 잠그는 단계에 대 한 요약은 다음과 같습니다.
 
+1. 서브넷을 만듭니다.
 1. 방화벽을 만듭니다.
 1. 방화벽에 응용 프로그램 규칙 추가
 1. 방화벽에 네트워크 규칙을 추가 합니다.
@@ -61,23 +62,23 @@ Azure 방화벽을 사용 하 여 기존 HDInsight에서 송신을 잠그는 단
 
     | 속성|  값|
     |---|---|
-    |이름| FwAppRule|
+    |속성| FwAppRule|
     |우선 순위|200|
-    |실행력|허용|
+    |작업|Allow|
 
     **FQDN 태그 섹션**
 
-    | 이름 | 소스 주소 | FQDN 태그 | 메모 |
+    | 속성 | 소스 주소 | FQDN 태그 | 메모 |
     | --- | --- | --- | --- |
     | Rule_1 | * | Windowsupdate.log 및 HDInsight | HDI 서비스에 필요 합니다. |
 
     **대상 Fqdn 섹션**
 
-    | 이름 | 원본 주소 | 프로토콜: 포트 | 대상 FQDN | 메모 |
+    | 속성 | 원본 주소 | 프로토콜: 포트 | 대상 FQDN | 메모 |
     | --- | --- | --- | --- | --- |
     | Rule_2 | * | https:443 | login.windows.net | Windows 로그인 작업을 허용 합니다. |
     | Rule_3 | * | https:443 | login.microsoftonline.com | Windows 로그인 작업을 허용 합니다. |
-    | Rule_4 | * | https: 443, http: 80 | storage_account_name. windows .net | `storage_account_name`를 실제 저장소 계정 이름으로 바꿉니다. 클러스터가 WASB에서 지원 되는 경우 WASB에 대 한 규칙을 추가 합니다. Https 연결만 사용 하려면 저장소 계정에 ["보안 전송 필요"](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) 가 설정 되어 있는지 확인 합니다. |
+    | Rule_4 | * | https: 443, http: 80 | storage_account_name. windows .net | `storage_account_name`를 실제 저장소 계정 이름으로 바꿉니다. 클러스터가 WASB에서 지원 되는 경우 WASB에 대 한 규칙을 추가 합니다. Https 연결만 사용 하려면 저장소 계정에 ["보안 전송 필요"](../storage/common/storage-require-secure-transfer.md) 가 설정 되어 있는지 확인 합니다. |
 
    ![제목: 응용 프로그램 규칙 컬렉션 정보 입력](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png)
 
@@ -95,13 +96,13 @@ HDInsight 클러스터를 올바르게 구성 하는 네트워크 규칙을 만�
 
     | 속성|  값|
     |---|---|
-    |이름| FwNetRule|
+    |속성| FwNetRule|
     |우선 순위|200|
-    |실행력|허용|
+    |작업|Allow|
 
     **IP 주소 섹션**
 
-    | 이름 | 프로토콜 | 원본 주소 | 대상 주소 | 대상 포트 | 메모 |
+    | 속성 | 프로토콜 | 원본 주소 | 대상 주소 | 대상 포트 | 메모 |
     | --- | --- | --- | --- | --- | --- |
     | Rule_1 | UDP | * | * | 123 | 시간 서비스 |
     | Rule_2 | 모두 | * | DC_IP_Address_1, DC_IP_Address_2 | * | Enterprise Security Package (ESP)를 사용 하는 경우 ESP 클러스터에 대해 AAD와 통신할 수 있도록 하는 IP 주소 섹션에서 네트워크 규칙을 추가 합니다. 도메인 컨트롤러의 IP 주소는 포털의 AAD DS 섹션에서 찾을 수 있습니다. |
@@ -110,7 +111,7 @@ HDInsight 클러스터를 올바르게 구성 하는 네트워크 규칙을 만�
 
     **서비스 태그 섹션**
 
-    | 이름 | 프로토콜 | 원본 주소 | 서비스 태그 | 대상 포트 | 메모 |
+    | 속성 | 프로토콜 | 원본 주소 | 서비스 태그 | 대상 포트 | 메모 |
     | --- | --- | --- | --- | --- | --- |
     | Rule_7 | TCP | * | SQL | 1433 | HDInsight 서브넷에서 SQL Server에 대 한 서비스 끝점을 구성 하지 않은 경우 SQL 트래픽을 기록 하 고 감사할 수 있도록 SQL의 서비스 태그 섹션에서 네트워크 규칙을 구성 합니다 .이 경우 방화벽을 무시 합니다. |
 
@@ -182,7 +183,7 @@ Azure 방화벽의 규모 제한과 요청이 늘어남에 대 한 자세한 내
 
 ## <a name="access-to-the-cluster"></a>클러스터에 대 한 액세스
 
-방화벽이 성공적으로 설정 되 면 내부 끝점 (`https://CLUSTERNAME-int.azurehdinsight.net`)을 사용 하 여 VNET 내부에서 Ambari에 액세스할 수 있습니다.
+방화벽이 성공적으로 설정 된 후에는 내부 끝점 (`https://CLUSTERNAME-int.azurehdinsight.net`)을 사용 하 여 가상 네트워크 내에서 Ambari에 액세스할 수 있습니다.
 
 공용 끝점 (`https://CLUSTERNAME.azurehdinsight.net`) 또는 ssh 끝점 (`CLUSTERNAME-ssh.azurehdinsight.net`)을 사용 하려면 [여기](../firewall/integrate-lb.md)에 설명 된 비대칭 라우팅 문제를 방지 하기 위해 경로 테이블 및 nsg 규칙에 올바른 경로가 있는지 확인 합니다. 특히이 경우 인바운드 NSG 규칙의 클라이언트 IP 주소를 허용 하 고 `internet`로 설정 된 다음 홉을 사용 하 여 사용자 정의 경로 테이블에 추가 해야 합니다. 올바르게 설정 되지 않은 경우 시간 초과 오류가 표시 됩니다.
 

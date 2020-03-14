@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/03/2019
+ms.date: 03/10/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 77324dff7e3f34574f36aa3bb775aed6a945a3bd
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.openlocfilehash: d7e4843bfbd622ad99cad4d9048e91a0cb49b1c1
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2020
-ms.locfileid: "75665272"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136247"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-powershell"></a>PowerShell을 사용 하 여 Azure Key Vault에서 고객이 관리 하는 키 구성
 
@@ -97,9 +97,18 @@ Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
 
 Azure Storage 암호화에 사용 되는 키를 변경 하려면 [고객이 관리 하는 키를 사용 하 여 암호화 구성](#configure-encryption-with-customer-managed-keys) 에 표시 된 대로 [AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) 를 호출 하 고 새 키 이름 및 버전을 제공 합니다. 새 키가 다른 키 자격 증명 모음에 있으면 키 자격 증명 모음 URI도 업데이트 합니다.
 
+## <a name="revoke-customer-managed-keys"></a>고객 관리 키 철회
+
+키가 손상 된 것으로 판단 되 면 키 자격 증명 모음 액세스 정책을 제거 하 여 고객 관리 키를 해지할 수 있습니다. 고객이 관리 하는 키를 해지 하려면 다음 예제와 같이 [AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/remove-azkeyvaultaccesspolicy) 명령을 호출 합니다. 괄호 안의 자리 표시자 값을 고유한 값으로 바꾸고 앞의 예제에 정의 된 변수를 사용 해야 합니다.
+
+```powershell
+Remove-AzKeyVaultAccessPolicy -VaultName $keyVault.VaultName `
+    -ObjectId $storageAccount.Identity.PrincipalId `
+```
+
 ## <a name="disable-customer-managed-keys"></a>고객 관리 키 사용 안 함
 
-고객 관리 키를 사용 하지 않도록 설정 하면 저장소 계정이 Microsoft 관리 키를 사용 하 여 암호화 됩니다. 고객이 관리 하는 키를 사용 하지 않도록 설정 하려면 다음 예제와 같이 `-StorageEncryption` 옵션을 사용 하 여 [AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) 를 호출 합니다. 괄호 안의 자리 표시자 값을 고유한 값으로 바꾸고 앞의 예제에 정의 된 변수를 사용 해야 합니다.
+고객 관리 키를 사용 하지 않도록 설정 하면 저장소 계정이 Microsoft 관리 키로 다시 암호화 됩니다. 고객이 관리 하는 키를 사용 하지 않도록 설정 하려면 다음 예제와 같이 `-StorageEncryption` 옵션을 사용 하 여 [AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) 를 호출 합니다. 괄호 안의 자리 표시자 값을 고유한 값으로 바꾸고 앞의 예제에 정의 된 변수를 사용 해야 합니다.
 
 ```powershell
 Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `

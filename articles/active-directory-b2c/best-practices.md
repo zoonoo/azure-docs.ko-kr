@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: vigunase
 ms.subservice: B2C
-ms.openlocfilehash: 6c737af85e2a7205dca6a56174dfda565da1410d
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: a76852a6e3cc5ffcdfcac62ce29fe47c97af3df1
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78304395"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136162"
 ---
 # <a name="recommendations-and-best-practices-for-azure-active-directory-b2c"></a>Azure Active Directory B2C에 대 한 권장 사항 및 모범 사례
 
@@ -51,7 +51,7 @@ ms.locfileid: "78304395"
 
 |  |  |
 |--|--|
-| Visual Studio Code에 대 한 Azure AD B2C 확장으로 사용자 지정 정책 편집 | [Visual Studio Code Marketplace에서]((https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c))Visual Studio Code 및이 커뮤니티에서 빌드된 확장을 다운로드 합니다. 공식 Microsoft 제품이 아니라 Visual Studio Code Azure AD B2C 확장에는 사용자 지정 정책 작업을 용이 하 게 하는 데 도움이 되는 몇 가지 기능이 포함 되어 있습니다. |
+| Visual Studio Code에 대 한 Azure AD B2C 확장으로 사용자 지정 정책 편집 | [Visual Studio Code Marketplace에서](https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c)Visual Studio Code 및이 커뮤니티에서 빌드된 확장을 다운로드 합니다. 공식 Microsoft 제품이 아니라 Visual Studio Code Azure AD B2C 확장에는 사용자 지정 정책 작업을 용이 하 게 하는 데 도움이 되는 몇 가지 기능이 포함 되어 있습니다. |
 | Azure AD B2C 문제를 해결 하는 방법 알아보기 | 개발 하는 동안 [사용자 지정 정책의 문제를 해결](https://docs.microsoft.com/azure/active-directory-b2c/troubleshoot-custom-policies?tabs=applications) 하는 방법을 알아봅니다. 일반 인증 흐름이 어떻게 표시 되는지 알아보고 비정상 및 오류 검색을 위한 도구를 사용 합니다. 예를 들어 [Application Insights](troubleshoot-with-application-insights.md) 를 사용 하 여 사용자 경험의 출력 로그를 검토할 수 있습니다. |
 | 입증 된 사용자 지정 정책 패턴의 라이브러리 활용 | 몇 가지 향상 된 Azure AD B2C CIAM (고객 id 및 액세스 관리) 사용자 경험에 대 한 [샘플](https://github.com/azure-ad-b2c/samples) 을 찾습니다. |
 

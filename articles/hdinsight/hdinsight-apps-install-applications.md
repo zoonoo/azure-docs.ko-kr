@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/17/2019
 ms.author: hrasheed
-ms.openlocfilehash: a7d83d2bc418e62bc2858e2a7fb35d2113640c83
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 22d27d50a7d2c304e5d1a04a9a5eaa03d2f0bfa6
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78389485"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79366345"
 ---
 # <a name="install-third-party-apache-hadoop-applications-on-azure-hdinsight"></a>Azure HDInsight에 타사 Apache Hadoop 애플리케이션 설치
 
@@ -39,12 +39,12 @@ HDInsight 애플리케이션은 HDInsight 클러스터에 사용자가 설치할
 |[Trifacta Wrangler Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/trifacta.tr01) |Hadoop, Spark,HBase |Trifacta Wrangler Enterprise for HDInsight는 모든 규모의 데이터에 대해 엔터프라이즈급 데이터 랭 글 링를 지원 합니다. Azure에서 Trifacta를 실행 하는 비용은 Trifacta 구독 비용과 가상 컴퓨터에 대 한 Azure 인프라 비용의 조합입니다. |
 |[가는 fi 데이터 플랫폼](https://unifisoftware.com/platform/) |Hadoop, HBase, 폭풍, Spark |전체 기능을 사용 하는 셀프 서비스 데이터 도구 제품군은 비즈니스 사용자가 증분 수익을 구동 하거나 비용 또는 운영 복잡성을 줄일 수 있는 데이터 문제를 처리할 수 있도록 설계 된 셀프 서비스 데이터 도구 제품군입니다. |
 |[Unraveldata APM](https://azuremarketplace.microsoft.com/marketplace/apps/unravel-data.unravel-app) |Spark |HDInsight Spark 클러스터용 하기가 Data 앱입니다. |
-|[워터 라인 AI 기반 Data Catalog](https://azuremarketplace.microsoft.com/marketplace/apps/waterline_data.waterline_data) |Spark |워터 라인 카탈로그는 AI를 사용 하 여 데이터를 구성 하 고 제어 하 여 비즈니스 용어로 데이터를 자동으로 태그 합니다. Waterline의 비즈니스에 익숙한 카탈로그는 셀프 서비스 분석, 규정 준수 및 거버넌스, IT 관리 이니셔티브에 중요한 성공 구성 요소입니다. |
+|[워터 라인 AI 기반 Data Catalog](https://azuremarketplace.microsoft.com/marketplace/apps/waterline_data.waterline_data) |Spark |워터 라인 카탈로그는 AI를 사용 하 여 데이터를 구성 하 고 제어 하 여 비즈니스 용어로 데이터를 자동으로 태그 합니다. 워터 라인의 비즈니스 serilog.sinks.literate 카탈로그는 셀프 서비스 분석, 규정 준수 및 거 버 넌 스 및 IT 관리 이니셔티브를 위한 중요 한 성공 구성 요소입니다. |
 
 이 문서에서 제공하는 지침은 Azure Portal을 사용합니다. 또한 포털에서 Azure Resource Manager 템플릿을 내보내거나 공급 업체에서 Resource Manager 템플릿의 복사본을 가져오고 Azure PowerShell 및 Azure 클래식 CLI를 사용하여 템플릿을 배포할 수 있습니다.  [Resource Manager 템플릿을 사용하여 HDInsight에서 Apache Hadoop 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-arm-templates.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
-기존 HDInsight 클러스터에 HDInsight 애플리케이션을 설치하려면 HDInsight 클러스터가 있어야 합니다. HDInsight 클러스터를 만들려면 [클러스터 만들기](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster)를 참조하세요. HDInsight 클러스터를 만들 경우 HDInsight 애플리케이션도 설치할 수 있습니다.
+기존 HDInsight 클러스터에 HDInsight 애플리케이션을 설치하려면 HDInsight 클러스터가 있어야 합니다. HDInsight 클러스터를 만들려면 [클러스터 만들기](hadoop/apache-hadoop-linux-tutorial-get-started.md)를 참조하세요. HDInsight 클러스터를 만들 경우 HDInsight 애플리케이션도 설치할 수 있습니다.
 
 ## <a name="install-applications-to-existing-clusters"></a>기존 클러스터에 애플리케이션 설치
 다음 절차에서는 기존 HDInsight 클러스터에 HDInsight 애플리케이션을 설치하는 방법을 보여 줍니다.
@@ -53,7 +53,7 @@ HDInsight 애플리케이션은 HDInsight 클러스터에 사용자가 설치할
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 왼쪽 메뉴에서 **모든 서비스** > **분석** > **HDInsight 클러스터**로 이동 합니다.
-3. 목록에서 HDInsight 클러스터를 선택 합니다.  HDInsight 클러스터가 없는 경우 만듭니다.  see [클러스터 만들기](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster)를 참조하세요.
+3. 목록에서 HDInsight 클러스터를 선택 합니다.  HDInsight 클러스터가 없는 경우 만듭니다.  see [클러스터 만들기](hadoop/apache-hadoop-linux-tutorial-get-started.md)를 참조하세요.
 4. **설정** 범주 아래에서 **응용 프로그램**을 선택 합니다. 주 창에서 설치 된 응용 프로그램의 목록을 볼 수 있습니다. 
    
     ![HDInsight 애플리케이션 포털 메뉴](./media/hdinsight-apps-install-applications/hdinsight-apps-portal-menu.png)

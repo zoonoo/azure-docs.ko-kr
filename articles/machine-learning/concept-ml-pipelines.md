@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: laobri
 author: lobrien
 ms.date: 11/06/2019
-ms.openlocfilehash: fd10a3e62bcbe438eb17edfc71a5285ad071e29a
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 3f1d0e13d9b76c7ef06edb953b59ebfa73c302de
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77366208"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79296849"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>Azure Machine Learning 파이프라인 이란?
 
@@ -204,6 +204,12 @@ pipeline_run.wait_for_completion()
 |**추적 및 버전 관리**|반복하면서 데이터 및 결과 경로를 수동으로 추적하는 대신, Pipelines SDK를 사용하여 데이터 원본, 입력 및 출력의 이름과 버전을 명시적으로 지정합니다. 생산성 향상을 위해 스크립트와 데이터를 별도로 관리할 수도 있습니다.|
 | **성과** | 중요 한 영역을 분리 하 고 변경 내용을 격리 하면 소프트웨어 품질이 높은 속도로 향상 됩니다. | 
 |**작업할**|파이프라인을 통해 데이터 과학자는 기계 학습 디자인 프로세스의 모든 영역에서 공동 작업을 수행할 수 있으며 파이프라인 단계에서 동시에 작업할 수 있습니다.|
+
+### <a name="choosing-the-proper-pipelinestep-subclass"></a>적절 한 PipelineStep 하위 클래스 선택
+
+`PythonScriptStep`는 추상 `PipelineStep`의 가장 유연한 서브 클래스입니다. `EstimatorStep` 서브 클래스 및 `DataTransferStep`와 같은 다른 서브 클래스는 더 작은 코드로 특정 작업을 수행할 수 있습니다. 예를 들어 단계에 대 한 이름, `Estimator`및 계산 대상을 전달 하기만 하면 `EstimatorStep`를 만들 수 있습니다. 또는 입력 및 출력, 파이프라인 매개 변수 및 인수를 재정의할 수 있습니다. 자세한 내용은 [평가기를 사용 하 여 Azure Machine Learning를 사용 하 여 모델 학습](how-to-train-ml-models.md)을 참조 하세요. 
+
+`DataTransferStep`를 사용 하 여 데이터 원본과 싱크 간에 데이터를 쉽게 이동할 수 있습니다. 이 작업을 수동으로 수행 하는 코드는 간단 하지만 반복적인 방법입니다. 대신 이름, 데이터 원본 및 데이터 싱크에 대 한 참조 및 계산 대상으로 `DataTransferStep`를 만들 수 있습니다. [DataTransferStep를 사용 하는 노트북 Azure Machine Learning 파이프라인](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-data-transfer.ipynb) 은 이러한 유연성을 보여 줍니다.
 
 ## <a name="modules"></a>모듈
 

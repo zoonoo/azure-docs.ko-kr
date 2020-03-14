@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: sasolank
-ms.openlocfilehash: 129f407dd66b32ea097daf4ed9110ffbba23660c
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 2b8cf66afa1d8aa592d5755ebab70cd6ad2e75fd
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77017602"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79298057"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>내부 VNET에서 Application Gateway와 API Management 통합
 
-## <a name="overview"></a> 개요
+## <a name="overview"> </a> 개요
 
 Virtual Network 내에서만 액세스할 수 있도록 내부 모드의 Virtual Network에서 API Management 서비스를 구성할 수 있습니다. Azure Application Gateway는 계층 7 부하 분산 장치를 제공하는 PAAS 서비스입니다. 역방향 프록시 서비스 역할을 하고 제품에 WAF(웹 애플리케이션 방화벽)를 제공합니다.
 
@@ -35,7 +35,7 @@ Virtual Network 내에서만 액세스할 수 있도록 내부 모드의 Virtual
 
 [!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -47,7 +47,7 @@ Virtual Network 내에서만 액세스할 수 있도록 내부 모드의 Virtual
 
 * 인증서 - API 호스트 이름에 대한 pfx 및 cer, 개발자 포털의 호스트 이름에 대한 pfx입니다.
 
-## <a name="scenario"></a> 시나리오
+## <a name="scenario"> </a> 시나리오
 
 이 문서에서는 내부 및 외부 소비자에 대해 단일 API Management 서비스를 사용 하 고 온-프레미스 및 클라우드 Api에 대 한 단일 프런트 엔드로 작동 하도록 하는 방법을 설명 합니다. Application Gateway에서 사용 가능한 라우팅 기능을 사용하여 외부 소비에 대해 API(예제에서 녹색으로 강조 표시됨)의 하위 집합만을 노출하는 방법을 확인할 수도 있습니다.
 
@@ -55,7 +55,7 @@ Virtual Network 내에서만 액세스할 수 있도록 내부 모드의 Virtual
 
 ![url 경로](./media/api-management-howto-integrate-internal-vnet-appgateway/api-management-howto-integrate-internal-vnet-appgateway.png)
 
-## <a name="before-you-begin"></a> 시작 하기 전에
+## <a name="before-you-begin"> </a> 시작 하기 전에
 
 * Azure PowerShell의 최신 버전을 사용하고 있는지 확인합니다. 설치 [Azure PowerShell](/powershell/azure/install-az-ps)에서 설치 지침을 참조 하세요. 
 
@@ -69,7 +69,7 @@ Virtual Network 내에서만 액세스할 수 있도록 내부 모드의 Virtual
 * **사용자 정의 상태 프로브:** 기본적으로 Application Gateway는 IP 주소 기반 프로브를 사용하여 BackendAddressPool의 어떤 서버가 활성 상태인지 파악합니다. API Management 서비스는 올바른 호스트 헤더가 있는 요청에만 응답하므로 기본 프로브는 실패합니다. 서비스가 활성 상태이고 요청을 전달해야 한다는 것을 Application Gateway가 결정할 수 있도록 사용자 지정 상태 프로브를 정의해야 합니다.
 * **사용자 지정 도메인 인증서:** 인터넷에서 API Management에 액세스하려면 Application Gateway 프런트 엔드 DNS 이름에 대한 해당 호스트 이름의 CNAME을 매핑해야 합니다. 이렇게 하면 API Management에 전달되는 Application Gateway에 전송되는 호스트 이름 헤더 및 인증서를 APIM에서 유효한 것으로 인식할 수 있습니다. 이 예제에서는 백 엔드 및 개발자 포털에 대해 두 개의 인증서를 사용합니다.  
 
-## <a name="overview-steps"></a> API Management 및 Application Gateway를 통합 하는 데 필요한 단계
+## <a name="overview-steps"> </a> API Management 및 Application Gateway를 통합 하는 데 필요한 단계
 
 1. Resource Manager에 대한 리소스 그룹을 만듭니다.
 2. Application Gateway에 대한 Virtual Network, 서브넷 및 공용 IP를 만듭니다. API Management에 대한 다른 서브넷을 만듭니다.
@@ -84,7 +84,7 @@ Virtual Network 내에서만 액세스할 수 있도록 내부 모드의 Virtual
 이 가이드에서는 Application Gateway를 통해 외부 대상에게 **개발자 포털**도 노출합니다. 개발자 포털의 수신기, 프로브, 설정 및 규칙을 만드는 추가 단계가 필요합니다. 모든 세부 정보는 해당 단계에서 제공됩니다.
 
 > [!WARNING]
-> Azure AD 또는 타사 인증을 사용하는 경우 Application Gateway에서 [쿠키 기반 세션 선호도](https://docs.microsoft.com/azure/application-gateway/overview#session-affinity) 기능을 사용하도록 설정하세요.
+> Azure AD 또는 타사 인증을 사용하는 경우 Application Gateway에서 [쿠키 기반 세션 선호도](../application-gateway/features.md#session-affinity) 기능을 사용하도록 설정하세요.
 
 > [!WARNING]
 > Application Gateway WAF가 개발자 포털에서 OpenAPI 사양의 다운로드를 중단 하지 않도록 하려면 방화벽 규칙 `942200 - "Detects MySQL comment-/space-obfuscated injections and backtick termination"`를 사용 하지 않도록 설정 해야 합니다.
@@ -363,10 +363,10 @@ Application Gateway의 DNS 이름은 APIM 프록시 호스트 이름(예: 위의
 Get-AzPublicIpAddress -ResourceGroupName $resGroupName -Name "publicIP01"
 ```
 
-## <a name="summary"></a> 요약
+## <a name="summary"> </a> 요약
 VNET에서 구성 된 Azure API Management은 온-프레미스 또는 클라우드에서 호스트 되는지에 관계 없이 구성 된 모든 Api에 대 한 단일 게이트웨이 인터페이스를 제공 합니다. Application Gateway와 API Management의 통합을 통해 특정 API를 인터넷에 액세스할 수 있도록 선택적으로 유연성을 향상시키고 API Management 인스턴스에 대한 프런트 엔드로 웹 애플리케이션 방화벽을 제공합니다.
 
-## <a name="next-steps"></a> 다음 단계
+## <a name="next-steps"> </a> 다음 단계
 * Azure Application Gateway에 대한 자세한 정보
   * [Application Gateway 개요](../application-gateway/application-gateway-introduction.md)
   * [Application Gateway 웹 애플리케이션 방화벽](../application-gateway/application-gateway-webapplicationfirewall-overview.md)

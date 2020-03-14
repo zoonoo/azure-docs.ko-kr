@@ -1,17 +1,17 @@
 ---
-title: 고객 관리 키를 사용 하 여 단일 서버 데이터 암호화 Azure Database for PostgreSQL
+title: 고객 관리 키-Azure Database for PostgreSQL-단일 서버를 사용 하 여 데이터 암호화
 description: 고객 관리 키를 사용 하 여 단일 서버 데이터 암호화를 Azure Database for PostgreSQL 하 여 미사용 데이터 보호에 대 한 Bring Your Own Key (BYOK)를 수행할 수 있습니다. 또한 조직이 키 및 데이터 관리에서 의무 분리를 구현할 수 있습니다.
 author: kummanish
 ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 5516bfcb3ed32ba6635943298db2a7773db0a622
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 20e01e681c382e3c9c69f76c95a90f709f409d6a
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77198703"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79297025"
 ---
 # <a name="azure-database-for-postgresql-single-server-data-encryption-with-a-customer-managed-key"></a>고객 관리 키를 사용 하 여 단일 서버 데이터 암호화 Azure Database for PostgreSQL
 
@@ -32,9 +32,9 @@ Key Vault은 클라우드 기반의 외부 키 관리 시스템입니다. 가용
 Azure Database for PostgreSQL 단일 서버에 대 한 데이터 암호화는 다음과 같은 이점을 제공 합니다.
 
 * 데이터 액세스는 키를 제거 하 고 데이터베이스에 액세스할 수 없도록 하는 기능을 통해 사용자가 완전히 제어 합니다. 
-*   키 수명 주기에 대 한 모든 권한 (회사 정책에 맞게 키 회전 포함)
-*   Azure Key Vault의 중앙 관리 및 키 구성
-*   보안 책임자와 DBA 및 시스템 관리자 간에 업무 분리를 구현 하는 기능
+*    키 수명 주기에 대 한 모든 권한 (회사 정책에 맞게 키 회전 포함)
+*    Azure Key Vault의 중앙 관리 및 키 구성
+*    보안 책임자와 DBA 및 시스템 관리자 간에 업무 분리를 구현 하는 기능
 
 ## <a name="terminology-and-description"></a>용어 및 설명
 

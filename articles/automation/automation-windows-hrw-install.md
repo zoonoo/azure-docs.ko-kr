@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/10/2019
 ms.topic: conceptual
-ms.openlocfilehash: 6c99cb15ef6874ef0efecb15eb99443904491209
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.openlocfilehash: 420775fee36df900ce95718e58fee145de3a9f53
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79082396"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79366992"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Windows Hybrid Runbook Worker 배포
 
@@ -71,14 +71,14 @@ Automation 계정의 Hybrid Runbook Worker 그룹에 작업자 컴퓨터를 추�
 
 | 매개 변수 | 상태 | Description |
 | --------- | ------ | ----------- |
-| *AAResourceGroupName* | 필수 | Automation 계정과 연결된 리소스 그룹의 이름입니다. |
-| *AutomationAccountName* | 필수 | Automation 계정의 이름입니다.
-| *자격 증명* | 옵션 | Azure 환경에 로그인 할 때 사용할 자격 증명입니다. |
-| *HybridGroupName* | 필수 | 이 시나리오를 지원하는 Runbook에 대한 대상으로 지정할 Hybrid Runbook Worker 그룹의 이름입니다. |
-| *OMSResourceGroupName* | 옵션 | Log Analytics 작업 영역에 대한 리소스 그룹의 이름입니다. 이 리소스 그룹을 지정 하지 않으면 *AAResourceGroupName* 값이 사용 됩니다. |
-| *구독* | 필수 | Automation 계정과 연결 된 Azure 구독의 식별자입니다. |
-| *TenantID* | 옵션 | Automation 계정과 연결 된 테 넌 트 조직의 식별자입니다. |
-| *WorkspaceName* | 옵션 | Log Analytics 작업 영역 이름입니다. Log Analytics 작업 영역이 없는 경우 스크립트에서 하나를 만들어 구성합니다. |
+| `AAResourceGroupName` | 필수 | Automation 계정과 연결된 리소스 그룹의 이름입니다. |
+| `AutomationAccountName` | 필수 | Automation 계정의 이름입니다.
+| `Credential` | 옵션 | Azure 환경에 로그인 할 때 사용할 자격 증명입니다. |
+| `HybridGroupName` | 필수 | 이 시나리오를 지원하는 Runbook에 대한 대상으로 지정할 Hybrid Runbook Worker 그룹의 이름입니다. |
+| `OMSResourceGroupName` | 옵션 | Log Analytics 작업 영역에 대한 리소스 그룹의 이름입니다. 이 리소스 그룹을 지정 하지 않으면 `AAResourceGroupName` 값이 사용 됩니다. |
+| `SubscriptionID` | 필수 | Automation 계정과 연결 된 Azure 구독의 식별자입니다. |
+| `TenantID` | 옵션 | Automation 계정과 연결 된 테 넌 트 조직의 식별자입니다. |
+| `WorkspaceName` | 옵션 | Log Analytics 작업 영역 이름입니다. Log Analytics 작업 영역이 없는 경우 스크립트에서 하나를 만들어 구성합니다. |
 
 > [!NOTE]
 > 솔루션을 사용 하도록 설정 하는 경우 Azure Automation은 Log Analytics 작업 영역 및 Automation 계정을 연결 하는 데 필요한 특정 영역만 지원 합니다. 지원 되는 매핑 쌍 목록은 [Automation 계정 및 Log Analytics 작업 영역에 대 한 지역 매핑](how-to/region-mappings.md)을 참조 하세요.
@@ -89,7 +89,7 @@ Automation 계정의 Hybrid Runbook Worker 그룹에 작업자 컴퓨터를 추�
 
 ### <a name="step-3---run-the-powershell-script"></a>3 단계-PowerShell 스크립트 실행
 
-PowerShell 명령줄 셸에서 다운로드 한 스크립트가 포함 된 폴더로 이동 합니다. *Automationaccountname*, *AAResourceGroupName*, *OMSResourceGroupName*, *HybridGroupName*, *SubscriptionID*및 *WorkspaceName*매개 변수에 대 한 값을 변경 합니다. 그런 다음, 스크립트를 실행합니다.
+PowerShell 명령줄 셸에서 다운로드 한 스크립트가 포함 된 폴더로 이동 합니다. `AutomationAccountName`, `AAResourceGroupName`, `OMSResourceGroupName`, `HybridGroupName`, `SubscriptionID`및 `WorkspaceName`매개 변수에 대 한 값을 변경 합니다. 그런 다음, 스크립트를 실행합니다.
 
 스크립트를 실행한 후에 Azure 인증을 요청하는 메시지가 나타납니다. 구독 관리자 역할의 구성원이 고 구독의 공동 관리자 인 계정으로 로그인 해야 합니다.
 
@@ -149,7 +149,7 @@ Heartbeat
 
 ### <a name="step-4---install-the-runbook-environment-and-connect-to-azure-automation"></a>4 단계-runbook 환경을 설치 하 고 Azure Automation에 연결
 
-Log Analytics 작업 영역에 보고 하도록 에이전트를 구성 하는 경우 Automation 솔루션은 **add-hybridrunbookworker** cmdlet이 포함 된 **HybridRegistration** PowerShell 모듈을 푸시합니다. 이 cmdlet을 사용 하 여 컴퓨터에 runbook 환경을 설치 하 고 Azure Automation에 등록 합니다.
+Log Analytics 작업 영역에 보고 하도록 에이전트를 구성 하는 경우 자동화 솔루션은 `Add-HybridRunbookWorker` cmdlet을 포함 하는 `HybridRegistration` PowerShell 모듈을 푸시합니다. 이 cmdlet을 사용 하 여 컴퓨터에 runbook 환경을 설치 하 고 Azure Automation에 등록 합니다.
 
 관리자 모드에서 PowerShell 세션을 열고 다음 명령을 실행하여 모듈을 가져옵니다.
 
@@ -158,7 +158,7 @@ cd "C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\<version>\
 Import-Module .\HybridRegistration.psd1
 ```
 
-이제 다음 구문을 사용 하 여 **add-hybridrunbookworker** cmdlet을 실행 합니다.
+이제 다음 구문을 사용 하 여 `Add-HybridRunbookWorker` cmdlet을 실행 합니다.
 
 ```powershell-interactive
 Add-HybridRunbookWorker –GroupName <String> -EndPoint <Url> -Token <String>
@@ -168,18 +168,18 @@ Azure Portal의 키 관리 페이지에서이 cmdlet에 필요한 정보를 가�
 
 ![키 관리 페이지](media/automation-hybrid-runbook-worker/elements-panel-keys.png)
 
-* *GroupName* 매개 변수의 경우 Hybrid Runbook Worker 그룹의 이름을 사용 합니다. 이 그룹이 자동화 계정에 이미 있으면 현재 컴퓨터가 추가되고, 그룹이 없으면 추가됩니다.
-* *끝점* 매개 변수의 경우 키 관리 페이지의 **URL** 항목을 사용 합니다.
-* *토큰* 매개 변수의 경우 키 관리 페이지에서 **기본 액세스 키** 항목을 사용 합니다.
-* 필요한 경우 *Verbose* 매개 변수를 설정 하 여 설치에 대 한 세부 정보를 수신 합니다.
+* `GroupName` 매개 변수의 경우 Hybrid Runbook Worker 그룹의 이름을 사용 합니다. 이 그룹이 자동화 계정에 이미 있으면 현재 컴퓨터가 추가되고, 그룹이 없으면 추가됩니다.
+* `EndPoint` 매개 변수의 경우 키 관리 페이지의 **URL** 항목을 사용 합니다.
+* `Token` 매개 변수의 경우 키 관리 페이지의 **기본 액세스 키** 항목을 사용 합니다.
+* 필요한 경우 `Verbose` 매개 변수를 설정 하 여 설치에 대 한 세부 정보를 수신 합니다.
 
 ### <a name="step-5----install-powershell-modules"></a>5 단계-PowerShell 모듈 설치
 
 Runbook은 Azure Automation 환경에 설치된 모듈에 정의된 활동 및 cmdlet을 사용할 수 있습니다. 이러한 모듈은 온-프레미스 컴퓨터에 자동으로 배포 되지 않으므로 수동으로 설치 해야 합니다. Azure 모듈은 예외입니다. 이 모듈은 기본적으로 설치 되며, Azure Automation에 대 한 모든 Azure 서비스 및 활동에 대 한 cmdlet에 대 한 액세스를 제공 합니다.
 
-Hybrid Runbook Worker 기능의 주요 목적은 로컬 리소스를 관리 하는 것 이므로 이러한 리소스를 지 원하는 모듈 (특히 **PowerShellGet** 모듈)을 설치 해야 할 가능성이 높습니다. Windows PowerShell 모듈을 설치 하는 방법에 대 한 자세한 내용은 [Windows powershell](https://docs.microsoft.com/powershell/scripting/developer/windows-powershell)을 참조 하세요.
+Hybrid Runbook Worker 기능의 주요 목적은 로컬 리소스를 관리 하는 것 이므로 이러한 리소스를 지 원하는 모듈, 특히 `PowerShellGet` 모듈을 설치 해야 할 가능성이 높습니다. Windows PowerShell 모듈을 설치 하는 방법에 대 한 자세한 내용은 [Windows powershell](https://docs.microsoft.com/powershell/scripting/developer/windows-powershell)을 참조 하세요.
 
-설치된 모듈은 Hybrid Worker가 자동으로 가져올 수 있도록 *PSModulePath* 환경 변수가 참조하는 위치에 있어야 합니다. 자세한 내용은 [Install Modules In PSModulePath](https://docs.microsoft.com/powershell/scripting/developer/module/installing-a-powershell-module?view=powershell-7)를 참조 하세요.
+설치 된 모듈은 하이브리드 작업자에서 자동으로 가져올 수 있도록 `PSModulePath` 환경 변수에서 참조 하는 위치에 있어야 합니다. 자세한 내용은 [Install Modules In PSModulePath](https://docs.microsoft.com/powershell/scripting/developer/module/installing-a-powershell-module?view=powershell-7)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -10,18 +10,18 @@ ms.date: 08/06/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 46374c35e6810bf056272ab2be355676f7b028b8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9da27cef7bafa94715a42db86fc5a5675a049eb1
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75460595"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79137872"
 ---
 # <a name="create-an-account-sas-with-net"></a>.NET을 사용 하 여 계정 SAS 만들기
 
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
-이 문서에서는 저장소 계정 키를 사용 하 여 [.net 용 Azure Storage 클라이언트 라이브러리](/dotnet/api/overview/azure/storage/client)를 사용 하 여 계정 SAS를 만드는 방법을 보여 줍니다.
+이 문서에서는 저장소 계정 키를 사용 하 여 [.net 용 Azure Storage 클라이언트 라이브러리](/dotnet/api/overview/azure/storage?view=azure-dotnet)를 사용 하 여 계정 SAS를 만드는 방법을 보여 줍니다.
 
 ## <a name="create-an-account-sas"></a>계정 SAS 만들기
 

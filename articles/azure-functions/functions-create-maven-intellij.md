@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 46044d4c6dd65944291aff157229be0abc60d3d7
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 7003dc19a7bfc405809de91534028aba8e0416c5
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77913245"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136853"
 ---
 # <a name="create-your-first-azure-function-with-java-and-intellij"></a>Java 및 IntelliJ를 사용 하 여 첫 번째 Azure function 만들기
 
@@ -46,8 +46,8 @@ Java 및 IntelliJ를 사용하여 함수를 개발하려면 다음 소프트웨�
 1. **Archetype 추가** 창에서 다음과 같이 필드를 완성합니다.
     - _GroupId_: com.microsoft.azure
     - _ArtifactId_: azure-functions-archetype
-    - _버전_: ![
-    [중앙 리포지토리에서](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype) 최신 버전 **1.22** 을 사용 하 여 원형에서 IntelliJ 아이디어로 Maven 프로젝트를 만듭니다](media/functions-create-first-java-intellij/functions-create-intellij.png)  
+    - _버전_: [중앙 리포지토리에서](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype) 최신 버전을 확인 하 고 사용 하 여 원형 IntelliJ 아이디어에서 Maven 프로젝트 ![
+    만듭니다](media/functions-create-first-java-intellij/functions-create-intellij.png)  
 1. **확인**선택하고 **다음**을 선택합니다.
 1. 현재 프로젝트에 대한 세부 정보를 입력하고 **완료**를 선택합니다.
 

@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: sanpil
 author: sanpil
 ms.date: 11/11/2019
-ms.openlocfilehash: 474a184b24ca3318a33adb89b25640939a814474
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: a677aaa891e21f4c9eeda02eebcb94e9d79a55ad
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771635"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79368828"
 ---
 # <a name="define-machine-learning-pipelines-in-yaml"></a>YAML에서 기계 학습 파이프라인 정의
 
@@ -25,16 +25,16 @@ ms.locfileid: "75771635"
 
 | 단계 유형 | 지원 여부 |
 | ----- | :-----: |
-| PythonScriptStep | 예 |
-| AdlaStep | 예 |
-| AzureBatchStep | 예 |
-| DatabricksStep | 예 |
-| DataTransferStep | 예 |
-| AutoMLStep | 아닙니다. |
-| HyperDriveStep | 아닙니다. |
-| ModuleStep | 아닙니다. |
-| MPIStep | 아닙니다. |
-| EstimatorStep | 아닙니다. |
+| PythonScriptStep | yes |
+| AdlaStep | yes |
+| AzureBatchStep | yes |
+| DatabricksStep | yes |
+| DataTransferStep | yes |
+| AutoMLStep | 예 |
+| HyperDriveStep | 예 |
+| ModuleStep | yes |
+| MPIStep | 예 |
+| EstimatorStep | 예 |
 
 ## <a name="pipeline-definition"></a>파이프라인 정의
 

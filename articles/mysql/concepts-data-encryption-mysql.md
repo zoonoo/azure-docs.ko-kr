@@ -1,17 +1,17 @@
 ---
-title: 고객 관리 키를 사용 하 여 데이터 암호화 Azure Database for MySQL
+title: 고객 관리 키-Azure Database for MySQL를 사용 하 여 데이터 암호화
 description: 고객 관리 키를 사용 하 여 데이터 암호화를 Azure Database for MySQL 하 여 미사용 데이터 보호에 대 한 Bring Your Own Key (BYOK)를 수행할 수 있습니다. 또한 조직이 키 및 데이터 관리에서 의무 분리를 구현할 수 있습니다.
 author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 552c6b5176babfc1a66f74f1bb6daa9370744b8f
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: a97fee619858aa024ff208b72d3b2594c30d2fd5
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210434"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79299127"
 ---
 # <a name="azure-database-for-mysql-data-encryption-with-a-customer-managed-key"></a>고객 관리 키를 사용 하 여 데이터 암호화 Azure Database for MySQL
 

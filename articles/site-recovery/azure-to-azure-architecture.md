@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 1/23/2020
+ms.date: 3/13/2020
 ms.author: raynew
-ms.openlocfilehash: 852059317c45dec4885b3f56de5617695d82e1e8
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 224b69ab571f934f0bd3b05bbdeb9dc4013f96bf
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759809"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79371616"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Azure 간 재해 복구 아키텍처
 
@@ -135,6 +135,8 @@ VM에 대한 아웃바운드 액세스가 URL로 제어되는 경우 다음 URL�
 | login.microsoftonline.com | Site Recovery 서비스 URL에 대한 권한 부여 및 인증을 제공합니다. |
 | \*.hypervrecoverymanager.windowsazure.com | VM이 Site Recovery 서비스와 통신할 수 있도록 합니다. |
 | \*.servicebus.windows.net | VM이 Site Recovery 모니터링 및 진단 데이터를 쓸 수 있도록 합니다. |
+| *.vault.azure.net | 포털을 통해 ADE 지원 가상 컴퓨터에 대 한 복제를 사용 하도록 설정 하는 액세스 허용
+| *. automation.ext.azure.com | 포털을 통해 복제 된 항목에 대해 모바일 에이전트의 자동 업그레이드를 사용 하도록 설정 합니다.
 
 ### <a name="outbound-connectivity-for-ip-address-ranges"></a>IP 주소 범위에 대한 아웃바운드 연결
 
@@ -149,6 +151,8 @@ HTTPS 아웃바운드 허용: 포트 443 | 원본 지역의 스토리지 계정�
 HTTPS 아웃바운드 허용: 포트 443 | Azure Active Directory에 해당 하는 범위 허용 (Azure AD)  | AzureActiveDirectory
 HTTPS 아웃바운드 허용: 포트 443 | 대상 지역의 이벤트 허브에 해당 하는 범위를 허용 합니다. | EventsHub.\<영역 이름 >
 HTTPS 아웃바운드 허용: 포트 443 | Azure Site Recovery에 해당 하는 범위 허용  | AzureSiteRecovery
+HTTPS 아웃바운드 허용: 포트 443 | Azure Key Vault에 해당 하는 범위 허용 (포털을 통해 ADE 지원 가상 컴퓨터의 복제를 사용 하도록 설정 하는 데만 필요) | AzureKeyVault
+HTTPS 아웃바운드 허용: 포트 443 | Azure Automation 컨트롤러에 해당 하는 범위 허용 (포털을 통해 복제 된 항목에 대 한 모바일 에이전트의 자동 업그레이드를 사용 하도록 설정 하는 경우에만 필요) | GuestAndHybridManagement
 
 #### <a name="target-region-rules"></a>대상 지역 규칙
 
@@ -158,6 +162,8 @@ HTTPS 아웃바운드 허용: 포트 443 | 대상 지역의 저장소 계정에 
 HTTPS 아웃바운드 허용: 포트 443 | Azure AD에 해당 하는 범위 허용  | AzureActiveDirectory
 HTTPS 아웃바운드 허용: 포트 443 | 원본 지역의 이벤트 허브에 해당 하는 범위를 허용 합니다. | EventsHub.\<영역 이름 >
 HTTPS 아웃바운드 허용: 포트 443 | Azure Site Recovery에 해당 하는 범위 허용  | AzureSiteRecovery
+HTTPS 아웃바운드 허용: 포트 443 | Azure Key Vault에 해당 하는 범위 허용 (포털을 통해 ADE 지원 가상 컴퓨터의 복제를 사용 하도록 설정 하는 데만 필요) | AzureKeyVault
+HTTPS 아웃바운드 허용: 포트 443 | Azure Automation 컨트롤러에 해당 하는 범위 허용 (포털을 통해 복제 된 항목에 대 한 모바일 에이전트의 자동 업그레이드를 사용 하도록 설정 하는 경우에만 필요) | GuestAndHybridManagement
 
 
 #### <a name="control-access-with-nsg-rules"></a>NSG 규칙을 사용하여 액세스 제어

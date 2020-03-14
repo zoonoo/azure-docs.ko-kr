@@ -3,12 +3,12 @@ title: Azure Service Fabric에서 지원 되는 클러스터 버전
 description: Service Fabric 팀 블로그의 최신 릴리스에 대 한 링크를 포함 하 여 Azure Service Fabric의 클러스터 버전에 대해 알아봅니다.
 ms.topic: troubleshooting
 ms.date: 03/02/2020
-ms.openlocfilehash: ea2dcc3da2f59aa00b12aedd181dc27df00e9d58
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 76a8137bbe42d8f693ac807f640a78fc4ec87c2e
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78252719"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79370426"
 ---
 # <a name="supported-service-fabric-versions"></a>지원되는 Service Fabric 버전
 
@@ -37,7 +37,7 @@ ms.locfileid: "78252719"
 | 6.3.* | 6.1.480.* |버전 3.2보다 작거나 같음 |2019 년 3 월 31 일  |
 | 6.4.* | 6.2.301.* |버전 3.3보다 작거나 같음 |2019 년 9 월 15 일 |
 | 6.5.* | 6.4.617.* |버전 3.4 보다 작거나 같음 |5 월 1 일, 2020 |
-| 7.0. * | 6.4.664. # |버전 4.0 보다 작거나 같음 |현재 버전 이므로 종료 날짜 없음 |
+| 7.0. * | 7.0.466.* |버전 4.0 보다 작거나 같음 |현재 버전 이므로 종료 날짜 없음 |
 ## <a name="supported-operating-systems"></a>지원되는 운영 체제
 
 다음 표에는 지원 되는 Service Fabric 버전에 대해 지원 되는 운영 체제가 나와 있습니다.

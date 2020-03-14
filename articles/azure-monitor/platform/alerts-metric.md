@@ -4,14 +4,14 @@ description: Azure Portal 또는 CLI를 사용 하 여 메트릭 경고 규칙�
 author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
-ms.date: 02/16/2020
+ms.date: 03/13/2020
 ms.subservice: alerts
-ms.openlocfilehash: 5452f67a9da9a71a72c9387bc3e62d6735929984
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: cefccd08ea66638f08f00e280fe2704444a7f916
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78363433"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79369389"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Azure Monitor를 사용하여 메트릭 경고 만들기, 보기 및 관리
 
@@ -136,7 +136,7 @@ ms.locfileid: "78363433"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Resource Manager 템플릿을 사용하여 메트릭 경고를 만듭니다](../../azure-monitor/platform/alerts-enable-template.md).
+- [Azure Resource Manager 템플릿을 사용하여 메트릭 경고를 만듭니다](../../azure-monitor/platform/alerts-metric-create-templates.md).
 - [메트릭 경고의 작동 원리를 이해합니다](alerts-metric-overview.md).
 - [동적 임계값 조건을 사용하는 메트릭 경고의 작동 원리를 이해합니다](alerts-dynamic-thresholds.md).
 - [메트릭 경고에 대한 웹후크 스키마를 이해합니다](../../azure-monitor/platform/alerts-metric-near-real-time.md#payload-schema).

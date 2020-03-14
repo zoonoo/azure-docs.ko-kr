@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a367e4d98135b5d29c4a0e38363739ca2689dcab
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: 158dd9d6a38cc1aaf7667c0b16518e23b3f7cecf
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79127978"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79366686"
 ---
 # <a name="deploy-a-windows-7-virtual-machine-on-windows-virtual-desktop"></a>Windows Virtual Desktop에서 Windows 7 가상 머신 배포
 
@@ -35,7 +35,7 @@ Windows 가상 데스크톱에서 Windows 7 VM을 설정 하려면 다음을 수
 4. "원격 데스크톱 사용자" 그룹에 RDP를 사용 하 여 호스트에 연결 하는 동안 사용한 계정을 추가 합니다. 이렇게 하지 않으면 Active Directory 도메인에 가입한 후 VM에 연결 하지 못할 수 있습니다.
 5. VM의 Windows 업데이트로 이동 합니다.
 6. 중요 범주에 모든 Windows 업데이트를 설치 합니다.
-7. 선택적 범주 (언어 팩 제외)에 모든 Windows 업데이트를 설치 합니다. 이렇게 하면 이러한 지침을 완료 하는 데 필요한 원격 데스크톱 프로토콜 8.0 업데이트 ([KB2592687](https://www.microsoft.com/download/details.aspx?id=35393))가 설치 됩니다.
+7. 선택적 범주 (언어 팩 제외)에 모든 Windows 업데이트를 설치 합니다. 이렇게 하면 이러한 지침을 완료 하는 데 필요한 원격 데스크톱 프로토콜 8.0 업데이트 ([KB2592687](https://www.microsoft.com/download/details.aspx?id=35387))가 설치 됩니다.
 8. 로컬 그룹 정책 편집기를 열고 **컴퓨터 구성** > **관리 템플릿** > **Windows 구성 요소** ** > 원격 데스크톱 서비스 > 원격 데스크톱 세션 호스트** >  **원격 세션 환경**으로 이동 합니다.
 9. 원격 데스크톱 프로토콜 8.0 정책을 사용 하도록 설정 합니다.
 10. 이 VM을 Active Directory 도메인에 가입 시킵니다.

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: 3cb500d2f00d6657420d7f294a7318b339e1f81e
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 02d04076ccc41d243a493838667f5e8cc6bfa5ac
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76271062"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79371157"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-cluster-with-log-analytics"></a>(사용되지 않음) Log Analytics를 사용하여 Azure Container Service 클러스터 모니터링
 
@@ -21,38 +21,41 @@ ms.locfileid: "76271062"
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 이 연습에서는 [Azure Container Service를 사용하여 Kubernetes 클러스터를 만들었다고](container-service-kubernetes-walkthrough.md) 가정합니다.
 
 또한 `az` Azure CLI 및 `kubectl` 도구가 설치되어 있다고 가정합니다.
 
 다음을 실행하여 `az` 도구가 설치되어 있는지 테스트할 수 있습니다.
 
-```console
-$ az --version
+```azurecli
+az --version
 ```
 
 `az` 도구가 설치되어 있지 않으면 [여기](https://github.com/azure/azure-cli#installation)의 지침을 따르세요.
-또는 사용자를 위해 이미 `az` Azure cli 및 `kubectl` 도구를 설치한 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)을 사용할 수 있습니다.
+또는 사용자를 위해 이미 [ Azure cli 및 ](https://docs.microsoft.com/azure/cloud-shell/overview) 도구를 설치한 `az`Azure Cloud Shell`kubectl`을 사용할 수 있습니다.
 
 다음을 실행하여 `kubectl` 도구가 설치되어 있는지 테스트할 수 있습니다.
 
 ```console
-$ kubectl version
+kubectl version
 ```
 
 `kubectl`이 설치되어 있지 않으면 다음을 실행할 수 있습니다.
-```console
-$ az acs kubernetes install-cli
+
+```azurecli
+az acs kubernetes install-cli
 ```
 
 kubectl 도구에 kubernetes 키를 설치했는지를 테스트하려면 다음을 실행하면 됩니다.
+
 ```console
-$ kubectl get nodes
+kubectl get nodes
 ```
 
 위의 명령을 실행한 결과 오류가 출력되면 kubernetes 클러스터 키를 kubectl 도구에 설치해야 합니다. 이 작업은 다음 명령을 사용하여 수행할 수 있습니다.
-```console
+
+```azurecli
 RESOURCE_GROUP=my-resource-group
 CLUSTER_NAME=my-acs-name
 az acs kubernetes get-credentials --resource-group=$RESOURCE_GROUP --name=$CLUSTER_NAME
@@ -83,7 +86,7 @@ DaemonSet은 Kubernetes가 클러스터의 각 호스트에서 컨테이너의 �
 작업 영역 ID와 키를 DaemonSet 구성에 추가한 후 `kubectl` 명령줄 도구를 사용하여 클러스터에 Log Analytics 에이전트를 설치할 수 있습니다.
 
 ```console
-$ kubectl create -f oms-daemonset.yaml
+kubectl create -f oms-daemonset.yaml
 ```
 
 ### <a name="installing-the-log-analytics-agent-using-a-kubernetes-secret"></a>Kubernetes 비밀을 사용하여 Log Analytics 에이전트 설치
@@ -94,16 +97,24 @@ Log Analytics 작업 영역 ID 및 키를 보호하려면 Kubernetes 암호를 D
   - 비밀 템플릿 - secret-template.yaml
     - DaemonSet YAML 파일 - omsagent-ds-secrets.yaml
 - 스크립트를 실행합니다. 스크립트에서는 Log Analytics 작업 영역 ID 및 기본 키를 요청합니다. 이러한 ID와 키를 삽입하면 스크립트는 사용자가 실행할 수 있도록 비밀 yaml 파일을 만듭니다.
-  ```
-  #> sudo bash ./secret-gen.sh
+
+  ```console
+  sudo bash ./secret-gen.sh
   ```
 
-  - 다음을 실행하여 비밀 Pod를 만듭니다. ```kubectl create -f omsagentsecret.yaml```
+  - 다음을 실행하여 비밀 Pod를 만듭니다.
+
+     ```console
+     kubectl create -f omsagentsecret.yaml
+     ```
 
   - 확인하려면 다음을 실행합니다.
 
+  ```console
+  kubectl get secrets
   ```
-  root@ubuntu16-13db:~# kubectl get secrets
+
+  ```output
   NAME                  TYPE                                  DATA      AGE
   default-token-gvl91   kubernetes.io/service-account-token   3         50d
   omsagent-secret       Opaque                                2         1d
@@ -121,7 +132,11 @@ Log Analytics 작업 영역 ID 및 키를 보호하려면 Kubernetes 암호를 D
   KEY:    88 bytes
   ```
 
-  - ```kubectl create -f omsagent-ds-secrets.yaml```을 실행하여 omsagent daemon-set 만들기
+  - 다음을 실행 하 여 omsagent 데몬 집합을 만듭니다.
+  
+  ```console
+  kubectl create -f omsagent-ds-secrets.yaml
+  ```
 
 ### <a name="conclusion"></a>결론
 이것으로 끝입니다. 몇 분 후 Log Analytics 대시보드로 이동하는 데이터를 볼 수 있습니다.

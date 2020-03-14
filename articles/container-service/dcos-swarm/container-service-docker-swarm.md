@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/13/2016
 ms.author: rogardle
 ms.custom: mvc
-ms.openlocfilehash: 04cc9048271d653bd77fd7f2707c8f510ea8c29f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c76701ce74aafcccdbb2f1a2454f9528b52fc096
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61456568"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136230"
 ---
 # <a name="deprecated-container-management-with-docker-swarm"></a>(사용되지 않음) Docker Swarm을 사용하여 컨테이너 관리
 
@@ -69,9 +69,9 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 ## <a name="deploy-containers-by-using-docker-compose"></a>Docker Compose를 사용하여 컨테이너 배포
 Docker Compose를 사용하여 여러 컨테이너의 배포 및 구성을 자동화할 수 있습니다. 그러려면 SSH(Secure Shell) 터널이 생성되어 있고 DOCKER_HOST 변수가 설정되었는지 확인합니다(위의 필수 구성 요소를 참조).
 
-로컬 시스템에 docker-compose.yml 파일을 만듭니다. 이렇게 하려면 이 [샘플](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/docker-compose.yml)을 사용합니다.
+로컬 시스템에 docker-compose.yml 파일을 만듭니다. 이렇게 하려면 다음 샘플을 사용 합니다.
 
-```bash
+```dockerfile
 web:
   image: adtd/web:0.1
   ports:

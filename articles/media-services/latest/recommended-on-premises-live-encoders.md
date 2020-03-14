@@ -9,14 +9,14 @@ ms.author: johndeu
 ms.date: 02/10/2020
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 60f9209129c75e329b283045d19b4b5140b40ec2
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: 3b7a75ac1c0876d562dc49e9253fe734475a551a
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78268187"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79298957"
 ---
-# <a name="recommended-on-premises-live-streaming-encoders"></a>권장 되는 온-프레미스 라이브 스트리밍 인코더
+# <a name="tested-on-premises-live-streaming-encoders"></a>테스트 된 온-프레미스 라이브 스트리밍 인코더
 
 Azure Media Services에서 [라이브 이벤트](https://docs.microsoft.com/rest/api/media/liveevents)(채널)는 라이브 스트리밍 콘텐츠를 처리하기 위한 파이프라인을 나타냅니다. 라이브 이벤트는 다음 두 가지 방법 중 하나로 라이브 입력 스트림을 받습니다.
 
@@ -24,10 +24,12 @@ Azure Media Services에서 [라이브 이벤트](https://docs.microsoft.com/rest
 
     통과 라이브 이벤트에 다중 비트 전송률 스트림을 사용 하는 경우 재생 측에서 예기치 않은 동작이 발생 하지 않도록 비디오 GOP 크기와 다양 한 비트 전송률의 비디오 조각을 동기화 해야 합니다.
 
-  > [!NOTE]
+  > [!TIP]
   > 통과 방법은 라이브 스트리밍을 수행하는 가장 경제적인 방법입니다.
  
 * 온-프레미스 라이브 인코더는 RTMP 또는 부드러운 스트리밍 (조각화 된 MP4) 형식 중 하나로 Media Services를 사용 하 여 라이브 인코딩을 수행 하도록 설정 된 라이브 이벤트에 단일 비트 전송률 스트림을 보냅니다. 그러면 라이브 이벤트에서 들어오는 단일 비트 전송률 스트림을 다중 비트 전송률(적응) 비디오 스트림으로 라이브 인코딩합니다.
+
+이 문서에서는 테스트 된 온-프레미스 라이브 스트리밍 인코더에 대해 설명 합니다. 온-프레미스 라이브 인코더를 확인 하는 방법에 대 한 지침은 [온-프레미스 인코더 확인](become-on-premises-encoder-partner.md) 을 참조 하세요.
 
 Media Services를 사용하는 라이브 인코딩에 대한 자세한 내용은 [Media Services v3을 사용하는 라이브 스트리밍](live-streaming-overview.md)을 참조하세요.
 
@@ -99,8 +101,8 @@ Media Services는 다중 비트 전송률 부드러운 스트리밍(조각난 MP
 
 ## <a name="see-also"></a>참고 항목
 
-[온-프레미스 인코더 파트너가 됩니다.](become-on-premises-encoder-partner.md)
+[Media Services v3을 통한 라이브 스트리밍](live-streaming-overview.md)
 
 ## <a name="next-steps"></a>다음 단계
 
-[Media Services v3을 통한 라이브 스트리밍](live-streaming-overview.md)
+[인코더를 확인 하는 방법](become-on-premises-encoder-partner.md)

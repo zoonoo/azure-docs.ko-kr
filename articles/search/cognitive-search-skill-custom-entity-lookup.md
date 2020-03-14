@@ -8,14 +8,14 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/30/2020
-ms.openlocfilehash: d5e2813c71e9d6941eea7d11fb6565fb84fd0789
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 8674438032ebd925296c95e9ffa0a2a0b95322f1
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77651341"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79369780"
 ---
-#    <a name="custom-entity-lookup-cognitive-skill-preview"></a>사용자 지정 엔터티 조회 인식 기술 (미리 보기)
+#     <a name="custom-entity-lookup-cognitive-skill-preview"></a>사용자 지정 엔터티 조회 인식 기술 (미리 보기)
 
 > [!IMPORTANT] 
 > 이 기술은 현재 공개 미리 보기로 제공 됩니다. 미리 보기 기능은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. 현재 포털 또는 .NET SDK가 지원 되지 않습니다.
@@ -38,9 +38,9 @@ Microsoft. 텍스트. CustomEntityLookupSkill
 
 | 매개 변수 이름     | Description |
 |--------------------|-------------|
-| Ent활동 Definitionuri | 일치 시킬 대상 텍스트를 모두 포함 하는 JSON 또는 CSV 파일의 경로입니다. 이 엔터티 정의는 인덱서 실행이 시작 될 때 읽혀집니다. 이 파일 중간 실행에 대 한 모든 업데이트는 다음에 실행 될 때까지 인식 되지 않습니다. 이 구성은 HTTPS를 통해 액세스할 수 있어야 합니다. 필요한 CSV 또는 JSON 스키마는 아래에서 [사용자 지정 엔터티 정의](#custom-entity-definition-format) 형식을 참조 하세요.|
+| Ent활동 Definitionuri    | 일치 시킬 대상 텍스트를 모두 포함 하는 JSON 또는 CSV 파일의 경로입니다. 이 엔터티 정의는 인덱서 실행이 시작 될 때 읽혀집니다. 이 파일 중간 실행에 대 한 모든 업데이트는 다음에 실행 될 때까지 인식 되지 않습니다. 이 구성은 HTTPS를 통해 액세스할 수 있어야 합니다. 필요한 CSV 또는 JSON 스키마는 아래에서 [사용자 지정 엔터티 정의](#custom-entity-definition-format) 형식을 참조 하세요.|
 |inlineEntitiesDefinition | 인라인 JSON 엔터티 정의입니다. 이 매개 변수는 있는 경우 entitiesDefinitionUri 매개 변수를 대체 합니다. 10 KB 이하의 구성은 인라인으로 제공 될 수 있습니다. 필요한 JSON 스키마는 아래의 [사용자 지정 엔터티 정의](#custom-entity-definition-format) 를 참조 하세요. |
-|defaultLanguageCode |  필드 입력 텍스트를 토큰화 하 고 설명 하는 데 사용 되는 입력 텍스트의 언어 코드입니다. `da, de, en, es, fi, fr, it, ko, pt`지원 되는 언어는 다음과 같습니다. 기본값은 영어 (`en`)입니다. languagecode-countrycode 형식을 전달하는 경우 형식의 languagecode 부분만 사용됩니다.  |
+|defaultLanguageCode |    필드 입력 텍스트를 토큰화 하 고 설명 하는 데 사용 되는 입력 텍스트의 언어 코드입니다. `da, de, en, es, fi, fr, it, ko, pt`지원 되는 언어는 다음과 같습니다. 기본값은 영어 (`en`)입니다. languagecode-countrycode 형식을 전달하는 경우 형식의 languagecode 부분만 사용됩니다.  |
 
 
 ## <a name="skill-inputs"></a>기술 입력
@@ -48,13 +48,13 @@ Microsoft. 텍스트. CustomEntityLookupSkill
 | 입력 이름      | Description                   |
 |---------------|-------------------------------|
 | text          | 분석할 텍스트입니다.          |
-| languageCode  | (선택 사항) 기본값은 `"en"`입니다.  |
+| languageCode    | (선택 사항) 기본값은 `"en"`입니다.  |
 
 
 ## <a name="skill-outputs"></a>기술 출력
 
 
-| 출력 이름     | Description                   |
+| 출력 이름      | Description                   |
 |---------------|-------------------------------|
 | 엔터티 | 찾은 일치 항목 및 관련 메타 데이터에 대 한 정보를 포함 하는 개체의 배열입니다. 식별 된 각 엔터티에는 다음과 같은 필드가 포함 될 수 있습니다.  <ul> <li> *이름*: 최상위 엔터티를 식별 합니다. 엔터티는 "정규화 된" 형식을 나타냅니다. </li> <li> *id*: "사용자 지정 엔터티 정의 형식"에서 사용자가 정의한 엔터티의 고유 식별자입니다.</li> <li> *설명*: 사용자가 "사용자 지정 엔터티 정의 형식"으로 정의한 엔터티 설명입니다. </li> <li> *유형:* 사용자가 "사용자 지정 엔터티 정의 형식"으로 정의한 엔터티 형식입니다.</li> <li> *하위 유형:* 사용자가 "사용자 지정 엔터티 정의 형식"으로 정의한 엔터티 하위 형식입니다.</li>  <li> *matches*: 소스 텍스트의 해당 엔터티와 일치 하는 각 항목을 설명 하는 컬렉션입니다. 각 일치 항목에는 다음 멤버가 포함 됩니다. </li> <ul> <li> *text*: 소스 문서와 일치 하는 원시 텍스트입니다. </li> <li> *offset*: 텍스트에서 일치 항목을 찾은 위치입니다. </li> <li> *length*: 일치 하는 텍스트의 길이입니다. </li> <li> *Matchdistance*:이와 일치 하는 문자 수가 원래 엔터티 이름 또는 별칭과 다릅니다.  </li> </ul> </ul>
   |
@@ -168,7 +168,7 @@ JSON 정의의 좀 더 복잡 한 예는 필요에 따라 각 엔터티의 id, �
 경우에 따라 기술 정의에 직접 인라인으로 일치 시킬 사용자 지정 엔터티 목록을 제공 하는 것이 더 편리할 수 있습니다. 이 경우 위에 설명 된 것과 비슷한 JSON 형식을 사용할 수 있지만 기술 정의에서 인라인 됩니다.
 크기가 10kb 미만 (직렬화 된 크기) 인 구성만 인라인으로 정의 될 수 있습니다. 
 
-##  <a name="sample-definition"></a>샘플 정의
+##    <a name="sample-definition"></a>샘플 정의
 
 인라인 서식을 사용 하는 샘플 기술 정의는 다음과 같습니다.
 
@@ -231,7 +231,7 @@ JSON 정의의 좀 더 복잡 한 예는 필요에 따라 각 엔터티의 id, �
 
 ```
 
-##  <a name="sample-input"></a>샘플 입력
+##    <a name="sample-input"></a>샘플 입력
 
 ```json
 {
@@ -248,7 +248,7 @@ JSON 정의의 좀 더 복잡 한 예는 필요에 따라 각 엔터티의 id, �
 }
 ```
 
-##  <a name="sample-output"></a>샘플 출력
+##    <a name="sample-output"></a>샘플 출력
 
 ```json
   { 
@@ -295,6 +295,12 @@ JSON 정의의 좀 더 복잡 한 예는 필요에 따라 각 엔터티의 id, �
     ] 
   } 
 ```
+
+## <a name="errors-and-warnings"></a>오류 및 경고
+
+### <a name="warning-reached-maximum-capacity-for-matches-skipping-all-further-duplicate-matches"></a>경고: 일치에 대 한 최대 용량에 도달 하 여 모든 중복 일치 항목을 건너뜁니다.
+
+이 경고는 검색 된 일치 수가 허용 되는 최대값 보다 큰 경우에 내보내집니다. 이 경우 중복 일치를 포함 하는 것이 중지 됩니다. 이 방법이 허용 되지 않는 경우 개별 사용 사례를 지원할 수 있도록 [지원 티켓](https://ms.portal.azure.com/#create/Microsoft.Support) 을 제출 하세요.
 
 ## <a name="see-also"></a>참고 항목
 

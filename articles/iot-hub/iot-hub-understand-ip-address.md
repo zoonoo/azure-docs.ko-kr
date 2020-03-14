@@ -7,16 +7,22 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.openlocfilehash: c5040721705b90a981f1f8a45a3a2eb70eefde05
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: c609f2a3843481442e97061739a806de60a680b5
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76772157"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79367570"
 ---
 # <a name="iot-hub-ip-addresses"></a>IP 주소 IoT Hub
 
-IoT Hub 공용 끝점의 IP 주소 접두사는 _AzureIoTHub_ [service 태그](../virtual-network/service-tags-overview.md)아래에 주기적으로 게시 됩니다. 이러한 IP 주소 접두사를 사용 하 여 다양 한 네트워크 격리 목표를 구현 하기 위해 IoT Hub와 장치 또는 네트워크 자산 간의 연결을 제어할 수 있습니다.
+IoT Hub 공용 끝점의 IP 주소 접두사는 _AzureIoTHub_ [service 태그](../virtual-network/service-tags-overview.md)아래에 주기적으로 게시 됩니다.
+
+> [!NOTE]
+> 온-프레미스 네트워크 내에 배포 된 장치의 경우 Azure IoT Hub는 개인 끝점과의 VNET 연결 통합을 지원 합니다. 자세한 내용은 [VNET에 대 한 지원 IoT Hub](./virtual-network-support.md#ingress-connectivity-to-iot-hub-using-private-endpoints) 를 참조 하세요.
+
+
+이러한 IP 주소 접두사를 사용 하 여 다양 한 네트워크 격리 목표를 구현 하기 위해 IoT Hub와 장치 또는 네트워크 자산 간의 연결을 제어할 수 있습니다.
 
 | 목표 | 적용 가능한 시나리오 | 접근 방식 |
 |------|-----------|----------|

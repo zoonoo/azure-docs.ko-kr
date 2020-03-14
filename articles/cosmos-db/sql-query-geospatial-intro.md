@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: tisande
-ms.openlocfilehash: 0fe83b8e28b96f1d89a7c98cfe86a6e924f1bc49
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.openlocfilehash: 59c8b31dcc8594d2cafb2db7832e290b01026f60
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2020
-ms.locfileid: "77566349"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79367587"
 ---
 # <a name="geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Azure Cosmos DB에서 지리 공간 및 GeoJSON 위치 데이터
 
@@ -25,7 +25,10 @@ ms.locfileid: "77566349"
 
 공간 데이터는 공간에서 개체의 위치와 모양을 설명합니다. 대부분의 애플리케이션에서 이러한 데이터는 지구의 개체 및 지리 공간 데이터에 해당합니다. 공간 데이터를 사용하여 사람, 관심 있는 장소 또는 도시나 호수 경계의 위치를 나타낼 수 있습니다. 일반적인 사용 사례에는 종종 근접 쿼리(예: “내 현재 위치 근처의 모든 커피숍 찾기”)가 포함됩니다.
 
-Azure Cosmos DB의 SQL API는 **geography** 데이터 형식을 지원 합니다. **geography** 형식은 둥근 표면 좌표계의 데이터를 나타냅니다.
+Azure Cosmos DB의 SQL API는 **geometry** 데이터 형식과 **geography** 데이터 형식의 두 가지 공간 데이터 형식을 지원 합니다.
+
+- **Geometry** 형식은 유클리드 (평면) 좌표계의 데이터를 나타냅니다.
+- **geography** 형식은 둥근 표면 좌표계의 데이터를 나타냅니다.
 
 ## <a name="supported-data-types"></a>지원되는 데이터 형식
 
@@ -70,7 +73,11 @@ Azure Cosmos DB는 다음 공간 데이터 형식을 지원 합니다.
 }
 ```
 
-### <a name="points-in-geography-coordinate-system"></a>지리 좌표계의 점수
+### <a name="points-in-a-geometry-coordinate-system"></a>기 하 도형 좌표계의 요소
+
+**Geometry** 데이터 형식의 경우 GeoJSON specification은 가로 축과 세로 축 초를 지정 합니다.
+
+### <a name="points-in-a-geography-coordinate-system"></a>지리 좌표계의 점수
 
 **Geography** 데이터 형식의 경우 GeoJSON specification은 경도 first와 위도 second를 지정 합니다. 다른 매핑 애플리케이션과 마찬가지로 경도와 위도는 각도이며 도 단위로 표시됩니다. 경도 값은 본초 자오선에서 측정되고 -180도와 180.0도 사이이고, 위도 값은 적도에서 측정되고 -90.0도와 90.0도 사이입니다.
 
@@ -125,20 +132,20 @@ Azure Cosmos DB는 WGS-84 참조 시스템을 기준으로 좌표를 해석합�
 ```json
 {
     "type":"MultiPolygon",
-    "coordinates":[ [
+    "coordinates":[[[
         [52.0, 12.0],
         [53.0, 12.0],
         [53.0, 13.0],
         [52.0, 13.0],
         [52.0, 12.0]
-    ],
-    [
+        ]],
+        [[
         [50.0, 0.0],
         [51.0, 0.0],
         [51.0, 5.0],
         [50.0, 5.0],
         [50.0, 0.0]
-    ] ]
+        ]]]
 }
 ```
 

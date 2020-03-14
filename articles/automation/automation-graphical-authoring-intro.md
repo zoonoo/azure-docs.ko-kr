@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: a50dbe4d1e100032282891ccd15a94330f7fead4
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: c1af4b0dac4b50e01b62b02f606be9fdd89d2ad1
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78373377"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79367332"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Azure Automation에서 그래픽 작성
 
@@ -72,7 +72,7 @@ Canvas 컨트롤을 사용 하면 runbook을 디자인할 수 있습니다. 라�
 
 #### <a name="parameter-values"></a>매개 변수 값
 
-매개 변수 값을 지정하려면 데이터 원본을 선택하여 값 지정 방법을 결정합니다. 특정 매개 변수에 사용할 수 있는 데이터 원본은 해당 매개 변수의 유효한 값에 따라 달라 집니다. 예 **를 들어 null은 null** 값을 허용 하지 않는 매개 변수에 사용 가능한 옵션이 아닙니다.
+매개 변수 값을 지정하려면 데이터 원본을 선택하여 값 지정 방법을 결정합니다. 특정 매개 변수에 사용할 수 있는 데이터 원본은 해당 매개 변수의 유효한 값에 따라 달라 집니다. 예를 들어 Null은 null 값을 허용하지 않는 매개 변수에 사용 가능한 옵션이 아닙니다.
 
 | 데이터 원본 | Description |
 |:--- |:--- |
@@ -88,7 +88,7 @@ Canvas 컨트롤을 사용 하면 runbook을 디자인할 수 있습니다. 라�
 
 #### <a name="optional-additional-parameters"></a>선택적 추가 매개 변수
 
-모든 cmdlet에는 추가 매개 변수를 제공할 수 있는 옵션이 있습니다. 이러한 매개 변수는 PowerShell 일반 매개 변수 또는 기타 사용자 지정 매개 변수입니다. 그래픽 편집기는 PowerShell 구문을 사용 하 여 매개 변수를 제공할 수 있는 텍스트 상자를 제공 합니다. 예를 들어 *Verbose* 일반 매개 변수를 사용 하려면 `-Verbose:$True`를 지정 해야 합니다.
+모든 cmdlet에는 추가 매개 변수를 제공할 수 있는 옵션이 있습니다. 이러한 매개 변수는 PowerShell 일반 매개 변수 또는 기타 사용자 지정 매개 변수입니다. 그래픽 편집기는 PowerShell 구문을 사용 하 여 매개 변수를 제공할 수 있는 텍스트 상자를 제공 합니다. 예를 들어 `Verbose` 일반 매개 변수를 사용 하려면 `-Verbose:$True`를 지정 해야 합니다.
 
 ### <a name="retry-activity"></a>작업 다시 시도
 
@@ -102,14 +102,14 @@ Canvas 컨트롤을 사용 하면 runbook을 디자인할 수 있습니다. 라�
 
 ![작업 다시 시도 지연](media/automation-graphical-authoring-intro/retry-condition.png)
 
-재시도 조건은 활동 재시도에 대 한 정보에 대 한 액세스를 제공 하는 *RetryData* 라는 변수를 사용할 수 있습니다. 이 변수는 다음 테이블의 속성을 가집니다.
+재시도 조건은 활동 재시도에 대 한 정보에 대 한 액세스를 제공 하는 `RetryData` 라는 변수를 사용할 수 있습니다. 이 변수는 다음 테이블의 속성을 가집니다.
 
 | 속성 | Description |
 |:--- |:--- |
-| NumberOfAttempts |활동이 실행된 횟수입니다. |
-| 출력 |활동의 마지막 실행에서 출력입니다. |
-| TotalDuration |작업이 처음으로 시작된 이후 경과된 시간입니다. |
-| StartedAt |작업을 처음 시작 하는 시간 (UTC 형식)입니다. |
+| `NumberOfAttempts` |활동이 실행된 횟수입니다. |
+| `Output` |활동의 마지막 실행에서 출력입니다. |
+| `TotalDuration` |작업이 처음으로 시작된 이후 경과된 시간입니다. |
+| `StartedAt` |작업을 처음 시작 하는 시간 (UTC 형식)입니다. |
 
 활동 재시도 조건의 예는 다음과 같습니다.
 
@@ -136,7 +136,7 @@ $RetryData.TotalDuration.TotalMinutes -ge 2
 
 워크플로 스크립트 컨트롤은 작성 되는 그래픽 runbook의 유형에 따라 PowerShell 또는 PowerShell 워크플로 스크립트를 허용 하는 특별 한 활동입니다. 이 컨트롤은 다른 방법으로는 사용 하지 못할 수 있는 기능을 제공 합니다. 매개 변수를 사용할 수 없지만 활동 출력 및 Runbook 입력 매개 변수에 변수를 사용할 수는 있습니다. 활동의 모든 출력이 databus에 추가 됩니다. 예외는 나가는 링크가 없는 output 이며,이 경우 출력이 runbook의 출력에 추가 됩니다.
 
-예를 들어 다음 코드는 *Numberofdays*라는 runbook 입력 변수를 사용 하 여 날짜 계산을 수행 합니다. 그런 다음 계산 된 DateTime 값을 runbook의 후속 작업에서 사용할 출력으로 보냅니다.
+예를 들어 다음 코드는 `NumberOfDays`라는 runbook 입력 변수를 사용 하 여 날짜 계산을 수행 합니다. 그런 다음 계산 된 DateTime 값을 runbook의 후속 작업에서 사용할 출력으로 보냅니다.
 
 ```powershell-interactive
 $DateTimeNow = (Get-Date).ToUniversalTime()
@@ -167,9 +167,9 @@ $DateTimeStart
 
 ### <a name="link-conditions"></a>링크 조건
 
-링크에 조건을 지정 하면 조건이 True로 확인 되는 경우에만 대상 활동이 실행 됩니다. 일반적으로 조건에 *ActivityOutput* 변수를 사용 하 여 원본 활동의 출력을 검색 합니다.
+링크에 조건을 지정 하면 조건이 True로 확인 되는 경우에만 대상 활동이 실행 됩니다. 일반적으로 조건에 `ActivityOutput` 변수를 사용 하 여 원본 활동의 출력을 검색 합니다.
 
-파이프라인 링크의 경우 단일 개체에 대 한 조건을 지정 해야 합니다. Runbook은 원본 활동의 각 개체 출력에 대 한 조건을 평가 합니다. 그런 다음 조건을 충족 하는 각 개체에 대해 대상 활동을 실행 합니다. 예를 들어 **new-azvm**의 소스 활동을 사용 하 여 조건부 파이프라인 링크에 대해 다음 구문을 사용 하 여 Group1 이라는 리소스 그룹의 가상 머신만 검색할 수 있습니다.
+파이프라인 링크의 경우 단일 개체에 대 한 조건을 지정 해야 합니다. Runbook은 원본 활동의 각 개체 출력에 대 한 조건을 평가 합니다. 그런 다음 조건을 충족 하는 각 개체에 대해 대상 활동을 실행 합니다. 예를 들어 `Get-AzVM`의 소스 활동을 사용 하 여 조건부 파이프라인 링크에 대해 다음 구문을 사용 하 여 Group1 이라는 리소스 그룹의 가상 머신만 검색할 수 있습니다.
 
 ```powershell-interactive
 $ActivityOutput['Get Azure VMs'].Name -match "Group1"
@@ -181,7 +181,7 @@ $ActivityOutput['Get Azure VMs'].Name -match "Group1"
 
 ![시퀀스와 조건부 링크](media/automation-graphical-authoring-intro/runbook-conditional-links-sequence.png)
 
-Runbook은 입력 매개 변수 *VMName* 및 *ResourceGroupName* 의 값을 확인 하는 세 개의 서로 다른 시퀀스 링크를 사용 하 여 수행할 적절 한 작업을 결정 합니다. 가능한 작업은 단일 VM을 시작 하거나, 리소스 그룹의 모든 Vm을 시작 하거나, 구독에서 모든 Vm을 시작 하는 것입니다. **Azure에 연결** 및 **단일 VM 가져오기**간의 시퀀스 링크의 경우 조건 논리는 다음과 같습니다.
+Runbook은 `ResourceGroupName` `VMName` 입력 매개 변수의 값을 확인 하는 세 개의 서로 다른 시퀀스 링크를 사용 하 여 수행할 적절 한 작업을 결정 합니다. 가능한 작업은 단일 VM을 시작 하거나, 리소스 그룹의 모든 Vm을 시작 하거나, 구독에서 모든 Vm을 시작 하는 것입니다. `Connect to Azure`와 `Get single VM`간의 시퀀스 링크의 경우 조건 논리는 다음과 같습니다.
 
 ```powershell-interactive
 <#
@@ -196,11 +196,11 @@ Both VMName and ResourceGroupName runbook input parameters have values
 
 조건부 링크를 사용하면 원본 활동에서 해당 분기의 다른 활동까지 사용 가능한 데이터가 조건별로 필터링됩니다. 활동이 여러 링크의 원본인 경우 각 분기의 활동에 사용할 수 있는 데이터가 해당 분기에 연결 된 링크의 조건에 따라 달라 집니다.
 
-예를 들어 아래 runbook의 **new-azvm** 작업은 모든 가상 컴퓨터를 시작 합니다. 두 개의 조건부 링크가 있습니다. 첫 번째 조건부 링크는 식 `$ActivityOutput['Start-AzVM'].IsSuccessStatusCode -eq $true`를 사용 하 여 **new-azvm** 작업이 성공적으로 완료 되었는지 필터링 합니다. 두 번째 조건부 링크는 식 `$ActivityOutput['Start-AzVM'].IsSuccessStatusCode -ne $true`를 사용 하 여 **new-azvm** 작업이 가상 컴퓨터를 시작 하지 못하는 경우를 필터링 합니다.
+예를 들어 아래 runbook의 `Start-AzVM` 작업은 모든 가상 컴퓨터를 시작 합니다. 두 개의 조건부 링크가 있습니다. 첫 번째 조건부 링크는 식 `$ActivityOutput['Start-AzVM'].IsSuccessStatusCode -eq $true`를 사용 하 여 `Start-AzVM` 작업이 성공적으로 완료 되었는지 필터링 합니다. 두 번째 조건부 링크는 식 `$ActivityOutput['Start-AzVM'].IsSuccessStatusCode -ne $true`를 사용 하 여 `Start-AzVm` 작업이 가상 컴퓨터를 시작 하지 못하는 경우 필터링 합니다.
 
 ![조건부 링크 예제](media/automation-graphical-authoring-intro/runbook-conditional-links.png)
 
-첫 번째 링크를 따르고 **get-add-azurevm** 의 활동 출력을 사용 하는 모든 활동 **은, node.js가 실행 될 때** 시작 된 가상 머신을 검색 합니다. 두 번째 링크를 따르는 모든 활동은 **node.js가 실행 될 때** 중지 된 가상 머신만 가져옵니다. 세 번째 링크를 따르는 모든 활동은 실행 상태에 상관없이 모든 가상 머신을 가져옵니다.
+첫 번째 링크를 따르고 `Get-AzureVM`의 활동 출력을 사용 하는 모든 활동은 `Get-AzureVM` 실행 된 시간에 시작 된 가상 머신만 검색 합니다. 두 번째 링크를 따르는 모든 활동은 `Get-AzureVM`를 실행 했을 때 중지 된 가상 머신만 가져옵니다. 세 번째 링크를 따르는 모든 활동은 실행 상태에 상관없이 모든 가상 머신을 가져옵니다.
 
 ### <a name="junctions"></a>분기 동기화
 
@@ -232,7 +232,7 @@ Runbook에는 databus의 데이터에 액세스 하는 두 가지 방법이 있�
 
 ![작업 출력](media/automation-graphical-authoring-intro/activity-output-datasource-revised20165.png)
 
-두 번째 데이터 액세스 메커니즘은 아래와 같은 구문을 사용 하 여 PowerShell 식 데이터 원본 또는 워크플로 스크립트 작업의 *ActivityOutput* 변수를 사용 하는 작업의 출력을 검색 합니다. 출력이 개체인 경우 runbook에서 단일 속성을 지정할 수 있습니다.
+두 번째 데이터 액세스 메커니즘은 아래와 같은 구문을 사용 하 여 PowerShell 식 데이터 원본 또는 워크플로 스크립트 작업에서 `ActivityOutput` 변수를 사용 하는 작업의 출력을 검색 합니다. 출력이 개체인 경우 runbook에서 단일 속성을 지정할 수 있습니다.
 
 ```powershell-interactive
 $ActivityOutput['Activity Label']
@@ -245,7 +245,7 @@ $ActivityOutput['Activity Label'].PropertyName
 
 ![검사점](media/automation-graphical-authoring-intro/set-checkpoint.png)
 
-검사점은 그래픽 PowerShell 워크플로 runbook 에서만 사용 되며 그래픽 runbook에서는 사용할 수 없습니다. Runbook에서 Azure cmdlet을 사용 하는 경우 **AzAccount** 활동을 사용 하 여 검사점 작업을 수행 해야 합니다. Runbook이 일시 중단 되 고 다른 작업자의이 검사점에서 다시 시작 해야 하는 경우 연결 작업이 사용 됩니다.
+검사점은 그래픽 PowerShell 워크플로 runbook 에서만 사용 되며 그래픽 runbook에서는 사용할 수 없습니다. Runbook에서 Azure cmdlet을 사용 하는 경우 `Connect-AzAccount` 작업을 사용 하 여 검사점 작업을 수행 해야 합니다. Runbook이 일시 중단 되 고 다른 작업자의이 검사점에서 다시 시작 해야 하는 경우 연결 작업이 사용 됩니다.
 
 ## <a name="runbook-input-and-output"></a>Runbook 입력 및 출력
 
@@ -255,7 +255,7 @@ Runbook은 Azure Portal 또는 다른 runbook에서 runbook을 시작 하는 사
 
 Runbook은 하나 이상의 입력 매개 변수를 정의 하 여 입력을 허용 합니다. 사용자는 runbook이 시작 될 때마다 이러한 매개 변수에 대 한 값을 제공 합니다. 사용자가 Azure Portal를 사용 하 여 runbook을 시작 하면 runbook에서 지 원하는 각 입력 매개 변수에 대 한 값을 제공 하 라는 메시지가 사용자에 게 표시 됩니다.
 
-Runbook을 제작할 때 runbook 도구 모음에서 **입력 및 출력** 단추를 클릭 하 여 해당 입력 매개 변수에 액세스할 수 있습니다. 이렇게 하면 입력 및 출력 컨트롤이 열리며 여기에서 기존 입력 매개 변수를 편집 하거나 **입력 추가**를 클릭 하 여 새 매개 변수를 만들 수 있습니다.
+Runbook을 제작할 때 runbook 도구 모음에서 **입력 및 출력** 을 클릭 하 여 해당 입력 매개 변수에 액세스할 수 있습니다. 이렇게 하면 입력 및 출력 컨트롤이 열리며 여기에서 기존 입력 매개 변수를 편집 하거나 **입력 추가**를 클릭 하 여 새 매개 변수를 만들 수 있습니다.
 
 ![입력 추가](media/automation-graphical-authoring-intro/runbook-edit-add-input.png)
 
@@ -266,8 +266,8 @@ Runbook을 제작할 때 runbook 도구 모음에서 **입력 및 출력** 단�
 | 속성 | 필수 사항입니다. 매개 변수의 이름입니다. 이름은 runbook 내에서 고유 해야 합니다. 문자로 시작 해야 하며 문자, 숫자 및 밑줄만 포함할 수 있습니다. 이름에는 공백이 포함 될 수 없습니다. |
 | Description |(선택 사항) 입력 매개 변수의 용도에 대 한 설명입니다. |
 | Type | (선택 사항) 매개 변수 값에 필요한 데이터 형식입니다. Azure Portal에서는 입력 메시지를 표시할 때 각 매개 변수의 데이터 형식에 대한 적절한 컨트롤을 제공합니다. 지원 되는 매개 변수 형식은 String, Int32, Int64, Decimal, Boolean, DateTime 및 Object입니다. 데이터 형식을 선택 하지 않으면 기본값은 String이 됩니다.|
-| 필수 | (선택 사항) 매개 변수에 대 한 값을 제공 해야 하는지 여부를 지정 하는 설정입니다. **예**를 선택 하는 경우 runbook이 시작 될 때 값을 제공 해야 합니다. **아니요**를 선택 하면 runbook이 시작 될 때 값이 필요 하지 않으며 기본값을 사용할 수 있습니다. 기본값이 정의 되지 않은 각 필수 매개 변수에 값을 제공 하지 않으면 runbook을 시작할 수 없습니다. |
-| 기본값 | (선택 사항) Runbook이 시작 될 때 매개 변수가 전달 되지 않는 경우 매개 변수에 사용 되는 값입니다. 기본값을 설정하려면 **사용자 지정**을 선택합니다. 기본값을 제공 하지 않으려면 **없음** 을 선택 합니다. |
+| 필수 | (선택 사항) 매개 변수에 대 한 값을 제공 해야 하는지 여부를 지정 하는 설정입니다. `yes`를 선택 하는 경우 runbook이 시작 될 때 값을 제공 해야 합니다. `no`를 선택 하면 runbook이 시작 될 때 값이 필요 하지 않으며 기본값을 사용할 수 있습니다. 기본값이 정의 되지 않은 각 필수 매개 변수에 값을 제공 하지 않으면 runbook을 시작할 수 없습니다. |
+| 기본값 | (선택 사항) Runbook이 시작 될 때 매개 변수가 전달 되지 않는 경우 매개 변수에 사용 되는 값입니다. 기본값을 설정 하려면 `Custom`을 선택 합니다. 기본값을 제공 하지 않으려면 `None`를 선택 합니다. |
 
 ### <a name="runbook-output"></a>Runbook 출력
 
@@ -304,7 +304,7 @@ else { "Weekday" }
 
 ### <a name="activity-output"></a>활동 출력
 
-Runbook에서 이전 작업의 출력을 사용 하려면 다음 구문을 사용 하 여 *ActivityOutput* 변수를 사용 합니다.
+Runbook에서 이전 작업의 출력을 사용 하려면 다음 구문을 사용 하 여 `ActivityOutput` 변수를 사용 합니다.
 
 ```powershell-interactive
 $ActivityOutput['Activity Label'].PropertyName
@@ -332,7 +332,7 @@ Runbook은 다음과 같은 보다 복잡 한 식에서 활동의 출력을 사�
 
 [비교 연산자](https://technet.microsoft.com/library/hh847759.aspx) 를 사용하여 값을 비교 하거나 값이 지정된 패턴과 일치하는지를 확인합니다. 비교는 True 또는 False 값을 반환 합니다.
 
-예를 들어 다음 조건은 **Get-add-azurevm** 라는 활동의 가상 머신이 현재 중지 되었는지 여부를 확인 합니다.
+예를 들어 다음 조건은 `Get-AzureVM` 이라는 활동의 가상 머신이 현재 중지 되었는지 여부를 확인 합니다.
 
 ```powershell-interactive
 $ActivityOutput["Get-AzureVM"].PowerState –eq "Stopped"
@@ -344,7 +344,7 @@ $ActivityOutput["Get-AzureVM"].PowerState –eq "Stopped"
 $ActivityOutput["Get-AzureVM"].PowerState –ne "Stopped"
 ```
 
-**-And** 또는 **-or**와 같은 [논리 연산자](https://technet.microsoft.com/library/hh847789.aspx)를 사용 하 여 runbook에서 여러 조건을 조인할 수 있습니다. 예를 들어 다음 조건은 이전 예제의 가상 컴퓨터가 **중지 됨** 또는 **중지**중 상태 인지 확인 합니다.
+`-and` 또는 `-or`와 같은 [논리 연산자](https://technet.microsoft.com/library/hh847789.aspx)를 사용 하 여 runbook에서 여러 조건을 조인할 수 있습니다. 예를 들어 다음 조건은 이전 예제의 가상 컴퓨터가 중지 됨 또는 중지 중 상태 인지 확인 합니다.
 
 ```powershell-interactive
 ($ActivityOutput["Get-AzureVM"].PowerState –eq "Stopped") -or ($ActivityOutput["Get-AzureVM"].PowerState –eq "Stopping")
@@ -369,7 +369,7 @@ $h = @{'q'=$query; 'lr'='lang_ja';  'count'=$Count}
 $h
 ```
 
-다음 예제에서는 **Twitter 연결 가져오기** 라는 작업에서 출력을 사용하여 해시 테이블을 채움니다.
+다음 예제에서는 `Get Twitter Connection` 이라는 활동의 출력을 사용 하 여 해시 테이블을 채웁니다.
 
 ```powershell-interactive
 @{'ApiKey'=$ActivityOutput['Get Twitter Connection'].ConsumerAPIKey;
@@ -380,30 +380,30 @@ $h
 
 ## <a name="authenticating-to-azure-resources"></a>Azure 리소스 인증
 
-Azure 리소스를 관리하는 Azure Automation의 Runbook에는 Azure에 대한 인증이 필요합니다. 서비스 주체 라고도 하는 [실행 계정은](automation-create-runas-account.md)Automation runbook이 구독의 Azure Resource Manager 리소스에 액세스 하는 데 사용 하는 기본 메커니즘입니다. PowerShell [Get automationconnection](https://technet.microsoft.com/library/dn919922%28v=sc.16%29.aspx) cmdlet을 사용 하는 **AzureRunAsConnection** 연결 자산을 캔버스에 추가 하 여 그래픽 runbook에이 기능을 추가할 수 있습니다. [AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet을 추가할 수도 있습니다. 이 시나리오는 다음 예제에 나와 있습니다.
+Azure 리소스를 관리하는 Azure Automation의 Runbook에는 Azure에 대한 인증이 필요합니다. 서비스 주체 라고도 하는 [실행 계정은](automation-create-runas-account.md)Automation runbook이 구독의 Azure Resource Manager 리소스에 액세스 하는 데 사용 하는 기본 메커니즘입니다. PowerShell [Get automationconnection](https://technet.microsoft.com/library/dn919922%28v=sc.16%29.aspx) cmdlet을 사용 하는 `AzureRunAsConnection` 연결 자산을 캔버스에 추가 하 여 그래픽 runbook에이 기능을 추가할 수 있습니다. [AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet을 추가할 수도 있습니다. 이 시나리오는 다음 예제에 나와 있습니다.
 
 ![실행 인증 작업](media/automation-graphical-authoring-intro/authenticate-run-as-account.png)
 
-**Get Run As connection 작업**또는 **get Automationconnection**은 **AzureRunAsConnection**이라는 상수 값 데이터 원본을 사용 하 여 구성 됩니다.
+`Get Run As Connection` 활동 또는 `Get-AutomationConnection`는 `AzureRunAsConnection`라는 상수 값 데이터 원본으로 구성 됩니다.
 
 ![실행 연결 구성](media/automation-graphical-authoring-intro/authenticate-runas-parameterset.png)
 
-다음 작업 **AzAccount**는 runbook에서 사용할 인증 된 실행 계정을 추가 합니다.
+다음 작업 `Connect-AzAccount`는 runbook에서 사용할 인증 된 실행 계정을 추가 합니다.
 
 ![AzAccount 매개 변수 집합](media/automation-graphical-authoring-intro/authenticate-conn-to-azure-parameter-set.png)
 
 >[!NOTE]
->PowerShell runbook의 경우 **AzAccount** 및 **connect-azurermaccount** 는 **AzAccount**에 대 한 별칭입니다. 그래픽 runbook에서는 이러한 별칭을 사용할 수 없습니다. 그래픽 runbook은 **AzAccount** 자체를 사용할 수 있습니다.
+>PowerShell runbook의 경우 `Add-AzAccount` 및 `Add-AzureRMAccount` `Connect-AzAccount`에 대 한 별칭입니다. 그래픽 runbook에서는 이러한 별칭을 사용할 수 없습니다. 그래픽 runbook은 `Connect-AzAccount`만 사용할 수 있습니다.
 
-작업에서 여러 속성을 가진 개체를 출력 하기 때문에 매개 변수 필드, **APPLICATIONID**, **CERTIFICATETHUMBPRINT**및 **TENANTID**의 경우 필드 경로에 대 한 속성 이름을 지정 합니다. 그렇지 않으면 runbook이 실행 될 때 인증을 시도 하는 동안 오류가 발생 합니다. 실행 계정을 사용하여 runbook을 인증하는데 필요한 최소한의 사항입니다.
+작업에서 여러 속성을 가진 개체를 출력 하므로 **APPLICATIONID**, **CERTIFICATETHUMBPRINT**및 **TENANTID**매개 변수 필드의 경우 필드 경로에 대 한 속성 이름을 지정 합니다. 그렇지 않으면 runbook이 실행 될 때 인증을 시도 하는 동안 오류가 발생 합니다. 실행 계정을 사용하여 runbook을 인증하는데 필요한 최소한의 사항입니다.
 
-일부 구독자는 azure [AD 사용자 계정을](automation-create-aduser-account.md) 사용 하 여 azure 클래식 배포 또는 Azure Resource Manager 리소스를 관리 하는 Automation 계정을 만듭니다. 이러한 구독자에 대해 이전 버전과의 호환성을 유지 하기 위해 runbook에서 사용 하는 인증 메커니즘은 [자격 증명 자산이](automation-credentials.md)포함 된 **추가 azureaccount** cmdlet입니다. 자산은 Azure 계정에 대 한 액세스 권한이 있는 Active Directory 사용자를 나타냅니다.
+일부 구독자는 azure [AD 사용자 계정을](automation-create-aduser-account.md) 사용 하 여 azure 클래식 배포 또는 Azure Resource Manager 리소스를 관리 하는 Automation 계정을 만듭니다. 이러한 구독자에 대해 이전 버전과의 호환성을 유지 하기 위해 runbook에서 사용할 인증 메커니즘은 [자격 증명 자산이](automation-credentials.md)있는 `Add-AzureAccount` cmdlet입니다. 자산은 Azure 계정에 대 한 액세스 권한이 있는 Active Directory 사용자를 나타냅니다.
 
-캔버스에 자격 증명 자산을 추가 하 고 그 뒤에 입력에 대 한 자격 증명 자산을 사용 하는 **AzureAccount 추가** 작업을 수행 하 여 그래픽 runbook에 대해이 기능을 사용 하도록 설정할 수 있습니다. 다음 예제를 참조하세요.
+캔버스에 자격 증명 자산을 추가 하 고 그 뒤에 입력에 대 한 자격 증명 자산을 사용 하는 `Add-AzureAccount` 활동을 추가 하 여 그래픽 runbook에 대해이 기능을 사용 하도록 설정할 수 있습니다. 다음 예제를 참조하세요.
 
 ![인증 활동](media/automation-graphical-authoring-intro/authentication-activities.png)
 
-Runbook은 시작 및 각 검사점 후에 인증 해야 합니다. 따라서 **검사점 워크플로** 작업 후에는 **azureaccount 추가** 작업을 사용 해야 합니다. 추가 자격 증명 작업을 사용할 필요는 없습니다.
+Runbook은 시작 및 각 검사점 후에 인증 해야 합니다. 따라서 `Checkpoint-Workflow` 작업 후 `Add-AzureAccount` 작업을 사용 해야 합니다. 추가 자격 증명 작업을 사용할 필요는 없습니다.
 
 ![활동 출력](media/automation-graphical-authoring-intro/authentication-activity-output.png)
 

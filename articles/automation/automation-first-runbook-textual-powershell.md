@@ -6,12 +6,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 11/27/2018
 ms.topic: conceptual
-ms.openlocfilehash: b9808ddc3b61b0055642c5a0f2a82b0dc7553b33
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: e0c48137f5eecc96b6e7b1cbce5f0c683b2a976a
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78384851"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79367315"
 ---
 # <a name="my-first-powershell-runbook"></a>내 첫 번째 PowerShell Runbook
 
@@ -26,7 +26,7 @@ ms.locfileid: "78384851"
 >[!NOTE]
 >이 문서는 새 Azure PowerShell Az 모듈을 사용하도록 업데이트되었습니다. AzureRM 모듈은 적어도 2020년 12월까지 버그 수정을 수신할 예정이므로 계속 사용하셔도 됩니다. 새 Az 모듈 및 AzureRM 호환성에 대한 자세한 내용은 [새 Azure PowerShell Az 모듈 소개](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0)를 참조하세요. Hybrid Runbook Worker에 대 한 Az module 설치 지침은 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0)를 참조 하세요. Automation 계정의 경우 [Azure Automation에서 Azure PowerShell 모듈을 업데이트 하는 방법을](automation-update-azure-modules.md)사용 하 여 모듈을 최신 버전으로 업데이트할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -39,21 +39,24 @@ ms.locfileid: "78384851"
 
 Powershell runbook에는 PowerShell 워크플로 runbook과 동일한 수명 주기, 기능 및 관리가 있습니다. 그러나 몇 가지 차이점과 제한 사항이 있습니다.
 
-* Powershell runbook은 컴파일 단계를 사용 하지 않으므로 PowerShell 워크플로 runbook에 비해 빠르게 실행 됩니다.
-* Powershell 통합 문서는 PowerShell 워크플로 runbook에서 사용 되는 검사점을 지원 하지 않습니다. PowerShell 워크플로 runbook은 검사점을 사용 하 여 어떤 지점에서 든 작업을 다시 시작할 수 있습니다. PowerShell runbook은 처음부터 작업을 다시 시작할 수 있습니다.
-* PowerShell Runbook은 명령을 직렬로만 실행할 수 있습니다. PowerShell 워크플로 runbook은 직렬 및 병렬 실행을 모두 지원 합니다.
-* PowerShell runbook의 경우 스크립트의 모든 항목은 단일 runspace에서 실행 됩니다. PowerShell 워크플로 Runbook의 활동, 명령 또는 스크립트 블록에는 자체 Runspace가 있을 수 있습니다. 
-* PowerShell runbook에는 PowerShell 워크플로 runbook과 몇 가지 [구문상 차이점이](https://technet.microsoft.com/magazine/dn151046.aspx) 있습니다.
+| 특성  | PowerShell Runbook | PowerShell 워크플로 Runbook |
+| ------ | ----- | ----- |
+| 속도 | 컴파일 단계를 사용 하지 않으므로 빠르게 실행 합니다. | 실행 속도가 느려집니다. |
+| 검사점 | 검사점을 지원 하지 않습니다. PowerShell runbook은 처음부터 작업을 다시 시작할 수 있습니다. | 검사점을 사용 하 여 어떤 지점에서 든 통합 문서가 작업을 다시 시작할 수 있도록 합니다. |
+| 명령 실행 | 직렬 실행만 지원 합니다. | 직렬 및 병렬 실행을 모두 지원 합니다.|
+| Runspace | 단일 runspace는 스크립트에서 모든 항목을 실행 합니다. | 별도의 runspace를 활동, 명령 또는 스크립트 블록에 사용할 수 있습니다. |
+
+이러한 차이점 외에도 PowerShell runbook에는 PowerShell 워크플로 runbook과 약간의 [차이점이](https://technet.microsoft.com/magazine/dn151046.aspx) 있습니다.
 
 ## <a name="step-1---create-runbook"></a>1단계 - Runbook 만들기
 
-먼저 **Hello World**라는 텍스트를 출력하는 간단한 Runbook을 만듭니다.
+먼저 `Hello World`텍스트를 출력 하는 간단한 runbook을 만듭니다.
 
 1. Azure Portal에서 Automation 계정을 엽니다.
 2. **프로세스 자동화** 아래에서 **runbook** 을 선택 하 여 runbook 목록을 엽니다.
 3. **Runbook 만들기**를 선택 하 여 새 runbook을 만듭니다.
 4. Runbook 이름을 **MyFirstRunbook-PowerShell**로 지정합니다.
-5. 이 경우 [PowerShell runbook](automation-runbook-types.md#powershell-runbooks)을 만듭니다. **Runbook 형식**으로 **Powershell** 을 선택 합니다.
+5. 이 경우 [PowerShell runbook](automation-runbook-types.md#powershell-runbooks)을 만듭니다. **Runbook 형식**으로 **PowerShell** 을 선택 합니다.
 6. **만들기** 를 클릭하여 Runbook을 만들고 그래픽 편집기를 엽니다.
 
 ## <a name="step-2---add-code-to-the-runbook"></a>2단계 - Runbook에 코드 추가
@@ -74,9 +77,9 @@ runbook에 직접 코드를 입력하거나 라이브러리 컨트롤에서 cmdl
 2. **시작** 을 클릭하여 테스트를 시작합니다. 유일하게 사용 가능한 옵션이어야 합니다.
 3. [Runbook 작업이](automation-runbook-execution.md) 만들어지고 해당 상태가 창에 표시 됩니다.
 
-   작업 상태는 큐에 **대기**중으로 시작 되며, 작업에서 클라우드의 runbook worker를 사용할 수 있을 때까지 기다리고 있음을 나타냅니다. 작업 자가 작업을 클레임 할 때 상태가 **시작 중** 으로 변경 됩니다. 마지막으로 runbook이 실제로 실행 되기 시작 하면 상태가 **실행 중** 으로 바뀝니다.
+   작업 상태는 `Queued`로 시작 되며, 작업은 클라우드의 runbook worker를 사용할 수 있을 때까지 대기 중임을 나타냅니다. 작업 자가 작업을 클레임 할 때 상태가 `Starting`로 변경 됩니다. 마지막으로 runbook이 실제로 실행 되기 시작 하면 상태가 `Running` 됩니다.
 
-4. Runbook 작업이 완료 되 면 테스트 창에 해당 출력이 표시 됩니다. 이 경우에 **Hello World**가 표시됩니다.
+4. Runbook 작업이 완료 되 면 테스트 창에 해당 출력이 표시 됩니다. 이 경우 `Hello World`표시 됩니다.
 
    ![테스트 창 출력](media/automation-first-runbook-textual-powershell/automation-testpane-output.png)
 
@@ -96,12 +99,12 @@ runbook에 직접 코드를 입력하거나 라이브러리 컨트롤에서 cmdl
 
    ![작업 요약](media/automation-first-runbook-textual-powershell/job-pane-status-blade-jobsummary.png)
 
-1. Runbook 상태가 **완료 됨**으로 표시 되 면 **출력** 을 클릭 하 여 표시 된 **Hello World** 볼 수 있는 출력 페이지를 엽니다.
+1. Runbook 상태가 `Completed`표시 되 면 **출력** 을 클릭 하 여 표시 된 `Hello World`를 볼 수 있는 출력 페이지를 엽니다.
 
    ![작업 출력](media/automation-first-runbook-textual-powershell/job-pane-status-blade-outputtile.png)
 
 1. 출력 페이지를 닫습니다.
-1. **모든 로그** 를 클릭하여 Runbook 작업에 대한 스트림 창을 엽니다. 출력 스트림에 **Hello World** 만 표시 되어야 합니다.
+1. **모든 로그** 를 클릭하여 Runbook 작업에 대한 스트림 창을 엽니다. 출력 스트림에 `Hello World`만 표시 되어야 합니다.
 
     Runbook에서 기록 하는 경우 스트림 창에는 자세한 정보 및 오류 스트림과 같은 runbook 작업에 대 한 다른 스트림이 표시 될 수 있습니다.
 
@@ -118,10 +121,10 @@ runbook에 직접 코드를 입력하거나 라이브러리 컨트롤에서 cmdl
 
 지금까지 Runbook을 테스트 하고 게시했지만, 딱히 유용하지는 않습니다. Azure 리소스를 관리하려고 합니다. 이렇게 하려면 runbook에서 Automation 계정을 만들 때 자동으로 생성 된 실행 계정을 사용 하 여 인증할 수 있어야 합니다.
 
-아래 예제와 같이 [AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0) cmdlet을 사용 하 여 실행 연결을 설정 합니다. 여러 구독에서 리소스를 관리 하는 경우 *AzContext* 매개 변수를 [AzContext](https://docs.microsoft.com/powershell/module/Az.Accounts/Get-AzContext?view=azps-3.5.0)와 함께 사용 해야 합니다.
+아래 예제와 같이 [AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0) cmdlet을 사용 하 여 실행 연결을 설정 합니다. 여러 구독에서 리소스를 관리 하는 경우 `AzContext` 매개 변수를 [AzContext](https://docs.microsoft.com/powershell/module/Az.Accounts/Get-AzContext?view=azps-3.5.0)와 함께 사용 해야 합니다.
 
 > [!NOTE]
-> PowerShell runbook의 경우 **AzAccount** 및 **connect-azurermaccount** 는 **AzAccount**에 대 한 별칭입니다. 이러한 cmdlet을 사용 하거나 Automation 계정의 모듈을 최신 버전으로 [업데이트할](automation-update-azure-modules.md) 수 있습니다. 새 Automation 계정을 방금 만든 경우에도 모듈을 업데이트 해야 할 수 있습니다.
+> PowerShell runbook의 경우 `Add-AzAccount` 및 `Add-AzureRMAccount` `Connect-AzAccount`에 대 한 별칭입니다. 이러한 cmdlet을 사용 하거나 Automation 계정의 모듈을 최신 버전으로 [업데이트할](automation-update-azure-modules.md) 수 있습니다. 새 Automation 계정을 방금 만든 경우에도 모듈을 업데이트 해야 할 수 있습니다.
 
    ```powershell
    # Ensures you do not inherit an AzContext in your runbook
@@ -149,7 +152,7 @@ runbook에 직접 코드를 입력하거나 라이브러리 컨트롤에서 cmdl
    Get-AzVM -ResourceGroupName myResourceGroup -AzContext $AzureContext
    ```
 1. **MyFirstRunbook-PowerShell** 페이지에서 **편집** 을 클릭 하 여 텍스트 편집기를 엽니다.
-1. **쓰기 출력** 줄이 더 이상 필요 하지 않습니다. 계속 해 서 삭제 합니다.
+1. `Write-Output` 줄이 더 이상 필요 하지 않습니다. 계속 해 서 삭제 합니다.
 1. Automation 실행 계정을 사용 하 여 인증을 처리 하는 다음 코드를 입력 하거나 복사 하 여 붙여넣습니다.
 
    ```powershell
@@ -175,13 +178,13 @@ runbook에 직접 코드를 입력하거나 라이브러리 컨트롤에서 cmdl
 1. Runbook을 테스트할 수 있도록 **테스트 창**을 클릭합니다.
 1. **시작** 을 클릭하여 테스트를 시작합니다. 완료 되 면 다음과 유사한 출력이 표시 됩니다. 계정에서 기본 정보를 표시 합니다. 이 출력에서는 실행 계정이 유효한지 확인합니다.
 
-   ![인증](media/automation-first-runbook-textual-powershell/runbook-auth-output.png)
+   ![Authenticate](media/automation-first-runbook-textual-powershell/runbook-auth-output.png)
 
 ## <a name="step-6---add-code-to-start-a-virtual-machine"></a>6단계 - 가상 머신을 시작하기 위한 코드 추가
 
 이제 Runbook에서 Azure 구독을 인증하므로 리소스를 관리할 수 있습니다. 가상 머신을 시작 하는 명령을 추가 해 보겠습니다. Azure 구독에서 가상 컴퓨터를 선택 하 고, 지금은 runbook에서 해당 이름을 하드 코딩 할 수 있습니다.
 
-1. Runbook 스크립트에 [new-azvm](https://docs.microsoft.com/powershell/module/Az.Compute/Start-AzVM?view=azps-3.5.0) cmdlet을 추가 하 여 가상 컴퓨터를 시작 합니다. 아래와 같이 cmdlet은 이름이 **VMName** 이 고 이름이 **ResourceGroupName**인 리소스 그룹을 사용 하 여 가상 컴퓨터를 시작 합니다.
+1. Runbook 스크립트에 [new-azvm](https://docs.microsoft.com/powershell/module/Az.Compute/Start-AzVM?view=azps-3.5.0) cmdlet을 추가 하 여 가상 컴퓨터를 시작 합니다. 아래와 같이 cmdlet은 이름이 `VMName`이 고 이름이 `ResourceGroupName`인 리소스 그룹을 사용 하 여 가상 컴퓨터를 시작 합니다.
 
    ```powershell
    # Ensures you do not inherit an AzContext in your runbook
@@ -211,7 +214,7 @@ runbook에 직접 코드를 입력하거나 라이브러리 컨트롤에서 cmdl
 
 Runbook은 현재 runbook에 하드 코딩 된 가상 머신을 시작 합니다. Runbook은 runbook이 시작 될 때 가상 컴퓨터를 지정 하는 경우에 더 유용 합니다. Runbook에 입력 매개 변수를 추가 하 여 해당 기능을 제공 해 보겠습니다.
 
-1. 텍스트 편집기에서 *VMName* 및 *ResourceGroupName*매개 변수에 대 한 변수를 사용 하도록 **new-azvm** cmdlet을 수정 합니다. 
+1. 텍스트 편집기에서 `VMName` 및 `ResourceGroupName`매개 변수에 대 한 변수를 사용 하도록 `Start-AzVM` cmdlet을 수정 합니다. 
 
    ```powershell
    Param(

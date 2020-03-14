@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/25/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b29dbd7a034123b17b34b1c0fd4c8649e30810bd
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: 7cd989d944a35af8b1fd932643826e1aedd03962
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79128163"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79370205"
 ---
 # <a name="create-an-fslogix-profile-container-for-a-host-pool-using-azure-netapp-files"></a>Azure NetApp Files를 사용 하 여 호스트 풀의 FSLogix 프로필 컨테이너 만들기
 
@@ -73,7 +73,7 @@ Windows 가상 데스크톱 환경에 대해 엔터프라이즈급 SMB 볼륨을
 7. 검색 결과에서 **Azure NetApp Files** 를 선택한 다음 **만들기**를 선택 합니다.
 
 8. **추가** 단추를 선택합니다.
-9. **새 NetApp 계정** 블레이드가 열리면 다음 값을 입력 합니다.
+9. **새 NetApp 계정** 탭이 열리면 다음 값을 입력 합니다.
 
     - **이름**에 netapp 계정 이름을 입력 합니다.
     - **구독**의 경우 드롭다운 메뉴에서 4 단계에서 설정한 저장소 계정에 대 한 구독을 선택 합니다.
@@ -92,7 +92,7 @@ Windows 가상 데스크톱 환경에 대해 엔터프라이즈급 SMB 볼륨을
 1. Azure NetApp Files 메뉴로 이동 하 여 새 계정을 선택 합니다.
 2. 계정 메뉴의 저장소 서비스에서 **용량 풀** 을 선택 합니다.
 3. **풀 추가**를 선택 합니다.
-4. **새 용량 풀** 블레이드가 열리면 다음 값을 입력 합니다.
+4. **새 용량 풀** 탭이 열리면 다음 값을 입력 합니다.
 
     - **이름**에 새 용량 풀의 이름을 입력 합니다.
     - **서비스 수준**의 경우 드롭다운 메뉴에서 원하는 값을 선택 합니다. 대부분의 환경에서 **프리미엄** 을 권장 합니다.
@@ -127,7 +127,7 @@ Windows 가상 데스크톱 환경에 대해 엔터프라이즈급 SMB 볼륨을
 
 1. **볼륨**을 선택 하 고 **볼륨 추가**를 선택 합니다.
 
-2. **볼륨 만들기** 블레이드가 열리면 다음 값을 입력 합니다.
+2. **볼륨 만들기** 탭이 열리면 다음 값을 입력 합니다.
 
     - **볼륨 이름**에 새 볼륨의 이름을 입력 합니다.
     - **용량 풀**의 경우 드롭다운 메뉴에서 방금 만든 용량 풀을 선택 합니다.

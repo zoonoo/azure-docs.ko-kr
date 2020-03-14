@@ -9,18 +9,20 @@ ms.date: 11/18/2019
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: 55dbcc15afb12c03c98fb8d6e4e7f4acb269f620
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.openlocfilehash: a980c7bd068a463956191eece43ec1be233e7890
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78968185"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79367621"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>변경할 수 없는 저장소로 비즈니스에 중요 한 blob 데이터 저장
 
 Azure Blob 저장소에 대 한 변경할 수 없는 저장소를 통해 사용자는 비즈니스에 중요 한 데이터 개체를 웜 (한 번 쓰기, 읽기 다) 상태로 저장할 수 있습니다. 이 상태는 사용자가 지정한 간격 동안 데이터를 지울 수 없고 수정할 수 없게 만듭니다. 보존 간격이 지속 되는 동안에는 blob을 만들고 읽을 수는 있지만 수정 하거나 삭제할 수는 없습니다. 변경 불가능 한 저장소는 모든 Azure 지역에서 범용 v1, 범용 v2, BlobStorage 및 BlockBlobStorage 계정에 사용할 수 있습니다.
 
 법적 보류를 설정 및 해제 하거나 Azure Portal, PowerShell 또는 Azure CLI를 사용 하 여 시간 기반 보존 정책을 만드는 방법에 대 한 자세한 내용은 [Blob 저장소에 대 한 불변성 정책 설정 및 관리](storage-blob-immutability-policies-manage.md)를 참조 하세요.
+
+[!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## <a name="about-immutable-blob-storage"></a>변경할 수 없는 Blob 저장소 정보
 

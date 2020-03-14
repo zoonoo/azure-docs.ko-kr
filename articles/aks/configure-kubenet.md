@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/26/2019
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 9931c752d5ce33beb41dc00194c27d06b9469807
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 3fe1d36b859884ab19a645e5693c7e7931fe5c2c
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77595896"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79368471"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 사용자 고유의 IP 주소 범위에 kubenet 네트워킹 사용
 
@@ -84,7 +84,7 @@ AKS 클러스터에 사용할 네트워크 플러그 인을 선택할 때는 일
 
 - 사용 가능한 IP 주소 공간이 있습니다.
 - Pod 통신 대부분이 클러스터 외부의 리소스를 대상으로 진행됩니다.
-- UDR을 관리하지 않으려고 합니다.
+- UDRs를 관리 하지 않으려고 합니다.
 - 가상 노드 또는 Azure 네트워크 정책과 같은 AKS 고급 기능이 필요 합니다.  [Calico 네트워크 정책을][calico-network-policies]사용 합니다.
 
 사용할 네트워크 모델을 결정 하는 데 도움이 되는 자세한 내용은 [네트워크 모델 및 해당 지원 범위 비교][network-comparisons]를 참조 하세요.
@@ -118,9 +118,11 @@ az ad sp create-for-rbac --skip-assignment
 
 다음 예제 출력에서는 서비스 주체의 애플리케이션 ID 및 암호를 보여 줍니다. 이러한 값은 서비스 주체에 역할을 할당한 다음, AKS 클러스터를 만드는 추가 단계에서 사용됩니다.
 
-```console
-$ az ad sp create-for-rbac --skip-assignment
+```azurecli
+az ad sp create-for-rbac --skip-assignment
+```
 
+```output
 {
   "appId": "476b3636-5eda-4c0e-9751-849e70b5cfad",
   "displayName": "azure-cli-2019-01-09-22-29-24",

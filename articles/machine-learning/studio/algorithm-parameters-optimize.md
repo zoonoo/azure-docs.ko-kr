@@ -10,14 +10,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 33705d0c9f2f405be733fd21c88cb83e96aec781
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 04148b482cb07665f43df5bd86a77175cbbaf08b
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77168976"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79218263"
 ---
 # <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio (클래식)에서 알고리즘을 최적화 하는 매개 변수 선택
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 이 항목에서는 Azure Machine Learning Studio (클래식)에서 알고리즘에 대 한 적절 한 하이퍼 매개 변수 집합을 선택 하는 방법에 대해 설명 합니다. 대부분의 기계 학습 알고리즘은 설정할 매개 변수를 포함하고 있습니다. 모델을 학습할 때 이러한 매개 변수의 값을 제공해야 합니다. 학습된 모델의 효율성은 선택한 모델 매개 변수에 따라 달라집니다. 최적의 매개 변수 집합을 찾는 프로세스를 *모델 선택*이라고 합니다.
 
@@ -41,7 +43,7 @@ ms.locfileid: "77168976"
 
 ![2클래스 향상된 의사 결정 트리, 단일 매개 변수](./media/algorithm-parameters-optimize/fig2.png)
 
- 또는 **범위 작성기 사용**을 사용하여 그리드의 최대 및 최소 요소 수와 생성할 총 요소 수를 정의할 수 있습니다. 기본적으로 매개 변수 값은 선형 눈금으로 생성됩니다. 그러나 **로그 규모** 상자를 선택한 경우에는 로그 규모에서 값이 생성됩니다(즉, 인접 요소의 비율이 차이가 나지 않고 일정함). 정수 매개 변수의 경우 하이픈을 사용하여 범위를 정의할 수 있습니다. 예를 들어, "1-10"은 1에서 10(모두 포함) 사이의 모든 정수가 매개 변수 집합을 형성함을 의미합니다. 혼합 모드도 지원됩니다. 예를 들어, "1-10, 20, 50"으로 설정된 매개 변수는 정수 1-10, 20, 50을 포함합니다.
+ 또는 **범위 작성기 사용**을 사용하여 그리드의 최대 및 최소 요소 수와 생성할 총 요소 수를 정의할 수 있습니다. 기본적으로 매개 변수 값은 선형 눈금으로 생성됩니다. 그러나 **로그 규모** 상자를 선택한 경우에는 로그 규모에서 값이 생성됩니다(즉, 인접 요소의 비율이 차이가 나지 않고 일정함). 정수 매개 변수의 경우 하이픈을 사용하여 범위를 정의할 수 있습니다. 예를 들어 "1-10"은 1과 10 사이의 모든 정수 (둘 다 포함)가 매개 변수 집합을 형성 함을 의미 합니다. 혼합 모드도 지원됩니다. 예를 들어 "1-10, 20, 50"로 설정 된 매개 변수는 정수 1-10, 20 및 50을 포함 합니다.
 
 ![2클래스 향상된 의사 결정 트리, 매개 변수 범위](./media/algorithm-parameters-optimize/fig3.png)
 

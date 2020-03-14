@@ -7,12 +7,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 1857c1154af5e3de72803f297e8a3151b0dd7aeb
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.openlocfilehash: d7d2bcf487c37fbb523b648d5aa4c572add5dfa9
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78330977"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79297087"
 ---
 # <a name="streaming-ingestion-preview"></a>스트리밍 수집 (미리 보기)
 
@@ -72,7 +72,7 @@ ms.locfileid: "78330977"
 
 ## <a name="limitations"></a>제한 사항
 
-* 스트리밍 수집은 [데이터베이스 커서](/azure/kusto/management/databasecursor) 또는 [데이터 매핑을](/azure/kusto/management/mappings)지원 하지 않습니다. [미리 만든](/azure/kusto/management/tables#create-ingestion-mapping) 데이터 매핑만 지원 됩니다. 
+* 스트리밍 수집은 [데이터베이스 커서](/azure/kusto/management/databasecursor) 또는 [데이터 매핑을](/azure/kusto/management/mappings)지원 하지 않습니다. [미리 만든](/azure/kusto/management/create-ingestion-mapping-command) 데이터 매핑만 지원 됩니다. 
 * VM 및 클러스터 크기를 늘려 스트리밍 수집 성능 및 용량을 확장 합니다. 동시 ingestions는 코어 당 6 ingestions 개로 제한 됩니다. 예를 들어 D14 및 L16와 같은 16 개 코어 Sku의 경우 지원 되는 최대 부하는 96 동시 ingestions입니다. 코어 2와 같은 두 코어 Sku의 경우 지원 되는 최대 부하는 12 개의 동시 ingestions입니다.
 * 수집 요청당 데이터 크기 제한은 4mb입니다.
 * 테이블 생성 및 수정과 수집 매핑 등의 스키마 업데이트는 스트리밍 수집 서비스에 대해 최대 5 분이 걸릴 수 있습니다.

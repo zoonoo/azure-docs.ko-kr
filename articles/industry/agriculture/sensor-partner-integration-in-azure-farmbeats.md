@@ -5,20 +5,20 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: e4b2e7c40295d134fe24def0f140bc8097c21250
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: 48a2ed5e4774ac07b4b8fa72a5ee0be86811cfb2
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77132823"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79298736"
 ---
 # <a name="sensor-partner-integration"></a>센서 파트너 통합
 
 이 문서에서는 센서 파트너 통합을 가능 하 게 하는 Azure FarmBeats **Translator** 구성 요소에 대 한 정보를 제공 합니다.
 
-파트너는이 구성 요소를 사용 하 여 FarmBeats Data hub Api를 사용 하 여 FarmBeats와 통합 하 고 고객 장치 데이터 및 원격 분석을 FarmBeats Data hub로 보낼 수 있습니다. FarmBeats에서 데이터를 사용할 수 있게 되 면 FarmBeats 가속기를 사용 하 여 시각화 되며, 데이터 fusion 및 기계 학습/인공 지능 모델 빌드에 사용 될 수 있습니다.
+파트너는이 구성 요소를 사용 하 여 FarmBeats Datahub Api를 사용 하 여 FarmBeats와 통합 하 고 고객 장치 데이터 및 원격 분석을 FarmBeats Datahub로 보낼 수 있습니다. FarmBeats에서 데이터를 사용할 수 있게 되 면 FarmBeats 가속기를 사용 하 여 시각화 되며, 데이터 fusion 및 기계 학습/인공 지능 모델 빌드에 사용 될 수 있습니다.
 
-## <a name="before-you-start"></a>시작하기 전 확인 사항
+## <a name="before-you-start"></a>시작하기 전에
 
 Translator 구성 요소를 개발 하려면 FarmBeats Api에 대 한 액세스를 허용 하는 다음 자격 증명이 필요 합니다.
 
@@ -50,7 +50,7 @@ FarmBeats은 Microsoft Azure Active Directory 인증을 사용 합니다. Azur
 
 자세한 내용은 [Azure Active Directory](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization)를 참조하세요.
 
-FarmBeats Data hub는 다음 자격 증명이 필요한 전달자 인증을 사용 합니다.
+FarmBeats Datahub는 다음 자격 증명이 필요한 전달자 인증을 사용 합니다.
    - 클라이언트 ID
    - 클라이언트 암호
    - 테넌트 ID
@@ -85,14 +85,14 @@ access_token = token_response.get('accessToken') 
 
 **HTTP 요청 헤더**
 
-FarmBeats Data hub에 대 한 API 호출을 수행할 때 지정 해야 하는 가장 일반적인 요청 헤더는 다음과 같습니다.
+FarmBeats Datahub에 대 한 API 호출을 수행할 때 지정 해야 하는 가장 일반적인 요청 헤더는 다음과 같습니다.
 
 
 **머리글** | **설명 및 예제**
 --- | ---
-Content-Type | 요청 형식 (Content-type: application/<format>)입니다. FarmBeats Data hub Api의 경우 형식은 JSON입니다. Content-Type: application/json
+콘텐츠 형식 | 요청 형식 (Content-type: application/<format>)입니다. FarmBeats Datahub Api의 경우 형식은 JSON입니다. Content-Type: application/json
 권한 부여 | API 호출을 수행 하는 데 필요한 액세스 토큰을 지정 합니다. 권한 부여: 전달자 < 액세스-토큰 >
-Accept | 응답 형식입니다. FarmBeats Data hub Api의 경우 형식은 JSON입니다. 수락: application/json
+수락 | 응답 형식입니다. FarmBeats Datahub Api의 경우 형식은 JSON입니다. 수락: application/json
 
 **API 요청**
 
@@ -119,7 +119,7 @@ JSON은 임의의 데이터 구조에 대 한 간단한 텍스트 표현을 제�
 
 ## <a name="metadata-specifications"></a>메타 데이터 사양
 
-FarmBeats Data hub에는 장치 파트너가 장치 또는 센서 메타 데이터를 만들고 관리할 수 있도록 하는 다음과 같은 Api가 있습니다.
+FarmBeats Datahub에는 장치 파트너가 장치 또는 센서 메타 데이터를 만들고 관리할 수 있도록 하는 다음과 같은 Api가 있습니다.
 
 - /**DeviceModel**: DeviceModel는 장치 유형 (예: 제조업체 및 장치 유형 (게이트웨이 또는 노드))에 해당 합니다.
 - /**장치**: 장치는 팜에 있는 물리적 장치에 해당 합니다.
@@ -132,8 +132,8 @@ FarmBeats Data hub에는 장치 파트너가 장치 또는 센서 메타 데이�
   제조업체  | 제조업체의 이름입니다. |
   ProductCode  | 장치 제품 코드 또는 모델 이름 또는 번호입니다. 예: EnviroMonitor # 6800. |
   포트  | 포트 이름 및 유형이 며 디지털 또는 아날로그 유형입니다.  |
-  이름  | 리소스를 식별 하는 이름입니다. 예를 들어 모델 이름 또는 제품 이름입니다. |
-  설명  | 모델에 대 한 의미 있는 설명을 제공 합니다. |
+  속성  | 리소스를 식별 하는 이름입니다. 예를 들어 모델 이름 또는 제품 이름입니다. |
+  Description  | 모델에 대 한 의미 있는 설명을 제공 합니다. |
   속성  | 제조업체의 추가 속성입니다. |
   **디바이스** |  |
   DeviceModelId  |연결 된 장치 모델의 ID입니다. |
@@ -141,8 +141,8 @@ FarmBeats Data hub에는 장치 파트너가 장치 또는 센서 메타 데이�
   ReportingInterval |보고 간격 (초)입니다. |
   위치    |장치 위도 (-90 ~ + 90), 경도 (-180 ~ 180) 및 권한 상승 (미터). |
   ParentDeviceId | 이 장치가 연결 된 부모 장치의 ID입니다. 예를 들어 노드가 게이트웨이에 연결 된 경우 노드에는 게이트웨이로 parentDeviceID가 있습니다. |
-  이름  | 리소스를 식별 하는 이름입니다. 장치 파트너는 장치 파트너 측의 장치 이름과 일치 하는 이름을 보내야 합니다. 장치 이름이 장치 파트너 측의 사용자 정의 이면 동일한 사용자 정의 이름을 FarmBeats에 전파 해야 합니다.  |
-  설명  | 의미 있는 설명을 제공 합니다.  |
+  속성  | 리소스를 식별 하는 이름입니다. 장치 파트너는 장치 파트너 측의 장치 이름과 일치 하는 이름을 보내야 합니다. 장치 이름이 장치 파트너 측의 사용자 정의 이면 동일한 사용자 정의 이름을 FarmBeats에 전파 해야 합니다.  |
+  Description  | 의미 있는 설명을 제공 합니다.  |
   속성  |제조업체의 추가 속성입니다.  |
   **SensorModel** |  |
   유형 (아날로그, 디지털)  |아날로그 또는 디지털 센서를 언급 합니다.|
@@ -155,8 +155,8 @@ FarmBeats Data hub에는 장치 파트너가 장치 또는 센서 메타 데이�
   SensorMeasures > AggregationType  | 없음, 평균, 최대값, 최소값 또는 StandardDeviation 중 하나입니다.
   SensorMeasures > 깊이  | 센서의 깊이 (센티미터)입니다. 예를 들어 땅에 습기 10 cm을 측정 합니다.
   SensorMeasures > 설명  | 측정에 대 한 의미 있는 설명을 제공 합니다.
-  이름  | 리소스를 식별 하는 이름입니다. 예를 들어 모델 이름 또는 제품 이름입니다.
-  설명  | 모델에 대 한 의미 있는 설명을 제공 합니다.
+  속성  | 리소스를 식별 하는 이름입니다. 예를 들어 모델 이름 또는 제품 이름입니다.
+  Description  | 모델에 대 한 의미 있는 설명을 제공 합니다.
   속성  | 제조업체의 추가 속성입니다.
   **수신**  |  |
   HardwareId  | 제조업체에서 설정한 센서의 고유 ID입니다.
@@ -164,8 +164,8 @@ FarmBeats Data hub에는 장치 파트너가 장치 또는 센서 메타 데이�
   위치  | 센서 위도 (-90 ~ + 90), 경도 (-180 ~ 180) 및 권한 상승 (미터).
   포트 > 이름  |장치에서 센서가 연결 된 포트의 이름 및 유형입니다. 이 이름은 장치 모델에 정의 된 이름과 같아야 합니다.
   deviceId  | 센서가 연결 된 장치의 ID입니다.
-  이름  | 리소스를 식별 하는 이름입니다. 예를 들어 센서 이름 또는 제품 이름과 모델 번호 또는 제품 코드를 사용할 수 있습니다.
-  설명  | 의미 있는 설명을 제공 합니다.
+  속성  | 리소스를 식별 하는 이름입니다. 예를 들어 센서 이름 또는 제품 이름과 모델 번호 또는 제품 코드를 사용할 수 있습니다.
+  Description  | 의미 있는 설명을 제공 합니다.
   속성  | 제조업체의 추가 속성입니다.
 
  각 개체 및 해당 속성에 대 한 자세한 내용은 [Swagger](https://aka.ms/FarmBeatsDatahubSwagger)를 참조 하십시오.
@@ -230,11 +230,11 @@ write_client.stop()
       "sensordata": [
         {
           "timestamp": "< timestamp in ISO 8601 format >",
-          "<sensor measure name (as defined in the Sensor Model)>": <value>
+          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
         },
         {
           "timestamp": "<timestamp in ISO 8601 format>",
-          "<sensor measure name (as defined in the Sensor Model)>": <value>
+          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
         }
       ]
     }
@@ -304,7 +304,7 @@ write_client.stop()
 
 ## <a name="unlink-farmbeats"></a>FarmBeats 연결 해제
 
-장치 파트너를 사용 하면 고객이 기존 FarmBeats 통합의 연결을 해제할 수 있습니다. FarmBeats 연결을 해제 하면 FarmBeats Data hub에서 만든 장치 또는 센서 메타 데이터를 삭제할 필요가 없습니다. 연결 끊기는 다음을 수행 합니다.
+장치 파트너를 사용 하면 고객이 기존 FarmBeats 통합의 연결을 해제할 수 있습니다. FarmBeats 연결을 해제 하면 FarmBeats Datahub에서 만든 장치 또는 센서 메타 데이터를 삭제할 필요가 없습니다. 연결 끊기는 다음을 수행 합니다.
 
    - 원격 분석 흐름을 중지 합니다.
    - 장치 파트너의 통합 자격 증명을 삭제 하 고 지웁니다.

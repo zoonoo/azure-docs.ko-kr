@@ -9,14 +9,14 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 01/16/2020
+ms.date: 03/13/2020
 ms.custom: seodec18
-ms.openlocfilehash: c7fd70ca32054b3b25e717c8c7169cf2d30ef9be
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 209ed755a7ef83b67170ef75911f93cdda742caa
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76156355"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79368199"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>모델 학습을 위한 계산 대상 설정 및 사용 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -26,7 +26,7 @@ Azure Machine Learning를 사용 하면 [__계산 대상__](concept-azure-machin
 Azure Machine Learning SDK, Azure Machine Learning studio, Azure CLI 또는 Azure Machine Learning VS Code 확장을 사용 하 여 계산 대상을 만들고 관리할 수 있습니다. 다른 서비스 (예: HDInsight 클러스터)를 통해 생성 된 계산 대상이 있는 경우 Azure Machine Learning 작업 영역에 연결 하 여 사용할 수 있습니다.
  
 이 문서에서는 모델 학습에 다양한 컴퓨팅 대상을 사용하는 방법을 알아봅니다.  모든 컴퓨팅 대상에 대한 단계는 동일한 워크플로를 따릅니다.
-1. 컴퓨팅 대상이 이미 없는 경우 __만듭니다__.
+1. 아직 없는 경우 계산 대상을 __만듭니다__ .
 2. 작업 영역에 컴퓨팅 대상을 __연결__합니다.
 3. 해당 스크립트에 필요한 Python 환경과 패키지 종속성을 포함하도록 컴퓨팅 대상을 __구성__합니다.
 
@@ -89,7 +89,7 @@ ML 파이프라인은 모델을 트레인 할 수 있지만 학습 후 모델을
 
  [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/local.py?name=run_local)]
 
-컴퓨팅 대상을 연결하고 실행을 구성했으면 다음 단계로 [학습 실행을 제출](#submit)합니다.
+이제 계산을 연결 하 고 실행을 구성 했으므로 다음 단계는 [학습 실행을 제출](#submit)하는 것입니다.
 
 ### <a id="amlcompute"></a>Azure Machine Learning 컴퓨팅
 
@@ -114,7 +114,7 @@ Azure Machine Learning 컴퓨팅을 런타임에 컴퓨팅 대상으로 만들 �
   [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute.py?name=run_temp_compute)]
 
 
-컴퓨팅 대상을 연결하고 실행을 구성했으면 다음 단계로 [학습 실행을 제출](#submit)합니다.
+이제 계산을 연결 하 고 실행을 구성 했으므로 다음 단계는 [학습 실행을 제출](#submit)하는 것입니다.
 
 #### <a id="persistent"></a>영구적 컴퓨팅
 
@@ -136,7 +136,7 @@ Azure Machine Learning 컴퓨팅을 런타임에 컴퓨팅 대상으로 만들 �
 
    [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=run_amlcompute)]
 
-컴퓨팅 대상을 연결하고 실행을 구성했으면 다음 단계로 [학습 실행을 제출](#submit)합니다.
+이제 계산을 연결 하 고 실행을 구성 했으므로 다음 단계는 [학습 실행을 제출](#submit)하는 것입니다.
 
 
 ### <a id="vm"></a>원격 가상 머신
@@ -154,15 +154,30 @@ Azure Machine Learning은 자신만의 컴퓨팅 리소스를 가져와서 작�
 
 1. **연결**: 기존 가상 컴퓨터를 계산 대상으로 연결 하려면 가상 컴퓨터에 대 한 FQDN (정규화 된 도메인 이름), 사용자 이름 및 암호를 제공 해야 합니다. 이 예제에서는 \<fqdn>을 VM의 공용 FQDN 또는 공용 IP 주소로 바꿉니다. \<사용자 이름> 및 \<암호>를 VM에 대한 SSH 사용자 이름 및 암호로 바꿉니다.
 
+    > [!IMPORTANT]
+    > 다음 Azure 지역은 VM의 공용 IP 주소를 사용 하 여 가상 머신 연결을 지원 하지 않습니다. 대신 `resource_id` 매개 변수를 사용 하 여 VM의 Azure Resource Manager ID를 사용 합니다.
+    >
+    > * 미국 동부
+    > * 미국 서부 2
+    > * 미국 중남부
+    >
+    > 다음 문자열 형식을 사용 하 여 구독 ID, 리소스 그룹 이름 및 VM 이름을 사용 하 여 VM의 리소스 ID를 생성할 수 있습니다. `/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Compute/virtualMachines/<vm_name>`.
+
+
    ```python
    from azureml.core.compute import RemoteCompute, ComputeTarget
 
    # Create the compute config 
    compute_target_name = "attach-dsvm"
-   attach_config = RemoteCompute.attach_configuration(address = "<fqdn>",
+   attach_config = RemoteCompute.attach_configuration(address='<fqdn>',
                                                     ssh_port=22,
                                                     username='<username>',
                                                     password="<password>")
+   # If in US East, US West 2, or US South Central, use the following instead:
+   # attach_config = RemoteCompute.attach_configuration(resource_id='<resource_id>',
+   #                                                 ssh_port=22,
+   #                                                 username='<username>',
+   #                                                 password="<password>")
 
    # If you authenticate with SSH keys instead, use this code:
    #                                                  ssh_port=22,
@@ -184,7 +199,7 @@ Azure Machine Learning은 자신만의 컴퓨팅 리소스를 가져와서 작�
    [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/dsvm.py?name=run_dsvm)]
 
 
-컴퓨팅 대상을 연결하고 실행을 구성했으면 다음 단계로 [학습 실행을 제출](#submit)합니다.
+이제 계산을 연결 하 고 실행을 구성 했으므로 다음 단계는 [학습 실행을 제출](#submit)하는 것입니다.
 
 ### <a id="hdinsight"></a>Azure HDInsight 
 
@@ -198,6 +213,15 @@ Azure HDInsight는 빅 데이터 분석을 위한 인기 있는 플랫폼입니�
 
 1. **연결**: hdinsight 클러스터를 계산 대상으로 연결 하려면 hdinsight 클러스터에 대 한 호스트 이름, 사용자 이름 및 암호를 제공 해야 합니다. 다음 예제에서는 SDK를 사용하여 작업 영역에 클러스터를 연결합니다. 예제에서는 \<clustername>을 클러스터의 이름으로 바꿉니다. \<username> 및 \<password>를 클러스터에 대한 SSH 사용자 이름 및 암호로 바꿉니다.
 
+    > [!IMPORTANT]
+    > 다음 Azure 지역은 클러스터의 공용 IP 주소를 사용 하 여 HDInsight 클러스터를 연결 하는 것을 지원 하지 않습니다. 대신 `resource_id` 매개 변수를 사용 하 여 클러스터의 Azure Resource Manager ID를 사용 합니다.
+    >
+    > * 미국 동부
+    > * 미국 서부 2
+    > * 미국 중남부
+    >
+    > 클러스터의 리소스 ID는 다음 문자열 형식을 사용 하 여 구독 ID, 리소스 그룹 이름 및 클러스터 이름을 사용 하 여 생성할 수 있습니다. `/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.HDInsight/clusters/<cluster_name>`.
+
    ```python
    from azureml.core.compute import ComputeTarget, HDInsightCompute
    from azureml.exceptions import ComputeTargetException
@@ -208,6 +232,11 @@ Azure HDInsight는 빅 데이터 분석을 위한 인기 있는 플랫폼입니�
                                                           ssh_port=22, 
                                                           username='<ssh-username>', 
                                                           password='<ssh-pwd>')
+    # If you are in US East, US West 2, or US South Central, use the following instead:
+    # attach_config = HDInsightCompute.attach_configuration(resource_id='<resource_id>',
+    #                                                      ssh_port=22, 
+    #                                                      username='<ssh-username>', 
+    #                                                      password='<ssh-pwd>')
     hdi_compute = ComputeTarget.attach(workspace=ws, 
                                        name='myhdi', 
                                        attach_configuration=attach_config)
@@ -225,7 +254,7 @@ Azure HDInsight는 빅 데이터 분석을 위한 인기 있는 플랫폼입니�
    [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/hdi.py?name=run_hdi)]
 
 
-컴퓨팅 대상을 연결하고 실행을 구성했으면 다음 단계로 [학습 실행을 제출](#submit)합니다.
+이제 계산을 연결 하 고 실행을 구성 했으므로 다음 단계는 [학습 실행을 제출](#submit)하는 것입니다.
 
 
 ### <a id="azbatch"></a>Azure Batch 
@@ -234,9 +263,9 @@ Azure Batch은 클라우드에서 대규모 병렬 및 HPC (고성능 컴퓨팅)
 
 Azure Batch를 계산 대상으로 연결 하려면 Azure Machine Learning SDK를 사용 하 고 다음 정보를 제공 해야 합니다.
 
--   **Azure Batch compute name**: 작업 영역 내에서 계산에 사용 되는 식별 이름입니다.
--   **Azure Batch 계정 이름**: Azure Batch 계정의 이름
--   **리소스 그룹**: Azure Batch 계정이 포함 된 리소스 그룹입니다.
+-    **Azure Batch compute name**: 작업 영역 내에서 계산에 사용 되는 식별 이름입니다.
+-    **Azure Batch 계정 이름**: Azure Batch 계정의 이름
+-    **리소스 그룹**: Azure Batch 계정이 포함 된 리소스 그룹입니다.
 
 다음 코드는 Azure Batch를 계산 대상으로 연결 하는 방법을 보여 줍니다.
 
@@ -305,7 +334,7 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 
 1. 컴퓨팅 대상의 이름을 입력합니다. 
 
-1. __학습__에 사용할 컴퓨팅 유형으로 **Machine Learning 컴퓨팅**을 선택합니다. 
+1. **학습**에 사용할 컴퓨팅 유형으로 __Machine Learning 컴퓨팅__을 선택합니다. 
 
     >[!NOTE]
     >Azure Machine Learning Compute는 Azure Machine Learning studio에서 만들 수 있는 유일한 관리 되는 계산 리소스입니다.  다른 모든 컴퓨팅 리소스는 만든 후에 연결할 수 있습니다.
@@ -412,7 +441,7 @@ Azure Machine Learning에 대 한 [VS Code 확장](tutorial-train-deploy-image-c
 
 또는
 
-* [추정기를 사용하여 ML 모델 학습](how-to-train-ml-models.md)에 표시된 대로 `Estimator` 개체와 함께 실험을 제출합니다.
+* `Estimator`추정기를 사용하여 ML 모델 학습[에 표시된 대로 ](how-to-train-ml-models.md) 개체와 함께 실험을 제출합니다.
 * 하이퍼 [매개 변수 조정을](how-to-tune-hyperparameters.md)위해 하이퍼 드라이브 실행을 제출 합니다.
 * [VS Code 확장](tutorial-train-deploy-image-classification-model-vscode.md#train-the-model)을 통해 실험을 제출 합니다.
 

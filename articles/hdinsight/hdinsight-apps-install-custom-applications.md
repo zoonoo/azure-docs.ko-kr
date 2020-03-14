@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
-ms.openlocfilehash: c109f5309837de8c9b4bd3e4bc5a5da0a6da534e
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 8fe9e551a4ca7dea8f53e0f8c2975ca3d88c48f7
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806867"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79366260"
 ---
 # <a name="install-custom-apache-hadoop-applications-on-azure-hdinsight"></a>Azure HDInsight에 사용자 지정 Apache Hadoop 애플리케이션 설치
 
@@ -21,9 +21,9 @@ ms.locfileid: "74806867"
 
 HDInsight 애플리케이션은 HDInsight 클러스터에 사용자가 설치할 수 있는 애플리케이션입니다.  Microsoft, ISV(독립 소프트웨어 공급 업체) 또는 사용자가 직접 이러한 애플리케이션을 개발할 수 있습니다.  
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-기존 HDInsight 클러스터에 HDInsight 애플리케이션을 설치하려면 HDInsight 클러스터가 있어야 합니다. HDInsight 클러스터를 만들려면 [클러스터 만들기](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster)를 참조하세요. HDInsight 클러스터를 만들 경우 HDInsight 애플리케이션도 설치할 수 있습니다.
+기존 HDInsight 클러스터에 HDInsight 애플리케이션을 설치하려면 HDInsight 클러스터가 있어야 합니다. HDInsight 클러스터를 만들려면 [클러스터 만들기](hadoop/apache-hadoop-linux-tutorial-get-started.md)를 참조하세요. HDInsight 클러스터를 만들 경우 HDInsight 애플리케이션도 설치할 수 있습니다.
 
 ## <a name="install-hdinsight-applications"></a>HDInsight 애플리케이션 설치
 
@@ -75,9 +75,9 @@ Azure 포털에서 애플리케이션 상태를 확인하여 애플리케이션 
 
 **색상**의 경우 다음 단계를 사용할 수 있습니다.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
-1. [Azure portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 응용 프로그램을 설치한 클러스터를 선택 합니다.
 1. **설정** 메뉴에서 **응용 프로그램**을 선택 합니다.
 1. 목록에서 색 **을 선택 하** 여 속성을 확인 합니다.  
@@ -123,9 +123,9 @@ Azure 포털에서 애플리케이션 상태를 확인하여 애플리케이션 
 
 ## <a name="remove-hdinsight-applications"></a>HDInsight 애플리케이션 제거
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
-1. [Azure portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 응용 프로그램을 설치한 클러스터를 선택 합니다.
 1. **설정** 메뉴에서 **응용 프로그램**을 선택 합니다.
 1. 제거 하려는 응용 프로그램을 마우스 오른쪽 단추로 클릭 한 다음 **삭제**를 선택 합니다.

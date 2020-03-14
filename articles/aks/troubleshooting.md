@@ -6,12 +6,12 @@ author: sauryadas
 ms.topic: troubleshooting
 ms.date: 12/13/2019
 ms.author: saudas
-ms.openlocfilehash: f0ad8d503b5280b8cba89d940b99dcd81da71ffc
-ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
+ms.openlocfilehash: 7bdabf2ec109fe96c28185bd1a2a680ce19c2650
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78893280"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79368335"
 ---
 # <a name="aks-troubleshooting"></a>AKS 문제 해결
 
@@ -60,7 +60,7 @@ Pod 문제를 해결하는 방법에 대한 자세한 내용은 [애플리케이
 
 클러스터 외부의 서비스에 액세스하는 가장 쉬운 방법은 `kubectl proxy`를 실행하는 것입니다. 그러면 localhost 포트 8001로 전송된 요청이 Kubernetes API 서버로 프록시됩니다. 여기에서 API 서버는 서비스로 프록시할 수 있습니다. `http://localhost:8001/api/v1/namespaces/kube-system/services/kubernetes-dashboard/proxy/#!/node?namespace=default`
 
-Kubernetes 대시보드가 표시되지 않으면 `kube-proxy` pod가 `kube-system` 네임스페이스에서 실행되고 있는지를 확인합니다. 실행 중 상태가 아니면 pod를 삭제합니다. 그러면 다시 시작됩니다.
+Kubernetes 대시보드가 표시 되지 않으면 `kube-proxy` pod가 `kube-system` 네임 스페이스에서 실행 중인지 확인 합니다. 실행 중 상태가 아니면 pod를 삭제합니다. 그러면 다시 시작됩니다.
 
 ## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>kubectl logs를 사용하여 로그를 가져올 수 없고 API 서버에 연결할 수 없습니다. "서버에서 오류가 발생 했습니다. 오류를 전화 접속 하는 중입니다." 라는 오류가 발생 합니다. 어떻게 해야 하나요?
 
@@ -298,7 +298,7 @@ Kubernetes 버전 1.9.2부터 여러 연결/분리 작업을 병렬로 실행 �
 첫 번째 시도에서 Azure Disk detach 작업이 실패 하는 경우에는 분리 작업을 다시 시도 하지 않고 원래 노드 VM에 연결 된 상태로 유지 됩니다. 이 오류는 한 노드에서 다른 노드로 디스크를 이동 하는 경우에 발생할 수 있습니다. 다음은 그 예입니다.
 
 ```console
-[Warning] AttachVolume.Attach failed for volume “pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9” : Attach volume “kubernetes-dynamic-pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9" to instance “/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/virtualMachines/aks-agentpool-57634498-0” failed with compute.VirtualMachinesClient#CreateOrUpdate: Failure sending request: StatusCode=0 -- Original Error: autorest/azure: Service returned an error. Status= Code=“ConflictingUserInput” Message=“Disk ‘/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/disks/kubernetes-dynamic-pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9’ cannot be attached as the disk is already owned by VM ‘/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/virtualMachines/aks-agentpool-57634498-1’.”
+[Warning] AttachVolume.Attach failed for volume "pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9" : Attach volume "kubernetes-dynamic-pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9" to instance "/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/virtualMachines/aks-agentpool-57634498-0" failed with compute.VirtualMachinesClient#CreateOrUpdate: Failure sending request: StatusCode=0 -- Original Error: autorest/azure: Service returned an error. Status= Code="ConflictingUserInput" Message="Disk '/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/disks/kubernetes-dynamic-pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9' cannot be attached as the disk is already owned by VM '/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/virtualMachines/aks-agentpool-57634498-1'."
 ```
 
 다음 버전의 Kubernetes에서는이 문제가 해결 되었습니다.
@@ -348,12 +348,12 @@ Azure 디스크를 분리 하지 못하면 지 수 백오프를 사용 하 여 �
 이 문제에 대 한 해결 방법이 없는 Kubernetes의 버전을 사용 중이 고 노드 VM이 실패 한 상태 이면 아래 중 하나를 사용 하 여 VM 상태를 수동으로 업데이트 하 여 문제를 완화할 수 있습니다.
 
 * 가용성 집합 기반 클러스터의 경우:
-    ```console
+    ```azurecli
     az vm update -n <VM_NAME> -g <RESOURCE_GROUP_NAME>
     ```
 
 * VMSS 기반 클러스터의 경우:
-    ```console
+    ```azurecli
     az vmss update-instances -g <RESOURCE_GROUP_NAME> --name <VMSS_NAME> --instance-id <ID>
     ```
 

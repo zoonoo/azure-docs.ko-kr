@@ -3,14 +3,14 @@ title: Azure Site Recovery의 VMware/물리적 재해 복구를 위한 지원 �
 description: Azure Site Recovery를 사용 하 여 VMware Vm 및 물리적 서버에서 Azure로의 재해 복구에 대 한 지원을 요약 합니다.
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 1/21/2020
+ms.date: 2/24/2020
 ms.author: raynew
-ms.openlocfilehash: b7ace4f470a4e054be5d7f5945fc3e9c4f7d0810
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: 05e60c5b008746bbfd72dbe7a2e14b18aa563671
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78362892"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79371395"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>VMware VM 또는 물리적 서버와 Azure 간 재해 복구를 위한 지원 매트릭스
 
@@ -135,7 +135,7 @@ SUSE Linux Enterprise Server 15 및 15 SP1 | 9.32 | 모든 [STOCK SUSE 15 및 15
 
 **구성 요소** | **지원됨**
 --- | ---
-파일 시스템 | ext3, ext4, XFS
+파일 시스템 | ext3, ext4, XFS, BTRFS (이 테이블에 따라 적용 가능한 조건)
 볼륨 관리자 | -LVM이 지원 됩니다.<br/> -LVM의/boot는 [업데이트 롤업 31](https://support.microsoft.com/help/4478871/) (모바일 서비스 버전 9.20)부터 지원 됩니다. 이전 모바일 서비스 버전에서는 지원 되지 않습니다.<br/> -여러 OS 디스크가 지원 되지 않습니다.
 반가상화 스토리지 디바이스 | 반가상화 드라이버에서 내보낸 디바이스는 지원되지 않습니다.
 다중 큐 블록 IO 디바이스 | 지원되지 않습니다.

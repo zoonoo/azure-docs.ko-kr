@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 70f905d15c69876ced56c25ec92f858bb15b7d36
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c95ed6dde3c00c0688ccfd58565fd112427c8899
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75372213"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79135941"
 ---
 # <a name="create-or-delete-a-container-in-azure-storage-with-net"></a>.NET을 사용 하 여 Azure Storage에서 컨테이너 만들기 또는 삭제
 
-Azure Storage blob은 컨테이너로 구성 됩니다. Blob을 업로드 하려면 먼저 컨테이너를 만들어야 합니다. 이 문서에서는 [.net 용 Azure Storage 클라이언트 라이브러리](/dotnet/api/overview/azure/storage/client)를 사용 하 여 컨테이너를 만들고 삭제 하는 방법을 보여 줍니다.
+Azure Storage blob은 컨테이너로 구성 됩니다. Blob을 업로드 하려면 먼저 컨테이너를 만들어야 합니다. 이 문서에서는 [.net 용 Azure Storage 클라이언트 라이브러리](/dotnet/api/overview/azure/storage?view=azure-dotnet)를 사용 하 여 컨테이너를 만들고 삭제 하는 방법을 보여 줍니다.
 
 ## <a name="name-a-container"></a>컨테이너 이름
 

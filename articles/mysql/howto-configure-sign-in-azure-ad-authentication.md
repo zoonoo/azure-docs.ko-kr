@@ -1,17 +1,17 @@
 ---
-title: Azure Active Directory Azure Database for MySQL 사용-단일 서버
-description: Azure Database for MySQL 단일 서버를 사용 하 여 인증을 위해 Azure Active Directory (Azure AD)를 설정 하는 방법에 대해 알아봅니다.
+title: Azure Active Directory 사용-Azure Database for MySQL
+description: Azure Database for MySQL 인증을 위해 Azure Active Directory (Azure AD)를 설정 하는 방법에 대해 알아봅니다.
 author: lfittl-msft
 ms.author: lufittl
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/22/2019
-ms.openlocfilehash: bb3a8c94b377fb9c9150945ec4cf5980e006dd34
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.openlocfilehash: 0403edadd491609c2c88d5b5ac6980d97163f8d6
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77110616"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79299008"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-mysql"></a>MySQL을 사용 하 여 인증을 위해 Azure Active Directory 사용
 
@@ -205,7 +205,7 @@ Azure Database for MySQL의 Azure AD 인증은 사용자가 MySQL 서버에 존�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Database for MySQL 단일 서버를 사용 하 여 Azure Active Directory 인증](concepts-azure-ad-authentication.md) 에 대 한 전체 개념 검토
+* [에서 Azure Active Directory 인증](concepts-azure-ad-authentication.md) 에 대 한 전체 개념을 검토 Azure Database for MySQL
 
 <!--Image references-->
 

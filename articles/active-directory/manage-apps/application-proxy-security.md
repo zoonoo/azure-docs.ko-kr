@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/08/2017
+ms.date: 03/13/2020
 ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa7b5c82f0b057e2eb029b9cc632d8da02206678
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0fd016e02c579f4e7230bd18d363cfe9a64c88eb
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108402"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79366107"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시를 사용하여 앱에 원격으로 액세스하는 경우 보안 고려 사항
 
@@ -47,9 +47,9 @@ Azure AD 애플리케이션 프록시는 모든 인증에 Azure AD STS(보안 �
 
 네트워크 연결이 설정되기 전에 다양한 정책 제어를 적용합니다.
 
-사용 하 여 [조건부 액세스](../conditional-access/overview.md), 백 엔드 응용 프로그램 액세스에 어떤 트래픽을 허용할지에 제한을 정의할 수 있습니다. 위치, 인증 강도 및 사용자 위험 프로필에 따라 로그인을 제한하는 정책을 사항을 만들 수 있습니다.
+[조건부 액세스](../conditional-access/overview.md)를 사용 하 여 백 엔드 응용 프로그램에 액세스할 수 있는 트래픽에 대 한 제한을 정의할 수 있습니다. 위치, 인증 강도 및 사용자 위험 프로필에 따라 로그인을 제한하는 정책을 사항을 만들 수 있습니다.
 
-또한 다른 보안 계층을 추가 하 고 사용자 인증, Multi-factor Authentication 정책을 구성 하려면 조건부 액세스를 사용할 수 있습니다. 또한 응용 프로그램 라우트할 수를 통해 실시간 모니터링 및 컨트롤을 제공 하도록 Azure AD 조건부 액세스를 통해 Microsoft Cloud App Security [액세스](https://docs.microsoft.com/cloud-app-security/access-policy-aad) 하 고 [세션](https://docs.microsoft.com/cloud-app-security/session-policy-aad) 정책
+조건부 액세스를 사용 하 여 Multi-Factor Authentication 정책을 구성 하 고 다른 보안 계층을 사용자 인증에 추가할 수도 있습니다. 또한 [액세스](https://docs.microsoft.com/cloud-app-security/access-policy-aad) 및 [세션](https://docs.microsoft.com/cloud-app-security/session-policy-aad) 정책을 통해 실시간 모니터링 및 제어를 제공 하기 위해 Azure AD 조건부 액세스를 통해 Microsoft Cloud App Security으로 응용 프로그램을 라우팅할 수도 있습니다.
 
 ### <a name="traffic-termination"></a>트래픽 종료
 
@@ -69,7 +69,7 @@ Azure AD 애플리케이션 프록시가 역방향 프록시이기 때문에 백
 
 최첨단 보안 보호를 가져옵니다.
 
-애플리케이션 프록시는 Azure Active Directory의 일부이기 때문에 Microsoft Security Response Center 및 Digital Crimes Unit에서 제공하는 데이터를 통해 [Azure AD Identity Protection](../active-directory-identityprotection.md)을 활용할 수 있습니다. 따라서 손상된 계정을 사전에 식별하고 위험도 높은 로그인으로부터 보호를 제공합니다. 로그인 시도 하는 위험 수준이 높은 확인 하려면 여러 요인을 고려 수행 합니다. 이러한 요소에는 감염 디바이스 플래그,네트워크 익명화, 불규칙 또는 임의 위치 등이 포함됩니다.
+애플리케이션 프록시는 Azure Active Directory의 일부이기 때문에 Microsoft Security Response Center 및 Digital Crimes Unit에서 제공하는 데이터를 통해 [Azure AD Identity Protection](../active-directory-identityprotection.md)을 활용할 수 있습니다. 이를 통해 손상 된 계정을 사전에 식별 하 고 위험도 높은 로그인 으로부터 보호를 제공 합니다. 높은 위험에 대 한 로그인 시도를 결정 하는 다양 한 요인을 고려해 야 합니다. 이러한 요소에는 감염 디바이스 플래그,네트워크 익명화, 불규칙 또는 임의 위치 등이 포함됩니다.
 
 SIEM(보안 정보 및 이벤트 관리) 시스템과 통합을 위해 이러한 많은 보고서 및 이벤트가 API를 통해 제공됩니다.
 
@@ -81,19 +81,15 @@ SIEM(보안 정보 및 이벤트 관리) 시스템과 통합을 위해 이러한
 
 Azure AD 애플리케이션 프록시에 의해 게시된 애플리케이션의 보안을 개선하기 웹 크롤러 로봇이 애플리케이션을 인덱싱하고 보관하지 못하도록 합니다. 웹 크롤러 로봇이 게시된 앱에 대한 로봇 설정을 검색하려 할 때마다 애플리케이션 프록시는 `User-agent: * Disallow: /`를 포함하는 robots.txt 파일로 응답합니다.
 
-### <a name="ddos-prevention"></a>DDOS 방지
+#### <a name="azure-ddos-protection-service"></a>Azure DDoS protection 서비스
 
-애플리케이션 프록시를 ㅌ오해 게시된 애플리케이션은 서비스 분산 거부(DDOS) 공격으로부터 보호됩니다.
+응용 프로그램 프록시를 통해 게시 된 응용 프로그램은 DDoS (배포 된 서비스 거부) 공격 으로부터 보호 됩니다. Azure **DDoS protection** 은 azure 리소스를 서비스 거부 공격 으로부터 보호 하기 위해 azure 플랫폼과 함께 제공 되는 서비스입니다. **기본** 서비스 계층은 자동으로 사용 하도록 설정 되어 있으므로 상시 트래픽 모니터링과 일반적인 네트워크 수준 공격에 대 한 실시간 완화 기능을 제공 합니다. **표준** 계층을 사용 하 여 Azure Virtual Network 리소스에 맞게 특별히 조정 된 추가적인 완화 기능을 제공할 수도 있습니다. 자세한 내용은 [Azure DDoS Protection 표준 개요](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview)를 참조 하세요.
 
-애플리케이션 프록시 서비스는 애플리케이션 및 네트워크에 도달하려 시도한 트래픽의 크기를 모니터링합니다. 애플리케이션 원격 액세스를 요청하는 디바이스 수가 급증하면 Microsoft가 네트워크에 대한 액세스를 제한합니다. 
-
-Microsoft는 개별 애플리케이션과 구독에 대한 트래픽 패턴을 모두 감시합니다. 한 애플리케이션이 일반 요청보다 많은 요청을 받으면 해당 애플리케이션에 대한 액세스 요청이 잠시 거부됩니다. 전체 구독에서 일반 요청보다 많은 요청을 받으면 모든 앱에 대한 요청이 거부됩니다. 이 예방 조치는 원격 액세스 요청에 의한 애플리케이션 서비스 과부하를 방지하므로 온-프레미스 사용자가 앱 액세스를 유지할 수 있습니다. 
-
-## <a name="under-the-hood"></a>내부 살펴보기
+## <a name="under-the-hood"></a>기본적인 이해
 
 Azure AD 애플리케이션 프록시는 두 부분으로 구성됩니다.
 
-* 클라우드 기반 서비스: 이 서비스는 Azure에서 실행되며, 외부 클라이언트/사용자를 연결합니다.
+* 클라우드 기반 서비스: Azure에서 실행되며, 외부 클라이언트/사용자를 연결하는 서비스입니다.
 * [온-프레미스 커넥터](application-proxy-connectors.md): 온-프레미스 구성 요소인 커넥터는 Azure AD 애플리케이션 프록시 서비스에서 요청을 수신하고 내부 애플리케이션에 대한 연결을 처리합니다. 
 
 커넥터와 애플리케이션 프록시 서비스 간 흐름은 다음과 같은 경우 설정됩니다.
@@ -111,8 +107,8 @@ Azure AD 애플리케이션 프록시는 두 부분으로 구성됩니다.
 
 커넥터를 처음 설정할 때 다음과 같은 흐름 이벤트가 발생합니다.
 
-1. 커넥터 설치 과정의 일부로 서비스에 커넥터 등록이 발생합니다. 사용자에게 Azure AD 관리자 자격 증명을 입력하라는 메시지가 표시됩니다. 이 인증에서 얻은 토큰이 Azure AD 애플리케이션 프록시 서비스에 제공됩니다.
-2. 애플리케이션 프록시 서비스에서 토큰을 평가합니다. 사용자가 테넌트의 회사 관리자인지 확인합니다. 관리자가 아닌 사용자인 경우 프로세스가 종료됩니다.
+1. 커넥터 설치 과정의 일부로 서비스에 커넥터 등록이 발생합니다. 사용자에게 Azure AD 관리자 자격 증명을 입력하라는 메시지가 표시됩니다. 그런 다음이 인증에서 얻은 토큰이 Azure AD 응용 프로그램 프록시 서비스에 제공 됩니다.
+2. 애플리케이션 프록시 서비스에서 토큰을 평가합니다. 사용자가 테넌트의 회사 관리자인지 확인합니다. 사용자가 관리자가 아닌 경우 프로세스가 종료 됩니다.
 3. 커넥터에서 클라이언트 인증서 요청을 생성하고, 토큰과 함께 이 요청을 애플리케이션 프록시 서비스에 전달합니다. 서비스에서 차례로 토큰을 확인하고 클라이언트 인증서 요청에 서명합니다.
 4. 커넥터는 나중에 애플리케이션 프록시 서비스와 통신하는 데 이 클라이언트 인증서를 사용합니다.
 5. 커넥터는 해당 클라이언트 인증서를 사용하여 처음으로 서비스로부터 시스템 구성 데이터 끌어오기를 수행하고 이제 요청을 받을 준비가 됩니다.
@@ -138,13 +134,13 @@ Azure AD 애플리케이션 프록시는 두 부분으로 구성됩니다.
 이러한 단계 각각에서 수행하는 작업에 대해 자세히 알아보려면 계속 읽어보세요.
 
 
-#### <a name="1-the-service-authenticates-the-user-for-the-app"></a>1. 서비스가 앱에 대해 사용자를 인증
+#### <a name="1-the-service-authenticates-the-user-for-the-app"></a>1. 서비스에서 앱에 대 한 사용자를 인증 합니다.
 
 사전 인증 방법으로 통과를 사용하도록 앱을 구성한 경우 이 섹션의 단계는 건너뜁니다.
 
 Azure AD를 사용하여 사전 인증하도록 앱을 구성한 경우 사용자는 인증을 위해 Azure AD STS로 리디렉션되고 다음 단계가 수행됩니다.
 
-1. 응용 프로그램 프록시는 특정 응용 프로그램에 대 한 조건부 액세스 정책 요구 사항을 확인합니다. 이 단계에서는 애플리케이션에 사용자를 할당했는지 확인합니다. 2단계 인증이 필요한 경우 인증 시퀀스는 사용자에게 또 다른 인증 방법을 지정하라는 메시지를 표시합니다.
+1. 응용 프로그램 프록시는 특정 응용 프로그램에 대 한 조건부 액세스 정책 요구 사항을 확인 합니다. 이 단계에서는 애플리케이션에 사용자를 할당했는지 확인합니다. 2단계 인증이 필요한 경우 인증 시퀀스는 사용자에게 또 다른 인증 방법을 지정하라는 메시지를 표시합니다.
 
 2. 모든 확인을 거친 후에 Azure AD STS에서 애플리케이션에 대해 서명된 토큰을 발급하고 사용자를 다시 애플리케이션 프록시 서비스로 리디렉션합니다.
 
@@ -157,13 +153,13 @@ Azure AD를 사용하여 사전 인증하도록 앱을 구성한 경우 사용�
 사전 인증 단계 중 일부가 실패하면 사용자 요청이 거부되고 사용자에게 문제 원인을 나타내는 메시지가 표시됩니다.
 
 
-#### <a name="2-the-service-places-a-request-in-the-connector-queue"></a>2. 서비스에서 커넥터 큐에 요청 배치
+#### <a name="2-the-service-places-a-request-in-the-connector-queue"></a>2. 서비스에서 커넥터 큐에 요청을 배치 합니다.
 
 커넥터에서 애플리케이션 프록시에 대한 아웃바운드 연결을 열려 있는 상태로 유지합니다. 요청이 들어오면 서비스는 커넥터에서 선택하도록 열려 있는 연결 중 하나에 있는 요청을 큐에 넣습니다
 
 요청에는 요청 헤더, 암호화된 쿠키의 데이터, 요청하는 사용자 및 요청 ID 등 애플리케이션의 항목이 포함됩니다. 암호화된 쿠키의 데이터가 요청과 함께 전송되지만 인증 쿠키 자체가 전송되는 것은 아닙니다.
 
-#### <a name="3-the-connector-processes-the-request-from-the-queue"></a>3. 커넥터에서 큐의 요청 처리 
+#### <a name="3-the-connector-processes-the-request-from-the-queue"></a>3. 커넥터가 큐에서 요청을 처리 합니다. 
 
 요청에 따라 애플리케이션 프록시는 다음 작업 중 하나를 수행합니다.
 
@@ -171,13 +167,13 @@ Azure AD를 사용하여 사전 인증하도록 앱을 구성한 경우 사용�
 
 * 요청에 본문에 있는 내용과 연결된 데이터가 있는 경우(예: RESTful *POST* 작업) 커넥터는 클라이언트 인증서를 사용하여 애플리케이션 프록시 인스턴스로 아웃바운드 연결을 만듭니다. 이 연결을 만들어서 데이터를 요청하고 내부 리소스에 대한 연결을 엽니다. 커넥터에서 요청을 받은 후에 애플리케이션 프록시 서비스는 사용자로부터 콘텐츠를 수락하고 데이터를 커넥터에 전달합니다. 그러면 커넥터가 데이터를 내부 리소스에 전달합니다.
 
-#### <a name="4-the-connector-waits-for-a-response"></a>4. 커넥터에서 응답 대기
+#### <a name="4-the-connector-waits-for-a-response"></a>4. 커넥터가 응답을 기다립니다.
 
 백 엔드로 모든 콘텐츠의 요청 및 전송이 완료된 후에 커넥터가 응답을 기다립니다.
 
 응답이 수신된 후에 커넥터가 애플리케이션 프록시 서비스로 아웃바운드 연결을 만들어 헤더 세부 정보를 반환하고 반환 데이터의 스트리밍을 시작합니다.
 
-#### <a name="5-the-service-streams-data-to-the-user"></a>5. 서비스에서 사용자에게 데이터 스트리밍 
+#### <a name="5-the-service-streams-data-to-the-user"></a>5. 서비스는 사용자에 게 데이터를 스트리밍합니다. 
 
 애플리케이션의 처리 일부가 여기서 발생할 수 있습니다. 애플리케이션에서 헤더 또는 URL을 변환하도록 애플리케이션 프록시를 구성한 경우 이 단계에서 필요에 따라 해당 처리가 수행됩니다.
 

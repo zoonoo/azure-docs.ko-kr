@@ -7,12 +7,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/23/2019
 ms.topic: conceptual
-ms.openlocfilehash: 88382a5b6e0364145d8504b5e25ef1a9bfd0111a
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 95f7d4d03fbac6ec7c27630f1210ef999ddc776c
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77484131"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79369270"
 ---
 # <a name="check-for-pool-and-node-errors"></a>풀 및 노드 오류 확인
 
@@ -137,8 +137,21 @@ Batch가 원인을 확인할 수 있으면 노드 [errors](https://docs.microsof
 
 각 태스크에 의해 기록 된 파일의 경우 작업 파일이 자동으로 정리 되기 전에 유지 되는 기간을 결정 하는 각 작업에 대해 보존 시간을 지정할 수 있습니다. 저장소 요구 사항을 낮출 수 있도록 보존 시간을 줄일 수 있습니다.
 
-임시 디스크 공간이 가득 차면 현재 노드의 태스크 실행이 중지 됩니다. 나중에 [노드 오류가](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) 보고 됩니다.
+임시 디스크의 공간이 부족 하거나 (공간이 부족 하 여 디스크의 공간이 부족 한 경우), 노드가 사용 불가능 상태로 전환 되 고 노드 오류 (이미 링크를 사용 하 여)는 디스크가 꽉 찬 [것으로 보고](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodestate) 됩니다.
 
+### <a name="what-to-do-when-a-disk-is-full"></a>디스크가 꽉 찬 경우 수행할 작업
+
+디스크가 꽉 찬 이유 확인: 노드에서 공간을 차지 하 고 있는지 확실 하지 않은 경우 노드에 원격으로 이동 하 여 공간이 사라진 위치를 수동으로 조사 하는 것이 좋습니다. Batch [목록 파일 API](https://docs.microsoft.com/rest/api/batchservice/file/listfromcomputenode) 를 사용 하 여 batch 관리 폴더 (예: 작업 출력)의 파일을 검사할 수도 있습니다. 이 API는 Batch 관리 디렉터리의 파일만 나열 하 고 다른 위치에서 파일을 만든 경우에는 해당 파일을 볼 수 없습니다.
+
+필요한 모든 데이터가 노드에서 검색 되었거나 영 속 저장소로 업로드 되었는지 확인 합니다. 디스크 전체 문제를 완화 하려면 데이터를 삭제 하 여 공간을 확보 해야 합니다.
+
+### <a name="recovering-the-node"></a>노드 복구
+
+1. 풀이 [loudServiceConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#cloudserviceconfiguration) 풀이 면 [BATCH 다시 이미지 API](https://docs.microsoft.com/rest/api/batchservice/computenode/reimage)를 통해 노드를 다시 이미지로 지정할 수 있습니다. 그러면 전체 디스크가 정리 됩니다. [VirtualMachineConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration) 풀에는 현재 이미지를 다시 사용할 수 없습니다.
+
+2. 풀이 [VirtualMachineConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration)경우 [노드 제거 API](https://docs.microsoft.com/rest/api/batchservice/pool/removenodes)를 사용 하 여 풀에서 노드를 제거할 수 있습니다. 그런 다음 풀을 다시 확장 하 여 잘못 된 노드를 새 노드로 바꿀 수 있습니다.
+
+3.  작업 데이터가 아직 노드에 있는 이전 완료 된 작업 또는 이전에 완료 된 작업을 삭제 합니다. 노드에 있는 작업/작업 데이터에 대 한 힌트는 노드의 [RecentTasks 컬렉션](https://docs.microsoft.com/rest/api/batchservice/computenode/get#taskinformation) 또는 [노드의 파일](https://docs.microsoft.com//rest/api/batchservice/file/listfromcomputenode)에서 확인할 수 있습니다. 작업을 삭제 하면 작업의 모든 태스크가 삭제 되 고 작업의 태스크를 삭제 하면 삭제할 노드의 태스크 디렉터리에 있는 데이터가 트리거되어 공간이 확보 됩니다. 충분 한 공간을 확보 한 후에는 노드를 다시 부팅 하 고 "사용할 수 없음" 상태에서 "유휴" 상태로 다시 이동 해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

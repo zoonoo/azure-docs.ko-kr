@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/31/2020
+ms.date: 03/11/2020
 ms.author: dapine
-ms.openlocfilehash: d94b3392d6bd5ab539d49c8a4cfdd568fbbb1cd0
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: b3802e66b0ba5a68c898e69ec64b01edce1541c1
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77560816"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79371361"
 ---
-# <a name="about-multi-device-conversation-preview"></a>다중 장치 대화 정보 (미리 보기)
+# <a name="what-is-multi-device-conversation-preview"></a>다중 장치 대화 (미리 보기) 란?
 
 **다중 장치 대화** 를 사용 하면 여러 클라이언트 간에 음성 또는 텍스트 대화를 쉽게 만들고 두 클라이언트 간에 전송 되는 메시지를 조정할 수 있습니다.
 
@@ -75,8 +75,8 @@ ms.locfileid: "77560816"
 **대화** 는 참여 하는 다른 사용자가 참여 하기 위해 한 사용자가 시작 하는 세션입니다. 모든 클라이언트는 5 자로 된 **대화 코드**를 사용 하 여 대화에 연결 합니다.
 
 각 대화는 다음을 포함 하는 메타 데이터를 만듭니다.
--   대화가 시작 및 종료 된 시간에 대 한 타임 스탬프
--   음성 또는 텍스트 입력에 대 한 각 사용자의 선택 된 애칭 및 주 언어를 포함 하는 대화의 모든 참가자 목록입니다.
+-    대화가 시작 및 종료 된 시간에 대 한 타임 스탬프
+-    음성 또는 텍스트 입력에 대 한 각 사용자의 선택 된 애칭 및 주 언어를 포함 하는 대화의 모든 참가자 목록입니다.
 
 
 대화에는 **호스트** 와 **참가자**라는 두 가지 유형의 사용자가 있습니다.

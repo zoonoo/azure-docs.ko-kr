@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 4f975af233973ce5fac75ca46e334af5d91e8edc
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: f1aa605b3e6f32b260ea4a9eee9c056277fcd12d
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78246270"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79367077"
 ---
 # <a name="error-handling-in-azure-automation-graphical-runbooks"></a>Azure Automation 그래픽 runbook의 오류 처리
 
@@ -48,7 +48,7 @@ Runbook을 실행 하는 동안 발생할 수 있는 PowerShell 오류의 유형
 1. 이 문제에 대 한 알림을 보냅니다.
 2. 대신 새 VM을 자동으로 프로 비전 하는 다른 runbook을 시작 합니다.
 
-한 가지 해결 방법은 runbook에서 1 단계를 처리 하는 활동을 가리키는 오류 링크를 포함 하는 것입니다. 예를 들어 runbook은 [AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.5.0) cmdlet과 같은 2 단계에 대 한 작업에 **쓰기-경고** cmdlet을 연결할 수 있습니다.
+한 가지 해결 방법은 runbook에서 1 단계를 처리 하는 활동을 가리키는 오류 링크를 포함 하는 것입니다. 예를 들어 runbook은 `Write-Warning` cmdlet을 [AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.5.0) cmdlet과 같은 2 단계에 대 한 작업에 연결할 수 있습니다.
 
 또한 이러한 두 활동을 별도의 오류 처리 runbook에 배치 하 여 많은 runbook에서 사용 하기 위해이 동작을 일반화할 수 있습니다. 원래 runbook이이 오류 처리 runbook을 호출 하기 전에 해당 데이터에서 사용자 지정 메시지를 생성 한 다음 오류 처리 runbook에 매개 변수로 전달할 수 있습니다.
 
@@ -60,9 +60,9 @@ Runbook의 각 작업에는 예외를 종료 되지 않는 오류로 전환 하�
 
 다음 예에서는 runbook이 VM의 컴퓨터 이름을 포함 하는 변수를 검색 합니다. 그런 다음, 다음 작업을 사용 하 여 VM을 시작 하려고 시도 합니다.<br><br> ![Automation runbook 오류 처리 예제](media/automation-runbook-graphical-error-handling/runbook-example-error-handling.png)<br><br>      
 
-**Get AutomationVariable** 작업과 [new-azvm](https://docs.microsoft.com/powershell/module/Az.Compute/Start-AzVM?view=azps-3.5.0) cmdlet은 예외를 오류로 변환 하도록 구성 됩니다. 변수를 가져오거나 VM을 시작 하는 데 문제가 있는 경우 코드에서 오류를 생성 합니다.<br><br> ![Automation runbook 오류-처리 작업 설정을](media/automation-runbook-graphical-error-handling/activity-blade-convertexception-option.png)합니다.
+`Get-AutomationVariable` 작업 및 [new-azvm](https://docs.microsoft.com/powershell/module/Az.Compute/Start-AzVM?view=azps-3.5.0) cmdlet은 예외를 오류로 변환 하도록 구성 됩니다. 변수를 가져오거나 VM을 시작 하는 데 문제가 있는 경우 코드에서 오류를 생성 합니다.<br><br> ![Automation runbook 오류-처리 작업 설정을](media/automation-runbook-graphical-error-handling/activity-blade-convertexception-option.png)합니다.
 
-오류 링크는 이러한 활동에서 단일 **오류 관리** 코드 활동으로 흐릅니다. 이 활동은 **throw** 키워드를 사용 하 여 처리 `$Error.Exception.Message`를 중지 하 고 현재 예외를 설명 하는 메시지를 가져오는 간단한 PowerShell 식으로 구성 됩니다.<br><br> ![Automation runbook 오류 처리 코드 예제](media/automation-runbook-graphical-error-handling/runbook-example-error-handling-code.png)
+오류 링크는 이러한 활동에서 단일 `error management` 코드 활동으로 흐릅니다. 이 활동은 `throw` 키워드를 사용 하 여 현재 예외를 설명 하는 메시지를 가져오는 `$Error.Exception.Message`와 함께 처리를 중지 하는 간단한 PowerShell 식으로 구성 됩니다.<br><br> ![Automation runbook 오류 처리 코드 예제](media/automation-runbook-graphical-error-handling/runbook-example-error-handling-code.png)
 
 ## <a name="next-steps"></a>다음 단계
 

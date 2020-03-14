@@ -14,11 +14,11 @@ ms.workload: iaas-sql-server
 ms.date: 12/26/2019
 ms.author: mathoma
 ms.openlocfilehash: 9d8fce0772f13c6e009b2441ecd85779a7622c5c
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981731"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79243199"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>SQL Server VM에 대한 스토리지 구성
 
@@ -28,7 +28,7 @@ Azure에서 SQL Server 가상 머신 이미지를 구성하는 경우 포털에�
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 자동화된 스토리지 구성 설정을 사용하려면 가상 머신에는 다음과 같은 특성이 필요합니다.
 
@@ -40,7 +40,7 @@ Azure에서 SQL Server 가상 머신 이미지를 구성하는 경우 포털에�
 
 다음 섹션에서는 새 SQL Server 가상 머신에 대한 스토리지를 구성하는 방법을 설명합니다.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
 SQL Server 갤러리 이미지를 사용 하 여 Azure VM을 프로 비전 할 때 **SQL Server 설정** 탭에서 **구성 변경** 을 선택 하 여 성능 최적화 저장소 구성 페이지를 엽니다. 기본값에서 값을 그대로 두거나 워크 로드에 따라 사용자의 요구에 가장 적합 한 디스크 구성 유형을 수정할 수 있습니다. 
 
@@ -99,7 +99,7 @@ Azure에서 스토리지 설정을 구성하는 방법에 대한 자세한 내�
 * SQL data
 * SQL 로그
 * 기타(비 SQL 스토리지)
-* 사용할 수 있음
+* 사용 가능
 
 저장소 설정을 수정 하려면 **설정**아래에서 **구성** 을 선택 합니다. 
 
@@ -142,7 +142,7 @@ Azure는 다음 설정을 사용하여 SQL Server VM에 스토리지 풀을 만�
 
 | 워크로드 유형 | Description | 최적화 |
 | --- | --- | --- |
-| **일반** |대부분의 워크로드를 지원하는 기본 설정 |없음 |
+| **일반** |대부분의 워크로드를 지원하는 기본 설정 |None |
 | **트랜잭션 처리** |기존의 데이터베이스 OLTP 워크로드용으로 스토리지를 최적화합니다. |추적 플래그 1117<br/>추적 플래그 1118 |
 | **데이터 웨어하우징** |분석 및 보고 워크로드용으로 스토리지를 최적화합니다. |추적 플래그 610<br/>추적 플래그 1117 |
 

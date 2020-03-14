@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: c929ac1c171547a4ff485fc43f0f329440f9c3b5
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: aacffbfdec67d7faa58cb8bd08f99963fb78263a
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74763643"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79299280"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-postgresql"></a>PostgreSQL를 사용 하 여 인증을 위해 Azure Active Directory 사용
 
@@ -47,7 +47,7 @@ Azure Database for PostgreSQL 데이터베이스에 Azure AD 사용자를 추가
 3. Azure Database for PostgreSQL에서 역할 `<user>@yourtenant.onmicrosoft.com`를 만듭니다.
 4. Azure_ad_user 역할의 멤버 `<user>@yourtenant.onmicrosoft.com` 만듭니다. 이는 Azure AD 사용자 에게만 제공 되어야 합니다.
 
-**예제:**
+**예:**
 
 ```sql
 CREATE ROLE "user1@yourtenant.onmicrosoft.com" WITH LOGIN IN ROLE azure_ad_user;
@@ -60,7 +60,7 @@ CREATE ROLE "user1@yourtenant.onmicrosoft.com" WITH LOGIN IN ROLE azure_ad_user;
 
 데이터베이스에 대 한 액세스를 위해 Azure AD 그룹을 사용 하도록 설정 하려면 사용자에 대해와 동일한 메커니즘을 사용 합니다. 대신 그룹 이름을 지정 합니다.
 
-**예제:**
+**예:**
 
 ```sql
 CREATE ROLE "Prod DB Readonly" WITH LOGIN IN ROLE azure_ad_user;
@@ -163,7 +163,7 @@ export PGPASSWORD=<copy/pasted TOKEN value from step 2>
 이제 다음과 같이 Azure Database for PostgreSQL 연결을 시작할 수 있습니다.
 
 ```shell
-psql "host=mydb.postgres... user=user@tenant.onmicrosoft.com@mydb dbname=postgres"
+psql "host=mydb.postgres... user=user@tenant.onmicrosoft.com@mydb dbname=postgres sslmode=require"
 ```
 
 이제 Azure AD 인증을 사용 하 여 PostgreSQL 서버에 인증 됩니다.

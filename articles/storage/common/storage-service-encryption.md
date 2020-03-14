@@ -4,17 +4,17 @@ description: Azure Storage은 데이터를 클라우드로 유지 하기 전에 
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 02/05/2020
+ms.date: 03/09/2020
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 86d6a63601036abdde4ee7ae73114566d749feca
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
-ms.translationtype: HT
+ms.openlocfilehash: 028b186964643a08a4370741a3f1ff2ba33a4e85
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79130064"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79370307"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>휴지 상태의 데이터에 대 한 암호화 Azure Storage
 
@@ -65,7 +65,7 @@ Microsoft에서 관리 하는 키를 사용 하 여 저장소 계정의 암호�
 
 ## <a name="customer-managed-keys-with-azure-key-vault"></a>Azure Key Vault를 사용 하는 고객 관리 키
 
-사용자 고유의 키를 사용 하 여 저장소 계정 수준에서 Azure Storage 암호화를 관리할 수 있습니다. 저장소 계정 수준에서 고객 관리 키를 지정 하는 경우 해당 키는 저장소 계정의 루트 암호화 키에 대 한 액세스를 보호 하 고 제어 하는 데 사용 되며, 모든 blob 및 파일 데이터를 암호화 하 고 암호 해독 하는 데 사용 됩니다. 고객 관리 키를 통해 액세스 제어를 보다 유연 하 게 만들고, 회전 하 고, 사용 하지 않도록 설정 하 고, 취소할 수 있습니다. 데이터를 보호 하는 데 사용 되는 암호화 키를 감사할 수도 있습니다.
+사용자 고유의 키를 사용 하 여 저장소 계정 수준에서 Azure Storage 암호화를 관리할 수 있습니다. 저장소 계정 수준에서 고객 관리 키를 지정 하는 경우 해당 키는 저장소 계정의 루트 암호화 키에 대 한 액세스를 보호 하 고 제어 하는 데 사용 되며, 모든 blob 및 파일 데이터를 암호화 하 고 암호 해독 하는 데 사용 됩니다. 고객 관리 키를 사용 하면 더 많은 유연성을 제공 하 여 액세스 제어를 관리할 수 있습니다. 데이터를 보호 하는 데 사용 되는 암호화 키를 감사할 수도 있습니다.
 
 Azure Key Vault를 사용 하 여 고객 관리 키를 저장 해야 합니다. 사용자 고유의 키를 만들어 키 자격 증명 모음에 저장 하거나 Azure Key Vault Api를 사용 하 여 키를 생성할 수 있습니다. 저장소 계정 및 키 자격 증명 모음은 동일한 지역 및 동일한 Azure Active Directory (Azure AD) 테 넌 트에 있어야 하지만 다른 구독에 있을 수 있습니다. Azure Key Vault에 대 한 자세한 내용은 [Azure Key Vault 무엇입니까?](../../key-vault/key-vault-overview.md)를 참조 하세요.
 
@@ -112,7 +112,31 @@ Azure Storage 암호화를 위해 Azure Key Vault에서 고객이 관리 하는 
 
 ### <a name="revoke-access-to-customer-managed-keys"></a>고객 관리 키에 대 한 액세스 취소
 
-고객 관리 키에 대 한 액세스를 취소 하려면 PowerShell 또는 Azure CLI를 사용 합니다. 자세한 내용은 [Azure Key Vault PowerShell](/powershell/module/az.keyvault//) 또는 [Azure Key Vault CLI](/cli/azure/keyvault)를 참조 하세요. 액세스를 취소 하면 Azure Storage 의해 암호화 키에 액세스할 수 없으므로 저장소 계정의 모든 데이터에 대 한 액세스가 효과적으로 차단 됩니다.
+언제 든 지 고객 관리 키에 대 한 저장소 계정의 액세스 권한을 해지할 수 있습니다. 고객 관리 키에 대 한 액세스가 취소 되거나 키가 사용 되지 않도록 설정 되거나 삭제 된 후에 클라이언트는 blob 또는 해당 메타 데이터에서 읽거나 쓰는 작업을 호출할 수 없습니다. 모든 사용자에 대해 다음 작업을 호출 하려고 하면 실패 하 고 오류 코드 403 (사용할 수 없음)이 발생 합니다.
+
+- 요청 URI에서 `include=metadata` 매개 변수를 사용 하 여 호출 하는 경우 [blob을 나열](/rest/api/storageservices/list-blobs)합니다.
+- [Blob 가져오기](/rest/api/storageservices/get-blob)
+- [Blob 속성 가져오기](/rest/api/storageservices/get-blob-properties)
+- [Blob 메타 데이터 가져오기](/rest/api/storageservices/get-blob-metadata)
+- [Blob 메타데이터 설정](/rest/api/storageservices/set-blob-metadata)
+- [스냅숏 Blob](/rest/api/storageservices/snapshot-blob), `x-ms-meta-name` 요청 헤더를 사용 하 여 호출 되는 경우
+- [Blob 복사](/rest/api/storageservices/copy-blob)
+- [URL에서 Blob 복사](/rest/api/storageservices/copy-blob-from-url)
+- [Blob 계층 설정](/rest/api/storageservices/set-blob-tier)
+- [블록 배치](/rest/api/storageservices/put-block)
+- [URL에서 블록 배치](/rest/api/storageservices/put-block-from-url)
+- [추가 블록](/rest/api/storageservices/append-block)
+- [URL의 블록 추가](/rest/api/storageservices/append-block-from-url)
+- [Blob 배치](/rest/api/storageservices/put-blob)
+- [페이지 배치](/rest/api/storageservices/put-page)
+- [URL에서 페이지 배치](/rest/api/storageservices/put-page-from-url)
+- [Blob 증분 복사](/rest/api/storageservices/incremental-copy-blob)
+
+이러한 작업을 다시 호출 하려면 고객이 관리 하는 키에 대 한 액세스를 복원 합니다.
+
+이 섹션에 나열 되지 않은 모든 데이터 작업은 고객이 관리 하는 키가 해지 되거나 키가 비활성화 되거나 삭제 된 후에도 계속 될 수 있습니다.
+
+고객 관리 키에 대 한 액세스를 취소 하려면 [PowerShell](storage-encryption-keys-powershell.md#revoke-customer-managed-keys) 또는 [Azure CLI](storage-encryption-keys-cli.md#revoke-customer-managed-keys)를 사용 합니다.
 
 ### <a name="customer-managed-keys-for-azure-managed-disks-preview"></a>Azure managed disks에 대 한 고객 관리 키 (미리 보기)
 
@@ -122,11 +146,11 @@ Azure Storage 암호화를 위해 Azure Key Vault에서 고객이 관리 하는 
 
 Azure Blob 저장소에 대 한 요청을 수행 하는 클라이언트에는 개별 요청에 대 한 암호화 키를 제공 하는 옵션이 있습니다. 요청에 암호화 키를 포함 하면 Blob 저장소 작업의 암호화 설정에 대 한 세부적인 제어 기능을 제공 합니다. 고객이 제공한 키 (미리 보기)는 Azure Key Vault 또는 다른 키 저장소에 저장할 수 있습니다.
 
-Blob 저장소에 대 한 요청에 고객이 제공한 키를 지정 하는 방법을 보여 주는 예제는 .NET을 [사용 하 여 blob 저장소에 대 한 요청에 고객이 제공한 키 지정](../blobs/storage-blob-customer-provided-key.md)을 참조 하세요. 
+Blob 저장소에 대 한 요청에 고객이 제공한 키를 지정 하는 방법을 보여 주는 예제는 .NET을 [사용 하 여 blob 저장소에 대 한 요청에 고객이 제공한 키 지정](../blobs/storage-blob-customer-provided-key.md)을 참조 하세요.
 
 ### <a name="encrypting-read-and-write-operations"></a>읽기 및 쓰기 작업 암호화
 
-클라이언트 응용 프로그램에서 요청에 대 한 암호화 키를 제공 하는 경우 Azure Storage는 blob 데이터를 읽고 쓰는 동안 암호화 및 암호 해독을 투명 하 게 수행 합니다. Azure Storage는 blob 내용과 함께 암호화 키의 SHA-256 해시를 작성 합니다. 해시는 blob에 대 한 모든 후속 작업이 동일한 암호화 키를 사용 하는지 확인 하는 데 사용 됩니다. 
+클라이언트 응용 프로그램에서 요청에 대 한 암호화 키를 제공 하는 경우 Azure Storage는 blob 데이터를 읽고 쓰는 동안 암호화 및 암호 해독을 투명 하 게 수행 합니다. Azure Storage는 blob 내용과 함께 암호화 키의 SHA-256 해시를 작성 합니다. 해시는 blob에 대 한 모든 후속 작업이 동일한 암호화 키를 사용 하는지 확인 하는 데 사용 됩니다.
 
 Azure Storage는 클라이언트가 요청과 함께 보내는 암호화 키를 저장 하거나 관리 하지 않습니다. 암호화 또는 암호 해독 프로세스가 완료 되는 즉시 키가 안전 하 게 삭제 됩니다.
 

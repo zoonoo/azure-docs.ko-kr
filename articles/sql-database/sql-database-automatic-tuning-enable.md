@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/03/2019
-ms.openlocfilehash: bdd33d85ee0aac4808c343af088d4db1a0dc963e
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: eed839c277156046ff9b7d97c6e87636a0822889
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74767775"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79299331"
 ---
 # <a name="enable-automatic-tuning-to-monitor-queries-and-improve-workload-performance"></a>자동 조정을 사용하여 쿼리 모니터링 및 워크로드 성능 향상
 
@@ -34,7 +34,14 @@ Azure SQL Database는 지속적으로 쿼리를 모니터링하고 워크로드�
 
 서버 수준에서 "Azure 기본값"에서 자동 조정 구성을 상속하거나 구성을 상속하지 않도록 선택할 수 있습니다. Azure에서는 기본적으로 FORCE_LAST_GOOD_PLAN 및 CREATE_INDEX는 사용하고 DROP_INDEX는 사용하지 않도록 설정됩니다.
 
-### <a name="azure-portal"></a>Azure Portal
+> [!IMPORTANT]
+> 3 2020 월을 기준으로 Azure 기본값 자동 조정에 대 한 변경 내용은 다음과 같이 적용 됩니다.
+>
+> - 새 Azure 기본값은 FORCE_LAST_GOOD_PLAN = enabled, CREATE_INDEX = disabled 및 DROP_INDEX = disabled입니다.
+> - 자동 조정 기본 설정이 없는 기존 서버는 새 Azure 기본값을 상속 하도록 자동으로 구성 됩니다. 이는 정의 되지 않은 상태에서 자동 조정을 위한 서버 설정이 현재 있는 모든 고객에 게 적용 됩니다.
+> - 새 서버를 만들 때 새로 만든 서버가 자동으로 새 Azure 기본값을 상속 하도록 구성 됩니다 (이전에는 자동 튜닝 구성이 정의 되지 않은 상태에 있는 경우와 다름).
+
+### <a name="azure-portal"></a>Azure portal
 
 Azure SQL Database 논리 **서버**에서 자동 조정을 사용하려면 Azure Portal에서 서버로 이동한 다음, 메뉴에서 **자동 조정**을 선택합니다.
 
@@ -60,7 +67,7 @@ Azure SQL Database를 통해 각 데이터베이스에서 자동 조정 구성�
 > 동일한 구성 설정을 모든 데이터베이스에 대해 자동으로 적용할 수 있도록 **서버 수준**에서 자동 조정 구성을 관리하는 것이 좋습니다. 데이터베이스가 동일한 서버에서 설정을 상속하는 다른 데이터베이스와 다른 설정을 가지도록 해야 하는 경우에만 개별 데이터베이스에서 자동 조정을 구성합니다.
 >
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
 **단일 데이터베이스**에서 자동 조정을 사용하려면 Azure Portal에서 데이터베이스로 이동하여 **자동 조정**을 선택합니다.
 
@@ -104,7 +111,7 @@ ALTER DATABASE current SET AUTOMATIC_TUNING (FORCE_LAST_GOOD_PLAN = ON, CREATE_I
 
 자동 조정은 데이터베이스에서 수행하는 모든 작업을 모니터링하고 일부 경우에서 자동 조정이 데이터베이스에서 제대로 작동할 수 없는지 결정할 수 있습니다. 이 상황에서 조정 옵션은 시스템에서 비활성화됩니다. 쿼리 저장소는 활성화되지 않았거나 특정 데이터베이스에서 읽기 전용 상태에 있기 때문에 대부분의 경우에서 발생합니다.
 
-## <a name="permissions"></a>권한
+## <a name="permissions"></a>사용 권한
 
 자동 튜닝은 Azure 기능 이므로,이 기능을 사용 하려면 Azure의 기본 제공 RBAC 역할을 사용 해야 합니다. SQL 인증을 사용 하는 것 만으로는 Azure Portal 기능을 사용할 수 없습니다.
 

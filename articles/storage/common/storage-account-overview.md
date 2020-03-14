@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 2983be507fdc40d033623afa37c72eb2507d99ca
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 3694a1d04ec25f44cfcf9395bdd148e2fd3c0d9f
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77597171"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79371559"
 ---
 # <a name="storage-account-overview"></a>Storage 계정 개요
 
@@ -108,7 +108,7 @@ Azure Storage는 사용 패턴에 따라 블록 Blob 데이터 액세스를 위�
 
 - **핫** 액세스 계층입니다. 이 계층은 저장소 계정의 개체에 대 한 자주 액세스 하도록 최적화 되어 있습니다. 핫 계층의 데이터에 액세스 하는 것은 가장 비용 효율적 이지만, 저장소 비용은 더 높습니다. 기본적으로 새 스토리지 계정은 핫 계층에 만들어집니다.
 - **쿨** 액세스 계층입니다. 이 계층은 드물게 액세스 되 고 최소 30 일 동안 저장 되는 대량의 데이터를 저장 하는 데 최적화 되어 있습니다. 쿨 계층에 데이터를 저장 하는 것이 더 비용 효율적 이지만 데이터에 액세스 하는 것이 핫 계층의 데이터에 액세스 하는 것 보다 비용이 더 많이 들 수 있습니다.
-- **보관** 계층입니다. 이 계층은 개별 블록 blob 및 추가 blob에 대해서만 사용할 수 있습니다. 보관 계층은 몇 시간의 검색 대기 시간을 허용할 수 있고 최소 180 일 동안 보관 계층에 남아 있는 데이터에 대해 최적화 됩니다. 보관 계층은 데이터를 저장 하는 가장 비용 효율적인 옵션입니다. 그러나 해당 데이터에 액세스 하는 것은 핫 또는 쿨 계층의 데이터에 액세스 하는 것 보다 비용이 많이 듭니다.
+- **보관** 계층입니다. 이 계층은 개별 블록 blob에 대해서만 사용할 수 있습니다. 보관 계층은 몇 시간의 검색 대기 시간을 허용할 수 있고 최소 180 일 동안 보관 계층에 남아 있는 데이터에 대해 최적화 됩니다. 보관 계층은 데이터를 저장 하는 가장 비용 효율적인 옵션입니다. 그러나 해당 데이터에 액세스 하는 것은 핫 또는 쿨 계층의 데이터에 액세스 하는 것 보다 비용이 많이 듭니다.
 
 데이터의 사용 패턴이 변경 되 면 언제 든 지 이러한 액세스 계층 간을 전환할 수 있습니다. 액세스 계층에 대 한 자세한 내용은 [Azure Blob storage: 핫, 쿨 및 보관 액세스 계층](../blobs/storage-blob-storage-tiers.md)을 참조 하세요.
 

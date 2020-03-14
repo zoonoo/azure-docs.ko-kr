@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: absha
-ms.openlocfilehash: bb6ad1f131d1299ce1e076fee70e6640e3bdf20a
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: ef82d748b67db736bc2294089cd92edd2adde4a7
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77913262"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79297955"
 ---
 # <a name="application-gateway-configuration-overview"></a>Application Gateway 구성 개요
 
@@ -25,7 +25,7 @@ Azure 애플리케이션 게이트웨이는 다양 한 시나리오에 대해 �
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 ### <a name="azure-virtual-network-and-dedicated-subnet"></a>Azure 가상 네트워크 및 전용 서브넷
 
@@ -127,7 +127,7 @@ HTTP 또는 HTTPS를 선택 합니다.
 
 - HTTP를 선택 하면 클라이언트와 응용 프로그램 게이트웨이 간의 트래픽이 암호화 되지 않습니다.
 
-- [Ssl 종료](https://docs.microsoft.com/azure/application-gateway/overview#secure-sockets-layer-ssltls-termination) 또는 [종단 간 ssl 암호화](https://docs.microsoft.com/azure/application-gateway/ssl-overview)를 원하는 경우 HTTPS를 선택 합니다. 클라이언트와 응용 프로그램 게이트웨이 간의 트래픽이 암호화 됩니다. 그리고 SSL 연결은 application gateway에서 종료 됩니다. 종단 간 SSL 암호화를 원하는 경우 HTTPS를 선택 하 고 **백 엔드 HTTP** 설정을 구성 해야 합니다. 이렇게 하면 응용 프로그램이 응용 프로그램 게이트웨이에서 백 엔드에서 이동할 때 트래픽이 다시 암호화 됩니다.
+- [Ssl 종료](features.md#secure-sockets-layer-ssltls-termination) 또는 [종단 간 ssl 암호화](https://docs.microsoft.com/azure/application-gateway/ssl-overview)를 원하는 경우 HTTPS를 선택 합니다. 클라이언트와 응용 프로그램 게이트웨이 간의 트래픽이 암호화 됩니다. 그리고 SSL 연결은 application gateway에서 종료 됩니다. 종단 간 SSL 암호화를 원하는 경우 HTTPS를 선택 하 고 **백 엔드 HTTP** 설정을 구성 해야 합니다. 이렇게 하면 응용 프로그램이 응용 프로그램 게이트웨이에서 백 엔드에서 이동할 때 트래픽이 다시 암호화 됩니다.
 
 SSL 종료 및 종단 간 SSL 암호화를 구성 하려면 수신기에 인증서를 추가 하 여 application gateway에서 대칭 키를 파생할 수 있도록 해야 합니다. 이는 SSL 프로토콜 사양에 따라 결정 됩니다. 대칭 키는 게이트웨이로 전송 되는 트래픽을 암호화 하 고 암호 해독 하는 데 사용 됩니다. 게이트웨이 인증서는 PFX (개인 정보 교환) 형식 이어야 합니다. 이 형식을 사용 하면 게이트웨이에서 트래픽을 암호화 하 고 암호 해독 하는 데 사용 하는 개인 키를 내보낼 수 있습니다.
 
@@ -340,7 +340,7 @@ Azure App Service 백 엔드에 대 한 두 가지 필수 설정을 선택 하�
 
 ## <a name="back-end-pool"></a>백 엔드 풀
 
-백 엔드 풀은 특정 가상 머신, 가상 머신 확장 집합, IP 주소/FQDN 또는 app service의 네 가지 유형의 백 엔드 구성원으로 지정할 수 있습니다. 각 백 엔드 풀은 동일한 유형의 여러 멤버를 가리킬 수 있습니다. 같은 백 엔드 풀에 있는 다른 유형의 멤버를 가리키는 것은 지원 되지 않습니다.
+백 엔드 풀은 특정 가상 머신, 가상 머신 확장 집합, IP 주소/FQDN 또는 app service의 네 가지 유형의 백 엔드 구성원으로 지정할 수 있습니다. 
 
 백 엔드 풀을 만든 후 하나 이상의 요청 라우팅 규칙과 연결 해야 합니다. 또한 응용 프로그램 게이트웨이에서 각 백 엔드 풀에 대 한 상태 프로브를 구성 해야 합니다. 요청 라우팅 규칙 조건이 충족 되 면 응용 프로그램 게이트웨이는 해당 백 엔드 풀의 정상 서버 (상태 프로브에 의해 결정 됨)로 트래픽을 전달 합니다.
 

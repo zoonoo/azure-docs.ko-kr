@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 36b3857f8827f8a33e5fc0981b22a49128f7c193
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 5653fa7c67d36dbf2ee71f51f182168bccb69105
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74535328"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79298617"
 ---
 # <a name="azure-active-directory-identity-and-access-management-operations-reference-guide"></a>Azure Active Directory Id 및 액세스 관리 작업 참조 가이드
 
@@ -31,7 +31,7 @@ ms.locfileid: "74535328"
 
 Azure Active Directory를 관리 하려면 롤아웃 프로젝트에 포함 될 수 없는 주요 운영 작업 및 프로세스를 지속적으로 실행 해야 합니다. 사용자 환경을 유지 하기 위해 이러한 작업을 설정 하는 것도 중요 합니다. 핵심 작업과 권장 소유자는 다음과 같습니다.
 
-| 작업 | 소유자 |
+| Task | 소유자 |
 | :- | :- |
 | Azure 구독을 만드는 방법에 대 한 프로세스 정의 | 조직 마다 다름 |
 | Enterprise Mobility + Security 라이선스를 가져오는 사람 결정 | IAM 운영 팀 |
@@ -97,7 +97,7 @@ Azure AD Connect는 프로 비전 프로세스에서 주요 역할을 수행 합
 
 ![Azure AD Connect 준비 모드 구성의 스크린샷](./media/active-directory-ops-guide/active-directory-ops-img1.png)
 
-#### <a name="stay-current"></a>최신 정보 및 지식 습득
+#### <a name="stay-current"></a>최신 상태 유지
 
 Microsoft 업데이트는 정기적으로 Azure AD Connect. 새 버전이 제공 하는 성능 향상, 버그 수정 및 새로운 기능을 활용 하려면 최신 상태를 유지 하세요.
 
@@ -170,7 +170,7 @@ Azure Active Directory Microsoft 클라우드 서비스에 대 한 [그룹 기�
 리소스 소유자는 **Enterprise 직원과** **게스트가**실제로 모두 포함 될 수 있는 경우 **모든 사용자** 그룹에 **엔터프라이즈 직원만** 포함 되어 있다고 생각할 수 있습니다. 따라서 응용 프로그램 할당을 위해 **모든 사용자** 그룹을 사용 하 고 SharePoint 콘텐츠 또는 응용 프로그램과 같은 리소스에 대 한 액세스 권한을 부여 하는 경우 특별 한 주의가 필요 합니다.
 
 > [!IMPORTANT]
-> **모든 사용자** 그룹을 사용 하도록 설정 하 고 조건부 액세스 정책, 앱 또는 리소스 할당에 사용 하는 경우 게스트 사용자를 포함 하지 않으려는 경우 [그룹을 보호](https://docs.microsoft.com/azure/active-directory/b2b/use-dynamic-groups#hardening-the-all-users-dynamic-group) 해야 합니다. 또한 **Enterprise 직원만** 포함 된 그룹을 만들고 할당 하 여 라이선스 할당을 수정 해야 합니다. 반면에 **모든 사용자** 그룹을 사용 하도록 설정 하 고 리소스에 대 한 액세스 권한을 부여 하는 데 사용 하지 않는 경우 조직의 운영 지침이 해당 그룹 ( **Enterprise 직원과** **게스트**모두 포함)을 의도적으로 사용 하 고 있는지 확인 해야 합니다.
+> **모든 사용자** 그룹을 사용 하도록 설정 하 고 조건부 액세스 정책, 앱 또는 리소스 할당에 사용 하는 경우 게스트 사용자를 포함 하지 않으려는 경우 [그룹을 보호](https://docs.microsoft.com/azure/active-directory/b2b/use-dynamic-groups) 해야 합니다. 또한 **Enterprise 직원만** 포함 된 그룹을 만들고 할당 하 여 라이선스 할당을 수정 해야 합니다. 반면에 **모든 사용자** 그룹을 사용 하도록 설정 하 고 리소스에 대 한 액세스 권한을 부여 하는 데 사용 하지 않는 경우 조직의 운영 지침이 해당 그룹 ( **Enterprise 직원과** **게스트**모두 포함)을 의도적으로 사용 하 고 있는지 확인 해야 합니다.
 
 ### <a name="automated-user-provisioning-to-apps"></a>앱에 대 한 자동화 된 사용자 프로비저닝
 

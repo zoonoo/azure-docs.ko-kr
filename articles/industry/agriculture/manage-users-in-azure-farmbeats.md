@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: v-umha
-ms.openlocfilehash: 208a302a0702a5c4de4d194c9e72f562aaf758c4
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 47da8146d3984982a9024b3bd084a1ab384c944f
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78392722"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79298787"
 ---
 # <a name="manage-users"></a>사용자 관리
 
@@ -18,7 +18,7 @@ Azure FarmBeats에는 Azure Active Directory (Azure AD) 인스턴스에 속한 �
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- Azure FarmBeats를 설치 해야 합니다. 자세한 내용은 [Azure FarmBeats 설치](install-azure-farmbeats.md)를 참조 하세요.
+- Azure FarmBeats 설치가 필요 합니다. 자세한 내용은 [Azure FarmBeats 설치](install-azure-farmbeats.md)를 참조 하세요.
 - Azure FarmBeats 인스턴스에서 추가 하거나 제거할 사용자의 전자 메일 Id입니다.
 
 ## <a name="manage-azure-farmbeats-users"></a>Azure FarmBeats 사용자 관리
@@ -26,6 +26,8 @@ Azure FarmBeats에는 Azure Active Directory (Azure AD) 인스턴스에 속한 �
 Azure FarmBeats는 인증, 액세스 제어 및 역할에 Azure AD를 사용 합니다. Azure FarmBeats의 사용자로 Azure AD 테 넌 트의 사용자를 추가할 수 있습니다.
 
 > [!NOTE]
+> 사용자가 Azure AD 테 넌 트 사용자가 아닌 경우 **AZURE ad 사용자 추가** 섹션의 지침에 따라 설치를 완료 합니다.
+
 > Azure FarmBeats 사용자로 추가 하려는 사용자가 Azure AD 테 넌 트에 없는 경우 "Azure AD 사용자 추가" 섹션의 지침에 따라 설치를 완료 합니다.
 
 Azure FarmBeats는 두 가지 유형의 사용자 역할을 지원 합니다.
@@ -63,7 +65,7 @@ Azure FarmBeats 시스템에서 사용자를 제거 하려면 다음을 수행 �
 ## <a name="add-azure-ad-users"></a>Azure AD 사용자 추가
 
 > [!NOTE]
-> Azure FarmBeats 사용자는 Azure AD 테 넌 트에 있어야 응용 프로그램 및 역할에 할당할 수 있습니다. Azure FarmBeats에 추가 하려는 사용자가 Azure AD 테 넌 트에 아직 없는 경우이 섹션의 지침을 따르세요. 사용자가 Azure AD 테 넌 트에 있는 경우 이러한 지침을 건너뛸 수 있습니다.
+> Azure FarmBeats 사용자는 응용 프로그램 및 역할에 할당 하기 전에 Azure AD 테 넌 트에 있어야 합니다. 사용자가 Azure AD 테 넌 트에 존재 하지 않는 경우이 섹션의 지침을 따르세요. 사용자가 이미 Azure AD 테 넌 트에 있는 경우 지침을 건너뜁니다.
 
 Azure AD에 사용자를 추가 하려면 다음을 수행 합니다.
 

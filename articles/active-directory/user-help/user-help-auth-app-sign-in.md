@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: ac61c01c5e45b6e8e001a68781f93c3962cb581f
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: 9b8c44f99953d4518f0bc3f558f396250657c632
+ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78297848"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79138946"
 ---
 # <a name="sign-in-to-your-accounts-using-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱을 사용하여 계정에 로그인
 
@@ -112,7 +112,7 @@ IOS 장치에서:
 
 ## <a name="sign-in-using-two-factor-verification-for-your-account"></a>계정에 2단계 인증을 사용하여 로그인
 
-표준 2 단계 인증 방법을 사용 하려면 로그인 하는 장치에 사용자 이름과 암호를 입력 한 다음 Microsoft Authenticator 앱에서 Microsoft Authenticator 앱을 받을지 여부를 선택 해야 합니다. Android 장치에서 이러한 확인 코드는 계정 화면에서 찾을 수 있습니다. IOS 장치에서 계정 화면 또는 계정의 유형에 **따라 계정의 전체** 화면 보기에서 이러한 확인 코드를 찾을 수 있습니다. Microsoft Authenticator 앱에 계정을 추가하는 프로세스의 일환으로 계정에 대해 2단계 인증을 설정합니다.
+표준 2 단계 인증 방법을 사용 하려면 로그인 하는 장치에 사용자 이름과 암호를 입력 해야 합니다. 그런 다음 Microsoft Authenticator 앱을 열고 계정에 대해 임의로 생성 된 코드를 **코드 입력** 상자에 입력 합니다. Android 장치에서 이러한 확인 코드는 **계정** 화면에서 찾을 수 있습니다. IOS 장치에서 이러한 확인 코드는 계정 유형에 따라 계정의 전체 화면 보기 또는 **계정 화면에서** 찾을 수 있습니다. Microsoft Authenticator 앱에 계정을 추가하는 프로세스의 일환으로 계정에 대해 2단계 인증을 설정합니다.
 
 >[!Note]
 >Microsoft Authenticator 앱의 **계정** 화면에 회사 또는 학교 계정 또는 개인 계정이 표시되지 않는 경우 Microsoft Authenticator 앱에 계정을 추가하지 않은 것을 의미합니다. 계정을 추가하려면 [회사 또는 학교 계정 추가](user-help-auth-app-add-work-school-account.md) 또는 [개인 계정 추가](user-help-auth-app-add-personal-ms-account.md)를 참조하세요.

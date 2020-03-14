@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/02/2019
 ms.author: TomSh
-ms.openlocfilehash: 6d4d8ac1eb001f03e7615eeabdaca6967223f40b
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 3ded20f37a394e6adf726ad40c01aa36d41e4e8d
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78392025"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79299348"
 ---
 # <a name="azure-best-practices-for-network-security"></a>네트워크 보안에 대 한 Azure 모범 사례
 이 문서에서는 네트워크 보안을 향상 시키기 위한 Azure 모범 사례 모음을 설명 합니다. 이러한 모범 사례는 Azure 네트워킹에 대한 Microsoft의 경험 그리고 여러분 같은 고객의 경험에서 얻은 것입니다.
@@ -55,7 +55,7 @@ Azure 가상 네트워크는 온-프레미스 네트워크의 Lan과 비슷합�
 **모범 사례**: 큰 주소 공간을 서브넷으로 분할합니다.   
 **세부 정보**: [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) 기반 서브넷 지정 원칙을 사용하여 서브넷을 만듭니다.
 
-**모범 사례**: 서브넷 간에 네트워크 액세스 제어를 만듭니다. 서브넷 간의 라우팅은 자동으로 발생하므로 라우팅 테이블을 수동으로 구성할 필요가 없습니다. 기본적으로 Azure 가상 네트워크에서 만든 서브넷 사이에는 네트워크 액세스 제어가 없습니다.   
+**모범 사례**: 서브넷 간에 네트워크 액세스 제어를 만듭니다. 서브넷 간 라우팅은 자동으로 발생 하므로 라우팅 테이블을 수동으로 구성할 필요가 없습니다. 기본적으로 Azure 가상 네트워크에서 만든 서브넷 사이에는 네트워크 액세스 제어가 없습니다.   
 **세부 정보**: [네트워크 보안 그룹](/azure/virtual-network/virtual-networks-nsg) 을 사용 하 여 Azure 서브넷으로의 무단 트래픽을 방지 합니다. 네트워크 보안 그룹은 5 튜플 접근 방식 (원본 IP, 원본 포트, 대상 IP, 대상 포트 및 계층 4 프로토콜)을 사용 하 여 네트워크 트래픽에 대 한 허용/거부 규칙을 만드는 간단한 상태 저장 패킷 검사 장치입니다. 단일 IP 주소 간의 트래픽, 여러 IP 주소 간의 트래픽 또는 전체 서브넷 간의 트래픽을 허용하거나 거부할 수 있습니다.
 
 네트워크 보안 그룹을 사용 하 여 서브넷 간의 네트워크 액세스를 제어 하는 경우 동일한 보안 영역 또는 역할에 속한 리소스를 자체 서브넷에 배치할 수 있습니다.
@@ -111,7 +111,7 @@ Azure 네트워크 보안 어플라이언스는 네트워크 수준 제어에서
 * 바이러스 백신
 * 봇 넷 보호
 
-사용할 수 있는 Azure 가상 네트워크 보안 어플라이언스를 찾으려면 [Azure Marketplace](https://azure.microsoft.com/marketplace/)로 이동하여 "보안" 및 "네트워크 보안"을 검색하세요.
+사용 가능한 Azure virtual network 보안 어플라이언스를 찾으려면 [Azure Marketplace](https://azure.microsoft.com/marketplace/) 으로 이동 하 여 "보안" 및 "네트워크 보안"을 검색 합니다.
 
 ## <a name="deploy-perimeter-networks-for-security-zones"></a>보안 영역에 대한 경계 네트워크 배포
 [경계 네트워크](https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter)(DMZ이라고도 함)는 물리적 또는 논리적 네트워크 세그먼트로서 자산과 인터넷 사이에 추가 보안 계층을 제공합니다. 경계 네트워크의 가장자리에 있는 특수화된 네트워크 액세스 제어 디바이스는 가상 네트워크로 원하는 트래픽만 전송되도록 합니다.
@@ -122,7 +122,7 @@ Azure 네트워크 보안 어플라이언스는 네트워크 수준 제어에서
 
 앞에서 설명한 제로 신뢰 개념을 기반으로 하 여 Azure 리소스에 대 한 네트워크 보안 및 액세스 제어 수준을 향상 시키기 위해 모든 높은 보안 배포에 경계 네트워크를 사용 하는 것이 좋습니다. Azure 또는 타사 솔루션을 사용 하 여 자산과 인터넷 사이에 추가 보안 계층을 제공할 수 있습니다.
 
-- Azure native controls. Application Gateway의 [Azure 방화벽](/azure/firewall/overview) 및 [웹 응용 프로그램 방화벽](/azure/application-gateway/overview#web-application-firewall) 은 전체 상태 저장 방화벽을 서비스로 제공 하 고, 기본 제공 되는 고가용성, 무제한 클라우드 확장성, FQDN 필터링, OWASP 핵심 규칙 집합에 대 한 지원 및 간단한 설정 및 구성을 제공 합니다.
+- Azure native controls. Application Gateway의 [Azure 방화벽](/azure/firewall/overview) 및 [웹 응용 프로그램 방화벽](../../application-gateway/features.md#web-application-firewall) 은 전체 상태 저장 방화벽을 서비스로 제공 하 고, 기본 제공 되는 고가용성, 무제한 클라우드 확장성, FQDN 필터링, OWASP 핵심 규칙 집합에 대 한 지원 및 간단한 설정 및 구성을 제공 합니다.
 - 타사 제품. 친숙 한 보안 도구를 제공 하는 NGFW (차세대 방화벽) 및 기타 타사 제품을 [Azure Marketplace](https://azuremarketplace.microsoft.com/) 검색 하 고 네트워크 보안 수준을 크게 향상 시킵니다. 구성은 더 복잡할 수 있지만 타사 제품을 사용 하면 기존 기능 및 기술력과를 사용할 수 있습니다.
 
 ## <a name="avoid-exposure-to-the-internet-with-dedicated-wan-links"></a>전용 WAN 링크를 사용 하 여 인터넷에 노출 되지 않도록 방지
@@ -130,7 +130,7 @@ Azure 네트워크 보안 어플라이언스는 네트워크 수준 제어에서
 
 하이브리드 IT 시나리오에서는 일반적으로 일부 종류의 크로스-프레미스 연결이 있습니다. 크로스-프레미스 연결을 사용하면 회사가 온-프레미스 네트워크를 Azure 가상 네트워크에 연결할 수 있습니다. 다음과 같은 두 가지 크로스-프레미스 연결 솔루션이 제공됩니다.
 
-* [사이트 간 VPN](../../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md). 신뢰할 수 있고 안정적이며 인정된 기술이지만 연결이 인터넷을 통해 이루어집니다. 대역폭은 최대 약 1.25 Gbps로 제한 됩니다. 일부 시나리오에서 사이트 간 VPN은 바람직한 옵션입니다.
+* [사이트 간 VPN](../../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md). 이는 신뢰할 수 있고 안정적 이며 설정 된 기술 이지만 인터넷을 통해 연결이 이루어집니다. 대역폭은 최대 약 1.25 Gbps로 제한 됩니다. 일부 시나리오에서 사이트 간 VPN은 바람직한 옵션입니다.
 * **Azure express**경로. 크로스-프레미스 연결에 대해[ExpressRoute](../../expressroute/expressroute-introduction.md)를 사용하는 것이 좋습니다. ExpressRoute를 사용하면 연결 공급자가 지원하는 프라이빗 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장할 수 있습니다. Express 경로를 사용 하면 Azure, Office 365 및 Dynamics 365과 같은 Microsoft 클라우드 서비스에 대 한 연결을 설정할 수 있습니다. Express 경로는 온-프레미스 위치 또는 Microsoft Exchange 호스팅 공급자 간의 전용 WAN 링크입니다. 이 연결은 telco 연결 이므로 인터넷을 통해 데이터가 이동 되지 않으므로 인터넷 통신의 잠재적인 위험에 노출 되지 않습니다.
 
 Express 경로 연결의 위치는 방화벽 용량, 확장성, 안정성 및 네트워크 트래픽 표시 여부에 영향을 줄 수 있습니다. 기존 (온-프레미스) 네트워크에서 Express 경로를 종료 하는 위치를 식별 해야 합니다. 다음을 수행할 수 있습니다.
@@ -139,7 +139,7 @@ Express 경로 연결의 위치는 방화벽 용량, 확장성, 안정성 및 �
 - 방화벽 내부에서 종료 합니다 (네트워크 확장 패러다임). 이는 기본 권장 사항입니다. 다른 모든 경우에는 Azure를 n 번째 데이터 센터로 취급 하는 것이 좋습니다.
 
 ## <a name="optimize-uptime-and-performance"></a>가동 시간 및 성능 최적화
-서비스가 중지되면 정보에 액세스할 수 없습니다. 성능이 매우 좋지 않아 데이터를 사용할 수 없는 경우 해당 데이터를 액세스할 수 없는 것으로 간주할 수 있습니다. 보안의 관점에서 서비스의 가동 시간 및 성능을 최적화하기 위해 할 수 있는 모든 조치를 다해야 합니다.
+서비스가 종료 되 면 정보에 액세스할 수 없습니다. 성능이 매우 좋지 않아 데이터를 사용할 수 없는 경우 해당 데이터를 액세스할 수 없는 것으로 간주할 수 있습니다. 보안의 관점에서 서비스의 가동 시간 및 성능을 최적화하기 위해 할 수 있는 모든 조치를 다해야 합니다.
 
 가용성 및 성능을 향상하기 위해 널리 사용되는 효과적인 방법은 부하 분산입니다. 부하 분산은 서비스에 포함된 서버 간에 네트워크 트래픽을 분산하는 방법입니다. 예를 들어 프런트 엔드 웹 서버가 서비스에 포함되어 있으면 부하 분산을 사용하여 여러 프런트 엔드 웹 서버 간에 트래픽을 분산할 수 있습니다.
 
@@ -158,7 +158,7 @@ Express 경로 연결의 위치는 방화벽 용량, 확장성, 안정성 및 �
 **시나리오**: Azure 가상 네트워크에 있는 여러 서버 간에 인터넷에서 들어오는 연결을 부하 분산해야 합니다. 시나리오는 다음과 같은 경우입니다.
 
 - 상태 비저장 애플리케이션이 인터넷에서 들어오는 요청을 허용하는 경우.
-- 고정 세션 또는 SSL 오프로드가 필요하지 않은 경우. 고정 세션이 서버 선호도를 달성하기 위해 애플리케이션 부하 분산을 사용하는 메서드인 경우.
+- 고정 세션 또는 SSL 오프 로드는 필요 하지 않습니다. 고정 세션이 서버 선호도를 달성하기 위해 애플리케이션 부하 분산을 사용하는 메서드인 경우.
 
 **부하 분산 옵션**: Azure Portal을 사용하여 들어오는 요청을 높은 수준의 가용성을 제공하는 여러 VM에 분산하는 [외부 부하 분산 장치를 만듭니다](../../load-balancer/quickstart-load-balancer-standard-public-portal.md).
 
@@ -175,7 +175,7 @@ Express 경로 연결의 위치는 방화벽 용량, 확장성, 안정성 및 �
 예를 들어 사용자가 EU에서 서비스 요청을 하는 경우 연결은 EU 데이터 센터에 있는 서비스로 전송됩니다. Traffic Manager 전역 부하 분산의 이러한 특징은 성능 개선에 도움이 됩니다. 가장 가까운 데이터 센터에 연결하는 것이 멀리 떨어진 데이터 센터에 연결하는 것보다 빠르기 때문입니다.
 
 ## <a name="disable-rdpssh-access-to-virtual-machines"></a>가상 머신에 대한 RDP/SSH 액세스 비활성화
-[RDP(원격 데스크톱 프로토콜)](https://en.wikipedia.org/wiki/Remote_Desktop_Protocol) 및 [SSH(Secure Shell)](https://en.wikipedia.org/wiki/Secure_Shell) 프로토콜을 사용하여 Azure 가상 머신에 연결할 수 있습니다. 이러한 프로토콜은 데이터 센터 컴퓨팅의 표준이며 원격 위치에서 VM 관리를 활성화합니다.
+[원격 데스크톱 프로토콜](https://en.wikipedia.org/wiki/Remote_Desktop_Protocol) (RDP) 및 [Secure Shell](https://en.wikipedia.org/wiki/Secure_Shell) (SSH) 프로토콜을 사용 하 여 Azure virtual machines에 연결할 수 있습니다. 이러한 프로토콜은 데이터 센터 컴퓨팅의 표준이며 원격 위치에서 VM 관리를 활성화합니다.
 
 인터넷을 통해 이러한 프로토콜을 사용할 때 발생할 수 있는 보안 문제로, 공격자가 [무차별 암호 대입(Brute Force)](https://en.wikipedia.org/wiki/Brute-force_attack) 기술을 사용하여 Azure 가상 머신에 대한 액세스 권한을 얻을 수 있습니다. 공격자가 액세스 권한을 얻은 후 사용자의 VM을 시작 지점으로 사용하여 가상 네트워크의 다른 머신을 손상시키거나 심지어 Azure 외부의 네트워크로 연결된 디바이스를 공격할 수 있습니다.
 
@@ -187,12 +187,12 @@ Express 경로 연결의 위치는 방화벽 용량, 확장성, 안정성 및 �
 지점 및 사이트 간 VPN은 사용자가 VM에 연결하려면 두 번 인증해야 하므로 직접 RDP 또는 SSH 연결보다 안전합니다. 먼저 사용자는 지점 및 사이트 간 VPN 연결을 설정하려면 인증(및 권한 부여)가 필요합니다. 다음으로, 사용자는 RDP 또는 SSH 세션을 설정하려면 인증(및 권한 부여)가 필요합니다.
 
 **시나리오**: 온-프레미스 네트워크의 사용자가 Azure 가상 네트워크에서 VM에 연결될 수 있습니다.   
-**옵션**: [사이트 간 VPN](/azure/vpn-gateway/vpn-gateway-site-to-site-create)은 인터넷을 통해 전체 네트워크를 다른 네트워크에 연결합니다. 사이트 간 VPN을 사용하여 온-프레미스 네트워크를 Azure 가상 네트워크에 연결할 수 있습니다. 온-프레미스 네트워크의 사용자는 사이트 간 VPN 연결을 통해 RDP 또는 SSH 프로토콜을 사용하여 연결합니다. 인터넷을 통한 RDP 또는 SSH 직접 액세스는 허용하지 말아야 합니다.
+**옵션**: [사이트 간 VPN](/azure/vpn-gateway/vpn-gateway-site-to-site-create)은 인터넷을 통해 전체 네트워크를 다른 네트워크에 연결합니다. 사이트 간 VPN을 사용하여 온-프레미스 네트워크를 Azure 가상 네트워크에 연결할 수 있습니다. 온-프레미스 네트워크의 사용자는 사이트 간 VPN 연결을 통해 RDP 또는 SSH 프로토콜을 사용하여 연결합니다. 인터넷을 통해 RDP 또는 SSH에 대 한 직접 액세스를 허용 하지 않아도 됩니다.
 
 **시나리오**: 전용 WAN 링크를 사용하여 사이트 간 VPN과 비슷한 기능을 제공합니다.   
 **옵션**: [ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/)를 사용합니다. ExpressRoute는 사이트 간 VPN과 비슷한 기능을 제공합니다. 주요 차이점은 다음과 같습니다.
 
-- 전용 WAN 링크가 인터넷을 트래버스하지 않습니다.
+- 전용 WAN 링크는 인터넷을 트래버스 하지 않습니다.
 - 전용 WAN 링크가 일반적으로 더 안정적이고 성능이 뛰어납니다.
 
 ## <a name="secure-your-critical-azure-service-resources-to-only-your-virtual-networks"></a>가상 네트워크에 대해 중요한 Azure 서비스 리소스를 보호합니다.
@@ -210,4 +210,4 @@ Express 경로 연결의 위치는 방화벽 용량, 확장성, 안정성 및 �
 서비스 엔드포인트 및 서비스 엔드포인트를 사용할 수 있는 Azure 서비스 및 지역에 대한 자세한 내용은 [가상 네트워크 서비스 엔드포인트](../../virtual-network/virtual-network-service-endpoints-overview.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-[Azure 보안 모범 사례 및 패턴](best-practices-and-patterns.md)에서 Azure를 사용하여 클라우드 솔루션을 디자인하고, 배포하고, 관리할 때 사용할 수 있는 더 많은 보안 모범 사례를 참조하세요.
+Azure를 사용 하 여 클라우드 솔루션을 디자인, 배포 및 관리 하는 경우 사용 하는 자세한 보안 모범 사례는 [azure 보안 모범 사례 및 패턴](best-practices-and-patterns.md) 을 참조 하세요.

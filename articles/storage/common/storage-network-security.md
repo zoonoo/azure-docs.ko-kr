@@ -9,12 +9,12 @@ ms.date: 01/21/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 7d3b580a939d207bbcc410e13555cdaa28067f87
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 29fa294d2f384ae74c1184c6207648907cb99386
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250989"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79299110"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Azure Storage 방화벽 및 가상 네트워크 구성
 
@@ -392,8 +392,8 @@ Azure Portal, PowerShell 또는 CLIv2를 통해 스토리지 계정에 대한 IP
 | Azure Container Registry 작업 | Microsoft.ContainerRegistry/registries | ACR 작업은 컨테이너 이미지를 빌드할 때 저장소 계정에 액세스할 수 있습니다. |
 | Azure 데이터 팩터리             | Microsoft.DataFactory/factories        | ADF 런타임을 통해 저장소 계정에 대 한 액세스를 허용 합니다. |
 | Azure Data Share               | DataShare/계정           | 데이터 공유를 통해 저장소 계정에 대 한 액세스를 허용 합니다. |
-| Azure Logic Apps               | Microsoft.Logic/workflows              | 논리 앱이 저장소 계정에 액세스할 수 있도록 합니다. [자세히 알아봅니다](/azure/logic-apps/create-managed-service-identity#authenticate-access-with-managed-identity.md). |
-| Azure Machine Learning 서비스 | Microsoft.MachineLearningServices      | 권한 있는 Azure Machine Learning 작업 영역은 실험 출력, 모델 및 로그를 Blob 저장소에 기록 합니다. [자세히 알아봅니다](/azure/machine-learning/service/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace). | 
+| Azure Logic Apps               | Microsoft.Logic/workflows              | 논리 앱이 저장소 계정에 액세스할 수 있도록 합니다. [자세히 알아봅니다](/azure/logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity). |
+| Azure Machine Learning 서비스 | Microsoft.MachineLearningServices      | 권한 있는 Azure Machine Learning 작업 영역은 실험 출력, 모델 및 로그를 Blob 저장소에 기록 하 고 데이터를 읽습니다. [자세히 알아봅니다](/azure/machine-learning/service/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace). | 
 | Azure SQL Data Warehouse       | Microsoft.Sql                          | PolyBase를 사용 하 여 특정 SQL Database 인스턴스에서 데이터를 가져오고 내보낼 수 있습니다. [자세히 알아봅니다](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview). |
 | Azure Stream Analytics         | Microsoft.StreamAnalytics             | 스트리밍 작업의 데이터를 Blob 저장소에 쓸 수 있습니다. 이 기능은 현재 미리 보기로 제공됩니다. [자세히 알아봅니다](/azure/stream-analytics/blob-output-managed-identity). |
 | Azure Synapse Analytics        | Synapse/작업 영역          | Synapse Analytics에서 Azure Storage의 데이터에 액세스할 수 있습니다. |

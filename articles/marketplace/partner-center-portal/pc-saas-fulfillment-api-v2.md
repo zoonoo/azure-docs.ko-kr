@@ -8,12 +8,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 10/18/2019
 ms.author: evansma
-ms.openlocfilehash: 4c73a59352422626ec3c6012607009995479d0cc
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: c0d5deef609796501515fc9c7064a96ca1419b3a
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73816597"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79371531"
 ---
 # <a name="saas-fulfillment-apis-version-2"></a>SaaS 처리 Api, 버전 2 
 
@@ -281,7 +281,7 @@ Azure SaaS는 SaaS 구독 구매의 전체 수명 주기를 관리 합니다. �
 
 지정 된 SaaS 구독을 가져옵니다. 이 호출을 사용 하 여 라이선스 정보 및 계획 정보를 가져옵니다.
 
-##### <a name="getbr-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidapi-versionapiversion"></a>가져오기<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId?api-version=<ApiVersion>`
+##### <a name="getbr-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidapi-versionapiversion"></a>가져오기<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
 
 *쿼리 매개 변수:*
 
@@ -593,7 +593,7 @@ Request Body:
 
 구독을 취소 하 고 지정 된 구독을 삭제 합니다.
 
-##### <a name="deletebr-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionid-api-versionapiversion"></a>삭제<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId> ?api-version=<ApiVersion>`
+##### <a name="deletebr-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidapi-versionapiversion"></a>DELETE<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
 
 *쿼리 매개 변수:*
 
@@ -816,7 +816,7 @@ Response body:
 찾을 수 없음
 
 코드: 409<br>
-약속. 예를 들어 새 트랜잭션은 이미 충족 된 것입니다.
+충돌. 예를 들어 새 트랜잭션은 이미 충족 된 것입니다.
 
 코드: 500<br> 내부 서버 오류.
 

@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Hub 디바이스 ID 가져오기 및 내보내기 | Microsoft Docs
-description: Azure IoT 서비스 SDK를 사용하여 ID 레지스트리에 대한 대량 작업을 수행하고 디바이스 ID를 가져오기 및 내보내기를 수행하는 방법입니다. 가져오기 작업을 사용하여 대량으로 디바이스 ID를 생성, 업데이트 및 삭제할 수 있습니다.
+title: Azure IoT Hub 장치 id 가져오기/내보내기 | Microsoft Docs
+description: Azure IoT 서비스 SDK를 사용 하 여 id 레지스트리에 대해 대량 작업을 실행 하 여 장치 id를 가져오고 내보내는 방법 가져오기 작업을 사용하여 대량으로 디바이스 ID를 생성, 업데이트 및 삭제할 수 있습니다.
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -8,25 +8,27 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: robinsh
-ms.openlocfilehash: 0d0643adc56a3dcdeef163708c26f2425ab8af43
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2a0394e6e7c17e0a4954bbdddb1d5b2811959746
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75429248"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79371582"
 ---
 # <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>대량으로 IoT Hub 장치 id 가져오기 및 내보내기
 
 각 IoT Hub에는 서비스에서 디바이스마다 리소스를 만드는 데 사용할 수 있는 ID 레지스트리가 있습니다. 또한 ID 레지스트리를 통해 디바이스 지향 엔드포인트에 대한 액세스를 제어할 수 있습니다. 이 문서에서는 ID 레지스트리에서 디바이스 ID를 대량으로 가져오고 내보내는 방법에 대해 설명합니다. 에서 C# 작업 샘플을 확인 하 고 허브를 다른 지역으로 복제할 때이 기능을 사용 하는 방법에 대 한 자세한 내용은 [IoT Hub를 복제 하는 방법](iot-hub-how-to-clone.md)을 참조 하세요.
 
-[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
+> [!NOTE]
+> IoT Hub는 제한 된 수의 지역에서 최근에 가상 네트워크 지원을 추가 했습니다. 이 기능은 가져오기 및 내보내기 작업을 보호 하 고 인증을 위해 키를 전달 하지 않아도 됩니다.  처음에는 가상 네트워크 지원은 *WestUS2*, *Eastus*및 *SouthCentralUS*지역 에서만 사용할 수 있습니다. 가상 네트워크 지원 및이를 구현 하는 API 호출에 대 한 자세한 내용은 [virtual networks에 대 한 IoT Hub 지원](virtual-network-support.md)을 참조 하세요.
 
 가져오기 및 내보내기 작업은 사용자가 IoT Hub에 대해 대량 서비스 작업을 실행할 수 있는 *작업* 상황에서 이루어집니다.
 
 **RegistryManager** 클래스는 **Job** 프레임워크를 사용하는 **ExportDevicesAsync** 및 **ImportDevicesAsync** 메서드를 포함합니다. 이러한 메서드를 사용하면 전체 IoT Hub ID 레지스트리를 내보내고, 가져오고, 동기화할 수 있습니다.
 
-이 항목에서는 **RegistryManager** 클래스 및 **Job** 시스템을 사용하여 IoT Hub의 ID 레지스트리로 디바이스를 대량으로 내보내거나 이러한 레지스트리에서 디바이스를 대량으로 가져오는 작업에 대해 설명합니다. 또한 Azure IoT Hub Device Provisioning Service를 사용하여 사용자 개입 없이, 하나 이상의 IoT Hub에 대해 무인 Just-In-Time 프로비저닝을 수행할 수도 있습니다. 자세한 내용은 [프로비저닝 서비스 설명서](/azure/iot-dps)를 참조하세요.
+이 항목에서는 **RegistryManager** 클래스 및 **작업** 시스템을 사용 하 여 IoT hub의 id 레지스트리에서 장치를 대량으로 가져오고 내보내는 방법을 설명 합니다. 또한 Azure IoT Hub Device Provisioning Service를 사용하여 사용자 개입 없이, 하나 이상의 IoT Hub에 대해 무인 Just-In-Time 프로비저닝을 수행할 수도 있습니다. 자세한 내용은 [프로비저닝 서비스 설명서](/azure/iot-dps)를 참조하세요.
 
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 ## <a name="what-are-jobs"></a>작업이란?
 
@@ -84,6 +86,10 @@ while(true)
   await Task.Delay(TimeSpan.FromSeconds(5));
 }
 ```
+
+> [!NOTE]
+> 저장소 계정에 IoT Hub의 연결을 제한 하는 방화벽 구성이 있는 경우 [Microsoft 신뢰할 수](./virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing) 있는 자사 예외 (관리 서비스 id를 사용 하 여 IoT hub의 선택 영역에서 사용 가능)를 사용 하는 것이 좋습니다.
+
 
 ## <a name="device-importexport-job-limits"></a>장치 가져오기/내보내기 작업 제한
 
@@ -259,11 +265,11 @@ JobProperties importJob =
 
 | importMode | Description |
 | --- | --- |
-| **createOrUpdate** |지정 된 **ID**를 가진 장치가 없으면 새로 등록 됩니다. <br/>디바이스가 이미 존재하는 경우 **ETag** 값과 관계 없이 제공된 입력 데이터가 기존 정보를 덮어씁니다. <br> 사용자는 디바이스 데이터와 함께 쌍으로 된 데이터를 선택적으로 지정할 수 있습니다. 쌍의 ETag을 지정하는 경우 디바이스의 ETag에서 독립적으로 처리됩니다. 기존 쌍의 ETag와 일치하지 않는 경우 오류가 로그 파일에 기록됩니다. |
-| **create** |지정 된 **ID**를 가진 장치가 없으면 새로 등록 됩니다. <br/>디바이스에 이미 존재하는 경우 오류가 로그 파일에 기록됩니다. <br> 사용자는 디바이스 데이터와 함께 쌍으로 된 데이터를 선택적으로 지정할 수 있습니다. 쌍의 ETag을 지정하는 경우 디바이스의 ETag에서 독립적으로 처리됩니다. 기존 쌍의 ETag와 일치하지 않는 경우 오류가 로그 파일에 기록됩니다. |
+| **createOrUpdate** |지정 된 **ID**를 가진 장치가 없으면 새로 등록 됩니다. <br/>디바이스가 이미 존재하는 경우 **ETag** 값과 관계 없이 제공된 입력 데이터가 기존 정보를 덮어씁니다. <br> 사용자는 디바이스 데이터와 함께 쌍으로 된 데이터를 선택적으로 지정할 수 있습니다. 쌍의 etag (지정 된 경우)는 장치의 etag와 독립적으로 처리 됩니다. 기존 쌍의 etag와 일치 하지 않는 경우 오류가 로그 파일에 기록 됩니다. |
+| **create** |지정 된 **ID**를 가진 장치가 없으면 새로 등록 됩니다. <br/>디바이스에 이미 존재하는 경우 오류가 로그 파일에 기록됩니다. <br> 사용자는 디바이스 데이터와 함께 쌍으로 된 데이터를 선택적으로 지정할 수 있습니다. 쌍의 etag (지정 된 경우)는 장치의 etag와 독립적으로 처리 됩니다. 기존 쌍의 etag와 일치 하지 않는 경우 오류가 로그 파일에 기록 됩니다. |
 | **update** |지정 된 **ID**를 가진 장치가 이미 존재 하는 경우 **ETag** 값과 관계 없이 제공 된 입력 데이터를 사용 하 여 기존 정보를 덮어씁니다. <br/>디바이스가 존재하지 않는 경우 오류가 로그 파일에 기록됩니다. |
 | **updateIfMatchETag** |지정 된 **ID**를 가진 장치가 이미 존재 하는 경우 **ETag** 가 일치 하는 경우에만 제공 된 입력 데이터를 사용 하 여 기존 정보를 덮어씁니다. <br/>디바이스가 존재하지 않는 경우 오류가 로그 파일에 기록됩니다. <br/>**ETag** 가 일치하지 않는 경우 불일치 오류가 로그 파일에 기록됩니다. |
-| **createOrUpdateIfMatchETag** |지정 된 **ID**를 가진 장치가 없으면 새로 등록 됩니다. <br/>디바이스가 이미 존재하는 경우 **ETag** 가 일치하는 경우에만 제공된 입력 데이터가 기존 정보를 덮어씁니다. <br/>**ETag** 가 일치하지 않는 경우 불일치 오류가 로그 파일에 기록됩니다. <br> 사용자는 디바이스 데이터와 함께 쌍으로 된 데이터를 선택적으로 지정할 수 있습니다. 쌍의 ETag을 지정하는 경우 디바이스의 ETag에서 독립적으로 처리됩니다. 기존 쌍의 ETag와 일치하지 않는 경우 오류가 로그 파일에 기록됩니다. |
+| **createOrUpdateIfMatchETag** |지정 된 **ID**를 가진 장치가 없으면 새로 등록 됩니다. <br/>디바이스가 이미 존재하는 경우 **ETag** 가 일치하는 경우에만 제공된 입력 데이터가 기존 정보를 덮어씁니다. <br/>**ETag** 가 일치하지 않는 경우 불일치 오류가 로그 파일에 기록됩니다. <br> 사용자는 디바이스 데이터와 함께 쌍으로 된 데이터를 선택적으로 지정할 수 있습니다. 쌍의 etag (지정 된 경우)는 장치의 etag와 독립적으로 처리 됩니다. 기존 쌍의 etag와 일치 하지 않는 경우 오류가 로그 파일에 기록 됩니다. |
 | **delete** |지정 된 **ID**를 가진 장치가 이미 존재 하는 경우 **ETag** 값과 관계 없이 삭제 됩니다. <br/>디바이스가 존재하지 않는 경우 오류가 로그 파일에 기록됩니다. |
 | **deleteIfMatchETag** |지정 된 **ID**를 가진 장치가 이미 존재 하는 경우 **ETag** 가 일치 하는 경우에만 삭제 됩니다. 디바이스가 존재하지 않는 경우 오류가 로그 파일에 기록됩니다. <br/>ETag가 일치하지 않는 경우 불일치 오류가 로그 파일에 기록됩니다. |
 

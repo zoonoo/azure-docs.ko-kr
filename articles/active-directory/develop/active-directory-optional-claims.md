@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/08/2019
+ms.date: 3/11/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 9ea3388cb65b18c093ffff3ec8b8c9f2764ef189
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: 23d83b59c510f2565b2f66f78dad56c9c9592dd0
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78300071"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136520"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>방법: Azure AD 앱에 선택적 클레임 제공
 
@@ -85,10 +85,10 @@ ms.locfileid: "78300071"
 | `pwd_exp`     | 암호 만료 시간        | 암호가 만료되는 날짜/시간입니다. |       |
 | `pwd_url`     | 암호 변경 URL             | 사용자가 암호 변경을 위해 방문할 수 있는 URL입니다.   |   |
 | `in_corp`     | 기업 네트워크 내부        | 클라이언트가 회사 네트워크에서 로그인하는 경우 알립니다. 그렇지 않으면 클레임이 포함 되지 않습니다.   |  MFA의 [신뢰할 수 있는 IP](../authentication/howto-mfa-mfasettings.md#trusted-ips)를 기반으로 합니다.    |
-| `nickname`    | 애칭                        | 사용자의 추가 이름입니다. 애칭은 first 또는 last 이름과 구분 됩니다. | 
-| `family_name` | 성                       | 사용자 개체에 정의 된 대로 사용자의 성, 성 또는 패밀리 이름을 제공 합니다. <br>"family_name":"Miller" | MSA 및 Azure AD에서 지원 됨   |
-| `given_name`  | 이름                      | 사용자 개체에 설정 된 대로 사용자의 첫 번째 또는 "지정 된" 이름을 제공 합니다.<br>"given_name": "Frank"                   | MSA 및 Azure AD에서 지원 됨  |
-| `upn`         | 사용자 계정 이름 | username_hint 매개 변수와 함께 사용할 수 있는 사용자에 식별자입니다.  사용자에 대한 지속형 식별자가 아니며 키 데이터에 사용할 수 없습니다. | 클레임의 구성에 대해서는 아래 [추가 속성](#additional-properties-of-optional-claims)을 참조하세요. |
+| `nickname`    | 애칭                        | 사용자의 추가 이름입니다. 애칭은 first 또는 last 이름과 구분 됩니다. `profile` 범위가 필요 합니다.| 
+| `family_name` | 성                       | 사용자 개체에 정의 된 대로 사용자의 성, 성 또는 패밀리 이름을 제공 합니다. <br>"family_name":"Miller" | MSA 및 Azure AD에서 지원 됩니다. `profile` 범위가 필요 합니다.   |
+| `given_name`  | 이름                      | 사용자 개체에 설정 된 대로 사용자의 첫 번째 또는 "지정 된" 이름을 제공 합니다.<br>"given_name": "Frank"                   | MSA 및 Azure AD에서 지원 됩니다.  `profile` 범위가 필요 합니다. |
+| `upn`         | 사용자 계정 이름 | username_hint 매개 변수와 함께 사용할 수 있는 사용자에 식별자입니다.  사용자에 대한 지속형 식별자가 아니며 키 데이터에 사용할 수 없습니다. | 클레임의 구성에 대해서는 아래 [추가 속성](#additional-properties-of-optional-claims)을 참조하세요. `profile` 범위가 필요 합니다.|
 
 ### <a name="additional-properties-of-optional-claims"></a>선택적 클레임의 추가 속성
 
@@ -117,12 +117,13 @@ ms.locfileid: "78300071"
         }
     ```
 
-이 OptionalClaims 개체를 통해 ID 토큰이 클라이언트에 반환되어 추가 홈 테넌트 및 리소스 테넌트 정보와 함께 다른 UPN을 포함하게 됩니다. 사용자가 테 넌 트의 게스트 (인증에 다른 IDP를 사용) 인 경우에만 토큰에서 `upn` 클레임이 변경 됩니다. 
+이 OptionalClaims 개체를 사용 하면 클라이언트에 반환 되는 ID 토큰이 추가 홈 테 넌 트 및 리소스 테 넌 트 정보와 함께 upn 클레임을 포함 합니다. 사용자가 테 넌 트의 게스트 (인증에 다른 IDP를 사용) 인 경우에만 토큰에서 `upn` 클레임이 변경 됩니다. 
 
 ## <a name="configuring-optional-claims"></a>선택적 클레임 구성
 
 > [!IMPORTANT]
 > 액세스 토큰은 **항상** 클라이언트가 아닌 리소스의 매니페스트를 사용 하 여 생성 됩니다.  따라서 요청 `...scope=https://graph.microsoft.com/user.read...` 리소스는 Microsoft Graph API입니다.  따라서 액세스 토큰은 클라이언트의 매니페스트가 아닌 Microsoft Graph API 매니페스트를 사용 하 여 생성 됩니다.  응용 프로그램에 대 한 매니페스트를 변경 하면 Microsoft Graph API에 대 한 토큰이 다르게 표시 되지 않습니다.  `accessToken` 변경 내용이 적용 되는지 확인 하기 위해 다른 앱이 아닌 응용 프로그램에 대 한 토큰을 요청 합니다.  
+
 
 UI 또는 응용 프로그램 매니페스트를 통해 응용 프로그램에 대 한 선택적 클레임을 구성할 수 있습니다.
 
@@ -207,7 +208,7 @@ UI 또는 응용 프로그램 매니페스트를 통해 응용 프로그램에 �
 | `additionalProperties` | 컬렉션(Edm.String) | 클레임의 추가 속성입니다. 속성이 이 컬렉션에 있으면 name 속성에 지정된 선택적 클레임의 동작을 수정합니다.                                                                                                                                               |
 ## <a name="configuring-directory-extension-optional-claims"></a>디렉터리 확장 선택적 클레임 구성
 
-표준 선택적 클레임 집합 외에도 확장을 포함 하도록 토큰을 구성할 수 있습니다. 이 기능은 앱이 사용할 수 있는 추가 사용자 정보(예: 추가 식별자 또는 사용자가 설정한 중요 구성 옵션)를 추가하는 데 유용합니다. 예제를 보려면이 페이지의 맨 아래를 참조 하십시오.
+표준 선택적 클레임 집합 외에도 확장을 포함 하도록 토큰을 구성할 수 있습니다. 자세한 내용은 [Microsoft Graph extensionProperty 설명서](https://docs.microsoft.com/graph/api/resources/extensionproperty?view=graph-rest-1.0) 를 참조 하세요. 스키마 및 개방형 확장은 선택적 클레임에서 지원 되지 않으며 AAD Graph 스타일 디렉터리 확장만 지원 합니다. 이 기능은 앱이 사용할 수 있는 추가 사용자 정보(예: 추가 식별자 또는 사용자가 설정한 중요 구성 옵션)를 추가하는 데 유용합니다. 예제를 보려면이 페이지의 맨 아래를 참조 하십시오.
 
 > [!NOTE]
 > - 디렉터리 스키마 확장은 Azure AD 전용 기능 이므로 응용 프로그램 매니페스트에서 사용자 지정 확장 프로그램을 요청 하 고 MSA 사용자가 앱에 로그인 하는 경우 이러한 확장은 반환 되지 않습니다.
@@ -269,7 +270,7 @@ SAML 토큰 내에서 이러한 클레임은 `http://schemas.microsoft.com/ident
    선택적 클레임 섹션에서 온-프레미스 AD 그룹 특성을 포함 하도록 토큰의 그룹을 지정 하려는 경우에는 선택적 클레임을 적용 해야 하는 토큰 유형, 요청 된 선택적 클레임의 이름 및 필요한 추가 속성을 지정 합니다.  여러 토큰 유형이 나열 될 수 있습니다.
 
    - OIDC ID 토큰에 대 한 idToken
-   - OAuth/OIDC 액세스 토큰에 대 한 accessToken
+   - OAuth 액세스 토큰에 대 한 accessToken
    - SAML 토큰에 대 한 Saml2Token.
 
    > [!NOTE]

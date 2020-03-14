@@ -3,12 +3,12 @@ title: Recovery Services 자격 증명 모음에 대 한 진단 설정 사용
 description: Azure Backup에 대해 이전 및 새 진단 이벤트를 사용 하는 방법을 설명 하는 문서입니다.
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: 7abf8873aafeb996476d818376057bfd8732d906
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: e3919d120e5f741af6cd30dd27e5a1dfa2b06cf2
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77583948"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136942"
 ---
 # <a name="using-diagnostics-settings-for-recovery-services-vaults"></a>Recovery Services 자격 증명 모음용 진단 설정 사용
 
@@ -56,7 +56,9 @@ Azure Log Analytics 로드맵에 맞춰 이제 Azure Backup를 사용 하 여 �
 
 일반적으로 자격 증명 모음에 대 한 모든 백업 관련 진단 데이터는 ' AzureBackupReport ' 라는 단일 이벤트에 포함 되었습니다. 위에서 설명한 여섯 가지 이벤트는 기본적으로 AzureBackupReport에 포함 된 모든 데이터를 분해 하는 것입니다. 
 
-현재 사용자가이 이벤트에 대 한 기존 사용자 지정 쿼리를가지고 있는 경우 (예: 사용자 지정 로그 경고, 사용자 지정 시각화 등) 이전 버전과의 호환성을 위해 AzureBackupReport 이벤트를 계속 지원 합니다. 그러나 로그 쿼리에서의 모든 새 진단 설정에 대해 새 이벤트를 선택 하는 것이 좋습니다. 이렇게 하면 데이터를 로그 쿼리에서 더 쉽게 사용할 수 있고 스키마와 구조를 보다 효율적으로 검색할 수 있으므로 두 수집 모두에서 성능이 향상 됩니다. 대기 시간과 쿼리 시간입니다. Azure 진단 모드 사용에 대 한 지원은 결국 단계적으로 진행 되므로 새 이벤트를 선택 하면 나중에 복잡 한 마이그레이션을 피할 수 있습니다.
+현재 사용자가이 이벤트에 대 한 기존 사용자 지정 쿼리를가지고 있는 경우 (예: 사용자 지정 로그 경고, 사용자 지정 시각화 등) 이전 버전과의 호환성을 위해 AzureBackupReport 이벤트를 계속 지원 합니다. 그러나 가능한 한 빨리 **새 이벤트로 이동**하는 것이 좋습니다. 이렇게 하면 데이터를 로그 쿼리에서 더 쉽게 사용할 수 있고 스키마와 해당 구조를 보다 효율적으로 검색할 수 있으므로 수집 대기 시간과 쿼리 시간 모두에서 성능이 향상 됩니다. **Azure 진단 모드 사용에 대 한 지원은 결국 단계적으로 진행 되므로 새 이벤트를 선택 하면 나중에 복잡 한 마이그레이션을 피할 수**있습니다.
+
+Azure Backup의 기본 제공 정책을 사용 하 여 지정 된 범위의 모든 자격 증명 모음에 대해 6 개의 새 이벤트로 새 진단 설정을 추가 합니다. 즉, [대규모로 자격 증명 모음 진단 설정 구성](https://docs.microsoft.com/azure/backup/azure-policy-configure-diagnostics)
 
 새 테이블의 데이터를 사용 하기 위해 사용자 지정 쿼리를 모두 마이그레이션할 때까지 AzureBackupReport 및 6 개의 새 이벤트에 대 한 별도 진단 설정을 만들도록 선택할 수 있습니다. 아래 그림에서는 두 개의 진단 설정이 있는 자격 증명 모음의 예를 보여 줍니다. **Setting1** 라는 첫 번째 설정은 azurediagnostics 모드의 LA 작업 영역에 AzureBackupReport 이벤트 데이터를 보냅니다. **Setting2** 라는 두 번째 설정은 리소스 특정 모드의 LA 작업 영역에 6 개의 새 Azure Backup 이벤트 데이터를 보냅니다.
 

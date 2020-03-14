@@ -1,19 +1,19 @@
 ---
-title: Azure Database for MySQL (미리 보기) 포털 설치 방법에 대 한 개인 링크
+title: 개인 링크-Azure Portal-Azure Database for MySQL
 description: Azure Portal에서 Azure Database for MySQL에 대 한 개인 링크를 구성 하는 방법을 알아봅니다.
 author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 193227ff98accb31c15e388c810aea7460a2cb5d
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 4a4824a9f8340b12bca7e18562d723eb24e58b71
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77561666"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79371922"
 ---
-# <a name="create-and-manage-private-link-for-azure-database-for-mysql-preview-using-portal"></a>포털을 사용 하 여 Azure Database for MySQL (미리 보기)에 대 한 개인 링크 만들기 및 관리
+# <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-portal"></a>포털을 사용 하 여 Azure Database for MySQL에 대 한 개인 링크 만들기 및 관리
 
 프라이빗 엔드포인트는 Azure에서 프라이빗 링크를 만드는 데 사용되는 기본 구성 요소입니다. 프라이빗 엔드포인트는 VM(Virtual Machines) 같은 Azure 리소스가 프라이빗 링크 리소스와 비공개로 통신할 수 있게 해줍니다. 이 문서에서는 azure 개인 끝점을 사용 하 여 Azure Virtual Network 및 Azure Database for MySQL 서버에서 VM을 만드는 Azure Portal를 사용 하는 방법을 알아봅니다.
 
@@ -37,17 +37,17 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     | 설정 | 값 |
     | ------- | ----- |
-    | 이름 | *MyVirtualNetwork*를 입력합니다. |
+    | 속성 | *MyVirtualNetwork*를 입력합니다. |
     | 주소 공간 | *10.1.0.0/16*을 입력합니다. |
     | Subscription | 구독을 선택합니다.|
-    | 리소스 그룹 | **새로 만들기**를 선택하고 *myResourceGroup*을 입력한 다음, **확인**을 선택합니다. |
+    | Resource group | **새로 만들기**를 선택하고 *myResourceGroup*을 입력한 다음, **확인**을 선택합니다. |
     | 위치 | **서유럽**를 선택합니다.|
     | 서브넷 - 이름 | *mySubnet*을 입력합니다. |
     | 서브넷 - 주소 범위 | *10.1.0.0/24*를 입력합니다. |
     |||
 3. 나머지 항목은 기본값으로 유지하고 **만들기**를 선택합니다.
 
-### <a name="create-virtual-machine"></a>가상 컴퓨터 만들기
+### <a name="create-virtual-machine"></a>Virtual Machine 만들기
 
 1. Azure Portal 화면의 왼쪽 위에서 **리소스 만들기** > **컴퓨팅** > **가상 머신**을 선택합니다.
 
@@ -57,7 +57,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     | ------- | ----- |
     | **프로젝트 정보** | |
     | Subscription | 구독을 선택합니다. |
-    | 리소스 그룹 | **myResourceGroup**을 선택합니다. 이전 섹션에서 만든 것입니다.  |
+    | Resource group | **myResourceGroup**을 선택합니다. 이전 섹션에서 만든 것입니다.  |
     | **인스턴스 정보** |  |
     | 가상 머신 이름 | *myVm*을 입력합니다. |
     | 지역 | **서유럽**를 선택합니다. |
@@ -66,7 +66,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     | 크기 | 기본값인 **표준 DS1 v2**를 그대로 둡니다. |
     | **관리자 계정** |  |
     | 사용자 이름 | 선택한 사용자 이름을 입력합니다. |
-    | Password | 선택한 암호를 입력합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.|
+    | 암호 | 선택한 암호를 입력합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.|
     | 암호 확인 | 암호를 다시 입력합니다. |
     | **인바운드 포트 규칙** |  |
     | 공용 인바운드 포트 | 기본값인 **없음**을 그대로 둡니다. |
@@ -107,11 +107,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     | ------- | ----- |
     | **프로젝트 세부 정보** | |
     | Subscription | 구독을 선택합니다. |
-    | 리소스 그룹 | **myResourceGroup**을 선택합니다. 이전 섹션에서 만든 것입니다.|
+    | Resource group | **myResourceGroup**을 선택합니다. 이전 섹션에서 만든 것입니다.|
     | **서버 정보** |  |
     |서버 이름  | *MyServer*를 입력 합니다. 이 이름을 사용하는 경우 고유한 이름을 만듭니다.|
     | 관리자 사용자 이름| 원하는 관리자 이름을 입력합니다. |
-    | Password | 선택한 암호를 입력합니다. 암호는 8자 이상이어야 하며 정의된 요구 사항을 충족해야 합니다. |
+    | 암호 | 선택한 암호를 입력합니다. 암호는 8자 이상이어야 하며 정의된 요구 사항을 충족해야 합니다. |
     | 위치 | MySQL Server를 배치할 Azure 지역을 선택 합니다. |
     |버전  | 필요한 MySQL 서버의 데이터베이스 버전을 선택 합니다.|
     | Compute + 저장소| 워크 로드에 따라 서버에 필요한 가격 책정 계층을 선택 합니다. |
@@ -126,21 +126,21 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 이 섹션에서는 MySQL 서버를 만들고 여기에 개인 끝점을 추가 합니다. 
 
-1. Azure Portal 화면의 왼쪽 위에서 **리소스 만들기** > **네트워킹** > **Private Link 센터(미리 보기)** 를 선택합니다.
+1. Azure Portal 화면 왼쪽 상단에서 **리소스 만들기** > **네트워킹** > **개인 링크**를 선택 합니다.
 
 2. **Private Link 센터 - 개요**의 **서비스에 대한 프라이빗 연결 설정** 옵션에서 **시작**을 선택합니다.
 
     ![개인 링크 개요](media/concepts-data-access-and-security-private-link/privatelink-overview.png)
 
-1. **프라이빗 엔드포인트 만들기(미리 보기) - 기본 사항**에서 다음 정보를 입력하거나 선택합니다.
+1. **개인 끝점 만들기-기본 사항**에서 다음 정보를 입력 하거나 선택 합니다.
 
     | 설정 | 값 |
     | ------- | ----- |
     | **프로젝트 세부 정보** | |
     | Subscription | 구독을 선택합니다. |
-    | 리소스 그룹 | **myResourceGroup**을 선택합니다. 이전 섹션에서 만든 것입니다.|
+    | Resource group | **myResourceGroup**을 선택합니다. 이전 섹션에서 만든 것입니다.|
     | **인스턴스 세부 정보** |  |
-    | 이름 | *myPrivateEndpoint*를 입력합니다. 이 이름을 사용하는 경우 고유한 이름을 만듭니다. |
+    | 속성 | *myPrivateEndpoint*를 입력합니다. 이 이름을 사용하는 경우 고유한 이름을 만듭니다. |
     |지역|**서유럽**를 선택합니다.|
     |||
 
@@ -156,7 +156,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     |대상 하위 리소스 |*Mysqlserver* 를 선택 합니다.|
     |||
 7. **다음: 구성**을 선택 합니다.
-8. **프라이빗 엔드포인트 만들기(미리 보기) - 구성**에서 다음 정보를 입력하거나 선택합니다.
+8. **개인 끝점 만들기-구성**에서 다음 정보를 입력 하거나 선택 합니다.
 
     | 설정 | 값 |
     | ------- | ----- |
@@ -226,7 +226,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     | 서버 유형| **MySQL**을 선택 합니다.|
     | 서버 이름| *MyServer.privatelink.mysql.database.azure.com* 선택 |
     | 사용자 이름 | MySQL 서버를 만드는 동안 제공 되는 username@servername 사용자 이름을 입력 합니다. |
-    |Password |MySQL 서버를 만드는 동안 제공 된 암호를 입력 합니다. |
+    |암호 |MySQL 서버를 만드는 동안 제공 된 암호를 입력 합니다. |
     |SSL|**필수**를 선택 합니다.|
     ||
 

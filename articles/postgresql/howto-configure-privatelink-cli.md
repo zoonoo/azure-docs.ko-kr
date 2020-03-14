@@ -1,26 +1,26 @@
 ---
-title: Azure Database for PostgreSQL 단일 서버 (미리 보기) CLI 설치 방법에 대 한 개인 링크
+title: 개인 링크-Azure CLI-Azure Database for PostgreSQL-단일 서버
 description: Azure CLI에서 Azure Database for PostgreSQL-단일 서버에 대 한 개인 링크를 구성 하는 방법에 대해 알아봅니다.
 author: kummanish
 ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 0eacf0f65346247d5fda5b26ead924a8cfd94dd9
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: d4288b901a0e6e132e32f8391d108e79861fc331
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77562091"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79371038"
 ---
-# <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-preview-using-cli"></a>CLI를 사용 하 여 Azure Database for PostgreSQL 단일 서버 (미리 보기)에 대 한 개인 링크 만들기 및 관리
+# <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-cli"></a>CLI를 사용 하 여 Azure Database for PostgreSQL 단일 서버에 대 한 개인 링크 만들기 및 관리
 
 프라이빗 엔드포인트는 Azure에서 프라이빗 링크를 만드는 데 사용되는 기본 구성 요소입니다. 프라이빗 엔드포인트는 VM(Virtual Machines) 같은 Azure 리소스가 프라이빗 링크 리소스와 비공개로 통신할 수 있게 해줍니다. 이 문서에서는 azure 개인 끝점을 사용 하 여 Azure Virtual Network 및 Azure Database for PostgreSQL 단일 서버에서 VM을 만드는 Azure CLI를 사용 하는 방법을 알아봅니다.
 
 > [!NOTE]
 > 이 기능은 Azure Database for PostgreSQL 단일 서버가 범용 및 메모리 액세스에 최적화 된 가격 책정 계층을 지 원하는 모든 Azure 지역에서 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 방법 가이드를 단계별로 실행하려면 다음이 필요합니다.
 
@@ -173,7 +173,7 @@ az network private-dns record-set a add-record --record-set-name myserver --zone
     | 서버 유형| **PostgreSQL**를 선택 합니다.|
     | 서버 이름| *Mydemopostgresserver.privatelink.postgres.database.azure.com* 선택 |
     | 사용자 이름 | PostgreSQL 서버를 만드는 동안 제공 되는 username@servername 사용자 이름을 입력 합니다. |
-    |Password |PostgreSQL 서버를 만드는 동안 제공 된 암호를 입력 합니다. |
+    |암호 |PostgreSQL 서버를 만드는 동안 제공 된 암호를 입력 합니다. |
     |SSL|**필수**를 선택 합니다.|
     ||
 

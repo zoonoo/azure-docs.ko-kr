@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 01fde82e69917f59f6519524c4c8828feb84a4f9
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 1f068c9d98a827afd16da01bdc40cbb6ca5dc465
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73795961"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79297835"
 ---
 # <a name="expose-a-websocket-server-to-application-gateway"></a>Application Gateway에 WebSocket 서버 노출
 
-Application Gateway v2 설명서에 설명 된 대로 [WebSocket 및 HTTP/2 프로토콜에 대 한 기본 지원을 제공](https://docs.microsoft.com/azure/application-gateway/overview#websocket-and-http2-traffic)합니다. Application Gateway 및 Kubernetes 수신-WebSocket 지원을 선택적으로 사용 하거나 사용 하지 않도록 설정할 수 있는 사용자 구성 설정이 없습니다.
+Application Gateway v2 설명서에 설명 된 대로 [WebSocket 및 HTTP/2 프로토콜에 대 한 기본 지원을 제공](features.md#websocket-and-http2-traffic)합니다. Application Gateway 및 Kubernetes 수신-WebSocket 지원을 선택적으로 사용 하거나 사용 하지 않도록 설정할 수 있는 사용자 구성 설정이 없습니다.
 
 아래 Kubernetes 배포 YAML는 WebSocket 서버를 배포 하는 데 사용 되는 최소 구성을 보여 줍니다 .이 구성은 일반 웹 서버를 배포 하는 것과 같습니다.
 ```yaml
@@ -75,7 +75,7 @@ spec:
               servicePort: 80
 ```
 
-모든 필수 구성 요소가 충족 되 고 AKS의 Kubernetes 수신에 의해 제어 되는 Application Gateway 있는 경우 위의 배포는 Application Gateway의 공용 IP 및 `ws.contoso.com`의 포트 80에 Websocket 서버를 노출 합니다. 도메인.
+모든 필수 구성 요소가 충족 되 고 AKS의 Kubernetes 수신에 의해 제어 되는 Application Gateway 있는 경우 위의 배포는 Application Gateway의 공용 IP 및 `ws.contoso.com` 도메인의 포트 80에 Websocket 서버를 노출 합니다.
 
 다음의 말아 명령은 WebSocket 서버 배포를 테스트 합니다.
 ```sh

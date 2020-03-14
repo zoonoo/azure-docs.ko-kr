@@ -8,16 +8,18 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: b26e54c7130469eee87a9237f4847f46cb3b7698
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: ea0b173f12a1c80f276af3ce3f6222efaad07972
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75691035"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79370630"
 ---
 # <a name="change-feed-support-in-azure-blob-storage-preview"></a>Azure Blob Storage의 변경 피드 지원 (미리 보기)
 
 변경 피드의 목적은 저장소 계정의 blob 및 blob 메타 데이터에 발생 하는 모든 변경 내용에 대 한 트랜잭션 로그를 제공 하는 것입니다. 변경 피드는 이러한 변경 내용에 대 한 **순서**, **보장**, **내구성**, 변경 **불가능**, **읽기 전용** 로그를 제공 합니다. 클라이언트 응용 프로그램은 스트리밍 또는 일괄 처리 모드에서 언제 든 지 이러한 로그를 읽을 수 있습니다. 변경 피드를 사용 하면 Blob Storage 계정에서 발생 하는 변경 이벤트를 저렴 한 비용으로 처리 하는 효율적이 고 확장 가능한 솔루션을 빌드할 수 있습니다.
+
+[!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
 
 변경 피드는 저장소 계정의 특수 컨테이너에 [blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) 으로 표준 [blob 가격 책정](https://azure.microsoft.com/pricing/details/storage/blobs/) 비용으로 저장 됩니다. 요구 사항에 따라 이러한 파일의 보존 기간을 제어할 수 있습니다 (현재 릴리스의 [조건](#conditions) 참조). 변경 이벤트는 [Apache Avro](https://avro.apache.org/docs/1.8.2/spec.html) 형식 사양의 레코드로 변경 피드에 추가 됩니다. 인라인 스키마를 사용 하 여 풍부한 데이터 구조를 제공 하는 간단 하 고 빠른 이진 형식입니다. 이 형식은 Hadoop 에코시스템, Stream Analytics 및 Azure Data Factory에서 널리 사용됩니다.
 
@@ -55,7 +57,7 @@ ms.locfileid: "75691035"
 > [!IMPORTANT]
 > 변경 피드는 공개 미리 보기 상태 이며 **westcentralus** 및 **westus2** 지역에서 사용할 수 있습니다. 이 문서의 [조건](#conditions) 섹션을 참조 하세요. 미리 보기에 등록 하려면이 문서의 [구독 등록](#register) 단원을 참조 하세요. 저장소 계정에서 변경 피드를 사용 하도록 설정 하려면 먼저 구독을 등록 해야 합니다.
 
-### <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
+### <a name="portal"></a>[포털](#tab/azure-portal)
 
 Azure Portal를 사용 하 여 저장소 계정에서 변경 피드를 사용 하도록 설정 합니다.
 
@@ -69,7 +71,7 @@ Azure Portal를 사용 하 여 저장소 계정에서 변경 피드를 사용 �
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-portal-configuration.png)
 
-### <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 PowerShell을 사용 하 여 변경 피드를 사용 하도록 설정 합니다.
 
@@ -99,7 +101,7 @@ PowerShell을 사용 하 여 변경 피드를 사용 하도록 설정 합니다.
    Update-AzStorageBlobServiceProperty -EnableChangeFeed $true
    ```
 
-### <a name="templatetabtemplate"></a>[템플릿](#tab/template)
+### <a name="template"></a>[템플릿](#tab/template)
 Azure Resource Manager 템플릿을 사용 하 여 Azure Portal를 통해 기존 저장소 계정에서 변경 피드를 사용 하도록 설정 합니다.
 
 1. Azure Portal에서 **리소스 만들기**를 선택 합니다.

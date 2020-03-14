@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: chrisgre
 ms.openlocfilehash: 75c6b7d89e7ae540e7428afde127281aa3f15fc6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75429321"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79271305"
 ---
 # <a name="automatic-iot-device-and-module-management-using-the-azure-portal"></a>Azure Portal를 사용 하 여 자동 IoT 장치 및 모듈 관리
 
@@ -106,7 +106,7 @@ Azure IoT Hub의 자동 장치 관리는 여러 가지 반복적인 작업 및 �
 
 2. **메트릭 조건**에 대한 쿼리를 입력합니다.  쿼리는 보고된 디바이스 쌍 속성을 기준으로 합니다.  메트릭은 쿼리에 의해 반환되는 행 수를 나타냅니다.
 
-예:
+다음은 그 예입니다.
 
 ```sql
 SELECT deviceId FROM devices 
@@ -121,7 +121,7 @@ SELECT deviceId FROM devices
   WHERE configurations.[[yourconfigname]].status='Applied'
 ```
 
-구성 된 모듈에 대해 보고할 메트릭을 작성 하는 경우 `devices.modules`에서 `moduleId`를 선택 합니다. 예:
+구성 된 모듈에 대해 보고할 메트릭을 작성 하는 경우 `devices.modules`에서 `moduleId`를 선택 합니다. 다음은 그 예입니다.
 
 ```sql
 SELECT deviceId, moduleId FROM devices.modules

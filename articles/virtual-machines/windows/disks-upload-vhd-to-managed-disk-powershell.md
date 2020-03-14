@@ -3,17 +3,17 @@ title: Azure PowerShell를 사용 하 여 Azure에 vhd 업로드
 description: Azure 관리 디스크에 vhd를 업로드 하 고 직접 업로드를 통해 Azure PowerShell를 사용 하 여 여러 지역에 관리 되는 디스크를 복사 하는 방법에 대해 알아봅니다.
 author: roygara
 ms.author: rogarana
-ms.date: 05/06/2019
+ms.date: 03/13/2020
 ms.topic: article
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: 8a7e5243428eb88a2757b675c7d66dbfb3c66a30
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 883fea1e25ded26c35e96d11edd8f417e96db30e
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75459989"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79369559"
 ---
 # <a name="upload-a-vhd-to-azure-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 Azure에 vhd 업로드
 
@@ -23,11 +23,11 @@ Azure에서 IaaS Vm에 대 한 백업 솔루션을 제공 하는 경우 직접 �
 
 현재 직접 업로드는 표준 HDD, 표준 SSD 및 프리미엄 SSD 관리 디스크에 대해 지원 됩니다. 아직 ultra Ssd에 대해 지원 되지 않습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - [AzCopy v10의 최신 버전](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy)을 다운로드 합니다.
 - [Azure PowerShell 모듈을 설치](/powershell/azure/install-Az-ps)합니다.
-- 온-프레미스에서 VHD를 업로드 하려는 경우: [Azure에 대해 준비](prepare-for-upload-vhd-image.md)된 vhd는 로컬에 저장 됩니다.
+- 온-프레미스에서 VHD를 업로드 하려는 경우: [Azure에 대해 준비](prepare-for-upload-vhd-image.md)된 고정 크기 VHD는 로컬에 저장 됩니다.
 - 또는 복사 작업을 수행 하려는 경우 Azure에서 관리 되는 디스크입니다.
 
 ## <a name="create-an-empty-managed-disk"></a>빈 관리 디스크 만들기
@@ -76,8 +76,6 @@ AzCopy v10를 사용 하 여 생성 한 SAS URI를 지정 하 여 로컬 VHD 파
 ```
 AzCopy.exe copy "c:\somewhere\mydisk.vhd" $diskSas.AccessSAS --blob-type PageBlob
 ```
-
-업로드 중에 SAS가 만료 되 고 `revoke-access` 아직 호출 하지 않은 경우 새 SAS를 사용 하 여 `grant-access`를 사용 하 여 업로드를 계속 진행할 수 있습니다.
 
 업로드가 완료 되 고 더 이상 디스크에 더 이상 데이터를 쓸 필요가 없으면 SAS를 해지 합니다. SAS를 해지 하면 관리 디스크의 상태가 변경 되 고 해당 디스크를 VM에 연결할 수 있습니다.
 
