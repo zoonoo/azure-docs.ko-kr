@@ -8,11 +8,11 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.openlocfilehash: d1afb6037b5fc290de93faba405982ebd1fb68ea
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78364571"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79254340"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Azure Stream Analytics에서 쿼리 병렬 처리 사용
 이 문서에서는 Azure Stream Analytics에서 병렬 처리 기능을 활용하는 방법을 보여 줍니다. 입력 파티션을 구성하고, 분석 쿼리 정의를 조정하여 Stream Analytics 작업의 크기를 조정하는 방법을 알아봅니다.
@@ -32,7 +32,7 @@ Stream Analytics 작업 크기 조정은 입력 또는 출력에 있는 파티�
 -   IoT Hub(PARTITION BY 키워드로 파티션 키를 명시적으로 설정해야 함)
 -   Blob Storage
 
-### <a name="outputs"></a>출력
+### <a name="outputs"></a>outputs
 
 Stream Analytics로 작업할 때 다음 출력에서 분할을 활용할 수 있습니다.
 -   Azure Data Lake 스토리지
@@ -198,7 +198,7 @@ Stream Analytics 작업에 사용될 수 있는 스트리밍 단위의 총 수�
 하나의 Stream Analytics 작업에 대해 분할되지 않은 모든 단계를 최대 6개의 SU(스트리밍 단위)로 확장할 수 있습니다. 이외에 분할 단계에서 각 파티션에 대해 6개의 SU를 추가할 수 있습니다.
 아래 표에서 일부 **예제**를 확인할 수 있습니다.
 
-| query                                               | 작업에 대한 최대 SU |
+| 쿼리                                               | 작업에 대한 최대 SU |
 | --------------------------------------------------- | ------------------- |
 | <ul><li>쿼리는 한 단계를 포함합니다.</li><li>이 단계는 분할되지 않습니다.</li></ul> | 6 |
 | <ul><li>입력 데이터 스트림은 16으로 분할됩니다.</li><li>쿼리는 한 단계를 포함합니다.</li><li>이 단계는 분할됩니다.</li></ul> | 96(6 * 16개 파티션) |
@@ -252,7 +252,7 @@ Stream Analytics 작업에 사용될 수 있는 스트리밍 단위의 총 수�
 
 다음 관찰에서는 이벤트 허브, Azure SQL DB 또는 Cosmos DB에 쓰는 기본 JavaScript UDF 인 상태 비저장 (통과) 쿼리를 사용 하는 Stream Analytics 작업을 사용 합니다.
 
-#### <a name="event-hub"></a>Event Hubs
+#### <a name="event-hub"></a>이벤트 허브
 
 |수집 률 (초당 이벤트 수) | 스트리밍 단위 | 출력 리소스  |
 |--------|---------|---------|

@@ -8,11 +8,11 @@ ms.date: 08/01/2019
 ms.author: mjbrown
 ms.reviewer: sngun
 ms.openlocfilehash: 706f52a6cda2bbcb0e5ca1cfe9372600fa6709d0
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78388589"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79246527"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>저장 프로시저, 트리거 및 사용자 정의 함수
 

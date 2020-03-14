@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: c12e14b8b842e3ccf9f2bf9e0ab783d8852ee69b
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 433f5885c7f057226e78c4ae57e03d7619004d21
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75659716"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79259865"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Azure의 Web Apps에 대한 애플리케이션 성능 FAQ
 
@@ -92,8 +92,9 @@ PowerShell cmdlet을 사용하여 App Service Web Apps를 관리 및 유지 관�
 기본적으로 웹앱은 일정 기간 유휴 상태인 경우 언로드됩니다. 이를 통해 시스템이 리소스를 절약할 수 있습니다. 단점은 웹앱이 로드되고 응답 제공을 시작할 수 있도록 웹앱이 언로드된 후 첫 번째 요청에 대한 응답 시간이 더 길어진다는 것입니다. 기본 및 표준 서비스 계획에서 **무중단** 설정을 켜서 항상 앱을 계속 로드할 수 있습니다. 이렇게 하면 앱이 유휴 상태인 후에 로드 시간이 길어지지 않습니다. **무중단** 설정을 변경하려면:
 
 1. Azure Portal에서 웹앱으로 이동합니다.
-2. **애플리케이션 설정**을 선택합니다.
-3. **무중단**에 대해 **켜기**를 선택합니다.
+2. **구성** 선택
+3. **일반 설정**을 선택 합니다.
+4. **무중단**에 대해 **켜기**를 선택합니다.
 
 ## <a name="how-do-i-turn-on-failed-request-tracing"></a>실패한 요청 추적을 어떻게 켜나요?
 

@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 01/08/2020
+ms.date: 03/11/2020
 ms.author: jingwang
-ms.openlocfilehash: 0e138e954501df3cf3c3c8819d0198ad9a9288f0
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 616cdc0387d5c5cf3c2980ae1cfbc10e3c1119f4
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75754467"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79261360"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Azure Data Factory의 복사 작업
 
@@ -65,9 +65,11 @@ Azure Data Factory에서 복사 작업을 사용 하 여 온-프레미스 및 �
 
 ## <a name="configuration"></a>구성
 
-Azure Data Factory에서 복사 작업을 사용 하려면 다음을 수행 해야 합니다.
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-1. **원본 데이터 저장소 및 싱크 데이터 저장소에 대 한 연결 된 서비스를 만듭니다.** 구성 정보 및 지원 되는 속성은 커넥터 문서의 "연결 된 서비스 속성" 섹션을 참조 하세요. 지원 되는 커넥터 목록은이 문서의 [지원 되는 데이터 저장소 및 형식](#supported-data-stores-and-formats) 섹션에서 찾을 수 있습니다.
+일반적으로 Azure Data Factory의 복사 작업을 사용 하려면 다음을 수행 해야 합니다.
+
+1. **원본 데이터 저장소 및 싱크 데이터 저장소에 대 한 연결 된 서비스를 만듭니다.** 지원 되는 커넥터 목록은이 문서의 [지원 되는 데이터 저장소 및 형식](#supported-data-stores-and-formats) 섹션에서 찾을 수 있습니다. 구성 정보 및 지원 되는 속성은 커넥터 문서의 "연결 된 서비스 속성" 섹션을 참조 하세요. 
 2. **원본 및 싱크에 대 한 데이터 집합을 만듭니다.** 구성 정보 및 지원 되는 속성은 원본 및 싱크 커넥터 문서의 "데이터 집합 속성" 섹션을 참조 하세요.
 3. **복사 작업을 사용 하 여 파이프라인을 만듭니다.** 다음 섹션에서 예제를 제공합니다.
 
@@ -125,117 +127,22 @@ Azure Data Factory에서 복사 작업을 사용 하려면 다음을 수행 해�
 
 | 속성 | Description | 필수 여부 |
 |:--- |:--- |:--- |
-| type | 복사 활동의 경우를 `Copy`으로 설정 합니다. | 예 |
-| inputs | 원본 데이터를 가리키는 만든 데이터 집합을 지정 합니다. 복사 작업은 단일 입력만 지원 합니다. | 예 |
-| outputs | 싱크 데이터를 가리키는 만든 데이터 집합을 지정 합니다. 복사 작업은 단일 출력만 지원 합니다. | 예 |
-| typeProperties | 속성을 지정 하 여 복사 작업을 구성 합니다. | 예 |
-| source | 복사 원본 유형 및 데이터 검색을 위한 해당 속성을 지정 합니다.<br/>자세한 내용은 [지원 되는 데이터 저장소 및 형식](#supported-data-stores-and-formats)에 나열 된 커넥터 문서의 "복사 작업 속성" 섹션을 참조 하세요. | 예 |
-| 싱크 | 데이터를 쓰기 위한 복사 싱크 유형과 해당 속성을 지정 합니다.<br/>자세한 내용은 [지원 되는 데이터 저장소 및 형식](#supported-data-stores-and-formats)에 나열 된 커넥터 문서의 "복사 작업 속성" 섹션을 참조 하세요. | 예 |
-| 번역기 | 원본에서 싱크로의 명시적 열 매핑을 지정합니다. 이 속성은 기본 복사 동작이 사용자의 요구를 충족 하지 않는 경우에 적용 됩니다.<br/>자세한 내용은 [복사 활동의 스키마 매핑](copy-activity-schema-and-type-mapping.md)을 참조 하세요. | 아닙니다. |
-| dataIntegrationUnits | [Azure integration runtime](concepts-integration-runtime.md) 에서 데이터 복사에 사용 하는 전력의 양을 나타내는 측정값을 지정 합니다. 이러한 단위는 이전에는 DMU (클라우드 데이터 이동 단위)로 알려져 있었습니다. <br/>자세한 내용은 [데이터 통합 단위](copy-activity-performance.md#data-integration-units)를 참조 하세요. | 아닙니다. |
-| parallelCopies | 원본에서 데이터를 읽고 싱크에 데이터를 쓸 때 복사 작업에서 사용할 병렬 처리를 지정 합니다.<br/>자세한 내용은 [병렬 복사](copy-activity-performance.md#parallel-copy)를 참조 하세요. | 아닙니다. |
-| 보존 | 데이터를 복사 하는 동안 메타 데이터/Acl을 유지할지 여부를 지정 합니다. <br/>자세한 내용은 [메타 데이터 유지](copy-activity-preserve-metadata.md)를 참조 하세요. |아닙니다. |
-| enableStaging<br/>stagingSettings | 원본에서 싱크로 데이터를 직접 복사 하는 대신 Blob 저장소에서 중간 데이터를 준비할 지 여부를 지정 합니다.<br/>유용한 시나리오 및 구성 세부 정보에 대 한 자세한 내용은 [준비 된 복사](copy-activity-performance.md#staged-copy)를 참조 하세요. | 아닙니다. |
-| enableSkipIncompatibleRow<br/>redirectIncompatibleRowSettings| 원본에서 싱크로 데이터를 복사할 때 호환 되지 않는 행을 처리 하는 방법을 선택 합니다.<br/>자세한 내용은 [내결함성](copy-activity-fault-tolerance.md)을 참조 하세요. | 아닙니다. |
+| type | 복사 활동의 경우를 `Copy`으로 설정 합니다. | yes |
+| inputs | 원본 데이터를 가리키는 만든 데이터 집합을 지정 합니다. 복사 작업은 단일 입력만 지원 합니다. | yes |
+| outputs | 싱크 데이터를 가리키는 만든 데이터 집합을 지정 합니다. 복사 작업은 단일 출력만 지원 합니다. | yes |
+| typeProperties | 속성을 지정 하 여 복사 작업을 구성 합니다. | yes |
+| source | 복사 원본 유형 및 데이터 검색을 위한 해당 속성을 지정 합니다.<br/>자세한 내용은 [지원 되는 데이터 저장소 및 형식](#supported-data-stores-and-formats)에 나열 된 커넥터 문서의 "복사 작업 속성" 섹션을 참조 하세요. | yes |
+| 싱크 | 데이터를 쓰기 위한 복사 싱크 유형과 해당 속성을 지정 합니다.<br/>자세한 내용은 [지원 되는 데이터 저장소 및 형식](#supported-data-stores-and-formats)에 나열 된 커넥터 문서의 "복사 작업 속성" 섹션을 참조 하세요. | yes |
+| 번역기 | 원본에서 싱크로의 명시적 열 매핑을 지정합니다. 이 속성은 기본 복사 동작이 사용자의 요구를 충족 하지 않는 경우에 적용 됩니다.<br/>자세한 내용은 [복사 활동의 스키마 매핑](copy-activity-schema-and-type-mapping.md)을 참조 하세요. | 예 |
+| dataIntegrationUnits | [Azure integration runtime](concepts-integration-runtime.md) 에서 데이터 복사에 사용 하는 전력의 양을 나타내는 측정값을 지정 합니다. 이러한 단위는 이전에는 DMU (클라우드 데이터 이동 단위)로 알려져 있었습니다. <br/>자세한 내용은 [데이터 통합 단위](copy-activity-performance.md#data-integration-units)를 참조 하세요. | 예 |
+| parallelCopies | 원본에서 데이터를 읽고 싱크에 데이터를 쓸 때 복사 작업에서 사용할 병렬 처리를 지정 합니다.<br/>자세한 내용은 [병렬 복사](copy-activity-performance.md#parallel-copy)를 참조 하세요. | 예 |
+| 보존 | 데이터를 복사 하는 동안 메타 데이터/Acl을 유지할지 여부를 지정 합니다. <br/>자세한 내용은 [메타 데이터 유지](copy-activity-preserve-metadata.md)를 참조 하세요. |예 |
+| enableStaging<br/>stagingSettings | 원본에서 싱크로 데이터를 직접 복사 하는 대신 Blob 저장소에서 중간 데이터를 준비할 지 여부를 지정 합니다.<br/>유용한 시나리오 및 구성 세부 정보에 대 한 자세한 내용은 [준비 된 복사](copy-activity-performance.md#staged-copy)를 참조 하세요. | 예 |
+| enableSkipIncompatibleRow<br/>redirectIncompatibleRowSettings| 원본에서 싱크로 데이터를 복사할 때 호환 되지 않는 행을 처리 하는 방법을 선택 합니다.<br/>자세한 내용은 [내결함성](copy-activity-fault-tolerance.md)을 참조 하세요. | 예 |
 
 ## <a name="monitoring"></a>모니터링
 
-Azure Data Factory **작성자 & 모니터** UI를 통해 또는 프로그래밍 방식으로 복사 작업 실행을 모니터링할 수 있습니다.
-
-### <a name="monitor-visually"></a>시각적으로 모니터링
-
-복사 작업 실행을 시각적으로 모니터링 하려면 데이터 팩터리로 이동한 다음 **작성자 & 모니터로**이동 합니다. **모니터** 탭의 **작업** 열에 **작업 실행 보기** 단추가 있는 파이프라인 실행 목록이 표시 됩니다.
-
-![파이프라인 실행 모니터링](./media/load-data-into-azure-data-lake-store/monitor-pipeline-runs.png)
-
-**작업 실행 보기** 를 선택 하 여 파이프라인 실행의 작업 목록을 표시 합니다. **작업** 열에 복사 작업 입력, 출력, 오류 (복사 작업 실행이 실패 한 경우) 및 세부 정보에 대 한 링크가 표시 됩니다.
-
-![작업 실행 모니터링](./media/load-data-into-azure-data-lake-store/monitor-activity-runs.png)
-
-**작업** 열에서 **세부 정보** 단추를 선택 하 여 복사 작업의 실행 세부 정보 및 성능 특성을 확인 합니다. 볼륨/행 수/원본에서 싱크로 복사 된 데이터의 파일 수, 처리량, 복사 작업에서 해당 기간으로 이동 하는 단계, 복사 시나리오에 사용 되는 구성 등의 정보가 표시 됩니다.
-
->[!TIP]
->일부 시나리오에서는 모니터링 복사 페이지의 맨 위에 **성능 튜닝 팁** 도 표시 됩니다. 이러한 팁은 식별 된 병목 상태에 대 한 정보를 제공 하 고 복사 처리량을 향상 시키기 위해 변경 해야 하는 사항을 제공 합니다. 예제는이 문서의 [성능 및 튜닝](#performance-and-tuning) 단원을 참조 하세요.
-
-**예: Amazon s 3에서 Azure Data Lake Store
-로 복사** ![작업 실행 세부 정보를 모니터링](./media/copy-activity-overview/monitor-activity-run-details-adls.png)
-
-**예: Azure SQL Database에서 준비 된 복사
-Azure SQL Data Warehouse으로 복사 하** ![작업 실행 세부 정보를 모니터링](./media/copy-activity-overview/monitor-activity-run-details-sql-dw.png)
-
-### <a name="monitor-programmatically"></a>프로그래밍 방식으로 모니터링
-
-복사 작업 실행 세부 정보 및 성능 특성은 **복사 작업 실행 결과** > **출력** 섹션에도 반환 됩니다. 다음은 반환 될 수 있는 속성의 전체 목록입니다. 복사 시나리오에 적용 되는 속성만 볼 수 있습니다. 작업 실행을 모니터링 하는 방법에 대 한 자세한 내용은 [파이프라인 실행 모니터링](quickstart-create-data-factory-dot-net.md#monitor-a-pipeline-run)을 참조 하세요.
-
-| 속성 이름  | Description | 단위 |
-|:--- |:--- |:--- |
-| DataRead | 원본에서 읽은 데이터의 양입니다. | Int64 값 (바이트) |
-| DataWritten | 싱크에 쓴 데이터의 양입니다. | Int64 값 (바이트) |
-| filesRead | 파일 저장소에서 복사 하는 동안 복사 된 파일 수입니다. | Int64 값(단위 없음) |
-| filesWritten | 파일 저장소에 복사 하는 동안 복사 된 파일 수입니다. | Int64 값(단위 없음) |
-| sourcePeakConnections | 복사 작업을 실행 하는 동안 원본 데이터 저장소에 설정 된 최대 동시 연결 수입니다. | Int64 값(단위 없음) |
-| sinkPeakConnections | 복사 작업을 실행 하는 동안 싱크 데이터 저장소에 설정 된 최대 동시 연결 수입니다. | Int64 값(단위 없음) |
-| rowsRead | 원본에서 읽은 행 수입니다 (이진 복사에는 적용 되지 않음). | Int64 값(단위 없음) |
-| rowsCopied | 싱크로 복사 된 행 수입니다 (이진 복사에는 적용 되지 않음). | Int64 값(단위 없음) |
-| rowsSkipped | 건너뛴 호환 되지 않는 행의 수입니다. `enableSkipIncompatibleRow`를 true로 설정 하 여 호환 되지 않는 행을 건너뛰도록 설정할 수 있습니다. | Int64 값(단위 없음) |
-| copyDuration | 복사 실행의 지속 시간입니다. | Int32 값 (초) |
-| throughput | 데이터 전송 률입니다. | 부동 소수점 수 (KBps) |
-| sourcePeakConnections | 복사 작업을 실행 하는 동안 원본 데이터 저장소에 설정 된 최대 동시 연결 수입니다. | Int32 값 (단위 없음) |
-| sinkPeakConnections| 복사 작업을 실행 하는 동안 싱크 데이터 저장소에 설정 된 최대 동시 연결 수입니다.| Int32 값 (단위 없음) |
-| sqlDwPolyBase | 데이터를 SQL Data Warehouse에 복사할 때 PolyBase를 사용할지 여부를 지정 합니다. | 부울 |
-| redshiftUnload | Redshift에서 데이터를 복사할 때 언로드가 사용 되는지 여부입니다. | 부울 |
-| hdfsDistcp | HDFS에서 데이터를 복사할 때 DistCp를 사용할지 여부를 지정 합니다. | 부울 |
-| effectiveIntegrationRuntime | 작업을 실행 하는 데 사용 되는 IR (통합 런타임) 또는 런타임이 `<IR name> (<region if it's Azure IR>)`형식으로 되어 있습니다. | 텍스트(문자열) |
-| usedDataIntegrationUnits | 복사 중 효율적인 데이터 통합 단위입니다. | Int32 값 |
-| usedParallelCopies | 복사 동안 유효한 parallelCopies입니다. | Int32 값 |
-| redirectRowPath | `redirectIncompatibleRowSettings` 속성에서 구성 하는 blob 저장소에서 건너뛴 호환 되지 않는 행의 로그 경로입니다. 이 문서의 뒷부분에 나오는 [내결함성](#fault-tolerance) 을 참조 하세요. | 텍스트(문자열) |
-| executionDetails | 복사 작업을 수행 하는 단계 및 해당 단계, 기간, 구성 등에 대해 자세히 설명 합니다. 이 섹션은 변경 될 수 있으므로이 섹션을 구문 분석 하지 않는 것이 좋습니다.<br/><br/>Data Factory은 `detailedDurations`에서 다양 한 단계에 소요 된 자세한 기간 (초)도 보고 합니다. 이러한 단계의 기간은 제외 됩니다. 지정 된 복사 작업 실행에 적용 되는 기간만 표시 됩니다.<br/>**큐 기간** (`queuingDuration`): 통합 런타임에 복사 작업을 실제로 시작 하기 전 까지의 시간입니다. 자체 호스팅 IR을 사용 하는 경우이 값이 크면 IR 용량과 사용량을 확인 하 고 워크 로드에 따라 규모를 확장 하거나 축소 합니다. <br/>**복사 전 스크립트 지속 시간** (`preCopyScriptDuration`): 복사 작업이 IR에서 시작 하 고 복사 작업에서 싱크 데이터 저장소의 사전 복사 스크립트 실행을 완료 하는 시점 사이에 경과 된 시간입니다. 사전 복사 스크립트를 구성할 때 적용 됩니다. <br/>**첫 번째 바이트 까지의 시간** (`timeToFirstByte`): 이전 단계의 끝과 IR이 원본 데이터 저장소에서 첫 번째 바이트를 받는 시간 사이에 경과 된 시간입니다. 파일 기반이 아닌 소스에 적용 됩니다. 이 값이 크면 쿼리 또는 서버를 확인 하 고 최적화 합니다.<br/>**전송 기간** (`transferDuration`): 이전 단계의 끝과 IR이 원본에서 싱크로 모든 데이터를 전송 하는 시간 사이에 경과 된 시간입니다. | Array |
-| perfRecommendation 사항 | 성능 튜닝 팁을 복사 합니다. 자세한 내용은 [성능 및 튜닝](#performance-and-tuning) 을 참조 하세요. | Array |
-
-```json
-"output": {
-    "dataRead": 6198358,
-    "dataWritten": 19169324,
-    "filesRead": 1,
-    "sourcePeakConnections": 1,
-    "sinkPeakConnections": 2,
-    "rowsRead": 39614,
-    "rowsCopied": 39614,
-    "copyDuration": 1325,
-    "throughput": 4.568,
-    "errors": [],
-    "effectiveIntegrationRuntime": "DefaultIntegrationRuntime (West US)",
-    "usedDataIntegrationUnits": 4,
-    "usedParallelCopies": 1,
-    "executionDetails": [
-        {
-            "source": {
-                "type": "AzureBlobStorage"
-            },
-            "sink": {
-                "type": "AzureSqlDatabase"
-            },
-            "status": "Succeeded",
-            "start": "2019-08-06T01:01:36.7778286Z",
-            "duration": 1325,
-            "usedDataIntegrationUnits": 4,
-            "usedParallelCopies": 1,
-            "detailedDurations": {
-                "queuingDuration": 2,
-                "preCopyScriptDuration": 12,
-                "transferDuration": 1311
-            }
-        }
-    ],
-    "perfRecommendation": [
-        {
-            "Tip": "Sink Azure SQL Database: The DTU utilization was high during the copy activity run. To achieve better performance, you are suggested to scale the database to a higher tier than the current 1600 DTUs.",
-            "ReferUrl": "https://go.microsoft.com/fwlink/?linkid=2043368",
-            "RuleName": "AzureDBTierUpgradePerfRecommendRule"
-        }
-    ]
-}
-```
+Azure Data Factory에서 실행 되는 복사 작업을 시각적으로 나 프로그래밍 방식으로 모니터링할 수 있습니다. 자세한 내용은 [복사 작업 모니터링](copy-activity-monitoring.md)을 참조 하세요.
 
 ## <a name="incremental-copy"></a>증분 복사
 
@@ -243,15 +150,7 @@ Data Factory를 사용 하면 원본 데이터 저장소에서 싱크 데이터 
 
 ## <a name="performance-and-tuning"></a>성능 및 튜닝
 
-[복사 작업 성능 및 확장성 가이드](copy-activity-performance.md) 에서는 Azure Data Factory의 복사 작업을 통한 데이터 이동의 성능에 영향을 주는 주요 요소에 대해 설명 합니다. 또한 테스트 중 관찰 된 성능 값을 나열 하 고 복사 작업의 성능을 최적화 하는 방법을 설명 합니다.
-
-일부 시나리오에서는 Data Factory 복사 작업을 실행할 때 다음 예제와 같이 [복사 작업 모니터링 페이지](#monitor-visually)의 맨 위에 **성능 튜닝 팁** 이 표시 됩니다. 이 팁은 지정 된 복사 실행에 대해 식별 된 병목 상태를 알려 줍니다. 또한 복사 처리량을 향상 시키기 위해 변경 해야 하는 사항에 대 한 정보도 제공 합니다. 성능 튜닝 팁은 현재 데이터를 Azure SQL Data Warehouse로 복사 하는 경우 PolyBase 사용, 데이터 저장소 쪽의 리소스가 병목 상태인 경우 Azure Cosmos DB RUs 또는 Azure SQL Database Dtu 사용과 같은 제안 사항을 제공 하 고, 제거 하는 등의 제안 사항을 제공 합니다. 불필요 하 게 준비 된 복사본입니다.
-
-**예: 성능 조정 팁을 사용 하 여 Azure SQL Database에 복사**
-
-이 샘플에서 복사를 실행 하는 동안 Data Factory는 싱크 Azure SQL Database에서 높은 DTU 사용률을 추적 합니다. 이 경우 쓰기 작업이 느려집니다. 권장 사항은 Azure SQL Database 계층에서 Dtu를 늘리는 것입니다.
-
-![성능 튜닝 팁을 사용한 복사 모니터링](./media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
+[복사 작업 모니터링](copy-activity-monitoring.md) 환경에는 각 작업 실행에 대 한 복사 성능 통계가 표시 됩니다. [복사 작업 성능 및 확장성 가이드](copy-activity-performance.md) 에서는 Azure Data Factory의 복사 작업을 통한 데이터 이동의 성능에 영향을 주는 주요 요소에 대해 설명 합니다. 또한 테스트 중 관찰 된 성능 값을 나열 하 고 복사 작업의 성능을 최적화 하는 방법을 설명 합니다.
 
 ## <a name="resume-from-last-failed-run"></a>마지막으로 실패 한 실행에서 다시 시작
 

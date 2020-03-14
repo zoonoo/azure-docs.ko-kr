@@ -12,11 +12,11 @@ ms.author: sstein
 ms.reviewer: genemi
 ms.date: 11/14/2019
 ms.openlocfilehash: 26aa9948a44727ff4c8092eb5131b1c054bf5442
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082444"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79257005"
 ---
 # <a name="sql-database-application-development-overview"></a>SQL Database 애플리케이션 개발 개요
 
@@ -38,7 +38,7 @@ Azure SQL Database에 대한 액세스는 로그인과 방화벽으로 보호됩
 
 [데이터베이스 액세스 및 로그인 관리](sql-database-manage-logins.md)에 대해 알아보세요.
 
-## <a name="connections"></a>연결
+## <a name="connections"></a>Connections
 
 클라이언트 연결 논리에서 기본 시간 제한을 30초로 재정의합니다. 기본값 15초는 인터넷에 종속된 연결 시간으로 너무 짧습니다.
 

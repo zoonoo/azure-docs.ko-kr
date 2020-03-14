@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: andyxu
 author: gogowings
 ms.date: 11/04/2019
-ms.openlocfilehash: 5ec953ace6bb9583c622f89cfcd0196482b1c683
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: d8a975487c68a21b2c8b6fa2f07d86c312243f12
+ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75541752"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79139048"
 ---
 # <a name="consume-azure-machine-learning-events-preview"></a>Azure Machine Learning 이벤트 사용 (미리 보기)
 
@@ -42,6 +42,7 @@ Azure Machine Learning은 다양 한 기계 학습 수명 주기에서 이벤트
 | `Microsoft.MachineLearningServices.ModelRegistered` | Machine learning 모델이 작업 영역에 등록 될 때 발생 합니다. |
 | `Microsoft.MachineLearningServices.ModelDeployed` | 하나 이상의 모델이 포함 된 유추 서비스 배포가 완료 되 면 발생 합니다. |
 | `Microsoft.MachineLearningServices.DatasetDriftDetected` | 두 데이터 집합에 대 한 데이터 드리프트 검색 작업이 완료 되 면 발생 합니다. |
+| `Microsoft.MachineLearningServices.RunStatusChanged` | 실행 상태가 변경 될 때 발생 하며 현재 실행 상태가 ' 실패 ' 인 경우에만 발생 합니다. |
 
 ## <a name="subscribe-to-machine-learning-events"></a>Machine Learning 이벤트 구독
 
@@ -61,6 +62,7 @@ Azure Event Grid는 __로 시작__ 하 고 일치 항목으로 __끝나는__ 주
 | `Microsoft.MachineLearningServices.ModelRegistered` | `models/{modelName}:{modelVersion}` | `models/sklearn_regression_model:3` |
 | `Microsoft.MachineLearningServices.ModelDeployed` | `endpoints/{serviceId}` | `endpoints/my_sklearn_aks` |
 | `Microsoft.MachineLearningServices.DatasetDriftDetected` | `datadrift/{data.DataDriftId}/run/{data.RunId}` | `datadrift/4e694bf5-712e-4e40-b06a-d2a2755212d4/run/my_driftrun1_1550564444_fbbcdc0f` |
+| `Microsoft.MachineLearningServices.RunStatusChanged` | `experiments/{ExperimentId}/runs/{RunId}` | `experiments/b1d7966c-f73a-4c68-b846-992ace89551f/runs/my_exp1_1554835758_38dbaa94` | 
 
 ### <a name="advanced-filtering"></a>고급 필터링
 
@@ -88,7 +90,7 @@ Machine Learning 이벤트를 처리 하는 응용 프로그램은 다음과 같
 > * 작업이 실패 하거나 취소 Azure Machine Learning 작업이 이벤트를 트리거하지 않습니다. 예를 들어 모델 배포가 실패 하는 경우 MachineLearningServices 배포 되지 않습니다. 응용 프로그램을 디자인할 때 이러한 오류 모드를 고려 합니다. 항상 Azure Machine Learning SDK, CLI 또는 포털을 사용 하 여 작업 상태를 확인 하 고 자세한 오류 원인을 파악할 수 있습니다.
 
 Azure Event Grid를 사용 하 여 고객은 Azure Machine Learning 이벤트에 의해 트리거될 수 있는 결합 되지 않은 메시지 처리기를 만들 수 있습니다. 메시지 처리기의 몇 가지 주목할 만한 예는 다음과 같습니다.
-* Azure Function
+* Azure 기능
 * Azure Logic Apps
 * Azure Event Hubs
 * Azure Data Factory 파이프라인

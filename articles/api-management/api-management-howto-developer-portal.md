@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/05/2020
 ms.author: apimpm
-ms.openlocfilehash: 311ce34a4b5cfbb9a54a285094dac34c7dd5a225
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: b6b11242831e68787fe225d4d0b66638f1388de6
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79126536"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79297988"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Azure API Management 개발자 포털 개요
 
@@ -156,6 +156,12 @@ Id 공급자 (예: AAD, AAD B2C)를 구성한 후에는 [포털을 다시 게시
     </expose-headers>
 </cors>
 ```
+
+전역 범위에 CORS를 적용 하 여 모든 Api에 대해 사용 하도록 설정 되었는지 확인 합니다.
+
+1. Azure Portal API Management 서비스의 **api** 섹션에서 **모든 api** 로 이동 합니다.
+2. **인바운드 처리** 섹션에서 **</>** 아이콘을 클릭 합니다.
+3. XML 파일의 **<inbound>** 섹션에 정책을 삽입 합니다. **<origin>** 값이 개발자 포털의 도메인과 일치 하는지 확인 합니다.
 
 > [!NOTE]
 > 

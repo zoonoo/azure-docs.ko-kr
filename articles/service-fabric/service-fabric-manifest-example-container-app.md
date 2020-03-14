@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 06/08/2018
 ms.author: pepogors
 ms.openlocfilehash: 5efdbd17db20e69ace33b379ddbb99b2c4a20e69
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78382811"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79258396"
 ---
 # <a name="multi-container-application-and-service-manifest-examples"></a>다중 컨테이너 애플리케이션 및 서비스 매니페스트 예제
 다음은 다중 컨테이너 Service Fabric 애플리케이션에 대한 애플리케이션 및 서비스 매니페스트의 예제입니다. 이러한 예제의 목적은 사용 가능한 설정 및 사용 방법을 보여주는 것입니다. 이러한 애플리케이션 및 서비스 매니페스트는 [Windows Server 2016 컨테이너 샘플](https://github.com/Azure-Samples/service-fabric-containers/tree/master/Windows) 매니페스트를 기반으로 합니다.

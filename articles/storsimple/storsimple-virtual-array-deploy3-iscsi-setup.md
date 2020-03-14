@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 4560ca2b07826e2a071f515f147dfab8cbec3624
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78365614"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79254496"
 ---
 # <a name="deploy-storsimple-virtual-array--set-up-as-an-iscsi-server-via-azure-portal"></a>StorSimple 가상 배열 배포 – Azure Portal을 통해 iSCSI 서버로 설정
 
@@ -201,8 +201,8 @@ StorSimple 가상 배열을 구성하고 설정하기 전에 다음 사항을 �
    
     ![대상 디바이스 선택](./media/storsimple-virtual-array-deploy3-iscsi-setup/image25.png)
 6. Windows 호스트에서 Windows 로고 키 + X를 누르고 **실행**을 클릭합니다.
-7. **실행** 대화 상자에 **Diskmgmt.msc**를 입력합니다. **확인**을 클릭하면 **디스크 관리** 대화 상자가 나타나도 오른쪽 창에 호스트의 볼륨이 표시됩니다.
-8. **디스크 관리** 창에 탑재된 볼륨이 다음 그림과 같이 표시됩니다. 검색된 볼륨을 마우스 오른쪽 단추로 클릭(디스크 이름 클릭)하고 **온라인**을 클릭합니다.
+7. **실행** 대화 상자에 **Diskmgmt.msc**를 입력합니다. **확인**을 클릭하면 **디스크 관리** 대화 상자가 나타납니다. 오른쪽 창에 호스트의 볼륨이 표시됩니다.
+8. **디스크 관리** 창에 탑재된 볼륨이 다음 그림과 같이 표시됩니다. 검색된 볼륨을 마우스 오른쪽 단추로 클릭(디스크 이름 클릭)한 다음 **온라인**을 클릭합니다.
    
     ![디스크 관리](./media/storsimple-virtual-array-deploy3-iscsi-setup/image26.png)
 9. 마우스 오른쪽 단추를 클릭한 다음 **디스크 초기화**를 선택합니다.
@@ -239,7 +239,7 @@ Windows Server 2012를 실행하는 Windows 호스트의 iSCSI 정규화된 이�
 #### <a name="to-get-the-iqn-of-a-windows-host"></a>Windows Server 호스트의 IQN을 가져오려면
 
 1. Windows 호스트에서 Microsoft iSCSI 초기자를 시작합니다.
-2. **iSCSI 초기자 속성** 창의 **구성** 탭에 있는 **초기자 이름** 필드의 문자열을 선택하여 복사합니다.
+2. **iSCSI 초기자 속성** 창의 **구성** 탭에서 **초기자 이름** 필드의 문자열을 선택하고 복사합니다.
    
     ![iSCSI 초기자 속성](./media/storsimple-virtual-array-deploy3-iscsi-setup/image34.png)
 3. 이 문자열을 저장합니다.

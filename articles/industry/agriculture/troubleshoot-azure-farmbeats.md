@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: fb4b06eca0d6df6848e2e215d8890569701f7596
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 20d07be99aa2f9881218f8d581ac8d429a1fe4d0
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705618"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79298804"
 ---
 # <a name="troubleshoot"></a>문제 해결
 
@@ -65,11 +65,11 @@ ms.locfileid: "76705618"
       "sensordata": [
         {
           "timestamp": "< timestamp in ISO 8601 format >",
-          "<sensor measure name (as defined in the Sensor Model)>": <value>
+          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
         },
         {
           "timestamp": "<timestamp in ISO 8601 format>",
-          "<sensor measure name (as defined in the Sensor Model)>": <value>
+          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
         }
       ]
     }
@@ -119,14 +119,14 @@ ms.locfileid: "76705618"
 2. 특정 장치를 삭제 합니다.  
 
     > [!NOTE]
-    > 센서가 연결 되어 있는 경우에는 장치를 삭제할 수 없습니다. 관련 센서를 삭제 하는 방법에 대 한 자세한 내용은 [센서 파트너에서 센서 데이터 가져오기](get-sensor-data-from-sensor-partner.md)의 "센서 삭제" 섹션을 참조 하세요.
+    > 센서가 연결 되어 있는 경우에는 장치를 삭제할 수 없습니다. 관련 센서를 삭제 하는 방법에 대 한 자세한 내용은 센서 [파트너에서 센서 데이터 가져오기](get-sensor-data-from-sensor-partner.md)에서 **센서 삭제** 섹션을 참조 하세요.
 
 
 ## <a name="issues-with-jobs"></a>작업 관련 문제
 
 ### <a name="farmbeats-internal-error"></a>FarmBeats 내부 오류
 
-**메시지**: "FarmBeats 내부 오류, 자세한 내용은 문제 해결 가이드를 참조 하세요."
+**메시지**: "FarmBeats internal error, 자세한 내용은 문제 해결 가이드를 참조 하십시오."
 
 **정정 동작**:이 문제는 데이터 파이프라인에서 일시적인 오류가 발생할 수 있습니다. 작업을 다시 만듭니다. 오류가 계속 발생 하면 FarmBeats 포럼의 게시물에 오류 메시지를 추가 하거나 FarmBeatsSupport@microsoft.com에 문의 하세요.
 
@@ -142,7 +142,7 @@ ms.locfileid: "76705618"
 
 ### <a name="unable-to-log-in-to-accelerator"></a>액셀러레이터에 로그인 할 수 없습니다.
 
-**메시지**: "오류: 서비스를 호출할 수 있는 권한이 없습니다. 권한 부여에 대 한 관리자에 게 문의 하십시오. "
+**메시지**: "오류: 서비스를 호출할 수 있는 권한이 없습니다. 관리자에 게 권한 부여를 문의 하십시오. "
 
 **정정 작업**: 관리자에 게 FarmBeats 배포에 대 한 액세스 권한을 부여 하도록 요청 합니다. 이 작업은 RoleAssignment의 게시를 수행 하거나 **설정** 창의 액셀러레이터 키에서 Access Control를 통해 수행할 수 있습니다.  
 
@@ -163,6 +163,7 @@ ms.locfileid: "76705618"
 **문제**: FarmBeatsDeployment을 업그레이드 한 후에도 FarmBeats Accelerator가 최신 버전을 표시 하지 않습니다.
 
 **정정 동작**:이 오류는 브라우저에서 서비스 작업자 지 속성으로 인해 발생 합니다. 다음을 수행합니다.
+
 1. 액셀러레이터 키가 열려 있는 모든 브라우저 탭을 닫고 브라우저 창을 닫습니다.
 2. 브라우저의 새 인스턴스를 시작 하 고 액셀러레이터 키 URI를 다시 로드 합니다. 이 작업을 수행 하면 새 버전의 가속기가 로드 됩니다.
 
@@ -175,6 +176,7 @@ ms.locfileid: "76705618"
 **수정 동작**:
 
 다음 중 하나를 수행합니다.
+
 - 올바른 사용자 이름 및 암호를 사용 하 여 Datahub를 업그레이드 하기 위해 설치 관리자를 다시 실행 합니다.
 - 실패 한 작업을 다시 실행 하거나, 5-7 일의 날짜 범위에 대해 위성 인덱스 작업을 실행 한 후 작업이 성공 했는지 확인 합니다.
 
@@ -198,6 +200,7 @@ ms.locfileid: "76705618"
 1. 유지 관리를 수행 하기 때문에 작업 또는 파이프라인이 실패 하면 일정 시간 후에 작업을 다시 제출 합니다. 
 
    계획 되거나 계획 되지 않은 센티널 유지 관리 활동에 대 한 자세한 내용은 [Copernicus Open Access Hub News](https://scihub.copernicus.eu/news/) 사이트로 이동 하세요.  
+
 2. 실패 한 작업을 다시 실행 하거나, 5-7 일의 날짜 범위에 대해 위성 인덱스 작업을 실행 한 후 작업이 성공 했는지 확인 합니다.
 
 ### <a name="sentinel-maximum-number-of-connections-reached"></a>센티널: 최대 연결 수에 도달 했습니다.
@@ -207,6 +210,7 @@ ms.locfileid: "76705618"
 **의미**: 최대 연결 수에 도달 하 여 작업이 실패 하는 경우 동일한 센티널 계정이 다른 소프트웨어 배포에서 사용 되 고 있습니다.
 
 **정정 작업**: 다음 중 하나를 시도 합니다.
+
 * 새 센티널 계정을 만든 다음 설치 관리자를 다시 실행 하 여 새 센티널 사용자 이름 및 암호를 사용 하 여 Datahub를 업그레이드 합니다.  
 * 실패 한 작업을 다시 실행 하거나, 5-7 일의 날짜 범위에 대해 위성 인덱스 작업을 실행 한 후 작업이 성공 했는지 확인 합니다.
 
@@ -218,6 +222,7 @@ ms.locfileid: "76705618"
 1. 유지 관리를 수행 하기 때문에 작업 또는 파이프라인이 실패 하면 일정 시간 후에 작업을 다시 제출 합니다. 
 
    계획 되거나 계획 되지 않은 센티널 유지 관리 활동에 대 한 자세한 내용은 [Copernicus Open Access Hub News](https://scihub.copernicus.eu/news/) 사이트로 이동 하세요.  
+
 2. 실패 한 작업을 다시 실행 하거나, 5-7 일의 날짜 범위에 대해 위성 인덱스 작업을 실행 한 후 작업이 성공 했는지 확인 합니다.
 
 ## <a name="collect-logs-manually"></a>수동으로 로그 수집
@@ -225,6 +230,7 @@ ms.locfileid: "76705618"
 [Azure Storage 탐색기를 설치 하 고 배포]( https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows)합니다.
 
 ### <a name="collect-azure-data-factory-job-logs-in-datahub"></a>Datahub에서 Azure Data Factory 작업 로그 수집
+
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **검색** 상자에서 FarmBeats datahub 리소스 그룹을 검색 합니다.
 
@@ -304,7 +310,7 @@ ms.locfileid: "76705618"
 
 **의미**: Azure AD 앱 등록 구성이 제대로 완료 되지 않았습니다.  
 
-**정정 작업**: IT 관리자 (테 넌 트 읽기 액세스 권한이 있는 사용자)에 게 Azure AD 앱 등록을 만드는 [스크립트](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect/tree/master/AppCreationScripts) 를 사용 하도록 요청 합니다. 이 스크립트는 구성 단계도 자동으로 처리 합니다.
+**정정 동작**: Azure AD 앱 등록을 만드는 [스크립트](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect/tree/master/AppCreationScripts) 를 사용 하려면 IT 관리자 (테 넌 트 읽기 액세스 권한이 있는 사용자)에 게 문의 하세요. 이 스크립트는 구성 단계도 자동으로 처리 합니다.
 
 **오류 메시지**: "이 테 넌 트에서 새 Active Directory 응용 프로그램 '\<응용 프로그램 이름\>'을 (를) 만들 수 없습니다. 속성 식별자 uri에 대해 동일한 값을 가진 다른 개체가 이미 있습니다."
 

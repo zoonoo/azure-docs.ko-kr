@@ -4,11 +4,11 @@ description: ASP.NET Core 웹 애플리케이션의 가용성, 성능 및 사용
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.openlocfilehash: 5028d95ef784b0d309880d0d05371cd42f627d7d
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78269207"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79276310"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>ASP.NET Core 응용 프로그램에 대 한 Application Insights
 

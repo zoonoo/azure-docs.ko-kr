@@ -9,11 +9,11 @@ ms.date: 04/23/2019
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.openlocfilehash: 6507c2a2d1100d480c879c73861c02e477d38416
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78381934"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79255575"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2의 액세스 제어
 
@@ -274,7 +274,7 @@ def set_default_acls_for_new_child(parent, child):
 
 ### <a name="do-i-have-to-enable-support-for-acls"></a>ACL에 대한 지원을 사용하도록 설정해야 하나요?
 
-No. 저장소 계정에 대 한 액세스 제어는 HNS (계층적 네임 스페이스) 기능이 설정 되어 있는 한 저장소 계정에 대해 사용 하도록 설정 됩니다.
+아니요. 저장소 계정에 대 한 액세스 제어는 HNS (계층적 네임 스페이스) 기능이 설정 되어 있는 한 저장소 계정에 대해 사용 하도록 설정 됩니다.
 
 HNS가 해제된 경우에도 Azure RBAC 권한 부여 규칙이 여전히 적용됩니다.
 

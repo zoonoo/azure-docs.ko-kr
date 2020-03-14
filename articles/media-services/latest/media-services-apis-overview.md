@@ -14,11 +14,11 @@ ms.date: 10/21/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 4a3b699c90e1fefb834f8ddfe3a23fc2a97354ec
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186139"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79251415"
 ---
 # <a name="develop-with-media-services-v3-apis"></a>Media Services v3 Api를 사용 하 여 개발
 
@@ -118,7 +118,7 @@ Media Services에는 다음과 같은 장기 실행 작업이 있습니다.
 > [!NOTE]
 > Azure Media Services v3 Sdk는 스레드로부터 안전 하 게 보호 되지 않을 수 있습니다. 다중 스레드 앱을 개발할 때 클라이언트를 보호 하거나 스레드별로 새로운 AzureMediaServicesClient 개체를 사용 하기 위해 고유한 스레드 동기화 논리를 추가 해야 합니다. 코드에서 클라이언트에 제공하는 선택적 개체(예: .NET의 HttpClient 인스턴스) 때문에 다중 스레드 문제가 도입될 수 있다는 점에도 주의해야 합니다.
 
-|SDK|참조|
+|SDK)|참조|
 |---|---|
 |[.NET SDK](https://aka.ms/ams-v3-dotnet-sdk)|[.NET 참조](https://aka.ms/ams-v3-dotnet-ref)|
 |[Java SDK](https://aka.ms/ams-v3-java-sdk)|[Java 참조](https://aka.ms/ams-v3-java-ref)|
@@ -127,7 +127,7 @@ Media Services에는 다음과 같은 장기 실행 작업이 있습니다.
 |[SDK로 이동](https://aka.ms/ams-v3-go-sdk) |[참조로 이동](https://aka.ms/ams-v3-go-ref)|
 |[Ruby SDK](https://aka.ms/ams-v3-ruby-sdk)||
 
-### <a name="see-also"></a>참고자료
+### <a name="see-also"></a>참고 항목
 
 - [미디어 서비스 이벤트를 포함하는 EventGrid .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/)
 - [Media Services 이벤트의 정의](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/eventgrid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json)
@@ -136,7 +136,7 @@ Media Services에는 다음과 같은 장기 실행 작업이 있습니다.
 
 [Azure Media Services 탐색기](https://github.com/Azure/Azure-Media-Services-Explorer)(AMSE)는 Media Services에 대해 알아보고자 하는 Windows 고객이 사용할 수 있는 도구입니다. AMSE는 Media Services에서 VOD 및 실시간 콘텐츠의 업로드, 다운로드, 인코딩, 스트리밍을 수행하는 Winforms/C# 애플리케이션입니다. AMSE 도구는 코드를 작성하지 않고 Media Services를 테스트하려는 고객을 위한 도구입니다. AMSE 코드는 Media Services를 사용하여 개발하려는 고객을 위한 리소스로 제공됩니다.
 
-AMSE는 오픈 소스 프로젝트이며, 커뮤니티에서 지원을 제공합니다(문제는 https://github.com/Azure/Azure-Media-Services-Explorer/issues)에 보고할 수 있음). 이 프로젝트에는 [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/)(Microsoft 오픈 소스 준수 사항)이 적용됩니다. 자세한 내용은 질문 및 답변 [의 코드](https://opensource.microsoft.com/codeofconduct/faq/) 를 참조 하거나 다른 질문이 나 의견을 opencode@microsoft.com 문의 하세요.
+AMSE는 오픈 소스 프로젝트이며, 커뮤니티에서 지원을 제공합니다(문제는 https://github.com/Azure/Azure-Media-Services-Explorer/issues)에 보고할 수 있음). 이 프로젝트는 [Microsoft 오픈 소스 준수 사항](https://opensource.microsoft.com/codeofconduct/)을 채택했습니다. 자세한 내용은 질문 및 답변 [의 코드](https://opensource.microsoft.com/codeofconduct/faq/) 를 참조 하거나 다른 질문이 나 의견을 opencode@microsoft.com 문의 하세요.
 
 ## <a name="filtering-ordering-paging-of-media-services-entities"></a>Media Services 엔터티 필터링, 순서 지정, 페이징
 
@@ -146,7 +146,7 @@ AMSE는 오픈 소스 프로젝트이며, 커뮤니티에서 지원을 제공합
 
 [Azure Media Services 커뮤니티](media-services-community.md) 문서를 체크 아웃하여 다양한 방법으로 질문을 하고, 피드백을 제공하고, Media Services에 대한 업데이트를 가져올 수 있습니다.
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참고 항목
 
 [Azure CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
 

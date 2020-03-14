@@ -3,12 +3,12 @@ title: SQL Server 데이터베이스 백업 문제 해결
 description: Azure Backup을 사용하여 Azure VM에서 실행되는 SQL Server 데이터베이스를 백업하는 경우의 문제 해결 정보입니다.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: 69cae196e7fad70d75fb12709e5bf0d618bbc81c
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 7ebe76fde344b1dabca9a3aee2d0cc9e1edb8df4
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77602327"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79247827"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Azure Backup를 사용 하 여 SQL Server 데이터베이스 백업 문제 해결
 
@@ -21,6 +21,7 @@ ms.locfileid: "77602327"
 가상 머신에서 SQL Server 데이터베이스에 대 한 보호를 구성 하려면 해당 가상 머신에 **Azurebackupwindowsworkload 로드** 확장을 설치 해야 합니다. **Usererrorsqlnosysadminmembership**오류가 발생 하면 SQL Server 인스턴스에 필요한 백업 권한이 없는 것입니다. 이 오류를 해결 하려면 [VM 권한 설정](backup-azure-sql-database.md#set-vm-permissions)의 단계를 따르세요.
 
 ## <a name="troubleshoot-discover-and-configure-issues"></a>문제 검색 및 구성 문제 해결
+
 Recovery Services 자격 증명 모음을 만들고 구성한 후 데이터베이스를 검색 하 고 백업을 구성 하는 과정은 두 단계로 구성 됩니다.<br>
 
 ![sql](./media/backup-azure-sql-database/sql.png)
@@ -37,7 +38,23 @@ Recovery Services 자격 증명 모음을 만들고 구성한 후 데이터베�
 
 새 자격 증명 모음에 SQL VM을 등록 해야 하는 경우 이전 자격 증명 모음에서 등록 취소 해야 합니다.  자격 증명 모음에서 SQL VM의 등록을 취소 하려면 보호 된 모든 데이터 원본의 보호를 중지 하 고 백업 된 데이터를 삭제할 수 있습니다. 백업 된 데이터를 삭제 하는 작업은 안전 하지 않습니다.  SQL VM의 등록을 취소 하 고 모든 예방 조치를 수행한 후에는이 동일한 VM을 새 자격 증명 모음에 등록 하 고 백업 작업을 다시 시도 합니다.
 
+## <a name="troubleshoot-backup-and-recovery-issues"></a>백업 및 복구 문제 해결  
 
+때때로 백업 및 복원 작업에서 임의 오류가 발생할 수 있습니다. 그렇지 않으면 해당 작업이 중단 될 수 있습니다. 이는 VM의 바이러스 백신 프로그램이 원인일 수 있습니다. 가장 좋은 방법은 다음 단계를 수행 하는 것입니다.
+
+1. 바이러스 백신 검사에서 다음 폴더를 제외 합니다.
+
+    `C:\Program Files\Azure Workload Backup` `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.RecoveryServices.WorkloadBackup.Edp.AzureBackupWindowsWorkload`
+
+    `C:\` *를가 나의*문자로 바꿉니다.
+
+1. VM 내에서 실행 되는 다음 세 프로세스를 바이러스 백신 검사에서 제외 합니다.
+
+    - IaasWLPluginSvc
+    - IaasWorkloadCoordinaorService
+    - TriggerExtensionJob .exe
+
+1. 또한 SQL은 바이러스 백신 프로그램 작업에 대 한 몇 가지 지침을 제공 합니다. 자세한 내용은 [이 아티클](https://support.microsoft.com/help/309422/choosing-antivirus-software-for-computers-that-run-sql-server)을 참조하세요.
 
 ## <a name="error-messages"></a>오류 메시지
 
@@ -149,7 +166,6 @@ Recovery Services 자격 증명 모음을 만들고 구성한 후 데이터베�
 | 오류 메시지 | 가능한 원인 | 권장 작업 |
 |---|---|---|
 인터넷 연결 문제로 인해 VM이 Azure Backup 서비스에 연결할 수 없습니다. | VM Azure Backup 서비스, Azure Storage 또는 Azure Active Directory 서비스에 대 한 아웃 바운드 연결이 필요 합니다.| -NSG를 사용 하 여 연결을 제한 하는 경우 AzureBackup 서비스 태그를 사용 하 여 Azure Backup 서비스, Azure Storage 또는 Azure Active Directory 서비스에 대 한 Azure Backup 아웃 바운드 액세스를 허용 해야 합니다. 액세스 권한을 부여 하려면 다음 [단계](https://docs.microsoft.com/azure/backup/backup-sql-server-database-azure-vms#allow-access-using-nsg-tags) 를 수행 합니다.<br>-DNS가 Azure 끝점을 확인 하 고 있는지 확인 합니다.<br>-VM이 인터넷 액세스를 차단 하는 부하 분산 장치 뒤에 있는지 확인 합니다. Vm에 공용 IP를 할당 하면 검색은 작동 합니다.<br>-위의 세 대상 서비스에 대 한 호출을 차단 하는 방화벽/바이러스 백신/프록시가 없는지 확인 합니다.
-
 
 ## <a name="re-registration-failures"></a>다시 등록 오류
 

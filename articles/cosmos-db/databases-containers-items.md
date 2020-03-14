@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 09/01/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 43a842c3b6d6d421eca4196c7f3facc7876318cd
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76767996"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79246787"
 ---
 # <a name="work-with-databases-containers-and-items-in-azure-cosmos-db"></a>Azure Cosmos DB의 데이터베이스, 컨테이너 및 항목 작업
 
@@ -26,7 +26,7 @@ Azure 구독 아래에 [Azure Cosmos DB 계정](account-overview.md)을 생성�
 
 계정에서 하나 또는 여러 개의 Azure Cosmos 데이터베이스를 만들 수 있습니다. 데이터베이스는 네임 스페이스와 유사 합니다. 데이터베이스는 Azure Cosmos 컨테이너 집합에 대 한 관리 단위입니다. 다음 표에서는 Azure Cosmos 데이터베이스가 다양한 API 관련 엔터티에 매핑되는 방법을 보여줍니다.
 
-| Azure Cosmos 엔터티 | SQL API | Cassandra API | Azure Cosmos DB API for MongoDB | Gremlin API | Table API |
+| Azure Cosmos 엔터티 | SQL API | Cassandra API | Azure Cosmos DB API for MongoDB | Gremlin API | 테이블 API |
 | --- | --- | --- | --- | --- | --- |
 |Azure Cosmos 데이터베이스 | 데이터베이스 | Keyspace | 데이터베이스 | 데이터베이스 | 해당 없음 |
 
@@ -37,12 +37,12 @@ Azure 구독 아래에 [Azure Cosmos DB 계정](account-overview.md)을 생성�
 
 다음 표에서 설명 하는 것 처럼 Azure Cosmos Api를 사용 하 여 Azure Cosmos 데이터베이스와 상호 작용할 수 있습니다.
 
-| 작업 | Azure CLI | SQL API | Cassandra API | Azure Cosmos DB API for MongoDB | Gremlin API | Table API |
+| 작업(Operation) | Azure CLI | SQL API | Cassandra API | Azure Cosmos DB API for MongoDB | Gremlin API | 테이블 API |
 | --- | --- | --- | --- | --- | --- | --- |
-|모든 데이터베이스 열거| 예 | 예 | 예(데이터베이스가 keyspace에 매핑됨) | 예 | 해당 없음 | 해당 없음 |
-|데이터베이스 읽기| 예 | 예 | 예(데이터베이스가 keyspace에 매핑됨) | 예 | 해당 없음 | 해당 없음 |
-|새 데이터베이스 만들기| 예 | 예 | 예(데이터베이스가 keyspace에 매핑됨) | 예 | 해당 없음 | 해당 없음 |
-|데이터베이스 업데이트| 예 | 예 | 예(데이터베이스가 keyspace에 매핑됨) | 예 | 해당 없음 | 해당 없음 |
+|모든 데이터베이스 열거| yes | yes | 예(데이터베이스가 keyspace에 매핑됨) | yes | 해당 없음 | 해당 없음 |
+|데이터베이스 읽기| yes | yes | 예(데이터베이스가 keyspace에 매핑됨) | yes | 해당 없음 | 해당 없음 |
+|새 데이터베이스 만들기| yes | yes | 예(데이터베이스가 keyspace에 매핑됨) | yes | 해당 없음 | 해당 없음 |
+|데이터베이스 업데이트| yes | yes | 예(데이터베이스가 keyspace에 매핑됨) | yes | 해당 없음 | 해당 없음 |
 
 
 ## <a name="azure-cosmos-containers"></a>Azure Cosmos 컨테이너
@@ -72,43 +72,43 @@ Azure Cosmos 컨테이너에 [unique key 제약 조건을](unique-keys.md) 지�
 
 Azure Cosmos 컨테이너는 다음 표에 나와 있는 것 처럼 API 관련 엔터티로 특수화 됩니다.
 
-| Azure Cosmos 엔터티 | SQL API | Cassandra API | Azure Cosmos DB API for MongoDB | Gremlin API | Table API |
+| Azure Cosmos 엔터티 | SQL API | Cassandra API | Azure Cosmos DB API for MongoDB | Gremlin API | 테이블 API |
 | --- | --- | --- | --- | --- | --- |
-|Azure Cosmos 컨테이너 | 컨테이너 | Table | 컬렉션 | 그래프 | Table |
+|Azure Cosmos 컨테이너 | 컨테이너 | 테이블 | 컬렉션 | 그래프 | 테이블 |
 
 ### <a name="properties-of-an-azure-cosmos-container"></a>Azure Cosmos 컨테이너의 속성
 
 Azure Cosmos 컨테이너에는 시스템 정의 속성 집합이 있습니다. 사용 하는 API에 따라 일부 속성은 직접 노출 되지 않을 수도 있습니다. 다음 표에서는 시스템 정의 속성의 목록에 대해 설명 합니다.
 
-| 시스템 정의 속성 | 시스템 생성 또는 사용자 구성 가능 | 용도 | SQL API | Cassandra API | Azure Cosmos DB API for MongoDB | Gremlin API | Table API |
+| 시스템 정의 속성 | 시스템 생성 또는 사용자 구성 가능 | 목적 | SQL API | Cassandra API | Azure Cosmos DB API for MongoDB | Gremlin API | 테이블 API |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|\_rid | 시스템 생성 | 컨테이너의 고유 식별자 | 예 | 아닙니다. | 아닙니다. | 아닙니다. | 아닙니다. |
-|\_etag | 시스템 생성 | 낙관적 동시성 제어에 사용되는 엔터티 태그 | 예 | 아닙니다. | 아닙니다. | 아닙니다. | 아닙니다. |
-|\_ts | 시스템 생성 | 컨테이너의 마지막 업데이트 타임스탬프 | 예 | 아닙니다. | 아닙니다. | 아닙니다. | 아닙니다. |
-|\_자체 | 시스템 생성 | 컨테이너의 주소 지정 가능 URI | 예 | 아닙니다. | 아닙니다. | 아닙니다. | 아닙니다. |
-|id | 사용자 구성 가능 | 컨테이너의 사용자 정의 고유 이름 | 예 | 예 | 예 | 예 | 예 |
-|indexingPolicy | 사용자 구성 가능 | 인덱스 경로, 인덱스 유형 및 인덱스 모드를 변경 하는 기능을 제공 합니다. | 예 | 아닙니다. | 아닙니다. | 아닙니다. | 예 |
-|timeToLive | 사용자 구성 가능 | 설정 된 기간 후에 컨테이너에서 항목을 자동으로 삭제 하는 기능을 제공 합니다. 자세한 내용은 ttl ( [Time To Live](time-to-live.md))을 참조 하세요. | 예 | 아닙니다. | 아닙니다. | 아닙니다. | 예 |
-|changeFeedPolicy | 사용자 구성 가능 | 컨테이너의 항목에 대한 변경 내용을 읽는 데 사용됩니다. 자세한 내용은 [변경 피드](change-feed.md)를 참조 하세요. | 예 | 아닙니다. | 아닙니다. | 아닙니다. | 예 |
-|uniqueKeyPolicy | 사용자 구성 가능 | 논리 파티션에서 하나 이상의 값에 대 한 고유성을 보장 하는 데 사용 됩니다. 자세한 내용은 [Unique key 제약 조건](unique-keys.md)을 참조 하세요. | 예 | 아닙니다. | 아닙니다. | 아닙니다. | 예 |
+|\_rid | 시스템 생성 | 컨테이너의 고유 식별자 | yes | 예 | 예 | 예 | 예 |
+|\_etag | 시스템 생성 | 낙관적 동시성 제어에 사용되는 엔터티 태그 | yes | 예 | 예 | 예 | 예 |
+|\_ts | 시스템 생성 | 컨테이너의 마지막 업데이트 타임스탬프 | yes | 예 | 예 | 예 | 예 |
+|\_자체 | 시스템 생성 | 컨테이너의 주소 지정 가능 URI | yes | 예 | 예 | 예 | 예 |
+|id | 사용자 구성 가능 | 컨테이너의 사용자 정의 고유 이름 | yes | yes | yes | yes | yes |
+|indexingPolicy | 사용자 구성 가능 | 인덱스 경로, 인덱스 유형 및 인덱스 모드를 변경 하는 기능을 제공 합니다. | yes | 예 | 예 | 예 | yes |
+|timeToLive | 사용자 구성 가능 | 설정 된 기간 후에 컨테이너에서 항목을 자동으로 삭제 하는 기능을 제공 합니다. 자세한 내용은 ttl ( [Time To Live](time-to-live.md))을 참조 하세요. | yes | 예 | 예 | 예 | yes |
+|changeFeedPolicy | 사용자 구성 가능 | 컨테이너의 항목에 대한 변경 내용을 읽는 데 사용됩니다. 자세한 내용은 [변경 피드](change-feed.md)를 참조 하세요. | yes | 예 | 예 | 예 | yes |
+|uniqueKeyPolicy | 사용자 구성 가능 | 논리 파티션에서 하나 이상의 값에 대 한 고유성을 보장 하는 데 사용 됩니다. 자세한 내용은 [Unique key 제약 조건](unique-keys.md)을 참조 하세요. | yes | 예 | 예 | 예 | yes |
 
 ### <a name="operations-on-an-azure-cosmos-container"></a>Azure Cosmos 컨테이너에서 작업
 
 Azure Cosmos 컨테이너는 Azure Cosmos Api를 사용 하는 경우 다음 작업을 지원 합니다.
 
-| 작업 | Azure CLI | SQL API | Cassandra API | Azure Cosmos DB API for MongoDB | Gremlin API | Table API |
+| 작업(Operation) | Azure CLI | SQL API | Cassandra API | Azure Cosmos DB API for MongoDB | Gremlin API | 테이블 API |
 | --- | --- | --- | --- | --- | --- | --- |
-| 데이터베이스에 컨테이너 열거 | 예 | 예 | 예 | 예 | 해당 없음 | 해당 없음 |
-| 컨테이너 읽기 | 예 | 예 | 예 | 예 | 해당 없음 | 해당 없음 |
-| 새 컨테이너 만들기 | 예 | 예 | 예 | 예 | 해당 없음 | 해당 없음 |
-| 컨테이너 업데이트 | 예 | 예 | 예 | 예 | 해당 없음 | 해당 없음 |
-| 컨테이너 삭제 | 예 | 예 | 예 | 예 | 해당 없음 | 해당 없음 |
+| 데이터베이스에 컨테이너 열거 | yes | yes | yes | yes | 해당 없음 | 해당 없음 |
+| 컨테이너 읽기 | yes | yes | yes | yes | 해당 없음 | 해당 없음 |
+| 새 컨테이너 만들기 | yes | yes | yes | yes | 해당 없음 | 해당 없음 |
+| 컨테이너 업데이트 | yes | yes | yes | yes | 해당 없음 | 해당 없음 |
+| 컨테이너 삭제 | yes | yes | yes | yes | 해당 없음 | 해당 없음 |
 
 ## <a name="azure-cosmos-items"></a>Azure Cosmos 항목
 
 사용 하는 API에 따라 Azure Cosmos 항목은 컬렉션의 문서, 테이블의 행 또는 그래프의 노드 또는 가장자리를 나타낼 수 있습니다. 다음 표에서는 Azure Cosmos 항목에 대 한 API 별 엔터티 매핑을 보여 줍니다.
 
-| Cosmos 엔터티 | SQL API | Cassandra API | Azure Cosmos DB API for MongoDB | Gremlin API | Table API |
+| Cosmos 엔터티 | SQL API | Cassandra API | Azure Cosmos DB API for MongoDB | Gremlin API | 테이블 API |
 | --- | --- | --- | --- | --- | --- |
 |Azure Cosmos 항목 | 문서 | 행 | 문서 | 노드 또는에 지 | 항목 |
 
@@ -116,14 +116,14 @@ Azure Cosmos 컨테이너는 Azure Cosmos Api를 사용 하는 경우 다음 작
 
 모든 Azure Cosmos 항목에는 다음과 같은 시스템 정의 속성이 있습니다. 사용 하는 API에 따라 일부는 직접 노출 되지 않을 수도 있습니다.
 
-| 시스템 정의 속성 | 시스템 생성 또는 사용자 구성 가능| 용도 | SQL API | Cassandra API | Azure Cosmos DB API for MongoDB | Gremlin API | Table API |
+| 시스템 정의 속성 | 시스템 생성 또는 사용자 구성 가능| 목적 | SQL API | Cassandra API | Azure Cosmos DB API for MongoDB | Gremlin API | 테이블 API |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|\_rid | 시스템 생성 | 항목의 고유 식별자 | 예 | 아닙니다. | 아닙니다. | 아닙니다. | 아닙니다. |
-|\_etag | 시스템 생성 | 낙관적 동시성 제어에 사용되는 엔터티 태그 | 예 | 아닙니다. | 아닙니다. | 아닙니다. | 아닙니다. |
-|\_ts | 시스템 생성 | 항목의 마지막 업데이트에 대 한 타임 스탬프 | 예 | 아닙니다. | 아닙니다. | 아닙니다. | 아닙니다. |
-|\_자체 | 시스템 생성 | 항목의 주소 지정 가능 URI | 예 | 아닙니다. | 아닙니다. | 아닙니다. | 아닙니다. |
-|id | 여기서는 | 논리적 파티션의 사용자 정의 고유 이름입니다. | 예 | 예 | 예 | 예 | 예 |
-|임의의 사용자 정의 속성 | 사용자 정의 | API 기본 표현으로 표현 되는 사용자 정의 속성 (JSON, BSON 및 CQL 포함) | 예 | 예 | 예 | 예 | 예 |
+|\_rid | 시스템 생성 | 항목의 고유 식별자 | yes | 예 | 예 | 예 | 예 |
+|\_etag | 시스템 생성 | 낙관적 동시성 제어에 사용되는 엔터티 태그 | yes | 예 | 예 | 예 | 예 |
+|\_ts | 시스템 생성 | 항목의 마지막 업데이트에 대 한 타임 스탬프 | yes | 예 | 예 | 예 | 예 |
+|\_자체 | 시스템 생성 | 항목의 주소 지정 가능 URI | yes | 예 | 예 | 예 | 예 |
+|id | 여기서는 | 논리적 파티션의 사용자 정의 고유 이름입니다. | yes | yes | yes | yes | yes |
+|임의의 사용자 정의 속성 | 사용자 정의 | API 기본 표현으로 표현 되는 사용자 정의 속성 (JSON, BSON 및 CQL 포함) | yes | yes | yes | yes | yes |
 
 > [!NOTE]
 > `id` 속성의 고유성은 각 논리 파티션 내 에서만 적용 됩니다. 여러 문서에는 파티션 키 값이 서로 다른 동일한 `id` 속성이 있을 수 있습니다.
@@ -132,9 +132,9 @@ Azure Cosmos 컨테이너는 Azure Cosmos Api를 사용 하는 경우 다음 작
 
 Azure Cosmos 항목은 다음 작업을 지원 합니다. Azure Cosmos Api를 사용 하 여 작업을 수행할 수 있습니다.
 
-| 작업 | Azure CLI | SQL API | Cassandra API | Azure Cosmos DB API for MongoDB | Gremlin API | Table API |
+| 작업(Operation) | Azure CLI | SQL API | Cassandra API | Azure Cosmos DB API for MongoDB | Gremlin API | 테이블 API |
 | --- | --- | --- | --- | --- | --- | --- |
-| 삽입, 바꾸기, 삭제, Upsert, 읽기 | 아닙니다. | 예 | 예 | 예 | 예 | 예 |
+| 삽입, 바꾸기, 삭제, Upsert, 읽기 | 예 | yes | yes | yes | yes | yes |
 
 ## <a name="next-steps"></a>다음 단계
 

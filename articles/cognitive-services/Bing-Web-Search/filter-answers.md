@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: scottwhi
 ms.openlocfilehash: 6fa022f181e2061c6a7f3e08d1f2f501ddd9cac3
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111423"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79221380"
 ---
 # <a name="filtering-the-answers-that-the-search-response-includes"></a>검색 응답에 포함되는 답변 필터링  
 
@@ -53,7 +53,7 @@ Bing에서 반환 된 대답을 필터링 하려면 API를 호출할 때 아래 
 
 응답이 [필터](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter) 쿼리 매개 변수 (예: 이미지, 비디오, 뉴스)를 사용 하 여 Bing에서 응답에 포함 하는 응답 유형 (예: 이미지, 비디오 및 뉴스)을 필터링 할 수 있습니다 .이 매개 변수는 쉼표로 구분 된 대답 목록입니다. Bing에서 관련 콘텐츠를 찾은 경우 응답에 답변이 포함 됩니다. 
 
-이미지와 같은 응답에서 특정 대답을 제외 하려면 응답 형식에 `-` 문자 앞에 추가 합니다. 예를 들어:
+이미지와 같은 응답에서 특정 대답을 제외 하려면 응답 형식에 `-` 문자 앞에 추가 합니다. 다음은 그 예입니다.
 
 ```
 &responseFilter=-images,-videos
@@ -109,9 +109,9 @@ https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies+site:con
 ```
 
 > [!NOTE]
-> `site:` 쿼리 연산자를 사용하는 경우 쿼리에 따라 [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#safesearch) 설정에 관계없이 응답에 성인 콘텐츠가 포함될 수 있는 가능성이 있습니다. 사이트의 콘텐츠를 알고 있고 시나리오가 성인 컨텐츠를 지원하는 경우에만 `site:`를 사용해야 합니다.
+> `site:` 쿼리 연산자를 사용하는 경우 쿼리에 따라 [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#safesearch) 설정에 관계없이 응답에 성인 콘텐츠가 포함될 수 있는 가능성이 있습니다. 사이트의 콘텐츠를 알고 있고 시나리오가 성인 콘텐츠를 지원하는 경우에만 `site:`를 사용해야 합니다.
 
-### <a name="freshness"></a>최신
+### <a name="freshness"></a>고침
 
 웹 응답 결과를 Bing이 특정 기간 동안 검색 한 웹 페이지로 제한 하려면 [freshness](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#freshness) 쿼리 매개 변수를 대/소문자를 구분 하지 않는 다음 값 중 하나로 설정 합니다.
 

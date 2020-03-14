@@ -3,12 +3,12 @@ title: 패키지에서 Azure Functions 실행
 description: 함수 앱 프로젝트 파일을 포함하는 배포 패키지 파일을 탑재하여 Azure Functions 런타임이 함수를 실행하게 합니다.
 ms.topic: conceptual
 ms.date: 07/15/2019
-ms.openlocfilehash: 3ae287939f22469b03f0e10f184f067274464905
-ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
+ms.openlocfilehash: d40896d6a4659945dbeda9ca965366f0b2ca4bd2
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79087027"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79365274"
 ---
 # <a name="run-your-azure-functions-from-a-package-file"></a>패키지에서 Azure Functions 실행
 
@@ -58,32 +58,6 @@ Azure의 함수 앱의 배포 패키지 파일에서 직접 함수를 실행할 
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
-### <a name="use-key-vault-references"></a>Key Vault 참조 사용
-
-보안을 강화 하려면 외부 URL과 함께 Key Vault 참조를 사용할 수 있습니다. 이렇게 하면 암호화 되지 않은 상태로 유지 되며 비밀 관리 및 회전에 대 한 Key Vault 활용할 수 있습니다. 연결 된 SAS 키를 쉽게 회전할 수 있도록 Azure Blob storage를 사용 하는 것이 좋습니다. Azure Blob storage는 미사용 데이터를 암호화 하 여 App Service에 배포 되지 않을 때 응용 프로그램 데이터를 안전 하 게 유지 합니다.
-
-1. Azure Key Vault를 만듭니다.
-
-    ```azurecli
-    az keyvault create --name "Contoso-Vault" --resource-group <group-name> --location eastus
-    ```
-
-1. Key Vault에서 외부 URL을 암호로 추가 합니다.
-
-    ```azurecli
-    az keyvault secret set --vault-name "Contoso-Vault" --name "external-url" --value "<insert-your-URL>"
-    ```
-
-1. `WEBSITE_RUN_FROM_PACKAGE` 앱 설정을 만들고 외부 URL에 대 한 Key Vault 참조로 값을 설정 합니다.
-
-    ```azurecli
-    az webapp config appsettings set --settings WEBSITE_RUN_FROM_PACKAGE="@Microsoft.KeyVault(SecretUri=https://Contoso-Vault.vault.azure.net/secrets/external-url/<secret-version>"
-    ```
-
-자세한 내용은 다음 문서를 참조 하세요.
-
-- [App Service에 대 한 참조 Key Vault](../app-service/app-service-key-vault-references.md)
-- [휴지 상태의 데이터에 대 한 암호화 Azure Storage](../storage/common/storage-service-encryption.md)
 
 ## <a name="troubleshooting"></a>문제 해결
 

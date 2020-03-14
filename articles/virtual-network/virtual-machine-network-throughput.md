@@ -16,11 +16,11 @@ ms.date: 4/26/2019
 ms.author: steveesp
 ms.reviewer: kumud, mareat
 ms.openlocfilehash: 47f58b25b082784177910d14ab95d8d242fda71a
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72750316"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79245435"
 ---
 # <a name="virtual-machine-network-bandwidth"></a>가상 머신 네트워크 대역폭
 
@@ -64,7 +64,7 @@ Azure 가상 머신은 하나지만 여기에 연결된 네트워크 인터페�
 
 [Azure Monitor](../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines) 에서 메트릭을 사용 하 여 VM 또는 vmss 인스턴스의 네트워크 흐름 수와 흐름 생성 률을 추적할 수 있습니다.
 
-![azure-monitor-flow-metrics](media/virtual-machine-network-throughput/azure-monitor-flow-metrics.png)
+![azure-monitor-flow-metrics.png](media/virtual-machine-network-throughput/azure-monitor-flow-metrics.png)
 
 연결 설정 및 종료 속도는 패킷 처리 루틴을 사용 하 여 CPU를 공유 하 고 연결을 설정 하면 네트워크 성능에 영향을 줄 수도 있습니다. 예상 되는 트래픽 패턴에 대해 워크 로드를 벤치 마크 하 고 성능 요구 사항에 맞게 워크 로드를 적절히 확장 하는 것이 좋습니다. 
 

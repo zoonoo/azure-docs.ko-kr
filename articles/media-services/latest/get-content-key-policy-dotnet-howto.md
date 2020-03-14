@@ -13,11 +13,11 @@ ms.custom: seodec18
 ms.date: 04/15/2019
 ms.author: juliako
 ms.openlocfilehash: ff27ae0fd639316f03fe89ffc906561b3ef85f6f
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76515074"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79251454"
 ---
 # <a name="get-a-signing-key-from-the-existing-policy"></a>기존 정책에서 서명 키 가져오기
 

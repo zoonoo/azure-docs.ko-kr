@@ -4,11 +4,11 @@ description: Azure container instance를 배포할 때 컨테이너 이미지의
 ms.topic: article
 ms.date: 04/15/2019
 ms.openlocfilehash: d9554603f78a07fa44af51d8f39a91e1b3c39f70
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78365162"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79247125"
 ---
 # <a name="set-the-command-line-in-a-container-instance-to-override-the-default-command-line-operation"></a>컨테이너 인스턴스에서 명령줄을 설정 하 여 기본 명령줄 작업을 재정의 합니다.
 

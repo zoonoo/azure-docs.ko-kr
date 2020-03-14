@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 4/25/2017
 ms.author: manayar
 ms.openlocfilehash: c7fd4d89fcc66fb4110029be45ad94e21faea0e0
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78386656"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79254171"
 ---
 # <a name="azure-virtual-machine-scale-sets-and-attached-data-disks"></a>Azure 가상 머신 확장 집합 및 연결된 데이터 디스크
 사용 가능한 스토리지를 확장하기 위해 Azure [가상 머신 확장 집합](/azure/virtual-machine-scale-sets/)에서는 연결된 데이터 디스크를 사용한 VM 인스턴스를 지원합니다. 확장 집합을 만들 때 데이터를 연결하거나 기존 확장 집합에 데이터를 연결할 수 있습니다.

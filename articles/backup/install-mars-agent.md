@@ -3,12 +3,12 @@ title: MARS (Microsoft Azure Recovery Services) 에이전트 설치
 description: Windows 컴퓨터를 백업 하는 MARS (Microsoft Azure Recovery Services) 에이전트를 설치 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: cf6b332c308bb0224dbfed546f8b3ba819abcb02
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: b9a6791709d5aff82d11bbf10e5f084fd8c1a000
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78673067"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79247762"
 ---
 # <a name="install-the-azure-backup-mars-agent"></a>MARS 에이전트 Azure Backup를 설치 합니다.
 
@@ -98,6 +98,10 @@ Microsoft 피어 링을 사용 하려면 다음 서비스, 지역 및 관련 커
 > 공용 피어 링은 새 회로에서 사용 되지 않습니다.
 
 위의 모든 Url 및 IP 주소는 포트 443에서 HTTPS 프로토콜을 사용 합니다.
+
+### <a name="private-endpoints"></a>전용 끝점
+
+[!INCLUDE [Private Endpoints](../../includes/backup-private-endpoints.md)]
 
 ## <a name="download-the-mars-agent"></a>MARS 에이전트 다운로드
 

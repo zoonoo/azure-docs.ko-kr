@@ -17,12 +17,12 @@ ms.date: 04/06/2019
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 650e5fb5d0b2c5522a70944991e9e49037c3b4fa
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.openlocfilehash: 94cddf097f2a9e51f061909f6bdd3dcd82f18bfe
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78226950"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79262530"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Microsoft id 플랫폼용 응용 프로그램 종류
 
@@ -43,7 +43,7 @@ Microsoft ID 플랫폼(v2.0) 엔드포인트는 모두 업계 표준 프로토�
 
 앱이 등록 되 면 앱은 끝점에 요청을 전송 하 여 Microsoft id 플랫폼과 통신 합니다. Microsoft에서는 이러한 요청에 대한 세부 정보를 처리하는 오픈 소스 프레임워크 및 라이브러리를 제공합니다. 또한 이러한 엔드포인트에 대한 요청을 만들어 인증 논리를 직접 구현할 수 있습니다.
 
-```
+```HTTP
 https://login.microsoftonline.com/common/oauth2/v2.0/authorize
 https://login.microsoftonline.com/common/oauth2/v2.0/token
 ```
@@ -62,7 +62,7 @@ https://login.microsoftonline.com/common/oauth2/v2.0/token
 
 사용자가 브라우저를 통해 액세스하는 웹앱(.NET, PHP, Java, Ruby, Python, Node)의 경우 사용자 로그인에 [OpenID Connect](active-directory-v2-protocols.md)를 사용할 수 있습니다. OpenID Connect에서는 웹앱이 ID 토큰을 받습니다. ID 토큰은 사용자 ID를 확인하고 클레임 형태로 사용자 정보를 제공하는 보안 토큰입니다.
 
-```
+```JSON
 // Partial raw ID token
 eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImtyaU1QZG1Cd...
 
@@ -91,7 +91,7 @@ Microsoft id 플랫폼 끝점에서 받은 공개 서명 키를 사용 하 여 I
 
 Microsoft ID 플랫폼 엔드포인트를 사용하여 앱의 RESTful Web API와 같은 웹 서비스의 보안을 유지할 수 있습니다. 웹 Api는 다양 한 플랫폼과 언어로 구현할 수 있습니다. Azure Functions에서 HTTP 트리거를 사용 하 여 구현할 수도 있습니다. ID 토큰 및 세션 쿠키 대신 Web API는 OAuth 2.0 액세스 토큰을 사용하여 데이터 보안을 유지하고 들어오는 요청을 인증합니다. Web API 호출자는 다음과 같이 HTTP 요청의 인증 헤더에 액세스 토큰을 추가합니다.
 
-```
+```HTTP
 GET /api/items HTTP/1.1
 Host: www.mywebapi.com
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6...
@@ -121,7 +121,7 @@ OAuth2 액세스 토큰을 사용 하 여 Web API를 보호 하는 방법을 알
 
 ## <a name="daemons-and-server-side-apps"></a>디먼 및 서버 쪽 앱
 
-장기 실행 프로세스가 있거나 사용자와의 상호 작용 없이 작동하는 앱은 Web API와 같은 보안 리소스에 액세스하는 방법도 필요로 합니다. 이러한 앱은 OAuth 2.0 클라이언트 자격 증명 흐름을 사용하여 사용자의 위임된 ID 대신 앱 ID로 인증하고 토큰을 가져올 수 있습니다. 클라이언트 암호 또는 인증서를 사용하여 앱 ID를 증명할 수 있습니다. 자세한 내용은 [인증서를 사용 하 여 디먼 앱에서 Microsoft id 플랫폼 인증을](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/)참조 하세요.
+장기 실행 프로세스가 있거나 사용자와의 상호 작용 없이 작동하는 앱은 Web API와 같은 보안 리소스에 액세스하는 방법도 필요로 합니다. 이러한 앱은 OAuth 2.0 클라이언트 자격 증명 흐름을 사용하여 사용자의 위임된 ID 대신 앱 ID로 인증하고 토큰을 가져올 수 있습니다. 클라이언트 암호 또는 인증서를 사용하여 앱 ID를 증명할 수 있습니다. 자세한 내용은 [Microsoft id 플랫폼을 사용 하는 .Net Core 디먼 콘솔 응용 프로그램](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2)을 참조 하세요.
 
 이 흐름에서 앱은 `/token` 끝점과 직접 상호 작용 하 여 액세스 권한을 얻습니다.
 

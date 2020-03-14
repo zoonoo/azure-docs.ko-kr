@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
 ms.openlocfilehash: e45d5393833973889b28a95ec86b89593a091f99
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77121811"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79244811"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure Virtual Network FAQ(질문과 대답)
 
@@ -309,7 +309,7 @@ VNet 피어링 연결은 한 VNet 연결이 삭제되면 *연결 끊김* 상태�
 
 가상 네트워크 탭은 미리 보기로 제공 됩니다. 미리 보기 중에는 서비스 수준 계약이 없습니다. 프로덕션 워크 로드에 기능을 사용할 수 없습니다. 탭 구성을 사용 하 여 가상 컴퓨터 네트워크 인터페이스를 사용 하도록 설정 하면 프로덕션 트래픽을 전송 하기 위해 가상 컴퓨터에 할당 된 Azure 호스트의 동일한 리소스가 미러링 기능을 수행 하 고 미러된 패킷을 전송 하는 데 사용 됩니다. 올바른 [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [Windows](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 가상 머신 크기를 선택하여 가상 머신이 프로덕션 트래픽 및 미러링된 트래픽을 보내기 위해 충분한 리소스를 사용할 수 있는지 확인합니다.
 
-### <a name="is-accelerated-networking-for-linuxcreate-vm-accelerated-networking-climd-or-windowscreate-vm-accelerated-networking-powershellmd-supported-with-virtual-network-tap"></a>[Linux](create-vm-accelerated-networking-cli.md) 또는 [Windows](create-vm-accelerated-networking-powershell.md)에 대해 가속화된 네트워킹은 가상 네트워크 TAP에서 지원되나요?
+### <a name="is-accelerated-networking-for-linux-or-windows-supported-with-virtual-network-tap"></a>[Linux](create-vm-accelerated-networking-cli.md) 또는 [Windows](create-vm-accelerated-networking-powershell.md)에 대해 가속화된 네트워킹은 가상 네트워크 TAP에서 지원되나요?
 
 가속화된 네트워킹에서 사용하도록 설정된 가상 머신과 연결된 네트워크 인터페이스에 TAP 구성을 추가할 수 있습니다. 하지만 현재 Azure 가속 네트워킹에서 미러링 트래픽에 대한 오프로드를 지원하지 않으므로 TAP 구성을 추가하여 가상 머신의 성능 및 대기 시간에 영향을 주게 됩니다.
 

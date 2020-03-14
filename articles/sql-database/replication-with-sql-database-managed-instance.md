@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: ferno
 ms.reviewer: mathoma
 ms.date: 02/07/2019
-ms.openlocfilehash: 7356f627c8a85cb89f3900e1af84d5e0a7d4be17
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.openlocfilehash: 9af7b471210ca3cc69428e68aef4aafaee159344
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79096212"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79299076"
 ---
 # <a name="configure-replication-in-an-azure-sql-database-managed-instance-database"></a>Azure SQL Database 관리형 인스턴스 데이터베이스에서 복제 구성
 
@@ -42,7 +42,6 @@ ms.locfileid: "79096212"
 
 관리 되는 인스턴스를 게시자 및/또는 배포자로 작동 하도록 구성 하려면 다음이 필요 합니다.
 
-- 관리되는 인스턴스가 현재 지역 복제 관계에 참여하고 있지 않습니다.
 - 게시자 관리 되는 인스턴스가 배포자 및 구독자와 동일한 가상 네트워크에 있거나, 세 엔터티의 가상 네트워크 간에 [vNet 피어 링](../virtual-network/tutorial-connect-virtual-networks-powershell.md) 이 설정 되었습니다. 
 - 연결은 복제 참가자 간에 SQL 인증을 사용합니다.
 - 복제 작업 디렉터리에 대한 Azure Storage 계정 공유

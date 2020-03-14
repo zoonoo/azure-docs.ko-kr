@@ -1,5 +1,5 @@
 ---
-title: Azure Security Center에서 위협 방지
+title: 위협 보호 및 Azure Security Center
 description: 이 항목에서는 Azure Security Center의 위협 방지 기능으로 보호 되는 리소스에 대해 설명 합니다.
 services: security-center
 documentationcenter: na
@@ -10,14 +10,14 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 08/25/2019
 ms.author: memildin
-ms.openlocfilehash: 8bd66b602201dbbb47a1fdba879c52a8ac441762
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 031423d72aecacc1feed692aaa32bcd1ff7efbab
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77921643"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79282706"
 ---
-# <a name="threat-protection-in-azure-security-center"></a>Azure Security Center에서 위협 방지
+# <a name="threat-protection-in-azure-security-center"></a>위협 보호 및 Azure Security Center
 
 이 페이지에서는 표준 가격 책정 계층의 사용자에 대해 Azure Security Center에 표시 되는 보안 경고의 출처를 간략하게 설명 합니다.
 
@@ -127,6 +127,10 @@ Security Center는 다음과 같은 다양 한 수준에서 위협 방지 기능
 
 또한 글로벌 보안 연구원 팀은 지속적으로 위협 환경을 모니터링 합니다. 검색 된 컨테이너 관련 경고 및 취약성을 추가 합니다.
 
+> [!TIP]
+> [이 블로그 게시물](https://techcommunity.microsoft.com/t5/azure-security-center/how-to-demonstrate-the-new-containers-features-in-azure-security/ba-p/1011270)의 지침에 따라 컨테이너 경고를 시뮬레이션할 수 있습니다.
+
+
 
 
 
@@ -208,6 +212,9 @@ Azure SQL Database 및 SQL에 대 한 advanced Threat Protection은 azure Virtua
 * [Azure Storage에 대해 Advanced Threat Protection을 사용 하도록 설정 하는 방법](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection)
 * [Azure Storage에 대 한 위협 방지 경고 목록](alerts-reference.md#alerts-azurestorage)
 
+
+> [!TIP]
+> [이 블로그 게시물](https://techcommunity.microsoft.com/t5/azure-security-center/validating-atp-for-azure-storage-detections-in-azure-security/ba-p/1068131)의 지침에 따라 Azure Storage 경고를 시뮬레이션할 수 있습니다.
 
 
 

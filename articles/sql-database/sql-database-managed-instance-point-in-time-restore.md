@@ -12,11 +12,11 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, mathoma
 ms.date: 08/25/2019
 ms.openlocfilehash: 27f465e6864d0ff639e825c8a816d86648bd8853
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78197524"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79268809"
 ---
 # <a name="restore-a-sql-database-in-a-managed-instance-to-a-previous-point-in-time"></a>관리 되는 인스턴스의 SQL 데이터베이스를 이전 시점으로 복원
 
@@ -44,9 +44,9 @@ PITR (지정 시간 복원)을 사용 하 여 과거의 특정 시점에서 다�
 
 |           |기존 DB를 동일한 관리 되는 인스턴스로 복원| 기존 DB를 다른 관리 되는 인스턴스로 복원|삭제 된 DB를 동일한 관리 되는 인스턴스로 복원|삭제 된 DB를 다른 관리 되는 인스턴스로 복원|
 |:----------|:----------|:----------|:----------|:----------|
-|**Azure Portal**| 예|아니요 |예|아니요|
-|**Azure CLI**|예 |예 |아니요|아니요|
-|**PowerShell**| 예|예 |예|예|
+|**Azure Portal**| yes|예 |yes|예|
+|**Azure CLI**|yes |yes |예|예|
+|**PowerShell**| yes|yes |yes|yes|
 
 ## <a name="restore-an-existing-database"></a>기존 데이터베이스 복원
 

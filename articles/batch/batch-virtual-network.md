@@ -10,11 +10,11 @@ ms.date: 04/10/2019
 ms.author: labrenne
 ms.custom: seodec18
 ms.openlocfilehash: bbe38a9dc7be749b8e138ff3ca9ec4f06255b389
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77022769"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79247749"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>가상 네트워크에서 Azure Batch 만들기
 
@@ -24,7 +24,7 @@ Azure Batch 풀을 만들 때는 지정한 [Azure 가상 네트워크](../virtua
 
 Azure Batch 풀에는 다중 인스턴스 작업 처리 등, 컴퓨팅 노드가 서로 통신할 수 있게 하는 설정이 있습니다. 이러한 설정에는 별도의 VNet이 필요하지 않습니다. 그러나 기본적으로 노드는 라이선스 서버나 파일 서버 등, Batch 풀에 속하지 않는 가상 머신과는 통신할 수 없습니다. 풀 컴퓨팅 노드가 다른 가상 머신 또는 온-프레미스 네트워크와 안전하게 통신하게 하기 위해 Azure VNet의 서브넷에서 풀을 프로비전할 수 있습니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * **인증**. Azure VNet을 사용하려면 Batch 클라이언트 API가 Azure AD(Active Directory) 인증을 사용해야 합니다. Azure AD에 대한 Azure Batch 지원은 [Active Directory를 사용하여 Batch 서비스 솔루션 인증](batch-aad-auth.md)에 설명되어 있습니다. 
 

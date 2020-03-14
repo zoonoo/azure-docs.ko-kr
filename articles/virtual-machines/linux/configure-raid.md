@@ -1,26 +1,18 @@
 ---
-title: Linux를 실행 하는 가상 머신에서 소프트웨어 RAID 구성
+title: Linux VM에서 소프트웨어 RAID 구성
 description: mdadm을 사용하여 Azure에서 Linux에 대해 RAID를 구성하는 방법에 대해 알아봅니다.
-services: virtual-machines-linux
-documentationcenter: na
 author: rickstercdn
-manager: gwallace
-editor: tysonn
-tag: azure-service-management,azure-resource-manager
-ms.assetid: f3cb2786-bda6-4d2c-9aaf-2db80f490feb
 ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 02/02/2017
 ms.author: rclaus
 ms.subservice: disks
-ms.openlocfilehash: f59e4b9ee85803ab5635e72b3607e82e958d9696
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 122abda51b907491b322908c3c2c689bc1723e87
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74534192"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79250258"
 ---
 # <a name="configure-software-raid-on-linux"></a>Linux에서 소프트웨어 RAID 구성
 Azure에서 Linux 가상 머신의 소프트웨어 RAID를 사용하여 연결된 여러 데이터 디스크를 단일 RAID 디바이스로 나타내는 것이 일반적인 시나리오입니다. 일반적으로 이 시나리오는 단일 디스크만 사용하는 경우와 비교하여 성능을 개선하고 처리량을 향상하기 위해 사용할 수 있습니다.
@@ -222,7 +214,7 @@ RAID 디바이스를 구성하는 데 두 개 이상의 빈 데이터 디스크�
 
 Linux VM에서 TRIM 지원을 사용하는 두 가지 방법이 있습니다. 평소와 같이 권장되는 방법에 대해 배포에 확인하세요.
 
-- `/etc/fstab`에 `discard` 탑재 옵션을 사용합니다. 예:
+- `discard`에 `/etc/fstab` 탑재 옵션을 사용합니다. 예:
 
     ```bash
     UUID=aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext4  defaults,discard  0  2

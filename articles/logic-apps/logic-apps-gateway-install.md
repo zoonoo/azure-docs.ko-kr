@@ -7,11 +7,11 @@ ms.reviewer: arthii, logicappspm
 ms.topic: article
 ms.date: 12/05/2019
 ms.openlocfilehash: 797cd82327d68003d4e5f007d1f16e9534092ac0
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78359043"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79283993"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Azure Logic Apps에 온-프레미스 데이터 게이트웨이 설치
 

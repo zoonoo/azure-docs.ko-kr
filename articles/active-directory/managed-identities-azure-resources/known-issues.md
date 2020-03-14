@@ -17,11 +17,11 @@ ms.date: 12/12/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f0f0c678f2426d9de58d2ab337c56243394b4d0f
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74183881"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79266534"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Azure 리소스에 대한 관리 ID 관련 FAQ 및 알려진 문제
 
@@ -84,8 +84,8 @@ Azure Instance Metadata Service에 대한 자세한 내용은 [IMDS 설명서](h
 
 ### <a name="what-azure-rbac-permissions-are-required-to-managed-identity-on-a-resource"></a>리소스에서 관리 id에 필요한 Azure RBAC 권한은 무엇 인가요? 
 
-- 시스템 할당 관리 id: 리소스에 대 한 쓰기 권한이 있어야 합니다. 예를 들어 virtual machines의 경우 virtualMachines/write/write가 필요 합니다. 이 작업은 [가상 컴퓨터 참가자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#virtual-machine-contributor)와 같은 리소스 특정 기본 제공 역할에 포함 됩니다.
-- 사용자 할당 관리 id: 리소스에 대 한 쓰기 권한이 있어야 합니다. 예를 들어 virtual machines의 경우 virtualMachines/write/write가 필요 합니다. 관리 id에 대 한 [관리 Id 운영자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-operator) 역할 할당 외에도
+- 시스템 할당 관리 id: 리소스에 대 한 쓰기 권한이 있어야 합니다. 예를 들어 가상 머신의 경우 Microsoft.Compute/virtualMachines/write가 필요합니다. 이 작업은 [가상 컴퓨터 참가자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#virtual-machine-contributor)와 같은 리소스 특정 기본 제공 역할에 포함 됩니다.
+- 사용자 할당 관리 id: 리소스에 대 한 쓰기 권한이 있어야 합니다. 예를 들어 가상 머신의 경우 Microsoft.Compute/virtualMachines/write가 필요합니다. 관리 id에 대 한 [관리 Id 운영자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-operator) 역할 할당 외에도
 
 ### <a name="how-do-you-restart-the-managed-identities-for-azure-resources-extension"></a>Azure 리소스에 대한 관리 ID 확장을 다시 시작하려면 어떻게 하나요?
 Windows 및 특정 버전의 Linux에서 확장이 중지한 경우 다음 cmdlet 사용하여 수동으로 다시 시작할 수 있습니다.
@@ -94,7 +94,7 @@ Windows 및 특정 버전의 Linux에서 확장이 중지한 경우 다음 cmdle
 Set-AzVMExtension -Name <extension name>  -Type <extension Type>  -Location <location> -Publisher Microsoft.ManagedIdentity -VMName <vm name> -ResourceGroupName <resource group name> -ForceRerun <Any string different from any last value used>
 ```
 
-여기서, 
+위치: 
 - Windows에 대한 확장 이름 및 형식: ManagedIdentityExtensionForWindows
 - Linux에 대한 확장 이름 및 형식: ManagedIdentityExtensionForLinux
 

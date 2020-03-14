@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: aahi
 ms.openlocfilehash: afb576c265ccdd4a014ed678331f030a0442a197
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286600"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79221204"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>텍스트 분석 REST API를 호출하는 방법
 
@@ -27,7 +27,7 @@ ms.locfileid: "74286600"
 
 [!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
@@ -39,11 +39,11 @@ ms.locfileid: "74286600"
 
 현재 모든 Text Analytics석 작업(감정, 핵심 구, 언어 감지 및 엔터티 식별)을위 해 동일한 문서를 제출할 수 있습니다. (스키마는 추후에 분석별로 달라질 수 있습니다.)
 
-| 요소 | 유효한 값 | Required? | 사용량 |
+| 요소 | 유효한 값 | 필수 여부 | 사용 |
 |---------|--------------|-----------|-------|
 |`id` |데이터 형식은 문자열이지만 실제로 문서 ID는 정수인 경우가 많습니다. | 필수 | 시스템은 사용자가 제공하는 ID를 사용하여 출력을 구성합니다. 언어 코드, 핵심 구 및 감정 점수가 요청의 각 ID에 대해 생성됩니다.|
 |`text` | 최대 5120 자의 비구조적 원시 텍스트입니다. | 필수 | 언어 감지의 경우 텍스트를 어떤 언어로도 나타낼 수 있습니다. 감정 분석, 핵심 구 추출 및 엔터티 식별의 경우 텍스트는 [지원되는 언어](../text-analytics-supported-languages.md)로 작성되어야 합니다. |
-|`language` | [지원되는 언어](../text-analytics-supported-languages.md)의 2자리 [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) 코드 | 다름 | 감정 분석, 핵심 구 추출 및 엔터티 연결의 경우 필수. 언어 감지의 경우 옵션 제외해도 오류는 발생하지 않지만 분석 효과가 약해집니다. 언어 코드는 사용자가 제공한 `text`와 일치해야 합니다. |
+|`language` | [지원되는 언어](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)의 2자리 [ISO 639-1](../text-analytics-supported-languages.md) 코드 | 다양함 | 감정 분석, 핵심 구 추출 및 엔터티 연결의 경우 필수. 언어 감지의 경우 옵션 제외해도 오류는 발생하지 않지만 분석 효과가 약해집니다. 언어 코드는 사용자가 제공한 `text`와 일치해야 합니다. |
 
 제한에 대한 자세한 내용은 [Text Analytics 개요 > 데이터 제한](../overview.md#data-limits)을 참조하세요. 
 

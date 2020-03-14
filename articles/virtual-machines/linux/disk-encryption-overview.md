@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 28d37ba6796799ea27bbd5338247a504ea82388f
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.openlocfilehash: ff1b37c3053ffa91dcb432cd97a7dd6fd71dad1c
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78970482"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79250427"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Linux Vm에 대 한 Azure Disk Encryption 
 
@@ -81,7 +81,7 @@ Azure에서 보증 되지 않는 Linux 서버 배포는 Azure Disk Encryption을
 > [!NOTE]
 > 새 Azure Disk Encryption 구현은 RHEL7 종 량 제 이미지에 대 한 RHEL OS 및 데이터 디스크에 대해 지원 됩니다.  
 >
-> 또한 ADE는 구독이 등록 된 **후** 에만 RHEL 골드 이미지에 대해 지원 됩니다. 자세한 내용은 [Azure에서 사용자 고유의 구독 골드 이미지 Red Hat Enterprise Linux](../workloads/redhat/byos.md##encrypt-red-hat-enterprise-linux-bring-your-own-subscription-gold-images) 를 참조 하세요.
+> 또한 ADE는 구독이 등록 된 **후** 에만 RHEL 골드 이미지에 대해 지원 됩니다. 자세한 내용은 [Azure에서 사용자 고유의 구독 골드 이미지 Red Hat Enterprise Linux](../workloads/redhat/byos.md#encrypt-red-hat-enterprise-linux-bring-your-own-subscription-gold-images) 를 참조 하세요.
 
 ## <a name="additional-vm-requirements"></a>추가 VM 요구 사항
 

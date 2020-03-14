@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 11/05/2019
 ms.author: alkohli
 ms.openlocfilehash: 1bb8300f1e54cf03563704cf00549ce9e09a3916
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75613791"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79260164"
 ---
 # <a name="azure-data-box-disk-limits"></a>Azure Data Box Disk 제한
 
@@ -74,8 +74,8 @@ Azure Storage 서비스 제한에 대한 최신 정보 및 공유, 컨테이너 
 |-------------------|-----------------------------------------------------------|
 | 블록 Blob        | ~ 4.75TiB                                                 |
 | 페이지 Blob         | 8TiB <br> (페이지 Blob 형식으로 업로드 되는 모든 파일은 512 바이트 정렬 되어야 하며, 그렇지 않은 경우 업로드가 실패 합니다. <br> VHD와 VHDX는 모두 512 바이트 정렬 됩니다. |
-|Azure Files        | 1TiB <br> 최대 공유 크기는 5 TiB     |
-| Managed Disks     |4TiB <br> 크기 및 제한에 대 한 자세한 내용은 다음을 참조 하세요. <li>[관리 디스크에 대 한 확장성 목표](../virtual-machines/windows/disk-scalability-targets.md#managed-virtual-machine-disks)</li>|
+|Azure 파일        | 1TiB <br> 최대 공유 크기는 5 TiB     |
+| 관리 디스크     |4TiB <br> 크기 및 제한에 대 한 자세한 내용은 다음을 참조 하세요. <li>[관리 디스크에 대 한 확장성 목표](../virtual-machines/windows/disk-scalability-targets.md#managed-virtual-machine-disks)</li>|
 
 
 ## <a name="azure-block-blob-page-blob-and-file-naming-conventions"></a>Azure 블록 Blob과 페이지 Blob 및 파일 명명 규칙

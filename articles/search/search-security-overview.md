@@ -9,11 +9,11 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 44d5edd7b5808b6c212a832dd95de7a9cb4b7c08
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978596"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79282836"
 ---
 # <a name="security-and-data-privacy-in-azure-cognitive-search"></a>Azure Cognitive Search의 보안 및 데이터 개인 정보
 
@@ -42,7 +42,7 @@ Azure Cognitive Search는 [6 월 2018에 발표](https://azure.microsoft.com/blo
 | 보안 계층 | Description |
 |----------------|-------------|
 | 전송 중 암호화 <br>(HTTPS/SSL/TLS) | Azure Cognitive Search는 HTTPS 포트 443에서 수신 합니다. 플랫폼 전체에서 Azure 서비스에 대한 연결이 암호화됩니다. <br/><br/>모든 클라이언트-서비스 Azure Cognitive Search 상호 작용은 SSL/TLS 1.2 지원 가능 합니다.  서비스에 SSL을 연결하려면 TLSv1.2를 사용해야 합니다.|
-| 휴지 상태의 암호화 <br>Microsoft 관리 키 | 암호화는 인덱싱 시간 완료 또는 인덱스 크기에 측정 가능한 영향을 주지 않고 인덱싱 프로세스에 완벽하게 내부화됩니다. 완전하게 암호화되지 않은 인덱스(2018년 1월 전에 생성됨)에 대한 증분 업데이트를 비롯한 모든 인덱싱에서 자동으로 수행됩니다.<br><br>내부적으로 암호화는 256비트 [AES 암호화](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)를 사용하여 [Azure Storage 서비스 암호화](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)를 기반으로 합니다.<br><br> 암호화는 Azure Cognitive Search 내부 이며, Microsoft에서 내부적으로 관리 하는 인증서 및 암호화 키와 세계적으로 적용 됩니다. 포털에서 또는 프로그래밍 방식으로 암호화를 켜고 끄거나, 고유한 키를 관리하고 대체하거나, 암호화 설정을 볼 수 없습니다.<br><br>미사용 암호화는 2018 년 1 월 24 일에 발표 되었으며 모든 지역에서 무료 계층을 포함 하 여 모든 서비스 계층에 적용 됩니다. 전체 암호화의 경우 해당 날짜 이전에 만든 인덱스를 삭제하고 암호화를 수행하기 위해 다시 빌드해야 합니다. 그렇지 않으면 1월 24일 이후에 추가된 새 데이터만이 암호화됩니다.|
+| 휴지 상태의 암호화 <br>Microsoft 관리 키 | 암호화는 인덱싱 시간 완료 또는 인덱스 크기에 측정 가능한 영향을 주지 않고 인덱싱 프로세스에 완벽하게 내부화됩니다. 완전하게 암호화되지 않은 인덱스(2018년 1월 전에 생성됨)에 대한 증분 업데이트를 비롯한 모든 인덱싱에서 자동으로 수행됩니다.<br><br>내부적으로 암호화는 256비트 [AES 암호화](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)를 사용하여 [Azure Storage 서비스 암호화](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)를 기반으로 합니다.<br><br> 암호화는 Azure Cognitive Search 내부 이며, Microsoft에서 내부적으로 관리 하는 인증서 및 암호화 키와 세계적으로 적용 됩니다. 포털에서 또는 프로그래밍 방식으로 암호화를 켜고 끄거나, 고유한 키를 관리하고 대체하거나, 암호화 설정을 볼 수 없습니다.<br><br>미사용 암호화는 2018 년 1 월 24 일에 발표 되었으며 모든 지역에서 무료 계층을 포함 하 여 모든 서비스 계층에 적용 됩니다. 전체 암호화의 경우 해당 날짜 이전에 만든 인덱스를 삭제하고 암호화를 수행하기 위해 다시 빌드해야 합니다. 그렇지 않으면 1월 24일 이후에 추가된 새 데이터만이 암호화됩니다.|
 | 휴지 상태의 암호화 <br>고객 관리 키 | 고객 관리 키를 사용 하는 암호화는 이제 2019 년 1 월 일 이후에 생성 된 search 서비스에 대해 일반적으로 사용할 수 있습니다. 무료 (공유) 서비스에서는 지원 되지 않습니다.<br><br>이제 Azure Key Vault에서 고객 키 관리 키를 사용 하 여 Azure Cognitive Search 인덱스 및 동의어 맵을 미사용으로 암호화할 수 있습니다. 자세히 알아보려면 [Azure Cognitive Search에서 암호화 키 관리](search-security-manage-encryption-keys.md)를 참조 하세요.<br><br>이 기능은 미사용 기본 암호화를 대체 하지 않고 그 외에도 적용 됩니다.<br><br>이 기능을 사용 하도록 설정 하면 인덱스 크기가 늘어나고 쿼리 성능이 저하 됩니다. 날짜에 대 한 관찰을 기준으로 쿼리 시간에 30%-60%가 증가 하는 것을 확인할 수 있습니다. 하지만 실제 성능은 인덱스 정의 및 쿼리 유형에 따라 달라 집니다. 이 성능에 영향을 주므로 정말 필요한 인덱스 에서만이 기능을 사용 하도록 설정 하는 것이 좋습니다.
 
 ## <a name="azure-wide-user-access-controls"></a>Azure 전체 사용자 액세스 제어
@@ -100,7 +100,7 @@ Azure Cognitive Search에서 개별 인덱스는 보안 개체가 아닙니다. 
 
 다음 표에서는 Azure Cognitive Search에서 허용 되는 작업과 특정 작업에 액세스 하는 키 잠금 해제를 요약 합니다.
 
-| 작업 | 권한 |
+| 작업(Operation) | 사용 권한 |
 |-----------|-------------------------|
 | 서비스 만들기 | Azure 구독 소유자|
 | 서비스 크기 조정 | 관리자 키, 리소스에 대한 RBAC 소유자 또는 참가자  |

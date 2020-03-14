@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 12/24/2019
 ms.author: ramamill
 ms.openlocfilehash: 01aef3aca4f6967b1681bff9598c7dd7a24739cd
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78362827"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79257265"
 ---
 # <a name="manage-vmware-vcenter-server"></a>VMware vCenter Server 관리
 
@@ -53,7 +53,7 @@ VMware Vm을 Azure로 재해 복구 하는 동안 vCenter 서버 및 Vm에 대 �
 1. **Vcenter 추가**에서 vsphere 호스트 또는 vCenter server의 이름을 지정 합니다.
 1. 서버의 IP 주소 또는 FQDN을 지정 합니다.
 1. VMware 서버가 다른 포트에서 요청을 수신하도록 구성되지 않은 경우 포트를 443으로 그대로 둡니다.
-1. VMware vCenter 또는 vSphere ESXi 서버에 연결 하는 데 사용할 계정을 선택 합니다. 그런 다음 **확인**을 클릭합니다.
+1. VMware vCenter 또는 vSphere ESXi 서버에 연결 하는 데 사용할 계정을 선택 합니다. 그런 후 **OK**를 클릭합니다.
 
 ## <a name="modify-credentials"></a>자격 증명 수정
 

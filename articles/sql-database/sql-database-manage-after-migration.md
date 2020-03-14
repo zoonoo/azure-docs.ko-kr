@@ -11,12 +11,12 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: 16855bb218ba3ae4d221cb1329410c7848aab2c5
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: ebb512fee0186bed3cc7f49f0525dac43e57da3a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818975"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79256186"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>클라우드의 새 DBA - Azure SQL Database의 단일 데이터베이스 및 풀링된 데이터베이스 관리
 
@@ -91,7 +91,7 @@ Azure SQL DB에 백업을 만들지는 않으며 그럴 필요가 없습니다. 
 
 SQL Database는 보안 및 개인 정보 보호를 매우 중대하게 실행합니다. SQL Database의 보안은 데이터베이스 수준 및 플랫폼 수준에서 사용할 수 있으며 여러 레이어로 분류된 경우 가장 이해하기 쉽습니다. 각 레이어에서 용도에 맞는 최적의 보안을 제어 및 제공합니다. 레이어는 다음과 같습니다.
 
-- ID 및 인증([Windows/SQL 인증 및 AAD[Azure Active Directory] 인증](sql-database-control-access.md)).
+- Id & 인증 ([SQL 인증 및 Azure Active Directory [AAD] 인증](sql-database-manage-logins.md)).
 - 활동 모니터링([감가](sql-database-auditing.md) 및 [위협 검색](sql-database-threat-detection.md)).
 - 실제 데이터 보호([TDE[투명한 데이터 암호화]](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) 및 [AE[Always Encrypted]](/sql/relational-databases/security/encryption/always-encrypted-database-engine)).
 - 중요 및 권한 있는 데이터에 대한 액세스 제어([행 수준 보안](/sql/relational-databases/security/row-level-security) 및 [동적 데이터 마스킹](/sql/relational-databases/security/dynamic-data-masking)).
@@ -100,10 +100,10 @@ SQL Database는 보안 및 개인 정보 보호를 매우 중대하게 실행합
 
 ### <a name="what-user-authentication-methods-are-offered-in-sql-database"></a>어떤 사용자 인증 방법이 SQL Database에서 제공되나요?
 
-SQL Database에서 [두 가지 사용자 인증 방법](sql-database-control-access.md#authentication)이 제공됩니다.
+SQL Database에서 제공 하는 인증 방법에는 두 가지가 있습니다.
 
 - [Azure Active Directory 인증](sql-database-aad-authentication.md)
-- SQL 인증
+- [SQL 인증](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication)
 
 기존 Windows 인증은 지원되지 않습니다. Azure Active Directory(AD)는 중앙 집중식 ID 및 액세스 관리 서비스입니다. 이 서비스를 사용하면 조직의 모든 인원에게 SSO(Single Sign-On)를 아주 편리하게 제공할 수 있습니다. 즉, 더 간단한 인증을 위해 자격 증명이 모든 Azure 서비스에 걸쳐 공유됩니다. AAD는 [MFA(Multi-Factor Authentication)](sql-database-ssms-mfa-authentication.md)을 지원하며 [클릭 몇 번](../active-directory/hybrid/how-to-connect-install-express.md)으로 AAD를 Windows Server Active Directory와 통합할 수 있습니다. SQL 인증은 과거에 사용하던 것과 똑같이 작동합니다. 즉, 사용자 이름/암호를 제공하고 사용자를 지정된 SQL Database 서버의 임의 데이터베이스에 대해 인증할 수 있습니다. 또한 Microsoft Azure SQL Database 및 SQL Data Warehouse에서 Azure AD 도메인 내에서 다단계 인증 및 게스트 사용자 계정을 제공할 수 있습니다. 이미 Active Directory 온-프레미스가 있는 경우, Azure Active Directory로 디렉터리를 페더레이션하여 디렉터리를 Azure로 확장할 수 있습니다.
 
@@ -171,7 +171,7 @@ SQL Database에서 기본적으로 스토리지 하위 시스템에 있는 데�
 |**특성**|**Always Encrypted**|**투명한 데이터 암호화**|
 |---|---|---|
 |**암호화 범위**|엔드투엔드|미사용 데이터|
-|**데이터베이스 서버는 중요 데이터에 액세스 가능**|아니요|예, 암호화는 미사용 데이터를 위한 것이므로|
+|**데이터베이스 서버는 중요 데이터에 액세스 가능**|예|예, 암호화는 미사용 데이터를 위한 것이므로|
 |**허용되는 T-SQL 작업**|같음 비교|모든 T-SQL 노출 영역을 사용할 수 있음|
 |**기능을 사용하려면 앱 변경이 필요함**|최소|아주 미미함|
 |**암호화 세분성**|열 수준|데이터베이스 수준|
@@ -198,7 +198,7 @@ TDE에는 두 키 계층이 있습니다 – 각 사용자 데이터베이스의
 
 기본적으로 투명한 데이터 암호화를 위한 마스터 키는 편의를 위해 Microsoft Azure SQL Database 서비스에서 관리합니다. 조직에서 마스터 키를 제어하고자 하는 경우, Azure Key Vault(sql-database-always-encrypted-azure-key-vault.md)를 키 저장소로 사용하는 옵션이 있습니다. Azure Key Vault를 사용하여 조직은 키 프로비저닝, 회전 및 권한 제어에 관한 제어권을 갖습니다. [회전 또는 TDE 마스터 키 형식 전환](/sql/relational-databases/security/encryption/transparent-data-encryption-byok-azure-sql-key-rotation)은 DEK을 다시 암호화함으로 빠릅니다. 보안과 데이터 관리 간의 역할 구분이 있는 조직인 경우, 보안 관리자는 Azure Key Vault에서 TDE 마스터 키에 대한 핵심 자료를 프로비전하고, 서버에서 휴지 상태의 암호화를 사용하도록 데이터베이스 관리자에게 Azure Key Vault 키 식별자를 제공합니다. Key Vault는 Microsoft에서 암호화 키를 보거나 추출할 수 없게 설계되어 있습니다. 조직에 대한 중앙 집중식 키 관리도 얻게 됩니다.
 
-#### <a name="always-encrypted"></a>상시 암호화
+#### <a name="always-encrypted"></a>Always Encrypted
 
 또한 Always Encrypted에는 [두 키 계층 구조](/sql/relational-databases/security/encryption/overview-of-key-management-for-always-encrypted)가 있습니다. 중요한 데이터의 열은 AES 256 CEK(열 암호화 키)로 암호화되고, 이 키는 다시 CMK(열 마스터 키)로 암호화됩니다. Always Encrypted에 대해 제공된 클라이언트 드라이버는 CMK 길이에 제한이 없습니다. 암호화된 CEK 값은 데이터베이스에 저장되고, CMK는 Windows Certificate Store, Azure Key Vault 또는 하드웨어 보안 모듈 등과 같은 신뢰할 수 있는 키 저장소에 저장됩니다.
 
@@ -221,12 +221,12 @@ TDE에는 두 키 계층이 있습니다 – 각 사용자 데이터베이스의
 또한 Express Route를 사용하면 추가 요금 없이 구입하는 대역폭 제한을 최대 2배까지 증가시킬 수 있습니다. 또한 기본 경로를 사용하여 크로스 영역 연결을 구성하는 것도 가능합니다. ER 연결 공급자의 목록을 보려면 [ 파트너 및 피어링 위치](../expressroute/expressroute-locations.md)를 참조하세요. 다음 문서에서 Express Route를 자세히 설명합니다.
 
 - [기본 경로 소개](../expressroute/expressroute-introduction.md)
-- [필수 조건](../expressroute/expressroute-prerequisites.md)
+- [필수 구성 요소](../expressroute/expressroute-prerequisites.md)
 - [워크플로](../expressroute/expressroute-workflows.md)
 
 ### <a name="is-sql-database-compliant-with-any-regulatory-requirements-and-how-does-that-help-with-my-own-organizations-compliance"></a>SQL Database가 규정 요구 사항을 준수하나요? 그리고 이것이 조직의 규정 준수에 어떤 도움이 되나요?
 
-SQL Database는 다양한 규격을 준수합니다. SQL Database에서 충족 된 최신 규격 집합을 보려면 [Microsoft 보안 센터](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) 를 방문 하 여 조직에 중요 한 규격에 대 한 드릴 다운 하 여 SQL Database 호환 Azure 서비스에 포함 되어 있는지 확인 하세요. SQL Database가 규격 서비스로 인증된다 하더라도, 조직 서비스의 준수를 지원하지만 자동으로 보장하지는 않는다는 점을 확인하는 것이 중요합니다.
+SQL Database는 규정 compliancies의 범위를 준수 합니다. SQL Database에서 충족 된 최신 compliancies 집합을 보려면 [Microsoft 보안 센터](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) 를 방문 하 여 조직에 중요 한 compliancies에 대 한 드릴 다운 하 여 SQL Database 호환 Azure 서비스에 포함 되어 있는지 확인 하세요. SQL Database가 규격 서비스로 인증된다 하더라도, 조직 서비스의 준수를 지원하지만 자동으로 보장하지는 않는다는 점을 확인하는 것이 중요합니다.
 
 ## <a name="intelligent-database-monitoring-and-maintenance-after-migration"></a>마이그레이션 후 지능형 데이터베이스 모니터링 및 유지 관리
 
@@ -302,7 +302,7 @@ SQL Database는 여러 가지 서비스 계층, 즉, Basic, Standard, Premium을
 
 |**서비스 계층**|**일반적인 사용 사례 시나리오**|
 |---|---|
-|**Basic**|소수의 사용자 및 높은 동시성, 배율 및 성능 요구 사항이 없는 데이터베이스를 가진 애플리케이션입니다. |
+|**기본**|소수의 사용자 및 높은 동시성, 배율 및 성능 요구 사항이 없는 데이터베이스를 가진 애플리케이션입니다. |
 |**Standard**|낮음에서 중간 정도의 IO 수요와 함께 상당한 동시성, 배율 및 성능 요구 사항을 가진 애플리케이션입니다. |
 |**Premium**|많은 동시 사용자, 높은 CPU/메모리 및 높은 IO 수요를 가진 애플리케이션입니다. 높은 동시성, 높은 처리량 및 대기 시간에 민감한 앱은 Premium 수준을 이용할 수 있습니다. |
 |||

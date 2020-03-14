@@ -15,11 +15,11 @@ ms.workload: infrastructure
 ms.date: 01/04/2018
 ms.author: gsilva
 ms.openlocfilehash: 16837782af2f08e27363091dc21587a100194cd8
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78363517"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79245058"
 ---
 # <a name="create-a-windows-virtual-machine-with-accelerated-networking-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 가속화 된 네트워킹을 사용 하는 Windows 가상 머신 만들기
 

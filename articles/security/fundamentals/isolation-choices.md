@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
 ms.openlocfilehash: c6e74e7992326d2a4b8fe24510742422b005c2e2
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78359072"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79280314"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Azure 퍼블릭 클라우드에서 격리
 Azure를 통해 공유 되는 물리적 인프라에서 응용 프로그램 및 Vm (가상 머신)을 실행할 수 있습니다. 클라우드 환경에서 애플리케이션을 실행하는 데 있어 가장 중요한 경제적 동기 중 하나는 여러 고객에게 공유 리소스에 대한 비용을 분산할 수 있는 능력입니다. 이러한 다중 테넌트 방식은 저렴한 비용으로 서로 다른 고객 간에 리소스를 다중화함으로써 효율성을 향상시킵니다. 아쉽게도 물리적 서버 및 기타 인프라 리소스를 공유하여 임의의 잠재적 악성 사용자에게 속할 수 있는 중요한 애플리케이션과 VM을 실행할 위험이 있습니다.

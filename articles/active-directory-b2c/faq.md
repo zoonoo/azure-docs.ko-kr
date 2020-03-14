@@ -11,11 +11,11 @@ ms.date: 10/14/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 40285c811cd6f407c20c40bf3a90ec5b779a9c18
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78188565"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79264402"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: FAQ(질문과 대답)
 
@@ -49,7 +49,7 @@ Azure AD B2C는 [사용자 지정 정책](custom-policy-overview.md)도 지원 �
 
 ### <a name="can-i-configure-scopes-to-gather-more-information-about-consumers-from-various-social-identity-providers"></a>범위를 구성하여 다양한 소셜 ID 공급자에서 소비자에 대한 자세한 정보를 수집할 수 있나요?
 
-No. 지원되는 소셜 ID 공급자 집합에 사용되는 기본 범위는 다음과 같습니다.
+아니요. 지원되는 소셜 ID 공급자 집합에 사용되는 기본 범위는 다음과 같습니다.
 
 * Facebook: 전자 메일
 * Google+: 전자 메일

@@ -12,11 +12,11 @@ ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 02/12/2020
 ms.openlocfilehash: a29466ad5b261e1e2ce818d7b4a18260e35caaec
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78360293"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79255653"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>고객 관리 키를 사용 하는 Azure SQL 투명한 데이터 암호화
 

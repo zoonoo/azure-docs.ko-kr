@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 32121681b14989f23e29c3701826b4494988c263
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: f7facb539a84d39e6659627e80ecc560fc87591c
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75772434"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79285098"
 ---
 # <a name="register-an-azure-iot-edge-device"></a>Azure IoT Edge 장치 등록
 
@@ -112,17 +112,17 @@ IoT hub에 연결 하는 모든 장치는 Visual Studio Code 탐색기의 **Azur
 
 ## <a name="register-with-the-azure-cli"></a>Azure CLI 등록
 
-[Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) 은 IoT Edge와 같은 Azure 리소스를 관리 하기 위한 오픈 소스 플랫폼 간 명령줄 도구입니다. 이 기능을 사용하면 Azure IoT Hub 리소스, 디바이스 프로비전 서비스 인스턴스 및 연결된 허브를 즉시 관리할 수 있습니다. 새로운 IoT 확장은 디바이스 관리 및 전체 IoT Edge 같은 기능으로 Azure CLI를 강화합니다.
+[Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) 은 IoT Edge와 같은 Azure 리소스를 관리 하기 위한 오픈 소스 플랫폼 간 명령줄 도구입니다. 이 기능을 사용하면 Azure IoT Hub 리소스, 디바이스 프로비전 서비스 인스턴스 및 연결된 허브를 즉시 관리할 수 있습니다. IoT 확장은 디바이스 관리 및 전체 IoT Edge 같은 기능으로 Azure CLI를 강화합니다.
 
 ### <a name="prerequisites-for-the-azure-cli"></a>Azure CLI에 대 한 필수 구성 요소
 
 * Azure 구독의 [IoT Hub](../iot-hub/iot-hub-create-using-cli.md)
-* 사용자 환경의 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). Azure CLI 버전이 2.0.24 이상이어야 합니다. `az --version` 명령을 사용하여 유효성을 검사합니다. 이 버전은 az extension 명령을 지원하며 Knack 명령 프레임워크를 도입했습니다.
+* 사용자 환경의 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 최소한 Azure CLI 버전은 2.0.70 이상 이어야 합니다. `az --version` 명령을 사용하여 유효성을 검사합니다. 이 버전은 az extension 명령을 지원하며 Knack 명령 프레임워크를 도입했습니다.
 * [Azure CLI용 IoT 확장](https://github.com/Azure/azure-iot-cli-extension).
 
 ### <a name="create-an-iot-edge-device-with-the-azure-cli"></a>Azure CLI를 사용 하 여 IoT Edge 장치 만들기
 
-[Az iot hub device-identity create](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-device-identity-create) 명령을 사용 하 여 iot hub에서 새 장치 id를 만듭니다. 예:
+[Az iot hub device-identity create](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-device-identity-create) 명령을 사용 하 여 iot hub에서 새 장치 id를 만듭니다. 다음은 그 예입니다.
 
    ```cli
    az iot hub device-identity create --device-id [device id] --hub-name [hub name] --edge-enabled
@@ -138,7 +138,7 @@ IoT hub에 연결 하는 모든 장치는 Visual Studio Code 탐색기의 **Azur
 
 ### <a name="view-iot-edge-devices-with-the-azure-cli"></a>Azure CLI를 사용 하 여 IoT Edge 장치 보기
 
-[Az iot hub device-identity list](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-device-identity-list) 명령을 사용 하 여 iot hub의 모든 장치를 볼 수 있습니다. 예:
+[Az iot hub device-identity list](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-device-identity-list) 명령을 사용 하 여 iot hub의 모든 장치를 볼 수 있습니다. 다음은 그 예입니다.
 
    ```cli
    az iot hub device-identity list --hub-name [hub name]

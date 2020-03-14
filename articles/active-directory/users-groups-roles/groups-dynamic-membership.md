@@ -15,11 +15,11 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: da983f87977de922ec547c3ade2972dfb4d69363
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78374774"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79253079"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Azure Active Directory의 그룹에 대한 동적 멤버 자격 규칙
 
@@ -86,14 +86,14 @@ user.department -eq "Sales"
 
 ### <a name="properties-of-type-boolean"></a>부울 형식의 속성
 
-| 속성 | 허용되는 값 | 사용법 |
+| 속성 | 허용되는 값 | 사용 |
 | --- | --- | --- |
 | accountEnabled |true false |user.accountEnabled -eq true |
 | dirSyncEnabled |true false |user.dirSyncEnabled -eq true |
 
 ### <a name="properties-of-type-string"></a>문자열 형식의 속성
 
-| 속성 | 허용되는 값 | 사용법 |
+| 속성 | 허용되는 값 | 사용 |
 | --- | --- | --- |
 | city |임의의 문자열 값 또는 *null*입니다. |(user.city -eq "value") |
 | country |임의의 문자열 값 또는 *null*입니다. |(user.country -eq "value") |
@@ -104,7 +104,7 @@ user.department -eq "Sales"
 | facsimileTelephoneNumber |임의의 문자열 값 또는 *null*입니다. |(user.facsimileTelephoneNumber -eq "value") |
 | givenName |임의의 문자열 값 또는 *null*입니다. |(user.givenName -eq "value") |
 | jobTitle |임의의 문자열 값 또는 *null*입니다. |(user.jobTitle -eq "value") |
-| 메일 |임의의 문자열 값 또는 *null*(사용자의 SMTP 주소)입니다. |(user.mail -eq "value") |
+| mail |임의의 문자열 값 또는 *null*(사용자의 SMTP 주소)입니다. |(user.mail -eq "value") |
 | mailNickName |임의의 문자열 값(사용자의 메일 별칭) |(user.mailNickName -eq "value") |
 | mobile |임의의 문자열 값 또는 *null*입니다. |(user.mobile -eq "value") |
 | objectId |사용자 개체의 GUID입니다. |(user.objectId -eq "11111111-1111-1111-1111-111111111111") |
@@ -124,7 +124,7 @@ user.department -eq "Sales"
 
 ### <a name="properties-of-type-string-collection"></a>문자열 컬렉션 형식의 속성
 
-| 속성 | 허용되는 값 | 사용법 |
+| 속성 | 허용되는 값 | 사용 |
 | --- | --- | --- |
 | otherMails |임의의 문자열 값 |(user.otherMails -contains "alias@domain") |
 | proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
@@ -140,7 +140,7 @@ user.department -eq "Sales"
 | 같지 않음 |-ne |
 | 같음 |-eq |
 | 다음으로 시작 안 함 |-notStartsWith |
-| 다음 문자로 시작 |-startsWith |
+| 시작 단어 |-startsWith |
 | 포함하지 않음 |-notContains |
 | 포함 |-contains |
 | 일치하지 않음 |-notMatch |
@@ -178,7 +178,7 @@ David는 true로 평가되고, Da는 false로 평가됩니다.
 
 * 문자열
 * 부울 – true, false
-* Numbers
+* 숫자
 * 배열 - 숫자 배열, 문자열 배열
 
 식 내에서 값을 지정하는 경우 올바른 구문을 사용하여 오류를 방지해야 합니다. 구문 팁 일부는 다음과 같습니다.
@@ -249,7 +249,7 @@ null 값을 참조하는 올바른 방법은 다음과 같습니다.
 
 다중 값 속성은 동일한 유형인 개체의 컬렉션입니다. 이 속성은 -any 및 -all 논리 연산자를 사용하여 멤버 자격 규칙을 만드는 데 사용할 수 있습니다.
 
-| 속성 | 값 | 사용법 |
+| 속성 | 값 | 사용 |
 | --- | --- | --- |
 | assignedPlans | 컬렉션에 있는 각 개체는 다음 문자열 속성을 표시합니다. capabilityStatus, service, servicePlanId |user.assignedPlans -any(assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled") |
 | proxyAddresses| SMTP: alias@domain smtp: alias@domain | (user.proxyAddresses -any (\_ -contains "contoso")) |
@@ -271,7 +271,7 @@ user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df
 
 이와 같은 규칙은 Office 365(또는 다른 Microsoft 온라인 서비스) 기능을 사용하도록 설정된 모든 사용자를 그룹화하는 데 사용할 수 있습니다. 그러면 일단의 정책을 그룹에 적용할 수 있습니다.
 
-#### <a name="example-2"></a>예 2
+#### <a name="example-2"></a>예제 2
 
 다음 식은 Intune 서비스("SCO" 서비스 이름으로 식별)와 연결된 서비스 계획이 있는 모든 사용자를 선택합니다.
 

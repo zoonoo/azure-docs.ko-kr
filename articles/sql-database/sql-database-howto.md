@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 11/14/2019
-ms.openlocfilehash: e45baba74d7bf752718e5e36a148a91987cd3ffb
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: c3f7b33e4b42b08334cfb687024985c878dc3713
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082423"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79209413"
 ---
 # <a name="how-to-use-azure-sql-database"></a>Azure SQL Database를 사용하는 방법
 
@@ -43,7 +43,7 @@ ms.locfileid: "74082423"
 
 - [수동 조정](sql-database-performance-guidance.md)
 - [DMV를 사용하여 성능 모니터링](sql-database-monitoring-with-dmvs.md)
-- [쿼리 저장소를 사용하여 성능 모니터링](sql-database-operate-query-store.md)
+- [쿼리 저장소를 사용하여 성능 모니터링](https://docs.microsoft.com/sql/relational-databases/performance/best-practice-with-the-query-store#Insight)
 - [Intelligent Insights로 성능 문제 해결](sql-database-intelligent-insights-troubleshoot-performance.md)
 - [Intelligent Insights 진단 로그 사용](sql-database-intelligent-insights-use-diagnostics-log.md)
 - [메모리 내 OLTP 공간 모니터링](sql-database-in-memory-oltp-monitoring.md)

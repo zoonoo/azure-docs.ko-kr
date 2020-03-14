@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 01/10/2020
 ms.author: cherylmc
 ms.openlocfilehash: d7a2040748d170b4e536df59947ea811f149d931
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77148164"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79244863"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>VPN Gateway 구성 설정 정보
 
@@ -41,7 +41,7 @@ VPN Gateway 연결은 각각이 구성 가능한 설정을 포함하는 여러 �
 
 VPN gateway에 `-GatewayType` *vpn*이 필요 합니다.
 
-예:
+예제:
 
 ```azurepowershell-interactive
 New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
@@ -55,7 +55,7 @@ New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 ### <a name="configure-a-gateway-sku"></a>게이트웨이 SKU 구성
 
-#### <a name="azure-portal"></a>Azure 포털
+#### <a name="azure-portal"></a>Azure portal
 
 Azure Portal을 사용하여 Resource Manager 가상 네트워크 게이트웨이를 만드는 경우 드롭다운을 사용하여 게이트웨이 SKU를 선택할 수 있습니다. 표시되는 옵션은 선택한 게이트웨이 형식 및 선택한 VPN 형식에 해당합니다.
 

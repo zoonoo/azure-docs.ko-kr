@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/04/2019
 ms.author: aahi
-ms.openlocfilehash: 3e5fd2315a5d352ed5abee9253b5c84eea3b73a9
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: 72b00d78d19ed0e963b4dad01b82033c659e1efd
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77462278"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79221260"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>Azure 명령줄 인터페이스 (CLI)를 사용 하 여 Cognitive Services 리소스 만들기
 
@@ -34,7 +34,7 @@ ms.locfileid: "77462278"
 
 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)를 설치합니다. CLI의 로컬 설치에 로그인 하려면 [az login](https://docs.microsoft.com/cli/azure/reference-index#az-login) 명령을 실행 합니다.
 
-```console
+```azurecli-interactive
 az login
 ```
 
@@ -156,7 +156,7 @@ az cognitiveservices account create \
 
 CLI (명령줄 인터페이스)의 로컬 설치에 로그인 하려면 [az login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login) 명령을 사용 합니다.
 
-```console
+```azurecli-interactive
 az login
 ```
 

@@ -13,11 +13,11 @@ ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tags: azure-synapse
 ms.openlocfilehash: 89ec405a348e3ace851fd5f5e17283a8036692a5
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78199413"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79257356"
 ---
 # <a name="secure-a-database-in-azure-synapse"></a>Azure Synapse에서 데이터베이스 보안
 > [!div class="op_single_selector"]
@@ -67,7 +67,7 @@ CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
 
 이러한 추가 역할 및 SQL Database에 대 한 인증에 대 한 자세한 내용은 [Azure SQL Database에서 데이터베이스 및 로그인 관리](../sql-database/sql-database-manage-logins.md)를 참조 하세요.  Azure Active Directory 사용 하 여 연결 하는 방법에 대 한 자세한 내용은 [Azure Active Directory 인증을 사용 하 여 연결](sql-data-warehouse-authentication.md)을 참조 하세요.
 
-## <a name="authorization"></a>Authorization
+## <a name="authorization"></a>권한 부여
 권한 부여는 인증 되 고 연결 된 후 데이터베이스 내에서 수행할 수 있는 작업을 나타냅니다. 권한 부여 권한은 역할 멤버 자격과 권한에 따라 결정됩니다. 사용자에게 필요한 최소한의 권한을 부여하는 것이 가장 좋습니다. 역할을 관리하기 위해 다음 저장 프로시저를 사용할 수 있습니다.
 
 ```sql

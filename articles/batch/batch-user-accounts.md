@@ -15,11 +15,11 @@ ms.date: 11/18/2019
 ms.author: labrenne
 ms.custom: seodec18
 ms.openlocfilehash: fee3dc764d2052185160a4ba6b3d70854c54eeac
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77022786"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79252273"
 ---
 > [!NOTE] 
 > 이 문서에서 설명 하는 사용자 계정은 보안상의 이유로 RDP (원격 데스크톱 프로토콜) 또는 Secure Shell (SSH)에 사용 되는 사용자 계정과 다릅니다. 

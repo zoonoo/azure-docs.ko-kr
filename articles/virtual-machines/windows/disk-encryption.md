@@ -2,21 +2,21 @@
 title: Azure Managed Disks의 서버 쪽 암호화-PowerShell
 description: Azure Storage는 저장소 클러스터에 유지 하기 전에 미사용 데이터를 암호화 하 여 데이터를 보호 합니다. Microsoft 관리 키를 사용 하 여 관리 디스크의 암호화를 사용 하거나, 고객 관리 키를 사용 하 여 사용자 고유의 키로 암호화를 관리할 수 있습니다.
 author: roygara
-ms.date: 01/10/2020
+ms.date: 03/12/2020
 ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-windows
 ms.subservice: disks
-ms.openlocfilehash: f3ce439f3e8c2290539e088402c2636974d37821
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.openlocfilehash: 0541b12d73cc5b5f7fdf713c759069e2ecbd8c18
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78898842"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79299634"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Azure managed disks의 서버 쪽 암호화
 
-Azure managed disks는 클라우드로 데이터를 유지할 때 기본적으로 데이터를 자동으로 암호화 합니다. 서버 쪽 암호화는 데이터를 보호 하 고 조직의 보안 및 규정 준수 약정을 충족 하는 데 도움이 됩니다. Azure managed disks의 데이터는 256 비트 [AES 암호화](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)를 사용 하 여 투명 하 게 암호화 되 고, 사용 가능한 가장 강력한 블록 암호화 중 하나 이며, FIPS 140-2 규격입니다.   
+Azure managed disks는 클라우드로 데이터를 유지할 때 기본적으로 데이터를 자동으로 암호화 합니다. 서버 쪽 암호화는 데이터를 보호 하 고 조직의 보안 및 규정 준수 약정을 충족 하는 데 도움이 됩니다. Azure managed disks의 데이터는 256 비트 [AES 암호화](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)를 사용 하 여 투명 하 게 암호화 되 고, 사용 가능한 가장 강력한 블록 암호화 중 하나 이며, FIPS 140-2 규격입니다.
 
 암호화는 관리 디스크의 성능에 영향을 주지 않습니다. 암호화에 대 한 추가 비용은 없습니다.
 
@@ -30,18 +30,22 @@ Azure managed disks는 클라우드로 데이터를 유지할 때 기본적으�
 
 ## <a name="platform-managed-keys"></a>플랫폼 관리 키
 
-기본적으로 관리 디스크는 플랫폼 관리 암호화 키를 사용 합니다. 2017 년 6 월 10 일부 터 모든 새 관리 디스크, 스냅숏, 이미지 및 기존 관리 디스크에 기록 된 새 데이터는 플랫폼 관리 키를 사용 하 여 미사용 상태로 자동으로 암호화 됩니다. 
+기본적으로 관리 디스크는 플랫폼 관리 암호화 키를 사용 합니다. 2017 년 6 월 10 일부 터 모든 새 관리 디스크, 스냅숏, 이미지 및 기존 관리 디스크에 기록 된 새 데이터는 플랫폼 관리 키를 사용 하 여 미사용 상태로 자동으로 암호화 됩니다.
 
 ## <a name="customer-managed-keys"></a>고객 관리형 키
 
 사용자 고유의 키를 사용 하 여 각 관리 디스크의 수준에서 암호화를 관리 하도록 선택할 수 있습니다. 고객이 관리 하는 키를 사용 하는 관리 디스크에 대 한 서버 쪽 암호화는 Azure Key Vault 통합 된 환경을 제공 합니다. Key Vault [rsa 키](../../key-vault/key-vault-hsm-protected-keys.md) 를 가져오거나 Azure Key Vault에서 새 rsa 키를 생성할 수 있습니다. Azure managed disks는 [봉투 (envelope) 암호화](../../storage/common/storage-client-side-encryption.md#encryption-and-decryption-via-the-envelope-technique)를 사용 하 여 완전히 투명 한 방식으로 암호화 및 암호 해독을 처리 합니다. 키를 사용 하 여 보호 되는 [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 256 기반 dek (데이터 암호화 키)를 사용 하 여 데이터를 암호화 합니다. DEK를 암호화 하 고 암호 해독 하는 데 키를 사용 하려면 Key Vault에서 관리 디스크에 대 한 액세스 권한을 부여 해야 합니다. 이를 통해 데이터 및 키를 완전히 제어할 수 있습니다. 언제 든 지 키를 사용 하지 않도록 설정 하거나 관리 디스크에 대 한 액세스를 취소할 수 있습니다. 또한 Azure Key Vault 모니터링을 사용 하 여 암호화 키 사용을 감사 하 여 관리 디스크 또는 다른 신뢰할 수 있는 Azure 서비스만 키에 액세스할 수 있도록 할 수 있습니다.
 
+Premium Ssd, standard Ssd 및 standard Hdd의 경우: 키를 사용 하지 않도록 설정 하거나 삭제 하면 해당 키를 사용 하는 디스크가 있는 모든 Vm이 자동으로 종료 됩니다. 그런 다음 키를 다시 사용 하도록 설정 하지 않거나 새 키를 할당 하지 않는 한 Vm을 사용할 수 없습니다.
+
+Ultra disks의 경우 키를 사용 하지 않도록 설정 하거나 삭제 하면 키를 사용 하는 울트라 디스크가 있는 모든 Vm이 자동으로 종료 되지 않습니다. Vm의 할당을 취소 하 고 다시 시작한 후에는 디스크에서 키 사용이 중지 되 고 Vm이 다시 온라인 상태가 되지 않습니다. Vm을 다시 온라인 상태로 전환 하려면 새 키를 할당 하거나 기존 키를 사용 하도록 설정 해야 합니다.
+
 다음 다이어그램에서는 관리 디스크에서 Azure Active Directory 및 Azure Key Vault를 사용 하 여 고객이 관리 하는 키를 사용 하 여 요청 하는 방법을 보여 줍니다.
 
-![관리 되는 디스크 및 고객이 관리 하는 키 워크플로. 관리자는 Azure Key Vault 만든 다음 디스크 암호화 집합을 만들고 디스크 암호화 집합을 설정 합니다. 집합은 디스크가 Azure AD를 사용 하 여 인증할 수 있도록 하는 VM에 연결 되어 있습니다.](media/disk-storage-encryption/customer-managed-keys-sse-managed-disks-workflow.png)
+![관리 되는 디스크 및 고객이 관리 하는 키 워크플로. 관리자는 Azure Key Vault 만든 다음 디스크 암호화 집합을 만들고 디스크 암호화 집합을 설정 합니다. 집합은 디스크에서 Azure AD를 사용 하 여 인증할 수 있도록 하는 VM에 연결 되어 있습니다.](media/disk-storage-encryption/customer-managed-keys-sse-managed-disks-workflow.png)
 
 
-다음 목록에서는 다이어그램에 대해 보다 자세히 설명 합니다.
+다음 목록에서는 다이어그램에 대해 자세히 설명 합니다.
 
 1. Azure Key Vault 관리자가 주요 자격 증명 모음 리소스를 만듭니다.
 1. 키 자격 증명 모음 관리자는 RSA 키를 가져와 Key Vault 하거나 Key Vault에서 새 RSA 키를 생성 합니다.
@@ -56,15 +60,14 @@ Azure managed disks는 클라우드로 데이터를 유지할 때 기본적으�
 
 ### <a name="supported-regions"></a>지원되는 지역
 
-현재 다음 지역만 지원 됩니다.
-
-- 미국 동부, 미국 서 부 2, 미국 중부, 영국 남부 지역에서 GA 제품으로 제공 됩니다.
-- 미국 서 부, 미국 동부 2, 캐나다 중부 및 북아메리카 유럽 지역에서 공개 미리 보기로 제공 됩니다.
+[!INCLUDE [virtual-machines-disks-encryption-regions](../../../includes/virtual-machines-disks-encryption-regions.md)]
 
 ### <a name="restrictions"></a>제한
 
 현재, 고객 관리 키에는 다음과 같은 제한 사항이 있습니다.
 
+- 디스크에 대해이 기능을 사용 하는 경우이 기능을 사용 하지 않도록 설정할 수 없습니다.
+    이 문제를 해결 해야 하는 경우 고객 관리 키를 사용 하지 않는 완전히 다른 관리 디스크로 [모든 데이터를 복사](disks-upload-vhd-to-managed-disk-powershell.md#copy-a-managed-disk) 해야 합니다.
 - 크기 2080의 ["소프트" 및 "하드" RSA 키](../../key-vault/about-keys-secrets-and-certificates.md#keys-and-key-types) 만 지원 되 고 다른 키 나 크기는 지원 되지 않습니다.
 - 서버 쪽 암호화 및 고객 관리 키를 사용 하 여 암호화 된 사용자 지정 이미지에서 만든 디스크는 동일한 고객 관리 키를 사용 하 여 암호화 해야 하며 동일한 구독에 있어야 합니다.
 - 서버 쪽 암호화 및 고객이 관리 하는 키로 암호화 된 디스크에서 만든 스냅숏은 동일한 고객 관리 키를 사용 하 여 암호화 해야 합니다.
@@ -97,26 +100,26 @@ Azure managed disks는 클라우드로 데이터를 유지할 때 기본적으�
     $key = Add-AzKeyVaultKey -VaultName $keyVaultName -Name $keyName -Destination $keyDestination  
     ```
 
-1.  DiskEncryptionSet의 인스턴스를 만듭니다. 
+1.    DiskEncryptionSet의 인스턴스를 만듭니다. 
     
-    ```powershell
-    $desConfig=New-AzDiskEncryptionSetConfig -Location $LocationName -SourceVaultId $keyVault.ResourceId -KeyUrl $key.Key.Kid -IdentityType SystemAssigned
+        ```powershell
+        $desConfig=New-AzDiskEncryptionSetConfig -Location $LocationName -SourceVaultId $keyVault.ResourceId -KeyUrl $key.Key.Kid -IdentityType SystemAssigned
+        
+        $des=New-AzDiskEncryptionSet -Name $diskEncryptionSetName -ResourceGroupName $ResourceGroupName -InputObject $desConfig 
+        ```
 
-    $des=New-AzDiskEncryptionSet -Name $diskEncryptionSetName -ResourceGroupName $ResourceGroupName -InputObject $desConfig 
-    ```
+1.    키 자격 증명 모음에 대해 DiskEncryptionSet 리소스 액세스 권한을 부여 합니다.
 
-1.  키 자격 증명 모음에 대해 DiskEncryptionSet 리소스 액세스 권한을 부여 합니다.
-
-    > [!NOTE]
-    > Azure가 Azure Active Directory에서 DiskEncryptionSet의 id를 만드는 데 몇 분 정도 걸릴 수 있습니다. 다음 명령을 실행할 때 "Active Directory 개체를 찾을 수 없습니다."와 같은 오류가 발생 하면 몇 분 정도 기다린 후 다시 시도 하세요.
-    
-    ```powershell
-    $identity = Get-AzADServicePrincipal -DisplayName myDiskEncryptionSet1  
-     
-    Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -ObjectId $des.Identity.PrincipalId -PermissionsToKeys wrapkey,unwrapkey,get
-     
-    New-AzRoleAssignment -ResourceName $keyVaultName -ResourceGroupName $ResourceGroupName -ResourceType "Microsoft.KeyVault/vaults" -ObjectId $des.Identity.PrincipalId -RoleDefinitionName "Reader" 
-    ```
+        > [!NOTE]
+        > Azure가 Azure Active Directory에서 DiskEncryptionSet의 id를 만드는 데 몇 분 정도 걸릴 수 있습니다. 다음 명령을 실행할 때 "Active Directory 개체를 찾을 수 없습니다."와 같은 오류가 발생 하면 몇 분 정도 기다린 후 다시 시도 하세요.
+        
+        ```powershell
+        $identity = Get-AzADServicePrincipal -DisplayName myDiskEncryptionSet1  
+         
+        Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -ObjectId $des.Identity.PrincipalId -PermissionsToKeys wrapkey,unwrapkey,get
+         
+        New-AzRoleAssignment -ResourceName $keyVaultName -ResourceGroupName $ResourceGroupName -ResourceType "Microsoft.KeyVault/vaults" -ObjectId $des.Identity.PrincipalId -RoleDefinitionName "Reader" 
+        ```
 
 #### <a name="create-a-vm-using-a-marketplace-image-encrypting-the-os-and-data-disks-with-customer-managed-keys"></a>Marketplace 이미지를 사용 하 여 VM 만들기, 고객이 관리 하는 키를 사용 하 여 OS 및 데이터 디스크 암호화
 

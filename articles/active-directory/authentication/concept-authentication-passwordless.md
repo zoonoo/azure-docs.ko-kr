@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ffe3d359dffea3278337de00bea42e0b959e10f6
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78269511"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79264038"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Azure Active Directory에 대 한 암호 없는 인증 옵션
 

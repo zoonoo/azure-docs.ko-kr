@@ -2,23 +2,17 @@
 title: 구독에 리소스 배포
 description: Azure Resource Manager 템플릿에서 리소스 그룹을 만드는 방법을 설명합니다. 또한 Azure 구독 범위에서 리소스를 배포하는 방법도 보여 줍니다.
 ms.topic: conceptual
-ms.date: 03/06/2020
-ms.openlocfilehash: 1ec761a8136d631c60a7a2021f5462dbf3d7f790
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.date: 03/09/2020
+ms.openlocfilehash: 1a76e41b4b2264bc535752e8f765b3303080abbd
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78925089"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79248412"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>구독 수준에서 리소스 그룹 및 리소스 만들기
 
-일반적으로 Azure 리소스는 Azure 구독의 리소스 그룹에 배포합니다. 그러나에서 리소스를 만들 수도 있습니다.
-
-* 구독 수준 (이 문서에 포함 됨)
-* [관리 그룹 수준](deploy-to-management-group.md)
-* [테 넌 트 수준](deploy-to-tenant.md)
-
-구독 수준 배포를 사용 하 여 리소스 그룹을 만들고 [역할 기반 액세스 제어](../../role-based-access-control/overview.md)를 할당 하는 등 해당 수준에서 적합 한 작업을 수행할 수 있습니다.
+Azure 구독의 리소스 관리를 간소화 하기 위해 구독에서 [정책](../../governance/policy/overview.md) 또는 [역할 기반 액세스 제어](../../role-based-access-control/overview.md) 를 정의 하 고 할당할 수 있습니다. 구독 수준 템플릿을 사용 하면 정책을 선언적으로 적용 하 고 구독에서 역할을 할당할 수 있습니다. 리소스 그룹을 만들고 리소스를 배포할 수도 있습니다.
 
 구독 수준에서 템플릿을 배포 하려면 Azure CLI, PowerShell 또는 REST API를 사용 합니다. Azure Portal은 구독 수준의 배포를 지원하지 않습니다.
 
@@ -46,10 +40,10 @@ ms.locfileid: "78925089"
 https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#
 ```
 
-매개 변수 파일의 경우 다음을 사용 합니다.
+매개 변수 파일에 대 한 스키마는 모든 배포 범위에 대해 동일 합니다. 매개 변수 파일의 경우 다음을 사용 합니다.
 
 ```json
-https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentParameters.json#
+https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#
 ```
 
 ## <a name="deployment-commands"></a>배포 명령
@@ -387,5 +381,4 @@ New-AzSubscriptionDeployment `
 * 역할 할당에 대 한 자세한 내용은 [RBAC를 사용 하 여 Azure 리소스에 대 한 액세스 관리 및 템플릿 Azure Resource Manager](../../role-based-access-control/role-assignments-template.md)을 참조 하세요.
 * Azure Security Center에 대한 작업 영역 설정을 배포하는 예제는 [deployASCwithWorkspaceSettings.json](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json)을 참조하세요.
 * 샘플 템플릿은 [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments)에서 찾을 수 있습니다.
-* Azure 리소스 관리자 템플릿을 만드는 방법에 대한 자세한 내용은 [템플릿 작성](template-syntax.md)을 참조하세요.
-* 템플릿에서 사용할 수 있는 함수 목록은 [템플릿 함수](template-functions.md)를 참조하세요.
+* [관리 그룹 수준](deploy-to-management-group.md) 및 [테 넌 트 수준](deploy-to-tenant.md)에서 템플릿을 배포할 수도 있습니다.

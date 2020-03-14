@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: aebd6dee9314d6e5641988767c024790b6b721f4
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74887700"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79251155"
 ---
 # <a name="create-contentkeys-with-net"></a>.NET을 사용하여 Contentkey 만들기 
 > [!div class="op_single_selector"]
-> * [REST](media-services-rest-create-contentkey.md)
+> * [REST (영문)](media-services-rest-create-contentkey.md)
 > * [.NET](media-services-dotnet-create-contentkey.md)
 > 
 > 
@@ -32,7 +32,7 @@ Media Services를 사용하면 암호화된 자산을 만들어서 제공할 수
 
 새 자산을 만들 때(예: [파일 업로드](media-services-dotnet-upload-files.md) 전) **StorageEncrypted**, **CommonEncryptionProtected** 또는 **EnvelopeEncryptionProtected** 암호화 옵션을 지정할 수 있습니다. 
 
-클라이언트에 자산을 제공할 때 **DynamicEnvelopeEncryption** 또는 **DynamicCommonEncryption** 암호화 중 하나를 사용하여 [자산이 동적으로 암호화되도록 구성](media-services-dotnet-configure-asset-delivery-policy.md)할 수 있습니다.
+클라이언트에 자산을 제공할 때 [DynamicEnvelopeEncryption](media-services-dotnet-configure-asset-delivery-policy.md) 또는 **DynamicCommonEncryption** 암호화 중 하나를 사용하여 **자산이 동적으로 암호화되도록 구성**할 수 있습니다.
 
 암호화된 자산은 **ContentKey**와 연관되어야 합니다. 이 문서에서는 콘텐츠 키를 만드는 방법을 설명합니다.
 
@@ -150,6 +150,6 @@ call
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>피드백 제공하기
+## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

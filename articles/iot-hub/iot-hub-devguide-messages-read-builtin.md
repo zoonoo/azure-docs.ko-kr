@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Hub 기본 제공 끝점 이해 | Microsoft Docs
-description: 개발자 가이드-기본 제공 Event Hub 호환 끝점을 사용 하 여 장치-클라우드 메시지를 읽는 방법을 설명 합니다.
+title: Azure IoT Hub 기본 제공 엔드포인트 이해 | Microsoft Docs
+description: 개발자 가이드에서는 기본 제공 Event Hub 호환 엔드포인트를 사용하여 디바이스-클라우드 메시지를 읽는 방법을 설명합니다.
 author: wesmc7777
 manager: philmea
 ms.author: wesmc
@@ -9,79 +9,79 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2019
 ms.openlocfilehash: e7b8f8a33b741a8dcf2d1a68ae3cf86d6e3687eb
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78392523"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79284604"
 ---
-# <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>기본 제공 끝점에서 장치-클라우드 메시지 읽기
+# <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>기본 제공 엔드포인트에서 디바이스-클라우드 메시지 읽기
 
-기본적으로 메시지는 [Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/)와 호환 되는 기본 제공 서비스 연결 끝점 (**메시지/이벤트**)로 라우팅됩니다. 이 끝점은 현재 포트 5671에서 [Amqp](https://www.amqp.org/) 프로토콜을 사용 하 여 노출 됩니다. IoT hub는 다음 속성을 노출 하 여 기본 제공 Event Hub 호환 메시징 끝점 **메시지/이벤트**를 제어할 수 있도록 합니다.
+기본적으로 메시지는 **Event Hubs**와 호환되는 기본 제공 서비스 연결 엔드포인트([messages/events](https://azure.microsoft.com/documentation/services/event-hubs/))로 라우팅됩니다. 이 엔드포인트는 현재 [AMQP](https://www.amqp.org/) 프로토콜을 통해서만 포트 5671에 노출됩니다. IoT Hub는 다음 속성을 노출하여 기본 제공 Event Hub와 호환되는 메시징 엔드포인트 **messages/events**를 제어할 수 있게 합니다.
 
-| 속성            | 한 |
+| 속성            | Description |
 | ------------------- | ----------- |
-| **파티션 수** | 만들 때이 속성을 설정 하 여 장치-클라우드 이벤트 수집에 대 한 [파티션](../event-hubs/event-hubs-features.md#partitions) 수를 정의 합니다. |
-| **보존 시간**  | 이 속성은 IoT Hub에서 메시지를 보존할 기간을 지정 합니다. 기본값은 1 일 이지만 7 일로 늘릴 수 있습니다. |
+| **분할 개수** | 이 속성은 생성 시 설정하여 디바이스-클라우드 이벤트 수집에 대한 [파티션](../event-hubs/event-hubs-features.md#partitions) 수를 정의합니다. |
+| **보존 시간**  | 이 속성은 IoT Hub에서 메시지를 보존할 일 수를 지정합니다. 기본값은 1일이지만 7일로 늘릴 수 있습니다. |
 
 IoT Hub를 사용 하면 기본 제공 Event Hubs에서 최대 7 일 동안 데이터를 보존할 수 있습니다. IoT Hub를 만드는 동안 보존 시간을 설정할 수 있습니다. IoT Hub의 데이터 보존 시간은 IoT Hub 계층 및 단위 유형에 따라 달라 집니다. 크기를 기준으로 기본 제공 Event Hubs는 최대 메시지 크기의 메시지를 24 시간 이상 할당량으로 유지할 수 있습니다. 예를 들어 1tb 단위 IoT Hub 1tb는 각각 4k 크기의 400K 메시지를 보존할 수 있는 충분 한 저장소를 제공 합니다. 장치에서 더 작은 메시지를 전송 하는 경우 사용 되는 저장소 크기에 따라 오랫동안 (최대 7 일) 보존 될 수 있습니다. 지정 된 보존 시간에 대 한 데이터를 최소로 유지 하는 것을 보장 합니다.
 
-IoT Hub를 사용 하 여 기본 제공 장치-클라우드 수신 끝점에서 소비자 그룹을 관리할 수도 있습니다. 각 IoT Hub에 대해 최대 20 개의 소비자 그룹을 포함할 수 있습니다.
+또한 IoT Hub를 사용하면 기본 제공 디바이스-클라우드 수신 엔드포인트에서 소비자 그룹을 관리할 수 있습니다. 각 IoT Hub에 대해 최대 20 개의 소비자 그룹을 포함할 수 있습니다.
 
 [메시지 라우팅을](iot-hub-devguide-messages-d2c.md) 사용 하는 경우 [대체 (fallback) 경로](iot-hub-devguide-messages-d2c.md#fallback-route) 를 사용 하는 경우 모든 경로에서 쿼리와 일치 하지 않는 모든 메시지는 기본 제공 끝점으로 이동 합니다. 이 대체 경로를 사용 하지 않도록 설정 하면 쿼리와 일치 하지 않는 메시지가 삭제 됩니다.
 
-[IoT Hub 리소스 공급자 REST api](/rest/api/iothub/iothubresource)를 사용 하거나 [Azure Portal](https://portal.azure.com)를 사용 하 여 프로그래밍 방식으로 보존 시간을 수정할 수 있습니다.
+[IoT Hub 리소스 공급자 REST API](/rest/api/iothub/iothubresource)를 사용하여 또는 [Azure Portal](https://portal.azure.com)을 사용하여 프로그래밍 방식으로 보존 시간을 수정할 수 있습니다.
 
-IoT Hub는 허브에서 수신한 장치-클라우드 메시지를 읽기 위해 백 엔드 서비스의 **메시지/이벤트** 기본 제공 끝점을 노출 합니다. 이 끝점은 Event hubs와 호환 되므로 Event Hubs 서비스가 메시지 읽기에 대해 지 원하는 모든 메커니즘을 사용할 수 있습니다.
+IoT Hub는 허브에서 수신한 디바이스-클라우드 메시지를 읽도록 백 엔드 서비스의 기본 제공 엔드포인트인 **messages/events**를 공개합니다. 이 엔드포인트는 Event Hub와 호환되기 때문에 Event Hubs 서비스가 메시지 읽기에 대해 지원하는 모든 메커니즘을 사용할 수 있습니다.
 
-## <a name="read-from-the-built-in-endpoint"></a>기본 제공 끝점에서 읽기
+## <a name="read-from-the-built-in-endpoint"></a>기본 제공 엔드포인트에서 읽기
 
 일부 제품 통합 및 Event Hubs Sdk는 IoT Hub를 인식 하며 IoT Hub 서비스 연결 문자열을 사용 하 여 기본 제공 끝점에 연결할 수 있습니다.
 
 IoT Hub를 인식 하지 않는 Event Hubs Sdk 또는 제품 통합을 사용 하는 경우 Event Hub 호환 끝점 및 Event Hub 호환 이름이 필요 합니다. 다음과 같이 포털에서 이러한 값을 검색할 수 있습니다.
 
-1. [Azure Portal](https://portal.azure.com) 에 로그인 하 고 IoT hub로 이동 합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인하고 IoT Hub로 이동합니다.
 
-2. **기본 제공 끝점**을 클릭 합니다.
+2. **기본 제공 엔드포인트**를 클릭합니다.
 
 3. **Events** 섹션에는 **파티션**, **event Hub 호환 이름**, **event Hub 호환 끝점**, **보존 시간**및 **소비자 그룹**값이 포함 됩니다.
 
-    ![장치-클라우드 설정](./media/iot-hub-devguide-messages-read-builtin/eventhubcompatible.png)
+    ![디바이스-클라우드 설정](./media/iot-hub-devguide-messages-read-builtin/eventhubcompatible.png)
 
 포털에서 Event Hub 호환 끝점 필드에는 **끝점 = sb://abcd1234namespace.servicebus.windows.net/;과 같은 완전 한 Event Hubs 연결 문자열이 포함 되어 있습니다. SharedAccessKeyName = iothubowner; SharedAccessKey = keykeykeykeykeykey =; EntityPath = iothub-1234-123456**. 사용 중인 SDK에 다른 값이 필요한 경우에는 다음을 수행 합니다.
 
-| 이름의 | 기본값 |
+| 속성 | 값 |
 | ---- | ----- |
-| 끝점만 | sb://abcd1234namespace.servicebus.windows.net/ |
-| N | abcd1234namespace.servicebus.windows.net |
-| 공간 | abcd1234namespace |
+| 엔드포인트 | sb://abcd1234namespace.servicebus.windows.net/ |
+| Hostname | abcd1234namespace.servicebus.windows.net |
+| 네임스페이스 | abcd1234namespace |
 
-그런 다음 **ServiceConnect** 권한이 있는 공유 액세스 정책을 사용 하 여 지정 된 이벤트 허브에 연결할 수 있습니다.
+지정된 Event Hubs에 연결할 수 있는 **ServiceConnect** 권한이 있는 공유 액세스 정책을 사용할 수 있습니다.
 
 IoT Hub 노출 되는 기본 제공 이벤트 허브 호환 끝점에 연결 하는 데 사용할 수 있는 Sdk는 다음과 같습니다.
 
-| 언어도 | SDK | 예 들어 | 메모란 |
+| 언어 | SDK) | 예제 | 메모 |
 | -------- | --- | ------ | ----- |
-| .NET | https://github.com/Azure/azure-event-hubs-dotnet | [빠른](quickstart-send-telemetry-dotnet.md) | Event Hubs 호환 정보를 사용 합니다. |
- Java | https://github.com/Azure/azure-event-hubs-java | [빠른](quickstart-send-telemetry-java.md) | Event Hubs 호환 정보를 사용 합니다. |
-| Node.js | https://github.com/Azure/azure-event-hubs-node | [빠른](quickstart-send-telemetry-node.md) | IoT Hub 연결 문자열 사용 |
+| .NET | https://github.com/Azure/azure-event-hubs-dotnet | [빠른 시작](quickstart-send-telemetry-dotnet.md) | Event Hubs 호환 정보를 사용 합니다. |
+ Java | https://github.com/Azure/azure-event-hubs-java | [빠른 시작](quickstart-send-telemetry-java.md) | Event Hubs 호환 정보를 사용 합니다. |
+| Node.js | https://github.com/Azure/azure-event-hubs-node | [빠른 시작](quickstart-send-telemetry-node.md) | IoT Hub 연결 문자열 사용 |
 | Python | https://github.com/Azure/azure-event-hubs-python | https://github.com/Azure/azure-event-hubs-python/blob/master/examples/iothub_recv.py | IoT Hub 연결 문자열 사용 |
 
 IoT Hub 노출 되는 기본 제공 Event Hub 호환 끝점과 함께 사용할 수 있는 제품 통합은 다음과 같습니다.
 
 * [Azure Functions](https://docs.microsoft.com/azure/azure-functions/). [Azure Functions를 사용 하 여 IoT Hub에서 데이터 처리를](https://azure.microsoft.com/resources/samples/functions-js-iot-hub-processing/)참조 하세요.
-* [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/). [데이터를 Stream Analytics에 대 한 입력으로 스트리밍](../stream-analytics/stream-analytics-define-inputs.md#stream-data-from-iot-hub)을 참조 하세요.
+* [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/) - [데이터를 Stream Analytics에 대 한 입력으로 스트리밍](../stream-analytics/stream-analytics-define-inputs.md#stream-data-from-iot-hub)을 참조 하세요.
 * [Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/). [Time Series Insights 환경에 IoT hub 이벤트 원본 추가를](../time-series-insights/time-series-insights-how-to-add-an-event-source-iothub.md)참조 하세요.
-* [Spout를 Apache Storm](../hdinsight/storm/apache-storm-develop-csharp-event-hub-topology.md)합니다. GitHub에서 [spout 원본을](https://github.com/apache/storm/tree/master/external/storm-eventhubs) 볼 수 있습니다.
-* [Apache Spark 통합](../hdinsight/spark/apache-spark-eventhub-streaming.md).
+* [Apache Storm spout](../hdinsight/storm/apache-storm-develop-csharp-event-hub-topology.md). GitHub의 [spout 원본](https://github.com/apache/storm/tree/master/external/storm-eventhubs) 을 볼 수 있습니다.
+* [Apache Spark 통합](../hdinsight/spark/apache-spark-eventhub-streaming.md)
 * [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/).
 
 ## <a name="next-steps"></a>다음 단계
 
-* IoT Hub 끝점에 대 한 자세한 내용은 [IoT Hub 끝점](iot-hub-devguide-endpoints.md)을 참조 하세요.
+* IoT Hub 엔드포인트에 대한 자세한 내용은 [IoT Hub 엔드포인트](iot-hub-devguide-endpoints.md)를 참조하세요.
 
-* [퀵 스타트](quickstart-send-telemetry-node.md) 에서는 시뮬레이션 된 장치에서 장치-클라우드 메시지를 보내고 기본 제공 끝점에서 메시지를 읽는 방법을 보여 줍니다. 
+* [빠른 시작](quickstart-send-telemetry-node.md)에서는 시뮬레이트된 디바이스에서 디바이스-클라우드 메시지를 보내고 기본 제공 엔드포인트에서 메시지를 읽는 방법을 보여 줍니다. 
 
-자세한 내용은 [경로를 사용 하 여 장치-클라우드 메시지 IoT Hub 처리](tutorial-routing.md) 자습서를 참조 하세요.
+자세한 내용은 [경로를 사용하여 IoT Hub 디바이스-클라우드 메시지 처리](tutorial-routing.md) 자습서를 참조하세요.
 
-* 장치-클라우드 메시지를 사용자 지정 끝점으로 라우팅하려면 [장치-클라우드 메시지에 대 한 메시지 경로 및 사용자 지정 끝점 사용](iot-hub-devguide-messages-read-custom.md)을 참조 하세요.
+* 디바이스-클라우드 메시지를 사용자 지정 엔드포인트로 라우팅하려면 [디바이스-클라우드 메시지에 대해 메시지 라우팅 및 사용자 지정 엔드포인트 사용](iot-hub-devguide-messages-read-custom.md)을 참조하세요.

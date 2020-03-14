@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 03/10/2020
-ms.openlocfilehash: 2e12952c04373fe47eaebb24b61a4fc563121185
-ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
+ms.openlocfilehash: 1cf8c208e83950706278e2cff5d13951393eec8f
+ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79037138"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79140776"
 ---
 # <a name="execute-r-script"></a>R 스크립트 실행
 
@@ -97,13 +97,16 @@ azureml_main <- function(dataframe1, dataframe2){
 }
 ```
 
-파이프라인이 성공적으로 제출 되 면 모듈의 오른쪽 패널에서 이미지를 미리 볼 수 ![업로드 이미지](media/module/upload-image-in-r-script.png)
+파이프라인이 성공적으로 제출 되 면 모듈의 오른쪽 패널에서 이미지를 미리 볼 수 있습니다.
+
+[!div class="mx-imgBorder"]
+업로드 ![-이미지](media/module/upload-image-in-r-script.png)
 
 ## <a name="how-to-configure-execute-r-script"></a>R 스크립트 실행을 구성 하는 방법
 
 **R 스크립트 실행** 모듈에는 시작 지점으로 사용할 수 있는 샘플 코드가 포함 되어 있습니다. **R 스크립트 실행** 모듈을 구성 하려면 실행할 입력 및 코드 집합을 제공 합니다.
 
-![R 모듈](media/module/upload-image-in-r-script.png)
+![R 모듈](media/module/execute-r-script.png)
 
 이 모듈을 사용 하 여 로드 하면 디자이너에 저장 된 데이터 집합이 자동으로 R 데이터 프레임으로 변환 됩니다.
 
@@ -123,25 +126,25 @@ azureml_main <- function(dataframe1, dataframe2){
 
     시작 하는 데 도움이 되는 **R 스크립트** 텍스트 상자는 편집 하거나 바꿀 수 있는 샘플 코드로 미리 채워져 있습니다.
     
-```R
-# R version: 3.5.1
-# The script MUST contain a function named azureml_main
-# which is the entry point for this module.
+    ```R
+    # R version: 3.5.1
+    # The script MUST contain a function named azureml_main
+    # which is the entry point for this module.
 
-# The entry point function can contain up to two input arguments:
-#   Param<dataframe1>: a R DataFrame
-#   Param<dataframe2>: a R DataFrame
-azureml_main <- function(dataframe1, dataframe2){
-  print("R script run.")
+    # The entry point function can contain up to two input arguments:
+    #   Param<dataframe1>: a R DataFrame
+    #   Param<dataframe2>: a R DataFrame
+    azureml_main <- function(dataframe1, dataframe2){
+    print("R script run.")
 
-  # If a zip file is connected to the third input port, it is
-  # unzipped under "./Script Bundle". This directory is added
-  # to sys.path.
+    # If a zip file is connected to the third input port, it is
+    # unzipped under "./Script Bundle". This directory is added
+    # to sys.path.
 
-  # Return datasets as a Named List
-  return(list(dataset1=dataframe1, dataset2=dataframe2))
-}
-```
+    # Return datasets as a Named List
+    return(list(dataset1=dataframe1, dataset2=dataframe2))
+    }
+    ```
 
  * 스크립트는이 모듈에 대 한 진입점인 `azureml_main`라는 함수를 포함 해야 합니다.
 
@@ -174,9 +177,9 @@ R 스크립트에서 결과를 인쇄 해야 하는 경우 모듈의 오른쪽 �
 
 **R 스크립트 실행** 모듈은 임의의 r 스크립트 파일을 입력으로 지원 합니다. 이렇게 하려면 ZIP 파일의 일부로 작업 영역에 업로드 해야 합니다.
 
-1. R 코드가 포함 된 ZIP 파일을 작업 영역에 업로드 하려면 **새로 만들기**를 클릭 하 고 **데이터 집합**을 클릭 한 다음 **로컬 파일** 및 **ZIP 파일** 옵션을 선택 합니다.  
+1. R 코드가 포함 된 ZIP 파일을 작업 영역에 업로드 하려면 **데이터 집합** 자산 페이지로 이동 하 여 **데이터 집합 만들기**를 클릭 한 다음 **로컬 파일** 및 **파일** 데이터 집합 유형 옵션을 선택 합니다.  
 
-1. **저장 된 데이터 집합** 목록에서 zip 파일을 사용할 수 있는지 확인 합니다.
+1. 왼쪽 모듈 트리의 **데이터 집합** 범주에 있는 **내 데이터 집합** 목록에서 zip 파일을 사용할 수 있는지 확인 합니다.
 
 1.  데이터 집합을 **스크립트 번들** 입력 포트에 연결 합니다.
 

@@ -3,16 +3,22 @@ title: Azure VM 백업 정보
 description: 이 문서에서는 Azure Backup 서비스에서 Azure Virtual machines를 백업 하는 방법과 모범 사례를 따르는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 8ffbf0d0164cbf6f085518d57566b0befde6e124
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 67ff06e882ec61dff58922606469ac27a8bbf7fd
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78363817"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79297360"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Azure VM 백업 개요
 
 이 문서에서는 [Azure Backup 서비스](backup-introduction-to-azure-backup.md) 에서 Azure vm (가상 머신)을 백업 하는 방법을 설명 합니다.
+
+Azure Backup은 Vm에서 의도 하지 않은 데이터 소멸 으로부터 보호 하기 위해 독립적인 격리 된 백업을 제공 합니다. 백업은 복구 지점에 대한 기본 제공 관리를 사용하여 Recovery Services 자격 증명 모음에 저장됩니다. 구성 및 크기 조정은 간단 하 고 백업이 최적화 되며 필요에 따라 쉽게 복원할 수 있습니다.
+
+백업 프로세스의 일부로 [스냅숏이](#snapshot-creation)생성 되며, 프로덕션 작업에 영향을 주지 않고 데이터를 Recovery Services 자격 증명 모음으로 전송 합니다. 스냅숏은 [여기](#snapshot-consistency)에 설명 된 대로 서로 다른 수준의 일관성을 제공 합니다.
+
+또한 Azure Backup에는 작업을 인식 하 고, 15 분 RPO (복구 지점 목표)를 제공 하 고, 개별 데이터베이스의 백업 및 복원을 허용 하는 [SQL Server](backup-azure-sql-database.md) 및 [SAP HANA](sap-hana-db-about.md) 와 같은 데이터베이스 워크 로드에 대 한 특별 한 제공이 있습니다.
 
 ## <a name="backup-process"></a>백업 프로세스
 
@@ -66,7 +72,7 @@ Azure Backup는 백업 일정에 따라 스냅숏을 생성 합니다.
   - 사전 스크립트 및 사후 스크립트가 성공적으로 실행 되는 경우 Azure Backup 복구 지점을 응용 프로그램에 일관 된 것으로 표시 합니다. 그러나 사용자 지정 스크립트를 사용 하는 경우 궁극적으로 응용 프로그램 일관성을 담당 하 게 됩니다.
   - 스크립트를 구성 하는 방법에 [대해 자세히 알아보세요](backup-azure-linux-app-consistent.md) .
 
-### <a name="snapshot-consistency"></a>스냅샷 일관성
+## <a name="snapshot-consistency"></a>스냅샷 일관성
 
 다음 표에서는 다양 한 유형의 스냅숏 일관성에 대해 설명 합니다.
 

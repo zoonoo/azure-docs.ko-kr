@@ -8,34 +8,38 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 9786129207ead804bdd6c9439dc82168959e7db9
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.openlocfilehash: 8fd2f808169a0615e1ad5ca338823e3a8e3212ff
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79129134"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79297852"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Runbook으로 오류 해결
 
 Azure Automation에서 runbook을 실행 하는 동안 오류가 발생 하는 경우 다음 단계를 사용 하 여 문제를 진단할 수 있습니다.
 
-1. **로컬 컴퓨터에서 runbook 스크립트가 성공적으로 실행 되는지 확인 합니다.**  언어 참조 및 학습 모듈은 [PowerShell 문서](/powershell/scripting/overview) 또는 [Python 문서](https://docs.python.org/3/) 를 참조 하세요.
+1. **Runbook 스크립트가 로컬 컴퓨터에서 성공적으로 실행 되는지 확인 합니다.** 
 
-   스크립트를 로컬로 실행 하면 다음과 같은 일반적인 오류를 검색 하 고 해결할 수 있습니다.
+    언어 참조 및 학습 모듈은 [PowerShell 문서](/powershell/scripting/overview) 또는 [Python 문서](https://docs.python.org/3/) 를 참조 하세요. 스크립트를 로컬로 실행 하면 다음과 같은 일반적인 오류를 검색 하 고 해결할 수 있습니다.
 
-   - **누락 된 모듈**
-   - **구문 오류**
-   - **논리 오류**
+      * 누락 된 모듈
+      * 구문 오류
+      * 논리 오류
 
-2. 특정 메시지에 대 한 **runbook** [오류 스트림을](https://docs.microsoft.com/azure/automation/automation-runbook-output-and-messages#runbook-output) 조사 하 고 아래 오류와 비교 합니다.
+2. **Runbook [오류 스트림을](https://docs.microsoft.com/azure/automation/automation-runbook-output-and-messages#runbook-output)조사 합니다.**
 
-3. **노드 및 자동화 작업 영역에 필요한 모듈이 있는지 확인 합니다.** Runbook이 모듈을 가져오는 경우 모듈 [가져오기](../shared-resources/modules.md#import-modules)에 나열 된 단계를 사용 하 여 Automation 계정에 사용할 수 있는지 확인 합니다. [Azure Automation에서 Azure 모듈 업데이트의](..//automation-update-azure-modules.md)지침에 따라 모듈을 최신 버전으로 업데이트 합니다. 문제 해결에 대 한 자세한 내용은 [모듈 문제 해결](shared-resources.md#modules)을 참조 하세요.
+    이러한 스트림에서 특정 메시지를 확인 하 고이 문서에서 설명 하는 오류와 비교 합니다.
 
-Runbook이 일시 중단 되거나 예기치 않게 실패 하는 경우:
+3. **노드 및 자동화 작업 영역에 필요한 모듈이 있는지 확인 합니다.** 
 
-* [작업 상태 확인](https://docs.microsoft.com/azure/automation/automation-runbook-execution#job-statuses) 은 runbook 상태와 몇 가지 가능한 원인을 정의 합니다.
-* Runbook에 [추가 출력을 추가](https://docs.microsoft.com/azure/automation/automation-runbook-output-and-messages#message-streams) 하 여 runbook이 일시 중단 되기 전에 수행 되는 작업을 식별 합니다.
-* 작업에서 throw 되는 [모든 예외를 처리](https://docs.microsoft.com/azure/automation/automation-runbook-execution#handling-exceptions) 합니다.
+    Runbook이 모듈을 가져오는 경우 모듈 [가져오기](../shared-resources/modules.md#import-modules)에 나열 된 단계를 사용 하 여 Automation 계정에 사용할 수 있는지 확인 합니다. [Azure Automation에서 Azure 모듈 업데이트의](..//automation-update-azure-modules.md)지침에 따라 모듈을 최신 버전으로 업데이트 합니다. 문제 해결에 대 한 자세한 내용은 [모듈 문제 해결](shared-resources.md#modules)을 참조 하세요.
+
+4. **Runbook이 일시 중단 되거나 예기치 않게 실패 하는 경우에 수행 합니다.**
+
+    * [작업 상태 확인](https://docs.microsoft.com/azure/automation/automation-runbook-execution#job-statuses) 은 runbook 상태와 몇 가지 가능한 원인을 정의 합니다.
+    * Runbook에 [추가 출력을 추가](https://docs.microsoft.com/azure/automation/automation-runbook-output-and-messages#message-streams) 하 여 runbook이 일시 중단 되기 전에 수행 되는 작업을 식별 합니다.
+    * 작업에서 throw 되는 [모든 예외를 처리](https://docs.microsoft.com/azure/automation/automation-runbook-execution#handling-exceptions) 합니다.
 
 ## <a name="login-azurerm"></a>시나리오: 로그인을 실행 하 여 로그인 Connect-azurermaccount
 
@@ -53,12 +57,12 @@ Run Login-AzureRMAccount to login.
 
 이 오류에는 두 가지 주요 원인이 있습니다.
 
-* AzureRM 모듈의 여러 버전
+* AzureRM 또는 Az module의 서로 다른 버전이 있습니다.
 * 별도의 구독에 있는 리소스에 액세스 하려고 합니다.
 
 ### <a name="resolution"></a>해결 방법
 
-AzureRM 모듈 하나를 업데이트 한 후이 오류가 표시 되 면 모든 AzureRM 모듈을 같은 버전으로 업데이트 해야 합니다.
+AzureRM 또는 Az module을 업데이트 한 후이 오류가 표시 되 면 모든 모듈을 동일한 버전으로 업데이트 해야 합니다.
 
 다른 구독에 있는 리소스에 액세스 하려는 경우 아래 단계에 따라 사용 권한을 구성할 수 있습니다.
 
@@ -66,12 +70,10 @@ AzureRM 모듈 하나를 업데이트 한 후이 오류가 표시 되 면 모든
   응용 프로그램 ID 및 지문 ![복사](../media/troubleshoot-runbooks/collect-app-id.png)
 1. Automation 계정이 호스팅되지 않은 구독의 Access Control로 이동 하 고 새 역할 할당을 추가 합니다.
   ![액세스 제어](../media/troubleshoot-runbooks/access-control.png)
-1. 이전 단계에서 수집한 응용 프로그램 ID를 추가 합니다. 참가자 권한을 선택 합니다.
+1. 이전에 수집 된 응용 프로그램 ID를 추가 합니다. 참가자 권한을 선택 합니다.
    역할 할당 추가 ![](../media/troubleshoot-runbooks/add-role-assignment.png)
-1. 다음 단계에 대 한 구독 이름을 복사 합니다.
-1. 이제 다음 runbook 코드를 사용 하 여 Automation 계정의 사용 권한을 다른 구독으로 테스트할 수 있습니다.
-
-    "\<CertificateThumbprint\>"를 #1 단계에서 복사한 값과\>단계에서 복사한 "\<SubscriptionName #4" 값으로 바꿉니다.
+1. 구독 이름을 복사 합니다.
+1. 이제 다음 runbook 코드를 사용 하 여 Automation 계정의 사용 권한을 다른 구독으로 테스트할 수 있습니다. `"\<CertificateThumbprint\>"`을 1 단계에서 복사한 값으로 바꿉니다. `"\<SubscriptionName\>"`를 4 단계에서 복사한 값으로 바꿉니다.
 
     ```powershell
     $Conn = Get-AutomationConnection -Name AzureRunAsConnection
@@ -92,7 +94,7 @@ AzureRM 모듈 하나를 업데이트 한 후이 오류가 표시 되 면 모든
 
 ### <a name="issue"></a>문제
 
-**Get-azuresubscription** 또는 **get-azurermsubscription** cmdlet을 사용 하 여 작업 하는 경우 다음과 같은 오류가 표시 됩니다.
+`Select-AzureSubscription` 또는 `Select-AzureRmSubscription` cmdlet을 사용 하 여 작업할 때 다음과 같은 오류가 표시 됩니다.
 
 ```error
 The subscription named <subscription name> cannot be found.
@@ -102,17 +104,17 @@ The subscription named <subscription name> cannot be found.
 
 이 오류는 다음과 같은 경우에 발생할 수 있습니다.
 
-* 구독 이름이 올바르지 않습니다.
-* 구독 세부 정보를 가져오려고 하는 Azure Active Directory 사용자가 구독 관리자로 구성되지 않았습니다.
+* 구독 이름이 잘못 되었습니다.
+* 구독 정보를 가져오려고 시도 하는 Azure Active Directory 사용자가 구독의 관리자로 구성 되어 있지 않습니다.
 
 ### <a name="resolution"></a>해결 방법
 
-다음 단계를 수행 하 여 Azure에 인증 하 고 선택 하려는 구독에 대 한 액세스 권한이 있는지 확인 합니다.
+아래 단계에 따라 Azure에 인증 하 고 선택 하려는 구독에 대 한 액세스 권한이 있는지 확인 합니다.
 
-1. 독립 실행형으로 작동하는지 확인하기 위해 Azure Automation 외부에서 스크립트를 테스트합니다.
-2. **Add-AzureAccount** cmdlet을 실행한 후에 **Select-AzureSubscription** cmdlet을 실행합니다.
+1. 스크립트가 독립 실행형으로 작동 하는지 확인 하려면 Azure Automation 외부에서 테스트 합니다.
+2. `Select-AzureSubscription` cmdlet을 실행 하기 전에 스크립트가 `Add-AzureAccount` cmdlet을 실행 하는지 확인 합니다.
 3. Runbook의 시작 부분에 `Disable-AzureRmContextAutosave –Scope Process`를 추가합니다. 이 cmdlet을 호출 하면 모든 자격 증명이 현재 runbook의 실행에만 적용 됩니다.
-4. 이 오류 메시지가 계속 표시 되 면 *set-azurermcontext* cmdlet에 대 한 매개 변수 **를 추가 하** 여 코드를 수정 하 고 코드를 실행 합니다.
+4. 이 오류 메시지가 계속 표시 되 면 `Add-AzureAccount` cmdlet에 대 한 `AzureRmContext` 매개 변수를 추가 하 여 코드를 수정한 후 코드를 실행 합니다.
 
    ```powershell
    Disable-AzureRmContextAutosave –Scope Process
@@ -137,7 +139,7 @@ Add-AzureAccount: AADSTS50079: Strong authentication enrollment (proof-up) is re
 
 ### <a name="cause"></a>원인
 
-Azure 계정에서 Multi-Factor Authentication을 사용하면 Azure Active Directory 사용자를 사용하여 Azure에 인증할 수 없습니다. 그 대신 인증서 또는 서비스 주체를 사용하여 Azure에 인증해야 합니다.
+Azure 계정에서 Multi-Factor Authentication을 사용하면 Azure Active Directory 사용자를 사용하여 Azure에 인증할 수 없습니다. 대신 인증서 또는 서비스 주체를 사용 하 여 인증 해야 합니다.
 
 ### <a name="resolution"></a>해결 방법
 
@@ -163,7 +165,7 @@ At line:16 char:1
 
 ### <a name="cause"></a>원인
 
-이 오류의 원인은 Runbook에서 AzureRM 및 Az cmdlet을 모두 사용했기 때문입니다. `Az`을 가져오기 전에 `AzureRM`를 가져오면 발생합니다.
+이 오류는 runbook에서 AzureRM 및 Az module cmdlet을 모두 사용 하 여 발생 합니다. AzureRM 모듈을 가져오기 전에 Az module을 가져올 때 발생 합니다.
 
 ### <a name="resolution"></a>해결 방법
 
@@ -185,9 +187,12 @@ Exception: A task was canceled.
 
 ### <a name="resolution"></a>해결 방법
 
-이 오류는 Azure 모듈을 최신 버전으로 업데이트하여 해결할 수 있습니다.
+Azure 모듈을 최신 버전으로 업데이트 하 여이 오류를 해결할 수 있습니다. 
 
-Automation 계정에서 **모듈**을 클릭 하 고 **Azure 모듈 업데이트**를 클릭 합니다. 업데이트하는 데 약 15분 정도 걸리며, 완료되면 실패한 Runbook을 다시 실행합니다. 모듈 업데이트에 대해 자세히 알아 보려면 [Azure Automation에서 Azure 모듈 업데이트](../automation-update-azure-modules.md)를 참조하세요.
+1. Automation 계정에서 **모듈**, **Azure 모듈 업데이트**를 차례로 클릭 합니다. 
+2. 업데이트는 약 15 분이 걸립니다. 완료 되 면 실패 한 runbook을 다시 실행 합니다.
+
+모듈 업데이트에 대해 자세히 알아 보려면 [Azure Automation에서 Azure 모듈 업데이트](../automation-update-azure-modules.md)를 참조하세요.
 
 ## <a name="runbook-auth-failure"></a>시나리오: 여러 구독을 처리할 때 Runbook이 실패 함
 
@@ -201,7 +206,7 @@ Runbook이 실행 시 올바른 컨텍스트를 사용하지 않습니다.
 
 ### <a name="resolution"></a>해결 방법
 
-여러 runbook을 호출 하는 경우 구독 컨텍스트가 손실 될 수 있습니다. 구독 컨텍스트가 runbook에 전달 되도록 하려면 컨텍스트를 *set-azurermcontext* 매개 변수에서 cmdlet으로 전달 합니다. **프로세스** 범위와 함께 **disable-azurermcontextautosave** cmdlet을 사용 하 여 지정 된 자격 증명이 현재 runbook에만 사용 되도록 합니다.
+Runbook이 여러 runbook을 호출 하면 구독 컨텍스트가 손실 될 수 있습니다. 구독 컨텍스트가 runbook에 전달 되도록 하려면 클라이언트 runbook이 컨텍스트를 `AzureRmContext` 매개 변수의 `Start-AzureRmAutomationRunbook` cmdlet에 전달 하도록 합니다. `Process`로 설정 된 `Scope` 매개 변수를 사용 하 여 `Disable-AzureRmContextAutosave` cmdlet을 사용 하 여 지정 된 자격 증명이 현재 runbook에만 사용 되도록 합니다. 자세한 내용은 [여러 구독 작업](../automation-runbook-execution.md#working-with-multiple-subscriptions)을 참조 하세요.
 
 ```azurepowershell-interactive
 # Ensures that any credentials apply only to the execution of this runbook
@@ -228,8 +233,6 @@ Start-AzureRmAutomationRunbook `
     –Parameters $params –wait
 ```
 
-자세한 내용은 [여러 구독 작업](../automation-runbook-execution.md#working-with-multiple-subscriptions)을 참조 하세요.
-
 ## <a name="not-recognized-as-cmdlet"></a>시나리오: 용어가 cmdlet, 함수, 스크립트의 이름으로 인식 되지 않습니다.
 
 ### <a name="issue"></a>문제
@@ -237,23 +240,23 @@ Start-AzureRmAutomationRunbook `
 다음 예제와 비슷한 오류가 발생하여 Runbook이 실패합니다.
 
 ```error
-The term 'Connect-AzureRmAccount' is not recognized as the name of a cmdlet, function, script file, or operable program.  Check the spelling of the name, or if the path was included verify that the path is correct and try again.
+The term 'Connect-AzureRmAccount' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if the path was included verify that the path is correct and try again.
 ```
 
 ### <a name="cause"></a>원인
 
-이 오류는 다음과 같은 이유로 인해 발생할 수 있습니다.
+이 오류는 다음과 같은 이유로 발생할 수 있습니다.
 
 * Cmdlet을 포함 하는 모듈은 Automation 계정으로 가져오지 않습니다.
 * Cmdlet을 포함 하는 모듈을 가져오지만 최신 상태가 아닙니다.
 
 ### <a name="resolution"></a>해결 방법
 
-다음 작업 중 하나를 완료하여 이 오류를 해결할 수 있습니다.
+이 오류를 해결 하려면 다음 작업 중 하나를 수행 합니다. 
 
-모듈이 Azure 모듈인 경우 Automation 계정에서 모듈을 업데이트 하는 방법을 알아보려면 [Azure Automation에서 Azure PowerShell 모듈을 업데이트 하는 방법](../automation-update-azure-modules.md) 을 참조 하세요.
+* Azure 모듈의 경우 Automation 계정에서 모듈을 업데이트 하는 방법을 알아보려면 [Azure Automation에서 Azure PowerShell 모듈을 업데이트 하는 방법](../automation-update-azure-modules.md) 을 참조 하세요.
 
-별도의 모듈인 경우 Automation 계정에 모듈을 가져왔는지 확인 합니다.
+* Azure가 아닌 모듈의 경우 Automation 계정에 모듈을 가져왔는지 확인 합니다.
 
 ## <a name="job-attempted-3-times"></a>시나리오: runbook 작업 시작을 세 번 시도 했지만 매번 시작 하지 못했습니다.
 
@@ -273,7 +276,7 @@ The job was tried three times but it failed
 
 * 네트워크 소켓입니다. Azure 샌드박스는 1000의 동시 네트워크 소켓으로 제한 됩니다. [Automation 서비스 제한](../../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits)을 참조 하세요.
 
-* 모듈이 호환되지 않음. 모듈 종속성이 올바르지 않을 수 있습니다. 이 경우 runbook은 일반적으로 **명령을 찾지** 않거나 매개 변수 메시지를 **바인딩할 수 없습니다** .
+* 모듈이 호환되지 않음. 모듈 종속성이 올바르지 않을 수 있습니다. 이 경우 runbook은 일반적으로 `Command not found` 또는 `Cannot bind parameter` 메시지를 반환 합니다.
 
 * 샌드박스에 대 한 Active Directory 인증 안 함 Runbook이 Azure 샌드박스에서 실행 되는 실행 파일 또는 하위 프로세스를 호출 하려고 했습니다. ADAL (Azure Active Directory 인증 라이브러리)을 사용 하 여 Azure AD에서 인증 하도록 runbook을 구성 하는 것은 지원 되지 않습니다.
 
@@ -285,17 +288,17 @@ The job was tried three times but it failed
 
 * 모듈이 호환되지 않음. [Azure Automation에서 Azure PowerShell 모듈을 업데이트 하는 방법](../automation-update-azure-modules.md)의 단계에 따라 Azure 모듈을 업데이트 합니다.
 
-* 샌드박스에 대해 ADAL을 사용 하 여 인증 하지 않습니다. Runbook을 사용 하 여 Azure AD에 인증할 때 Automation 계정에서 Azure AD 모듈을 사용할 수 있는지 확인 합니다. Runbook이 자동화 하는 작업을 수행 하는 데 필요한 권한을 실행 계정에 부여 해야 합니다.
+* 샌드박스에 대 한 Active Directory 인증 안 함 Runbook을 사용 하 여 Azure AD에 인증할 때 Automation 계정에서 Azure AD 모듈을 사용할 수 있는지 확인 합니다. Runbook이 자동화 하는 작업을 수행 하는 데 필요한 권한을 실행 계정에 부여 해야 합니다.
 
   Runbook이 Azure 샌드박스에서 실행 되는 실행 파일 또는 하위 프로세스를 호출할 수 없는 경우 [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md)에서 runbook을 사용 합니다. 하이브리드 작업자는 Azure 샌드박스에 있는 메모리 및 네트워크 제한으로 제한 되지 않습니다.
 
-* 예외 데이터가 너무 많습니다. 작업 출력 스트림에는 1MB 제한이 있습니다. Runbook이 try/catch 블록의 실행 파일 또는 하위 프로세스에 대 한 호출을 포함 하는지 확인 합니다. 작업이 예외를 throw 하는 경우 코드에서 예외의 메시지를 자동화 변수에 쓰도록 합니다. 이 방법은 메시지가 작업 출력 스트림에 기록 되지 않도록 합니다.
+* 예외 데이터가 너무 많습니다. 작업 출력 스트림에는 1MB 제한이 있습니다. Runbook이 `try` 및 `catch` 블록을 사용 하 여 실행 파일 또는 하위 프로세스에 대 한 호출을 포함 하는지 확인 합니다. 작업이 예외를 throw 하는 경우 코드에서 예외의 메시지를 자동화 변수에 쓰도록 합니다. 이 방법은 메시지가 작업 출력 스트림에 기록 되지 않도록 합니다.
 
 ## <a name="sign-in-failed"></a>시나리오: Azure 계정에 로그인 하지 못했습니다.
 
 ### <a name="issue"></a>문제
 
-**Connect-azurermaccount** cmdlet을 사용 하 여 작업 **하는 경우** 다음 오류 중 하나가 표시 됩니다.
+`Add-AzureAccount` 또는 `Connect-AzureRmAccount` cmdlet으로 작업할 때 다음 오류 중 하나가 표시 됩니다.
 
 ```error
 Unknown_user_type: Unknown User Type
@@ -307,14 +310,14 @@ No certificate was found in the certificate store with thumbprint
 
 ### <a name="cause"></a>원인
 
-자격 증명 자산 이름이 올바르지 않으면 이 오류가 발생합니다. 이 오류는 자동화 자격 증명 자산을 설정 하는 데 사용한 사용자 이름과 암호가 유효 하지 않은 경우에도 발생할 수 있습니다.
+이러한 오류는 자격 증명 자산 이름이 유효 하지 않은 경우에 발생 합니다. Automation 자격 증명 자산을 설정 하는 데 사용한 사용자 이름과 암호가 유효 하지 않은 경우에도 발생할 수 있습니다.
 
 ### <a name="resolution"></a>해결 방법
 
 무엇이 문제인지 확인하기 위해 다음 단계를 수행하세요.
 
-1. 특수 문자를 포함 하지 않는지 확인 합니다. 이러한 문자로 **\@** 문자가 Azure에 연결하는 데 사용하는 Automation 자격 증명 자산 이름에 포함됩니다.
-2. Azure Automation 자격 증명에 저장된 사용자 이름 및 암호를 로컬 PowerShell ISE 편집기에서 사용할 수 있는지 확인합니다. PowerShell ISE에서 다음 cmdlet을 실행하여 사용자 이름과 암호가 올바른지 확인할 수 있습니다.
+1. 특수 문자를 포함 하지 않는지 확인 합니다. 이러한 문자에는 Azure에 연결 하는 데 사용 하는 자동화 자격 증명 자산 이름에 `\@` 문자가 포함 됩니다.
+2. 로컬 PowerShell ISE 편집기에서 Azure Automation 자격 증명에 저장 된 사용자 이름 및 암호를 사용할 수 있는지 확인 합니다. PowerShell ISE에서 다음 cmdlet을 실행 합니다.
 
    ```powershell
    $Cred = Get-Credential
@@ -324,9 +327,9 @@ No certificate was found in the certificate store with thumbprint
    Connect-AzureRmAccount –Credential $Cred
    ```
 
-3. 인증이 로컬에서 실패 하는 경우 Azure Active Directory 자격 증명을 올바르게 설정 하지 않은 것입니다. Azure Active Directory 계정을 올바르게 설정하는 방법은 [Azure Active Directory를 사용하여 Azure에 인증](https://azure.microsoft.com/blog/azure-automation-authenticating-to-azure-using-azure-active-directory/) 블로그 게시물을 참조하세요.
+3. 인증이 로컬에서 실패 하면 Azure Active Directory 자격 증명을 올바르게 설정 하지 않은 것입니다. Azure Active Directory 계정을 올바르게 설정 하려면 [Azure Active Directory를 사용 하 여 Azure에 인증](https://azure.microsoft.com/blog/azure-automation-authenticating-to-azure-using-azure-active-directory/) 블로그 게시물을 참조 하세요.
 
-4. 일시적인 오류처럼 보이는 경우 인증 루틴에 다시 시도 논리를 추가하여 인증을 더 강화시킵니다.
+4. 오류가 일시적인 것으로 나타나는 경우 인증 루틴에 재시도 논리를 추가 하 여 인증을 더욱 강력 하 게 합니다.
 
    ```powershell
    # Get the connection "AzureRunAsConnection"
@@ -354,7 +357,7 @@ No certificate was found in the certificate store with thumbprint
 
 ### <a name="issue"></a>문제
 
-`-Wait` 스위치를 사용 하 여 자식 runbook을 호출 하 고 출력 스트림에 개체를 포함 하는 경우 다음과 같은 오류가 표시 됩니다.
+`Wait` 매개 변수를 사용 하 여 자식 runbook을 호출 하 고 출력 스트림에 개체를 포함 하는 경우 다음과 같은 오류가 표시 됩니다.
 
 ```error
 Object reference not set to an instance of an object
@@ -362,7 +365,7 @@ Object reference not set to an instance of an object
 
 ### <a name="cause"></a>원인
 
-**Start-azurermautomationrunbook** 은 스트림에 개체가 포함 되어 있는 경우 출력 스트림을 올바르게 처리 하지 않습니다.
+스트림에 개체가 포함 된 경우 `Start-AzureRmAutomationRunbook`는 출력 스트림을 올바르게 처리 하지 않습니다.
 
 ### <a name="resolution"></a>해결 방법
 
@@ -408,9 +411,9 @@ Runbook이 PowerShell 워크플로인 경우, 워크플로가 일시 중단되�
 
 ### <a name="resolution"></a>해결 방법
 
-다음 세 가지 해결 방법 중 하나로 이 문제를 해결할 수 있습니다.
+이 문제를 해결 하려면 다음 해결 방법 중 하나를 사용 합니다.
 
-* 한 cmdlet에서 다른 cmdlet으로 복합 개체를 파이핑하는 경우 이러한 cmdlet을 InlineScript에 래핑합니다.
+* 한 cmdlet에서 다른 cmdlet으로 복잡 한 개체를 파이프 하는 경우 이러한 cmdlet을 `InlineScript` 작업에 래핑합니다.
 * 개체 전체를 전달하지 말고 복합 개체에서 필요한 이름 또는 값만 전달합니다.
 * PowerShell 워크플로 Runbook 대신 PowerShell Runbook을 사용합니다.
 
@@ -430,12 +433,12 @@ The quota for the monthly total job run time has been reached for this subscript
 
 ### <a name="resolution"></a>해결 방법
 
-매월 처리 시간을 500분 이상 사용하려면 구독을 무료 계층에는 기본 계층으로 변경해야 합니다. 다음 단계에 따라 기본 계층으로 업그레이드할 수 있습니다.
+매월 처리를 500 분 이상 사용 하려면 무료 계층에서 기본 계층으로 구독을 변경 합니다.
 
 1. Azure 구독에 로그인합니다.
 2. 업그레이드할 Automation 계정을 선택 합니다.
 3. **설정**, **가격 책정**을 차례로 클릭 합니다.
-4. 페이지 아래쪽의 **사용**을 클릭하여 계정을 **기본** 계층으로 업그레이드합니다.
+4. 아래 페이지에서 **사용** 을 클릭 하 여 계정을 기본 계층으로 업그레이드 합니다.
 
 ## <a name="cmdlet-not-recognized"></a>시나리오: Runbook을 실행해도 cmdlet이 인식되지 않음
 
@@ -453,11 +456,11 @@ PowerShell 엔진을 통해 Runbook에서 사용하는 cmdlet을 찾을 수 없�
 
 ### <a name="resolution"></a>해결 방법
 
-다음 해결 방법 중 하나를 사용하여 문제를 해결합니다.
+다음 솔루션 중 하나를 사용 하 여 문제를 해결할 수 있습니다.
 
-* cmdlet 이름을 올바르게 입력했는지 확인합니다.
-* Automation 계정에 Cmdlet이 있고 충돌이 없는지 확인합니다. cmdlet이 있는지 확인하려면 Runbook을 편집 모드로 열고 라이브러리에서 원하는 cmdlet을 검색하거나 `Get-Command <CommandName>`를 실행합니다. 계정에 cmdlet을 사용할 수 있고 다른 cmdlet 또는 runbook과 이름이 충돌 하지 않는지 확인 한 후에는 cmdlet을 캔버스에 추가 하 고 runbook에 올바른 매개 변수 집합을 사용 하 고 있는지 확인 합니다.
-* 이름이 충돌하고 서로 다른 두 모듈에서 cmdlet을 사용할 수 있는 경우 이 문제는 cmdlet에 대한 정규화된 이름을 사용하여 해결할 수 있습니다. 예를 들어 **ModuleName\CmdletName**을 사용할 수 있습니다.
+* Cmdlet 이름을 올바르게 입력 했는지 확인 합니다.
+* Automation 계정에 cmdlet이 있는지와 충돌이 없는지 확인 합니다. Cmdlet이 있는지 확인 하려면 runbook을 편집 모드에서 열고 라이브러리에서 찾을 cmdlet을 검색 하거나 `Get-Command <CommandName>`를 실행 합니다. 계정에 cmdlet을 사용할 수 있고 다른 cmdlet 또는 runbook과 이름이 충돌 하지 않는지 확인 한 후에는 cmdlet을 캔버스에 추가 하 고 runbook에 올바른 매개 변수 집합을 사용 하 고 있는지 확인 합니다.
+* 이름 충돌이 발생 하 고 cmdlet을 두 개의 다른 모듈에서 사용할 수 있는 경우 cmdlet에 대 한 정규화 된 이름을 사용 하 여 문제를 해결 합니다. 예를 들어 `ModuleName\CmdletName`를 사용할 수 있습니다.
 * Hybrid worker 그룹의 온-프레미스에서 runbook을 실행 하는 경우에는 하이브리드 작업자를 호스트 하는 컴퓨터에 모듈 및 cmdlet이 설치 되어 있는지 확인 합니다.
 
 ## <a name="long-running-runbook"></a>시나리오: 장기 실행 runbook이 완료 되지 못함
@@ -478,23 +481,21 @@ Runbook이 Azure 샌드박스에서 공평 하 게 공유에서 허용 하는 3 
 
 ### <a name="resolution"></a>해결 방법
 
-권장되는 해결 방법 중 하나는 [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md)에서 Runbook을 실행하는 것입니다.
+권장되는 해결 방법 중 하나는 [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md)에서 Runbook을 실행하는 것입니다. 하이브리드 작업자는 Azure 샌드박스에 있는 3 시간 공평 공유 runbook 제한에 의해 제한 되지 않습니다. 예기치 않은 로컬 인프라 문제가 있는 경우 다시 시작 동작을 지원 하도록 Hybrid Runbook Worker에서 실행 되는 runbook을 개발 해야 합니다.
 
-하이브리드 작업자는 Azure 샌드박스에 있는 3 시간 공평 공유 runbook 제한에 의해 제한 되지 않습니다. 예기치 않은 로컬 인프라 문제가 있는 경우 다시 시작 동작을 지원 하도록 Hybrid Runbook Worker에서 실행 되는 runbook을 개발 해야 합니다.
-
-또 다른 옵션은 [자식 Runbook](../automation-child-runbooks.md)을 만들어 Runbook을 최적화하는 것입니다. Runbook이 여러 리소스에서 동일한 기능을 반복 하는 경우 (예: 여러 데이터베이스의 데이터베이스 작업에서) 함수를 자식 runbook으로 이동할 수 있습니다. 각 자식 runbook은 별도의 프로세스에서 병렬로 실행 됩니다. 이 동작은 부모 Runbook이 완료되는 총 기간을 감소시킵니다.
+또 다른 해결 방법은 [자식 runbook](../automation-child-runbooks.md)을 만들어 runbook을 최적화 하는 것입니다. Runbook이 여러 리소스에서 동일한 기능을 반복 하는 경우 (예: 여러 데이터베이스의 데이터베이스 작업에서) 함수를 자식 runbook으로 이동할 수 있습니다. 각 자식 runbook은 별도의 프로세스에서 병렬로 실행 됩니다. 이 동작은 부모 Runbook이 완료되는 총 기간을 감소시킵니다.
 
 자식 Runbook 시나리오를 사용하도록 설정하는 PowerShell cmdlet은 다음과 같습니다.
 
-[Start-AzureRMAutomationRunbook](/powershell/module/AzureRM.Automation/Start-AzureRmAutomationRunbook) - 이 cmdlet을 사용하면 Runbook을 시작하고 매개 변수를 Runbook에 전달할 수 있습니다.
+* [Start-azurermautomationrunbook를 실행](/powershell/module/AzureRM.Automation/Start-AzureRmAutomationRunbook)합니다. 이 cmdlet을 사용하면 Runbook을 시작하고 매개 변수를 Runbook에 전달할 수 있습니다.
 
-[Get-AzureRmAutomationJob](/powershell/module/azurerm.automation/get-azurermautomationjob) - 자식 Runbook이 완료된 후에 수행해야 하는 작업이 있는 경우 이 cmdlet을 사용하면 각 자식에 대한 작업 상태를 확인할 수 있습니다.
+* [Get-azurermautomationjob](/powershell/module/azurerm.automation/get-azurermautomationjob). 자식 runbook이 완료 된 후 수행 해야 하는 작업이 있는 경우이 cmdlet을 사용 하 여 각 자식에 대 한 작업 상태를 확인할 수 있습니다.
 
 ## <a name="expired webhook"></a>시나리오: 상태: 400 webhook를 호출할 때 잘못 된 요청
 
 ### <a name="issue"></a>문제
 
-Azure Automation Runbook에 대한 웹후크를 호출하려고 시도하면 다음 오류 메시지가 나타납니다.
+Azure Automation runbook에 대 한 webhook을 호출 하려고 하면 다음과 같은 오류가 표시 됩니다.
 
 ```error
 400 Bad Request : This webhook has expired or is disabled
@@ -506,13 +507,13 @@ Azure Automation Runbook에 대한 웹후크를 호출하려고 시도하면 다
 
 ### <a name="resolution"></a>해결 방법
 
-webhook가 비활성화된 경우Azure Portal을 통해 webhook를 다시 활성화할 수 있습니다. webhook가 만료되면 webhook를 삭제하고 다시 만들어야 합니다. 아직 만료되지 않은 경우에만 [웹후크를 갱신](../automation-webhooks.md#renew-webhook)할 수 있습니다.
+webhook가 비활성화된 경우Azure Portal을 통해 webhook를 다시 활성화할 수 있습니다. 웹 후크가 만료 된 경우 삭제 한 후 다시 만들어야 합니다. 아직 만료되지 않은 경우에만 [웹후크를 갱신](../automation-webhooks.md#renew-webhook)할 수 있습니다.
 
 ## <a name="429"></a>시나리오: 429: 요청 비율이 현재 너무 큼 ...
 
 ### <a name="issue"></a>문제
 
-**AzureRmAutomationJobOutput** cmdlet을 실행 하면 다음과 같은 오류 메시지가 표시 됩니다.
+`Get-AzureRmAutomationJobOutput` cmdlet을 실행할 때 다음 오류 메시지가 나타납니다.
 
 ```error
 429: The request rate is currently too large. Please try again
@@ -524,10 +525,11 @@ webhook가 비활성화된 경우Azure Portal을 통해 webhook를 다시 활성
 
 ### <a name="resolution"></a>해결 방법
 
-이 오류를 해결하는 방법은 두 가지가 있습니다.
+이 오류를 해결 하려면 다음 중 하나를 수행 합니다.
 
 * Runbook을 편집하고 내보내는 작업 스트림 수를 줄입니다.
-* cmdlet을 실행할 때 검색할 스트림 수를 줄입니다. 이 동작을 수행 하기 위해 **AzureRmAutomationJobOutput** cmdlet에 대 한 Stream 매개 변수 값을 설정 하 여 출력 *스트림만* 검색할 수 있습니다. 
+
+* cmdlet을 실행할 때 검색할 스트림 수를 줄입니다. 이렇게 하려면 `Get-AzureRmAutomationJobOutput` cmdlet에 대 한 `Stream` 매개 변수의 값을 설정 하 여 출력 스트림도 검색할 수 있습니다. 
 
 ## <a name="cannot-invoke-method"></a>시나리오: PowerShell 작업이 실패 하 고 오류가 발생 함: 메서드를 호출할 수 없습니다.
 
@@ -547,8 +549,8 @@ Exception was thrown - Cannot invoke method. Method invocation is supported only
 
 이 오류를 해결 하는 방법에는 두 가지가 있습니다.
 
-* 시작- **작업**을 사용 하는 대신 **start-azurermautomationrunbook** 를 사용 하 여 runbook을 시작 합니다.
-* Runbook에이 오류 메시지가 있는 경우 Hybrid Runbook Worker에서 실행 해 보십시오.
+* `Start-Job`를 사용 하는 대신 `Start-AzureRmAutomationRunbook`를 사용 하 여 runbook을 시작 합니다.
+* Hybrid Runbook Worker에서 runbook을 실행 해 보세요.
 
 이 동작 및 runbook Azure Automation의 다른 동작에 대해 자세히 알아보려면 [runbook 동작](../automation-runbook-execution.md#runbook-behavior)을 참조 하세요.
 
@@ -556,17 +558,17 @@ Exception was thrown - Cannot invoke method. Method invocation is supported only
 
 ### <a name="issue"></a>문제
 
-Linux Hybrid Runbook Worker에 대해 **sudo** 명령을 실행 하면 암호에 대 한 예기치 않은 프롬프트가 검색 됩니다.
+Linux Hybrid Runbook Worker에 대해 `sudo` 명령을 실행 하면 암호에 대 한 예기치 않은 프롬프트가 검색 됩니다.
 
 ### <a name="cause"></a>원인
 
-Linux 용 Log Analytics 에이전트에 대 한 **nxautomationuser** 계정이 sudoers 파일에 올바르게 구성 되어 있지 않습니다. Hybrid Runbook Worker은 Linux Runbook Worker에서 runbook에 서명할 수 있도록 계정 권한 및 기타 데이터를 적절 하 게 구성 해야 합니다.
+Linux 용 Log Analytics 에이전트에 대 한 **nxautomationuser** 계정이 **sudoers** 파일에 올바르게 구성 되어 있지 않습니다. Hybrid Runbook Worker은 Linux Runbook Worker에서 runbook에 서명할 수 있도록 계정 권한 및 기타 데이터를 적절 하 게 구성 해야 합니다.
 
 ### <a name="resolution"></a>해결 방법
 
 * Hybrid Runbook Worker 컴퓨터에 GnuPG (GPG) 실행 파일이 있는지 확인 합니다.
 
-* Sudoers 파일에서 **nxautomationuser** 계정의 구성을 확인 합니다. [Hybrid Runbook Worker에서 Runbook 실행을](../automation-hrw-run-runbooks.md) 참조 하세요.
+* **Sudoers** 파일에서 **nxautomationuser** 계정의 구성을 확인 합니다. [Hybrid Runbook Worker에서 Runbook 실행을](../automation-hrw-run-runbooks.md) 참조 하세요.
 
 ## <a name="scenario-cmdlet-failing-in-pnp-powershell-runbook-on-azure-automation"></a>시나리오: Azure Automation의 PnP PowerShell runbook에서 Cmdlet이 실패 했습니다.
 
@@ -576,7 +578,7 @@ Runbook이 PnP PowerShell 생성 개체를 Azure Automation 출력에 직접 기
 
 ### <a name="cause"></a>원인
 
-이 문제는 반환 개체를 catch 하지 않고 **pnplistitem**와 같이 PnP PowerShell cmdlet을 호출 하는 runbook을 Azure Automation 처리할 때 가장 일반적으로 발생 합니다.
+이 문제는 반환 개체를 catch 하지 않고 `add-pnplistitem`와 같이 PnP PowerShell cmdlet을 호출 하는 runbook을 Azure Automation 처리할 때 가장 일반적으로 발생 합니다.
 
 ### <a name="resolution"></a>해결 방법
 
@@ -601,13 +603,13 @@ if ($SomeVariable.someproperty -eq ....
 
 Azure Automation 대신 Hybrid Runbook Worker에서 작업을 실행 하는 경우 [Hybrid Worker 자체의 문제를 해결](https://docs.microsoft.com/azure/automation/troubleshoot/hybrid-runbook-worker)해야 할 수 있습니다.
 
-### <a name="runbook-fails-with-no-permission-or-some-variation"></a>"권한 없음" 또는 약간의 변형으로 인해 Runbook이 실패
+### <a name="runbook-fails-with-no-permission-or-some-variation"></a>권한 또는 일부 변형 없이 Runbook이 실패 합니다.
 
 실행 계정에는 현재 계정으로 Azure 리소스에 대 한 사용 권한이 없을 수 있습니다. 실행 계정에 스크립트에서 사용 되는 [리소스에 대 한 액세스 권한이](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) 있는지 확인 합니다.
 
 ### <a name="issues-passing-parameters-into-webhooks"></a>웹 후크에 매개 변수를 전달 하는 문제
 
-웹 후크에 매개 변수를 전달 하는 데 도움이 필요한 경우 [webhook에서 Runbook 시작](https://docs.microsoft.com/azure/automation/automation-webhooks#parameters)을 참조 하세요.
+웹 후크에 매개 변수를 전달 하는 데 도움이 필요한 경우 [webhook에서 Runbook 시작](../automation-webhooks.md#parameters-used-when-the-webhook-starts-a-runbook)을 참조 하세요.
 
 ### <a name="issues-using-az-modules"></a>Az modules 사용 문제
 
@@ -615,7 +617,7 @@ Azure Automation 대신 Hybrid Runbook Worker에서 작업을 실행 하는 경�
 
 ### <a name="inconsistent-behavior-in-runbooks"></a>Runbook의 동작이 일관적이지 않음
 
-[Runbook 실행](https://docs.microsoft.com/azure/automation/automation-runbook-execution#runbook-behavior) 의 지침에 따라 동시 작업, 여러 번 생성 된 리소스 또는 runbook의 다른 타이밍 관련 논리와 관련 된 문제를 방지 합니다.
+[Runbook 실행](https://docs.microsoft.com/azure/automation/automation-runbook-execution#runbook-behavior) 의 지침에 따라 동시 작업, 여러 번 생성 되는 리소스 또는 runbook의 다른 타이밍 관련 논리와 관련 된 문제를 방지 합니다.
 
 ### <a name="runbook-fails-with-the-error-no-permission-forbidden-403-or-some-variation"></a>Runbook이 권한 없음, 사용 권한 없음 (403) 또는 일부 변형 오류로 인해 실패 함
 
@@ -628,7 +630,7 @@ Azure Automation 대신 Hybrid Runbook Worker에서 작업을 실행 하는 경�
 
 ### <a name="passing-parameters-into-webhooks"></a>webhook에 매개 변수 전달
 
-웹 후크에 매개 변수를 전달 하는 데 도움이 필요한 경우 [webhook에서 Runbook 시작](https://docs.microsoft.com/azure/automation/automation-webhooks#parameters)을 참조 하세요.
+웹 후크에 매개 변수를 전달 하는 데 도움이 필요한 경우 [webhook에서 Runbook 시작](https://docs.microsoft.com/azure/automation/automation-webhooks#parameters-used-when-the-webhook-starts-a-runbook)을 참조 하세요.
 
 ### <a name="using-az-modules"></a>Az 모듈 사용
 

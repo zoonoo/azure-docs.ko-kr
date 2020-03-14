@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/02/2020
+ms.date: 03/09/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bdea51c6cb53222f31a07906785a94073a0293a1
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.openlocfilehash: 80cf0d101a29de7fca9d4dd36e188a500d35e290
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78226796"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79246033"
 ---
 # <a name="single-sign-on-session-management-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 Single Sign-On 세션 관리
 
@@ -24,7 +24,7 @@ ms.locfileid: "78226796"
 
 Azure Active Directory B2C (Azure AD B2C)의 SSO (Single sign-on) 세션 관리를 통해 관리자는 사용자가 이미 인증 된 후 사용자와의 상호 작용을 제어할 수 있습니다. 예를 들어 관리자는 ID 공급자의 선택이 표시되는지 여부 또는 로컬 계정 세부 정보를 다시 입력해야 하는지 여부를 제어할 수 있습니다. 이 문서에서는 Azure AD B2C에 대한 SSO 설정을 구성하는 방법을 설명합니다.
 
-SSO 세션 관리에는 두 가지 부분이 있습니다. 첫 번째 부분은 Azure AD B2C와 사용자의 직접 상호 작용을 다루고, 다른 부분은 Facebook과 같은 외부 당사자와 사용자의 상호 작용을 다룹니다. Azure AD B2C는 외부 당사자에 의해 보관될 수 있는 SSO 세션을 재정의하거나 무시하지 않습니다. 외부 당사자에게 가져오는 Azure AD B2C를 통한 경로를 "기억"하여 사용자에게 해당 소셜 공급자 또는 엔터프라이즈 ID 공급자를 선택하라는 메시지를 다시 표시하지 않도록 합니다. 최종 SSO 결정은 외부 당사자에서 유지됩니다.
+SSO 세션 관리에는 두 가지 부분이 있습니다. 첫 번째 부분은 Azure AD B2C와 사용자의 직접 상호 작용을 다루고, 다른 부분은 Facebook과 같은 외부 당사자와 사용자의 상호 작용을 다룹니다. Azure AD B2C는 외부 당사자에 의해 보관될 수 있는 SSO 세션을 재정의하거나 무시하지 않습니다. 외부 당사자에 게 가져오는 Azure AD B2C의 경로는 "기억 됨"이 아니라 사용자에 게 소셜 또는 엔터프라이즈 id 공급자를 선택 하 라는 메시지를 다시 표시 하지 않아도 됩니다. 최종 SSO 결정은 외부 당사자에서 유지됩니다.
 
 SSO 세션 관리는 사용자 지정 정책에서 다른 기술 프로필과 동일한 의미 체계를 사용합니다. 오케스트레이션 단계를 실행하면 이 단계와 관련된 기술 프로필을 `UseTechnicalProfileForSessionManagement` 참조에 대해 쿼리합니다. 참조된 SSO 세션 공급자가 있는 경우 사용자가 세션 참가자인지를 확인합니다. 그렇다면 SSO 세션 공급자를 사용하여 세션을 다시 채웁니다. 마찬가지로 오케스트레이션 단계의 실행이 완료되면 SSO 세션 공급자가 지정된 경우 이 공급자를 사용하여 세션에서 정보를 저장합니다.
 
@@ -138,7 +138,7 @@ Azure AD B2C는 사용할 수 있는 SSO 세션 공급자 수를 정의합니다
 
 B2C SAML 세션을 저장 하는 데 공급자를 사용 하는 경우 `RegisterServiceProviders`를 `true`으로 설정 해야 합니다. SAML 세션 로그아웃을 완료하는 데 `SessionIndex` 및 `NameID`가 필요합니다.
 
-다음 `SM-Saml-idp` 기술 프로필은 [SAML 발급자 기술 프로필](connect-with-saml-service-providers.md) 에 사용 됩니다.
+다음 `SM-Saml-idp` 기술 프로필은 [SAML 발급자 기술 프로필](saml-issuer-technical-profile.md) 에 사용 됩니다.
 
 ```XML
 <TechnicalProfile Id="SM-Saml-sp">

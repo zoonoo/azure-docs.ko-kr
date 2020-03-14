@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 06/25/2019
 ms.author: alkohli
 ms.openlocfilehash: f49396331a31f7ca9eaf453dc8bf6880da2e0da8
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75613859"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79265481"
 ---
 # <a name="manage-an-azure-data-box-edge-device-via-windows-powershell"></a>Windows PowerShell을 통해 Azure Data Box Edge 장치 관리
 
@@ -62,7 +62,7 @@ Set-HcsCertificate -Scope IotEdge -RootCACertificateFilePath "\\hcfs\root-ca-cer
  
 [!INCLUDE [View device information](../../includes/data-box-edge-gateway-view-device-info.md)]
 
-## <a name="reset-your-device"></a>디바이스 재설정
+## <a name="reset-your-device"></a>장치 다시 설정
 
 [!INCLUDE [Reset your device](../../includes/data-box-edge-gateway-deactivate-device.md)]
 

@@ -15,11 +15,11 @@ ms.date: 04/26/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: abd6b13dc56f8f948d50e2b3564712ed8f5b1476
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78376435"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79253391"
 ---
 # <a name="assign-users-and-groups-to-an-application-in-azure-active-directory"></a>Azure Active Directory에서 애플리케이션에 사용자 및 그룹 할당
 이 문서에서는 Azure AD(Azure Active Directory)에서 애플리케이션에 사용자나 그룹을 할당하는 방법을 설명합니다. 사용자를 먼저 애플리케이션에 할당해야 관리자가 해당 사용자에게 다음 작업을 수행할 권한을 부여할 수 있습니다.

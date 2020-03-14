@@ -4,11 +4,11 @@ description: Azure Resource Manager 템플릿 작성에 대한 권장되는 방�
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.openlocfilehash: f623255a64404f0e041173fd29488ded24cd03b3
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77207488"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79248269"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Azure Resource Manager 템플릿 모범 사례
 

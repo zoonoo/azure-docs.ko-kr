@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 06/29/2017
 ms.author: pepogors
 ms.openlocfilehash: 31095a619fc4d756fa4ef9c29691d1d511d59ece
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75426710"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79282277"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-service-remoting"></a>Reliable Service Remoting에 대한 진단 및 성능 모니터링
 Reliable ServiceRemoting 런타임에서는 [성능 카운터](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx)를 내보냅니다. 이러한 정보는 ServiceRemoting이 어떻게 작동하고 있는지 파악하여 문제를 해결하고 성능을 모니터링하는 데 도움이 됩니다.
@@ -19,7 +19,7 @@ Reliable ServiceRemoting 런타임에서는 [성능 카운터](https://msdn.micr
 ## <a name="performance-counters"></a>성능 카운터
 Reliable ServiceRemoting 런타임은 다음과 같은 성능 카운터 범주를 정의합니다.
 
-| 범주 | Description |
+| Category | Description |
 | --- | --- |
 | Service Fabric 서비스 |Azure Service Fabric Remoting 서비스 전용 카운터. 예: 요청을 처리하는 데 걸린 평균 시간 |
 | Service Fabric 서비스 메서드 |Service Fabric Remoting 서비스에 의해 구현되는 메서드 전용 카운터. 예: 서비스 메서드가 호출되는 빈도 |

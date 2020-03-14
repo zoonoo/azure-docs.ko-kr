@@ -4,12 +4,12 @@ description: Azure container registry의 미사용 암호화 및에 저장 된 �
 ms.topic: article
 ms.date: 03/10/2020
 ms.custom: ''
-ms.openlocfilehash: 8bce77c776fe088e5c317f02cd2757738a287069
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.openlocfilehash: 7bfc4e9a73280ab330efbeeba51a5dcb0a80da10
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79096555"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79365344"
 ---
 # <a name="encryption-using-customer-managed-keys"></a>고객 관리 키를 사용 하 여 암호화
 
@@ -27,6 +27,7 @@ Azure container registry에 이미지 및 기타 아티팩트를 저장 하는 �
 
 * 현재 레지스트리를 만들 때만이 기능을 사용 하도록 설정할 수 있습니다.
 * 레지스트리에서 고객이 관리 하는 키를 사용 하도록 설정한 후에는 사용 하지 않도록 설정할 수 없습니다.
+* [콘텐츠 트러스트](container-registry-content-trust.md) 는 현재 고객이 관리 하는 키로 암호화 된 레지스트리에서 지원 되지 않습니다.
 * 고객이 관리 하는 키로 암호화 된 레지스트리에서 [ACR 태스크](container-registry-tasks-overview.md) 에 대 한 실행 로그는 현재 24 시간 동안만 보존 됩니다. 로그를 오랜 기간 동안 보관 해야 하는 경우 [작업 실행 로그를 내보내고 저장](container-registry-tasks-logs.md#alternative-log-storage)하는 지침을 참조 하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항

@@ -11,17 +11,22 @@ ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
-ms.date: 07/02/2019
-ms.openlocfilehash: 6a90e9ba264c4abddf2c26cb7b1761a7a51b1778
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.date: 03/09/2020
+ms.openlocfilehash: 6fdfbce6dce2428a8f2757b0755e6f982f02240f
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647682"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79256420"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Azure SQL 연결 아키텍처
+> [!NOTE]
+> 이 문서는 Azure SQL 서버 및 Azure SQL 서버에서 생성된 SQL Database와 SQL Data Warehouse 데이터베이스에 적용됩니다. 간단히 하기 위해 SQL Database는 SQL Database와 SQL Data Warehouse를 참조할 때 사용됩니다.
 
-이 문서에서는 Azure SQL Database 및 SQL Data Warehouse 연결 아키텍처와 다양한 구성 요소가 Azure SQL 인스턴스에 트래픽을 전달하는 방법을 설명합니다. 이러한 연결 구성 요소는 Azure 내에서 연결하는 클라이언트와 Azure 외부에서 연결하는 클라이언트를 사용하여 Azure SQL Database 또는 SQL Data Warehouse에 네트워크 트래픽을 전달합니다. 또한 이 문서에서는 연결되는 방법을 변경하는 스크립트 샘플 및 기본 연결 설정을 변경하는 데 관련된 고려 사항을 제공합니다.
+> [!IMPORTANT]
+> 이 문서는 *Azure SQL Database Managed Instance*에 적용되지 **않습니다**. [관리 되는 인스턴스의 연결 아키텍처](sql-database-managed-instance-connectivity-architecture.md)를 참조 하세요.
+
+이 문서에서는 Azure SQL Database 또는 SQL Data Warehouse 네트워크 트래픽을 전달 하는 다양 한 구성 요소의 아키텍처에 대해 설명 합니다. 또한 다양 한 연결 정책 및 azure 외부에서 연결 하는 클라이언트와 Azure 내에서 연결 하는 클라이언트에 영향을 주는 방법을 설명 합니다. 
 
 ## <a name="connectivity-architecture"></a>연결 아키텍처
 
@@ -39,13 +44,13 @@ ms.locfileid: "75647682"
 
 Azure SQL Database는 SQL Database 서버의 연결 정책 설정에 대한 다음 세 가지 옵션을 지원합니다.
 
-- **리디렉션 (권장):** 클라이언트는 데이터베이스를 호스팅하는 노드에 직접 연결을 설정 하 여 대기 시간을 줄이고 처리량을 향상 시킵니다. 이 모드를 사용 하는 연결의 경우 클라이언트에서 다음을 수행 해야 합니다.
-   - 클라이언트에서 11000 11999 범위의 포트 영역에 있는 모든 Azure IP 주소에 대 한 인바운드 및 아웃 바운드 통신을 허용 합니다.  
-   - 클라이언트의 인바운드 및 아웃 바운드 통신에서 1433 포트의 게이트웨이 IP 주소를 Azure SQL Database 하도록 허용 합니다.
+- **리디렉션 (권장):** 클라이언트는 데이터베이스를 호스팅하는 노드에 직접 연결을 설정 하 여 대기 시간을 줄이고 처리량을 향상 시킵니다. 이 모드를 사용 하는 연결의 경우 클라이언트는 다음을 수행 해야 합니다.
+   - 11000 11999 범위의 포트에서 지역의 모든 Azure IP 주소에 대 한 클라이언트의 아웃 바운드 통신을 허용 합니다. SQL의 서비스 태그를 사용 하 여이 작업을 보다 쉽게 관리할 수 있습니다.  
+   - 1433 포트에서 클라이언트의 Azure SQL Database 게이트웨이 IP 주소에 대 한 아웃 바운드 통신을 허용 합니다.
 
-- **프록시:** 이 모드에서는 모든 연결이 Azure SQL Database 게이트웨이를 통해 프록시 되므로 대기 시간이 길어지고 처리량이 감소 합니다. 이 모드를 사용 하는 연결의 경우 클라이언트에서 포트 1433의 게이트웨이 IP 주소를 Azure SQL Database 하기 위해 클라이언트에서 인바운드 및 아웃 바운드 통신을 허용 해야 합니다.
+- **프록시:** 이 모드에서는 모든 연결이 Azure SQL Database 게이트웨이를 통해 프록시 되므로 대기 시간이 길어지고 처리량이 감소 합니다. 이 모드를 사용 하는 연결의 경우 클라이언트에서 1433 포트의 게이트웨이 IP 주소를 Azure SQL Database에 대 한 클라이언트의 아웃 바운드 통신을 허용 해야 합니다.
 
-- **기본값:** `Proxy` 또는 `Redirect`연결 정책을 명시적으로 변경 하지 않는 한 생성 후 모든 서버에 적용 되는 연결 정책입니다. 기본 정책은 Azure 내에서 발생 하는 모든 클라이언트 연결 (예: Azure Virtual Machine)에 대해`Redirect` 되며 외부에서 발생 하는 모든 클라이언트 연결 (예: 로컬 워크스테이션의 연결)에 대 한 `Proxy`입니다.
+- **기본값:** `Proxy` 또는 `Redirect`연결 정책을 명시적으로 변경 하지 않는 한 생성 후 모든 서버에 적용 되는 연결 정책입니다. 기본 정책은 Azure 내부에서 시작 되는 모든 클라이언트 연결 (예: Azure Virtual Machine) 및 외부에서 발생 하는 모든 클라이언트 연결에 대 한 `Proxy`(예: 로컬 워크스테이션의 연결)에 대 한`Redirect` 됩니다.
 
  가장 낮은 대기 시간 및 최고 처리량에 대해 `Proxy` 연결 정책에 대 한 `Redirect` 연결 정책을 적극 권장 합니다. 그러나 위에서 설명한 대로 네트워크 트래픽을 허용 하기 위한 추가 요구 사항을 충족 해야 합니다. 클라이언트가 Azure Virtual Machine 인 경우 [서비스 태그](../virtual-network/security-overview.md#service-tags)를 포함 하는 Nsg (네트워크 보안 그룹)를 사용 하 여이를 수행할 수 있습니다. 클라이언트가 온-프레미스의 워크스테이션에서 연결 하는 경우 네트워크 관리자와 협력 하 여 회사 방화벽을 통해 네트워크 트래픽을 허용 해야 할 수 있습니다.
 
@@ -101,6 +106,8 @@ Azure 외부에서 연결하는 경우 연결에는 기본적으로 `Proxy` 연�
 | 한국 남부          | 52.231.200.86      |
 | 미국 중북부     | 23.96.178.199, 23.98.55.75, 52.162.104.33 |
 | 북유럽         | 40.113.93.91, 191.235.193.75, 52.138.224.1 | 
+| 노르웨이 동부          | 51.120.96.0        |
+| 노르웨이 서 부          | 51.120.216.0       |
 | 남아프리카 북부   | 102.133.152.0      |
 | 남아프리카 서부    | 102.133.24.0       |
 | 미국 중남부     | 13.66.62.124, 23.98.162.75, 104.214.16.32   | 
@@ -115,78 +122,7 @@ Azure 외부에서 연결하는 경우 연결에는 기본적으로 `Proxy` 연�
 | 미국 서부 2            | 13.66.226.202      |
 |                      |                    |
 
-## <a name="change-azure-sql-database-connection-policy"></a>SQL Database 연결 정책 변경
 
-Azure SQL Database 서버에 대한 Azure SQL Database 연결 정책을 변경하려면 [conn-policy](https://docs.microsoft.com/cli/azure/sql/server/conn-policy)를 사용합니다.
-
-- 연결 정책을 `Proxy`로 설정한 경우 모든 네트워크 패킷은 Azure SQL Database 게이트웨이를 통합니다. 이 설정에서 Azure SQL Database 게이트웨이 IP로만 아웃바운드를 허용해야 합니다. `Proxy` 설정을 사용하면 `Redirect` 설정보다 대기 시간이 길어집니다.
-- 연결 정책을 `Redirect`로 설정하는 경우 모든 네트워크 패킷은 데이터베이스 클러스터에 직접 전달됩니다. 이 설정에서 여러 IP에 대한 아웃바운드를 허용해야 합니다.
-
-## <a name="script-to-change-connection-settings-via-powershell"></a>PowerShell을 통해 연결 설정을 변경하는 스크립트
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-> [!IMPORTANT]
-> Azure SQL Database, Azure Resource Manager PowerShell 모듈은 계속 지원하지만 모든 향후 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대한 내용은 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조합니다. Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다. 다음 스크립트에는 [Azure PowerShell 모듈이](/powershell/azure/install-az-ps)필요 합니다.
-
-다음 PowerShell 스크립트에서는 연결 정책을 변경하는 방법을 보여줍니다.
-
-```powershell
-# Get SQL Server ID
-$sqlserverid=(Get-AzSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group).ResourceId
-
-# Set URI
-$id="$sqlserverid/connectionPolicies/Default"
-
-# Get current connection policy
-(Get-AzResource -ResourceId $id).Properties.connectionType
-
-# Update connection policy
-Set-AzResource -ResourceId $id -Properties @{"connectionType" = "Proxy"} -f
-```
-
-## <a name="script-to-change-connection-settings-via-azure-cli"></a>Azure CLI를 통해 연결 설정을 변경하는 스크립트
-
-> [!IMPORTANT]
-> 이 스크립트에는 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)가 필요합니다.
-
-### <a name="azure-cli-in-a-bash-shell"></a>Bash 셸에서 Azure CLI
-
-> [!IMPORTANT]
-> 이 스크립트에는 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)가 필요합니다.
-
-다음 CLI 스크립트는 bash 셸에서 연결 정책을 변경 하는 방법을 보여 줍니다.
-
-```azurecli-interactive
-# Get SQL Server ID
-sqlserverid=$(az sql server show -n sql-server-name -g sql-server-group --query 'id' -o tsv)
-
-# Set URI
-ids="$sqlserverid/connectionPolicies/Default"
-
-# Get current connection policy
-az resource show --ids $ids
-
-# Update connection policy
-az resource update --ids $ids --set properties.connectionType=Proxy
-```
-
-### <a name="azure-cli-from-a-windows-command-prompt"></a>Windows 명령 프롬프트에서 Azure CLI
-
-> [!IMPORTANT]
-> 이 스크립트에는 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)가 필요합니다.
-
-다음 CLI 스크립트는 Windows 명령 프롬프트에서 연결 정책을 변경 하는 방법을 보여 줍니다 (Azure CLI 설치 됨).
-
-```azurecli
-# Get SQL Server ID and set URI
-FOR /F "tokens=*" %g IN ('az sql server show --resource-group myResourceGroup-571418053 --name server-538465606 --query "id" -o tsv') do (SET sqlserverid=%g/connectionPolicies/Default)
-
-# Get current connection policy
-az resource show --ids %sqlserverid%
-
-# Update connection policy
-az resource update --ids %sqlserverid% --set properties.connectionType=Proxy
-```
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/12/2019
-ms.openlocfilehash: 31ad7a9d1108adc9071812454419252a813cb93e
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: e7a64776cba00a6840af70cecad5bf9c02b3f38e
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78364497"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79251974"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>컨테이너 및 데이터베이스에 대한 처리량 프로비전
 
@@ -87,11 +87,11 @@ Azure Cosmos DB 계정에 이미 > = 25 컨테이너의 공유 처리량 데이�
 
 ## <a name="update-throughput-on-a-database-or-a-container"></a>데이터베이스 또는 컨테이너의 업데이트 처리량
 
-Azure Cosmos 컨테이너 또는 데이터베이스를 만든 후 프로 비전 된 처리량을 업데이트할 수 있습니다. 데이터베이스 또는 컨테이너에 대해 구성할 수 있는 최대 프로 비전 된 처리량에는 제한이 없습니다. 프로 비전 된 최소 처리량은 다음 요소에 따라 달라 집니다. 
+Azure Cosmos 컨테이너 또는 데이터베이스를 만든 후 프로 비전 된 처리량을 업데이트할 수 있습니다. 데이터베이스 또는 컨테이너에 대해 구성할 수 있는 최대 프로 비전 된 처리량에는 제한이 없습니다. [프로 비전 된 최소 처리량](concepts-limits.md#storage-and-throughput) 은 다음 요소에 따라 달라 집니다. 
 
 * 컨테이너에 저장 하는 최대 데이터 크기
 * 컨테이너에서 프로 비전 하는 최대 처리량
-* 공유 처리량이 있는 데이터베이스에서 만든 Azure Cosmos 컨테이너의 최대 수입니다. 
+* 공유 처리량이 있는 데이터베이스에 있는 현재 Azure Cosmos 컨테이너 수입니다. 
 
 Sdk를 사용 하 여 프로그래밍 방식으로 컨테이너 또는 데이터베이스의 최소 처리량을 검색 하거나 Azure Portal의 값을 확인할 수 있습니다. .NET SDK를 사용 하는 경우 [ReplaceOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.replaceofferasync?view=azure-dotnet) 메서드를 사용 하 여 프로 비전 된 처리량 값의 크기를 조정할 수 있습니다. Java SDK를 사용 하는 경우 [Requestoptions. setOfferThroughput](sql-api-java-samples.md#offer-examples) 메서드를 사용 하 여 프로 비전 된 처리량 값의 크기를 조정할 수 있습니다. 
 

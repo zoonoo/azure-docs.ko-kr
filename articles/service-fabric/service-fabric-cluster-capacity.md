@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 07/09/2019
 ms.author: pepogors
 ms.openlocfilehash: 6e60fc10dd7e0eec24de4a089d09d914624dcfbc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75463297"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79258916"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>서비스 패브릭 클러스터 용량 계획 고려 사항
 프로덕션 배포의 경우 용량 계획은 중요한 단계입니다. 다음은 해당 프로세스의 일부로 고려해야 하는 항목 중 일부입니다.
@@ -52,7 +52,7 @@ Service Fabric 시스템 서비스(예: 클러스터 관리자 서비스 또는 
 * 주 노드 유형에 대한 **최소 VM 크기**는 선택한 **내구성 계층**에 따라 결정됩니다. 기본 내구성 계층은 Bronze입니다. 자세한 내용은 [클러스터의 내구성 특성](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster)을 참조하세요.  
 * 주 노드 유형에 대한 **최소 VM 수**는 선택한 **안정성 계층**에 따라 결정됩니다. 기본 안정성 계층은 Silver입니다. 자세한 내용은 [클러스터의 안정성 특성](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-reliability-characteristics-of-the-cluster)을 참조하세요.  
 
-Azure Resource Manager 템플릿에서 주 노드 형식은 [노드 형식 정의](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters#nodetypedescription-object) 아래의 `isPrimary` 특성으로 구성됩니다.
+Azure Resource Manager 템플릿에서 주 노드 형식은 `isPrimary`노드 형식 정의[ 아래의 ](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters#nodetypedescription-object) 특성으로 구성됩니다.
 
 ### <a name="non-primary-node-type"></a>주가 아닌 노드 유형
 

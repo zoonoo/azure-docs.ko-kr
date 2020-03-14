@@ -12,11 +12,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e4581ab89f74425682f569425f62714ead2c27c5
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77620943"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79263349"
 ---
 # <a name="install-the-azure-ad-connect-cloud-provisioning-agent"></a>Azure AD Connect 클라우드 프로비저닝 에이전트 설치
 이 문서에서는 Azure Active Directory (Azure AD) Connect 프로 비전 에이전트의 설치 프로세스와 Azure Portal에서 처음으로 구성 하는 방법을 안내 합니다.
@@ -64,10 +64,10 @@ Azure AD Connect 프로 비전을 설치 하 고 구성 하는 작업은 다음 
 ### <a name="azure-portal-agent-verification"></a>Azure Portal에서 에이전트 확인
 Azure에서 에이전트가 표시 되는지 확인 하려면 다음 단계를 수행 합니다.
 
-1. Azure 포털에 로그인합니다.
+1. Azure Portal에 로그인합니다.
 1. 왼쪽에서 **Azure Active Directory** > **Azure AD Connect**를 선택 합니다. 가운데에서 **프로 비전 관리 (미리 보기)** 를 선택 합니다.
 
-   ![Azure 포털](media/how-to-install/install6.png)</br>
+   ![Azure portal](media/how-to-install/install6.png)</br>
 
 1.  **AZURE AD 프로 비전 (미리 보기)** 화면에서 **모든 에이전트 검토**를 선택 합니다.
 

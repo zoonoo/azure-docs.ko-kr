@@ -9,16 +9,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: f67351fa38543504d63dbf8d86c9537feea24a4f
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: b14759ed39037bfa172366a2ed8f8ca089786ec6
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76312620"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79137614"
 ---
 # <a name="event-hubs-net-framework-api-overview"></a>Event Hubs .NET Framework API 개요
 
-이 문서에서는 핵심 Azure Event Hubs[.NET Framework 클라이언트 API](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) 일부를 요약해서 설명합니다. 관리와 런타임 API 등 두 가지 범주가 있습니다. 런타임 API는 메시지를 주고받는 데 필요한 모든 작업으로 구성됩니다. 관리 작업을 사용하면 엔터티를 만들고 업데이트 및 삭제하여 Event Hubs 엔터티 상태를 관리할 수 있습니다.
+이 문서에서는 핵심 Azure Event Hubs[.NET Framework 클라이언트 API](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) 일부를 요약해서 설명합니다. 관리와 런타임 API 등 두 가지 범주가 있습니다. 런타임 API는 메시지를 주고받는 데 필요한 모든 작업으로 구성됩니다. 관리 작업을 사용하면 엔터티를 만들고 업데이트 및 삭제하여 Event Hubs 엔터티 상태를 관리할 수 있습니다.
 
 [모니터링 시나리오](event-hubs-metrics-azure-monitor.md)는 관리 및 런타임 모두에 사용됩니다. .NET API에 대한 자세한 참조 설명서는 [.NET Framework](/dotnet/api/microsoft.servicebus.messaging.eventhubclient), [.NET Standard](/dotnet/api/microsoft.azure.eventhubs) 및 [EventProcessorHost API](/dotnet/api/microsoft.azure.eventhubs.processor) 참고 자료를 참조하세요.
 
@@ -26,7 +26,7 @@ ms.locfileid: "76312620"
 
 다음 관리 작업을 수행하려면 Event Hubs 네임스페이스에 대한 **관리** 권한이 있어야 합니다.
 
-### <a name="create"></a>Create
+### <a name="create"></a>생성
 
 ```csharp
 // Create the event hub
@@ -48,7 +48,7 @@ ehd.Authorization.Add(new SharedAccessAuthorizationRule(ruleName, ruleKey, new A
 await namespaceManager.UpdateEventHubAsync(ehd);
 ```
 
-### <a name="delete"></a>삭제
+### <a name="delete"></a>DELETE
 
 ```csharp
 await namespaceManager.DeleteEventHubAsync("event hub name");

@@ -3,12 +3,12 @@ title: Azure Backup를 사용 하 여 Azure에 SAP HANA 데이터베이스 백�
 description: 이 문서에서는 Azure Backup 서비스를 사용 하 여 Azure virtual machines에 SAP HANA 데이터베이스를 백업 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: a5fd09e0e487d103e8bd78964c11b572a62e28fa
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.openlocfilehash: deedd4d2553b3b06f76f698fdb2425a8d3878d23
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78164613"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79248061"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Azure VM에서 SAP HANA 데이터베이스 백업
 
@@ -28,7 +28,7 @@ SAP HANA 데이터베이스는 낮은 RPO (복구 지점 목표) 및 장기 보�
 >Azure **vm의 SQL server에 대 한 일시 삭제 및 AZURE vm 워크 로드의 SAP HANA에 대 한 일시** 삭제는 이제 미리 보기로 제공 됩니다.<br>
 >미리 보기에 등록 하려면 AskAzureBackupTeam@microsoft.com에 씁니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 백업에 대 한 데이터베이스를 설정 하려면 [필수 구성 요소](tutorial-backup-sap-hana-db.md#prerequisites) 및 [사전 등록 스크립트에서 수행](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) 하는 작업 섹션을 참조 하세요.
 
@@ -88,6 +88,10 @@ IP 범위 허용 | 추가 비용 없음 | 시간이 지남에 따라 IP 주소 �
 NSG 서비스 태그 사용 | 범위 변경이 자동으로 병합되어 관리가 더 쉬움 <br/><br/> 추가 비용 없음 <br/><br/> | NSG에만 사용할 수 있음 <br/><br/> 전체 서비스에 대한 액세스 제공
 Azure Firewall FQDN 태그 사용 | 필요한 FQDN이 자동으로 관리되어 관리가 더 쉬움 | Azure Firewall하고만 함께 사용할 수 있음
 HTTP 프록시 사용 | 스토리지 URL에 대한 프록시의 세부적인 제어가 허용됨 <br/><br/> VM에 대한 인터넷 액세스의 단일 지점 <br/><br/> Azure IP 주소 변경이 적용되지 않음 | 프록시 소프트웨어로 VM을 실행하기 위해 추가 비용이 있음
+
+#### <a name="private-endpoints"></a>전용 끝점
+
+[!INCLUDE [Private Endpoints](../../includes/backup-private-endpoints.md)]
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -184,7 +188,7 @@ HTTP 프록시 사용 | 스토리지 URL에 대한 프록시의 세부적인 제
 
 1. 자격 증명 모음 메뉴에서 **백업 항목**을 클릭합니다.
 2. **백업 항목**에서 SAP HANA 데이터베이스를 실행 하는 VM을 선택 하 고 **지금 Backup**을 클릭 합니다.
-3. **지금 백업**에서 달력 컨트롤을 사용 하 여 복구 지점을 유지할 마지막 날을 선택 합니다. 그런 다음 **확인**을 클릭합니다.
+3. **지금 백업**에서 달력 컨트롤을 사용 하 여 복구 지점을 유지할 마지막 날을 선택 합니다. 그런 후 **OK**를 클릭합니다.
 4. 포털 알림을 모니터링합니다. 자격 증명 모음 대시보드 > **백업 작업** > **진행 중**에서 작업 진행률을 모니터링할 수 있습니다. 데이터베이스의 크기에 따라 초기 백업을 만드는 데 시간이 걸릴 수 있습니다.
 
 ## <a name="run-sap-hana-studio-backup-on-a-database-with-azure-backup-enabled"></a>Azure Backup 사용 하도록 설정 된 데이터베이스에서 SAP HANA Studio 백업 실행

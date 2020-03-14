@@ -9,18 +9,18 @@ ms.service: azure-supportability
 ms.topic: article
 ms.date: 01/23/2020
 ms.author: kfollis
-ms.openlocfilehash: 6218a1089352ce9ee3e2d1d10f3282e64eae8c51
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 28a29bbb94f63657a69e873bb8f969e96ee92c76
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76547662"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79248490"
 ---
-# <a name="how-to-create-an-azure-support-request"></a>Azure 지원 요청 만들기 방법
+# <a name="how-to-create-an-azure-support-request"></a>Azure 지원 요청을 만드는 방법
 
 ## <a name="overview"></a>개요
 
-Azure 고객은 [Azure Portal](https://portal.azure.com)에서 지원 요청을 만들고 관리할 수 있습니다.
+Azure를 통해 지원 티켓으로 알려진 지원 요청을 만들고 관리할 수 있습니다. [Azure Portal](https://portal.azure.com)에서 요청을 만들고 관리할 수 있습니다 .이에 대해서는이 문서에서 설명 합니다. [Azure 지원 티켓 REST API](/rest/api/support)를 사용 하 여 프로그래밍 방식으로 요청을 만들고 관리할 수도 있습니다.
 
 > [!NOTE]
 > Azure Portal URL은 조직이 배포 되는 Azure 클라우드와 관련 됩니다.
@@ -43,13 +43,13 @@ Azure Portal에서 **도움말 + 지원** 에 액세스할 수 있습니다. Azu
 
 ### <a name="role-based-access-control"></a>역할 기반 액세스 제어
 
-지원 요청을 만들려면 관리자 이거나 [지원 요청 참가자](../../role-based-access-control/built-in-roles.md#support-request-contributor) 역할에 할당 되어야 합니다.
+지원 요청을 만들려면 관리자 이거나 구독 수준에서 [지원 요청 참가자](../../role-based-access-control/built-in-roles.md#support-request-contributor) 역할에 할당 되어야 합니다.
 
 ### <a name="go-to-help--support-from-the-global-header"></a>전역 헤더에서 도움말 + 지원으로 이동 합니다.
 
 Azure Portal의 어디에서 나 지원 요청을 시작 하려면 다음을 수행 합니다.
 
-1. 포털의 오른쪽 위 구석에 있는 아이콘 **?** 전역 헤더에 있습니다. 그런 다음 **도움말 + 지원**을 선택 합니다.
+1. **?** 를 선택 합니다. 전역 헤더에 있습니다. 그런 다음 **도움말 + 지원**을 선택 합니다.
 
    ![도움말 및 지원](./media/how-to-create-azure-support-request/helpandsupportnewlower.png)
 

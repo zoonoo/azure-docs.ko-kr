@@ -13,11 +13,11 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: c2e2394bbcee5294bfb752a0af2969457ffff0ee
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894203"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79260528"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 Amazon Redshift에서 데이터 이동
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -34,7 +34,7 @@ Data Factory는 현재 Amazon Redshift에서 [지원되는 싱크 데이터 저�
 > [!TIP]
 > Amazon Redshift에서 많은 양의 데이터를 복사할 때 최상의 성능을 위해 Amazon S3(Amazon Simple Storage Service)를 통해 기본 제공 Redshift **UNLOAD**를 사용하는 것이 좋습니다. 자세한 내용은 [UNLOAD를 사용하여 Amazon Redshift에서 데이터 복사](#use-unload-to-copy-data-from-amazon-redshift)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 * 온-프레미스 데이터 저장소로 데이터를 이동하는 경우 온-프레미스 컴퓨터에 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md)를 설치합니다. 온-프레미스 컴퓨터 IP 주소를 사용하여 게이트웨이에 대한 액세스 권한을 Amazon Redshift에 부여합니다. 자세한 지침은 [클러스터에 대한 액세스 권한 부여](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html)를 참조하세요.
 * Azure 데이터 저장소로 데이터를 이동하려면 [Microsoft Azure 데이터 센터에서 사용되는 컴퓨팅 IP 주소 및 SQL 범위](https://www.microsoft.com/download/details.aspx?id=41653)를 참조하세요.
 
@@ -61,12 +61,12 @@ Visual Studio, Azure PowerShell 또는 기타 도구를 사용 하 여 파이프
 
 | 속성 | Description | 필수 |
 | --- | --- | --- |
-| **type** |이 속성은 **AmazonRedshift**로 설정되어야 합니다. |예 |
-| **server** |Amazon Redshift 서버의 IP 주소 또는 호스트 이름입니다. |예 |
+| **type** |이 속성은 **AmazonRedshift**로 설정되어야 합니다. |yes |
+| **server** |Amazon Redshift 서버의 IP 주소 또는 호스트 이름입니다. |yes |
 | **port** |Amazon Redshift 서버가 클라이언트 연결을 수신하는 데 사용하는 TCP 포트 수입니다. |아니요(기본값: 5439) |
-| **database** |Amazon Redshift 데이터베이스의 이름입니다. |예 |
-| **username** |데이터베이스에 대한 액세스 권한이 있는 사용자의 이름입니다. |예 |
-| **password** |사용자 계정의 암호입니다. |예 |
+| **database** |Amazon Redshift 데이터베이스의 이름입니다. |yes |
+| **username** |데이터베이스에 대한 액세스 권한이 있는 사용자의 이름입니다. |yes |
+| **password** |사용자 계정의 암호입니다. |yes |
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
 
@@ -87,7 +87,7 @@ Visual Studio, Azure PowerShell 또는 기타 도구를 사용 하 여 파이프
 | 속성 | Description | 필수 |
 | --- | --- | --- |
 | **query** | 사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |아니요(데이터 세트의 **tableName** 속성이 지정된 경우) |
-| **redshiftUnloadSettings** | Redshift **UNLOAD** 명령을 사용하는 경우 속성 그룹을 포함합니다. | 아닙니다. |
+| **redshiftUnloadSettings** | Redshift **UNLOAD** 명령을 사용하는 경우 속성 그룹을 포함합니다. | 예 |
 | **s3LinkedServiceName** | 중간 저장소로 사용할 Amazon S3입니다. 연결된 서비스는 **AwsAccessKey** 형식의 Azure Data Factory 이름을 사용하여 지정됩니다. | **redshiftUnloadSettings** 속성을 사용할 때 필요합니다. |
 | **bucketName** | 중간 데이터를 저장하는 데 사용할 Amazon S3 버킷을 나타냅니다. 이 속성을 제공하지 않으면 복사 작업에서 자동으로 버킷을 생성합니다. | **redshiftUnloadSettings** 속성을 사용할 때 필요합니다. |
 
@@ -144,9 +144,9 @@ Amazon Redshift [**UNLOAD**](https://docs.aws.amazon.com/redshift/latest/dg/r_UN
 
 * [AmazonRedshift](#linked-service-properties) 형식의 연결된 서비스
 * [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties) 형식의 연결된 서비스
-* [RelationalTable](#dataset-properties) 형식의 입력 [데이터 세트](data-factory-create-datasets.md)
-* [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties) 형식의 출력 [데이터 세트](data-factory-create-datasets.md)
-* [RelationalSource](#copy-activity-properties) 및 [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties) 속성을 사용하는 복사 활동이 있는 [파이프라인](data-factory-create-pipelines.md)
+* [RelationalTable](data-factory-create-datasets.md) 형식의 입력 [데이터 세트](#dataset-properties)
+* [AzureBlob](data-factory-create-datasets.md) 형식의 출력 [데이터 세트](data-factory-azure-blob-connector.md#dataset-properties)
+* [RelationalSource](data-factory-create-pipelines.md) 및 [BlobSink](#copy-activity-properties) 속성을 사용하는 복사 활동이 있는 [파이프라인](data-factory-azure-blob-connector.md#copy-activity-properties)
 
 샘플에서는 Amazon Redshift의 쿼리 결과에서 Azure Blob으로 매시간 데이터를 복사합니다. 샘플에 사용된 JSON 속성은 엔터티 정의 뒤에 나오는 섹션에서 설명됩니다.
 
@@ -333,7 +333,7 @@ Amazon Redshift [**UNLOAD**](https://docs.aws.amazon.com/redshift/latest/dg/r_UN
 | INTEGER |Int32 |
 | bigint |Int64 |
 | DECIMAL |Decimal |
-| real |단일 |
+| real |Single |
 | DOUBLE PRECISION |Double |
 | BOOLEAN |String |
 | CHAR |String |

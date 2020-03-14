@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 11/14/2019
 ms.openlocfilehash: 44422f66f6fc995dcaf96947ea05b183c7131ea3
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78362176"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79249205"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-overview"></a>VM용 Azure Monitor 사용 (미리 보기) 개요
 
@@ -24,7 +24,7 @@ VM용 Azure Monitor을 설정 하려면:
 * PowerShell을 사용하여 지정된 구독 또는 리소스 그룹에 걸친 둘 이상의 Azure VM 또는 가상 머신 확장 집합을 사용하도록 설정합니다.
 * VM용 Azure Monitor 사용 하 여 회사 네트워크 또는 다른 클라우드 환경에서 호스트 되는 Vm 또는 물리적 컴퓨터를 모니터링할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 다음 섹션의 정보를 이해해야 합니다. 
 
@@ -39,15 +39,15 @@ VM용 Azure Monitor는 다음 지역에서 Log Analytics 작업 영역을 지원
 - 미국 서부
 - 미국 서부 2
 - 미국 중남부
-- East US
+- 미국 동부
 - 미국 동부2
 - 미국 중부
 - 미국 중북부
 - 캐나다 중부
 - 영국 남부
-- 유럽 북부
-- 유럽 서부
-- 아시아 동부
+- 북유럽
+- 서유럽
+- 동아시아
 - 동남아시아
 - 인도 중부
 - 일본 동부
@@ -165,11 +165,11 @@ VM용 Azure Monitor 맵 기능은 Microsoft 종속성 에이전트에서 해당 
 
 다음 테이블은 하이브리드 환경에서 맵 기능이 지원하는 연결된 원본을 설명합니다.
 
-| 연결된 원본 | 지원됨 | 설명 |
+| 연결된 원본 | 지원됨 | Description |
 |:--|:--|:--|
-| Windows 에이전트 | 예 | [Windows에 대 한 Log Analytics 에이전트](../../azure-monitor/platform/log-analytics-agent.md)와 함께 windows 에이전트에는 종속성 에이전트가 필요 합니다. 자세한 내용은 [지원 되는 운영 체제](#supported-operating-systems)를 참조 하세요. |
-| Linux 에이전트 | 예 | Linux [에 대 한 Log Analytics 에이전트](../../azure-monitor/platform/log-analytics-agent.md)와 함께 linux 에이전트에는 종속성 에이전트가 필요 합니다. 자세한 내용은 [지원 되는 운영 체제](#supported-operating-systems)를 참조 하세요. |
-| System Center Operations Manager 관리 그룹 | 아니요 | |
+| Windows 에이전트 | yes | [Windows에 대 한 Log Analytics 에이전트](../../azure-monitor/platform/log-analytics-agent.md)와 함께 windows 에이전트에는 종속성 에이전트가 필요 합니다. 자세한 내용은 [지원 되는 운영 체제](#supported-operating-systems)를 참조 하세요. |
+| Linux 에이전트 | yes | Linux [에 대 한 Log Analytics 에이전트](../../azure-monitor/platform/log-analytics-agent.md)와 함께 linux 에이전트에는 종속성 에이전트가 필요 합니다. 자세한 내용은 [지원 되는 운영 체제](#supported-operating-systems)를 참조 하세요. |
+| System Center Operations Manager 관리 그룹 | 예 | |
 
 다음 위치에서 종속성 에이전트를 다운로드할 수 있습니다.
 
@@ -188,7 +188,7 @@ Log Analytics 작업 영역에 대한 액세스를 제어하는 방법에 대한
 
 이 표에 설명 된 방법 중 하나를 사용 하 여 VM용 Azure Monitor를 사용 하도록 설정 합니다.
 
-| 배포 상태 | 메서드 | 설명 |
+| 배포 상태 | 방법 | Description |
 |------------------|--------|-------------|
 | 단일 Azure VM 또는 가상 머신 확장 집합 | [VM에서 사용](vminsights-enable-single-vm.md) | VM 또는 가상 머신 확장 집합에서 직접 **Insights (미리 보기)** 를 선택 하 여 단일 Azure vm을 사용 하도록 설정할 수 있습니다. |
 | 여러 Azure Vm 또는 가상 머신 확장 집합 | [Azure Policy 통해 사용](vminsights-enable-at-scale-policy.md) | Azure Policy 및 사용 가능한 정책 정의를 사용 하 여 여러 Azure Vm을 사용 하도록 설정할 수 있습니다. |

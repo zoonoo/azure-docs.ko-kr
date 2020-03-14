@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 11/12/2019
 ms.author: raynew
 ms.openlocfilehash: 2f92c2b800c6d30cc5f365e6d24925a70d3db55a
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78362911"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79257928"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Azure에 온-프레미스 물리적 서버에 대한 재해 복구 설정
 
@@ -27,7 +27,7 @@ ms.locfileid: "78362911"
 > * 복제 정책 만들기
 > * 서버에 대해 복제 사용
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -172,7 +172,7 @@ IP 주소 기반 방화벽 규칙은 HTTPS(443) 포트를 통해 위에 나열�
 1. **애플리케이션 복제** > **원본**을 클릭합니다.
 2. **원본**에서 구성 서버를 선택합니다.
 3. **컴퓨터 형식**에서 **물리적 컴퓨터**를 선택합니다.
-4. 프로세스 서버(구성 서버)를 선택합니다. 그런 다음 **확인**을 클릭합니다.
+4. 프로세스 서버(구성 서버)를 선택합니다. 그런 후 **OK**를 클릭합니다.
 5. **대상**에서 장애 조치(failover) 후 Azure VM을 만들 구독 및 리소스 그룹을 선택합니다. Azure(클래식 또는 리소스 관리)에서 사용할 배포 모델을 선택합니다.
 6. 데이터 복제에 사용할 Azure Storage 계정을 선택합니다. 
 7. 장애 조치(failover) 후 Azure VM이 생성될 때 연결될 Azure 네트워크 및 서브넷을 선택합니다.

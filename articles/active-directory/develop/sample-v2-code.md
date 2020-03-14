@@ -17,12 +17,12 @@ ms.date: 07/15/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: f24412aa7e53c52f0fcbf0c266b57db077d41eb1
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: a0ba46abcc6e3b837dc0b13422bdc3d714ed0022
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77612034"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79262686"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Microsoft id 플랫폼 코드 샘플 (v2.0 끝점)
 
@@ -114,6 +114,7 @@ GitHub의 샘플에 참여할 수도 있습니다. 자세한 방법은 [Microsof
 | ![이 이미지는 ASP.NET Core 로고를 표시 합니다.](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2.2 | [Aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi-calls-msgraph) 의 ASP.NET CORE web API (서비스)  |
 | ![이 이미지는 ASP.NET 로고를 보여줍니다.](media/sample-v2-code/logo_NET.png)</p>ASP.NET MVC | [Webapi-onbehalfof](https://github.com/Azure-Samples/ms-identity-aspnet-webapi-onbehalfof) 웹 API (서비스) |
 | ![이 이미지는 Java 로고를 표시 합니다.](media/sample-v2-code/logo_java.png) | 웹 API (서비스) ( [webapi](https://github.com/Azure-Samples/ms-identity-java-webapi) ) |
+| ![이 이미지는 node.js 로고를 표시 합니다.](media/sample-v2-code/logo_nodejs.png) | Active directory의 Web API (서비스) [-webapi-v2](https://github.com/Azure-Samples/active-directory-javascript-nodejs-webapi-v2) |
 
 ## <a name="azure-functions-as-web-apis"></a>웹 Api로 Azure Functions
 
@@ -133,5 +134,4 @@ Azure AD 인증을 포함하여 Microsoft Graph API에 대한 여러 사용 패�
 ## <a name="see-also"></a>참고 항목
 
 - [Azure Active Directory (v1.0) 개발자 가이드](../azuread-dev/v1-overview.md)
-- [Azure AD Graph API 개념 및 참조](https://msdn.microsoft.com/library/azure/hh974476.aspx)
-- [Azure AD Graph API 도우미 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.ActiveDirectory.GraphClient)
+- [Microsoft Graph API 개념 및 참조](https://docs.microsoft.com/graph/use-the-api?context=graph%2Fapi%2Fbeta&view=graph-rest-beta)

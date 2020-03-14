@@ -4,11 +4,11 @@ description: Linux에서 런타임 및 SDK를 설치하고 로컬 개발 클러�
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: 572b1509f45a7f5bf2c63619809f01d17c3493d1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75457903"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79258435"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Linux에서 개발 환경 준비
 > [!div class="op_single_selector"]
@@ -25,7 +25,7 @@ Linux 개발 컴퓨터에서 [Azure Service Fabric 애플리케이션](service-f
 Linux용 Windows 하위 시스템에 Service Fabric 런타임 및 SDK를 설치하는 것은 지원되지 않습니다. 지원되는 Azure Service Fabric CLI(명령줄 인터페이스)를 사용하여 클라우드 또는 온-프레미스의 다른 곳에서 호스팅된 Service Fabric 엔터티를 관리할 수 있습니다. CLI를 설치하는 방법에 대한 정보는 [Service Fabric CLI 설정](./service-fabric-cli.md)을 참조하세요.
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 개발을 위해 이러한 운영 체제 버전이 지원됩니다.
 
@@ -165,10 +165,10 @@ sudo yum install servicefabricsdkcommon
 
 SDK 설치와 함께 제공되는 Service Fabric 런타임에는 다음 표에 나온 패키지가 포함됩니다. 
 
- | | DotNetCore | Java | Python | NodeJs | 
+ | | DotNetCore | Java | Python | NodeJS | 
 --- | --- | --- | --- |---
-Ubuntu | 2.0.0 | AzulJDK 1.8 | npm에서 암시적 | latest |
-RHEL | - | OpenJDK 1.8 | npm에서 암시적 | latest |
+Ubuntu | 2.0.0 | AzulJDK 1.8 | npm에서 암시적 | 최신 |
+RHEL | - | OpenJDK 1.8 | npm에서 암시적 | 최신 |
 
 ## <a name="set-up-a-local-cluster"></a>로컬 클러스터를 설정합니다.
 설치가 완료된 후에 로컬 클러스터를 시작합니다.
@@ -287,7 +287,7 @@ Service Fabric Eclipse 플러그 인이 이미 설치되어 있으면 최신 버
 sudo apt-get update
 sudo apt-get install servicefabric servicefabricsdkcommon
 ```
-Maven에서 Java SDK 이진 파일을 업데이트하려면 최신 버전을 가리키도록 ``build.gradle`` 파일에서 해당 이진 파일의 버전 정보를 업데이트해야 합니다. 버전을 업데이트해야 하는 위치를 알려면 [Service Fabric 시작 샘플](https://github.com/Azure-Samples/service-fabric-java-getting-started)에서 모든 ``build.gradle`` 파일을 참조하면 됩니다.
+Maven에서 Java SDK 이진 파일을 업데이트하려면 최신 버전을 가리키도록 ``build.gradle`` 파일에서 해당 이진 파일의 버전 정보를 업데이트해야 합니다. 버전을 업데이트해야 하는 위치를 알려면 ``build.gradle``Service Fabric 시작 샘플[에서 모든 ](https://github.com/Azure-Samples/service-fabric-java-getting-started) 파일을 참조하면 됩니다.
 
 > [!NOTE]
 > 패키지를 업데이트하면 로컬 개발 클러스터의 실행이 중지될 수 있습니다. 이 문서의 지침에 따라 업그레이드한 후에 로컬 클러스터를 다시 시작합니다.

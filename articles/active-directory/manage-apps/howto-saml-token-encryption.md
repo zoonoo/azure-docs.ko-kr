@@ -12,18 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/06/2019
+ms.date: 03/13/2020
 ms.author: mimart
 ms.reviewer: paulgarn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eafd209073b36265d24dbad4a66b3870d8f593db
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 0082d841faf22745e609d38444f4a97553b3c867
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73148633"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79365869"
 ---
-# <a name="how-to-configure-azure-ad-saml-token-encryption-preview"></a>방법: Azure AD SAML 토큰 암호화 구성 (미리 보기)
+# <a name="how-to-configure-azure-ad-saml-token-encryption"></a>방법: Azure AD SAML 토큰 암호화 구성
 
 > [!NOTE]
 > 토큰 암호화는 Azure AD(Azure Active Directory) 프리미엄 기능입니다. Azure AD 버전, 기능 및 가격 책정에 대한 자세한 내용은 [Azure AD 가격 책정](https://azure.microsoft.com/pricing/details/active-directory/)을 참조하세요.
@@ -123,26 +123,21 @@ Graph 또는 PowerShell을 사용하거나 keyId에 사용할 GUID를 생성해�
 
 ### <a name="to-configure-token-encryption-using-powershell"></a>PowerShell을 사용하여 토큰 암호화를 구성하려면
 
-이 기능은 곧 제공될 예정입니다. 
+1. 최신 Azure AD PowerShell 모듈을 사용 하 여 테 넌 트에 연결 합니다.
 
-<!--
-1. Use the latest Azure AD PowerShell module to connect to your tenant.
-
-1. Set the token encryption settings using the **[Set-AzureApplication](https://docs.microsoft.com/powershell/module/azuread/set-azureadapplication?view=azureadps-2.0-preview)** command.
+1. **[Set AzureApplication](https://docs.microsoft.com/powershell/module/azuread/set-azureadapplication?view=azureadps-2.0-preview)** 명령을 사용 하 여 토큰 암호화 설정을 설정 합니다.
 
     ```
     Set-AzureADApplication -ObjectId <ApplicationObjectId> -KeyCredentials "<KeyCredentialsObject>"  -TokenEncryptionKeyId <keyID>
     ```
 
-1. Read the token encryption settings using the following commands.
+1. 다음 명령을 사용 하 여 토큰 암호화 설정을 읽습니다.
 
     ```powershell
     $app=Get-AzureADApplication -ObjectId <ApplicationObjectId>
     $app.KeyCredentials
     $app.TokenEncryptionKeyId
     ```
-
--->
 
 ### <a name="to-configure-token-encryption-using-the-application-manifest"></a>애플리케이션 매니페스트를 사용하여 토큰 암호화를 구성하려면
 
