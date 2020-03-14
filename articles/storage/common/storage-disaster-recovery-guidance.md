@@ -10,18 +10,20 @@ ms.date: 01/23/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 8442d3f7ed3e73dc5d7358a9bc1d3ee31d7668cd
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.openlocfilehash: f7a8f6d0d3ab3b456c41128da9b689f6b7eda0f7
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78894537"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79365369"
 ---
 # <a name="disaster-recovery-and-account-failover-preview"></a>재해 복구 및 계정 장애 조치 (failover) (미리 보기)
 
 Microsoft는 Azure 서비스를 항상 사용할 수 있도록 하기 위해 노력합니다. 그러나 계획되지 않은 서비스 중단이 발생할 수 있습니다. 응용 프로그램에 복원 력이 필요한 경우 Microsoft는 지역 중복 저장소를 사용 하 여 두 번째 지역에 데이터를 복사 하도록 권장 합니다. 또한 고객은 지역 서비스 중단을 처리하기 위해 재해 복구 계획을 설정하는 것이 좋습니다. 재해 복구 계획의 중요한 부분은 기본 엔드포인트를 사용할 수 없는 경우 보조 엔드포인트로의 장애 조치(failover)를 준비하는 것입니다.
 
 Azure Storage는 지역 중복 스토리지 계정에 대해 계정 장애 조치(미리 보기)를 지원합니다. 계정 장애 조치(failover)의 경우 기본 엔드포인트를 사용할 수 없는 경우 스토리지 계정에 대해 장애 조치(failover) 프로세스를 시작할 수 있습니다. 장애 조치(failover)는 스토리지 계정의 기본 엔드포인트가 되도록 보조 엔드포인트를 업데이트합니다. 장애 조치(failover)가 완료되면 클라이언트는 새 기본 엔드포인트에 쓰기 시작할 수 있습니다.
+
+[!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
 
 이 문서에서는 계정 장애 조치(failover)와 관련된 개념 및 프로세스를 설명하고 고객에게 최소의 영향만 미치고 복구할 수 있게 스토리지 계정을 준비하는 방법을 논의합니다. Azure Portal 또는 PowerShell에서 계정 장애 조치(failover)를 시작하는 방법을 알아보려면 [계정 장애 조치(failover) 시작(미리 보기)](storage-initiate-account-failover.md)을 참조하세요.
 
@@ -124,7 +126,7 @@ Azure Portal, PowerShell, Azure CLI 또는 Azure Storage 리소스 공급자 API
 
 #### <a name="storage-account-containing-archived-blobs"></a>보관 된 blob을 포함 하는 저장소 계정
 
-보관 된 blob이 있는 저장소 계정은 계정 장애 조치 (failover)를 지원 합니다. 장애 조치 (failover)가 완료 되 면 계정을 다시 GRS 또는 RA GRS 모든 archieved blob을 온라인 계층으로 전환 해야 합니다.
+보관 된 blob이 있는 저장소 계정은 계정 장애 조치 (failover)를 지원 합니다. 장애 조치 (failover)가 완료 되 면 계정을 다시 GRS 또는 RA로 변환 하기 위해 보관 된 모든 blob을 먼저 온라인 계층으로 전환 해야 합니다.
 
 #### <a name="storage-resource-provider"></a>스토리지 리소스 공급자
 

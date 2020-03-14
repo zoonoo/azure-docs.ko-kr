@@ -1,21 +1,14 @@
 ---
 title: 엔터티 형식 나열-LUIS
-titleSuffix: Azure Cognitive Services
 description: 목록 엔터티는 동의어와 함께 일련의 고정된 폐쇄형 관련 단어를 나타냅니다. LUIS는 목록 엔터티에 대한 추가 값을 검색하지 않습니다. 권장 기능을 사용 하 여 현재 목록을 기반으로 하는 새 단어에 대 한 제안을 볼 수 있습니다.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 11/11/2019
-ms.author: diberry
-ms.openlocfilehash: 4313a1d644750c0961298bbee3ae211946de360a
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.date: 03/12/2020
+ms.openlocfilehash: 795d16bc2e0c4223ff3ac283a72493923d3ab355
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849771"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79297240"
 ---
 # <a name="list-entity"></a>목록 엔터티
 
@@ -28,7 +21,7 @@ ms.locfileid: "74849771"
 * 알려진 세트입니다.
 * 자주 변경 되지 않습니다. 목록을 자주 변경 하거나 목록을 자체 확장 하려는 경우에는 문구 목록과 함께 간단한 엔터티를 사용 하는 것이 더 좋습니다.
 * 집합이 이 엔터티 형식의 최대 LUIS [경계](luis-boundaries.md)를 초과하지 않습니다.
-* 발언의 텍스트가 동의어 또는 정식 이름과 정확히 일치합니다. LUIS는 정확한 텍스트 일치를 벗어나는 목록을 사용하지 않습니다. 유사 항목 일치, 대/소문자 구분 안 함, 형태소 분석, 복수 및 기타 변형은 목록 엔터티로 확인 되지 않습니다. 변형을 관리하려면 선택적인 텍스트 구문이 포함된 [패턴](reference-pattern-syntax.md#syntax-to-mark-optional-text-in-a-template-utterance)을 사용하는 것이 좋습니다.
+* Utterance의 텍스트는 대/소문자를 구분 하지 않고 동의어 또는 정식 이름과 일치 합니다. LUIS는 일치 항목 이외의 목록을 사용 하지 않습니다. 유사 항목 일치, 형태소 분석, 복수 및 기타 변형은 목록 엔터티로 확인 되지 않습니다. 변형을 관리하려면 선택적인 텍스트 구문이 포함된 [패턴](reference-pattern-syntax.md#syntax-to-mark-optional-text-in-a-template-utterance)을 사용하는 것이 좋습니다.
 
 ![목록 엔터티](./media/luis-concept-entities/list-entity.png)
 
@@ -70,7 +63,7 @@ ms.locfileid: "74849771"
 
 이전 발화에서 `paris` 단어는 `Cities` 목록 엔터티의 일부로 paris 항목에 매핑됩니다. 목록 엔터티는 항목 동의어뿐 아니라 항목의 정규화된 이름과도 일치합니다.
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 예측 엔드포인트 응답](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[V2 예측 엔드포인트 응답](#tab/V2)
 
 ```JSON
   "entities": [
@@ -88,7 +81,7 @@ ms.locfileid: "74849771"
   ]
 ```
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 예측 엔드포인트 응답](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[V3 예측 엔드포인트 응답](#tab/V3)
 
 
 쿼리 문자열에 `verbose=false` 설정 된 경우이 JSON은 다음과 같습니다.
@@ -132,7 +125,7 @@ ms.locfileid: "74849771"
 
 * * *
 
-|데이터 개체|엔터티 이름|Value|
+|데이터 개체|엔터티 이름|값|
 |--|--|--|
 |엔터티 나열|`Cities`|`paris`|
 

@@ -3,16 +3,23 @@ title: Azure에 SQL Server 데이터베이스 백업
 description: 이 문서에서는 Azure에 SQL Server를 백업하는 방법을 설명합니다. SQL Server 복구에 대해서도 설명합니다.
 ms.topic: conceptual
 ms.date: 06/18/2019
-ms.openlocfilehash: 39f2348a95be95a03dada45d48952dce99ec4ec7
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: 7305a75852deac466028e6278fca76626d8c1820
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74462581"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79297495"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Azure VM의 SQL Server 백업 정보
 
-SQL Server 데이터베이스는 낮은 RPO(복구 지점 목표)와 장기 보존이 필요한 중요한 워크로드입니다. [Azure Backup](backup-overview.md)을 사용하여 Azure VM에서 실행되는 SQL Server 데이터베이스를 백업할 수 있습니다.
+[Azure Backup](backup-overview.md) 은 Azure vm에서 실행 되는 SQL Server를 백업 하는 스트림 기반의 특수 솔루션을 제공 합니다. 이 솔루션은 제로 인프라 백업, 장기 보존 및 중앙 관리에 대 한 Azure Backup의 이점에 부합 합니다. 또한 SQL Server에 대해 특별히 다음과 같은 이점을 제공 합니다.
+
+1. 모든 백업 유형을 지 원하는 작업 인식 백업-전체, 차등 및 로그
+2. 로그 백업이 빈번한 15 분 RPO (복구 지점 목표)
+3. 지정 시간 복구 (초)
+4. 개별 데이터베이스 수준 백업 및 복원
+
+현재 지원 되는 백업 및 복원 시나리오를 보려면 [지원 매트릭스](backup-azure-sql-database.md#scenario-support)를 참조 하세요.
 
 ## <a name="backup-process"></a>백업 프로세스
 
@@ -28,7 +35,7 @@ SQL Server 데이터베이스는 낮은 RPO(복구 지점 목표)와 장기 보�
 
   ![SQL 백업 아키텍처](./media/backup-azure-sql-database/backup-sql-overview.png)
 
-## <a name="before-you-start"></a>시작하기 전 주의 사항
+## <a name="before-you-start"></a>시작하기 전에
 
 시작하기 전에 다음을 확인합니다.
 
@@ -65,50 +72,50 @@ SQL Server 데이터베이스는 낮은 RPO(복구 지점 목표)와 장기 보�
 
 ### <a name="back-up-behavior-in-case-of-always-on-availability-groups"></a>Always On 가용성 그룹의 백업 동작
 
-백업이 AG의 한 노드에서 구성되어 있는 것이 좋습니다. 백업은 항상 주 노드와 동일한 지역에서 구성되어야 합니다. 즉, 백업을 구성하는 지역에 항상 주 노드가 있어야 합니다. AG의 모든 노드가 백업이 구성되어 있는 곳과 동일한 지역에 있는 경우 문제가 없습니다.
+백업이 AG의 한 노드에서 구성되어 있는 것이 좋습니다. 백업은 항상 주 노드와 동일한 지역에서 구성되어야 합니다. 즉, 백업을 구성하는 지역에 항상 주 노드가 있어야 합니다. AG의 모든 노드가 백업이 구성 된 동일한 지역에 있는 경우 아무 문제가 없습니다.
 
 #### <a name="for-cross-region-ag"></a>지역 간 AG
 
-* 백업 기본 설정에 관계 없이 백업이 구성되어 있는 곳과 동일한 지역에 있지 않은 노드에서는 백업이 일어나지 않습니다. 따라서 지역 간 백업은 지원되지 않습니다. 노드가 두 개뿐이고 보조 노드가 다른 지역에 있는 경우, 백업은 계속 주 노드에서 발생합니다(백업 기본 설정이 ‘보조만’이 아닌 경우에 한 해).
+* 백업 기본 설정에 관계 없이 백업이 구성 된 동일한 지역에 있지 않은 노드에서는 백업이 수행 되지 않습니다. 따라서 지역 간 백업은 지원되지 않습니다. 노드가 두 개만 있고 보조 노드가 다른 지역에 있는 경우 이 경우 백업 기본 설정이 ' 보조 전용 ' 인 경우를 제외 하 고는 주 노드에서 백업이 계속 수행 됩니다.
 * 백업이 구성되어 있는 곳과 다른 지역으로 장애 조치(failover)가 발생하는 경우 장애 조치 지역의 노드에서 백업이 실패합니다.
 
 백업 기본 설정 및 백업 유형(전체/차등/로그/복사 전용 전체)에 따라 특정 노드(주/보조)에서 백업이 수행됩니다.
 
 * **백업 기본 설정: 기본**
 
-**백업 유형** | **노드**
+**백업 유형** | **Node**
     --- | ---
-    전체 | 보조
-    차등 | 보조
-    로그 |  보조
-    복사 전용 전체 |  보조
+    전체 | 주
+    차등 | 주
+    로그 |  주
+    복사 전용 전체 |  주
 
 * **백업 기본 설정: 보조만**
 
-**백업 유형** | **노드**
+**백업 유형** | **Node**
 --- | ---
-전체 | 보조
-차등 | 보조
-로그 |  주
-복사 전용 전체 |  주
+전체 | 주
+차등 | 주
+로그 |  보조
+복사 전용 전체 |  보조
 
 * **백업 기본 설정: 보조**
 
-**백업 유형** | **노드**
+**백업 유형** | **Node**
 --- | ---
-전체 | 보조
-차등 | 보조
-로그 |  주
-복사 전용 전체 |  주
+전체 | 주
+차등 | 주
+로그 |  보조
+복사 전용 전체 |  보조
 
 * **백업 기본 설정 없음**
 
-**백업 유형** | **노드**
+**백업 유형** | **Node**
 --- | ---
-전체 | 보조
-차등 | 보조
-로그 |  주
-복사 전용 전체 |  주
+전체 | 주
+차등 | 주
+로그 |  보조
+복사 전용 전체 |  보조
 
 ## <a name="set-vm-permissions"></a>VM 권한 설정
 

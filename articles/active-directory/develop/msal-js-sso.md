@@ -14,11 +14,11 @@ ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 8080d4cf4c3f0091f7837b3fccead5474c42db55
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78377234"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79262855"
 ---
 # <a name="single-sign-on-with-msaljs"></a>MSAL.js를 사용한 Single Sign-On
 

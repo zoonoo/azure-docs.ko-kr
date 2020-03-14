@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: c4b2dea05b459d6e9ae4eb086fa127d88a84a768
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: e17112cbe2a494a585cd5a09c36cfe449d3d433c
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78249201"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79365818"
 ---
 # <a name="common-errors-and-troubleshooting-steps-for-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services에 대 한 일반적인 오류 및 문제 해결 단계
 
@@ -30,7 +30,7 @@ Azure AD DS을 사용 하도록 설정 하는 데 문제가 있는 경우 다음
 
 | **샘플 오류 메시지** | **해결 방법** |
 | --- |:--- |
-| *Addscontoso.com 이름이이 네트워크에서 이미 사용 중입니다. 사용 하지 않는 이름을 지정 하십시오.* |[가상 네트워크에서 도메인 이름 충돌](troubleshoot.md#domain-name-conflict) |
+| *Aaddscontoso.com 이름이이 네트워크에서 이미 사용 중입니다. 사용 하지 않는 이름을 지정 하십시오.* |[가상 네트워크에서 도메인 이름 충돌](troubleshoot.md#domain-name-conflict) |
 | *이 Azure AD 테 넌 트에서 도메인 서비스를 사용 하도록 설정할 수 없습니다. 서비스에 ' Azure AD Domain Services Sync ' 응용 프로그램에 대 한 적절 한 권한이 없습니다. ' Azure AD Domain Services Sync ' 라는 응용 프로그램을 삭제 한 다음 Azure AD 테 넌 트에 대해 도메인 서비스를 사용 하도록 설정 해 보세요.* |[도메인 서비스에 Azure AD Domain Services 동기화 응용 프로그램에 대 한 적절 한 권한이 없습니다.](troubleshoot.md#inadequate-permissions) |
 | *이 Azure AD 테 넌 트에서 도메인 서비스를 사용 하도록 설정할 수 없습니다. Azure AD 테 넌 트의 도메인 서비스 응용 프로그램에 도메인 서비스를 사용 하도록 설정 하는 데 필요한 권한이 없습니다. 응용 프로그램 식별자 d87dcbc6-a371-462e-88e3-28ad15ec4e64를 사용 하 여 응용 프로그램을 삭제 한 다음 Azure AD 테 넌 트에 대해 도메인 서비스를 사용 하도록 설정 합니다.* |[Azure AD 테 넌 트에서 도메인 서비스 응용 프로그램이 제대로 구성 되지 않았습니다.](troubleshoot.md#invalid-configuration) |
 | *이 Azure AD 테 넌 트에서 도메인 서비스를 사용 하도록 설정할 수 없습니다. Azure AD 테 넌 트에서 Microsoft Azure AD 응용 프로그램을 사용할 수 없습니다. 응용 프로그램 식별자 00000002-0000-0000-c000-000000000000를 사용 하 여 응용 프로그램을 사용 하도록 설정한 다음 Azure AD 테 넌 트에 대해 도메인 서비스를 사용 하도록 설정 합니다.* |[Azure AD 테넌트에서 Microsoft Graph 애플리케이션을 사용할 수 없음](troubleshoot.md#microsoft-graph-disabled) |

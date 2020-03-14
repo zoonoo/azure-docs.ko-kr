@@ -3,7 +3,7 @@ title: Azure Active Directory 로그를 Azure Monitor 로그로 스트림 | Micr
 description: Azure Active Directory 로그를 Azure Monitor 로그와 통합 하는 방법 알아보기
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: 2c3db9a8-50fa-475a-97d8-f31082af6593
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 04/18/2019
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bffe16d604ac6b86b489092f50fbdc0b856867b3
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 213fb6e73ae2fc4314320d0e3e593632d8eb7f85
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989761"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79266443"
 ---
 # <a name="integrate-azure-ad-logs-with-azure-monitor-logs"></a>Azure Monitor 로그와 Azure AD 로그 통합
 
@@ -44,18 +44,18 @@ Ignite 세션의 다음 비디오는 실제 사용자 시나리오에서 Azure A
 
 추가 분석을 위해 감사 활동 로그와 로그인 활동 로그를 Azure Monitor 로그로 라우팅할 수 있습니다. 
 
-* **감사 로그**: [감사 로그 활동 보고서](concept-audit-logs.md)를 통해 테넌트에서 수행된 모든 작업의 기록에 액세스할 수 있습니다.
-* **로그인 로그**: [로그인 활동 보고서](concept-sign-ins.md)를 통해 감사 로그에 보고된 작업을 수행한 사용자를 확인할 수 있습니다.
+* **감사 로그**: [감사 로그 활동 보고서](concept-audit-logs.md)는 테넌트에서 수행된 모든 작업 기록에 대한 액세스를 제공합니다.
+* **로그인 로그**: [로그인 활동 보고서](concept-sign-ins.md)를 사용하면 감사 로그에 보고된 작업을 누가 수행했는지 확인할 수 있습니다.
 
 > [!NOTE]
 > B2C 관련 감사 및 로그인 활동 로그는 현재 지원되지 않습니다.
 >
 
-## <a name="prerequisites"></a>필수 구성 요소 
+## <a name="prerequisites"></a>사전 요구 사항 
 
 이 기능을 사용하려면 다음이 필요합니다.
 
-* Azure 구독. Azure 구독이 없으면 [평가판](https://azure.microsoft.com/free/)에 등록할 수 있습니다.
+* Azure 구독 Azure 구독이 없으면 [평가판](https://azure.microsoft.com/free/)에 등록할 수 있습니다.
 * Azure AD 테넌트.
 * Azure AD 테넌트의 *글로벌 관리자* 또는 *보안 관리자*인 사용자.
 * Azure 구독의 Log Analytics 작업 영역. [Log Analytics 작업 영역을 만드는 방법](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace)을 알아봅니다.

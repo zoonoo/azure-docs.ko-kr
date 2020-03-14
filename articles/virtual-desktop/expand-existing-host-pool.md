@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/21/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 37c3e57fd96a0161564b23ce18d01573d0dd73f9
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: aee5195fe86fed3e631908a38d3bdb7d5e4883b8
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79127902"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79365222"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>새 세션 호스트를 사용 하 여 기존 호스트 풀 확장
 
@@ -71,7 +71,7 @@ ms.locfileid: "79127902"
 
 ## <a name="run-the-azure-marketplace-offering"></a>Azure Marketplace 제공 실행
 
-[새 호스트 풀을 프로 비전 하기 위해 Azure Marketplace 제품 실행](./create-host-pools-azure-marketplace.md#run-the-azure-marketplace-offering-to-provision-a-new-host-pool)에 도달할 때까지 [Azure Marketplace를 사용 하 여 호스트 풀 만들기](./create-host-pools-azure-marketplace.md) 의 지침을 따릅니다. 해당 시점으로 이동 하면 각 블레이드에 대해 다음 정보를 입력 해야 합니다.
+[새 호스트 풀을 프로 비전 하기 위해 Azure Marketplace 제품 실행](./create-host-pools-azure-marketplace.md#run-the-azure-marketplace-offering-to-provision-a-new-host-pool)에 도달할 때까지 [Azure Marketplace를 사용 하 여 호스트 풀 만들기](./create-host-pools-azure-marketplace.md) 의 지침을 따릅니다. 해당 시점으로 이동 하면 각 탭에 대해 다음 정보를 입력 해야 합니다.
 
 ### <a name="basics"></a>기본 사항
 

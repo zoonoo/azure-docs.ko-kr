@@ -12,11 +12,11 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
 ms.openlocfilehash: 4146191453e7c7a589dacc41345a36a29a540de5
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76964347"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79260775"
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Azure Data Factory에서 Azure Integration Runtime 만들기 | Microsoft Docs
 
@@ -37,7 +37,7 @@ Azure-SSIS IR이 프로비저닝되면 익숙한 도구를 사용하여 Azure에
 
 이 문서에서는 Azure Portal, Azure PowerShell 및 Azure Resource Manager 템플릿을 사용 하 여 Azure-SSIS IR를 프로 비전 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -75,7 +75,7 @@ Data Factory 및 Azure-SSIS IR을 사용할 수 있는 Azure 지역 목록은 [�
 
 다음 표에서는 Azure와 관련 하 여 Azure SQL Database 서버와 관리 되는 인스턴스의 특정 기능을 비교 합니다.
 
-| 기능 | 단일 데이터베이스/탄력적 풀| Managed Instance |
+| 기능 | 단일 데이터베이스/탄력적 풀| 관리되는 인스턴스 |
 |---------|--------------|------------------|
 | **일정 계획** | SQL Server 에이전트를 사용할 수 없습니다.<br/><br/>[Data Factory 파이프라인에서 패키지 실행 예약](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages?view=sql-server-2017#activity)을 참조 하세요.| Managed Instance 에이전트를 사용할 수 있습니다. |
 | **인증** | 데이터 팩터리의 관리 id를 사용 하 여 **db_owner** 역할의 멤버로 Azure AD 그룹을 나타내는 포함 된 데이터베이스 사용자로 SSISDB 인스턴스를 만들 수 있습니다.<br/><br/>[AZURE AD 인증을 사용 하 여 Azure SQL Database 서버에 SSISDB 인스턴스 만들기를](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database)참조 하세요. | 데이터 팩터리의 관리 되는 id를 나타내는 포함 된 데이터베이스 사용자로 SSISDB 인스턴스를 만들 수 있습니다. <br/><br/>[AZURE AD 인증을 사용 하 여 Azure SQL Database 관리 되는 인스턴스에서 SSISDB 인스턴스 만들기를](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database-managed-instance)참조 하세요. |
@@ -368,7 +368,7 @@ if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
 
 ### <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-[AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) 명령을 사용 하 여 [Azure 리소스 그룹](../azure-resource-manager/management/overview.md) 을 만듭니다. 리소스 그룹은 Azure 리소스가 그룹으로 배포되고 관리되는 논리 컨테이너입니다.
+[New-AzResourceGroup](../azure-resource-manager/management/overview.md) 명령을 사용하여 [Azure 리소스 그룹](/powershell/module/az.resources/new-azresourcegroup)을 만듭니다. 리소스 그룹은 Azure 리소스가 그룹으로 배포되고 관리되는 논리 컨테이너입니다.
 
 리소스 그룹이 이미 있는 경우 스크립트에 이 코드를 복사하지 마세요. 
 

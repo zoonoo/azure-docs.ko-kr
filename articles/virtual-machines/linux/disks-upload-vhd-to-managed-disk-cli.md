@@ -4,16 +4,16 @@ description: 직접 업로드를 통해 Azure 관리 디스크에 vhd를 업로�
 services: virtual-machines,storage
 author: roygara
 ms.author: rogarana
-ms.date: 09/20/2019
+ms.date: 03/13/2020
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: 2a5bfec08546d6cf00b1e04017b3879db8f016ee
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.openlocfilehash: f2eb0f59d460fbf8d6595db658bb3f5f9c4a6ad0
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78970334"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79365852"
 ---
 # <a name="upload-a-vhd-to-azure-using-azure-cli"></a>Azure CLI를 사용 하 여 Azure에 vhd 업로드
 
@@ -28,7 +28,7 @@ Azure에서 IaaS Vm에 대 한 백업 솔루션을 제공 하는 경우 직접 �
 - [AzCopy v10의 최신 버전](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy)을 다운로드 합니다.
 - [Azure CLI를 설치합니다](/cli/azure/install-azure-cli).
 - 로컬로 저장 된 vhd 파일
-- 온-프레미스에서 vhd를 업로드 하려는 경우: [Azure에 대해 준비](../windows/prepare-for-upload-vhd-image.md)된 vhd는 로컬에 저장 됩니다.
+- 온-프레미스에서 vhd를 업로드 하려는 경우: [Azure에 대해 준비](../windows/prepare-for-upload-vhd-image.md)된 고정 크기 vhd는 로컬에 저장 됩니다.
 - 또는 복사 작업을 수행 하려는 경우 Azure에서 관리 되는 디스크입니다.
 
 ## <a name="create-an-empty-managed-disk"></a>빈 관리 디스크 만들기
@@ -79,8 +79,6 @@ AzCopy v10를 사용 하 여 생성 한 SAS URI를 지정 하 여 로컬 VHD 파
 ```bash
 AzCopy.exe copy "c:\somewhere\mydisk.vhd" "sas-URI" --blob-type PageBlob
 ```
-
-업로드 중에 SAS가 만료 되 고 `revoke-access`를 아직 호출 하지 않은 경우에는 새 SAS를 사용 하 여 다시 `grant-access`를 사용 하 여 업로드를 계속할 수 있습니다.
 
 업로드가 완료 되 고 더 이상 디스크에 더 이상 데이터를 쓸 필요가 없으면 SAS를 해지 합니다. SAS를 해지 하면 관리 디스크의 상태가 변경 되 고 해당 디스크를 VM에 연결할 수 있습니다.
 

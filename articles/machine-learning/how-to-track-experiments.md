@@ -10,14 +10,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 12/05/2019
+ms.date: 03/12/2020
 ms.custom: seodec18
-ms.openlocfilehash: e6b2f73540a0af7ed9c12469406a77d1bed8a2b4
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 0c77e9d0aa4f44f33b1345a6021fc0378459ee85
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78396414"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79296968"
 ---
 # <a name="monitor-azure-ml-experiment-runs-and-metrics"></a>Azure ML 실험 실행 및 메트릭 모니터링
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -34,15 +34,15 @@ ms.locfileid: "78396414"
 
 실험을 학습하는 동안 실행에 추가할 수 있는 메트릭은 다음과 같습니다. 실행 시 추적할 수 있는 메트릭에 대한 자세한 목록을 보려면 [Run 클래스 참조 설명서](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py)를 참조하세요.
 
-|형식| Python 함수 | 참고|
+|Type| Python 함수 | 메모|
 |----|:----|:----|
-|스칼라 값 |함수:<br>`run.log(name, value, description='')`<br><br>예:<br>run.log(“accuracy”, 0.95) |숫자 또는 문자열 값을 지정된 이름의 실행에 기록합니다. 메트릭을 실행에 기록하면 해당 메트릭이 실험의 실행 기록에 저장됩니다.  하나의 실행 내에서 동일한 메트릭을 여러 번 기록할 수 있으며 결과는 해당 메트릭의 벡터로 간주됩니다.|
-|목록|함수:<br>`run.log_list(name, value, description='')`<br><br>예:<br>run.log_list(“accuracies”, [0.6, 0.7, 0.87]) | 값 목록을 지정된 이름의 실행에 기록합니다.|
-|행|함수:<br>`run.log_row(name, description=None, **kwargs)`<br>예:<br>run.log_row(“Y over X”, x=1, y=0.4) | *log_row*를 사용하여 kwargs에 설명된 대로 열이 여러 개 있는 메트릭을 만듭니다. 명명된 각 매개 변수는 지정된 값이 있는 열을 생성합니다.  *log_row*는 임의의 튜플을 로깅하기 위해 한 번 호출되거나 루프에서 여러 번 호출되어 전체 테이블을 생성할 수 있습니다.|
-|Table|함수:<br>`run.log_table(name, value, description='')`<br><br>예:<br>run.log_table(“Y over X”, {”x”:[1, 2, 3], “y”:[0.6, 0.7, 0.89]}) | 사전 개체를 지정된 이름의 실행에 기록합니다. |
-|이미지|함수:<br>`run.log_image(name, path=None, plot=None)`<br><br>예:<br>`run.log_image("ROC", plot=plt)` | 이미지를 실행 기록에 로깅합니다. log_image를 사용하여 이미지 파일이나 matplotlib 도면을 실행에 기록합니다.  이러한 이미지는 실행 기록에서 볼 수 있고 비교할 수 있습니다.|
-|실행 태그 지정|함수:<br>`run.tag(key, value=None)`<br><br>예:<br>run.tag(“selected”, “yes”) | 문자열 키와 선택적 문자열 값을 사용하여 실행에 대한 태그를 지정합니다.|
-|파일 또는 디렉터리 업로드|함수:<br>`run.upload_file(name, path_or_stream)`<br> <br> 예:<br>run.upload_file("best_model.pkl", "./model.pkl") | 파일을 실행 기록에 업로드합니다. 실행은 지정된 출력 디렉터리에서 파일을 자동으로 캡처합니다. 이 디렉터리는 대부분의 실행 형식에 대해 기본적으로 "./outputs"로 지정됩니다.  pload_file은 추가 파일을 업로드해야 하거나 출력 디렉터리를 지정하지 않은 경우에만 사용합니다. outputs 디렉터리에 업로드되도록 이름에 `outputs`를 추가하는 것이 좋습니다. `run.get_file_names()`를 호출하여 이 실행 기록와 연결된 모든 파일을 나열할 수 있습니다.|
+|스칼라 값 |함수:<br>`run.log(name, value, description='')`<br><br>예제:<br>run.log(“accuracy”, 0.95) |숫자 또는 문자열 값을 지정된 이름의 실행에 기록합니다. 메트릭을 실행에 기록하면 해당 메트릭이 실험의 실행 기록에 저장됩니다.  하나의 실행 내에서 동일한 메트릭을 여러 번 기록할 수 있으며 결과는 해당 메트릭의 벡터로 간주됩니다.|
+|목록|함수:<br>`run.log_list(name, value, description='')`<br><br>예제:<br>run.log_list(“accuracies”, [0.6, 0.7, 0.87]) | 값 목록을 지정된 이름의 실행에 기록합니다.|
+|행|함수:<br>`run.log_row(name, description=None, **kwargs)`<br>예제:<br>run.log_row(“Y over X”, x=1, y=0.4) | *log_row*를 사용하여 kwargs에 설명된 대로 열이 여러 개 있는 메트릭을 만듭니다. 명명된 각 매개 변수는 지정된 값이 있는 열을 생성합니다.  *log_row*는 임의의 튜플을 로깅하기 위해 한 번 호출되거나 루프에서 여러 번 호출되어 전체 테이블을 생성할 수 있습니다.|
+|테이블|함수:<br>`run.log_table(name, value, description='')`<br><br>예제:<br>run.log_table(“Y over X”, {”x”:[1, 2, 3], “y”:[0.6, 0.7, 0.89]}) | 사전 개체를 지정된 이름의 실행에 기록합니다. |
+|이미지|함수:<br>`run.log_image(name, path=None, plot=None)`<br><br>예제:<br>`run.log_image("ROC", plot=plt)` | 이미지를 실행 기록에 로깅합니다. log_image를 사용하여 이미지 파일이나 matplotlib 도면을 실행에 기록합니다.  이러한 이미지는 실행 기록에서 볼 수 있고 비교할 수 있습니다.|
+|실행 태그 지정|함수:<br>`run.tag(key, value=None)`<br><br>예제:<br>run.tag(“selected”, “yes”) | 문자열 키와 선택적 문자열 값을 사용하여 실행에 대한 태그를 지정합니다.|
+|파일 또는 디렉터리 업로드|함수:<br>`run.upload_file(name, path_or_stream)`<br> <br> 예제:<br>run.upload_file("best_model.pkl", "./model.pkl") | 파일을 실행 기록에 업로드합니다. 실행은 지정된 출력 디렉터리에서 파일을 자동으로 캡처합니다. 이 디렉터리는 대부분의 실행 형식에 대해 기본적으로 "./outputs"로 지정됩니다.  pload_file은 추가 파일을 업로드해야 하거나 출력 디렉터리를 지정하지 않은 경우에만 사용합니다. outputs 디렉터리에 업로드되도록 이름에 `outputs`를 추가하는 것이 좋습니다. `run.get_file_names()`를 호출하여 이 실행 기록와 연결된 모든 파일을 나열할 수 있습니다.|
 
 > [!NOTE]
 > 스칼라, 목록, 행 및 테이블에 대한 메트릭은 부동 소수점, 정수 또는 문자열 형식일 수 있습니다.
@@ -58,76 +58,27 @@ ms.locfileid: "78396414"
 
 1. 작업 영역을 로드합니다. 작업 영역 구성을 설정 하는 방법에 대해 자세히 알아보려면 [작업 영역 구성 파일](how-to-configure-environment.md#workspace)을 참조 하세요.
 
-   ```python
-   from azureml.core import Experiment, Run, Workspace
-   import azureml.core
-  
-   ws = Workspace.from_config()
-   ```
-  
+[! 노트북-python [] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb? name = load_ws)]
+
+
 ## <a name="option-1-use-start_logging"></a>옵션 1: start_logging 사용
 
 **start_logging**은 노트북과 같은 시나리오에서 사용할 대화형 실행을 만듭니다. 세션 중에 기록된 모든 메트릭이 실험의 실행 기록에 추가됩니다.
 
 다음 예제에서는 로컬 Jupyter 노트북에서 간단한 sklearn Ridge 모델을 로컬로 학습합니다. 다른 환경에 실험을 제출 하는 방법에 대 한 자세한 내용은 [Azure Machine Learning를 사용 하 여 모델 학습을 위한 계산 대상 설정](https://docs.microsoft.com/azure/machine-learning/how-to-set-up-training-targets)을 참조 하세요.
 
-1. 로컬 Jupyter 노트북에 학습 스크립트를 만듭니다. 
+### <a name="load-the-data"></a>데이터 로드
 
-   ```python
-   # load diabetes dataset, a well-known small dataset that comes with scikit-learn
-   from sklearn.datasets import load_diabetes
-   from sklearn.linear_model import Ridge
-   from sklearn.metrics import mean_squared_error
-   from sklearn.model_selection import train_test_split
-   from sklearn.externals import joblib
+이 예제에서는 scikit와 함께 제공 되는 잘 알려진 작은 데이터 집합 인 당뇨병 데이터 집합을 사용 합니다. 이 셀은 데이터 집합을 로드 하 고 임의의 학습 및 테스트 집합으로 분할 합니다.
 
-   X, y = load_diabetes(return_X_y = True)
-   columns = ['age', 'gender', 'bmi', 'bp', 's1', 's2', 's3', 's4', 's5', 's6']
-   X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)
-   data = {
-      "train":{"X": X_train, "y": y_train},        
-      "test":{"X": X_test, "y": y_test}
-   }
-   reg = Ridge(alpha = 0.03)
-   reg.fit(data['train']['X'], data['train']['y'])
-   preds = reg.predict(data['test']['X'])
-   print('Mean Squared Error is', mean_squared_error(preds, data['test']['y']))
-   joblib.dump(value = reg, filename = 'model.pkl');
-   ```
+[! 노트북-python [] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb? name = load_data)]
 
-2. Azure Machine Learning SDK를 사용 하 여 실험 추적을 추가 하 고 지속 된 모델을 실험 실행 레코드에 업로드 합니다. 다음 코드는 태그를 지정하고, 기록하고, 모델 파일을 실험 실행에 업로드합니다.
+### <a name="add-tracking"></a>추적 추가
+Azure Machine Learning SDK를 사용 하 여 실험 추적을 추가 하 고 지속 된 모델을 실험 실행 레코드에 업로드 합니다. 다음 코드는 태그를 지정하고, 기록하고, 모델 파일을 실험 실행에 업로드합니다.
 
-   ```python
-    # Get an experiment object from Azure Machine Learning
-    experiment = Experiment(workspace=ws, name="train-within-notebook")
-    
-    # Create a run object in the experiment
-    run =  experiment.start_logging()
-    # Log the algorithm parameter alpha to the run
-    run.log('alpha', 0.03)
-    
-    # Create, fit, and test the scikit-learn Ridge regression model
-    regression_model = Ridge(alpha=0.03)
-    regression_model.fit(data['train']['X'], data['train']['y'])
-    preds = regression_model.predict(data['test']['X'])
-    
-    # Output the Mean Squared Error to the notebook and to the run
-    print('Mean Squared Error is', mean_squared_error(data['test']['y'], preds))
-    run.log('mse', mean_squared_error(data['test']['y'], preds))
-    
-    # Save the model to the outputs directory for capture
-    model_file_name = 'outputs/model.pkl'
-    
-    joblib.dump(value = regression_model, filename = model_file_name)
-    
-    # upload the model file explicitly into artifacts 
-    run.upload_file(name = model_file_name, path_or_stream = model_file_name)
-    
-    # Complete the run
-    run.complete()
-   ```
+[! 노트북-python [] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb? name = create_experiment)]
 
-    스크립트는 ```run.complete()```로 끝나며 실행이 완료됨으로 표시됩니다.  이 함수는 일반적으로 대화형 노트북 시나리오에서 사용됩니다.
+스크립트는 ```run.complete()```로 끝나며 실행이 완료됨으로 표시됩니다.  이 함수는 일반적으로 대화형 노트북 시나리오에서 사용됩니다.
 
 ## <a name="option-2-use-scriptrunconfig"></a>옵션 2: ScriptRunConfig 사용
 
@@ -137,94 +88,23 @@ ms.locfileid: "78396414"
 
 1. 학습 스크립트 `train.py`를 만듭니다.
 
-   ```python
-   # train.py
-
-   import os
-   from sklearn.datasets import load_diabetes
-   from sklearn.linear_model import Ridge
-   from sklearn.metrics import mean_squared_error
-   from sklearn.model_selection import train_test_split
-   from azureml.core.run import Run
-   from sklearn.externals import joblib
-
-   import numpy as np
-
-   #os.makedirs('./outputs', exist_ok = True)
-
-   X, y = load_diabetes(return_X_y = True)
-
-   run = Run.get_context()
-
-   X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)
-   data = {"train": {"X": X_train, "y": y_train},
-          "test": {"X": X_test, "y": y_test}}
-
-   # list of numbers from 0.0 to 1.0 with a 0.05 interval
-   alphas = mylib.get_alphas()
-
-   for alpha in alphas:
-      # Use Ridge algorithm to create a regression model
-      reg = Ridge(alpha = alpha)
-      reg.fit(data["train"]["X"], data["train"]["y"])
-
-      preds = reg.predict(data["test"]["X"])
-      mse = mean_squared_error(preds, data["test"]["y"])
-      # log the alpha and mse values
-      run.log('alpha', alpha)
-      run.log('mse', mse)
-
-      model_file_name = 'ridge_{0:.2f}.pkl'.format(alpha)
-      # save model in the outputs folder so it automatically get uploaded
-      with open(model_file_name, "wb") as file:
-          joblib.dump(value = reg, filename = model_file_name)
-
-      # upload the model file explicitly into artifacts 
-      run.upload_file(name = model_file_name, path_or_stream = model_file_name)
-
-      # register the model
-      #run.register_model(file_name = model_file_name)
-
-      print('alpha is {0:.2f}, and mse is {1:0.2f}'.format(alpha, mse))
-  
-   ```
+   [! code-python [] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train.py)]
 
 2. `train.py` 스크립트는 Ridge 모델에서 사용할 알파 값 목록을 가져올 수 있는 `mylib.py`를 참조합니다.
 
-   ```python
-   # mylib.py
-  
-   import numpy as np
-
-   def get_alphas():
-      # list of numbers from 0.0 to 1.0 with a 0.05 interval
-      return np.arange(0.0, 1.0, 0.05)
-   ```
+   [! code-python [] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/mylib.py)] 
 
 3. 사용자 관리 로컬 환경을 구성합니다.
 
-   ```python
-   from azureml.core.environment import Environment
-    
-   # Editing a run configuration property on-fly.
-   user_managed_env = Environment("user-managed-env")
-    
-   user_managed_env.python.user_managed_dependencies = True
-    
-   # You can choose a specific Python environment by pointing to a Python path 
-   #user_managed_env.python.interpreter_path = '/home/johndoe/miniconda3/envs/myenv/bin/python'
-   ```
+   [! 노트북-python [] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train-on-local.ipynb? name = user_managed_env)]
+
 
 4. ```train.py``` 스크립트를 제출하여 사용자 관리 환경에서 실행합니다. 이 스크립트 폴더 전체는 ```mylib.py``` 파일을 포함하여 학습을 위해 제출됩니다.
 
-   ```python
-   from azureml.core import ScriptRunConfig
-    
-   exp = Experiment(workspace=ws, name="train-on-local")
-   src = ScriptRunConfig(source_directory='./', script='train.py')
-   src.run_config.environment = user_managed_env
-   run = exp.submit(src)
-   ```
+   [! 노트북-python [] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train-on-local.ipynb? name = src)] [! 노트북-python [] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train-on-local.ipynb? name = run)]
+
+
+
 
 ## <a name="manage-a-run"></a>실행 관리
 

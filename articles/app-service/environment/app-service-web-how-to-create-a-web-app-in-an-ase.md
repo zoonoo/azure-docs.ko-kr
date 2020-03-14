@@ -8,11 +8,11 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 5c947617f0c27708e72f9bff92e2b0041473cd92
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422064"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79266196"
 ---
 # <a name="create-a-web-app-in-an-app-service-environment-v1"></a>App Service Environment v1에서 웹앱 만들기
 
@@ -28,10 +28,10 @@ ms.locfileid: "75422064"
 > 
 > 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 이 자습서는 App Service Environment를 만든 적이 있는 개발자를 대상으로 합니다. 만들어 본 적이 없는 경우 [App Service Environment 만들기](app-service-web-how-to-create-an-app-service-environment.md)를 참조하세요. 
 
-## <a name="create-a-web-app"></a>웹 응용 프로그램 만들기
+## <a name="create-a-web-app"></a>웹앱 만들기
 1. [Azure Portal](https://portal.azure.com/)에서 **리소스 만들기 > 웹 + 모바일 > 웹앱**을 클릭합니다. 
    
     ![][1]
