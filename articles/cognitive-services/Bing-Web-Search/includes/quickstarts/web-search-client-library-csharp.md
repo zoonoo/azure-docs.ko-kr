@@ -6,14 +6,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 02/24/2020
+ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: 6ba6aab1a1b4a78af1a991cbf74083a41f0c0306
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 32a31892317cadb37f16e48df80bef7d6d8a99ef
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77651984"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78924815"
 ---
 Bing Web Search 클라이언트 라이브러리를 사용하면 Bing Web Search를 C# 애플리케이션에 쉽게 통합할 수 있습니다. 이 빠른 시작에서는 클라이언트를 인스턴스화하고, 요청을 보내며, 응답을 출력하는 방법에 대해 알아봅니다.
 
@@ -422,3 +422,4 @@ dotnet run
 
 > [!div class="nextstepaction"]
 > [Cognitive Services Node.js SDK 샘플](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/)
+                                    

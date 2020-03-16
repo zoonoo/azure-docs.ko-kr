@@ -6,14 +6,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 02/24/2020
+ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: ffa493c5bed152eea58d29bbf56215af7ebce5b1
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: 019abc79091527b105238ef83bfca1913fae600b
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78208239"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78925822"
 ---
 Bing Web Search 클라이언트 라이브러리를 사용하면 Bing Web Search를 Python 애플리케이션에 쉽게 통합할 수 있습니다. 이 빠른 시작에서는 요청을 보내고, JSON 응답을 받고, 결과를 필터링 및 구문 분석하는 방법에 대해 알아봅니다.
 

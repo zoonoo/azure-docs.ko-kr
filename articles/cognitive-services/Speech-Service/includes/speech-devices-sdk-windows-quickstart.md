@@ -5,12 +5,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 02/20/2020
 ms.author: dapine
-ms.openlocfilehash: d2f8603b659fe44f83b725a92fb7b73cfe34cf37
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 11d2f9788f41e259058af50a728b8b82eeb10131
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77563053"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78384070"
 ---
 이 빠른 시작에서는 Windows용 Speech Devices SDK를 사용하여 음성 지원 제품을 빌드하거나 [대화 전사](../conversation-transcription-service.md) 디바이스로 사용하는 방법을 알아봅니다. 대화 전사의 경우 [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/)만 지원됩니다. 다른 음성의 경우 마이크 배열 기하 도형을 제공하는 선형 마이크 배열이 지원됩니다.
 
@@ -74,7 +74,7 @@ ms.locfileid: "77563053"
         <dependency>
              <groupId>com.microsoft.cognitiveservices.speech</groupId>
              <artifactId>client-sdk</artifactId>
-             <version>1.9.0</version>
+             <version>1.10.0</version>
         </dependency>
     </dependencies>
    ```
