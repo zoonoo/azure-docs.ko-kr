@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: Dawgfan
 ms.author: mmcc
 ms.date: 09/20/2019
-ms.openlocfilehash: 600ca893e6d6b81fe24626a99cc1f6de80efb3e8
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.openlocfilehash: 5414a70180a82be8253dace7d800c90c1ae6a9bd
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78228140"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79276076"
 ---
 # <a name="application-insights-for-web-pages"></a>웹 페이지용 Application Insights
 
@@ -51,11 +51,11 @@ appInsights.trackPageView(); // Manually call trackPageView to establish the cur
 
 ```html
 <script type="text/javascript">
-var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=window[sdkInstance],aisdk=window[aiName]||function(e){function n(e){t[e]=function(){var n=arguments;t.queue.push(function(){t[e].apply(t,n)})}}var t={config:e};t.initialize=!0;var i=document,a=window;setTimeout(function(){var n=i.createElement("script");n.src=e.url||"https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js",i.getElementsByTagName("script")[0].parentNode.appendChild(n)});try{t.cookie=i.cookie}catch(e){}t.queue=[],t.version=2;for(var r=["Event","PageView","Exception","Trace","DependencyData","Metric","PageViewPerformance"];r.length;)n("track"+r.pop());n("startTrackPage"),n("stopTrackPage");var s="Track"+r[0];if(n("start"+s),n("stop"+s),n("addTelemetryInitializer"),n("setAuthenticatedUserContext"),n("clearAuthenticatedUserContext"),n("flush"),t.SeverityLevel={Verbose:0,Information:1,Warning:2,Error:3,Critical:4},!(!0===e.disableExceptionTracking||e.extensionConfig&&e.extensionConfig.ApplicationInsightsAnalytics&&!0===e.extensionConfig.ApplicationInsightsAnalytics.disableExceptionTracking)){n("_"+(r="onerror"));var o=a[r];a[r]=function(e,n,i,a,s){var c=o&&o(e,n,i,a,s);return!0!==c&&t["_"+r]({message:e,url:n,lineNumber:i,columnNumber:a,error:s}),c},e.autoExceptionInstrumented=!0}return t}(
+var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=window[sdkInstance],aisdk=window[aiName]||function(n){var o={config:n,initialize:!0},t=document,e=window,i="script";setTimeout(function(){var e=t.createElement(i);e.src=n.url||"https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js",t.getElementsByTagName(i)[0].parentNode.appendChild(e)});try{o.cookie=t.cookie}catch(e){}function a(n){o[n]=function(){var e=arguments;o.queue.push(function(){o[n].apply(o,e)})}}o.queue=[],o.version=2;for(var s=["Event","PageView","Exception","Trace","DependencyData","Metric","PageViewPerformance"];s.length;)a("track"+s.pop());var r="Track",c=r+"Page";a("start"+c),a("stop"+c);var u=r+"Event";if(a("start"+u),a("stop"+u),a("addTelemetryInitializer"),a("setAuthenticatedUserContext"),a("clearAuthenticatedUserContext"),a("flush"),o.SeverityLevel={Verbose:0,Information:1,Warning:2,Error:3,Critical:4},!(!0===n.disableExceptionTracking||n.extensionConfig&&n.extensionConfig.ApplicationInsightsAnalytics&&!0===n.extensionConfig.ApplicationInsightsAnalytics.disableExceptionTracking)){a("_"+(s="onerror"));var p=e[s];e[s]=function(e,n,t,i,a){var r=p&&p(e,n,t,i,a);return!0!==r&&o["_"+s]({message:e,url:n,lineNumber:t,columnNumber:i,error:a}),r},n.autoExceptionInstrumented=!0}return o}(
 {
   instrumentationKey:"INSTRUMENTATION_KEY"
 }
-);window[aiName]=aisdk,aisdk.queue&&0===aisdk.queue.length&&aisdk.trackPageView({});
+);(window[aiName]=aisdk).queue&&0===aisdk.queue.length&&aisdk.trackPageView({});
 </script>
 ```
 
@@ -95,6 +95,7 @@ appInsights.trackTrace({message: 'This message will use a telemetry initializer'
 appInsights.addTelemetryInitializer(() => false); // Nothing is sent after this is executed
 appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 ```
+
 ## <a name="configuration"></a>구성
 대부분의 구성 필드의 이름은 기본적으로 false로 설정 될 수 있습니다. `instrumentationKey`를 제외 하 고 모든 필드는 선택 사항입니다.
 
@@ -155,7 +156,7 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 
 ## <a name="explore-browserclient-side-data"></a>브라우저/클라이언트 쪽 데이터 탐색
 
-**메트릭** 으로 이동 하 고 관심 있는 개별 메트릭을 추가 하 여 브라우저/클라이언트 쪽 데이터를 볼 수 있습니다. 
+**메트릭** 으로 이동 하 고 관심 있는 개별 메트릭을 추가 하 여 브라우저/클라이언트 쪽 데이터를 볼 수 있습니다.
 
 ![](./media/javascript/page-view-load-time.png)
 
@@ -165,7 +166,7 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 
 ![](./media/javascript/browser.png)
 
-### <a name="performance"></a>성능 
+### <a name="performance"></a>성능
 
 ![](./media/javascript/performance-operations.png)
 
@@ -173,7 +174,7 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 
 ![](./media/javascript/performance-dependencies.png)
 
-### <a name="analytics"></a>분석 
+### <a name="analytics"></a>분석
 
 JavaScript SDK에 의해 수집 된 원격 분석을 쿼리하려면 **로그 (분석)에서 보기** 단추를 선택 합니다. `client_Type == "Browser"``where` 문을 추가 하면 JavaScript SDK의 데이터만 볼 수 있고 다른 Sdk에서 수집한 서버 쪽 원격 분석은 제외 됩니다.
  
@@ -194,7 +195,14 @@ dataset
 
 ### <a name="source-map-support"></a>원본 맵 지원
 
-예외 원격 분석의 매우 많은 호출 스택이 Azure Portal에서 확인할 수 없습니다. 예외 세부 정보 패널의 모든 기존 통합은 새로 적용 되지 않은 호출 스택에 적용 됩니다. 끌어서 놓기 소스 맵 unminifying는 모든 기존 및 향후 JS Sdk (+ NODE.JS)를 지원 하므로 SDK 버전을 업그레이드할 필요가 없습니다. 취소할 수 없는 호출 스택을 보려면
+예외 원격 분석의 매우 많은 호출 스택이 Azure Portal에서 확인할 수 없습니다. 예외 세부 정보 패널의 모든 기존 통합은 새로 적용 되지 않은 호출 스택에 적용 됩니다.
+
+#### <a name="link-to-blob-storage-account"></a>Blob storage 계정에 연결
+
+사용자 고유의 Azure Blob Storage 컨테이너에 Application Insights 리소스를 연결 하 여 호출 스택을 자동으로 취소할 수 있습니다. 시작 하려면 [자동 소스 맵 지원](./source-map-support.md)을 참조 하세요.
+
+### <a name="drag-and-drop"></a>끌어서 놓기
+
 1. Azure Portal에서 예외 원격 분석 항목을 선택 하 여 "종단 간 트랜잭션 정보"를 확인 합니다.
 2. 이 호출 스택에 해당 하는 소스 맵을 식별 합니다. 소스 맵은 스택 프레임의 소스 파일과 일치 해야 하지만 `.map` 접미사가 붙습니다.
 3. 소스 맵을 Azure Portal의 호출 스택으로 끌어 놓습니다 ![](https://i.imgur.com/Efue9nU.gif)
