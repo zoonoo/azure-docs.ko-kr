@@ -8,6 +8,8 @@
       href: overview.md
     - name: 메시징 서비스 비교
       href: compare-messaging-services.md
+    - name: 프리미엄 계층 및 기본 계층
+      href: premium-basic-tiers.md
 - name: 빠른 시작
   expanded: true
   items:
@@ -102,6 +104,8 @@
           href: security-authentication.md
         - name: 권한 부여
           href: security-authorization.md
+        - name: 네트워크 보안
+          href: network-security.md
     - name: 배달 및 다시 시도
       href: delivery-and-retry.md
     - name: 이벤트 필터링
@@ -118,6 +122,12 @@
       href: geo-disaster-recovery.md
 - name: 방법 가이드
   items:
+    - name: 프라이빗 엔드포인트 구성(미리 보기)
+      href: configure-private-endpoints.md
+    - name: IP 방화벽 구성(미리 보기)
+      href: configure-firewall.md
+    - name: 가격 책정 계층 업데이트
+      href: update-tier.md
     - name: 사용자 지정 항목에 게시
       href: post-to-custom-topic.md
     - name: HTTP 엔드포인트에서 이벤트 받기

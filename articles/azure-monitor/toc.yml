@@ -1181,7 +1181,7 @@
               href: app/data-model-exception-telemetry.md
             - name: 추적
               href: app/data-model-trace-telemetry.md
-            - name: 행사
+            - name: 이벤트
               href: app/data-model-event-telemetry.md
             - name: 메트릭
               href: app/data-model-metric-telemetry.md
@@ -1245,6 +1245,8 @@
           href: app/docker.md
         - name: OMS 포털 사용 중단
           href: platform/oms-portal-transition.md
+        - name: 디스크 메트릭 사용 중단
+          href: platform/portal-disk-metrics-deprecation.md
 - name: 리소스
   items:
     - name: Azure 로드맵

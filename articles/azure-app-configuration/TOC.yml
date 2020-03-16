@@ -64,8 +64,6 @@
   items:
     - name: 키-값 저장소
       href: concept-key-value.md
-    - name: 고객 관리형 키를 사용하여 암호화
-      href: concept-customer-managed-keys.md
     - name: 지정 시간 스냅샷
       href: concept-point-time-snapshot.md
     - name: 기능 관리
@@ -74,8 +72,12 @@
       href: concept-github-action.md
     - name: 이벤트 처리
       href: concept-app-configuration-event.md
-    - name: 인증
+    - name: 보안
       items:
+        - name: 고객 관리형 키를 사용하여 암호화
+          href: concept-customer-managed-keys.md
+        - name: 프라이빗 엔드포인트를 사용하여 구성 저장소 보호
+          href: concept-private-endpoint.md
         - name: Azure 관리 ID와 통합
           href: howto-integrate-azure-managed-service-identity.md
         - name: Azure Active Directory를 통해 액세스 사용
