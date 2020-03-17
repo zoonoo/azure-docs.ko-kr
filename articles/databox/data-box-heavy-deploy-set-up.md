@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: c96caf7a90f35913bcba04a00553ad1df2689999
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: dbf3531f84d218543b0ab1fb2199a66bdbde2926
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514428"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79117247"
 ---
 ::: zone target = "docs"
 
@@ -100,7 +100,7 @@ ms.locfileid: "76514428"
 
 다음 단계에 따라 디바이스의 노드 중 하나에 네트워크 케이블을 연결합니다.
 
-1. CAT 6 RJ-45 네트워크 케이블(그림의 파란색 케이블)을 사용하여 호스트 컴퓨터를 1Gbps 관리 포트에 연결합니다.
+1. CAT 6 RJ-45 네트워크 케이블(그림의 오른쪽 상단 케이블, MGMT라고 레이블이 지정된 플러그에 연결됨)을 사용하여 호스트 컴퓨터를 1Gbps 관리 포트에 연결합니다.
 2. QSFP+ 케이블(광섬유 또는 구리)을 사용하여 데이터용 40Gbps(1Gbps 이상 추천) 네트워크 인터페이스를 하나 이상 연결합니다. 10Gbps 스위치를 사용하는 경우 QSFP+ ~ SFP+ 어댑터(QSA 어댑터)가 있는 케이블을 사용하여 데이터용 40Gbps 네트워크 인터페이스를 연결합니다.
 
     ![케이블이 연결된 Data Box Heavy 포트](media/data-box-heavy-deploy-set-up/data-box-heavy-ports-cabled.png)

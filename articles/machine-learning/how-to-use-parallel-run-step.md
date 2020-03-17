@@ -11,12 +11,12 @@ ms.author: vaidyas
 author: vaidya-s
 ms.date: 01/15/2020
 ms.custom: Ignite2019
-ms.openlocfilehash: ff366468c994d8ba151dd476a5bcccc52bb7309f
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 313ba2c02fd65a967ab1969b6f99893de9a3bdb4
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122836"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79037359"
 ---
 # <a name="run-batch-inference-on-large-amounts-of-data-by-using-azure-machine-learning"></a>Azure Machine Learning을 사용하여 대량의 데이터에 대한 일괄 처리 유추 실행
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -85,7 +85,7 @@ def_data_store = ws.get_default_datastore()
 - 레이블을 포함하는 디렉터리
 - 출력에 대한 디렉터리
 
-`Dataset`는 Azure Machine Learning에서 데이터를 탐색, 변환 및 관리하는 데 사용되는 클래스입니다. 이 클래스에는 `TabularDataset` 및 `FileDataset`의 두 가지 형식이 있습니다. 이 예제에서는 일괄 처리 유추 파이프라인 단계의 입력으로 `FileDataset`를 사용합니다. 
+[`Dataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py)는 Azure Machine Learning에서 데이터를 탐색, 변환 및 관리하는 데 사용되는 클래스입니다. 이 클래스에는 [`TabularDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) 및 [`FileDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py)의 두 가지 형식이 있습니다. 이 예제에서는 일괄 처리 유추 파이프라인 단계의 입력으로 `FileDataset`를 사용합니다. 
 
 > [!NOTE] 
 > 현재는 일괄 처리 유추의 `FileDataset` 지원 범위가 Azure Blob 스토리지로 제한됩니다. 
@@ -94,7 +94,7 @@ def_data_store = ws.get_default_datastore()
 
 Azure Machine Learning 데이터 세트에 대한 자세한 내용은 [데이터 세트 만들기 및 액세스(미리 보기)](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets)를 참조하세요.
 
-`PipelineData` 개체는 파이프라인 단계 간에 중간 데이터를 전송하는 데 사용됩니다. 이 예제에서는 유추 출력에 사용합니다.
+[`PipelineData`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) 개체는 파이프라인 단계 간에 중간 데이터를 전송하는 데 사용됩니다. 이 예제에서는 유추 출력에 사용합니다.
 
 ```python
 from azureml.core.dataset import Dataset
@@ -331,7 +331,7 @@ parallelrun_step = ParallelRunStep(
 
 ### <a name="run-the-pipeline"></a>파이프라인 실행
 
-이제 파이프라인을 실행합니다. 먼저, 이전에 만든 작업 영역 참조와 파이프라인 단계를 사용하여 `Pipeline` 개체를 만듭니다. `steps` 매개 변수는 단계의 배열입니다. 여기서는 하나의 일괄 처리 채점 단계만 있습니다. 여러 단계가 있는 파이프라인을 빌드하려면 이 배열에서 단계를 순서대로 배치합니다.
+이제 파이프라인을 실행합니다. 먼저, 이전에 만든 작업 영역 참조와 파이프라인 단계를 사용하여 [`Pipeline`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29?view=azure-ml-py) 개체를 만듭니다. `steps` 매개 변수는 단계의 배열입니다. 여기서는 하나의 일괄 처리 채점 단계만 있습니다. 여러 단계가 있는 파이프라인을 빌드하려면 이 배열에서 단계를 순서대로 배치합니다.
 
 다음으로, `Experiment.submit()` 함수를 사용하여 실행할 파이프라인을 제출합니다.
 

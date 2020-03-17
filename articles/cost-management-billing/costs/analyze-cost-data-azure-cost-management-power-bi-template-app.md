@@ -4,16 +4,16 @@ description: 이 문서에서는 Azure Cost Management Power BI 앱을 설치하
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/12/2020
+ms.date: 03/05/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: benshy
-ms.openlocfilehash: 4a50ce5c386f1b928e9f767891840c84534938a9
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: bc676910a05dbec97ae05578399029f85f71e1ef
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169704"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399644"
 ---
 # <a name="analyze-cost-with-the-azure-cost-management-power-bi-app-for-enterprise-agreements-ea"></a>Azure Cost Management Power BI 앱을 사용하여 EA(기업계약) 비용 분석
 
@@ -43,7 +43,7 @@ Azure Cost Management Power BI 앱은 현재 [기업계약](https://azure.micros
   ![새 앱 시작 - 연결](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/connect-data2.png)
 9. 표시되는 대화 상자의 **BillingProfileIdOrEnrollmentNumber**에서 EA 등록 번호를 입력합니다. 가져올 데이터의 개월 수를 지정합니다. 기본 **범위** 값의 **등록 번호**를 그대로 유지하고, **다음**을 선택합니다.  
   ![EA 등록 정보 입력](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-number.png)  
-10. 다음 대화 상자에서 Azure에 연결하고 예약 인스턴스 추천 사항에 필요한 데이터를 가져옵니다. 기본값을 구성된 대로 그대로 유지하고, **로그인**을 선택합니다.  
+10. 다음 대화 상자에서 Azure에 연결하고 예약 인스턴스 추천 사항에 필요한 데이터를 가져옵니다. *기본값을 구성된 대로 그대로 유지하고*, **로그인**을 선택합니다.  
   ![Azure에 연결](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit.png)  
 11. 최종 설치 단계가 EA 등록에 연결되며, [엔터프라이즈 관리자](../manage/understand-ea-roles.md) 계정을 요구합니다. **로그인**을 선택하여 EA 등록으로 인증합니다. 이 단계에서는 Power BI에서 데이터 새로 고침 작업도 시작합니다.  
   ![EA 등록에 연결](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-auth.png)  
@@ -124,6 +124,50 @@ _정규화된 크기_ 및 _추천되는 정규화된 수량_ 값은 인스턴스
 **RI 구매** - 보고서에서 지정된 기간 동안의 RI 구매를 표시합니다.
 
 **가격표** - 보고서에서 청구 계정 또는 EA 등록과 관련된 자세한 가격 목록을 표시합니다.
+
+## <a name="troubleshoot-problems"></a>문제 해결
+
+Power BI 앱에 문제가 있는 경우 다음과 같은 문제 해결 정보가 도움이 될 수 있습니다.
+
+### <a name="budgetamount-error"></a>BudgetAmount 오류
+
+다음을 나타내는 오류가 발생할 수 있습니다.
+
+```
+Something went wrong
+There was an error when processing the data in the dataset.
+Please try again later or contact support. If you contact support, please provide these details.
+Data source error: The 'budgetAmount' column does not exist in the rowset. Table: Budgets.
+```
+
+#### <a name="cause"></a>원인
+
+이 오류는 기본 메타데이터를 사용하는 버그로 인해 발생합니다. 이 문제는 Azure Portal의 **Cost Management > 예산**에서 사용할 수 있는 예산이 없기 때문에 발생합니다. 버그 수정은 Power BI Desktop 및 Power BI 서비스에 배포되는 과정에 있습니다. 
+
+#### <a name="solution"></a>해결 방법
+
+- 버그가 해결될 때까지 청구 계정/EA 등록 수준에서 Azure Portal에서 테스트 예산을 추가하여 문제를 해결할 수 있습니다. 테스트 예산이 Power BI와의 연결을 차단 해제합니다. 예산 만들기에 대한 자세한 내용은 [자습서: Azure 예산 만들기 및 관리](tutorial-acm-create-budgets.md)를 참조하세요.
+
+
+### <a name="invalid-credentials-for-azureblob-error"></a>AzureBlob 오류에 대한 잘못된 자격 증명
+
+다음을 나타내는 오류가 발생할 수 있습니다.
+
+```
+Failed to update data source credentials: The credentials provided for the AzureBlobs source are invalid.
+```
+
+#### <a name="cause"></a>원인
+
+AutoFitComboMeter Blob 연결에 대한 인증 방법을 변경하는 경우 이 오류가 발생합니다.
+
+#### <a name="solution"></a>해결 방법
+
+1. 데이터에 연결합니다.
+1. EA 등록 및 개월 수를 입력한 후 인증 방법에 대해 **익명**, 개인 정보 수준 설정에 대해 **없음**의 기본값을 그대로 유지합니다.  
+  ![Azure에 연결](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit-troubleshoot.png)  
+1. 다음 페이지에서 인증 방법에 대해 **OAuth2**를 개인 정보 수준에 대해 **없음** 세트를 설정합니다. 그런 다음, 로그인하여 등록으로 인증합니다. 이 단계에서는 Power BI 데이터 새로 고침을 시작합니다.
+
 
 ## <a name="data-reference"></a>데이터 참조
 

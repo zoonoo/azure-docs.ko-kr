@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: b375ea8fdebd876bdc7ecf157a4cebd5e614dfd0
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: 411ffb9c05b0f6b4d8b7d37a11d0838c8734ec5e
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77443732"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79079809"
 ---
 # <a name="what-is-azure-maps"></a>Azure Maps란?
 
@@ -170,6 +170,8 @@ Azure Maps는 이동성을 위해 빌드되었으며 플랫폼 간 애플리케�
 Azure Maps 서비스에 액세스하려면 [Azure Portal](https://portal.azure.com)로 이동하여 Azure Maps 계정을 만들어야 합니다.
 
 Azure Maps는 키 기반 인증 체계를 사용합니다. 계정에는 미리 생성된 두 개의 키가 함께 제공되며, 두 키 중 하나를 사용합니다. 이러한 위치 기능을 애플리케이션에 통합하는 작업을 시작하고, Azure Maps 서비스를 요청합니다.
+
+참고 - Azure Maps는 고객 제공 주소/위치 쿼리("쿼리")를 매핑 기능을 위해 타사 TomTom과 공유합니다. TomTom와 공유하는 경우 쿼리는 고객 또는 최종 사용자에게 연결되지 않으며 개인을 식별하는 데 사용할 수 없습니다. Microsoft는 현재 Online Services 하도급업자 목록에 TomTom을 추가하는 과정을 진행 중입니다. Moovit 및 AccuWeather와의 통합을 포함하는 모바일 및 날씨 서비스는 현재 [미리 보기](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에 있습니다.
 
 ## <a name="supported-regions"></a>지원되는 지역
 

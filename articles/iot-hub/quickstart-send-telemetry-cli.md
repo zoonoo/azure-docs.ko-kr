@@ -9,12 +9,12 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/06/2019
-ms.openlocfilehash: 948dfd25881a6a90dd441ad640091d88812cc298
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 711e15986265324bbb353fb2b4404cbfeb48dc84
+ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931826"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78851443"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-monitor-it-with-the-azure-cli"></a>빠른 시작: 디바이스에서 IoT hub로 원격 분석을 전송하고 Azure CLI를 사용하여 모니터링
 
@@ -22,7 +22,7 @@ ms.locfileid: "73931826"
 
 IoT Hub는 스토리지 또는 처리를 위해 IoT 디바이스에서 클라우드로 다량의 원격 분석 데이터를 수집할 수 있게 해주는 Azure 서비스입니다. 이 빠른 시작에서는 Azure CLI를 사용하여 IoT Hub 및 시뮬레이트된 디바이스를 만들고, 허브에 디바이스 원격 분석을 전송하고, 클라우드-디바이스 메시지를 보냅니다. 또한 Azure Portal를 사용하여 디바이스 메트릭을 시각화할 수 있습니다. 이것은 CLI를 사용하여 IoT Hub 애플리케이션과 상호 작용하는 개발자를 위한 기본 워크플로입니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 - Azure 구독이 아직 없는 경우 시작하기 전에 [무료 구독을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Azure CLI. 브라우저에서 실행되는 대화형 CLI 셸인 Azure Cloud Shell을 사용하여 이 빠른 시작의 모든 명령을 실행할 수 있습니다. Cloud Shell을 사용하는 경우에는 아무 것도 설치할 필요가 없습니다. CLI를 로컬로 사용하려면 이 빠른 시작에 Azure CLI 버전 2.0.76 이상이 필요합니다. 버전을 찾으려면 az --version을 실행합니다. 설치하거나 업그레이드하려면 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 
@@ -35,6 +35,7 @@ CLI를 로컬로 실행하든, Cloud Shell에서 실행하든 관계없이, 브�
 이 섹션에서는 Azure Cloud Shell의 인스턴스를 시작합니다. CLI를 로컬로 사용하는 경우 [두 CLI 세션 준비](#prepare-two-cli-sessions) 섹션으로 건너뜁니다.
 
 Cloud Shell을 시작하려면 다음을 수행합니다.
+
 1. Azure Portal 오른쪽 위에 있는 메뉴 모음에서 **Cloud Shell** 단추를 선택합니다. 
 
     ![Azure Portal Cloud Shell 단추](media/quickstart-send-telemetry-cli/cloud-shell-button.png)
@@ -42,25 +43,30 @@ Cloud Shell을 시작하려면 다음을 수행합니다.
     > [!NOTE]
     > Cloud Shell을 처음 사용하는 경우 Cloud Shell을 사용하는 데 필요한 스토리지를 만들라는 메시지가 표시됩니다.  구독을 선택하여 스토리지 계정 및 Microsoft Azure Files 공유를 만듭니다. 
 
-1. **환경 선택** 드롭다운에서 원하는 CLI 환경을 선택합니다. 이 빠른 시작에서는 **Bash** 환경을 사용합니다. 다음 CLI 명령은 모두 Powershell 환경에서도 작동합니다. 
+2. **환경 선택** 드롭다운에서 원하는 CLI 환경을 선택합니다. 이 빠른 시작에서는 **Bash** 환경을 사용합니다. 다음 CLI 명령은 모두 Powershell 환경에서도 작동합니다. 
 
     ![CLI 환경 선택](media/quickstart-send-telemetry-cli/cloud-shell-environment.png)
 
 ## <a name="prepare-two-cli-sessions"></a>두 CLI 세션 준비
+
 이 섹션에서는 두 개의 Azure CLI 세션을 준비합니다. Cloud Shell을 사용하는 경우 별도의 브라우저 탭에서 두 세션을 실행합니다. 로컬 CLI 클라이언트를 사용하는 경우 두 개의 개별 CLI 인스턴스를 실행합니다. 첫 번째 세션을 시뮬레이트된 디바이스로 사용하고 두 번째 세션을 사용하여 메시지를 모니터링하고 보냅니다. 명령을 실행하려면 **복사**를 선택하여 이 빠른 시작의 코드 블록을 복사한 후 셸 세션에 붙여 넣고 실행합니다.
 
 Azure CLI를 사용하려면 Azure 계정에 로그인해야 합니다. Azure CLI 셸 세션과 IoT Hub 간의 모든 통신을 인증하고 암호화합니다. 따라서 이 빠른 시작에는 연결 문자열과 같은 실제 디바이스에서 사용하는 추가 인증이 필요하지 않습니다.
 
-1. [az extension add](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az-extension-add) 명령을 실행하여 CLI 셸에 Azure CLI용 Microsoft Azure IoT 확장을 추가합니다. IOT 확장은 Azure CLI에 IoT Hub, IoT Edge 및 IoT DPS(Device Provisioning Service) 고유의 명령을 추가합니다.
+*  [az extension add](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az-extension-add) 명령을 실행하여 CLI 셸에 Azure CLI용 Microsoft Azure IoT 확장을 추가합니다. IOT 확장은 Azure CLI에 IoT Hub, IoT Edge 및 IoT DPS(Device Provisioning Service) 고유의 명령을 추가합니다.
 
    ```azurecli
-   az extension add --name azure-cli-iot-ext
+   az extension add --name azure-iot
    ```
-    Azure IOT 확장을 설치한 후에는 Cloud Shell 세션에서 다시 설치할 필요가 없습니다. 
+   
+   Azure IOT 확장을 설치한 후에는 Cloud Shell 세션에서 다시 설치할 필요가 없습니다. 
 
-1. 두 번째 CLI 세션을 엽니다.  Cloud Shell을 사용하는 경우 **새 세션 열기**를 선택합니다. CLI를 로컬로 사용하는 경우 두 번째 인스턴스를 엽니다. 
+   [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
-    ![새 Cloud Shell 세션 열기](media/quickstart-send-telemetry-cli/cloud-shell-new-session.png)
+*  두 번째 CLI 세션을 엽니다.  Cloud Shell을 사용하는 경우 **새 세션 열기**를 선택합니다. CLI를 로컬로 사용하는 경우 두 번째 인스턴스를 엽니다. 
+
+    >[!div class="mx-imgBorder"]
+    >![새 Cloud Shell 세션 열기](media/quickstart-send-telemetry-cli/cloud-shell-new-session.png)
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 이 섹션에서는 Azure CLI를 사용하여 리소스 그룹 및 IoT Hub를 만듭니다.  Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. IoT Hub는 IoT 애플리케이션과 디바이스 간의 양방향 통신을 위한 중앙 메시지 허브 역할을 합니다. 

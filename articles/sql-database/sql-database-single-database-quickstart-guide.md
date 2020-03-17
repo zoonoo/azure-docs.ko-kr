@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 ms.date: 07/29/2019
-ms.openlocfilehash: 4332d57c8d5587a34ba3a593deb9bd635132b03d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 6070b53e5f906bc378402d98275b8f798f57b505
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820962"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78674422"
 ---
 # <a name="getting-started-with-single-databases-in-azure-sql-database"></a>Azure SQL Database의 단일 데이터베이스로 빠르게 시작하기
 
@@ -34,10 +34,8 @@ ms.locfileid: "73820962"
 
 PowerShell 또는 Azure CLI를 사용하여 데이터베이스를 만들고, 구성하고, 크기를 조정할 수 있습니다.
 
-- [PowerShell을 사용하여 단일 데이터베이스를 만들고 구성](scripts/sql-database-create-and-configure-database-powershell.md)
-- [Azure CLI를 사용하여 단일 데이터베이스를 만들고 구성](scripts/sql-database-create-and-configure-database-cli.md)
-- [PowerShell을 사용하여 단일 데이터베이스를 업데이트하고 리소스 크기 조정](scripts/sql-database-monitor-and-scale-database-powershell.md)
-- [Azure CLI를 사용하여 단일 데이터베이스를 업데이트하고 리소스 크기 조정](scripts/sql-database-monitor-and-scale-database-cli.md)
+- [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) 또는 [Azure CLI](scripts/sql-database-create-and-configure-database-cli.md)를 사용하여 단일 데이터베이스 만들기 및 구성
+- [PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md) 또는 [Azure CLI](scripts/sql-database-monitor-and-scale-database-cli.md)를 사용하여 단일 데이터베이스 업데이트 및 리소스 규모 조정
 
 ## <a name="migrating-to-a-single-database-with-minimal-downtime"></a>가동 중지 시간을 최소화하면서 단일 데이터베이스 마이그레이션
 
@@ -58,4 +56,4 @@ PowerShell 또는 Azure CLI를 사용하여 데이터베이스를 만들고, 구
 - [Azure SQL Database에서 단일 데이터베이스를 사용하는 방법](sql-database-howto-single-database.md)에서 고급 작업 방법을 자세히 알아보세요.
 - [PowerShell](sql-database-powershell-samples.md) 및 [Azure CLI](sql-database-cli-samples.md)로 작성된 샘플 스크립트를 찾아봅니다.
 - 데이터베이스를 구성하는 데 사용할 수 있는 [관리 API](sql-database-single-databases-manage.md)에 대해 자세히 알아봅니다.
-- [온-프레미스 데이터베이스에 대한 올바른 Azure SQL Database/Managed Instance SKU를 식별합니다](/sql/dma/dma-sku-recommend-sql-db/).
+- [온-프레미스 데이터베이스에 적합한 Azure SQL Database/Managed Instance SKU를 식별하세요](/sql/dma/dma-sku-recommend-sql-db/).

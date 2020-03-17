@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: tutorial
-ms.date: 12/04/2019
+ms.date: 03/06/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.custom: mvc
-ms.openlocfilehash: 654efd8f5fbe31131ae03a8e794bc2113df2d29f
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: b027ed6b936761e35e835401f9ce8398fac33073
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77912191"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129630"
 ---
 # <a name="secure-access-to-application-data"></a>애플리케이션 데이터에 대한 보안 액세스
 
@@ -36,110 +36,103 @@ ms.locfileid: "77912191"
 
 ## <a name="set-container-public-access"></a>컨테이너 공용 액세스 설정
 
-자습서 시리즈의 이 부분에서는 썸네일에 액세스하기 위해 SAS 토큰을 사용합니다. 이 단계에서는 _thumbnails_ 컨테이너에 대한 공용 액세스를 `off`로 설정합니다.
+자습서 시리즈의 이 부분에서는 썸네일에 액세스하기 위해 SAS 토큰을 사용합니다. 이 단계에서는 *thumbnails* 컨테이너에 대한 공용 액세스를 `off`로 설정합니다.
 
 ```azurecli-interactive 
-blobStorageAccount=<blob_storage_account>
+blobStorageAccount="<blob_storage_account>"
 
 blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
--n $blobStorageAccount --query [0].value --output tsv) 
+    --name $blobStorageAccount --query [0].value --output tsv) 
 
-az storage container set-permission \ 
---account-name $blobStorageAccount --account-key $blobStorageAccountKey \ 
---name thumbnails --public-access off
-``` 
+az storage container set-permission \
+    --account-name $blobStorageAccount \
+    --account-key $blobStorageAccountKey \
+    --name thumbnails \
+    --public-access off
+```
 
 ## <a name="configure-sas-tokens-for-thumbnails"></a>썸네일에 대한 SAS 토큰 구성
 
 이 자습서 시리즈의 1부에서 웹 애플리케이션은 공용 컨테이너의 이미지를 표시했습니다. 시리즈의 이 부분에서는 SAS(공유 액세스 서명) 토큰을 사용하여 썸네일 이미지를 검색합니다. SAS 토큰을 사용하여 IP, 프로토콜, 시간 간격, 허용되는 권한에 따라 컨테이너 또는 blob에 대해 제한된 액세스를 제공할 수 있습니다. SAS에 대한 자세한 내용은 [SAS(공유 액세스 서명)를 사용하여 Azure Storage 리소스에 대한 제한된 액세스 권한 부여](../common/storage-sas-overview.md)를 참조하세요.
 
-이 예제에서 소스 코드 리포지토리는 업데이트된 코드 샘플이 있는 `sasTokens` 분기를 사용합니다. [az webapp deployment source delete](/cli/azure/webapp/deployment/source)를 사용하여 기존 GitHub 배포를 삭제합니다. 다음으로, [az webapp deployment source config](/cli/azure/webapp/deployment/source) 명령을 사용하여 웹앱에 대한 Git 배포를 구성합니다.  
+이 예제에서 소스 코드 리포지토리는 업데이트된 코드 샘플이 있는 `sasTokens` 분기를 사용합니다. [az webapp deployment source delete](/cli/azure/webapp/deployment/source)를 사용하여 기존 GitHub 배포를 삭제합니다. 다음으로, [az webapp deployment source config](/cli/azure/webapp/deployment/source) 명령을 사용하여 웹앱에 대한 Git 배포를 구성합니다.
 
-다음 명령에서 `<web-app>`은 웹앱의 이름입니다.  
+다음 명령에서 `<web-app>`은 웹앱의 이름입니다.
 
 ```azurecli-interactive 
 az webapp deployment source delete --name <web-app> --resource-group myResourceGroup
 
 az webapp deployment source config --name <web_app> \
---resource-group myResourceGroup --branch sasTokens --manual-integration \
---repo-url https://github.com/Azure-Samples/storage-blob-upload-from-webapp
-``` 
+    --resource-group myResourceGroup --branch sasTokens --manual-integration \
+    --repo-url https://github.com/Azure-Samples/storage-blob-upload-from-webapp
+```
 
-리포지토리의 `sasTokens` 분기는 `StorageHelper.cs` 파일을 업데이트합니다. `GetThumbNailUrls` 작업이 아래 코드 예제로 바뀝니다. 업데이트된 작업은 [SharedAccessBlobPolicy](/dotnet/api/microsoft.azure.storage.blob.sharedaccessblobpolicy)를 설정하여 SAS 토큰에 대한 시작 시간, 만료 시간 및 사용 권한을 지정함으로써 썸네일 URL을 검색합니다. 웹앱을 배포했으므로 이제 SAS 토큰을 사용하여 URL을 갖는 썸네일이 검색됩니다. 업데이트된 작업은 다음 예제에 표시됩니다.
-    
+리포지토리의 `sasTokens` 분기는 `StorageHelper.cs` 파일을 업데이트합니다. `GetThumbNailUrls` 작업이 아래 코드 예제로 바뀝니다. 업데이트된 작업은 [BlobSasBuilder](/dotnet/api/azure.storage.sas.blobsasbuilder)를 사용하여 SAS 토큰에 대한 시작 시간, 만료 시간 및 사용 권한을 지정함으로써 썸네일 URL을 검색합니다. 웹앱을 배포했으므로 이제 SAS 토큰을 사용하여 URL을 갖는 썸네일이 검색됩니다. 업데이트된 작업은 다음 예제에 표시됩니다.
+
 ```csharp
 public static async Task<List<string>> GetThumbNailUrls(AzureStorageConfig _storageConfig)
 {
     List<string> thumbnailUrls = new List<string>();
 
-    // Create storagecredentials object by reading the values from the configuration (appsettings.json)
-    StorageCredentials storageCredentials = new StorageCredentials(_storageConfig.AccountName, _storageConfig.AccountKey);
+    // Create a URI to the storage account
+    Uri accountUri = new Uri("https://" + _storageConfig.AccountName + ".blob.core.windows.net/");
 
-    // Create cloudstorage account by passing the storagecredentials
-    CloudStorageAccount storageAccount = new CloudStorageAccount(storageCredentials, true);
-
-    // Create blob client
-    CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+    // Create BlobServiceClient from the account URI
+    BlobServiceClient blobServiceClient = new BlobServiceClient(accountUri);
 
     // Get reference to the container
-    CloudBlobContainer container = blobClient.GetContainerReference(_storageConfig.ThumbnailContainer);
+    BlobContainerClient container = blobServiceClient.GetBlobContainerClient(_storageConfig.ThumbnailContainer);
 
-    BlobContinuationToken continuationToken = null;
-
-    BlobResultSegment resultSegment = null;
-
-    //Call ListBlobsSegmentedAsync and enumerate the result segment returned, while the continuation token is non-null.
-    //When the continuation token is null, the last page has been returned and execution can exit the loop.
-    do
+    if (container.Exists())
     {
-        //This overload allows control of the page size. You can return all remaining results by passing null for the maxResults parameter,
-        //or by calling a different overload.
-        resultSegment = await container.ListBlobsSegmentedAsync("", true, BlobListingDetails.All, 10, continuationToken, null, null);
-
-        foreach (var blobItem in resultSegment.Results)
+        // Set the expiration time and permissions for the container.
+        // In this case, the start time is specified as a few 
+        // minutes in the past, to mitigate clock skew.
+        // The shared access signature will be valid immediately.
+        BlobSasBuilder sas = new BlobSasBuilder
         {
-            CloudBlockBlob blob = blobItem as CloudBlockBlob;
-            //Set the expiry time and permissions for the blob.
-            //In this case, the start time is specified as a few minutes in the past, to mitigate clock skew.
-            //The shared access signature will be valid immediately.
-            SharedAccessBlobPolicy sasConstraints = new SharedAccessBlobPolicy();
+            Resource = "c",
+            BlobContainerName = _storageConfig.ThumbnailContainer,
+            StartsOn = DateTimeOffset.UtcNow.AddMinutes(-5),
+            ExpiresOn = DateTimeOffset.UtcNow.AddHours(1)
+        };
 
-            sasConstraints.SharedAccessStartTime = DateTimeOffset.UtcNow.AddMinutes(-5);
+        sas.SetPermissions(BlobContainerSasPermissions.All);
 
-            sasConstraints.SharedAccessExpiryTime = DateTimeOffset.UtcNow.AddHours(24);
+        // Create StorageSharedKeyCredentials object by reading
+        // the values from the configuration (appsettings.json)
+        StorageSharedKeyCredential storageCredential =
+            new StorageSharedKeyCredential(_storageConfig.AccountName, _storageConfig.AccountKey);
 
-            sasConstraints.Permissions = SharedAccessBlobPermissions.Read;
+        // Create a SAS URI to the storage account
+        UriBuilder sasUri = new UriBuilder(accountUri);
+        sasUri.Query = sas.ToSasQueryParameters(storageCredential).ToString();
 
-            //Generate the shared access signature on the blob, setting the constraints directly on the signature.
-            string sasBlobToken = blob.GetSharedAccessSignature(sasConstraints);
+        foreach (BlobItem blob in container.GetBlobs())
+        {
+            // Create the URI using the SAS query token.
+            string sasBlobUri = container.Uri + "/" +
+                                blob.Name + sasUri.Query;
 
             //Return the URI string for the container, including the SAS token.
-            thumbnailUrls.Add(blob.Uri + sasBlobToken);
-
+            thumbnailUrls.Add(sasBlobUri);
         }
-
-        //Get the continuation token.
-        continuationToken = resultSegment.ContinuationToken;
     }
-
-    while (continuationToken != null);
-
     return await Task.FromResult(thumbnailUrls);
 }
 ```
 
 다음 클래스, 속성 및 메서드는 이전 작업에서 사용됩니다.
 
-|클래스  |속성| 메서드  |
-|---------|---------|---------|
-|[StorageCredentials](/dotnet/api/microsoft.azure.cosmos.table.storagecredentials)    |         |
-|[CloudStorageAccount](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount)     | |[CreateCloudBlobClient](/dotnet/api/microsoft.azure.storage.blob.blobaccountextensions.createcloudblobclient)        |
-|[CloudBlobClient](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient)     | |[GetContainerReference](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.getcontainerreference)         |
-|[CloudBlobContainer](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer)     | |[SetPermissionsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.setpermissionsasync) <br> [ListBlobsSegmentedAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.listblobssegmentedasync)       |
-|[BlobContinuationToken](/dotnet/api/microsoft.azure.storage.blob.blobcontinuationtoken)     |         |
-|[BlobResultSegment](/dotnet/api/microsoft.azure.storage.blob.blobresultsegment)    | [결과](/dotnet/api/microsoft.azure.storage.blob.blobresultsegment.results)         |
-|[CloudBlockBlob](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob)    |         | [GetSharedAccessSignature](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getsharedaccesssignature)
-|[SharedAccessBlobPolicy](/dotnet/api/microsoft.azure.storage.blob.sharedaccessblobpolicy)     | [SharedAccessStartTime](/dotnet/api/microsoft.azure.storage.blob.sharedaccessblobpolicy.sharedaccessstarttime)<br>[SharedAccessExpiryTime](/dotnet/api/microsoft.azure.storage.blob.sharedaccessblobpolicy.sharedaccessexpirytime)<br>[권한](/dotnet/api/microsoft.azure.storage.blob.sharedaccessblobpolicy.permissions) |        |
+| 클래스 | 속성 | 메서드 |
+|-------|------------|---------|
+|[StorageSharedKeyCredential](/dotnet/api/azure.storage.storagesharedkeycredential) |  |  |
+|[BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) |  |[GetBlobContainerClient](/dotnet/api/azure.storage.blobs.blobserviceclient.getblobcontainerclient) |
+|[BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) | [Uri](/dotnet/api/azure.storage.blobs.blobcontainerclient.uri) |[Exists](/dotnet/api/azure.storage.blobs.blobcontainerclient.exists) <br> [GetBlobs](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobs) |
+|[BlobSasBuilder](/dotnet/api/azure.storage.sas.blobsasbuilder) |  | [SetPermissions](/dotnet/api/azure.storage.sas.blobsasbuilder.setpermissions) <br> [ToSasQueryParameters](/dotnet/api/azure.storage.sas.blobsasbuilder.tosasqueryparameters) |
+|[BlobItem](/dotnet/api/azure.storage.blobs.models.blobitem) | [이름](/dotnet/api/azure.storage.blobs.models.blobitem.name) |  |
+|[UriBuilder](/dotnet/api/system.uribuilder) | [쿼리](/dotnet/api/system.uribuilder.query) |  |
+|[목록](/dotnet/api/system.collections.generic.list-1) | | [추가](/dotnet/api/system.collections.generic.list-1.add) |
 
 ## <a name="server-side-encryption"></a>서버 쪽 암호화
 

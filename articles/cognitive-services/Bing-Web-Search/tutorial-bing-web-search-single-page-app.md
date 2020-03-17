@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: tutorial
-ms.date: 12/09/2019
+ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: 1acc17f9c2fbeb53b992891174866433d14f128d
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: f692367ad431dc8f1623e1b3d5109c313e351934
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76986664"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943886"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-web-search-api"></a>자습서: Bing Web Search API를 사용하여 단일 페이지 앱 만들기
 
@@ -37,8 +37,7 @@ ms.locfileid: "76986664"
 앱을 실행하는 데 필요한 몇 가지 사항은 다음과 같습니다.
 
 * Node.js 8 이상
-* 구독 키
-
+* Bing Search API에 대한 구독 키입니다. 없는 경우 [Bing Search v7 리소스를 만듭니다](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). [평가판 키](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)를 사용할 수도 있습니다.
 ## <a name="get-the-source-code-and-install-dependencies"></a>소스 코드 가져오기 및 종속성 설치
 
 첫 번째 단계는 샘플 앱의 소스 코드를 사용하여 리포지토리를 복제하는 것입니다.

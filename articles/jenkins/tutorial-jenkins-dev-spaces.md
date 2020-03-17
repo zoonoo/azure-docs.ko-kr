@@ -3,12 +3,12 @@ title: Azure Kubernetes Service에서 Jenkins용 Azure Dev Spaces 플러그 인 
 description: 지속적인 통합 파이프라인에서 Azure Dev Spaces 플러그 인을 사용하는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.date: 10/23/2019
-ms.openlocfilehash: 7b23893eb331f55ff41992a2ca660e79f44a609a
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 281565cec5ee947781ab8ee9f62a00e01f9ababb
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250895"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79037033"
 ---
 # <a name="tutorial-using-the-azure-dev-spaces-plug-in-for-jenkins-with-azure-kubernetes-service"></a>자습서: Azure Kubernetes Service에서 Jenkins용 Azure Dev Spaces 플러그 인 사용 
 
@@ -265,7 +265,7 @@ Jenkins 파이프라인 구성과 Jenkinsfile은 CI 파이프라인의 단계를
 
 ![Jenkins 파이프라인 흐름](media/tutorial-jenkins-dev-spaces/jenkins-pipeline-flow.png)
 
-1. https://github.com/azure-devops/mywebapi 에서 수정된 *mywebapi* 프로젝트 버전을 다운로드합니다. 이 프로젝트는 *Jenkinsfile*, *Dockerfiles* 및 Helm 차트를 포함하여 파이프라인을 만드는 데 필요한 여러 파일을 포함하고 있습니다.
+1. [https://github.com/azure-devops/mywebapi](https://github.com/azure-devops/mywebapi)에서 수정된 *mywebapi* 프로젝트 버전을 다운로드합니다. 이 프로젝트는 *Jenkinsfile*, *Dockerfiles* 및 Helm 차트를 포함하여 파이프라인을 만드는 데 필요한 여러 파일을 포함하고 있습니다.
 
 2. Jenkins에 로그인합니다. 왼쪽 메뉴에서 **항목 추가**를 선택합니다.
 

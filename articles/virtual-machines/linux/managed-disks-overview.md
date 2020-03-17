@@ -1,18 +1,18 @@
 ---
-title: Linux VM용 Azure Disk Storage 개요
-description: Linux VM을 사용할 때 스토리지 계정을 처리해주는 Azure Managed Disks에 대한 개요
+title: 디스크 스토리지 개요
+description: VM을 사용할 때 스토리지 계정을 처리해주는 Azure 관리 디스크에 대한 개요
 author: roygara
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.topic: overview
 ms.date: 12/02/2019
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 2b25da174399b092fe821a46b235d7a2bd14572b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: edcde9c5192791e88da57d158bab3e79b171bfc8
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75355904"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944757"
 ---
 # <a name="introduction-to-azure-managed-disks"></a>Azure Managed Disks 소개
 

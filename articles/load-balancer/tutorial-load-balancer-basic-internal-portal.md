@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: d167a157935c6d51c025d2fbb11586343a2ef3f2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6f62771d707d1aebccbfaf809dee7d0dedf5fefa
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453516"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096121"
 ---
 # <a name="tutorial-balance-internal-traffic-load-with-a-basic-load-balancer-in-the-azure-portal"></a>자습서: Azure Portal에서 기본 부하 분산 장치로 내부 트래픽 부하 분산
 
@@ -121,10 +121,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 1. **백 엔드 풀 추가** 페이지에서 다음 값을 입력하거나 선택합니다.
    
    - **Name**: *MyBackendPool*을 입력합니다.
-   - **연결 대상**: 드롭다운하고 **가용성 세트**를 선택합니다.
-   - **가용성 집합**: **MyAvailabilitySet**를 선택합니다.
+   - **연결 대상**: 드롭다운 및 **Virtual Machine**을 선택합니다.
    
-1. **대상 네트워크 IP 구성 추가**를 선택합니다. 
+   
+1. **Virtual Machine**을 선택합니다. 
    1. **MyVM1** 및 **MyVM2**를 백 엔드 풀에 추가합니다.
    2. 각 머신이 추가되면 드롭다운하고 해당 **네트워크 IP 구성**을 선택합니다. 
    

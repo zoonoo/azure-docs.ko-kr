@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/24/2020
+ms.date: 03/05/2020
 ms.author: allensu
-ms.openlocfilehash: 0e19271b5c69610dd9f44c3121e195b80732279c
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 205826a6ad952383582f5a8086cbd8b85dbc3794
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77669542"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78359246"
 ---
 # <a name="what-is-virtual-network-nat-public-preview"></a>Virtual Network NAT(공개 미리 보기)란?
 
@@ -192,13 +192,13 @@ NAT는 일반적인 지원 채널을 통해 지원됩니다.
 
 ## <a name="limitations"></a>제한 사항
 
-- NAT는 표준 SKU 공용 IP, 공용 IP 접두사 및 부하 분산 장치 리소스와 호환됩니다.   기본 리소스(예: 기본 부하 분산 장치) 및 이러한 리소스에서 파생된 제품은 NAT와 호환되지 않습니다.  기본 리소스는 NAT에서 구성되지 않은 서브넷에 배치해야 합니다.
-- IPv4 주소 패밀리가 지원됩니다.  IPv6 주소 패밀리는 NAT와 상호 작용하지 않습니다.
-- NAT를 사용하는 경우 NSG 흐름 로깅이 지원되지 않습니다.
-- NAT는 여러 가상 네트워크에 걸쳐 있을 수 없습니다.
+* NAT는 표준 SKU 공용 IP, 공용 IP 접두사 및 부하 분산 장치 리소스와 호환됩니다.   기본 리소스(예: 기본 부하 분산 장치) 및 이러한 리소스에서 파생된 제품은 NAT와 호환되지 않습니다.  기본 리소스는 NAT에서 구성되지 않은 서브넷에 배치해야 합니다.
+* IPv4 주소 패밀리가 지원됩니다.  IPv6 주소 패밀리는 NAT와 상호 작용하지 않습니다.  NAT는 IPv6 접두사가 있는 서브넷에 배포할 수 없습니다.
+* NAT를 사용하는 경우 NSG 흐름 로깅이 지원되지 않습니다.
+* NAT는 여러 가상 네트워크에 걸쳐 있을 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [NAT 게이트웨이 리소스](./nat-gateway-resource.md)에 대한 자세한 정보
-- [UserVoice에서 다음에 빌드할 항목 제시](https://aka.ms/natuservoice)
-- [공개 미리 보기에 대한 피드백 제공](https://aka.ms/natfeedback)
+* [NAT 게이트웨이 리소스](./nat-gateway-resource.md)에 대해 알아봅니다.
+* [UserVoice에서 Virtual Network NAT에 대해 다음에 빌드할 항목을 알려주세요](https://aka.ms/natuservoice).
+* [공개 미리 보기에 대한 피드백을 제공합니다](https://aka.ms/natfeedback).

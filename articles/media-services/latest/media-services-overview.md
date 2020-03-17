@@ -14,15 +14,15 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 02/03/2020
+ms.date: 03/09/2020
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 873db6315841b585aa0ba6bcb843bfe05567836f
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: 7e4a242c1f81a504872dae6399683483c836daf2
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78299264"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79086904"
 ---
 # <a name="azure-media-services-v3-overview"></a>Azure Media Services v3 개요
 
@@ -31,7 +31,9 @@ Azure Media Services는 브로드캐스트 품질의 비디오 스트리밍을 �
 Media Services v3 SDK는 [Media Services v3 OpenAPI 사양(Swagger)](https://aka.ms/ams-v3-rest-sdk)을 기반으로 합니다.
 
 > [!NOTE]
-> 현재는 Azure Portal을 사용하여 v3 리소스를 관리할 수 없습니다. [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) 또는 지원되는 [SDK](media-services-apis-overview.md#sdks) 중 하나를 사용하세요.
+> 현재 [Azure Portal](https://portal.azure.com/)을 사용하여 Media Services v3 [라이브 이벤트](live-events-outputs-concept.md)를 관리하고, v3 [자산](assets-concept.md)을 보고(관리 아님), [API 액세스에 대한 정보를 가져올](access-api-portal.md) 수 있습니다. 다른 모든 관리 작업(예제: [변환 및 작업](transforms-jobs-concept.md) 및 [콘텐츠 보호](content-protection-overview.md))의 경우 [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) 또는 지원되는 [SDK](media-services-apis-overview.md#sdks) 중 하나를 사용합니다.
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="compliance-privacy-and-security"></a>규정 준수, 개인 정보 보호 및 보안
 
@@ -39,7 +41,7 @@ Media Services v3 SDK는 [Media Services v3 OpenAPI 사양(Swagger)](https://aka
 
 비디오/이미지를 Media Services에 업로드하기 전에, Media Services와 Azure에서 데이터를 사용하고, 처리하고, 저장하는 데 대한 비디오/이미지에 포함된 개인(있는 경우)의 모든 필요한 동의(법에서 요구되는 경우)를 비롯하여 비디오/이미지를 사용할 수 있는 모든 적절한 권한이 있어야 합니다. 일부 관할 지역에서는 생체 데이터와 같은 특정 범주의 데이터를 수집하고 온라인으로 처리하고 저장하는 데 대해 특별한 법적 요구 사항이 적용될 수 있습니다. Media Services와 Azure를 특별한 법적 요구 사항이 적용되는 데이터를 처리하고 저장하는 데 사용하기 전에, 귀하에게 적용될 수 있는 이러한 법적 요구 사항을 반드시 준수해야 합니다.
 
-Media Services의 규정 준수, 개인 정보 보호 및 보안에 대해 알아보려면 Microsoft [보안 센터](https://www.microsoft.com/trust-center/?rtc=1)를 참조하세요. Microsoft의 개인 정보 보호 의무, 데이터 삭제 방법을 비롯한 데이터 처리 및 보존 방식에 대한 자세한 내용은 Microsoft의 [개인정보처리방침](https://privacy.microsoft.com/PrivacyStatement), [Online Services 사용 약관](https://www.microsoft.com/licensing/product-licensing/products?rtc=1)(“OST”) 및 [Data Processing 추록](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67)(“DPA”)을 검토하세요. Media Services를 사용하면 OST, DPA 및 개인정보처리방침을 준수할 것에 동의하는 것입니다.
+Media Services의 규정 준수, 개인 정보 보호 및 보안에 대해 알아보려면 Microsoft [보안 센터](https://www.microsoft.com/trust-center/?rtc=1)를 참조하세요. Microsoft의 개인 정보 보호 의무, 데이터 삭제 방법을 비롯한 데이터 처리 및 보존 방식에 대한 자세한 내용은 Microsoft의 [개인정보처리방침](https://privacy.microsoft.com/PrivacyStatement), [Online Services 사용 약관](https://www.microsoft.com/licensing/product-licensing/products?rtc=1)("OST") 및 [Data Processing 추록](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67)("DPA")을 검토하세요. Media Services를 사용하면 OST, DPA 및 개인정보처리방침을 준수할 것에 동의하는 것입니다.
  
 ## <a name="what-can-i-do-with-media-services"></a>Media Services로 무엇을 할 수 있나요?
 

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 1864b4867b8e1367a2397c5ed2ed9a77001dadb4
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 422251da25ae0ef911eb723bb0342a84fe99559c
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701198"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129916"
 ---
 # <a name="call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Windows 데스크톱 앱에서 Microsoft Graph API 호출
 
@@ -30,6 +30,9 @@ ms.locfileid: "76701198"
 
 > [!NOTE]
 > 이 가이드에는 Visual Studio 2015 업데이트 3, Visual Studio 2017 또는 Visual Studio 2019가 필요합니다. 이러한 버전이 설치되어 있지 않나요? [체험용 Visual Studio 2019를 다운로드](https://www.visualstudio.com/downloads/)합니다.
+
+>[!NOTE]
+> Microsoft ID 플랫폼을 처음 접하는 경우 [Windows 데스크톱 앱에서 토큰 가져오기 및 Microsoft Graph API 호출](quickstart-v2-windows-desktop.md)로 시작하는 것이 좋습니다.
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>이 가이드에서 생성된 샘플 앱의 작동 원리
 

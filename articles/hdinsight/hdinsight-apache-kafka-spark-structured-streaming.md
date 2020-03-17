@@ -5,23 +5,23 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,seodec18
 ms.topic: tutorial
-ms.date: 10/08/2019
-ms.openlocfilehash: 96420a3ea4ddc8c3d8210f1b35d6606257eba5ff
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.custom: hdinsightactive,seodec18
+ms.date: 03/11/2020
+ms.openlocfilehash: 66bfa0d3ee4cb03f1b48e2db24be7a90d97f60d6
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494382"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79117227"
 ---
 # <a name="tutorial-use-apache-spark-structured-streaming-with-apache-kafka-on-hdinsight"></a>자습서: HDInsight에서 Apache Kafka의 Apache Spark 정형 스트림 사용
 
-이 자습서에서는 Azure HDInsight에서 [Apache Kafka](https://kafka.apache.org/)를 사용하여 [Apache Spark Structured Streaming](https://spark.apache.org/docs/latest/structured-streaming-programming-guide)을 통해 데이터를 읽고 쓰는 방법을 보여줍니다.
+이 자습서에서는 Azure HDInsight에서 [Apache Kafka](./kafka/apache-kafka-introduction.md)를 사용하여 [Apache Spark Structured Streaming](https://spark.apache.org/docs/latest/structured-streaming-programming-guide)을 통해 데이터를 읽고 쓰는 방법을 보여줍니다.
 
 Spark Structured Streaming은 Spark SQL을 기반으로 하는 스트리밍 처리 엔진입니다. 정적 데이터에 대한 일괄 처리 계산과 동일하게 스트리밍 계산을 표현할 수 있습니다.  
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * Azure Resource Manager 템플릿을 사용하여 클러스터 만들기
@@ -29,9 +29,9 @@ Spark Structured Streaming은 Spark SQL을 기반으로 하는 스트리밍 처�
 
 이 문서의 단계를 완료하는 경우 과도한 요금이 청구되지 않도록 클러스터를 삭제해야 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-* 간단한 jq 명령줄 JSON 프로세서.  [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/)를 참조하세요.
+* 간단한 jq 명령줄 JSON 프로세서.  [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/)을 참조하세요.
 
 * HDInsight의 Spark에서 [Jupyter Notebook](https://jupyter.org/)을 사용하는 방법 이해. 자세한 내용은 [HDInsight의 Apache Spark로 데이터 로드 및 쿼리 실행](spark/apache-spark-load-data-run-query.md) 문서를 참조하세요.
 
@@ -154,7 +154,7 @@ Azure Virtual Network를 만든 후 그 안에 Kafka 및 Spark 클러스터를 �
 
     ![사용자 지정된 템플릿의 스크린샷](./media/hdinsight-apache-kafka-spark-structured-streaming/spark-kafka-template.png)
 
-3. **사용 약관**을 읽은 다음 **위에 명시된 사용 약관에 동의함**을 선택합니다.
+3. **사용 약관**을 읽은 다음, **위에 명시된 사용 약관에 동의함**을 선택합니다.
 
 4. **구매**를 선택합니다.
 
@@ -168,23 +168,21 @@ Azure Virtual Network를 만든 후 그 안에 Kafka 및 Spark 클러스터를 �
 1. 호스트 정보를 수집합니다. 아래의 curl 및 [jq](https://stedolan.github.io/jq/) 명령을 사용하여 Kafka ZooKeeper 및 broker 호스트 정보를 가져옵니다. 이러한 명령은 Windows 명령 프롬프트에 맞게 설계되었으며, 다른 환경에서는 약간 변경해야 합니다. `KafkaCluster`는 Kafka 클러스터의 이름으로 바꾸고, `KafkaPassword`는 클러스터 로그인 암호로 바꿉니다. 또한 `C:\HDI\jq-win64.exe`도 jq 설치의 실제 경로로 바꿉니다. Windows 명령 프롬프트에서 명령을 입력하고, 이후 단계에서 사용할 수 있도록 출력을 저장합니다.
 
     ```cmd
+    REM Enter cluster name in lowercase
+
     set CLUSTERNAME=KafkaCluster
     set PASSWORD=KafkaPassword
-    
+
     curl -u admin:%PASSWORD% -G "https://%CLUSTERNAME%.azurehdinsight.net/api/v1/clusters/%CLUSTERNAME%/services/ZOOKEEPER/components/ZOOKEEPER_SERVER" | C:\HDI\jq-win64.exe -r "["""\(.host_components[].HostRoles.host_name):2181"""] | join(""",""")"
-    
+
     curl -u admin:%PASSWORD% -G "https://%CLUSTERNAME%.azurehdinsight.net/api/v1/clusters/%CLUSTERNAME%/services/KAFKA/components/KAFKA_BROKER" | C:\HDI\jq-win64.exe -r "["""\(.host_components[].HostRoles.host_name):9092"""] | join(""",""")"
     ```
 
-2. 웹 브라우저의 Spark 클러스터에 있는 Jupyter Notebook에 연결합니다. 다음 URL에서 `CLUSTERNAME`을 __Spark__ 클러스터의 이름으로 바꿉니다.
+1. 웹 브라우저에서 `https://CLUSTERNAME.azurehdinsight.net/jupyter`로 이동합니다. 여기서 `CLUSTERNAME`은 클러스터의 이름입니다. 메시지가 표시되면 클러스터를 만들 때 사용한 클러스터 로그인(관리자) 이름과 암호를 입력합니다.
 
-        https://CLUSTERNAME.azurehdinsight.net/jupyter
+1. **새로 만들기 > Spark**를 차례로 선택하여 Notebook을 만듭니다.
 
-    메시지가 표시되면 클러스터를 만들 때 사용한 클러스터 로그인(관리자) 이름과 암호를 입력합니다.
-
-3. **새로 만들기 > Spark**를 차례로 선택하여 Notebook을 만듭니다.
-
-4. Spark 스트리밍에는 마이크로 일괄 처리가 있습니다. 즉, 데이터가 일괄 처리로 제공되고 실행기가 데이터 일괄 처리에서 실행됩니다. 실행기가 일괄 처리를 처리하는 데 걸리는 시간보다 유휴 시간 제한이 적은 경우 실행기는 지속적으로 추가 및 제거됩니다. 실행기 유휴 시간 제한이 일괄 처리 지속 시간 보다 크면 실행기는 제거되지 않습니다. 따라서 **스트리밍 애플리케이션을 실행할 때 spark.dynamicAllocation.enabled를 false로 설정하여 동적 할당을 비활성화하는 것이 좋습니다.**
+1. Spark 스트리밍에는 마이크로 일괄 처리가 있습니다. 즉, 데이터가 일괄 처리로 제공되고 실행기가 데이터 일괄 처리에서 실행됩니다. 실행기가 일괄 처리를 처리하는 데 걸리는 시간보다 유휴 시간 제한이 적은 경우 실행기는 지속적으로 추가 및 제거됩니다. 실행기 유휴 시간 제한이 일괄 처리 지속 시간 보다 크면 실행기는 제거되지 않습니다. 따라서 **스트리밍 애플리케이션을 실행할 때 spark.dynamicAllocation.enabled를 false로 설정하여 동적 할당을 비활성화하는 것이 좋습니다.**
 
     Notebook 셀에 다음 정보를 입력하여 Notebook에서 사용하는 패키지를 로드합니다. **Ctrl + Enter**를 사용하여 명령을 실행합니다.
 
@@ -199,7 +197,7 @@ Azure Virtual Network를 만든 후 그 안에 Kafka 및 Spark 클러스터를 �
     }
     ```
 
-5. Kafka 항목을 만듭니다. 아래 명령을 편집하여 `YOUR_ZOOKEEPER_HOSTS`를 첫 번째 단계에서 추출한 Zookeeper 호스트 정보로 바꿉니다. Jupyter Notebook에서 편집된 명령을 입력하여 `tripdata` 항목을 만듭니다.
+1. Kafka 항목을 만듭니다. 아래 명령을 편집하여 `YOUR_ZOOKEEPER_HOSTS`를 첫 번째 단계에서 추출한 Zookeeper 호스트 정보로 바꿉니다. Jupyter Notebook에서 편집된 명령을 입력하여 `tripdata` 항목을 만듭니다.
 
     ```scala
     %%bash
@@ -208,7 +206,7 @@ Azure Virtual Network를 만든 후 그 안에 Kafka 및 Spark 클러스터를 �
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic tripdata --zookeeper $KafkaZookeepers
     ```
 
-6. 택시 여행에 대한 데이터를 검색합니다. 뉴욕시 택시 여행에 대한 데이터를 로드하는 명령을 다음 셀에 입력합니다. 데이터가 데이터 프레임에 로드된 다음, 데이터 프레임이 셀 출력으로 표시됩니다.
+1. 택시 여행에 대한 데이터를 검색합니다. 뉴욕시 택시 여행에 대한 데이터를 로드하는 명령을 다음 셀에 입력합니다. 데이터가 데이터 프레임에 로드된 다음, 데이터 프레임이 셀 출력으로 표시됩니다.
 
     ```scala
     import spark.implicits._
@@ -224,7 +222,7 @@ Azure Virtual Network를 만든 후 그 안에 Kafka 및 Spark 클러스터를 �
     taxiDF.show()
     ```
 
-7. Kafka broker 호스트 정보를 설정합니다. `YOUR_KAFKA_BROKER_HOSTS`를 1단계에서 추출한 broker 호스트 정보로 바꿉니다.  편집된 명령을 다음 Jupyter Notebook 셀에 입력합니다.
+1. Kafka broker 호스트 정보를 설정합니다. `YOUR_KAFKA_BROKER_HOSTS`를 1단계에서 추출한 broker 호스트 정보로 바꿉니다.  편집된 명령을 다음 Jupyter Notebook 셀에 입력합니다.
 
     ```scala
     // The Kafka broker hosts and topic used to write to Kafka
@@ -234,7 +232,7 @@ Azure Virtual Network를 만든 후 그 안에 Kafka 및 Spark 클러스터를 �
     println("Finished setting Kafka broker and topic configuration.")
     ```
 
-8. 데이터를 Kafka에 보냅니다. 다음 명령에서 `vendorid` 필드는 Kafka 메시지에 대한 키 값으로 사용됩니다. 이 키는 데이터를 분할할 때 Kafka에서 사용됩니다. 모든 필드가 JSON 문자열 값으로 Kafka 메시지에 저장됩니다. Jupyter에서 다음 명령을 입력하여 일괄 처리 쿼리를 통해 데이터를 Kafka에 저장합니다.
+1. 데이터를 Kafka에 보냅니다. 다음 명령에서 `vendorid` 필드는 Kafka 메시지에 대한 키 값으로 사용됩니다. 이 키는 데이터를 분할할 때 Kafka에서 사용됩니다. 모든 필드가 JSON 문자열 값으로 Kafka 메시지에 저장됩니다. Jupyter에서 다음 명령을 입력하여 일괄 처리 쿼리를 통해 데이터를 Kafka에 저장합니다.
 
     ```scala
     // Select the vendorid as the key and save the JSON string as the value.
@@ -243,7 +241,7 @@ Azure Virtual Network를 만든 후 그 안에 Kafka 및 Spark 클러스터를 �
     println("Data sent to Kafka")
     ```
 
-9. 스키마를 선언합니다. 다음 명령에서는 Kafka에서 JSON 데이터를 읽을 때 스키마를 사용하는 방법을 보여 줍니다. 이 명령을 다음 Jupyter 셀에 입력합니다.
+1. 스키마를 선언합니다. 다음 명령에서는 Kafka에서 JSON 데이터를 읽을 때 스키마를 사용하는 방법을 보여 줍니다. 이 명령을 다음 Jupyter 셀에 입력합니다.
 
     ```scala
     // Import bits useed for declaring schemas and working with JSON data
@@ -279,7 +277,7 @@ Azure Virtual Network를 만든 후 그 안에 Kafka 및 Spark 클러스터를 �
     println("Schema declared")
     ```
 
-10. 데이터를 선택하고 스트리밍을 시작합니다. 다음 명령에서는 일괄 처리 쿼리를 사용하여 Kafka에서 데이터를 검색한 다음, Spark 클러스터의 HDFS에 결과를 쓰는 방법을 보여 줍니다. 이 예제에서는 `select`가 Kafka에서 메시지(value 필드)를 검색하고 스키마를 적용합니다. 그런 다음, 데이터를 Parquet 형식으로 HDFS(WASB 또는 ADL)에 씁니다. 이 명령을 다음 Jupyter 셀에 입력합니다.
+1. 데이터를 선택하고 스트리밍을 시작합니다. 다음 명령에서는 일괄 처리 쿼리를 사용하여 Kafka에서 데이터를 검색한 다음, Spark 클러스터의 HDFS에 결과를 쓰는 방법을 보여 줍니다. 이 예제에서는 `select`가 Kafka에서 메시지(value 필드)를 검색하고 스키마를 적용합니다. 그런 다음, 데이터를 Parquet 형식으로 HDFS(WASB 또는 ADL)에 씁니다. 이 명령을 다음 Jupyter 셀에 입력합니다.
 
     ```scala
     // Read a batch from Kafka
@@ -291,14 +289,14 @@ Azure Virtual Network를 만든 후 그 안에 Kafka 및 Spark 클러스터를 �
     println("Wrote data to file")
     ```
 
-11. 이 명령을 다음 Jupyter 셀에 입력하여 파일이 만들어졌는지 확인할 수 있습니다. `/example/batchtripdata` 디렉터리의 파일이 나열됩니다.
+1. 이 명령을 다음 Jupyter 셀에 입력하여 파일이 만들어졌는지 확인할 수 있습니다. `/example/batchtripdata` 디렉터리의 파일이 나열됩니다.
 
     ```scala
     %%bash
     hdfs dfs -ls /example/batchtripdata
     ```
 
-12. 이전 예제에서는 일괄 처리 쿼리를 사용했지만, 다음 명령에서는 스트리밍 쿼리를 사용하여 동일한 작업을 수행하는 방법을 보여 줍니다. 이 명령을 다음 Jupyter 셀에 입력합니다.
+1. 이전 예제에서는 일괄 처리 쿼리를 사용했지만, 다음 명령에서는 스트리밍 쿼리를 사용하여 동일한 작업을 수행하는 방법을 보여 줍니다. 이 명령을 다음 Jupyter 셀에 입력합니다.
 
     ```scala
     // Stream from Kafka
@@ -309,7 +307,7 @@ Azure Virtual Network를 만든 후 그 안에 Kafka 및 Spark 클러스터를 �
     println("Wrote data to file")
     ```
 
-13. 다음 셀을 실행하여 스트리밍 쿼리에서 파일이 기록되었는지 확인합니다.
+1. 다음 셀을 실행하여 스트리밍 쿼리에서 파일이 기록되었는지 확인합니다.
 
     ```scala
     %%bash
@@ -322,7 +320,7 @@ Azure Virtual Network를 만든 후 그 안에 Kafka 및 Spark 클러스터를 �
 
 Azure Portal을 사용하여 리소스 그룹을 제거하려면:
 
-1. Azure Portal에서 왼쪽의 메뉴를 확장하여 서비스 메뉴를 연 다음 __리소스 그룹__ 을 선택하여 리소스 그룹 목록을 표시합니다.
+1. [Azure Portal](https://portal.azure.com/)에서 왼쪽의 메뉴를 확장하여 서비스 메뉴를 연 다음, __리소스 그룹__을 선택하여 리소스 그룹 목록을 표시합니다.
 2. 삭제할 리소스 그룹을 찾은 다음 목록 오른쪽에 있는 __자세히__ 단추(...)를 마우스 오른쪽 단추로 클릭합니다.
 3. __리소스 그룹 삭제__ 를 선택한 다음 확인합니다.
 
@@ -333,7 +331,7 @@ Azure Portal을 사용하여 리소스 그룹을 제거하려면:
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 [Apache Spark Structured Streaming](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html)을 사용하여 HDInsight의 [Apache Kafka](https://kafka.apache.org/)에서 데이터를 읽고 쓰는 방법을 배웠습니다. Kafka에서 [Apache Storm](https://storm.apache.org/)을 사용하는 방법을 알아보려면 다음 링크를 사용하세요.
+이 자습서에서는 [Apache Spark Structured Streaming](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html)을 사용하여 HDInsight의 [Apache Kafka](./kafka/apache-kafka-introduction.md)에서 데이터를 읽고 쓰는 방법을 배웠습니다. Kafka에서 [Apache Storm](./storm/apache-storm-overview.md)을 사용하는 방법을 알아보려면 다음 링크를 사용하세요.
 
 > [!div class="nextstepaction"]
 > [Apache Kafka에서 Apache Storm 사용](hdinsight-apache-storm-with-kafka.md)

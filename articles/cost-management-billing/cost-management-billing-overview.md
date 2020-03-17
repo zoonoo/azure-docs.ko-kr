@@ -8,16 +8,16 @@ ms.date: 01/24/2020
 ms.topic: overview
 ms.service: cost-management-billing
 ms.custom: ''
-ms.openlocfilehash: 1c6f03663a7487e814272c6296f6e7862c65c806
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: c2d039dbf2ac7cfaeaad7ad038eb669337243cce
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76769897"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78970113"
 ---
 # <a name="what-is-azure-cost-management-and-billing"></a>Azure Cost Management 및 청구란?
 
-Azure 제품 및 서비스를 사용하면 사용한 만큼만 요금을 지불하면 됩니다. Azure 리소스를 만들고 사용하는 경우 리소스에 대한 요금이 청구됩니다. Azure Cost Management 및 청구 기능을 사용하여 청구 관리 작업을 수행하고 비용에 대한 청구 액세스를 관리합니다. 또한 Azure 지출을 모니터링 및 제어하고 Azure 리소스 사용을 최적화하는 기능을 제공합니다.
+Azure 제품 및 서비스를 사용하면 사용한 만큼만 요금을 지불하면 됩니다. Azure 리소스를 만들고 사용하는 경우 리소스에 대한 요금이 청구됩니다. Azure Cost Management 및 청구 기능을 사용하여 청구 관리 작업을 수행하고 비용에 대한 청구 액세스를 관리합니다. 또한 해당 기능을 사용하여 Azure 지출을 모니터링 및 제어하고 Azure 리소스 사용을 최적화할 수 있습니다.
 
 ## <a name="understand-azure-billing"></a>Azure 청구 이해
 

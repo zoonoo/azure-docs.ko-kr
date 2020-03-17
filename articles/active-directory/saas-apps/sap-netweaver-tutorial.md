@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d79c953f22bfe587f740bc29050796834309186a
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 700f2ca4d46b3483531fa0784cb78699befb20ca
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71103360"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78897745"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sap-netweaver"></a>자습서: SAP NetWeaver와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -33,7 +33,7 @@ ms.locfileid: "71103360"
 
 Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -177,7 +177,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     b. **변환** 목록에서 **ExtractMailPrefix()** 를 선택합니다.
 
-    다. **매개 변수 1** 목록에서 **user.userprinicipalname**을 선택합니다.
+    다. **매개 변수 1** 목록에서 **user.userprincipalname**을 선택합니다.
 
     d. **저장**을 클릭합니다.
 
@@ -197,7 +197,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자**를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
     1. **이름** 필드에 `B.Simon`을 입력합니다.  
-    1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예: `B.Simon@contoso.com`
+    1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
     1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
     1. **만들기**를 클릭합니다.
 
@@ -225,51 +225,51 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 2. 신뢰할 수 있는 ID 공급자(Azure AD)에 대한 엔드포인트 구성은 **신뢰할 수 있는 공급자** 탭으로 이동합니다.
 
-    ![Configure Single Sign-On](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_samlconfig.png)
+    ![Single Sign-on 구성](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_samlconfig.png)
 
 3. **추가** 키를 누르고 바로 가기 메뉴에서 **메타데이터 파일 업로드**를 선택합니다.
 
-    ![Configure Single Sign-On](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_uploadmetadata.png)
+    ![Single Sign-on 구성](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_uploadmetadata.png)
 
 4. Azure Portal에서 다운로드한 메타데이터 파일을 업로드합니다.
 
-    ![Configure Single Sign-On](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_metadatafile.png)
+    ![Single Sign-on 구성](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_metadatafile.png)
 
 5. 다음 화면에서 별칭 이름을 입력합니다. 예를 들어 aadsts를 입력하고 **Next**(다음)를 눌러 계속합니다.
 
-    ![Configure Single Sign-On](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_aliasname.png)
+    ![Single Sign-on 구성](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_aliasname.png)
 
 6. **다이제스트 알고리즘**은 **SHA-256**이어야 하며 변경이 필요하지 않으며 **다음**을 누릅니다.
 
-    ![Configure Single Sign-On](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_identityprovider.png)
+    ![Single Sign-on 구성](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_identityprovider.png)
 
 7. **Single Sign-On 엔드포인트**에서 **HTTP POST**를 사용하고 **다음**을 클릭하여 계속합니다.
 
-    ![Configure Single Sign-On](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_httpredirect.png)
+    ![Single Sign-on 구성](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_httpredirect.png)
 
 8. **단일 로그아웃 엔드포인트**에서 **HTTPRedirect**를 선택하고 **다음**을 클릭하여 계속합니다.
 
-    ![Configure Single Sign-On](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_httpredirect1.png)
+    ![Single Sign-on 구성](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_httpredirect1.png)
 
 9. **아티팩트 엔드포인트**에서 **다음**을 눌러 계속합니다.
 
-    ![Configure Single Sign-On](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_artifactendpoint.png)
+    ![Single Sign-on 구성](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_artifactendpoint.png)
 
 10. **인증 요구 사항**에서 **마침**을 클릭합니다.
 
-    ![Configure Single Sign-On](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_authentication.png)
+    ![Single Sign-on 구성](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_authentication.png)
 
 11. 탭 **신뢰할 수 있는 공급자** > **ID 페더레이션**(화면 맨 아래에서)으로 이동합니다. **편집**을 클릭합니다.
 
-    ![Configure Single Sign-On](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_trustedprovider.png)
+    ![Single Sign-on 구성](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_trustedprovider.png)
 
 12. **ID 페더레이션** 탭(아래쪽 창) 아래에서 **추가**를 클릭합니다.
 
-    ![Configure Single Sign-On](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_addidentityprovider.png)
+    ![Single Sign-on 구성](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_addidentityprovider.png)
 
 13. 팝업 창의 **Supported NameID formats**(지원되는 NameID 형식)에서 **Unspecified**(지정되지 않음)를 선택하고 [확인]을 클릭합니다.
 
-    ![Configure Single Sign-On](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_nameid.png)
+    ![Single Sign-on 구성](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_nameid.png)
 
 14. **사용자 ID 원본** 및 **사용자 ID 매핑 모드** 값은 SAP 사용자와 Azure AD 클레임 간의 링크를 결정합니다.  
 
@@ -277,29 +277,29 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     a. SAP의 NameID 세부 정보 스크린샷
 
-    ![Configure Single Sign-On](./media/sapnetweaver-tutorial/nameiddetails.png)
+    ![Single Sign-on 구성](./media/sapnetweaver-tutorial/nameiddetails.png)
 
     b. Azure AD에서 필요한 클레임을 언급하는 스크린샷
 
-    ![Configure Single Sign-On](./media/sapnetweaver-tutorial/claimsaad1.png)
+    ![Single Sign-on 구성](./media/sapnetweaver-tutorial/claimsaad1.png)
 
     #### <a name="scenario-select-sap-user-id-based-on-configured-email-address-in-su01-in-this-case-email-id-should-be-configured-in-su01-for-each-user-who-requires-sso"></a>시나리오: SU01에 구성된 이메일 주소를 기반으로 SAP 사용자 ID를 선택합니다. 이 경우 이메일 ID는 SSO를 필요로 하는 각 사용자에 대해 su01에서 구성되어야 합니다.
 
     a.  SAP의 NameID 세부 정보 스크린샷
 
-    ![Configure Single Sign-On](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_nameiddetails1.png)
+    ![Single Sign-on 구성](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_nameiddetails1.png)
 
     b. Azure AD에서 필요한 클레임을 언급하는 스크린샷
 
-    ![Configure Single Sign-On](./media/sapnetweaver-tutorial/claimsaad2.png)
+    ![Single Sign-on 구성](./media/sapnetweaver-tutorial/claimsaad2.png)
 
 15. **저장**을 클릭한 다음, **사용**을 클릭하여 ID 공급자를 사용하도록 설정합니다.
 
-    ![Configure Single Sign-On](./media/sapnetweaver-tutorial/configuration1.png)
+    ![Single Sign-on 구성](./media/sapnetweaver-tutorial/configuration1.png)
 
 16. 메시지가 표시되면 **확인**을 클릭합니다.
 
-    ![Configure Single Sign-On](./media/sapnetweaver-tutorial/configuration2.png)
+    ![Single Sign-on 구성](./media/sapnetweaver-tutorial/configuration2.png)
 
     ### <a name="create-sap-netweaver-test-user"></a>SAP NetWeaver 테스트 사용자 만들기
 
@@ -320,7 +320,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 2. 위의 URL은 아래 언급한 화면으로 안내합니다. 아래 페이지에 연결할 수 있는 경우 Azure AD SSO 설정이 성공적으로 수행된 것입니다.
 
-    ![Configure Single Sign-On](./media/sapnetweaver-tutorial/testingsso.png)
+    ![Single Sign-on 구성](./media/sapnetweaver-tutorial/testingsso.png)
 
 3. 사용자 이름 및 암호에 대한 메시지가 표시되는 경우 아래 URL을 사용하여 추적을 활성화하여 문제를 진단하세요.
 
@@ -332,17 +332,17 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 2. SPRO로 이동하여 **Activate and Maintain services**(서비스 활성화 및 유지 관리)를 찾습니다.
 
-    ![Configure Single Sign-On](./media/sapnetweaver-tutorial/oauth01.png)
+    ![Single Sign-on 구성](./media/sapnetweaver-tutorial/oauth01.png)
 
 3. 다음 예에서는 OAuth를 사용하여 OData 서비스(`DAAG_MNGGRP`)를 Azure AD SSO에 연결하려고 합니다. `DAAG_MNGGRP` 서비스에 대한 기술 서비스 이름 검색을 사용하고, 아직 활성 상태가 아닌 경우 이를 활성화합니다(ICF 노드 탭에서 `green` 상태 찾기). 시스템 별칭(서비스가 실제로 실행되고 있는 연결된 백 엔드 시스템)이 올바른지 확인합니다.
 
-    ![Configure Single Sign-On](./media/sapnetweaver-tutorial/oauth02.png)
+    ![Single Sign-on 구성](./media/sapnetweaver-tutorial/oauth02.png)
 
     * 그런 다음, 위쪽의 단추 모음에서 **OAuth** 누름 단추를 클릭하고 `scope`를 할당합니다(기본 이름은 제공된 대로 유지).
 
 4. 이 예에서 범위는 `DAAG_MNGGRP_001`이며, 숫자를 자동으로 추가하여 서비스 이름에서 생성됩니다. `/IWFND/R_OAUTH_SCOPES` 보고서를 사용하여 범위 이름을 변경하거나 수동으로 만들 수 있습니다.
 
-    ![Configure Single Sign-On](./media/sapnetweaver-tutorial/oauth03.png)
+    ![Single Sign-on 구성](./media/sapnetweaver-tutorial/oauth03.png)
 
     > [!NOTE]
     > 문제가 없으므로 `soft state status is not supported` 메시지는 무시할 수 있습니다. 자세한 내용은 [여기](https://help.sap.com/doc/saphelp_nw74/7.4.16/1e/c60c33be784846aad62716b4a1df39/content.htm?no_cache=true)를 참조하세요.
@@ -364,23 +364,23 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 2. T-Code: **SOAUTH2**로 이동하여 설명을 제공하고, **Next**를 클릭합니다.
 
-    ![Configure Single Sign-On](./media/sapnetweaver-tutorial/oauth04.png)
+    ![Single Sign-on 구성](./media/sapnetweaver-tutorial/oauth04.png)
 
-    ![Configure Single Sign-On](./media/sapnetweaver-tutorial/oauth05.png)
+    ![Single Sign-on 구성](./media/sapnetweaver-tutorial/oauth05.png)
 
 3. 드롭다운 목록에서 이미 추가된 **SAML2 IdP – Azure AD**를 선택하고 저장합니다.
 
-    ![Configure Single Sign-On](./media/sapnetweaver-tutorial/oauth06.png)
+    ![Single Sign-on 구성](./media/sapnetweaver-tutorial/oauth06.png)
 
-    ![Configure Single Sign-On](./media/sapnetweaver-tutorial/oauth07.png)
+    ![Single Sign-on 구성](./media/sapnetweaver-tutorial/oauth07.png)
 
-    ![Configure Single Sign-On](./media/sapnetweaver-tutorial/oauth08.png)
+    ![Single Sign-on 구성](./media/sapnetweaver-tutorial/oauth08.png)
 
 4. 이전에 만든 `DAAG_MNGGRP_001` 범위를 추가하려면 범위 할당 아래에서 **Add**(추가)를 클릭합니다.
 
-    ![Configure Single Sign-On](./media/sapnetweaver-tutorial/oauth09.png)
+    ![Single Sign-on 구성](./media/sapnetweaver-tutorial/oauth09.png)
 
-    ![Configure Single Sign-On](./media/sapnetweaver-tutorial/oauth10.png)
+    ![Single Sign-on 구성](./media/sapnetweaver-tutorial/oauth10.png)
 
 5. **마침**(Finish)을 클릭합니다.
 

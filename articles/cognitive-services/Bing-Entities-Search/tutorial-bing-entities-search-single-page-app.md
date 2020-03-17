@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: tutorial
-ms.date: 12/11/2019
+ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: 875a83501b00f0b23aa13317493ab6d341e4e283
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d45b9a153b770dd10da9dd61e8a7b3d138345b8a
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448601"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943130"
 ---
 # <a name="tutorial-single-page-web-app"></a>자습서: 단일 페이지 웹앱
 
@@ -55,6 +55,10 @@ API를 통해 위치별로 결과의 우선 순위를 지정할 수 있습니다
 
 > [!NOTE]
 > 이 자습서는 [단일 페이지 Bing Web Search 앱 자습서](../Bing-Web-Search/tutorial-bing-web-search-single-page-app.md)와 대체로 비슷하지만, 엔터티 검색 결과만 처리합니다.
+
+## <a name="prerequisites"></a>사전 요구 사항
+
+자습서를 따르려면 Bing Search API 및 Bing Maps API에 대한 구독 키가 필요합니다. 이러한 키가 없는 경우 [평가판 키](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) 및 [기본 Bing Maps 키](https://www.microsoft.com/maps/create-a-bing-maps-key)를 사용할 수 있습니다.
 
 ## <a name="app-components"></a>앱 구성 요소
 

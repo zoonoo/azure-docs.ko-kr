@@ -4,12 +4,12 @@ description: Azure Migrate 서버 마이그레이션을 사용하여 온-프레�
 ms.topic: tutorial
 ms.date: 11/18/2019
 ms.custom: MVC
-ms.openlocfilehash: a321c3e731a6649f0831f7d515f1c464b311c9ac
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: e1b670db3399857278c646d3793e8ec946d385b0
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76545911"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943308"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Hyper-V VM을 Azure로 마이그레이션 
 
@@ -243,7 +243,10 @@ Azure Migrate 프로젝트에서 복제하는 첫 번째 VM인 경우 Azure Migr
 
 ## <a name="complete-the-migration"></a>마이그레이션 완료
 
-1. 마이그레이션이 완료되면 마우스 오른쪽 단추로 VM > **마이그레이션 중지**를 차례로 클릭합니다. 그러면 온-프레미스 머신에 대한 복제가 중지되고, VM에 대한 복제 상태 정보가 정리됩니다.
+1. 마이그레이션이 완료되면 마우스 오른쪽 단추로 VM > **마이그레이션 중지**를 차례로 클릭합니다. 다음을 수행합니다.
+    - 온-프레미스 머신에 대한 복제를 중지합니다.
+    - Azure Migrate의 **서버 복제** 수에서 머신을 제거합니다. Server Migration에 연결합니다.
+    - VM에 대한 복제 상태 정보를 정리합니다.
 2. Azure VM [Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) 또는 [Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) 에이전트를 마이그레이션된 머신에 설치합니다.
 3. 데이터베이스 연결 문자열 업데이트, 웹 서버 구성 등의 마이그레이션 후 앱 조정을 수정합니다.
 4. 이제 Azure에서 실행 중인 마이그레이션된 애플리케이션에서 최종 애플리케이션 및 마이그레이션 수용 테스트를 수행합니다.

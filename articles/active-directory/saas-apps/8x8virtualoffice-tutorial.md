@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/20/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f49c2b445af9acb0761d01b731250e068cb96a36
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 9c598222978a1c831be6f5e9db9eb87b2d6b6b96
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77562323"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78968699"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-8x8"></a>자습서: 8x8과 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -30,7 +30,7 @@ ms.locfileid: "77562323"
 * 사용자가 해당 Azure AD 계정으로 8x8에 자동으로 로그인되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)를 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -86,20 +86,9 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    a. **식별자** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다.
+    a. **식별자** 텍스트 상자에 URL을 입력합니다. `https://sso.8x8.com/saml2`
 
-    |||
-    |-|-|
-    | `https://sso.8x8.com/saml2`|
-    | `https://sso.8x8pilot.com/saml2`|
-
-    b. **회신 URL** 텍스트 상자에서 다음 패턴 중 하나를 사용하여 URL을 입력합니다.
-
-    |||
-    |-|-|
-    | `https://sso.8x8.com/saml2`|
-    | `https://sso.8x8pilot.com/saml2`|
-
+    b. **회신 URL** 텍스트 상자에서 `https://sso.8x8.com/saml2` URL을 입력합니다.
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 찾은 후 **다운로드**를 선택하여 인증서를 다운로드하고 컴퓨터에 저장합니다. 이 인증서는 나중에 자습서의 **8x8 SSO 구성** 섹션에서 사용합니다.
 
@@ -151,9 +140,15 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 홈 페이지에서 **Identity Management(ID 관리)** 를 클릭합니다.
 
+    ![8x8 Configuration Manager](./media/8x8virtualoffice-tutorial/configure1.png)
+
 1. **SSO(Single Sign-On)** , **Microsoft Azure AD**를 차례로 선택합니다.
 
+    ![8x8 Configuration Manager](./media/8x8virtualoffice-tutorial/configure2.png)
+
 1. Azure AD의 **SAML로 Single Sign-On 설정** 페이지에 있는 세 개의 URL과 서명 인증서를 8x8 Configuration Manager의 **Microsoft Azure AD SAML Settings(Microsoft Azure AD SAML 설정)** 섹션에 복사합니다.
+
+    ![8x8 Configuration Manager](./media/8x8virtualoffice-tutorial/configure3.png)
 
     a. **로그인 URL**을 **IDP Login URL(IDP 로그인 URL)** 에 복사합니다.
 
@@ -171,15 +166,27 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 애플리케이션 패널에서 **Virtual Office Account Mgr**를 선택합니다.
 
+    ![앱 쪽에서 구성](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_001.png)
+
 1. **비즈니스** 계정을 선택하여 관리하고 **로그인** 단추를 클릭입니다.
+
+    ![앱 쪽에서 구성](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_002.png)
 
 1. 메뉴 목록에서 **계정** 탭을 클릭합니다.
 
+    ![앱 쪽에서 구성](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_003.png)
+
 1. 계정 목록에서 **Single Sign On** 을 클릭합니다.
+
+    ![앱 쪽에서 구성](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_004.png)
 
 1. 인증 방법에서 **Single Sign-On**을 선택하고 **SAML**을 클릭합니다.
 
+    ![앱 쪽에서 구성](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_005.png)
+
 1. **SAML Single Sign-On** 섹션에서 다음 단계를 수행합니다.
+
+    ![앱 쪽에서 구성](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_006.png)
 
     a. **로그온 URL** 텍스트 상자에 Azure Portal에서 복사한 **로그인 URL** 값을 붙여넣습니다.
 
@@ -205,7 +212,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 - [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

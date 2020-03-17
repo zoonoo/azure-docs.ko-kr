@@ -4,15 +4,15 @@ description: 이 문서에서는 Azure WAF(웹 애플리케이션 방화벽)를 
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 10/04/2019
+ms.date: 03/06/2020
 ms.author: victorh
 ms.topic: overview
-ms.openlocfilehash: 7b43a6bdac254493da8693b55158e15746e76dc3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 44bc8db5d8ada0378f8f9d0911ed398ba491d289
+ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488289"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78851180"
 ---
 # <a name="what-is-azure-web-application-firewall"></a>Azure 웹 애플리케이션 방화벽이란?
 
@@ -24,7 +24,11 @@ WAF(웹 애플리케이션 방화벽)는 일반적인 악용과 취약성으로�
 
 WAF 솔루션은 각각의 개별 웹 애플리케이션을 보호하는 대신 중앙의 위치에서 알려진 취약점에 패치를 적용하여 보다 신속하게 보안 위협에 대응할 수 있습니다.
 
-WAF를 Azure Application Gateway 및 Azure Front Door Service와 함께 배포할 수 있습니다. 현재 WAF에는 각 특정 서비스에 대해 사용자 지정된 기능이 있습니다. 각 서비스의 WAF 기능에 대한 자세한 내용은 각 서비스에 대한 개요를 참조하세요.
+## <a name="supported-services"></a>지원되는 서비스
+
+WAF를 [Azure Application Gateway](../application-gateway/overview.md) 및 [Azure Front Door Service](../frontdoor/front-door-overview.md)와 함께 배포할 수 있습니다. 두 서비스 모두 계층 7(HTTP/S) 부하 분산 장치이지만 Application Gateway는 지역 서비스이고, Front Door는 글로벌 서비스입니다. WAF에는 각 특정 서비스에 대해 사용자 지정된 기능이 있습니다.
+
+자세한 내용은 각 서비스에 대한 WAF 개요를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

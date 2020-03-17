@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: ec6664e7c55057c29c5b741203b326ce460c6e91
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 635b12cc2ffc4d318eaaa74fffc17e4ce4d58c0b
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701232"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129958"
 ---
 # <a name="tutorial-build-a-multitenant-daemon-that-uses-the-microsoft-identity-platform-endpoint"></a>자습서: Microsoft ID 플랫폼 엔드포인트를 사용하는 다중 테넌트 디먼 빌드
 
@@ -39,7 +39,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 이 샘플의 "daemon" 구성 요소는 `SyncController.cs` API 컨트롤러입니다. 컨트롤러가 호출되면 Microsoft Graph에서 고객의 Azure AD(Azure Active Directory) 테넌트에 있는 사용자 목록을 가져옵니다. `SyncController.cs`는 웹 애플리케이션의 AJAX 호출을 통해 트리거되며, [.NET용 MSAL(Microsoft 인증 라이브러리)](msal-overview.md)을 사용하여 Microsoft Graph에 대한 액세스 토큰을 획득합니다.
 
-더 간단한 콘솔 디먼 애플리케이션은 [.NET Core 디먼 빠른 시작](quickstart-v2-netcore-daemon.md)을 참조하세요.
+>[!NOTE]
+> Microsoft ID 플랫폼을 처음 사용하는 경우 [.NET Core 디먼 빠른 시작](quickstart-v2-netcore-daemon.md)으로 시작하는 것이 좋습니다.
 
 ## <a name="scenario"></a>시나리오
 

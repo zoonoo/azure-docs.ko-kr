@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
-ms.openlocfilehash: 9077d5c471911c9967c327c457d683b06856b920
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 40f5935c7d653ce90aa56bc5ee2bb15711bb9dd8
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78249058"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399260"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>빠른 시작: JavaScript SPA에서 사용자 로그인 및 액세스 토큰 가져오기
 
@@ -82,9 +82,11 @@ ms.locfileid: "78249058"
 > [코드 샘플 다운로드]()
 
 > [!div renderon="docs"]
+
 > #### <a name="step-3-configure-your-javascript-app"></a>3단계: JavaScript 앱 구성
 >
-> *JavaScriptSPA* 폴더에서 *authConfig.js*를 편집하고, `msalConfig`의 `clientID` 및 `authority` 값을 설정합니다.
+> *JavaScriptSPA* 폴더에서 *authConfig.js*를 편집하고, `msalConfig`의 `clientID`, `authority` 및 `redirectUri` 값을 설정합니다.
+>
 > ```javascript
 >
 >  // Config object to be passed to Msal on creation
@@ -97,10 +99,10 @@ ms.locfileid: "78249058"
 >    cache: {
 >      cacheLocation: "sessionStorage", // This configures where your cache will be stored
 >      storeAuthStateInCookie: false, // Set this to "true" if you are having issues on IE11 or Edge
->      forceRefresh: false // Set this to "true" to skip a cached token and go to the server to get a new
 >    }
 >  };  
-> ```
+>
+>```
 
 > [!div renderon="portal"]
 > > [!NOTE]
@@ -124,6 +126,27 @@ ms.locfileid: "78249058"
 > 앱 속성 값을 사용하여 프로젝트를 구성했습니다. 
 
 > [!div renderon="docs"]
+> 
+> 그런 다음, 동일한 폴더에 있는 *graphConfig.js* 파일을 편집하여 `apiConfig` 개체에 대한 `graphMeEndpoint` 및 `graphMeEndpoint`를 설정합니다.
+> ```javascript
+>   // Add here the endpoints for MS Graph API services you would like to use.
+>   const graphConfig = {
+>     graphMeEndpoint: "Enter_the_Graph_Endpoint_Herev1.0/me",
+>     graphMailEndpoint: "Enter_the_Graph_Endpoint_Herev1.0/me/messages"
+>   };
+>
+>   // Add here scopes for access token to be used at MS Graph API endpoints.
+>   const tokenRequest = {
+>       scopes: ["Mail.Read"]
+>   };
+> ```
+>
+
+> [!div renderon="docs"]
+>
+> 위치:
+> - *\<Enter_the_Graph_Endpoint_Here>* 는 API 호출이 수행될 엔드포인트입니다. 주 또는 글로벌 Microsoft Graph API 서비스의 경우 `https://graph.microsoft.com`을 입력하기만 하면 됩니다. 자세한 내용은 [국가별 클라우드 배포](https://docs.microsoft.com/graph/deployments)를 참조하세요.
+>
 > #### <a name="step-4-run-the-project"></a>4단계: 프로젝트 실행
 
 [Node.js](https://nodejs.org/en/download/)를 사용하여 웹 서버에서 프로젝트 실행:
@@ -155,7 +178,6 @@ MSAL 라이브러리는 사용자를 로그인하고 Microsoft ID 플랫폼으�
 > [!TIP]
 > 이전 버전을 [MSAL.js 릴리스](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases)에서 최근에 릴리스된 버전으로 바꿀 수 있습니다.
 
-
 또는 Node.js가 설치된 경우 다음과 같이 Node.js 패키지 관리자(npm)를 통해 최신 버전을 다운로드할 수 있습니다.
 
 ```batch
@@ -177,7 +199,6 @@ npm install msal
     cache: {
       cacheLocation: "sessionStorage", // This configures where your cache will be stored
       storeAuthStateInCookie: false, // Set this to "true" if you are having issues on IE11 or Edge
-      forceRefresh: false // Set this to "true" to skip a cached token and go to the server to get a new
     }
   };  
 
@@ -228,7 +249,7 @@ MSAL은 토큰을 획득하는 데 `acquireTokenRedirect`, `acquireTokenPopup` �
 `acquireTokenSilent` 메서드는 사용자 개입 없이 토큰 획득 및 갱신을 자동으로 처리합니다. `loginRedirect` 또는 `loginPopup` 메서드가 처음으로 실행된 후에 후속 호출 시 보호되는 리소스에 액세스하는 데 사용되는 토큰을 가져오는 데 일반적으로 사용되는 메서드가 `acquireTokenSilent`입니다. 요청 또는 갱신 토큰에 대한 호출은 자동으로 수행됩니다.
 
 ```javascript
-// Add scopes for the access token to be used at Microsoft Graph API endpoints.
+
 const tokenRequest = {
     scopes: ["Mail.Read"]
 };

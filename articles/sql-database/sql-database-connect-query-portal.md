@@ -12,18 +12,18 @@ author: Ninarn
 ms.author: ninarn
 ms.reviewer: carlrab
 ms.date: 10/24/2019
-ms.openlocfilehash: 3990d7ec63c312d38168fe76269e1a920f1a6817
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: b3ccc2a5343cf02127990dca80a1300959fa06a3
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827106"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79087181"
 ---
 # <a name="quickstart-use-the-azure-portals-sql-query-editor-to-connect-and-query-data"></a>빠른 시작: Azure Portal의 SQL 쿼리 편집기를 사용하여 데이터 연결 및 쿼리
 
 SQL 쿼리 편집기는 Azure SQL Database 또는 Azure SQL Data Warehouse에서 SQL 쿼리를 쉽게 실행하는 방법을 제공하는 Azure Portal 브라우저 도구입니다. 이 빠른 시작에서는 쿼리 편집기를 사용하여 SQL Database에 연결한 다음, Transact-SQL 문을 실행하여 데이터를 쿼리, 삽입, 업데이트 및 삭제합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -58,7 +58,7 @@ SQL 쿼리 편집기는 Azure SQL Database 또는 Azure SQL Data Warehouse에서
 
     ![쿼리 편집기 찾기](./media/sql-database-connect-query-portal/find-query-editor.PNG)
 
-4. **로그인** 페이지의 **SQL Server 인증** 레이블 아래에서 데이터베이스를 만드는 데 사용되는 서버 관리자 계정의 **로그인** ID와 **암호**를 입력합니다. 그런 다음 **확인**을 선택합니다.
+4. **로그인** 페이지의 **SQL Server 인증** 레이블 아래에서 데이터베이스를 만드는 데 사용되는 서버 관리자 계정의 **로그인** ID와 **암호**를 입력합니다. 그런 다음, **확인**을 선택합니다.
 
     ![로그인](./media/sql-database-connect-query-portal/login-menu.png)
 
@@ -86,7 +86,7 @@ Azure Active Directory(Azure AD) 관리자를 구성하면 단일 ID를 사용�
 
 7. **SQL Server** 메뉴에서 **SQL 데이터베이스**를 선택하고 SQL 데이터베이스를 선택합니다.
 
-8. **SQL 데이터베이스** 메뉴에서 **쿼리 편집기(미리 보기)** 를 선택합니다. Azure AD 관리자인 경우 **로그인** 페이지의 **Active Directory 인증** 레이블 아래에 로그인되었다는 메시지가 나타납니다. \<**사용자 또는 그룹 ID>(으)로 계속** 단추를 선택합니다  .
+8. **SQL 데이터베이스** 메뉴에서 **쿼리 편집기(미리 보기)** 를 선택합니다. Azure AD 관리자인 경우 **로그인** 페이지의 **Active Directory 인증** 레이블 아래에 로그인되었다는 메시지가 나타납니다. *\<사용자 또는 그룹 ID>* (으)로 **계속** 단추를 선택합니다.
 
 ## <a name="view-data"></a>데이터 보기
 
@@ -167,6 +167,8 @@ Azure Active Directory(Azure AD) 관리자를 구성하면 단일 ID를 사용�
 
 * 쿼리 편집기는 포트 443 및 1443을 사용하여 통신합니다.  이러한 포트에서 아웃바운드 HTTPS 트래픽을 사용하도록 설정했는지 확인합니다. 또한 데이터베이스 및 데이터 웨어하우스에 액세스하려면 서버의 허용된 방화벽 규칙에 아웃바운드 IP 주소를 추가해야 합니다.
 
+* 클라이언트 IP 주소를 SQL Database 방화벽에 추가할 필요 없이 쿼리 편집기가 Private Link를 사용하여 작동
+
 * F5 키를 누르면 쿼리 편집기 페이지가 새로 고쳐지고 작업 중인 모든 쿼리가 손실됩니다.
 
 * 쿼리 편집기는 `master` 데이터베이스 연결을 지원하지 않습니다.
@@ -176,6 +178,8 @@ Azure Active Directory(Azure AD) 관리자를 구성하면 단일 ID를 사용�
 * 쿼리 편집기는 지리 데이터 형식에 대한 원통 도법만 지원합니다.
 
 * 데이터베이스 테이블 및 뷰에 대한 IntelliSense는 지원되지 않습니다. 그러나 이미 입력된 이름에 대한 자동 완성은 편집기에서 지원합니다.
+
+
 
 
 ## <a name="next-steps"></a>다음 단계

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 60ff8769192191ba112008e7baee23740147dfe9
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: bd9e916d1e50d9d5bc0717a1d283b3dcf5d383c9
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367023"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79037019"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sharepoint-on-premises"></a>자습서: SharePoint 온-프레미스와 Azure Active Directory 통합
 
@@ -271,7 +271,7 @@ SharePoint 온-프레미스에서 Azure AD Single Sign-On을 구성하려면 다
 10. SharePoint 온-프레미스 팜 또는 대체 사용자 지정 클레임 공급자 솔루션에서 AzureCP를 구성합니다.  이 예제에서는 AzureCP를 사용합니다.
 
     > [!NOTE]
-    > AzureCP는 Microsoft 제품이 아니며 Microsoft 기술 지원 서비스에서 지원되지 않습니다. https://yvand.github.io/AzureCP/ 에 따라 온-프레미스 SharePoint 팜에서 AzureCP 다운로드, 설치 및 구성 
+    > AzureCP는 Microsoft 제품이 아니며 Microsoft 기술 지원 서비스에서 지원되지 않습니다. [https://yvand.github.io/AzureCP/](https://yvand.github.io/AzureCP/)에 따라 온-프레미스 SharePoint 팜에서 AzureCP 다운로드, 설치 및 구성 
 
 11. **온-프레미스 SharePoint에서 Azure Active Directory 보안 그룹에 대한 액세스 권한 부여** - 그룹에 SharePoint 온-프레미스의 애플리케이션에 대한 액세스 권한을 부여해야 합니다.  다음 단계를 사용하여 웹 애플리케이션에 액세스하기 위한 권한을 설정합니다.
 

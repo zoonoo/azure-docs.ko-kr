@@ -1,14 +1,15 @@
 ---
 title: 자습서 - Azure Kubernetes Service에 Application Gateway 수신 컨트롤러 만들기
-description: Azure Kubernetes Service와 함께 Application Gateway를 수신 컨트롤러로 사용하여 Kubernetes 클러스터를 만드는 방법을 설명하는 자습서
+description: 이 자습서에서는 Azure Kubernetes Service와 함께 Application Gateway를 수신 컨트롤러로 사용하여 Kubernetes 클러스터를 만듭니다.
+keywords: azure devops terraform 애플리케이션 게이트웨이 수신 aks kubernetes
 ms.topic: tutorial
-ms.date: 11/13/2019
-ms.openlocfilehash: 14b8f6ba74a06c126da239671cbb2053df19af7d
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.date: 03/09/2020
+ms.openlocfilehash: 6b48d0acb654f0b0643c0754e53f6bc6ea76bb45
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78251771"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78945311"
 ---
 # <a name="tutorial-create-an-application-gateway-ingress-controller-in-azure-kubernetes-service"></a>자습서: Azure Kubernetes Service에 Application Gateway 수신 컨트롤러 만들기
 
@@ -77,7 +78,10 @@ Azure 공급자를 선언하는 Terraform 구성 파일을 만듭니다.
 
     ```hcl
     provider "azurerm" {
-        version = "~>1.18"
+      # The "feature" block is required for AzureRM provider 2.x. 
+      # If you are using version 1.x, the "features" block is not allowed.
+      version = "~>2.0"
+      features {}
     }
 
     terraform {
@@ -442,11 +446,10 @@ Azure 공급자를 선언하는 Terraform 구성 파일을 만듭니다.
         }
       }
 
-      agent_pool_profile {
+      default_node_pool {
         name            = "agentpool"
-        count           = var.aks_agent_count
+        node_count      = var.aks_agent_count
         vm_size         = var.aks_agent_vm_size
-        os_type         = "Linux"
         os_disk_size_gb = var.aks_agent_os_disk_size
         vnet_subnet_id  = data.azurerm_subnet.kubesubnet.id
       }

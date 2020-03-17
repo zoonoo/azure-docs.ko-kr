@@ -1,6 +1,6 @@
 ---
-title: '빠른 시작: 데이터 웨어하우스 만들기(PowerShell)'
-description: Azure PowerShell을 사용하여 서버 수준 방화벽 규칙으로 Azure Synapse Analytics 데이터 웨어하우스 논리 서버를 신속하게 만듭니다.
+title: Azure PowerShell을 사용하여 Synapse SQL 풀 만들기 및 쿼리
+description: Azure PowerShell을 사용하여 서버 수준 방화벽 규칙으로 Synapse SQL 풀 논리 서버를 신속하게 만듭니다.
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -11,23 +11,23 @@ ms.date: 4/11/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 9df9b4b1bdb33a856d9e31d65981e8654af049d2
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 3cf55a400c1894794d555e1362f2197aad44a96b
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78200008"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79130303"
 ---
-# <a name="quickstart-create--query-a-data-warehouse-with-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 데이터 웨어하우스 만들기 및 쿼리
+# <a name="quickstart-create-and-query-a-synapse-sql-pool-with-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Synapse SQL 풀 만들기 및 쿼리
 
-Azure PowerShell을 사용하여 SQL 풀을 프로비저닝하여 Azure Synapse Analytics 데이터 웨어하우스를 만듭니다.
+Azure PowerShell을 사용하여 Azure Synapse Analytics에서 Synapse SQL 풀(데이터 웨어하우스)을 만듭니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-> [!NOTE]
-> 웨어하우스를 만들면 새로운 유료 서비스가 발생할 수 있습니다.  자세한 내용은 [Azure Synapse Analytics 가격 책정](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)을 참조하세요.
+> [!IMPORTANT]
+> SQL 풀을 만들면 새로운 유료 서비스가 발생할 수 있습니다.  자세한 내용은 [Azure Synapse Analytics 가격 책정](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)을 참조하세요.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -94,7 +94,9 @@ New-AzSqlServer -ResourceGroupName $resourcegroupname `
 
 ## <a name="configure-a-server-firewall-rule"></a>서버 방화벽 규칙 구성
 
-[New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) 명령을 사용하여 [Azure SQL 서버 수준 방화벽 규칙](../sql-database/sql-database-firewall-configure.md)을 만듭니다. 서버 수준 방화벽 규칙을 통해 외부 애플리케이션(예: SQL Server Management Studio 또는 SQLCMD 유틸리티)이 SQL Data Warehouse 서비스 방화벽을 통해 SQL Data Warehouse에 연결되도록 할 수 있습니다. 다음 예제에서 방화벽은 다른 Azure 리소스에 대해서만 열립니다. 외부 연결을 사용하려면 IP 주소를 사용자 환경에 적절한 주소로 변경합니다. 모든 IP 주소를 열려면 시작 IP 주소로 0.0.0.0을, 끝나는 IP 주소로 255.255.255.255를 사용합니다.
+[New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) 명령을 사용하여 [Azure SQL 서버 수준 방화벽 규칙](../sql-database/sql-database-firewall-configure.md)을 만듭니다. 서버 수준 방화벽 규칙을 통해 외부 애플리케이션(예제: SQL Server Management Studio 또는 SQLCMD 유틸리티)이 SQL 풀 서비스 방화벽을 통해 SQL 풀에 연결되도록 할 수 있습니다. 
+
+다음 예제에서 방화벽은 다른 Azure 리소스에 대해서만 열립니다. 외부 연결을 사용하려면 IP 주소를 사용자 환경에 적절한 주소로 변경합니다. 모든 IP 주소를 열려면 시작 IP 주소로 0.0.0.0을, 끝나는 IP 주소로 255.255.255.255를 사용합니다.
 
 ```powershell
 New-AzSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
@@ -107,8 +109,8 @@ New-AzSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
 >
 
 
-## <a name="create-a-data-warehouse"></a>데이터 웨어하우스 만들기
-이 예제에서는 이전에 정의된 변수를 사용하여 데이터 웨어하우스를 만듭니다.  여기서는 서비스 목표를 데이터 웨어하우스를 저렴하게 시작하기 좋은 DW100c로 지정합니다. 
+## <a name="create-a-sql-pool"></a>SQL 풀 만들기
+다음 예제에서는 이전에 정의된 변수를 사용하여 SQL 풀을 만듭니다.  여기서는 서비스 목표를 SQL 풀을 저렴하게 시작하기 좋은 DW100c로 지정합니다. 
 
 ```Powershell
 New-AzSqlDatabase `
@@ -124,10 +126,10 @@ New-AzSqlDatabase `
 필수 매개 변수는 다음과 같습니다.
 
 * **RequestedServiceObjectiveName**: 요청 중인 [데이터 웨어하우스 단위](what-is-a-data-warehouse-unit-dwu-cdwu.md)의 양입니다. 이 양을 늘리면 컴퓨팅 비용이 증가합니다. 지원되는 값 목록에 대해서는 [메모리와 동시성 제한](memory-concurrency-limits.md)을 참조하세요.
-* **DatabaseName**: 만드는 데이터 웨어하우스의 이름입니다.
+* **DatabaseName**: 만들려는 SQL 풀의 이름입니다.
 * **ServerName**: 만드는 데 사용할 서버의 이름입니다.
 * **ResourceGroupName**: 사용 중인 리소스 그룹입니다. 구독에서 사용 가능한 리소스 그룹을 찾으려면 Get-AzureResource를 사용합니다.
-* **Edition**: 데이터 웨어하우스를 만들려면 "DataWarehouse"여야 합니다.
+* **Edition**: SQL 풀을 만들려면 "DataWarehouse"여야 합니다.
 
 선택적 매개 변수는 다음과 같습니다.
 
@@ -151,6 +153,4 @@ Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 
 ## <a name="next-steps"></a>다음 단계
 
-지금까지 데이터 웨어하우스를 만들고, 방화벽 규칙을 만들고, 데이터 웨어하우스에 연결하고, 몇 가지 쿼리를 실행했습니다. 자세히 알아보려면 데이터 로드에 대한 자습서를 계속 진행하세요.
-> [!div class="nextstepaction"]
->[데이터 웨어하우스로 데이터 로드](load-data-from-azure-blob-storage-using-polybase.md)
+지금까지 SQL 풀을 만들고, 방화벽 규칙을 만들고, SQL 풀에 연결하고, 몇 가지 쿼리를 실행했습니다. 자세히 알아보려면 [SQL 풀에 데이터 로드](load-data-from-azure-blob-storage-using-polybase.md) 문서를 계속 진행하세요.

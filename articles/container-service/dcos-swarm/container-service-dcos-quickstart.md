@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 9efedd5b619a2a3bd592019fea3ca48b7244ca10
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 6274e24bae2e2a6eade0122fe244652eb29cacf9
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76278491"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399231"
 ---
 # <a name="deprecated-deploy-a-dcos-cluster"></a>(사용되지 않음) DC/OS 클러스터 배포
 
@@ -128,19 +128,19 @@ ACS DC/OS 클러스터의 기본 예약 메커니즘은 Marathon입니다. Marat
 
 DC/OS 클러스터에서 실행되도록 애플리케이션을 예약하는 다음 명령을 실행합니다.
 
-```azurecli
+```console
 dcos marathon app add marathon-app.json
 ```
 
 앱의 배포 상태를 보려면 다음 명령을 실행합니다.
 
-```azurecli
+```console
 dcos marathon app list
 ```
 
 **대기** 열 값이 *True*에서 *False*로 전환되는 경우 애플리케이션 배포가 완료됩니다.
 
-```azurecli
+```output
 ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD   
 /test   32   1     1/1    ---       ---      False      DOCKER   None
 ```

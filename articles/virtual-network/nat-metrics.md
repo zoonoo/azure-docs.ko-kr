@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/04/2020
 ms.author: allensu
-ms.openlocfilehash: 268f5f5b7bf1bed27a01085974bea72af6a84f3b
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: 51713db8532eb33f102de9320dea9eaeb98c4019
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/05/2020
-ms.locfileid: "78304058"
+ms.locfileid: "78359076"
 ---
 # <a name="azure-virtual-network-nat-metrics"></a>Azure Virtual Network NAT 메트릭
 
@@ -57,8 +57,10 @@ Resource Health는 지원되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Virtual Network NAT](nat-overview.md)에 대한 자세한 정보
-- [NAT 게이트웨이 리소스](nat-gateway-resource.md)에 대한 자세한 정보
-- [Azure Monitor](../azure-monitor/overview.md)에 대한 자세한 정보
-- [NAT 게이트웨이 리소스 문제 해결](troubleshoot-nat.md)에 대해 알아봅니다.
+* [Virtual Network NAT](nat-overview.md)에 대한 자세한 정보
+* [NAT 게이트웨이 리소스](nat-gateway-resource.md)에 대한 자세한 정보
+* [Azure Monitor](../azure-monitor/overview.md)에 대한 자세한 정보
+* [NAT 게이트웨이 리소스 문제 해결](troubleshoot-nat.md)에 대해 알아봅니다.
+* [UserVoice에서 Virtual Network NAT에 대해 다음에 빌드할 항목을 알려주세요](https://aka.ms/natuservoice).
+
 

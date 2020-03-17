@@ -10,20 +10,37 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/12/2020
+ms.date: 03/06/2020
 ms.author: jaserano
-ms.openlocfilehash: 199d32efef256fe3b56dbcf0a5d3ac6351f2d0b3
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: cd9d17eb365937035919b7e712a4b5824f747bda
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200917"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942586"
 ---
 # <a name="troubleshoot-azure-payment-issues"></a>Azure 결제 문제 해결
 
 Microsoft Azure Portal 또는 Azure 계정 센터에서 지불 정보 계정을 업데이트하려고 할 때 문제 또는 오류가 발생할 수 있습니다.
 
 문제를 해결하려면 오류와 가장 유사한 아래 항목을 선택합니다.
+
+## <a name="my-credit-card-was-declined-when-i-tried-to-sign-up-for-azure"></a>Azure에 가입하려고 할 때 신용 카드가 거부되었습니다.
+
+거부된 카드와 관련된 문제를 해결하려면 [Azure 가입 시 거부된 카드 문제 해결](troubleshoot-declined-card.md)을 참조하세요.
+
+## <a name="unable-to-see-subscriptions-under-my-account-to-update-the-payment-method"></a>내 계정에서 결제 방법을 업데이트할 구독을 볼 수 없음
+
+구독에 사용한 이메일과 다른 이메일 ID를 사용 중일 수 있습니다.
+
+이 문제를 해결하려면 [Azure Portal 또는 Azure 계정 센터에 대한 구독을 찾을 수 없음 로그인 오류](no-subscriptions-found.md)를 참조하세요.
+
+## <a name="unable-to-use-a-virtual-or-prepaid-credit-or-debit-card-as-a-payment-method"></a>가상 또는 선불 신용 카드 또는 직불 카드를 지불 방법으로 사용할 수 없습니다.
+
+*   가상 카드 또는 선불 신용 카드는 Azure 구독의 지불 옵션으로 허용되지 않습니다.
+*   직불 카드는 Azure 구독의 지불 옵션으로 허용되지 않습니다.
+
+자세한 내용은 [Azure 가입 시 거부된 카드 문제 해결](troubleshoot-declined-card.md)을 참조하세요.
 
 ## <a name="unable-to-remove-a-credit-card-from-a-saved-billing-payment-method"></a>저장된 청구 지불 방법에서 신용 카드를 제거할 수 없음
 
@@ -33,19 +50,11 @@ Microsoft Azure Portal 또는 Azure 계정 센터에서 지불 정보 계정을 
 
 ## <a name="unable-to-delete-an-old-payment-method-after-adding-a-new-payment-method"></a>새 결제 방법을 추가한 후 이전 결제 방법을 삭제할 수 없음
 
-새 결제 방법이 구독에 연결되지 않은 것일 수 있습니다. 결제 방법을 구독과 연결하는 데 도움이 되는 [Azure에 대한 신용 카드 또는 직불 카드 추가, 업데이트 또는 제거](change-credit-card.md)를 참조하세요.
-
-거부된 카드와 관련된 문제를 해결하려면 [Azure 등록 시 거부된 카드 문제 해결 방법](troubleshoot-declined-card.md)을 참조하세요.
+새 결제 방법이 구독에 연결되지 않은 것일 수 있습니다. 결제 방법을 구독과 연결하는 데 도움이 되는 [Azure에 대한 신용 카드 추가, 업데이트 또는 제거](change-credit-card.md)를 참조하세요.
 
 ## <a name="unable-to-delete-a-payment-method-because-of-cannot-delete-payment-method-error"></a>*결제 방법을 삭제할 수 없음* 오류 메시지로 인해 결제 방법을 삭제할 수 없음
 
 이 문제는 미결 잔액 때문에 발생합니다. 미결제 잔액을 정리한 후에 결제 방법을 삭제해 보세요.
-
-## <a name="unable-to-see-subscriptions-under-my-account-to-update-the-payment-method"></a>내 계정에서 결제 방법을 업데이트할 구독을 볼 수 없음
-
-구독에 사용한 이메일과 다른 이메일 ID를 사용 중일 수 있습니다.
-
-이 문제를 해결하려면 [Azure Portal 또는 Azure 계정 센터에 대한 구독을 찾을 수 없음 로그인 오류](no-subscriptions-found.md)를 참조하세요.
 
 ## <a name="unable-to-make-payment-for-a-subscription"></a>구독에 대한 결제를 수행할 수 없음
 

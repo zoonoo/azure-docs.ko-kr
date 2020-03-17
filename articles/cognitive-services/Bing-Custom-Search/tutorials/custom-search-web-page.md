@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: tutorial
-ms.date: 12/09/2019
+ms.date: 03/05/2019
 ms.author: aahi
-ms.openlocfilehash: c3d571f494d5f08c7c9e3c551eba88fb86e1ec23
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c7b41f77f8eb57c39489f1e5a69b0ac1c3c9c7d4
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448778"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943921"
 ---
 # <a name="tutorial-build-a-custom-search-web-page"></a>자습서: Custom Search 웹 페이지 빌드
 
@@ -34,8 +34,8 @@ Bing Custom Search를 사용하면 관심 있는 토픽에 대한 맞춤형 검�
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- 자습서를 따르려면 Bing Custom Search API에 대한 구독 키가 필요합니다.  키를 받으려면 [Cognitive Services 체험하기](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search)를 참조하세요.
-- Visual Studio 2017 이상이 아직 설치되지 않은 경우 **체험판**[Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)을 다운로드하고 사용할 수 있습니다.
+- 자습서를 따르려면 Bing Custom Search API에 대한 구독 키가 필요합니다.  키를 가져오려면 Azure Portal에서 [Bing Custom Search 리소스를 만듭니다](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingCustomSearch). [평가판 키](https://azure.microsoft.com/try/cognitive-services)를 사용할 수도 있습니다.
+- Visual Studio 2017 이상이 아직 설치되지 않은 경우 **체험판** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)을 다운로드하고 사용할 수 있습니다.
 
 ## <a name="create-a-custom-search-instance"></a>사용자 지정 검색 인스턴스 만들기
 
@@ -60,11 +60,11 @@ Bing Custom Search 인스턴스를 만들려면
 
 특정 웹 사이트 또는 URL의 결과를 포함하려면 **활성** 탭에 추가합니다.
 
-1.  **구성** 페이지에서 **활성** 탭을 클릭하고 검색에 포함할 웹 사이트 하나 이상의 URL을 입력합니다.
+1.       **구성** 페이지에서 **활성** 탭을 클릭하고 검색에 포함할 웹 사이트 하나 이상의 URL을 입력합니다.
 
     ![정의 편집기 활성 탭 스크린샷](../media/customSrchEditor.png)
 
-2.  인스턴스가 결과를 반환하는지 확인하려면 오른쪽 미리 보기 창에 쿼리를 입력합니다. Bing은 인덱싱된 공용 웹 사이트에 대해서만 결과를 반환합니다.
+2.       인스턴스가 결과를 반환하는지 확인하려면 오른쪽 미리 보기 창에 쿼리를 입력합니다. Bing은 인덱싱된 공용 웹 사이트에 대해서만 결과를 반환합니다.
 
 ## <a name="add-blocked-entries"></a>차단된 항목 추가
 

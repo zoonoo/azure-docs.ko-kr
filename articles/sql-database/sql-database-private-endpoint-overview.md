@@ -7,15 +7,15 @@ titleSuffix: Azure SQL Database and SQL Data Warehouse
 ms.service: sql-database
 ms.topic: overview
 ms.reviewer: vanto
-ms.date: 09/17/2019
-ms.openlocfilehash: 427ba0e46f8f4090ce8c2080b1d6780b165e864c
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.date: 03/09/2020
+ms.openlocfilehash: ab9c5c5c1134d2e09a790a788a3b7e55f807dd9b
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76121083"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78945364"
 ---
-# <a name="private-link-for-azure-sql-database-and-data-warehouse-preview"></a>Azure SQL Database 및 Data Warehouse용 Private Link(미리 보기)
+# <a name="private-link-for-azure-sql-database-and-data-warehouse"></a>Azure SQL Database 및 Data Warehouse용 Private Link
 
 Private Link를 사용하면 **프라이빗 엔드포인트**를 통해 Azure의 다양한 PaaS 서비스에 연결할 수 있습니다. Private Link 기능을 지원하는 PaaS 서비스의 목록을 보려면 [Private Link 설명서](../private-link/index.yml) 페이지로 이동하세요. 프라이빗 엔드포인트는 특정 [VNet](../virtual-network/virtual-networks-overview.md) 및 서브넷 내의 개인 IP 주소입니다. 
 
@@ -145,7 +145,7 @@ Nmap done: 256 IP addresses (1 host up) scanned in 207.00 seconds
 
 ### <a name="check-connectivity-using-sql-server-management-studio-ssms"></a>SSMS(SQL Server Management Studio)를 사용하여 연결 확인
 > [!NOTE]
->클라이언트의 연결 문자열에 있는 서버의 **FQDN(정규화된 도메인 이름)** 을 사용합니다. IP 주소에 직접 로그인하려고 하면 의도적으로 실패합니다.
+> 클라이언트의 연결 문자열에 있는 서버의 **FQDN(정규화된 도메인 이름)** 을 사용합니다. IP 주소에 직접 로그인하려고 하면 실패합니다. 프라이빗 엔드포인트는 트래픽을 지역의 SQL 게이트웨이로 라우팅하고 로그인이 성공하려면 FQDN을 지정해야 하기 때문에 이 동작은 의도된 것입니다.
 
 [SSMS를 사용하여 SQL Database에 연결](sql-database-connect-query-ssms.md)하려면 여기의 단계를 따르세요. SSMS를 사용하여 SQL Database에 연결되면 다음 쿼리를 실행하여 Azure VM의 개인 IP 주소에서 연결하고 있는지 확인합니다.
 
@@ -153,8 +153,9 @@ Nmap done: 256 IP addresses (1 host up) scanned in 207.00 seconds
 select client_net_address from sys.dm_exec_connections 
 where session_id=@@SPID
 ````
-> [!NOTE]
-> 미리 보기에서 프라이빗 엔드포인트에 대한 연결은 **프록시**만 [연결 정책](sql-database-connectivity-architecture.md#connection-policy)으로 지원합니다.
+
+## <a name="limitations"></a>제한 사항 
+프라이빗 엔드포인트에 대한 연결은 **프록시**만 [연결 정책](sql-database-connectivity-architecture.md#connection-policy)으로 지원합니다.
 
 
 ## <a name="connecting-from-an-azure-vm-in-peered-virtual-network-vnet"></a>피어링된 VNet(가상 네트워크)의 Azure VM에서 연결 

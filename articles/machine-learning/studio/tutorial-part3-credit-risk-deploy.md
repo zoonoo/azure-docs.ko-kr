@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 9353e5749906aca1f0c91b622c93ba6028cd3bef
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8ab6904a2569e508c0697cc273af4fd40a1767de
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432192"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898747"
 ---
 # <a name="tutorial-3-deploy-credit-risk-model---azure-machine-learning-studio-classic"></a>자습서 3: 신용 위험 모델 배포 - Azure Machine Learning Studio(클래식)
 
@@ -227,11 +227,7 @@ Machine Learning 웹 서비스 포털에서만 새 웹 서비스를 테스트할
 * **요청/응답** - 사용자가 HTTP 프로토콜을 사용하여 하나 이상의 신용 데이터 행을 서비스에 보내고 서비스에서는 하나 이상의 결과 집합으로 응답합니다.
 * **Batch 실행** - 사용자가 Azure Blob 신용 데이터 행 하나 이상을 저장한 다음 Blob 위치를 서비스에 보냅니다. 서비스에서는 입력 Blob의 모든 데이터 행에 대한 점수를 매기고 결과를 다른 Blob에 저장한 다음 해당 컨테이너의 URL을 반환합니다.  
 
-클래식 웹 서비스에 액세스하는 가장 빠르고 쉬운 방법은 [Azure ML 요청-응답 서비스 웹앱](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlaspnettemplateforrrs/) 또는 [Azure ML Batch 실행 서비스 웹앱 템플릿](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlbeswebapptemplate/)을 통하는 것입니다.
-
-이러한 웹앱 템플릿은 웹 서비스의 입력 데이터 및 예상 결과를 알고 있는 사용자 지정 웹앱을 구축할 수 있습니다. 따라서 웹 서비스 및 데이터에 액세스하도록 하기만 하면 나머지 작업은 템플릿이 수행합니다.
-
-웹앱 템플릿 사용에 대한 자세한 내용은 [웹앱 템플릿을 사용한 Azure Machine Learning 웹 서비스 사용](/azure/machine-learning/studio/consume-web-services)을 참조하세요.
+웹 서비스 액세스 및 사용에 대한 자세한 내용은 [웹앱 템플릿을 사용한 Azure Machine Learning 웹 서비스 사용](/azure/machine-learning/studio/consume-web-services)을 참조하세요.
 
 
 

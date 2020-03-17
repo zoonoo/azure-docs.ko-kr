@@ -4,17 +4,17 @@ description: 이 자습서는 사용자가 소비하는 Azure 서비스 비용�
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/02/2020
+ms.date: 03/11/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: f5943e37267a79ad342fbd9afe0256a4ca7182e6
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: b81236fd63d9289f797056cf7aaceb7d826511af
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78251276"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79128362"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>자습서: Azure 예산 만들기 및 관리
 
@@ -54,7 +54,7 @@ Cost Management 데이터에 대한 사용 권한을 할당하는 방법에 대�
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-- [https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
+- [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-a-budget-in-the-azure-portal"></a>Azure Portal에서 예산 만들기
 
@@ -164,7 +164,7 @@ New-AzureRmConsumptionBudget -Amount 100 -Name TestPSBudget -Category Cost -Star
 ```
 ## <a name="create-a-budget-with-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 예산 만들기
 
-Azure Resource Manager 템플릿을 사용하여 예산을 만들 수 있습니다. 이 템플릿은 리소스 그룹에 속한 예산을 만드는 데 도움이 되며, 엔터프라이즈 계약 고객만 지원합니다.
+Azure Resource Manager 템플릿을 사용하여 예산을 만들 수 있습니다. 이 템플릿은 리소스 그룹에 속한 예산을 만드는 데 도움이 되며, 
 
 다음 이미지를 선택하고 Azure Portal에 로그인하여 템플릿을 엽니다.
 

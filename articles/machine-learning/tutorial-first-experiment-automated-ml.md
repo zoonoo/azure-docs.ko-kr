@@ -1,7 +1,7 @@
 ---
-title: 첫 번째 자동화된 ML 실험 만들기
+title: 자동화된 ML 분류 모델 만들기
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning Studio에서 자동화된 기계 학습을 사용하여 분류 모델을 학습시키고 배포하는 방법을 알아봅니다.
+description: Azure Machine Learning의 자동화된 기계 학습(자동화된 ML) 인터페이스를 사용하여 분류 모델을 학습 및 배포하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,17 +10,17 @@ ms.author: tzvikei
 author: tsikiksr
 ms.reviewer: nibaccam
 ms.date: 02/04/2020
-ms.openlocfilehash: 70fcdb1c22664a0bd3091fea88c8e23e3d1b81e5
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 96af942ab68d4ae738df56bf94d8410ee5d8cc34
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77048296"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129676"
 ---
-# <a name="tutorial-create-your-first-classification-model-with-automated-machine-learning"></a>자습서: 자동화된 기계 학습을 사용하여 처음으로 분류 모델 만들어보기
+# <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>자습서: Azure Machine Learning에서 자동화된 ML을 사용하여 분류 모델 만들기
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-이 자습서에서는 코드 줄을 하나도 작성하지 않고 Azure Machine Learning Studio를 통해 첫 번째 자동화된 기계 학습 실험을 만드는 방법을 알아봅니다. 이 예제에서는 클라이언트가 금융 기관의 정기 예금을 신청할 것인지 예측하는 분류 모델을 만듭니다.
+이 자습서에서는 Azure Machine Learning의 자동화된 기계 학습 인터페이스를 사용하여 코드 줄을 하나도 작성하지 않고 기본 분류 모델을 만드는 방법에 대해 알아봅니다. 이 분류 모델은 클라이언트가 금융 기관의 정기 예금을 구독할지 예측합니다.
 
 자동화된 기계 학습을 사용하면 시간이 많이 걸리는 작업을 자동화할 수 있습니다. 자동화된 기계 학습은 사용자가 선택한 성공 메트릭을 기반으로 최상의 모델을 발견할 수 있도록 알고리즘과 하이퍼 매개 변수의 여러 조합을 빠르게 반복합니다.
 
@@ -34,7 +34,7 @@ ms.locfileid: "77048296"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* Azure 구독 Azure 구독이 아직 없는 경우 [무료 계정](https://aka.ms/AMLFree)을 만듭니다.
+* Azure 구독 Azure 구독이 아직 없는 경우 [체험 계정](https://aka.ms/AMLFree)을 만듭니다.
 
 * [**bankmarketing_train.csv**](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv) 데이터 파일을 다운로드합니다. **y** 열은 고객이 정기 예금에 가입했는지 여부를 나타내며, 뒷부분에서 이 자습서의 예측에 대한 대상 열로 식별됩니다. 
 
@@ -42,7 +42,7 @@ ms.locfileid: "77048296"
 
 Azure Machine Learning 작업 영역은 기계 학습 모델을 실험하고, 학습시키고, 배포하는 데 사용하는 클라우드의 기본 리소스입니다. Azure 구독 및 리소스 그룹을 서비스에서 사용하기 쉬운 개체에 연결합니다. 
 
-Azure 리소스를 관리하기 위한 웹 기반 콘솔인 Azure Machine Learning Studio을 통해 작업 영역을 만듭니다.
+Azure 리소스를 관리하기 위한 웹 기반 콘솔인 Azure Portal을 통해 작업 영역을 만듭니다.
 
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal-enterprise.md)]
 
@@ -51,9 +51,9 @@ Azure 리소스를 관리하기 위한 웹 기반 콘솔인 Azure Machine Learni
 
 ## <a name="create-and-run-the-experiment"></a>실험 만들기 및 실행
 
-모든 기술 수준의 데이터 과학 전문가용 데이터 과학 시나리오를 수행하기 위한 기계 학습 도구를 포함하는 통합 인터페이스인 Azure Machine Learning Studio에서 다음 실험 설정 및 실행 단계를 완료합니다. 이 Studio는 Internet Explorer 브라우저에서 지원되지 않습니다.
+모든 기술 수준의 데이터 과학 전문가용 데이터 과학 시나리오를 수행하기 위한 기계 학습 도구를 포함하는 통합 웹 인터페이스인 https://ml.azure.com 에서 Azure Machine Learning을 통해 다음 실험 설정 및 실행 단계를 완료합니다. 이 인터페이스는 Internet Explorer 브라우저에서 지원되지 않습니다.
 
-1. [Azure Machine Learning Studio](https://ml.azure.com)에 로그인합니다.
+1. https://ml.azure.com 에서 Azure Machine Learning에 로그인합니다.
 
 1. 해당 구독과 직접 만든 작업 영역을 선택합니다.
 
@@ -63,13 +63,13 @@ Azure 리소스를 관리하기 위한 웹 기반 콘솔인 Azure Machine Learni
 
    이는 자동화된 ML의 첫 번째 실험이므로 빈 목록과 설명서에 대한 링크가 표시됩니다.
 
-   ![Azure Machine Learning Studio](./media/tutorial-first-experiment-automated-ml/get-started.png)
+   ![시작 페이지](./media/tutorial-first-experiment-automated-ml/get-started.png)
 
 1. **새 자동화된 ML 실행**을 선택합니다. 
 
 1. **+데이터 세트 만들기** 드롭다운에서 **로컬 파일에서**를 선택하여 새 데이터 세트를 만듭니다. 
 
-    1. **기본 정보** 양식에서 데이터 세트에 이름을 지정하고 선택적 설명을 입력합니다. Azure Machine Learning 스튜디오의 자동화된 ML은 현재 테이블 형식 데이터 세트만 지원하므로 데이터 세트 형식은 기본적으로 테이블 형식이어야 합니다.
+    1. **기본 정보** 양식에서 데이터 세트에 이름을 지정하고 선택적 설명을 입력합니다. 자동화된 ML 인터페이스는 현재 테이블 형식 데이터 세트만 지원하므로 데이터 세트 형식은 기본적으로 *테이블 형식*이어야 합니다.
 
     1. 왼쪽 아래에서 **다음**을 선택합니다.
 
@@ -163,9 +163,9 @@ Azure 리소스를 관리하기 위한 웹 기반 콘솔인 Azure Machine Learni
 
 ![반복 실행 세부 정보](./media/tutorial-first-experiment-automated-ml/run-detail.gif)
 
-## <a name="deploy-the-model"></a>모델 배포
+## <a name="deploy-the-best-model"></a>최적의 모델 배포
 
-Azure Machine Learning Studio에서 자동화된 기계 학습을 사용하면 몇 단계 안에 최적 모델을 웹 서비스로 배포할 수 있습니다. 배포는 모델 통합이므로 새 데이터를 예측하고 잠재적인 기회 영역을 식별할 수 있습니다. 
+자동화된 기계 학습 인터페이스를 사용하면 몇 단계 안에 최적 모델을 웹 서비스로 배포할 수 있습니다. 배포는 모델 통합이므로 새 데이터를 예측하고 잠재적인 기회 영역을 식별할 수 있습니다. 
 
 이 실험에서 웹 서비스에 배포한다는 것은 이제 금융 기관이 잠재적 정기 예금 고객을 식별할 수 있는 반복적이고 확장 가능한 솔루션을 확보했다는 것을 의미합니다. 
 
@@ -201,9 +201,9 @@ Azure Machine Learning Studio에서 자동화된 기계 학습을 사용하면 �
 
 ### <a name="delete-the-deployment-instance"></a>배포 인스턴스 삭제
 
-다른 자습서에서 사용하거나 탐색할 수 있도록 리소스 그룹과 작업 영역을 유지하려면 Azure Machine Learning Studio에서 배포 인스턴스만 삭제합니다. 
+다른 자습서에서 사용하거나 탐색할 수 있도록 리소스 그룹과 작업 영역을 유지하려면 https://ml.azure.com/ 에서 Azure Machine Learning의 배포 인스턴스만 삭제합니다. 
 
-1. [Azure Machine Learning Studio](https://ml.azure.com/)로 이동합니다. 작업 영역으로 이동한 다음, 왼쪽 **자산** 창 아래에서 **엔드포인트**를 선택합니다. 
+1. https://ml.azure.com/ 에서 Azure Machine Learning으로 이동합니다. 작업 영역으로 이동한 다음, 왼쪽 **자산** 창 아래에서 **엔드포인트**를 선택합니다. 
 
 1. 삭제하려는 배포를 선택하고 **삭제**를 선택합니다. 
 
@@ -215,15 +215,15 @@ Azure Machine Learning Studio에서 자동화된 기계 학습을 사용하면 �
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자동화된 기계 학습 자습서에서는 Azure Machine Learning Studio를 사용하여 분류 모델을 만들고 배포했습니다. 자세한 내용과 다음 단계는 아래 문서를 참조하세요.
+이 자동화된 기계 학습 자습서에서는 Azure Machine Learning의 자동화된 ML 인터페이스를 사용하여 분류 모델을 만들고 배포했습니다. 자세한 내용과 다음 단계는 아래 문서를 참조하세요.
 
 > [!div class="nextstepaction"]
 > [웹 서비스 사용](how-to-consume-web-service.md#consume-the-service-from-power-bi)
 
-+ [기능화](how-to-create-portal-experiments.md#featurization)에 대해 자세히 알아보세요.
-+ [데이터 프로파일링](how-to-create-portal-experiments.md#profile)에 대한 자세한 정보
 + [자동화된 기계 학습](concept-automated-ml.md)에 대한 자세한 정보
-+ 분류 메트릭 및 차트에 대한 자세한 내용은 [자동화된 기계 학습 결과 이해](how-to-understand-automated-ml.md#classification) 문서를 참조하세요.
++ 분류 메트릭 및 차트에 대한 자세한 내용은 [자동화된 기계 학습 결과 이해](how-to-understand-automated-ml.md#classification) 문서를 참조하세요. + [기능화](how-to-use-automated-ml-for-ml-models.md#featurization)에 대해 자세히 알아보세요.
++ [데이터 프로파일링](how-to-use-automated-ml-for-ml-models.md#profile)에 대한 자세한 정보
+
 
 >[!NOTE]
 > 이 은행 마케팅 데이터 세트는 [Creative Commons(CCO: Public Domain) 라이선스](https://creativecommons.org/publicdomain/zero/1.0/)에서 사용이 허가됩니다. 데이터베이스의 개별 콘텐츠에 대한 모든 권한은 [데이터베이스 콘텐츠 라이선스](https://creativecommons.org/publicdomain/zero/1.0/)를 따르며 [Kaggle](https://www.kaggle.com/janiobachmann/bank-marketing-dataset)에서 사용할 수 있습니다. 이 데이터 세트는 원래 [UCI Machine Learning 데이터베이스](https://archive.ics.uci.edu/ml/datasets/bank+marketing) 내에 제공됩니다.<br><br>

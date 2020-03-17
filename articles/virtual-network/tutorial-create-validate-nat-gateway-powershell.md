@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: allensu
-ms.openlocfilehash: faaf32b08fdf2415b1c60192f917fc2aedc14704
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: e0fb78be363795bbb09fb0f14bd018fceea34a48
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77660991"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78897890"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-azure-powershell-and-test-the-nat-service"></a>자습서: Azure PowerShell을 사용하여 NAT 게이트웨이 만들기 및 NAT 서비스 테스트
 
@@ -271,7 +271,7 @@ New-AzVirtualNetwork -Name $vdn -ResourceGroupName $rsg -Location $loc -AddressP
 
 ### <a name="create-public-ip-for-destination-vm"></a>대상 VM에 대한 공용 IP 만들기
 
-원본 VM에 액세스하는 데 사용할 공용 IP를 만듭니다.  [New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress?view=latest)를 사용하여 **myPublicIPdestinationVM**이라는 공용 IP 주소 리소스를 **myResourceGroupNAT**에 만듭니다.  이 명령의 결과는 나중에 사용할 수 있도록 **$publicIpdestinationVM**이라는 변수에 저장됩니다.
+대상 VM에 액세스하는 데 사용할 공용 IP를 만듭니다.  [New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress?view=latest)를 사용하여 **myPublicIPdestinationVM**이라는 공용 IP 주소 리소스를 **myResourceGroupNAT**에 만듭니다.  이 명령의 결과는 나중에 사용할 수 있도록 **$publicIpdestinationVM**이라는 변수에 저장됩니다.
 
 ```azurepowershell-interactive
 $rsg = 'myResourceGroupNAT'

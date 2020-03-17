@@ -6,14 +6,14 @@ ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
 ms.topic: tutorial
-ms.date: 03/03/2020
+ms.date: 03/06/2020
 ms.author: banders
-ms.openlocfilehash: ca1064ce3414f4a796110c022125b68c0674e0d6
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: 5de6baf81f67ef6bee43b54e7aa0d62088c15be9
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78270182"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898645"
 ---
 # <a name="understand-your-azure-enterprise-agreement-bill"></a>Azure 기업계약 청구서 이해
 
@@ -118,7 +118,7 @@ Enterprise Portal의 **보고서** > **사용 요약**에 있는 총 사용량 �
 
 이 섹션은 오스트레일리아, 일본 또는 싱가포르에 있는 경우에만 적용됩니다.
 
-Enterprise Portal의 **보고서** > **사용 요약**에 있는 Azure Marketplace 합계와 마켓플레이스 청구서를 비교합니다. 마켓플레이스 청구서는 Azure Marketplace 구매 및 사용에만 해당됩니다. **사용 요약**의 금액에는 세금이 포함되어 있지 않습니다.
+Enterprise Portal의 **보고서** > **사용 요약**에 있는 Azure Marketplace 합계와 마켓플레이스 청구서를 비교합니다. 마켓플레이스 청구서는 Azure Marketplace 구매 및 사용에만 해당됩니다. **사용량 요약**의 양은 게시자에 의해 결정되는 세금을 이미 포함하고 있습니다.
 
 [Enterprise Portal](https://ea.azure.com)에 로그인한 다음, **보고서**를 선택합니다. 탭의 오른쪽 맨 위 모서리에서 보기를 **M**에서 **C**로 전환하고 청구서의 기간과 똑같이 설정합니다.  
 

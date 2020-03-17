@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/02/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: a3ad81091fa93993f71c6d65175e50f6ee216757
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: fd74b3fad7f0b26eff2fdedddae171a1b7297dcd
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073460"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898891"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-with-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Windows 가상 머신 만들기
 
@@ -46,16 +46,15 @@ az group create --name myResourceGroup --location eastus
 
 [az vm create](/cli/azure/vm)로 VM을 만듭니다. 다음 예제에서는 *myVM*이라는 VM을 만듭니다. 이 예에서는 관리자 이름으로 *azureuser*를 사용합니다. 
 
-`--admin-password`의 값을 변경해야 합니다. 그러지 않으면 실패합니다. [Azure VM의 암호 요구 사항](/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm
-)을 충족하는 암호로 변경합니다. 사용자 이름 및 암호는 나중에 VM에 연결할 때 사용됩니다.
+[Azure VM의 암호 요구 사항](/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm
+)을 충족하는 암호를 제공해야 합니다. 아래 예제를 사용하여 명령줄에서 암호를 입력하라는 메시지가 표시됩니다. 암호에 대한 값을 사용하여 `--admin-password` 매개 변수를 추가할 수도 있습니다. 사용자 이름 및 암호는 나중에 VM에 연결할 때 사용됩니다.
 
 ```azurecli-interactive
 az vm create \
     --resource-group myResourceGroup \
     --name myVM \
     --image win2016datacenter \
-    --admin-username azureuser \
-    --admin-password myPassword
+    --admin-username azureuser 
 ```
 
 VM 및 지원 리소스를 만드는 데 몇 분이 걸립니다. 다음 예제 출력은 VM 만들기 작업이 완료되었음을 보여줍니다.
@@ -101,7 +100,7 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 여기까지 마쳤으면 VM에 대한 RDP 연결을 닫습니다.
 
-## <a name="view-the-web-server-in-action"></a>작업에서 웹 서버 보기
+## <a name="view-the-web-server-in-action"></a>실제로 작동 중인 웹 서버 보기
 
 IIS를 설치하고 현재 포트 80이 인터넷에서 VM에 열려 있으면 사용자가 선택한 웹 브라우저를 사용하여 기본 IIS 시작 페이지를 봅니다. 이전 단계에서 가져온 VM의 공용 IP 주소를 사용합니다. 다음 예제는 기본 IIS 웹 사이트를 보여줍니다.
 

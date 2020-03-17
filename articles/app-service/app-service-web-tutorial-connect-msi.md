@@ -5,12 +5,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/18/2019
 ms.custom: mvc, cli-validate
-ms.openlocfilehash: b57ee458b857db5692f34e51f388ca8374a3c03b
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: af44f4a96567cc86c9f884cdfe5e28ff6b7bd8f3
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77524396"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78897677"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>자습서: 관리 ID를 사용하여 App Service에서 Azure SQL Database 연결 보호
 
@@ -127,6 +127,9 @@ Install-Package Microsoft.Azure.Services.AppAuthentication -Version 1.3.1
 
 - `MyDbConnection`이라는 연결 문자열을 찾고 `connectionString` 값을 `"server=tcp:<server-name>.database.windows.net;database=<db-name>;UID=AnyString;Authentication=Active Directory Interactive"`로 바꿉니다. _\<server-name>_ 및 _\<db-name>_ 을 서버 이름 및 데이터베이스 이름으로 바꿉니다.
 
+> [!NOTE]
+> 방금 등록한 SqlAuthenticationProvider는 이전에 설치한 AppAuthentication 라이브러리를 기반으로 합니다. 기본적으로 시스템 할당 ID를 사용합니다. 사용자 할당 ID를 활용하려면 추가 구성을 제공해야 합니다. AppAuthentication 라이브러리는 [연결 문자열 지원](../key-vault/service-to-service-authentication.md#connection-string-support)을 참조하세요.
+
 SQL Database에 연결하는 데 필요한 모든 항목입니다. Visual studio에서 디버깅하는 경우 코드는 [Visual Studio 설정](#set-up-visual-studio)에서 구성한 Azure AD 사용자를 사용합니다. App Service 앱의 관리 ID에서 연결할 수 있도록 SQL Database 서버를 나중에 설정합니다.
 
 `Ctrl+F5`를 입력하여 앱을 다시 실행합니다. 이제 브라우저에서 동일한 CRUD 앱이 Azure AD 인증을 사용하여 Azure SQL Database에 직접 연결합니다. 이 설정을 사용하면 Visual Studio에서 데이터베이스 마이그레이션을 실행할 수 있습니다.
@@ -189,6 +192,9 @@ SQL Database에 연결하는 데 필요한 모든 항목입니다. Visual studio
 
 다음으로, 시스템에서 할당한 관리 ID를 사용하여 SQL Database에 연결하도록 App Service 앱을 구성합니다.
 
+> [!NOTE]
+> 이 섹션의 지침은 시스템 할당 ID에 대한 것이지만 사용자 할당 ID를 쉽게 사용할 수 있습니다. 이 작업을 수행하려면 원하는 사용자 할당 ID를 할당하려면 `az webapp identity assign command`를 변경해야 합니다. 그런 다음, SQL 사용자를 만들 때 사이트 이름이 아닌 사용자 할당 ID 리소스의 이름을 사용해야 합니다.
+
 ### <a name="enable-managed-identity-on-app"></a>앱에서 관리 ID 사용
 
 Azure 앱의 관리 ID를 사용하려면 Cloud Shell에서 [az webapp identity assign](/cli/azure/webapp/identity?view=azure-cli-latest#az-webapp-identity-assign) 명령을 사용합니다. 다음 명령에서 *\<app-name>* 을 바꿉니다.
@@ -237,9 +243,12 @@ ALTER ROLE db_ddladmin ADD MEMBER [<identity-name>];
 GO
 ```
 
-*\<identity-name>* 은 Azure AD의 관리 ID 이름입니다. 시스템이 할당되기 때문에 App Service 앱의 이름과 항상 동일합니다. Azure AD 그룹에 대한 사용 권한을 부여하려면 대신 그룹의 표시 이름을 사용합니다(예: *myAzureSQLDBAccessGroup*).
+*\<identity-name>* 은 Azure AD의 관리 ID 이름입니다. ID가 시스템 할당된 경우 이름은 App Service 앱의 이름과 항상 동일합니다. Azure AD 그룹에 대한 사용 권한을 부여하려면 대신 그룹의 표시 이름을 사용합니다(예: *myAzureSQLDBAccessGroup*).
 
 `EXIT`를 입력하여 Cloud Shell 프롬프트로 돌아갑니다.
+
+> [!NOTE]
+> 또한 관리 ID의 백 엔드 서비스는 만료된 경우에만 대상 리소스에 대한 토큰을 업데이트하는 [토큰 캐시를 유지 관리](overview-managed-identity.md#obtain-tokens-for-azure-resources)합니다. SQL Database 사용 권한을 구성하는 실수를 하고 앱을 사용하여 토큰을 가져오려고 시도한 *후*에 사용 권한을 수정하려고 하는 경우 캐시된 토큰이 만료될 때까지 실제로 업데이트된 권한으로 새 토큰을 얻을 수 없습니다.
 
 ### <a name="modify-connection-string"></a>연결 문자열 수정
 

@@ -10,24 +10,24 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 02/10/2020
 ms.author: dapine
-ms.openlocfilehash: 45719eebb9cd74b0a5c4278e87b90978dcc3790f
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 6baa98d50c50146e93b4832053f63f3bead90a6d
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77119682"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78330835"
 ---
 # <a name="quickstart-create-a-voice-assistant-with-the-speech-sdk-java-preview"></a>빠른 시작: Speech SDK를 사용하여 음성 도우미 만들기, Java(미리 보기)
 
 이 빠른 시작은 [음성을 텍스트로](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-java&tabs=jre), [텍스트 음성 변환](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-java&tabs=jre) 및 [음성 번역](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-java&tabs=jre)에도 사용할 수 있습니다.
 
-이 문서에서는 [Azure Cognitive Services Speech SDK](speech-sdk.md)를 사용하여 Java 콘솔 애플리케이션을 만듭니다. 이 애플리케이션은 이전에 Direct Line Speech 채널을 사용하도록 만들고 구성한 봇에 연결하고, 음성 요청을 보내고, 음성 응답 작업을 반환합니다(구성된 경우). 이 애플리케이션은 Speech SDK Maven 패키지와 Windows, Ubuntu Linux 또는 macOS 기반의 Eclipse Java IDE를 사용하여 빌드됩니다. 64비트 Java 8 JRE(Java Runtime Environment)에서 실행됩니다.
+이 문서에서는 [Azure Cognitive Services Speech SDK](speech-sdk.md)를 사용하여 Java 콘솔 애플리케이션을 만듭니다. 이 애플리케이션은 이전에 Direct Line Speech 채널을 사용하도록 만들고 구성한 봇에 연결하고, 음성 요청을 보내고, 음성 응답 작업을 반환합니다(구성된 경우). 이 애플리케이션은 Speech SDK Maven 패키지와 Windows, Linux 또는 macOS 기반의 Eclipse Java IDE를 사용하여 빌드됩니다. 64비트 Java 8 JRE(Java Runtime Environment)에서 실행됩니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 이 빠른 시작에는 다음이 필요합니다.
 
-- 운영 체제: Windows(64비트), Ubuntu Linux 16.04/18.04(64비트) 또는 macOS 10.13 이상
+- 운영 체제: Windows(64비트), Ubuntu Linux 16.04/18.04(64비트), RHEL/CentOS 8(x64) 또는 macOS 10.13 이상
 - [Eclipse Java IDE](https://www.eclipse.org/downloads/)
 - [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) 또는 [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 - Speech Service에 대한 Azure 구독 키입니다. [Azure Portal](https://portal.azure.com)에서 [무료로 얻거나](get-started.md) 새로 만듭니다.
@@ -42,6 +42,17 @@ Ubuntu 16.04/18.04를 실행하는 경우 Eclipse를 시작하기 전에 다음�
 sudo apt-get update
 sudo apt-get install build-essential libssl1.0.0 libasound2 wget
 ```
+
+RHEL/CentOS 8에서:
+
+```sh
+sudo yum update
+sudo yum groupinstall "Development tools"
+sudo yum install alsa-lib java-1.8.0-openjdk-devel openssl wget
+```
+
+> [!NOTE]
+> RHEL/CentOS 8에서 [Linux용 OpenSSL을 구성하는 방법](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md)의 지침을 따르세요.
 
 Windows(64비트)를 실행하는 경우 플랫폼에 맞는 Microsoft Visual C++ 재배포 가능 패키지가 설치되어 있는지 확인합니다.
 

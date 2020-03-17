@@ -3,12 +3,12 @@ title: Azure 상태 개요 | Microsoft Docs
 description: Azure 서비스 상태에 대한 전반적인 보기입니다.
 ms.topic: overview
 ms.date: 06/11/2019
-ms.openlocfilehash: 4f4a0bf09c9256362e71466b9545389f4341ef38
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 766e9795b01c4a09916a025cba77744dea235faf
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77654157"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898332"
 ---
 # <a name="azure-status-overview"></a>Azure 상태 개요
 
@@ -26,7 +26,7 @@ Azure 상태 페이지는 Azure 서비스의 상태가 변경될 때마다 실�
 
 Azure 상태 페이지는 항상 최신 상태 정보를 표시하지만 [Azure 상태 기록 페이지](https://status.azure.com/status/history/)를 사용하여 이전 이벤트를 볼 수 있습니다.
 
-여기에서 이전의 근본 원인, 완화 및 Azure에 대한 다음 단계를 포함하여 과거 최대 90일의 이벤트를 확인할 수 있습니다.
+2019년 11월에 게시된 이벤트부터 상태 기록 페이지에는 Azure에 대한 예비 근본 원인, 완화 및 다음 단계를 포함하여 과거의 최대 365일의 이벤트가 표시됩니다.
 
 ## <a name="rss-feed"></a>RSS 피드
 

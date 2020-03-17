@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 1/22/2020
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: 69acb9152d1dc30d986276939e29e8c183095b18
-ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
+ms.openlocfilehash: 03850315a05f569d2c6ba9405b6ec38bb6b1305d
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77539606"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78330398"
 ---
 <!---Customer intent: I want to host files for a static website in Blob storage and access the website from an Azure endpoint.--->
 
@@ -92,8 +92,6 @@ Visual Studio Code를 설치한 후에 Azure Storage 미리 보기 확장을 설
 1. 정적 웹 사이트를 호스팅하도록 설정한 스토리지 계정에 포함된 구독을 선택합니다. 다음으로, 메시지가 표시되면 스토리지 계정을 선택합니다.
 
 이제 Visual Studio Code에서는 웹 엔드포인트에 파일을 업로드하고 성공 상태 표시줄을 표시하게 됩니다. 웹 사이트를 시작하여 Azure에서 확인합니다.
-
-![Azure에서 정적 웹 사이트 배포 확인](media/storage-blob-static-website-host/view-static-website-endpoint.png)
 
 이 자습서를 완료하고 정적 웹 사이트를 Azure에 배포했습니다.
 

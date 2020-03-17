@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/31/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ddc2622a67979f989c030d615c402387e7762d5
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 3f4084532ac370880df69d825927240c297dd371
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76983489"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129913"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-github"></a>자습서: GitHub와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -163,6 +163,8 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     다. Azure Portal에서 다운로드한 인증서 파일의 내용을 메모장에 복사한 다음, **공용 인증서** 텍스트 상자에 붙여넣습니다.
 
     d. 아래와 같이 **편집** 아이콘을 클릭하여 **RSA-SHA1** 및 **SHA1**의 **서명 방법** 및 **다이제스트 메서드**를 **RSA-SHA256** 및 **SHA256**으로 편집합니다.
+    
+    e. Github의 URL이 Azure 앱 등록의 URL과 일치하도록 기본 URL에서 **Assertion Consumer Service URL(회신 URL)** 을 업데이트합니다.
 
     ![이미지](./media/github-tutorial/tutorial_github_sha.png)
 

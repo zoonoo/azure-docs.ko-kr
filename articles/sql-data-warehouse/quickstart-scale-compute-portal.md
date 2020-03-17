@@ -1,6 +1,6 @@
 ---
-title: '빠른 시작: 컴퓨팅 크기 조정 - Azure Portal '
-description: Azure Portal에서 SQL 풀의 컴퓨팅 규모를 조정합니다. 더 나은 성능을 위해 컴퓨팅 능력을 확장하거나 비용 절감을 위해 다시 축소할 수 있습니다.
+title: Synapse SQL 풀에 대한 컴퓨팅 크기 조정(Azure Portal)
+description: Azure Portal을 사용하여 Synapse SQL 풀(데이터 웨어하우스)에 대한 컴퓨팅을 크기 조정할 수 있습니다.
 services: sql-data-warehouse
 author: Antvgski
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 04/17/2018
 ms.author: anvang
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 7463849223fdf81466237c7d0c912763988e80e6
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: df0b21e98812faf99b6e67f262cec6e9c29db2f1
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78200352"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79130267"
 ---
-# <a name="quickstart-scale-compute-in-azure-synapse-analytics-sql-pool-in-the-azure-portal"></a>빠른 시작: Azure Portal의 Azure Synapse Analytics SQL 풀에서 컴퓨팅 규모 조정
+# <a name="quickstart-scale-compute-for-synapse-sql-pool-with-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Synapse SQL 풀에 대한 컴퓨팅 크기 조정
 
-Azure Portal에서 SQL 풀의 컴퓨팅 규모를 조정합니다. 더 나은 성능을 위해 [컴퓨팅 능력을 확장](sql-data-warehouse-manage-compute-overview.md)하거나 비용 절감을 위해 다시 축소할 수 있습니다. 
+Azure Portal을 사용하여 Synapse SQL 풀(데이터 웨어하우스)에 대한 컴퓨팅을 크기 조정할 수 있습니다. 더 나은 성능을 위해 [컴퓨팅 능력을 확장](sql-data-warehouse-manage-compute-overview.md)하거나 비용 절감을 위해 다시 축소할 수 있습니다. 
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
@@ -30,9 +30,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이미 있는 SQL 풀의 크기를 조정하거나 [빠른 시작: 만들기 및 연결 - 포털](create-data-warehouse-portal.md)을 사용하여 **mySampleDataWarehouse**라는 SQL 풀을 만듭니다.  이 빠른 시작은 **mySampleDataWarehouse** 크기를 조정합니다.
+이미 있는 SQL 풀의 크기를 조정하거나 [빠른 시작: 만들기 및 연결 - 포털](create-data-warehouse-portal.md)을 사용하여 **mySampleDataWarehouse**라는 SQL 풀을 만듭니다. 이 빠른 시작은 **mySampleDataWarehouse** 크기를 조정합니다.
 
->[!Note]
+>[!IMPORTANT] 
 >SQL 풀이 확장하려면 온라인 상태여야 합니다. 
 
 ## <a name="scale-compute"></a>컴퓨팅 크기 조정
@@ -52,7 +52,4 @@ SQL 풀 컴퓨팅 리소스는 데이터 웨어하우스 단위를 늘리거나 
     ![슬라이더를 이동합니다](media/quickstart-scale-compute-portal/scale-dwu.png)
 
 ## <a name="next-steps"></a>다음 단계
-지금까지 SQL 풀에 대한 컴퓨팅 규모 조정을 알아보았습니다. SQL 풀에 대해 자세히 알아보려면 데이터 로드에 대한 자습서를 계속 진행하세요.
-
-> [!div class="nextstepaction"]
->[SQL 풀에 데이터 로드](load-data-from-azure-blob-storage-using-polybase.md)
+SQL 풀에 대해 자세히 알아보려면 [SQL 풀에 데이터 로드](load-data-from-azure-blob-storage-using-polybase.md) 자습서를 계속 진행하세요. 

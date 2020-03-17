@@ -1,14 +1,15 @@
 ---
 title: 자습서 - Terraform을 사용하여 Azure 배포 슬롯으로 인프라 프로비전
-description: Azure 공급자 배포 슬롯에서 Terraform을 사용하는 방법에 대한 자습서
+description: 이 자습서에서는 Azure 공급자 배포 슬롯과 Terraform을 사용합니다.
+keywords: azure devops terraform 배포 슬롯
 ms.topic: tutorial
-ms.date: 11/07/2019
-ms.openlocfilehash: 68c790b4fad442d94e6ac82d1a545b8554d2dd4f
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.date: 03/09/2020
+ms.openlocfilehash: ddd4d84ee8bf4ab1e90dd68da185cdd9075fe1e0
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74159189"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943495"
 ---
 # <a name="tutorial-provision-infrastructure-with-azure-deployment-slots-using-terraform"></a>자습서: Terraform을 사용하여 Azure 배포 슬롯으로 인프라 프로비전
 
@@ -16,9 +17,9 @@ ms.locfileid: "74159189"
 
 이 문서에서는 GitHub 및 Azure를 통해 두 개의 앱을 배포하는 과정을 안내하면서 배포 슬롯을 사용하는 예를 보여줍니다. 하나의 앱이 프로덕션 슬롯에 호스트됩니다. 두 번째 앱은 스테이징 슬롯에 호스트됩니다. ("production" 및 "staging"은 임의의 이름입니다. 시나리오에 적합한 모든 것이 될 수 있습니다.) 배포 슬롯을 구성한 후 필요에 따라 Terraform을 사용하여 두 슬롯 사이를 전환합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-- **Azure 구독**: Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 을 만듭니다.
+- **Azure 구독**: Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
 
 - **GitHub 계정**: 테스트 GitHub 리포지토리를 포크하고 사용하려면 [GitHub](https://www.github.com) 계정이 필요합니다.
 
@@ -68,7 +69,12 @@ ms.locfileid: "74159189"
 
     ```hcl
     # Configure the Azure provider
-    provider "azurerm" { }
+    provider "azurerm" { 
+        # The "feature" block is required for AzureRM provider 2.x. 
+        # If you are using version 1.x, the "features" block is not allowed.
+        version = "~>2.0"
+        features {}
+    }
 
     resource "azurerm_resource_group" "slotDemo" {
         name = "slotDemoResourceGroup"
@@ -247,7 +253,12 @@ ms.locfileid: "74159189"
 
     ```hcl
     # Configure the Azure provider
-    provider "azurerm" { }
+    provider "azurerm" { 
+        # The "feature" block is required for AzureRM provider 2.x. 
+        # If you are using version 1.x, the "features" block is not allowed.
+        version = "~>2.0"
+        features {}
+    }
 
     # Swap the production slot and the staging slot
     resource "azurerm_app_service_active_slot" "slotDemoActiveSlot" {

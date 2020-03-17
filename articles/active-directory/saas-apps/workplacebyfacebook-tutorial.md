@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/31/2020
+ms.date: 03/03/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c58ff181ec144dcd0b1089b0e53f868f241be73f
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 98706d0c9a86d53ae31d05bec48d7071f251b651
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76985291"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944384"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workplace-by-facebook"></a>자습서: Workplace by Facebook과 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -30,7 +30,7 @@ ms.locfileid: "76985291"
 * 사용자가 자신의 Azure AD 계정으로 Workplace by Facebook에 자동으로 로그온(Single Sign-On)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](https://docs.microsoft.com/azure/active-directory/what-is-single-sign-on)를 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -157,6 +157,8 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     a. **SSO(Single-Sign On)** 옵션을 선택합니다.
     
     b. **+새 SSO 공급자 추가**를 클릭합니다.
+    > [!NOTE]
+    > 암호 로그인 확인란을 선택했는지 확인합니다. 관리자는 자체 잠금을 중지하기 위해 인증서 롤오버를 수행하는 동안 로그인에 이 옵션이 필요할 수 있습니다.
 
 1. **인증** 탭에서 **SSO(Single Sign-On)** 를 선택하고 다음 단계를 수행합니다.
 
@@ -238,7 +240,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 - [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/what-is-single-sign-on)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
@@ -247,4 +249,3 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 - [Azure AD를 사용하여 Workplace by Facebook 체험](https://aad.portal.azure.com)
 
 - [Microsoft Cloud App Security의 세션 제어란?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-

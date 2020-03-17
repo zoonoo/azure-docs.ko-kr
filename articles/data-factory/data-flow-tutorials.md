@@ -5,13 +5,13 @@ author: djpmsft
 ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 02/16/2020
-ms.openlocfilehash: 1d0264a0b7ac4e97d9a2811ba61ab64fcedd6fb9
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.date: 03/04/2020
+ms.openlocfilehash: bb996b0abc16a3d6171c8f7ab2ac0e64dd0c1075
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77587552"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096805"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>데이터 흐름 매핑 비디오 자습서
 
@@ -72,6 +72,8 @@ ms.locfileid: "77587552"
 [Exists 변환](http://youtu.be/GS8JVgNBMfs?hd=1)
 
 [동적 조인 및 동적 조회](https://youtu.be/CMOPPie9bXM)
+
+[평면화 결합](https://youtu.be/VY2tFQJoAXE)
 
 ## <a name="source-and-sink"></a>원본 및 싱크
 
@@ -144,3 +146,5 @@ ms.locfileid: "77587552"
 [날짜/시간 식](https://www.youtube.com/watch?v=uboyCZ25r_E&feature=youtu.be&hd=1)
 
 [배열 및 Case 문 분할](https://www.youtube.com/watch?v=DHNH8ZO7YjI)
+
+[문자열 보간 및 매개 변수를 사용하는 재미](https://youtu.be/hb3-cn2CMgM)

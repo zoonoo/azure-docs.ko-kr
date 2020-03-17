@@ -6,12 +6,12 @@ ms.topic: quickstart
 description: 이 빠른 시작에서는 Azure Dev Spaces 및 Visual Studio Code를 사용하여 Azure Kubernetes Service에서 .NET Core 애플리케이션을 디버깅하고 신속하게 반복하는 방법을 보여줍니다.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: f3e91ec11e054e0a069eb97a3700b051476be0a1
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 6593cc3d5926fae05b2afd1e926552a2996ae885
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78251980"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943717"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-visual-studio-code-and-net-core---azure-dev-spaces"></a>빠른 시작: Kubernetes에서 디버그 및 반복: Visual Studio Code 및 .NET Core - Azure Dev Spaces
 
@@ -30,7 +30,7 @@ Azure Dev Spaces를 통해 다음을 사용하여 디버그하고 반복할 수�
 
 - Azure 구독 계정이 없는 경우 [무료 계정](https://azure.microsoft.com/free)에 만들 수 있습니다.
 - [Visual Studio Code 설치](https://code.visualstudio.com/download).
-- Visual Studio Code용 [Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) 및 [C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) 확장 프로그램 설치
+- Visual Studio Code용 [Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) 및 [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) 확장 프로그램 설치
 - [Azure CLI 설치](/cli/azure/install-azure-cli?view=azure-cli-latest)
 
 ## <a name="create-an-azure-kubernetes-service-cluster"></a>Azure Kubernetes Service 클러스터 만들기
@@ -110,6 +110,9 @@ Visual Studio Code에서 공용 엔드포인트를 구성하라는 메시지를 
 > *명령 팔레트*에 Azure Dev Spaces 명령이 보이지 않으면 [Azure Dev Spaces용 Visual Studio Code 확장 프로그램](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds)을 설치했는지 확인합니다. 또한 Visual Studio Code에서 *dev-spaces/samples/dotnetcore/getting-started/webfrontend* 디렉터리를 열었는지 확인합니다.
 
 공용 URL을 열어 실행되는 서비스를 볼 수 있습니다.
+
+> [!Note]
+> 처음에는 공용 URL에 *잘못된 게이트웨이* 오류가 표시될 수 있습니다. 웹 페이지를 새로 고치기 전에 몇 초 정도 기다린 후 서비스 실행이 표시됩니다.
 
 *디버그*와 *디버깅 중지*를 차례로 클릭하여 디버거를 중지합니다.
 

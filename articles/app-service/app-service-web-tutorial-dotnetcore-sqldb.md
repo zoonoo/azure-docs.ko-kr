@@ -5,12 +5,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 28dc5131366c54db30e9233ea1061cc9bc7a54ce
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: 3ad011529f8b4be90fc0c108a2049c30d1c69302
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77500084"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78897324"
 ---
 # <a name="tutorial-build-an-aspnet-core-and-sql-database-app-in-azure-app-service"></a>자습서: Azure App Service에서 ASP.NET Core 및 SQL Database 앱 빌드
 
@@ -39,7 +39,7 @@ ms.locfileid: "77500084"
 이 자습서를 완료하려면 다음이 필요합니다.
 
 * [Git 설치](https://git-scm.com/)
-* [.NET Core 설치](https://www.microsoft.com/net/core/)
+* [.NET Core SDK 설치](https://dotnet.microsoft.com/download)
 
 ## <a name="create-local-net-core-app"></a>로컬 .NET Core 앱 만들기
 

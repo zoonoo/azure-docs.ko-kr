@@ -13,18 +13,21 @@ ms.date: 08/30/2019
 ms.author: jmprieur
 ms.reviewer: oldalton
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 7704779ff605e28358f6f82c22ccda84d371dba9
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: abf083aacbdc643d780a8061b405752f36e27e45
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77084377"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129946"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-ios-or-macos-app"></a>iOS 또는 macOS 앱에서 사용자를 로그인하고 Microsoft Graph 호출
 
 이 자습서에서는 iOS 또는 macOS 앱을 Microsoft ID 플랫폼에 통합하는 방법을 알아봅니다. 앱에서는 사용자로 로그인하고, Microsoft Graph API를 호출하기 위한 액세스 토큰을 가져오고, Microsoft Graph API를 요청합니다.  
 
 이 가이드를 완료했으면 애플리케이션에서 Azure Active Directory를 사용하는 모든 회사 또는 조직의 회사 또는 학교 계정뿐만 아니라 개인 Microsoft 계정(outlook.com, live.com 등)의 로그인을 수락하게 됩니다.
+
+>[!NOTE]
+> Microsoft ID 플랫폼을 처음 접하는 경우 [iOS 또는 macOS 앱에서 사용자 로그인 및 Microsoft Graph API 호출](quickstart-v2-ios.md)로 시작하는 것이 좋습니다.
 
 ## <a name="how-this-tutorial-works"></a>이 자습서의 작동 방식
 

@@ -8,12 +8,12 @@ ms.date: 02/25/2020
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 75bd27f0945c66b9757055c0777b43a050ba67d7
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 2f920e29fafdc55478e0e2c16d683bd1c3bc81d8
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77920997"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942924"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 소개
 
@@ -25,15 +25,15 @@ Data Lake Storage Gen2는 Azure에서 Azure Storage를 엔터프라이즈 데이
 
 Data Lake Storage Gen2의 기본적인 부분은 [계층 구조 네임스페이스](data-lake-storage-namespace.md)를 Blob 스토리지에 추가하는 것입니다. 계층 구조 네임스페이스는 효율적인 데이터 액세스를 위해 개체/파일을 디렉터리 계층 구조로 구성합니다. 일반적인 개체 저장소 명명 규칙은 이름에 슬래시를 사용하여 계층적 디렉터리 구조를 모방합니다. 이 구조는 Data Lake Storage Gen2에서 구현됩니다. 디렉터리 이름 바꾸기 또는 삭제와 같은 작업은 디렉터리의 이름 접두사를 공유하는 모든 개체를 열거 및 처리하는 대신 디렉터리에 대한 단일 원자성 메타데이터 작업이 됩니다.
 
-과거 클라우드 기반 분석은 성능, 관리 및 보안 영역을 양보해야 했습니다. Data Lake Storage Gen2는 이러한 각 측면을 다음과 같은 방법으로 해결합니다.
+Data Lake Storage Gen2는 Blob 스토리지를 기반으로 하며 다음과 같은 방법으로 성능, 관리 및 보안을 향상시킵니다.
 
--   분석의 필수 구성 요소로 데이터를 복사하거나 변환할 필요가 없으므로 **성능**이 최적화됩니다. 계층 구조 네임스페이스는 디렉터리 관리 작업의 성능을 크게 향상시켜 전반적인 작업 성능을 향상시킵니다.
+-   분석의 필수 구성 요소로 데이터를 복사하거나 변환할 필요가 없으므로 **성능**이 최적화됩니다. Blob 스토리지의 단일 구조 네임스페이스와 비교할 때 계층 구조 네임스페이스는 디렉터리 관리 작업의 성능을 크게 향상시켜 전반적인 작업 성능을 향상시킵니다.
 
 -   디렉터리 및 하위 디렉터리를 통해 파일을 구성하고 조작할 수 있으므로 **관리**가 더 쉽습니다.
 
 -   **보안**은 디렉터리 또는 개별 파일에 대한 POSIX 권한을 정의할 수 있으므로 적용할 수 있습니다.
 
--   Data Lake Storage Gen2가 저비용 [Azure Blob Storage](storage-blobs-introduction.md) 위에 빌드되므로 **비용 효과**를 얻을 수 있습니다. 추가 기능을 통해 Azure에서 빅 데이터 분석을 실행하기 위한 총 소유 비용이 더 낮아집니다.
+Data Lake Storage Gen2는 저비용 [Azure Blob 스토리지](storage-blobs-introduction.md) 위에 빌드되므로 매우 비용 효과적입니다. 추가 기능을 통해 Azure에서 빅 데이터 분석을 실행하기 위한 총 소유 비용이 더 낮아집니다.
 
 ## <a name="key-features-of-data-lake-storage-gen2"></a>Data Lake Storage Gen2의 주요 기능
 

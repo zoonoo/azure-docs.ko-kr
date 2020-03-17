@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 03/08/2019
 ms.author: alkohli
-ms.openlocfilehash: d930b1db48e3a5c4bda96f0b7d80a9c9f24d53d9
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 623ec5e082a8ed889329936d020bf28434a56fbf
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400651"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942535"
 ---
 # <a name="tutorial-transfer-data-with-azure-data-box-gateway"></a>자습서: Azure Data Box Gateway를 통해 데이터 전송
 
@@ -24,14 +24,14 @@ ms.locfileid: "58400651"
 
 이 절차를 완료하는 데 약 10분이 걸릴 수 있습니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 공유 추가
 > * 공유에 연결
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Data Box Gateway에 공유를 추가하기 전에 다음 사항을 확인합니다.
 
@@ -61,7 +61,7 @@ Data Box Gateway에 공유를 추가하기 전에 다음 사항을 확인합니�
    
     5. 이 단계는 SMB 공유 또는 NFS 공유 중에서 어느 것을 만드는지에 따라 달라집니다.
      
-    - **SMB 공유** - **모든 권한 로컬 사용자** 아래에서 **새로 만들기** 또는 **기존 항목 사용**을 선택합니다. 새 로컬 사용자를 만드는 경우 **사용자 이름**과 **암호**를 입력한 다음, **암호를 확인**합니다. 이 작업은 로컬 사용자에게 권한을 할당합니다. 여기서 권한을 할당한 후에는 파일 탐색기를 사용하여 해당 권한을 수정할 수 있습니다.
+    - **SMB 공유** - **모든 권한 로컬 사용자** 아래에서 **새로 만들기** 또는 **기존 항목 사용**을 선택합니다. 새 로컬 사용자를 만드는 경우 **사용자 이름**과 **암호**를 입력한 다음, **암호를 확인**합니다. 이 작업은 로컬 사용자에게 권한을 할당합니다. 공유 수준 권한 수정은 현재 지원되지 않습니다.
     
         ![SMB 공유 추가](./media/data-box-gateway-deploy-add-shares/add-share-smb-1.png)
         

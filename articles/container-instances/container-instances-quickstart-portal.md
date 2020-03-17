@@ -1,20 +1,15 @@
 ---
 title: 빠른 시작 - 컨테이너 인스턴스에 Docker 컨테이너 배포 - 포털
 description: 이 빠른 시작에서는 Azure Portal을 사용하여, 격리된 Azure 컨테이너 인스턴스에서 실행하는 컨테이너화된 웹앱을 신속하게 배포합니다.
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: quickstart
-ms.date: 04/17/2019
-ms.author: danlep
+ms.date: 03/09/2020
 ms.custom: seodec18, mvc
-ms.openlocfilehash: e0c5ba57c7664a64c1b11bed215f419f31630d39
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 7a872e955db46b76d3b12f8ffc38d4a8e497ea63
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533524"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79087973"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure에서 컨테이너 인스턴스 배포
 
@@ -40,15 +35,16 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정][azure-f
 
 * 리소스 그룹: **새로 만들기** > `myresourcegroup`
 * 컨테이너 이름: `mycontainer`
-* 컨테이너 이미지: `mcr.microsoft.com/azuredocs/aci-helloworld`
+* 이미지 원본: **빠른 시작 이미지**
+* 컨테이너 이미지: `mcr.microsoft.com/azuredocs/aci-helloworld`(Linux)
 
 ![Azure Portal에서 새 컨테이너 인스턴스의 기본 설정 구성][aci-portal-03]
 
-이 빠른 시작의 경우 **공용**의 기본 **이미지 형식** 설정을 사용하여 공개 Microsoft `aci-helloworld` 이미지를 배포합니다. 이 Linux 이미지는 고정 HTML 페이지를 제공하는 Node.js로 작성된 작은 웹앱을 패키징합니다.
+이 빠른 시작의 경우 기본 설정을 사용하여 공개 Microsoft `aci-helloworld` 이미지를 배포합니다. 이 샘플 Linux 이미지는 고정 HTML 페이지를 제공하는 Node.js로 작성된 작은 웹앱을 패키징합니다. Azure Container Registry, Docker Hub 또는 기타 레지스트리에 저장된 사용자 고유의 컨테이너 이미지를 가져올 수도 있습니다.
 
 **네트워킹** 페이지에서 컨테이너의 **DNS 이름 레이블**을 지정합니다. 이름은 컨테이너 인스턴스를 만드는 Azure 지역 내에서 고유해야 합니다. 컨테이너는 `<dns-name-label>.<region>.azurecontainer.io`에서 공개적으로 연결할 수 있습니다. "DNS 이름 레이블을 사용할 수 없습니다"라는 오류 메시지가 표시되면 다른 DNS 이름 레이블을 사용해 보세요.
 
-![Azure Portal에서 새 컨테이너 인스턴스 구성][aci-portal-04]
+![Azure Portal에서 새 컨테이너 인스턴스의 네트워크 설정 구성][aci-portal-04]
 
 다른 설정을 해당 기본값으로 유지한 다음, **검토 + 만들기**를 선택합니다.
 

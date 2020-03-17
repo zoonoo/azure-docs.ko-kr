@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: tutorial
-ms.date: 12/20/2019
+ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: 038716f43c18432b1b8e7c86c3ffbcab46f1db8f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: fa10ab5a4b1c69b359936edf91da767da08d2f98
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75382799"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943100"
 ---
 # <a name="tutorial-build-a-web-page-spell-check-client"></a>자습서: 웹 페이지 Spell Check 클라이언트 빌드
 
@@ -29,7 +29,7 @@ ms.locfileid: "75382799"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-자습서를 따르려면 Bing Spell Check API에 대한 구독 키가 필요합니다. 없는 경우 [평가판에 등록하세요](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api).
+자습서를 따르려면 Bing Spell Check API에 대한 구독 키가 필요합니다. 없는 경우 Azure Portal에서 [Bing Spell Check 리소스를 만듭니다](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSpellCheck-v7). [평가판 키](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api)를 사용할 수도 있습니다.
 
 ## <a name="create-a-new-web-page"></a>새 웹 페이지 만들기
 

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/13/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 4a62026ecec2317173361f166adcc3a7981f6d1c
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 68473ff5a3faddd36bd4299dfdc882f679acd068
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701181"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129890"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>유니버설 Windows 플랫폼 애플리케이션(XAML)에서 Microsoft Graph API 호출
 
@@ -32,6 +32,9 @@ ms.locfileid: "76701181"
 
 >[!NOTE]
 > 이 가이드에는 유니버설 Windows 플랫폼 개발이 설치된 Visual Studio가 필요합니다. 유니버설 Windows 플랫폼 앱을 개발하기 위해 Visual Studio를 다운로드하고 구성하는 지침은 [설정](https://docs.microsoft.com/windows/uwp/get-started/get-set-up)을 참조하세요.
+
+>[!NOTE]
+> Microsoft ID 플랫폼을 처음 접하는 경우 [UWP(유니버설 Windows 플랫폼) 애플리케이션에서 Microsoft Graph API 호출 빠른 시작](quickstart-v2-uwp.md)으로 시작하는 것이 좋습니다.
 
 ## <a name="how-this-guide-works"></a>이 가이드의 작동 방식
 

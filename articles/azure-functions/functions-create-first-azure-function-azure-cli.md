@@ -3,13 +3,12 @@ title: Azure에서 HTTP 요청에 응답하는 함수 만들기
 description: 명령줄에서 함수를 만든 다음, 로컬 프로젝트를 Azure Functions의 서버리스 호스팅에 게시하는 방법을 알아봅니다.
 ms.date: 01/28/2020
 ms.topic: quickstart
-zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 2a02e1481d975f877508bde02948bc65561b9f13
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: f2ec642a477348923e8f587879d4804c07fff5a0
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78272754"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096251"
 ---
 # <a name="quickstart-create-a-function-in-azure-that-responds-to-http-requests"></a>빠른 시작: Azure에서 HTTP 요청에 응답하는 함수 만들기
 
@@ -23,7 +22,12 @@ ms.locfileid: "78272754"
 
 + 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell"  
 + [Azure Functions Core Tools](./functions-run-local.md#v2) 버전 2.7.1846 이상 2.x 버전
+::: zone-end  
+::: zone pivot="programming-language-python"
++ Python 3.6 및 3.7에는 [Azure Functions Core Tools](./functions-run-local.md#v2) 버전 2.7.1846 이상 2.x 버전이 필요합니다. Python 3.8에는 Core Tools의 [버전 3.x](./functions-run-local.md#v2)가 필요합니다.
+::: zone-end
 
 + [Azure CLI](/cli/azure/install-azure-cli) 버전 2.0.76 이상 
 ::: zone pivot="programming-language-javascript,programming-language-typescript"
@@ -31,7 +35,7 @@ ms.locfileid: "78272754"
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-+ Azure Functions에서 지원되는 [Python 3.7](https://www.python.org/downloads/release/python-375/) 또는 [Python 3.6](https://www.python.org/downloads/release/python-368/). Python 3.8 이상 버전은 아직 지원되지 않습니다. 
++ Azure Functions에서 지원되는 [Python 3.8](https://www.python.org/downloads/release/python-382/), [Python 3.7](https://www.python.org/downloads/release/python-375/), [Python 3.6](https://www.python.org/downloads/release/python-368/) 
 ::: zone-end
 ::: zone pivot="programming-language-powershell"
 + [PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-windows)
@@ -51,11 +55,11 @@ ms.locfileid: "78272754"
 + `node --version`을 실행하여 Node.js 버전이 8.x 또는 10.x로 보고되는지 확인합니다.
 ::: zone-end
 ::: zone pivot="programming-language-python"
-+ `python --version`(Linux/MacOS) 또는 `py --version`(Windows)을 실행하여 Python 버전이 3.7.x 또는 3.6.x로 보고되는지 확인합니다.
++ `python --version`(Linux/MacOS) 또는 `py --version`(Windows)을 실행하여 Python 버전이 3.8.x, 3.7.x 또는 3.6.x로 보고되는지 확인합니다.
 
 ## <a name="create-venv"></a>가상 환경 만들기 및 활성화
 
-적절한 폴더에서 다음 명령을 실행하여 `.venv`라는 가상 환경을 만들고 활성화합니다. Azure Functions에서 지원하는 Python 3.7 또는 3.6을 사용해야 합니다.
+적절한 폴더에서 다음 명령을 실행하여 `.venv`라는 가상 환경을 만들고 활성화합니다. Azure Functions에서 지원하는 Python 3.8, 3.7 또는 3.6을 사용해야 합니다.
 
 
 # <a name="bash"></a>[bash](#tab/bash)
@@ -268,13 +272,15 @@ HTTP 트리거의 경우 함수는 *function.json*에 정의된 `$Request` 매�
     
     이 빠른 시작에 대해 스토리지 계정은 약간의 비용(몇 USD 센트)만 발생합니다.
     
-1. [az functionapp create](/cli/azure/functionapp#az-functionapp-create) 명령을 사용하여 Functions 앱을 만듭니다. 다음 예제에서 `<STORAGE_NAME>`을 이전 단계에서 사용한 계정의 이름으로 바꾸고, `<APP_NAME>`을 적절하고 전역적으로 고유한 이름으로 바꿉니다. `<APP_NAME>`은 함수 앱의 기본 DNS 도메인이기도 합니다. 
+1. [az functionapp create](/cli/azure/functionapp#az-functionapp-create) 명령을 사용하여 함수 앱을 만듭니다. 다음 예제에서 `<STORAGE_NAME>`을 이전 단계에서 사용한 계정의 이름으로 바꾸고, `<APP_NAME>`을 적절하고 전역적으로 고유한 이름으로 바꿉니다. `<APP_NAME>`은 함수 앱의 기본 DNS 도메인이기도 합니다. 
 
     ::: zone pivot="programming-language-python"  
-    Python 3.6을 사용하는 경우 `--runtime-version`도 `3.6`으로 변경합니다.
+    Python 3.8을 사용하는 경우 `--runtime-version`을 `3.8`로 변경하고 `--functions_version`을 `3`으로 변경합니다.
+    
+    Python 3.6을 사용하는 경우 `--runtime-version`을 `3.6`으로 변경합니다.
 
     ```azurecli
-    az functionapp create --resource-group AzureFunctionsQuickstart-rg --os-type Linux --consumption-plan-location westeurope --runtime python --runtime-version 3.7 --functions_version 2 --name <APP_NAME> --storage-account <STORAGE_NAME>
+    az functionapp create --resource-group AzureFunctionsQuickstart-rg --os-type Linux --consumption-plan-location westeurope --runtime python --runtime-version 3.7 --functions-version 2 --name <APP_NAME> --storage-account <STORAGE_NAME>
     ```
     ::: zone-end  
 
@@ -283,19 +289,19 @@ HTTP 트리거의 경우 함수는 *function.json*에 정의된 `$Request` 매�
 
     
     ```azurecli
-    az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location westeurope --runtime node --runtime-version 10 --functions_version 2 --name <APP_NAME> --storage-account <STORAGE_NAME>
+    az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location westeurope --runtime node --runtime-version 10 --functions-version 2 --name <APP_NAME> --storage-account <STORAGE_NAME>
     ```
     ::: zone-end  
 
     ::: zone pivot="programming-language-csharp"  
     ```azurecli
-    az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location westeurope --runtime dotnet --functions_version 2 --name <APP_NAME> --storage-account <STORAGE_NAME>
+    az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location westeurope --runtime dotnet --functions-version 2 --name <APP_NAME> --storage-account <STORAGE_NAME>
     ```
     ::: zone-end  
     
     ::: zone pivot="programming-language-powershell"  
     ```azurecli
-    az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location westeurope --runtime powershell --functions_version 2 --name <APP_NAME> --storage-account <STORAGE_NAME>
+    az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location westeurope --runtime powershell --functions-version 2 --name <APP_NAME> --storage-account <STORAGE_NAME>
     ```
     ::: zone-end  
 

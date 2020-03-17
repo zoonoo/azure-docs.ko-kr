@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: raynew
-ms.openlocfilehash: 060399952545c903fec8ecf08d99e438883c9fd1
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.openlocfilehash: 91b9c71e7c735fca08f71ca37ed28734c8d634a1
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75902531"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79079866"
 ---
 # <a name="assess-servers-by-using-imported-data"></a>가져온 데이터를 사용하여 서버 평가
 
@@ -105,11 +105,11 @@ CSV 템플릿을 다운로드하고, 여기에 서버 정보를 추가합니다.
 
 **필드 이름** | **필수** | **세부 정보**
 --- | --- | ---
-**서버 이름** | yes | FQDN(정규화된 도메인 이름)을 지정하는 것이 좋습니다.
+**서버 이름** | 예 | FQDN(정규화된 도메인 이름)을 지정하는 것이 좋습니다.
 **IP 주소** | 예 | 서버 주소
-**코어 수** | yes | 서버에 할당된 프로세서 코어의 수
-**메모리** | yes | 서버에 할당된 총 RAM 크기(MB)
-**OS 이름** | yes | 서버 운영 체제
+**코어 수** | 예 | 서버에 할당된 프로세서 코어의 수
+**메모리** | 예 | 서버에 할당된 총 RAM 크기(MB)
+**OS 이름** | 예 | 서버 운영 체제 <br/> [이](#supported-operating-system-names) 목록의 이름과 일치하거나 이를 포함하는 운영 체제 이름은 평가에서 인식됩니다.
 **OS 버전** | 예 | 서버 운영 체제 버전
 **디스크 수** | 예 | 개별 디스크 세부 정보가 제공되는 경우 필요하지 않습니다.
 **디스크 1 크기**  | 예 | 최대 디스크 크기(GB)<br/>템플릿에 [열을 추가](#add-multiple-disks)하여 추가 디스크에 대한 세부 정보를 추가할 수 있습니다. 최대 8개의 디스크를 추가할 수 있습니다.

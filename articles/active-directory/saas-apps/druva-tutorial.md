@@ -11,17 +11,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/14/2019
+ms.date: 03/06/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16b23ef246561d052935642c323c2d830e21cbe7
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: f019d818fb5a017d184bda8d773eb0aaf0f3645a
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "73570236"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944408"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-druva"></a>자습서: Druva와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -33,7 +32,7 @@ ms.locfileid: "73570236"
 
 Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -44,7 +43,8 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 
 이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다.
 
-* Druva에서 **SP 및 IDP** 시작 SSO를 지원합니다.
+* Druva는 **IDP** 시작 SSO를 지원합니다.
+* Druva SSO가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 > [!NOTE]
 > 이 애플리케이션의 식별자는 고정 문자열 값이므로 하나의 테넌트에서 하나의 인스턴스만 구성할 수 있습니다.
@@ -81,11 +81,13 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. **Single Sign-On 방법 선택** 페이지에서 **SAML**을 선택합니다.
 1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성**에 대한 편집(연필 모양) 아이콘을 클릭하여 설정을 편집합니다.
 
-1. **기본 SAML 구성** 섹션에서 **IDP** 시작 모드로 애플리케이션을 구성하려는 경우에는 앱이 이미 Azure와 사전 통합되어 있으므로 사용자가 수행해야 하는 단계가 없습니다.
+   ![기본 SAML 구성 편집](common/edit-urls.png)
 
-1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**를 클릭하고 다음 단계를 수행합니다.
+1. **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    **로그온 URL** 텍스트 상자에 `https://login.druva.com/api/commonlogin/samlconsume` URL을 입력합니다.
+    a. **식별자(엔터티 ID)** 텍스트 상자에서 `DCP-login` 문자열 값을 입력합니다.
+    
+    b. **Reply URL(Assertion Consumer Service URL)** 텍스트 상자에 URL: `https://cloud.druva.com/wrsaml/consume`을 입력합니다.
 
 1. **저장**을 클릭합니다.
 
@@ -95,10 +97,10 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 위에서 언급한 특성 외에도 Druva 애플리케이션에는 아래에 표시된 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. 이러한 특성도 미리 채워져 있지만 요구 사항에 따라 검토할 수 있습니다.
 
-    | Name | 원본 특성|
+    | 속성 | 원본 특성|
     | ------------------- | -------------------- |
     | emailAddress | user.email |
-    | druva_auth_token | DCP 관리 콘솔에서 생성되는 SSO 토큰으로, 인용 부호는 없습니다.  예:  X-XXXXX-XXXX-S-A-M-P-L-E+TXOXKXEXNX=. Azure에서 인증 토큰 앞뒤로 따옴표를 자동으로 추가합니다. |
+    | druva_auth_token | DCP 관리 콘솔에서 생성되는 SSO 토큰으로, 인용 부호는 없습니다.  다음은 그 예입니다.  X-XXXXX-XXXX-S-A-M-P-L-E+TXOXKXEXNX=. Azure에서 인증 토큰 앞뒤로 따옴표를 자동으로 추가합니다. |
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 찾은 후 **다운로드**를 선택하여 인증서를 다운로드하고 컴퓨터에 저장합니다.
 
@@ -116,7 +118,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자**를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예: `B.Simon@contoso.com`
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기**를 클릭합니다.
 
@@ -182,3 +184,5 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Azure AD로 Druva 사용해보기](https://aad.portal.azure.com/)
+
+- [Microsoft Cloud App Security의 세션 제어란?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

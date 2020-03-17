@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 50eb88373b05d979d7f4b67b317e98c2a944459b
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: e33f52d5c1f9c06a5acbae5c66b051ca82ef14c0
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701333"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79126632"
 ---
 # <a name="add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Microsoft에 로그인을 ASP.NET 웹앱에 추가
 
@@ -30,6 +30,9 @@ ms.locfileid: "76701333"
 이 가이드를 완료하면 애플리케이션이 outlook.com 및 live.com의 좋아요에서 개인 계정의 로그인을 허용할 수 있습니다. 또한 Microsoft ID 플랫폼과 통합된 회사 또는 조직의 회사 및 학교 계정에서 앱에 로그인할 수 있습니다.
 
 > 이 가이드에는 Microsoft Visual Studio 2019가 필요합니다.  이 프로그램이 아직 설치되어 있지 않나요?  [체험용 Visual Studio 2019를 다운로드](https://www.visualstudio.com/downloads/)합니다.
+
+>[!NOTE]
+> Microsoft ID 플랫폼을 처음 사용하는 경우 [ASP.NET 웹앱에 Microsoft ID 플랫폼 로그인 추가](quickstart-v2-aspnet-webapp.md)를 시작하는 것이 좋습니다.
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>이 가이드에서 생성된 샘플 앱의 작동 원리
 

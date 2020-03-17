@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/31/2020
+ms.date: 02/17/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 564e8dd8e6d7c4c0e3747469875e030be30b1a9b
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: a875cee7e6796a2c865bde4a62f2f0463eb12130
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77046707"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78967716"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-salesforce"></a>자습서: Salesforce와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -180,7 +180,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![Single Sign-on 구성](./media/salesforce-tutorial/xmlchoose.png)
 
-1. **SAML Single Sign-On 설정** 페이지에서 필드에 내용이 자동으로 입력되면 저장을 클릭합니다.
+1. **SAML Single Sign-On 설정** 페이지에서 필드에 내용이 자동으로 입력되면 **사용자 프로비저닝 사용**을 선택한 다음, **저장**을 클릭합니다.
 
     ![Single Sign-on 구성](./media/salesforce-tutorial/salesforcexml.png)
 

@@ -1,14 +1,15 @@
 ---
 title: 자습서 - Terraform에 대한 Azure Cloud Shell 구성
-description: Azure Cloud Shell로 Terraform을 사용하여 인증 및 템플릿 구성을 간소합니다.
+description: 이 자습서에서는 Azure Cloud Shell로 Terraform을 사용하여 인증 및 템플릿 구성을 간소합니다.
+keywords: azure devops terraform 클라우드 셸
 ms.topic: tutorial
-ms.date: 10/26/2019
-ms.openlocfilehash: db9edfadbe01edc1ee9df09c284e3895ee11f3d3
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.date: 03/09/2020
+ms.openlocfilehash: 3a9db1143ba07b549a271d53d610e0a4853467c6
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74159134"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78945342"
 ---
 # <a name="tutorial-configure-azure-cloud-shell-for-terraform"></a>자습서: Terraform에 대한 Azure Cloud Shell 구성
 
@@ -31,6 +32,10 @@ Azure Terraform 모듈에는 Azure 리소스에 액세스하고 수정하기 위
 ```hcl
 # Configure the Microsoft Azure Provider
 provider "azurerm" {
+    # The "feature" block is required for AzureRM provider 2.x. 
+    # If you are using version 1.x, the "features" block is not allowed.
+    version = "~>2.0"
+    features {}
 }
 ```
 

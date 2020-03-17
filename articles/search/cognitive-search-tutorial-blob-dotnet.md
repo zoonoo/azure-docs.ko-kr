@@ -8,12 +8,12 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/27/2020
-ms.openlocfilehash: 0b9e7732e5274fd71c773a19d17e09ecdaa2ceb0
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: 169a33d12e98235dcb4e4f317dbb8d91eb7446a4
+ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78270010"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78851143"
 ---
 # <a name="tutorial-use-c-and-ai-to-generate-searchable-content-from-azure-blobs"></a>자습서: C# 및 AI를 사용하여 Azure Blob에서 검색 가능한 콘텐츠 생성
 
@@ -186,7 +186,7 @@ namespace EnrichwithAI
 
 ### <a name="create-a-client"></a>클라이언트 만들기
 
-Main 아래에 `SearchServiceClient` 클래스의 인스턴스를 만듭니다.
+`Main` 아래에 `SearchServiceClient` 클래스의 인스턴스를 만듭니다.
 
 ```csharp
 public static void Main(string[] args)
@@ -213,6 +213,22 @@ private static SearchServiceClient CreateSearchServiceClient(IConfigurationRoot 
 > [!NOTE]
 > `SearchServiceClient` 클래스는 검색 서비스에 대한 연결을 관리합니다. 너무 많은 연결이 열리는 것을 방지하기 위해 되도록 애플리케이션에서 단일 `SearchServiceClient` 인스턴스를 공유합니다. 해당 메서드는 스레드로부터 안전하므로 이러한 공유를 사용할 수 있습니다.
 > 
+
+### <a name="add-function-to-exit-the-program-during-failure"></a>오류 발생 시 프로그램을 종료하는 함수 추가
+
+이 자습서는 인덱싱 파이프라인의 각 단계를 이해하는 데 도움을 주기 위해 작성되었습니다. 프로그램에서 데이터 원본, 기술 세트, 인덱스 또는 인덱서를 만들 수 없도록 하는 중요한 문제가 있는 경우 프로그램에서 오류 메시지를 출력하고 종료하여 문제를 이해하고 해결할 수 있도록 합니다.
+
+프로그램이 종료되어야 하는 시나리오를 처리하려면 `Main`에 `ExitProgram`을 추가합니다.
+
+```csharp
+private static void ExitProgram(string message)
+{
+    Console.WriteLine("{0}", message);
+    Console.WriteLine("Press any key to exit the program...");
+    Console.ReadKey();
+    Environment.Exit(0);
+}
+```
 
 ## <a name="3---create-the-pipeline"></a>3 - 파이프라인 만들기
 
@@ -251,7 +267,7 @@ private static DataSource CreateOrUpdateDataSource(SearchServiceClient serviceCl
 
 요청이 성공하면 메서드에서 만들어진 데이터 원본을 반환합니다. 잘못된 매개 변수와 같이 요청에 문제가 있는 경우 메서드에서 예외를 throw합니다.
 
-이제 Main 아래에 방금 추가한 `CreateOrUpdateDataSource` 함수를 호출하는 줄을 추가합니다.
+이제 `Main`에 방금 추가한 `CreateOrUpdateDataSource` 함수를 호출하는 줄을 추가합니다.
 
 ```csharp
 public static void Main(string[] args)
@@ -537,7 +553,7 @@ private static Skillset CreateOrUpdateDemoSkillSet(SearchServiceClient serviceCl
 }
 ```
 
-Main에 다음 줄을 추가합니다.
+`Main`에 다음 줄을 추가합니다.
 
 ```csharp
     // Create the skills
@@ -675,7 +691,7 @@ private static Index CreateDemoIndex(SearchServiceClient serviceClient)
 
 테스트 중에 인덱스를 두 번 이상 만들려고 시도할 수 있습니다. 이로 인해 인덱스를 만들려고 하기 전에 해당 인덱스가 이미 있는지 확인합니다.
 
-Main에 다음 줄을 추가합니다.
+`Main`에 다음 줄을 추가합니다.
 
 ```csharp
     // Create the index
@@ -779,7 +795,7 @@ private static Indexer CreateDemoIndexer(SearchServiceClient serviceClient, Data
     return indexer;
 }
 ```
-Main에 다음 줄을 추가합니다.
+`Main`에 다음 줄을 추가합니다.
 
 ```csharp
     // Create the indexer, map fields, and execute transformations
@@ -840,7 +856,7 @@ private static void CheckIndexerOverallStatus(SearchServiceClient serviceClient,
 
 경고는 일부 원본 파일 및 기술 조합에서 일반적이며 항상 문제를 나타내는 것은 아닙니다. 이 자습서의 경고는 심각하지 않습니다(예: JPEG 파일의 텍스트 입력이 없음).
 
-Main에 다음 줄을 추가합니다.
+`Main`에 다음 줄을 추가합니다.
 
 ```csharp
     // Check indexer overall status
@@ -854,7 +870,7 @@ Main에 다음 줄을 추가합니다.
 
 확인 단계로 모든 필드에 대한 인덱스를 쿼리합니다.
 
-Main에 다음 줄을 추가합니다.
+`Main`에 다음 줄을 추가합니다.
 
 ```csharp
 DocumentSearchResult<DemoIndex> results;
@@ -890,7 +906,7 @@ private static SearchIndexClient CreateSearchIndexClient(IConfigurationRoot conf
 }
 ```
 
-Main에 다음 코드를 추가합니다. 첫 번째 try-catch는 각 필드의 이름, 유형 및 특성과 함께 인덱스 정의를 반환합니다. 두 번째는 매개 변수가 있는 쿼리이며, 여기서 `Select`는 결과에 포함할 필드(예: `organizations`)를 지정합니다. 검색 문자열이 `"*"`이면 단일 필드의 모든 콘텐츠를 반환합니다.
+다음 코드를 `Main`에 추가합니다. 첫 번째 try-catch는 각 필드의 이름, 유형 및 특성과 함께 인덱스 정의를 반환합니다. 두 번째는 매개 변수가 있는 쿼리이며, 여기서 `Select`는 결과에 포함할 필드(예: `organizations`)를 지정합니다. 검색 문자열이 `"*"`이면 단일 필드의 모든 콘텐츠를 반환합니다.
 
 ```csharp
 //Verify content is returned after indexing is finished

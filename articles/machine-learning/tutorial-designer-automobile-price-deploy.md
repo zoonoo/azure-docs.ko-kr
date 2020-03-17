@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 6fc6479ccda77bff84319d3244b2bd4a0599dc47
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: aeccd604a4dae3b2ca83f5b599d9a6857acee34a
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76933971"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79037182"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer-preview"></a>자습서: 디자이너(미리 보기)를 사용하여 Machine Learning 모델 배포
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -39,7 +39,7 @@ ms.locfileid: "76933971"
 
 1. 파이프라인 캔버스의 위쪽에서 **유추 파이프라인 만들기** > **실시간 유추 파이프라인**을 차례로 선택합니다.
 
-    ![파이프라인 만들기 단추를 찾을 수 있는 위치를 보여주는 스크린샷](./media/tutorial-designer-automobile-price-deploy/create-inference-pipeline.png)
+    ![파이프라인 만들기 단추를 찾을 수 있는 위치를 보여주는 스크린샷](./media/tutorial-designer-automobile-price-deploy/tutorial2-create-inference-pipeline.png)
 
     이제 파이프라인이 다음과 비슷할 것입니다. 
 
@@ -56,7 +56,7 @@ ms.locfileid: "76933971"
     > 기본적으로 **웹 서비스 입력**은 예측 파이프라인을 만드는 데 사용되는 학습 데이터와 동일한 데이터 스키마를 예상합니다. 이 시나리오에서 가격은 스키마에 포함됩니다. 그러나 예측 중에는 가격이 요소로 사용되지 않습니다.
     >
 
-1. **실행**을 선택하고 1부에서 사용한 것과 동일한 컴퓨팅 대상 및 실험을 사용합니다.
+1. **제출**을 선택하고 1부에서 사용한 것과 동일한 컴퓨팅 대상 및 실험을 사용합니다.
 
 1. **배포**를 선택합니다.
 
@@ -123,4 +123,4 @@ AKS 서비스 프로비저닝이 완료된 후에는 실시간 유추 파이프�
 이 자습서에서는 디자이너에서 기계 학습 모델을 만들고, 배포하고, 사용하는 방법에 대한 주요 단계를 알아보았습니다. 디자이너를 사용하여 다른 유형의 문제를 해결하는 방법에 대해 자세히 알아보려면 다른 샘플 파이프라인을 참조하세요.
 
 > [!div class="nextstepaction"]
-> [신용 위험 분류 샘플](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
+> [디자이너 샘플](samples-designer.md)

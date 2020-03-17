@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: tutorial
-ms.date: 12/12/2019
+ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: e128daa82eca8142a636df0958ddca574e398713
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 801bfcf02174c5dd98d4c7231c674299ef411aff
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75383118"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943110"
 ---
 # <a name="tutorial-create-a-single-page-web-app"></a>자습서: 단일 페이지 웹앱 만들기
 
@@ -39,6 +39,12 @@ Bing News Search API를 사용하여 웹을 검색하고 검색 쿼리와 관련
 > * 발생할 수 있는 오류 처리
 
 자습서 페이지는 완전히 독립적입니다. 즉, 모든 외부 프레임워크, 스타일시트 또는 이미지 파일을 사용하지 않습니다. 이 페이지는 광범위하게 지원되는 JavaScript 언어 기능만 사용하며, 모든 주요 웹 브라우저의 현재 버전에서 작동합니다.
+
+
+## <a name="prerequisites"></a>사전 요구 사항
+
+자습서를 따르려면 Bing Search API에 대한 구독 키가 필요합니다. 이러한 키가 없는 경우 [평가판 키](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) 및 [기본 Bing Maps 키](https://www.microsoft.com/maps/create-a-bing-maps-key)를 사용할 수 있습니다.
+
 
 ## <a name="app-components"></a>앱 구성 요소
 단일 페이지 웹앱과 마찬가지로, 이 자습서 애플리케이션은 다음 세 부분으로 구성되어 있습니다.

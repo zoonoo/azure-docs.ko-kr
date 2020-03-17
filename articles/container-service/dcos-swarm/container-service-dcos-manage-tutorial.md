@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 1c9b3bfdbe7aff203efa6b36f0e40cb65aba1175
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 4212277dbdf29705152832f3830692b43b8d1297
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76278346"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78402801"
 ---
 # <a name="deprecated-azure-container-service-tutorial---manage-dcos"></a>(사용되지 않음) Azure Container Service 자습서 - DC/OS 관리
 
@@ -66,7 +66,7 @@ ip=$(az network public-ip list --resource-group myResourceGroup --query "[?conta
 
 SSH 터널을 만들려면 다음 명령을 실행하고 화면에 나타나는 지침을 따르세요. 포트 80이 이미 사용 중인 경우 명령이 실패합니다. 터널링된 포트를 `85:localhost:80`과 같이 사용하지 않는 포트로 업데이트합니다. 
 
-```azurecli
+```console
 sudo ssh -i ~/.ssh/id_rsa -fNL 80:localhost:80 -p 2200 azureuser@$ip
 ```
 
@@ -80,7 +80,7 @@ az acs dcos install-cli
 
 CLI를 클러스터 함께 사용하기 전에 SSH 터널을 사용하도록 구성되어야 합니다. 이렇게 하려면 필요한 경우 포트를 조정하여 다음 명령을 실행합니다.
 
-```azurecli
+```console
 dcos config set core.dcos_url http://localhost
 ```
 
@@ -116,19 +116,19 @@ ACS DC/OS 클러스터의 기본 예약 메커니즘은 Marathon입니다. Marat
 
 DC/OS 클러스터에서 실행되도록 애플리케이션을 예약하는 다음 명령을 실행합니다.
 
-```azurecli
+```console
 dcos marathon app add marathon-app.json
 ```
 
 앱의 배포 상태를 보려면 다음 명령을 실행합니다.
 
-```azurecli
+```console
 dcos marathon app list
 ```
 
 **태스크** 열 값이 *0/1*에서 *1/1*로 전환되는 경우 애플리케이션 배포가 완료됩니다.
 
-```azurecli
+```output
 ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD   
 /test   32   1     0/1    ---       ---      False      DOCKER   None
 ```
@@ -165,19 +165,19 @@ ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD
 
 `dcos marathon app update` 명령을 사용하여 애플리케이션을 업데이트합니다.
 
-```azurecli
+```console
 dcos marathon app update demo-app-private < marathon-app.json
 ```
 
 앱의 배포 상태를 보려면 다음 명령을 실행합니다.
 
-```azurecli
+```console
 dcos marathon app list
 ```
 
 **태스크** 열 값이 *1/3*에서 *3/1*로 전환되는 경우 애플리케이션 배포가 완료됩니다.
 
-```azurecli
+```output
 ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD   
 /test   32   1     1/3    ---       ---      False      DOCKER   None
 ```
@@ -222,13 +222,13 @@ ACS DC/OS 클러스터는 인터넷에 액세스할 수 있는 공용 노드 집
 
 DC/OS 클러스터에서 실행되도록 애플리케이션을 예약하는 다음 명령을 실행합니다.
 
-```azurecli 
+```console
 dcos marathon app add nginx-public.json
 ```
 
 DC/OS 공용 클러스터 에이전트의 공용 IP 주소를 가져옵니다.
 
-```azurecli 
+```azurecli
 az network public-ip list --resource-group myResourceGroup --query "[?contains(name,'dcos-agent')].[ipAddress]" -o tsv
 ```
 
@@ -256,7 +256,7 @@ az acs scale --resource-group myResourceGroup --name myDCOSCluster --new-agent-c
 
 더 이상 필요하지 않은 경우 [az group delete](/cli/azure/group#az-group-delete) 명령을 사용하여 리소스 그룹, DC/OS 클러스터 및 모든 관련된 리소스를 제거할 수 있습니다.
 
-```azurecli 
+```azurecli
 az group delete --name myResourceGroup --no-wait
 ```
 

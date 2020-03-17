@@ -7,13 +7,13 @@ ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
-ms.date: 01/27/2020
-ms.openlocfilehash: 0eaff1685cea88d352f1a22f382b7af2ed0ed6cb
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.date: 02/27/2020
+ms.openlocfilehash: 40c91f67231fb6a9d01191ee5215eae8d4dc045b
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77252215"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096691"
 ---
 # <a name="tutorial-configure-availability-groups-for-sql-server-on-rhel-virtual-machines-in-azure"></a>자습서: Azure에서 RHEL 가상 머신의 SQL Server에 대한 가용성 그룹 구성 
 
@@ -360,8 +360,8 @@ Description : The fence-agents-azure-arm package contains a fence agent for Azur
  3. [**앱 등록**](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)을 클릭합니다.
  4. **새 등록**을 클릭합니다.
  5. **이름**(예: `<resourceGroupName>-app`)을 입력하고, **이 조직 디렉터리의 계정만**을 선택합니다.
- 6. **웹** 애플리케이션 유형을 선택하고, 로그온 URL(예: http://localhost) )을 입력하고, [추가]를 클릭합니다. 로그온 URL이 사용되지 않으며, 이 URL은 임의의 올바른 URL이 될 수 있음
- 7. **인증서 및 비밀**을 선택한 다음, **새 클라이언트 암호**를 클릭합니다.
+ 6. **웹** 애플리케이션 유형을 선택하고, 로그온 URL(예: http://localhost) )을 입력하고, [추가]를 클릭합니다. 로그온 URL이 사용되지 않으며, 이 URL은 임의의 올바른 URL이 될 수 있습니다. 작업이 완료되면 **등록**을 클릭합니다.
+ 7. 새 등록에 대해 **인증서 및 비밀**을 선택한 다음, **새 클라이언트 암호**를 클릭합니다.
  8. 새 키(클라이언트 암호)에 대한 설명을 입력하고, **만료 기한 제한 없음**을 선택하고, **추가**를 클릭합니다.
  9. 비밀의 값을 적어 둡니다. 서비스 주체의 암호로 사용됩니다.
 10. **개요**를 선택합니다. 애플리케이션 ID를 적어둡니다. 서비스 주체의 사용자 이름(아래 단계의 로그인 ID)으로 사용됩니다.
@@ -569,12 +569,14 @@ AG 엔드포인트에 대한 AD 인증은 현재 지원하지 않습니다. 따�
 ```sql
 CREATE CERTIFICATE dbm_certificate WITH SUBJECT = 'dbm';
 GO
+
 BACKUP CERTIFICATE dbm_certificate
    TO FILE = '/var/opt/mssql/data/dbm_certificate.cer'
    WITH PRIVATE KEY (
            FILE = '/var/opt/mssql/data/dbm_certificate.pvk',
            ENCRYPTION BY PASSWORD = '<Private_Key_Password>'
        );
+GO
 ```
 
 `exit` 명령을 실행하여 SQL CMD 세션을 종료하고 SSH 세션으로 돌아갑니다.
@@ -623,6 +625,7 @@ BACKUP CERTIFICATE dbm_certificate
         FILE = '/var/opt/mssql/data/dbm_certificate.pvk',
         DECRYPTION BY PASSWORD = '<Private_Key_Password>'
                 );
+    GO
     ```
 
 ### <a name="create-the-database-mirroring-endpoints-on-all-replicas"></a>모든 복제본에서 데이터베이스 미러링 엔드포인트 만들기
@@ -640,6 +643,7 @@ ENCRYPTION = REQUIRED ALGORITHM AES
 GO
 
 ALTER ENDPOINT [Hadr_endpoint] STATE = STARTED;
+GO
 ```
 
 ### <a name="create-the-availability-group"></a>가용성 그룹 만들기
@@ -677,6 +681,7 @@ CREATE AVAILABILITY GROUP [ag1]
 GO
 
 ALTER AVAILABILITY GROUP [ag1] GRANT CREATE ANY DATABASE;
+GO
 ```
 
 ### <a name="create-a-sql-server-login-for-pacemaker"></a>Pacemaker용 SQL Server 로그인 만들기
@@ -688,9 +693,12 @@ ALTER AVAILABILITY GROUP [ag1] GRANT CREATE ANY DATABASE;
 ```sql
 USE [master]
 GO
+
 CREATE LOGIN [pacemakerLogin] with PASSWORD= N'<password>';
 GO
+
 ALTER SERVER ROLE [sysadmin] ADD MEMBER [pacemakerLogin];
+GO
 ```
 
 모든 SQL Server에서 SQL Server 로그인에 사용되는 자격 증명을 저장합니다. 
@@ -733,6 +741,7 @@ ALTER SERVER ROLE [sysadmin] ADD MEMBER [pacemakerLogin];
     GO
 
     ALTER AVAILABILITY GROUP [ag1] GRANT CREATE ANY DATABASE;
+    GO
     ```
 
 1. 주 복제본과 각 보조 복제본에서 다음 Transact-SQL 스크립트를 실행합니다.
@@ -742,6 +751,7 @@ ALTER SERVER ROLE [sysadmin] ADD MEMBER [pacemakerLogin];
     GO
     
     GRANT VIEW SERVER STATE TO pacemakerLogin;
+    GO
     ```
 
 1. 보조 복제본이 조인되면 **Always On 고가용성** 노드를 펼쳐서 SSMS 개체 탐색기에서 해당 복제본을 볼 수 있습니다.
@@ -766,6 +776,7 @@ BACKUP DATABASE [db1] -- backs up the database to disk
 GO
 
 ALTER AVAILABILITY GROUP [ag1] ADD DATABASE [db1]; -- adds the database db1 to the AG
+GO
 ```
 
 ### <a name="verify-that-the-database-is-created-on-the-secondary-servers"></a>데이터베이스가 보조 서버에 생성되었는지 확인
@@ -805,7 +816,6 @@ SELECT DB_NAME(database_id) AS 'database', synchronization_state_desc FROM sys.d
     Master/Slave Set: ag_cluster-master [ag_cluster]
     Masters: [ <VM1> ]
     Slaves: [ <VM2> <VM3> ]
-    virtualip      (ocf::heartbeat:IPaddr2):       Started <VM1>
     ```
 
 ### <a name="create-a-virtual-ip-resource"></a>가상 IP 리소스 만들기
@@ -946,7 +956,6 @@ Daemon Status:
          Masters: [ <VM2> ]
          Slaves: [ <VM1> <VM3> ]
     virtualip      (ocf::heartbeat:IPaddr2):       Started <VM2>
-     
     ```
 
 ## <a name="test-fencing"></a>펜싱 테스트
@@ -975,7 +984,7 @@ Node: <VM3> fenced
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure에서 만든 SQL Server에 가용성 그룹 수신기를 활용하려면 먼저 부하 분산 장치를 만들고 구성해야 합니다.
+SQL Server에 가용성 그룹 수신기를 활용하려면 부하 분산 장치를 만들고 구성해야 합니다.
 
 > [!div class="nextstepaction"]
-> [Azure Portal에서 부하 분산 장치 만들기 및 구성](../../../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md#create-and-configure-the-load-balancer-in-the-azure-portal)
+> [자습서: Azure에서 RHEL 가상 머신의 SQL Server에 대한 가용성 그룹 수신기 구성](sql-server-linux-rhel-ha-listener-tutorial.md)

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 11/07/2019
+ms.date: 03/04/2020
 ms.author: aahi
-ms.openlocfilehash: 66bc1e5441210b8d9153812c826643159fe53d50
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: a9519be591581fa434825f1a1fb31749788a21a8
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78251322"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78395737"
 ---
 # <a name="what-is-the-text-analytics-api"></a>텍스트 분석 API란?
 
@@ -64,6 +64,7 @@ Text Analytics API는 클라우드 기반 서비스로 원시 텍스트에 대�
 프로그래밍 경험이 많지 않더라도 프로세스에서 Text Analytics API 사용을 시작할 수 있습니다. 이러한 자습서를 통해 API를 사용하여 자신의 경험 수준에 맞는 다양한 방법으로 텍스트를 분석하는 방법을 알아봅니다. 
 
 * 필요한 최소한의 프로그래밍:
+    * [Text Analytics 및 Power Automate를 사용하여 Excel에서 정보 추출](tutorials/extract-excel-information.md)
     * [Text Analytics API 및 MS Flow를 사용하여 Yammer 그룹의 코멘트에 대한 감정 식별](https://docs.microsoft.com/Yammer/integrate-yammer-with-other-apps/sentiment-analysis-flow-azure?toc=%2F%2Fazure%2Fcognitive-services%2Ftext-analytics%2Ftoc.json&bc=%2F%2Fazure%2Fbread%2Ftoc.json)
     * [Power BI를 Text Analytics API와 통합하여 고객 피드백 분석](tutorials/tutorial-power-bi-key-phrases.md)
 * 권장되는 프로그래밍 환경:

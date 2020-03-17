@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: tutorial
-ms.date: 12/19/2019
+ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: 93ee5df4327aa396573665cd0c2cbd8222015cce
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e0df0773daf8f9be21ac70d8390013adfd93483a
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448911"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78402679"
 ---
 # <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>자습서: Azure Databricks를 사용하여 스트리밍 데이터에 대한 변칙 검색
 
@@ -40,12 +40,10 @@ ms.locfileid: "75448911"
 > * 트윗에서 변칙 검색 실행
 
 > [!Note]
-> 이 자습서에서는 Anomaly Detector API에 추천되는 [솔루션 아키텍처](https://azure.microsoft.com/solutions/architecture/anomaly-detector-process/)를 구현하는 방법을 소개합니다.
+> * 이 자습서에서는 Anomaly Detector API에 추천되는 [솔루션 아키텍처](https://azure.microsoft.com/solutions/architecture/anomaly-detector-process/)를 구현하는 방법을 소개합니다.
+> * 이 자습서는 Anomaly Detector API 또는Azure Databricks의 평가판을 사용하여 수행할 수 없습니다. 
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
-
-> [!Note]
-> 이 자습서는 Anomaly Detector API의 평가판 키를 사용하여 수행할 수 없습니다. 무료 계정을 사용하여 Azure Databricks 클러스터를 만들려면 클러스터를 만들기 전에 프로필로 이동하고 구독을 **종량제**로 변경합니다. 자세한 내용은 [Azure 체험 계정](https://azure.microsoft.com/free/)을 참조하세요.
+Azure 구독이 없는 경우 [Azure 구독](https://azure.microsoft.com/free/)을 만듭니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

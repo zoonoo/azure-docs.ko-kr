@@ -6,19 +6,23 @@ ms.author: lcozzens
 ms.date: 03/05/2020
 ms.topic: quickstart
 ms.service: azure-app-configuration
-ms.custom: mvc
-ms.openlocfilehash: 7c6f4b2ea9494c004067a8b19df2c2f098ac2b7f
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.custom:
+- mvc
+- subject-armqs
+ms.openlocfilehash: c45f6855c33dff2790ced306fd7f049b98dd1387
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78274512"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79126391"
 ---
-# <a name="quickstart-automated-vm-deployment-with-app-configuration"></a>빠른 시작: Azure App Configuration을 사용하여 자동화된 VM 배포
+# <a name="quickstart-automated-vm-deployment-with-app-configuration-and-resource-manager-template"></a>빠른 시작: Azure App Configuration 및 Resource Manager 템플릿을 사용하여 자동화된 VM 배포
 
 Azure PowerShell 모듈은 PowerShell cmdlet 또는 스크립트를 사용하여 Azure 리소스를 만들고 관리하는 데 사용됩니다. 이 빠른 시작에서는 Azure PowerShell 및 Azure Resource Manager 템플릿을 사용하여 Azure App Configuration 저장소를 배포하는 방법을 보여 줍니다. 그런 다음, 저장소의 키-값을 사용하여 VM을 배포하는 방법을 알아봅니다.
 
 필수 구성 요소 템플릿을 사용하여 App Configuration 저장소를 만든 다음, Azure Portal 또는 Azure CLI를 사용하여 키-값을 저장소에 추가합니다. 기본 템플릿은 기존 구성 저장소의 기존 키-값 구성을 참조합니다. 검색된 값은 이 예제의 VM과 같이 템플릿에서 만든 리소스의 속성을 설정하는 데 사용됩니다.
+
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -85,7 +89,7 @@ New-AzResourceGroup `
       },
       "skuName": {
         "type": "string",
-        "defaultValue": "free",
+        "defaultValue": "standard",
         "metadata": {
           "description": "Specifies the SKU of the app configuration store."
         }
@@ -332,7 +336,7 @@ Azure Resource Manager 템플릿을 사용하여 App Configuration 저장소를 
                     "imageReference": {
                         "publisher": "MicrosoftWindowsServer",
                         "offer": "WindowsServer",
-                        "sku": "[listKeyValue(variables('appConfigRef'), '2019-02-01-preview', variables('windowsOSVersionParameters')).value]",
+                        "sku": "[listKeyValue(variables('appConfigRef'), '2019-10-01', variables('windowsOSVersionParameters')).value]",
                         "version": "latest"
                     },
                     "osDisk": {
@@ -340,7 +344,7 @@ Azure Resource Manager 템플릿을 사용하여 App Configuration 저장소를 
                     },
                     "dataDisks": [
                         {
-                            "diskSizeGB": "[listKeyValue(variables('appConfigRef'), '2019-02-01-preview', variables('diskSizeGBParameters')).value]",
+                            "diskSizeGB": "[listKeyValue(variables('appConfigRef'), '2019-10-01', variables('diskSizeGBParameters')).value]",
                             "lun": 0,
                             "createOption": "Empty"
                         }

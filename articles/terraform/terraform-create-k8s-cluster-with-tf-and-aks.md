@@ -1,14 +1,15 @@
 ---
 title: 자습서 - Terraform을 사용하여 AKS(Azure Kubernetes Service)로 Kubernetes 클러스터 만들기
-description: Azure Kubernetes Service 및 Terraform을 사용하여 Kubernetes 클러스터를 만드는 방법을 설명하는 자습서
+description: 이 자습서에서는 Azure Kubernetes Service 및 Terraform을 사용하여 Kubernetes 클러스터를 만듭니다.
+keywords: azure devops terraform aks kubernetes
 ms.topic: tutorial
-ms.date: 11/07/2019
-ms.openlocfilehash: eb8619418cf6d42f600499bb5a12322adce6f44b
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.date: 03/09/2020
+ms.openlocfilehash: 0a193c8da6441a04f742894797521fe92f26b2e1
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77472250"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78945304"
 ---
 # <a name="tutorial-create-a-kubernetes-cluster-with-azure-kubernetes-service-using-terraform"></a>자습서: Terraform을 사용하여 Azure Kubernetes Service로 Kubernetes 클러스터 만들기
 
@@ -71,7 +72,10 @@ Azure 공급자를 선언하는 Terraform 구성 파일을 만듭니다.
 
     ```hcl
     provider "azurerm" {
-        version = "~>1.5"
+        # The "feature" block is required for AzureRM provider 2.x. 
+        # If you are using version 1.x, the "features" block is not allowed.
+        version = "~>2.0"
+        features {}
     }
 
     terraform {
