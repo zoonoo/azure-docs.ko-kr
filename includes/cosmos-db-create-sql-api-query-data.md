@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 04/05/2019
 ms.author: sngun
 ms.custom: include file
-ms.openlocfilehash: 9971b16da42cdf1de0464857291c74a947535735
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 64c900e01496dad0d5f6a96d8d790ae0c2a8c95a
+ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67182748"
+ms.lasthandoff: 03/08/2020
+ms.locfileid: "78927420"
 ---
 데이터 탐색기에서 쿼리를 사용하여 데이터를 검색하고 필터링할 수 있습니다.
 
-1. 데이터 탐색기의 **문서** 탭 맨 위에서 기본 쿼리 `SELECT * FROM c`를 검토하세요. 이 쿼리는 컬렉션의 모든 문서를 검색하고 ID 순으로 표시합니다. 
+1. 데이터 탐색기의 **항목** 탭 위쪽에서 기본 `SELECT * FROM c` 쿼리를 검토합니다. 이 쿼리는 컬렉션의 모든 문서를 검색하고 ID 순으로 표시합니다. 
    
    ![데이터 탐색기에서 기본 쿼리는 `SELECT * FROM c`입니다.](./media/cosmos-db-create-sql-api-query-data/azure-cosmosdb-data-explorer-query.png)
    
