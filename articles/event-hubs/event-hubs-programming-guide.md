@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.topic: article
 ms.date: 01/15/2020
 ms.author: shvija
-ms.openlocfilehash: afd466e0266cf2d95f95eb8536943f5856c26a58
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: d958c2d32c16874676f46bb216067fe2d7bbe784
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76899915"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79280977"
 ---
 # <a name="net-programming-guide-for-azure-event-hubs-legacy-microsoftazureeventhubs-package"></a>Azure Event Hubs에 대 한 .NET 프로그래밍 가이드 (레거시 EventHubs 패키지)
 이 문서에서는 Azure Event Hubs를 사용하여 코드를 작성하는 몇 가지 일반적인 시나리오를 설명합니다. Event Hubs에 대한 예비 이해가 있다고 가정합니다. Event Hubs의 개요에 대한 개념은 [Event Hubs 개요](event-hubs-what-is-event-hubs.md)를 참조하세요.
 
 > [!WARNING]
-> 이 가이드는 이전 **EventHubs** 패키지에 대 한 것입니다. 최신 [EventHubs](get-started-dotnet-standard-send-v2.md) 패키지를 사용 하도록 코드를 [마이그레이션하](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MIGRATIONGUIDE.md) 는 것이 좋습니다.  
+> 이 가이드는 이전 **EventHubs** 패키지에 대 한 것입니다. 최신 [EventHubs](get-started-dotnet-standard-send-v2.md) 패키지를 사용 하도록 코드를 [마이그레이션하](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md) 는 것이 좋습니다.  
 
 
 ## <a name="event-publishers"></a>이벤트 게시자
@@ -62,7 +62,7 @@ eventHubClient = EventHubClient.CreateFromConnectionString(connectionStringBuild
 
 ## <a name="event-serialization"></a>이벤트 직렬화
 
-[EventData][] 클래스에는 이벤트 데이터 페이로드를 나타내는 다양한 매개 변수, 바이트 또는 바이트 배열을 사용하는 [2개의 오버로드된 생성자](/dotnet/api/microsoft.azure.eventhubs.eventdata.-ctor)가 있습니다. [EventData][]와 함께 JSON을 사용하는 경우 **Encoding.UTF8.GetBytes()** 를 사용하여 JSON으로 인코딩된 문자열에 대한 바이트 배열을 검색할 수 있습니다. 예:
+[EventData][] 클래스에는 이벤트 데이터 페이로드를 나타내는 다양한 매개 변수, 바이트 또는 바이트 배열을 사용하는 [2개의 오버로드된 생성자](/dotnet/api/microsoft.azure.eventhubs.eventdata.-ctor)가 있습니다. [EventData][]와 함께 JSON을 사용하는 경우 **Encoding.UTF8.GetBytes()** 를 사용하여 JSON으로 인코딩된 문자열에 대한 바이트 배열을 검색할 수 있습니다. 다음은 그 예입니다.
 
 ```csharp
 for (var i = 0; i < numMessagesToSend; i++)
@@ -98,7 +98,7 @@ for (var i = 0; i < numMessagesToSend; i++)
 
 배치에서 이벤트를 보내면 처리량을 향상시키는 데 도움을 줄 수 있습니다. [CreateBatch](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createbatch) API를 사용하여 [SendAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync) 호출에 대해 데이터 개체를 나중에 추가할 수 있는 일괄 처리를 만들 수 있습니다.
 
-단일 일괄 처리는 이벤트의 1MB 제한을 초과하지 말아야 합니다. 또한 배치의 각 메시지는 동일한 게시자 id를 사용합니다. 배치가 최대 이벤트 크기를 초과하지 않도록 확인하는 것은 보낸 사람의 책임입니다. 그런 경우 클라이언트 **보내기** 오류가 생성됩니다. 도우미 메서드 [EventHubClient.CreateBatch](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createbatch)를 사용하면 일괄 처리가 1MB를 초과하지 않도록 할 수 있습니다. [CreateBatch](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createbatch) API에서 빈 [EventDataBatch](/dotnet/api/microsoft.azure.eventhubs.eventdatabatch)를 얻은 다음 [TryAdd](/dotnet/api/microsoft.azure.eventhubs.eventdatabatch.tryadd)를 사용하여 이벤트를 추가하여 일괄 처리를 구성합니다. 
+단일 일괄 처리는 이벤트의 1MB 제한을 초과하지 말아야 합니다. 또한 배치의 각 메시지는 동일한 게시자 id를 사용합니다. 배치가 최대 이벤트 크기를 초과하지 않도록 확인하는 것은 보낸 사람의 책임입니다. 그런 경우 클라이언트 **보내기** 오류가 생성됩니다. 도우미 메서드 [EventHubClient.CreateBatch](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createbatch)를 사용하면 일괄 처리가 1MB를 초과하지 않도록 할 수 있습니다. [CreateBatch](/dotnet/api/microsoft.azure.eventhubs.eventdatabatch) API에서 빈 [EventDataBatch](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createbatch)를 얻은 다음 [TryAdd](/dotnet/api/microsoft.azure.eventhubs.eventdatabatch.tryadd)를 사용하여 이벤트를 추가하여 일괄 처리를 구성합니다. 
 
 ## <a name="send-asynchronously-and-send-at-scale"></a>비동기적으로 보내고 규모로 보내기
 
@@ -114,10 +114,10 @@ for (var i = 0; i < numMessagesToSend; i++)
 * [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync)
 * [ProcessErrorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processerrorasync)
 
-이벤트 처리를 시작하려면 이벤트 허브에 대한 적절한 매개 변수를 제공하여 [EventProcessorHost][]를 인스턴스화합니다. 예:
+이벤트 처리를 시작하려면 이벤트 허브에 대한 적절한 매개 변수를 제공하여 [EventProcessorHost][]를 인스턴스화합니다. 다음은 그 예입니다.
 
 > [!NOTE]
-> EventProcessorHost 및 관련 클래스는 **EventHubs** 패키지에 제공 됩니다. [이 문서의](event-hubs-dotnet-framework-getstarted-send.md#add-the-event-hubs-nuget-package) 지침에 따라 또는 [패키지 관리자 콘솔](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) 창에서 다음 명령을 실행 하 여 Visual Studio 프로젝트에 패키지를 추가 합니다.`Install-Package Microsoft.Azure.EventHubs.Processor`.
+> EventProcessorHost 및 관련 클래스는 **EventHubs** 패키지에 제공 됩니다. [이 문서의](event-hubs-dotnet-framework-getstarted-send.md#add-the-event-hubs-nuget-package) 지침에 따라 또는 [패키지 관리자 콘솔](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) 창에서 다음 명령을 실행 하 여 Visual Studio 프로젝트에 패키지를 추가 합니다`Install-Package Microsoft.Azure.EventHubs.Processor`.
 
 ```csharp
 var eventProcessorHost = new EventProcessorHost(
