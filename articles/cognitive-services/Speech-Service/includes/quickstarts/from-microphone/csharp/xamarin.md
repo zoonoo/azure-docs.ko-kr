@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: ed37e4f5b84431355b63b3d59b0e49b78eaeed86
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.openlocfilehash: 2ed41f424dfe985cc078314da5b138c7d7bcdf37
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77445624"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78925351"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -23,8 +23,7 @@ ms.locfileid: "77445624"
 
 > [!div class="checklist"]
 > * [Azure Speech 리소스 만들기](../../../../get-started.md)
-> * [개발 환경 설정](../../../../quickstarts/setup-platform.md?tabs=xamarin)
-> * [빈 샘플 프로젝트 만들기](../../../../quickstarts/create-project.md?tabs=xamarin)
+> * [개발 환경을 설정하고 빈 프로젝트 만들기](../../../../quickstarts/setup-platform.md?tabs=xamarin)
 > * 오디오 캡처를 위해 마이크에 액세스할 수 있는지 확인합니다.
 
 이미 이 작업을 수행한 경우 매우 유용합니다. 계속 진행하겠습니다.

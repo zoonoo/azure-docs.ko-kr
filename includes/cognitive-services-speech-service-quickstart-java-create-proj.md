@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 02/10/2020
 ms.author: erhopf
-ms.openlocfilehash: d0ab828a2574914c511042a16704c4b553960b84
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: a542e02c51bf2ce9b3b13bc50a39584ce079ec72
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77119689"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78330834"
 ---
 1. Eclipse를 시작합니다.
 
@@ -45,7 +45,7 @@ ms.locfileid: "77119689"
 
      [!code-xml[POM Repositories](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-microphone/pom.xml#repositories)]
 
-   * 또한 다음과 같이 Speech SDK 버전 1.9.0을 종속성으로 사용하여 `dependencies` 요소를 추가합니다.
+   * 또한 다음과 같이 Speech SDK 버전 1.10.0을 종속성으로 사용하여 `dependencies` 요소를 추가합니다.
 
      [!code-xml[POM Dependencies](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-microphone/pom.xml#dependencies)]
 

@@ -10,24 +10,23 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 9/19/2019
 ms.author: yinhew
-ms.openlocfilehash: f3b3d68e0154913e3eb6d101965ad33530502954
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 73a4477547c562a9960fe72b352e906676eadae5
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74818320"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78925993"
 ---
 > [!NOTE]
 > Unity는 Windows 데스크톱(x86 및 x64) 또는 유니버설 Windows 플랫폼(x86, x64, ARM/ARM64), Android(x86, ARM32/64) 및 iOS(x64 시뮬레이터, ARM32 및 ARM64)를 지원합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 다음을 확인해야 합니다.
 
 > [!div class="checklist"]
 > * [Azure Speech 리소스 만들기](../../../../get-started.md)
-> * [개발 환경 설정](../../../../quickstarts/setup-platform.md?tabs=unity)
-> * [빈 샘플 프로젝트 만들기](../../../../quickstarts/create-project.md?tabs=unity)
+> * [개발 환경을 설정하고 빈 프로젝트 만들기](../../../../quickstarts/setup-platform.md?tabs=unity)
 
 ## <a name="add-a-ui"></a>UI 추가
 

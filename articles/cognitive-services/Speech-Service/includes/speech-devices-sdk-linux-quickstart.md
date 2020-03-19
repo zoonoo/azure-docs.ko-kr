@@ -5,16 +5,16 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 02/20/2020
 ms.author: dapine
-ms.openlocfilehash: 87aa9f8201b924c1719f3ac805f79fb82631ecfd
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 81c77b2f6ae0c4f8497716c168a937657ceb57dd
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77563051"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78383870"
 ---
 이 빠른 시작에서는 Linux용 Speech Devices SDK를 사용하여 음성 지원 제품을 빌드하거나 [대화 전사](../conversation-transcription-service.md) 디바이스로 사용하는 방법을 알아봅니다. 현재는 [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/)만 지원됩니다.
 
-애플리케이션은 Speech SDK 패키지와 64비트 Linux(Ubuntu 16.04, Ubuntu 18.04, Debian 9) 기반의 Eclipse Java IDE(v4)를 사용하여 빌드됩니다. 64비트 Java 8 JRE(Java Runtime Environment)에서 실행됩니다.
+애플리케이션은 Speech SDK 패키지와 64비트 Linux(Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 8, CentOS 8) 기반의 Eclipse Java IDE(v4)를 사용하여 빌드됩니다. 64비트 Java 8 JRE(Java Runtime Environment)에서 실행됩니다.
 
 이 가이드에는 Speech Service 리소스와 함께 [Azure Cognitive Service](../get-started.md) 계정이 필요합니다. 계정이 없는 경우 [평가판](https://azure.microsoft.com/try/cognitive-services/)을 사용하여 구독 키를 가져올 수 있습니다.
 
@@ -24,7 +24,7 @@ ms.locfileid: "77563051"
 
 이 빠른 시작에는 다음이 필요합니다.
 
-* 운영 체제: 64-bit Linux(Ubuntu 16.04, Ubuntu 18.04, Debian 9)
+* 운영 체제: 64비트 Linux(Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 8, CentOS 8)
 * [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/)
 * [Eclipse Java IDE](https://www.eclipse.org/downloads/)
 * [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) 또는 [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)만 해당.
@@ -48,6 +48,16 @@ Eclipse를 시작하기 전에 이러한 종속 요소가 설치되어 있는지
   sudo apt-get update
   sudo apt-get install libssl1.0.2 libasound2
   ```
+
+RHEL/CentOS 8에서:
+
+  ```sh
+  sudo yum update
+  sudo yum install alsa-lib openssl
+  ```
+
+> [!NOTE]
+> RHEL/CentOS 8에서 [Linux용 OpenSSL을 구성하는 방법](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md)의 지침을 따르세요.
 
 현재 대화 전사는 “미국 중부” 및 “동아시아” 지역에서 “en-US” 및 “zh-CN”에 대해서만 사용할 수 있습니다. 대화 전사를 사용하려면 이 지역 중 한 곳에 음성 키가 있어야 합니다.
 
@@ -89,7 +99,7 @@ Eclipse를 시작하기 전에 이러한 종속 요소가 설치되어 있는지
         <dependency>
              <groupId>com.microsoft.cognitiveservices.speech</groupId>
              <artifactId>client-sdk</artifactId>
-             <version>1.9.0</version>
+             <version>1.10.0</version>
         </dependency>
     </dependencies>
    ```

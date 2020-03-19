@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/10/2019
 ms.author: erhopf
-ms.openlocfilehash: db00398efa638ac945bc188ad0c44f904059e689
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a09b969ee3e11aeb04f338cf035b21b5da9bd952
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75467869"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78925441"
 ---
-이 가이드에서는 .NET Framework(Windows)용 [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md)를 설치하는 방법을 보여 줍니다.
+이 가이드에서는 .NET Framework(Windows)용 [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md)를 설치하는 방법을 보여 줍니다. 패키지 이름을 직접 시작하려면 NuGet 콘솔에서 `Install-Package Microsoft.CognitiveServices.Speech`를 실행합니다.
 
 [!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
 
@@ -71,7 +71,21 @@ ms.locfileid: "75467869"
 
    패키지를 설치하면 **패키지 관리자 콘솔** 창에 확인 메시지가 나타납니다.
 
-이제 아래의 [다음 단계](#next-steps)로 이동할 수 있습니다.
+### <a name="choose-target-architecture"></a>대상 아키텍처 선택
+
+콘솔 애플리케이션을 빌드하여 실행하려면 컴퓨터의 아키텍처와 일치하는 플랫폼 구성을 만듭니다.
+
+1. 메뉴 모음에서 **빌드** > **구성 관리자**를 선택합니다. **구성 관리자** 대화 상자가 나타납니다.
+
+   ![구성 관리자 대화 상자](~/articles/cognitive-services/speech-service/media/sdk/vs-configuration-manager-dialog-box.png)
+
+1. **활성 솔루션 플랫폼** 드롭다운 상자에서 **새로 만들기**를 선택합니다. **새 솔루션 플랫폼** 대화 상자가 나타납니다.
+
+1. **새 플랫폼 입력 또는 선택** 드롭다운 상자에서 다음을 수행합니다.
+   - 64비트 Windows를 실행하는 경우 **x64**를 선택합니다.
+   - 32비트 Windows를 실행하는 경우 **x86**을 선택합니다.
+
+1. **확인**, **닫기**를 차례로 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

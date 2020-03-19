@@ -1,22 +1,21 @@
 ---
-author: erhopf
+author: IEvangelist
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 01/14/2020
-ms.author: erhopf
-ms.openlocfilehash: e154eae5e57988c77d9af46c7d236b6c7f52dc46
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.date: 03/10/2020
+ms.author: dapine
+ms.openlocfilehash: 4e0959155b3f3e0821ffece9de0faba92486d503
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77446214"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082557"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
 > [!div class="checklist"]
 > * [Azure Speech 리소스 만들기](../../../../get-started.md)
-> * [개발 환경 설정](../../../../quickstarts/setup-platform.md?tabs=jre)
-> * [빈 샘플 프로젝트 만들기](../../../../quickstarts/create-project.md?tabs=jre)
+> * [개발 환경을 설정하고 빈 프로젝트 만들기](../../../../quickstarts/setup-platform.md?tabs=jre)
 
 [!INCLUDE [Audio input format](~/articles/cognitive-services/speech-service/includes/audio-input-format-chart.md)]
 

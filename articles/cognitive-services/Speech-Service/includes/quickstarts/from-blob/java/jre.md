@@ -4,20 +4,19 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/13/2020
 ms.author: dapine
-ms.openlocfilehash: 1225a1e528b32401f350374fb9393c52225c49e8
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 02e0e1494a897b31cb6ef28083677fa48f854c91
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75942651"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78925217"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 다음을 확인해야 합니다.
 
 > [!div class="checklist"]
-> * [개발 환경 설정](../../../../quickstarts/setup-platform.md?tabs=jre&pivots=programmming-language-java)
-> * [빈 샘플 프로젝트 만들기](../../../../quickstarts/create-project.md?pivots=programmming-language-java)
+> * [개발 환경을 설정하고 빈 프로젝트 만들기](../../../../quickstarts/setup-platform.md?tabs=jre&pivots=programmming-language-java)
 > * [Azure Speech 리소스 만들기](../../../../get-started.md)
 > * [Azure Blob에 원본 파일 업로드](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
 
@@ -32,7 +31,9 @@ ms.locfileid: "75942651"
 ## <a name="add-a-reference-to-gson"></a>Gson에 대한 참조 추가
 이 빠른 시작에서는 외부 JSON 직렬 변환기/역직렬 변환기를 사용합니다. Java의 경우 [Gson](https://github.com/google/gson)을 선택했습니다.
 
-pom.xml을 열고 다음 참조를 추가합니다. [!code-xml[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/pom.xml?range=19-25)]
+pom.xml을 열고 다음 참조를 추가합니다.
+
+[!code-xml[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/pom.xml?range=19-25)]
 
 ## <a name="start-with-some-boilerplate-code"></a>몇 가지 상용구 코드로 시작
 

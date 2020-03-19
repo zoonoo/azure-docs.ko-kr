@@ -6,19 +6,18 @@ ms.date: 01/27/2020
 ms.topic: include
 ms.author: dapine
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 1c5411778bf2e8ab25ce3e71dba92227b2653c3d
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.openlocfilehash: bc624197930044575a46666cbb74e5fe452e96ab
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77446202"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78925165"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에:
 
-* 첫 번째 C++ 프로젝트인 경우 이 가이드를 사용하여 <a href="~/articles/cognitive-services/Speech-Service/quickstarts/create-project.md?tabs=windows" target="_blank">빈 샘플 프로젝트를 만듭니다<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
-* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?tabs=windows" target="_blank">개발 환경용 Speech SDK를 설치합니다<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?tabs=windows" target="_blank">개발 환경용 Speech SDK를 설치하고 빈 샘플 프로젝트를 만듭니다<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ## <a name="create-a-luis-app-for-intent-recognition"></a>의도 인식을 위한 LUIS 앱 만들기
 

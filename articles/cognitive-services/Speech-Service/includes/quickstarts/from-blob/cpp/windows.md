@@ -4,20 +4,19 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/13/2020
 ms.author: dapine
-ms.openlocfilehash: 731248c88855e2c23d2d7e94a01a9681d30259ce
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 20dfc49acdaa30bea6f0652640e007c16f08c572
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75942711"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78924913"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 다음을 확인해야 합니다.
 
 > [!div class="checklist"]
-> * [개발 환경 설정](../../../../quickstarts/setup-platform.md?tabs=linux&pivots=programmming-language-cpp)
-> * [빈 샘플 프로젝트 만들기](../../../../quickstarts/create-project.md?pivots=programmming-language-cpp)
+> * [개발 환경을 설정하고 빈 프로젝트 만들기](../../../../quickstarts/setup-platform.md?tabs=linux&pivots=programmming-language-cpp)
 > * [Azure Speech 리소스 만들기](../../../../get-started.md)
 > * [Azure Blob에 원본 파일 업로드](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
 

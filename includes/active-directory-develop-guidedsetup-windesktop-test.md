@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: a11b291ab89dc9f8159e00e1f2304706f041068e
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: f121be4ec8c3d3ab618e2955d9dbd8ab5eea461d
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67182381"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79128644"
 ---
 ## <a name="test-your-code"></a>코드 테스트
 
@@ -41,10 +41,10 @@ ms.locfileid: "67182381"
 
 로그인하면, Microsoft Graph API에 대한 호출에서 반환되는 사용자 프로필 정보가 표시됩니다. 결과가 **API 호출 결과** 상자에 표시됩니다. `AcquireTokenInteractive` 또는 `AcquireTokenSilent`에 대한 호출을 통해 획득한 토큰에 관한 기본 정보는 **토큰 정보** 상자에 표시되어야 합니다. 결과에 다음 속성이 포함될 수 있습니다.
 
-|자산  |형식  |설명 |
+|속성  |형식  |Description |
 |---------|---------|---------|
-
-|**사용자 이름** |<span>user@domain.com</span> | 사용자를 식별하는 데 사용되는 사용자 이름입니다.||**토큰 만료** |날짜/시간 |토큰이 만료되는 시간입니다. MSAL은 필요에 따라 토큰을 갱신하여 만료 날짜를 연장합니다.|
+|**사용자 이름** |<span>user@domain.com</span> |사용자를 식별하는 데 사용하는 사용자 이름입니다.|
+|**토큰 만료** |DateTime |토큰이 만료되는 시간입니다. MSAL은 필요에 따라 토큰을 갱신하여 만료 날짜를 연장합니다.|
 
 
 <!--start-collapse-->

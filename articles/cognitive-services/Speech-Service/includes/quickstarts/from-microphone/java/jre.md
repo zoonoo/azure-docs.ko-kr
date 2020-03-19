@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: eb131f3f53e04809ca21efda7367f03a79081bbc
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.openlocfilehash: 95e8a30eaa59762ad7cf5b388326c9d3c9723d8e
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77446072"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78925881"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -17,8 +17,7 @@ ms.locfileid: "77446072"
 
 > [!div class="checklist"]
 > * [Azure Speech 리소스 만들기](../../../../get-started.md)
-> * [개발 환경 설정](../../../../quickstarts/setup-platform.md?tabs=jre)
-> * [빈 샘플 프로젝트 만들기](../../../../quickstarts/create-project.md?tabs=jre)
+> * [개발 환경을 설정하고 빈 프로젝트 만들기](../../../../quickstarts/setup-platform.md?tabs=jre)
 > * 오디오 캡처를 위해 마이크에 액세스할 수 있는지 확인합니다.
 
 ## <a name="add-sample-code"></a>샘플 코드 추가

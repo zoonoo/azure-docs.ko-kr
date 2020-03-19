@@ -6,19 +6,18 @@ ms.date: 01/27/2020
 ms.topic: include
 ms.author: dapine
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 7faf4a029168c12a3213bc9a06891200e9ac6142
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.openlocfilehash: 4f8fe92a0a36bae2d5e7595bee7bf71fcd926da9
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77445986"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78925316"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에:
 
-* 첫 번째 C# 프로젝트인 경우 이 가이드를 사용하여 <a href="~/articles/cognitive-services/Speech-Service/quickstarts/create-project.md?tabs=dotnet" target="_blank">빈 샘플 프로젝트를 만듭니다<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
-* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?tabs=dotnet" target="_blank">개발 환경용 Speech SDK를 설치합니다<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?tabs=dotnet" target="_blank">개발 환경용 Speech SDK를 설치하고 빈 샘플 프로젝트를 만듭니다<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ## <a name="create-a-luis-app-for-intent-recognition"></a>의도 인식을 위한 LUIS 앱 만들기
 
@@ -76,7 +75,9 @@ Speech SDK는 기본적으로 언어에 en-us를 사용하여 인식합니다. �
 
 `IntentRecognizer` 개체에서 `RecognizeOnceAsync()` 메서드를 호출합니다. 이 메서드를 사용하면 Speech Service에서 사용자가 인식을 위해 단일 구를 보내고, 구가 식별되고 나면 음성 인식이 중지됨을 알 수 있습니다.
 
-using 문 내에서 이 코드를 모델([!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=46)]) 아래에 추가합니다.
+using 문 내에서 이 코드를 모델 아래에 추가합니다.
+
+[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=46)]
 
 ## <a name="display-recognition-results-or-errors"></a>인식 결과(또는 오류) 표시
 

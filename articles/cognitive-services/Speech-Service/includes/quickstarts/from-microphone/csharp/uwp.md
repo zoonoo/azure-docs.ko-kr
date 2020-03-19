@@ -9,12 +9,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/17/2019
 ms.author: erhopf
-ms.openlocfilehash: e6934e908111773cef3f7ddcfc2a971d8e1706bf
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 93a5a29c225912a48cf99ba6126690c298dfef9d
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75927824"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78925610"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -22,8 +22,7 @@ ms.locfileid: "75927824"
 
 > [!div class="checklist"]
 > * [Azure Speech 리소스 만들기](../../../../get-started.md)
-> * [개발 환경 설정](../../../../quickstarts/setup-platform.md?tabs=uwp)
-> * [빈 샘플 프로젝트 만들기](../../../../quickstarts/create-project.md?tabs=uwp)
+> * [개발 환경을 설정하고 빈 프로젝트 만들기](../../../../quickstarts/setup-platform.md?tabs=uwp)
 > * 오디오 캡처를 위해 마이크에 액세스할 수 있는지 확인합니다.
 
 이미 이 작업을 수행한 경우 매우 유용합니다. 계속 진행하겠습니다.
@@ -64,7 +63,9 @@ ms.locfileid: "75927824"
 
 `SpeechRecognizer` 개체에서 `RecognizeOnceAsync()` 메서드를 호출합니다. 이 메서드를 사용하면 Speech Service에서 사용자가 인식을 위해 단일 구를 보내고, 구가 식별되고 나면 음성 인식이 중지됨을 알 수 있습니다.
 
-using 문 내에 다음 코드를 추가합니다. [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/uwp/from-microphone/helloworld/MainPage.xaml.cs?range=66)]
+using 문 내에 다음 코드를 추가합니다.
+
+[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/uwp/from-microphone/helloworld/MainPage.xaml.cs?range=66)]
 
 ## <a name="display-the-recognition-results-or-errors"></a>인식 결과(또는 오류) 표시
 

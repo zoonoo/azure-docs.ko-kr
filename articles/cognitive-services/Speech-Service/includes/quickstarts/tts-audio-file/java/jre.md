@@ -4,19 +4,18 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 2de8ddbe260fbc68ecddaf00330880116edaf82d
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.openlocfilehash: c8de61d88417a19680b606be5e06583c36c94fbc
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77445553"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78925174"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
 > [!div class="checklist"]
 > * [Azure Speech 리소스 만들기](../../../../get-started.md)
-> * [개발 환경 설정](../../../../quickstarts/setup-platform.md?tabs=jre)
-> * [빈 샘플 프로젝트 만들기](../../../../quickstarts/create-project.md?tabs=jre)
+> * [개발 환경을 설정하고 빈 프로젝트 만들기](../../../../quickstarts/setup-platform.md?tabs=jre)
 
 ## <a name="add-sample-code"></a>샘플 코드 추가
 

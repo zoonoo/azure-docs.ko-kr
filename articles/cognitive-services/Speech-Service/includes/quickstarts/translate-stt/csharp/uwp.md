@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.date: 12/09/2019
 ms.author: erhopf
 ms.topic: include
-ms.openlocfilehash: 70db4e23aebe2a986c9aa4c85c28ac6529ac3202
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e84c7423e0f061004a827ac45c211d7db9c556df
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "76156014"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78924801"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -23,8 +23,7 @@ ms.locfileid: "76156014"
 
 > [!div class="checklist"]
 > * [Azure Speech 리소스 만들기](../../../../get-started.md)
-> * [개발 환경 설정](../../../../quickstarts/setup-platform.md?tabs=uwp)
-> * [빈 샘플 프로젝트 만들기](../../../../quickstarts/create-project.md?tabs=uwp)
+> * [개발 환경을 설정하고 빈 프로젝트 만들기](../../../../quickstarts/setup-platform.md?tabs=uwp)
 
 ## <a name="add-sample-code"></a>샘플 코드 추가
 

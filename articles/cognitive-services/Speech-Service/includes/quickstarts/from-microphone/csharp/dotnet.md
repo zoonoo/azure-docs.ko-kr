@@ -9,12 +9,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/17/2019
 ms.author: erhopf
-ms.openlocfilehash: 9c16e2e1726fcbf1e0b55ee0e9808a607b611ea6
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.openlocfilehash: c969b5e5daa4c4cfd84695fef70f0a2a5c50ce02
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77445833"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78925830"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -22,8 +22,7 @@ ms.locfileid: "77445833"
 
 > [!div class="checklist"]
 > * [Azure Speech 리소스 만들기](../../../../get-started.md)
-> * [개발 환경 설정](../../../../quickstarts/setup-platform.md?tabs=dotnet)
-> * [빈 샘플 프로젝트 만들기](../../../../quickstarts/create-project.md?tabs=dotnet)
+> * [개발 환경을 설정하고 빈 프로젝트 만들기](../../../../quickstarts/setup-platform.md?tabs=dotnet)
 > * 오디오 캡처를 위해 마이크에 액세스할 수 있는지 확인합니다.
 
 ## <a name="open-your-project-in-visual-studio"></a>Visual Studio에서 프로젝트 열기
@@ -56,17 +55,23 @@ ms.locfileid: "77445833"
 
 `SpeechRecognizer` 개체에서 `RecognizeOnceAsync()` 메서드를 호출합니다. 이 메서드를 사용하면 Speech Service에서 사용자가 인식을 위해 단일 구를 보내고, 구가 식별되고 나면 음성 인식이 중지됨을 알 수 있습니다.
 
-using 문 내에 다음 코드를 추가합니다. [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-microphone/helloworld/Program.cs?range=20)]
+using 문 내에 다음 코드를 추가합니다.
+
+[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-microphone/helloworld/Program.cs?range=20)]
 
 ## <a name="display-the-recognition-results-or-errors"></a>인식 결과(또는 오류) 표시
 
 Speech Service에서 인식 결과가 반환되면 이에 따라 작업을 수행합니다. 작업을 간단하게 유지하고 결과를 콘솔에 출력합니다.
 
-using 문 내에서 `RecognizeOnceAsync()` 아래에 다음 코드를 추가합니다. [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-microphone/helloworld/Program.cs?range=22-41)]
+using 문의 `RecognizeOnceAsync()` 아래에 다음 코드를 추가합니다.
+
+[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-microphone/helloworld/Program.cs?range=22-41)]
 
 ## <a name="check-your-code"></a>코드 확인
 
-이 시점에서 코드는 다음과 같습니다. [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-microphone/helloworld/Program.cs)]
+이 시점에서 코드는 다음과 같습니다.
+
+[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-microphone/helloworld/Program.cs)]
 
 ## <a name="build-and-run-your-app"></a>앱 빌드 및 실행
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 19/14/2020
 ms.author: dapine
-ms.openlocfilehash: 7be9037ddfd19d82263b37fe0b824e3c2b3f5078
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 58f2b3693b924197dda1e396ae71192776ca276e
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76037758"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78925594"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -23,8 +23,7 @@ ms.locfileid: "76037758"
 
 > [!div class="checklist"]
 > * [Azure Speech 리소스 만들기](../../../../get-started.md)
-> * [개발 환경 설정](../../../../quickstarts/setup-platform.md)
-> * [빈 샘플 프로젝트 만들기](../../../../quickstarts/create-project.md)
+> * [개발 환경을 설정하고 빈 프로젝트 만들기](../../../../quickstarts/setup-platform.md)
 
 ## <a name="support-and-updates"></a>지원 및 업데이트
 
@@ -52,7 +51,7 @@ python quickstart.py
 
 ### <a name="install-and-use-the-speech-sdk-with-visual-studio-code"></a>Visual Studio Code를 사용하여 Speech SDK 설치 및 사용
 
-1. 컴퓨터에 [Python](https://www.python.org/downloads/)의 64비트 버전(3.5 이상)을 다운로드하고 설치합니다.
+1. 컴퓨터에 [Python](https://www.python.org/downloads/)의 64비트 버전(3.5~3.8)을 다운로드하고 설치합니다.
 1. [Visual Studio Code](https://code.visualstudio.com/Download)를 다운로드하여 설치합니다.
 1. Visual Studio Code를 열고 Python 확장을 설치합니다. 메뉴에서 **파일** > **기본 설정** > **확장**을 선택합니다. **Python**을 검색합니다.
 

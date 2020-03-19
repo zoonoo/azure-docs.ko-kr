@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/11/2019
 ms.author: erhopf
-ms.openlocfilehash: 5f6b994bce1d38872cffb1e6e389136742be6d48
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7147f0d13c88c1d2e17e81a360a5aee55ee760ed
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75469742"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78925156"
 ---
-이 가이드에서는 64비트 Java 8 JRE용 [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md)를 설치하는 방법을 보여 줍니다.
+이 가이드에서는 64비트 Java 8 JRE용 [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md)를 설치하는 방법을 보여 줍니다. 패키지 이름을 직접 시작하려는 경우에는 Maven 중앙 리포지토리에 Java SDK가 없습니다. Gradle 또는 `pom.xml` 종속성 파일을 사용하는 경우 `https://csspeechstorage.blob.core.windows.net/maven/`을 가리키는 사용자 지정 리포지토리를 추가해야 합니다(패키지 이름은 아래 참조).
 
 > [!NOTE]
 > Speech Devices SDK 및 Roobo 디바이스에 대한 내용은 [Speech Devices SDK](~/articles/cognitive-services/speech-service/speech-devices-sdk.md)를 참조하세요.
@@ -29,7 +29,7 @@ ms.locfileid: "75469742"
 - Java Speech SDK 패키지는 다음과 같은 운영 체 제용으로 제공됩니다.
   - Windows: 64비트 전용
   - Mac: macOS X 버전 10.13 이상
-  - Linux: Ubuntu 16.04, Ubuntu 18.04 또는 Debian 9의 64비트 전용
+  - Linux: 64비트 전용 Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 8, CentOS 8
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -51,6 +51,16 @@ ms.locfileid: "75469742"
         sudo apt-get update
         sudo apt-get install build-essential libssl1.0.2 libasound2
         ```
+
+  - RHEL/CentOS 8에서 필요한 패키지를 설치하려면 다음 명령을 실행합니다.
+
+        ```sh
+        sudo yum update
+        sudo yum install alsa-lib java-1.8.0-openjdk-devel openssl
+        ```
+
+> [!NOTE]
+> RHEL/CentOS 8에서 [Linux용 OpenSSL을 구성하는 방법](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md)의 지침을 따르세요.
 
 - Windows의 경우 플랫폼에 맞는 [Visual Studio 2019용 Microsoft Visual C++ 재배포 가능 패키지](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)가 필요합니다. 이 패키지를 처음 설치하는 경우 이 가이드를 계속하기 전에 Windows를 다시 시작해야 할 수 있습니다.
 

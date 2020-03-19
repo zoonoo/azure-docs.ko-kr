@@ -1,20 +1,15 @@
 ---
-title: '빠른 시작: 오디오 파일에서 음성 인식, Python - Speech Service'
-titleSuffix: Azure Cognitive Services
-services: cognitive-services
 author: IEvangelist
-manager: nitinme
 ms.service: cognitive-services
-ms.subservice: speech-service
 ms.topic: include
-ms.date: 01/30/2020
+ms.date: 03/10/2020
 ms.author: dapine
-ms.openlocfilehash: f3a6ffeede05c1a2e9a883d40df19819e6a4bb3b
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.openlocfilehash: b3d7ea44acac99cc8077993f679bdcea2e5018fa
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77446285"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082477"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -23,8 +18,7 @@ ms.locfileid: "77446285"
 > [!div class="checklist"]
 > * [Azure Speech 리소스 만들기](../../../../get-started.md)
 > * [LUIS 애플리케이션 만들기 및 엔드포인트 키 가져오기](../../../../quickstarts/create-luis.md)
-> * [개발 환경 설정](../../../../quickstarts/setup-platform.md?pivots=programming-language-python)
-> * [빈 샘플 프로젝트 만들기](../../../../quickstarts/create-project.md?pivots=programming-language-python)
+> * [개발 환경을 설정하고 빈 프로젝트 만들기](../../../../quickstarts/setup-platform.md?pivots=programming-language-python)
 
 [!INCLUDE [Audio input format](~/articles/cognitive-services/speech-service/includes/audio-input-format-chart.md)]
 
@@ -93,7 +87,7 @@ elif result.reason == speechsdk.ResultReason.Canceled:
 
 ### <a name="install-and-use-the-speech-sdk-with-visual-studio-code"></a>Visual Studio Code를 사용하여 Speech SDK 설치 및 사용
 
-1. 컴퓨터에 [Python](https://www.python.org/downloads/)의 64비트 버전(3.5 이상)을 다운로드하고 설치합니다.
+1. 컴퓨터에 [Python](https://www.python.org/downloads/)의 64비트 버전(3.5~3.8)을 다운로드하고 설치합니다.
 1. [Visual Studio Code](https://code.visualstudio.com/Download)를 다운로드하여 설치합니다.
 1. Visual Studio Code를 열고 Python 확장을 설치합니다. 메뉴에서 **파일** > **기본 설정** > **확장**을 선택합니다. **Python**을 검색합니다.
 

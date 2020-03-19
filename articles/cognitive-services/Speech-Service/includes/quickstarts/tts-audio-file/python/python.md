@@ -10,21 +10,21 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: 4af31b281f4b2e7cdd7ed217753df55ce8009fa9
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.openlocfilehash: df2c3fc2ab6f6c742f56273119923a7e02cf8e43
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77446789"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78383804"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * Speech Service에 대한 Azure 구독 키입니다. [무료로 가져올 수 있습니다](~/articles/cognitive-services/Speech-Service/get-started.md).
-* [Python 3.5 이상](https://www.python.org/downloads/)
+* [Python 3.5~3.8](https://www.python.org/downloads/).
 * Python Speech SDK 패키지는 다음과 같은 운영 체제용으로 제공됩니다.
     * Windows: x64 및 x86
     * Mac: macOS X 버전 10.12 이상.
-    * Linux: x64 기반의 Ubuntu 16.04, Ubuntu 18.04, Debian 9.
+    * Linux: Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 8, CentOS 8(x64 기반).
 * Linux에서 필요한 패키지를 설치하려면 다음 명령을 실행합니다.
 
   * Ubuntu:
@@ -40,6 +40,16 @@ ms.locfileid: "77446789"
     sudo apt-get update
     sudo apt-get install build-essential libssl1.0.2 libasound2
     ```
+
+  * RHEL/CentOS 8에서:
+
+    ```sh
+    sudo yum update
+    sudo yum install alsa-lib openssl python3
+    ```
+
+> [!NOTE]
+> RHEL/CentOS 8에서 [Linux용 OpenSSL을 구성하는 방법](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md)의 지침을 따르세요.
 
 * Windows의 경우 플랫폼에 맞는 [Visual Studio 2019용 Microsoft Visual C++ 재배포 가능 패키지](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)가 필요합니다.
 
@@ -110,7 +120,7 @@ elif result.reason == speechsdk.ResultReason.Canceled:
 
 ### <a name="install-and-use-the-speech-sdk-with-visual-studio-code"></a>Visual Studio Code를 사용하여 Speech SDK 설치 및 사용
 
-1. 컴퓨터에 [Python](https://www.python.org/downloads/)의 64비트 버전(3.5 이상)을 다운로드하고 설치합니다.
+1. 컴퓨터에 [Python](https://www.python.org/downloads/)의 64비트 버전(3.5~3.8)을 다운로드하고 설치합니다.
 1. [Visual Studio Code](https://code.visualstudio.com/Download)를 다운로드하여 설치합니다.
 1. Visual Studio Code를 열고 Python 확장을 설치합니다. 메뉴에서 **파일** > **기본 설정** > **확장**을 선택합니다. **Python**을 검색합니다.
 
