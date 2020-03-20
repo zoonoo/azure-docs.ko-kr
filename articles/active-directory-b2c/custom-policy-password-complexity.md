@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/10/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: af6a7611381cbf7a251e65969d156f4c40d71843
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
-ms.translationtype: HT
+ms.openlocfilehash: b16790e288f6569f08ce14e5a7c751bbd8083faf
+ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79126780"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79138437"
 ---
 # <a name="configure-password-complexity-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 암호 복잡성 구성
 
@@ -153,4 +153,4 @@ Azure Active Directory B2C (Azure AD B2C)에서 계정을 만들 때 사용자�
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 암호 변경을 구성](custom-policy-password-change.md)하는 방법을 알아봅니다.
-- - IEF 참조의 [조건자](predicates.md) 및 [PredicateValidations](predicates.md#predicatevalidations) 요소에 대해 자세히 알아보세요.
+- IEF 참조의 [조건자](predicates.md) 및 [PredicateValidations](predicates.md#predicatevalidations) 요소에 대해 자세히 알아보세요.

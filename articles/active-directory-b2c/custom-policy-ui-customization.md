@@ -12,11 +12,11 @@ ms.date: 02/13/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 8e07d3e1815c1b47b9d37c08e8fac5359b71fe7c
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
-ms.translationtype: MT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78189029"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79245994"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 애플리케이션의 사용자 인터페이스 사용자 지정
 
@@ -38,7 +38,7 @@ UI 사용자 지정을 구성 하려면 **Contentdefinition** 및 해당 자식 
 1. **ContentDefinitions** 요소의 전체 내용을 검색한 후 복사합니다.
 1. 확장 파일을 엽니다(예: 예: *TrustFrameworkExtensions.xml* **BuildingBlocks** 요소를 검색합니다. 요소가 존재하지 않는 경우 추가합니다.
 1. 복사한 **ContentDefinitions**의 전체 내용을 **BuildingBlocks** 요소의 자식으로 붙여 넣습니다.
-1. 복사한 XML에서 **을 포함하는** ContentDefinition`Id="api.signuporsignin"` 요소를 검색합니다.
+1. 복사한 XML에서 `Id="api.signuporsignin"`을 포함하는 **ContentDefinition** 요소를 검색합니다.
 1. **LoadUri** 값을 스토리지에 업로드한 HTML 파일의 URL로 변경합니다. `https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html`)을 입력합니다.
 
     사용자 지정 정책은 다음 코드 조각과 같이 표시 됩니다.
