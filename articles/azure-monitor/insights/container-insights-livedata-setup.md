@@ -4,11 +4,11 @@ description: 이 문서에서는 컨테이너에 대해 Azure Monitor와 함께 
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.openlocfilehash: f19071ca642cd229cbd7d49b4eab90c970672eee
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77459925"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79275374"
 ---
 # <a name="how-to-set-up-the-live-data-preview-feature"></a>라이브 데이터 (미리 보기) 기능을 설정 하는 방법
 
