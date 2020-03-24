@@ -39,7 +39,7 @@ ms.locfileid: "78183978"
   - 이제 전자 메일 필드가 `type=email` 되 고 모바일 키보드가 올바른 제안을 제공 합니다.
   - Chrome 변환 지원
 - 통합 및 자체 어설션된 페이지
-  - 이제 사용자 이름/전자 메일 및 암호 필드는 `form` HTML 요소를 사용 하 여 Edge 및 Internet Explorer (IE)가이 정보를 제대로 저장할 수 있도록 합니다.
+  - 이제 사용자 이름/전자 메일 및 암호 필드는 `form` HTML 요소를 사용 하 여 Microsoft Edge 및 Internet Explorer (IE)가이 정보를 제대로 저장할 수 있도록 합니다.
 
 ## <a name="110"></a>1.1.0
 
