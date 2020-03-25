@@ -28,7 +28,7 @@ Microsoft Power BI Desktop은 데이터에 연결하고, 데이터를 변환 및
 > * Power BI Desktop에서 사용자 지정 함수 만들기
 > * Power BI Desktop을 Text Analytics 핵심 구 API와 통합
 > * Text Analytics 핵심 구 API를 사용하여 고객 피드백에서 가장 중요한 구를 추출합니다.
-> * 고객 피드백에서 단어 구름 만들기
+> * 고객 피드백에서 Word Cloud 만들기
 
 ## <a name="prerequisites"></a>사전 요구 사항
 <a name="Prerequisites"></a>
@@ -55,7 +55,7 @@ Microsoft Power BI Desktop은 데이터에 연결하고, 데이터를 변환 및
 
 ![[CSV 가져오기 대화 상자]](../media/tutorials/power-bi/csv-import.png)
 
-[CSV 가져오기] 대화 상자를 통해 Power BI Desktop이 문자 집합, 구분 기호, 헤더 행 및 열 형식을 올바르게 검색하는지 확인할 수 있습니다. 이 정보가 모두 올바른 것으로 나오면 **로드**를 클릭합니다.
+[CSV 가져오기] 대화 상자를 통해 Power BI Desktop이 문자 집합, 구분 기호, 머리글 행 및 열 형식을 올바르게 검색하는지 확인할 수 있습니다. 이 정보가 모두 올바른 것으로 나오면 **로드**를 클릭합니다.
 
 로드된 데이터를 보려면 Power BI 작업 영역의 왼쪽 가장자리에 있는 **데이터 보기** 단추를 클릭합니다. Microsoft Excel처럼 데이터가 들어 있는 테이블이 열립니다.
 
@@ -74,7 +74,7 @@ Power BI Desktop에서 **홈** 리본을 선택합니다. **외부 데이터** �
 
 아직 선택하지 않은 경우 창의 왼쪽에 있는 **쿼리** 목록에서 `FabrikamComments`를 선택합니다.
 
-이제 테이블에서 `subject` 및 `comment` 열을 모두 선택합니다. 두 열을 찾기 위해 가로로 스크롤해야 할 수도 있습니다. 먼저 `subject` 열 헤더를 클릭한 다음, Control 키를 누른 상태로 `comment` 열 헤더를 클릭합니다.
+이제 테이블에서 `subject` 및 `comment` 열을 모두 선택합니다. 두 열을 찾기 위해 가로로 스크롤해야 할 수도 있습니다. 먼저 `subject` 열 머리글을 클릭한 다음, Control 키를 누른 상태로 `comment` 열 머리글을 클릭합니다.
 
 ![[병합할 필드 선택]](../media/tutorials/power-bi/select-columns.png)
 
@@ -190,7 +190,7 @@ Power BI Desktop이 필요한 HTTP 요청을 만들 때까지 잠시 시간이 �
 > [!NOTE]
 > 모든 의견의 전체 텍스트 대신 추출된 핵심 문구를 사용하여 Word Cloud를 생성하는 이유는 무엇일까요? 핵심 문구는 *가장 일반적인* 단어뿐 아니라 고객 의견에서 *중요한* 단어를 제공합니다. 또한 상대적으로 수가 적은 의견에서 특정 단어를 자주 사용하더라도 결과 클라우드의 단어 크기 조정이 왜곡되지 않습니다.
 
-아직 Word Cloud 사용자 지정 시각적 개체가 없으면 지금 설치합니다. 작업 영역 오른쪽의 [시각화] 패널에서 세 점( **...** )을 클릭하고 **스토어에서 가져오기**를 선택합니다. "Cloud"를 검색하고 Word Cloud 시각적 개체 옆에 있는 **추가** 단추를 클릭합니다. Power BI는 Word Cloud 시각적 개체를 설치하고 성공적으로 설치되었음을 사용자에게 알려줍니다.
+아직 Word Cloud 사용자 지정 시각적 개체가 없으면 지금 설치합니다. 작업 영역 오른쪽의 [시각화] 패널에서 세 점( **...** )을 클릭하고 **마켓플레이스에서 가져오기**를 선택합니다. "Cloud"를 검색하고 Word Cloud 시각적 개체 옆에 있는 **추가** 단추를 클릭합니다. Power BI는 Word Cloud 시각적 개체를 설치하고 성공적으로 설치되었음을 사용자에게 알려줍니다.
 
 ![[사용자 지정 시각적 개체 추가]](../media/tutorials/power-bi/add-custom-visuals.png)<br><br>
 
@@ -200,7 +200,7 @@ Power BI Desktop이 필요한 HTTP 요청을 만들 때까지 잠시 시간이 �
 
 작업 영역에 새 보고서가 나타납니다. [시각화] 패널의 [필드] 패널에서 `keyphrases` 필드를 [범주] 필드로 끌어 놓습니다. 보고서 안에 Word Cloud가 나타납니다.
 
-이제 [시각화] 패널의 [형식] 페이지로 전환합니다. 클라우드에서 "of" 같은 짧고 일반적인 단어를 제거하도록, [중지 단어] 범주에서 **기본 중지 단어**를 켭니다. 
+이제 [시각화] 패널의 [서식] 페이지로 전환합니다. 클라우드에서 "of" 같은 짧고 일반적인 단어를 제거하도록, [중지 단어] 범주에서 **기본 중지 단어**를 켭니다. 
 
 ![[기본 중지 단어 활성화]](../media/tutorials/power-bi/default-stop-words.png)
 
