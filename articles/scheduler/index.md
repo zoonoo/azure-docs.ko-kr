@@ -9,16 +9,16 @@ layout: LandingPage
 ms.topic: landing-page
 ms.date: 02/23/2020
 ms.openlocfilehash: 026d4590160d8292fed5e1a678715ac65fdbd859
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/25/2020
 ms.locfileid: "78898616"
 ---
 # <a name="scheduler-documentation"></a>Scheduler 설명서
 
 > [!IMPORTANT]
-> [Azure Scheduler](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date)는 조만간 사용 중지되고 [Azure Logic Apps](../logic-apps/logic-apps-overview.md)로 대체됩니다. Scheduler에서 설정한 작업으로 계속 작업하려면 가능한 한 빨리 [Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md)로 마이그레이션하세요. 
+> [Azure Scheduler](../logic-apps/logic-apps-overview.md)는 조만간 사용 중지되고 [Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date)로 대체됩니다. Scheduler에서 설정한 작업으로 계속 작업하려면 가능한 한 빨리 [Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md)로 마이그레이션하세요. 
 >
 > Scheduler는 더 이상 Azure Portal에서 사용할 수 없지만 [REST API](/rest/api/scheduler) 및 [Azure Scheduler PowerShell cmdlet](scheduler-powershell-reference.md)은 현재 사용 가능하므로 작업 및 작업 컬렉션을 관리할 수 있습니다.
 

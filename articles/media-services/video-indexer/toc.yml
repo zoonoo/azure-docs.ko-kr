@@ -41,7 +41,7 @@
           href: customize-brands-model-overview.md
         - name: 언어
           href: customize-language-model-overview.md
-        - name: 사람
+        - name: Person
           href: customize-person-model-overview.md
 - name: 방법 가이드
   items:
@@ -71,7 +71,7 @@
       items:
         - name: 애니메이션 문자
           href: animated-characters-recognition.md
-        - name: 사람
+        - name: Person
           items:
             - name: Video Indexer 웹 사이트 사용
               href: customize-person-model-with-website.md
@@ -97,7 +97,7 @@
   items:
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/?category=web-mobile'
-    - name: 가격 책정
+    - name: 가격
       href: 'https://azure.microsoft.com/pricing/details/media-services/'
     - name: 국가별 가용성
       href: 'https://azure.microsoft.com/regions/services/'

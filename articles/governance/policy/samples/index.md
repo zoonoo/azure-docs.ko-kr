@@ -4,10 +4,10 @@ description: Azure Policy에 대한 기본 제공 인덱스입니다. 범주 태
 ms.date: 01/31/2020
 ms.topic: sample
 ms.openlocfilehash: 11e36ba71e1b88f279e824948dffa809f16fd443
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/25/2020
 ms.locfileid: "77168041"
 ---
 # <a name="azure-policy-samples"></a>Azure Policy 샘플
@@ -34,6 +34,6 @@ ms.locfileid: "77168041"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Policy GitHub 리포지토리](https://github.com/Azure/azure-policy)의 기본 제공 항목을 참조하세요.
+- [Azure Policy GitHub 리포지토리](https://github.com/Azure/azure-policy)의 기본 제공 기능을 참조하세요.
 - [Azure Policy 정의 구조](../concepts/definition-structure.md)를 검토합니다.
 - [정책 효과 이해](../concepts/effects.md)를 검토합니다.

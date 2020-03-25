@@ -1,18 +1,18 @@
 ---
 title: Visual Studio App Center 및 Azure 서비스를 사용하여 모바일 애플리케이션 빌드
 description: 다른 Azure 서비스와 함께 실제 모바일 애플리케이션을 빌드할 수 있는 Visual Studio App Center와 같은 서비스를 사용하는 방법을 알아봅니다.
-author: elamalani
+author: codemillmatt
 ms.assetid: 98899889-9b3c-4faf-8588-ccff02097224
 ms.service: vs-appcenter
 ms.topic: article
-ms.date: 10/22/2019
-ms.author: emalani
-ms.openlocfilehash: 6e60aa223b3c4f362ed13411c54212e9d1fa2c87
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 03/24/2020
+ms.author: masoucou
+ms.openlocfilehash: 19d317ca564f925562994a5f90cd3892d0ee1d08
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75454418"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80240844"
 ---
 # <a name="mobile-application-development-in-microsoft"></a>Microsoft의 모바일 애플리케이션 개발
 의사 결정자, 개발 팀 및 IT 부서는 다음과 같은 견고한 모바일 애플리케이션 개발 전략을 수립해야 합니다.

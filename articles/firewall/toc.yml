@@ -93,7 +93,7 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: 커뮤니티 템플릿
       href: 'https://azure.microsoft.com/documentation/templates'
-    - name: 가격 책정
+    - name: 가격
       href: 'https://azure.microsoft.com/pricing/details/azure-firewall/'
     - name: 국가별 가용성
       href: 'https://azure.microsoft.com/regions/services/'

@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 02/13/2020
 ms.author: banders
 ms.openlocfilehash: 8ebda9716df2e9e45050760ee8d0434c12838370
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77199129"
 ---
 # <a name="tutorial-review-your-individual-azure-bill"></a>자습서: 개별 Azure 청구서 검토
@@ -120,7 +120,7 @@ Azure Portal의 비용 분석도 요금을 확인하는 데 도움이 됩니다.
 
 ![청구서 사용 요금](./media/review-individual-bill/invoice-usage-charges.png)
 
-## <a name="external"></a>별도로 청구되는 외부 서비스
+## <a name="external-services-billed-separately"></a><a name="external"></a>별도로 청구되는 외부 서비스
 
 외부 서비스 또는 마켓플레이스 요금은 타사 소프트웨어 공급 업체가 만든 리소스에 해당됩니다. 이러한 리소스는 Azure Marketplace에서 사용할 수 있습니다. 예를 들어 Barracuda Firewall은 타사가 제공하는 Azure Marketplace 리소스입니다. 방화벽 및 방화벽에 해당하는 미터의 모든 요금은 외부 서비스 요금으로 표시됩니다.
 
@@ -149,7 +149,7 @@ VM이 생성되면 각 미터가 사용량 레코드를 내보내기 시작합�
 
 사용 현황 CSV 파일에서 청구서를 계산하는 데 사용된 미터를 확인할 수 있습니다.
 
-## <a name="payment"></a>청구서 결제
+## <a name="pay-your-bill"></a><a name="payment"></a>청구서 결제
 
 결제 방법으로 신용 카드를 설정한 경우 청구 기간 종료 후 10일 이내에 결제가 자동으로 이루어집니다. 신용 카드 명세서에는 **MSFT Azure** 항목으로 표시됩니다.
 

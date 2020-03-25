@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
 ms.openlocfilehash: 12ad1f09c988171b0d6212d79ca61d93acf92d80
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77199605"
 ---
 # <a name="pay-for-your-azure-subscription-by-invoice"></a>청구서로 Azure 구독 비용 지불
@@ -84,7 +84,7 @@ Azure 구독을 청구서 지불(수표/전신 송금)로 전환하려면 다음
 
 1. [Azure Portal](https://portal.azure.com)로 이동하여 계정 관리자 권한으로 로그인합니다. **Cost Management + 청구**를 검색하고 선택합니다.
 
-    ![Cost Management 및 청구 검색, Microsoft Azure Portal](./media/pay-by-invoice/search.png)
+    ![Cost Management 및 청구, Microsoft Azure Portal 검색](./media/pay-by-invoice/search.png)
 
 1. 청구서 지불로 전환하려는 구독을 선택합니다.
 1. **결제 방법**을 선택합니다.

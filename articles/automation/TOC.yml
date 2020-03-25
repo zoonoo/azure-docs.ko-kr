@@ -305,11 +305,11 @@
 - name: 공유 리소스 관리
   items:
     - name: 인증서
-      href: automation-certificates.md
+      href: shared-resources/certificates.md
     - name: Connections
       href: automation-connections.md
     - name: 자격 증명
-      href: automation-credentials.md
+      href: shared-resources/credentials.md
     - name: PowerShell 모듈
       items:
         - name: 모듈
@@ -319,9 +319,9 @@
         - name: Azure PowerShell 모듈 업데이트
           href: automation-update-azure-modules.md
     - name: 일정
-      href: automation-schedules.md
+      href: shared-resources/schedules.md
     - name: variables
-      href: automation-variables.md
+      href: shared-resources/variables.md
     - name: Python 2 패키지 관리
       href: python-packages.md
     - name: 공유 리소스 문제 해결
@@ -372,7 +372,7 @@
       href: 'https://azure.microsoft.com/roadmap/?category=management-tools&query=automation'
     - name: MSDN 포럼
       href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureautomation'
-    - name: 가격 책정
+    - name: 가격
       href: 'https://azure.microsoft.com/pricing/details/automation/'
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'

@@ -1,9 +1,9 @@
-- name: VMware 솔루션(AVS)
+- name: VMware Solution by CloudSimple
   href: /azure/vmware-cloudsimple
   items:
     - name: 개요
       items:
-        - name: VMware 솔루션(AVS)이란?
+        - name: VMware Solution by CloudSimple이란?
           href: cloudsimple-vmware-solutions-overview.md
         - name: 관리를 위한 주요 개념
           href: key-concepts.md
@@ -14,9 +14,9 @@
           href: cloudsimple-network-checklist.md
         - name: 초기화 및 프로비전 용량
           href: quickstart-create-cloudsimple-service.md
-        - name: AVS 프라이빗 클라우드 환경 구성
+        - name: 프라이빗 클라우드 환경 구성
           href: quickstart-create-private-cloud.md
-        - name: AVS 프라이빗 클라우드에서 VMware VM 만들기
+        - name: 프라이빗 클라우드에 VMware VM 만들기
           href: quickstart-create-private-cloud-vmware-virtual-machine.md
         - name: Azure에서 VMware VM 사용
           href: quickstart-create-vmware-virtual-machine.md
@@ -26,7 +26,7 @@
           href: cloudsimple-service.md
         - name: 노드
           href: cloudsimple-node.md
-        - name: AVS 프라이빗 클라우드
+        - name: 프라이빗 클라우드
           href: cloudsimple-private-cloud.md
         - name: 가상 머신
           href: cloudsimple-virtual-machines.md
@@ -44,7 +44,7 @@
           href: cloudsimple-account.md
         - name: 작업 관리
           href: cloudsimple-activity.md
-        - name: AVS 프라이빗 클라우드의 VMware
+        - name: 프라이빗 클라우드의 VMware
           href: vmware-components.md
         - name: 보안 개요
           href: cloudsimple-security.md
@@ -56,9 +56,9 @@
           href: cloudsimple-faq.md
     - name: 자습서
       items:
-        - name: AVS 서비스 만들기
+        - name: CloudSimple 서비스 만들기
           href: create-cloudsimple-service.md
-        - name: AVS 포털 액세스
+        - name: CloudSimple 포털 액세스
           href: access-cloudsimple-portal.md
         - name: 온-프레미스 방화벽 구성
           href: on-premises-firewall-configuration.md
@@ -70,25 +70,25 @@
               href: create-nodes.md
             - name: 노드 삭제
               href: delete-nodes.md
-        - name: AVS 프라이빗 클라우드 리소스 관리
+        - name: 프라이빗 클라우드 리소스 관리
           items:
-            - name: AVS 프라이빗 클라우드 만들기
+            - name: 프라이빗 클라우드 만들기
               href: create-private-cloud.md
-            - name: AVS 프라이빗 클라우드 관리
+            - name: 프라이빗 클라우드 관리
               href: manage-private-cloud.md
-            - name: AVS 프라이빗 클라우드 확장
+            - name: 프라이빗 클라우드 확장
               href: expand-private-cloud.md
-            - name: AVS 프라이빗 클라우드 축소
+            - name: 프라이빗 클라우드 축소
               href: shrink-private-cloud.md
             - name: Azure 구독 매핑
               href: azure-subscription-mapping.md
             - name: 권한 높이기
               href: escalate-private-cloud-privileges.md
-            - name: AVS 프라이빗 클라우드 삭제
+            - name: 프라이빗 클라우드 삭제
               href: delete-private-cloud.md
-        - name: AVS 작업 모니터링
+        - name: CloudSimple 작업 모니터링
           href: monitor-activity.md
-        - name: AVS 프라이빗 클라우드 네트워킹 설정
+        - name: 프라이빗 클라우드 네트워킹 설정
           items:
             - name: VLAN 및 서브넷 만들기 및 관리
               href: create-vlan-subnet.md
@@ -98,35 +98,35 @@
               href: public-ips.md
             - name: VPN 연결 설정
               href: vpn-gateway.md
-            - name: AVS에 대한 가상 네트워크 연결
+            - name: CloudSimple에 대한 가상 네트워크 연결
               href: virtual-network-connection.md
-        - name: AVS 포털 계정 관리
+        - name: CloudSimple 포털 계정 관리
           items:
             - name: 계정 요약 정보 보기
               href: account.md
             - name: 사용자 목록 보기
               href: users.md
-        - name: AVS 가상 머신 설정
+        - name: CloudSimple 가상 머신 설정
           items:
-            - name: Azure에서 AVS VM 만들기
+            - name: Azure에서 CloudSimple VM 만들기
               href: azure-create-vm.md
-            - name: Azure에서 AVS VM 관리
+            - name: Azure에서 CloudSimple VM 관리
               href: azure-manage-vm.md
     - name: 방법 가이드
       items:
         - name: 환경 보호
           href: private-cloud-secure.md
-        - name: AVS 프라이빗 클라우드 관리
+        - name: 프라이빗 클라우드 관리
           items:
-            - name: AVS 프라이빗 클라우드 권한 에스컬레이션
+            - name: 프라이빗 클라우드 권한 에스컬레이션
               href: escalate-privileges.md
             - name: 워크로드 DNS 및 DHCP 설정
               href: dns-dhcp-setup.md
             - name: Layer 2 확장 네트워크로 워크로드 마이그레이션
               href: migration-layer-2-vpn.md
-        - name: AVS 프라이빗 클라우드 네트워킹
+        - name: 프라이빗 클라우드 네트워킹
           items:
-            - name: AVS 프라이빗 클라우드에 대한 VPN 연결
+            - name: 프라이빗 클라우드에 대한 VPN 연결
               href: set-up-vpn.md
             - name: ExpressRoute를 통해 온-프레미스 네트워크 연결
               href: on-premises-connection.md
@@ -140,15 +140,15 @@
               href: private-cloud-dns-forwarding.md
         - name: VMware 플랫폼
           items:
-            - name: AVS 프라이빗 클라우드 권한 모델 알아보기
+            - name: 프라이빗 클라우드 권한 모델 알아보기
               href: learn-private-cloud-permissions.md
             - name: vCenter ID 소스
               href: set-vcenter-identity.md
             - name: VMware VM을 사용하는 Azure Application Gateway
               href: azure-application-gateway.md
-            - name: AVS 프라이빗 클라우드 vCenter 서버를 vRealize 자동화 엔드포인트로 구성
+            - name: 프라이빗 클라우드 vCenter 서버를 vRealize 자동화 엔드포인트로 구성
               href: configure-server-vrealize-automation-endpoint.md
-            - name: 워크로드 VM을 AVS 프라이빗 클라우드로 마이그레이션
+            - name: 워크로드 VM을 프라이빗 클라우드로 마이그레이션
               href: migrate-workloads.md
             - name: Azure Data Box를 사용하여 마이그레이션
               href: migration-using-azure-data-box.md
@@ -160,19 +160,19 @@
           items:
             - name: 워크로드 가상 머신 백업
               href: backup-workloads-veeam.md
-            - name: Zerto를 사용하여 AVS 프라이빗 클라우드를 재해 복구 사이트로 구성
+            - name: Zerto를 사용하여 프라이빗 클라우드를 재해 복구 사이트로 구성
               href: disaster-recovery-zerto.md
-            - name: VMware SRM을 사용하여 AVS 프라이빗 클라우드를 재해 복구 사이트로 구성
+            - name: VMware SRM을 사용하여 프라이빗 클라우드를 재해 복구 사이트로 구성
               href: disaster-recovery-site-recovery-manager.md
             - name: VMware Horizon 솔루션 가이드
               href: horizon-guide.md
-            - name: AVS 프라이빗 클라우드에 대한 vSAN 암호화 구성
+            - name: 프라이빗 클라우드에 대한 vSAN 암호화 구성
               href: vsan-encryption.md
-            - name: Oracle RAC를 위한 AVS 프라이빗 클라우드 최적화
+            - name: Oracle RAC를 위한 프라이빗 클라우드 최적화
               href: oracle-real-application-clusters.md
         - name: Azure 코어 통합
           items:
-            - name: AVS 프라이빗 클라우드 vCenter의 Azure AD ID 원본
+            - name: 프라이빗 클라우드 vCenter의 Azure AD ID 소스
               href: azure-ad.md
             - name: ExpressRoute를 통해 온-프레미스 네트워크 연결
               href: on-premises-connection.md

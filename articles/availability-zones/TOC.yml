@@ -23,7 +23,7 @@
         - name: 관리 디스크
           items:
             - name: CLI를 사용하여 가용성 영역에서 관리형 디스크 추가
-              href: '../virtual-machines/linux/add-disk.md#use-managed-disks'
+              href: '../virtual-machines/linux/add-disk.md#attach-a-new-disk-to-a-vm'
             - name: PowerShell을 사용하여 가용성 영역에서 관리형 디스크 추가
               href: '../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine'
         - name: 가상 머신 크기 집합
@@ -68,11 +68,11 @@
         - name: Event Hubs
           items:
             - name: Event Hubs 지리적 재해 복구
-              href: '../event-hubs/event-hubs-geo-dr.md#availability-zones-preview'
+              href: '../event-hubs/event-hubs-geo-dr.md#availability-zones'
         - name: Service Bus
           items:
             - name: Service Bus 지리적 재해 복구
-              href: '../service-bus-messaging/service-bus-geo-dr.md#availability-zones-preview'
+              href: '../service-bus-messaging/service-bus-geo-dr.md#availability-zones'
         - name: VPN Gateway
           items:
             - name: 영역 중복 가상 네트워크 게이트웨이 만들기

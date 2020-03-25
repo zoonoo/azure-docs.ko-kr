@@ -1,20 +1,19 @@
 ---
-title: Azure 계정으로 Office 365 등록 | Microsoft Docs
+title: Azure 계정으로 Office 365 등록
 description: Azure 계정을 사용하여 Office 365 구독을 만드는 방법 알아보기
 author: JiangChen79
 ms.reviewer: adwise
 tags: billing,top-support-issue
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2020
 ms.author: banders
-ms.openlocfilehash: b38800a990056d7de0b6978573ddc19c80503a1d
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 736009a88f309e0a38402222668a9609f844552f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199928"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79204820"
 ---
 # <a name="sign-up-for-an-office-365-subscription-with-your-azure-account"></a>Azure 계정으로 Office 365 구독에 등록
 Azure 구독자인 경우 Azure 계정을 사용하여 Office 365 구독에 등록할 수 있습니다. Azure 구독이 있는 조직의 일부인 경우 기존 Azure AD(Azure Active Directory)에서 사용자를 위한 Office 365 구독을 만들 수 있습니다. Azure Active Directory 테넌트에서 전역 관리자 또는 대금 청구 관리자 권한이 있는 계정을 사용하여 Office 365에 등록합니다. 자세한 내용은 [Azure AD에서 계정 권한 확인](#RoleInAzureAD) 및 [Azure Active Directory에서 관리자 역할 할당](../../active-directory/users-groups-roles/directory-assign-admin-roles.md)을 참조하세요.
@@ -47,7 +46,7 @@ Office 365 계정과 Azure 구독이 둘 다 이미 있는 경우 [Azure 구독�
 
 등록 후 Azure 구독이 속해 있는 Azure Active Directory 인스턴스에 Office 365 구독이 추가됩니다. 자세한 내용은 [Azure 및 Office 365 구독에 대한 추가 정보](office-365-account-for-azure-subscription.md#more-about-subs) 및 [Azure 구독이 Azure Active Directory와 연결되는 방법](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)을 참조하세요.
 
-## <a id="RoleInAzureAD"></a>Azure AD에서 내 계정 사용 권한 확인
+## <a name="check-my-account-permissions-in-azure-ad"></a><a id="RoleInAzureAD"></a>Azure AD에서 내 계정 사용 권한 확인
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. **모든 서비스**를 클릭하고 **Active Directory**를 검색합니다.
 

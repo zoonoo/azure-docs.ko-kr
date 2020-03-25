@@ -8,13 +8,13 @@ metadata:
   ms.topic: landing-page
   author: ronhogue
   ms.author: rohogue
-  ms.date: 03/11/2020
-  ms.openlocfilehash: bf1ab34e0ac7477133933886bb07d16f4574c788
-  ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+  ms.date: 03/20/2020
+  ms.openlocfilehash: 4196fa541837952a3526bceb41325cce26e9207b
+  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 03/13/2020
-  ms.locfileid: "79298855"
+  ms.lasthandoff: 03/25/2020
+  ms.locfileid: "80130728"
 landingContent:
 - title: Azure FXT Edge Filer 정보
   linkLists:
@@ -40,12 +40,12 @@ landingContent:
       url: fxt-add-storage.md
     - text: 7 - 클러스터의 네트워크 설정 구성
       url: fxt-configure-network.md
+    - text: 클러스터에 클라이언트 탑재
+      url: fxt-mount-clients.md
 - title: 관리
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: 클러스터에 클라이언트 탑재
-      url: fxt-mount-clients.md
     - text: 하드웨어 상태 모니터링
       url: fxt-monitor.md
     - text: 안전하게 하드웨어 전원 끄기

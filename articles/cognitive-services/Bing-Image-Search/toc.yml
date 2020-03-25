@@ -89,7 +89,7 @@
   items:
     - name: FAQ
       href: bing-image-search-resource-faq.md
-    - name: 가격 책정
+    - name: 가격
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/search-api/image/'
     - name: UserVoice
       href: 'https://cognitive.uservoice.com/forums/555907-bing-search'

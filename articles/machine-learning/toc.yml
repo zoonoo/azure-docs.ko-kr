@@ -13,6 +13,7 @@
       displayName: 'architecture, concepts, definitions, glossary'
       href: concept-azure-machine-learning-architecture.md
 - name: 자습서
+  expanded: true
   items:
     - name: Studio 및 Designer
       items:
@@ -87,10 +88,10 @@
       href: concept-workspace.md
     - name: 환경
       href: concept-environments.md
-    - name: 데이터 액세스
-      href: concept-data.md
     - name: 데이터 수집
       href: concept-data-ingestion.md
+    - name: 데이터 액세스
+      href: concept-data.md
     - name: 모델 학습
       displayName: 'run config, estimator, machine learning pipeline, ml pipeline, train model'
       href: concept-train-machine-learning-model.md

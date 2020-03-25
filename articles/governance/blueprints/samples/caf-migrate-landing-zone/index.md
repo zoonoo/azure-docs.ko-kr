@@ -4,10 +4,10 @@ description: Azure에 대한 CAF(Cloud Adoption Framework) Foundation 방문 영
 ms.date: 08/20/2019
 ms.topic: sample
 ms.openlocfilehash: 08171a39c83ea6822243d7239882a19b053f213e
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/25/2020
 ms.locfileid: "74545505"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-migration-landing-zone-blueprint-sample"></a>Azure에 대한 Microsoft 클라우드 채택 프레임워크 Migration 방문 영역 청사진 샘플의 개요
@@ -16,7 +16,7 @@ Azure에 대한 Microsoft CAF(클라우드 채택 프레임워크) Migration 방
 
 [CAF Foundation](../caf-foundation/index.md) 청사진 샘플에서는이 샘플을 확장합니다.
 
-## <a name="architecture"></a>아키텍처
+## <a name="architecture"></a>Architecture
 
 CAF Migration 방문 영역 청사진 샘플은 조직에서 가상 머신을 마이그레이션하기 위한 구독을 준비하는 데 사용할 수 있는 Azure의 파운데이션 인프라 리소스를 배포합니다. 또한 클라우드 자산을 관리하는 데 필요한 거버넌스 컨트롤을 배치하는 데도 도움이 됩니다. 이 샘플은 조직이 Azure를 안전하게 시작할 수 있도록 리소스, 정책 및 템플릿을 배포하고 적용합니다.
 

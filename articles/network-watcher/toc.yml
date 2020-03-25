@@ -184,7 +184,7 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: MSDN 포럼
       href: 'https://social.msdn.microsoft.com/Forums/home?forum=WAVirtualMachinesVirtualNetwork'
-    - name: 가격 책정
+    - name: 가격
       href: 'https://azure.microsoft.com/pricing/details/network-watcher/'
     - name: 서비스 업데이트
       href: 'https://azure.microsoft.com/updates/?product=network-watcher'

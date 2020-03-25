@@ -245,7 +245,7 @@
       href: 'https://blogs.technet.microsoft.com/windowshpc/'
     - name: Azure의 HPC
       href: 'https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/'
-    - name: 가격 책정
+    - name: 가격
       href: 'https://azure.microsoft.com/pricing/details/batch/'
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'

@@ -34,7 +34,7 @@
       href: service-health-rest.md
     - name: 리소스 상태 이벤트에 대한 경고 구성
       href: resource-health-alert-arm-template-guide.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: 서비스 상태 알림 속성
       href: service-health-notifications-properties.md

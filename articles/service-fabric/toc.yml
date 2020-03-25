@@ -316,8 +316,6 @@
               href: service-fabric-cluster-resource-manager-defragmentation-metrics.md
             - name: 클러스터 균형 조정
               href: service-fabric-cluster-resource-manager-balancing.md
-            - name: 서브 클러스터링
-              href: service-fabric-cluster-resource-manager-subclustering.md
             - name: 제한
               href: service-fabric-cluster-resource-manager-advanced-throttling.md
             - name: 서비스 이동
@@ -882,7 +880,7 @@
       href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric'
     - name: Azure Resource Manager 배포 가드레일
       href: service-fabric-azure-resource-manager-guardrails.md
-    - name: 가격 책정
+    - name: 가격
       href: 'https://azure.microsoft.com/pricing/details/service-fabric/'
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'

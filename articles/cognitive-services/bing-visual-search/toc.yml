@@ -67,7 +67,7 @@
       href: tutorial-visual-search-insights-token.md
     - name: 단일 페이지 웹앱 만들기
       href: tutorial-bing-visual-search-single-page-app.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: REST v7 API
       href: 'https://aka.ms/bingvisualsearchreferencedoc'

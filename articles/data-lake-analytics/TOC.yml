@@ -132,7 +132,7 @@
           href: runtime-troubleshoot.md
         - name: .NET 업그레이드 문제 해결
           href: dotnet-upgrade-troubleshoot.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: Azure PowerShell
       href: /powershell/module/az.datalakeanalytics

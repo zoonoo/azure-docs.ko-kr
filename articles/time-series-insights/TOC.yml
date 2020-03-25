@@ -152,7 +152,7 @@
           href: 'https://docs.microsoft.com/samples/browse/?term=iot'
     - name: 가격 책정 및 가용성
       items:
-        - name: 가격 책정
+        - name: 가격
           href: 'https://azure.microsoft.com/pricing/details/time-series-insights/'
         - name: 요금 계산기
           href: 'https://azure.microsoft.com/pricing/calculator/'

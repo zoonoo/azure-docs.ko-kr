@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: banders
 ms.openlocfilehash: 4c4b105bb4b67e855de27b6a57d2080fde068421
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200217"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79237907"
 ---
 # <a name="terms-in-your-microsoft-customer-agreement-invoice"></a>Microsoft 고객 계약 청구서의 용어
 
@@ -23,7 +23,7 @@ ms.locfileid: "77200217"
 
 ## <a name="billing-period"></a>청구 기간
 
-청구서는 월 단위로 제공됩니다. [Azure Portal](https://portal.azure.com/)의 청구 프로필 속성 아래에서 *청구서 날짜*를 확인하면 매달 청구서를 받는 날짜를 알 수 있습니다. 청구 기간 종료 날짜와 청구서 날짜 사이에 발생하는 요금은 다음 청구 기간에 속하기 때문에 다음 달 청구서에 포함됩니다. 각 청구서의 청구 기간 시작 및 종료 날짜는 **청구 요약** 위의 청구서 PDF에 나열됩니다.
+청구서는 월 단위로 제공됩니다. *Azure Portal*의 청구 프로필 속성 아래에서 [청구서 날짜](https://portal.azure.com/)를 확인하면 매달 청구서를 받는 날짜를 알 수 있습니다. 청구 기간 종료 날짜와 청구서 날짜 사이에 발생하는 요금은 다음 청구 기간에 속하기 때문에 다음 달 청구서에 포함됩니다. 각 청구서의 청구 기간 시작 및 종료 날짜는 **청구 요약** 위의 청구서 PDF에 나열됩니다.
 
 ## <a name="invoice-terms-and-descriptions"></a>청구서 용어 및 설명
 

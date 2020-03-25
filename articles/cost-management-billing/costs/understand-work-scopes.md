@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: 5e1117bdefc4916fedc5c316632641d77c2f09d3
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: bbed4209d26fe32f95b93b2c7411e1ab74f03ede
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78206030"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80131369"
 ---
 # <a name="understand-and-work-with-scopes"></a>범위 이해 및 작업
 
@@ -65,7 +65,7 @@ Cost Management는 아래의 각 범위에서 다음과 같은 기본 제공 역
 
 - **예산 초과 시 조치** – Cost Management 기여자는 초과분에 자동으로 대응할 수 있도록 작업 그룹을 만들고/만들거나 관리하기 위한 액세스 권한도 필요합니다. 예산 임계값을 초과할 때 사용할 작업 그룹을 포함하고 있는 리소스 그룹에 [모니터링 기여자](../../role-based-access-control/built-in-roles.md#monitoring-contributor)를 부여하는 방안을 고려해 보세요. 특정 작업을 자동화하려면 Automation 및 Azure Functions처럼 사용되는 특정 서비스에 대한 추가 역할이 필요합니다.
 - **비용 데이터 내보내기 예약** Cost Management 기여자는 데이터를 스토리지 계정에 복사하는 내보내기를 예약할 수 있도록 스토리지 계정을 관리하기 위한 액세스 권한도 필요합니다. 비용 데이터를 내보내는 스토리지 계정을 포함하고 있는 리소스 그룹에 [스토리지 계정 기여자](../../role-based-access-control/built-in-roles.md#storage-account-contributor)를 부여하는 방안을 고려해 보세요.
-- **비용 절감 추천 보기** – Cost Management 읽기 권한자 및 Cost Management 기여자는 기본적으로 비용 추천을 *볼 수 있습니다*. 그러나 비용 추천에 따라 조치를 취하려면 개별 리소스에 대한 액세스 권한이 필요합니다. 비용 기반 추천에 따라 조치를 취하려면 [서비스별 역할](../../role-based-access-control/built-in-roles.md#descriptions-and-ids)을 부여하는 방안을 고려해 보세요.
+- **비용 절감 추천 보기** – Cost Management 읽기 권한자 및 Cost Management 기여자는 기본적으로 비용 추천을 *볼 수 있습니다*. 그러나 비용 추천에 따라 조치를 취하려면 개별 리소스에 대한 액세스 권한이 필요합니다. 비용 기반 추천에 따라 조치를 취하려면 [서비스별 역할](../../role-based-access-control/built-in-roles.md#all)을 부여하는 방안을 고려해 보세요.
 
 ## <a name="enterprise-agreement-scopes"></a>기업계약 범위
 

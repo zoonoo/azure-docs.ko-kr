@@ -127,8 +127,10 @@
               href: howto-manage-preferences.md
             - name: 라이브 채팅 토글
               href: howto-show-hide-chat.md
-- name: 관련 항목
+- name: 리소스
   items:
+    - name: 지원 및 도움말 옵션
+      href: /azure/iot-fundamentals/iot-support-help
     - name: 업계 애플리케이션 템플릿
       items:
         - name: 소매
@@ -139,30 +141,30 @@
           href: ../government/overview-iot-central-government.md
         - name: 의료
           href: ../healthcare/overview-iot-central-healthcare.md
-    - name: 플랫폼 서비스
+    - name: Azure IoT 서비스
       items:
         - name: IoT Hub
           href: /azure/iot-hub
-        - name: IoT 플러그 앤 플레이
-          href: /azure/iot-pnp
         - name: IoT Hub Device Provisioning Service
           href: /azure/iot-dps
-        - name: IoT 서비스 SDK
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
-        - name: 지도
+        - name: IoT Central
+          href: 'https://docs.microsoft.com/microsoft-iot-central/'
+        - name: IoT Edge
+          href: /azure/iot-edge
+        - name: IoT 솔루션 가속기
+          href: /azure/iot-accelerators
+        - name: IoT 플러그 앤 플레이
+          href: /azure/iot-pnp
+        - name: Azure Maps
           href: /azure/azure-maps
         - name: Time Series Insights
           href: /azure/time-series-insights
-    - name: Edge 솔루션
+    - name: Azure IoT SDK
       items:
-        - name: Azure IoT Edge
-          href: /azure/iot-edge
+        - name: IoT 서비스 SDK
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
         - name: IoT 디바이스 SDK
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
-- name: 리소스
-  items:
-    - name: 지원 및 도움말 옵션
-      href: /azure/iot-fundamentals/iot-support-help
     - name: IoT Central API 참조
       href: 'https://docs.microsoft.com/rest/api/iotcentral/'
     - name: 고객 데이터 요청

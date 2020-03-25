@@ -249,7 +249,7 @@
   items:
     - name: FAQ
       href: api-management-faq.md
-    - name: 가격 책정
+    - name: 가격
       href: 'https://aka.ms/apimpricing'
     - name: 국가별 가용성
       href: 'https://azure.microsoft.com/regions/services/'

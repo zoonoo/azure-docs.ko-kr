@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
 ms.openlocfilehash: 5c9d9074e4b8d0d9e36417daee4d58c1d9b28b64
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77199248"
 ---
 # <a name="view-azure-reservations-in-the-azure-portal"></a>Azure Portal에서 Azure 예약 보기
@@ -33,7 +33,7 @@ ms.locfileid: "77199248"
     ![예약 목록을 보여 주는 예제](./media/view-reservations/view-reservations.png)
 4. 예약을 선택하고 지난 5일 동안의 사용률 추세를 확인합니다.  
     ![예약 사용률 추세를 보여 주는 예제](./media/view-reservations/reservation-utilization.png)
-5. 예약 인스턴스 사용량 API와 [ Microsoft Azure Consumption Insights Power BI 콘텐츠 팩](/power-bi/service-connect-to-azure-consumption-insights)을 사용하여 [예약 사용률](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage)을 가져올 수도 있습니다.
+5. 예약 인스턴스 사용량 API와 [ Microsoft Azure Consumption Insights Power BI 콘텐츠 팩](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage)을 사용하여 [예약 사용률](/power-bi/service-connect-to-azure-consumption-insights)을 가져올 수도 있습니다.
 
 예약 범위를 변경하거나, 예약을 분할하거나, 예약을 관리할 수 있는 사용자를 변경해야 하는 경우에는 [Azure 예약 관리](manage-reserved-vm-instance.md)를 참조하세요.
 

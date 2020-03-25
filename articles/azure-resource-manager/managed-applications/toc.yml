@@ -130,7 +130,7 @@
   items:
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/'
-    - name: 가격 책정
+    - name: 가격
       href: 'https://azure.microsoft.com/pricing/details/managed-applications/'
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'

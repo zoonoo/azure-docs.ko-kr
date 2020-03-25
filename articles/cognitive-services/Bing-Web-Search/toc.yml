@@ -91,7 +91,7 @@
       href: 'https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api'
     - name: Bing Web Search 엔드포인트
       href: web-search-endpoints.md
-    - name: 가격 책정
+    - name: 가격
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/search-api/web/'
     - name: 국가별 가용성
       href: 'https://azure.microsoft.com/global-infrastructure/services/'

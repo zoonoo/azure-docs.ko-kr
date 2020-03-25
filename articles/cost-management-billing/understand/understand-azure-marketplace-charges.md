@@ -10,10 +10,10 @@ ms.date: 02/24/2020
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 7955e9bc75b2a27ac42d381df1e686ec8a0ed04b
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77587809"
 ---
 # <a name="understand-your-azure-external-services-charges"></a>Azure 외부 서비스 요금의 이해
@@ -49,7 +49,7 @@ You can view a list of the external services that are on each subscription withi
 
 EA 고객은 EA 포털에서 외부 서비스 지출을 살펴보고 다운로드할 수 있습니다. 시작 방법은 [EA 고객을 위한 Azure Marketplace](https://ea.azure.com/helpdocs/azureMarketplace) 를 참조하세요.
 
-## <a name="view-and-download-invoices-for-external-services"></a>외부 서비스 청구서 보기 및 다운로드
+## <a name="view-and-download-invoices-for-external-services"></a>외부 서비스에 대한 청구서 보기 및 다운로드
 
 MCA(Microsoft 고객 계약) 또는 MPA(Microsoft 파트너 계약)가 있는 경우 타사 서비스는 나머지 Azure 서비스를 포함하여 단일 청구서로 청구됩니다. [청구 계정 유형을 확인](#check-billing-account-type)하여 MCA 또는 MPA에 액세스할 수 있는지 확인합니다. 이 경우에는 [Azure Portal에서 청구서 보기 및 다운로드](download-azure-invoice.md)를 참조하여 타사 요금을 확인합니다.
 
