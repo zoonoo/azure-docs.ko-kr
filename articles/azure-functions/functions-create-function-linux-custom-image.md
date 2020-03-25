@@ -4,13 +4,13 @@ description: 사용자 지정 Linux 이미지에서 실행되는 Azure Functions
 ms.date: 01/15/2020
 ms.topic: tutorial
 ms.custom: mvc
-zone_pivot_groups: programming-languages-set-functions01
-ms.openlocfilehash: b714806c163a94bbae7069c357e603b82ba797ba
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+zone_pivot_groups: programming-languages-set-functions
+ms.openlocfilehash: 8c074c677c645dd03e3cf5288d82aa3e65720e8b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77482363"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79223730"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>사용자 지정 컨테이너를 사용하여 Linux에서 함수 만들기
 
@@ -70,7 +70,7 @@ ms.locfileid: "77482363"
 
 1. 터미널 또는 명령 프롬프트에서 이 자습서의 폴더를 적절한 위치에 만든 다음, 해당 폴더로 이동합니다.
 
-1. [가상 환경 만들기 및 활성화](functions-create-first-function-python.md#create-and-activate-a-virtual-environment)의 지침에 따라 이 자습서에서 사용할 가상 환경을 만듭니다.
+1. [가상 환경 만들기 및 활성화](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-python#create-venv)의 지침에 따라 이 자습서에서 사용할 가상 환경을 만듭니다.
 
 1. 선택한 언어에 대해 다음 명령을 실행하여 함수 앱 프로젝트를 `LocalFunctionsProject`라는 폴더에 만듭니다. `--docker` 옵션은 프로젝트에 대한 `Dockerfile`을 생성하는데, 이는 Azure Functions 및 선택한 런타임에서 사용하는 데 적합한 사용자 지정 컨테이너를 정의합니다.
 
@@ -256,7 +256,7 @@ ms.locfileid: "77482363"
     docker run -p 8080:80 -it <docker_id>/azurefunctionsimage:v1.0.0
     ```
     
-1. 로컬 컨테이너에서 이미지가 실행되면 브라우저가 `http://localhost:8080`으로 열립니다. 이 경우 아래 이미지와 같은 자리 표시자가 표시됩니다. Azure에서와 같이 로컬 컨테이너에서 함수가 실행되고 있으므로 이 이미지가 표시됩니다. 즉, *function.json*에서 `"authLevel": "function"` 속성을 사용하여 정의된 액세스 키로 보호됩니다. 그러나 컨테이너는 아직 Azure의 함수 앱에 게시되지 않았으므로 이 키를 아직 사용할 수 없습니다. 로컬로 테스트하려면 docker를 중지하고, 권한 부여 속성을 `"authLevel": "anonymous"`로 변경하고, 이미지를 다시 빌드하고, docker를 다시 시작합니다. 그런 다음, *function.json*에서 `"authLevel": "function"`을 다시 설정합니다. 자세한 내용은 [권한 부여 키](functions-bindings-http-webhook-trigger.md#authorization-keys)를 참조하세요.
+1. 로컬 컨테이너에서 이미지가 실행되면 브라우저가 `http://localhost:8080`으로 열립니다. 이 경우 아래 이미지와 같은 자리 표시자가 표시됩니다. Azure에서와 같이 로컬 컨테이너에서 함수가 실행되고 있으므로 이 이미지가 표시됩니다. 즉, *function.json*에서 `"authLevel": "function"` 속성을 사용하여 정의된 액세스 키로 보호됩니다. 그러나 컨테이너는 아직 Azure의 함수 앱에 게시되지 않았으므로 이 키를 아직 사용할 수 없습니다. 로컬로 테스트하려면 docker를 중지하고, 권한 부여 속성을 `"authLevel": "anonymous"`로 변경하고, 이미지를 다시 빌드하고, docker를 다시 시작합니다. 그런 다음, `"authLevel": "function"`function.json*에서* 을 다시 설정합니다. 자세한 내용은 [권한 부여 키](functions-bindings-http-webhook-trigger.md#authorization-keys)를 참조하세요.
 
     ![컨테이너가 로컬로 실행되고 있음을 나타내는 자리 표시자 이미지](./media/functions-create-function-linux-custom-image/run-image-local-success.png)
 
@@ -313,7 +313,7 @@ Docker Hub는 이미지를 호스팅하고 이미지 및 컨테이너 서비스�
     
     이 자습서의 경우 스토리지 계정에 대한 약간의 비용(몇 USD 센트)만 발생합니다.
     
-1. 명령을 사용하여 **탄력적 프리미엄 1** 가격 책정 계층(`--sku EP1`), 서유럽 지역(`-location westeurope` 또는 근처의 적절한 지역 사용) 또는 Linux 컨테이너(`--is-linux`)에서 `myPremiumPlan`이라는 Azure Functions 프리미엄 요금제를 만듭니다.
+1. 명령을 사용하여 `myPremiumPlan`탄력적 프리미엄 1 **가격 책정 계층(** ), 서유럽 지역(`--sku EP1` 또는 근처의 적절한 지역 사용) 또는 Linux 컨테이너(`-location westeurope`)에서 `--is-linux`이라는 Azure Functions 프리미엄 요금제를 만듭니다.
 
     ```azurecli
     az functionapp plan create --resource-group AzureFunctionsContainers-rg --name myPremiumPlan --location westeurope --number-of-workers 1 --sku EP1 --is-linux
@@ -339,8 +339,9 @@ Azure의 함수 앱은 호스팅 계획에서 함수 실행을 관리합니다. 
 
     ```azurecli
     az storage account show-connection-string --resource-group AzureFunctionsContainers-rg --name <storage_name> --query connectionString --output tsv
+    ```
     
-1. Add this setting to the function app by using the [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) command. In the following command, replace `<app_name>` with the name of your function app, and replace `<connection_string>` with the connection string from the previous step (a long encoded string that begins with "DefaultEndpointProtocol="):
+1. [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) 명령을 사용하여 이 설정을 함수 앱에 추가합니다. 다음 명령에서 `<app_name>`을 함수 앱의 이름으로 바꾸고 `<connection_string>`을 이전 단계의 연결 문자열 ("DefaultEndpointProtocol="로 시작하는 인코딩된 긴 문자열)로 바꿉니다.
  
     ```azurecli
     az functionapp config appsettings set --name <app_name> --resource-group AzureFunctionsContainers-rg --settings AzureWebJobsStorage=<connection_string>
@@ -527,7 +528,7 @@ Azure Functions를 사용하면 고유한 통합 코드를 작성해야 하는 �
 
 ### <a name="add-an-output-binding-to-functionjson"></a>function.json에 출력 바인딩 추가
 
-Azure Functions에서 각 바인딩 형식에는 *function.json* 파일에 정의되는 `direction`, `type` 및 고유한 `name`이 필요합니다. *function.json*에는 이미 "httpTrigger" 형식의 입력 바인딩과 HTTP 응답에 대한 출력 바인딩이 포함되어 있습니다. 바인딩을 스토리지 큐에 추가하려면 파일을 다음과 같이 수정합니다. 여기서는 큐가 코드에서 `msg`라는 입력 인수로 표시되는 "queue" 형식에 대한 출력 바인딩이 추가됩니다. 또한 큐 바인딩에는 사용할 큐의 이름(이 경우 `outqueue`)과 연결 문자열을 보유하는 설정의 이름(이 경우 `AzureWebJobStorage`)이 필요합니다.
+Azure Functions에서 각 바인딩 형식에는 `direction`function.json`type` 파일에 정의되는 `name`, *및 고유한*이 필요합니다. *function.json*에는 이미 "httpTrigger" 형식의 입력 바인딩과 HTTP 응답에 대한 출력 바인딩이 포함되어 있습니다. 바인딩을 스토리지 큐에 추가하려면 파일을 다음과 같이 수정합니다. 여기서는 큐가 코드에서 `msg`라는 입력 인수로 표시되는 "queue" 형식에 대한 출력 바인딩이 추가됩니다. 또한 큐 바인딩에는 사용할 큐의 이름(이 경우 `outqueue`)과 연결 문자열을 보유하는 설정의 이름(이 경우 `AzureWebJobStorage`)이 필요합니다.
 
 ::: zone pivot="programming-language-csharp"
 

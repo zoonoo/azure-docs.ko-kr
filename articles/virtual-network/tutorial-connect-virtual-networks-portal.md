@@ -14,10 +14,10 @@ ms.date: 01/22/2020
 ms.author: kumud
 ms.custom: ''
 ms.openlocfilehash: e95441aab6c8ce7de37ba5f6b08d5f7d54e13347
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77201301"
 ---
 # <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 가상 네트워크 피어링으로 가상 네트워크 연결
@@ -51,7 +51,7 @@ Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
     |지역| **미국 동부**를 선택합니다.|
     |속성|myVirtualNetwork1|
 
-4. **IP 주소** 탭에서 **주소 공간** 필드에 10.0.0.0/16을 입력합니다. 아래 **서브넷 추가** 단추를 클릭하고 **서브넷 이름**에 *Subnet1*을 입력하고 **서브넷 주소 범위**에 대해 10.0.0.0/24를 입력합니다.
+4. **IP 주소** 탭에서 **주소 공간** 필드에 10.0.0.0/16을 입력합니다. 아래 **서브넷 추가** 단추를 클릭하고 *서브넷 이름*에 **Subnet1**을 입력하고 **서브넷 주소 범위**에 대해 10.0.0.0/24를 입력합니다.
 5. **검토 + 만들기**를 선택한 다음, **만들기**를 선택합니다.
    
 5. 다음과 같은 변경 내용을 사용하여 1~5단계를 다시 완료합니다.
@@ -132,7 +132,7 @@ VM을 만드는 데 몇 분이 걸릴 수 있습니다. 두 VM이 모두 만들�
 ## <a name="communicate-between-vms"></a>VM 간 통신
 
 1. 포털 맨 위에 있는 *검색* 상자에 *myVm1*을 입력하기 시작합니다. 검색 결과에서 표시되는 **myVm1**을 선택합니다.
-2. 다음 그림과 같이 **연결**을 선택하여 *myVm1* VM에 대한 원격 데스크톱 연결을 만듭니다.
+2. 다음 그림과 같이 *연결*을 선택하여 **myVm1** VM에 대한 원격 데스크톱 연결을 만듭니다.
 
     ![가상 머신에 연결](./media/tutorial-connect-virtual-networks-portal/connect-to-virtual-machine.png)  
 
@@ -165,9 +165,9 @@ VM을 만드는 데 몇 분이 걸릴 수 있습니다. 두 VM이 모두 만들�
 
 더 이상 필요하지 않은 경우, 리소스 그룹 및 이 그룹에 포함된 리소스를 모두 삭제합니다. 
 
-1. 포털 맨 위에 있는 **검색** 상자에 *myResourceGroup*을 입력합니다. 검색 결과에 **myResourceGroup**이 보이면 선택합니다.
+1. 포털 맨 위에 있는 *검색* 상자에 **myResourceGroup**을 입력합니다. 검색 결과에 **myResourceGroup**이 보이면 선택합니다.
 2. **리소스 그룹 삭제**를 선택합니다.
-3. **리소스 그룹 이름 입력:** 에 *myResourceGroup*을 입력하고 **삭제**를 선택합니다.
+3. *리소스 그룹 이름 입력:* 에 **myResourceGroup**을 입력하고 **삭제**를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

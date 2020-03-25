@@ -12,10 +12,10 @@ ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 03/12/2019
 ms.openlocfilehash: be6aa73fe72568e9762e5b7249bedc2e8c7d3bf7
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73691428"
 ---
 # <a name="use-powershell-with-azure-resource-manager-template-to-create-a-managed-instance-in-azure-sql-database"></a>Azure Resource Manager 템플릿과 함께 PowerShell을 사용하여 Azure SQL Database에서 Managed Instance 만들기
@@ -38,7 +38,7 @@ Azure PowerShell 명령은 미리 정의된 Azure Resource Manager 템플릿을 
 
 인스턴스 이름, SQL 관리자 사용자 이름, VNet/서브넷 및 데이터 정렬을 나중에 변경할 수 없습니다. 다른 인스턴스 속성을 변경할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 샘플에서는 Managed Instance에 대한 [유효한 네트워크 환경을 만들](../sql-database-managed-instance-create-vnet-subnet.md)거나 [기존 VNet을 수정](../sql-database-managed-instance-configure-vnet-subnet.md)했다고 가정합니다. 샘플에서는 cmdlet [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment) 및 [Get-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork)를 사용하므로 다음 PowerShell 모듈을 설치해야 합니다.
 

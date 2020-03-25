@@ -9,10 +9,10 @@ ms.date: 09/11/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: 6911f769b95967aac933dd9762263e7506aef4b5
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77192503"
 ---
 ## <a name="create-the-webapi-project"></a>WebAPI 프로젝트 만들기
@@ -21,7 +21,7 @@ ms.locfileid: "77192503"
 
 - **클라이언트 인증**: 클라이언트 요청을 인증하고 사용자를 요청과 연결하는 메시지 처리기를 추가합니다.
 - **WebAPI 백 엔드를 사용하여 알림 등록**: 클라이언트 디바이스에서 알림을 받을 수 있도록 새 등록을 처리하는 컨트롤러를 추가합니다. 인증된 사용자 이름은 [태그](../articles/notification-hubs/notification-hubs-tags-segment-push-message.md)로 등록에 자동으로 추가됩니다.
-- **클라이언트에 알림 보내기**: 사용자가 태그와 연결된 디바이스 및 클라이언트로 보안 푸시를 트리거할 수 있는 방법을 제공하는 컨트롤러를 추가합니다.
+- **클라이언트로 알림 보내기**: 사용자가 태그와 연결된 디바이스 및 클라이언트로 보안 푸시를 트리거할 수 있는 방법을 제공하는 컨트롤러를 추가합니다.
 
 다음 작업을 수행하여 새 ASP.NET WebAPI 백 엔드를 만듭니다.
 
@@ -141,7 +141,7 @@ ms.locfileid: "77192503"
 
     > [!NOTE]
     > 보안 정보: `AuthenticationTestHandler` 클래스는 진정한 의미의 인증을 제공하지 않습니다. 이 클래스는 기본 인증과 비슷한 동작을 하고 보안이 안전하지 않습니다. 프로덕션 애플리케이션 및 서비스에 보안 인증 메커니즘을 구현해야 합니다.
-5. 메시지 처리기를 등록하려면 **App_Start/WebApiConfig.cs** 클래스의 `Register` 메서드 끝에 다음 코드를 추가합니다.
+5. 메시지 처리기를 등록하려면 `Register`App_Start/WebApiConfig.cs**클래스의** 메서드 끝에 다음 코드를 추가합니다.
 
     ```csharp
     config.MessageHandlers.Add(new AuthenticationTestHandler());

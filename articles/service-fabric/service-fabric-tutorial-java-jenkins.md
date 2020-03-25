@@ -7,10 +7,10 @@ ms.date: 08/27/2018
 ms.author: suhuruli
 ms.custom: mvc
 ms.openlocfilehash: dee1d5a744ddfc2ad38cbe93447377a8af27a2f7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75376657"
 ---
 # <a name="tutorial-configure-a-jenkins-environment-to-enable-cicd-for-a-java-application-on-service-fabric"></a>자습서: Service Fabric에서 Java 애플리케이션에 CI/CD를 사용하도록 Jenkins 환경 구성
@@ -77,7 +77,7 @@ Service Fabric 클러스터 내부 또는 외부에서 Jenkins를 설정할 수 
 
 1. 먼저 GitHub에서 Voting 프로젝트를 호스팅하는 데 사용할 수 있는 리포지토리가 없는 경우 새로 만듭니다. 리포지토리는 이 자습서의 나머지에 대해 **dev_test**라고 합니다.
 
-1. ``http://<HOST-IP>:8080``의 Jenkins 대시보드에 **새 항목**을 만듭니다.
+1. **의 Jenkins 대시보드에** 새 항목``http://<HOST-IP>:8080``을 만듭니다.
 
 1. 항목 이름을 입력합니다(예: **MyJob**). **자유로운 프로젝트**를 선택하고 **확인**을 클릭합니다.
 
@@ -119,7 +119,7 @@ Service Fabric 클러스터 내부 또는 외부에서 Jenkins를 설정할 수 
 
 ## <a name="update-your-existing-application"></a>기존 애플리케이션 업데이트
 
-1. **Service Fabric Voting 샘플 V2**를 사용하여 *VotingApplication/VotingWebPkg/Code/wwwroot/index.html* 파일의 HTML의 제목을 업데이트합니다.
+1. *Service Fabric Voting 샘플 V2*를 사용하여 **VotingApplication/VotingWebPkg/Code/wwwroot/index.html** 파일의 HTML의 제목을 업데이트합니다.
 
     ```html
     <div ng-app="VotingApp" ng-controller="VotingAppController" ng-init="refresh()">
@@ -133,7 +133,7 @@ Service Fabric 클러스터 내부 또는 외부에서 Jenkins를 설정할 수 
     </div>
     ```
 
-1. **ApplicationTypeVersion** 및 **ServiceManifestVersion** 버전을 *Voting/VotingApplication/ApplicationManifest.xml* 파일에서 **2.0.0**으로 업데이트합니다.
+1. **ApplicationTypeVersion** 및 **ServiceManifestVersion** 버전을 **Voting/VotingApplication/ApplicationManifest.xml** 파일에서 *2.0.0*으로 업데이트합니다.
 
     ```xml
     <?xml version="1.0" encoding="utf-8" standalone="no"?>
@@ -160,7 +160,7 @@ Service Fabric 클러스터 내부 또는 외부에서 Jenkins를 설정할 수 
     </ApplicationManifest>
     ```
 
-1. **ServiceManifest**에서 **버전** 필드 및 *Voting/VotingApplication/VotingWebPkg/ServiceManifest.xml* 파일의 **CodePackage** 태그에서 **버전** 필드를 **2.0.0**으로 업데이트합니다.
+1. **ServiceManifest**에서 **버전** 필드 및 **Voting/VotingApplication/VotingWebPkg/ServiceManifest.xml** 파일의 **CodePackage** 태그에서 *버전* 필드를 **2.0.0**으로 업데이트합니다.
 
     ```xml
     <CodePackage Name="Code" Version="2.0.0">

@@ -11,13 +11,13 @@ ms.date: 12/03/2018
 ms.custom: seodec18
 Customer intent: As a developer, I want to migrate my existing Cassandra workloads to Azure Cosmos DB so that the overhead to manage resources, clusters, and garbage collection is automatically handled by Azure Cosmos DB.
 ms.openlocfilehash: c754740369da6d0a8084b9b60ef178fb28e32f1b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75445680"
 ---
-# <a name="tutorial-migrate-your-data-to-cassandra-api-account-in-azure-cosmos-db"></a>자습서: Azure Cosmos DB에서 Cassandra API 계정으로 데이터 마이그레이션
+# <a name="tutorial-migrate-your-data-to-cassandra-api-account-in-azure-cosmos-db"></a>자습서: Azure Cosmos DB의 Cassandra API 계정으로 데이터 마이그레이션
 
 개발자는 온-프레미스 또는 클라우드에서 실행되는 기존 Cassandra 워크로드를 가질 수 있으며 Azure로 마이그레이션할 수 있습니다. 이러한 워크로드를 Azure Cosmos DB의 Cassandra API 계정으로 마이그레이션할 수 있습니다. 이 자습서는 Apache Cassandra 데이터를 Azure Cosmos DB의 Cassandra API 계정으로 마이그레이션할 수 있는 다양한 옵션에 대한 지침을 제공합니다.
 
@@ -33,13 +33,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="prerequisites-for-migration"></a>마이그레이션을 위한 필수 조건
 
-* **처리량 요구 사항 예측:** Azure Cosmos DB에서 데이터를 Cassandra API 계정으로 마이그레이션하려면 먼저 워크로드에 대한 처리량 요구 사항을 예측해야 합니다. 일반적으로 CRUD 작업에 필요한 평균 처리량부터 시작한 다음, ETL(추출, 변환 및 로드) 또는 급증하는 작업에 필요한 추가 처리량을 포함하는 것이 좋습니다. 마이그레이션을 계획하려면 다음과 같은 세부 정보가 필요합니다. 
+* **처리량 수요 예측:** 데이터를 Azure Cosmos DB의 Cassandra API 계정으로 마이그레이션하기 전에 워크로드에 대한 처리량 수요를 예측해야 합니다. 일반적으로 CRUD 작업에 필요한 평균 처리량부터 시작한 다음, ETL(추출, 변환 및 로드) 또는 급증하는 작업에 필요한 추가 처리량을 포함하는 것이 좋습니다. 마이그레이션을 계획하려면 다음과 같은 세부 정보가 필요합니다. 
 
-  * **기존 또는 예상 데이터 크기:** 최소 데이터베이스 크기 및 처리량 요구 사항을 정의합니다. 새 애플리케이션의 데이터 크기를 예측할 경우 데이터가 행 전체에 균일하게 분포되어 있다고 가정하고 데이터 크기를 곱하여 값을 추정하면 됩니다. 
+  * **기존 데이터 크기 또는 예상 데이터 크기:** 최소 데이터베이스 크기 및 처리량 요구 사항을 정의합니다. 새 애플리케이션의 데이터 크기를 예측할 경우 데이터가 행 전체에 균일하게 분포되어 있다고 가정하고 데이터 크기를 곱하여 값을 추정하면 됩니다. 
 
-  * **필요한 처리량:** 대략적인 읽기(쿼리/가져오기) 및 쓰기(업데이트/삭제/삽입) 처리량 속도입니다. 이 값은 안정적인 상태 데이터 크기와 함께 필요한 요청 단위를 컴퓨팅하는 데 필요합니다.  
+  * **필요한 처리량:** 대략적인 읽기(쿼리/가져오기) 및 쓰기(업데이트/삭제/삽입) 처리량 속도 이 값은 안정적인 상태 데이터 크기와 함께 필요한 요청 단위를 컴퓨팅하는 데 필요합니다.  
 
-  * **스키마:** cqlsh를 통해 기존 Cassandra 클러스터에 연결하고 Cassandra에서 스키마를 내보냅니다. 
+  * **스키마:** cqlsh를 통해 기존 Cassandra 클러스터에 연결하고 Cassandra의 스키마를 내보냅니다. 
 
     ```bash
     cqlsh [IP] "-e DESC SCHEMA" > orig_schema.cql
@@ -47,7 +47,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
     기존 워크로드의 요구 사항을 확인한 후에는 수집한 처리량 요구 사항에 따라 Azure Cosmos 계정, 데이터베이스 및 컨테이너를 만들어야 합니다.  
 
-  * **작업에 대한 RU 요금 결정:** Cassandra API에서 지원되는 SDK 중 하나를 사용하여 RU를 결정할 수 있습니다. 다음 예제는 RU 비용 가져오기의 .NET 버전을 보여 줍니다.
+  * **작업에 대한 RU 요금 확인:** Cassandra API에서 지원되는 SDK 중 하나를 사용하여 RU를 확인할 수 있습니다. 다음 예제는 RU 비용 가져오기의 .NET 버전을 보여 줍니다.
 
     ```csharp
     var tableInsertStatement = table.Insert(sampleEntity);
@@ -61,11 +61,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
       }
     ```
 
-* **필요한 처리량 할당:** 요구 사항이 증가함에 따라 Azure Cosmos DB에서 스토리지 및 처리량의 크기를 자동으로 조정할 수 있습니다. [Azure Cosmos DB 요청 단위 계산기](https://www.documentdb.com/capacityplanner)를 사용하여 처리량 수요를 예측할 수 있습니다. 
+* **필요한 처리량 할당:** Azure Cosmos DB는 요구 사항이 증가함에 따라 스토리지 및 처리량을 자동으로 조정할 수 있습니다. [Azure Cosmos DB 요청 단위 계산기](https://www.documentdb.com/capacityplanner)를 사용하여 처리량 수요를 예측할 수 있습니다. 
 
-* **Cassandra API 계정에 테이블 만들기:** 데이터 마이그레이션을 시작하기 전에 Azure Portal 또는 cqlsh에서 모든 테이블을 미리 만듭니다. 데이터베이스 수준 처리량이 있는 Azure Cosmos 계정으로 마이그레이션하는 경우에는 Azure Cosmos 컨테이너를 만들 때 파티션 키를 제공해야 합니다.
+* **Cassandra API 계정에 테이블 만들기:** 데이터 마이그레이션을 시작하기 전에 Azure Portal이나 cqlsh를 통해 모든 테이블을 미리 작성합니다. 데이터베이스 수준 처리량이 있는 Azure Cosmos 계정으로 마이그레이션하는 경우에는 Azure Cosmos 컨테이너를 만들 때 파티션 키를 제공해야 합니다.
 
-* **처리량 증가:** 데이터 마이그레이션 기간은 Azure Cosmos DB의 테이블에 대해 프로비전하는 처리량에 따라 달라집니다. 마이그레이션 기간에 대한 처리량을 늘립니다. 처리량이 높을수록 속도 제한을 피하고 마이그레이션 시간을 단축할 수 있습니다. 마이그레이션을 완료한 후에는 비용을 절약하기 위해 처리량을 줄이세요. Azure Cosmos 계정은 원본 데이터베이스와 같은 지역에 두는 것이 좋습니다. 
+* **처리량 늘리기:** 데이터 마이그레이션 기간은 Azure Cosmos DB의 테이블에 대해 프로비전한 처리량에 따라 다릅니다. 마이그레이션 기간에 대한 처리량을 늘립니다. 처리량이 높을수록 속도 제한을 피하고 마이그레이션 시간을 단축할 수 있습니다. 마이그레이션을 완료한 후에는 비용을 절약하기 위해 처리량을 줄이세요. Azure Cosmos 계정은 원본 데이터베이스와 같은 지역에 두는 것이 좋습니다. 
 
 * **SSL 사용:** Azure Cosmos DB에는 엄격한 보안 요구 사항과 표준이 있습니다. 계정과 상호 작용하는 경우 SSL을 사용해야 합니다. SSH와 함께 CQL을 사용하는 경우 SSL 정보를 제공할 수 있는 옵션이 있습니다.
 

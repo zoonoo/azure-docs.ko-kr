@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 12/03/2018
 ms.reviewer: sngun
 ms.openlocfilehash: 1dde7bfc74c6a7b0c03d8f192f4e6eaf72e2de6b
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74870176"
 ---
 # <a name="tutorial-query-azure-cosmos-db-gremlin-api-by-using-gremlin"></a>자습서: Gremlin을 사용하여 Azure Cosmos DB Gremlin API 쿼리
@@ -24,7 +24,7 @@ Azure Cosmos DB [Gremlin API](graph-introduction.md)는 [Gremlin](https://github
 > [!div class="checklist"]
 > * Gremlin을 사용한 데이터 쿼리
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이러한 쿼리가 작동하려면 Azure Cosmos DB 계정이 있어야 하며 컨테이너에 그래프 데이터가 있어야 합니다. 이들 중 하나라도 없는가요? 그러면 [5분 퀵 스타트](create-graph-dotnet.md) 또는 [개발자 자습서](tutorial-query-graph.md)를 수행하여 계정을 만들고 데이터베이스를 채워 놓으세요. [Gremlin 콘솔](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) 또는 즐겨찾는 Gremlin 드라이버를 사용하여 다음 쿼리를 실행할 수 있습니다.
 
@@ -44,7 +44,7 @@ Gremlin의 `has` 및 `hasLabel` 단계를 사용하여 필터링을 수행하고
 g.V().hasLabel('person').has('age', gt(40))
 ```
 
-## <a name="projection"></a>프로젝션
+## <a name="projection"></a>도법
 
 `values` 단계를 사용하여 쿼리 결과에 특정 속성을 프로젝션할 수 있습니다.
 

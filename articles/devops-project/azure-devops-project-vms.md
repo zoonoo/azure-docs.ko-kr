@@ -1,5 +1,5 @@
 ---
-title: '자습서: Azure DevOps Projects를 사용하여 Azure 가상 머신에 ASP.NET 앱 배포'
+title: '자습서: Azure DevOps Projects를 사용하여 Azure Virtual Machines에 ASP.NET 앱 배포'
 description: 몇 가지 빠른 단계로 Azure에서 DevOps Projects를 쉽게 시작하고 Azure Virtual Machines에 ASP.NET 앱을 배포할 수 있습니다.
 ms.author: mlearned
 manager: gwallace
@@ -10,13 +10,13 @@ ms.date: 07/09/2018
 author: mlearned
 monikerRange: vsts
 ms.openlocfilehash: b03fb27c46d4fd925b91b8927fdd50ff4912aaec
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "71969551"
 ---
-# <a name="tutorial-deploy-your-aspnet-app-to-azure-virtual-machines-by-using-azure-devops-projects"></a>자습서: Azure DevOps Projects를 사용하여 Azure 가상 머신에 ASP.NET 앱 배포
+# <a name="tutorial-deploy-your-aspnet-app-to-azure-virtual-machines-by-using-azure-devops-projects"></a>자습서: Azure DevOps Projects를 사용하여 Azure Virtual Machines에 ASP.NET 앱 배포
 
 Azure DevOps Projects는 기존 코드와 Git 리포지토리를 가져오거나 샘플 애플리케이션을 선택하여 Azure에 CI(연속 통합) 및 CD(지속적인 업데이트) 파이프라인을 만드는 간소화된 환경을 제공합니다. 
 
@@ -37,9 +37,9 @@ Azure DevOps Projects는 기존 코드와 Git 리포지토리를 가져오거나
 > * Azure Application Insights 모니터링 구성
 > * 리소스 정리
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-* Azure 구독. [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/)을 통해 무료 구독을 구할 수 있습니다.
+* Azure 구독 [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/)을 통해 무료 구독을 구할 수 있습니다.
 
 ## <a name="use-devops-projects-to-deploy-your-aspnet-app"></a>DevOps Projects를 사용하여 ASP.NET 앱 배포
 
@@ -208,7 +208,7 @@ Azure Application Insights를 사용하면 애플리케이션의 성능 및 사�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * DevOps Projects를 사용하여 ASP.NET 앱 배포

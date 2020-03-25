@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 10/16/2019
 ms.author: mimart
 ms.openlocfilehash: 9367719b1a1050ce8abf36804b3d0d0d58c7484b
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78183386"
 ---
 액세스 토큰을 제공하는 클라이언트 애플리케이션을 통해 보호된 리소스 요청을 수락하고 응답하려면 먼저 웹 API 리소스를 테넌트에 등록해야 합니다.
@@ -26,7 +26,7 @@ Azure AD B2C 테넌트에 애플리케이션을 등록하기 위해 현재 **애
 1. **Web App / Web API**에 대해 **예**를 선택합니다.
 1. **암시적 흐름 허용**에 대해 **예**를 선택합니다.
 1. **회신 URL**에는 Azure AD B2C에서 애플리케이션이 요청한 토큰을 반환하는 엔드포인트를 입력합니다. 이 자습서의 샘플은 로컬에서 실행되고 `https://localhost:5000`에서 수신 대기합니다.
-1. **앱 ID URI**의 경우 표시된 URI에 API 엔드포인트 식별자를 추가합니다. 이 자습서의 경우 전체 URI가 `https://contosob2c.onmicrosoft.com/api`와 비슷하도록 `api`를 입력합니다.
+1. **앱 ID URI**의 경우 표시된 URI에 API 엔드포인트 식별자를 추가합니다. 이 자습서의 경우 전체 URI가 `api`와 비슷하도록 `https://contosob2c.onmicrosoft.com/api`를 입력합니다.
 1. **만들기**를 선택합니다.
 1. 이후 단계에서 사용할 **애플리케이션 ID**를 기록합니다.
 

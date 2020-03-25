@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.openlocfilehash: 64c4e65ca7b69c7d61c706b48591ac19be3bfcf5
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72792515"
 ---
 # <a name="add-suggestions-or-autocomplete-to-your-azure-cognitive-search-application"></a>Azure Cognitive Search 애플리케이션에 제안 또는 자동 완성 추가
@@ -36,7 +36,7 @@ ms.locfileid: "72792515"
 > * C#에서 제안 및 자동 완성 작업을 HomeController.cs에 정의합니다.
 > * JavaScript에서 REST API를 직접 호출하여 동일한 기능을 제공합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 솔루션은 준비된 NYCJobs 데모 인덱스를 호스팅하는 라이브 샌드박스 서비스를 사용하므로 이 연습에서 Azure Cognitive Search 서비스는 선택 사항입니다. 사용자 고유의 검색 서비스에서 이 예제를 실행하려면 [NYC 작업 인덱스 구성](#configure-app)의 지침을 참조하세요.
 
@@ -291,7 +291,7 @@ var autocompleteUri = "https://" + searchServiceName + ".search.windows.net/inde
 
 지금까지 호스팅된 NYCJobs 데모 인덱스를 사용했습니다. 인덱스를 포함하여 모든 코드를 완전히 살펴보려면 다음 지침에 따라 사용자 고유의 검색 서비스에서 인덱스를 만들고 로드합니다.
 
-1. 현재 구독에서 [Azure Cognitive Search 서비스를 만들거나](search-create-service-portal.md) [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 예제에서는 체험 서비스를 사용할 수 있습니다. 
+1. [Azure Cognitive Search 서비스를 만들거나](search-create-service-portal.md) 현재 구독에서 [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 예제에서는 체험 서비스를 사용할 수 있습니다. 
 
    > [!Note]
    > 체험 Azure Cognitive Search 서비스를 사용하는 경우 세 개의 인덱스로 제한됩니다. NYCJobs 데이터 로더는 두 개의 인덱스를 만듭니다. 서비스에 새 인덱스를 허용하는 공간이 있는지 확인합니다.

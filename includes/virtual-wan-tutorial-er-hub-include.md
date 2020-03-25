@@ -9,10 +9,10 @@ ms.date: 11/04/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 6f910dbe91ed8e1cb65eefa6dfc48c72a689bf25
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73491412"
 ---
 1. 생성한 Virtual WAN을 찾습니다. Virtual WAN 페이지의 **연결** 섹션에서 **허브**를 선택합니다.
@@ -24,7 +24,7 @@ ms.locfileid: "73491412"
     **프로젝트 세부 정보**
 
    * 지역(이전에는 위치라고 했음)
-   * Name
+   * 속성
    * 허브 프라이빗 주소 공간. 허브를 만들기 위한 최소 주소 공간은 /24이며 이것은 /25부터 /32까지의 모든 범위가 생성 중에 오류가 발생함을 의미합니다.
 4. **Express 경로 탭**을 선택합니다.
 

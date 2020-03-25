@@ -8,24 +8,24 @@ ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: tutorial
 ms.openlocfilehash: 8a512676ab0e56f51c0fb9c59f2e530cfcf73333
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791429"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "60617628"
 ---
 # <a name="tutorial-render-a-blender-scene-using-batch-explorer"></a>자습서: Batch 탐색기를 사용하여 Blender 장면 렌더링
 
 이 자습서에서는 Blender 데모 장면의 여러 프레임을 렌더링하는 방법을 보여줍니다. Blender는 클라이언트 및 렌더링 중인 VM 모두에 대한 요금이 청구되지 않으므로 이 자습서에 사용됩니다. 하지만 Maya 또는 3D Max와 같은 다른 애플리케이션을 사용한 경우 프로세스가 매우 유사합니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 > [!div class="checklist"]
 > * Azure Storage에 Blender 장면 업로드
 > * 렌더링을 수행하기 위해 여러 노드를 포함한 Batch 풀 만들기
 > * 여러 프레임 렌더링
 > * 렌더링된 프레임 파일 보기 및 다운로드
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 사용량 기준 과금 단위로 일괄 처리에서 렌더링 애플리케이션을 사용하는 데 종량제 구독 또는 다른 Azure 구입 옵션이 필요합니다. 사용량 기준 과금 라이선스는 금액 크레딧을 제공하는 무료 Azure 제품을 사용하는 경우 지원되지 않습니다.
 

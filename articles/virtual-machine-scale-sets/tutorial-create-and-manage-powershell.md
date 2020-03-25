@@ -9,10 +9,10 @@ ms.date: 05/18/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 14616fcc9fd63731c50c5977c88b5030f60664ff
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76271404"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 가상 머신 확장 집합 만들기 및 관리
@@ -174,7 +174,7 @@ Skus                                  Offer         PublisherName          Locat
 2016-Nano-Server                      WindowsServer MicrosoftWindowsServer eastus
 ```
 
-자습서의 시작 부분에서 확장 집합을 만들 때 VM 인스턴스에 대해 *Windows Server 2016 DataCenter*의 기본 VM 이미지가 제공되었습니다. [Get-AzVMImageSku](/powershell/module/az.compute/get-azvmimagesku)의 출력에 따라 다른 VM 이미지를 지정할 수 있습니다. 다음 예제에서는 *MicrosoftWindowsServer:WindowsServer:2016-Datacenter-with-Containers:latest*의 VM 이미지를 지정하는 `-ImageName` 매개 변수를 사용하여 확장 집합을 만듭니다. 모든 확장 집합 리소스와 VM 인스턴스를 만들고 구성하는 데 몇 분이 걸리기 때문에 다음 확장 집합을 배포할 필요가 없습니다.
+자습서의 시작 부분에서 확장 집합을 만들 때 VM 인스턴스에 대해 *Windows Server 2016 DataCenter*의 기본 VM 이미지가 제공되었습니다. [Get-AzVMImageSku](/powershell/module/az.compute/get-azvmimagesku)의 출력에 따라 다른 VM 이미지를 지정할 수 있습니다. 다음 예제에서는 `-ImageName`MicrosoftWindowsServer:WindowsServer:2016-Datacenter-with-Containers:latest*의 VM 이미지를 지정하는*  매개 변수를 사용하여 확장 집합을 만듭니다. 모든 확장 집합 리소스와 VM 인스턴스를 만들고 구성하는 데 몇 분이 걸리기 때문에 다음 확장 집합을 배포할 필요가 없습니다.
 
 ```azurepowershell-interactive
 New-AzVmss `
@@ -231,7 +231,7 @@ Standard_NV6                       6      57344               24        1047552 
 Standard_NV12                     12     114688               48        1047552               696320
 ```
 
-자습서의 시작 부분에서 확장 집합을 만들 때 VM 인스턴스에 대해 *Standard_DS1_v2*의 기본 VM SKU가 제공되었습니다. [Get-AzVMSize](/powershell/module/az.compute/get-azvmsize)의 출력에 따라 다른 VM 인스턴스 크기를 지정할 수 있습니다. 다음 예제에서는 *Standard_F1*의 VM 인스턴스 크기를 지정하는 `-VmSize` 매개 변수를 사용하여 확장 집합을 만듭니다. 모든 확장 집합 리소스와 VM 인스턴스를 만들고 구성하는 데 몇 분이 걸리기 때문에 다음 확장 집합을 배포할 필요가 없습니다.
+자습서의 시작 부분에서 확장 집합을 만들 때 VM 인스턴스에 대해 *Standard_DS1_v2*의 기본 VM SKU가 제공되었습니다. [Get-AzVMSize](/powershell/module/az.compute/get-azvmsize)의 출력에 따라 다른 VM 인스턴스 크기를 지정할 수 있습니다. 다음 예제에서는 `-VmSize`Standard_F1*의 VM 인스턴스 크기를 지정하는*  매개 변수를 사용하여 확장 집합을 만듭니다. 모든 확장 집합 리소스와 VM 인스턴스를 만들고 구성하는 데 몇 분이 걸리기 때문에 다음 확장 집합을 배포할 필요가 없습니다.
 
 ```azurepowershell-interactive
 New-AzVmss `

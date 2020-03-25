@@ -17,10 +17,10 @@ ms.date: 06/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a83d27af4fd783b95c53ef3a9169cb72bfc29d34
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67872437"
 ---
 # <a name="one-click-app-configuration-of-single-sign-on"></a>Single Sign-On의 한 번 클릭 앱 구성
@@ -37,7 +37,7 @@ ms.locfileid: "67872437"
 - 더 효율적이고 정확한 SSO 구성
 - 설치를 위한 파트너 통신 또는 지원 불필요. 이 애플리케이션은 SAML 구성을 위한 UI를 제공합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - SSO를 사용하여 구성할 애플리케이션의 활성 구독. 관리자 자격 증명도 필요합니다.
 - 브라우저에 설치된 Microsoft의 **내 앱 보안 로그인 확장**. 자세한 내용은 [내 앱 포털에서 앱 액세스 및 사용](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access)을 참조하세요.

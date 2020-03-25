@@ -10,10 +10,10 @@ ms.date: 07/09/2018
 author: mlearned
 monikerRange: vsts
 ms.openlocfilehash: 560b16a40d73d07df6c9f446c7196cd930e2274e
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "71971494"
 ---
 # <a name="tutorial-deploy-your-aspnet-app-and-azure-sql-database-code-by-using-azure-devops-projects"></a>자습서: Azure DevOps Projects를 사용하여 ASP.NET 앱 및 Azure SQL Database 코드 배포
@@ -37,9 +37,9 @@ Azure DevOps Projects는 기존 코드와 Git 리포지토리를 가져오거나
 > * Azure SQL 데이터베이스에 연결 
 > * 리소스 정리
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-* Azure 구독. [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/)을 통해 무료 구독을 구할 수 있습니다.
+* Azure 구독 [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/)을 통해 무료 구독을 구할 수 있습니다.
 
 ## <a name="create-a-project-in-devops-projects-for-an-aspnet-app-and-an-azure-sql-database"></a>DevOps Projects에서 ASP.NET 앱 및 Azure SQL 데이터베이스용 프로젝트 만들기
 
@@ -153,7 +153,7 @@ DevOps Projects는 Azure DevOps 조직에서 Azure 구독에 배포하는 데 �
 
 1. 왼쪽 창에서 **코드**를 선택하고 리포지토리로 이동합니다.
 
-1. *SampleWebApplication\Views\Home*으로 이동한 다음, **Index.cshtml** 파일 옆의 줄임표(...)를 선택하고 *편집*을 선택합니다. 
+1. *SampleWebApplication\Views\Home*으로 이동한 다음, *Index.cshtml* 파일 옆의 줄임표(...)를 선택하고 **편집**을 선택합니다. 
 
 1. 한 div 태그 내부에 텍스트를 추가하는 경우처럼 파일을 변경합니다. 
 
@@ -200,7 +200,7 @@ Azure SQL 데이터베이스에 연결할 적절한 권한이 필요합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-팀의 요구를 충족하려면 필요에 따라 이러한 빌드 및 릴리스 파이프라인을 수정할 수 있습니다. 또한 다른 파이프라인에 대한 템플릿으로 이 CI/CD 패턴을 사용할 수 있습니다. 이 자습서에서는 다음 방법에 대해 알아보았습니다.
+팀의 요구를 충족하려면 필요에 따라 이러한 빌드 및 릴리스 파이프라인을 수정할 수 있습니다. 또한 다른 파이프라인에 대한 템플릿으로 이 CI/CD 패턴을 사용할 수 있습니다. 이 자습서에서는 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * Azure DevOps Projects를 사용하여 ASP.NET 앱 및 Azure SQL Database 코드 배포

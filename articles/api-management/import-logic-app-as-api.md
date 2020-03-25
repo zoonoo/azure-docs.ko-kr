@@ -13,10 +13,10 @@ ms.topic: tutorial
 ms.date: 08/01/2019
 ms.author: apimpm
 ms.openlocfilehash: 4077187fe04e3be914a6f7fba84c03df1b79d06a
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74108401"
 ---
 # <a name="import-a-logic-app-as-an-api"></a>논리 앱을 API로 가져오기
@@ -31,14 +31,14 @@ ms.locfileid: "74108401"
 > -   Azure Portal에서 API 테스트
 > -   개발자 포털에서 API 테스트
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
--   다음 빠른 시작을 완료합니다. [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)
+-   다음 빠른 시작 [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)를 완료합니다.
 -   HTTP 엔드포인트를 노출하는 구독에 Logic Apps가 있는지 확인합니다. 자세한 내용은 [HTTP 엔드포인트를 통해 워크플로 트리거](../logic-apps/logic-apps-http-endpoint.md)를 참조하세요.
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-## <a name="create-api"> </a>백 엔드 API 가져오기 및 게시
+## <a name="import-and-publish-a-back-end-api"></a><a name="create-api"> </a>백 엔드 API 가져오기 및 게시
 
 1. **API Management**에서 **API**를 선택합니다.
 2. **새 API 추가** 목록에서 **논리 앱**을 선택합니다.

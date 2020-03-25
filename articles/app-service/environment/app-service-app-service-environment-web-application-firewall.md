@@ -6,27 +6,27 @@ ms.assetid: a2101291-83ba-4169-98a2-2c0ed9a65e8d
 ms.topic: tutorial
 ms.date: 03/03/2018
 ms.author: stefsch
-ms.custom: seodec18
-ms.openlocfilehash: ba53438eb5ae1870cb180b169348ab0f92e5f305
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 51375c13d842bda2450a83e1bbc48b741adba39b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688764"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80057439"
 ---
 # <a name="configuring-a-web-application-firewall-waf-for-app-service-environment"></a>App Service Environment에 대한 웹 애플리케이션 방화벽(WAF) 구성
 ## <a name="overview"></a>개요
 
 WAF(웹 애플리케이션 방화벽)를 통해 SQL 삽입, 사이트 간 스크립팅, 맬웨어 업로드 및 애플리케이션 DDoS와 기타 공격을 차단하기 위해 인바운드 웹 트래픽을 검사하여 웹 애플리케이션을 보호할 수 있습니다. DLP(데이터 손실 방지)를 위해 백 엔드 웹 서버로부터의 응답도 검사합니다. App Service Environment는 격리와 추가 확장의 조합을 제공합니다. 이 조합은 악의적인 요청과 고용량 트래픽을 견뎌야 하는 호스트 비즈니스 중요한 웹 애플리케이션에 이상적인 환경을 제공합니다. Azure에서는 [Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction)를 사용하여 WAF 기능을 제공합니다.  Application Gateway와 App Service 환경을 통합하는 방법을 보려면 [Application Gateway와 ILB ASE 통합](https://docs.microsoft.com/azure/app-service/environment/integrate-with-application-gateway) 문서를 참고하세요.
 
-Azure Application Gateway 외에도 [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/barracudanetworks/waf-byol/)에서 사용할 수 있는 [Azure용 Barracuda WAF](https://www.barracuda.com/programs/azure)와 같은 여러 마켓플레이스 옵션이 있습니다. 이 문서의 나머지 부분에서는 Barracuda WAF 디바이스와 App Service 환경을 통합하는 방법에 중점을 둡니다.
+Azure Application Gateway 외에도 [Azure Marketplace](https://www.barracuda.com/programs/azure)에서 사용할 수 있는 [Azure용 Barracuda WAF](https://azure.microsoft.com/marketplace/partners/barracudanetworks/waf-byol/)와 같은 여러 마켓플레이스 옵션이 있습니다. 이 문서의 나머지 부분에서는 Barracuda WAF 디바이스와 App Service 환경을 통합하는 방법에 중점을 둡니다.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../../includes/app-service-web-to-api-and-mobile.md)] 
 
-## <a name="setup"></a>설정
+## <a name="setup"></a>설치 프로그램
 이 문서에서는 Barracuda WAF의 다중 부하 분산 인스턴스 뒤의 App Service Environment를 구성하여 WAF의 트래픽만이 App Service Environment에 도달할 수 있게 하고 DMZ로부터는 접근할 수 없습니다. Azure Traffic Manager를 Azure 데이터 센터와 지역 간의 작업 부하를 위해 Barracuda WAF 앞에 놓겠습니다. 설치 프로그램의 높은 수준의 다이어그램은 다음 이미지와 비슷합니다.
 
-![아키텍처][Architecture] 
+![Architecture][Architecture] 
 
 > [!NOTE]
 > [App Service 환경에 대한 ILB 지원](app-service-environment-with-internal-load-balancer.md)의 도입으로 DMZ에서 ASE에 액세스할 수 없고 프라이빗 네트워크에만 사용할 수 있도록 구성할 수 있습니다. 
@@ -80,7 +80,7 @@ Barracuda에는 Azure의 가상 머신에 WAF를 배포하는 방법에 대한 [
 
 ![Traffic Manager 엔드포인트][TrafficManagerEndpoint]
 
-애플리케이션에 대해 인증이 필요한 경우, 애플리케이션의 가용성에 대해 ping하는 Traffic Manager에 대한 어떤 자격 증명도 필요하지 않는 리소스가 남아 있는지 확인합니다. 다음 이미지와 같이 [Azure Portal](https://portal.azure.com)의 **구성** 페이지에서 URL을 구성할 수 있습니다.
+애플리케이션에 대해 인증이 필요한 경우, 애플리케이션의 가용성에 대해 ping하는 Traffic Manager에 대한 어떤 자격 증명도 필요하지 않는 리소스가 남아 있는지 확인합니다. 다음 이미지와 같이 **Azure Portal**의 [구성](https://portal.azure.com) 페이지에서 URL을 구성할 수 있습니다.
 
 ![Traffic Manager를 구성하는 방법][ConfigureTrafficManager]
 

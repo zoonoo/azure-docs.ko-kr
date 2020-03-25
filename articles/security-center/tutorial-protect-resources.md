@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/03/2018
 ms.author: memildin
 ms.openlocfilehash: 4b40b7c6f755eb2107a09b1b881ea33fa2187f29
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73686341"
 ---
 # <a name="tutorial-protect-your-resources-with-azure-security-center"></a>자습서: Azure Security Center로 리소스 보호
@@ -30,7 +30,7 @@ Security Center는 액세스 및 애플리케이션 제어를 통해 악성 활�
 > * Just-In-Time VM 액세스 정책 구성
 > * 애플리케이션 제어 정책 구성
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 이 자습서에서 설명하는 기능을 단계별로 실행하려면 Security Center 표준 가격 책정 계층에 있어야 합니다. 비용 없이 Security Center 표준을 사용해 볼 수 있습니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조하세요. [Security Center 표준에 Azure 구독 온보딩](security-center-get-started.md) 빠른 시작을 통해 표준 계층으로 업그레이드하는 방법을 안내합니다.
 
 ## <a name="manage-vm-access"></a>VM 액세스 관리
@@ -77,8 +77,8 @@ JIT VM 액세스를 사용하면 Azure VM에 대한 인바운드 트래픽을 �
    **리소스 그룹** 섹션에는 세 개의 탭이 있습니다.
 
    - **구성됨**: 애플리케이션 제어로 구성된 VM을 포함하는 리소스 그룹 목록입니다.
-   - **권장**: 애플리케이션 컨트롤이 권장되는 리소스 그룹의 목록입니다.
-   - **권장 사항 없음**: 애플리케이션 컨트롤 권장 사항이 없는 VM을 포함하는 리소스 그룹의 목록입니다. 예를 들어 애플리케이션이 항상 변경되어 안정적인 상태에 도달하지 않았던 VM이 있습니다.
+   - **권장**: 애플리케이션 제어가 권장되는 리소스 그룹 목록입니다.
+   - **권장 사항 없음**: 애플리케이션 제어 권장 사항이 없는 VM을 포함하는 리소스 그룹 목록입니다. 예를 들어 애플리케이션이 항상 변경되어 안정적인 상태에 도달하지 않았던 VM이 있습니다.
 
 2. **권장** 탭을 선택하여 애플리케이션 제어 권장 사항이 있는 리소스 그룹 목록을 확인합니다.
 

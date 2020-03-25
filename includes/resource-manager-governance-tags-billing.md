@@ -9,10 +9,10 @@ ms.date: 02/19/2018
 ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: 226079b1970508004c55c54cd3de6d2e9475aa08
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75970143"
 ---
 태그를 리소스에 적용한 후 해당 태그를 사용하여 리소스에 대한 비용을 볼 수 있습니다. 최신 사용법을 표시하기 위한 비용 분석에 시간이 걸리므로 아직 비용을 참조할 수 없습니다. 해당 비용을 사용할 수 있는 경우 사용 중인 구독에서 여러 리소스 그룹에 걸친 리소스에 대한 비용을 볼 수 있습니다. 사용자는 비용을 확인하려면 [청구 정보에 대한 구독 수준의 액세스 권한](../articles/cost-management-billing/manage/manage-billing-access.md)을 가져야 합니다.

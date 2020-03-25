@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 01/30/2020
 ms.author: lcozzens
 ms.openlocfilehash: c744557471a9b37bd620bb9195bdb709c24649ab
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77047279"
 ---
 # <a name="integrate-with-a-cicd-pipeline"></a>CI/CD 파이프라인과 통합
@@ -48,7 +48,7 @@ Azure App Configuration의 [Export](./howto-import-export-data.md#export-data) �
         <Exec WorkingDirectory="$(MSBuildProjectDirectory)" Condition="$(ConnectionString) != ''" Command="az appconfig kv export -d file --path $(OutDir)\azureappconfig.json --format json --separator : --connection-string $(ConnectionString)" />
     </Target>
     ```
-1. *Program.cs*를 열고, `config.AddJsonFile()` 메서드를 호출하여 내보낸 JSON 파일을 사용하도록 `CreateWebHostBuilder` 메서드를 업데이트합니다.  `System.Reflection` 네임스페이스도 추가합니다.
+1. *Program.cs*를 열고, `CreateWebHostBuilder` 메서드를 호출하여 내보낸 JSON 파일을 사용하도록 `config.AddJsonFile()` 메서드를 업데이트합니다.  `System.Reflection` 네임스페이스도 추가합니다.
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>

@@ -17,10 +17,10 @@ ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 63d7b6af8ff76c890b98c29ded0e8bdc637b45dd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67092855"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rfpio"></a>자습서: RFPIO와 Azure Active Directory 통합
@@ -32,10 +32,10 @@ RFPIO를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 * 사용자가 자신의 Azure AD 계정으로 RFPIO에 자동으로 로그온(Single Sign-On)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 RFPIO와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -143,23 +143,23 @@ RFPIO에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
 
 1. 왼쪽 아래 모서리 드롭다운을 클릭합니다.
 
-    ![Configure Single Sign-On](./media/rfpio-tutorial/app1.png)
+    ![Single Sign-on 구성](./media/rfpio-tutorial/app1.png)
 
 1. **조직 설정**을 클릭합니다. 
 
-    ![Configure Single Sign-On](./media/rfpio-tutorial/app2.png)
+    ![Single Sign-on 구성](./media/rfpio-tutorial/app2.png)
 
 1. **기능 및 통합**을 클릭합니다.
 
-    ![Configure Single Sign-On](./media/rfpio-tutorial/app4.png)
+    ![Single Sign-on 구성](./media/rfpio-tutorial/app4.png)
 
 1. **SAML SSO 구성**에서 **편집**을 클릭합니다.
 
-    ![Configure Single Sign-On](./media/rfpio-tutorial/app3.png)
+    ![Single Sign-on 구성](./media/rfpio-tutorial/app3.png)
 
 1. 이 섹션에서 다음 작업을 수행합니다.
 
-    ![Configure Single Sign-On](./media/rfpio-tutorial/app5.png)
+    ![Single Sign-on 구성](./media/rfpio-tutorial/app5.png)
     
     a. **다운로드한 메타데이터 XML**의 내용을 복사하여 **ID 구성** 필드에 붙여넣습니다.
 
@@ -192,7 +192,7 @@ RFPIO에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
   
     b. **사용자 이름** 필드에 `brittasimon@yourcompanydomain.extension`을 입력합니다. 예를 들어 BrittaSimon@contoso.com
 
-    c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
+    다. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
 
@@ -228,23 +228,23 @@ RFPIO에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
 
 1. 왼쪽 아래 모서리 드롭다운을 클릭합니다.
 
-    ![Configure Single Sign-On](./media/rfpio-tutorial/app1.png)
+    ![Single Sign-on 구성](./media/rfpio-tutorial/app1.png)
 
 1. **조직 설정**을 클릭합니다. 
 
-    ![Configure Single Sign-On](./media/rfpio-tutorial/app2.png)
+    ![Single Sign-on 구성](./media/rfpio-tutorial/app2.png)
 
 1. **TEAM MEMBERS**(팀 멤버)를 클릭합니다.
 
-    ![Configure Single Sign-On](./media/rfpio-tutorial/app6.png)
+    ![Single Sign-on 구성](./media/rfpio-tutorial/app6.png)
 
 1. **멤버 추가**를 클릭합니다.
 
-    ![Configure Single Sign-On](./media/rfpio-tutorial/app7.png)
+    ![Single Sign-on 구성](./media/rfpio-tutorial/app7.png)
 
 1. **새 멤버 추가** 섹션에서 다음 작업을 수행합니다.
 
-    ![Configure Single Sign-On](./media/rfpio-tutorial/app8.png)
+    ![Single Sign-on 구성](./media/rfpio-tutorial/app8.png)
 
     a. **Enter one email per line**(줄당 하나의 메일 입력) 필드에 **메일 주소**를 입력합니다.
 

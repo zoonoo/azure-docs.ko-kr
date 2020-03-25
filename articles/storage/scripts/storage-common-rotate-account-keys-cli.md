@@ -2,25 +2,19 @@
 title: Azure CLI 스크립트 샘플 - 스토리지 계정 액세스 키 회전 | Microsoft Docs
 description: Azure Storage 계정을 만들고 나서 해당 계정 액세스 키를 검색 및 회전합니다.
 services: storage
-documentationcenter: na
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: ''
-ms.custom: mvc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: azurecli
+ms.subservice: blobs
+ms.devlang: cli
 ms.topic: sample
 ms.date: 06/22/2017
 ms.author: tamram
-ms.openlocfilehash: ac58886225221677aa003833167ff58cd578255d
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: aa7cba00d865bb7b2c1e0fd1f0059fb35ffff690
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55693924"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80060824"
 ---
 # <a name="create-a-storage-account-and-rotate-its-account-access-keys"></a>스토리지 계정 만들기 및 계정 액세스 키 회전
 
@@ -34,7 +28,7 @@ ms.locfileid: "55693924"
 
 [!code-azurecli-interactive[main](../../../cli_scripts/storage/rotate-storage-account-keys/rotate-storage-account-keys.sh "Rotate storage account keys")]
 
-## <a name="clean-up-deployment"></a>배포 정리 
+## <a name="clean-up-deployment"></a>배포 정리
 
 다음 명령을 실행하여 리소스 그룹, 스토리지 계정 및 모든 관련된 리소스를 제거합니다.
 

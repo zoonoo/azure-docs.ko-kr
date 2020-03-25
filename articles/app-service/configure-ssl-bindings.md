@@ -6,25 +6,25 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 60a4646b77f083590a6eb8a8648d6dea932f0bdd
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 263b4e76d334aab82f6bbac9aa268a50f4dd3784
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849754"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79223840"
 ---
 # <a name="secure-a-custom-dns-name-with-an-ssl-binding-in-azure-app-service"></a>Azure App Service에서 SSL 바인딩으로 사용자 지정 DNS 이름 보호
 
-이 문서에서는 인증서 바인딩을 만들어 [App Service 앱](https://docs.microsoft.com/azure/app-service/) 또는 [함수 앱](https://docs.microsoft.com/azure/azure-functions/)에서 [사용자 지정 도메인](app-service-web-tutorial-custom-domain.md)을 보호하는 방법을 보여 줍니다. 완료되면 사용자 지정 DNS 이름(예: `https://www.contoso.com`)의 `https://` 엔드포인트에서 App Service 앱에 액세스할 수 있습니다. 
+이 문서에서는 인증서 바인딩을 만들어 [App Service 앱](app-service-web-tutorial-custom-domain.md) 또는 [함수 앱](https://docs.microsoft.com/azure/app-service/)에서 [사용자 지정 도메인](https://docs.microsoft.com/azure/azure-functions/)을 보호하는 방법을 보여 줍니다. 완료되면 사용자 지정 DNS 이름(예: `https://`)의 `https://www.contoso.com` 엔드포인트에서 App Service 앱에 액세스할 수 있습니다. 
 
 ![사용자 지정 SSL 인증서가 포함된 웹앱](./media/configure-ssl-bindings/app-with-custom-ssl.png)
 
 인증서로 [사용자 지정 도메인](app-service-web-tutorial-custom-domain.md)을 보호하려면 다음 두 단계가 필요합니다.
 
-- [SSL 바인딩 요구 사항](configure-ssl-certificate.md#private-certificate-requirements)을 모두 만족시키는 [프라이빗 인증서를 App Service에 추가](configure-ssl-certificate.md)합니다.
+- [SSL 바인딩 요구 사항](configure-ssl-certificate.md)을 모두 만족시키는 [프라이빗 인증서를 App Service에 추가](configure-ssl-certificate.md#private-certificate-requirements)합니다.
 -  해당 사용자 지정 도메인에 대한 SSL 바인딩을 만듭니다. 이 두 번째 단계는 이 문서에서 설명합니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 앱의 가격 책정 계층 업그레이드
@@ -33,7 +33,7 @@ ms.locfileid: "74849754"
 > * TLS 1.1/1.2 적용
 > * 스크립트를 사용하여 TLS 관리 자동화
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 방법 가이드를 수행하려면 다음이 필요합니다.
 
@@ -79,7 +79,7 @@ ms.locfileid: "74849754"
 
 다음 표를 사용하여 **TLS/SSL 바인딩** 대화 상자에서 SSL 바인딩을 구성한 다음, **바인딩 추가**를 클릭합니다.
 
-| 설정 | 설명 |
+| 설정 | Description |
 |-|-|
 | 사용자 지정 도메인 | SSL 바인딩을 추가할 도메인 이름입니다. |
 | 프라이빗 인증서 지문 | 바인딩할 인증서입니다. |
@@ -131,7 +131,7 @@ A 레코드를 앱에 매핑한 경우 이 새로운 전용 IP 주소로 도메�
 
 ![HTTPS 적용](./media/configure-ssl-bindings/enforce-https.png)
 
-작업이 완료되면 앱을 가리키는 HTTP URL 중 하나로 이동합니다. 예:
+작업이 완료되면 앱을 가리키는 HTTP URL 중 하나로 이동합니다. 다음은 그 예입니다.
 
 - `http://<app_name>.azurewebsites.net`
 - `http://contoso.com`
@@ -139,13 +139,19 @@ A 레코드를 앱에 매핑한 경우 이 새로운 전용 IP 주소로 도메�
 
 ## <a name="enforce-tls-versions"></a>TLS 버전 적용
 
-앱에는 [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard)와 같이 업계 표준에서 권장되는 TLS 수준인 [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.2가 기본적으로 허용됩니다. 다른 TLS 버전을 적용하려면 다음 단계를 수행합니다.
+앱에는 [PCI DSS](https://wikipedia.org/wiki/Transport_Layer_Security)와 같이 업계 표준에서 권장되는 TLS 수준인 [TLS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard) 1.2가 기본적으로 허용됩니다. 다른 TLS 버전을 적용하려면 다음 단계를 수행합니다.
 
 앱 페이지의 왼쪽 탐색 영역에서 **SSL 설정**을 선택합니다. 그런 다음, **TLS 버전**에서 원하는 최소 TLS 버전을 선택합니다. 이 설정은 인바운드 호출만 제어합니다. 
 
 ![TLS 1.1 또는 1.2 적용](./media/configure-ssl-bindings/enforce-tls1-2.png)
 
 작업이 완료되면 앱에서 더 낮은 TLS 버전과의 모든 연결을 거부합니다.
+
+## <a name="handle-ssl-termination"></a>SSL 종료 처리
+
+App Service에서, [SSL 종료](https://wikipedia.org/wiki/TLS_termination_proxy)는 네트워크 부하 분산 장치에서 발생하므로 모든 HTTPS 요청은 암호화되지 않은 HTTP 요청으로 앱에 도달합니다. 앱 논리에서 사용자 요청의 암호화 여부를 확인해야 하는 경우 `X-Forwarded-Proto` 헤더를 검사합니다.
+
+[Linux Node.js 구성](containers/configure-language-nodejs.md#detect-https-session) 가이드와 같은 언어별 구성 가이드에서는 애플리케이션 코드에서 HTTPS 세션을 검색하는 방법을 보여 줍니다.
 
 ## <a name="automate-with-scripts"></a>스크립트를 사용하여 자동화
 
@@ -160,4 +166,4 @@ A 레코드를 앱에 매핑한 경우 이 새로운 전용 IP 주소로 도메�
 ## <a name="more-resources"></a>추가 리소스
 
 * [애플리케이션 코드에서 SSL 인증서 사용](configure-ssl-certificate-in-code.md)
-* [FAQ: App Service Certificate](https://docs.microsoft.com/azure/app-service/faq-configuration-and-management/)
+* [FAQ : App Service Certificates](https://docs.microsoft.com/azure/app-service/faq-configuration-and-management/)

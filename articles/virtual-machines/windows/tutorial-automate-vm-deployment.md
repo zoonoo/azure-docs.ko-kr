@@ -16,10 +16,10 @@ ms.date: 11/29/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 610f8efad473b5f4bed1abc6b2c063ec0ead66ed
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74065357"
 ---
 # <a name="tutorial---deploy-applications-to-a-windows-virtual-machine-in-azure-with-the-custom-script-extension"></a>자습서 - 사용자 지정 스크립트 확장을 사용하여 Azure에서 Windows 가상 머신에 애플리케이션 배포
@@ -101,7 +101,7 @@ Get-AzPublicIPAddress `
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 VM에서 IIS 설치를 자동화합니다. 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 VM에서 IIS 설치를 자동화합니다. 구체적으로 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * 사용자 지정 스크립트 확장을 사용하여 IIS 설치

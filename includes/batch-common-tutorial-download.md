@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: lahugh
 ms.openlocfilehash: bd51eabcff412de4928c682683b2a69b3e82e601
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67182553"
 ---
 ### <a name="retrieve-output-files"></a>출력 파일 검색
@@ -21,4 +21,4 @@ Azure Portal을 사용하여 ffmpeg 작업에서 생성된 출력 MP3 파일을 
 
 ![출력 파일 다운로드](./media/batch-common-tutorial-download/download.png)
 
-이 샘플에서는 표시되지 않지만, 계산 노드 또는 스토리지 컨테이너에서 프로그래밍 방식으로 파일을 다운로드할 수도 있습니다.
+이 샘플에서는 표시되지 않지만, 컴퓨팅 노드 또는 스토리지 컨테이너에서 프로그래밍 방식으로 파일을 다운로드할 수도 있습니다.

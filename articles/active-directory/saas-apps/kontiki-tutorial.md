@@ -17,10 +17,10 @@ ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bfb154bce34b2ceda99b82c7ca3534b8a8ee0a1f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67098496"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kontiki"></a>자습서: Kontiki와 Azure Active Directory 통합
@@ -35,7 +35,7 @@ Kontiki를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 
 Azure AD와의 SaaS(Software as a Service) 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 애플리케이션에 대한 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Kontiki와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -79,7 +79,7 @@ Kontiki를 Azure AD와 통합하려면 관리형 SaaS 앱 목록에 Kontiki를 �
 
 Kontiki에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
 
-| Task | 설명 |
+| Task | Description |
 | --- | --- |
 | **[Azure AD Single Sign-On 구성](#configure-azure-ad-single-sign-on)** | 사용자가 이 기능을 사용할 수 있도록 합니다. |
 | **[Kontiki Single Sign-On 구성](#configure-kontiki-single-sign-on)** | 애플리케이션에서 Single Sign-On 설정을 구성합니다. |
@@ -191,6 +191,6 @@ Single Sign-On이 설정되면 My Apps 포털에서 **Kontiki**를 선택하면 
 
 자세한 내용은 다음 문서를 검토하세요.
 
-- [SaaS 앱과 Azure Active Directory를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Azure Active Directory와 SaaS 앱 통합에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 - [Azure Active Directory의 애플리케이션에 대한 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

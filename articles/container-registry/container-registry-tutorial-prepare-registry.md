@@ -5,13 +5,13 @@ ms.topic: tutorial
 ms.date: 04/30/2017
 ms.custom: seodec18, mvc
 ms.openlocfilehash: 70dc664d27fde3b7cf9fe4e5e3a99c041236ac16
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74454445"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79222150"
 ---
-# <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>자습서: 지리적 복제 Azure Container Registry 준비
+# <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>자습서: 지역 복제 Azure Container Registry 준비
 
 Azure Container Registry는 네트워크를 배포에 가깝게 유지할 수 있는 Azure에 배포된 프라이빗 Docker 레지스트리입니다. 3부로 구성된 이 자습서에서는 지리적 복제를 사용하여 Linux 컨테이너에서 실행되는 ASP.NET Core 웹 애플리케이션을 두 개의 [Web Apps for Containers](../app-service/containers/index.yml) 인스턴스에 배포하는 방법을 알아봅니다. Azure에서 가장 가까운 지리적 복제 리포지토리의 각 웹앱 인스턴스에 이미지를 자동으로 배포하는 방법을 확인할 수 있습니다.
 
@@ -45,7 +45,7 @@ Azure Cloud Shell에는 이 자습서의 모든 단계를 완료하는 데 필�
 
 새 레지스트리를 다음 설정으로 구성합니다.
 
-* **레지스트리 이름**: Azure 내에서 글로벌로 고유하며, 5~50자의 영숫자가 포함된 레지스트리 이름을 만듭니다.
+* **레지스트리 이름**: Azure 내에서 전역적으로 고유하며 5~50개의 영숫자가 포함된 레지스트리 이름을 만듭니다.
 * **리소스 그룹**: **새로 만들기** > `myResourceGroup`
 * **위치**: `West US`
 * **관리 사용자**: `Enable`(Web App for Containers에서 이미지를 끌어오는 데 필요)
@@ -55,7 +55,7 @@ Azure Cloud Shell에는 이 자습서의 모든 단계를 완료하는 데 필�
 
 ![Azure Portal에서 컨테이너 레지스트리 만들기][tut-portal-02]
 
-이 자습서의 나머지 부분에서는 선택한 컨테이너 **레지스트리 이름**의 자리 표시자로 `<acrName>`을 사용합니다.
+이 자습서의 나머지 부분에서는 선택한 컨테이너 `<acrName>`레지스트리 이름**의 자리 표시자로** 을 사용합니다.
 
 > [!TIP]
 > Azure Container Registry는 일반적으로 여러 컨테이너 호스트에서 사용되는 수명이 긴 리소스이기 때문에 자체 리소스 그룹에 레지스트리를 만드는 것이 좋습니다. 지리적 복제 레지스트리와 webhook를 구성할 때 이러한 추가 리소스는 동일한 리소스 그룹에 배치됩니다.
@@ -67,7 +67,7 @@ Azure Cloud Shell에는 이 자습서의 모든 단계를 완료하는 데 필�
 
 Azure Portal에서 새 컨테이너 레지스트리로 이동하여 **서비스** 아래에서 **복제**를 선택합니다.
 
-![Azure Portal 컨테이너 레지스트리 UI의 복제][tut-portal-03]
+![Azure Portal 컨테이너 레지스트리 UI의 복제를 선택합니다.][tut-portal-03]
 
 지역에서 복제에 사용할 수 있는 Azure 영역을 나타내는 녹색 육각형이 지도에 표시됩니다.
 
@@ -205,7 +205,7 @@ uniqueregistryname.azurecr.io/acr-helloworld    v1     01ac48d5c8cf    About a m
 docker push <acrName>.azurecr.io/acr-helloworld:v1
 ```
 
-지역에서 복제를 위해 레지스트리를 구성했으므로 단일 `docker push` 명령으로 *미국 서부* 및 *미국 동부* 지역 모두에 이미지가 자동으로 복제됩니다.
+지역에서 복제를 위해 레지스트리를 구성했으므로 단일 *명령으로*미국 서부*및*미국 동부`docker push` 지역 모두에 이미지가 자동으로 복제됩니다.
 
 ```console
 $ docker push uniqueregistryname.azurecr.io/acr-helloworld:v1

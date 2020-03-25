@@ -15,17 +15,17 @@ ms.workload: na
 ms.date: 05/01/2019
 ms.author: juliako
 ms.openlocfilehash: 08caf4b78b1042d5753dba2bc73e93fa3a250a17
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "71122385"
 ---
-# <a name="cli-example-create-and-submit-a-job"></a>CLI 예제: 작업 만들기 및 제출
+# <a name="cli-example-create-and-submit-a-job"></a>CLI 예: 작업 만들기 및 제출
 
 Media Services v3에서는, 비디오를 처리할 작업을 제출할 때 입력 비디오를 찾을 위치를 Media Services에 알려줘야 합니다. 옵션 중 하나는 다음 문서와 같이 HTTPS URL을 작업 입력으로 지정하는 것입니다. 
 
-## <a name="prerequisites"></a>필수 조건 
+## <a name="prerequisites"></a>사전 요구 사항 
 
 [Media Services 계정 만들기](create-account-cli-how-to.md)
 

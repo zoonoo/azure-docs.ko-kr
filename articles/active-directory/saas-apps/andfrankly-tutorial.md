@@ -17,13 +17,13 @@ ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 736cca668057f38431f91e36ff8fa97840274a38
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76120658"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-frankly"></a>자습서: &frankly와 Azure Active Directory 통합
+# <a name="tutorial-azure-active-directory-integration-with-frankly"></a>자습서: Azure Active Directory와 &frankly 통합
 
 이 자습서에서는 Azure AD(Azure Active Directory)와 &frankly를 통합하는 방법에 대해 알아봅니다.
 &frankly를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.

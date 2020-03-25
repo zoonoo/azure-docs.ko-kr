@@ -8,12 +8,12 @@ ms.topic: include
 author: nibaccam
 ms.author: nibaccam
 ms.date: 11/04/2019
-ms.openlocfilehash: 0802cfea424beb26f34ff2250cfd64ce69db0ca6
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: e526a0ceeb20ec3a1d05db800e6d936b9d33de30
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76314075"
 ---
 > [!TIP]
-> 현재 Machine Learning Studio(클래식)를 사용하거나 평가하는 고객은 ML 모듈 끌어서 놓기 __기능과 더불어__ 확장성, 버전 제어 및 엔터프라이즈 보안을 제공하는 [Azure Machine Learning 디자이너](https://docs.microsoft.com/azure/machine-learning/concept-designer)를 사용하는 것이 좋습니다.
+> 현재 Machine Learning Studio(클래식)를 사용하거나 평가하는 고객은 ML 모듈 끌어서 놓기 [기능과 더불어](https://docs.microsoft.com/azure/machine-learning/concept-designer) 확장성, 버전 제어 및 엔터프라이즈 보안을 제공하는 __Azure Machine Learning 디자이너__(미리 보기)를 사용하는 것이 좋습니다.

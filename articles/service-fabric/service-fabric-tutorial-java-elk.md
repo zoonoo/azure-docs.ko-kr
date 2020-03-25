@@ -7,10 +7,10 @@ ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
 ms.openlocfilehash: b283982e11449d234da966f15b86cc5b638a026c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75376663"
 ---
 # <a name="tutorial-monitor-your-service-fabric-applications-using-elk"></a>자습서: ELK를 사용한 Service Fabric 애플리케이션 모니터링
@@ -100,7 +100,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
     logstash-plugin install logstash-input-azureeventhub
     ```
 
-4. 다음 콘텐츠를 사용하여 기존 Logstash 구성 파일을 만들거나 수정합니다. 파일을 만들면 Azure에 ELK Bitnami 이미지를 사용하는 경우 ```/opt/bitnami/logstash/conf/access-log.conf```에 생성됩니다.
+4. 다음 내용을 사용하여 기존 Logstash 구성 파일을 만들거나 수정합니다. 파일을 만들 때 Azure에서 ELK Bitnami 이미지를 사용하는 경우 ```/opt/bitnami/logstash/conf/access-log.conf```에서 만들어야 합니다.
 
     ```json
     input

@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 8915970cd4c70228fad3b49921f4c81d6d90aa72
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78195331"
 ---
 # <a name="azure-key-vault-logging"></a>Azure Key Vault 로깅
@@ -46,7 +46,7 @@ Key Vault에 대한 개요는 [Azure Key Vault란?](key-vault-overview.md)을 �
 * Azure PowerShell(최소 버전 1.0.0). Azure PowerShell을 설치하고 Azure 구독에 연결하려면 [Azure PowerShell 설치 및 구성하는 방법](/powershell/azure/overview)을 참조하세요. Azure PowerShell이 이미 설치되어 있고 버전을 알 수 없는 경우 Azure PowerShell 콘솔에서 `$PSVersionTable.PSVersion`을 입력합니다.  
 * 키 자격 증명 모음 로그에 대한 Azure의 충분한 스토리지.
 
-## <a id="connect"></a>키 자격 증명 모음 구독에 연결
+## <a name="connect-to-your-key-vault-subscription"></a><a id="connect"></a>키 자격 증명 모음 구독에 연결
 
 키 로깅을 설정하는 첫 번째 단계는 Azure PowerShell에서 로깅하려는 키 자격 증명 모음을 가리키는 것입니다.
 
@@ -72,7 +72,7 @@ Set-AzContext -SubscriptionId <subscription ID>
 
 PowerShell에서 올바른 구독을 가리키는 것은 특히 계정과 연결된 여러 구독이 있는 경우 중요한 단계입니다. Azure PowerShell 구성에 관한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview)을 참조하세요.
 
-## <a id="storage"></a>로그에 대한 스토리지 계정 만들기
+## <a name="create-a-storage-account-for-your-logs"></a><a id="storage"></a>로그에 대한 스토리지 계정 만들기
 
 로그에 대해 기존 스토리지 계정을 사용할 수 있지만 Key Vault 로그 전용 스토리지 계정을 만듭니다. 나중에 이를 지정해야 하는 경우 편의를 위해 세부 정보를 **sa**라는 변수에 저장합니다.
 
@@ -87,7 +87,7 @@ PowerShell에서 올바른 구독을 가리키는 것은 특히 계정과 연결
 >
 >
 
-## <a id="identify"></a>로그에 대한 키 자격 증명 모음 식별
+## <a name="identify-the-key-vault-for-your-logs"></a><a id="identify"></a>로그에 대한 키 자격 증명 모음 식별
 
 [시작 자습서](key-vault-get-started.md)에서 키 자격 증명 모음 이름은 **ContosoKeyVault**였습니다. 이 이름을 계속 사용하고 세부 정보를 **kv**라는 변수에 저장합니다.
 
@@ -95,7 +95,7 @@ PowerShell에서 올바른 구독을 가리키는 것은 특히 계정과 연결
 $kv = Get-AzKeyVault -VaultName 'ContosoKeyVault'
 ```
 
-## <a id="enable"></a>로깅 사용
+## <a name="enable-logging"></a><a id="enable"></a>로깅 사용
 
 Key Vault에 대한 로깅을 사용하도록 설정하려면 새 스토리지 계정 및 키 자격 증명 모음에 대해 만든 변수와 함께 **Set-AzDiagnosticSetting** cmdlet을 사용합니다. 또한 **-Enabled** 플래그를 **$true**로 설정하고, 범주를 **AuditEvent**(Key Vault 로깅에 대한 유일한 범주)로 설정합니다.
 
@@ -132,7 +132,7 @@ Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Ena
   * 서명, 확인, 암호화, 암호 해독, 키 래핑 및 래핑 해제, 비밀 가져오기, 키 및 비밀(및 해당 버전) 나열
 * 401 응답이 발생하는 인증되지 않은 요청. 예를 들어 전달자 토큰이 없거나, 형식이 잘못되었거나 만료되었거나, 잘못된 토큰이 있는 요청입니다.  
 
-## <a id="access"></a>로그에 액세스
+## <a name="access-your-logs"></a><a id="access"></a>로그에 액세스
 
 Key Vault 로그는 제공한 스토리지 계정의 **insights-logs-auditevent** 컨테이너에 저장됩니다. 로그를 보려면 Blob을 다운로드해야 합니다.
 
@@ -214,7 +214,7 @@ $blobs | Get-AzStorageBlobContent -Destination C:\Users\username\ContosoKeyVault
 * 주요 자격 증명 모음 리소스의 진단 설정 상태를 쿼리하려면: `Get-AzDiagnosticSetting -ResourceId $kv.ResourceId`
 * 주요 자격 증명 모음 리소스의 로깅을 사용하지 않으려면: `Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $false -Category AuditEvent`
 
-## <a id="interpret"></a>Key Vault 로그 해석
+## <a name="interpret-your-key-vault-logs"></a><a id="interpret"></a>Key Vault 로그 해석
 
 개별 Blob은 JSON Blob 형식으로 텍스트로 저장됩니다. 로그 항목 예제를 살펴보겠습니다. 다음 명령을 실행합니다.
 
@@ -303,13 +303,13 @@ Get-AzKeyVault -VaultName 'contosokeyvault'`
 | **SecretList** |[자격 증명 모음에 암호 나열](https://msdn.microsoft.com/library/azure/dn903614.aspx) |
 | **SecretListVersions** |[암호 버전 나열](https://msdn.microsoft.com/library/azure/dn986824.aspx) |
 
-## <a id="loganalytics"></a>Azure Monitor 로그 사용
+## <a name="use-azure-monitor-logs"></a><a id="loganalytics"></a>Azure Monitor 로그 사용
 
 Azure Monitor 로그에서 Key Vault 솔루션을 사용하여 Key Vault **AuditEvent** 로그를 검토할 수 있습니다. Azure Monitor 로그에서 로그 쿼리를 사용하여 데이터를 분석하고 필요한 정보를 가져옵니다. 
 
 이를 설정하는 방법을 포함한 자세한 내용은 [Azure Monitor 로그의 Azure Key Vault 솔루션](../azure-monitor/insights/azure-key-vault.md)을 참조하세요. 또한 이 문서에는 Azure Monitor 로그 미리 보기 중에 제공된 이전 Key Vault 솔루션에서 마이그레이션해야 하는 경우의 지침이 포함되어 있습니다. 여기서는 먼저 로그를 Azure Storage 계정으로 라우팅하고, 해당 위치에서 읽도록 Azure Monitor 로그를 구성했습니다.
 
-## <a id="next"></a>다음 단계
+## <a name="next-steps"></a><a id="next"></a>다음 단계
 
 .NET 웹 애플리케이션에서 Azure Key Vault를 사용하는 자습서는 [웹 애플리케이션에서 Azure Key Vault 사용](tutorial-net-create-vault-azure-web-app.md)을 참조하세요.
 

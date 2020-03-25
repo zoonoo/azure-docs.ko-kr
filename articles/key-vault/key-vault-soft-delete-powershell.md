@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 26c309eeebd7226c6777ec41ae674587da796dd4
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78199668"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>PowerShell로 Key Vault 일시 삭제를 사용하는 방법
@@ -165,7 +165,7 @@ Remove-AzKeyVaultKey -VaultName ContosoVault -Name ContosoFirstKey -InRemovedSta
 
 #### <a name="set-a-key-vault-access-policy"></a>Key Vault 액세스 정책 설정
 
-다음 명령은 **제거**를 포함하여 *ContosoVault*의 키에 대해 여러 가지 작업을 사용하는 user@contoso.com 사용 권한을 부여합니다.
+다음 명령은 user@contoso.com제거*를 포함하여* ContosoVault**의 키에 대해 여러 가지 작업을 사용하는**  사용 권한을 부여합니다.
 
 ```powershell
 Set-AzKeyVaultAccessPolicy -VaultName ContosoVault -UserPrincipalName user@contoso.com -PermissionsToKeys get,create,delete,list,update,import,backup,restore,recover,purge
@@ -217,7 +217,7 @@ Set-AzKeyVaultAccessPolicy -VaultName ContosoVault -UserPrincipalName user@conto
 
 ### <a name="purging-a-key-vault"></a>키 자격 증명 모음 제거
 
-키 자격 증명 모음이 제거되면 키, 비밀 및 인증서를 포함하여 해당 전체 콘텐츠가 영구적으로 삭제됩니다. 일시 삭제된 키 자격 증명 모음을 제거하려면 `-InRemovedState` 옵션이 포함된 `Remove-AzKeyVault` 명령을 사용하고, `-Location location` 인수를 사용하여 삭제된 키 자격 증명 모음의 위치를 지정합니다. `Get-AzKeyVault -InRemovedState` 명령을 사용하여 삭제된 자격 증명 모음의 위치를 찾을 수 있습니다.
+키 자격 증명 모음이 제거되면 키, 비밀 및 인증서를 포함하여 해당 전체 콘텐츠가 영구적으로 삭제됩니다. 일시 삭제된 키 자격 증명 모음을 제거하려면 `Remove-AzKeyVault` 옵션이 포함된 `-InRemovedState` 명령을 사용하고, `-Location location` 인수를 사용하여 삭제된 키 자격 증명 모음의 위치를 지정합니다. `Get-AzKeyVault -InRemovedState` 명령을 사용하여 삭제된 자격 증명 모음의 위치를 찾을 수 있습니다.
 
 ```powershell
 Remove-AzKeyVault -VaultName ContosoVault -InRemovedState -Location westus

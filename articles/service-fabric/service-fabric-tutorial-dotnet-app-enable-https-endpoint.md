@@ -5,11 +5,11 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
 ms.openlocfilehash: 077c2ab67efa51542baa3048eb678fa22b0bc2eb
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75614080"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79222730"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>자습서: Kestrel을 사용하여 ASP.NET Core Web API 프런트 엔드 서비스에 HTTPS 엔드포인트 추가
 
@@ -41,7 +41,7 @@ ms.locfileid: "75614080"
 이 자습서를 시작하기 전에:
 
 * Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
-* **Azure 개발**과 **ASP.NET 및 웹 개발** 워크로드가 포함된 [Visual Studio 2019 버전 15.5 이상을 설치](https://www.visualstudio.com/)합니다.
+* [Azure 개발](https://www.visualstudio.com/)과 **ASP.NET 및 웹 개발** 워크로드가 포함된 **Visual Studio 2019 버전 15.5 이상을 설치**합니다.
 * [Service Fabric SDK를 설치](service-fabric-get-started.md)합니다.
 
 ## <a name="obtain-a-certificate-or-create-a-self-signed-development-certificate"></a>인증서를 받거나 자체 서명된 개발 인증서 만들기
@@ -110,7 +110,7 @@ using Microsoft.Extensions.Configuration;
 using System.Security.Cryptography.X509Certificates;
 ```
 
-새로운 *EndpointHttps* 엔드포인트를 사용하고 포트 443에서 수신 대기하도록 `ServiceInstanceListener`를 업데이트합니다. Kestrel 서버를 사용하도록 웹 호스트를 구성할 때는 Kestrel이 모든 네트워크 인터페이스에 대해 IPv6 주소를 수신 대기하도록 구성해야 합니다(`opt.Listen(IPAddress.IPv6Any, port, listenOptions => {...}`).
+새로운 `ServiceInstanceListener`EndpointHttps*엔드포인트를 사용하고 포트 443에서 수신 대기하도록*를 업데이트합니다. Kestrel 서버를 사용하도록 웹 호스트를 구성할 때는 Kestrel이 모든 네트워크 인터페이스에 대해 IPv6 주소를 수신 대기하도록 구성해야 합니다(`opt.Listen(IPAddress.IPv6Any, port, listenOptions => {...}`).
 
 ```csharp
 new ServiceInstanceListener(
@@ -176,7 +176,7 @@ private X509Certificate2 GetHttpsCertificateFromStore()
 
 ## <a name="give-network-service-access-to-the-certificates-private-key"></a>NETWORK SERVICE에 인증서의 프라이빗 키에 대한 액세스 권한 부여
 
-이전 단계에서 개발 컴퓨터의 `Cert:\LocalMachine\My` 저장소로 인증서를 가져온 상태입니다.  또한 서비스를 실행하는 계정(기본적으로 NETWORK SERVICE)에 인증서의 프라이빗 키에 대한 액세스 권한을 명시적으로 부여해야 합니다. 이 단계는 수동으로(certlm.msc 도구 사용) 수행할 수 있지만 서비스 매니페스트의 **SetupEntryPoint**에 [시작 스크립트를 구성](service-fabric-run-script-at-service-startup.md)하여 PowerShell 스크립트를 자동으로 실행하는 것이 좋습니다.
+이전 단계에서 개발 컴퓨터의 `Cert:\LocalMachine\My` 저장소로 인증서를 가져온 상태입니다.  또한 서비스를 실행하는 계정(기본적으로 NETWORK SERVICE)에 인증서의 프라이빗 키에 대한 액세스 권한을 명시적으로 부여해야 합니다. 이 단계는 수동으로(certlm.msc 도구 사용) 수행할 수 있지만 서비스 매니페스트의 [SetupEntryPoint](service-fabric-run-script-at-service-startup.md)에 **시작 스크립트를 구성**하여 PowerShell 스크립트를 자동으로 실행하는 것이 좋습니다.
 
 ### <a name="configure-the-service-setup-entry-point"></a>서비스 설치 진입점 구성
 

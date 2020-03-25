@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/12/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 27c7e32f081003ac236c6d1405eb3512f6c4433c
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 62a8c68b11562cac7bb9e8a318cbe08084449423
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034631"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80066516"
 ---
 # <a name="tutorial---how-to-use-cloud-init-to-customize-a-linux-virtual-machine-in-azure-on-first-boot"></a>자습서 - cloud-init를 사용하여 첫 번째 부팅 시 Azure에서 Linux 가상 머신을 사용자 지정하는 방법
 
@@ -58,7 +58,7 @@ cloud-init의 실제 동작을 확인하려면 NGINX를 설치하고 간단한 '
 
 bash 프롬프트 또는 Cloud Shell에서 *cloud-init.txt*라는 파일을 만들고 다음 구성을 붙여넣습니다. 예를 들어 `sensible-editor cloud-init.txt`를 입력하여 파일을 만들고 사용 가능한 편집기의 목록을 봅니다. 전체 cloud-init 파일, 특히 첫 줄이 올바르게 복사되었는지 확인합니다.
 
-```azurecli-interactive
+```bash
 #cloud-config
 package_upgrade: true
 packages:
@@ -271,7 +271,7 @@ az vm open-port \
 
 
 ## <a name="next-steps"></a>다음 단계
-이 자습서에서는 cloud-init를 사용하여 처음 부팅할 때 VM을 구성했습니다. 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 cloud-init를 사용하여 처음 부팅할 때 VM을 구성했습니다. 구체적으로 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * cloud-init 구성 파일 만들기

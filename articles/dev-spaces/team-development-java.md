@@ -9,10 +9,10 @@ description: 이 자습서에서는 Azure Dev Spaces 및 Visual Studio Code를 �
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s '
 manager: gwallace
 ms.openlocfilehash: 352671b2fe31095b0ffcaffb49195071a456a892
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78245016"
 ---
 # <a name="team-development-using-java-and-visual-studio-code-with-azure-dev-spaces"></a>Azure Dev Spaces와 함께 Java 및 Visual Studio를 사용한 팀 개발
@@ -90,7 +90,7 @@ _dev_ 이외의 공간에서 고유한 버전의 _mywebapi_를 실행하려면 �
 azds space select --name scott
 ```
 
-메시지가 나타나면 **부모 개발 공간**으로 _dev_를 선택합니다. 즉, 새 공간 _dev/scott_은 _dev_ 공간에서 파생됩니다. 이것이 어떻게 도움이 되는지 테스트로 간략히 표시됩니다.
+메시지가 나타나면 _부모 개발 공간_으로 **dev**를 선택합니다. 즉, 새 공간 _dev/scott_은 _dev_ 공간에서 파생됩니다. 이것이 어떻게 도움이 되는지 테스트로 간략히 표시됩니다.
 
 이 입문적인 가설에서는 동료들이 작동하는 사람을 식별할 수 있도록 _scott_이란 이름을 새 공간에 사용하였습니다. 하지만 마음에 드는 다른 이름으로 불러도 좋으며, _sprint4_나 _demo_처럼 그 의미에 대해서도 자유롭게 사용할 수 있습니다. 어떠한 사례든 _dev_는 이 애플리케이션 부분에서 작업하는 모든 개발자를 위한 기준으로 사용됩니다.
 
@@ -101,7 +101,7 @@ azds space select --name scott
 작동을 확인합니다.
 
 ### <a name="make-a-code-change"></a>코드 변경
-`mywebapi`에 대한 VS Code 창으로 이동하고, `src/main/java/com/ms/sample/mywebapi/Application.java`에서 `String index()` 메서드에 대한 코드를 편집합니다. 예를 들어 다음과 같습니다.
+`mywebapi`에 대한 VS Code 창으로 이동하고, `String index()`에서 `src/main/java/com/ms/sample/mywebapi/Application.java` 메서드에 대한 코드를 편집합니다. 예를 들어 다음과 같습니다.
 
 ```java
 @RequestMapping(value = "/", produces = "text/plain")
@@ -135,7 +135,7 @@ http://localhost:53831 => mywebapi.scott:80                                Tunne
 http://scott.s.dev.webfrontend.6364744826e042319629.ce.azds.io/  Available
 ```
 
-*webfrontend*에 대한 공용 액세스 지점 URL에 *scott.s*가 접두사로 추가된 것을 확인할 수 있습니다. 이 URL은 _dev/scott_ 공간에 대해 고유합니다. 이 URL 접두사는 요청을 _dev/scott_ 버전의 서비스로 라우팅하도록 수신 컨트롤러에 지시합니다. 이 URL이 포함된 요청이 Dev Spaces에서 처리될 때, 수신 컨트롤러는 먼저 _dev/scott_ 공간의 *webfrontend* 서비스로 요청을 라우팅하려고 시도합니다. 이것이 실패하면 요청은 _dev_ 공간의 *webfrontend* 서비스로 대체 라우팅됩니다. Kubernetes *port-forward* 기능을 사용하여 localhost를 통해 서비스에 액세스하는 localhost URL도 있습니다. Azure Dev Spaces의 URL 및 라우팅에 대한 자세한 내용은 [Azure Dev Spaces 작동 및 구성 방법](how-dev-spaces-works.md)을 참조하세요.
+*webfrontend*에 대한 공용 액세스 지점 URL에 *scott.s*가 접두사로 추가된 것을 확인할 수 있습니다. 이 URL은 _dev/scott_ 공간에 대해 고유합니다. 이 URL 접두사는 요청을 _dev/scott_ 버전의 서비스로 라우팅하도록 수신 컨트롤러에 지시합니다. 이 URL이 포함된 요청이 Dev Spaces에서 처리될 때, 수신 컨트롤러는 먼저 *dev/scott* 공간의 _webfrontend_ 서비스로 요청을 라우팅하려고 시도합니다. 이것이 실패하면 요청은 *dev* 공간의 _webfrontend_ 서비스로 대체 라우팅됩니다. Kubernetes *port-forward* 기능을 사용하여 localhost를 통해 서비스에 액세스하는 localhost URL도 있습니다. Azure Dev Spaces의 URL 및 라우팅에 대한 자세한 내용은 [Azure Dev Spaces 작동 및 구성 방법](how-dev-spaces-works.md)을 참조하세요.
 
 ![공간 라우팅](media/common/Space-Routing.png)
 
@@ -144,7 +144,7 @@ http://scott.s.dev.webfrontend.6364744826e042319629.ce.azds.io/  Available
 ### <a name="test-code-in-a-space"></a>공간에서 코드 테스트
 *webfrontend*와 함께 새 버전의 *mywebapi*를 테스트하려면 브라우저를 *webfrontend*에 대한 공용 액세스 지점 URL로 브라우저를 열고 정보 페이지로 이동합니다. 새 메시지가 표시됩니다.
 
-이제 URL의 "scott.s." 부분을 제거하고 브라우저를 새로 고칩니다. 이전 동작(_dev_에서 실행되는 *mywebapi* 버전으로)이 표시됩니다.
+이제 URL의 "scott.s." 부분을 제거하고 브라우저를 새로 고칩니다. 이전 동작(*dev*에서 실행되는 _mywebapi_ 버전으로)이 표시됩니다.
 
 항상 최신 변경 사항을 포함하는 _dev_ 공간을 확보하고 난 후, 이 자습서 섹션에서 설명한 대로 DevSpace의 공간 기반 라우팅을 이용하도록 애플리케이션이 설계되었다고 가정하면 Dev Spaces가 더 큰 애플리케이션의 컨텍스트 내에서 새로운 기능을 테스트하는 데 얼마나 유용한지를 쉽게 확인할 수 있을 것입니다. 프라이빗 공간에 _모든_ 서비스를 배포하는 대신, _dev_에서 파생되는 프라이빗 공간을 만들고 실제 작업하는 서비스만 "작동"시킬 수 있습니다. Dev Spaces 라우팅 인프라는 _dev_ 공간에서 실행 중인 최신 버전으로 기본값을 다시 설정하는 동안 프라이빗 공간 외에 찾을 수 있는 한 많은 서비스를 활용하여 나머지 부분을 처리합니다. 그리고 더 좋은 것은 _여러_ 개발자들이 서로를 방해하지 않으면서 자신의 공간에서 동시에 다양한 서비스를 적극적으로 개발할 수 있다는 점입니다.
 

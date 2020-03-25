@@ -15,11 +15,11 @@ ms.custom: mvc
 ms.date: 01/24/2020
 ms.author: spelluru
 ms.openlocfilehash: 44539c6779afaece6d955a907819ef82d8cd7d5a
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759536"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79224130"
 ---
 # <a name="tutorial-set-up-a-lab-by-using-azure-devtest-labs"></a>자습서: Azure DevTest Labs를 사용하여 랩 설정
 이 자습서에서는 Azure Portal을 사용하여 랩을 만듭니다. 랩 관리자는 조직에 랩을 설정하고, 랩에 VM을 만들고, 정책을 구성합니다. 랩 사용자(예: 개발자 및 테스터)는 랩에서 VM을 클레임하고 연결하여 사용합니다. 
@@ -61,7 +61,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 1. **DevTest Lab** 페이지의 도구 모임에서 **+ Add**를 선택합니다. 
 
     ![추가 단추](./media/tutorial-create-custom-lab/add-vm-to-lab-button.png)
-1. **기본 선택** 페이지에서 키워드를 사용하여 검색하고(예: Windows, Ubuntu) 목록에서 기본 이미지 중 하나를 선택합니다. 
+1. **기본 선택** 페이지에서 키워드(예: Windows, Ubuntu)로 검색하고 목록에서 기본 이미지 중 하나를 선택합니다. 
 1. **가상 머신** 페이지에서 다음 작업을 수행합니다. 
     1. **가상 머신 이름**에서 가상 머신의 이름을 입력합니다. 
     2. **사용자 이름**의 경우 가상 머신에 대한 액세스 권한이 있는 사용자의 이름을 입력합니다. 
@@ -113,5 +113,5 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 이 자습서에서는 VM을 사용하여 랩을 만들고 사용자에게 랩에 액세스할 수 있는 권한을 부여합니다. 랩 사용자로 랩에 액세스하는 방법에 대해 알아보려면 다음 자습서로 이동합니다.
 
 > [!div class="nextstepaction"]
-> [자습서: 랩 액세스](tutorial-use-custom-lab.md)
+> [자습서: 랩에 액세스](tutorial-use-custom-lab.md)
 

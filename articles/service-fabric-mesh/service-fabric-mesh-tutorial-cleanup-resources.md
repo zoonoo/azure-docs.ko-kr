@@ -7,10 +7,10 @@ ms.date: 09/18/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
 ms.openlocfilehash: d5e33099d58c9cb4c110a78f2576d6eac83a7932
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75351868"
 ---
 # <a name="tutorial-remove-azure-resources"></a>자습서: Azure 리소스 제거
@@ -53,7 +53,7 @@ az group delete --resource-group sfmeshTutorial1RG
 Remove-AzureRmResourceGroup -Name sfmeshTutorial1RG
 ```
 
-또는 [포털에서](../azure-resource-manager/management/manage-resource-groups-portal.md#delete-resource-groups)**sfmeshTutorial1RG** 리소스 그룹을 삭제해도 됩니다. 
+또는 **포털에서**[sfmeshTutorial1RG](../azure-resource-manager/management/manage-resource-groups-portal.md#delete-resource-groups) 리소스 그룹을 삭제해도 됩니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

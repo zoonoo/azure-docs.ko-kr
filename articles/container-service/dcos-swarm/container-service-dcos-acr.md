@@ -10,10 +10,10 @@ ms.date: 03/23/2017
 ms.author: juliens
 ms.custom: mvc
 ms.openlocfilehash: 9e69b66c7cee5a6e012ad7ed2477556fa840bfb5
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78402075"
 ---
 # <a name="deprecated-use-acr-with-a-dcos-cluster-to-deploy-your-application"></a>(사용되지 않음) DC/OS 클러스터에 ACR을 사용하여 애플리케이션 배포
@@ -127,7 +127,7 @@ Ubuntu 이미지에서 컨테이너를 만듭니다.
 docker run ubuntu --name base-image
 ```
 
-이제 컨테이너를 새 이미지에 캡처합니다. 이미지 이름은 `loginServer/imageName` 형식으로 컨테이너 레지스트리의 `loginServer` 이름을 포함해야 합니다.
+이제 컨테이너를 새 이미지에 캡처합니다. 이미지 이름은 `loginServer` 형식으로 컨테이너 레지스트리의 `loginServer/imageName` 이름을 포함해야 합니다.
 
 ```console
 docker -H tcp://localhost:2375 commit base-image mycontainerregistry30678.azurecr.io/dcos-demo

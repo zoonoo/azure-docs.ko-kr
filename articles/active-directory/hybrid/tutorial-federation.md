@@ -15,19 +15,19 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a51175d192a5afb1f84f8d0ed2de9796f198f82d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58102403"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "60296747"
 ---
-# <a name="tutorial-federate-a-single-ad-forest-environment-to-the-cloud"></a>자습서: 단일 AD 포리스트 환경을 클라우드로 페더레이션
+# <a name="tutorial-federate-a-single-ad-forest-environment-to-the-cloud"></a>자습서: 클라우드에 단일 AD 포리스트 환경 페더레이션
 
 ![생성](media/tutorial-federation/diagram.png)
 
 다음 자습서에서는 페더레이션을 사용하여 하이브리드 ID 환경을 만드는 방법을 설명합니다.  이 환경을 테스트에 사용하거나 하이브리드 ID가 작동하는 방식에 익숙해지기 위해 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 다음은 이 자습서를 완료하는 데 필요한 필수 구성 요소입니다.
 - [Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/hyper-v-technology-overview)가 설치되어 있는 컴퓨터.  [Windows 10](https://docs.microsoft.com/virtualization/hyper-v-on-windows/about/supported-guest-os) 또는 [Windows Server 2016](https://docs.microsoft.com/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows) 컴퓨터에서 수행하는 것이 좋습니다.
 - [Azure 구독](https://azure.microsoft.com/free)
@@ -88,12 +88,12 @@ Set-VMFirmware -VMName $VMName -FirstBootDevice $DVDDrive
 5. **지금 설치**를 클릭합니다.
 6. 라이선스 키를 입력하고 **다음**을 클릭합니다.
 7. **사용 약관에 동의에 확인 표시를 한 후 **다음**을 클릭합니다.
-8. **사용자 지정:  Windows만 설치(고급)** 선택
-9. **다음**을 누릅니다
+8. **사용자 지정: Windows만 설치(고급)** 를 선택합니다.
+9. **다음**을 클릭합니다.
 10. 설치가 완료되고 나면 가상 머신을 다시 시작하고, 로그인한 후, Windows 업데이트를 실행하여 VM이 최신 버전이 되도록 합니다.  최신 업데이트를 설치합니다.
 
 ## <a name="install-active-directory-pre-requisites"></a>Active Directory 필수 구성 요소 설치
-가상 머신을 만들었으므로 이제 Active Directory를 설치하기 전에 몇 가지 작업을 수행해야 합니다.  즉, 가상 머신의 이름을 바꾸고, 고정 IP 주소 및 DNS 정보를 설정하고, 원격 서버 관리 도구를 설치해야 합니다.   다음을 수행합니다.
+가상 머신을 만들었면, Active Directory를 설치하기 전에 몇 가지를 수행해야 합니다.  즉, 가상 머신의 이름을 바꾸고, 고정 IP 주소 및 DNS 정보를 설정하고, 원격 서버 관리 도구를 설치해야 합니다.   다음을 수행합니다.
 
 1. 관리자 권한으로 PowerShell ISE를 엽니다.
 2. `Set-ExecutionPolicy remotesigned`를 실행하고 모든 [A]에서 yes를 입력한 후에  Enter 키를 누릅니다.

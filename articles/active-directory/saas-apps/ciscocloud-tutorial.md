@@ -17,10 +17,10 @@ ms.date: 02/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 342101c623d451b71a33b2394ec6617482f388d6
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73157461"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-cloud"></a>자습서: Cisco Cloud와 Azure Active Directory 통합
@@ -32,10 +32,10 @@ Cisco Cloud를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니�
 * 사용자가 해당 Azure AD 계정으로 Cisco Cloud에 자동으로 로그인(Single Sign-On)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Cisco Cloud와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -125,7 +125,7 @@ Cisco Cloud에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
 7. 위에서 언급한 특성 외에도, Cisco Cloud 애플리케이션에는 SAML 응답에 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 다음 단계를 수행하여 아래 표와 같은 SAML 토큰 특성을 추가합니다.
 
-    | Name | 원본 특성|
+    | 속성 | 원본 특성|
     | -----------| ------------|
     | country    | user.country |
     | company    | user.companyname |
@@ -178,7 +178,7 @@ Cisco Cloud에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
     b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
-    c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
+    다. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
 

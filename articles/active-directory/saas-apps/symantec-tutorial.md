@@ -17,10 +17,10 @@ ms.date: 12/25/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d496015440deb80a0159ed0ec234ae60c2c64a66
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73159938"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-symantec-web-security-service-wss"></a>자습서: Symantec WSS(Web Security Service)와 Azure Active Directory 통합
@@ -38,7 +38,7 @@ Symantec WSS(Web Security Service)를 Azure AD와 통합하면 다음과 같은 
 Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Symantec WSS(Web Security Service)와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -114,7 +114,7 @@ Symantec WSS(Web Security Service)에서 Azure AD Single Sign-On을 구성하려
     b. **회신 URL** 텍스트 상자에서 `https://saml.threatpulse.net:8443/saml/saml_realm/bcsamlpost` URL을 입력합니다.
 
     > [!NOTE]
-    > **식별자** 및 **회신 URL** 값이 어떤 이유로 작동하지 않는 경우 [Symantec WSS(Web Security Service) 클라이언트 지원 팀](https://www.symantec.com/contact-us)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > [식별자](https://www.symantec.com/contact-us) 및 **회신 URL** 값이 어떤 이유로 작동하지 않는 경우 **Symantec WSS(Web Security Service) 클라이언트 지원 팀**에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
 5. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 요구 사항에 따라 제공된 옵션에서 **페더레이션 메타데이터 XML**을 다운로드하고 컴퓨터에 저장합니다.
 
@@ -145,7 +145,7 @@ Symantec WSS(Web Security Service) 쪽에 Single Sign-On을 구성하려면 WSS 
     b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
-    c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
+    다. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
 

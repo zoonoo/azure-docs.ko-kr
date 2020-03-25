@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: ambapat
-ms.openlocfilehash: 4531d3bdeab96cb4a753060d59d07e155f4a358e
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 2b262823323e9491965bc16818220b2f80cf236a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78197337"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79457307"
 ---
 # <a name="change-a-key-vault-tenant-id-after-a-subscription-move"></a>구독 이동 후에 주요 자격 증명 모음 테넌트 ID 변경
 
@@ -46,7 +46,7 @@ Set-AzResource -ResourceId $vaultResourceId -Properties $vault.Properties  # Mod
 또는 Azure CLI를 사용할 수 있습니다.
 
 ```azurecli
-az account set <your-subscriptionId>                                       # Select your Azure Subscription
+az account set -s <your-subscriptionId>                                    # Select your Azure Subscription
 tenantId=$(az account show --query tenantId)                               # Get your tenantId
 az keyvault update -n myvault --remove Properties.accessPolicies           # Remove the access policies
 az keyvault update -n myvault --set Properties.tenantId=$tenantId          # Update the key vault tenantId

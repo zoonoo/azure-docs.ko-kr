@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
 ms.openlocfilehash: a9ec54ce27b4d058938e688ec671709e09391cce
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73160373"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-namely"></a>자습서: Namely와 Azure Active Directory 통합
@@ -31,10 +31,10 @@ Namely를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 * 사용자가 Azure AD 계정으로 Namely에 자동으로 로그인(Single Sign-On)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Namely와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -132,19 +132,19 @@ Namely에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행�
 
 2. 위쪽 도구 모음에서 **회사**를 클릭합니다.
    
-    ![Configure Single Sign-On](./media/namely-tutorial/tutorial_namely_06.png) 
+    ![Single Sign-on 구성](./media/namely-tutorial/tutorial_namely_06.png) 
 
 3. **설정** 탭을 클릭합니다.
    
-    ![Configure Single Sign-On](./media/namely-tutorial/tutorial_namely_07.png) 
+    ![Single Sign-on 구성](./media/namely-tutorial/tutorial_namely_07.png) 
 
 4. **SAML**을 클릭합니다.
    
-    ![Configure Single Sign-On](./media/namely-tutorial/tutorial_namely_08.png) 
+    ![Single Sign-on 구성](./media/namely-tutorial/tutorial_namely_08.png) 
 
 5. **SAML 설정** 페이지에서 다음 단계를 수행합니다.
    
-    ![Configure Single Sign-On](./media/namely-tutorial/tutorial_namely_09.png)
+    ![Single Sign-on 구성](./media/namely-tutorial/tutorial_namely_09.png)
  
     a. **SAML 사용**을 클릭합니다. 
 
@@ -175,7 +175,7 @@ Namely에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행�
     b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
-    c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
+    다. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
 
@@ -215,15 +215,15 @@ Namely에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행�
 
 2. 위쪽 도구 모음에서 **사람**을 클릭합니다.
    
-    ![Configure Single Sign-On](./media/namely-tutorial/tutorial_namely_10.png) 
+    ![Single Sign-on 구성](./media/namely-tutorial/tutorial_namely_10.png) 
 
 3. **디렉터리** 탭을 클릭합니다.
    
-    ![Configure Single Sign-On](./media/namely-tutorial/tutorial_namely_11.png) 
+    ![Single Sign-on 구성](./media/namely-tutorial/tutorial_namely_11.png) 
 
 4. **새 사람 추가**를 클릭합니다.
 
-    ![Configure Single Sign-On](./media/namely-tutorial/tutorial_namely_12.png)
+    ![Single Sign-on 구성](./media/namely-tutorial/tutorial_namely_12.png)
 
 5. **새 사람 추가** 대화 상자에서 다음 단계를 수행합니다.
 

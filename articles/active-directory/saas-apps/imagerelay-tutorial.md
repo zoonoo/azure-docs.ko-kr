@@ -1,5 +1,5 @@
 ---
-title: '자습서: Image Relay와 Azure Active Directory 통합 | Microsoft Docs'
+title: '자습서: Image Relay와 Azure Active Directory 통합 | Microsoft 문서'
 description: Azure Active Directory와 Image Relay 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: na
@@ -17,10 +17,10 @@ ms.date: 02/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4fd0637a632b277eae019ac4aebfbc7cdb87e8e2
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73158980"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-image-relay"></a>자습서: Image Relay와 Azure Active Directory 통합
@@ -32,10 +32,10 @@ Image Relay와 Azure AD를 통합하면 다음과 같은 이점이 제공됩니�
 * 사용자가 해당 Azure AD 계정으로 Image Relay에 자동으로 로그인(Single Sign-On)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Image Relay와 Azure AD를 통합하도록 구성하려면 다음 항목이 필요합니다.
 
@@ -133,27 +133,27 @@ Image Relay에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 �
 
 2. 위쪽의 도구 모음에서 **사용자 및 권한** 워크로드를 클릭합니다.
 
-    ![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_06.png) 
+    ![Single Sign-on 구성](./media/imagerelay-tutorial/tutorial_imagerelay_06.png) 
 
 3. **새 사용 권한 만들기**를 클릭합니다.
 
-    ![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_08.png)
+    ![Single Sign-on 구성](./media/imagerelay-tutorial/tutorial_imagerelay_08.png)
 
 4. **Single Sign-On 설정** 워크로드에서 **이 그룹은 Single Sign On을 통해서만 로그인 가능** 확인란을 선택한 다음 **저장**을 클릭합니다.
 
-    ![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_09.png) 
+    ![Single Sign-on 구성](./media/imagerelay-tutorial/tutorial_imagerelay_09.png) 
 
 5. **계정 설정**으로 이동합니다.
 
-    ![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_10.png) 
+    ![Single Sign-on 구성](./media/imagerelay-tutorial/tutorial_imagerelay_10.png) 
 
 6. **Single Sign On 설정** 작업으로 이동합니다.
 
-    ![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_11.png)
+    ![Single Sign-on 구성](./media/imagerelay-tutorial/tutorial_imagerelay_11.png)
 
 7. **SAML 설정** 대화 상자에서 다음 단계를 수행합니다.
 
-    ![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_12.png)
+    ![Single Sign-on 구성](./media/imagerelay-tutorial/tutorial_imagerelay_12.png)
 
     a. **로그인 URL** 텍스트 상자에, Azure Portal에서 복사한 **로그인 URL** 값을 붙여넣습니다.
 
@@ -165,19 +165,19 @@ Image Relay에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 �
 
     e. **x.509 인증서**에서 **인증서 업데이트**를 클릭합니다.
 
-    ![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_17.png)
+    ![Single Sign-on 구성](./media/imagerelay-tutorial/tutorial_imagerelay_17.png)
 
     f. 다운로드한 인증서를 메모장에서 열고, 내용을 복사한 다음, 전체 인증서를 **x.509 인증서** 텍스트 상자에 붙여넣습니다.
 
-    ![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_18.png)
+    ![Single Sign-on 구성](./media/imagerelay-tutorial/tutorial_imagerelay_18.png)
 
     g. **Just-In-Time 사용자 프로비전** 섹션에서 **Just-In-Time 사용자 프로비전 사용**을 선택합니다.
 
-    ![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_19.png)
+    ![Single Sign-on 구성](./media/imagerelay-tutorial/tutorial_imagerelay_19.png)
 
     h. Single Sign-On을 통해서만 로그인할 수 있는 사용 권한 그룹(예: **SSO 기본**)을 선택합니다.
 
-    ![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_20.png)
+    ![Single Sign-on 구성](./media/imagerelay-tutorial/tutorial_imagerelay_20.png)
 
     i. **저장**을 클릭합니다.
 
@@ -202,7 +202,7 @@ Image Relay에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 �
     b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
-    c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
+    다. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
 
@@ -242,11 +242,11 @@ Image Relay에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 �
 
 2. **사용자 및 권한**으로 이동하여 **SSO 사용자 만들기**를 선택합니다.
 
-    ![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_21.png) 
+    ![Single Sign-on 구성](./media/imagerelay-tutorial/tutorial_imagerelay_21.png) 
 
 3. 프로비전하려는 사용자의 **전자 메일**, **이름**, **성** 및 **회사**를 입력하고 Single Sign-On을 통해서만 로그인할 수 있는 그룹인 권한 그룹(예: SSO 기본)을 선택합니다.
 
-    ![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_22.png)
+    ![Single Sign-on 구성](./media/imagerelay-tutorial/tutorial_imagerelay_22.png)
 
 4. **만들기**를 클릭합니다.
 

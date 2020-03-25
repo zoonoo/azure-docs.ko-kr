@@ -7,10 +7,10 @@ ms.date: 01/11/2019
 ms.author: dekapur
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 42db17fa6474d3230bc523d0cf65b375cf01276e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75351740"
 ---
 # <a name="tutorial-upgrade-a-service-fabric-application-running-in-service-fabric-mesh"></a>자습서: Service Fabric Mesh에서 실행되는 Service Fabric 애플리케이션 업그레이드
@@ -44,7 +44,7 @@ ms.locfileid: "75351740"
 
 Service Fabric Mesh에 애플리케이션을 배포하여 얻을 수 있는 주요 이점 중 하나는 애플리케이션 구성을 쉽게 업데이트할 수 있는 기능입니다.  예를 들어, 서비스의 CPU 또는 메모리 리소스를 쉽게 업데이트할 수 있습니다.
 
-이 자습서에서는 [이전에 배포되어](service-fabric-mesh-tutorial-template-deploy-app.md) 현재 실행 중인 할 일 목록 샘플을 예제로 사용합니다. 애플리케이션에 두 개의 서비스가 있습니다. WebFrontEnd 및 ToDoService 각 서비스는 처음에 CPU 리소스 0.5로 배포되었습니다.  WebFrontEnd 서비스에 대한 CPU 리소스를 보려면 다음을 실행합니다.
+이 자습서에서는 [이전에 배포되어](service-fabric-mesh-tutorial-template-deploy-app.md) 현재 실행 중인 할 일 목록 샘플을 예제로 사용합니다. 애플리케이션에 WebFrontEnd 및 ToDoService라는 두 가지 서비스가 있습니다. 각 서비스는 처음에 CPU 리소스 0.5로 배포되었습니다.  WebFrontEnd 서비스에 대한 CPU 리소스를 보려면 다음을 실행합니다.
 
 ```azurecli
 az mesh service show --resource-group myResourceGroup --name WebFrontEnd --app-name todolistapp
@@ -68,7 +68,7 @@ az mesh service show --resource-group myResourceGroup --name WebFrontEnd --app-n
 
 변경 내용을 매개 변수 파일에 저장합니다.  
 
-*frontEndCpu* 매개 변수는 [mesh_rp.windows.json 배포 템플릿](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.json)의 *parameters* 섹션에 선언되어 있습니다.
+*frontEndCpu* 매개 변수는 *mesh_rp.windows.json 배포 템플릿*의 [parameters](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.json) 섹션에 선언되어 있습니다.
 
 ```json
 "frontEndCpu": {

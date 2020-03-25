@@ -9,10 +9,10 @@ ms.date: 12/07/2017
 ms.author: sngun
 ms.custom: seodec18
 ms.openlocfilehash: 5c828644cb03d83df38265719cd8afabc24cf739
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "66242582"
 ---
 # <a name="migrate-your-data-to-azure-cosmos-db-table-api-account"></a>Azure Cosmos DB Table API 계정으로 데이터 마이그레이션
@@ -26,9 +26,9 @@ ms.locfileid: "66242582"
 > * AzCopy를 사용하여 데이터 가져오기
 > * 테이블 API(미리 보기)에서 테이블 API로 마이그레이션 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-* **처리량 증가:** 데이터 마이그레이션 기간은 개별 컨테이너 또는 컨테이너 세트에 대해 설정한 처리량에 따라 달라집니다. 대량 데이터 마이그레이션의 경우 처리량을 늘려야 합니다. 마이그레이션을 완료한 후에는 비용을 절약하기 위해 처리량을 줄이세요. Azure Portal에서 처리량을 늘리는 방법에 대한 자세한 내용은 Azure Cosmos DB의 성능 수준 및 가격 책정 계층을 참조하세요.
+* **처리량 늘리기:** 데이터 마이그레이션 기간은 개별 컨테이너 또는 컨테이너 집합에 대해 설정한 처리량에 따라 다릅니다. 대량 데이터 마이그레이션의 경우 처리량을 늘려야 합니다. 마이그레이션을 완료한 후에는 비용을 절약하기 위해 처리량을 줄이세요. Azure Portal에서 처리량을 늘리는 방법에 대한 자세한 내용은 Azure Cosmos DB의 성능 수준 및 가격 책정 계층을 참조하세요.
 
 * **Azure Cosmos DB 리소스 만들기:** 데이터 마이그레이션을 시작하기 전에 Azure Portal에서 모든 테이블을 미리 만듭니다. 데이터베이스 수준 처리량이 있는 Azure Cosmos DB 계정으로 마이그레이션하는 경우에는 Azure Cosmos DB 테이블을 만들 때 파티션 키를 제공해야 합니다.
 
@@ -91,7 +91,7 @@ Azure Cosmos DB 테이블 API를 마이그레이션 대상으로 정의할 때�
     /t.MaxBatchSize: Optional, default is 2MB. Specify the batch size in bytes
 
 <a id="azure-table-storage"></a>
-### <a name="sample-command-source-is-azure-table-storage"></a>명령 샘플: 원본이 Azure Table 스토리지인 경우
+### <a name="sample-command-source-is-azure-table-storage"></a>명령 예제: 원본이 Azure Table Storage인 경우
 
 Azure Table Storage에서 테이블 API로 가져오는 방법을 보여주는 명령줄 예제는 다음과 같습니다.
 
@@ -99,7 +99,7 @@ Azure Table Storage에서 테이블 API로 가져오는 방법을 보여주는 �
 dt /s:AzureTable /s.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Table storage account name>;AccountKey=<Account Key>;EndpointSuffix=core.windows.net /s.Table:<Table name> /t:TableAPIBulk /t.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Cosmos DB account name>;AccountKey=<Azure Cosmos DB account key>;TableEndpoint=https://<Account name>.table.cosmosdb.azure.com:443 /t.TableName:<Table name> /t.Overwrite
 ```
 <a id="table-api-preview"></a>
-### <a name="sample-command-source-is-azure-cosmos-db-table-api-preview"></a>명령 샘플: 원본이 Azure Cosmos DB Table API(미리 보기)인 경우
+### <a name="sample-command-source-is-azure-cosmos-db-table-api-preview"></a>명령 예제: 원본이 Azure Cosmos DB 테이블 API(미리 보기)인 경우
 
 테이블 API 미리 보기에서 테이블 API GA로 가져오는 명령줄 예제는 다음과 같습니다.
 

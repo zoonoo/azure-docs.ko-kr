@@ -16,10 +16,10 @@ ms.date: 05/14/2018
 ms.author: magattus
 ms.custom: mvc
 ms.openlocfilehash: 1b67522834497a264d95fc9b80246b16841d6026
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67594217"
 ---
 # <a name="tutorial-add-azure-cdn-to-an-azure-app-service-web-app"></a>자습서: Azure App Service 웹앱에 Azure CDN 추가
@@ -38,7 +38,7 @@ ms.locfileid: "67594217"
 > * 쿼리 문자열을 사용하여 캐시된 버전 제어
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -49,7 +49,7 @@ ms.locfileid: "67594217"
 
 ## <a name="create-the-web-app"></a>웹앱 만들기
 
-사용할 웹앱을 만들려면 **앱 찾아보기** 단계를 통해 [정적 HTML 빠른 시작](../app-service/app-service-web-get-started-html.md)을 수행합니다.
+사용할 웹앱을 만들려면 [앱 찾아보기](../app-service/app-service-web-get-started-html.md) 단계를 통해 **정적 HTML 빠른 시작**을 수행합니다.
 
 ## <a name="log-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
@@ -72,7 +72,7 @@ DSA(동적 사이트 가속)에 대한 CDN 엔드포인트를 최적화하려는
 
 ![포털에서 프로필 및 엔드포인트 만들기](media/cdn-add-to-web-app/portal-new-endpoint.png)
 
-| 설정 | 제안 값 | 설명 |
+| 설정 | 제안 값 | Description |
 | ------- | --------------- | ----------- |
 | **CDN 프로필** | myCDNProfile | CDN 프로필은 동일한 가격 책정 계층을 가진 CDN 엔드포인트의 컬렉션입니다. |
 | **가격 책정 계층** | Standard Akamai | [가격 책정 계층](cdn-features.md)은 공급자 및 사용 가능한 기능을 지정합니다. 이 자습서에서는 *Standard Akamai*를 사용합니다. |

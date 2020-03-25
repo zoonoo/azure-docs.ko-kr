@@ -10,13 +10,13 @@ ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
 ms.openlocfilehash: a812155474b244682613b38b9b9379fa6cdcdcd8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "66117755"
 ---
-# <a name="tutorial-detect-anomalies-at-the-edge-with-the-remote-monitoring-solution-accelerator"></a>자습서: 원격 모니터링 솔루션 가속기를 사용하여 에지에서 이상 감지
+# <a name="tutorial-detect-anomalies-at-the-edge-with-the-remote-monitoring-solution-accelerator"></a>자습서: 원격 모니터링 솔루션 가속기를 사용하여 에지에서 변칙 검색
 
 이 자습서에서는 IoT Edge 디바이스에서 검색된 이상에 대응하도록 원격 모니터링 솔루션을 구성합니다. IoT Edge 디바이스에서는 Edge의 원격 분석을 처리하여 솔루션에 전송되는 원격 분석의 양을 줄이고 디바이스의 이벤트에 더 빠르게 대응할 수 있습니다. 에지 처리의 이점에 대한 자세한 내용은 [Azure IoT Edge란?](../iot-edge/about-iot-edge.md)을 참조하세요.
 
@@ -28,7 +28,7 @@ Contoso는 오일 펌프 잭에 온도 이상을 감지하는 지능형 에지 �
 
 ![개요](media/iot-accelerators-remote-monitoring-edge/overview.png)
 
-이 자습서에서는 다음을 수행했습니다.
+이 자습서에서는 다음을 수행합니다.
 
 >[!div class="checklist"]
 > * 솔루션에 IoT Edge 디바이스 추가
@@ -84,7 +84,7 @@ IoT Edge 디바이스를 원격 모니터링 솔루션 가속기에 추가하려
     | 작업 이름 | AddEdgeTag |
     | 키     | IsOilPump |
     | 값   | Y     |
-    | type    | 텍스트  |
+    | Type    | 텍스트  |
 
     [![태그 추가](./media/iot-accelerators-remote-monitoring-edge/addtag-inline.png)](./media/iot-accelerators-remote-monitoring-edge/addtag-expanded.png#lightbox)
 
@@ -96,11 +96,11 @@ IoT Edge 디바이스를 원격 모니터링 솔루션 가속기에 추가하려
 
     | 설정 | 값 |
     | ------- | ----- |
-    | 이름    | OilPumps |
+    | 속성    | OilPumps |
     | 필드   | Tags.IsOilPump |
     | 연산자 | = Equals |
     | 값    | Y |
-    | type     | 텍스트 |
+    | Type     | 텍스트 |
 
     [![디바이스 그룹 만들기](./media/iot-accelerators-remote-monitoring-edge/createdevicegroup-inline.png)](./media/iot-accelerators-remote-monitoring-edge/createdevicegroup-expanded.png#lightbox)
 
@@ -161,10 +161,10 @@ Edge 모듈로 패키징하기 전에 포털에서 Stream Analytics 작업을 �
     | 옵션 | 값 |
     | ------ | ----- |
     | 작업 이름 | EdgeDeviceJob |
-    | 구독 | Azure 구독 |
-    | 리소스 그룹 | IoTEdgeDevices |
+    | Subscription | Azure 구독 |
+    | Resource group | IoTEdgeDevices |
     | 위치 | 미국 동부 |
-    | 호스팅 환경 | Edge |
+    | 호스팅 환경 | Microsoft Edge |
     | 스트리밍 단위 | 1 |
 
 1. 포털에서 **EdgeDeviceJob** Stream Analytics 작업을 열고 입력을 클릭한 후 **telemetry**라는 **Edge Hub** 입력 스트림을 추가합니다.
@@ -275,7 +275,7 @@ Edge 모듈로 패키징하기 전에 포털에서 Stream Analytics 작업을 �
 
     | 옵션 | 값 |
     | ------ | ----- |
-    | 이름   | OilPumpDevices |
+    | 속성   | OilPumpDevices |
     | 패키지 유형 | Edge 매니페스트 |
     | 패키지 | oil-pump-device.json |
     | 디바이스 그룹 | OilPumps |
@@ -315,7 +315,7 @@ Edge 모듈로 패키징하기 전에 포털에서 Stream Analytics 작업을 �
     | 옵션 | 값 |
     | ------ | ----- |
     | 규칙 이름 | 오일 펌프 온도 |
-    | 설명 | 오일 펌프 온도가 300을 초과했습니다. |
+    | Description | 오일 펌프 온도가 300을 초과했습니다. |
     | 디바이스 그룹 | OilPumps |
     | 계산 | 인스턴트 |
     | 필드 | 온도 |

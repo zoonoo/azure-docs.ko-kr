@@ -17,15 +17,15 @@ ms.date: 02/27/2017
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 4e3e24565375f68b4b5bdf1dfb0b16bb280aa417
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74039483"
 ---
 # <a name="create-a-vm-with-nginx"></a>NGINX를 사용하여 VM 만들기
 
-이 스크립트는 Azure Virtual Machine을 만들고 Azure Virtual Machine 사용자 지정 스크립트 확장을 사용하여 NGINX를 설치합니다. 스크립트를 실행하면 가상 컴퓨터의 공용 IP 주소에서 데모 웹 사이트에 액세스할 수 있습니다.
+이 스크립트는 Azure Virtual Machine을 만들고 Azure Virtual Machine 사용자 지정 스크립트 확장을 사용하여 NGINX를 설치합니다. 스크립트를 실행하면 가상 머신의 공용 IP 주소에서 데모 웹 사이트에 액세스할 수 있습니다.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 

@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 6710344e73e3c0ea6f9b3491209689871cc14a4f
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: d20c05e6ec5a413b81ede9cb4906de2595967115
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160944"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80048467"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-uberflip"></a>자습서: Uberflip과 Azure Active Directory 통합
+# <a name="tutorial-azure-active-directory-integration-with-uberflip"></a>자습서: Azure Active Directory와 Uberflip 통합
 
 이 자습서에서는 Azure AD(Azure Active Directory)와 Uberflip을 통합하는 방법에 대해 알아봅니다.
 
@@ -34,7 +34,7 @@ Uberflip을 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 
 Azure AD와의 SaaS(Software as a Service) 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Uberflip과의 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 

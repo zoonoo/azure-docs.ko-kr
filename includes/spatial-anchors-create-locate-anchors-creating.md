@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 9758cdf07d1ad56e6300e89eed2aa0b1da29e081
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76694229"
 ---
 ## <a name="create-a-cloud-spatial-anchor"></a>클라우드 공간 앵커 만들기

@@ -9,10 +9,10 @@ ms.date: 01/17/2019
 ms.author: jowargo
 ms.custom: include file
 ms.openlocfilehash: 5afcc8e4524a0e8353766ba239d5ab9161b29d86
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67509137"
 ---
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
@@ -46,7 +46,7 @@ ms.locfileid: "67509137"
 1. 목록에서 **액세스 정책**을 선택합니다. 사용할 수 있는 두 가지 연결 문자열을 적어 둡니다. 나중에 푸시 알림을 처리하는 데 필요합니다.
 
       >[!IMPORTANT]
-      >애플리케이션에서 **DefaultFullSharedAccessSignature** 정책을 *사용하지 마세요*. 이는 백 엔드에서만 사용할 수 있습니다.
+      >애플리케이션에서 *DefaultFullSharedAccessSignature* 정책을 **사용하지 마세요**. 이는 백 엔드에서만 사용할 수 있습니다.
       >
 
       ![Azure Portal - 알림 허브 연결 문자열](./media/notification-hubs-portal-create-new-hub/notification-hubs-connection-strings-portal.png)

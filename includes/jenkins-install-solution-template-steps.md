@@ -4,12 +4,12 @@ ms.service: jenkins
 ms.topic: include
 ms.date: 03/03/2020
 ms.author: tarcher
-ms.openlocfilehash: 2468dc72881755a2990e8ddf8112d7fe27f64f4d
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: e9b8ad7a7fcc499f8760b56e6a737be8a6a9e06c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78274452"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79199679"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -63,11 +63,11 @@ Jenkins 콘솔에서 **Create new jobs**(새 작업 만들기)를 선택하고 �
 
 ![Git 리포지토리 정의](./media/jenkins-install-solution-template-steps/jenkins-job-git-configuration.png) 
 
-**빌드** 탭을 선택한 후 **빌드 단계 추가**, **Gradle 스크립트 호출**을 선택합니다. **Gradle 래퍼 사용**을 선택한 후 **래퍼 위치**에 `complete`를 입력하고 **작업**에 `build`를 입력합니다.
+**빌드** 탭을 선택한 후 **빌드 단계 추가**, **Gradle 스크립트 호출**을 선택합니다. **Gradle 래퍼 사용**을 선택한 후 `complete`래퍼 위치**에** 를 입력하고 `build`작업**에** 를 입력합니다.
 
 ![Gradle 래퍼를 사용하여 빌드](./media/jenkins-install-solution-template-steps/jenkins-job-gradle-config.png) 
 
-**고급**을 선택한 다음, **루트 빌드 스크립트** 필드에서 `complete`를 입력합니다. **저장**을 선택합니다.
+**고급**을 선택한 다음, `complete`루트 빌드 스크립트**필드에서**를 입력합니다. **저장**을 선택합니다.
 
 ![Gradle 래퍼 빌드 단계에서 고급 설정을 지정](./media/jenkins-install-solution-template-steps/jenkins-job-gradle-advances.png) 
 
@@ -86,4 +86,4 @@ Jenkins 솔루션 템플릿에서 버그가 발생하면 [Jenkins GitHub 리포�
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Azure VM을 Jenkins 에이전트로 추가](/azure/jenkins-azure-vm-agents)
+> [Azure VM을 Jenkins 에이전트로 추가](/azure/jenkins/jenkins-azure-vm-agents)

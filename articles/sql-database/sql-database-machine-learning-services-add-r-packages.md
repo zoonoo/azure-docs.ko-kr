@@ -14,10 +14,10 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/29/2019
 ms.openlocfilehash: ce85f45d823df42e70af53824e175968439621d3
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73819877"
 ---
 # <a name="add-an-r-package-to-azure-sql-database-machine-learning-services-preview"></a>R 패키지를 Azure SQL Database Machine Learning Services(미리 보기)에 추가
@@ -26,7 +26,7 @@ ms.locfileid: "73819877"
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 로컬 컴퓨터에 [R](https://www.r-project.org) 및 [RStudio Desktop](https://www.rstudio.com/products/rstudio/download/)을 설치합니다. R은 Windows, MacOS 및 Linux에서 사용할 수 있습니다. 이 문서에서는 Windows를 사용한다고 가정합니다.
 
@@ -60,7 +60,7 @@ WITH RESULT SETS((
 
 **결과**
 
-![R에 설치된 패키지](./media/sql-database-machine-learning-services-add-r-packages/r-installed-packages.png)
+![R의 설치된 패키지](./media/sql-database-machine-learning-services-add-r-packages/r-installed-packages.png)
 
 ## <a name="add-a-package-with-sqlmlutils"></a>sqlmlutils로 패키지 추가
 
@@ -108,7 +108,7 @@ Azure SQL Database에 설치되지 않은 패키지를 사용해야 하는 경�
     ```
 
     > [!TIP]
-    > **범위**는 **공용** 또는 **전용**일 수 있습니다. 공용 범위는 데이터베이스 관리자가 모든 사용자가 사용할 수 있는 패키지를 설치할 때 유용합니다. 전용 범위를 선택하면 패키지를 설치한 사용자만 패키지를 사용할 수 있습니다. 범위를 지정하지 않으면 기본 범위인 **프라이빗**이 사용됩니다.
+    > **범위**는 **공용** 또는 **전용**일 수 있습니다. 공용 범위는 모든 사용자가 사용할 수 있는 패키지를 설치하려는 데이터베이스 관리자에게 유용 합니다. 프라이빗 범위는 패키지를 설치하는 사용자만 패키지를 사용할 수 있습니다. 범위를 지정하지 않으면 기본 범위인 **프라이빗**이 사용됩니다.
 
 ### <a name="verify-the-package"></a>패키지 확인
 
@@ -164,7 +164,7 @@ sql_remove.packages(connectionString = connection, pkgs = "glue", scope = "PUBLI
 ```
 
 > [!TIP]
-> Azure SQL 데이터베이스에 R 패키지를 설치하는 또 다른 방법은 **CREATE EXTERNAL LIBRARY** T-SQL 문을 사용하여 바이트 스트림에서 R 패키지를 업로드하는 것입니다. [CREATE EXTERNAL LIBRARY](https://docs.microsoft.com/sql/t-sql/statements/create-external-library-transact-sql) 참조 설명서에서 [바이트 스트림에서 라이브러리 만들기](/sql/t-sql/statements/create-external-library-transact-sql#create-a-library-from-a-byte-stream) 참조하세요.
+> Azure SQL 데이터베이스에 R 패키지를 설치하는 또 다른 방법은 **CREATE EXTERNAL LIBRARY** T-SQL 문을 사용하여 바이트 스트림에서 R 패키지를 업로드하는 것입니다. [CREATE EXTERNAL LIBRARY](/sql/t-sql/statements/create-external-library-transact-sql#create-a-library-from-a-byte-stream) 참조 설명서에서 [바이트 스트림에서 라이브러리 만들기](https://docs.microsoft.com/sql/t-sql/statements/create-external-library-transact-sql) 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

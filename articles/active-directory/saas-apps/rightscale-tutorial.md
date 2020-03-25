@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
 ms.openlocfilehash: 53799b62da043b7680f010e1eaaf0d9243f07dd5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67093065"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rightscale"></a>자습서: Rightscale과 Azure Active Directory 통합
@@ -31,10 +31,10 @@ Rightscale을 Azure AD와 통합하면 다음과 같은 이점이 제공됩니�
 * 사용자가 자신의 Azure AD 계정으로 Rightscale에 자동으로 로그인(Single Sign-on)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Rightscale과 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -131,32 +131,32 @@ Rightscale에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
 2. 위쪽 메뉴에서 **설정** 탭을 클릭하고 **Single Sign-On**을 선택합니다.
 
-    ![Configure Single Sign-On](./media/rightscale-tutorial/tutorial_rightscale_001.png)
+    ![Single Sign-on 구성](./media/rightscale-tutorial/tutorial_rightscale_001.png)
 
 3. **새로 만들기** 단추를 클릭하여 **SAML ID 공급자**를 추가합니다.
 
-    ![Configure Single Sign-On](./media/rightscale-tutorial/tutorial_rightscale_002.png)
+    ![Single Sign-on 구성](./media/rightscale-tutorial/tutorial_rightscale_002.png)
 
 4. **표시 이름**의 텍스트 상자에 회사 이름을 입력합니다.
 
-    ![Configure Single Sign-On](./media/rightscale-tutorial/tutorial_rightscale_003.png)
+    ![Single Sign-on 구성](./media/rightscale-tutorial/tutorial_rightscale_003.png)
 
 5. **검색 힌트를 사용하여 RightScale에서 시작한 SSO 허용**을 선택하고 아래 텍스트 상자에 **도메인 이름**을 입력합니다.
 
-    ![Configure Single Sign-On](./media/rightscale-tutorial/tutorial_rightscale_004.png)
+    ![Single Sign-on 구성](./media/rightscale-tutorial/tutorial_rightscale_004.png)
 
 6. Azure Portal에서 복사한 **로그인 URL** 값을 RightScale의 **SAML SSO 엔드포인트**에 붙여넣습니다.
 
-    ![Configure Single Sign-On](./media/rightscale-tutorial/tutorial_rightscale_006.png)
+    ![Single Sign-on 구성](./media/rightscale-tutorial/tutorial_rightscale_006.png)
 
 7. Azure Portal에서 복사한 **Azure AD 식별자**를 RightScale의 **SAML 엔터티 ID**에 붙여넣습니다.
 
-    ![Configure Single Sign-On](./media/rightscale-tutorial/tutorial_rightscale_008.png)
+    ![Single Sign-on 구성](./media/rightscale-tutorial/tutorial_rightscale_008.png)
 
 8. **브라우저** 단추를 클릭하여 Azure Portal에서 다운로드한 인증서를 업로드합니다.
 
 
-    ![Configure Single Sign-On](./media/rightscale-tutorial/tutorial_rightscale_009.png)
+    ![Single Sign-on 구성](./media/rightscale-tutorial/tutorial_rightscale_009.png)
 
 9. **저장**을 클릭합니다.
 
@@ -181,7 +181,7 @@ Rightscale에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
     b. **사용자 이름** 필드에 `brittasimon@yourcompanydomain.extension`을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
-    c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
+    다. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
 

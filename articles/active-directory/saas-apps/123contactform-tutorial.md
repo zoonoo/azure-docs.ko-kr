@@ -17,10 +17,10 @@ ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3e8328ac4008950d67cf5645c6a48c48d1196085
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73154933"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-123contactform"></a>자습서: 123ContactForm과 Azure Active Directory 통합
@@ -32,10 +32,10 @@ ms.locfileid: "73154933"
 * 사용자가 자신의 Azure AD 계정으로 123ContactForm에 자동으로 로그인(Single Sign-On)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 123ContactForm과 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -138,7 +138,7 @@ Single Sign-On이 작동하려면 Azure AD 사용자와 123ContactForm의 관련
 
 1. **123ContactForm** 쪽에서 Single Sign-On을 구성하려면 [https://www.123contactform.com/form-2709121/](https://www.123contactform.com/form-2709121/)로 이동하여 다음 단계를 수행합니다.
 
-    ![Configure Single Sign-On](./media/123contactform-tutorial/submit.png) 
+    ![Single Sign-on 구성](./media/123contactform-tutorial/submit.png) 
 
     a. **이메일** 텍스트 상자에 사용자의 이메일 주소(예: **BrittaSimon\@Contoso.com**)를 입력합니다.
 
@@ -148,7 +148,7 @@ Single Sign-On이 작동하려면 Azure AD 사용자와 123ContactForm의 관련
 
 2. **Microsoft Azure AD - Single Sign-On - 앱 설정 구성**에서 다음 단계를 수행합니다.
 
-    ![Configure Single Sign-On](./media/123contactform-tutorial/url3.png)
+    ![Single Sign-on 구성](./media/123contactform-tutorial/url3.png)
 
     a. **IDP 시작 모드**에서 애플리케이션을 구성하려는 경우 인스턴스의 **식별자** 값을 복사하여 Azure Portal의 **기본 SAML 구성** 섹션에 있는 **식별자** 텍스트 상자에 붙여넣습니다.
 
@@ -177,7 +177,7 @@ Single Sign-On이 작동하려면 Azure AD 사용자와 123ContactForm의 관련
     b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
-    c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
+    다. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
 

@@ -15,17 +15,17 @@ ms.workload: na
 ms.date: 08/20/2019
 ms.author: juliako
 ms.openlocfilehash: 09c93e2d851bea22e9d54dde35398f36335eb896
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "70967581"
 ---
-# <a name="cli-example-reset-the-account-credentials"></a>CLI 예제: 계정 자격 증명을 다시 설정합니다.
+# <a name="cli-example-reset-the-account-credentials"></a>CLI 예: 계정 자격 증명 다시 설정
 
 이 문서의 Azure CLI 스크립트는 계정 자격 증명을 다시 설정하고 app.config 설정을 다시 가져오는 방법을 보여줍니다.
 
-## <a name="prerequisites"></a>필수 조건 
+## <a name="prerequisites"></a>사전 요구 사항 
 
 [Media Services 계정 만들기](create-account-cli-how-to.md)
 

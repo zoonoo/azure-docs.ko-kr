@@ -7,10 +7,10 @@ ms.date: 07/22/2019
 ms.author: mikhegn
 ms.custom: mvc
 ms.openlocfilehash: 9951610732cbb1c5884a7b7e830033f427db0ab1
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75646010"
 ---
 # <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>자습서: Azure의 클러스터에 Service Fabric 애플리케이션 배포
@@ -55,7 +55,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 이제 해당 애플리케이션이 준비되면 Service Fabric 클러스터를 만든 다음, 클러스터에 애플리케이션을 배포합니다. [Service Fabric 클러스터](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-anywhere): 마이크로 서비스가 배포되고 관리되는 네트워크로 연결된 가상 또는 실제 컴퓨터 집합입니다.
 
-이 자습서에서는 Visual Studio IDE에서 새로운 3개의 노드 테스트 클러스터를 만든 다음, 해당 클러스터에 애플리케이션을 게시합니다. 프로덕션 클러스터 만들기에 대한 정보는 [클러스터 자습서 만들기 및 관리](service-fabric-tutorial-create-vnet-and-windows-cluster.md)를 참조하세요. [PowerShell](./scripts/service-fabric-powershell-create-secure-cluster-cert.md) 또는 [Azure CLI](./scripts/cli-create-cluster.md) 스크립트를 사용하거나 [Azure Resource Manager 템플릿](service-fabric-tutorial-create-vnet-and-windows-cluster.md)에서 [Azure Portal](https://portal.azure.com)을 통해 이전에 만든 기존 클러스터에 애플리케이션을 배포할 수도 있습니다.
+이 자습서에서는 Visual Studio IDE에서 새로운 3개의 노드 테스트 클러스터를 만든 다음, 해당 클러스터에 애플리케이션을 게시합니다. 프로덕션 클러스터 만들기에 대한 정보는 [클러스터 자습서 만들기 및 관리](service-fabric-tutorial-create-vnet-and-windows-cluster.md)를 참조하세요. [PowerShell](https://portal.azure.com) 또는 [Azure CLI](./scripts/service-fabric-powershell-create-secure-cluster-cert.md) 스크립트를 사용하거나 [Azure Resource Manager 템플릿](./scripts/cli-create-cluster.md)에서 [Azure Portal](service-fabric-tutorial-create-vnet-and-windows-cluster.md)을 통해 이전에 만든 기존 클러스터에 애플리케이션을 배포할 수도 있습니다.
 
 > [!NOTE]
 > 투표 애플리케이션 및 다른 여러 애플리케이션에서 Service Fabric 역방향 프록시를 사용하여 서비스 간에 통신합니다. Visual Studio에서 만든 클러스터는 기본적으로 역방향 프록시를 사용하도록 설정됩니다. 기존 클러스터에 배포하는 경우 투표 애플리케이션을 작동하도록 하려면 [클러스터에서 역방향 프록시를 사용하도록 설정](service-fabric-reverseproxy-setup.md)해야 합니다.

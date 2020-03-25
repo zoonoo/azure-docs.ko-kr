@@ -9,12 +9,12 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 03/05/2020
-ms.openlocfilehash: 4bce52ba3320506b85949493407dded1d52415a3
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: ff449626ce528cfe0218a95330a567303c547e5f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78673632"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79486134"
 ---
 1. [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)의 지침을 사용하여 Python용 Azure Machine Learning SDK를 설치합니다.
 
@@ -24,12 +24,12 @@ ms.locfileid: "78673632"
 
 1. [GitHub 리포지토리](https://aka.ms/aml-notebooks)를 복제합니다.
 
-    ```CLI
+    ```bash
     git clone https://github.com/Azure/MachineLearningNotebooks.git
     ```
 
 1. 복제된 디렉터리에서 노트북 서버를 시작합니다.
 
-    ```shell
+    ```bash
     jupyter notebook
     ```

@@ -1,5 +1,5 @@
 ---
-title: '자습서: Gigya와 Azure Active Directory 통합 | Microsoft Docs'
+title: '자습서: Gigya와 Azure Active Directory 통합 | Microsoft 문서'
 description: Azure Active Directory와 Gigya 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: na
@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
 ms.openlocfilehash: 824e9c459df75ea0307fe314fbf4118cca6e69d3
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76841781"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gigya"></a>자습서: Gigya와 Azure Active Directory 통합

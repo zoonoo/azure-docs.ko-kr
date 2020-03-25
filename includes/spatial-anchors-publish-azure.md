@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 1/30/2019
 ms.author: rgarcia
 ms.openlocfilehash: 0dab71b6d169e26a3d7dc208dd09efe1143fbe13
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67181892"
 ---
 ### <a name="open-the-publish-wizard"></a>게시 마법사를 엽니다.
@@ -22,7 +22,7 @@ ms.locfileid: "67181892"
 **App Service 만들기** 대화 상자에서 **계정 추가**를 선택하고 Azure 구독에 로그인합니다. 이미 로그인한 경우 드롭다운 목록에서 원하는 계정을 선택합니다.
 
 > [!NOTE]
-> 이미 로그인한 경우 **만들기**를 선택하지 마십시오.
+> 이미 로그인한 경우 아직 **만들기**를 선택하지 마십시오.
 >
 
 ### <a name="create-a-resource-group"></a>리소스 그룹 만들기
@@ -41,9 +41,9 @@ ms.locfileid: "67181892"
 
 **호스팅 계획 구성** 대화 상자에서 다음 설정을 사용합니다.
 
-| 설정 | 제안 값 | 설명 |
+| 설정 | 제안 값 | Description |
 |-|-|-|
-|App Service 플랜| MySharingServicePlan | App Service 플랜의 이름입니다. |
+|App Service 계획| MySharingServicePlan | App Service 플랜의 이름입니다. |
 | 위치 | 미국 서부 | 웹앱이 호스팅된 데이터 센터입니다. |
 | 크기 | 무료 | 호스팅 기능을 결정하는 [가격 책정 계층](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)입니다. |
 

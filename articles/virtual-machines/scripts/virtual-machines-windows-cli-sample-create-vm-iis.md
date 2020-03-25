@@ -16,13 +16,13 @@ ms.workload: infrastructure
 ms.date: 02/28/2017
 ms.author: cynthn
 ms.openlocfilehash: 1ec0ada9143d193f8ee976d53d0b9754904efbe5
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74039952"
 ---
-# <a name="quick-create-a-virtual-machine-with-the-azure-cli"></a>Azure CLI를 사용하여 가상 컴퓨터 빠른 생성
+# <a name="quick-create-a-virtual-machine-with-the-azure-cli"></a>Azure CLI를 사용하여 가상 머신 빠른 생성
 
 이 스크립트는 Windows Server 2016을 실행하는 Azure Virtual Machine을 만들고 Azure Virtual Machine 사용자 지정 스크립트 확장을 사용하여 IIS를 설치합니다. 스크립트를 실행하면 가상 머신의 공용 IP 주소에서 기본 IIS 웹 사이트에 액세스할 수 있습니다.
 

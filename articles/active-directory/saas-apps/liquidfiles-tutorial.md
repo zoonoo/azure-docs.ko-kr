@@ -1,5 +1,5 @@
 ---
-title: '자습서: LiquidFiles와 Azure Active Directory 통합 | Microsoft Docs'
+title: LiquidFiles와 Azure Active Directory 통합 | Microsoft Docs
 description: Azure Active Directory와 LiquidFiles 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: na
@@ -17,10 +17,10 @@ ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6514594d3119ebf8fab774c3e84c85e34bdfeaf4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67097938"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-liquidfiles"></a>자습서: LiquidFiles와 Azure Active Directory 통합
@@ -32,10 +32,10 @@ LiquidFiles를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니�
 * 사용자가 자신의 Azure AD 계정으로 LiquidFiles에 자동으로 로그인(Single Sign-On)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 LiquidFiles와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -141,7 +141,7 @@ LiquidFiles에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 �
 
 1. **Single Sign-On 구성** 페이지에서 다음 단계를 수행합니다.
 
-    ![Configure Single Sign-On](./media/liquidfiles-tutorial/tutorial_single_01.png)
+    ![Single Sign-on 구성](./media/liquidfiles-tutorial/tutorial_single_01.png)
 
     a. **Single Sign On 방법**으로 **SAML 2**를 선택합니다.
 
@@ -177,7 +177,7 @@ LiquidFiles에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 �
   
     b. **사용자 이름** 필드에 `brittasimon@yourcompanydomain.extension`을 입력합니다. 예를 들어 BrittaSimon@contoso.com
 
-    c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
+    다. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
 

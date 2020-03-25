@@ -16,10 +16,10 @@ ms.date: 03/01/2017
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 00c5342db2f714f0397641e79d35fdf19c1b57cb
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74033730"
 ---
 # <a name="create-an-azure-monitor-vm-with-powershell"></a>PowerShell을 사용하여 Azure Monitor VM 만들기

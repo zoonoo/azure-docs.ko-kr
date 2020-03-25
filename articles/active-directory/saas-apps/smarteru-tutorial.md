@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
 ms.openlocfilehash: 712e7bcf513592f97950902faff2f7754093b9fc
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76549294"
 ---
 > [!NOTE]
@@ -217,7 +217,7 @@ Azure AD 사용자가 SmarterU에 로그인할 수 있도록 하려면 SmarterU�
 
     a. **+사용자**를 클릭합니다.
 
-    b. Azure AD 사용자 계정의 관련 특성 값을 다음 텍스트 상자에 입력합니다. **기본 이메일**, **직원 ID**, **암호**, **암호 확인**, **이름**, **성**.
+    b. 다음 텍스트 상자에 Azure AD 사용자 계정의 관련된 특성 값을 입력합니다. **기본 메일**, **직원 ID**, **암호**, **암호 확인**, **이름**, **성**.
 
     다. **활성**을 클릭합니다.
 

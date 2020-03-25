@@ -10,17 +10,17 @@ ms.custom: mvc
 ms.date: 10/25/2018
 ms.author: troyhop
 ms.openlocfilehash: 302b863e7ad7d6df286adf53342356f279ab92d2
-ms.sourcegitcommit: 3dcb1a3993e51963954194ba2a5e42260d0be258
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50756791"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "61450584"
 ---
 # <a name="tutorial-create-a-custom-simulated-device"></a>자습서: 사용자 지정 시뮬레이션된 디바이스 만들기
 
 이 자습서에서는 디바이스 시뮬레이션을 사용하여 시뮬레이션에서 사용하기 위한 사용자 지정 시뮬레이션된 디바이스를 만듭니다. 디바이스 시뮬레이션을 시작하려면 포함된 샘플 시뮬레이션된 디바이스 중 하나를 사용할 수 있습니다. 또한 이 문서에 설명된 대로 사용자 지정 시뮬레이션된 디바이스를 만들 수 있습니다. 더 많은 사용자 지정 옵션은 [고급 디바이스 모델 만들기](iot-accelerators-device-simulation-advanced-device.md)를 참조하세요.
 
-이 자습서에서는 다음을 수행했습니다.
+이 자습서에서는 다음을 수행합니다.
 
 >[!div class="checklist"]
 > * 시뮬레이션된 디바이스 모델의 목록 보기
@@ -30,7 +30,7 @@ ms.locfileid: "50756791"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 실행하려면 Azure 구독에서 디바이스 시뮬레이션의 배포된 인스턴스가 필요합니다.
 
@@ -42,7 +42,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 Azure 구독 자격 증명을 사용하여 로그인하라는 메시지가 표시될 수 있습니다.
 
-그런 다음, [Azure에서 IoT 디바이스 시뮬레이션 배포 및 실행](quickstart-device-simulation-deploy.md) 빠른 시작에서 배포한 디바이스 시뮬레이션에 대한 타일에서 **시작**을 클릭합니다.
+그런 다음, **Azure에서 IoT 디바이스 시뮬레이션 배포 및 실행** 빠른 시작에서 배포한 디바이스 시뮬레이션에 대한 타일에서 [시작](quickstart-device-simulation-deploy.md)을 클릭합니다.
 
 ## <a name="view-your-device-models"></a>디바이스 모델 보기
 
@@ -101,4 +101,4 @@ Azure 구독 자격 증명을 사용하여 로그인하라는 메시지가 표�
 이 자습서에서는 사용자 지정 디바이스 모델을 생성, 복제 및 삭제하는 방법을 알아보았습니다. 디바이스 모델에 대해 자세히 알아보려면 다음 방법 문서를 참조하세요.
 
 > [!div class="nextstepaction"]
-> [고급 장치 모델 만들기](iot-accelerators-device-simulation-advanced-device.md)
+> [고급 디바이스 모델 만들기](iot-accelerators-device-simulation-advanced-device.md)

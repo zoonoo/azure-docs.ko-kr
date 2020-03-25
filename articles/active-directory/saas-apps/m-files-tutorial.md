@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
 ms.openlocfilehash: 41877db250cd6c56d80dbdf98fa0d78562686bfd
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73159456"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-m-files"></a>자습서: M-Files와 Azure Active Directory 통합
+# <a name="tutorial-azure-active-directory-integration-with-m-files"></a>자습서: Azure Active Directory와 M-Files 통합
 
 이 자습서에서는 Azure AD(Azure Active Directory)와 M-Files를 통합하는 방법에 대해 알아봅니다.
 M-Files를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
@@ -31,10 +31,10 @@ M-Files를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 * 사용자가 해당 Azure AD 계정으로 M-Files에 자동으로 로그온(Single Sign-On)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 M-Files와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -137,11 +137,11 @@ M-Files에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
 
 1. **M-Files 데스크톱 설정** 창을 엽니다. 그런 다음 **추가**를 클릭합니다.
    
-    ![Configure Single Sign-On](./media/m-files-tutorial/tutorial_m_files_10.png)
+    ![Single Sign-on 구성](./media/m-files-tutorial/tutorial_m_files_10.png)
 
 1. **문서 자격 증명 모음 연결 속성** 창에서 다음 단계를 수행합니다.
    
-    ![Configure Single Sign-On](./media/m-files-tutorial/tutorial_m_files_11.png)  
+    ![Single Sign-on 구성](./media/m-files-tutorial/tutorial_m_files_11.png)  
 
     서버 섹션 아래에서 다음과 같이 값을 입력합니다.  
 
@@ -178,7 +178,7 @@ M-Files에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
     b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
-    c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
+    다. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
 

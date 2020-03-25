@@ -16,17 +16,17 @@ ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
 ms.openlocfilehash: bd54466e054055ff84cd5bb2b28c5cc074ac0017
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72026812"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pega-systems"></a>자습서: Pega Systems와 Azure Active Directory 통합
 
 이 자습서에서는 Azure AD(Azure Active Directory)와 Pega Systems를 통합하는 방법에 대해 알아봅니다.
 
-이렇게 통합하면 다음과 같은 이점이 제공됩니다.
+이 통합은 다음과 같은 이점을 제공합니다.
 
 * Azure AD를 사용하여 Pega Systems에 액세스할 수 있는 사용자를 제어할 수 있습니다.
 * 사용자가 해당 Azure AD 계정으로 Pega Systems에 자동으로 로그온(Single Sign-On)되도록 설정할 수 있습니다.
@@ -36,7 +36,7 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/) 을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Pega Systems와 Azure AD의 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -78,10 +78,10 @@ Pega Systems에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
 1. 사용자가 이 기능을 사용할 수 있도록 **[Azure AD Single Sign-On을 구성](#configure-azure-ad-single-sign-on)** 합니다.
 2. 애플리케이션 쪽에서 **[Pega Systems Single Sign-On 구성](#configure-pega-systems-single-sign-on)** 합니다.
-3. Azure AD Single Sign-On을 테스트할 **[Azure AD 테스트 사용자를 만듭니다](#create-an-azure-ad-test-user)** .
-4. 사용자가 Azure AD Single Sign-On을 사용할 수 있도록 **[Azure AD 테스트 사용자를 할당](#assign-the-azure-ad-test-user)** 합니다.
+3. **[Azure AD 테스트 사용자를 만들어](#create-an-azure-ad-test-user)** Azure AD Single Sign-On을 테스트합니다.
+4. **[Azure AD 테스트 사용자를 할당](#assign-the-azure-ad-test-user)** 하여 사용자가 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
 5. 사용자의 Azure AD 표현과 연결된 **[Pega Systems 테스트 사용자를 만듭니다](#create-a-pega-systems-test-user)** .
-6. **[Single Sign-On을 테스트](#test-single-sign-on)** 하여 구성이 작동하는지 확인합니다.
+6. **[Single Sign-On 테스트](#test-single-sign-on)** - 구성이 작동하는지 확인합니다.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
@@ -274,7 +274,7 @@ Pega Systems에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
 이제 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트해야 합니다.
 
-액세스 패널에서 Pega Systems 타일을 선택하면 SSO를 설정한 Pega Systems 인스턴스에 자동으로 로그인됩니다. 자세한 내용은 [My Apps 포털에서 앱 액세스 및 사용](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)을 참조하세요.
+액세스 패널에서 Pega Systems 타일을 선택하면 SSO를 설정한 Pega Systems 인스턴스에 자동으로 로그인됩니다. 자세한 내용은 [내 앱 포털에서 앱 액세스 및 사용](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)을 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 

@@ -11,10 +11,10 @@ ms.date: 11/29/2018
 ms.author: labrenne
 ms.custom: mvc
 ms.openlocfilehash: d4277e383a5cb69ef5395cb6dc477d888abd1d0d
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77023092"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-python-api"></a>자습서: Python API를 사용하여 Azure Batch에서 병렬 워크로드 실행
@@ -213,7 +213,7 @@ batch_service_client.job.add(job)
 
 ### <a name="create-tasks"></a>태스크 만들기
 
-이 앱은 `add_tasks`를 호출하여 작업에 태스크를 만듭니다. 이 정의된 함수는 [TaskAddParameter](/python/api/azure-batch/azure.batch.models.taskaddparameter) 클래스를 사용하여 태스크 개체 목록을 만듭니다. 각 태스크는 `command_line` 매개 변수를 사용하여 입력된 `resource_files` 개체를 처리하는 ffmpeg를 실행합니다. ffmpeg는 이전에 풀이 생성될 때 각 노드에 설치되었습니다. 여기서 명령줄은 fmpeg를 실행하여 입력된 각 MP4(비디오) 파일을 MP3(오디오) 파일로 변환합니다.
+이 앱은 `add_tasks`를 호출하여 작업에 태스크를 만듭니다. 이 정의된 함수는 [TaskAddParameter](/python/api/azure-batch/azure.batch.models.taskaddparameter) 클래스를 사용하여 태스크 개체 목록을 만듭니다. 각 태스크는 `resource_files` 매개 변수를 사용하여 입력된 `command_line` 개체를 처리하는 ffmpeg를 실행합니다. ffmpeg는 이전에 풀이 생성될 때 각 노드에 설치되었습니다. 여기서 명령줄은 fmpeg를 실행하여 입력된 각 MP4(비디오) 파일을 MP3(오디오) 파일로 변환합니다.
 
 이 샘플에서는 명령줄을 실행한 후 MP3 파일에 대한 [OutputFile](/python/api/azure-batch/azure.batch.models.outputfile) 개체를 만듭니다. 각 태스크의 출력 파일(이 경우에는 하나)은 태스크의 `output_files` 속성을 사용하여 연결된 스토리지 계정의 컨테이너에 업로드됩니다.
 

@@ -17,13 +17,13 @@ ms.date: 04/24/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 07b0f8112f724c857ffb46378f7aa7ef605b9bbb
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68943285"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-zscaler-beta"></a>자습서: Zscaler Beta와 Azure Active Directory 통합
+# <a name="tutorial-azure-active-directory-integration-with-zscaler-beta"></a>자습서: Azure Active Directory와 Zscaler Beta 통합
 
 이 자습서에서는 Azure AD(Azure Active Directory)와 Zscaler Beta를 통합하는 방법에 대해 알아봅니다.
 Azure AD와 Zscaler Beta를 통합하는 경우 다음을 수행할 수 있습니다.
@@ -35,7 +35,7 @@ Azure AD와 Zscaler Beta를 통합하는 경우 다음을 수행할 수 있습�
 Azure AD와의 SaaS(Software as a Service) 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Zscaler Beta와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -118,7 +118,7 @@ Zscaler Beta에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
 6. Zscaler Beta 애플리케이션을 사용하려면 몇 가지 추가 특성이 SAML 응답을 통해 다시 전달되어야 합니다. **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 다음 단계를 수행하여 아래 표처럼 SAML 토큰 특성을 추가합니다.
     
-    | Name | 원본 특성 | 
+    | 속성 | 원본 특성 | 
     | ---------------| --------------- |
     | memberOf  | user.assignedroles |
 
@@ -163,7 +163,7 @@ Zscaler Beta에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
 2. 브라우저에 확장을 추가하면 **Zscaler Beta 설정**에서 Zscaler Beta 애플리케이션으로 안내합니다. 여기서 관리자 자격 증명을 입력하여 Zscaler Beta에 로그인합니다. 브라우저 확장이 애플리케이션을 자동으로 구성하고 3-6단계를 자동으로 수행합니다.
 
-    ![구성 설정](common/setup-sso.png)
+    ![설정 구성](common/setup-sso.png)
 
 3. Zscaler Beta를 수동으로 설정하려면 새 웹 브라우저 창을 엽니다. Zscaler Beta 회사 사이트에 관리자로 로그인하고, 다음 단계를 수행합니다.
 
@@ -214,7 +214,7 @@ Internet Explorer에서 프록시 설정을 구성하려면 다음 단계를 수
 
 3. **연결** 탭을 선택합니다. 
   
-     ![연결 탭](./media/zscaler-beta-tutorial/ic769493.png "연결")
+     ![연결 탭](./media/zscaler-beta-tutorial/ic769493.png "Connections")
 
 4. **LAN 설정**을 선택하여 **LAN 설정** 대화 상자를 엽니다.
 
@@ -252,7 +252,7 @@ Azure Portal에서 Britta Simon이라는 테스트 사용자를 만듭니다.
 
     a. **이름** 상자에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 상자에 `brittasimon@yourcompanydomain.extension`을 입력합니다. 예는 BrittaSimon@contoso.com입니다.
+    b. **사용자 이름** 상자에 `brittasimon@yourcompanydomain.extension`을 입력합니다. 예제는 BrittaSimon@contoso.com입니다.
 
     다. **암호 표시** 확인란을 선택합니다. **암호** 상자에 표시되는 값을 적어 둡니다.
 
@@ -305,7 +305,7 @@ Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 Zscaler Beta�
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Azure Active Directory를 사용하여 SaaS 앱을 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 - [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

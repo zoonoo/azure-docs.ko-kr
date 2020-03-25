@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 01/01/2020
 ms.custom: mvc
 ms.openlocfilehash: 1d327f558806e0205540c183c56b92ba31e33cb7
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77031223"
 ---
 # <a name="prepare-for-assessment-and-migration-of-hyper-v-vms-to-azure"></a>평가하고 Azure로 마이그레이션할 Hyper-V VM 준비
@@ -39,7 +39,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 Azure Migrate 배포를 위한 권한을 설정해야 합니다.
 
-**Task** | **권한**
+**Task** | **사용 권한**
 --- | ---
 **Azure Migrate 프로젝트 만들기** | Azure 계정에는 프로젝트를 만들 수 있는 권한이 필요합니다.
 **Azure Migrate 어플라이언스 등록** | Azure Migrate는 경량 Azure Migrate 어플라이언스를 사용하여 Azure Migrate 서버 평가를 통해 Hyper-V VM을 검색하고 평가합니다. 이 어플라이언스는 VM을 검색하고 VM 메타데이터 및 성능 데이터를 Azure Migrate로 보냅니다.<br/><br/>어플라이언스를 등록하는 동안 어플라이언스(Microsoft.OffAzure, Microsoft.Migrate 및 Microsoft.KeyVault)에서 선택한 구독으로 다음 리소스 공급자가 등록됩니다. 리소스 공급자를 등록하면 구독이 리소스 공급자에서 작동하도록 구성됩니다. 리소스 공급자를 등록하려면 구독에 대한 기여자 또는 소유자 역할이 필요합니다.<br/><br/> 온보딩의 일환으로 Azure Migrate는 Azure AD(Azure Active Directory) 앱을 만듭니다.<br/> AAD 앱은 Azure에서 실행되는 각각의 서비스와 어플라이언스에서 실행되는 에이전트 간의 통신(인증 및 권한 부여)에 사용됩니다. 이 앱에는 모든 리소스에 대한 ARM 호출 또는 RBAC 액세스를 수행할 수 있는 권한이 없습니다.
@@ -79,13 +79,13 @@ Azure Migrate 프로젝트를 만들 수 있는 권한이 있는지 확인합니
     ![Azure AD 권한](./media/tutorial-prepare-hyper-v/aad.png)
 
 > [!NOTE]
-> 이것이 중요한 내용이 포함되지 않는 기본 설정입니다. [자세히 알아보기](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-applications-are-added#who-has-permission-to-add-applications-to-my-azure-ad-instance).
+> 이것이 중요한 내용이 포함되지 않는 기본 설정입니다. [자세히 알아봅니다](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-applications-are-added#who-has-permission-to-add-applications-to-my-azure-ad-instance).
 
 
 
 #### <a name="assign-application-developer-role"></a>애플리케이션 개발자 역할 할당
 
-테넌트/글로벌 관리자는 애플리케이션 개발자 역할을 계정에 할당할 수 있습니다. [자세히 알아보기](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
+테넌트/글로벌 관리자는 애플리케이션 개발자 역할을 계정에 할당할 수 있습니다. [자세히 알아봅니다](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
 
 
 ## <a name="prepare-hyper-v-for-assessment"></a>평가를 위한 Hyper-V 준비

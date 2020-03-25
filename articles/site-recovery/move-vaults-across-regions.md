@@ -9,10 +9,10 @@ ms.date: 07/31/2019
 ms.author: rajanaki
 ms.custom: MVC
 ms.openlocfilehash: 32dff9a165125ab1949560ce36438ae266cd3036
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74090304"
 ---
 # <a name="move-a-recovery-services-vault-and-azure-site-recovery-configuration-to-another-azure-region"></a>Recovery Services 자격 증명 모음 및 Azure Site Recovery 구성을 다른 Azure 지역으로 이동
@@ -33,7 +33,7 @@ ms.locfileid: "74090304"
 > [!IMPORTANT]
 > 현재는 Recovery Services 자격 증명 모음과 재해 복구 구성을 있는 그대로 다른 지역으로 이동하는 최상의 방법은 없습니다. 이 문서에서는 복제를 사용하지 않도록 설정하고 새 지역에서 설정하는 과정을 안내합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure VM을 다른 지역으로 이동하기 전에 재해 복구 구성을 제거하고 삭제해야 합니다. 
 

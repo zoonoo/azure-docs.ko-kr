@@ -10,10 +10,10 @@ ms.date: 03/12/2018
 ms.author: tarcher
 ms.custom: Jenkins
 ms.openlocfilehash: 5439de30b02b0ce05853c8112f9e29239743ef98
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67182823"
 ---
 1. 브라우저에서 [Azure Marketplace image for Jenkins](https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.jenkins?tab=Overview)(Jenkins용 Azure Marketplace 이미지)를 엽니다.
@@ -62,7 +62,7 @@ ms.locfileid: "67182823"
 1. **통합 설정** 탭에서 다음 값을 지정합니다.
 
     - **서비스 사용자** - Azure와의 인증을 위한 자격 증명으로 Jenkins에 추가됩니다. `Auto`는 MSI(관리 서비스 ID)에서 서비스 사용자를 만든다는 것을 의미합니다. `Manual`은 서비스 사용자를 직접 만들어야 함을 의미합니다. 
-        - **애플리케이션 ID** 및 **비밀** - **서비스 사용자** 옵션에 대해 `Manual` 옵션을 선택하는 경우 서비스 사용자에 대해 `Application ID` 및 `Secret`을 지정해야 합니다. [서비스 사용자를 만들](/cli/azure/create-an-azure-service-principal-azure-cli) 때 기본 역할은 Azure 리소스를 사용하는 데 충분한 **참가자**입니다.
+        - **애플리케이션 ID** 및 **비밀** - `Manual`서비스 사용자**옵션에 대해** 옵션을 선택하는 경우 서비스 사용자에 대해 `Application ID` 및 `Secret`을 지정해야 합니다. [서비스 사용자를 만들](/cli/azure/create-an-azure-service-principal-azure-cli) 때 기본 역할은 Azure 리소스를 사용하는 데 충분한 **참가자**입니다.
     - **클라우드 에이전트 사용** - `ACI`가 Azure Container Instances를 참조하고 `VM`이 가상 머신을 참조하는 에이전트에 대한 기본 클라우드 템플릿을 지정합니다. 클라우드 에이전트를 사용하지 않도록 설정하려면 `No`를 지정할 수도 있습니다.
 
 1. **확인**을 선택하여 **요약** 탭으로 이동합니다.

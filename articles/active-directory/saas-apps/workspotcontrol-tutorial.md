@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 3/11/2019
 ms.author: jeedes
 ms.openlocfilehash: 086ec95531b01477be56d4b1a19d189f167a020f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67086673"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workspot-control"></a>자습서: Workspot Control과 Azure Active Directory 통합
@@ -32,7 +32,7 @@ ms.locfileid: "67086673"
 
 Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure AD의 애플리케이션에 대한 Single Sign-On](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Workspot Control와의 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 

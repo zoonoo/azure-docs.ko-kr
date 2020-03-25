@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/20/2018
 ms.openlocfilehash: 2c89b53d66b93ff38a7cff07b2889faf8eda24ce
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75439305"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>SQL Server의 여러 테이블에서 Azure SQL 데이터베이스로 데이터 증분 로드
@@ -267,7 +267,7 @@ END
 1. **자체 호스팅**을 선택하고 **계속**을 클릭합니다. 
 1. **이름**에 대해 **MySelfHostedIR**을 입력하고 **만들기**를 클릭합니다. 
 
-1. 다음 위치에서 **이 컴퓨터에 대한 기본 설치를 시작하려면 여기를 클릭하세요**를 클릭합니다. **옵션 1: 빠른 설치** 섹션 
+1. **옵션 1: 빠른 설치** 섹션에서 **Click here to launch the express setup for this computer**(이 컴퓨터에 대한 빠른 설치를 시작하려면 여기를 클릭하세요.)를 클릭합니다. 
 
    ![빠른 설치 링크 클릭](./media/tutorial-incremental-copy-multiple-tables-portal/click-express-setup.png)
 1. **Integration Runtime(자체 호스팅) 빠른 설치** 창에서 **닫기**를 클릭합니다. 
@@ -396,7 +396,7 @@ END
 
 1. **활동** 도구 상자에서 **반복 및 조건부**를 펼치고, **ForEach** 활동을 파이프라인 디자이너 화면으로 끌어서 놓습니다. **속성** 창의 **일반** 탭에서 **IterateSQLTables**를 입력합니다. 
 
-1. **설정** 탭으로 전환하고 **항목**에 대해 `@pipeline().parameters.tableList`를 입력합니다. ForEach 작업은 테이블 목록을 반복하고 증분 복사 작업을 수행합니다. 
+1. **설정** 탭으로 전환하고 `@pipeline().parameters.tableList`항목**에 대해** 를 입력합니다. ForEach 작업은 테이블 목록을 반복하고 증분 복사 작업을 수행합니다. 
 
     ![ForEach 활동 - 설정](./media/tutorial-incremental-copy-multiple-tables-portal/foreach-settings.png)
 

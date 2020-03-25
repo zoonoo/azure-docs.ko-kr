@@ -17,10 +17,10 @@ ms.author: cynthn
 ms.custom: mvc
 ms.subservice: disks
 ms.openlocfilehash: b288091172c71be82e70d90eb8817b2130f2cbef
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76277303"
 ---
 # <a name="tutorial---manage-azure-disks-with-azure-powershell"></a>자습서- Azure PowerShell을 사용하여 Azure 디스크 관리
@@ -144,7 +144,7 @@ Get-Disk | Where partitionstyle -eq 'raw' |
 
 ## <a name="verify-the-data-disk"></a>데이터 디스크 확인
 
-데이터 디스크가 연결되어 있는지를 확인하려면 연결된 `DataDisks`에 대한 `StorageProfile`을 확인합니다.
+데이터 디스크가 연결되어 있는지를 확인하려면 연결된 `StorageProfile`에 대한 `DataDisks`을 확인합니다.
 
 ```azurepowershell-interactive
 $vm.StorageProfile.DataDisks

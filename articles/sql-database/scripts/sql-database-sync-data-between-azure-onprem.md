@@ -12,10 +12,10 @@ ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 03/12/2019
 ms.openlocfilehash: d8fa054bc418fc3230c1a69fb2767faadc59a9a8
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74421888"
 ---
 # <a name="use-powershell-to-sync-between-a-sql-database-and-a-sql-server-on-premises-database"></a>PowerShell을 사용하여 SQL Database와 SQL Server 온-프레미스 데이터베이스 간 동기화
@@ -33,14 +33,14 @@ SQL 데이터 동기화에 대한 개요는 [Azure SQL 데이터 동기화를 �
 > [!IMPORTANT]
 > Azure SQL 데이터 동기화는 현재 Azure SQL Database Managed Instance를 지원하지 않습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - AdventureWorksLT 샘플 데이터베이스에서 허브 데이터베이스로 Azure SQL 데이터베이스 만들기
 - 동기화 데이터베이스와 동일한 지역에 Azure SQL 데이터베이스 만들기
 - 온-프레미스 SQL Server 데이터베이스를 구성원 데이터베이스로 만들기
 - 예제를 실행하기 전에 매개 변수 자리 표시자를 업데이트합니다.
 
-## <a name="example"></a>예
+## <a name="example"></a>예제
 
 ```powershell-interactive
 using namespace Microsoft.Azure.Commands.Sql.DataSync.Model
