@@ -15,7 +15,7 @@
         - name: 작성자 가상 머신 제품
           href: ./cloud-partner-portal-publish-virtual-machine.md
           items:
-            - name: 필수 조건
+            - name: 사전 요구 사항
               href: './cloud-partner-portal-publish-virtual-machine.md#what-are-pre-requisites-for-publishing-a-vm'
             - name: Microsoft 개발자 계정 등록
               href: ./cloud-partner-portal-dev-center-accounts-registration.md

@@ -9,10 +9,10 @@ ms.date: 12/19/2019
 ms.author: jenhayes
 ms.custom: include file
 ms.openlocfilehash: e32b55ed655b1e47f85640eb7f494a89f3274667
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/25/2020
 ms.locfileid: "75456764"
 ---
 특정 온보딩 시나리오를 해결하기 위해 다른 템플릿을 제공합니다. 가장 적합한 옵션을 선택하고 사용자 환경에 맞게 매개 변수 파일을 수정해야 합니다. 배포에서 이러한 파일을 사용하는 방법에 대한 자세한 내용은 [Azure 위임 리소스 관리에 고객 등록](../articles/lighthouse/how-to/onboard-customer.md) 을 참조하세요.

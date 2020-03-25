@@ -79,7 +79,7 @@
       href: /azure/templates/microsoft.netapp/allversions
 - name: 리소스
   items:
-    - name: 가격 책정
+    - name: 가격
       href: 'https://azure.microsoft.com/pricing/details/netapp/'
     - name: 국가별 가용성
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=netapp'

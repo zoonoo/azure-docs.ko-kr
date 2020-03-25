@@ -49,7 +49,7 @@ sections:
           - html: '<a href="https://github.com/Azure/azure-notificationhubs-dotnet">.NET SDK</a>'
           - html: '<a href="https://github.com/Azure/azure-notificationhubs-samples">샘플 리포지토리(다른 플랫폼)</a>'
           - html: <a href="/azure/notification-hubs/samples-powershell">PowerShell</a>
-  - title: 참고 자료
+  - title: 참조
     items:
       - type: list
         style: unordered

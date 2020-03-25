@@ -36,7 +36,7 @@
   href: using-cloud-shell-editor.md
 - name: 문제 해결 및 제한 사항
   href: troubleshooting.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: Azure CLI
       href: /cli/azure

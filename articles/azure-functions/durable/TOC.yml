@@ -73,7 +73,7 @@
       href: durable-functions-perf-and-scale.md
     - name: 고가용성
       href: durable-functions-disaster-recovery-geo-distribution.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: Host.json 설정
       href: 'durable-functions-bindings.md#host-json'

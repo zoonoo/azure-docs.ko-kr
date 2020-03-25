@@ -4,15 +4,15 @@ description: 캐나다 연방 PBMM 청사진 샘플에 대한 개요입니다. �
 ms.date: 09/04/2019
 ms.topic: sample
 ms.openlocfilehash: c1c5f9c6ec8dc49db4c93d0fbf9caa379a4ab160
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/25/2020
 ms.locfileid: "74544501"
 ---
 # <a name="overview-of-the-canada-federal-pbmm-blueprint-sample"></a>캐나다 연방 PBMM 청사진 샘플 개요
 
-캐나다 연방 보호 B, 중간 무결성, 중간 가용성(PBMM) 청사진 샘플은 [캐나다 연방 PBMM](https://www.canada.ca/en/government/system/digital-government/modern-emerging-technologies/cloud-services/government-canada-security-control-profile-cloud-based-it-services.html#toc4) 증명에 도움을 주는 [Azure Policy](../../../policy/overview.md)를 사용하여 일련의 거버넌스 가드 레일을 제공합니다. 
+캐나다 연방 보호 B, 중간 무결성, 중간 가용성(PBMM) 청사진 샘플은 [캐나다 연방 PBMM](../../../policy/overview.md) 증명에 도움을 주는 [Azure Policy](https://www.canada.ca/en/government/system/digital-government/modern-emerging-technologies/cloud-services/government-canada-security-control-profile-cloud-based-it-services.html#toc4)를 사용하여 일련의 거버넌스 가드 레일을 제공합니다. 
 
 ## <a name="blueprint-sample"></a>청사진 샘플
 

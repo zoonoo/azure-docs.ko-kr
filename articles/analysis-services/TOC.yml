@@ -42,7 +42,7 @@
   items:
     - name: 서버
       items:
-        - name: Backup 및 복원
+        - name: 백업 및 복원
           href: analysis-services-backup.md
         - name: 서버 이름 별칭 구성
           href: analysis-services-server-alias.md
@@ -90,7 +90,7 @@
           href: analysis-services-connect-pbi.md
         - name: .odc 파일 만들기
           href: analysis-services-odc.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: PowerShell
       href: analysis-services-powershell.md

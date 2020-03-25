@@ -35,7 +35,7 @@
       href: concept-usage-insights-report.md
     - name: 위험한 로그인
       href: concept-risky-sign-ins.md
-    - name: 위험 검색
+    - name: 위험 탐지
       href: concept-risk-events.md
     - name: 위험에 노출된 사용자
       href: concept-user-at-risk.md
@@ -82,7 +82,7 @@
           href: troubleshoot-missing-data-download.md
         - name: 보고를 위한 Graph API에 액세스할 수 없음
           href: troubleshoot-graph-api.md
-- name: 참고 자료
+- name: 참조
   expanded: true
   items:
     - name: 보고용 Azure AD PowerShell cmdlet

@@ -48,7 +48,7 @@
   items:
     - name: Anomaly Detection API 모범 사례
       href: concepts/anomaly-detection-best-practices.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: REST API 참조
       href: 'https://aka.ms/anomaly-detector-rest-api-ref'

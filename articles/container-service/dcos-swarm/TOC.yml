@@ -65,7 +65,7 @@
           href: container-service-docker-swarm-setup-ci-cd.md
         - name: Docker Swarm(ACS 엔진) 및 Azure DevOps를 사용하는 CI/CD
           href: container-service-docker-swarm-mode-setup-ci-cd-acs-engine.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: Azure CLI
       href: /cli/azure/acs

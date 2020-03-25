@@ -16,7 +16,7 @@
       href: tutorial-use-custom-lab.md
 - name: 샘플
   items:
-    - name: Resource Manager 템플릿
+    - name: 리소스 관리자 템플릿
       href: 'https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates'
     - name: Azure PowerShell
       href: samples-powershell.md
@@ -259,7 +259,7 @@
   items:
     - name: Azure 업데이트
       href: 'https://azure.microsoft.com/updates/?product=devtest-lab'
-    - name: 가격 책정
+    - name: 가격
       href: 'https://azure.microsoft.com/pricing/details/devtest-lab/'
     - name: MSDN 포럼
       href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDevTestLabs'

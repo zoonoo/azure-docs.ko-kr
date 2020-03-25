@@ -63,7 +63,7 @@
       href: concepts/get-videos.md
     - name: 검색 요청 보내기
       href: concepts/sending-requests.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: Bing Video Search API v7
       href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference'

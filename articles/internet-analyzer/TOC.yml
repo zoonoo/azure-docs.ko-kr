@@ -2,7 +2,7 @@
   href: index.yml
 - name: 개요
   items:
-    - name: 인터넷 분석기 정보
+    - name: Internet Analyzer 정보
       href: internet-analyzer-overview.md
 - name: 자습서
   items:

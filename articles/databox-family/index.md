@@ -12,10 +12,10 @@ ms.topic: hub-page
 ms.date: 10/28/2019
 ms.author: alkohli
 ms.openlocfilehash: e2a3d17dda5f0d7a1cecc13583981d3659775283
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/25/2020
 ms.locfileid: "73583196"
 ---
 <div id="main" class="v2">
@@ -35,7 +35,7 @@ ms.locfileid: "73583196"
                             </div>
                         </div>
                         <div class="cardText">
-                            <p>데이터 크기가 &lt; 40TB인 <b>Data Box Disk</b>. Microsoft에서 데이터를 복사하고 반송하도록 1-5개의 암호화된 SSD(반도체 드라이브)를 배송합니다.</p>
+                            <p>데이터 크기가 <b> 40TB인 </b>Data Box Disk&lt;. Microsoft에서 데이터를 복사하고 반송하도록 1-5개의 암호화된 SSD(반도체 드라이브)를 배송합니다.</p>
                         </div>
                     </div>
                 </div>
@@ -71,7 +71,7 @@ ms.locfileid: "73583196"
                             </div>
                         </div>
                         <div class="cardText">
-                            <p>데이터 크기가 &gt; 500TB인 <b>Data Box Heavy</b>. Microsoft에서 데이터를 복사하고 반송하도록 1PB(페타바이트) 디바이스 하나를 화물로 배송합니다.</p>
+                            <p>데이터 크기가 <b> 500TB인 </b>Data Box Heavy&gt;. Microsoft에서 데이터를 복사하고 반송하도록 1PB(페타바이트) 디바이스 하나를 화물로 배송합니다.</p>
                         </div>
                     </div>
                 </div>

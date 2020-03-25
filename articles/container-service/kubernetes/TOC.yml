@@ -61,7 +61,7 @@
           href: container-service-deploy-spring-boot-app-on-kubernetes.md
         - name: fabric8 Maven 플러그 인을 사용하여 Spring Boot 앱 배포
           href: container-service-deploy-spring-boot-app-using-fabric8-maven-plugin.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: Azure CLI
       href: /cli/azure/acs

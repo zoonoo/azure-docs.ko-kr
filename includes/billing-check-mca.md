@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 02/28/2019
 ms.author: amberb
 ms.openlocfilehash: 58bf7c300d7f52807bd255da62bf1cc452883811
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75779351"
 ---
 계약 유형을 검사하여 Microsoft 고객 계약의 청구 계정에 액세스할 수 있는지 확인합니다.

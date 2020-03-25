@@ -46,7 +46,7 @@
   items:
     - name: 코드 샘플
       href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Spell+Check'
-- name: 참고 자료
+- name: 참조
   items:
     - name: Bing Spell Check API v7
       href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference'

@@ -75,7 +75,7 @@
               href: ../openshift/tutorial-scale-cluster.md
             - name: 3- Azure Red Hat OpenShift 클러스터 삭제
               href: ../openshift/tutorial-delete-cluster.md
-    - name: 참고 자료
+    - name: 참조
       items:
         - name: Azure Container Instances(az container)
           href: 'https://docs.microsoft.com/cli/azure/container'

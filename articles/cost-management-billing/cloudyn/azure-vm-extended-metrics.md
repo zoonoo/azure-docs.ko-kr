@@ -1,20 +1,20 @@
 ---
-title: Azure Virtual Machines에 대한 확장 메트릭 추가 | Microsoft Docs
+title: Azure Virtual Machines에 대한 확장 메트릭 추가
 description: 이 문서를 통해 Azure VM에 대해 확장 진단 메트릭을 사용하고 구성할 수 있습니다.
-keywords: ''
 author: bandersmsft
 ms.reviewer: vitavor
 ms.author: banders
-ms.date: 01/24/2020
+ms.date: 03/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.custom: seodec18
-ms.openlocfilehash: 84a9d6aa6203b8a518b0e33bed0ec2707c4389a1
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ROBOTS: NOINDEX
+ms.openlocfilehash: b4c646f3d42edc39f457cd735f16409f4ef05d2c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79082917"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79481622"
 ---
 # <a name="add-extended-metrics-for-azure-virtual-machines"></a>Azure Virtual Machines에 대한 확장 메트릭 추가
 
@@ -30,7 +30,9 @@ Cloudyn은 Azure VM의 Azure 메트릭 데이터를 사용하여 리소스 관�
 예를 들어 Azure VM의 CPU %와 메모리 %를 모니터링하고자 할 수 있습니다. Azure VM 메트릭은 _백분율 CPU_ 및 _\Memory\% 사용 중인 커밋된 바이트_에 해당합니다.
 
 > [!NOTE]
-> 확장 메트릭 데이터 수집은 Azure 게스트 수준 모니터링을 통해서만 지원됩니다. Cloudyn은 [Log Analytics 에이전트](../../azure-monitor/platform/agents-overview.md)와 호환되지 않습니다. 
+> 확장 메트릭 데이터 수집은 Azure 게스트 수준 모니터링을 통해서만 지원됩니다. Cloudyn은 [Log Analytics 에이전트](../../azure-monitor/platform/agents-overview.md)와 호환되지 않습니다.
+
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 
 ## <a name="determine-whether-extended-metrics-are-enabled"></a>확장 메트릭을 사용하도록 설정되었는지 확인
 

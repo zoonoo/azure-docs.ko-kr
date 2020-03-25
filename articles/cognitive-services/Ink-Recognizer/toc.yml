@@ -14,7 +14,7 @@
           href: quickstarts/csharp.md
         - name: Java
           href: quickstarts/java.md
-        - name: JavaScript
+        - name: Javascript
           href: quickstarts/javascript.md
 - name: 개념
   items:
@@ -32,7 +32,7 @@
       href: 'https://go.microsoft.com/fwlink/?linkid=2089906'
     - name: Swift 및 iOS 모바일 앱
       href: 'https://go.microsoft.com/fwlink/?linkid=2089805'
-- name: 참고 자료
+- name: 참조
   items:
     - name: REST API 참조
       href: 'https://go.microsoft.com/fwlink/?linkid=2089907'

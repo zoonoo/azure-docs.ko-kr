@@ -83,8 +83,6 @@
       items:
         - name: Azure EA 포털에서 시작
           href: ea-portal-get-started.md
-        - name: EA 요금 청구 이해
-          href: ../understand/review-enterprise-agreement-bill.md
         - name: Azure의 EA 역할
           href: understand-ea-roles.md
         - name: Azure EA Portal 관리

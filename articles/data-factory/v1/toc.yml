@@ -181,7 +181,7 @@
           href: data-factory-troubleshoot-gateway-issues.md
     - name: 저장 프로시저 작업을 사용하여 SSIS 패키지 호출
       href: how-to-invoke-ssis-package-stored-procedure-activity.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: 코드 샘플
       href: 'https://azure.microsoft.com/resources/samples/?service=data-factory'

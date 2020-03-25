@@ -75,7 +75,7 @@
       items:
         - name: 개요
           href: encoding-concept.md
-          displayName: 'encoding, presets, jobs, adaptive, bitrate, billing'
+          displayName: 'encode, encoding, presets, jobs, adaptive, bitrate, billing'
         - name: 표준 인코더 형식
           displayName: 'containers, codecs'
           href: media-encoder-standard-formats.md
@@ -87,7 +87,7 @@
       items:
         - name: 개요
           href: analyzing-video-audio-files-concept.md
-          displayName: 'analyzing, presets, jobs'
+          displayName: 'analyze, analyzing, presets, jobs'
         - name: Transform 및 Job
           href: transforms-jobs-concept.md
     - name: 라이브 스트리밍
@@ -113,7 +113,7 @@
     - name: 패키징 및 제공
       items:
         - name: 동적 패키징
-          displayName: 'origin, packager, HLS, DASH, CMAF, Smooth, manifest, deliver, format, URL, streaming'
+          displayName: 'origin, packager, HLS, DASH, CMAF, Smooth, manifest, deliver, format, URL, streaming, audio, video'
           href: dynamic-packaging-overview.md
         - name: 동적 매니페스트
           href: filters-dynamic-manifest-overview.md
@@ -202,20 +202,13 @@
     - name: 시작하기
       items:
         - name: 계정 만들기
-          items:
-            - name: 포털 사용
-              href: create-account-portal.md
-            - name: CLI 사용
-              href: create-account-cli-how-to.md
-              displayName: storage
+          href: create-account-howto.md
+          displayName: 'portal, cli, storage'
         - name: 계정 자격 증명을 다시 설정합니다.
           href: cli-reset-account-credentials.md
-        - name: API 액세스
-          items:
-            - name: 포털 사용
-              href: access-api-portal.md
-            - name: CLI 사용
-              href: access-api-cli-how-to.md
+        - name: 액세스 API
+          displayName: 'portal, cli'
+          href: access-api-howto.md
         - name: 미디어 예약 단위 크기 조정
           href: media-reserved-units-cli-how-to.md
         - name: 자산 만들기
@@ -344,6 +337,7 @@
     - name: 문제 해결
       items:
         - name: 질문과 대답
+          displayName: faqs
           href: frequently-asked-questions.md
         - name: 오류 코드
           items:
@@ -359,7 +353,7 @@
       href: 'https://aka.ms/ams-v3-rest-sdk'
       displayName: schema
     - name: REST (영문)
-      href: 'https://aka.ms/ams-v3-rest-ref'
+      href: 'https://docs.microsoft.com/rest/api/media/'
     - name: Azure CLI
       href: 'https://aka.ms/ams-v3-cli-ref'
     - name: SDK
@@ -383,7 +377,7 @@
       href: media-services-community.md
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/?category=web-mobile'
-    - name: 가격 책정
+    - name: 가격
       href: 'https://azure.microsoft.com/pricing/details/media-services/'
     - name: 동영상
       href: 'https://azure.microsoft.com/resources/videos/index/?services=media-services'

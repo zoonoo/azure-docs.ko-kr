@@ -4,7 +4,7 @@
   items:
     - name: Stretch Database란?
       href: /sql/sql-server/stretch-database/stretch-database
-    - name: 제한 및 차단 문제
+    - name: 제한 사항 및 차단 문제
       href: /sql/sql-server/stretch-database/limitations-for-stretch-database
 - name: 시작
   items:
@@ -36,7 +36,7 @@
           href: /sql/sql-server/stretch-database/restore-stretch-enabled-databases-stretch-database
         - name: Stretch Database 사용 안 함
           href: /sql/sql-server/stretch-database/disable-stretch-database-and-bring-back-remote-data
-- name: 참고 자료
+- name: 참조
   items:
     - name: 코드 샘플
       href: 'https://azure.microsoft.com/resources/samples/?service=sql-server-database'
