@@ -3,18 +3,17 @@ title: Azure 등록 문제 해결
 description: Microsoft Azure Portal 계정 센터에서 새 계정을 등록할 때 발생하는 문제를 해결합니다.
 author: v-miegge
 ms.reviewer: dcscontentpm
-editor: v-jesits
 tags: billing
 ms.service: cost-management-billing
 ms.topic: troubleshooting
 ms.date: 02/12/2020
 ms.author: v-miegge
-ms.openlocfilehash: e6f6866cdcfb53782c7dbb18bb76143eb76755f9
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 04e7e3e2818968cd14cd5caf606155171a25e5e9
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200506"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79202831"
 ---
 # <a name="troubleshoot-azure-sign-up"></a>Azure 등록 문제 해결
 

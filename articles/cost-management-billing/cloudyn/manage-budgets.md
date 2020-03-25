@@ -1,20 +1,20 @@
 ---
 title: Azure에서 Cloudyn 예산 관리
 description: 이 문서는 신속하게 예산을 만들고 Cloudyn에서 관리를 시작하는 데 유용합니다.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/24/2020
+ms.date: 03/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: vitavor
 ms.custom: seodec18
-ms.openlocfilehash: 1436c9b3b612a231760b6cdb04b5166fb45d7962
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ROBOTS: NOINDEX
+ms.openlocfilehash: f2f8fdbf2b470e9f1eb0d82c4c6de230c2a9e78f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201138"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79464158"
 ---
 # <a name="manage-azure-budgets-with-cloudyn"></a>Cloudyn을 사용하여 Azure 예산 관리
 
@@ -27,6 +27,8 @@ Enterprise 또는 MSP 계정이 있는 경우 계층적 비용 엔터티 구조�
 예산 보고서는 할당된 예산을 보여 줍니다. 사용자는 자신의 지출이 시간에 따라 초과, 미만 또는 소비의 액면가일 때를 확인할 수 있습니다. 예산 보고서의 맨 위에서 **필드 표시/숨기기**를 선택하면 비용, 예산, 축적된 비용 또는 총 예산을 볼 수 있습니다.
 
 Azure Cost Management는 Cloudyn과 비슷한 기능을 제공합니다. Azure Cost Management는 기본 Azure 비용 관리 솔루션입니다. 이 솔루션을 사용하면 비용을 분석하고, 예산을 작성 및 관리하고, 데이터를 내보내고, 비용 절약을 위한 최적화 권장 사항을 검토하고 필요한 조치를 취할 수 있습니다. Cost Management의 예산에 대한 자세한 내용은 [예산 만들기 및 관리](../costs/tutorial-acm-create-budgets.md)를 참조하세요.
+
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 
 ## <a name="create-budgets"></a>예산 만들기
 

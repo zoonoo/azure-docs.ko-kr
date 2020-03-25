@@ -4,15 +4,15 @@ description: Media 청사진 샘플에 대한 개요입니다. 이 청사진 샘
 ms.date: 02/26/2020
 ms.topic: sample
 ms.openlocfilehash: ee4f15d52eea668ebffb8d5f639dd9c86ae04610
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/25/2020
 ms.locfileid: "78201509"
 ---
 # <a name="overview-of-the-media-blueprint-sample"></a>Media 청사진 샘플의 개요
 
-Media 청사진 샘플은 [Media](https://www.hhs.gov/hipaa/for-professionals/security/laws-regulations/index.html) 증명에 도움이 되는 [Azure Policy](../../../policy/overview.md)를 사용하여 일련의 거버넌스 가드 레일을 제공합니다. 
+Media 청사진 샘플은 [Media](../../../policy/overview.md) 증명에 도움이 되는 [Azure Policy](https://www.hhs.gov/hipaa/for-professionals/security/laws-regulations/index.html)를 사용하여 일련의 거버넌스 가드 레일을 제공합니다. 
 
 ## <a name="blueprint-sample"></a>청사진 샘플
 

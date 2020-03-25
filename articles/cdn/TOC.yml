@@ -85,7 +85,7 @@
           items:
             - name: Azure 웹 콘텐츠
               href: cdn-manage-expiration-of-cloud-service-content.md
-            - name: Azure Blob 스토리지
+            - name: Azure BLOB 스토리지
               href: cdn-manage-expiration-of-blob-content.md
         - name: 토큰 인증
           href: cdn-token-auth.md
@@ -185,7 +185,7 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: MSDN 포럼
       href: 'https://social.msdn.microsoft.com/Forums/home?forum=azurecdn'
-    - name: 가격 책정
+    - name: 가격
       href: 'https://azure.microsoft.com/pricing/details/cdn/'
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'

@@ -46,12 +46,6 @@
           href: prevent-translation.md
         - name: 동적 사전 기능 사용
           href: dynamic-dictionary.md
-        - name: 컨테이너 사용
-          items:
-            - name: 컨테이너 설치 및 실행
-              href: how-to-install-containers.md
-            - name: 컨테이너 구성
-              href: translator-text-container-config.md
         - name: 방화벽 뒤에서 변환
           href: firewalls.md
     - name: 샘플
@@ -70,7 +64,7 @@
           href: 'https://github.com/MicrosoftTranslator/Text-Translation-API-V3-PHP'
         - name: Ruby
           href: 'https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Ruby'
-    - name: 참고 자료
+    - name: 참조
       items:
         - name: v3 Translator Text API 참조
           href: reference/v3-0-reference.md
@@ -178,5 +172,7 @@
           href: 'https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/'
         - name: 규정 준수
           href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
+        - name: 암호화
+          href: translator-encryption-of-data-at-rest.md
         - name: 스택 오버플로
           href: 'https://stackoverflow.com/questions/tagged/microsoft-translator'

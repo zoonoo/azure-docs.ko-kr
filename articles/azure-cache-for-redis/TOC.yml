@@ -33,6 +33,10 @@
       href: cli-samples.md
 - name: 개념
   items:
+    - name: 보안
+      items:
+        - name: 보안 기준
+          href: security-baseline.md
     - name: 장애 조치(failover) 및 패치
       href: cache-failover.md
     - name: 모범 사례
@@ -44,7 +48,7 @@
     - name: 계획
       items:
         - name: 캐시 계층 선택
-          href: 'cache-faq.md#what-redis-cache-offering-and-size-should-i-use'
+          href: 'cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use'
         - name: 클러스터링을 통해 캐시 배포
           href: cache-how-to-premium-clustering.md
         - name: Redis 데이터 지속성을 통해 캐시 지속
@@ -141,7 +145,7 @@
       href: /learn/browse/?products=azure-redis-cache
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/?category=databases'
-    - name: 가격 책정
+    - name: 가격
       href: 'https://azure.microsoft.com/pricing/details/cache/'
     - name: Azure Cache for Redis FAQ
       href: cache-faq.md

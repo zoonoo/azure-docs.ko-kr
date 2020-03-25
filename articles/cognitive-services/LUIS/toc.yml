@@ -408,6 +408,8 @@
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/'
     - name: 규정 준수
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
+    - name: 암호화
+      href: luis-encryption-of-data-at-rest.md
     - name: 스택 오버플로
       href: 'https://stackoverflow.com/questions/tagged/LUIS'
     - name: UserVoice

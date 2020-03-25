@@ -1,20 +1,18 @@
 ---
 title: Azure Cost Management와 AWS 통합 설정
 description: 이 문서에서는 Azure Cost Management와의 AWS 비용 및 사용 현황 보고서 통합을 설정하고 구성하는 과정을 안내합니다.
-keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 02/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: matrive
-ms.custom: ''
-ms.openlocfilehash: 90d75383c1bd7c67b3feeb77fe2284d7b4e0cdf9
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: c0f6f18abf7c05cf5ae6dcaa31a57974ecfca806
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199996"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79203086"
 ---
 # <a name="set-up-and-configure-aws-cost-and-usage-report-integration"></a>AWS 비용 및 사용 현황 보고서 통합 설정 및 구성
 
@@ -39,11 +37,11 @@ AWS에서 청구 및 Cost Management 콘솔의 **비용 및 사용 현황 보고
 9. S3 버킷 구성 대화 상자에서 다음 작업 중 하나를 수행합니다.
     1. 드롭다운 목록에서 기존 버킷을 선택하고 **다음**을 선택합니다.
     2. 버킷 이름과 새 버킷을 만들 지역을 입력하고 **다음**을 선택합니다.
-10. **이 정책이 올바른지 확인함**을 선택한 다음, **저장**을 클릭합니다.
-11. (선택 사항) 보고서 경로 접두사에 보고서 이름 앞에 추가할 보고서 경로 접두사를 입력합니다.
+10.    **이 정책이 올바른지 확인함**을 선택한 다음, **저장**을 클릭합니다.
+11.    (선택 사항) 보고서 경로 접두사에 보고서 이름 앞에 추가할 보고서 경로 접두사를 입력합니다.
 접두사를 지정하지 않는 경우 기본 접두사는 보고서에 대해 지정한 이름입니다. 날짜 범위에는 `/report-name/date-range/` 형식이 있습니다.
 12. **시간 단위**에서 **매시간**을 선택합니다.
-13. **보고서 버전 관리**의 경우 보고서의 각 버전이 이전 버전을 덮어쓸지 아니면 새 보고서를 추가로 사용할지 여부를 선택합니다.
+13.    **보고서 버전 관리**의 경우 보고서의 각 버전이 이전 버전을 덮어쓸지 아니면 새 보고서를 추가로 사용할지 여부를 선택합니다.
 14. **데이터 통합을 사용하도록 설정**에는 선택이 필요하지 않습니다.
 15. **압축**에서 **GZIP**을 선택합니다.
 16. **다음**을 선택합니다.
@@ -124,8 +122,8 @@ AWS 조직에 대한 권한을 추가합니다.
             "Effect": "Allow",
             "Action": [
 "organizations:ListAccounts",
-            "ce:*",
-            "cur:DescribeReportDefinitions"
+             "ce:*",
+             "cur:DescribeReportDefinitions"
             ],
             "Resource": "*"
         },

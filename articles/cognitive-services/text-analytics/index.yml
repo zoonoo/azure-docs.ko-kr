@@ -8,18 +8,17 @@ metadata:
   description: Text Analytics API는 원시 텍스트에 대한 고급 자연어 처리를 제공하는 클라우드 기반 서비스이며 감정 분석, 핵심 구 추출, 명명된 엔터티 인식, 언어 감지의 네 가지 주요 기능을 포함하고 있습니다. 빠른 시작, 자습서, 샘플의 여러 방법으로 콘텐츠를 분석하는 방법에 대해 알아봅니다.
   author: aahill
   manager: nitinme
-  layout: LandingPage
   ms.service: cognitive-services
   ms.subservice: text-analytics
   ms.topic: landing-page
   ms.date: 01/29/2019
   ms.author: aahi
-  ms.openlocfilehash: c98f6b9994dfa80f51a78d9be22e283cca700ce9
-  ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+  ms.openlocfilehash: 468315f79f7d0f9d10013c4068b5bb29436b3166
+  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 02/21/2020
-  ms.locfileid: "77524600"
+  ms.lasthandoff: 03/24/2020
+  ms.locfileid: "79415141"
 landingContent:
 - title: Text Analytics API 정보
   linkLists:
