@@ -68,7 +68,7 @@
               href: manage-certificates-for-federated-single-sign-on.md
             - name: 테넌트 제한 사항
               href: tenant-restrictions.md
-            - name: SAML 토큰 암호화 구성(미리 보기)
+            - name: SAML 토큰 암호화 구성
               href: howto-saml-token-encryption.md
             - name: 최종 사용자 포털
               href: end-user-experiences.md
@@ -139,9 +139,7 @@
               href: grant-admin-consent.md
             - name: 관리자 동의 워크플로 구성(미리 보기)
               href: configure-admin-consent-workflow.md
-            - name: 앱에 사용자 및 그룹를 할당하는 메서드
-              href: methods-for-assigning-users-and-groups.md
-            - name: 앱에 사용자 할당
+            - name: 앱에 사용자 또는 그룹 할당
               href: assign-user-or-group-access-portal.md
             - name: 내 앱에서 컬렉션 만들기
               href: access-panel-collections.md
@@ -341,7 +339,7 @@
       href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
     - name: MSDN 포럼
       href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD'
-    - name: 가격 책정
+    - name: 가격
       href: 'https://azure.microsoft.com/pricing/details/active-directory'
     - name: 서비스 업데이트
       href: 'https://azure.microsoft.com/updates/?product=active-directory'

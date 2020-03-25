@@ -11,11 +11,11 @@ ms.date: 02/12/2020
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 84b36c1357bedfc120cec72af84fdd79f52a2f57
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78245395"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79238162"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Azure 구독의 청구 소유권을 다른 계정에 양도
 
@@ -124,7 +124,7 @@ Azure Portal의 구독 양도 기능은 아래에 나열된 유형의 구독에�
 
 다음 FAQ는 Azure 구독의 청구 소유권을 다른 계정에 양도하는 사용자에게 적용됩니다.
 
-### <a name="whoisaa"></a> 계정의 청구 관리자는 누구인가요?
+### <a name="who-is-a-billing-administrator-of-an-account"></a><a name="whoisaa"></a> 계정의 청구 관리자는 누구인가요?
 
 청구 관리자는 계정의 청구를 관리하는 권한을 가진 사용자입니다. 이들에게는 [Azure Portal](https://portal.azure.com)에서 청구 정보에 액세스하고, 구독 만들기, 청구서 보기 및 결제, 결제 방법 업데이트와 같은 다양한 청구 작업을 수행할 수 있는 권한이 부여됩니다.
 
@@ -206,15 +206,15 @@ Enterprise Administrator는 원래 계정 소유자가 더 이상 조직의 일�
 
 ## <a name="troubleshooting"></a>문제 해결
 
-### <a id="no-button"></a> "구독 양도" 단추가 보이지 않는 이유는 무엇인가요?
+### <a name="why-dont-i-see-the-transfer-subscription-button"></a><a id="no-button"></a> "구독 양도" 단추가 보이지 않는 이유는 무엇인가요?
 
 현재 청구 계정에는 셀프 서비스 구독 양도를 사용할 수 없습니다. 현재는 Azure Portal에서 EA(기업계약) 계정의 구독 청구 소유권을 양도할 수 없습니다. 또한 Microsoft 담당자와 함께 만든 Microsoft 고객 계약 계정은 청구 소유권 양도를 지원하지 않습니다.
 
-### <a id="no-button"></a> 내 구독 유형이 양도를 지원하지 않는 이유는 무엇인가요?
+### <a name="why-doesnt-my-subscription-type-support-transfer"></a><a id="no-button"></a> 내 구독 유형이 양도를 지원하지 않는 이유는 무엇인가요?
 
 일부 구독 유형은 청구 소유권 양도를 지원하지 않습니다. 양도를 지원하는 구독 유형 목록을 보려면 [지원되는 구독 유형](#supported-subscription-types)을 참조하세요.
 
-### <a id="no-button"></a> 구독의 청구 소유권을 양도하려고 할 때 액세스 거부 오류가 발생하는 이유는 무엇인가요?
+### <a name="why-am-i-receiving-an-access-denied-error-when-i-try-to-transfer-billing-ownership-of-a-subscription"></a><a id="no-button"></a> 구독의 청구 소유권을 양도하려고 할 때 액세스 거부 오류가 발생하는 이유는 무엇인가요?
 
 Microsoft Azure 플랜 구독을 전송하려고 시도하는데 필요한 권한이 없는 경우 이 오류가 발생합니다. Microsoft Azure 플랜 구독을 양도하려면 구독 요금이 청구되는 청구서 섹션의 소유자 또는 기여자여야 합니다. 자세한 내용은 [청구서 섹션에 대한 구독 관리](understand-mca-roles.md#manage-subscriptions-for-invoice-section)를 참조하세요.
 

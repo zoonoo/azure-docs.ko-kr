@@ -143,8 +143,6 @@
           href: consuming-from-excel.md
         - name: Excel 추가 기능 사용
           href: excel-add-in-for-web-services.md
-        - name: Batch 풀 사용
-          href: dedicated-capacity-for-bes-jobs.md
     - name: 사용 사례
       items:
         - name: 고객 이탈

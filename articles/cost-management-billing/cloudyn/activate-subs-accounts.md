@@ -1,26 +1,28 @@
 ---
-title: Azure 구독 및 계정 활성화 | Microsoft Docs
+title: Azure 구독 및 계정 활성화
 description: Azure Resource Manager API를 사용하여 신규 및 기존 계정에 대한 액세스를 사용하도록 설정하고 일반적인 계정 문제를 해결합니다.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/24/2020
+ms.date: 03/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: vitavor
 ms.custom: secdec18
-ms.openlocfilehash: 2467ee65b3f7090e5854bdd7848abab667ccfe55
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ROBOTS: NOINDEX
+ms.openlocfilehash: 62138163b3c3f94d60c55cf93d84db5dff446823
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78301372"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79474665"
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-cloudyn"></a>Cloudyn으로 Azure 구독 및 계정 활성화
 
 Azure Resource Manager 자격 증명을 추가하거나 업데이트하면 Cloudyn이 Azure Tenant 내의 모든 계정 및 구독을 검색할 수 있습니다. 또한 가상 머신에서 Azure Diagnostics 확장을 사용하도록 설정하면 Cloudyn은 CPU와 메모리 같은 확장된 메트릭을 수집할 수 있습니다. 이 아티클에서는 Azure Resource Manager API를 사용하여 신규 및 기존 계정에 대한 액세스를 사용하도록 설정하는 방법을 설명합니다. 또한 일반적인 계정 문제를 해결하는 방법을 설명합니다.
 
 구독이 _활성화되지_ 않으면 Cloudyn은 대부분의 Azure 구독 데이터에 액세스할 수 없습니다. Cloudyn이 액세스할 수 있도록 _활성화되지 않은_ 계정을 편집해야 합니다.
+
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 
 ## <a name="required-azure-permissions"></a>필수 Azure 사용 권한
 
