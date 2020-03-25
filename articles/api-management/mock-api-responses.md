@@ -14,10 +14,10 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
 ms.openlocfilehash: 6841695cca5d3864e6823085520d8e9162e54043
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "70067935"
 ---
 # <a name="mock-api-responses"></a>모의 API 응답
@@ -27,7 +27,7 @@ ms.locfileid: "70067935"
 + API 외관이 먼저 설계되고 나중에 백 엔드가 구현된 경우 또는 백 엔드가 함께 개발되는 경우
 + 백 엔드가 일시적으로 작동하지 않거나 크기를 조정할 수 없는 경우
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 테스트 API 만들기 
@@ -37,11 +37,11 @@ ms.locfileid: "70067935"
 
 ![모의 작업 응답](./media/mock-api-responses/mock-api-responses01.png)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 + [Azure API Management 용어](api-management-terminology.md)를 익힙니다.
 + [Azure API Management의 정책 개념](api-management-howto-policies.md)을 이해합니다.
-+ 다음 빠른 시작을 완료합니다. [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)
++ 다음 빠른 시작 [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)를 완료합니다.
 
 ## <a name="create-a-test-api"></a>테스트 API 만들기 
 
@@ -52,8 +52,8 @@ ms.locfileid: "70067935"
 1. **API Management** 서비스에서 **API**를 선택합니다.
 2. 왼쪽 메뉴에서 **+API 추가**를 선택합니다.
 3. 목록에서 **빈 API**를 선택합니다.
-4. **표시 이름**에 "*테스트 API*"를 입력합니다.
-5. **제품**에 "*무제한*"을 입력합니다.
+4. *표시 이름*에 "**테스트 API**"를 입력합니다.
+5. *제품*에 "**무제한**"을 입력합니다.
 6. **만들기**를 선택합니다.
 
 ## <a name="add-an-operation-to-the-test-api"></a>테스트 API에 작업 추가
@@ -63,7 +63,7 @@ ms.locfileid: "70067935"
 1. 이전 단계에서 만든 API를 선택합니다.
 2. **+작업 추가**를 클릭합니다.
 
-    | 설정             | 값                             | 설명                                                                                                                                                                                   |
+    | 설정             | 값                             | Description                                                                                                                                                                                   |
     |---------------------|-----------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | **표시 이름**    | *테스트 호출*                       | **개발자 포털**에 표시되는 이름입니다.                                                                                                                                       |
     | **URL**(HTTP 동사) | GET                               | 미리 정의된 HTTP 동사 중 하나를 선택할 수 있습니다.                                                                                                                                         |
@@ -121,7 +121,7 @@ ms.locfileid: "70067935"
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * 테스트 API 만들기

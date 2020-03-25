@@ -17,15 +17,15 @@ ms.workload: infrastructure
 ms.date: 08/23/2018
 ms.author: kumud
 ms.openlocfilehash: 85fc5687b82947ed16bde0c30ca2b947514ba958
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74186365"
 ---
 # <a name="tutorial-restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 가상 네트워크 서비스 엔드포인트로 PaaS 리소스에 대한 네트워크 액세스 제한
 
-가상 네트워크 서비스 엔드포인트를 사용하면 일부 Azure 서비스 리소스에 대한 네트워크 액세스를 가상 네트워크 서브넷으로 제한할 수 있습니다. 리소스에 대한 인터넷 액세스를 제거할 수도 있습니다. 서비스 엔드포인트는 가상 네트워크에서 지원되는 Azure 서비스로의 직접 연결을 제공하므로 가상 네트워크의 프라이빗 주소 공간을 사용하여 Azure 서비스에 액세스할 수 있습니다. 서비스 엔드포인트를 통해 Azure 리소스에 도달하는 트래픽은 항상 Microsoft Azure 백본 네트워크에 유지됩니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
+가상 네트워크 서비스 엔드포인트를 사용하면 일부 Azure 서비스 리소스에 대한 네트워크 액세스를 가상 네트워크 서브넷으로 제한할 수 있습니다. 리소스에 대한 인터넷 액세스를 제거할 수도 있습니다. 서비스 엔드포인트는 가상 네트워크에서 지원되는 Azure 서비스로의 직접 연결을 제공하므로 가상 네트워크의 프라이빗 주소 공간을 사용하여 Azure 서비스에 액세스할 수 있습니다. 서비스 엔드포인트를 통해 Azure 리소스에 도달하는 트래픽은 항상 Microsoft Azure 백본 네트워크에 유지됩니다. 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 하나의 서브넷이 있는 가상 네트워크 만들기
@@ -51,7 +51,7 @@ Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
 
    |설정|값|
    |----|----|
-   |Name| myVirtualNetwork |
+   |속성| myVirtualNetwork |
    |주소 공간| 10.0.0.0/16|
    |Subscription| 구독 선택|
    |Resource group | **새로 만들기**를 선택하고 *myResourceGroup*을 입력합니다.|
@@ -77,7 +77,7 @@ Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
 
     |설정|값|
     |----|----|
-    |Name| 프라이빗 |
+    |속성| 프라이빗 |
     |주소 범위| 10.0.1.0/24|
     |서비스 엔드포인트| **서비스** 아래에서 **Microsoft.Storage**를 선택합니다.|
 
@@ -94,12 +94,12 @@ Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
 
     |설정|값|
     |----|----|
-    |Name| myNsgPrivate |
+    |속성| myNsgPrivate |
     |Subscription| 구독 선택|
     |Resource group | **기존 항목 사용**을 선택하고, *myResourceGroup*을 선택합니다.|
     |위치| **미국 동부**를 선택합니다. |
 
-4. 네트워크 보안 그룹이 만들어진 후에 포털 맨 위에 있는 **리소스, 서비스 및 문서 검색** 상자에 *myNsgPrivate*를 입력합니다. 검색 결과에 **myNsgPrivate**가 표시되면 선택합니다.
+4. 네트워크 보안 그룹이 만들어진 후에 포털 맨 위에 있는 *리소스, 서비스 및 문서 검색* 상자에 **myNsgPrivate**를 입력합니다. 검색 결과에 **myNsgPrivate**가 표시되면 선택합니다.
 5. **설정** 아래에서 **아웃바운드 보안 규칙**을 선택합니다.
 6. **+추가**를 선택합니다.
 7. Azure Storage 서비스에 대해 아웃바운드 통신을 허용하는 규칙을 만듭니다. 다음 정보를 입력하거나 선택한 다음, **추가**를 선택합니다.
@@ -112,9 +112,9 @@ Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
     |대상 서비스 태그 | **스토리지**를 선택합니다.|
     |대상 포트 범위| * |
     |프로토콜|모두|
-    |조치|허용|
+    |작업|Allow|
     |우선 순위|100|
-    |Name|Allow-Storage-All|
+    |속성|Allow-Storage-All|
 
 8. 인터넷에 대한 통신을 거부하는 다른 아웃바운드 보안 규칙을 만듭니다. 이 규칙은 아웃바운드 인터넷 통신을 허용하는 모든 네트워크 보안 그룹의 기본 규칙을 재정의합니다. 다음 값을 사용하여 5-7단계를 다시 수행합니다.
 
@@ -126,9 +126,9 @@ Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
     |대상 서비스 태그| **인터넷**을 선택합니다.|
     |대상 포트 범위| * |
     |프로토콜|모두|
-    |조치|거부|
+    |작업|거부|
     |우선 순위|110|
-    |Name|Deny-Internet-All(모든 인터넷 거부)|
+    |속성|Deny-Internet-All(모든 인터넷 거부)|
 
 9. **설정** 아래에서 **인바운드 보안 규칙**을 선택합니다.
 10. **+추가**를 선택합니다.
@@ -141,9 +141,9 @@ Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
     |대상 | **VirtualNetwork**를 선택합니다.|
     |대상 포트 범위| 3389 |
     |프로토콜|모두|
-    |조치|허용|
+    |작업|Allow|
     |우선 순위|120|
-    |Name|Allow-RDP-All|
+    |속성|Allow-RDP-All|
 
 12. **설정**에서 **서브넷**을 선택합니다.
 13. **+ 연결**을 선택합니다.
@@ -162,7 +162,7 @@ Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
 
     |설정|값|
     |----|----|
-    |Name| 모든 Azure 위치에서 고유한 이름을 입력합니다. 이름은 3~24자 사이여야 하고 숫자와 소문자만 사용할 수 있습니다.|
+    |속성| 모든 Azure 위치에서 고유한 이름을 입력합니다. 이름은 3~24자 사이여야 하고 숫자와 소문자만 사용할 수 있습니다.|
     |계정 종류|StorageV2(범용 v2)|
     |위치| **미국 동부**를 선택합니다. |
     |복제| LRS(로컬 중복 스토리지)|
@@ -174,10 +174,10 @@ Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
 1. 스토리지 계정이 만들어진 후에 포털 맨 위에 있는 **리소스, 서비스 및 문서 검색** 상자에 스토리지 계정의 이름을 입력합니다. 스토리지 계정의 이름이 검색 결과에 표시되면 선택합니다.
 2. 다음 그림과 같이 **파일**을 선택합니다.
 
-   ![Storage 계정](./media/tutorial-restrict-network-access-to-resources/storage-account.png) 
+   ![스토리지 계정](./media/tutorial-restrict-network-access-to-resources/storage-account.png) 
 
 3. **+ 파일 공유**를 선택합니다.
-4. **이름**에서 *my-file-share*를 입력하고 **확인**을 선택합니다.
+4. *이름*에서 **my-file-share**를 입력하고 **확인**을 선택합니다.
 5. **파일 서비스** 상자를 닫습니다.
 
 ### <a name="restrict-network-access-to-a-subnet"></a>서브넷에 대한 네트워크 액세스 제한
@@ -217,7 +217,7 @@ Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
 
    |설정|값|
    |----|----|
-   |Name| myVmPublic|
+   |속성| myVmPublic|
    |사용자 이름|선택한 사용자 이름을 입력합니다.|
    |암호| 선택한 암호를 입력합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.|
    |Subscription| 구독을 선택합니다.|
@@ -281,7 +281,7 @@ VM을 배포하는 데 몇 분이 걸립니다. 만들기가 끝나고 해당 �
 
 1. 포털 맨 위에 있는 *리소스, 서비스 및 문서 검색* 상자에 **myVirtualNetwork**를 입력합니다.
 2. 검색 결과에 **myVmPublic**이 표시되면 선택합니다.
-3. *myVmPublic* VM에 대한 [스토리지 계정에 대한 액세스 확인](#confirm-access-to-storage-account)에서 1-6단계를 완료합니다.
+3. [myVmPublic](#confirm-access-to-storage-account) VM에 대한 *스토리지 계정에 대한 액세스 확인*에서 1-6단계를 완료합니다.
 
    잠시 기다리면 `New-PSDrive : Access is denied` 오류가 발생합니다. *myVmPublic* VM이 *Public* 서브넷에 배포되었으므로 액세스가 거부되었습니다. *공용* 서브넷에는 Azure Storage에 사용하도록 설정된 서비스 엔드포인트가 없습니다. 스토리지 계정은 *공용* 서브넷이 아닌 *프라이빗* 서브넷으로부터의 네트워크 액세스만을 허용합니다.
 
@@ -300,9 +300,9 @@ VM을 배포하는 데 몇 분이 걸립니다. 만들기가 끝나고 해당 �
 
 더 이상 필요하지 않은 경우, 리소스 그룹 및 이 그룹에 포함된 리소스를 모두 삭제합니다.
 
-1. 포털 맨 위에 있는 **검색** 상자에 *myResourceGroup*을 입력합니다. 검색 결과에 **myResourceGroup**이 보이면 선택합니다.
+1. 포털 맨 위에 있는 *검색* 상자에 **myResourceGroup**을 입력합니다. 검색 결과에 **myResourceGroup**이 보이면 선택합니다.
 2. **리소스 그룹 삭제**를 선택합니다.
-3. **리소스 그룹 이름 입력:** 에 *myResourceGroup*을 입력하고 **삭제**를 선택합니다.
+3. *리소스 그룹 이름 입력:* 에 **myResourceGroup**을 입력하고 **삭제**를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

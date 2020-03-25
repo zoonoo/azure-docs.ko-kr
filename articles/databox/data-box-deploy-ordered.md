@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 04/23/2019
 ms.author: alkohli
 ms.openlocfilehash: b0204673c0706403c8c5a7367be19e590d9cb134
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "65604097"
 ---
 # <a name="tutorial-order-azure-data-box"></a>자습서: Azure Data Box 주문
@@ -27,7 +27,7 @@ Azure Data Box는 빠르고 쉽게 신뢰할 수 있는 방식으로 온-프레�
 > * 주문 추적
 > * 주문 취소
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 디바이스를 배포하기 전에 Data Box 서비스 및 디바이스에 대해 다음 필수 구성 요소를 완료합니다.
 
@@ -64,7 +64,7 @@ Azure Data Box는 빠르고 쉽게 신뢰할 수 있는 방식으로 온-프레�
 
     |설정  |값  |
     |---------|---------|
-    |구독     | Data Box 서비스에 대한 EA, CSP 또는 Azure 스폰서쉽 구독을 선택합니다. <br> 구독은 대금 청구 계정에 연결됩니다.       |
+    |Subscription     | Data Box 서비스에 대한 EA, CSP 또는 Azure 스폰서쉽 구독을 선택합니다. <br> 구독은 대금 청구 계정에 연결됩니다.       |
     |전송 형식     | **Azure로 가져오기**를 선택합니다.        |
     |원천 국가     |   현재 데이터가 있는 국가/지역을 선택합니다.         |
     |대상 Azure 지역     |     데이터를 전송하려는 Azure 지역을 선택합니다.        |
@@ -77,8 +77,8 @@ Azure Data Box는 빠르고 쉽게 신뢰할 수 있는 방식으로 온-프레�
     
     |설정  |값  |
     |---------|---------|
-    |Name     |  주문을 추적하는 데 친숙한 이름을 입력합니다. <br> 이 이름은 2~24자 사이의 문자, 숫자 및 하이픈일 수 있습니다. <br> 이름은 문자 또는 숫자로 시작하고 끝나야 합니다.      |
-    |리소스 그룹     |   기존 그룹을 사용하거나 새 그룹을 만듭니다. <br> 리소스 그룹은 함께 관리하거나 배포할 수 있는 리소스에 대한 논리 컨테이너입니다.         |
+    |속성     |  주문을 추적하는 데 친숙한 이름을 입력합니다. <br> 이 이름은 2~24자 사이의 문자, 숫자 및 하이픈일 수 있습니다. <br> 이름은 문자 또는 숫자로 시작하고 끝나야 합니다.      |
+    |Resource group     |   기존 그룹을 사용하거나 새 그룹을 만듭니다. <br> 리소스 그룹은 함께 관리하거나 배포할 수 있는 리소스에 대한 논리 컨테이너입니다.         |
     |대상 Azure 지역     | 스토리지 계정에 대한 지역을 선택합니다. <br> 자세한 내용은 [지역 가용성](data-box-overview.md#region-availability)을 참조하세요.        |
     |스토리지 대상     | 스토리지 계정이나 관리형 디스크 또는 둘 다를 선택합니다. <br> 지정된 Azure 지역에 따라 필터링된 기존 스토리지 계정 목록에서 하나 이상의 스토리지 계정을 선택합니다. Data Box는 최대 10개의 스토리지 계정과 연결할 수 있습니다. <br> 새 **범용 v1**, **범용 v2** 또는 **Blob Storage 계정**도 만들 수 있습니다. <br>가상 네트워크를 사용하는 스토리지 계정은 지원됩니다. Data Box 서비스에서 보안 스토리지 계정을 사용하려면 스토리지 계정 네트워크 방화벽 설정 내에서 신뢰할 수 있는 서비스를 사용하도록 설정합니다. 자세한 내용은 [Azure Data Box를 신뢰할 수 있는 서비스로 추가](../storage/common/storage-network-security.md#exceptions)하는 방법을 참조하세요.|
 

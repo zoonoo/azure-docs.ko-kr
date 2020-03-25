@@ -10,10 +10,10 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 07/29/2019
 ms.openlocfilehash: 382dff156c088f367200f0dd46c3758193ade189
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75889236"
 ---
 # <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>자습서: Azure Databricks를 사용하여 스트리밍 데이터에 대한 감정 분석
@@ -216,7 +216,7 @@ Twitter 애플리케이션에 대해 검색한 값을 저장합니다. 이러한
 **SendTweetsToEventHub** 노트북에서 다음 코드를 붙여넣고, 자리 표시자를 이전에 만든 Event Hubs 네임스페이스 및 Twitter 애플리케이션에 대한 값으로 바꿉니다. 이 노트북은 "Azure" 키워드가 있는 트윗을 Event Hubs에 실시간으로 스트리밍합니다.
 
 > [!NOTE]
-> Twitter API에는 요청 제한 [및](https://developer.twitter.com/en/docs/basics/rate-limiting.html) 할당량이 있습니다. Twitter API의 표준 속도 제한이 충분하지 않은 경우 이 예제의 Twitter API를 사용하지 않고 텍스트 콘텐츠를 직접 생성할 수 있습니다. 이렇게 하려면 **dataSource** 변수를 `twitter` 대신 `test`로 설정하고 **testSource** 목록을 원하는 테스트 입력으로 채웁니다.
+> Twitter API에는 요청 제한 [및](https://developer.twitter.com/en/docs/basics/rate-limiting.html) 할당량이 있습니다. Twitter API의 표준 속도 제한이 충분하지 않은 경우 이 예제의 Twitter API를 사용하지 않고 텍스트 콘텐츠를 직접 생성할 수 있습니다. 이렇게 하려면 **dataSource** 변수를 `test` 대신 `twitter`로 설정하고 **testSource** 목록을 원하는 테스트 입력으로 채웁니다.
 
 ```scala
     import scala.collection.JavaConverters._

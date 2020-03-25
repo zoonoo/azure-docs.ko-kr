@@ -9,13 +9,13 @@ ms.date: 02/02/2018
 ms.author: cephalin
 ms.custom: include file
 ms.openlocfilehash: c1044f129b8f8e9b7e861633a58f3e894783de10
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77537923"
 ---
-`myAppServicePlan` App Service 계획에서 [웹앱](../articles/app-service/containers/app-service-linux-intro.md)을 만듭니다. 
+[ App Service 계획에서 ](../articles/app-service/containers/app-service-linux-intro.md)웹앱`myAppServicePlan`을 만듭니다. 
 
 Cloud Shell에서 [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) 명령을 사용할 수 있습니다. 다음 예에서 `<app-name>`을 전역적으로 고유한 앱 이름으로 바꿉니다(유효한 문자는 `a-z`, `0-9` 및 `-`). 
 
@@ -43,5 +43,5 @@ Local git is configured with url of 'https://<username>@<app-name>.scm.azurewebs
 ```
 
 > [!NOTE]
-> Git 원격의 URL은 `https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git` 형식으로 `deploymentLocalGitUrl` 속성에 표시됩니다. 나중에 필요하므로 이 URL을 저장합니다.
+> Git 원격의 URL은 `deploymentLocalGitUrl` 형식으로 `https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git` 속성에 표시됩니다. 나중에 필요하므로 이 URL을 저장합니다.
 >

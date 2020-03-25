@@ -8,11 +8,11 @@ ms.author: mbullwin
 ms.date: 08/13/2019
 ms.custom: mvc
 ms.openlocfilehash: 98d7c1552a7b1f2b02ae4df1cad24e20f7ac76e1
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78367698"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79223680"
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Azure Application Insights를 사용하여 성능 문제 찾기 및 진단
 

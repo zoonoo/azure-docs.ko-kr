@@ -10,10 +10,10 @@ ms.date: 03/08/2019
 ms.topic: tutorial
 ms.custom: mvc
 ms.openlocfilehash: 400a71b11fde210b889d938041e88c5ebe73c1dc
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73890877"
 ---
 # <a name="tutorial-monitor-your-iot-devices"></a>자습서: IoT 디바이스 모니터링

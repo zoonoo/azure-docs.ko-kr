@@ -9,10 +9,10 @@ ms.date: 03/06/2020
 ms.author: mhopkins
 ms.reviewer: dineshm
 ms.openlocfilehash: 49078d2f374203a9fab4fe0f5e3881f6b1b22959
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79130336"
 ---
 # <a name="tutorial-upload-image-data-in-the-cloud-with-azure-storage"></a>자습서: Azure Storage를 사용하여 클라우드에 이미지 데이터 업로드
@@ -101,7 +101,7 @@ Blob 스토리지 계정 이름과 키를 적어 두세요. 샘플 앱에서 이
 
 [az appservice plan create](/cli/azure/appservice/plan) 명령으로 App Service 계획을 만듭니다.
 
-다음 예에서는 **체험** 가격 책정 계층에서 `myAppServicePlan`이라는 App Service 계획을 만듭니다.
+다음 예에서는 `myAppServicePlan`체험**가격 책정 계층에서**이라는 App Service 계획을 만듭니다.
 
 ```azurecli-interactive
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku Free
@@ -109,9 +109,9 @@ az appservice plan create --name myAppServicePlan --resource-group myResourceGro
 
 ## <a name="create-a-web-app"></a>웹앱 만들기
 
-웹앱은 GitHub 샘플 리포지토리에서 배포되는 샘플 앱 코드에 대한 호스팅 공간을 제공합니다. [az webapp create](/cli/azure/webapp) 명령을 사용하여 `myAppServicePlan` App Service 계획에 [웹앱](../../app-service/overview.md)을 만듭니다.  
+웹앱은 GitHub 샘플 리포지토리에서 배포되는 샘플 앱 코드에 대한 호스팅 공간을 제공합니다. [az webapp create](../../app-service/overview.md) 명령을 사용하여 `myAppServicePlan` App Service 계획에 [웹앱](/cli/azure/webapp)을 만듭니다.  
 
-다음 명령에서 `<web_app>`을 고유한 이름으로 바꿉니다. 유효한 문자는 `a-z`, `0-9` 및 `-`입니다. `<web_app>`이 고유하지 않으면 다음 오류 메시지가 표시됩니다. *이름이 `<web_app>`인 웹 사이트가 이미 있습니다.* 웹앱의 기본 URL은 `https://<web_app>.azurewebsites.net`입니다.  
+다음 명령에서 `<web_app>`을 고유한 이름으로 바꿉니다. 유효한 문자는 `a-z`, `0-9` 및 `-`입니다. `<web_app>`이 고유하지 않으면 *지정된 이름이 `<web_app>`인 웹 사이트가 이미 있습니다."라는 오류 메시지가 표시됩니다.* 웹앱의 기본 URL은 `https://<web_app>.azurewebsites.net`입니다.  
 
 ```azurecli-interactive
 webapp="<web_app>"
@@ -182,7 +182,7 @@ az webapp config appsettings set --name $webapp --resource-group myResourceGroup
 
 ![.NET 사진 업로드](media/storage-upload-process-images/figure1.png)
 
-샘플 코드에서 *Storagehelper.cs* 파일의 `UploadFileToStorage` 작업은 [UploadAsync](/dotnet/api/azure.storage.blobs.blobclient.uploadasync) 메서드를 통해 이미지를 스토리지 계정 내의 *images* 컨테이너에 업로드하는 데 사용됩니다. 다음 코드 샘플에는 `UploadFileToStorage` 작업이 포함되어 있습니다.
+샘플 코드에서 `UploadFileToStorage`Storagehelper.cs*파일의* 작업은 *UploadAsync* 메서드를 통해 이미지를 스토리지 계정 내의 [images](/dotnet/api/azure.storage.blobs.blobclient.uploadasync) 컨테이너에 업로드하는 데 사용됩니다. 다음 코드 샘플에는 `UploadFileToStorage` 작업이 포함되어 있습니다.
 
 ```csharp
 public static async Task<bool> UploadFileToStorage(Stream fileStream, string fileName,

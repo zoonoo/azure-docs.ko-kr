@@ -17,10 +17,10 @@ ms.date: 02/27/2017
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 292d67dafa768c82041a2cae8e6d888ee5d9050b
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74037602"
 ---
 # <a name="troubleshoot-a-vms-operating-system-disk"></a>VM 운영 체제 디스크 문제 해결
@@ -43,7 +43,7 @@ ms.locfileid: "74037602"
 |---|---|
 | [az vm show](https://docs.microsoft.com/cli/azure/vm) | 가상 머신 목록을 반환합니다. 이 경우 가상 컴퓨터 운영 체제 디스크를 반환하는 데 쿼리 옵션이 사용됩니다. 그러면 이 값이 변수 이름 'uri'에 추가됩니다. |
 | [az vm delete](https://docs.microsoft.com/cli/azure/vm) | 가상 머신을 삭제합니다. |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm) | 가상 컴퓨터를 만듭니다.  |
+| [az vm create](https://docs.microsoft.com/cli/azure/vm) | 가상 머신을 만듭니다.  |
 | [az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk) | 디스크를 가상 머신에 연결합니다. |
 | [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm) | 가상 컴퓨터의 IP 주소를 반환합니다. |
 

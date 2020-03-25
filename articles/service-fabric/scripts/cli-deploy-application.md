@@ -15,10 +15,10 @@ ms.date: 04/16/2018
 ms.author: atsenthi
 ms.custom: mvc
 ms.openlocfilehash: ff40dc62b4dcd622156a78518bbdcb6b9b430644
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75526603"
 ---
 # <a name="deploy-an-application-to-a-service-fabric-cluster-using-the-service-fabric-cli"></a>Service Fabric CLI를 사용하여 Service Fabric 클러스터에 애플리케이션 배포
