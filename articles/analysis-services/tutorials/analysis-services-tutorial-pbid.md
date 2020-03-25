@@ -8,10 +8,10 @@ ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: owend
 ms.openlocfilehash: 4d8c753f06e58fd1cce1c55eca213637cb70e436
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73572330"
 ---
 # <a name="tutorial-connect-with-power-bi-desktop"></a>자습서: Power BI Desktop을 사용하여 연결
@@ -23,7 +23,7 @@ ms.locfileid: "73572330"
 > * Power BI Desktop을 사용하여 연결
 > * 기본 보고서 만들기
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 서버에 [adventureworks 샘플 모델 데이터베이스를 추가](../analysis-services-create-sample-model.md)합니다.
 - adventureworks 샘플 모델 데이터베이스에 대한 [*읽기*](../analysis-services-server-admins.md) 권한이 있어야 합니다.

@@ -5,10 +5,10 @@ keywords: Jenkins, Azure, DevOps, App Service, CLI
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.openlocfilehash: bd9192974f6860d08d84a9028702ce2203f562e7
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74158827"
 ---
 # <a name="deploy-to-azure-app-service-with-jenkins-and-the-azure-cli"></a>Jenkins 및 Azure CLI를 사용해 Azure App Service에 배포
@@ -52,7 +52,7 @@ Azure CLI를 실행하려면 Azure 자격 증명이 필요합니다.
 
 ## <a name="create-an-azure-app-service-for-deploying-the-java-web-app"></a>Java 웹앱을 배포하기 위한 Azure App Service 만들기
 
-[az appservice plan create](/cli/azure/appservice/plan#az-appservice-plan-create) CLI 명령을 사용하여 **무료** 가격 책정 계층과 함께 Azure App Service 계획을 만듭니다. App Service 계획은 앱을 호스트하는 데 사용되는 실제 리소스를 정의합니다. App Service 계획에 할당된 모든 애플리케이션은 이들 리소스를 공유하므로 여러 앱을 호스팅할 때 비용을 절감할 수 있습니다. 
+**az appservice plan create** CLI 명령을 사용하여 [무료](/cli/azure/appservice/plan#az-appservice-plan-create) 가격 책정 계층과 함께 Azure App Service 계획을 만듭니다. App Service 계획은 앱을 호스트하는 데 사용되는 실제 리소스를 정의합니다. App Service 계획에 할당된 모든 애플리케이션은 이들 리소스를 공유하므로 여러 앱을 호스팅할 때 비용을 절감할 수 있습니다. 
 
 ```azurecli-interactive
 az appservice plan create \
@@ -212,7 +212,7 @@ Linux에서 Web App은 Docker를 사용하여 배포를 수행하는 다양한 �
     http://&lt;app_name>.azurewebsites.net/api/calculator/add?x=&lt;x>&y=&lt;y>(&lt;x> 및 &lt;y>를 임의의 숫자로 대체)로 이동하여 x와 y의 합계를 구합니다.
     
 ## <a name="next-steps"></a>다음 단계
-이 자습서에서는 GitHub 리포지토리에 있는 소스 코드를 확인하는 Jenkins 파이프라인을 구성했습니다. Maven을 실행하여 war 파일을 작성한 다음 Azure CLI를 사용하여 Azure App Service를 배포합니다. 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 GitHub 리포지토리에 있는 소스 코드를 확인하는 Jenkins 파이프라인을 구성했습니다. Maven을 실행하여 war 파일을 작성한 다음 Azure CLI를 사용하여 Azure App Service를 배포합니다. 구체적으로 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * Jenkins VM 만들기

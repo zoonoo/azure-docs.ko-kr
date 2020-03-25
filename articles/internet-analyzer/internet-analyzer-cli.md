@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 10/16/2019
 ms.author: mebeatty
 ms.openlocfilehash: d474442086e2a114f26df279ab2682cd7628a5f5
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74184275"
 ---
 # <a name="create-an-internet-analyzer-test-using-cli-preview"></a>CLI를 사용하여 Internet Analyzer 테스트 만들기(미리 보기)
@@ -25,7 +25,7 @@ Internet Analyzer 리소스는 두 가지 방식, 즉 [Azure Portal](internet-an
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-공개 미리 보기는 전 세계에서 사용할 수 있습니다. 하지만 데이터 저장은 미리 보기 기간 동안 *미국 서부 2*로 제한됩니다.
+공개 미리 보기는 전 세계에서 사용할 수 있습니다. 하지만 데이터 스토리지는 미리 보기 기간 동안 *미국 서부 2*로 제한됩니다.
 
 ## <a name="object-model"></a>개체 모델
 Internet Analyzer CLI는 다음 유형의 리소스를 표시합니다.
@@ -36,7 +36,7 @@ Internet Analyzer CLI는 다음 유형의 리소스를 표시합니다.
 * **시계열** - 시계열은 시간 경과에 따른 메트릭의 변화를 보여줍니다.
 
 ## <a name="profile-and-test-creation"></a>프로필 및 테스트 만들기
-1. [Azure Internet Analyzer FAQ](internet-analyzer-faq.md)의 **미리 보기에 참여하는 방법** 지침에 따라 Internet Analyzer 미리 보기에 대한 액세스 권한을 얻으세요.
+1. **Azure Internet Analyzer FAQ**의 [미리 보기에 참여하는 방법](internet-analyzer-faq.md) 지침에 따라 Internet Analyzer 미리 보기에 대한 액세스 권한을 얻으세요.
 2. [Azure CLI를 설치합니다](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 3. `login` 명령을 실행하여 CLI 세션을 시작합니다.
     ```azurecli-interactive

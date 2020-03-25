@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.custom: mvc
 ms.openlocfilehash: feab8495536b3306fd96793323d51644570b401b
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77593163"
 ---
 # <a name="tutorial-prepare-an-application-for-azure-kubernetes-service-aks"></a>자습서: AKS(Azure Kubernetes Service)에 대한 애플리케이션 준비

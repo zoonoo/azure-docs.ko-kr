@@ -9,10 +9,10 @@ ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: e03fb8bfc221edf209fd2480eedad822983d59a9
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74270185"
 ---
 # <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-java"></a>Java에서 Azure Spatial Anchors를 사용하여 앵커를 만들고 찾는 방법
@@ -32,7 +32,7 @@ Azure Spatial Anchors를 사용하면 다양한 디바이스 간에 전 세계 �
 - 클라우드에 업로드합니다.
 - 클라우드 공간 앵커를 찾아 삭제합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음이 필요합니다.
 

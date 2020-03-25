@@ -10,10 +10,10 @@ ms.topic: include
 ms.date: 01/07/2020
 ms.custom: include file
 ms.openlocfilehash: 9ccdc7a438d1dade534d39dc97a39a3bdae37dc4
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75895510"
 ---
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
@@ -36,7 +36,7 @@ ms.locfileid: "75895510"
    * **리소스 이름**: Digital Twins 인스턴스의 고유한 이름을 만듭니다.
    * **구독**: 이 Digital Twins 인스턴스를 만드는 데 사용할 구독을 선택합니다. 
    * **리소스 그룹**: Digital Twins 인스턴스에 대한 [리소스 그룹](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups)을 선택하거나 만듭니다.
-   * **위치**: 디바이스에 가장 가까운 위치를 선택합니다.
+   * **위치**: 디바이스와 가장 가까운 위치를 선택합니다.
 
      [![정보가 입력된 Digital Twins 창](./media/create-digital-twins-portal/create-digital-twins-param.png)](./media/create-digital-twins-portal/create-digital-twins-param.png#lightbox)
 

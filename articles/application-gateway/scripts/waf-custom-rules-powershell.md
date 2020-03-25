@@ -7,17 +7,17 @@ ms.topic: sample
 ms.date: 6/7/2019
 ms.author: victorh
 ms.openlocfilehash: ffdde80598322222e2a8f000eee8be269becdd11
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "66743330"
 ---
 # <a name="create-waf-custom-rules-with-azure-powershell"></a>Azure PowerShell을 사용하여 WAF 사용자 지정 규칙 만들기
 
 이 스크립트는 사용자 지정 규칙을 사용하는 Application Gateway 웹 애플리케이션 방화벽을 만듭니다. 요청 헤더에 사용자 에이전트 *evilbot*이 포함되어 있으면 사용자 지정 규칙이 트래픽을 차단합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 ### <a name="azure-powershell-module"></a>Azure PowerShell 모듈
 
@@ -71,4 +71,4 @@ Remove-AzResourceGroup -Name CustomRulesTest
 
 - WAF 사용자 지정 규칙에 대한 자세한 내용은 [웹 애플리케이션 방화벽에 대한 사용자 지정 규칙](../custom-waf-rules-overview.md)을 참조하세요.
 - Azure PowerShell 모듈에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/azure/overview)를 참조하세요.
-- 추가 응용 프로그램 게이트웨이 PowerShell 스크립트 샘플은 [Azure Application Gateway 설명서](../powershell-samples.md)에서 찾을 수 있습니다.
+- 추가 애플리케이션 게이트웨이 PowerShell 스크립트 샘플은 [Azure Application Gateway 설명서](../powershell-samples.md)에서 찾을 수 있습니다.

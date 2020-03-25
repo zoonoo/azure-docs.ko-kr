@@ -16,10 +16,10 @@ ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 6b763d08dc898566bfe0d7a28bf6471d4edf4c59
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74064948"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-windows-virtual-machines"></a>자습서: Azure Security Center를 사용하여 Windows 가상 머신 모니터링
@@ -124,7 +124,7 @@ Security Center에서는 리소스 구성 권장 사항 외에도 위협 검색 
 ![RDP 공격](./media/tutorial-azure-security/rdp-attack.png)
 
 ## <a name="next-steps"></a>다음 단계
-이 자습서에서는 Azure Security Center를 설정한 다음 Security Center에서 VM을 검토했습니다. 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 Azure Security Center를 설정한 다음 Security Center에서 VM을 검토했습니다. 구체적으로 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * 데이터 수집 설정

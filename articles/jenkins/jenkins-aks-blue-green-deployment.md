@@ -5,10 +5,10 @@ keywords: Jenkins, Azure, DevOps, Kubernetes, k8s, AKS, 파란색/녹색 배포,
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.openlocfilehash: 9d6551f910bd99322f844b44130ebb03732df83c
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78251468"
 ---
 # <a name="deploy-to-azure-kubernetes-service-aks-by-using-jenkins-and-the-bluegreen-deployment-pattern"></a>Jenkins와 파란색/녹색 배포 패턴을 사용하여 AKS(Azure Kubernetes Service) 배포
@@ -143,7 +143,7 @@ GitHub의 Microsoft 리포지토리에서 Jenkins와 파란색/녹색 배포 패
     kubectl apply -f  test-endpoint-green.yml
     ```
 
-1. 공용 및 테스트 엔드포인트에 대한 DNS 이름을 업데이트합니다. Kubernetes 클러스터를 만드는 경우 **MC_&lt;your-resource-group-name> _&lt;your-kubernetes-cluster-name>_ &lt;your-location>** 의 이름 지정 패턴을 사용하여 [추가 리소스 그룹](https://github.com/Azure/AKS/issues/3)도 만듭니다.
+1. 공용 및 테스트 엔드포인트에 대한 DNS 이름을 업데이트합니다. Kubernetes 클러스터를 만드는 경우 [MC_](https://github.com/Azure/AKS/issues/3)your-resource-group-name> **&lt;your-kubernetes-cluster-name> _&lt;your-location>_ 의 이름 지정 패턴을 사용하여 &lt;추가 리소스 그룹**도 만듭니다.
 
     리소스 그룹에서 공용 IP를 찾습니다.
 
@@ -255,7 +255,7 @@ GitHub의 Microsoft 리포지토리에서 Jenkins와 파란색/녹색 배포 패
 
 ## <a name="run-the-job"></a>작업 실행
 
-1. 로컬 환경에서 프로젝트를 성공적으로 실행할 수 있는지 확인합니다. 방법은 다음과 같습니다. [로컬 머신에서 프로젝트를 실행합니다](https://github.com/Microsoft/todo-app-java-on-azure/blob/master/README.md#run-it).
+1. 로컬 환경에서 프로젝트를 성공적으로 실행할 수 있는지 확인합니다. 방법은 다음과 같습니다: [로컬 머신에서 프로젝트를 실행합니다](https://github.com/Microsoft/todo-app-java-on-azure/blob/master/README.md#run-it).
 
 1. Jenkins 작업을 실행합니다. 작업을 처음 실행할 때 Jenkins는 기본적으로 비활성 환경인 파란색 환경에 할 일 앱을 배포합니다. 
 

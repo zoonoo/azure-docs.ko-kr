@@ -9,10 +9,10 @@ ms.date: 03/28/2018
 ms.author: wgries
 ms.custom: include file
 ms.openlocfilehash: 2ddf171090ab4a9e3dbe4506a399cbdbd2621bdd
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67182277"
 ---
 작업을 완료한 후에는 리소스 그룹을 삭제할 수 있습니다. 리소스 그룹을 삭제하면 스토리지 계정, Azure 파일 공유 및 리소스 그룹 내부에 배포한 다른 리소스가 삭제됩니다.

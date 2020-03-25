@@ -10,10 +10,10 @@ ms.date: 02/28/2019
 ms.author: mayg
 ms.custom: include file
 ms.openlocfilehash: 7c682105113dac7c1d457489cf926210ead77993
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67181917"
 ---
 1. 통합 설치 프로그램 설치 파일을 실행합니다.
@@ -35,7 +35,7 @@ ms.locfileid: "67181917"
      ![방화벽](./media/site-recovery-add-configuration-server/combined-wiz4.png)
 6. **필수 조건 확인**에서 설치 프로그램은 설치가 실행될 수 있는지 확인합니다. **글로벌 시간 동기화 확인**에 대한 경고가 표시되면 시스템 시계의 시간(**날짜 및 시간** 설정)이 표준 시간대와 같은지 확인합니다.
 
-    ![필수 조건](./media/site-recovery-add-configuration-server/combined-wiz5.png)
+    ![사전 요구 사항](./media/site-recovery-add-configuration-server/combined-wiz5.png)
 7. **MySQL 구성**에서 설치된 MySQL 서버 인스턴스에 로그온하기 위한 자격 증명을 만듭니다.
 
     ![MySQL](./media/site-recovery-add-configuration-server/combined-wiz6.png)

@@ -16,13 +16,13 @@ ms.date: 10/25/2018
 ms.author: damendo
 ms.custom: mvc
 ms.openlocfilehash: acdaf2318c3082db876ed9c69b704d3d00cd4c90
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76834657"
 ---
-# <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 두 가상 머신 간의 네트워크 통신 모니터링
+# <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 두 개의 가상 머신 간의 네트워크 통신 모니터링
 
 VM(가상 머신)과 다른 VM과 같은 엔드포인트 간의 통신의 성공은 조직에 대해 중요할 수 있습니다. 경우에 따라 통신을 중단할 수 있는 구성 변경 내용이 도입됩니다. 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
@@ -85,7 +85,7 @@ VM을 배포하는 데 몇 분이 걸립니다. 나머지 단계를 계속하기
 연결 모니터를 만들어서 TCP 포트 22를 통해 *myVm1*에서 *myVm2*로 통신을 모니터링합니다.
 
 1. 포털의 왼쪽에서 **모든 서비스**를 선택합니다.
-2. **필터** 상자에 *Network Watcher*를 입력합니다. 검색 결과에 **Network Watcher**가 나타나면 이를 선택합니다.
+2. *필터* 상자에 **Network Watcher**를 입력합니다. 검색 결과에 **Network Watcher**가 나타나면 이를 선택합니다.
 3. **모니터링** 아래에서 **연결 모니터**를 선택합니다.
 4. **+추가**를 선택합니다.
 5. 모니터링하려는 연결에 대한 정보를 입력하거나 선택한 다음, **추가**를 선택합니다. 다음 그림에 나와 있는 예제에서는 포트 22를 통해 *myVm1* VM에서 *myVm2* VM으로 연결을 모니터링합니다.
@@ -159,7 +159,7 @@ VM을 배포하는 데 몇 분이 걸립니다. 나머지 단계를 계속하기
 
     **myvm2529** 네트워크 인터페이스의 상태 열에 빨간색 느낌표 아이콘을 확인할 수 있습니다.
 
-6. 상태가 변경된 이유를 알아보려면 이전 그림에서 10.0.0.5를 선택합니다. 연결 모니터에서 다음과 같은 통신 실패 이유를 알려줍니다. *UserRule_DenySshInbound 네트워크 보안 그룹 규칙으로 인해 트래픽이 차단되었습니다*.
+6. 상태가 변경된 이유를 알아보려면 이전 그림에서 10.0.0.5를 선택합니다. 연결 모니터는 통신 오류에 대한 이유가 *다음 네트워크 보안 그룹 규칙에 의해 차단된 트래픽: UserRule_DenySshInbound*임을 알립니다.
 
     누군가가 4단계에서 만든 보안 규칙을 구현했음을 모르는 경우 규칙이 통신 문제를 일으키는 연결 모니터로부터 알아봅니다. 그런 다음, VM 간의 통신을 복원하려면 규칙을 변경하거나, 재정의하거나, 제거할 수 있습니다.
 
@@ -167,9 +167,9 @@ VM을 배포하는 데 몇 분이 걸립니다. 나머지 단계를 계속하기
 
 더 이상 필요하지 않은 경우 리소스 그룹 및 해당 그룹에 포함된 모든 리소스를 삭제합니다.
 
-1. 포털 맨 위에 있는 **검색** 상자에 *myResourceGroup*을 입력합니다. 검색 결과에 **myResourceGroup**이 보이면 선택합니다.
+1. 포털 맨 위에 있는 *검색* 상자에 **myResourceGroup**을 입력합니다. 검색 결과에 **myResourceGroup**이 보이면 선택합니다.
 2. **리소스 그룹 삭제**를 선택합니다.
-3. **리소스 그룹 이름 입력:** 에 *myResourceGroup*을 입력하고 **삭제**를 선택합니다.
+3. *리소스 그룹 이름 입력:* 에 **myResourceGroup**을 입력하고 **삭제**를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -10,10 +10,10 @@ ms.date: 07/09/2018
 author: mlearned
 monikerRange: vsts
 ms.openlocfilehash: 5f14164da5cd89cc7d0578e6b64c39d227734d75
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "71969467"
 ---
 # <a name="tutorial-deploy-your-aspnet-core-app-to-azure-service-fabric-by-using-azure-devops-projects"></a>자습서: Azure DevOps Projects를 사용하여 Azure Service Fabric에 ASP.NET Core 앱 배포
@@ -35,9 +35,9 @@ Azure DevOps Projects는 기존 코드와 Git 리포지토리를 가져오거나
 > * Git에 변경 내용 커밋 및 자동으로 Azure에 배포
 > * 리소스 정리
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-* Azure 구독. [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/)을 통해 무료 구독을 구할 수 있습니다.
+* Azure 구독 [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/)을 통해 무료 구독을 구할 수 있습니다.
 
 ## <a name="use-devops-projects-to-create-an-aspnet-core-app-and-deploy-it-to-service-fabric"></a>DevOps Projects를 사용하여 ASP.NET Core 앱을 만든 후 Service Fabric에 배포
 
@@ -161,7 +161,7 @@ DevOps Projects는 Azure DevOps 조직에서 Azure 구독에 배포하는 데 �
 
 ## <a name="next-steps"></a>다음 단계
 
-팀의 요구를 충족하려면 필요에 따라 Azure CI/CD 파이프라인을 수정할 수 있습니다. 또한 다른 파이프라인에 대한 템플릿으로 이 CI/CD 패턴을 사용할 수 있습니다. 이 자습서에서는 다음 방법에 대해 알아보았습니다.
+팀의 요구를 충족하려면 필요에 따라 Azure CI/CD 파이프라인을 수정할 수 있습니다. 또한 다른 파이프라인에 대한 템플릿으로 이 CI/CD 패턴을 사용할 수 있습니다. 이 자습서에서는 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * DevOps Projects를 사용하여 ASP.NET Core 앱을 만든 후 Service Fabric에 배포

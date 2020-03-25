@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 12/03/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 5b9bc78f6af833d89a3404de0295ddad78ebdf20
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74870142"
 ---
 # <a name="query-data-by-using-azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB의 API for MongoDB를 사용하여 데이터 쿼리
@@ -58,7 +58,7 @@ ms.locfileid: "74870142"
   "isRegistered": false
 }
 ```
-## <a id="examplequery1"></a>예제 쿼리 1 
+## <a name="example-query-1"></a><a id="examplequery1"></a>예제 쿼리 1 
 
 위의 샘플 가족 문서를 고려해 볼 때 다음 쿼리에서는 ID 필드가 `WakefieldFamily`와 일치하는 문서를 반환합니다.
 
@@ -108,7 +108,7 @@ ms.locfileid: "74870142"
     "isRegistered": false
     }
 
-## <a id="examplequery2"></a>예제 쿼리 2 
+## <a name="example-query-2"></a><a id="examplequery2"></a>예제 쿼리 2 
 
 다음 쿼리에서는 가족의 모든 자식을 반환합니다. 
 
@@ -141,7 +141,7 @@ ms.locfileid: "74870142"
     }
 
 
-## <a id="examplequery3"></a>예제 쿼리 3 
+## <a name="example-query-3"></a><a id="examplequery3"></a>예제 쿼리 3 
 
 다음 쿼리는 등록된 모든 가족을 반환합니다. 
 
@@ -150,7 +150,7 @@ ms.locfileid: "74870142"
     db.families.find( { "isRegistered" : true })
 **결과** 문서가 반환되지 않습니다. 
 
-## <a id="examplequery4"></a>예제 쿼리 4
+## <a name="example-query-4"></a><a id="examplequery4"></a>예제 쿼리 4
 
 다음 쿼리는 등록되지 않은 모든 가족을 반환합니다. 
 
@@ -194,7 +194,7 @@ ms.locfileid: "74870142"
     "isRegistered": false
 }
 
-## <a id="examplequery5"></a>예제 쿼리 5
+## <a name="example-query-5"></a><a id="examplequery5"></a>예제 쿼리 5
 
 다음 쿼리는 등록되지 않았고 거주 지역(주)이 NY인 가족을 모두 반환합니다. 
 
@@ -240,7 +240,7 @@ ms.locfileid: "74870142"
 }
 
 
-## <a id="examplequery6"></a>예제 쿼리 6
+## <a name="example-query-6"></a><a id="examplequery6"></a>예제 쿼리 6
 
 다음 쿼리에서는 자식(children)의 학년(grade)이 8인 모든 가족을 반환합니다.
 
@@ -285,7 +285,7 @@ ms.locfileid: "74870142"
     "isRegistered": false
 }
 
-## <a id="examplequery7"></a>예제 쿼리 7
+## <a name="example-query-7"></a><a id="examplequery7"></a>예제 쿼리 7
 
 다음 쿼리에서는 children 배열의 크기가 3인 모든 가족을 반환합니다.
 

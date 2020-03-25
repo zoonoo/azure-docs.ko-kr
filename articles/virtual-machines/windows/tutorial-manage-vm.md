@@ -16,10 +16,10 @@ ms.date: 06/06/2019
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: c48d5e514d854568043d001a22411b6a67f79e6a
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74067803"
 ---
 # <a name="tutorial-create-and-manage-windows-vms-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 Windows VM 만들기 및 관리
@@ -180,7 +180,7 @@ VM 크기에 따라 CPU, GPU, 메모리 등 VM에 사용할 수 있는 컴퓨팅
 
 다음 표에서는 크기를 사용 사례로 분류합니다.  
 
-| Type                     | 일반적인 크기           |    설명       |
+| Type                     | 일반적인 크기           |    Description       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [범용](sizes-general.md)         |B, Dsv3, Dv3, DSv2, Dv2, Av2, DC| CPU 대 메모리 비율이 적당합니다. 개발/테스트와 소규모에서 중간 정도의 애플리케이션 및 데이터 솔루션에 적합합니다.  |
 | [컴퓨팅 최적화](sizes-compute.md)   | Fsv2          | CPU 대 메모리 비율이 높습니다. 트래픽이 중간 정도인 애플리케이션, 네트워크 어플라이언스 및 일괄 처리 프로세스에 적합합니다.        |
@@ -241,7 +241,7 @@ Start-AzVM `
 Azure VM의 전원 상태는 여러 상태 중 하나일 수 있습니다. 
 
 
-| 전원 상태 | 설명
+| 전원 상태 | Description
 |----|----|
 | 시작 중 | 가상 머신이 시작되고 있습니다. |
 | 실행 중 | 가상 머신이 실행되고 있습니다. |

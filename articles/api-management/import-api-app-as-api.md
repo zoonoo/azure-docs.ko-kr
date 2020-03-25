@@ -13,10 +13,10 @@ ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
 ms.openlocfilehash: bf4039b661ac7e0ee9630b86b9e15d1388991431
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74108493"
 ---
 # <a name="import-an-api-app-as-an-api"></a>API로 API 앱 가져오기
@@ -30,14 +30,14 @@ ms.locfileid: "74108493"
 > * Azure Portal에서 API 테스트
 > * 개발자 포털에서 API 테스트
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-+ 다음 빠른 시작을 완료합니다. [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)
++ 다음 빠른 시작 [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)를 완료합니다.
 + 구독에 API 앱이 있는지 확인합니다. 자세한 내용은 [App Service 설명서](https://docs.microsoft.com/azure/app-service/)를 참조하세요.
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-## <a name="create-api"> </a>백 엔드 API 가져오기 및 게시
+## <a name="import-and-publish-a-back-end-api"></a><a name="create-api"> </a>백 엔드 API 가져오기 및 게시
 
 1. **API Management**에서 **API**를 선택합니다.
 2. **새 API 추가** 목록에서 **API 앱**을 선택합니다.

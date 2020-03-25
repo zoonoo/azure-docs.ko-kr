@@ -12,10 +12,10 @@ ms.reviewer: ''
 ms.author: sstein
 ms.date: 03/12/2019
 ms.openlocfilehash: 1f4465201d93f5bd48bda82b1d3b7e1ebcdc950e
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73691575"
 ---
 # <a name="use-powershell-to-create-elastic-pools-and-move-databases-between-elastic-pools"></a>PowerShell을 사용한 탄력적 풀 만들기 및 탄력적 풀 간에 데이터베이스 이동
@@ -49,7 +49,7 @@ Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | 단일 데이터베이스 또는 탄력적 풀을 호스트하는 SQL Database 서버를 만듭니다. |
 | [New-AzSqlElasticPool](/powershell/module/az.sql/new-azsqlelasticpool) | 탄력적 풀을 만듭니다. |
-| [New-AzSQLDatabase](/powershell/module/az.sql/new-azsqldatabase) | SQL Database 서버의 데이터베이스를 독립 실행형 데이터베이스 또는 풀링된 데이터베이스로 만듭니다. |
+| [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | SQL Database 서버의 데이터베이스를 독립 실행형 데이터베이스 또는 풀링된 데이터베이스로 만듭니다. |
 | [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) | 데이터베이스 속성을 업데이트하거나 탄력적 풀 내부, 외부 또는 내외부 상호 간에 데이터베이스를 이동합니다. |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 |||

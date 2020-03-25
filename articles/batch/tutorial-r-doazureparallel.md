@@ -12,10 +12,10 @@ ms.date: 01/23/2018
 ms.author: labrenne
 ms.custom: mvc
 ms.openlocfilehash: 64daede5de4f2d1bbc69c65f88fe5b5875a0a5b8
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77025846"
 ---
 # <a name="tutorial-run-a-parallel-r-simulation-with-azure-batch"></a>자습서: Azure Batch를 사용하여 병렬 R 시뮬레이션 실행 
@@ -108,7 +108,7 @@ generateClusterConfig("cluster.json")
 이 자습서에서는 구성을 다음과 같이 변경합니다.
 
 * 각 노드의 두 코어를 모두 활용하려면 `maxTasksPerNode`를 *2*로 늘립니다.
-* `dedicatedNodes`를 *0*으로 설정하면 Batch에 사용할 수 있는 우선 순위가 낮은 VM을 시도할 수 있습니다. `lowPriorityNodes`의 `min`을 *5*로, `max`를 *10*으로 설정하거나, 필요한 경우 더 작은 숫자를 선택합니다. 
+* `dedicatedNodes`를 *0*으로 설정하면 Batch에 사용할 수 있는 우선 순위가 낮은 VM을 시도할 수 있습니다. `min`의 `lowPriorityNodes`을 *5*로, `max`를 *10*으로 설정하거나, 필요한 경우 더 작은 숫자를 선택합니다. 
 
 나머지 설정에 대한 기본값은 그대로 두고 파일을 저장합니다. 결과는 다음과 비슷합니다.
 
@@ -214,7 +214,7 @@ difftime(end_s, start_s)
 ```
 
 
-이제 `%dopar%` 키워드가 있는 `foreach`를 사용하는 코드를 실행하여 Azure에서 1,000만 회의 시뮬레이션을 실행하는 데 걸리는 시간을 비교합니다. Batch를 사용하여 시뮬레이션을 병렬 처리하려면 10만 회의 시뮬레이션을 100회 반복합니다.
+이제 `foreach` 키워드가 있는 `%dopar%`를 사용하는 코드를 실행하여 Azure에서 1,000만 회의 시뮬레이션을 실행하는 데 걸리는 시간을 비교합니다. Batch를 사용하여 시뮬레이션을 병렬 처리하려면 10만 회의 시뮬레이션을 100회 반복합니다.
 
 ```R
 # Optimize runtime. Chunking allows running multiple iterations on a single R instance.

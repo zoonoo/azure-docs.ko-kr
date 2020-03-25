@@ -15,23 +15,23 @@ ms.workload: na
 ms.date: 08/30/2018
 ms.author: memildin
 ms.openlocfilehash: 49e2af8fd2d71e1e5103f5337d5c7104c2904322
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74559196"
 ---
 # <a name="tutorial-respond-to-security-incidents"></a>자습서: 보안 인시던트에 대응
-Security Center는 고급 분석 및 위협 인텔리전스를 사용하여 하이브리드 클라우드 워크로드를 지속적으로 분석하여 악의적인 활동을 경고합니다. 또한 다른 보안 제품 및 서비스의 경고를 Security Center에 통합하고, 사용자 고유의 표시기 또는 인텔리전스 원본에 기반한 사용자 지정 경고를 만들 수 있습니다. 경고가 생성되면 조사하고 수정하기 위한 신속한 조치가 필요합니다. 이 자습서에서는 다음 방법을 알아봅니다.
+Security Center는 고급 분석 및 위협 인텔리전스를 사용하여 하이브리드 클라우드 워크로드를 지속적으로 분석하여 악의적인 활동을 경고합니다. 또한 다른 보안 제품 및 서비스의 경고를 Security Center에 통합하고, 사용자 고유의 표시기 또는 인텔리전스 원본에 기반한 사용자 지정 경고를 만들 수 있습니다. 경고가 생성되면 조사하고 수정하기 위한 신속한 조치가 필요합니다. 이 자습서에서는 다음 작업 방법을 배웁니다.
 
 > [!div class="checklist"]
 > * 보안 경고 심사
 > * 보안 인시던트의 근본 원인과 범위를 파악하기 위한 추가 조사
 > * 조사에 도움이 되는 보안 데이터 검색
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 이 자습서에서 설명하는 기능을 단계별로 실행하려면 Security Center 표준 가격 책정 계층에 있어야 합니다. 비용 없이 Security Center 표준을 사용해 볼 수 있습니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조하세요. [Security Center 표준에 Azure 구독 온보딩](security-center-get-started.md) 빠른 시작을 통해 표준 계층으로 업그레이드하는 방법을 안내합니다.
 
 ## <a name="scenario"></a>시나리오

@@ -14,10 +14,10 @@ ms.topic: tutorial
 ms.date: 06/28/2019
 ms.author: apimpm
 ms.openlocfilehash: cec1d3e07800dd3093ca79a87cafcf5fceafbf2f
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77209191"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Azure API Management에서 Azure 함수 앱을 API로 가져오기
@@ -42,7 +42,7 @@ Azure API Management는 Azure 함수 앱을 새 API로 가져오거나 기존 AP
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-## <a name="add-new-api-from-azure-function-app"></a> Azure 함수 앱을 새 API로 가져오기
+## <a name="import-an-azure-function-app-as-a-new-api"></a><a name="add-new-api-from-azure-function-app"></a> Azure 함수 앱을 새 API로 가져오기
 
 아래 단계에 따라 Azure 함수 앱에서 새 API를 만듭니다.
 
@@ -77,7 +77,7 @@ Azure API Management는 Azure 함수 앱을 새 API로 가져오거나 기존 AP
 
 8. **만들기**를 클릭합니다.
 
-## <a name="append-azure-function-app-to-api"></a> Azure 함수 앱을 기존 API에 추가
+## <a name="append-azure-function-app-to-an-existing-api"></a><a name="append-azure-function-app-to-api"></a> Azure 함수 앱을 기존 API에 추가
 
 아래 단계에 따라 Azure 함수 앱을 기존 API에 추가합니다.
 
@@ -111,14 +111,14 @@ Azure API Management는 Azure 함수 앱을 새 API로 가져오거나 기존 AP
 
     ![함수 앱에서 추가](./media/import-function-app-as-api/append-04.png)
 
-## <a name="authorization"></a> 권한 부여
+## <a name="authorization"></a><a name="authorization"></a> 권한 부여
 
 Azure 함수 앱 가져오기에서 자동으로 생성되는 항목은 다음과 같습니다.
 
 * 함수 앱 내에 apim-{*Azure API Management 서비스 인스턴스 이름*} 이름이 있는 호스트 키,
 * Azure API Management 인스턴스 내에 {*Azure 함수 앱 인스턴스 이름*}-key 이름(만든 호스트 키 포함)이 있는 명명된 값.
 
-2019년 4월 4일 이후 만든 API의 경우 호스트 키는 HTTP 요청 시 API Management에서 헤더의 함수 앱으로 전달됩니다. 기존 API는 호스트 키를 [쿼리 매개 변수](../azure-functions/functions-bindings-http-webhook-trigger.md#api-key-authorization)로 전달합니다. 이 동작은 함수 앱과 연결된 *백 엔드* 엔터티의 `PATCH Backend` [REST API 호출](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend/update#backendcredentialscontract)을 통해 변경할 수 있습니다.
+2019년 4월 4일 이후 만든 API의 경우 호스트 키는 HTTP 요청 시 API Management에서 헤더의 함수 앱으로 전달됩니다. 기존 API는 호스트 키를 [쿼리 매개 변수](../azure-functions/functions-bindings-http-webhook-trigger.md#api-key-authorization)로 전달합니다. 이 동작은 함수 앱과 연결된 `PATCH Backend`백 엔드[ 엔터티의 ](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend/update#backendcredentialscontract) *REST API 호출*을 통해 변경할 수 있습니다.
 
 > [!WARNING]
 > Azure 함수 앱 호스트 키 또는 Azure API Management 명명된 값을 제거하거나 변경하면 서비스 간 통신이 중단됩니다. 값은 자동으로 동기화되지 않습니다.
@@ -143,7 +143,7 @@ Azure API Management 인스턴스로 이동하고, 왼쪽 메뉴에서 **명명�
 
 ![함수 앱에서 추가](./media/import-function-app-as-api/keys-01.png)
 
-## <a name="test-in-azure-portal"></a> Azure Portal에서 새 API 테스트
+## <a name="test-the-new-api-in-the-azure-portal"></a><a name="test-in-azure-portal"></a> Azure Portal에서 새 API 테스트
 
 Azure Portal에서 작업을 직접 호출할 수 있습니다. Azure Portal을 사용하는 것은 API의 작업을 보고 테스트하는 편리한 방법입니다.  
 

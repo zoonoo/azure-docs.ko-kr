@@ -15,10 +15,10 @@ ms.date: 03/19/2018
 ms.author: atsenthi
 ms.custom: mvc
 ms.openlocfilehash: 0cf9f8362d3fa683084aef840cf35cd9a843608a
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75614811"
 ---
 # <a name="update-the-admin-username-and-password-of-the-vms-in-a-cluster"></a>클러스터 VM의 관리자 사용자 이름과 암호를 업데이트합니다.
@@ -35,7 +35,7 @@ Service Fabric 클러스터의 각 [노드 유형](../service-fabric-cluster-nod
 
 ## <a name="script-explanation"></a>스크립트 설명
 
-이 스크립트는 다음 명령을 사용합니다. 테이블에 있는 각 명령은 명령에 해당하는 문서에 연결됩니다.
+이 스크립트는 다음 명령을 사용합니다. 표의 각 명령은 명령 관련 문서에 연결됩니다.
 
 | 명령 | 메모 |
 |---|---|

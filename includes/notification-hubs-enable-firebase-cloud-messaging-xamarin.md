@@ -9,10 +9,10 @@ ms.date: 08/01/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: 45bdd569741dc13181bcaf9e8587a02b3d02c621
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68728847"
 ---
 1. [Firebase 콘솔](https://firebase.google.com/console/)에 로그인합니다. 아직 없는 경우 새 Firebase 프로젝트를 만듭니다.

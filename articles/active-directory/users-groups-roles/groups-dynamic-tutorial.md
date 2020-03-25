@@ -15,17 +15,17 @@ ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 382f3b59142aee7ddfbec4aceb153a174874ac1a
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74027101"
 ---
-# <a name="tutorial-add-or-remove-group-members-automatically"></a>자습서: 자동으로 그룹 구성원 추가 또는 제거
+# <a name="tutorial-add-or-remove-group-members-automatically"></a>자습서: 자동으로 구성원 추가 또는 제거
 
 Azure AD(Azure Active Directory)에서 자동으로 보안 그룹 또는 Office 365 그룹에 사용자를 추가하거나 제거할 수 있으므로, 항상 수동으로 할 필요가 없습니다. 사용자 또는 디바이스의 속성이 변경될 때마다 Azure AD는 테넌트의 모든 동적 그룹 규칙을 평가하여 변경 내용에 구성원을 추가 또는 제거해야 하는지 확인합니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 > [!div class="checklist"]
 > * 파트너 회사에서 자동으로 채워지는 게스트 사용자 그룹 만들기
 > * 게스트 사용자가 액세스할 파트너 관련 기능에 대한 그룹에 라이선스 할당
@@ -33,7 +33,7 @@ Azure AD(Azure Active Directory)에서 자동으로 보안 그룹 또는 Office 
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 기능을 사용하려면 테넌트의 글로벌 관리자에 대한 하나의 Azure AD Premium 라이선스가 있어야 합니다. 아직 없는 경우 Azure AD에서 **라이선스** > **제품** > **사용/구매**를 선택합니다.
 
@@ -97,7 +97,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 다음 작업 방법을 알아보았습니다.
 > [!div class="checklist"]
 > * 게스트 사용자 그룹 만들기
 > * 새 그룹에 라이선스 할당

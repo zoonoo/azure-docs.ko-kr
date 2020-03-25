@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.custom: mvc
 ms.openlocfilehash: 338c6b642076835132b75aa4259381791378577a
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74171729"
 ---
 # <a name="restore-files-to-a-virtual-machine-in-azure"></a>Azure에서 가상 머신에 파일 복원
@@ -25,7 +25,7 @@ Azure Backup은 지역 중복 복구 자격 증명 모음에 저장되는 복구
 
 CLI를 로컬로 설치하여 사용하도록 선택하는 경우 이 자습서에서는 Azure CLI 버전 2.0.18 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에서는 Azure Backup으로 보호된 Linux VM이 필요합니다. 실수로 인한 파일 삭제 및 복구 프로세스를 시뮬레이션하려면 웹 서버에서 페이지를 삭제합니다. 웹 서버를 실행하고 Azure Backup으로 보호된 Linux VM이 필요한 경우 [CLI를 사용하여 Azure에서 가상 컴퓨터 백업](quick-backup-vm-cli.md)을 참조하세요.
 
@@ -191,7 +191,7 @@ Azure에서 백업을 시작하면 VM에 대한 백업 확장에서 특정 시�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 복구 지점을 VM에 연결하고 웹 서버에 대한 파일을 복원했습니다. 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 복구 지점을 VM에 연결하고 웹 서버에 대한 파일을 복원했습니다. 구체적으로 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 >

@@ -7,10 +7,10 @@ ms.topic: sample
 ms.date: 09/20/2019
 ms.author: mjbrown
 ms.openlocfilehash: 075c33b0818aa3ec8b16158f538ae302446ff5f7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75445036"
 ---
 # <a name="update-an-azure-cosmos-account-or-modify-regions-using-powershell"></a>PowerShell을 사용하여 Azure Cosmos 계정 업데이트 또는 지역 수정

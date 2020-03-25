@@ -13,10 +13,10 @@ ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 7360798f2f95184145a856babf501e3080cbaaf4
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76274197"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 Azure VM의 사용자 지정 이미지 만들기
@@ -71,7 +71,7 @@ Stop-AzVM `
    -Name myVM -Force
 ```
 
-[Set-AzVm](https://docs.microsoft.com/powershell/module/az.compute/set-azvm)을 사용하여 가상 머신의 상태를 `-Generalized`으로 설정합니다. 
+`-Generalized`Set-AzVm[을 사용하여 가상 머신의 상태를 ](https://docs.microsoft.com/powershell/module/az.compute/set-azvm)으로 설정합니다. 
    
 ```azurepowershell-interactive
 Set-AzVM `

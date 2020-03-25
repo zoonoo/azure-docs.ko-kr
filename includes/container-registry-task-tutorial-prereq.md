@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 05/02/2019
 ms.author: danlep
 ms.openlocfilehash: 40cc1856a5e943ca5596e7d11712febadd30e3ec
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67133788"
 ---
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 ### <a name="get-sample-code"></a>샘플 코드 가져오기
 
@@ -19,7 +19,7 @@ ms.locfileid: "67133788"
 
 ### <a name="container-registry"></a>컨테이너 레지스트리
 
-이 자습서를 완료하려면 Azure 구독에 Azure 컨테이너 레지스트리가 있어야 합니다. 레지스트리가 필요한 경우 [이전 자습서](../articles/container-registry/container-registry-tutorial-quick-task.md) 또는 [빠른 시작: Azure CLI를 사용하여 컨테이너 레지스트리 만들기](../articles/container-registry/container-registry-get-started-azure-cli.md)를 참조하세요.
+이 자습서를 완료하려면 Azure 구독에 Azure 컨테이너 레지스트리가 있어야 합니다. 레지스트리가 필요하면 [이전 자습서](../articles/container-registry/container-registry-tutorial-quick-task.md) 또는 [빠른 시작: Azure CLI를 사용하여 컨테이너 레지스트리 만들기](../articles/container-registry/container-registry-get-started-azure-cli.md)를 참조하세요.
 
 ## <a name="create-a-github-personal-access-token"></a>GitHub 개인용 액세스 토큰 만들기
 

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 12/07/2018
 ms.author: alkohli
 ms.openlocfilehash: e4b366075cb16f62a0e16b5b06da6fb19ffefdb9
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67182868"
 ---
 1. Data Box 디바이스에 로그인합니다. 잠겨 있지 않은지 확인합니다.
@@ -27,7 +27,7 @@ ms.locfileid: "67182868"
 
     ![Data Box 대시보드](media/data-box-add-device-ip/data-box-connect-via-rest-4.png)
 
-5. 관리자 권한으로 **메모장**을 시작하고 `C:\Windows\System32\Drivers\etc`에 있는 **호스트** 파일을 엽니다.
+5. 관리자 권한으로 **메모장**을 시작하고 **에 있는** 호스트`C:\Windows\System32\Drivers\etc` 파일을 엽니다.
 6. 다음 항목을 **호스트** 파일에 추가합니다. `<device IP address> <Blob service endpoint>`
 7. 참조를 위해 다음 이미지를 사용합니다. **호스트** 파일을 저장합니다.
 

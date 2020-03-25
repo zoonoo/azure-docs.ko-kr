@@ -5,10 +5,10 @@ keywords: Jenkins, Azure, DevOps, 가상 머신, 에이전트
 ms.topic: tutorial
 ms.date: 07/31/2018
 ms.openlocfilehash: 2e811d628c017316a5bc50a8ddc22ee24d6f744e
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74158542"
 ---
 # <a name="scale-your-jenkins-deployments-to-meet-demand-with-azure-vm-agents"></a>Azure VM 에이전트를 통해 요구 사항을 충족하도록 Jenkins 배포의 비율 크기 조정
@@ -27,7 +27,7 @@ ms.locfileid: "74158542"
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Continuous-Integration-with-Jenkins-Using-Azure-VM-Agents/player]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독
 * Jenkins 마스터 서버입니다. 없는 경우 [빠른 시작](install-jenkins-solution-template.md)을 확인하여 Azure에서에서 하나 설치합니다.
@@ -85,7 +85,7 @@ ms.locfileid: "74158542"
             }
      ```
 
-    완료된 서비스 주체는 **구독 ID**에 `id` 필드, **클라이언트 ID**에 `appId` 값, **클라이언트 암호**에 `password` 및 **테넌트 ID**에 `tenant`을 사용해야 합니다. **추가**를 선택하여 서비스 주체를 추가한 다음, 새로 만든 자격 증명을 사용하도록 플러그 인을 구성합니다.
+    완료된 서비스 주체는 `id`구독 ID**에**  필드, `appId`클라이언트 ID**에**  값, `password`클라이언트 암호**에**  및 `tenant`테넌트 ID**에** 을 사용해야 합니다. **추가**를 선택하여 서비스 주체를 추가한 다음, 새로 만든 자격 증명을 사용하도록 플러그 인을 구성합니다.
 
     ![Azure 서비스 주체 구성](./media/jenkins-azure-vm-agents/new-service-principal.png)
 
@@ -100,10 +100,10 @@ ms.locfileid: "74158542"
 Azure VM 에이전트를 정의하는 데 사용할 템플릿을 구성합니다. 이 템플릿은 만들 때 각 에이전트가 갖게 되는 컴퓨팅 리소스를 정의합니다.
 
 1. **Azure Virtual Machine Template 추가** 옆에 있는 **추가**를 선택합니다.
-1. **이름**에 `defaulttemplate`을 입력합니다.
-1. **레이블**에 `ubuntu`를 입력합니다.
+1. `defaulttemplate`이름**에** 을 입력합니다.
+1. `ubuntu`레이블**에** 를 입력합니다.
 1. 콤보 상자에서 원하는 [Azure 지역](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 선택합니다.
-1. **Virtual Machine 크기**에 있는 드롭다운 목록에서 [VM 크기](/azure/virtual-machines/linux/sizes)를 선택합니다. 이 자습서에는 범용 `Standard_DS1_v2` 크기가 적합합니다.   
+1. [Virtual Machine 크기](/azure/virtual-machines/linux/sizes)에 있는 드롭다운 목록에서 **VM 크기**를 선택합니다. 이 자습서에는 범용 `Standard_DS1_v2` 크기가 적합합니다.   
 1. **보존 시간**은 `60`으로 둡니다. 이 설정은 Jenkins가 유휴 에이전트를 할당 취소할 때까지 대기할 수 있는 시간(분)을 정의합니다. 유휴 에이전트를 자동으로 제거하지 않으려는 경우 0을 지정합니다.
 
    ![일반 VM 구성](./media/jenkins-azure-vm-agents/general-config.png)
@@ -122,10 +122,10 @@ Azure VM 에이전트를 정의하는 데 사용할 템플릿을 구성합니다
 
 1. Jenkins 대시보드 내에서 **New Item**을 클릭합니다. 
 1. 이름에 `demoproject1`을 입력하고 **프리스타일 프로젝트**를 선택한 다음, **확인**을 선택합니다.
-1. **일반** 탭에서 **프로젝트를 실행할 수 있는 위치 제한**을 선택하고 **레이블 식**에 `ubuntu`를 입력합니다. 이전 단계에서 만든 클라우드 구성에 의해 레이블이 처리된다는 확인 메시지가 표시됩니다. 
+1. **일반** 탭에서 **프로젝트를 실행할 수 있는 위치 제한**을 선택하고 `ubuntu`레이블 식**에** 를 입력합니다. 이전 단계에서 만든 클라우드 구성에 의해 레이블이 처리된다는 확인 메시지가 표시됩니다. 
    ![작업 설정](./media/jenkins-azure-vm-agents/job-config.png)
 1. **소스 코드 관리** 탭에서 **Git**을 선택하고 **리포지토리 URL** 필드에 다음 URL을 추가합니다. `https://github.com/spring-projects/spring-petclinic.git`
-1. **빌드** 섹션에서 **빌드 단계 추가**, **최상위 Maven 대상 호출**을 차례로 선택합니다. **목표** 필드에 `package`를 입력합니다.
+1. **빌드** 섹션에서 **빌드 단계 추가**, **최상위 Maven 대상 호출**을 차례로 선택합니다. `package`목표**필드에**를 입력합니다.
 1. **저장**을 클릭하여 작업 정의를 저장합니다.
 
 ## <a name="build-the-new-job-on-an-azure-vm-agent"></a>Azure VM 에이전트에서 새 작업 빌드

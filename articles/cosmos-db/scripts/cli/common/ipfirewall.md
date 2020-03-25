@@ -8,10 +8,10 @@ ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 9/25/2019
 ms.openlocfilehash: 8b0ab04e2117108566962cc9a473556098e0e51d
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "71275170"
 ---
 # <a name="create-an-azure-cosmos-account-with-ip-firewall-using-azure-cli"></a>Azure CLI를 사용하여 IP 방화벽을 통해 Azure Cosmos 계정 만들기
@@ -23,7 +23,7 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 항목에서 
 ## <a name="sample-script"></a>샘플 스크립트
 
 > [!NOTE]
-> 이 샘플에서는 SQL(Core) API 계정을 사용하는 방법을 보여줍니다. 이 샘플을 다른 API에 사용하려면 아래 스크립트의 `ip-range-filter` 매개 변수를 API 특정 스크립트에 대한 `az cosmosdb account create` 명령에 적용합니다.
+> 이 샘플에서는 SQL(Core) API 계정을 사용하는 방법을 보여 줍니다. 이 샘플을 다른 API에 사용하려면 아래 스크립트의 `ip-range-filter` 매개 변수를 API 특정 스크립트에 대한 `az cosmosdb account create` 명령에 적용합니다.
 
 [!code-azurecli-interactive[main](../../../../../cli_scripts/cosmosdb/common/ipfirewall.sh "Create an Azure Cosmos account with ip firewall.")]
 

@@ -14,17 +14,17 @@ ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: d0c837ac376f9d496baaf1ed67d0ec80c996804a
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73176825"
 ---
 # <a name="publish-multiple-versions-of-your-api"></a>여러 버전의 API 게시 
 
 모든 API 호출자가 정확히 같은 버전을 사용하기가 어려운 경우가 있습니다. 최신 버전으로 업그레이드하려는 호출자는 이해하기 쉬운 방식을 사용하여 업그레이드를 수행하기를 원할 것입니다. Azure API Management에서 **버전**을 사용하면 이러한 작업을 수행할 수 있습니다. 자세한 내용은 [버전 및 수정 버전](https://blogs.msdn.microsoft.com/apimanagement/2017/09/14/versions-revisions/)을 참조하세요.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 기존 API에 새 버전 추가
@@ -34,11 +34,11 @@ ms.locfileid: "73176825"
 
 ![개발자 포털에 표시되는 버전](media/api-management-getstarted-publish-versions/azure_portal.PNG)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 + [Azure API Management 용어](api-management-terminology.md)를 익힙니다.
-+ 다음 빠른 시작을 완료합니다. [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)
-+ 또한 [첫 번째 API 가져오기 및 게시](import-and-publish.md) 자습서를 완료합니다.
++ 다음 빠른 시작 [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)를 완료합니다.
++ 또한, 다음 자습서 [첫 번째 API 가져오기 및 게시](import-and-publish.md)를 완료합니다.
 
 ## <a name="add-a-new-version"></a>새 버전 추가
 
@@ -101,7 +101,7 @@ Azure API Management에서는 호출자가 원하는 API 버전을 지정하도�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 기존 API에 새 버전 추가

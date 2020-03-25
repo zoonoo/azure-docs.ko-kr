@@ -12,10 +12,10 @@ ms.author: joke
 ms.reviwer: sstein
 ms.date: 03/13/2019
 ms.openlocfilehash: 74a72df9d8c0bc8a578fea57ab81fb496f8e6add
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74420363"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell"></a>PowerShell을 사용하여 탄력적 작업 에이전트 만들기
@@ -34,7 +34,7 @@ ms.locfileid: "74420363"
 > * 작업 실행 시작
 > * 작업 모니터링
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 업그레이드된 버전의 Elastic Database 작업에는 마이그레이션 중에 사용할 새로운 PowerShell cmdlet 집합이 포함됩니다. 이 새로운 cmdlet은 모든 기존 작업 자격 증명, 대상(데이터베이스, 서버, 사용자 지정 컬렉션), 작업 트리거, 작업 예약, 작업 콘텐츠 및 작업을 새로운 탄력적 작업 에이전트로 전환합니다.
 
@@ -134,7 +134,7 @@ Register-AzProviderFeature -FeatureName sqldb-JobAccounts -ProviderNamespace Mic
 
 탄력적 작업 에이전트는 작업을 생성하고 실행하고 관리하기 위한 Azure 리소스입니다. 에이전트는 일정에 따라 또는 일회성 작업으로 작업을 실행합니다.
 
-*resourceGroupName*, *serverName* 및  *databaseName* 매개 변수가 모두 기존 리소스를 가리켜야 하므로 **New-AzSqlElasticJobAgent** cmdlet에는 Azure SQL 데이터베이스 cmdlet이 있어야 합니다.
+**resourceGroupName**, *serverName* 및  *databaseName* 매개 변수가 모두 기존 리소스를 가리켜야 하므로 *New-AzSqlElasticJobAgent* cmdlet에는 Azure SQL 데이터베이스 cmdlet이 있어야 합니다.
 
 ```powershell
 Write-Output "Creating job agent..."
@@ -274,9 +274,9 @@ $jobExecution | Get-AzSqlElasticJobTargetExecution -Count 2
 
 다음 표에서 가능한 작업 실행 상태를 나열합니다.
 
-|시스템 상태|설명|
+|시스템 상태|Description|
 |:---|:---|
-|**생성일** | 작업 실행이 방금 만들어졌으며 아직 진행 중이 아닙니다.|
+|**만든 날짜** | 작업 실행이 방금 만들어졌으며 아직 진행 중이 아닙니다.|
 |**InProgress** | 작업 실행이 현재 진행 중입니다.|
 |**WaitingForRetry** | 작업 실행이 해당 작업을 완료할 수 없어 다시 시도를 기다리고 있습니다.|
 |**성공함** | 작업 실행이 성공적으로 완료되었습니다.|

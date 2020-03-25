@@ -9,15 +9,15 @@ ms.date: 02/02/2018
 ms.author: cephalin
 ms.custom: include file
 ms.openlocfilehash: b59b45de04ebb717dfe55eb17c9dbd92f7523976
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67182684"
 ---
 [!INCLUDE [resource group intro text](resource-group.md)]
 
-Cloud Shell에서 [`az group create`](/cli/azure/group?view=azure-cli-latest) 명령을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *유럽 서부* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다. **체험** 계층에서 App Service에 지원되는 모든 위치를 확인하려면 [`az appservice list-locations --sku FREE`](/cli/azure/appservice?view=azure-cli-latest) 명령을 실행합니다.
+Cloud Shell에서 [`az group create`](/cli/azure/group?view=azure-cli-latest) 명령을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *서유럽* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다. **체험** 계층에서 App Service에 지원되는 모든 위치를 확인하려면 [`az appservice list-locations --sku FREE`](/cli/azure/appservice?view=azure-cli-latest) 명령을 실행합니다.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "West Europe"

@@ -11,10 +11,10 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: 5bd25604844ce0521b6bac2d637a2d48a6ef089b
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72555743"
 ---
 # <a name="connect-your-apache-spark-application-with-kafka-enabled-azure-event-hubs"></a>Apache Spark 애플리케이션을 Kafka 지원 Azure Event Hubs에 연결
@@ -23,7 +23,7 @@ ms.locfileid: "72555743"
 > [!NOTE]
 > 이 샘플은 [GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/spark/)에서 사용할 수 있습니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 > [!div class="checklist"]
 > * Event Hubs 네임스페이스 만들기
 > * 프로젝트 예제 복제
@@ -31,7 +31,7 @@ ms.locfileid: "72555743"
 > * Kafka용 Event Hubs에서 읽기
 > * Kafka용 Event Hubs에 쓰기
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 시작하기 전에 먼저 다음 사항을 확인해야 합니다.
 -   동작합니다. 아직 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 만들 수 있습니다.

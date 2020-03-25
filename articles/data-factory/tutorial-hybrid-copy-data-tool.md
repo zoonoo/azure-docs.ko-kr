@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 04/09/2018
 ms.openlocfilehash: 1d8c68550d294534178fd6094b71fd6a7f1d1c46
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75977370"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage-by-using-the-copy-data-tool"></a>데이터 복사 도구를 사용하여 온-프레미스 SQL Server 데이터베이스에서 Azure Blob Storage로 데이터 복사

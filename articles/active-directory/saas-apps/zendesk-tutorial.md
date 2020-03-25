@@ -1,5 +1,5 @@
 ---
-title: '자습서: Zendesk와 Azure Active Directory 통합 | Microsoft Docs'
+title: '자습서: Azure Active Directory와 Zendesk 통합 | Microsoft Docs'
 description: Azure Active Directory와 Zendesk 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 02/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4887457f457ff533a0eaf10be7db1627a950f5bd
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74233261"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-zendesk"></a>자습서: Zendesk와 Azure Active Directory 통합
+# <a name="tutorial-azure-active-directory-integration-with-zendesk"></a>자습서:Azure Active Directory와 Zendesk 통합
 
 이 자습서에서는 Azure AD(Azure Active Directory)와 Zendesk를 통합하는 방법에 대해 알아봅니다.
 Zendesk와 Azure AD를 통합하면 다음과 같은 이점이 제공됩니다.
@@ -32,10 +32,10 @@ Zendesk와 Azure AD를 통합하면 다음과 같은 이점이 제공됩니다.
 * 사용자가 해당 Azure AD 계정으로 Zendesk에 자동으로 로그인(Single Sign-On)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Zendesk와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -140,7 +140,7 @@ Zendesk에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
     g. **저장**을 클릭합니다.
 
     > [!NOTE]
-    > 기본적으로 Azure AD에 없는 특성을 추가하려면 확장 특성을 사용합니다. **Zendesk**에서 허용하는 전체 SAML 특성 목록을 가져오려면 [User attributes that can be set in SAML](https://support.zendesk.com/hc/articles/203663676-Using-SAML-for-single-sign-on-Professional-and-Enterprise-)(SAML에서 설정할 수 있는 사용자 특성)을 클릭하세요.
+    > 기본적으로 Azure AD에 없는 특성을 추가하려면 확장 특성을 사용합니다. [Zendesk](https://support.zendesk.com/hc/articles/203663676-Using-SAML-for-single-sign-on-Professional-and-Enterprise-)에서 허용하는 전체 SAML 특성 목록을 가져오려면 **User attributes that can be set in SAML**(SAML에서 설정할 수 있는 사용자 특성)을 클릭하세요.
 
 7. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **지문**을 복사하여 컴퓨터에 저장합니다.
 
@@ -213,7 +213,7 @@ Zendesk에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
     b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
-    c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
+    다. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
 

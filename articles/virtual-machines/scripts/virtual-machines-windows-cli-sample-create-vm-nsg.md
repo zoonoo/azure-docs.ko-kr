@@ -17,15 +17,15 @@ ms.date: 02/23/2017
 ms.author: rclaus
 ms.custom: mvc
 ms.openlocfilehash: eb851b672a3cc9748d1aa5fbe27e4a7fac9d020e
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74039931"
 ---
 # <a name="secure-network-traffic-between-virtual-machines"></a>가상 머신 간의 네트워크 트래픽 보안
 
-이 스크립트는 두 개의 가상 머신을 만들고 해당 컴퓨터에 들어오는 트래픽의 보안을 유지합니다. 첫 번째 가상 머신은 인터넷에 액세스할 수 있고 포트 3389 및 포트 80에서 트래픽을 허용하도록 네트워크 보안 그룹(NSG)을 구성합니다. 두 번째 가상 컴퓨터는 인터넷에 액세스할 수 없고 NSG가 첫 번째 가상 컴퓨터의 트래픽을 허용하도록 구성합니다. 
+이 스크립트는 두 개의 가상 머신을 만들고 해당 컴퓨터에 들어오는 트래픽의 보안을 유지합니다. 첫 번째 가상 머신은 인터넷에 액세스할 수 있고 포트 3389 및 포트 80에서 트래픽을 허용하도록 네트워크 보안 그룹(NSG)을 구성합니다. 두 번째 가상 머신은 인터넷에 액세스할 수 없고 NSG가 첫 번째 가상 머신의 트래픽을 허용하도록 구성합니다. 
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 

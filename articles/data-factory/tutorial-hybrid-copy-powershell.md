@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/22/2018
 ms.openlocfilehash: 61ee9e46b1c1d4c1e1ec4815c7a88de921650230
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75982602"
 ---
 # <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>자습서: 온-프레미스 SQL Server 데이터베이스에서 Azure Blob Storage로 데이터 복사
@@ -177,7 +177,7 @@ ms.locfileid: "75982602"
 >    The specified data factory name 'ADFv2TutorialDataFactory' is already in use. Data factory names must be globally unique.
 >    ```
 > * Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할 사용자 계정은 *참여자* 또는 *소유자* 역할로 할당되거나 Azure 구독의 *관리자*여야 합니다.
-> * 현재 Data Factory를 사용할 수 있는 Azure 지역 목록을 보려면 다음 페이지에서 관심 있는 지역을 선택한 다음, **Analytics**를 펼쳐서 **Data Factory**: [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 찾습니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(Azure HDInsight 등)은 다른 지역에 있을 수 있습니다.
+> * Data Factory를 현재 사용할 수 있는 Azure 지역 목록을 보려면 다음 페이지에서 관심 있는 지역을 선택한 다음, **Analytics**를 펼쳐서 **Data Factory**: [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 찾습니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(Azure HDInsight 등)은 다른 지역에 있을 수 있습니다.
 >
 >
 
@@ -478,7 +478,7 @@ ms.locfileid: "75982602"
 ### <a name="create-a-dataset-for-azure-blob-storage-sink"></a>Azure Blob Storage(싱크)에 대한 데이터 세트 만들기
 이 단계에서는 Azure Blob Storage에 복사될 데이터를 나타내는 데이터 세트를 정의합니다. 데이터 세트는 AzureBlob 형식입니다. 이 데이터 집합은 이 자습서의 앞부분에서 만든 Azure Storage 연결된 서비스를 참조합니다.
 
-연결된 서비스에는 Data Factory가 런타임 시 Azure Storage Account에 연결하는 데 사용하는 연결 정보가 있습니다. 이 데이터 세트는 SQL Server 데이터베이스에서 데이터를 복사할 Azure Storage의 폴더를 지정합니다. 이 자습서에서 폴더는 `adftutorial`가 Blob 컨테이너이며, `fromonprem`이 폴더인 *adftutorial/fromonprem*입니다.
+연결된 서비스에는 Data Factory가 런타임 시 Azure Storage Account에 연결하는 데 사용하는 연결 정보가 있습니다. 이 데이터 세트는 SQL Server 데이터베이스에서 데이터를 복사할 Azure Storage의 폴더를 지정합니다. 이 자습서에서 폴더는 *가 Blob 컨테이너이며,* 이 폴더인 `adftutorial`adftutorial/fromonprem`fromonprem`입니다.
 
 1. 다음 코드를 사용하여 *C:\ADFv2Tutorial* 폴더에 *AzureBlobDataset.json*이라는 JSON 파일을 만듭니다.
 
@@ -705,7 +705,7 @@ $runId = Invoke-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -Resou
     ```
 
 ## <a name="verify-the-output"></a>출력 확인
-파이프라인은 자동으로 `adftutorial` Blob 컨테이너에서 *fromonprem*이라는 출력 폴더를 만듭니다. 출력 폴더에서 *dbo.emp.txt* 파일이 표시되는지 확인합니다.
+파이프라인은 자동으로 *Blob 컨테이너에서*fromonprem`adftutorial`이라는 출력 폴더를 만듭니다. 출력 폴더에서 *dbo.emp.txt* 파일이 표시되는지 확인합니다.
 
 1. Azure Portal의 **adftutorial** 컨테이너 창에서 출력 폴더를 보려면 **새로 고침**을 선택합니다.
 1. 폴더 목록에서 `fromonprem`을 선택합니다.

@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: 6a4d1c8a390ebd1194d14c057bb32d3111bf39be
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67093502"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-proxyclick"></a>자습서: Proxyclick과 Azure Active Directory 통합
@@ -35,7 +35,7 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Proxyclick과 Azure AD의 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -92,7 +92,7 @@ Proxyclick에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
     ![Single Sign-On 선택](common/select-sso.png)
 
-2. **Single Sign-On 방법 선택** 대화 상자에서 **SAML/WS-Fed** 모드를 선택하여 Single Sign-On을 사용하도록 설정합니다.
+2. **Single Sign-On 선택 방법** 대화 상자에서 **SAML/WS-Fed** 모드를 선택하여 Single Sign-On을 사용하도록 설정합니다.
 
     ![Single Sign-On 방법 선택](common/select-saml-option.png)
 

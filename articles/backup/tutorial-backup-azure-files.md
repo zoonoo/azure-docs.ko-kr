@@ -4,10 +4,10 @@ description: 이 자습서에서는 Azure Portal을 사용하여 Recovery Servic
 ms.date: 06/10/2019
 ms.topic: tutorial
 ms.openlocfilehash: ec9074a39f2ece7878c0c3ef828dc21748d0ab89
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76293932"
 ---
 # <a name="back-up-azure-file-shares-in-the-azure-portal"></a>Azure Portal의 Azure 파일 공유 백업

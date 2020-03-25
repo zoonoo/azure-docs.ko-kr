@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
 ms.openlocfilehash: a09eda25e8c7cc087770210cdfbe7e2bc9832acf
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73160649"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-meta-networks-connector"></a>자습서: Meta Networks Connector와 Azure Active Directory 통합
@@ -31,10 +31,10 @@ Meta Networks Connector를 Azure AD와 통합하면 다음과 같은 이점이 �
 * 사용자가 해당 Azure AD 계정으로 Meta Networks Connector에 자동으로 로그인(Single Sign-on)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Meta Networks Connector와 Azure AD의 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -128,12 +128,12 @@ Meta Networks Connector에서 Azure AD Single Sign-On을 구성하려면 다음 
     
 7. 위에서 언급한 특성 외에도, Meta Networks Connector 애플리케이션에는 SAML 응답에 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 다음 단계를 수행하여 아래 표와 같은 SAML 토큰 특성을 추가합니다.
     
-    | Name | 원본 특성 | 네임스페이스|
+    | 속성 | 원본 특성 | 네임스페이스|
     | ---------------| --------------- | -------- |
     | firstname | user.givenname | |
     | lastname | user.surname | |
     | emailaddress| user.mail| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
-    | 이름 | user.userprincipalname| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
+    | name | user.userprincipalname| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
     | phone | user.telephonenumber | |
 
     a. **새 클레임 추가**를 클릭하여 **사용자 클레임 관리** 대화 상자를 엽니다.
@@ -177,19 +177,19 @@ Meta Networks Connector에서 Azure AD Single Sign-On을 구성하려면 다음 
     
 2. **관리자**로 이동한 후 **설정**을 선택합니다.
     
-    ![Configure Single Sign-On](./media/metanetworksconnector-tutorial/configure3.png)
+    ![Single Sign-on 구성](./media/metanetworksconnector-tutorial/configure3.png)
     
 3. **인터넷 트래픽 로깅** 및 **Force VPN MFA**(강제 VPN MFA)를 해제로 설정해야 합니다.
     
-    ![Configure Single Sign-On](./media/metanetworksconnector-tutorial/configure1.png)
+    ![Single Sign-on 구성](./media/metanetworksconnector-tutorial/configure1.png)
     
 4. **관리자**로 이동한 후 **SAML**을 선택합니다.
     
-    ![Configure Single Sign-On](./media/metanetworksconnector-tutorial/configure4.png)
+    ![Single Sign-on 구성](./media/metanetworksconnector-tutorial/configure4.png)
     
 5. **세부 정보** 페이지에서 다음 단계를 수행합니다.
     
-    ![Configure Single Sign-On](./media/metanetworksconnector-tutorial/configure2.png)
+    ![Single Sign-on 구성](./media/metanetworksconnector-tutorial/configure2.png)
     
     a. **SSO URL** 값을 복사한 후 **Meta Networks Connector 도메인 및 URL** 섹션의 **로그인 URL** 텍스트 상자에 붙여넣습니다.
     
@@ -201,7 +201,7 @@ Meta Networks Connector에서 Azure AD Single Sign-On을 구성하려면 다음 
     
 6. **일반** 탭에서 다음 단계를 수행합니다.
 
-    ![Configure Single Sign-On](./media/metanetworksconnector-tutorial/configure5.png)
+    ![Single Sign-on 구성](./media/metanetworksconnector-tutorial/configure5.png)
 
     a. **ID 공급자 Single Sign-On URL**에 Azure Portal에서 복사한 **로그인 URL** 값을 붙여넣습니다.
 
@@ -232,7 +232,7 @@ Meta Networks Connector에서 Azure AD Single Sign-On을 구성하려면 다음 
     b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
-    c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
+    다. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
 

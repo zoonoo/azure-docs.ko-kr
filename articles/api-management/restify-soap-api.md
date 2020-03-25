@@ -13,10 +13,10 @@ ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
 ms.openlocfilehash: a2bec6401ae3ac53f46e92e9be38abf57a92163d
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74108108"
 ---
 # <a name="import-a-soap-api-and-convert-to-rest"></a>SOAP API 가져오기 및 REST로 변환
@@ -30,13 +30,13 @@ ms.locfileid: "74108108"
 > * Azure Portal에서 API 테스트
 > * 개발자 포털에서 API 테스트
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-다음 빠른 시작을 완료합니다. [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)
+다음 빠른 시작 [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)를 완료합니다.
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-## <a name="create-api"> </a>백 엔드 API 가져오기 및 게시
+## <a name="import-and-publish-a-back-end-api"></a><a name="create-api"> </a>백 엔드 API 가져오기 및 게시
 
 1. **API Management**에서 **API**를 선택합니다.
 2. **새 API 추가** 목록에서 **WSDL**을 선택합니다.
@@ -49,7 +49,7 @@ ms.locfileid: "74108108"
 
 5. Tab 키를 누릅니다.
 
-    다음 필드는 SOAP API의 표시 이름, 이름, 설명과 같은 정보로 채워집니다.
+    다음 필드는 SOAP API의 정보, 표시 이름, 이름, 설명으로 채워집니다.
 6. API URL 접미사를 추가합니다. 접미사는 이 APIM 인스턴스에서 이 특정 API를 식별하는 이름입니다. 이 APIM 인스턴스 내에서 고유해야 합니다.
 9. API를 제품에 연결하여 API를 게시합니다. 이 경우 "*Unlimited*" 제품이 사용됩니다.  API를 게시하고 개발자가 사용할 수 있게 하려면 제품에 추가합니다. API를 만드는 동안 이 작업을 수행할 수도 있고 나중에 설정할 수도 있습니다.
 

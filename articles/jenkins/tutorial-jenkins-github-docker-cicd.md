@@ -5,13 +5,13 @@ keywords: Jenkins, Azure, DevOps, 파이프라인, CI/CD, Docker
 ms.topic: tutorial
 ms.date: 03/27/2017
 ms.openlocfilehash: 2560d03282b2b3c8193a0b8c2a7a9f7c4036e75a
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77606350"
 ---
-# <a name="tutorial-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>자습서: Jenkins, GitHub 및 Docker를 사용하여 Azure에서 Linux VM의 개발 인프라 만들기
+# <a name="tutorial-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>자습서 - Jenkins, GitHub 및 Docker를 사용하여 Azure에서 Linux VM의 개발 인프라 만들기
 
 애플리케이션 개발의 빌드 및 테스트 단계를 자동화하려면 CI/CD(지속적인 통합 및 배포) 파이프라인을 사용할 수 있습니다. 이 자습서에서는 Azure VM에서 CI/CD 파이프라인을 만들며 다음 방법이 포함됩니다.
 
@@ -154,7 +154,7 @@ Jenkins 웹 사이트에서 홈 페이지에서 **새 작업 만들기**를 선�
 
 - *HelloWorld*를 작업 이름으로 입력합니다. **프리스타일 프로젝트**를 선택한 다음 **확인**을 선택합니다.
 - **일반** 섹션에서 **GitHub 프로젝트**를 선택하고 *https://github.com/cynthn/nodejs-docs-hello-world* 와 같은 포크된 리포지토리 URL을 입력합니다.
-- **소스 코드 관리** 섹션에서 **Git**을 선택하고 *https://github.com/cynthn/nodejs-docs-hello-world.git* 과 같은 포크된 리포지토리 *.git* URL을 입력합니다.
+- **소스 코드 관리** 섹션에서 **Git**을 선택하고  *과 같은 포크된 리포지토리 https://github.com/cynthn/nodejs-docs-hello-world.git.git* URL을 입력합니다.
 - **트리거 빌드**에서 **GITscm 폴링에 대한 GitHub 후크 트리거**를 선택합니다.
 - **빌드** 섹션 아래에서 **빌드 단계 추가**를 선택합니다. **셸 실행**을 선택한 다음 명령 창에 `echo "Test"` 명령을 입력합니다.
 - 작업 창 맨 아래에서 **저장**을 선택합니다.
