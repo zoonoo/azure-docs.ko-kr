@@ -4,15 +4,15 @@ description: 몇 분 안에 첫 번째 Node.js Hello World를 Azure App Service�
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.topic: quickstart
 ms.date: 03/04/2020
-ms.custom: seodec18
+ms.custom: mvc, devcenter, seodec18
 experimental: false
 experiment_id: a231f2b4-2625-4d
-ms.openlocfilehash: 1f105792a95115580d52444a617b3fc1678843ca
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: bcb0ae2457175e7511c3539187d72d48e80baa5b
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78374088"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80047126"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Azure에서 Node.js 웹앱 만들기 
 
@@ -66,7 +66,7 @@ Visual Studio Code를 사용하여 Node.js/Express 앱을 로컬로 만든 다�
 
     ![Azure에 로그인](containers/media/quickstart-nodejs/sign-in.png)
 
-1. VS Code의 **AZURE APP SERVICE** 탐색기에서 파란색 위쪽 화살표 아이콘을 선택하여 앱을 Azure에 배포합니다. ('웹앱에 배포'를 입력하고 **Azure App Service: 웹앱에 배포**를 선택하여 **명령 팔레트**(**Ctrl**+**Shift**+**P**)에서 동일한 명령을 호출할 수도 있습니다.)
+1. VS Code의 **AZURE APP SERVICE** 탐색기에서 파란색 위쪽 화살표 아이콘을 선택하여 앱을 Azure에 배포합니다. ('웹앱에 배포'를 입력하고 **Azure App Service: 웹앱에 배포**를 선택하여 명령 팔레트(CtrlShiftP)에서 동일한 명령을 호출할 수도 있습니다.)
 
     ![웹앱에 배포](containers/media/quickstart-nodejs/deploy.png)
         
