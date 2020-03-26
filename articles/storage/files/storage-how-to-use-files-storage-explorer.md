@@ -8,10 +8,10 @@ ms.date: 10/18/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 0bf66baba1b665c92a11d7bda91dcaa3e355dd96
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75431815"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-with-azure-storage-explorer"></a>빠른 시작: Azure Storage Explorer를 사용하여 Azure 파일 공유 만들기 및 관리
@@ -33,7 +33,7 @@ Storage Explorer를 사용하여 새 리소스를 만들 수 없습니다. 이 �
 Storage Explorer를 처음 시작할 때 **Microsoft Azure Storage Explorer - 연결** 창이 나타납니다. Storage Explorer는 Storage 계정에 연결하는 여러 방법을 제공합니다. 
 
 - **Azure 계정을 사용하여 로그인**: 조직 또는 Microsoft 계정에 대한 사용자 자격 증명을 사용하여 로그인할 수 있습니다. 
-- **연결 문자열 또는 SAS 토큰을 사용하여 특정 스토리지 계정에 연결**: 연결 문자열은 스토리지 계정 이름 및 스토리지 계정 키/SAS 토큰을 포함하는 특수 문자열입니다. 토큰을 사용하여 Storage Explorer는 스토리지 계정에 직접 액세스합니다(Azure 계정에서 모든 스토리지 계정을 단순히 보는 대신). 연결 문자열에 대해 자세히 알아보려면 [Azure Storage 연결 문자열 구성](../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)을 참조하세요.
+- **연결 문자열 또는 SAS 토큰을 사용하여 특정 스토리지 계정에 연결**: 연결 문자열은 스토리지 계정 이름 및 스토리지 계정 키/SAS 토큰을 포함하는 특별한 문자열입니다. 토큰을 사용하여 Storage Explorer는 스토리지 계정에 직접 액세스합니다(Azure 계정에서 모든 스토리지 계정을 단순히 보는 대신). 연결 문자열에 대해 자세히 알아보려면 [Azure Storage 연결 문자열 구성](../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)을 참조하세요.
 - **스토리지 계정 이름 및 키를 사용하여 특정 스토리지 계정에 연결**: 스토리지 계정 이름 및 스토리지 계정에 대한 키를 사용하여 Azure Storage에 연결합니다.
 
 이 빠른 시작의 목적상 Azure 계정을 사용하여 로그인합니다. **Azure 계정 추가**를 선택한 다음, **로그인**을 선택합니다. 표시되는 메시지에 따라 Azure 계정에 로그인합니다.

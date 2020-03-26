@@ -136,6 +136,8 @@
       href: feature-hashing.md
     - name: 텍스트 전처리
       href: preprocess-text.md
+    - name: 잠재적 Dirichlet 할당
+      href: latent-dirichlet-allocation.md
 - name: 권장
   items:
     - name: 추천 평가
@@ -144,5 +146,11 @@
       href: score-svd-recommender.md
     - name: SVD 추천 학습
       href: train-svd-recommender.md
+- name: 이상 감지
+  items:
+    - name: PCA 기반 변칙 검색
+      href: pca-based-anomaly-detection.md
+    - name: 변칙 검색 모델 학습
+      href: train-anomaly-detection-model.md
 - name: 모듈 오류 및 문제 해결
   href: designer-error-codes.md

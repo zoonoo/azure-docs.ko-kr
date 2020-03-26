@@ -7,16 +7,16 @@ ms.service: web-application-firewall
 ms.date: 08/21/2019
 ms.author: victorh
 ms.topic: overview
-ms.openlocfilehash: 78a8eaa75ec5eea33e27217f07439aae16ec4742
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4882ac51af271625b8e61d862890beb6d5f63213
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495556"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80240074"
 ---
 # <a name="enable-web-application-firewall-using-the-azure-cli"></a>Azure CLI를 사용하여 Web Application Firewall 활성화
 
-애플리케이션 게이트웨이에서 [WAF(Web Application Firewall)](ag-overview.md)로 트래픽을 제한할 수 있습니다. WAF는 [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 규칙을 사용하여 애플리케이션을 보호합니다. 이러한 규칙에는 SQL 삽입, 사이트 간 스크립팅 공격 및 세션 하이재킹과 같은 공격으로부터의 보호가 포함됩니다.
+애플리케이션 게이트웨이에서 [WAF(웹 애플리케이션 방화벽)](ag-overview.md)으로 트래픽을 제한할 수 있습니다. WAF는 [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 규칙을 사용하여 애플리케이션을 보호합니다. 이러한 규칙에는 SQL 삽입, 사이트 간 스크립팅 공격 및 세션 하이재킹과 같은 공격으로부터의 보호가 포함됩니다.
 
 이 문서에서는 다음 방법을 설명합니다.
 
@@ -38,9 +38,9 @@ CLI를 로컬로 설치하여 사용하기로 선택할 경우 이 문서에서 
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. [az group create](/cli/azure/group#az-group-create)를 사용하여 *myResourceGroupAG*라는 Azure 리소스 그룹을 만듭니다.
+리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. *az group create*를 사용하여 [myResourceGroupAG](/cli/azure/group#az-group-create)라는 Azure 리소스 그룹을 만듭니다.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group create --name myResourceGroupAG --location eastus
 ```
 
@@ -143,7 +143,7 @@ az vmss extension set \
 
 ### <a name="create-a-storage-account"></a>스토리지 계정 만들기
 
-[az storage account create](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create)를 사용하여 *myagstore1*이라는 스토리지 계정을 만듭니다.
+*az storage account create*를 사용하여 [myagstore1](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create)이라는 스토리지 계정을 만듭니다.
 
 ```azurecli-interactive
 az storage account create \
@@ -172,7 +172,7 @@ az monitor diagnostic-settings create --name appgwdiag --resource $appgwid \
 
 애플리케이션 게이트웨이의 공용 IP 주소를 가져오려면 [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show)를 사용합니다. 공용 IP 주소를 복사하여 브라우저의 주소 표시줄에 붙여넣습니다.
 
-```azurepowershell-interactive
+```azurecli-interactive
 az network public-ip show \
   --resource-group myResourceGroupAG \
   --name myAGPublicIPAddress \

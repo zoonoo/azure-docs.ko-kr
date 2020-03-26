@@ -87,6 +87,8 @@
           href: networking-features.md
         - name: 서비스 엔드포인트가 있는 애플리케이션 게이트웨이
           href: networking/app-gateway-with-service-endpoints.md
+        - name: Private Endpoint
+          href: networking/private-endpoint.md
     - name: 인바운드 및 아웃바운드 IP
       href: overview-inbound-outbound-ips.md
     - name: 가상 네트워크 통합
@@ -175,6 +177,8 @@
           href: configure-ssl-certificate-in-code.md
         - name: TLS 상호 인증 구성
           href: app-service-web-configure-tls-mutual-auth.md
+        - name: 사이트 데이터 암호화
+          href: configure-encrypt-at-rest-using-cmk.md
     - name: 앱 크기 조정
       items:
         - name: 서버 용량 강화
@@ -210,7 +214,7 @@
         - name: 영역 간 이동
           href: manage-move-across-regions.md
         - name: 구독 이동
-          href: '../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=%2fazure%2fapp-service%2ftoc.json#app-service-limitations'
+          href: '../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=%2fazure%2fapp-service%2ftoc.json#checklist-before-moving-resources'
     - name: 백그라운드 작업 실행
       items:
         - name: WebJob 만들기

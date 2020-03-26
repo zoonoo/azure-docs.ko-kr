@@ -28,14 +28,8 @@
           href: go.md
     - name: SDK)
       items:
-        - name: 'C# 사용'
-          href: news-search-sdk-quickstart.md
-        - name: Node.js 사용
-          href: news-search-sdk-node-quickstart.md
-        - name: Python 사용
-          href: news-sdk-python-quickstart.md
-        - name: Java 사용
-          href: news-sdk-java-quickstart.md
+        - name: Bing News Search 클라이언트 라이브러리
+          href: ./quickstarts/client-libraries.md
 - name: 자습서
   items:
     - name: 단일 페이지 웹앱 만들기

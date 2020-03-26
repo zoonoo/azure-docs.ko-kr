@@ -91,6 +91,8 @@
           href: password-policy.md
         - name: 보안 감사 이벤트 활성화
           href: security-audit-events.md
+        - name: Azure Monitor 통합 문서를 사용하여 감사 이벤트 분석
+          href: use-azure-monitor-workbooks.md
     - name: 도메인 가입 VM
       items:
         - name: 템플릿의 Windows Server VM

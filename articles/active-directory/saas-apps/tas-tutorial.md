@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
 ms.openlocfilehash: efd64830c0d9afa83838adef96cf1c103b4485e8
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68943268"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tas"></a>자습서: TAS와 Azure Active Directory 통합
@@ -34,7 +34,7 @@ TAS를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 TAS와 Azure AD의 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -109,7 +109,7 @@ TAS에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합�
 
     b. **회신 URL** 텍스트 상자에서 `https://taseu.combtas.com/<ENVIRONMENTNAME>/AssertionService.aspx` 패턴을 사용하여 URL을 입력합니다.
 
-5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**을 클릭하고 다음 단계를 수행합니다.
+5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**를 클릭하고 다음 단계를 수행합니다.
 
     ![TAS 도메인 및 URL Single Sign-On 정보](common/metadata-upload-additional-signon.png)
 
@@ -184,7 +184,7 @@ TAS에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합�
     b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension** 을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
-    c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
+    다. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
 

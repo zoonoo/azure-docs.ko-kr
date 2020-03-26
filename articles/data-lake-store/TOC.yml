@@ -1,5 +1,5 @@
 - name: Data Lake Storage Gen1 설명서
-  href: index.md
+  href: index.yml
 - name: Data Lake Storage Gen2로 전환 설명서
   href: 'https://docs.microsoft.com/azure/storage/data-lake-storage/introduction'
 - name: 개요
@@ -150,7 +150,7 @@
           href: data-lake-store-diagnostic-logs.md
         - name: 고가용성을 위한 계획
           href: data-lake-store-disaster-recovery-guidance.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: 코드 샘플
       href: 'https://azure.microsoft.com/resources/samples/?service=data-lake-store'
@@ -182,7 +182,7 @@
       href: 'https://feedback.azure.com/forums/327234-data-lake'
     - name: MSDN 포럼
       href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake'
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/data-lake-store/'
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'

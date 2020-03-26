@@ -22,6 +22,8 @@
       items:
         - name: Azure Cost Management 모범 사례
           href: cost-mgt-best-practices.md
+        - name: Cost Management와 Cloudyn 중에서 선택
+          href: choose-between-azure-cost-management-cloudyn.md
         - name: Cost Management 데이터 이해
           href: understand-cost-mgt-data.md
         - name: 범위 이해 및 작업

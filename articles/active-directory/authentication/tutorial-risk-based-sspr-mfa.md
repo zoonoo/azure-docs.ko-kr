@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e1a6858d5eda8227b3f7c1b90dee86f44273a258
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74846354"
 ---
 # <a name="tutorial-use-risk-detections-to-trigger-multi-factor-authentication-and-password-changes"></a>자습서: 위험 탐지를 사용하여 Multi-Factor Authentication 및 암호 변경 트리거
@@ -40,7 +40,7 @@ Azure AD ID 보호에 대한 자세한 내용은 [Azure AD ID 보호란](../acti
 > * 위험 기반 암호 변경 사용
 > * 위험 기반 Multi-Factor Authentication 사용
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 적어도 평가판 Azure AD Premium P2 라이선스가 할당된 정상 작동 중인 Azure AD 테넌트에 대한 액세스 권한.
 * Azure AD 테넌트의 전역 관리자 권한이 있는 계정.

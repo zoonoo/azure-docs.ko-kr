@@ -6,10 +6,10 @@ ms.date: 07/10/2019
 ms.author: atsenthi
 ms.custom: mvc
 ms.openlocfilehash: 477d47fabc59c5718c449418f225d6a38838b270
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75466275"
 ---
 # <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>빠른 시작: Windows 컨테이너를 Service Fabric에 배포
@@ -132,7 +132,7 @@ Thumbprint                                Subject
 
 솔루션 탐색기에서 **MyFirstContainer**를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다. [게시] 대화 상자가 나타납니다.
 
-위의 `Import-PfxCertificate` 명령을 실행할 때 PowerShell 창에서 **CN=** 다음에 콘텐츠를 복사하고 `19000` 포트를 추가합니다. `mysfcluster.SouthCentralUS.cloudapp.azure.com:19000`)을 입력합니다. 이를 **연결 엔드포인트** 필드에 복사합니다. 이 값은 이후 단계에서 필요하므로 기억해 두세요.
+위의 **명령을 실행할 때 PowerShell 창에서**CN=`Import-PfxCertificate` 다음에 콘텐츠를 복사하고 `19000` 포트를 추가합니다. `mysfcluster.SouthCentralUS.cloudapp.azure.com:19000`)을 입력합니다. 이를 **연결 엔드포인트** 필드에 복사합니다. 이 값은 이후 단계에서 필요하므로 기억해 두세요.
 
 **고급 연결 매개 변수**를 클릭하고 연결 매개 변수 정보를 확인합니다.  *FindValue* 및 *ServerCertThumbprint* 값은 이전 단계에서 `Import-PfxCertificate`를 실행할 때 설치한 인증서의 지문과 일치해야 합니다.
 

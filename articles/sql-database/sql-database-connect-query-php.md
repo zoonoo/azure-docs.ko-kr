@@ -11,23 +11,23 @@ ms.author: sstein
 ms.reviewer: v-masebo
 ms.date: 02/12/2019
 ms.openlocfilehash: ae119dd23da670f16c0239b14119519c431e6326
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73827004"
 ---
 # <a name="quickstart-use-php-to-query-an-azure-sql-database"></a>빠른 시작: PHP를 사용하여 Azure SQL 데이터베이스 쿼리
 
 이 문서에서는 [PHP](https://php.net/manual/en/intro-whatis.php)를 사용하여 Azure SQL 데이터베이스에 연결하는 방법을 보여 줍니다. 그런 다음, 데이터를 쿼리하는 T-SQL 문을 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 샘플을 완료하려면 다음 필수 구성 요소가 있어야 합니다.
 
 - Azure SQL 데이터베이스입니다. 다음 빠른 시작 중 하나를 사용하여 Azure SQL Database에서 데이터베이스를 만들고 구성할 수 있습니다.
 
-  || 단일 데이터베이스 | Managed Instance |
+  || 단일 데이터베이스 | 관리되는 인스턴스 |
   |:--- |:--- |:---|
   | 생성| [포털](sql-database-single-database-get-started.md) | [포털](sql-database-managed-instance-get-started.md) |
   || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
@@ -35,7 +35,7 @@ ms.locfileid: "73827004"
   | 구성 | [서버 수준 IP 방화벽 규칙](sql-database-server-level-firewall-rule.md)| [VM에서 연결](sql-database-managed-instance-configure-vm.md)|
   |||[사이트에서 연결](sql-database-managed-instance-configure-p2s.md)
   |데이터 로드|Adventure Works(빠른 시작마다 로드됨)|[Wide World Importers 복원](sql-database-managed-instance-get-started-restore.md)
-  |||[GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)의 [BACPAC](sql-database-import.md) 파일에서 Adventure Works 복원 또는 가져오기|
+  |||[GitHub](sql-database-import.md)의 [BACPAC](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works) 파일에서 Adventure Works 복원 또는 가져오기|
   |||
 
   > [!IMPORTANT]
@@ -108,4 +108,4 @@ Azure SQL 데이터베이스에 연결하는 데 필요한 연결 정보를 가�
 
 - [문제 보고 또는 질문(영문)](https://github.com/Microsoft/msphpsql/issues)
 
-- [다시 시도 논리 예제: PHP로 SQL에 탄력적으로 연결](/sql/connect/php/step-4-connect-resiliently-to-sql-with-php)
+- [다시 시도 논리 예제: PHP를 사용하여 탄력적으로 SQL에 연결](/sql/connect/php/step-4-connect-resiliently-to-sql-with-php)

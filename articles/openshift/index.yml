@@ -3,19 +3,19 @@ title: Azure Red Hat OpenShift 설명서
 summary: Azure Red Hat OpenShift는 Azure에 Red Hat 및 Microsoft가 지원하는 단일 테넌트, 고가용성 Kubernetes 클러스터를 제공합니다.
 metadata:
   title: Azure Red Hat OpenShift 설명서
-  description: Microsoft Azure Red Hat OpenShift를 사용하면 프로덕션 준비가 완료된 Red Hat OpenShift 클러스터를 Azure에서 신속하게 배포할 수 있습니다. 다음 자습서와 방법 가이드를 통해 Azure Red Hat OpenShift 사용 방법을 알아보세요.
+  description: Microsoft Azure Red Hat OpenShift를 사용하면 프로덕션 준비가 완료된 Red Hat OpenShift 클러스터를 Azure에서 배포할 수 있습니다. 이러한 자습서 및 방법 가이드를 사용하는 방법을 알아보세요.
   ms.service: container-service
   services: container-service
   ms.topic: landing-page
   author: jimzim
   ms.author: jzim
   ms.date: 03/06/2020
-  ms.openlocfilehash: ec40ff9af0b2c09db32e40536009cd0db684f030
-  ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
+  ms.openlocfilehash: f35419d63375ae8fca5f9458505b96b6ddfd3890
+  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 03/10/2020
-  ms.locfileid: "79037054"
+  ms.lasthandoff: 03/25/2020
+  ms.locfileid: "80062298"
 landingContent:
 - title: Azure Red Hat OpenShift 정보
   linkLists:

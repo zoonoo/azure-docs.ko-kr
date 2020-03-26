@@ -14,10 +14,10 @@ ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 8994079cf18a9af5f5e1368761015bbd8b836bd9
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74790901"
 ---
 # <a name="quickstart-create-a-sql-server-windows-virtual-machine-with-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 SQL Server Windows 가상 머신 만들기
@@ -28,12 +28,12 @@ ms.locfileid: "74790901"
 > - 이 빠른 시작에서는 신속하게 SQL VM을 프로비전하고 연결하는 경로를 제공합니다. SQL VM을 만들기 위한 다른 Azure PowerShell 옵션에 대한 자세한 내용은 [Azure PowerShell을 사용한 SQL Server VM 프로비전 가이드](virtual-machines-windows-ps-sql-create.md)를 참조하세요.
 > - SQL Server 가상 머신에 대한 질문이 있으면 [질문과 대답](virtual-machines-windows-sql-server-iaas-faq.md)을 참조하세요.
 
-## <a id="subscription"></a> Azure 구독 가져오기
+## <a name="get-an-azure-subscription"></a><a id="subscription"></a> Azure 구독 가져오기
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 
-## <a id="powershell"></a> Azure PowerShell 가져오기
+## <a name="get-azure-powershell"></a><a id="powershell"></a> Azure PowerShell 가져오기
 
 [!INCLUDE [updated-for-az.md](../../../../includes/updated-for-az.md)]
 

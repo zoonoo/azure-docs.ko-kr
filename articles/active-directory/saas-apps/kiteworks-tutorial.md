@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 07/11/2019
 ms.author: jeedes
 ms.openlocfilehash: 52b113d92fa83795e94d5179ea47ed5d9d9e9a26
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68248910"
 ---
 # <a name="tutorial-integrate-kiteworks-with-azure-active-directory"></a>자습서: Azure Active Directory와 Kiteworks 통합
@@ -32,7 +32,7 @@ ms.locfileid: "68248910"
 
 Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -104,15 +104,15 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 위쪽에 도구 모음에서 **설정**을 클릭합니다.
 
-    ![Configure Single Sign-On](./media/kiteworks-tutorial/tutorial_kiteworks_06.png)
+    ![Single Sign-on 구성](./media/kiteworks-tutorial/tutorial_kiteworks_06.png)
 
 1. **인증 및 권한 부여** 섹션에서 **SSO 설치**를 클릭합니다.
 
-    ![Configure Single Sign-On](./media/kiteworks-tutorial/tutorial_kiteworks_07.png)
+    ![Single Sign-on 구성](./media/kiteworks-tutorial/tutorial_kiteworks_07.png)
 
 1. SSO 설정 페이지에서 다음 단계를 수행합니다.
 
-    ![Configure Single Sign-On](./media/kiteworks-tutorial/tutorial_kiteworks_09.png)
+    ![Single Sign-on 구성](./media/kiteworks-tutorial/tutorial_kiteworks_09.png)
 
     a. **SSO를 통해 인증**을 선택합니다.
 
@@ -136,7 +136,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자**를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예: `B.Simon@contoso.com`
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기**를 클릭합니다.
 

@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 09/19/2019
 ms.author: alkohli
 ms.openlocfilehash: a23b0b2c71207bf84a4938d54a78a62efb6cbcbd
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "71172674"
 ---
 Microsoft에서 디바이스를 수신하고 검사하면 주문 상태가 **수신됨**으로 업데이트됩니다. 디바이스에 손상이나 변조 흔적이 있는지 물리적으로 확인됩니다.
@@ -50,7 +50,7 @@ Azure에 대한 업로드가 완료되면 Data Box 디스크의 데이터가 [NI
 이 자습서에서는 Azure Data Box 항목에 대해 다음과 같은 내용을 알아보았습니다.
 
 > [!div class="checklist"]
-> * 필수 조건
+> * 사전 요구 사항
 > * 배송 준비
 > * Microsoft에 Data Box 배송
 > * Azure에 대한 데이터 업로드 확인

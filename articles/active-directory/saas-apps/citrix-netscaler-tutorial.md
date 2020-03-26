@@ -17,10 +17,10 @@ ms.date: 12/13/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 785242a2cf51571a6d13b2b4691d33e46369bf94
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75977918"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-citrix-netscaler-kerberos-based-authentication"></a>자습서: Citrix NetScaler와 Azure Active Directory Single Sign-On 통합(Kerberos 기반 인증)
@@ -189,7 +189,7 @@ Azure Portal을 사용하여 Azure AD SSO를 사용하도록 설정하려면 다
 
 부하 분산 장치를 구성하려면 다음을 수행합니다.
 
-1. **트래픽 관리** > **부하 분산** > **가상 서버**로 이동합니다.
+1. **트래픽 관리** > **부하 분산** > **가상 서버**로 차례로 이동합니다.
 
 1. **추가**를 선택합니다.
 
@@ -208,7 +208,7 @@ Azure Portal을 사용하여 Azure AD SSO를 사용하도록 설정하려면 다
 
 부하 분산 장치를 가상 서버에 바인딩하려면 다음을 수행합니다.
 
-1. **서비스 및 서비스 그룹** 창에서 **부하 분산 가상 서버 서비스 바인딩 없음**을 선택합니다.
+1. **Services and Service Groups(서비스 및 서비스 그룹)** 창에서 **No Load Balancing Virtual Server Service Binding(부하 분산 가상 서버 서비스 바인딩 없음)** 을 선택합니다.
 
    ![Citrix NetScaler 구성 - 부하 분산 가상 서버 서비스 바인딩 창](./media/citrix-netscaler-tutorial/bind01.png)
 
@@ -236,7 +236,7 @@ Citrix ADC SAML 프로필을 구성하려면 다음 섹션을 완료합니다.
 
 인증 정책을 만들려면 다음을 수행합니다.
 
-1. **보안** > **AAA – 애플리케이션 트래픽** > **정책** > **인증** > **인증 정책**으로 이동합니다.
+1. **Security(보안)**  > **AAA – Application Traffic(애플리케이션 트래픽)**  > **Policies(정책)**  > **Authentication(인증)**  > **Authentication Policies(인증 정책)** 로 차례로 이동합니다.
 
 1. **추가**를 선택합니다.
 

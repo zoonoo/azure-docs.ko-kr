@@ -10,13 +10,13 @@ ms.custom: mvc
 ms.date: 03/08/2019
 ms.author: dobett
 ms.openlocfilehash: 6338403818259c7263fe66af7d8c8840d98efbcd
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "62127466"
 ---
-# <a name="quickstart-try-a-cloud-based-solution-to-manage-my-industrial-iot-devices"></a>빠른 시작: 클라우드 기반 솔루션으로 산업용 IoT 디바이스 관리
+# <a name="quickstart-try-a-cloud-based-solution-to-manage-my-industrial-iot-devices"></a>빠른 시작: 클라우드 기반 솔루션으로 산업용 IoT 디바이스 관리해 보기
 
 이 빠른 시작에서는 Azure IoT 연결된 팩터리 솔루션 가속기를 배포하여 산업용 IoT 디바이스에 대한 클라우드 기반 모니터링 및 관리 시뮬레이션을 실행하는 방법을 보여줍니다. 연결된 팩터리 솔루션 가속기를 배포할 때 일반적인 산업용 IoT 시나리오를 단계별로 실행할 수 있는 시뮬레이션된 리소스가 미리 채워집니다. 몇 가지 시뮬레이션된 팩터리가 솔루션에 연결되어 있으면서 OEE(설비종합효율)와 KPI(핵심 성과 지표)를 계산하는 데 필요한 데이터 값을 보고합니다. 이 빠른 시작에서는 솔루션 대시보드를 사용하여 다음 작업을 수행하는 방법을 보여줍니다.
 
@@ -76,7 +76,7 @@ Azure 구독에 배포가 완료되면 솔루션 타일에 녹색 확인 표시 
 
 [![설비종합효율(OEE)](./media/quickstart-connected-factory-deploy/oee-inline.png)](./media/quickstart-connected-factory-deploy/oee-expanded.png#lightbox)
 
-OEE는 생산 관련 운영 매개 변수를 사용하여 제조 프로세스의 효율성을 평가합니다. OEE는 가용성 등급, 성능 등급, 품질 비율을 곱하여 계산되는 산업 표준 측정값입니다. (OEE = 가용성 x 성능 x 품질)
+OEE는 생산 관련 운영 매개 변수를 사용하여 제조 프로세스의 효율성을 평가합니다. OEE는 가용성 등급, 성능 등급, 품질 비율을 곱하여(OEE = 가용성 x 성능 x 품질) 계산되는 산업 표준 측정값입니다.
 
 계층 구조 데이터의 모든 수준에서 OEE를 더 자세히 분석할 수 있습니다. OEE, 가용성, 성능 또는 품질 비율 다이얼을 클릭합니다. 컨텍스트 패널이 나타나면서 다양한 시간별 데이터를 포함된 시각화가 표시됩니다.
 
@@ -114,7 +114,7 @@ OEE는 생산 관련 운영 매개 변수를 사용하여 제조 프로세스의
 
 [![에너지 소비 보기](./media/quickstart-connected-factory-deploy/explorelocations-inline.png)](./media/quickstart-connected-factory-deploy/explorelocations-expanded.png#lightbox)
 
-### <a name="map"></a>Map
+### <a name="map"></a>지도
 
 사용자 구독으로 [Bing Maps API](iot-accelerators-faq-cf.md)에 액세스할 수 있는 경우 *팩터리* 맵에 솔루션에 있는 모든 공장의 지리적 위치 및 상태가 표시됩니다. 위치 세부 정보를 보려면 맵에 표시된 위치를 클릭합니다.
 
@@ -143,7 +143,7 @@ OEE는 생산 관련 운영 매개 변수를 사용하여 제조 프로세스의
 
 더 탐색하려면 연결된 팩터리 솔루션 가속기를 배포된 대로 둡니다.
 
-솔루션 가속기가 더 이상 필요하지 않은 경우 선택한 다음, **솔루션 삭제**를 클릭하여 [프로비전된 솔루션](https://www.azureiotsolutions.com/Accelerators#dashboard) 페이지에서 삭제합니다.
+솔루션 가속기가 더 이상 필요하지 않은 경우 선택한 다음, [솔루션 삭제](https://www.azureiotsolutions.com/Accelerators#dashboard)를 클릭하여 **프로비전된 솔루션** 페이지에서 삭제합니다.
 
 ![솔루션 삭제](media/quickstart-connected-factory-deploy/deletesolution.png)
 

@@ -19,7 +19,7 @@
               href: service-bus-quickstart-powershell.md
             - name: Azure CLI
               href: service-bus-quickstart-cli.md
-            - name: Azure Resource Manager 템플릿
+            - name: ARM 템플릿
               href: service-bus-resource-manager-namespace-queue.md
         - name: 메시지 보내기 및 받기
           items:
@@ -41,7 +41,7 @@
           items:
             - name: Azure portal
               href: service-bus-quickstart-topics-subscriptions-portal.md
-            - name: Azure Resource Manager 템플릿
+            - name: ARM 템플릿
               href: service-bus-resource-manager-namespace-topic.md
         - name: 메시지 게시 및 구독
           items:
@@ -65,6 +65,8 @@
       href: service-bus-tutorial-topics-subscriptions-portal.md
     - name: 인벤토리 업데이트 - CLI
       href: service-bus-tutorial-topics-subscriptions-cli.md
+    - name: Event Grid를 통해 이벤트에 응답
+      href: service-bus-to-event-grid-integration-example.md
 - name: 샘플
   items:
     - name: Service Bus 샘플
@@ -104,6 +106,8 @@
                   href: authenticate-application.md
         - name: 기본 제공 보안 컨트롤
           href: service-bus-messaging-security-controls.md
+        - name: 네트워크 보안
+          href: network-security.md
 - name: 방법 가이드
   items:
     - name: Azure Service Manager(클래식) API에서 Resource Manager API로 마이그레이션
@@ -126,8 +130,6 @@
               href: message-expiration.md
             - name: Azure Event Grid를 사용하여 메시지 처리
               href: service-bus-to-event-grid-integration-concept.md
-            - name: Azure Event Grid 예제
-              href: service-bus-to-event-grid-integration-example.md
         - name: 토픽 필터 및 작업
           href: topic-filters.md
         - name: 표준에서 프리미엄 네임스페이스로 마이그레이션
@@ -152,10 +154,6 @@
               href: service-bus-amqp-troubleshoot.md
         - name: 고급 기능
           items:
-            - name: 방화벽 사용
-              href: service-bus-ip-filtering.md
-            - name: Virtual Network 서비스 엔드포인트
-              href: service-bus-service-endpoints.md
             - name: 배달하지 못한 편지 큐
               href: service-bus-dead-letter-queues.md
             - name: 메시지 프리페치
@@ -192,7 +190,7 @@
           href: service-bus-diagnostic-logs.md
         - name: 메시징 엔터티 일시 중단 및 다시 활성화
           href: entity-suspend.md
-        - name: Azure 리소스 관리자 템플릿 사용
+        - name: ARM 템플릿 사용
           href: service-bus-resource-manager-overview.md
           items:
             - name: 네임스페이스 만들기
@@ -203,7 +201,13 @@
               href: service-bus-resource-manager-namespace-topic-with-rule.md
     - name: 보안
       items:
-        - name: 저장 데이터 암호화를 위한 고객 관리형 키 구성
+        - name: 방화벽 구성
+          href: service-bus-ip-filtering.md
+        - name: 가상 네트워크 서비스 엔드포인트 구성
+          href: service-bus-service-endpoints.md
+        - name: 프라이빗 엔드포인트 구성(미리 보기)
+          href: private-link-service.md
+        - name: 고객 관리형 키 구성
           href: configure-customer-managed-key.md
     - name: 문제 해결
       items:

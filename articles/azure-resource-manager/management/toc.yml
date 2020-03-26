@@ -66,9 +66,13 @@
               href: ../../virtual-network/move-across-regions-publicip-portal.md?toc=/azure/azure-resource-manager/toc.json
     - name: 태그들
       items:
-        - name: 리소스 태그 지정
+        - name: 의사 결정 가이드
+          href: /azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json
+        - name: 태그 사용
           href: tag-resources.md
-        - name: 태그 지원
+        - name: 정책 - 규정 준수
+          href: tag-policies.md
+        - name: 지원되는 리소스 유형
           href: tag-support.md
     - name: 리소스 그룹 관리
       items:

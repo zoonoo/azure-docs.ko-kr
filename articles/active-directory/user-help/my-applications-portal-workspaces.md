@@ -13,10 +13,10 @@ ms.date: 02/06/2020
 ms.author: curtand
 ms.custom: user-help
 ms.openlocfilehash: 1abcd22621d427244f9b0533aaea46cbf1f356ad
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77064039"
 ---
 # <a name="use-collections-in-the-my-apps-portal"></a>내 앱 포털에서 컬렉션 사용

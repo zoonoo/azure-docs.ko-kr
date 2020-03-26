@@ -13,10 +13,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 02/14/2019
 ms.openlocfilehash: 53abc28a6923c2d55b3bb39defb08778485a9744
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "71212448"
 ---
 # <a name="create-an-azure-notification-hub-in-the-azure-portal"></a>Azure Portal을 사용하여 Azure 알림 허브 만들기 
@@ -33,7 +33,7 @@ Azure Notification Hubs는 모든 백 엔드(클라우드 또는 온-프레미�
 이 섹션에서는 기존 네임스페이스에서 알림 허브를 만듭니다. 
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. 왼쪽 메뉴에서 **모든 서비스**를 선택하고, **알림 허브**를 검색하고, **알림 허브 네임스페이스** 옆에 있는 **별**(`*`)을 선택하여 왼쪽 메뉴의 **즐겨찾기** 섹션에 추가합니다. **알림 허브 네임스페이스**를 선택합니다. 
+2. 왼쪽 메뉴에서 **모든 서비스**를 선택하고, **알림 허브**를 검색하고, **알림 허브 네임스페이스** 옆에 있는 `*`별 **(** )을 선택하여 왼쪽 메뉴의 **즐겨찾기** 섹션에 추가합니다. **알림 허브 네임스페이스**를 선택합니다. 
 
       ![Azure Portal - 알림 허브 네임스페이스 선택](./media/create-notification-hub-portal/select-notification-hub-namespaces-all-services.png)
 3. **알림 허브 네임스페이스** 페이지에서 목록 중 자신의 네임스페이스를 선택합니다. 

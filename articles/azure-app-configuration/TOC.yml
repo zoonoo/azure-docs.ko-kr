@@ -92,6 +92,8 @@
   items:
     - name: 사용자 하위 집합을 위한 기능 사용
       href: howto-feature-filters-aspnet-core.md
+    - name: 환경별 구성에 레이블 사용
+      href: howto-labels-aspnet-core.md
     - name: 구성 데이터 가져오기 또는 내보내기
       href: howto-import-export-data.md
     - name: 이벤트를 사용자 지정 엔드포인트에 라우팅

@@ -35,6 +35,10 @@
     - name: 개념
       expanded: false
       items:
+        - name: 보안
+          items:
+            - name: 보안 기준
+              href: security-baseline.md
         - name: 컨테이너 레지스트리 SKU 및 제한
           href: container-registry-skus.md
         - name: '레지스트리, 리포지토리 및 이미지'
@@ -120,7 +124,7 @@
         - name: 모니터
           expanded: false
           items:
-            - name: 진단 및 감사 로그(미리 보기)
+            - name: 진단 및 감사 로그
               href: container-registry-diagnostics-audit-logs.md
             - name: Azure Policy를 사용하여 규정 준수 감사(미리 보기)
               href: container-registry-azure-policy.md

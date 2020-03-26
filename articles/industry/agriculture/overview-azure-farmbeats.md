@@ -6,10 +6,10 @@ ms.topic: overview
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: b067b18985905b226287f9dd10ad4b937fab6df1
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76767961"
 ---
 # <a name="overview-of-azure-farmbeats-preview"></a>Azure FarmBeats 개요(미리 보기)
@@ -33,9 +33,9 @@ Azure FarmBeats 미리 보기를 통해 다음을 수행할 수 있습니다.
 ## <a name="datahub"></a>Datahub
 
 Azure FarmBeats Datahub는 여러 공급자의 다양한 농업 데이터 세트를 집계, 정규화 및 컨텍스트화할 수 있는 API 계층입니다. Azure FarmBeats를 사용하여 다음을 얻을 수 있습니다.
-- [Davis Instruments](https://www.davisinstruments.com/product/enviromonitor-gateway/), [Teralytic](https://teralytic.com/), [Pessl Instruments](https://metos.at/)라는 센서 공급자 두 곳의 **센서 데이터**
-- 유럽 우주국 [Sentinel-2](https://sentinel.esa.int/web/sentinel/home) 위성 임무의 **위성 이미지**
-- [senseFly](https://www.sensefly.com/) , [SlantRange](https://slantrange.com/) , [DJI](https://dji.com/)라는 이미지 공급자 세 곳의 **드론 이미지**
+- **Davis Instruments**, [Teralytic](https://www.davisinstruments.com/product/enviromonitor-gateway/), [Pessl Instruments](https://teralytic.com/)라는 센서 공급자 두 곳의 [센서 데이터](https://metos.at/)
+- 유럽 우주국 **Sentinel-2** 위성 임무의 [위성 이미지](https://sentinel.esa.int/web/sentinel/home)
+- **senseFly** , [SlantRange](https://www.sensefly.com/) , [DJI](https://slantrange.com/)라는 이미지 공급자 세 곳의 [드론 이미지](https://dji.com/)
 
 Datahub는 확장 가능한 API 플랫폼으로 설계되었습니다. Azure FarmBeats와 통합하기 위해 더 많은 공급자와 협력하고 있으므로 솔루션을 빌드하는 동안 더 많은 선택권을 가질 수 있습니다.
 

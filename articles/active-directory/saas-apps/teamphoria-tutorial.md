@@ -17,10 +17,10 @@ ms.date: 10/09/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2631b34f5658c9d4f76ca26d378bc63fe59ad156
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72373258"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-teamphoria"></a>자습서: Teamphoria와 Azure Active Directory SSO(Single Sign-On) 연결
@@ -33,7 +33,7 @@ ms.locfileid: "72373258"
 
 Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -103,7 +103,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자**를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예: `B.Simon@contoso.com`
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기**를 클릭합니다.
 
@@ -133,21 +133,21 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 2. 브라우저에 확장을 추가한 후 **Teamphoria 설정**을 클릭하면 Teamphoria 애플리케이션으로 이동됩니다. 여기서 관리자 자격 증명을 입력하여 Teamphoria에 로그인합니다. 브라우저 확장이 애플리케이션을 자동으로 구성하고 3-6단계를 자동으로 수행합니다.
 
-    ![구성 설정](common/setup-sso.png)
+    ![설정 구성](common/setup-sso.png)
 
 3. Teamphoria를 수동으로 설정하려면 새 웹 브라우저 창을 열고 Teamphoria 회사 사이트에 관리자로 로그인하여 다음 단계를 수행합니다.
 
 4. 왼쪽 도구 모음에서 **관리 설정** 옵션으로 이동하고 구성 탭 아래에서 **SINGLE SIGN-ON**을 클릭하여 SSO 구성 창을 엽니다.
 
-    ![Configure Single Sign-On](./media/teamphoria-tutorial/admin_sso_configure.png)
+    ![Single Sign-on 구성](./media/teamphoria-tutorial/admin_sso_configure.png)
 
 5. 오른쪽 위 모서리에서 **새 ID 공급자 추가** 옵션을 클릭하여 SSO에 대한 설정을 추가하기 위한 양식을 엽니다.
 
-    ![Configure Single Sign-On](./media/teamphoria-tutorial/add_new_identity_provider.png)
+    ![Single Sign-on 구성](./media/teamphoria-tutorial/add_new_identity_provider.png)
 
 6. 아래에서 설명한 대로 필드에 세부 정보를 입력합니다.
 
-    ![Configure Single Sign-On](./media/teamphoria-tutorial/Teamphoria_sso_save.png)
+    ![Single Sign-on 구성](./media/teamphoria-tutorial/Teamphoria_sso_save.png)
 
     a. **표시 이름**: 관리 페이지에서 플러그 인의 표시 이름을 입력합니다.
 

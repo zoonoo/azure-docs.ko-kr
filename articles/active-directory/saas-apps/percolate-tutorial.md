@@ -16,17 +16,17 @@ ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
 ms.openlocfilehash: a6c1f893757baf1e6c85420b31997a5073cff684
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67094607"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-percolate"></a>자습서: Percolate와 Azure Active Directory 통합
 
 이 자습서에서는 Azure AD(Azure Active Directory)와 Percolate를 통합하는 방법에 대해 알아봅니다.
 
-이렇게 통합하면 다음과 같은 이점이 제공됩니다.
+이 통합은 다음과 같은 이점을 제공합니다.
 
 * Azure AD를 사용하여 Percolate에 액세스할 수 있는 사용자를 제어할 수 있습니다.
 * 사용자가 해당 Azure AD 계정으로 Percolate에 자동으로 로그인(Single Sign-on)되도록 설정할 수 있습니다.
@@ -36,7 +36,7 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/) 을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Percolate와 Azure AD의 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -78,10 +78,10 @@ Percolate에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 1. 사용자가 이 기능을 사용할 수 있도록 **[Azure AD Single Sign-On을 구성](#configure-azure-ad-single-sign-on)** 합니다.
 2. 애플리케이션 쪽에서 **[Percolate Single Sign-On 구성](#configure-percolate-single-sign-on)** 합니다.
-3. Azure AD Single Sign-On을 테스트할 **[Azure AD 테스트 사용자를 만듭니다](#create-an-azure-ad-test-user)** .
-4. 사용자가 Azure AD Single Sign-On을 사용할 수 있도록 **[Azure AD 테스트 사용자를 할당](#assign-the-azure-ad-test-user)** 합니다.
+3. **[Azure AD 테스트 사용자를 만들어](#create-an-azure-ad-test-user)** Azure AD Single Sign-On을 테스트합니다.
+4. **[Azure AD 테스트 사용자를 할당](#assign-the-azure-ad-test-user)** 하여 사용자가 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
 5. 사용자의 Azure AD 표현과 연결된 **[Percolate 테스트 사용자를 만듭니다](#create-a-percolate-test-user)** .
-6. **[Single Sign-On을 테스트](#test-single-sign-on)** 하여 구성이 작동하는지 확인합니다.
+6. **[Single Sign-On 테스트](#test-single-sign-on)** - 구성이 작동하는지 확인합니다.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
@@ -93,7 +93,7 @@ Percolate에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
     ![Single Sign-On 선택](common/select-sso.png)
 
-2. **Single Sign-On 방법 선택** 대화 상자에서 **SAML/WS-Fed** 모드를 선택하여 Single Sign-On을 사용하도록 설정합니다.
+2. **Single Sign-On 선택 방법** 대화 상자에서 **SAML/WS-Fed** 모드를 선택하여 Single Sign-On을 사용하도록 설정합니다.
 
     ![Single Sign-On 방법 선택](common/select-saml-option.png)
 
@@ -194,7 +194,7 @@ Percolate에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
     ![사용자 및 그룹 선택](common/add-assign-user.png)
 
-5. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택한 다음, 화면의 아래쪽에 있는 **선택** 단추를 클릭합니다.
+5. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택하고 화면 아래쪽에서 **선택** 단추를 클릭합니다.
 
 6. SAML 어설션에 역할 값이 필요한 경우 **역할 선택** 대화 상자에서, 목록에 있는 사용자에게 적절한 역할을 선택합니다. 화면의 아래쪽에서 **선택** 단추를 클릭합니다.
 
@@ -216,7 +216,7 @@ Azure AD 사용자가 Percolate에 로그인할 수 있도록 설정하려면 �
 
     ![사용자 만들기 페이지](./media/percolate-tutorial/configure04.png)
 
-    1. **이메일** 상자에서 사용자의 이메일 주소를 입력합니다. 예: brittasimon@contoso.com
+    1. **이메일** 상자에서 사용자의 이메일 주소를 입력합니다. brittasimon@contoso.com)을 입력합니다.
 
     1. **전체 이름** 상자에서 사용자의 이름을 입력합니다. 예를 들어 **Brittasimon**입니다.
 
@@ -226,7 +226,7 @@ Azure AD 사용자가 Percolate에 로그인할 수 있도록 설정하려면 �
 
 이제 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트해야 합니다.
 
-액세스 패널에서 Percolate 타일을 선택하면 SSO를 설정한 Percolate 인스턴스에 자동으로 로그인됩니다. 자세한 내용은 [My Apps 포털에서 앱 액세스 및 사용](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)을 참조하세요.
+액세스 패널에서 Percolate 타일을 선택하면 SSO를 설정한 Percolate 인스턴스에 자동으로 로그인됩니다. 자세한 내용은 [내 앱 포털에서 앱 액세스 및 사용](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)을 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 

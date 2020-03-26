@@ -9,10 +9,10 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 1e08968034134e2b9ab3b8064387d18663d5c866
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "71200151"
 ---
 # <a name="opc-vault-architecture"></a>OPC 자격 증명 모음 아키텍처
@@ -36,7 +36,7 @@ OPC 자격 증명 모음 마이크로서비스는 Azure Key Vault에서 서명 �
 기존 OPC UA 솔루션과의 호환성을 위해, 이 서비스에는 OPC 자격 증명 모음 마이크로서비스가 지원하는 Edge 모듈 지원이 포함됩니다. 이것은 **OPC UA Global Discovery Server 및 인증서 관리** 인터페이스를 구현하여, 해당 사양의 12부에 따라 인증서 및 신뢰 목록을 배포합니다. 
 
 
-## <a name="architecture"></a>아키텍처
+## <a name="architecture"></a>Architecture
 
 이 아키텍처는 공장 네트워크용 OPC 자격 증명 모음 IoT Edge 모듈과 워크플로를 제어하는 웹 샘플 UX를 갖춘 OPC 자격 증명 모음 마이크로서비스를 기반으로 합니다.
 

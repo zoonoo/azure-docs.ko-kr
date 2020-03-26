@@ -9,10 +9,10 @@ ms.date: 01/23/2019
 ms.author: danlep
 ms.custom: include file
 ms.openlocfilehash: 09eaf9465ec3912dea6e1f3ee1693f6bfed50abc
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "67182759"
 ---
 ## <a name="push-image-to-registry"></a>레지스트리에 이미지 푸시
@@ -31,7 +31,7 @@ docker pull hello-world
 docker tag hello-world <acrLoginServer>/hello-world:v1
 ```
 
-마지막으로 [docker push][docker-push]를 사용하여 ACR 인스턴스로 이미지를 푸시합니다. `<acrLoginServer>`를 ACR 인스턴스의 로그인 서버 이름으로 바꿉니다. 이 예제에서는 `hello-world:v1` 이미지를 포함하는 **hello-world** 리포지토리를 만듭니다.
+마지막으로 [docker push][docker-push]를 사용하여 ACR 인스턴스로 이미지를 푸시합니다. `<acrLoginServer>`를 ACR 인스턴스의 로그인 서버 이름으로 바꿉니다. 이 예제에서는 **이미지를 포함하는**hello-world`hello-world:v1` 리포지토리를 만듭니다.
 
 ```
 docker push <acrLoginServer>/hello-world:v1

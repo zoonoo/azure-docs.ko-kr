@@ -6,10 +6,10 @@ ms.topic: quickstart
 ms.date: 09/19/2017
 ms.custom: mvc
 ms.openlocfilehash: 73f8d23dcd53b4cbbb3fbd902c789e868c2b021b
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75769186"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Functions를 사용하여 Azure Storage 큐에 메시지 추가
@@ -26,7 +26,7 @@ Azure Functions에서 입력 및 출력 바인딩은 코드에서 외부 서비�
 
 * [Microsoft Azure Storage Explorer](https://storageexplorer.com/)를 설치합니다. 이 도구는 출력 바인딩이 만드는 큐 메시지를 검토하는 데 사용합니다.
 
-## <a name="add-binding"></a>출력 바인딩 추가
+## <a name="add-an-output-binding"></a><a name="add-binding"></a>출력 바인딩 추가
 
 이 섹션에서는 포털 UI를 사용하여, 앞서 만든 함수에 Queue Storage 출력 바인딩을 추가합니다. 이 바인딩을 통해 최소한의 코드로 큐에 메시지를 만들 수 있습니다. 스토리지 연결 시작, 큐 만들기, 큐에 대한 참조 가져오기 등의 작업을 위해 코드를 작성하지 않아도 됩니다. Azure Functions 런타임 및 큐 출력 바인딩이 이러한 작업을 대신하게 됩니다.
 
@@ -60,13 +60,13 @@ Azure Functions에서 입력 및 출력 바인딩은 코드에서 외부 서비�
 
 ## <a name="add-code-that-uses-the-output-binding"></a>출력 바인딩을 사용하는 코드 추가
 
-이 섹션에서는 출력 큐에 메시지를 작성 하는 코드를 추가합니다. 메시지에는 쿼리 문자열에서 HTTP 트리거로 전달되는 값이 포함됩니다. 예를 들어 쿼리 문자열이 `name=Azure`를 포함할 경우 큐 메시지는 ‘함수에 전달된 이름:  Azure’가 됩니다.
+이 섹션에서는 출력 큐에 메시지를 작성 하는 코드를 추가합니다. 메시지에는 쿼리 문자열에서 HTTP 트리거로 전달되는 값이 포함됩니다. 예를 들어, 쿼리 문자열이 `name=Azure`를 포함할 경우 큐 메시지는 *함수에 전달된 이름: Azure*가 됩니다.
 
 1. 편집기에서 함수 코드를 표시할 함수를 선택합니다.
 
 1. 함수 언어에 따라 함수 코드를 업데이트합니다.
 
-    # <a name="ctabcsharp"></a>[C\#](#tab/csharp)
+    # <a name="c"></a>[C\#](#tab/csharp)
 
     다음 예제와 같이 메서드 서명에 **outputQueueItem** 매개 변수를 추가합니다.
 
@@ -84,7 +84,7 @@ Azure Functions에서 입력 및 출력 바인딩은 코드에서 외부 서비�
     outputQueueItem.Add("Name passed to the function: " + name);
     ```
 
-    # <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
+    # <a name="javascript"></a>[JavaScript](#tab/nodejs)
 
     `context.bindings` 개체에서 출력 바인딩을 사용하여 큐 메시지를 만드는 코드를 추가합니다. `context.done` 문 앞에 이 코드를 추가합니다.
 
@@ -143,7 +143,7 @@ Azure Functions에서 입력 및 출력 바인딩은 코드에서 외부 서비�
 
 1. **큐** 노드를 확장한 다음 이름이 **outqueue**인 큐를 선택합니다. 
 
-   이 큐에는 HTTP 트리거 함수를 실행했을 때 만들어진 큐 출력 바인딩 메시지가 포함되어 있습니다. 기본 `name` 값 Azure로 함수를 호출했다면 큐 메시지는 ‘함수에 전달된 이름:   Azure’입니다.
+   이 큐에는 HTTP 트리거 함수를 실행했을 때 만들어진 큐 출력 바인딩 메시지가 포함되어 있습니다. 기본 `name` 값 *Azure*로 함수를 호출했다면 큐 메시지는 *함수에 전달된 이름: Azure*입니다.
 
     ![Storage Explorer에 표시되는 큐 메시지](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
 

@@ -315,6 +315,10 @@
               href: disk-encryption-sample-scripts.md
             - name: 격리된 네트워크에서 디스크 암호화
               href: disk-encryption-isolated-network.md
+            - name: 암호화 상태를 확인하는 방법
+              href: how-to-verify-encryption-status.md
+            - name: 암호화에서 LVM RAID를 구성하는 방법
+              href: how-to-configure-lvm-raid-on-crypt.md
             - name: 디스크 암호화 문제 해결
               href: disk-encryption-troubleshooting.md
             - name: 디스크 암호화 FAQ
@@ -498,8 +502,6 @@
           href: capture-image.md
         - name: Packer로 이미지 빌드
           href: build-image-with-packer.md
-        - name: Azure의 RHEL 이미지
-          href: rhel-images.md
         - name: 기존 디스크 다운로드
           href: download-vhd.md
     - name: 가용성 및 규모
@@ -520,6 +522,8 @@
           href: create-cli-availability-zone.md
     - name: 자동화 도구 사용
       items:
+        - name: 사용자 지정 데이터
+          href: ../custom-data.md
         - name: Ansible
           items:
             - name: 설치 및 구성

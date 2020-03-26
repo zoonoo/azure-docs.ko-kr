@@ -70,10 +70,12 @@
           href: How-To/business-continuity-plan.md
         - name: 공동 작업
           href: How-To/collaborate-knowledge-base.md
+        - name: 활성 학습 설정
+          href: How-To/use-active-learning.md
     - name: 기술 자료 관리
       items:
         - name: 기술 자료 만들기
-          href: Quickstarts/create-publish-knowledge-base.md
+          href: How-To/manage-knowledge-bases.md
         - name: 언어 선택
           href: How-To/language-knowledge-base.md
         - name: 잡담 추가
@@ -85,7 +87,7 @@
           href: How-To/test-knowledge-base.md
     - name: QnA 세트 관리
       items:
-        - name: 기술 자료 편집
+        - name: QnA 세트 편집
           href: How-To/edit-knowledge-base.md
         - name: 후속 프롬프트 추가
           href: How-To/multiturn-conversation.md

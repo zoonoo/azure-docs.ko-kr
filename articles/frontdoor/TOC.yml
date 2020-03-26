@@ -1,8 +1,8 @@
-- name: Front Door Service 설명서
+- name: Front Door 설명서
   href: index.yml
 - name: 개요
   items:
-    - name: Azure Front Door Service란?
+    - name: Azure Front Door란?
       href: front-door-overview.md
 - name: 빠른 시작
   expanded: true
@@ -27,6 +27,8 @@
       href: front-door-backend-pool.md
     - name: Front Door를 통한 캐싱
       href: front-door-caching.md
+    - name: Front Door FAQ
+      href: front-door-faq.md
     - name: 지역 필터링
       href: front-door-geo-filtering.md
     - name: 상태 프로브
@@ -49,6 +51,8 @@
       href: front-door-url-rewrite.md
     - name: URL 리디렉션
       href: front-door-url-redirect.md
+    - name: 와일드 카드 도메인
+      href: front-door-wildcard-domain.md
 - name: 방법 가이드
   items:
     - name: 트래픽 리디렉션
@@ -65,10 +69,6 @@
           href: front-door-troubleshoot-routing.md
         - name: 허용된 인증 기관
           href: front-door-troubleshoot-allowed-ca.md
-- name: FAQ
-  items:
-    - name: Front Door FAQ
-      href: front-door-faq.md
 - name: 참조
   items:
     - name: Azure CLI

@@ -4,10 +4,10 @@ description: Azure 서비스 상태에 대한 전반적인 보기입니다.
 ms.topic: overview
 ms.date: 06/11/2019
 ms.openlocfilehash: 766e9795b01c4a09916a025cba77744dea235faf
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78898332"
 ---
 # <a name="azure-status-overview"></a>Azure 상태 개요

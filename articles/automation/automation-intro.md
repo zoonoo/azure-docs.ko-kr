@@ -8,10 +8,10 @@ ms.date: 10/18/2018
 ms.custom: mvc
 ms.topic: overview
 ms.openlocfilehash: 3359d99d7e20bbced8950171fa34592fd2612500
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76930389"
 ---
 # <a name="an-introduction-to-azure-automation"></a>Azure Automation에 대한 소개
@@ -37,7 +37,7 @@ Azure Automation [DSC(Desired State Configuration)](automation-dsc-overview.md)�
 
 Azure Automation을 사용하여 하이브리드 환경에서 Windows 및 Linux 시스템을 업데이트합니다. Azure, 온-프레미스 및 기타 클라우드에서 업데이트 준수에 대한 가시성을 얻을 수 있습니다. 정의된 유지 관리 기간 내에서 업데이트 설치를 오케스트레이션하기 위한 배포 일정을 만들 수 있습니다. 업데이트를 컴퓨터에 설치하지 않는 경우 해당 업데이트를 배포에서 제외할 수 있습니다.
 
-### <a name="shared-resources"></a>공유 리소스
+### <a name="shared-resources"></a><a name="shared-resources"></a>공유 리소스
 
 Azure Automation은 대규모 환경을 더 쉽게 자동화하고 구성할 수 있게 하는 일단의 공유 리소스로 구성됩니다.
 

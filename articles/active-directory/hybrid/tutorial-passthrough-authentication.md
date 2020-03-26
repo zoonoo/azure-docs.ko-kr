@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 96846d75111fe11b225704a248baeb006a3df3fb
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "66473001"
 ---
 # <a name="tutorial--integrate-a-single-ad-forest-using-pass-through-authentication-pta"></a>자습서:  PTA(통과 인증)를 사용하여 단일 AD 포리스트 통합
@@ -24,7 +24,7 @@ ms.locfileid: "66473001"
 
 다음 자습서에서는 통과 인증을 사용하여 하이브리드 ID 환경을 만드는 방법을 설명합니다.  이 환경을 테스트에 사용하거나 하이브리드 ID가 작동하는 방식에 익숙해지기 위해 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 다음은 이 자습서를 완료하는 데 필요한 필수 구성 요소입니다.
 - [Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/hyper-v-technology-overview)가 설치되어 있는 컴퓨터.  [Windows 10](https://docs.microsoft.com/virtualization/hyper-v-on-windows/about/supported-guest-os) 또는 [Windows Server 2016](https://docs.microsoft.com/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows) 컴퓨터에서 수행하는 것이 좋습니다.
 - [Azure 구독](https://azure.microsoft.com/free)
@@ -86,7 +86,7 @@ Set-VMFirmware -VMName $VMName -FirstBootDevice $DVDDrive
 6. 라이선스 키를 입력하고 **다음**을 클릭합니다.
 7. **사용 약관에 동의에 확인 표시를 한 후 **다음**을 클릭합니다.
 8. **사용자 지정:  Windows만 설치(고급)** 선택
-9. **다음**을 누릅니다
+9. **다음**을 클릭합니다.
 10. 설치가 완료되고 나면 가상 머신을 다시 시작하고, 로그인한 후, Windows 업데이트를 실행하여 VM이 최신 버전이 되도록 합니다.  최신 업데이트를 설치합니다.
 
 ## <a name="install-active-directory-prerequisites"></a>Active Directory 설치 필수 조건
@@ -209,12 +209,12 @@ Azure AD 테넌트가 준비되었으면 글로벌 관리자 계정을 만들겠
 1. [Azure Portal](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)로 돌아와서 **모든 사용자** 블레이드를 닫습니다.
 2. 왼쪽에서 **사용자 지정 도메인 이름**을 선택합니다.
 3. **사용자 지정 도메인 추가**를 선택합니다.</br>
-![사용자 지정](media/tutorial-federation/custom1.png)</br>
+![Custom](media/tutorial-federation/custom1.png)</br>
 4. **사용자 지정 도메인 이름**에서 상자에 사용자 지정 도메인의 이름을 입력하고 **도메인 추가**를 클릭합니다.
 5. 사용자 지정 도메인 이름 화면에는 TXT 또는 MX 정보가 제공됩니다.  이 정보는 도메인 아래 도메인 등록 기관의 DNS 정보에 추가해야 합니다.  따라서 도메인 등록 기관으로 이동하여 도메인의 DNS 설정에 TXT 또는 MX 정보를 입력합니다.  이렇게 하면 Azure에서 도메인을 확인할 수 있습니다.  Azure에서 확인하는 데 최대 24시간이 걸릴 수 있습니다.  자세한 내용은 [사용자 지정 도메인 추가](../../active-directory/fundamentals/add-custom-domain.md) 설명서를 참조하세요.</br>
-![사용자 지정](media/tutorial-federation/custom2.png)</br>
+![Custom](media/tutorial-federation/custom2.png)</br>
 6. 확인되었는지 확인하려면 확인 단추를 클릭합니다.</br>
-![사용자 지정](media/tutorial-federation/custom3.png)</br>
+![Custom](media/tutorial-federation/custom3.png)</br>
 
 ## <a name="download-and-install-azure-ad-connect"></a>Azure AD Connect 다운로드 및 설치
 이제 Azure AD Connect를 다운로드하고 설치할 순서입니다.  설치가 완료되면 빠른 설치를 실행합니다.  다음을 수행합니다.

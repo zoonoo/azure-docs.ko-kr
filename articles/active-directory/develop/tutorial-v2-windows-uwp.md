@@ -16,10 +16,10 @@ ms.date: 12/13/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: 68473ff5a3faddd36bd4299dfdc882f679acd068
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79129890"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>유니버설 Windows 플랫폼 애플리케이션(XAML)에서 Microsoft Graph API 호출
@@ -206,7 +206,7 @@ Visual Studio는 프로젝트 템플릿의 일부로 *MainPage.xaml*을 만듭�
     }
     ```
 
-#### 대화형으로 사용자 토큰 가져오기<a name="more-information"></a>
+#### <a name="get-a-user-token-interactively"></a>대화형으로 사용자 토큰 가져오기<a name="more-information"></a>
 
 `AcquireTokenInteractive` 메서드는 사용자에게 로그인하라는 메시지를 표시하는 창을 생성합니다. 애플리케이션에서는 일반적으로 사용자가 보호된 리소스에 액세스하기 위해 처음에는 대화형으로 로그인해야 합니다. 토큰을 획득하는 자동 작업에 실패한 경우 로그인해야 할 수도 있습니다. 예를 들어 사용자의 암호가 만료된 경우입니다.
 
@@ -295,7 +295,7 @@ Visual Studio는 프로젝트 템플릿의 일부로 *MainPage.xaml*을 만듭�
 > [!NOTE]
 > MSAL.NET은 비동기 메서드를 사용하여 토큰을 획득하거나 계정을 조작합니다. UI 스레드에서 UI 작업을 지원해야 합니다. 이는 `Dispatcher.RunAsync` 호출 및 `ConfigureAwait(false)`를 호출하기 위한 예방 조치에 대한 이유입니다.
 
-#### 로그 아웃에 대한 자세한 정보<a name="more-information-on-sign-out"></a>
+#### <a name="more-information-about-signing-out"></a>로그 아웃에 대한 자세한 정보<a name="more-information-on-sign-out"></a>
 
 `SignOutButton_Click` 메서드는 MSAL 사용자 캐시에서 사용자를 제거합니다. 이 메서드는 현재 사용자를 잊도록 MSAL에 효과적으로 지시합니다. 토큰을 획득하기 위한 이후의 요청은 대화형인 경우에만 성공합니다.
 
@@ -320,7 +320,7 @@ Visual Studio는 프로젝트 템플릿의 일부로 *MainPage.xaml*을 만듭�
    }
    ```
 
-#### 자세한 정보<a name="more-information-1"></a>
+#### <a name="more-information"></a>자세한 정보<a name="more-information-1"></a>
 
 **OpenID Connect**를 사용하여 획득한 ID 토큰에는 사용자와 관련된 정보의 작은 하위 세트도 포함됩니다. `DisplayBasicTokenInfo`는 토큰에 포함된 기본 정보를 표시합니다. 이 정보에는 사용자의 표시 이름과 ID가 포함되어 있습니다. 또한 토큰의 만료 날짜와 액세스 토큰 자체를 나타내는 문자열도 포함되어 있습니다. **Microsoft Graph API 호출** 단추를 여러 번 선택하면 동일한 토큰이 이후의 요청에 다시 사용되었음을 알 수 있습니다. MSAL이 토큰 갱신 시점이라고 판단한 경우에는 만료 날짜가 연장된 것도 확인할 수 있습니다.
 

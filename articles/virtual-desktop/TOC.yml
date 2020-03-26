@@ -86,6 +86,8 @@
       href: publish-apps.md
     - name: MSIX 앱 연결 설정
       href: app-attach.md
+    - name: Microsoft Teams 사용
+      href: teams-on-wvd.md
 - name: 개념
   items:
     - name: Windows Virtual Desktop 환경

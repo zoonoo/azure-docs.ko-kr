@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/03/2016
 ms.author: cephalin
 ms.openlocfilehash: 7518b03e41b086d8797fad3563f681bf0072a7dd
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76021083"
 ---
 리소스를 Azure에 배포하려면 Azure 계정에 로그인하여 Azure Resource Manager 모듈을 사용해야 합니다. Azure PowerShell 또는 Azure CLI과 함께 Azure 리소스 관리자를 사용하는 방법을 알아보려면 참조하십시오.

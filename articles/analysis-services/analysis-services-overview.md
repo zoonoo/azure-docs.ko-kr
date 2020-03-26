@@ -8,11 +8,11 @@ ms.date: 02/20/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 3a18218635b5fc576bd9255eb73c136756ac3caa
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78375122"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79215551"
 ---
 # <a name="what-is-azure-analysis-services"></a>Azure Analysis Services란?
 
@@ -47,7 +47,7 @@ Azure Analysis Services는 **개발자**, **기본** 및 **표준** 계층에서
 
 ### <a name="basic-tier"></a>기본 계층
 
-해당 계층은 소규모 테이블 형식 모델, 제한된 사용자 동시성 및 단순한 데이터 새로 고침 요구 사항이 있는 프로덕션 솔루션에 권장됩니다. 쿼리 복제본 스케일 아웃은 이 계층에 ‘사용할 수 없습니다’. 큐브 뷰, 여러 파티션 및 DirectQuery 테이블 형식 모델 기능은 이 계층에서 *지원되지 않습니다*.  
+해당 계층은 소규모 테이블 형식 모델, 제한된 사용자 동시성 및 단순한 데이터 새로 고침 요구 사항이 있는 프로덕션 솔루션에 권장됩니다. 쿼리 복제본 스케일 아웃은 이 계층에 ‘사용할 수 없습니다’.  큐브 뷰, 여러 파티션 및 DirectQuery 테이블 형식 모델 기능은 이 계층에서 *지원되지 않습니다*.  
 
 |계획  |QPU  |메모리(GB)  |
 |---------|---------|---------|
@@ -171,7 +171,7 @@ Azure Analysis Services에서는 Azure Blob Storage를 사용하여 Analysis Ser
 
 [온-프레미스 데이터 게이트웨이](analysis-services-gateway.md)를 설치하고 구성하여 조직의 온-프레미스 데이터 원본에 대한 액세스를 보호합니다. 게이트웨이는 DirectQuery와 메모리 내 모드 모두의 데이터에 대한 액세스 권한을 제공합니다.
 
-### <a name="roles"></a>Roles
+### <a name="roles"></a>역할
 
 Analysis Services에서는 서버 및 데이터베이스 작업 모델, 개체 및 데이터에 대한 액세스를 부여하는 [역할 기반 권한 부여](https://docs.microsoft.com/analysis-services/tabular-models/roles-ssas-tabular)를 사용합니다. 서버 또는 데이터베이스에 액세스하는 모든 사용자는 할당된 역할 내에서 Azure AD 사용자 계정을 사용하여 작업을 수행합니다. 서버 관리자 역할은 서버 리소스 수준입니다. 기본적으로 서버를 만들 때 사용되는 계정은 서버 관리자 역할에 자동으로 포함됩니다. 추가 사용자 및 그룹 계정은 포털, SSMS 또는 PowerShell을 사용하여 추가됩니다.
   

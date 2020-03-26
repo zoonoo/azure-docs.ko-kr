@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 11/14/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: bfda5fe7592d4c3f3f9550f406cf7635c43168ed
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 69a9722436aea1cf794e6e3f3ce02ec79180cff3
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75896204"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80159475"
 ---
 # <a name="linux-virtual-machines-in-azure"></a>Azure의 Linux 가상 머신
 
@@ -93,10 +93,6 @@ Microsoft는 파트너와 긴밀히 협력하여 사용 가능한 이미지가 �
 * Docker - [Azure Marketplace - Azure Container Service with Docker Swarm](https://azure.microsoft.com/marketplace/partners/microsoft/acsswarms/)
 * Jenkins - [Azure Marketplace - CloudBees Jenkins Platform](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cloudbees.cloudbees-core-contact)
 
-## <a name="vm-sizes"></a>VM 크기
-사용할 VM의 [크기](sizes.md)는 실행하려는 워크로드를 기준으로 결정됩니다. 그런 다음 선택하는 크기는 처리 성능, 메모리 및 스토리지 용량 등의 요소를 결정합니다. Azure는 다양한 크기를 제공하여 다양한 유형의 사용을 지원합니다.
-
-Azure는 VM의 크기와 운영 체제에 기반한 [시간당 가격](https://azure.microsoft.com/pricing/details/virtual-machines/linux/)을 청구합니다. 부분 시간의 경우 Azure는 사용 시간(분)에 대해서만 청구합니다. 스토리지는 가격이 책정되며 개별적으로 청구됩니다.
 
 ## <a name="cloud-init"></a>Cloud-init 
 
@@ -108,12 +104,6 @@ Azure는 VM의 크기와 운영 체제에 기반한 [시간당 가격](https://a
 Azure는 Azure를 지원하는 대부분의 Linux 배포판에서 [cloud-init](https://cloud-init.io/)를 지원합니다.  Azure Marketplace에서 cloud-init 활성화 이미지를 사용할 수 있도록 하기 위해 승인된 Linux 배포판 파트너와 적극적으로 공조하고 있습니다. 이러한 이미지를 사용하면 VM 및 가상 머신 확장 집합에서 cloud-init 배포 및 구성 작업을 원활하게 진행할 수 있습니다.
 
 * [Azure Linux VM에서 cloud-init 사용](using-cloud-init.md)
-
-## <a name="quotas"></a>할당량
-각 Azure 구독에는 프로젝트에 대해 많은 수의 VM을 배포하는 데 영향을 줄 수 있는 기본 할당량 한도가 있습니다. 구독별 기준으로 현재 제한은 지역당 20대의 VM입니다.  제한 증가를 요구하는 지원 티켓을 제출하면 할당량 제한을 빠르고 쉽게 늘릴 수 있습니다.  할당량 제한에 대한 자세한 내용은 다음을 참조하세요.
-
-* [Azure 구독 서비스 제한](../../azure-resource-manager/management/azure-subscription-service-limits.md)
-
 
 ## <a name="storage"></a>스토리지
 * [Microsoft Azure Storage 소개](../../storage/common/storage-introduction.md)

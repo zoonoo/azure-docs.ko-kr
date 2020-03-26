@@ -12,10 +12,10 @@ ms.reviewer: v-masebo
 ms.date: 03/25/2019
 ms.custom: seo-java-july2019. seo-java-august2019
 ms.openlocfilehash: 034f92ca3b7552373ae69148d09d58d3a5dd166a
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76768651"
 ---
 # <a name="quickstart-use-java-to-query-an-azure-sql-database"></a>빠른 시작: Java를 사용하여 Azure SQL 데이터베이스 쿼리
@@ -24,21 +24,21 @@ ms.locfileid: "76768651"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- 활성 구독이 있는 Azure 계정. [평가판 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - [Azure SQL 데이터베이스](sql-database-single-database-get-started.md)
 - [Java](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server) 관련 소프트웨어
 
-  # <a name="macostabmacos"></a>[macOS](#tab/macos)
+  # <a name="macos"></a>[macOS](#tab/macos)
 
-  Homebrew 및 Java를 설치한 다음, [macOS에서 SQL Server를 사용하여 Java 앱 만들기](https://www.microsoft.com/sql-server/developer-get-started/java/mac/)의 **1.2** 및 **1.3** 단계를 사용하여 Maven을 설치합니다.
+  Homebrew 및 Java를 설치한 다음, **macOS에서 SQL Server를 사용하여 Java 앱 만들기**의 **1.2** 및 [1.3](https://www.microsoft.com/sql-server/developer-get-started/java/mac/) 단계를 사용하여 Maven을 설치합니다.
 
-  # <a name="ubuntutabubuntu"></a>[Ubuntu](#tab/ubuntu)
+  # <a name="ubuntu"></a>[Ubuntu](#tab/ubuntu)
 
-  Java, Java Development Kit를 설치한 다음, [Ubuntu에서 SQL Server를 사용하여 Java 앱 만들기](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu/)의 **1.2**, **1.3** 및 **1.4** 단계를 사용하여 Maven을 설치합니다.
+  Java, Java Development Kit를 설치한 다음, **Ubuntu에서 SQL Server를 사용하여 Java 앱 만들기**의 **1.2**, **1.3** 및 [1.4](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu/) 단계를 사용하여 Maven을 설치합니다.
 
-  # <a name="windowstabwindows"></a>[Windows](#tab/windows)
+  # <a name="windows"></a>[Windows](#tab/windows)
 
-  Java를 설치한 다음, [Windows에서 SQL Server를 사용하여 Java 앱 만들기](https://www.microsoft.com/sql-server/developer-get-started/java/windows/)의 **1.2** 및 **1.3** 단계를 사용하여 Maven을 설치합니다.
+  Java를 설치한 다음, **Windows에서 SQL Server를 사용하여 Java 앱 만들기**의 **1.2** 및 [1.3](https://www.microsoft.com/sql-server/developer-get-started/java/windows/) 단계를 사용하여 Maven을 설치합니다.
 
   ---
 
@@ -50,7 +50,7 @@ ms.locfileid: "76768651"
 >
 > 만들고 구성하려면 [Azure Portal](sql-database-managed-instance-get-started.md), [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) 또는 [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44)를 사용한 다음, [온-사이트](sql-database-managed-instance-configure-p2s.md) 또는 [VM](sql-database-managed-instance-configure-vm.md) 연결을 설정합니다.
 >
-> 데이터를 로드하려면 [Adventure Works](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works) 파일을 사용하여 [BACPAC로 복원](sql-database-import.md) 또는 [Wide World Importers 데이터베이스 복원](sql-database-managed-instance-get-started-restore.md)을 참조하세요.
+> 데이터를 로드하려면 [Adventure Works](sql-database-import.md) 파일을 사용하여 [BACPAC로 복원](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works) 또는 [Wide World Importers 데이터베이스 복원](sql-database-managed-instance-get-started-restore.md)을 참조하세요.
 
 ## <a name="get-sql-server-connection-information"></a>SQL Server 연결 정보 가져오기
 

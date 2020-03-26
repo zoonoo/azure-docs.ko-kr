@@ -5,10 +5,10 @@ ms.service: iot-pnp
 ms.topic: include
 ms.date: 10/24/2019
 ms.openlocfilehash: 3e07cdb1aedb9571093a9b943393a481d9d5d75b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75455377"
 ---
 7. **원격 분석** 페이지를 선택하고 _시작_을 눌러 디바이스에서 보내는 원격 분석 데이터를 살펴봅니다.

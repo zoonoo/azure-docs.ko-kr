@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: overview
 ms.date: 03/03/2020
 ms.openlocfilehash: 95bfe7d7788133d8548598cb30c8084bf64a977f
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78267712"
 ---
 # <a name="overview-of-enterprise-security-in-azure-hdinsight"></a>Azure HDInsight의 엔터프라이즈 보안 개요
@@ -77,7 +77,7 @@ Azure 규정 준수 제안은 독립적인 타사 감사 업체에서 생성한 
 | 데이터 액세스 보안 | Azure Data Lake Storage Gen1 및 Gen2에 대한 [ACL(액세스 제어 목록)](../../storage/blobs/data-lake-storage-access-control.md) 구성  | Customer |
 |  | 스토리지 계정에서 ["보안 전송 필요"](../../storage/common/storage-require-secure-transfer.md) 속성을 사용하도록 설정 | Customer |
 |  | [Azure Storage 방화벽](../../storage/common/storage-network-security.md) 및 가상 네트워크 구성 | Customer |
-|  | Cosmos DB 및 [Azure SQL DB](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview)에 대해 [Azure 가상 네트워크 서비스 엔드포인트](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) 구성 | Customer |
+|  | Cosmos DB 및 [Azure SQL DB](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview)에 대해 [Azure 가상 네트워크 서비스 엔드포인트](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview) 구성 | Customer |
 |  | 전송 중인 데이터에 [TLS 암호화](../../storage/common/storage-security-tls.md)를 사용하도록 설정 | Customer |
 |  | Azure Storage 암호화용 [고객 관리형 키](../../storage/common/storage-encryption-keys-portal.md) 구성 | Customer |
 | 애플리케이션 및 미들웨어 보안 | AAD-DS와 통합 및 [인증 구성](apache-domain-joined-configure-using-azure-adds.md) | Customer |

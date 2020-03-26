@@ -4,6 +4,7 @@ title: AKS(Azure Kubernetes Service)
 metadata:
   title: 'AKS(Azure Kubernetes Service) 설명서 - 자습서, API 참조 | Microsoft Docs'
   meta.description: 'AKS allows you to quickly deploy a production ready Kubernetes cluster in Azure. Learn how to use AKS with these quickstarts, tutorials, and samples.'
+  description: 'AKS를 사용하면 Azure에서 프로덕션 준비 Kubernetes 클러스터를 빠르게 배포할 수 있습니다. 이러한 빠른 시작, 자습서 및 샘플과 함께 AKS를 사용하는 방법을 알아봅니다.'
   services: container-service
   author: georgewallace
   manager: gwallace

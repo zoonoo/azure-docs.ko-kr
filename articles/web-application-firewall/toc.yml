@@ -14,6 +14,10 @@
       items:
         - name: Azure Front Door의 Web Application Firewall
           href: ./afds/afds-overview.md
+    - name: Content Delivery Network
+      items:
+        - name: Azure CDN의 Web Application Firewall
+          href: ./cdn/cdn-overview.md
 - name: 자습서
   items:
     - name: Application Gateway
@@ -24,6 +28,10 @@
       items:
         - name: WAF 정책 구성 - 포털
           href: ./afds/waf-front-door-create-portal.md
+    - name: Content Delivery Network
+      items:
+        - name: WAF 정책 구성 - 포털
+          href: ./cdn/waf-cdn-create-portal.md
 - name: 샘플
   items:
     - name: Azure PowerShell
@@ -110,14 +118,14 @@
           href: ./afds/waf-front-door-tutorial-geo-filtering.md
         - name: 모니터링 및 로깅
           href: ./afds/waf-front-door-monitor.md
-- name: 문제 해결
-  items:
-    - name: Application Gateway
+    - name: 문제 해결
       items:
-        - name: WAF 문제 해결
-          href: ./ag/web-application-firewall-troubleshoot.md
-        - name: Log Analytics
-          href: ./ag/log-analytics.md
+        - name: Application Gateway
+          items:
+            - name: WAF 문제 해결
+              href: ./ag/web-application-firewall-troubleshoot.md
+            - name: Log Analytics
+              href: ./ag/log-analytics.md
 - name: 참조
   items:
     - name: CRS 규칙

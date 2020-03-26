@@ -4,10 +4,10 @@ description: Azure Portal를 사용하여 서버를 사용하지 않는 실행�
 ms.topic: quickstart
 ms.date: 02/28/2019
 ms.openlocfilehash: 1492188f72eb4a691ddceb78aa269601f192e467
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76963838"
 ---
 # <a name="create-a-function-app-on-linux-in-an-azure-app-service-plan"></a>Azure App Service 계획에서 Linux로 실행되는 함수 앱 만들기
@@ -42,7 +42,7 @@ Linux에서 함수 실행을 호스트하는 함수 앱이 있어야 합니다. 
     | **OS** | Linux | Linux에서 함수 앱이 실행됩니다. |
     | **게시** | 코드 | **런타임 스택**의 기본 Linux 컨테이너가 사용됩니다. 함수 앱 프로젝트 코드만 제공하면 됩니다. 또 다른 옵션은 사용자 지정 [Docker 이미지](functions-create-function-linux-custom-image.md)를 게시하는 것입니다. |
     | **[호스팅 계획](functions-scale.md)** | App Service 계획 | 함수 앱에 리소스가 할당되는 방법을 정의하는 호스팅 계획입니다. App Service 계획에서 실행하는 경우 [함수 앱의 크기 조정](functions-scale.md)을 제어할 수 있습니다.  |
-    | **App Service 계획/위치** | 계획 만들기 | **새로 만들기**를 선택하고 **App Service 계획** 이름을 지정합니다. 사용자 또는 함수가 액세스하는 기타 서비스에 가까운 [지역](https://azure.microsoft.com/regions/)의 **위치**를 선택합니다. 원하는 **[가격 책정 계층](https://azure.microsoft.com/pricing/details/app-service/linux/)** 을 선택합니다. <br/>동일한 App Service 계획에서 Linux 및 Windows 함수 앱을 둘 다 실행할 수는 없습니다. |
+    | **App Service 계획/위치** | 계획 만들기 | **새로 만들기**를 선택하고 **App Service 계획** 이름을 지정합니다. 사용자 또는 함수가 액세스하는 기타 서비스에 가까운 **지역**의 [위치](https://azure.microsoft.com/regions/)를 선택합니다. 원하는 **[가격 책정 계층](https://azure.microsoft.com/pricing/details/app-service/linux/)** 을 선택합니다. <br/>동일한 App Service 계획에서 Linux 및 Windows 함수 앱을 둘 다 실행할 수는 없습니다. |
     | **런타임 스택** | 기본 설정 언어 | 즐겨찾는 함수 프로그래밍 언어를 지원하는 런타임을 선택합니다. C# 및 F# 함수의 경우 **.NET**을 선택합니다. |
     | **[Storage](../storage/common/storage-account-create.md)** |  전역적으로 고유한 이름 |  함수 앱에서 사용하는 스토리지 계정을 만듭니다. Storage 계정 이름은 3자에서 24자 사이여야 하고 숫자 및 소문자만 포함할 수 있습니다. 기존 계정을 사용할 수도 있습니다. 여기서는 [스토리지 계정 요구 사항](storage-considerations.md#storage-account-requirements)을 충족해야 합니다. |
     | **[Application Insights](functions-monitoring.md)** | 사용 | Application Insights는 기본적으로 사용하지 않도록 설정됩니다. 이제 Application Insights 통합을 사용하도록 설정하고 App Service 계획 위치 가까이의 호스팅 위치를 선택하는 것이 좋습니다. 나중에 이 작업을 수행하려는 경우 [Azure Functions 모니터링](functions-monitoring.md)을 참조하세요.  |
@@ -57,7 +57,7 @@ Linux에서 함수 실행을 호스트하는 함수 앱이 있어야 합니다. 
 
 다음으로 새 함수 앱에서 함수를 만듭니다. 함수 앱을 사용할 수 있게 된 이후에도 완전히 초기화될 때까지 몇 분 정도 걸릴 수 있습니다.
 
-## <a name="create-function"></a>HTTP 트리거 함수 만들기
+## <a name="create-an-http-triggered-function"></a><a name="create-function"></a>HTTP 트리거 함수 만들기
 
 이 섹션에서는 포털의 새 함수 앱에서 함수를 만드는 방법을 보여 줍니다.
 

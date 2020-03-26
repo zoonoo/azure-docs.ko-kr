@@ -10,13 +10,13 @@ ms.custom: mvc
 ms.date: 03/08/2019
 ms.author: dobett
 ms.openlocfilehash: cecf23d61d6a12c20aa3e64e4ee0ddacddbe7823
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58183359"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "62106816"
 ---
-# <a name="quickstart-try-a-cloud-based-solution-to-run-a-predictive-maintenance-analysis-on-my-connected-devices"></a>빠른 시작: 연결된 디바이스에서 예측 유지 관리 분석을 실행하는 클라우드 기반 솔루션 사용해보기
+# <a name="quickstart-try-a-cloud-based-solution-to-run-a-predictive-maintenance-analysis-on-my-connected-devices"></a>빠른 시작: 연결된 디바이스에서 예측 유지 관리 분석을 실행하는 클라우드 기반 솔루션 시도
 
 이 빠른 시작에서는 Azure IoT 예측 유지 관리 솔루션 가속기를 배포하여 클라우드 기반 예측 유지 관리 시뮬레이션을 실행하는 방법을 보여줍니다. 솔루션 가속기를 배포한 후 시뮬레이션된 항공기 엔진 데이터에서 예측 유지 관리 분석을 실행하기 위해 솔루션 **대시보드** 페이지를 사용합니다. 학습 도구로 또는 고유한 구현을 위한 시작점으로 이 솔루션 가속기를 사용할 수 있습니다.
 
@@ -80,7 +80,7 @@ RUL이 160(데모 목적으로 선택한 임의의 임계값) 미만인 경우, 
 
 추가 탐색하려는 경우 예측 유지 관리 솔루션 가속기를 배포된 대로 둡니다.
 
-솔루션 가속기가 더 이상 필요하지 않은 경우 이를 선택한 다음, **솔루션 삭제**를 클릭하여 [프로비전된 솔루션](https://www.azureiotsolutions.com/Accelerators#dashboard) 페이지에서 삭제합니다.
+솔루션 가속기가 더 이상 필요하지 않은 경우 이를 선택한 다음, [솔루션 삭제](https://www.azureiotsolutions.com/Accelerators#dashboard)를 클릭하여 **프로비전된 솔루션** 페이지에서 삭제합니다.
 
 ![솔루션 삭제](media/quickstart-predictive-maintenance-deploy/deletesolution.png)
 

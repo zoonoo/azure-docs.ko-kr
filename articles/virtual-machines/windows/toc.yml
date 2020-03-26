@@ -585,6 +585,8 @@
               href: create-portal-availability-zone.md
     - name: 자동화 도구 사용
       items:
+        - name: 사용자 지정 데이터
+          href: ../custom-data.md
         - name: Chef
           href: chef-automation.md
         - name: Visual Studio에서 웹앱 게시

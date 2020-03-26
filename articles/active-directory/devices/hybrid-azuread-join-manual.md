@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6754393bdeabcd67dcf6514102e3c825a26fc3e9
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
-ms.translationtype: MT
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78672238"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79222950"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>자습서: 하이브리드 Azure Active Directory 조인 디바이스를 수동으로 구성
 
@@ -503,7 +503,7 @@ ImmutableID 클레임(예: 대체 로그인 ID)을 이미 발급 중인 경우 �
 
 Windows 하위 수준 디바이스를 등록하려면 사용자가 Azure AD에서 디바이스를 등록할 수 있도록 허용하는 설정을 사용해야 합니다. 이 설정은 Azure Portal의 **Azure Active Directory** > **사용자 및 그룹** > **디바이스 설정** 아래에서 찾을 수 있습니다.
 
-다음 정책을 **모두**로 설정 해야 합니다. **사용자가 Azure AD에 장치를 등록할 수 있습니다**.
+다음 정책을 **모두**: **사용자가 디바이스를 Azure AD에 등록할 수 있습니다.** 로 설정해야 합니다.
 
 ![사용자가 디바이스를 등록할 수 있게 허용하는 [모두] 단추](./media/hybrid-azuread-join-manual/23.png)
 
@@ -549,7 +549,7 @@ Windows 하위 수준 디바이스를 등록하려면 다운로드 센터에서 
 
 ## <a name="verify-joined-devices"></a>가입 디바이스 확인
 
-[Azure Active Directory PowerShell 모듈](/powershell/msonline/v1/get-msoldevice)에서 [Get-MsolDevice](/powershell/azure/install-msonlinev1?view=azureadps-2.0) cmdlet을 사용하여 조직에 성공적으로 조인된 디바이스를 확인할 수 있습니다.
+[Azure Active Directory PowerShell 모듈](/powershell/azure/install-msonlinev1?view=azureadps-2.0)에서 [Get-MsolDevice](/powershell/msonline/v1/get-msoldevice) cmdlet을 사용하여 조직에 성공적으로 조인된 디바이스를 확인할 수 있습니다.
 
 이 cmdlet의 출력은 Azure AD로 등록 및 가입된 디바이스를 보여 줍니다. 모든 디바이스를 가져오려면 **-All** 매개 변수를 사용한 다음, **deviceTrustType** 속성을 사용하여 디바이스를 필터링합니다. 도메인에 가입된 디바이스는 **도메인 가입** 값을 갖습니다.
 

@@ -10,10 +10,10 @@ services: iot-dps
 ms.devlang: csharp
 ms.custom: mvc
 ms.openlocfilehash: 64bc3921a606ab3211173b46b268ded53952c8bb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75434654"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-c"></a>빠른 시작: C#을 사용하여 Device Provisioning Service에 X.509 디바이스 등록
@@ -65,7 +65,7 @@ ms.locfileid: "75434654"
 
 3. [샘플 및 자습서에 대한 테스트 CA 인증서 관리](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md)의 단계를 따릅니다.
 
-C SDK의 도구 이외에도 *Microsoft Azure IoT SDK for .NET*의 [그룹 인증서 확인 샘플](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/service/GroupCertificateVerificationSample)은 기존 X.509 중간 또는 루트 CA 인증서를 사용하여 C#에서 소유 증명을 수행하는 방법을 보여줍니다.
+C SDK의 도구 이외에도 [Microsoft Azure IoT SDK for .NET](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/service/GroupCertificateVerificationSample)의 *그룹 인증서 확인 샘플*은 기존 X.509 중간 또는 루트 CA 인증서를 사용하여 C#에서 소유 증명을 수행하는 방법을 보여줍니다.
 
 ## <a name="get-the-connection-string-for-your-provisioning-service"></a>프로비전 서비스에 대한 연결 문자열 가져오기
 
@@ -95,7 +95,7 @@ C SDK의 도구 이외에도 *Microsoft Azure IoT SDK for .NET*의 [그룹 인�
 
    이 단계에서는 [Azure IoT 프로비저닝 서비스 클라이언트 SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/) NuGet 패키지 및 해당 종속성에 대한 참조를 다운로드하고, 설치하고, 추가합니다.
 
-1. `Program.cs` 맨 위에서 다른 `using` 문 뒤에 다음 `using` 문을 추가합니다.
+1. `using` 맨 위에서 다른 `using` 문 뒤에 다음 `Program.cs` 문을 추가합니다.
 
    ```csharp
    using System.Security.Cryptography.X509Certificates;
@@ -123,7 +123,7 @@ C SDK의 도구 이외에도 *Microsoft Azure IoT SDK for .NET*의 [그룹 인�
    > * 프로비전 서비스 관리자에 대한 연결 문자열을 하드 코딩하면 보안 모범 사례에 반합니다. 대신 연결 문자열은 보안 구성 파일 또는 레지스트리에서와 같이 안전하게 유지되어야 합니다.
    > * 서명 인증서의 공용 부분만 업로드해야 합니다. 프라이빗 키를 포함하는 .pfx(PKCS12) 또는 .pem 파일을 프로비전 서비스에 업로드하지 않습니다.
 
-1. `Program` 클래스에 다음 메서드를 추가합니다. 이 코드는 등록 그룹 항목을 만든 다음, `ProvisioningServiceClient`에서 `CreateOrUpdateEnrollmentGroupAsync` 메서드를 호출하여 프로비저닝 서비스에 등록 그룹을 추가합니다.
+1. `Program` 클래스에 다음 메서드를 추가합니다. 이 코드는 등록 그룹 항목을 만든 다음, `CreateOrUpdateEnrollmentGroupAsync`에서 `ProvisioningServiceClient` 메서드를 호출하여 프로비저닝 서비스에 등록 그룹을 추가합니다.
 
    ```csharp
    public static async Task RunSample()

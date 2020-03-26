@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 10/25/2017
 ms.author: sewatson
 ms.openlocfilehash: 40fd16f25e46e0833b7d41d75cd9995f550a5d83
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61227039"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "64727134"
 ---
 # <a name="virtual-machines-documentation"></a>가상 머신 설명서
 Azure Virtual Machines는 안전하고 가상화된 주문형 대규모 인프라를 제공합니다. Red Hat, Ubuntu 또는 원하는 Linux 배포를 실행하는 Windows 가상 머신 또는 Linux 가상 머신을 만들 수 있습니다. 방법을 알아보려면 다음을 참조하세요.

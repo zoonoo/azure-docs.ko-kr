@@ -30,12 +30,16 @@
   items:
     - name: 관리자 가이드
       href: administrator-guide.md
+    - name: 가속화된 랩 계정 설정 가이드
+      href: account-setup-guide.md
+    - name: 가속화된 랩 설정 가이드
+      href: setup-guide.md
     - name: 클래스룸 랩 - 클래스 형식
       items:
         - name: 클래스 형식 개요
           href: class-types.md
-        - name: 자연 처리에 대한 딥 러닝
-          href: class-type-deep-learning-natural-processing.md
+        - name: 자연어 처리의 딥 러닝
+          href: class-type-deep-learning-natural-language-processing.md
         - name: Linux에서 셸 스크립팅
           href: class-type-shell-scripting-linux.md
         - name: 윤리적 해킹
@@ -66,6 +70,8 @@
           href: how-to-configure-firewall-settings.md
         - name: 랩용 Marketplace 이미지 지정
           href: specify-marketplace-images.md
+        - name: 지원 정보 지정(랩 계정 소유자)
+          href: lab-account-owner-support-information.md
     - name: 클래스룸 랩 만들기 및 구성(교사)
       items:
         - name: 클래스룸 랩 만들기 및 관리
@@ -87,17 +93,29 @@
         - name: 연결 해제 시 자동 종료 사용
           href: how-to-enable-shutdown-disconnect.md
         - name: 템플릿 VM에서 중첩된 가상화 사용
-          href: how-to-enable-nested-virtualization-template-vm.md
+          items:
+            - name: 템플릿 VM 개요에서 중첩된 가상화 사용
+              href: how-to-enable-nested-virtualization-template-vm.md
+            - name: UI를 사용하여 템플릿 VM에서 중첩된 가상화 사용
+              href: how-to-enable-nested-virtualization-template-vm-ui.md
+            - name: 스크립트를 사용하여 템플릿 VM에서 중첩된 가상화 사용
+              href: how-to-enable-nested-virtualization-template-vm-using-script.md
         - name: Windows 템플릿 VM 준비
           href: how-to-prepare-windows-template.md
+        - name: 지원 정보 보기(강사)
+          href: lab-creator-support-information.md
     - name: 클래스룸 랩에서 VM에 연결(학생)
       items:
         - name: 클래스룸 랩 액세스
           href: how-to-use-classroom-lab.md
         - name: Linux VM용 원격 데스크톱 연결 사용
           href: how-to-use-remote-desktop-linux-student.md
+        - name: RDP를 사용하여 Mac에서 VM에 연결
+          href: connect-virtual-machine-mac-rdp.md
         - name: 가상 머신의 암호 설정 또는 재설정
           href: how-to-set-virtual-machine-passwords-student.md
+        - name: 지원 정보 보기(학생)
+          href: lab-user-support-information.md
 - name: 참조
   items:
     - name: REST API
