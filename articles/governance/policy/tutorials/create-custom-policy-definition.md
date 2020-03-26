@@ -4,11 +4,11 @@ description: 이 자습서에서는 Azure Policy에 대한 사용자 지정 정�
 ms.date: 11/25/2019
 ms.topic: tutorial
 ms.openlocfilehash: f7c303956b209b88ce3c697b5b66243e37071c83
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78386776"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79222750"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>자습서: 사용자 지정 정책 정의 만들기
 
@@ -216,7 +216,7 @@ az graph query -q "Resources | where type=~'microsoft.storage/storageaccounts' |
 Search-AzGraph -Query "Resources | where type=~'microsoft.storage/storageaccounts' | limit 1"
 ```
 
-Resource Manager 템플릿 및 Azure Resource Explorer를 사용할 때와 비슷한 결과가 표시됩니다. 그러나 [aliases](../concepts/definition-structure.md#aliases) 배열을 _프로젝션_하여 Azure Resource Graph 결과에 _별칭_ 세부 정보를 포함할 수도 있습니다.
+Resource Manager 템플릿 및 Azure Resource Explorer를 사용할 때와 비슷한 결과가 표시됩니다. 그러나 _aliases_ 배열을 _프로젝션_하여 Azure Resource Graph 결과에 [별칭](../concepts/definition-structure.md#aliases) 세부 정보를 포함할 수도 있습니다.
 
 ```kusto
 Resources
@@ -350,7 +350,7 @@ Azure Resource Graph는 [Cloud Shell](https://shell.azure.com)을 통해 사용�
 
 ### <a name="metadata"></a>메타데이터
 
-처음 세 개 구성 요소는 정책 메타데이터입니다. 이러한 구성 요소는 우리가 값을 만들 대상을 알고 있기 때문에 값을 쉽게 제공할 수 있습니다. [모드](../concepts/definition-structure.md#mode)는 주로 태그 및 리소스 위치와 관련이 있습니다. 평가 범위를 태그 지원 리소스로 제한할 필요가 없으므로 _모드_의 값으로 **all** 을 사용하겠습니다.
+처음 세 개 구성 요소는 정책 메타데이터입니다. 이러한 구성 요소는 우리가 값을 만들 대상을 알고 있기 때문에 값을 쉽게 제공할 수 있습니다. [모드](../concepts/definition-structure.md#mode)는 주로 태그 및 리소스 위치와 관련이 있습니다. 평가 범위를 태그 지원 리소스로 제한할 필요가 없으므로 **모드**의 값으로 _all_ 을 사용하겠습니다.
 
 ```json
 "displayName": "Deny storage accounts not using only HTTPS",

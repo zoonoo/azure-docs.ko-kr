@@ -5,10 +5,10 @@ keywords: Jenkins, Azure, DevOps, 포털, 가상 머신, 솔루션 템플릿
 ms.topic: quickstart
 ms.date: 03/03/2020
 ms.openlocfilehash: a26c868e08e649df74b9629e8bf67fd5933f6ee2
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78274432"
 ---
 # <a name="quickstart-create-a-jenkins-server-on-an-azure-linux-vm"></a>빠른 시작: Azure Linux VM에 Jenkins 서버 만들기

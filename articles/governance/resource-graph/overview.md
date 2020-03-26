@@ -4,11 +4,11 @@ description: Azure Resource Graph 서비스를 통해 구독 및 테넌트에 �
 ms.date: 03/02/2020
 ms.topic: overview
 ms.openlocfilehash: 38ead7be09e038b19c390acd9f10e1c0ccf9d858
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78385249"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79214771"
 ---
 # <a name="what-is-azure-resource-graph"></a>Azure Resource Graph란?
 
@@ -31,7 +31,7 @@ Azure Resource Graph는 제공된 구독 세트에서 대규모로 쿼리를 수
 
 Azure Resource Manager는 현재 기본 리소스 필드, 특히 리소스 이름, ID, 유형, 리소스 그룹, 구독 및 위치에서 쿼리를 지원합니다. 또한 Resource Manager는 한 번에 하나의 리소스에 대한 세부 속성을 위해 개별 리소스 공급 기업을 호출하는 기능을 제공합니다.
 
-Azure Resource Graph를 사용하면 각 리소스 공급자를 별도로 호출하지 않고도 리소스 공급자가 반환하는 이러한 속성에 액세스할 수 있습니다. 지원 되는 리소스 유형 목록을 보려면 [테이블 및 리소스 유형 참조](./reference/supported-tables-resources.md)를 검토 하십시오. 지원되는 리소스 종류를 확인하는 다른 방법은 [Azure Graph Explorer Schema 브라우저](./first-query-portal.md#schema-browser)를 사용하는 것입니다.
+Azure Resource Graph를 사용하면 각 리소스 공급자를 별도로 호출하지 않고도 리소스 공급자가 반환하는 이러한 속성에 액세스할 수 있습니다. 지원되는 리소스 종류의 목록은 [테이블 및 리소스 종류 참조](./reference/supported-tables-resources.md)를 검토하세요. 지원되는 리소스 종류를 확인하는 다른 방법은 [Azure Graph Explorer Schema 브라우저](./first-query-portal.md#schema-browser)를 사용하는 것입니다.
 
 Azure Resource Graph를 통해 다음을 수행할 수 있습니다.
 
@@ -72,8 +72,8 @@ Azure CLI 및 Azure PowerShell에서는 사용자가 액세스할 수 있는 구
 
 Resource Graph는 사용자 수준에서 쿼리를 제한합니다. 서비스 응답은 다음 HTTP 헤더를 포함합니다.
 
-- `x-ms-user-quota-remaining` (int): 사용자에 대 한 나머지 리소스 할당량입니다. 이 값은 쿼리 수에 매핑됩니다.
-- `x-ms-user-quota-resets-after` (hh: mm: ss): 사용자의 할당량 소비가 다시 설정 될 때까지 소요 되는 기간입니다.
+- `x-ms-user-quota-remaining`(int): 사용자의 나머지 리소스 할당량입니다. 이 값은 쿼리 수에 매핑됩니다.
+- `x-ms-user-quota-resets-after`(hh:mm:ss): 사용자의 할당량 소비가 재설정될 때까지 남은 기간
 
 자세한 내용은 [제한된 요청에 대한 지침](./concepts/guidance-for-throttled-requests.md)을 참조하세요.
 

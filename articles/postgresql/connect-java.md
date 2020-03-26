@@ -4,16 +4,18 @@ description: 이 빠른 시작에서는 Azure Database for PostgreSQL - 단일 �
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
-ms.custom: seo-java-august2019
+ms.custom:
+- mvc
+- seo-java-august2019
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 05/06/2019
-ms.openlocfilehash: 566bf606b275b8e2c1f456600b46b1d7304d2ce7
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: cf03cebcd69bd85a4cc94ceb7e99fd0edef99b58
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76769016"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80063121"
 ---
 # <a name="quickstart-use-java-to-connect-to-and-query-data-in-azure-database-for-postgresql---single-server"></a>빠른 시작: Java를 사용하여 Azure Database for PostgreSQL - 단일 서버에서 데이터에 연결 및 쿼리
 

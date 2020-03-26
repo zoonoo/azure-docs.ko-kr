@@ -10,11 +10,11 @@ services: iot-dps
 manager: philmea
 ms.custom: mvc
 ms.openlocfilehash: d41c4757f0b81312cefa580c3a3263f87bccffa9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75434650"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79290601"
 ---
 # <a name="quickstart-provision-a-simulated-tpm-device-using-the-azure-iot-c-sdk"></a>빠른 시작: Azure IoT C SDK를 사용하여 시뮬레이션된 TPM 디바이스 프로비전
 
@@ -206,7 +206,7 @@ Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을
     test-docs-hub.azure-devices.net, deviceId: test-docs-device
     ```
 
-8. 시뮬레이션된 디바이스를 프로비저닝 서비스별로 IoT 허브에 프로비저닝하면 디바이스 ID가 허브의 **IoT 디바이스**에 표시됩니다. 
+8. 시뮬레이션된 디바이스를 프로비저닝 서비스별로 IoT 허브에 프로비저닝하면 장치 ID가 허브의 **IoT 디바이스**에 표시됩니다. 
 
     ![디바이스가 IoT Hub에 등록됨](./media/quick-create-simulated-device/hub-registration.png) 
 

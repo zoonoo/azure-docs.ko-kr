@@ -13,12 +13,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 01/22/2019
 ms.author: kumud
-ms.openlocfilehash: 3cbfee90997c6b7cd9df1ec76543d77a4402100f
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 2a4c63aeaa303692fa0f2d115a3df0d80cfab0b1
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76774530"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80235192"
 ---
 # <a name="quickstart-create-a-virtual-network-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 가상 네트워크 만들기
 
@@ -80,7 +80,7 @@ az vm create \
 
 VM을 만드는 데 몇 분이 걸릴 수 있습니다. Azure에서 VM을 만든 후 Azure CLI는 다음과 같은 출력을 반환합니다.
 
-```azurecli
+```output
 {
   "fqdns": "",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVm2",

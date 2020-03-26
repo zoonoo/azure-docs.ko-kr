@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: quickstart
 ms.date: 06/12/2019
 ms.author: hrasheed
-ms.openlocfilehash: a6896eaad86c5e361c50cd81257131ee75a8d6a8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 1c400e41c4c10023d2595bde8c0d62e26184cf05
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467033"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79370324"
 ---
 # <a name="quickstart-query-apache-hbase-in-azure-hdinsight-with-apache-phoenix"></a>빠른 시작: Apache Phoenix를 사용하여 Azure HDInsight에서 Apache HBase 쿼리
 
@@ -21,9 +21,9 @@ ms.locfileid: "73467033"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-* Apache HBase 클러스터 [클러스터 만들기](../hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster)를 참조하여 HDInsight 클러스터를 만듭니다.  **HBase** 클러스터 유형을 선택해야 합니다.
+* Apache HBase 클러스터 [클러스터 만들기](../hadoop/apache-hadoop-linux-tutorial-get-started.md)를 참조하여 HDInsight 클러스터를 만듭니다.  **HBase** 클러스터 유형을 선택해야 합니다.
 
 * SSH 클라이언트. 자세한 내용은 [SSH를 사용하여 HDInsight(Apache Hadoop)에 연결](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 

@@ -4,11 +4,11 @@ description: 이 빠른 시작에서는 단계에 따라 Azure CLI에 대한 Res
 ms.date: 11/21/2019
 ms.topic: quickstart
 ms.openlocfilehash: e75152c720d94f084b43f855452e5e8ce4dc6bc8
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78360188"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79215641"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 첫 번째 Resource Graph 쿼리 실행
 

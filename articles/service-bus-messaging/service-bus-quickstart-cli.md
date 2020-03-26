@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.date: 04/10/2019
 ms.author: spelluru
 ms.openlocfilehash: e34599b12b8b0c487c6813038951b051d1eaf425
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "66400256"
 ---
 # <a name="quickstart-use-the-azure-cli-to-create-a-service-bus-queue"></a>빠른 시작: Azure CLI를 사용하여 Service Bus 큐 만들기
@@ -21,8 +21,8 @@ ms.locfileid: "66400256"
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
-## <a name="prerequisites"></a>필수 조건
-Azure 구독이 아직 없는 경우 [체험 계정][free account]을 만든 후에 시작할 수 있습니다.
+## <a name="prerequisites"></a>사전 요구 사항
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정][free account]을 만들 수 있습니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

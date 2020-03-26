@@ -17,11 +17,11 @@ ms.date: 06/01/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 7a256fc5268c10dd05a2cf58747107cb26c3ced9
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78375543"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79222250"
 ---
 # <a name="tutorial-create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-linux-with-the-azure-cli"></a>자습서: Azure CLI를 통해 Linux에서 가상 머신 확장 집합 만들기 및 고가용성 앱 배포
 
@@ -212,7 +212,7 @@ az vmss list-instance-connection-info \
 확장 집합으로 데이터 디스크를 사용할 수 있습니다. OS 디스크 대신 데이터 디스크에 앱을 빌드하는 모범 사례 및 성능 향상에 대해 설명하는 이전 자습서에서는 [Azure 디스크를 관리하는 방법](tutorial-manage-disks.md)을 배웠습니다.
 
 ### <a name="create-scale-set-with-data-disks"></a>데이터 디스크로 확장 집합 만들기
-확장 집합을 만들고 데이터 디스크를 연결하려면 `--data-disk-sizes-gb`az vmss create[ 명령에 ](/cli/azure/vmss#az-vmss-create) 매개 변수를 추가합니다. 다음 예제에서는 각 인스턴스에 *50*Gb 데이터 디스크가 연결된 확장 집합을 만듭니다.
+확장 집합을 만들고 데이터 디스크를 연결하려면 [az vmss create](/cli/azure/vmss#az-vmss-create) 명령에 `--data-disk-sizes-gb` 매개 변수를 추가합니다. 다음 예제에서는 각 인스턴스에 *50*Gb 데이터 디스크가 연결된 확장 집합을 만듭니다.
 
 ```azurecli-interactive
 az vmss create \

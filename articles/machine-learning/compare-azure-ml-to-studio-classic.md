@@ -9,10 +9,10 @@ author: j-martens
 ms.author: jmartens
 ms.date: 10/29/2019
 ms.openlocfilehash: a3122a3ae1687369b87d193efc693b3b7c659aac
-ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/10/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76311464"
 ---
 # <a name="how-azure-machine-learning-differs-from-machine-learning-studio-classic"></a>Azure Machine Learning과 Machine Learning Studio(클래식)의 차이점
@@ -38,7 +38,7 @@ Azure Machine Learning 디자이너는 Studio(클래식)와 비슷한 끌어서 
 ||  Azure Machine Learning 디자이너|Studio(클래식) |
 |---| --- | --- |
 ||디자이너는 미리 보기 상태이며 Azure Machine Learning은 GA입니다.|GA(일반 공급) | 
-|끌어서 놓기 인터페이스| yes | yes|
+|끌어서 놓기 인터페이스| 예 | 예|
 |실험| 컴퓨팅 대상으로 크기 조정|크기 조정(10GB 학습 데이터 제한) | 
 |인터페이스용 모듈| [인기 있는 많은 모듈](algorithm-module-reference/module-reference.md) | 다수 |
 |컴퓨팅 대상 학습| AML 컴퓨팅(GPU/CPU)|전용 컴퓨팅 대상, CPU만 해당|

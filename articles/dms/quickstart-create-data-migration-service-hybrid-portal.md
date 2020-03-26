@@ -11,13 +11,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: quickstart
-ms.date: 01/21/2019
-ms.openlocfilehash: 8dba12fc2c3777c2c45315f1805fa7ec8f1d8b83
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.date: 03/13/2020
+ms.openlocfilehash: dd3e77610749eb5d146b0c0b7cf9d307fba0dd83
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78255049"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79370239"
 ---
 # <a name="quickstart-create-a-hybrid-mode-instance-with-azure-portal--azure-database-migration-service"></a>빠른 시작: Azure Portal 및 Azure Database Migration Service를 사용하여 하이브리드 모드 인스턴스 만들기
 
@@ -146,7 +146,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 7. 다음 명령을 실행하여 온-프레미스 서버에 Azure Database Migration Service Hybrid Worker를 설치합니다.
 
     ```
-    <drive>:\<folder>\Install>DMSWorkerBootstrap.exe -a Install -IAcceptDMSLicenseTerms
+    <drive>:\<folder>\Install>DMSWorkerBootstrap.exe -a Install -IAcceptDMSLicenseTerms -d
     ```
 
     > [!NOTE]

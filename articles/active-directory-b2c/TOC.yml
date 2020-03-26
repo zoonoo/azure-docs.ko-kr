@@ -74,6 +74,8 @@
           href: custom-policy-overview.md
     - name: 사용자 계정
       href: user-overview.md
+    - name: 사용자 프로필 특성
+      href: user-profile-attributes.md
 - name: 방법 가이드
   items:
     - name: 앱 통합
@@ -309,13 +311,15 @@
                   items:
                     - name: 기술 프로필 정보
                       href: technical-profiles-overview.md
+                    - name: 유효성 검사 기술 프로필 정보
+                      href: validation-technical-profile.md
+                    - name: Application Insights
+                      href: application-insights-technical-profile.md
+                    - name: Azure Active Directory
+                      href: active-directory-technical-profile.md
                     - name: Azure Multi-Factor Authentication
                       href: multi-factor-auth-technical-profile.md
                       displayName: mfa
-                    - name: 클레임 해결자
-                      href: claim-resolver-overview.md
-                    - name: Azure Active Directory
-                      href: active-directory-technical-profile.md
                     - name: 클레임 변환
                       href: claims-transformation-technical-profile.md
                     - name: JWT 토큰 발급자
@@ -329,6 +333,8 @@
                       displayName: otp
                     - name: OpenID Connect
                       href: openid-connect-technical-profile.md
+                    - name: Phone 요소
+                      href: phone-factor-technical-profile.md
                     - name: REST (영문)
                       href: restful-technical-profile.md
                     - name: SAML
@@ -340,12 +346,12 @@
                     - name: SSO 세션
                       href: custom-policy-reference-sso.md
                       displayName: single sign-on
-                    - name: 유효성 검사
-                      href: validation-technical-profile.md
             - name: UserJourneys
               href: userjourneys.md
             - name: RelyingParty
               href: relyingparty.md
+            - name: 클레임 해결자
+              href: claim-resolver-overview.md
     - name: b2clogin.com 사용
       items:
         - name: b2clogin.com 개요
@@ -389,28 +395,28 @@
           href: user-migration.md
 - name: 참조
   items:
-    - name: Identity Experience Framework 릴리스 정보
-      href: custom-policy-developer-notes.md
+    - name: 청구 모델
+      href: billing.md
     - name: 코드 샘플
       href: 'https://azure.microsoft.com/resources/samples/?service=active-directory-b2c'
-    - name: 페이지 레이아웃 버전
-      href: page-layout.md
     - name: 쿠키 정의
       href: cookie-definitions.md
       displayName: 'cookies, SameSite'
     - name: 오류 코드
       href: error-codes.md
+    - name: 앱 확장
+      href: extensions-app.md
+    - name: Identity Experience Framework 릴리스 정보
+      href: custom-policy-developer-notes.md
     - name: Microsoft Graph API 작업
       href: microsoft-graph-operations.md
+    - name: 페이지 레이아웃 버전
+      href: page-layout.md
     - name: 지역 가용성 및 데이터 상주
       href: data-residency.md
-    - name: 청구 모델
-      href: billing.md
     - name: 위협 관리
       href: threat-management.md
       displayName: security
-    - name: 앱 확장
-      href: extensions-app.md
     - name: 사용자 흐름 버전
       href: user-flow-versions.md
 - name: 리소스

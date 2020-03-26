@@ -5,10 +5,10 @@ keywords: azure devops terraform 설치 구성
 ms.topic: quickstart
 ms.date: 03/09/2020
 ms.openlocfilehash: 82635f59ec8165add2046a230a040b06f89d9898
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78943513"
 ---
 # <a name="quickstart-install-and-configure-terraform-to-provision-azure-resources"></a>빠른 시작: Terraform을 설치하고 구성하여 Azure 리소스 프로비저닝

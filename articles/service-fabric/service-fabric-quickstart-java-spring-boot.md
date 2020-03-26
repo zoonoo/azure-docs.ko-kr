@@ -7,10 +7,10 @@ ms.date: 01/29/2019
 ms.author: suhuruli
 ms.custom: mvc, devcenter, seo-java-august2019, seo-java-september2019
 ms.openlocfilehash: eb96989b4a2731e78471b848d690b48352408d1c
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77121490"
 ---
 # <a name="quickstart-deploy-a-java-spring-boot-app-on-azure-service-fabric"></a>빠른 시작: Azure Service Fabric에 Java Spring Boot 앱 배포
@@ -19,13 +19,13 @@ ms.locfileid: "77121490"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-#### <a name="linuxtablinux"></a>[Linux](#tab/linux)
+#### <a name="linux"></a>[Linux](#tab/linux)
 
 - [Java 환경](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-java-development) 및 [Yeoman](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-yeoman-generators-for-containers-and-guest-executables)
 - [Service Fabric SDK 및 Service Fabric CLI(명령줄 인터페이스)](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
 - [Git](https://git-scm.com/downloads)
 
-#### <a name="macostabmacos"></a>[MacOS](#tab/macos)
+#### <a name="macos"></a>[MacOS](#tab/macos)
 
 - [Java 환경 및 Yeoman](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-mac#create-your-application-on-your-mac-by-using-yeoman)
 - [Service Fabric SDK 및 Service Fabric CLI(명령줄 인터페이스)](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli#cli-mac)

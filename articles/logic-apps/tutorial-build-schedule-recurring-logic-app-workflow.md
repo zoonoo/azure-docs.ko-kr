@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/12/2019
 ms.openlocfilehash: 17802228c8f08e3c8f1533296e2d39080f6f8b7a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75456625"
 ---
 # <a name="tutorial-create-automated-schedule-based-recurring-workflows-by-using-azure-logic-apps"></a>자습서: Azure Logic Apps를 사용하여 자동화된 일정 기반 되풀이 워크플로 만들기
@@ -91,8 +91,8 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
    | 속성 | 필수 | 값 | Description |
    |----------|----------|-------|-------------|
-   | **간격** | yes | 1 | 검사 간에 대기하는 간격의 수 |
-   | **빈도** | yes | Week | 되풀이에 사용할 시간 단위 |
+   | **간격** | 예 | 1 | 검사 간에 대기하는 간격의 수 |
+   | **빈도** | 예 | Week | 되풀이에 사용할 시간 단위 |
    |||||
 
 1. **간격** 및 **빈도** 아래에서 **새 매개 변수 추가** 목록을 열고, 다음 속성을 선택하여 트리거에 추가합니다.
@@ -140,8 +140,8 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
    | 속성 | 필수 | 값 | Description |
    |----------|----------|-------|-------------|
-   | **연결 이름** | yes | BingMapsConnection | 연결 이름을 입력합니다. 이 예에서는 "BingMapsConnection"을 사용합니다. |
-   | **API 키** | yes | <*your-Bing-Maps-key*> | 이전에 받은 Bing 지도 키를 입력합니다. Bing 지도 키가 없는 경우 [키를 가져오는 방법](https://msdn.microsoft.com/library/ff428642.aspx)을 알아보세요. |
+   | **연결 이름** | 예 | BingMapsConnection | 연결 이름을 입력합니다. 이 예에서는 "BingMapsConnection"을 사용합니다. |
+   | **API 키** | 예 | <*your-Bing-Maps-key*> | 이전에 받은 Bing 지도 키를 입력합니다. Bing 지도 키가 없는 경우 [키를 가져오는 방법](https://msdn.microsoft.com/library/ff428642.aspx)을 알아보세요. |
    |||||
 
 1. `Get route and travel time with traffic` 설명이 포함되도록 작업 이름을 바꿉니다.
@@ -160,8 +160,8 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
    | 속성 | 필수 | 값 | Description |
    |----------|----------|-------|-------------|
-   | **Waypoint 1** | yes | <*시작 위치*> | 경로의 출발지 |
-   | **Waypoint 2** | yes | <*마지막 위치*> | 경로의 도착지 |
+   | **Waypoint 1** | 예 | <*시작 위치*> | 경로의 출발지 |
+   | **Waypoint 2** | 예 | <*마지막 위치*> | 경로의 도착지 |
    | **Optimize** | 예 | timeWithTraffic | 거리, 현재 트래픽 하에서의 이동 시간 등 경로를 최적화하기 위한 매개 변수. "timeWithTraffic" 매개 변수를 선택합니다. |
    | **Distance unit** | 예 | <*원하는 단위*> | 경로의 거리 단위. 이 예에서는 단위로 "마일"을 사용합니다. |
    | **Travel mode** | 예 | Driving | 경로의 이동 모드. "구동" 모드를 선택합니다. |
@@ -191,8 +191,8 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
    | 속성 | 필수 | 값 | Description |
    |----------|----------|-------|-------------|
-   | **이름** | yes | travelTime | 변수의 이름입니다. 이 예에서는 "travelTime"을 사용합니다. |
-   | **형식** | yes | 정수 | 변수의 데이터 형식 |
+   | **이름** | 예 | travelTime | 변수의 이름입니다. 이 예에서는 "travelTime"을 사용합니다. |
+   | **형식** | 예 | 정수 | 변수의 데이터 형식 |
    | **값** | 예| 현재 이동 시간을 초 단위에서 분 단위로 변환하는 식입니다(이 표 아래의 단계 참조). | 변수의 초기 값 |
    ||||
 

@@ -5,27 +5,27 @@ author: vhorne
 ms.service: web-application-firewall
 services: web-application-firewall
 ms.topic: tutorial
-ms.date: 09/07/2019
+ms.date: 03/10/2020
 ms.author: victorh
-ms.openlocfilehash: 991111e01713afe48355aac44a151b98fa828c5f
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: be66a93ea4a518b26d973d222caf58e73b6986a3
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186716"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79475844"
 ---
 # <a name="tutorial-create-a-web-application-firewall-policy-on-azure-front-door-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 Azure Front Door에 대한 웹 애플리케이션 방화벽 정책 만들기
 
 이 자습서는 기본 Azure WAF(웹 애플리케이션 방화벽) 정책을 만들고 Azure Front Door의 프런트 엔드 호스트에 적용하는 방법을 안내합니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * WAF 정책 만들기
 > * 프런트 엔드 호스트에 연결
 > * WAF 규칙 구성
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [빠른 시작: Front Door 프로필 만들기](../../frontdoor/quickstart-create-front-door.md)에 설명된 지침에 따라 Front Door 프로필을 만듭니다. 
 

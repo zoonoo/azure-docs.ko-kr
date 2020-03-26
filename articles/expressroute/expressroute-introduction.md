@@ -8,10 +8,10 @@ ms.topic: overview
 ms.date: 09/18/2019
 ms.author: mialdrid
 ms.openlocfilehash: d2f31be5e7ece32fb1e0f6d9a2e482688d46eeb3
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75770954"
 ---
 # <a name="expressroute-overview"></a>ExpressRoute 개요
@@ -58,7 +58,7 @@ ExpressRoute를 통해 지원되는 서비스에 대한 자세한 목록은 [Exp
 예를 들어 ExpressRoute를 통해 암스테르담의 Microsoft에 연결하는 경우 북유럽 및 서유럽에서 호스팅되는 모든 Microsoft Cloud Services에 액세스합니다. 지정학적 지역, 연관된 Microsoft 클라우드 지역 및 해당 ExpressRoute 피어링 위치에 대한 개요는 [ExpressRoute 파트너 및 피어링 위치](expressroute-locations.md) 문서를 참조하세요.
 
 ### <a name="global-connectivity-with-expressroute-premium"></a>ExpressRoute 프리미엄을 통한 글로벌 연결
-[ExpressRoute 프리미엄](expressroute-faqs.md)을 사용하여 지정학적 경계를 넘어 연결을 확장할 수 있습니다. 예를 들어 ExpressRoute를 통해 암스테르담의 Microsoft로 연결하는 경우 전세계 모든 지역에서 호스팅되는 모든 Microsoft 클라우드 서비스에 액세스합니다.(국가별 클라우드는 제외됨) 유럽 북부 및 유럽 서부 지역에 액세스하는 것과 동일한 방법으로 남아메리카 또는 오스트레일리아에서 배포된 서비스에 액세스할 수 있습니다.
+[ExpressRoute 프리미엄](expressroute-faqs.md)을 사용하여 지정학적 경계를 넘어 연결을 확장할 수 있습니다. 예를 들어 ExpressRoute를 통해 암스테르담의 Microsoft로 연결하는 경우 전세계 모든 지역에서 호스팅되는 모든 Microsoft 클라우드 서비스에 액세스합니다.(국가별 클라우드는 제외됨) 북유럽 및 서유럽 지역에 액세스하는 것과 동일한 방법으로 남아메리카 또는 오스트레일리아에서 배포된 서비스에 액세스할 수 있습니다.
 
 ### <a name="local-connectivity-with-expressroute-local"></a>ExpressRoute Local을 통한 로컬 연결
 원하는 Azure 지역 근처의 ExpressRoute 위치로 데이터를 가져올 수 있는 경우 [Local SKU](expressroute-faqs.md)를 활성화하여 효율적 비용으로 데이터를 전송할 수 있습니다. 로컬에서 데이터 전송은 ExpressRoute 포트 요금에 포함됩니다. 

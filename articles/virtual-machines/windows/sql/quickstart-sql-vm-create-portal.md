@@ -14,10 +14,10 @@ ms.date: 07/11/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 801a6fc0602882d1af49c06bafcfd51942e6da2e
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75965645"
 ---
 # <a name="quickstart-create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 SQL Server 2017 Windows 가상 머신 만들기
@@ -33,11 +33,11 @@ ms.locfileid: "75965645"
   > - 이 빠른 시작에서는 신속하게 SQL VM을 프로비전하고 연결하는 경로를 제공합니다. 다른 SQL VM 프로비전 방법에 대한 자세한 내용은 [Azure Portal에서 Windows SQL Server VM에 대한 프로비전 가이드](virtual-machines-windows-portal-sql-server-provision.md)를 참조하세요.
   > - SQL Server 가상 머신에 대한 질문이 있으면 [질문과 대답](virtual-machines-windows-sql-server-iaas-faq.md)을 참조하세요.
 
-## <a id="subscription"></a> Azure 구독 가져오기
+## <a name="get-an-azure-subscription"></a><a id="subscription"></a> Azure 구독 가져오기
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a id="select"></a>SQL Server VM 이미지 선택
+## <a name="select-a-sql-server-vm-image"></a><a id="select"></a>SQL Server VM 이미지 선택
 
 1. 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
@@ -51,7 +51,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
    ![새 검색 창](./media/quickstart-sql-vm-create-portal/create-sql-2017-vm-image.png)
 
-## <a id="configure"></a>기본 세부 정보 제공
+## <a name="provide-basic-details"></a><a id="configure"></a>기본 세부 정보 제공
 
 **기본** 탭에서 다음 정보를 제공합니다.
 
@@ -116,7 +116,7 @@ Azure Portal에서 배포를 모니터링할 수 있습니다. 화면 맨 위에
 
     ![ssms 연결](./media/quickstart-sql-vm-create-portal/ssms-connect.png)
 
-## <a id="remotedesktop"></a>VM에 원격으로 로그인
+## <a name="log-in-to-the-vm-remotely"></a><a id="remotedesktop"></a>VM에 원격으로 로그인
 
 다음 단계를 사용하여 원격 데스크톱으로 SQL Server 가상 머신에 연결합니다.
 

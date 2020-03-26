@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 11/04/2019
 ms.author: brendm
-ms.openlocfilehash: dd8ce6d9b4dc63592e491a06a0055a7d065252b5
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: d1e6d6db1465b20f1f32a8ffb2f978d0a04a1033
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201437"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79470846"
 ---
 # <a name="quickstart-launch-an-azure-spring-cloud-app-using-the-maven-plug-in"></a>빠른 시작: Maven 플러그 인을 사용하여 Azure Spring Cloud 앱 시작
 
@@ -77,13 +77,13 @@ Azure Spring Cloud Maven 플러그 인을 사용하면 Azure Spring Cloud 애플
 
 1. 다음 명령을 실행하여 Git 리포지토리를 복제합니다.
 
-    ```azurecli
+    ```console
     git clone https://github.com/Azure-Samples/PiggyMetrics
     ```
   
 1. 다음 명령을 실행하여 디렉터리를 변경하고 프로젝트를 빌드합니다.
 
-    ```azurecli
+    ```console
     cd piggymetrics
     mvn clean package -DskipTests
     ```
@@ -92,7 +92,7 @@ Azure Spring Cloud Maven 플러그 인을 사용하면 Azure Spring Cloud 애플
 
 1. 부모 POM을 포함하는 PiggyMetrics의 루트 폴더에서 다음 명령을 실행하여 구성을 생성합니다.
 
-    ```azurecli
+    ```console
     mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:1.0.0:config
     ```
 
@@ -106,7 +106,7 @@ Azure Spring Cloud Maven 플러그 인을 사용하면 Azure Spring Cloud 애플
 
 1. 이제 POM에는 플러그 인 종속성 및 구성이 포함됩니다. 다음 명령을 사용하여 앱을 배포합니다.
 
-   ```azurecli
+   ```console
    mvn azure-spring-cloud:deploy
    ```
 

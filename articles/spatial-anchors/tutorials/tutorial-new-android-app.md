@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 04/03/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: c02595ebdb2f011dcc94b517771a79a4b2df754d
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.openlocfilehash: e1773ef81a5b727187a9a69ccc7ce7ad0421fb2c
+ms.sourcegitcommit: 940e16ff194d5163f277f98d038833b1055a1a3e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78161723"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80246775"
 ---
 # <a name="tutorial-step-by-step-instructions-to-create-a-new-android-app-using-azure-spatial-anchors"></a>자습서: Azure Spatial Anchors를 사용하여 새 Android 앱을 만드는 단계별 지침
 
@@ -69,7 +69,7 @@ dependencies {
 
 ## <a name="integrating-_sceneform_"></a>_Sceneform_ 통합
 
-<a href="https://developers.google.com/ar/develop/java/sceneform/" target="_blank">_Sceneform_</a>을 사용하면 OpenGL을 익히지 않고도 증강 현실 앱에서 사실적인 3D 장면을 간단하게 렌더링할 수 있습니다.
+[_Sceneform_](https://developers.google.com/sceneform/develop/)을 사용하면 OpenGL을 익히지 않고도 증강 현실 앱에서 사실적인 3D 장면을 간단하게 렌더링할 수 있습니다.
 
 다음 항목이 포함되도록 `Gradle Scripts\build.gradle (Module: app)`을 수정합니다. 이 코드를 사용하면 앱에서 `Sceneform`에 필요한 Java 8의 언어 구문을 사용할 수 있습니다. 또한 앱에서 사용하는 ARCore 버전과 일치해야 하므로 앱에서 `Sceneform` 버전 1.8을 대상으로 하는지도 확인할 수 있습니다. 이렇게 변경되면 Gradle에서 동기화를 요청하는 알림이 표시될 수 있습니다. 그러면 **지금 동기화**를 클릭합니다.
 

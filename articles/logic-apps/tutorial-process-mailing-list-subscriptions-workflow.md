@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/20/2019
 ms.openlocfilehash: 7d7f573e5b18e6e0e63d3275aecefe408a9143fb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75456604"
 ---
 # <a name="tutorial-create-automated-approval-based-workflows-by-using-azure-logic-apps"></a>자습서: Azure Logic Apps를 사용하여 자동화된 승인 기반 워크플로 만들기
@@ -205,9 +205,9 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
    | 속성 | 필수 | 값 | Description |
    |----------|----------|-------|-------------|
-   | **목록 Id** | yes | `test-members-ML` | MailChimp 메일 그룹의 이름. 이 예제에서는 "test-members-ML"을 사용합니다. |
-   | **상태** | yes | `subscribed` | 새 구성원의 구독 상태를 선택합니다. 이 예제에서는 "구독함"을 사용합니다. <p>자세한 내용은 [MailChimp API로 구독자 관리](https://developer.mailchimp.com/documentation/mailchimp/guides/manage-subscribers-with-the-mailchimp-api/)를 참조하세요. |
-   | **이메일 주소** | yes | <*new-member-email-address*> | 동적 콘텐츠 목록의 **새 이메일이 도착하는 경우** 아래에서 새 구성원의 이메일 주소를 전달하는 **보내는 사람**을 선택합니다. |
+   | **목록 Id** | 예 | `test-members-ML` | MailChimp 메일 그룹의 이름. 이 예제에서는 "test-members-ML"을 사용합니다. |
+   | **상태** | 예 | `subscribed` | 새 구성원의 구독 상태를 선택합니다. 이 예제에서는 "구독함"을 사용합니다. <p>자세한 내용은 [MailChimp API로 구독자 관리](https://developer.mailchimp.com/documentation/mailchimp/guides/manage-subscribers-with-the-mailchimp-api/)를 참조하세요. |
+   | **이메일 주소** | 예 | <*new-member-email-address*> | 동적 콘텐츠 목록의 **새 이메일이 도착하는 경우** 아래에서 새 구성원의 이메일 주소를 전달하는 **보내는 사람**을 선택합니다. |
    ||||
 
    이 작업의 속성에 대한 자세한 내용은 [MailChimp 커넥터 참조](https://docs.microsoft.com/connectors/mailchimp/)에서 확인할 수 있습니다.
@@ -260,9 +260,9 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
    | 속성 | 필수 | 값 | Description |
    |----------|----------|-------|-------------|
-   | **수행할 작업** | yes | <*your-email-address*> | 성공 이메일을 보낼 위치에 대한 이메일 주소입니다. 자신의 이메일 주소를 사용하여 테스트할 수 있습니다. |
-   | **Subject** | yes | <*subject-for-success-email*> | 성공 이메일의 제목입니다. 이 자습서에서는 다음 텍스트를 입력합니다. <p>`Success! Member added to "test-members-ML": ` <p>동적 콘텐츠 목록의 **목록에 구성원 추가** 아래에서 **이메일 주소** 속성을 선택합니다. |
-   | **본문** | yes | <*body-for-success-email*> | 성공 이메일의 본문 콘텐츠입니다. 이 자습서에서는 다음 텍스트를 입력합니다. <p>`New member has joined "test-members-ML":` <p>동적 콘텐츠 목록에서 **이메일 주소** 속성을 선택합니다. <p>다음 행에 `Member opt-in status: ` 텍스트를 입력합니다. <p> 동적 콘텐츠 목록의 **목록에 구성원 추가** 아래에서 **상태** 속성을 선택합니다. |
+   | **수행할 작업** | 예 | <*your-email-address*> | 성공 이메일을 보낼 위치에 대한 이메일 주소입니다. 자신의 이메일 주소를 사용하여 테스트할 수 있습니다. |
+   | **Subject** | 예 | <*subject-for-success-email*> | 성공 이메일의 제목입니다. 이 자습서에서는 다음 텍스트를 입력합니다. <p>`Success! Member added to "test-members-ML": ` <p>동적 콘텐츠 목록의 **목록에 구성원 추가** 아래에서 **이메일 주소** 속성을 선택합니다. |
+   | **본문** | 예 | <*body-for-success-email*> | 성공 이메일의 본문 콘텐츠입니다. 이 자습서에서는 다음 텍스트를 입력합니다. <p>`New member has joined "test-members-ML":` <p>동적 콘텐츠 목록에서 **이메일 주소** 속성을 선택합니다. <p>다음 행에 `Member opt-in status: ` 텍스트를 입력합니다. <p> 동적 콘텐츠 목록의 **목록에 구성원 추가** 아래에서 **상태** 속성을 선택합니다. |
    |||||
 
 1. 논리 앱을 저장합니다.
@@ -285,9 +285,9 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
    | 속성 | 필수 | 값 | Description |
    |----------|----------|-------|-------------|
-   | **수행할 작업** | yes | <*your-email-address*> | 실패 이메일을 보낼 위치에 대한 이메일 주소입니다. 자신의 이메일 주소를 사용하여 테스트할 수 있습니다. |
-   | **Subject** | yes | <*subject-for-failure-email*> | 실패 이메일의 제목입니다. 이 자습서에서는 다음 텍스트를 입력합니다. <p>`Failed, member not added to "test-members-ML": ` <p>동적 콘텐츠 목록의 **목록에 구성원 추가** 아래에서 **이메일 주소** 속성을 선택합니다. |
-   | **본문** | yes | <*body-for-failure-email*> | 실패 이메일의 본문 콘텐츠입니다. 이 자습서에서는 다음 텍스트를 입력합니다. <p>`Member might already exist. Check your MailChimp account.` |
+   | **수행할 작업** | 예 | <*your-email-address*> | 실패 이메일을 보낼 위치에 대한 이메일 주소입니다. 자신의 이메일 주소를 사용하여 테스트할 수 있습니다. |
+   | **Subject** | 예 | <*subject-for-failure-email*> | 실패 이메일의 제목입니다. 이 자습서에서는 다음 텍스트를 입력합니다. <p>`Failed, member not added to "test-members-ML": ` <p>동적 콘텐츠 목록의 **목록에 구성원 추가** 아래에서 **이메일 주소** 속성을 선택합니다. |
+   | **본문** | 예 | <*body-for-failure-email*> | 실패 이메일의 본문 콘텐츠입니다. 이 자습서에서는 다음 텍스트를 입력합니다. <p>`Member might already exist. Check your MailChimp account.` |
    |||||
 
 1. 논리 앱을 저장합니다. 

@@ -10,11 +10,11 @@ ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
 ms.openlocfilehash: 93a7181a3b720a3b313bb75855b2564c4cd33bc1
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78380466"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79214329"
 ---
 ::: zone target="docs"
 
@@ -106,8 +106,8 @@ ms.locfileid: "78380466"
     |대상       | 대상 디렉터리에 대한 경로를 지정합니다.        |
     |/E                  | 빈 디렉터리를 포함하는 하위 디렉터리를 복사합니다. |
     |/MT[:N]             | N 스레드를 사용하여 다중 스레드 복사본을 만듭니다. 여기서 N은 1에서 128 사이의 정수입니다. <br>N의 기본값은 8입니다.        |
-    |/R: \<N >             | 실패한 복사에 대한 재시도 횟수를 지정합니다. N의 기본값은 1,000,000입니다(백만 번의 다시 시도).        |
-    |/W: \<N >             | 다시 시도 간의 대기 시간을 지정합니다(초). N의 기본값은 30입니다(대기 시간 30초).        |
+    |/R: \<N>             | 실패한 복사에 대한 재시도 횟수를 지정합니다. N의 기본값은 1,000,000입니다(백만 번의 다시 시도).        |
+    |/W: \<N>             | 다시 시도 간의 대기 시간을 지정합니다(초). N의 기본값은 30입니다(대기 시간 30초).        |
     |/NFL                | 기록하지 않을 파일 이름을 지정합니다.        |
     |/NDL                | 기록하지 않을 디렉터리 이름을 지정합니다.        |
     |/FFT                | FAT 파일 시간을 가정합니다(2초 자릿수).        |
@@ -273,7 +273,7 @@ ms.locfileid: "78380466"
 
 데이터를 복사할 때 분할 복사 도구를 사용하지 않은 경우 데이터의 유효성을 검사해야 합니다. 데이터의 유효성을 검사하려면 다음 단계를 수행합니다.
 
-1. 드라이브의 `DataBoxDiskValidation.cmd`DataBoxDiskImport*폴더에서 체크섬 유효성 검사를 위해*를 실행합니다.
+1. 드라이브의 *DataBoxDiskImport* 폴더에서 체크섬 유효성 검사를 위해 `DataBoxDiskValidation.cmd`를 실행합니다.
     
     ![Data Box Disk 유효성 검사 도구 출력](media/data-box-disk-deploy-copy-data/data-box-disk-validation-tool-output.png)
 
@@ -332,7 +332,7 @@ Data Box Disk를 반환하고 Azure에 대한 데이터 업로드를 확인하�
 
 다음 단계를 수행하여 데이터를 확인합니다.
 
-1. 드라이브의 `DataBoxDiskValidation.cmd`DataBoxDiskImport*폴더에서 체크섬 유효성 검사를 위해*를 실행합니다.
+1. 드라이브의 *DataBoxDiskImport* 폴더에서 체크섬 유효성 검사를 위해 `DataBoxDiskValidation.cmd`를 실행합니다.
 2. 옵션 2를 사용하여 파일의 유효성을 검사하고 체크섬을 생성합니다. 데이터 크기에 따라 이 단계는 시간이 걸릴 수 있습니다. 유효성 검사 및 체크섬 생성 중에 오류가 있으면 알림이 표시되고 오류 로그에 대한 링크도 제공됩니다.
 
     데이터 유효성 검사에 대한 자세한 내용은 [데이터 유효성 검사](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-copy-data#validate-data)를 참조하세요. 유효성 검사 중 오류가 표시되면 [유효성 검사 오류 문제 해결](data-box-disk-troubleshoot.md)을 참조하세요.

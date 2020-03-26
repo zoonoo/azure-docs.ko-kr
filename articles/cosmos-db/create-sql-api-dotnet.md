@@ -9,13 +9,13 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 07/12/2019
 ms.openlocfilehash: 0981ed30c6bcd9d4246ce1eb047aa66168e3884a
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78364496"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79215281"
 ---
-# <a name="quickstart-build-a-net-console-app-to-manage-azure-cosmos-db-sql-api-resources"></a>빠른 시작: SQL API 리소스 Azure Cosmos DB 관리 하는 .NET 콘솔 앱 빌드
+# <a name="quickstart-build-a-net-console-app-to-manage-azure-cosmos-db-sql-api-resources"></a>빠른 시작: .NET 콘솔 앱을 빌드하여 Azure Cosmos DB SQL API 리소스 관리
 
 > [!div class="op_single_selector"]
 > * [.NET V3](create-sql-api-dotnet.md)
@@ -45,7 +45,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 이 섹션에서는 Azure Cosmos 계정을 만들고 .NET용 Azure Cosmos DB SQL API 클라이언트 라이브러리를 사용하여 리소스를 관리하는 프로젝트를 설정하는 과정을 안내합니다. 이 문서에서 설명하는 예제 코드는 `FamilyDatabase` 데이터베이스와 해당 데이터베이스 내에 있는 패밀리 멤버(각 패밀리 멤버가 하나의 항목임)를 만듭니다. 각 패밀리 멤버에는 `Id, FamilyName, FirstName, LastName, Parents, Children, Address,`와 같은 속성이 있습니다. `LastName` 속성은 컨테이너의 파티션 키로 사용됩니다. 
 
-### <a id="create-account"></a>Azure Cosmos 계정 만들기
+### <a name="create-an-azure-cosmos-account"></a><a id="create-account"></a>Azure Cosmos 계정 만들기
 
 [Azure Cosmos DB 체험하기](https://azure.microsoft.com/try/cosmosdb/) 옵션을 사용하여 Azure Cosmos 계정을 만드는 경우, **SQL API** 유형의 Azure Cosmos DB 계정을 만들어야 합니다. Azure Cosmos DB 테스트 계정이 이미 만들어져 있습니다. 계정을 명시적으로 만들 필요가 없으므로, 이 섹션을 건너뛰고 다음 섹션으로 이동해도 됩니다.
 
@@ -82,7 +82,7 @@ az cosmosdb create \
 
 Azure Cosmos 계정을 만드는 데 시간이 걸리며, 작업이 성공하면 확인 출력을 볼 수 있습니다. 명령이 성공적으로 완료되면 [Azure Portal](https://portal.azure.com/)에 로그인하여 지정된 이름의 Azure Cosmos 계정이 있는지 확인합니다. 리소스가 생성된 후에는 Azure Cloud Shell 창을 닫아도 됩니다. 
 
-### <a id="create-dotnet-core-app"></a>새 .NET 앱 만들기
+### <a name="create-a-new-net-app"></a><a id="create-dotnet-core-app"></a>새 .NET 앱 만들기
 
 선호하는 편집기 또는 IDE에서 .NET 애플리케이션을 새로 만듭니다. 로컬 컴퓨터에서 Windows 명령 프롬프트 또는 터미널 창을 엽니다. 명령 프롬프트 또는 터미널에서 다음 섹션의 명령을 모두 실행합니다.  다음 dotnet new 명령을 실행하여 이름이 `todo`인 새 앱을 만듭니다. --langVersion 매개 변수는 생성된 프로젝트 파일의 LangVersion 속성을 설정합니다.
 
@@ -111,7 +111,7 @@ Build succeeded.
 Time Elapsed 00:00:34.17
 ```
 
-### <a id="install-package"></a>Azure Cosmos DB 패키지 설치
+### <a name="install-the-azure-cosmos-db-package"></a><a id="install-package"></a>Azure Cosmos DB 패키지 설치
 
 애플리케이션 디렉터리에 있는 동안 dotnet add package 명령을 사용하여 .NET Core용 Azure Cosmos DB 클라이언트 라이브러리를 설치합니다.
 
@@ -154,7 +154,7 @@ export EndpointUrl = "<Your_Azure_Cosmos_account_URI>"
 export PrimaryKey = "<Your_Azure_Cosmos_account_PRIMARY_KEY>"
 ```
 
- ## <a id="object-model"></a>개체 모델
+ ## <a name="object-model"></a><a id="object-model"></a>개체 모델
 
 애플리케이션 빌드를 시작하기 전에 Azure Cosmos DB의 리소스 계층 구조와 이러한 리소스를 만들고 액세스하는 데 사용되는 개체 모델을 살펴보겠습니다. Azure Cosmos DB는 다음과 같은 순서로 리소스를 만듭니다.
 
@@ -179,7 +179,7 @@ export PrimaryKey = "<Your_Azure_Cosmos_account_PRIMARY_KEY>"
 
 * [DeleteAsync](/dotnet/api/microsoft.azure.cosmos.database.deleteasync?view=azure-dotnet) - Azure Cosmos 계정에서 지정된 데이터베이스를 삭제합니다. `DeleteAsync` 메서드는 데이터베이스만 삭제합니다. `Cosmosclient` 인스턴스 삭제는 deletedatabaseandcleanupasync 메서드에서 별도로 수행해야 합니다. 
 
- ## <a id="code-examples"></a>코드 예제
+ ## <a name="code-examples"></a><a id="code-examples"></a>코드 예제
 
 이 문서에 설명된 샘플 코드는 Azure Cosmos DB에서 패밀리 데이터베이스를 만듭니다. 패밀리 데이터베이스는 이름, 주소, 위치, 연결된 부모, 자식, 애완 동물 등의 패밀리 세부 정보를 포함합니다. 해당 데이터를 Azure Cosmos 계정에 채우기 전에 패밀리 항목의 속성을 정의합니다. 샘플 애플리케이션의 루트 수준에서 `Family.cs`라는 새 클래스를 만들고 다음 코드를 추가합니다.
 
@@ -304,7 +304,7 @@ public class Program
 
 ### <a name="create-a-database"></a>데이터베이스 만들기 
 
-`CreateDatabaseAsync` 클래스 내에서 `program.cs` 메서드를 정의합니다. 이 메서드는 `FamilyDatabase`가 아직 없는 경우 새로 만듭니다.
+`program.cs` 클래스 내에서 `CreateDatabaseAsync` 메서드를 정의합니다. 이 메서드는 `FamilyDatabase`가 아직 없는 경우 새로 만듭니다.
 
 ```csharp
 private async Task CreateDatabaseAsync()
@@ -317,7 +317,7 @@ private async Task CreateDatabaseAsync()
 
 ### <a name="create-a-container"></a>컨테이너 만들기
 
-`CreateContainerAsync` 클래스 내에서 `program.cs` 메서드를 정의합니다. 이 메서드는 `FamilyContainer`가 아직 없는 경우 새로 만듭니다. 
+`program.cs` 클래스 내에서 `CreateContainerAsync` 메서드를 정의합니다. 이 메서드는 `FamilyContainer`가 아직 없는 경우 새로 만듭니다. 
 
 ```csharp
 /// Create the container if it does not exist. 
@@ -381,7 +381,7 @@ private async Task AddItemsToContainerAsync()
 
 ### <a name="query-the-items"></a>항목 쿼리
 
-항목을 삽입한 후 쿼리를 실행하여 "Andersen" 패밀리의 세부 정보를 가져올 수 있습니다. 다음 코드에서는 SQL 쿼리를 직접 사용하여 쿼리를 실행하는 방법을 보여 줍니다. "Anderson" 패밀리 세부 정보를 가져오는 SQL 쿼리는 다음과 같습니다. `SELECT * FROM c WHERE c.LastName = 'Andersen'` `QueryItemsAsync` 클래스 내에서 `program.cs` 메서드를 정의하고 다음 코드를 추가합니다.
+항목을 삽입한 후 쿼리를 실행하여 "Andersen" 패밀리의 세부 정보를 가져올 수 있습니다. 다음 코드에서는 SQL 쿼리를 직접 사용하여 쿼리를 실행하는 방법을 보여 줍니다. "Anderson" 패밀리 세부 정보를 가져오는 SQL 쿼리는 다음과 같습니다. `SELECT * FROM c WHERE c.LastName = 'Andersen'` `program.cs` 클래스 내에서 `QueryItemsAsync` 메서드를 정의하고 다음 코드를 추가합니다.
 
 
 ```csharp

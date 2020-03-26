@@ -6,10 +6,10 @@ ms.author: msangapu
 ms.topic: tutorial
 ms.date: 2/28/2020
 ms.openlocfilehash: d543a9364311b2cf5f0258fbf9185d27bb1bfb2f
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78399522"
 ---
 # <a name="tutorial-troubleshoot-an-app-service-app-with-azure-monitor"></a>자습서: Azure Monitor를 사용하여 App Service 앱 문제 해결
@@ -272,7 +272,7 @@ az monitor diagnostic-settings delete --resource $resourceID -n myMonitorLogs
 > * Log Analytics에 로그 보내기
 > * 로그 쿼리를 사용하여 웹앱 오류 식별 및 해결
 
-## <a name="nextsteps"></a> 다음 단계
+## <a name="next-steps"></a><a name="nextsteps"></a> 다음 단계
 * [Azure Monitor를 사용하여 로그 쿼리](../../azure-monitor/log-query/log-query-overview.md)
 * [Visual Studio에서 Azure App Service 문제 해결](../troubleshoot-dotnet-visual-studio.md)
 * [HDInsight에서 앱 로그 분석](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)

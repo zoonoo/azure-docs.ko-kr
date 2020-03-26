@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/21/2020
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: 4e896c5fa6f8656be29eed7eb8d4e8854a94ecfa
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: eceb4a9d4e0cc84166280f30b094b82088f53a4a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77116609"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79475309"
 ---
 # <a name="tutorial-use-key-vault-references-in-an-aspnet-core-app"></a>자습서: ASP.NET Core 앱에서 Key Vault 참조 사용
 
@@ -110,7 +110,6 @@ App Configuration을 사용하면 Key Vault에 저장된 값을 참조하는 키
     "tenantId": "35ad10f1-7799-4766-9acf-f2d946161b77",
     "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
     "resourceManagerEndpointUrl": "https://management.azure.com/",
-    "activeDirectoryGraphResourceId": "https://graph.windows.net/",
     "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
     "galleryEndpointUrl": "https://gallery.azure.com/",
     "managementEndpointUrl": "https://management.core.windows.net/"
@@ -125,7 +124,7 @@ App Configuration을 사용하면 Key Vault에 저장된 값을 참조하는 키
 
 1. 환경 변수를 추가하여 *clientId*, *clientSecret* 및 *tenantId* 값을 저장합니다.
 
-    #### <a name="windows-command-prompttabcmd"></a>[Windows 명령 프롬프트](#tab/cmd)
+    #### <a name="windows-command-prompt"></a>[Windows 명령 프롬프트](#tab/cmd)
 
     ```cmd
     setx AZURE_CLIENT_ID <clientId-of-your-service-principal>
@@ -133,7 +132,7 @@ App Configuration을 사용하면 Key Vault에 저장된 값을 참조하는 키
     setx AZURE_TENANT_ID <tenantId-of-your-service-principal>
     ```
 
-    #### <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+    #### <a name="powershell"></a>[PowerShell](#tab/powershell)
 
     ```PowerShell
     $Env:AZURE_CLIENT_ID = <clientId-of-your-service-principal>
@@ -141,7 +140,7 @@ App Configuration을 사용하면 Key Vault에 저장된 값을 참조하는 키
     $Env:AZURE_TENANT_ID = <tenantId-of-your-service-principal>
     ```
 
-    #### <a name="bashtabbash"></a>[Bash](#tab/bash)
+    #### <a name="bash"></a>[Bash](#tab/bash)
 
     ```bash
     export AZURE_CLIENT_ID = <clientId-of-your-service-principal>
@@ -174,7 +173,7 @@ App Configuration을 사용하면 Key Vault에 저장된 값을 참조하는 키
 
 1. `config.AddAzureAppConfiguration` 메서드를 호출하여 App Configuration을 사용하도록 `CreateWebHostBuilder` 메서드를 업데이트합니다. `ConfigureKeyVault` 옵션을 포함하고 올바른 자격 증명을 Key Vault에 전달합니다.
 
-    #### <a name="net-core-2xtabcore2x"></a>[.NET Core 2.x](#tab/core2x)
+    #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -195,7 +194,7 @@ App Configuration을 사용하면 Key Vault에 저장된 값을 참조하는 키
             .UseStartup<Startup>();
     ```
 
-    #### <a name="net-core-3xtabcore3x"></a>[.NET Core 3.x](#tab/core3x)
+    #### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
 
     ```csharp
         public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -245,13 +244,13 @@ App Configuration을 사용하면 Key Vault에 저장된 값을 참조하는 키
 
 1. .NET Core CLI를 사용하여 앱을 빌드하려면 명령 셸에서 다음 명령을 실행합니다.
 
-    ```
+    ```dotnetcli
     dotnet build
     ```
 
 1. 빌드가 완료된 후 다음 명령을 사용하여 웹앱을 로컬로 실행합니다.
 
-    ```
+    ```dotnetcli
     dotnet run
     ```
 

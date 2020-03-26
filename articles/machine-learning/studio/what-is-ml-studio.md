@@ -11,14 +11,16 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: overview
 ms.date: 10/17/2019
-ms.openlocfilehash: be3a07eb2d4232d27a5b41ddc4258c89b79729bf
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 8179e36342f4f3544a1ecd503d7f136ea437d374
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169030"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79217816"
 ---
 # <a name="what-is-machine-learning-studio-classic"></a>Machine Learning Studio(클래식)란?
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
 
@@ -44,7 +46,7 @@ Azure Machine Learning Studio(클래식)에서는 예측 분석 모델을 간편
 
 || Machine Learning Studio(클래식) | Azure Machine Learning |
 |---| --- | --- |
-| 끌어서 놓기 인터페이스 | yes | 예 - [Azure Machine Learning 디자이너(미리 보기)](../concept-designer.md) |
+| 끌어서 놓기 인터페이스 | 예 | 예 - [Azure Machine Learning 디자이너(미리 보기)](../concept-designer.md) |
 | 실험 | 크기 조정 가능(10GB 학습 데이터 제한) | 컴퓨팅 대상으로 크기 조정 |
 | 끌어서 놓기 인터페이스를 위한 모듈 | 다수 | 인기 있는 초기 [모듈](../algorithm-module-reference/module-reference.md) 세트|
 |컴퓨팅 대상 학습| 전용 컴퓨팅 대상, CPU만 지원| Azure Machine Learning 컴퓨팅(GPU 또는 CPU) 및 Notebook VM 지원<br/>([다른 컴퓨팅은 SDK에서 지원](../concept-compute-target.md#train))|

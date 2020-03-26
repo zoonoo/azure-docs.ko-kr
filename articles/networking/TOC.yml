@@ -2,7 +2,7 @@
   items:
     - name: Azure 네트워킹 정보
       href: networking-overview.md
-    - name: 아키텍처
+    - name: Architecture
       items:
         - name: 가상 데이터 센터
           href: /azure/architecture/vdc/networking-virtual-datacenter
@@ -22,6 +22,8 @@
           href: disaster-recovery-dns-traffic-manager.md
     - name: 계획 및 디자인
       items:
+        - name: 원격 작업 지원
+          href: working-remotely-support.md
         - name: 가상 네트워크
           href: ../virtual-network/virtual-network-vnet-plan-design-arm.md?toc=%2fazure%2fnetworking%2ftoc.json
         - name: 크로스 프레미스 연결 - VPN
@@ -117,7 +119,7 @@
           href: ../virtual-machines/linux/tutorial-load-balancer.md?toc=%2fazure%2fnetworking%2ftoc.json
         - name: 가상 네트워크에 컴퓨터 연결
           href: ../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
-- name: 참고 자료
+- name: 참조
   items:
     - name: Azure CLI
       href: 'https://docs.microsoft.com/cli/azure/network'
@@ -141,7 +143,7 @@
       href: 'https://azure.microsoft.com/resources/templates/'
     - name: 네트워킹 블로그
       href: 'https://azure.microsoft.com/blog/topics/networking'
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing'
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'

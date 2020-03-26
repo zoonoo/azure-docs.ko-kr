@@ -10,10 +10,10 @@ services: iot-dps
 ms.devlang: csharp
 ms.custom: mvc
 ms.openlocfilehash: ee1b803459e0c81b86021b617a29e0b29ee19909
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74976845"
 ---
 # <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-c-service-sdk"></a>빠른 시작: C# 서비스 SDK를 사용하여 IoT Hub Device Provisioning Service에 TPM 디바이스 등록
@@ -136,7 +136,7 @@ ms.locfileid: "74976845"
    Console.ReadLine();
    ```
 
-1. 솔루션을 빌드하십시오.
+1. 솔루션을 빌드합니다.
 
 ## <a name="run-the-individual-enrollment-sample"></a>개별 등록 샘플 실행
   

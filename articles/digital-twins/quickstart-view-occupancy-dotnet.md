@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: 사용 가능한 대화방 찾기-Azure Digital Twins | Microsoft Docs'
+title: '빠른 시작: 사용 가능한 회의실 찾기 - Azure Digital Twins | Microsoft Docs'
 description: 이 빠른 시작에서는 시뮬레이션된 동작 및 이산화탄소 원격 분석 데이터를 Azure Digital Twins의 공간으로 보내는 두 개의 .NET Core 샘플 애플리케이션을 실행합니다. 클라우드에서 계산 처리 후 관리 API에서 공기가 깨끗한 사용 가능한 회의실을 찾는 것이 목적입니다.
 ms.author: alinast
 author: alinamstanciu
@@ -10,14 +10,16 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc seodec18
 ms.date: 01/10/2020
-ms.openlocfilehash: 6c9c5df27f4a361e534bac2fe21b2c470f8d0186
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.openlocfilehash: de8611e53339d38a03836bc9272ad42ff88a59b8
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78382238"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79371429"
 ---
 # <a name="quickstart-find-available-rooms-by-using-azure-digital-twins"></a>빠른 시작: Azure Digital Twins로 사용 가능한 회의실 찾기
+
+[!INCLUDE [digital-twins-preview-limit-alert](../../includes/digital-twins-preview-limit-alert.md)]
 
 Azure Digital Twins 서비스를 사용하여 물리적 환경의 디지털 이미지를 다시 만들 수 있습니다. 그 후 환경 내 이벤트를 통해 알림을 받고 그에 대한 응답을 사용자 지정할 수 있습니다.
 
@@ -109,7 +111,7 @@ Azure Digital Twins 서비스를 사용하여 물리적 환경의 디지털 이�
 1. 다음 단계 작업을 통해 결과를 나란히 놓고 볼 수 있도록 이 시뮬레이터를 실행합니다. 이 창은 Digital Twins로 전성된 시뮬레이션된 센서 데이터를 보여줍니다. 다음 단계에서는 공기가 깨끗한 가용 회의실을 실시간으로 쿼리합니다.
 
     >[!TIP]
-    > 이 단계를 실행할 때 `DeviceConnectionString` 오류 메시지가 표시되면 `EXIT: Unexpected error: The input is not a valid Base-64 string ...`이 올바르게 복사되었는지 확인합니다.
+    > 이 단계를 실행할 때 `EXIT: Unexpected error: The input is not a valid Base-64 string ...` 오류 메시지가 표시되면 `DeviceConnectionString`이 올바르게 복사되었는지 확인합니다.
 
 ## <a name="find-available-spaces-with-fresh-air"></a>공기가 깨끗한 가용 회의실 찾기
 
@@ -125,7 +127,7 @@ Azure Digital Twins 서비스를 사용하여 물리적 환경의 디지털 이�
 
      [![공기가 깨끗한 가용 회의실 가져오기](media/quickstart-view-occupancy-dotnet/azure-digital-twins-quickstart-get-available.png)](media/quickstart-view-occupancy-dotnet/azure-digital-twins-quickstart-get-available.png#lightbox)
 
-이 빠른 시작에서 어떤 일이 발생했고 어떤 API가 호출되었는지 이해하려면 [에서 찾은 코드 작업 영역 프로젝트를 사용하여 ](https://code.visualstudio.com/Download)Visual Studio Code`digital-twins-samples-csharp`를 엽니다. 다음 명령을 사용합니다.
+이 빠른 시작에서 어떤 일이 발생했고 어떤 API가 호출되었는지 이해하려면 `digital-twins-samples-csharp`에서 찾은 코드 작업 영역 프로젝트를 사용하여 [Visual Studio Code](https://code.visualstudio.com/Download)를 엽니다. 다음 명령을 사용합니다.
 
 ```cmd
 <path>\occupancy-quickstart\src>code ..\..\digital-twins-samples.code-workspace
@@ -164,4 +166,4 @@ https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 이 빠른 시작에서는 간단한 시나리오와 샘플 애플리케이션을 사용하여 Digital Twins로 좋은 작업 조건의 방을 찾는 방법을 보여 줍니다. 이 시나리오에 대한 심층 분석은 다음 자습서를 참조하세요.
 
 >[!div class="nextstepaction"]
->[자습서: Azure Digital Twins를 배포하고 공간 그래프 구성](tutorial-facilities-setup.md)
+>[자습서: Azure Digital Twins 배포 및 공간 그래프 구성](tutorial-facilities-setup.md)

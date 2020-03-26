@@ -8,10 +8,10 @@ ms.subservice: cosmosdb-mongo
 ms.topic: quickstart
 ms.date: 12/26/2018
 ms.openlocfilehash: c717a8d5baa57ce780fbbc0d25e67c2509ca86fc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75441957"
 ---
 # <a name="quickstart-build-a-console-app-using-azure-cosmos-dbs-api-for-mongodb-and-golang-sdk"></a>빠른 시작: Azure Cosmos DB의 API for MongoDB 및 Golang SDK를 사용하여 콘솔 앱 빌드

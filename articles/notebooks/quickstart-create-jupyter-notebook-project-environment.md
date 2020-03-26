@@ -4,10 +4,10 @@ description: 설치된 패키지 및 시작 스크립트의 특정 세트로 구
 ms.topic: quickstart
 ms.date: 12/04/2018
 ms.openlocfilehash: 6388cb7997cac5bef25975043a13c4e080f288d4
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78196844"
 ---
 # <a name="quickstart-create-a-project-with-a-custom-environment-in-azure-notebooks-preview"></a>빠른 시작: Azure Notebooks 미리 보기에서 사용자 지정 환경으로 프로젝트 만들기

@@ -9,10 +9,10 @@ ms.date: 07/22/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 94906d645ec38a24d54536ee8aa93e7418c8dc35
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75465189"
 ---
 # <a name="quickstart-create-a-xamarin-android-app-with-azure-spatial-anchors"></a>빠른 시작: Azure Spatial Anchors를 사용하여 Xamarin Android 앱 만들기
@@ -69,13 +69,13 @@ Android 디바이스의 전원을 켜고 로그인한 후 USB 케이블을 사�
 
 시작 프로젝트를 **SampleXamarin.Android**로 설정하고, **솔루션 구성**을 **릴리스**로 변경하고, 디바이스 선택기 드롭다운에서 배포할 디바이스를 선택합니다.
 
-# <a name="windowstabdeploy-windows"></a>[Windows](#tab/deploy-windows)
+# <a name="windows"></a>[Windows](#tab/deploy-windows)
 
 ![Visual Studio 구성](./media/get-started-xamarin-android/visual-studio-windows-configuration.png)
 
 **디버그** > **디버깅 시작**을 선택하여 앱을 배포하고 시작합니다.
 
-# <a name="macostabdeploy-macos"></a>[macOS](#tab/deploy-macos)
+# <a name="macos"></a>[macOS](#tab/deploy-macos)
 
 ![Visual Studio 구성](./media/get-started-xamarin-android/visual-studio-macos-configuration.jpg)
 

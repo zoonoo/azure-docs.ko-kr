@@ -7,12 +7,12 @@ ms.date: 10/20/2019
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.openlocfilehash: 72100381faa7306db43ac4b7155b2db4b58a891b
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 77cafc18528826ed90145e307f419c360b6a5e4b
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78197677"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79457205"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-python"></a>빠른 시작: Python용 Azure Key Vault 클라이언트 라이브러리
 
@@ -85,7 +85,6 @@ az ad sp create-for-rbac -n "http://mySP" --sdk-auth
   "tenantId": "35ad10f1-7799-4766-9acf-f2d946161b77",
   "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
   "resourceManagerEndpointUrl": "https://management.azure.com/",
-  "activeDirectoryGraphResourceId": "https://graph.windows.net/",
   "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
   "galleryEndpointUrl": "https://gallery.azure.com/",
   "managementEndpointUrl": "https://management.core.windows.net/"

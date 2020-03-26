@@ -10,10 +10,10 @@ services: iot-central
 ms.custom: mvc
 manager: corywink
 ms.openlocfilehash: b905b1e86810b25c4c94072d6cd414b993e2a883
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77426195"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui"></a>Azure IoT Central UI 둘러보기
@@ -170,7 +170,7 @@ Explorer 페이지는 Azure IoT Central 애플리케이션의 _디바이스_를 
 * 원격 분석, 상태 및 이벤트 측정값
 * 속성
 * 명령
-* 뷰
+* 보기
 
 *솔루션 개발자*는 운영자가 디바이스 관리에 사용할 수 있는 양식과 대시보드도 만들 수 있습니다.
 

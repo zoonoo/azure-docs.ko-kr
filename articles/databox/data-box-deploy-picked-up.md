@@ -10,11 +10,11 @@ ms.date: 09/20/2019
 ms.author: alkohli
 ms.localizationpriority: high
 ms.openlocfilehash: d116ba81b0c8940687663c17a4ed403e86dd6c22
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77187542"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79214397"
 ---
 ::: zone target="docs"
 
@@ -77,7 +77,7 @@ ms.locfileid: "77187542"
 
 ::: zone-end
 
-## <a name="in-us-canada-europetabin-us-canada-europe"></a>[미국, 캐나다, 유럽에서](#tab/in-us-canada-europe)
+## <a name="in-us-canada-europe"></a>[미국, 캐나다, 유럽에서](#tab/in-us-canada-europe)
 
 미국, 캐나다 또는 유럽에서 디바이스를 반송하는 경우 다음 단계를 수행합니다.
 
@@ -114,7 +114,7 @@ Azure에 대한 업로드가 완료되면 Data Box 디스크의 데이터가 [NI
 ::: zone-end
 
 
-## <a name="in-australiatabin-australia"></a>[오스트레일리아에서](#tab/in-australia)
+## <a name="in-australia"></a>[오스트레일리아에서](#tab/in-australia)
 
 오스트레일리아의 Azure 데이터 센터에는 추가 보안 알림이 있습니다. 모든 인바운드 배송에는 고급 알림이 있어야 합니다. 오스트레일리아에서 배송하려면 다음 단계를 수행합니다.
 
@@ -143,7 +143,7 @@ Azure에 대한 업로드가 완료되면 Data Box 디스크의 데이터가 [NI
 
 ::: zone-end
 
-## <a name="in-japantabin-japan"></a>[일본에서](#tab/in-japan) 
+## <a name="in-japan"></a>[일본에서](#tab/in-japan) 
 
 1. 반품 발송을 위해 디바이스를 배송하는 데 사용된 원래 상자를 보관하세요.
 2. 디바이스의 전원을 끄고 케이블을 분리합니다.
@@ -191,7 +191,7 @@ Azure에 대한 업로드가 완료되면 Data Box 디스크의 데이터가 [NI
 
 ::: zone-end
 
-## <a name="in-singaporetabin-singapore"></a>[싱가포르에서](#tab/in-singapore) 
+## <a name="in-singapore"></a>[싱가포르에서](#tab/in-singapore) 
 
 1. 반품 발송을 위해 디바이스를 배송하는 데 사용된 원래 상자를 보관하세요.
 2. Data Box 로컬 웹 UI의 배송 준비 페이지에 참조 번호로 표시된 추적 번호를 적어둡니다. 이는 배송 준비 단계가 성공적으로 완료된 후에 사용할 수 있습니다. 이 페이지에서 배송 레이블을 다운로드하고 압축 상자에 붙여넣습니다. 
@@ -273,7 +273,7 @@ Once the upload to Azure is complete, the Data Box erases the data on its disks 
 ::: zone-end
 -->
 
-## <a name="self-managedtabin-selfmanaged"></a>[자체 관리](#tab/in-selfmanaged) 
+## <a name="self-managed"></a>[자체 관리](#tab/in-selfmanaged) 
 
 일본, 싱가포르, 대한민국 및 서유럽에서 Data Box를 사용 중이고 주문 생성 중에 자체 관리 배송 옵션을 선택한 경우 다음 지침을 따르세요. 
 

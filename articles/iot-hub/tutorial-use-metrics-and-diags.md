@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 3/13/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: a19eb19c3a25d3856d5cf333bd64be888f65a6e2
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
-ms.translationtype: MT
+ms.openlocfilehash: d287cfab7adb676d3561486ed34c1062895a4036
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78893203"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80133646"
 ---
-# <a name="tutorial-set-up-and-use-metrics-and-diagnostic-logs-with-an-iot-hub"></a>자습서: IoT hub를 사용 하 여 메트릭 및 진단 로그 설정 및 사용
+# <a name="tutorial-set-up-and-use-metrics-and-diagnostic-logs-with-an-iot-hub"></a>자습서: IoT Hub를 사용하여 메트릭 및 진단 로그 설정 및 사용
 
 프로덕션 환경에서 IoT Hub 솔루션을 실행 중인 경우 몇 가지 메트릭을 설정하고 진단 로그를 사용하도록 설정할 수 있습니다. 그러면 문제가 발생하는 경우 문제를 진단하고 더 빠르게 해결하는 데 도움이 되는 데이터를 살펴볼 수 있습니다. 이 문서에서는 진단 로그를 사용하도록 설정하는 방법 및 오류에 대해 확인하는 방법을 알아봅니다. 또한 관찰할 일부 메트릭 및 메트릭이 특정 경계에 도달할 때 발생하는 경고를 설정하게 됩니다. 예를 들어, 전송된 원격 분석 메시지 수가 특정 경계를 초과하는 경우 또는 사용된 메시지 수가 IoT Hub에 대해 일별 허용된 메시지 할당량에 근접하는 경우 이메일이 전송되도록 할 수 있습니다. 
 
@@ -118,12 +118,12 @@ az iot hub device-identity show --device-id $iotDeviceName \
 ```
 
 >[!NOTE]
->장치 id를 만들 때 *IoT Hub ContosoTestHub의 policy iothubowner에 대 한 키*가 없습니다. 오류가 발생할 수 있습니다. 이 오류를 해결하려면 Azure CLI IoT 확장을 업데이트한 다음, 마지막 두 명령을 스크립트에서 다시 실행합니다. 
+>디바이스 ID를 만들 때 다음 오류가 표시될 수도 있습니다. *IoT Hub ContosoTestHub의 iothubowner 정책에 대한 키를 찾을 수 없습니다*. 이 오류를 해결하려면 Azure CLI IoT 확장을 업데이트한 다음, 마지막 두 명령을 스크립트에서 다시 실행합니다. 
 >
 >확장을 업데이트하는 명령은 다음과 같습니다. 이를 Cloud Shell 인스턴스에서 실행합니다.
 >
 >```cli
->az extension update --name azure-cli-iot-ext
+>az extension update --name azure-iot
 >```
 
 ## <a name="enable-the-diagnostic-logs"></a>진단 로그 활성화 
@@ -137,7 +137,7 @@ az iot hub device-identity show --device-id $iotDeviceName \
    ![IoT Hub 블레이드의 진단 설정 부분을 보여주는 스크린샷.](./media/tutorial-use-metrics-and-diags/01-diagnostic-settings.png)
 
 
-3. 구독 및 리소스 그룹이 올바른지 확인합니다. **리소스 형식**에서 **모두 선택**을 선택 취소한 다음, **IoT Hub**를 찾아서 확인합니다. ( *모두 선택* 옆에 있는 확인 표시를 클릭 하 여 무시 하면 됩니다.) **리소스**에서 허브 이름을 선택 합니다. 화면이 다음과 같이 표시됩니다. 
+3. 구독 및 리소스 그룹이 올바른지 확인합니다. **리소스 형식**에서 **모두 선택**을 선택 취소한 다음, **IoT Hub**를 찾아서 확인합니다. (*모두 선택* 옆에 확인 표시가 다시 생깁니다. 무시하면 됩니다.) **리소스**에서 허브 이름을 선택합니다. 화면이 다음과 같이 표시됩니다. 
 
    ![IoT Hub 블레이드의 진단 설정 부분을 보여주는 스크린샷.](./media/tutorial-use-metrics-and-diags/02-diagnostic-settings-start.png)
 
@@ -198,25 +198,25 @@ IoT Hub가 [Azure Monitor의 메트릭](/azure/azure-monitor/platform/data-colle
 
     다음 필드를 입력합니다. 
 
-    **구독**:이 필드를 현재 구독으로 설정 합니다.
+    **구독**: 현재 구독으로 설정된 이 필드를 그대로 둡니다.
 
-    **원본**:이 필드를 *메트릭*으로 설정 합니다.
+    **원본**: 이 필드를 *메트릭*으로 설정합니다.
 
-    **리소스 그룹**:이 필드를 현재 리소스 그룹인 *ContosoResources*로 설정 합니다. 
+    **리소스 그룹**: 이 필드를 현재 리소스 그룹 *ContosoResources*로 설정합니다. 
 
-    **리소스 종류**:이 필드를 IoT Hub 설정 합니다. 
+    **리소스 종류**: 이 필드를 IoT Hub로 설정합니다. 
 
-    **리소스**: IoT Hub, *ContosoTestHub*을 선택 합니다.
+    **리소스**: IoT Hub *ContosoTestHub*를 선택합니다.
 
 3. **메트릭 경고 추가(클래식)** 를 클릭하여 새 경고를 설정합니다.
 
     다음 필드를 입력합니다.
 
-    **이름**: *원격 분석 메시지*와 같은 경고 규칙의 이름을 제공 합니다.
+    **Name**: *telemetry-messages*와 같은 경고 규칙의 이름을 입력합니다.
 
-    **설명**: *1000 원격 분석 메시지가 전송 될 때 경고*와 같은 경고에 대 한 설명을 제공 합니다. 
+    **설명**: *1000개의 원격 분석 메시지를 보낸 경우 경고*와 같이 경고에 대한 설명을 입력합니다. 
 
-    **원본**: *메트릭을*로 설정 합니다.
+    **원본**: 이를 *메트릭*으로 설정합니다.
 
     **구독**, **리소스 그룹** 및 **리소스**는 **클래식 경고 보기** 화면에서 선택한 값으로 설정되어야 합니다. 
 
@@ -226,13 +226,13 @@ IoT Hub가 [Azure Monitor의 메트릭](/azure/azure-monitor/platform/data-colle
 
 4. 차트 아래에 다음 필드를 설정합니다.
 
-   **Condition**:을 *보다 큼*으로 설정 합니다.
+   **조건**: *다음보다 큼*으로 설정합니다.
 
-   **임계값**: 1000로 설정 합니다.
+   **임계값**: 1000으로 설정합니다.
 
-   **기간**: *지난 5 분 동안*로 설정 합니다.
+   **기간**: *지난 5분 동안*으로 설정합니다.
 
-   **알림 전자 메일 받는 사람**: 여기에 전자 메일 주소를 입력 합니다. 
+   **알림 이메일 받는 사람**: 이메일 주소를 여기에 입력합니다. 
 
    ![경고 화면의 절반 아래쪽을 보여주는 스크린샷.](./media/tutorial-use-metrics-and-diags/11-alerts-add-rule-bottom.png)
 
@@ -242,11 +242,11 @@ IoT Hub가 [Azure Monitor의 메트릭](/azure/azure-monitor/platform/data-colle
 
    **클래식 경고 보기** 화면에서 **메트릭 경고 추가(클래식)** 를 클릭한 다음, **규칙 추가** 창에서 이러한 필드를 입력합니다.
 
-   **이름**: 경고 규칙의 이름 (예: *메시지 수 사용)* 을 제공 합니다.
+   **Name**: *number-of-messages-used*와 같은 경고 규칙의 이름을 입력합니다.
 
-   **설명**: *할당량에 근접 하는 경우*경고와 같은 경고에 대 한 설명을 제공 합니다.
+   **설명**: *할당량에 근접할 때 경고*와 같이 경고에 대한 설명을 입력합니다.
 
-   **원본**:이 필드를 *메트릭*으로 설정 합니다.
+   **원본**: 이 필드를 *메트릭*으로 설정합니다.
 
     **구독**, **리소스 그룹** 및 **리소스**는 **클래식 경고 보기** 화면에서 선택한 값으로 설정되어야 합니다. 
 
@@ -254,13 +254,13 @@ IoT Hub가 [Azure Monitor의 메트릭](/azure/azure-monitor/platform/data-colle
 
 6. 차트 아래에서 다음 필드를 입력합니다.
 
-   **Condition**:을 *보다 큼*으로 설정 합니다.
+   **조건**: *다음보다 큼*으로 설정합니다.
 
-   **임계값**: 1000로 설정 합니다.
+   **임계값**: 1000으로 설정합니다.
 
-   **기간**: *지난 5 분 동안*이 필드를로 설정 합니다. 
+   **기간**: 이 필드를 *지난 5분 동안*으로 설정합니다. 
 
-   **알림 전자 메일 받는 사람**: 여기에 전자 메일 주소를 입력 합니다. 
+   **알림 이메일 받는 사람**: 이메일 주소를 여기에 입력합니다. 
 
    **확인**을 클릭하여 규칙을 저장합니다. 
 

@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 07/04/2019
 ms.openlocfilehash: 145e452a3a914e1026d6da11f2ce38e85fa724f0
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "67797183"
 ---
 # <a name="quickstart-query-data-in-azure-data-explorer-web-ui"></a>빠른 시작: Azure Data Explorer Web UI에서 데이터 쿼리
@@ -20,7 +20,7 @@ Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 빠른 시작을 완료하려면 Azure 구독 외에 [테스트 클러스터와 데이터베이스](create-cluster-database-portal.md)가 필요합니다.
 
