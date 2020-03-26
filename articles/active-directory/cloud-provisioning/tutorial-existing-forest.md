@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: aa14b45235f2a62f05e84efafc41b899dc531d49
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74868680"
 ---
 # <a name="integrate-an-existing-forest-and-a-new-forest-with-a-single-azure-ad-tenant"></a>기존 포리스트 및 새 포리스트를 단일 Azure AD 테넌트와 통합
@@ -28,7 +28,7 @@ ms.locfileid: "74868680"
 
 이 시나리오에서는 Azure AD Connect 동기화를 Azure AD 테넌트에 사용하여 동기화된 기존 포리스트가 있습니다. 그리고 동일한 Azure AD 테넌트와 동기화하려는 새 포리스트가 있습니다. 새 포리스트에 대한 클라우드 프로비저닝을 설정합니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 ### <a name="in-the-azure-active-directory-admin-center"></a>Azure Active Directory 관리 센터에서
 
 1. Azure AD 테넌트에서 클라우드 전용 전역 관리자 계정을 만듭니다. 이러한 방식으로 온-프레미스 서비스가 실패하거나 사용할 수 없게 될 때 테넌트의 구성을 관리할 수 있습니다. [클라우드 전용 전역 관리자 계정 추가](../active-directory-users-create-azure-portal.md)에 대해 자세히 알아봅니다. 테넌트에 잠기지 않도록 이 단계를 완료하는 것이 중요합니다.
@@ -80,7 +80,7 @@ ms.locfileid: "74868680"
 ### <a name="azure-portal-agent-verification"></a>Azure Portal에서 에이전트 확인
 Azure에서 에이전트가 표시되는지 확인하려면 다음 단계를 수행합니다.
 
-1. Azure 포털에 로그인합니다.
+1. Azure Portal에 로그인합니다.
 2. 왼쪽에서 **Azure Active Directory**를 선택하고, **Azure AD Connect**를 클릭하고, 가운데에서 **프로비저닝 관리(미리 보기)** 를 선택합니다.</br>
 ![Azure Portal](media/how-to-install/install6.png)</br>
 
@@ -96,7 +96,7 @@ Azure에서 에이전트가 표시되는지 확인하려면 다음 단계를 수
 1.  관리자 계정으로 서버에 로그온합니다.
 2.  **서비스**를 탐색하거나 Services.msc를 시작하고 실행하여 엽니다.
 3.  **서비스** 아래에서 **Microsoft Azure AD Connect 에이전트 업데이트 프로그램** 및 **Microsoft Azure AD Connect 프로비저닝 에이전트**가 있고 상태가 **실행 중**인지 확인합니다.
-![서비스](media/how-to-troubleshoot/troubleshoot1.png)
+![Services](media/how-to-troubleshoot/troubleshoot1.png)
 
 ## <a name="configure-azure-ad-connect-cloud-provisioning"></a>Azure AD Connect 클라우드 프로비저닝 구성
  다음 단계를 사용하여 프로비저닝을 구성합니다.
@@ -123,7 +123,7 @@ Azure에서 에이전트가 표시되는지 확인하려면 다음 단계를 수
 4. 새 사용자가 테넌트에 표시되는지 확인</br>
 ![동기화](media/tutorial-single-forest/synchronize1.png)</br>
 
-## <a name="test-signing-in-with-one-of-our-users"></a>사용자로 로그인 테스트
+## <a name="test-signing-in-with-one-of-our-users"></a>사용자 중 한 명으로 로그인 테스트
 
 1. [https://myapps.microsoft.com](https://myapps.microsoft.com)으로 이동합니다.
 2. 새 테넌트에 생성된 사용자 계정으로 로그인합니다.  user@domain.onmicrosoft.com 형식을 사용하여 로그인해야 합니다. 사용자가 온-프레미스 로그인에 사용하는 것과 동일한 암호를 사용합니다.</br>

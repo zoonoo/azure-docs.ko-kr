@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 85992224edd10c0a0f233de9f6274cc77e109b22
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517781"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "60757743"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-vmware"></a>자습서: VMware에서 Azure Data Box Gateway 프로비저닝
 
@@ -23,7 +23,7 @@ ms.locfileid: "58517781"
 
 가상 디바이스를 프로비전하고 연결하려면 관리자 권한이 필요합니다. 프로비전 및 초기 설정을 완료하는 데 10분 정도가 소요됩니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 호스트가 최소 디바이스 요구 사항을 충족하는지 확인
@@ -33,7 +33,7 @@ ms.locfileid: "58517781"
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 VMware ESXi 6.0, 6.5 또는 6.7을 실행하는 호스트 시스템에 가상 디바이스를 프로비전하기 위한 필수 조건은 다음과 같습니다.
 
