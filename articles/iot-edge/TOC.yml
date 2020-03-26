@@ -125,8 +125,8 @@
           href: how-to-install-iot-edge-ubuntuvm.md
         - name: Kubernetes
           href: how-to-install-iot-edge-kubernetes.md
-        - name: 프로덕션 인증서 설치
-          href: how-to-install-production-certificates.md
+        - name: 디바이스 인증서 관리
+          href: how-to-manage-device-certificates.md
         - name: 테스트 인증서 만들기
           href: how-to-create-test-certificates.md
         - name: 런타임 버전 업데이트
@@ -139,6 +139,8 @@
               href: how-to-auto-provision-simulated-device-linux.md
             - name: Windows
               href: how-to-auto-provision-simulated-device-windows.md
+        - name: X.509 인증서 증명
+          href: how-to-auto-provision-x509-certs.md
         - name: 대칭 키 증명
           href: how-to-auto-provision-symmetric-keys.md
     - name: 사용자 지정 모듈 개발 및 디버그
@@ -149,20 +151,26 @@
           href: how-to-vs-code-develop-module.md
     - name: 모듈 배포
       items:
-        - name: Azure portal
-          href: how-to-deploy-modules-portal.md
-        - name: Azure CLI
-          href: how-to-deploy-modules-cli.md
-        - name: Visual Studio Code
-          href: how-to-deploy-modules-vscode.md
-    - name: 대규모 배포 및 모니터링
+        - name: 개별 디바이스에 배포
+          items:
+            - name: Azure portal
+              href: how-to-deploy-modules-portal.md
+            - name: Azure CLI
+              href: how-to-deploy-modules-cli.md
+            - name: Visual Studio Code
+              href: how-to-deploy-modules-vscode.md
+        - name: 대규모 배포
+          items:
+            - name: Azure portal
+              href: how-to-deploy-monitor.md
+            - name: Azure CLI
+              href: how-to-deploy-monitor-cli.md
+            - name: Visual Studio Code
+              href: how-to-deploy-monitor-vscode.md
+    - name: 배포 모니터링 및 진단
       items:
-        - name: Azure portal
-          href: how-to-deploy-monitor.md
-        - name: Azure CLI
-          href: how-to-deploy-monitor-cli.md
-        - name: Visual Studio Code
-          href: how-to-deploy-monitor-vscode.md
+        - name: EdgeAgent 직접 메서드
+          href: how-to-edgeagent-direct-method.md
     - name: IoT Edge 디바이스를 게이트웨이로 사용
       items:
         - name: 투명 게이트웨이 구성
@@ -193,60 +201,56 @@
           href: how-to-devops-plugins.md
     - name: 문제 해결
       href: troubleshoot.md
-- name: 관련 항목
-  items:
-    - name: 솔루션
-      items:
-        - name: IoT Central
-          href: 'https://docs.microsoft.com/microsoft-iot-central/'
-        - name: IoT 솔루션 가속기
-          href: /azure/iot-accelerators
-    - name: 플랫폼 서비스
-      items:
-        - name: IoT Hub
-          href: /azure/iot-hub
-        - name: IoT 플러그 앤 플레이
-          href: /azure/iot-pnp
-        - name: IoT Hub Device Provisioning Service
-          href: /azure/iot-dps
-        - name: IoT 서비스 SDK
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
-        - name: 지도
-          href: /azure/azure-maps
-        - name: Time Series Insights
-          href: /azure/time-series-insights
-    - name: Edge 솔루션
-      items:
-        - name: Azure IoT Edge
-          href: /azure/iot-edge
-        - name: IoT 디바이스 SDK
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
 - name: 리소스
   items:
     - name: 지원 및 도움말 옵션
       href: /azure/iot-fundamentals/iot-support-help
-    - name: 'C#(.NET)용 Azure IoT 샘플'
-      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/'
-    - name: Node.js용 Azure IoT 샘플
-      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-node/'
-    - name: Java용 Azure IoT 샘플
-      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-java/'
-    - name: Python용 Azure IoT 샘플
-      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-python/'
-    - name: iOS 플랫폼용 Azure IoT 샘플
-      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/'
+    - name: Azure IoT 서비스
+      items:
+        - name: IoT Hub
+          href: /azure/iot-hub
+        - name: IoT Hub Device Provisioning Service
+          href: /azure/iot-dps
+        - name: IoT Central
+          href: 'https://docs.microsoft.com/microsoft-iot-central/'
+        - name: IoT Edge
+          href: /azure/iot-edge
+        - name: IoT 솔루션 가속기
+          href: /azure/iot-accelerators
+        - name: IoT 플러그 앤 플레이
+          href: /azure/iot-pnp
+        - name: Azure Maps
+          href: /azure/azure-maps
+        - name: Time Series Insights
+          href: /azure/time-series-insights
+    - name: Azure IoT SDK
+      items:
+        - name: IoT 서비스 SDK
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+        - name: IoT 디바이스 SDK
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
+    - name: Azure IoT 샘플
+      items:
+        - name: 'C#(.NET)'
+          href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/'
+        - name: Node.js
+          href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-node/'
+        - name: Java
+          href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-java/'
+        - name: Python
+          href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-python/'
+        - name: iOS 플랫폼
+          href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/'
     - name: IoT용 Azure Certified 디바이스 카탈로그
       href: 'https://catalog.azureiotsolutions.com/'
     - name: Azure IoT 개발자 센터
       href: 'https://azure.microsoft.com/develop/iot/'
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/?category=iot'
-    - name: VS Code용 Azure IoT Edge
-      href: 'https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge'
-    - name: VS Code용 Azure IoT Hub
-      href: 'https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit'
-    - name: DeviceExplorer 도구
-      href: 'https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer'
+    - name: VS Code용 Azure IoT Tools
+      href: 'https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools'
+    - name: Azure IoT Explorer 도구
+      href: 'https://github.com/Azure/azure-iot-explorer'
     - name: iothub-diagnostics 도구
       href: 'https://github.com/Azure/iothub-diagnostics'
     - name: MSDN 포럼

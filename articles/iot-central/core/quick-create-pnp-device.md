@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 ms.openlocfilehash: 489bf81388c1bb889756d54957e791282054f0f7
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77169558"
 ---
 # <a name="quickstart-add-a-simulated-device-to-your-iot-central-application"></a>빠른 시작: IoT Central 애플리케이션에 시뮬레이션된 디바이스 추가
@@ -77,7 +77,7 @@ IoT Central 애플리케이션에 디바이스 기능 모델을 추가하는 여
 
     ![클라우드 속성](media/quick-create-pnp-device/cloudproperties.png)
 
-## <a name="views"></a>뷰
+## <a name="views"></a>보기
 
 개발자는 디바이스와 관련된 정보를 운영자에게 표시하도록 애플리케이션을 사용자 지정할 수 있습니다. 사용자 지정을 통해 운영자가 애플리케이션에 연결된 디바이스를 관리할 수 있도록 만들 수 있습니다. 운영자가 디바이스와 상호 작용하는 데 사용할 다음 두 가지 유형의 보기를 만들 수 있습니다.
 

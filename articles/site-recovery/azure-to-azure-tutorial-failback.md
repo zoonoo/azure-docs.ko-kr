@@ -9,17 +9,17 @@ ms.date: 11/14/2019
 ms.author: raynew
 ms.custom: mvc
 ms.openlocfilehash: c27b7bf29e5f124fdcfb886b658fd8e9d4cc48fe
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74091355"
 ---
 # <a name="fail-back-an-azure-vm-between-azure-regions"></a>Azure 지역 간에 Azure VM 장애 복구(failback)
 
 [Azure Site Recovery](site-recovery-overview.md) 서비스는 온-프레미스 컴퓨터와 Azure VM(Virtual Machines)의 복제, 장애 조치(failover), 장애 복구(failback)를 관리 및 오케스트레이션하여 재해 복구 전략에 기여합니다.
 
-이 자습서에서는 단일 Azure VM을 장애 복구(failback)하는 방법을 설명합니다. 장애 조치(Failover)한 후에 주 지역이 사용 가능해지면 장애 복구(failback)해야 합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 단일 Azure VM을 장애 복구(failback)하는 방법을 설명합니다. 장애 조치(Failover)한 후에 주 지역이 사용 가능해지면 장애 복구(failback)해야 합니다. 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > 
@@ -48,7 +48,7 @@ VM이 다시 보호되면 필요에 따라 주 지역으로 장애 복구(failba
 3. **장애 조치(Failover)** 에서 장애 조치(failover)할 복구 지점을 선택합니다.
     - **최신(기본값)** : Site Recovery 서비스의 모든 데이터를 처리하고 가장 낮은 RPO(복구 지점 목표)를 제공합니다.
     - **가장 최근에 처리됨**: VM을 Site Recovery에서 처리한 최신 복구 지점으로 되돌립니다.
-    - **사용자 지정**: 특정 복구 지점으로 장애 조치(failover)합니다. 이 옵션은 테스트 장애 조치(failover)를 수행하는 데 유용합니다.
+    - **Custom**: 특정 복구 지점으로 장애 조치(failover)합니다. 이 옵션은 테스트 장애 조치(failover)를 수행하는 데 유용합니다.
 4. 장애 조치(failover)를 트리거하기 전에 Site Recovery가 DR 영역에서 VM을 종료하려고 시도하는 경우 **장애 조치(failover)를 시작하기 전에 머신 종료**를 선택합니다. 종료가 실패하더라도 장애 조치(failover)는 계속됩니다. 
 5. **작업** 페이지에서 장애 조치(failover) 진행 상황을 확인합니다.
 6. 장애 조치(failover)가 완료된 후에는 VM에 로그인하여 유효성을 검사합니다. 필요에 따라 복구 지점을 변경할 수 있습니다.

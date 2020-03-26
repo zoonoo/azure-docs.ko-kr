@@ -16,23 +16,23 @@ ms.author: zhenlwa
 ms.custom: azure-functions
 ms.tgt_pltfrm: Azure Functions
 ms.openlocfilehash: ba70d5f186c1424b2019716ab7a87aeae85f8913
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74187297"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-azure-functions-app"></a>자습서: Azure Functions 앱에서 동적 구성 사용
 
 App Configuration .NET 표준 구성 공급자는 애플리케이션 작업 기반의 구성을 동적으로 캐싱하고 새로 고치는 것을 지원합니다. 이 자습서에서는 코드에서 동적 구성 업데이트를 구현하는 방법을 보여줍니다. 빠른 시작에서 소개한 Azure Functions 앱을 기반으로 합니다. 계속 진행하기 전에, 먼저 [Azure App Configuration을 사용하여 Azure Functions 앱 만들기](./quickstart-azure-functions-csharp.md)를 완료합니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * App Configuration 저장소의 변경 내용에 따라 구성을 업데이트하도록 Azure Functions 앱을 설정합니다.
 > * Azure Functions 호출에 최신 구성을 삽입합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 - **Azure 개발** 워크로드를 사용하는 [Visual Studio 2019](https://visualstudio.microsoft.com/vs)

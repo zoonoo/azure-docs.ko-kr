@@ -7,12 +7,12 @@ ms.author: sgilley
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 03/01/2020
-ms.openlocfilehash: 9974b42f582a3b5f26df0b6e77b42a03f23c47dd
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.openlocfilehash: d39cf8745c6f53cb11bb12561fd452325fe52ac6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78898712"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79296951"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>데이터 레이블 지정 프로젝트 만들기 및 레이블 내보내기 
 
@@ -44,7 +44,7 @@ Machine Learning은 진행 상황을 추적하고 불완전한 레이블 지정 
 * 레이블을 지정하려는 데이터(로컬 파일 또는 Azure Blob 스토리지에 있음)
 * 적용하려는 레이블 세트
 * 레이블 지정 지침
-* Azure 구독 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://aka.ms/AMLFree)을 만듭니다.
+* Azure 구독 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://aka.ms/AMLFree)을 만듭니다.
 * Machine Learning 작업 영역. [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조하세요.
 
 ## <a name="create-a-labeling-project"></a>레이블 지정 프로젝트 만들기

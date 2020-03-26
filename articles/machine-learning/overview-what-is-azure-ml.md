@@ -9,11 +9,11 @@ author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
 ms.openlocfilehash: b8dbbb2810277bef20cb3b9b47a63deeea3e0ff9
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78355298"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79290471"
 ---
 # <a name="what-is-azure-machine-learning"></a>Azure Machine Learning이란?
 
@@ -116,7 +116,7 @@ Azure Machine Learning은 Azure 플랫폼의 다른 서비스와 함께 작동�
 
 Azure Storage 계정, 컴퓨팅 대상 및 기타 리소스를 가상 네트워크 내에서 안전하게 사용하여 모델을 학습시키고 유추를 수행할 수 있습니다. 자세한 내용은 [가상 네트워크에서 실험 및 유추 보호](how-to-enable-virtual-network.md)를 참조하세요.
 
-## <a name="sku"></a>Basic Edition 및 Enterprise Edition
+## <a name="basic--enterprise-editions"></a><a name="sku"></a>Basic Edition 및 Enterprise Edition
 
 Azure Machine Learning은 고객의 기계 학습 요구 사항에 맞게 조정된 두 가지 버전을 제공합니다.
 + Basic(일반 공급)

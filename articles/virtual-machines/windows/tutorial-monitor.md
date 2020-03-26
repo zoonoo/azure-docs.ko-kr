@@ -16,17 +16,17 @@ ms.date: 09/27/2018
 ms.author: magoedte
 ms.custom: mvc
 ms.openlocfilehash: 9e807927a10399b02c2c89359c2ffffaf87ba57b
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74112495"
 ---
 # <a name="tutorial-monitor-a-windows-virtual-machine-in-azure"></a>자습서: Azure에서 Windows 가상 머신 모니터링
 
 Azure 모니터링은 에이전트를 사용하여 Azure VM에서 부팅 및 성능 데이터를 수집하고 이 데이터를 Azure Storage에 저장하며 포털, Azure PowerShell 모듈 및 Azure CLI를 통해 액세스할 수 있도록 합니다. 고급 모니터링은 성능 메트릭을 수집하고, VM에 설치된 애플리케이션 구성 요소를 검색하고, 성능 차트와 종속성 맵을 포함하여 VM용 Azure Monitor와 함께 제공됩니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * VM에서 부팅 진단을 사용하도록 설정
@@ -136,11 +136,11 @@ VM용 Azure Monitor는 가상 머신이 얼마나 잘 실행되고 있는지 확
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 VM의 성능을 구성하고 확인했습니다. 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 VM의 성능을 구성하고 확인했습니다. 구체적으로 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * 리소스 그룹 및 VM 만들기
-> * VM에서 부트 진단을 사용하도록 설정
+> * VM에서 부팅 진단을 사용하도록 설정
 > * 부트 진단 보기
 > * 호스트 메트릭 보기
 > * VM용 Azure Monitor 사용

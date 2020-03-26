@@ -5,10 +5,10 @@ ms.date: 10/14/2019
 ms.topic: tutorial
 ms.reviewer: brendal
 ms.openlocfilehash: 5761bf1294691c2d50e0e389fe69ec286df4a06c
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74324051"
 ---
 # <a name="tutorial-using-applications-in-azure-blockchain-workbench"></a>자습서: Azure Blockchain Workbench에서 애플리케이션 사용
@@ -23,7 +23,7 @@ Blockchain Workbench를 사용하여 계약에서 만들고 작업을 수행할 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Blockchain Workbench 배포. 자세한 내용은 배포에 대한 세부 사항을 위한 [Azure Blockchain Workbench 배포](deploy.md)를 참조하세요.
 * Blockchain Workbench에 배포된 블록체인 애플리케이션. [Azure Blockchain Workbench에서 블록체인 애플리케이션 만들기](create-app.md)를 참조하세요.
@@ -61,11 +61,11 @@ Blockchain Workbench의 구성원으로 로그인해야 합니다. 나열된 애
 
     ![계약 세부 정보](./media/use/contract-details.png)
 
-    | 섹션  | 설명  |
+    | 섹션  | Description  |
     |---------|---------|
     | 상태 | 계약 단계 내에서 현재 진행 상태를 나열합니다. |
     | 세부 정보 | 계약의 현재 값 |
-    | 조치 | 마지막 동작에 대한 세부 정보 |
+    | 작업 | 마지막 동작에 대한 세부 정보 |
     | 작업 | 계약의 트랜잭션 기록 |
     
 3. **동작** 섹션에서 **작업 수행**을 선택합니다.

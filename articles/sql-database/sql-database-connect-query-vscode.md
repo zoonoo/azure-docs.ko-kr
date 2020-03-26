@@ -13,21 +13,21 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/25/2019
 ms.openlocfilehash: 28b35f273783b2e4d0b8f59c5bc5be384b933ba2
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73826885"
 ---
 # <a name="quickstart-use-visual-studio-code-to-connect-and-query-an-azure-sql-database"></a>빠른 시작: Visual Studio Code를 사용하여 Azure SQL Database 연결 및 쿼리
 
 [Visual Studio Code](https://code.visualstudio.com/docs)는 Windows, macOS, Linux용 그래픽 코드 편집기입니다. Microsoft SQL Server, Azure SQL Database 및 SQL Data Warehouse를 쿼리하는 [mssql 확장](https://aka.ms/mssql-marketplace)을 비롯한 여러 확장을 지원합니다. 이 빠른 시작에서는 Visual Studio Code를 사용하여 Azure SQL 데이터베이스에 연결한 다음, Transact-SQL 문을 실행하여 데이터를 쿼리, 삽입, 업데이트 및 삭제합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure SQL 데이터베이스입니다. 다음 빠른 시작 중 하나를 사용하여 Azure SQL Database에서 데이터베이스를 만들고 구성할 수 있습니다.
 
-  || 단일 데이터베이스 | Managed Instance |
+  || 단일 데이터베이스 | 관리되는 인스턴스 |
   |:--- |:--- |:---|
   | 생성| [포털](sql-database-single-database-get-started.md) | [포털](sql-database-managed-instance-get-started.md) |
   || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
@@ -105,15 +105,15 @@ Visual Studio Code를 사용하여 Azure SQL Database 서버에 연결합니다.
 
 4. 프롬프트에 따라 새 프로필의 연결 속성을 지정합니다. 각 값을 지정한 후에 **Enter**를 선택하여 계속합니다.
 
-   | 자산       | 제안 값 | 설명 |
+   | 속성       | 제안 값 | Description |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **서버 이름** | 정규화된 서버 이름 | 예: **mynewserver20170313.database.windows.net**. |
    | **데이터베이스 이름** | mySampleDatabase | 연결할 데이터베이스입니다. |
    | **인증** | SQL 로그인| 이 자습서에서는 SQL 인증을 사용합니다. |
    | **사용자 이름** | 사용자 이름 | 서버를 만드는 데 사용되는 서버 관리자 계정의 사용자 이름입니다. |
    | **암호(SQL 로그인)** | 암호 | 서버를 만드는 데 사용되는 서버 관리자 계정의 암호입니다. |
-   | **암호를 저장하시겠습니까?** | 예 또는 아니요 | 매번 암호를 입력하지 않으려면 **예**를 선택합니다. |
-   | **이 프로필의 이름 입력** | **mySampleProfile**과 같은 프로필 이름 | 프로필을 저장할 경우 후속 로그인의 연결 속도가 빨라집니다. |
+   | **암호를 저장하시겠습니까?** | Yes 또는 No | 매번 암호를 입력하지 않으려면 **예**를 선택합니다. |
+   | **이 프로필의 이름을 입력합니다.** | **mySampleProfile**과 같은 프로필 이름 | 프로필을 저장할 경우 후속 로그인의 연결 속도가 빨라집니다. |
 
    성공하면 프로필이 생성되고 연결되었다는 알림이 나타납니다.
 

@@ -9,10 +9,10 @@ ms.date: 06/14/2019
 ms.author: hrasheed
 ms.custom: mvc
 ms.openlocfilehash: 24173b553f30f652caf20b1ec7500fd9c4d2f7a0
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73241233"
 ---
 # <a name="quickstart-create-and-monitor-an-apache-storm-topology-in-azure-hdinsight"></a>빠른 시작: Azure HDInsight에서 Apache Storm 토폴로지 만들기 및 모니터링
@@ -21,7 +21,7 @@ Apache Storm은 데이터 스트림 처리용 확장 가능한 분산형 실시�
 
 이 빠른 시작에서는 Apache [storm-starter](https://github.com/apache/storm/tree/v2.0.0/examples/storm-starter) 프로젝트의 예제를 사용하여 기존 Apache Storm 클러스터에 Apache Storm 토폴로지를 만들고 모니터링합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * HDInsight의 Apache Storm 클러스터. [Azure Portal을 사용하여 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-portal.md)를 참조하고 **클러스터 유형**에 **Storm**을 선택합니다.
 
@@ -55,7 +55,7 @@ Storm UI를 사용하여 토폴로지를 모니터링하려면 다음 단계를 
 
     새 페이지에서는 다음 정보를 제공합니다.
 
-    |자산 | 설명 |
+    |속성 | Description |
     |---|---|
     |토폴로지 통계|기간으로 구성된 토폴로지 성능에 대한 기본 정보입니다. 특정 기간을 선택하면 페이지의 다른 섹션에 표시되는 정보에 대한 기간이 변경됩니다.|
     |Spout|각 Spout에서 반환된 마지막 오류를 포함한 Spout에 대한 기본 정보입니다.|
@@ -72,7 +72,7 @@ Storm UI를 사용하여 토폴로지를 모니터링하려면 다음 단계를 
 
     새 페이지에는 다음 정보가 표시됩니다.
 
-    |자산 | 설명 |
+    |속성 | Description |
     |---|---|
     |Spout/Bolt 통계|기간으로 구성된 구성 요소 성능에 대한 기본 정보입니다. 특정 기간을 선택하면 페이지의 다른 섹션에 표시되는 정보에 대한 기간이 변경됩니다.|
     |입력 통계(Bolt에만 해당)|Bolt에서 사용되는 데이터를 생성하는 구성 요소에 대한 정보입니다.|

@@ -17,10 +17,10 @@ author: mlearned
 ms.custom: mvc
 monikerRange: vsts
 ms.openlocfilehash: a0496999a9a5dc3e9bfd57df0ec035e6db77d620
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73615121"
 ---
 # <a name="tutorial-create-a-cicd-pipeline-for-your-existing-code-by-using-azure-devops-projects"></a>자습서: Azure DevOps Projects를 사용하여 기존 코드용 CI/CD 파이프라인 만들기
@@ -37,9 +37,9 @@ Azure DevOps Projects는 CI(지속적인 통합) 및 CD(지속적인 업데이�
 > * Azure Pipelines CI/CD 파이프라인 검사
 > * 리소스 정리
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-* Azure 구독. [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/)을 통해 무료 구독을 구할 수 있습니다.
+* Azure 구독 [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/)을 통해 무료 구독을 구할 수 있습니다.
 * .NET, Java, PHP, Node.js, Python 또는 정적 웹 코드가 포함된 GitHub 또는 외부 Git 리포지토리에 액세스합니다.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인

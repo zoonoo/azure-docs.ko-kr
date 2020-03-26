@@ -17,10 +17,10 @@ ms.date: 01/03/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 957fee48397bc0b23737157dec0e74cf6505fab5
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73160138"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-jira-by-resolution-gmbh"></a>자습서: SAML SSO for Jira by resolution GmbH와 Azure Active Directory 통합
@@ -32,10 +32,10 @@ SAML SSO for Jira by resolution GmbH와 Azure AD를 통합하면 다음과 같�
 * 사용자가 SAML SSO for Jira by resolution GmbH(Single Sign-On)를 사용하여 Azure AD 계정을 통해 Jira에 자동으로 로그인되도록 할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure AD 통합 및 SAML SSO for Jira by resolution GmbH를 구성하려면 다음 항목이 필요합니다.
 
@@ -129,37 +129,37 @@ Jira by resolution GmbH에 대해 SAML SSO를 사용하는 Single Sign-On을 구
 
 2. 오른쪽에 있는 코그를 마우스로 가리키고 **앱 관리**를 클릭합니다.
     
-    ![Configure Single Sign-On](./media/samlssojira-tutorial/addon1.png)
+    ![Single Sign-on 구성](./media/samlssojira-tutorial/addon1.png)
 
 3. 관리자 액세스 페이지로 리디렉션되면 **암호**를 입력하고 **확인** 단추를 클릭합니다.
 
-    ![Configure Single Sign-On](./media/samlssojira-tutorial/addon2.png)
+    ![Single Sign-on 구성](./media/samlssojira-tutorial/addon2.png)
 
 4. 일반적으로 Jira에서 Atlassian Marketplace로 리디렉션됩니다. 그렇지 않은 경우 왼쪽 패널에서 **새 앱 찾기**를 클릭합니다. **SAML SSO(Single Sign-On) for JIRA**를 검색하고 **설치** 단추를 클릭하여 SAML 플러그 인을 설치합니다.
 
-    ![Configure Single Sign-On](./media/samlssojira-tutorial/store.png)
+    ![Single Sign-on 구성](./media/samlssojira-tutorial/store.png)
 
 5. 플러그 인 설치가 시작됩니다. 완료되면 **닫기** 단추를 클릭합니다.
 
-    ![Configure Single Sign-On](./media/samlssojira-tutorial/store-2.png)
+    ![Single Sign-on 구성](./media/samlssojira-tutorial/store-2.png)
 
-    ![Configure Single Sign-On](./media/samlssojira-tutorial/store-3.png)
+    ![Single Sign-on 구성](./media/samlssojira-tutorial/store-3.png)
 
 6. 그런 다음, **관리**를 클릭합니다.
 
-    ![Configure Single Sign-On](./media/samlssojira-tutorial/store-4.png)
+    ![Single Sign-on 구성](./media/samlssojira-tutorial/store-4.png)
     
 8. 다음으로 **구성**을 클릭하여 방금 설치된 플러그 인을 구성합니다.
 
-    ![Configure Single Sign-On](./media/samlssojira-tutorial/store-5.png)
+    ![Single Sign-on 구성](./media/samlssojira-tutorial/store-5.png)
 
 9. **SAML SingleSignOn 플러그인 구성** 마법사에서 **새 IDP 추가**를 클릭하여 새 ID 공급 기업으로 Azure AD를 구성합니다.
 
-    ![Configure Single Sign-On](./media/samlssojira-tutorial/addon4.png) 
+    ![Single Sign-on 구성](./media/samlssojira-tutorial/addon4.png) 
 
 10. **SAML ID 공급 기업 선택** 페이지에서 다음 단계를 수행합니다.
 
-    ![Configure Single Sign-On](./media/samlssojira-tutorial/addon5a.png)
+    ![Single Sign-on 구성](./media/samlssojira-tutorial/addon5a.png)
  
     a. **Azure AD**를 IdP 유형으로 설정합니다.
     
@@ -171,11 +171,11 @@ Jira by resolution GmbH에 대해 SAML SSO를 사용하는 Single Sign-On을 구
     
 11. **ID 공급자 구성** 페이지에서 **다음**을 클릭합니다.
  
-    ![Configure Single Sign-On](./media/samlssojira-tutorial/addon5b.png)
+    ![Single Sign-on 구성](./media/samlssojira-tutorial/addon5b.png)
 
 12. **SAML IdP 메타데이터 가져오기** 페이지에서 다음 단계를 수행합니다.
 
-    ![Configure Single Sign-On](./media/samlssojira-tutorial/addon5c.png)
+    ![Single Sign-on 구성](./media/samlssojira-tutorial/addon5c.png)
 
     a. **메타데이터 XML 파일 선택** 단추를 클릭하고 전에 다운로드한 **페더레이션 메타데이터 XML** 파일을 선택합니다.
 
@@ -187,19 +187,19 @@ Jira by resolution GmbH에 대해 SAML SSO를 사용하는 Single Sign-On을 구
     
 13. **사용자 ID 특성 및 변환** 페이지에서 **다음** 단추를 클릭합니다.
 
-    ![Configure Single Sign-On](./media/samlssojira-tutorial/addon5d.png)
+    ![Single Sign-on 구성](./media/samlssojira-tutorial/addon5d.png)
     
 14. **사용자 만들기 및 업데이트** 페이지에서 **저장 및 다음**을 클릭하여 설정을 저장합니다.
     
-    ![Configure Single Sign-On](./media/samlssojira-tutorial/addon6a.png)
+    ![Single Sign-on 구성](./media/samlssojira-tutorial/addon6a.png)
     
 15. **설정 테스트** 페이지에서 **테스트 건너뛰기 및 수동으로 구성**을 클릭하여 현재 사용자 테스트를 건너뜁니다. 이는 다음 섹션에서 수행되며 Azure Portal에서 몇 가지 설정이 필요합니다.
     
-    ![Configure Single Sign-On](./media/samlssojira-tutorial/addon6b.png)
+    ![Single Sign-on 구성](./media/samlssojira-tutorial/addon6b.png)
     
 16. **확인**을 클릭하여 경고를 건너뜁니다.
     
-    ![Configure Single Sign-On](./media/samlssojira-tutorial/addon6c.png)
+    ![Single Sign-on 구성](./media/samlssojira-tutorial/addon6c.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 

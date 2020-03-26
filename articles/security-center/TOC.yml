@@ -37,9 +37,7 @@
       href: security-center-compliance-dashboard.md
 - name: 개념
   items:
-    - name: Security Center의 보안 점수
-      href: security-center-secure-score.md
-    - name: 향상된 보안 점수
+    - name: 보안 점수
       href: secure-score-security-controls.md
     - name: 사용 권한
       href: security-center-permissions.md
@@ -59,16 +57,18 @@
           href: azure-kubernetes-service-integration.md
     - name: 위협 보호 및 보안 경고
       items:
+        - name: 위협 보호 및 Azure Security Center
+          href: threat-protection.md
         - name: 보안 경고 개요
           href: security-center-alerts-overview.md
         - name: 경고의 참조 목록
           href: alerts-reference.md
+        - name: 경고 스키마
+          href: alerts-schemas.md
         - name: 보안 경고 관리
           href: security-center-managing-and-responding-alerts.md
         - name: 보안 인시던트 관리
           href: security-center-incident.md
-        - name: 위협 보호 및 Azure Security Center
-          href: threat-protection.md
         - name: 클라우드 스마트 경고 상관 관계(인시던트)
           href: security-center-alerts-cloud-smart.md
         - name: 보안 경고 맵 및 위협 인텔리전스
@@ -201,6 +201,8 @@
       href: security-center-features-retirement-july2019.md
     - name: 엔드포인트 보호 평가 및 권장 사항
       href: security-center-endpoint-protection.md
+    - name: 보안 점수(레거시)
+      href: security-center-secure-score.md
 - name: 리소스
   items:
     - name: Microsoft Learn을 통해 기술 쌓기

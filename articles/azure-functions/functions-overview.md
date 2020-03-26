@@ -7,10 +7,10 @@ ms.topic: overview
 ms.date: 01/16/2020
 ms.custom: H1Hack27Feb2017, mvc
 ms.openlocfilehash: f0948cb58ba9403a34fbfd61ec43c29bed3440bc
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77621013"
 ---
 # <a name="an-introduction-to-azure-functions"></a>Azure Functions 소개
@@ -67,7 +67,7 @@ Functions는 대량 데이터 처리, 시스템 통합, IoT(사물 인터넷) �
 
 - **Service Bus 토픽**: [Service Bus 토픽 메시지에 응답](./functions-bindings-service-bus.md)하여 다른 Azure 서비스 또는 프레미스 서비스 연결
 
-## <a name="pricing"></a>Functions 사용 비용
+## <a name="how-much-does-functions-cost"></a><a name="pricing"></a>Functions 사용 비용
 
 Azure Functions에는 세 종류의 가격 책정 계획이 있습니다. 사용자의 요구에 가장 잘 맞는 하나를 선택합니다.
 

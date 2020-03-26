@@ -13,10 +13,10 @@ ms.author: mimart
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: af0a826c499790c86a20ea7061075a6c3e66b3a4
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73062643"
 ---
 # <a name="add-a-gallery-app-to-your-azure-ad-organization"></a>Azure AD 조직에 갤러리 앱 추가
@@ -71,27 +71,27 @@ Azure AD(Azure Active Directory)에는 Enterprise Single Sign-On이 설정된 �
        |---|---|---|---|---|
        | 사용자가 로그인할 수 있습니까? | 사용자 할당이 필요합니까? | 사용자가 볼 수 있습니까? | 할당된 사용자가 로그인할 수 있습니까? | 할당된 사용자가 애플리케이션을 볼 수 있습니까?* |
        | 예 | 예 | 예 | 예 | 예  |
-       | 예 | 예 | no  | 예 | no   |
-       | 예 | no  | 예 | 예 | 예  |
-       | 예 | no  | no  | 예 | no   |
-       | no  | 예 | 예 | no  | no   |
-       | no  | 예 | no  | no  | no   |
-       | no  | no  | 예 | no  | no   |
-       | no  | no  | no  | no  | no   |
+       | 예 | 예 | 아니요  | 예 | 아니요   |
+       | 예 | 아니요  | 예 | 예 | 예  |
+       | 예 | 아니요  | 아니요  | 예 | 아니요   |
+       | 아니요  | 예 | 예 | 아니요  | 아니요   |
+       | 아니요  | 예 | 아니요  | 아니요  | 아니요   |
+       | 아니요  | 아니요  | 예 | 아니요  | 아니요   |
+       | 아니요  | 아니요  | 아니요  | 아니요  | 아니요   |
 
       **할당되지 않은** 사용자에 대한 동작:
 
        | 애플리케이션 속성 설정 | | | 할당되지 않은 사용자 환경 | |
        |---|---|---|---|---|
        | 사용자가 로그인할 수 있습니까? | 사용자 할당이 필요합니까? | 사용자가 볼 수 있습니까? | 할당되지 않은 사용자가 로그인할 수 있습니까? | 할당되지 않은 사용자가 애플리케이션을 볼 수 있습니다? * |
-       | 예 | 예 | 예 | no  | no   |
-       | 예 | 예 | no  | no  | no   |
-       | 예 | no  | 예 | 예 | no   |
-       | 예 | no  | no  | 예 | no   |
-       | no  | 예 | 예 | no  | no   |
-       | no  | 예 | no  | no  | no   |
-       | no  | no  | 예 | no  | no   |
-       | no  | no  | no  | no  | no   |
+       | 예 | 예 | 예 | 아니요  | 아니요   |
+       | 예 | 예 | 아니요  | 아니요  | 아니요   |
+       | 예 | 아니요  | 예 | 예 | 아니요   |
+       | 예 | 아니요  | 아니요  | 예 | 아니요   |
+       | 아니요  | 예 | 예 | 아니요  | 아니요   |
+       | 아니요  | 예 | 아니요  | 아니요  | 아니요   |
+       | 아니요  | 아니요  | 예 | 아니요  | 아니요   |
+       | 아니요  | 아니요  | 아니요  | 아니요  | 아니요   |
 
      *사용자가 액세스 패널 및 Office 365 앱 시작 관리자에서 애플리케이션을 볼 수 있습니까?
 

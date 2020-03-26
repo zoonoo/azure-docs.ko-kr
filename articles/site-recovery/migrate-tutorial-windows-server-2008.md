@@ -9,15 +9,15 @@ ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: 20fe29a6588891c35520db01ac0403fb5b3a85d7
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73936133"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>Windows Server 2008을 실행하는 서버에서 Azure로 마이그레이션
 
-이 자습서에서는 Azure Site Recovery를 사용하여 Windows Server 2008 또는 2008 R2를 실행하는 온-프레미스 서버에서 Azure로 마이그레이션하는 방법을 보여줍니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 Azure Site Recovery를 사용하여 Windows Server 2008 또는 2008 R2를 실행하는 온-프레미스 서버에서 Azure로 마이그레이션하는 방법을 보여줍니다. 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 마이그레이션을 위한 온-프레미스 환경 준비
@@ -46,7 +46,7 @@ ms.locfileid: "73936133"
 > - 마이그레이션하기 전에 최신 서비스 팩 및 Windows 업데이트가 설치되어 있는지 확인합니다.
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 [VMware 및 물리적 서버 마이그레이션](vmware-azure-architecture.md) 또는 [Hyper-V 가상 머신 마이그레이션](hyper-v-azure-architecture.md)에 대한 Azure Site Recovery 아키텍처를 검토하는 것이 좋습니다. 
 

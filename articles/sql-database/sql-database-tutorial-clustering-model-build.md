@@ -14,20 +14,20 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/29/2019
 ms.openlocfilehash: 9f16ebc5acff7bbccc9de28e2fab0d223c6e244b
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68640002"
 ---
 # <a name="tutorial-build-a-clustering-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>자습서: Azure SQL Database Machine Learning Services(미리 보기)를 사용하여 R에서 클러스터링 모델 빌드
 
 세 부분으로 구성된 이 자습서 시리즈의 2부에서는 R에서 K-평균 모델을 빌드하여 클러스터링을 수행합니다. 이 시리즈의 다음 부분에서는 Azure SQL Database Machine Learning Services(미리 보기)를 사용하여 이 모델을 SQL 데이터베이스에 배포합니다.
 
-이 문서에서는 다음 방법을 설명합니다.
+이 문서에서는 다음을 수행하는 방법을 알아봅니다.
 
 > [!div class="checklist"]
-> * K-평균 알고리즘의 클러스터 수 정의
+> * KI-평균 알고리즘에 대한 클러스터 수 정의
 > * 클러스터링 수행
 > * 결과 분석
 
@@ -37,19 +37,19 @@ ms.locfileid: "68640002"
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 이 자습서 시리즈의 2부에서는 [**1부**](sql-database-tutorial-clustering-model-prepare-data.md) 및 해당 전제 작업을 완료했다고 가정합니다.
 
 ## <a name="define-the-number-of-clusters"></a>클러스터 수 정의
 
-고객 데이터를 클러스터링하기 위해, 가장 간단하고 가장 유명한 데이터 그룹화 방법 중 하나인 **K-평균** 클러스터링 알고리즘을 사용하겠습니다.
-K-평균에 대한 자세한 내용은 [K-평균 클러스터링 알고리즘 전체 가이드](https://www.kdnuggets.com/2019/05/guide-k-means-clustering-algorithm.html)를 참조하세요.
+고객 데이터를 클러스터링하기 위해서는 데이터 그룹화를 위해 가장 잘 알려져 있고 가장 간단한 방법 중 하나인 **K-평균** 클러스터링 알고리즘을 사용합니다.
+K-평균에 대한 자세한 내용은 [K-평균 클러스터링 알고리즘에 대한 전체 가이드](https://www.kdnuggets.com/2019/05/guide-k-means-clustering-algorithm.html)를 참조하세요.
 
-이 알고리즘의 입력은 다음 두 가지입니다. 하나는 데이터 자체이고, 다른 하나는 생성할 클러스터 수를 나타내는 미리 정의된 숫자 "*k*"입니다.
-출력은 입력 데이터가 여러 클러스터에 분할된 *k* 클러스터입니다.
+이 알고리즘은 두 가지 입력을 허용합니다. 이 두 가지는 데이터 자체와 생성할 클러스터 수를 나타내는 미리 정의된 숫자인 "*k*"입니다.
+출력은 클러스터 간에 분할된 입력 데이터를 포함하는 *k* 클러스터입니다.
 
-알고리즘에 사용할 클러스터 수를 결정하려면 그룹 내 제곱합과 추출한 클러스터 수 사이의 관계를 보여주는 플롯을 사용합니다. 적절한 클러스터 수는 플롯의 벤드 또는 "엘보우" 위치입니다.
+알고리즘에 사용할 클러스터 수를 결정하려면 추출된 클러스터 수만큼 제곱의 내부 그룹 합계의 플롯을 사용합니다. 사용할 적절한 클러스터 수는 플롯의 굽은 지점 또는 "elbow"에 있습니다.
 
 ```r
 # Determine number of clusters by using a plot of the within groups sum of squares,
@@ -60,9 +60,9 @@ for (i in 2:20)
 plot(1:20, wss, type = "b", xlab = "Number of Clusters", ylab = "Within groups sum of squares")
 ```
 
-![엘보우 그래프](./media/sql-database-tutorial-clustering-model-build/elbow-graph.png)
+![Elbow 그래프](./media/sql-database-tutorial-clustering-model-build/elbow-graph.png)
 
-그래프에 따르면, *k = 4* 값을 사용하는 것이 좋아 보입니다. 이 *k* 값은 고객을 네 개의 클러스터로 그룹화합니다.
+그래프에 따르면 *k = 4*가 적합한 값으로 보입니다. 이 *k* 값은 고객을 4개 클러스터로 그룹화합니다.
 
 ## <a name="perform-clustering"></a>클러스터링 수행
 
@@ -122,18 +122,18 @@ Within cluster sum of squares by cluster:
     0.0000  1329.0160 18561.3157   363.2188
 ```
 
-[1부](sql-database-tutorial-clustering-model-prepare-data.md#separate-customers)에 정의된 다음과 같은 변수를 사용하여 4개 클러스터의 평균값이 제공됩니다.
+[1부](sql-database-tutorial-clustering-model-prepare-data.md#separate-customers)에 정의된 변수를 사용하여 4개의 클러스터 평균이 제공되었습니다.
 
-* *orderRatio* = 환불 주문 비율(일부 환불 또는 전체 환불한 주문 수 대비 총 주문 수)
-* *itemsRatio* = 환불 항목 비율(환불한 항목 수 대비 구매한 총 항목 수)
-* *monetaryRatio* = 환불 금액 비율(환불한 금액 대비 총 구매 금액)
-* *frequency* = 환불 빈도
+* *orderRatio* = 반품 주문 비율(전체 주문 수 대비 부분 또는 전체적으로 반품된 주문 합계 수)
+* *itemsRatio* = 반품 항목 비율(구입한 항목 수 대비 반품된 총 항목 수)
+* *monetaryRatio* = 반품 금액 비율(구입한 금액 대비 반품된 항목의 총 금액)
+* *frequency* = 반품 빈도
 
-K-평균을 사용하는 데이터 마이닝은 종종 결과를 심층 분석해야 하고 각 클러스터를 보다 정확하게 이해하기 위한 추가 단계를 수행해야 하지만, 유망한 잠재 고객을 얻을 수 있습니다.
-다음과 같은 방법으로 결과를 해석할 수 있습니다.
+K-평균을 사용한 데이터 마이닝에는 결과에 대한 추가 분석 및 각 클러스터에 대한 이해 수준 향상을 위한 추가 단계가 필요한 경우가 많지만, 이를 통해 좋은 효과를 얻을 수 있습니다.
+이러한 결과를 해석할 수 있는 몇 가지 방법은 다음과 같습니다.
 
 * 클러스터 1(가장 큰 클러스터)은 적극적이지 않은 고객 그룹인 것 같습니다(모든 값이 0).
-* 클러스터 3은 환불 동작이 많이 발생하는 그룹인 것 같습니다.
+* 클러스터 3은 반품 비중이 높은 그룹으로 보입니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -148,9 +148,9 @@ Azure Portal에서 다음 단계를 따릅니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서 시리즈의 제2부에서는 다음 단계를 완료했습니다.
+이 자습서 시리즈의 2부에서 다음 단계를 완료했습니다.
 
-* K-평균 알고리즘의 클러스터 수 정의
+* KI-평균 알고리즘에 대한 클러스터 수 정의
 * 클러스터링 수행
 * 결과 분석
 

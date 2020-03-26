@@ -7,12 +7,12 @@ ms.date: 01/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: b53896896ecd4b0e577e8d2c5ec13e00ce6fab30
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: e68e91d90846ab77b994b53be7a84a9dd8bc5a25
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78191931"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79216171"
 ---
 # <a name="quickstart-manage-blobs-with-javascript-v12-sdk-in-nodejs"></a>빠른 시작: Node.js에서 JavaScript v12 SDK를 사용하여 Blob 관리
 
@@ -118,7 +118,7 @@ Azure Blob Storage는 대량의 비정형 데이터를 저장하도록 최적화
 
 다음 다이어그램에서는 이러한 리소스 간의 관계를 보여줍니다.
 
-![Blob Storage 아키텍처 다이어그램](./media/storage-blob-introduction/blob1.png)
+![Blob Storage 아키텍처 다이어그램](./media/storage-blobs-introduction/blob1.png)
 
 다음 JavaScript 클래스를 사용하여 이러한 리소스와 상호 작용합니다.
 

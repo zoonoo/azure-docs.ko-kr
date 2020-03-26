@@ -5,34 +5,34 @@ ms.topic: include
 ms.date: 1/30/2019
 ms.author: rgarcia
 ms.openlocfilehash: ec8fb6efab126dcf5556a9abfdf58d1fd69d4212
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72882330"
 ---
-## <a name="androidtabandroid"></a>[Android](#tab/Android)
+## <a name="android"></a>[Android](#tab/Android)
 
 Java Android 샘플은 디바이스 간 공유를 지원합니다.
 Android Studio의 샘플 폴더에서 `SharedActivity.java` 파일을 엽니다. 이전 단계에서 가져온 URL(ASP.NET 웹앱 Azure 배포에서)을 `SharedActivity.java` 파일의 `SharingAnchorsServiceUrl`에 대한 값으로 입력합니다. URL의 `index.html`을 `api/anchors`로 바꿉니다. `https://<app_name>.azurewebsites.net/api/anchors`와 비슷한 형식이어야 합니다.
 
 [!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
 
-## <a name="iostabios"></a>[iOS](#tab/iOS)
+## <a name="ios"></a>[iOS](#tab/iOS)
 
 Objective-C iOS 샘플은 디바이스 간 공유를 지원합니다.
 샘플 폴더에서 `SharedDemoViewController.m` 파일을 엽니다. 이전 단계에서 가져온 URL(ASP.NET 웹앱 Azure 배포에서)을 `SharedActivity.java` 파일의 `SharingAnchorsServiceUrl`에 대한 값으로 입력합니다. URL의 `index.html`을 `api/anchors`로 바꿉니다. `https://<app_name>.azurewebsites.net/api/anchors`와 비슷한 형식이어야 합니다.
 
 [!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
 
-## <a name="xamarintabxamarin"></a>[Xamarin](#tab/Xamarin)
+## <a name="xamarin"></a>[Xamarin](#tab/Xamarin)
 
 Xamarin Android와 iOS 샘플 모두 디바이스 간 공유를 지원합니다.
 샘플 폴더에서 `AccountDetails.cs` 파일을 엽니다. 이전 단계에서 가져온 URL(ASP.NET 웹앱 Azure 배포에서)을 `SharedActivity.java` 파일의 `AnchorSharingServiceUrl`에 대한 값으로 입력합니다. URL의 `index.html`을 `api/anchors`로 바꿉니다. `https://<app_name>.azurewebsites.net/api/anchors`와 비슷한 형식이어야 합니다.
 
 [!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
 
-## <a name="unitytabunity"></a>[Unity](#tab/Unity)
+## <a name="unity"></a>[Unity](#tab/Unity)
 
 [!INCLUDE [Open Unity Project](spatial-anchors-open-unity-project.md)]
 

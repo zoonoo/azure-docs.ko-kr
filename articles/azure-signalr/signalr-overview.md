@@ -7,10 +7,10 @@ ms.topic: overview
 ms.date: 11/13/2019
 ms.author: zhshang
 ms.openlocfilehash: 31cb4570dd0952f60fbff2fa1131b3af36c278cb
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74157583"
 ---
 # <a name="what-is-azure-signalr-service"></a>Azure SignalR Service란?
@@ -26,7 +26,7 @@ Azure SignalR Service는 HTTP를 통해 애플리케이션에 실시간 웹 기�
 
 서버에서 폴링이 필요한 일반적인 실시간 기능에도 Azure SignalR Service를 사용할 수 있습니다.
 
-Azure SignalR Service는 매우 다양한 업계에서 실시간 콘텐츠 업데이트가 필요한 애플리케이션 유형에 사용되었습니다. 다음에 Azure SignalR Service를 사용하면 좋은 몇 가지 예가 나와 있습니다.
+Azure SignalR Service는 매우 다양한 업계에서 실시간 콘텐츠 업데이트가 필요한 애플리케이션 유형에 사용되었습니다. Azure SignalR Service를 유용하게 활용할 수 있는 예시는 다음과 같습니다.
 
 * **높은 빈도 데이터 업데이트:** 게임, 투표, 폴링, 경매
 * **대시보드 및 모니터링:** 회사 대시보드, 금융 시장 데이터, 인스턴트 판매 업데이트, 다중 플레이어 게임 리더 보드, IoT 모니터링

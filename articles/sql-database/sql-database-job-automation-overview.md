@@ -9,17 +9,18 @@ ms.topic: overview
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
-ms.date: 02/07/2020
-ms.openlocfilehash: 1ffa17bd0e35e3753cde3e915c0ee70d8000147a
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.date: 03/10/2020
+ms.openlocfilehash: dcaaf3c2f793e7148e1695cdfaa68c768db5fff6
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77083124"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79215461"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>데이터베이스 작업을 사용하여 관리 작업 자동화
 
-Azure SQL Database를 통해 T-SQL 쿼리를 실행하고 유지 관리 작업을 수행하도록 하나 이상의 데이터베이스에 대해 주기적으로 실행되는 작업을 만들고 예약할 수 있습니다. 모든 작업은 실행의 상태를 기록하고 오류가 발생하는 경우 작업을 자동으로 다시 시도합니다.
+Azure SQL Database를 통해 T-SQL 쿼리를 실행하고 유지 관리 작업을 수행하도록 하나 이상의 데이터베이스에 대해 주기적으로 실행되는 작업을 만들고 예약할 수 있습니다.
+모든 작업은 실행의 상태를 기록하고 오류가 발생하는 경우 작업을 자동으로 다시 시도합니다.
 대상 데이터베이스 또는 작업이 실행되는 Azure SQL 데이터베이스의 그룹을 정의할 수 있으며, 작업 실행을 위한 일정도 정의할 수 있습니다.
 작업은 대상 데이터베이스에 로그인하는 작업을 처리합니다. 또한 Azure SQL 데이터베이스 그룹에서 실행할 Transact-SQL 스크립트를 정의, 유지 관리 및 보존합니다.
 
@@ -48,10 +49,10 @@ Azure SQL Database를 통해 T-SQL 쿼리를 실행하고 유지 관리 작업�
 
 SQL 에이전트(온-프레미스 및 SQL Database Managed Instance의 일부로 사용 가능)와 Database 탄력적 작업 에이전트(Azure SQL 데이터베이스의 단일 데이터베이스 및 SQL Data Warehouse의 데이터베이스에서 사용 가능) 사이의 몇 가지 차이점을 주목할 필요가 있습니다.
 
-|  |탄력적 작업  |SQL 에이전트 |
+| |탄력적 작업 |SQL 에이전트 |
 |---------|---------|---------|
-|범위     |  작업 에이전트와 동일한 Azure 클라우드에서 많은 수의 Azure SQL 데이터베이스 및/또는 데이터 웨어하우스입니다. 대상은 다른 SQL Database 서버, 구독 및/또는 지역에 있을 수 있습니다. <br><br>대상 그룹은 개별 데이터베이스나 데이터 웨어하우스 또는 서버, 풀 또는 shardmap(작업 런타임 시 동적으로 열거되는)의 모든 데이터베이스로 구성됩니다. | SQL 에이전트와 동일한 SQL Server 인스턴스의 모든 개별 데이터베이스입니다. |
-|지원되는 API 및 도구     |  포털, PowerShell, T-SQL, Azure Resource Manager      |   T-SQL 및 SSMS(SQL Server Management Studio)     |
+|범위 | 작업 에이전트와 동일한 Azure 클라우드에서 많은 수의 Azure SQL 데이터베이스 및/또는 데이터 웨어하우스입니다. 대상은 다른 SQL Database 서버, 구독 및/또는 지역에 있을 수 있습니다. <br><br>대상 그룹은 개별 데이터베이스나 데이터 웨어하우스 또는 서버, 풀 또는 shardmap(작업 런타임 시 동적으로 열거되는)의 모든 데이터베이스로 구성됩니다. | SQL 에이전트와 동일한 SQL Server 인스턴스의 모든 개별 데이터베이스입니다. |
+|지원되는 API 및 도구 | 포털, PowerShell, T-SQL, Azure Resource Manager | T-SQL 및 SSMS(SQL Server Management Studio) |
 
 ## <a name="sql-agent-jobs"></a>SQL 에이전트 작업
 
@@ -106,8 +107,8 @@ EXECUTE msdb.dbo.sysmail_add_account_sp
     @email_address = '$(loginEmail)',
     @display_name = 'SQL Agent Account',
     @mailserver_name = '$(mailserver)' ,
-    @username = '$(loginEmail)' ,  
-    @password = '$(password)' 
+    @username = '$(loginEmail)' ,
+    @password = '$(password)'
 
 -- Create a Database Mail profile
 EXECUTE msdb.dbo.sysmail_add_profile_sp
@@ -125,13 +126,13 @@ EXECUTE msdb.dbo.sysmail_add_profileaccount_sp
 
 ```sql
 GO
-EXEC sp_configure 'show advanced options', 1;  
-GO  
-RECONFIGURE;  
-GO  
-EXEC sp_configure 'Database Mail XPs', 1;  
-GO  
-RECONFIGURE 
+EXEC sp_configure 'show advanced options', 1;
+GO
+RECONFIGURE;
+GO
+EXEC sp_configure 'Database Mail XPs', 1;
+GO
+RECONFIGURE
 ```
 
 SQL 에이전트 작업에 문제가 발생했음을 운영자에게 알릴 수 있습니다. 운영자는 하나 이상의 Managed Instance의 유지 관리를 담당하는 개인에 대한 연락처 정보를 정의합니다. 운영자 책임이 개인 한 명에게 할당되는 경우도 있습니다.
@@ -140,23 +141,24 @@ SQL 에이전트 작업에 문제가 발생했음을 운영자에게 알릴 수 
 다음 예제와 같은 Transact-SQL 스크립트나 SSMS를 사용하여 운영자를 만들 수 있습니다.
 
 ```sql
-EXEC msdb.dbo.sp_add_operator 
-    @name=N'Mihajlo Pupun', 
-        @enabled=1, 
-        @email_address=N'mihajlo.pupin@contoso.com'
+EXEC msdb.dbo.sp_add_operator
+    @name=N'Mihajlo Pupun',
+    @enabled=1,
+    @email_address=N'mihajlo.pupin@contoso.com'
 ```
 
 SSMS 또는 다음 Transact-SQL 스크립트를 사용하여 모든 작업을 수정할 수 있으며, 작업이 완료, 실패 또는 성공하는 경우 이메일을 통해 알림을 받는 운영자를 할당할 수 있습니다.
 
 ```sql
-EXEC msdb.dbo.sp_update_job @job_name=N'Load data using SSIS', 
-        @notify_level_email=3,                        -- Options are: 1 on succeed, 2 on failure, 3 on complete
-        @notify_email_operator_name=N'Mihajlo Pupun'
+EXEC msdb.dbo.sp_update_job @job_name=N'Load data using SSIS',
+    @notify_level_email=3, -- Options are: 1 on succeed, 2 on failure, 3 on complete
+    @notify_email_operator_name=N'Mihajlo Pupun'
 ```
 
 ### <a name="sql-agent-job-limitations"></a>SQL 에이전트 작업 제한 사항
 
 SQL Server에서 사용할 수 있는 SQL 에이전트 기능 중 일부는 Managed Instance에서 지원되지 않습니다.
+
 - SQL 에이전트 설정은 읽기 전용입니다. `sp_set_agent_properties` 프로시저는 Managed Instance에서 지원되지 않습니다.
 - SQL 에이전트 사용 설정/해제는 현재 Managed Instance에서 지원되지 않습니다. SQL 에이전트는 항상 실행됩니다.
 - 알림은 부분적으로 지원됩니다.
@@ -180,17 +182,16 @@ SQL Server 에이전트에 대한 자세한 내용은 [SQL Server 에이전트](
 
 ### <a name="elastic-job-components"></a>탄력적 작업 구성 요소
 
-|구성 요소  | 설명(추가 세부 정보는 표 아래에 있음) |
+|구성 요소 | 설명(추가 세부 정보는 표 아래에 있음) |
 |---------|---------|
-|[**탄력적 작업 에이전트**](#elastic-job-agent) |  작업을 실행하고 관리하기 위해 만든 Azure 리소스입니다.   |
-|[**작업 데이터베이스**](#job-database)    |    작업 에이전트가 작업 관련 데이터, 작업 정의 등을 저장하는 데 사용하는 Azure SQL 데이터베이스입니다.      |
-|[**대상 그룹**](#target-group)      |  서버, 풀, 데이터베이스 및 분할된 데이터베이스의 집합이 작업을 실행하기 위해 매핑됩니다.       |
-|[**작업**](#job)  |  작업은 둘 이상의 [작업 단계](#job-step)로 구성된 작업 단위입니다. 작업 단계는 실행할 T-SQL 스크립트 뿐만 아니라 스크립트를 실행하는 데 필요한 기타 세부 정보를 지정합니다.  |
-
+|[**탄력적 작업 에이전트**](#elastic-job-agent) | 작업을 실행하고 관리하기 위해 만든 Azure 리소스입니다. |
+|[**작업 데이터베이스**](#job-database) | 작업 에이전트가 작업 관련 데이터, 작업 정의 등을 저장하는 데 사용하는 Azure SQL 데이터베이스입니다. |
+|[**대상 그룹**](#target-group) | 서버, 풀, 데이터베이스 및 분할된 데이터베이스의 집합이 작업을 실행하기 위해 매핑됩니다. |
+|[**작업**](#job) | 작업은 둘 이상의 [작업 단계](#job-step)로 구성된 작업 단위입니다. 작업 단계는 실행할 T-SQL 스크립트 뿐만 아니라 스크립트를 실행하는 데 필요한 기타 세부 정보를 지정합니다. |
 
 #### <a name="elastic-job-agent"></a>탄력적 작업 에이전트
 
-탄력적 작업 에이전트는 작업을 생성하고 실행하고 관리하기 위한 Azure 리소스입니다. 탄력적 작업 에이전트는 포털에서 만드는 Azure 리소스입니다([PowerShell](elastic-jobs-powershell.md) 및 REST도 지원됩니다). 
+탄력적 작업 에이전트는 작업을 생성하고 실행하고 관리하기 위한 Azure 리소스입니다. 탄력적 작업 에이전트는 포털에서 만드는 Azure 리소스입니다([PowerShell](elastic-jobs-powershell.md) 및 REST도 지원됩니다).
 
 **탄력적 작업 에이전트**를 만드는 데는 기존 SQL 데이터베이스가 필요합니다. 에이전트는 [*작업 데이터베이스*](#job-database) 같은 기존 데이터베이스를 구성합니다.
 
@@ -202,24 +203,20 @@ SQL Server 에이전트에 대한 자세한 내용은 [SQL Server 에이전트](
 
 현재 미리 보기의 경우 탄력적 작업 에이전트를 만드는 데 기존 Azure SQL 데이터베이스(S0 이상)가 필요합니다.
 
-*작업 데이터베이스*는 문자 그대로 새 것일 필요는 없지만 깨끗하고 비어있고 S0 이상의 서비스 개체여야 합니다. *작업 데이터베이스*의 권장되는 서비스 개체는 S1 이상이지만 작업 단계 수, 작업 대상 수 및 작업 실행 빈도 같은 사용자 작업의 성능 요구에 따라 달라집니다. 예를 들어 S0 데이터베이스는 10개 미만의 데이터베이스를 대상으로 한 시간에 거의 작업을 실행하지 않는 작업 에이전트에는 충분할 수 있지만, 1분마다 실행하는 작업에 S0 데이터베이스를 사용하면 빠르지 않을 수 있으며, 서비스 계층이 높을 수록 효과는 더 좋을 수 있습니다. 
+*작업 데이터베이스*는 문자 그대로 새 것일 필요는 없지만 깨끗하고 비어있고 S0 이상의 서비스 개체여야 합니다. *작업 데이터베이스*의 권장되는 서비스 개체는 S1 이상이지만 작업 단계 수, 작업 대상 수 및 작업 실행 빈도 같은 사용자 작업의 성능 요구에 따라 달라집니다. 예를 들어 S0 데이터베이스는 10개 미만의 데이터베이스를 대상으로 한 시간에 거의 작업을 실행하지 않는 작업 에이전트에는 충분할 수 있지만, 1분마다 실행하는 작업에 S0 데이터베이스를 사용하면 빠르지 않을 수 있으며, 서비스 계층이 높을 수록 효과는 더 좋을 수 있습니다.
 
-작업 데이터베이스에 대한 작업이 예상보다 느린 경우 Azure Portal 또는 [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) DMV를 사용하여 속도 저하 기간 동안 작업 데이터베이스에서 데이터베이스 성능 및 리소스 사용률을 [모니터링](sql-database-monitor-tune-overview.md#monitor-database-performance)할 수 있습니다. CPU, 데이터 IO 또는 로그 쓰기와 같은 리소스의 사용률이 100%에 도달하고 속도 저하 기간과 상관 관계에 있는 경우, 작업 데이터베이스 성능이 충분히 향상될 때까지 데이터베이스를 더 높은 서비스 개체([DTU 모델](sql-database-service-tiers-dtu.md) 또는 [vCore 모델](sql-database-service-tiers-vcore.md)에서)로 증분 확장하는 것이 좋습니다.
-
+작업 데이터베이스에 대한 작업이 예상보다 느린 경우 Azure Portal 또는 [sys.dm_db_resource_stats](sql-database-monitor-tune-overview.md#sql-database-resource-monitoring) DMV를 사용하여 속도 저하 기간 동안 작업 데이터베이스에서 데이터베이스 성능 및 리소스 사용률을 [모니터링](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)할 수 있습니다. CPU, 데이터 IO 또는 로그 쓰기와 같은 리소스의 사용률이 100%에 도달하고 속도 저하 기간과 상관 관계에 있는 경우, 작업 데이터베이스 성능이 충분히 향상될 때까지 데이터베이스를 더 높은 서비스 개체([DTU 모델](sql-database-service-tiers-dtu.md) 또는 [vCore 모델](sql-database-service-tiers-vcore.md)에서)로 증분 확장하는 것이 좋습니다.
 
 ##### <a name="job-database-permissions"></a>작업 데이터베이스 사용 권한
 
 작업 에이전트 생성 동안 스키마, 테이블 및 *jobs_reader*라는 역할이 *작업 데이터베이스*에서 만들어집니다. 역할은 다음과 같은 사용 권한으로 생성되며, 작업 모니터링을 위해 관리자에게 보다 정교한 액세스 제어를 제공하도록 설계되었습니다.
 
-
-|역할 이름  |'작업' 스키마 사용 권한  |'jobs_internal' 스키마 사용 권한  |
+|역할 이름 |'작업' 스키마 사용 권한 |'jobs_internal' 스키마 사용 권한 |
 |---------|---------|---------|
-|**jobs_reader**     |    SELECT     |    None     |
+|**jobs_reader** | SELECT | None |
 
 > [!IMPORTANT]
 > 데이터베이스 관리자로 *작업 데이터베이스*에 대해 액세스 권한을 부여하기 전에 보안 관련 문제를 고려합니다. 작업을 만들거나 편집할 사용 권한이 있는 악의적인 사용자는 해당 악의적인 사용자의 제어 아래 저장된 자격 증명을 사용하는 작업을 만들거나 편집할 수 있으며, 이는 악의적인 사용자가 자격 증명의 암호를 확인하도록 허용할 수 있습니다.
-
-
 
 #### <a name="target-group"></a>대상 그룹
 
@@ -247,7 +244,6 @@ SQL Server 에이전트에 대한 자세한 내용은 [SQL Server 에이전트](
 **예제 4**는 탄력적 풀을 대상으로 포함하는 대상 그룹을 보여줍니다. *예제 2*와 비슷하게, 풀에 있는 데이터베이스 목록을 확인하기 위해 런타임에 풀이 동적으로 열거됩니다.
 <br><br>
 
-
 ![대상 그룹 예제](media/elastic-jobs-overview/targetgroup-examples2.png)
 
 **예제 5** 및 **예제 6**은 포함 및 제외 규칙을 사용하여 Azure SQL Server, 탄력적 풀, 데이터베이스를 결합할 수 있는 고급 시나리오를 보여줍니다.<br>
@@ -271,7 +267,7 @@ SQL Server 에이전트에 대한 자세한 내용은 [SQL Server 에이전트](
 
 #### <a name="job-history"></a>작업 기록
 
-작업 실행 기록은 *작업 데이터베이스*에 저장됩니다. 시스템 정리 작업은 45일 이상된 실행 기록을 제거합니다. 45일 이하 기록을 제거하려면 *작업 데이터베이스*에서 **sp_purge_history** 저장 프로시저를 호출합니다.
+작업 실행 기록은 *작업 데이터베이스*에 저장됩니다. 시스템 정리 작업은 45일 이상된 실행 기록을 제거합니다. 45일 이하 기록을 제거하려면 **작업 데이터베이스**에서 *sp_purge_history* 저장 프로시저를 호출합니다.
 
 ### <a name="agent-performance-capacity-and-limitations"></a>에이전트 성능, 용량 및 제한 사항
 
@@ -287,7 +283,7 @@ SQL 탄력적인 풀에서 데이터베이스에 대해 작업을 실행할 때 
 
 ## <a name="next-steps"></a>다음 단계
 
-- [SQL Server 에이전트란](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent) 
-- [탄력적 작업을 만들고 관리하는 방법](elastic-jobs-overview.md) 
-- [PowerShell을 사용하여 탄력적 작업 만들기 및 관리](elastic-jobs-powershell.md) 
-- [T-SQL(Transact-SQL)을 사용하여 탄력적 작업 만들기 및 관리](elastic-jobs-tsql.md) 
+- [SQL Server 에이전트란](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent)
+- [탄력적 작업을 만들고 관리하는 방법](elastic-jobs-overview.md)
+- [PowerShell을 사용하여 탄력적 작업 만들기 및 관리](elastic-jobs-powershell.md)
+- [T-SQL(Transact-SQL)을 사용하여 탄력적 작업 만들기 및 관리](elastic-jobs-tsql.md)

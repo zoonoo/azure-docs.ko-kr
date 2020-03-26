@@ -9,13 +9,13 @@ ms.topic: quickstart
 ms.date: 02/21/2020
 ms.author: lbosq
 ms.openlocfilehash: f700b06e6ade0d72178777b67cb734f3120b36dc
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78395462"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79214961"
 ---
-# <a name="quickstart-build-a-net-framework-or-core-application-using-the-azure-cosmos-db-gremlin-api-account"></a>빠른 시작: Azure Cosmos DB Gremlin API 계정을 사용 하 여 .NET Framework 또는 핵심 응용 프로그램 빌드
+# <a name="quickstart-build-a-net-framework-or-core-application-using-the-azure-cosmos-db-gremlin-api-account"></a>빠른 시작: Azure Cosmos DB Gremlin API 계정을 사용한 .NET Framework 또는 Core 애플리케이션 빌드
 
 > [!div class="op_single_selector"]
 > * [Gremlin 콘솔](create-graph-gremlin-console.md)
@@ -83,19 +83,19 @@ Visual Studio 2019가 아직 설치되지 않은 경우 **평가판** [Visual St
 
 다음 코드 조각은 모두 Program.cs 파일에서 가져옵니다.
 
-* 위에서 만든 계정을 기반으로 연결 매개 변수를 설정 합니다. 
+* 위에서 만든 계정을 기반으로 하여 연결 매개 변수를 설정합니다. 
 
    :::code language="csharp" source="~/azure-cosmosdb-graph-dotnet/GremlinNetSample/Program.cs" id="configureConnectivity":::
 
-* 실행할 Gremlin 명령은 사전에 나열 됩니다.
+* 실행할 Gremlin 명령이 사전에 나열됩니다
 
    :::code language="csharp" source="~/azure-cosmosdb-graph-dotnet/GremlinNetSample/Program.cs" id="defineQueries":::
 
-* 위에 제공 된 매개 변수를 사용 하 여 새 `GremlinServer`을 만들고 연결 개체를 `GremlinClient` 합니다.
+* 위에서 제공한 매개 변수를 사용하여 새 `GremlinServer` 및 `GremlinClient` 연결 개체를 만듭니다.
 
    :::code language="csharp" source="~/azure-cosmosdb-graph-dotnet/GremlinNetSample/Program.cs" id="defineClientandServerObjects":::
 
-* 비동기 태스크를 사용 하 여 `GremlinClient` 개체를 사용 하 여 각 Gremlin 쿼리를 실행 합니다. 이전 단계에서 정의 된 사전에서 Gremlin 쿼리를 읽고 실행할 수 있습니다. 나중에 결과를 가져오고 Newtonsoft.json 패키지의 `JsonSerializer` 클래스를 사용 하 여 사전으로 형식이 지정 된 값을 읽습니다.
+* `GremlinClient` 개체를 비동기 작업에 사용하여 각 Gremlin 쿼리를 실행합니다. 이전 단계에서 정의한 사전에서 Gremlin 쿼리를 읽고 실행할 수 있습니다. 나중에 결과를 가져와서 Newtonsoft.Json 패키지의 `JsonSerializer` 클래스를 사용하여 사전 형식의 값을 읽습니다.
 
    :::code language="csharp" source="~/azure-cosmosdb-graph-dotnet/GremlinNetSample/Program.cs" id="executeQueries":::
 
@@ -111,18 +111,18 @@ Visual Studio 2019가 아직 설치되지 않은 경우 **평가판** [Visual St
 
     ![엔드포인트 복사](./media/create-graph-dotnet/endpoint.png)
 
-   이 샘플을 실행 하려면 **Gremlin 끝점** 값을 복사 하 고, 끝에서 포트 번호를 삭제 합니다. 즉, URI가 `https://<your cosmos db account name>.gremlin.cosmosdb.azure.com`됩니다. 끝점 값은 다음과 같이 표시 됩니다 `testgraphacct.gremlin.cosmosdb.azure.com`
+   이 샘플을 실행하려면 **Gremlin 엔드포인트** 값을 복사하고, 끝 부분에 있는 포트 번호를 삭제합니다. 즉, URI가 `https://<your cosmos db account name>.gremlin.cosmosdb.azure.com`이 됩니다. 엔드포인트 값이 `testgraphacct.gremlin.cosmosdb.azure.com`과 같습니다.
 
-1. 그런 다음 **키** 탭으로 이동 하 여 Azure Portal의 **기본 키** 값을 복사 합니다. 
+1. 다음으로, **키** 탭으로 이동하고, Azure Portal에서 **기본 키** 값을 복사합니다. 
 
-1. 계정의 URI 및 기본 키를 복사한 후 응용 프로그램을 실행 하는 로컬 컴퓨터의 새 환경 변수에 저장 합니다. 환경 변수를 설정 하려면 명령 프롬프트 창을 열고 다음 명령을 실행 합니다. < Your_Azure_Cosmos_account_URI > 및 < Your_Azure_Cosmos_account_PRIMARY_KEY > 값을 대체 해야 합니다.
+1. 계정의 URI 및 기본 키를 복사한 후 애플리케이션을 실행하는 로컬 머신의 새 환경 변수에 저장합니다. 환경 변수를 설정하려면 명령 프롬프트 창을 열고 다음 명령을 실행합니다. <Your_Azure_Cosmos_account_URI> 및 <Your_Azure_Cosmos_account_PRIMARY_KEY> 값을 바꾸세요.
 
    ```console
    setx EndpointUrl "https://<your cosmos db account name>.gremlin.cosmosdb.azure.com"
    setx PrimaryKey "<Your_Azure_Cosmos_account_PRIMARY_KEY>"
    ```
 
-1. *Program.cs* 파일을 열고 위에서 만든 데이터베이스 및 컨테이너 (그래프 이름 이기도 하는 이름)를 사용 하 여 "데이터베이스 및" 컨테이너 "변수를 업데이트 합니다.
+1. *Program.cs* 파일을 열고, "database" 및 "container" 변수를 위에서 만든 데이터베이스 및 컨테이너 이름(그래프 이름이기도 함)으로 업데이트합니다.
 
     `private static string database = "your-database-name";` `private static string container = "your-container-or-graph-name";`
 

@@ -4,10 +4,10 @@ description: 이 자습서에서는 Azure VM에서 실행되는 SQL Server 데�
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.openlocfilehash: 3216404b04647e2fb5f15beb09b9a4ccd6648bba
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74171879"
 ---
 # <a name="back-up-a-sql-server-database-in-an-azure-vm"></a>Azure VM에서 SQL Server 데이터베이스 백업
@@ -21,7 +21,7 @@ ms.locfileid: "74171879"
 > * 데이터베이스에 대한 자동 보호를 설정합니다.
 > * 주문형 백업을 실행합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 SQL Server 데이터베이스를 백업하기 전에 다음 조건을 확인하십시오.
 
@@ -211,7 +211,7 @@ VM에서 실행되는 데이터베이스를 검색합니다.
 
 14. 백업 정책 편집을 완료 한 후, **확인**을 선택합니다.
 
-## <a name="run-an-on-demand-backup"></a>요청 시 백업 실행
+## <a name="run-an-on-demand-backup"></a>주문형 백업 실행
 
 1. Recovery Services 자격 증명 모음에서 백업 항목을 선택합니다.
 2. "Azure VM의 SQL"을 클릭합니다.

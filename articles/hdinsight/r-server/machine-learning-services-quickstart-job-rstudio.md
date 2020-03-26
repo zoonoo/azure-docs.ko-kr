@@ -9,10 +9,10 @@ ms.date: 06/19/2019
 ms.author: hrasheed
 ms.custom: mvc
 ms.openlocfilehash: 8a6a204ee5080e3acf99c13ecba1e1c7664d68b4
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73241893"
 ---
 # <a name="quickstart-execute-an-r-script-on-an-ml-services-cluster-in-azure-hdinsight-using-rstudio-server"></a>빠른 시작: RStudio Server를 사용하여 Azure HDInsight의 ML Services 클러스터에서 R 스크립트 실행
@@ -33,7 +33,7 @@ RStudio Server는 클러스터의 에지 노드에서 실행됩니다. 다음 UR
 https://CLUSTERNAME.azurehdinsight.net/rstudio/
 ```
 
-처음 로그인할 때는 두 번 인증해야 합니다. 첫 번째 인증 프롬프트에서는 클러스터 관리자 로그인 및 암호를 입력합니다. 기본값은 `admin`입니다. 두 번째 인증 프롬프트에서는 SSH 로그인 및 암호를 입력합니다. 기본값은 `sshuser`입니다. 후속 로그인에서는 SSH 자격 증명만 필요합니다.
+처음 로그인할 때는 두 번 인증해야 합니다. 첫 번째 인증 프롬프트에서는 클러스터 관리자 로그인 및 암호를 입력합니다. 기본값은 `admin`입니다. 두 번째 인증 프롬프트에서는 SSH 로그인 및 암호를 입력합니다. 기본값은 `sshuser`입니다. 그 다음부터는 로그인할 때 SSH 자격 증명만 필요합니다.
 
 연결되면 다음 스크린샷과 유사한 화면이 표시됩니다.
 
@@ -78,7 +78,7 @@ https://CLUSTERNAME.azurehdinsight.net/rstudio/
 
     이 단계를 완료하려면 8분 정도 걸릴 수 있습니다.
 
-1. 몇 가지 데이터 정보를 만들고 두 개의 데이터 원본을 정의합니다. RStudio에 다음 코드를 입력합니다.
+1. 몇 가지 데이터 정보를 만들고 두 개의 데이터 원본을 정의합니다. RStudio에서 다음 코드를 입력합니다.
 
     ```RStudio
     # Define the HDFS (WASB) file system
@@ -105,7 +105,7 @@ https://CLUSTERNAME.azurehdinsight.net/rstudio/
      formula = "ARR_DEL15 ~ ORIGIN + DAY_OF_WEEK + DEP_TIME + DEST"
     ```
 
-1. **로컬** 컴퓨팅 컨텍스트를 사용하여 데이터에 대해 로지스틱 회귀 분석을 실행합니다. RStudio에 다음 코드를 입력합니다.
+1. **로컬** 컴퓨팅 컨텍스트를 사용하여 데이터에 대해 로지스틱 회귀 분석을 실행합니다. RStudio에서 다음 코드를 입력합니다.
 
     ```RStudio
     # Set a local compute context
@@ -150,7 +150,7 @@ https://CLUSTERNAME.azurehdinsight.net/rstudio/
       Number of iterations: 7
     ```
 
-1. **Spark** 컨텍스트를 사용하여 동일한 로지스틱 회귀 분석을 실행합니다. Spark 컨텍스트는 HDInsight 클러스터의 모든 작업자 노드에서 처리를 분산시킵니다. RStudio에 다음 코드를 입력합니다.
+1. **Spark** 컨텍스트를 사용하여 동일한 로지스틱 회귀 분석을 실행합니다. Spark 컨텍스트는 HDInsight 클러스터의 모든 작업자 노드에서 처리를 분산시킵니다. RStudio에서 다음 코드를 입력합니다.
 
     ```RStudio
     # Define the Spark compute context

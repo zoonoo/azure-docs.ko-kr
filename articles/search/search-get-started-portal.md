@@ -9,11 +9,11 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 02/10/2020
 ms.openlocfilehash: 6a3bbdae0d3fa898621c1c805388252beb891ecf
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78379754"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79290431"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Cognitive Search 인덱스 만들기
 > [!div class="op_single_selector"]
@@ -43,11 +43,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ![인덱스, 인덱서 및 데이터 원본 목록](media/search-get-started-portal/tiles-indexers-datasources.png)
 
-## <a name="create-index"></a> 인덱스 및 부하 데이터 만들기
+## <a name="create-an-index-and-load-data"></a><a name="create-index"></a> 인덱스 및 부하 데이터 만들기
 
 검색 쿼리는 특정 검색 동작을 최적화하는 검색 가능 데이터, 메타데이터 및 추가 구문을 포함하는 [*인덱스*](search-what-is-an-index.md)에 대해 반복됩니다.
 
-이 자습서에서는 [*데이터 가져오기* 마법사](search-indexer-overview.md)를 통해 [**인덱서**](search-import-data-portal.md)를 사용하여 크롤링할 수 있는 기본 제공 샘플 데이터 세트를 사용합니다. 인덱서는 지원되는 Azure 데이터 원본에서 메타데이터 및 콘텐츠를 읽을 수 있는 원본 관련 크롤러입니다. 일반적으로 인덱서를 프로그래밍 방식으로 사용하지만 포털에서는 **데이터 가져오기** 마법사를 통해 인덱서에 액세스할 수 있습니다. 
+이 자습서에서는 [**데이터 가져오기** 마법사](search-import-data-portal.md)를 통해 [*인덱서*](search-indexer-overview.md)를 사용하여 크롤링할 수 있는 기본 제공 샘플 데이터 세트를 사용합니다. 인덱서는 지원되는 Azure 데이터 원본에서 메타데이터 및 콘텐츠를 읽을 수 있는 원본 관련 크롤러입니다. 일반적으로 인덱서를 프로그래밍 방식으로 사용하지만 포털에서는 **데이터 가져오기** 마법사를 통해 인덱서에 액세스할 수 있습니다. 
 
 ### <a name="step-1---start-the-import-data-wizard-and-create-a-data-source"></a>1단계 - 데이터 가져오기 마법사 시작 및 데이터 원본 만들기
 
@@ -132,7 +132,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 인덱스 디자인 중 편집할 수 있고 편집할 수 없는 것을 명확하게 이해하려면 인덱스 정의 옵션을 잠시 살펴봅니다. 흐리게 표시된 옵션은 값을 수정하거나 삭제할 수 없는 표시기입니다. 
 
-## <a name="query-index"></a> 검색 탐색기를 사용하여 쿼리
+## <a name="query-using-search-explorer"></a><a name="query-index"></a> 검색 탐색기를 사용하여 쿼리
 
 앞으로 기본 제공 [**검색 탐색기**](search-explorer.md) 쿼리 페이지를 사용하여 쿼리할 준비가 된 검색 인덱스가 있어야 합니다. 임의의 쿼리 문자열을 테스트할 수 있도록 검색 상자를 제공합니다.
 
@@ -176,7 +176,7 @@ Bing 이나 Google 검색, 또는 완전히 지정된 쿼리 식에서 수행할
 
 * **$top=10**은 문서 전체에서 가장 순위가 높은 문서 10개를 반환합니다. 기본적으로 Azure Cognitive Search는 일치 항목 중 처음 50개를 반환합니다. **$top**을 통해 이 수를 늘리거나 줄일 수 있습니다.
 
-### <a name="filter-query"></a> 쿼리 필터링
+### <a name="filter-the-query"></a><a name="filter-query"></a> 쿼리 필터링
 
 **$filter** 매개 변수를 추가할 때 검색 요청에 필터가 포함됩니다. 
 
@@ -186,7 +186,7 @@ Bing 이나 Google 검색, 또는 완전히 지정된 쿼리 식에서 수행할
 
 * 필터 구문은 OData 구조입니다. 자세한 내용은 [OData 필터 구문](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)을 참조하세요.
 
-### <a name="facet-query"></a> 쿼리 패싯
+### <a name="facet-the-query"></a><a name="facet-query"></a> 쿼리 패싯
 
 패싯 필터는 검색 요청에 포함됩니다. 패싯 매개 변수를 사용하면 사용자가 입력하는 패싯 값과 일치하는 집계된 문서 수를 반환할 수 있습니다.
 
@@ -206,7 +206,7 @@ Bing 이나 Google 검색, 또는 완전히 지정된 쿼리 식에서 수행할
 * *등급* 필드는 배정밀도 부동 소수점이며 그룹화는 정확한 값으로 지정됩니다. 간격(예: "3성 등급", "4성 등급" 등)별 그룹화에 대한 자세한 내용은 [Azure Cognitive Search에서 패싯 탐색을 구현하는 방법](https://docs.microsoft.com/azure/search/search-faceted-navigation#filter-based-on-a-range)을 참조하세요.
 
 
-### <a name="highlight-query"></a> 검색 결과 강조
+### <a name="highlight-search-results"></a><a name="highlight-query"></a> 검색 결과 강조
 
 적중 항목 강조 표시는 키워드와 일치하는 텍스트의 형식을 참조하며, 제공되는 일치 항목은 특정 필드에 있습니다. 검색어가 설명에 깊게 묻혀 있으면 좀 더 쉽게 찾을 수 있도록 적중 항목 강조 표시를 추가할 수 있습니다.
 
@@ -220,7 +220,7 @@ Bing 이나 Google 검색, 또는 완전히 지정된 쿼리 식에서 수행할
 
 * Azure Cognitive Search는 Lucene와 Microsoft의 56가지 분석기를 지원합니다. Azure Cognitive Search에서 사용하는 기본 분석기는 표준 Lucene 분석기입니다.
 
-### <a name="fuzzy-search"></a> 유사 항목 검색 시도
+### <a name="try-fuzzy-search"></a><a name="fuzzy-search"></a> 유사 항목 검색 시도
 
 기본적으로 *seatle*과 같이 "Seattle"의 철자가 잘못된 쿼리 용어는 일반 검색에서 일치하는 항목을 반환하지 못합니다. 다음 예제는 결과를 반환하지 않습니다.
 
@@ -238,7 +238,7 @@ Bing 이나 Google 검색, 또는 완전히 지정된 쿼리 식에서 수행할
 
 전체 쿼리 파서를 통해 지원되는 쿼리 시나리오에 대한 자세한 내용은 [Azure Cognitive Search의 Lucene 쿼리 구문](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)을 참조하세요.
 
-### <a name="geo-search"></a> 지리 공간 검색 시도
+### <a name="try-geospatial-search"></a><a name="geo-search"></a> 지리 공간 검색 시도
 
 지리 공간 검색은 좌표가 포함된 필드의 [edm.GeographyPoint 데이터 유형](https://docs.microsoft.com/rest/api/searchservice/supported-data-types)을 통해 지원됩니다. Geosearch는 [OData 필터 구문](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)에 지정된 필터 유형입니다.
 
@@ -252,7 +252,7 @@ Bing 이나 Google 검색, 또는 완전히 지정된 쿼리 식에서 수행할
 
 이 자습서에서는 Azure Portal을 사용하여 Azure Cognitive Search를 간략하게 소개했습니다.
 
-**데이터 가져오기** 마법사를 사용하여 검색 인덱스를 만드는 방법을 배웠습니다. [게시된 인덱스에 대한 지원되는 수정](search-indexer-overview.md)을 포함하여 [인덱서](https://docs.microsoft.com/rest/api/searchservice/update-index) 및 인덱스 디자인에 대한 기본 워크플로를 알아보았습니다.
+**데이터 가져오기** 마법사를 사용하여 검색 인덱스를 만드는 방법을 배웠습니다. [게시된 인덱스에 대한 지원되는 수정](https://docs.microsoft.com/rest/api/searchservice/update-index)을 포함하여 [인덱서](search-indexer-overview.md) 및 인덱스 디자인에 대한 기본 워크플로를 알아보았습니다.
 
 Azure Portal에서 **검색 탐색기**를 사용하여 필터, 적중 항목 강조 표시, 유사 항목 검색, 지리적 검색 등의 주요 기능을 보여주는 실습 예제를 통해 몇 가지 기본 쿼리 구문을 알아보았습니다.
 

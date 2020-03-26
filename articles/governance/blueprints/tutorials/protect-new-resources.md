@@ -4,10 +4,10 @@ description: 이 자습서에서는 Azure Blueprints 리소스 잠금 옵션 읽
 ms.date: 11/21/2019
 ms.topic: tutorial
 ms.openlocfilehash: ee57ff0c08f4fb8aa710dd2fa4dcef664484973d
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74327455"
 ---
 # <a name="tutorial-protect-new-resources-with-azure-blueprints-resource-locks"></a>자습서: Azure Blueprints 리소스 잠금으로 새 리소스 보호
@@ -23,7 +23,7 @@ Azure Blueprints [리소스 잠금](../concepts/resource-locking.md)을 사용�
 > - 새 리소스 그룹 조사
 > - 청사진을 할당 취소하여 잠금 제거
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free)을 만듭니다.
 
@@ -152,9 +152,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
      이 섹션에 정의된 매개 변수는 정의된 아티팩트에 적용됩니다. 이러한 매개 변수는 청사진 할당 중에 정의되므로 [동적 매개 변수](../concepts/parameters.md#dynamic-parameters)입니다. 각 아티팩트에 대해 매개 변수 값을 **값** 열에 표시되는 값으로 설정합니다.
 
-     |아티팩트 이름|아티팩트 형식|매개 변수 이름|값|설명|
+     |아티팩트 이름|아티팩트 형식|매개 변수 이름|값|Description|
      |-|-|-|-|-|
-     |RGtoLock 리소스 그룹|Resource group|Name|TestingBPLocks|청사진 잠금을 적용할 새 리소스 그룹의 이름을 정의합니다.|
+     |RGtoLock 리소스 그룹|Resource group|속성|TestingBPLocks|청사진 잠금을 적용할 새 리소스 그룹의 이름을 정의합니다.|
      |RGtoLock 리소스 그룹|Resource group|위치|미국 서부 2|청사진 잠금을 적용할 새 리소스 그룹의 위치를 정의합니다.|
      |StorageAccount|Resource Manager 템플릿|storageAccountType(StorageAccount)|Standard_GRS|스토리지 SKU 기본값은 _Standard_LRS_입니다.|
 

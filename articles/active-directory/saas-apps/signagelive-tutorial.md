@@ -17,10 +17,10 @@ ms.date: 1/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6dab2fd0ee2f25e835b4bd07a3534475d3d93b5e
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73160933"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-signagelive"></a>자습서: Signagelive와 Azure Active Directory 통합
@@ -34,11 +34,11 @@ Signagelive를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니�
 
 Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)를 참조하세요. Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Signagelive와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
-* Azure AD 구독 Azure AD 환경이 없으면 [1개월 평가판](https://azure.microsoft.com/pricing/free-trial/)을 구할 수 있습니다.
+* Azure AD 구독 Azure AD 환경이 없으면 [1개월 평가판](https://azure.microsoft.com/pricing/free-trial/)을 얻을 수 있습니다.
 * Signagelive Single Sign-On을 사용하도록 설정된 구독
 
 ## <a name="scenario-description"></a>시나리오 설명
@@ -110,7 +110,7 @@ Signagelive에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
     **로그온 URL** 상자에서 `https://login.signagelive.com/sso/<ORGANIZATIONALUNITNAME>` 패턴을 사용하는 URL을 입력합니다.
 
     > [!NOTE]
-    > 이 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 이 값을 얻으려면 [Signagelive 클라이언트 지원 팀](mailto:support@signagelive.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > 이 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트하세요. 이 값을 얻으려면 [Signagelive 클라이언트 지원 팀](mailto:support@signagelive.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
 5. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 선택하여 요구 사항에 따라 제공된 옵션에서 **인증서(원시)** 를 다운로드합니다. 그런 다음, 컴퓨터에 저장합니다.
 
@@ -128,7 +128,7 @@ Signagelive에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
 ### <a name="configure-signagelive-single-sign-on"></a>Signagelive Single Sign-On 구성
 
-Signagelive 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **인증서(원시)** 및 복사한 URL을 [Signagelive 지원 팀](mailto:support@signagelive.com)에 보냅니다. SAML SSO 연결이 양쪽에서 모두 올바르게 설정되어 있는지 확인합니다.
+Signagelive 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **인증서(원시)** 및 복사한 URL을 [Signagelive 지원 팀](mailto:support@signagelive.com)에 보냅니다. 두 항목은 SAML SSO 연결이 양쪽에서 올바르게 설정되도록 보장합니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기 
 

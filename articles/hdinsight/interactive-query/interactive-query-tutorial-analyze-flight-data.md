@@ -9,10 +9,10 @@ ms.date: 07/02/2019
 ms.author: hrasheed
 ms.custom: hdinsightactive,mvc
 ms.openlocfilehash: d1136c153a529f58db1de277ec84ac332b9f78ae
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73494158"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-interactive-query-in-azure-hdinsight"></a>자습서: Azure HDInsight에서 대화형 쿼리를 사용하여 데이터 추출, 변환 및 로드
@@ -28,9 +28,9 @@ ms.locfileid: "73494158"
 > * Azure SQL 데이터베이스에 테이블 만들기
 > * Sqoop을 사용하여 Azure SQL 데이터베이스에 데이터 내보내기
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-* HDInsight에서 대화형 쿼리 클러스터. [Azure Portal을 사용하여 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-portal.md)를 참조하고 **클러스터 유형**에 대한 **대화형 쿼리**를 선택합니다.
+* HDInsight의 대화형 쿼리 클러스터. [Azure Portal을 사용하여 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-portal.md)를 참조하고 **클러스터 유형**에 대한 **대화형 쿼리**를 선택합니다.
 
 * Azure SQL Database. Azure SQL 데이터베이스를 대상 데이터 저장소로 사용합니다. SQL 데이터베이스가 없는 경우 [Azure Portal에서 Azure SQL 데이터베이스 만들기](/azure/sql-database/sql-database-single-database-get-started)를 참조하세요.
 
@@ -42,7 +42,7 @@ ms.locfileid: "73494158"
 
 2. 페이지에서 모든 필드의 선택을 취소하고 다음 값을 선택합니다.
 
-   | Name | 값 |
+   | 속성 | 값 |
    | --- | --- |
    | Filter Year |2019 |
    | Filter Period |January |

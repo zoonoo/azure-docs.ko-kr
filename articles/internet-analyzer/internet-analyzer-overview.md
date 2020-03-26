@@ -8,10 +8,10 @@ ms.topic: overview
 ms.date: 10/16/2019
 ms.author: mebeatty
 ms.openlocfilehash: 3d9d1240e31d40a3d9c75d56314acc1721d90b99
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73488139"
 ---
 # <a name="what-is-internet-analyzer-preview"></a>인터넷 분석기란? (미리 보기)
@@ -43,7 +43,7 @@ Internet Analyzer는 네트워킹 인프라 변경으로 인해 고객의 성능
     * 미국 동부
     * 일본 서부
     * 북유럽
-    * 남아프리카 공화국 북부
+    * 남아프리카 북부
     * 동남아시아 
     * 아랍에미리트 북부
     * 영국 서부  
@@ -53,15 +53,15 @@ Internet Analyzer는 네트워킹 인프라 변경으로 인해 고객의 성능
 * **여러 Azure 지역 조합** 
     * 미국 동부, 브라질 남부 
     * 미국 동부, 동아시아 
-    * 유럽 서부, 브라질 남부
-    * 유럽 서부, 동남 아시아
-    * 유럽 서부, 아랍에미리트 북부
+    * 서유럽, 브라질 남부
+    * 서유럽, 동남 아시아
+    * 서유럽, 아랍에미리트 북부
     * 미국 서부, 미국 동부 
-    * 미국 서부, 유럽 서부
+    * 미국 서부, 서유럽
     * 미국 서부, 아랍에미리트 북부
-    * 유럽 서부, 아랍에미리트 북부, 동남 아시아
-    * 미국 서부, 유럽 서부, 동아시아
-    * 미국 서부, 유럽 서부, 동남 아시아, 아랍에미리트 북부, 남아프리카 공화국 북부 
+    * 서유럽, 아랍에미리트 북부, 동남 아시아
+    * 미국 서부, 서유럽, 동아시아
+    * 미국 서부, 북유럽, 동남 아시아, 아랍에미리트 북부, 남아프리카 북부 
 * **Azure + Azure Front Door** - 위에 나열된 단일 또는 여러 Azure 지역 조합에 배포됩니다.
 * **Azure + Microsoft의 Azure CDN** - 위에 나열된 단일 Azure 지역 조합에 배포됩니다.
 * **Azure + Azure Traffic Manager** - 위에 나열된 여러 Azure 지역 조합에 배포됩니다.

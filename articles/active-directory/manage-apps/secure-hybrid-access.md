@@ -12,10 +12,10 @@ ms.date: 12/18/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0e97b95e290ef74ffd98a3396ffe4705270132b2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75433756"
 ---
 # <a name="secure-hybrid-access-secure-legacy-apps-with-app-delivery-controllers-and-networks"></a>보안 하이브리드 액세스: 앱 제공 컨트롤러 및 네트워크를 사용하여 레거시 앱 보호

@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 10/30/2019
 ms.author: brendm
-ms.openlocfilehash: b506fdcdec1ae3e98c1a4afe9c5124e284ed4d99
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 3ab4b1729ea380671b72a9bb01740930a186d5c3
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77589014"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79470797"
 ---
 # <a name="quickstart-launch-your-spring-cloud-application-from-source-code"></a>빠른 시작: 소스 코드에서 Spring Cloud 애플리케이션 시작
 
@@ -48,7 +48,7 @@ Azure Spring Cloud를 사용하여 Java 소스 코드나 미리 빌드한 JAR에
 
 다음 명령을 사용하여 Azure CLI용 Azure Spring Cloud 확장 설치
 
-```Azure CLI
+```azurecli
 az extension add --name spring-cloud
 ```
 
@@ -56,7 +56,7 @@ az extension add --name spring-cloud
 
 Azure CLI에 로그인하고 활성 구독을 선택합니다. Azure Spring Cloud의 허용 목록에 추가된 활성 구독을 선택해야 합니다.
 
-```Azure CLI
+```azurecli
 az login
 az account list -o table
 az account set --subscription

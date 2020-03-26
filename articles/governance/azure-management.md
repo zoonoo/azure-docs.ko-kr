@@ -4,10 +4,10 @@ description: Azure 관리 도구의 콘텐츠에 대한 링크가 포함된 Azur
 ms.date: 12/06/2018
 ms.topic: overview
 ms.openlocfilehash: 644f4fc3a04f86426c2eb04b02c29882fa39fb88
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75980912"
 ---
 # <a name="overview-of-management-services-in-azure"></a>Azure의 관리 서비스 개요

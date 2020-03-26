@@ -9,17 +9,17 @@ ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/25/2019
 ms.openlocfilehash: eac9bee6992520492b846e3b579d8a05c327e749
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73494367"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>자습서: HDInsight에서 Apache Storm 및 Apache Kafka 사용
 
 이 자습서에서는 HDInsight의 [Apache Kafka](https://kafka.apache.org/)를 사용하여 [Apache Storm](https://storm.apache.org/) 토폴로지를 통해 데이터를 읽고 쓰는 방법을 보여줍니다. 또한 이 자습서에서는 데이터를 Storm 클러스터의 [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html) 호환 스토리지에 유지하는 방법을 보여줍니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * Storm 및 Kafka
@@ -32,7 +32,7 @@ ms.locfileid: "73494367"
 > * 토폴로지 중지
 > * 리소스 정리
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Kafka 토픽 생성 방법 이해. 자세한 내용은 [HDInsight의 Kafka 빠른 시작](./kafka/apache-kafka-get-started.md) 문서를 참조하세요.
 
@@ -366,7 +366,7 @@ streams:
 
 이 프로젝트에는 토폴로지가 사용되는 매개 변수를 전달하는 데 사용하는 `dev.properties`라는 파일이 포함되어 있습니다. 이 파일은 다음 속성을 정의합니다.
 
-| dev.properties 파일 | 설명 |
+| dev.properties 파일 | Description |
 | --- | --- |
 | `kafka.zookeeper.hosts` | Kafka 클러스터에 대한 [Apache ZooKeeper](https://zookeeper.apache.org/) 호스트입니다. |
 | `kafka.broker.hosts` | Kafka 브로커 호스트(작업자 노드를)입니다. |

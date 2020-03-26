@@ -7,10 +7,10 @@ ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: zhshang
 ms.openlocfilehash: dfa17720b34962611d240aa7c35ba8092bf99082
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74158137"
 ---
 # <a name="tutorial-azure-signalr-service-authentication-with-azure-functions"></a>자습서: Azure Functions를 사용하여 Azure SignalR Service 인증
@@ -25,7 +25,7 @@ Azure Functions, App Service 인증 및 SignalR Service를 사용하여 인증 �
 * [Azure SignalR Service](https://azure.microsoft.com/services/signalr-service/?WT.mc_id=serverlesschatlab-tutorial-antchu) - 연결된 채팅 클라이언트에 새 메시지를 브로드캐스트합니다.
 * [Azure Storage](https://azure.microsoft.com/services/storage/?WT.mc_id=serverlesschatlab-tutorial-antchu) - 채팅 클라이언트 UI에 대한 정적 웹 사이트를 호스팅합니다.
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 작성하는 데 필요한 소프트웨어는 다음과 같습니다.
 
@@ -53,7 +53,7 @@ Azure Functions 앱을 로컬로 빌드하고 테스트합니다. 이 앱은 미
 
 1. 다음 정보를 입력합니다.
 
-    | Name | 값 |
+    | 속성 | 값 |
     |---|---|
     | 리소스 이름 | SignalR Service 인스턴스에 대한 고유한 이름입니다. |
     | Resource group | 고유한 이름으로 새 리소스 그룹을 만듭니다. |
@@ -145,11 +145,11 @@ Azure Functions 런타임을 로컬로 실행하고 디버그하는 경우 **loc
 
 1. 메시지가 표시되면 다음 정보를 제공합니다.
 
-    | Name | 값 |
+    | 속성 | 값 |
     |---|---|
     | 함수 앱 폴더 | 주 프로젝트 폴더를 선택합니다. |
     | 템플릿 | HTTP 트리거 |
-    | Name | negotiate |
+    | 속성 | negotiate |
     | 권한 부여 수준 | 익명 |
 
     새 함수가 포함된 **negotiate**라는 폴더가 만들어집니다.
@@ -204,11 +204,11 @@ Azure Functions 런타임을 로컬로 실행하고 디버그하는 경우 **loc
 
 1. 메시지가 표시되면 다음 정보를 제공합니다.
 
-    | Name | 값 |
+    | 속성 | 값 |
     |---|---|
     | 함수 앱 폴더 | 주 프로젝트 폴더를 선택합니다. |
     | 템플릿 | HTTP 트리거 |
-    | Name | SendMessage |
+    | 속성 | SendMessage |
     | 권한 부여 수준 | 익명 |
 
     새 함수가 포함된 **SendMessage**라는 폴더가 만들어집니다.
@@ -315,7 +315,7 @@ Azure에서 실행되는 함수 앱에는 Azure Storage 계정이 필요합니�
 
 1. 다음 정보를 입력합니다.
 
-    | Name | 값 |
+    | 속성 | 값 |
     |---|---|
     | Subscription | SignalR Service 인스턴스가 포함된 구독 선택 |
     | Resource group | 동일한 리소스 그룹 선택 |
@@ -371,14 +371,14 @@ Azure에서 실행되는 함수 앱에는 Azure Storage 계정이 필요합니�
 
 1. 메시지가 표시되면 다음 정보를 제공합니다.
 
-    | Name | 값 |
+    | 속성 | 값 |
     |---|---|
     | 배포할 폴더 | 주 프로젝트 폴더를 선택합니다. |
     | Subscription | 구독 선택 |
     | 함수 앱 | **새 함수 앱 만들기**를 선택합니다. |
     | 함수 앱 이름 | 고유한 이름을 입력합니다. |
     | Resource group | SignalR Service 인스턴스와 동일한 리소스 그룹을 선택합니다. |
-    | Storage 계정 | 이전에 만든 스토리지 계정을 선택합니다. |
+    | 스토리지 계정 | 이전에 만든 스토리지 계정을 선택합니다. |
 
     새 함수 앱이 Azure에 만들어지고 배포가 시작됩니다. 배포가 완료될 때가지 기다립니다.
 
@@ -390,7 +390,7 @@ Azure에서 실행되는 함수 앱에는 Azure Storage 계정이 필요합니�
 
 1. 메시지가 표시되면 다음 정보를 제공합니다.
 
-    | Name | 값 |
+    | 속성 | 값 |
     |---|---|
     | 로컬 설정 파일 | local.settings.json |
     | Subscription | 구독 선택 |
@@ -449,10 +449,10 @@ App Service 인증은 Azure Active Directory, Facebook, Twitter, Microsoft 계�
 
 1. 다음 값을 입력합니다.
 
-    | Name | 값 |
+    | 속성 | 값 |
     |---|---|
     | Subscription | 구독 선택 |
-    | Storage 계정 | 이전에 만든 스토리지 계정을 선택합니다. |
+    | 스토리지 계정 | 이전에 만든 스토리지 계정을 선택합니다. |
     | 배포할 폴더 | **찾아보기**를 선택하고 *content* 폴더를 선택합니다. |
 
 *content* 폴더의 파일이 정적 웹 사이트에 배포됩니다.

@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 10/23/2019
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
 ms.openlocfilehash: 9fcf178b71ac1f07bfb58cd2502701ae5392b472
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74158394"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-app-service-with-jenkins-continuous-integration-and-deployment"></a>자습서: Jenkins 연속 통합 및 배포를 사용하여 GitHub에서 Azure App Service로 배포
@@ -33,7 +33,7 @@ ms.locfileid: "74158394"
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음 항목이 필요합니다.
 
@@ -158,7 +158,7 @@ az ad sp create-for-rbac --name "yourAzureServicePrincipalName" --password yourS
 
    ![Azure 서비스 주체 자격 증명 추가](media/tutorial-jenkins-deploy-web-app-azure-app-service/add-service-principal-credentials.png)
 
-   | 자산 | 값 | 설명 | 
+   | 속성 | 값 | Description | 
    |----------|-------|-------------| 
    | **구독 ID** | <*yourAzureSubscription-ID*> | Azure 구독에 대한 GUID 값입니다. <p>**팁**: Azure 구독 ID를 모르는 경우 명령줄 또는 Cloud Shell에서 이 Azure CLI 명령을 실행한 후 `id` GUID 값을 사용합니다. <p>`az account list` | 
    | **클라이언트 ID** | <*yourAzureServicePrincipal-ID*> | Azure 서비스 주체에 대해 이전에 생성된 `appId` GUID 값입니다. | 

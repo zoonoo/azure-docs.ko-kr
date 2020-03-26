@@ -5,10 +5,10 @@ keywords: ansible, azure, devops, bash, playbook, devtest labs
 ms.topic: tutorial
 ms.date: 04/30/2019
 ms.openlocfilehash: b6981ee94c4d82997c574db037befb9782465d08
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74156268"
 ---
 # <a name="tutorial-configure-labs-in-azure-devtest-labs-using-ansible"></a>자습서: Ansible을 사용하여 Azure DevTest Labs에서 랩 구성
@@ -33,7 +33,7 @@ ms.locfileid: "74156268"
 > * 랩 이미지 만들기
 > * 랩 삭제
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [open-source-devops-prereqs-create-service-principal.md](../../includes/open-source-devops-prereqs-create-service-principal.md)]
@@ -275,7 +275,7 @@ ms.locfileid: "74156268"
 
 전체 샘플 플레이북을 가져오는 방법에는 다음 두 가지가 있습니다.
 - [플레이북을 다운로드](https://github.com/Azure-Samples/ansible-playbooks/blob/master/devtestlab-create.yml)하여 `devtestlab-create.yml`에 저장합니다.
-- `devtestlab-create.yml`이라는 새 파일을 만들고 다음 콘텐츠에 복사합니다.
+- `devtestlab-create.yml`이라는 새 파일을 만들고 다음 콘텐츠를 이 파일에 복사합니다.
 
 ```yml
 ---
@@ -448,7 +448,7 @@ ms.locfileid: "74156268"
 - `vars` 섹션에서 `{{ resource_group_name }}` 자리 표시자를 리소스 그룹의 이름으로 바꿉니다.
 - GitHub 토큰을 `GITHUB_ACCESS_TOKEN`이라는 환경 변수로 저장합니다.
 
-`ansible-playbook` 명령을 사용하여 플레이북을 실행합니다.
+다음과 같이 `ansible-playbook` 명령을 사용하여 플레이북을 실행합니다.
 
 ```bash
 ansible-playbook devtestlab-create.yml

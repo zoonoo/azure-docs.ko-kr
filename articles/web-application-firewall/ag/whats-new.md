@@ -8,10 +8,10 @@ ms.topic: overview
 ms.date: 10/24/2019
 ms.author: victorh
 ms.openlocfilehash: 0e0e67bfb893e1bf141182e45ce4a49f5f6880ca
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73495498"
 ---
 # <a name="whats-new-in-azure-web-application-firewall"></a>Azure 웹 애플리케이션 방화벽의 새로운 기능이란?
@@ -25,7 +25,7 @@ Azure 웹 애플리케이션 방화벽은 지속적으로 업데이트됩니다.
 
 ## <a name="new-features"></a>새로운 기능
 
-|기능  |설명  |추가된 날짜  |
+|기능  |Description  |추가된 날짜  |
 |---------|---------|---------|
 |봇 완화 규칙 세트(미리 보기)|선택한 CRS 규칙 세트와 함께 봇 완화 규칙 세트를 사용하도록 설정할 수 있습니다. | 2019년 11월 |
 |GeoDB 통합(미리 보기)|이제 원산국별로 트래픽을 제한하는 사용자 지정 규칙을 만들 수 있습니다. | 2019년 11월 |

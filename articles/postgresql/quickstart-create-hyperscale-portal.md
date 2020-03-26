@@ -9,13 +9,13 @@ ms.custom: mvc
 ms.topic: quickstart
 ms.date: 05/14/2019
 ms.openlocfilehash: 02e009e6fff2e717693d1579d409199ab179d941
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78363367"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79290331"
 ---
-# <a name="quickstart-create-an-azure-database-for-postgresql---hyperscale-citus-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Database for PostgreSQL-Hyperscale (Citus) 만들기
+# <a name="quickstart-create-an-azure-database-for-postgresql---hyperscale-citus-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Database for PostgreSQL - 하이퍼스케일(Citus) 만들기
 
 PostgreSQL용 Azure Database는 클라우드에서 항상 사용 가능한 PostgreSQL 데이터베이스를 실행, 관리 및 크기 조정하는 데 사용하는 관리 서비스입니다. 이 빠른 시작에서는 Azure Portal을 사용하여 Azure Database for PostgreSQL - 하이퍼스케일(Citus) 서버 그룹을 만드는 방법을 보여줍니다. 분산된 데이터를 살펴보겠습니다. 노드 간에 테이블을 분할하고, 샘플 데이터를 수집하고, 여러 노드에서 실행되는 쿼리를 실행할 것입니다.
 
@@ -62,7 +62,7 @@ CREATE TABLE github_users
 );
 ```
 
-`payload`의 `github_events` 필드는 JSONB 데이터 형식을 갖습니다. JSONB는 Postgres의 이진 형태인 JSON 데이터 형식입니다. 이 데이터 형식을 사용하면 유연한 스키마를 단일 열에 쉽게 저장할 수 있습니다.
+`github_events`의 `payload` 필드는 JSONB 데이터 형식을 갖습니다. JSONB는 Postgres의 이진 형태인 JSON 데이터 형식입니다. 이 데이터 형식을 사용하면 유연한 스키마를 단일 열에 쉽게 저장할 수 있습니다.
 
 Postgres는 모든 키와 키 내부의 값을 인덱싱하는 이 유형의 `GIN` 인덱스를 만들 수 있습니다. 인덱스가 있으면 다양한 조건을 사용하여 쉽고 빠르게 페이로드를 쿼리할 수 있습니다. 데이터를 로드하기 전에 몇 가지 인덱스를 만들어 보겠습니다. psql에서 다음을 수행합니다.
 

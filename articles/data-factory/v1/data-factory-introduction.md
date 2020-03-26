@@ -1,6 +1,6 @@
 ---
 title: Data Factory, 데이터 통합 서비스 소개
-description: 데이터의 이동과 변환을 오케스트레이션하고 자동화하는 클라우드 데이터 통합 서비스인 Azure Data Factory에 대해 알아봅니다.
+description: Azure Data Factory가 무엇인지 알아봅니다. 데이터의 이동과 변환을 조율하고 자동화하는 클라우드 데이터 통합 서비스입니다.
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -13,10 +13,10 @@ ms.workload: data-services
 ms.topic: overview
 ms.date: 01/22/2018
 ms.openlocfilehash: 30578f204ff05443de82015627d67d3d4d357dce
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73666811"
 ---
 # <a name="introduction-to-azure-data-factory"></a>Azure Data Factory 소개 
@@ -25,7 +25,7 @@ ms.locfileid: "73666811"
 > * [버전 2(현재 버전)](../introduction.md)
 
 > [!NOTE]
-> 이 아티클은 Azure Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우 [Data Factory V2 소개](../introduction.md)를 참조하세요.
+> 이 문서의 내용은 Azure Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우 [Data Factory V2 소개](../introduction.md)를 참조하세요.
 
 
 ## <a name="what-is-azure-data-factory"></a>Azure 데이터 팩터리란 무엇인가요?
@@ -118,7 +118,7 @@ Azure 구독에는 하나 이상의 Azure Data Factory 인스턴스(또는 Data 
 
 ### <a name="relationship-between-data-factory-entities"></a>Data Factory 엔터티 간의 관계
 
-![다이어그램: Data Factory, 클라우드 데이터 통합 서비스 - 주요 개념](./media/data-factory-introduction/data-integration-service-key-concepts.png)
+![다이어그램: 데이터 팩터리, 클라우드 데이터 통합 서비스 - 주요 개념](./media/data-factory-introduction/data-integration-service-key-concepts.png)
 
 ## <a name="supported-regions"></a>지원되는 지역
 현재 미국 서부, 미국 동부 및 북유럽 지역에서 데이터 팩터리를 만들 수 있습니다. 그러나 데이터 팩터리는 컴퓨팅 서비스를 사용하여 데이터 저장소 간에 데이터를 이동하고 데이터를 처리하도록 다른 Azure 지역에서 데이터 저장소 및 컴퓨팅 서비스에 액세스할 수 있습니다.
@@ -140,7 +140,7 @@ Azure 데이터 팩터리 자체는 데이터를 저장하지 않습니다. [지
 
 데이터 파이프라인을 사용하여 데이터 팩터리를 빌드하는 방법을 알아보려면 다음 자습서의 단계별 지침을 따르세요.
 
-| 자습서 | 설명 |
+| 자습서 | Description |
 | --- | --- |
 | [두 클라우드 데이터 저장소 간의 데이터 이동](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) |Blob Storage에서 SQL 데이터베이스로 데이터를 이동하는 파이프라인을 포함한 데이터 팩터리를 만듭니다. |
 | [Hadoop 클러스터를 사용하여 데이터 변환](data-factory-build-your-first-pipeline.md) |Azure HDInsight(Hadoop) 클러스터에서 Hive 스크립트를 실행하여 데이터를 처리하는 데이터 파이프라인으로 첫 번째 Azure 데이터 팩터리를 구축합니다. |

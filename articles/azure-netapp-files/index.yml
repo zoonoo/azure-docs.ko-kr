@@ -1,35 +1,70 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Azure NetApp Files 설명서
+summary: Azure NetApp Files를 사용하여 NetApp 계정, 용량 풀 및 볼륨을 만들고 관리하며, 내보내기 정책을 구성하고, 가상 머신에 대한 볼륨을 탑재하고, 스냅샷을 관리하는 방법을 알아봅니다.
 metadata:
   title: Azure NetApp Files 설명서
-  description: 'Azure NetApp Files 서비스를 사용하여 볼륨을 설정하고, 액세스하고, 관리하는 방법을 알아봅니다.'
-  author: b-juche
-  ms.author: b-juche
+  description: Azure NetApp Files 서비스를 사용하여 볼륨을 설정하고, 액세스하고, 관리하는 방법을 알아봅니다.
   ms.service: azure-netapp-files
   ms.topic: landing-page
-  ms.date: 04/10/2019
-abstract:
-  description: 'Azure NetApp Files를 사용하여 NetApp 계정, 용량 풀 및 볼륨을 만들고 관리하며, 내보내기 정책을 구성하고, 가상 머신에 대한 볼륨을 탑재하고, 스냅샷을 관리하는 방법을 알아봅니다. <p>Azure NetApp Files를 사용하려면 Azure NetApp Files 서비스에 액세스할 수 있어야 합니다. 액세스를 요청하려면 <a href="azure-netapp-files-register#waitlist">대기 목록 요청 제출</a>을 참조하세요.</p>'
-sections:
-  - title: 5분 빠른 시작
-    items:
-      - type: paragraph
-        text: 다음을 사용하여 Azure NetApp Files를 설정하고 볼륨을 만드는 방법을 알아봅니다.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/azure/azure-netapp-files/media/index/get-started.svg'
-            text: Azure portal
-            href: /azure/azure-netapp-files/azure-netapp-files-quickstart-set-up-account-create-volumes
-  - title: 참고 자료
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: REST (영문)
-            html: '<p><a href="https://docs.microsoft.com/rest/api/netapp/">REST API</a></p>'
-          - title: Azure 리소스 관리자
-            html: '<p><a href="https://docs.microsoft.com/azure/templates/microsoft.netapp/allversions">Resource Manager 템플릿</a></p>'
+  author: b-juche
+  ms.author: b-juche
+  ms.date: 03/11/2020
+  ms.openlocfilehash: bcca681fcae02df3e3521b48f710acd36127c882
+  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 03/25/2020
+  ms.locfileid: "79369055"
+landingContent:
+- title: Azure NetApp Files 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure NetApp Files란?
+      url: azure-netapp-files-introduction.md
+    - text: 스토리지 계층 구조 이해
+      url: azure-netapp-files-understand-storage-hierarchy.md
+  - linkListType: concept
+    links:
+    - text: 서비스 수준
+      url: azure-netapp-files-service-levels.md
+    - text: 성능 고려 사항
+      url: azure-netapp-files-performance-considerations.md
+    - text: 네트워크 계획 지침
+      url: azure-netapp-files-network-topologies.md
+  - linkListType: video
+    links:
+    - text: Azure NetApp Files 비디오
+      url: azure-netapp-files-videos.md
+- title: 시작하기
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: waitlist 요청 제출
+      url: azure-netapp-files-register.md#waitlist
+  - linkListType: quickstart
+    links:
+    - text: Azure NetApp Files 설정 및 NFS 볼륨 만들기
+      url: azure-netapp-files-quickstart-set-up-account-create-volumes.md
+- title: 생성
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: NetApp 계정 만들기
+      url: azure-netapp-files-create-netapp-account.md
+    - text: 용량 풀 설정
+      url: azure-netapp-files-set-up-capacity-pool.md
+    - text: Azure NetApp Files에 서브넷 위임
+      url: azure-netapp-files-delegate-subnet.md
+    - text: Azure NetApp Files에 대한 SMB 볼륨 만들기
+      url: azure-netapp-files-create-volumes-smb.md
+    - text: Azure NetApp Files에 대한 NFS 볼륨 만들기
+      url: azure-netapp-files-create-volumes.md
+- title: 개발
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: REST API
+      url: azure-netapp-files-develop-with-rest-api.md
+    - text: Azure NetApp Files SDK 및 CLI 도구
+      url: azure-netapp-files-sdk-cli.md

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: hdinsightactive
 ms.date: 12/03/2019
-ms.openlocfilehash: 915aca0e95fce05f74477b526de047c829c7f512
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 49b576fd511d17616880e5d981fd3f649de797df
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74890402"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79367927"
 ---
 # <a name="quickstart-execute-apache-hive-queries-in-azure-hdinsight-with-apache-zeppelin"></a>빠른 시작: Apache Zeppelin을 사용하여 Azure HDInsight에서 Apache Hive 쿼리 실행
 
@@ -21,9 +21,9 @@ ms.locfileid: "74890402"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-HDInsight 대화형 쿼리 클러스터. [클러스터 만들기](../hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster)를 참조하여 HDInsight 클러스터를 만듭니다.  **Interactive Query** 클러스터 유형을 선택해야 합니다.
+HDInsight 대화형 쿼리 클러스터. [클러스터 만들기](../hadoop/apache-hadoop-linux-tutorial-get-started.md)를 참조하여 HDInsight 클러스터를 만듭니다.  **Interactive Query** 클러스터 유형을 선택해야 합니다.
 
 ## <a name="create-an-apache-zeppelin-note"></a>Apache Zeppelin 노트 만들기
 
@@ -70,7 +70,7 @@ HDInsight 대화형 쿼리 클러스터. [클러스터 만들기](../hadoop/apac
 
     기존의 Hive에 비해 쿼리 결과를 반환하는 속도가 훨씬 빠릅니다.
 
-### <a name="additional-examples"></a>추가 예제
+### <a name="additional-examples"></a>추가 예
 
 1. 테이블을 만듭니다. Zeppelin Notebook에서 아래 코드를 실행합니다.
 

@@ -10,10 +10,10 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 05/14/2019
 ms.openlocfilehash: 17ac29de243f4abfff1cfc83fc6424799978bf0e
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74978154"
 ---
 # <a name="tutorial-design-a-multi-tenant-database-by-using-azure-database-for-postgresql--hyperscale-citus"></a>자습서: Azure Database for PostgreSQL – 하이퍼스케일(Citus)을 사용하여 다중 테넌트 데이터베이스 설계
@@ -29,7 +29,7 @@ ms.locfileid: "74978154"
 > * 테넌트 간 데이터 공유
 > * 테넌트별 스키마 사용자 지정
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [azure-postgresql-hyperscale-create-db](../../includes/azure-postgresql-hyperscale-create-db.md)]
 
@@ -128,7 +128,7 @@ CREATE TABLE impressions (
 
 ## <a name="shard-tables-across-nodes"></a>노드 간 테이블 분할
 
-하이퍼스케일 배포에서는 사용자 지정 열의 값에 따라 테이블 행이 다른 노드에 저장됩니다. 이 "배포 열"은 각 테넌트에서 소유하고 있는 열을 나타냅니다.
+하이퍼스케일 배포는 사용자가 지정한 열 값을 기반으로 다른 노드에 테이블 행을 저장합니다. 이 "배포 열"은 각 테넌트에서 소유하고 있는 열을 나타냅니다.
 
 배포 열을 테넌트 식별자인 company\_id로 설정해 보겠습니다. psql에서 다음 함수를 실행합니다.
 
@@ -271,8 +271,8 @@ SELECT id
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 하이퍼스케일(Citus) 서버 그룹을 프로비저닝하는 방법을 배웠습니다. psql을 사용하여 연결하고, 스키마를 만들고, 데이터를 배포했습니다. 테넌트 내 또는 테넌트 간에 데이터를 쿼리하고, 스키마를 테넌트별로 사용자 지정하는 방법을 알아보았습니다.
+이 자습서에서는 하이퍼스케일(Citus) 서버 그룹을 프로비저닝하는 방법을 배웠습니다. 그 후 psql을 사용하여 이 서버 그룹에 연결하고, 스키마를 만들고, 데이터를 분산했습니다. 테넌트 내 또는 테넌트 간에 데이터를 쿼리하고, 스키마를 테넌트별로 사용자 지정하는 방법을 알아보았습니다.
 
-다음으로 하이퍼스케일의 개념에 대해 알아봅니다.
+다음으로, 하이퍼스케일의 개념을 알아보세요.
 > [!div class="nextstepaction"]
 > [하이퍼스케일 노드 형식](https://aka.ms/hyperscale-concepts)

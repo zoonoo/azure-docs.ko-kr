@@ -8,10 +8,10 @@ ms.date: 10/26/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: c419c2127b1c5fe3aaa60c6e828ff0c5a6676c07
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77598547"
 ---
 # <a name="quickstart-create-and-manage-an-azure-file-share-with-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Azure 파일 공유 만들기 및 관리 
@@ -203,7 +203,7 @@ $snapshot = $share.Snapshot()
 ```
 
 ### <a name="browse-share-snapshots"></a>공유 스냅샷 찾아보기
-`Get-AzStorageFile` cmdlet의 `-Share` 매개 변수에 스냅샷 참조(`$snapshot`)를 전달하여 공유 스냅샷의 콘텐츠를 찾아볼 수 있습니다.
+`$snapshot` cmdlet의 `-Share` 매개 변수에 스냅샷 참조(`Get-AzStorageFile`)를 전달하여 공유 스냅샷의 콘텐츠를 찾아볼 수 있습니다.
 
 ```azurepowershell-interactive
 Get-AzStorageFile -Share $snapshot
@@ -238,7 +238,7 @@ Start-AzStorageFileCopy `
 ```
 
 ### <a name="delete-a-share-snapshot"></a>공유 스냅샷 삭제
-`-Share` 매개 변수에 대한 `$snapshot` 참조를 포함하는 변수와 함께 [Remove-AzStorageShare](/powershell/module/az.storage/Remove-AzStorageShare) cmdlet을 사용하여 공유 스냅샷을 삭제할 수 있습니다.
+[ 매개 변수에 대한 ](/powershell/module/az.storage/Remove-AzStorageShare) 참조를 포함하는 변수와 함께 `$snapshot`Remove-AzStorageShare`-Share` cmdlet을 사용하여 공유 스냅샷을 삭제할 수 있습니다.
 
 ```azurepowershell-interactive
 Remove-AzStorageShare `

@@ -17,10 +17,10 @@ ms.date: 9/18/2018
 ms.author: aanandr
 ms.custom: ''
 ms.openlocfilehash: 5146675b6eefd11fc1e6875ed9009ece92753ffb
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "72028098"
 ---
 # <a name="deploy-the-azure-virtual-network-container-network-interface-plug-in"></a>Azure Virtual Network 컨테이너 네트워크 인터페이스 플러그 인 배포
@@ -31,7 +31,7 @@ Azure 가상 머신에 설치되는 Azure Virtual Network CNI(컨테이너 네�
 
 ACS-Engine은 Azure Resource Manager 템플릿을 사용하여 Kubernetes 클러스터를 배포합니다. 클러스터 구성은 템플릿 생성 시 도구로 전달되는 JSON 파일에서 지정됩니다. 지원되는 클러스터 설정 및 해당 설명의 전체 목록을 자세히 확인하려면 [Microsoft Azure Container Service Engine - 클러스터 정의](https://github.com/Azure/acs-engine/blob/master/docs/clusterdefinition.md)를 참조하세요. 플러그 인은 ACS-Engine을 사용하여 만드는 클러스터의 기본 네트워킹 플러그 인입니다. 플러그 인을 구성할 때 중요한 네트워크 구성 설정은 다음과 같습니다.
 
-  | 설정                              | 설명                                                                                                           |
+  | 설정                              | Description                                                                                                           |
   |--------------------------------------|------------------------------------------------------------------------------------------------------                 |
   | firstConsecutiveStaticIP             | 마스터 노드에 할당되는 IP 주소입니다. 필수 설정입니다.                                     |
   | kubernetesConfig 아래의 clusterSubnet | 클러스터가 배포되며 IP 주소가 Pod에 할당되는 가상 네트워크 서브넷의 CIDR입니다.   |
@@ -39,7 +39,7 @@ ACS-Engine은 Azure Resource Manager 템플릿을 사용하여 Kubernetes 클러
   | vnetCidr                             | 클러스터가 배포된 가상 네트워크의 CIDR입니다.                                                             |
   | kubeletConfig 아래의 max-Pods         | 모든 에이전트 가상 머신의 최대 Pod 수입니다. 플러그 인의 경우 기본값은 30입니다. 최대 250개를 지정할 수 있습니다.  |
 
-### <a name="example-configuration"></a>예제 구성
+### <a name="example-configuration"></a>구성 예
 
 아래 json 예제는 다음 속성이 적용되는 클러스터용입니다.
 -   마스터 노드가 1개이고 에이전트 노드가 2개인 클러스터 
