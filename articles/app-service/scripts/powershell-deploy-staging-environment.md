@@ -7,10 +7,10 @@ ms.topic: sample
 ms.date: 03/20/2017
 ms.custom: mvc
 ms.openlocfilehash: 7e8ebe28fa7989997b5d3adfd14c582438a00b1b
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74684784"
 ---
 # <a name="create-a-web-app-and-deploy-code-to-a-staging-environment"></a>웹앱 만들기 및 스테이징 환경에 코드 배포
@@ -44,7 +44,7 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 | [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | 웹앱을 만듭니다. |
 | [Set-AzAppServicePlan](/powershell/module/az.websites/set-azappserviceplan) | App Service 계획을 수정하여 해당 가격 책정 계층을 변경합니다. |
 | [New-AzWebAppSlot](/powershell/module/az.websites/new-azwebappslot) | 웹앱에 대한 배포 슬롯을 만듭니다. |
-| [Set-AzResource](/powershell/module/az.resources/set-azresource) | 리소스 그룹에서 리소스를 수정합니다. |
+| [집합 AzResource](/powershell/module/az.resources/set-azresource) | 리소스 그룹에서 리소스를 수정합니다. |
 | [Switch-AzWebAppSlot](/powershell/module/az.websites/switch-azwebappslot) | 웹앱의 배포 슬롯을 프로덕션으로 교환합니다. |
 
 ## <a name="next-steps"></a>다음 단계

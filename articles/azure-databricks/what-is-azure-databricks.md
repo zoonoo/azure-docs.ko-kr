@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 05/08/2019
 ms.author: mamccrea
 ms.custom: mvc
-ms.openlocfilehash: ed93f332c6361d2f7cd5189ee5fedf3d9f5cf82d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 53f1b9a2fde20cacccd0730213695f26c1200fa7
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75410457"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80132531"
 ---
 # <a name="what-is-azure-databricks"></a>Azure Databricks란?
 
@@ -23,7 +23,7 @@ Azure Databricks는 Microsoft Azure Cloud Services 플랫폼에 대해 최적화
 
 ![Azure Databricks란?](./media/what-is-azure-databricks/azure-databricks-overview.png "Azure Databricks란?")
 
-Azure Databricks는 빠르고 쉬운 공동 작업 Apache Spark 기반 분석 서비스입니다. 빅 데이터 파이프라인의 경우 데이터(원시 또는 구조적 데이터)는 Azure Data Factory를 통해 일괄 처리로 수집되거나 Kafka, 이벤트 허브 또는 IoT Hub를 사용하여 거의 실시간으로 스트리밍됩니다. 이 데이터는 Azure Blob Storage 또는 Azure Data Lake Storage에서 장기 저장을 위한 데이터 레이크에 배치됩니다. 분석 워크플로의 일부로, Azure Databricks를 사용하여 [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md), [Azure Data Lake Storage](../data-lake-store/index.md), [Azure Cosmos DB](../cosmos-db/index.yml), [Azure SQL Data Warehouse](../sql-data-warehouse/index.yml) 등의 여러 데이터 원본에서 데이터를 읽고 Spark를 사용하여 혁신적인 인사이트로 바꿀 수 있습니다.
+Azure Databricks는 빠르고 쉬운 공동 작업 Apache Spark 기반 분석 서비스입니다. 빅 데이터 파이프라인의 경우 데이터(원시 또는 구조적 데이터)는 Azure Data Factory를 통해 일괄 처리로 수집되거나 Kafka, 이벤트 허브 또는 IoT Hub를 사용하여 거의 실시간으로 스트리밍됩니다. 이 데이터는 Azure Blob Storage 또는 Azure Data Lake Storage에서 장기 저장을 위한 데이터 레이크에 배치됩니다. 분석 워크플로의 일부로, Azure Databricks를 사용하여 [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md), [Azure Data Lake Storage](../data-lake-store/index.yml), [Azure Cosmos DB](../cosmos-db/index.yml), [Azure SQL Data Warehouse](../synapse-analytics/sql-data-warehouse/index.yml) 등의 여러 데이터 원본에서 데이터를 읽고 Spark를 사용하여 혁신적인 인사이트로 바꿀 수 있습니다.
 
 ![Databricks 파이프라인](./media/what-is-azure-databricks/databricks-pipeline.png)
 
@@ -61,7 +61,7 @@ Azure Databricks는 Spark 전문가가 관리하고 지원하는 클라우드에
 * Spark 위에 구축된 보안 데이터 통합 기능을 사용하면 중앙 집중화 하지 않고도 데이터를 통합할 수 있습니다. 
 * 각 릴리스와 함께 최신 Apache Spark 기능에 즉시 액세스합니다.
 
-### <a name="databricks-runtime"></a>Databricks 런타임
+### <a name="databricks-runtime"></a>Databricks Runtime
 Databricks 런타임은 Apache Spark를 기반으로 구축되었으며 기본적으로 Azure 클라우드용으로 구축되었습니다. 
 
 **서버 없음** 옵션을 사용하면 Azure Databricks가 인프라 복잡성과 데이터 인프라를 설정하고 구성하기 위해 전문 기술의 필요성을 완전히 추상화합니다. 서버 없음 옵션을 통해 데이터 과학자들은 팀으로 빠르게 반복할 수 있습니다.

@@ -10,11 +10,11 @@ ms.topic: overview
 ms.date: 09/17/2019
 ms.author: alkohli
 ms.openlocfilehash: a3e27cf427de3a33f71d6f4a0af9b1590abeb573
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71066994"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79215711"
 ---
 # <a name="what-is-azure-data-box"></a>Azure Data Box란?
 
@@ -56,7 +56,7 @@ Data Box는 네트워크에 거의 영향을 주지 않으면서 대량의 데�
 
 Data Box 디바이스에는 이 릴리스의 다음과 같은 기능이 있습니다.
 
-| 사양                                          | 설명              |
+| 사양                                          | Description              |
 |---------------------------------------------------------|--------------------------|
 | 무게                                                  | 50lb 이상                |
 | 차원                                              | 디바이스 - 너비: 309.0mm 높이: 430.4mm 깊이: 502.0mm |            

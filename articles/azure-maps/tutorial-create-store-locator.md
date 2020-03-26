@@ -10,10 +10,10 @@ services: azure-maps
 manager: timlt
 ms.custom: mvc
 ms.openlocfilehash: 5621ed8f9e5d7990ca7b522d6388f855db81618e
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77209565"
 ---
 # <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>자습서: Azure Maps를 사용하여 매장 로케이터 만들기

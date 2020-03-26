@@ -15,11 +15,11 @@ ms.date: 06/11/2018
 ms.author: magattus
 ms.custom: mvc
 ms.openlocfilehash: 22283833ebb414372de16cbe4ce7d3986cd400a9
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78383559"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79222410"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-azure-cdn-endpoint"></a>자습서: Azure CDN 엔드포인트에 사용자 지정 도메인 추가
 이 자습서에서는 Azure CDN(Content Delivery Network) 엔드포인트에 사용자 지정 도메인을 추가하는 방법을 보여줍니다. CDN 엔드포인트를 사용하여 콘텐츠를 제공할 때 고유한 도메인 이름을 CDN URL에 표시하려는 경우 사용자 지정 도메인이 필요합니다. 볼 수 있는 도메인 이름이 있다면 고객에게 편리하고 브랜딩 목적상 유용합니다. 
@@ -70,9 +70,9 @@ cdnverify 하위 도메인에서 CNAME 레코드를 만들려면:
     |---------------------------|-------|---------------------------------|
     | cdnverify. www.contoso.com | CNAME | cdnverify.contoso.azureedge.net |
 
-    - 원본: cdnverify 하위 도메인을 포함 하는 사용자 지정 도메인 이름을 cdnverify 형식으로 입력 합니다. 사용자 지정 도메인 이름&gt;를&lt;합니다. 예: cdnverify. www.contoso.com
+    - 원본: cdnverify 하위 도메인을 포함한 사용자 지정 도메인 이름을 cdnverify.&lt;사용자 지정 도메인 이름&gt; 형식으로 입력합니다. 예: cdnverify. www.contoso.com
 
-    - 형식: *CNAME*를 입력합니다.
+    - 유형: *CNAME*를 입력합니다.
 
     - 대상: cdnverify 하위 도메인을 비롯한 다음과 같은 형식의 CDN 엔드포인트 호스트 이름을 입력합니다. cdnverify. _&lt;엔드포인트 이름&gt;_ .azureedge.net 예: cdnverify.contoso.azureedge.net
 
@@ -92,7 +92,7 @@ cdnverify 하위 도메인에서 CNAME 레코드를 만들려면:
 
     ![CNAME 항목](./media/cdn-map-content-to-custom-domain/cdn-cdnverify-cname-entry.png)
 
-    - 형식: *CNAME*를 선택해 둡니다.
+    - 유형: *CNAME*를 선택해 둡니다.
 
     - 호스트: cdnverify 하위 도메인 이름을 비롯해 사용할 사용자 지정 도메인의 하위 도메인을 입력합니다. 예: cdnverify.www
 
@@ -164,9 +164,9 @@ cdnverify 하위 도메인이 엔드포인트에 성공적으로 매핑되었음
     |-----------------|-------|-----------------------|
     | <www.contoso.com> | CNAME | contoso.azureedge.net |
 
-   - 원본: 사용자 지정 도메인 이름 (예: www\.contoso.com)을 입력 합니다.
+   - 원본: 사용자 지정 도메인 이름(예: www\.contoso.com)을 입력합니다.
 
-   - 형식: *CNAME*를 입력합니다.
+   - 유형: *CNAME*를 입력합니다.
 
    - 대상: CDN 엔드포인트 호스트 이름을 입력합니다. 다음과 같은 형식이어야 합니다. _&lt;엔드포인트 이름&gt;_ .azureedge.net 예: contoso.azureedge.net
 
@@ -190,7 +190,7 @@ cdnverify 하위 도메인이 엔드포인트에 성공적으로 매핑되었음
 
     ![CNAME 항목](./media/cdn-map-content-to-custom-domain/cdn-cname-entry.png)
 
-    - 형식: *CNAME*를 선택해 둡니다.
+    - 유형: *CNAME*를 선택해 둡니다.
 
     - 호스트: 사용할 사용자 지정 도메인의 하위 도메인을 입력합니다. 예: www 또는 cdn
 

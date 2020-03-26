@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 03/05/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 5512e44ab52a3c3d957bbc0d0a07a7a1e7b6f50e
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.openlocfilehash: f60b26756c0affffbd45c8596fdf73d11ffa8e81
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78399586"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80239520"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-cli"></a>빠른 시작: Azure Application Gateway를 통해 웹 트래픽 보내기 - Azure CLI
 
@@ -171,7 +171,7 @@ Azure가 애플리케이션 게이트웨이를 만들 때까지 최대 30분이 
 
 Azure에서 애플리케이션 게이트웨이를 만들려면 반드시 NGINX 웹 서버가 필요한 것은 아니지만, 이 빠른 시작에서는 Azure가 애플리케이션 게이트웨이를 성공적으로 만들었는지 확인하기 위해 설치했습니다. 새 애플리케이션 게이트웨이의 공용 IP 주소를 가져오려면 `az network public-ip show`를 사용합니다. 
 
-```azurepowershell-interactive
+```azurecli-interactive
 az network public-ip show \
   --resource-group myResourceGroupAG \
   --name myAGPublicIPAddress \

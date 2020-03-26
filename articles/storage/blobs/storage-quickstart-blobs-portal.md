@@ -4,19 +4,19 @@ titleSuffix: Azure Storage
 description: 이 빠른 시작에서는 개체(Blob) 스토리지에서 Azure Portal을 사용합니다. 그런 다음, Azure Portal을 사용하여 Azure Storage에 BLOB을 업로드하고, BLOB을 다운로드하고, 컨테이너의 BLOB을 나열합니다.
 services: storage
 author: tamram
-ms.custom: mvc
 ms.service: storage
+ms.subservice: blobs
 ms.topic: quickstart
 ms.date: 12/04/2019
 ms.author: tamram
-ms.openlocfilehash: 1e5ccc9d427755ea4274e836e81e3e324fffa39d
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 3ceeb878121782ea3664e1ed62d5d632b606f08e
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78360953"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80061386"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-with-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Blob 업로드, 다운로드 및 나열
+# <a name="quickstart-upload-download-and-list-blobs-with-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 BLOB 업로드, 다운로드 및 나열
 
 이 빠른 시작에서는 [Azure Portal](https://portal.azure.com/)을 사용하여 Azure Storage에 컨테이너를 만들고 해당 컨테이너에서 블록 Blob을 업로드 및 다운로드하는 방법을 알아봅니다.
 

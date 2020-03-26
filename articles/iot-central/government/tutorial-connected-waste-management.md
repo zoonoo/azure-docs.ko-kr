@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.openlocfilehash: 274d725a0e7987c8cb15363ba276aec7ebc541d5
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77426363"
 ---
 # <a name="tutorial-create-a-connected-waste-management-application-in-iot-central"></a>자습서: IoT Central에서 연결된 폐기물 관리 애플리케이션 만들기
@@ -156,7 +156,7 @@ Azure IoT Central의 디바이스 템플릿은 원격 분석, 속성 또는 명�
 2. **+ 클라우드 속성 추가**를 클릭하여 새 클라우드 속성을 추가합니다. IoT Central에서 디바이스와 관련이 있지만 디바이스에서 보낼 필요가 없는 속성을 추가할 수 있습니다. 예를 들어 설치 영역, 자산 정보 또는 유지 관리 정보와 관련된 경고 임계값 및 기타 정보는 클라우드 속성이 될 수 있습니다. 
 3. 변경 내용을 **저장**합니다. 
  
-### <a name="views"></a>뷰 
+### <a name="views"></a>보기 
 * 연결된 폐기물 수집통 디바이스 템플릿에는 미리 정의된 뷰가 포함되어 있습니다. 뷰를 살펴보고 업데이트를 수행할 수 있습니다. 뷰는 운영자가 디바이스 데이터를 보는 방법을 정의하지만, 클라우드 속성 입력 방법도 제어합니다. 
 
   ![디바이스 템플릿 뷰](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate-views.png)

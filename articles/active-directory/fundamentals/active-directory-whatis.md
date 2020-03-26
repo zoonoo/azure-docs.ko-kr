@@ -12,11 +12,11 @@ ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dd7b412e99526935738c2494d31a16fded7101a6
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78386045"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79215811"
 ---
 # <a name="what-is-azure-active-directory"></a>Azure Active Directory란?
 

@@ -12,10 +12,10 @@ ms.date: 10/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
 ms.openlocfilehash: 4aa0cce83f9adc8c648656899ec6dc12d498e26b
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77160451"
 ---
 # <a name="quickstart-add-sign-in-using-openid-connect-to-a-nodejs-web-app"></a>빠른 시작: OpenID Connect를 사용하여 Node.js 웹앱에 로그인 추가

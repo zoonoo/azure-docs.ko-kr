@@ -5,12 +5,12 @@ author: mumian
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 0680309b13bf4499f0d153f44e575c1762b54d79
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 95d54a0661f0a0cebdbfc225074be0ce0d83a5cc
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773167"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79368896"
 ---
 # <a name="tutorial-use-exported-template-from-the-azure-portal"></a>자습서: Azure Portal에서 내보낸 템플릿 사용
 
@@ -84,7 +84,7 @@ Azure CLI 또는 Azure PowerShell을 사용하여 템플릿을 배포합니다.
 
 리소스 그룹을 만들지 않은 경우 [리소스 그룹 만들기](template-tutorial-create-first-template.md#create-resource-group)를 참조하세요. 이 예제에서는 [첫 번째 자습서](template-tutorial-create-first-template.md#deploy-template)에 표시된 대로 **templateFile** 변수를 템플릿 파일의 경로로 설정했다고 가정합니다.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -95,10 +95,10 @@ New-AzResourceGroupDeployment `
   -storageSKU Standard_LRS
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az group deployment create \
+az deployment group create \
   --name addappserviceplan \
   --resource-group myResourceGroup \
   --template-file $templateFile \

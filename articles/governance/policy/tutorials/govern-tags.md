@@ -4,10 +4,10 @@ description: 이 자습서에서는 Azure Policy의 Modify 효과를 사용하�
 ms.date: 11/25/2019
 ms.topic: tutorial
 ms.openlocfilehash: 5e9cb9a4acb930c117374281a3debaeecce47110
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75965993"
 ---
 # <a name="tutorial-manage-tag-governance-with-azure-policy"></a>자습서: Azure Policy를 사용하여 태그 거버넌스 관리

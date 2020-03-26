@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/26/2020
 ms.openlocfilehash: 8acafa14afab507b704806056efac0f877a47684
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78190725"
 ---
 # <a name="tutorial-use-rest-and-ai-to-generate-searchable-content-from-azure-blobs"></a>자습서: REST 및 AI를 사용하여 Azure Blob에서 검색 가능한 콘텐츠 생성
@@ -47,7 +47,7 @@ Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.
 
 ## <a name="1---create-services"></a>1 - 서비스 만들기
 
-이 자습서는 인덱싱 및 쿼리를 위한 Azure Cognitive Search, AI 보강을 위한 백 엔드의 Cognitive Services 및 Azure Blob Storage를 사용하여 데이터를 제공합니다. 이 자습서는 Cognitive Services에 인덱서당 하루 20개의 트랜잭션을 무료로 할당하기 때문에, 검색 및 스토리지 서비스만 만들면 됩니다.
+이 자습서에서는 Azure Cognitive Search를 인덱싱 및 쿼리에 사용하고 AI 보강을 위해 백 엔드의 Cognitive Services를 사용하고 Azure Blob Storage를 사용하여 데이터를 제공합니다. 이 자습서는 Cognitive Services에 인덱서당 하루 20개의 트랜잭션을 무료로 할당하기 때문에, 검색 및 스토리지 서비스만 만들면 됩니다.
 
 가능하면, 근접성과 관리 효율성을 위해 두 가지 모두를 동일한 지역과 리소스 그룹에 만듭니다. 실제로 Azure Storage 계정은 모든 지역에 있을 수 있습니다.
 
@@ -492,7 +492,7 @@ Azure Cognitive Search에서 AI 처리는 인덱싱(또는 데이터 수집) 중
 
 ## <a name="reset-and-rerun"></a>다시 설정하고 다시 실행
 
-개발의 초기 실험 단계에서 설계 반복에 대한 가장 실용적인 방법은 Azure Cognitive Search에서 개체를 삭제하고 코드에서 이를 다시 작성할 수 있도록 허용하는 것입니다. 리소스 이름은 고유합니다. 개체를 삭제하면 동일한 이름을 사용하여 개체를 다시 만들 수 있습니다.
+개발의 초기 실험 단계에서 설계 반복에 대한 가장 실용적인 방법은 Azure Cognitive Search에서 개체를 삭제하고 코드에서 이를 다시 작성하도록 허용하는 것입니다. 리소스 이름은 고유합니다. 개체를 삭제하면 동일한 이름을 사용하여 개체를 다시 만들 수 있습니다.
 
 포털을 사용하여 인덱스, 인덱서, 데이터 원본 및 기술 세트를 삭제할 수 있습니다. 인덱서를 삭제할 때 필요한 경우 인덱스, 기술 세트 및 데이터 원본을 동시에 선택적으로 삭제할 수 있습니다.
 

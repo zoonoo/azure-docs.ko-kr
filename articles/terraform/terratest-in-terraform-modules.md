@@ -3,12 +3,12 @@ title: 자습서 - Terratest를 사용하여 Azure에서 Terraform 모듈 테스
 description: Terratest를 사용하여 Terraform 모듈을 테스트하는 방법을 알아보세요.
 ms.topic: tutorial
 ms.date: 10/26/2019
-ms.openlocfilehash: 41f7f9c00f626cf622ea781f01da6db1f46cd805
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 687a793af2b9b75efe463b042d121c32f18974d6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158952"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79370800"
 ---
 # <a name="tutorial-test-terraform-modules-in-azure-using-terratest"></a>자습서: Terratest를 사용한 Azure 내 Terraform 모듈 테스트
 
@@ -26,7 +26,7 @@ Terraform 모듈을 만들 때는 품질 보증을 구현해야 합니다. 아�
 - **모든 테스트 사례가 Go로 작성됩니다**. Terraform을 사용하는 대부분의 개발자는 Go 개발자입니다. Go 개발자라면 Terratest를 사용하기 위해 다른 프로그래밍 언어를 학습할 필요가 없습니다. 또한 Terratest에서 테스트 사례를 실행하는 데 필요한 유일한 종속성은 Go와 Terraform입니다.
 - **인프라의 확장성이 매우 뛰어납니다**. Azure 관련 기능을 포함하여 Terratest에 기반한 함수를 추가로 확장할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 실습 문서는 플랫폼과 관련이 없습니다. 이 문서에서 사용하는 코드 예제는 Windows, Linux 또는 MacOS에서 실행할 수 있습니다. 
 
@@ -248,14 +248,17 @@ func TestUT_StorageAccountName(t *testing.T) {
 
 단위 테스트를 실행하려면 명령줄에서 다음 단계를 완료합니다.
 
+```azurecli
+az login    # Required when no service principal environment variables are present
+```
+
 ```shell
-$ cd [Your GoPath]/src/staticwebpage
-GoPath/src/staticwebpage$ dep init    # Run only once for this folder
-GoPath/src/staticwebpage$ dep ensure  # Required to run if you imported new packages in test cases
-GoPath/src/staticwebpage$ cd test
-GoPath/src/staticwebpage/test$ go fmt
-GoPath/src/staticwebpage/test$ az login    # Required when no service principal environment variables are present
-GoPath/src/staticwebpage/test$ go test -run TestUT_StorageAccountName
+cd [Your GoPath]/src/staticwebpage
+dep init    # Run only once for this folder
+dep ensure  # Required to run if you imported new packages in test cases
+cd test
+go fmt
+go test -run TestUT_StorageAccountName
 ```
 
 기존의 Go 테스트 결과는 약 1분 이내에 반환됩니다.
@@ -369,21 +372,24 @@ func TestIT_HelloWorldExample(t *testing.T) {
 
 통합 테스트를 실행하려면 명령줄에서 다음 단계를 완료합니다.
 
+```azurecli
+az login    # Required when no service principal environment variables are present
+```
+
 ```shell
-$ cd [Your GoPath]/src/staticwebpage
-GoPath/src/staticwebpage$ dep init    # Run only once for this folder
-GoPath/src/staticwebpage$ dep ensure  # Required to run if you imported new packages in test cases
-GoPath/src/staticwebpage$ cd test
-GoPath/src/staticwebpage/test$ go fmt
-GoPath/src/staticwebpage/test$ az login    # Required when no service principal environment variables are present
-GoPath/src/staticwebpage/test$ go test -run TestIT_HelloWorldExample
+cd [Your GoPath]/src/staticwebpage
+dep init    # Run only once for this folder
+dep ensure  # Required to run if you imported new packages in test cases
+cd test
+go fmt
+go test -run TestIT_HelloWorldExample
 ```
 
 기존의 Go 테스트 결과는 약 2분 이내에 반환됩니다. 또한 다음 명령을 실행하여 단위 테스트와 통합 테스트를 모두 실행할 수도 있습니다.
 
 ```shell
-GoPath/src/staticwebpage/test$ go fmt
-GoPath/src/staticwebpage/test$ go test
+go fmt
+go test
 ```
 
 통합 테스트는 단위 테스트보다 훨씬 더 오래 걸립니다 (하나의 통합 사례에 대해 2분, 5개의 단위 사례에 대해 1분). 그러나 시나리오에서 단위 테스트 또는 통합 테스트 중에서 어느 것을 사용할지는 사용자의 결정에 달려 있습니다. 일반적으로 Terraform HCL 함수를 사용하여 복잡한 논리에 대한 단위 테스트를 사용하는 것을 선호합니다. 일반적으로 사용자의 엔드투엔드 관점에서 통합 테스트를 사용합니다.
@@ -496,13 +502,16 @@ func Clean() error {
 
 다음 명령을 사용하여 전체 테스트 도구 모음을 실행할 수 있습니다. 이 코드는 이전 섹션에서 사용한 실행 단계와 비슷합니다. 
 
+```azurecli
+az login    # Required when no service principal environment variables are present
+```
+
 ```shell
-$ cd [Your GoPath]/src/staticwebpage
-GoPath/src/staticwebpage$ dep init    # Run only once for this folder
-GoPath/src/staticwebpage$ dep ensure  # Required to run if you imported new packages in magefile or test cases
-GoPath/src/staticwebpage$ go fmt      # Only required when you change the magefile
-GoPath/src/staticwebpage$ az login    # Required when no service principal environment variables are present
-GoPath/src/staticwebpage$ mage
+cd [Your GoPath]/src/staticwebpage
+dep init    # Run only once for this folder
+dep ensure  # Required to run if you imported new packages in magefile or test cases
+go fmt      # Only required when you change the magefile
+mage
 ```
 
 마지막 명령줄을 추가 mage 단계로 바꿀 수 있습니다. 예를 들어 `mage unit` 또는 `mage clean`을 사용할 수 있습니다. `dep` 명령과 `az login`을 magefile에 포함시키는 것이 좋습니다. 여기서는 코드를 보여 주지 않습니다. 

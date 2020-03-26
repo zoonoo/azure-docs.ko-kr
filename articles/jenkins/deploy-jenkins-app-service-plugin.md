@@ -5,10 +5,10 @@ keywords: Jenkins, Azure, DevOps, App Service
 ms.topic: tutorial
 ms.date: 07/31/2018
 ms.openlocfilehash: fcaf45003e865cc5aac3f6bd4580479a27d38b50
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78251452"
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Jenkins 플러그 인을 사용하여 Azure App Service에 배포 
@@ -46,7 +46,7 @@ sudo apt-get install -y maven
 
 Web App for Containers에 배포하려면 Jenkins 마스터 또는 빌드에 사용되는 VM 에이전트에 Docker를 설치합니다. 지침은 [Ubuntu에 Docker 설치](https://docs.docker.com/engine/installation/linux/ubuntu/)를 참조하세요.
 
-## <a name="service-principal"></a> Jenkins 자격 증명에 Azure 서비스 주체 추가
+## <a name="add-an-azure-service-principal-to-the-jenkins-credentials"></a><a name="service-principal"></a> Jenkins 자격 증명에 Azure 서비스 주체 추가
 
 Azure에 배포하려면 Azure 서비스 주체가 필요합니다. 
 

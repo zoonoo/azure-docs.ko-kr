@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.date: 01/15/2020
 ms.topic: tutorial
 ms.service: event-hubs
-ms.openlocfilehash: 43668fe1f465a5db74e63b8b1c1ae6cb328d2092
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 28fa9dddda94845511ead7d8fb7481aff6b6b044
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77914129"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80130858"
 ---
 # <a name="tutorial-migrate-captured-event-hubs-data-to-a-sql-data-warehouse-using-event-grid-and-azure-functions"></a>자습서: Event Grid 및 Azure Functions를 사용하여 캡처된 Event Hubs 데이터를 SQL Data Warehouse로 마이그레이션
 
@@ -93,7 +93,7 @@ New-AzResourceGroupDeployment -ResourceGroupName rgDataMigration -TemplateUri ht
 
 
 ### <a name="create-a-table-in-sql-data-warehouse"></a>SQL Data Warehouse에서 테이블 만들기 
-[Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md), [SQL Server Management Studio](../sql-data-warehouse/sql-data-warehouse-query-ssms.md) 또는 포털의 [쿼리 편집기]에서 [CreateDataWarehouseTable.sql](https://github.com/Azure/azure-event-hubs/blob/master/samples/e2e/EventHubsCaptureEventGridDemo/scripts/CreateDataWarehouseTable.sql) 스크립트를 실행하여 SQL 데이터 웨어하우스에 테이블을 만듭니다. 
+[Visual Studio](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-query-visual-studio.md), [SQL Server Management Studio](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-query-ssms.md) 또는 포털의 [쿼리 편집기]에서 [CreateDataWarehouseTable.sql](https://github.com/Azure/azure-event-hubs/blob/master/samples/e2e/EventHubsCaptureEventGridDemo/scripts/CreateDataWarehouseTable.sql) 스크립트를 실행하여 SQL 데이터 웨어하우스에 테이블을 만듭니다. 
 
 ```sql
 CREATE TABLE [dbo].[Fact_WindTurbineMetrics] (

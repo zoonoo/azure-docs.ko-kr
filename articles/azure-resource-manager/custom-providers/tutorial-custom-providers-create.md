@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.date: 06/19/2019
 ms.author: jobreen
 ms.openlocfilehash: 09df78955de6423244c2d8ec94e1e1c06ecab257
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75648740"
 ---
 # <a name="create-and-use-a-custom-provider"></a>사용자 지정 공급자 만들기 및 사용
@@ -33,9 +33,9 @@ ms.locfileid: "75648740"
 
 속성 | 필수 | Description
 ---|---|---
-**name** | yes | 엔드포인트 정의의 이름입니다. Azure는 이 이름을 해당 API를 통해 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders<br>/resourceProviders/{resourceProviderName}/{endpointDefinitionName} 아래에 노출합니다.
+**name** | 예 | 엔드포인트 정의의 이름입니다. Azure는 이 이름을 해당 API를 통해 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders<br>/resourceProviders/{resourceProviderName}/{endpointDefinitionName} 아래에 노출합니다.
 **routingType** | 예 | 엔드포인트 계약 형식입니다. 값을 지정하지 않으면 기본값은 “Proxy”입니다.
-**endpoint** | yes | 요청을 라우팅하는 엔드포인트입니다. 이 엔드포인트는 응답 및 요청의 부작용을 처리합니다.
+**endpoint** | 예 | 요청을 라우팅하는 엔드포인트입니다. 이 엔드포인트는 응답 및 요청의 부작용을 처리합니다.
 
 **엔드포인트**의 값은 Azure 함수 앱의 트리거 URL입니다. `<yourapp>`, `<funcname>` 및 `<functionkey>` 자리 표시자는 생성한 함수 앱의 값으로 바꾸어야 합니다.
 
@@ -109,7 +109,7 @@ ms.locfileid: "75648740"
 
 ### <a name="custom-actions"></a>사용자 지정 작업
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 > [!NOTE]
 > `{subscriptionId}` 및 `{resourceGroupName}` 자리 표시자를 사용자 지정 공급자를 배포한 구독 및 리소스 그룹으로 바꾸어야 합니다.
@@ -125,11 +125,11 @@ az resource invoke-action --action myCustomAction \
 
 매개 변수 | 필수 | Description
 ---|---|---
-*action* | yes | 사용자 지정 공급자에 정의된 작업의 이름입니다.
-*ids* | yes | 사용자 지정 공급자의 리소스 ID입니다.
+*action* | 예 | 사용자 지정 공급자에 정의된 작업의 이름입니다.
+*ids* | 예 | 사용자 지정 공급자의 리소스 ID입니다.
 *request-body* | 예 | 엔드포인트로 전송될 요청 본문입니다.
 
-# <a name="templatetabtemplate"></a>[템플릿](#tab/template)
+# <a name="template"></a>[템플릿](#tab/template)
 
 없음
 
@@ -137,7 +137,7 @@ az resource invoke-action --action myCustomAction \
 
 ### <a name="custom-resources"></a>사용자 지정 리소스
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 > [!NOTE]
 > `{subscriptionId}` 및 `{resourceGroupName}` 자리 표시자를 사용자 지정 공급자를 배포한 구독 및 리소스 그룹으로 바꾸어야 합니다.
@@ -158,9 +158,9 @@ az resource create --is-full-object \
 
 매개 변수 | 필수 | Description
 ---|---|---
-*is-full-object* | yes | 속성 개체에 위치, 태그, SKU 또는 계획과 같은 다른 옵션이 포함되는지 여부를 나타냅니다.
-*id* | yes | 사용자 지정 리소스의 리소스 ID입니다. 이 ID는 사용자 지정 공급자 리소스 ID의 확장입니다.
-*properties* | yes | 엔드포인트로 전송될 요청 본문입니다.
+*is-full-object* | 예 | 속성 개체에 위치, 태그, SKU 또는 계획과 같은 다른 옵션이 포함되는지 여부를 나타냅니다.
+*id* | 예 | 사용자 지정 리소스의 리소스 ID입니다. 이 ID는 사용자 지정 공급자 리소스 ID의 확장입니다.
+*properties* | 예 | 엔드포인트로 전송될 요청 본문입니다.
 
 #### <a name="delete-a-custom-resource"></a>사용자 지정 리소스 삭제
 
@@ -170,7 +170,7 @@ az resource delete --id /subscriptions/{subscriptionId}/resourceGroups/{resource
 
 매개 변수 | 필수 | Description
 ---|---|---
-*id* | yes | 사용자 지정 리소스의 리소스 ID입니다. 이 ID는 사용자 지정 공급자 리소스 ID의 확장입니다.
+*id* | 예 | 사용자 지정 리소스의 리소스 ID입니다. 이 ID는 사용자 지정 공급자 리소스 ID의 확장입니다.
 
 #### <a name="retrieve-a-custom-resource"></a>사용자 지정 리소스 검색
 
@@ -180,9 +180,9 @@ az resource show --id /subscriptions/{subscriptionId}/resourceGroups/{resourceGr
 
 매개 변수 | 필수 | Description
 ---|---|---
-*id* | yes | 사용자 지정 리소스의 리소스 ID입니다. 이 ID는 사용자 지정 공급자 리소스 ID의 확장입니다.
+*id* | 예 | 사용자 지정 리소스의 리소스 ID입니다. 이 ID는 사용자 지정 공급자 리소스 ID의 확장입니다.
 
-# <a name="templatetabtemplate"></a>[템플릿](#tab/template)
+# <a name="template"></a>[템플릿](#tab/template)
 
 샘플 Resource Manager 템플릿:
 
@@ -206,9 +206,9 @@ az resource show --id /subscriptions/{subscriptionId}/resourceGroups/{resourceGr
 
 매개 변수 | 필수 | Description
 ---|---|---
-*resourceTypeName* | yes | 사용자 지정 공급자에 정의된 **resourceTypes** 속성의 `name` 값입니다.
-*resourceProviderName* | yes | 사용자 지정 공급 기업 인스턴스 이름입니다.
-*customResourceName* | yes | 사용자 지정 리소스 이름입니다.
+*resourceTypeName* | 예 | 사용자 지정 공급자에 정의된 **resourceTypes** 속성의 `name` 값입니다.
+*resourceProviderName* | 예 | 사용자 지정 공급 기업 인스턴스 이름입니다.
+*customResourceName* | 예 | 사용자 지정 리소스 이름입니다.
 
 ---
 

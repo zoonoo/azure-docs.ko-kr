@@ -8,10 +8,10 @@ ms.topic: overview
 ms.date: 02/05/2020
 ms.author: dobett
 ms.openlocfilehash: 046116addf643d6c0eb0faf2f821b6ef78d440c6
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77050630"
 ---
 # <a name="choose-the-right-iot-solution"></a>올바른 IoT 솔루션 선택
@@ -47,7 +47,7 @@ ms.locfileid: "77050630"
 
 - 브랜딩, 대시보드, 사용자 역할, 디바이스 및 원격 분석을 사용자 지정하려면 관리형 앱 플랫폼 방식을 선택합니다. 단, 기본 IoT 시스템 관리 오버헤드를 처리하고 싶지 않은 경우입니다.
 
-## <a name="pricing"></a>가격 책정
+## <a name="pricing"></a>가격
 
 요구 사항에 가장 적합한 가격 책정 구조는 무엇인가요?
 

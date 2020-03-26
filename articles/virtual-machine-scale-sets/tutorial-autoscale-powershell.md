@@ -9,10 +9,10 @@ ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 50fb0c1c13ceba88b1894fa0f3165dd40b8e23cf
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76278419"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 가상 머신 확장 집합의 크기를 자동으로 조정

@@ -8,10 +8,10 @@ ms.service: storage
 ms.subservice: common
 ms.topic: sample
 ms.openlocfilehash: fc3079d316a252bc5a658017cb6b04fe6ef20c2f
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77485831"
 ---
 # <a name="azure-storage-samples-using-v12-python-client-libraries"></a>v12 Python 클라이언트 라이브러리를 사용하는 Azure Storage 샘플
@@ -573,7 +573,7 @@ ms.locfileid: "77485831"
 * [Azure Blob 코드 샘플](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob/samples)
 * [Azure Data Lake 코드 샘플](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/samples)
 * [Azure Files 코드 샘플](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-share/samples)
-* [Azure Queue 코드 샘플](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue/samples)
+* [Azure 큐 코드 샘플](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue/samples)
 
 각 라이브러리에 대한 GitHub 리포지토리를 찾아보고 복제할 수 있습니다.
 

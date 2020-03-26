@@ -14,11 +14,11 @@ ms.date: 12/24/2019
 ms.author: bwren
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
 ms.openlocfilehash: 0cf171da5f473a0d78fc5f37139c94b0e519bcfb
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77660175"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79289971"
 ---
 # <a name="quickstart-collect-data-from-a-linux-computer-in-a-hybrid-environment-with-azure-monitor"></a>빠른 시작: Azure Monitor를 사용하여 하이브리드 환경에서 Linux 컴퓨터의 데이터 수집
 

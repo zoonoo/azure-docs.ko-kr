@@ -9,10 +9,10 @@ ms.date: 11/04/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 8b338f25e9771f5947fd494cfb00d0f6cb9ef67a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75450852"
 ---
 1. **VPN 사이트 연결**을 선택하여 **사이트 연결** 페이지를 엽니다.

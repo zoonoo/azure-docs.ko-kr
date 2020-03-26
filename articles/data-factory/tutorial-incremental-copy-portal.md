@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 01/11/2018
 ms.openlocfilehash: a908b44f596e6ca1ecd2960110a35661448c2e1a
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75982660"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure SQL 데이터베이스에서 Azure Blob 스토리지로 데이터 증분 로드

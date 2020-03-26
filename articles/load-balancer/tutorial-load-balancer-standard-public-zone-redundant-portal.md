@@ -16,10 +16,10 @@ ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
 ms.openlocfilehash: f521cc68476e2f9df1cc8288cf41156da3851cd0
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78251887"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>자습서: Azure Portal에서 Standard Load Balancer를 통한 가용성 영역 간 부하 분산
@@ -90,7 +90,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. 화면 왼쪽에서 **리소스 만들기**를 클릭하고 검색 상자에 *네트워크 보안 그룹*을 입력한 다음, 네트워크 보안 그룹 페이지에서 **만들기**를 클릭합니다.
 2. 네트워크 보안 그룹 만들기 페이지에서 다음 값을 입력합니다.
-    - *myNetworkSecurityGroup* - 네트워크 보안 그룹의 이름입니다.
+    - *myNetworkSecurityGroup*  - 네트워크 보안 그룹의 이름입니다.
     - *myResourceGroupLBAZ* - 기존 리소스 그룹의 이름입니다.
    
 ![가상 네트워크 만들기](./media/load-balancer-standard-public-availability-zones-portal/create-nsg.png)

@@ -8,13 +8,13 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/03/2019
 ms.openlocfilehash: 488664b028568b3014b9b839122705d35104861e
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78392515"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79223270"
 ---
-# <a name="tutorial-analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>자습서: Stream Analytics을 사용 하 여 전화 통화 데이터 분석 및 Power BI 대시보드에서 결과 시각화
+# <a name="tutorial-analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>자습서: Stream Analytics를 사용하여 전화 통화 데이터 분석 및 Power BI 대시보드에서 결과 시각화
 
 이 자습서에서는 Azure Stream Analytics를 사용하여 전화 통화 데이터를 분석하는 방법을 설명합니다. 클라이언트 애플리케이션에서 생성한 전화 통화 데이터에는 일부 사기성 호출이 포함되어 있으며 이러한 호출은 Stream Analytics 작업을 통해 필터링됩니다.
 
@@ -85,7 +85,7 @@ Stream Analytics가 사기성 호출 데이터 스트림을 분석하려면 Azur
 
    `Endpoint=sb://<Your event hub namespace>.servicebus.windows.net/;SharedAccessKeyName=<Your shared access policy name>;SharedAccessKey=<generated key>;EntityPath=<Your event hub name>`
 
-   연결 문자열에는 세미콜론으로 구분된 여러 키-값 쌍이 포함되어 있습니다(**Endpoint**, **SharedAccessKeyName**, **SharedAccessKey** 및 **EntityPath**).
+   연결 문자열에는 **Endpoint**, **SharedAccessKeyName**, **SharedAccessKey**, **EntityPath** 등 여러 개의 키-값 쌍이 세미콜론으로 구분되어 포함됩니다.
 
 ## <a name="start-the-event-generator-application"></a>이벤트 생성기 애플리케이션 시작
 
@@ -210,7 +210,7 @@ TelcoGenerator 앱을 시작하기 전에, 앞에서 만든 Azure Event Hubs로 
    GROUP BY TumblingWindow(Duration(second, 1))
    ```
 
-   사기성 호출을 검사하려면 `CallRecTime` 값에 따라 스트리밍 데이터를 자체 조인하면 됩니다. 그 후 `CallingIMSI` 값(발신 번호)이 동일하지만 `SwitchNum` 값(발신 국가/지역)은 다른 호출 레코드를 찾을 수 있습니다. 스트리밍 데이터에 JOIN 작업을 사용할 경우 조인은 일치하는 행이 시간상으로 얼마나 분리할 수 있는지 정도에 대한 몇 가지 한도를 제공해야 합니다. 스트리밍 데이터가 무한하기 때문에 관계에 대한 시간 범위는 **DATEDIFF** 함수를 사용하여 조인의 [ON](https://docs.microsoft.com/stream-analytics-query/datediff-azure-stream-analytics) 절 내에서 지정됩니다.
+   사기성 호출을 검사하려면 `CallRecTime` 값에 따라 스트리밍 데이터를 자체 조인하면 됩니다. 그 후 `CallingIMSI` 값(발신 번호)이 동일하지만 `SwitchNum` 값(발신 국가/지역)은 다른 호출 레코드를 찾을 수 있습니다. 스트리밍 데이터에 JOIN 작업을 사용할 경우 조인은 일치하는 행이 시간상으로 얼마나 분리할 수 있는지 정도에 대한 몇 가지 한도를 제공해야 합니다. 스트리밍 데이터가 무한하기 때문에 관계에 대한 시간 범위는 [DATEDIFF](https://docs.microsoft.com/stream-analytics-query/datediff-azure-stream-analytics) 함수를 사용하여 조인의 **ON** 절 내에서 지정됩니다.
 
    이 쿼리는 **DATEDIFF** 함수를 제외하고 일반 SQL 조인과 흡사합니다. 이 쿼리에 사용되는 **DATEDIFF** 함수는 Stream Analytics로 한정되며, `ON...BETWEEN` 절 내부에 나타나야 합니다.
 
@@ -264,7 +264,7 @@ TelcoGenerator 앱을 시작하기 전에, 앞에서 만든 Azure Event Hubs로 
 
 자습서의 이 부분에서는 Power BI 팀에서 만든 [ASP.NET](https://asp.net/) 웹 애플리케이션을 사용하여 대시보드를 포함할 것입니다. 대시보드를 포함하는 방법에 대한 자세한 내용은 [Power BI를 통해 포함](https://docs.microsoft.com/power-bi/developer/embedding) 문서를 참조하세요.
 
-애플리케이션을 설정하려면 [PowerBI-개발자-샘플](https://github.com/Microsoft/PowerBI-Developer-Samples) GitHub 리포지토리로 이동하여 **사용자 소유 데이터** 섹션 아래의 지침을 따릅니다(**통합-웹앱** 하위 섹션 아래에 있는 리디렉션 및 홈페이지 URL 사용). 우리는 대시보드 예제를 사용할 예정이므로 **GitHub 리포지토리**에 있는 [통합-웹앱](https://github.com/Microsoft/PowerBI-Developer-Samples/tree/master/User%20Owns%20Data/integrate-web-app) 샘플 코드를 사용합니다.
+애플리케이션을 설정하려면 [PowerBI-개발자-샘플](https://github.com/Microsoft/PowerBI-Developer-Samples) GitHub 리포지토리로 이동하여 **사용자 소유 데이터** 섹션 아래의 지침을 따릅니다(**통합-웹앱** 하위 섹션 아래에 있는 리디렉션 및 홈페이지 URL 사용). 우리는 대시보드 예제를 사용할 예정이므로 [GitHub 리포지토리](https://github.com/Microsoft/PowerBI-Developer-Samples/tree/master/User%20Owns%20Data/integrate-web-app)에 있는 **통합-웹앱** 샘플 코드를 사용합니다.
 브라우저에서 애플리케이션을 실행한 후에는 다음 단계에 따라 앞에서 만든 대시보드를 웹 페이지에 포함합니다.
 
 1. **Power BI에 로그인**을 선택합니다. 그러면 Power BI 계정에 대시보드에 대한 애플리케이션 액세스 권한이 부여됩니다.

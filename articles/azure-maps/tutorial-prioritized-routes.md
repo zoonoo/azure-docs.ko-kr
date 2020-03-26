@@ -10,10 +10,10 @@ services: azure-maps
 manager: timlt
 ms.custom: mvc
 ms.openlocfilehash: 628a3003cec2cc2ca58f1b133cf3236417dfa94e
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77209497"
 ---
 # <a name="tutorial-find-routes-for-different-modes-of-travel-using-azure-maps"></a>자습서: Azure Maps를 사용하여 여러 여행 모드에 대한 경로 찾기

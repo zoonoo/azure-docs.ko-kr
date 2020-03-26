@@ -3,13 +3,13 @@ title: '자습서: 컨테이너를 사용하는 레거시 앱(미리 보기)'
 description: 사용자 지정 Windows 컨테이너를 Azure App Service로 마이그레이션하고 컨테이너에 사용자 지정 소프트웨어를 배포하는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.date: 10/22/2019
-ms.custom: seodec18
-ms.openlocfilehash: 5fc65a4d3f9989ac462d7716b7652a1011281413
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 74cb88bc1ace87155a35163ca8f9d3d6c4242ae0
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671970"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80046612"
 ---
 # <a name="migrate-an-aspnet-app-to-azure-app-service-using-a-windows-container-preview"></a>Windows 컨테이너를 사용하여 ASP.NET 앱을 Azure App Service로 마이그레이션(미리 보기)
 
@@ -17,7 +17,7 @@ ms.locfileid: "74671970"
 
 ![](media/app-service-web-tutorial-windows-containers-custom-fonts/app-running.png)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -111,7 +111,7 @@ _InstallFont.ps1_은 **CustomFontSample** 프로젝트에서 찾을 수 있습�
 
 다음 표의 제안 값을 기반으로 새 컨테이너 레지스트리를 구성합니다. 작업을 마쳤으면 **만들기**를 클릭합니다.
 
-| 설정  | 제안 값 | Blob에 대한 자세한 내용은 |
+| 설정  | 제안 값 | 참조 항목 |
 | ----------------- | ------------ | ----|
 |**DNS 접두사**| 생성된 레지스트리 이름을 유지하거나 다른 고유한 이름으로 변경합니다. |  |
 |**리소스 그룹**| **새로 만들기**를 클릭하고 **myResourceGroup**을 입력하고 **확인**을 클릭합니다. |  |
@@ -134,11 +134,11 @@ _InstallFont.ps1_은 **CustomFontSample** 프로젝트에서 찾을 수 있습�
 
 **기본 사항** 탭에서 다음 표에 따라 설정을 구성한 후, **다음: Docker**를 클릭합니다.
 
-| 설정  | 제안 값 | Blob에 대한 자세한 내용은 |
+| 설정  | 제안 값 | 참조 항목 |
 | ----------------- | ------------ | ----|
 |**구독**| 올바른 구독을 선택하는지 확인합니다. |  |
 |**리소스 그룹**| **새로 만들기**를 선택하고, **myResourceGroup**을 입력하고, **확인**을 클릭합니다. |  |
-|**Name**| 고유한 이름을 입력합니다. | 웹앱의 URL은 `http://<app-name>.azurewebsites.net`이며, 여기서 `<app-name>`은 앱 이름입니다. |
+|**이름**| 고유한 이름을 입력합니다. | 웹앱의 URL은 `http://<app-name>.azurewebsites.net`이며, 여기서 `<app-name>`은 앱 이름입니다. |
 |**게시**| Docker 컨테이너 | |
 |**운영 체제**| Windows | |
 |**지역**| 서유럽 | |

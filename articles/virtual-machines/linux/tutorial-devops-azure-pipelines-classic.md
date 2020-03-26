@@ -13,10 +13,10 @@ ms.date: 1/16/2020
 ms.author: ushan
 ms.custom: devops
 ms.openlocfilehash: 5707a99b329915b35131fe793b0dfabd02348677
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77912531"
 ---
 # <a name="tutorial-integrated-devops-for-iaas-and-paas-on-azure"></a>자습서: Azure의 IaaS 및 PaaS를 위한 통합 DevOps

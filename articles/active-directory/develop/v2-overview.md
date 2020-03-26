@@ -16,12 +16,12 @@ ms.date: 05/08/2019
 ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 6280f3784247b671521a4994be1f233d4913d90c
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: f6953fb5d016c802db260c55bc4970c3f029ab1a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77194503"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79215871"
 ---
 # <a name="microsoft-identity-platform-v20-overview"></a>Microsoft ID 플랫폼(v2.0) 개요
 
@@ -33,7 +33,7 @@ Microsoft ID 플랫폼은 Azure AD(Azure Active Directory) 개발자 플랫폼�
   - 소셜 또는 로컬 계정(Azure AD B2C를 통함)
 - **오픈 소스 라이브러리**: MSAL(Microsoft 인증 라이브러리) 및 기타 표준 규격 라이브러리 지원
 - **애플리케이션 관리 포털**: 다른 모든 Azure 관리 기능과 함께 Azure Portal에 구축된 등록 및 구성 환경입니다.
-- **애플리케이션 구성 API 및 PowerShell**: REST API(Microsoft Graph 및 Azure Active Directory Graph 1.6)와 PowerShell을 통해 프로그래밍 방식으로 애플리케이션을 구성할 수 있기 때문에 DevOps 작업을 자동화할 수 있습니다.
+- **애플리케이션 구성 API 및 PowerShell**: Microsoft Graph API 및 PowerShell을 통해 프로그래밍 방식으로 애플리케이션을 구성할 수 있기 때문에 DevOps 작업을 자동화할 수 있습니다.
 - **개발자 콘텐츠**: 개념 및 참조 설명서, 빠른 시작 샘플, 코드 샘플, 자습서 및 방법 가이드입니다.
 
 Microsoft ID 플랫폼은 개발자를 위해 ID 및 보안 공간의 혁신(예: 암호 없는 인증, 스텝업 인증 및 조건부 액세스)에 완벽하게 통합됩니다.  이러한 기능을 직접 구현할 필요가 없습니다. Microsoft ID 플랫폼에 통합된 애플리케이션은 이러한 기술 혁신의 이점을 기본적으로 활용합니다.

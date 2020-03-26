@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: 3b965ab7dfafd6c78c801cf3692463efe366c852
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: c0bb391348548ecca595fd1a6472bafcb22ed4ee
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78198085"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79472659"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-windows-virtual-machine-in-python"></a>자습서: Python에서 Windows 가상 머신에 Azure Key Vault 사용
 
@@ -35,13 +35,13 @@ Azure Key Vault를 통해 애플리케이션, 서비스 및 IT 리소스에 액�
 
 시작하기 전에 [Key Vault 기본 개념](basic-concepts.md)을 읽어보세요. 
 
-Azure 구독이 아직 없는 경우 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 Windows, Mac 및 Linux:
   * [Git](https://git-scm.com/downloads)
-  * 이 자습서에서는 Azure CLI를 로컬로 실행해야 합니다. Azure CLI 버전 2.0.4 이상이 설치되어 있어야 합니다. `az --version`을 실행하여 버전을 찾습니다. CLI를 설치하거나 업그레이드해야 하는 경우에는 [Azure CLI 2.0 설치](https://review.docs.microsoft.com/cli/azure/install-azure-cli)를 참조하세요.
+  * 이 자습서에서는 Azure CLI를 로컬로 실행해야 합니다. Azure CLI 버전 2.0.4 이상이 설치되어 있어야 합니다. `az --version`을 실행하여 버전을 찾습니다. CLI를 설치하거나 업그레이드해야 하는 경우에는 [Azure CLI 2.0 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="about-managed-service-identity"></a>관리 서비스 ID 정보
 
@@ -117,7 +117,7 @@ az vm identity assign --name <NameOfYourVirtualMachine> --resource-group <YourRe
 
 다음 코드에 표시되는 시스템 할당 ID를 기록해 둡니다. 위 명령의 출력은 다음과 같습니다. 
 
-```azurecli
+```output
 {
   "systemAssignedIdentity": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "userAssignedIdentities": {}
@@ -148,7 +148,7 @@ az keyvault set-policy --name '<YourKeyVaultName>' --object-id <VMSystemAssigned
   이렇게 하면 Azure AD에서 토큰도 페치됩니다.
 1. 토큰을 Key Vault에 전달하고 비밀을 페치합니다. 
 
-```
+```python
     # importing the requests library 
     import requests 
 
@@ -170,7 +170,7 @@ az keyvault set-policy --name '<YourKeyVaultName>' --object-id <VMSystemAssigned
 
 다음 명령을 실행하여 비밀 값을 표시할 수 있습니다. 
 
-```
+```console
 python Sample.py
 ```
 

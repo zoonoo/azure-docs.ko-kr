@@ -10,13 +10,13 @@ ms.date: 09/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Data Box Edge so I can use it to transform the data before sending it to Azure.
 ms.openlocfilehash: b641ae62ba6e0cdacaeb46b1ffee2f02c7544763
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78397314"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79222860"
 ---
-# <a name="tutorial-transform-data-with-azure-data-box-edge"></a>자습서: Azure Data Box Edge을 사용 하 여 데이터 변환
+# <a name="tutorial-transform-data-with-azure-data-box-edge"></a>자습서: Azure Data Box Edge를 사용하여 데이터 변환
 
 이 자습서에서는 Azure Data Box Edge 디바이스에 컴퓨팅 역할을 구성하는 방법에 대해 설명합니다. 컴퓨팅 역할이 구성되면 Data Box Edge에서 데이터를 변환한 후에 Azure로 보낼 수 있습니다.
 

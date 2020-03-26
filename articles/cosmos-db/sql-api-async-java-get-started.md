@@ -10,10 +10,10 @@ ms.date: 11/05/2019
 ms.author: sngun
 Customer intent: As a developer, I want to build a Java application with the Async Java SDK to access and manage Azure Cosmos DB resources so that customers can utilize the global distribution, elastic scaling, multi-master, and other capabilities offered by Azure Cosmos DB.
 ms.openlocfilehash: 8704e399156b9cfc6b04ff47af49b956b597a539
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75444899"
 ---
 # <a name="tutorial-build-a-java-app-with-the-async-java-sdk-to-manage-data-stored-in-a-sql-api-account"></a>자습서: 비동기 Java SDK를 사용하여 SQL API 계정에 저장된 데이터를 관리하는 Java 앱 빌드
@@ -54,7 +54,7 @@ ms.locfileid: "75444899"
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-## <a id="GitClone"></a>GitHub 리포지토리 복제
+## <a name="clone-the-github-repository"></a><a id="GitClone"></a>GitHub 리포지토리 복제
 
 [Azure Cosmos DB 및 Java 시작](https://github.com/Azure-Samples/azure-cosmos-db-sql-api-async-java-getting-started)에 대한 GitHub 리포지토리를 복제합니다. 예를 들어 로컬 디렉터리에서 다음을 실행하여 프로젝트 샘플을 로컬로 검색합니다.
 
@@ -75,7 +75,7 @@ cd azure-cosmosdb-get-started
 </dependency>
 ```
 
-## <a id="Connect"></a>Azure Cosmos 계정에 연결
+## <a name="connect-to-an-azure-cosmos-account"></a><a id="Connect"></a>Azure Cosmos 계정에 연결
 
 다음으로, [Azure Portal](https://portal.azure.com)로 다시 이동하여 엔드포인트와 기본 마스터 키를 검색합니다. Azure Cosmos DB 엔드포인트와 기본 키는 애플리케이션에서 연결할 위치를 식별하고 Azure Cosmos DB에서 애플리케이션의 연결을 신뢰하는 데 필요합니다. `AccountSettings.java` 파일은 기본 키 및 URI 값을 포함하고 있습니다. 
 
@@ -112,7 +112,7 @@ client = new AsyncDocumentClient.Builder()
          .build();
 ```
 
-## <a id="CreateDatabase"></a>데이터베이스 만들기
+## <a name="create-a-database"></a><a id="CreateDatabase"></a>데이터베이스 만들기
 
 DocumentClient 클래스의 `createDatabaseIfNotExists()` 메서드를 사용하여 Azure Cosmos 데이터베이스를 만듭니다. 데이터베이스는 여러 컬렉션으로 분할된 JSON 문서 스토리지의 논리적 컨테이너입니다.
 
@@ -156,7 +156,7 @@ private void createDatabaseIfNotExists() throws Exception
 }
 ```
 
-## <a id="CreateColl"></a>컬렉션 만들기
+## <a name="create-a-collection"></a><a id="CreateColl"></a>컬렉션 만들기
 
 컬렉션은 DocumentClient 클래스의 `createDocumentCollectionIfNotExists()` 메서드를 사용하여 만들 수 있습니다. 컬렉션은 JSON 문서 및 관련 JavaScript 애플리케이션 논리의 컨테이너입니다.
 
@@ -200,7 +200,7 @@ private void createDocumentCollectionIfNotExists() throws Exception
     }
 ```
 
-## <a id="CreateDoc"></a>JSON 문서 만들기
+## <a name="create-json-documents"></a><a id="CreateDoc"></a>JSON 문서 만들기
 
 문서는 DocumentClient 클래스의 createDocument 메서드를 사용하여 만듭니다. 문서는 사용자 정의(임의) JSON 콘텐츠입니다. 이제 하나 이상의 문서를 삽입할 수 있습니다. "src/main/java/com/microsoft/azure/cosmosdb/sample/Families.java" 파일은 패밀리 JSON 문서를 정의합니다. 
 
@@ -220,7 +220,7 @@ public static Family getJohnsonFamilyDocument() {
     }
 ```
 
-## <a id="Query"></a>Azure Cosmos DB 리소스 쿼리
+## <a name="query-azure-cosmos-db-resources"></a><a id="Query"></a>Azure Cosmos DB 리소스 쿼리
 
 Azure Cosmos DB는 각 컬렉션에 저장된 JSON 문서에 대해 다양한 쿼리를 지원합니다. 다음 샘플 코드에서는 `queryDocuments` 메서드와 함께 SQL 구문을 사용하여 Azure Cosmos DB에서 문서를 쿼리하는 방법을 보여 줍니다.
 
@@ -254,7 +254,7 @@ private void executeSimpleQueryAsyncAndRegisterListenerForResult(CountDownLatch 
 }
 ```
 
-## <a id="Run"></a>Java 콘솔 애플리케이션 실행
+## <a name="run-your-java-console-application"></a><a id="Run"></a>Java 콘솔 애플리케이션 실행
 
 콘솔에서 애플리케이션을 실행하려면 프로젝트 폴더로 이동하고 Maven을 사용하여 컴파일합니다.
 

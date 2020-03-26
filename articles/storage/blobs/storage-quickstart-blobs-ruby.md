@@ -8,17 +8,17 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.openlocfilehash: 8c24c5f043d17b5f0e54ca1c2c6cf41a0d3fe9bc
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "68726363"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-ruby"></a>빠른 시작: Ruby를 사용하여 Blob 업로드, 다운로드 및 나열
 
 이 빠른 시작에서 Ruby를 사용하여 Azure Blob Storage에서 컨테이너에 블록 blob을 업로드, 다운로드 및 나열하는 방법을 알아봅니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
@@ -57,7 +57,7 @@ blob_client = Azure::Storage::Blob::BlobService.create(
 ## <a name="run-the-sample"></a>샘플 실행
 이 샘플에서는 'Documents' 폴더에 테스트 파일을 만듭니다. 샘플 프로그램은 Blob Storage에 테스트 파일을 업로드하고, 컨테이너에 Blob를 나열하며, 새 이름으로 파일을 다운로드합니다. 
 
-샘플을 실행합니다. 다음 출력은 애플리케이션 실행 시 반환되는 출력의 예제입니다.
+예제를 실행합니다. 다음 출력은 애플리케이션 실행 시 반환되는 출력의 예제입니다.
   
 ```
 Creating a container: quickstartblobs7b278be3-a0dd-438b-b9cc-473401f0c0e8

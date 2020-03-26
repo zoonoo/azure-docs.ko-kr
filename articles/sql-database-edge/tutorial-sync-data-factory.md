@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 11/04/2019
 ms.openlocfilehash: e6fd9e6431137708ba93328a8ed1359b93b4ee1f
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74851692"
 ---
 # <a name="tutorial-sync-data-from-sql-database-edge-to-azure-blob-storage-by-using-azure-data-factory"></a>자습서: Azure Data Factory를 사용하여 SQL Database Edge에서 Azure Blob 스토리지로 데이터 동기화
@@ -195,10 +195,10 @@ SQL Database Edge 인스턴스에서 다음 명령을 실행합니다.
 
     2. 저장 프로시저 매개 변수에 대한 값을 지정하려면 **가져오기 매개 변수**를 선택하고, 다음 매개 변수 값을 입력합니다.
 
-    |Name|type|값|
+    |속성|Type|값|
     |-----|----|-----|
     |LastModifiedtime|DateTime|@{activity('NewWaterMark').output.firstRow.NewWatermarkvalue}|
-    |TableName|문자열|@{activity('OldWaterMark').output.firstRow.TableName}|
+    |TableName|String|@{activity('OldWaterMark').output.firstRow.TableName}|
 
 33. 파이프라인 설정에 대한 유효성을 검사하려면 도구 모음에서 **유효성 검사**를 선택합니다. 유효성 검사 오류가 없는지 확인합니다. **파이프라인 유효성 검사 보고서** 창을 닫으려면 **>>** 를 선택합니다.
 

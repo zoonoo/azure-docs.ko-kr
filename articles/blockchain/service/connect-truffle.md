@@ -5,10 +5,10 @@ ms.date: 11/20/2019
 ms.topic: quickstart
 ms.reviewer: janders
 ms.openlocfilehash: 9ea96aa32072775fe6fb9563442f5e3564d37ea5
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74455804"
 ---
 # <a name="quickstart-use-truffle-to-connect-to-azure-blockchain-service"></a>빠른 시작: Truffle을 사용하여 Azure Blockchain Service에 연결
@@ -17,7 +17,7 @@ ms.locfileid: "74455804"
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [빠른 시작: Azure Portal을 사용하여 블록체인 멤버 만들기](create-member.md) 또는 [빠른 시작: Azure CLI를 사용하여 Azure Blockchain Service 블록체인 멤버 만들기](create-member-cli.md)를 완료합니다.
 * [Truffle](https://github.com/trufflesuite/truffle)을 설치합니다. Truffle을 사용하려면 [Node.js](https://nodejs.org), [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)를 포함한 여러 도구를 설치해야 합니다.

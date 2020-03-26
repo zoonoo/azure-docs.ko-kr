@@ -16,17 +16,17 @@ ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: d97323f1916ee46e6b1f8d4ca8723b950baca39c
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74064793"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79222230"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-windows-virtual-machine-in-azure"></a>자습서: Azure에서 Windows 가상 머신 변경 내용 및 업데이트 모니터링
 
 Azure [변경 내용 추적](../../automation/change-tracking.md) 및 [업데이트 관리](../../automation/automation-update-management.md)를 사용하면 Azure에서 Windows 가상 머신의 변경 내용을 쉽게 식별하고 해당 VM의 운영 체제 업데이트를 관리할 수 있습니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * Windows 업데이트 관리
@@ -115,9 +115,9 @@ VM에 업데이트 관리를 사용하려면 다음을 수행합니다.
 
 VM에 대한 새 업데이트 배포를 예약하려면 **업데이트 관리** 창 맨 위에서 **업데이트 배포 예약**을 선택합니다. **새 배포 업데이트** 창에서 다음 정보를 지정합니다.
 
-| 옵션 | 설명 |
+| 옵션 | Description |
 | --- | --- |
-| **Name** |업데이트 배포를 식별하는 고유 이름을 제공합니다. |
+| **이름** |업데이트 배포를 식별하는 고유 이름을 제공합니다. |
 |**운영 체제**| **Linux** 또는 **Windows**를 선택합니다.|
 | **업데이트할 그룹** |Azure에 호스팅되는 VM의 경우 구독, 리소스 그룹, 위치 및 태그의 조합을 기반으로 쿼리를 정의합니다. 이 쿼리는 배포에 포함할 Azure 호스팅 VM의 동적 그룹을 만듭니다. </br></br>Azure에 호스팅되지 않는 VM의 경우 저장된 기존 검색을 선택합니다. 이 검색을 사용하여 배포에 포함할 VM 그룹을 선택할 수 있습니다. </br></br> 자세한 내용은 [동적 그룹](../../automation/automation-update-management-groups.md)을 참조하세요.|
 | **업데이트할 머신** |**저장된 검색**, **가져온 그룹** 또는 **머신**을 선택합니다.<br/><br/>**머신**을 선택하는 경우 드롭다운 목록에서 개별 머신을 선택할 수 있습니다. 각 머신의 준비 상태는 테이블의 **업데이트 에이전트 준비** 열에 표시됩니다.</br></br> Azure Monitor 로그에서 컴퓨터 그룹을 만드는 다른 방법에 대해 알아보려면 [Azure Monitor 로그의 컴퓨터 그룹](../../azure-monitor/platform/computer-groups.md)을 참조하세요. |
@@ -175,7 +175,7 @@ VM에 변경 내용 및 인벤토리 관리를 사용하도록 설정하려면 �
 
 솔루션을 사용하도록 설정한 후 VM에 인벤토리가 수집되고 데이터가 표시될 때까지 다소 시간이 걸릴 수 있습니다.
 
-### <a name="track-changes"></a>변경 내용 추적
+### <a name="track-changes"></a>변경 내용 추적 작업
 
 VM의 **작업**에서 **변경 내용 추적**을 선택하고 **설정 편집**을 선택합니다. **변경 내용 추적** 창이 열립니다. 추적할 설정의 형식을 선택한 다음, **+ 추가**를 선택하여 설정을 구성합니다.
 
@@ -208,7 +208,7 @@ VM을 중지하고 다시 시작하면 활동 로그에 이벤트가 기록됩�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 VM에 대한 변경 내용 추적 및 업데이트 관리를 구성하고 검토했습니다. 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 VM에 대한 변경 내용 추적 및 업데이트 관리를 구성하고 검토했습니다. 구체적으로 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * 리소스 그룹 및 VM 만들기

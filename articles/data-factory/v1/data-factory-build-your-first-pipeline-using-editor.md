@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.openlocfilehash: 340017a121d12c95c7c04bbfe67b336638209e9c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75439004"
 ---
 # <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 첫 번째 데이터 팩터리 빌드

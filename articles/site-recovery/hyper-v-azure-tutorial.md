@@ -9,11 +9,11 @@ ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: 741d4718b5e6140f4ddd2bb22e1a2ec830763176
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74029942"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79224040"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>온-프레미스 Hyper-V VM의 Azure로의 재해 복구 설정
 
@@ -21,7 +21,7 @@ ms.locfileid: "74029942"
 
 이 문서는 시리즈의 세 번째 자습서입니다. 여기서는 온-프레미스 Hyper-V VM을 Azure로 재해 복구하도록 설정하는 방법을 보여 줍니다. 이 자습서는 Microsoft System Center VMM(Virtual Machine Manager)에서 관리하지 않는 Hyper-V VM에 적용됩니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 복제 원본 및 대상을 선택합니다.
@@ -30,7 +30,7 @@ ms.locfileid: "74029942"
 > * VM의 복제를 사용하도록 설정합니다.
 
 > [!NOTE]
-> 자습서는 시나리오의 가장 간단한 배포 경로를 보여줍니다. 가능한 경우 기본 옵션을 사용하고 가능한 모든 설정과 경로를 보여주지 않습니다. 자세한 지침은 [Site Recovery 설명서](https://docs.microsoft.com/azure/site-recovery)의 **방법 가이드** 섹션에 있는 문서를 검토하세요.
+> 자습서는 시나리오에 맞는 가장 간단한 배포 경로를 보여줍니다. 가능한 경우 기본 옵션을 사용하고 가능한 모든 설정과 경로를 보여주지 않습니다. 자세한 지침은 [Site Recovery 설명서](https://docs.microsoft.com/azure/site-recovery)의 **방법 가이드** 섹션에 있는 문서를 검토하세요.
 
 
 

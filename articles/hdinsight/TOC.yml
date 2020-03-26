@@ -19,6 +19,8 @@
           href: ./hdinsight-administer-use-powershell.md
         - name: Runbook을 사용하여 클러스터 만들기
           href: ./manage-clusters-runbooks.md
+        - name: Apache Ambari 이메일 알림
+          href: ./apache-ambari-email.md
         - name: ETL 파이프라인 빌드
           href: ./hdinsight-sales-insights-etl.md
     - name: 샘플
@@ -272,7 +274,8 @@
           href: ./spark/apache-spark-jupyter-spark-sql-use-powershell.md
         - name: Apache Spark 클러스터 만들기 - Azure CLI
           href: ./spark/apache-spark-create-cluster-cli.md
-        - name: Apache Spark 클러스터 만들기 - 템플릿
+        - name: Apache Spark 클러스터 만들기 - ARM 템플릿
+          displayName: Resource Manager
           href: ./spark/apache-spark-jupyter-spark-sql.md
     - name: 자습서
       items:
@@ -416,8 +419,8 @@
       items:
         - name: Apache Hadoop 클러스터 만들기 - 포털
           href: ./hadoop/apache-hadoop-linux-create-cluster-get-started-portal.md
-        - name: Apache Hadoop 클러스터 만들기 - 템플릿
-          displayName: 'resource manager template, arm template, resource manager group'
+        - name: Apache Hadoop 클러스터 만들기 - ARM 템플릿
+          displayName: Resource Manager
           href: ./hadoop/apache-hadoop-linux-tutorial-get-started.md
     - name: 자습서
       items:
@@ -435,8 +438,54 @@
               href: use-pig.md
         - name: 개발
           items:
-            - name: 빈 에지 노드 사용
-              href: ./hdinsight-apps-use-edge-node.md
+            - name: Apache Hadoop과 MapReduce 사용
+              items:
+                - name: MapReduce 개요
+                  href: ./hadoop/hdinsight-use-mapreduce.md
+                - name: SSH 사용
+                  href: ./hadoop/apache-hadoop-use-mapreduce-ssh.md
+                - name: cURL 사용
+                  href: ./hadoop/apache-hadoop-use-mapreduce-curl.md
+                - name: Azure PowerShell 사용
+                  href: ./hadoop/apache-hadoop-use-mapreduce-powershell.md
+                - name: .NET용 SDK 사용
+                  href: ./hadoop/apache-hadoop-use-mapreduce-dotnet-sdk.md
+                - name: MapReduce 샘플 실행
+                  href: ./hadoop/apache-hadoop-run-samples-linux.md
+                - name: 사용자 지정 Apache Hadoop MapReduce 프로그램 실행
+                  href: ./hadoop/apache-hadoop-run-custom-programs.md
+                - name: 'C# 스트리밍 MapReduce 프로그램 개발'
+                  href: ./hadoop/apache-hadoop-dotnet-csharp-mapreduce-streaming.md
+                - name: Java MapReduce 프로그램 개발
+                  href: ./hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md
+            - name: 'Apache Hive를 ETL(추출, 변환 및 로드) 도구로 사용'
+              href: ./hadoop/apache-hadoop-using-apache-hive-as-an-etl-tool.md
+            - name: '규모에 따라 추출, 변환 및 로드'
+              href: ./hadoop/apache-hadoop-etl-at-scale.md
+            - name: 비대화형 인증 .NET HDInsight 애플리케이션 만들기
+              href: ./hdinsight-create-non-interactive-authentication-dotnet-applications.md
+            - name: 빅 데이터 분석
+              items:
+                - name: 파워 쿼리를 사용하여 분석
+                  href: ./hadoop/apache-hadoop-connect-excel-power-query.md
+                - name: 대화형 쿼리에 Power BI 연결
+                  href: ./interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md
+                - name: Apache Hadoop에 Power BI 연결
+                  href: ./hadoop/apache-hadoop-connect-hive-power-bi.md
+                - name: Apache Hadoop에 Excel 연결
+                  href: ./hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md
+                - name: Apache Hive JDBC 드라이버를 사용하여 연결
+                  href: ./hadoop/apache-hadoop-connect-hive-jdbc-driver.md
+                - name: 저장된 트윗 분석
+                  href: ./hdinsight-analyze-twitter-data-linux.md
+                - name: Apache Mahout를 사용하여 추천 생성
+                  href: ./hadoop/apache-hadoop-mahout-linux-mac.md
+                - name: HDInsight에 대한 고급 분석
+                  href: ./hadoop/apache-hadoop-deep-dive-advanced-analytics.md
+            - name: 관리
+              items:
+                - name: 빈 에지 노드 사용
+                  href: ./hdinsight-apps-use-edge-node.md
         - name: 문제 해결
           items:
             - name: 일반적인 문제
@@ -499,8 +548,8 @@
           href: ./kafka/apache-kafka-get-started.md
         - name: Apache Kafka 클러스터 만들기 - PowerShell
           href: ./kafka/apache-kafka-quickstart-powershell.md
-        - name: Apache Kafka 클러스터 만들기 - 템플릿
-          displayName: 'resource manager template, arm template, resource manager group'
+        - name: Apache Kafka 클러스터 만들기 - ARM 템플릿
+          displayName: Resource Manager
           href: ./kafka/apache-kafka-quickstart-resource-manager-template.md
     - name: 자습서
       items:
@@ -564,6 +613,9 @@
           href: ./hbase/apache-hbase-overview.md
     - name: 빠른 시작
       items:
+        - name: Apache HBase 클러스터 만들기 - ARM 템플릿
+          displayName: Resource Manager
+          href: ./hbase/quickstart-resource-manager-template.md
         - name: Apache HBase 쿼리 - Apache Phoenix
           href: ./hbase/apache-hbase-query-with-phoenix.md
         - name: Apache HBase 쿼리 - HBase Shell
@@ -636,6 +688,9 @@
           href: ./interactive-query/apache-interactive-query-get-started.md
     - name: 빠른 시작
       items:
+        - name: Interactive Query 클러스터 만들기 - ARM 템플릿
+          displayName: Resource Manager
+          href: ./interactive-query/quickstart-resource-manager-template.md
         - name: Apache Hive 쿼리 실행 - Apache Zeppelin
           href: ./interactive-query/hdinsight-connect-hive-zeppelin.md
     - name: 자습서
@@ -718,6 +773,9 @@
           href: ./r-server/r-server-overview.md
     - name: 빠른 시작
       items:
+        - name: ML Services 클러스터 만들기 - ARM 템플릿
+          displayName: Resource Manager
+          href: ./r-server/quickstart-resource-manager-template.md
         - name: 샘플 작업 - RStudio Server
           href: ./r-server/machine-learning-services-quickstart-job-rstudio.md
         - name: 샘플 작업 - R 콘솔
@@ -800,8 +858,6 @@
           href: ./domain-joined/hdinsight-security-overview.md
     - name: 자습서
       items:
-        - name: 아웃바운드 트래픽을 제한하는 방화벽 사용
-          href: ./hdinsight-restrict-outbound-traffic.md
         - name: Apache Ranger를 사용한 Apache HBase RBAC
           href: ./domain-joined/apache-domain-joined-run-hbase.md
         - name: Apache Ranger를 사용한 Apache Hive RBAC
@@ -850,6 +906,8 @@
           href: ./domain-joined/ssh-domain-accounts.md
         - name: 데이터 보안
           href: ./hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
+        - name: 아웃바운드 트래픽을 제한하는 방화벽 사용
+          href: ./hdinsight-restrict-outbound-traffic.md
         - name: 문제 해결
           items:
             - name: ESP 인증 문제

@@ -12,10 +12,10 @@ ms.date: 10/15/2019
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:Android
 ms.openlocfilehash: a184b035e3296f82ecdacf74a99ea7148d99bd49
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78271105"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>빠른 시작: Android 앱에서 사용자 로그인 및 Microsoft Graph API 호출

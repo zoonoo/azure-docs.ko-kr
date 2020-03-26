@@ -5,16 +5,17 @@ description: 스토리지 계정에 대해 RA-GRS(읽기 액세스 지역 중복
 services: storage
 author: tamram
 ms.service: storage
+ms.subservice: blobs
 ms.topic: tutorial
 ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: artek
-ms.openlocfilehash: 522ed13681a98535c35552128fc8432782ec1ca2
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 3693ae8c9c425c35ab1a4ebf88b6cd3dfb58f92c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77162704"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80061284"
 ---
 # <a name="tutorial-simulate-a-failure-in-reading-data-from-the-primary-region"></a>자습서: 주 지역에서 데이터를 읽는 동안 발생하는 오류 시뮬레이션
 

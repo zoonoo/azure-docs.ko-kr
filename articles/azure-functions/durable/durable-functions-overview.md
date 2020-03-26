@@ -7,17 +7,17 @@ ms.date: 08/07/2019
 ms.author: cgillum
 ms.reviewer: azfuncdf
 ms.openlocfilehash: 5d454aefaba89bef9dc9009ff442fa5543dae2ef
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78357828"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79290091"
 ---
 # <a name="what-are-durable-functions"></a>Durable Functions란?
 
 *Durable Functions*는 서버리스 컴퓨팅 환경에서 상태 저장 함수를 작성할 수 있는 [Azure Functions](../functions-overview.md)의 확장입니다. 확장을 통해 Azure Functions 프로그래밍 모델에서 [*오케스트레이터 함수*](durable-functions-orchestrations.md)를 작성하여 상태 저장 워크플로를 정의하고, [*엔터티 함수*](durable-functions-entities.md)를 작성하여 상태 저장 엔터티를 정의할 수 있습니다. 확장은 내부적으로 상태, 검사점 및 다시 시작을 관리하므로 비즈니스 논리에 집중할 수 있습니다.
 
-## <a name="language-support"></a>지원되는 언어
+## <a name="supported-languages"></a><a name="language-support"></a>지원되는 언어
 
 Durable Functions는 현재 다음 언어를 지원합니다.
 
@@ -40,7 +40,7 @@ Durable Functions에 대한 기본 사용 사례는 서버리스 애플리케이
 * [사용자 개입](#human)
 * [집계(상태 저장 엔터티)](#aggregator)
 
-### <a name="chaining"></a>패턴 #1: 함수 체이닝
+### <a name="pattern-1-function-chaining"></a><a name="chaining"></a>패턴 #1: 함수 체이닝
 
 함수 체이닝 패턴에서는 일련의 함수가 특정 순서로 실행됩니다. 이 패턴에서 한 함수의 출력은 다른 함수의 입력에 적용됩니다.
 
@@ -97,7 +97,7 @@ module.exports = df.orchestrator(function*(context) {
 
 ---
 
-### <a name="fan-in-out"></a>패턴 #2: 팬아웃/팬인
+### <a name="pattern-2-fan-outfan-in"></a><a name="fan-in-out"></a>패턴 #2: 팬아웃/팬인
 
 팬아웃/팬인 패턴에서는 여러 함수를 병렬로 실행한 다음, 모든 함수가 완료될 때까지 기다립니다. 일부 집계 작업은 함수에서 반환된 결과에 대해 수행되는 경우가 많습니다.
 
@@ -167,7 +167,7 @@ module.exports = df.orchestrator(function*(context) {
 > [!NOTE]
 > 드문 경우이지만 활동 함수가 완료된 후 해당 완료가 오케스트레이션 기록에 저장되기 전에 창에서 충돌이 발생할 수 있습니다. 이 경우 프로세스가 복구되면 활동 함수가 처음부터 다시 실행됩니다.
 
-### <a name="async-http"></a>패턴 #3: 비동기 HTTP API
+### <a name="pattern-3-async-http-apis"></a><a name="async-http"></a>패턴 #3: 비동기 HTTP API
 
 비동기 HTTP API 패턴은 외부 클라이언트와 장기 실행 작업의 상태를 조정하는 문제를 해결합니다. 이 패턴을 구현하는 일반적인 방법은 HTTP 엔드포인트에서 장기 실행 작업을 트리거하도록 하는 것입니다. 그런 다음, 클라이언트를 클라이언트에서 폴링하는 상태 엔드포인트로 리디렉션하여 작업이 완료된 시점을 알아봅니다.
 
@@ -206,7 +206,7 @@ Durable Functions 확장은 장기 실행 오케스트레이션을 관리하는 
 
 자세한 내용은 [HTTP 기능](durable-functions-http-features.md) 문서를 참조하세요. 이 문서에서는 Durable Functions 확장을 사용하여 HTTP를 통해 비동기 장기 실행 프로세스를 공개할 수 있는 방법을 설명합니다.
 
-### <a name="monitoring"></a>패턴 #4: 모니터
+### <a name="pattern-4-monitor"></a><a name="monitoring"></a>패턴 #4: 모니터
 
 모니터 패턴은 워크플로에서 유연한 되풀이 프로세스를 나타냅니다. 예를 들어 특정 조건이 충족될 때까지 폴링하는 경우가 있습니다. 일반 [타이머 트리거](../functions-bindings-timer.md)를 사용하여 정기적인 정리 작업과 같은 기본 시나리오를 처리할 수 있지만, 간격이 정적이고 인스턴스 수명 관리가 복잡해집니다. Durable Functions를 사용하여 유연한 되풀이 간격을 만들고, 작업 수명을 관리하며, 단일 오케스트레이션에서 여러 모니터 프로세스를 만들 수 있습니다.
 
@@ -280,7 +280,7 @@ module.exports = df.orchestrator(function*(context) {
 
 요청을 받으면 해당 작업 ID에 대해 새 오케스트레이션 인스턴스가 만들어집니다. 조건이 충족되고 루프가 종료될 때까지 인스턴스는 상태를 폴링합니다. 지속성 타이머는 폴링 간격을 제어합니다. 그런 다음, 더 많은 작업을 수행하거나 오케스트레이션을 종료할 수 있습니다. `nextCheck`가 `expiryTime`을 초과하면 모니터가 종료됩니다.
 
-### <a name="human"></a>패턴 #5: 사용자 개입
+### <a name="pattern-5-human-interaction"></a><a name="human"></a>패턴 #5: 사용자 개입
 
 자동화된 많은 프로세스에는 일종의 사용자 개입이 포함됩니다. 사용자는 클라우드 서비스만큼 가용성과 응답성이 높지 않으므로 자동화된 프로세스에 사람을 참여시키는 것은 까다로운 작업입니다. 자동화된 프로세스에서는 시간 제한 및 보정 논리를 사용하여 이 상호 작용을 허용할 수 있습니다.
 
@@ -382,7 +382,7 @@ module.exports = async function (context) {
 
 ---
 
-### <a name="aggregator"></a>패턴 #6: 집계(상태 저장 엔터티)
+### <a name="pattern-6-aggregator-stateful-entities"></a><a name="aggregator"></a>패턴 #6: 집계(상태 저장 엔터티)
 
 여섯 번째 패턴은 일정 기간 동안의 이벤트 데이터를 주소 지정 가능한 단일 *엔터티*로 집계하는 것입니다. 이 패턴에서 집계되는 데이터는 여러 원본에서 제공되거나, 일괄 처리로 전달되거나, 장기간에 걸쳐 분산될 수 있습니다. 집계는 도착한 이벤트 데이터에 대한 작업을 수행해야 할 수 있으며, 외부 클라이언트는 집계된 데이터를 쿼리해야 할 수도 있습니다.
 

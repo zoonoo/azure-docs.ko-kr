@@ -17,10 +17,10 @@ ms.date: 08/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3a9b8f08a54c978d81a8d33c61ab3d5f5fc7271f
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "70164229"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-people"></a>자습서: People과 Azure Active Directory SSO(Single Sign-On) 연결
@@ -33,7 +33,7 @@ ms.locfileid: "70164229"
 
 Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -111,7 +111,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자**를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예: `B.Simon@contoso.com`
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기**를 클릭합니다.
 
@@ -141,21 +141,21 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 2. 브라우저에 확장을 추가한 후 **People 설정**을 클릭하면 People 애플리케이션으로 이동됩니다. 여기서 관리자 자격 증명을 입력하여 People에 로그인합니다. 브라우저 확장이 애플리케이션을 자동으로 구성하고 3-6단계를 자동으로 수행합니다.
 
-    ![구성 설정](common/setup-sso.png)
+    ![설정 구성](common/setup-sso.png)
 
 3. People을 수동으로 설정하려면 새 웹 브라우저 창을 열고 People 회사 사이트에 관리자로 로그인하여 다음 단계를 수행합니다.
    
 4. 왼쪽 메뉴에서 **설정**을 클릭합니다.
 
-    ![Configure Single Sign-On](./media/people-tutorial/tutorial_people_001.png)
+    ![Single Sign-on 구성](./media/people-tutorial/tutorial_people_001.png)
 
 5. **회사**를 클릭합니다.
 
-    ![Configure Single Sign-On](./media/people-tutorial/tutorial_people_002.png)
+    ![Single Sign-on 구성](./media/people-tutorial/tutorial_people_002.png)
 
 6. **‘Single Sign On’ SAML 메타데이터 파일 업로드**에서 **찾아보기**를 클릭하여 다운로드한 메타데이터 파일을 업로드합니다.
 
-    ![Configure Single Sign-On](./media/people-tutorial/tutorial_people_003.png)
+    ![Single Sign-on 구성](./media/people-tutorial/tutorial_people_003.png)
 
 ### <a name="create-people-test-user"></a>People 테스트 사용자 만들기
 

@@ -10,10 +10,10 @@ ms.date: 11/05/2019
 ms.author: sngun
 Customer intent: As a developer, I want to build a Node.js web application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
 ms.openlocfilehash: 7a01c436f31a8ce5b8071db3eda4cf5562c421c0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75441271"
 ---
 # <a name="tutorial-build-a-nodejs-web-app-using-the-javascript-sdk-to-manage-a-sql-api-account-in-azure-cosmos-db"></a>자습서: JavaScript SDK를 사용하여 Azure Cosmos DB의 SQL API 계정을 관리하는 Node.js 웹앱 빌드 
@@ -38,7 +38,7 @@ ms.locfileid: "75441271"
 > * Azure Cosmos DB에 애플리케이션 연결
 > * 애플리케이션을 실행하고 Azure에 배포
 
-## <a name="_Toc395783176"></a>필수 조건
+## <a name="prerequisites"></a><a name="_Toc395783176"></a>필수 조건
 
 이 문서의 지침을 따르기 전에, 다음 리소스가 있는지 확인합니다.
 
@@ -50,14 +50,14 @@ ms.locfileid: "75441271"
 * [Express 생성기](https://www.expressjs.com/starter/generator.html)(`npm install express-generator -g`를 통해 Express 설치 가능)
 * 로컬 워크스테이션에 [Git][Git]을 설치합니다.
 
-## <a name="_Toc395637761"></a>Azure Cosmos DB 계정 만들기
+## <a name="create-an-azure-cosmos-db-account"></a><a name="_Toc395637761"></a>Azure Cosmos DB 계정 만들기
 Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 이미 있거나 이 자습서에서 Azure Cosmos DB 에뮬레이터를 사용하는 경우 [2단계: 새 Node.js 애플리케이션 만들기](#_Toc395783178)로 건너뛸 수 있습니다.
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
 [!INCLUDE [cosmos-db-keys](../../includes/cosmos-db-keys.md)]
 
-## <a name="_Toc395783178"></a>새 Node.js 애플리케이션 만들기
+## <a name="create-a-new-nodejs-application"></a><a name="_Toc395783178"></a>새 Node.js 애플리케이션 만들기
 이제 Express 프레임워크를 사용하여 기본 Hello World Node.js 프로젝트를 만드는 방법을 알아보겠습니다.
 
 1. Node.js 명령 프롬프트와 같이 줄겨찾는 터미널을 엽니다.
@@ -89,7 +89,7 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 이미 
 
    터미널 창에서 Ctrl+C를 사용하여 애플리케이션을 중지하고, **y**를 선택하여 일괄 작업을 종료합니다.
 
-## <a name="_Toc395783179"></a>필요한 모듈 설치
+## <a name="install-the-required-modules"></a><a name="_Toc395783179"></a>필요한 모듈 설치
 
 **package.json** 파일은 프로젝트 루트에 생성되는 파일 중 하나입니다. 이 파일에는 Node.js 애플리케이션에 필요한 추가 모듈의 목록이 들어 있습니다. 이 애플리케이션을 Azure에 배포할 때, 애플리케이션을 지원하려면 어떤 모듈을 Azure에 설치해야 하는지 이 파일을 사용하여 확인합니다. 이 자습서에서는 다음 두 패키지를 더 설치합니다.
 
@@ -99,7 +99,7 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 이미 
    npm install @azure/cosmos
    ```
 
-## <a name="_Toc395783180"></a>Azure Cosmos DB에 Node.js 애플리케이션 연결
+## <a name="connect-the-nodejs-application-to-azure-cosmos-db"></a><a name="_Toc395783180"></a>Azure Cosmos DB에 Node.js 애플리케이션 연결
 초기 설치 및 구성을 마쳤으니, 다음으로 todo 애플리케이션이 Azure Cosmos DB와 통신하는 데 필요한 코드를 작성하겠습니다.
 
 ### <a name="create-the-model"></a>모델 만들기
@@ -357,7 +357,7 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 이미 
 
 3. 마지막으로, **app.js** 파일을 저장하고 닫습니다.
 
-## <a name="_Toc395783181"></a>사용자 인터페이스 작성
+## <a name="build-a-user-interface"></a><a name="_Toc395783181"></a>사용자 인터페이스 작성
 
 이제 사용자가 애플리케이션과 상호 작용할 수 있도록 사용자 인터페이스를 빌드하겠습니다. 이전 섹션에서 만든 Express 애플리케이션은 **Jade**를 보기 엔진으로 사용합니다.
 
@@ -433,7 +433,7 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 이미 
     
 두 번째 양식에는 컨트롤러의 **/addtask** 메서드에 게시하여 새 항목을 만들 수 있게 해주는 단추와 2개의 입력 필드가 포함됩니다. 이것만 있으면 애플리케이션이 작동합니다.
 
-## <a name="_Toc395783181"></a>로컬로 애플리케이션 실행
+## <a name="run-your-application-locally"></a><a name="_Toc395783181"></a>로컬로 애플리케이션 실행
 
 애플리케이션을 빌드했으므로 다음 단계를 사용하여 로컬로 실행할 수 있습니다.  
 
@@ -454,7 +454,7 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 이미 
 
 5. 애플리케이션을 중지하려면 터미널 창에서 Ctrl+C를 누르고 **Y**를 선택하여 배치 작업을 종료합니다.
 
-## <a name="_Toc395783182"></a>Web Apps에 애플리케이션 배포
+## <a name="deploy-your-application-to-web-apps"></a><a name="_Toc395783182"></a>Web Apps에 애플리케이션 배포
 
 애플리케이션이 로컬에서 성공하면 다음 단계를 사용하여 Azure에 배포할 수 있습니다.
 
@@ -478,7 +478,7 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 이미 
 
 이러한 리소스가 더 이상 필요하지 않은 경우 리소스 그룹, Azure Cosmos DB 계정 및 모든 관련 리소스를 삭제할 수 있습니다. 이렇게 하려면 Azure Cosmos DB 계정에 사용한 리소스 그룹을 선택하고, **삭제**를 선택한 다음, 삭제할 리소스 그룹의 이름을 확인합니다.
 
-## <a name="_Toc395637775"></a>다음 단계
+## <a name="next-steps"></a><a name="_Toc395637775"></a>다음 단계
 
 > [!div class="nextstepaction"]
 > [Xamarin 및 Azure Cosmos DB를 사용하여 모바일 애플리케이션 빌드](mobile-apps-with-xamarin.md)

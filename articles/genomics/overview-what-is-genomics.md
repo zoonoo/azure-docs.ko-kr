@@ -1,7 +1,7 @@
 ---
 title: Microsoft Genomics란?
 titleSuffix: Microsoft Genomics
-description: Microsoft Genomics를 사용하여 게놈 분석을 위한 BWA-GATK 워크플로를 실행하는 방법에 대해 알아봅니다.
+description: BWA(Burrows-Wheeler Aligner) 및 GATK(Genome Analysis Toolkit)의 클라우드 구현을 사용하여 Microsoft Genomics가 게놈 시퀀싱을 사용할 수 있는 방법을 알아봅니다.
 services: genomics
 author: grhuynh
 manager: cgronlun
@@ -9,11 +9,11 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: overview
 ms.date: 12/07/2017
-ms.openlocfilehash: 461e385bae3b091c72355ed27a35ae5408bda7c2
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 04ecab58db822aa80ca2abba1bebaa39598498bd
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73498812"
 ---
 # <a name="what-is-microsoft-genomics"></a>Microsoft Genomics란?

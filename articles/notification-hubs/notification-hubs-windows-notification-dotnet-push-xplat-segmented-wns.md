@@ -18,10 +18,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 03/22/2019
 ms.openlocfilehash: 9151870836b1a616a79e54275ed185a425c11f0c
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72385611"
 ---
 # <a name="tutorial-send-notifications-to-specific-devices-running-universal-windows-platform-applications"></a>자습서: 유니버설 Windows 플랫폼 애플리케이션을 실행하는 특정 디바이스에 알림 전송
@@ -47,7 +47,7 @@ ms.locfileid: "72385611"
 > * 태그가 지정된 알림 보내기
 > * 앱 실행 및 알림 생성
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 시작하기 전에 [자습서: Azure Notification Hubs를 사용하여 유니버설 Windows 플랫폼 앱에 알림 보내기][get-started]를 완료하세요.  
 

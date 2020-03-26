@@ -5,12 +5,12 @@ author: mumian
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 0feb0a1a682328f1e23a7d800eb4f5653a6acdd1
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 1e110bb4711490f53da7628f608f150a2bc3186c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76765413"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79368879"
 ---
 # <a name="tutorial-use-azure-quickstart-templates"></a>자습서: Azure 빠른 시작 템플릿 사용
 
@@ -63,7 +63,7 @@ Azure CLI 또는 Azure PowerShell을 사용하여 템플릿을 배포합니다.
 
 리소스 그룹을 만들지 않은 경우 [리소스 그룹 만들기](template-tutorial-create-first-template.md#create-resource-group)를 참조하세요. 이 예제에서는 [첫 번째 자습서](template-tutorial-create-first-template.md#deploy-template)에 표시된 대로 **templateFile** 변수를 템플릿 파일의 경로로 설정했다고 가정합니다.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -75,10 +75,10 @@ New-AzResourceGroupDeployment `
   -webAppName demoapp
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az group deployment create \
+az deployment group create \
   --name addwebapp \
   --resource-group myResourceGroup \
   --template-file $templateFile \

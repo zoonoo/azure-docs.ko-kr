@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.date: 10/01/2018
 ms.custom: mvc
 ms.openlocfilehash: bae5e82bfe9091c2b2003b4f1735f51e3d37222d
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74230558"
 ---
 # <a name="store-unstructured-data-using-azure-functions-and-azure-cosmos-db"></a>Azure Functions 및 Azure Cosmos DB를 사용하여 구조화되지 않은 데이터 저장
@@ -22,7 +22,7 @@ Azure Functions에서 입력 및 출력 바인딩은 함수에서 외부 서비�
 
 ![Cosmos DB](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-cosmosdb.png)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -50,7 +50,7 @@ Azure Functions에서 입력 및 출력 바인딩은 함수에서 외부 서비�
 
     ![Cosmos DB 출력 바인딩 구성](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-integrate-tab-configure-cosmosdb-binding.png)
 
-    | 설정      | 제안 값  | 설명                                |
+    | 설정      | 제안 값  | Description                                |
     | ------------ | ---------------- | ------------------------------------------ |
     | **문서 매개 변수 이름** | taskDocument | 코드에서 Cosmos DB 개체를 참조하는 이름. |
     | **데이터베이스 이름** | taskDatabase | 문서를 저장할 데이터베이스의 이름. |
@@ -65,7 +65,7 @@ Azure Functions에서 입력 및 출력 바인딩은 함수에서 외부 서비�
 
 선택한 언어로 기존 함수 코드를 다음 코드로 바꿉니다.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 기존 C# 함수를 다음 코드로 바꿉니다.
 
@@ -102,7 +102,7 @@ public static IActionResult Run(HttpRequest req, out object taskDocument, ILogge
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 기존 JavaScript 함수를 다음 코드로 바꿉니다.
 

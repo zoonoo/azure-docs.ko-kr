@@ -10,11 +10,11 @@ author: luisquintanilla
 ms.author: luquinta
 ms.date: 02/24/2020
 ms.openlocfilehash: ba9cd2e7dc0248aa351cb7bc4519689763f1adda
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77602554"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79224090"
 ---
 # <a name="train-and-deploy-an-image-classification-tensorflow-model-using-the-azure-machine-learning-visual-studio-code-extension"></a>Azure Machine Learning Visual Studio Code 확장을 사용하여 이미지 분류 TensorFlow 모델 학습 및 배포
 

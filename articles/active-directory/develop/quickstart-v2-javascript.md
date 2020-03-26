@@ -7,17 +7,17 @@ author: navyasric
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
-ms.openlocfilehash: 40f5935c7d653ce90aa56bc5ee2bb15711bb9dd8
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript
+ms.openlocfilehash: 2649d885d31bcd0fef403e7e4eddbc828fd17b93
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78399260"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80050250"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>빠른 시작: JavaScript SPA에서 사용자 로그인 및 액세스 토큰 가져오기
 
@@ -79,10 +79,9 @@ ms.locfileid: "78399260"
 > Node.js를 사용하여 웹 서버에서 프로젝트 실행
 
 > [!div renderon="portal" id="autoupdate" class="nextstepaction"]
-> [코드 샘플 다운로드]()
+> [코드 샘플 다운로드](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip)
 
 > [!div renderon="docs"]
-
 > #### <a name="step-3-configure-your-javascript-app"></a>3단계: JavaScript 앱 구성
 >
 > *JavaScriptSPA* 폴더에서 *authConfig.js*를 편집하고, `msalConfig`의 `clientID`, `authority` 및 `redirectUri` 값을 설정합니다.

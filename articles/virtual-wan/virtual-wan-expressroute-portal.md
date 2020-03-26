@@ -9,10 +9,10 @@ ms.date: 02/13/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
 ms.openlocfilehash: 35ca071cd8495611f0f350511ef9406f82c5be23
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77209429"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan"></a>자습서: Azure Virtual WAN을 사용한 ExpressRoute 연결 만들기
@@ -44,7 +44,7 @@ ms.locfileid: "77209429"
 
 * Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="openvwan"></a>Virtual WAN 만들기
+## <a name="create-a-virtual-wan"></a><a name="openvwan"></a>Virtual WAN 만들기
 
 브라우저에서 [Azure 포털](https://portal.azure.com) 로 이동하고 Azure 계정으로 로그인합니다.
 
@@ -62,19 +62,19 @@ ms.locfileid: "77209429"
 4. 필드 작성을 완료한 후 **검토 + 만들기**를 선택합니다.
 5. 유효성 검사를 통과하면 **만들기**를 선택하여 Virtual WAN을 만듭니다.
 
-## <a name="hub"></a>가상 허브 및 게이트웨이 만들기
+## <a name="create-a-virtual-hub-and-gateway"></a><a name="hub"></a>가상 허브 및 게이트웨이 만들기
 
 가상 허브는 Virtual WAN에서 만들고 사용하는 가상 네트워크입니다. 여기에는 VPN, ExpressRoute와 같은 다양한 게이트웨이가 포함될 수 있습니다. 이 섹션에서는 가상 허브를 위한 ExpressRoute 게이트웨이를 만듭니다. [새 가상 허브 만들기](#newhub)를 할 때 게이트웨이를 만들거나 [기존 허브](#existinghub)를 편집하여 게이트웨이를 만들 수 있습니다. 
 
 ExpressRoute 게이트웨이는 2Gbps 단위로 프로비저닝됩니다. 1 배율 단위는 2Gbps이며 최대 10개의 배율 단위인 20Gbps까지 지원됩니다. 가상 허브와 게이트웨이를 완전히 만드는 데 30분 정도 걸립니다.
 
-### <a name="newhub"></a>새 가상 허브 및 게이트웨이를 만들려면
+### <a name="to-create-a-new-virtual-hub-and-a-gateway"></a><a name="newhub"></a>새 가상 허브 및 게이트웨이를 만들려면
 
 새 가상 허브를 만듭니다. 허브가 생성되면 사이트를 연결하지 않아도 허브 요금이 청구됩니다.
 
 [!INCLUDE [Create a hub](../../includes/virtual-wan-tutorial-er-hub-include.md)]
 
-### <a name="existinghub"></a>기존 허브에서 게이트웨이를 만들려면
+### <a name="to-create-a-gateway-in-an-existing-hub"></a><a name="existinghub"></a>기존 허브에서 게이트웨이를 만들려면
 
 기존 허브를 편집해서도 게이트웨이를 만들 수 있습니다.
 
@@ -90,7 +90,7 @@ ExpressRoute 게이트웨이를 만들었으면 게이트웨이 세부 정보를
 
 ![게이트웨이 보기](./media/virtual-wan-expressroute-portal/viewgw.png "게이트웨이 보기")
 
-## <a name="connectvnet"></a>VNet을 허브에 연결
+## <a name="connect-your-vnet-to-the-hub"></a><a name="connectvnet"></a>VNet을 허브에 연결
 
 이 섹션에서는 허브와 VNet 간의 피어링 연결을 만듭니다. 연결하려는 각 VNet에 대해 이 단계를 반복합니다.
 
@@ -103,7 +103,7 @@ ExpressRoute 게이트웨이를 만들었으면 게이트웨이 세부 정보를
     * **구독** - 구독을 확인합니다.
     * **가상 네트워크** - 이 허브에 연결할 가상 네트워크를 선택합니다. 가상 네트워크에는 기존 가상 네트워크 게이트웨이(VPN 또는 ExpressRoute)가 있을 수 없습니다.
 
-## <a name="connectcircuit"></a>회로를 허브 게이트웨이에 연결
+## <a name="connect-your-circuit-to-the-hub-gateway"></a><a name="connectcircuit"></a>회로를 허브 게이트웨이에 연결
 
 게이트웨이가 생성되면 [ExpressRoute 회로](../expressroute/expressroute-howto-circuit-portal-resource-manager.md)에 연결할 수 있습니다. ExpressRoute Global Reach를 지원하는 위치에 있는 ExpressRoute 프리미엄 회로는 Virtual WAN ExpressRoute 게이트웨이에 연결할 수 있습니다.
 
@@ -116,7 +116,7 @@ ExpressRoute 게이트웨이를 만들었으면 게이트웨이 세부 정보를
 
    ![회로 연결](./media/virtual-wan-expressroute-portal/cktconnect.png "회로 연결")
 
-### <a name="authkey"></a>인증 키를 사용하여 연결하려면
+### <a name="to-connect-by-redeeming-an-authorization-key"></a><a name="authkey"></a>인증 키를 사용하여 연결하려면
 
 연결하기 위해 제공된 인증 키와 회로 URI를 사용합니다.
 

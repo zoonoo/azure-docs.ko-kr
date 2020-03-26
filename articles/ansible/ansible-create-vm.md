@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: gwallace
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 7ee17fa1ddb0c70921f8a9625944053e71ec016f
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 111003718fc82683f1756276132def0aea7b7375
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201931"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80239566"
 ---
 # <a name="quickstart-configure-linux-virtual-machines-in-azure-using-ansible"></a>빠른 시작: Ansible을 사용하여 Azure에서 Linux 가상 머신 구성
 
@@ -220,7 +220,7 @@ Azure 가상 머신을 만들 때 [가상 네트워크](/azure/virtual-network/v
 
 1. 다음과 같이 플레이북을 포함할 `azure_create_complete_vm.yml`이라는 파일을 만들고 VI 편집기에서 엽니다.
 
-   ```azurecli-interactive
+   ```bash
    vi azure_create_complete_vm.yml
    ```
 

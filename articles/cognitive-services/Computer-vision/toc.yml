@@ -9,18 +9,8 @@
       href: whats-new.md
 - name: 빠른 시작
   items:
-    - name: 클라이언트 SDK 사용
-      items:
-        - name: .NET SDK
-          href: quickstarts-sdk/csharp-sdk.md
-        - name: Python SDK
-          href: quickstarts-sdk/python-sdk.md
-        - name: Java SDK
-          href: quickstarts-sdk/java-sdk.md
-        - name: Node.js SDK
-          href: quickstarts-sdk/node-sdk.md
-        - name: Go SDK
-          href: quickstarts-sdk/go-sdk.md
+    - name: 클라이언트 라이브러리 사용
+      href: quickstarts-sdk/client-library.md
     - name: REST API 사용
       items:
         - name: 원격 이미지 분석

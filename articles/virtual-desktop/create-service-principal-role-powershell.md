@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 5bdc51f47a170922d4fc33e8538695af29e5159c
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: 61b5017609d99f2f0074c67d3838cf351ea38bea
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79128121"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79365426"
 ---
 # <a name="tutorial-create-service-principals-and-role-assignments-by-using-powershell"></a>자습서: PowerShell을 사용하여 서비스 주체 만들기 및 역할 할당
 
@@ -113,4 +113,4 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com" -Credential $
 서비스 주체를 생성하고 Windows Virtual Desktop 테넌트에서 역할을 할당한 경우 호스트 풀을 만드는 데 사용할 수 있습니다. 호스트 풀에 대해 자세히 알아보려면 Windows Virtual Desktop에서 호스트 풀을 만드는 방법에 대한 자습서를 진행하세요.
 
  > [!div class="nextstepaction"]
- > [Windows Virtual Desktop 호스트 풀 자습서](./create-host-pools-azure-marketplace.md)
+ > [Azure Marketplace를 사용하여 호스트 풀 만들기](./create-host-pools-azure-marketplace.md)

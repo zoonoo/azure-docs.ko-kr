@@ -4,10 +4,10 @@ description: 청사진 아티팩트 매개 변수 세부 정보를 비롯한 Pay
 ms.date: 01/29/2020
 ms.topic: sample
 ms.openlocfilehash: 9df9392430fd0496ffb5e635a6fc3e31ba708208
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76905548"
 ---
 # <a name="deploy-the-pci-dss-v321-blueprint-sample"></a>PCI-DSS v3.2.1 청사진 샘플 배포

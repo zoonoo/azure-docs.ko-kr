@@ -5,11 +5,11 @@ ms.topic: tutorial
 ms.date: 01/23/2020
 ms.custom: mvc
 ms.openlocfilehash: e4c505d74ff3bebc21f696b1c4b894afcdaa9974
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845524"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79222010"
 ---
 # <a name="assess-hyper-v-vms-with-azure-migrate-server-assessment"></a>Azure Migrate 서버 평가를 사용하여 Hyper-V VM 평가
 
@@ -61,8 +61,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     **지리** | **지역**
     --- | ---
-    Asia  | 동남아시아
-    유럽 | 북유럽 또는 유럽 서부
+    아시아  | 동남아시아
+    유럽 | 북유럽 또는 서유럽
     United Kingdom |  영국 남부 또는 영국 서부
     미국 | 미국 동부, 미국 서부 2 또는 미국 중서부
 

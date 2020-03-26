@@ -6,10 +6,10 @@ ms.date: 10/09/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.openlocfilehash: 765c73a3ab8d5fa8939abe597d0141b24b59ac52
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76152480"
 ---
 # <a name="tutorial-use-health-check-in-azure-deployment-manager-public-preview"></a>자습서: Azure Deployment Manager에서 상태 확인 사용(공개 미리 보기)

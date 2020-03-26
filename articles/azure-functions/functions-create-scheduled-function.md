@@ -6,10 +6,10 @@ ms.topic: quickstart
 ms.date: 03/28/2018
 ms.custom: mvc, cc996988-fb4f-47
 ms.openlocfilehash: 808f0f81f937da688a8873e5f6ee959976e9d6aa
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75769288"
 ---
 # <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>Azure에서 타이머에 따라 트리거되는 함수 만들기

@@ -8,12 +8,12 @@ ms.date: 2/5/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ab3ed567d34c6284959f7875bb121ced4770d65e
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: 3a71aa1a713891c773297a3789a9a9f4b36ab258
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77133331"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80236042"
 ---
 # <a name="tutorial-configure-an-iot-edge-device"></a>자습서: IoT Edge 디바이스 구성
 
@@ -196,7 +196,7 @@ Marketplace의 이미지를 스크립트 방식 배포에 사용하려면 이미
 
 1. Linux 가상 머신의 SSH 세션에서 Azure CLI를 사용하여 Azure에 로그인합니다.
 
-    ```bash
+    ```azurecli
     az login
     ```
 
@@ -206,7 +206,7 @@ Marketplace의 이미지를 스크립트 방식 배포에 사용하려면 이미
 
 1. Azure CLI 명령에 사용할 Azure 구독을 설정합니다.
 
-    ```bash
+    ```azurecli
     az account set --subscription <subscriptionId>
     ```
 
@@ -218,7 +218,7 @@ Marketplace의 이미지를 스크립트 방식 배포에 사용하려면 이미
 
 1. 키 자격 증명 모음에 저장한 인증서 new-edge-device-full-chain.cert.pem, new-edge-device.key.pem 및 azure-iot-test-only.root.ca.cert.pem을 다운로드합니다.
 
-    ```bash
+    ```azurecli
     key_vault_name="<key vault name>"
     sudo az keyvault secret download --vault-name $key_vault_name --name new-edge-device-full-chain-cert-pem -f /edgeMlCertificates/new-edge-device-full-chain.cert.pem
     sudo az keyvault secret download --vault-name $key_vault_name --name new-edge-device-key-pem -f /edgeMlCertificates/new-edge-device.key.pem

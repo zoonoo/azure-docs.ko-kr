@@ -9,24 +9,24 @@ ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
 ms.openlocfilehash: 4361cee3d07408c3abb5031d2ab18c15c92c5e0a
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595812"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79222810"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-heavy-via-nfs"></a>자습서: NFS를 통해 Azure Data Box Heavy에 데이터 복사
 
 이 자습서에서는 로컬 웹 UI를 사용하여 호스트 컴퓨터에서 Azure Data Box Heavy로 연결하고 데이터를 복사하는 방법을 설명합니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
-> * 필수 조건
+> * 사전 요구 사항
 > * Data Box Heavy에 연결
 > * Data Box Heavy에 데이터 복사
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 다음 사항을 확인합니다.
 
@@ -156,7 +156,7 @@ Linux 호스트 컴퓨터를 사용하는 경우 Robocopy와 비슷한 복사 �
 이 자습서에서는 Azure Data Box Heavy 항목에 대해 다음과 같은 내용을 알아보았습니다.
 
 > [!div class="checklist"]
-> * 필수 조건
+> * 사전 요구 사항
 > * Data Box Heavy에 연결
 > * Data Box Heavy에 데이터 복사
 

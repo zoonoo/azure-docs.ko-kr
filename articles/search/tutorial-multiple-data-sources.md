@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/28/2020
 ms.openlocfilehash: 8e75d9de45c64813ac75de635371d2435fb9261f
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78271489"
 ---
 # <a name="tutorial-index-data-from-multiple-data-sources-in-c"></a>자습서: C#에서 여러 데이터 원본의 데이터 인덱싱
@@ -357,7 +357,7 @@ Azure Portal에서 검색 서비스 **개요** 페이지를 열고, **인덱스*
 
 ## <a name="reset-and-rerun"></a>다시 설정하고 다시 실행
 
-개발의 초기 실험 단계에서 설계 반복에 대한 가장 실용적인 방법은 Azure Cognitive Search에서 개체를 삭제하고 코드에서 이를 다시 작성할 수 있도록 허용하는 것입니다. 리소스 이름은 고유합니다. 개체를 삭제하면 동일한 이름을 사용하여 개체를 다시 만들 수 있습니다.
+개발의 초기 실험 단계에서 설계 반복에 대한 가장 실용적인 방법은 Azure Cognitive Search에서 개체를 삭제하고 코드에서 이를 다시 작성하도록 허용하는 것입니다. 리소스 이름은 고유합니다. 개체를 삭제하면 동일한 이름을 사용하여 개체를 다시 만들 수 있습니다.
 
 이 자습서의 샘플 코드는 기존 개체를 확인하고 삭제하여 코드를 다시 실행할 수 있도록 합니다.
 

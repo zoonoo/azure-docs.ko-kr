@@ -10,13 +10,13 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: iainfou
 ms.openlocfilehash: f6817c1ec308e75a4af88825d46848b504775e19
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78383658"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79223040"
 ---
-# <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance-with-advanced-configuration-options"></a>자습서: 고급 구성 옵션을 사용 하 여 Azure Active Directory Domain Services 인스턴스 만들기 및 구성
+# <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance-with-advanced-configuration-options"></a>자습서: 고급 구성 옵션을 사용하여 Azure Active Directory Domain Services 인스턴스를 만들고 구성
 
 Azure AD DS(Azure Active Directory Domain Services)는 Windows Server Active Directory와 완전히 호환되는 도메인 조인, 그룹 정책, LDAP, Kerberos/NTLM 인증과 같은 관리되는 도메인 서비스를 제공합니다. 이러한 도메인 서비스는 도메인 컨트롤러를 직접 배포, 관리 및 패치하지 않고 사용할 수 있습니다. Azure AD DS는 기존 Azure AD 테넌트와 통합됩니다. 이러한 통합을 통해 사용자는 회사 자격 증명을 사용하여 로그인할 수 있으며, 기존 그룹과 사용자 계정을 사용하여 리소스에 대한 액세스를 보호할 수 있습니다.
 
@@ -46,7 +46,7 @@ Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https
 Azure AD DS에는 필요하지 않지만 Azure AD 테넌트에 대해 [SSPR(셀프 서비스 암호 재설정)을 구성][configure-sspr]하는 것이 좋습니다. 사용자는 SSPR 없이 암호를 변경할 수 있지만 해당 암호를 잊어서 재설정해야 하는 경우 SSPR가 도움이 됩니다.
 
 > [!IMPORTANT]
-> Azure AD DS 관리 되는 도메인을 만든 후에는 인스턴스를 다른 리소스 그룹, 가상 네트워크, 구독 등으로 이동할 수 없습니다. Azure AD DS 인스턴스를 배포할 때 가장 적합 한 구독, 리소스 그룹, 지역 및 가상 네트워크를 선택 합니다.
+> Azure AD DS 관리 도메인을 만든 후에는 인스턴스를 다른 리소스 그룹, 가상 네트워크, 구독 등으로 이동할 수 없습니다. Azure AD DS 인스턴스를 배포할 때 가장 적합한 구독, 리소스 그룹, 지역 및 가상 네트워크를 선택합니다.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
@@ -64,23 +64,23 @@ Azure AD DS에는 필요하지 않지만 Azure AD 테넌트에 대해 [SSPR(셀�
 
 Azure AD DS 인스턴스를 만드는 경우 DNS 이름을 지정해야 합니다. 이 DNS 이름을 선택할 때 고려해야 할 몇 가지 사항이 있습니다.
 
-* **기본 제공 도메인 이름:** 기본적으로 디렉터리의 기본 제공 도메인 이름이 사용 됩니다 ( *. onmicrosoft.com* 접미사). 관리되는 도메인에 대한 인터넷을 통한 보안 LDAP 액세스를 사용하도록 설정하려면 이 기본 도메인과의 연결을 보호하기 위해 디지털 인증서를 만들 수 없습니다. Microsoft에서 *.onmicrosoft.com* 도메인을 소유하고 있으므로 CA(인증 기관)는 인증서를 발급하지 않습니다.
-* **사용자 지정 도메인 이름:** 가장 일반적인 방법은 사용자 지정 도메인 이름을 지정 하는 것입니다. 일반적으로 사용자는 이미 소유 하 고 있으며 라우팅할 수 있습니다. 라우팅할 수 있는 사용자 지정 도메인을 사용하면 애플리케이션을 지원하는 데 필요한 트래픽이 올바르게 전달될 수 있습니다.
-* **라우팅할 라우팅할 없는 도메인 접미사:** 일반적으로 *contoso*와 같이 라우팅할 수 없는 도메인 이름 접미사를 사용 하지 않는 것이 좋습니다. *.local* 접미사는 라우팅할 수 없으며, DNS 확인에서 문제가 발생할 수 있습니다.
+* **기본 제공 도메인 이름:** 디렉터리의 기본 제공 도메인 이름( *.onmicrosoft.com* 접미사)이 기본적으로 사용됩니다. 관리되는 도메인에 대한 인터넷을 통한 보안 LDAP 액세스를 사용하도록 설정하려면 이 기본 도메인과의 연결을 보호하기 위해 디지털 인증서를 만들 수 없습니다. Microsoft에서 *.onmicrosoft.com* 도메인을 소유하고 있으므로 CA(인증 기관)는 인증서를 발급하지 않습니다.
+* **사용자 지정 도메인 이름:** 가장 일반적인 방법은 일반적으로 이미 소유하고 있고 라우팅할 수 있는 사용자 지정 도메인 이름을 지정하는 것입니다. 라우팅할 수 있는 사용자 지정 도메인을 사용하면 애플리케이션을 지원하는 데 필요한 트래픽이 올바르게 전달될 수 있습니다.
+* **라우팅할 수 없는 도메인 접미사:** 일반적으로 라우팅할 수 없는 도메인 이름 접미사(예: *contoso.local*)를 사용하지 않는 것이 좋습니다. *.local* 접미사는 라우팅할 수 없으며, DNS 확인에서 문제가 발생할 수 있습니다.
 
 > [!TIP]
-> 사용자 지정 도메인 이름을 만드는 경우 기존 DNS 네임스페이스를 주의해야 합니다. 기존 Azure 또는 온-프레미스 DNS 이름 공간과 별도의 도메인 이름을 사용 하는 것이 좋습니다.
+> 사용자 지정 도메인 이름을 만드는 경우 기존 DNS 네임스페이스를 주의해야 합니다. 기존 Azure 또는 온-프레미스 DNS 네임스페이스와 별도의 도메인 이름을 사용하는 것이 좋습니다.
 >
-> 예를 들어 기존 DNS 이름 공간이 *contoso.com*인 경우 *aaddscontoso.com*의 사용자 지정 도메인 이름을 사용 하 여 Azure AD DS 관리 되는 도메인을 만듭니다. 보안 LDAP를 사용 해야 하는 경우 필요한 인증서를 생성 하려면이 사용자 지정 도메인 이름을 등록 하 고 소유 해야 합니다.
+> 예를 들어 기존 DNS 네임스페이스가 *contoso.com*인 경우 사용자 지정 도메인 이름이 *aaddscontoso.com*인 Azure AD DS 관리형 도메인을 만듭니다. 보안 LDAP을 사용해야 하는 경우 필요한 인증서를 생성하려면 이 사용자 지정 도메인 이름을 등록하고 소유해야 합니다.
 >
-> 사용자 환경에 있는 다른 서비스에 대 한 추가 DNS 레코드를 만들거나 사용자 환경의 기존 DNS 이름 공간 간에 조건부 DNS 전달자를 만들어야 할 수 있습니다. 예를 들어 루트 DNS 이름을 사용 중인 사이트를 호스트하는 웹 서버를 실행하는 경우 추가 DNS 항목이 필요한 명명 충돌이 있을 수 있습니다.
+> 환경의 다른 서비스에 대한 일부 추가 DNS 레코드를 만들거나 환경의 기존 DNS 네임스페이스 사이에 조건부 DNS 전달자를 만들어야 할 수 있습니다. 예를 들어 루트 DNS 이름을 사용 중인 사이트를 호스트하는 웹 서버를 실행하는 경우 추가 DNS 항목이 필요한 명명 충돌이 있을 수 있습니다.
 >
-> 이러한 자습서 및 방법 문서에서 *aaddscontoso.com* 의 사용자 지정 도메인은 간단한 예제로 사용 됩니다. 모든 명령에서 고유한 도메인 이름을 지정 합니다.
+> 이러한 자습서 및 방법 문서에서는 *aaddscontoso.com*의 사용자 지정 도메인이 간단한 예제로 사용됩니다. 모든 명령에서 사용자 고유의 도메인 이름을 지정하세요.
 
 다음 DNS 이름 제한도 적용됩니다.
 
-* **도메인 접두사 제한:** 15 자 보다 긴 접두사를 사용 하 여 관리 되는 도메인을 만들 수 없습니다. 지정 된 도메인 이름의 접두사 (예: *aaddscontoso.com* 도메인 이름의 *aaddscontoso* )에는 15 자 이하의 문자가 포함 되어야 합니다.
-* **네트워크 이름 충돌:** 관리 되는 도메인에 대 한 DNS 도메인 이름이 이미 가상 네트워크에 존재 해서는 안 됩니다. 특히 이름 충돌이 발생할 수 있는 다음 시나리오를 확인하세요.
+* **도메인 접두사 제한:** 접두사가 15자보다 긴 관리되는 도메인은 만들 수 없습니다. 지정한 도메인 이름의 접두사(예: *aaddscontoso.com* 도메인 이름의 *aaddscontoso*)는 15자 이하여야 합니다.
+* **네트워크 이름 충돌:** 관리되는 도메인의 DNS 도메인 이름이 가상 네트워크에 존재하지 않아야 합니다. 특히 이름 충돌이 발생할 수 있는 다음 시나리오를 확인하세요.
     * Azure 가상 네트워크에 동일한 DNS 도메인 이름의 Active Directory 도메인이 이미 있는 경우
     * 관리되는 도메인을 사용하도록 설정하려는 가상 네트워크에 온-프레미스 네트워크와의 VPN 연결이 있는 경우. 이 시나리오에서는 온-프레미스 네트워크에 동일한 DNS 도메인 이름을 가진 도메인이 없는지 확인합니다.
     * Azure 가상 네트워크에 해당 이름의 기존 Azure 클라우드 서비스가 있는 경우
@@ -139,7 +139,7 @@ Azure Portal의 *기본* 창에 있는 필드를 완성하여 Azure AD DS 인스
 
 *AAD DC Administrators*라는 특수 관리 그룹은 Azure AD DS 도메인을 관리하는 데 사용됩니다. 이 그룹의 멤버에게는 관리되는 도메인에 조인된 VM에 대한 관리자 권한이 부여됩니다. 도메인 조인 VM에서 이 그룹은 로컬 관리자 그룹에 추가됩니다. 또한 이 그룹의 멤버는 원격 데스크톱을 사용하여 도메인 조인 VM에 원격으로 연결할 수 있습니다.
 
-Azure AD DS를 사용하는 관리되는 도메인에 대한 *도메인 관리자* 또는 *엔터프라이즈 관리자* 권한이 없습니다. 이러한 권한은 서비스에서 예약하며 테넌트 내의 사용자가 사용할 수 없습니다. 대신 *AAD DC Administrators* 그룹을 사용하면 일부 권한 있는 작업을 수행할 수 있습니다. 이러한 작업에는 도메인에 가입 된 Vm의 관리 그룹에 속하는 그룹 정책 구성 및 구성이 포함 됩니다.
+Azure AD DS를 사용하는 관리되는 도메인에 대한 *도메인 관리자* 또는 *엔터프라이즈 관리자* 권한이 없습니다. 이러한 권한은 서비스에서 예약하며 테넌트 내의 사용자가 사용할 수 없습니다. 대신 *AAD DC Administrators* 그룹을 사용하면 일부 권한 있는 작업을 수행할 수 있습니다. 이러한 작업에는 도메인 조인 VM의 관리 그룹에 할당 및 그룹 정책 구성이 포함됩니다.
 
 마법사는 *AAD DC Administrators* 그룹을 Azure AD 디렉터리에 자동으로 만듭니다. Azure AD 디렉터리에 이 이름 가진 기존 그룹이 있는 경우 마법사는 이 그룹을 선택합니다. 필요에 따라 배포 프로세스 중에 추가 사용자를 이 *AAD DC Administrators* 그룹에 추가하도록 선택할 수 있습니다. 이러한 단계는 나중에 수행할 수 있습니다.
 
@@ -170,7 +170,7 @@ Azure AD DS를 사용하면 Azure AD에서 사용할 수 있는 사용자와 그
 
     ![Azure Portal의 진행 중인 배포 알림](./media/tutorial-create-instance-advanced/deployment-in-progress.png)
 
-1. 리소스 그룹 (예: *Myresourcegroup*)을 선택 하 고 *Aaddscontoso.com*와 같은 Azure 리소스 목록에서 azure AD DS 인스턴스를 선택 합니다. **개요** 탭에서 관리되는 도메인이 현재 *배포 중*임을 보여 줍니다. 관리되는 도메인은 완전히 프로비저닝될 때까지 구성할 수 없습니다.
+1. 리소스 그룹(예: *myResourceGroup*)을 선택한 다음, Azure 리소스 목록에서 Azure AD DS 인스턴스(예: *aaddscontoso.com*)를 선택합니다. **개요** 탭에서 관리되는 도메인이 현재 *배포 중*임을 보여 줍니다. 관리되는 도메인은 완전히 프로비저닝될 때까지 구성할 수 없습니다.
 
     ![프로비저닝 중 상태의 Domain Services 상태](./media/tutorial-create-instance-advanced/provisioning-in-progress.png)
 

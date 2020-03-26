@@ -7,10 +7,10 @@ ms.topic: quickstart
 ms.date: 02/22/2019
 ms.author: alkarche
 ms.openlocfilehash: 189a0bc80ab2894b2888b496b3beb45249d859f6
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75921124"
 ---
 # <a name="create-a-function-using-azure-for-students-starter"></a>Azure for Students Starter를 사용하여 함수 만들기
@@ -72,7 +72,7 @@ Azure 계정을 사용하여 <https://portal.azure.com>에서 Azure Portal에 �
 
 다음으로 새 함수 앱에서 함수를 만듭니다.
 
-## <a name="create-function"></a>HTTP 트리거 함수 만들기
+## <a name="create-an-http-triggered-function"></a><a name="create-function"></a>HTTP 트리거 함수 만들기
 
 1. 새 함수 앱을 펼치고, **Functions** 옆에 있는 **+** 단추를 선택하고, **포털 내**를 선택한 다음, **계속**을 선택합니다.
 

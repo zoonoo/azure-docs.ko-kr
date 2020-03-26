@@ -8,15 +8,15 @@ ms.topic: quickstart
 ms.date: 04/20/2019
 ms.author: zhshang
 ms.openlocfilehash: ec5b7a75bced4b7cd81a120925558b8c1be57818
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74158183"
 ---
 # <a name="quickstart-create-a-chat-room-with-aspnet-and-signalr-service"></a>빠른 시작: ASP.NET과 SignalR Service를 사용하여 대화방 만들기
 
-Azure SignalR Service는 ASP.NET SignalR과 100% 호환되지 **않는** [ASP.NET Core 2.0용 SignalR](https://docs.microsoft.com/aspnet/core/signalr/introduction)을 기반으로 합니다. Azure SignalR Service는 최신 ASP.NET Core 기술을 기반으로 ASP.NET SignalR 데이터 프로토콜을 재구현했습니다. ASP.NET SignalR용 Azure SignalR Service 서비스를 사용하는 경우 일부 ASP.NET SignalR 기능은 더 이상 지원되지 않습니다. 예를 들어 Azure SignalR은 클라이언트가 다시 연결되어도 메시지를 회신하지 않습니다. 또한 Forever Frame 전송 및 JSONP가 지원되지 않습니다. ASP.NET SignalR 애플리케이션이 SignalR Service와 작동하려면 일부 코드 변경과 적절한 버전의 종속 라이브러리가 필요합니다. 
+Azure SignalR Service는 ASP.NET SignalR과 100% 호환되지 **않는**[ASP.NET Core 2.0용 SignalR](https://docs.microsoft.com/aspnet/core/signalr/introduction)을 기반으로 합니다. Azure SignalR Service는 최신 ASP.NET Core 기술을 기반으로 ASP.NET SignalR 데이터 프로토콜을 재구현했습니다. ASP.NET SignalR용 Azure SignalR Service 서비스를 사용하는 경우 일부 ASP.NET SignalR 기능은 더 이상 지원되지 않습니다. 예를 들어 Azure SignalR은 클라이언트가 다시 연결되어도 메시지를 회신하지 않습니다. 또한 Forever Frame 전송 및 JSONP가 지원되지 않습니다. ASP.NET SignalR 애플리케이션이 SignalR Service와 작동하려면 일부 코드 변경과 적절한 버전의 종속 라이브러리가 필요합니다. 
 
 ASP.NET SignalR과 ASP.NET Core SignalR의 기능을 비교한 전체 목록을 보려면 [버전 차이 문서](https://docs.microsoft.com/aspnet/core/signalr/version-differences?view=aspnetcore-2.2)를 참조하세요.
 
@@ -24,7 +24,7 @@ ASP.NET SignalR과 ASP.NET Core SignalR의 기능을 비교한 전체 목록을 
 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
 * [.NET 4.6.1](https://www.microsoft.com/net/download/windows)
@@ -110,7 +110,7 @@ ASP.NET SignalR 애플리케이션에는 *서버리스* 모드가 지원되지 �
 **이름을 기준으로 필터링...** 텍스트 상자에 리소스 그룹의 이름을 입력합니다. 이 빠른 시작의 지침에서는 *SignalRTestResources*라는 리소스 그룹을 사용합니다. 결과 목록의 리소스 그룹에서 **...** 를 클릭한 다음, **리소스 그룹 삭제**를 클릭합니다.
 
    
-![삭제](./media/signalr-quickstart-dotnet-core/signalr-delete-resource-group.png)
+![DELETE](./media/signalr-quickstart-dotnet-core/signalr-delete-resource-group.png)
 
 잠시 후, 리소스 그룹 및 해당 그룹에 포함된 모든 리소스가 삭제됩니다.
 

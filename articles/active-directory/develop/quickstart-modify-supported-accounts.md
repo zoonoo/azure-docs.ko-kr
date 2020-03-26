@@ -12,12 +12,12 @@ ms.date: 05/08/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 56771658380e0a5b946c3acc70df98a262561b5c
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 94fed6f4aa62c7e649cf7d644e571b30561e0da4
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77160692"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80050236"
 ---
 # <a name="quickstart-modify-the-accounts-supported-by-an-application"></a>빠른 시작: 애플리케이션에서 지원되는 계정 수정
 
@@ -49,7 +49,7 @@ Microsoft ID 플랫폼에서 애플리케이션을 등록하는 경우 조직 �
 고객이나 조직 외부의 파트너가 사용할 수 있는 애플리케이션을 작성 중인 경우 Azure Portal에서 애플리케이션 정의를 업데이트해야 합니다.
 
 > [!IMPORTANT]
-> Azure AD에서는 다중 테넌트 애플리케이션의 애플리케이션 ID URI가 전역적으로 고유해야 합니다. 앱 ID URI는 프로토콜 메시지에서 애플리케이션을 식별하는 방법 중 하나입니다. 단일 테넌트 애플리케이션의 경우 앱 ID URI이 해당 테넌트 내에서 고유한 것으로 충분합니다. 다중 테넌트 애플리케이션의 경우, 앱 ID URI이 전역적으로 고유해야 Azure AD가 모든 테넌트에서 애플리케이션을 찾을 수 있습니다. 앱 ID URI이 Azure AD 테넌트의 확인된 도메인과 일치하는 호스트 이름을 갖게 함으로써 전역 고유성이 적용됩니다. 예를 들어, 테넌트의 이름이 contoso.onmicrosoft.com이라면 유효한 앱 ID URI은 https://contoso.onmicrosoft.com/myapp 이 될 것입니다. 테넌트에 contoso.com이라는 확인된 도메인이 있으면 유효한 앱 ID URI도 https://contoso.com/myapp 이 됩니다. 앱 ID URI가 이 패턴을 따르지 않으면 애플리케이션을 다중 테넌트로 설정하지 못합니다.
+> Azure AD에서는 다중 테넌트 애플리케이션의 애플리케이션 ID URI가 전역적으로 고유해야 합니다. 앱 ID URI는 프로토콜 메시지에서 애플리케이션을 식별하는 방법 중 하나입니다. 단일 테넌트 애플리케이션의 경우 앱 ID URI이 해당 테넌트 내에서 고유한 것으로 충분합니다. 다중 테넌트 애플리케이션의 경우, 앱 ID URI이 전역적으로 고유해야 Azure AD가 모든 테넌트에서 애플리케이션을 찾을 수 있습니다. 앱 ID URI이 Azure AD 테넌트의 확인된 도메인과 일치하는 호스트 이름을 갖게 함으로써 전역 고유성이 적용됩니다. 예를 들어, 테넌트의 이름이 contoso.onmicrosoft.com이라면 유효한 앱 ID URI은 `https://contoso.onmicrosoft.com/myapp`이 될 것입니다. 테넌트에 contoso.com이라는 확인된 도메인이 있으면 유효한 앱 ID URI도 `https://contoso.com/myapp`이 됩니다. 앱 ID URI가 이 패턴을 따르지 않으면 애플리케이션을 다중 테넌트로 설정하지 못합니다.
 
 ### <a name="to-change-who-can-access-your-application"></a>애플리케이션에 액세스할 수 있는 사용자를 변경하려면
 

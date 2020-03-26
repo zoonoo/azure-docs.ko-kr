@@ -5,10 +5,10 @@ keywords: ansible, azure, devops, bash, cloudshell, 플레이북, aks, 컨테이
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.openlocfilehash: bfb19371ad651439c087cebd03023d48852ee2df
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74156884"
 ---
 # <a name="tutorial-configure-kubenet-networking-in-azure-kubernetes-service-aks-using-ansible"></a>자습서: AKS(Azure Kubernetes Service)에서 Ansible을 사용하여 kubenet 네트워킹 구성
@@ -31,7 +31,7 @@ AKS를 사용하여 다음 네트워크 모델을 통해 클러스터를 배포�
 > * AKS 클러스터 만들기
 > * Azure kubenet 네트워킹 구성
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [open-source-devops-prereqs-create-service-principal.md](../../includes/open-source-devops-prereqs-create-service-principal.md)]

@@ -12,10 +12,10 @@ ms.author: dobett
 author: dominicbetts
 ms.date: 11/12/2019
 ms.openlocfilehash: 9dcb185ab8375d46c75a12e6adaeeae2358c13ac
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77022089"
 ---
 # <a name="tutorial-export-data-from-azure-iot-central-and-visualize-insights-in-power-bi"></a>자습서: Azure IoT Central에서 데이터 내보내기 및 Power BI에서 인사이트 시각화

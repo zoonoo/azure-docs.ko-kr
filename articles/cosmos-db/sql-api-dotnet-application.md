@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 02/27/2020
 ms.author: sngun
 ms.openlocfilehash: 1f2051addfa1266b754d230c3804834c63f89002
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78274066"
 ---
 # <a name="tutorial-develop-an-aspnet-core-mvc-web-application-with-azure-cosmos-db-by-using-net-sdk"></a>자습서: .NET SDK를 사용하여 Azure Cosmos DB를 통해 ASP.NET Core MVC 웹 애플리케이션 개발
@@ -42,7 +42,7 @@ ms.locfileid: "78274066"
 > [!TIP]
 > 이 자습서에서는 이전에 ASP.NET Core MVC 및 Azure App Service를 사용한 경험이 있다고 가정합니다. ASP.NET Core 또는 [필수 조건 도구](#prerequisites)를 처음 사용하는 경우 [GitHub][GitHub]에서 샘플 프로젝트 전체를 다운로드하고 필요한 NuGet 패키지를 추가하여 실행하는 것이 좋습니다. 프로젝트를 빌드하고 나면 이 문서를 검토하여 프로젝트의 컨텍스트에서 코드에 대한 인사이트를 얻을 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a><a name="prerequisites"></a>필수 조건
 
 이 문서의 지침을 따르기 전에 다음 리소스가 있는지 확인하세요.
 
@@ -54,7 +54,7 @@ ms.locfileid: "78274066"
 
 이 문서의 스크린샷은 모두 Microsoft Visual Studio Community 2019에서 가져온 것입니다. 다른 버전을 사용하는 경우 화면과 옵션이 완전히 일치하지 않을 수 있습니다. 필수 조건이 충족되면 솔루션이 작동합니다.
 
-## <a name="create-an-azure-cosmos-account"></a>1단계: Azure Cosmos 계정 만들기
+## <a name="step-1-create-an-azure-cosmos-account"></a><a name="create-an-azure-cosmos-account"></a>1단계: Azure Cosmos 계정 만들기
 
 Azure Cosmos 계정을 만들어 보겠습니다. Azure Cosmos DB SQL API 계정이 이미 있거나 Azure Cosmos DB 에뮬레이터를 사용하는 경우 [2단계: 새 ASP.NET MVC 애플리케이션 만들기](#create-a-new-mvc-application)로 건너뜁니다.
 
@@ -64,7 +64,7 @@ Azure Cosmos 계정을 만들어 보겠습니다. Azure Cosmos DB SQL API 계정
 
 다음 섹션에서는 새 ASP.NET Core MVC 애플리케이션을 만듭니다.
 
-## <a name="create-a-new-mvc-application"></a>2단계: 새 ASP.NET Core MVC 애플리케이션 만들기
+## <a name="step-2-create-a-new-aspnet-core-mvc-application"></a><a name="create-a-new-mvc-application"></a>2단계: 새 ASP.NET Core MVC 애플리케이션 만들기
 
 1. Visual Studio를 열고 **새 프로젝트 만들기**를 선택합니다.
 
@@ -80,7 +80,7 @@ Azure Cosmos 계정을 만들어 보겠습니다. Azure Cosmos DB SQL API 계정
 
 1. **디버그** > **디버깅 시작** 또는 F5 키를 선택하여 ASP.NET 애플리케이션을 로컬로 실행합니다.
 
-## <a name="add-nuget-packages"></a>3단계: 프로젝트에 Azure Cosmos DB NuGet 패키지 추가
+## <a name="step-3-add-azure-cosmos-db-nuget-package-to-the-project"></a><a name="add-nuget-packages"></a>3단계: 프로젝트에 Azure Cosmos DB NuGet 패키지 추가
 
 이제 이 솔루션에 필요한 ASP.NET Core MVC 프레임워크 코드를 대부분 갖추고 있으므로 Azure Cosmos DB에 연결하는 데 필요한 NuGet 패키지를 추가해 보겠습니다.
 
@@ -98,11 +98,11 @@ Azure Cosmos 계정을 만들어 보겠습니다. Azure Cosmos DB SQL API 계정
    Install-Package Microsoft.Azure.Cosmos
    ```
   
-## <a name="set-up-the-mvc-application"></a>4단계: ASP.NET Core MVC 애플리케이션 설정
+## <a name="step-4-set-up-the-aspnet-core-mvc-application"></a><a name="set-up-the-mvc-application"></a>4단계: ASP.NET Core MVC 애플리케이션 설정
 
 이제 모델, 보기 및 컨트롤러를 이 MVC 애플리케이션에 추가해 보겠습니다.
 
-### <a name="add-a-model"></a> 모델 추가
+### <a name="add-a-model"></a><a name="add-a-model"></a> 모델 추가
 
 1. **솔루션 탐색기**에서 마우스 오른쪽 단추로 **Models** 폴더를 클릭하고, **추가** > **클래스**를 차례로 선택합니다.
 
@@ -114,7 +114,7 @@ Azure Cosmos 계정을 만들어 보겠습니다. Azure Cosmos DB SQL API 계정
 
 Azure Cosmos DB는 JSON을 사용하여 데이터를 이동하고 저장합니다. `JsonProperty` 특성을 사용하여 JSON에서 개체를 직렬화 및 역직렬화하는 방법을 제어할 수 있습니다. `Item` 클래스는 `JsonProperty` 특성을 보여 줍니다. 이 코드는 JSON으로 이동하는 속성 이름의 형식을 제어합니다. `Completed` .NET 속성의 이름도 변경합니다.
 
-### <a name="add-views"></a>뷰 추가
+### <a name="add-views"></a><a name="add-views"></a>뷰 추가
 
 다음으로, 아래의 세 가지 보기를 추가해 보겠습니다.
 
@@ -122,7 +122,7 @@ Azure Cosmos DB는 JSON을 사용하여 데이터를 이동하고 저장합니�
 * 새 항목 보기 추가
 * 편집 항목 보기 추가
 
-#### <a name="AddItemIndexView"></a>목록 항목 뷰 추가
+#### <a name="add-a-list-item-view"></a><a name="AddItemIndexView"></a>목록 항목 뷰 추가
 
 1. **솔루션 탐색기**에서 마우스 오른쪽 단추로 **Views** 폴더를 클릭하고, **추가** > **새 폴더**를 차례로 선택합니다. 폴더 이름을 *Item*으로 지정합니다.
 
@@ -141,7 +141,7 @@ Azure Cosmos DB는 JSON을 사용하여 데이터를 이동하고 저장합니�
 
 완료되면 Visual Studio에서 만든 *cshtml* 파일을 엽니다. Visual Studio에서 해당 파일을 닫을 수 있습니다. 나중에 다시 살펴보겠습니다.
 
-#### <a name="AddNewIndexView"></a>새 항목 뷰 추가
+#### <a name="add-a-new-item-view"></a><a name="AddNewIndexView"></a>새 항목 뷰 추가
 
 목록 항목에 대한 뷰를 만든 방법과 유사하게, 다음 단계를 사용하여 항목을 만들기 위한 새 뷰를 만듭니다.
 
@@ -155,7 +155,7 @@ Azure Cosmos DB는 JSON을 사용하여 데이터를 이동하고 저장합니�
    * **레이아웃 페이지 사용**을 선택하고, *~/Views/Shared/_Layout.cshtml*을 입력합니다.
    * **추가**를 선택합니다.
 
-#### <a name="AddEditIndexView"></a>항목 편집 뷰 추가
+#### <a name="add-an-edit-item-view"></a><a name="AddEditIndexView"></a>항목 편집 뷰 추가
 
 마지막으로, 다음 단계를 사용하여 항목을 편집하기 위한 뷰를 추가합니다.
 
@@ -171,7 +171,7 @@ Azure Cosmos DB는 JSON을 사용하여 데이터를 이동하고 저장합니�
 
 이러한 단계가 완료되면 나중에 이러한 보기로 돌아갈 때 Visual Studio에서 모든 *cshtml* 문서를 닫습니다.
 
-### <a name="initialize-services"></a>서비스 선언 및 초기화
+### <a name="declare-and-initialize-services"></a><a name="initialize-services"></a>서비스 선언 및 초기화
 
 먼저 Azure Cosmos DB에 연결하여 이를 사용하는 논리가 포함된 클래스를 추가합니다. 이 자습서에서는 이 논리를 `CosmosDBService` 클래스와 `ICosmosDBService` 인터페이스로 캡슐화합니다. 이 서비스는 CRUD 작업을 수행합니다. 또한 불완전한 항목 나열, 항목 만들기, 편집 및 삭제와 같은 읽기 피드 작업도 수행합니다.
 
@@ -203,7 +203,7 @@ Azure Cosmos DB는 JSON을 사용하여 데이터를 이동하고 저장합니�
 
    :::code language="json" source="~/samples-cosmosdb-dotnet-core-web-app/src/appsettings.json":::
 
-### <a name="add-a-controller"></a>컨트롤러 추가
+### <a name="add-a-controller"></a><a name="add-a-controller"></a>컨트롤러 추가
 
 1. **솔루션 탐색기**에서 마우스 오른쪽 단추로 **Controllers** 폴더를 클릭하고, **추가** > **컨트롤러**를 차례로 선택합니다.
 
@@ -221,7 +221,7 @@ Azure Cosmos DB는 JSON을 사용하여 데이터를 이동하고 저장합니�
 
 또한 메서드 매개 변수에 **Bind** 특성을 사용하여 과도한 게시 공격으로부터 보호할 수 있습니다. 자세한 내용은 [자습서: ASP.NET MVC에서 Entity Framework를 사용하여 CRUD 기능 구현][Basic CRUD Operations in ASP.NET MVC]을 참조하세요.
 
-## <a name="run-the-application"></a>5단계: 로컬에서 애플리케이션 실행
+## <a name="step-5-run-the-application-locally"></a><a name="run-the-application"></a>5단계: 로컬에서 애플리케이션 실행
 
 로컬 컴퓨터에서 애플리케이션을 테스트하려면 다음 단계를 사용합니다.
 
@@ -245,7 +245,7 @@ Azure Cosmos DB는 JSON을 사용하여 데이터를 이동하고 저장합니�
 
 1. 앱이 테스트되면 Ctrl+F5를 선택하여 앱 디버깅을 중지합니다. 배포할 준비가 되었습니다!
 
-## <a name="deploy-the-application-to-azure"></a>6단계: 애플리케이션 배포
+## <a name="step-6-deploy-the-application"></a><a name="deploy-the-application-to-azure"></a>6단계: 애플리케이션 배포
 
 이제 전체 애플리케이션이 Azure Cosmos DB와 올바르게 작동하므로 Azure App Service에 이 웹앱을 배포하겠습니다.  
 

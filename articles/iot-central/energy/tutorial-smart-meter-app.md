@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: abjork
 ms.openlocfilehash: 9e954e9c1a7efa43a19849b1c5b40284ec84eeed
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77016003"
 ---
 # <a name="tutorial-create-and-walk-through-the-smart-meter-monitoring-app-template"></a>자습서: 스마트 미터 모니터링 앱 템플릿 만들기 및 연습 

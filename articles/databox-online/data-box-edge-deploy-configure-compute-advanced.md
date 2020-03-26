@@ -10,13 +10,13 @@ ms.date: 05/20/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Data Box Edge for advanced deployment flow so I can use it to transform the data before sending it to Azure.
 ms.openlocfilehash: b446a3ebf92f6240d3bc02a148fbb8296efec926
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78384742"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79222890"
 ---
-# <a name="tutorial-transform-data-with-azure-data-box-edge-for-advanced-deployment-flow"></a>자습서: 고급 배포 흐름에 대 한 Azure Data Box Edge를 사용 하 여 데이터 변환
+# <a name="tutorial-transform-data-with-azure-data-box-edge-for-advanced-deployment-flow"></a>자습서: 고급 배포 흐름을 위해 Azure Data Box Edge를 사용하여 데이터 변환
 
 이 자습서에서는 Azure Data Box Edge 디바이스에서 고급 배포 흐름을 위해 컴퓨팅 역할을 구성하는 방법에 대해 설명합니다. 컴퓨팅 역할이 구성되면 Data Box Edge에서 데이터를 변환한 후에 Azure로 보낼 수 있습니다.
 

@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 title: Azure Machine Learning 설명서
-summary: Azure Machine Learning은 웹 인터페이스 및 SDK를 제공하므로 기계 학습 모델과 파이프라인을 대규모로 신속하게 학습시키고 배포할 수 있습니다. PyTorch, TensorFlow 및 scikit-learn과 같은 오픈 소스 Python 프레임워크와 함께 이러한 기능을 사용하세요.
+summary: Azure Machine Learning을 사용하여 대규모 기계 학습 모델과 파이프라인을 학습, 배포 및 관리하는 방법을 알아봅니다. 자습서, 코드 예제, API 참조 등이 표시됩니다.
 metadata:
   title: Azure Machine Learning 설명서
-  description: Azure Machine Learning은 기계 학습 모델과 파이프라인을 대규모로 신속하게 학습시키고 배포할 수 있는 웹 인터페이스 및 SDK를 제공합니다. PyTorch, TensorFlow 및 scikit-learn과 같은 오픈 소스 Python 프레임워크와 함께 이러한 기능을 사용하세요.
+  description: Azure Machine Learning을 사용하여 대규모 기계 학습 모델과 파이프라인을 학습, 배포 및 관리하는 방법을 알아봅니다. 자습서, 코드 예제, API 참조 등이 표시됩니다.
   services: machine-learning
   ms.service: machine-learning
   ms.subservice: core
@@ -11,39 +11,33 @@ metadata:
   ms.collection: collection
   author: j-martens
   ms.author: jmartens
-  ms.date: 03/05/2020
-  ms.openlocfilehash: 5165456617193f4701b1bc635c103d0719c8f403
-  ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+  ms.date: 03/18/2020
+  ms.openlocfilehash: 5855d523bf32798166ab32b6ff336cae95e81ca1
+  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 03/05/2020
-  ms.locfileid: "78328560"
+  ms.lasthandoff: 03/25/2020
+  ms.locfileid: "80063967"
 landingContent:
-- title: Azure ML 시작
+- title: 기계 학습 시작
   linkLists:
   - linkListType: tutorial
     links:
-    - text: Python Notebooks에서 실험
+    - text: Python Notebooks
       url: tutorial-1st-experiment-sdk-setup.md
-    - text: RStudio에서 실험
-      url: tutorial-1st-r-experiment.md
-    - text: 끌어서 놓기 디자이너를 사용한 실험
+    - text: 디자이너(끌어서 놓기)
       url: tutorial-designer-automobile-price-train-score.md
-    - text: 자동화된 ML 실험
+    - text: RStudio
+      url: tutorial-1st-r-experiment.md
+    - text: 자동 ML
       url: tutorial-first-experiment-automated-ml.md
   - linkListType: overview
     links:
-    - text: Azure ML이란?
+    - text: Azure 기계 학습이란?
       url: overview-what-is-azure-ml.md
     - text: 아키텍처 및 개념
       url: concept-azure-machine-learning-architecture.md
-  - linkListType: how-to-guide
-    links:
-    - text: 환경 설정
-      url: how-to-configure-environment.md
-    - text: 학습 컴퓨팅 대상 설정
-      url: how-to-set-up-training-targets.md
-- title: '실험: Python SDK'
+- title: Python SDK 사용
   linkLists:
   - linkListType: tutorial
     links:
@@ -51,10 +45,12 @@ landingContent:
       url: tutorial-1st-experiment-sdk-setup.md
     - text: 이미지 분류
       url: tutorial-train-models-with-aml.md
-    - text: 자동화된 ML로 택시 요금 예측
+    - text: 자동 ML로 택시 요금 예측
       url: tutorial-auto-train-models.md
   - linkListType: how-to-guide
     links:
+    - text: 환경 설정
+      url: how-to-configure-environment.md
     - text: Scikit-learn을 사용하여 학습
       url: how-to-train-scikit-learn.md
     - text: TensorFlow로 학습
@@ -63,28 +59,20 @@ landingContent:
       url: how-to-train-pytorch.md
     - text: Keras로 학습
       url: how-to-train-keras.md
-- title: ML 파이프라인 사용
+- title: ML 파이프라인 빌드
   linkLists:
+  - linkListType: tutorial
+    links:
+    - text: ML 파이프라인 만들기(Python)
+      url: tutorial-pipeline-batch-scoring-classification.md
+    - text: 가격 예측을 위한 선형 회귀(디자이너)
+      url: tutorial-designer-automobile-price-train-score.md
   - linkListType: overview
     links:
     - text: ML 파이프라인이란?
       url: concept-ml-pipelines.md
-    - text: "'끌어서 놓기' 디자이너"
+    - text: 디자이너란?
       url: concept-designer.md
-  - linkListType: tutorial
-    links:
-    - text: 가격 예측을 위한 선형 회귀(디자이너)
-      url: tutorial-designer-automobile-price-train-score.md
-    - text: ML 파이프라인 만들기(Python SDK)
-      url: tutorial-pipeline-batch-scoring-classification.md
-  - linkListType: how-to-guide
-    links:
-    - text: 파이프라인 일정 계획(Python SDK)
-      url: how-to-schedule-pipelines.md
-    - text: 지연 예측(디자이너)
-      url: how-to-designer-sample-classification-flight-delay.md
-    - text: 이탈 예측(디자이너)
-      url: how-to-designer-sample-classification-churn.md
 - title: 모델 배포 및 관리
   linkLists:
   - linkListType: how-to-guide
@@ -93,14 +81,14 @@ landingContent:
       url: concept-model-management-and-deployment.md
     - text: 배포 방법 및 배포 위치
       url: how-to-deploy-and-where.md
-    - text: 인증
-      url: how-to-setup-authentication.md
+    - text: MLOps 예제
+      url: https://github.com/microsoft/MLOps
     - text: 실시간 예측
       url: how-to-consume-web-service.md
     - text: 일괄 처리 예측
       url: how-to-use-parallel-run-step.md
-    - text: 엔드투엔드 예제(GitHub)
-      url: https://github.com/microsoft/MLOps
+    - text: 인증
+      url: how-to-setup-authentication.md
 - title: 참조 문서로 이동
   linkLists:
   - linkListType: reference
@@ -109,11 +97,11 @@ landingContent:
       url: https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py
     - text: R용 SDK
       url: https://azure.github.io/azureml-sdk-for-r/reference/index.html
+    - text: REST API
+      url: https://docs.microsoft.com/rest/api/azureml/
     - text: Machine Learning CLI
       url: https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest
     - text: 디자이너 알고리즘 및 모듈
       url: algorithm-module-reference/module-reference.md
-    - text: REST API
-      url: https://docs.microsoft.com/rest/api/azureml/
     - text: AI 참조 아키텍처(GitHub)
       url: https://github.com/Microsoft/AI

@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
 ms.openlocfilehash: c83e56a47f4b212a5612cb9e6965ce8e73228dcb
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74892892"
 ---
 # <a name="tutorial---encrypt-and-decrypt-blobs-using-azure-key-vault"></a>자습서: Azure Key Vault를 사용하여 Blob 암호화 및 해독
@@ -27,9 +27,9 @@ Azure Key Vault에 대한 개요는 [Azure Key Vault란?](../../key-vault/key-va
 
 Azure Storage에 대한 클라이언트 쪽 암호화의 개요 정보는 [Microsoft Azure Storage에 대한 클라이언트 쪽 암호화 및 Azure Key Vault](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-이 자습서를 완료하려면 다음이 필요합니다.
+이 자습서를 완료하려면 다음 항목이 필요합니다.
 
 * Azure Storage 계정
 * Visual Studio 2013 이상

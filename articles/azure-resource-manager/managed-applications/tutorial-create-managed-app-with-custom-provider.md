@@ -6,10 +6,10 @@ ms.author: lazinnat
 author: lazinnat
 ms.date: 06/20/2019
 ms.openlocfilehash: c3750da6bd76c8cb3908fbdc71ba676f09d77def
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75648810"
 ---
 # <a name="tutorial-create-managed-application-with-custom-actions-and-resources"></a>자습서: 사용자 지정 작업 및 리소스가 있는 관리형 애플리케이션 만들기
@@ -23,7 +23,7 @@ ms.locfileid: "75648810"
 > * [Azure 사용자 지정 공급자](../custom-providers/overview.md), Azure Storage 계정 및 Azure 함수가 포함된 배포 템플릿 작성
 > * 사용자 지정 작업 및 리소스가 포함된 보기 정의 아티팩트 작성
 > * 관리형 애플리케이션 정의 배포
-> * 관리형 애플리케이션의 인스턴스 배포
+> * 관리형 애플리케이션 인스턴스 배포
 > * 사용자 지정 작업 수행 및 사용자 지정 리소스 만들기
 
 ## <a name="prerequisites"></a>사전 요구 사항
@@ -219,7 +219,7 @@ $blobUri=(Get-AzureStorageBlob -Container appcontainer -Blob app.zip -Context $c
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-# <a name="azure-clitabazurecli-interactive"></a>[Azure CLI](#tab/azurecli-interactive)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azurecli-interactive)
 
 ```azurecli-interactive
 resourceGroup="appResourcesGroup"
@@ -244,7 +244,7 @@ az managedapp definition create \
   --package-file-uri "path to your app.zip package"
 ```
 
-# <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
+# <a name="portal"></a>[포털](#tab/azure-portal)
 
 1. Azure Portal에서 **모든 서비스**를 선택합니다. 리소스 목록에서 **관리형 애플리케이션 센터**를 입력하고 선택합니다.
 2. **관리형 애플리케이션 센터**에서 **서비스 카탈로그 애플리케이션 정의**를 선택하고, **추가**를 클릭합니다. 
@@ -277,7 +277,7 @@ az managedapp definition create \
 
 관리형 애플리케이션 정의가 배포되면 다음 스크립트를 실행하거나 Azure Portal의 단계에 따라 사용자 지정 공급자가 포함된 관리형 애플리케이션 인스턴스를 배포합니다.
 
-# <a name="azure-clitabazurecli-interactive"></a>[Azure CLI](#tab/azurecli-interactive)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azurecli-interactive)
 
 ```azurecli-interactive
 appResourcesGroup="appResourcesGroup"
@@ -300,7 +300,7 @@ az managedapp create \
   --parameters "{\"funcname\": {\"value\": \"managedusersappfunction\"}, \"storageName\": {\"value\": \"managedusersappstorage\"}}"
 ```
 
-# <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
+# <a name="portal"></a>[포털](#tab/azure-portal)
 
 1. Azure Portal에서 **모든 서비스**를 선택합니다. 리소스 목록에서 **관리형 애플리케이션 센터**를 입력하고 선택합니다.
 2. **관리형 애플리케이션 센터**에서 **서비스 카탈로그 애플리케이션**을 선택하고, **추가**를 클릭합니다. 

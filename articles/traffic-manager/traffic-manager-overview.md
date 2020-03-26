@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/23/2019
 ms.author: rohink
-ms.openlocfilehash: c8f604c042aee8b1af30af9da5a43ed2cd79f214
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 6eb1ce18f3bc6674efd5343306fff617bc9cd1f7
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77014388"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80060792"
 ---
 # <a name="what-is-traffic-manager"></a>Traffic Manager란?
 Azure Traffic Manager는 트래픽을 전 세계 Azure 지역의 서비스에 적절하게 분산하는 한편, 고가용성과 빠른 응답성을 제공하는 DNS 기반 트래픽 부하 분산 장치입니다.
@@ -51,7 +51,7 @@ Traffic Manager는 &quot;[클라우드로 버스트](https://azure.microsoft.com
 
 [중첩 Traffic Manager 프로필](traffic-manager-nested-profiles.md)을 사용하여 더 크고 복잡한 배포 요구 사항에 맞게 확장되는 세련되고 유연한 규칙을 만들도록 여러 트래픽 라우팅 방법을 결합할 수 있습니다.
 
-## <a name="pricing"></a>가격 책정
+## <a name="pricing"></a>가격
 
 가격 책정 정보는 [Traffic Manager 가격 책정](https://azure.microsoft.com/pricing/details/traffic-manager/)을 참조하세요.
 

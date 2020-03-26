@@ -9,17 +9,17 @@ ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/21/2019
 ms.openlocfilehash: 73ca0d089ab758fb13e69d341337139d79194cc5
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "71121930"
 ---
 # <a name="tutorial-use-r-in-a-spark-compute-context-in-azure-hdinsight"></a>자습서: Azure HDInsight에서 Spark 컴퓨팅 컨텍스트에 R 사용
 
 이 자습서에서는 Azure HDInsight의 Machine Learning Service 클러스터에서 실행되는 Apache Spark에서 R 함수를 사용하는 방법을 단계별로 소개합니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 로컬 스토리지에 샘플 데이터 다운로드
@@ -31,7 +31,7 @@ ms.locfileid: "71121930"
 > * 복합 XDF 파일 사용
 > * XDF를 CSV로 변환
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure HDInsight Machine Learning Service 클러스터. [Azure Portal을 사용하여 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-portal.md)로 이동한 후 **클러스터 유형**으로 **ML Services**를 선택합니다.
 
@@ -160,7 +160,7 @@ rxHadoopListFiles(airDataDir)
 
 Spark 컴퓨팅 컨텍스트에서 다음 함수를 사용하여 데이터 원본을 만들 수 있습니다.
 
-|함수 | 설명 |
+|함수 | Description |
 |---------|-------------|
 |`RxTextData` | 쉼표로 구분된 텍스트 데이터 원본입니다. |
 |`RxXdfData` | XDF 데이터 파일 형식의 데이터입니다. RevoScaleR에서 XDF 파일 형식은 단일 파일이 아닌 복합 파일 세트에 데이터를 저장하도록 Hadoop에 맞게 수정됩니다. |

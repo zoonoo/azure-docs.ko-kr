@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: abjork
 ms.openlocfilehash: 7f00947504e5c6355379ce1e400fd2325016e05a
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77122079"
 ---
 # <a name="tutorial-create-a-water-consumption-monitoring-application-with-azure-iot-central"></a>자습서: Azure IoT Central을 사용하여 용수 사용량 모니터링 애플리케이션 만들기
@@ -148,7 +148,7 @@ Azure IoT Central의 디바이스 템플릿은 디바이스 기능을 정의하�
     Azure IoT Central에서 디바이스와 관련된 속성을 추가할 수 있습니다. 예를 들어 클라우드 속성은 설치 영역, 자산 정보 또는 기타 유지 관리 정보와 관련된 경고 임계값일 수 있습니다.
 1. **저장**을 선택하여 변경 내용을 저장합니다.
 
-### <a name="views"></a>뷰
+### <a name="views"></a>보기
 
 용수 사용량 모니터 디바이스 템플릿에는 미리 정의된 보기가 제공됩니다. 보기를 살펴보고 업데이트를 수행할 수 있습니다. 보기에서는 운영자가 디바이스 데이터를 표시하는 방법을 정의하지만, 클라우드 속성도 입력합니다.
 

@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 07/23/2018
 ms.author: rohink
 ms.openlocfilehash: f7778b60a5e84f5d8900b8e37bfa655a7915d403
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77136398"
 ---
 # <a name="tutorial-improve-website-response-using-traffic-manager"></a>자습서: Traffic Manager를 사용하여 웹 응답 개선

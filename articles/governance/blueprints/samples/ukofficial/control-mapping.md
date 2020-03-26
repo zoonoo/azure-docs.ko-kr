@@ -4,10 +4,10 @@ description: 영국 공식 및 영국 NHS 청사진 샘플의 제어 매핑입�
 ms.date: 12/04/2019
 ms.topic: sample
 ms.openlocfilehash: 5bef590013a9ef06b791e58dc6c82e74dffe1a17
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74851369"
 ---
 # <a name="control-mapping-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>영국 공식 및 영국 NHS 청사진 샘플의 제어 매핑

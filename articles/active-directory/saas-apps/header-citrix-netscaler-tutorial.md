@@ -17,10 +17,10 @@ ms.date: 12/13/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 87f1c884edf6841b65495cd31ed4c7d6e63aedd9
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75977926"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-citrix-netscaler-header-based-authentication"></a>자습서: Citrix NetScaler와 Azure Active Directory Single Sign-On 통합(헤더 기반 인증)
@@ -94,25 +94,25 @@ Azure Portal을 사용하여 Azure AD SSO를 사용하도록 설정하려면 다
 
 1. **Single Sign-On 방법 선택** 창에서 **SAML**을 선택합니다.
 
-1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성**에 대한 펜 모양 **편집** 아이콘을 선택하여 설정을 편집합니다.
+1. **SAML로 Single Sign-On 설정** 창에서 **기본 SAML 구성**에 대한 펜 모양 **편집** 아이콘을 선택하여 설정을 편집합니다.
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
-1. 애플리케이션을 **IDP 시작** 모드로 구성하려면 **기본 SAML 구성** 섹션에서 다음을 수행합니다.
+1. **기본 SAML 구성** 섹션에서 애플리케이션을 **IDP 시작** 모드로 구성합니다.
 
-    1. **식별자** 상자에서 `https://<Your FQDN>` 패턴의 URL을 입력합니다.
+    1. **식별자** 텍스트 상자에서 `https://<Your FQDN>` 패턴의 URL을 입력합니다.
 
-    1. **회신 URL** 상자에 `https://<Your FQDN>/CitrixAuthService/AuthService.asmx` 패턴의 URL을 입력합니다.
+    1. **회신 URL** 텍스트 상자에 `https://<Your FQDN>/CitrixAuthService/AuthService.asmx` 패턴의 URL을 입력합니다.
 
 1. **SP 시작** 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**을 선택하고, 다음 단계를 수행합니다.
 
-    * **로그온 URL** 상자에서 `https://<Your FQDN>/CitrixAuthService/AuthService.asmx` 패턴의 URL을 입력합니다.
+    * **로그온 URL** 텍스트 상자에서 `https://<Your FQDN>/CitrixAuthService/AuthService.asmx` 패턴의 URL을 입력합니다.
 
     > [!NOTE]
     > * 이 섹션에서 사용되는 URL은 실제 값이 아닙니다. 이러한 값을 식별자, 회신 URL 및 로그온 URL에 대한 실제 값으로 업데이트합니다. 이러한 값을 얻으려면 [Citrix NetScaler 클라이언트 지원 팀](https://www.citrix.com/contact/technical-support.html)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
     > * SSO를 설정하려면 공용 웹 사이트에서 URL에 액세스할 수 있어야 합니다. Azure AD에서 토큰을 구성된 URL에 게시할 수 있도록 하려면 Citrix NetScaler 쪽에서 방화벽 또는 다른 보안 설정을 사용하도록 설정해야 합니다.
 
-1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **앱 페더레이션 메타데이터 URL**에 대한 URL을 복사하여 메모장에 저장합니다.
+1. **SAML로 Single Sign-On 설정** 창의 **SAML 서명 인증서** 섹션에서 **앱 페더레이션 메타데이터 URL**에 대한 URL을 복사하여 메모장에 저장합니다.
 
     ![인증서 다운로드 링크](common/certificatebase64.png)
 
@@ -180,7 +180,7 @@ Azure Portal을 사용하여 Azure AD SSO를 사용하도록 설정하려면 다
 
 1. **사용자 및 그룹** 대화 상자의 **사용자** 목록에서 **B.Simon**을 선택합니다. **선택**을 선택합니다.
 
-1. SAML 어설션에 역할 값이 필요한 경우 **역할 선택** 대화 상자의 목록에서 사용자에 대한 관련 역할을 선택한 다음, **선택**을 선택합니다.
+1. SAML 어설션에 역할 값이 필요한 경우 **역할 선택** 대화 상자에 있는 목록에서 사용자에 대한 관련 역할을 선택한 다음, **선택**을 선택합니다.
 
 1. **할당 추가** 대화 상자에서 **할당**을 선택합니다.
 
@@ -194,9 +194,9 @@ Azure Portal을 사용하여 Azure AD SSO를 사용하도록 설정하려면 다
 
 ### <a name="publish-the-web-server"></a>웹 서버 게시 
 
-가상 서버를 만들려면,
+가상 서버를 만들려면 다음을 수행합니다.
 
-1. **Traffic Management(트래픽 관리)**  > **Load Balancing(부하 분산)**  > **Services(서비스)** 를 차례로 선택합니다.
+1. **트래픽 관리** > **부하 분산** > **서비스**를 차례로 선택합니다.
     
 1. **추가**를 선택합니다.
 
@@ -236,9 +236,9 @@ Azure Portal을 사용하여 Azure AD SSO를 사용하도록 설정하려면 다
 
 1. **Services and Service Groups(서비스 및 서비스 그룹)** 창에서 **No Load Balancing Virtual Server Service Binding(부하 분산 가상 서버 서비스 바인딩 없음)** 을 선택합니다.
 
-   ![Citrix NetScaler 구성 - Load Balancing Virtual Server Service Binding 창](./media/header-citrix-netscaler-tutorial/bind01.png)
+   ![Citrix NetScaler 구성 - 부하 분산 가상 서버 서비스 바인딩 창](./media/header-citrix-netscaler-tutorial/bind01.png)
 
-1. 다음 스크린샷과 같이 설정을 확인한 다음, **Close(닫기)** 를 선택합니다.
+1. 다음 스크린샷과 같이 설정을 확인한 다음, **닫기**를 선택합니다.
 
    ![Citrix NetScaler 구성 - 가상 서버 서비스 바인딩 확인](./media/header-citrix-netscaler-tutorial/bind02.png)
 
@@ -246,11 +246,11 @@ Azure Portal을 사용하여 Azure AD SSO를 사용하도록 설정하려면 다
 
 이 서비스를 SSL로 게시하려면 서버 인증서를 바인딩한 다음, 애플리케이션을 테스트합니다.
 
-1. **Certificate(인증서)** 아래에서 **No Server Certificate(서버 인증서 없음)** 를 선택합니다.
+1. **인증서** 아래에서 **서버 인증서 없음**을 선택합니다.
 
-   ![Citrix NetScaler 구성 - Server Certificate 창](./media/header-citrix-netscaler-tutorial/bind03.png)
+   ![Citrix NetScaler 구성 - 서버 인증서 창](./media/header-citrix-netscaler-tutorial/bind03.png)
 
-1. 다음 스크린샷과 같이 설정을 확인한 다음, **Close(닫기)** 를 선택합니다.
+1. 다음 스크린샷과 같이 설정을 확인한 다음, **닫기**를 선택합니다.
 
    ![Citrix NetScaler 구성 - 인증서 확인](./media/header-citrix-netscaler-tutorial/bind04.png)
 
@@ -260,53 +260,53 @@ Citrix ADC SAML 프로필을 구성하려면 다음 섹션을 완료합니다.
 
 ### <a name="create-an-authentication-policy"></a>인증 정책 만들기
 
-인증 정책을 만들려면,
+인증 정책을 만들려면 다음을 수행합니다.
 
 1. **Security(보안)**  > **AAA – Application Traffic(애플리케이션 트래픽)**  > **Policies(정책)**  > **Authentication(인증)**  > **Authentication Policies(인증 정책)** 로 차례로 이동합니다.
 
 1. **추가**를 선택합니다.
 
-1. **Create Authentication Policy(인증 정책 만들기)** 창에서 다음 값을 입력하거나 선택합니다.
+1. **인증 정책 만들기** 창에서 다음 값을 입력하거나 선택합니다.
 
     * **Name**: 인증 정책의 이름을 입력합니다.
-    * **작업**: **SAML**을 입력한 다음, **Add(추가)** 를 선택합니다.
-    * **Expression(식)** :  **true**를 입력합니다.     
+    * **작업**: **SAML**을 입력한 다음, **추가**를 선택합니다.
+    * **식**:  **true**를 입력합니다.     
     
-    ![Citrix NetScaler 구성 - Create Authentication Policy 창](./media/header-citrix-netscaler-tutorial/policy01.png)
+    ![Citrix NetScaler 구성 - 인증 정책 만들기 창](./media/header-citrix-netscaler-tutorial/policy01.png)
 
 1. **만들기**를 선택합니다.
 
 ### <a name="create-an-authentication-saml-server"></a>인증 SAML 서버 만들기
 
-인증 SAML 서버를 만들려면 **Create Authentication SAML Server(인증 SAML 서버 만들기)** 창으로 이동하고, 다음 단계를 완료합니다.
+인증 SAML 서버를 만들려면 **인증 SAML 서버 만들기** 창으로 이동한 다음, 다음 단계를 완료합니다.
 
-1. **Name(이름)** 에 대해 인증 SAML 서버의 이름을 입력합니다.
+1. **이름**에 인증 SAML 서버에 사용할 이름을 입력합니다.
 
-1. **Export SAML Metadata(SAML 메타데이터 내보내기)** 아래에서 다음을 수행합니다.
+1. **SAML 메타데이터 내보내기** 아래에서 다음을 수행합니다.
 
-   1. **Import Metadata(메타데이터 가져오기)** 확인란을 선택합니다.
+   1. **메타데이터 가져오기** 확인란을 선택합니다.
 
    1. Azure SAML UI에서 이전에 복사한 페더레이션 메타데이터 URL을 입력합니다.
     
-1. **Issuer Name(발급자 이름)** 에 대해 관련 URL을 입력합니다.
+1. **발급자 이름**에 대해 관련 URL을 입력합니다.
 
 1. **만들기**를 선택합니다.
 
-![Citrix NetScaler 구성 - Create Authentication SAML Server 창](./media/header-citrix-netscaler-tutorial/server01.png)
+![Citrix NetScaler 구성 - 인증 SAML 서버 만들기 창](./media/header-citrix-netscaler-tutorial/server01.png)
 
 ### <a name="create-an-authentication-virtual-server"></a>인증 가상 서버 만들기
 
-인증 가상 서버를 만들려면,
+인증 가상 서버를 만들려면 다음을 수행합니다.
 
-1.  **Security(보안)**  > **AAA – Application Traffic(애플리케이션 트래픽)**  > **Policies(정책)**  > **Authentication(인증)**  > **Authentication Virtual Servers(인증 가상 서버)** 로 차례로 이동합니다.
+1.  **보안** > **AAA – 애플리케이션 트래픽** > **정책** > **인증** > **인증 가상 서버**로 이동합니다.
 
-1.  **Add(추가)** 를 선택하고, 다음 단계를 완료합니다.
+1.  **추가**를 선택한 다음, 다음 단계를 완료합니다.
 
-    1. **Name(이름)** 에 대해 인증 가상 서버의 이름을 입력합니다.
+    1. **이름**에 인증 가상 서버에 사용할 이름을 입력합니다.
 
-    1. **Non-Addressable(주소 지정 안 함)** 확인란을 선택합니다.
+    1. **주소 지정 안 함** 확인란을 선택합니다.
 
-    1. **Protocol(프로토콜)** 에 대해 **SSL**을 선택합니다.
+    1. **프로토콜**에 대해 **SSL**을 선택합니다.
 
     1. **확인**을 선택합니다.
 
@@ -316,28 +316,28 @@ Citrix ADC SAML 프로필을 구성하려면 다음 섹션을 완료합니다.
 
 인증 가상 서버에 대한 두 개의 섹션을 수정합니다.
 
-1.  **Advanced Authentication Policies(고급 인증 정책)** 창에서 **No Authentication Policy(인증 정책 없음)** 를 선택합니다.
+1.  **고급 인증 정책** 창에서 **인증 정책 없음**을 선택합니다.
 
-    ![Citrix NetScaler 구성 - Advanced Authentication Policies 창](./media/header-citrix-netscaler-tutorial/virtual01.png)
+    ![Citrix NetScaler 구성 - 고급 인증 정책 창](./media/header-citrix-netscaler-tutorial/virtual01.png)
 
-1. **Policy Binding(정책 바인딩)** 창에서 인증 정책을 선택한 다음, **Bind(바인딩)** 를 선택합니다.
+1. **정책 바인딩** 창에서 인증 정책을 선택한 다음, **바인딩**를 선택합니다.
 
-    ![Citrix NetScaler 구성 - Policy Binding 창](./media/header-citrix-netscaler-tutorial/virtual02.png)
+    ![Citrix NetScaler 구성 - 정책 바인딩 창](./media/header-citrix-netscaler-tutorial/virtual02.png)
 
-1. **Form Based Virtual Servers(양식 기반 가상 서버)** 창에서 **No Load Balancing Virtual Server(부하 분산 가상 서버 없음)** 를 선택합니다.
+1. **양식 기반 가상 서버** 창에서 **부하 분산 가상 서버 없음**을 선택합니다.
 
-    ![Citrix NetScaler 구성 - Form Based Virtual Servers 창](./media/header-citrix-netscaler-tutorial/virtual03.png)
+    ![Citrix NetScaler 구성 - 양식 기반 가상 서버 창](./media/header-citrix-netscaler-tutorial/virtual03.png)
 
-1. **Authentication FQDN(인증 FQDN)** 에 대해 FQDN(정규화된 도메인 이름)을 입력합니다(필수).
+1. **인증 FQDN**에 대해 FQDN(정규화된 도메인 이름)을 입력합니다(필수).
 
 1. Azure AD 인증을 사용하여 보호하려는 부하 분산 가상 서버를 선택합니다.
 
-1. **Bind(바인딩)** 를 선택합니다.
+1. **바인딩**을 선택합니다.
 
-    ![Citrix NetScaler 구성 - Load Balancing Virtual Server Binding 창](./media/header-citrix-netscaler-tutorial/virtual04.png)
+    ![Citrix NetScaler 구성 - 부하 분산 가상 서버 바인딩 창](./media/header-citrix-netscaler-tutorial/virtual04.png)
 
     > [!NOTE]
-    > **Authentication Virtual Server Configuration(인증 가상 서버 구성)** 창에서 **Done(완료)** 을 선택해야 합니다.
+    > **인증 가상 서버 구성** 창에서 **완료**를 선택해야 합니다.
 
 1. 변경 내용을 확인하려면 브라우저에서 애플리케이션 URL로 이동합니다. 이전에 확인한 인증되지 않은 액세스 대신 테넌트 로그인 페이지가 표시됩니다.
 
@@ -395,7 +395,7 @@ GUI를 사용하여 다시 쓰기 정책을 가상 서버에 바인딩하려면,
 
 1. 가상 서버 목록에서 다시 쓰기 정책을 바인딩하려는 가상 서버를 선택한 다음, **열기**를 선택합니다.
 
-1. **Load Balancing Virtual Server(부하 분산 가상 서버)** 창의 **Advanced Settings(고급 설정)** 아래에서 **Policies(정책)** 를 선택합니다. NetScaler 인스턴스에 대해 구성된 모든 정책이 목록에 표시됩니다.
+1. **부하 분산 가상 서버** 창의 **고급 설정** 아래에서 **정책**을 선택합니다. NetScaler 인스턴스에 대해 구성된 모든 정책이 목록에 표시됩니다.
  
     ![Citrix NetScaler 구성 - Load Balancing Virtual Server 창](./media/header-citrix-netscaler-tutorial/header05.png)
 
@@ -403,11 +403,11 @@ GUI를 사용하여 다시 쓰기 정책을 가상 서버에 바인딩하려면,
 
 1.  이 가상 서버에 바인딩하려는 정책 이름 옆의 확인란을 선택합니다.
  
-    ![Citrix NetScaler 구성 - Load Balancing Virtual Server Traffic Policy Binding 창](./media/header-citrix-netscaler-tutorial/header08.png)
+    ![Citrix NetScaler 구성 - 부하 분산 가상 서버 트래픽 정책 바인딩 창](./media/header-citrix-netscaler-tutorial/header08.png)
 
-1. **Choose Type(형식 선택)** 대화 상자에서 다음을 수행합니다.
+1. **형식 선택** 대화 상자에서
 
-    1. **Choose Policy(정책 선택)** 에 대해 **Traffic(트래픽)** 을 선택합니다.
+    1. **정책 선택**에 대해 **트래픽**을 선택합니다.
 
     1. **Choose Type(형식 선택)** 에 대해 **Request(요청)** 를 선택합니다.
 

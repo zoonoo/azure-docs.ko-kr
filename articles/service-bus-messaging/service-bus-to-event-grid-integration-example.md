@@ -14,25 +14,32 @@ ms.devlang: multiple
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: spelluru
-ms.openlocfilehash: 3fb2f4a4969e8df94a60ac20c761f073b6a9d030
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: fef325b67c38eda09a05dac9d74bd5b97df164cc
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75462093"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80067760"
 ---
 # <a name="tutorial-respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-functions-and-azure-logic-apps"></a>자습서: Azure Functions 및 Azure Logic Apps를 사용하여 Azure Event Grid를 통해 받은 Azure Service Bus 이벤트에 응답
-이 자습서에서는 Azure Functions 및 Azure Logic Apps를 사용하여 Azure Event Grid를 통해 받은 Azure Service Bus 이벤트에 응답하는 방법을 알아봅니다. 다음 단계를 수행합니다.
- 
-- Event Grid의 이벤트 초기 흐름을 디버깅하고 살펴볼 테스트 Azure 함수를 만듭니다.
-- Event Grid 이벤트를 기반으로 Azure Service Bus 메시지를 받아서 처리하는 Azure 함수를 만듭니다.
-- Event Grid 이벤트에 응답하는 논리 앱 만들기
+이 자습서에서는 Azure Functions 및 Azure Logic Apps를 사용하여 Azure Event Grid를 통해 받은 Azure Service Bus 이벤트에 응답하는 방법을 알아봅니다. 
 
-Service Bus, Event Grid, Azure Functions 및 Logic Apps 아티팩트를 만든 후 다음 작업을 수행합니다. 
+이 자습서에서는 다음 작업 방법을 알아봅니다.
+> [!div class="checklist"]
+> * Service Bus 네임스페이스 만들기
+> * 메시지를 전송하도록 예제 애플리케이션 준비
+> * Azure에서 테스트 함수 설정
+> * Event Grid를 통해 함수와 네임스페이스 연결
+> * Service Bus 항목으로 메시지 보내기
+> * Azure Functions를 사용하여 메시지 받기
+> * Logic Apps를 사용하여 메시지 받기
 
-1. Service Bus 항목에 메시지를 보냅니다. 
-2. 항목에 대한 구독이 해당 메시지를 수신했는지 확인
-3. 이벤트를 구독한 함수 또는 논리 앱이 이벤트를 받았는지 확인합니다. 
+## <a name="prerequisites"></a>사전 요구 사항
+
+이 자습서를 완료하려면 다음을 설치했어야 합니다.
+
+- [Visual Studio 2017 업데이트 3(버전 15.3, 26730.01)](https://www.visualstudio.com/vs) 이상
+- [NET Core SDK](https://www.microsoft.com/net/download/windows) 버전 2.0 이상
 
 ## <a name="create-a-service-bus-namespace"></a>Service Bus 네임스페이스 만들기
 다음 자습서의 지침을 따르세요. [빠른 시작: Azure Portal을 사용하여 Service Bus 항목 및 해당 항목에 대한 하나 이상의 구독 만들기](service-bus-quickstart-topics-subscriptions-portal.md): 다음 작업을 수행합니다.
@@ -65,7 +72,7 @@ Service Bus, Event Grid, Azure Functions 및 Logic Apps 아티팩트를 만든 �
 그런 후 다음 단계를 수행합니다. 
 
 
-# <a name="azure-functions-v2tabv2"></a>[Azure Functions V2](#tab/v2)
+# <a name="azure-functions-v2"></a>[Azure Functions V2](#tab/v2)
 
 1. 트리 보기에서 **함수**를 확장하고 함수를 선택합니다. 함수의 코드를 다음 코드로 바꿉니다. 
 
@@ -122,7 +129,7 @@ Service Bus, Event Grid, Azure Functions 및 Logic Apps 아티팩트를 만든 �
 
     ![함수 URL 가져오기](./media/service-bus-to-event-grid-integration-example/get-function-url.png)
 
-# <a name="azure-functions-v1tabv1"></a>[Azure Functions V1](#tab/v1)
+# <a name="azure-functions-v1"></a>[Azure Functions V1](#tab/v1)
 
 1. 다음과 같이 **V1** 버전을 사용하도록 함수를 구성합니다. 
     1. 트리 보기에서 함수 앱을 선택하고 **함수 앱 설정**을 선택합니다. 

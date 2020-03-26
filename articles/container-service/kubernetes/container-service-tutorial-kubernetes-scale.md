@@ -8,10 +8,10 @@ ms.date: 09/14/2017
 ms.author: danlep
 ms.custom: mvc
 ms.openlocfilehash: 2ea8a5428c1fabdfda4f2298c0559792537df481
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78273995"
 ---
 # <a name="deprecated-scale-kubernetes-pods-and-kubernetes-infrastructure"></a>(사용되지 않음) Kubernetes Pod 및 Kubernetes 인프라 크기 조정

@@ -14,17 +14,17 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/26/2019
 ms.openlocfilehash: 2c85a378dc219e8af1b6458344ee4dba0fa73e68
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68596804"
 ---
 # <a name="tutorial-create-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>자습서: Azure SQL Database Machine Learning Services(미리 보기)를 사용하여 R에서 예측 모델 만들기
 
 세 부분으로 이루어진 이 자습서 시리즈의 2부에서는 R에서 두 가지 예측 모델을 만든 후 가장 정확한 모델을 선택합니다. 이 시리즈의 다음 부분에서는 Azure SQL Database Machine Learning Services(미리 보기)를 사용하여 이 모델을 SQL 데이터베이스에 배포합니다.
 
-이 문서에서는 다음 방법을 설명합니다.
+이 문서에서는 다음을 수행하는 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 2가지 기계 학습 모델 학습
@@ -37,7 +37,7 @@ ms.locfileid: "68596804"
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 이 자습서 시리즈의 2부에서는 [**1부**](sql-database-tutorial-predictive-model-prepare-data.md) 및 해당 전제 작업을 완료했다고 가정합니다.
 
@@ -121,7 +121,7 @@ Azure Portal에서 다음 단계를 따릅니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서 시리즈의 제2부에서는 다음 단계를 완료했습니다.
+이 자습서 시리즈의 2부에서 다음 단계를 완료했습니다.
 
 * 2가지 기계 학습 모델 학습
 * 두 모델에서 예측 수행

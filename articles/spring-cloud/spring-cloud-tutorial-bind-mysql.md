@@ -7,10 +7,10 @@ ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: brendm
 ms.openlocfilehash: 657aa70d77fd1af9fd2121a3e98ea3aca7773642
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76277553"
 ---
 # <a name="tutorial-bind-an-azure-database-for-mysql-instance-to-your-azure-spring-cloud-application"></a>자습서: Azure Database for MySQL 인스턴스를 Azure Spring Cloud 애플리케이션에 바인딩 

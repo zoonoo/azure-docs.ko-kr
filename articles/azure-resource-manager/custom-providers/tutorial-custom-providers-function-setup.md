@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.date: 06/19/2019
 ms.author: jobreen
 ms.openlocfilehash: b6984bfdf7ec078d02999bccf77f3592cfbcab27
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75648680"
 ---
 # <a name="set-up-azure-functions-for-azure-custom-providers"></a>Azure 사용자 지정 공급자를 위한 Azure Functions 설정

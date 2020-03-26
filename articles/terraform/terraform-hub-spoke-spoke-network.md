@@ -4,10 +4,10 @@ description: 허브-스포크 토폴로지에서 허브에 연결된 스포크 V
 ms.topic: tutorial
 ms.date: 10/26/2019
 ms.openlocfilehash: 2a36b8ac22fb52f6b8f1246fd254d9c3ff22fc82
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74159014"
 ---
 # <a name="tutorial-create-a-spoke-network-in-azure-using-terraform"></a>자습서: Terraform을 사용하여 Azure에서 스포크 네트워크 만들기
@@ -21,7 +21,7 @@ ms.locfileid: "74159014"
 > * Terraform을 사용하여 스포크 네트워크에서 가상 머신 만들기
 > * Terraform을 사용하여 허브 네트워크와 가상 네트워크 피어링 설정
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 1. [Azure에서 Terraform을 사용하여 허브 및 스포크 하이브리드 네트워크 토폴로지를 만듭니다](./terraform-hub-spoke-introduction.md).
 1. [Azure에서 Terraform을 사용하여 온-프레미스 가상 네트워크를 만듭니다](./terraform-hub-spoke-on-prem.md).

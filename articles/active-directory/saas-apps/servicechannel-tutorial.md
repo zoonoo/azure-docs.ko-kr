@@ -17,10 +17,10 @@ ms.date: 08/29/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4adc22982c8c7fa7b7a856ded01f88ee548bde93
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "71121976"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-servicechannel"></a>자습서: ServiceChannel과 Azure Active Directory SSO(Single Sign-On) 연결
@@ -33,7 +33,7 @@ ms.locfileid: "71121976"
 
 Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -90,7 +90,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 식별자 및 회신 URL로 해당 값을 업데이트합니다. 식별자에는 고유한 문자열 값을 사용하는 것이 좋습니다. 이러한 값을 얻으려면 [ServiceChannel 클라이언트 지원 팀](https://servicechannel.zendesk.com/hc/en-us)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
-1. 역할 클레임은 미리 구성되어 있으므로 구성할 필요가 없지만 이 [문서](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management)를 사용하여 Azure AD에서 만들어야 합니다. 클레임에 대한 자세한 지침은 [여기](https://servicechannel.zendesk.com/hc/articles/217514326-Azure-AD-Configuration-Example)에서 ServiceChannel 가이드를 참조할 수 있습니다.
+1. 역할 클레임은 미리 구성되어 있으므로 구성할 필요가 없지만, 이 [문서](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management)를 사용하여 Azure AD에서 만들어야 합니다. 클레임에 대한 자세한 지침은 [여기](https://servicechannel.zendesk.com/hc/articles/217514326-Azure-AD-Configuration-Example)에서 ServiceChannel 가이드를 참조할 수 있습니다.
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 찾은 후 **다운로드**를 선택하여 인증서를 다운로드하고 컴퓨터에 저장합니다.
 
@@ -108,7 +108,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자**를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예: `B.Simon@contoso.com`
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기**를 클릭합니다.
 

@@ -11,11 +11,11 @@ ms.author: trbye
 ms.reviewer: trbye
 ms.date: 02/10/2020
 ms.openlocfilehash: a6f977c0cdca670b40ccdc01db64a493962e3dda
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77165979"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79224100"
 ---
 # <a name="tutorial-get-started-creating-your-first-ml-experiment-with-the-python-sdk"></a>자습서: Python SDK로 첫 번째 ML 실험 만들기 시작
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -43,7 +43,7 @@ Azure 리소스를 관리하기 위한 웹 기반 콘솔인 Azure Portal을 통�
 >[!IMPORTANT] 
 > **작업 영역** 및 **구독**을 적어 둡니다. 올바른 작업 영역에 실험을 만들려면 이 정보가 필요합니다. 
 
-## <a name="azure"></a>작업 영역에서 Notebook 실행
+## <a name="run-notebook-in-your-workspace"></a><a name="azure"></a>작업 영역에서 Notebook 실행
 
 이 자습서에서는 작업 영역의 클라우드 Notebook 서버를 설치하지 않는 미리 구성된 환경으로 사용합니다. 환경, 패키지 및 종속성을 제어하려면 [사용자 고유의 환경](how-to-configure-environment.md#local)을 사용합니다.
 

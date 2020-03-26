@@ -5,13 +5,13 @@ ms.assetid: 03c584f1-a93c-4e3d-ac1b-c82b50c75d3e
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 06/25/2018
-ms.custom: seodec18
-ms.openlocfilehash: 2a0b3994af48372b8ed0a3c6eaecf4289d0980c1
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.custom: mvc, devcenter, vs-azure, seodec18
+ms.openlocfilehash: a9acb55f0a03a6ec1ba0bb6bb38c665b059b672b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671387"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80047034"
 ---
 # <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>자습서: SQL Database를 사용하여 Azure에서 ASP.NET 앱 빌드
 
@@ -19,7 +19,7 @@ ms.locfileid: "74671387"
 
 ![Azure App Service의 게시된 ASP.NET 애플리케이션](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * Azure에서 SQL Database 만들기
@@ -31,7 +31,7 @@ ms.locfileid: "74671387"
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -107,7 +107,7 @@ Visual Studio에서 *dotnet-sqldb-tutorial-master/DotNetAppSqlDb.sln* 파일을 
 
 ![App Service 플랜 만들기](./media/app-service-web-tutorial-dotnet-sqldatabase/configure-app-service-plan.png)
 
-| 설정  | 제안 값 | Blob에 대한 자세한 내용은 |
+| 설정  | 제안 값 | 참조 항목 |
 | ----------------- | ------------ | ----|
 |**App Service 계획**| myAppServicePlan | [App Service 계획](../app-service/overview-hosting-plans.md) |
 |**위치**| 서유럽 | [Azure 지역](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) |
@@ -276,7 +276,7 @@ _Views\Todos\Index.cshtml_을 엽니다.
 </th>
 ```
 
-`Html.ActionLink()` 도우미 메서드가 포함된 `<td>` 요소를 찾습니다. 이 `<td>` _위에_ 다음 Razor 코드가 포함된 다른 `<td>` 요소를 추가합니다.
+`Html.ActionLink()` 도우미 메서드가 포함된 `<td>` 요소를 찾습니다. 이 `<td>`_위에_ 다음 Razor 코드가 포함된 다른 `<td>` 요소를 추가합니다.
 
 ```csharp
 <td>
@@ -401,7 +401,7 @@ Azure 앱의 이름을 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * Azure에서 SQL Database 만들기

@@ -14,10 +14,10 @@ ms.date: 12/05/2018
 ms.author: tomfitz
 ms.custom: mvc
 ms.openlocfilehash: fd7e7f14d076a6a9652e902c4dc0ec41665735ee
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75981752"
 ---
 # <a name="tutorial-learn-about-windows-virtual-machine-management-with-azure-powershell"></a>자습서: Azure PowerShell을 사용한 Windows 가상 머신 관리에 대해 알아보기

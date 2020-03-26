@@ -10,10 +10,10 @@ ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 01/10/2020
 ms.openlocfilehash: 6cf6a8f7de181a81d60028e33ba2631815c8ca04
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75895355"
 ---
 # <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins-preview"></a>자습서: Azure Digital Twins 미리 보기를 사용하여 건물 프로비전 및 작업 조건 모니터링

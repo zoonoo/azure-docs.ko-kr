@@ -4,10 +4,10 @@ description: Terraform을 사용하여 Packer에서 생성한 사용자 지정 �
 ms.topic: tutorial
 ms.date: 11/07/2019
 ms.openlocfilehash: 92a8221d625f8b6b73343f74b85fdfcf5e578b23
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77472210"
 ---
 # <a name="tutorial-create-an-azure-virtual-machine-scale-set-from-a-packer-custom-image-by-using-terraform"></a>자습서: Terraform을 사용하여 Packer 사용자 지정 이미지에서 Azure 가상 머신 확장 집합 만들기

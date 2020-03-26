@@ -3,13 +3,13 @@ title: '빠른 시작: Windows 컨테이너(미리 보기)'
 description: 첫 번째 사용자 지정 Windows 컨테이너를 Azure App Service에 배포합니다. 컨테이너화를 활용하여 Windows 컨테이너를 원하는 방식으로 사용자 지정합니다.
 ms.topic: quickstart
 ms.date: 08/30/2019
-ms.custom: seodec18
-ms.openlocfilehash: 7901498772b8e746fb2c87a5237f06ab279e3b64
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.custom: mvc, seodec18
+ms.openlocfilehash: cd6b78e5fd824cc013cc946d23677237923f485e
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75922307"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80047114"
 ---
 # <a name="run-a-custom-windows-container-in-azure-preview"></a>Azure에서 사용자 지정 Windows 컨테이너 실행(미리 보기)
 
@@ -145,7 +145,7 @@ https://<app_name>.scm.azurewebsites.net/api/logstream
    ```HTML
    <div class="jumbotron">
        <h1>ASP.NET in Azure!</h1>
-       <p class="lead">This is a simple app that we’ve built that demonstrates how to deploy a .NET app to Azure App Service.</p>
+       <p class="lead">This is a simple app that we've built that demonstrates how to deploy a .NET app to Azure App Service.</p>
    </div>
    ```
 

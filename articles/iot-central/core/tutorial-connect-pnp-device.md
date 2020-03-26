@@ -8,21 +8,18 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: e22a9ae2888187dc877876ee5d4d4ec4ecb7c6e5
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.openlocfilehash: 42098d54725cc12691839b63c508efbecf042aa0
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78329445"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80064414"
 ---
 # <a name="tutorial-use-a-device-capability-model-to-create-an-iot-plug-and-play-preview-device-and-connect-it-to-your-iot-central-application"></a>자습서: 디바이스 기능 모델을 사용하여 IoT 플러그 앤 플레이(미리 보기) 디바이스를 만들고 및 IoT Central 애플리케이션에 연결
 
 _DCM(디바이스 기능 모델)_ 은 [IoT 플러그 앤 플레이(미리 보기)](../../iot-pnp/overview-iot-plug-and-play.md) 디바이스의 기능을 설명합니다. 디바이스를 처음으로 연결할 때 IoT Central은 DCM을 사용하여 디바이스 템플릿을 만들고 디바이스를 시각화할 수 있습니다.
 
 [IoT 플러그 앤 플레이](../../iot-pnp/overview-iot-plug-and-play.md)에 대한 지원은 미리 보기에 있으며 선택한 지역에서만 지원됩니다.
-
-> [!NOTE]
-> IoT 플러그 앤 플레이 디바이스 지원을 통해 미리 보기 애플리케이션을 만들기 위해 액세스하려면 기술 지원에 문의하세요.
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 

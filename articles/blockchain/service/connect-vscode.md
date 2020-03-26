@@ -5,10 +5,10 @@ ms.date: 12/05/2019
 ms.topic: quickstart
 ms.reviewer: chrisseg
 ms.openlocfilehash: 1bcdfdafa9253fc4dc20ccb7cc237cb794b0af53
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74977081"
 ---
 # <a name="quickstart-use-visual-studio-code-to-connect-to-an-azure-blockchain-service-consortium-network"></a>빠른 시작: Visual Studio Code를 사용하여 Azure Blockchain Service 컨소시엄 네트워크에 연결
@@ -17,7 +17,7 @@ ms.locfileid: "74977081"
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [빠른 시작: Azure Portal을 사용하여 블록체인 멤버 만들기](create-member.md) 또는 [빠른 시작: Azure CLI를 사용하여 Azure Blockchain Service 블록체인 멤버 만들기](create-member-cli.md)를 완료합니다.
 * [Visual Studio Code](https://code.visualstudio.com/Download)

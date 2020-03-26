@@ -14,10 +14,10 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/29/2019
 ms.openlocfilehash: 6f4d237d5e923aab61ae34a235d2e1f759399e6d
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68640913"
 ---
 # <a name="tutorial-deploy-a-clustering-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>자습서: Azure SQL Database Machine Learning Services(미리 보기)를 사용하여 R에서 클러스터링 모델 배포
@@ -26,11 +26,11 @@ ms.locfileid: "68640913"
 
 클러스터링을 수행하는 임베디드 R 스크립트를 사용하여 저장 프로시저를 만듭니다. 모델은 Azure SQL Database에서 실행되므로 데이터베이스에 저장된 데이터를 통해 쉽게 학습할 수 있습니다.
 
-이 문서에서는 다음 방법을 설명합니다.
+이 문서에서는 다음을 수행하는 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 모델을 생성하는 저장 프로시저 만들기
-> * SQL Database에서 클러스터링 수행
+> * SQL 데이터베이스에서 클러스터링 수행
 > * 클러스터링 정보 사용
 
 [1부](sql-database-tutorial-clustering-model-prepare-data.md)에서는 클러스터링을 수행할 수 있도록 Azure SQL 데이터베이스에서 데이터를 준비하는 방법을 알아보았습니다.
@@ -39,16 +39,16 @@ ms.locfileid: "68640913"
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 이 자습서 시리즈의 3부에서는 [**1부**](sql-database-tutorial-clustering-model-prepare-data.md) 및 [**2부**](sql-database-tutorial-clustering-model-build.md)를 완료했다고 가정합니다.
 
 ## <a name="create-a-stored-procedure-that-generates-the-model"></a>모델을 생성하는 저장 프로시저 만들기
 
-다음 T-SQL 스크립트를 실행하여 저장 프로시저를 만듭니다. 이 프로시저는 이 자습서 시리즈의 1부 및 2부에서 개발된 단계를 다시 만듭니다.
+다음 T-SQL 스크립트를 실행하여 저장 프로시저를 만듭니다. 이 절차는 이 자습서 시리즈의 1부 및 2부에서 개발한 단계를 다시 만듭니다.
 
-* 구매 및 환불 기록에 따라 고객 분류
-* K-평균 알고리즘을 사용하여 네 가지 고객 클러스터 생성
+* 구매 및 반품 기록을 기준으로 고객 분류
+* K-평균 알고리즘을 사용하여 4가지 고객 클러스터 생성
 
 이 프로시저는 이전 작업의 결과로 얻은 고객 클러스터 매핑을 데이터베이스 테이블 **customer_return_clusters**에 저장합니다.
 
@@ -175,7 +175,7 @@ END;
 GO
 ```
 
-## <a name="perform-clustering-in-sql-database"></a>SQL Database에서 클러스터링 수행
+## <a name="perform-clustering-in-sql-database"></a>SQL 데이터베이스에서 클러스터링 수행
 
 저장 프로시저를 만들었으므로, 이제 다음 스크립트를 실행하여 클러스터링을 수행합니다.
 
@@ -208,7 +208,7 @@ cluster  customer  orderRatio  itemsRatio  monetaryRatio  frequency
 
 ## <a name="use-the-clustering-information"></a>클러스터링 정보 사용
 
-앞에서 클러스터링 프로시저를 데이터베이스에서 저장했기 때문에, 같은 데이터베이스에 저장된 고객 데이터에 대해 효율적으로 클러스터링을 수행할 수 있습니다. 고객 데이터가 업데이트될 때마다 프로시저를 실행하고 업데이트된 클러스터링 정보를 사용할 수 있습니다.
+데이터베이스에 클러스터링 프로시저를 저장했으므로 동일한 데이터베이스에 저장된 고객 데이터에 대해 효율적으로 클러스터링을 수행할 수 있습니다. 고객 데이터가 업데이트될 때마다 프로시저를 수행하고, 업데이트된 클러스터링 정보를 사용할 수 있습니다.
 
 환불 동작이 적극적으로 이루어지는 그룹인 클러스터 3에 속한 고객에게 홍보 이메일을 보내려 한다고 가정해 봅시다(네 가지 클러스터에 대한 설명은 [2부](sql-database-tutorial-clustering-model-build.md#analyze-the-results)에서 확인 가능). 다음 코드는 클러스터 3에 속한 고객의 이메일 주소를 선택합니다.
 
@@ -237,10 +237,10 @@ Azure Portal에서 다음 단계를 따릅니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서 시리즈의 제3부에서는 다음 단계를 완료했습니다.
+이 자습서 시리즈의 3부에서 다음 단계를 완료했습니다.
 
 * 모델을 생성하는 저장 프로시저 만들기
-* SQL Database에서 클러스터링 수행
+* SQL 데이터베이스에서 클러스터링 수행
 * 클러스터링 정보 사용
 
 Azure SQL Database Machine Learning Services(미리 보기)에서 R을 사용하는 방법에 대한 자세한 내용은 다음을 참조하세요.

@@ -14,10 +14,10 @@ ms.topic: tutorial
 ms.date: 02/27/2020
 ms.author: apimpm
 ms.openlocfilehash: 886063dcf886d79ac960814f20b3789e8e3b6839
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78163504"
 ---
 # <a name="import-and-publish-your-first-api"></a>첫 번째 API 가져오기 및 게시 
@@ -41,7 +41,7 @@ ms.locfileid: "78163504"
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-## <a name="create-api"> </a>백 엔드 API 가져오기 및 게시
+## <a name="import-and-publish-a-backend-api"></a><a name="create-api"> </a>백 엔드 API 가져오기 및 게시
 
 이 섹션에서는 OpenAPI 사양 백 엔드 API를 가져오고 게시하는 방법을 보여 줍니다.
  
@@ -61,7 +61,7 @@ ms.locfileid: "78163504"
    |**설명**|이전 서비스 URL이 입력되면 API Management에서 JSON을 기반으로 하여 이 필드를 채웁니다.|API에 대한 선택적 설명입니다.|
    |**URL 구성표**|**HTTPS**|API에 액세스하는 데 사용할 수 있는 프로토콜입니다.|
    |**API URL 접미사**|*conference*|API Management 서비스의 기준 URL에 추가된 접미사입니다. API Management는 해당 접미사로 API를 구분하므로 접미사는 지정된 게시자의 모든 API에 대해 고유해야 합니다.|
-   |**제품**|**무제한**|하나 이상의 API에 대한 연결입니다. 각 API Management 인스턴스에는 두 개의 샘플 제품, 즉 **스타터** 및 **무제한** 제품이 제공됩니다. 이 예제에서는 API를 **무제한** 제품과 연결하여 API를 게시합니다.<br/>여러 API를 제품에 포함시키고 개발자 포털을 통해 개발자에게 제공할 수 있습니다. 이 API를 다른 제품에 추가하려면 제품 이름을 입력하거나 선택합니다. API를 여러 제품에 추가하려면 이 단계를 반복합니다. 나중에 **설정** 페이지에서 API를 제품에 추가할 수도 있습니다.<br/>개발자는 API에 액세스하려면 먼저 제품을 구독해야 합니다. 구독하는 경우 해당 제품의 모든 API에 적합한 구독 키를 얻게 됩니다. <br/>API Management 인스턴스를 만든 경우 이미 관리자이므로 인스턴스의 모든 제품을 구독하게 됩니다.|
+   |**제품**|**무제한**|하나 이상의 API에 대한 연결입니다. 각 API Management 인스턴스에는 두 개의 샘플 제품, 즉 **Starter** 및 **Unlimited**입니다. 이 예제에서는 API를 **무제한** 제품과 연결하여 API를 게시합니다.<br/>여러 API를 제품에 포함시키고 개발자 포털을 통해 개발자에게 제공할 수 있습니다. 이 API를 다른 제품에 추가하려면 제품 이름을 입력하거나 선택합니다. API를 여러 제품에 추가하려면 이 단계를 반복합니다. 나중에 **설정** 페이지에서 API를 제품에 추가할 수도 있습니다.<br/>개발자는 API에 액세스하려면 먼저 제품을 구독해야 합니다. 구독하는 경우 해당 제품의 모든 API에 적합한 구독 키를 얻게 됩니다. <br/>API Management 인스턴스를 만든 경우 이미 관리자이므로 인스턴스의 모든 제품을 구독하게 됩니다.|
    |**태그**| |검색, 그룹화 또는 필터링을 위해 API를 구성하는 태그입니다.|
    |**API 버전 관리**|선택 또는 선택 취소|버전 관리에 대한 자세한 내용은 [여러 버전의 API 게시](api-management-get-started-publish-versions.md)를 참조하세요.|
    
@@ -84,7 +84,7 @@ Azure Portal에서 직접 API 작업을 호출합니다. 그러면 작업을 보
    
    백 엔드는 **200 정상** 및 일부 데이터로 응답합니다.
 
-## <a name="next-steps"> </a>다음 단계
+## <a name="next-steps"></a><a name="next-steps"> </a>다음 단계
 
 이 자습서에서는 다음 작업 방법을 알아보았습니다.
 

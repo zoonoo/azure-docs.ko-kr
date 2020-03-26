@@ -6,13 +6,13 @@ ms.assetid: 5ac4a680-cc73-4578-bcd6-8668c08802c2
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 12/11/2017
-ms.custom: seodec18
-ms.openlocfilehash: 2f96acf6a57ab254d975d827a3493420dde0662f
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 888e0e66c4dafbe7d2613a4b92b1f7b0dfd55eab
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74686710"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80058596"
 ---
 # <a name="map-a-custom-domain-to-an-app-service-app-using-cli"></a>CLI를 사용하여 App Service 앱에 사용자 지정 도메인 매핑
 

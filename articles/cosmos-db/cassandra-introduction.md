@@ -9,10 +9,10 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 05/21/2019
 ms.openlocfilehash: 075b55b5a798924b55ef9d901e4d2e9ecfc9dc1e
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77597578"
 ---
 # <a name="introduction-to-the-azure-cosmos-db-cassandra-api"></a>Azure Cosmos DB Cassandra API 소개
@@ -31,11 +31,11 @@ Cassandra API를 사용하면 이미 익숙한 CQL(Cassandra 쿼리 언어), Cas
 
 **처리량 및 스토리지 탄력성**: Azure Cosmos DB는 Azure Portal, PowerShell 또는 CLI 작업을 통해 지역 전체에서 보장된 처리량을 제공하여 프로비전된 처리량을 크기 조정할 수 있습니다. 예측 가능한 성능으로 필요에 따라 테이블에 대한 처리량 및 스토리지를 탄력적으로 확장할 수 있습니다.
 
-**글로벌 배포 및 가용성**: Azure Cosmos DB는 전 세계 모든 Azure 지역에서 데이터를 전역적으로 배포하고 대기 시간이 짧은 데이터 액세스 및 높은 가용성을 보장하면서 데이터를 로컬로 제공하는 기능을 제공합니다. Azure Cosmos DB는 한 지역 내에서는 99.99%의 가용성을 제공하고 여러 지역에 걸쳐서는 작업 오버헤드 없이 99.999%의 읽기 및 쓰기 가용성을 제공합니다. [데이터를 글로벌 배포](distribute-data-globally.md) 문서에서 자세히 알아보세요. 
+**글로벌 배포 및 가용성**: Azure Cosmos DB는 전 세계 모든 Azure 지역에서 데이터를 배포하고 대기 시간이 짧은 데이터 액세스 및 높은 가용성을 보장하면서 데이터를 로컬로 제공하는 기능을 제공합니다. Azure Cosmos DB는 한 지역 내에서는 99.99%의 가용성을 제공하고 여러 지역에 걸쳐서는 작업 오버헤드 없이 99.999%의 읽기 및 쓰기 가용성을 제공합니다. [데이터를 글로벌 배포](distribute-data-globally.md) 문서에서 자세히 알아보세요. 
 
-**일관성 옵션**: Azure Cosmos DB는 일관성과 성능 간에 최적의 균형을 유지할 수 있도록 잘 정의된 5가지 일관성 수준 옵션을 제공합니다. 이러한 일관성 수준은 강력, 제한된 부실, 세션, 일관된 접두사 및 최종입니다. 이러한 잘 정의된 실용적이고 직관적인 일관성 수준을 통해 개발자는 일관성, 가용성 및 대기 시간 간에 타당한 절충을 수행할 수 있습니다. [일관성 수준](consistency-levels.md) 문서에서 자세히 알아보세요. 
+**일관성 선택**: Azure Cosmos DB는 일관성과 성능 간에 최적의 절충을 실현할 수 있도록 잘 정의된 5가지 일관성 수준 옵션을 제공합니다. 이러한 일관성 수준은 강력, 제한된 부실, 세션, 일관된 접두사 및 최종입니다. 이러한 잘 정의된 실용적이고 직관적인 일관성 수준을 통해 개발자는 일관성, 가용성 및 대기 시간 간에 타당한 절충을 수행할 수 있습니다. [일관성 수준](consistency-levels.md) 문서에서 자세히 알아보세요. 
 
-**엔터프라이즈급**: Azure Cosmos DB는 사용자가 플랫폼을 안전하게 사용할 수 있도록 [규정 준수 인증](https://www.microsoft.com/trustcenter)을 제공합니다. Azure Cosmos DB는 저장 데이터 암호화 및 작동 시 암호화, IP 방화벽, 제어 영역 활동에 대한 감사 로그를 제공합니다.
+**엔터프라이즈급**: Azure Cosmos DB는 사용자가 플랫폼을 안전하게 사용할 수 있도록 [준수 인증](https://www.microsoft.com/trustcenter)을 제공합니다. Azure Cosmos DB는 저장 데이터 암호화 및 작동 시 암호화, IP 방화벽, 제어 영역 활동에 대한 감사 로그를 제공합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

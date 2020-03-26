@@ -6,17 +6,17 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 03/05/2020
-ms.openlocfilehash: b42acdf64612da6837bc67752f7a22169ddef7e2
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: c29790035ec4e971957784e826a1e8bd8e0c9329
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78673317"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79500505"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Azure Monitor 설명서의 새로운 기능이란?
 이 문서에는 새롭거나 크게 업데이트된 Azure Monitor 문서가 나열되어 있습니다. 지난 달의 문서 업데이트가 포함되도록 매월 첫째 주에 새로 고쳐집니다.
 
-## <a name="march-2020"></a>2020년 3월
+## <a name="february-2020"></a>2020년 2월
 
 ### <a name="agents"></a>에이전트
 진단 확장 콘텐츠 재작성의 일부로 여러 개 업데이트
@@ -27,7 +27,7 @@ ms.locfileid: "78673317"
 - [Windows Azure 진단 확장(WAD) 설치 및 구성](platform/diagnostics-extension-windows-install.md) - 새 문서 
 - [Windows 진단 확장 스키마](platform/diagnostics-extension-schema-windows.md) - 재구성됨
 - [Microsoft Azure 진단 확장에서 Azure Event Hubs로 데이터 전송](platform/diagnostics-extension-stream-event-hubs.md) - 완전히 다시 작성되고 업데이트됨
-- [Azure Storage에서 진단 데이터 저장 및 보기](platform/diagnostics-extension-to-storage.md) - 완전히 다시 작성되고 업데이트됨
+- [Azure Storage에서 진단 데이터 저장 및 보기](/azure/cloud-services/diagnostics-extension-to-storage) - 완전히 다시 작성되고 업데이트됨
 - [Windows용 Log Analytics 가상 머신 확장](../virtual-machines/extensions/oms-windows.md) - Log Analytics 에이전트와의 관계를 보다 명확하게 구분합니다.
 - [Linux용 Azure Monitor 가상 머신 확장](../virtual-machines/extensions/oms-linux.md) - Log Analytics 에이전트와의 관계를 보다 명확하게 구분합니다.
 

@@ -9,10 +9,10 @@ ms.date: 04/05/2018
 author: sakash279
 ms.author: akshanka
 ms.openlocfilehash: 33569730e565c68d66539feb4491b1925796b300
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76771154"
 ---
 # <a name="how-to-use-azure-table-storage-or-azure-cosmos-db-table-api-from-java"></a>Java에서 Azure Table Storage 또는 Azure Cosmos DB Table API를 사용하는 방법

@@ -85,7 +85,7 @@
       href: resource-manager-samples.md
 - name: 개념
   items:
-    - name: NoSQL Vs 관계형 데이터베이스
+    - name: NoSQL 및 관계형 데이터베이스
       href: relational-nosql.md
     - name: 글로벌 분포
       items:
@@ -549,8 +549,8 @@
           href: role-based-access-control.md
         - href: cosmos-db-advanced-threat-protection.md
           name: Advanced Threat Protection
-        - name: 기본 제공 보안 컨트롤
-          href: cosmos-db-security-controls.md
+        - name: 보안 기준
+          href: security-baseline.md
     - name: 엔터프라이즈 준비
       items:
         - name: 온라인 백업 및 주문형 복원
@@ -600,7 +600,7 @@
             - name: 변경 피드
               href: cassandra-change-feed.md
             - name: Spring 데이터 저장 및 관리
-              href: 'https://docs.microsoft.com/azure/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json'
+              href: 'https://docs.microsoft.com/azure/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db?context=/azure/cosmos-db/context/context'
             - name: Cassandra 및 Spark
               items:
                 - name: 소개
@@ -709,7 +709,7 @@
             - name: 데이터 인덱싱 관리
               href: mongodb-indexing.md
             - name: Spring 데이터 저장 및 관리
-              href: 'https://docs.microsoft.com/azure/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json'
+              href: 'https://docs.microsoft.com/azure/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db?context=/azure/cosmos-db/context/context'
             - name: MongoDB 확장 명령
               href: mongodb-custom-commands.md
               displayName: custom commands
@@ -776,7 +776,7 @@
             - name: 그래프 데이터 시각화
               href: graph-visualization.md
             - name: Spring 데이터 저장 및 관리
-              href: 'https://docs.microsoft.com/azure/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json'
+              href: 'https://docs.microsoft.com/azure/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db?context=/azure/cosmos-db/context/context'
             - name: Resource Manager 템플릿을 사용하여 관리
               href: manage-gremlin-with-resource-manager.md
               displayName: ARM
@@ -1073,9 +1073,9 @@
         - name: Azure Event Hubs 및 Azure Storage
           href: 'https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md'
         - name: Spring Boot Starter 사용
-          href: 'https://docs.microsoft.com/azure/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json'
+          href: 'https://docs.microsoft.com/azure/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?context=/azure/cosmos-db/context/context'
         - name: Spring Data 개발자 가이드
-          href: 'https://docs.microsoft.com/azure/java/spring-framework/how-to-guides-spring-data-cosmosdb?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json'
+          href: 'https://docs.microsoft.com/azure/java/spring-framework/how-to-guides-spring-data-cosmosdb?context=/azure/cosmos-db/context/context'
         - name: ODBC 드라이버
           href: odbc-driver.md
     - name: Cosmos DB로 데이터 마이그레이션

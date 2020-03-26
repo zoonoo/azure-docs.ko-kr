@@ -13,10 +13,10 @@ ms.topic: tutorial
 ms.date: 08/27/2018
 ms.author: apimpm
 ms.openlocfilehash: 5440333360549c5df2da57c97b24dcc77436ba4b
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "70072697"
 ---
 # <a name="add-an-api-manually"></a>API를 수동으로 추가
@@ -27,7 +27,7 @@ ms.locfileid: "70072697"
 
 이 문서에서는 빈 API를 만들고 [httpbin.org](https://httpbin.org)(공용 테스트 서비스)를 백 엔드 API로 지정합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 다음 빠른 시작을 완료합니다. [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)
 
@@ -42,10 +42,10 @@ ms.locfileid: "70072697"
     ![빈 API](media/add-api-manually/blank-api.png)
 4. API에 대한 설정을 입력합니다.
 
-    |**Name**|**값**|**설명**|
+    |**이름**|**값**|**설명**|
     |---|---|---|
     |**표시 이름**|*빈 API*|이 이름은 개발자 포털에 표시됩니다.|
-    |**Name**|*blank-api*|API의 고유한 이름을 제공합니다.|
+    |**이름**|*blank-api*|API의 고유한 이름을 제공합니다.|
     |**웹 서비스 URL**(선택 사항)|*https://httpbin.org*| 모의 API를 만들려는 경우에는 아무 것도 입력할 필요가 없습니다. <br/>이 예에서는 [https://httpbin.org](https://httpbin.org)를 입력합니다. 이것은 공용 테스트 서비스입니다. <br/>자동으로 백 엔드에 매핑되는 API를 가져오려는 경우 [관련 항목](#related-topics) 섹션의 항목 중 하나를 참조하세요.|
     |**URL 구성표**|*HTTPS*|이 경우 백 엔드에 비보안 HTTP 액세스가 있더라도 백 엔드에 대해 보안 HTTPS APIM 액세스를 지정합니다. <br/>이러한 종류의 시나리오(HTTPS-HTTP)를 HTTPS 종단이라고 합니다. 가상 네트워크 내에 API가 있는 경우(HTTPS가 사용되지 않더라도 액세스의 보안이 유지된다는 것을 아는 경우) 이 작업을 수행할 수 있습니다. <br/>일부 CPU 주기를 줄이기 위해 "HTTPS 종단"을 사용하려고 할 수도 있습니다.|
     |**URL 접미사**|*hbin*| 접미사는 이 APIM 인스턴스에서 이 특정 API를 식별하는 이름입니다. 이 APIM 인스턴스 내에서 고유해야 합니다.|
@@ -64,7 +64,7 @@ ms.locfileid: "70072697"
 ### <a name="add-an-operation"></a>작업 추가
 
 1. 이전 단계에서 만든 API를 선택합니다.
-2. **+ 작업 추가**를 클릭합니다.
+2. **+작업 추가**를 클릭합니다.
 3. **URL**에서 **GET**을 선택하고 리소스에 " */get*"을 입력합니다.
 4. **표시 이름**으로 "*FetchData*"를 입력합니다.
 5. **저장**을 선택합니다.
@@ -86,7 +86,7 @@ Azure Portal에서 작업을 테스트합니다. 또는 **개발자 포털**에�
 ### <a name="add-the-operation"></a>작업 추가
 
 1. 이전 단계에서 만든 API를 선택합니다.
-2. **+ 작업 추가**를 클릭합니다.
+2. **+작업 추가**를 클릭합니다.
 3. **URL**에서 **GET**을 선택하고 리소스에 " */status/{code}* "를 입력합니다. 필요에 따라 이 매개 변수와 관련된 몇 가지 정보를 제공할 수 있습니다. 예를 들어 **형식**에 대해 "*Number*"를 입력하고 **값**에 대해 “*200*”(기본값)을 입력합니다.
 4. **표시 이름**으로 "GetStatus"를 입력합니다.
 5. **저장**을 선택합니다.

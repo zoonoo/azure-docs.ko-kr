@@ -9,10 +9,10 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 06/27/2019
 ms.openlocfilehash: f6139bb98fa0272e43c8e180d4ec029f7a7538bb
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73494320"
 ---
 # <a name="tutorial-query-apache-hive-with-odbc-and-powershell"></a>자습서: ODBC와 PowerShell로 Apache Hive 쿼리
@@ -28,7 +28,7 @@ Microsoft ODBC 드라이버는 Apache Hive를 비롯한 여러 종류의 데이�
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 시작하기 전에 다음 항목이 있어야 합니다.
 
@@ -52,10 +52,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 1. 다음 값을 입력하거나 선택합니다.
 
-   | 자산 | 설명 |
+   | 속성 | Description |
    | --- | --- |
    |  데이터 원본 이름 |데이터 원본에 이름 지정 |
-   |  호스트 |`CLUSTERNAME.azurehdinsight.net`을 입력합니다. 예를 들어 `myHDICluster.azurehdinsight.net` |
+   |  호스트 |`CLUSTERNAME.azurehdinsight.net`를 입력합니다. 예를 들어 `myHDICluster.azurehdinsight.net` |
    |  포트 |**443**을 사용합니다.|
    |  데이터베이스 |**기본값**을 사용합니다. |
    |  메커니즘 |**Windows Azure HDInsight Service**를 선택합니다. |
@@ -64,7 +64,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 1. 선택 사항: **고급 옵션**을 선택합니다.  
 
-   | 매개 변수 | 설명 |
+   | 매개 변수 | Description |
    | --- | --- |
    |  Use Native Query |선택하면 ODBC 드라이버가 TSQL을 HiveQL로 변환하지 않습니다. 이 옵션은 순수 HiveQL 문을 제출한다고 100% 확신하는 경우에만 사용합니다. SQL Server 또는 Azure SQL Database에 연결하는 경우에는 이 옵션을 선택 취소한 상태로 둬야 합니다. |
    |  Rows fetched per block |많은 수의 레코드를 가져오는 경우 최적의 성능을 위해 이 매개 변수를 조정해야 할 수 있습니다. |

@@ -8,10 +8,10 @@ ms.service: storage
 ms.subservice: common
 ms.topic: sample
 ms.openlocfilehash: 1d6b4d37a3d7c4accc3e407fb6cf841600ac1c16
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77485848"
 ---
 # <a name="azure-storage-samples-using-v12-javascript-client-libraries"></a>v12 JavaScript 클라이언트 라이브러리를 사용하는 Azure Storage 샘플
@@ -408,7 +408,7 @@ ms.locfileid: "77485848"
 * [Azure Blob 코드 샘플](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples/javascript)
 * [Azure Data Lake 코드 샘플](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-file-datalake/samples/javascript)
 * [Azure Files 코드 샘플](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-file-share/samples/javascript)
-* [Azure Queue 코드 샘플](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue/samples/javascript)
+* [Azure 큐 코드 샘플](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue/samples/javascript)
 
 각 라이브러리에 대한 GitHub 리포지토리를 찾아보고 복제할 수 있습니다.
 

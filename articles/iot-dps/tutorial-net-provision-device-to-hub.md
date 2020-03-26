@@ -10,10 +10,10 @@ services: iot-dps
 ms.devlang: csharp
 ms.custom: mvc
 ms.openlocfilehash: 9d5b1511ffb48f587d4ee5c5a7d2b0ee9216018f
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74976777"
 ---
 # <a name="tutorial-enroll-the-device-to-an-iot-hub-using-the-azure-iot-hub-provisioning-service-client-net"></a>자습서: Azure IoT Hub Device Provisioning Service 클라이언트를 사용하여 IoT Hub에 디바이스를 등록(.NET)
@@ -25,7 +25,7 @@ ms.locfileid: "74976777"
 > * 디바이스 시작
 > * 디바이스가 등록되어 있는지 확인
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 계속 진행하기 전에 자습서에 설명된 대로 디바이스 및 *하드웨어 보안 모듈*을 구성할 수 있는지 확인하고, [Azure IoT Hub Device Provisioning Service를 사용하여 프로비전하도록 디바이스를 설정](./tutorial-set-up-device.md)합니다.
 
@@ -240,7 +240,7 @@ Device Provisioning Service에 디바이스를 등록하는 방법은 두 가지
     ![포털에서 허브에 연결 성공](./media/tutorial-net-provision-device-to-hub/hub-connect-success.png)
 
 ## <a name="next-steps"></a>다음 단계
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * 디바이스 등록

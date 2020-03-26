@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 10/15/2018
 ms.author: rohink
 ms.openlocfilehash: a4738b2e36786cd627f53af3e36bd8f1e3fbc375
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76939470"
 ---
 # <a name="tutorial-control-traffic-routing-with-weighted-endpoints-by-using-traffic-manager"></a>자습서: Traffic Manager를 사용하여 가중 엔드포인트에서 트래픽 라우팅 제어

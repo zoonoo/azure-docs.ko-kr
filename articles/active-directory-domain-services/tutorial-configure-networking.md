@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: iainfou
 ms.openlocfilehash: 26122278ad74fb1d383ca7a900810b6060ee78f5
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73172703"
 ---
 # <a name="tutorial-configure-virtual-networking-for-an-azure-active-directory-domain-services-instance"></a>자습서: Azure Active Directory Domain Services 인스턴스에 대한 가상 네트워킹 구성
@@ -22,7 +22,7 @@ ms.locfileid: "73172703"
 
 이 자습서에서는 전용 가상 네트워크 서브넷을 만들고 구성하는 방법 또는 다른 네트워크를 Azure AD DS 관리형 도메인의 가상 네트워크에 피어링하는 방법을 보여 줍니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * Azure AD DS에 대한 도메인 조인 리소스에 대한 가상 네트워크 연결 옵션 이해
@@ -31,14 +31,14 @@ ms.locfileid: "73172703"
 
 Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하는 데 필요한 리소스와 권한은 다음과 같습니다.
 
 * 활성화된 Azure 구독.
     * Azure 구독이 없는 경우 [계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * 온-프레미스 디렉터리 또는 클라우드 전용 디렉터리와 동기화되어 구독과 연결된 Azure Active Directory 테넌트
-    * 필요한 경우 [Azure Active Directory 테넌트를 만들거나][create-azure-ad-tenant] [Azure 구독을 계정에 연결합니다][associate-azure-ad-tenant].
+    * 필요한 경우 [Azure Active Directory 테넌트를 만들거나][create-azure-ad-tenant][Azure 구독을 계정에 연결합니다][associate-azure-ad-tenant].
 * Azure AD DS를 사용하도록 설정하려면 Azure AD 테넌트에 *글로벌 관리자* 권한이 필요합니다.
 * 필요한 Azure AD DS 리소스를 만들려면 Azure 구독에 *기여자* 권한이 필요합니다.
 * Azure AD 테넌트에서 사용하도록 설정되고 구성된 Azure Active Directory Domain Services 관리되는 도메인
@@ -141,7 +141,7 @@ Azure AD DS 관리형 도메인을 사용해야 하는 VM을 만들 때 이 피�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * Azure AD DS에 대한 도메인 조인 리소스에 대한 가상 네트워크 연결 옵션 이해

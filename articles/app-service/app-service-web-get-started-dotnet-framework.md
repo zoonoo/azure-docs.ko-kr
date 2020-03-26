@@ -4,13 +4,13 @@ description: Visual Studio에서 기본 C# ASP.NET 웹앱 템플릿을 배포하
 ms.assetid: 04a1becf-7756-4d4e-92d8-d9471c263d23
 ms.topic: quickstart
 ms.date: 10/21/2019
-ms.custom: seodec18
-ms.openlocfilehash: f2e31723dc2761007994f652d9d6c28ab3f7d47d
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.custom: mvc, devcenter, seodec18
+ms.openlocfilehash: 4688cc358ec6ff792be58254b0607f5416422a21
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78388212"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80047669"
 ---
 # <a name="create-an-aspnet-framework-web-app-in-azure"></a>Azure에서 ASP.NET Framework 웹앱 만들기
 
@@ -22,14 +22,14 @@ ms.locfileid: "78388212"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-이 자습서를 완료하려면 <a href="https://www.visualstudio.com/downloads/" target="_blank">ASP.NET 및 웹 개발</a> 워크로드가 포함된 **Visual Studio 2019**를 설치합니다.
+이 자습서를 완료하려면 **ASP.NET 및 웹 개발** 워크로드가 포함된 <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a>를 설치합니다.
 
 Visual Studio 2019를 이미 설치한 경우:
 
 - **도움말** > **업데이트 확인**을 차례로 선택하여 Visual Studio에서 최신 업데이트를 설치합니다.
 - **도구** > **도구 및 기능 가져오기**를 차례로 선택하여 워크로드를 추가합니다.
 
-## ASP.NET 웹앱 만들기<a name="create-and-publish-the-web-app"></a>
+## <a name="create-an-aspnet-web-app"></a>ASP.NET 웹앱 만들기<a name="create-and-publish-the-web-app"></a>
 
 다음 단계에 따라 ASP.NET 웹앱을 만듭니다.
 
@@ -51,7 +51,7 @@ Visual Studio 2019를 이미 설치한 경우:
 
    ![로컬에서 앱 실행](./media/app-service-web-get-started-dotnet-framework/local-web-app.png)
 
-## 웹앱 <a name="launch-the-publish-wizard"></a> 게시
+## <a name="publish-your-web-app"></a>웹앱 <a name="launch-the-publish-wizard"></a> 게시
 
 1. **솔루션 탐색기**에서 마우스 오른쪽 단추로 **myFirstAzureWebApp** 프로젝트를 클릭하고, **게시**를 선택합니다.
 
@@ -111,7 +111,7 @@ Visual Studio 2019를 이미 설치한 경우:
    ```HTML
    <div class="jumbotron">
        <h1>ASP.NET in Azure!</h1>
-       <p class="lead">This is a simple app that we’ve built that demonstrates how to deploy a .NET app to Azure App Service.</p>
+       <p class="lead">This is a simple app that we've built that demonstrates how to deploy a .NET app to Azure App Service.</p>
    </div>
    ```
 

@@ -17,10 +17,10 @@ ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3c7f8c8efcad0a07a3d3a56925866b10d94f82ed
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68227474"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pagedna"></a>자습서: PageDNA와 Azure Active Directory 통합
@@ -35,7 +35,7 @@ PageDNA를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 
 Azure AD와의 SaaS(Software as a Service) 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 PageDNA와의 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 

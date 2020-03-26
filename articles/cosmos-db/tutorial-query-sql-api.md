@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 7e83ed0f9e635ed24b7e6115eeaaa9057d422c69
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74870074"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-sql-api"></a>자습서: SQL API를 사용하여 Azure Cosmos DB 쿼리
@@ -63,7 +63,7 @@ Azure Portal의 [데이터 탐색기]를 사용하여 [REST API 및 SDK](sql-api
 SQL 쿼리에 대한 자세한 내용은 다음을 참조하세요.
 * [SQL 쿼리 및 SQL 구문](sql-query-getting-started.md)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에서는 Azure Cosmos DB 계정과 컬렉션이 있다고 가정합니다. 이들 중 하나라도 없는가요? [5분 빠른 시작](create-cosmosdb-resources-portal.md)을 완료하세요.
 

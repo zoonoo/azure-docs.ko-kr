@@ -8,10 +8,10 @@ ms.custom: tutorial, mvc
 ms.topic: tutorial
 ms.date: 06/25/2019
 ms.openlocfilehash: d7ddb286285de9be089c0a5176e33b7108021c77
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75459957"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 Azure Database for PostgreSQL - 단일 서버 디자인

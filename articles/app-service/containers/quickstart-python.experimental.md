@@ -11,10 +11,10 @@ ms.custom: seo-python-october2019
 experimental: false
 experiment_id: 01a9132f-eaab-4c
 ms.openlocfilehash: 68dc36ce96737fe8395280c3a833e359084d2fee
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78246847"
 ---
 # <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>빠른 시작: Azure App Service on Linux에서 Python 앱 만들기

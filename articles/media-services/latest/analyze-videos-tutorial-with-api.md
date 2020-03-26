@@ -14,10 +14,10 @@ ms.date: 02/02/2020
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: abd4a3a3a3e8494ea325e65a78eea7fb56b78f94
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76988365"
 ---
 # <a name="tutorial-analyze-videos-with-media-services-v3"></a>자습서: Media Services v3으로 비디오 분석

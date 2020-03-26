@@ -10,10 +10,10 @@ ms.date: 06/20/2019
 author: mlearned
 monikerRange: vsts
 ms.openlocfilehash: 4e7e9428af86f131632650f18d45e7dd48f4b5cb
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "71971569"
 ---
 # <a name="continuously-deploy-to-azure-functions-with-devops-projects"></a>DevOps Projects를 사용하여 Azure Functions에 연속 배포
@@ -39,9 +39,9 @@ Azure DevOps Projects는 기존 코드와 Git 리포지토리를 가져오거나
 
 현재 함수에 대해 지원되는 런타임은 **.NET** 및 **Node.js**입니다. 이 자습서에서는 NET 런타임을 사용하여 Azure Functions에 배포합니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-* Azure 구독. [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/)을 통해 무료 구독을 구할 수 있습니다.
+* Azure 구독 [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/)를 통해 체험 구독을 얻을 수 있습니다.
 
 ## <a name="use-devops-projects-to-deploy-an-aspnet-app-to-azure-functions"></a>DevOps Projects를 사용하여 Azure Functions에 ASP.NET 앱 배포
 
@@ -154,11 +154,11 @@ DevOps Projects는 Azure DevOps 조직에서 Azure 구독에 배포하는 데 �
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-더 이상 필요하지 않을 경우 만든 관련 리소스를 삭제할 수 있습니다. DevOps Projects 대시보드에서 **삭제** 기능을 사용합니다.
+더 이상 필요하지 않은 경우 만든 관련 리소스를 삭제할 수 있습니다. DevOps Projects 대시보드에서 **삭제** 기능을 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-팀의 요구를 충족하려면 필요에 따라 이러한 빌드 및 릴리스 파이프라인을 수정할 수 있습니다. 또한 다른 파이프라인에 대한 템플릿으로 이 CI/CD 패턴을 사용할 수 있습니다. 이 자습서에서는 다음 방법에 대해 알아보았습니다.
+팀의 요구를 충족하려면 필요에 따라 이러한 빌드 및 릴리스 파이프라인을 수정할 수 있습니다. 또한 다른 파이프라인에 대한 템플릿으로 이 CI/CD 패턴을 사용할 수 있습니다. 이 자습서에서는 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * DevOps Projects를 사용하여 Azure Function에 ASP.NET Core 앱 배포

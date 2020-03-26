@@ -4,10 +4,10 @@ description: 데이터 과학의 선형 회귀 프로세스를 보여주는 Azur
 ms.topic: tutorial
 ms.date: 01/11/2019
 ms.openlocfilehash: 8a1c13f41ef1588b040b3540b852d83764c6ce79
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75660820"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>자습서: Python을 사용하여 Jupyter Notebook을 만들고 실행
@@ -159,7 +159,7 @@ Jupyter는 주 UI 요소를 둘러보는 기능을 기본적으로 제공합니�
 | 삽입 | 현재 셀의 위 또는 아래에 새 셀을 삽입하는 명령입니다. 이러한 명령은 Notebook을 만들 때 자주 사용됩니다. |
 | 셀 | 다양한 **실행** 명령이 하나 이상의 셀을 다양한 조합으로 실행합니다. **셀 형식** 명령은 셀 형식을 **코드**, **Markdown**, **원시 NBConvert**(일반 텍스트) 사이에서 변경합니다. **현재 출력** 및 **모든 출력** 명령은 실행 코드의 출력을 표시하는 방법을 제어하며, 모든 출력을 지우는 명령을 포함하고 있습니다. |
 | 커널 | Notebook을 실행하는 데 사용되는 언어 또는 Python 버전을 변경하는 **커널 변경**과 함께, 커널에서 코드를 실행하는 방법을 관리하는 명령입니다. |
-| data | 프로젝트 또는 세션에 파일을 업로드 및 다운로드하는 명령입니다. [프로젝트 데이터 파일을 사용하여 작업](work-with-project-data-files.md)을 참조하세요. |
+| 데이터 | 프로젝트 또는 세션에 파일을 업로드 및 다운로드하는 명령입니다. [프로젝트 데이터 파일을 사용하여 작업](work-with-project-data-files.md)을 참조하세요. |
 | 위젯 | [Jupyter 위젯](https://ipywidgets.readthedocs.io/en/stable/examples/Widget%20Basics.html)을 관리하는 명령이며 시각화, 매핑 및 그리기를 위한 추가 기능을 제공합니다.|
 | 도움말 | Jupyter 인터페이스에 대한 도움말과 설명서를 제공하는 명령입니다. |
 

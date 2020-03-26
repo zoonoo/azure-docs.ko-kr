@@ -9,10 +9,10 @@ ms.date: 03/28/2018
 ms.author: wgries
 ms.custom: include file
 ms.openlocfilehash: d4054760c77a7a70b7ed84a9f95b88a3bcf2bda3
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76021157"
 ---
 스토리지 계정은 Azure 파일 공유 또는 Blob나 큐와 같은 다른 스토리지 리소스를 배포할 수 있는 스토리지의 공유 풀입니다. 스토리지 계정에 포함될 수 있는 공유 수에는 제한이 없습니다. 공유에 저장할 수 있는 파일 수에는 제한이 없으며, 스토리지 계정의 최대 용량까지 저장할 수 있습니다.

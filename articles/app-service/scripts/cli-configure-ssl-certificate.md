@@ -6,13 +6,13 @@ ms.assetid: eb95d350-81ea-4145-a1e2-6eea3b7469b2
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 12/11/2017
-ms.custom: seodec18
-ms.openlocfilehash: 1ef07cb55af4b9fe9f54d58bbd496789928c1cec
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.custom: mvc, seodec18
+ms.openlocfilehash: d519ae31359890430c3e0f690e51d95acfacf1ef
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74686680"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80058764"
 ---
 # <a name="bind-a-custom-ssl-certificate-to-an-app-service-app-using-cli"></a>CLI를 사용하여 App Service 앱에 사용자 지정 SSL 인증서 바인딩
 

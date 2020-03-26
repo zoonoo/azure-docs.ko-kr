@@ -10,10 +10,10 @@ services: azure-maps
 manager: philmea
 ms.custom: mvc
 ms.openlocfilehash: 22a8561d69dd0eeb22f9fe025f5b792422db2c17
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77208168"
 ---
 # <a name="tutorial-route-electric-vehicles-by-using-azure-notebooks-python"></a>자습서: Azure Notebooks를 사용하여 전기 차량 라우팅(Python)

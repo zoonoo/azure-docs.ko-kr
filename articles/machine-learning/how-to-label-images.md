@@ -7,12 +7,12 @@ ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 6d0a9bf172039adcaa756660d38acc1547e91b49
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.openlocfilehash: 2e14b669aadeec4c6a7245be8940051ec604059b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78898693"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79409561"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>레이블 지정 프로젝트에서 이미지에 태그 지정
 
@@ -126,4 +126,4 @@ Azure는 사용자가 각 이미지에 하나 이상의 태그를 적용한 후�
 ## <a name="next-steps"></a>다음 단계
 
 * Azure에서 [이미지 분류 모델을 학습시키는 방법](https://docs.microsoft.com/azure/machine-learning/tutorial-train-models-with-aml) 알아보기
-* [Azure 및 "Faster R-CNN" 기술을 사용한 개체 감지](https://www.microsoft.com/developerblog/2017/10/24/bird-detection-with-azure-ml-workbench/) 참조
+

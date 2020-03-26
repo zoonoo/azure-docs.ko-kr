@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 310bf168b701ba6c37f71bc968da8e9114458e6f
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 120caf459a7a8ca4e60d5e447a1e4130c0bce389
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425310"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79223920"
 ---
 # <a name="add-an-ssl-certificate-in-azure-app-service"></a>Azure App Service에서 SSL 인증서 추가
 
@@ -349,7 +349,7 @@ az keyvault secret download \
 
 ### <a name="delete-certificate"></a>인증서 삭제 
 
-App Service 인증서를 삭제하면 다시 되돌릴 수 없습니다. 이 인증서와 App Service의 모든 바인딩이 유효하지 않게 됩니다. 실수로 인한 삭제를 방지하기 위해 Azure에서 인증서를 잠급니다. App Service 인증서를 삭제하려면 먼저 인증서에 대한 삭제 잠금을 제거해야 합니다.
+App Service 인증서를 삭제하면 다시 되돌릴 수 없습니다. App Service Certificate 리소스를 삭제하면 인증서가 해지됩니다. 이 인증서와 App Service의 모든 바인딩이 유효하지 않게 됩니다. 실수로 인한 삭제를 방지하기 위해 Azure에서 인증서를 잠급니다. App Service 인증서를 삭제하려면 먼저 인증서에 대한 삭제 잠금을 제거해야 합니다.
 
 [App Service 인증서](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) 페이지에서 인증서를 선택한 다음, 왼쪽 탐색 영역에서 **잠금**을 선택합니다.
 

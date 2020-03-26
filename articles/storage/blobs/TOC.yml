@@ -113,8 +113,13 @@
           items:
             - name: 보안 권장 사항
               href: security-recommendations.md
-            - name: Azure Storage 암호화
+            - name: Azure Storage 미사용 데이터 암호화
               href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+              items:
+                - name: Azure Key Vault를 사용하는 고객 관리형 키
+                  href: ../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: 요청 시 고객이 제공한 키
+                  href: ../common/encryption-customer-provided-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: 데이터 작업 권한 부여
               href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
               items:
@@ -198,6 +203,8 @@
                   href: ../common/storage-import-export-data-from-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: 방법
                   items:
+                    - name: 고객 관리형 키 사용
+                      href: ../common/storage-import-export-encryption-key-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                     - name: 드라이브 상태 보기
                       href: ../common/storage-import-export-view-drive-status.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                     - name: 작업 상태 검토
@@ -658,8 +665,13 @@
               href: ../common/authorization-resource-provider.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: 액세스 제어(디렉터리 및 파일)
               href: data-lake-storage-access-control.md
-            - name: Azure Storage 암호화
+            - name: Azure Storage 미사용 데이터 암호화
               href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+              items:
+                - name: Azure Key Vault를 사용하는 고객 관리형 키
+                  href: ../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: 요청 시 고객이 제공한 키
+                  href: ../common/encryption-customer-provided-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Advanced Threat Protection
               href: ../common/storage-advanced-threat-protection.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Azure 프라이빗 엔드포인트 사용
@@ -668,7 +680,7 @@
           items:
             - name: 멀티 프로토콜 액세스
               href: data-lake-storage-multi-protocol-access.md
-            - name: 지원되는 Blob Storage 기능
+            - name: 지원되는 Blob 스토리지 기능
               href: data-lake-storage-supported-blob-storage-features.md
             - name: 지원되는 Azure 서비스
               href: data-lake-storage-supported-azure-services.md
@@ -822,7 +834,7 @@
           href: 'https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.0.0-preview.6/index.html'
         - name: Python
           href: 'https://azuresdkdocs.blob.core.windows.net/$web/python/azure-storage-file-datalake/12.0.0b5/index.html'
-        - name: Javascript
+        - name: JavaScript
           href: 'https://www.npmjs.com/package/@azure/storage-file-datalake/v/12.0.0-preview.6'
         - name: REST (영문)
           href: /rest/api/storageservices/data-lake-storage-gen2

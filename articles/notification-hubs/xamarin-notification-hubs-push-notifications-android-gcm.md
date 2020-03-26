@@ -18,10 +18,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 08/01/2019
 ms.openlocfilehash: 0e4354fa7466efcf27f430bbce7edb30bb9a304c
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72387660"
 ---
 # <a name="tutorial-send-push-notifications-to-xamarinandroid-apps-using-notification-hubs"></a>자습서: Notification Hubs를 사용하여 Xamarin.Android 앱에 푸시 알림 보내기
@@ -40,7 +40,7 @@ ms.locfileid: "72387660"
 > * Xamarin.Android 앱을 생성한 후 알림 허브에 연결
 > * Azure Portal에서 테스트 알림 전송
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * **Azure 구독**. Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Windows의 경우 [Xamarin이 포함된 Visual Studio] 또는 OS X의 경우 [Mac용 Visual Studio]

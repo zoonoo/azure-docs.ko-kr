@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3dd1b4cf554e773f49a15ac5cedcbcc5b3e710b9
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74380096"
 ---
 # <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>빠른 시작: 클라우드 앱에 액세스하기 전에 사용 약관에 동의하도록 요구
@@ -31,7 +31,7 @@ ms.locfileid: "74380096"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 빠른 시작의 시나리오를 완료하려면 다음이 필요합니다.
 
@@ -105,7 +105,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. **새로 만들기** 페이지의 **이름** 텍스트 상자에서 **Isabella에게 TOU 요구**를 입력합니다.
 
-   ![Name](./media/require-tou/71.png)
+   ![속성](./media/require-tou/71.png)
 
 1. **할당** 섹션에서 **사용자 및 그룹**을 클릭합니다.
 
@@ -185,11 +185,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
    1. 클라우드 앱 페이지에서 **완료**를 클릭합니다.
 1. **What If**를 클릭합니다.
 
-## <a name="test-your-conditional-access-policy"></a>조건부 액세스 정책을 테스트합니다.
+## <a name="test-your-conditional-access-policy"></a>조건부 액세스 정책 테스트
 
 이전 섹션에서는 시뮬레이션된 로그인을 평가하는 방법을 배웠습니다. 시뮬레이션 외에도, 조건부 액세스 정책이 예상대로 작동하는지 테스트해야 합니다.
 
-정책을 테스트하려면 **Isabella Simonsen** 테스트 계정을 사용하여 [Azure portal](https://portal.azure.com)에 로그인합니다. 사용 약관에 동의하도록 요구하는 대화 상자가 표시됩니다.
+정책을 테스트하려면 [Isabella Simonsen](https://portal.azure.com) 테스트 계정을 사용하여 **Azure portal**에 로그인합니다. 사용 약관에 동의하도록 요구하는 대화 상자가 표시됩니다.
 
 ![사용 약관](./media/require-tou/57.png)
 

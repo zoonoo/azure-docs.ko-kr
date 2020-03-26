@@ -16,6 +16,8 @@
       href: how-to-routefilter-portal.md
 - name: 개념
   items:
+    - name: 원격으로 작업
+      href: work-remotely-support.md
     - name: 연결 모델
       href: expressroute-connectivity-models.md
     - name: 회로 및 피어링

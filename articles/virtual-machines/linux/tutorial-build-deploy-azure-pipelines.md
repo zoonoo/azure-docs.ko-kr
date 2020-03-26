@@ -12,10 +12,10 @@ ms.date: 1/3/2020
 ms.author: ushan
 ms.custom: devops
 ms.openlocfilehash: bb7c773d02c5da5c115af79cd9e90c78e71eb6bf
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76988331"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-using-azure-devops-services-and-azure-pipelines"></a>자습서: Azure에서 Azure DevOps Services 및 Azure Pipelines를 사용하여 Linux 가상 머신에 앱 배포
@@ -53,7 +53,7 @@ Azure Pipelines는 온-프레미스 또는 클라우드 모두에서 가상 머�
 
 그러나 새 사용자인 경우 샘플 코드를 사용하여 더 효율적인 시작을 수행할 수 있습니다. 이 경우 GitHub에서 이 리포지토리를 포크합니다.
 
-#### <a name="javatabjava"></a>[Java](#tab/java)
+#### <a name="java"></a>[Java](#tab/java)
 
 ```
 https://github.com/spring-projects/spring-petclinic
@@ -62,7 +62,7 @@ https://github.com/spring-projects/spring-petclinic
 > [!NOTE]
 > Petclinic은 [Maven](https://spring.io/guides/gs/maven/)을 사용하여 빌드된 [Java Spring Boot](https://spring.io/guides/gs/spring-boot) 애플리케이션입니다.
 
-#### <a name="javascripttabjava-script"></a>[JavaScript](#tab/java-script)
+#### <a name="javascript"></a>[JavaScript](#tab/java-script)
 
 ```
 https://github.com/azure-devops/fabrikam-node
@@ -82,13 +82,13 @@ https://github.com/azure-devops/fabrikam-node
 위에서 언급한 샘플 앱은 Ubuntu 16.04에서 테스트되었으며, 이 빠른 시작에서는 동일한 버전의 Linux VM을 사용하는 것이 좋습니다.
 앱에 사용된 런타임 스택에 따라 아래에 설명된 추가 단계를 수행합니다.
 
-#### <a name="javatabjava"></a>[Java](#tab/java)
+#### <a name="java"></a>[Java](#tab/java)
 
 - Java Spring Boot 및 Spring Cloud 기반 앱을 배포하려면 완전히 지원되는 OpenJDK 기반 런타임을 제공하는 [이 템플릿](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804)을 사용하여 Azure에서 Linux VM을 만듭니다.
 - Tomcat 서버에서 Java 서블릿을 배포하려면 [이 Azure 템플릿](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804)을 사용하여 Java 8이 포함된 Linux VM을 만들고 [Tomcat 9.x를 서비스로 구성](https://tomcat.apache.org/tomcat-9.0-doc/setup.html)합니다.
 - Java EE 기반 앱을 배포하려면 Azure 템플릿을 사용하여 [Linux VM + Java + WebSphere 9.x](https://azuremarketplace.microsoft.com/marketplace/apps/midvision.websphere-application-server-nde-90), [Linux VM + Java + WebLogic 12.x](https://azuremarketplace.microsoft.com/marketplace/apps/oracle.20191009-arm-oraclelinux-wls-admin) 또는 [Linux VM + Java](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804) + WildFly/JBoss 14를 만듭니다. 
 
-#### <a name="javascripttabjava-script"></a>[JavaScript](#tab/java-script)
+#### <a name="javascript"></a>[JavaScript](#tab/java-script)
 
 javascript 앱 또는 Node.js 앱을 설치하려면 앱을 배포하는 Nginx 웹 서버가 포함된 Linux VM이 필요합니다.
 Nginx가 포함된 Linux VM이 아직 없는 경우 지금 Azure에서 [이 예제](/azure/virtual-machines/linux/quick-create-cli)의 단계를 사용하여 만듭니다.
@@ -141,7 +141,7 @@ Nginx가 포함된 Linux VM이 아직 없는 경우 지금 Azure에서 [이 예�
 
 1. Azure Pipelines에서 리포지토리를 분석하고 적절한 파이프라인 템플릿을 추천합니다.
 
-#### <a name="javatabjava"></a>[Java](#tab/java)
+#### <a name="java"></a>[Java](#tab/java)
 
 **스타터** 템플릿을 선택하고, Apache Maven을 사용하여 Java 프로젝트를 빌드하고 테스트를 실행하는 아래 YAML 코드 조각을 복사합니다.
 
@@ -165,7 +165,7 @@ Nginx가 포함된 Linux VM이 아직 없는 경우 지금 Azure에서 [이 예�
 
 자세한 지침은 [Maven을 사용하여 Java 앱 빌드](https://docs.microsoft.com/azure/devops/pipelines/ecosystems/java)에 설명된 단계를 따르세요.
 
-#### <a name="javascripttabjava-script"></a>[JavaScript](#tab/java-script)
+#### <a name="javascript"></a>[JavaScript](#tab/java-script)
 
 **스타터** 템플릿을 선택하고 npm을 사용하여 일반 Node.js 프로젝트를 빌드하는 아래 YAML 코드 조각을 복사합니다.
 

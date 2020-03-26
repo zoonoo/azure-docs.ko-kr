@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 11/04/2019
 ms.openlocfilehash: 7c38ba6dbabef4affd8672295a93d46fd4b0e494
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74384177"
 ---
 # <a name="tutorial-sync-data-from-sql-database-edge-to-azure-sql-database-by-using-sql-data-sync"></a>자습서: SQL 데이터 동기화를 사용하여 SQL Database Edge에서 Azure SQL Database로 데이터 동기화
@@ -22,7 +22,7 @@ ms.locfileid: "74384177"
 
 SQL Database Edge는 최신 버전의 [SQL Server 데이터베이스 엔진](/sql/sql-server/sql-server-technical-documentation/)에서 빌드되므로 온-프레미스 SQL Server 인스턴스에 적용 가능한 모든 데이터 동기화 메커니즘을 사용하여 에지 디바이스에서 실행되는 SQL Database Edge 인스턴스와 데이터를 서로 동기화할 수도 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 사용하려면 [Azure SQL 데이터 동기화용 데이터 동기화 에이전트](../sql-database/sql-database-data-sync-agent.md)를 통해 구성된 Windows 컴퓨터가 필요합니다.
 

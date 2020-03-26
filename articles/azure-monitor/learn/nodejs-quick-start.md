@@ -8,10 +8,10 @@ ms.author: mbullwin
 ms.date: 07/12/2019
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
 ms.openlocfilehash: 694d2ae529202223869fcbb2a084e32bccaedbf1
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77660226"
 ---
 # <a name="quickstart-start-monitoring-your-nodejs-web-application-with-azure-application-insights"></a>빠른 시작: Azure Application Insights를 사용하여 Node.js 웹 애플리케이션 모니터링 시작

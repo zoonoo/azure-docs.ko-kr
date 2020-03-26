@@ -4,13 +4,13 @@ description: 앱에 대해 미리 빌드된 Ruby 컨테이너를 구성하는 �
 ms.topic: quickstart
 ms.date: 03/28/2019
 ms.reviewer: astay; kraigb
-ms.custom: seodec18
-ms.openlocfilehash: 2b096725575598bd44d7da39f77f85dee5b5e40e
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 8daebba840223d050a14b4b99cb6ae15472ee4f5
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78255825"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80046337"
 ---
 # <a name="configure-a-linux-ruby-app-for-azure-app-service"></a>Azure App Service용 Linux Ruby 앱 구성
 
@@ -131,7 +131,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings APP_COMMAND_LINE="rails server -b 0.0.0.0"
 ```
 
-### <a name="set-secret_key_base-manually"></a> 수동으로 secret_key_base 설정
+### <a name="set-secret_key_base-manually"></a><a name="set-secret_key_base-manually"></a> 수동으로 secret_key_base 설정
 
 App Service에서 해당 값을 생성하는 대신 사용자 고유의 `secret_key_base` 값을 사용하려면 `SECRET_KEY_BASE` [앱 설정](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings)을 원하는 값으로 설정합니다. 다음은 그 예입니다.
 

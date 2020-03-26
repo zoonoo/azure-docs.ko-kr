@@ -3,7 +3,7 @@ title: 빠른 시작 - Azure Portal을 사용하여 감사 보고서 다운로�
 description: Azure Portal을 사용하여 감사 보고서를 다운로드하는 방법 알아보기
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: 4de121ea-f4aa-4c8a-aae4-700c2c5e97a2
@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f3e5dd1c42537ce6ff419d7d81d69d824242ec4
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: a6cbea49fe39c92c8a2fc50e501cb4ef5cff74b1
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "68989687"
 ---
 # <a name="quickstart-download-an-audit-report-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 감사 보고서 다운로드
 
 이 빠른 시작에서는 지난 24시간 동안 테넌트에 대한 감사 로그 CSV 파일을 다운로드하는 방법을 알아봅니다. Azure Portal에서 최대 250,000개의 레코드를 다운로드할 수 있습니다. 레코드는 가장 최근 순으로 정렬되므로 기본적으로 가장 최근의 250,000개 레코드를 가져옵니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 다음 작업을 수행해야 합니다.
 

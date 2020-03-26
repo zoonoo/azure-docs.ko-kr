@@ -10,10 +10,10 @@ ms.date: 03/25/2018
 ms.author: robinsh
 ms.custom: mvc
 ms.openlocfilehash: bfee4e64070e5f37eaa3d63280409f00c0ed8672
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73890402"
 ---
 # <a name="tutorial-part-2---view-the-routed-messages"></a>자습서: 2부 - 라우팅된 메시지 보기
@@ -40,7 +40,7 @@ Service Bus 큐는 중요한 것으로 지정된 메시지를 받는 데 사용�
 
 1. [Azure Portal](https://portal.azure.com)에서 **+ 리소스 만들기**를 선택합니다. 검색 상자에 **논리 앱**을 입력하고 Enter 키를 클릭합니다. 표시되는 검색 결과에서 Logic App을 선택한 다음, **만들기**를 선택하여 **논리 앱 만들기** 창으로 계속 진행합니다. 필드를 입력합니다.
 
-   **이름**: 이 필드는 논리 앱의 이름입니다. 이 자습서에서는 **ContosoLogicApp**을 사용합니다.
+   **Name**: 이 필드는 논리 앱의 이름입니다. 이 자습서에서는 **ContosoLogicApp**을 사용합니다.
 
    **구독**: Azure 구독을 선택합니다.
 

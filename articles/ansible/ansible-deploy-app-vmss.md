@@ -5,10 +5,10 @@ keywords: ansible, azure, devops, bash, 플레이북, 가상 머신, 가상 머�
 ms.topic: tutorial
 ms.date: 01/13/2020
 ms.openlocfilehash: d638ae3f0c33734b42ef5456772fcd2bc62e35a4
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75940849"
 ---
 # <a name="tutorial-deploy-apps-to-virtual-machine-scale-sets-in-azure-using-ansible"></a>자습서: Azure에서 Ansible을 사용하여 가상 머신 확장 집합에 앱 배포

@@ -15,10 +15,10 @@ ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: c91d42f3445bb2ffc02366e6cb9ae49ec2db1be4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75442744"
 ---
 # <a name="use-revisions-to-make-non-breaking-changes-safely"></a>수정 버전을 사용하여 작업을 중단하지 않는 변경을 안전하게 수행

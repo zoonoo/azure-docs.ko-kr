@@ -7,10 +7,10 @@ ms.author: brendm
 author: bmitchell287
 ms.date: 10/18/2019
 ms.openlocfilehash: 5e0b5633a153583117cfe0d90ec5c0e7c5f2a147
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76277524"
 ---
 # <a name="tutorial-set-up-a-spring-cloud-config-server-instance-for-your-service"></a>자습서: 서비스용 Spring Cloud Config 서버 인스턴스 설정
@@ -55,7 +55,7 @@ Azure Spring Cloud는 Config 서버 파일을 저장하기 위해 Azure DevOps, 
 
 | 속성        | 필수 | 기능                                                      |
 | :-------------- | -------- | ------------------------------------------------------------ |
-| `uri`           | yes    | Config 서버 백 엔드로 사용되는 Git 리포지토리의 URI는 *http://* , *https://* , *git@* 또는 *ssh://* 로 시작합니다. |
+| `uri`           | 예    | Config 서버 백 엔드로 사용되는 Git 리포지토리의 URI는 *http://* , *https://* , *git@* 또는 *ssh://* 로 시작합니다. |
 | `default-label` | 예     | Git 리포지토리의 기본 레이블은 리포지토리의 *분기 이름*, *태그 이름* 또는 *commit-id*여야 합니다. |
 | `search-paths`  | 예     | Git 리포지토리의 하위 디렉터리를 검색하는 데 사용되는 문자열 배열입니다. |
 
@@ -70,7 +70,7 @@ SSH를 사용하는 프라이빗 Git 리포지토리를 설정하는 데 사용�
 
 | 속성                   | 필수 | 기능                                                      |
 | :------------------------- | -------- | ------------------------------------------------------------ |
-| `uri`                      | yes    | Config 서버 백 엔드로 사용되는 Git 리포지토리의 URI는 *http://* , *https://* , *git@* 또는 *ssh://* 로 시작해야 합니다. |
+| `uri`                      | 예    | Config 서버 백 엔드로 사용되는 Git 리포지토리의 URI는 *http://* , *https://* , *git@* 또는 *ssh://* 로 시작해야 합니다. |
 | `default-label`            | 예     | Git 리포지토리의 기본 레이블은 리포지토리의 *분기 이름*, *태그 이름* 또는 *commit-id*여야 합니다. |
 | `search-paths`             | 예     | Git 리포지토리의 하위 디렉터리를 검색하는 데 사용되는 문자열 배열입니다. |
 | `private-key`              | 예     | Git 리포지토리에 액세스하기 위한 SSH 프라이빗 키이며, URI가 *git@* 또는 *ssh://* 로 시작하는 경우에 _필요합니다_. |
@@ -89,7 +89,7 @@ SSH를 사용하는 프라이빗 Git 리포지토리를 설정하는 데 사용�
 
 | 속성        | 필수 | 기능                                                      |
 | :-------------- | -------- | ------------------------------------------------------------ |
-| `uri`           | yes    | Config 서버 백 엔드로 사용되는 Git 리포지토리의 URI는 *http://* , *https://* , *git@* 또는 *ssh://* 로 시작해야 합니다. |
+| `uri`           | 예    | Config 서버 백 엔드로 사용되는 Git 리포지토리의 URI는 *http://* , *https://* , *git@* 또는 *ssh://* 로 시작해야 합니다. |
 | `default-label` | 예     | Git 리포지토리의 기본 레이블은 리포지토리의 *분기 이름*, *태그 이름* 또는 *commit-id*여야 합니다. |
 | `search-paths`  | 예     | Git 리포지토리의 하위 디렉터리를 검색하는 데 사용되는 문자열 배열입니다. |
 | `username`      | 예     | Git 리포지토리 서버에 액세스하는 데 사용되는 사용자 이름이며, Git 리포지토리 서버에서 `Http Basic Authentication`을 지원하는 경우에 _필요합니다_. |

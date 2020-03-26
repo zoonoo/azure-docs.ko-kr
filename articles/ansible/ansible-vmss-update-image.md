@@ -5,10 +5,10 @@ keywords: ansible, azure, devops, bash, 플레이북, 가상 머신, 가상 머�
 ms.topic: tutorial
 ms.date: 04/30/2019
 ms.openlocfilehash: b7d3053c09d2dcb667a4fc407035f4814f786932
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74155856"
 ---
 # <a name="tutorial-update-the-custom-image-of-azure-virtual-machine-scale-sets-using-ansible"></a>자습서: Ansible을 사용하여 Azure Virtual Machine Scale Sets의 사용자 지정 이미지 업데이트
@@ -28,7 +28,7 @@ VM이 배포된 후에는 앱에 필요한 소프트웨어를 사용하여 VM을
 > * 이미지에서 확장 집합 만들기
 > * 사용자 지정 이미지 업데이트
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
@@ -44,10 +44,10 @@ VM이 배포된 후에는 앱에 필요한 소프트웨어를 사용하여 VM을
 
 이 문자열은 다른 소프트웨어를 사용하여 각 VM 구성을 모방하는 것을 의미합니다.
 
-샘플 플레이북을 가져오는 방법에는 다음 두 가지가 있습니다.
+다음과 같은 두 가지 방법으로 샘플 플레이북을 가져올 수 있습니다.
 
 * [플레이북을 다운로드](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss_images/01-create-vms.yml)하여 `create_vms.yml`에 저장합니다.
-* `create_vms.yml`이라는 새 파일을 만들고 다음 콘텐츠에 복사합니다.
+* `create_vms.yml`이라는 새 파일을 만들고 다음 콘텐츠를 이 파일에 복사합니다.
 
 ```yml
 - name: Create two VMs (A and B) with HTTPS
@@ -192,10 +192,10 @@ ansible-playbook create-vms.yml --extra-vars "resource_group=myrg"
 * `image_vmforimageA` - 홈페이지에 `Image A`를 표시하는 VM에 대해 생성된 사용자 지정 이미지입니다.
 * `image_vmforimageB` - 홈페이지에 `Image B`를 표시하는 VM에 대해 생성된 사용자 지정 이미지입니다.
 
-샘플 플레이북을 가져오는 방법에는 다음 두 가지가 있습니다.
+다음과 같은 두 가지 방법으로 샘플 플레이북을 가져올 수 있습니다.
 
 * [플레이북을 다운로드](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss_images/02-capture-images.yml)하여 `capture-images.yml`에 저장합니다.
-* `capture-images.yml`이라는 새 파일을 만들고 다음 콘텐츠에 복사합니다.
+* `capture-images.yml`이라는 새 파일을 만들고 다음 콘텐츠를 이 파일에 복사합니다.
 
 ```yml
 - name: Capture VM Images
@@ -238,9 +238,9 @@ ansible-playbook capture-images.yml --extra-vars "resource_group=myrg"
 * 부하 분산 장치
 * `image_vmforimageA`를 참조하는 확장 집합
 
-샘플 플레이북을 가져오는 방법에는 다음 두 가지가 있습니다.
+다음과 같은 두 가지 방법으로 샘플 플레이북을 가져올 수 있습니다.
 
-* [플레이북을 다운로드](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss_images/03-create-vmss.yml)한 후 `create-vmss.yml`에 저장합니다.
+* [플레이북을 다운로드](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss_images/03-create-vmss.yml)하여 `create-vmss.yml`에 저장합니다.
 * `create-vmss.yml`이라는 새 파일을 만들고 다음 콘텐츠에 복사합니다.
 
 ```yml
@@ -337,10 +337,10 @@ ansible-playbook create-vmss.yml --extra-vars "resource_group=myrg"
 
 이 섹션의 플레이북 코드는 확장 집합의 이미지를 `image_vmforimageA`에서 `image_vmforimageB`로 변경합니다. 또한 확장 집합에서 배포한 모든 현재 가상 머신이 업데이트됩니다.
 
-샘플 플레이북을 가져오는 방법에는 다음 두 가지가 있습니다.
+다음과 같은 두 가지 방법으로 샘플 플레이북을 가져올 수 있습니다.
 
 * [플레이북을 다운로드](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss_images/04-update-vmss-image.yml)하여 `update-vmss-image.yml`에 저장합니다.
-* `update-vmss-image.yml`이라는 새 파일을 만들고 다음 콘텐츠에 복사합니다.
+* `update-vmss-image.yml`이라는 새 파일을 만들고 다음 콘텐츠를 이 파일에 복사합니다.
 
 ```yml
 - name: Update scale set image reference

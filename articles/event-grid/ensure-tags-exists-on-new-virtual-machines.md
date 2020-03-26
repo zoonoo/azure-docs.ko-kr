@@ -11,15 +11,15 @@ ms.workload: infrastructure-services
 ms.date: 05/10/2019
 ms.author: eamono
 ms.openlocfilehash: 9f99ce5862850c2453e9e72241fff77fe091616f
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "65521420"
 ---
 # <a name="tutorial-integrate-azure-automation-with-event-grid-and-microsoft-teams"></a>자습서: Azure Automation과 Event Grid 통합
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * Event Grid 샘플 Runbook을 가져옵니다.
@@ -30,7 +30,7 @@ ms.locfileid: "65521420"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
@@ -126,7 +126,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 Event Grid와 Automation 간의 통합을 설정했습니다. 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 Event Grid와 Automation 간의 통합을 설정했습니다. 구체적으로 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * Event Grid 샘플 Runbook을 가져옵니다.

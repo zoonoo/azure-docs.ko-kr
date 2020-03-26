@@ -5,10 +5,10 @@ ms.date: 12/06/2019
 ms.topic: tutorial
 ms.reviewer: chrisseg
 ms.openlocfilehash: 5b901ab904425a22d2fe9643ffa75a4e978efa88
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74972885"
 ---
 # <a name="tutorial-create-buildanddeploysmartcontracts-on-azure-blockchain-service"></a>자습서: Azure Blockchain Service에서 스마트 계약 생성, 빌드 및 배포
@@ -24,7 +24,7 @@ Etherum용 Azure Blockchain Development Kit를 사용하여 다음을 수행합�
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [빠른 시작: Visual Studio Code를 사용하여 Azure Blockchain Service 컨소시엄 네트워크에 연결](connect-vscode.md) 완료
 * [Visual Studio Code](https://code.visualstudio.com/Download)
@@ -76,7 +76,7 @@ Truffle은 마이그레이션 스크립트를 사용하여 계약을 Ethereum �
 
 1. 스마트 계약을 배포하려면 마우스 오른쪽 단추로 **HelloBlockchain.sol**을 클릭하고, 메뉴에서 **계약 배포**를 선택합니다.
 1. 명령 팔레트에서 Azure Blockchain 컨소시엄 네트워크를 선택합니다. 컨소시엄 블록체인 네트워크는 프로젝트를 만들 때 프로젝트의 Truffle 구성 파일에 추가되었습니다.
-1. **니모닉 생성**을 선택합니다. 파일 이름을 선택하고, 해당 니모닉 파일을 프로젝트 폴더에 저장합니다. 예: `myblockchainmember.env` 니모닉 파일은 블록체인 멤버에 대한 Ethereum 프라이빗 키를 생성하는 데 사용됩니다.
+1. **니모닉 생성**을 선택합니다. 파일 이름을 선택하고, 해당 니모닉 파일을 프로젝트 폴더에 저장합니다. `myblockchainmember.env`)을 입력합니다. 니모닉 파일은 블록체인 멤버에 대한 Ethereum 프라이빗 키를 생성하는 데 사용됩니다.
 
 Azure Blockchain Development Kit에서 Truffle을 사용하여 계약을 블록체인으로 배포하는 마이그레이션 스크립트를 실행합니다.
 
