@@ -9,10 +9,10 @@ ms.topic: overview
 ms.date: 08/21/2019
 ms.author: alkohli
 ms.openlocfilehash: b8c6b4085f56bc12b67bf87177ba33b82c6a6db9
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "69900580"
 ---
 # <a name="what-is-azure-data-box-gateway"></a>Azure Data Box Gateway란?
@@ -49,7 +49,7 @@ Data Box Gateway의 이점은 다음과 같습니다.
 
 Data Box Gateway의 기능은 다음과 같습니다.
 
-|기능 |설명  |
+|기능 |Description  |
 |---------|---------|
 |속도     | 고도로 최적화된 완전 자동 데이터 전송 기능과 대역폭이 제공됩니다.|
 |지원되는 프로토콜     | 데이터 수집을 위한 표준 SMB 및 NFS 프로토콜이 지원됩니다. <br> 지원되는 버전에 대한 자세한 내용을 확인하려면 [Data Box Gateway 시스템 요구 사항](data-box-gateway-system-requirements.md)을 방문하세요.|
@@ -64,12 +64,12 @@ Data Box Gateway의 기능은 다음과 같습니다.
 
 Data Box Gateway 가상 디바이스의 사양은 다음과 같습니다.
 
-| 사양                                          | 설명              |
+| 사양                                          | Description              |
 |---------------------------------------------------------|--------------------------|
 | 가상 프로세서(코어)   | 최소 4개 |
 | 메모리  |최소 8GB|
 | 가용성|단일 노드|
-| 디스크|OS 디스크: 250GB <br> 데이터 디스크: 최소 2TB, 씬 프로비저닝 및 SSD를 통해 지원해야 함|
+| 디스크|OS 디스크: 250GB <br> 데이터 디스크: 최소 2TB(씬 프로비저닝), SSD를 통해 지원해야 함|
 | 네트워크 인터페이스 |가상 네트워크 인터페이스 하나 이상|
 | 기본 파일 공유 프로토콜|SMB 및 NFS  |
 | 보안|인증을 통해 디바이스와 데이터 액세스 잠금 해제 <br> AES-256 비트 암호화를 사용하여 처리 중 데이터 암호화|

@@ -8,10 +8,10 @@ ms.topic: overview
 ms.date: 6/12/2019
 ms.author: rohink
 ms.openlocfilehash: 97b266398b3ea46d09b04524dad34922f21b1a95
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76939279"
 ---
 # <a name="what-is-azure-private-dns"></a>Azure 프라이빗 DNS란?
@@ -64,7 +64,7 @@ Azure DNS의 제한 사항은 다음과 같습니다.
 * 연결된 가상 네트워크의 개인 IP 주소에 대한 역방향 DNS는 가상 머신의 기본 접미사로 *internal.cloudapp.net*을 반환합니다. 자동 등록이 활성화된 프라이빗 영역에 연결된 가상 네트워크의 경우 개인 IP 주소의 역방향 DNS는 기본 접미사 *internal.cloudapp.net*과 프리이빗 영역 접미사인 두 개의 FQDN을 반환합니다.
 * 조건부 전달은 현재 기본적으로 지원되지 않습니다. Azure와 온-프레미스 네트워크 간에 확인을 사용하도록 설정하려면 [VM 및 역할 인스턴스에 대한 이름 확인](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)을 참조하세요.
  
-## <a name="pricing"></a>가격 책정
+## <a name="pricing"></a>가격
 
 가격 책정 정보는 [Azure DNS 가격 책정](https://azure.microsoft.com/pricing/details/dns/)을 참조하세요.
 

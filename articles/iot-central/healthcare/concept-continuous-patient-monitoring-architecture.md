@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: eliotgra
 ms.openlocfilehash: 92eb4157abb55b7056952d1fb064c7c7d7500335
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77021699"
 ---
 # <a name="continuous-patient-monitoring-architecture"></a>환자 연속 모니터링 아키텍처
@@ -42,7 +42,7 @@ ms.locfileid: "77021699"
 ### <a name="export-to-azure-api-for-fhirreg"></a>Azure API for FHIR에 배포&reg;
 Azure IoT Central은 HIPAA 규격을 준수하고 HITRUST&reg; 인증을 받았지만, 환자 의료 관련 데이터를 Azure API for FHIR로 보낼 수도 있습니다. [Azure API for FHIR](../../healthcare-apis/overview.md)은 임상 의료 데이터를 위한 완전 관리형 표준 기반 규격 API로, 의료 데이터를 활용하여 새로운 참여 시스템을 만들 수 있습니다. FHIR API를 통해 신속한 데이터 교환을 지원하며, 클라우드에서 관리형 PaaS(Platform-as-a Service) 제품으로 지원됩니다. IoT Central의 지속적인 데이터 내보내기 기능을 사용하여 Azure API for FHIR에 데이터를 보낼 수 있습니다.
 
-### <a name="machine-learning"></a>기계 학습
+### <a name="machine-learning"></a>Machine Learning
 데이터를 집계하여 FHIR 형식으로 변환한 후, 인사이트를 보강하고 의료진이 더 현명한 결정을 내릴 수 있도록 기계 학습 모델을 구축할 수 있습니다. 기계 학습 모델을 빌드, 훈련 및 배포하는 데 사용할 수 있는 다양한 종류의 서비스가 있습니다. Azure의 기계 학습 제품을 사용하는 방법에 대한 자세한 내용은 [기계 학습 설명서](../../machine-learning/index.yml)를 참조하세요.
 
 ### <a name="provider-dashboard"></a>공급자 대시보드

@@ -15,11 +15,11 @@ ms.date: 11/05/2019
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 894fa2f3cda798a409db3ee8e9761c1702baf955
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78372498"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79216131"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Linux 가상 머신 만들기
 
@@ -89,7 +89,7 @@ VM과의 SSH 연결을 만듭니다.
     ssh azureuser@10.111.12.123
     ```
 
-3. SSH 키 쌍을 만들 때 사용한 것과 동일한 Bash 셸을 사용하여(예: `>_` 선택 또는 https://shell.azure.com/bash)로 이동하여 Cloud Shell을 다시 열 수 있음) SSH 연결 명령을 셸에 붙여넣어 SSH 세션을 만듭니다.
+3. SSH 키 쌍을 만들 때 사용한 것과 동일한 Bash 셸을 사용하여(예: `>_` 선택 또는 https://shell.azure.com/bash) 로 이동하여 Cloud Shell을 다시 열 수 있음) SSH 연결 명령을 셸에 붙여넣어 SSH 세션을 만듭니다.
 
 ## <a name="install-web-server"></a>웹 서버 설치
 

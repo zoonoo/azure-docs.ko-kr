@@ -5,10 +5,10 @@ ms.date: 07/22/2019
 ms.topic: quickstart
 ms.custom: mvc
 ms.openlocfilehash: 171479a0f60741b545a171315e99cc5e4e8bc843
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74849210"
 ---
 # <a name="connect-functions-to-azure-storage-using-visual-studio"></a>Visual Studio를 사용하여 Azure Storage에 함수 연결
@@ -19,7 +19,7 @@ ms.locfileid: "74849210"
 
 대부분의 바인딩은 Functions에서 바인딩된 서비스에 액세스할 때 사용할 저장된 연결 문자열이 필요합니다. 이 부분을 간편하게 해결하려면 함수 앱으로 만든 Storage 계정을 사용합니다. 이 계정에 대한 연결은 이미 `AzureWebJobsStorage` 앱 설정에 저장되어 있습니다.  
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서를 시작하기 전에 다음을 수행해야 합니다. 
 
@@ -75,11 +75,11 @@ Queue 스토리지 출력 바인딩을 사용하므로 먼저 Storage 바인딩 
 
 1. Visual Studio의 **보기** 메뉴에서 **클라우드 탐색기**를 선택합니다.
 
-1. **클라우드 탐색기**에서 Azure 구독 및 **스토리지 계정**을 펼친 다음, 함수에서 사용하는 스토리지 계정을 펼칩니다. 스토리지 계정 이름을 기억할 수 없는 경우 *local.settings.json* 파일에서 `AzureWebJobsStorage` 연결 문자열 설정을 확인합니다.  
+1. **클라우드 탐색기**에서 Azure 구독 및 **스토리지 계정**을 펼친 다음, 함수에서 사용하는 스토리지 계정을 펼칩니다. 스토리지 계정 이름을 기억할 수 없는 경우 `AzureWebJobsStorage`local.settings.json*파일에서* 연결 문자열 설정을 확인합니다.  
 
 1. **큐** 노드를 펼친 다음, **outqueue**라는 큐를 두 번 클릭하여 Visual Studio에서 큐의 내용을 확인합니다. 
 
-   이 큐에는 HTTP 트리거 함수를 실행했을 때 만들어진 큐 출력 바인딩 메시지가 포함되어 있습니다. 기본 `name` 값 Azure로 함수를 호출했다면 큐 메시지는 ‘함수에 전달된 이름:   Azure’입니다.
+   이 큐에는 HTTP 트리거 함수를 실행했을 때 만들어진 큐 출력 바인딩 메시지가 포함되어 있습니다. 기본 `name` 값 *Azure*로 함수를 호출했다면 큐 메시지는 *함수에 전달된 이름: Azure*입니다.
 
     ![Azure Storage Explorer에 표시되는 큐 메시지](./media/functions-add-output-binding-storage-queue-vs-code/function-queue-storage-output-view-queue.png)
 

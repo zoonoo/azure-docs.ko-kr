@@ -18,10 +18,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: e6c4fb767e6237f390cdb467b35c323f637bebf2
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76264155"
 ---
 # <a name="integration-with-app-service-mobile-apps"></a>App Service Mobile Apps와 통합
@@ -40,9 +40,9 @@ Mobile Apps 개발자는 다음 워크플로에서 Notification Hubs를 활용�
 
 이 통합으로 인해 개발자에게 다음과 같은 편리한 기능이 제공됩니다.
 
-- **Mobile Apps 클라이언트 SDK**:  이러한 다중 플랫폼 SDK는 등록을 위한 간단한 API를 제공하고 모바일 앱과 자동으로 연결되는 알림 허브와 통신합니다. 개발자는 Notification Hubs 자격 증명을 심도있게 분석하고 추가 서비스로 작업할 필요가 없습니다.
-  - *사용자에게 푸시*: SDK는 Mobile Apps 인증된 사용자 ID로 지정된 디바이스를 자동으로 태그하여 사용자 시나리오를 푸시할 수 있습니다.
-  - *디바이스에 푸시*: SDK는 자동으로 Mobile Apps 설치 ID를 GUID로 사용하여 Notification Hubs로 등록하며 이는 개발자가 여러 서비스 GUID를 유지 관리하는 문제를 해결합니다.
-- **설치 모델**: Mobile Apps는 Notification Hubs의 최신 푸시 모델과 함께 사용되어 푸시 알림 서비스에 맞게 조정되어 사용이 편리한 JSON 설치의 디바이스와 연결된 모든 푸시 속성을 나타냅니다.
-- **유연성**: 개발자는 통합이 되어 있더라도 Notification Hubs와 직접 작업하도록 언제든지 선택할 수 있습니다.
-- **[Azure Portal](https://portal.azure.com)의 통합된 환경**: 푸시는 하나의 기능으로 Mobile Apps에 시각적으로 표현되며 개발자는 Mobile Apps를 통해 연결된 알림 허브와 쉽게 작업할 수 있습니다.
+- **Mobile Apps 클라이언트 SDK**: 이러한 다중 플랫폼 SDK는 등록을 위한 간단한 API를 제공하며 모바일 앱과 자동으로 연결되는 알림 허브와 통신합니다. 개발자는 Notification Hubs 자격 증명을 심도있게 분석하고 추가 서비스로 작업할 필요가 없습니다.
+  - *사용자에게 푸시*: SDK는 Mobile Apps 인증 사용자 ID로 지정된 디바이스에 태그를 자동으로 지정하여 사용자 시나리오에 푸시할 수 있습니다.
+  - *디바이스에 푸시*: SDK는 자동으로 Mobile Apps 설치 ID를 GUID로 사용하여 Notification Hubs에 등록하여 개발자가 여러 서비스 GUID를 유지 관리하는 문제를 해결합니다.
+- **설치 모델**: Mobile Apps는 Notification Hubs의 최신 푸시 모델과 함께 작동하여 푸시 알림 서비스와 일치하고 사용하기 쉬운 JSON 설치의 디바이스와 연결된 모든 푸시 속성을 나타냅니다.
+- **유연성**: 개발자는 통합되어 있더라도 Notification Hubs와 직접 작동하도록 언제든지 선택할 수 있습니다.
+- **[Azure Portal](https://portal.azure.com)에 통합된 환경**: 푸시 기능은 Mobile Apps에서 시각적으로 표현되므로 개발자가 Mobile Apps를 통해 연결된 알림 허브를 사용하여 쉽게 작업할 수 있습니다.

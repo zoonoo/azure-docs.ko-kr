@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 05/27/2019
 ms.author: glenga
 ms.openlocfilehash: d697334fe56fb9133a06cee79067c60bc3a37281
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "68639165"
 ---
 바인딩 확장을 설치하는 가장 쉬운 방법은 [확장 번들](../articles/azure-functions/functions-bindings-register.md#extension-bundles)을 사용하도록 설정하는 것입니다. 번들을 활성화하면 미리 정의된 확장 패키지 세트가 자동으로 설치됩니다.
