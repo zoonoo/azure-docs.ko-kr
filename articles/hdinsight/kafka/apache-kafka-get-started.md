@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/24/2020
-ms.openlocfilehash: 9e220c7a7813f89eacab5137362e39153d2b334a
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: 90f7010970f70379c8adecc4214c44d896a1beaf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78207186"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80130239"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure HDInsight에서 Apache Kafka 클러스터 만들기
 
@@ -57,7 +57,7 @@ HDInsight에서 Apache Kafka 클러스터를 만들려면 다음 단계를 사�
     |SSH(보안 셸) 사용자 이름 | 기본 사용자 이름은 **sshuser**입니다.  SSH 사용자 이름에 다른 이름을 입력할 수 있습니다. |
     |SSH에 클러스터 로그인 암호 사용| 클러스터 로그인 사용자에 대해 입력한 것과 동일한 암호를 SSH 사용자에 사용하려면 이 확인란을 선택합니다.|
 
-   ![클러스터 기본 사항을 만드는 Azure Portal](./media/apache-kafka-get-started/azure-portal-cluster-basics-blank.png)
+   ![클러스터 기본 사항을 만드는 Azure Portal](./media/apache-kafka-get-started/azure-portal-cluster-basics.png)
 
     각 Azure 지역(위치)은 _장애 도메인_을 제공합니다. 장애 도메인은 Azure 데이터 센터에 있는 기본 하드웨어의 논리적 그룹입니다. 장애 도메인마다 공통 전원과 네트워크 스위치를 공유합니다. HDInsight 클러스터 내의 노드를 구현하는 가상 머신과 관리 디스크는 이러한 장애 도메인에 분산되어 있습니다. 이 아키텍처에서는 실제 하드웨어 오류의 잠재적 영향을 제한합니다.
 
@@ -132,7 +132,7 @@ HDInsight에서 Apache Kafka 클러스터를 만들려면 다음 단계를 사�
     Last login: Thu Mar 29 13:25:27 2018 from 108.252.109.241
     ```
 
-## <a id="getkafkainfo"></a>Apache Zookeeper 및 Broker 호스트 정보 가져오기
+## <a name="get-the-apache-zookeeper-and-broker-host-information"></a><a id="getkafkainfo"></a>Apache Zookeeper 및 Broker 호스트 정보 가져오기
 
 Kafka를 사용할 때는 *Apache Zookeeper* 및 *Broker* 호스트를 알고 있어야 합니다. 이러한 호스트는 Apache Kafka API 및 Kafka와 함께 제공되는 다양한 유틸리티에서 사용됩니다.
 

@@ -5,17 +5,17 @@ ms.topic: quickstart
 ms.date: 01/22/2019
 ms.custom: seodec18, mvc
 ms.openlocfilehash: 872b2a29444e5278db34ce44741e2ca90d885702
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74456384"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 프라이빗 컨테이너 레지스트리 만들기
 
 Azure Container Registry는 관리되는 프라이빗 Docker 컨테이너 레지스트리 서비스로, Docker 컨테이너 이미지를 빌드, 저장 및 제공하는 데 사용됩니다. 이 빠른 시작에서는 PowerShell을 사용하여 Azure 컨테이너 레지스트리를 만드는 방법을 알아봅니다. 그런 다음, Docker 명령을 사용하여 컨테이너 이미지를 레지스트리로 푸시하고, 마지막으로 레지스트리에서 이미지를 끌어와서 실행합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

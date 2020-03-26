@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 01/09/2019
 ms.custom: mvc
 ms.openlocfilehash: acf5f3cdf761e1773d6e9384a4ceb99a645ed7cc
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74773520"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-using-azure-cli"></a>빠른 시작: Azure CLI를 사용한 MySQL용 Azure 데이터베이스 서버 만들기
@@ -36,7 +36,7 @@ az account set --subscription 00000000-0000-0000-0000-000000000000
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 [az group create](/cli/azure/group#az-group-create) 명령을 사용하여 [Azure 리소스 그룹](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)을 만듭니다. 리소스 그룹은 Azure 리소스가 그룹으로 배포되고 관리되는 논리 컨테이너입니다.
 
-다음 예제는 `westus` 위치에 `myresourcegroup`이라는 리소스 그룹을 만듭니다.
+다음 예제에서는 `westus` 위치에 `myresourcegroup`이라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
 az group create --name myresourcegroup --location westus
@@ -47,12 +47,12 @@ az group create --name myresourcegroup --location westus
 
 **설정** | **샘플 값** | **설명**
 ---|---|---
-이름 | mydemoserver | Azure Database for MySQL 서버를 식별하는 고유한 이름을 선택합니다. 서버 이름은 소문자, 숫자 및 하이픈(-) 문자만 포함할 수 있으며, 3-63자여야 합니다.
+name | mydemoserver | Azure Database for MySQL 서버를 식별하는 고유한 이름을 선택합니다. 서버 이름은 소문자, 숫자 및 하이픈(-) 문자만 포함할 수 있으며, 3-63자여야 합니다.
 resource-group | myresourcegroup | Azure 리소스 그룹의 이름을 입력합니다.
 sku-name | GP_Gen5_2 | SKU의 이름입니다. {가격 책정 계층}\_{계산 세대}\_{vCores} 규칙을 축약형으로 따릅니다. sku-name 매개 변수에 대한 자세한 내용은 아래 표를 참조하세요.
 backup-retention | 7 | 백업을 보존하는 기간입니다. 단위는 일입니다. 범위는 7-35입니다. 
 geo-redundant-backup | 사용 안 함 | 이 서버에 지역 중복 백업을 사용할 것인지 여부를 결정합니다. 허용되는 값은 다음과 같습니다. 사용, 사용 안 함
-location | westus | 서버에 대한 Azure 위치입니다.
+위치 | westus | 서버에 대한 Azure 위치입니다.
 ssl-enforcement | 사용 | 이 서버에 ssl을 사용할 것인지 여부를 결정합니다. 허용되는 값은 다음과 같습니다. 사용, 사용 안 함
 storage-size | 51200 | 서버의 스토리지 용량입니다(단위는 메가바이트). 유효한 스토리지 크기는 5120MB이고 1024MB 단위로 증가합니다. 스토리지 크기 한도에 대한 자세한 내용은 [가격 책정 계층](./concepts-pricing-tiers.md) 문서를 참조하세요. 
 버전 | 5.7 | MySQL 주 버전입니다.
@@ -67,7 +67,7 @@ sku-name 매개 변수 값은 아래 예에서와 같이 {가격 책정 계층}\
 
 지역당 및 계층당 유효한 값을 이해하려면 [가격 책정 계층](./concepts-pricing-tiers.md) 설명서를 참조합니다.
 
-다음 예제에서는 미국 서부에 `myadmin` 서버 관리자 로그인을 사용하여 `myresourcegroup` 리소스 그룹에 `mydemoserver`라는 MySQL 5.7 서버를 만듭니다. 이 서버는 **vCore**가 2개인 **4세대** **범용** 서버입니다. `<server_admin_password>`를 자신의 고유한 값으로 직접 바꿉니다.
+다음 예제에서는 미국 서부에 `myadmin` 서버 관리자 로그인을 사용하여 `myresourcegroup` 리소스 그룹에 `mydemoserver`라는 MySQL 5.7 서버를 만듭니다. 이 서버는 **2개 vCore**가 있는 **4세대** **범용** 서버입니다. `<server_admin_password>`를 자신의 고유한 값으로 직접 바꿉니다.
 
 ```azurecli-interactive
 az mysql server create --resource-group myresourcegroup --name mydemoserver  --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 --version 5.7
@@ -208,7 +208,7 @@ mysql>
 |---|---|---|
 |   연결 이름 | 내 연결 | 이 연결에 대한 레이블 지정(아무 이름이나 가능) |
 | 연결 방법 | 표준(TCP/IP) 선택 | TCP/IP 프로토콜을 사용하여 MySQL에 대한 Azure Database에 연결> |
-| 호스트 이름 | mydemoserver.mysql.database.azure.com | 앞에서 기록한 서버 이름입니다. |
+| Hostname | mydemoserver.mysql.database.azure.com | 앞에서 기록한 서버 이름입니다. |
 | 포트 | 3306 | MySQL의 기본 포트가 사용됩니다. |
 | 사용자 이름 | myadmin@mydemoserver | 앞에서 기록한 서버 관리자 로그인 |
 | 암호 | **** | 이전에 구성한 관리자 계정 암호를 사용합니다. |

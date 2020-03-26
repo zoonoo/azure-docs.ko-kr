@@ -11,12 +11,12 @@ ms.author: vaidyas
 author: vaidya-s
 ms.date: 01/15/2020
 ms.custom: Ignite2019
-ms.openlocfilehash: 313ba2c02fd65a967ab1969b6f99893de9a3bdb4
-ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
+ms.openlocfilehash: 3d283d1094336b928869aa281b4a640d7a62dd94
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79037359"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79477190"
 ---
 # <a name="run-batch-inference-on-large-amounts-of-data-by-using-azure-machine-learning"></a>Azure Machine Learning을 사용하여 대량의 데이터에 대한 일괄 처리 유추 실행
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -329,7 +329,7 @@ parallelrun_step = ParallelRunStep(
 >[!Note]
 > 위의 단계는 [필수 구성 요소](#prerequisites)에 설명된 대로 `azureml-contrib-pipeline-steps`에 따라 달라집니다. 
 
-### <a name="run-the-pipeline"></a>파이프라인 실행
+### <a name="submit-the-pipeline"></a>파이프라인 제출
 
 이제 파이프라인을 실행합니다. 먼저, 이전에 만든 작업 영역 참조와 파이프라인 단계를 사용하여 [`Pipeline`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29?view=azure-ml-py) 개체를 만듭니다. `steps` 매개 변수는 단계의 배열입니다. 여기서는 하나의 일괄 처리 채점 단계만 있습니다. 여러 단계가 있는 파이프라인을 빌드하려면 이 배열에서 단계를 순서대로 배치합니다.
 

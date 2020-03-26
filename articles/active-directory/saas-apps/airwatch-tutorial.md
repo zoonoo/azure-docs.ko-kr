@@ -17,10 +17,10 @@ ms.date: 07/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 772b37816b83c275bae927d825434dc3ca76a35c
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74231985"
 ---
 # <a name="tutorial-integrate-airwatch-with-azure-active-directory"></a>자습서: Azure Active Directory와 AirWatch 통합
@@ -33,7 +33,7 @@ ms.locfileid: "74231985"
 
 Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -93,7 +93,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 위의 이미지와 같이 SAML 토큰 특성을 구성하기 위해 **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 **편집 아이콘**을 사용하여 클레임을 편집하거나 **새 클레임 추가**를 사용하여 클레임을 추가하고, 다음 단계를 수행합니다.
 
-    | Name |  원본 특성|
+    | 속성 |  원본 특성|
     |---------------|----------------|
     | UID | user.userprincipalname |
     | | |
@@ -130,11 +130,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **사용자** 탭을 클릭하고 **Base DN** 텍스트 상자에 도메인 이름을 입력한 다음 **저장**을 클릭합니다.
 
-   ![User](./media/airwatch-tutorial/ic791922.png "사용자")
+   ![사용자](./media/airwatch-tutorial/ic791922.png "사용자")
 
 1. **서버** 탭을 클릭합니다.
 
-   ![서버](./media/airwatch-tutorial/ic791923.png "서버")
+   ![Server](./media/airwatch-tutorial/ic791923.png "서버")
 
 1. **LDAP** 섹션에서 다음 단계를 수행합니다.
 
@@ -164,11 +164,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **사용자** 탭을 다시 클릭합니다.
 
-    ![User](./media/airwatch-tutorial/ic791926.png "사용자")
+    ![사용자](./media/airwatch-tutorial/ic791926.png "사용자")
 
 1. **특성** 섹션에서 다음 단계를 수행합니다.
 
-    ![특성](./media/airwatch-tutorial/ic791927.png "특성")
+    ![Attribute](./media/airwatch-tutorial/ic791927.png "attribute")
 
     a. **개체 식별자** 텍스트 상자에 `http://schemas.microsoft.com/identity/claims/objectidentifier`를 입력합니다.
 
@@ -192,7 +192,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자**를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예: `B.Simon@contoso.com`
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기**를 클릭합니다.
 

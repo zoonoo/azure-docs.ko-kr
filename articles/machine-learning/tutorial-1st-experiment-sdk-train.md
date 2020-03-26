@@ -11,11 +11,11 @@ ms.author: trbye
 ms.reviewer: trbye
 ms.date: 02/10/2020
 ms.openlocfilehash: aa90655ecb14abe38ec8fdfc6c18e7d292abbef3
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78355658"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79222370"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>자습서: 첫 번째 ML 모델 학습
 

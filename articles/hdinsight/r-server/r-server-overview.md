@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: overview
 ms.date: 02/10/2020
 ms.openlocfilehash: a77771880da962298f6e80782e5f3e251f5f4641
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77122360"
 ---
 # <a name="what-is-ml-services-in-azure-hdinsight"></a>Azure HDInsight에서 ML Services란
@@ -137,7 +137,7 @@ HDInsight 클러스터의 Linux 에지 노드는 R 기반 분석의 연결 영�
 
 또한 SSH 또는 PuTTY를 통해 연결한 후 Linux 명령 프롬프트에서 **R**을 입력하면 에지 노드의 R 콘솔에 액세스할 수 있습니다. 콘솔 인터페이스 사용 시 R 스크립트 개발용 텍스트 편집기를 다른 창에서 실행하고 필요에 따라 스크립트의 섹션을 복사하여 R 콘솔에 붙여 넣으면 편리합니다.
 
-## <a name="pricing"></a>가격 책정
+## <a name="pricing"></a>가격
 
 ML Services HDInsight 클러스터와 연관된 요금은 다른 HDInsight 클러스터형식의 가격과 유사한 방식으로 구성됩니다. 이름, 데이터 및 에지 노드에서 기본 VM의 크기 조정을 기반으로 하며 향상된 코어 시간 기능이 추가되었습니다. 자세한 내용은 [HDInsight 가격](https://azure.microsoft.com/pricing/details/hdinsight/)을 참조하세요.
 

@@ -16,11 +16,11 @@ ms.date: 10/1/2019
 ms.author: magattus
 ms.custom: mvc
 ms.openlocfilehash: f1af388d1f8b9542d196a53cc6c143f9b48e6d5a
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78394844"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79222430"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>자습서: Azure CDN 사용자 지정 도메인에서 HTTPS 구성
 
@@ -34,7 +34,7 @@ Azure CDN은 기본적으로 CDN 엔드포인트에서 HTTPS를 지원합니다.
 
 - 간단한 사용: [Azure Portal](https://portal.azure.com)에서 한 번 클릭으로 프로비전을 사용할 수 있습니다. REST API 또는 기타 개발자 도구를 사용하여 기능을 활성화할 수도 있습니다.
 
-- 완전한 인증서 관리 사용 가능: 사용자를 위해 모든 인증서 조달 및 관리가 처리됩니다. 만료되기 전에 인증서가 자동으로 프로비전되고 갱신되므로 인증서 만료로 인해 서비스가 중단될 위험이 없습니다.
+- 완전한 인증서 관리: 사용자를 위해 모든 인증서 조달 및 관리가 처리됩니다. 만료되기 전에 인증서가 자동으로 프로비전되고 갱신되므로 인증서 만료로 인해 서비스가 중단될 위험이 없습니다.
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 > [!div class="checklist"]
@@ -50,7 +50,7 @@ Azure CDN은 기본적으로 CDN 엔드포인트에서 HTTPS를 지원합니다.
 
 이 자습서에서 단계를 완료하기 전에 먼저 CDN 프로필 및 하나 이상의 CDN 엔드포인트를 만들어야 합니다. 자세한 내용은 [빠른 시작: Azure CDN 프로필 및 엔드포인트 만들기](cdn-create-new-endpoint.md)를 참조하세요.
 
-또한 CDN 엔드포인트에서 Azure CDN 사용자 지정 도메인을 연결해야 합니다. 자세한 내용은 [자습서: 사용자 지정 도메인을 Azure CDN 끝점에 추가](cdn-map-content-to-custom-domain.md)를 참조 하세요.
+또한 CDN 엔드포인트에서 Azure CDN 사용자 지정 도메인을 연결해야 합니다. 자세한 내용은 [자습서: Azure CDN 엔드포인트에 사용자 지정 도메인 추가](cdn-map-content-to-custom-domain.md)를 참조하세요.
 
 > [!IMPORTANT]
 > CDN 관리 인증서는 루트 또는 정점 도메인에서 제공되지 않습니다. Azure CDN 사용자 지정 도메인이 루트 또는 정점 도메인인 경우 자체 인증서 가져오기 기능을 사용해야 합니다. 
@@ -314,7 +314,7 @@ We encountered an unexpected error while processing your HTTPS request. Please t
 
     아니요, CAA 레코드는 현재 필요하지 않습니다. 그러나 이 레코드가 있으면 DigiCert가 유효한 CA로 포함되어야 합니다.
 
-6. *2018 년 6 월 20 일, Verizon의 Azure CDN는 기본적으로 SNI TLS/SSL을 사용 하 여 전용 인증서를 사용 하기 시작 했습니다. SAN (주체 대체 이름) 인증서 및 IP 기반 TLS/SSL을 사용 하는 기존 사용자 지정 도메인은 어떻게 되나요?*
+6. *기본적으로 2018년 6월 20일에 SNI TLS/SSL에서 전용 인증서를 사용하여 Verizon의 Azure CDN을 시작했습니다. SAN(주체 대체 이름) 인증서와 IP 기반 TLS/SSL을 사용하는 기존 사용자 지정 도메인은 어떻게 되나요?*
 
     Microsoft가 애플리케이션에 대한 SNI 클라이언트 요청이 있는지 분석하는 경우 기존 도메인은 향후 몇 달 안에 단일 인증서로 점진적으로 마이그레이션됩니다. Microsoft가 애플리케이션에 대한 일부 비 SNI 클라이언트 요청을 검색하는 경우 도메인은 IP 기반 TLS/SSL을 사용하여 SAN 인증서에 유지됩니다. 어떤 경우든 해당 요청이 SNI인지 비 SNI인지에 관계 없이 서비스에 대한 중단 또는 클라이언트 요청에 대한 지원이 없습니다.
 

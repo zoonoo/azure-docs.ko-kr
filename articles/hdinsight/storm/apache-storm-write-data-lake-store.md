@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/24/2019
 ms.openlocfilehash: 579163180f6c7ba19927ca66d20bd92d1b2de52e
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73241200"
 ---
 # <a name="tutorial-write-to-apache-hadoop-hdfs-from-apache-storm-on-azure-hdinsight"></a>자습서: Azure HDInsight의 Apache Storm에서 Apache Hadoop HDFS에 쓰기
@@ -21,7 +21,7 @@ ms.locfileid: "73241200"
 
 이 문서에서 사용되는 예제 토폴로지는 HDInsight의 Storm에 포함된 구성 요소를 사용합니다. 다른 Apache Storm 클러스터와 함께 Azure Data Lake Storage를 사용하려면 수정해야 할 수도 있습니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 스크립트 작업으로 클러스터 구성
@@ -30,17 +30,17 @@ ms.locfileid: "73241200"
 > * 출력 데이터 보기
 > * 토폴로지 중지
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [JDK(Java Developer Kit) 버전 8](https://aka.ms/azure-jdks)
 
-* Apache에 따라 올바르게 [설치된](https://maven.apache.org/install.html) [Apache Maven](https://maven.apache.org/download.cgi)  Maven은 Java 프로젝트용 프로젝트 빌드 시스템입니다.
+* Apache에 따라 올바르게 [설치된](https://maven.apache.org/install.html)[Apache Maven](https://maven.apache.org/download.cgi)  Maven은 Java 프로젝트용 프로젝트 빌드 시스템입니다.
 
 * SSH 클라이언트. 자세한 내용은 [SSH를 사용하여 HDInsight(Apache Hadoop)에 연결](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 * 클러스터 기본 스토리지에 대한 [URI 체계](../hdinsight-hadoop-linux-information.md#URI-and-scheme)입니다. Azure Storage는 `wasb://`, Azure Data Lake Storage Gen2는 `abfs://`, Azure Data Lake Storage Gen1은 `adl://`입니다. Azure Storage에 대해 보안 전송이 활성화된 경우 URI는 `wasbs://`입니다.  [보안 전송](../../storage/common/storage-require-secure-transfer.md)도 참조하세요.
 
-### <a name="example-configuration"></a>예제 구성
+### <a name="example-configuration"></a>구성 예
 
 다음 YAML은 예제에 포함된 `resources/writetohdfs.yaml` 파일에서 인용한 부분입니다. 이 파일에서는 Apache Storm의 [Flux](https://storm.apache.org/releases/current/flux.html) 프레임워크를 사용하여 Storm 토폴로지를 정의합니다.
 
@@ -112,12 +112,12 @@ Flux 프레임워크에 대한 자세한 내용은 [https://storm.apache.org/rel
 
 기본적으로 HDInsight의 Storm에는 `HdfsBolt`에서 Storm의 클래스 경로에 있는 Azure Storage 또는 Data Lake Storage와 통신하는 데 사용하는 구성 요소가 포함되지 않습니다. 다음 스크립트 동작을 사용하여 클러스터의 Storm에 대한 `extlib` 디렉터리에 이러한 구성 요소를 추가합니다.
 
-| 자산 | 값 |
+| 속성 | 값 |
 |---|---|
 |스크립트 유형 |- 사용자 지정|
 |Bash 스크립트 URI |`https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh`|
 |노드 유형 |Nimbus, Supervisor|
-|매개 변수 |없음|
+|매개 변수 |None|
 
 HDInsight에서 이 스크립트를 사용하는 방법에 대한 자세한 내용은 [스크립트 작업을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정](./../hdinsight-hadoop-customize-cluster-linux.md) 문서를 참조하세요.
 

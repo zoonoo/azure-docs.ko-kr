@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7b044a4fd4e29bfe35abff7a4b36e5bae783328b
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
-ms.translationtype: MT
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78671900"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79215991"
 ---
 # <a name="what-is-conditional-access"></a>조건부 액세스란?
 
@@ -26,7 +26,7 @@ ms.locfileid: "78671900"
 
 ![개념적 조건부 신호 + 적용 여부 결정](./media/overview/conditional-access-signal-decision-enforcement.png)
 
-가장 간단한 조건부 액세스 정책은 사용자가 리소스에 액세스하려면 작업을 완료해야 하는 if-then 문입니다. 예: 급여 관리자는 급여 응용 프로그램에 액세스 하려고 하며 multi-factor authentication을 수행 하 여 액세스 해야 합니다.
+가장 간단한 조건부 액세스 정책은 사용자가 리소스에 액세스하려면 작업을 완료해야 하는 if-then 문입니다. 예제: 급여 관리자는 급여 애플리케이션에 액세스하려고 하며, 액세스하려면 다단계 인증을 수행해야 합니다.
 
 관리자는 다음과 같은 두 가지 주요 목표에 직면합니다.
 

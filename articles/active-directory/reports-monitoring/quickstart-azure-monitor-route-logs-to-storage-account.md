@@ -18,17 +18,17 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fa2cac7c89a2cb1bd99675727bcd51e82c4a18ef
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74007854"
 ---
 # <a name="tutorial-archive-azure-ad-logs-to-an-azure-storage-account"></a>자습서: Azure 스토리지 계정에 Azure AD 로그 보관
 
 이 자습서에서는 Azure AD(Azure Active Directory) 로그를 Azure Storage 계정으로 라우팅하도록 Azure Monitor 진단 설정을 지정하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>필수 조건 
+## <a name="prerequisites"></a>사전 요구 사항 
 
 이 기능을 사용하려면 다음이 필요합니다.
 
@@ -71,7 +71,7 @@ ms.locfileid: "74007854"
 
 12. 약 15분 후 스토리지 계정으로 로그가 푸시되었는지 확인합니다. [Azure Portal](https://portal.azure.com)로 이동하고, **스토리지 계정**을 선택하고, 이전에 사용한 스토리지 계정을 선택하고, **Blob**을 선택합니다. **감사 로그**에서 **insights-log-audit**를 선택합니다. **로그인 로그**에 **insights-logs-signin**을 선택합니다.
 
-    ![Storage 계정](./media/quickstart-azure-monitor-route-logs-to-storage-account/StorageAccount.png)
+    ![스토리지 계정](./media/quickstart-azure-monitor-route-logs-to-storage-account/StorageAccount.png)
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -17,10 +17,10 @@ ms.workload: na
 ms.date: 02/18/2019
 ms.author: yelevin
 ms.openlocfilehash: f6adcb978dbe540d3bdd352089d4dde407d0fb4c
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77585087"
 ---
 # <a name="tutorial-set-up-automated-threat-responses-in-azure-sentinel"></a>자습서: Azure Sentinel에서 자동화된 위협 응답 설정

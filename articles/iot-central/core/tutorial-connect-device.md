@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.openlocfilehash: 1bcfc949eff0639dd1b4a063687e2c198f480ea3
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77624339"
 ---
 # <a name="tutorial-create-and-connect-a-nodejs-client-application-to-your-azure-iot-central-application-nodejs"></a>자습서: Node.js 클라이언트 애플리케이션을 만들어 Azure IoT Central 애플리케이션에 연결(Node.js)

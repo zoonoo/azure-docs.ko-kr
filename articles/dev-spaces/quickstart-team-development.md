@@ -7,10 +7,10 @@ description: 이 빠른 시작에서는 Azure Dev Spaces를 통해 컨테이너 
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s
 manager: gwallace
 ms.openlocfilehash: 0fe177db420913e5d68807dd803df791653c0914
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78244950"
 ---
 # <a name="quickstart-team-development-on-kubernetes---azure-dev-spaces"></a>빠른 시작: Kubernetes에서 팀 개발 - Azure Dev Spaces

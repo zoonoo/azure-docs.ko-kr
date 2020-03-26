@@ -8,10 +8,10 @@ ms.subservice: iot-central-retail
 ms.topic: overview
 ms.date: 01/09/2020
 ms.openlocfilehash: 93906f582f1edc351088f8b4c453bf9ebda54f83
-ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77369874"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-micro-fulfillment-center-application-template"></a>자습서: 마이크로 처리 센터 애플리케이션 템플릿 배포 및 살펴보기

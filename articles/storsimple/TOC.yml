@@ -1,5 +1,5 @@
 - name: StorSimple 설명서
-  href: index.md
+  href: index.yml
 - name: StorSimple 가상 배열
   items:
     - name: 개요
@@ -91,7 +91,7 @@
           href: storsimple-virtual-array-update-12-release-notes.md
         - name: 업데이트 1.1
           href: storsimple-virtual-array-update-11-release-notes.md
-        - name: 업데이트 1
+        - name: Update 1
           href: storsimple-virtual-array-update-1-release-notes.md
         - name: 보관
           items:
@@ -325,7 +325,7 @@
                   href: storsimple-5000-7000-afs-migration.md
             - name: 다른 스토리지 디바이스에서
               href: 'https://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf'
-        - name: 주 지역에서
+        - name: 업데이트
           items:
             - name: 업데이트 5 설치 - 현재
               href: storsimple-8000-install-update-5.md
@@ -345,7 +345,7 @@
               href: storsimple-update21-release-notes.md
             - name: 업데이트 2
               href: storsimple-update2-release-notes.md
-            - name: 업데이트 1
+            - name: Update 1
               href: storsimple-update1-release-notes.md
             - name: 업데이트 0.3
               href: storsimple-february-2015-release-notes.md
@@ -355,7 +355,7 @@
               href: storsimple-october-2014-release-notes.md
             - name: 릴리스 - GA
               href: storsimple-july-2014-release-notes.md
-    - name: 참고 자료
+    - name: 참조
       items:
         - name: REST API
           href: 'https://docs.microsoft.com/rest/api/storsimple'
@@ -415,7 +415,7 @@
       href: storsimple-8000-support-options.md
     - name: MSDN 포럼
       href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple'
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/storsimple/'
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'

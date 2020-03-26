@@ -15,10 +15,10 @@ ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: b23c10fc2a551b8044b208911dbc048968b06564
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74419612"
 ---
 # <a name="quickstart-view-the-access-a-user-has-to-azure-resources"></a>빠른 시작: 사용자가 Azure 리소스에 대해 갖는 액세스 권한 보기

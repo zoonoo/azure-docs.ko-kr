@@ -1,7 +1,7 @@
 ---
 title: '자습서: R에서 예측 모델을 학습하기 위한 데이터 준비'
 titleSuffix: Azure SQL Database Machine Learning Services (preview)
-description: 이 세 부분으로 이루어진 자습서 시리즈의 1부에서는 Azure SQL Database Machine Learning 서비스(미리 보기)를 사용하여 R에서 예측 모델을 학습하기 위해 Azure SQL Database의 데이터를 준비합니다.
+description: 이 세 부분으로 이루어진 자습서 시리즈의 1부에서는 Azure SQL Database Machine Learning Services(미리 보기)를 사용하여 R에서 예측 모델을 학습하기 위해 Azure SQL Database의 데이터를 준비합니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: machine-learning
@@ -14,10 +14,10 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/26/2019
 ms.openlocfilehash: c1271d5b63fa796fe44b7a40c364953464a87539
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68596674"
 ---
 # <a name="tutorial-prepare-data-to-train-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>자습서: Azure SQL Database Machine Learning Services(미리 보기)를 사용하여 R에서 예측 모델을 학습하기 위한 데이터 준비
@@ -28,7 +28,7 @@ ms.locfileid: "68596674"
 
 이 시리즈의 1부 및 2부에서는 RStudio에서 R 스크립트를 개발하여 데이터를 준비하고 기계 학습 모델을 학습시킵니다. 그런 다음, 3부에서는 SQL 데이터베이스 내에서 저장 프로시저를 사용하여 이러한 R 스크립트를 실행합니다.
 
-이 문서에서는 다음 방법을 설명합니다.
+이 문서에서는 다음을 수행하는 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * R을 사용하여 Azure SQL 데이터베이스로 샘플 데이터베이스 가져오기
@@ -41,7 +41,7 @@ ms.locfileid: "68596674"
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 - Azure 구독이 아직 없는 경우 시작하기 전에 [계정을 만듭니다](https://azure.microsoft.com/free/).
 
@@ -69,7 +69,7 @@ ms.locfileid: "68596674"
    * 공개 미리 보기 동안 새 데이터베이스에 대해 **Gen5/vCore** 구성 선택
    * 새 데이터베이스 이름을 "TutorialDB"로 지정
 
-## <a name="load-the-data-into-a-data-frame"></a>데이터 프레임으로 데이터 로드
+## <a name="load-the-data-into-a-data-frame"></a>데이터 프레임에 데이터 로드
 
 R에서 데이터를 사용하려면 Azure SQL Database의 데이터를 데이터 프레임(`rentaldata`)으로 로드합니다.
 
@@ -95,7 +95,7 @@ head(rentaldata);
 str(rentaldata);
 ```
 
-다음과 유사한 결과가 표시됩니다.
+다음과 비슷한 결과가 표시됩니다.
 
 ```results
    Year  Month  Day  RentalCount  WeekDay  Holiday  Snow
@@ -130,7 +130,7 @@ rentaldata$WeekDay <- factor(rentaldata$WeekDay);
 str(rentaldata);
 ```
 
-다음과 유사한 결과가 표시됩니다.
+다음과 비슷한 결과가 표시됩니다.
 
 ```results
 data.frame':      453 obs. of  7 variables:
@@ -158,7 +158,7 @@ Azure Portal에서 다음 단계를 따릅니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서 시리즈의 제1부에서는 다음 단계를 완료했습니다.
+이 자습서 시리즈의 1부에서 다음 단계를 완료했습니다.
 
 * R을 사용하여 Azure SQL 데이터베이스로 샘플 데이터베이스 가져오기
 * Azure SQL 데이터베이스의 데이터를 R 데이터 프레임으로 로드

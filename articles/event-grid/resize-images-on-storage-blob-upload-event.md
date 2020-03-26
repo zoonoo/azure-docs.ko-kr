@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 03/06/2020
 ms.author: spelluru
 ms.custom: mvc
-ms.openlocfilehash: 6b3375ea8c82ce916f3d6a5e0e29f2845400cc76
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: d01d749300c6ad07e498c75c9487b554810e68cd
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79117769"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79454077"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>자습서: Event Grid를 사용하여 업로드된 이미지 크기 자동 조정
 
@@ -54,17 +54,17 @@ Azure CLI 및 Azure Portal을 사용하여 크기 조정 기능을 기존 이미
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-이전에 사용자의 구독에서 Event Grid 리소스 공급자를 등록한 적이 없는 경우, 등록되었는지 확인합니다.
-
-```azurecli-interactive
-az provider register --namespace Microsoft.EventGrid
-```
-
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에는 Azure CLI 버전 2.0.14 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
 Cloud Shell을 사용하지 않는 경우 먼저 `az login`을 사용하여 로그인해야 합니다.
+
+이전에 사용자의 구독에서 Event Grid 리소스 공급자를 등록한 적이 없는 경우, 등록되었는지 확인합니다.
+
+```azurecli-interactive
+az provider register --namespace Microsoft.EventGrid
+```
 
 ## <a name="create-an-azure-storage-account"></a>Azure Storage 계정 만들기
 

@@ -8,13 +8,13 @@
       href: whats-new.md
     - name: 일반적인 질문
       items:
-        - name: Azure Migrate에 대한 질문
+        - name: 일반
           href: resources-faq.md
-        - name: Azure Migrate 어플라이언스에 대한 질문
+        - name: Azure Migrate 어플라이언스
           href: common-questions-appliance.md
-        - name: '검색, 평가/종속성 시각화에 대한 질문'
+        - name: Server Assessment 도구/종속성 분석
           href: common-questions-discovery-assessment.md
-        - name: Server Migration에 대한 질문
+        - name: 서버 마이그레이션 도구
           href: common-questions-server-migration.md
 - name: 자습서
   items:
@@ -76,32 +76,30 @@
           href: migrate-replication-appliance.md
     - name: Hyper-V 마이그레이션 아키텍처
       href: hyper-v-migration-architecture.md
-    - name: 에이전트 기반 마이그레이션 아키텍처
+    - name: VMware 에이전트 기반 마이그레이션 아키텍처
       href: agent-based-migration-architecture.md
-    - name: 평가 모범 사례
-      href: best-practices-assessment.md
     - name: 평가 개요
       href: concepts-assessment-calculation.md
-    - name: 종속성 시각화
+    - name: 평가 모범 사례
+      href: best-practices-assessment.md
+    - name: 종속성 분석 개요
       href: concepts-dependency-visualization.md
 - name: 방법 가이드
   items:
-    - name: 이전 버전을 사용하여 작업
-      href: migrate-v1.md
     - name: Azure Migrate 프로젝트 만들기 및 관리
       href: create-manage-projects.md
-    - name: VMware 어플라이언스 배포
-      href: how-to-set-up-appliance-vmware.md
-    - name: Hyper-V 어플라이언스 배포
-      href: how-to-set-up-appliance-hyper-v.md
-    - name: 물리적 서버 어플라이언스 배포
-      href: how-to-set-up-appliance-physical.md
-    - name: 애플리케이션/역할/기능 검색
-      href: how-to-discover-applications.md
     - name: 처음 도구 추가
       href: how-to-add-tool-first-time.md
     - name: 평가 도구 추가
       href: how-to-assess.md
+    - name: VMware 어플라이언스 배포
+      href: how-to-set-up-appliance-vmware.md
+    - name: 물리적 서버 어플라이언스 배포
+      href: how-to-set-up-appliance-physical.md
+    - name: Hyper-V 어플라이언스 배포
+      href: how-to-set-up-appliance-hyper-v.md
+    - name: 애플리케이션/역할/기능 검색
+      href: how-to-discover-applications.md
     - name: 평가할 컴퓨터 그룹화
       href: how-to-create-a-group.md
     - name: 머신 종속성 분석(에이전트 기반)
@@ -122,6 +120,8 @@
       href: prepare-for-migration.md
     - name: Azure Migrate 프로젝트 삭제
       href: how-to-delete-project.md
+    - name: 이전 버전을 사용하여 작업
+      href: migrate-v1.md
     - name: 규모 평가 및 마이그레이션
       items:
         - name: 다수의 VMware VM 평가

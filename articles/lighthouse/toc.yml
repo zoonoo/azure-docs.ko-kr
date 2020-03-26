@@ -44,9 +44,14 @@
     - name: 고객 보기 및 관리
       displayName: my customers
       href: ./how-to/view-manage-customers.md
-    - name: 대규모로 Azure Monitor 로그 사용
-      displayName: 'log, analytics, analyze, activity'
-      href: ./how-to/monitor-at-scale.md
+    - name: Azure Monitor 통합
+      items:
+        - name: 대규모로 Azure Monitor 로그 사용
+          displayName: 'log, analytics, analyze, activity'
+          href: ./how-to/monitor-at-scale.md
+        - name: 위임 변경 모니터링
+          displayName: activity log
+          href: ./how-to/monitor-delegation-changes.md
     - name: Azure Policy 통합
       items:
         - name: 규모에 맞는 정책 배포

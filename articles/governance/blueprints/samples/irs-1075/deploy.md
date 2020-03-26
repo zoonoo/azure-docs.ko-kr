@@ -4,10 +4,10 @@ description: 청사진 아티팩트 매개 변수 세부 정보를 포함하여 
 ms.date: 11/20/2019
 ms.topic: sample
 ms.openlocfilehash: 15fcac5bfd11d889522d078853bd6f916eb54616
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74546810"
 ---
 # <a name="deploy-the-irs-1075-blueprint-sample"></a>IRS 1075 청사진 샘플 배포
@@ -60,7 +60,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. 청사진 정의 페이지 위쪽에서 **청사진 할당**을 선택합니다.
 
-1. 청사진 할당의 매개 변수 값을 지정합니다.
+1. 청사진 할당의 매개 변수 값을 다음과 같이 지정합니다.
 
    - 기본 사항
 
@@ -91,7 +91,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 다음 테이블은 청사진 아티팩트 매개 변수의 목록을 제공합니다.
 
-|아티팩트 이름|아티팩트 형식|매개 변수 이름|설명|
+|아티팩트 이름|아티팩트 형식|매개 변수 이름|Description|
 |-|-|-|-|
 |IRS 1075(Rev.11-2016) 컨트롤 감사 및 감사 요구 사항을 지원하기 위한 특정 VM 확장 배포|정책 할당|VM을 구성해야 하는 Log Analytics 작업 영역 ID|VM을 구성해야 하는 Log Analytics 작업 영역의 ID(GUID)입니다.|
 |IRS 1075(Rev.11-2016) 컨트롤 감사 및 감사 요구 사항을 지원하기 위한 특정 VM 확장 배포|정책 할당|진단 로그를 사용해야 하는 리소스 종류 목록|진단 로그 설정을 사용하도록 설정하지 않은 경우 감사할 리소스 종류의 목록입니다. 허용되는 값은 [Azure Monitor 진단 로그 스키마](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type)에서 확인할 수 있습니다.|
@@ -105,7 +105,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 |Windows VMSS(VM Scale Sets)용 Log Analytics 에이전트 배포|정책 할당|선택 사항: 범위에 추가할 Windows OS를 지원하는 VM 이미지 목록|빈 배열(\[\])을 사용하여 선택적 매개 변수가 없음을 나타낼 수 있습니다.|
 |Windows VM용 Log Analytics 에이전트 배포|정책 할당|Windows VM용 Log Analytics 작업 영역|이 작업 영역이 할당 범위를 벗어나는 경우 ‘Log Analytics 기여자’ 권한(또는 그와 유사한 권한)을 정책 할당의 Principal ID에 수동으로 부여해야 합니다.|
 |Windows VM용 Log Analytics 에이전트 배포|정책 할당|선택 사항: 범위에 추가할 Windows OS를 지원하는 VM 이미지 목록|빈 배열(\[\])을 사용하여 선택적 매개 변수가 없음을 나타낼 수 있습니다.|
-|스토리지 계정에 Advanced Threat Protection 배포|정책 할당|결과|정책의 영향에 대한 내용은 [Azure Policy의 영향 파악](../../../policy/concepts/effects.md)에서 찾을 수 있습니다.|
+|스토리지 계정에 Advanced Threat Protection 배포|정책 할당|영향|정책의 영향에 대한 내용은 [Azure Policy의 영향 파악](../../../policy/concepts/effects.md)에서 찾을 수 있습니다.|
 |SQL Server에 감사 배포|정책 할당|보존 기간 값(일)(0은 보존 기간에 제한이 없음을 표시)|보존 일 수(선택 사항, 지정하지 않는 경우 180일)|
 |SQL Server에 감사 배포|정책 할당|SQL 서버 감사를 위한 스토리지 계정의 리소스 그룹 이름|감사에서는 데이터베이스 이벤트를 Azure Storage 계정의 감사 로그에 씁니다(스토리지 계정은 한 지역의 모든 서버에서 공유할 수 있는 SQL Server가 만들어진 각 지역에 만들어짐). 중요 - 적절한 감사 작업을 위해 리소스 그룹 또는 스토리지 계정을 삭제하거나 이름을 바꾸지 마세요.|
 |네트워크 보안 그룹에 대한 진단 설정 배포|정책 할당|네트워크 보안 그룹 진단을 위한 스토리지 계정 접두사|이 접두사와 네트워크 보안 그룹 위치가 결합되어 스토리지 계정 이름이 구성됩니다.|

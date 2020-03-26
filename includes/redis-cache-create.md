@@ -9,10 +9,10 @@ ms.date: 11/05/2019
 ms.author: wesmc
 ms.custom: include file
 ms.openlocfilehash: 3c064aa8e57a77b96161da06847f543816be1217
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73719102"
 ---
 1. 캐시를 만들려면 [Azure Portal](https://portal.azure.com)에 로그인하여 **리소스 만들기**를 선택합니다. 
@@ -25,7 +25,7 @@ ms.locfileid: "73719102"
    
 1. **새 Redis Cache** 페이지에서 새 캐시의 설정을 구성합니다.
    
-   | 설정      | 제안 값  | 설명 |
+   | 설정      | 제안 값  | Description |
    | ------------ |  ------- | -------------------------------------------------- |
    | **DNS 이름** | 전역적으로 고유한 이름을 입력합니다. | 캐시 이름은 1~63자의 문자열이어야 하며 숫자, 문자 및 하이픈만 포함할 수 있습니다. 이름은 숫자 또는 문자로 시작하고 끝나야 하며 연속 하이픈을 포함할 수 없습니다. 캐시 인스턴스의 *호스트 이름*은 *\<DNS 이름>.redis.cache.windows.net*입니다. | 
    | **구독** | 드롭다운하여 구독을 선택합니다. | 이 구독 아래에 새 Azure Cache for Redis 인스턴스가 만들어집니다. | 

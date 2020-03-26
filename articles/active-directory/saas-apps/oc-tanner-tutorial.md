@@ -15,17 +15,17 @@ ms.topic: tutorial
 ms.date: 01/28/2020
 ms.author: jeedes
 ms.openlocfilehash: 768756e013a4301ea11f5f9478178bdad46f9d67
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76983999"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-oc-tanner---appreciatehub"></a>자습서: O.C. Tanner - AppreciateHub와 Azure Active Directory SSO(Single Sign-On) 통합
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-oc-tanner---appreciatehub"></a>자습서: O.C. Tanner - AppreciateHub와 Tanner - AppreciateHub
 
 이 자습서에서는 O.C. Tanner - AppreciateHub를 Azure AD(Azure Active Directory)와 통합하는 방법을 알아봅니다. O.C. Tanner - AppreciateHub를 Azure AD(Azure Active Directory)와 통합하면 다음을 수행할 수 있습니다.
 
-* Azure AD에서 O.C. Tanner - AppreciateHub에 대한 액세스 권한이 있는 사용자를 제어합니다.
+* Azure AD에서 O.C. Tanner - AppreciateHub에 대한 액세스 권한이 있는 액세스 권한을 부여합니다.
 * 사용자가 자신의 Azure AD 계정으로 O.C. Tanner - AppreciateHub에 자동으로 로그인되도록 설정합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
@@ -36,7 +36,7 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 시작하려면 다음 항목이 필요합니다.
 
 * Azure AD 구독 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
-* O.C. Tanner - AppreciateHub SSO(Single Sign-On)가 설정된 구독
+* 결과 목록의 O.C. Tanner - AppreciateHub SSO(Single Sign-On)가 설정된 구독
 
 ## <a name="scenario-description"></a>시나리오 설명
 
@@ -57,9 +57,9 @@ O.C.의 통합을 구성하려면 Tanner - Azure AD에서 AppreciateHub, O.C.를
 1. **갤러리에서 추가** 섹션의 검색 상자에 **O.C. Tanner - AppreciateHub**를 입력합니다.
 1. 결과 패널에서 **O.C. Tanner - AppreciateHub**를 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-oc-tanner---appreciatehub"></a>O.C. Tanner - AppreciateHub용 Azure AD Single Sign-On 구성 및 테스트
+## <a name="configure-and-test-azure-ad-single-sign-on-for-oc-tanner---appreciatehub"></a>O.C. Tanner - AppreciateHub용 Azure AD Single Sign-On Tanner - AppreciateHub
 
-O.C. Tanner - AppreciateHub에서 Azure AD SSO를 구성하고 테스트하는 데 **B.Simon**을 사용합니다. SSO가 작동하려면 Azure AD 사용자와 O.C. Tanner - AppreciateHub의 관련 사용자 간에 연결이 형성되어야 합니다.
+O.C. Tanner - AppreciateHub에서 Azure AD SSO를 구성하고 테스트하는 데 **B.Simon**을 사용합니다. SSO가 작동하려면 Azure AD 사용자와 O.C. Tanner - AppreciateHub의 관련 사용자 간에 연결이 액세스 권한을 부여합니다.
 
 O.C. Tanner - AppreciateHub에서 Azure AD SSO를 구성하고 테스트하려면 다음 구성 요소를 완료합니다.
 
@@ -67,7 +67,7 @@ O.C. Tanner - AppreciateHub에서 Azure AD SSO를 구성하고 테스트하려�
     * **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - B.Simon을 사용하여 Azure AD Single Sign-On을 테스트합니다.
     * **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - B. Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
 1. **[O.C. Tanner - AppreciateHub SSO 구성](#configure-oc-tanner---appreciatehub-sso)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
-    * **[O.C. Tanner - AppreciateHub 테스트 사용자 만들기](#create-oc-tanner---appreciatehub-test-user)** - B.Simon의 Azure AD 표현과 연결된 해당 사용자를 O.C. Tanner - AppreciateHub에 만듭니다.
+    * **[O.C. 만들기 Tanner - AppreciateHub 테스트 사용자 만들기](#create-oc-tanner---appreciatehub-test-user)** - B.Simon의 Azure AD 표현과 연결된 해당 사용자를 O.C. 해당 사용자의 Azure AD 표현에 연결된 Tanner - AppreciateHub.
 1. **[SSO 테스트](#test-sso)** - 구성이 작동하는지 여부를 확인합니다.
 
 ## <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성

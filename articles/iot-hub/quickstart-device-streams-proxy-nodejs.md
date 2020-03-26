@@ -10,10 +10,10 @@ ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
 ms.openlocfilehash: c372a0a09fd3143f570aa4b316c9191e617c69e2
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78675451"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-nodejs-proxy-application-preview"></a>빠른 시작: Node.js 프록시 애플리케이션을 사용하여 IoT Hub 디바이스 스트림을 통해 SSH 및 RDP 사용(미리 보기)

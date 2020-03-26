@@ -12,10 +12,10 @@ ms.author: srbozovi
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 12/14/2018
 ms.openlocfilehash: 37f7366d6622356017e458fb8f893b0be0851335
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73825702"
 ---
 # <a name="quickstart-restore-a-database-to-a-managed-instance"></a>빠른 시작: 데이터베이스를 Managed Instance로 복원
@@ -28,7 +28,7 @@ ms.locfileid: "73825702"
 > Azure DMS(Database Migration Service)를 사용하여 마이그레이션하는 방법에 대한 자세한 내용은 [DMS를 사용한 Managed Instance 마이그레이션](../dms/tutorial-sql-server-to-managed-instance.md)을 참조하세요.
 > 다양한 마이그레이션 방법에 대한 자세한 내용은 [SQL Server 인스턴스를 Azure SQL Database Managed Instance로 마이그레이션](sql-database-managed-instance-migrate.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 빠른 시작의 특징은 다음과 같습니다.
 

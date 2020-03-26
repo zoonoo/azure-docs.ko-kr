@@ -5,12 +5,12 @@ ms.date: 09/26/2018
 ms.topic: tutorial
 description: 이 자습서에서는 Azure Dev Spaces 및 Visual Studio Code를 사용하여 Azure Kubernetes Service에서 .NET Core 애플리케이션을 디버깅하고 신속하게 반복하는 방법을 보여줍니다.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s
-ms.openlocfilehash: 306e1c7a43ddd10faa0a537d567257fe95336c23
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: d4078113f93159ef981a78a9917ed65bd03a304b
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78942501"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80240547"
 ---
 # <a name="create-a-kubernetes-dev-space-visual-studio-code-and-net-core-with-azure-dev-spaces"></a>Kubernetes 개발 공간 만들기: Azure Dev Spaces가 포함된 Visual Studio Code 및 .NET Core
 
@@ -106,7 +106,7 @@ Azure CLI의 `azds prep` 명령은 기본 설정으로 Docker 및 Kubernetes 자
 * `./charts/webfrontend` 아래의 [Helm 차트](https://docs.helm.sh)는 Kubernetes에 컨테이너를 배포하는 방법을 설명합니다.
 
 > [!TIP]
-> 프로젝트의 [Dockerfile 및 Helm 차트](how-dev-spaces-works.md#prepare-your-code)는 Azure Dev Spaces에서 코드를 빌드하고 실행하는 데 사용되지만 프로젝트를 빌드하고 실행하는 방법을 변경하려면 이러한 파일을 수정할 수 있습니다.
+> 프로젝트의 [Dockerfile 및 Helm 차트](how-dev-spaces-works-prep.md#prepare-your-code)는 Azure Dev Spaces에서 코드를 빌드하고 실행하는 데 사용되지만 프로젝트를 빌드하고 실행하는 방법을 변경하려면 이러한 파일을 수정할 수 있습니다.
 
 지금은 이러한 파일의 전체 컨텐츠를 이해할 필요가 없습니다. 언급할 가치가 있지만 **코드 자산으로 동일한 Kubernetes 및 Docker 구성을 개발에서 프로덕션까지 사용할 수 있으므로 서로 다른 환경에서 더 나은 일관성을 제공합니다.**
  

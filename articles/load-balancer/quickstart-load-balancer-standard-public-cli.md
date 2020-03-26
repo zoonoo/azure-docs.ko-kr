@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: fdbd002ac946f3ac3a1a67980905d4ed6f5510c5
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 1f6a05fdfc28adf412ffbd1402e37b69d1c51634
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77470346"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79477768"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 VM 부하를 분산하는 표준 Load Balancer 만들기
 
@@ -58,7 +58,7 @@ CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서�
   az network public-ip create --resource-group myResourceGroupSLB --name myPublicIP --sku standard --zone 1
 ```
 
-```-SKU Basic```을 사용하여 기본 공용 IP를 만듭니다. 기본 공용 IP는 **표준** 부하 분산 장치와 호환되지 않습니다. Microsoft는 프로덕션 워크로드용 **표준** 사용을 권장합니다.
+`-SKU Basic`을 사용하여 기본 공용 IP를 만듭니다. 기본 공용 IP는 **표준** 부하 분산 장치와 호환되지 않습니다. Microsoft는 프로덕션 워크로드용 **표준** 사용을 권장합니다.
 
 > [!IMPORTANT]
 > 이 빠른 시작의 나머지 부분에서는 위의 SKU 선택 프로세스 중에 **표준** SKU가 선택되었다고 가정합니다.
@@ -73,7 +73,7 @@ CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서�
 
 ### <a name="create-the-load-balancer"></a>부하 분산 장치 만들기
 
-[az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) 명령을 사용하여 **myFrontEnd**라는 프런트 엔드 풀, 이전 단계에서 만든 공용 IP 주소 **myPublicIP**와 연결된 **myBackEndPool**이라는 백 엔드 풀을 포함하는 **myLoadBalancer**라는 공용 Azure Load Balancer를 만듭니다. ```--sku basic```을 사용하여 기본 공용 IP를 만듭니다. Microsoft는 프로덕션 워크로드용 표준 SKU를 권장합니다.
+[az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) 명령을 사용하여 **myFrontEnd**라는 프런트 엔드 풀, 이전 단계에서 만든 공용 IP 주소 **myPublicIP**와 연결된 **myBackEndPool**이라는 백 엔드 풀을 포함하는 **myLoadBalancer**라는 공용 Azure Load Balancer를 만듭니다. `--sku basic`을 사용하여 기본 공용 IP를 만듭니다. Microsoft는 프로덕션 워크로드용 표준 SKU를 권장합니다.
 
 ```azurecli-interactive
   az network lb create \
@@ -83,7 +83,7 @@ CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서�
     --public-ip-address myPublicIP \
     --frontend-ip-name myFrontEnd \
     --backend-pool-name myBackEndPool       
-  ```
+```
 
 > [!IMPORTANT]
 > 이 빠른 시작의 나머지 부분에서는 위의 SKU 선택 프로세스 중에 **표준** SKU가 선택되었다고 가정합니다.
@@ -133,7 +133,8 @@ CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서�
     --name myVnet \
     --subnet-name mySubnet
 ```
-###  <a name="create-a-network-security-group"></a>네트워크 보안 그룹 만들기
+
+### <a name="create-a-network-security-group"></a>네트워크 보안 그룹 만들기
 
 표준 부하 분산 장치의 경우 네트워크 보안 그룹에 속한 NIC가 백 엔드 주소의 VM에 있어야 합니다. 가상 네트워크에 대한 인바운드 연결을 정의하는 네트워크 보안 그룹을 만듭니다. 네트워크 보안 그룹을 만들어 가상 네트워크에 대한 인바운드 연결을 정의합니다.
 
@@ -161,6 +162,7 @@ CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서�
     --access allow \
     --priority 200
 ```
+
 ### <a name="create-nics"></a>NIC 만들기
 
 [az network nic create](/cli/azure/network/nic#az-network-nic-create) 명령을 사용하여 3개의 네트워크 인터페이스를 만들고 공용 IP 주소 및 네트워크 보안 그룹에 연결합니다. 
@@ -246,11 +248,11 @@ runcmd:
   - npm init
   - npm install express -y
   - nodejs index.js
-``` 
- 
+```
+
 [az vm create](/cli/azure/vm#az-vm-create)를 사용하여 가상 머신을 만듭니다.
 
- ```azurecli-interactive
+```azurecli-interactive
 
   az vm create \
     --resource-group myResourceGroupSLB \
@@ -283,6 +285,7 @@ runcmd:
     --no-wait
 
 ```
+
 VM을 배포하는 데 몇 분 정도 걸릴 수 있습니다.
 
 ## <a name="test-the-load-balancer"></a>부하 분산 장치 테스트
@@ -295,16 +298,18 @@ VM을 배포하는 데 몇 분 정도 걸릴 수 있습니다.
     --name myPublicIP \
     --query [ipAddress] \
     --output tsv
-``` 
+```
+
    ![부하 분산 장치 테스트](./media/load-balancer-standard-public-cli/running-nodejs-app.png)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
 더 이상 필요하지 않은 경우 [az group delete](/cli/azure/group#az-group-delete) 명령을 사용하여 리소스 그룹, 부하 분산 장치 및 모든 관련 리소스를 제거할 수 있습니다.
 
-```azurecli-interactive 
+```azurecli-interactive
   az group delete --name myResourceGroupSLB
 ```
+
 ## <a name="next-steps"></a>다음 단계
 이 빠른 시작에서는 표준 Load Balancer를 만들고, 거기에 VM을 연결하고, Load Balancer 트래픽 규칙 및 상태 프로브를 구성한 다음, Load Balancer를 테스트합니다. Azure Load Balancer에 대해 자세히 알아보려면 [Azure Load Balancer 자습서](tutorial-load-balancer-standard-public-zone-redundant-portal.md)를 계속 진행하세요.
 

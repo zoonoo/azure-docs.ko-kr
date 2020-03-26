@@ -4,10 +4,10 @@ description: Visual Studio Code에서 Azure Terraform 확장을 설치하고 사
 ms.topic: tutorial
 ms.date: 10/26/2019
 ms.openlocfilehash: fcb47024fd26f061ca4475b01d00f1ae13303b61
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77472284"
 ---
 # <a name="tutorial-configure-the-azure-terraform-visual-studio-code-extension"></a>자습서: Azure Terraform Visual Studio Code 확장 구성

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/05/2019
 ms.author: spelluru
 ms.openlocfilehash: 229ed2b00582f2c73ce68c47406d68325abda736
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73718825"
 ---
 # <a name="tutorial-azure-wcf-relay-rest-tutorial"></a>자습서: Azure WCF 릴레이 REST 자습서
@@ -38,11 +38,11 @@ ms.locfileid: "73718825"
 > * REST 기반 WCF 서비스 호스트 및 실행
 > * 서비스 실행 및 테스트
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음 필수 구성 요소가 필요합니다.
 
-* Azure 구독. 구독이 없으면 시작하기 전에 [계정을 만드세요](https://azure.microsoft.com/free/).
+* Azure 구독 구독이 없으면 시작하기 전에 [계정을 만드세요](https://azure.microsoft.com/free/).
 * [Visual Studio 2015 이상](https://www.visualstudio.com) - 이 자습서의 예제에서는 Visual Studio 2019를 사용합니다.
 * Azure SDK for .NET. [SDK 다운로드 페이지](https://azure.microsoft.com/downloads/)에서 설치합니다.
 

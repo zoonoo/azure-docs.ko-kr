@@ -10,10 +10,10 @@ ms.topic: overview
 ms.date: 08/28/2019
 ms.author: alkohli
 ms.openlocfilehash: 362b7457538a16d389c3cc40fc44da19b073c0b0
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "70142908"
 ---
 # <a name="what-is-azure-data-box-heavy"></a>Azure Data Box Heavy란?
@@ -59,13 +59,13 @@ Data Box Heavy는 네트워크에 거의 영향을 주지 않고 방대한 양�
 
 이 릴리스의 Data Box Heavy 디바이스에는 다음과 같은 기능이 있습니다.
 
-| 사양                                          | 설명              |
+| 사양                                          | Description              |
 |---------------------------------------------------------|--------------------------|
 | 무게                                                  | 500lbs 이하 <br>전송용 잠금 휠의 디바이스|
 | 차원                                              | 너비: 26인치, 높이: 28인치, 길이: 48인치 |
 | 랙 공간                                              | 랙에 탑재할 수 없음|
 | 필요한 케이블                                         | 4개 접지형 120V/10A 전원 코드(NEMA 5-15) 포함 <br> 디바이스는 최대 240V 전원을 지원하고 C-13 전원 콘센트가 있음, <br> [Mellanox MCX314A-BCCT](https://store.mellanox.com/products/mellanox-mcx314a-bcct-connectx-3-pro-en-network-interface-card-40-56gbe-dual-port-qsfp-pcie3-0-x8-8gt-s-rohs-r6.html)와 호환되는 네트워크 케이블 사용  |
-| 거듭제곱                                                    | 두 디바이스 노드 모두에서 공유되는 4개 기본 PSU(전원 공급 장치) <br> 1,200와트 일반 전력 소모|
+| Power                                                    | 두 디바이스 노드 모두에서 공유되는 4개 기본 PSU(전원 공급 장치) <br> 1,200와트 일반 전력 소모|
 | 스토리지 용량                                        | 1PB 이하 원시, 각각 14TB의 70개 디스크 <br> 770TB의 사용 가능한 용량|
 | 노드 수                                          | 디바이스당 2개 독립 노드(각각 500TB) |
 | 노드당 네트워크 인터페이스 수                             | 노드당 4개 네트워크 인터페이스 <br><br> MGMT, DATA3 <ul><li> 2개 1GbE 인터페이스 </li><li> MGMT - 관리용 및 초기 설치용, 사용자 구성 가능하지 않음 </li><li> DATA3 - 사용자 구성 가능, 기본적으로 DHCP(Dynamic Host Configuration Protocol) 구성</li></ul>DATA1, DATA2 데이터 인터페이스 <ul><li>2개 40GbE 인터페이스 </li><li> 사용자 구성 가능(DHCP(기본값) 또는 정적)</li></ul>|

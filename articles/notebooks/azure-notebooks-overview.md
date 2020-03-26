@@ -4,10 +4,10 @@ description: 설정 또는 구성이 필요하지 않은 경우 무료 Azure Not
 ms.topic: overview
 ms.date: 04/05/2019
 ms.openlocfilehash: bd2355bdefcedca5026a25915dc1da55fdc33a36
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75646333"
 ---
 # <a name="overview-of-azure-notebooks-preview"></a>Azure Notebooks 미리 보기 개요
@@ -73,7 +73,7 @@ Azure Notebooks는 기본 배포 외에 추가 패키지도 포함합니다. Pyt
 
 Azure Notebooks는 다음 Jupyter 확장을 사용하여 미리 구성됩니다.
 
-- [RISE](https://github.com/damianavila/RISE): Jupyter 슬라이드 쇼 확장(live_reveal이라고도 함)입니다. 자세한 내용은 [Notebook 슬라이드 쇼 실행](present-jupyter-notebooks-slideshow.md)을 참조하세요.
+- [RISE](https://github.com/damianavila/RISE): Jupyter 슬라이드 쇼 확장(live_reveal이라고도 함) 자세한 내용은 [Notebook 슬라이드 쇼 실행](present-jupyter-notebooks-slideshow.md)을 참조하세요.
 - [JupyterLab](https://github.com/jupyterlab/jupyterlab): Jupyter Notebook과 함께 작업하기 위한 전체 계산 환경입니다.
 - [Altair](https://github.com/ellisonbg/altair): Python에 대한 선언적 통계 시각화 라이브러리입니다.
 - [BQPlot](https://github.com/bloomberg/bqplot): Jupyter Notebook에 대한 대화형 플로팅 프레임워크입니다.

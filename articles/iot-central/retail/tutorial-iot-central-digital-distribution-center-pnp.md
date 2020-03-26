@@ -8,10 +8,10 @@ ms.subservice: iot-central-retail
 ms.topic: overview
 ms.date: 10/20/2019
 ms.openlocfilehash: 93a77d73b5cc249c39609f98f055a7b1927dd6ed
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77025489"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-digital-distribution-center-application-template"></a>자습서: 디지털 배포 센터 애플리케이션 템플릿 배포 및 살펴보기
@@ -41,7 +41,7 @@ ms.locfileid: "77025489"
 
 3. **앱 만들기**를 선택하면 아래와 같이 새 애플리케이션 양식이 열리고 요청된 세부 정보가 입력됩니다.
    **애플리케이션 이름**: 제안된 기본 이름을 사용하거나 친숙한 애플리케이션 이름을 입력할 수 있습니다.
-   **URL**: 제안된 기본 URL을 사용하거나 기억하기 쉬운 고유한 URL을 입력할 수 있습니다. 다음으로, Azure 구독이 이미 있는 경우 기본 설정이 권장됩니다. 7일 평가판 요금제로 시작하여 평가판이 만료되기 전에 언제든지 표준 가격 책정 요금제로 전환할 수 있습니다.
+   **URL**: 제안된 기본 URL을 사용하거나 기억하기 쉬운 고유한 URL을 입력할 수 있습니다. 다음으로, Azure 구독이 이미 있는 경우 기본 설정이 권장됩니다. 7일 무료 평가판 가격 책정 플랜으로 시작하여 평가판이 만료되기 전에 언제든지 표준 가격 책정 플랜으로 전환할 수 있습니다.
    **청구 정보**: 리소스를 프로비저닝하려면 디렉터리, Azure 구독 및 지역 세부 정보가 필요합니다.
    **만들기**: 페이지 맨 아래에서 만들기를 선택하여 애플리케이션을 배포합니다.
 

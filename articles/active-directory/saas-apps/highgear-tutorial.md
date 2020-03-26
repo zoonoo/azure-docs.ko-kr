@@ -17,10 +17,10 @@ ms.date: 01/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ed06586435315935566ca0b1519b182d4fc47d39
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73159048"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-highgear"></a>자습서: HighGear와 Azure Active Directory 통합
@@ -32,10 +32,10 @@ HighGear를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 * 사용자가 해당 Azure AD 계정으로 HighGear에 자동으로 로그인(Single Sign-On)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 HighGear와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -150,7 +150,7 @@ Single Sign-On을 위해 HighGear를 구성하려면 HighGear 시스템에 로�
 
 ![Single Sign-On 설정 메뉴 항목](media/highgear-tutorial/single-sign-on-settings-menu-item.png)
 
-1. **ID 공급 기업 이름**에서 로그인 페이지의 HighGear Single Sign-On 단추에 표시되는 간단한 설명을 입력합니다. 예:  Azure AD
+1. **ID 공급 기업 이름**에서 로그인 페이지의 HighGear Single Sign-On 단추에 표시되는 간단한 설명을 입력합니다. 다음은 그 예입니다.  Azure AD
 
 2. HighGear의 **SSO(Single Sign-On) URL** 필드에서 Azure의 **HighGear 설정** 섹션에 있는 **로그인 URL** 필드의 값을 붙여넣습니다.
 
@@ -230,7 +230,7 @@ Single Sign-On 구성을 테스트하기 위해 HighGear 테스트 사용자를 
     창이 오른쪽으로 슬라이드 아웃되면 새 사용자에 대한 정보를 입력할 수 있습니다.  
     ![새 연락처 양식](media/highgear-tutorial/new-contact-form.png)
 
-3. **이름** 필드에서 컨테이너의 이름을 입력합니다. 예:  Britta Simon
+3. **이름** 필드에서 컨테이너의 이름을 입력합니다. 다음은 그 예입니다.  Britta Simon
 
 4. **기타 옵션** 메뉴를 클릭하고 **계정 정보** 메뉴 항목을 선택합니다.
 

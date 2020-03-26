@@ -15,10 +15,10 @@ ms.topic: quickstart
 ms.date: 01/16/2020
 ms.author: aschhab
 ms.openlocfilehash: 6088b4c54ed16c5ef46d2c0671e619884cad29d4
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78330620"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azureservice-bus-package"></a>빠른 시작: Node.js와 azure/service-bus 패키지에서 Service Bus 토픽 및 구독을 사용하는 방법

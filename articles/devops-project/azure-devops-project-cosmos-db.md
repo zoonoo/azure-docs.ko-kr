@@ -10,10 +10,10 @@ ms.date: 07/11/2019
 author: mlearned
 monikerRange: vsts
 ms.openlocfilehash: 229b4b9f53ea3866dce1169645f6d6da20827271
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73888897"
 ---
 # <a name="deploy-nodejs-apps-powered-by-azure-cosmos-db-with-devops-projects"></a>DevOps Projects를 사용하여 Azure Cosmos DB에서 제공되는 Node.js 앱 배포
@@ -37,7 +37,7 @@ Azure DevOps Projects는 CI(지속적인 통합) 및 CD(지속적인 배포) 파
 > * Git에 변경 내용 커밋 및 자동으로 Azure에 배포
 > * 리소스 정리
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/)를 체험할 수 있는 Azure 구독이 필요합니다.
 
@@ -158,7 +158,7 @@ DevOps Projects는 Azure DevOps 조직에서 Azure 구독에 배포하는 데 �
 
 ## <a name="next-steps"></a>다음 단계
 
-팀의 요구를 충족하려면 이러한 빌드 및 릴리스 파이프라인을 수정할 수 있습니다. 또한 다른 파이프라인에 대한 템플릿으로 이 CI/CD 패턴을 사용할 수 있습니다. 이 자습서에서는 다음 방법에 대해 알아보았습니다.
+팀의 요구를 충족하려면 이러한 빌드 및 릴리스 파이프라인을 수정할 수 있습니다. 또한 다른 파이프라인에 대한 템플릿으로 이 CI/CD 패턴을 사용할 수 있습니다. 이 자습서에서는 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * DevOps Projects를 사용하여 Azure Cosmos DB에서 제공되는 Node.js 앱 배포

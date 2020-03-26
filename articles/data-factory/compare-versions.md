@@ -11,10 +11,10 @@ ms.topic: overview
 ms.date: 04/09/2018
 ms.author: makromer
 ms.openlocfilehash: e964be548a2f82ecc268a147dd20817b232f51a6
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74924815"
 ---
 # <a name="compare-azure-data-factory-with-data-factory-version-1"></a>Data Factory 버전 1과 Azure Data Factory 비교
@@ -71,7 +71,7 @@ ETL 패턴의 주요 사용 사례는 "델타 로드" 즉, 파이프라인의 �
 ### <a name="other-control-flow-activities"></a>다은 제어 흐름 활동
 현재 버전의 Data Factory에서 지원하는 몇 가지 제어 흐름 작업은 다음과 같습니다. 
 
-제어 작업 | 설명
+제어 작업 | Description
 ---------------- | -----------
 [ForEach 작업](control-flow-for-each-activity.md) | 파이프라인의 반복 제어 흐름을 정의합니다. 이 활동을 사용하여 컬렉션을 반복하고 루프의 지정된 활동을 실행합니다. 이 작업의 루프 구현은 프로그래밍 언어에서 구조를 반복하는 Foreach와 비슷합니다.
 [웹 작업](control-flow-web-activity.md) | Data Factory 파이프라인에서 사용자 지정 REST 엔드포인트를 호출합니다. 작업에서 사용하고 액세스하도록 데이터 세트 및 연결된 서비스를 전달할 수 있습니다. 
@@ -129,11 +129,11 @@ V1에서는 IDotNetActivity 인터페이스의 Execute 메서드를 구현하는
 
 | &nbsp; | V2 | V1 |
 | ------ | -- | -- | 
-| Azure portal | [예](quickstart-create-data-factory-portal.md) | 아니요 |
+| Azure portal | [예](quickstart-create-data-factory-portal.md) | 예 |
 | Azure PowerShell | [예](quickstart-create-data-factory-powershell.md) | [예](data-factory-build-your-first-pipeline-using-powershell.md) |
 | .NET SDK | [예](quickstart-create-data-factory-dot-net.md) | [예](data-factory-build-your-first-pipeline-using-vs.md) |
 | REST API | [예](quickstart-create-data-factory-rest-api.md) | [예](data-factory-build-your-first-pipeline-using-rest-api.md) |
-| Python SDK | [예](quickstart-create-data-factory-python.md) | 아니요 |
+| Python SDK | [예](quickstart-create-data-factory-python.md) | 예 |
 | Resource Manager 템플릿 | [예](quickstart-create-data-factory-resource-manager-template.md) | [예](data-factory-build-your-first-pipeline-using-arm.md) | 
 
 ## <a name="roles-and-permissions"></a>역할 및 권한

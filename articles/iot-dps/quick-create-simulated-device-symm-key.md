@@ -10,10 +10,10 @@ services: iot-dps
 manager: philmea
 ms.custom: mvc
 ms.openlocfilehash: 6047051a36459d61bb5f02907dde9e73a70e86ec
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75945210"
 ---
 # <a name="quickstart-provision-a-simulated-device-with-symmetric-keys"></a>빠른 시작: 대칭 키를 사용하여 시뮬레이션된 디바이스 프로비전
@@ -125,7 +125,7 @@ SDK에는 시뮬레이션된 디바이스의 샘플 코드가 포함되어 있�
 
 ## <a name="simulate-first-boot-sequence-for-the-device"></a>디바이스에 대한 첫 번째 부팅 시퀀스 시뮬레이션
 
-이 섹션에서는 디바이스의 부팅 시퀀스를 Device Provisioning Service 인스턴스에 보내도록 샘플 코드를 업데이트합니다. 이 부팅 시퀀스를 사용하면 디바이스를 인식하고 Device Provisioning Service 인스턴스에 연결된 IoT Hub에 할당합니다.
+이 섹션에서는 디바이스의 부팅 시퀀스를 Device Provisioning Service 인스턴스에 보내도록 샘플 코드를 업데이트합니다. 이 부팅 시퀀스를 사용하면 디바이스가 인식되고 Device Provisioning Service 인스턴스에 연결된 IoT Hub에 할당됩니다.
 
 
 

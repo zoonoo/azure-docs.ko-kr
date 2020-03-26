@@ -9,10 +9,10 @@ ms.date: 11/14/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: 8d89c7eda845f0e5ed9bc8ccc7b6b3812ba275f9
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74132997"
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>보조 온-프레미스 사이트에 Hyper-V VM 재해 복구 설정
@@ -30,7 +30,7 @@ ms.locfileid: "74132997"
 > * VM에 대한 복제 사용
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 시나리오를 완료하려면:
 

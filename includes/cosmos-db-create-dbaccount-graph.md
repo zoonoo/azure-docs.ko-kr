@@ -9,10 +9,10 @@ ms.date: 01/27/2020
 ms.author: sngun
 ms.custom: include file
 ms.openlocfilehash: a6cfafd41d1632d99b7ca03bce2316ec679d7579
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77061836"
 ---
 1. 새 브라우저 창에서 [Azure Portal](https://portal.azure.com/)에 로그인합니다.

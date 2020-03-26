@@ -5,10 +5,10 @@ keywords: ansible, azure, devops, bash, cloudshell, 플레이북, aks, 컨테이
 ms.topic: tutorial
 ms.date: 04/30/2019
 ms.openlocfilehash: e3667ad7a561f56d5fddaacad705c53d1de9ac36
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74156906"
 ---
 # <a name="tutorial-configure-azure-cni-networking-in-azure-kubernetes-service-aks-using-ansible"></a>자습서: Ansible을 사용하여 AKS(Azure Kubernetes Service)에서 Azure CNI 네트워킹 구성
@@ -31,7 +31,7 @@ AKS를 사용하여 다음 네트워크 모델을 통해 클러스터를 배포�
 > * AKS 클러스터 만들기
 > * Azure CNI 네트워킹 구성
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [open-source-devops-prereqs-create-service-principal.md](../../includes/open-source-devops-prereqs-create-service-principal.md)]
@@ -107,7 +107,7 @@ AKS를 사용하여 다음 네트워크 모델을 통해 클러스터를 배포�
 - `azure_rm_aks_version` 모듈을 사용하여 지원되는 버전을 확인합니다.
 - `vnet_subnet_id`는 이전 섹션에서 만든 서브넷입니다.
 - 플레이북은 `~/.ssh/id_rsa.pub`에서 `ssh_key`를 로드합니다. 수정할 때는 "ssh-rsa"(따옴표 제외)로 시작하는 단일 줄 형식을 사용합니다.
-- `client_id` 및 `client_secret` 값은 기본 자격 증명 파일인 `~/.azure/credentials`에서 로드됩니다. 이러한 값을 서비스 주체로 설정하거나 환경 변수에서 이러한 값을 로드할 수 있습니다.
+- `client_id` 및 `client_secret` 값은 기본 자격 증명 파일인 `~/.azure/credentials`에서 로드됩니다. 다음과 같이 이러한 값을 서비스 주체로 설정하거나 환경 변수에서 이러한 값을 로드할 수 있습니다.
 
     ```yml
     client_id: "{{ lookup('env', 'AZURE_CLIENT_ID') }}"

@@ -11,10 +11,10 @@ ms.author: mireks
 ms.reviewer: vanto
 ms.date: 10/30/2019
 ms.openlocfilehash: 2c8d7252b4e4ca8caa465727c0d2328c4aafaefb
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74227913"
 ---
 # <a name="tutorial-migrate-sql-server-on-premises-windows-users-and-groups-to-azure-sql-database-managed-instance-using-t-sql-ddl-syntax"></a>자습서: T-SQL DDL 구문을 사용하여 SQL Server 온-프레미스 Windows 사용자 및 그룹을 Azure SQL Database 관리형 인스턴스로 마이그레이션
@@ -24,7 +24,7 @@ ms.locfileid: "74227913"
 
 이 문서에서는 T-SQL 구문을 사용하여 SQL Server의 온-프레미스 Windows 사용자 및 그룹을 기존 Azure SQL Database 관리형 인스턴스로 마이그레이션하는 프로세스를 안내합니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > - SQL Serve에 대한 로그인 만들기
@@ -34,7 +34,7 @@ ms.locfileid: "74227913"
 > - ALTER USER 구문을 사용하여 사용자를 MI로 수동 마이그레이션
 > - 매핑된 새 사용자를 사용한 인증 테스트
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음 필수 조건이 적용됩니다.
 
@@ -200,7 +200,7 @@ select * from test;
 go
 ```
 
-## <a name="part-3-backup-and-restore-the-individual-user-database-to-managed-instance"></a>3부. 개별 사용자 데이터베이스를 관리형 인스턴스로 백업 및 복원
+## <a name="part-3-backup-and-restore-the-individual-user-database-to-managed-instance"></a>3부: 개별 사용자 데이터베이스를 관리형 인스턴스로 백업 및 복원
 
 [백업 및 복원을 사용하여 데이터베이스 복사](/sql/relational-databases/databases/copy-databases-with-backup-and-restore) 문서를 사용하여 마이그레이션 데이터베이스의 백업을 만들거나 다음 구문을 사용합니다.
 

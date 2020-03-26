@@ -10,10 +10,10 @@ author: luisquintanilla
 ms.author: luquinta
 ms.date: 02/24/2020
 ms.openlocfilehash: 583071ee22e4fb9cffc741520b1583790002a5bf
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77604833"
 ---
 # <a name="set-up-azure-machine-learning-visual-studio-code-extension"></a>Azure Machine Learning Visual Studio Code 확장 설정
@@ -53,7 +53,7 @@ Azure Machine Learning Visual Studio Code 확장을 사용하여 스크립트를
 Azure에서 리소스를 프로비저닝하고 워크로드를 실행하려면 Azure 계정 자격 증명을 사용하여 로그인해야 합니다. 계정 관리를 지원하기 위해 Azure Machine Learning에서 Azure 계정 확장을 자동으로 설치합니다. 다음 사이트를 방문하여 [Azure 계정 확장에 대해 자세히 알아보세요](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account).
 
 1. 메뉴 모음에서 **보기 > 명령 팔레트**를 차례로 선택하여 명령 팔레트를 엽니다. 
-1. 명령 팔레트에서 "Azure: 로그인" 명령을 입력하여 로그인 프로세스를 시작합니다.
+1. 텍스트 상자에서 "Azure: 로그인" 명령을 입력하여 로그인 프로세스를 시작합니다.
 
 ## <a name="run-a-machine-learning-model-training-script-in-azure"></a>Azure에서 기계 학습 모델 학습 스크립트 실행
 

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: be447b001b0b2e14999aac98ba2125f8cbfe9853
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77186606"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-conditional-access"></a>빠른 시작: Azure Active Directory 조건부 액세스에서 세션 위험이 감지되면 액세스 차단  

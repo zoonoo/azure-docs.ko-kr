@@ -10,17 +10,17 @@ ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
 ms.openlocfilehash: 0bd0d8eb8abe6f320f73e35b1e3b08e1d8dc1de3
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73718918"
 ---
 # <a name="tutorial-update-inventory-using-cli-and-topicssubscriptions"></a>자습서: CLI 및 토픽/구독을 사용하여 재고 업데이트
 
 Microsoft Azure Service Bus는 애플리케이션과 서비스 간에 정보를 보내는 다중 테넌트 클라우드 메시징 서비스입니다. 비동기 작업은 구조적 FIFO(선입 선출) 메시징 및 게시/구독 기능과 함께 유연하게 조정할 수 있는 메시징 기능을 제공합니다. 이 자습서에서는 소매점 재고 시나리오에서 Azure CLI 및 Java를 사용하여 게시/구독 채널을 통해 Service Bus 토픽과 구독을 사용하는 방법을 보여 줍니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 > [!div class="checklist"]
 > * Azure CLI를 사용하여 Service Bus 토픽 및 해당 토픽에 대한 하나 이상의 구독 만들기
 > * Azure CLI를 사용하여 토픽 필터 추가
@@ -34,7 +34,7 @@ Microsoft Azure Service Bus는 애플리케이션과 서비스 간에 정보를 
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정][]을 만들 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Java를 사용하여 Service Bus 앱을 개발하려면 다음이 설치되어 있어야 합니다.
 
@@ -326,11 +326,11 @@ public CompletableFuture<Void> receiveAllMessageFromSubscription(String subscrip
 ```
 
 > [!NOTE]
-> [Service Bus 탐색기](https://github.com/paolosalvatori/ServiceBusExplorer/)로 Service Bus 리소스를 관리할 수 있습니다. Service Bus Explorer를 사용하면 Service Bus 네임스페이스에 연결하고 쉬운 방식으로 메시징 엔터티를 관리할 수 있습니다. 이 도구는 가져오기/내보내기 기능 또는 항목, 큐, 구독, 릴레이 서비스, Notification Hubs 및 이벤트 허브를 테스트하는 기능과 같은 고급 기능을 제공합니다. 
+> [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/)로 Service Bus 리소스를 관리할 수 있습니다. Service Bus Explorer를 사용하면 Service Bus 네임스페이스에 연결하고 쉬운 방식으로 메시징 엔터티를 관리할 수 있습니다. 이 도구는 가져오기/내보내기 기능 또는 항목, 큐, 구독, 릴레이 서비스, Notification Hubs 및 이벤트 허브를 테스트하는 기능과 같은 고급 기능을 제공합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 Azure CLI를 사용하여 리소스를 프로비전한 다음, Service Bus 토픽 및 해당 구독에서 메시지를 보내고 받았습니다. 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 Azure CLI를 사용하여 리소스를 프로비전한 다음, Service Bus 토픽 및 해당 구독에서 메시지를 보내고 받았습니다. 구체적으로 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * Azure Portal을 사용하여 Service Bus 토픽 및 해당 토픽에 대한 하나 이상의 구독 만들기

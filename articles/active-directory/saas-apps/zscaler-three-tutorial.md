@@ -17,10 +17,10 @@ ms.date: 10/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b23abcf9a39ce7f6d77bc40e7143505bc68e8b72
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72554993"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zscaler-three"></a>자습서: Zscaler Three와 Azure Active Directory SSO(Single Sign-On) 연결
@@ -33,7 +33,7 @@ ms.locfileid: "72554993"
 
 Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -95,7 +95,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 6. 위에서 언급한 특성 외에도 Zscaler Three 애플리케이션에는 아래에 표시된 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. 이러한 특성도 미리 채워져 있지만 요구 사항에 따라 검토할 수 있습니다.
     
-    | Name | 원본 특성 |
+    | 속성 | 원본 특성 |
     | ---------| ------------ |
     | memberOf     | user.assignedroles |
 
@@ -118,7 +118,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자**를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예: `B.Simon@contoso.com`
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기**를 클릭합니다.
 
@@ -148,7 +148,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 2. 브라우저에 확장을 추가한 후 **Zscaler Three 설정**을 클릭하면 Zscaler Three 애플리케이션으로 이동됩니다. 여기서 관리자 자격 증명을 입력하여 Zscaler Three에 로그인합니다. 브라우저 확장이 애플리케이션을 자동으로 구성하고 3-6단계를 자동으로 수행합니다.
 
-    ![설정](common/setup-sso.png)
+    ![설치 프로그램](common/setup-sso.png)
 
 3. Zscaler Three를 수동으로 설정하려면 새 웹 브라우저 창을 열고 Zscaler Three 회사 사이트에 관리자로 로그인한 후에 다음 단계를 수행합니다.
 
@@ -199,7 +199,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 3. **연결** 탭을 클릭합니다.   
   
-     ![연결](./media/zscaler-three-tutorial/ic769493.png "연결")
+     ![연결](./media/zscaler-three-tutorial/ic769493.png "Connections")
 
 4. **LAN 설정**을 클릭하여 **LAN 설정** 대화 상자를 엽니다.
 

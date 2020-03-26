@@ -9,10 +9,10 @@ ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 06/26/2019
 ms.openlocfilehash: 6e46d7403e251bccd69467cfcdaa1d5073b4e454
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73494569"
 ---
 # <a name="tutorial-build-an-apache-spark-machine-learning-application-in-azure-hdinsight"></a>자습서: Azure HDInsight에서 Apache Spark Machine Learning 애플리케이션 빌드
@@ -21,11 +21,11 @@ ms.locfileid: "73494569"
 
 [MLlib](https://spark.apache.org/docs/latest/ml-guide.html)는 분류, 회귀, 클러스터링, 공동 작업 필터링, 차원 감소, 기본 최적화 기본 요소 등 일반적인 학습 알고리즘 및 유틸리티로 구성된 Spark의 확장 가능한 기계 학습 라이브러리입니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 > [!div class="checklist"]
 > * Apache Spark 기계 학습 애플리케이션 개발
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * HDInsight의 Apache Spark. [Apache Spark 클러스터 만들기](./apache-spark-jupyter-spark-sql-use-portal.md)를 참조하세요.
 
@@ -202,7 +202,7 @@ HDInsight에서 Apache Spark 클러스터에는 Anaconda 라이브러리가 포�
 
 1. **삭제**를 선택합니다. **예**를 선택합니다.
 
-![HDInsight 클러스터를 삭제하는 Azure Portal](./media/apache-spark-ipython-notebook-machine-learning/hdinsight-azure-portal-delete-cluster.png "HDInsight 클러스터 삭제")
+![Azure Portal에서 HDInsight 클러스터 삭제](./media/apache-spark-ipython-notebook-machine-learning/hdinsight-azure-portal-delete-cluster.png "HDInsight 클러스터 삭제")
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -17,10 +17,10 @@ ms.date: 05/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 50097aec1c4a003d3494029e8f25bb13b564f207
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68944015"
 ---
 # <a name="tutorial-integrate-ilms-with-azure-active-directory"></a>자습서: Azure Active Directory와 iLMS 통합
@@ -33,7 +33,7 @@ ms.locfileid: "68944015"
 
 Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -84,7 +84,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     b. **회신 URL** 텍스트 상자에 iLMS 관리 포털에 있는 SAML 설정의 **서비스 공급자** 섹션에서 복사한 다음과 같은 패턴의 **엔드포인트(URL)** 값을 붙여 넣습니다. `https://www.inspiredlms.com/Login/<instanceName>/consumer.aspx`
 
-1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**을 클릭하고 다음 단계를 수행합니다.
+1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**를 클릭하고 다음 단계를 수행합니다.
 
     **로그온 URL** 텍스트 상자에 iLMS 관리 포털에 있는 SAML 설정의 **서비스 공급자** 섹션에서 복사한 **엔드포인트(URL)** 값을 다음과 같은 패턴으로 붙여 넣습니다. `https://www.inspiredlms.com/Login/<instanceName>/consumer.aspx`
 
@@ -95,7 +95,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 위에서 언급한 특성 외에도, iLMS 애플리케이션에는 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 다음 단계를 수행하여 아래 표와 같은 SAML 토큰 특성을 추가합니다.
 
-    | Name | 원본 특성|
+    | 속성 | 원본 특성|
     | --------|------------- |
     | division | user.department |
     | region | user.state |
@@ -135,29 +135,29 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 2. **Settings(설정)** 탭에서 **SSO:SAML**을 클릭하여 SAML 설정을 열고 다음 단계를 수행합니다.
 
-    ![Configure Single Sign-On](./media/ilms-tutorial/1.png)
+    ![Single Sign-on 구성](./media/ilms-tutorial/1.png)
 
 3. **Service Provider(서비스 공급자)** 섹션을 확장하고 **Identifier(식별자)** 및 **Endpoint (URL)(엔드포인트 URL)** 값을 복사합니다.
 
-    ![Configure Single Sign-On](./media/ilms-tutorial/2.png) 
+    ![Single Sign-on 구성](./media/ilms-tutorial/2.png) 
 
 4. **Identity Provider(ID 공급자)** 섹션에서 **Import Metadata(메타데이터 가져오기)** 를 클릭합니다.
 
 5. Azure Portal에서 다운로드한 **페더레이션 메타데이터** 파일을 **SAML 서명 인증서** 섹션에서 선택합니다.
 
-    ![Configure Single Sign-On](./media/ilms-tutorial/tutorial_ilms_ssoconfig1.png)
+    ![Single Sign-on 구성](./media/ilms-tutorial/tutorial_ilms_ssoconfig1.png)
 
 6. 인식할 수 없는 사용자의 iLMS 계정을 만들기 위해 JIT 프로비전을 사용하도록 설정하려면 아래 단계를 수행합니다.
 
     a. **Create Un-recognized User Account(인식할 수 없는 사용자 계정 만들기)** 를 선택합니다.
 
-    ![Configure Single Sign-On](./media/ilms-tutorial/tutorial_ilms_ssoconfig2.png)
+    ![Single Sign-on 구성](./media/ilms-tutorial/tutorial_ilms_ssoconfig2.png)
 
     b. Azure AD의 특성을 iLMS의 특성과 매핑합니다. 특성 열에 특성 이름 또는 기본값을 지정합니다.
 
     다. **Business Rules(비즈니스 규칙)** 탭으로 이동하여 다음 단계를 수행합니다.
 
-    ![Configure Single Sign-On](./media/ilms-tutorial/5.png)
+    ![Single Sign-on 구성](./media/ilms-tutorial/5.png)
 
     d. Single Sign-on 시 존재하지 않는 지역, 국 및 부서를 만들려면 **Create Un-recognized Regions, Divisions and Departments(인식할 수 없는 지역, 국 및 부서 만들기)** 를 선택합니다.
 
@@ -169,7 +169,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 7. **저장** 단추를 클릭하여 설정을 저장합니다.
 
-    ![Configure Single Sign-On](./media/ilms-tutorial/save.png)
+    ![Single Sign-on 구성](./media/ilms-tutorial/save.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
@@ -179,7 +179,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자**를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `Britta Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예: `BrittaSimon@contoso.com`
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `BrittaSimon@contoso.com`)을 입력합니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기**를 클릭합니다.
 

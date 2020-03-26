@@ -4,10 +4,10 @@ description: 이 자습서에서는 Azure CLI를 사용하여 Azure VM에서 실
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.openlocfilehash: 6dbe0c4382b648506d853feb281c70a8e8401595
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75470408"
 ---
 # <a name="tutorial-restore-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>자습서: Azure CLI를 사용하여 Azure VM의 SAP HANA 데이터베이스 복원

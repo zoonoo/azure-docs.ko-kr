@@ -4,10 +4,10 @@ description: 청사진 아티팩트 매개 변수 세부 정보를 포함하여 
 ms.date: 08/20/2019
 ms.topic: sample
 ms.openlocfilehash: da17083e8e1b27739288a9d9ac087d071ff4861c
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74545457"
 ---
 # <a name="deploy-the-microsoft-cloud-adoption-framework-for-azure-migrate-landing-zone-blueprint-sample"></a>Azure에 대한 Microsoft 클라우드 채택 프레임워크 Migration 방문 영역 청사진 샘플 배포
@@ -62,7 +62,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. 청사진 정의 페이지 위쪽에서 **청사진 할당**을 선택합니다.
 
-1. 청사진 할당의 매개 변수 값을 지정합니다.
+1. 청사진 할당의 매개 변수 값을 다음과 같이 지정합니다.
 
    - 기본 사항
      - **구독**: 청사진 샘플 사본을 저장한 관리 그룹에 있는 하나 이상의 구독을 선택합니다. 둘 이상의 구독을 선택하면 입력한 매개 변수를 사용하여 각 구독의 할당이 생성됩니다.
@@ -101,7 +101,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 다음 테이블은 청사진 아티팩트 매개 변수의 목록을 제공합니다.
 
-|아티팩트 이름|아티팩트 형식|매개 변수 이름|설명|
+|아티팩트 이름|아티팩트 형식|매개 변수 이름|Description|
 |-|-|-|-|
 |vNET 방문 영역 배포|Resource Manager 템플릿|IPAddress_Space|**잠김** - 처음 두 옥텟(예: 10.0)을 제공|
 |Key Vault 배포|Resource Manager 템플릿|KV-AccessPolicy|**잠김** - Key Vault에서 권한을 부여할 그룹 또는 사용자 개체 ID|

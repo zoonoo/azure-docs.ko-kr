@@ -16,10 +16,10 @@ ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
 ms.openlocfilehash: 6f62771d707d1aebccbfaf809dee7d0dedf5fefa
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79096121"
 ---
 # <a name="tutorial-balance-internal-traffic-load-with-a-basic-load-balancer-in-the-azure-portal"></a>자습서: Azure Portal에서 기본 부하 분산 장치로 내부 트래픽 부하 분산

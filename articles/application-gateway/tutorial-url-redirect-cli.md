@@ -9,18 +9,18 @@ ms.topic: tutorial
 ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 23ddbdc62b2592a8fbfb7cdccaca52cbfe9aee62
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 87f6febaf89f82c2c81b397c94d744229b3f4b34
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074435"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80239499"
 ---
 # <a name="tutorial-create-an-application-gateway-with-url-path-based-redirection-using-the-azure-cli"></a>자습서: Azure CLI를 사용하여 URL 경로 기반 리디렉션으로 애플리케이션 게이트웨이 만들기
 
 Azure CLI를 사용하여 [애플리케이션 게이트웨이](application-gateway-introduction.md)를 만들 때 [URL 경로 기반 회람 규칙](tutorial-url-route-cli.md)을 구성할 수 있습니다. 이 자습서에서는 [가상 머신 확장 집합](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)을 사용하여 백 엔드 풀을 만듭니다. 그런 다음, 웹 트래픽이 적절한 백 엔드 풀로 리디렉션되도록 하는 URL 라우팅 규칙을 만듭니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 네트워크 설정
@@ -234,7 +234,7 @@ az network application-gateway rule create \
 
 ## <a name="create-virtual-machine-scale-sets"></a>가상 머신 확장 집합 만들기
 
-이 예제에서는 사용자가 만든 세 개의 백 엔드 풀을 지원하는 세 개의 가상 머신 확장 집합을 만듭니다. 생성된 확장 집합의 이름은 *myvmss1*, *myvmss2* 및 *myvmss3*입니다. 각 확장 집합에는 NGINX를 설치하는 두 개의 가상 머신 인스턴스가 포함됩니다.
+이 예제에서는 사용자가 만든 세 개의 백 엔드 풀을 지원하는 세 개의 가상 머신 확장 집합을 만듭니다. 사용자가 만든 확장 집합의 이름은 *myvmss1*, *myvmss2* 및 *myvmss3*입니다. 각 확장 집합에는 NGINX를 설치하는 두 개의 가상 머신 인스턴스가 포함됩니다.
 
 ```azurecli-interactive
 for i in `seq 1 3`; do
@@ -286,7 +286,7 @@ done
 
 애플리케이션 게이트웨이의 공용 IP 주소를 가져오려면 [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show)를 사용합니다. 공용 IP 주소를 복사하여 브라우저의 주소 표시줄에 붙여넣습니다. 예: `http://40.121.222.19`, `http://40.121.222.19:8080/images/test.htm`, `http://40.121.222.19:8080/video/test.htm`, 또는 `http://40.121.222.19:8081/images/test.htm`
 
-```azurepowershell-interactive
+```azurecli-interactive
 az network public-ip show \
   --resource-group myResourceGroupAG \
   --name myAGPublicIPAddress \

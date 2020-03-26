@@ -12,10 +12,10 @@ ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
 ms.date: 09/03/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 6f71dd0f928f75deff0a483dda0aed621d6ead19
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78197609"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure Key Vault에서 비밀을 설정하고 검색

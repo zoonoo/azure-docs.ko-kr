@@ -4,10 +4,10 @@ description: 청사진 아티팩트 매개 변수 세부 정보를 포함하여 
 ms.date: 08/20/2019
 ms.topic: sample
 ms.openlocfilehash: df17f8c3f539e25635ea4718be9d51d5e5e3f708
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74545514"
 ---
 # <a name="deploy-the-microsoft-cloud-adoption-framework-for-azure-foundation-blueprint-sample"></a>Azure에 대한 Microsoft 클라우드 채택 프레임워크 Foundation 청사진 샘플 배포
@@ -60,7 +60,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. 청사진 정의 페이지 위쪽에서 **청사진 할당**을 선택합니다.
 
-1. 청사진 할당의 매개 변수 값을 지정합니다.
+1. 청사진 할당의 매개 변수 값을 다음과 같이 지정합니다.
 
    - 기본 사항
        - **구독**: 청사진 샘플 사본을 저장한 관리 그룹에 있는 하나 이상의 구독을 선택합니다. 둘 이상의 구독을 선택하면 입력한 매개 변수를 사용하여 각 구독의 할당이 생성됩니다.
@@ -100,7 +100,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 다음 테이블은 청사진 아티팩트 매개 변수의 목록을 제공합니다.
 
-|아티팩트 이름|아티팩트 형식|매개 변수 이름|설명|
+|아티팩트 이름|아티팩트 형식|매개 변수 이름|Description|
 |-|-|-|-|
 |허용되는 스토리지 계정 SKU|정책 할당|Policy_Allowed-StorageAccount-SKUs|진단 로그 스토리지 계정에 사용되는 SKU|
 |허용되는 가상 머신 SKU|정책 할당|Policy_Allowed-VM-SKUs|허용되는 가상 머신 SKU|

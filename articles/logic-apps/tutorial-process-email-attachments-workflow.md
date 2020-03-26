@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/27/2020
 ms.openlocfilehash: 4adcda6030ed59cb6cc2285eb1c1eea0f768662c
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77662747"
 ---
 # <a name="tutorial-automate-tasks-to-process-emails-by-using-azure-logic-apps-azure-functions-and-azure-storage"></a>자습서: Azure Logic Apps, Azure Functions 및 Azure Storage를 사용하여 이메일을 처리하는 작업 자동화

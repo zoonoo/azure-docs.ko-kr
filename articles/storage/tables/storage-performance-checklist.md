@@ -9,10 +9,10 @@ ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: tables
 ms.openlocfilehash: 89581c8ae2fbdbb55a2abfbd527c8fdcf4b65761
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75749559"
 ---
 # <a name="performance-and-scalability-checklist-for-table-storage"></a>Table storage에 대한 성능 및 확장성 검사 목록

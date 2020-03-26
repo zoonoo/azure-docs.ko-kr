@@ -18,10 +18,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 03/22/2019
 ms.openlocfilehash: 4ccf62dd8a249c9ba23bbb4510164b35a58db917
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72387412"
 ---
 # <a name="tutorial-send-localized-push-notifications-to-windows-apps-using-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용하여 Windows 앱에 지역화된 푸시 알림 보내기
@@ -39,16 +39,16 @@ ms.locfileid: "72387412"
 
 이 자습서를 완료하면 모바일 애플리케이션을 사용하여 관심 있는 범주에 등록하고, 알림을 수신할 언어를 지정할 수도 있습니다. 백 엔드 애플리케이션은 언어 및 디바이스별로 지역화된 알림을 보냅니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 로캘 정보를 지원하도록 Windows 앱 업데이트
 > * 지역화된 알림을 보내도록 백 엔드 앱 업데이트
 > * 앱 테스트
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-[자습서: 특정 디바이스로 알림 보내기(유니버설 Windows 플랫폼)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md)를 완료하세요.
+이 자습서를 시작하기 전에 [자습서: 특정 디바이스로 알림 보내기(유니버설 Windows 플랫폼)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md)에서 만든 Visual Studio 솔루션을 엽니다.
 
 [자습서: 특정 디바이스로 알림 보내기(유니버설 Windows 플랫폼)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md)에서는 **태그**를 사용하여 다른 뉴스 **범주**에 대한 알림을 구독하는 앱을 빌드했습니다. 이 자습서에서는 Notification Hubs의 **템플릿** 기능을 사용하여 **지역화된** 속보 알림을 쉽게 제공할 수 있습니다.
 
@@ -269,7 +269,7 @@ private static async void SendTemplateNotificationAsync()
 이 자습서에서는 등록에 태그가 연결된 특정 디바이스에 지역화된 알림을 푸시하는 방법을 배웠습니다. 둘 이상의 디바이스를 사용할 수 있는 특정 사용자에게 알림을 푸시하는 방법을 알아보려면 다음 자습서를 계속 진행합니다.
 
 > [!div class="nextstepaction"]
->[특정 사용자에게 알림 푸시](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md)
+>[특정 사용자에 알림 푸시](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md)
 
 <!-- Anchors. -->
 [Template concepts]: #concepts

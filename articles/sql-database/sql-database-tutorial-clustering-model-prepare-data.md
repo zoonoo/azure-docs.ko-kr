@@ -14,23 +14,23 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/29/2019
 ms.openlocfilehash: 800dbfc05c47a949bf024e9a5c671979b49ad201
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68639979"
 ---
 # <a name="tutorial-prepare-data-to-perform-clustering-in-r-with-azure-sql-database-machine-learning-services-preview"></a>자습서: Azure SQL Database Machine Learning Services(미리 보기)를 사용하여 R에서 클러스터링을 수행하기 위한 데이터 준비
 
 세 부분으로 이루어진 이 자습서 시리즈의 1부에서는 R을 사용하여 Azure SQL 데이터베이스의 데이터를 가져와서 준비합니다. 이 시리즈의 뒷부분에서 이 데이터를 사용하여 Azure SQL Database Machine Learning Services(미리 보기)를 통해 R의 클러스터링 모델을 학습하고 배포합니다.
 
-*클러스터링*이란 데이터를 서로 비슷한 멤버로 이루어진 그룹으로 구성하는 것이라고 설명할 수 있습니다.
-여기서는 **K-평균** 알고리즘을 사용하여 제품 구매 및 환불 데이터 세트의 고객을 클러스터링하겠습니다. 고객을 클러스터링하면 특정 그룹을 대상으로 정해서 마케팅 활동을 보다 효과적으로 집중할 수 있습니다.
-K-평균 클러스터링은 유사성을 기반으로 데이터의 패턴을 찾는 *자율 학습* 알고리즘입니다.
+*클러스터링*은 그룹 구성원이 일정 기준에 따라 유사한 특성을 갖는 그룹으로 데이터를 정리하는 것과 같습니다.
+**K-평균** 알고리즘을 사용하여 제품 구매 및 반품 데이터 세트에서 고객에 대한 클러스터링을 수행합니다. 고객을 클러스터링하면 특정 그룹을 대상으로 보다 효과적으로 마케팅 노력을 집중할 수 있습니다.
+K-평균 클러스터링은 유사성을 기준으로 데이터의 패턴을 찾는 *자율 학습* 알고리즘입니다.
 
 이 시리즈의 1부 및 2부에서는 RStudio에서 R 스크립트를 개발하여 데이터를 준비하고 기계 학습 모델을 학습시킵니다. 그런 다음, 3부에서는 SQL 데이터베이스 내에서 저장 프로시저를 사용하여 이러한 R 스크립트를 실행합니다.
 
-이 문서에서는 다음 방법을 설명합니다.
+이 문서에서는 다음을 수행하는 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 샘플 데이터베이스를 Azure SQL Database로 가져오기
@@ -43,7 +43,7 @@ K-평균 클러스터링은 유사성을 기반으로 데이터의 패턴을 찾
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 - Azure 구독이 아직 없는 경우 시작하기 전에 [계정을 만듭니다](https://azure.microsoft.com/free/).
 
@@ -61,7 +61,7 @@ K-평균 클러스터링은 유사성을 기반으로 데이터의 패턴을 찾
 
 ## <a name="import-the-sample-database"></a>샘플 데이터베이스 가져오기
 
-이 자습서에서 사용된 샘플 데이터 세트는 사용자가 다운로드하여 사용할 수 있도록 **.bacpac** 데이터베이스 백업 파일에 저장되었습니다. 이 데이터 세트는 [TPC(Transaction Processing Performance Council)](http://www.tpc.org/default.asp)에서 제공한 [tpcx-bb](http://www.tpc.org/tpcx-bb/default.asp) 데이터 세트에서 파생되었습니다.
+이 자습서에서 사용된 샘플 데이터 세트는 사용자가 다운로드하여 사용할 수 있도록 **.bacpac** 데이터베이스 백업 파일에 저장되었습니다. 이 데이터 세트는 [Transaction Processing Performance Council(TPC)](http://www.tpc.org/default.asp)에서 제공되는 [tpcx-bb](http://www.tpc.org/tpcx-bb/default.asp) 데이터 세트에서 파생됩니다.
 
 1. [tpcxbb_1gb.bacpac](https://sqlchoice.blob.core.windows.net/sqlchoice/static/tpcxbb_1gb.bacpac) 파일을 다운로드합니다.
 
@@ -71,15 +71,15 @@ K-평균 클러스터링은 유사성을 기반으로 데이터의 패턴을 찾
    * 공개 미리 보기 동안 새 데이터베이스에 대해 **Gen5/vCore** 구성 선택
    * 새 데이터베이스 이름을 "tpcxbb_1gb"로 지정
 
-## <a name="separate-customers"></a>고객 분류
+## <a name="separate-customers"></a>개별 고객
 
 RStudio에서 새 RScript 파일을 만든 후 다음 스크립트를 실행합니다.
 SQL 쿼리에서 다음 기준에 따라 고객을 분류합니다.
 
-* **orderRatio** = 환불 주문 비율(일부 환불 또는 전체 환불한 주문 수 대비 총 주문 수)
-* **itemsRatio** = 환불 항목 비율(환불한 항목 수 대비 구매한 총 항목 수)
-* **monetaryRatio** = 환불 금액 비율(환불한 금액 대비 총 구매 금액)
-* **frequency** = 환불 빈도
+* **orderRatio** = 반품 주문 비율(전체 주문 수 대비 부분 또는 전체적으로 반품된 주문 합계 수)
+* **itemsRatio** = 반품 항목 비율(구입한 항목 수 대비 반품된 총 항목 수)
+* **monetaryRatio** = 반품 금액 비율(구입한 금액 대비 반품된 항목의 총 금액)
+* **frequency** = 반품 빈도
 
 **paste** 함수에서 **Server**, **UID** 및 **PWD**를 해당 연결 정보로 바꿉니다.
 
@@ -156,7 +156,7 @@ LEFT OUTER JOIN (
 "
 ```
 
-## <a name="load-the-data-into-a-data-frame"></a>데이터 프레임으로 데이터 로드
+## <a name="load-the-data-into-a-data-frame"></a>데이터 프레임에 데이터 로드
 
 이제 다음 스크립트를 통해 **rxSqlServerData** 함수를 사용하여 쿼리 결과를 R 데이터 프레임에 반환합니다.
 이 과정에서, 형식이 올바르게 R로 전송되도록 선택한 열의 형식을 정의하겠습니다(colClasses를 사용하여).
@@ -182,7 +182,7 @@ customer_data <- rxDataStep(customer_returns);
 head(customer_data, n = 5);
 ```
 
-다음과 유사한 결과가 표시됩니다.
+다음과 비슷한 결과가 표시됩니다.
 
 ```results
   customer orderRatio itemsRatio monetaryRatio frequency
@@ -206,7 +206,7 @@ Azure Portal에서 다음 단계를 따릅니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서 시리즈의 제1부에서는 다음 단계를 완료했습니다.
+이 자습서 시리즈의 1부에서 다음 단계를 완료했습니다.
 
 * 샘플 데이터베이스를 Azure SQL Database로 가져오기
 * R을 사용하여 다양한 기준에 따라 고객 분류

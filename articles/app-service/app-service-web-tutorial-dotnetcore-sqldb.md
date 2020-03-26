@@ -4,13 +4,13 @@ description: SQL Database에 연결하여 Azure App Service에서 .NET Core 앱�
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/06/2019
-ms.custom: seodec18
-ms.openlocfilehash: 3ad011529f8b4be90fc0c108a2049c30d1c69302
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.custom: mvc, cli-validate, seodec18
+ms.openlocfilehash: 73c68e03ca2403be51664cb59158762cedccc721
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78897324"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80046953"
 ---
 # <a name="tutorial-build-an-aspnet-core-and-sql-database-app-in-azure-app-service"></a>자습서: Azure App Service에서 ASP.NET Core 및 SQL Database 앱 빌드
 

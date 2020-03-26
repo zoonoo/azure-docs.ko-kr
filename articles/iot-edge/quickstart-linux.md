@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: e2dd17a324c8920f44e972987508352a69383bb9
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
-ms.translationtype: MT
+ms.openlocfilehash: 52258a8bc287df36158ec143e4aad74c34455ea4
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78892968"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80236081"
 ---
-# <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-linux-device"></a>빠른 시작: 첫 번째 IoT Edge 모듈을 가상 Linux 장치에 배포
+# <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-linux-device"></a>빠른 시작: 가상 Linux 디바이스에 첫 번째 IoT Edge 모듈 배포
 
 이 빠른 시작에서는 컨테이너화된 코드를 가상 IoT Edge 디바이스에 배포하여 Azure IoT Edge를 테스트합니다. IoT Edge를 사용하면 디바이스에서 코드를 원격으로 관리하여 더 많은 워크로드를 에지로 전송할 수 있습니다. 이 빠른 시작에서는 IoT Edge 디바이스에 Azure 가상 머신을 사용하는 것이 좋습니다. 이를 통해 모든 필수 구성 요소가 설치된 테스트 머신을 빠르게 만든 다음, 완료되면 삭제할 수 있습니다.
 
@@ -138,7 +138,7 @@ IoT Edge 런타임은 모든 IoT Edge 디바이스에 배포되며, 세 가지 �
 
 이 빠른 시작의 나머지 명령은 IoT Edge 디바이스 자체에서 발생하기 때문에 디바이스에서 발생하는 상황을 볼 수 있습니다. 가상 머신을 사용하는 경우에는 만들기 명령에 의해 출력된 공용 IP 주소를 사용하여 해당 머신에 연결하십시오. Azure Portal의 가상 머신 개요 페이지에서 공용 IP 주소를 찾을 수 있습니다. 다음 명령을 사용하여 가상 머신에 연결합니다. 필수 구성 요소에 제안된 사용자 이름과 다른 사용자 이름을 사용하는 경우에는 `{azureuser}`를 바꿉니다. `{publicIpAddress}`를 머신의 주소로 바꿉니다.
 
-   ```azurecli-interactive
+   ```console
    ssh azureuser@{publicIpAddress}
    ```
 

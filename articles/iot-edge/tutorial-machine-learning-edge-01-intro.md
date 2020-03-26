@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 965c420fa29c4cf82517148c01e17d6d7dd6ea97
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74106500"
 ---
 # <a name="tutorial-an-end-to-end-solution-using-azure-machine-learning-and-iot-edge"></a>자습서: Azure Machine Learning 및 IoT Edge를 사용하는 엔드투엔드 솔루션
@@ -74,7 +74,7 @@ GitHub 사용자 hankroark의 [터보팬 엔진 성능 저하](https://github.co
 
 1. **모델 유지 관리 및 구체화**. 모델을 배포한 후에도 할 일이 남아 있습니다. 대부분의 경우 앞으로도 계속 데이터를 수집하여 주기적으로 클라우드에 업로드합니다. 이 데이터를 사용하여 모델을 다시 학습시키고 구체화한 다음, IoT Edge에 다시 배포할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 리소스를 만들 권한이 있는 Azure 구독에 액세스해야 합니다. 이 자습서에서 사용되는 여러 서비스는 Azure 요금이 발생합니다. 아직 Azure 구독이 없는 경우 [Azure 체험 계정](https://azure.microsoft.com/offers/ms-azr-0044p/)으로 시작할 수 있습니다.
 

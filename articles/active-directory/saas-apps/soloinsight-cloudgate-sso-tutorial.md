@@ -17,10 +17,10 @@ ms.date: 05/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b88822f164e0fe8cdf55eddfa981644f725e01f3
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73159924"
 ---
 # <a name="tutorial-integrate-soloinsight-cloudgate-sso-with-azure-active-directory"></a>자습서: Soloinsight-CloudGate SSO와 Azure Active Directory 통합
@@ -33,7 +33,7 @@ ms.locfileid: "73159924"
 
 Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -61,12 +61,12 @@ Soloinsight-CloudGate SSO가 Azure AD로 통합되도록 구성하려면 Soloins
 
 Soloinsight-CloudGate SSO에서 Azure AD SSO를 구성하고 테스트하려면 다음 구성 요소를 완료합니다.
 
-1. **[Azure AD SSO 구성](#configure-azure-ad-sso)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
+1. 사용자가 이 기능을 사용할 수 있도록 **[Azure AD SSO를 구성](#configure-azure-ad-sso)** 합니다.
 2. **[Soloinsight-CloudGate SSO 구성](#configure-soloinsight-cloudgate-sso)** - 애플리케이션 쪽에서 SSO 설정을 구성합니다.
 3. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
 4. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
 5. **[Soloinsight-CloudGate SSO 테스트 사용자 만들기](#create-soloinsight-cloudgate-sso-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Soloinsight-CloudGate SSO에 만듭니다.
-6. **[SSO 테스트](#test-sso)** - 구성이 작동하는지 여부를 확인합니다.
+6. **[SSO를 테스트](#test-sso)** 하여 구성이 작동하는지 여부를 확인합니다.
 
 ### <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
 
@@ -87,7 +87,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
    > [!NOTE]
    > 이러한 값은 실제 값이 아닙니다. 이러한 값을 이 자습서 뒷부분의 **Soloinsight-CloudGate SSO Single Sign-On 구성** 섹션에 설명되어 있는 실제 로그온 URL 및 식별자로 업데이트합니다.
 
-1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 찾은 다음, **다운로드**를 선택하여 인증서를 다운로드하고 컴퓨터에 저장합니다.
+1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 찾은 후 **다운로드**를 선택하여 인증서를 컴퓨터에 다운로드하고 본인의 컴퓨터에 저장합니다.
 
    ![인증서 다운로드 링크](common/certificatebase64.png)
 
@@ -103,7 +103,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 2. 브라우저에 확장을 추가한 후 **Soloinsight-CloudGate SSO 설정**클릭하여 Soloinsight-CloudGate SSO 애플리케이션으로 이동합니다. 여기에서 관리자 자격 증명을 입력하여 Soloinsight-CloudGate SSO에 로그인합니다. 브라우저 확장이 애플리케이션을 자동으로 구성하고 3-8단계를 자동으로 수행합니다.
 
-    ![구성 설정](common/setup-sso.png)
+    ![설정 구성](common/setup-sso.png)
 
 3. Soloinsight-CloudGate SSO를 수동으로 설정하려면 새 웹 브라우저 창을 열고 Soloinsight-CloudGate SSO 회사 사이트에 관리자로 로그인한 후에 다음 단계를 수행합니다.
 
@@ -155,7 +155,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자**를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `Britta Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예: `BrittaSimon@contoso.com`
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `BrittaSimon@contoso.com`)을 입력합니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기**를 클릭합니다.
 

@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 10/20/2018
 ms.author: cherylmc
 ms.openlocfilehash: 686ac8013879eff8adc4476d56119bbb4a169900
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74813115"
 ---
 # <a name="tutorial-create-and-modify-an-expressroute-circuit"></a>자습서: ExpressRoute 회로 만들기 및 수정
@@ -34,9 +34,9 @@ ms.locfileid: "74813115"
 * 새 네트워킹 리소스를 만들 권한이 있는지 확인합니다. 적절한 권한이 없는 경우에는 계정 관리자에게 문의합니다.
 * 단계를 더 잘 이해하기 위해 시작 전에 [비디오 보기](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)를 할 수 있습니다.
 
-## <a name="create"></a>ExpressRoute 회로 만들기 및 프로비전
+## <a name="create-and-provision-an-expressroute-circuit"></a><a name="create"></a>ExpressRoute 회로 만들기 및 프로비전
 
-### <a name="1-sign-in-to-the-azure-portal"></a>1. Azure 포털에 로그인합니다.
+### <a name="1-sign-in-to-the-azure-portal"></a>1. Azure Portal에 로그인
 
 브라우저에서 [Azure 포털](https://portal.azure.com) 로 이동하고 Azure 계정으로 로그인합니다.
 
@@ -78,7 +78,7 @@ ms.locfileid: "74813115"
 
 회로를 선택하여 회로의 속성을 볼 수 있습니다. 회로의 **개요** 페이지에서 서비스 키가 서비스 키 필드에 표시됩니다. 회로의 서비스 키를 복사하고 서비스 공급자로 전달하여 프로비전 프로세스를 완료해야 합니다. 회로 서비스 키는 회로에 지정됩니다.
 
-![보기 속성](./media/expressroute-howto-circuit-portal-resource-manager/servicekey1.png)
+![속성 보기](./media/expressroute-howto-circuit-portal-resource-manager/servicekey1.png)
 
 ### <a name="4-send-the-service-key-to-your-connectivity-provider-for-provisioning"></a>4. 프로비전을 위해 연결 공급자에 서비스 키 보내기
 
@@ -118,11 +118,11 @@ ExpressRoute 회로를 사용하려면 다음 상태여야 합니다.
 
 그 다음 가상 네트워크를 ExpressRoute 회로에 연결합니다. Resource Manager 배포 모델을 작업하는 경우에는 [ExpressRoute 회로에 가상 네트워크 연결](expressroute-howto-linkvnet-arm.md) 문서를 사용할 수 있습니다.
 
-## <a name="status"></a>ExpressRoute 회로의 상태 가져오기
+## <a name="getting-the-status-of-an-expressroute-circuit"></a><a name="status"></a>ExpressRoute 회로의 상태 가져오기
 
 회로를 선택하고 개요 페이지로 이동하여 회로의 상태를 볼 수 있습니다.
 
-## <a name="modify"></a>ExpressRoute 회로 수정
+## <a name="modifying-an-expressroute-circuit"></a><a name="modify"></a>ExpressRoute 회로 수정
 
 연결에 미치는 영향 없이 ExpressRoute 회로의 특정 속성을 수정할 수 있습니다. **구성** 페이지에서 대역폭, SKU, 요금 청구 모델을 수정하고 기존 작업을 허용할 수 있습니다. 제한 및 제한 사항에 대한 자세한 내용은 [ExpressRoute FAQ](expressroute-faqs.md)를 참조하세요.
 
@@ -151,7 +151,7 @@ ExpressRoute 회로를 수정하려면 **구성**을 클릭합니다.
 
 ![회로 수정](./media/expressroute-howto-circuit-portal-resource-manager/modify-circuit-configuration.png)
 
-## <a name="delete"></a>ExpressRoute 회로 프로비전 해제 및 삭제
+## <a name="deprovisioning-and-deleting-an-expressroute-circuit"></a><a name="delete"></a>ExpressRoute 회로 프로비전 해제 및 삭제
 
 **삭제** 아이콘을 선택하여 ExpressRoute 회로를 삭제할 수 있습니다. 다음 정보에 유의하세요.
 

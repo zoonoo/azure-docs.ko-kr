@@ -5,8 +5,12 @@
   items:
     - name: Azure Active Directory란?
       href: active-directory-whatis.md
+    - name: ADDS와 Azure AD 비교
+      href: active-directory-compare-azure-ad-to-ad.md
     - name: Azure Active Directory의 새로운 기능
       href: whats-new.md
+    - name: Microsoft 365 Government의 새로운 기능
+      href: whats-new-microsoft-365-government.md
 - name: 빠른 시작
   expanded: true
   items:
@@ -17,8 +21,6 @@
 - name: 개념
   expanded: true
   items:
-    - name: ID 보안 점수
-      href: identity-secure-score.md
     - name: 보안
       items:
         - name: MFA 사용
@@ -27,24 +29,30 @@
           href: concept-fundamentals-security-defaults.md
         - name: 레거시 인증 차단
           href: concept-fundamentals-block-legacy-authentication.md
-    - name: 그룹 및 액세스 관리
-      href: active-directory-manage-groups.md
-    - name: 그룹 기반 라이선스
-      href: active-directory-licensing-whatis-azure-portal.md
-    - name: Azure AD 아키텍처
-      href: active-directory-architecture.md
-    - name: 기본 사용자 사용 권한
-      href: users-default-permissions.md
-    - name: '배포 30, 90 이상'
+        - name: ID 보안 점수
+          href: identity-secure-score.md
+    - name: 그룹 및 사용자
+      items:
+        - name: 그룹 및 액세스 관리
+          href: active-directory-manage-groups.md
+        - name: 그룹 기반 라이선스
+          href: active-directory-licensing-whatis-azure-portal.md
+        - name: 기본 사용자 사용 권한
+          href: users-default-permissions.md
+    - name: Architecture
+      items:
+        - name: Azure AD 아키텍처
+          href: active-directory-architecture.md
+    - name: 배포 가이드
+      items:
+        - name: '배포 30, 90 이상'
       href: active-directory-deployment-checklist-p2.md
-    - name: EU에 대한 ID 데이터 스토리지
-      href: active-directory-data-storage-eu.md
-    - name: 오스트레일리아 및 뉴질랜드의 ID 데이터 스토리지
-      href: active-directory-data-storage-australia-newzealand.md
-    - name: Microsoft 365 Government의 새로운 기능
-      href: whats-new-microsoft-365-government.md
-    - name: ADDS와 Azure AD 비교
-      href: active-directory-compare-azure-ad-to-ad.md
+    - name: 데이터 스토리지
+      items:
+        - name: EU에 대한 ID 데이터 스토리지
+          href: active-directory-data-storage-eu.md
+        - name: 오스트레일리아 및 뉴질랜드의 ID 데이터 스토리지
+          href: active-directory-data-storage-australia-newzealand.md
     - name: Azure AD 작업 참조
       items:
         - name: 소개

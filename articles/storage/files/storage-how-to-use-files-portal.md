@@ -8,10 +8,10 @@ ms.date: 10/18/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: fef3daf6e9e535736002e309e3d27491364dc553
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "71260300"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-with-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure 파일 공유 만들기 및 관리 

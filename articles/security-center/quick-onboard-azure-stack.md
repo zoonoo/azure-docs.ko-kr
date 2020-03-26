@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/02/2019
 ms.author: fiseraci
 ms.openlocfilehash: c186dcb2d7d7d423f5c001bdb4d3f3503beebd9c
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73686515"
 ---
 # <a name="quickstart-onboard-your-azure-stack-virtual-machines-to-security-center"></a>빠른 시작: Azure Stack 가상 머신을 Security Center에 온보딩
@@ -26,7 +26,7 @@ Azure 구독을 온보딩한 후 Azure Stack 마켓플레이스에서 **Azure Mo
 
 이 빠른 시작에서는 Azure Stack에서 실행 중인 가상 머신(Linux 및 Windows 모두 지원)에서 **Azure Monitor, Update 및 Configuration Management** 가상 머신 확장을 추가하는 방법을 보여줍니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 Security Center를 시작하려면 Microsoft Azure에 대한 구독이 있어야 합니다. 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/pricing/free-trial/)으로 등록할 수 있습니다.
 
 이 빠른 시작을 수행하려면 Azure 구독이 Security Center의 표준(Standard) 계층에 있어야 합니다. 업그레이드 지침은 [Security Center 표준에 Azure 구독 온보딩](security-center-get-started.md)을 참조하세요. 30일 동안 추가 비용 없이 Security Center 표준 계층을 사용해 볼 수 있습니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조하세요.

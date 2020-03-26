@@ -7,10 +7,10 @@ ms.date: 03/10/2020
 ms.author: mathoma
 ms.reviewer: vanto
 ms.openlocfilehash: c1ca87b6e7b8afb50522e73107707e15782a0a91
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79200290"
 ---
 이 단계에서는 AdventureWorksLT 샘플 데이터를 사용하는 Azure SQL Database 서버와 단일 데이터베이스를 만듭니다. Azure Portal 메뉴와 화면을 사용하거나 Azure Cloud Shell에서 Azure CLI 또는 PowerShell 스크립트를 사용하여 데이터베이스를 만들 수 있습니다.
@@ -56,13 +56,13 @@ Azure Portal에서 리소스 그룹, SQL 서버 및 단일 데이터베이스를
    
    변경한 후 **적용**을 선택합니다.
    
-1. 페이지 아래쪽에서 **다음: 네트워킹**을 선택합니다.
+1. 완료되면 **다음: 네트워킹**을 선택합니다.
    
    ![새 SQL 데이터베이스 - 기본 탭](../media/sql-database-single-database-get-started/new-sql-database-basics.png)
    
 1. **네트워킹** 탭의 **연결 방법** 아래에서 **퍼블릭 엔드포인트**를 선택합니다. 
 1. **방화벽 규칙** 아래에서 **현재 클라이언트 IP 주소 추가**를 **예**로 설정합니다.
-1. 페이지 아래쪽에서 **다음: 추가 설정**을 선택합니다.
+1. 완료되면 **다음: 추가 설정**을 선택합니다.
    
    ![네트워킹 탭](../media/sql-database-single-database-get-started/networking.png)
    

@@ -17,10 +17,10 @@ ms.date: 08/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e9ed129bccbd763bf4459fa7818e0dba4e7e65b5
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73156530"
 ---
 # <a name="tutorial-integrate-expensify-with-azure-active-directory"></a>자습서: Azure Active Directory와 Expensify 통합
@@ -33,7 +33,7 @@ ms.locfileid: "73156530"
 
 Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -107,7 +107,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자**를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예: `B.Simon@contoso.com`
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기**를 클릭합니다.
 
@@ -133,7 +133,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 Expensify에서 SSO를 사용하도록 설정하려면 먼저 애플리케이션에서 **도메인 컨트롤**을 사용하도록 설정해야 합니다. [여기에](https://help.expensify.com/domain-control) 나열된 단계를 수행하여 애플리케이션에서 도메인 컨트롤을 사용하도록 설정할 수 있습니다. 추가 지원은 [Expensify 클라이언트 지원 팀](mailto:help@expensify.com)에 문의하세요. 도메인 컨트롤을 사용하도록 설정한 후에는 다음 단계를 따릅니다.
 
-![Configure Single Sign-On](./media/expensify-tutorial/tutorial_expensify_51.png)
+![Single Sign-on 구성](./media/expensify-tutorial/tutorial_expensify_51.png)
 
 1. Expensify 애플리케이션에 로그인합니다.
 

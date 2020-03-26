@@ -1,17 +1,17 @@
 ---
-title: Visual Studio Code를 사용하여 Azure Storage에 함수 연결
-description: Visual Studio Code를 사용하여 Azure Storage 큐에 함수를 연결하도록 출력 바인딩을 추가하는 방법을 알아봅니다.
-ms.date: 06/25/2019
+title: Visual Studio Code를 사용하여 Azure Storage에 Azure Functions 연결
+description: Visual Studio Code 프로젝트에 출력 바인딩을 추가하여 Azure Functions를 Azure Storage 큐에 연결하는 방법을 알아봅니다.
+ms.date: 02/07/2020
 ms.topic: quickstart
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 5b7d7be7854a216b7cb7b610ea6d51fdc496a93f
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 22f7df52e90a35a3ed9a26a7672f8354efc173e3
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845678"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79290071"
 ---
-# <a name="connect-functions-to-azure-storage-using-visual-studio-code"></a>Visual Studio Code를 사용하여 Azure Storage에 함수 연결
+# <a name="connect-azure-functions-to-azure-storage-using-visual-studio-code"></a>Visual Studio Code를 사용하여 Azure Storage에 Azure Functions 연결
 
 [!INCLUDE [functions-add-storage-binding-intro](../../includes/functions-add-storage-binding-intro.md)]
 
@@ -19,7 +19,7 @@ ms.locfileid: "76845678"
 
 대부분의 바인딩은 Functions에서 바인딩된 서비스에 액세스할 때 사용할 저장된 연결 문자열이 필요합니다. 이 부분을 간편하게 해결하려면 함수 앱으로 만든 Storage 계정을 사용합니다. 이 계정에 대한 연결은 이미 `AzureWebJobsStorage` 앱 설정에 저장되어 있습니다.  
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="configure-your-local-environment"></a>로컬 환경 구성
 
 이 문서를 시작하기 전에 다음 요구 사항을 충족해야 합니다.
 
@@ -90,98 +90,17 @@ Functions에서 각 바인딩 형식의 `direction`, `type` 및 고유한 `name`
 
 바인딩이 정의되면 바인딩의 `name`을 사용하여 함수 시그니처의 특성으로 액세스할 수 있습니다. 출력 바인딩을 사용하면 인증을 받거나 큐 참조를 가져오거나 데이터를 쓸 때 Azure Storage SDK 코드를 사용할 필요가 없습니다. Functions 런타임 및 큐 출력 바인딩이 이러한 작업을 알아서 처리합니다.
 
-::: zone pivot="programming-language-javascript"
-
+::: zone pivot="programming-language-javascript"  
 [!INCLUDE [functions-add-output-binding-js](../../includes/functions-add-output-binding-js.md)]
+::: zone-end  
 
-::: zone-end
-
-::: zone pivot="programming-language-typescript"
-
-`context.bindings`에서 `msg` 출력 바인딩 개체를 사용하여 큐 메시지를 만드는 코드를 추가합니다. `context.res` 문 앞에 이 코드를 추가합니다.
-
-```typescript
-// Add a message to the Storage queue.
-context.bindings.msg = "Name passed to the function: " + name;
-```
-
-이 시점에서 함수는 다음과 같이 표시됩니다.
-
-```javascript
-import { AzureFunction, Context, HttpRequest } from "@azure/functions"
-
-const httpTrigger: AzureFunction = async function (context: Context, req: HttpRequest): Promise<void> {
-    context.log('HTTP trigger function processed a request.');
-    const name = (req.query.name || (req.body && req.body.name));
-
-    if (name) {
-        // Add a message to the Storage queue.
-        context.bindings.msg = "Name passed to the function: " + name; 
-        // Send a "hello" response.
-        context.res = {
-            // status: 200, /* Defaults to 200 */
-            body: "Hello " + (req.query.name || req.body.name)
-        };
-    }
-    else {
-        context.res = {
-            status: 400,
-            body: "Please pass a name on the query string or in the request body"
-        };
-    }
-};
-
-export default httpTrigger;
-```
-
-::: zone-end
+::: zone pivot="programming-language-typescript"  
+[!INCLUDE [functions-add-output-binding-ts](../../includes/functions-add-output-binding-ts.md)]
+::: zone-end  
 
 ::: zone pivot="programming-language-powershell"
 
-`Push-OutputBinding` cmdlet을 사용하여 `msg` 출력 바인딩을 통해 큐에 텍스트를 작성하는 코드를 추가합니다. `if` 문에서 확인 상태를 설정하기 전에 이 코드를 추가합니다.
-
-```powershell
-# Write the $name value to the queue.
-$outputMsg = "Name passed to the function: $name"
-Push-OutputBinding -name msg -Value $outputMsg
-```
-
-이 시점에서 함수는 다음과 같이 표시됩니다.
-
-```powershell
-using namespace System.Net
-
-# Input bindings are passed in via param block.
-param($Request, $TriggerMetadata)
-
-# Write to the Azure Functions log stream.
-Write-Host "PowerShell HTTP trigger function processed a request."
-
-# Interact with query parameters or the body of the request.
-$name = $Request.Query.Name
-if (-not $name) {
-    $name = $Request.Body.Name
-}
-
-if ($name) {
-    # Write the $name value to the queue.
-    $outputMsg = "Name passed to the function: $name"
-    Push-OutputBinding -name msg -Value $outputMsg
-
-    $status = [HttpStatusCode]::OK
-    $body = "Hello $name"
-}
-else {
-    $status = [HttpStatusCode]::BadRequest
-    $body = "Please pass a name on the query string or in the request body."
-}
-
-# Associate values to output bindings by calling 'Push-OutputBinding'.
-Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
-    StatusCode = $status
-    Body = $body
-})
-```
+[!INCLUDE [functions-add-output-binding-powershell](../../includes/functions-add-output-binding-powershell.md)]
 
 ::: zone-end
 
@@ -191,11 +110,9 @@ Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
 
 ::: zone-end
 
-::: zone pivot="programming-language-csharp"
-
+::: zone pivot="programming-language-csharp"  
 [!INCLUDE [functions-add-storage-binding-csharp-library-code](../../includes/functions-add-storage-binding-csharp-library-code.md)]
-
-::: zone-end
+::: zone-end  
 
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-python"
 
@@ -215,7 +132,7 @@ Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
 
 Azure Storage Explorer를 이미 설치했고 Azure 계정에 연결한 경우 이 섹션을 건너뜁니다.
 
-1. [Azure Storage Explorer] 도구를 실행하여 왼쪽에 있는 연결 아이콘을 선택한 다음, **계정 추가**를 선택합니다.
+1. [Azure Storage Explorer] 도구를 실행하여 왼쪽에 있는 연결 아이콘을 선택하고, **계정 추가**를 선택합니다.
 
     ![Microsoft Azure Storage Explorer에 Azure 계정 추가](./media/functions-add-output-binding-storage-queue-vs-code/storage-explorer-add-account.png)
 
@@ -231,7 +148,7 @@ Azure Storage Explorer를 이미 설치했고 Azure 계정에 연결한 경우 �
 
 1. **큐** 노드를 확장한 다음 이름이 **outqueue**인 큐를 선택합니다. 
 
-   이 큐에는 HTTP 트리거 함수를 실행했을 때 만들어진 큐 출력 바인딩 메시지가 포함되어 있습니다. 기본 `name` 값 Azure로 함수를 호출했다면 큐 메시지는 ‘함수에 전달된 이름:   Azure’입니다.
+   이 큐에는 HTTP 트리거 함수를 실행했을 때 만들어진 큐 출력 바인딩 메시지가 포함되어 있습니다. 기본 `name` 값 *Azure*로 함수를 호출했다면 큐 메시지는 *함수에 전달된 이름: Azure*입니다.
 
     ![Azure Storage Explorer에 표시되는 큐 메시지](./media/functions-add-output-binding-storage-queue-vs-code/function-queue-storage-output-view-queue.png)
 
@@ -263,9 +180,29 @@ Azure에서 *리소스*란 함수 앱, 함수, 스토리지 계정 등을 의미
 
 ## <a name="next-steps"></a>다음 단계
 
-Storage 큐에 데이터를 쓰도록 HTTP 트리거 함수를 업데이트했습니다. 다음으로 Visual Studio Code를 사용하여 함수 개발에 대해 자세히 알아봅니다.
+Storage 큐에 데이터를 쓰도록 HTTP 트리거 함수를 업데이트했습니다. 이제 Visual Studio Code를 사용하여 함수 개발에 대해 자세히 알아봅니다.
 
-> [!div class="nextstepaction"]
-> [Visual Studio Code를 사용하여 Azure Functions 개발](functions-develop-vs-code.md)
-
-[Azure Storage Explorer]: https://storageexplorer.com/
++ [Visual Studio Code를 사용하여 Azure Functions 개발](functions-develop-vs-code.md)
+::: zone pivot="programming-language-csharp"  
++ [C# 전체 함수 프로젝트에 대한 예제](/samples/browse/?products=azure-functions&languages=csharp)
++ [Azure Functions C# 개발자 참조](functions-dotnet-class-library.md)  
+::: zone-end 
+::: zone pivot="programming-language-javascript"  
++ [JavaScript 전체 함수 프로젝트에 대한 예제](/samples/browse/?products=azure-functions&languages=javascript)
++ [Azure Functions JavaScript 개발자 가이드](functions-reference-node.md)  
+::: zone-end  
+::: zone pivot="programming-language-typescript"  
++ [TypeScript 전체 함수 프로젝트에 대한 예제](/samples/browse/?products=azure-functions&languages=typescript)
++ [Azure Functions TypeScript 개발자 가이드](functions-reference-node.md#typescript)  
+::: zone-end  
+::: zone pivot="programming-language-python"  
++ [Python의 전체 함수 프로젝트에 대한 예제](/samples/browse/?products=azure-functions&languages=python)
++ [Azure Functions Python 개발자 가이드](functions-reference-python.md)  
+::: zone-end  
+::: zone pivot="programming-language-powershell"  
++ [PowerShell 전체 함수 프로젝트에 대한 예제](/samples/browse/?products=azure-functions&languages=azurepowershell)
++ [Azure Functions PowerShell 개발자 가이드](functions-reference-powershell.md) 
+::: zone-end
++ [Azure Functions 트리거 및 바인딩](functions-triggers-bindings.md)
++ [Functions 가격 페이지](https://azure.microsoft.com/pricing/details/functions/)
++ [소비 계획 비용 예측](functions-consumption-costs.md) 문서

@@ -7,18 +7,18 @@ ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 3da1902906c4fb12bf5eef473ee39e721e4efe3a
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 155993bb3da781e698398ed8ddffa626e8f6cb2d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74927061"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-an-aspnet-web-app"></a>빠른 시작: ASP.NET 웹앱에서 Azure Cache for Redis 사용 
 
 Visual Studio 2019를 사용하는 이 빠른 시작에서는 Azure Cache for Redis에 연결하여 캐시의 데이터를 저장하고 검색하는 ASP.NET 웹 애플리케이션을 만듭니다. 그런 다음, Azure App Service에 앱을 배포합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 - **ASP.NET과 웹 개발** 및 **Azure 개발** 워크로드가 포함되어 있는 [Visual Studio 2019](https://www.visualstudio.com/downloads/)
@@ -143,7 +143,7 @@ ASP.NET 런타임은 외부 파일의 내용을 `<appSettings>` 요소의 태그
 
             // Connection refers to a property that returns a ConnectionMultiplexer
             // as shown in the previous example.
-            IDatabase cache = lazyConnection.GetDatabase();
+            IDatabase cache = lazyConnection.Value.GetDatabase();
 
             // Perform cache operations using the cache object...
 
@@ -166,7 +166,7 @@ ASP.NET 런타임은 외부 파일의 내용을 `<appSettings>` 요소의 태그
             ViewBag.command5 = "CLIENT LIST";
             ViewBag.command5Result = cache.Execute("CLIENT", "LIST").ToString().Replace(" id=", "\rid=");
 
-            lazyConnection.Dispose();
+            lazyConnection.Value.Dispose();
 
             return View();
         }
@@ -180,7 +180,7 @@ ASP.NET 런타임은 외부 파일의 내용을 `<appSettings>` 요소의 태그
     @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
     ```
 
-    다음으로 바꿀 수 있습니다.
+    다음 구문으로 바꿉니다.
 
     ```csharp
     @Html.ActionLink("Azure Cache for Redis Test", "RedisCache", "Home", new { area = "" }, new { @class = "navbar-brand" })
@@ -259,7 +259,7 @@ ASP.NET 런타임은 외부 파일의 내용을 `<appSettings>` 요소의 태그
 
 3. **App Service 만들기** 대화 상자에서 다음과 같이 변경합니다.
 
-    | 설정 | 권장되는 값 | 설명 |
+    | 설정 | 권장되는 값 | Description |
     | ------- | :---------------: | ----------- |
     | **앱 이름** | 기본값을 사용하세요. | 앱 이름은 Azure에 배포할 때 앱에 사용하는 호스트 이름입니다. 필요한 경우 이름을 고유하게 만들려면 타임스탬프 접미사가 추가될 수 있습니다. |
     | **구독** | Azure 구독을 선택합니다. | 이 구독은 모든 관련된 호스팅 비용이 청구됩니다. 여러 Azure 구독이 있는 경우 원하는 구독이 선택되어 있는지 확인합니다.|
@@ -311,7 +311,7 @@ ASP.NET 런타임은 외부 파일의 내용을 `<appSettings>` 요소의 태그
 
 2. **이름을 기준으로 필터링...** 상자에 리소스 그룹의 이름을 입력합니다. 이 문서의 지침에서는 *TestResources*라는 리소스 그룹을 사용했습니다. 결과 목록의 리소스 그룹에서 **...** 를 선택한 다음, **리소스 그룹 삭제**를 선택합니다.
 
-    ![삭제](./media/cache-web-app-howto/cache-delete-resource-group.png)
+    ![DELETE](./media/cache-web-app-howto/cache-delete-resource-group.png)
 
 리소스 그룹 삭제를 확인하는 메시지가 표시됩니다. 리소스 그룹의 이름을 입력하여 확인한 다음, **삭제**를 선택합니다.
 

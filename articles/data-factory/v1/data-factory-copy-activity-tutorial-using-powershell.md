@@ -14,10 +14,10 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 215ed088b17125e7e41877e3c188a6bf3d77e8bb
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73682851"
 ---
 # <a name="tutorial-create-a-data-factory-pipeline-that-moves-data-by-using-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 데이터를 이동하는 Data Factory 파이프라인 만들기
@@ -44,7 +44,7 @@ ms.locfileid: "73682851"
 > 
 > 이 자습서에서 데이터 파이프라인은 원본 데이터 저장소의 데이터를 대상 데이터 저장소로 복사합니다. Azure Data Factory를 사용하여 데이터를 변환하는 방법에 대한 자습서는 [자습서: Hadoop 클러스터를 사용하여 데이터를 변환하는 파이프라인 빌드](data-factory-build-your-first-pipeline.md)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -274,7 +274,7 @@ Azure Storage 연결된 서비스는 런타임에 Data Factory 서비스에서 A
 
     다음 테이블은 코드 조각에 사용된 JSON 속성에 대한 설명을 제공합니다.
 
-    | 자산 | 설명 |
+    | 속성 | Description |
     |:--- |:--- |
     | type | Azure Blob Storage에 데이터가 있기 때문에 type 속성은 **AzureBlob**으로 설정됩니다. |
     | linkedServiceName | 이전에 만든 **AzureStorageLinkedService**를 참조합니다. |
@@ -339,7 +339,7 @@ Azure Storage 연결된 서비스는 런타임에 Data Factory 서비스에서 A
 
     다음 테이블은 코드 조각에 사용된 JSON 속성에 대한 설명을 제공합니다.
 
-    | 자산 | 설명 |
+    | 속성 | Description |
     |:--- |:--- |
     | type | Azure SQL 데이터베이스의 테이블에 데이터가 복사되기 때문에 type 속성은 **AzureSqlTable**로 설정됩니다. |
     | linkedServiceName | 이전에 만든 **AzureSqlLinkedService**를 참조합니다. |
@@ -369,7 +369,7 @@ Azure Storage 연결된 서비스는 런타임에 Data Factory 서비스에서 A
     ProvisioningState : Succeeded
     ```
 
-## <a name="create-a-pipeline"></a>파이프라인을 만듭니다.
+## <a name="create-a-pipeline"></a>파이프라인 만들기
 이 단계에서는 **InputDataset**을 입력으로 사용하고 **OutputDataset**을 출력으로 사용하는 **복사 활동**을 포함한 파이프라인을 만듭니다.
 
 현재 출력 데이터 세트는 일정을 작동하는 것입니다. 이 자습서에서는 출력 데이터 세트가 한 시간에 한 번씩 조각을 생성하도록 구성됩니다. 이 파이프라인은 하루 24시간 간격, 즉 24시간 동안에 걸친 시작 시간과 종료 시간을 갖습니다. 따라서 24개의 출력 데이터 세트가 파이프라인에 의해 생성됩니다. 
@@ -427,7 +427,7 @@ Azure Storage 연결된 서비스는 런타임에 Data Factory 서비스에서 A
      
      **시작** 속성 값을 현재 날짜로 바꾸고 **종료** 값을 다음 날짜로 바꿉니다. 날짜 부분만 지정하고 날짜/시간의 시간 부분은 건너뛸 수 있습니다. 예를 들어, "2016-02-03"은 "2016-02-03T00:00:00Z"과 동일합니다.
      
-     start 및 end 날짜/시간은 둘 다 [ISO 형식](https://en.wikipedia.org/wiki/ISO_8601)(영문)이어야 합니다. 예:  2016-10-14T16:32:41Z. **종료** 시간은 선택 사항이지만 이 자습서에서는 사용합니다. 
+     start 및 end 날짜/시간은 둘 다 [ISO 형식](https://en.wikipedia.org/wiki/ISO_8601)(영문)이어야 합니다. 다음은 그 예입니다.  2016-10-14T16:32:41Z. **종료** 시간은 선택 사항이지만 이 자습서에서는 사용합니다. 
      
      **종료** 속성 값을 지정하지 않는 경우 "**시작 + 48시간**"으로 계산됩니다. 파이프라인을 무기한 실행하려면 **종료** 속성 값으로 **9999-09-09**를 지정합니다.
      
@@ -461,7 +461,7 @@ Azure Storage 연결된 서비스는 런타임에 Data Factory 서비스에서 A
     $df=Get-AzDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name <DataFactoryName>
     ```
 
-    예:
+    다음은 그 예입니다.
     ```powershell
     $df=Get-AzDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH0516
     ```
@@ -556,7 +556,7 @@ Data Factory cmdlet에 대한 포괄적인 설명서는 [Data Factory cmdlet 참
 ## <a name="summary"></a>요약
 이 자습서에서는 Azure Blob에서 Azure SQL 데이터베이스로 데이터를 복사하는 Azure Data Factory를 만들었습니다. PowerShell를 사용하여 데이터 팩터리, 연결된 서비스, 데이터 세트 및 파이프라인을 만들었습니다. 이 자습서에서 수행한 단계를 요약하면 다음과 같습니다.  
 
-1. Azure **Data Factory**를 만들었습니다.
+1. Azure **데이터 팩터리**를 만들었습니다.
 1. **연결된 서비스**를 만들었습니다.
 
    a. 입력 데이터를 보유하는 Azure Storage 계정을 연결하는 **Azure Storage**에 연결된 서비스입니다.     

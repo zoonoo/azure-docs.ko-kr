@@ -14,10 +14,10 @@ ms.date: 09/30/2019
 ms.author: tomfitz
 ms.custom: mvc
 ms.openlocfilehash: b9595c6ce464cf9e4ab0baff9ef842e76f3d18a3
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75970131"
 ---
 # <a name="tutorial-learn-about-linux-virtual-machine-management-with-azure-cli"></a>자습서: Azure CLI를 사용한 Linux 가상 머신 관리에 대해 알아보기

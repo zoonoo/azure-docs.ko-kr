@@ -7,17 +7,17 @@ ms.topic: sample
 ms.date: 03/20/2017
 ms.custom: mvc
 ms.openlocfilehash: 6ffcf22b640d6393ed48d803f6f52bac5334d4b7
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74684332"
 ---
 # <a name="scale-a-web-app-worldwide-with-a-high-availability-architecture"></a>전세계에 고가용성 아키텍처를 가진 웹앱 확장
 
 이 시나리오에서는 리소스 그룹, 두 개의 App Service 계획, 두 개의 웹앱, Traffic Manager 프로필 및 두 개의 Traffic Manager 엔드포인트를 만듭니다. 실행이 완료되면 가장 낮은 네트워크 대기 시간에 따라 웹앱의 전역적 가용성을 제공하는 가용성이 좋은 아키텍처를 사용할 수 있습니다.
 
-필요한 경우 [Azure PowerShell 가이드](/powershell/azure/overview)에 있는 지침을 사용하여 Azure PowerShell을 설치한 다음, `Connect-AzAccount`을 실행하여 Azure와 연결합니다.
+필요한 경우 [Azure PowerShell 가이드](/powershell/azure/overview)에 있는 지침을 사용하여 Azure PowerShell을 설치한 다음, `Connect-AzAccount`를 실행하여 Azure에 연결합니다.
 
 ## <a name="sample-script"></a>샘플 스크립트
 
@@ -40,10 +40,10 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 | 명령 | 메모 |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
-| [New-AzTrafficManagerProfile](/powershell/module/az.trafficmanager/new-aztrafficmanagerprofile) | Traffic Manager 프로필을 만듭니다. |
+| [새 AzTrafficManagerProfile](/powershell/module/az.trafficmanager/new-aztrafficmanagerprofile) | Traffic Manager 프로필을 만듭니다. |
 | [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) | App Service 계획을 만듭니다. |
 | [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | 웹앱을 만듭니다. |
-| [New-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/new-aztrafficmanagerendpoint) | Traffic Manager 프로필에서 엔드포인트를 만듭니다. |
+| [새 AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/new-aztrafficmanagerendpoint) | Traffic Manager 프로필에서 엔드포인트를 만듭니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

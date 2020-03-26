@@ -16,10 +16,10 @@ ms.custom: seodec18
 ms.date: 11/05/2019
 ms.author: shvija
 ms.openlocfilehash: 90293da07d3a7ef1c32e5f82d35198d4ffa536b1
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73717616"
 ---
 # <a name="quickstart-receive-events-from-event-hubs-using-apache-storm"></a>빠른 시작: Apache Storm을 사용하여 Event Hubs에서 이벤트 수신
@@ -28,14 +28,14 @@ ms.locfileid: "73717616"
 
 Event Hubs 수신기 패턴에 대한 자세한 내용은 [Event Hubs 개요][Event Hubs overview]를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 이 빠른 시작을 시작하기 전에 **Event Hubs 네임스페이스 및 이벤트 허브를 만듭니다**. [Azure Portal](https://portal.azure.com)을 사용하여 Event Hubs 형식의 네임스페이스를 만들고, 애플리케이션에서 이벤트 허브와 통신하는 데 필요한 관리 자격 증명을 얻습니다. 네임스페이스 및 이벤트 허브를 만들려면 [이 문서](event-hubs-create.md)의 절차를 따릅니다. 
 
 ## <a name="create-project-and-add-code"></a>프로젝트 만들기 및 코드 추가
 
 이 자습서에서는 이미 사용할 수 있는 Event Hubs spout와 함께 제공되는 [HDInsight Storm][HDInsight Storm] 설치를 사용합니다.
 
-1. [HDInsight Storm - 시작 절차](../hdinsight/storm/apache-storm-overview.md) 에 따라 새 HDInsight 클러스터를 만들고 원격 데스크톱을 통해 이 클러스터에 연결합니다.
+1. [HDInsight Storm - 시작 절차](../hdinsight/storm/apache-storm-overview.md)에 따라 새 HDInsight 클러스터를 만들고 원격 데스크톱을 통해 이 클러스터에 연결합니다.
 2. `%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar` 파일을 로컬 개발 환경에 복사합니다. 이 파일에는 events-storm-spout가 포함되어 있습니다.
 3. 다음 명령을 사용하여 패키지를 로컬 Maven 저장소에 설치합니다. 그러면 이후 단계에서 Storm 프로젝트에 참조로 추가할 수 있습니다.
 

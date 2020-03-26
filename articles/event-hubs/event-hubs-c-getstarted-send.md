@@ -16,10 +16,10 @@ ms.custom: seodec18
 ms.date: 11/05/2019
 ms.author: shvija
 ms.openlocfilehash: 5bd4bb66b7e3c3ec37724f8684105befbc9132ff
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73720669"
 ---
 # <a name="quickstart-send-events-to-azure-event-hubs-using-c"></a>빠른 시작: C를 사용하여 Azure Event Hubs로 이벤트 전송
@@ -29,7 +29,7 @@ Azure Event Hubs는 초당 수백만 개의 이벤트를 수신하여 처리할 
 
 이 자습서에서는 C의 콘솔 애플리케이션을 사용하여 이벤트 허브로 이벤트를 전송하는 방법을 설명합니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 이 자습서를 완료하려면 다음이 필요합니다.
 
 * C 개발 환경. 이 자습서에서는 Ubuntu 14.04를 사용하는 Azure Linux VM에 gcc 스택이 있다고 가정합니다.

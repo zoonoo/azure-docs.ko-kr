@@ -4,10 +4,10 @@ description: 모든 가상 네트워크가 서로 연결된 상태에서 허브 
 ms.topic: tutorial
 ms.date: 10/26/2019
 ms.openlocfilehash: 9ba4780c59e5e9da4999573abbc08ecd2738a2cd
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74159194"
 ---
 # <a name="tutorial-validate-a-hub-and-spoke-network-in-azure-using-terraform"></a>자습서: Terraform을 사용하여 Azure에서 허브 및 스포크 네트워크 유효성 검사
@@ -17,13 +17,13 @@ ms.locfileid: "74159194"
 이 자습서에서 다루는 작업은 다음과 같습니다.
 
 > [!div class="checklist"]
-> * HCL(HashiCorp Language)을 사용하여 허브-스포크 토폴로지에서 허브 VNet 구현
+> * HCL(HashiCorp Language)을 사용하여 허브 스포크 토폴로지에서 Hub VNet을 구현
 > * Terraform 계획을 사용하여 배포할 리소스 확인
 > * Terraform 적용을 사용하여 Azure에서 리소스 만들기
 > * 서로 다른 네트워크 간의 연결 유효성 확인
 > * Terraform을 사용하여 모든 리소스 삭제
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 1. [Azure에서 Terraform을 사용하여 허브 및 스포크 하이브리드 네트워크 토폴로지를 만듭니다](./terraform-hub-spoke-introduction.md).
 1. [Azure에서 Terraform을 사용하여 온-프레미스 가상 네트워크를 만듭니다](./terraform-hub-spoke-on-prem.md).

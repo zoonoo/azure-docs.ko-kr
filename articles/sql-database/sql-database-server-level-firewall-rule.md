@@ -12,17 +12,17 @@ ms.author: sachinp
 ms.reviewer: vanto, carlrab
 ms.date: 02/11/2019
 ms.openlocfilehash: ff2508952b75bad88ff8ff92388c20ba52f50f42
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73818250"
 ---
 # <a name="quickstart-create-a-server-level-firewall-rule-for-single-and-pooled-databases-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 단일 데이터베이스 및 풀링된 데이터베이스에 대한 서버 수준 방화벽 규칙 만들기
 
 이 빠른 시작에서는 데이터베이스 서버, 단일 데이터베이스, 탄력적 풀 및 해당 데이터베이스에 연결할 수 있도록 Azure Portal을 사용하여 Azure SQL Database에서 단일 데이터베이스 및 풀링된 데이터베이스에 대한 [서버 수준 방화벽 규칙](sql-database-firewall-configure.md)을 만드는 방법을 설명합니다. 방화벽 규칙은 다른 Azure 리소스 및 온-프레미스 리소스에서 연결하는 데 필요합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 빠른 시작에서는 [Azure Portal에서 단일 데이터베이스 만들기](sql-database-single-database-get-started.md)에서 만든 리소스를 시작점으로 사용합니다.
 

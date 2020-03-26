@@ -4,10 +4,10 @@ description: 이 자습서에서는 다른 프라이빗 Azure 컨테이너 레�
 ms.topic: tutorial
 ms.date: 01/22/2020
 ms.openlocfilehash: e8aae8a91288d470c801dc4d82cfa6b44369d832
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77617686"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-another-private-container-registry"></a>자습서: 다른 프라이빗 컨테이너 레지스트리에서 기본 이미지가 업데이트될 때 컨테이너 이미지 빌드 자동화 

@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1a61c89199c89f09b5cc0e553dbbf48655ad1b6a
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
-ms.translationtype: MT
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78672225"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79222970"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>자습서: 페더레이션 도메인용 하이브리드 Azure Active Directory 조인 구성
 
@@ -52,7 +52,7 @@ Azure AD에 디바이스를 가져오면 클라우드와 온-프레미스 리소
 > * 등록 확인
 > * 문제 해결
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에서는 사용자가 다음 항목에 대해 잘 알고 있다고 가정합니다.
 
@@ -190,7 +190,7 @@ Azure 테넌트에서 디바이스 등록 상태를 확인하려면 [Azure Activ
 
 1. 관리자 권한으로 Windows PowerShell을 엽니다.
 1. `Connect-MsolService`를 입력하여 Azure 테넌트에 연결합니다.  
-1. `get-msoldevice -deviceId <deviceId>` 을 입력합니다.
+1. `get-msoldevice -deviceId <deviceId>`를 입력합니다.
 1. **Enabled**가 **True**로 설정되어 있는지 확인인합니다.
 
 ## <a name="troubleshoot-your-implementation"></a>구현 문제 해결

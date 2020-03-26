@@ -8,17 +8,17 @@ ms.reviewer: jasonh
 ms.topic: tutorial
 ms.date: 09/04/2019
 ms.openlocfilehash: 89e9faeb3c67d0fd0c57adea3a3f69ec5438e3a0
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73044655"
 ---
 # <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package"></a>자습서: Enterprise Security Package를 사용하여 HDInsight에서 Apache HBase 정책 구성
 
 ESP(Enterprise Security Package) Apache HBase 클러스터용 Apache Ranger 정책을 구성하는 방법을 알아봅니다. ESP 클러스터는 도메인에 연결되므로 사용자가 도메인 자격 증명을 사용하여 인증할 수 있습니다. 이 자습서에서는 HBase 테이블의 여러 열 패밀리에 대한 액세스를 제한하는 Range 정책 두 개를 만듭니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 도메인 사용자 만들기
@@ -113,7 +113,7 @@ SSH를 사용하여 HBase 클러스터를 연결하고 [Apache HBase 셸](https:
    |HBase 열   |  * |
    |그룹 선택  | |
    |사용자 선택  | sales_user1 |
-   |권한  | 읽기 |
+   |사용 권한  | 읽기 |
 
    항목 이름에 다음 와일드카드를 포함할 수 있습니다.
 
@@ -137,7 +137,7 @@ SSH를 사용하여 HBase 클러스터를 연결하고 [Apache HBase 셸](https:
    |HBase 열   |  * |
    |그룹 선택  | |
    |사용자 선택  | marketing_user1 |
-   |권한  | 읽기 |
+   |사용 권한  | 읽기 |
 
    ![Apache Ranger 정책 만들기 marketing](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-marketing.png)  
 

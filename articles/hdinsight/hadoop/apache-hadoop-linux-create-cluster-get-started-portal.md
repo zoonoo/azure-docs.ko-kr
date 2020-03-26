@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.date: 02/24/2020
-ms.openlocfilehash: 7d2dd65224aad231db9574aa5a1fa4a00b328da8
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 8939d9b342094342d576c00cf02e622286c8fc0f
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77623551"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80130553"
 ---
 # <a name="quickstart-create-apache-hadoop-cluster-in-azure-hdinsight-using-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure HDInsight에서 Apache Hadoop 클러스터 만들기
 
@@ -52,7 +52,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     |SSH(보안 셸) 사용자 이름 | 기본 사용자 이름은 **sshuser**입니다.  SSH 사용자 이름에 다른 이름을 입력할 수 있습니다. |
     |SSH에 클러스터 로그인 암호 사용| 클러스터 로그인 사용자에 대해 입력한 것과 동일한 암호를 SSH 사용자에 사용하려면 이 확인란을 선택합니다.|
 
-    ![HDInsight Linux 시작 - 클러스터 기본값 제공](./media/apache-hadoop-linux-create-cluster-get-started-portal/azure-portal-cluster-basics-blank.png "HDInsight 클러스터를 만들기 위한 기본값 제공")
+    ![HDInsight Linux 시작 - 클러스터 기본값 제공](./media/apache-hadoop-linux-create-cluster-get-started-portal/azure-portal-cluster-basics.png "HDInsight 클러스터를 만들기 위한 기본값 제공")
 
     페이지 맨 아래에서 **다음: Storage >>** 를 선택하여 스토리지 설정으로 이동합니다.
 

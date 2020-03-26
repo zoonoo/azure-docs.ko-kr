@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: spelluru
 ms.openlocfilehash: 6f5bd129b175210cd5b9415a65b8db06d904e24d
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73718189"
 ---
 # <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>자습서: 데이터 웨어하우스로 빅 데이터 스트림
@@ -38,13 +38,13 @@ Azure [Event Grid](overview.md)는 앱과 서비스의 알림(이벤트)에 응�
 > * 이벤트 허브로 데이터를 보내는 앱을 실행합니다.
 > * 데이터 웨어하우스에서 마이그레이션된 데이터를 봅니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 이 자습서를 완료하려면 다음 항목이 필요합니다.
 
-* Azure 구독. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
+* Azure 구독 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 * .NET 데스크톱 개발, Azure 개발, ASP.NET 및 웹 개발, Node.js 개발, Python 개발용 작업이 포함된 [Visual Studio 2019](https://www.visualstudio.com/vs/)
 * 컴퓨터에 [EventHubsCaptureEventGridDemo 샘플 프로젝트](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo)를 다운로드합니다.
 
@@ -85,7 +85,7 @@ Azure [Event Grid](overview.md)는 앱과 서비스의 알림(이벤트)에 응�
         az group create -l eastus -n <Name for the resource group>
         ```
     1. **리소스 그룹**의 이름을 지정합니다.
-    2. **ENTER**키를 누릅니다. 
+    2. **Enter**키를 누릅니다. 
 
         다음은 예제입니다.
     
@@ -135,7 +135,7 @@ Azure [Event Grid](overview.md)는 앱과 서비스의 알림(이벤트)에 응�
         New-AzResourceGroup -Name rgDataMigration -Location westcentralus
         ```
     2. **리소스 그룹**의 이름을 지정합니다.
-    3. ENTER 키를 누릅니다. 
+    3. Enter 키를 누릅니다. 
 3. 다음 명령을 실행하여 이전 섹션에서 언급한 모든 리소스(이벤트 허브, 스토리지 계정, 함수 앱, SQL 데이터 웨어하우스)를 배포합니다.
     1. 명령을 복사하여 Cloud Shell 창에 붙여넣습니다. 또는 원하는 편집기에 복사/붙여넣고, 값을 설정하고, Cloud Shell에 명령을 복사합니다. 
 
@@ -260,7 +260,7 @@ Azure [Event Grid](overview.md)는 앱과 서비스의 알림(이벤트)에 응�
    private const string EventHubName = "hubdatamigration";
    ```
 
-6. 솔루션을 빌드하십시오. **WindTurbineGenerator.exe** 애플리케이션을 실행합니다. 
+6. 솔루션을 빌드합니다. **WindTurbineGenerator.exe** 애플리케이션을 실행합니다. 
 7. 몇 분 후에 데이터 웨어하우스에서 마이그레이션된 데이터용 테이블을 쿼리합니다.
 
     ![쿼리 결과](media/event-grid-event-hubs-integration/query-results.png)

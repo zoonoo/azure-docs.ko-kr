@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: kirankk
 ms.openlocfilehash: 2681b2199f321f695bc621ed5580319a5e907b34
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78274023"
 ---
 # <a name="tutorial-build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>자습서: .NET 콘솔 앱을 빌드하여 Azure Cosmos DB SQL API 계정에서 데이터 관리
@@ -58,7 +58,7 @@ Azure Cosmos DB 계정을 만들어 보겠습니다. 사용할 계정이 이미 
 
 [!INCLUDE [create-dbaccount-preview](../../includes/cosmos-db-create-dbaccount.md)]
 
-## <a id="SetupVS"></a>2단계: Visual Studio 프로젝트 설정
+## <a name="step-2-set-up-your-visual-studio-project"></a><a id="SetupVS"></a>2단계: Visual Studio 프로젝트 설정
 
 1. Visual Studio를 열고 **새 프로젝트 만들기**를 선택합니다.
 1. **새 프로젝트 만들기**에서 C#에 대해 **콘솔 앱(.NET Framework)** 을 선택한 후 **다음**을 선택합니다.
@@ -75,7 +75,7 @@ Azure Cosmos DB 계정을 만들어 보겠습니다. 사용할 계정이 이미 
 
 잘하셨습니다. 설치를 완료했으므로 코드를 작성해 보겠습니다. 이 자습서의 완료된 프로젝트는 [Azure Cosmos DB를 사용하여 .NET 콘솔 앱 개발](https://github.com/Azure-Samples/cosmos-dotnet-getting-started)을 참조하세요.
 
-## <a id="Connect"></a>3단계: Azure Cosmos DB 계정에 연결
+## <a name="step-3-connect-to-an-azure-cosmos-db-account"></a><a id="Connect"></a>3단계: Azure Cosmos DB 계정에 연결
 
 1. *Program.cs* 파일에서 C# 애플리케이션의 시작 부분에 있는 참조를 다음 참조로 바꿉니다.
 
@@ -270,7 +270,7 @@ Azure Cosmos DB 계정을 만들어 보겠습니다. 사용할 계정이 이미 
 
 축하합니다! Azure Cosmos 데이터베이스가 성공적으로 만들어졌습니다.  
 
-## <a id="CreateColl"></a>5단계: 컨테이너 만들기
+## <a name="step-5-create-a-container"></a><a id="CreateColl"></a>5단계: 컨테이너 만들기
 
 > [!WARNING]
 > `CreateContainerIfNotExistsAsync` 메서드는 가격 책정에 영향을 주는 새 컨테이너를 만듭니다. 자세한 내용은 [가격 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/)를 참조하세요.
@@ -301,7 +301,7 @@ Azure Cosmos DB 계정을 만들어 보겠습니다. 사용할 계정이 이미 
 
 축하합니다! Azure Cosmos 컨테이너를 성공적으로 만들었습니다.  
 
-## <a id="CreateDoc"></a>6단계: 컨테이너에 항목 추가
+## <a name="step-6-add-items-to-the-container"></a><a id="CreateDoc"></a>6단계: 컨테이너에 항목 추가
 
 `CosmosContainer` 클래스의 [**CreateItemAsync**](/dotnet/api/microsoft.azure.cosmos.container.createitemasync?view=azure-dotnet#Microsoft_Azure_Cosmos_Container_CreateItemAsync__1___0_System_Nullable_Microsoft_Azure_Cosmos_PartitionKey__Microsoft_Azure_Cosmos_ItemRequestOptions_System_Threading_CancellationToken_) 메서드는 항목을 만들 수 있습니다. SQL API를 사용하는 경우 항목은 사용자 정의 임의 JSON 콘텐츠인 문서로 프로젝션됩니다. 이제 Azure Cosmos 컨테이너에 항목을 삽입할 수 있습니다.
 
@@ -342,7 +342,7 @@ Azure Cosmos DB 계정을 만들어 보겠습니다. 사용할 계정이 이미 
 
 축하합니다! 두 개의 Azure Cosmos 항목을 성공적으로 만들었습니다.  
 
-## <a id="Query"></a>7단계: Azure Cosmos DB 리소스 쿼리
+## <a name="step-7-query-azure-cosmos-db-resources"></a><a id="Query"></a>7단계: Azure Cosmos DB 리소스 쿼리
 
 Azure Cosmos DB는 각 컨테이너에 저장된 JSON 문서에 대해 다양한 쿼리를 지원합니다. 자세한 내용은 [SQL 쿼리 시작](sql-api-sql-query.md)을 참조하세요. 다음 샘플 코드에서는 이전 단계에서 삽입한 항목에 대해 쿼리를 실행하는 방법을 보여줍니다.
 
@@ -370,7 +370,7 @@ Azure Cosmos DB는 각 컨테이너에 저장된 JSON 문서에 대해 다양한
 
 축하합니다! Azure Cosmos 컨테이너를 성공적으로 쿼리했습니다.
 
-## <a id="ReplaceItem"></a>8단계: JSON 항목 바꾸기
+## <a name="step-8-replace-a-json-item"></a><a id="ReplaceItem"></a>8단계: JSON 항목 바꾸기
 
 이제 Azure Cosmos DB에서 항목을 업데이트하겠습니다. `Family`의 `IsRegistered` 속성과 자식 요소 중 하나의 `Grade`를 변경합니다.
 
@@ -399,7 +399,7 @@ Azure Cosmos DB는 각 컨테이너에 저장된 JSON 문서에 대해 다양한
 
 축하합니다! Azure Cosmos 항목을 성공적으로 대체했습니다.
 
-## <a id="DeleteDocument"></a>9단계: 항목 삭제
+## <a name="step-9-delete-item"></a><a id="DeleteDocument"></a>9단계: 항목 삭제
 
 이제 Azure Cosmos DB에서 항목을 삭제하겠습니다.
 
@@ -429,7 +429,7 @@ Azure Cosmos DB는 각 컨테이너에 저장된 JSON 문서에 대해 다양한
 
 축하합니다! Azure Cosmos 항목을 성공적으로 삭제했습니다.
 
-## <a id="DeleteDatabase"></a>10단계: 데이터베이스 삭제
+## <a name="step-10-delete-the-database"></a><a id="DeleteDatabase"></a>10단계: 데이터베이스 삭제
 
 이제 데이터베이스를 삭제하겠습니다. 만든 데이터베이스를 삭제하면 데이터베이스와 모든 하위 리소스가 제거됩니다. 리소스에는 컨테이너, 항목, 저장 프로 시저, 사용자 정의 함수 및 트리거가 포함됩니다. `CosmosClient` 인스턴스도 삭제합니다.
 
@@ -445,7 +445,7 @@ Azure Cosmos DB는 각 컨테이너에 저장된 JSON 문서에 대해 다양한
 
 축하합니다! Azure Cosmos 데이터베이스를 성공적으로 삭제했습니다.
 
-## <a id="Run"></a>11단계: C# 콘솔 애플리케이션 모두 함께 실행
+## <a name="step-11-run-your-c-console-application-all-together"></a><a id="Run"></a>11단계: C# 콘솔 애플리케이션 모두 함께 실행
 
 디버그 모드에서 애플리케이션을 빌드하고 실행하려면 Visual Studio에서 F5를 선택합니다.
 
@@ -478,7 +478,7 @@ End of demo, press any key to exit.
 
 축하합니다! 이 자습서를 완료했으며 실행되는 C# 콘솔 애플리케이션이 생겼습니다.
 
-## <a id="GetSolution"></a> 전체 자습서 솔루션 가져오기
+## <a name="get-the-complete-tutorial-solution"></a><a id="GetSolution"></a> 전체 자습서 솔루션 가져오기
 
 이 자습서의 단계를 완료할 시간이 없거나 코드 샘플만 다운로드하려는 경우에는 다운로드할 수 있습니다.
 

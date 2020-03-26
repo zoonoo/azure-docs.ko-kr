@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.date: 02/03/2020
 ms.openlocfilehash: e4679d5a04be7b8c0145fd93818e4187170b4194
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77049676"
 ---
 # <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure HDInsight에서 Apache Spark 클러스터 만들기

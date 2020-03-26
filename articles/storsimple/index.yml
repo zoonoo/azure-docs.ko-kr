@@ -1,0 +1,65 @@
+### YamlMime:Landing
+title: StorSimple 설명서
+summary: 온-프레미스 디바이스 및 Azure 클라우드 스토리지 간의 스토리지 태스크를 관리하는 통합된 스토리지 솔루션인 Azure StorSimple을 사용하는 방법에 대해 알아봅니다.
+metadata:
+  title: StorSimple 설명서
+  description: 온-프레미스 디바이스 및 Azure 클라우드 스토리지 간의 스토리지 태스크를 관리하는 통합된 스토리지 솔루션인 Azure StorSimple을 사용하는 방법에 대해 알아봅니다.
+  ms.service: storsimple
+  services: storsimple
+  ms.topic: landing-page
+  author: twooley
+  ms.author: twooley
+  ms.date: 03/11/2020
+  ms.openlocfilehash: 7744e0fecadbdbcc7af82645b58bb86a9e0bbe18
+  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 03/25/2020
+  ms.locfileid: "79540309"
+landingContent:
+- title: StorSimple 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure 파일 동기화 및 Data Box Edge와 StorSimple 비교
+      url: storsimple-8000-choose-storage-solution.md
+- title: StorSimple 가상 배열
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: StorSimple 가상 배열이란?
+      url: storsimple-ova-overview.md
+  - linkListType: get-started
+    links:
+    - text: 요구 사항 검토
+      url: storsimple-ova-system-requirements.md
+- title: StorSimple 8000 시리즈
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: StorSimple 8000 시리즈란?
+      url: storsimple-overview.md
+  - linkListType: get-started
+    links:
+    - text: 요구 사항 검토
+      url: storsimple-8000-system-requirements.md
+- title: StorSimple 데이터 관리자
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: StorSimple Data Manager란?
+      url: storsimple-data-manager-overview.md
+  - linkListType: get-started
+    links:
+    - text: Azure Portal에서 관리
+      url: storsimple-data-manager-ui.md
+- title: 클라우드 솔루션 공급자 프로그램용 StorSimple
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 클라우드 솔루션 공급자 프로그램용 StorSimple이란?
+      url: storsimple-partner-csp-overview.md
+  - linkListType: get-started
+    links:
+    - text: 배포
+      url: storsimple-partner-csp-deploy.md

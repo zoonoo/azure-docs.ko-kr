@@ -8,11 +8,11 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/08/2019
 ms.openlocfilehash: 693b2fd8ac7440b67f53de0aedb9a8268a90de76
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78386561"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79290531"
 ---
 # <a name="quickstart-create-automated-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>빠른 시작: Azure Logic Apps를 사용하여 자동화된 작업, 프로세스 및 워크플로 만들기 - Visual Studio
 

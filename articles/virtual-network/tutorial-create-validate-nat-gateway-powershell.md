@@ -14,19 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: allensu
-ms.openlocfilehash: e0fb78be363795bbb09fb0f14bd018fceea34a48
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.openlocfilehash: 61cda5e61d14c4eeaf2d88483603707598b1c911
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78897890"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79202236"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-azure-powershell-and-test-the-nat-service"></a>자습서: Azure PowerShell을 사용하여 NAT 게이트웨이 만들기 및 NAT 서비스 테스트
 
 이 자습서에서는 Azure에서 가상 머신에 대한 아웃바운드 연결을 제공하는 NAT 게이트웨이를 만듭니다. NAT 게이트웨이를 테스트하려면 원본 및 대상 가상 머신을 배포해야 합니다. 공용 IP 주소에 대한 아웃바운드 연결을 설정하여 NAT 게이트웨이를 테스트합니다. 이러한 연결은 원본 가상 머신에서 대상으로 제공됩니다. 이 자습서에서는 간단히 하기 위해 원본 및 대상을 동일한 리소스 그룹의 서로 다른 두 가상 네트워크에 배포합니다.
-
->[!NOTE] 
->Azure Virtual Network NAT는 현재 공개 미리 보기로 제공되며, 제한된 [지역](./nat-overview.md#region-availability) 세트에서 사용할 수 있습니다. 이 미리 보기는 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure 미리 보기에 대한 보충 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms)을 참조하세요.
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -495,7 +492,6 @@ Azure Monitor에서 메트릭을 검토하여 NAT 서비스의 작동 상태를 
 - [Azure CLI를 사용하여 NAT 게이트웨이 리소스](./quickstart-create-nat-gateway-cli.md)를 배포하기 위한 빠른 시작.
 - [Azure PowerShell을 사용하여 NAT 게이트웨이 리소스](./quickstart-create-nat-gateway-powershell.md)를 배포하기 위한 빠른 시작.
 - [Azure Portal을 사용하여 NAT 게이트웨이 리소스](./quickstart-create-nat-gateway-portal.md)를 배포하기 위한 빠른 시작.
-- [공개 미리 보기에 대한 피드백을 제공합니다](https://aka.ms/natfeedback).
 
 > [!div class="nextstepaction"]
 

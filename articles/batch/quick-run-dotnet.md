@@ -11,10 +11,10 @@ ms.date: 11/29/2018
 ms.author: labrenne
 ms.custom: mvc
 ms.openlocfilehash: 809ca9d9aafa813e05dea81eb05616eefcc65472
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77017210"
 ---
 # <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>빠른 시작: .NET API를 사용하여 첫 번째 Azure Batch 작업 실행
@@ -208,7 +208,7 @@ try
 
 ### <a name="create-tasks"></a>태스크 만들기
 
-앱에서 [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask) 개체의 목록을 만듭니다. 각 태스크는 [CommandLine](/dotnet/api/microsoft.azure.batch.cloudtask.commandline) 속성을 사용하여 `ResourceFile` 입력 개체를 처리합니다. 이 샘플에서는 명령줄에서 `type` Windows 명령을 실행하여 입력 파일을 표시합니다. 이 명령은 간단한 데모용 예제입니다. Batch를 사용하면 명령줄에서 앱 또는 스크립트를 지정합니다. Batch는 컴퓨팅 노드에 앱과 스크립트를 배포하는 여러 가지 방법을 제공합니다.
+앱에서 [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask) 개체의 목록을 만듭니다. 각 태스크는 `ResourceFile`CommandLine[ 속성을 사용하여 ](/dotnet/api/microsoft.azure.batch.cloudtask.commandline) 입력 개체를 처리합니다. 이 샘플에서는 명령줄에서 `type` Windows 명령을 실행하여 입력 파일을 표시합니다. 이 명령은 간단한 데모용 예제입니다. Batch를 사용하면 명령줄에서 앱 또는 스크립트를 지정합니다. Batch는 컴퓨팅 노드에 앱과 스크립트를 배포하는 여러 가지 방법을 제공합니다.
 
 그런 다음, 앱은 컴퓨팅 노드에서 실행되도록 큐에 넣는 [AddTask](/dotnet/api/microsoft.azure.batch.joboperations.addtask) 메서드를 사용하여 작업에 태스크를 추가합니다.
 

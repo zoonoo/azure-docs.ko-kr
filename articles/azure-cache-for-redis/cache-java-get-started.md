@@ -9,17 +9,17 @@ ms.date: 05/23/2018
 ms.author: yegu
 ms.custom: mvc, seo-java-august2019, seo-java-september2019
 ms.openlocfilehash: 6163392c80d40b6ea65e681aa175c21c244099b9
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74122696"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-java"></a>빠른 시작: Java에서 Azure Cache for Redis 사용
 
 이 빠른 시작에서는 Azure 내 모든 애플리케이션에서 액세스할 수 있는 안전한 전용 캐시에 액세스할 수 있도록 [Jedis](https://github.com/xetorthio/jedis) Redis 클라이언트를 사용하여 Azure Cache for Redis를 Java 앱에 통합합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 - [Apache Maven](https://maven.apache.org/download.cgi)
@@ -134,7 +134,7 @@ mvn exec:java -D exec.mainClass=example.demo.App
 
 다음 자습서를 계속 진행하려는 경우 이 빠른 시작에서 만든 리소스를 그대로 두었다가 다시 사용할 수 있습니다.
 
-또는, 빠른 시작 샘플 애플리케이션 사용을 마친 경우 이 빠른 시작에서 만든 Azure 리소스를 삭제하여 요금이 청구되는 것을 방지할 수 있습니다. 
+그렇지 않고, 빠른 시작 샘플 애플리케이션 사용이 끝나면 이 빠른 시작에서 만든 Azure 리소스를 삭제하여 요금이 청구되는 것을 방지할 수 있습니다. 
 
 > [!IMPORTANT]
 > 리소스 그룹 삭제는 취소할 수 없으며 해당 리소스 그룹 및 해당 그룹 안에 있는 모든 리소스는 영구적으로 삭제됩니다. 잘못된 리소스 그룹 또는 리소스를 자동으로 삭제하지 않도록 해야 합니다. 유지하려는 리소스가 포함된 기존 리소스 그룹 내에 이 샘플을 호스트하기 위한 리소스를 만든 경우 리소스 그룹을 삭제하는 대신, 해당 블레이드에서 각 리소스를 개별적으로 삭제할 수 있습니다.

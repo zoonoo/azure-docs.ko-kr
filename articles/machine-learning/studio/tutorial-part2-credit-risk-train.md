@@ -10,14 +10,16 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 9aeaed6565e69409bc55a71985296b2393226ba4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8feca17f10bb891f0ca5577b2363f95901da4a46
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75427481"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79217862"
 ---
 # <a name="tutorial-2-train-credit-risk-models---azure-machine-learning-studio-classic"></a>자습서 2: 신용 위험 모델 학습 - Azure Machine Learning Studio(클래식)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 이 자습서에서는 예측 분석 솔루션을 개발하는 프로세스를 자세히 살펴봅니다. Machine Learning Studio(클래식)에서 간단한 모델을 개발합니다.  그런 다음, 모델을 Azure Machine Learning 웹 서비스로 배포합니다.  이 배포된 모델은 새 데이터를 사용하여 예측을 수행할 수 있습니다. 이 자습서는 **3부로 구성된 자습서 시리즈 중 제2부**입니다.
 
@@ -42,7 +44,7 @@ ms.locfileid: "75427481"
 
 [이 자습서의 제1부](tutorial-part1-credit-risk.md)를 완료합니다.
 
-## <a name="train"></a>여러 모델 학습시키기
+## <a name="train-multiple-models"></a><a name="train"></a>여러 모델 학습시키기
 
 Azure Machine Learning Studio(클래식)를 사용하여 기계 학습 모델을 만들 때의 이점 중 하나는 단일 실험에서 한 번에 두 개 이상의 모델 유형을 시도하고 결과를 비교할 수 있다는 점입니다. 이 유형의 실험을 사용하면 문제에 대한 최상의 솔루션을 찾을 수 있습니다.
 

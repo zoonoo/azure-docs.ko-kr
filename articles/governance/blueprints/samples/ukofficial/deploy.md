@@ -4,10 +4,10 @@ description: 청사진 아티팩트 매개 변수 세부 정보를 포함하여 
 ms.date: 06/26/2019
 ms.topic: sample
 ms.openlocfilehash: 3d69f4477163618aa225150ac6352a16e901f826
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74546389"
 ---
 # <a name="deploy-the-uk-official-and-uk-nhs-blueprint-samples"></a>영국 공식 및 영국 NHS 청사진 샘플 배포
@@ -60,7 +60,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. 청사진 정의 페이지 위쪽에서 **청사진 할당**을 선택합니다.
 
-1. 청사진 할당의 매개 변수 값을 지정합니다.
+1. 청사진 할당의 매개 변수 값을 다음과 같이 지정합니다.
 
    - 기본 사항
 
@@ -91,7 +91,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 다음 테이블은 청사진 아티팩트 매개 변수의 목록을 제공합니다.
 
-아티팩트 이름|아티팩트 형식|매개 변수 이름|설명|
+아티팩트 이름|아티팩트 형식|매개 변수 이름|Description|
 |-|-|-|-|
 |영국 공식 또는 영국 NHS에 대한 청사진 이니셔티브|정책 할당 |진단 로그를 감사하는 리소스 종류(정책: 영국 공식 또는 영국 NHS에 대한 청사진 이니셔티브) |진단 로그 설정을 사용하도록 설정하지 않은 경우 감사할 리소스 종류의 목록입니다.  허용되는 값은 [Azure 진단 로그에 대해 지원되는 서비스, 스키마 및 범주](../../../../azure-monitor/platform/diagnostic-logs-schema.md)를 참조하세요. |
 |\[미리 보기\]: Linux VM용 Log Analytics 에이전트 배포 |정책 할당 |선택 사항: 범위에 추가할 Linux OS를 지원하는 VM 이미지 목록(정책: \[미리 보기\]: Linux VM용 Log Analytics 에이전트 배포) |(선택 사항) 기본값은 _없음_입니다. 자세한 내용은 [Azure Portal에서 Log Analytics 작업 영역 만들기](../../../../azure-monitor/learn/quick-create-workspace.md)를 참조하세요. |

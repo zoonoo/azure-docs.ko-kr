@@ -9,11 +9,11 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 01/05/2020
 ms.openlocfilehash: bc7e77cc498958b2f8f0c5b2d5ab2d59db97a235
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78385416"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79215271"
 ---
 # <a name="quickstart-create-an-azure-cosmos-account-database-container-and-items-from-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Cosmos 계정, 데이터베이스, 컨테이너 및 항목 만들기
 

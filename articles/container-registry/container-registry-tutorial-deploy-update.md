@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 04/30/2018
 ms.custom: seodec18, mvc
 ms.openlocfilehash: 9222ac31e067cba6a0ffa71143c90f906ba6ff7f
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74454697"
 ---
 # <a name="tutorial-push-an-updated-container-image-to-a-geo-replicated-container-registry-for-regional-web-app-deployments"></a>자습서: 지역 웹앱 배포를 위해 업데이트된 컨테이너 이미지를 지리적으로 복제된 컨테이너 레지스트리로 푸시

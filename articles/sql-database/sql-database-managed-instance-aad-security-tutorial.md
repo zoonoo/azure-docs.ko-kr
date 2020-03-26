@@ -10,10 +10,10 @@ ms.author: mireks
 ms.reviewer: vanto
 ms.date: 11/06/2019
 ms.openlocfilehash: bd65a21c2aa21643c76966410931949db7d17ad6
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73822801"
 ---
 # <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-server-principals-logins"></a>자습서: Azure SQL Database에서 Azure AD 서버 보안 주체(로그인)를 사용하는 관리형 인스턴스 보안
@@ -25,7 +25,7 @@ ms.locfileid: "73822801"
 - 역할 기반 멤버 자격 및 권한을 통한 권한 부여 사용
 - 보안 기능 사용
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > - 관리되는 인스턴스에 대한 Azure AD(Active Directory) 서버 보안 주체(로그인) 만들기
@@ -38,7 +38,7 @@ ms.locfileid: "73822801"
 
 자세한 내용은 [Azure SQL Database 관리형 인스턴스 개요](sql-database-managed-instance-index.yml) 및 [기능](sql-database-managed-instance.md) 문서를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음 필수 조건이 충족되어야 합니다.
 
@@ -191,7 +191,7 @@ Azure AD 서버 보안 주체(로그인)가 만들어지고 `sysadmin` 권한이
 
 1. SQL Server Management Studio에서 새 쿼리 창을 엽니다.
 
-    이 예에서는 Azure AD에 _mygroup_이라는 그룹이 있다고 가정합니다. 다음 명령을 실행합니다.
+    이 예에서는 Azure AD에 _mygroup_이라는 그룹이 있다고 가정합니다. 다음 명령을 실행하십시오.
 
     ```sql
     USE master

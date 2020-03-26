@@ -9,10 +9,10 @@ ms.date: 08/07/2019
 ms.author: sngun
 ms.custom: include file
 ms.openlocfilehash: f80efbac256871af073354f23317c447d6a85f1e
-ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "70020163"
 ---
 이제 데이터 탐색기를 사용하여 새 컨테이너에 데이터를 추가할 수 있습니다.

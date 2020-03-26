@@ -8,10 +8,10 @@ ms.date: 10/1/2019
 author: sivethe
 ms.author: sivethe
 ms.openlocfilehash: 670020d276b9d4a868f24eb4a3f522581060adca
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "72754988"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB의 API for MongoDB
@@ -30,8 +30,8 @@ Cosmos DB는 Cassandra, MongoDB, Gremlin 및 Azure Table Storage를 비롯한 �
 
 전역적으로 배포되는 완전 관리형 Database as a Service인 Cosmos DB의 주요 이점은 [여기](introduction.md)에 설명되어 있습니다. 또한 인기 있는 NoSQL API의 유선 프로토콜을 기본적으로 구현하는 Cosmos DB는 다음과 같은 혜택을 제공합니다.
 
-* 애플리케이션 논리의 상당 부분을 유지하면서도 애플리케이션을 Cosmos DB로 간편하게 마이그레이션할 수 있습니다.
-* 계속해서 애플리케이션의 이식성을 유지하고 클라우드 공급업체에 종속되지 않습니다.
+* 애플리케이션 논리의 상당 부분을 유지하면서 애플리케이션을 Cosmos DB로 쉽게 마이그레이션합니다.
+* 클라우드 공급업체와 관계없이 애플리케이션을 이식 가능한 상태로 계속 유지합니다.
 * Cosmos DB 기반의 일반 NoSQL API에 업계 최고 수준의 재정적 지원이 포함된 SLA를 제공합니다.
 * 요구 사항에 따라 프로비전된 처리량 및 스토리지 크기를 탄력적으로 조정하여 필요한 처리량 및 스토리지에 대한 요금만 지불하면 됩니다. 이를 통해 상당한 비용을 절감할 수 있습니다.
 * 다중 마스터 복제를 사용한 턴키, 글로벌 배포.

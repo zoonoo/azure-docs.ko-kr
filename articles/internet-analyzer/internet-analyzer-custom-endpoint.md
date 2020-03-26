@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.date: 10/16/2019
 ms.author: mebeatty
 ms.openlocfilehash: 6a781e767393f35a1ec22f195ba787e3018d8d1e
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76713089"
 ---
 # <a name="measure-custom-endpoints-to-evaluate-in-your-internet-analyzer-tests"></a>Internet Analyzer 테스트에서 평가할 사용자 지정 엔드포인트 측정 

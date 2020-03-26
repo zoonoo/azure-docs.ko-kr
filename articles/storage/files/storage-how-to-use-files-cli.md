@@ -8,10 +8,10 @@ ms.date: 10/26/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 95d7abca27ec9db46a72140bc8a61b2841c63fcb
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77598598"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure 파일 공유 만들기 및 관리
@@ -222,7 +222,7 @@ snapshot=$(az storage share snapshot \
 ```
 
 ### <a name="browse-share-snapshot-contents"></a>공유 스냅샷 콘텐츠 찾아보기
-`az storage file list` 명령에 대한 `$snapshot` 변수에서 캡처한 공유 스냅샷의 타임스탬프를 전달하여 공유 스냅샷의 콘텐츠를 찾아볼 수 있습니다.
+`$snapshot` 명령에 대한 `az storage file list` 변수에서 캡처한 공유 스냅샷의 타임스탬프를 전달하여 공유 스냅샷의 콘텐츠를 찾아볼 수 있습니다.
 
 ```azurecli-interactive
 az storage file list \
@@ -275,7 +275,7 @@ az storage file copy start \
 ```
 
 ### <a name="delete-a-share-snapshot"></a>공유 스냅샷 삭제
-[`az storage share delete`](/cli/azure/storage/share) 명령을 사용하여 공유 스냅샷을 삭제할 수 있습니다. `--snapshot` 매개 변수에 대한 `$SNAPSHOT` 참조를 포함하는 변수를 사용합니다.
+[`az storage share delete`](/cli/azure/storage/share) 명령을 사용하여 공유 스냅샷을 삭제할 수 있습니다. `$SNAPSHOT` 매개 변수에 대한 `--snapshot` 참조를 포함하는 변수를 사용합니다.
 
 ```azurecli-interactive
 az storage share delete \

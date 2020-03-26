@@ -17,10 +17,10 @@ ms.date: 08/26/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b031ded2022078c31bd8570c6a6317c398715480
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "70162653"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-adp"></a>자습서: ADP와 Azure Active Directory SSO(Single Sign-On) 연결
@@ -33,7 +33,7 @@ ms.locfileid: "70162653"
 
 Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -115,7 +115,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자**를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예: `B.Simon@contoso.com`
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기**를 클릭합니다.
 
@@ -168,7 +168,7 @@ ADP 담당자로부터 확인을 받는 즉시 ADP 서비스를 구성하고 특
 
 1. [Azure Portal](https://portal.azure.com/)의 **ADP** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾은 다음, **Single Sign-On**을 선택합니다.
 
-1. **Single Sign-On 방법 선택** 대화 상자에서 **모드**를 **연결됨**으로 선택합니다. 애플리케이션을 **ADP**에 연결합니다.
+1. **Single Sign-On 방법 선택** 대화 상자에서 **모드**를 **연결됨**으로 선택합니다. 애플리케이션을 **ADP**에 연결하합니다.
 
     ![연결된 Single Sign-On](./media/adpfederatedsso-tutorial/tutorial_adp_linked.png)
 

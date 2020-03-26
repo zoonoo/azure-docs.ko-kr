@@ -16,13 +16,13 @@ ms.date: 09/27/2019
 ms.author: magoedte
 ms.custom: mvc
 ms.openlocfilehash: 5dd35ed2f4533d19cc3a59788d6422416dce13f5
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78372879"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79223250"
 ---
-# <a name="tutorial-monitor-changes-and-update-a-linux-virtual-machine-in-azure"></a>자습서: Azure에서 변경 내용 모니터링 및 Linux 가상 머신 업데이트
+# <a name="tutorial-monitor-changes-and-update-a-linux-virtual-machine-in-azure"></a>자습서: Azure에서 Linux 가상 머신 변경 내용 및 업데이트 모니터링
 
 Azure [변경 추적](../../automation/change-tracking.md)을 사용하면 변경 내용을 쉽게 식별할 수 있으며 [업데이트 관리](../../automation/automation-update-management.md)를 사용하면 Azure Linux VM의 운영 체제 업데이트를 관리할 수 있습니다.
 

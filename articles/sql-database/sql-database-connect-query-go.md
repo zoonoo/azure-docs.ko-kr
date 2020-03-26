@@ -12,23 +12,23 @@ ms.author: craigg
 ms.reviewer: MightyPen
 ms.date: 02/12/2019
 ms.openlocfilehash: 9b85b1bfb8935b5e311bb7d9503c17261a210127
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73827074"
 ---
 # <a name="quickstart-use-golang-to-query-an-azure-sql-database"></a>빠른 시작: Golang을 사용하여 Azure SQL 데이터베이스 쿼리
 
 이 빠른 시작에서는 [Golang](https://godoc.org/github.com/denisenkom/go-mssqldb) 프로그래밍 언어를 사용하여 Azure SQL 데이터베이스에 연결합니다. 그런 다음, Transact-SQL 문을 실행하여 데이터를 쿼리하고 수정합니다. [Golang](https://golang.org/)은 간단하고, 신뢰할 수 있으며, 효율적인 소프트웨어를 쉽게 빌드할 수 있는 오픈 소스 프로그래밍 언어입니다.  
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
 - Azure SQL 데이터베이스입니다. 다음 빠른 시작 중 하나를 사용하여 Azure SQL Database에서 데이터베이스를 만들고 구성할 수 있습니다.
 
-  || 단일 데이터베이스 | Managed Instance |
+  || 단일 데이터베이스 | 관리되는 인스턴스 |
   |:--- |:--- |:---|
   | 생성| [포털](sql-database-single-database-get-started.md) | [포털](sql-database-managed-instance-get-started.md) |
   || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |

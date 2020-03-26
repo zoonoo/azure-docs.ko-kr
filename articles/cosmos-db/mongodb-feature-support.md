@@ -8,10 +8,10 @@ ms.date: 10/16/2019
 author: sivethe
 ms.author: sivethe
 ms.openlocfilehash: 12e5dba0339b6092564e5d35c1a6250b0c47f50f
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "72754993"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-32-version-supported-features-and-syntax"></a>Azure Cosmos DB의 API for MongoDB(3.2 버전): 지원되는 기능 및 구문
@@ -38,7 +38,7 @@ Azure Cosmos DB의 API for MongoDB는 다음과 같은 데이터베이스 명령
 ### <a name="query-and-write-operation-commands"></a>쿼리 및 쓰기 작업 명령
 
 - delete
-- find
+- 찾기
 - findAndModify
 - getLastError
 - getMore
@@ -228,7 +228,7 @@ Cosmos DB는 공개 미리 보기에서 MongoDB 3.2의 집계 파이프라인을
 }
 ```
 
-연산자 | 예 |
+연산자 | 예제 |
 --- | --- |
 $eq | `{ "Volcano Name": { $eq: "Rainier" } }` |  | -
 $gt | `{ "Elevation": { $gt: 4000 } }` |  | -
@@ -288,18 +288,18 @@ $regex 쿼리에서 왼쪽에 고정된 식은 인덱스 검색을 허용합니�
 
 ### <a name="geospatial-operators"></a>지리 공간적 연산자
 
-연산자 | 예 | |
+연산자 | 예제 | |
 --- | --- | --- |
-$geoWithin | ```{ "Location.coordinates": { $geoWithin: { $centerSphere: [ [ -121, 46 ], 5 ] } } }``` | yes |
-$geoIntersects |  ```{ "Location.coordinates": { $geoIntersects: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }``` | yes |
-$near | ```{ "Location.coordinates": { $near: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }``` | yes |
-$nearSphere | ```{ "Location.coordinates": { $nearSphere : [ -121, 46  ], $maxDistance: 0.50 } }``` | yes |
-$geometry | ```{ "Location.coordinates": { $geoWithin: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }``` | yes |
-$minDistance | ```{ "Location.coordinates": { $nearSphere : { $geometry: {type: "Point", coordinates: [ -121, 46 ]}, $minDistance: 1000, $maxDistance: 1000000 } } }``` | yes |
-$maxDistance | ```{ "Location.coordinates": { $nearSphere : [ -121, 46  ], $maxDistance: 0.50 } }``` | yes |
-$center | ```{ "Location.coordinates": { $geoWithin: { $center: [ [-121, 46], 1 ] } } }``` | yes |
-$centerSphere | ```{ "Location.coordinates": { $geoWithin: { $centerSphere: [ [ -121, 46 ], 5 ] } } }``` | yes |
-$box | ```{ "Location.coordinates": { $geoWithin: { $box:  [ [ 0, 0 ], [ -122, 47 ] ] } } }``` | yes |
+$geoWithin | ```{ "Location.coordinates": { $geoWithin: { $centerSphere: [ [ -121, 46 ], 5 ] } } }``` | 예 |
+$geoIntersects |  ```{ "Location.coordinates": { $geoIntersects: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }``` | 예 |
+$near | ```{ "Location.coordinates": { $near: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }``` | 예 |
+$nearSphere | ```{ "Location.coordinates": { $nearSphere : [ -121, 46  ], $maxDistance: 0.50 } }``` | 예 |
+$geometry | ```{ "Location.coordinates": { $geoWithin: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }``` | 예 |
+$minDistance | ```{ "Location.coordinates": { $nearSphere : { $geometry: {type: "Point", coordinates: [ -121, 46 ]}, $minDistance: 1000, $maxDistance: 1000000 } } }``` | 예 |
+$maxDistance | ```{ "Location.coordinates": { $nearSphere : [ -121, 46  ], $maxDistance: 0.50 } }``` | 예 |
+$center | ```{ "Location.coordinates": { $geoWithin: { $center: [ [-121, 46], 1 ] } } }``` | 예 |
+$centerSphere | ```{ "Location.coordinates": { $geoWithin: { $centerSphere: [ [ -121, 46 ], 5 ] } } }``` | 예 |
+$box | ```{ "Location.coordinates": { $geoWithin: { $box:  [ [ 0, 0 ], [ -122, 47 ] ] } } }``` | 예 |
 $polygon | ```{ "Location.coordinates": { $near: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }``` | 예 |
 
 ## <a name="sort-operations"></a>정렬 작업
@@ -308,7 +308,7 @@ $polygon | ```{ "Location.coordinates": { $near: { $geometry: { type: "Polygon",
 
 ## <a name="additional-operators"></a>추가 연산자
 
-연산자 | 예 | 메모
+연산자 | 예제 | 메모
 --- | --- | --- |
 $all | ```{ "Location.coordinates": { $all: [-121.758, 46.87] } }``` |
 $elemMatch | ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } } }``` |
@@ -326,7 +326,7 @@ $text |  | 지원되지 않습니다. 대신 $regex를 사용합니다.
 
 #### <a name="cursor-methods"></a>커서 메서드
 
-방법 | 예 | 메모
+방법 | 예제 | 메모
 --- | --- | --- |
 cursor.sort() | ```cursor.sort({ "Elevation": -1 })``` | 정렬 키가 없는 문서가 반환되지 않음
 

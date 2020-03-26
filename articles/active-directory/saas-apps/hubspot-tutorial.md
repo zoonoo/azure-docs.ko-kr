@@ -17,10 +17,10 @@ ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c4b235426a7029abb9bb79ba56e582cccc3b14a6
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68944441"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hubspot"></a>자습서: HubSpot과 Azure Active Directory 통합
@@ -35,11 +35,11 @@ HubSpot을 Azure AD와 통합하면 다음과 같은 이점이 있습니다.
 
 Azure AD와의 SaaS(Software as a Service) 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 애플리케이션에 대한 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 HubSpot과 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
-* Azure AD 구독 Azure AD 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/) 을 만듭니다.
+* Azure AD 구독 Azure AD 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 * Single Sign-On을 사용하도록 설정한 HubSpot 구독
 
 ## <a name="scenario-description"></a>시나리오 설명
@@ -79,9 +79,9 @@ HubSpot을 Azure AD와 통합하려면 관리형 SaaS 앱 목록에 HubSpot을 �
 
 HubSpot에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
 
-| Task | 설명 |
+| Task | Description |
 | --- | --- |
-| **[Azure AD Single Sign-On 구성](#configure-azure-ad-single-sign-on)** | 사용자가 이 기능을 사용하도록 설정합니다. |
+| **[Azure AD Single Sign-On 구성](#configure-azure-ad-single-sign-on)** | 사용자가 이 기능을 사용할 수 있도록 합니다. |
 | **[HubSpot Single Sign-On 구성](#configure-hubspot-single-sign-on)** | 애플리케이션에서 Single Sign-On 설정을 구성합니다. |
 | **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** | Britta Simon이라는 사용자에 대한 Azure AD Single Sign-On을 테스트합니다. |
 | **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** | Britta Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다. |
@@ -123,7 +123,7 @@ HubSpot에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
     ![추가 URL 설정 옵션](common/metadata-upload-additional-signon.png)
 
-1. **SAML로 Single Sign-On 설정** 창의 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 옆에 있는 **다운로드**를 선택합니다. 요구 사항에 따라 다운로드 옵션을 선택합니다. 컴퓨터에 인증서를 저장합니다.
+1. **SAML로 Single Sign-On 설정** 창의 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 옆에 있는 **다운로드**를 선택합니다. 요구 사항에 따라 다운로드 옵션을 선택합니다. 인증서를 컴퓨터에 저장합니다.
 
     ![인증서(Base64) 다운로드 옵션](common/certificatebase64.png)
 
@@ -183,7 +183,7 @@ HubSpot에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
     1. **이름** 상자에 **BrittaSimon**을 입력합니다.
   
-    1. **사용자 이름** 상자에 **brittasimon\@\<your-company-domain>.\<extension\>** 을 입력합니다. 예: **brittasimon\@contoso.com**
+    1. **사용자 이름** 상자에 **brittasimon\@\<your-company-domain>.\<extension\>** 을 입력합니다. 예를 들어 **brittasimon\@contoso.com**입니다.
 
     1. **암호 표시** 확인란을 선택합니다. **암호** 상자에 표시된 값을 적어둡니다.
 
@@ -256,12 +256,12 @@ HubSpot에서 사용자 계정을 프로비저닝하려면
 
 이 섹션에서는 My Apps 포털을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-Single Sign-On을 설정한 후에 내 앱 포털에서 **HubSpot**을 선택하면 HubSpot에 자동으로 로그인됩니다. 내 앱 포털에 대한 자세한 내용은 [내 앱 포털에서 앱 액세스 및 사용](../user-help/my-apps-portal-end-user-access.md)을 참조하세요.
+Single Sign-On을 설정한 후에 내 앱 포털에서 **HubSpot**을 선택하면 HubSpot에 자동으로 로그인됩니다. My Apps 포털에 대한 자세한 내용은 [My Apps 포털에서 앱 액세스 및 사용](../user-help/my-apps-portal-end-user-access.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 자세한 내용은 다음 문서를 검토하세요.
 
-- [SaaS 앱과 Azure Active Directory를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Azure Active Directory와 SaaS 앱 통합에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 - [Azure Active Directory의 애플리케이션에 대한 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

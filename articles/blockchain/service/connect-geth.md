@@ -5,10 +5,10 @@ ms.date: 11/20/2019
 ms.topic: quickstart
 ms.reviewer: janders
 ms.openlocfilehash: 9da78eac1dc429bcc0ad52bb9cb2f1fb743a90d4
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74455836"
 ---
 # <a name="quickstart-use-geth-to-attach-to-an-azure-blockchain-service-transaction-node"></a>빠른 시작: Geth를 사용하여 Azure Blockchain Service 트랜잭션 노드에 연결
@@ -17,7 +17,7 @@ ms.locfileid: "74455836"
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [Geth](https://github.com/ethereum/go-ethereum/wiki/geth) 설치
 * [빠른 시작: Azure Portal을 사용하여 블록체인 멤버 만들기](create-member.md) 또는 [빠른 시작: Azure CLI를 사용하여 Azure Blockchain Service 블록체인 멤버 만들기](create-member-cli.md)를 완료합니다.
@@ -39,7 +39,7 @@ Azure Portal에서 Azure Blockchain Service 트랜잭션 노드에 대한 Geth �
 ## <a name="connect-to-geth"></a>Geth에 연결
 
 1. 명령 프롬프트 또는 셸을 엽니다.
-1. Geth attach 하위 명령을 사용하여 트랜잭션 노드에서 실행 중인 Geth 인스턴스에 연결합니다. 연결 문자열을 attach 하위 명령의 인수로 붙여넣습니다. 예:
+1. Geth attach 하위 명령을 사용하여 트랜잭션 노드에서 실행 중인 Geth 인스턴스에 연결합니다. 연결 문자열을 attach 하위 명령의 인수로 붙여넣습니다. 다음은 그 예입니다.
 
     ``` bash
     geth attach <connection string>

@@ -9,17 +9,17 @@ ms.subservice: queues
 ms.topic: quickstart
 ms.reviewer: cbrooks
 ms.openlocfilehash: 2876d2a680aa41372557a9f04c1d6a5eed56b8ae
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74269239"
 ---
 # <a name="quickstart-create-a-queue-and-add-a-message-with-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 큐를 만들어서 메시지 추가하기
 
 이 빠른 시작에서는 [Azure Portal](https://portal.azure.com/)을 사용하여 Azure Storage에 큐를 만들고 메시지를 큐에 추가하고 제거하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 

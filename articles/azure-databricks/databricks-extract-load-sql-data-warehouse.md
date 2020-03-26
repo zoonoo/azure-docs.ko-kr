@@ -8,12 +8,12 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 01/29/2020
-ms.openlocfilehash: 8c7c9c2e3a1195422db30ba913b1cea3a1a360e4
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: 8819b79a105b7a654a34e47c5ba9b3d351a1d926
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78301695"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80239409"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>자습서: Azure Databricks를 사용하여 데이터 추출, 변환 및 로드
 
@@ -47,7 +47,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 이 자습서를 시작하기 전에 다음 작업을 완료합니다.
 
-* Azure SQL Data Warehouse를 만들고, 서버 수준 방화벽 규칙을 만들고, 서버 관리자로 서버에 연결합니다. [빠른 시작: Azure Portal에서 Azure SQL 데이터 웨어하우스 생성 및 쿼리](../sql-data-warehouse/create-data-warehouse-portal.md)를 참조하세요.
+* Azure SQL Data Warehouse를 만들고, 서버 수준 방화벽 규칙을 만들고, 서버 관리자로 서버에 연결합니다. [빠른 시작: Azure Portal에서 Azure SQL 데이터 웨어하우스 생성 및 쿼리](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md)를 참조하세요.
 
 * Azure SQL 데이터 웨어하우스에 대한 마스터 키를 만듭니다. [데이터베이스 마스터 키 만들기](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key)를 참조하세요.
 
@@ -155,13 +155,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
    ```scala
    val appID = "<appID>"
-   val password = "<password>"
+   val secret = "<secret>"
    val tenantID = "<tenant-id>"
 
    spark.conf.set("fs.azure.account.auth.type", "OAuth")
    spark.conf.set("fs.azure.account.oauth.provider.type", "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider")
    spark.conf.set("fs.azure.account.oauth2.client.id", "<appID>")
-   spark.conf.set("fs.azure.account.oauth2.client.secret", "<password>")
+   spark.conf.set("fs.azure.account.oauth2.client.secret", "<secret>")
    spark.conf.set("fs.azure.account.oauth2.client.endpoint", "https://login.microsoftonline.com/<tenant-id>/oauth2/token")
    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "true")
    ```

@@ -4,10 +4,10 @@ description: 이 빠른 시작에서는 Azure Resource Graph Explorer를 사용�
 ms.date: 11/21/2019
 ms.topic: quickstart
 ms.openlocfilehash: 5cf355e78ad51e06d7ba27d48dd352f35b4c0740
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74406788"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>빠른 시작: Azure Resource Graph Explorer를 사용하여 첫 번째 Resource Graph 쿼리 실행
@@ -16,7 +16,7 @@ Azure Resource Graph의 강력한 기능은 Azure Resource Graph Explorer를 통
 
 이 빠른 시작의 끝부분에서는 Azure Portal 및 Resource Graph Explorer를 사용하여 첫 번째 Resource Graph 쿼리를 실행하고 결과를 대시보드에 고정했습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 

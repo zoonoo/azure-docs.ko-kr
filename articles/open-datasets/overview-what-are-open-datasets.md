@@ -8,10 +8,10 @@ author: cjgronlund
 ms.author: cgronlun
 ms.date: 11/04/2019
 ms.openlocfilehash: fd5697f9c325dc4ad866c333ce1b20e008ebfa24
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73606165"
 ---
 # <a name="what-are-azure-open-datasets-and-how-can-you-use-them"></a>Azure Open Datasets란 무엇이며 사용하려면 어떻게 해야 하나요?
@@ -33,14 +33,14 @@ Azure Open Datasets의 큐레이팅된 공개 데이터 세트는 기계 학습 
 
 ### <a name="weather-data"></a>날씨 데이터
  
-|데이터 세트         | Notebooks     | 설명                                    |
+|데이터 세트         | Notebooks     | Description                                    |
 |----------------|---------------|------------------------------------------------|
 |[NOAA ISD(Integrated Surface Data)](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/) | [Azure 노트](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/?tab=data-access#AzureNotebooks) <br> [Azure Databricks](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/?tab=data-access#AzureDatabricks) | NOAA에서 제공하는 전 세계의 시간별 날씨 데이터로 북아메리카, 유럽, 오스트레일리아 및 아시아 일부 지역을 아우릅니다. 매일 업데이트됩니다. |
 |[NOAA GFS(Global Forecast System)](https://azure.microsoft.com/services/open-datasets/catalog/noaa-global-forecast-system/) | [Azure 노트](https://azure.microsoft.com/services/open-datasets/catalog/noaa-global-forecast-system/?tab=data-access#AzureNotebooks) <br> [Azure Databricks](https://azure.microsoft.com/services/open-datasets/catalog/noaa-global-forecast-system/?tab=data-access#AzureDatabricks) | NOAA에서 제공하는 15일 미국 시간별 일기 예보 데이터입니다. 매일 업데이트됩니다. |
 
 ### <a name="calendar-data"></a>달력 데이터
 
-|데이터 세트         | Notebooks     | 설명                                    |
+|데이터 세트         | Notebooks     | Description                                    |
 |----------------|---------------|------------------------------------------------|
 |[공휴일](https://azure.microsoft.com/services/open-datasets/catalog/public-holidays/) | [Azure 노트](https://azure.microsoft.com/services/open-datasets/catalog/public-holidays/?tab=data-access#AzureNotebooks) <br> [Azure Databricks](https://azure.microsoft.com/services/open-datasets/catalog/public-holidays/?tab=data-access#AzureDatabricks) | 전 세계 41개 국가 또는 지역의 1970-2099년 공유일 데이터입니다. 국가 및 대부분의 사람들이 유급 휴가를 받는지 여부가 포함되어 있습니다. |
 

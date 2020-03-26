@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 9/25/2018
 ms.author: rohink
 ms.openlocfilehash: 4bdfc950cc1277809811dc2c548a57cc2138a8e4
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77149952"
 ---
 # <a name="tutorial-configure-an-alias-record-to-support-apex-domain-names-with-traffic-manager"></a>자습서: Traffic Manager를 사용하여 apex 도메인 이름을 지원하도록 별칭 레코드 구성 

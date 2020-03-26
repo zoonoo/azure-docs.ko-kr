@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 01/05/2019
 ms.author: lbosq
 ms.openlocfilehash: e38f3e2029bdc8dc8c13ce330e37053d491317f3
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "68736637"
 ---
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-php-and-the-azure-portal"></a>빠른 시작: PHP 및 Azure Portal을 사용하여 Azure Cosmos DB에서 그래프 데이터베이스 만들기
@@ -30,7 +30,7 @@ ms.locfileid: "68736637"
 
 Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. Azure Cosmos DB의 핵심인 전역 배포 및 수평적 크기 조정 기능의 이점을 활용하여 문서, 테이블, 키/값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있습니다.  
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 또는 Azure 구독, 요금 및 약정 없이 [Azure Cosmos DB 평가판](https://azure.microsoft.com/try/cosmosdb/)을 사용할 수 있습니다.
 
@@ -52,7 +52,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 이제 코드 사용으로 전환해 보겠습니다. GitHub에서 Gremlin API 앱을 복제하고, 연결 문자열을 설정하고, 실행해 보겠습니다. 프로그래밍 방식으로 데이터를 사용하여 얼마나 쉽게 작업할 수 있는지 알게 될 것입니다.  
 
-1. 명령 프롬프트를 git-samples라는 새 폴더를 만든 다음 명령 프롬프트를 닫습니다.
+1. 명령 프롬프트를 열고, git-samples라는 새 폴더를 만든 다음 명령 프롬프트를 닫습니다.
 
     ```bash
     md "C:\git-samples"

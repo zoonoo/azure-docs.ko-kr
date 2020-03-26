@@ -10,17 +10,17 @@ ms.topic: tutorial
 ms.date: 06/25/2019
 ms.author: hrasheed
 ms.openlocfilehash: e43d2d64535085a9b22d2febc761fc7026498ba8
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "71077146"
 ---
 # <a name="tutorial-use-apache-hbase-in-azure-hdinsight"></a>자습서: Azure HDInsight에서 Apache HBase 사용
 
 이 자습서에서는 Azure HDInsight에서 Apache HBase 클러스터를 만들고, HBase 테이블을 만들고 Apache Hive를 사용하여 테이블을 쿼리하는 방법을 설명합니다.  일반 HBase 정보는 [HDInsight HBase 개요](./apache-hbase-overview.md)를 참조하세요.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * Apache HBase 클러스터 만들기
@@ -29,7 +29,7 @@ ms.locfileid: "71077146"
 > * Curl을 사용하여 HBase REST API 사용
 > * 클러스터 상태 확인
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * SSH 클라이언트. 자세한 내용은 [SSH를 사용하여 HDInsight(Apache Hadoop)에 연결](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
@@ -45,7 +45,7 @@ ms.locfileid: "71077146"
 
 2. **사용자 지정 배포** 블레이드에서 다음 값을 입력합니다.
 
-    |자산 |설명 |
+    |속성 |Description |
     |---|---|
     |Subscription|클러스터를 만드는 데 사용할 Azure 구독을 선택합니다.|
     |Resource group|Azure 리소스 관리 그룹을 만들거나 기존 그룹을 사용합니다.|
@@ -291,7 +291,7 @@ HDInsight에서 HBase는 클러스터 모니터링에 대한 웹 UI와 함께 �
    - 지역 서버
    - 백업 마스터
    - 테이블
-   - 태스크
+   - tasks
    - 소프트웨어 특성
 
 ## <a name="clean-up-resources"></a>리소스 정리

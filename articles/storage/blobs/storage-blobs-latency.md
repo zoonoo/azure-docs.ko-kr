@@ -9,17 +9,17 @@ ms.date: 09/05/2019
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: 78440b8150a0992bed2e2a3e597fdac8e7a1c7b0
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75749718"
 ---
 # <a name="latency-in-blob-storage"></a>Blob 스토리지의 대기 시간
 
 응답 시간이라고도 하는 대기 시간은 애플리케이션에서 요청이 완료될 때까지 대기해야 하는 시간입니다. 대기 시간은 애플리케이션 성능에 직접적으로 영향을 줄 수 있습니다. 낮은 대기 시간은 신용 카드 트랜잭션을 수행하거나 웹 페이지를 로드하는 등 반복에 사용자가 있는 시나리오에서 중요합니다. 원격 분석 로깅 또는 IoT 이벤트와 같이 높은 속도로 들어오는 이벤트를 처리해야 하는 시스템에도 낮은 대기 시간이 필요합니다. 이 문서에서는 블록 Blob 작업의 대기 시간을 파악 및 측정하고, 낮은 대기 시간에 맞춰 애플리케이션을 디자인하는 방법을 설명합니다.
 
-Azure Storage는 블록 Blob에 대한 두 가지 성능 옵션인 프리미엄과 표준을 제공합니다. 프리미엄 블록 Blob은 고성능 SSD 디스크를 통해 표준 블록 Blob보다 상당히 낮고 일관성 있는 대기 시간을 제공합니다. 자세한 내용은 [Azure Blob Storage: 핫, 쿨 및 보관 액세스 계층](storage-blob-storage-tiers.md)의 **프리미엄 성능 블록 Blob 스토리지**를 참조하세요.
+Azure Storage는 블록 Blob에 대한 두 가지 성능 옵션인 프리미엄과 표준을 제공합니다. 프리미엄 블록 Blob은 고성능 SSD 디스크를 통해 표준 블록 Blob보다 상당히 낮고 일관성 있는 대기 시간을 제공합니다. 자세한 내용은 **Azure Blob Storage: 핫, 쿨 및 보관 액세스 계층**의 [프리미엄 성능 블록 Blob 스토리지](storage-blob-storage-tiers.md)를 참조하세요.
 
 ## <a name="about-azure-storage-latency"></a>Azure Storage 대기 시간 정보
 
@@ -39,7 +39,7 @@ Azure Storage는 블록 Blob에 대한 두 가지 대기 시간 메트릭을 제
 
 - **서버 대기 시간**은 Azure Storage가 요청의 마지막 패킷을 받은 시간부터 Azure Storage에서 응답의 첫 번째 패킷이 반환된 시간까지의 간격을 측정합니다.
 
-다음 그림은 `Get Blob` 작업을 호출하는 샘플 워크로드의 **평균 성공 E2E 대기 시간** 및 **평균 성공 서버 대기 시간**을 보여 줍니다.
+다음 그림은 **작업을 호출하는 샘플 워크로드의**평균 성공 E2E 대기 시간**및**평균 성공 서버 대기 시간`Get Blob`을 보여 줍니다.
 
 ![Blob 가져오기 작업에 대한 대기 시간 메트릭을 보여 주는 스크린샷](media/storage-blobs-latency/latency-metrics-get-blob.png)
 

@@ -9,10 +9,10 @@ ms.topic: overview
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.date: 02/27/2020
 ms.openlocfilehash: 7e8dd69b7c58e090c30ea1aa59feddab610dd3c5
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78244882"
 ---
 # <a name="what-is-apache-hadoop-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Hadoop이란?
@@ -27,9 +27,9 @@ HDInsight에서 사용할 수 있는 Hadoop 기술 스택 구성 요소를 보�
 
 Apache Hadoop MapReduce는 방대한 양의 데이터를 처리하는 작업을 작성하기 위한 소프트웨어 프레임워크입니다. 입력 데이터는 독립적인 청크로 분할됩니다. 각 청크는 클러스터의 노드에서 동시에 처리됩니다. MapReduce 작업은 두 함수로 구성됩니다.
 
-* **매퍼**: 입력 데이터를 사용하고, 일반적으로 필터 및 정렬 작업을 통해 분석하며, 튜플(키-값 쌍)을 내보냅니다.
+* **매퍼**: 입력된 데이터를 소비하고 분석하며(일반적으로 필터 및 정렬 작업) 튜플을 내보냅니다.(키-값 쌍)
 
-* **리듀서**: 매퍼에서 내보낸 튜플을 사용하고 매퍼 데이터에서 더 작고 결합된 결과를 만드는 요약 작업을 수행합니다.
+* **리듀서**: 매퍼에서 나온 튜플을 소배하고 매퍼 데이터에서 더 작고 결합된 결과를 생성하는 요약 작업을 수행합니다.
 
 다음 다이어그램에서는 기본 단어 계산 MapReduce 작업 예제를 보여줍니다.
 

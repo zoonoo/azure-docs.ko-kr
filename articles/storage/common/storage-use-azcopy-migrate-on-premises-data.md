@@ -9,17 +9,17 @@ ms.author: normesta
 ms.reviewer: seguler
 ms.subservice: common
 ms.openlocfilehash: f7155053072b3533503765dc6f4fbf185d21f0d4
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74327512"
 ---
 #  <a name="tutorial-migrate-on-premises-data-to-cloud-storage-with-azcopy"></a>자습서: AzCopy를 사용하여 클라우드 스토리지로 온-프레미스 데이터 마이그레이션
 
 AzCopy는 간단한 명령을 사용하여 Azure Blob Storage, Azure Files 및 Azure Table Storage 간 데이터를 복사하기 위한 명령줄 도구입니다. 명령은 최적의 성능을 위해 설계되었습니다. AzCopy를 사용하여 파일 시스템과 스토리지 계정 간 또는 스토리지 계정 간에 데이터를 복사할 수 있습니다. AzCopy를 사용하여 로컬(온-프레미스) 데이터를 스토리지 계정으로 복사할 수 있습니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 스토리지 계정을 만듭니다. 
@@ -29,7 +29,7 @@ AzCopy는 간단한 명령을 사용하여 Azure Blob Storage, Azure Files 및 A
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 최신 버전의 AzCopy를 다운로드합니다. [AzCopy 시작](storage-use-azcopy-v10.md)을 참조하세요.
 
@@ -121,11 +121,11 @@ AzCopy 명령을 텍스트 편집기에 복사합니다. AzCopy 명령의 매개
 > [!NOTE]
 > Linux 예제는 SAS 토큰을 추가합니다. 명령에 하나를 제공해야 합니다. 현재 버전의 AzCopy V10은 cron 작업에 Azure AD 인증을 지원하지 않습니다.
 
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+# <a name="linux"></a>[Linux](#tab/linux)
 
     azcopy sync "/mnt/myfiles" "https://mystorageaccount.blob.core.windows.net/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-05-30T06:57:40Z&st=2019-05-29T22:57:40Z&spr=https&sig=BXHippZxxx54hQn%2F4tBY%2BE2JHGCTRv52445rtoyqgFBUo%3D" --recursive=true
 
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+# <a name="windows"></a>[Windows](#tab/windows)
 
     azcopy sync "C:\myFolder" "https://mystorageaccount.blob.core.windows.net/mycontainer" --recursive=true
 
@@ -135,7 +135,7 @@ AzCopy 명령을 텍스트 편집기에 복사합니다. AzCopy 명령의 매개
 
  **Schtasks**를 통해 관리자는 로컬 또는 원격 컴퓨터에서 예약된 작업을 만들고, 삭제하고, 쿼리하고, 변경하고, 실행 및 종료할 수 있습니다. **Cron**을 통해 Linux 및 Unix 사용자는 [cron 식](https://en.wikipedia.org/wiki/Cron#CRON_expression)을 사용하여 지정된 날짜와 시간에 명령 또는 스크립트를 실행할 수 있습니다.
 
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+# <a name="linux"></a>[Linux](#tab/linux)
 
 Linux에서 cron 작업을 만들려면 터미널에 다음 명령을 입력합니다.
 
@@ -146,7 +146,7 @@ crontab -e
 
 명령에서 cron 식 `*/5 * * * *`을 지정하면 셸 스크립트 `script.sh`에서 5분마다 실행해야 함을 나타냅니다. 스크립트를 매일, 매월 또는 매년 특정 시간에 실행하도록 예약할 수 있습니다. 작업 실행을 위한 날짜 및 시간 설정에 대해 자세히 알아보려면 [cron 식](https://en.wikipedia.org/wiki/Cron#CRON_expression)을 참조하세요.
 
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+# <a name="windows"></a>[Windows](#tab/windows)
 
 Windows에서 예약된 작업을 만들려면 명령 프롬프트 또는 PowerShell에서 다음 명령을 입력합니다.
 

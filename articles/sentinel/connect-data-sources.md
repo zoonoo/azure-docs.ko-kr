@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: yelevin
-ms.openlocfilehash: 311bb367748be98af704ab11919abea6e38d0ff3
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 9d2d1985b23e1c7f5e0f7d9fd2795bd85e28ace0
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77588334"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79214811"
 ---
 # <a name="connect-data-sources"></a>데이터 원본 연결
 
@@ -56,7 +56,6 @@ Azure Sentinel에서는 다음 데이터 연결 방법이 지원됩니다.
     - [Office 365](connect-office-365.md)
     - [Microsoft Defender ATP](connect-microsoft-defender-advanced-threat-protection.md)
     - [Microsoft 웹 애플리케이션 방화벽](connect-microsoft-waf.md)
-    - [Windows 보안 이벤트](connect-windows-security-events.md) 
     - [Windows 방화벽](connect-windows-firewall.md)
     - [Windows 보안 이벤트](connect-windows-security-events.md)
 
@@ -91,7 +90,7 @@ Azure Sentinel에서는 다음 데이터 연결 방법이 지원됩니다.
     - Linux 서버
     - 기타 클라우드
     
-## 에이전트 연결 옵션<a name="agent-options"></a>
+## <a name="agent-connection-options"></a>에이전트 연결 옵션<a name="agent-options"></a>
 
 외부 어플라이언스를 Azure Sentinel에 연결하려면 어플라이언스와 Azure Sentinel 간의 통신을 지원하도록 에이전트를 전용 컴퓨터(VM 또는 온-프레미스)에 배포해야 합니다. 자동 또는 수동으로 에이전트를 배포할 수 있습니다. 자동 배포는 전용 컴퓨터가 Azure에서 만드는 새 VM인 경우에만 사용할 수 있습니다. 
 

@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/10/2020
 ms.openlocfilehash: 8f244d64fe33a1529cf66314515bbe16e05ccffb
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77121539"
 ---
 # <a name="c-tutorial-add-autocompletion-and-suggestions---azure-cognitive-search"></a>C# 자습서: 자동 완성 및 제안 기능 추가 - Azure Cognitive Search

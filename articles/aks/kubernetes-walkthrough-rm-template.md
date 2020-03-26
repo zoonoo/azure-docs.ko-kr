@@ -4,19 +4,21 @@ description: Azure Resource Manager 템플릿을 사용하여 Kubernetes 클러�
 services: container-service
 ms.topic: quickstart
 ms.date: 04/19/2019
-ms.custom: mvc
-ms.openlocfilehash: 9c4a79f196cc0737ddc9490f2fedda99961289f4
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.custom: mvc,subject-armqs
+ms.openlocfilehash: e8117eb1b521dc2e3fa9eaca1316e0b9c14f0e98
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78273787"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80129463"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-an-azure-resource-manager-template"></a>빠른 시작: Azure Resource Manager 템플릿을 사용하여 AKS(Azure Kubernetes Service) 클러스터 배포
 
 AKS(Azure Kubernetes Service)는 클러스터를 빠르게 배포하고 관리할 수 있는 관리형 Kubernetes 서비스입니다. 이 빠른 시작에서는 Azure Resource Manager 템플릿을 사용하여 AKS 클러스터를 배포합니다. 웹 프런트 엔드 및 Redis 인스턴스를 포함하는 다중 컨테이너 애플리케이션이 클러스터에서 실행됩니다.
 
 ![Azure Vote로 이동하는 이미지](media/container-service-kubernetes-walkthrough/azure-voting-application.png)
+
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 이 빠른 시작에서는 Kubernetes 기본 개념을 이해하고 있다고 가정합니다. 자세한 내용은 [AKS(Azure Kubernetes Service)의 Kubernetes 핵심 개념][kubernetes-concepts]을 참조하세요.
 
@@ -68,13 +70,21 @@ az ad sp create-for-rbac --skip-assignment
 
 ## <a name="create-an-aks-cluster"></a>AKS 클러스터 만들기
 
-이 빠른 시작에 사용된 템플릿은 [Azure Kubernetes Service 클러스터](https://azure.microsoft.com/resources/templates/101-aks/)를 배포하는 템플릿입니다. AKS 샘플을 더 보려면 [AKS 빠른 시작 템플릿][aks-quickstart-templates] 사이트를 참조하세요.
+### <a name="review-the-template"></a>템플릿 검토
+
+이 빠른 시작에 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-aks/)에서 나온 것입니다.
+
+:::code language="json" source="~/quickstart-templates/101-aks/azuredeploy.json" range="1-126" highlight="86-118":::
+
+AKS 샘플을 더 보려면 [AKS 빠른 시작 템플릿][aks-quickstart-templates] 사이트를 참조하세요.
+
+### <a name="deploy-the-template"></a>템플릿 배포
 
 1. 다음 이미지를 선택하고 Azure에 로그인하여 템플릿을 엽니다.
 
     [![Azure에 배포](./media/kubernetes-walkthrough-rm-template/deploy-to-azure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-aks%2Fazuredeploy.json)
 
-2. 다음 값을 선택하거나 입력합니다.  
+2. 다음 값을 선택하거나 입력합니다.
 
     이 빠른 시작에서는 *OS 디스크 크기 GB*, *에이전트 수*, *에이전트 VM 크기*, *OS 종류* 및 *Kubernetes 버전*에 대한 기본 값을 유지합니다. 다음 템플릿 매개 변수에 대해서는 직접 값을 제공합니다.
 
@@ -95,7 +105,9 @@ az ad sp create-for-rbac --skip-assignment
 
 AKS 클러스터를 만드는 데 몇 분이 걸립니다. 다음 단계로 넘어가기 전에 클러스터가 성공적으로 배포될 때까지 기다립니다.
 
-## <a name="connect-to-the-cluster"></a>클러스터에 연결
+## <a name="validate-the-deployment"></a>배포 유효성 검사
+
+### <a name="connect-to-the-cluster"></a>클러스터에 연결
 
 Kubernetes 클러스터를 관리하려면 [kubectl][kubectl] Kubernetes 명령줄 클라이언트를 사용합니다. Azure Cloud Shell을 사용하는 경우 `kubectl`이 이미 설치되어 있습니다. `kubectl`을 로컬로 설치하려면 [az aks install-cli][az-aks-install-cli] 명령을 사용합니다.
 
@@ -124,7 +136,7 @@ aks-agentpool-41324942-1   Ready    agent   6m46s   v1.12.6
 aks-agentpool-41324942-2   Ready    agent   6m45s   v1.12.6
 ```
 
-## <a name="run-the-application"></a>애플리케이션 실행
+### <a name="run-the-application"></a>애플리케이션 실행
 
 Kubernetes 매니페스트 파일은 어떤 컨테이너 이미지가 실행되는지 등과 같은 클러스터에 대해 원하는 상태를 정의합니다. 이 빠른 시작에서는 Azure Vote 애플리케이션을 실행하는 데 필요한 모든 개체를 만드는 데 매니페스트를 사용합니다. 이 매니페스트는 샘플 Azure Vote Python 애플리케이션과 Redis 인스턴스 각각에 대한 두 개의 [Kubernetes 배포][kubernetes-deployment]를 포함합니다. 두 개의 [Kubernetes Services][kubernetes-service], Redis 인스턴스에 대한 내부 서비스, 인터넷에서 Azure Vote 애플리케이션에 액세스하기 위한 외부 서비스가 만들어집니다.
 
@@ -233,7 +245,7 @@ deployment "azure-vote-front" created
 service "azure-vote-front" created
 ```
 
-## <a name="test-the-application"></a>애플리케이션 테스트
+### <a name="test-the-application"></a>애플리케이션 테스트
 
 애플리케이션이 실행되면 애플리케이션 프런트 엔드를 인터넷에 공개하는 Kubernetes 서비스가 만들어집니다. 이 프로세스를 완료하는 데 몇 분이 걸릴 수 있습니다.
 
@@ -260,7 +272,7 @@ Azure Vote 앱이 실제로 작동하는 모습을 보려면 웹 브라우저를
 
 ![Azure Vote로 이동하는 이미지](media/container-service-kubernetes-walkthrough/azure-voting-application.png)
 
-## <a name="delete-cluster"></a>클러스터 삭제
+## <a name="clean-up-resources"></a>리소스 정리
 
 클러스터가 더 이상 필요하지 않은 경우 [az group delete][az-group-delete] 명령을 사용하여 리소스 그룹, 컨테이너 서비스 및 모든 관련 리소스를 제거합니다.
 

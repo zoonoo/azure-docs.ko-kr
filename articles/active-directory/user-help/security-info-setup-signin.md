@@ -12,10 +12,10 @@ ms.topic: overview
 ms.date: 08/05/2019
 ms.author: curtand
 ms.openlocfilehash: c216dbfef99422fc49fde774dc57d5cbcc9f879a
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77063988"
 ---
 # <a name="set-up-your-security-info-preview-from-a-sign-in-prompt"></a>로그인 프롬프트에서 보안 정보 설정(미리 보기)

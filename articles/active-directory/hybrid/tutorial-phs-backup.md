@@ -13,10 +13,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3e5ad7badfa44a006fd7e71d3b0e42ee95ac698d
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "64919003"
 ---
 # <a name="tutorial--setting-up-phs-as-backup-for-ad-fs-in-azure-ad-connect"></a>자습서:  Azure AD Connect에서 AD FS용 백업으로 PHS 설정
@@ -29,7 +29,7 @@ ms.locfileid: "64919003"
 >[!NOTE]
 >Azure AD Connect 서버에 대한 액세스 권한이 없거나 서버가 인터넷에 연결되어 있지 않으면, Azure AD 쪽에서 변경을 지원하도록 [Microsoft 지원](https://support.microsoft.com/en-us/contactus/)에 문의할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 이 자습서는 [자습서: 자습서: 클라우드에 단일 AD 포리스트 환경 페더레이션](tutorial-federation.md)을 기준으로 작성되었습니다. 이 자습서의 작업을 시도하려면 먼저 해당 자습서를 진행해야 합니다.  이 자습서를 완료하지 않았다면 이 문서의 단계를 시도하기 전에 완료하세요.
 
 >[!IMPORTANT]

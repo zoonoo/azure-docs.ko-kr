@@ -17,10 +17,10 @@ ms.date: 10/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bcec326ddab1e74f43e1bb7ef446998a40799fd0
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73043567"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-veracode"></a>자습서: Veracode와 Azure Active Directory SSO(Single Sign-On) 연결
@@ -33,7 +33,7 @@ ms.locfileid: "73043567"
 
 Azure AD와 SaaS(Software as a Service) 앱 통합에 대해 자세히 알아보려면 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -90,7 +90,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 또한 Veracode를 사용하려면 몇 가지 추가 특성이 SAML 응답을 통해 다시 전달되어야 합니다. 이러한 특성도 미리 채워져 있지만 요구 사항에 따라 검토할 수 있습니다.
 
-    | Name | 원본 특성|
+    | 속성 | 원본 특성|
     | ---------------| --------------- |
     | firstname |User.givenname |
     | lastname |User.surname |
@@ -149,7 +149,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. **사용자** 속성에서 다음 단계를 수행합니다.
 
    1. **이름**에 `B.Simon`를 입력합니다.  
-   1. **사용자 이름**으로 username@companydomain.extension을 입력합니다. 예: `B.Simon@contoso.com`
+   1. **사용자 이름**으로 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
    1. **암호 표시**를 선택한 다음, 표시되는 값을 적어둡니다.
    1. **만들기**를 선택합니다.
 

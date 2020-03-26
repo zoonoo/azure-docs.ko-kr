@@ -7,10 +7,10 @@ ms.topic: sample
 ms.date: 03/20/2017
 ms.custom: mvc
 ms.openlocfilehash: eee6ac9f9c469f9e1a9344ab4a30626c219d7836
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74685162"
 ---
 # <a name="create-a-web-app-with-continuous-deployment-from-github"></a>GitHub의 연속 배포를 사용하여 웹앱 만들기
@@ -45,7 +45,7 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) | App Service 계획을 만듭니다. |
 | [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | 웹앱을 만듭니다. |
-| [Set-AzResource](/powershell/module/az.resources/set-azresource) | 리소스 그룹에서 리소스를 수정합니다. |
+| [집합 AzResource](/powershell/module/az.resources/set-azresource) | 리소스 그룹에서 리소스를 수정합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -9,17 +9,17 @@ ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.openlocfilehash: c9ed675dc970b093f6407d15b3db2ac2668c626b
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74327570"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-hdinsight"></a>자습서: Azure HDInsight를 사용하여 데이터 추출, 변환 및 로드
 
 이 자습서에서는 데이터 ETL(추출, 변환 및 로드) 작업을 수행합니다. 원시 CSV 데이터 파일을 추출하여 Azure HDInsight 클러스터로 가져오고, Apache Hive를 사용하여 변환하고, Apache Sqoop을 사용하여 Azure SQL 데이터베이스에 로드합니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 데이터를 추출하여 HDInsight 클러스터에 로드합니다.
@@ -28,7 +28,7 @@ ms.locfileid: "74327570"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * **HDInsight에 대해 구성된 Azure Data Lake Storage Gen2 스토리지 계정**
 
@@ -50,7 +50,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 2. 페이지에서 다음 값을 선택합니다.
 
-   | Name | 값 |
+   | 속성 | 값 |
    | --- | --- |
    | Filter Year |2013 |
    | Filter Period |January |
@@ -76,7 +76,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
    SSH 로그인을 인증하는 암호를 사용한 경우 암호를 묻는 메시지가 나타납니다.
 
-   공용 키를 사용하는 경우 `-i` 매개 변수를 사용하고 프라이빗 키와 일치하는 경로를 지정합니다. 예: `scp -i ~/.ssh/id_rsa <file_name>.zip <user-name>@<cluster-name>-ssh.azurehdinsight.net:`
+   공용 키를 사용하는 경우 `-i` 매개 변수를 사용하고 프라이빗 키와 일치하는 경로를 지정합니다. `scp -i ~/.ssh/id_rsa <file_name>.zip <user-name>@<cluster-name>-ssh.azurehdinsight.net:`)을 입력합니다.
 
 2. 업로드를 완료한 후에 SSH를 사용하여 클러스터에 연결합니다. 명령 프롬프트에서 다음 명령을 입력합니다.
 

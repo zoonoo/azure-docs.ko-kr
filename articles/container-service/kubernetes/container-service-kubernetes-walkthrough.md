@@ -8,10 +8,10 @@ ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017, mvc, devcenter
 ms.openlocfilehash: cfd0f8a9a3180b14b4da9dc61e252054fe06628c
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78274181"
 ---
 # <a name="deprecated-deploy-kubernetes-cluster-for-linux-containers"></a>(사용되지 않음) Linux 컨테이너용 Kubernetes 클러스터 배포

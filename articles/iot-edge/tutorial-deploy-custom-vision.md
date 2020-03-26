@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
 ms.openlocfilehash: 07350ffe4a57bfe4a79bfce5d821b51535867935
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76167006"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>자습서: Custom Vision Service를 사용하여 에지에서 이미지 분류 수행

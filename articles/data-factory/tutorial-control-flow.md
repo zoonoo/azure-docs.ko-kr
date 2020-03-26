@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 9/27/2019
 ms.openlocfilehash: 7ba921656d0dad059b1d15f443bcefeff03ade50
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75977377"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Data Factory 파이프라인 분기 및 연결 작업
@@ -66,7 +66,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 1. Azure Storage Explorer를 엽니다. 스토리지 계정을 펼칩니다. 마우스 오른쪽 단추로 **Blob 컨테이너**를 클릭하고 **Blob 컨테이너 만들기**를 선택합니다.
 1. 새 컨테이너의 이름을 *adfv2branch*로 지정하고, **업로드**를 선택하여 *input.txt* 파일을 컨테이너에 추가합니다.
 
-## Visual Studio 프로젝트 만들기<a name="create-visual-studio-project"></a>
+## <a name="create-visual-studio-project"></a>Visual Studio 프로젝트 만들기<a name="create-visual-studio-project"></a>
 
 C# .NET 콘솔 애플리케이션을 만듭니다.
 

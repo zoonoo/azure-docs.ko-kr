@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.date: 03/05/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: b711a12161bc134bdcbb8c1f3e74f2e5ae06e701
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 3cda4db558210ecbfcfc8ce2aaed8c6f69f5e026
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083134"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79458786"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint-using-resource-manager-template"></a>빠른 시작: Resource Manager 템플릿을 사용하여 Azure CDN 프로필 및 엔드포인트 만들기
 
@@ -42,7 +42,7 @@ ms.locfileid: "74083134"
 
 선택한 위치에서 리소스 그룹을 만듭니다. 이 예제에서는 미국 동부 지역에서 cdn이라는 이름의 리소스 그룹을 만드는 과정을 보여 줍니다.
 
-```bash
+```azurecli-interactive
 az group create --name cdn --location eastus
 ```
 
@@ -189,7 +189,7 @@ Azure CLI를 사용하여 템플릿 배포 두 개 항목을 입력하라는 메
 
 **endpointOriginHostName** - CDN을 통해 제공되는 엔드포인트(cdndemo.azurewebsites.net)입니다.
 
-```bash
+```azurecli-interactive
 az group deployment create --resource-group cdn --template-file arm-cdn.json
 ```
 
@@ -197,7 +197,7 @@ az group deployment create --resource-group cdn --template-file arm-cdn.json
 
 ## <a name="view-the-cdn-profile"></a>CDN 프로필 보기
 
-```bash
+```azurecli-interactive
 az cdn profile list --resource-group cdn -o table
 ```
 
@@ -205,7 +205,7 @@ az cdn profile list --resource-group cdn -o table
 
 ## <a name="view-the-cdn-endpoint-for-the-profile-standard-microsoft"></a>프로필 표준 microsoft의 CDN 엔드포인트 보기
 
-```bash
+```azurecli-interactive
 az cdn endpoint list --profile-name standard-microsoft --resource-group cdn -o table
 ```
 
@@ -217,7 +217,7 @@ az cdn endpoint list --profile-name standard-microsoft --resource-group cdn -o t
 
 리소스 그룹을 삭제하면 해당 리소스 그룹에 배포된 모든 리소스가 자동으로 제거됩니다.
 
-```bash
+```azurecli-interactive
 az group delete --name cdn
 ```
 

@@ -9,10 +9,10 @@ ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 0501c8bb1d71c6cff6033fc937cda019c8890056
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75376463"
 ---
 # <a name="quickstart-create-an-android-app-with-azure-spatial-anchors"></a>빠른 시작: Azure Spatial Anchors를 사용하여 Android 앱 만들기
@@ -44,11 +44,11 @@ ms.locfileid: "75376463"
 
 ## <a name="open-the-sample-project"></a>샘플 프로젝트 열기
 
-# <a name="javatabopenproject-java"></a>[Java](#tab/openproject-java)
+# <a name="java"></a>[Java](#tab/openproject-java)
 
 [!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
 
-# <a name="ndktabopenproject-ndk"></a>[NDK](#tab/openproject-ndk)
+# <a name="ndk"></a>[NDK](#tab/openproject-ndk)
 
 [!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
 
@@ -64,11 +64,11 @@ git submodule update --init --recursive
 
 Android Studio를 엽니다.
 
-# <a name="javatabopenproject-java"></a>[Java](#tab/openproject-java)
+# <a name="java"></a>[Java](#tab/openproject-java)
 
 **기존 Android Studio 프로젝트 열기**를 선택하여 `Android/Java/`에 있는 프로젝트를 선택합니다.
 
-# <a name="ndktabopenproject-ndk"></a>[NDK](#tab/openproject-ndk)
+# <a name="ndk"></a>[NDK](#tab/openproject-ndk)
 
 **기존 Android Studio 프로젝트 열기**를 선택하여 `Android/NDK/`에 있는 프로젝트를 선택합니다.
 
@@ -78,7 +78,7 @@ Android Studio를 엽니다.
 
 다음 단계는 계정 식별자 및 계정 키를 사용하도록 앱을 구성하는 것입니다. [Spatial Anchors 리소스 설정](#create-a-spatial-anchors-resource) 시 텍스트 편집기에 복사했습니다.
 
-# <a name="javatabopenproject-java"></a>[Java](#tab/openproject-java)
+# <a name="java"></a>[Java](#tab/openproject-java)
 
 `Android/Java/app/src/main/java/com/microsoft/sampleandroid/AzureSpatialAnchorsManager.java`를 엽니다.
 
@@ -86,7 +86,7 @@ Android Studio를 엽니다.
 
 `SpatialAnchorsAccountId` 필드를 찾아 `Set me`를 계정 식별자로 바꿉니다.
 
-# <a name="ndktabopenproject-ndk"></a>[NDK](#tab/openproject-ndk)
+# <a name="ndk"></a>[NDK](#tab/openproject-ndk)
 
 `Android/NDK/app/src/main/cpp/AzureSpatialAnchorsApplication.cpp`를 엽니다.
 

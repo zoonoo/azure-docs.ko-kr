@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 1/29/2019
 ms.author: rgarcia
 ms.openlocfilehash: b052772bbfe9d69e430d9f722d8db56b48db7610
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "72933500"
 ---
 **빌드**를 선택합니다. 열리는 대화 상자에서 Xcode 프로젝트를 내보낼 폴더를 선택합니다.

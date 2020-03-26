@@ -4,10 +4,10 @@ description: 다른 모든 네트워크 간의 일반적인 연결 지점 역할
 ms.topic: tutorial
 ms.date: 10/26/2019
 ms.openlocfilehash: 28ccb89d237cbe21dd0433da5f7fbb32883f6550
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74159254"
 ---
 # <a name="tutorial-create-a-hub-virtual-network-appliance-in-azure-using-terraform"></a>자습서: Terraform을 사용하여 Azure에서 허브 가상 네트워크 어플라이언스 만들기
@@ -24,7 +24,7 @@ Azure는 선택할 수 있는 광범위한 네트워크 가상 어플라이언�
 > * Terraform을 사용하여 CustomScript 확장을 통해 경로를 사용하도록 설정
 > * Terraform을 사용하여 Hub 및 Spoke 게이트웨이 경로 테이블 만들기
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 1. [Azure에서 Terraform을 사용하여 허브 및 스포크 하이브리드 네트워크 토폴로지를 만듭니다](./terraform-hub-spoke-introduction.md).
 1. [Azure에서 Terraform을 사용하여 온-프레미스 가상 네트워크를 만듭니다](./terraform-hub-spoke-on-prem.md).

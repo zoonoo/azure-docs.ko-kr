@@ -5,14 +5,14 @@ author: tfitzmac
 ms.topic: quickstart
 ms.date: 09/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: 11d4eb396d332327addcd85ed7badd36ef8f1d10
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 5168dab7501cdb2907b3eede5877dce39e9e5c97
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647944"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79473050"
 ---
-# <a name="publish-an-azure-managed-application-definition"></a>관리되는 애플리케이션 정의 게시
+# <a name="quickstart-publish-an-azure-managed-application-definition"></a>빠른 시작: 관리되는 애플리케이션 정의 게시
 
 이 빠른 시작에서는 관리되는 애플리케이션의 작업에 대해 소개합니다. 조직의 사용자에 대한 내부 카탈로그에 관리되는 애플리케이션 정의를 추가합니다. 간략히 소개하기 위해 이미 관리되는 애플리케이션용 파일을 빌드했습니다. 이러한 파일은 GitHub를 통해 사용할 수 있습니다. [서비스 카탈로그 애플리케이션 만들기](publish-service-catalog-app.md) 자습서에서 이러한 파일을 빌드하는 방법을 알아볼 수 있습니다.
 

@@ -6,11 +6,11 @@ ms.topic: overview
 ms.date: 09/08/2019
 ms.author: azfuncdf
 ms.openlocfilehash: caa62483373a240991cfec96437cea7849d9b19c
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76261554"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79290111"
 ---
 # <a name="durable-orchestrations"></a>지속성 오케스트레이션
 
@@ -57,7 +57,7 @@ Durable Functions는 이벤트 소싱을 투명하게 사용합니다. 오케스
 
 지속성 작업 프레임워크의 이벤트 소싱 동작은 작성하는 오케스트레이터 함수 코드와 밀접하게 연관되어 있습니다. 다음 오케스트레이터 함수와 같은 활동 체이닝 오케스트레이터 함수가 있다고 가정해 보세요.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("E1_HelloSequence")]
@@ -75,7 +75,7 @@ public static async Task<List<string>> Run(
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -133,8 +133,8 @@ module.exports = df.orchestrator(function*(context) {
 
 * **PartitionKey**: 오케스트레이션 인스턴스 ID를 포함합니다.
 * **EventType**: 이벤트 유형을 나타냅니다. 다음 유형 중 하나일 수 있습니다.
-  * **OrchestrationStarted**: 오케스트레이터 함수가 대기 상태에서 다시 시작되었거나 처음으로 실행되고 있습니다. `Timestamp` 열은 `CurrentUtcDateTime`(.NET) 및 `currentUtcDateTime`(JavaScript) API에 대한 결정적 값을 채우는 데 사용됩니다.
-  * **ExecutionStarted**: 오케스트레이터 함수가 처음으로 실행되기 시작했습니다. 또한 이 이벤트의 `Input` 열에 함수 입력이 포함됩니다.
+  * **OrchestrationStarted**: 오케스트레이터 함수가 대기에서 다시 시작되었거나 처음부터 실행되고 있습니다. `Timestamp` 열은 `CurrentUtcDateTime`(.NET) 및 `currentUtcDateTime`(JavaScript) API에 대한 결정적 값을 채우는 데 사용됩니다.
+  * **ExecutionStarted**: 오케스트레이터 함수가 처음 실행되기 시작했습니다. 또한 이 이벤트의 `Input` 열에 함수 입력이 포함됩니다.
   * **TaskScheduled**: 작업 함수가 예약되었습니다. `Name` 열에 작업 함수의 이름이 캡처됩니다.
   * **TaskCompleted**: 작업 함수가 완료되었습니다. `Result` 열에 함수 결과가 있습니다.
   * **TimerCreated**: 지속성 타이머가 만들어졌습니다. `FireAt` 열에 타이머가 만료되는 예약된 UTC 시간이 포함됩니다.
@@ -143,10 +143,10 @@ module.exports = df.orchestrator(function*(context) {
   * **OrchestratorCompleted**: 오케스트레이터 함수가 기다리고 있습니다.
   * **ContinueAsNew**: 오케스트레이터 함수가 완료되고 새 상태로 다시 시작되었습니다. `Result` 열에 다시 시작되는 인스턴스의 입력으로 사용되는 값이 포함됩니다.
   * **ExecutionCompleted**: 오케스트레이터 함수가 실행되어 완료되었거나 실패했습니다. `Result` 열에 함수 또는 오류 세부 정보의 출력이 저장됩니다.
-* **타임스탬프**: 기록 이벤트의 UTC 타임스탬프입니다.
+* **Timestamp**: 기록 이벤트의 UTC 타임스탬프입니다.
 * **Name**: 호출된 함수의 이름입니다.
-* **입력**: JSON 형식의 함수 입력입니다.
-* **결과**: 함수의 출력, 즉, 반환 값입니다.
+* **Input**: JSON 형식의 함수 입력입니다.
+* **Result**: 함수 출력, 즉 반환 값입니다.
 
 > [!WARNING]
 > 디버깅 도구로 유용하지만 이 테이블에 대한 종속성은 사용하지 마세요. 지속성 함수 확장이 진화함에 따라 변경될 수 있습니다.
@@ -188,7 +188,7 @@ module.exports = df.orchestrator(function*(context) {
 
 ### <a name="critical-sections-durable-functions-2x-currently-net-only"></a>임계 섹션(Durable Functions 2.x, 현재 .NET에만 해당)
 
-오케스트레이션 인스턴스는 단일 스레드이므로 오케스트레이션 *내*의 경합 상태에 대해 걱정할 필요가 없습니다. 그러나 오케스트레이션에서 외부 시스템과 상호 작용할 때 경합 상태가 발생할 수 있습니다. 오케스트레이터 함수는 외부 시스템과 상호 작용할 때 경합 상태를 완화하기 위해 .NET의 `LockAsync` 메서드를 사용하여 *임계 영역*을 정의할 수 있습니다.
+오케스트레이션 인스턴스는 단일 스레드이므로 오케스트레이션 *내*의 경합 상태에 대해 걱정할 필요가 없습니다. 그러나 오케스트레이션에서 외부 시스템과 상호 작용할 때 경합 상태가 발생할 수 있습니다. 오케스트레이터 함수는 외부 시스템과 상호 작용할 때 경합 상태를 완화하기 위해 .NET의 *메서드를 사용하여*임계 영역`LockAsync`을 정의할 수 있습니다.
 
 다음 샘플 코드에서는 임계 영역을 정의하는 오케스트레이터 함수를 보여 줍니다. `LockAsync` 메서드를 사용하여 임계 영역에 들어갑니다. 이 메서드를 사용하려면 잠금 상태를 지속적으로 관리하는 [지속성 엔터티](durable-functions-entities.md)에 하나 이상의 참조를 전달해야 합니다. 이 오케스트레이션의 단일 인스턴스만 임계 영역의 코드를 한 번에 실행할 수 있습니다.
 
@@ -216,7 +216,7 @@ public static async Task Synchronize(
 
 [오케스트레이터 함수 코드 제약 조건](durable-functions-code-constraints.md)에서 설명한 대로 오케스트레이터 함수는 I/O를 수행할 수 없습니다. 이 제한 사항에 대한 일반적인 해결 방법은 활동 함수에서 I/O를 수행해야 하는 코드를 래핑하는 것입니다. 외부 시스템과 상호 작용하는 오케스트레이션은 활동 함수를 사용하여 HTTP 호출을 수행하고 결과를 오케스트레이션에 반환합니다.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 오케스트레이터 함수는 이 일반적인 패턴을 간소화하기 위해 `CallHttpAsync` 메서드를 사용하여 HTTP API를 직접 호출할 수 있습니다.
 
@@ -238,7 +238,7 @@ public static async Task CheckSiteAvailable(
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -265,9 +265,9 @@ module.exports = df.orchestrator(function*(context) {
 
 활동 함수에는 여러 매개 변수를 직접 전달할 수 없습니다. 개체 또는 복합 개체의 배열로 전달하는 것이 좋습니다.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
-.NET에서는 [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) 개체를 사용할 수도 있습니다. 다음 샘플은 [C# 7](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7#tuples)로 추가된 [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples)의 새로운 기능을 사용하는 것입니다.
+.NET에서는 [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) 개체를 사용할 수도 있습니다. 다음 샘플은 [C# 7](https://docs.microsoft.com/dotnet/csharp/tuples)로 추가된 [ValueTuples](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7#tuples)의 새로운 기능을 사용하는 것입니다.
 
 ```csharp
 [FunctionName("GetCourseRecommendations")]
@@ -304,7 +304,7 @@ public static async Task<object> Mapper([ActivityTrigger] IDurableActivityContex
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 #### <a name="orchestrator"></a>오케스트레이터
 

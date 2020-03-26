@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
 ms.openlocfilehash: bc92e0cf579bc008fdb09c9cbb576d8cac0191cb
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73721440"
 ---
 # <a name="quickstart-route-custom-events-to-web-endpoint-with-powershell-and-event-grid"></a>빠른 시작: PowerShell 및 Event Grid를 사용하여 사용자 지정 이벤트를 웹 엔드포인트로 라우팅

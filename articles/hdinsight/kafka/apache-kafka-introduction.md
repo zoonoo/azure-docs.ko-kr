@@ -1,6 +1,6 @@
 ---
 title: HDInsight 기반의 Apache Kafka 소개 - Azure
-description: HDInsight의 Apache Kafka에 대해 알아봅니다. 무엇인지, 무엇을 하는지, 어디서 예제와 시작 정보를 찾는지에 대해 설명합니다.
+description: HDInsight의 Apache Kafka에 대해 알아보세요. 이것이 무엇인지, 무엇을 하는지, 어디서 예제와 시작 정보를 찾는지에 대해 설명합니다.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,10 +9,10 @@ ms.topic: overview
 ms.custom: hdinsightactive
 ms.date: 02/25/2020
 ms.openlocfilehash: 92f56f3b405470bc8ae0e9ebab2450ddc31b3c6a
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77672177"
 ---
 # <a name="what-is-apache-kafka-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Kafka란?

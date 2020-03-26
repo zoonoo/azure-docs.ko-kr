@@ -14,10 +14,10 @@ ms.custom: mvc, seodec18
 ms.date: 12/07/2018
 ms.author: mbaldwin
 ms.openlocfilehash: dd5ce117645ef2b368bbf8f0e441770d6e746b5b
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "70881083"
 ---
 # <a name="what-is-azure-dedicated-hsm"></a>Azure 전용 HSM이란?
@@ -91,4 +91,4 @@ Azure Dedicated HSM이 적합할지 여부는 가능하거나 가능하지 않�
 * [물리적 보안](physical-security.md)
 * [네트워킹](networking.md)
 * [지원 가능성](supportability.md)
-* [모니터링](monitoring.md)
+* [Monitoring](monitoring.md)

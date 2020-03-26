@@ -10,10 +10,10 @@ ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.openlocfilehash: 11fecd875385d8ba044cbe44e2270eed11d61ce1
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77581552"
 ---
 # <a name="quickstart-on-board-azure-sentinel"></a>빠른 시작: Azure Sentinel 온보딩
@@ -39,7 +39,7 @@ Azure Sentinel을 온보딩하려면 먼저 Azure Sentinel을 사용하도록 �
 - 특정 데이터 원본을 연결하려면 추가 권한이 필요할 수 있습니다.
 - Azure Sentinel은 유료 서비스입니다. 가격 책정 정보에 대해서는 [Azure Sentinel 정보](https://go.microsoft.com/fwlink/?linkid=2104058)를 참조하세요.
  
-## Azure Sentinel 사용<a name="enable"></a>
+## <a name="enable-azure-sentinel"></a>Azure Sentinel 사용<a name="enable"></a>
 
 1. Azure Portal에 로그인합니다. Azure Sentinel이 생성된 구독이 선택되었는지 확인합니다.
 

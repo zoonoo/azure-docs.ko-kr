@@ -7,10 +7,10 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 12/29/2019
 ms.openlocfilehash: cf7e075244a83190b83e629ef300a4903b114a6d
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77920079"
 ---
 # <a name="tutorial-monitor-spring-cloud-resources-using-alerts-and-action-groups"></a>자습서: 경고 및 작업 그룹을 사용하여 Spring Cloud 리소스 모니터링

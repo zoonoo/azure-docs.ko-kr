@@ -5,10 +5,10 @@ keywords: ansible, azure, devops, bash, 플레이북, 가상 머신, 가상 머�
 ms.topic: tutorial
 ms.date: 04/30/2019
 ms.openlocfilehash: e1cc40459988fb9bc38e3dbbcde563cebb531e3d
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74156543"
 ---
 # <a name="tutorial-configure-virtual-machine-scale-sets-in-azure-using-ansible"></a>자습서: Ansible을 사용하여 Azure에서 가상 머신 확장 집합 구성
@@ -25,7 +25,7 @@ ms.locfileid: "74156543"
 > * 확장 집합 구성
 > * VM 인스턴스 수를 늘려 확장 집합 크기 조정 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
@@ -42,7 +42,7 @@ ms.locfileid: "74156543"
 * 부하 분산 장치 규칙을 사용하여 정의된 VM 집합 전역에 트래픽을 분산하는 **부하 분산 장치**
 * 생성된 모든 리소스를 사용하는 **가상 머신 확장 집합**
 
-샘플 플레이북을 가져오는 방법에는 다음 두 가지가 있습니다.
+다음과 같은 두 가지 방법으로 샘플 플레이북을 가져올 수 있습니다.
 
 * [플레이북을 다운로드](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss/vmss-create.yml)하여 `vmss-create.yml`에 저장합니다.
 * `vmss-create.yml`이라는 새 파일을 만들고 다음 콘텐츠를 이 파일에 복사합니다.
@@ -143,9 +143,9 @@ ms.locfileid: "74156543"
 
 플레이북을 실행하기 전에 다음 정보를 참조하세요.
 
-* `vars` 섹션에서 `{{ admin_password }}` 자리 표시자를 고유한 암호로 바꿉니다.
+* `vars` 섹션에서 `{{ admin_password }}` 자리 표시자를 해당 암호로 바꿉니다.
 
-`ansible-playbook` 명령을 사용하여 플레이북을 실행합니다.
+다음과 같이 `ansible-playbook` 명령을 사용하여 플레이북을 실행합니다.
 
 ```bash
 ansible-playbook vmss-create.yml
@@ -213,10 +213,10 @@ localhost                  : ok=8    changed=7    unreachable=0    failed=0
 
 이 섹션의 플레이북 코드는 확장 집합에 대한 정보를 검색하고 해당 용량을 2에서 3으로 변경합니다.
 
-샘플 플레이북을 가져오는 방법에는 다음 두 가지가 있습니다.
+다음과 같은 두 가지 방법으로 샘플 플레이북을 가져올 수 있습니다.
 
 * [플레이북을 다운로드](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss/vmss-scale-out.yml)하여 `vmss-scale-out.yml`에 저장합니다.
-* `vmss-scale-out.yml`이라는 새 파일을 만들고 다음 콘텐츠에 복사합니다.
+* `vmss-scale-out.yml`이라는 새 파일을 만들고 다음 콘텐츠를 이 파일에 복사합니다.
 
 ```yml
 - hosts: localhost
@@ -243,7 +243,7 @@ localhost                  : ok=8    changed=7    unreachable=0    failed=0
       azure_rm_virtualmachinescaleset: "{{ body }}"
 ```
 
-`ansible-playbook` 명령을 사용하여 플레이북을 실행합니다.
+다음과 같이 `ansible-playbook` 명령을 사용하여 플레이북을 실행합니다.
 
 ```bash
 ansible-playbook vmss-scale-out.yml

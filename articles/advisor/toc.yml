@@ -26,7 +26,11 @@
       href: permissions.md
     - name: 권장 사항에 대한 경고 구성
       href: advisor-alerts.md
-- name: 참고 자료
+    - name: 권장 사항에 대한 대량 수정
+      href: advisor-quick-fix.md
+    - name: Azure Resource Graph의 Advisor 데이터
+      href: advisor-azure-resource-graph.md
+- name: 참조
   items:
     - name: Security Center
       href: 'https://azure.microsoft.com/services/security-center/'
@@ -44,7 +48,7 @@
   items:
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/'
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/advisor'
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'

@@ -5,10 +5,10 @@ keywords: ansible, azure, devops, bash, playbook, cosmo db, database
 ms.topic: tutorial
 ms.date: 04/30/2019
 ms.openlocfilehash: 8c898e3cb0747a442d50b7241ebfcf401148817e
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74156479"
 ---
 # <a name="tutorial-configure-azure-cosmos-db-accounts-using-ansible"></a>자습서: Ansible을 사용하여 Azure Cosmos DB 계정 구성
@@ -25,7 +25,7 @@ ms.locfileid: "74156479"
 > * 계정 키 검색
 > * 계정 삭제
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [open-source-devops-prereqs-create-service-principal.md](../../includes/open-source-devops-prereqs-create-service-principal.md)]
@@ -233,7 +233,7 @@ ms.locfileid: "74156479"
 - `vars` 섹션에서 `{{ resource_group_name }}` 자리 표시자를 리소스 그룹의 이름으로 바꿉니다.
 - cosmosdbaccount_name이 소문자만 포함하고 전역적으로 고유한지 확인합니다.
 
-`ansible-playbook` 명령을 사용하여 플레이북을 실행합니다.
+다음과 같이 `ansible-playbook` 명령을 사용하여 플레이북을 실행합니다.
 
 ```bash
 ansible-playbook cosmosdb.yml

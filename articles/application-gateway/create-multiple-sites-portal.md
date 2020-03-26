@@ -9,17 +9,17 @@ ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: victorh
 ms.openlocfilehash: ca6be666a9b77532b4f1c61f6e3391c239e82c91
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74075143"
 ---
 # <a name="tutorial-create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 여러 웹 사이트를 호스트하는 애플리케이션 게이트웨이 생성 및 구성
 
 Azure Portal을 사용하여 [애플리케이션 게이트웨이](multiple-site-overview.md)를 만들 때 [여러 웹 사이트의 호스팅](overview.md)을 구성할 수 있습니다. 이 자습서에서는 가상 머신을 사용하여 백 엔드 주소 풀을 정의합니다. 그런 다음, 웹 트래픽이 풀에서 적절한 서버에 도착하도록 소유한 도메인을 기준으로 수신기와 규칙을 구성합니다. 이 자습서에서는 여러 도메인을 소유하고 있으며 *www.contoso.com* 및 *www.fabrikam.com* 의 예를 사용한다고 가정합니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 애플리케이션 게이트웨이 만들기
@@ -56,7 +56,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     **가상 네트워크 구성**에서 **새로 만들기**를 선택하여 새 가상 네트워크를 만듭니다. **가상 네트워크 만들기** 창이 열리면 다음 값을 입력하여 가상 네트워크 및 두 개의 서브넷을 만듭니다.
 
-    - **이름**: 가상 네트워크의 이름으로 *myVNet*을 입력합니다.
+    - **Name**: 가상 네트워크의 이름으로 *myVNet*을 입력합니다.
 
     - **서브넷 이름**(Application Gateway 서브넷): **서브넷** 표에 *Default*라는 서브넷이 표시됩니다. 이 서브넷의 이름을 *myAGSubnet*으로 변경합니다.<br>애플리케이션 게이트웨이 서브넷은 애플리케이션 게이트웨이만 포함할 수 있습니다. 다른 리소스는 허용되지 않습니다.
 
@@ -90,7 +90,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 2. 열리는 **백 엔드 풀 추가** 창에서 다음 값을 입력하여 빈 백 엔드 풀을 만듭니다.
 
-    - **이름**: 백 엔드 풀의 이름으로 *contosoPool*을 입력합니다.
+    - **Name**: 백 엔드 풀의 이름으로 *contosoPool*을 입력합니다.
     - **대상 없이 백 엔드 풀 추가**: 대상이 없는 백 엔드 풀을 만들려면 **예**를 선택합니다. 애플리케이션 게이트웨이를 만든 후에 백 엔드 대상을 추가합니다.
 
 3. **백 엔드 풀 추가** 창에서 **추가**를 선택하여 백 엔드 풀 구성을 저장하고 **백 엔드** 탭으로 돌아갑니다.

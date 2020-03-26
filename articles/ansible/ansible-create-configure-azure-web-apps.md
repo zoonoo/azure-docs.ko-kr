@@ -5,10 +5,10 @@ keywords: Ansible, Azure, Devops, Bash, 플레이북, Azure App Service, Web App
 ms.topic: tutorial
 ms.date: 04/30/2019
 ms.openlocfilehash: 2891ff47b17900c4c1c8e1c21f22495b65108fd5
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74156563"
 ---
 # <a name="tutorial-configure-apps-in-azure-app-service-using-ansible"></a>자습서: Azure App Service에서 Ansible을 사용하여 앱 구성
@@ -25,7 +25,7 @@ ms.locfileid: "74156563"
 > * Azure Traffic Manager 프로필 만들기
 > * 만든 앱을 사용하여 Traffic Manager 엔드포인트 정의
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]

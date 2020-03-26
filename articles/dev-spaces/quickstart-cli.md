@@ -6,12 +6,12 @@ ms.topic: quickstart
 description: 이 빠른 시작에서는 Azure Dev Spaces 및 명령줄을 사용하여 Azure Kubernetes Service에서 애플리케이션을 개발하는 방법을 보여줍니다.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 974f0039bb16dc685bb056e279df63933e358edd
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 8ee5cba06d9a526640d9057ee88a681d46392f4f
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78245261"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80239704"
 ---
 # <a name="quickstart-develop-an-application-on-kubernetes---azure-dev-spaces"></a>빠른 시작: Azure Dev Spaces에서 애플리케이션 개발 - Azure Dev Spaces
 이 가이드에서는 다음을 수행하는 방법을 배우게 됩니다.
@@ -84,7 +84,7 @@ azds prep --enable-ingress
 *dev-spaces/samples/nodejs/getting-started/webfrontend* 디렉터리에서 `prep` 명령을 실행하여 Docker 및 Helm 차트 자산을 올바르게 생성해야 합니다.
 
 > [!TIP]
-> `prep` 명령은 프로젝트에 대해 [Dockerfile 및 Helm 차트](how-dev-spaces-works.md#prepare-your-code)를 생성하려고 합니다. Azure Dev Spaces는 이러한 파일을 사용하여 코드를 빌드하고 실행하지만 프로젝트를 빌드하고 실행하는 방법을 변경하려면 이러한 파일을 수정할 수 있습니다.
+> `prep` 명령은 프로젝트에 대해 [Dockerfile 및 Helm 차트](how-dev-spaces-works-prep.md#prepare-your-code)를 생성하려고 합니다. Azure Dev Spaces는 이러한 파일을 사용하여 코드를 빌드하고 실행하지만 프로젝트를 빌드하고 실행하는 방법을 변경하려면 이러한 파일을 수정할 수 있습니다.
 
 ## <a name="build-and-run-code-in-kubernetes"></a>Kubernetes에서 코드 빌드 및 실행
 

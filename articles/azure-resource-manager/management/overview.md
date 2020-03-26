@@ -2,15 +2,15 @@
 title: 개요
 description: Azure에서 리소스 배포, 관리 및 Access Control용 Azure 리소스 관리자 사용 방법을 설명합니다.
 ms.topic: overview
-ms.date: 08/29/2019
-ms.openlocfilehash: f7e11ada8bf10baa99faf08d2b4b401e3bea2d9e
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.date: 03/25/2020
+ms.openlocfilehash: 1e2a6959117749b4e7d08a9768b4189b97ef08bd
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78344581"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80258144"
 ---
-# <a name="azure-resource-manager-overview"></a>Azure Resource Manager 개요
+# <a name="what-is-azure-resource-manager"></a>Azure Resource Manager란?
 
 Azure Resource Manager는 Azure용 배포 및 관리 서비스입니다. Azure 구독에서 리소스를 만들고, 업데이트하고, 삭제할 수 있는 관리 계층을 제공합니다. 배포 이후 액세스 제어, 잠금 및 태그와 같은 관리 기능을 사용하여 리소스를 보호하고 구성합니다.
 
@@ -20,7 +20,7 @@ Azure Resource Manager 템플릿에 대한 자세한 내용은 [템플릿 배포
 
 사용자가 Azure 도구, API 또는 SDK에서 요청을 보내면 Resource Manager에서 요청을 받습니다. 요청을 인증하고 권한을 부여합니다. Resource Manager에서 요청된 작업을 수행하는 Azure 서비스에 요청을 보냅니다. 모든 요청이 동일한 API를 통해 처리되므로 모든 여러 도구에서 일관적인 결과 및 기능을 볼 수 있습니다.
 
-다음 이미지에서는 Azure Resource Manager에서 Azure 요청을 처리할 때 수행하는 역할을 보여 줍니다. 
+다음 이미지에서는 Azure Resource Manager에서 Azure 요청을 처리할 때 수행하는 역할을 보여 줍니다.
 
 ![리소스 관리자 요청 모델](./media/overview/consistent-management-layer.png)
 
@@ -102,12 +102,8 @@ Azure Resource Manager 서비스는 복원력 및 지속적인 가용성을 위�
 
 ## <a name="next-steps"></a>다음 단계
 
-* 리소스 공급자가 제공하는 모든 작업에 대한 자세한 내용은 [Azure REST API](/rest/api/azure/)를 참조하세요.
-
 * 리소스 이동에 대해 알아보려면 [새 리소스 그룹 또는 구독으로 리소스 이동](move-resource-group-and-subscription.md)을 참조하세요.
 
 * 리소스에 태그를 지정하는 방법에 대해 알아보려면 [태그를 사용하여 Azure 리소스 구성](tag-resources.md)을 참조하세요.
 
 * 리소스를 잠그는 방법에 대해 알아보려면 [리소스 잠금으로 예기치 않은 변경 방지](lock-resources.md)를 참조하세요.
-
-* 배포용 템플릿을 만드는 방법에 대한 자세한 내용은 [템플릿 배포 개요](../templates/overview.md)를 참조하세요.

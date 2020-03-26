@@ -6,24 +6,24 @@ ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 12/02/2019
+ms.date: 3/18/2020
 ms.custom: mvc
-ms.openlocfilehash: 5cfdcf2664871849d4488be4320f6aa03e296ce7
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: f83af794a179634b9b6b7adedd329ea6f4a7b8d0
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770036"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79536465"
 ---
 # <a name="create-an-azure-database-for-mariadb-server-by-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure Database for MariaDB 서버 만들기
 
-Azure CLI를 사용하여 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리할 수 있습니다. 이 빠른 시작에서는 약 5분 안에 Azure CLI를 사용하여 Azure 리소스 그룹에서 Azure Database for MariaDB를 만드는 방법을 살펴봅니다. 
+Azure CLI를 사용하여 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리할 수 있습니다. 이 빠른 시작에서는 약 5분 안에 Azure CLI를 사용하여 Azure 리소스 그룹에서 Azure Database for MariaDB를 만드는 방법을 살펴봅니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하여 사용하는 경우 이 빠른 시작에서는 Azure CLI 버전 2.0 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. CLI를 설치하거나 업그레이드해야 하는 경우에는 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
+CLI를 로컬로 설치하여 사용하는 경우 이 빠른 시작에서는 Azure CLI 버전 2.0 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. CLI를 설치하거나 업그레이드해야 하는 경우에는 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 
 구독이 여러 개인 경우 리소스 또는 구독 요금이 청구되는 구독을 선택합니다. 계정에 속한 특정 구독 ID를 선택하려면 [az account set](/cli/azure/account#az-account-set) 명령을 사용합니다.
 
@@ -45,15 +45,15 @@ az group create --name myresourcegroup --location westus
 
 [az mariadb server create](/cli/azure/mariadb/server#az-mariadb-server-create) 명령을 사용하여 Azure Database for MariaDB 서버를 만듭니다. 서버는 여러 데이터베이스를 관리할 수 있습니다. 일반적으로 각 프로젝트 또는 각 사용자에 대해 별도의 데이터베이스가 사용됩니다.
 
-설정 | 샘플 값 | 설명
+설정 | 샘플 값 | Description
 ---|---|---
-이름 | **mydemoserver** | Azure Database for MariaDB 서버를 식별하는 고유한 이름을 입력합니다. 서버 이름은 소문자, 숫자 및 하이픈(-) 문자만 포함할 수 있으며, 3~63자여야 합니다.
+name | **mydemoserver** | Azure Database for MariaDB 서버를 식별하는 고유한 이름을 입력합니다. 서버 이름은 소문자, 숫자 및 하이픈(-) 문자만 포함할 수 있으며, 3~63자여야 합니다.
 resource-group | **myresourcegroup** | Azure 리소스 그룹의 이름을 입력합니다.
 sku-name | **GP_Gen5_2** | SKU의 이름입니다. *가격 책정 계층*\_*계산 세대*\_*vCores* 규칙을 축약형으로 따릅니다. **sku-name** 매개 변수에 대한 자세한 내용은 이 표 다음에 나오는 섹션을 참조하세요.
 backup-retention | **7** | 백업을 보존하는 기간입니다. 단위는 일입니다. 범위: 7 ~ 35 
 geo-redundant-backup | **사용 안 함** | 이 서버에 지역 중복 백업을 사용할 것인지 여부를 결정합니다. 허용되는 값은 다음과 같습니다. **사용**, **사용 안 함**
-location | **westus** | 서버에 대한 Azure 위치입니다.
-ssl-enforcement | **사용** | 이 서버에 SSL을 사용할 것인지 여부를 결정합니다. 허용되는 값은 다음과 같습니다. **사용**, **사용 안 함**
+위치 | **westus** | 서버에 대한 Azure 위치입니다.
+ssl-enforcement | **Enabled** | 이 서버에 SSL을 사용할 것인지 여부를 결정합니다. 허용되는 값은 다음과 같습니다. **사용**, **사용 안 함**
 storage-size | **51200** | 서버의 스토리지 용량입니다(단위는 메가바이트). 유효한 스토리지 크기는 5,120MB(최소)이고 1,024MB 단위로 증가합니다. 스토리지 크기 한도에 대한 자세한 내용은 [가격 책정 계층](./concepts-pricing-tiers.md)을 참조하세요. 
 버전 | **10.2** | MariaDB 주 엔진 버전입니다.
 admin-user | **myadmin** | 관리자 로그인에 대한 사용자 이름입니다. **admin-user** 매개 변수는 **azure_superuser**, **admin**, **administrator**, **root**, **guest** 또는 **public**일 수 없습니다.
@@ -74,13 +74,12 @@ az mariadb server create --resource-group myresourcegroup --name mydemoserver  -
 
 > [!NOTE]
 > 워크로드에 가벼운 컴퓨팅 및 I/O가 적합한 경우 기본 가격 책정 계층을 고려합니다. 기본 가격 책정 계층에서 만든 서버는 나중에 범용으로 또는 메모리 최적화되도록 확장할 수 없습니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/mariadb/)를 참조하세요.
-> 
 
 ## <a name="configure-a-firewall-rule"></a>방화벽 규칙 구성
 
-[az mariadb server firewall-rule create](/cli/azure/mariadb/server/firewall-rule#az-mariadb-server-firewall-rule-create) 명령을 사용하여 Azure Database for MariaDB 서버 수준 방화벽 규칙을 만듭니다. 서버 수준 방화벽 규칙을 사용하면 mysql 명령줄 도구 또는 MySQL Workbench 같은 외부 애플리케이션에서 Azure Database for MariaDB 서비스 방화벽을 통해 서버에 연결할 수 있습니다. 
+[az mariadb server firewall-rule create](/cli/azure/mariadb/server/firewall-rule#az-mariadb-server-firewall-rule-create) 명령을 사용하여 Azure Database for MariaDB 서버 수준 방화벽 규칙을 만듭니다. 서버 수준 방화벽 규칙을 사용하면 mysql 명령줄 도구 또는 MySQL Workbench 같은 외부 애플리케이션에서 Azure Database for MariaDB 서비스 방화벽을 통해 서버에 연결할 수 있습니다.
 
-다음 예제는 특정 IP 주소 192.168.0.1에서 연결하는 것을 허용하는 `AllowMyIP` 방화벽 규칙을 만듭니다. 연결하는 위치에 해당하는 IP 주소 또는 IP 주소 범위로 바꾸세요. 
+다음 예제는 특정 IP 주소 192.168.0.1에서 연결하는 것을 허용하는 `AllowMyIP` 방화벽 규칙을 만듭니다. 연결하는 위치에 해당하는 IP 주소 또는 IP 주소 범위로 바꾸세요.
 
 ```azurecli-interactive
 az mariadb server firewall-rule create --resource-group myresourcegroup --server mydemoserver --name AllowMyIP --start-ip-address 192.168.0.1 --end-ip-address 192.168.0.1
@@ -88,14 +87,13 @@ az mariadb server firewall-rule create --resource-group myresourcegroup --server
 
 > [!NOTE]
 > Azure Database for MariaDB에 대한 연결은 포트 3306을 통해 통신합니다. 회사 네트워크 내에서 연결하려고 하면 3306 포트를 통한 아웃바운드 트래픽이 허용되지 않을 수 있습니다. 이 경우 IT 부서에서 3306 포트를 열어야만 서버에 연결할 수 있습니다.
-> 
 
 ## <a name="configure-ssl-settings"></a>SSL 설정 구성
 
 기본적으로 서버와 클라이언트 애플리케이션 간에 SSL 연결이 적용됩니다. 이 기본 설정은 인터넷을 통해 데이터 스트림을 암호화하여 "이동 중"인 데이터를 보호합니다. 이 빠른 시작에서는 서버에 SSL 연결을 사용하지 않겠습니다. SSL 비활성화는 프로덕션 서버에는 권장되지 않습니다. 자세한 내용은 [Azure Database for MariaDB에 안전하게 연결하기 위한 사용자 애플리케이션의 SSL 연결 구성](./howto-configure-ssl.md)을 참조하세요.
 
 다음 예제에서는 Azure Database for MariaDB 서버에 적용되는 SSL을 사용하지 않습니다.
- 
+
 ```azurecli-interactive
 az mariadb server update --resource-group myresourcegroup --name mydemoserver --ssl-enforcement Disabled
 ```
@@ -156,9 +154,10 @@ mysql 명령줄 도구를 사용하여 서버에 연결하려면:
    ```sql
    status
    ```
+
    다음 텍스트와 비슷한 내용이 표시됩니다.
 
-   ```bash
+   ```cmd
    C:\Users\>mysql -h mydemoserver.mariadb.database.azure.com -u myadmin@mydemoserver -p
    Enter password: ***********
    Welcome to the MySQL monitor.  Commands end with ; or \g.
@@ -211,11 +210,11 @@ mysql 명령줄 도구를 사용하여 서버에 연결하려면:
 
    ![새 연결 설정](./media/quickstart-create-mariadb-server-database-using-azure-cli/setup-new-connection.png)
 
-   | 설정 | 제안 값 | 설명 |
+   | 설정 | 제안 값 | Description |
    |---|---|---|
    | 연결 이름 | **데모 연결** | 이 연결의 레이블 입력(아무 연결 이름이나 가능) |
    | 연결 방법 | **표준(TCP/IP)** | TCP/IP 프로토콜을 사용하여 Azure Database for MariaDB에 연결 |
-   | 호스트 이름 | **mydemoserver.mariadb.database.azure.com** | 앞에서 기록한 서버 이름. |
+   | Hostname | **mydemoserver.mariadb.database.azure.com** | 앞에서 기록한 서버 이름. |
    | 포트 | **3306** | Azure Database for MariaDB의 기본 포트. |
    | 사용자 이름 | **myadmin\@mydemoserver** | 앞에서 기록한 서버 관리자 로그인. |
    | 암호 | *사용자 암호* | 이전에 설정한 관리자 계정 암호를 사용합니다. |

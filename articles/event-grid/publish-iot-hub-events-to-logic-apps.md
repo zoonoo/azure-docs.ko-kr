@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 11/21/2019
 ms.author: robinsh
 ms.openlocfilehash: 334b7b2c59b328e8eff3c7c2b9c3ed46bffc3442
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74706429"
 ---
 # <a name="tutorial-send-email-notifications-about-azure-iot-hub-events-using-event-grid-and-logic-apps"></a>자습서: Event Grid 및 Logic Apps를 사용하여 Azure IoT Hub 이벤트에 대한 이메일 알림 보내기
@@ -20,7 +20,7 @@ Azure Event Grid를 사용하면 다운스트림 비즈니스 애플리케이션
 
 이 문서에서는 IoT Hub 및 Event Grid를 사용하는 샘플 구성을 안내합니다. 마지막으로 디바이스가 IoT 허브에 추가될 때마다 Azure 논리 앱에서 알림 이메일을 보내도록 설정합니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure Logic Apps에서 지원하는 이메일 공급자(예: Office 365 Outlook, Outlook.com 또는 Gmail)가 제공한 이메일 계정. 이 이메일 계정은 이벤트 알림을 보내는 데 사용됩니다. 지원되는 Logic App 커넥터의 전체 목록은 [커넥터 개요](https://docs.microsoft.com/connectors/)를 참조하세요.
 * 활성 Azure 계정. 계정이 없는 경우 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)에 만들 수 있습니다.

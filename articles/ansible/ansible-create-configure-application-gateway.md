@@ -5,10 +5,10 @@ keywords: Ansible, Azure, DevOps, Bash, 플레이북, 애플리케이션 게이�
 ms.topic: tutorial
 ms.date: 04/30/2019
 ms.openlocfilehash: 07f75e39b8c6f592ecd4c48697527493b1109bb9
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74156620"
 ---
 # <a name="tutorial-manage-web-traffic-with-azure-application-gateway-using-ansible"></a>자습서: Ansible을 사용하여 Azure Application Gateway로 웹 트래픽 관리
@@ -25,7 +25,7 @@ ms.locfileid: "74156620"
 > * HTTPD 이미지를 사용하여 두 개의 Azure 컨테이너 인스턴스 만들기
 > * 서버 풀에서 Azure 컨테이너 인스턴스를 사용하여 애플리케이션 게이트웨이 만들기
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
@@ -255,11 +255,11 @@ ansible-playbook aci_create.yml
 
 플레이북을 실행하기 전에 다음 정보를 참조하세요.
 
-* `appGatewayIP`는 `gateway_ip_configurations` 블록에 정의됩니다. 서브넷 참조는 게이트웨이의 IP 구성에 필요합니다.
+* `appGatewayIP`은 `gateway_ip_configurations` 블록에 정의됩니다. 서브넷 참조는 게이트웨이의 IP 구성에 필요합니다.
 * `appGatewayBackendPool`은 `backend_address_pools` 블록에 정의됩니다. 애플리케이션 게이트웨이에 백 엔드 주소 풀이 하나 이상 있어야 합니다.
-* `appGatewayBackendHttpSettings`는 `backend_http_settings_collection` 블록에 정의됩니다. 포트 80 및 HTTP 프로토콜을 통신에 사용하도록 지정합니다.
-* `appGatewayHttpListener`는 `backend_http_settings_collection` 블록에 정의됩니다. appGatewayBackendPool에 연결되는 기본 수신기입니다.
-* `appGatewayFrontendIP`는 `frontend_ip_configurations` 블록에 정의됩니다. myAGPublicIPAddress를 appGatewayHttpListener에 할당합니다.
+* `appGatewayBackendHttpSettings`은 `backend_http_settings_collection` 블록에 정의됩니다. 포트 80 및 HTTP 프로토콜을 통신에 사용하도록 지정합니다.
+* `appGatewayHttpListener`은 `backend_http_settings_collection` 블록에 정의됩니다. appGatewayBackendPool에 연결되는 기본 수신기입니다.
+* `appGatewayFrontendIP`은 `frontend_ip_configurations` 블록에 정의됩니다. myAGPublicIPAddress를 appGatewayHttpListener에 할당합니다.
 * `rule1`은 `request_routing_rules` 블록에 정의됩니다. appGatewayHttpListener에 연결되는 기본 회람 규칙입니다.
 
 다음과 같이 `ansible-playbook` 명령을 사용하여 플레이북을 실행합니다.

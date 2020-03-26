@@ -14,11 +14,11 @@ ms.topic: quickstart
 ms.date: 06/10/2019
 ms.author: jingwang
 ms.openlocfilehash: fbfd3e2577655e8cfccd84fffe2971ff509bd2f4
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75977451"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79215791"
 ---
 # <a name="quickstart-create-an-azure-data-factory-and-pipeline-by-using-the-rest-api"></a>빠른 시작: REST API를 사용하여 Azure Data Factory 및 파이프라인 만들기
 

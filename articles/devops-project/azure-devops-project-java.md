@@ -17,10 +17,10 @@ ms.author: mlearned
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
 monikerRange: vsts
 ms.openlocfilehash: 1a276770887bee39972ba8630fb13f52bcbe802d
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77049967"
 ---
 # <a name="quickstart-set-up-a-cicd-pipeline-for-a-java-app-with-azure-devops-projects"></a>빠른 시작: Azure DevOps Projects를 사용하여 Java 앱에 대한 CI/CD 파이프라인 설정

@@ -16,15 +16,15 @@ ms.date: 11/15/2019
 ms.author: magattus
 ms.custom: mvc
 ms.openlocfilehash: 64b906c8a6b52d9c9655f3fe2b13d504d8eed4cb
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74278085"
 ---
 # <a name="compare-azure-cdn-product-features"></a>Azure CDN 제품 기능 비교
 
-Azure CDN(Content Delivery Network)에는 다음과 같은 네 가지 제품이 포함됩니다. **Microsoft의 Azure CDN 표준**, **Akamai의 Azure CDN 표준**, **Verizon의 Azure CDN 표준** 및 **Verizon의 Azure CDN 프리미엄**. **Verizon의 Azure CDN Standard** 프로필을 **Verizon의 Azure CDN Premium**으로 마이그레이션하는 방법은 [Azure CDN 프로필을 Standard Verizon에서 Premium Verizon으로 마이그레이션](cdn-migrate.md)을 참조하세요. 표준 Verizon에서 프리미엄 Verizon으로의 업그레이드 경로는 있지만 현재 다른 제품 간에는 변환 메커니즘이 없습니다.
+Azure CDN(Content Delivery Network)은 **Microsoft의 Azure CDN 표준**, **Akamai의 Azure CDN 표준**, **Verizon의 Azure CDN 표준** 및 **Verizon의 Azure CDN 프리미엄** 등의 네 가지 제품을 포함합니다. **Verizon의 Azure CDN Standard** 프로필을 **Verizon의 Azure CDN Premium**으로 마이그레이션하는 방법은 [Azure CDN 프로필을 Standard Verizon에서 Premium Verizon으로 마이그레이션](cdn-migrate.md)을 참조하세요. 표준 Verizon에서 프리미엄 Verizon으로의 업그레이드 경로는 있지만 현재 다른 제품 간에는 변환 메커니즘이 없습니다.
 
 다음 표는 각 제품에 사용할 수 있는 기능을 비교합니다.
 

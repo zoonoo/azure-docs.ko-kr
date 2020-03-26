@@ -6,10 +6,10 @@ ms.author: jobreen
 author: jjbfour
 ms.date: 09/17/2019
 ms.openlocfilehash: 22d1dcd997a4ddb94aba184c5dace4c00509054d
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75648610"
 ---
 # <a name="tutorial-resource-onboarding-with-azure-custom-providers"></a>자습서: Azure 사용자 지정 공급자를 사용하여 리소스 온보딩
@@ -237,7 +237,7 @@ ms.locfileid: "75648610"
 
    | 설정 이름 | 필수 여부 | Description |
    | ------------ | -------- | ----------- |
-   | 위치 | yes | 템플릿에서 리소스의 위치입니다. |
+   | 위치 | 예 | 템플릿에서 리소스의 위치입니다. |
    | 논리 앱 이름 | 예 | 논리 앱의 이름입니다. |
    | 사용자 지정 리소스 공급자 이름 | 예 | 사용자 지정 리소스 공급자 이름입니다. |
    | 사용자 지정 리소스 공급자 Id | 예 | 연결 리소스를 지원하는 기존 사용자 지정 리소스 공급자입니다. 여기서 값을 지정하는 경우 논리 앱 및 사용자 지정 공급자 배포를 건너뛰게 됩니다. |

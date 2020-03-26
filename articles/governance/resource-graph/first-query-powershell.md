@@ -4,11 +4,11 @@ description: 이 빠른 시작에서는 단계에 따라 Azure PowerShell에 대
 ms.date: 11/21/2019
 ms.topic: quickstart
 ms.openlocfilehash: dd96324671f46f98d5b6c8bae1839a5b02d38b23
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74304139"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79215631"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 첫 번째 Resource Graph 쿼리 실행
 
@@ -16,7 +16,7 @@ Azure Resource Graph를 사용하는 첫 번째 단계는 Azure PowerShell용 �
 
 이 프로세스가 끝나면 선택한 Azure PowerShell 설치에 모듈이 추가되고 첫 번째 Resource Graph 쿼리를 실행하게 됩니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 

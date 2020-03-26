@@ -14,10 +14,10 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/26/2019
 ms.openlocfilehash: 9fa816b2a8e736f03c99b66b898f48bd2a483b31
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68596780"
 ---
 # <a name="tutorial-deploy-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>자습서: Azure SQL Database Machine Learning Services(미리 보기)를 사용하여 R에서 예측 모델 배포
@@ -30,8 +30,8 @@ ms.locfileid: "68596780"
 
 > [!div class="checklist"]
 > * 기계 학습 모델을 생성하는 저장 프로시저 만들기
-> * 데이터베이스 테이블에 모델 저장
-> * 모델을 사용하여 예측하는 저장 프로시저 만들기
+> * 모델을 데이터베이스 테이블에 저장
+> * 모델을 사용하여 예측을 수행하는 저장 프로시저 만들기
 > * 새 데이터로 모델 실행
 
 [1부](sql-database-tutorial-predictive-model-prepare-data.md)에서는 샘플 데이터베이스를 가져온 다음, R에서 예측 모델을 학습하는 데 사용할 데이터를 준비하는 방법을 살펴보았습니다.
@@ -40,7 +40,7 @@ ms.locfileid: "68596780"
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 이 자습서 시리즈의 3부에서는 [**1부**](sql-database-tutorial-predictive-model-prepare-data.md) 및 [**2부**](sql-database-tutorial-predictive-model-build-compare.md)를 완료했다고 가정합니다.
 
@@ -88,9 +88,9 @@ END;
 GO
 ```
 
-## <a name="store-the-model-in-a-database-table"></a>데이터베이스 테이블에 모델 저장
+## <a name="store-the-model-in-a-database-table"></a>모델을 데이터베이스 테이블에 저장
 
-TutorialDB 데이터베이스에 테이블을 만들고 테이블에 모델을 저장합니다.
+TutorialDB 데이터베이스에 테이블을 만든 다음, 모델을 테이블에 저장합니다.
 
 1. 모델을 저장하기 위한 테이블(`rental_rx_models`)을 만듭니다.
 
@@ -197,7 +197,7 @@ RentalCount_Predicted
 332.571428571429
 ```
 
-Azure SQL Database에서 모델을 만들고, 학습하고, 배포했습니다. 그런 후 저장 프로시저에서 해당 모델을 사용하여 새 데이터에 따라 값을 예측했습니다.
+Azure SQL Database에서 모델을 만들고, 학습하고, 배포했습니다. 그런 다음, 저장 프로시저에서 해당 모델을 사용하여 새 데이터를 기반으로 값을 예측합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -212,11 +212,11 @@ Azure Portal에서 다음 단계를 따릅니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서 시리즈의 제3부에서는 다음 단계를 완료했습니다.
+이 자습서 시리즈의 3부에서 다음 단계를 완료했습니다.
 
 * 기계 학습 모델을 생성하는 저장 프로시저 만들기
-* 데이터베이스 테이블에 모델 저장
-* 모델을 사용하여 예측하는 저장 프로시저 만들기
+* 모델을 데이터베이스 테이블에 저장
+* 모델을 사용하여 예측을 수행하는 저장 프로시저 만들기
 * 새 데이터로 모델 실행
 
 Azure SQL Database Machine Learning Services(미리 보기)에서 R을 사용하는 방법에 대한 자세한 내용은 다음을 참조하세요.

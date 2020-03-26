@@ -17,10 +17,10 @@ ms.date: 11/18/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8e2e442c043a004a48dfd358d123c7c705dfa3f8
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74483892"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-onedesk"></a>자습서: OneDesk와 Azure Active Directory SSO(Single Sign-On) 통합
@@ -33,7 +33,7 @@ ms.locfileid: "74483892"
 
 Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -87,7 +87,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     b. **회신 URL** 텍스트 상자에서 `https://app.onedesk.com/sso/saml/SSO/alias/onedesk.com_<specific_tenant_string>` 패턴을 사용하여 URL을 입력합니다.
 
-1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**을 클릭하고 다음 단계를 수행합니다.
+1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**를 클릭하고 다음 단계를 수행합니다.
 
     **로그인 URL** 텍스트 상자에서 `https://app.onedesk.com/sso/saml/login/alias/onedesk.com_<specific_tenant_string>` 패턴을 사용하여 URL을 입력합니다.
 
@@ -110,7 +110,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자**를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예: `B.Simon@contoso.com`
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기**를 클릭합니다.
 
@@ -140,7 +140,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 브라우저에 확장을 추가한 후 **OneDesk 설정**을 클릭하면 OneDesk 애플리케이션으로 이동됩니다. 여기서 관리자 자격 증명을 입력하여 OneDesk에 로그인합니다. 브라우저 확장이 애플리케이션을 자동으로 구성하고 3-5단계를 자동으로 수행합니다.
 
-    ![구성 설정](common/setup-sso.png)
+    ![설정 구성](common/setup-sso.png)
 
 1. OneDesk를 수동으로 설정하려면 새 웹 브라우저 창을 열고 OneDesk 회사 사이트에 관리자로 로그인하여 다음 단계를 수행합니다.
 
