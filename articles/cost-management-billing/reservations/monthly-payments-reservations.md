@@ -5,36 +5,24 @@ author: bandersmsft
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/24/2020
+ms.date: 03/24/2020
 ms.author: banders
-ms.openlocfilehash: 77d663fa01e24acf63acd68d0b8d7cf4cc741055
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: ede60adc13dadc38e18ee5ade468e01b16523f4f
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77587093"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80235741"
 ---
 # <a name="purchase-reservations-with-monthly-payments"></a>월별 결제로 예약 구매
 
-지금까지는 Azure 예약에 선불 결제가 필요했습니다. 이제 월별 결제로 예약 비용을 지불할 수 있습니다. 전체 금액을 지불하는 선불 구매와 달리, 월별 결제 옵션은 예약의 총 비용을 기간에 대해 매월 균등하게 나눕니다. 선불과 월별 예약의 총 비용은 동일하며, 매달 지불하기로 선택하면 추가 요금이 청구되지 않습니다.
+월별 결제로 예약 비용을 지불할 수 있습니다. 전체 금액을 지불하는 선불 구매와 달리, 월별 결제 옵션은 예약의 총 비용을 기간에 대해 매월 균등하게 나눕니다. 선불과 월별 예약의 총 비용은 동일하며, 매달 지불하기로 선택하면 추가 요금이 청구되지 않습니다.
 
-월별 결제 금액은 현지 통화에 대한 이번 달 시장 환율에 따라 달라질 수 있습니다.
+MCA(Microsoft 고객 계약)를 통해 예약을 구매한 경우 월별 결제 금액은 현지 통화에 대한 이번 달 시장 환율에 따라 달라질 수 있습니다.
 
-월별 결제는 다음에 사용할 수 있습니다.
+월별 결제는 다음에 사용할 수 없습니다. Databricks, SUSE Linux 예약, Red Hat 플랜 및 Azure Red Hat OpenShift Compute.
 
-- 가상 머신
-- Azure Storage
-- SQL Database
-- SQL Data Warehouse
-- Cosmos DB
-- App Service 인지세
-- 관리 디스크:
-- Azure Data Explorer
-- Azure Database for MariaDB, MySQL 및 PostgreSQL
-- Azure VMware Solution by CloudSimple
-
-
-[Azure Portal](https://portal.azure.com/?Microsoft_Azure_Reservations_EnableMultiCart=true&amp;paymentPlan=true#blade/Microsoft_Azure_Reservations/CreateBlade)에서 예약을 구매합니다.
+[Azure Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/Docs)에서 예약을 구매합니다.
 
 ![예약 구매를 보여주는 예](./media/monthly-payments-reservations/purchase-reservation.png)
 
@@ -58,11 +46,11 @@ ms.locfileid: "77587093"
 
 ## <a name="exchange-and-refunds"></a>취소 및 환불
 
-다른 예약과 마찬가지로 월별 청구를 통해 구매한 예약을 환불하거나 교환할 수 있습니다. 현재 지원 요청을 제출하여, 월별 청구를 통해 구매한 예약에 대한 교환이나 환불을 시작할 수 있습니다.
+다른 예약과 마찬가지로 월별 청구를 통해 구매한 예약을 환불하거나 교환할 수 있습니다. 
 
 매월 지불하는 예약을 교환하는 경우에는, 새 구매의 총 수명 비용이 반환되는 예약에 대해 취소되는 남은 지불액보다 커야 합니다. 교환에 대한 다른 제한이나 수수료는 없습니다. 선불로 지불한 예약을 교환하여 매월 청구되는 새로운 예약을 구매할 수 있습니다. 단, 새 예약의 수명 값이 반환되는 예약에 대해 비례 배분된 값보다 커야 합니다.
 
-매월 지불하는 예약을 취소하는 경우 12%의 취소 수수료가 취소된 약정 지불 금액에 적용될 수 있습니다. 그러나 Microsoft는 현재 위약금을 부과하지 않습니다. 취소된 약정 지불 금액은 $50,000 환불 한도에 도달할 때까지 누적됩니다. 취소 위약금이 청구되는 경우 환불 한도에 영향을 주지 않습니다.
+매달 지불되는 예약을 취소하면 취소된 향후 지불금은 $50,000 USD 환불 제한에 도달하게 됩니다.
 
 교환 및 환불에 대한 자세한 내용은 [Azure Reservations의 셀프 서비스 교환 및 환불](exchange-and-refund-azure-reservations.md)을 참조하세요.
 

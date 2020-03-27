@@ -1,24 +1,26 @@
 ---
-title: Azure의 Cloudyn 비용 관리 보고서 이해 | Microsoft Docs
+title: Azure에서 Cloudyn 비용 관리 보고서 이해
 description: 이 문서는 Cloudyn 비용 관리 보고서의 기본 구조와 기능에 대한 이해를 도와줍니다.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/24/2020
+ms.date: 03/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: benshy
 ms.custom: seodec18
-ms.openlocfilehash: 89bcbf75396a1eda9de4a715739adb3a3696e137
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ROBOTS: NOINDEX
+ms.openlocfilehash: 5d4f8e26aef5fbfb20c1721d1851a4940863121b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76773981"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79474546"
 ---
 # <a name="understanding-cloudyn-cost-management-reports"></a>Cloudyn 비용 관리 보고서 이해
 
 이 문서는 Cloudyn 비용 관리 보고서의 기본 구조와 기능에 대한 이해를 도와줍니다. 대부분의 Cloudyn 보고서는 직관적이며 모양과 느낌이 일관됩니다. 이 아티클을 읽으면 모든 배용 관리 보고서를 사용할 수 있습니다. 다양한 보고서에서 제공하는 여러 가지 표준 기능을 사용하여 보고서를 간편하게 탐색할 수 있습니다. 보고서를 사용자 지정할 수 있으며, 결과를 계산하고 표시하는 여러 옵션 중에 선택할 수 있습니다.
+
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 
 ## <a name="report-fields-and-options"></a>보고서 필드 및 옵션
 

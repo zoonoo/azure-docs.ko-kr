@@ -6,14 +6,14 @@ ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 3/11/2020
 ms.author: banders
-ms.openlocfilehash: e22663cf8cabd5d2abf487c96f2d69aeaaa90ab7
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 0e0003b3adfdb6ebba49bd8d014fc0ba287ca3aa
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199707"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79238145"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Azure 청구 및 비용 관리를 사용하여 예기치 않은 비용 방지
 
@@ -25,6 +25,8 @@ Azure에 등록하면 몇 가지 방법을 통해 지출을 보다 명확히 파
 - [청구](https://docs.microsoft.com/rest/api/billing/) 및 [사용량](https://docs.microsoft.com/rest/api/consumption/) API를 사용하여 청구 및 비용 데이터를 사용자 고유의 보고 시스템과 통합합니다.
 - EA(기업계약), CSP(클라우드 솔루션 공급자) 및 Azure 스폰서쉽 고객을 위한 추가 리소스와 도구를 사용합니다.
 - [Azure 체험 계정](https://azure.microsoft.com/free/)으로 [가장 인기 있는 Azure 서비스 중 일부를 12개월 동안 무료로](create-free-services.md) 사용합니다. 아래에 나열된 권장 사항과 함께 [체험 계정에서 요금 청구 방지](avoid-charges-free-account.md)를 참조하세요.
+
+Azure 구독을 취소해야 하는 경우 [Azure 구독 취소](cancel-azure-subscription.md)를 참조하세요.
 
 ## <a name="get-estimated-costs-before-adding-azure-services"></a>Azure 서비스를 추가하기 전에 예상 비용 구하기
 
@@ -67,7 +69,7 @@ Azure Portal에서 서비스를 추가하면서 월별 예상 비용을 확인�
 
 [예산](../costs/tutorial-acm-create-budgets.md)을 만들어 비용을 관리하고, [경고](../costs/cost-mgt-alerts-monitor-usage-spending.md)를 만들어 관련자에게 비정상 지출 및 과다 지출을 자동으로 알립니다.
 
-### <a name="costs"></a> 비용 분석을 사용하여 비용 검색 및 분석
+### <a name="explore-and-analyze-costs-with-cost-analysis"></a><a name="costs"></a> 비용 분석을 사용하여 비용 검색 및 분석
 
 Azure 서비스가 실행되면 비용을 정기적으로 확인하여 Azure 지출을 추적합니다. 비용 분석을 사용하여 Azure 사용량에 대한 비용이 발생한 위치를 파악할 수 있습니다.
 
@@ -120,7 +122,7 @@ MCA(Microsoft 고객 계약)를 통해 Azure를 사용하는 경우 [청구서�
 
 Azure [청구](https://docs.microsoft.com/rest/api/billing/) 및 [사용량](https://docs.microsoft.com/rest/api/consumption/) API를 사용하여 청구 및 비용 데이터를 프로그래밍 방식으로 가져옵니다. RateCard API 및 사용 현황 API를 함께 사용하여 청구된 사용량을 확인합니다. 자세한 내용은 [Microsoft Azure 리소스 소비에 대한 통찰력 얻기](usage-rate-card-overview.md)를 참조하세요.
 
-## <a name="other-offers"></a> 추가 리소스 및 특수 사례
+## <a name="additional-resources-and-special-cases"></a><a name="other-offers"></a> 추가 리소스 및 특수 사례
 
 ### <a name="ea-csp-and-sponsorship-customers"></a>EA, CSP 및 스폰서쉽 고객
 계정 관리자 또는 Azure 파트너에 시작하도록 알립니다.
@@ -133,7 +135,7 @@ Azure [청구](https://docs.microsoft.com/rest/api/billing/) 및 [사용량](htt
 
 대기업의 IT를 관리하는 경우 [Azure 엔터프라이즈 스 캐폴드](/azure/architecture/cloud-adoption-guide/subscription-governance) 및 [엔터프라이즈 IT 백서](https://download.microsoft.com/download/F/F/F/FFF60E6C-DBA1-4214-BEFD-3130C340B138/Azure_Onboarding_Guide_for_IT_Organizations_EN_US.pdf)(.pdf 다운로드, 영어 버전만 제공)를 읽어보세요.
 
-### <a name="EA"></a> Azure Portal에서 기업계약 비용 보기
+### <a name="enterprise-agreement-cost-views-in-the-azure-portal"></a><a name="EA"></a> Azure Portal에서 기업계약 비용 보기
 
 엔터프라이즈 비용 보기는 현재 공개 미리 보기 상태입니다. 참고할 항목:
 

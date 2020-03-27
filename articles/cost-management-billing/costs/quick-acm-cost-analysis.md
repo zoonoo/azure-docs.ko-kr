@@ -1,19 +1,19 @@
 ---
-title: 빠른 시작 - 비용 분석을 사용하여 Azure 비용 살펴보기 | Microsoft Docs
+title: 빠른 시작 - 비용 분석을 사용하여 Azure 비용 살펴보기
 description: 이 빠른 시작에서는 비용 분석을 사용하여 Azure 조직 비용을 탐색하고 분석하는 데 도움이 되는 정보를 제공합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/11/2020
+ms.date: 03/24/2020
 ms.topic: quickstart
 ms.service: cost-management-billing
 ms.reviewer: micflan
 ms.custom: seodec18
-ms.openlocfilehash: 82cd596f08136f6d9b327fc83122c0f32d8f9914
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 53e1ef2f5e4faecd3ab2dee1350f3e9087df8e9d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77649299"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80155956"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>빠른 시작: 비용 분석을 사용하여 비용 탐색 및 분석
 
@@ -27,12 +27,13 @@ Azure 비용을 적절히 제어하고 최적화하려면 먼저 조직 내의 �
 - 비용 보기 사용자 지정
 - 비용 분석 데이터 다운로드
 
-
 ## <a name="prerequisites"></a>사전 요구 사항
 
 비용 분석은 다양한 종류의 Azure 계정 유형을 지원합니다. 지원되는 계정 유형의 전체 목록을 보려면 [Cost Management 데이터 이해](understand-cost-mgt-data.md)를 참조하세요. 비용 데이터를 보려면 적어도 Azure 계정에 대한 읽기 권한이 필요합니다.
 
 Azure Cost Management 데이터에 액세스하는 방법에 대한 정보는 [데이터에 대한 액세스 할당](../../cost-management/assign-access-acm-data.md)을 참조하세요.
+
+새 구독이 있는 경우 Cost Management 기능을 즉시 사용할 수 없습니다. 모든 Cost Management 기능을 사용하려면 최대 48시간이 걸릴 수 있습니다.
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
@@ -43,6 +44,10 @@ Azure Cost Management 데이터에 액세스하는 방법에 대한 정보는 [�
 비용 분석에서 비용을 검토하려면 Azure Portal에서 범위를 열고, 메뉴에서 **비용 분석**을 선택합니다. 예를 들어, **구독**으로 이동하여 목록에서 구독을 선택한 다음, 메뉴에서 **비용 분석**을 선택합니다. **범위** 필을 사용하여 비용 분석에서 다른 범위로 전환합니다. 범위에 대한 자세한 내용은 [범위 이해 및 작업](understand-work-scopes.md)을 참조하세요.
 
 선택한 범위는 Cost Management 전체에서 데이터 통합을 제공하고 비용 정보에 대한 액세스를 제어하는 데 사용됩니다. 범위를 사용할 때는 다중 범위가 선택되지 않습니다. 대신 다른 사용자가 롤업한 더 큰 범위를 선택한 다음, 필요한 중첩된 범위까지 필터링합니다. 이 방법은 일부 사용자가 중첩된 여러 범위를 포함하는 단일 부모 범위에 액세스할 수 없을 수도 있으므로 반드시 이해해야 합니다.
+
+비용 분석을 사용하는 방법에 대해 자세히 알아보려면 [Azure Portal에서 Cost Management를 사용하는 방법](https://www.youtube.com/watch?v=mfxysF-kTFA) 비디오를 시청하세요.
+
+>[!VIDEO https://www.youtube.com/embed/mfxysF-kTFA]
 
 초기 비용 분석 보기에는 다음 영역에 포함됩니다.
 
@@ -65,7 +70,6 @@ Azure Cost Management 데이터에 액세스하는 방법에 대한 정보는 [�
 비용 예측에는 선택한 기간에 대한 예상 비용의 예측이 표시됩니다. 모델은 시계열 회귀 모델을 기반으로 합니다. 비용을 정확하게 예측하려면 10일 이상의 최근 비용 및 사용 현황 데이터가 필요합니다. 지정된 기간 동안 예측 모델에는 예측 기간 동안 동일한 학습 데이터 부분이 필요합니다. 예를 들어, 3개월 프로젝션에는 최소 3개월 동안의 최근 비용 및 사용 현황 데이터가 필요합니다.
 
 이 모델은 1년 동안 비용을 프로젝션하는 데 최대 6개월 분량의 학습 데이터를 사용합니다. 최소한의 예측을 변경하려면 7일 간의 학습 데이터가 필요합니다. 예측은 비용 및 사용 패턴에서 급증 및 급감과 같은 극적인 변화를 기반으로 합니다. 예측은 **그룹별** 속성의 각 항목에 대한 개별 프로젝션을 생성하지 않습니다. 누적된 총 비용에 대한 예측만 제공합니다. 여러 통화를 사용하는 경우 모델은 USD로만 비용 예측을 제공합니다.
-
 
 ## <a name="customize-cost-views"></a>비용 보기 사용자 지정
 
@@ -174,11 +178,17 @@ Azure 태그 정책을 사용하여 비용 데이터 가시성을 향상시키�
 
 비용 분석을 Azure Portal 대시보드에 고정시키거나 비용 분석에 대한 링크를 복사하여 사용자 지정 보기를 저장하고 다른 사용자와 공유할 수 있습니다.
 
+포털을 사용하여 조직에 대한 비용 정보를 공유하는 방법에 대해 자세히 알아보려면 [Azure Cost Management에서 보기 공유 및 저장](https://www.youtube.com/watch?v=kQkXXj-SmvQ) 비디오를 시청하세요.
+
+>[!VIDEO https://www.youtube.com/embed/kQkXXj-SmvQ]
+
 비용 분석을 고정하려면 오른쪽 위 모서리에 있는 핀 아이콘을 선택합니다. 비용 분석이 고정되면 기본 차트 또는 테이블 보기만 저장합니다. 다른 사용자가 타일에 액세스할 수 있도록 대시보드를 공유합니다. 이는 대시보드 구성만 공유하며, 다른 사용자에게 기본 데이터에 대한 액세스 권한을 부여하지 않습니다. 비용에 대한 액세스 권한이 없지만 공유 대시보드에 대한 액세스은 있는 경우 “액세스 거부” 메시지가 표시됩니다.
 
 비용 분석에 대한 링크를 공유하려면 블레이드 위쪽에 있는 **공유**를 선택합니다. 그러면 해당 특정 범위의 해당 특정 보기가 열리는 사용자 지정 URL이 표시됩니다. 비용에 대한 액세스 권한이 없고 이 URL이 없으면 "액세스 거부" 메시지가 표시됩니다.
 
 지원되는 각 범위의 비용에 대한 액세스 권한을 부여하는 방법을 자세히 알아보려면 [범위 이해 및 작업](understand-work-scopes.md)을 검토하세요.
+
+
 
 ## <a name="automation-and-offline-analysis"></a>자동화 및 오프라인 분석
 

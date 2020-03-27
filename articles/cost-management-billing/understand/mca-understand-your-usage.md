@@ -6,14 +6,14 @@ ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/10/2020
+ms.date: 03/20/2020
 ms.author: banders
-ms.openlocfilehash: ef6ef96bf248c449b318cebaba9c53f63e448855
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: c6883dfd0f4c3bc11afdd68ead8c8c84729b1880
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199163"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80065695"
 ---
 # <a name="terms-in-the-azure-usage-and-charges-file-for-a-microsoft-customer-agreement"></a>Microsoft 고객 계약에 대한 Azure 사용량 및 요금 파일의 용어
 
@@ -23,7 +23,7 @@ Azure 사용량 및 요금 CSV 파일에는 현재 청구 기간에 대한 일�
 
 Azure 사용량 및 요금 파일을 가져오려면 [Microsoft 고객 계약에 대한 Azure 사용량 및 요금 보기 및 다운로드](download-azure-daily-usage.md)를 참조하세요. 스프레드시트 애플리케이션에서 열 수 있는 쉼표로 구분된 값(.csv) 파일 형식으로 제공됩니다.
 
-사용 요금은 구독에 대한 총 **월별** 요금입니다. 사용 요금에서는 신용 또는 할인이 고려되지 않습니다.
+사용 요금은 구독에 대한 총 **월별** 요금입니다. 사용량 요금에서는 신용 또는 할인이 고려되지 않습니다.
 
 ## <a name="changes-from-azure-ea-usage-and-charges"></a>Azure EA 사용량 및 요금에 대한 변경 내용
 
@@ -88,6 +88,8 @@ meterCategory | 측정기에 대한 분류 범주의 이름입니다. 예: *클�
 meterSubCategory | 미터 하위 분류 범주의 이름
 meterRegion | 서비스에 대한 측정기를 사용할 수 있는 지역의 이름입니다. 데이터 센터 위치에 따라 가격이 책정되는 특정 서비스에 대한 데이터 센터의 위치를 식별합니다.
 제품 | 구매한 제품의 이름
+PayGPrice | 리소스의 소매 가격입니다.
+PricingModel | 미터 요금을 책정하는 방식을 나타내는 식별자(값: 주문형, 예약, 지점)
 productId | 요금이 발생하는 제품의 고유 식별자
 product | 요금이 발생하는 제품의 이름
 구독 ID | 요금이 발생하는 구독의 고유 식별자

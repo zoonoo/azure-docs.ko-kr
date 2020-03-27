@@ -1,26 +1,28 @@
 ---
-title: Azure에서 Cloudyn 보고서 사용 | Microsoft Docs
+title: Azure에서 Cloudyn 보고서 사용
 description: 이 문서에서는 Cloudyn 포털에 포함된 Cloudyn 보고서를 효과적으로 사용할 수 있도록 용도에 대해 설명합니다.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/24/2020
+ms.date: 03/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: benshy
 ms.custom: seodec18
-ms.openlocfilehash: b3563e08963b0b32542dcbece2529c350981f557
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ROBOTS: NOINDEX
+ms.openlocfilehash: 633bf8126c1745cfd8db117966975bbf4ea2c9c8
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200013"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79463546"
 ---
 # <a name="reports-available-in-the-cloudyn-portal"></a>Cloudyn 포털에 제공되는 보고서
 
 이 문서에서는 Cloudyn 포털에 포함된 Cloudyn 보고서의 용도에 대해 설명합니다. 또한 보고서를 효과적으로 사용하는 방법도 설명합니다. 대부분의 보고서는 직관적이며 모양과 느낌이 일관됩니다. 한 보고서에서 수행할 수 있는 대부분의 작업을 다른 보고서에서도 수행할 수 있습니다. Cloudyn 보고서를 사용자 지정하고 저장하거나 예약하는 방법을 포함하여 보고서를 사용하는 방법에 대한 개요는 [비용 보고서 이해](understanding-cost-reports.md)를 참조하세요.
 
 Azure Cost Management는 Cloudyn과 비슷한 기능을 제공합니다. Azure Cost Management는 기본 Azure 비용 관리 솔루션입니다. 이 솔루션을 사용하면 비용을 분석하고, 예산을 작성 및 관리하고, 데이터를 내보내고, 비용 절약을 위한 최적화 권장 사항을 검토하고 필요한 조치를 취할 수 있습니다. 자세한 내용은 [Azure Cost Management](../cost-management-billing-overview.md)를 참조하세요.
+
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 
 ## <a name="report-types"></a>보고서 유형
 

@@ -1,5 +1,5 @@
 ---
-title: Azure의 엔터프라이즈 관리자 역할 이해 | Microsoft Docs
+title: Azure의 엔터프라이즈 관리자 역할 이해
 description: Azure의 엔터프라이즈 관리자 역할에 대해 알아봅니다.
 author: bandersmsft
 ms.reviewer: adwise
@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: banders
-ms.openlocfilehash: 7b3b3e96f9e065614e8acc5305658c2e1d0abd4a
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: f31d8638e8672feafc1ab822acecb78ec0a48b11
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78270210"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79202776"
 ---
 # <a name="understand-azure-enterprise-agreement-administrative-roles-in-azure"></a>Azure의 Azure 기업계약 관리자 역할 이해
 

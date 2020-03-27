@@ -8,12 +8,12 @@ ms.date: 01/24/2020
 ms.topic: overview
 ms.service: cost-management-billing
 ms.custom: ''
-ms.openlocfilehash: c2d039dbf2ac7cfaeaad7ad038eb669337243cce
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.openlocfilehash: 3314d00651fc5e0473d84710803671f2ad45f005
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78970113"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79474529"
 ---
 # <a name="what-is-azure-cost-management-and-billing"></a>Azure Cost Management 및 청구란?
 
@@ -89,13 +89,13 @@ Cost Management를 통해 비용을 계획하고 제어하는 방법에는 비�
 
 외부 시스템을 사용하여 비용 관리 데이터를 액세스 및 검토하는 경우 Azure에서 데이터를 쉽게 내보낼 수 있습니다. 또한 일별로 예약된 내보내기를 CSV 형식으로 설정하고 데이터 파일을 Azure Storage에 저장할 수 있습니다. 그런 다음, 외부 시스템에서 데이터에 액세스할 수 있습니다.
 
-### <a name="consider-cloudyn"></a>Cloudyn 고려
+### <a name="cloudyn-deprecation"></a>Cloudyn 사용 중단
 
-[Cloudyn](./cloudyn/overview.md)은 Cost Management와 관련된 Azure 서비스입니다. Cloudyn을 사용하면 Azure 리소스에 대한 클라우드 사용 및 지출을 추적할 수 있습니다. 또한 AWS 및 Google을 비롯한 다른 클라우드 공급자도 지원됩니다. 이해하기 쉬운 대시보드 보고서는 비용 할당 및 쇼백/환불을 도울 수 있습니다. 현재, Cost Management는 쇼백/차지백 또는 기타 클라우드 서비스 공급자를 지원하지 않습니다. 그러나 Cloudyn은 이러한 기능 및 공급자를 _지원하는_ 옵션입니다. 현재, Cost Management는 Microsoft CSP(클라우드 서비스 공급자) 계정을 지원하지 않지만 Cloudyn은 이 계정을 지원합니다. CSP 계정이 있거나 쇼백/차지백을 사용하려는 경우 Cloudyn을 사용하여 비용을 관리할 수 있습니다.
-
-[Azure Cost Management 및 Cloudyn 비디오](https://www.youtube.com/watch?v=PmwFWwSluh8)를 보고 비즈니스 요구 사항에 따라 Azure Cost Management 또는 Cloudyn을 사용해야 하는 경우 권장 사항을 확인합니다.
-
->[!VIDEO https://www.youtube.com/embed/PmwFWwSluh8]
+[Cloudyn](./cloudyn/overview.md)은 2020년 말에 더 이상 사용되지 않는 Cost Management와 관련된 Azure 서비스입니다. 기존 Cloudyn 기능은 가능한 한 Azure Portal에 직접 통합되고 있습니다. 현재 온보딩되는 신규 고객은 없지만, 완전히 사용되지 않을 때까지는 제품에 대한 지원이 유지됩니다.
+ 
+비즈니스 요구 사항에 따라 언제 Azure Cost Management 또는 Cloudyn을 사용해야 하는지에 대해 자세히 알아 보려면 [Azure Cost Management 및 Cloudyn 비디오](https://www.youtube.com/watch?v=15DzKPMBRxM)를 시청하세요.
+ 
+>[!VIDEO https://www.youtube.com/embed/15DzKPMBRxM]
 
 ### <a name="additional-azure-tools"></a>추가 Azure 도구
 

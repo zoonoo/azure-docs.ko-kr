@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: f8f2db3e81c498757bfc39bf70999ce1e70c09da
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: c4366b272aab160828afca927f6432c98a8fecd7
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79117188"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79370732"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-to-your-mpa-account"></a>MPA 계정에 대한 Azure 구독의 청구 소유권 가져오기
 
@@ -139,7 +139,7 @@ CSP(클라우드 솔루션 공급자)가 관리하는 구독에 사용할 수 �
 
 ### <a name="azure-reservations-transfer"></a>Azure Reservations 이전
 
-Azure Reservations는 구독과 함께 자동으로 이동되지 않습니다. 예약을 유지하거나 [취소하고 CSP에서 예약을 다시 구매](https://docs.microsoft.com/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations)할 수 있습니다. 
+Azure Reservations는 구독과 함께 자동으로 이동되지 않습니다. 다른 구독의 EA에서 예약을 유지하거나 [예약을 취소하고](https://docs.microsoft.com/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations) CSP에서 예약을 다시 구매할 수 있습니다. 
 
 ### <a name="access-to-azure-services"></a>Azure 서비스에 대한 액세스
 

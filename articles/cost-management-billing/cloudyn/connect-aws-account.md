@@ -1,20 +1,20 @@
 ---
-title: Azure의 Cloudyn에 Amazon Web Services 계정 연결 | Microsoft Docs
+title: Azure의 Cloudyn에 Amazon Web Services 계정 연결
 description: Cloudyn 보고서에서 비용 및 사용량 현황 데이터를 보려면 Amazon Web Services 계정을 연결합니다.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/24/2020
+ms.date: 03/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: benshy
 ms.custom: seodec18
-ms.openlocfilehash: 28229ad71327daefb8e42881cf001b6a3ddd3a53
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ROBOTS: NOINDEX
+ms.openlocfilehash: 38e5e253c32a2f85e18c80bdefa7d3b640da2e50
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77086850"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79464445"
 ---
 # <a name="connect-an-amazon-web-services-account"></a>Amazon Web Services 계정 연결
 
@@ -24,7 +24,7 @@ AWS IAM ID에 대한 자세한 내용은 [ID(사용자, 그룹 및 역할)](http
 
 또한 ASW 상세 청구 보고서를 사용하도록 설정하고 해당 정보를 AWS 단순 스토리지 서비스(S3) 버킷에 저장합니다. 상세 청구 보고서는 태그와 시간별 리소스 정보를 포함하는 청구 정보를 제공합니다. 보고서를 저장하면 Cloudyn이 버킷에서 정보를 가져와 해당 보고서에 표시할 수 있습니다.
 
-
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 ## <a name="aws-role-based-access"></a>AWS 역할 기반 액세스
 
 다음 섹션에서는 읽기 전용 IAM 역할을 만들어서 Cloudyn에 대한 액세스 권한을 제공하는 과정을 안내합니다.
@@ -131,43 +131,43 @@ Cloudyn에서 데이터를 수집하고 보고서를 채우기 시작합니다. 
 
    ```json
    {
-    "Version": "2012-10-17",
-    "Id": "Policy1426774604000",
-    "Statement": [
-        {
-            "Sid": "Stmt1426774604000",
-            "Effect": "Allow",
-            "Principal": {
-                "AWS": "arn:aws:iam::386209384616:root"
-            },
-            "Action": [
-                "s3:GetBucketAcl",
-                "s3:GetBucketPolicy"
-            ],
-            "Resource": "arn:aws:s3:::<BillingBucketName>"
-        },
-        {
-            "Sid": "Stmt1426774604001",
-            "Effect": "Allow",
-            "Principal": {
-                "AWS": "arn:aws:iam::386209384616:root"
-            },
-            "Action": "s3:PutObject",
-            "Resource": "arn:aws:s3:::<BillingBucketName>/*"
-        },
-        {
-            "Sid": "Stmt1426774604002",
-            "Effect": "Allow",
-            "Principal": {
-                "AWS": "<ReadOnlyUserOrRole>"
-            },
-            "Action": [
-                "s3:List*",
-                "s3:Get*"
-            ],
-            "Resource": "arn:aws:s3:::<BillingBucketName>/*"
-        }
-    ]
+      "Version": "2012-10-17",
+      "Id": "Policy1426774604000",
+      "Statement": [
+          {
+              "Sid": "Stmt1426774604000",
+              "Effect": "Allow",
+              "Principal": {
+                  "AWS": "arn:aws:iam::386209384616:root"
+              },
+              "Action": [
+                  "s3:GetBucketAcl",
+                  "s3:GetBucketPolicy"
+              ],
+              "Resource": "arn:aws:s3:::<BillingBucketName>"
+          },
+          {
+              "Sid": "Stmt1426774604001",
+              "Effect": "Allow",
+              "Principal": {
+                  "AWS": "arn:aws:iam::386209384616:root"
+              },
+              "Action": "s3:PutObject",
+              "Resource": "arn:aws:s3:::<BillingBucketName>/*"
+          },
+          {
+              "Sid": "Stmt1426774604002",
+              "Effect": "Allow",
+              "Principal": {
+                  "AWS": "<ReadOnlyUserOrRole>"
+              },
+              "Action": [
+                  "s3:List*",
+                  "s3:Get*"
+              ],
+              "Resource": "arn:aws:s3:::<BillingBucketName>/*"
+          }
+      ]
    }
    ```
 

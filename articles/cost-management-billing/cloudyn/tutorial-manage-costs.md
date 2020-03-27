@@ -1,20 +1,20 @@
 ---
-title: 자습서 - Azure에서 Cloudyn을 사용하여 비용 관리 | Microsoft Docs
+title: 자습서 - Azure의 Cloudyn을 사용하여 비용 관리
 description: 이 자습서에서는 비용 할당 및 쇼백과 차지백 보고서를 사용하여 비용을 관리하는 방법을 알아봅니다.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/24/2020
+ms.date: 03/12/2020
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.custom: seodec18
 ms.reviewer: benshy
-ms.openlocfilehash: c628a30e5a49e6bf9c0938ca8cccc0f349777668
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ROBOTS: NOINDEX
+ms.openlocfilehash: a492f611ed5a785ae148894baf3f24c2df773df2
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76769900"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79474580"
 ---
 # <a name="tutorial-manage-costs-by-using-cloudyn"></a>자습서: Cloudyn을 사용하여 비용 관리
 
@@ -32,6 +32,8 @@ Cloudyn에서 태그를 기준으로 비용을 할당함으로써 비용을 관�
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
+
 ## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 계정이 있어야 합니다.
@@ -46,7 +48,7 @@ Cloudyn은 Azure에서 리소스 그룹 태그 데이터를 가져오고 리소�
 
 비용 할당 모델을 사용하여 비용을 그룹화하고 태그가 지정되지 않은 비용을 처리하는 규칙을 정의하도록 분류되지 않은(태그가 지정되지 않은) 리소스에 내부적으로 적용되는 범주(태그)를 정의합니다. 비용 할당 규칙은 서비스의 비용이 다른 일부 서비스에 분산되는 사용자가 저장한 지침입니다. 나중에 그러한 리소스는 사용자가 만든 모델을 선택하여 *비용 할당* 보고서에 태그/범주를 표시합니다.
 
-*비용 분석* 보고서의 그러한 리소스에 대해 태그 정보는 표시되지 않습니다. 또한 비용 할당을 사용하여 Cloudyn에 적용되는 태그는 Azure에 전송되지 않으므로 Azure Portal에서 확인할 수 없습니다.
+*비용 분석* 보고서의 해당 리소스에 대해 태그 정보는 표시되지 않습니다. 또한 비용 할당을 사용하여 Cloudyn에 적용되는 태그는 Azure에 전송되지 않으므로 Azure Portal에서 확인할 수 없습니다.
 
 비용 할당을 시작할 때는 먼저 비용 모델을 사용하여 범위를 정의합니다. 비용 모델은 비용을 변경하지 않고 배포합니다. 비용 모델을 만들 때 데이터를 비용 엔터티, 계정 또는 구독별 및 여러 태그별로 나눕니다. 일반적인 예제 태그에는 청구 코드, 비용 센터 또는 그룹 이름이 포함될 수 있습니다. 또한 태그를 사용하면 조직의 다른 부분에 대한 쇼백 또는 차지백을 수행하는 데 도움이 됩니다.
 

@@ -1,20 +1,20 @@
 ---
-title: 자습서 - Azure에서 Cloudyn을 사용하여 액세스 권한 할당 | Microsoft Docs
+title: 자습서 - Azure의 Cloudyn을 사용하여 액세스 권한 할당
 description: 이 자습서에서는 엔터티에 대한 액세스 수준을 정의하는 사용자 계정을 사용하여 Cloudyn 데이터 액세스 권한을 할당하는 방법을 알아봅니다.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/24/2020
+ms.date: 03/12/2020
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.custom: seodec18
 ms.reviewer: benshy
-ms.openlocfilehash: b93dfd7699ab2f1e2851b4d1f7e6d4c721186a2e
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ROBOTS: NOINDEX
+ms.openlocfilehash: e8fff8b75ff419cffc7f496f921dcba734109e5a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76773999"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79463614"
 ---
 # <a name="tutorial-assign-access-to-cloudyn-data"></a>자습서: Cloudyn 데이터 액세스 권한 할당
 
@@ -33,6 +33,8 @@ Azure 계약 또는 계정을 등록할 때 관리자 권한이 있는 계정이
 
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -68,9 +70,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 > [!WARNING]
 > 사용자를 삭제하면 복원할 수 없습니다.
 
-1.  Cloudyn 포털에서 오른쪽 위의 기어 기호를 클릭하고 **사용자 관리**를 선택합니다.
-2.  사용자 목록에서 삭제하려는 사용자를 선택하고 **사용자 삭제**(휴지통 기호)를 클릭합니다.
-3.  [사용자 삭제] 상자에서 **예**를 클릭하고 **확인**을 클릭합니다.
+1.    Cloudyn 포털에서 오른쪽 위의 기어 기호를 클릭하고 **사용자 관리**를 선택합니다.
+2.    사용자 목록에서 삭제하려는 사용자를 선택하고 **사용자 삭제**(휴지통 기호)를 클릭합니다.
+3.    [사용자 삭제] 상자에서 **예**를 클릭하고 **확인**을 클릭합니다.
 
 
 ## <a name="delete-or-export-personal-data"></a>개인 데이터 삭제 또는 내보내기

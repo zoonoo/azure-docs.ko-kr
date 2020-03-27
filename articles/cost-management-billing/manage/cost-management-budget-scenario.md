@@ -1,20 +1,19 @@
 ---
-title: Azure 청구 및 비용 관리 예산 시나리오 | Microsoft Docs
+title: Azure 청구 및 비용 관리 예산 시나리오
 description: Azure Automation을 사용하여 특정 예산 임계값에 기반하여 VM을 종료하는 방법을 알아 봅니다.
 author: bandersmsft
 ms.reviewer: adwise
 tags: billing
 ms.service: cost-management-billing
 ms.topic: reference
-ms.tgt_pltfrm: na
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: ae17ecc72bb1e6af1b79d4a2952c2f78dce4b5bd
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 7866ae0ae5c56220c335f2ec8635434c1a651f9e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200985"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79297138"
 ---
 # <a name="manage-costs-with-azure-budgets"></a>Azure 예산으로 비용 관리
 
@@ -42,7 +41,7 @@ ms.locfileid: "77200985"
 2. Azure의 왼쪽 위 모서리에서 **리소스 만들기** 단추를 클릭합니다.
 3. **관리 도구** > **자동화**를 선택합니다.
    > [!NOTE]
-   > Azure 계정이 없으면 [무료 계정](https://azure.microsoft.com/free/)을 만들 수 있습니다.
+   > Azure 계정이 없으면 [체험 계정](https://azure.microsoft.com/free/)을 만들 수 있습니다.
 4. 계정 정보를 입력합니다. Azure에 대한 인증을 간소화하는 데 필요한 설정을 자동으로 사용하도록 설정하기 위해 **Azure 실행 계정 만들기**에서 **예**를 선택합니다.
 5. 완료되면 **만들기**를 클릭하여 Automation 계정 배포를 시작합니다.
 
@@ -50,16 +49,16 @@ ms.locfileid: "77200985"
 
 [Azure Automation Runbook](https://docs.microsoft.com/azure/automation/automation-runbook-types)을 사용하여 갤러리에서 [Azure V2 VM 중지](https://gallery.technet.microsoft.com/scriptcenter/Stop-Azure-ARM-VMs-1ba96d5b) 그래픽 Runbook을 가져옵니다.
 
-1.  Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2.  **모든 서비스** > **Automation 계정**을 선택하여 Automation 계정을 엽니다. 그런 다음, 사용자의 Automation 계정을 선택합니다.
-3.  **프로세스 Automation** 섹션에서 **Runbook 갤러리**를 클릭합니다.
-4.  **갤러리 원본**을 **스크립트 센터**로 설정하고 **확인**을 선택합니다.
-5.  Azure Portal 내에서 [Azure V2 VM 중지](https://gallery.technet.microsoft.com/scriptcenter/Stop-Azure-ARM-VMs-1ba96d5b) 갤러리 항목을 찾아 선택합니다.
-6.  **가져오기** 단추를 클릭하여 **가져오기** 블레이드를 표시하고 **확인**을 선택합니다. Runbook 개요 블레이드가 표시됩니다.
-7.  Runbook 가져오기 프로세스가 완료되면 **편집**을 선택하여 그래픽 Runbook 편집기와 게시 옵션을 표시합니다.
+1.    Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+2.    **모든 서비스** > **Automation 계정**을 선택하여 Automation 계정을 엽니다. 그런 다음, 사용자의 Automation 계정을 선택합니다.
+3.    **프로세스 Automation** 섹션에서 **Runbook 갤러리**를 클릭합니다.
+4.    **갤러리 원본**을 **스크립트 센터**로 설정하고 **확인**을 선택합니다.
+5.    Azure Portal 내에서 [Azure V2 VM 중지](https://gallery.technet.microsoft.com/scriptcenter/Stop-Azure-ARM-VMs-1ba96d5b) 갤러리 항목을 찾아 선택합니다.
+6.    **가져오기** 단추를 클릭하여 **가져오기** 블레이드를 표시하고 **확인**을 선택합니다. Runbook 개요 블레이드가 표시됩니다.
+7.    Runbook 가져오기 프로세스가 완료되면 **편집**을 선택하여 그래픽 Runbook 편집기와 게시 옵션을 표시합니다.
 
     ![Azure - 그래픽 Runbook 편집](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-01.png)
-8.  **게시** 단추를 선택하여 Runbook을 게시한 다음, 확인 메시지가 표시되면 **예**를 선택합니다. Runbook을 게시하면 초안 버전으로 기존의 게시된 버전을 덮어씁니다. 이 예에서는 Runbook을 방금 만들었으므로 게시된 버전이 없습니다.
+8.    **게시** 단추를 선택하여 Runbook을 게시한 다음, 확인 메시지가 표시되면 **예**를 선택합니다. Runbook을 게시하면 초안 버전으로 기존의 게시된 버전을 덮어씁니다. 이 예에서는 Runbook을 방금 만들었으므로 게시된 버전이 없습니다.
 
     Runbook을 게시하는 방법에 대한 자세한 내용은 [그래픽 Runbook 만들기](https://docs.microsoft.com/azure/automation/automation-first-runbook-graphical)를 참조하세요.
 
@@ -70,7 +69,7 @@ ms.locfileid: "77200985"
 1. [Azure Portal](https://portal.azure.com/)의 **Runbook** 페이지에서 해당 Runbook의 개요 블레이드를 표시하는 **StopAzureV2Vm** Runbook을 클릭합니다.
 2. 페이지 맨 위에서 **Webhook**를 클릭하여 **Webhook 추가** 블레이드를 엽니다.
 3. **새 Webhook 만들기**를 클릭하여 **새 Webhook 만들기** 블레이드를 엽니다.
-4. Webhook의 **이름**을 **Optional**로 설정합니다. **사용** 속성은 **예**이어야 합니다. **만료 시간** 값은 변경할 필요가 없습니다. Webhook 속성에 대한 자세한 내용은 [Webhook 세부 정보](https://docs.microsoft.com/azure/automation/automation-webhooks#details-of-a-webhook)를 참조하십시오.
+4. Webhook의 **이름**을 **Optional**로 설정합니다. **사용** 속성은 **예**이어야 합니다. **만료 시간** 값은 변경할 필요가 없습니다. Webhook 속성에 대한 자세한 내용은 [Webhook 속성](../../automation/automation-webhooks.md#webhook-properties)을 참조하세요.
 5. URL 값 옆에서 복사 아이콘을 눌러 Webhook의 URL을 복사합니다.
    > [!IMPORTANT]
    > **Optional**로 명명된 Webhook의 URL을 안전한 곳에 저장합니다. 이 자습서의 뒷부분에서 이 URL을 사용할 것입니다. 보안상의 이유로 Webhook를 만들고 나면 URL을 다시 보거나 검색할 수 없습니다.
@@ -80,7 +79,7 @@ ms.locfileid: "77200985"
    > runbook에 필수 매개 변수가 있으면 값을 제공 하지 않는 한 webhook를 만들 수 없습니다.
 8. **확인**을 클릭하여 Webhook 매개 변수 값을 수락합니다.
 9. **만들기** 를 클릭하여 webhook를 만듭니다.
-10. 다음으로, 위의 단계에 따라 **Complete**로 명명된 두 번째 Webhook를 만듭니다.
+10.    다음으로, 위의 단계에 따라 **Complete**로 명명된 두 번째 Webhook를 만듭니다.
     > [!IMPORTANT]
     > 이 자습서의 뒷부분에서 사용할 수 있도록 두 Webhook URL을 반드시 저장해 두세요. 보안상의 이유로 Webhook를 만들고 나면 URL을 다시 보거나 검색할 수 없습니다.
 
@@ -110,10 +109,10 @@ Logic Apps를 사용하면 프로세스를 워크플로로 빌드, 예약 및 �
 
 위의 단계를 수행할 논리 앱을 만들려면 다음 단계가 필요합니다.
 
-1.  [Azure Portal](https://portal.azure.com/)에서 **리소스 만들기** > **통합** > **논리 앱**을 선택합니다.
+1.    [Azure Portal](https://portal.azure.com/)에서 **리소스 만들기** > **통합** > **논리 앱**을 선택합니다.
 
     ![Azure - 논리 앱 리소스 선택](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-03.png)
-2.  **논리 앱 만들기** 블레이드에서 논리 앱을 만들기 위해 필요한 세부 정보를 제공하고 **대시보드에 고정**을 선택한 다음, **만들기**를 클릭합니다.
+2.    **논리 앱 만들기** 블레이드에서 논리 앱을 만들기 위해 필요한 세부 정보를 제공하고 **대시보드에 고정**을 선택한 다음, **만들기**를 클릭합니다.
 
     ![Azure - 논리 앱 만들기](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-03a.png)
 
@@ -123,78 +122,78 @@ Azure가 논리 앱을 배포하면 **Logic Apps 디자이너**가 열리고 소
 
 모든 논리 앱은 특정 이벤트가 발생하거나 특정 조건이 충족할 때 실행되는 트리거를 통해 시작되어야 합니다. 트리거가 발생될 때마다 Logic Apps 엔진은 워크플로를 시작하고 실행하는 논리 앱 인스턴스를 만듭니다. 작업은 트리거 후 발생하는 모든 단계입니다.
 
-1.  **Logic Apps 디자이너** 블레이드의 **템플릿**에서 **비어 있는 논리 앱**을 선택합니다.
-2.  **Logic Apps 디자이너** 검색창에 "http 요청"을 입력하여 [트리거](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview#logic-app-concepts)를 추가하고 **Request – HTTP request is received**로 명명된 트리거를 찾아 선택합니다.
+1.    **Logic Apps 디자이너** 블레이드의 **템플릿**에서 **비어 있는 논리 앱**을 선택합니다.
+2.    **Logic Apps 디자이너** 검색창에 "http 요청"을 입력하여 [트리거](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview#logic-app-concepts)를 추가하고 **Request – HTTP request is received**로 명명된 트리거를 찾아 선택합니다.
 
     ![Azure - 논리 앱 - Http 트리거](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-04.png)
-3.  **새 단계** > **작업 추가**를 선택합니다.
+3.    **새 단계** > **작업 추가**를 선택합니다.
 
     ![Azure - 새 단계 - 작업 추가](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-05.png)
-4.  **Logic Apps 디자이너** 검색창에서 "JSON 구문 분석"을 검색하여 **데이터 작업 - JSON 구문 분석** [작업](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview#logic-app-concepts)을 찾아 선택합니다.
+4.    **Logic Apps 디자이너** 검색창에서 "JSON 구문 분석"을 검색하여 **데이터 작업 - JSON 구문 분석** [작업](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview#logic-app-concepts)을 찾아 선택합니다.
 
     ![Azure - 논리 앱 - JSON 구문 분석 작업 추가](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-06.png)
-5.  JSON 구문 분석 페이로드에 대한 **콘텐츠** 이름으로 “Payload”를 입력하거나, 동적 콘텐츠의 “Body” 태그를 사용합니다.
-6.  **JSON 구분 분석** 상자에서 **샘플 페이로드를 사용하여 스키마 생성**을 선택합니다.
+5.    JSON 구문 분석 페이로드에 대한 **콘텐츠** 이름으로 “Payload”를 입력하거나, 동적 콘텐츠의 “Body” 태그를 사용합니다.
+6.    **JSON 구분 분석** 상자에서 **샘플 페이로드를 사용하여 스키마 생성**을 선택합니다.
 
     ![Azure - 논리 앱 - 샘플 JSON 데이터를 사용하여 스키마 생성](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-07.png)
-7.  텍스트 상자에 다음 JSON 샘플 페이로드를 붙여넣습니다. `{"schemaId":"AIP Budget Notification","data":{"SubscriptionName":"CCM - Microsoft Azure Enterprise - 1","SubscriptionId":"<GUID>","SpendingAmount":"100","BudgetStartDate":"6/1/2018","Budget":"50","Unit":"USD","BudgetCreator":"email@contoso.com","BudgetName":"BudgetName","BudgetType":"Cost","ResourceGroup":"","NotificationThresholdAmount":"0.8"}}`
+7.    텍스트 상자에 다음 JSON 샘플 페이로드를 붙여넣습니다. `{"schemaId":"AIP Budget Notification","data":{"SubscriptionName":"CCM - Microsoft Azure Enterprise - 1","SubscriptionId":"<GUID>","SpendingAmount":"100","BudgetStartDate":"6/1/2018","Budget":"50","Unit":"USD","BudgetCreator":"email@contoso.com","BudgetName":"BudgetName","BudgetType":"Cost","ResourceGroup":"","NotificationThresholdAmount":"0.8"}}`
 
     텍스트 상자는 다음과 같이 나타납니다.
 
     ![Azure - 논리 앱 - 샘플 JSON 페이로드](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-08.png)
-8.  **Done**을 클릭합니다.
+8.    **Done**을 클릭합니다.
 
 ### <a name="add-the-first-conditional-action"></a>첫 번째 조건문 작업 추가
 
 조건문을 사용하여 임계값 크기가 80%인지, 또는 예산 범위보다 크되 100%을 넘지 않는지 확인합니다. 이 임계값 크기에 도달하면 **Optional**로 명명된 Webhook를 사용하여 HTTP POST를 보냅니다. 이 작업은 **Optional** 그룹의 VM을 종료합니다.
 
-1.  **새 단계** > **조건 추가**를 선택합니다.
+1.    **새 단계** > **조건 추가**를 선택합니다.
 
     ![Azure - 논리 앱 - 조건 추가](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-09.png)
-2.  **조건** 상자에서 **값 선택**이 포함된 텍스트 상자를 클릭하여 사용 가능한 값 목록을 표시합니다.
+2.    **조건** 상자에서 **값 선택**이 포함된 텍스트 상자를 클릭하여 사용 가능한 값 목록을 표시합니다.
 
     ![Azure - 논리 앱 - 조건 상자](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-10.png)
 
-3.  목록 맨 위에서 **식**을 클릭하고 식 편집기에 다음 식을 입력합니다. `float()`
+3.    목록 맨 위에서 **식**을 클릭하고 식 편집기에 다음 식을 입력합니다. `float()`
 
     ![Azure - 논리 앱 - Float 식](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-11.png)
 
-4.  **동적 콘텐츠**를 클릭하고 괄호() 안에 커서를 놓은 다음, 목록에서 **NotificationThresholdAmount**를 선택하여 전체 식을 채웁니다.
+4.    **동적 콘텐츠**를 클릭하고 괄호() 안에 커서를 놓은 다음, 목록에서 **NotificationThresholdAmount**를 선택하여 전체 식을 채웁니다.
 
     식은 다음과 같습니다.<br>
     `float(body('Parse_JSON')?['data']?['NotificationThresholdAmount'])`
 
-5.  **확인**을 선택하여 식을 설정합니다.
-6.  **조건**의 드롭다운 상자에서 **다음보다 크거나 같음**을 선택합니다.
-7.  조건의 **값 선택** 상자에 `.8`을 입력합니다.
+5.    **확인**을 선택하여 식을 설정합니다.
+6.    **조건**의 드롭다운 상자에서 **다음보다 크거나 같음**을 선택합니다.
+7.    조건의 **값 선택** 상자에 `.8`을 입력합니다.
 
     ![Azure - 논리 앱 - 값이 있는 Float 식](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-12.png)
 
-8.  조건 상자 안에 있는 **추가** > **행 추가**를 클릭하여 조건의 추가 부분을 추가합니다.
-9.  **조건** 상자에서 **값 선택**이 포함된 텍스트 상자를 클릭합니다.
-10. 목록 맨 위에서 **식**을 클릭하고 식 편집기에 다음 식을 입력합니다. `float()`
-11. **동적 콘텐츠**를 클릭하고 괄호() 안에 커서를 놓은 다음, 목록에서 **NotificationThresholdAmount**를 선택하여 전체 식을 채웁니다.
-12. **확인**을 선택하여 식을 설정합니다.
-13. **조건**의 드롭다운 상자에서 **다음보다 작음**을 선택합니다.
-14. 조건의 **값 선택** 상자에 `1`을 입력합니다.
+8.    조건 상자 안에 있는 **추가** > **행 추가**를 클릭하여 조건의 추가 부분을 추가합니다.
+9.    **조건** 상자에서 **값 선택**이 포함된 텍스트 상자를 클릭합니다.
+10.    목록 맨 위에서 **식**을 클릭하고 식 편집기에 다음 식을 입력합니다. `float()`
+11.    **동적 콘텐츠**를 클릭하고 괄호() 안에 커서를 놓은 다음, 목록에서 **NotificationThresholdAmount**를 선택하여 전체 식을 채웁니다.
+12.    **확인**을 선택하여 식을 설정합니다.
+13.    **조건**의 드롭다운 상자에서 **다음보다 작음**을 선택합니다.
+14.    조건의 **값 선택** 상자에 `1`을 입력합니다.
 
     ![Azure - 논리 앱 - 값이 있는 Float 식](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-13.png)
 
-15. **If true** 상자에서 **작업 추가**를 선택합니다. 선택적 VM을 종료하는 HTTP POST 작업을 추가하려고 합니다.
+15.    **If true** 상자에서 **작업 추가**를 선택합니다. 선택적 VM을 종료하는 HTTP POST 작업을 추가하려고 합니다.
 
     ![Azure - 논리 앱 - 작업 추가](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-14.png)
 
-16. **HTTP**를 입력하여 HTTP 작업을 검색하고 **HTTP – HTTP** 작업을 선택합니다.
+16.    **HTTP**를 입력하여 HTTP 작업을 검색하고 **HTTP – HTTP** 작업을 선택합니다.
 
     ![Azure - 논리 앱 - HTTP 작업 추가](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-15.png)
 
-17. **메서드** 값으로 **Post**를 선택합니다.
-18. 이 자습서 초반에 만든 **Optional**로 명명된 Webhook의 URL을 **Uri** 값으로 입력합니다.
+17.    **메서드** 값으로 **Post**를 선택합니다.
+18.    이 자습서 초반에 만든 **Optional**로 명명된 Webhook의 URL을 **Uri** 값으로 입력합니다.
 
     ![Azure - 논리 앱 - HTTP 작업 URI](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-16.png)
 
-19. **If true** 상자에서 **작업 추가**를 선택합니다. 받는 사람에게 선택적 VM이 종료되었음을 알리는 이메일을 보낼 이메일 작업을 추가합니다.
-20. "이메일 보내기"를 검색하고 사용하는 이메일 서비스에 따라 *이메일 보내기* 작업을 선택합니다.
+19.    **If true** 상자에서 **작업 추가**를 선택합니다. 받는 사람에게 선택적 VM이 종료되었음을 알리는 이메일을 보낼 이메일 작업을 추가합니다.
+20.    "이메일 보내기"를 검색하고 사용하는 이메일 서비스에 따라 *이메일 보내기* 작업을 선택합니다.
 
     ![Azure - 논리 앱 - 이메일 보내기 작업](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-17.png)
 
@@ -204,7 +203,7 @@ Azure가 논리 앱을 배포하면 **Logic Apps 디자이너**가 열리고 소
 
     ![Azure - 논리 앱 - 액세스 알림](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-18.png)
 
-21. 받는 사람에게 선택적 VM이 종료되었음을 알리는 전자 메일에 대해 **받는 사람**, **제목** 및 **본문** 텍스트를 추가합니다. **BudgetName** 및 **NotificationThresholdAmount** 동적 콘텐츠를 사용하여 제목과 본문 필드를 채웁니다.
+21.    받는 사람에게 선택적 VM이 종료되었음을 알리는 전자 메일에 대해 **받는 사람**, **제목** 및 **본문** 텍스트를 추가합니다. **BudgetName** 및 **NotificationThresholdAmount** 동적 콘텐츠를 사용하여 제목과 본문 필드를 채웁니다.
 
     ![Azure - 논리 앱 - 전자 메일 세부 정보](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-19.png)
 
@@ -212,40 +211,40 @@ Azure가 논리 앱을 배포하면 **Logic Apps 디자이너**가 열리고 소
 
 조건문을 사용하여 임계값 크기에 도달했거나 예산 값의 100%를 초과했는지 여부를 확인합니다. 이 임계값 크기에 도달하면 **Complete**로 명명된 Webhook를 사용하여 HTTP POST를 보냅니다. 이 작업은 나머지 모든 VM을 종료합니다.
 
-1.  **새 단계** > **조건 추가**를 선택합니다.
+1.    **새 단계** > **조건 추가**를 선택합니다.
 
     ![Azure - 논리 앱 - 추가 작업](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-20.png)
 
-2.  **조건** 상자에서 **값 선택**이 포함된 텍스트 상자를 클릭하여 사용 가능한 값 목록을 표시합니다.
-3.  목록 맨 위에서 **식**을 클릭하고 식 편집기에 다음 식을 입력합니다. `float()`
-4.  **동적 콘텐츠**를 클릭하고 괄호() 안에 커서를 놓은 다음, 목록에서 **NotificationThresholdAmount**를 선택하여 전체 식을 채웁니다.
+2.    **조건** 상자에서 **값 선택**이 포함된 텍스트 상자를 클릭하여 사용 가능한 값 목록을 표시합니다.
+3.    목록 맨 위에서 **식**을 클릭하고 식 편집기에 다음 식을 입력합니다. `float()`
+4.    **동적 콘텐츠**를 클릭하고 괄호() 안에 커서를 놓은 다음, 목록에서 **NotificationThresholdAmount**를 선택하여 전체 식을 채웁니다.
 
     식은 다음과 같습니다.<br>
     `float(body('Parse_JSON')?['data']?['NotificationThresholdAmount'])`
 
-5.  **확인**을 선택하여 식을 설정합니다.
-6.  **조건**의 드롭다운 상자에서 **다음보다 크거나 같음**을 선택합니다.
-7.  조건의 **값 선택** 상자에 `1`을 입력합니다.
+5.    **확인**을 선택하여 식을 설정합니다.
+6.    **조건**의 드롭다운 상자에서 **다음보다 크거나 같음**을 선택합니다.
+7.    조건의 **값 선택** 상자에 `1`을 입력합니다.
 
     ![Azure - 논리 앱 - 조건 값 설정](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-21.png)
 
-8.  **If true** 상자에서 **작업 추가**를 선택합니다. 나머지 모든 VM을 종료하는 HTTP POST 작업을 추가하려고 합니다.
+8.    **If true** 상자에서 **작업 추가**를 선택합니다. 나머지 모든 VM을 종료하는 HTTP POST 작업을 추가하려고 합니다.
 
     ![Azure - 논리 앱 - 작업 추가](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-22.png)
 
-9.  **HTTP**를 입력하여 HTTP 작업을 검색하고 **HTTP – HTTP** 작업을 선택합니다.
-10. **메서드** 값으로 **Post**를 선택합니다.
-11. 이 자습서 초반에 만든 **Complete**로 명명된 Webhook의 URL을 **Uri** 값으로 입력합니다.
+9.    **HTTP**를 입력하여 HTTP 작업을 검색하고 **HTTP – HTTP** 작업을 선택합니다.
+10.    **메서드** 값으로 **Post**를 선택합니다.
+11.    이 자습서 초반에 만든 **Complete**로 명명된 Webhook의 URL을 **Uri** 값으로 입력합니다.
 
     ![Azure - 논리 앱 - 작업 추가](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-23.png)
 
-12. **If true** 상자에서 **작업 추가**를 선택합니다. 받는 사람에게 나머지 VM이 종료되었음을 알리는 전자 메일을 보낼 전자 메일 작업을 추가합니다.
-13. "이메일 보내기"를 검색하고 사용하는 이메일 서비스에 따라 *이메일 보내기* 작업을 선택합니다.
-14. 받는 사람에게 선택적 VM이 종료되었음을 알리는 전자 메일에 대해 **받는 사람**, **제목** 및 **본문** 텍스트를 추가합니다. **BudgetName** 및 **NotificationThresholdAmount** 동적 콘텐츠를 사용하여 제목과 본문 필드를 채웁니다.
+12.    **If true** 상자에서 **작업 추가**를 선택합니다. 받는 사람에게 나머지 VM이 종료되었음을 알리는 전자 메일을 보낼 전자 메일 작업을 추가합니다.
+13.    "이메일 보내기"를 검색하고 사용하는 이메일 서비스에 따라 *이메일 보내기* 작업을 선택합니다.
+14.    받는 사람에게 선택적 VM이 종료되었음을 알리는 전자 메일에 대해 **받는 사람**, **제목** 및 **본문** 텍스트를 추가합니다. **BudgetName** 및 **NotificationThresholdAmount** 동적 콘텐츠를 사용하여 제목과 본문 필드를 채웁니다.
 
     ![Azure - 논리 앱 - 전자 메일 보내기 세부 정보](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-24.png)
 
-15. **Logic App 디자이너** 블레이드의 맨 위에서 **저장**을 클릭합니다.
+15.    **Logic App 디자이너** 블레이드의 맨 위에서 **저장**을 클릭합니다.
 
 ### <a name="logic-app-summary"></a>논리 앱 요약
 
@@ -265,10 +264,10 @@ Azure가 논리 앱을 배포하면 **Logic Apps 디자이너**가 열리고 소
 
 작업 그룹을 만들면 이 자습서 초반에 만든 논리 앱으로 연결됩니다.
 
-1.  아직 [Azure Portal](https://portal.azure.com/)에 로그인하지 않은 경우 로그인하여 **모든 서비스** > **Monitor**를 선택합니다.
-2.  **경고**를 선택한 다음, **작업 관리**를 선택합니다.
-3.  **작업 그룹** 블레이드에서 **작업 그룹 추가**를 선택합니다.
-4.  다음 사항을 추가하고 확인합니다.
+1.    아직 [Azure Portal](https://portal.azure.com/)에 로그인하지 않은 경우 로그인하여 **모든 서비스** > **Monitor**를 선택합니다.
+2.    **경고**를 선택한 다음, **작업 관리**를 선택합니다.
+3.    **작업 그룹** 블레이드에서 **작업 그룹 추가**를 선택합니다.
+4.    다음 사항을 추가하고 확인합니다.
     - 작업 그룹 이름
     - 짧은 이름
     - Subscription
@@ -276,8 +275,8 @@ Azure가 논리 앱을 배포하면 **Logic Apps 디자이너**가 열리고 소
 
     ![Azure - 논리 앱 - 작업 그룹 추가](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-26.png)
 
-5.  **작업 그룹 추가** 창에서 LogicApp 작업을 추가합니다. 작업 이름을 **Budget-BudgetLA**로 지정합니다. **논리 앱** 창에서 **구독**과 **리소스 이름**을 선택합니다. 그런 다음, 이 자습서 초반에 만든 **논리 앱**을 선택합니다.
-6.  **확인**을 클릭하여 논리 앱을 설정합니다. 그런 다음, **작업 그룹 추가** 창에서 **확인**을 선택하여 작업 그룹을 만듭니다.
+5.    **작업 그룹 추가** 창에서 LogicApp 작업을 추가합니다. 작업 이름을 **Budget-BudgetLA**로 지정합니다. **논리 앱** 창에서 **구독**과 **리소스 이름**을 선택합니다. 그런 다음, 이 자습서 초반에 만든 **논리 앱**을 선택합니다.
+6.    **확인**을 클릭하여 논리 앱을 설정합니다. 그런 다음, **작업 그룹 추가** 창에서 **확인**을 선택하여 작업 그룹을 만듭니다.
 
 효과적으로 예산을 오케스트레이션하는 데 필요한 모든 지원 구성 요소를 완료했습니다. 이제는 예산을 만들고 사용자가 만든 작업 그룹을 사용하도록 구성하면 됩니다.
 
@@ -287,42 +286,42 @@ Cost Management의 [예산 기능](../costs/tutorial-acm-create-budgets.md)을 �
 
 ### <a name="create-an-authentication-token"></a>인증 토큰 만들기
 
-1.  GitHub에서 [ARMClient](https://github.com/projectkudu/ARMClient) 프로젝트로 이동합니다.
-2.  리포지토리를 복제하여 로컬 복사본을 얻습니다.
-3.  Visual Studio에서 프로젝트를 열고 빌드합니다.
-4.  빌드가 성공하면 실행 파일은 *\bin\debug* 폴더에 있어야 합니다.
-5.  ARMClient를 실행합니다. 명령 프롬프트를 열고 프로젝트 루트에서 *\bin\debug* 폴더로 이동합니다.
-6.  로그인하여 인증하려면 명령 프롬프트에 다음 명령을 입력합니다.<br>
+1.    GitHub에서 [ARMClient](https://github.com/projectkudu/ARMClient) 프로젝트로 이동합니다.
+2.    리포지토리를 복제하여 로컬 복사본을 얻습니다.
+3.    Visual Studio에서 프로젝트를 열고 빌드합니다.
+4.    빌드가 성공하면 실행 파일은 *\bin\debug* 폴더에 있어야 합니다.
+5.    ARMClient를 실행합니다. 명령 프롬프트를 열고 프로젝트 루트에서 *\bin\debug* 폴더로 이동합니다.
+6.    로그인하여 인증하려면 명령 프롬프트에 다음 명령을 입력합니다.<br>
     `ARMClient login prod`
-7.  출력에서 **구독 guid**를 복사합니다.
-8.  권한 부여 토큰을 클립보드에 복사하려면 명령 프롬프트에 다음 명령을 입력합니다. 단, 반드시 위의 단계에서 복사한 구독 ID를 사용하세요. <br>
+7.    출력에서 **구독 guid**를 복사합니다.
+8.    권한 부여 토큰을 클립보드에 복사하려면 명령 프롬프트에 다음 명령을 입력합니다. 단, 반드시 위의 단계에서 복사한 구독 ID를 사용하세요. <br>
     `ARMClient token <subscription GUID from previous step>`
 
     위의 단계가 완료되면 다음 메시지가 표시됩니다.<br>
     **토큰을 클립보드에 복사했습니다.**
-9.  이 자습서의 다음 섹션의 단계에 사용할 토큰을 저장합니다.
+9.    이 자습서의 다음 섹션의 단계에 사용할 토큰을 저장합니다.
 
 ### <a name="create-the-budget"></a>예산 만들기
 
 다음으로, Azure Consumption REST API를 호출하여 예산을 만들도록 **Postman**을 구성합니다. Postman은 API 개발 환경입니다. 환경 및 컬렉션 파일을 Postman으로 가져옵니다. 컬렉션에는 Azure Consumption REST API를 호출하는 HTTP 요청의 그룹화된 정의가 포함되어 있습니다. 환경 파일에는 컬렉션에 사용되는 변수가 포함되어 있습니다.
 
-1.  [Postman REST 클라이언트](https://www.getpostman.com/)를 다운로드한 후 열어 REST API를 실행합니다.
-2.  Postman에서 새 요청을 만듭니다.
+1.    [Postman REST 클라이언트](https://www.getpostman.com/)를 다운로드한 후 열어 REST API를 실행합니다.
+2.    Postman에서 새 요청을 만듭니다.
 
     ![Postman - 새 요청 만들기](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-27.png)
 
-3.  새 요청에 아무 것도 없도록 새 요청을 컬렉션으로 저장합니다.
+3.    새 요청에 아무 것도 없도록 새 요청을 컬렉션으로 저장합니다.
 
     ![Postman - 새 요청 저장](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-28.png)
 
-4.  `Get`에서 `Put` 작업으로 요청을 변경합니다.
-5.  `{subscriptionId}`를 이 자습서의 이전 섹션에서 사용한 **구독 ID**로 바꿔 다음 URL을 수정합니다. 또한, `{budgetName}`에 대한 값으로 "SampleBudget"을 포함하도록 URL을 수정합니다. `https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Consumption/budgets/{budgetName}?api-version=2018-03-31`
-6.  Postman에서 **헤더** 탭을 선택합니다.
-7.  "권한 부여"로 명명된 새 **키**를 추가합니다.
-8.  **값**을 마지막 섹션의 끝 부분에서 ArmClient를 사용하여 만든 토큰으로 설정합니다.
-9.  Postman에서 **본문** 탭을 선택합니다.
-10. **원시** 단추 옵션을 선택합니다.
-11. 텍스트 상자에 아래 샘플 예산 정의를 붙여넣습니다. 단, **subscriptionid**, **budgetname** 및 **actiongroupname** 매개 변수를 사용자의 구독 ID, 예산의 고유한 이름, URL 및 요청 본문 모두에서 만든 작업 그룹 이름으로 바꿔야 합니다.
+4.    `Get`에서 `Put` 작업으로 요청을 변경합니다.
+5.    `{subscriptionId}`를 이 자습서의 이전 섹션에서 사용한 **구독 ID**로 바꿔 다음 URL을 수정합니다. 또한, `{budgetName}`에 대한 값으로 "SampleBudget"을 포함하도록 URL을 수정합니다. `https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Consumption/budgets/{budgetName}?api-version=2018-03-31`
+6.    Postman에서 **헤더** 탭을 선택합니다.
+7.    "권한 부여"로 명명된 새 **키**를 추가합니다.
+8.    **값**을 마지막 섹션의 끝 부분에서 ArmClient를 사용하여 만든 토큰으로 설정합니다.
+9.    Postman에서 **본문** 탭을 선택합니다.
+10.    **원시** 단추 옵션을 선택합니다.
+11.    텍스트 상자에 아래 샘플 예산 정의를 붙여넣습니다. 단, **subscriptionid**, **budgetname** 및 **actiongroupname** 매개 변수를 사용자의 구독 ID, 예산의 고유한 이름, URL 및 요청 본문 모두에서 만든 작업 그룹 이름으로 바꿔야 합니다.
 
     ```
         {
@@ -359,7 +358,7 @@ Cost Management의 [예산 기능](../costs/tutorial-acm-create-budgets.md)을 �
             }
         }
     ```
-12. **보내기**를 눌러 요청을 보냅니다.
+12.    **보내기**를 눌러 요청을 보냅니다.
 
 이제 [예산 API](https://docs.microsoft.com/rest/api/consumption/budgets)를 호출하는 데 필요한 모든 요소를 갖추었습니다. 예산 API 참조에는 다음을 포함해 특정 요청에 대한 추가적인 세부 정보가 있습니다.
     - **budgetName** - 여러 예산이 지원됩니다.  예산 이름은 고유해야 합니다.

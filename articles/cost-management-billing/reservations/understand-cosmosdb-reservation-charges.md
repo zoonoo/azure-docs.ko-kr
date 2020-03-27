@@ -1,18 +1,18 @@
 ---
-title: Azure Cosmos DB에 예약 할인이 적용되는 방식 이해 | Microsoft Docs
+title: Azure Cosmos DB의 예약 할인 이해
 description: Azure Cosmos DB에서 프로비전된 처리량(RU/초)에 예약 할인이 적용되는 방식에 대해 알아봅니다.
 author: bandersmsft
+ms.author: banders
 ms.reviewer: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/12/2020
-ms.author: banders
-ms.openlocfilehash: 2477e1074ab90d36f92b647dd74513e3fa9ae70f
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 81818cc5ba2af1f9f0f70f7aa27fe62ed2c90c77
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200302"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80065678"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-cosmos-db"></a>Azure Cosmos DB에 예약 할인이 적용되는 방식 이해
 

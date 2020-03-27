@@ -1,24 +1,26 @@
 ---
-title: Cloudyn에 Azure 구독 등록 | Microsoft Docs
+title: Cloudyn에 Azure 구독 등록
 description: 이 빠른 시작 정보에서는 Cloudyn 평가판 구독을 만들고 Cloudyn 포털에 로그인하는 데 필요한 등록 프로세스를 상세히 설명합니다.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/24/2020
+ms.date: 03/12/2020
 ms.topic: quickstart
 ms.custom: seodec18
 ms.service: cost-management-billing
 ms.reviewer: benshy
-ms.openlocfilehash: 084cd852e0211ea494504a0d6e2350df567de0b1
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ROBOTS: NOINDEX
+ms.openlocfilehash: f3b529d3dbe0fe41fb13fabfe32dfad208ef5012
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77117788"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79474631"
 ---
 # <a name="register-an-individual-azure-subscription-and-view-cost-data"></a>개별 Azure 구독 등록 및 비용 데이터 보기
 
 Azure 구독을 사용하여 Cloudyn에 등록합니다. 등록하면 Cloudyn 포털에 액세스할 수 있습니다. 이 빠른 시작 정보에서는 Cloudyn 평가판 구독을 만들고 Cloudyn 포털에 로그인하는 데 필요한 등록 프로세스를 상세히 설명합니다. 또한 비용 데이터를 즉시 보기 시작하는 방법을 보여줍니다.
+
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 

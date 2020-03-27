@@ -1,7 +1,6 @@
 ---
-title: 최상위 Azure 구독 정보 내보내기 | Microsoft Docs
+title: 최상위 Azure 구독 정보 내보내기
 description: 계정과 연결된 모든 Azure 구독 ID를 보는 방법을 설명합니다.
-keywords: ''
 author: bandersmsft
 ms.reviewer: matrive
 tags: billing
@@ -9,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 83b6a9db0107cb35448aec491c81c2630e87ddd7
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 87135b309f0406528bcada1cd906dd2f8535d1ae
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199724"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79202899"
 ---
 # <a name="export-and-view-your-top-level-subscription-information"></a>최상위 구독 정보 내보내기 및 보기
 사용자 자격 증명과 연결된 구독 ID 집합을 확인할 필요가 있으면 [Azure 계정 센터에서 구독 정보를 사용하여 .json 파일을 다운로드](https://account.azure.com/subscriptions/download)합니다.

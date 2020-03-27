@@ -1,20 +1,19 @@
 ---
-title: 자습서 - Azure 예산 만들기 및 관리 | Microsoft Docs
+title: 자습서 - Azure 예산 만들기 및 관리
 description: 이 자습서는 사용자가 소비하는 Azure 서비스 비용을 계획하고 설명하는 데 도움이 됩니다.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/11/2020
+ms.date: 03/24/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: b81236fd63d9289f797056cf7aaceb7d826511af
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: f7c1ac65026fd366be1003842ff70a78b9082339
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79128362"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80155939"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>자습서: Azure 예산 만들기 및 관리
 
@@ -28,6 +27,7 @@ Cost Management의 예산을 통해 조직 책임을 계획하고 주도할 수 
 
 [Azure Portal을 사용하여 구독에 예산을 적용](https://www.youtube.com/watch?v=UrkHiUx19Po) 비디오를 통해 Azure에서 예산을 만들어 지출을 모니터링하는 방법을 확인하세요.
 
+>[!VIDEO https://www.youtube.com/embed/UrkHiUx19Po]
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 

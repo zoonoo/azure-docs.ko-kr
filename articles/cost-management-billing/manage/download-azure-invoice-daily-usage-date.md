@@ -1,5 +1,5 @@
 ---
-title: Azure 청구서 및 일간 사용량 현황 데이터 다운로드 | Microsoft Docs
+title: Azure 청구서 및 일간 사용 현황 데이터 다운로드
 description: Azure 청구서 및 일간 사용량 현황 데이터를 다운로드하는 방법을 설명합니다.
 keywords: 청구서, 청구서 다운로드, azure 청구서, azure 사용 현황
 author: genlin
@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: af2184d7faa2ace8ed1043eaf2aaec0d525bc937
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: 629ab8a0f2af789501e6365c94f4ce7f3fd3649c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79125635"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79237686"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Azure 청구서 및 일간 사용량 현황 데이터 다운로드 또는 보기
 
@@ -62,7 +62,7 @@ Microsoft 고객 계약의 [청구 프로필](../understand/mca-overview.md#bill
 6. 다운로드 상황에 맞는 메뉴에서 **청구서**를 선택합니다.
 
 마지막 청구 기간에 대한 청구서가 보이지 않으면 **추가 정보**를 참조하세요. <!-- Fix this -->
-### <a name="noinvoice"></a> 왜 마지막 청구 기간에 대한 청구서가 보이지 않습니까?
+### <a name="why-dont-i-see-an-invoice-for-the-last-billing-period"></a><a name="noinvoice"></a> 왜 마지막 청구 기간에 대한 청구서가 보이지 않습니까?
 
 몇 가지 이유로 인해 청구서가 보이지 않을 수 있습니다.
 

@@ -1,26 +1,28 @@
 ---
-title: Azure에서 Cloudyn을 위한 스토리지 계정 구성 | Microsoft Docs
+title: Azure의 Cloudyn을 위한 스토리지 계정 구성
 description: 이 문서에서는 Cloudyn을 위한 Azure Storage 계정 및 AWS 스토리지 버킷 구성 방법을 설명합니다.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/24/2020
+ms.date: 03/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: benshy
 ms.custom: secdec18
-ms.openlocfilehash: ec6c68d209f867ab3547e855f3cf754bc27d53c5
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ROBOTS: NOINDEX
+ms.openlocfilehash: c741f303958630415d54cabc62c04430f0b8b89d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77117632"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79474597"
 ---
 # <a name="configure-storage-accounts-for-cloudyn"></a>Cloudyn을 위한 스토리지 계정 구성
 
 <!--- intent: As a Cloudyn user, I want to configure Cloudyn to use my cloud service provider storage account to store my reports. -->
 
 Cloudyn 보고서를 Cloudyn 포털, Azure Storage 또는 AWS 스토리지 버킷에 저장할 수 있습니다. Cloudyn 포털에 보고서를 저장하는 것은 무료입니다. 그러나 클라우드 서비스 공급자의 스토리지에 보고서를 저장하는 것은 선택 사항이며 추가 비용이 발생합니다. 이 문서는 보고서를 저장하도록 Azure Storage 계정 및 AWS(Amazon Web Services) 스토리지 버킷을 구성하는 데 도움을 줍니다.
+
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

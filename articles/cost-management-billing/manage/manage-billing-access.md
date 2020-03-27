@@ -1,5 +1,5 @@
 ---
-title: Azure 청구에 대한 액세스 관리 | Microsoft Docs
+title: Azure 청구에 대한 액세스 관리
 description: 팀 멤버의 Azure 청구 정보에 대한 액세스를 제공하는 방법을 알아봅니다.
 author: vikramdesai01
 ms.reviewer: amberb
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: 5a4d725d88ee38bb68ea3da4f3e2a6a9bfc7e201
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: e7a6f105c6c8292e8e95b388d60dd95c3548dbb5
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200696"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79237669"
 ---
 # <a name="manage-access-to-billing-information-for-azure"></a>Azure의 청구 정보에 대한 액세스 관리
 
@@ -44,7 +44,7 @@ Azure Portal의 계정에 대한 청구 정보에 대한 액세스를 다른 사
 ** EA 고객인 경우 계정 소유자는 팀의 다른 사용자에게 위의 역할을 할당할 수 있습니다. 그러나 이러한 사용자가 청구 정보를 보려면 엔터프라이즈 관리자는 Enterprise Portal에서 AO 보기 요금을 사용하도록 설정해야 합니다.
 
 
-### <a name="opt-in"></a> 사용자가 청구서를 다운로드하도록 허용
+### <a name="allow-users-to-download-invoices"></a><a name="opt-in"></a> 사용자가 청구서를 다운로드하도록 허용
 
 계정 관리자가 다른 사용자에게 적절할 역할을 할당한 후, Azure Portal에서 청구서를 다운로드할 수 있는 액세스를 켜야 합니다. 2016년 12월보다 오래된 청구서는 계정 관리자만 사용할 수 있습니다.
 

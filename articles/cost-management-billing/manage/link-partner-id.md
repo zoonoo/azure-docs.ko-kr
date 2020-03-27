@@ -1,5 +1,5 @@
 ---
-title: 파트너 ID에 Azure 계정 연결 | Microsoft Docs
+title: 파트너 ID에 Azure 계정 연결
 description: 고객의 리소스를 관리하기 위해 사용하는 사용자 계정에 파트너 ID를 연결하여 Azure 고객 관리를 추적합니다.
 author: dhirajgandhi
 ms.reviewer: dhgandhi
@@ -7,18 +7,18 @@ ms.author: banders
 ms.date: 02/13/2020
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.openlocfilehash: 761f4345c591864b8158d7216d737ac287692252
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: c3f5dd4d1b67f5b1079a56d5c3428d286fd9d77f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77651392"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79204803"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Azure 계정에 파트너 ID 연결
 
-Microsoft 파트너는 고객이 Microsoft 제품을 사용하여 비즈니스 및 업무 목표를 달성할 수 있도록 하는 서비스를 제공합니다. 고객을 대신하여 Azure 서비스를 관리, 구성 및 지원하는 경우 파트너 사용자는 고객 환경에 액세스할 수 있어야 합니다. 파트너는 파트너 관리 링크를 사용하여 파트너 네트워크 ID를 서비스 배달에 사용되는 자격 증명과 연결할 수 있습니다.
+Microsoft 파트너는 고객이 Microsoft 제품을 사용하여 비즈니스 및 업무 목표를 달성할 수 있도록 하는 서비스를 제공합니다. 고객을 대신하여 Azure 서비스를 관리, 구성 및 지원하는 경우 파트너 사용자는 고객 환경에 액세스할 수 있어야 합니다. 파트너는 파트너 관리 링크(PAL)를 사용하여 파트너 네트워크 ID를 서비스 배달에 사용되는 자격 증명과 연결할 수 있습니다.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+PAL을 통해 Microsoft는 Azure 고객 성공을 주도하는 파트너를 식별하고 인식할 수 있습니다. Microsoft는 계정의 권한(RBAC 역할) 및 범위(구독, 리소스 그룹, 리소스)를 기반으로 영향과 Azure 사용 수익을 귀하 조직에 귀속시킬 수 있습니다.
 
 ## <a name="get-access-from-your-customer"></a>고객의 액세스 권한 가져오기
 

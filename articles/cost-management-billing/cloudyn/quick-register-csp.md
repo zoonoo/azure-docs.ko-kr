@@ -1,25 +1,27 @@
 ---
 title: CSP 파트너 정보를 사용하여 Azure의 Cloudyn에 등록
 description: 이 빠른 시작 정보에서는 Cloudyn 평가판 구독을 만들고 Cloudyn 포털에 로그인하는 데 필요한 등록 프로세스를 상세히 설명합니다.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/24/2020
+ms.date: 03/12/2020
 ms.topic: quickstart
 ms.custom: seodec18
 ms.service: cost-management-billing
 ms.reviewer: benshy
-ms.openlocfilehash: ea156e8efabcb73b324f0a102945b227558cece9
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ROBOTS: NOINDEX
+ms.openlocfilehash: ecf9603f8519cf3ab0e497290f04f66e6e19434d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77117783"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79463937"
 ---
 # <a name="register-with-the-csp-partner-program-and-view-cost-data"></a>CSP 파트너 프로그램에 등록 및 데이터 비용 보기
 
 CSP 파트너로서 Cloudyn에 등록할 수 있습니다. 등록하면 Cloudyn 포털에 액세스할 수 있습니다. 이 빠른 시작 정보에서는 Cloudyn 평가판 구독을 만들고 Cloudyn 포털에 로그인하는 데 필요한 등록 프로세스를 상세히 설명합니다. 또한 비용 데이터를 즉시 보기 시작하는 방법을 보여줍니다.
 
+
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 
 > [!NOTE]
 >
@@ -63,7 +65,7 @@ CSP 파트너로서 Cloudyn에 등록할 수 있습니다. 등록하면 Cloudyn 
 간접 CSP 고객이나 파트너에 대한 액세스를 사용하도록 설정하려면 [Cloudyn에 등록](#register-with-cloudyn)의 단계에 따라 평가판 등록을 설정합니다. 다음에는 Cloudyn 엔터티 그룹으로 다음 단계를 완료하여 간접 CSP 데이터를 분할합니다. 그런 다음 엔터티 그룹에 적절한 사용자 권한을 할당합니다.
 
 1. [엔터티 만들기](tutorial-user-access.md#create-and-manage-entities)의 정보를 사용하여 엔터티 그룹을 만듭니다.
-2. [비용 엔터티에 구독 할당](https://www.youtube.com/watch?v=d9uTWSdoQYo)의 단계를 따릅니다. 간접 CSP 고객의 계정 및 Azure 구독을 이전에 만든 엔터티를 연결합니다.
+2. [비용 엔터티에 구독 할당](https://www.youtube.com/watch?v=d9uTWSdoQYo)의 단계를 따릅니다. 간접 CSP 고객의 계정 및 Azure 구독을 이전에 만든 엔터티에 연결합니다.
 3. [관리자 액세스 권한이 있는 사용자 만들기](tutorial-user-access.md#create-a-user-with-admin-access)의 단계에 따라 관리자 액세스 권한이 있는 사용자 계정을 만듭니다. 그런 다음 사용자 계정이 간접 계정에 대해 이전에 만든 특정 엔터티에 대한 관리자 액세스 권한을 갖는지 확인합니다.
 
 간접 CSP 파트너는 만들어진 계정을 사용하여 Cloudyn 포털에 로그인합니다.

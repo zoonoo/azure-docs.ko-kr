@@ -1,20 +1,18 @@
 ---
-title: Azure Cost Management 데이터 이해 | Microsoft Docs
+title: Azure Cost Management 데이터 이해
 description: 이 문서는 Azure Cost Management에 포함된 데이터와 이 데이터의 처리, 수집, 표시 및 마감 빈도를 파악하는 데 도움이 됩니다.
-keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
-ms.custom: ''
-ms.openlocfilehash: ff3ed7ee65fd34ef9cd3541832f9cffc306e1aa8
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 2af84ccf679d28251e34f4c76ced38b0cb653a58
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78245365"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79203018"
 ---
 # <a name="understand-cost-management-data"></a>Cost Management 데이터 이해
 
@@ -165,9 +163,9 @@ EA(기업계약) 구독 - 청구 월이 3월 31일에 종료되는 경우 예상
 Cost Management에 표시되는 비용은 반올림됩니다. 쿼리 API에서 반환하는 비용은 반올림되지 않습니다. 다음은 그 예입니다.
 
 - Azure Portal의 비용 분석 - 요금은 표준 반올림 규칙을 사용하여 반올림됩니다. 즉 0.5보다 큰 값은 반올림되고, 그렇지 않으면 비용이 반올림됩니다. 값이 표시되는 경우에만 반올림이 수행됩니다. 데이터 처리 및 집계 중에는 반올림이 수행되지 않습니다. 예를 들어 비용 분석에서 집계하는 비용은 다음과 같습니다.
-  - 요금 1: $0.004
+  -    요금 1: $0.004
   - 요금 2: $0.004
-  - 집계 요금이 렌더링됩니다. 0.004 + 0.004 = 0.008. 표시되는 요금은 $0.01입니다.
+  -    집계 요금이 렌더링됩니다. 0.004 + 0.004 = 0.008. 표시되는 요금은 $0.01입니다.
 - 쿼리 API - 요금은 소수점 이하 8자리까지 표시되며 반올림되지 않습니다.
 
 

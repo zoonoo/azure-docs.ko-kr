@@ -1,5 +1,5 @@
 ---
-title: Office 365 계정을 사용하여 Azure에 등록 | Microsoft Docs
+title: Office 365 계정을 사용하여 Azure에 가입
 description: Office 365 계정을 사용하여 Azure 구독을 만드는 방법 알아보기
 author: JiangChen79
 ms.reviewer: adwise
@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 265d9bcafa7caf9af0f8c4c7f33de044fa02349c
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: b42a5b83f5442755614a3cb2ae81cffda09b4b3b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199588"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79238111"
 ---
 # <a name="sign-up-for-an-azure-subscription-with-your-office-365-account"></a>Office 365 계정으로 Azure 구독에 등록
 Office 365 구독을 보유하는 경우 Office 365 계정을 사용하여 Azure 구독을 만들 수 있습니다. Office 365 사용자 이름과 암호를 사용하여 [Azure Portal](https://portal.azure.com/)에 로그인합니다. 가상 머신을 설정하거나 다른 Azure 서비스를 사용하려는 경우 Azure 구독에 가입해야 합니다. 다른 사람과 Azure 구독을 공유하고 [역할 기반 Access Control을 사용하여 Azure 구독 및 리소스에 대한 액세스를 관리](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)할 수 있습니다.
@@ -35,7 +35,7 @@ Office 365 사용자 이름 및 암호를 사용하여 Azure에 등록함으로�
 
 - 조직의 다른 사람을 Azure 구독에 추가해야 하는 경우 [Azure Portal에서 액세스 관리 시작](../../role-based-access-control/overview.md)을 참조하세요.
 
-## <a id="more-about-subs">Azure 및 Office 365 구독에 대한 추가 정보</a>
+## <a name=""></a><a id="more-about-subs">Azure 및 Office 365 구독에 대한 추가 정보</a>
 Office 365 및 Azure는 Azure AD 서비스를 사용하여 사용자와 구독을 관리합니다. Azure 디렉터리는 사용자와 구독을 그룹화할 수 있는 컨테이너와 같습니다. Azure 및 Office 365 구독에 대해 동일한 사용자 계정을 사용하려면 Azure 구독을 Office 365 구독과 동일한 디렉터리 내에 만들어야 합니다. 다음 사항을 주의하세요.
 
 * 구독은 디렉터리 아래에 생성됩니다.

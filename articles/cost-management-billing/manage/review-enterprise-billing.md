@@ -1,17 +1,17 @@
 ---
-title: REST API를 통한 Azure 기업 등록 청구 데이터 검토 | Microsoft Docs
+title: REST API를 통한 Azure 기업 등록 청구 데이터 검토
 description: Azure REST API를 사용하여 기업 등록 청구 정보를 검토하는 방법을 살펴봅니다.
 author: lleonard-msft
 ms.service: cost-management-billing
 ms.topic: article
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: 24c4d9b74d68a05a253f05521ee62a0881a90988
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 4d42a9cfa15b532a98b632331f592d7e51bc09f0
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199571"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79202865"
 ---
 # <a name="review-enterprise-enrollment-billing-using-rest-apis"></a>REST API를 사용하여 기업 등록 청구 검토
 

@@ -6,14 +6,14 @@ ms.reviewer: micflan
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 03/20/2020
 ms.author: banders
-ms.openlocfilehash: e45ef26f3d0a4b968b601e70658c5f3680492682
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 3b4a5601f18a07ba1ecd6fdd93628d671a0acad2
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199027"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80065635"
 ---
 # <a name="understand-the-terms-in-your-azure-usage-and-charges-file"></a>Azure 사용량 및 요금 파일의 사용 약관 이해
 
@@ -23,9 +23,9 @@ ms.locfileid: "77199027"
 
 계정 유형 | Azure 사용량 | Marketplace 사용량 | 구매 | 환불
 --- | --- | --- | --- | ---
-EA(기업 계약) | yes | yes | yes | 예
-MCA(Microsoft 고객 계약) | yes | yes | yes | yes
-PAYG(종량제) | yes | yes | 예 | 예
+EA(기업 계약) | 예 | 예 | 예 | 예
+MCA(Microsoft 고객 계약) | 예 | 예 | 예 | 예
+PAYG(종량제) | 예 | 예 | 예 | 예
 
 Marketplace 주문(외부 서비스라고도 함)에 대해 자세히 알아보려면 [Azure 외부 서비스 요금 이해](understand-azure-marketplace-charges.md)를 참조하세요.
 
@@ -74,10 +74,12 @@ MeterName | 모두 | 미터의 이름입니다.
 MeterRegion | 모두 | 위치에 따라 가격이 책정되는 서비스의 데이터 센터 위치 이름입니다. Location을 참조하세요.
 MeterSubCategory | 모두 | 미터의 하위 분류 범주 이름입니다.
 OfferId<sup>1</sup> | 모두 | 구매한 제품의 이름입니다.
+PayGPrice | 모두 | 리소스의 소매 가격입니다.
 PartNumber<sup>1</sup> | EA, PAYG | 특정 미터 가격 책정을 확인하는 데 사용되는 식별자입니다.
 PlanName | EA, PAYG | Marketplace 계획 이름입니다.
 PreviousInvoiceId | MCA | 이 품목이 환불인 경우 원본 청구서에 대한 참조입니다.
 PricingCurrency | MCA | 협상된 가격을 기준으로 요금이 책정되는 경우 사용되는 통화입니다.
+PricingModel | 모두 | 미터 요금을 책정하는 방식을 나타내는 식별자입니다. (값: 주문형, 예약, 지점)
 Product | 모두 | 제품의 이름입니다.
 ProductId<sup>1</sup> | MCA | 제품의 고유 식별자입니다.
 ProductOrderId | 모두 | 제품 주문의 고유 식별자입니다.
