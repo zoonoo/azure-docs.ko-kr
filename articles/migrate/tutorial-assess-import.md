@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: raynew
-ms.openlocfilehash: 91b9c71e7c735fca08f71ca37ed28734c8d634a1
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.openlocfilehash: 23fa1a2a0b035d04334c51c02411de6de70f2cad
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79079866"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79453649"
 ---
 # <a name="assess-servers-by-using-imported-data"></a>가져온 데이터를 사용하여 서버 평가
 
@@ -142,7 +142,6 @@ CSV 템플릿을 다운로드하고, 여기에 서버 정보를 추가합니다.
 **비즈니스 소유자** | 예 | 사업부 소유자
 **비즈니스 애플리케이션 이름** | 예 | 앱이 속한 애플리케이션의 이름
 **위치** | 예 | 서버가 있는 데이터 센터
-**서버 서비스 해제 날짜** | 예 | 물리적 서버 또는 가상 서버의 기본 물리적 서버의 서비스 해제 날짜
 
 ### <a name="add-operating-systems"></a>운영 체제 추가
 
@@ -243,7 +242,7 @@ CSV 템플릿을 다운로드하고, 여기에 서버 정보를 추가합니다.
 
 ### <a name="view-an-assessment"></a>평가 보기
 
-1. **마이그레이션 목표** > **서버**의 **Azure Migrate: 서버 평가**에서 **평가**를 클릭합니다.
+1. **마이그레이션 목표** > **서버**의 **Azure Migrate: 서버 평가**에서 평가를 클릭합니다.
 2. **평가**에서 평가를 선택하여 엽니다.
 
     ![평가 요약](./media/tutorial-assess-physical/assessment-summary.png)
