@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 07/17/2019
 ms.author: pafarley
 ms.openlocfilehash: 07e7cc991f127bf4bb4f466c0108962786e45bce
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "68423596"
 ---
 **성능** 탭의 왼쪽 창에는 **확률 임계값** 슬라이더가 있습니다. 예측의 신뢰도 수준이 이 값에 도달해야만 올바른 것으로 간주됩니다(계산 정확도 및 회수 목적으로). 

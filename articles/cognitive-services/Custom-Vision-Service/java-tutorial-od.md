@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 02/25/2020
 ms.author: areddish
 ms.openlocfilehash: 78db95240974d1c9ca07546f8237eca2b564ecb2
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77616319"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-sdk-for-java"></a>빠른 시작: Java용 Custom Vision SDK를 사용하여 개체 검색 프로젝트 만들기
@@ -38,7 +38,7 @@ Maven 중앙 리포지토리에서 Custom Vision SDK를 찾을 수 있습니다.
 
 [Cognitive Services Java SDK 샘플](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master) 프로젝트를 복제 또는 다운로드합니다. **Vision/CustomVision/** 폴더로 이동합니다.
 
-이 Java 프로젝트는 [Custom Vision 웹 사이트](https://customvision.ai/)를 통해 액세스할 수 있는 __샘플 Java OD 프로젝트__ 라는 새로운 Custom Vision 개체 검색 프로젝트를 만듭니다. 그런 다음, 분류자를 학습하고 테스트하려면 이미지를 업로드합니다. 이 프로젝트에서 분류자는 개체가 **포크** 또는 **가위** 인지 여부를 확인하기 위한 것입니다.
+이 Java 프로젝트는 __Custom Vision 웹 사이트__를 통해 액세스할 수 있는 [샘플 Java OD 프로젝트](https://customvision.ai/) 라는 새로운 Custom Vision 개체 검색 프로젝트를 만듭니다. 그런 다음, 분류자를 학습하고 테스트하려면 이미지를 업로드합니다. 이 프로젝트에서 분류자는 개체가 **포크** 또는 **가위** 인지 여부를 확인하기 위한 것입니다.
 
 [!INCLUDE [get-keys](includes/get-keys.md)]
 

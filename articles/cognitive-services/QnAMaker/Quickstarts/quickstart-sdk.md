@@ -4,12 +4,12 @@ description: 이 빠른 시작에서는 클라이언트 SDK를 사용하여 기�
 ms.topic: quickstart
 ms.date: 01/13/2020
 zone_pivot_groups: programming-languages-set-six
-ms.openlocfilehash: 33725eb54e8a78547f4bf82d6a8f6fae58fdb5cb
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 065f88ce12037109773b7023972c151d968840a8
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77524421"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79221180"
 ---
 # <a name="quickstart-create-and-manage-knowledge-base"></a>빠른 시작: 기술 자료 만들기 및 관리
 
@@ -30,7 +30,7 @@ QnA Maker 클라이언트 라이브러리를 시작합니다. 이러한 단계�
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
->[자습서: KB에서 만들기 및 대답](../tutorials/create-publish-query-in-portal.md)
+>[자습서: 배치 파일을 사용하여 기술 자료 테스트](./batch-testing.md)
 
 * [QnA Maker API란?](../Overview/overview.md)
 * [기술 자료 편집](../how-to/edit-knowledge-base.md)

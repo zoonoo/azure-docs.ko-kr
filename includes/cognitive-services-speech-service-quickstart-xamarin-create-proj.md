@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 09/13/2019
 ms.author: erhopf
 ms.openlocfilehash: 0bcdd315fe11b7472166a5a9ad4f7395e22d2126
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "72675619"
 ---
 Xamarin을 사용하여 플랫폼 간 모바일 앱 .NET 개발용 Visual Studio 프로젝트를 만들려면 다음을 수행해야 합니다.

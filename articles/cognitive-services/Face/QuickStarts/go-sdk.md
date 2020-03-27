@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.date: 01/27/2020
 ms.author: pafarley
 ms.openlocfilehash: 2db40150167a8f16242b2feb15b77820fa1970a9
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76939450"
 ---
 # <a name="quickstart-face-client-library-for-go"></a>빠른 시작: Go용 Face 클라이언트 라이브러리
@@ -63,7 +63,7 @@ Azure 리소스를 만들어 Face 서비스 사용을 시작하세요. 아래에
 
 운영 체제에 대한 지침을 사용합니다.
 <!-- replace the below endpoint and key examples -->
-#### <a name="windowstabwindows"></a>[Windows](#tab/windows)
+#### <a name="windows"></a>[Windows](#tab/windows)
 
 ```console
 setx FACE_SUBSCRIPTION_KEY <replace-with-your-product-name-key>
@@ -72,7 +72,7 @@ setx FACE_ENDPOINT <replace-with-your-product-name-endpoint>
 
 환경 변수를 추가한 후 콘솔 창을 다시 시작합니다.
 
-#### <a name="linuxtablinux"></a>[Linux](#tab/linux)
+#### <a name="linux"></a>[Linux](#tab/linux)
 
 ```bash
 export FACE_SUBSCRIPTION_KEY=<replace-with-your-product-name-key>
@@ -81,7 +81,7 @@ export FACE_ENDPOINT=<replace-with-your-product-name-endpoint>
 
 환경 변수를 추가한 후에는 콘솔 창에서 `source ~/.bashrc` 명령을 실행하여 변경 내용을 적용합니다.
 
-#### <a name="macostabunix"></a>[macOS](#tab/unix)
+#### <a name="macos"></a>[macOS](#tab/unix)
 
 `.bash_profile`을 편집하고, 환경 변수를 추가합니다.
 

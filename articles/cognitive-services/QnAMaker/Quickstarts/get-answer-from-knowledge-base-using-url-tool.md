@@ -12,10 +12,10 @@ ms.topic: quickstart
 ms.date: 02/08/2020
 ms.author: diberry
 ms.openlocfilehash: 09337ce599b0044ab38bb0ad0b0383ee90bfcbd8
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77109623"
 ---
 # <a name="quickstart-get-an-answer-from-knowledge-base"></a>빠른 시작: 기술 자료에서 답변 가져오기

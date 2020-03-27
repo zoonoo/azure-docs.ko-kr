@@ -12,10 +12,10 @@ ms.date: 12/05/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: deb7ef0d087bc33c9e59ecd95973bc55a5ab6521
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74961525"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-with-go"></a>빠른 시작: Go와 함께 Computer Vision REST API를 사용하여 썸네일 생성
@@ -24,7 +24,7 @@ ms.locfileid: "74961525"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - [Go](https://golang.org/dl/)가 설치되어 있어야 합니다.
 - Computer Vision에 대한 구독 키가 있어야 합니다. [Cognitive Services 사용해보기](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision)에서 평가판 키를 가져올 수 있습니다. 또는 [Cognitive Services 계정 만들기](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)의 지침에 따라 Computer Vision을 구독하고 키를 가져옵니다. 그런 다음, 각각 `COMPUTER_VISION_SUBSCRIPTION_KEY` 및 `COMPUTER_VISION_ENDPOINT`라는 키 및 서비스 엔드포인트 문자열에 대한 [환경 변수를 만듭니다](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication).
@@ -35,10 +35,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. 다음 코드를 텍스트 편집기에 복사합니다.
 1. 필요에 따라 `imageUrl`의 값을 썸네일을 생성하려는 다른 이미지의 URL로 바꿉니다.
-1. 코드를 `.go` 확장명의 파일로 저장합니다. 예: `get-thumbnail.go`
+1. 코드를 `.go` 확장명의 파일로 저장합니다. `get-thumbnail.go`)을 입력합니다.
 1. 명령 프롬프트 창을 엽니다.
-1. 프롬프트에서 `go build` 명령을 실행하여 파일에서 패키지를 컴파일합니다. 예: `go build get-thumbnail.go`
-1. 프롬프트에서 컴파일된 패키지를 실행합니다. 예: `get-thumbnail`
+1. 프롬프트에서 `go build` 명령을 실행하여 파일에서 패키지를 컴파일합니다. `go build get-thumbnail.go`)을 입력합니다.
+1. 프롬프트에서 컴파일된 패키지를 실행합니다. `get-thumbnail`)을 입력합니다.
 
 ```go
 package main

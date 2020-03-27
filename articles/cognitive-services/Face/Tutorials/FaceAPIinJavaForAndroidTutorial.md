@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 12/05/2019
 ms.author: pafarley
 ms.openlocfilehash: 8d5bef141f83eedaa996bb63c1fb814aeb6af197
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76165971"
 ---
 # <a name="tutorial-create-an-android-app-to-detect-and-frame-faces-in-an-image"></a>자습서: 이미지에서 얼굴을 감지하고 포착하는 Android 앱 만들기
@@ -37,7 +37,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- Face 구독 키. [Cognitive Services 사용해보기](https://azure.microsoft.com/try/cognitive-services/?api=face-api)에서 평가판 구독 키를 가져올 수 있습니다. 또는 [Cognitive Services 계정 만들기](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)의 지침에 따라 Face 서비스를 구독하고 키를 가져옵니다. 그런 다음, 각각 `FACE_SUBSCRIPTION_KEY` 및 `FACE_ENDPOINT`라는 키 및 서비스 엔드포인트 문자열에 대한 [환경 변수를 만듭니다](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication).
+- Face 구독 키. [Cognitive Services 사용해보기](https://azure.microsoft.com/try/cognitive-services/?api=face-api)에서 평가판 구독 키를 가져올 수 있습니다. 또는 [Cognitive Services 계정 만들기](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)의 지침에 따라 Face 서비스를 구독하고 키를 가져옵니다. 그런 다음, 각각 [ 및 ](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication)라는 키 및 서비스 엔드포인트 문자열에 대한 `FACE_SUBSCRIPTION_KEY`환경 변수를 만듭니다`FACE_ENDPOINT`.
 - [Visual Studio 2015 또는 2017](https://www.visualstudio.com/downloads/)의 모든 버전.
 - API 수준 22 이상의 [Android Studio](https://developer.android.com/studio/)(Face 클라이언트 라이브러리에 필요).
 
@@ -99,7 +99,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="upload-image-and-detect-faces"></a>이미지 업로드 및 얼굴 감지
 
-이 앱은 [Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) REST API를 래핑하고 **Face** 인스턴스를 반환하는 **faceClient.Face.DetectWithStreamAsync** 메서드를 호출하여 얼굴을 감지합니다.
+이 앱은 **Detect** REST API를 래핑하고 [Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) 인스턴스를 반환하는 **faceClient.Face.DetectWithStreamAsync** 메서드를 호출하여 얼굴을 감지합니다.
 
 반환된 각 **얼굴**에는 해당 위치를 표시하는 사각형이 일련의 선택적 얼굴 특성과 함께 포함되어 있습니다. 이 예제에서는 얼굴 사각형만 요청됩니다.
 

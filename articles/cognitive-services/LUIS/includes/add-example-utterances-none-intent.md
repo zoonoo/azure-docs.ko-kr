@@ -11,10 +11,10 @@ ms.date: 02/14/2020
 ms.subservice: language-understanding
 ms.author: diberry
 ms.openlocfilehash: 956aa308bf1cb3736c491031239661ec6b295ddb
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77279492"
 ---
 클라이언트 애플리케이션은 발언에 의미가 있는지 또는 애플리케이션에 적합한지 여부를 알아야 합니다. **없음** 의도는 생성 프로세스의 일부로 각 애플리케이션에 추가되어 클라이언트 애플리케이션이 발화에 응답하지 않아야 하는지 여부를 확인합니다.

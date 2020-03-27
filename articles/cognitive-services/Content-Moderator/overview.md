@@ -10,14 +10,16 @@ ms.subservice: content-moderator
 ms.topic: overview
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: c1ff74bc358f167612b2bfe05ca47e21203d8702
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 570d55c8523e1c1deca3242a8841b0cc34322786
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74973495"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80053885"
 ---
 # <a name="what-is-azure-content-moderator"></a>Azure Content Moderator란?
+
+[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 Azure Content Moderator는 자료에서 모욕적이거나, 위험하거나, 원치 않는 텍스트, 이미지 및 비디오 콘텐츠를 확인하는 인지 서비스입니다. 이 자료가 발견되면 서비스가 콘텐츠에 적절한 레이블(플래그)을 적용합니다. 그러면 앱이 규정에 부합하고 원하는 사용자 환경을 유지하기 위해 플래그가 지정된 콘텐츠를 처리할 수 있습니다. 다양한 콘텐츠 플래그의 의미를 자세히 알아보려면 [중재 API](#moderation-apis) 섹션을 참조하세요.
 
@@ -46,7 +48,7 @@ Content Moderator 서비스에는 콘텐츠에 잠재적으로 부적절하거�
 
 다음 표에서는 다양한 유형의 중재 API를 설명합니다.
 
-| API 그룹 | 설명 |
+| API 그룹 | Description |
 | ------ | ----------- |
 |[**텍스트 조정**](text-moderation-api.md)| 텍스트에서 불쾌감을 주는 콘텐츠, 외설적이거나 선정적인 콘텐츠, 불경한 언어 및 개인 데이터를 검사합니다.|
 |[**사용자 지정 용어 목록**](try-terms-list-api.md)| 기본 제공 용어와 함께 사용자 지정 용어 목록에 대해 텍스트를 검사합니다. 사용자 지정 콘텐츠 정책에 따라 사용자 지정 목록을 사용하여 콘텐츠를 차단하거나 허용합니다.|  

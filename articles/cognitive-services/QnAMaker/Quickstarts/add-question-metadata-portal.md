@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.date: 02/08/2020
 ms.author: diberry
 ms.openlocfilehash: 25c0fe549dfc850a53b06f79f348a87cba3b70a1
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77109938"
 ---
 # <a name="quickstart-add-questions-and-answer-with-qna-maker-portal"></a>빠른 시작: QnA Maker 포털을 사용하여 질문 및 답변 추가

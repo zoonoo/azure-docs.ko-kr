@@ -10,10 +10,10 @@ ms.topic: sample
 ms.date: 05/29/2019
 ms.author: pafarley
 ms.openlocfilehash: 534846044770d66ec5171ad4f61de921d2d5d194
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76169796"
 ---
 # <a name="use-the-headpose-attribute"></a>HeadPose 특성 사용

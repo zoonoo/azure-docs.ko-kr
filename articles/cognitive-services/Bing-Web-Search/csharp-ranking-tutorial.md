@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/19/2019
 ms.author: aahi
 ms.openlocfilehash: 1c8e0bb136fddeb84dc991e63a761378b38cc470
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75382330"
 ---
 # <a name="build-a-console-app-search-client-in-c"></a>C#에서 콘솔 앱 검색 클라이언트 빌드
@@ -223,9 +223,9 @@ static void RunQueryAndDisplayResults(string userQuery)
 
 `rankingResponse` JSON 개체([설명서](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse))는 검색 결과에 대한 적절한 표시 순서를 설명합니다. 다음과 같이 우선 순위가 지정된 그룹 중 하나 이상을 포함합니다.
 
-- `pole`: 가장 가시적인 처리를 얻을 수 있는 검색 결과입니다(예를 들어 메인라인 및 사이드바 위에 표시됨).
-- `mainline`: mainline에 표시할 검색 결과입니다.
-- `sidebar`: 사이드바에 표시할 검색 결과입니다. 사이드바가 없는 경우 메인라인 아래에 결과를 표시합니다.
+- `pole`: 가장 가시적인 처리를 얻기 위한 검색 결과(예를 들어 메인라인 및 사이드바 위에 표시됨).
+- `mainline`: 메인라인에 표시할 검색 결과
+- `sidebar`: 사이드바에 표시할 검색 결과 사이드바가 없는 경우 메인라인 아래에 결과를 표시합니다.
 
 순위 응답 JSON은 그룹 중 하나 이상을 포함할 수 있습니다.
 

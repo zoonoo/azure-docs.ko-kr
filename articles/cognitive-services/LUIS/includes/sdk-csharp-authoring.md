@@ -11,10 +11,10 @@ ms.topic: include
 ms.custom: include file
 ms.author: diberry
 ms.openlocfilehash: 53e6382cf8d046b2c9818b906890bc64642fd2ed
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77372275"
 ---
 .NET용 LUIS(Language Understanding) 작성 클라이언트 라이브러리를 사용하여 다음을 수행합니다.
@@ -186,11 +186,11 @@ LUIS 앱 모델의 기본 개체는 의도입니다. 의도는 사용자 발화 
 
 엔터티는 필수는 아니지만 대부분의 앱에서 찾을 수 있습니다. 엔터티는 사용자의 의도를 채우는 데 필요한 정보를 사용자 발화에서 추출합니다. [미리 작성된](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.modelextensions.addprebuiltasync?view=azure-dotnet) 엔터티 및 사용자 지정 엔터티의 여러 형식이 있으며, 각 엔터티는 고유한 DTO(데이터 변환 개체) 모델을 사용합니다.  앱에 추가할 수 있는 일반적인 미리 작성된 엔터티에는 [number](../luis-reference-prebuilt-number.md), [datetimeV2](../luis-reference-prebuilt-datetimev2.md), [geographyV2](../luis-reference-prebuilt-geographyv2.md), [ordinal](../luis-reference-prebuilt-ordinal.md)이 있습니다.
 
-다음 **AddEntities** 메서드는 두 개의 역할(`Class` 단순 엔터티, `Flight` 복합 엔터티)을 사용하여 `Location` 단순 엔터티를 만들었으며, 몇 가지 미리 작성된 엔터티를 추가합니다.
+다음 **AddEntities** 메서드는 두 개의 역할(`Location` 단순 엔터티, `Class` 복합 엔터티)을 사용하여 `Flight` 단순 엔터티를 만들었으며, 몇 가지 미리 작성된 엔터티를 추가합니다.
 
 엔터티는 의도에 표시되지 않는다는 것을 알고 있어야 합니다. 대부분의 의도에 적용할 수 있고 일반적으로 적용하고 있습니다. 사용자 발화 예제만 특정 단일 의도에 대해 표시됩니다.
 
-엔터티를 만드는 메서드는 [Model](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.modelextensions?view=azure-dotnet) 클래스의 일부입니다. 각 엔터티 형식에는 자체의 고유한 DTO(데이터 변환 개체) 모델이 있으며, 일반적으로 [Models](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.models?view=azure-dotnet) 네임스페이스에서 `model` 단어가 포함됩니다.
+엔터티를 만드는 메서드는 [Model](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.modelextensions?view=azure-dotnet) 클래스의 일부입니다. 각 엔터티 형식에는 자체의 고유한 DTO(데이터 변환 개체) 모델이 있으며, 일반적으로 `model`Models[ 네임스페이스에서 ](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.models?view=azure-dotnet) 단어가 포함됩니다.
 
 [!code-csharp[Create entities](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/LUIS/LUIS.cs?name=AuthoringAddEntities)]
 

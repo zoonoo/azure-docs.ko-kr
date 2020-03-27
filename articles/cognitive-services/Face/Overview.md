@@ -9,14 +9,16 @@ ms.subservice: face-api
 ms.topic: overview
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: c4e2253229f4461bcb6a2a9fe3e561f3cde29760
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: c433d99fd96e99d418fd5500c1075e68dfb1742c
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76170249"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80053591"
 ---
 # <a name="what-is-the-azure-face-service"></a>Azure Face 서비스란?
+
+[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 Azure Cognitive Services Face 서비스는 이미지에서 사람의 얼굴을 감지, 인식 및 분석하는 데 사용되는 알고리즘을 제공합니다. 사람의 얼굴 정보를 처리하는 기능은 서로 다른 다양한 소프트웨어 시나리오에서 중요합니다. 이러한 시나리오의 예로 보안, 자연스러운 사용자 인터페이스, 이미지 콘텐츠 분석/관리, 모바일 앱 및 로봇 공학이 있습니다.
 

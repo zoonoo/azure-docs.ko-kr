@@ -10,18 +10,20 @@ ms.subservice: custom-vision
 ms.topic: overview
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 829921ae5600873fdc8f2946ae3ff355bffb06a8
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: a48c553f1c96b8777e0a591f428dca3f15d7d30e
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978597"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80053633"
 ---
 # <a name="what-is-custom-vision"></a>Custom Vision이란?
 
+[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
+
 Custom Vision은 사용자 고유의 이미지 분류자를 빌드, 배포 및 개선할 수 있는 인지 서비스입니다. 이미지 분류자는 이미지의 시각적 특성에 따라 레이블(_클래스_를 나타냄)을 해당 이미지에 적용하는 AI 서비스입니다. [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) 서비스와 달리 Custom Vision에서는 적용할 레이블을 결정할 수 있습니다.
 
-## <a name="what-it-does"></a>기능
+## <a name="what-it-does"></a>수행하는 작업
 
 Custom Vision 서비스는 기계 학습 알고리즘을 사용하여 레이블을 이미지에 적용합니다. 개발자는 문제가 없는 특징만 있는 이미지 그룹을 제출해야 합니다. 이미지를 제출할 때 직접 레이블을 지정합니다. 그런 다음, 알고리즘에서 이 데이터를 학습하고 동일한 해당 이미지에서 자체적으로 테스트하여 정확도를 계산합니다. 알고리즘이 학습되면 앱의 요구 사항에 따라 새 이미지를 테스트 및 재학습하고, 궁극적으로 분류할 수 있습니다. 모델 자체를 내보내서 오프라인에서 사용할 수도 있습니다.
 
@@ -29,7 +31,7 @@ Custom Vision 서비스는 기계 학습 알고리즘을 사용하여 레이블�
 
 Custom Vision 기능을 두 가지로 나눌 수 있습니다. **이미지 분류**는 하나 이상의 레이블을 이미지에 적용합니다. **개체 감지**도 이와 비슷하지만, 적용된 레이블이 있는 이미지의 좌표를 반환합니다.
 
-### <a name="optimization"></a>최적화
+### <a name="optimization"></a>Optimization
 
 Custom Vision 서비스는 이미지 간의 주요 차이점을 신속하게 인식하도록 최적화되었으므로 적은 양의 데이터로 모델을 프로토타입을 시작할 수 있습니다. 일반적으로 레이블당 50개의 이미지로 시작하는 것이 좋습니다. 그러나 이렇게 하면 서비스가 이미지의 미세한 차이를 검색하는 데 최적화되지 않습니다(예: 품질 보증 시나리오에서 작은 금 또는 패인 자국 검색).
 

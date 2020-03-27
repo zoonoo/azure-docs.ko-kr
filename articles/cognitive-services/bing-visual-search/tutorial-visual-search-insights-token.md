@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 11/29/2019
 ms.author: aahi
 ms.openlocfilehash: dff96b19f40c2d897b6a018a4c46cec60f8aa201
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74689318"
 ---
 # <a name="find-similar-images-from-previous-searches-using-imageinsightstoken"></a>ImageInsightsToken을 사용하여 이전 검색에서 유사한 이미지 찾기
@@ -23,7 +23,7 @@ Visual Search SDK를 통해 `ImageInsightsToken`을 반환하는 이전 검색�
 
 이 자습서에 대한 전체 소스 코드는 추가 오류 처리 및 주석과 함께 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/Bing-Visual-Search/BingVisualSearchInsightsTokens.cs)에서 찾을 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [Visual Studio 2019](https://www.visualstudio.com/downloads/)의 모든 버전.
 * Linux/MacOS를 사용하는 경우 [Mono](https://www.mono-project.com/)를 사용하여 이 애플리케이션을 실행할 수 있습니다.
@@ -38,7 +38,7 @@ Visual Search SDK를 통해 `ImageInsightsToken`을 반환하는 이전 검색�
 
 ## <a name="get-the-imageinsightstoken-from-the-bing-image-search-sdk"></a>Bing Image Search SDK에서 ImageInsightsToken 가져오기
 
-이 애플리케이션은 [Bing Image Search SDK](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/image-search-sdk-quickstart)를 통해 획득한 `ImageInsightsToken`을 사용합니다. 새 C# 콘솔 애플리케이션에서 클라이언트를 만들어 `ImageSearchClient()`를 사용하는 API를 호출합니다. 그런 다음, 쿼리와 함께 `SearchAsync()`를 사용합니다.
+이 애플리케이션은 `ImageInsightsToken`Bing Image Search SDK[를 통해 획득한 ](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/image-search-sdk-quickstart)을 사용합니다. 새 C# 콘솔 애플리케이션에서 클라이언트를 만들어 `ImageSearchClient()`를 사용하는 API를 호출합니다. 그런 다음, 쿼리와 함께 `SearchAsync()`를 사용합니다.
 
 ```csharp
 var client = new ImageSearchClient(new Microsoft.Azure.CognitiveServices.Search.ImageSearch.ApiKeyServiceClientCredentials(subKey));
@@ -85,7 +85,7 @@ var visualSearchResults = client.Images.VisualSearchMethodAsync(knowledgeRequest
 
 ## <a name="iterate-through-the-visual-search-results"></a>Visual Search 결과 반복
 
-Visual Search 결과는 `ImageTag` 개체입니다. 각 태그에는 `ImageAction` 개체의 목록이 포함됩니다. 각 `ImageAction`에는 작업 유형에 종속되는 값의 목록인 `Data` 필드가 포함됩니다. 예를 들어 `visualSearchResults.Tags`에서 `ImageTag` 개체를 반복하고, `ImageAction` 태그를 가져올 수 있습니다. 아래 샘플은 `PagesIncluding` 작업의 세부 정보를 출력합니다.
+Visual Search 결과는 `ImageTag` 개체입니다. 각 태그에는 `ImageAction` 개체의 목록이 포함됩니다. 각 `ImageAction`에는 작업 유형에 종속되는 값의 목록인 `Data` 필드가 포함됩니다. 예를 들어 `ImageTag`에서 `visualSearchResults.Tags` 개체를 반복하고, `ImageAction` 태그를 가져올 수 있습니다. 아래 샘플은 `PagesIncluding` 작업의 세부 정보를 출력합니다.
 
 ```csharp
 if (visualSearchResults.Tags.Count > 0)
@@ -111,7 +111,7 @@ if (visualSearchResults.Tags.Count > 0)
 
 ### <a name="pagesincluding-actiontypes"></a>PagesIncluding ActionTypes
 
-작업 유형에서 실제 이미지 URL을 가져오려면 값 목록이 있는 `Data` 요소를 포함하는 `ImageModuleAction`으로 `ActionType`을 읽는 캐스트가 필요합니다. 각 값은 이미지의 URL입니다.  다음은 `PagesIncluding` 동작 유형을 `ImageModuleAction`으로 캐스트하고 값을 읽습니다.
+작업 유형에서 실제 이미지 URL을 가져오려면 값 목록이 있는 `ActionType` 요소를 포함하는 `ImageModuleAction`으로 `Data`을 읽는 캐스트가 필요합니다. 각 값은 이미지의 URL입니다.  다음은 `PagesIncluding` 동작 유형을 `ImageModuleAction`으로 캐스트하고 값을 읽습니다.
 
 ```csharp
     if (i.ActionType == "PagesIncluding")
@@ -136,8 +136,8 @@ if (visualSearchResults.Tags.Count > 0)
 |ImageById -> WebSearchUrl    |         |
 |RelatedSearches -> WebSearchUrl:    |         |
 |DocumentLevelSuggestions -> WebSearchUrl:     |         |
-|TopicResults -> WebSearchUrl    | https:\//www.bing.com/cr?IG=3E32CC6CA5934FBBA14ABC3B2E4651F9&CID=1BA795A21EAF6A63175699B71FC36B7C&rd=1&h=BcQifmzdKFyyBusjLxxgO42kzq1Geh7RucVVqvH-900&v=1&r=https%3a%2f%2fwww.bing.com%2fdiscover%2fcanadian%2brocky&p=DevEx,5823.1       |
-|ImageResults -> WebSearchUrl    |  https:\//www.bing.com/cr?IG=3E32CC6CA5934FBBA14ABC3B2E4651F9&CID=1BA795A21EAF6A63175699B71FC36B7C&rd=1&h=PV9GzMFOI0AHZp2gKeWJ8DcveSDRE3fP2jHDKMpJSU8&v=1&r=https%3a%2f%2fwww.bing.com%2fimages%2fsearch%3fq%3doutdoor&p=DevEx,5831.1       |
+|TopicResults -> WebSearchUrl    | https:\//www.bing.com/cr?IG=3E32CC6CA5934FBBA14ABC3B2E4651F9&CID=1BA795A21EAF6A63175699B71FC36B7C&rd=1&h=BcQifmzdKFyyBusjLxxgO42kzq1Geh7RucVVqvH-900&v=1&r=https%3a%2f%2f www.bing.com%2fdiscover%2fcanadian%2brocky&p=DevEx,5823.1       |
+|ImageResults -> WebSearchUrl    |  https:\//www.bing.com/cr?IG=3E32CC6CA5934FBBA14ABC3B2E4651F9&CID=1BA795A21EAF6A63175699B71FC36B7C&rd=1&h=PV9GzMFOI0AHZp2gKeWJ8DcveSDRE3fP2jHDKMpJSU8&v=1&r=https%3a%2f%2f www.bing.com%2fimages%2fsearch%3fq%3doutdoor&p=DevEx,5831.1       |
 
 위에 표시된 대로 `TopicResults` 및 `ImageResults` 유형에는 관련 이미지에 대한 쿼리가 포함됩니다. Bing Search 결과에 대한 URL 링크입니다.
 

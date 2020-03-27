@@ -12,10 +12,10 @@ ms.date: 02/10/2020
 ms.author: dapine
 zone_pivot_groups: programming-languages-set-two
 ms.openlocfilehash: 7f68e3a1a6dd1e3583b9cd1c44fdb311137584e3
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77119228"
 ---
 # <a name="quickstart-translate-speech-to-multiple-languages"></a>빠른 시작: 음성을 여러 언어로 번역

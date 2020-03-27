@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: Azure REST API 및 C#으로 이미지에서 얼굴 감지'
+title: '빠른 시작: REST API 및 C#으로 이미지에서 얼굴 감지'
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 이미지에서 얼굴을 감지하기 위해 C#과 함께 Azure Face REST API를 사용합니다.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 8d1349c096b6a6c9bffef38a8b8b3c7ea6bbd432
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: 0be98ac60e11b3e21a864aa4ca18fcac2c7f014c
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78301814"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80053396"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-c"></a>빠른 시작: Face REST API 및 C#을 사용하여 이미지에서 얼굴 감지
 
@@ -39,7 +39,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ### <a name="include-namespaces"></a>네임스페이스 포함
 
-*Program.cs* 파일 위에 다음 `using` 문을 추가합니다.
+`using`Program.cs*파일 위에 다음* 문을 추가합니다.
 
 ```csharp
 using System;
@@ -77,11 +77,6 @@ namespace DetectFace
 ```csharp
         static void Main(string[] args)
         {
-
-            // Explicitly set TLS 1.2.
-            ServicePointManager.SecurityProtocol = ServicePointManager.SecurityProtocol |
-                SecurityProtocolType.Tls12;
-
             // Get the path and filename to process from the user.
             Console.WriteLine("Detect faces:");
             Console.Write(

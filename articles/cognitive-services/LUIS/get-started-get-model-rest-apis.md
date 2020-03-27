@@ -13,10 +13,10 @@ ms.date: 02/14/2020
 ms.author: diberry
 zone_pivot_groups: programming-languages-set-one
 ms.openlocfilehash: 58f164f1522975faa2e7a7e7d7ed08145a6c5889
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77524651"
 ---
 # <a name="quickstart-change-model-with-rest-apis"></a>빠른 시작: REST API를 사용하여 모델 변경

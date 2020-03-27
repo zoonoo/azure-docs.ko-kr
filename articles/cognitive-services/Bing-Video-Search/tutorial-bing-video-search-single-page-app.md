@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 02/03/2020
 ms.author: aahi
 ms.openlocfilehash: fb989825ed27cc83c14c36e6394e37ae2db2c12a
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76988263"
 ---
 # <a name="tutorial-single-page-video-search-app"></a>자습서: 단일 페이지 Video Search 앱
@@ -51,7 +51,7 @@ Bing Video Search API를 사용하여 웹을 검색하고 검색 쿼리와 관�
 > * CSS - 페이지의 모양을 정의합니다.
 > * JavaScript - 페이지의 동작을 정의합니다.
 
-대부분의 HTML 및 CSS는 기존 방식이므로 이 자습서에서 다루지 않습니다. HTML에는 사용자가 쿼리를 입력하고 검색 옵션을 선택하는 검색 양식이 포함되어 있습니다. 이 양식은 `<form>` 태그의 `onsubmit` 특성을 사용하여 검색을 수행하는 JavaScript에 연결됩니다.
+대부분의 HTML 및 CSS는 기존 방식이므로 이 자습서에서 다루지 않습니다. HTML에는 사용자가 쿼리를 입력하고 검색 옵션을 선택하는 검색 양식이 포함되어 있습니다. 이 양식은 `onsubmit` 태그의 `<form>` 특성을 사용하여 검색을 수행하는 JavaScript에 연결됩니다.
 
 ```html
 <form name="bing" onsubmit="return bingWebSearch(this)">
@@ -64,7 +64,7 @@ Bing Video Search API를 사용하여 웹을 검색하고 검색 쿼리와 관�
 
 Bing Search API 구독 키를 코드에 포함할 필요가 없도록, 여기서는 브라우저의 영구적 스토리지를 사용하여 키를 저장합니다. 키가 저장되기 전에 사용자에게 키를 확인하는 메시지가 표시됩니다. 키가 나중에 API에서 거부될 경우 저장된 키를 무효화하므로 사용자에게 다시 메시지가 표시됩니다.
 
-`localStorage` 개체(일부 브라우저에서만 지원) 또는 쿠키를 사용하는 `storeValue` 및 `retrieveValue` 함수를 정의합니다. `getSubscriptionKey()` 함수는 이러한 함수를 사용하여 사용자 키를 저장하고 검색합니다.
+`storeValue` 개체(일부 브라우저에서만 지원) 또는 쿠키를 사용하는 `retrieveValue` 및 `localStorage` 함수를 정의합니다. `getSubscriptionKey()` 함수는 이러한 함수를 사용하여 사용자 키를 저장하고 검색합니다.
 
 ``` javascript
 // Cookie names for data we store

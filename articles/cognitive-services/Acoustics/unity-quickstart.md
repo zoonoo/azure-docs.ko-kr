@@ -12,10 +12,10 @@ ms.date: 03/20/2019
 ms.author: noelc
 ROBOTS: NOINDEX
 ms.openlocfilehash: fabdd221ef99414eae0156babbd76dedb1f0745d
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "72243013"
 ---
 # <a name="project-acoustics-unity-quickstart"></a>Project Acoustics Unity 빠른 시작
@@ -67,7 +67,7 @@ Unity의 **Window**(창) 메뉴에서 **Acoustics**(음향 효과)를 선택합�
 ![음향 효과 창이 열려 있는 Unity 편집기](media/unity-editor-plugin-window.png)  
 
 ## <a name="experiment-with-the-design-controls"></a>디자인 컨트롤로 실험
-*ProjectAcousticsSample* 폴더에서 샘플 장면을 열고 Unity 편집기에서 재생 단추를 선택합니다. W, A, S, D 키와 마우스를 사용하여 이동합니다. 장면에 음향이 어떻게 포함 또는 포함되지 않는지 비교하려면 R 키를 선택하고 오버레이 텍스트가 빨간색으로 변하고 "음향: 사용 안 함"이라고 표시되면 키에서 손을 뗍니다. 더 많은 컨트롤에 대한 키보드 바로 바기를 보려면 F1 키를 선택합니다. 또한 마우스 오른쪽 단추를 클릭하여 작업을 선택한 다음, 마우스 왼쪽 단추를 클릭하여 해당 작업을 수행할 수도 있습니다.
+*ProjectAcousticsSample* 폴더에서 샘플 장면을 열고 Unity 편집기에서 재생 단추를 선택합니다. W, A, S, D 키와 마우스를 사용하여 이동합니다. 장면에 음향이 어떻게 포함 또는 포함되지 않는지 비교하려면 R 키를 선택하고 오버레이 텍스트가 빨간색으로 변하고 "음향: 사용 안 함"이라고 말합니다. 더 많은 컨트롤에 대한 키보드 바로 바기를 보려면 F1 키를 선택합니다. 또한 마우스 오른쪽 단추를 클릭하여 작업을 선택한 다음, 마우스 왼쪽 단추를 클릭하여 해당 작업을 수행할 수도 있습니다.
 
 *AcousticsAdjust* 스크립트는 샘플 장면의 사운드 소스에 연결됩니다. 이를 통해 원본별 디자인 매개 변수를 사용할 수 있습니다.
 
@@ -83,12 +83,12 @@ Unity의 **Window**(창) 메뉴에서 **Acoustics**(음향 효과)를 선택합�
 Project Acoustics는 플레이어 위치에 따라 중앙에 배치되는 “시뮬레이션 지역” 상자에서 계산을 수행합니다. 샘플 패키지의 음향 자산은 플레이어 주변에 있는 45m의 시뮬레이션 영역 크기에서 베이킹한 것입니다. 따라서 소리 감쇠는 약 45m에서 0으로 떨어지도록 설계되어야 합니다.
 
 ### <a name="modify-occlusion-and-transmission"></a>폐색 및 전송 수정
-* **폐색** 승수가 1보다 큰 경우(기본값이 1) 폐색이 과장됩니다. 폐색 효과를 더 감지하기 힘들게 하려면 1보다 작게 설정합니다.
+* **Occlusion**(폐색) 승수가 1보다 큰 경우(기본값이 1) 폐색이 과장됩니다. 폐색 효과를 더 감지하기 힘들게 하려면 1보다 작게 설정합니다.
 
 * 벽을 통한 전송을 사용하도록 설정하려면 **전송(dB)** 슬라이더를 최하위 수준의 반대쪽으로 이동시킵니다.
 
 ### <a name="modify-wetness-for-a-source"></a>원본의 습성 수정
-* 습성이 거리에 따라 변화하는 정도를 변경하려면 **지각 거리 변형**을 사용합니다. Project Acoustics는 시뮬레이션을 통해 지각 거리 단서를 제공하고 거리에 따라 매끄럽게 변화하는 습성 수준을 계산합니다. 거리 관련 습성 수준을 높여서 거리 변형을 높이면 이 효과가 과장됩니다. 변형 값이 1보다 작으면 거리 관련 반향 변화를 감지하기 어려워집니다.
+* 습한 정도가 거리에 따라 변화하는 정도를 변경하려면 **Perceptual Distance Warp**(지각 거리 왜곡)을 사용합니다. Project Acoustics는 시뮬레이션을 통해 지각 거리 단서를 제공하고 거리에 따라 매끄럽게 변화하는 습성 수준을 계산합니다. 거리 관련 습성 수준을 높여서 거리 변형을 높이면 이 효과가 과장됩니다. 왜곡 값이 1 미만이면 거리 기반 반향 변화가 더 미묘해집니다.
 
    이러한 효과를 보다 세밀하게 조정하려면 **Wetness(dB)** (습도(dB)) 설정을 변경합니다.
 

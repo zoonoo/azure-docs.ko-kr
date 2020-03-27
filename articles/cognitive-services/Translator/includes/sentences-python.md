@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
 ms.openlocfilehash: 9c7385d3457f3f5dbed2633c20445bb9ef0b1638
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "69906831"
 ---
 [!INCLUDE [Prerequisites](prerequisites-python.md)]
@@ -49,10 +49,10 @@ endpoint = os.environ[endpoint_var_name]
 
 Translator Text 글로벌 엔드포인트가 `endpoint`로 설정되어 있습니다. `path`는 `breaksentence` 루트를 설정하며 API의 버전 3을 실행하기 원한다는 것을 식별합니다.
 
-이 샘플의 `params`는 제공된 텍스트의 언어를 설정하는 데 사용됩니다. `breaksentence` 경로에는 `params`가 필요하지 않습니다. API는 요청에서 제외될 경우 제공된 텍스트의 언어를 감지하려고 하고, 응답에 신뢰도 점수와 이 정보를 제공합니다.
+이 샘플의 `params`는 제공된 텍스트의 언어를 설정하는 데 사용됩니다. `params` 경로에는 `breaksentence`가 필요하지 않습니다. API는 요청에서 제외될 경우 제공된 텍스트의 언어를 감지하려고 하고, 응답에 신뢰도 점수와 이 정보를 제공합니다.
 
 >[!NOTE]
-> 엔드포인트, 루트 및 요청 매개 변수에 대한 자세한 내용은 [Translator Text API 3.0: 언어](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence)를 참조하세요.
+> 엔드포인트, 루트 및 요청 매개 변수에 대한 자세한 내용은 [Translator Text API 3.0: Languages](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence)를 참조하세요.
 
 ```python
 path = '/breaksentence?api-version=3.0'

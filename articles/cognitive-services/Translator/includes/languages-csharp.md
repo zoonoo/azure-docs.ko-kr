@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
 ms.openlocfilehash: a7715577936b0e95392f2d561e4b492b20c9dbf5
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "69906901"
 ---
 [!INCLUDE [Prerequisites](prerequisites-csharp.md)]
@@ -132,7 +132,7 @@ static string PrettyPrint(string s)
 
 ## <a name="put-it-all-together"></a>모든 요소 결합
 
-마지막 단계는 `Main` 함수에서 `GetLanguages()`를 호출하는 것입니다. `static void Main(string[] args)`을 찾고 이러한 줄을 추가하세요.
+마지막 단계는 `GetLanguages()` 함수에서 `Main`를 호출하는 것입니다. `static void Main(string[] args)`을 찾고 이러한 줄을 추가하세요.
 
 ```csharp
 GetLanguages();

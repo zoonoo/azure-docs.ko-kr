@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
 ms.openlocfilehash: 64a934196bb964561f36b9d95a2467b149847225
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "69906672"
 ---
 [!INCLUDE [Prerequisites](prerequisites-csharp.md)]
@@ -212,7 +212,7 @@ Cognitive Services 다중 서비스 구독을 사용하는 경우 요청 매개 
 
 ## <a name="put-it-all-together"></a>모든 요소 결합
 
-마지막 단계는 `Main` 함수에서 `TranslateTextRequest()`를 호출하는 것입니다. 이 샘플에서는 독일어(`de`), 이탈리아어(`it`), 일본어(`ja`) 및 태국어(`th`)로 번역합니다. `static void Main(string[] args)`를 찾아 다음 코드로 바꿉니다.
+마지막 단계는 `TranslateTextRequest()` 함수에서 `Main`를 호출하는 것입니다. 이 샘플에서는 독일어(`de`), 이탈리아어(`it`), 일본어(`ja`) 및 태국어(`th`)로 번역합니다. `static void Main(string[] args)`를 찾아 다음 코드로 바꿉니다.
 
 ```csharp
 static async Task Main(string[] args)

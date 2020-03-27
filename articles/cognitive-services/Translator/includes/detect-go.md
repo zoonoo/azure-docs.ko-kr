@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
 ms.openlocfilehash: d75c925ef55163ce06b2ceff585e230d95b38c77
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "71837559"
 ---
 [!INCLUDE [Prerequisites](prerequisites-go.md)]
@@ -90,7 +90,7 @@ u.RawQuery = q.Encode()
 ```
 
 >[!NOTE]
-> 엔드포인트, 루트 및 요청 매개 변수에 대한 자세한 내용은 [Translator Text API 3.0: 검색](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect)을 참조하세요.
+> 엔드포인트, 루트 및 요청 매개 변수에 대한 자세한 내용은 [Translator Text API 3.0: Detect](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect)를 참조하세요.
 
 ## <a name="create-a-struct-for-your-request-body"></a>요청 본문의 구조체 만들기
 

@@ -6,13 +6,13 @@ ms.topic: include
 ms.date: 06/12/2019
 ms.author: pafarley
 ms.openlocfilehash: f0761847c3677b324ef16c5987eb9a1561dbcbe0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75379297"
 ---
-`"pageResults"` 노드 아래의 각 키/값 결과에 대한 `"confidence"` 값을 검사합니다. 텍스트 읽기 작업에 해당하는 `"readResults"` 노드의 신뢰도 점수도 확인해야 합니다. 읽기 결과의 신뢰도는 키/값 추출 결과의 신뢰도에 영향을 주지 않으므로 둘 다 확인해야 합니다.
+`"confidence"` 노드 아래의 각 키/값 결과에 대한 `"pageResults"` 값을 검사합니다. 텍스트 읽기 작업에 해당하는 `"readResults"` 노드의 신뢰도 점수도 확인해야 합니다. 읽기 결과의 신뢰도는 키/값 추출 결과의 신뢰도에 영향을 주지 않으므로 둘 다 확인해야 합니다.
 * 읽기 작업에 대한 신뢰도 점수가 낮으면 입력 문서의 품질을 개선합니다([입력 요구 사항](../overview.md#input-requirements) 참조).
 * 키/값 추출 작업의 신뢰도 점수가 낮으면 분석 중인 문서가 학습 집합에 사용된 문서와 동일한 유형인지 확인합니다. 학습 집합의 문서 모양이 변형된 경우 각 변형에 대해 하나의 모델을 학습하고 다른 폴더로 분할하는 것이 좋습니다.
 

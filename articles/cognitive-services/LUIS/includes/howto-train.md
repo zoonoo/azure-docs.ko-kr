@@ -11,10 +11,10 @@ ms.subservice: language-understanding
 ms.topic: include
 ms.author: diberry
 ms.openlocfilehash: 636669ee4284d218d5ac2c6e2e7cdb37b00b3a5b
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77279560"
 ---
 1. LUIS 웹 사이트의 오른쪽 위에서 **학습** 단추를 선택합니다.
