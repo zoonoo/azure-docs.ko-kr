@@ -11,10 +11,10 @@ ms.custom: include file
 ms.date: 02/08/2020
 ms.author: diberry
 ms.openlocfilehash: 46947579ea72e2199af116442472eec330b38009
-ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/10/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77112264"
 ---
 이 Postman 기반 빠른 시작에서는 기술 자료에서 답변을 가져오는 과정을 안내합니다.
@@ -51,7 +51,7 @@ ms.locfileid: "77112264"
 
 이전 빠른 시작에서는 두 개의 서로 다른 질문을 구분하기 위해 두 개의 QnA 세트에 메타데이터가 추가되었습니다. 쿼리에 메타데이터를 추가하여 필터를 관련 QnA 세트로만 제한합니다.
 
-1. Postman에서 `service:qna_maker`의 이름/값 쌍을 사용한 `strictFilters` 속성을 추가하여 쿼리 JSON만 변경합니다. 본문 JSON은 다음과 같아야 합니다.
+1. Postman에서 `strictFilters`의 이름/값 쌍을 사용한 `service:qna_maker` 속성을 추가하여 쿼리 JSON만 변경합니다. 본문 JSON은 다음과 같아야 합니다.
 
     ```json
     {

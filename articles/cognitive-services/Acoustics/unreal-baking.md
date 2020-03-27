@@ -12,10 +12,10 @@ ms.date: 03/20/2019
 ms.author: noelc
 ROBOTS: NOINDEX
 ms.openlocfilehash: 7a868a5f9b06499e23710399733b0659d97f900d
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "68854898"
 ---
 # <a name="project-acoustics-unreal-bake-tutorial"></a>Project Acoustics Unreal 베이킹 자습서
@@ -196,7 +196,7 @@ Azure Batch 서비스를 사용하여 클라우드에서 컴퓨팅 클러스터�
 
 Azure 자격 증명은 로컬 머신에 안전하게 저장되고 Unreal 편집기에 연결됩니다. 이러한 자격 증명은 Azure에 대한 보안 연결을 설정하는 데만 사용됩니다.
 
-### <a name="Estimating-bake-cost"></a> Azure 준비 비용 예측
+### <a name="estimating-azure-bake-cost"></a><a name="Estimating-bake-cost"></a> Azure 준비 비용 예측
 
 지정된 준비에 부과될 요금을 예측하려면 기간에 해당하는 **Estimated Compute Cost**(예상 컴퓨팅 비용) 값에 선택한 **VM 노드 유형**의 로컬 통화로 나타낸 시간당 비용을 곱합니다. 결과에는 노드를 계속 작동하는 데 필요한 노드 시간은 포함되지 않습니다. 예를 들어, 노드 유형으로 **Standard_F8s_v2**을 선택했으며(시간당 요금 $0.40), 예상 컴퓨팅 비용이 3시간 57분이면 예상되는 작업 실행 비용은 $0.40 * ~4시간 = ~$1.60가 됩니다. 실제 비용은 노드를 시작하기 위한 추가 시간 때문에 약간 더 높을 것입니다. [Azure Batch 가격 책정](https://azure.microsoft.com/pricing/details/virtual-machines/linux) 페이지에서 시간별 노드 비용을 찾을 수 있습니다(범주로 "컴퓨팅 최적화" 또는 "고성능 컴퓨팅" 선택).
 
@@ -204,7 +204,7 @@ Azure 자격 증명은 로컬 머신에 안전하게 저장되고 Unreal 편집�
 
 준비가 완료되면 런타임 플러그 인을 실행하여 복셀 및 프로브 점이 예상 위치에 있는지 확인합니다.
 
-## <a name="Data-Files"></a>데이터 파일
+## <a name="data-files"></a><a name="Data-Files"></a>데이터 파일
 
 이 플러그 인에서 생성된 4개의 데이터 파일은 다양한 지점에 있습니다. 그 중 하나만 런타임 시 필요하고, 프로젝트의 Content/Acoustics 폴더에 위치하여 프로젝트의 패키징 경로에 자동으로 추가됩니다. 다른 3개는 Acoustics Data 폴더 내에 있으며 패키지되지 않습니다.
 

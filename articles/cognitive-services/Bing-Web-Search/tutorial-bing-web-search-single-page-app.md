@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.openlocfilehash: f692367ad431dc8f1623e1b3d5109c313e351934
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78943886"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-web-search-api"></a>자습서: Bing Web Search API를 사용하여 단일 페이지 앱 만들기
@@ -66,7 +66,7 @@ npm install
 
 ## <a name="html-form"></a>HTML 양식
 
-`index.html`에는 사용자가 검색 옵션을 검색 및 선택할 수 있는 양식이 포함됩니다. `onsubmit` 특성은 양식이 제출될 때 실행되어 `scripts.js`에 정의된 `bingWebSearch()` 메서드를 호출합니다. 3가지 인수를 사용합니다.
+`index.html`에는 사용자가 검색 옵션을 검색 및 선택할 수 있는 양식이 포함됩니다. `onsubmit` 특성은 양식이 제출될 때 실행되어 `bingWebSearch()`에 정의된 `scripts.js` 메서드를 호출합니다. 3가지 인수를 사용합니다.
 
 * 검색 쿼리
 * 선택된 옵션
@@ -127,9 +127,9 @@ function bingSearchOptions(form) {
 }
 ```
 
-`moderate`를 Bing Web Search의 기본 설정으로 사용하여 `SafeSearch`를 `strict`, `moderate` 또는 `off`로 설정할 수 있습니다. 이 양식은 `strict` 또는 `moderate`의 두 개의 상태가 있는 확인란을 사용합니다.
+`SafeSearch`를 Bing Web Search의 기본 설정으로 사용하여 `strict`를 `moderate`, `off` 또는 `moderate`로 설정할 수 있습니다. 이 양식은 `strict` 또는 `moderate`의 두 개의 상태가 있는 확인란을 사용합니다.
 
-**수준 올리기** 확인란을 선택하면 `answerCount` 매개 변수가 쿼리에 추가됩니다. `promote` 매개 변수를 사용할 때 `answerCount`가 필요합니다. 이 코드 조각에서 값은 모든 사용 가능한 결과 형식을 반환하도록 `9`로 설정됩니다.
+**수준 올리기** 확인란을 선택하면 `answerCount` 매개 변수가 쿼리에 추가됩니다. `answerCount` 매개 변수를 사용할 때 `promote`가 필요합니다. 이 코드 조각에서 값은 모든 사용 가능한 결과 형식을 반환하도록 `9`로 설정됩니다.
 > [!NOTE]
 > 결과 형식의 수준을 올려도 검색 결과에 포함되도록 *보장*되지 않습니다. 대신 프로모션은 일반적인 해당 순위를 기준으로 이러한 종류의 결과 순위를 높입니다. 특정 종류의 결과에 대한 검색을 제한하려면 `responseFilter` 쿼리 매개 변수를 사용하거나 Bing Image Search 또는 Bing News Search와 같은 구체적인 엔드포인트를 호출합니다.
 
@@ -301,7 +301,7 @@ Bing Web Search API에서 반환된 결과에 대한 [사용 및 표시 요구 �
 > [!NOTE]
 > 단일 결과 형식만 필요한 경우 `responseFilter` 쿼리 매개 변수를 사용하거나 Bing Image Search와 같은 다른 Bing Search 엔드포인트 중 하나를 사용하는 것이 좋습니다.
 
-각 응답에는 최대 3개의 컬렉션인 `pole`, `mainline` 및 `sidebar`가 포함될 수 있는 `RankingResponse` 개체가 있습니다. `pole`(있는 경우)은 관련성이 가장 높은 검색 결과이므로 잘 보이게 표시되어야 합니다. `mainline`은 대부분의 검색 결과를 포함하고 `pole` 바로 뒤에 표시됩니다. `sidebar`에는 보조 검색 결과가 포함됩니다. 가능하면 이러한 결과는 사이드바에 표시되어야 합니다. 화면 제한으로 인해 사이드바가 실용적이지 않은 경우 이러한 결과는 `mainline` 결과 뒤에 표시되어야 합니다.
+각 응답에는 최대 3개의 컬렉션인 `RankingResponse`, `pole` 및 `mainline`가 포함될 수 있는 `sidebar` 개체가 있습니다. `pole`(있는 경우)은 관련성이 가장 높은 검색 결과이므로 잘 보이게 표시되어야 합니다. `mainline`은 대부분의 검색 결과를 포함하고 `pole` 바로 뒤에 표시됩니다. `sidebar`에는 보조 검색 결과가 포함됩니다. 가능하면 이러한 결과는 사이드바에 표시되어야 합니다. 화면 제한으로 인해 사이드바가 실용적이지 않은 경우 이러한 결과는 `mainline` 결과 뒤에 표시되어야 합니다.
 
 각 `RankingResponse`에는 결과 정렬 방법을 지정하는 `RankingItem` 배열이 포함됩니다. 샘플 앱은 `answerType` 및 `resultIndex` 매개 변수를 사용하여 결과를 식별합니다.
 
@@ -331,7 +331,7 @@ function renderSearchResults(results) {
 }
 ```
 
-`renderResultsItems()` 함수는 각 `RankingResponse` 컬렉션의 항목을 반복하고, `answerType` 및 `resultIndex` 값을 사용하여 검색 결과에 각 순위 결과를 매핑하고, 해당하는 렌더링 함수를 호출하여 HTML을 생성합니다. `resultIndex`가 항목에 지정되지 않으면 `renderResultsItems()`는 해당 형식의 모든 결과를 반복하고 각 항목에 대한 렌더링 함수를 호출합니다. 결과 HTML이 페이지의 `index.html`의 해당하는 `<div>` 요소에 삽입됩니다.
+`renderResultsItems()` 함수는 각 `RankingResponse` 컬렉션의 항목을 반복하고, `answerType` 및 `resultIndex` 값을 사용하여 검색 결과에 각 순위 결과를 매핑하고, 해당하는 렌더링 함수를 호출하여 HTML을 생성합니다. `resultIndex`가 항목에 지정되지 않으면 `renderResultsItems()`는 해당 형식의 모든 결과를 반복하고 각 항목에 대한 렌더링 함수를 호출합니다. 결과 HTML이 페이지의 `<div>`의 해당하는 `index.html` 요소에 삽입됩니다.
 
 ```javascript
 // Render search results from the RankingResponse object per rank response and

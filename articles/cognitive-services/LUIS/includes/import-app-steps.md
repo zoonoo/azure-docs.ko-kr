@@ -8,10 +8,10 @@ ms.topic: include
 ms.date: 12/03/2019
 ms.author: diberry
 ms.openlocfilehash: b0d1735df7a3ac36e20af771939aec6b8013f2df
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74840819"
 ---
 1. [미리 보기 LUIS 포털](https://preview.luis.ai)의 **내 앱** 페이지에서 **가져오기**를 선택한 다음, **JSON으로 가져오기**를 선택합니다. 이전 단계에서 저장한 JSON 파일을 찾습니다. 앱 이름은 변경할 필요가 없습니다. **완료**를 선택합니다.

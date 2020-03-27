@@ -11,20 +11,20 @@ ms.topic: tutorial
 ms.date: 12/05/2019
 ms.author: areddish
 ms.openlocfilehash: d7e3eeeea6bb25b4cddaea1d04e86f23ab7e4f5f
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74969842"
 ---
-# <a name="tutorial-run-tensorflow-model-in-python"></a>자습서: Python에서 TensorFlow 모델 실행
+# <a name="tutorial-run-tensorflow-model-in-python"></a>자습서: Python으로 TensorFlow 모델 실행
 
 Custom Vision Service에서 [TensorFlow 모델을 내보낸](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model) 후에 이 빠른 시작을 참조하여 이 모델을 로컬로 사용하여 이미지를 분류하는 방법을 알아봅니다.
 
 > [!NOTE]
 > 이 자습서는 이미지 분류 프로젝트에서 내보낸 모델에만 적용됩니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 사용하려면 다음을 수행해야 합니다.
 

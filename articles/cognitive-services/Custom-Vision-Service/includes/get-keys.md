@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: pafarley
 ms.openlocfilehash: fa13d9bdf73b87597d4eb01830ec2c76538521fe
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73799977"
 ---
 ## <a name="get-the-training-and-prediction-keys"></a>학습 및 예측 키 가져오기

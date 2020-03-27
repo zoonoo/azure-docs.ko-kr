@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 12/05/2019
 ms.author: pafarley
 ms.openlocfilehash: 9f3802ada79ee87d1a04634f7caac3b1b4286dce
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74978035"
 ---
 # <a name="tutorial-use-custom-vision-with-an-iot-device-to-report-visual-states"></a>자습서: IoT 디바이스에서 Custom Vision을 사용하여 시각적 상태 보고
@@ -33,7 +33,7 @@ ms.locfileid: "74978035"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [!INCLUDE [create-resources](includes/create-resources.md)]
     > [!IMPORTANT]
@@ -56,7 +56,7 @@ IoT 시각적 경고 앱은 연속 루프에서 실행되며, 다음과 같은 �
 
 다음 파일은 앱의 주요 기능을 처리합니다.
 
-| 파일 | 설명 |
+| 파일 | Description |
 |-------------|-------------|
 | [MainPage.xaml](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/blob/master/IoTVisualAlerts/MainPage.xaml) | 이 파일은 XAML 사용자 인터페이스를 정의합니다. 웹 카메라 컨트롤을 호스트하고 상태 업데이트에 사용되는 레이블을 포함합니다.|
 | [MainPage.xaml.cs](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/blob/master/IoTVisualAlerts/MainPage.xaml.cs) | 이 코드는 XAML UI의 동작을 제어합니다. 상태 시스템 처리 코드를 포함합니다.|

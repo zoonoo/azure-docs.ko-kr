@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: anroth
 ms.openlocfilehash: 158e4dcd07f6ba31ad0efdd88f030f8db99fcfdd
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76170025"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-net-sdk"></a>빠른 시작: Custom Vision .NET SDK를 사용하여 이미지 분류 프로젝트 만들기
@@ -35,13 +35,13 @@ Custom Vision을 사용하는 .NET 앱을 작성하려면 Custom Vision NuGet �
 
 [Cognitive Services .NET 샘플](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples) 프로젝트를 복제 또는 다운로드합니다. **CustomVision/ImageClassification** 폴더로 이동하여 Visual Studio에서 _ImageClassification.csproj_ 를 엽니다.
 
-이 Visual Studio 프로젝트는 [Custom Vision 웹 사이트](https://customvision.ai/)를 통해 액세스할 수 있는 __My New Project__ 라는 새로운 Custom Vision 프로젝트를 만듭니다. 그런 다음, 분류자를 학습하고 테스트하려면 이미지를 업로드합니다. 이 프로젝트의 분류자는 트리가 __솔송나무__ 인지 아니면 __벗나무__ 인지 확인하는 용도로 사용됩니다.
+이 Visual Studio 프로젝트는 __Custom Vision 웹 사이트__를 통해 액세스할 수 있는 [My New Project](https://customvision.ai/) 라는 새로운 Custom Vision 프로젝트를 만듭니다. 그런 다음, 분류자를 학습하고 테스트하려면 이미지를 업로드합니다. 이 프로젝트의 분류자는 트리가 __솔송나무__ 인지 아니면 __벗나무__ 인지 확인하는 용도로 사용됩니다.
 
 [!INCLUDE [get-keys](includes/get-keys.md)]
 
 ## <a name="understand-the-code"></a>코드 이해
 
-_Program.cs_ 파일을 열고 코드를 검사합니다. 각각 `CUSTOM_VISION_TRAINING_KEY` 및 `CUSTOM_VISION_PREDICTION_KEY`라고 명명된 학습 및 예측 키에 대한 [환경 변수를 만듭니다](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication). 스크립트는 이러한 변수를 찾습니다.
+_Program.cs_ 파일을 열고 코드를 검사합니다. 각각 [ 및 ](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication)라고 명명된 학습 및 예측 키에 대한 `CUSTOM_VISION_TRAINING_KEY`환경 변수를 만듭니다`CUSTOM_VISION_PREDICTION_KEY`. 스크립트는 이러한 변수를 찾습니다.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?name=snippet_keys)]
 
@@ -63,7 +63,7 @@ _Program.cs_ 파일을 열고 코드를 검사합니다. 각각 `CUSTOM_VISION_T
 
 ### <a name="upload-and-tag-images"></a>이미지 업로드 및 태그 지정
 
-이 프로젝트의 이미지가 포함되어 있습니다. 이 이미지는 _Program.cs_ 의 **LoadImagesFromDisk** 메서드에서 참조됩니다. 단일 일괄 처리에서 최대 64개의 이미지를 업로드할 수 있습니다.
+이 프로젝트의 이미지가 포함되어 있습니다. 이 이미지는 **Program.cs** 의 _LoadImagesFromDisk_ 메서드에서 참조됩니다. 단일 일괄 처리에서 최대 64개의 이미지를 업로드할 수 있습니다.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?name=snippet_upload)]
 

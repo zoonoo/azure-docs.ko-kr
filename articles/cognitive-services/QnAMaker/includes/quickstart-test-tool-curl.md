@@ -11,10 +11,10 @@ ms.custom: include file
 ms.date: 02/08/2020
 ms.author: diberry
 ms.openlocfilehash: f3a1a33b2fe859839deec587191b3b3a319c0cf8
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77495137"
 ---
 이 cURL 기반 빠른 시작에서는 기술 자료에서 답변을 가져오는 과정을 안내합니다.
@@ -413,7 +413,7 @@ JSON 응답은 게시된 기술 자료 쿼리와 동일한 스키마를 사용�
 
 대답에 대한 최소 임계값을 요청할 수 있습니다. 임계값이 충족되지 않으면 기본 대답이 반환됩니다.
 
-1. 임계값 80% 이상인 `size`에 대한 대답을 요청하려면 `threshold` 속성을 추가합니다. 질문의 점수가 71%이므로 기술 자료는 답변을 찾지 않습니다. 결과는 기술 자료를 만들 때 사용자가 제공한 기본 대답을 반환합니다.
+1. 임계값 80% 이상인 `threshold`에 대한 대답을 요청하려면 `size` 속성을 추가합니다. 질문의 점수가 71%이므로 기술 자료는 답변을 찾지 않습니다. 결과는 기술 자료를 만들 때 사용자가 제공한 기본 대답을 반환합니다.
 
     ```bash
     curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'question':'size', 'scoreThreshold':80.00}"

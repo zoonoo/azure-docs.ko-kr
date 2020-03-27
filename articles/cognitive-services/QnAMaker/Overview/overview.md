@@ -10,14 +10,16 @@ ms.subservice: qna-maker
 ms.topic: overview
 ms.date: 02/21/2020
 ms.author: diberry
-ms.openlocfilehash: 91a63e87e937eab4c02d2b86026aa09472cb15ef
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 2863a086343b0a5d3bc69ae319dbe93d557bcb4a
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77561099"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80052921"
 ---
 # <a name="what-is-the-qna-maker-service"></a>QnA Maker 서비스란?
+
+[!INCLUDE [TLS 1.2 enforcement](../../../../includes/cognitive-services-tls-announcement.md)]
 
 QnA Maker는 데이터를 통해 자연스러운 대화형 계층을 쉽게 만드는 클라우드 기반 NLP(자연어 처리) 서비스입니다. 사용자 지정 KB(기술 자료) 정보에서 지정된 자연어 입력에 가장 적합한 대답을 찾는 데 사용할 수 있습니다.
 

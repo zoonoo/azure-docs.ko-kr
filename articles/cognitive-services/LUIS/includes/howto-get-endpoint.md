@@ -11,10 +11,10 @@ ms.subservice: language-understanding
 ms.topic: include
 ms.author: diberry
 ms.openlocfilehash: 5b1b361778de145a5e32a07bb0164ff2293d9a1a
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77279678"
 ---
 **관리** 섹션(오른쪽 위 메뉴)의 **Azure Resources** 페이지(왼쪽 메뉴)에서 **예제 쿼리** URL을 복사한 다음, 새 브라우저 탭에 붙여넣습니다.

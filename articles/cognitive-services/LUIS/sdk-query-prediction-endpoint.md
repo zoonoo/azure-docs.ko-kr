@@ -12,10 +12,10 @@ ms.date: 01/17/2020
 ms.author: diberry
 zone_pivot_groups: programming-languages-set-diberry-3core
 ms.openlocfilehash: 42335c3d2ac5efb8ae1ede0a2076260ac9537eb5
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77524430"
 ---
 # <a name="quickstart-query-v3-prediction-endpoint-with-sdk"></a>빠른 시작: SDK를 사용하여 V3 예측 엔드포인트 쿼리

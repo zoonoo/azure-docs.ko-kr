@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: Azure REST API 및 Python으로 이미지에서 얼굴 감지'
+title: '빠른 시작: Azure REST API 및 Python을 사용하여 이미지에서 얼굴 검색'
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Python과 함께 Azure Face REST API를 사용하여 이미지에서 얼굴을 검색합니다.
 services: cognitive-services
@@ -11,13 +11,13 @@ ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
 ms.openlocfilehash: c4d136eaf0f6c4ac64093f417f144e422e2da52f
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74977916"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-python"></a>빠른 시작: Face REST API 및 Python을 사용하여 이미지에서 얼굴 감지
+# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-python"></a>빠른 시작: Face REST API 및 Python을 사용하여 이미지에서 얼굴 검색
 
 이 빠른 시작에서는 Python과 함께 Azure Face REST API를 사용하여 이미지에서 사람의 얼굴을 검색합니다. 이 스크립트는 얼굴 주위에 프레임을 그리고 이미지에 성별 및 연령 정보를 겹쳐서 표시합니다.
 
@@ -26,7 +26,7 @@ ms.locfileid: "74977916"
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Face API 구독 키. [Cognitive Services 사용해보기](https://azure.microsoft.com/try/cognitive-services/?api=face-api)에서 평가판 구독 키를 가져올 수 있습니다. 또는 [Cognitive Services 계정 만들기](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)의 지침에 따라 Face API 서비스를 구독하고 키를 가져옵니다.
 
@@ -41,13 +41,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 또는 다음 단계를 통해 명령줄에서 빠른 시작을 실행할 수 있습니다.
 
 1. 다음 코드를 텍스트 편집기에 복사합니다.
-1. 필요한 경우 코드에서 다음 내용을 변경합니다.
+1. 필요한 경우 코드에서 다음과 같이 변경합니다.
     1. `subscription_key`의 값을 구독 키로 바꿉니다.
     1. Face API 리소스의 엔드포인트 URL이 포함되도록 `face_api_url` 값을 편집합니다.
     1. 필요에 따라 `image_url` 값을 분석하려는 다른 이미지의 URL로 바꿉니다.
-1. 코드를 `.py` 확장명의 파일로 저장합니다. 예: `detect-face.py`
+1. 코드를 `.py` 확장명의 파일로 저장합니다. `detect-face.py`)을 입력합니다.
 1. 명령 프롬프트 창을 엽니다.
-1. 프롬프트에서 `python` 명령을 사용하여 샘플을 실행합니다. 예: `python detect-face.py`
+1. 프롬프트에서 `python` 명령을 사용하여 샘플을 실행합니다. `python detect-face.py`)을 입력합니다.
 
 ```python
 import requests

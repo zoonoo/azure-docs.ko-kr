@@ -12,10 +12,10 @@ ms.date: 03/20/2019
 ms.author: noelc
 ROBOTS: NOINDEX
 ms.openlocfilehash: 310decf8053ea16ba46250ba3aabe81c9c254e5e
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "72243117"
 ---
 # <a name="project-acoustics-unity-bake-tutorial"></a>Project Acoustics Unity 음향 효과 베이킹 자습서
@@ -201,7 +201,7 @@ Azure Batch 서비스를 사용하여 클라우드의 컴퓨팅 클러스터에�
    ![베이킹 작업 상태](media/azure-batch-task-state.png)  
 
 
-### <a name="Estimating-bake-cost"></a> Azure 베이킹 비용 예측
+### <a name="estimate-azure-bake-cost"></a><a name="Estimating-bake-cost"></a> Azure 베이킹 비용 예측
 
 베이킹 비용을 예측하려면 기간인 **예상 컴퓨팅 비용** 값으로 시작합니다. 이 값과 선택한 **VM 노드 유형**에 대한 현지 통화 단위의 시간당 비용을 곱합니다. 결과에는 노드를 시작하고 실행하는 데 필요한 노드 시간이 포함되지 않습니다.
 
@@ -209,7 +209,7 @@ Azure Batch 서비스를 사용하여 클라우드의 컴퓨팅 클러스터에�
 
 시간당 노드 비용은 [Azure Batch 가격](https://azure.microsoft.com/pricing/details/virtual-machines/linux)에서 확인합니다. (범주로 **컴퓨팅 최적화** 또는 **고성능 컴퓨팅**을 선택합니다.)
 
-## <a name="Local-bake"></a> PC에서 장면 베이킹
+## <a name="bake-your-scene-on-your-pc"></a><a name="Local-bake"></a> PC에서 장면 베이킹
 사용자의 PC에서 장면을 베이킹할 수도 있습니다. 이 방법은 Azure Batch 계정을 만들기 전에 작은 장면에 대한 음향 효과를 실험하는 데 유용할 수 있습니다. 그러나 로컬 음향 효과 시뮬레이션은 장면의 크기에 따라 오래 걸릴 수 있습니다.
 
 ### <a name="minimum-hardware-requirements"></a>최소 하드웨어 요구 사항
@@ -233,7 +233,7 @@ Azure Batch 서비스를 사용하여 클라우드의 컴퓨팅 클러스터에�
 2. 시뮬레이션을 시작하려면 Windows에서 *runlocalbake.bat* 스크립트를 실행하거나, MacOS에서 *runlocalbake.sh* 스크립트를 실행합니다. 이 스크립트는 시뮬레이션 처리에 필요한 도구 세트를 사용하여 Project Acoustics Docker 이미지를 가져와서 시뮬레이션을 시작합니다.
 3. 시뮬레이션이 완료되면 결과 *.ace* 파일을 Unity 프로젝트에 다시 복사합니다. Unity에서 이 파일을 이진 파일로 인식하도록 하려면 ".bytes"를 파일 확장명에 추가합니다(예: "Scene1.ace.bytes"). 시뮬레이션에 대한 자세한 로그는 *AcousticsLog.txt*에 저장됩니다. 문제가 발생하면 이를 진단하는 데 도움이 되도록 이 파일을 검사합니다.
 
-## <a name="Data-Files"></a> 베이킹 프로세스에서 추가된 데이터 파일
+## <a name="data-files-added-by-the-bake-process"></a><a name="Data-Files"></a> 베이킹 프로세스에서 추가된 데이터 파일
 
 베이킹 프로세스 중에 다음 4개의 데이터 파일이 만들어집니다. 하나에는 시뮬레이션 결과가 포함되며 제목과 함께 제공됩니다. 다른 나머지 파일에는 Unity 편집기 관련 데이터가 저장됩니다.
 

@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.openlocfilehash: 9227417d28eb09a322dd4757033ee62fee97d91c
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78943897"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-image-search-api"></a>자습서: Bing Image Search API를 사용하여 단일 페이지 앱 만들기
@@ -104,7 +104,7 @@ bingSearchOptions(this), getSubscriptionKey())">
 
 ## <a name="send-search-requests"></a>검색 요청 보내기
 
-이 애플리케이션은 `onsubmit` 특성을 사용하여 `newBingImageSearch()`를 호출하는 사용자 검색 요청을 처음에 보내는 데 HTML `<form>`을 사용합니다.
+이 애플리케이션은 `<form>` 특성을 사용하여 `onsubmit`를 호출하는 사용자 검색 요청을 처음에 보내는 데 HTML `newBingImageSearch()`을 사용합니다.
 
 ```html
 <form name="bing" onsubmit="return newBingImageSearch(this)">

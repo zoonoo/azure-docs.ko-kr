@@ -12,10 +12,10 @@ ms.date: 12/05/2019
 ms.author: pafarley
 ms.custom: seodec18, seo-javascript-september2018, seo-javascript-october2019
 ms.openlocfilehash: 98fb7eab52c710d9008aafefc50c2d00979d3350
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74973835"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-computer-vision-rest-api-with-nodejs"></a>빠른 시작: Node.js와 함께 Computer Vision REST API를 사용하여 원격 이미지 분석
@@ -24,7 +24,7 @@ ms.locfileid: "74973835"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - [Node.js](https://nodejs.org) 4.x 이상이 설치되어 있어야 합니다.
 - [npm](https://www.npmjs.com/)이 설치되어 있어야 합니다.
@@ -47,9 +47,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 1. 다음 코드를 텍스트 편집기에 복사합니다.
 1. 필요에 따라 `imageUrl` 값을 분석하려는 다른 이미지의 URL로 바꿉니다.
 1. 필요한 경우 `language` 요청 매개 변수의 값을 다른 언어로 바꿉니다.
-1. 코드를 `.js` 확장명의 파일로 저장합니다. 예: `analyze-image.js`
+1. 코드를 `.js` 확장명의 파일로 저장합니다. `analyze-image.js`)을 입력합니다.
 1. 명령 프롬프트 창을 엽니다.
-1. 프롬프트에서 `node` 명령을 사용하여 파일을 실행합니다. 예: `node analyze-image.js`
+1. 프롬프트에서 `node` 명령을 사용하여 파일을 실행합니다. `node analyze-image.js`)을 입력합니다.
 
 ```javascript
 'use strict';

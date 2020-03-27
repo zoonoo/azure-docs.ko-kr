@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.date: 12/20/2019
 ms.author: aahi
 ms.openlocfilehash: 6bcd89422188d8c0064547c37b4d425f47dd6496
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75462324"
 ---
 # <a name="quickstart-bing-autosuggest-client-library-for-net"></a>빠른 시작: .NET용 Bing Autosuggest 클라이언트 라이브러리
@@ -48,7 +48,7 @@ ms.locfileid: "75462324"
 
 운영 체제에 대한 지침을 사용합니다.
 <!-- replace the below endpoint and key examples -->
-#### <a name="windowstabwindows"></a>[Windows](#tab/windows)
+#### <a name="windows"></a>[Windows](#tab/windows)
 
 ```console
 setx AUTOSUGGEST_SUBSCRIPTION_KEY <replace-with-your-autosuggest-api-key>
@@ -57,7 +57,7 @@ setx AUTOSUGGEST_ENDPOINT <replace-with-your-autosuggest-api-endpoint>
 
 환경 변수를 추가한 후 콘솔 창을 다시 시작합니다.
 
-#### <a name="linuxtablinux"></a>[Linux](#tab/linux)
+#### <a name="linux"></a>[Linux](#tab/linux)
 
 ```bash
 export AUTOSUGGEST_SUBSCRIPTION_KEY=<replace-with-your-autosuggest-api-key>
@@ -66,7 +66,7 @@ export AUTOSUGGEST_ENDPOINT=<replace-with-your-autosuggest-api-endpoint>
 
 환경 변수를 추가한 후에는 콘솔 창에서 `source ~/.bashrc` 명령을 실행하여 변경 내용을 적용합니다.
 
-#### <a name="macostabunix"></a>[macOS](#tab/unix)
+#### <a name="macos"></a>[macOS](#tab/unix)
 
 `.bash_profile`을 편집하고, 환경 변수를 추가합니다.
 

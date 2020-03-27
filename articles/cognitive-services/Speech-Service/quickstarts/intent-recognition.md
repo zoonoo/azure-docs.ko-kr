@@ -12,10 +12,10 @@ ms.date: 01/27/2020
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
 ms.openlocfilehash: aed998c5980b390d0c1cdafe6ac9ea9d28bc51f6
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76900301"
 ---
 # <a name="quickstart-recognize-speech-intents-and-entities-with-language-understanding-luis"></a>빠른 시작: LUIS(Language Understanding)를 사용하여 음성, 의도 및 엔터티 인식

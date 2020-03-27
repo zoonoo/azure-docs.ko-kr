@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.date: 02/03/2020
 zone_pivot_groups: programming-languages-set-one
 ms.openlocfilehash: 4e2c32b2eaf8cd6935e8e6b45bf79a1f3c756316
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77524668"
 ---
 # <a name="quickstart-get-intent-with-rest-apis"></a>빠른 시작: REST API로 의도 가져오기

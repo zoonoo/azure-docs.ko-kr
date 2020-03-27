@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 12/05/2019
 ms.author: pafarley
 ms.openlocfilehash: 2fbd4270221cb23a4f99a0f8155bb1de76472f31
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74976981"
 ---
 # <a name="tutorial-video-and-transcript-moderation"></a>자습서: 비디오 및 대본 조정
@@ -32,7 +32,7 @@ ms.locfileid: "74976981"
 > - 텍스트 조정 서비스를 사용하여 대본 조정
 > - 비디오 검토에 조정된 대본 추가
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - [Content Moderator 검토 도구](https://contentmoderator.cognitive.microsoft.com/) 웹 사이트에 가입하고 사용자 지정 태그를 만듭니다. 이 단계에 대한 도움말이 필요하면 [태그 사용](Review-Tool-User-Guide/tags.md)을 참조하세요.
 
@@ -44,7 +44,7 @@ ms.locfileid: "74976981"
 
 `App.config` 파일을 편집하고 Active Directory 테넌트 이름, 서비스 엔드포인트 및 `#####`에서 표시한 구독 키를 추가합니다. 다음 정보가 필요합니다.
 
-|키|설명|
+|키|Description|
 |-|-|
 |`AzureMediaServiceRestApiEndpoint`|AMS(Azure Media Services) API에 대한 엔드포인트|
 |`ClientSecret`|Azure Media Services에 대한 구독 키|
@@ -60,7 +60,7 @@ ms.locfileid: "74976981"
 
 ### <a name="methods-of-program-class"></a>Program 클래스 메서드
 
-|방법|설명|
+|방법|Description|
 |-|-|
 |`Main`|명령줄을 구문 분석하고 사용자 입력을 수집하고 처리를 시작합니다.|
 |`ProcessVideo`|비디오 검토를 압축하고 업로드하고 조정하고 생성합니다.|
@@ -88,7 +88,7 @@ ms.locfileid: "74976981"
 
 대화형 사용자 입력 또는 명령줄에서 프로그램 옵션이 제공되는지 여부에 관계 없이 `Main()`은 `Initialize()`를 호출하여 다음 인스턴스를 만듭니다.
 
-|클래스|설명|
+|클래스|Description|
 |-|-|
 |`AMSComponent`|조정을 위해 제출하기 전에 비디오 파일을 압축합니다.|
 |`AMSconfigurations`|`App.config`에 있는 애플리케이션의 구성 데이터에 대한 인터페이스입니다.|
@@ -121,7 +121,7 @@ ms.locfileid: "74976981"
 
 [!code-csharp[CompressVideo](~/VideoReviewConsoleApp/Microsoft.ContentModerator.AMSComponent/AMSComponentClient/AMSComponent.cs?range=31-59)]
 
-코드는 다음 단계를 수행합니다.
+이 코드는 다음 단계를 수행합니다.
 
 - `App.config`의 구성이 필요한 모든 데이터를 포함하는지 확인
 - `ffmpeg` 이진이 존재하는지 확인

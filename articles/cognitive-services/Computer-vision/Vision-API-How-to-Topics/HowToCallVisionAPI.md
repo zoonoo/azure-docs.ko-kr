@@ -12,10 +12,10 @@ ms.date: 09/09/2019
 ms.author: kefre
 ms.custom: seodec18
 ms.openlocfilehash: 298228eedb73298f00654f4f72c201d9ed671090
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "72177057"
 ---
 # <a name="call-the-computer-vision-api"></a>Computer Vision API 호출
@@ -25,7 +25,7 @@ ms.locfileid: "72177057"
 - 태그, 설명 및 범주 가져오기
 - 도메인 관련 정보 또는 "유명인" 가져오기
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 로컬에 저장된 이미지의 이미지 URL 또는 경로.
 - 지원되는 입력 방법: application/octet-stream 또는 이미지 URL 형식의 원시 이미지 이진
@@ -177,7 +177,7 @@ POST https://westus.api.cognitive.microsoft.com/vision/v2.1/analyze?details=cele
 }
 ```
 
-필드 | Type | Content
+필드 | Type | 콘텐츠
 ------|------|------|
 태그들  | `object` | 태그 배열의 최상위 개체입니다.
 tags[].Name | `string`  | 태그 분류자의 키워드입니다.
@@ -239,7 +239,7 @@ description.captions[].confidence   | `number`  | 구의 신뢰도 점수입니�
 
 범주 필드는 원래 분류의 [86개 범주](../Category-Taxonomy.md) 중 하나 이상이 포함된 목록입니다. 밑줄로 끝나는 범주는 해당 범주 및 자식과 일치합니다(예: 유명인 모델의 경우 "people_" 또는 "people_group").
 
-필드   | Type  | Content
+필드   | Type  | 콘텐츠
 ------|------|------|
 범주 | `object`   | 최상위 개체입니다.
 categories[].name    | `string` | 86개 범주 분류 목록의 이름입니다.

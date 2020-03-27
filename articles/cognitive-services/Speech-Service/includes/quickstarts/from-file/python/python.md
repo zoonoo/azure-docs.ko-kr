@@ -2,14 +2,14 @@
 author: IEvangelist
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/10/2020
+ms.date: 03/20/2020
 ms.author: dapine
-ms.openlocfilehash: b3d7ea44acac99cc8077993f679bdcea2e5018fa
-ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
+ms.openlocfilehash: e01e6f0e38abe9bdd3afa83306b90725daf287ce
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79082477"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80117154"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -36,7 +36,7 @@ Speech SDK Python 패키지에 대한 업데이트는 PyPI를 통해 배포되�
 
 이 빠른 시작에서 원본 파일 `quickstart.py`로 [샘플 코드](#sample-code)를 복사하고 IDE 또는 콘솔에서 실행할 수 있습니다.
 
-```sh
+```Bash
 python quickstart.py
 ```
 
@@ -58,7 +58,7 @@ speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=service_r
 # Creates an audio configuration that points to an audio file.
 # Replace with your own audio filename.
 audio_filename = "whatstheweatherlike.wav"
-audio_input = speechsdk.AudioConfig(filename=audio_filename)
+audio_input = speechsdk.audio.AudioConfig(filename=audio_filename)
 
 # Creates a recognizer with the given settings
 speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config, audio_config=audio_input)

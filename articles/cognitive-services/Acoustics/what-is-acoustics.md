@@ -12,10 +12,10 @@ ms.date: 03/20/2019
 ms.author: noelc
 ROBOTS: NOINDEX
 ms.openlocfilehash: 65678f08399f378b8580eed79e49197dd4d84c64
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "71351140"
 ---
 # <a name="what-is-project-acoustics"></a>프로젝트 Acoustics란?
@@ -33,7 +33,7 @@ Project Acoustics의 주요 혁신은 실제 음파 기반 음향 시뮬레이�
 ## <a name="video-presentation-from-gdc-2019-30-min"></a>GDC 2019의 동영상 프레젠테이션(~30분)
 [![Project Acoustics 비디오](https://img.youtube.com/vi/uY4G-GUAQIE/0.jpg)](https://www.youtube.com/watch?v=uY4G-GUAQIE "비디오를 재생하려면 클릭")
 
-## <a name="setup"></a>설정
+## <a name="setup"></a>설치 프로그램
 [Project Acoustics Unity 통합](unity-integration.md)은 끌어서 놓기이며 Unity 오디오 엔진 플러그 인을 포함합니다. Project Acoustics C# 컨트롤 구성 요소를 각 오디오 개체에 연결하여 Unity 오디오 원본 제어를 강화합니다.
 
 [Project Acoustics Unreal 통합](unreal-integration.md)에는 Unreal용 편집기 및 게임 플러그 인과 Wwise 믹서 플러그 인이 포함되어 있습니다. 사용자 지정 오디오 구성 요소는 라이브 음향 디자인 컨트롤을 통해 Unreal 내에서 친숙한 Wwise 기능을 확장합니다. 또한 디자인 컨트롤은 Wwise의 믹서 플러그 인에서도 표시됩니다.

@@ -12,10 +12,10 @@ ms.date: 01/16/2020
 ms.author: ralphe
 zone_pivot_groups: programming-languages-set-nine
 ms.openlocfilehash: 7276b790b3fdb56308c6af9a047a7c290c01b253
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76268109"
 ---
 # <a name="quickstart-multi-device-conversation"></a>빠른 시작: 다중 디바이스 대화

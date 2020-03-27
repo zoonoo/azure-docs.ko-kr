@@ -11,10 +11,10 @@ ms.topic: overview
 ms.date: 03/04/2020
 ms.author: aahi
 ms.openlocfilehash: a9519be591581fa434825f1a1fb31749788a21a8
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78395737"
 ---
 # <a name="what-is-the-text-analytics-api"></a>텍스트 분석 API란?

@@ -11,10 +11,10 @@ ms.topic: sample
 ms.date: 04/10/2019
 ms.author: sbowles
 ms.openlocfilehash: 0b1cf99fe6e2aa4d7fcb12c3fb96b10b42c7c0b7
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76169907"
 ---
 # <a name="example-identify-faces-in-images"></a>예제: 이미지에서 얼굴 식별
@@ -80,7 +80,7 @@ CreatePersonResult friend1 = await faceClient.PersonGroupPerson.CreateAsync(
  
 // Define Bill and Clare in the same way
 ```
-### <a name="step2-2"></a> 2.2단계: 얼굴 감지 및 올바른 사람에게 등록
+### <a name="step-22-detect-faces-and-register-them-to-the-correct-person"></a><a name="step2-2"></a> 2.2단계: 얼굴 감지 및 올바른 사람에게 등록
 감지는 HTTP 요청 본문에 이미지 파일을 사용하여 [얼굴 - 감지](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) API로 "POST" 웹 요청을 전송하여 진행됩니다. 클라이언트 라이브러리를 사용하는 경우 얼굴 감지는 FaceClient 클래스의 Detect..Async 메서드 중 하나를 통해 수행됩니다.
 
 감지된 각 얼굴에 대해 [PersonGroup Person – Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b)를 호출하여 해당 얼굴을 올바른 사람에게 추가합니다.

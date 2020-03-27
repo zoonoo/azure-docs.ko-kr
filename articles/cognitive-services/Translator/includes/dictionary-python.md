@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
 ms.openlocfilehash: 6c72cd270e634ca0aebff7c17d5663241428e182
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "69907045"
 ---
 [!INCLUDE [Prerequisites](prerequisites-python.md)]
@@ -17,7 +17,7 @@ ms.locfileid: "69907045"
 
 ## <a name="create-a-project-and-import-required-modules"></a>프로젝트 만들기 및 필요한 모듈 가져오기
 
-즐겨찾는 IDE 또는 편집기를 사용하여 새 Python 프로젝트를 만들거나 데스크톱에 새 폴더를 만듭니다. 아래 코드 조각을 `dictionary-lookup.py`라는 파일의 프로젝트/폴더에 복사합니다.
+즐겨찾는 IDE 또는 편집기를 사용하여 새 Python 프로젝트를 만들거나 데스크톱에 새 폴더를 만듭니다. 이 코드 조각을 `dictionary-lookup.py`라는 파일의 프로젝트/폴더에 복사합니다.
 
 ```python
 # -*- coding: utf-8 -*-

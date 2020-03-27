@@ -12,10 +12,10 @@ ms.date: 12/05/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 1d07bc12f33df7253a849b605fdaff1f2f0123dd
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74974549"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-javascript"></a>빠른 시작: Computer Vision REST API 및 JavaScript를 사용하여 썸네일 생성
@@ -24,7 +24,7 @@ ms.locfileid: "74974549"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Computer Vision에 대한 구독 키가 있어야 합니다. [Cognitive Services 사용해보기](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision)에서 평가판 키를 가져올 수 있습니다. 또는 [Cognitive Services 계정 만들기](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)의 지침에 따라 Computer Vision을 구독하고 키를 가져옵니다. 그런 다음, 각각 `COMPUTER_VISION_SUBSCRIPTION_KEY` 및 `COMPUTER_VISION_ENDPOINT`라는 키 및 서비스 엔드포인트 문자열에 대한 [환경 변수를 만듭니다](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication).
 
@@ -34,7 +34,7 @@ Computer Vision에 대한 구독 키가 있어야 합니다. [Cognitive Services
 
 1. 다음 코드를 텍스트 편집기에 복사합니다.
 1. 필요한 경우 `inputImage` 컨트롤에 대한 `value` 특성의 값을 분석하려는 다른 이미지의 URL로 바꿉니다.
-1. 코드를 `.html` 확장명의 파일로 저장합니다. 예: `get-thumbnail.html`
+1. 코드를 `.html` 확장명의 파일로 저장합니다. `get-thumbnail.html`)을 입력합니다.
 1. 브라우저 창을 엽니다.
 1. 브라우저에서 파일을 브라우저 창으로 끌어서 놓습니다.
 1. 웹 페이지가 브라우저에 표시되면 **썸네일 생성** 단추를 선택합니다.

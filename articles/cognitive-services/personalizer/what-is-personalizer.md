@@ -10,14 +10,16 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 01/21/2020
 ms.author: diberry
-ms.openlocfilehash: bf0710ebef21226d8d8582a920d64027bb015d34
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 850ab0ee89ee167886d8747a0c721bb643529e14
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77622733"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80052052"
 ---
 # <a name="what-is-personalizer"></a>Personalizer란?
+
+[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 Azure Personalizer는 클라이언트 애플리케이션에서 각 사용자를 표시하는 데 가장 적합한 단일 _콘텐츠_ 항목을 선택할 수 있도록 도움을 주는 클라우드 기반 API 서비스입니다. 이 서비스는 콘텐츠 및 컨텍스트에 대해 제공하는 집합적 실시간 정보를 기준으로 콘텐츠 항목에서 가장 적합한 항목을 선택합니다.
 

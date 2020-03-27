@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 03/05/2020
 ms.author: aahi
 ms.openlocfilehash: c204f8482d46d6586d490cb2bd3dd1a4cddac682
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78925582"
 ---
 Bing Web Search 클라이언트 라이브러리를 사용하면 Bing Web Search를 Java 애플리케이션에 쉽게 통합할 수 있습니다. 이 빠른 시작에서는 요청을 보내고, JSON 응답을 받고, 결과를 필터링 및 구문 분석하는 방법에 대해 알아봅니다.
@@ -141,7 +141,7 @@ public class BingWebSearchSample {
 
 ## <a name="construct-a-request"></a>요청 구성
 
-`BingWebSearchSample` 클래스에 있는 `runSample` 메서드는 요청을 구성합니다. 이 코드를 애플리케이션에 복사합니다.
+`runSample` 클래스에 있는 `BingWebSearchSample` 메서드는 요청을 구성합니다. 이 코드를 애플리케이션에 복사합니다.
 
 ```java
 public static boolean runSample(BingWebSearchAPI client) {

@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 12/18/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: e51f6ad25ca81431eab0561926b6bf065abaa508
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6bd8c472aa659bec31440292e20328865b1cb531
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75383778"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79134530"
 ---
 # <a name="what-is-the-bing-image-search-api"></a>Bing Image Search API란?
 
@@ -33,7 +33,7 @@ Bing Image Search API에서 이미지 전용 검색 결과를 제공하지만, �
 | [이미지 결과 필터링 및 제한](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images)                       | 쿼리 매개 변수를 편집하여 Bing에서 반환하는 이미지를 필터링합니다.                                                                                                       |
 | [썸네일 자르기, 크기 조정 및 표시](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/resize-and-crop-thumbnails)                                                | Bing Image Search에서 반환하는 이미지에 대한 썸네일 미리 보기를 편집하고 표시합니다.                                                                                      |
 | [사용자 검색 쿼리 피벗 및 확장](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries)               | 쿼리에 Bing 제안 검색 용어를 포함시키고 표시하여 검색 기능을 확장합니다.                                                                    |
-| [최신 이미지 가져오기](https://review.docs.microsoft.com/azure/cognitive-services/bing-image-search/trending-images)                                                                     | 전 세계로부터의 최신 이미지 검색을 사용자 지정합니다.                                                                                                          |
+| [최신 이미지 가져오기](trending-images.md)                                                                     | 전 세계로부터의 최신 이미지 검색을 사용자 지정합니다.                                                                                                          |
 
 ## <a name="workflow"></a>워크플로
 

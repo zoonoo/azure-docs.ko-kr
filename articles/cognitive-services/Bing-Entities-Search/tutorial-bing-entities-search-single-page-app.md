@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.openlocfilehash: d45b9a153b770dd10da9dd61e8a7b3d138345b8a
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78943130"
 ---
 # <a name="tutorial-single-page-web-app"></a>자습서: 단일 페이지 웹앱
@@ -90,7 +90,7 @@ HTML에는 사용자가 쿼리를 입력하고 검색 옵션을 선택하는 검
 
 Bing Search 및 Bing 지도 API 구독 키를 코드에 포함할 필요가 없도록, 여기서는 브라우저의 영구적 스토리지를 사용하여 키를 저장합니다. 키가 저장되지 않은 경우 확인 메시지를 표시하고, 나중에 사용할 수 있도록 저장합니다. 키가 나중에 API에서 거부될 경우 저장된 키를 무효화하므로, 사용자가 다음에 검색할 때 키가 요청됩니다.
 
-`localStorage` 개체(브라우저가 지원하는 경우) 또는 쿠키를 사용하는 `storeValue` 및 `retrieveValue` 함수를 정의합니다. `getSubscriptionKey()` 함수는 이러한 함수를 사용하여 사용자 키를 저장하고 검색합니다. 아래의 글로벌 엔드포인트를 사용하거나 리소스의 Azure Portal에 표시되는 [사용자 지정 하위 도메인](../../cognitive-services/cognitive-services-custom-subdomains.md) 엔드포인트를 사용할 수 있습니다.
+`storeValue` 개체(브라우저가 지원하는 경우) 또는 쿠키를 사용하는 `retrieveValue` 및 `localStorage` 함수를 정의합니다. `getSubscriptionKey()` 함수는 이러한 함수를 사용하여 사용자 키를 저장하고 검색합니다. 아래의 글로벌 엔드포인트를 사용하거나 리소스의 Azure Portal에 표시되는 [사용자 지정 하위 도메인](../../cognitive-services/cognitive-services-custom-subdomains.md) 엔드포인트를 사용할 수 있습니다.
 
 ```javascript
 // cookie names for data we store
@@ -124,7 +124,7 @@ function getSearchSubscriptionKey() {
 }
 ```
 
-HTML `<body>` 태그에는 페이지 로드가 완료될 때 `getSearchSubscriptionKey()` 및 `getMapsSubscriptionKey()`를 호출하는 `onload` 특성이 포함됩니다. 이러한 호출은 사용자가 아직 키를 입력하지 않은 경우 즉시 사용자에게 키를 확인하는 역할을 합니다.
+HTML `<body>` 태그에는 페이지 로드가 완료될 때 `onload` 및 `getSearchSubscriptionKey()`를 호출하는 `getMapsSubscriptionKey()` 특성이 포함됩니다. 이러한 호출은 사용자가 아직 키를 입력하지 않은 경우 즉시 사용자에게 키를 확인하는 역할을 합니다.
 
 ```html
 <body onload="document.forms.bing.query.focus(); getSearchSubscriptionKey(); getMapsSubscriptionKey();">
@@ -161,7 +161,7 @@ function bingSearchOptions(form) {
 }
 ```
 
-예를 들어 유해 정보 차단 기능은 `moderate`를 기본값으로 사용하는 `strict`, `moderate` 또는 `off`일 수 있습니다. 그러나 양식에서는 두 개의 상태만 있는 확인란을 사용합니다. JavaScript 코드는 이 설정을 `strict` 또는 `off`로 변환합니다(`moderate`를 사용하지 않음).
+예를 들어 유해 정보 차단 기능은 `strict`를 기본값으로 사용하는 `moderate`, `off` 또는 `moderate`일 수 있습니다. 그러나 양식에서는 두 개의 상태만 있는 확인란을 사용합니다. JavaScript 코드는 이 설정을 `strict` 또는 `off`로 변환합니다(`moderate`를 사용하지 않음).
 
 `mapquery` 필드는 Bing Entity Search가 아니라 Bing 지도 위치 쿼리에 사용되므로 `bingSearchOptions()`에서 처리되지 않습니다.
 
@@ -408,7 +408,7 @@ Bing Entity Search API[에서는 지정된 순서로 결과를 표시해야 합�
 
 | | |
 |-|-|
-|`id`|`id`는 URL처럼 보이지만 링크에 사용하면 안 됩니다. 순위 결과의 `id` 형식은 답변 컬렉션의 검색 결과 항목 또는  전체 답변 컬렉션(예: `Entities`)의 `id`와 일치합니다.
+|`id`|`id`는 URL처럼 보이지만 링크에 사용하면 안 됩니다. 순위 결과의 `id` 형식은 답변 컬렉션의 검색 결과 항목 또는`id`*전체 답변 컬렉션(예:* )의 `Entities`와 일치합니다.
 |`answerType`<br>`resultIndex`|`answerType`은 결과가 포함된 최상위 답변 컬렉션(예: `Entities`)을 나타냅니다. `resultIndex`는 해당 컬렉션 내의 결과 인덱스를 나타냅니다. `resultIndex`가 생략된 경우 순위 결과는 전체 컬렉션을 나타냅니다.
 
 > [!NOTE]
@@ -436,7 +436,7 @@ function renderSearchResults(results) {
 
 ## <a name="rendering-result-items"></a>결과 항목 렌더링
 
-JavaScript 코드에는 각 종류의 검색 결과에 대해 HTML을 생성하는 렌더러  함수가 포함된 `searchItemRenderers` 개체가 있습니다.
+JavaScript 코드에는 각 종류의 검색 결과에 대해 HTML을 생성하는 렌더러`searchItemRenderers`*함수가 포함된* 개체가 있습니다.
 
 ```javascript
 searchItemRenderers = { 

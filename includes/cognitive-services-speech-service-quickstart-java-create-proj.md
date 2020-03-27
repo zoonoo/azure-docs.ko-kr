@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 02/10/2020
 ms.author: erhopf
 ms.openlocfilehash: a542e02c51bf2ce9b3b13bc50a39584ce079ec72
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78330834"
 ---
 1. Eclipse를 시작합니다.
@@ -35,7 +35,7 @@ ms.locfileid: "78330834"
 
    ![패키지 탐색기의 스크린샷](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-jre-04-convert-to-maven-project.png)
 
-1. **새 POM 만들기** 창이 나타납니다. **그룹 ID** 필드에 *com.microsoft.cognitiveservices.speech.samples*를 입력하고, *아티팩트 ID*에 **빠른 시작**을 입력합니다. 그런 다음, **마침**을 선택합니다.
+1. **새 POM 만들기** 창이 나타납니다. **그룹 ID** 필드에 *com.microsoft.cognitiveservices.speech.samples*를 입력하고, **아티팩트 ID**에 *빠른 시작*을 입력합니다. 그런 다음, **마침**을 선택합니다.
 
    ![[새 POM 만들기] 창의 스크린샷](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-jre-05-configure-maven-pom.png)
 

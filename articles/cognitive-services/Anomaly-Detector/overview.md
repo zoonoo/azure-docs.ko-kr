@@ -10,14 +10,16 @@ ms.subservice: anomaly-detector
 ms.topic: overview
 ms.date: 12/18/2019
 ms.author: aahi
-ms.openlocfilehash: 05ed7903cafbb265f23ba74a24ee0498be0effe9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9237e670dd8d43c4036f996c477948944718e3aa
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448966"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80053706"
 ---
 # <a name="what-is-the-anomaly-detector-api"></a>Anomaly Detector API란?
+
+[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 Anomaly Detector API를 사용하면 기계 학습을 통해 시계열 데이터에서 변칙을 검색하고 모니터링할 수 있습니다. Anomaly Detector API는 업계, 시나리오 또는 데이터 볼륨에 관계없이 가장 적합한 모델을 자동으로 식별하여 데이터에 적용하여 조정됩니다. 이 API는 시계열 데이터를 사용하여 변칙 검색, 예상 값 및 어떤 데이터 요소가 변칙인지에 대한 경계를 결정합니다.
 
@@ -27,7 +29,7 @@ Anomaly Detector 사용에는 기계 학습에 대한 사전 지식이 필요하
 
 ## <a name="features"></a>기능
 
-Anomaly Detector를 사용하면 시계열 데이터 전체에서 또는 실시간으로 발생하는 변칙을 자동으로 검색할 수 있습니다. 
+Anomaly Detector를 사용하면 시계열 데이터 전체에서 또는 실시간으로 발생하는 변칙을 자동으로 검색할 수 있습니다.
 
 |기능  |Description  |
 |---------|---------|
@@ -52,7 +54,7 @@ Notebook을 실행하려면 다음 단계를 완료하세요.
 1. 복제 작업을 완료하기 전에 대화 상자에서 "공용" 옵션의 선택을 취소합니다. 그렇지 않으면 구독 키를 포함하여 노트북이 공개됩니다.
 1. **Run on free compute**(무료 컴퓨팅에서 실행)을 클릭합니다.
 1. Notebook 중 하나를 선택합니다.
-1. 유효한 Anomaly Detector API 구독 키를 `subscription_key` 변수에 추가합니다. 
+1. 유효한 Anomaly Detector API 구독 키를 `subscription_key` 변수에 추가합니다.
 1. `endpoint` 변수를 엔드포인트로 변경합니다. 예: `https://westus2.api.cognitive.microsoft.com/anomalydetector/v1.0/timeseries/last/detect`
 1. 상단 메뉴 모음에서 **셀**과 **모두 실행**을 차례로 클릭합니다.
 

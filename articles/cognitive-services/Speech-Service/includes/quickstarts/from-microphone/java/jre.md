@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
 ms.openlocfilehash: 95e8a30eaa59762ad7cf5b388326c9d3c9723d8e
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78925881"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
@@ -34,7 +34,7 @@ ms.locfileid: "78925881"
 
 1. 문자열 `YourSubscriptionKey`를 구독 키로 바꿉니다.
 
-1. 문자열 `YourServiceRegion`을 구독과 연결된 [지역](https://aka.ms/speech/sdkregion)의 **영역 식별자**로 바꿉니다(예: 평가판 구독의 경우 `westus`).
+1. 문자열 `YourServiceRegion`을 구독과 연결된 **지역**의 [영역 식별자](https://aka.ms/speech/sdkregion)로 바꿉니다(예: 평가판 구독의 경우 `westus`).
 
 1. 프로젝트에 대한 변경 내용을 저장합니다.
 

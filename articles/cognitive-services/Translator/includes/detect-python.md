@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
 ms.openlocfilehash: 6591fd6eb232bf5fb242c9e08830324f864dac2f
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "71837536"
 ---
 [!INCLUDE [Prerequisites](prerequisites-python.md)]
@@ -50,7 +50,7 @@ endpoint = os.environ[endpoint_var_name]
 Translator Text 글로벌 엔드포인트가 `endpoint`로 설정되어 있습니다. `path`는 `detect` 루트를 설정하며 API의 버전 3을 실행하기 원한다는 것을 식별합니다.
 
 >[!NOTE]
-> 엔드포인트, 루트 및 요청 매개 변수에 대한 자세한 내용은 [Translator Text API 3.0: 검색](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect)을 참조하세요.
+> 엔드포인트, 루트 및 요청 매개 변수에 대한 자세한 내용은 [Translator Text API 3.0: Detect](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect)를 참조하세요.
 
 ```python
 path = '/detect?api-version=3.0'

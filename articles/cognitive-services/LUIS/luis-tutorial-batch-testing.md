@@ -4,10 +4,10 @@ description: 이 자습서에서는 일괄 처리 테스트를 사용하여 LUIS
 ms.topic: tutorial
 ms.date: 03/02/2020
 ms.openlocfilehash: c276f0b52f83937fbe3b6fd9e0b7c1a66f665095
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78250526"
 ---
 # <a name="tutorial-batch-test-data-sets"></a>자습서: 일괄 처리 테스트 데이터 세트

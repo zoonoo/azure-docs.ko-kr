@@ -11,10 +11,10 @@ ms.topic: include
 ms.date: 07/05/2019
 ms.author: chlandsi
 ms.openlocfilehash: a2d5614aeeedb88cd9b2c41baed317761443d17c
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78924937"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항

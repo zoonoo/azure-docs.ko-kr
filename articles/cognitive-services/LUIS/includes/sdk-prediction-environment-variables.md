@@ -4,10 +4,10 @@ description: 포함 파일
 ms.topic: include
 ms.date: 01/23/2020
 ms.openlocfilehash: a7f4e0b47b3aaf9924f8c82eb6a9fa37decc0b2a
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76772393"
 ---
 ### <a name="create-an-environment-variable"></a>환경 변수 만들기
@@ -26,7 +26,7 @@ ms.locfileid: "76772393"
 
 운영 체제에 대한 지침을 사용합니다.
 
-#### <a name="windowstabwindows"></a>[Windows](#tab/windows)
+#### <a name="windows"></a>[Windows](#tab/windows)
 
 ```console
 setx LUIS_RUNTIME_KEY <replace-with-your-resource-key>
@@ -37,7 +37,7 @@ setx LUIS_APP_SLOT_NAME <replace-with-production-or-staging>
 
 환경 변수를 추가한 후 콘솔 창을 다시 시작합니다.
 
-#### <a name="linuxtablinux"></a>[Linux](#tab/linux)
+#### <a name="linux"></a>[Linux](#tab/linux)
 
 ```bash
 export LUIS_RUNTIME_KEY= <replace-with-your-resource-key>
@@ -48,7 +48,7 @@ export LUIS_APP_SLOT_NAME= <replace-with-production-or-staging>
 
 환경 변수를 추가한 후 콘솔 창에서 `source ~/.bashrc` 명령을 실행하여 변경 내용을 적용합니다.
 
-#### <a name="macostabunix"></a>[macOS](#tab/unix)
+#### <a name="macos"></a>[macOS](#tab/unix)
 
 `.bash_profile`을 편집하고, 환경 변수를 추가합니다.
 

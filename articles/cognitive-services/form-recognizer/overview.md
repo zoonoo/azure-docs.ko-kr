@@ -9,14 +9,16 @@ ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 0d78f3cc4f2b12b2d9f45878a0c1b91263112689
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 6b19dc11438274ecf6218d5c0bd8c9ef3dafbf01
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77118547"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80052427"
 ---
 # <a name="what-is-form-recognizer"></a>Form Recognizer란?
+
+[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 Azure Form Recognizer는 기계 학습 기술을 사용하여 양식 문서에서 텍스트, 키-값 쌍 및 테이블 데이터를 식별하고 추출하는 인지 서비스입니다. 그리고 양식에서 텍스트를 수집하고 원본 파일의 관계가 포함된 정형 데이터를 출력합니다. 많은 수동 작업 또는 광범위한 데이터 과학 전문 지식 없이도 특정 콘텐츠에 맞게 조정된 정확한 결과를 빠르게 얻을 수 있습니다. Form Recognizer는 사용자 지정 모델, 미리 작성된 영수증 모델 및 레이아웃 API로 구성됩니다. REST API를 통해 Form Recognizer 모델을 호출하여 복잡성을 줄이고 워크플로 또는 애플리케이션에 통합할 수 있습니다.
 
@@ -49,7 +51,7 @@ Form Recognizer는 [레이아웃 API](#layout-api)를 사용하여 인쇄 및 �
 
 ## <a name="layout-api"></a>레이아웃 API
 
-또한 Form Recognizer는 고화질 OCR(광학 문자 인식)을 사용하여 텍스트 및 테이블 구조(텍스트와 연결된 행 및 열 번호)를 추출할 수 있습니다. 
+또한 Form Recognizer는 고화질 OCR(광학 문자 인식)을 사용하여 텍스트 및 테이블 구조(텍스트와 연결된 행 및 열 번호)를 추출할 수 있습니다.
 
 ## <a name="get-started"></a>시작하기
 
@@ -59,9 +61,9 @@ Form Recognizer는 [레이아웃 API](#layout-api)를 사용하여 인쇄 및 �
   * 레이블 없이 학습
     * [빠른 시작: cURL에서 REST API를 사용하여 Form Recognizer 모델 학습 및 양식 데이터 추출](quickstarts/curl-train-extract.md)
     * [빠른 시작: Python에서 REST API를 사용하여 Form Recognizer 모델 학습 및 양식 데이터 추출](quickstarts/python-train-extract.md)
-  * 레이블을 사용하여 학습 
+  * 레이블을 사용하여 학습
     * [샘플 레이블 지정 도구를 사용하여 레이블로 Form Recognizer 모델 학습](quickstarts/label-tool.md)
-    * [REST API 및 Python을 사용하여 레이블로 Form Recognizer 모델 학습](quickstarts/python-labeled-data.md) 
+    * [REST API 및 Python을 사용하여 레이블로 Form Recognizer 모델 학습](quickstarts/python-labeled-data.md)
 * 미리 작성된 영수증 - USA 판매 영수증에서 데이터 추출
   * [빠른 시작: cURL을 사용하여 영수증 데이터 추출](quickstarts/curl-receipts.md)
   * [빠른 시작: Python을 사용하여 영수증 데이터 추출](quickstarts/python-receipts.md)
@@ -92,7 +94,7 @@ Form Recognizer는 [레이아웃 API](#layout-api)를 사용하여 인쇄 및 �
 
 * 형식은 JPEG, PNG, BMP, PDF(텍스트 또는 스캔) 또는 TIFF여야 합니다.
 * 파일 크기는 20MB 미만이어야 합니다.
-* 이미지 크기는 50x50 픽셀에서 10,000x10,000 픽셀 사이여야 합니다. 
+* 이미지 크기는 50x50 픽셀에서 10,000x10,000 픽셀 사이여야 합니다.
 * PDF 크기는 최대 17x17인치(Legal 또는 A3 용지 크기 이하에 해당)여야 합니다.
 * PDF 및 TIFF의 경우 처음 200페이지만 처리됩니다(체험 계층 구독의 경우 처음 2페이지만 처리됨).
 
