@@ -1,6 +1,6 @@
 ---
 title: .NET SDK를 사용하여 스트리밍 엔드포인트를 관리합니다. | Microsoft Docs
-description: 이 문서에서는 Azure Portal를 사용 하 여 스트리밍 끝점을 관리 하는 방법을 보여 줍니다.
+description: 이 문서에서는 Azure 포털에서 스트리밍 끝점을 관리하는 방법을 보여 줍니다.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: b6c6fccd473ae57139c0b46bf32dc9468a4ba1a8
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74901269"
 ---
 # <a name="manage-streaming-endpoints-with-net-sdk"></a>.NET SDK를 사용하여 스트리밍 엔드포인트 관리  
@@ -50,7 +50,7 @@ ms.locfileid: "74901269"
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Visual Studio 프로젝트 만들기 및 구성
 
-개발 환경을 설정하고 [.NET을 사용한 Media Services 환경](media-services-dotnet-how-to-use.md)에 설명된 대로 연결 정보를 사용하여 app.config 파일을 채웁니다. 
+.NET 을 사용하면 Media Services 개발에 설명된 대로 개발 환경을 설정하고 app.config 파일을 연결 [정보로](media-services-dotnet-how-to-use.md)채웁니다. 
 
 ## <a name="add-code-that-manages-streaming-endpoints"></a>스트리밍 엔드포인트를 관리하는 코드 추가
     
@@ -148,6 +148,6 @@ Media Services 학습 경로를 검토합니다.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>피드백 제공하기
+## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

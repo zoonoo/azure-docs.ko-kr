@@ -1,6 +1,6 @@
 ---
-title: Vm 시작 및 중지 문제 해결-Azure Automation
-description: 이 문서에서는 Azure Automation에서 Vm을 시작 및 중지 하는 문제 해결에 대 한 정보를 제공 합니다.
+title: VM 시작 및 중지 문제 해결 - Azure 자동화
+description: 이 문서에서는 Azure 자동화에서 VM 시작 및 중지 문제 해결에 대한 정보를 제공합니다.
 services: automation
 ms.service: automation
 ms.subservice: process-automation
@@ -10,15 +10,15 @@ ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 97ea98fc38fc8d06dc1bc65ee057241da6f15488
-ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78851387"
 ---
 # <a name="troubleshoot-the-startstop-vms-during-off-hours-solution"></a>작업 시간 외 VM 시작/중지 문제 해결
 
-## <a name="deployment-failure"></a>시나리오: VM 시작/중지 솔루션을 제대로 배포 하지 못함
+## <a name="scenario-the-startstop-vm-solution-fails-to-properly-deploy"></a><a name="deployment-failure"></a>시나리오: VM 시작/중지 솔루션이 제대로 배포되지 못합니다.
 
 ### <a name="issue"></a>문제
 
@@ -60,7 +60,7 @@ Start-AzureRmVm : Run Login-AzureRmAccount to login
 2. VM 시작/중지 솔루션 배포를 허용하지 않는 정책이 적용되었습니다.
 3. `Microsoft.OperationsManagement`, `Microsoft.Insights` 또는 `Microsoft.Automation` 리소스 종류가 등록되지 않았습니다.
 4. Log Analytics 작업 영역에 잠금이 있습니다.
-5. 오래 된 버전의 AzureRM 모듈 또는 시작/중지 솔루션이 있습니다.
+5. 오래된 버전의 AzureRM 모듈 또는 시작/중지 솔루션이 있습니다.
 
 ### <a name="resolution"></a>해결 방법
 
@@ -75,9 +75,9 @@ Start-AzureRmVm : Run Login-AzureRmAccount to login
 
    공급자를 등록할 때 발생하는 오류에 대한 자세한 내용은 [리소스 공급자 등록 오류 해결](../../azure-resource-manager/templates/error-register-resource-provider.md)을 참조하세요.
 4. Log Analytics 작업 영역에 잠금이 설정된 경우 Azure Portal에서 해당 작업 영역으로 이동하여 리소스에 대한 잠금을 제거합니다.
-5. 위의 해결 방법으로 문제가 해결 되지 않으면 [솔루션 업데이트](../automation-solution-vm-management.md#update-the-solution) 의 지침에 따라 시작/중지 솔루션을 다시 배포 합니다.
+5. 위의 해결 방법이 문제를 해결하지 못하면 [솔루션 업데이트](../automation-solution-vm-management.md#update-the-solution) 의 지침에 따라 시작/중지 솔루션을 다시 배포합니다.
 
-## <a name="all-vms-fail-to-startstop"></a>시나리오: 모든 Vm을 시작/중지 하지 못함
+## <a name="scenario-all-vms-fail-to-startstop"></a><a name="all-vms-fail-to-startstop"></a>시나리오: 모든 VM이 시작/중지에 실패
 
 ### <a name="issue"></a>문제
 
@@ -98,7 +98,7 @@ VM 시작/중지 솔루션을 구성했지만 구성된 모든 VM이 시작 또�
 
 * VM 시작/중지 솔루션의 일정을 올바르게 구성했는지 확인합니다. 일정을 구성하는 방법을 알아보려면 [일정](../automation-schedules.md) 문서를 참조하세요.
 
-* [작업 스트림을](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) 검사 하 여 오류를 찾습니다. 포털에서 Automation 계정으로 이동한 후 **프로세스 자동화**에서 **작업**을 선택합니다. **작업** 페이지에서 다음 runbook 중 하나에서 작업을 찾아봅니다.
+* 작업 [스트림을](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) 확인하여 오류를 찾습니다. 포털에서 Automation 계정으로 이동한 후 **프로세스 자동화**에서 **작업**을 선택합니다. **작업** 페이지에서 다음 runbook 중 하나에서 작업을 찾아봅니다.
 
   * AutoStop_CreateAlert_Child
   * AutoStop_CreateAlert_Parent
@@ -110,7 +110,7 @@ VM 시작/중지 솔루션을 구성했지만 구성된 모든 VM이 시작 또�
   * ScheduledStartStop_Parent
   * SequencedStartStop_Parent
 
-* [실행 계정](../manage-runas-account.md)에 시작 또는 중지하려는 VM에 대한 적절한 권한이 있는지 확인합니다. 리소스에 대 한 사용 권한을 확인 하는 방법에 대 한 자세한 내용은 [빠른 시작: Azure Portal 사용 하 여 사용자에 게 할당 된 역할 보기](../../role-based-access-control/check-access.md)를 참조 하세요. 실행 계정에서 사용 하는 서비스 사용자에 대 한 응용 프로그램 ID를 제공 해야 합니다. Azure Portal에서 Automation 계정으로 이동하고, **계정 실행** 아래에서 **실행 계정**을 선택한 후 적절한 실행 계정을 클릭하여 이 값을 검색할 수 있습니다.
+* [실행 계정](../manage-runas-account.md)에 시작 또는 중지하려는 VM에 대한 적절한 권한이 있는지 확인합니다. 리소스의 사용 권한을 확인하는 방법을 알아보려면 [Azure 포털을 사용하여 사용자에게 할당된 역할 보기 빠른 시작을](../../role-based-access-control/check-access.md)참조하십시오. 계정으로 실행에서 사용하는 서비스 주체에 대한 응용 프로그램 ID를 제공해야 합니다. Azure Portal에서 Automation 계정으로 이동하고, **계정 실행** 아래에서 **실행 계정**을 선택한 후 적절한 실행 계정을 클릭하여 이 값을 검색할 수 있습니다.
 
 * VM을 명시적으로 제외한 경우에는 시작 또는 중지되지 않을 수 있습니다. 제외되는 VM은 솔루션이 배포된 Automation 계정의 **External_ExcludeVMNames** 변수에 설정합니다. 다음 예제에서는 PowerShell 사용하여 해당 값을 쿼리하는 방법을 보여 줍니다.
 
@@ -118,7 +118,7 @@ VM 시작/중지 솔루션을 구성했지만 구성된 모든 VM이 시작 또�
   Get-AzureRmAutomationVariable -Name External_ExcludeVMNames -AutomationAccountName <automationAccountName> -ResourceGroupName <resourceGroupName> | Select-Object Value
   ```
 
-## <a name="some-vms-fail-to-startstop"></a>시나리오: 일부 Vm이 시작 되거나 중지 되지 않습니다.
+## <a name="scenario-some-of-my-vms-fail-to-start-or-stop"></a><a name="some-vms-fail-to-startstop"></a>시나리오: 일부 VM이 시작 또는 중지되지 않습니다.
 
 ### <a name="issue"></a>문제
 
@@ -149,13 +149,13 @@ VM 시작/중지 솔루션을 구성했지만 구성된 일부 VM이 시작 또�
   Get-AzureRmAutomationVariable -Name External_ExcludeVMNames -AutomationAccountName <automationAccountName> -ResourceGroupName <resourceGroupName> | Select-Object Value
   ```
 
-* VM을 시작 및 중지하려면 Automation 계정의 실행 계정에 VM에 대한 적절한 사용 권한이 있어야 합니다. 리소스에 대 한 사용 권한을 확인 하는 방법에 대 한 자세한 내용은 [빠른 시작: Azure Portal 사용 하 여 사용자에 게 할당 된 역할 보기](../../role-based-access-control/check-access.md)를 참조 하세요. 실행 계정에서 사용 하는 서비스 사용자에 대 한 응용 프로그램 ID를 제공 해야 합니다. Azure Portal에서 Automation 계정으로 이동하고, **계정 실행** 아래에서 **실행 계정**을 선택한 후 적절한 실행 계정을 클릭하여 이 값을 검색할 수 있습니다.
+* VM을 시작 및 중지하려면 Automation 계정의 실행 계정에 VM에 대한 적절한 사용 권한이 있어야 합니다. 리소스의 사용 권한을 확인하는 방법을 알아보려면 [Azure 포털을 사용하여 사용자에게 할당된 역할 보기 빠른 시작을](../../role-based-access-control/check-access.md)참조하십시오. 계정으로 실행에서 사용하는 서비스 주체에 대한 응용 프로그램 ID를 제공해야 합니다. Azure Portal에서 Automation 계정으로 이동하고, **계정 실행** 아래에서 **실행 계정**을 선택한 후 적절한 실행 계정을 클릭하여 이 값을 검색할 수 있습니다.
 
-* VM을 시작 또는 할당 취소하는 데 문제가 발생하는 경우 VM 자체의 문제로 인해 이 동작이 발생할 수 있습니다. 일부 예제 또는 잠재적 문제는 시스템 종료를 시도하거나 서비스 중단이 발생할 때 업데이트가 적용되는 경우입니다. VM 리소스로 이동한 후 **활동 로그**를 확인하여 로그에 오류가 있는지 검토합니다. 이벤트 로그에 오류가 있는지 확인하기 위해 VM에 로그인을 시도할 수도 있습니다. VM 문제 해결에 대해 자세히 알아보려면 [Azure virtual Machines 문제 해결](../../virtual-machines/troubleshooting/index.yml) 을 참조 하세요.
+* VM을 시작 또는 할당 취소하는 데 문제가 발생하는 경우 VM 자체의 문제로 인해 이 동작이 발생할 수 있습니다. 일부 예제 또는 잠재적 문제는 시스템 종료를 시도하거나 서비스 중단이 발생할 때 업데이트가 적용되는 경우입니다. VM 리소스로 이동한 후 **활동 로그**를 확인하여 로그에 오류가 있는지 검토합니다. 이벤트 로그에 오류가 있는지 확인하기 위해 VM에 로그인을 시도할 수도 있습니다. VM 문제 해결에 대한 자세한 내용은 [Azure 가상 컴퓨터 문제 해결을](../../virtual-machines/troubleshooting/index.yml) 참조하세요.
 
-* [작업 스트림을](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) 검사 하 여 오류를 찾습니다. 포털에서 Automation 계정으로 이동한 후 **프로세스 자동화**에서 **작업**을 선택합니다.
+* 작업 [스트림을](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) 확인하여 오류를 찾습니다. 포털에서 Automation 계정으로 이동한 후 **프로세스 자동화**에서 **작업**을 선택합니다.
 
-## <a name="custom-runbook"></a>시나리오: 내 사용자 지정 runbook이 Vm을 시작 하거나 중지 하지 못함
+## <a name="scenario-my-custom-runbook-fails-to-start-or-stop-my-vms"></a><a name="custom-runbook"></a>시나리오: 사용자 지정 Runbook이 VM을 시작하거나 중지하지 못합니다.
 
 ### <a name="issue"></a>문제
 
@@ -167,9 +167,9 @@ VM 시작/중지 솔루션을 구성했지만 구성된 일부 VM이 시작 또�
 
 ### <a name="resolution"></a>해결 방법
 
-Azure Automation에서 [작업 시간 외 VM 시작/중지 솔루션](../automation-solution-vm-management.md)을 사용하여 VM을 시작 및 중지하는 것이 좋습니다. 이 솔루션은 Microsoft에서 작성한 것입니다. 사용자 지정 Runbook은 Microsoft에서 지원하지 않습니다. [Runbook 문제 해결](runbooks.md) 문서를 참조하여 사용자 지정 Runbook에 대한 솔루션을 찾을 수 있습니다. 이 문서에서는 모든 유형의 Runbook에 대한 일반 지침 및 문제 해결 방법을 제공합니다. [작업 스트림을](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) 검사 하 여 오류를 찾습니다. 포털에서 Automation 계정으로 이동한 후 **프로세스 자동화**에서 **작업**을 선택합니다.
+Azure Automation에서 [작업 시간 외 VM 시작/중지 솔루션](../automation-solution-vm-management.md)을 사용하여 VM을 시작 및 중지하는 것이 좋습니다. 이 솔루션은 Microsoft에서 작성한 것입니다. 사용자 지정 Runbook은 Microsoft에서 지원하지 않습니다. [Runbook 문제 해결](runbooks.md) 문서를 참조하여 사용자 지정 Runbook에 대한 솔루션을 찾을 수 있습니다. 이 문서에서는 모든 유형의 Runbook에 대한 일반 지침 및 문제 해결 방법을 제공합니다. 작업 [스트림을](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) 확인하여 오류를 찾습니다. 포털에서 Automation 계정으로 이동한 후 **프로세스 자동화**에서 **작업**을 선택합니다.
 
-## <a name="dont-start-stop-in-sequence"></a>시나리오: Vm이 올바른 순서로 시작 되거나 중지 되지 않습니다.
+## <a name="scenario-vms-dont-start-or-stop-in-the-correct-sequence"></a><a name="dont-start-stop-in-sequence"></a>시나리오: VM이 올바른 순서로 시작하거나 중지되지 않습니다.
 
 ### <a name="issue"></a>문제
 
@@ -189,7 +189,7 @@ VM의 잘못된 태그 지정 때문입니다.
 
 이 솔루션을 사용하여 VM을 순서대로 시작 및 중지하는 방법에 대한 자세한 내용 및 추가 지침을 보려면 [순서대로 VM 시작 및 중지](../automation-solution-vm-management.md#scenario-2-startstop-vms-in-sequence-by-using-tags)를 참조하세요.
 
-## <a name="403"></a>시나리오: 403 금지 상태를 사용 하 여 VM 시작/중지 작업이 실패 합니다.
+## <a name="scenario-startstop-vm-job-fails-with-403-forbidden-status"></a><a name="403"></a>시나리오: VM 시작/중지 403 금지 된 상태로 실패 합니다.
 
 ### <a name="issue"></a>문제
 
@@ -203,13 +203,13 @@ VM의 잘못된 태그 지정 때문입니다.
 
 실행 계정이 제대로 구성되어 있는지 확인하려면 Azure Portal에서 Automation 계정으로 이동한 후 **계정 설정** 아래에서 **실행 계정**을 선택합니다. 다음은 실행 계정의 상태입니다. 실행 계정이 잘못 구성되었거나 만료된 경우 이러한 상태가 표시됩니다.
 
-실행 계정이 잘못 구성 된 경우 실행 계정을 삭제 하 고 다시 만들어야 합니다. [Azure Automation 실행 계정 관리](../manage-runas-account.md)를 참조 하세요.
+로 실행 계정이 잘못 구성된 경우 계정을 삭제하고 다시 만들어야 합니다. [Azure 자동화 실행 을 계정으로 관리 를](../manage-runas-account.md)참조하십시오.
 
 실행 계정에 대해 인증서가 만료되면 [자체 서명된 인증서 갱신](../manage-runas-account.md#cert-renewal)의 단계에 따라 인증서를 갱신합니다.
 
-이 문제는 누락된 사용 권한으로 인해 발생할 수 있습니다. 리소스에 대 한 사용 권한을 확인 하는 방법에 대 한 자세한 내용은 [빠른 시작: Azure Portal 사용 하 여 사용자에 게 할당 된 역할 보기](../../role-based-access-control/check-access.md)를 참조 하세요. 실행 계정에서 사용 하는 서비스 사용자에 대 한 응용 프로그램 ID를 제공 해야 합니다. Azure Portal에서 Automation 계정으로 이동하고, **계정 실행** 아래에서 **실행 계정**을 선택한 후 적절한 실행 계정을 클릭하여 이 값을 검색할 수 있습니다.
+이 문제는 누락된 사용 권한으로 인해 발생할 수 있습니다. 리소스의 사용 권한을 확인하는 방법을 알아보려면 [Azure 포털을 사용하여 사용자에게 할당된 역할 보기 빠른 시작을](../../role-based-access-control/check-access.md)참조하십시오. 계정으로 실행에서 사용하는 서비스 주체에 대한 응용 프로그램 ID를 제공해야 합니다. Azure Portal에서 Automation 계정으로 이동하고, **계정 실행** 아래에서 **실행 계정**을 선택한 후 적절한 실행 계정을 클릭하여 이 값을 검색할 수 있습니다.
 
-## <a name="other"></a>시나리오: 내 문제가 위에 나열 되지 않음
+## <a name="scenario-my-problem-isnt-listed-above"></a><a name="other"></a>시나리오: 내 문제가 위에 나열되지 않습니다.
 
 ### <a name="issue"></a>문제
 
@@ -220,16 +220,16 @@ VM의 잘못된 태그 지정 때문입니다.
 이전 및 오래된 버전의 솔루션을 사용하면 많은 시간 오류가 발생할 수 있습니다.
 
 > [!NOTE]
-> 작업 시간 외 VM 시작/중지 솔루션은 솔루션을 배포할 때 Automation 계정으로 가져온 Azure 모듈을 사용 하 여 테스트 되었습니다. 솔루션은 현재 최신 버전의 Azure 모듈에서 작동 하지 않습니다. 작업 시간 외 VM 시작/중지 솔루션을 실행 하는 데 사용 하는 Automation 계정에만 영향을 줍니다. [에서 Azure PowerShell 모듈을 업데이트 하는 방법](../automation-update-azure-modules.md) 에 설명 된 대로 다른 Automation 계정에서 최신 버전의 Azure 모듈을 계속 사용할 수 있습니다 Azure Automation
+> 운영 외 솔루션 중 VM 시작/중지는 솔루션을 배포할 때 자동화 계정으로 가져온 Azure 모듈을 사용 하 고 테스트 되었습니다. 이 솔루션은 현재 Azure 모듈의 최신 버전에서 작동하지 않습니다. 이는 근무 외 솔루션 중에 VM 시작/중지를 실행하는 데 사용하는 자동화 계정에만 영향을 줍니다. Azure 자동화에서 Azure PowerShell 모듈을 업데이트하는 방법에 설명된 대로 다른 자동화 계정에서 최신 버전의 [Azure 모듈을](../automation-update-azure-modules.md) 계속 사용할 수 있습니다.
 
 ### <a name="resolution"></a>해결 방법
 
-많은 오류를 해결하려면 솔루션을 제거 및 업데이트하는 것이 좋습니다. 솔루션을 업데이트하는 방법을 알아보려면 [작업 시간 외 VM 시작/중지 솔루션](../automation-solution-vm-management.md#update-the-solution)을 참조하세요. 또한 [작업 스트림을](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) 검사 하 여 오류를 찾을 수 있습니다. 포털에서 Automation 계정으로 이동한 후 **프로세스 자동화**에서 **작업**을 선택합니다.
+많은 오류를 해결하려면 솔루션을 제거 및 업데이트하는 것이 좋습니다. 솔루션을 업데이트하는 방법을 알아보려면 [작업 시간 외 VM 시작/중지 솔루션](../automation-solution-vm-management.md#update-the-solution)을 참조하세요. 또한 [작업 스트림을](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) 확인하여 오류를 찾을 수 있습니다. 포털에서 Automation 계정으로 이동한 후 **프로세스 자동화**에서 **작업**을 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 문제가 표시되지 않거나 문제를 해결할 수 없는 경우 다음 채널 중 하나를 방문하여 추가 지원을 받으세요.
 
 * [Azure 포럼](https://azure.microsoft.com/support/forums/)을 통해 Azure 전문가로부터 답변을 얻습니다.
-* [@AzureSupport](https://twitter.com/azuresupport)를 사용하여 연결 – Azure 커뮤니티를 적절한 리소스(답변, 지원 및 전문가)에 연결하여 고객 환경을 개선하는 공식 Microsoft Azure 계정입니다.
-* 추가 지원이 필요한 경우, Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/) 로 가서 **지원 받기**를 선택합니다.
+* 연결 [@AzureSupport](https://twitter.com/azuresupport) - Azure 커뮤니티를 올바른 리소스(답변, 지원 및 전문가)에 연결하여 고객 경험을 개선하기 위한 공식 Microsoft Azure 계정과 연결합니다.
+* 추가 지원이 필요한 경우, Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트로](https://azure.microsoft.com/support/options/) 이동하여 **지원 받기를**선택합니다.

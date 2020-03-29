@@ -12,10 +12,10 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ca782b5a190704911472d70c414d12afa7e558f0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75430236"
 ---
 # <a name="links-on-the-page-dont-work-for-an-application-proxy-application"></a>페이지의 링크가 애플리케이션 프록시 애플리케이션에서 작동하지 않습니다.
@@ -33,10 +33,10 @@ ms.locfileid: "75430236"
 
 1.  내부 URL이 애플리케이션의 모든 관련 링크를 포함하는 루트인지 확인합니다. 이렇게 하면 모든 링크를 동일한 애플리케이션 내에 게시된 콘텐츠로 해결할 수 있습니다.
 
-    내부 URL을 변경하지만 사용자의 방문 페이지를 변경하지 않으려는 경우 홈 페이지 URL을 이전에 게시된 내부 URL로 변경합니다. "Azure Active Directory"-&gt; 앱 등록으로 이동 하 여이 작업을 수행할 수 있습니다.-&gt; 응용 프로그램&gt; 브랜딩을 선택 합니다. 브랜딩 섹션에는 원하는 방문 페이지로 조정할 수 있는 "홈페이지 URL" 필드가 표시 됩니다. 레거시 앱 등록 환경을 계속 사용 하는 경우 속성 탭에 "홈 페이지 URL" 정보가 표시 됩니다. 
+    내부 URL을 변경하지만 사용자의 방문 페이지를 변경하지 않으려는 경우 홈 페이지 URL을 이전에 게시된 내부 URL로 변경합니다. 이 작업은 "Azure Active Directory"-&gt; 앱 등록&gt; - 응용&gt; 프로그램 선택 - 브랜딩으로 이동하여 수행할 수 있습니다. 브랜딩 섹션에는 원하는 방문 페이지로 조정할 수 있는 "홈 페이지 URL" 필드가 표시됩니다. 여전히 레거시 앱 등록을 사용하는 경우 속성 탭에 "홈 페이지 URL" 세부 정보가 표시됩니다. 
     
     > [!IMPORTANT]
-    > 위의 변경 내용을 적용 하기 위해 Azure AD에서 응용 프로그램 개체를 수정 하는 데 필요한 권한이 필요 합니다. 사용자에 게 Azure AD에서 사용자에 게 응용 프로그램 modificaion 권한을 부여 하는 [응용 프로그램 관리자](../users-groups-roles/roles-delegate-app-roles.md#assign-built-in-application-admin-roles) 역할을 할당 받아야 합니다.
+    > 위의 내용을 변경하려면 Azure AD에서 응용 프로그램 개체를 수정할 수 있는 권한이 필요합니다. 사용자에게 Azure AD의 응용 프로그램 수정 권한을 부여하는 응용 프로그램 [관리자](../users-groups-roles/roles-delegate-app-roles.md#assign-built-in-application-admin-roles) 역할을 할당해야 합니다.
     >
 
 2.  애플리케이션에서 FQDN(정규화된 도메인 이름)을 사용하는 경우 [사용자 지정 도메인](application-proxy-configure-custom-domain.md)을 사용하여 애플리케이션을 게시할 수 있습니다. 이 기능을 사용하면 동일한 URL을 내부 및 외부에서 모두 사용할 수 있습니다.

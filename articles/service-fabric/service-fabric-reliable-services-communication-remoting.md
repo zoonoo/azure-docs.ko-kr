@@ -1,21 +1,21 @@
 ---
-title: Service Fabric에서를 사용 C# 하 여 서비스 원격
+title: 서비스 패브릭에서 C#을 사용하여 서비스 원격
 description: Service Fabric 원격 호출을 사용하면 클라이언트와 서비스가 원격 프로시저 호출을 사용하여 C# 서비스와 통신할 수 있습니다.
 author: vturecek
 ms.topic: conceptual
 ms.date: 09/20/2017
 ms.author: vturecek
 ms.openlocfilehash: 0d59275f25931a11b2d551a2e9eb019838e4c1b3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75433878"
 ---
 # <a name="service-remoting-in-c-with-reliable-services"></a>Reliable Services로 C#에서 서비스 원격 호출
 
 > [!div class="op_single_selector"]
-> * [Windows에서 C#](service-fabric-reliable-services-communication-remoting.md)
+> * [윈도우에서 C #](service-fabric-reliable-services-communication-remoting.md)
 > * [Linux에서 Java](service-fabric-reliable-services-communication-remoting-java.md)
 >
 >
@@ -313,7 +313,7 @@ V2_1 스택으로 변경하려면 다음 단계를 따르세요.
 V1에서 V2(인터페이스 호환 가능, V2_1이라고 함)로 업그레이드하려면 2단계 업그레이드가 필요합니다. 이 순서대로 단계를 따르세요.
 
 > [!NOTE]
-> V1에서 v 2로 업그레이드 하는 경우 `Remoting` 네임 스페이스가 V2를 사용 하도록 업데이트 되었는지 확인 합니다. 예: ' ServiceFabric ' (' FabricTransport ')
+> V1에서 V2로 업그레이드할 때 `Remoting` V2를 사용하도록 네임스페이스가 업데이트되었는지 확인합니다. 예: 'Microsoft.ServiceFabric.Services.Remoting.V2.FabricTransport.Client'
 >
 >
 

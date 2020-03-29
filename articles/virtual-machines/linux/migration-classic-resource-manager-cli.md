@@ -1,5 +1,5 @@
 ---
-title: Azure CLI를 사용 하 여 리소스 관리자으로 Vm 마이그레이션
+title: Azure CLI를 사용하여 VM을 리소스 관리자로 마이그레이션
 description: 이 문서에서는 플랫폼 지원 방식의 Azure CLI를 사용하여 클래식에서 Azure Resource Manager로 리소스를 마이그레이션하는 과정을 안내합니다.
 author: tanmaygore
 manager: vashan
@@ -9,16 +9,16 @@ ms.topic: article
 ms.date: 02/06/2020
 ms.author: tagore
 ms.openlocfilehash: c41292a05e5c857cd0b1c120784a400f2f5410ab
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78945348"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-cli"></a>Azure CLI를 사용하여 클래식에서 Azure Resource Manager로 IaaS 리소스 마이그레이션
 
 > [!IMPORTANT]
-> 현재 IaaS Vm의 90%가 [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/)를 사용 하 고 있습니다. 2020 년 2 월 28 일부 터 클래식 Vm은 더 이상 사용 되지 않으며 2023 년 3 월 1 일에 완전히 사용 중지 됩니다. 이 사용 중단 및 [영향](https://docs.microsoft.com/azure/virtual-machines/classic-vm-deprecation#how-does-this-affect-me)에 대 한 [자세한 내용을 알아보세요]( https://aka.ms/classicvmretirement) .
+> 현재 IaaS VM의 약 90%가 [Azure 리소스 관리자를](https://azure.microsoft.com/features/resource-manager/)사용하고 있습니다. 2020년 2월 28일부터 클래식 VM이 더 이상 사용되지 않으며 2023년 3월 1일에 완전히 폐기됩니다. 이 사용 중단에 대해 자세히 알아보고 이 사용 [중단이 사용자에게 미치는 영향에 대해](https://docs.microsoft.com/azure/virtual-machines/classic-vm-deprecation#how-does-this-affect-me)자세히 [알아봅니다.]( https://aka.ms/classicvmretirement)
 
 이러한 단계에서는 Azure CLI(명령줄 인터페이스) 명령을 사용하여 클래식 배포 모델의 laaS(Infrastructure as a Service) 리소스를 Azure Resource Manager 배포 모델로 마이그레이션하는 방법을 보여 줍니다. 이 문서는 [Azure 클래식 CLI](../../cli-install-nodejs.md)가 필요합니다. Azure CLI는 Azure Resource Manager 리소스에만 적용할 수 있으므로 이 마이그레이션에 사용할 수 없습니다.
 
@@ -63,7 +63,7 @@ ms.locfileid: "78945348"
 > 
 > 
 
-다음 명령을 사용하여 마이그레이션 리소스 공급자에 등록합니다. 일부 경우에는이 명령이 시간 초과 됩니다. 그러나 등록에 성공 합니다.
+다음 명령을 사용하여 마이그레이션 리소스 공급자에 등록합니다. 경우에 따라 이 명령시간이 시간 단축됩니다. 그러나 등록은 성공적입니다.
 
     azure provider register Microsoft.ClassicInfrastructureMigrate
 
@@ -82,7 +82,7 @@ ms.locfileid: "78945348"
 azure config mode arm
 ```
 
-다음 CLI 명령을 사용하여 Azure Resource Manager에 있는 현재 vCPU 수를 확인할 수 있습니다. vCPU 할당량에 대한 자세한 내용은 [제한 및 Azure Resource Manager](../../azure-resource-manager/management/azure-subscription-service-limits.md#managing-limits)를 참조하세요.
+다음 CLI 명령을 사용하여 Azure Resource Manager에 있는 현재 vCPU 수를 확인할 수 있습니다. vCPU 할당량에 대한 자세한 내용은 [제한 및 Azure 리소스 관리자를](../../azure-resource-manager/management/azure-subscription-service-limits.md#managing-limits)참조하십시오.
 
 ```
 azure vm list-usage -l "<Your VNET or Deployment's Azure region"

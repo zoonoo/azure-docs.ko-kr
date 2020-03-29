@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Hub Device Provisioning 서비스 자동 프로비전을 사용하여 IoT Hub에 MXChip IoT DevKit을 등록하는 방법 | Microsoft Docs
-description: Azure IoT Hub 장치 프로 비전 서비스 (DPS) 자동 프로 비전을 사용 하 여 IoT Hub MXChip IoT DevKit를 등록 하는 방법입니다.
+description: Azure IoT 허브 장치 프로비저닝 서비스(DPS) 자동 프로비저닝을 사용하여 IoT Hub에 MXChip IoT DevKit를 등록하는 방법.
 author: liydu
 ms.author: liydu
 ms.date: 06/25/2019
@@ -9,15 +9,15 @@ ms.service: iot-dps
 services: iot-dps
 manager: jeffya
 ms.openlocfilehash: f05e92f0452b1cfff23e2094354203fd7eaea48b
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74975655"
 ---
 # <a name="use-azure-iot-hub-device-provisioning-service-auto-provisioning-to-register-the-mxchip-iot-devkit-with-iot-hub"></a>Azure IoT Hub Device Provisioning 서비스 자동 프로비전을 사용하여 IoT Hub에 MXChip IoT DevKit 등록
 
-이 문서에서는 Azure IoT Hub Device Provisioning 서비스 [자동 프로비전](concepts-auto-provisioning.md)을 사용하여 Azure IoT Hub에 MXChip IoT DevKit을 등록하는 방법을 설명합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 문서에서는 Azure IoT Hub Device Provisioning 서비스 [자동 프로비전](concepts-auto-provisioning.md)을 사용하여 Azure IoT Hub에 MXChip IoT DevKit을 등록하는 방법을 설명합니다. 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 * 디바이스에서 Device Provisioning Service의 글로벌 엔드포인트를 구성합니다.
 * UDS(고유 디바이스 비밀)를 사용하여 X.509 인증서를 생성합니다.
@@ -30,7 +30,7 @@ ms.locfileid: "74975655"
 
 이 자습서를 완료하려면 먼저 다음 작업을 수행합니다.
 
-* [클라우드에서 IoT DEVKIT AZ3166 Azure IoT Hub에 연결](/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started#prepare-the-development-environment)의 "개발 환경 준비" 섹션의 단계에 따라 devkit의 wi-fi를 구성 하 고 개발 환경을 준비 합니다.
+* 클라우드의 Azure IoT [Hub에 연결 IoT DevKit AZ3166의](/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started#prepare-the-development-environment)"개발 환경 준비" 단계단계를 수행하여 DevKit의 Wi-Fi를 구성하고 개발 환경을 준비합니다.
 * [DevKit 펌웨어 업데이트](https://microsoft.github.io/azure-iot-developer-kit/docs/firmware-upgrading/) 자습서를 사용하여 최신 펌웨어(1.3.0 이상)로 업그레이드합니다.
 * [Azure Portal에서 IoT Hub Device Provisioning 서비스 설정](/azure/iot-dps/quick-setup-auto-provision) 단계에 따라 IoT Hub를 만들어 Device Provisioning Service 인스턴스와 연결합니다.
 
@@ -38,7 +38,7 @@ ms.locfileid: "74975655"
 
 1. IoT DevKit가 컴퓨터에 연결되어 있지 **않은지** 확인합니다. VS Code를 시작하고 DevKit를 컴퓨터에 연결합니다.
 
-1. `F1`를 클릭 하 여 명령 팔레트를 열고 **Azure IoT 장치 워크 벤치: 예제 열기**...를 입력 하 고 선택 합니다. 그런 다음 **IoT DevKit** as board를 선택 합니다.
+1. 명령 `F1` 팔레트를 열고 **Azure IoT 장치 워크벤치: 예제 열기를 선택합니다.** 그런 다음 **IoT DevKit을** 보드로 선택합니다.
 
 1. IoT Workbench 예제 페이지에서 **DPS를 사용하여 디바이스 등록**을 찾고 **샘플 열기**를 클릭합니다. 기본 경로를 선택하여 샘플 코드를 다운로드합니다.
     ![샘플 열기](media/how-to-connect-mxchip-iot-devkit/open-sample.png)
@@ -58,9 +58,9 @@ DevKit에 UDS를 저장하려면:
 1. VS Code에서 상태 표시줄을 클릭하여 DevKit에 대한 COM 포트를 선택합니다.
   ![COM 포트 선택](media/how-to-connect-mxchip-iot-devkit/select-com.png)
 
-1. DevKit에서 **단추 a**를 누르고 **다시 설정** 단추를 눌렀다가 놓은 다음 **단추 a**를 놓습니다. DevKit가 구성 모드로 전환 됩니다.
+1. DevKit에서 버튼 **A를**길게 누를 때 **리셋** 버튼을 누르고 놓은 다음 **단추 A를**놓습니다. DevKit이 구성 모드로 들어갑니다.
 
-1. `F1`를 클릭 하 여 명령 팔레트를 열고 **Azure IoT 장치 워크 벤치: 장치 설정 구성 ...을 입력 하 고 선택 합니다. 구성 고유 장치 문자열 (UD)을 >** 합니다.
+1. 명령 `F1` 팔레트를 열고 Azure IoT 장치 워크벤치를 입력하고 선택하려면 장치 **설정 구성 > UDS(구성 고유 장치 문자열)를**클릭합니다.
   ![UDS 구성](media/how-to-connect-mxchip-iot-devkit/config-uds.png)
 
 1. 생성된 UDS 문자열을 적어 둡니다. X.509 인증서를 생성하는 데 필요합니다. 그런 다음, `Enter` 키를 누릅니다.
@@ -76,7 +76,7 @@ DevKit에 UDS를 저장하려면:
 
 디바이스 코드에서 테넌트 격리를 보장하도록 [디바이스 프로비저닝 엔드포인트](/azure/iot-dps/concepts-service#device-provisioning-endpoint) 및 ID 범위를 지정해야 합니다.
 
-1. Azure Portal에서 Device Provisioning Service에 대한 **개요** 창을 선택하고, **글로벌 디바이스 엔드포인트** 및 **ID 범위** 값을 적어둡니다.
+1. Azure 포털에서 장치 프로비저닝 서비스의 **개요** 창을 선택하고 **전역 장치 끝점** 및 **ID 범위** 값을 기록합니다.
   ![Device Provisioning Service 글로벌 엔드포인트 및 ID 범위](media/how-to-connect-mxchip-iot-devkit/dps-global-endpoint.png)
 
 1. **DevKitDPS.ino**를 엽니다. `[Global Device Endpoint]` 및 `[ID Scope]`를 찾아 방금 적어둔 값으로 바꿉니다.
@@ -85,7 +85,7 @@ DevKit에 UDS를 저장하려면:
 1. 코드의 `registrationId` 변수를 채웁니다. 최대 128자의 영숫자, 소문자 및 하이픈 조합만 허용됩니다. 값도 적어 둡니다.
   ![등록 ID](media/how-to-connect-mxchip-iot-devkit/registration-id.png)
 
-1. `F1`를 클릭 하 고 **Azure IoT 장치 워크 벤치: 장치 코드 업로드**를 입력 하 고 선택 합니다. DevKit에 코드를 컴파일하고 업로드하기 시작합니다.
+1. 을 `F1`클릭하고 **Azure IoT 장치 워크벤치: 장치 코드 업로드를**선택합니다. DevKit에 코드를 컴파일하고 업로드하기 시작합니다.
   ![디바이스 업로드](media/how-to-connect-mxchip-iot-devkit/device-upload.png)
 
 ## <a name="generate-x509-certificate"></a>X.509 인증서 생성
@@ -126,7 +126,7 @@ DevKit의 **다시 설정** 단추를 누릅니다. DevKit 화면에 **DPS 연�
 문제가 발생하면 Lot DevKit [FAQ](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/)를 참조하거나 다음 지원 채널을 통해 문의해주세요.
 
 * [Gitter.im](https://gitter.im/Microsoft/azure-iot-developer-kit)
-* [Stack Overflow](https://stackoverflow.com/questions/tagged/iot-devkit)
+* [스택 오버플로](https://stackoverflow.com/questions/tagged/iot-devkit)
 
 ## <a name="next-steps"></a>다음 단계
 

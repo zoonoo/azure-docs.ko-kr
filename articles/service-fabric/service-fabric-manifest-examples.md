@@ -1,15 +1,15 @@
 ---
-title: Azure Service Fabric 응용 프로그램 매니페스트 예제
+title: Azure 서비스 패브릭 응용 프로그램 매니페스트 예제
 description: Service Fabric 애플리케이션에 대한 애플리케이션 및 서비스 매니페스트 설정을 구성하는 방법을 알아봅니다.
 author: peterpogorski
 ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: pepogors
 ms.openlocfilehash: 6f44d2ddaac11545a3a3dc52fd20e02263c6ad67
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75451633"
 ---
 # <a name="service-fabric-application-and-service-manifest-examples"></a>Service Fabric 애플리케이션 및 서비스 매니페스트 예제
@@ -17,7 +17,7 @@ ms.locfileid: "75451633"
 
 다음은 표시되는 기능의 인덱스와 기능이 포함된 예제 매니페스트입니다.
 
-|기능|매니페스트|
+|기능|file:///|
 |---|---|
 |[리소스 관리](service-fabric-resource-governance.md)|[Reliable Services 애플리케이션 매니페스트](service-fabric-manifest-example-reliable-services-app.md#application-manifest), [컨테이너 애플리케이션 매니페스트](service-fabric-manifest-example-container-app.md#application-manifest)|
 |[로컬 관리자 계정으로 서비스 실행](service-fabric-application-runas-security.md)|[Reliable Services 애플리케이션 매니페스트](service-fabric-manifest-example-reliable-services-app.md#application-manifest)|

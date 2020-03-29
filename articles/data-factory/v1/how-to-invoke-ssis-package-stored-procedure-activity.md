@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory 저장 프로시저 작업을 사용 하 여 SSIS 패키지 호출
+title: Azure 데이터 팩터리 - 저장 프로시저 활동을 사용하여 SSIS 패키지 호출
 description: 이 문서에서는 Azure Data Factory 파이프라인에서 저장 프로시저 작업을 사용하여 SSIS(SQL Server Integration Services) 패키지를 호출하는 방법에 대해 설명합니다.
 services: data-factory
 documentationcenter: ''
@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: jingwang
 ms.openlocfilehash: ea86c4670a8eb6dc5e2133ed01045e8aada0f707
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75438795"
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Azure Data Factory에서 저장 프로시저 작업을 사용하여 SSIS 패키지 호출
@@ -26,7 +26,7 @@ ms.locfileid: "75438795"
 > [!NOTE]
 > 이 아티클은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [저장 프로시저 작업을 사용하여 SSIS 패키지 호출](../how-to-invoke-ssis-package-stored-procedure-activity.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 ### <a name="azure-sql-database"></a>Azure SQL Database 
 이 문서의 연습에서는 SSIS 카탈로그를 호스트하는 Azure SQL 데이터베이스를 사용합니다. Azure SQL Database Managed Instance를 사용할 수도 있습니다.
@@ -66,7 +66,7 @@ Azure-SSIS 통합 런타임이 없는 경우 [자습서: SSIS 패키지 배포](
     $DataFactoryName = "ADFTutorialFactory";
     ```
 
-5. 데이터 팩터리를 만들려면 $ResGrp 변수의 Location 및 ResourceGroupName 속성을 사용 하 여 다음과 같은 **AzDataFactory** cmdlet을 실행 합니다. 
+5. 데이터 팩터리를 만들려면 $ResGrp 변수의 위치 및 ResourceGroupName 속성을 사용하여 다음 **New-AzDataFactory** cmdlet을 실행합니다. 
     
     ```powershell       
     $df = New-AzDataFactory -ResourceGroupName $ResourceGroupName -Name $dataFactoryName -Location "East US"
@@ -101,7 +101,7 @@ SSIS 카탈로그를 호스트하는 Azure SQL 데이터베이스를 데이터 �
         }
     ```
 2. **Azure PowerShell**에서 **C:\ADF\RunSSISPackage** 폴더로 전환합니다.
-3. **AzDataFactoryLinkedService** cmdlet을 실행 하 여 연결 된 서비스를 만듭니다. **AzureSqlDatabaseLinkedService**. 
+3. **새-AzDataFactoryLinkedService** cmdlet을 실행 하여 연결된 서비스를 만듭니다: **AzureSqlDatabaseLinkedService**. 
 
     ```powershell
     New-AzDataFactoryLinkedService $df -File ".\AzureSqlDatabaseLinkedService.json"
@@ -126,7 +126,7 @@ SSIS 카탈로그를 호스트하는 Azure SQL 데이터베이스를 데이터 �
         }
     }
     ```
-2. **AzDataFactoryDataset** cmdlet을 실행 하 여 데이터 집합을 만듭니다. 
+2. 새 **AzDataFactoryDataset** cmdlet을 실행하여 데이터 집합을 만듭니다. 
 
     ```powershell
     New-AzDataFactoryDataset $df -File ".\OutputDataset.json"
@@ -168,7 +168,7 @@ SSIS 카탈로그를 호스트하는 Azure SQL 데이터베이스를 데이터 �
     }    
     ```
 
-2. **RunSSISPackagePipeline**파이프라인을 만들려면 **AzDataFactoryPipeline** cmdlet을 실행 합니다.
+2. 파이프라인을 만들려면: **RunSIS패키지파이프라인,** **New-AzDataFactoryPipeline** cmdlet을 실행합니다.
 
     ```powershell
     $DFPipeLine = New-AzDataFactoryPipeline -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -Name "RunSSISPackagePipeline" -DefinitionFile ".\RunSSISPackagePipeline.json"
@@ -176,7 +176,7 @@ SSIS 카탈로그를 호스트하는 Azure SQL 데이터베이스를 데이터 �
 
 ### <a name="monitor-the-pipeline-run"></a>파이프라인 실행을 모니터링합니다.
 
-1. **AzDataFactorySlice** 를 실행 하 여 파이프라인의 출력 테이블인 출력 데이터 집합의 모든 조각에 대 한 세부 정보를 가져옵니다.
+1. **Get-AzDataFactorySlice를** 실행하여 파이프라인의 출력 테이블인 출력 데이터 집합**의 모든 조각에 대한 세부 정보를 가져옵니다.
 
     ```powershell
     Get-AzDataFactorySlice $df -DatasetName sprocsampleout -StartDateTime 2017-10-01T00:00:00Z

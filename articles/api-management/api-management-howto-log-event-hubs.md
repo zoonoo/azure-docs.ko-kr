@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: apimpm
 ms.openlocfilehash: 2f07f6a27e78ee4df8c64a09918758d02c28c6d4
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76898796"
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Azure API Management에서 Azure Event Hubs에 이벤트를 기록하는 방법
@@ -32,7 +32,7 @@ Event Hub를 만들고 Event Hub 간에 이벤트를 송신 및 수신해야 하
 ## <a name="create-an-api-management-logger"></a>API Management 로거 만들기
 이제 이벤트 허브를 만들었으므로 다음 단계는 API Management 서비스에서 [로거](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/logger) 를 구성하여 이벤트 허브에 이벤트를 기록할 수 있도록 하는 것입니다.
 
-API Management 로거는 [API Management REST API](https://aka.ms/apimapi)를 사용하여 구성됩니다. 자세한 요청 예제 [는로 거를 만드는 방법](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/logger/createorupdate)을 참조 하세요.
+API Management 로거는 [API Management REST API](https://aka.ms/apimapi)를 사용하여 구성됩니다. 자세한 요청 예제는 [로거 를 만드는 방법을 참조하세요.](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/logger/createorupdate)
 
 ## <a name="configure-log-to-eventhubs-policies"></a>log-to-eventhubs 정책 구성
 
@@ -46,7 +46,7 @@ API Management에 로거가 구성되면 원하는 이벤트를 기록하는 log
 6. 인바운드 또는 아웃바운드 처리 창에서 삼각형(연필 옆에 있는)을 클릭합니다.
 7. 코드 편집기를 선택합니다. 자세한 내용은 [정책을 설정하거나 편집하는 방법](set-edit-policies.md)을 참조하세요.
 8. 커서를 `inbound` 또는 `outbound` 정책 섹션에 둡니다.
-9. 오른쪽 창에서 **고급 정책** > **EventHub에 대한 로그**를 선택합니다. 그러면 `log-to-eventhub` 정책 문 템플릿을 삽입합니다.
+9. 오른쪽 창에서 **고급 정책** > **로그 에서 EventHub 로그를**선택합니다. 그러면 `log-to-eventhub` 정책 문 템플릿을 삽입합니다.
 
 ```xml
 <log-to-eventhub logger-id ='logger-id'>

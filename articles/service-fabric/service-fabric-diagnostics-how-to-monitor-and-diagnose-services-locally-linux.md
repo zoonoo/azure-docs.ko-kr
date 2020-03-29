@@ -1,16 +1,16 @@
 ---
-title: Linux에서 Azure Service Fabric 앱 디버그
+title: 리눅스에서 Azure 서비스 패브릭 앱 디버그
 description: 로컬 Linux 개발 컴퓨터에서 Service Fabric 서비스를 모니터링하고 진단하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: d8b5ec2f2190586f5eced5eee112b190a82504c3
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75526297"
 ---
-# <a name="monitor-and-diagnose-services-in-a-local-linux-machine-development-setup"></a>로컬 Linux 컴퓨터 개발 설치에서 서비스 모니터링 및 진단
+# <a name="monitor-and-diagnose-services-in-a-local-linux-machine-development-setup"></a>로컬 Linux 컴퓨터 개발 설정에서 서비스 모니터링 및 진단
 
 
 > [!div class="op_single_selector"]
@@ -24,7 +24,7 @@ ms.locfileid: "75526297"
 
 ## <a name="debugging-service-fabric-java-applications"></a>Service Fabric Java 애플리케이션 디버깅
 
-Java 애플리케이션에 대해 [다중 로깅 프레임워크](https://en.wikipedia.org/wiki/Java_logging_framework)를 사용할 수 있습니다. `java.util.logging`이 JRE의 기본 옵션이므로 [GitHub의 코드 예제](https://github.com/Azure-Samples/service-fabric-java-getting-started)에도 사용됩니다. 다음 논의에서는 `java.util.logging` 프레임워크를 구성하는 방법을 설명합니다.
+Java 애플리케이션에 대해 [다중 로깅 프레임워크](https://en.wikipedia.org/wiki/Java_logging_framework)를 사용할 수 있습니다. JRE의 기본 옵션은 기본 옵션이므로 `java.util.logging` GitHub 의 코드 [예제에도 사용됩니다.](https://github.com/Azure-Samples/service-fabric-java-getting-started) 다음 논의에서는 `java.util.logging` 프레임워크를 구성하는 방법을 설명합니다.
 
 java.util.logging을 사용하면 애플리케이션 로그를 메모리, 출력 스트림, 콘솔 파일 또는 소켓으로 리디렉션할 수 있습니다. 이들 옵션 각각에 대해 프레임워크에 이미 제공되어 있는 기본 핸들러가 있습니다. `app.properties` 파일을 만들어서 애플리케이션에 대한 파일 핸들러가 모든 로그를 로컬 파일로 리디렉션하도록 구성할 수 있습니다.
 
@@ -53,7 +53,7 @@ java -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=<path 
 
 기본적으로 핸들러가 명시적으로 구성되지 않으면 콘솔 핸들러가 등록됩니다. /var/log/syslog 아래 syslog에서 로그를 볼 수 있습니다.
 
-자세한 내용은 [GitHub의 코드 예제](https://github.com/Azure-Samples/service-fabric-java-getting-started)를 참조하세요.
+자세한 내용은 [GitHub](https://github.com/Azure-Samples/service-fabric-java-getting-started)의 코드 예제를 참조하십시오.
 
 
 ## <a name="debugging-service-fabric-c-applications"></a>Service Fabric C# 애플리케이션 디버깅

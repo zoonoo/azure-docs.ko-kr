@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.subservice: alerts
 ms.openlocfilehash: 655a3acc44a1418778b37fbef85e5df75d042317
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/01/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78206239"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Azure Monitor 경고를 사용하여 복잡한 작업을 트리거하는 방법
@@ -25,7 +25,7 @@ Azure Monitor 경고가 트리거되면 [동작 그룹](../../azure-monitor/plat
 
 -   각 경고 유형에 대한 논리 앱을 만듭니다.
 
--   각 경고 유형에 대 한 샘플 페이로드를 논리 앱으로 가져옵니다.
+-   각 경고 유형에 대한 샘플 페이로드를 논리 앱으로 가져옵니다.
 
 -   논리 앱 동작을 정의합니다.
 
@@ -57,7 +57,7 @@ Azure Monitor 경고가 트리거되면 [동작 그룹](../../azure-monitor/plat
 
     ![샘플 페이로드 사용](media/action-groups-logic-app/use-sample-payload-button.png "샘플 페이로드 사용")
 
-8.  다음 샘플 페이로드를 복사 하 여 대화 상자에 붙여 넣습니다.
+8.  다음 샘플 페이로드를 복사하여 대화 상자에 붙여넣습니다.
 
     ```json
         {
@@ -98,15 +98,15 @@ Azure Monitor 경고가 트리거되면 [동작 그룹](../../azure-monitor/plat
 
 9. **Logic App 디자이너**는 논리 앱에 전송된 요청이 **Content-Type** 헤더를 **application/json**으로 설정해야 함을 사용자에게 알리는 팝업 창을 표시합니다. 팝업 창을 닫습니다. Azure Monitor 경고는 헤더를 설정합니다.
 
-    ![Content-type 헤더 설정](media/action-groups-logic-app/content-type-header.png "Content-type 헤더 설정")
+    ![콘텐츠 유형 헤더 설정](media/action-groups-logic-app/content-type-header.png "콘텐츠 유형 헤더 설정")
 
-10. **+** **새 단계** 를 선택한 다음 **작업 추가**를 선택 합니다.
+10. **+** **새 단계를** 선택한 다음 **작업 추가를**선택합니다.
 
     ![작업 추가](media/action-groups-logic-app/add-action.png "작업 추가")
 
-11. Microsoft Teams 커넥터를 검색하고 선택합니다. **Microsoft 팀-메시지 게시** 작업을 선택 합니다.
+11. Microsoft Teams 커넥터를 검색하고 선택합니다. Microsoft **팀 선택 - 메시지** 작업을 게시합니다.
 
-    ![Microsoft 팀 작업](media/action-groups-logic-app/microsoft-teams-actions.png "Microsoft 팀 작업")
+    ![마이크로소프트 팀 작업](media/action-groups-logic-app/microsoft-teams-actions.png "마이크로소프트 팀 작업")
 
 12. Microsoft Teams 작업을 구성합니다. **Logic Apps 디자이너**에서 Office 365 계정에 인증할 것을 요청합니다. 메시지를 전송할 **팀 ID** 및 **채널 ID**를 선택합니다.
 
@@ -128,7 +128,7 @@ Azure Monitor 경고가 트리거되면 [동작 그룹](../../azure-monitor/plat
 
 14. **Logic Apps 디자이너** 맨 위에서 **저장**을 선택하여 논리 앱을 저장합니다.
 
-15. 기존 작업 그룹을 열고 논리 앱을 참조하는 작업을 추가합니다. 기존 작업 그룹이 없는 경우 [Azure Portal에서 작업 그룹 만들기 및 관리](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) 를 참조 하 여 새로 만듭니다. 변경 내용은 반드시 저장해야 합니다.
+15. 기존 작업 그룹을 열고 논리 앱을 참조하는 작업을 추가합니다. 기존 작업 그룹이 없는 경우 Azure [Portal에서 작업 그룹 만들기 및 관리를](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) 참조하여 작업 그룹을 만듭니다. 변경 내용은 반드시 저장해야 합니다.
 
     ![작업 그룹 업데이트](media/action-groups-logic-app/update-action-group.png "작업 그룹 업데이트")
 
@@ -139,7 +139,7 @@ Azure Monitor 경고가 트리거되면 [동작 그룹](../../azure-monitor/plat
 Azure Service Health 항목은 작업 로그에 속해 있습니다. 경고 만들기 프로세스는 몇 가지 변경을 제외하고는 [활동 로그 경고 만들기](#create-an-activity-log-alert-administrative)와 비슷합니다.
 
 - 1-7단계는 동일합니다.
-- 8 단계의 경우 HTTP 요청 트리거에 대 한 다음 샘플 페이로드를 사용 합니다.
+- 8단계의 경우 HTTP 요청 트리거에 다음 샘플 페이로드를 사용합니다.
 
     ```json
     {
@@ -186,12 +186,12 @@ Azure Service Health 항목은 작업 로그에 속해 있습니다. 경고 만�
 -  9-10단계는 동일합니다.
 -  11-14 단계의 경우 다음 프로세스를 사용합니다.
 
-   1. **+** **새 단계** 를 선택한 다음 **조건 추가를**선택 합니다. 입력 데이터가 아래 값과 일치하는 경우에만 논리 앱을 실행하도록 다음 조건을 설정합니다.  버전 값을 텍스트 상자에 입력할 때 숫자 형식이 아닌 문자열로 계산되도록 주위에 따옴표를 배치합니다("0.1.1").  페이지에 반환하는 경우 시스템은 따옴표를 표시하지 않지만 기본 코드는 여전히 문자열 형식을 유지 관리합니다.   
+   1. **+** **새 단계를** 선택한 다음 **조건 추가를**선택합니다. 입력 데이터가 아래 값과 일치하는 경우에만 논리 앱을 실행하도록 다음 조건을 설정합니다.  버전 값을 텍스트 상자에 입력할 때 숫자 형식이 아닌 문자열로 계산되도록 주위에 따옴표를 배치합니다("0.1.1").  페이지에 반환하는 경우 시스템은 따옴표를 표시하지 않지만 기본 코드는 여전히 문자열 형식을 유지 관리합니다.   
        - `schemaId == Microsoft.Insights/activityLogs`
        - `eventSource == ServiceHealth`
        - `version == "0.1.1"`
 
-      !["Service Health 페이로드 조건"](media/action-groups-logic-app/service-health-payload-condition.png "Service Health 페이로드 조건")
+      !["서비스 상태 페이로드 조건"](media/action-groups-logic-app/service-health-payload-condition.png "서비스 상태 페이로드 조건")
 
    1. **if true** 조건에서 [활동 로그 경고 만들기](#create-an-activity-log-alert-administrative)의 11-13 단계 지침에 따라 Microsoft Teams 작업을 추가합니다.
 
@@ -208,7 +208,7 @@ Azure Service Health 항목은 작업 로그에 속해 있습니다. 경고 만�
        <p>[communication]</p>
        ```
 
-       !["Service Health true 조건 게시 작업"](media/action-groups-logic-app/service-health-true-condition-post-action.png "True 조건 게시 작업 Service Health")
+       !["서비스 상태 실제 상태 사후 조치"](media/action-groups-logic-app/service-health-true-condition-post-action.png "서비스 상태 실제 상태 사후 조치")
 
    1. **If false** 조건의 경우 유용한 메시지를 제공합니다.
 
@@ -218,7 +218,7 @@ Azure Service Health 항목은 작업 로그에 속해 있습니다. 경고 만�
        <p><a href="https://ms.portal.azure.com/#blade/Microsoft_Azure_Health/AzureHealthBrowseBlade/serviceIssues">For details, log in to the Azure Service Health dashboard.\</a></p>
        ```
 
-       !["Service Health false 조건 게시 작업"](media/action-groups-logic-app/service-health-false-condition-post-action.png "Service Health false 조건 게시 작업")
+       !["서비스 상태 허위 상태 사후 조치"](media/action-groups-logic-app/service-health-false-condition-post-action.png "서비스 상태 허위 조건 사후 조치")
 
 - 15단계는 동일합니다. 지침을 따라 논리 앱을 저장하고 작업 그룹을 업데이트합니다.
 
@@ -227,7 +227,7 @@ Azure Service Health 항목은 작업 로그에 속해 있습니다. 경고 만�
 메트릭 경고 만들기 프로세스는 몇 가지 변경을 제외하고는 [활동 로그 경고 만들기](#create-an-activity-log-alert-administrative)와 비슷합니다.
 
 - 1-7단계는 동일합니다.
-- 8 단계의 경우 HTTP 요청 트리거에 대 한 다음 샘플 페이로드를 사용 합니다.
+- 8단계의 경우 HTTP 요청 트리거에 다음 샘플 페이로드를 사용합니다.
 
     ```json
     {
@@ -274,7 +274,7 @@ Azure Service Health 항목은 작업 로그에 속해 있습니다. 경고 만�
 - 9-10단계는 동일합니다.
 - 11-14 단계의 경우 다음 프로세스를 사용합니다.
 
-  1. **+** **새 단계** 를 선택한 다음 **조건 추가를**선택 합니다. 입력 데이터가 아래 값과 일치하는 경우에만 논리 앱을 실행하도록 다음 조건을 설정합니다. 버전 값을 텍스트 상자에 입력할 때 숫자 형식이 아닌 문자열로 계산되도록 주위에 따옴표를 배치합니다("2.0").  페이지에 반환하는 경우 시스템은 따옴표를 표시하지 않지만 기본 코드는 여전히 문자열 형식을 유지 관리합니다. 
+  1. **+** **새 단계를** 선택한 다음 **조건 추가를**선택합니다. 입력 데이터가 아래 값과 일치하는 경우에만 논리 앱을 실행하도록 다음 조건을 설정합니다. 버전 값을 텍스트 상자에 입력할 때 숫자 형식이 아닌 문자열로 계산되도록 주위에 따옴표를 배치합니다("2.0").  페이지에 반환하는 경우 시스템은 따옴표를 표시하지 않지만 기본 코드는 여전히 문자열 형식을 유지 관리합니다. 
      - `schemaId == AzureMonitorMetricAlert`
      - `version == "2.0"`
        
@@ -282,11 +282,11 @@ Azure Service Health 항목은 작업 로그에 속해 있습니다. 경고 만�
 
   1. **if true** 조건에서 **For each** 루프 및 Microsoft Teams 작업을 추가합니다. HTML과 동적 콘텐츠의 조합을 사용하여 메시지를 정의합니다.
 
-      !["메트릭 경고 true 조건 게시 작업"](media/action-groups-logic-app/metric-alert-true-condition-post-action.png "메트릭 경고 true 조건 게시 작업")
+      !["메트릭 경고 실제 상태 사후 작업"](media/action-groups-logic-app/metric-alert-true-condition-post-action.png "메트릭 경고 실제 상태 사후 작업")
 
-  1. **False** 조건에서 메트릭 경고가 논리 앱의 예상과 일치 하지 않는다는 것을 알리는 Microsoft 팀 작업을 정의 합니다. JSON 페이로드를 포함합니다. `triggerBody` 식에서 `json()` 동적 콘텐츠를 참조하는 방법을 확인합니다.
+  1. 잘못된 **경우** 조건에서 메트릭 경고가 논리 앱의 기대치와 일치하지 않는다는 것을 알리기 위해 Microsoft Teams 작업을 정의합니다. JSON 페이로드를 포함합니다. `json()` 식에서 `triggerBody` 동적 콘텐츠를 참조하는 방법을 확인합니다.
 
-      !["메트릭 경고 거짓 조건 게시 작업"](media/action-groups-logic-app/metric-alert-false-condition-post-action.png "메트릭 경고 false 조건 게시 작업")
+      !["메트릭 경고 거짓 상태 사후 작업"](media/action-groups-logic-app/metric-alert-false-condition-post-action.png "메트릭 경고 거짓 상태 사후 조치")
 
 - 15단계는 동일합니다. 지침을 따라 논리 앱을 저장하고 작업 그룹을 업데이트합니다.
 
@@ -296,5 +296,5 @@ Logic Apps는 방대한 애플리케이션 및 데이터베이스에서 작업�
 ## <a name="next-steps"></a>다음 단계
 * [Azure 활동 로그 경고의 개요](../../azure-monitor/platform/alerts-overview.md)를 확인하고 경고를 받는 방법에 대해 알아보세요.  
 * [Azure Service Health 알림이 게시될 때 경고를 구성](../../azure-monitor/platform/alerts-activity-log-service-notifications.md)하는 방법을 알아보세요.
-* [작업 그룹](../../azure-monitor/platform/action-groups.md)에 대해 자세히 알아보세요.
+* [작업 그룹에](../../azure-monitor/platform/action-groups.md)대해 자세히 알아보세요.
 

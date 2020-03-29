@@ -1,13 +1,13 @@
 ---
-title: Azure Service Fabric에서 상태 저장 서비스 단위 테스트
+title: Azure 서비스 패브릭에서 상태 관리 서비스를 단위 테스트합니다.
 description: Service Fabric 상태 저장 서비스의 단위 테스트 개념 및 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 09/04/2018
 ms.openlocfilehash: 12e8a47d9685dee12594f4e2afaa848d9688d185
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75433919"
 ---
 # <a name="unit-testing-stateful-services-in-service-fabric"></a>Service Fabric의 상태 저장 서비스 단위 테스트
@@ -25,7 +25,7 @@ Service Fabric 상태 저장 서비스의 단위 테스트를 위해서는 몇 �
 
 ## <a name="common-practices"></a>일반적인 방법
 
-다음 섹션에서는 상태 저장 서비스를 단위 테스트하기 위한 가장 일반적인 방법을 설명합니다. 또한 Service Fabric 오케스트레이션 및 상태 관리에 가깝게 조정해야 하는 모의 계층을 추천합니다. 3\.3.0 이상부터 [ServiceFabric.Mocks](https://www.nuget.org/packages/ServiceFabric.Mocks/)는 권장되는 모의 기능을 제공하고 아래 설명된 방법을 따르는 이러한 단일 라이브러리입니다.
+다음 섹션에서는 상태 저장 서비스를 단위 테스트하기 위한 가장 일반적인 방법을 설명합니다. 또한 Service Fabric 오케스트레이션 및 상태 관리에 가깝게 조정해야 하는 모의 계층을 추천합니다. 3.3.0 이상부터 [ServiceFabric.Mocks](https://www.nuget.org/packages/ServiceFabric.Mocks/)는 권장되는 모의 기능을 제공하고 아래 설명된 방법을 따르는 이러한 단일 라이브러리입니다.
 
 ### <a name="arrangement"></a>정렬
 
@@ -40,8 +40,8 @@ Service Fabric 상태 저장 서비스의 단위 테스트를 위해서는 몇 �
 상태 관리자는 원격 리소스로 취급되므로 모의되어야 합니다. 상태 관리자를 모의하는 경우 상태 관리자에 저장되는 내용을 추적하여 읽고 확인할 수 있도록 기본 메모리 내 스토리지가 필요합니다. 이 작업을 수행하는 간단한 방법은 각 신뢰할 수 있는 컬렉션 유형의 모의 인스턴스를 만드는 것입니다. 해당 모의 개체 내에서 해당 컬렉션에 대해 수행되는 작업에 가깝게 조정되는 데이터 형식을 사용합니다. 다음은 신뢰할 수 있는 각 컬렉션에 대해 제안되는 몇 가지 데이터 형식입니다.
 
 - IReliableDictionary<TKey, TValue> -> System.Collections.Concurrent.ConcurrentDictionary<TKey, TValue>
-- IReliableQueue\<T >->\<T >
-- IReliableConcurrentQueue\<T > > System.collections.concurrent.concurrentqueue\<T >
+- IReliableQueue\<T> -> system.Collections.Generic.Queue\<T>
+- IReliableConcurrent\<T> -> system.collections.Concurrent.CurrentQueue\<T>
 
 #### <a name="many-state-manager-instances-single-storage"></a>여러 상태 관리자 인스턴스, 단일 스토리지
 앞서 언급한 것처럼 상태 관리자 및 신뢰할 수 있는 컬렉션은 원격 리소스로 처리되어야 합니다. 따라서 이러한 리소스는 단위 테스트 내에서 모의되어야 합니다. 그러나 상태 저장 서비스의 여러 인스턴스를 실행하는 경우 여러 다른 상태 저장 서비스 인스턴스에서 모의된 각 상태 관리자를 동기화 상태로 유지하는 일은 어려울 수 있습니다. 상태 저장 서비스가 클러스터에서 실행되는 경우 Service Fabric은 각 보조 복제본의 상태 관리자를 주 복제본과 일관되게 유지하려고 합니다. 따라서 역할 변경을 시뮬레이트할 수 있도록 테스트도 동일하게 진행되어야 합니다.
@@ -74,9 +74,9 @@ Service Fabric 상태 저장 서비스의 단위 테스트를 위해서는 몇 �
 #### <a name="mimic-service-fabric-replica-orchestration"></a>Service Fabric 복제본 오케스트레이션 모방
 여러 서비스 인스턴스를 관리하는 경우 테스트는 Service Fabric 오케스트레이션과 동일한 방식으로 이러한 서비스를 초기화하고 분해합니다. 예를 들어, 새 주 복제본에서 서비스가 생성되면 Service Fabric은 CreateServiceReplicaListener, OpenAsync, ChangeRoleAsync 및 RunAsync를 호출합니다. 수명 주기 이벤트는 다음 문서에 설명되어 있습니다.
 
-- [상태 저장 서비스 시작](service-fabric-reliable-services-lifecycle.md#stateful-service-startup)
-- [상태 저장 서비스 종료](service-fabric-reliable-services-lifecycle.md#stateful-service-shutdown)
-- [상태 저장 서비스 주 교환](service-fabric-reliable-services-lifecycle.md#stateful-service-primary-swaps)
+- [상태 충실 서비스 시작](service-fabric-reliable-services-lifecycle.md#stateful-service-startup)
+- [상태 충실한 서비스 종료](service-fabric-reliable-services-lifecycle.md#stateful-service-shutdown)
+- [상태 충실 서비스 기본 스왑](service-fabric-reliable-services-lifecycle.md#stateful-service-primary-swaps)
 
 #### <a name="run-replica-role-changes"></a>복제본 역할 변경 실행
 단위 테스트는 Service Fabric 오케스트레이션과 동일한 방식으로 서비스 인스턴스의 역할을 변경해야 합니다. 역할 상태 컴퓨터는 다음 문서에 설명되어 있습니다.

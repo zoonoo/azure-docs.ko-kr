@@ -1,21 +1,21 @@
 ---
-title: Windows Server 용 Azure Service Fabric 독립 실행형 패키지
+title: Windows 서버용 Azure 서비스 패브릭 독립 실행형 패키지
 description: Windows Server용 Azure Service Fabric 독립 실행형 패키지의 설명 및 내용입니다.
 author: maburlik
 ms.topic: conceptual
 ms.date: 8/10/2017
 ms.author: maburlik
 ms.openlocfilehash: 1bb73fa69717f067139067f127a0d50af4878d6c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75451839"
 ---
 # <a name="contents-of-service-fabric-standalone-package-for-windows-server"></a>Windows Server용 Service Fabric 독립 실행형 패키지의 내용
 [다운로드된](https://go.microsoft.com/fwlink/?LinkId=730690) Service Fabric 독립 실행형 패키지에서 다음 파일을 찾을 수 있습니다.
 
-| **파일 이름** | **간단한 설명** |
+| **파일 이름** | **간략한 설명** |
 | --- | --- |
 | CreateServiceFabricCluster.ps1 |ClusterConfig.json에서 설정을 사용하여 클러스터를 만드는 PowerShell 스크립트입니다. |
 | RemoveServiceFabricCluster.ps1 |ClusterConfig.json에서 설정을 사용하여 클러스터를 제거하는 PowerShell 스크립트입니다. |
@@ -33,7 +33,7 @@ ms.locfileid: "75451839"
 
 **템플릿** 
 
-| **파일 이름** | **간단한 설명** |
+| **파일 이름** | **간략한 설명** |
 | --- | --- |
 | ClusterConfig.Unsecure.DevCluster.json |클러스터에 있는 각 노드에 대한 정보를 포함하여 3개 노드의 비보안 단일 컴퓨터(또는 가상 머신) 개발 클러스터에 대한 설정이 포함된 클러스터 구성 샘플 파일입니다. |
 | ClusterConfig.Unsecure.MultiMachine.json |클러스터에 있는 각 컴퓨터에 대한 정보를 포함하여 비보안 다중 컴퓨터(또는 가상 머신) 클러스터에 대한 설정이 포함된 클러스터 구성 샘플 파일입니다. |
@@ -44,11 +44,11 @@ ms.locfileid: "75451839"
 | ClusterConfig.gMSA.Windows.MultiMachine.json |보안 클러스터의 각 노드에 대한 정보를 포함하여 보안 다중 컴퓨터(또는 가상 머신) 클러스터에 대한 모든 설정이 포함된 클러스터 구성 샘플 파일입니다. 클러스터는 [그룹 관리 서비스 계정](https://technet.microsoft.com/library/jj128431(v=ws.11).aspx)을 사용하여 보안됩니다. |
 
 ## <a name="cluster-configuration-samples"></a>클러스터 구성 샘플
-최신 버전의 클러스터 구성 템플릿은 [독립 실행형 클러스터 구성 샘플](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples) GitHub 페이지에서 찾을 수 있습니다.
+최신 버전의 클러스터 구성 템플릿은 GitHub 페이지: [독립 실행형 클러스터 구성 샘플에서](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples)찾을 수 있습니다.
 
 ## <a name="independent-runtime-package"></a>독립 런타임 패키지
 클러스터 배포 시 [다운로드 링크 - Service Fabric 런타임 - Windows Server](https://go.microsoft.com/fwlink/?linkid=839354)에서 최신 런타임 패키지를 자동으로 다운로드합니다.
 
-## <a name="related"></a>관련
+## <a name="related"></a>관련 항목
 * [독립 실행형 Azure Service Fabric 클러스터 만들기](service-fabric-cluster-creation-for-windows-server.md)
-* [Service Fabric 클러스터 보안 시나리오](service-fabric-windows-cluster-windows-security.md)
+* [서비스 패브릭 클러스터 보안 시나리오](service-fabric-windows-cluster-windows-security.md)

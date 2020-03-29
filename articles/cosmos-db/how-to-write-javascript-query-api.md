@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB에서 JavaScript 쿼리 API를 사용 하 여 저장 프로시저 및 트리거 작성
+title: Azure Cosmos DB에서 JavaScript 쿼리 API를 사용하여 저장 프로시저 및 트리거 작성
 description: Azure Cosmos DB에서 JavaScript 쿼리 API를 사용하여 저장 프로시저 및 트리거를 작성하는 방법 알아보기
 author: markjbrown
 ms.service: cosmos-db
@@ -7,17 +7,17 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: mjbrown
 ms.openlocfilehash: 221a3118808a044ef1b1b822b9c95772bf792f34
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75441719"
 ---
 # <a name="how-to-write-stored-procedures-and-triggers-in-azure-cosmos-db-by-using-the-javascript-query-api"></a>Azure Cosmos DB에서 JavaScript 쿼리 API를 사용하여 저장 프로시저 및 트리거를 작성하는 방법
 
 Azure Cosmos DB를 사용하면 저장 프로시저 또는 트리거를 작성하는 데 사용할 수 있는 SQL 언어에 대한 지식 없이 유연한 JavaScript 인터페이스를 사용하여 최적화된 쿼리를 수행할 수 있습니다. Azure Cosmos DB에서 JavaScript 쿼리 API 지원에 대한 자세한 내용은 [Azure Cosmos DB에서 JavaScript 언어 통합 쿼리 API 작업](javascript-query-api.md) 문서를 참조하세요.
 
-## <a id="stored-procedures"></a>JavaScript 쿼리 API를 사용한 저장 프로시저
+## <a name="stored-procedure-using-the-javascript-query-api"></a><a id="stored-procedures"></a>JavaScript 쿼리 API를 사용한 저장 프로시저
 
 다음 코드 샘플은 저장 프로시저의 컨텍스트에서 JavaScript 쿼리 API를 사용하는 방법의 예제입니다. 저장 프로시저는 입력 매개 변수에서 지정된 Azure Cosmos 항목을 삽입하고, 입력 항목의 크기 속성에 따라 minSize, maxSize 및 totalSize가 있는 `__.filter()` 메서드를 사용하여 메타데이터 문서를 업데이트합니다.
 

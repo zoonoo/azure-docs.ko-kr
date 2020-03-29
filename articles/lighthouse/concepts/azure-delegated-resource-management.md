@@ -4,10 +4,10 @@ description: 관리형 서비스를 통해 서비스 공급자는 Azure Marketpl
 ms.date: 01/30/2020
 ms.topic: conceptual
 ms.openlocfilehash: 15814b1ca3b1b78de521033836e3614d18fd0c71
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76904308"
 ---
 # <a name="azure-delegated-resource-management"></a>Azure 위임 리소스 관리
@@ -19,7 +19,7 @@ Azure 위임 리소스 관리는 Azure Lighthouse의 주요 구성 요소 중 �
 Azure 위임 리소스 관리를 통해 한 테넌트에서 다른 테넌트로 리소스를 논리적으로 프로젝션할 수 있습니다. 이렇게 하면 한 Azure AD(Azure Active Directory) 테넌트의 권한 있는 사용자가 해당 고객에게 속한 여러 다른 Azure AD 테넌트에서 관리 작업을 수행할 수 있습니다. 서비스 공급자는 자신의 Azure AD 테넌트에 로그인할 수 있으며 위임된 고객 구독 및 리소스 그룹에서 작업을 수행할 수 있는 권한을 받습니다. 이를 통해 각 개별 고객 테넌트에 로그인하지 않고도 고객을 대신하여 관리 작업을 수행할 수 있습니다.
 
 > [!NOTE]
-> 테넌트 간 관리를 간소화하기 위해 [자체 Azure AD 테넌트가 여러 개 있는 엔터프라이즈 내에서](enterprise.md) Azure 위임 리소스 관리를 사용할 수도 있습니다.
+> Azure 위임된 리소스 관리는 [자체의 여러 Azure AD 테넌트가 있는 엔터프라이즈 내에서](enterprise.md) 도 사용할 수 있어 테넌트 간 관리를 단순화할 수 있습니다.
 
 Azure 위임 리소스 관리를 통해 권한 있는 사용자는 고객의 테넌트에 계정이 없거나 고객 테넌트의 공동 소유자가 되지 않고도 고객 구독의 컨텍스트에서 직접 작업할 수 있습니다. 또한 Azure Portal의 [새 **내 고객** 페이지에서 모든 위임된 고객 구독을 보고 관리](../how-to/view-manage-customers.md)할 수 있습니다.
 
@@ -40,11 +40,11 @@ Azure 위임 리소스 관리에 고객을 온보딩하는 경우 Azure Portal�
 3. 고객이 온보딩한 후에는 권한 있는 사용자는 서비스 공급자 테넌트에 로그인한 후, 사용자가 정의한 액세스 권한에 따라, 지정된 고객 범위에서 관리 작업을 수행할 수 있습니다.
 
 > [!NOTE]
-> 별도의 클라우드 간에 두 테 넌 트 간의 구독 위임은 지원 되지 않습니다.
+> 별도의 클라우드에서 두 테넌자 간의 구독 위임은 지원되지 않습니다.
 
 ## <a name="support-for-azure-delegated-resource-management"></a>Azure 위임 리소스 관리에 대한 지원
 
-Azure 위임 리소스 관리와 관련하여 도움이 필요한 경우 Azure Portal에서 지원 요청을 열 수 있습니다. **문제 유형**에서 **기술**을 선택합니다. 구독을 선택한 다음 **Lighthouse** ( **모니터링 & 관리**아래)를 선택 합니다.
+Azure 위임 리소스 관리와 관련하여 도움이 필요한 경우 Azure Portal에서 지원 요청을 열 수 있습니다. **문제 유형**에서 **기술**을 선택합니다. 구독을 선택한 다음 **등대(모니터링** **& 관리)를**선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

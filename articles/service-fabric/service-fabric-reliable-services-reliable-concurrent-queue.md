@@ -1,13 +1,13 @@
 ---
 title: Azure Service Fabric의 ReliableConcurrentQueue
-description: ReliableConcurrentQueue는 병렬 큐 및 dequeues를 허용 하는 처리량이 높은 큐입니다.
+description: ReliableConcurrentQueue는 병렬 큐 및 큐 제거를 허용하는 높은 처리량 큐입니다.
 ms.topic: conceptual
 ms.date: 5/1/2017
 ms.openlocfilehash: a7115db8259fde0e87e53557ecef730f8e82d2fd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75462730"
 ---
 # <a name="introduction-to-reliableconcurrentqueue-in-azure-service-fabric"></a>Azure Service Fabric의 ReliableConcurrentQueue 소개
@@ -21,7 +21,7 @@ ms.locfileid: "75462730"
 | bool TryDequeue(out T result)  | Task< ConditionalValue < T > > TryDequeueAsync(ITransaction tx)  |
 | int Count()                    | long Count()                                                     |
 
-## <a name="comparison-with-reliable-queuehttpsmsdnmicrosoftcomlibraryazuredn971527aspx"></a>[신뢰할 수 있는 큐](https://msdn.microsoft.com/library/azure/dn971527.aspx)와 비교
+## <a name="comparison-with-reliable-queue"></a>[신뢰할 수 있는 큐](https://msdn.microsoft.com/library/azure/dn971527.aspx)와 비교
 
 신뢰할 수 있는 동시 큐는 [신뢰할 수 있는 큐](https://msdn.microsoft.com/library/azure/dn971527.aspx)에 대한 대안을 제공합니다. FIFO 보장은 동시성을 상쇄해야 하기 때문에 엄격한 FIFO 순서가 필요하지 않은 경우에 사용해야 합니다.  [신뢰할 수 있는 큐](https://msdn.microsoft.com/library/azure/dn971527.aspx)는 잠금을 사용하여 큐에 넣을 수 있는 최대 트랜잭션 및 한 번에 큐에서 제거하도록 허용되는 최대 트랜잭션 순으로 FIFO 순서를 강제합니다. 비교에서 신뢰할 수 있는 동시 큐는 정렬 제약 조건을 완화하고 어떤 수의 동시 트랜잭션이 해당 큐에 넣기 및 큐에서 제거 작업을 인터리브하도록 할 수 있습니다. 가장 효율적인 순서를 제공하지만 신뢰할 수 있는 동시 큐에 있는 두 값의 상대적 순서를 보장할 수 없습니다.
 
@@ -36,13 +36,13 @@ ReliableConcurrentQueue의 샘플 사용 사례는 [메시지 큐](https://en.wi
 * 큐에서 제거는 서로 분리되지 않습니다. 항목 *A*가 트랜잭션 *txnA*라는 큐에서 제거된 경우 *txnA*가 커밋되지 않더라도 항목 *A*는 동시 트랜잭션 *txnB*에 표시되지 않습니다.  *txnA*가 중단되면 *txnB*에서 즉시 *A*를 볼 수 있게 됩니다.
 * *TryPeekAsync* 동작은 *TryDequeueAsync*를 사용한 다음 트랜잭션을 중단하여 구현할 수 있습니다. 이 동작의 예는 프로그래밍 패턴 섹션에서 찾을 수 있습니다.
 * 개수는 비트랜잭션입니다. 큐에서 요소의 수를 추측하는 데 사용할 수 있지만 특정 시점을 나타내며 의존할 수 없습니다.
-* 큐에 대기 중인 항목에 대 한 비용이 많이 드는 처리는 시스템에 성능에 영향을 줄 수 있는 장기 실행 트랜잭션을 방지 하기 위해 트랜잭션이 활성 상태인 동안에는 수행할 수 없습니다.
+* 트랜잭션이 활성화되어 있는 동안에는 시스템에 성능에 영향을 줄 수 있는 장기 실행 트랜잭션을 피하기 위해 큐에 들어가지 않은 항목에 대한 비용이 많이 드는 처리를 수행해서는 안 됩니다.
 
 ## <a name="code-snippets"></a>코드 조각
 몇 가지 코드 조각 및 예상된 출력에 대해 살펴보겠습니다. 이 섹션에서 예외 처리는 무시됩니다.
 
 ### <a name="instantiation"></a>인스턴스화
-신뢰할 수 있는 동시 큐의 인스턴스를 만드는 것은 다른 신뢰할 수 있는 컬렉션과 유사 합니다.
+신뢰할 수 있는 동시 큐의 인스턴스를 만드는 것은 다른 신뢰할 수 있는 컬렉션과 유사합니다.
 
 ```csharp
 IReliableConcurrentQueue<int> queue = await this.StateManager.GetOrAddAsync<IReliableConcurrentQueue<int>>("myQueue");
@@ -170,7 +170,7 @@ using (var txn = this.StateManager.CreateTransaction())
 이 섹션에서는 ReliableConcurrentQueue를 사용하는 데 도움이 될 수 있는 몇 가지 프로그래밍 패턴을 살펴보겠습니다.
 
 ### <a name="batch-dequeues"></a>큐에서 제거 일괄 처리
-한 번에 큐에서 제거를 수행하는 대신 큐에서 제거를 일괄 처리하는 소비자 작업의 경우 프로그래밍 패턴을 사용하는 것이 좋습니다. 사용자는 모든 일괄 처리 또는 일괄 처리 크기 간에 지연 시간을 제한하도록 선택할 수 있습니다. 다음 코드 조각에서는 이 프로그래밍 모델을 보여줍니다. 이 예에서는 트랜잭션이 커밋된 후 처리를 수행 하므로 처리 중에 오류가 발생 하는 경우 처리 되지 않은 항목은 처리 되지 않고 손실 됩니다.  또는 트랜잭션 범위 내에서 처리를 수행할 수 있지만 성능에 부정적인 영향을 줄 수 있으며 이미 처리 된 항목을 처리 해야 합니다.
+한 번에 큐에서 제거를 수행하는 대신 큐에서 제거를 일괄 처리하는 소비자 작업의 경우 프로그래밍 패턴을 사용하는 것이 좋습니다. 사용자는 모든 일괄 처리 또는 일괄 처리 크기 간에 지연 시간을 제한하도록 선택할 수 있습니다. 다음 코드 조각에서는 이 프로그래밍 모델을 보여줍니다. 이 예제에서는 트랜잭션이 커밋된 후 처리가 수행되므로 처리 하는 동안 오류가 발생하면 처리되지 않은 항목이 처리되지 않고 손실됩니다.  또는 트랜잭션 범위 내에서 처리를 수행할 수 있지만 성능에 부정적인 영향을 줄 수 있으며 이미 처리된 항목을 처리해야 합니다.
 
 ```
 int batchSize = 5;
@@ -264,9 +264,9 @@ while(!cancellationToken.IsCancellationRequested)
 ```
 
 ### <a name="best-effort-drain"></a>최상의 드레이닝
-데이터 구조의 동시 특성으로 인해 큐의 드레이닝을 보장할 수 없습니다.  큐에 대 한 사용자 작업이 진행 되 고 있지 않은 경우에도 TryDequeueAsync에 대 한 특정 호출은 이전에 큐에 배치 되 고 커밋된 항목을 반환 하지 않을 수 있습니다.  큐에 넣은 항목은 *결국* 큐에서 제거된다고 표시되지만 모든 생산자가 중지되고 새 큐에 넣기 작업이 허용되는 경우에도 독립 소비자는 대역외 통신 메커니즘 없이 큐가 안정적인 상태에 도달했음을 알 수 없습니다. 따라서 드레이닝 작업은 아래와 같이 구현될 때 가장 효율적입니다.
+데이터 구조의 동시 특성으로 인해 큐의 드레이닝을 보장할 수 없습니다.  큐에서 사용자 작업이 대기 중이더라도 TryDequeueAsync에 대한 특정 호출이 이전에 큐에 들어 가서 커밋된 항목을 반환하지 않을 수 있습니다.  큐에 넣은 항목은 *결국* 큐에서 제거된다고 표시되지만 모든 생산자가 중지되고 새 큐에 넣기 작업이 허용되는 경우에도 독립 소비자는 대역외 통신 메커니즘 없이 큐가 안정적인 상태에 도달했음을 알 수 없습니다. 따라서 드레이닝 작업은 아래와 같이 구현될 때 가장 효율적입니다.
 
-사용자는 큐를 비우기 전에 모든 추가 생산자와 소비자 작업을 중지하고 실행 중인 모든 트랜잭션을 커밋하거나 중단할 때까지 기다려야 합니다.  사용자가 큐에서 예상 되는 항목 수를 알고 있는 경우 모든 항목이 큐에서 제거 되었음을 알리는 알림을 설정할 수 있습니다.
+사용자는 큐를 비우기 전에 모든 추가 생산자와 소비자 작업을 중지하고 실행 중인 모든 트랜잭션을 커밋하거나 중단할 때까지 기다려야 합니다.  사용자가 큐에 예상되는 항목 수를 알고 있는 경우 모든 항목이 큐에 제거되었음을 알리는 알림을 설정할 수 있습니다.
 
 ```
 int numItemsDequeued;
@@ -336,8 +336,8 @@ using (var txn = this.StateManager.CreateTransaction())
 * [Reliable Services 빠른 시작](service-fabric-reliable-services-quick-start.md)
 * [신뢰할 수 있는 컬렉션 작업](service-fabric-work-with-reliable-collections.md)
 * [Reliable Services 알림](service-fabric-reliable-services-notifications.md)
-* [Reliable Services Backup 및 복원(재해 복구)](service-fabric-reliable-services-backup-restore.md)
+* [신뢰할 수 있는 서비스 백업 및 복원(재해 복구)](service-fabric-reliable-services-backup-restore.md)
 * [신뢰할 수 있는 상태 관리자 구성](service-fabric-reliable-services-configuration.md)
-* [Service Fabric Web API 서비스 시작](service-fabric-reliable-services-communication-webapi.md)
+* [서비스 패브릭 웹 API 서비스 시작하기](service-fabric-reliable-services-communication-webapi.md)
 * [Reliable Services 프로그래밍 모델 고급 사용법](service-fabric-reliable-services-advanced-usage.md)
 * [신뢰할 수 있는 컬렉션에 대한 개발자 참조](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)

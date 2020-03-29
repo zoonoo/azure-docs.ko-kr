@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 8/15/2018
 ms.author: victorh
 ms.openlocfilehash: c7c27f00b9f8b4fdcd8f735f842edb8f66803c6a
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76278012"
 ---
 # <a name="renew-application-gateway-certificates"></a>Application Gateway 인증서 갱신
@@ -20,7 +20,7 @@ ms.locfileid: "76278012"
 
 Azure Portal, Azure PowerShell 또는 Azure CLI를 사용하여 수신기와 연결된 인증서를 갱신할 수 있습니다.
 
-## <a name="azure-portal"></a>Azure Portal
+## <a name="azure-portal"></a>Azure portal
 
 포털에서 수신기 인증서를 갱신하려면 애플리케이션 게이트웨이 수신기로 이동합니다. 인증서를 갱신해야 하는 수신기를 클릭한 다음, **선택한 인증서 갱신 또는 편집**을 클릭합니다.
 
@@ -62,4 +62,4 @@ az network application-gateway ssl-cert update \
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Application Gateway를 사용하여 SSL 오프로드를 구성하는 방법은 [SSL 오프로드 구성](application-gateway-ssl-portal.md)
+Azure 응용 프로그램 게이트웨이를 사용하여 SSL 오프로드를 구성하는 방법을 알아보려면 [SSL 오프로드 구성을](application-gateway-ssl-portal.md) 참조하세요.

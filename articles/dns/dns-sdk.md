@@ -1,7 +1,7 @@
 ---
 title: .NET SDK를 사용하여 DNS 영역 및 레코드 집합 만들기
 titleSuffix: Azure DNS
-description: 이 학습 경로에서 .NET SDK를 사용 하 여 Azure DNS에서 DNS 영역 및 레코드 집합 만들기를 시작 합니다.
+description: 이 학습 경로에서는 .NET SDK를 사용하여 Azure DNS에서 DNS 영역 및 레코드 집합을 만들기 시작합니다.
 services: dns
 documentationcenter: na
 author: rohinkoul
@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 09/19/2016
 ms.author: rohink
 ms.openlocfilehash: c497209e456ff838786edaa19e46ebc5c1858d5f
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76938868"
 ---
 # <a name="create-dns-zones-and-record-sets-using-the-net-sdk"></a>.NET SDK를 사용하여 DNS 영역 및 레코드 집합 만들기
@@ -43,7 +43,7 @@ ms.locfileid: "76938868"
 Azure DNS .NET SDK를 사용하려면 **Azure DNS 관리 라이브러리** NuGet 패키지 및 기타 필수 Azure 패키지를 설치해야 합니다.
 
 1. **Visual Studio**에서 프로젝트 또는 새 프로젝트를 엽니다.
-2. **도구** **>** **nuget 패키지 관리자** **>** **솔루션에 대 한 nuget 패키지 관리**...로 이동 합니다.
+2. **도구** **>** **NuGet 패키지 관리자** **>** **솔루션에 대 한 NuGet 패키지를 관리 로**이동 ... .
 3. **찾아보기**를 클릭하고 **시험판 포함** 확인란을 사용하도록 설정한 후, 검색 상자에 **Microsoft.Azure.Management.Dns**를 입력합니다.
 4. 패키지를 선택하고 **설치** 를 클릭하여 Visual Studio 프로젝트에 추가합니다.
 5. 또한 위의 프로세스를 반복하여 **Microsoft.Rest.ClientRuntime.Azure.Authentication** 및 **Microsoft.Azure.Management.ResourceManager** 패키지를 설치합니다.
@@ -146,7 +146,7 @@ recordSet = await dnsClient.RecordSets.CreateOrUpdateAsync(resourceGroupName, zo
 
 ## <a name="list-zones-and-record-sets"></a>영역 및 레코드 집합 나열
 
-영역을 나열 하려면 지정 된 리소스 그룹의 모든 영역 또는 지정 된 Azure 구독의 모든 영역 (리소스 그룹 간)을 나열 하는 *Dnsmanagementclient* ... 메서드를 사용 합니다. 레코드 집합을 나열 하려면 지정 된 영역에 모든 레코드 집합을 나열 하거나 특정 형식의 레코드 집합만 표시 하는 데 사용할 수 있는 *Dnsmanagementclient. list ...* 메서드를 사용 합니다.
+영역을 나열하려면 *DnsManagementClient.Zones.List 메서드를* 사용하여 지정된 리소스 그룹의 모든 영역 또는 지정된 Azure 구독의 모든 영역(리소스 그룹 전체)의 모든 영역을 나열합니다. 레코드 집합을 나열하려면 *DnsManagementClient.RecordSet.List 메서드를* 사용하여 지정된 영역에 있는 모든 레코드 집합을 나열하거나 특정 형식의 레코드 집합만 나열합니다.
 
 영역을 나열할 때 나오는 레코드 집합은 페이지를 매길 수 있습니다.  다음 예제에서는 결과 페이지를 반복하는 방법을 보여 줍니다. (인위적으로 작은 페이지 크기인 '2'는 페이지를 강제하는 데 사용됩니다. 실제로 이 매개 변수를 생략하고 기본 페이지 크기를 사용해야 합니다.)
 

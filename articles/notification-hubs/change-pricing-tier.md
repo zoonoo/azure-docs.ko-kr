@@ -1,6 +1,6 @@
 ---
 title: Notification Hubs 네임스페이스의 가격 책정 계층 변경 | Microsoft Docs
-description: Azure Notification Hubs 네임 스페이스의 가격 책정 계층을 변경 하는 방법에 대해 알아봅니다.
+description: Azure 알림 허브 네임스페이스의 가격 책정 계층을 변경하는 방법에 대해 알아봅니다.
 services: notification-hubs
 author: sethmanheim
 manager: femila
@@ -14,10 +14,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/28/2019
 ms.openlocfilehash: 51d0880b7f56d523a01fbc993993b3caf7328134
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76261078"
 ---
 # <a name="change-pricing-tier-of-an-azure-notification-hubs-namespace"></a>Azure Notification Hubs 네임스페이스의 가격 책정 계층 변경
@@ -36,8 +36,8 @@ Azure Portal 사용 시에는 네임스페이스 페이지 또는 허브 페이�
 ### <a name="change-tier-on-the-namespace-page"></a>네임스페이스 페이지에서 계층 변경
 다음 절차에서는 네임스페이스 페이지에서 네임스페이스의 가격 책정 계층을 변경하는 단계를 제공합니다. 네임스페이스의 계층을 변경하면 해당 네임스페이스의 모든 허브에 변경 내용이 적용됩니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. 왼쪽 메뉴에서 **모든 서비스**를 선택합니다. 
+1. [Azure 포털에](https://portal.azure.com)로그인합니다.
+2. 왼쪽 메뉴에서 **모든 서비스를** 선택합니다. 
 3. **사물 인터넷** 섹션에서 **Notification Hub Namespaces**를 선택합니다. 텍스트 옆의 별표(`*`)를 선택하면 왼쪽 탐색 모음의 **즐겨찾기** 아래에 해당 항목이 추가됩니다. 그러면 다음부터는 네임스페이스 페이지에 더 빠르게 액세스할 수 있습니다. 즐겨찾기에 추가한 **Notification Hub Namespaces**를 선택합니다. 
 
     ![모든 서비스 -> Notification Hub Namespaces](./media/change-pricing-tier/all-services-nhub.png)
@@ -56,8 +56,8 @@ Azure Portal 사용 시에는 네임스페이스 페이지 또는 허브 페이�
 ### <a name="change-tier-on-the-hub-page"></a>허브 페이지에서 계층 변경
 다음 절차에서는 허브 페이지에서 네임스페이스의 가격 책정 계층을 변경하는 단계를 제공합니다. 허브 페이지에서부터 이러한 단계를 수행하더라도 실제로는 네임스페이스 및 해당 네임스페이스의 모든 허브에서 가격 책정 계층이 변경됩니다. 
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. 왼쪽 메뉴에서 **모든 서비스**를 선택합니다.
+1. [Azure 포털에](https://portal.azure.com)로그인합니다.
+2. 왼쪽 메뉴에서 **모든 서비스를** 선택합니다.
 3. **사물 인터넷** 섹션에서 **Notification Hubs**를 선택합니다. 
 4. Notification **Hub**를 선택합니다. 
 5. 왼쪽 메뉴에서 **가격 책정 계층**을 선택합니다. 

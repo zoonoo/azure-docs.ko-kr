@@ -5,13 +5,13 @@ author: ecfan
 ms.author: estfan
 ms.date: 03/02/2018
 ms.openlocfilehash: 1aabc1b33722c571c6519b6620fb62211a44c2e8
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74789747"
 ---
-1. [Azure Portal](https://portal.azure.com)에서 빈 논리 앱을 만듭니다. 
+1. Azure [포털에서](https://portal.azure.com)빈 논리 앱을 만듭니다. 
 
 2. 논리 앱 디자이너에서 필터로 "github"를 입력합니다. 
 

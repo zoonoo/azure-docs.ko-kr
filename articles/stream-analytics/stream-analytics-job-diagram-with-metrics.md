@@ -8,15 +8,15 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/01/2017
 ms.openlocfilehash: 3c0c29e1793e56efae8d13cb01d57faf257d8805
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75426070"
 ---
 # <a name="data-driven-debugging-by-using-the-job-diagram"></a>작업 다이어그램을 사용하여 데이터 기반 디버그
 
-Azure Portal의 **모니터링** 블레이드에 있는 작업 다이어그램은 작업 파이프라인을 시각화하는 데 도움이 될 수 있습니다. 입력, 출력 및 쿼리 단계를 보여 줍니다. 작업 다이어그램을 사용하여 각 단계의 메트릭을 검사하면 문제를 해결할 때 문제의 원인을 더 빠르게 격리할 수 있습니다.
+Azure 포털의 **모니터링** 블레이드에 있는 작업 다이어그램을 사용하면 작업 파이프라인을 시각화하는 데 도움이 됩니다. 입력, 출력 및 쿼리 단계를 보여 줍니다. 작업 다이어그램을 사용하여 각 단계의 메트릭을 검사하면 문제를 해결할 때 문제의 원인을 더 빠르게 격리할 수 있습니다.
 
 ## <a name="using-the-job-diagram"></a>작업 다이어그램 사용
 
@@ -55,7 +55,7 @@ Azure Event Hubs 입력의 파티션을 보려면 **. . .** 을 선택합니다.
 *   **InputEventsSourcesTotal**은 읽는 데이터 단위 수입니다. 예를 들어 Blob의 수입니다.
 *   **InputEventsTotal**은 읽는 이벤트의 수입니다. 이 메트릭은 각 파티션에 사용할 수 있습니다.
 *   **InputEventsInBytesTotal**은 읽는 바이트 수입니다.
-*   **InputEventsLastArrivalTime**은 수신된 모든 이벤트의 큐에 넣은 시간과 함께 업데이트됩니다.
+*   **입력이벤트LastArrivalTime은** 수신된 모든 이벤트의 대기 시간으로 업데이트됩니다.
  
 ### <a name="is-time-moving-forward-if-actual-events-are-read-punctuation-might-not-be-issued"></a>시간은 앞으로 진행됩니까? 실제 이벤트를 읽는 경우 문장 부호가 발생하지 않을 수 있습니다.
 
@@ -78,12 +78,12 @@ Azure Event Hubs 입력의 파티션을 보려면 **. . .** 을 선택합니다.
 *   **총 백로그된 입력 이벤트 수**는 Event Hubs 및 Azure IoT Hub 입력에 대해 얼마나 많은 메시지를 읽어야 하는지 알려줍니다. 이 숫자가 0보다 크면 작업이 데이터가 들어오는 속도만큼 빠르게 데이터를 처리할 수 없다는 의미입니다. 이 경우 스트리밍 단위 수를 늘리거나 작업을 병렬 처리할 수 있도록 해야 합니다. 이에 대한 자세한 내용은 [쿼리 병렬화 페이지](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization)를 참조하세요. 
 
 
-## <a name="get-help"></a>도움 받기
+## <a name="get-help"></a>도움말 보기
 추가 지원이 필요한 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)을 참조하세요. 
 
 ## <a name="next-steps"></a>다음 단계
 * [Stream Analytics 소개](stream-analytics-introduction.md)
 * [Stream Analytics 시작](stream-analytics-real-time-fraud-detection.md)
 * [Stream Analytics 작업 크기 조정](stream-analytics-scale-jobs.md)
-* [Stream Analytics 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+* [스트림 분석 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)

@@ -1,14 +1,14 @@
 ---
-title: Contoso migration 시리즈 | Microsoft Docs
+title: 콘토소 마이그레이션 시리즈 | 마이크로 소프트 문서
 description: Contoso에서 온-프레미스 데이터 센터를 Azure로 마이그레이션하는 데 사용되는 마이그레이션 전략과 시나리오에 대한 개요를 제공합니다.
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.author: raynew
 ms.openlocfilehash: d37bee589eb7ee2e6e30c8dcea2531dd1f063481
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78939188"
 ---
 # <a name="contoso-migration-series"></a>Contoso 마이그레이션 시리즈
@@ -16,7 +16,7 @@ ms.locfileid: "78939188"
 
 가상 조직 Contoso가 온-프레미스 인프라를 [Microsoft Azure](https://azure.microsoft.com/overview/what-is-azure/) 클라우드로 마이그레이션하는 방법을 보여 주는 일련의 문서가 있습니다. 
 
-이 시리즈에는 정보 및 마이그레이션 인프라를 설정하고, 다양한 유형의 마이그레이션을 실행하는 방법을 보여 주는 시나리오가 포함되어 있습니다. 시나리오는 진행 됨에 따라 복잡성이 증가 합니다. 이러한 문서에서는 Contoso 회사에서 마이그레이션 임무를 수행하는 방법을 보여 주지만, 일반적인 참조를 위한 일반적인 참조를 위한 조언과 구체적인 지침이 도처에서 제공됩니다.
+이 시리즈에는 정보 및 마이그레이션 인프라를 설정하고, 다양한 유형의 마이그레이션을 실행하는 방법을 보여 주는 시나리오가 포함되어 있습니다. 시나리오는 진행됨에 따라 복잡해짐에 따라 증가합니다. 이러한 문서에서는 Contoso 회사에서 마이그레이션 임무를 수행하는 방법을 보여 주지만, 일반적인 참조를 위한 일반적인 참조를 위한 조언과 구체적인 지침이 도처에서 제공됩니다.
 
 ## <a name="migration-articles"></a>마이그레이션 문서
 
@@ -25,7 +25,7 @@ ms.locfileid: "78939188"
 - 각 마이그레이션 시나리오는 마이그레이션 전략을 결정하는 약간씩 다른 비즈니스 목표를 기반으로 합니다.
 - 배포 시나리오마다 비즈니스 영향 요소와 목표, 제안된 아키텍처, 마이그레이션을 수행하는 단계, 마이그레이션이 완료된 후의 정리 및 다음 단계에 대한 권장 사항 정보를 제공합니다.
 
-**문서** | **세부 정보** 
+**기술** | **세부 정보** 
 --- | --- 
 [문서 1: 개요](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-overview) | 문서 시리즈, Contoso의 마이그레이션 전략 및 시리즈에서 사용되는 샘플 앱에 대해 간략히 설명합니다. 
 [문서 2: Azure 인프라 배포](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-infrastructure) | Contoso에서 마이그레이션을 위해 온-프레미스 인프라와 Azure 인프라를 준비합니다. 이 시리즈의 모든 마이그레이션 관련 문서에서 동일한 인프라가 사용됩니다. 
@@ -44,5 +44,5 @@ ms.locfileid: "78939188"
 
 ## <a name="next-steps"></a>다음 단계
 
-- 클라우드 마이그레이션 [에 대해 알아봅니다](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/) .
-- [데이터베이스 마이그레이션 가이드](https://datamigration.microsoft.com/)의 다른 시나리오 (원본/대상 쌍)에 대 한 마이그레이션 전략에 대해 알아봅니다.
+- 클라우드 [마이그레이션에 대해 자세히 알아봅니다.](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/)
+- [데이터베이스 마이그레이션 가이드에서](https://datamigration.microsoft.com/)다른 시나리오(소스/대상 쌍)에 대한 마이그레이션 전략에 대해 알아봅니다.

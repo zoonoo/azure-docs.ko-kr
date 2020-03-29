@@ -8,10 +8,10 @@ ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
 ms.openlocfilehash: fb510c5628913fb3fa37b572c4409aee5d1028ab
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76313759"
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Azure Cosmos DB를 사용한 성능 및 규모 테스트
@@ -37,12 +37,12 @@ Azure Cosmos DB의 성능 향상을 위한 클라이언트 쪽 구성 옵션에 
 ## <a name="run-the-performance-testing-application"></a>성능 테스트 애플리케이션 실행
 가장 빠른 시작 방법은 다음 단계에 설명된 대로 아래의 .NET 샘플을 컴파일하고 실행하는 것입니다. 소스 코드를 검토하고 자체 클라이언트 애플리케이션에 대해 비슷한 구성을 구현할 수도 있습니다.
 
-**1단계:** [Azure Cosmos DB 성능 테스트 샘플](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark)에서 프로젝트를 다운로드하거나 GitHub 리포지토리를 분기합니다.
+**1단계:** [Azure Cosmos DB 성능 테스트 샘플에서](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark)프로젝트를 다운로드하거나 GitHub 리포지토리를 포크합니다.
 
-**2단계:** App.config에서 EndpointUrl, AuthorizationKey, CollectionThroughput 및 DocumentTemplate(옵션)에 대한 설정을 수정합니다.
+**2단계:** App.config에서 EndpointUrl, 권한 부여 키, 컬렉션Throughput 및 문서 템플릿(선택 사항)에 대한 설정을 수정합니다.
 
 > [!NOTE]
-> 높은 처리량의 컬렉션을 프로비전하기 전에 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/)를 참조하여 컬렉션당 비용을 추정합니다. Azure Cosmos DB는 시간 단위로 스토리지 및 처리량을 독립적으로 청구합니다. 테스트 후 Azure Cosmos 컨테이너의 처리량을 삭제 하거나 줄여 비용을 절감할 수 있습니다.
+> 높은 처리량의 컬렉션을 프로비전하기 전에 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/)를 참조하여 컬렉션당 비용을 추정합니다. Azure Cosmos DB는 시간 단위로 스토리지 및 처리량을 독립적으로 청구합니다. 테스트 후 Azure Cosmos 컨테이너의 처리량을 삭제하거나 낮춤으로써 비용을 절감할 수 있습니다.
 > 
 > 
 
@@ -89,7 +89,7 @@ Azure Cosmos DB의 성능 향상을 위한 클라이언트 쪽 구성 옵션에 
     Press any key to exit...
 
 
-**4단계(필요한 경우):** 도구에서 보고된 처리량(RU/s)은 컬렉션 또는 컬렉션 집합의 프로비전된 처리량과 같거나 많아야 합니다. 그렇지 않은 경우 DegreeOfParallelism을 조금씩 늘리면 제한에 도달하는 데 도움이 될 수 있습니다. 클라이언트 앱의 처리량이 안정화될 경우 추가 클라이언트 컴퓨터에서 앱의 여러 인스턴스를 시작합니다. 이 단계에 대 한 도움이 필요한 경우 [Azure Portal](https://portal.azure.com)에서 지원 티켓을 파일에 포함 합니다.
+**4단계(필요한 경우):** 도구에서 보고된 처리량(RU/s)은 컬렉션 또는 컬렉션 집합의 프로비전된 처리량과 같거나 많아야 합니다. 그렇지 않은 경우 DegreeOfParallelism을 조금씩 늘리면 제한에 도달하는 데 도움이 될 수 있습니다. 클라이언트 앱의 처리량이 안정화될 경우 추가 클라이언트 컴퓨터에서 앱의 여러 인스턴스를 시작합니다. 이 단계에 대한 도움이 필요한 경우 [Azure 포털에서](https://portal.azure.com)지원 티켓을 파일로 제출합니다.
 
 실행 중인 앱이 있는 경우 다양한 [인덱싱 정책](index-policy.md) 및 [일관성 수준](consistency-levels.md)을 시도하면서 처리량 및 대기 시간에 미치는 영향을 이해할 수 있습니다. 소스 코드를 검토하고 자체 테스트 제품군 또는 프로덕션 애플리케이션에 대해 비슷한 구성을 구현할 수도 있습니다.
 

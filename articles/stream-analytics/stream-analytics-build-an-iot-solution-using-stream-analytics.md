@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
 ms.openlocfilehash: f506cc526a824d45ae2d6b7a75e1c1a99dae4d64
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75426451"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Stream Analytics를 사용하여 IoT 솔루션 빌드
@@ -28,7 +28,7 @@ ms.locfileid: "75426451"
 * 안심하고 Stream Analytics를 사용하여 고객에 대한 스트리밍 솔루션 개발
 * 모니터링 및 로깅 경험을 사용하여 문제 해결
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 이 솔루션을 완료하려면 다음 필수 구성 요소가 필요합니다.
 * [Azure 구독](https://azure.microsoft.com/pricing/free-trial/)
 
@@ -43,7 +43,7 @@ ms.locfileid: "75426451"
 ### <a name="entry-data-stream"></a>진입 데이터 스트림
 진입 데이터 스트림에는 톨게이트 요금소로 들어가는 자동차에 대한 정보가 포함됩니다. 종료 데이터 이벤트는 샘플 앱에 포함된 Web App의 Event Hub 큐에 라이브 스트리밍됩니다.
 
-| TollId | EntryTime | LicensePlate | 상태 | 만들기 | 모델 | VehicleType | VehicleWeight | Toll | 태그 |
+| TollId | EntryTime | LicensePlate | 시스템 상태 | 계정을 | 모델 | VehicleType | VehicleWeight | Toll | 태그 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 1 |2014-09-10 12:01:00.000 |JNB 7001 |NY |Honda |CRV |1 |0 |7 | |
 | 1 |2014-09-10 12:02:00.000 |YXZ 1001 |NY |Toyota |Camry |1 |0 |4 |123456789 |
@@ -54,13 +54,13 @@ ms.locfileid: "75426451"
 
 다음은 열에 대한 간단한 설명입니다.
 
-| 열 | Description |
+| 열 | 설명 |
 | --- | --- |
 | TollId |톨게이트 요금소를 고유하게 식별하는 요금 창구 ID |
 | EntryTime |요금 창구에 차량이 진입하는 날짜 및 시간(UTC) |
 | LicensePlate |차량 번호판 번호 |
-| 상태 |미국의 주 이름 |
-| 만들기 |자동차 제조업체 |
+| 시스템 상태 |미국의 주 이름 |
+| 계정을 |자동차 제조업체 |
 | 모델 |자동차 모델 번호 |
 | VehicleType |여객 차량의 경우 1, 화물 차량의 경우 2 |
 | WeightType |차량 무게(톤), 승용차는 0 |
@@ -70,18 +70,18 @@ ms.locfileid: "75426451"
 ### <a name="exit-data-stream"></a>진출 데이터 스트림
 진출 데이터 스트림에는 요금소를 떠나는 차량에 대한 정보가 포함됩니다. 종료 데이터 이벤트는 샘플 앱에 포함된 Web App의 Event Hub 큐에 라이브 스트리밍됩니다.
 
-| **TollId** | **ExitTime** | **LicensePlate** |
+| **톨리드** | **ExitTime** | **LicensePlate** |
 | --- | --- | --- |
-| 1 |2014-09-10T12:03:00.0000000 Z |JNB 7001 |
-| 1 |2014-09-10T12:03:00.0000000 Z |YXZ 1001 |
-| 3 |2014-09-10T12:04:00.0000000 Z |ABC 1004 |
-| 2 |2014-09-10T12:07:00.0000000 Z |XYZ 1003 |
-| 1 |2014-09-10T12:08:00.0000000 Z |1007 BNJ |
-| 2 |2014-09-10T12:07:00.0000000 Z |CDE 1007 |
+| 1 |2014-09-10T12:03:00.0000000Z |JNB 7001 |
+| 1 |2014-09-10T12:03:00.0000000Z |YXZ 1001 |
+| 3 |2014-09-10T12:04:00.0000000Z |ABC 1004 |
+| 2 |2014-09-10T12:07:00.0000000Z |XYZ 1003 |
+| 1 |2014-09-10T12:08:00.0000000Z |1007 BNJ |
+| 2 |2014-09-10T12:07:00.0000000Z |CDE 1007 |
 
 다음은 열에 대한 간단한 설명입니다.
 
-| 열 | Description |
+| 열 | 설명 |
 | --- | --- |
 | TollId |톨게이트 요금소를 고유하게 식별하는 요금 창구 ID |
 | ExitTime |차량이 요금소를 빠져 나가는 날짜 및 시간(UTC) |
@@ -101,7 +101,7 @@ ms.locfileid: "75426451"
 
 다음은 열에 대한 간단한 설명입니다.
 
-| 열 | Description |
+| 열 | 설명 |
 | --- | --- |
 | LicensePlate |차량 번호판 번호 |
 | RegistrationId |차량 등록 ID |
@@ -113,7 +113,7 @@ ms.locfileid: "75426451"
 이 문서 끝에 나오는 “Azure 계정 정리” 섹션의 단계를 수행해야 Azure 크레딧을 최대한 활용할 수 있습니다.
 
 ## <a name="deploy-the-sample"></a>샘플 배포
-몇 번 클릭하여 리소스 그룹에 쉽게 배포할 수 있는 몇 가지 리소스가 있습니다. 솔루션 정의는 GitHub 리포지토리([https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp))에서 호스트됩니다.
+몇 번 클릭하여 리소스 그룹에 쉽게 배포할 수 있는 몇 가지 리소스가 있습니다. 솔루션 정의는 에서 GitHub 리포지토리에서 [https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp)호스팅됩니다.
 
 ### <a name="deploy-the-tollapp-template-in-the-azure-portal"></a>Azure Portal에서 TollApp 템플릿 배포
 1. TollApp 환경을 Azure에 배포하려면 [TollApp Azure 템플릿 배포](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-stream-analytics%2Fmaster%2FSamples%2FTollApp%2FVSProjects%2FTollAppDeployment%2Fazuredeploy.json)에 대한 이 링크를 사용하세요.
@@ -171,7 +171,7 @@ ms.locfileid: "75426451"
    - **Registration** 입력은 필요에 따라 조회에 사용되는 고정 registration.json 파일을 가리키는 Azure Blob Storage 연결입니다. 이 참조 데이터 입력은 쿼리 구문의 이후 변형에 사용됩니다.
 
 4. TollApp 샘플 작업의 출력을 검사합니다.
-   - **Cosmos DB** 출력은 출력 싱크 이벤트를 수신 하는 Cosmos 데이터베이스 컨테이너입니다. 이 출력은 스트리밍 쿼리의 INTO 절에 사용합니다.
+   - **코스모스 DB** 출력은 출력 싱크 이벤트를 수신하는 코스모스 데이터베이스 컨테이너이다. 이 출력은 스트리밍 쿼리의 INTO 절에 사용합니다.
 
 ## <a name="start-the-tollapp-streaming-job"></a>TollApp 스트리밍 작업 시작
 스트리밍 작업을 시작하려면 다음 단계를 수행합니다.
@@ -189,7 +189,7 @@ ms.locfileid: "75426451"
 
 3. **데이터 탐색기** 제목을 선택하여 데이터 탐색기 페이지를 엽니다.
 
-4. **tollAppDatabase** > **tollAppCollection** > **Documents**를 확장합니다.
+4. **tollApp데이터베이스** > **톨앱컬렉션** > **문서를**확장합니다.
 
 5. 출력이 지원되면 ID 목록에서 여러 문서가 표시됩니다.
 
@@ -283,7 +283,7 @@ WHERE Registration.Expired = '1'
 ```
 
 ## <a name="scale-out-the-job"></a>작업 규모 확장
-Azure Stream Analytics는 대량의 데이터 처리를 위해 탄력적으로 크기 조정할 수 있도록 설계되었습니다. Azure Stream Analytics 쿼리는 **PARTITION by** 절을 사용 하 여이 단계가 확장 됨을 시스템에 알릴 수 있습니다. **PartitionId** 는 입력 (이벤트 허브)의 파티션 ID와 일치 하도록 시스템이 추가 하는 특수 열입니다.
+Azure Stream Analytics는 대량의 데이터 처리를 위해 탄력적으로 크기 조정할 수 있도록 설계되었습니다. Azure 스트림 분석 쿼리는 **파티션 BY** 절을 사용하여 이 단계가 확장되는 것을 시스템에 알릴 수 있습니다. **PartitionId는** 시스템이 입력(이벤트 허브)의 파티션 ID와 일치하도록 추가하는 특수 열입니다.
 
 쿼리를 파티션으로 확장하려면 쿼리 구문을 다음 코드로 편집합니다.
 ```sql

@@ -1,5 +1,5 @@
 ---
-title: HA 응용 프로그램에 대 한 트래픽 라우팅-Azure CLI-Traffic Manager
+title: 응용 프로그램의 HA에 대한 경로 트래픽 - Azure CLI - 트래픽 관리자
 description: Azure CLI 스크립트 샘플 - 애플리케이션 고가용성을 위한 트래픽 라우팅
 services: traffic-manager
 documentationcenter: traffic-manager
@@ -16,10 +16,10 @@ ms.workload: traffic-manager
 ms.date: 04/26/2018
 ms.author: rohink
 ms.openlocfilehash: e4912e0e285d41bf2de4cf439788a943251cfae8
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76934787"
 ---
 # <a name="route-traffic-for-high-availability-of-applications-using-azure-cli"></a>Azure CLI를 사용하여 애플리케이션 고가용성을 위해 트래픽 라우팅

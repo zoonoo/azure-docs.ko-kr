@@ -1,5 +1,5 @@
 ---
-title: Azure Multi-Factor Authentication FAQ-Azure Active Directory
+title: Azure 다단계 인증 FAQ - Azure 활성 디렉터리
 description: Azure Multi-Factor Authentication과 관련된 질문과 대답입니다.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2a622245a7431058582131d9ba224ddfb676d8aa
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75425148"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication에 대한 질문과 대답
@@ -25,13 +25,13 @@ ms.locfileid: "75425148"
 ## <a name="general"></a>일반
 
 > [!IMPORTANT]
-> 2019 년 7 월 1 일부 터 Microsoft는 더 이상 새 배포에 대해 MFA 서버를 제공 하지 않습니다. 사용자에 게 multi-factor authentication을 요구 하려는 새 고객은 클라우드 기반 Azure Multi-Factor Authentication를 사용 해야 합니다. 7 월 1 일 이전에 MFA 서버를 활성화 한 기존 고객은 최신 버전을 다운로드 하 고, 나중에 업데이트 하 고 활성화 자격 증명을 생성할 수 있습니다.
+> 2019년 7월 1일부터 Microsoft는 더 이상 새 배포를 위해 MFA 서버를 제공하지 않습니다. 사용자로부터 다단계 인증을 요구하려는 신규 고객은 클라우드 기반 Azure 다단계 인증을 사용해야 합니다. 7월 1일 이전에 MFA Server를 활성화한 기존 고객은 최신 버전, 향후 업데이트를 다운로드하고 평소와 같이 정품 인증 자격 증명을 생성할 수 있습니다.
 > 
-> 2018 년 9 월 1 일에 적용 되는 새 고객에 게는 소비 기반 라이선스를 더 이상 사용할 수 없습니다.
-> 2018 년 9 월 1 일부 터 새 인증 공급자를 더 이상 만들 수 없습니다. 기존 인증 공급자는 계속 사용하고 업데이트할 수 있습니다. Multi-Factor Authentication은 Azure AD Premium 라이선스에서 계속 사용할 수 있게 지원됩니다.
+> 소비 기반 라이선스는 2018년 9월 1일부터 새로운 고객에게 더 이상 제공되지 않습니다.
+> 2018년 9월 1일부터 새로운 인증 제공업체가 더 이상 생성되지 않습니다. 기존 인증 공급자는 계속 사용하고 업데이트할 수 있습니다. Multi-Factor Authentication은 Azure AD Premium 라이선스에서 계속 사용할 수 있게 지원됩니다.
 
 > [!NOTE]
-> Azure Multi-Factor Authentication 서버와 관련 하 여 아래에서 공유 하는 정보는 이미 MFA 서버를 실행 하는 사용자 에게만 적용 됩니다.
+> Azure 다단계 인증 서버와 관련하여 아래에 공유된 정보는 이미 MFA 서버가 실행 중인 사용자에게만 적용됩니다.
 
 **Q: Azure Multi-Factor Authentication 서버는 사용자 데이터를 어떻게 처리하나요?**
 
@@ -40,7 +40,7 @@ Multi-Factor Authentication 서버를 사용하면 사용자의 데이터가 온
 클라우드 서비스에 인증 요청을 보내는 경우 인증 및 사용 보고서를 위한 데이터를 수집합니다. 2단계 인증 로그에 포함된 데이터 필드는 다음과 같습니다.
 
 * **고유 ID** (사용자 이름 또는 온-프레미스 Multi-Factor Authentication 서버 ID)
-* **이름과 성** (선택 사항)
+* **성 및 성(선택** 사항)
 * **전자 메일 주소** (선택 사항)
 * **전화 번호** (음성 통화 또는 SMS 인증을 수행할 때)
 * **디바이스 토큰** (모바일 앱 인증을 수행할 때)
@@ -68,9 +68,9 @@ Multi-Factor Authentication 서버에 선택적 필드를 구성할 수 있습�
    * 759731 
    * 673801
 
-Microsoft는 동일한 번호를 통한 일관적인 SMS 또는 음성 기반 Multi-Factor Authentication 즉시 이행을 보장하지 않습니다. 사용자를 위해, SMS 이행성을 향상하기 위한 조정 작업을 수시로 진행하고 있는 Microsoft는 언제든지 짧은 코드를 추가하거나 제거할 수 있습니다. Microsoft는 미국 및 캐나다 외에도 국가/지역에 대 한 간단한 코드를 지원 하지 않습니다.
+Microsoft는 동일한 번호를 통한 일관적인 SMS 또는 음성 기반 Multi-Factor Authentication 즉시 이행을 보장하지 않습니다. 사용자를 위해, SMS 이행성을 향상하기 위한 조정 작업을 수시로 진행하고 있는 Microsoft는 언제든지 짧은 코드를 추가하거나 제거할 수 있습니다. Microsoft는 미국 및 캐나다 이외의 국가/지역에 대한 단축 코드를 지원하지 않습니다.
 
-## <a name="billing"></a>청구
+## <a name="billing"></a>결제
 
 [Multi-Factor Authentication 가격 책정 페이지](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) 또는 [Azure Multi-Factor Authentication 획득 방법](concept-mfa-licensing.md)에 대한 설명서를 참조하여 대부분의 청구 관련 질문에 대답할 수 있습니다.
 
@@ -96,7 +96,7 @@ Azure Multi-Factor Authentication에 대한 구독을 구매하는 경우 조직
 
 일부 경우에 그렇습니다.
 
-Azure 관리자를 위한 Multi-Factor Authentication은 [Azure Portal](https://portal.azure.com) 및 [Microsoft 365 관리 센터](https://admin.microsoft.com)를 비롯 하 여 Microsoft 온라인 서비스에 대 한 액세스를 위해 무료로 azure MFA 기능의 하위 집합을 제공 합니다. 이 제품은 MFA 라이선스, 번들 또는 독립 실행형 사용량 기반 공급자를 통해 Azure MFA의 정식 버전을 가지고 있지 않은 Azure Active Directory 인스턴스의 전역 관리자에게만 적용됩니다. 관리자가 무료 버전을 사용하는 경우 사용자가 Azure MFA의 정식 버전을 구입하면 모든 전역 관리자가 유료 버전으로 자동으로 승격됩니다.
+Azure 관리자에 대한 다단계 인증은 Azure 포털 및 [Microsoft 365 관리 센터를](https://admin.microsoft.com)비롯한 Microsoft 온라인 서비스에 대한 액세스에 대한 비용 없이 [Azure](https://portal.azure.com) MFA 기능의 하위 집합을 제공합니다. 이 제품은 MFA 라이선스, 번들 또는 독립 실행형 사용량 기반 공급자를 통해 Azure MFA의 정식 버전을 가지고 있지 않은 Azure Active Directory 인스턴스의 전역 관리자에게만 적용됩니다. 관리자가 무료 버전을 사용하는 경우 사용자가 Azure MFA의 정식 버전을 구입하면 모든 전역 관리자가 유료 버전으로 자동으로 승격됩니다.
 
 Office 365 사용자용 Multi-Factor Authentication에서는 비용 없이 Exchange Online, SharePoint Online 등의 Office 365 서비스에 액세스할 수 있는 Azure MFA 기능의 하위 집합을 제공합니다. 이 제품은 Azure Active Directory의 해당 인스턴스가 MFA 라이선스, 번들 또는 독립 실행형 사용량 기반 공급자를 통해 Azure MFA의 정식 버전을 보유하지 않은 경우 Office 365 라이선스가 할당된 사용자에게 적용됩니다.
 
@@ -124,7 +124,7 @@ Office 365 사용자용 Multi-Factor Authentication에서는 비용 없이 Excha
 
 ## <a name="manage-and-support-user-accounts"></a>사용자 계정 관리 및 지원
 
-**Q: 휴대폰에서 응답이 수신 되지 않는 경우 사용자에 게 어떻게 해야 하나요?**
+**Q: 휴대폰에서 응답을 받지 못하면 어떻게 해야 하나요?**
 
 5분 동안 5회까지 인증용 SMS 수신이나 전화 통화를 시도해 볼 것을 안내합니다. Microsoft는 여러 공급자를 통해 전화를 걸고 SMS 메시지를 전송합니다. 이렇게 해도 응답이 수신되지 않으면 추가 문제 해결을 위해 Microsoft에 지원 사례를 알려주세요.
 
@@ -149,11 +149,11 @@ Office 365 사용자용 Multi-Factor Authentication에서는 비용 없이 Excha
 > [!NOTE]
 > Office 2013 클라이언트에 대한 최신 인증
 >
-> 앱 암호는 최신 인증을 지원하는 않는 앱에만 필요합니다. Office 2013 클라이언트는 최신 인증 프로토콜을 지원하지만 구성되어야 합니다. 이제 최신 인증은 Office 2013의 3 월 2015 이상 업데이트를 실행 하는 모든 고객에 게 제공 됩니다. 자세한 내용은 블로그 게시물 [업데이트 된 Office 365 최신 인증](https://www.microsoft.com/microsoft-365/blog/2015/11/19/updated-office-365-modern-authentication-public-preview/)을 참조 하세요.
+> 앱 암호는 최신 인증을 지원하는 않는 앱에만 필요합니다. Office 2013 클라이언트는 최신 인증 프로토콜을 지원하지만 구성되어야 합니다. 이제 Office 2013에 대한 2015년 3월 또는 이후 업데이트를 실행하는 모든 고객에게 최신 인증을 사용할 수 있습니다. 자세한 내용은 Office [365 최신 인증](https://www.microsoft.com/microsoft-365/blog/2015/11/19/updated-office-365-modern-authentication-public-preview/)업데이트 블로그 게시물을 참조하세요.
 
-**Q: 사용자가 문자 메시지를 수신 하지 않거나 확인 시간이 초과 되는 경우도 있습니다.**
+**Q: 사용자가 문자 메시지를 받지 못하거나 확인 시간이 시간 단축되는 경우가 있다고 말합니다.**
 
-서비스의 안정성에 영향을 줄 수 있는 제어할 수 없는 요인이 있으므로 SMS 메시지 배달이 보장 되지 않습니다. 이러한 요인에는 대상 국가/지역, 휴대 전화 통신 회사 및 신호 강도가 포함 됩니다.
+서비스의 안정성에 영향을 줄 수 있는 제어할 수 없는 요소가 있기 때문에 SMS 메시지 배달이 보장되지 않습니다. 이러한 요인에는 대상 국가/지역, 이동 통신사 및 신호 강도가 포함됩니다.
 
 사용자에게 문자 메시지를 안정적으로 수신하는 데 문제가 있는 경우 대신 모바일 앱 또는 휴대폰 전화 방법을 사용하도록 지시합니다. 모바일 앱은 셀룰러 및 Wi-Fi 연결 모두를 통해 알림을 받을 수 있습니다. 또한 디바이스에 신호가 전혀 없는 경우에도 모바일 앱은 인증 코드를 생성할 수 있습니다. [Android](https://go.microsoft.com/fwlink/?Linkid=825072), [IOS](https://go.microsoft.com/fwlink/?Linkid=825073) 및 [Windows Phone](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6)의 경우 Microsoft Authenticator 앱을 사용할 수 있습니다.
 

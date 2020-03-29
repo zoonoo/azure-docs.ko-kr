@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.openlocfilehash: 5dc6145940883ff6f4446ad67c399cdf4931d38e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75419750"
 ---
 # <a name="create-an-azure-automation-watcher-tasks-to-track-file-changes-on-a-local-machine"></a>로컬 컴퓨터에서 파일 변경 내용을 추적하는 Azure Automation 감시자 태스크 만들기
@@ -26,7 +26,7 @@ Azure Automation은 감시자 태스크를 사용하여 이벤트를 감시하�
 > * 감시자 트리거
 > * 출력 검사
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음 항목이 필요합니다.
 
@@ -35,21 +35,21 @@ Azure Automation은 감시자 태스크를 사용하여 이벤트를 감시하�
 * 감시자 작업이 실행되는 [하이브리드 Runbook 작업자](automation-hybrid-runbook-worker.md)
 
 > [!NOTE]
-> 감시자 작업은 Azure 중국에서 지원 되지 않습니다.
+> 감시자 작업은 Azure 중국에서 지원되지 않습니다.
 
 ## <a name="import-a-watcher-runbook"></a>감시자 Runbook 가져오기
 
 이 자습서에서는 **Watch-NewFile**이라는 감시자 Runbook을 사용하여 디렉터리에서 새 파일을 찾습니다. 감시자 Runbook은 폴더의 파일에 마지막으로 쓴 것으로 알려진 시간을 검색하고 해당 워터마크보다 최근 버전의 파일을 찾습니다.
 
-이 가져오기 프로세스는 [PowerShell 갤러리](https://www.powershellgallery.com)을 통해 수행할 수 있습니다.
+이 가져오기 프로세스는 [PowerShell 갤러리를](https://www.powershellgallery.com)통해 수행할 수 있습니다.
 
-1. [Watch-NewFile](https://gallery.technet.microsoft.com/scriptcenter/Watcher-runbook-that-looks-36fc82cd)에 대 한 갤러리 페이지로 이동 합니다.
-2. **Azure Automation** 탭에서 **Azure Automation 배포를**클릭 합니다.
+1. [Watch-NewFile.ps1에](https://gallery.technet.microsoft.com/scriptcenter/Watcher-runbook-that-looks-36fc82cd)대한 갤러리 페이지로 이동합니다.
+2. Azure **자동화** 탭에서 **Azure 자동화에 배포를 클릭합니다.**
 
-다음 단계를 사용 하 여 포털에서이 runbook을 automation 계정으로 가져올 수도 있습니다.
+다음 단계를 사용하여 이 Runbook을 포털에서 자동화 계정으로 가져올 수도 있습니다.
 
 1. Automation 계정을 열고 **Runbook** 페이지를 클릭합니다.
-2. **갤러리 찾아보기** 단추를 클릭합니다.
+2. **갤러리 찾아보기** 버튼을 클릭합니다.
 3. "감시자 Runbook"을 검색하고 **디렉터리에서 새 파일을 찾는 감시자 Runbook**을 선택한 후에 **가져오기**를 선택합니다.
   ![UI에서 Automation Runbook 가져오기](media/automation-watchers-tutorial/importsourcewatcher.png)
 1. Runbook 이름과 설명을 입력하고 **확인**을 선택하여 Runbook을 Automation 계정으로 가져옵니다.
@@ -66,17 +66,17 @@ Azure Automation은 감시자 태스크를 사용하여 이벤트를 감시하�
 
 ## <a name="create-an-action-runbook"></a>작업 Runbook 만들기
 
-작업 Runbook은 감시자 Runbook에서 전달된 데이터에 대한 작업을 수행하기 위해 감시자 태스크에서 사용됩니다. PowerShell 워크플로 Runbook은 감시자 태스크에서 지원되지 않습니다. PowerShell Runbook을 사용해야 합니다. **프로세스-NewFile**이라는 미리 정의 된 작업 runbook을 가져와야 합니다.
+작업 Runbook은 감시자 Runbook에서 전달된 데이터에 대한 작업을 수행하기 위해 감시자 태스크에서 사용됩니다. PowerShell 워크플로 Runbook은 감시자 태스크에서 지원되지 않습니다. PowerShell Runbook을 사용해야 합니다. **Process-NewFile**이라는 미리 정의된 작업 Runbook을 가져와야 합니다.
 
-이 가져오기 프로세스는 [PowerShell 갤러리](https://www.powershellgallery.com)을 통해 수행할 수 있습니다.
+이 가져오기 프로세스는 [PowerShell 갤러리를](https://www.powershellgallery.com)통해 수행할 수 있습니다.
 
-1. [Process-NewFile](https://gallery.technet.microsoft.com/scriptcenter/Watcher-action-that-b4ff7cdf)에 대 한 갤러리 페이지로 이동 합니다.
-2. **Azure Automation** 탭에서 **Azure Automation 배포를**클릭 합니다.
+1. [프로세스-NewFile.ps1에](https://gallery.technet.microsoft.com/scriptcenter/Watcher-action-that-b4ff7cdf)대 한 갤러리 페이지로 이동 합니다.
+2. Azure **자동화** 탭에서 **Azure 자동화에 배포를 클릭합니다.**
 
-다음 단계를 사용 하 여 포털에서이 runbook을 automation 계정으로 가져올 수도 있습니다.
+다음 단계를 사용하여 이 Runbook을 포털에서 자동화 계정으로 가져올 수도 있습니다.
 
 1. Automation 계정으로 이동하여 **프로세스 자동화** 범주 아래에서 **Runbook**을 선택합니다.
-1. **갤러리 찾아보기** 단추를 클릭합니다.
+1. **갤러리 찾아보기** 버튼을 클릭합니다.
 1. "감시자 작업"을 검색한 후 **감시자 Runbook에 의해 트리거되는 이벤트를 처리할 감시자 작업**을 선택하고 **가져오기**를 선택합니다.
   ![UI에서 작업 Runbook 가져오기](media/automation-watchers-tutorial/importsourceaction.png)
 1. Runbook 이름과 설명을 입력하고 **확인**을 선택하여 Runbook을 Automation 계정으로 가져옵니다.
@@ -107,7 +107,7 @@ Azure Automation은 감시자 태스크를 사용하여 이벤트를 감시하�
    * **실행 설정** - 이 Runbook은 Automation 서비스에서 실행되므로 Azure로 유지합니다.
 
 1. **확인**을 클릭하고 선택을 클릭하여 감시자 페이지로 돌아갑니다.
-1. **확인**을 클릭하여 감시자 태스크를 만듭니다.
+1. **확인을** 클릭하여 감시자 작업을 만듭니다.
 
 ![UI에서 감시자 작업 구성](media/automation-watchers-tutorial/watchertaskcreation.png)
 
@@ -166,5 +166,5 @@ Passed in data is @{FileName=D:\examplefiles\ExampleFile1.txt; Length=0}
 Runbook을 직접 작성하는 방법을 자세히 알아보려면 아래 링크로 이동하세요.
 
 > [!div class="nextstepaction"]
-> [내 첫 번째 PowerShell Runbook](automation-first-runbook-textual-powershell.md)
+> [내 첫 번째 파워 쉘 실행 책](automation-first-runbook-textual-powershell.md).
 

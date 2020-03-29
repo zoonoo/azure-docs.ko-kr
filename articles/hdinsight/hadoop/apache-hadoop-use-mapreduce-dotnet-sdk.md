@@ -9,40 +9,40 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/15/2020
 ms.openlocfilehash: e50510f2420d69be37af584a2648a794e1561ee3
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76157053"
 ---
 # <a name="run-mapreduce-jobs-using-hdinsight-net-sdk"></a>HDInsight .NET SDK를 사용하여 MapReduce 작업 실행
 
 [!INCLUDE [mapreduce-selector](../../../includes/hdinsight-selector-use-mapreduce.md)]
 
-HDInsight .NET SDK를 사용하여 MapReduce 작업을 제출하는 방법을 알아봅니다. HDInsight 클러스터에는 여러 MapReduce 샘플이 담긴 jar 파일이 포함되어 있습니다. Jar 파일이 `/example/jars/hadoop-mapreduce-examples.jar`되었습니다.  샘플 중 하나는 **wordcount**입니다. C# 콘솔 애플리케이션을 개발하여 단어 세기 작업을 제출합니다.  작업은 `/example/data/gutenberg/davinci.txt` 파일을 읽고 결과를 `/example/data/davinciwordcount`에 출력 합니다.  애플리케이션을 다시 실행하려면 출력 폴더를 정리해야 합니다.
+HDInsight .NET SDK를 사용하여 MapReduce 작업을 제출하는 방법을 알아봅니다. HDInsight 클러스터에는 여러 MapReduce 샘플이 담긴 jar 파일이 포함되어 있습니다. jar 파일은 `/example/jars/hadoop-mapreduce-examples.jar`.  샘플 중 하나는 **wordcount**입니다. C# 콘솔 애플리케이션을 개발하여 단어 세기 작업을 제출합니다.  작업은 `/example/data/gutenberg/davinci.txt` 파일을 읽고 결과를 `/example/data/davinciwordcount`로 출력합니다.  애플리케이션을 다시 실행하려면 출력 폴더를 정리해야 합니다.
 
 > [!NOTE]  
 > 이 문서의 단계는 Windows 클라이언트에서 수행되어야 합니다. Hive와 함께 작동하도록 Linux, OS X 또는 Unix 클라이언트를 사용하는 방법에 대한 정보를 보려면 문서 맨 위에 표시된 탭 선택기를 사용합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-* HDInsight의 Apache Hadoop 클러스터. [Azure Portal를 사용 하 여 Apache Hadoop 클러스터 만들기를](../hdinsight-hadoop-create-linux-clusters-portal.md)참조 하세요.
+* HDInsight의 Apache Hadoop 클러스터. [Azure 포털을 사용하여 아파치 하두롭 클러스터 만들기를](../hdinsight-hadoop-create-linux-clusters-portal.md)참조하십시오.
 
-* [Visual Studio](https://visualstudio.microsoft.com/vs/community/)
+* [비주얼 스튜디오](https://visualstudio.microsoft.com/vs/community/).
 
 ## <a name="submit-mapreduce-jobs-using-hdinsight-net-sdk"></a>HDInsight .NET SDK를 사용하여 MapReduce 작업 제출
 
-HDInsight .NET SDK는 .net에서 HDInsight 클러스터로 더 쉽게 작업할 수 있도록 하는 .NET 클라이언트 라이브러리를 제공 합니다.
+HDInsight .NET SDK는 .NET 클라이언트 라이브러리를 제공하여 .NET의 HDInsight 클러스터로 보다 쉽게 작업할 수 있도록 합니다.
 
-1. Visual Studio를 시작 하 고 C# 콘솔 응용 프로그램을 만듭니다.
+1. Visual Studio를 시작하고 C# 콘솔 응용 프로그램을 만듭니다.
 
-1. **도구** > **NuGet 패키지 관리자** > **패키지 관리자 콘솔로** 이동한 후 다음 명령을 입력 합니다.
+1. **도구** > **NuGet 패키지 관리자** > **패키지 관리자 콘솔로** 이동 하 고 다음 명령을 입력합니다.
 
     ```   
     Install-Package Microsoft.Azure.Management.HDInsight.Job
     ```
 
-1. 아래 코드를 **Program.cs**에 복사 합니다. 그런 다음 `existingClusterName`, `existingClusterPassword`, `defaultStorageAccountName`, `defaultStorageAccountKey`및 `defaultStorageContainerName`값을 설정 하 여 코드를 편집 합니다.
+1. 아래 코드를 **Program.cs.** 그런 다음 에 `existingClusterName`대한 `existingClusterPassword` `defaultStorageAccountName` `defaultStorageAccountKey` `defaultStorageContainerName`값을 설정하여 코드를 편집합니다.
 
     ```csharp
     using System.Collections.Generic;
@@ -163,9 +163,9 @@ HDInsight .NET SDK는 .net에서 HDInsight 클러스터로 더 쉽게 작업할 
 
 1. **F5** 키를 눌러 애플리케이션을 실행합니다.
 
-작업을 다시 실행 하려면 작업 출력 폴더 이름을 변경 해야 합니다 .이 샘플에서는 `/example/data/davinciwordcount`합니다.
+작업을 다시 실행하려면 샘플에서 작업 출력 폴더 이름을 변경해야 `/example/data/davinciwordcount`합니다.
 
-작업이 성공적으로 완료 되 면 응용 프로그램은 `part-r-00000`출력 파일의 내용을 인쇄 합니다.
+작업이 성공적으로 완료되면 응용 프로그램은 출력 파일의 `part-r-00000`내용을 인쇄합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

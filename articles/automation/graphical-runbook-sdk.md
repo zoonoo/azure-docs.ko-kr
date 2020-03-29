@@ -6,17 +6,17 @@ ms.subservice: process-automation
 ms.date: 07/20/2018
 ms.topic: conceptual
 ms.openlocfilehash: d4dcf6681ade977847c204dd1237f7cd7a67775e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75418255"
 ---
 # <a name="use-the-azure-automation-graphical-runbook-sdk"></a>Azure Automation Graphical Runbook SDK 사용
 
 [Graphical Runbook](automation-graphical-authoring-intro.md)은 기본 Windows PowerShell 또는 PowerShell 워크플로 코드의 복잡성을 관리하는 데 도움이 되는 Runbook입니다. Microsoft Azure Automation Graphical Authoring SDK를 통해 개발자는 Azure Automation 서비스 사용을 위한 Graphical Runbook을 만들고 편집할 수 있습니다. 다음 코드 조각은 코드에서 Graphical Runbook 만들기의 기본 흐름을 보여줍니다.
 
-## <a name="pre-requisites"></a>필수 조건
+## <a name="pre-requisites"></a>필수 구성 요소
 
 시작하려면 프로젝트로 `Microsoft.Azure.Automation.GraphicalRunbook.Model` 패키지를 가져옵니다.
 
@@ -91,7 +91,7 @@ var initializeRunbookVariable = runbook.AddActivity(
 
 작업은 `Orchestrator.GraphRunbook.Model` 네임스페이스에서 다음 클래스에 의해 구현됩니다.
 
-|클래스  |작업  |
+|클래스  |활동  |
 |---------|---------|
 |CommandActivity     | PowerShell 명령(cmdlet, 함수 등)을 호출합니다.        |
 |InvokeRunbookActivity     | 다른 Runbook 인라인을 호출합니다.        |

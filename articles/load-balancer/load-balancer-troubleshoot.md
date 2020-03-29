@@ -1,6 +1,6 @@
 ---
 title: Azure Load Balancer 문제 해결
-description: Azure Load Balancer의 알려진 문제를 해결 하는 방법을 알아봅니다.
+description: Azure 로드 밸런서를 사용하여 알려진 문제를 해결하는 방법을 알아봅니다.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -14,22 +14,22 @@ ms.workload: infrastructure-services
 ms.date: 01/28/2020
 ms.author: allensu
 ms.openlocfilehash: ca9b70bd71a618f8e3d5f4fe9504ba66a9f14c6f
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76935471"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Azure Load Balancer 문제 해결
 
-이 페이지는 기본 및 표준 일반적인 Azure Load Balancer 질문에 대 한 문제 해결 정보를 제공 합니다. 표준 Load Balancer에 대한 자세한 내용은 [표준 Load Balancer 개요](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics)를 참조하세요.
+이 페이지에서는 기본 및 표준 공통 Azure 로드 밸런서 질문에 대한 문제 해결 정보를 제공합니다. 표준 Load Balancer에 대한 자세한 내용은 [표준 Load Balancer 개요](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics)를 참조하세요.
 
 Load Balancer 연결을 사용할 수 없을 때 가장 일반적인 증상은 다음과 같습니다. 
 
 - Load Balancer 뒤의 VM이 상태 프로브에 응답하지 않습니다. 
 - Load Balancer 뒤의 VM이 구성된 포트의 트래픽에 응답하지 않습니다.
 
-백 엔드 Vm에 대 한 외부 클라이언트가 부하 분산 장치를 통과 하면 클라이언트의 IP 주소가 통신에 사용 됩니다. 클라이언트의 IP 주소가 NSG 허용 목록에 추가 되어 있는지 확인 합니다. 
+백 엔드 VM에 대한 외부 클라이언트가 로드 밸러워를 통과하면 클라이언트의 IP 주소가 통신에 사용됩니다. 클라이언트의 IP 주소가 NSG 허용 목록에 추가되었는지 확인합니다. 
 
 ## <a name="symptom-vms-behind-the-load-balancer-are-not-responding-to-health-probes"></a>증상: Load Balancer 뒤의 VM이 상태 프로브에 응답하지 않습니다.
 백 엔드 서버가 Load Balancer 집합에 참여하려면 프로브 검사를 통과해야 합니다. 상태 프로브에 대한 자세한 내용은 [Load Balancer 프로브 이해](load-balancer-custom-probe-overview.md)를 참조하세요. 
@@ -79,7 +79,7 @@ VM의 방화벽이 프로브 포트를 차단하고 있거나 서브넷 또는 V
     - 동일한 VNet에서 대상 백 엔드 풀 VM 및 다른 테스트 VM에 대해 동시 Netsh 추적을 실행합니다. 이제 얼마 동안 PsPing 테스트를 실행하고 일부 네트워크 추적을 수집한 후 테스트를 중지합니다. 
     - 네트워크 캡처를 분석하고 ping 쿼리와 관련해서 들어오고 나가는 패킷이 둘다 있는지 확인합니다. 
         - 백 엔드 풀 VM에서 들어오는 패킷이 확인되지 않으면 트래픽을 차단하는 네트워크 보안 그룹 또는 UDR 구성 오류가 있는 것일 수 있습니다. 
-        - 백 엔드 풀 VM에서 나가는 패킷이 관찰 되지 않는 경우 관련 되지 않은 문제 (예: 프로브 포트를 차단 하는 응용 프로그램)에 대해 VM을 확인 해야 합니다. 
+        - 백 엔드 풀 VM에서 나가는 패킷이 관찰되지 않으면 VM에서 관련없는 문제(예: 프로브 포트를 차단하는 응용 프로그램)를 확인해야 합니다. 
     - 프로브 패킷이 부하 분산 장치에 도달하기 전에 강제로 다른 대상으로 전달되는지 확인합니다(UDR 설정을 통해). 이로 인해 트래픽이 백엔드 VM에 절대 도달하지 못할 수 있습니다. 
 * 프로브 형식을 변경하고(예: HTTP에서 TCP로) 네트워크 보안 그룹 ACL의 해당 포트 및 방화벽이 프로브 응답 구성에 문제가 있는지 평가하도록 구성합니다. 상태 프로브 구성에 대한 자세한 내용은 [엔드포인트 부하 분산 장치 상태 프로브 구성](https://blogs.msdn.microsoft.com/mast/2016/01/26/endpoint-load-balancing-heath-probe-configuration-details/)을 참조하세요.
 
@@ -105,9 +105,9 @@ VM이 데이터 트래픽에 응답하지 않을 경우 대상 포트가 참여 
 
 서브넷 또는 VM에 구성된 하나 이상의 네트워크 보안 그룹이 원본 IP 또는 포트를 차단하는 경우 VM이 응답할 수 없습니다.
 
-공용 부하 분산 장치의 경우 클라이언트와 부하 분산 장치 백 엔드 Vm 간의 통신에 인터넷 클라이언트의 IP 주소가 사용 됩니다. 백 엔드 VM의 네트워크 보안 그룹에서 클라이언트의 IP 주소를 사용할 수 있는지 확인 합니다.
+공용 로드 밸런서의 경우 인터넷 클라이언트의 IP 주소가 클라이언트와 로드 밸런서 백엔드 VM 간의 통신에 사용됩니다. 클라이언트의 IP 주소가 백 엔드 VM의 네트워크 보안 그룹에 허용되는지 확인합니다.
 
-1. 백 엔드 VM에 구성된 네트워크 보안 그룹을 나열합니다. 자세한 내용은 [네트워크 보안 그룹 관리](../virtual-network/manage-network-security-group.md) 를 참조 하세요.
+1. 백 엔드 VM에 구성된 네트워크 보안 그룹을 나열합니다. 자세한 내용은 [네트워크 보안 그룹 관리를](../virtual-network/manage-network-security-group.md) 참조하십시오.
 1. 네트워크 보안 그룹 목록에서 다음을 확인합니다.
     - 데이터 포트에서 들어오거나 나가는 트래픽에 간섭이 있습니다. 
     - VM 또는 서브넷의 NIC에 대해 Load Balancer 프로브 및 트래픽을 허용하는 기본 규칙보다 우선 순위가 더 높은 **모두 거부** 네트워크 보안 그룹 규칙(네트워크 보안 그룹은 프로브 포트에 해당하는 168.63.129.16의 부하 분산 장치 IP를 허용해야 함).
@@ -128,9 +128,9 @@ Load Balancer의 백 엔드 VM에서 호스트된 애플리케이션이 동일�
 
 **해결 방법** 프록시를 사용하여이 시나리오의 차단을 해제하는 방법이 몇 가지 있습니다. Application Gateway 또는 기타 타사 프록시(예: nginx 또는 haproxy)를 평가하세요. Application Gateway에 대한 자세한 내용은 [Application Gateway에 대한 개요](../application-gateway/application-gateway-introduction.md)를 참조하세요.
 
-## <a name="symptom-cannot-change-backend-port-for-existing-lb-rule-of-a-load-balancer-which-has-vm-scale-set-deployed-in-the-backend-pool"></a>증상: 백 엔드 풀에 배포 된 VM 확장 집합이 있는 부하 분산 장치의 기존 LB 규칙에 대해 백 엔드 포트를 변경할 수 없습니다. 
-### <a name="cause--the-backend-port-cannot-be-modified-for-a-load-balancing-rule-thats-used-by-a-health-probe-for-load-balancer-referenced-by-vm-scale-set"></a>원인: VM 확장 집합에서 참조 하는 부하 분산 장치에 대 한 상태 프로브에서 사용 하는 부하 분산 규칙에 대해 백 엔드 포트를 수정할 수 없습니다.
-**해결 방법** 포트를 변경 하려면 VM 크기 집합을 업데이트 하 고, 포트를 업데이트 한 후 상태 프로브를 다시 구성 하 여 상태 프로브를 제거할 수 있습니다.
+## <a name="symptom-cannot-change-backend-port-for-existing-lb-rule-of-a-load-balancer-which-has-vm-scale-set-deployed-in-the-backend-pool"></a>증상: 백 엔드 풀에 배포된 VM 배율 집합이 있는 로드 밸러블러의 기존 LB 규칙에 대해 백 엔드 포트를 변경할 수 없습니다. 
+### <a name="cause--the-backend-port-cannot-be-modified-for-a-load-balancing-rule-thats-used-by-a-health-probe-for-load-balancer-referenced-by-vm-scale-set"></a>원인 : VM 배율 집합에서 참조하는 로드 밸런서에 대해 상태 프로브에서 사용하는 부하 분산 규칙에 대해 백 엔드 포트를 수정할 수 없습니다.
+**해결 방법** 포트를 변경하려면 VM 배율 집합을 업데이트하여 상태 프로브를 제거하고 포트를 업데이트한 다음 상태 프로브를 다시 구성할 수 있습니다.
 
 ## <a name="additional-network-captures"></a>추가 네트워크 캡처
 지원 사례를 열기로 결정한 경우 더 빠른 해결을 위해 다음 정보를 수집합니다. 단일 백 엔드 VM을 선택하여 다음과 같은 테스트를 수행합니다.

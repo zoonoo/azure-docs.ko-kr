@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 02/03/2020
 ms.author: lugoldbe
 ms.openlocfilehash: 22af1f413bef0c69eb732f75fa03049140e4c7e3
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76964305"
 ---
 ## <a name="azure-resource-manager-template"></a>Azure Resource Manager 템플릿
 
-이 문서에서는 Azure Resource Manager 템플릿을 사용 하 여 리소스 그룹, 저장소 계정 및 컨테이너, 이벤트 허브 및 Azure 데이터 탐색기 클러스터와 데이터베이스를 만듭니다. `template.json`이름이 있는 파일에 다음 콘텐츠를 저장 합니다. 이 파일을 사용 하 여 코드 예제를 실행 합니다.
+이 문서에서는 Azure Resource Manager 템플릿을 사용하여 리소스 그룹, 저장소 계정 및 컨테이너, 이벤트 허브 및 Azure Data Explorer 클러스터 및 데이터베이스를 만듭니다. 다음 내용을 이름으로 `template.json`파일에 저장합니다. 이 파일을 사용하여 코드 예제를 실행합니다.
 
 ```json
 {

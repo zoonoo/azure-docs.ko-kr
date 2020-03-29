@@ -1,6 +1,6 @@
 ---
-title: Virtual Machine Scale Sets에서 필요한 상태 구성 사용
-description: Azure 필요한 상태 구성 확장과 함께 Virtual Machine Scale Sets를 사용 하 여 가상 컴퓨터를 구성 합니다.
+title: 가상 머신 스케일 세트로 원하는 상태 구성 사용
+description: Azure 원하는 상태 구성 확장과 함께 가상 시스템 확장 집합을 사용하여 가상 컴퓨터를 구성합니다.
 author: zjalexander
 tags: azure-service-management,azure-resource-manager
 ms.assetid: c8f047b5-0e6c-4ef3-8a47-f1b284d32942
@@ -10,10 +10,10 @@ ms.tgt_pltfrm: vm-windows
 ms.date: 04/05/2017
 ms.author: zachal
 ms.openlocfilehash: a93a8a9c27be5a1736a50e6c4c4b830980b7d974
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76278066"
 ---
 # <a name="using-virtual-machine-scale-sets-with-the-azure-dsc-extension"></a>Azure DSC 확장에 Virtual Machine Scale Sets 사용

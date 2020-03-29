@@ -1,15 +1,15 @@
 ---
-title: Cloud Services와 Service Fabric의 차이점
+title: 클라우드 서비스와 서비스 패브릭의 차이점
 description: Cloud Services에서 서비스 패브릭으로 애플리케이션을 마이그레이션하기 위한 개념적 개요입니다.
 author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: 283ad2c63bb59771dab7881522e737f773ab1705
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75463374"
 ---
 # <a name="learn-about-the-differences-between-cloud-services-and-service-fabric-before-migrating-applications"></a>애플리케이션을 마이그레이션하기 전에 Cloud Services와 Service Fabric 간의 차이점에 대해 알아봅니다.
@@ -20,7 +20,7 @@ Cloud Services에서 Service Fabric으로 애플리케이션 마이그레이션�
 ## <a name="applications-and-infrastructure"></a>애플리케이션 및 인프라
 Cloud Services와 Service Fabric 간의 기본적인 차이는 VM, 작업 및 애플리케이션 간의 관계입니다. 여기에서 작업은 특정 작업을 수행하거나 서비스를 제공하도록 작성하는 코드로 정의됩니다.
 
-* **Cloud Services는 VM으로 애플리케이션 배포에 대한 것입니다.** 작성하는 코드는 웹 또는 작업자 역할과 같은 VM 인스턴스에 밀접하게 결합됩니다. Cloud Services에서 작업을 배포하는 것은 작업을 실행하는 하나 이상의 VM 인스턴스를 배포하는 것입니다. 애플리케이션과 VM의 분리가 없으므로 애플리케이션의 공식 정의가 없습니다. 애플리케이션은 Cloud Services 배포 내에서 웹 또는 작업자 역할 인스턴스 집합 또는 전체 Cloud Services 배포로 생각할 수 있습니다. 이 예제에서 애플리케이션은 역할 인스턴스 집합으로 표시됩니다.
+* **Cloud Services는 VM으로 애플리케이션 배포에 대한 것입니다.**  작성하는 코드는 웹 또는 작업자 역할과 같은 VM 인스턴스에 밀접하게 결합됩니다. Cloud Services에서 작업을 배포하는 것은 작업을 실행하는 하나 이상의 VM 인스턴스를 배포하는 것입니다. 애플리케이션과 VM의 분리가 없으므로 애플리케이션의 공식 정의가 없습니다. 애플리케이션은 Cloud Services 배포 내에서 웹 또는 작업자 역할 인스턴스 집합 또는 전체 Cloud Services 배포로 생각할 수 있습니다. 이 예제에서 애플리케이션은 역할 인스턴스 집합으로 표시됩니다.
 
 ![Cloud Services 애플리케이션 및 토폴로지][1]
 
@@ -81,22 +81,22 @@ Cloud Services와 같은 상태 비저장 환경의 계층 간 일반 통신 메
 ![서비스 패브릭 직접 통신][8]
 
 ## <a name="parity"></a>Parity
-[Cloud Services는 제어 수준과 사용 편의성을 Service Fabric 하는 것과 유사 하지만, 이제는 레거시 서비스 이며 새로운 개발에는 Service Fabric를 사용 하](https://docs.microsoft.com/azure/app-service/overview-compare)는 것이 좋습니다. API 비교는 다음과 같습니다.
+[클라우드 서비스는 제어 의 정도대 사용의 용이성에 서비스 패브릭과 유사하지만, 지금은 레거시 서비스 및 서비스 패브릭은 새로운 개발을 위해 권장됩니다;](https://docs.microsoft.com/azure/app-service/overview-compare) 다음은 API 비교입니다.
 
 
-| **클라우드 서비스 API** | **Service Fabric API** | **참고 사항** |
+| **클라우드 서비스 API** | **서비스 패브릭 API** | **참고** |
 | --- | --- | --- |
-| RoleInstance.GetID | FabricRuntime. GetNodeContext. NodeId 또는. NodeName | ID는 NodeName의 속성입니다. |
-| RoleInstance.GetFaultDomain | FabricClient.QueryManager.GetNodeList | NodeName에 대해 필터링 및 FD 속성 사용 |
-| RoleInstance.GetUpgradeDomain | FabricClient.QueryManager.GetNodeList | NodeName에 대해 필터링 하 고 Upgrade 속성을 사용 합니다. |
-| RoleInstance.GetInstanceEndpoints | FabricRuntime GetActivationContext 또는 이름 지정 (ResolveService) | FabricRuntime에서 제공 하는 CodePackageActivationContext 및 GetActivationContext를 통해 복제본 내에서 제공 되는 것입니다. 초기 |
-| RoleEnvironment.GetRoles | FabricClient.QueryManager.GetNodeList | 유형별로 동일한 종류의 필터링을 수행 하려는 경우 FabricClient 매니페스트를 통해 클러스터 매니페스트에서 노드 형식 목록을 가져오고 여기에서 역할/노드 형식을 가져올 수 있습니다. |
-| RoleEnvironment.GetIsAvailable | WindowsFabricCluster 또는 특정 노드에 가리키는 FabricRuntime를 만듭니다. | * |
-| RoleEnvironment.GetLocalResource | CodePackageActivationContext.Log/Temp/Work | * |
-| RoleEnvironment.GetCurrentRoleInstance | CodePackageActivationContext.Log/Temp/Work | * |
-| LocalResource.GetRootPath | CodePackageActivationContext.Log/Temp/Work | * |
-| Role.GetInstances | FabricClient GetNodeList 또는 ResolveService | * |
-| RoleInstanceEndpoint.GetIPEndpoint | FabricRuntime GetActivationContext 또는 이름 지정 (ResolveService) | * |
+| 역할 인스턴스.GetID | 패브릭런타임.겟노드컨텍스트.노드Id 또는 . 노드 이름 | ID는 노드 이름의 속성입니다. |
+| 역할 인스턴스.GetFault도메인 | 패브릭 클라이언트.쿼리 관리자.GetNodeList | 노드 이름에 필터링하고 FD 속성을 사용합니다. |
+| 역할 인스턴스.Get업그레이드도메인 | 패브릭 클라이언트.쿼리 관리자.GetNodeList | 노드 이름에 필터링하고 업그레이드 속성을 사용합니다. |
+| 역할 인스턴스.Get인스턴스 끝점 | 패브릭런타임.GetActivation컨텍스트 또는 명명(해결 서비스) | FabricRuntime.GetActivationContext 및 서비스 초기화 매개 변수를 통해 복제본 내에서 제공 되는 코드 패키지활성화 컨텍스트 동안 제공 하는 코드 패키지활성화 컨텍스트 . 초기화 |
+| 역할 환경.GetRoles | 패브릭 클라이언트.쿼리 관리자.GetNodeList | 유형별로 동일한 종류의 필터링을 수행하려는 경우 FabricClient.ClusterManager.GetClusterManifest를 통해 클러스터 매니페스트에서 노드 유형 목록을 가져와서 역할/노드 유형을 가져옵니다. |
+| 역할 환경.GetIs사용 가능 | 연결-Windows패브릭클러스터 또는 특정 노드를 가리키는 패브릭런타임 만들기 | * |
+| 역할 환경.Get로컬 리소스 | 코드 패키지활성화컨텍스트.로그/임시/작업 | * |
+| 역할 환경.현재 역할 인스턴스 를 가져옵니다. | 코드 패키지활성화컨텍스트.로그/임시/작업 | * |
+| 로컬 리소스.GetRootPath | 코드 패키지활성화컨텍스트.로그/임시/작업 | * |
+| 역할.겟인스턴스 | 패브릭 클라이언트.쿼리 관리자.GetNodeList 또는 해결 서비스 | * |
+| 역할 인스턴스 엔드포인트.GetIPEndpoint | 패브릭런타임.GetActivation컨텍스트 또는 명명(해결 서비스) | * |
 
 ## <a name="next-steps"></a>다음 단계
 Cloud Services에서 Service Fabric으로 가장 간단한 마이그레이션 경로는 애플리케이션의 전체 아키텍처를 거의 동일하게 유지하여 Cloud Services 배포를 Service Fabric 애플리케이션으로 바꾸는 것입니다. 다음 문서는 웹 또는 작업자 역할을 서비스 패브릭 상태 비저장 서비스로 변환하는 데 도움이 되는 가이드를 제공합니다.

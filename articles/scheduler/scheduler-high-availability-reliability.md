@@ -9,18 +9,18 @@ ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 08/16/2016
 ms.openlocfilehash: 20c2054e168a9b17d9b4ab159cfefbf607ab6d11
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78898553"
 ---
 # <a name="high-availability-and-reliability-for-azure-scheduler"></a>Azure Scheduler의 고가용성 및 안정성
 
 > [!IMPORTANT]
-> 사용이 [중지](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date)되는 Azure Scheduler를 교체 하는 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) . 스케줄러에 설정 된 작업을 계속 하려면 가능한 한 빨리 [Azure Logic Apps로 마이그레이션](../scheduler/migrate-from-scheduler-to-logic-apps.md) 하세요. 
+> [Azure 논리 앱이](../logic-apps/logic-apps-overview.md) [사용 중지되는](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date)Azure 스케줄러를 대체합니다. 스케줄러에서 설정한 작업을 계속 작업하려면 가능한 한 빨리 [Azure Logic Apps로 마이그레이션하십시오.](../scheduler/migrate-from-scheduler-to-logic-apps.md) 
 >
-> 스케줄러는 Azure Portal에서 더 이상 사용할 수 없지만,이 시점에서 [REST API](/rest/api/scheduler) 및 [Azure scheduler PowerShell cmdlet](scheduler-powershell-reference.md) 을 계속 사용할 수 있으므로 작업 및 작업 컬렉션을 관리할 수 있습니다.
+> 스케줄러는 Azure 포털에서 더 이상 사용할 수 없지만 작업 및 작업 컬렉션을 관리할 수 있도록 [현재 REST API](/rest/api/scheduler) 및 Azure [스케줄러 PowerShell cmdlet을](scheduler-powershell-reference.md) 사용할 수 있습니다.
 
 Azure Scheduler는 작업에 [고가용성](https://docs.microsoft.com/azure/architecture/framework/#resiliency)과 안정성을 제공합니다. 자세한 내용은 [Scheduler에 대한 SLA](https://azure.microsoft.com/support/legal/sla/scheduler)를 참조하세요.
 
@@ -30,7 +30,7 @@ Azure Scheduler는 [고가용성]을 제공하며 지리적 중복 서비스 배
 
 ### <a name="geo-redundant-service-deployment"></a>지리적 중복 서비스 배포
 
-Azure Scheduler는 [현재 azure에서 지원](https://azure.microsoft.com/global-infrastructure/regions/#services)되는 거의 모든 지역에서 사용할 수 있습니다. 즉, 호스트되는 지역의 Azure 데이터 센터를 사용할 수 없게 되면 서비스의 장애 조치(failover) 기능이 다른 데이터 센터에서 Scheduler를 사용할 수 있게 해주기 때문에 Azure Scheduler를 계속 사용할 수 있습니다.
+Azure 스케줄러는 현재 [Azure에서 지원하는](https://azure.microsoft.com/global-infrastructure/regions/#services)거의 모든 지리적 지역에서 사용할 수 있습니다. 즉, 호스트되는 지역의 Azure 데이터 센터를 사용할 수 없게 되면 서비스의 장애 조치(failover) 기능이 다른 데이터 센터에서 Scheduler를 사용할 수 있게 해주기 때문에 Azure Scheduler를 계속 사용할 수 있습니다.
 
 ### <a name="geo-regional-job-replication"></a>지리적 지역 작업 복제
 

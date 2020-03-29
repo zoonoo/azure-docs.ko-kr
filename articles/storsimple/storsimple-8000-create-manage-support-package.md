@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 9ca033f6f786c0142261dafa31b93b71a8b3336a
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76277066"
 ---
 # <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>StorSimple 8000 시리즈용 지원 패키지 만들기 및 관리
@@ -23,7 +23,7 @@ StorSimple 지원 패키지는 StorSimple 디바이스 문제를 해결하는 �
 
 ## <a name="create-a-support-package"></a>지원 패키지 만들기
 
-경우에 따라 StorSimple 용 Windows PowerShell을 통해 지원 패키지를 수동으로 만들어야 합니다. 예:
+경우에 따라 StorSimple 용 Windows PowerShell을 통해 지원 패키지를 수동으로 만들어야 합니다. 예를 들어:
 
 * Microsoft 지원과 공유하기 전에 로그 파일에서 중요한 정보를 제거해야 하는 경우
 * 연결 문제로 인해 패키지를 업로드하는 데 문제가 발생하는 경우
@@ -64,14 +64,14 @@ StorSimple 지원 패키지는 StorSimple 디바이스 문제를 해결하는 �
 
 Export-HcsSupportPackage cmdlet으로 다음 매개 변수를 사용할 수 있습니다.
 
-| 매개 변수 | 필수/선택 | Description |
+| 매개 변수 | 필수/선택 | 설명 |
 | --- | --- | --- |
 | `-Path` |필수 |지원 패키지가 배치된 네트워크 공유 폴더의 위치를 제공하는 데 사용합니다. |
 | `-EncryptionPassphrase` |필수 |지원 패키지를 암호화하기 위해 암호를 제공하는 데 사용합니다. |
-| `-Credential` |선택 사항 |네트워크 공유 폴더에 대한 액세스 자격 증명을 제공하는 데 사용합니다. |
-| `-Force` |선택 사항 |암호화 암호 확인 단계를 건너뛰는 데 사용합니다. |
-| `-PackageTag` |선택 사항 |지원 패키지가 배치된 *경로* 의 디렉터리를 지정하는 데 사용합니다. 기본값은 [디바이스 이름]-[현재 날짜 및 시간: yyyy-MM-dd-HH-mm-ss]입니다. |
-| `-Scope` |선택 사항 |**클러스터** (기본값)로 지정하여 두 컨트롤러에 대한 지원 패키지를 만듭니다. 현재 컨트롤러에 대해서만 패키지를 만들려면 **컨트롤러**를 지정합니다. |
+| `-Credential` |Optional |네트워크 공유 폴더에 대한 액세스 자격 증명을 제공하는 데 사용합니다. |
+| `-Force` |Optional |암호화 암호 확인 단계를 건너뛰는 데 사용합니다. |
+| `-PackageTag` |Optional |지원 패키지가 배치된 *경로* 의 디렉터리를 지정하는 데 사용합니다. 기본값은 [디바이스 이름]-[현재 날짜 및 시간: yyyy-MM-dd-HH-mm-ss]입니다. |
+| `-Scope` |Optional |두 컨트롤러 모두에 대해 지원 패키지를 만들려면 **Cluster**(기본값)로 지정합니다. 현재 컨트롤러에 대한 패키지만 만들려면 **Controller**를 지정합니다. |
 
 ## <a name="edit-a-support-package"></a>지원 패키지 편집
 

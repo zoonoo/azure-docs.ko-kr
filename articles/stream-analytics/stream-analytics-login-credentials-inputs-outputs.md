@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 06/21/2019
 ms.custom: seodec18
 ms.openlocfilehash: 3ae639dd7c5a42fc6880240988f0fb2817b09f43
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75425968"
 ---
 # <a name="rotate-login-credentials-for-inputs-and-outputs-of-a-stream-analytics-job"></a>Stream Analytics 작업에서 입력 및 출력을 위한 로그인 자격 증명 순환
@@ -31,7 +31,7 @@ Stream Analytics 작업의 입력 또는 출력에대 한 자격 증명을 다�
 4. Azure Portal에서 Stream Analytics 작업으로 이동한 후 **중지**를 선택하고 작업이 중지될 때까지 기다립니다.    
 5. 자격 증명을 업데이트하려는 Blob/Table Storage 입/출력을 찾습니다.    
 6. **Storage 계정 키** 필드를 찾아 새로 생성된 키를 붙여 넣고 **저장**을 클릭합니다.    
-7. 변경 내용을 저장할 때 연결 테스트가 자동으로 시작 되며, 알림 탭에서 볼 수 있습니다. 두 가지 알림이 있습니다. 하나는 업데이트를 저장 하는 것이 고 다른 하나는 연결 테스트에 해당 합니다.  
+7. 변경 내용을 저장하면 연결 테스트가 자동으로 시작되며 알림 탭에서 볼 수 있습니다. 두 가지 알림이 있습니다 - 하나는 업데이트를 저장하는 것과 일치하며 다른 알림은 연결을 테스트하는 데 해당합니다.  
    ![키 편집 후 알림](media/stream-analytics-login-credentials-inputs-outputs/edited-key-notifications.png)
 8. [마지막으로 중지된 시간부터 작업 시작](#start-your-job-from-the-last-stopped-time) 섹션을 계속 진행합니다.
 
@@ -52,7 +52,7 @@ Stream Analytics 작업의 입력 또는 출력에대 한 자격 증명을 다�
 기존 사용자의 로그인 자격 증명을 업데이트하려면 SQL Database에 연결해야 합니다. Azure Portal 또는 SQL Server Management Studio와 같은 클라이언트 쪽 도구를 사용하여 자격 증명을 업데이트할 수 있습니다. 이 섹션에서는 Azure Portal을 사용하여 자격 증명을 업데이트하는 과정을 보여 줍니다.
 
 1. Azure Portal에 로그인하고 Stream Analytics 작업에 대한 출력으로 사용한 SQL Database로 이동합니다.    
-2. **데이터 탐색기**에서 데이터베이스에 로그인/연결하고 권한 부여 유형으로 **SQL Server 인증**을 선택한 후 **로그인** 및  **암호** 세부 정보를 입력하고 **확인**을 선택합니다.  
+2. **데이터 탐색기**에서 데이터베이스에 로그인/연결하고 권한 부여 유형으로 **SQL Server 인증**을 선택한 후 **로그인** 및 ** 암호** 세부 정보를 입력하고 **확인**을 선택합니다.  
    ![SQL Database에 대한 자격 증명 다시 생성](media/stream-analytics-login-credentials-inputs-outputs/regenerate-sql-credentials.png)
 
 3. 쿼리 탭에서 다음 쿼리를 실행하여 사용자 중 한 명의 암호를 변경합니다(`<user_name>`을 사용자 이름으로 바꾸고 `<new_password>`를 새 암호로 바꾸어야 함).  
@@ -82,7 +82,7 @@ Stream Analytics 작업의 입력 또는 출력에대 한 자격 증명을 다�
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)
-* [Azure Stream Analytics 사용 시작](stream-analytics-real-time-fraud-detection.md)
+* [Azure 스트림 분석 사용 시작](stream-analytics-real-time-fraud-detection.md)
 * [Azure  Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
-* [Azure  Stream Analytics 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+* [Azure 스트림 분석 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)

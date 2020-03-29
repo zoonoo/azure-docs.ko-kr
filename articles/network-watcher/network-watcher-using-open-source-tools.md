@@ -1,5 +1,5 @@
 ---
-title: 오픈 소스 도구를 사용 하 여 네트워크 트래픽 패턴 시각화
+title: 오픈 소스 도구를 사용하여 네트워크 트래픽 패턴 시각화
 titleSuffix: Azure Network Watcher
 description: 이 페이지에서는 Capanalysis와 함께 Network Watcher 패킷 캡처를 사용하여 VM과 주고 받는 트래픽을 시각화하는 방법을 설명합니다.
 services: network-watcher
@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: f36db28b58cd57b6407019b378a82632aa6c6228
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76840658"
 ---
 # <a name="visualize-network-traffic-patterns-to-and-from-your-vms-using-open-source-tools"></a>오픈 소스 도구를 사용하여 VM과 주고 받는 네트워크 트래픽 패턴 시각화
@@ -35,7 +35,7 @@ Azure VM에 간단한 웹 애플리케이션을 배포했으며 오픈 소스 �
 
 ### <a name="install-capanalysis"></a>CapAnalysis 설치
 
-가상 머신에 CapAnalysis를 설치하는 방법은 https://www.capanalysis.net/ca/how-to-install-capanalysis 에서 공식 절차를 참조하세요.
+가상 머신에 CapAnalysis를 설치하는 방법은 https://www.capanalysis.net/ca/how-to-install-capanalysis에서 공식 절차를 참조하세요.
 CapAnalysis에 원격으로 액세스하려면 새 인바운드 보안 규칙을 추가하여 VM에서 9877 포트를 열어야 합니다. 네트워크 보안 그룹에서 규칙을 만드는 방법에 대한 자세한 내용은 [기존 NSG에서 규칙 만들기](../virtual-network/manage-network-security-group.md#create-a-security-rule)를 참조하세요. 규칙이 추가되면 `http://<PublicIP>:9877`에서 CapAnalysis에 액세스할 수 있습니다.
 
 ### <a name="use-azure-network-watcher-to-start-a-packet-capture-session"></a>Azure Network Watcher를 사용하여 패킷 캡처 세션 시작
@@ -74,7 +74,7 @@ CapAnalysis는 패킷 캡처를 시각화하는 다양한 옵션을 제공하며
 
 1. 지역 지도
 
-    이 창에서는 각 국가/지역의 트래픽 양에 대 한 색을 조정 하 여 네트워크 트래픽의 지도 보기를 제공 합니다. 강조 표시 된 국가/지역을 선택 하 여 해당 국가/지역의 Ip에서 보내고 받은 데이터의 비율과 같은 추가 흐름 통계를 볼 수 있습니다.
+    이 창은 각 국가/지역의 트래픽 양으로 색상이 조정되는 네트워크 트래픽의 맵 보기를 제공합니다. 강조 표시된 국가/지역을 선택하여 해당 국가/지역의 IP에서 보내고 받은 데이터의 비율과 같은 추가 흐름 통계를 볼 수 있습니다.
 
     ![지역 지도][8]
 
@@ -84,7 +84,7 @@ CapAnalysis는 패킷 캡처를 시각화하는 다양한 옵션을 제공하며
 
     ![filters][11]
 
-    모든 CapAnalysis의 기능에 대해 자세히 알아보려면 [https://www.capanalysis.net/ca/#about](https://www.capanalysis.net/ca/#about)을 참조하세요.
+    모든 [https://www.capanalysis.net/ca/#about](https://www.capanalysis.net/ca/#about) CapAnalysis의 기능에 대해 자세히 알아보려면 방문하십시오.
 
 ## <a name="conclusion"></a>결론
 

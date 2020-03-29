@@ -1,6 +1,6 @@
 ---
-title: Enterprise State Roaming FAQ-Azure Active Directory
-description: ESR에 대 한 질문과 대답
+title: 엔터프라이즈 상태 로밍 FAQ - Azure 활성 디렉터리
+description: ESR에 대한 자주 묻는 질문
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4ad76835b0c72b691e1ef8810f2c58dedb8f597d
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78672384"
 ---
 # <a name="settings-and-data-roaming-faq"></a>설정 및 데이터 로밍 FAQ
@@ -30,18 +30,18 @@ ms.locfileid: "78672384"
 * *Internet Explorer 설정*- 최근에 열어본 탭 및 즐겨찾기 포함
 * *Microsoft Edge 브라우저 설정*- 즐겨찾기, 읽기 목록 등
 * *암호*- 인터넷 암호, Wi-Fi 프로필 등 포함
-* 키보드 레이아웃, 시스템 언어, 날짜 및 시간 등의 설정을 포함 하는 *언어 기본 설정*입니다.
+* 키보드 레이아웃, 시스템 언어, 날짜 및 시간 등에 대한 설정을 포함하는 *언어 기본 설정입니다.*
 * *접근성 기능*- 고대비 테마, 내레이터, 돋보기 등
 * 마우스 설정과 같은 *기타 Windows 설정*입니다.
 
 > [!NOTE]
-> 이 문서는 7 월 2015에 Windows 10으로 시작 된 Microsoft Edge 레거시 HTML 기반 브라우저에 적용 됩니다. 이 문서는 2020 년 1 월 15 일에 릴리스된 새 Microsoft Edge Chromium 기반 브라우저에는 적용 되지 않습니다. 새 Microsoft Edge의 동기화 동작에 대 한 자세한 내용은 [Microsoft Edge 동기화](/deployedge/microsoft-edge-enterprise-sync)문서를 참조 하세요.
+> 이 문서는 윈도우와 함께 시작 된 마이크로소프트 가장자리 레거시 HTML 기반 브라우저에 적용 10 7 월에 2015. 이 문서는 2020년 1월 15일에 출시된 새로운 Microsoft Edge 크롬 기반 브라우저에는 적용되지 않습니다. 새로운 Microsoft Edge의 동기화 동작에 대한 자세한 내용은 [Microsoft Edge 동기화](/deployedge/microsoft-edge-enterprise-sync)문서를 참조하십시오.
 
-**애플리케이션 데이터**- 범용 Windows 앱은 “로밍” 폴더에 설정 데이터를 쓸 수 있으며, 이 폴더에 쓰여진 모든 데이터는 자동으로 동기화됩니다. 이 기능을 활용하는 앱 디자인 여부는 개별 앱 개발자의 결정에 달렸습니다. 로밍을 사용 하는 유니버설 Windows 앱을 개발 하는 방법에 대 한 자세한 내용은 [appdata STORAGE API](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) 및 [Windows 8 appdata 로밍 개발자 블로그](https://blogs.msdn.com/b/windowsappdev/archive/2012/07/17/roaming-your-app-data.aspx)를 참조 하세요.
+**애플리케이션 데이터**- 범용 Windows 앱은 “로밍” 폴더에 설정 데이터를 쓸 수 있으며, 이 폴더에 쓰여진 모든 데이터는 자동으로 동기화됩니다. 이 기능을 활용하는 앱 디자인 여부는 개별 앱 개발자의 결정에 달렸습니다. 로밍을 사용하는 유니버설 Windows 앱을 개발하는 방법에 대한 자세한 내용은 [앱데이터 저장소 API](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) 및 [Windows 8 앱데이터 로밍 개발자 블로그를](https://blogs.msdn.com/b/windowsappdev/archive/2012/07/17/roaming-your-app-data.aspx)참조하십시오.
 
 ## <a name="what-account-is-used-for-settings-sync"></a>설정 동기화에 어떤 계정이 사용됩니까?
 
-Windows 8.1에서는 설정 동기화에 항상 소비자 Microsoft 계정이 사용되었습니다. 엔터프라이즈 사용자는 설정 동기화에 대 한 액세스 권한을 얻기 위해 Microsoft 계정를 Active Directory 도메인 계정에 연결할 수 있었습니다. Windows 10에서는이 연결 된 Microsoft 계정 기능이 기본/보조 계정 프레임 워크로 대체 되 고 있습니다.
+Windows 8.1에서는 설정 동기화에 항상 소비자 Microsoft 계정이 사용되었습니다. 엔터프라이즈 사용자는 Microsoft 계정을 Active Directory 도메인 계정에 연결하여 설정 동기화에 액세스할 수 있었습니다. Windows 10에서 이 연결된 Microsoft 계정 기능은 기본/보조 계정 프레임워크로 대체되고 있습니다.
 
 기본 계정이란 Windows에 로그인하는 데 사용되는 계정으로, Microsoft 계정, Azure Active Directory(Azure AD) 계정, 온-프레미스 Active Directory 계정 또는 로컬 계정일 수 있습니다. 기본 계정 외에도 Windows 10 사용자는 디바이스에 하나 이상의 보조 클라우드 계정을 추가할 수 있습니다. 보조 계정은 일반적으로 Microsoft 계정, Azure AD 계정 또는 Gmail이나 Facebook과 같은 기타 계정입니다. 이러한 보조 계정은 Single Sign-On, Windows 스토어 등의 추가 서비스에 대한 액세스를 제공하지만 설정 동기화는 지원하지 않습니다.
 
@@ -50,7 +50,7 @@ Windows 10에서 디바이스의 기본 계정만 설정 동기화에 사용할 
 데이터는 디바이스의 서로 다른 사용자 계정 간에 절대로 혼합되지 않습니다. 설정 동기화에는 두 가지 규칙이 있습니다.
 
 * Windows 설정은 항상 기본 계정으로 로밍됩니다.
-* 앱 데이터는 앱을 획득하는 데 사용되는 계정으로 태그를 지정합니다. 기본 계정으로 태그가 지정 된 앱만 동기화 됩니다. 앱 소유권 태그 지정은 Windows 스토어 또는 MDM (모바일 장치 관리)을 통해 앱을 테스트용으로 로드할 때 결정 됩니다.
+* 앱 데이터는 앱을 획득하는 데 사용되는 계정으로 태그를 지정합니다. 기본 계정으로 태그가 지정된 앱만 동기화됩니다. 앱 소유권 태그 지정은 앱이 Windows 스토어 또는 MDM(모바일 장치 관리)을 통해 사이드 로드되는 경우에 결정됩니다.
 
 앱 소유자를 식별할 수 없는 경우 기본 계정을 사용하여 로밍합니다. 디바이스를 Windows 8 또는 Windows 8.1에서 Windows 10으로 업그레이드하는 경우 모든 앱이 Microsoft 계정을 통해 획득한 것으로 태그가 지정됩니다. 일반적으로 대부분의 앱은 Windows 스토어를 통해 획득되고, Windows 10 이전에서는 Azure AD 계정에 Windows 스토어가 지원되지 않기 때문입니다. 오프라인 라이선스를 통해 앱을 설치하는 경우에는 해당 디바이스의 기본 계정을 사용하여 앱의 태그가 지정됩니다.
 
@@ -76,7 +76,7 @@ Windows 10의 2015년 11월 이후 릴리스에서 엔터프라이즈 상태 로
 
 여러 Azure AD 테넌트의 여러 Azure 계정이 동일한 디바이스에 있는 경우 각 Azure AD 테넌트의 Azure Rights Management 서비스와 통신하도록 디바이스 레지스트리를 업데이트해야 합니다.  
 
-1. 각 Azure AD 테넌트에 대한 GUID를 확인합니다. Azure Portal을 열고 Azure AD 테넌트를 선택합니다. 테넌트의 GUID는 선택한 테넌트, 레이블이 지정된 https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties)Directory ID**에 대한 속성 페이지(** 에 있습니다. 
+1. 각 Azure AD 테넌트에 대한 GUID를 확인합니다. Azure Portal을 열고 Azure AD 테넌트를 선택합니다. 테넌트의 GUID는 선택한 테넌트, 레이블이 지정된 **Directory ID**에 대한 속성 페이지(https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties)에 있습니다. 
 2. GUID를 확인한 후에는 레지스트리 키 **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\SettingSync\WinMSIPC\<테넌트 ID GUID>** 를 추가해야 합니다.
    **테넌트 ID GUID** 키에서 **AllowedRMSServerUrls**라는 새 다중 문자열 값(REG-MULTI-SZ)을 만듭니다. 해당 데이터에 대해 디바이스에서 액세스하는 다른 Azure 테넌트의 라이선스 배포 지점 URL을 지정합니다.
 3. AADRM 모듈에서 **Get-AadrmConfiguration** cmdlet을 실행하여 라이선싱 배포 지점 URL을 찾을 수 있습니다. **LicensingIntranetDistributionPointUrl** 및 **LicensingExtranetDistributionPointUrl**의 값이 다르면 두 값을 모두 지정합니다. 값이 같으면 값을 한 번만 지정합니다.
@@ -96,7 +96,7 @@ Windows 10의 2015년 11월 이후 릴리스에서 엔터프라이즈 상태 로
 
 앞으로 Microsoft는 UE-V를 Windows와 긴밀하게 통합하고 Azure AD 클라우드를 통해 설정을 로밍할 수 있도록 UE-V를 확장하는 방법을 연구할 것입니다.
 
-## <a name="can-i-store-synced-settings-and-data-on-premises"></a>동기화 된 설정 및 데이터를 온-프레미스에 저장할 수 있나요?
+## <a name="can-i-store-synced-settings-and-data-on-premises"></a>동기화된 설정 및 데이터를 온-프레미스에 저장할 수 있습니까?
 
 Enterprise State Roaming은 Microsoft 클라우드에 동기화된 모든 데이터를 저장합니다. UE-V는 온-프레미스 로밍 솔루션을 제공합니다.
 
@@ -121,7 +121,7 @@ Microsoft에서는 사용자 프로필 로밍, UE-V, 엔터프라이즈 상태 �
 엔터프라이즈 상태 로밍과 UE-V를 모두 사용할 경우 다음 규칙이 적용됩니다.
 
 * Enterprise State Roaming은 디바이스의 기본 로밍 에이전트입니다. UE-V는 “Win32 갭”을 보완하기 위해 사용됩니다.
-* UE-V 그룹 정책을 사용 하는 경우 Windows 설정 및 최신 UWP 앱 데이터에 대 한 UE-V 로밍을 사용 하지 않도록 설정 해야 합니다. UE-V 그룹 정책을 사용하여 비활성화해야 합니다.
+* UE-V 그룹 정책을 사용할 때Windows 설정 및 최신 UWP 앱 데이터에 대한 UE-V 로밍을 사용하지 않도록 설정해야 합니다. UE-V 그룹 정책을 사용하여 비활성화해야 합니다.
 
 ## <a name="how-does-enterprise-state-roaming-support-virtual-desktop-infrastructure-vdi"></a>엔터프라이즈 상태 로밍은 VDI(가상 데스크톱 인프라)를 어떻게 지원하나요?
 
@@ -133,8 +133,8 @@ Microsoft에서는 사용자 프로필 로밍, UE-V, 엔터프라이즈 상태 �
 
 ## <a name="known-issues"></a>알려진 문제
 
-알려진 문제 목록은 [문제 해결](enterprise-state-roaming-troubleshooting.md) 섹션의 설명서를 참조 하세요. 
+알려진 문제 목록은 [문제 해결](enterprise-state-roaming-troubleshooting.md) 섹션의 설명서를 참조하십시오. 
 
 ## <a name="next-steps"></a>다음 단계 
 
-개요는 [엔터프라이즈 상태 로밍 개요](enterprise-state-roaming-overview.md)를 참조하세요.
+개요는 [엔터프라이즈 상태 로밍 개요를](enterprise-state-roaming-overview.md) 참조하십시오.

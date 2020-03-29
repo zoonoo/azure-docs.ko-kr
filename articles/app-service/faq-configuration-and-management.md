@@ -1,6 +1,6 @@
 ---
-title: 구성 Faq
-description: Azure App Service에 대 한 구성 및 관리 문제에 대 한 자주 묻는 질문에 대 한 답을 가져옵니다.
+title: 구성 자주 묻는 질문
+description: Azure App Service의 구성 및 관리 문제에 대해 자주 묻는 질문에 대한 답변을 얻을 수 있습니다.
 author: genlin
 manager: dcscontentpm
 tags: top-support-issue
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
 ms.openlocfilehash: 300294f37c809b01fe8fba7e627d6bc5bdc9903a
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78942943"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Azure의 Web Apps에 대한 구성 및 관리 FAQ
@@ -37,7 +37,7 @@ App Service 웹앱에 대한 사용자 지정 도메인을 구매 및 설정하�
 
 ## <a name="how-do-i-upload-and-configure-an-existing-ssl-certificate-for-my-web-app"></a>내 웹앱에 대한 기존 SSL 인증서를 어떻게 업로드 및 구성할 수 있나요?
 
-기존 사용자 지정 SSL 인증서를 업로드 하 고 설정 하는 방법에 대 한 자세한 내용은 [App Service 앱에 SSL 인증서 추가](configure-ssl-certificate.md)를 참조 하세요.
+기존 사용자 지정 SSL 인증서를 업로드하고 설정하는 방법을 알아보려면 [앱 서비스 앱에 SSL 인증서 추가를 참조하세요.](configure-ssl-certificate.md)
 
 
 ## <a name="how-do-i-purchase-and-configure-a-new-ssl-certificate-in-azure-for-my-web-app"></a>Azure에서 내 웹앱에 대한 새 SSL 인증서를 어떻게 구매 및 구성할 수 있나요?
@@ -65,7 +65,7 @@ App Service 웹앱에 대한 SSL 인증서를 구매 및 설정하는 방법을 
     * 값 = *원하는 표준 시간대*
 3. **저장**을 선택합니다.
 
-Windows에서 실행 되는 앱 서비스의 경우 [기본 표준 시간대](https://docs.microsoft.com/windows-hardware/manufacture/desktop/default-time-zones) 문서의 **표준** 시간대 열에서 허용 되는 값을 참조 하세요. Linux에서 실행 되는 앱 서비스에 대해 [TZ 데이터베이스 이름을](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) 표준 시간대 값으로 설정 합니다. 다음은 TZ 데이터베이스 이름: 아메리카/Adak의 예입니다.
+Windows에서 실행되는 앱 서비스의 경우 [기본 표준 시간대](https://docs.microsoft.com/windows-hardware/manufacture/desktop/default-time-zones) 문서의 **표준** 시간대 열을 참조하여 허용된 값을 확인합니다. Linux에서 실행되는 앱 서비스의 경우 [TZ 데이터베이스 이름을](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) 표준 시간대 값으로 설정합니다. 다음은 TZ 데이터베이스 이름의 예입니다: 미국/Adak.
 
 ## <a name="why-do-my-continuous-webjobs-sometimes-fail"></a>내 연속 WebJobs가 때때로 실패하는 이유는 무엇인가요?
 
@@ -90,7 +90,7 @@ Azure 앱 웹 사이트에 대해 실행된 인바운드 호출에 대한 전용
 
 ## <a name="can-i-export-my-app-service-certificate-to-use-outside-azure-such-as-for-a-website-hosted-elsewhere"></a>다른 곳에서 호스트되는 웹 사이트와 같은 Azure 외부에서 사용하도록 내 App Service Certificate를 내보낼 수 있나요? 
 
-예, Azure 외부에서 사용할 수 있도록 내보낼 수 있습니다. 자세한 내용은 [FAQs for App Service certificates and custom domains](https://social.msdn.microsoft.com/Forums/azure/f3e6faeb-5ed4-435a-adaa-987d5db43b80/faq-on-app-service-certificates-and-custom-domains?forum=windowsazurewebsitespreview)(App Service Certificate 및 사용자 지정 도메인에 대한 FAQ)를 참조하세요.
+예. Azure 외부에서 사용하도록 내보낼 수 있습니다. 자세한 내용은 [FAQs for App Service certificates and custom domains](https://social.msdn.microsoft.com/Forums/azure/f3e6faeb-5ed4-435a-adaa-987d5db43b80/faq-on-app-service-certificates-and-custom-domains?forum=windowsazurewebsitespreview)(App Service Certificate 및 사용자 지정 도메인에 대한 FAQ)를 참조하세요.
 
 ## <a name="can-i-export-my-app-service-certificate-to-use-with-other-azure-cloud-services"></a>다른 Azure Cloud Services에서 사용하도록 내 App Service Certificate를 내보낼 수 있나요?
 
@@ -105,7 +105,7 @@ Azure 앱 웹 사이트에 대해 실행된 인바운드 호출에 대한 전용
 
 ## <a name="how-do-i-remove-a-header-from-the-http-response"></a>HTTP 응답에서 헤더를 어떻게 제거할 수 있나요?
 
-HTTP 응답에서 헤더를 제거 하려면 사이트의 web.config 파일을 업데이트 합니다. 자세한 내용은 [Remove standard server headers on your Azure websites](https://azure.microsoft.com/blog/removing-standard-server-headers-on-windows-azure-web-sites/)(Azure Websites에서 표준 서버 헤더 제거)를 참조하세요.
+HTTP 응답에서 헤더를 제거하려면 사이트의 web.config 파일을 업데이트합니다. 자세한 내용은 [Remove standard server headers on your Azure websites](https://azure.microsoft.com/blog/removing-standard-server-headers-on-windows-azure-web-sites/)(Azure Websites에서 표준 서버 헤더 제거)를 참조하세요.
 
 ## <a name="is-app-service-compliant-with-pci-standard-30-and-31"></a>App Service는 PCI Standard 3.0 및 3.1 규격인가요?
 
@@ -145,9 +145,9 @@ Exception: System.Data.Entity.Core.EntityException: The underlying provider fail
 
 이 예외는 수정된 하이브리드 연결 관리자의 문제로 인해 야기되었습니다. 이 문제를 해결하려면 [하이브리드 연결 관리자를 업데이트](https://go.microsoft.com/fwlink/?LinkID=841308)해야 합니다.
 
-## <a name="how-do-i-add-a-url-rewrite-rule"></a>URL 다시 쓰기 규칙을 추가 어떻게 할까요??
+## <a name="how-do-i-add-a-url-rewrite-rule"></a>URL 다시 쓰기 규칙을 추가하려면 어떻게 해야 합니까?
 
-URL 다시 쓰기 규칙을 추가 하려면 **wwwroot** 폴더에 관련 된 구성 항목을 사용 하 여 web.config 파일을 만듭니다. 자세한 내용은 [Azure 앱 Services: URL 재작성 이해](https://blogs.msdn.microsoft.com/madhurabharadwaj/2018/06/01/azure-app-services-understanding-url-re-write/)를 참조 하세요.
+URL 다시 쓰기 규칙을 추가하려면 **wwwroot** 폴더에 관련 구성 항목이 있는 web.config 파일을 만듭니다. 자세한 내용은 [Azure 앱 서비스: URL 다시 쓰기 이해](https://blogs.msdn.microsoft.com/madhurabharadwaj/2018/06/01/azure-app-services-understanding-url-re-write/)를 참조하십시오.
 
 ## <a name="how-do-i-control-inbound-traffic-to-app-service"></a>App Service에 대한 인바운드 트래픽을 제어하려면 어떻게 하나요?
 
@@ -160,7 +160,7 @@ App Service Environment를 사용할 경우 [Barracuda 방화벽](https://azure.
 
 ## <a name="how-do-i-block-ports-in-an-app-service-web-app"></a>App Service 웹앱에서 포트를 어떻게 차단하나요?
 
-App Service 공유 테넌트 환경에서는 인프라의 특성 때문에 특정 포트를 차단할 수 없습니다. Visual Studio 원격 디버깅을 위해 TCP 포트 4020, 4022 및 4024도 열릴 수 있습니다.
+App Service 공유 테넌트 환경에서는 인프라의 특성 때문에 특정 포트를 차단할 수 없습니다. TCP 포트 4020, 4022 및 4024는 Visual Studio 원격 디버깅을 위해 열려 있을 수도 있습니다.
 
 App Service Environment에서는 인바운드 및 아웃바운드 트래픽을 완벽하게 제어할 수 있습니다. 네트워크 보안 그룹을 사용하여 특정 포트를 제한하거나 차단할 수 있습니다. App Service Environment에 대한 자세한 내용은 [Introducing App Service Environment](https://azure.microsoft.com/blog/introducing-app-service-environment/)(App Service Environment 소개)를 참조하세요.
 
@@ -183,7 +183,7 @@ F12 추적을 캡처할 수 있는 두 가지 옵션이 있습니다.
 ### <a name="f12-console-output"></a>F12 콘솔 출력
 
 1. **콘솔** 탭을 선택합니다.
-2. 하나 이상의 항목이 포함된 각 탭에 대해 탭(**오류**, **경고** 또는 **정보**)을 선택합니다. 탭이 선택 되어 있지 않으면 커서를 커서를 밖으로 이동 하면 탭 아이콘이 회색 이나 검은색입니다.
+2. 하나 이상의 항목이 포함된 각 탭에 대해 탭(**오류**, **경고** 또는 **정보**)을 선택합니다. 탭을 선택하지 않으면 커서를 멀리 이동할 때 탭 아이콘이 회색 또는 검은색으로 표시됩니다.
 3. 창의 메시지 영역을 마우스 오른쪽 단추로 클릭하고 **모두 복사**를 선택합니다.
 4. 복사된 텍스트를 파일에 붙여넣고 파일을 저장합니다.
 
@@ -275,14 +275,14 @@ Invoke-AzResourceAction -ResourceGroupName "<App Service Certificate Resource Gr
 
 App Service의 인증 및 권한 부여에 대한 자세한 문서는 다양한 ID 공급자 로그인에 대한 문서를 참조하세요.
 * [Azure Active Directory](configure-authentication-provider-aad.md)
-* [Facebook](configure-authentication-provider-facebook.md)
+* [페이스 북](configure-authentication-provider-facebook.md)
 * [Google](configure-authentication-provider-google.md)
 * [Microsoft 계정](configure-authentication-provider-microsoft.md)
 * [Twitter](configure-authentication-provider-twitter.md)
 
 ## <a name="how-do-i-redirect-the-default-azurewebsitesnet-domain-to-my-azure-web-apps-custom-domain"></a>기본 *.azurewebsites.net 도메인을 내 Azure 웹앱의 사용자 지정 도메인으로 리디렉션하려면 어떻게 하나요?
 
-Azure에서 Web Apps를 사용하여 새 웹 사이트를 만들 경우 기본 *사이트 이름*.azurewebsites.net 도메인이 사이트에 할당됩니다. 사용자 지정 호스트 이름을 사이트에 추가 하 고 사용자가 기본 *. azurewebsites.net 도메인에 액세스할 수 없도록 하려는 경우 기본 URL을 리디렉션할 수 있습니다. 웹 사이트의 기본 도메인에서 사용자 지정 도메인으로 모든 트래픽을 리디렉션하는 방법을 알아보려면 [Redirect the default domain to your custom domain in Azure web apps](https://zainrizvi.io/blog/block-default-azure-websites-domain/)(Azure Web Apps에서 사용자 지정 도메인으로 기본 도메인 리디렉션)를 참조하세요.
+Azure에서 Web Apps를 사용하여 새 웹 사이트를 만들 경우 기본 *사이트 이름*.azurewebsites.net 도메인이 사이트에 할당됩니다. 사이트에 맞춤 호스트 이름을 추가하고 사용자가 기본 *.azurewebsites.net 도메인에 액세스하지 않도록 하려면 기본 URL을 리디렉션할 수 있습니다. 웹 사이트의 기본 도메인에서 사용자 지정 도메인으로 모든 트래픽을 리디렉션하는 방법을 알아보려면 [Redirect the default domain to your custom domain in Azure web apps](https://zainrizvi.io/blog/block-default-azure-websites-domain/)(Azure Web Apps에서 사용자 지정 도메인으로 기본 도메인 리디렉션)를 참조하세요.
 
 ## <a name="how-do-i-determine-which-version-of-net-version-is-installed-in-app-service"></a>App Service에 어떤 .NET 버전이 설치되어 있는지 확인하려면 어떻게 하나요?
 

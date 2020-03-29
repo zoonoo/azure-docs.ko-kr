@@ -8,10 +8,10 @@ ms.workload: infrastructure-services
 ms.date: 09/13/2017
 ms.author: huishao
 ms.openlocfilehash: fe64418e254289a29aafd155b92396082bff5b6a
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78945094"
 ---
 # <a name="introduction-to-freebsd-on-azure"></a>Azure의 FreeBSD 소개
@@ -24,7 +24,7 @@ Microsoft Corporation은 Azure에서 사용 가능한 [Azure VM 게스트 에이
 
 - [Azure Marketplace의 FreeBSD 10.4](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeBSD104)
 - [Azure Marketplace의 FreeBSD 11.2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeBSD112)
-- [Azure Marketplace FreeBSD 12.0](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeBSD120)
+- [Azure 마켓플레이스에서 무료 BSD 12.0](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeBSD120)
 
 이 에이전트는 처음 사용 시 VM을 프로비전(사용자 이름, 암호 또는 SSH 키, 호스트 이름 등)하고 선택적 VM 확장 기능을 사용하도록 설정하는 것과 같은 작업을 위해 FreeBSD VM과 Azure 패브릭 간의 통신을 담당합니다.
 
@@ -52,7 +52,7 @@ sudo rm /usr/local/bin/python 
 sudo ln -s /usr/local/bin/python3.5 /usr/local/bin/python
 ```
 
-설치하는 동안 `Modify profile to update your $PATH and enable shell/tab completion now? (Y/n)` 프롬프트가 표시됩니다. `y`로 답변하고 `/etc/rc.conf`로 `a path to an rc file to update`를 입력하면 문제 `ERROR: [Errno 13] Permission denied`가 발생할 수 있습니다. 이 문제를 해결하려면 현재 사용자에게 `etc/rc.conf` 파일에 대한 쓰기 권한을 부여해야 합니다.
+설치하는 동안 `Modify profile to update your $PATH and enable shell/tab completion now? (Y/n)` 프롬프트가 표시됩니다. `y`로 답변하고 `a path to an rc file to update`로 `/etc/rc.conf`를 입력하면 문제 `ERROR: [Errno 13] Permission denied`가 발생할 수 있습니다. 이 문제를 해결하려면 현재 사용자에게 `etc/rc.conf` 파일에 대한 쓰기 권한을 부여해야 합니다.
 
 이제 Azure에 로그인한 후 FreeBSD VM을 만들 수 있습니다. 다음은 FreeBSD 11.0 VM을 만드는 예제입니다. 새로 만든 공용 IP의 정규화된 DNS 이름을 사용하여 `--public-ip-address-dns-name` 매개 변수를 추가할 수도 있습니다. 
 

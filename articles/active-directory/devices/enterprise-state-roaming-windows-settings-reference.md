@@ -1,6 +1,6 @@
 ---
-title: Windows 10 로밍 설정 참조-Azure Active Directory
-description: ESR을 사용 하 여 Windows 10에서 로밍 또는 백업 되는 설정
+title: 윈도우 10 로밍 설정 참조 - Azure 활성 디렉터리
+description: ESR을 사용 하 고 Windows 10에서 로밍 되거나 백업 될 설정
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
@@ -12,21 +12,21 @@ manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3a7abc402f1fc2e449e7aac5effdb01b6b941100
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78672621"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Windows 10 로밍 설정 참조
 
-다음은 Windows 10에서 로밍 또는 백업 되는 설정 목록입니다. 
+다음은 Windows 10에서 로밍되거나 백업되는 설정 목록입니다. 
 
 ## <a name="devices-and-endpoints"></a>디바이스 및 엔드포인트
 
 Windows 10의 동기화, 백업 및 복원 프레임워크에서 지원되는 디바이스 및 계정 유형에 대한 요약 정보는 다음 테이블을 참조하세요.
 
-| 계정 유형 및 작업 | 데스크톱 | 모바일 |
+| 계정 유형 및 작업 | 바탕 화면 | 휴대폰 |
 | --- | --- | --- |
 | Azure Active Directory: 동기화 |yes |예 |
 | Azure Active Directory: 백업/복원 |예 |예 |
@@ -39,7 +39,7 @@ Windows 설정은 동기화가 기본이지만 디바이스에 설치된 애플�
 
 ## <a name="windows-settings-overview"></a>Windows 설정 개요
 
-최종 사용자가 Windows 10 장치에서 설정 동기화를 사용/사용 하지 않도록 설정 하는 데 사용할 수 있는 설정 그룹은 다음과 같습니다.
+다음 설정 그룹은 최종 사용자가 Windows 10 장치에서 설정 동기화를 활성화/비활성화할 수 있도록 사용할 수 있습니다.
 
 * 테마: 바탕 화면 배경, 사용자 타일, 작업 표시줄 위치 등 
 * Internet Explorer 설정: 검색 기록, 입력한 URL, 즐겨찾기 등 
@@ -47,12 +47,12 @@ Windows 설정은 동기화가 기본이지만 디바이스에 설치된 애플�
 * 언어 기본 설정: 맞춤법 사전, 시스템 언어 설정 
 * 간편한 액세스: 내레이터, 화상 키보드, 돋보기 
 * 기타 Windows 설정: Windows 설정 세부 정보를 참조하세요.
-* Microsoft Edge 브라우저 설정: Microsoft Edge 즐겨찾기, 읽기 목록 및 기타 설정
+* 마이크로소프트 가장자리 브라우저 설정: 마이크로소프트 가장자리 즐겨찾기, 읽기 목록, 그리고 다른 설정
 
 ![설정 동기화](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-syncyoursettings.png)
 
 > [!NOTE]
-> 이 문서는 7 월 2015에 Windows 10으로 시작 된 Microsoft Edge 레거시 HTML 기반 브라우저에 적용 됩니다. 이 문서는 2020 년 1 월 15 일에 릴리스된 새 Microsoft Edge Chromium 기반 브라우저에는 적용 되지 않습니다. 새 Microsoft Edge의 동기화 동작에 대 한 자세한 내용은 [Microsoft Edge 동기화](/deployedge/microsoft-edge-enterprise-sync)문서를 참조 하세요.
+> 이 문서는 윈도우와 함께 시작 된 마이크로소프트 가장자리 레거시 HTML 기반 브라우저에 적용 10 7 월에 2015. 이 문서는 2020년 1월 15일에 출시된 새로운 Microsoft Edge 크롬 기반 브라우저에는 적용되지 않습니다. 새로운 Microsoft Edge의 동기화 동작에 대한 자세한 내용은 [Microsoft Edge 동기화](/deployedge/microsoft-edge-enterprise-sync)문서를 참조하십시오.
 
 Microsoft Edge 브라우저 설정 그룹(즐겨찾기, 읽기 목록) 동기화는 Microsoft Edge 브라우저 설정 메뉴 옵션을 통해 최종 사용자가 사용하거나 사용하지 않도록 설정할 수 있습니다.
 
@@ -64,20 +64,20 @@ Windows 10 버전 1803 이상의 경우 Internet Explorer 설정 그룹(즐겨�
 
 ## <a name="windows-settings-details"></a>Windows 설정 세부 정보
 
-다음 표에서 설정 그룹 열의 기타 항목은 설정 > 계정 > 설정 > 다른 Windows 설정으로 이동 하 여 사용 하지 않도록 설정할 수 있는 설정을 참조 합니다. 
+다음 표에서 설정 그룹 열의 다른 항목은 설정 > 계정으로 이동하여 비활성화할 수 있는 설정을 > 설정 > 다른 Windows 설정으로 이동합니다. 
 
 설정 그룹 열의 내부 항목이 참조하는 설정 및 앱은 앱 자체 내부에서 동기화를 비활성화하거나 MDM(모바일 디바이스 관리) 또는 그룹 정책 설정을 사용하여 디바이스 전체의 동기화를 비활성하는 방법으로만 비활성화할 수 있습니다.
 로밍 또는 동기화하지 않는 설정은 그룹에 소속되지 않습니다.
 
-| 설정 | 데스크톱 | 모바일 | 그룹 |
+| 설정 | 바탕 화면 | 휴대폰 | 그룹 |
 | --- | --- | --- | --- |
 | **계정**: 계정 사진 |동기화 |X |테마 |
 | **계정**: 기타 계정 설정 |X |X | |
-| **고급 모바일 광대역**: 인터넷 연결 공유 네트워크 이름 (Bluetooth를 통해 모바일 wi-fi 핫의 자동 검색 사용) |X |X |암호 |
-| **앱 데이터**: 개별 앱이 데이터 동기화 가능 |백업 동기화 |백업 동기화 |내부 |
+| **고급 모바일 광대역**: 인터넷 연결 공유 네트워크 이름 (블루투스를 통해 모바일 Wi-Fi 핫스팟의 자동 검색 가능) |X |X |암호 |
+| **앱 데이터**: 개별 앱이 데이터 동기화 가능 |백업 동기화 |백업 동기화 |internal |
 | **앱 목록**: 설치된 앱 목록 |X |백업(backup) |기타 |
 | **Bluetooth**: 모든 Bluetooth 설정 |X |X | |
-| **명령 프롬프트**: 명령 프롬프트 "기본값" 설정 |동기화 |X |내부 |
+| **명령 프롬프트**: 명령 프롬프트 "기본값" 설정 |동기화 |X |internal |
 | **자격 증명**: 자격 증명 보관 |동기화 |동기화 |password |
 | **날짜, 시간 및 지역**: 자동 시간(인터넷 시간 동기화) |동기화 |동기화 |언어 |
 | **날짜, 시간 및 지역**: 24시간 |동기화 |X |언어 |
@@ -96,21 +96,21 @@ Windows 10 버전 1803 이상의 경우 Internet Explorer 설정 그룹(즐겨�
 | **바탕 화면 개인 설정**: 작업 표시줄 설정(위치, 자동 숨김 등) |동기화 |X |테마 |
 | **바탕 화면 개인 설정**: 시작 화면 레이아웃 |X |백업(backup) | |
 | **디바이스**: 연결된 공유 프린터 |X |X |기타 |
-| **Microsoft Edge 브라우저**: 읽기 목록 |동기화 |동기화 |내부 |
-| **Microsoft Edge 브라우저**: 즐겨찾기 |동기화 |동기화 |내부 |
-| **Microsoft Edge 브라우저**: 상위 사이트<sup>[[1]](#footnote-1)</sup> |동기화 |동기화 |내부 |
-| **Microsoft Edge 브라우저**: 형식이 지정된 URL<sup>[[1]](#footnote-1)</sup> |동기화 |동기화 |내부 |
-| **Microsoft Edge 브라우저**: 즐겨찾기 표시줄 설정<sup>[[1]](#footnote-1)</sup> |동기화 |동기화 |내부 |
-| **Microsoft Edge 브라우저**: 홈 단추 표시<sup>[[1]](#footnote-1)</sup> |동기화 |동기화 |내부 |
-| **Microsoft Edge 브라우저**: 팝업 차단<sup>[[1]](#footnote-1)</sup> |동기화 |동기화 |내부 |
-| **Microsoft Edge 브라우저**: 각 다운로드에서 수행할 작업 확인<sup>[[1]](#footnote-1)</sup> |동기화 |동기화 |내부 |
-| **Microsoft Edge 브라우저**: 암호 저장 제안<sup>[[1]](#footnote-1)</sup> |동기화 |동기화 |내부 |
-| **Microsoft Edge 브라우저**: 보내기 시 요청 추적 안 함<sup>[[1]](#footnote-1)</sup> |동기화 |동기화 |내부 |
-| **Microsoft Edge 브라우저**: 양식 항목 저장<sup>[[1]](#footnote-1)</sup> |동기화 |동기화 |내부 |
-| **Microsoft Edge 브라우저**: 입력할 때 검색 및 사이트 추천 단어 표시<sup>[[1]](#footnote-1)</sup> |동기화 |동기화 |내부 |
-| **Microsoft Edge 브라우저**: 쿠키 기본 설정<sup>[[1]](#footnote-1)</sup> |동기화 |동기화 |내부 |
-| **Microsoft Edge 브라우저**: 사이트에서 내 디바이스에 보호된 미디어 라이선스를 저장하도록 허용<sup>[[1]](#footnote-1)</sup> |동기화 |동기화 |내부 |
-| **Microsoft Edge 브라우저**: 화면 판독기 설정<sup>[[1]](#footnote-1)</sup> |동기화 |동기화 |내부 |
+| **Microsoft Edge 브라우저**: 읽기 목록 |동기화 |동기화 |internal |
+| **Microsoft Edge 브라우저**: 즐겨찾기 |동기화 |동기화 |internal |
+| **Microsoft Edge 브라우저**: 상위 사이트<sup>[[1]](#footnote-1)</sup> |동기화 |동기화 |internal |
+| **Microsoft Edge 브라우저**: 형식이 지정된 URL<sup>[[1]](#footnote-1)</sup> |동기화 |동기화 |internal |
+| **Microsoft Edge 브라우저**: 즐겨찾기 표시줄 설정<sup>[[1]](#footnote-1)</sup> |동기화 |동기화 |internal |
+| **Microsoft Edge 브라우저**: 홈 단추 표시<sup>[[1]](#footnote-1)</sup> |동기화 |동기화 |internal |
+| **Microsoft Edge 브라우저**: 팝업 차단<sup>[[1]](#footnote-1)</sup> |동기화 |동기화 |internal |
+| **Microsoft Edge 브라우저**: 각 다운로드에서 수행할 작업 확인<sup>[[1]](#footnote-1)</sup> |동기화 |동기화 |internal |
+| **Microsoft Edge 브라우저**: 암호 저장 제안<sup>[[1]](#footnote-1)</sup> |동기화 |동기화 |internal |
+| **Microsoft Edge 브라우저**: 보내기 시 요청 추적 안 함<sup>[[1]](#footnote-1)</sup> |동기화 |동기화 |internal |
+| **Microsoft Edge 브라우저**: 양식 항목 저장<sup>[[1]](#footnote-1)</sup> |동기화 |동기화 |internal |
+| **Microsoft Edge 브라우저**: 입력할 때 검색 및 사이트 추천 단어 표시<sup>[[1]](#footnote-1)</sup> |동기화 |동기화 |internal |
+| **Microsoft Edge 브라우저**: 쿠키 기본 설정<sup>[[1]](#footnote-1)</sup> |동기화 |동기화 |internal |
+| **Microsoft Edge 브라우저**: 사이트에서 내 디바이스에 보호된 미디어 라이선스를 저장하도록 허용<sup>[[1]](#footnote-1)</sup> |동기화 |동기화 |internal |
+| **Microsoft Edge 브라우저**: 화면 판독기 설정<sup>[[1]](#footnote-1)</sup> |동기화 |동기화 |internal |
 | **고대비**: 켜기 또는 끄기 |동기화 |X |간편한 액세스 |
 | **고대비**: 테마 설정 |동기화 |X |간편한 액세스 |
 | **Internet Explorer**: 탭 열기(URL 및 제목) |동기화 |동기화 |Internet Explorer |

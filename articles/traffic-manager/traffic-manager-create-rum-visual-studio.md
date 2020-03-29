@@ -1,5 +1,5 @@
 ---
-title: Visual Studio Mobile Center를 사용 하 여 실제 사용자 측정-Azure Traffic Manager
+title: 비주얼 스튜디오 모바일 센터를 사용하여 실제 사용자 측정 - Azure 트래픽 관리자
 description: 실제 사용자 측정을 Traffic Manager에 보내도록 Visual Studio Mobile Center를 사용하여 개발한 모바일 애플리케이션 설정
 services: traffic-manager
 documentationcenter: traffic-manager
@@ -14,10 +14,10 @@ ms.date: 03/16/2018
 ms.author: rohink
 ms.custom: ''
 ms.openlocfilehash: 3106334e1fb3e3000cbd09e00e413b34a1b55e54
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76939178"
 ---
 # <a name="how-to-send-real-user-measurements-to-traffic-manager-with-visual-studio-mobile-center"></a>Visual Studio Mobile Center를 사용하여 실제 사용자 측정을 Traffic Manager에 보내는 방법

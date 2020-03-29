@@ -1,5 +1,5 @@
 ---
-title: 사용자 지정 정책을 사용 하 여 SSO 및 토큰 사용자 지정 관리
+title: 사용자 지정 정책을 사용하여 SSO 및 토큰 사용자 지정 관리
 titleSuffix: Azure AD B2C
 description: Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 SSO 및 토큰 사용자 지정을 관리하는 방법에 대해 알아봅니다.
 services: active-directory-b2c
@@ -12,21 +12,21 @@ ms.date: 10/09/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: ff9f57af92c50c0df6f628113bd9490ca83e1310
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78189296"
 ---
 # <a name="manage-sso-and-token-customization-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 SSO 및 토큰 사용자 지정 관리
 
-이 문서에서는 Azure Active Directory B2C (Azure AD B2C)에서 [사용자 지정 정책을](custom-policy-overview.md) 사용 하 여 토큰, 세션 및 SSO (Single Sign-On) 구성을 관리 하는 방법에 대 한 정보를 제공 합니다.
+이 문서에서는 Azure Active Directory B2C(Azure AD B2C)의 [사용자 지정 정책을](custom-policy-overview.md) 사용하여 토큰, 세션 및 단일 사인온(SSO) 구성을 관리하는 방법에 대한 정보를 제공합니다.
 
 ## <a name="token-lifetimes-and-claims-configuration"></a>토큰 수명 및 클레임 구성
 
 토큰 수명 설정을 변경하려면 변경할 정책의 신뢰 당사자 파일에 [ClaimsProviders](claimsproviders.md) 요소를 추가합니다.  **ClaimsProviders** 요소는 [TrustFrameworkPolicy](trustframeworkpolicy.md) 요소의 자식입니다.
 
-BasePolicy 요소와 신뢰 당사자 파일의 RelyingParty 요소 사이에 ClaimsProviders 요소를 삽입 합니다.
+BasePolicy 요소와 rely party 파일의 RelyingParty 요소 사이에 클레임 공급자 요소를 삽입합니다.
 
 이 안에 토큰 수명에 영향을 주는 정보를 입력해야 합니다. XML은 다음과 비슷합니다.
 
@@ -57,7 +57,7 @@ BasePolicy 요소와 신뢰 당사자 파일의 RelyingParty 요소 사이에 Cl
 - **새로 고침 토큰 수명** - **refresh_token_lifetime_secs** 메타데이터 항목을 통해 새로 고침 토큰 수명 값이 설정됩니다. 기본값은 1209600초(14일)입니다.
 - **새로 고침 토큰 슬라이딩 윈도우 수명** - 새로 고침 토큰에 대한 슬라이딩 윈도우 수명을 설정하려면 **rolling_refresh_token_lifetime_secs** 메타데이터 항목의 값을 설정합니다. 기본값은 7776000(90일)입니다. 슬라이딩 윈도우 수명을 적용하지 않으려면 이 항목을 `<Item Key="allow_infinite_rolling_refresh_token">True</Item>`로 바꿉니다.
 - **발급자(iss) 클레임** - **IssuanceClaimPattern** 메타데이터 항목을 통해 발급자(iss) 클레임을 설정합니다. 적용 가능한 값은 `AuthorityAndTenantGuid` 및 `AuthorityWithTfp`입니다.
-- **정책 ID를 나타내는 클레임 설정** - 이 값을 설정하기 위한 옵션은 `TFP`(보안 프레임워크 정책) 및 `ACR`(인증 컨텍스트 참조)입니다. 권장 값은 `TFP`입니다. **값으로**AuthenticationContextReferenceClaimPattern`None`을 설정하고
+- **정책 ID를 나타내는 클레임 설정** - 이 값을 설정하기 위한 옵션은 `TFP`(보안 프레임워크 정책) 및 `ACR`(인증 컨텍스트 참조)입니다. 권장 값은 `TFP`입니다. `None` 값으로 **AuthenticationContextReferenceClaimPattern**을 설정하고
 
     **ClaimsSchema** 요소에서 이 요소를 추가합니다.
 
@@ -90,7 +90,7 @@ BasePolicy 요소와 신뢰 당사자 파일의 RelyingParty 요소 사이에 Cl
 
 ## <a name="session-behavior-and-sso"></a>세션 동작 및 SSO
 
-세션 동작 및 SSO 구성을 변경하려면 **RelyingParty** 요소 내에 [UserJourneyBehaviors](relyingparty.md) 요소를 추가합니다.  **UserJourneyBehaviors** 요소는 **DefaultUserJourney** 바로 뒤에 있어야 합니다. **UserJourneyBehavors** 요소 내부는 다음 예제와 같이 표시됩니다.
+세션 동작 및 SSO 구성을 변경하려면 [RelyingParty](relyingparty.md) 요소 내에 **UserJourneyBehaviors** 요소를 추가합니다.  **UserJourneyBehaviors** 요소는 **DefaultUserJourney** 바로 뒤에 있어야 합니다. **UserJourneyBehavors** 요소 내부는 다음 예제와 같이 표시됩니다.
 
 ```XML
 <UserJourneyBehaviors>
@@ -104,4 +104,4 @@ BasePolicy 요소와 신뢰 당사자 파일의 RelyingParty 요소 사이에 Cl
 
 - **SSO(Single Sign-On)** - **SingleSignOn**을 사용하여 Single Sign-On이 구성됩니다. 적용 가능한 값은 `Tenant`, `Application`, `Policy` 및 `Suppressed`입니다.
 - **웹앱 세션 시간 제한** - **SessionExpiryType** 요소를 사용하여 웹앱 세션 시간 제한을 설정합니다. 적용 가능한 값은 `Absolute` 및 `Rolling`입니다.
-- **웹 앱 세션 수명** - **SessionExpiryInSeconds** 요소를 사용 하 여 웹 앱 세션 수명을 설정 합니다. 기본값은 86400초(1440분)입니다.
+- **웹 앱 세션 수명** - 웹 앱 세션 수명이 **SessionExpiryInSeconds** 요소로 설정됩니다. 기본값은 86400초(1440분)입니다.

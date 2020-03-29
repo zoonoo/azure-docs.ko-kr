@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 12/15/2017
 ms.author: cynthn
 ms.openlocfilehash: 6040bf8862131f5a8a5564cd2f5d845fa0490a95
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78944897"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-linux-vms"></a>Linux VM에 대한 Azure 인프라 연습 예제
@@ -46,8 +46,8 @@ Adventure Works Cycles는 Azure에서 다음으로 구성된 온라인 스토어
 * Adventure Works Cycles는 **[IT 작업]-[위치]-[Azure 리소스]** 를 접두사로 사용합니다.
   * 이 예제에서 "**azos**"(Azure 온라인 저장소)는 IT 워크로드 이름이고 "**use**"(미국 동부 2)는 위치입니다.
 * 가상 네트워크는 AZOS-USE-VN<strong>[숫자]</strong>를 사용합니다.
-* 가용성 집합은 azos-use-as- **[역할]** 을 사용합니다.
-* 가상 머신 이름은 azos-use-vm- **[VM 이름]** 을 사용합니다.
+* 가용성 집합은 azos-use-as-**[역할]** 을 사용합니다.
+* 가상 머신 이름은 azos-use-vm-**[VM 이름]** 을 사용합니다.
 
 ## <a name="azure-subscriptions-and-accounts"></a>Azure 구독 및 계정
 Adventure Works Cycles는 이 IT 작업에 대한 청구를 제공하기 위해 Adventure Works Enterprise Subscription이라는 엔터프라이즈 구독을 사용합니다.

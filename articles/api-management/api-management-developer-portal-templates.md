@@ -1,5 +1,5 @@
 ---
-title: 템플릿을 사용 하 여 API Management 개발자 포털 사용자 지정
+title: 템플릿을 사용하여 API 관리 개발자 포털 사용자 지정
 titleSuffix: Azure API Management
 description: 템플릿을 사용하여 Azure API Management 개발자 포털을 사용자 지정하는 방법을 알아봅니다.
 services: api-management
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 7a8c348340be143f7059ce7e64a1c66b66074a45
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75430782"
 ---
 # <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>템플릿을 사용하여 Azure API Management 개발자 포털을 사용자 지정하는 방법
@@ -26,8 +26,8 @@ ms.locfileid: "75430782"
 Azure API Management에는 개발자 포털을 사용자 지정하는 기본적인 방법이 세 가지 있습니다.
 
 * [페이지 레이아웃 요소 및 정적 페이지의 콘텐츠 편집][modify-content-layout]
-* [개발자 포털에서 페이지 요소에 사용 되는 스타일 업데이트][customize-styles]
-* [포털에서 생성 된 페이지에 사용 되는 템플릿 수정][portal-templates] (이 가이드에 설명 되어 있음)
+* [개발자 포털 전반의 페이지 요소에 사용된 스타일 업데이트][customize-styles]
+* [포털에서 생성한 페이지에 사용되는 템플릿 수정][portal-templates](이 가이드에서 설명함)
 
 템플릿은 시스템에서 생성된 개발자 포털 페이지(예: API 문서, 제품, 사용자 인증 등)의 콘텐츠를 사용자 지정하는 데 사용됩니다. [DotLiquid](http://dotliquidmarkup.org/) 구문 및 제공된 지역화 문자열 리소스, 아이콘 및 페이지 컨트롤을 사용하여 필요에 따라 페이지 콘텐츠를 유연하게 구성할 수 있습니다.
 
@@ -37,7 +37,7 @@ Azure API Management에는 개발자 포털을 사용자 지정하는 기본적�
 
 ## <a name="developer-portal-templates-overview"></a>개발자 포털 템플릿 개요
 
-관리자로 로그인되어 있는 동안 **개발자 포털**에서 템플릿을 편집합니다. 이를 가져오려면 먼저 Azure Portal를 열고 API Management 인스턴스의 서비스 도구 모음에서 **개발자 포털** 을 클릭 합니다.
+관리자로 로그인되어 있는 동안 **개발자 포털**에서 템플릿을 편집합니다. 먼저 Azure 포털을 열고 API 관리 인스턴스의 서비스 도구 모음에서 **개발자 포털을** 클릭합니다.
 
 개발자 포털 템플릿에 액세스하려면 왼쪽의 사용자 지정 아이콘을 클릭하여 사용자 지정 메뉴를 표시한 다음 **템플릿**을 클릭합니다.
 
@@ -65,7 +65,7 @@ Azure API Management에는 개발자 포털을 사용자 지정하는 기본적�
 
 ![템플릿 데이터 모델][api-management-template-data]
 
-이전 예제에는 다음 예제와 같이 **템플릿 데이터** 창에 표시된 데이터에서 가져온 두 개의 제품이 개발자 포털에 표시되어 있습니다.
+이전 예제에서는 다음 예제와 같이 **템플릿 데이터** 창에 표시된 데이터에서 검색된 두 가지 제품이 개발자 포털에 표시됩니다.
 
 ```json
 {
@@ -162,9 +162,9 @@ Azure API Management에는 개발자 포털을 사용자 지정하는 기본적�
 
 ![템플릿 되돌리기][api-management-revert-template]
 
-**예** 를 클릭하여 확인합니다.
+**예**를 클릭하여 확인합니다.
 
-![확인][api-management-revert-template-confirm]
+![Confirm][api-management-revert-template-confirm]
 
 되돌리기 작업이 완료되면 이전에 게시된 템플릿 버전이 개발자 포털에 적용됩니다.
 
@@ -175,9 +175,9 @@ Azure API Management에는 개발자 포털을 사용자 지정하는 기본적�
 
 ![템플릿 되돌리기][api-management-reset-template]
 
-**예** 를 클릭하여 확인합니다.
+**예**를 클릭하여 확인합니다.
 
-![확인][api-management-reset-template-confirm]
+![Confirm][api-management-reset-template-confirm]
 
 모든 템플릿을 기본 버전으로 복원하려면 템플릿 목록에서 **기본 템플릿 복원** 을 클릭합니다.
 

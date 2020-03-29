@@ -1,15 +1,15 @@
 ---
-title: '테스트 용이성: 서비스 통신'
+title: '테스트 가능성: 서비스 통신'
 description: 서비스 간 통신은 Service Fabric 애플리케이션의 중요 한 통합점입니다. 이 문서에서는 설계 고려 사항 및 테스트 기술에 대해 설명합니다.
 author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: 87b922cb9655588a22c739d26c9ce9e49d35781a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75465553"
 ---
 # <a name="service-fabric-testability-scenarios-service-communication"></a>서비스 패브릭 테스트 용이성 시나리오: 서비스 통신
@@ -35,7 +35,7 @@ Service Fabric에서 제공하는 기본 제공 서비스 통신 구성 요소 �
 
 시스템이 원활하게 실행되도록 이러한 시나리오를 정상적으로 처리하는 것이 중요합니다. 이렇게 하려면 다음에 주의합니다.
 
-* 연결 가능한 모든 서비스에는 수신하는 *주소*가 있습니다(예: HTTP 또는 WebSockets). 서비스 인스턴스 또는 파티션이 이동하면 주소 엔드포인트가 변경됩니다. 다른 IP 주소를 사용 하는 다른 노드로 이동 합니다. 기본 제공 통신 구성 요소를 사용 하는 경우 서비스 주소를 다시 확인 하는 것을 처리 합니다.
+* 연결 가능한 모든 서비스에는 수신하는 *주소*가 있습니다(예: HTTP 또는 WebSockets). 서비스 인스턴스 또는 파티션이 이동하면 주소 엔드포인트가 변경됩니다. (다른 IP 주소가 있는 다른 노드로 이동합니다.) 기본 제공 통신 구성 요소를 사용하는 경우 서비스 주소 다시 해결을 처리합니다.
 * 서비스 인스턴스에서 수신기를 다시 시작하기 때문에 서비스 대기 시간이 일시적으로 늘어날 수 있습니다. 서비스 인스턴스를 이동한 후에 서비스가 수신기를 여는 속도에 따라 다릅니다.
 * 새 노드에서 서비스가 열린 후에 기존 연결을 닫았다가 다시 열어야 합니다. 정상적인 노드 종료 또는 재시작의 경우 기존 연결이 정상적으로 종료될 때까지 시간이 허용됩니다.
 

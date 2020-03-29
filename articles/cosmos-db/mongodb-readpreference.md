@@ -1,5 +1,5 @@
 ---
-title: MongoDB에 대 한 Azure Cosmos DB API에서 읽기 기본 설정을 사용 합니다.
+title: MongoDB에 대한 Azure 코스모스 DB의 API로 읽기 기본 설정 사용
 description: Azure Cosmos DB의 MongoDB용 API에서 MongoDB 읽기 기본 설정을 사용하는 방법에 대한 자세한 정보
 author: sivethe
 ms.author: sivethe
@@ -9,17 +9,17 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.openlocfilehash: 10e6ed556abe8f8c438e5436fbb93c1b70b85d2b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75445172"
 ---
 # <a name="how-to-globally-distribute-reads-using-azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB의 MongoDB용 API를 사용하여 읽기를 전역 배포하는 방법
 
 이 문서에서는 Azure Cosmos DB의 MongoDB용 API를 사용하여 [MongoDB 읽기 기본 설정](https://docs.mongodb.com/manual/core/read-preference/)으로 읽기 작업을 전역 배포하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 조건 
+## <a name="prerequisites"></a>사전 요구 사항 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
 [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
@@ -172,4 +172,4 @@ MongoClient.connect(url, function(err, client) {
 
 * [Azure Cosmos DB로 MongoDB 데이터 가져오기](mongodb-migrate.md)
 * [Azure Cosmos DB의 MongoDB용 API를 사용하여 전역 분산 데이터베이스 설정](tutorial-global-distribution-mongodb.md)합니다.
-* [Azure Cosmos DB 에뮬레이터를 사용하여 로컬로 개발](local-emulator.md)
+* [Azure 코스모스 DB 에뮬레이터로 로컬로 개발](local-emulator.md)

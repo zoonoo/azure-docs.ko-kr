@@ -1,6 +1,6 @@
 ---
-title: Azure WAF (웹 응용 프로그램 방화벽) Geomatch 사용자 지정 규칙
-description: 이 문서는 Azure 애플리케이션 Gateway의 WAF (웹 응용 프로그램 방화벽) geomatch 사용자 지정 규칙에 대 한 개요입니다.
+title: Azure 웹 응용 프로그램 방화벽(WAF) 지리적 일치 사용자 지정 규칙
+description: 이 문서는 Azure 응용 프로그램 게이트웨이에서 WAF(웹 응용 프로그램 방화벽) 지리적 일치 사용자 지정 규칙에 대한 개요입니다.
 services: web-application-firewall
 ms.topic: article
 author: vhorne
@@ -8,24 +8,24 @@ ms.service: web-application-firewall
 ms.date: 01/31/2020
 ms.author: victorh
 ms.openlocfilehash: 6725e1de21dbd103850071f7511e2800c6bd7b69
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76961089"
 ---
-# <a name="geomatch-custom-rules-preview"></a>Geomatch 사용자 지정 규칙 (미리 보기)
+# <a name="geomatch-custom-rules-preview"></a>지오매치 사용자 지정 규칙(미리 보기)
 
-사용자 지정 규칙을 사용 하면 응용 프로그램 및 보안 정책의 정확한 요구에 맞게 맞춤 규칙을 만들 수 있습니다. 이제 국가/지역에 따라 웹 응용 프로그램에 대 한 액세스를 제한할 수 있습니다. 모든 사용자 지정 규칙과 마찬가지로이 논리는 응용 프로그램의 요구 사항에 맞게 다른 규칙과 함께 사용할 수 있습니다.
+사용자 지정 규칙을 사용하면 응용 프로그램 및 보안 정책의 정확한 요구 사항에 맞게 맞춤형 규칙을 만들 수 있습니다. 이제 국가/지역별로 웹 응용 프로그램에 대한 액세스를 제한할 수 있습니다. 모든 사용자 지정 규칙과 마찬가지로 이 논리는 응용 프로그램의 요구에 맞게 다른 규칙과 결합될 수 있습니다.
 
-지역 필터링 사용자 지정 규칙을 만들려면 *지리적 위치* 를 일치 형식으로 선택 하 고 응용 프로그램에서 허용/차단 하려는 국가 또는 국가를 선택 하면 됩니다. 자세한 내용은 [Powershell에서 사용자 지정 규칙을 만드는 방법](configure-waf-custom-rules.md) 및 더 많은 사용자 지정 규칙 예제 (rules.md)를 참조 하세요.
+지리적 필터링 사용자 지정 규칙을 만들려면 *지리적 위치를* 일치 유형으로 선택한 다음 응용 프로그램에서 허용/차단할 국가 또는 국가를 선택하기만 하면 됩니다. 자세한 [내용은 Powershell에서 사용자 지정 규칙을 만드는 방법과](configure-waf-custom-rules.md) 더 많은 사용자 지정 규칙 예제(사용자 지정-waf-rules.md 만들기)를 참조하세요.
 
 > [!IMPORTANT]
 > 이 공개 미리 보기는 Service Level Agreement(서비스 수준 약정)없이 제공되므로 프로덕션 워크로드에 사용하지 말아야 합니다. 특정 기능은 지원되지 않을 수 있거나, 기능이 제한될 수 있거나 모든 Azure 위치에서 사용하지는 못할 수 있습니다. 자세한 내용은 [Microsoft Azure 미리 보기에 대한 보충 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 ## <a name="country-codes"></a>국가 코드
 
-Geomatch 연산자를 사용 하는 경우 선택기는 다음 두 자리 국가 코드 중 하나를 사용할 수 있습니다. 
+Geomatch 연산자사용 하는 경우 선택기는 다음 두 자리 국가 코드 중 어느 것일 수 있습니다. 
 
 |국가 코드 | 국가 이름 |
 | ----- | ----- |
@@ -37,7 +37,7 @@ Geomatch 연산자를 사용 하는 경우 선택기는 다음 두 자리 국가
 | AM | 아르메니아|
 | AO | 앙골라|
 | AR | 아르헨티나|
-| AS | 미국령 사모아|
+| AS | 아메리칸 사모아|
 | AT | 오스트리아|
 | AU | 오스트레일리아|
 | AZ | 아제르바이잔|
@@ -59,7 +59,7 @@ Geomatch 연산자를 사용 하는 경우 선택기는 다음 두 자리 국가
 | BW | 보츠와나|
 | BY | 벨로루시|
 | BZ | 벨리즈|
-| CA | 캐나다|
+| CA | Canada|
 | CD | 콩고 민주 공화국|
 | CF | 중앙 아프리카 공화국|
 | CH | 스위스|
@@ -72,7 +72,7 @@ Geomatch 연산자를 사용 하는 경우 선택기는 다음 두 자리 국가
 | CU | 쿠바|
 | CV | 카보베르데|
 | CY | 키프로스|
-| CZ | 체코 공화국|
+| CZ | 체코|
 | DE | 독일|
 | DK | 덴마크|
 | DO | 도미니카 공화국|
@@ -86,7 +86,7 @@ Geomatch 연산자를 사용 하는 경우 선택기는 다음 두 자리 국가
 | FJ | 피지|
 | FM | 미크로네시아|
 | FR | 프랑스|
-| GB | 영국|
+| GB | United Kingdom|
 | GE | 조지아|
 | GF | 프랑스령 기아나|
 | GH | 가나|
@@ -195,7 +195,7 @@ Geomatch 연산자를 사용 하는 경우 선택기는 다음 두 자리 국가
 | TZ | 탄자니아|
 | UA | 우크라이나|
 | UG | 우간다|
-| 미국 | 미국|
+| US | 미국|
 | UY | 우루과이|
 | UZ | 우즈베키스탄|
 | VC | 세인트 빈센트 그레나딘|
@@ -203,10 +203,10 @@ Geomatch 연산자를 사용 하는 경우 선택기는 다음 두 자리 국가
 | VG | 영국령 버진 아일랜드|
 | VI | 미국령 버진 아일랜드|
 | VN | 베트남|
-| ZA | 남아프리카 공화국|
+| ZA | 남아프리카|
 | ZM | 잠비아|
 | ZW | 짐바브웨|
 
 ## <a name="next-steps"></a>다음 단계
 
-사용자 지정 규칙에 대 한 자세한 내용을 확인 한 후 [사용자 지정 규칙을 만듭니다](create-custom-waf-rules.md).
+사용자 지정 규칙에 대해 알아보려면 [사용자 지정 규칙을 직접 만듭니다.](create-custom-waf-rules.md)

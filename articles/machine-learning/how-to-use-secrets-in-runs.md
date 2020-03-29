@@ -1,7 +1,7 @@
 ---
-title: 학습 실행에서 비밀 사용
+title: 교육 실행에 비밀 사용
 titleSuffix: Azure Machine Learning
-description: 작업 영역을 사용 하 여 안전한 방식으로 학습 실행에 비밀 전달 Key Vault
+description: 작업 영역 키 볼트를 사용하여 안전한 방식으로 교육 실행에 비밀 전달
 services: machine-learning
 author: rastala
 ms.author: roastala
@@ -11,28 +11,28 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.openlocfilehash: d877794abf12b8b412cd1ecf4efd72fd1179d768
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78942270"
 ---
-# <a name="use-secrets-in-training-runs"></a>학습 실행에서 비밀 사용
+# <a name="use-secrets-in-training-runs"></a>교육 실행에 비밀 사용
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-이 문서에서는 학습 실행 시 안전 하 게 암호를 사용 하는 방법에 대해 알아봅니다. 사용자 이름 및 암호와 같은 인증 정보는 비밀입니다. 예를 들어 학습 데이터를 쿼리 하기 위해 외부 데이터베이스에 연결 하는 경우 사용자 이름 및 암호를 원격 실행 컨텍스트에 전달 해야 합니다. 이러한 값을 일반 텍스트의 학습 스크립트에 코딩 하는 것은 암호를 노출 하므로 안전 하지 않습니다. 
+이 문서에서는 교육 실행에서 비밀을 안전하게 사용하는 방법을 배웁니다. 사용자 이름 및 암호와 같은 인증 정보는 비밀입니다. 예를 들어 학습 데이터를 쿼리하기 위해 외부 데이터베이스에 연결하는 경우 사용자 이름과 암호를 원격 실행 컨텍스트에 전달해야 합니다. 이러한 값을 cleartext로 학습 스크립트에 코딩하는 것은 비밀을 노출하는 것처럼 안전하지 않습니다. 
 
-대신 Azure Machine Learning 작업 영역에 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)라는 연결 된 리소스가 있습니다. 이 Key Vault를 사용 하 여 Azure Machine Learning Python SDK의 Api 집합을 통해 안전 하 게 원격으로 실행할 수 있습니다.
+대신 Azure 기계 학습 작업 영역에 Azure [키 자격 증명 모음이라는](https://docs.microsoft.com/azure/key-vault/key-vault-overview)연결된 리소스가 있습니다. 이 키 볼트를 사용하여 Azure 기계 학습 파이썬 SDK의 API 집합을 통해 원격 실행에 대한 비밀을 안전하게 전달합니다.
 
-비밀 사용에 대 한 기본 흐름은 다음과 같습니다.
- 1. 로컬 컴퓨터에서 Azure에 로그인 하 고 작업 영역에 연결 합니다.
- 2. 로컬 컴퓨터에서 작업 영역 Key Vault에 암호를 설정 합니다.
- 3. 원격 실행을 제출 합니다.
- 4. 원격 실행 내에서 Key Vault에서 비밀을 가져와 사용 합니다.
+비밀을 사용하기 위한 기본 흐름은 다음과 같은 것입니다.
+ 1. 로컬 컴퓨터에서 Azure에 로그인하고 작업 영역에 연결합니다.
+ 2. 로컬 컴퓨터에서 작업 영역 키 자격 증명 모음에서 비밀을 설정합니다.
+ 3. 원격 실행을 제출합니다.
+ 4. 원격 실행 내에서 키 볼트에서 비밀을 얻고 사용합니다.
 
 ## <a name="set-secrets"></a>비밀 설정
 
-Azure Machine Learning에서 [Keyvault](https://docs.microsoft.com/python/api/azureml-core/azureml.core.keyvault.keyvault?view=azure-ml-py) 클래스에는 비밀을 설정 하는 메서드가 포함 되어 있습니다. 로컬 Python 세션에서 먼저 Key Vault 작업 영역에 대 한 참조를 가져온 다음 [`set_secret()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.keyvault.keyvault?view=azure-ml-py#set-secret-name--value-) 메서드를 사용 하 여 이름과 값을 사용 하 여 암호를 설정 합니다. __Set_secret__ 메서드는 이름이 이미 있는 경우 비밀 값을 업데이트 합니다.
+Azure 기계 학습에서 [Keyvault](https://docs.microsoft.com/python/api/azureml-core/azureml.core.keyvault.keyvault?view=azure-ml-py) 클래스에는 비밀을 설정하는 메서드가 포함되어 있습니다. 로컬 Python 세션에서 먼저 작업 영역 키 볼트에 대한 참조를 [`set_secret()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.keyvault.keyvault?view=azure-ml-py#set-secret-name--value-) 얻은 다음 메서드를 사용하여 이름과 값으로 비밀을 설정합니다. __set_secret__ 메서드는 이름이 이미 있는 경우 비밀 값을 업데이트합니다.
 
 ```python
 from azureml.core import Workspace
@@ -46,15 +46,15 @@ keyvault = ws.get_default_keyvault()
 keyvault.set_secret(name="mysecret", value = my_secret)
 ```
 
-비밀 값을 파일에 일반 텍스트로 저장 하는 것은 안전 하지 않으므로 Python 코드에 저장 하지 마세요. 대신 환경 변수에서 비밀 값 (예: Azure DevOps build secret 또는 대화형 사용자 입력)을 가져옵니다.
+비밀 값을 파이썬 코드에 넣지 마십시오. 대신 환경 변수(예: Azure DevOps 빌드 보안 검색기 또는 대화형 사용자 입력)에서 비밀 값을 가져옵니다.
 
-[`list_secrets()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.keyvault.keyvault?view=azure-ml-py#list-secrets--) 메서드를 사용 하 여 비밀 이름을 나열할 수 있으며, 한 번에 여러 암호를 설정할 수 있도록 하는 일괄 처리 버전인[set_secrets ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.keyvault.keyvault?view=azure-ml-py#set-secrets-secrets-batch-) 도 있습니다.
+메서드를 [`list_secrets()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.keyvault.keyvault?view=azure-ml-py#list-secrets--) 사용하여 비밀 이름을 나열할 수 있으며 한 번에 여러 비밀을 설정할 수 있는 일괄 처리[버전인 set_secrets()도](https://docs.microsoft.com/python/api/azureml-core/azureml.core.keyvault.keyvault?view=azure-ml-py#set-secrets-secrets-batch-) 있습니다.
 
 ## <a name="get-secrets"></a>암호 가져오기
 
-로컬 코드에서[`get_secret()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.keyvault.keyvault?view=azure-ml-py#get-secret-name-) 메서드를 사용 하 여 이름으로 비밀 값을 가져올 수 있습니다.
+로컬 코드에서 메서드를[`get_secret()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.keyvault.keyvault?view=azure-ml-py#get-secret-name-) 사용하여 이름으로 비밀 값을 얻을 수 있습니다.
 
-[`Experiment.submit`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py#submit-config--tags-none----kwargs-) 전송 된 실행의 경우 [`Run`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py) 클래스와 함께 [`get_secret()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#get-secret-name-) 메서드를 사용 합니다. 제출 된 실행은 작업 영역을 인식 하므로이 메서드는 작업 영역 인스턴스화를 바로 실행 하 고 비밀 값을 직접 반환 합니다.
+제출된 실행의 [`Experiment.submit`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py#submit-config--tags-none----kwargs-) 경우 [`get_secret()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#get-secret-name-) 클래스와 [`Run`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py) 함께 메서드를 사용합니다. 제출된 실행은 작업 영역을 인식하므로 이 메서드는 작업 영역 인스턴스화를 바로 가하고 비밀 값을 직접 반환합니다.
 
 ```python
 # Code in submitted run
@@ -64,11 +64,11 @@ run = Run.get_context()
 secret_value = run.get_secret(name="mysecret")
 ```
 
-비밀 값을 쓰거나 인쇄 하 여 노출 하지 않도록 주의 해야 합니다.
+비밀 값을 작성하거나 인쇄하여 노출하지 않도록 주의하십시오.
 
-한 번에 여러 암호에 액세스 하는 데 사용할 수 있는 일괄 처리 버전인 [get_secrets ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#get-secrets-secrets-) 도 있습니다.
+한 번에 여러 암호에 액세스하기 위한 일괄 처리 [버전인 get_secrets()도](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#get-secrets-secrets-) 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
  * [예제 노트북 보기](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/manage-azureml-service/authentication-in-azureml/authentication-in-azureml.ipynb)
- * [Azure Machine Learning를 사용 하 여 엔터프라이즈 보안에 대해 알아보기](concept-enterprise-security.md)
+ * [Azure 기계 학습을 통해 엔터프라이즈 보안에 대해 알아보기](concept-enterprise-security.md)

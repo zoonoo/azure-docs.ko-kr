@@ -1,6 +1,6 @@
 ---
-title: 게시, 클라우드 Azure Event Grid IoT Edge에서 이벤트 구독 Microsoft Docs
-description: 게시, Event Grid에서 웹 후크를 사용 하 여 클라우드에서 이벤트 구독 IoT Edge
+title: 클라우드에서 이벤트 게시, 구독 - Azure 이벤트 그리드 IoT 에지 | 마이크로 소프트 문서
+description: IoT Edge의 이벤트 그리드를 사용하여 웹후크를 사용하여 클라우드에서 이벤트를 게시, 구독
 author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
@@ -10,29 +10,29 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: c82f1edfc3acd73c1d38425f963aaaf2976a1cc5
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76844595"
 ---
-# <a name="tutorial-publish-subscribe-to-events-in-cloud"></a>자습서: 게시, 클라우드에서 이벤트 구독
+# <a name="tutorial-publish-subscribe-to-events-in-cloud"></a>튜토리얼: 클라우드에서 이벤트 게시, 구독
 
-이 문서에서는 IoT Edge에서 Event Grid를 사용 하 여 이벤트를 게시 하 고 구독 하는 데 필요한 모든 단계를 안내 합니다. 이 자습서에서는 및 Azure Function을 이벤트 처리기로 사용 합니다. 추가 대상 형식은 [이벤트 처리기](event-handlers.md)를 참조 하세요.
+이 문서에서는 IoT Edge의 이벤트 그리드를 사용하여 이벤트를 게시하고 구독하는 데 필요한 모든 단계를 안내합니다. 이 자습서에서는 이벤트 처리기로 Azure 함수를 사용합니다. 추가 대상 유형에 대한 [경우 이벤트 처리기를](event-handlers.md)참조하십시오.
 
-진행 하기 전에 Event Grid 토픽 및 구독을 이해 하려면 [Event Grid 개념](concepts.md) 을 참조 하세요.
+[이벤트 그리드 개념을](concepts.md) 참조하여 진행하기 전에 이벤트 그리드 항목 및 구독이 무엇인지 이해합니다.
 
-## <a name="prerequisites"></a>필수 조건 
-이 자습서를 완료 하려면 다음이 필요 합니다.
+## <a name="prerequisites"></a>사전 요구 사항 
+이 자습서를 완료하려면 다음과 같은 요건이 필요합니다.
 
-* **Azure 구독** -아직 없는 경우 [무료 계정](https://azure.microsoft.com/free) 을 만듭니다. 
-* **Azure IoT Hub 및 IoT Edge 장치** - [Linux](../../iot-edge/quickstart-linux.md) 또는 [Windows 장치](../../iot-edge/quickstart.md) 에 대 한 빠른 시작 (아직 없는 경우)의 단계를 따릅니다.
+* **Azure 구독** - 아직 계정이 없는 경우 [무료 계정을](https://azure.microsoft.com/free) 만듭니다. 
+* **Azure IoT Hub 및 IoT Edge 장치** - 아직 없는 경우 [Linux](../../iot-edge/quickstart-linux.md) 또는 [Windows 장치의](../../iot-edge/quickstart.md) 빠른 시작 단계를 따릅니다.
 
 [!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-deploy-iot-edge.md)]
 
-## <a name="create-an-azure-function-in-the-azure-portal"></a>Azure Portal에서 Azure 함수를 만듭니다.
+## <a name="create-an-azure-function-in-the-azure-portal"></a>Azure 포털에서 Azure 함수 만들기
 
-[자습서](../../azure-functions/functions-create-first-azure-function.md) 에 설명 된 단계에 따라 Azure 함수를 만듭니다. 
+[자습서에서](../../azure-functions/functions-create-first-azure-function.md) 설명하는 단계를 수행하여 Azure 함수를 만듭니다. 
 
 코드 조각을 다음 코드로 바꿉니다.
 
@@ -58,16 +58,16 @@ public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
 }
 ```
 
-새 함수에서 오른쪽 상단의 **함수 URL 가져오기** 를 선택 하 고 기본값 (**함수 키**)을 선택한 다음 **복사**를 선택 합니다. 자습서의 뒷부분에서 함수 URL 값을 사용 합니다.
+새 함수에서 오른쪽 상단에 있는 **함수 URL 받기를** 선택하고 기본값(Function**키)을**선택한 다음 **복사**를 선택합니다. 자습서의 나중에 함수 URL 값을 사용합니다.
 
 > [!NOTE]
-> EventGrid 이벤트 트리거를 사용 하 여 이벤트에 반응 하는 방법에 대 한 추가 샘플과 자습서는 [Azure Functions](../../azure-functions/functions-overview.md) 설명서를 참조 하세요.
+> EventGrid [이벤트 트리거를](../../azure-functions/functions-overview.md) 사용하는 이벤트에 반응하는 방법에 대한 자세한 샘플 및 자습서는 Azure Functions 설명서를 참조하십시오.
 
 ## <a name="create-a-topic"></a>토픽 만들기
 
-이벤트의 게시자는 event grid 토픽을 만들어야 합니다. 항목은 게시자가 이벤트를 보낼 수 있는 끝점을 가리킵니다.
+이벤트 게시자는 이벤트 그리드 항목을 만들어야 합니다. 토픽은 게시자가 이벤트를 보낼 수 있는 끝점을 나타냅니다.
 
-1. 다음 콘텐츠를 사용 하 여 topic2를 만듭니다. 페이로드에 대 한 자세한 내용은 [API 설명서](api.md) 를 참조 하세요.
+1. 다음 콘텐츠로 topic2.json을 만듭니다. 페이로드에 대한 자세한 내용은 [API 설명서를](api.md) 참조하십시오.
 
     ```json
          {
@@ -77,12 +77,12 @@ public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
           }
         }
     ```
-1. 다음 명령을 실행 하 여 토픽을 만듭니다. HTTP 상태 코드 200을 반환 해야 합니다.
+1. 다음 명령을 실행하여 토픽을 만듭니다. 200 확인의 HTTP 상태 코드는 반환해야 합니다.
 
     ```sh
     curl -k -H "Content-Type: application/json" -X PUT -g -d @topic2.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic2?api-version=2019-01-01-preview
     ```
-1. 다음 명령을 실행 하 여 항목이 성공적으로 만들어졌는지 확인 합니다. HTTP 상태 코드 200을 반환 해야 합니다.
+1. 다음 명령을 실행하여 항목이 성공적으로 만들어졌는지 확인합니다. 200 확인의 HTTP 상태 코드는 반환해야 합니다.
 
     ```sh
     curl -k -H "Content-Type: application/json" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic2?api-version=2019-01-01-preview
@@ -106,11 +106,11 @@ public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
 
 ## <a name="create-an-event-subscription"></a>이벤트 구독 만들기
 
-구독자는 토픽에 게시 된 이벤트를 등록할 수 있습니다. 모든 이벤트를 수신 하려면 구독자가 관심 있는 토픽에서 Event grid 구독을 만들어야 합니다.
+구독자는 토픽에 게시된 이벤트에 등록할 수 있습니다. 이벤트를 받으려면 구독자가 관심 있는 주제에 대해 이벤트 그리드 구독을 만들어야 합니다.
 
 [!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-edge-persist-event-subscriptions.md)]
 
-1. 다음 콘텐츠를 사용 하 여 subscription2를 만듭니다. 페이로드에 대 한 자세한 내용은 [API 설명서](api.md) 를 참조 하세요.
+1. 다음 콘텐츠로 구독2.json을 만듭니다. 페이로드에 대한 자세한 내용은 [API 설명서를](api.md) 참조하십시오.
 
     ```json
         {
@@ -126,13 +126,13 @@ public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
     ```
 
    >[!NOTE]
-   > **Endpointtype** 은 구독자가 Webhook 임을 지정 합니다.  **Endpointurl** 은 구독자가 이벤트를 수신 대기 하는 url을 지정 합니다. 이 URL은 이전에 설정한 Azure Function 샘플에 해당 합니다.
-2. 다음 명령을 실행 하 여 구독을 만듭니다. HTTP 상태 코드 200을 반환 해야 합니다.
+   > **끝점 유형은** 구독자가 웹후크임을 지정합니다.  **endpointUrl은** 구독자가 이벤트를 수신 대기하는 URL을 지정합니다. 이 URL은 이전에 설정한 Azure Function 샘플에 해당합니다.
+2. 다음 명령을 실행하여 구독을 만듭니다. 200 확인의 HTTP 상태 코드는 반환해야 합니다.
 
     ```sh
     curl -k -H "Content-Type: application/json" -X PUT -g -d @subscription2.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic2/eventSubscriptions/sampleSubscription2?api-version=2019-01-01-preview
     ```
-3. 다음 명령을 실행 하 여 구독이 성공적으로 만들어졌는지 확인 합니다. HTTP 상태 코드 200을 반환 해야 합니다.
+3. 다음 명령을 실행하여 구독이 성공적으로 만들어졌는지 확인합니다. 200 확인의 HTTP 상태 코드는 반환해야 합니다.
 
     ```sh
     curl -k -H "Content-Type: application/json" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic2/eventSubscriptions/sampleSubscription2?api-version=2019-01-01-preview
@@ -159,7 +159,7 @@ public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
 
 ## <a name="publish-an-event"></a>이벤트 게시
 
-1. 다음 콘텐츠를 사용 하 여 event2를 만듭니다. 페이로드에 대 한 자세한 내용은 [API 설명서](api.md) 를 참조 하세요.
+1. 다음 콘텐츠로 event2.json을 만듭니다. 페이로드에 대한 자세한 내용은 [API 설명서를](api.md) 참조하십시오.
 
     ```json
         [
@@ -176,33 +176,33 @@ public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
           }
         ]
     ```
-1. 다음 명령을 실행 하 여 이벤트를 게시 합니다.
+1. 다음 명령을 실행하여 이벤트를 게시합니다.
 
     ```sh
     curl -k -H "Content-Type: application/json" -X POST -g -d @event2.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic2/events?api-version=2019-01-01-preview
     ```
 
-## <a name="verify-event-delivery"></a>이벤트 배달 확인
+## <a name="verify-event-delivery"></a>이벤트 전달 확인
 
-함수의 **모니터** 옵션 아래 Azure Portal에서 배달 된 이벤트를 볼 수 있습니다.
+함수의 **모니터** 옵션에서 Azure 포털에서 제공되는 이벤트를 볼 수 있습니다.
 
 ## <a name="cleanup-resources"></a>리소스 정리
 
-* 다음 명령을 실행 하 여 토픽 및 모든 해당 구독을 삭제 합니다.
+* 다음 명령을 실행하여 토픽 및 모든 구독을 삭제합니다.
 
     ```sh
     curl -k -H "Content-Type: application/json" -X DELETE https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic2?api-version=2019-01-01-preview
     ```
 
-* Azure Portal에서 만든 Azure 함수를 삭제 합니다.
+* Azure 포털에서 만든 Azure 함수를 삭제합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 event grid 토픽, 구독 및 게시 된 이벤트를 만들었습니다. 기본 단계를 배웠으므로 이제 다음 문서를 참조 하세요.
+이 자습서에서는 이벤트 그리드 항목, 구독 및 게시된 이벤트를 만들었습니다. 이제 기본 단계를 알고 있으므로 다음 문서를 참조하십시오.
 
-* IoT Edge에서 Azure Event Grid를 사용 하 여 발생 하는 문제를 해결 하려면 [문제 해결 가이드](troubleshoot.md)를 참조 하세요.
-* [필터](advanced-filtering.md)를 사용 하 여 구독을 만들거나 업데이트 합니다.
-* [Linux](persist-state-linux.md) 또는 [Windows](persist-state-windows.md) 에서 Event Grid 모듈의 지 속성 설정
-* [설명서](configure-client-auth.md) 에 따라 클라이언트 인증 구성
-* 이 [자습서](forward-events-event-grid-cloud.md) 를 수행 하 여 클라우드에서 Azure Event Grid로 이벤트 전달
-* [Edge에서 토픽 및 구독 모니터링](monitor-topics-subscriptions.md)
+* IoT Edge에서 Azure 이벤트 그리드를 사용하는 문제를 해결하려면 [문제 해결 가이드를](troubleshoot.md)참조하십시오.
+* [필터를](advanced-filtering.md)사용하여 구독을 생성/업데이트합니다.
+* [리눅스](persist-state-linux.md) 또는 [윈도우에서](persist-state-windows.md) 이벤트 그리드 모듈의 지속성 설정
+* [설명서를](configure-client-auth.md) 따라 클라이언트 인증 구성
+* 이 [자습서를](forward-events-event-grid-cloud.md) 따라 이벤트를 클라우드에서 Azure 이벤트 그리드로 전달
+* [에지에서 주제 및 구독 모니터링](monitor-topics-subscriptions.md)

@@ -8,10 +8,10 @@ ms.subservice: cosmosdb-graph
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.openlocfilehash: 42f3c7f3351bddab429489dccf28587549d76e18
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78897842"
 ---
 # <a name="use-azure-cosmos-db-resource-tokens-with-the-gremlin-sdk"></a>Gremlin SDK를 통해 Azure Cosmos DB 리소스 토큰 사용
@@ -95,11 +95,11 @@ builder.authProperties(authenticationProperties);
 
 ## <a name="limit"></a>제한
 
-Gremlin 계정 하나로 토큰을 개수 제한 없이 발급할 수 있습니다. 그러나 1시간 내에 최대 100개 토큰을 동시에 사용할 수 있습니다. 애플리케이션이 시간당 토큰 제한을 초과하면 인증 요청이 거부되고, 다음과 같은 오류 메시지가 표시됩니다. "동시에 사용할 수 있는 허용되는 리소스 토큰 제한 100개를 초과했습니다." 특정 토큰을 사용하는 활성 연결을 닫아 새 토큰에 사용할 슬롯을 확보할 수 없습니다. Azure Cosmos DB Gremlin 데이터베이스 엔진은 인증 요청 직전의 시간 동안 고유한 토큰을 추적합니다.
+Gremlin 계정 하나로 토큰을 개수 제한 없이 발급할 수 있습니다. 그러나 1시간 내에 최대 100개 토큰을 동시에 사용할 수 있습니다. 응용 프로그램이 시간당 토큰 제한을 초과하면 인증 요청이 거부되고 "동시에 사용할 수 있는 허용된 리소스 토큰 제한을 초과한 100개 초과"라는 오류 메시지가 나타납니다. 특정 토큰을 사용하는 활성 연결을 닫아 새 토큰에 사용할 슬롯을 확보할 수 없습니다. Azure Cosmos DB Gremlin 데이터베이스 엔진은 인증 요청 직전의 시간 동안 고유한 토큰을 추적합니다.
 
 ## <a name="permission"></a>사용 권한
 
-애플리케이션에서 리소스 토큰을 사용하는 동안 발생하는 일반적인 오류는 "해당 요청에 대한 권한 부여 헤더에 제공된 권한이 부족합니다. 다른 인증 헤더를 사용하여 다시 시도하세요" 오류입니다. 이 오류는 Gremlin 통과에서 에지 또는 꼭짓점을 쓰려고 하는데 리소스 토큰이 *읽기* 권한만 부여하는 경우에 반환됩니다. 통과를 검사하여 *.addV()* , *.addE()* , *.drop()* 또는 *.property()* 단계 중 하나를 포함하고 있는지 확인합니다.
+애플리케이션에서 리소스 토큰을 사용하는 동안 발생하는 일반적인 오류는 "해당 요청에 대한 권한 부여 헤더에 제공된 권한이 부족합니다. 다른 인증 헤더를 사용하여 다시 시도하세요" 오류입니다. 이 오류는 Gremlin 통과에서 에지 또는 꼭짓점을 쓰려고 하는데 리소스 토큰이 *읽기* 권한만 부여하는 경우에 반환됩니다. 통과를 검사하여 *.addV()*, *.addE()*, *.drop()* 또는 *.property()* 단계 중 하나를 포함하고 있는지 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 * Azure Cosmos DB의 [역할 기반 액세스 제어](role-based-access-control.md)

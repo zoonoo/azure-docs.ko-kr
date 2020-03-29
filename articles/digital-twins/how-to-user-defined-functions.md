@@ -1,5 +1,5 @@
 ---
-title: Azure Digital Twins에서 사용자 정의 함수를 만드는 방법 | Microsoft Docs
+title: Azure 디지털 트윈에서 사용자 정의 함수를 만드는 방법 | 마이크로 소프트 문서
 description: Azure Digital Twins를 사용하여 사용자 정의 함수, 검사기 및 역할 할당을 만드는 방법입니다.
 ms.author: alinast
 author: alinamstanciu
@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.custom: seodec18
 ms.openlocfilehash: 232d85789c25e905873286eba6fda32c327a6e25
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76276928"
 ---
 # <a name="how-to-create-user-defined-functions-in-azure-digital-twins"></a>Azure Digital Twins에서 사용자 정의 함수를 만드는 방법
@@ -142,7 +142,7 @@ function process(telemetry, executionContext) {
 }
 ```
 
-**telemetry** 매개 변수는 센서에서 보낸 메시지에 해당하는 **SensorId** 및 **Message** 특성을 노출합니다. **executionContext** 매개 변수는 다음 특성을 노출합니다.
+**원격 분석** 매개 변수는 센서에서 보낸 메시지에 해당하는 **SensorId** 및 **Message** 특성을 노출합니다. **executionContext** 매개 변수는 다음 특성을 노출합니다.
 
 ```csharp
 var executionContext = new UdfExecutionContext
@@ -193,21 +193,21 @@ function process(telemetry, executionContext) {
 }
 ```
 
-더 복잡 한 사용자 정의 함수 코드 샘플을 보려면 [선점 빠른](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availability.js)시작을 참조 하세요.
+보다 복잡한 사용자 정의 함수 코드 샘플은 [점유 퀵스타트](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availability.js)를 참조하십시오.
 
 ## <a name="create-a-role-assignment"></a>역할 할당 만들기
 
-실행할 사용자 정의 함수에 대한 역할 할당을 만듭니다. 사용자 정의 함수에 대한 역할 할당이 없으면 관리 API와 상호 작용할 수 있는 적절한 권한을 갖지 못하거나 그래프 개체에서 작업을 수행할 수 있는 액세스 권한을 갖지 못합니다. 사용자 정의 함수를 통해 수행할 수 있는 작업은 Azure Digital Twins 관리 API 내 역할 기반 액세스 제어를 통해 지정 및 정의됩니다. 예를 들어 사용자 정의 함수는 특정 역할 또는 특정 액세스 제어 경로를 지정하여 범위를 제한할 수 있습니다. 자세한 내용은 [역할 기반 액세스 제어](./security-role-based-access-control.md) 설명서를 참조 하세요.
+실행할 사용자 정의 함수에 대한 역할 할당을 만듭니다. 사용자 정의 함수에 대한 역할 할당이 없으면 관리 API와 상호 작용할 수 있는 적절한 권한을 갖지 못하거나 그래프 개체에서 작업을 수행할 수 있는 액세스 권한을 갖지 못합니다. 사용자 정의 함수를 통해 수행할 수 있는 작업은 Azure Digital Twins 관리 API 내 역할 기반 액세스 제어를 통해 지정 및 정의됩니다. 예를 들어 사용자 정의 함수는 특정 역할 또는 특정 액세스 제어 경로를 지정하여 범위를 제한할 수 있습니다. 자세한 내용은 역할 [기반 액세스 제어](./security-role-based-access-control.md) 설명서를 참조하십시오.
 
 1. 모든 역할에 대한 [시스템 API를 쿼리](./security-create-manage-role-assignments.md#retrieve-all-roles)하여 사용자 정의 함수에 할당할 역할 ID를 가져옵니다. 인증된 HTTP GET 요청을 수행함으로써 할 수 있습니다.
 
     ```URL
     YOUR_MANAGEMENT_API_URL/system/roles
     ```
-   원하는 역할 ID를 유지합니다. 아래와 같이 JSON 본문 특성 **roleId**(`YOUR_DESIRED_ROLE_IDENTIFIER`)로 전달됩니다.
+   원하는 역할 ID를 유지합니다. JSON 본문 속성 **roleId** ()`YOUR_DESIRED_ROLE_IDENTIFIER`아래로 전달 됩니다.
 
-1. **objectId**(`YOUR_USER_DEFINED_FUNCTION_ID`)는 앞서 만든 사용자 정의 함수 ID가 됩니다.
-1. `fullpath`로 공백을 쿼리하여 **path**(`YOUR_ACCESS_CONTROL_PATH`) 값을 찾습니다.
+1. **objectId** `YOUR_USER_DEFINED_FUNCTION_ID`() 이전에 만든 사용자 정의 함수 ID가 됩니다.
+1. 을 통해 **path** 공백을`YOUR_ACCESS_CONTROL_PATH`쿼리하여 경로 () 값을 찾습니다. `fullpath`
 1. 반환된 `spacePaths` 값을 복사합니다. 아래와 같이 이 값을 사용합니다. 인증된 HTTP GET 요청을 확인합니다.
 
     ```URL
@@ -238,7 +238,7 @@ function process(telemetry, executionContext) {
     | --- | --- |
     | YOUR_DESIRED_ROLE_IDENTIFIER | 원하는 역할의 식별자 |
     | YOUR_USER_DEFINED_FUNCTION_ID | 사용하려는 사용자 정의 함수에 대한 ID |
-    | YOUR_USER_DEFINED_FUNCTION_TYPE_ID | 사용자 정의 함수 형식 (`UserDefinedFunctionId`)을 지정 하는 ID입니다. |
+    | YOUR_USER_DEFINED_FUNCTION_TYPE_ID | 사용자 정의 함수 유형 ()`UserDefinedFunctionId`을 지정하는 ID |
     | YOUR_ACCESS_CONTROL_PATH | 액세스 제어 경로 |
 
 >[!TIP]
@@ -246,7 +246,7 @@ function process(telemetry, executionContext) {
 
 ## <a name="send-telemetry-to-be-processed"></a>처리될 원격 분석 전송
 
-공간 인텔리전스 그래프에서 정의된 센서는 원격 분석을 보냅니다. 따라서 원격 분석은 업로드된 사용자 정의 함수의 실행을 트리거합니다. 데이터 프로세스가 원격 분석 데이터를 선택합니다. 그런 다음 사용자 정의 함수를 호출할 수 있도록 실행 계획을 만듭니다.
+공간 인텔리전스 그래프에서 정의된 센서는 원격 분석을 보냅니다. 따라서 원격 분석은 업로드된 사용자 정의 함수의 실행을 트리거합니다. 데이터 프로세스가 원격 분석 데이터를 선택합니다. 그런 다음 사용자 정의 함수호출에 대한 실행 계획이 만들어집니다.
 
 1. 읽기가 생성된 센서의 검사기를 검색합니다.
 1. 성공적으로 평가된 검사기에 따라 연결된 사용자 정의 함수를 검색합니다.

@@ -4,10 +4,10 @@ description: Azure Backup Server를 사용하여 SharePoint 데이터를 Azure S
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.openlocfilehash: d080605022cadf121fa6be99c9758fe9c0d878ef
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78673020"
 ---
 # <a name="back-up-a-sharepoint-farm-on-azure-stack"></a>Azure Stack에서 SharePoint 팜 백업
@@ -20,7 +20,7 @@ MABS의 Azure Backup은 다음 시나리오들을 지원합니다.
 
 | 워크로드 | 버전 | SharePoint 배포 | 보호 및 복구 |
 | --- | --- | --- | --- |
-| SharePoint |SharePoint 2016, SharePoint 2013, SharePoint 2010 |Azure Stack 가상 머신으로 배포 된 SharePoint <br> -------------- <br> SQL AlwaysOn | SharePoint 팜 보호 복구 옵션: 복구 팜, 데이터베이스, 및 파일 또는 디스크 복구 지점의 목록 항목  Azure 복구 지점에서 팜 및 데이터베이스 복구 |
+| SharePoint |SharePoint 2016, SharePoint 2013, SharePoint 2010 |Azure 스택 가상 컴퓨터로 배포 된 SharePoint <br> -------------- <br> SQL AlwaysOn | SharePoint 팜 보호 복구 옵션: 복구 팜, 데이터베이스, 및 파일 또는 디스크 복구 지점의 목록 항목  Azure 복구 지점에서 팜 및 데이터베이스 복구 |
 
 ## <a name="before-you-start"></a>시작하기 전에
 
@@ -59,12 +59,12 @@ MABS를 사용하여 SharePoint를 보호할 수 있으려면, **ConfigureShareP
 
 1. WFE 서버의 명령 프롬프트에서 [MABS 설치 위치] \bin\으로 이동
 2. ConfigureSharePoint -EnableSharePointProtection을 입력합니다.
-3. 팜 관리자 자격 증명을 입력 합니다. 이 계정은 WFE 서버에서 로컬 관리자 그룹의 구성원 이어야 합니다. 팜 관리자가 로컬 관리자가 아닌 경우 WFE 서버에 대 한 다음 권한을 부여 합니다.
+3. 팜 관리자 자격 증명을 입력 합니다. 이 계정은 WFE 서버에서 로컬 관리자 그룹의 구성원 이어야 합니다. 팜 관리자가 로컬 관리자가 아닌 경우 WFE 서버에 다음 권한을 부여합니다.
    * DPM 폴더(%Program Files%\Microsoft Azure Backup\DPM)에 WSS_Admin_WPG 그룹 전체 제어 권한을 부여합니다.
    * DPM 레지스트리 키 (HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager)에 WSS_Admin_WPG 그룹 읽기 액세스 권한을 부여 합니다.
 
 > [!NOTE]
-> SharePoint 팜 관리자 자격 증명이 변경 될 때마다 Configuresharepoint.exe를 다시 실행 해야 합니다.
+> SharePoint 팜 관리자 자격 증명이 변경될 때마다 ConfigureSharePoint.exe를 다시 실행해야 합니다.
 >
 >
 
@@ -95,7 +95,7 @@ MABS를 사용하여 SharePoint를 보호할 수 있으려면, **ConfigureShareP
    > 디스크 보호 방법은 짧은 복구 시간 목표를 충족하는 데 유용합니다.
    >
    >
-5. **단기 목표 지정** 페이지에서 원하는 **보존 범위**를 선택 하 고 백업을 수행할 시기를 식별 합니다.
+5. 단기 **목표 지정** 페이지에서 기본 유지 **범위를**선택하고 백업이 발생할 시기를 식별합니다.
 
     ![단기 목표 지정](./media/backup-azure-backup-sharepoint/specify-short-term-goals2.png)
 

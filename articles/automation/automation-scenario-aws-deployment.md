@@ -6,16 +6,16 @@ ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
 ms.openlocfilehash: b149a21ef60b22c2e549c91007265ce99babdbe4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75420916"
 ---
 # <a name="azure-automation-scenario---provision-an-aws-virtual-machine"></a>Azure Automation 시나리오 - AWS 가상 머신 프로비전
 이 문서에서는 Azure Automation을 사용하여 AWS(Amazon Web Service) 구독에서 가상 머신을 프로비전하고 해당 VM에 특정 이름을 지정하는 방법을 설명합니다. 이는 AWS에서 VM “태그 지정”이라고 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 이 문서에서는 Azure Automation 계정 및 AWS 구독이 필요합니다. Azure Automation 계정을 설정하고 AWS 구독 자격 증명으로 구성하는 데 대한 자세한 내용은 [Configure Authentication with Amazon Web Services(Amazon Web Services로 인증 구성)](automation-config-aws-account.md)를 참조하세요. 이 계정은 아래 단계에서 참조되므로 먼저 AWS 구독 자격 증명으로 생성하거나 업데이트한 다음 진행해야 합니다.
 
 ## <a name="deploy-amazon-web-services-powershell-module"></a>Amazon Web Services PowerShell 모듈 배포
@@ -83,7 +83,7 @@ AWS PowerShell 모듈을 배포한 후에는 Runbook을 작성하여 PowerShell 
 9. Runbook을 저장하고 **게시**를 클릭하여 Runbook을 게시한 다음 확인 메시지가 표시되면 **예**를 클릭합니다.
 
 ### <a name="testing-the-aws-vm-runbook"></a>AWS VM Runbook 테스트
-Runbook 테스트를 진행하기 전에 몇 가지 사항을 확인해야 합니다. 특히 다음과 같은 혜택이 있습니다.  
+Runbook 테스트를 진행하기 전에 몇 가지 사항을 확인해야 합니다. 특히 다음에 대한 내용을 설명합니다.  
 
 * AWS에 대해 인증하기 위한 **AWScred** 라는 이름의 자산을 만들거나 스크립트가 자격 증명 자산의 이름을 참조하도록 업데이트되었습니다.    
 * Azure Automation에서 AWS PowerShell 모듈을 가져왔습니다.  
@@ -91,14 +91,14 @@ Runbook 테스트를 진행하기 전에 몇 가지 사항을 확인해야 합�
 * Runbook **로깅 및 추적** 설정 아래에서 **상세 레코드 기록** 및 **진행률 레코드 기록**(옵션)을 **사용**으로 설정했습니다.<br><br> ![Runbook 로깅 및 추적](./media/automation-scenario-aws-deployment/runbook-settings-logging-and-tracing.png)  
 
 1. Runbook을 시작하려면 Runbook 시작 창을 열 때 **시작**을 클릭한 다음, **확인**을 클릭합니다.
-2. Runbook 시작 창에서 **VMname**을 제공합니다. 앞서 스크립트에서 미리 구성한 다른 매개 변수의 기본값을 적용합니다. **확인**을 클릭하여 Runbook 작업을 시작합니다.<br><br> ![New-AwsVM Runbook 시작](./media/automation-scenario-aws-deployment/runbook-start-job-parameters.png)
+2. Runbook 시작 창에서 **VMname**을 제공합니다. 앞서 스크립트에서 미리 구성한 다른 매개 변수의 기본값을 적용합니다. **확인을** 클릭하여 Runbook 작업을 시작합니다.<br><br> ![New-AwsVM Runbook 시작](./media/automation-scenario-aws-deployment/runbook-start-job-parameters.png)
 3. 만든 Runbook 작업에 대한 작업 창이 열립니다. 이 창을 닫습니다.
 4. Runbook 작업 페이지에서 **모든 로그** 타일을 선택하여 작업 진행 상태 및 출력 **스트림**을 볼 수 있습니다.<br><br> ![스트림 출력](./media/automation-scenario-aws-deployment/runbook-job-streams-output.png)
 5. VM이 프로비전 중인지 확인하려면 AWS 관리 콘솔에 로그인합니다(현재 로그인되지 않은 경우).<br><br> ![AWS 콘솔에서 VM 배포](./media/automation-scenario-aws-deployment/aws-instances-status.png)
 
 ## <a name="next-steps"></a>다음 단계
 * 그래픽 Runbook을 시작하려면 [내 첫 번째 그래픽 Runbook](automation-first-runbook-graphical.md)
-* PowerShell 워크플로 Runbook을 시작하려면 [내 첫 번째 PowerShell 워크플로 Runbook](automation-first-runbook-textual.md)
+* PowerShell 워크플로 런북을 시작하려면 [내 첫 번째 PowerShell 워크플로 런북을 참조하십시오.](automation-first-runbook-textual.md)
 * Runbook의 형식, 장점 및 제한 사항에 대해 자세히 알아보려면 [Azure Automation Runbook 형식](automation-runbook-types.md)
 * PowerShell 스크립트 지원 기능에 대한 자세한 내용은 [Azure Automation에서 네이티브 PowerShell 스크립트 지원](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)
 

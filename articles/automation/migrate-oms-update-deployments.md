@@ -6,10 +6,10 @@ ms.subservice: update-management
 ms.date: 07/16/2018
 ms.topic: conceptual
 ms.openlocfilehash: 2660e4a348d2ffd71f912ff80c36a5a9a3c9fe88
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75417776"
 ---
 # <a name="migrate-your-oms-update-deployments-to-azure"></a>OMS 업데이트 배포를 Azure로 마이그레이션
@@ -53,7 +53,7 @@ OMS 포털에서 만든 모든 업데이트 배포에는 존재하는 업데이�
 
 머신이 업데이트되려면 기존 OMS 배포에서 사용되는 저장된 검색을 선택합니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 | --- | --- |
 |이름 |업데이트 배포를 식별하는 고유 이름입니다. |
 |운영 체제| **Linux** 또는 **Windows**를 선택합니다.|

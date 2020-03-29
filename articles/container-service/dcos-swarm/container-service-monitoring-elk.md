@@ -8,10 +8,10 @@ ms.date: 03/27/2017
 ms.author: saudas
 ms.custom: mvc
 ms.openlocfilehash: 3d34ebe22344be8acc6ec3cc974071639293e2b3
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76277768"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-cluster-with-elk"></a>(사용되지 않음) ELK를 사용하여 Azure Container Service 클러스터 모니터링
@@ -20,7 +20,7 @@ ms.locfileid: "76277768"
 
 이 문서에서는 Azure Container Service의 DC/OS 클러스터에 ELK(Elasticsearch, Logstash, Kibana) 스택을 배포하는 방법을 보여 줍니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 Azure Container Service를 통해 구성된 DC/OS 클러스터를 [배포](container-service-deployment.md) 및 [연결](../container-service-connect.md)합니다. [여기](container-service-mesos-marathon-ui.md)에서 DC/OS 대시보드 및 Marathon 서비스에 대해 알아봅니다. 또한 [Marathon Load Balancer](container-service-load-balancing.md)를 설치합니다.
 
 
@@ -28,11 +28,11 @@ Azure Container Service를 통해 구성된 DC/OS 클러스터를 [배포](conta
 ELK 스택은 Elasticsearch, Logstash 및 Kibana가 조합된 것으로, 클러스터에서 로그를 모니터링하고 분석하는 데 사용할 수 있는 종단 간 스택을 제공합니다.
 
 ## <a name="configure-the-elk-stack-on-a-dcos-cluster"></a>DC/OS 클러스터에서 ELK 스택 구성
-DC/OS UI를 통해 [http://localhost:80/](http://localhost:80/)에 액세스합니다. DC/OS UI에서 **Universe**로 이동합니다. DC/OS Universe에서 Elasticsearch, Logstash 및 Kibana를 검색한 후 이 순서대로 설치합니다. **고급 설치** 링크로 이동하면 구성에 대해 보다 자세한 정보를 얻을 수 있습니다.
+DC/OS UI에서 [http://localhost:80/](http://localhost:80/) 한 번을 통해 DC/OS UI에 액세스하여 **유니버스로**이동합니다. DC/OS Universe에서 Elasticsearch, Logstash 및 Kibana를 검색한 후 이 순서대로 설치합니다. **고급 설치** 링크로 이동하면 구성에 대해 보다 자세한 정보를 얻을 수 있습니다.
 
 ![ELK1](./media/container-service-monitoring-elk/elk1.PNG) ![ELK2](./media/container-service-monitoring-elk/elk2.PNG) ![ELK3](./media/container-service-monitoring-elk/elk3.PNG) 
 
-ELK 컨테이너가 작동되고 실행되면 Marathon-LB를 통해 Kibana에 액세스할 수 있도록 설정해야 합니다. 아래와 같이 **서비스** > **kibana**로 이동한 후 **편집**을 클릭합니다.
+ELK 컨테이너가 작동되고 실행되면 Marathon-LB를 통해 Kibana에 액세스할 수 있도록 설정해야 합니다. **서비스** > **키바나로**이동하여 아래와 같이 **편집을** 클릭합니다.
 
 ![ELK4](./media/container-service-monitoring-elk/elk4.PNG)
 

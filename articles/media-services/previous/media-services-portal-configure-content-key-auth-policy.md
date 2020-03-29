@@ -1,6 +1,6 @@
 ---
 title: Azure Portal을 사용하여 콘텐츠 키 인증 정책 구성 | Microsoft Docs
-description: 이 문서에서는 콘텐츠 키에 대 한 권한 부여 정책을 구성 하는 방법을 보여 줍니다.
+description: 이 문서에서는 콘텐츠 키에 대한 권한 부여 정책을 구성하는 방법을 보여 줍니다.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 8580bafd4d68ef6567b09fefcaa01c682ae2cafe
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74968797"
 ---
 # <a name="configure-a-content-key-authorization-policy"></a>콘텐츠 키 인증 정책 구성
@@ -57,7 +57,7 @@ Media Services는 키를 요청하는 사용자를 인증하는 여러 방법을
 ### <a name="token-restriction"></a>토큰 제한
 토큰 제한 정책을 선택하려면 **TOKEN** 단추를 선택합니다.
 
-토큰 제한 정책에는 STS(보안 토큰 서비스)에서 발급한 토큰이 수반되어야 합니다. Media Services는 [SWT(단순 웹 토큰)](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2) 형식 및 JWT(JSON Web Token) 형식의 토큰을 지원합니다. 자세한 내용은 [JWT 인증](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)을 참조하세요.
+토큰 제한 정책에는 STS(보안 토큰 서비스)에서 발급한 토큰이 수반되어야 합니다. 미디어 서비스는 간단한 웹[토큰(SWT)](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)및 JSON 웹 토큰(JWT) 형식의 토큰을 지원합니다. 자세한 내용은 [JWT 인증](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)을 참조하세요.
 
 Media Services는 STS를 제공하지 않습니다. 토큰을 발급하도록 사용자 지정 STS를 만들 수 있습니다. 지정된 키로 서명된 토큰을 만들고 토큰 제한 구성에서 지정한 클레임을 발급하려면 반드시 STS를 구성해야 합니다. 토큰이 유효하고 해당 토큰의 클레임이 콘텐츠 키에 대해 구성된 클레임과 일치하는 경우 Media Services 키 배달 서비스는 암호화 키를 클라이언트에게 반환합니다.
 

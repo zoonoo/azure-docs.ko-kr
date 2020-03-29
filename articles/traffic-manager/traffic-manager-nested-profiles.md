@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 10/22/2018
 ms.author: rohink
 ms.openlocfilehash: 282099cb274c1ea872a0df9c2753a939ef31421f
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76938580"
 ---
 # <a name="nested-traffic-manager-profiles"></a>중첩 Traffic Manager 프로필
@@ -97,17 +97,17 @@ Traffic Manager 프로필에서 모니터링 설정은 단일 프로필 내의 �
 
 ## <a name="faqs"></a>FAQ
 
-* [중첩 프로필을 구성 어떻게 할까요??](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#traffic-manager-endpoint-monitoring)
+* [중첩 프로필을 구성하려면 어떻게 해야 하나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#traffic-manager-endpoint-monitoring)
 
-* [트래픽 관리자가 지 원하는 중첩 계층은 몇 개입니까?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-many-layers-of-nesting-does-traffic-manger-support)
+* [트래픽 관리자가 지원하는 중첩 계층 수는 얼마나 되나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-many-layers-of-nesting-does-traffic-manger-support)
 
-* [동일한 Traffic Manager 프로필에서 다른 끝점 형식을 중첩 된 자식 프로필과 혼합할 수 있나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-mix-other-endpoint-types-with-nested-child-profiles-in-the-same-traffic-manager-profile)
+* [동일한 Traffic Manager 프로필에서 중첩 자식 프로필과 다른 엔드포인트 유형을 혼합할 수 있나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-mix-other-endpoint-types-with-nested-child-profiles-in-the-same-traffic-manager-profile)
 
-* [중첩 프로필에 대 한 청구 모델은 어떻게 적용 되나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-the-billing-model-apply-for-nested-profiles)
+* [중첩 프로필에는 요금 청구 모델이 어떻게 적용되나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-the-billing-model-apply-for-nested-profiles)
 
-* [중첩 프로필에 대 한 성능에 영향이 있나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#is-there-a-performance-impact-for-nested-profiles)
+* [중첩 프로필이 성능에 영향을 미치나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#is-there-a-performance-impact-for-nested-profiles)
 
-* [부모 프로필에서 중첩 된 끝점의 상태를 계산 Traffic Manager는 방법](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-traffic-manager-compute-the-health-of-a-nested-endpoint-in-a-parent-profile)
+* [Traffic Manager에서 상위 프로필의 중첩 엔드포인트 상태를 계산하려면 어떻게 하나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-traffic-manager-compute-the-health-of-a-nested-endpoint-in-a-parent-profile)
 
 ## <a name="next-steps"></a>다음 단계
 

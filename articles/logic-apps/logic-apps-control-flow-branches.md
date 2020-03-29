@@ -1,16 +1,16 @@
 ---
-title: 워크플로의 동작에 대 한 병렬 분기 만들기 또는 조인
-description: 에서 독립 워크플로 작업에 대 한 병렬 실행 분기를 만들거나 병합 하는 방법에 대해 알아봅니다 Azure Logic Apps
+title: 워크플로에서 작업을 위해 병렬 분기 생성 또는 조인
+description: Azure Logic Apps에서 독립적인 워크플로 작업에 대해 병렬 실행 분기를 만들거나 병합하는 방법에 대해 알아봅니다.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/10/2018
 ms.openlocfilehash: c0b1519992ba930382a1987aed185ef3c92eded4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75453427"
 ---
 # <a name="create-or-join-parallel-branches-for-workflow-actions-in-azure-logic-apps"></a>Azure Logic Apps에서 워크플로 작업에 대한 병렬 분기 만들기 또는 조인
@@ -20,11 +20,11 @@ ms.locfileid: "75453427"
 > [!TIP] 
 > 배열을 받는 트리거가 있고 각 배열 항목에 대한 워크플로를 실행하려는 경우, [**SplitOn** 트리거 속성](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch)을 사용하여 해당 배열을 *분리 처리(debatch)* 할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 구독이 없는 경우 [Azure 체험 계정에 등록](https://azure.microsoft.com/free/)합니다. 
 
-* [논리 앱 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)에 관한 기본 지식
+* [논리 앱을 만드는 방법에](../logic-apps/quickstart-create-first-logic-app-workflow.md) 대한 기본 지식
 
 <a name="parallel-branches"></a>
 
@@ -41,7 +41,7 @@ ms.locfileid: "75453427"
 
 1. <a href="https://portal.azure.com" target="_blank">Azure Portal</a>의 논리 앱 디자이너에서 논리 앱을 엽니다.
 
-1. 병렬 분기를 추가하려는 단계 위의 화살표 위로 포인터를 이동합니다. 표시되는 **더하기** 기호( **+** )를 선택한 다음, **병렬 분기 추가**를 선택합니다. 
+1. 병렬 분기를 추가하려는 단계 위의 화살표 위로 포인터를 이동합니다. 표시되는 **더하기** 기호(**+**)를 선택한 다음, **병렬 분기 추가**를 선택합니다. 
 
    ![병렬 분기 추가](media/logic-apps-control-flow-branches/add-parallel-branch.png)
 
@@ -53,7 +53,7 @@ ms.locfileid: "75453427"
 
    ![원하는 작업을 찾아서 선택](media/logic-apps-control-flow-branches/added-parallel-branch.png)
 
-1. 각 병렬 분기에 원하는 단계를 추가합니다. 분기에 또 다른 작업을 추가하려면 순차적 작업을 추가하려는 작업 아래로 포인터를 이동합니다. 표시되는 **더하기** 기호( **+** )를 선택한 다음, **작업 추가**를 선택합니다.
+1. 각 병렬 분기에 원하는 단계를 추가합니다. 분기에 또 다른 작업을 추가하려면 순차적 작업을 추가하려는 작업 아래로 포인터를 이동합니다. 표시되는 **더하기** ()**+** 기호를 선택한 다음 **작업 추가**를 선택합니다.
 
    ![병렬 분기에 순차적 작업 추가](media/logic-apps-control-flow-branches/add-sequential-action.png)
 

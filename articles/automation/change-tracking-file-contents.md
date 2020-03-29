@@ -6,10 +6,10 @@ ms.subservice: change-inventory-management
 ms.date: 07/03/2018
 ms.topic: conceptual
 ms.openlocfilehash: 23c4f24e430d58895eb551c3e2cb62b5f0003ac0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75418824"
 ---
 # <a name="view-contents-of-a-file-that-is-being-tracked-with-change-tracking"></a>변경 내용 추적으로 추적 중인 파일의 콘텐츠 보기
@@ -18,7 +18,7 @@ ms.locfileid: "75418824"
 
 ## <a name="requirements"></a>요구 사항
 
-* 파일 콘텐츠를 저장하려면 Resource Manager 배포 모델을 사용하는 표준 스토리지 계정이 필요합니다. 프리미엄 및 클래식 배포 모델 스토리지 계정은 사용하면 안 됩니다. 스토리지 계정에 대한 자세한 내용은 [Azure Storage 계정 정보](../storage/common/storage-create-storage-account.md)를 참조하세요.
+* 파일 콘텐츠를 저장하려면 Resource Manager 배포 모델을 사용하는 표준 스토리지 계정이 필요합니다. 프리미엄 및 클래식 배포 모델 스토리지 계정은 사용하면 안 됩니다. 저장소 계정에 대한 자세한 내용은 [Azure 저장소 계정 정보를 참조하십시오.](../storage/common/storage-create-storage-account.md)
 
 * 사용된 스토리지 계정에는 Automation 계정 하나만 연결할 수 있습니다.
 
@@ -71,5 +71,5 @@ ms.locfileid: "75418824"
 > [!div class="nextstepaction"]
 > [환경 변경 문제 해결](automation-tutorial-troubleshoot-changes.md)
 
-* [Azure Monitor 로그의 로그 검색](../log-analytics/log-analytics-log-searches.md) 을 사용 하 여 자세한 변경 내용 추적 데이터를 볼 수 있습니다.
+* [Azure Monitor 로그에서 로그 검색을](../log-analytics/log-analytics-log-searches.md) 사용하여 자세한 변경 변경 추적 데이터를 볼 수 있습니다.
 
