@@ -12,10 +12,10 @@ ms.date: 09/26/2019
 ms.author: diberry
 ms.custom: seodec18
 ms.openlocfilehash: 7e1ea234bde96ce84259841bbc592bf6373bc639
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "71802804"
 ---
 # <a name="use-bot-with-qna-maker-and-luis-to-distribute-your-knowledge-base"></a>QnA Maker 및 LUIS와 함께 봇을 사용하여 기술 자료 배포
@@ -25,25 +25,25 @@ QnA Maker에서 간단하게 여러 기술 자료를 만들 수 있지만, 들�
 
 이 문서에서는 Bot Framework v3 SDK를 사용합니다. 이 정보의 Bot Framework v4 SDK 버전에 관심이 있는 경우 이 [Bot Framework 문서](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&tabs=csharp)를 참조하세요.
 
-## <a name="architecture"></a>아키텍처
+## <a name="architecture"></a>Architecture
 
-![Language Understanding 아키텍처로 QnA Maker](../media/qnamaker-tutorials-qna-luis/qnamaker-luis-architecture.PNG)
+![언어 이해 아키텍처를 갖춘 QnA 메이커](../media/qnamaker-tutorials-qna-luis/qnamaker-luis-architecture.PNG)
 
 위의 시나리오에서 QnA Maker는 먼저 LUIS 모델에서 들어오는 질문의 의도를 가져온 다음, 이 의도를 사용하여 올바른 QnA Maker 기술 자료로 라우팅합니다.
 
 ## <a name="create-a-luis-app"></a>LUIS 앱 만들기
 
 1. [LUIS](https://www.luis.ai/) 포털에 로그인합니다.
-1. [앱을 만듭니다](https://docs.microsoft.com/azure/cognitive-services/luis/create-new-app).
+1. [앱을 만듭니다.](https://docs.microsoft.com/azure/cognitive-services/luis/create-new-app)
 1. 각 QnA Maker 기술 자료에 대해 [의도를 추가](https://docs.microsoft.com/azure/cognitive-services/luis/add-intents)합니다. 예제 발언은 QnA Maker 기술 자료의 질문과 일치해야 합니다.
 1. [LUIS 앱을 학습](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-train)하고 [LUIS 앱을 게시](https://docs.microsoft.com/azure/cognitive-services/luis/publishapp)합니다.
-1. **관리** 섹션에서 LUIS 앱 ID, LUIS 끝점 키 및 [사용자 지정 도메인 이름을](../../cognitive-services-custom-subdomains.md)적어 둡니다. 나중에 이러한 값이 필요합니다. 
+1. **관리** 섹션에서 LUIS 앱 ID, LUIS 끝점 키 및 [사용자 지정 도메인 이름을](../../cognitive-services-custom-subdomains.md)기록합니다. 나중에 이러한 값이 필요합니다. 
 
 ## <a name="create-qna-maker-knowledge-bases"></a>QnA Maker 기술 자료 만들기
 
-1. [QnA Maker](https://qnamaker.ai)에 로그인합니다.
+1. [QnA 메이커에](https://qnamaker.ai)로그인합니다.
 1. LUIS 앱의 각 의도에 대해 기술 자료를 [만듭니다](https://www.qnamaker.ai/Create).
-1. 기술 자료를 테스트하고 게시합니다. 각 KB를 게시할 때 KB ID, 리소스 이름 ( _azurewebsites.net/qnamaker_이전 사용자 지정 하위 도메인) 및 권한 부여 끝점 키를 적어 둡니다. 나중에 이러한 값이 필요합니다. 
+1. 기술 자료를 테스트하고 게시합니다. 각 KB를 게시할 때 KB ID, 리소스 _이름(.azurewebsites.net/qnamaker_이전의 사용자 지정 하위 도메인) 및 권한 부여 끝점 키를 기록합니다. 나중에 이러한 값이 필요합니다. 
 
     이 문서에서는 기술 자료가 모두 동일한 Azure QnA Maker 구독에서 생성된다고 가정합니다.
 
@@ -51,7 +51,7 @@ QnA Maker에서 간단하게 여러 기술 자료를 만들 수 있지만, 들�
 
 ## <a name="web-app-bot"></a>웹앱 봇
 
-1. LUIS 앱을 자동으로 포함 하는 ["기본" 웹 앱 봇을 만듭니다](https://docs.microsoft.com/azure/bot-service/bot-service-quickstart?view=azure-bot-service-4.0) . 프로그래밍 C# 언어를 선택 합니다.
+1. LUIS 앱이 자동으로 포함된 ["기본" 웹 앱 봇을 만듭니다.](https://docs.microsoft.com/azure/bot-service/bot-service-quickstart?view=azure-bot-service-4.0) C# 프로그래밍 언어를 선택합니다.
 
 1. 웹앱 봇이 만들어지면 Azure Portal에서 해당 웹앱 봇을 선택합니다.
 1. 웹앱 봇 서비스 탐색에서 **애플리케이션 설정**을 선택하고 아래로 스크롤하여 사용 가능한 설정의 **애플리케이션 설정** 섹션으로 이동합니다.
@@ -76,7 +76,7 @@ QnA Maker에서 간단하게 여러 기술 자료를 만들 수 있지만, 들�
     using System.Text;
     ```
 
-5. 아래 클래스를 추가하여 QnA Maker 응답을 deserialize합니다.
+5. 아래 클래스를 추가하여 QnA Maker 응답을 역직렬화합니다.
 
     ```csharp
     public class Metadata
@@ -103,7 +103,7 @@ QnA Maker에서 간단하게 여러 기술 자료를 만들 수 있지만, 들�
     ```
 
 
-6. 다음 클래스를 추가하여 QnA Maker 서비스에 대한 HTTP 요청을 수행합니다. **인증** 헤더 값에는 `EndpointKey` 단어와 공백이 포함되어 있습니다. JSON 결과가 이전 클래스로 deserialize되고 첫 번째 응답이 반환됩니다.
+6. 다음 클래스를 추가하여 QnA Maker 서비스에 대한 HTTP 요청을 수행합니다. **인증** 헤더 값에는 `EndpointKey` 단어와 공백이 포함되어 있습니다. JSON 결과가 이전 클래스로 역직렬화되고 첫 번째 응답이 반환됩니다.
 
     ```csharp
     [Serializable]

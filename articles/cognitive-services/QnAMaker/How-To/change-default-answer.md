@@ -1,18 +1,18 @@
 ---
-title: 기본 대답 가져오기-QnA Maker
-description: 질문과 일치 하는 항목이 없는 경우 기본 대답이 반환 됩니다. 표준 기본 응답에서 기본 대답을 변경 하는 것이 좋습니다.
+title: 기본 답변 받기 - QnA 메이커
+description: 질문에 일치하지 않는 경우 기본 답변이 반환됩니다. 표준 기본 답변에서 기본 답변을 변경할 수 있습니다.
 ms.topic: conceptual
 ms.date: 01/10/2020
 ms.openlocfilehash: fae5c38fd64435a3fae56862bad04e000916e88b
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "76846343"
 ---
-# <a name="set-default-answer-for-a-knowledge-base"></a>기술 자료에 대 한 기본 대답 설정
+# <a name="set-default-answer-for-a-knowledge-base"></a>기술 자료에 대한 기본 답변 설정
 
-질문과 일치 하는 항목이 없는 경우 기본 대답이 반환 됩니다. 표준 기본 응답에서 기본 대답을 변경 하는 것이 좋습니다.
+질문에 일치하지 않는 경우 기본 답변이 반환됩니다. 표준 기본 답변에서 기본 답변을 변경할 수 있습니다.
 
 ## <a name="change-default-answer"></a>기본 답변 변경
 
@@ -32,4 +32,4 @@ ms.locfileid: "76846343"
 
 ## <a name="next-steps"></a>다음 단계
 
-* [QnA Maker 및 LUIS를 사용 하 여 봇 만들기](../tutorials/integrate-qnamaker-luis.md)
+* [QnA 메이커 및 LUIS로 봇 만들기](../tutorials/integrate-qnamaker-luis.md)

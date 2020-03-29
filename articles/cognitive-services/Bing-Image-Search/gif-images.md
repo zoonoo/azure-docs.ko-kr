@@ -12,21 +12,21 @@ ms.date: 04/24/2018
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: ad33b5a28728a8e7f9c0a70ff81ea5a9e65624bd
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74072650"
 ---
 # <a name="search-for-gif-images"></a>GIF 이미지 검색 
 
-Bing Image Search API를 사용하면 관련성이 가장 높은 .gif 이미지에 대해 전체 웹을 검색할 수도 있습니다.  개발자는 다양 한 대화 시나리오에서 멋진 gif를 통합할 수 있습니다. 
+Bing Image Search API를 사용하면 관련성이 가장 높은 .gif 이미지에 대해 전체 웹을 검색할 수도 있습니다.개발자는 다양한 대화 시나리오에 관련된 gif를 통합할 수 있습니다. 
 
 다음 URL은 애니메이션된 .gif 이미지에 대한 쿼리입니다.
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=interesting&imageType=AnimatedGif&mkt=en-us
 ```
-[q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#query) 매개 변수는 검색 단어를 지정합니다.  또한 이전 쿼리는 `animatedGif`imageType[ 필터 매개 변수를 사용하여 ](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imagetype)를 지정합니다.
+[q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#query) 매개 변수는 검색 단어를 지정합니다.  또한 이전 쿼리는 [imageType](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imagetype) 필터 매개 변수를 사용하여 `animatedGif`를 지정합니다.
 
 결과의 예를 보려면 다음 URL을 사용하여 bing.com을 검색합니다.
 ```

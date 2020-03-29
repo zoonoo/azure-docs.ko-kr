@@ -1,7 +1,7 @@
 ---
 title: Text Analytics API에 대한 FAQ(질문과 대답)
 titleSuffix: Azure Cognitive Services
-description: Azure Cognitive Services에 대 한 텍스트 분석 API 관련 된 개념, 코드 및 시나리오에 대 한 일반적인 질문에 대 한 답변을 찾습니다.
+description: Azure Cognitive 서비스에 대한 텍스트 분석 API와 관련된 개념, 코드 및 시나리오에 대해 자주 묻는 질문에 대한 답변을 찾습니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: aahi
 ms.openlocfilehash: aca3b0bea65923cee1bae25020058666c973922c
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73837132"
 ---
 # <a name="frequently-asked-questions-faq-about-the-text-analytics-cognitive-service"></a>Text Analytics Cognitive Service에 대한 FAQ(질문과 대답)
@@ -51,7 +51,7 @@ ms.locfileid: "73837132"
 
 없는 기능 또는 특징에 대해 질문이 있으면 [사용자 의견 웹 사이트](https://cognitive.uservoice.com/forums/555922-text-analytics)에서 요청하거나 투표하세요.
 
-## <a name="see-also"></a>참고 항목:
+## <a name="see-also"></a>참조
 
- [StackOverflow: Text Analytics API](https://stackoverflow.com/questions/tagged/text-analytics-api)   
+ [스택 오버플로: 텍스트 분석 API](https://stackoverflow.com/questions/tagged/text-analytics-api)   
  [StackOverflow: Cognitive Services](https://stackoverflow.com/questions/tagged/microsoft-cognitive)

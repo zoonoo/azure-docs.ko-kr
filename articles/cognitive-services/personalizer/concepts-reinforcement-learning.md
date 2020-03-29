@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: diberry
 ms.openlocfilehash: 36071cdee25cfa99fc54b0e5c0c0aa822cb5fe2f
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68662829"
 ---
 # <a name="what-is-reinforcement-learning"></a>보충 학습이란?
@@ -59,12 +59,12 @@ John은 이전에도 Joint Prediction(ICML 2015), Contextual Bandit Theory(NIPS 
 
 현재 Personalizer는 기계 학습의 기초로 [Vowpal Wabbit](https://github.com/VowpalWabbit/vowpal_wabbit/wiki)를 사용합니다. 이 프레임워크는 모든 이벤트를 사용하여 개인 설정 순위를 지정하고 모델을 학습할 때 최대 처리량과 가장 낮은 대기 시간을 허용합니다.
 
-## <a name="references"></a>참조 항목
+## <a name="references"></a>참조
 
 * [기술적인 문제가 적도록 상황에 맞는 결정 내리기](https://arxiv.org/abs/1606.03966)
 * [공정 분류에 대한 축소 접근 방식](https://arxiv.org/abs/1803.02453)
 * [움직이는 세계에서 효율적인 Contextual Bandits](https://arxiv.org/abs/1708.01799)
-* [잔여 손실 예측: 보충: 증분 피드백 없이 학습](https://openreview.net/pdf?id=HJNMYceCW)
+* [잔여 손실 예측: 보강: 증분 피드백 없이 학습](https://openreview.net/pdf?id=HJNMYceCW)
 * [보충 학습을 사용하여 지침 및 시각적 관찰 결과를 작업에 매핑](https://arxiv.org/abs/1704.08795)
 * [선생님보다 검색을 더 잘하는 방법 배우기](https://arxiv.org/abs/1502.02206)
 

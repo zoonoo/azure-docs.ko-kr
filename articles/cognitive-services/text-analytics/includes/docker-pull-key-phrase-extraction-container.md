@@ -1,7 +1,7 @@
 ---
-title: 핵심 구 추출 컨테이너에 대 한 Docker 풀
+title: 키 구 추출 컨테이너에 대한 Docker 당김
 titleSuffix: Azure Cognitive Services
-description: 핵심 구 추출 컨테이너에 대 한 Docker pull 명령
+description: 키 구 추출 컨테이너에 대한 Docker 끌어오기 명령
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -10,17 +10,17 @@ ms.topic: include
 ms.date: 09/12/2019
 ms.author: dapine
 ms.openlocfilehash: 59313528e4beb343f9ac1103d3f9f2faae5dfc16
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "70966674"
 ---
-#### <a name="docker-pull-for-the-key-phrase-extraction-container"></a>핵심 구 추출 컨테이너에 대 한 Docker 풀
+#### <a name="docker-pull-for-the-key-phrase-extraction-container"></a>키 구 추출 컨테이너에 대한 Docker 당김
 
 [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) 명령을 사용하여 Microsoft 컨테이너 레지스트리에서 컨테이너 이미지를 다운로드합니다.
 
-Text Analytics 컨테이너의 사용 가능한 태그에 대 한 전체 설명은 Docker 허브의 [핵심 구 추출](https://go.microsoft.com/fwlink/?linkid=2018757) 컨테이너를 참조 하세요.
+텍스트 분석 컨테이너에 사용할 수 있는 태그에 대한 자세한 설명은 Docker Hub의 [핵심 구 추출](https://go.microsoft.com/fwlink/?linkid=2018757) 컨테이너를 참조하십시오.
 
 ```
 docker pull mcr.microsoft.com/azure-cognitive-services/keyphrase:latest

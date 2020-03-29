@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
 ms.openlocfilehash: 309bbca762149f8804742d9ef02d4c3e8dfcdc6b
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67542772"
 ---
 # <a name="get-images-from-the-web-with-the-bing-image-search-api"></a>Bing Image Search API를 사용하여 웹에서 이미지 가져오기
@@ -31,7 +31,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ```
 
-사용 된 [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#query) url 인코딩된 검색 용어에 대 한 쿼리 매개 변수입니다. 예를 들어 사용자가 *sailing dinghies(소형 범선)* 을 입력한 경우 `q`를 `sailing+dinghies` 또는 `sailing%20dinghies`로 설정합니다.
+url 인코딩검색어에 [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#query) 쿼리 매개변수를 사용합니다. 예를 들어 사용자가 *sailing dinghies(소형 범선)* 을 입력한 경우 `q`를 `sailing+dinghies` 또는 `sailing%20dinghies`로 설정합니다.
 
 > [!IMPORTANT]
 > * 모든 요청은 클라이언트가 아닌 서버에서 이뤄져야 합니다.
@@ -80,7 +80,7 @@ Bing의 응답 메시지에는 Cognitive Services에서 쿼리와 관련되도�
 
 > [!NOTE]
 > * 응답에 제공된 순서대로 이미지를 표시해야 합니다.
-> * 때문에 URL 형식 및 매개 변수는 통지 없이 변경 될 수 있습니다, 모든 Url로 사용-됩니다. 명시 된 경우를 제외 하 고 매개 변수를 URL 형식에 대 한 종속성을 사용 하지 않아야 합니다.
+> * URL 형식 및 매개 변수는 통지 없이 변경될 수 있으므로 모든 URL을 그대로 사용합니다. 명시된 경우가 아니면 URL 형식 또는 매개 변수를 독립적으로 사용해야 합니다.
 
 ```json
 {

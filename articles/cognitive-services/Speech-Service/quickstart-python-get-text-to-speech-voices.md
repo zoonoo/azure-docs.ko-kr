@@ -1,7 +1,7 @@
 ---
 title: 텍스트 음성 변환 음성 나열, Python - Speech Service
 titleSuffix: Azure Cognitive Services
-description: 이 문서에서는 Python을 사용 하 여 지역/끝점에 대 한 표준 및 신경망의 전체 목록을 가져오는 방법에 대해 알아봅니다. 목록은 JSON으로 반환되며 음성 가용성은 지역에 따라 다릅니다.
+description: 이 문서에서는 Python을 사용하여 지역/끝점에 대한 표준 및 신경 음성의 전체 목록을 얻는 방법을 배웁니다. 목록은 JSON으로 반환되며 음성 가용성은 지역에 따라 다릅니다.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -11,17 +11,17 @@ ms.topic: how-to
 ms.date: 02/10/2020
 ms.author: dapine
 ms.openlocfilehash: 51fe6cea80e097f34432ab8dc7293c758bd8d720
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77119799"
 ---
 # <a name="get-the-list-of-text-to-speech-voices-using-python"></a>Python을 사용하여 텍스트-음성 변환 음성 목록 가져오기
 
-이 문서에서는 Python을 사용 하 여 지역/끝점에 대 한 표준 및 신경망의 전체 목록을 가져오는 방법에 대해 알아봅니다. 목록은 JSON으로 반환되며 음성 가용성은 지역에 따라 다릅니다. 지원되는 지역의 전체 목록은 [ 지역](regions.md)을 참조하세요.
+이 문서에서는 Python을 사용하여 지역/끝점에 대한 표준 및 신경 음성의 전체 목록을 얻는 방법을 배웁니다. 목록은 JSON으로 반환되며 음성 가용성은 지역에 따라 다릅니다. 지원되는 지역의 전체 목록은 [ 지역](regions.md)을 참조하세요.
 
-이 문서에는 음성 서비스 리소스를 사용 하는 [Azure Cognitive Services 계정이](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) 필요 합니다. 계정이 없는 경우 [평가판](get-started.md)을 사용하여 구독 키를 가져올 수 있습니다.
+이 문서에는 음성 서비스 리소스가 있는 [Azure Cognitive Services 계정이](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) 필요합니다. 계정이 없는 경우 [평가판](get-started.md)을 사용하여 구독 키를 가져올 수 있습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -132,7 +132,7 @@ python get-voices.py
 > [!div class="nextstepaction"]
 > [GitHub에서 Python 샘플 살펴보기](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/Samples-Http/Python)
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 * [텍스트를 음성으로 변환 API 참조](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)
 * [사용자 지정 음성 글꼴 만들기](how-to-customize-voice-font.md)

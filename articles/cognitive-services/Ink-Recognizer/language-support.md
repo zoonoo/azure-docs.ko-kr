@@ -1,7 +1,7 @@
 ---
-title: 잉크 인식기 API에 대 한 언어 및 지역 지원
+title: 잉크 인식기 API에 대한 언어 및 지역 지원
 titleSuffix: Azure Cognitive Services
-description: 목록 잉크 인식기 API에서 지원 되는 자연 언어입니다.
+description: 잉크 인식기 API에서 지원하는 자연어 목록입니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: aahi
 ms.openlocfilehash: 36f2fa65f47f824ccc3544f5c13b5f5ee9afd21a
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67721746"
 ---
-# <a name="language-and-region-support-for-the-ink-recognizer-api"></a>잉크 인식기 API에 대 한 언어 및 지역 지원
+# <a name="language-and-region-support-for-the-ink-recognizer-api"></a>잉크 인식기 API에 대한 언어 및 지역 지원
 
-이 문서는 잉크 인식기 API에 대 한 지원 되는 언어를 설명 합니다. 다음 언어로 작성 된 콘텐츠를 디지털 잉크 해석 하 고 API에 의해 처리 될 수 있습니다.
+이 문서에서는 잉크 인식기 API에 대해 지원되는 언어를 설명합니다. 다음 언어로 작성된 디지털 잉크 콘텐츠는 API를 통해 해석및 처리될 수 있습니다.
 
 ## <a name="supported-languages"></a>지원되는 언어
 
@@ -30,23 +30,23 @@ ms.locfileid: "67721746"
 | 바스크어                                     |     `eu-ES`     |
 | 보스니아어(라틴 문자)                            | `bs-Latn-BA`    |
 | 카탈로니아어                                    |     `ca-ES`     |
-| 중국어 (간체, 중국)                |     `zh-CN`     |
-| 중국어 (번체, 대만)              |     `zh-TW`     |
-| 크로아티아어 (크로아티아)                         |     `hr-HR`     |
+| 중국어(간체, 중국)                |     `zh-CN`     |
+| 중국어(번체, 대만)              |     `zh-TW`     |
+| 크로아티아어(크로아티아)                         |     `hr-HR`     |
 | 체코어                                      |     `cs-CZ`     |
 | 덴마크어                                     |     `da-DK`     |
 | 네덜란드어(벨기에)                            |     `nl-BE`     |
 | 네덜란드어(네덜란드)                        |     `nl-NL`     |
 | 영어(오스트레일리아)                        |     `en-AU`     |
 | 영어(캐나다)                           |     `en-CA`     |
-| English (United Kingdom)                   |     `en-GB`     |
+| 영어(영국)                   |     `en-GB`     |
 | 영어(인도)                            |     `en-IN`     |
-| 영어 (미국)                    |     `en-US`     |
+| 영어(미국)                    |     `en-US`     |
 | 핀란드어                                    |     `fi-FI`     |
-| 프랑스어 (프랑스)                            |     `fr-FR`     |
+| 프랑스어(프랑스)                            |     `fr-FR`     |
 | 갈리시아어                                   |     `gl-ES`     |
-| 독일어 (스위스)                      |     `de-CH`     |
-| 독일어 (독일)                           |     `de-DE`     |
+| 독일어(스위스)                      |     `de-CH`     |
+| 독일어(독일)                           |     `de-DE`     |
 | 그리스어                                      |     `el-GR`     |
 | 힌디어                                      |     `hi-IN`     |
 | 인도네시아어                                 |     `id-ID`     |
@@ -54,29 +54,29 @@ ms.locfileid: "67721746"
 | 이탈리아어(이탈리아)                            |     `it-IT`     |
 | 일본어                                   |     `ja-JP`     |
 | 키냐르완다어                                |     `rw-RW`     |
-| 스와힐리어 (케냐)                          |     `sw-KE`     |
+| 키스와힐리 (케냐)                          |     `sw-KE`     |
 | 한국어                                     |     `ko-KR`     |
 | 룩셈부르크어                              |     `lb-LU`     |
-| 말레이어 (브루나이)                  |     `ms-BN`     |
-| 말레이어 (말레이시아)                           |     `ms-MY`     |
+| 말레이어(브루나이)                  |     `ms-BN`     |
+| 말레이어(말레이시아)                           |     `ms-MY`     |
 | 마오리어                                      |     `mi-NZ`     |
 | 노르웨이어(복말)                         |     `nb-NO`     |
 | 노르웨이어(니노르스크)                        |     `nn-NO`     |
 | 폴란드어                                     |     `pl-PL`     |
 | 포르투갈어(브라질)                        |     `pt-BR`     |
 | 포르투갈어(포르투갈)                      |     `pt-PT`     |
-| Romansh                                    |     `rm-CH`     |
+| 로만시 (주)                                    |     `rm-CH`     |
 | 루마니아어                                   |     `ro-RO`     |
 | 러시아어                                    |     `ru-RU`     |
 | 스코틀랜드 게일어                            |     `gd-GB`     |
 | 북부 소토어                           |    `nso-ZA`     |
 | 세르비아어(키릴 자모, 보스니아 헤르체고비나) |  `sr-Cyrl-BA`   |
-| 세르비아어 (키릴 자모, 몬테네그로)             |  `sr-Cyrl-ME`   |
-| 세르비아어 (키릴 자모, 세르비아)                 |  `sr-Cyrl-RS`   |
-| 세르비아어 (라틴 문자, 보스니아 헤르체고비나)    |  `sr-Latn-BA`   |
-| 세르비아어 (라틴 문자, 몬테네그로)                |  `sr-Latn-ME`   |
-| 세르비아어 (라틴 문자, 세르비아)                    |  `sr-Latn-RS`   |
-| 츠와나어 (남아프리카 공화국)                    |     `tn-ZA`     |
+| 세르비아어(키릴 문자, 몬테네그로)             |  `sr-Cyrl-ME`   |
+| 세르비아어(키릴 자모, 세르비아)                 |  `sr-Cyrl-RS`   |
+| 세르비아어(라틴어, 보스니아, 헤르체고비나)    |  `sr-Latn-BA`   |
+| 세르비아어(라틴어, 몬테네그로)                |  `sr-Latn-ME`   |
+| 세르비아어(라틴 문자, 세르비아)                    |  `sr-Latn-RS`   |
+| 세츠와나(남아프리카 공화국)                    |     `tn-ZA`     |
 | 슬로바키아어                                     |     `sk-SK`     |
 | 슬로베니아어                                  |     `sl-SI`     |
 | 스페인어(아르헨티나)                        |     `es-AR`     |
@@ -86,10 +86,10 @@ ms.locfileid: "67721746"
 | 터키어                                    |     `tr-TR`     |
 | 웨일스어                                      |     `cy-GB`     |
 | 월로프어                                      |     `wo-SN`     |
-| Xhosa                                      |     `xh-ZA`     |
+| 코사어                                      |     `xh-ZA`     |
 | 줄루어                                       |     `zu-ZA`     |
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참조
 
 * [Ink Recognizer API란?](overview.md)
-* [디지털 잉크 스트로크 잉크 인식기 API 보내기](concepts/send-ink-data.md)
+* [디지털 잉크 스트로크를 잉크 인식기 API로 보내기](concepts/send-ink-data.md)

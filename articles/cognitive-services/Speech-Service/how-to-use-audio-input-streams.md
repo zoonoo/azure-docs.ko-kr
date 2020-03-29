@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: fmegen
 ms.openlocfilehash: 3039276a49e7bb41660d114e78ca047a3f77f279
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74109944"
 ---
 # <a name="about-the-speech-sdk-audio-input-stream-api"></a>음성 SDK 오디오 입력 스트림 API 정보
 
-음성 SDK의 **오디오 입력 스트림** API는 마이크나 입력 파일 api를 사용 하는 대신 인식기로 오디오를 스트리밍하는 방법을 제공 합니다.
+음성 SDK의 **오디오 입력 스트림** API는 마이크 또는 입력 파일 API를 사용하는 대신 오디오를 인식기로 스트리밍하는 방법을 제공합니다.
 
 다음 단계는 오디오 입력 스트림을 사용할 때 필요합니다.
 
@@ -75,5 +75,5 @@ ms.locfileid: "74109944"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Speech 평가판 구독 가져오기](https://azure.microsoft.com/try/cognitive-services/)
+- [음성 평가판 구독 가져오기](https://azure.microsoft.com/try/cognitive-services/)
 - [C#에서 음성을 인식하는 방법 참조](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)

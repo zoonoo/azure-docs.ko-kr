@@ -1,7 +1,7 @@
 ---
 title: Translator Text API Transliterate 메서드
 titleSuffix: Azure Cognitive Services
-description: Translator Text API 음 차 메서드를 사용 하 여 한 언어로 텍스트를 한 스크립트에서 다른 스크립트로 변환 합니다.
+description: 번역기 텍스트 API 음장 변환 방법을 사용하여 한 스크립트에서 다른 스크립트로 한 언어로 텍스트를 변환합니다.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
 ms.openlocfilehash: e6bb1541b2b668796b352bebc68d59b4ade143e3
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73837271"
 ---
 # <a name="translator-text-api-30-transliterate"></a>Translator Text API 3.0: Transliterate
@@ -41,30 +41,30 @@ https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0
     <td>*필수 매개 변수*입니다.<br/>클라이언트에서 요청한 API 버전입니다. 값은 `3.0`이어야 합니다.</td>
   </tr>
   <tr>
-    <td>language</td>
-    <td>*필수 매개 변수*입니다.<br/>한 스크립트에서 다른 스크립트로 변환할 텍스트의 언어를 지정합니다. 사용 가능한 언어는 서비스에서 `transliteration`지원되는 언어[를 쿼리하여 표시되는 ](./v3-0-languages.md) 범위에 표시됩니다.</td>
+    <td>언어</td>
+    <td>*필수 매개 변수*입니다.<br/>한 스크립트에서 다른 스크립트로 변환할 텍스트의 언어를 지정합니다. 사용 가능한 언어는 서비스에서 [지원되는 언어](./v3-0-languages.md)를 쿼리하여 표시되는 `transliteration` 범위에 표시됩니다.</td>
   </tr>
   <tr>
     <td>fromScript</td>
-    <td>*필수 매개 변수*입니다.<br/>입력 텍스트에서 사용되는 스크립트를 지정합니다. [ 범위를 사용하여 ](./v3-0-languages.md)지원되는 언어`transliteration`를 조회하면 선택한 언어로 사용 가능한 입력 스크립트가 검색됩니다.</td>
+    <td>*필수 매개 변수*입니다.<br/>입력 텍스트에서 사용되는 스크립트를 지정합니다. `transliteration` 범위를 사용하여 [지원되는 언어](./v3-0-languages.md)를 조회하면 선택한 언어로 사용 가능한 입력 스크립트가 검색됩니다.</td>
   </tr>
   <tr>
     <td>toScript</td>
-    <td>*필수 매개 변수*입니다.<br/>출력 스크립트를 지정합니다. [ 범위를 사용하여 ](./v3-0-languages.md)지원되는 언어`transliteration`를 조회하면 선택한 입력 언어 및 입력 스크립트 조합으로 사용 가능한 출력 스크립트가 검색됩니다.</td>
+    <td>*필수 매개 변수*입니다.<br/>출력 스크립트를 지정합니다. `transliteration` 범위를 사용하여 [지원되는 언어](./v3-0-languages.md)를 조회하면 선택한 입력 언어 및 입력 스크립트 조합으로 사용 가능한 출력 스크립트가 검색됩니다.</td>
   </tr>
 </table> 
 
 요청 헤더에는 다음이 포함됩니다.
 
 <table width="100%">
-  <th width="20%">헤더</th>
+  <th width="20%">headers</th>
   <th>설명</th>
   <tr>
-    <td>인증 헤더</td>
+    <td>인증 헤더(들)</td>
     <td><em>필수 요청 헤더</em><br/><a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">인증에 사용할 수 있는 옵션</a>을 참조하세요.</td>
   </tr>
   <tr>
-    <td>Content-Type</td>
+    <td>콘텐츠 형식</td>
     <td>*필수 요청 헤더*<br/>페이로드의 콘텐츠 형식을 지정합니다. 가능한 값은 `application/json`입니다.</td>
   </tr>
   <tr>
@@ -73,7 +73,7 @@ https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0
   </tr>
   <tr>
     <td>X-ClientTraceId</td>
-    <td>*선택 사항*입니다.<br/>요청을 고유하게 식별하는 클라이언트 생성 ID입니다. `ClientTraceId`라는 쿼리 매개 변수를 사용하는 쿼리 문자열에서 추적 ID를 포함하는 경우 이 헤더를 생략할 수 있습니다.</td>
+    <td>*선택 사항입니다*.<br/>요청을 고유하게 식별하는 클라이언트 생성 ID입니다. `ClientTraceId`라는 쿼리 매개 변수를 사용하는 쿼리 문자열에서 추적 ID를 포함하는 경우 이 헤더를 생략할 수 있습니다.</td>
   </tr>
 </table> 
 
@@ -114,7 +114,7 @@ https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0
 ## <a name="response-headers"></a>응답 헤더
 
 <table width="100%">
-  <th width="20%">헤더</th>
+  <th width="20%">headers</th>
   <th>설명</th>
   <tr>
     <td>X-RequestId</td>
@@ -131,7 +131,7 @@ https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0
   <th>설명</th>
   <tr>
     <td>200</td>
-    <td>명령 실행 성공</td>
+    <td>성공했습니다.</td>
   </tr>
   <tr>
     <td>400</td>
@@ -147,7 +147,7 @@ https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0
   </tr>
   <tr>
     <td>429</td>
-    <td>클라이언트에서 요청 제한을 초과 하 여 서버가 요청을 거부 했습니다.</td>
+    <td>클라이언트가 요청 제한을 초과했기 때문에 서버가 요청을 거부했습니다.</td>
   </tr>
   <tr>
     <td>500</td>

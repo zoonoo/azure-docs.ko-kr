@@ -1,5 +1,5 @@
 ---
-title: 앱 교육-LUIS
+title: 기차 응용 프로그램 - 루이스
 titleSuffix: Azure Cognitive Services
 description: 학습은 해당 자연어 이해를 향상시키기 위해 LUIS(Language Understanding) 앱 버전을 학습하는 과정입니다. 엔터티, 의도 또는 발언을 추가하거나, 편집하거나, 레이블 지정하거나 삭제하는 등 모델에 대한 업데이트 후에 LUIS 앱을 학습합니다.
 services: cognitive-services
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: diberry
 ms.openlocfilehash: 1da8ab3015730c6b3e1962301a34b1ad43b1aad6
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79221306"
 ---
 # <a name="train-your-active-version-of-the-luis-app"></a>LUIS 앱의 활성 버전 학습 
@@ -34,19 +34,19 @@ ms.locfileid: "79221306"
 
 1. 앱의 위쪽 패널에서 **학습**을 선택합니다. 
 
-1. 교육이 완료 되 면 브라우저 맨 위에 알림이 나타납니다.
+1. 교육이 완료되면 브라우저 상단에 알림이 표시됩니다.
 
-## <a name="training-date-and-time"></a>학습 날짜 및 시간
+## <a name="training-date-and-time"></a>교육 날짜 및 시간
 
-학습 날짜 및 시간은 GMT + 2입니다. 
+교육 날짜와 시간은 GMT + 2입니다. 
 
 ## <a name="train-with-all-data"></a>모든 데이터를 사용하여 학습
 
-학습은 음수 샘플링(negative sampling)의 작은 비율을 사용합니다. 작은 부정 샘플링 대신 모든 데이터를 사용 하려면 [API](#version-settings-api-use-of-usealltrainingdata)를 사용 합니다.
+학습은 음수 샘플링(negative sampling)의 작은 비율을 사용합니다. 작은 음수 샘플링 대신 모든 데이터를 사용하려면 [API를](#version-settings-api-use-of-usealltrainingdata)사용합니다.
 
-### <a name="version-settings-api-use-of-usealltrainingdata"></a>UseAllTrainingData의 버전 설정 API 사용
+### <a name="version-settings-api-use-of-usealltrainingdata"></a>사용AllTrainingData의 버전 설정 API 사용
 
-이 기능을 해제 하려면 `UseAllTrainingData`을 true로 설정 하 여 [버전 설정 API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) 를 사용 합니다. 
+이 기능을 끄려면 `UseAllTrainingData` 설정이 true인 [버전 설정 API를](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) 사용합니다. 
 
 ## <a name="unnecessary-training"></a>불필요한 학습
 
@@ -61,4 +61,4 @@ LUIS 포털에서 학습은 **학습** 단추를 한 번만 누르면 됩니다.
 ## <a name="next-steps"></a>다음 단계
 
 * [대화형 테스트](luis-interactive-test.md)
-* [일괄 처리 테스트](luis-how-to-batch-test.md)
+* [일괄 테스트](luis-how-to-batch-test.md)

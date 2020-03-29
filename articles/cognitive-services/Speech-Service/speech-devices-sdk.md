@@ -1,7 +1,7 @@
 ---
-title: 음성 장치 SDK-음성 서비스
+title: 음성 장치 SDK - 음성 서비스
 titleSuffix: Azure Cognitive Services
-description: Speech Devices SDK를 시작합니다. 음성 서비스는 다양 한 장치 및 오디오 소스에서 작동 합니다. Speech Devices SDK는 특별히 만들어진 마이크 배열 개발 키트와 쌍으로 연결된 미리 조정된 라이브러리입니다.
+description: Speech Devices SDK를 시작합니다. 음성 서비스는 다양한 장치 및 오디오 소스와 함께 작동합니다. Speech Devices SDK는 특별히 만들어진 마이크 배열 개발 키트와 쌍으로 연결된 미리 조정된 라이브러리입니다.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: erhopf
 ms.openlocfilehash: add0d27ae6a612fed0320b5329d19236b7bbbd01
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79370647"
 ---
-# <a name="what-is-the-speech-devices-sdk"></a>음성 장치 SDK 란 무엇 인가요?
+# <a name="what-is-the-speech-devices-sdk"></a>음성 장치 SDK는 무엇입니까?
 
-[음성 서비스](overview.md) 는 다양 한 장치 및 오디오 소스에서 작동 합니다. 이제 일치하는 하드웨어 및 소프트웨어를 사용하여 음성 애플리케이션을 한 단계 업그레이드할 수 있습니다. Speech Devices SDK는 특별히 만들어진 마이크 배열 개발 키트와 쌍으로 연결된 미리 조정된 라이브러리입니다.
+[음성 서비스는](overview.md) 다양한 장치 및 오디오 소스와 함께 작동합니다. 이제 일치하는 하드웨어 및 소프트웨어를 사용하여 음성 애플리케이션을 한 단계 업그레이드할 수 있습니다. Speech Devices SDK는 특별히 만들어진 마이크 배열 개발 키트와 쌍으로 연결된 미리 조정된 라이브러리입니다.
 
 Speech Devices SDK는 다음을 수행하는 데 유용합니다.
 
@@ -27,29 +27,29 @@ Speech Devices SDK는 다음을 수행하는 데 유용합니다.
 - 클라우드 기반 Speech Service를 디바이스에 더 쉽게 통합합니다.
 - 고객을 위한 탁월한 사용자 환경을 만듭니다.
 
-Speech Devices SDK는 [Speech SDK](speech-sdk.md)를 사용합니다. 오디오를 [음성 서비스로](overview.md)보내기 위해 장치의 마이크 배열과 함께 고급 오디오 처리 알고리즘을 사용 합니다. 노이즈 억제, 반향 취소, beamforming 및 dereverberation을 통해 정확한 먼 필드 [음성 인식을](speech-to-text.md) 제공 합니다.
+Speech Devices SDK는 [Speech SDK](speech-sdk.md)를 사용합니다. 장치의 마이크 어레이와 함께 고급 오디오 처리 알고리즘을 사용하여 [오디오를 음성 서비스로](overview.md)전송합니다. 소음 억제, 에코 제거, 빔포밍 및 비강화를 통해 정확한 원거리 [음성 인식을](speech-to-text.md) 제공합니다.
 
-음성 장치 SDK를 사용 하 여 고유한 [사용자 지정 키워드](speech-devices-sdk-create-kws.md)를 포함 하는 주변 장치를 빌드할 수도 있습니다. 사용자 지정 키워드는 사용자의 브랜드에 고유한 사용자 상호 작용을 시작 하는 큐를 제공 합니다.
+음성 장치 SDK를 사용하여 사용자 [지정된 키워드가](speech-devices-sdk-create-kws.md)있는 주변 장치를 빌드할 수도 있습니다. 맞춤 키워드는 브랜드고유의 사용자 상호 작용을 시작하는 단서를 제공합니다.
 
-음성 장치 SDK를 사용 하면 [음성 도우미](https://aka.ms/bots/speech/va), 드라이브 및 주문 시스템, [대화](conversation-transcription-service.md)기록, 스마트 스피커 등의 다양 한 음성 사용 시나리오를 사용할 수 있습니다. 예를 들어, 사용자에게 텍스트로 응답하고, 기본 또는 [사용자 지정 음성](how-to-customize-voice-font.md)으로 응답하고, 검색 결과를 제공하고, 다른 언어로 [번역](speech-translation.md)할 수 있습니다. 여러분이 무엇을 빌드할지 기대가 됩니다!
+음성 장치 SDK는 [음성 비서,](https://aka.ms/bots/speech/va)드라이브 스루 주문 시스템, [대화 녹음](conversation-transcription-service.md)및 스마트 스피커와 같은 다양한 음성 지원 시나리오를 지원합니다. 예를 들어, 사용자에게 텍스트로 응답하고, 기본 또는 [사용자 지정 음성](how-to-customize-voice-font.md)으로 응답하고, 검색 결과를 제공하고, 다른 언어로 [번역](speech-translation.md)할 수 있습니다. 여러분이 무엇을 빌드할지 기대가 됩니다!
 
 ## <a name="get-the-speech-devices-sdk"></a>음성 디바이스 SDK 가져오기
 
 ### <a name="android"></a>Android
 
-Android의 경우 장치는 [Android Speech DEVICES SDK](https://aka.ms/sdsdk-download-android)의 최신 버전을 다운로드 합니다.
+안드로이드의 경우, 장치는 안드로이드 [음성 장치 SDK의](https://aka.ms/sdsdk-download-android)최신 버전을 다운로드합니다.
 
 ### <a name="windows"></a>Windows
 
-Windows의 경우 샘플 응용 프로그램은 플랫폼 간 Java 응용 프로그램으로 제공 됩니다. 최신 버전의 [JRE Speech 장치 SDK](https://aka.ms/sdsdk-download-JRE)를 다운로드 합니다.
+Windows의 경우 샘플 응용 프로그램은 플랫폼 간 Java 응용 프로그램으로 제공됩니다. [JRE 음성 장치 SDK의](https://aka.ms/sdsdk-download-JRE)최신 버전을 다운로드합니다.
 애플리케이션은 Speech SDK 패키지와 64비트 Windows 기반의 Eclipse Java IDE(v4)를 사용하여 빌드됩니다. 64비트 Java 8 JRE(Java Runtime Environment)에서 실행됩니다.
 
 ### <a name="linux"></a>Linux
 
-Linux의 경우 샘플 응용 프로그램은 플랫폼 간 Java 응용 프로그램으로 제공 됩니다. 최신 버전의 [JRE Speech 장치 SDK](https://aka.ms/sdsdk-download-JRE)를 다운로드 합니다.
-응용 프로그램은 Speech SDK 패키지 및 64 비트 Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 8, CentOS 8)의 Eclipse Java IDE (v4)를 사용 하 여 빌드됩니다. 64비트 Java 8 JRE(Java Runtime Environment)에서 실행됩니다.
+Linux의 경우 샘플 응용 프로그램은 플랫폼 간 Java 응용 프로그램으로 제공됩니다. [JRE 음성 장치 SDK의](https://aka.ms/sdsdk-download-JRE)최신 버전을 다운로드합니다.
+응용 프로그램은 음성 SDK 패키지와 64 비트 리눅스 (우분투 16.04, 우분투 18.04, 데비안 9, RHEL 8, CentOS 8)에 이클립스 자바 IDE (v4)로 내장되어 있습니다. 64비트 Java 8 JRE(Java Runtime Environment)에서 실행됩니다.
 
-향후 장치, [Roobo V2 DDK](https://aka.ms/sdsdk-download-roobov2), [Urbetter](https://aka.ms/sdsdk-download-urbetter)및 [GGEC 스피커](https://aka.ms/sdsdk-download-speaker)를 지원 하기 위해 추가 바이너리가 제공 됩니다.
+추가 바이너리는 곧 장치를 지원하기 위해 제공됩니다, [루보 v2 DDK,](https://aka.ms/sdsdk-download-roobov2) [Urbetter DDK,](https://aka.ms/sdsdk-download-urbetter)및 [GGEC 스피커.](https://aka.ms/sdsdk-download-speaker)
 
 ## <a name="next-steps"></a>다음 단계
 

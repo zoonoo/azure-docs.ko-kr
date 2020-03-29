@@ -11,15 +11,15 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 05/29/2019
 ms.openlocfilehash: e0930558f31b27a77fa2cd6b44fcea2fe9091086
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74538818"
 ---
 # <a name="moderate-text-from-the-api-console"></a>API 콘솔에서 텍스트 조정
 
-Azure Content Moderator에서 [텍스트 조정 API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f) 를 사용 하 여 텍스트 콘텐츠를 검색 하 고 사용자 지정 및 공유 목록과 비교할 수 있습니다.
+Azure 콘텐츠 중재자의 [텍스트 중재 API를](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f) 사용하여 텍스트 콘텐츠를 비속어로 스캔하고 사용자 지정 및 공유 목록과 비교합니다.
 
 ## <a name="get-your-api-key"></a>API key 가져오기
 
@@ -41,20 +41,20 @@ Azure Content Moderator에서 [텍스트 조정 API](https://westus.dev.cognitiv
 
 ## <a name="select-the-inputs"></a>입력 선택
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>매개 변수
 
 텍스트 화면에서 사용하려는 쿼리 매개 변수를 선택합니다. 이 예제의 경우 **언어**에 대한 기본값을 사용합니다. 작업에서 실행의 일부로 가능성이 있는 언어를 자동으로 검색하므로 비워둘 수도 있습니다.
 
 > [!NOTE]
-> **language** 매개 변수에 대해 `eng`를 할당하거나, 컴퓨터 지원 **분류** 응답(미리 보기 기능)을 확인하려면 비워둡니다. **이 기능은 영어만 지원합니다**.
+> **language** 매개 변수에 대해 `eng`를 할당하거나, 기계 지원 **분류** 응답(미리 보기 기능)을 확인하려면 비워 둡니다. **이 기능은 영어만 지원합니다**.
 >
-> **욕설** 감지의 경우 이 문서에 나열된 지원되는 언어의 [ISO 639-3 코드](http://www-01.sil.org/iso639-3/codes.asp)를 사용하거나 비워둡니다.
+> **욕설** 감지의 경우 이 문서에 나열된 지원되는 언어의 [ISO 639-3 코드](http://www-01.sil.org/iso639-3/codes.asp)를 사용하거나 비워 둡니다.
 
 **자동 수정**, **PII** 및 **분류(미리 보기)** 의 경우 **true**를 선택합니다. **ListId** 필드는 비워둡니다.
 
   ![텍스트 - 화면 콘솔 쿼리 매개 변수](images/text-api-console-inputs.PNG)
 
-### <a name="content-type"></a>콘텐츠 형식
+### <a name="content-type"></a>내용 유형
 
 **Content-type**의 경우 차단하려는 콘텐츠 유형을 선택합니다. 이 예제의 경우 기본 **텍스트/일반** 콘텐츠 형식을 사용합니다. **Ocp-Apim-Subscription-Key** 상자에 구독 키를 입력합니다.
 
@@ -68,7 +68,7 @@ Is this a grabage or crap email abcdef@abcd.com, phone: 4255550111, IP: 255.255.
 
 ## <a name="analyze-the-response"></a>응답 분석
 
-다음과 같은 응답이 API에서 다양한 인사이트를 보여줍니다. 잠재적인 불경, 개인 데이터, 분류 (미리 보기) 및 자동 수정 버전이 포함 되어 있습니다.
+다음과 같은 응답이 API에서 다양한 인사이트를 보여줍니다. 여기에는 잠재적인 욕설, 개인 데이터, 분류(미리 보기) 및 자동 수정 버전이 포함됩니다.
 
 > [!NOTE]
 > 컴퓨터 지원 ‘분류’ 기능은 현재 미리 보기로 제공되며 영어만 지원합니다.
@@ -167,8 +167,8 @@ Is this a grabage or crap email abcdef@abcd.com, phone: 4255550111, IP: 255.255.
 }
 ```
 
-JSON 응답의 모든 섹션에 대 한 자세한 설명은 [텍스트 중재](text-moderation-api.md) 개념 가이드를 참조 하세요.
+JSON 응답의 모든 섹션에 대한 자세한 설명은 [텍스트 검토](text-moderation-api.md) 개념 가이드를 참조하십시오.
 
 ## <a name="next-steps"></a>다음 단계
 
-코드에서 REST API를 사용 하거나 [.NET SDK 퀵 스타트](dotnet-sdk-quickstart.md) 를 따라 응용 프로그램과 통합 합니다.
+코드에서 REST API를 사용하거나 [.NET SDK 퀵스타트를](dotnet-sdk-quickstart.md) 따라 응용 프로그램과 통합합니다.

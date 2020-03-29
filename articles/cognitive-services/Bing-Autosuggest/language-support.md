@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: scottwhi
 ms.openlocfilehash: 6fe2e78501024983544b399762fb936d86e5c9d5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "60547339"
 ---
 # <a name="language-and-region-support-for-the-bing-autosuggest-api"></a>Bing Autosuggest API에 대한 언어 및 지역 지원
@@ -37,7 +37,7 @@ ms.locfileid: "60547339"
 | 영어(말레이시아)     | `en-MY`          |
 | 영어(뉴질랜드)    | `en-NZ`          |
 | 영어(필리핀)     | `en-PH`          |
-| 영어(남아프리카 공화국)    | `en-ZA`          |
+| 영어(남아프리카)    | `en-ZA`          |
 | 영어(영국)    | `en-GB`          |
 | 영어(미국)    | `en-US`          |
 | 핀란드어     | `fi`          |
@@ -64,7 +64,7 @@ ms.locfileid: "60547339"
 | 스웨덴어     | `sv`          |
 | 터키어     | `tr`          |
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 - [Azure Cognitive Services 문서 페이지](https://docs.microsoft.com/azure/cognitive-services/)
 - [Azure Cognitive Services 제품 페이지](https://azure.microsoft.com/services/cognitive-services/)

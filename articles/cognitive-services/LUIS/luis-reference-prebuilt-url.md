@@ -1,5 +1,5 @@
 ---
-title: URL 미리 작성 한 엔터티-LUIS
+title: URL 미리 빌드된 엔터티 - LUIS
 titleSuffix: Azure Cognitive Services
 description: 이 문서에는 LUIS(Language Understanding)의 URL 미리 빌드된 엔터티가 포함됩니다.
 services: cognitive-services
@@ -12,27 +12,27 @@ ms.topic: reference
 ms.date: 10/04/2019
 ms.author: diberry
 ms.openlocfilehash: 49f145ce3e9022826abad5d274dd611bb2cc6530
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78270357"
 ---
 # <a name="url-prebuilt-entity-for-a-luis-app"></a>LUIS 앱용 URL 미리 빌드된 엔터티
 URL 엔터티는 도메인 이름 또는 IP 주소를 사용하여 URL을 추출합니다. 이 엔터티를 이미 학습했기 때문에 URL을 애플리케이션에 포함하는 예제 발언을 추가할 필요가 없습니다. URL 엔터티는 `en-us` 문화권에서만 지원됩니다.
 
 ## <a name="types-of-urls"></a>URL 유형
-URL은 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/Base-URL.yaml) GitHub 리포지토리에서 관리됩니다.
+URL은 [인식기 텍스트](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/Base-URL.yaml) GitHub 리포지토리에서 관리됩니다.
 
 ## <a name="resolution-for-prebuilt-url-entity"></a>미리 빌드된 URL 엔터티의 해결
 
-쿼리에 대해 반환 되는 엔터티 개체는 다음과 같습니다.
+다음 엔터티 개체는 쿼리에 대해 반환됩니다.
 
 `https://www.luis.ai is a great cognitive services example of artificial intelligence`
 
 #### <a name="v3-response"></a>[V3 응답](#tab/V3)
 
-다음 JSON은 `false`로 설정 된 `verbose` 매개 변수를 사용 합니다.
+다음 JSON은 매개 `verbose` 변수를 `false`다음과 같은 것으로 설정합니다.
 
 ```json
 "entities": {
@@ -41,9 +41,9 @@ URL은 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/mas
     ]
 }
 ```
-#### <a name="v3-verbose-response"></a>[V3 자세한 정보 표시 응답](#tab/V3-verbose)
+#### <a name="v3-verbose-response"></a>[V3 자세한 응답](#tab/V3-verbose)
 
-다음 JSON은 `true`로 설정 된 `verbose` 매개 변수를 사용 합니다.
+다음 JSON은 매개 `verbose` 변수를 `true`다음과 같은 것으로 설정합니다.
 
 ```json
 "entities": {
@@ -69,7 +69,7 @@ URL은 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/mas
 ```
 #### <a name="v2-response"></a>[V2 응답](#tab/V2)
 
-다음 예에서는 인공 지능의 뛰어난 인식 서비스 예 https://www.luis.ai의 해상도를 보여 줍니다.
+다음 https://www.luis.ai 예제는 인공 지능의 훌륭한 인지 서비스 예의 해상도를 보여줍니다.
 
 ```json
 "entities": [

@@ -1,5 +1,5 @@
 ---
-title: FAQ (질문과 대답)-LUIS
+title: 자주 묻는 질문 (FAQ) - LUIS
 titleSuffix: Azure Cognitive Services
 description: 이 문서에서는 LUIS(Language Understanding)에 대한 FAQ(질문과 대답)에 대해 알아봅니다.
 author: diberry
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 11/08/2019
 ms.author: diberry
 ms.openlocfilehash: a2472064720af0a25568a2f173b971898b1f2e25
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79221278"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Language Understanding FAQ(질문과 대답)
@@ -24,7 +24,7 @@ ms.locfileid: "79221278"
 
 ## <a name="whats-new"></a>새로운 기능
 
-Language Understanding의 새로운 기능 (LUIS)에 [대해 자세히 알아보세요](whats-new.md) .
+언어 이해(LUIS)의 새로운 방법에 대해 [자세히 알아보세요.](whats-new.md)
 
 <a name="luis-authoring"></a>
 
@@ -68,13 +68,13 @@ Cortana의 미리 빌드된 앱은 2017년부터 더 이상 사용되지 않습�
 ### <a name="how-do-i-transfer-ownership-of-a-luis-app"></a>LUIS 앱의 소유권을 양도하려면 어떻게 해야 하나요?
 LUIS 앱을 다른 Azure 구독으로 이전하려면 LUIS 앱을 내보낸 후 새 계정을 사용하여 가져옵니다. LUIS 앱을 호출하는 클라이언트 애플리케이션에서 해당 앱 ID를 업데이트합니다. 새 앱은 원래 앱과는 약간 다른 LUIS 점수를 반환할 수 있습니다.
 
-### <a name="a-prebuilt-entity-is-tagged-in-an-example-utterance-instead-of-my-custom-entity-how-do-i-fix-this"></a>미리 빌드된 엔터티에는 사용자 지정 엔터티가 아닌 예제 utterance 태그가 지정 됩니다. 어떻게 할까요? 문제를 해결 하 시겠습니까? 
+### <a name="a-prebuilt-entity-is-tagged-in-an-example-utterance-instead-of-my-custom-entity-how-do-i-fix-this"></a>미리 빌드된 엔터티는 사용자 지정 엔터티 대신 예제 발언에 태그가 지정됩니다. 이 문제를 해결하려면 어떻게 해야 합니까? 
 
-LUIS 포털에서 추출 하려는 정확한 엔터티의 텍스트에 레이블을 지정할 수 있습니다. LUIS 포털에 올바른 엔터티 예측이 표시 되지 않는 경우에는 길이 발언를 추가 하 고 텍스트 내에 엔터티 레이블을 추가 하거나 기능 등의 설명자를 추가 해야 할 수 있습니다. 
+LUIS 포털에서 추출에 관심이 있는 정확한 엔터티에 대한 텍스트레이블을 지정할 수 있습니다. LUIS 포털에 올바른 엔터티 예측이 표시되지 않으면 더 많은 발언을 추가하고 텍스트 내에 엔터티에 레이블을 지정하거나 설명자(예: 피처)를 추가해야 할 수 있습니다. 
 
-### <a name="i-tried-to-import-an-app-or-version-file-but-i-got-an-error-what-happened"></a>앱 또는 버전 파일을 가져오려고 했지만 오류가 발생 했습니다. 문제가 발생 한 경우 
+### <a name="i-tried-to-import-an-app-or-version-file-but-i-got-an-error-what-happened"></a>앱 또는 버전 파일을 가져오려고 했지만 오류가 발생했습니다. 
 
-[버전 가져오기 오류](luis-how-to-manage-versions.md#import-errors)에 대해 자세히 알아보세요.
+[버전 가져오기 오류에](luis-how-to-manage-versions.md#import-errors)대해 자세히 알아보기.
 
 <a name="luis-collaborating"></a>
 
@@ -90,28 +90,28 @@ LUIS 포털에서 추출 하려는 정확한 엔터티의 텍스트에 레이블
 
 ### <a name="i-received-an-http-403-error-status-code-how-do-i-fix-it"></a>HTTP 403 오류 상태 코드를 받았습니다. 이 문제를 어떻게 해결하나요?
 
-가격 책정 계층에 대 한 초당 트랜잭션 수 또는 월별 트랜잭션을 초과 하는 경우 403 및 429 오류 상태 코드를 받게 됩니다. 가격 책정 계층을 늘리거나 Language Understanding [컨테이너](luis-container-howto.md)를 사용 합니다.
+가격 책정 계층의 월별 트랜잭션 또는 월별 트랜잭션을 초과하면 403 및 429 오류 상태 코드가 표시됩니다. 가격 책정 계층을 늘리거나 언어 이해 [컨테이너를](luis-container-howto.md)사용합니다.
 
-이러한 무료 1000 끝점 쿼리를 모두 사용 하거나 가격 책정 계층의 월간 트랜잭션 할당량을 초과 하는 경우 HTTP 403 오류 상태 코드를 받게 됩니다. 
+이러한 무료 1000 개의 끝점 쿼리를 모두 사용하거나 가격 책정 계층의 월별 트랜잭션 할당량을 초과하면 HTTP 403 오류 상태 코드가 나타납니다. 
 
-이 오류를 해결 하려면 [가격 책정 계층](luis-how-to-azure-subscription.md#change-pricing-tier) 을 상위 계층으로 변경 하거나 [새 리소스를 만들어](get-started-portal-deploy-app.md#create-the-endpoint-resource) [앱에 할당](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal)해야 합니다.
+이 오류를 해결하려면 가격 [책정 계층을](luis-how-to-azure-subscription.md#change-pricing-tier) 상위 계층으로 변경하거나 [새 리소스를 만들어](get-started-portal-deploy-app.md#create-the-endpoint-resource) [앱에 할당해야 합니다.](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal)
 
-이 오류에 대 한 해결 방법은 다음과 같습니다.
+이 오류에 대한 해결 방법은 다음과 같습니다.
 
-* [Azure Portal](https://portal.azure.com)의 Language Understanding 리소스에서 **리소스 관리-> 가격 책정 계층**에서 가격 책정 계층을 더 높은 TPS 계층으로 변경 합니다. 리소스가 이미 Language Understanding 앱에 할당 된 경우에는 Language Understanding 포털에서 아무것도 수행할 필요가 없습니다.
-*  사용량이 가장 높은 가격 책정 계층을 초과 하는 경우 부하 분산 장치 앞에 더 많은 Language Understanding 리소스를 추가 합니다. Kubernetes 또는 Docker Compose를 사용 하는 [Language Understanding 컨테이너](luis-container-howto.md) 는이를 지원할 수 있습니다.
+* Azure [포털의](https://portal.azure.com)언어 이해 리소스, **리소스 관리 -> 가격 책정 계층에서**가격 책정 계층을 더 높은 TPS 계층으로 변경합니다. 리소스가 언어 이해 앱에 이미 할당된 경우 언어 이해 포털에서 아무 것도 수행할 필요가 없습니다.
+*  사용량이 가장 높은 가격 책정 계층을 초과하는 경우 로드 밸러버 앞에 있는 언어 이해 리소스를 더 추가합니다. Kubernetes 또는 Docker 컴포지션이 있는 [언어 이해 컨테이너가](luis-container-howto.md) 도움이 될 수 있습니다.
 
 ### <a name="i-received-an-http-429-error-status-code-how-do-i-fix-it"></a>HTTP 429 오류 상태 코드를 받았습니다. 이 문제를 어떻게 해결하나요?
 
-가격 책정 계층에 대 한 초당 트랜잭션 수 또는 월별 트랜잭션을 초과 하는 경우 403 및 429 오류 상태 코드를 받게 됩니다. 가격 책정 계층을 늘리거나 Language Understanding [컨테이너](luis-container-howto.md)를 사용 합니다.
+가격 책정 계층의 월별 트랜잭션 또는 월별 트랜잭션을 초과하면 403 및 429 오류 상태 코드가 표시됩니다. 가격 책정 계층을 늘리거나 언어 이해 [컨테이너를](luis-container-howto.md)사용합니다.
 
-초당 트랜잭션이 가격 책정 계층을 초과 하면이 상태 코드가 반환 됩니다.  
+이 상태 코드는 초당 트랜잭션이 가격 책정 계층을 초과하면 반환됩니다.  
 
-해결 방법은 다음과 같습니다.
+솔루션에는 다음이 포함됩니다.
 
-* 가장 높은 계층에 있지 않은 경우 [가격 책정 계층을 늘릴](luis-how-to-azure-subscription.md#change-pricing-tier)수 있습니다.
-* 사용량이 가장 높은 가격 책정 계층을 초과 하는 경우 부하 분산 장치 앞에 더 많은 Language Understanding 리소스를 추가 합니다. Kubernetes 또는 Docker Compose를 사용 하는 [Language Understanding 컨테이너](luis-container-howto.md) 는이를 지원할 수 있습니다.
-* 이 상태 코드가 표시 될 때 사용자가 직접 구현한 [다시 시도 정책을](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults#general-guidelines) 사용 하 여 클라이언트 응용 프로그램 요청을 게이트 할 수 있습니다. 
+* 최상위 [계층에](luis-how-to-azure-subscription.md#change-pricing-tier)있지 않은 경우 가격 책정 계층을 늘릴 수 있습니다.
+* 사용량이 가장 높은 가격 책정 계층을 초과하는 경우 로드 밸러버 앞에 있는 언어 이해 리소스를 더 추가합니다. Kubernetes 또는 Docker 컴포지션이 있는 [언어 이해 컨테이너가](luis-container-howto.md) 도움이 될 수 있습니다.
+* 이 상태 코드를 받으면 직접 구현하는 [재시도 정책으로](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults#general-guidelines) 클라이언트 응용 프로그램 요청을 게이트할 수 있습니다. 
 
 ### <a name="my-endpoint-query-returned-unexpected-results-what-should-i-do"></a>내 엔드포인트 쿼리에서 예기치 않은 결과를 반환했습니다. 어떻게 해야 하나요?
 
@@ -124,13 +124,13 @@ LUIS 포털에서 추출 하려는 정확한 엔터티의 텍스트에 레이블
 다른 팁을 보려면 [모범 사례](luis-concept-best-practices.md)를 검토하세요. 
 
 ### <a name="why-does-luis-add-spaces-to-the-query-around-or-in-the-middle-of-words"></a>LUIS가 쿼리 주변 또는 단어 중간에 공백을 추가하는 이유는 무엇인가요?
-LUIS는 [문화권](luis-glossary.md#token)에 따라 발언을 [토큰화](luis-language-support.md#tokenization)합니다. 원래 값과 토큰화된 값 둘다 [데이터 추출](luis-concept-data-extraction.md#tokenized-entity-returned)에 사용할 수 있습니다.
+LUIS는 [문화권](luis-language-support.md#tokenization)에 따라 발언을 [토큰화](luis-glossary.md#token)합니다. 원래 값과 토큰화된 값 둘다 [데이터 추출](luis-concept-data-extraction.md#tokenized-entity-returned)에 사용할 수 있습니다.
 
 ### <a name="how-do-i-create-and-assign-a-luis-endpoint-key"></a>LUIS 엔드포인트 키를 만들고 할당하려면 어떻게 해야 하나요?
-Azure에서 [서비스](luis-how-to-azure-subscription.md) 수준에 대해 [엔드포인트 키를 만듭니다](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/). **[Azure 리소스](luis-how-to-azure-subscription.md)** 페이지에서 [키를 할당](luis-how-to-azure-subscription.md) 합니다. 이 작업에 해당하는 API는 없습니다. 그런 후 엔드포인트에 대한 HTTP 요청을 [새 엔드포인트 키를 사용하도록](luis-concept-keys.md) 변경해야 합니다.
+Azure에서 [서비스](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) 수준에 대해 [엔드포인트 키를 만듭니다](luis-how-to-azure-subscription.md). Azure 리소스 페이지에서 [키를](luis-how-to-azure-subscription.md) **[할당합니다.](luis-how-to-azure-subscription.md)** 이 작업에 해당하는 API는 없습니다. 그런 후 엔드포인트에 대한 HTTP 요청을 [새 엔드포인트 키를 사용하도록](luis-concept-keys.md) 변경해야 합니다.
 
 ### <a name="how-do-i-interpret-luis-scores"></a>LUIS 점수는 어떻게 해석할 수 있나요?
-시스템은 해당 값에 관계 없이 점수가 가장 높은 의도를 사용해야 합니다. 예를 들어, 0.5(50%) 미만 점수라고 해서 LUIS가 반드시 낮은 신뢰도를 갖는다는 것을 의미하는 것은 아닙니다. 더 많은 학습 데이터를 제공하면 가능성이 가장 높은 의도의 [점수](luis-concept-prediction-score.md)를 높일 수 있습니다.
+시스템은 해당 값에 관계 없이 점수가 가장 높은 의도를 사용해야 합니다. 예를 들어, 0.5(50%) 미만 점수라고 해서 LUIS가 반드시 낮은 신뢰도를 갖는다는 것을 의미하는 것은 아닙니다. 더 많은 교육 데이터를 제공하면 가장 가능성이 높은 의도의 [점수를](luis-concept-prediction-score.md) 높일 수 있습니다.
 
 ### <a name="why-dont-i-see-my-endpoint-hits-in-my-apps-dashboard"></a>내 앱의 대시보드에서 엔드포인트 적중이 표시되지 않는 이유는 무엇인가요?
 앱의 대시보드에 표시되는 총 엔드포인트 적중은 주기적으로 업데이트되지만 Azure Portal의 LUIS 엔드포인트 키와 연결된 메트릭은 좀 더 자주 업데이트됩니다.
@@ -148,7 +148,7 @@ Get-AzCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Na
 ``` 
 
 ### <a name="my-luis-app-was-working-yesterday-but-today-im-getting-403-errors-i-didnt-change-the-app-how-do-i-fix-it"></a>내 LUIS 앱이 어제도 작동했으나 오늘 403 오류가 발생하고 있습니다. 앱을 변경한 적도 없었습니다. 이 문제를 어떻게 해결하나요?
-다음 [지침](#how-do-i-create-and-assign-a-luis-endpoint-key) 에 따라 LUIS 끝점 키를 만들고 앱에 할당 합니다. 그런 다음 [새 끝점 키를 사용](luis-concept-keys.md)하도록 클라이언트 응용 프로그램의 HTTP 요청을 끝점으로 변경 해야 합니다. 다른 지역에서 새 리소스를 만든 경우 HTTP 클라이언트 요청 영역도 변경 합니다.
+다음 [지침에](#how-do-i-create-and-assign-a-luis-endpoint-key) 따라 LUIS 끝점 키를 만들고 앱에 할당합니다. 그런 다음 [새 끝점 키를 사용하려면](luis-concept-keys.md)클라이언트 응용 프로그램의 HTTP 요청을 끝점으로 변경해야 합니다. 다른 리전에서 새 리소스를 만든 경우 HTTP 클라이언트 요청의 리전도 변경합니다.
 
 ### <a name="how-do-i-secure-my-luis-endpoint"></a>내 LUIS 엔드포인트를 어떻게 보호하나요?
 [엔드포인트 보안](luis-concept-keys.md#securing-the-endpoint)을 참조하세요.
@@ -193,7 +193,7 @@ Get-AzCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Na
 ## <a name="app-publishing"></a>앱 게시
 
 ### <a name="what-is-the-tenant-id-in-the-add-a-key-to-your-app-window"></a>"앱에 키 추가" 창에서 테넌트 ID란 무엇인가요?
-Azure에서 테넌트는 서비스와 연결된 클라이언트 또는 조직을 나타냅니다. Azure Portal에서 **Azure Active Directory**관리 > 속성 > 을 선택하여 **디렉터리 ID** 상자에서 테넌트 ID를 찾습니다.
+Azure에서 테넌트는 서비스와 연결된 클라이언트 또는 조직을 나타냅니다. Azure Portal에서 **Azure Active Directory** > **관리** > **속성**을 선택하여 **디렉터리 ID** 상자에서 테넌트 ID를 찾습니다.
 
 ![Azure Portal의 테넌트 ID](./media/luis-manage-keys/luis-assign-key-tenant-id.png)
 
@@ -210,19 +210,19 @@ Azure에서 테넌트는 서비스와 연결된 클라이언트 또는 조직을
 
 ### <a name="how-do-i-know-what-key-i-need-where-i-get-it-and-what-i-do-with-it"></a>어떤 키가 필요한지, 어디서 얻을 수 있는지, 얻은 키로 무엇을 해야 하는지 알아보려면 어떻게 할까요?? 
 
-제작 키와 예측 런타임 키의 차이점에 대해 알아보려면 [LUIS에서 예측 끝점 키 작성 및 쿼리](luis-concept-keys.md) 를 참조 하세요. 
+작성 키와 예측 런타임 키 간의 차이점에 대해 알아보려면 [LUIS의 예측 끝점 키](luis-concept-keys.md) 작성 및 쿼리를 참조하십시오. 
 
 ### <a name="i-got-an-error-about-being-out-of-quota-how-do-i-fix-it"></a>할당량 초과 오류가 발생합니다. 이 문제를 어떻게 해결하나요? 
 
-자세한 내용은 HTTP 상태 코드 [403](#i-received-an-http-403-error-status-code-how-do-i-fix-it) 및 [429](#i-received-an-http-429-error-status-code-how-do-i-fix-it) 수정을 참조 하세요.
+자세한 내용은 HTTP 상태 코드 [403](#i-received-an-http-403-error-status-code-how-do-i-fix-it) 및 [429를](#i-received-an-http-429-error-status-code-how-do-i-fix-it) 수정합니다.
 
 ### <a name="i-need-to-handle-more-endpoint-queries-how-do-i-do-that"></a>많은 엔드포인트 쿼리를 처리해야 합니다. 어떻게 할까요? 
 
-자세한 내용은 HTTP 상태 코드 [403](#i-received-an-http-403-error-status-code-how-do-i-fix-it) 및 [429](#i-received-an-http-429-error-status-code-how-do-i-fix-it) 수정을 참조 하세요.
+자세한 내용은 HTTP 상태 코드 [403](#i-received-an-http-403-error-status-code-how-do-i-fix-it) 및 [429를](#i-received-an-http-429-error-status-code-how-do-i-fix-it) 수정합니다.
 
-### <a name="i-created-an-authoring-key-but-it-isnt-showing-in-the-luis-portal-what-happened"></a>제작 키를 만들었지만 LUIS 포털에 표시 되지 않습니다. 어떻게 된 건가요?
+### <a name="i-created-an-authoring-key-but-it-isnt-showing-in-the-luis-portal-what-happened"></a>작성 키를 만들었지만 LUIS 포털에 표시되지 않습니다. 어떻게 된 건가요?
 
-제작 [키 환경으로 마이그레이션한](luis-migration-authoring.md)후 LUIS 포털에서 사용할 수 있습니다.  
+작성 키는 [작성 키 환경으로 마이그레이션한](luis-migration-authoring.md)후 LUIS 포털에서 사용할 수 있습니다.  
 
 ## <a name="app-management"></a>앱 관리
 
@@ -242,7 +242,7 @@ Azure에서 테넌트는 서비스와 연결된 클라이언트 또는 조직을
 ### <a name="can-i-delete-data-from-luis"></a>LUIS에서 데이터를 삭제할 수 있나요?
 
 * LUIS를 학습시키는 데 사용되는 예제 발언은 항상 삭제할 수 있습니다. LUIS 앱에서 예제 발화를 삭제하면 예제 발화는 LUIS 웹 서비스에서 제거되고 내보낼 수 없습니다.
-* **엔드포인트 발언 검토** 페이지에서 LUIS가 제안하는 사용자 발언 목록에 있는 발언을 삭제할 수 있습니다. 이 목록에서 발화를 삭제하면 제안되지 않지만 로그에서 삭제되지는 않습니다.
+* LUIS가 **끝점 발언** 검토 페이지에서 제안하는 사용자 발언 목록에서 발언을 삭제할 수 있습니다. 이 목록에서 발화를 삭제하면 제안되지 않지만 로그에서 삭제되지는 않습니다.
 * 계정을 삭제하면 모든 앱과 예제 발화 및 로그가 함께 삭제됩니다. 데이터는 영구적으로 삭제하기 전에 60일 동안 서버에 유지됩니다.
 
 ### <a name="how-does-microsoft-manage-data-i-send-to-luis"></a>내가 LUIS로 보낸 데이터를 Microsoft에서 어떻게 관리하나요?
@@ -315,23 +315,23 @@ LUIS 샘플을 사용하여 C# 또는 Node.Js를 통해 프로그래밍 방식�
 
 ## <a name="migrating-to-the-next-version"></a>다음 버전으로 마이그레이션
 
-### <a name="how-do-i-migrate-to-preview-v3-api"></a>Preview V3 API로 마이그레이션할 어떻게 할까요? 있나요? 
+### <a name="how-do-i-migrate-to-preview-v3-api"></a>V3 API를 미리 보기로 마이그레이션하려면 어떻게 해야 합니까? 
 
-[LUIS apps에 대 한 API v2에서 V3 마이그레이션 가이드를](luis-migration-api-v3.md) 참조 하세요.
+[LUIS 앱에 대한 API v2 ~ v3 마이그레이션 가이드](luis-migration-api-v3.md) 참조
 
-## <a name="build-2019-conference-announcements"></a>빌드 2019 회의 알림
+## <a name="build-2019-conference-announcements"></a>2019 년 컨퍼런스 발표 구축
 
-다음 기능은 빌드 2019 회의에서 릴리스 되었습니다.
+빌드 2019 컨퍼런스에서 다음과 같은 기능이 릴리스되었습니다.
 
 * [V3 API 마이그레이션 가이드 미리 보기](luis-migration-api-v3.md)
-* [향상 된 분석 대시보드](luis-how-to-use-dashboard.md)
-* [향상 된 미리 작성 된 도메인](luis-reference-prebuilt-domains.md) 
+* [향상된 분석 대시보드](luis-how-to-use-dashboard.md)
+* [미리 빌드된 도메인개선](luis-reference-prebuilt-domains.md) 
 * [동적 목록 엔터티](luis-migration-api-v3.md#dynamic-lists-passed-in-at-prediction-time)
 * [외부 엔터티](luis-migration-api-v3.md#external-entities-passed-in-at-prediction-time)
 
 비디오:
 
-* [Azure 대화형 AI를 사용 하 여 차세대 비즈니스를 위해 비즈니스를 확장 하는 방법](https://www.youtube.com/watch?v=_k97jd-csuk&feature=youtu.be)
+* [Azure 대화형 AI를 사용하여 차세대 비즈니스를 확장하는 방법](https://www.youtube.com/watch?v=_k97jd-csuk&feature=youtu.be)
 
 ## <a name="next-steps"></a>다음 단계
 

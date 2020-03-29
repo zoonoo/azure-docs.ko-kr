@@ -1,7 +1,7 @@
 ---
 title: Translator Text API 검색 메서드
 titleSuffix: Azure Cognitive Services
-description: Azure Cognitive Services Translator Text API 검색 방법을 사용 하 여 텍스트 조각의 언어를 식별 합니다.
+description: Azure 인지 서비스 번역기 텍스트 API 감지 방법을 사용하여 텍스트 조각의 언어를 식별합니다.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
 ms.openlocfilehash: 370f3b14c12fc05f181d6497b7069bbf1cf3c9cc
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73837289"
 ---
 # <a name="translator-text-api-30-detect"></a>Translator Text API 3.0: 검색
@@ -45,14 +45,14 @@ https://api.cognitive.microsofttranslator.com/detect?api-version=3.0
 요청 헤더에는 다음이 포함됩니다.
 
 <table width="100%">
-  <th width="20%">헤더</th>
+  <th width="20%">headers</th>
   <th>설명</th>
   <tr>
-    <td>인증 헤더</td>
+    <td>인증 헤더(들)</td>
     <td><em>필수 요청 헤더</em><br/><a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">인증에 사용할 수 있는 옵션</a>을 참조하세요.</td>
   </tr>
   <tr>
-    <td>Content-Type</td>
+    <td>콘텐츠 형식</td>
     <td>*필수 요청 헤더*<br/>페이로드의 콘텐츠 형식을 지정합니다. 가능한 값은 `application/json`입니다.</td>
   </tr>
   <tr>
@@ -61,7 +61,7 @@ https://api.cognitive.microsofttranslator.com/detect?api-version=3.0
   </tr>
   <tr>
     <td>X-ClientTraceId</td>
-    <td>*선택 사항*입니다.<br/>요청을 고유하게 식별하는 클라이언트 생성 ID입니다. `ClientTraceId`라는 쿼리 매개 변수를 사용하는 쿼리 문자열에서 추적 ID를 포함하는 경우 이 헤더를 생략할 수 있습니다.</td>
+    <td>*선택 사항입니다*.<br/>요청을 고유하게 식별하는 클라이언트 생성 ID입니다. `ClientTraceId`라는 쿼리 매개 변수를 사용하는 쿼리 문자열에서 추적 ID를 포함하는 경우 이 헤더를 생략할 수 있습니다.</td>
   </tr>
 </table> 
 
@@ -125,7 +125,7 @@ https://api.cognitive.microsofttranslator.com/detect?api-version=3.0
 ## <a name="response-headers"></a>응답 헤더
 
 <table width="100%">
-  <th width="20%">헤더</th>
+  <th width="20%">headers</th>
   <th>설명</th>
   <tr>
     <td>X-RequestId</td>
@@ -142,7 +142,7 @@ https://api.cognitive.microsofttranslator.com/detect?api-version=3.0
   <th>설명</th>
   <tr>
     <td>200</td>
-    <td>명령 실행 성공</td>
+    <td>성공했습니다.</td>
   </tr>
   <tr>
     <td>400</td>
@@ -158,7 +158,7 @@ https://api.cognitive.microsofttranslator.com/detect?api-version=3.0
   </tr>
   <tr>
     <td>429</td>
-    <td>클라이언트에서 요청 제한을 초과 하 여 서버가 요청을 거부 했습니다.</td>
+    <td>클라이언트가 요청 제한을 초과했기 때문에 서버가 요청을 거부했습니다.</td>
   </tr>
   <tr>
     <td>500</td>

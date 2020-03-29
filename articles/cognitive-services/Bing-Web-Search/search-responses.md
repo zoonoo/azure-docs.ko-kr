@@ -1,7 +1,7 @@
 ---
 title: Bing Web Search API 응답 구조 및 대답 형식
 titleSuffix: Azure Cognitive Services
-description: Bing Web Search 검색 요청을 보내면 응답 본문에 `SearchResponse` 개체가 반환 됩니다.
+description: Bing Web Search에 검색 요청을 보내는 경우 응답 본문에 `SearchResponse` 개체가 반환됩니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,15 +12,15 @@ ms.date: 06/25/2019
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: 95ebfaef863a1fa05e8a5d3b46fca9659c61f6b7
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74110623"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Bing Web Search API 응답 구조 및 대답 형식  
 
-Bing Web Search에 검색 요청을 보내는 경우 응답 본문에 [`SearchResponse`](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#searchresponse) 개체가 반환됩니다. 개체는 Bing이 쿼리와 관련이 있다고 결정한 각 응답에 대한 필드를 포함합니다. 이 예제에서는 Bing이 모든 응답을 반환한 경우 응답 개체를 설명합니다.
+Bing Web Search 검색 요청을 보내면 [`SearchResponse`](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#searchresponse) 응답 본문에 개체가 반환됩니다. 개체는 Bing이 쿼리와 관련이 있다고 결정한 각 응답에 대한 필드를 포함합니다. 이 예제에서는 Bing이 모든 응답을 반환한 경우 응답 개체를 설명합니다.
 
 ```json
 {
@@ -38,7 +38,7 @@ Bing Web Search에 검색 요청을 보내는 경우 응답 본문에 [`SearchRe
 }, ...
 ```
 
-일반적으로 Bing Web Search는 응답의 하위 집합을 반환합니다. 예를 들어, 쿼리 용어가 *돛단배*였다면 응답은 `webPages`, `images` 및 `rankingResponse`를 포함할 수 있습니다. [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter)를 사용하여 웹 페이지를 필터링한 경우 외에는 응답은 항상 `webpages` 및 `rankingResponse` 응답을 포함합니다.
+일반적으로 Bing Web Search는 응답의 하위 집합을 반환합니다. 예를 들어 쿼리 용어가 *항해 하는 dinghies* `webPages`인 `images`경우 `rankingResponse`응답에 "를 포함할 수 있습니다. [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter)를 사용하여 웹 페이지를 필터링한 경우 외에는 응답은 항상 `webpages` 및 `rankingResponse` 응답을 포함합니다.
 
 [!INCLUDE [cognitive-services-bing-url-note](../../../includes/cognitive-services-bing-url-note.md)]
 
@@ -224,7 +224,7 @@ The following shows an example of how you might display articles in a search res
 
 단위 변환 쿼리는 한 단위를 다른 단위로 변환하는 쿼리입니다. 예를 들어 *10m는 몇 피트인가?* 또는 *1/4컵은 몇 테이블스푼인가?* 가 있습니다.
 
-다음은 `computation`10m는 몇 피트인가?*에 대한*  응답입니다.
+다음은 *10m는 몇 피트인가?* 에 대한 `computation` 응답입니다.
 
 ```json
 "computation": {
@@ -296,9 +296,9 @@ Encoded query: 8^2%2B11^2-2*8*11*cos%2837%29
 |-|빼기|
 |/|나누기|
 |*|곱하기|
-|^|거듭제곱|
+|^|Power|
 |!|계승값|
-|을 선택합니다.|DECIMAL|
+|.|Decimal|
 |()|우선 순위 그룹화|
 |[]|함수|
 
@@ -307,7 +307,7 @@ Encoded query: 8^2%2B11^2-2*8*11*cos%2837%29
 |기호|설명|
 |------------|-----------------|
 |Pi|3.14159...|
-|Degree|Degree|
+|도|도|
 |i|허수|
 |e|e, 2.71828...|
 |GoldenRatio|황금비, 1.61803...|
@@ -332,7 +332,7 @@ Encoded query: 8^2%2B11^2-2*8*11*cos%2837%29
 
 `timeZone` 응답은 위치 이름, 지정된 위치의 현재 UTC 날짜 및 시간, UTC 오프셋을 제공합니다. 위치의 경계가 여러 표준 시간대 내에 있으면 응답은 경계 내 모든 표준 시간대의 현재 UTC 날짜 및 시간을 포함합니다. 예를 들어, 플로리다 주는 두 표준 시간대에 속하기 때문에 응답은 두 표준 시간대의 현지 날짜 및 시간을 포함합니다.  
 
-쿼리가 상태 또는 국가/지역의 시간을 요청 하는 경우 Bing은 위치의 지리적 경계 내에서 기본 도시를 확인 하 여 `primaryCityTime` 필드에 반환 합니다. 경계가 여러 표준 시간대를 포함하는 경우 나머지 표준 시간대가 `otherCityTimes` 필드에 반환됩니다.
+쿼리가 주 또는 국가/지역의 시간을 요청하는 경우 Bing은 위치의 지리적 경계 내에서 기본 도시를 `primaryCityTime` 결정하고 필드에 반환합니다. 경계가 여러 표준 시간대를 포함하는 경우 나머지 표준 시간대가 `otherCityTimes` 필드에 반환됩니다.
 
 다음은 `timeZone` 응답을 반환하는 예제 쿼리입니다.
 
@@ -445,7 +445,7 @@ Bing Web Search API의 응답에 다음 헤더가 포함될 수 있습니다.
 
 그러나 JavaScript에서 Bing Web Search API를 호출하면 브라우저의 기본 제공 보안 기능(CORS)이 이러한 헤더 값으로의 액세스를 차단할 수 있습니다.
 
-헤더에 액세스하기 위해 CORS 프록시를 통해 Bing Web Search API 요청을 만들 수 있습니다. 이러한 프록시의 응답에는 응답 헤더를 허용 목록에 추가하고 이를 JavaScript에서 사용할 수 있게 해주는 `Access-Control-Expose-Headers` 헤더가 있습니다.
+헤더에 액세스하기 위해 CORS 프록시를 통해 Bing Web Search API 요청을 만들 수 있습니다. 이러한 프록시의 응답에는 응답 헤더를 허용 목록에 추가하고 JavaScript에서 응답 헤더를 사용할 수 있게 해주는 `Access-Control-Expose-Headers` 헤더가 포함됩니다.
 
 [자습서 앱](tutorial-bing-web-search-single-page-app.md)이 선택적 클라이언트 헤더에 액세스할 수 있도록 CORS 프록시를 쉽게 설치할 수 있습니다. 먼저 [Node.js가 없는 경우 설치](https://nodejs.org/en/download/)합니다. 그런 다음, 명령 프롬프트에서 다음 명령을 입력합니다.
 
@@ -477,6 +477,6 @@ Bing Web Search API의 응답에 다음 헤더가 포함될 수 있습니다.
 
 * [요청 제한](throttling-requests.md) 설명서를 검토합니다.  
 
-## <a name="see-also"></a>참고 항목:  
+## <a name="see-also"></a>참조  
 
 * [Bing Web Search API 참조](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference)

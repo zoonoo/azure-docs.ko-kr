@@ -1,7 +1,7 @@
 ---
 title: Speech SDK를 사용하여 오디오 입력 디바이스를 선택하는 방법
 titleSuffix: Azure Cognitive Services
-description: 시스템에 연결 된 오디오 장치의 id를 가져와 음성 SDKC++에서 C#오디오 입력 장치를 선택 하는 방법에 대해 알아봅니다 (,, Python, 목표-C, Java, JavaScript).
+description: 시스템에 연결된 오디오 장치의 아이디를 획득하여 음성 SDK(C++, C#, 파이썬, Objective-C, Java, JavaScript)에서 오디오 입력 장치를 선택하는 방법에 대해 알아봅니다.
 services: cognitive-services
 author: chlandsi
 manager: nitinme
@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: chlandsi
 ms.openlocfilehash: 9891cdb59c757035afd17339b052d5587ac99b0c
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74109966"
 ---
-# <a name="how-to-select-an-audio-input-device-with-the-speech-sdk"></a>방법: 음성 SDK를 사용 하 여 오디오 입력 장치 선택
+# <a name="how-to-select-an-audio-input-device-with-the-speech-sdk"></a>방법: 음성 SDK를 사용하여 오디오 입력 장치를 선택합니다.
 
 Speech SDK 버전 1.3.0은 오디오 입력을 선택하는 API를 도입합니다. 이 문서에서는 시스템에 연결된 오디오 디바이스의 ID를 가져오는 방법을 설명합니다. 그러면 `AudioConfig` 개체를 통해 오디오 디바이스를 구성하여 Speech SDK에서 이러한 ID를 사용할 수 있습니다.
 
@@ -175,7 +175,7 @@ namespace ConsoleApp
 
 ## <a name="audio-device-ids-on-uwp"></a>UWP의 오디오 디바이스 ID
 
-UWP(유니버설 Windows 플랫폼)에서 오디오 입력 디바이스는 해당 `Id()`[`DeviceInformation` 개체의 ](/uwp/api/windows.devices.enumeration.deviceinformation) 속성을 사용하여 가져올 수 있습니다.
+유니버설 윈도우 플랫폼(UWP)에서 오디오 입력 장치는 해당 `Id()` [`DeviceInformation`](/uwp/api/windows.devices.enumeration.deviceinformation) 개체의 속성을 사용하여 가져올 수 있습니다.
 
 다음 코드 샘플에서는 C++ 및 C#에서 이 작업을 수행하는 방법을 보여 줍니다.
 
@@ -365,7 +365,7 @@ CFArrayRef CreateInputDeviceArray()
 
 ## <a name="audio-device-ids-on-ios"></a>iOS의 오디오 디바이스 ID
 
-iOS에서는 Speech SDK를 사용하여 오디오 디바이스를 선택할 수 없습니다. 그러나 SDK를 사용하는 앱은 [`AVAudioSession`](https://developer.apple.com/documentation/avfoundation/avaudiosession?language=objc) 프레임워크를 통한 오디오 라우팅에 영향을 줄 수 있습니다.
+iOS에서는 Speech SDK를 사용하여 오디오 디바이스를 선택할 수 없습니다. 그러나 SDK를 사용하는 앱은 프레임워크를 [`AVAudioSession`](https://developer.apple.com/documentation/avfoundation/avaudiosession?language=objc) 통한 오디오 라우팅에 영향을 미칠 수 있습니다.
 
 예를 들어 다음 명령은
 
@@ -385,7 +385,7 @@ JavaScript에서는 [MediaDevices.enumerateDevices()](https://developer.mozilla.
 > [!div class="nextstepaction"]
 > [GitHub에서 샘플 살펴보기](https://aka.ms/csspeech/samples)
 
-## <a name="see-also"></a>참고 항목:
+## <a name="see-also"></a>참조
 
-- [어쿠스틱 모델 사용자 지정](how-to-customize-acoustic-models.md)
+- [음향 모델 사용자 지정](how-to-customize-acoustic-models.md)
 - [언어 모델 사용자 지정](how-to-customize-language-model.md)

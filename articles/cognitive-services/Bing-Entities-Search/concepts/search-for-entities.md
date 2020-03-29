@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: aahi
 ms.openlocfilehash: 1805f6f7a61f7e0b0a6e4d5bd6931c0a7d1f1b6f
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79221388"
 ---
 # <a name="searching-for-entities-with-the-bing-entity-api"></a>Bing Entity API를 사용하여 엔터티 검색
@@ -42,7 +42,7 @@ API 응답에는 [SearchResponse](https://docs.microsoft.com/rest/api/cognitives
 > [!NOTE]
 > 엔터티 응답은 여러 지역/국가를 지원하지만 위치 응답은 미국 비즈니스 위치만 지원합니다. 
 
-`entities` 필드는 [Entity](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference) 개체 목록을 포함하는 [EntityAnswer](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#entity) 개체입니다(`value` 필드 참조). 목록에는 단일 기준 엔터티, 여러 명확성 엔터티 또는 둘 다가 포함될 수 있습니다. 
+`entities` 필드는 [Entity](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#entity) 개체 목록을 포함하는 [EntityAnswer](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference) 개체입니다(`value` 필드 참조). 목록에는 단일 기준 엔터티, 여러 명확성 엔터티 또는 둘 다가 포함될 수 있습니다. 
 
 요청을 충족하는 엔터티가 기준 엔터티밖에 없다고 Bing에서 판단하는 경우(요청을 충족하는 엔터티에 대한 모호성 없음) 기준 엔터티가 반환됩니다. 여러 엔터티가 요청을 충족하는 경우 목록에는 둘 이상의 명확성 엔터티가 포함됩니다. 예를 들어 요청이 프랜차이즈 영화의 일반 제목을 사용하는 경우 목록에 모호성 엔터티가 포함될 가능성이 큽니다. 그러나 요청이 프랜차이즈의 특정 제목을 지정하는 경우 목록에 단일 기준 엔터티가 포함될 가능성이 큽니다.
 
@@ -174,7 +174,7 @@ API 응답에는 [SearchResponse](https://docs.microsoft.com/rest/api/cognitives
 
 ## <a name="find-places"></a>장소 찾기
 
-`places` 필드는 [Place](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference) 개체 목록을 포함하는 [LocalEntityAnswer](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#place) 개체입니다(자세한 내용은 [엔터티 형식](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#entity-types) 참조). 목록에는 요청을 충족하는 로컬 엔터티가 하나 이상 포함됩니다.
+`places` 필드는 [Place](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#place) 개체 목록을 포함하는 [LocalEntityAnswer](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference) 개체입니다(자세한 내용은 [엔터티 형식](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#entity-types) 참조). 목록에는 요청을 충족하는 로컬 엔터티가 하나 이상 포함됩니다.
 
 장소에는 식당, 호텔 또는 현지 기업이 포함됩니다. [entityPresentationInfo](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#entitypresentationinfo) 필드에는 로컬 엔터티 형식을 식별하는 힌트가 포함됩니다. 목록에는 장소, LocalBusiness, 식당과 같은 힌트 목록이 포함됩니다. 배열의 각 연속 힌트는 엔터티 형식의 범위를 좁힙니다. 가능한 형식 목록은 [엔터티 형식](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#entity-types)을 참조하세요.
 
@@ -189,7 +189,7 @@ API 응답에는 [SearchResponse](https://docs.microsoft.com/rest/api/cognitives
 > [!NOTE]
 > 엔터티 응답은 여러 지역/국가를 지원하지만 위치 응답은 미국 비즈니스 위치만 지원합니다. 
 
-*주변 식당* 등의 로컬 인식 엔터티 쿼리에서 정확한 결과를 제공하려면 사용자 위치가 필요합니다. 요청은 항상 X-Search-Location 및 X-MSEdge-ClientIP 헤더를 사용하여 사용자 위치를 지정해야 합니다. Bing은 사용자 위치가 쿼리에 도움이 된다고 판단할 경우 `askUserForLocation`QueryContext[의 ](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#querycontext) 필드를 **true**로 설정합니다. 
+*주변 식당* 등의 로컬 인식 엔터티 쿼리에서 정확한 결과를 제공하려면 사용자 위치가 필요합니다. 요청은 항상 X-Search-Location 및 X-MSEdge-ClientIP 헤더를 사용하여 사용자 위치를 지정해야 합니다. Bing은 사용자 위치가 쿼리에 도움이 된다고 판단할 경우 [QueryContext](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#querycontext)의 `askUserForLocation` 필드를 **true**로 설정합니다. 
 
 ```json
 {

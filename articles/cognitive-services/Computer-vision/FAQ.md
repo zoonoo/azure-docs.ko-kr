@@ -12,10 +12,10 @@ ms.date: 04/17/2019
 ms.author: kefre
 ms.custom: seodec18
 ms.openlocfilehash: e8ab205a43e5cb1e8e2b96dbd9600e1fceb29403
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68564596"
 ---
 # <a name="computer-vision-api-frequently-asked-questions"></a>Computer Vision API 질문과 대답
@@ -25,7 +25,7 @@ ms.locfileid: "68564596"
 
 ---
 
-**질문**: *사용자 지정 태그를 사용하도록 Computer Vision API를 학습할 수 있나요?  예를 들어 고양이 품종 사진을 주고 AI를 '교육'한 다음, AI 요청에서 품종 값을 받고 싶습니다.*
+**질문**: *사용자 지정 태그를 사용하도록 컴퓨터 비전 API를 교육할 수 있습니까?  예를 들어, 고양이 품종의 사진을 먹이서 AI를 '훈련'한 다음 AI 요청에 따라 품종 값을 받고 싶습니다.*
 
 **대답**: 이 기능은 현재 이용할 수 없습니다. 하지만 Computer Vision에 이 기능을 도입하기 위해 엔지니어들이 열심히 작업 중입니다.
 
@@ -43,7 +43,7 @@ ms.locfileid: "68564596"
 
 ---
 
-**질문**: *필기 인식에 지원되는 쓰기 표면은 무엇인가요?*
+**질문:***필기 인식에 지원되는 쓰기 표면은 무엇인가요?*
 
 **대답**: 이 기술은 화이트보드, 백서, 노란색 스티커 메모를 포함하여 다양한 표면에서 작동합니다.
 

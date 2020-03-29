@@ -10,38 +10,38 @@ ms.topic: include
 ms.date: 12/06/2019
 ms.author: dapine
 ms.openlocfilehash: b24918f377e0d0744331974993cbb94f963e521e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "75379960"
 ---
 ## <a name="reference-docs"></a>참조 문서
 
-음성 서비스는 두 개의 Sdk를 제공 합니다. 첫 번째 SDK는 기본 [음성 sdk](../speech-sdk.md) 이며 음성 서비스와 상호 작용 하는 데 필요한 대부분의 기능을 제공 합니다. 두 번째 SDK는 [음성 장치 sdk](../speech-devices-sdk.md)를 적절 하 게 명명 한 장치에만 적용 됩니다. 두 Sdk는 여러 언어로 제공 됩니다.
+음성 서비스는 두 개의 SDK를 제공합니다. 첫 번째 SDK는 기본 [음성 SDK이며](../speech-sdk.md) 음성 서비스와 상호 작용하는 데 필요한 대부분의 기능을 제공합니다. 두 번째 SDK는 음성 장치 [SDK라는](../speech-devices-sdk.md)장치에만 해당됩니다. 두 SDK는 여러 언어로 제공됩니다.
 
-### <a name="speech-sdk-reference-docs"></a>Speech SDK 참조 문서
+### <a name="speech-sdk-reference-docs"></a>음성 SDK 참조 문서
 
-다음 목록을 사용 하 여 적절 한 음성 SDK 참조 문서를 찾을 수 있습니다.
+다음 목록을 사용하여 적절한 음성 SDK 참조 문서를 찾습니다.
 
-- <a href="https://aka.ms/csspeech/csharpref" target="_blank" rel="noopener">C#SDK<span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://aka.ms/csspeech/cppref" target="_blank" rel="noopener">C++SDK<span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://aka.ms/csspeech/javaref" target="_blank" rel="noopener">Java SDK<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://aka.ms/csspeech/csharpref" target="_blank" rel="noopener">C # SDK<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://aka.ms/csspeech/cppref" target="_blank" rel="noopener">C++ SDK<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://aka.ms/csspeech/javaref" target="_blank" rel="noopener">자바 SDK<span class="docon docon-navigate-external x-hidden-focus"></span></a>
 - <a href="https://aka.ms/csspeech/pythonref" target="_blank" rel="noopener">Python SDK<span class="docon docon-navigate-external x-hidden-focus"></span></a>
 - <a href="https://aka.ms/csspeech/javascriptref" target="_blank" rel="noopener">JavaScript SDK<span class="docon docon-navigate-external x-hidden-focus"></span></a>
 - <a href="https://aka.ms/csspeech/objectivecref" target="_blank" rel="noopener">목표-C SDK<span class="docon docon-navigate-external x-hidden-focus"></span></a>
 
 > [!TIP]
-> 음성 서비스 SDK는 적극적으로 유지 관리 되 고 업데이트 됩니다. 변경 내용, 업데이트 및 기능 추가를 추적 하려면 [SPEECH SDK 릴리스 정보](../releasenotes.md)를 참조 하세요.
+> 음성 서비스 SDK가 적극적으로 유지 관리되고 업데이트됩니다. 변경 내용을 추적하려면 업데이트 및 기능 추가는 [음성 SDK 릴리스 노트를](../releasenotes.md)참조하십시오.
 
 ### <a name="speech-devices-sdk-reference-docs"></a>음성 장치 SDK 참조 문서
 
-[음성 장치 sdk](../speech-devices-sdk.md) 는 특정 장치에 대 한 확장 기능이 있는 음성 sdk의 상위 집합입니다. 음성 장치 SDK를 다운로드 하려면 먼저 [개발 키트를 선택](../get-speech-devices-sdk.md#choose-a-development-kit)해야 합니다.
+[음성 장치 SDK는](../speech-devices-sdk.md) 특정 장치에 대한 확장된 기능을 갖춘 음성 SDK의 수퍼세트입니다. 음성 장치 SDK를 다운로드하려면 먼저 [개발 키트를 선택해야](../get-speech-devices-sdk.md#choose-a-development-kit)합니다.
 
 ### <a name="rest-api-references"></a>REST API 참조
 
-다양 한 Speech service REST Api에 대 한 참조는 아래 목록을 참조 하세요.
+다양한 음성 서비스 REST API에 대한 참조는 아래 목록을 참조하십시오.
 
-- [REST API: 음성 텍스트](../rest-speech-to-text.md)
+- [REST API: 음성-텍스트](../rest-speech-to-text.md)
 - [REST API: 텍스트 음성 변환](../rest-text-to-speech.md)
-- <a href="https://cris.ai/swagger/ui/index" target="_blank" rel="noopener">REST API: 일괄 처리 기록 및 사용자 지정<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://cris.ai/swagger/ui/index" target="_blank" rel="noopener">REST API: 일괄 전사 및 사용자 지정<span class="docon docon-navigate-external x-hidden-focus"></span></a>

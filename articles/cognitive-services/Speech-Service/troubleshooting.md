@@ -1,5 +1,5 @@
 ---
-title: Speech SDK-Speech service 문제 해결
+title: 음성 SDK 문제 해결 - 음성 서비스
 titleSuffix: Azure Cognitive Services
 description: 이 문서에서는 음성 SDK를 사용할 때 발생할 수 있는 문제를 해결하는 데 도움이 되는 정보를 제공합니다.
 services: cognitive-services
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: jhakulin
 ms.openlocfilehash: 421b9adf4ae5d2c641484e646bea096716d46cca
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74815421"
 ---
 # <a name="troubleshoot-the-speech-sdk"></a>Speech SDK 문제 해결

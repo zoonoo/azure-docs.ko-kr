@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
 ms.openlocfilehash: 16cfb6c15a4d17ff3fb4f7f41f59f9f80af1e9e7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "75382126"
 ---
 # <a name="moderate-with-custom-term-lists-in-the-api-console"></a>API 콘솔에서 사용자 지정 용어 목록을 사용하여 조정
 
 Azure Content Moderator에서 기본 전역 용어 목록은 대부분의 콘텐츠 조정 요구에 적합합니다. 그러나 조직에 관련된 용어에 대해 차단해야 할 수 있습니다. 예를 들어 추가 검토를 위해 경쟁 업체 이름에 태그를 지정할 수 있습니다. 
 
-[목록 관리 API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f)를 사용하여 텍스트 조정 API와 함께 사용할 사용자 지정 용어 목록을 만듭니다. 텍스트 **화면** 작업은 텍스트에서 비속어를 검색 하 고 텍스트를 사용자 지정 및 공유 블록 목록과 비교 합니다.
+목록 [관리 API를](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f) 사용하여 텍스트 중재 API와 함께 사용할 용어의 사용자 지정 목록을 만듭니다. **텍스트 - 화면** 작업은 텍스트를 비속어로 검사하고 텍스트를 사용자 지정 및 공유 차단 목록과 비교합니다.
 
 > [!NOTE]
 > 최대 **5개 용어 목록**으로 제한되고, 각 목록은 **10,000개 용어를 초과하지 않아야** 합니다.
@@ -89,7 +89,7 @@ Azure Content Moderator에서 기본 전역 용어 목록은 대부분의 콘텐
 
    키-값 쌍으로 실제 용어가 아닌 목록 메타데이터를 추가합니다.
  
-6. **보내기**를 선택합니다. 목록이 생성됩니다. 새 목록과 연결된 **ID**입니다. 다른 용어 목록 관리 기능에 이 ID가 필요합니다.
+6. **전송을 선택합니다.** 목록이 생성됩니다. 새 목록과 연결된 **ID**입니다. 다른 용어 목록 관리 기능에 이 ID가 필요합니다.
 
    ![용어 목록 - 만들기 콘솔 응답 콘텐츠 상자는 목록 ID를 표시합니다.](images/try-terms-list-create-2.png)
  
@@ -111,7 +111,7 @@ Azure Content Moderator에서 기본 전역 용어 목록은 대부분의 콘텐
 
     **용어 - 모든 용어 가져오기** API 콘솔이 열립니다.
 
-11. **listId** 상자에 목록 ID를 입력한 다음, 등록 키를 입력합니다. **보내기**를 선택합니다.
+11. **listId** 상자에 목록 ID를 입력한 다음, 등록 키를 입력합니다. **전송을 선택합니다.**
 
 12. **응답 콘텐츠** 상자에서 입력한 용어를 확인합니다.
 

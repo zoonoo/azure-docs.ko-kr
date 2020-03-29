@@ -1,25 +1,24 @@
 ### YamlMime:Landing
 title: 음성 번역 설명서
-summary: 음성 서비스에서 음성 번역을 사용 하면 실시간 다중 언어 음성-음성 음성 변환 및 오디오 스트림 음성-텍스트 변환이 가능 합니다.
+summary: 음성 서비스에서 음성 변환을 통해 오디오 스트림의 실시간 다국어 음성-음성 변환 및 음성-텍스트 번역 가능
 metadata:
-  title: 음성 번역 설명서-자습서, API 참조-Azure Cognitive Services | Microsoft Docs
+  title: 음성 번역 설명서 - 자습서, API 참조 - Azure 코그너티브 서비스 | 마이크로 소프트 문서
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
   author: IEvangelist
   manager: nitinme
-  layout: LandingPage
   ms.service: speech-service
   ms.topic: landing-page
   ms.date: 03/10/2020
   ms.author: dapine
-  ms.openlocfilehash: 742b9710fc7ab396aa906c956d6809df9440c78e
-  ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+  ms.openlocfilehash: 75f620d5210f5ba0dc61ac1c5be2f30aa23dea9c
+  ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
   ms.translationtype: MT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 03/14/2020
-  ms.locfileid: "79367978"
+  ms.lasthandoff: 03/28/2020
+  ms.locfileid: "79415329"
 landingContent:
-- title: 음성 번역 정보
+- title: 음성 번역에 대해
   linkLists:
   - linkListType: overview
     links:
@@ -33,17 +32,17 @@ landingContent:
       url: quickstarts/translate-speech-to-text-multiple-languages.md
     - text: 음성을 음성으로 번역
       url: quickstarts/translate-speech-to-speech.md
-- title: 음성 번역을 사용 하 여 개발
+- title: 음성 번역으로 개발
   linkLists:
   - linkListType: learn
     links:
-    - text: 실시간으로 음성 변환
+    - text: 실시간으로 음성 번역
       url: https://docs.microsoft.com/learn/modules/convert-speech-to-text
   - linkListType: tutorial
     links:
-    - text: REST Api를 사용 하 여 텍스트 변환 및 합성
+    - text: REST API로 텍스트 번역 및 합성
       url: ../translator/tutorial-build-flask-app-translation-synthesis.md
-- title: 참조
+- title: 참고
   linkLists:
   - linkListType: reference
     links:

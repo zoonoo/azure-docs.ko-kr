@@ -1,7 +1,7 @@
 ---
 title: 검색 결과를 필터링하는 방법 - Bing Web Search API
 titleSuffix: Azure Cognitive Services
-description: "' ResponseFilter ' 쿼리 매개 변수를 사용 하 여 Bing에서 응답에 포함 하는 응답 유형 (예: 이미지, 비디오 및 뉴스)을 필터링 할 수 있습니다."
+description: "Bing이 응답에 포함하는 답변 유형(예: 이미지, 비디오 및 뉴스)은 'responseFilter' 쿼리 매개 변수를 사용하여 필터링할 수 있습니다."
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: scottwhi
 ms.openlocfilehash: 6fa022f181e2061c6a7f3e08d1f2f501ddd9cac3
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79221380"
 ---
 # <a name="filtering-the-answers-that-the-search-response-includes"></a>검색 응답에 포함되는 답변 필터링  
@@ -47,13 +47,13 @@ ms.locfileid: "79221380"
 
 ## <a name="query-parameters"></a>쿼리 매개 변수
 
-Bing에서 반환 된 대답을 필터링 하려면 API를 호출할 때 아래 쿼리 매개 변수를 사용 합니다.  
+Bing에서 반환된 답변을 필터링하려면 API를 호출할 때 아래 쿼리 매개 변수를 사용합니다.  
 
-### <a name="responsefilter"></a>ResponseFilter
+### <a name="responsefilter"></a>응답 필터
 
-응답이 [필터](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter) 쿼리 매개 변수 (예: 이미지, 비디오, 뉴스)를 사용 하 여 Bing에서 응답에 포함 하는 응답 유형 (예: 이미지, 비디오 및 뉴스)을 필터링 할 수 있습니다 .이 매개 변수는 쉼표로 구분 된 대답 목록입니다. Bing에서 관련 콘텐츠를 찾은 경우 응답에 답변이 포함 됩니다. 
+bing이 응답에 포함되는 답변 유형(예: 이미지, 비디오 및 뉴스)을 쉼표로 구분한 답변 목록인 [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter) 쿼리 매개 변수를 사용하여 필터링할 수 있습니다. Bing이 관련 콘텐츠를 발견하면 응답에 답변이 포함됩니다. 
 
-이미지와 같은 응답에서 특정 대답을 제외 하려면 응답 형식에 `-` 문자 앞에 추가 합니다. 다음은 그 예입니다.
+이미지와 같은 응답에서 특정 답변을 제외하려면 `-` 문자를 답변 유형에 미리 준비합니다. 예를 들어:
 
 ```
 &responseFilter=-images,-videos
@@ -102,7 +102,7 @@ Bing이 이전 응답에서 비디오 및 뉴스 결과를 반환하지 않았�
 
 ### <a name="site"></a>사이트
 
-특정 도메인에서 검색 결과를 가져오려면 쿼리 문자열에 `site:` 쿼리 매개 변수를 포함 합니다.  
+특정 도메인에서 검색 결과를 얻으려면 `site:` 쿼리 문자열에 쿼리 매개 변수를 포함합니다.  
 
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies+site:contososailing.com&mkt=en-us
@@ -111,27 +111,27 @@ https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies+site:con
 > [!NOTE]
 > `site:` 쿼리 연산자를 사용하는 경우 쿼리에 따라 [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#safesearch) 설정에 관계없이 응답에 성인 콘텐츠가 포함될 수 있는 가능성이 있습니다. 사이트의 콘텐츠를 알고 있고 시나리오가 성인 콘텐츠를 지원하는 경우에만 `site:`를 사용해야 합니다.
 
-### <a name="freshness"></a>고침
+### <a name="freshness"></a>새로 고침
 
-웹 응답 결과를 Bing이 특정 기간 동안 검색 한 웹 페이지로 제한 하려면 [freshness](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#freshness) 쿼리 매개 변수를 대/소문자를 구분 하지 않는 다음 값 중 하나로 설정 합니다.
+Bing이 특정 기간 동안 검색한 웹 페이지로 웹 응답 결과를 제한하려면 [새로 고침](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#freshness) 쿼리 매개 변수를 다음 대/소문자 구분 되지 않는 값 중 하나로 설정합니다.
 
-* `Day`-최근 24 시간 이내에 Bing에서 검색 한 웹 페이지를 반환 합니다.
-* `Week`-지난 7 일 내에 Bing에서 검색 한 웹 페이지를 반환 합니다.
-* `Month`-지난 30 일 내에 검색 된 웹 페이지를 반환 합니다.
+* `Day`— Bing이 지난 24시간 이내에 발견한 웹 페이지 반환
+* `Week`— Bing이 지난 7일 이내에 발견한 웹 페이지 반환
+* `Month`— 지난 30일 이내에 검색된 웹 페이지 반환
 
-이 매개 변수를 `YYYY-MM-DD..YYYY-MM-DD`형태의 사용자 지정 날짜 범위로 설정할 수도 있습니다. 
+이 매개 변수를 양식의 사용자 지정 날짜 `YYYY-MM-DD..YYYY-MM-DD`범위로 설정할 수도 있습니다. 
 
 `https://<host>/bing/v7.0/search?q=ipad+updates&freshness=2019-02-01..2019-05-30`
 
-결과를 단일 날짜로 제한 하려면 freshness 매개 변수를 특정 날짜로 설정 합니다.
+결과를 단일 날짜로 제한하려면 새로 고침 매개 변수를 특정 날짜로 설정합니다.
 
 `https://<host>/bing/v7.0/search?q=ipad+updates&freshness=2019-02-04`
 
-Bing에서 필터 조건과 일치 하는 웹 페이지 수가 요청한 웹 페이지 수 (또는 Bing에서 반환 하는 기본 숫자) 보다 작은 경우 결과에는 지정 된 기간을 벗어난 웹 페이지가 포함 될 수 있습니다.
+Bing이 필터 기준과 일치하는 웹 페이지 수가 요청한 웹 페이지 수(또는 Bing이 반환하는 기본 번호)보다 적은 경우 지정된 기간을 벗어나는 웹 페이지가 결과에 포함될 수 있습니다.
 
 ## <a name="limiting-the-number-of-answers-in-the-response"></a>응답의 답변 수 제한
 
-Bing은 JSON 응답에서 여러 응답 형식을 반환할 수 있습니다. 예를 들어 *돛단 + dinghies*를 쿼리하면 Bing에서 `webpages`, `images`, `videos`및 `relatedSearches`를 반환할 수 있습니다.
+Bing은 JSON 응답에서 여러 응답 유형을 반환할 수 있습니다. 예를 *들어, 항해 +dinghies를*쿼리하는 `webpages` `images`경우 `videos`Bing은 "를 반환할 수 있습니다. `relatedSearches`
 
 ```json
 {
@@ -219,4 +219,4 @@ Host: api.cognitive.microsoft.com
 
 수준을 올리려는 답변은 `answerCount` 제한에 계산되지 않습니다. 예를 들어 순위가 지정된 답변이 뉴스, 이미지 및 비디오이고 `answerCount`를 1로, `promote`를 뉴스로 설정하는 경우 응답에는 뉴스와 이미지가 포함됩니다. 또는 순위가 지정된 답변이 비디오, 이미지 및 뉴스인 경우 응답에는 비디오와 뉴스가 포함됩니다.
 
-`promote` 쿼리 매개 변수를 지정하는 경우에만 `answerCount`를 사용할 수 있습니다.
+`answerCount` 쿼리 매개 변수를 지정하는 경우에만 `promote`를 사용할 수 있습니다.

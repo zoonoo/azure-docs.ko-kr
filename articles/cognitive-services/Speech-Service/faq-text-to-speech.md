@@ -1,7 +1,7 @@
 ---
 title: Text to Speech에 대한 FAQ(질문과 대답)
 titleSuffix: Azure Cognitive Services
-description: Text to Speech 서비스에 대해 자주 묻는 질문에 대 한 답변을 가져옵니다.
+description: 텍스트 음성 변환 서비스에 대한 자주 묻는 질문에 대한 답변을 얻을 수 있습니다.
 services: cognitive-services
 author: PanosPeriorellis
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: panosper
 ms.openlocfilehash: 19b8be83a3678164197ec0650b07091e941a04d7
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74110499"
 ---
 # <a name="text-to-speech-frequently-asked-questions"></a>Text to Speech에 대한 FAQ(질문과 대답)
@@ -55,7 +55,7 @@ ms.locfileid: "74110499"
 
 **Q: 내 모델을 다운로드하여 로컬로 실행할 수 있나요?**
 
-**A**: 모델은 다운로드하여 로컬로 실행할 수 없습니다.
+**A**: 모델을 다운로드하여 로컬로 실행할 수 없습니다.
 
 **Q: 내 요청이 제한되나요?**
 

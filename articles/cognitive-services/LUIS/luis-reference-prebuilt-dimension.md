@@ -1,5 +1,5 @@
 ---
-title: 미리 작성 한 차원 엔터티-LUIS
+title: 차원 미리 빌드된 엔터티 - LUIS
 titleSuffix: Azure Cognitive Services
 description: 이 문서에는 LUIS(Language Understanding)의 dimension 미리 빌드된 엔터티가 포함됩니다.
 services: cognitive-services
@@ -12,10 +12,10 @@ ms.topic: reference
 ms.date: 10/14/2019
 ms.author: diberry
 ms.openlocfilehash: 3c7bebb38d0331c76eeaaa1d9d6464c568a61b83
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78270644"
 ---
 # <a name="dimension-prebuilt-entity-for-a-luis-app"></a>LUIS 앱용 Dimension 미리 빌드된 엔터티
@@ -23,17 +23,17 @@ ms.locfileid: "78270644"
 
 ## <a name="types-of-dimension"></a>Dimension 유형
 
-차원은 [인식기 텍스트](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml) GitHub 리포지토리에서 관리 됩니다.
+차원은 [인식기 텍스트](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml) GitHub 리포지토리에서 관리됩니다.
 
 ## <a name="resolution-for-dimension-entity"></a>dimension 엔터티의 해결
 
-쿼리에 대해 반환 되는 엔터티 개체는 다음과 같습니다.
+다음 엔터티 개체는 쿼리에 대해 반환됩니다.
 
 `10 1/2 miles of cable`
 
 #### <a name="v3-response"></a>[V3 응답](#tab/V3)
 
-다음 JSON은 `false`로 설정 된 `verbose` 매개 변수를 사용 합니다.
+다음 JSON은 매개 `verbose` 변수를 `false`다음과 같은 것으로 설정합니다.
 
 ```json
 "entities": {
@@ -45,8 +45,8 @@ ms.locfileid: "78270644"
     ]
 }
 ```
-#### <a name="v3-verbose-response"></a>[V3 자세한 정보 표시 응답](#tab/V3-verbose)
-다음 JSON은 `true`로 설정 된 `verbose` 매개 변수를 사용 합니다.
+#### <a name="v3-verbose-response"></a>[V3 자세한 응답](#tab/V3-verbose)
+다음 JSON은 매개 `verbose` 변수를 `true`다음과 같은 것으로 설정합니다.
 
 ```json
 "entities": {

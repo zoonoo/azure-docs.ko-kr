@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: scottwhi
 ms.openlocfilehash: 7683930af1de0fc4e4d112c1e559358d5d5d5609
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68500589"
 ---
 # <a name="get-insights-about-a-video"></a>비디오에 대한 인사이트 가져오기
@@ -97,5 +97,5 @@ Host: api.cognitive.microsoft.com
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [인기 비디오 검색](trending-videos.md)
+> [인기 동영상 검색](trending-videos.md)
 

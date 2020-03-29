@@ -1,21 +1,21 @@
 ---
 title: Translator Text API Translate 메서드
 titleSuffix: Azure Cognitive Services
-description: Azure Cognitive Services Translator Text API 변환 방법에서 텍스트를 변환 하는 데 사용할 매개 변수, 헤더 및 본문 메시지를 이해 합니다.
+description: Azure 인지 서비스 번역기 텍스트 API 번역 방법에 대한 매개 변수, 헤더 및 본문 메시지를 이해하여 텍스트를 번역합니다.
 services: cognitive-services
 author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 11/12/2019
+ms.date: 03/20/2020
 ms.author: swmachan
-ms.openlocfilehash: d58383b20e4311f8ab9490dc241722eee2e44ad6
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 1821623fbe2a22234af649934ac06e72897a19cf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184799"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80052405"
 ---
 # <a name="translator-text-api-30-translate"></a>Translator Text API 3.0: Translate
 
@@ -54,48 +54,48 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
   <th width="20%">쿼리 매개 변수</th>
   <th>설명</th>
   <tr>
-    <td>from</td>
-    <td><em>선택적 매개 변수</em>입니다.<br/>입력 텍스트의 언어를 지정합니다. <code>translation</code> 범위를 통해 <a href="./v3-0-languages.md">지원되는 언어</a>를 조회하여 번역할 수 있는 원본 언어를 찾습니다. <code>from</code> 매개 변수를 지정하지 않으면 자동 언어 검색에 따라 원본 언어가 결정됩니다. <br/><br/><a href="https://docs.microsoft.com/azure/cognitive-services/translator/dynamic-dictionary">동적 사전</a> 기능을 사용 하는 경우 인코딩이 대신 <code>from</code> 매개 변수를 사용 해야 합니다.</td>
+    <td>원본</td>
+    <td><em>선택적 매개 변수</em>.<br/>입력 텍스트의 언어를 지정합니다. <code>translation</code> 범위를 통해 <a href="./v3-0-languages.md">지원되는 언어</a>를 조회하여 번역할 수 있는 원본 언어를 찾습니다. <code>from</code> 매개 변수를 지정하지 않으면 자동 언어 검색에 따라 원본 언어가 결정됩니다. <br/><br/><a href="https://docs.microsoft.com/azure/cognitive-services/translator/dynamic-dictionary">동적 사전</a> <code>from</code> 기능을 사용할 때는 자동 검색 대신 매개 변수를 사용해야 합니다.</td>
   </tr>  
   <tr>
     <td>textType</td>
-    <td><em>선택적 매개 변수</em>입니다.<br/>번역되는 텍스트가 일반 텍스트인지 또는 HTML 인지를 정의합니다. 모든 HTML은 올바른 형식이 완전한 요소여야 합니다. 가능한 값은 <code>plain</code>(기본값) 또는 <code>html</code>입니다.</td>
+    <td><em>선택적 매개 변수</em>.<br/>번역되는 텍스트가 일반 텍스트인지 또는 HTML 인지를 정의합니다. 모든 HTML은 올바른 형식이 완전한 요소여야 합니다. 가능한 값은 <code>plain</code>(기본값) 또는 <code>html</code>입니다.</td>
   </tr>
   <tr>
     <td>category</td>
-    <td><em>선택적 매개 변수</em>입니다.<br/>번역의 범주(도메인)를 지정하는 문자열입니다. 이 매개 변수를 사용하여 <a href="../customization.md">Custom Translator</a>로 작성된 사용자 지정 시스템의 번역을 가져옵니다. 사용자 지정 변환기 <a href="https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/how-to-create-project#view-project-details">프로젝트 세부 정보의</a> 범주 ID를이 매개 변수에 추가 하 여 배포 된 사용자 지정 시스템을 사용 합니다. 기본값은 <code>general</code>입니다.</td>
+    <td><em>선택적 매개 변수</em>.<br/>번역의 범주(도메인)를 지정하는 문자열입니다. 이 매개 변수를 사용하여 <a href="../customization.md">Custom Translator</a>로 작성된 사용자 지정 시스템의 번역을 가져옵니다. 사용자 지정 번역기 <a href="https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/how-to-create-project#view-project-details">프로젝트 세부 정보에서</a> 범주 ID를 이 매개 변수에 추가하여 배포된 사용자 지정 시스템을 사용합니다. 기본값은 <code>general</code>입니다.</td>
   </tr>
   <tr>
     <td>profanityAction</td>
-    <td><em>선택적 매개 변수</em>입니다.<br/>번역에서 욕설을 처리하는 방식을 지정합니다. 가능한 값은 <code>NoAction</code>(기본값), <code>Marked</code> 또는 <code>Deleted</code>입니다. 욕설을 처리하는 방식을 알아보려면 <a href="#handle-profanity">욕설 처리</a>를 참조하세요.</td>
+    <td><em>선택적 매개 변수</em>.<br/>번역에서 욕설을 처리하는 방식을 지정합니다. 가능한 값은 <code>NoAction</code>(기본값), <code>Marked</code> 또는 <code>Deleted</code>입니다. 욕설을 처리하는 방식을 알아보려면 <a href="#handle-profanity">욕설 처리</a>를 참조하세요.</td>
   </tr>
   <tr>
     <td>profanityMarker</td>
-    <td><em>선택적 매개 변수</em>입니다.<br/>번역에서 욕설을 표시하는 방식을 지정합니다. 가능한 값은 <code>Asterisk</code>(기본값) 또는 <code>Tag</code>입니다. 욕설을 처리하는 방식을 알아보려면 <a href="#handle-profanity">욕설 처리</a>를 참조하세요.</td>
+    <td><em>선택적 매개 변수</em>.<br/>번역에서 욕설을 표시하는 방식을 지정합니다. 가능한 값은 <code>Asterisk</code>(기본값) 또는 <code>Tag</code>입니다. 욕설을 처리하는 방식을 알아보려면 <a href="#handle-profanity">욕설 처리</a>를 참조하세요.</td>
   </tr>
   <tr>
     <td>includeAlignment</td>
-    <td><em>선택적 매개 변수</em>입니다.<br/>소스 텍스트의 맞춤 도법을 번역된 텍스트에 포함할지 여부를 지정합니다. 가능한 값은 <code>true</code> 또는 <code>false</code>(기본값)입니다. </td>
+    <td><em>선택적 매개 변수</em>.<br/>소스 텍스트의 맞춤 도법을 번역된 텍스트에 포함할지 여부를 지정합니다. 가능한 값은 <code>true</code> 또는 <code>false</code>(기본값)입니다. </td>
   </tr>
   <tr>
     <td>includeSentenceLength</td>
-    <td><em>선택적 매개 변수</em>입니다.<br/>입력 텍스트 및 번역된 텍스트에 대한 문장 경계를 포함할지 여부를 지정합니다. 가능한 값은 <code>true</code> 또는 <code>false</code>(기본값)입니다.</td>
+    <td><em>선택적 매개 변수</em>.<br/>입력 텍스트 및 번역된 텍스트에 대한 문장 경계를 포함할지 여부를 지정합니다. 가능한 값은 <code>true</code> 또는 <code>false</code>(기본값)입니다.</td>
   </tr>
   <tr>
     <td>suggestedFrom</td>
-    <td><em>선택적 매개 변수</em>입니다.<br/>입력 텍스트의 언어를 식별할 수 없으면 대체 언어를 지정합니다. <code>from</code> 매개 변수를 생략하면 언어 자동 검색이 적용됩니다. 검색이 실패하면 <code>suggestedFrom</code> 언어로 간주됩니다.</td>
+    <td><em>선택적 매개 변수</em>.<br/>입력 텍스트의 언어를 식별할 수 없으면 대체 언어를 지정합니다. <code>from</code> 매개 변수를 생략하면 언어 자동 검색이 적용됩니다. 검색이 실패하면 <code>suggestedFrom</code> 언어로 간주됩니다.</td>
   </tr>
   <tr>
     <td>fromScript</td>
-    <td><em>선택적 매개 변수</em>입니다.<br/>입력 텍스트의 스크립트를 지정합니다.</td>
+    <td><em>선택적 매개 변수</em>.<br/>입력 텍스트의 스크립트를 지정합니다.</td>
   </tr>
   <tr>
     <td>toScript</td>
-    <td><em>선택적 매개 변수</em>입니다.<br/>번역된 텍스트의 스크립트를 지정합니다.</td>
+    <td><em>선택적 매개 변수</em>.<br/>번역된 텍스트의 스크립트를 지정합니다.</td>
   </tr>
   <tr>
     <td>allowFallback</td>
-    <td><em>선택적 매개 변수</em>입니다.<br/>사용자 지정 시스템이 없을 때 서비스가 일반 시스템으로 대체(fallback)되도록 지정합니다. 가능한 값은 <code>true</code>(기본값) 또는 <code>false</code>입니다.<br/><br/><code>allowFallback=false</code>는 번역 시 요청으로 지정된 <code>category</code>에 대해 학습된 시스템만 사용하도록 지정합니다. 언어 X에서 언어 Y로 번역할 때 피벗 언어 E를 통한 체인 연결이 필요할 경우 체인(X->E 및 E->Y)의 모든 시스템은 사용자 지정 시스템이어야 하고 동일한 범주를 사용해야 합니다. 특정 범주를 사용하는 시스템이 없는 경우 요청은 400 상태 코드를 반환합니다. <code>allowFallback=true</code>는 사용자 지정 시스템이 없을 때 서비스가 일반 시스템으로 대체(fallback)되도록 지정합니다.
+    <td><em>선택적 매개 변수</em>.<br/>사용자 지정 시스템이 없을 때 서비스가 일반 시스템으로 대체(fallback)되도록 지정합니다. 가능한 값은 <code>true</code>(기본값) 또는 <code>false</code>입니다.<br/><br/><code>allowFallback=false</code>는 번역 시 요청으로 지정된 <code>category</code>에 대해 학습된 시스템만 사용하도록 지정합니다. 언어 X에서 언어 Y로 번역할 때 피벗 언어 E를 통한 체인 연결이 필요할 경우 체인(X->E 및 E->Y)의 모든 시스템은 사용자 지정 시스템이어야 하고 동일한 범주를 사용해야 합니다. 특정 범주를 사용하는 시스템이 없는 경우 요청은 400 상태 코드를 반환합니다. <code>allowFallback=true</code>는 사용자 지정 시스템이 없을 때 서비스가 일반 시스템으로 대체(fallback)되도록 지정합니다.
 </td>
   </tr>
 </table> 
@@ -106,12 +106,12 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
   <th width="20%">headers</th>
   <th>설명</th>
   <tr>
-    <td>인증 헤더</td>
+    <td>인증 헤더(들)</td>
     <td><em>필수 요청 헤더</em><br/><a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">인증에 사용할 수 있는 옵션</a>을 참조하세요.</td>
   </tr>
   <tr>
     <td>콘텐츠 형식</td>
-    <td><em>필수 요청 헤더</em><br/>페이로드의 콘텐츠 형식을 지정합니다.<br/> 허용 되는 값은 <code>application/json; charset=UTF-8</code>입니다.</td>
+    <td><em>필수 요청 헤더</em><br/>페이로드의 콘텐츠 형식을 지정합니다.<br/> 허용된 <code>application/json; charset=UTF-8</code>값은 .</td>
   </tr>
   <tr>
     <td>Content-Length</td>
@@ -119,7 +119,7 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
   </tr>
   <tr>
     <td>X-ClientTraceId</td>
-    <td><em>옵션</em>.<br/>요청을 고유하게 식별하는 클라이언트 생성 ID입니다. <code>ClientTraceId</code>라는 쿼리 매개 변수를 사용하는 쿼리 문자열에서 추적 ID를 포함하는 경우 이 헤더를 생략할 수 있습니다.</td>
+    <td><em>선택 사항입니다</em>.<br/>요청을 고유하게 식별하는 클라이언트 생성 ID입니다. <code>ClientTraceId</code>라는 쿼리 매개 변수를 사용하는 쿼리 문자열에서 추적 ID를 포함하는 경우 이 헤더를 생략할 수 있습니다.</td>
   </tr>
 </table> 
 
@@ -202,7 +202,7 @@ JSON 응답 예제는 [예제](#examples) 섹션에 제공됩니다.
   <th>설명</th>
   <tr>
     <td>200</td>
-    <td>성공.</td>
+    <td>성공했습니다.</td>
   </tr>
   <tr>
     <td>400</td>
@@ -222,7 +222,7 @@ JSON 응답 예제는 [예제](#examples) 섹션에 제공됩니다.
   </tr>
   <tr>
     <td>429</td>
-    <td>클라이언트에서 요청 제한을 초과 하 여 서버가 요청을 거부 했습니다.</td>
+    <td>클라이언트가 요청 제한을 초과했기 때문에 서버가 요청을 거부했습니다.</td>
   </tr>
   <tr>
     <td>500</td>
@@ -236,7 +236,7 @@ JSON 응답 예제는 [예제](#examples) 섹션에 제공됩니다.
 
 오류가 발생하는 경우 요청은 JSON 오류 응답도 반환합니다. 오류 코드는 오류를 더 범주화하도록 뒤에 3자리 숫자가 오는 3자리 HTTP 상태 코드로 결합된 6자리 숫자입니다. 일반적인 오류 코드는 [v3 Translator Text API 참조 페이지](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors)에서 확인할 수 있습니다. 
 
-## <a name="examples"></a>예시
+## <a name="examples"></a>예
 
 ### <a name="translate-a-single-input"></a>단일 입력 번역
 
@@ -363,7 +363,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 
 <table width="100%">
   <th width="20%">ProfanityAction</th>
-  <th>실행력</th>
+  <th>작업</th>
   <tr>
     <td><code>NoAction</code></td>
     <td>기본 동작입니다. 욕설이 원본에서 대상으로 전달됩니다.<br/><br/>
@@ -383,14 +383,14 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
     <td>욕설이 출력에서 표식으로 바뀝니다. 표식은 <code>ProfanityMarker</code> 매개 변수에 따라 달라집니다.<br/><br/>
 <code>ProfanityMarker=Asterisk</code>의 경우 욕설이 다음과 같이 <code>***</code>로 바뀝니다.<br/>
     <strong>예제 원본(일본어)</strong>: 彼はジャッカスです。<br/>
-    <strong>예제 번역(영어)</strong>: He is a \*\*\*.<br/><br/>
+    <strong>예제 번역 (영어)</strong>: \* \* \*그는 .<br/><br/>
 <code>ProfanityMarker=Tag</code>의 경우 욕설이 다음과 같이 XML 태그 &lt;profanity&gt; 및 &lt;/profanity&gt;로 묶입니다.<br/>
     <strong>예제 원본(일본어)</strong>: 彼はジャッカスです。<br/>
     <strong>예제 번역(영어)</strong>: He is a &lt;profanity&gt;jackass&lt;/profanity&gt;.
   </tr>
 </table> 
 
-다음은 그 예입니다.
+예를 들어:
 
 ```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de&profanityAction=Marked" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'This is a freaking good idea.'}]"
@@ -479,14 +479,15 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 맞춤 정보는 `0:2-0:1`로 시작합니다. 이것은 원본 텍스트의 처음 세 문자(`The`)가 번역된 텍스트의 처음 두 문자(`La`)에 매핑됨을 의미합니다.
 
 #### <a name="limitations"></a>제한 사항
-다음 제한 사항이 적용됩니다.
+정렬 정보를 얻는 것은 잠재적인 구 매핑을 통해 연구 및 경험을 프로토타이핑할 수 있도록 설정한 실험적인 기능입니다. 우리는 미래에이 지원을 중지하도록 선택할 수 있습니다. 다음은 정렬이 지원되지 않는 주목할 만한 제한 사항 중 일부입니다.
 
-* HTML 형식의 텍스트에는 맞춤을 사용할 수 없습니다. 즉, textType = html입니다.
+* HTML 형식(예: textType=html)의 텍스트에는 정렬을 사용할 수 없습니다.
 * 다음 언어 쌍의 하위 집합에 대해서만 맞춤이 반환됩니다.
   - 영어에서 다른 모든 언어로
   - 다른 모든 언어에서 영어로(중국어 간체, 중국어 번체 및 라트비아어에서 영어로 번역하는 경우 제외)
   - 일본어에서 한국어로 또는 한국어에서 일본어로
 * 문장에 미리 준비된 번역이 있으면 맞춤을 받지 못합니다. 미리 준비된 번역의 예로 “This is a test”, “I love you”, 기타 빈도가 높은 문장 등이 있습니다.
+* 여기에 설명된 대로 번역을 방지하기 위한 방법을 적용할 때 정렬을 사용할 수 [없습니다.](../prevent-translation.md)
 
 ### <a name="obtain-sentence-boundaries"></a>문장 경계 가져오기
 

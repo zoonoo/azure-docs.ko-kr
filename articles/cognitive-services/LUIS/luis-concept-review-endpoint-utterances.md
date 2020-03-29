@@ -1,5 +1,5 @@
 ---
-title: 사용자 utterance 검토-LUIS
+title: 사용자 발언 검토 - LUIS
 titleSuffix: Azure Cognitive Services
 description: 활성 학습을 사용하여 올바른 의도 및 엔터티에 대한 엔드포인트 발언을 검토하세요. LUIS는 알 수 없는 엔드포인트 발언을 선택합니다.
 services: cognitive-services
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: diberry
 ms.openlocfilehash: 375d4b4e7c3fcafbdfde1ff447bedc3e16aff2f2
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79221320"
 ---
 # <a name="concepts-for-enabling-active-learning-by-reviewing-endpoint-utterances"></a>엔드포인트 발언을 검토하여 활성 학습을 사용하도록 설정하는 데 관한 개념입니다.
@@ -37,11 +37,11 @@ ms.locfileid: "79221320"
 제안된 발화를 매일 검토할 필요는 없지만 정기적인 LUIS 유지 관리에 포함해야 합니다.
 
 ## <a name="delete-review-items-programmatically"></a>프로그래밍 방식으로 검토 항목 삭제
-레이블 없는 **[길이 발언 API 삭제](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58b6f32139e2bb139ce823c9)** 를 사용 합니다. 삭제하기 전에 **[로그 파일을 내보내](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36)** 이러한 발언을 백업합니다.
+**[레이블이 지정되지 않은 발언](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58b6f32139e2bb139ce823c9)** API 삭제를 사용합니다. 삭제하기 전에 **[로그 파일을 내보내](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36)** 이러한 발언을 백업합니다.
 
-## <a name="enable-active-learning"></a>활성 학습 사용
+## <a name="enable-active-learning"></a>능동 학습 지원
 
-활성 학습을 사용 하도록 설정 하려면 사용자 쿼리를 기록해 야 합니다. 이는 `log=true` querystring 매개 변수 및 값을 사용 하 여 [끝점 쿼리](luis-get-started-create-app.md#query-the-v3-api-prediction-endpoint) 를 호출 하 여 수행 됩니다.
+활성 학습을 사용하려면 사용자 쿼리를 기록해야 합니다. 이 작업은 쿼리 문자열 매개 변수 `log=true` 및 값으로 [끝점 쿼리를](luis-get-started-create-app.md#query-the-v3-api-prediction-endpoint) 호출하여 수행됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

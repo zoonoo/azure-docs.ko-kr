@@ -1,5 +1,5 @@
 ---
-title: API HTTP 응답 코드-LUIS
+title: API HTTP 응답 코드 - LUIS
 titleSuffix: Azure Cognitive Services
 description: LUIS 작성 및 엔드포인트 API에서 반환되는 HTTP 응답 코드 이해
 services: cognitive-services
@@ -12,10 +12,10 @@ ms.topic: reference
 ms.date: 03/04/2019
 ms.author: diberry
 ms.openlocfilehash: 405381a2d80ee6469b2b90bcb25923004fe55882
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78270242"
 ---
 # <a name="common-api-response-codes-and-their-meaning"></a>일반적인 API 응답 코드 및 해당 의미

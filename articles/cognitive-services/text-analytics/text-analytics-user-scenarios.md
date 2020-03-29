@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/04/2020
 ms.author: aahi
 ms.openlocfilehash: 6847059de2a8685a56719f07a041a40456f2aa06
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79221194"
 ---
 # <a name="example-user-scenarios-for-the-text-analytics-api"></a>Text Analytics API의 예제 사용자 시나리오
@@ -29,7 +29,7 @@ Text Analytics API는 텍스트에 대한 고급 자연어 처리를 제공하�
 
 ## <a name="analyze-recorded-inbound-customer-calls"></a>녹음된 인바운드 고객 전화 분석
 
-Text to Speech, 감정 분석 및 핵심 구 추출을 사용하여 고객 서비스 전화에서 인사이트를 추출합니다. 고객을 보다 정확하게 이해하고, 고객 서비스 추세를 강조 표시하고, 고객 참여를 유도할 수 있도록 결과를 Power BI 대시보드 또는 포털에 표시합니다. API 요청을 보고용 일괄 처리로 보내거나 작업을 위해 실시간으로 보냅니다. [GitHub의](https://github.com/rlagh2/callcenteranalytics)샘플 코드를 참조 하세요.
+Text to Speech, 감정 분석 및 핵심 구 추출을 사용하여 고객 서비스 전화에서 인사이트를 추출합니다. 고객을 보다 정확하게 이해하고, 고객 서비스 추세를 강조 표시하고, 고객 참여를 유도할 수 있도록 결과를 Power BI 대시보드 또는 포털에 표시합니다. API 요청을 보고용 일괄 처리로 보내거나 작업을 위해 실시간으로 보냅니다. [GitHub의](https://github.com/rlagh2/callcenteranalytics)샘플 코드를 참조하십시오.
 
 ![감정 분석을 사용하여 고객 서비스 전화에서 인사이트를 획득하는 과정을 자동화하는 방법을 설명하는 이미지](media/use-cases/azure-inbound.svg)
 
@@ -45,13 +45,13 @@ Text to Speech, 감정 분석 및 핵심 구 추출을 사용하여 고객 서�
 
 ![핵심 구 추출을 사용하여 소셜 미디어의 제품 및 회사 피드백을 모니터링하는 방법을 설명하는 이미지](media/use-cases/social-feed.svg)
 
-## <a name="classify-and-redact-documents-that-have-sensitive-information"></a>중요 한 정보가 있는 문서 분류 및 교정
+## <a name="classify-and-redact-documents-that-have-sensitive-information"></a>중요한 정보가 포함된 문서 분류 및 수정
 
-명명 된 엔터티 인식을 사용 하 여 문서에서 개인 정보 및 중요 한 정보를 식별 합니다. 데이터를 사용 하 여 문서를 분류 하거나 안전 하 게 공유할 수 있도록 교정 합니다.
+명명된 엔터티 인식을 사용하여 문서에서 개인 및 민감한 정보를 식별합니다. 데이터를 사용하여 문서를 분류하거나 수정하여 안전하게 공유할 수 있습니다.
 
-![NER를 사용 하 여 개인 정보를 검색 하 고 문서를 분류 및 교정 하는 방법을 설명 하는 이미지](media/use-cases/sensitive-docs.jpg)
+![NER를 사용하여 개인 정보를 검색하고 문서를 분류하고 수정하는 방법을 설명하는 이미지](media/use-cases/sensitive-docs.jpg)
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Text Analytics API란?](overview.md)
+* [텍스트 분석 API란?](overview.md)
 * [클라이언트 라이브러리를 사용하여 Text Analytics API로 요청 보내기](quickstarts/text-analytics-sdk.md)

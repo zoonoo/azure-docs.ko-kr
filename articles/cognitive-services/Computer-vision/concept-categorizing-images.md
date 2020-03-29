@@ -1,5 +1,5 @@
 ---
-title: 이미지 분류-Computer Vision
+title: 이미지 분류 - 컴퓨터 비전
 titleSuffix: Azure Cognitive Services
 description: Computer Vision API의 이미지 범주화 기능과 관련된 개념에 대해 알아봅니다.
 services: cognitive-services
@@ -11,20 +11,20 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 2b9b8da550d80b027da919ba0834e43e2c83d4b4
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 477349f1addf71a30e8ecb179266d8eac5510887
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945320"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80244753"
 ---
-# <a name="categorize-images-by-subject-matter"></a>주제로 이미지 분류
+# <a name="categorize-images-by-subject-matter"></a>주제별로 이미지 분류
 
 Computer Vision은 태그 지정 및 설명 외에도 이미지에서 감지된 분류 기반 범주를 반환합니다. 태그와 달리, 범주는 부모/자식 계층으로 구성되고 개수가 더 적습니다(태그는 수천 개인 반면 86개). 모든 범주 이름은 영어입니다. 범주는 단독으로 또는 최신 태그 모델과 함께 수행될 수 있습니다.
 
 ## <a name="the-86-category-concept"></a>86개 범주 개념
 
-컴퓨터 비전은 다음 다이어그램의 86개 범주 목록을 사용하여 광범위하게 또는 구체적으로 이미지를 분류할 수 있습니다. 전체 분류를 텍스트 형식으로 보려면 [범주 분류](category-taxonomy.md)를 참조하세요.
+컴퓨터 비전은 다음 다이어그램의 86개 범주 목록을 사용하여 이미지를 광범위하게 또는 구체적으로 분류할 수 있습니다. 전체 분류를 텍스트 형식으로 보려면 [범주 분류](category-taxonomy.md)를 참조하세요.
 
 ![범주 분류에 있는 모든 범주의 그룹화된 목록](./Images/analyze_categories-v2.png)
 
@@ -53,13 +53,20 @@ Computer Vision은 태그 지정 및 설명 외에도 이미지에서 감지된 
 
 다음 표에서는 각 이미지에 대해 Computer Vision에서 반환된 일반적인 이미지 집합 및 범주를 보여줍니다.
 
-| 이미지 | 범주 |
+| 이미지 | Category |
 |-------|----------|
 | ![가족으로 함께 포즈를 취한 4명의 사람](./Images/family_photo.png) | people_group |
 | ![잔디밭에 앉아 있는 강아지](./Images/cute_dog.png) | animal_dog |
 | ![석양이 보이는 산 바위에 서 있는 사람](./Images/mountain_vista.png) | outdoor_mountain |
 | ![테이블 위에 쌓여있는 빵](./Images/bread.png) | food_bread |
 
+## <a name="use-the-api"></a>API 사용
+
+분류 기능은 [이미지 분석](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API의 일부입니다. 이 API는 네이티브 SDK 또는 REST 호출을 통해 호출할 수 있습니다. `Categories` **visual기능** 쿼리 매개 변수에 포함합니다. 그런 다음 전체 JSON 응답을 받으면 `"categories"` 섹션의 내용에 대한 문자열을 구문 분석하기만 하면 됩니다.
+
+* [빠른 시작: 컴퓨터 비전 .NET SDK](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
+* [빠른 시작: 이미지 분석(REST API)](./quickstarts/csharp-analyze.md)
+
 ## <a name="next-steps"></a>다음 단계
 
-[이미지 태그 지정](concept-tagging-images.md) 및 [이미지 설명](concept-describing-images.md)에 대한 개념을 알아봅니다.
+[이미지에 태그를 지정하고](concept-tagging-images.md) 이미지를 설명하는 관련 [개념에](concept-describing-images.md)대해 알아봅니다.

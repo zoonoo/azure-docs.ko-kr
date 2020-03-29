@@ -12,10 +12,10 @@ ms.date: 06/04/2019
 ms.author: swmachan
 ms.custom: seodec18
 ms.openlocfilehash: dd4ff1e39c062910f4627973c801dc3c51f345e5
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73837222"
 ---
 # <a name="how-to-receive-word-alignment-information"></a>단어 맞춤 정보를 받는 방법
@@ -38,7 +38,7 @@ ms.locfileid: "73837222"
 * 다른 모든 언어에서 영어로(중국어 간체, 중국어 번체 및 라트비아어에서 영어로 번역하는 경우 제외)
 * 일본어에서 한국어로 또는 한국어에서 일본어로. 문장이 미리 준비된 번역인 경우에는 맞춤 정보가 표시되지 않습니다. 미리 준비된 번역의 예로 “테스트입니다.”, “당신을 사랑합니다.”, 기타 빈도가 높은 문장 등이 있습니다.
 
-## <a name="example"></a>예
+## <a name="example"></a>예제
 
 예제 JSON
 

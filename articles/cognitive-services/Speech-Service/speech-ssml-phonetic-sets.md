@@ -1,7 +1,7 @@
 ---
-title: 음성 발음 설정-음성 서비스
+title: 음성 음성 세트 - 음성 서비스
 titleSuffix: Azure Cognitive Services
-description: 음성 서비스 윗주 (IPA)에 대 한 음성 서비스와 설정 사용 시기에 대해 알아봅니다.
+description: 국제 음성 알파벳(IPA)에 음성 서비스 음성 알파벳 맵을 사용하는 방법과 어떤 세트를 사용할 시기에 대해 알아봅니다.
 services: cognitive-services
 author: zhaoyunED
 manager: junwg
@@ -11,394 +11,394 @@ ms.topic: conceptual
 ms.date: 03/04/2020
 ms.author: jiajzhan
 ms.openlocfilehash: 770e97ad126f66efb43bf8cf7eb12f7510858192
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78675338"
 ---
-# <a name="speech-service-phonetic-sets"></a>음성 서비스 음성 서비스 음성 설정
+# <a name="speech-service-phonetic-sets"></a>음성 서비스 음성 세트
 
-음성 서비스는 일곱 개의 언어로 구성 된 발음 영문자 ("전화 집합")를 정의 합니다. `en-US`, `fr-FR`, `de-DE`, `es-ES`, `ja-JP`, `zh-CN`및 `zh-TW`. Speech service phone 집합은 일반적으로 <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" target="_blank">국제 발음 (IPA) <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>에 매핑됩니다. Speech service phone 집합은 텍스트 음성 변환 서비스 제공의 일부로 [SSML (음성 합성 마크업) 언어](speech-synthesis-markup.md)와 함께 사용 됩니다. 이 문서에서는 이러한 휴대폰 집합이 매핑되는 방법 및 전화 번호를 사용 하는 시기에 대해 알아봅니다.
+음성 서비스는 7개 언어로 구성된 음성 알파벳(짧은 경우 "전화 세트")을 정의합니다. `en-US` `de-DE`. `fr-FR` `es-ES` `ja-JP` `zh-CN` `zh-TW` 음성 서비스 전화 세트는 일반적으로 <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" target="_blank">국제 음성 <span class="docon docon-navigate-external x-hidden-focus"> </span>알파벳(IPA)에 </a>매핑됩니다. 음성 변환 서비스 전화 세트는 텍스트 음성 변환 서비스 제공의 일부로 [SSML(음성 합성 태그 언어)과](speech-synthesis-markup.md)함께 사용됩니다. 이 문서에서는 이러한 휴대폰 집합이 매핑되는 방법과 어떤 휴대폰 세트를 사용하는 시기에 대해 알아봅니다.
 
-# <a name="en-us"></a>[en-us](#tab/en-US)
+# <a name="en-us"></a>[en-US](#tab/en-US)
 
-### <a name="english-suprasegmentals"></a>영어 suprasegmentals
+### <a name="english-suprasegmentals"></a>영어 수구
 
-| 예제 1 (자음의 경우 하기 시작 하면, 모음에 대 한 단어 초기) | 예 2 (자음의 경우 Intervocalic, word 중성 핵심 이기 for 모음) | 예 3 (자음 용 Coda, 모음에 대 한 단어 최종) | 주석 |
+| 예제 1(자음의 경우 시작, 모음의 이글 단어) | 예제 2(자음의 인터보컬, 모음에 대한 단어 내측 핵) | 예 3 (자음의 경우 코다, 모음에 대한 단어 최종) | 주석 |
 |--|--|--|--|
-| 먹으며 즐길/b er **1** r-g ax r/ | 비 afel/f ax-l aa **1** -f ax l/ | 기타/g 항목-t aa **1** r/ | 음성 서비스 전화 번호 설정 스트레스 음절의 모음 뒤에 스트레스 배치 |
-| 리디렉션하거나/ih **2** -n aa-p ax r-t uw 1 n/ | dissimilarity/d 항목-s 항목 **2**-m ax-l eh 1-r ax-t 항목/ | 직원/w er 1 r k-f ao **2** r s/ | 음성 서비스 전화 번호 설정 스트레스가 낮은 음절의 모음 뒤에 스트레스 배치 |
+| 햄버거 /b er **1** r - g 도끼 r/ | 팔라펠 /f 도끼 - l aa **1** - f 도끼 l / | 기타 /g ih - t aa **1** r/ | 음성 서비스 전화 세트는 스트레스 음절의 모음 후 스트레스를 넣어 |
+| 이명 /ih **2** - n aa - p ax r - t uw 1 n/ | 이유사성 /d ih - s ih **2**- m 도끼 - l eh 1 - r 도끼 - t iy/ | 인력 /w er 1 r k - f ao **2** r s/ | 음성 서비스 전화 세트는 서브 스트레스 음절의 모음 후 스트레스를 넣어 |
 
 ### <a name="english-vowels"></a>영어 모음
 
 | `sapi` | `ipa` | 예 1     | 예제 2 | 예제 3                   |
 |--------|-------|---------------|-----------|-----------------------------|
-| iy     | `i`   | **ea**t       | f**ee**l  | vall**e**                  |
-| 항목     | `ɪ`   | **i**f        | f**i**ll  |                             |
-| e     | `eɪ`  | **te**       | g**a**te  | **day**                     |
-| eh     | `ɛ`   | **e**매우     | p**e**t   | m**eh** (finally 단어) |
-| ae     | `æ`   | **c)**    | c**a**t   | n**ah** (마지막 단어를 드물게) |
-| aa     | `ɑ`   | **o**bstinate | p**o**ppy | r**ah** (가끔 word finally) |
-| ao     | `ɔ`   | **o**범위    | c**au**se | 전 세계**ah**                    |
-| 네     | `ʊ`   | b**oo**k      |           |                             |
-| ow     | `oʊ`  | **o**ld       | cl**o**ne | g**o**                      |
-| uw     | `u`   | **U**ber      | b**oo**st | t**oo**                     |
-| 아기     | `ʌ`   | **u**ncle     | c**u**t   |                             |
-| 결과     | `aɪ`  | **i**ce       | b**i**te  | fl**y**                     |
-| aw     | `aʊ`  | **ou**t       | s**ou**th | c**ow**                     |
-| oy     | `ɔɪ`  | **oi**l       | j**oi**n  | t**oy**                     |
-| y uw   | `ju`  | **Yu**ma      | h**u**man | f                     |
-| ax     | `ə`   | **go**       | wom**a**n | 는**입니다.**                    |
+| Iy     | `i`   | **ea**t       | f**ee**l  | 발**아이**                  |
+| Ih     | `ɪ`   | **나는**F        | f**나는**ll  |                             |
+| Ey     | `eɪ`  | **테**       | g**테**  | d**아이**                     |
+| 어     | `ɛ`   | **전자**매우     | p**e t**   | m**eh** (드디어 단어 드디어) |
+| ae     | `æ`   | **카티브**    | c**a**t   | n**아** (드디어 단어 드디어) |
+| aa     | `ɑ`   | **o**bstinate | p**o**ppy | r**아** (드디어 단어) |
+| ao     | `ɔ`   | **o**범위    | c**오**세 | **우아**                    |
+| 어     | `ʊ`   | b**oo**k      |           |                             |
+| Ow     | `oʊ`  | **o**ld       | cl**o**네 | g**o**                      |
+| Uw     | `u`   | **U**ber      | b**oo**st | t**oo**                     |
+| 아     | `ʌ`   | **u**ncle     | c**u t**   |                             |
+| 바깥     | `aɪ`  | **나는**ce       | b**나는**테  | fl**y**                     |
+| 아     | `aʊ`  | **ou**t       | s**ou**th | c**오우**                     |
+| 야     | `ɔɪ`  | **oi**l       | j**oi**n  | t**oy**                     |
+| y uw   | `ju`  | **유마**      | h**u**남자 | f**ew**                     |
+| 도끼     | `ə`   | **이동**       | wom**a**n | 는**a**                    |
 
-### <a name="english-r-colored-vowels"></a>영어 R 색 모음
+### <a name="english-r-colored-vowels"></a>영어 R색 모음
 
 | `sapi` | `ipa` | 예 1    | 예제 2      | 예제 3  |
 |--------|-------|--------------|----------------|------------|
-| 항목 r   | `ɪɹ`  | **귀**s     | t**ir**amisu   | n**귀**   |
-| eh r   | `ɛɹ`  | **공기**평면 | 앱**ar**ently | sc**ar**e  |
-| 인   | `ʊɹ`  |              |                | c **(** e)   |
-| ay r   | `aɪɹ` | **Ire**지역  | f**ir**eplace  | ch**oir**  |
-| aw r   | `aʊɹ` | **시간**s    | p**ower**   | s   |
-| ao r   | `ɔɹ`  | **또는**a)   | m**또는**al      | s**oar**   |
-| aa r   | `ɑɹ`  | **ar**tist   | st**ar**t      | c**ar**    |
-| er r   | `ɝ`   | **귀**번째    | b**ir**d       | f    |
-| ax r   | `ɚ`   |              | 모든**er**gy    | supp**er** |
+| ih r   | `ɪɹ`  | **귀**s     | t**이르**아미수   | n**귀**   |
+| 어 r   | `ɛɹ`  | **비행기** | 앱**ar**ently | sc**ar**e  |
+| 어 r   | `ʊɹ`  |              |                | c**당신의**전자   |
+| ay r   | `aɪɹ` | **이레**랜드  | f**ir**eplace  | ch**oir**  |
+| aw r   | `aʊɹ` | **시간**s    | p**ower**풀   | s**우리의**   |
+| 아오 r   | `ɔɹ`  | **또는**앙제   | m**또는**알      | s**노**   |
+| aa r   | `ɑɹ`  | **아르**티스트   | st**ar**t      | c**ar**    |
+| 어 r   | `ɝ`   | **귀**th    | b**ir**d       | f**당신의**    |
+| 도끼 r   | `ɚ`   |              | 모든**er**gy    | supp**er** |
 
-### <a name="english-semivowels"></a>영어 Semivowels
+### <a name="english-semivowels"></a>영어 세미보벨
 
 | `sapi` | `ipa` | 예 1           | 예제 2  | 예제 3 |
 |--------|-------|---------------------|------------|-----------|
-| w      | `w`   | **w**i, s**ue** | al**w**ays |           |
-| y      | `j`   | **y**인, f**e**w   | 온 **-시**  |           |
+| w      | `w`   | **w**ith, s**ue**de | 알**w**아이스 |           |
+| y      | `j`   | **y**아드, f**e w**   | **에 I**  |           |
 
-### <a name="english-aspirated-oral-stops"></a>English aspirated 구두 중지
+### <a name="english-aspirated-oral-stops"></a>영어 흡기 구두 정지
 
 | `sapi` | `ipa` | 예 1 | 예제 2   | 예제 3  |
 |--------|-------|-----------|-------------|------------|
-| p      | `p`   | **p**전 세계   | ha**페이지**en  | fla**p**   |
-| b      | `b`   | **big**   | 번호**b**er  | cra**b**   |
-| t      | `t`   | **t**alk  | capi**t**al | sough**t** |
-| d      | `d`   | **d**   | 실행 한**d**om  | ro**d**    |
-| k      | `k`   | **c**세계   | sla**헤드**er | Ira**q**   |
-| g      | `g`   | **g**o    | a**g**o     | dra**g**   |
+| p      | `p`   | **p**ut   | 하**pp**en  | 플라**p**   |
+| b      | `b`   | **b**ig   | num**b**er  | 크라**b**   |
+| t      | `t`   | **t**알크  | 카피**t**알 | sough**t** |
+| d      | `d`   | **d**ig   | 실행**d**옴  | 로**d**    |
+| k      | `k`   | **c**ut   | 슬라**ck**er | 이라**q**   |
+| g      | `g`   | **g**o    | **g**o     | 드라**g**   |
 
-### <a name="english-nasal-stops"></a>영어 Nasal 중지
+### <a name="english-nasal-stops"></a>영어 비강 정류장
 
 | `sapi` | `ipa` | 예 1        | 예제 2  | 예제 3   |
 |--------|-------|------------------|------------|-------------|
-| m      | `m`   | **m**, smash   | ca**m**연대 | roo**m**    |
-| n      | `n`   | **n**o, s**n**ow | te**n**t   | chicke**n** |
-| ng     | `ŋ`   |                  | li**n**k   | s**연산**    |
+| m      | `m`   | **m**에서, 스매시   | 카**엠**시대 | 루**m**    |
+| n      | `n`   | **n**o, s**n**오우 | 테**n**t   | 병아리**n** |
+| Ng     | `ŋ`   |                  | 리**n**k   | 의**ING**    |
 
-### <a name="english-fricatives"></a>영어 fricatives
+### <a name="english-fricatives"></a>영어 튀김
 
 | `sapi` | `ipa` | 예 1   | 예제 2        | 예제 3  |
 |--------|-------|-------------|------------------|------------|
-| f      | `f`   | **f**o)    | le**f**t         | hal**f**   |
-| v      | `v`   | **v**alue   | e**v**ent        | 로**낮음**   |
-| th     | `θ`   | **th**    | empa**번째**      | mon**번째**  |
-| 교환이     | `ð`   | **번째**en    | mo       | smoo**번째** |
-| s      | `s`   | **s**it     | ri**s**k         | 팩트**s**  |
-| z      | `z`   | **z**ap     | bu**s**y         | 어린이**s**   |
-| sh     | `ʃ`   | **sh** e    | abbrevia**ti**설정 | 및   |
-| zh     | `ʒ`   | **J**acques | plea     | gara**g**e |
-| h      | `h`   | **h**elp    | en**h**ance      | -**h**a!  |
+| f      | `f`   | **f**오크    | 르**f**t         | 할**f**   |
+| v      | `v`   | **v**아루에   | e**v**엔트        | lo**v**e   |
+| th     | `θ`   | **에서**    | 엠파**th**y      | 몬**th**  |
+| Dh     | `ð`   | **th**en    | mo**th**er       | 스무**th** |
+| s      | `s`   | **s**그것     | ri**s**k         | 팩트**s**  |
+| z      | `z`   | **z**ap     | bu**s**y         | 아이**의**   |
+| sh     | `ʃ`   | **쉬** 전자    | 축약**티**에 | 루**쉬**   |
+| zh     | `ʒ`   | **J**아케스 | 플레어**스**우레     | 가라**g**e |
+| h      | `h`   | **h**엘프    | en**h**조상      | A-**H**a!  |
 
-### <a name="english-affricates"></a>영어 affricates
+### <a name="english-affricates"></a>영어 상주
 
 | `sapi` | `ipa` | 예 1 | 예제 2    | 예제 3  |
 |--------|-------|-----------|--------------|------------|
-| ch     | `tʃ`  | **ch**in  | fu**t**   | atta**ch** |
-| jh     | `dʒ`  | **j**oy   | ori**g**inal | oran**g**e |
+| ch     | `tʃ`  | **ch**에서  | 푸**t**우레   | 아타**ch** |
+| Jh     | `dʒ`  | **j**oy   | 오리**g**inal | 오란**g**전자 |
 
-### <a name="english-approximants"></a>영어 approximants
+### <a name="english-approximants"></a>영어 근사치
 
 | `sapi` | `ipa` | 예 1          | 예제 2  | 예제 3 |
 |--------|-------|--------------------|------------|-----------|
-| l      | `l`   | **l**id, g**l**ad  | pa**l**ace | 카이**ll** |
-| r      | `ɹ`   | **r**ed, b**r**ing | bo**rr**ow | ta**r**   |
+| l      | `l`   | **l**ID, g**l**광고  | pa**l**에이스 | 치**ll** |
+| r      | `ɹ`   | **r**에드, b**r ing** | 보**rr**오우 | 타**r**   |
 
-# <a name="fr-fr"></a>[fr-fr](#tab/fr-FR)
+# <a name="fr-fr"></a>[fr-FR](#tab/fr-FR)
 
-### <a name="french-suprasegmentals"></a>프랑스어 suprasegmentals
+### <a name="french-suprasegmentals"></a>프랑스어 수프라 세그먼트
 
-Speech service phone 집합은 스트레스 음절의 모음 뒤에 스트레스를 배치 하지만 `fr-FR` Speech service phone 집합은 IPA substress ' ˌ '를 지원 하지 않습니다. IPA substress가 필요한 경우 IPA를 직접 사용 해야 합니다.
+그러나 음성 서비스 전화 세트는 스트레스가 많은 음절의 모음 이후에 스트레스를 가합니다. 음성 `fr-FR` 서비스 전화 세트는 IPA 하위 스트레스 '를 지원하지 않습니다. IPA 하위 스트레스가 필요한 경우 IPA를 직접 사용해야 합니다.
 
 ### <a name="french-vowels"></a>프랑스어 모음
 
 | `sapi` | `ipa` | 예 1     | 예제 2       | 예제 3 |
 |--------|-------|---------------|-----------------|-----------|
 | a      | `a`   | **rbre**     | p**a**tte       | ir**a**   |
-| aa     | `ɑ`   |               | p        | p**a**s   |
-| aa ~   | `ɑ̃`  | **en**fant    | enf**en**t      | t**em**ps |
-| ax     | `ə`   |               | p**e**tite      | l**e**    |
-| eh     | `ɛ`   | **e**lle      | p**e**rdu       | ét**ai**t |
-| eu     | `ø`   | **œu**fs      | cr**eu**ser     | qu**eu**  |
-| e     | `e`   | ému           | crétin          | ôté       |
-| eh ~   | `ɛ̃`  | **im**portant | p**ein**t    | **인** 경우 |
-| iy     | `i`   | **dée**      | 애완**동물**      | am**i**   |
-| oe     | `œ`   | **œu**f       | p**eu**r        |           |
-| 돼     | `ɔ`   | **o**bstacle  | c**o**rps       |           |
-| 오 ~   | `ɔ̃`  | ze **에서**      | deur**의**r     | b**설정**   |
-| ow     | `o`   | **오스트레일리아**diteur  | b**eau**    | p**ô**    |
-| oe ~   | `œ̃ ` | **되지**        | l**제거**(di)       | br**취소**  |
-| uw     | `u`   | **ou**trage   | intr**ou**된 | **조직**    |
-| uy     | `y`   | **u**ne       | p**u**n ir       | él**u**   |
+| aa     | `ɑ`   |               | p**â**te        | p**s**   |
+| AA ~   | `ɑ̃`  | **en**판타지    | enf**en**t      | t**엠**ps |
+| 도끼     | `ə`   |               | p**전자**티트      | l**전자**    |
+| 어     | `ɛ`   | **전자**lle      | p**e**rdu       | 에트**아이**t |
+| Eu     | `ø`   | **우**FS      | cr**eu**ser     | qu**eu**  |
+| Ey     | `e`   | 에무 ()에무 ()           | 크레틴 ()크레틴 ()(주)          | 오테 (동음이의)       |
+| 어 ~   | `ɛ̃`  | **메신저**포탄트 | p**아인**투르    | 매트**에서** |
+| Iy     | `i`   | **나는**데      | 애완 동물**i**te      | **나는**   |
+| Oe     | `œ`   | **우**f       | p**eu**r        |           |
+| 오     | `ɔ`   | **o**bstacle  | c**o**rps       |           |
+| 오 ~   | `ɔ̃`  | **에**ze      | r**에**deur     | b**켜기**   |
+| Ow     | `o`   | **오**디투르  | b**오**쿠데타    | p**ô**    |
+| oe ~   | `œ̃ ` | **유엔**        | l**un**di       | br**un**  |
+| Uw     | `u`   | **오**비극   | 인트로**오**비블 | **Ou**    |
+| Uy     | `y`   | **u**ne       | p**u**니르       | 엘**u**   |
 
-### <a name="french-consonants"></a>프랑스어 자음
+### <a name="french-consonants"></a>프렌치 자음
 
 | `sapi` | `ipa` | 예 1   | 예제 2     | 예제 3                        |
 |--------|-------|-------------|---------------|----------------------------------|
-| b      | `b`   | **b**ête    | ha**b**ille   | ro**b**e                         |
-| d      | `d`   | **d**ire    | ron**d**eur   | chau**d**e                       |
-| f      | `f`   | **f**emme   | su**ff**ixe   | bo**f**                          |
-| g      | `g`   | **g**auche  | é**g**ale     | ba**gu**e                        |
-| ng     | `ŋ`   |             |               | [<sup>1 개</sup>](#fr-1)대기 |
-| hy     | `ɥ`   | h**u**개   | n**u**ire     |                                  |
-| k      | `k`   | **c**arte   | é**c**   | **c**                          |
-| l      | `l`   | **l**긴    | é**l**ire     | ba**l**                          |
-| m      | `m`   | **m**adame  | ai**m**er     | po**mm**e                        |
-| n      | `n`   | **n**ou    | te**n**ir     | bo**nn**e                        |
-| nj     | `ɲ`   |             |               | pei**gn**e                       |
-| p      | `p`   | **p**   | 다시**p**     | ca**p**                          |
-| r      | `ʁ`   | **r**at     | cha**r**iot   | senti**r**                       |
-| s      | `s`   | **s**ourir  | a**ss**ez     | pa**ss**e                        |
-| sh     | `ʃ`   | **ch**anter | ma**ch**   | po**ch**e                        |
-| t      | `t`   | **t**ête    | ô**t**er      | ne**t**                          |
-| v      | `v`   | **v**ent    | **v**입력  | rê**v**e                         |
-| w      | `w`   | **ou**i     | f**ou**    |                                  |
-| y      | `j`   | **y**od     | p**i**étiner  | **Ille** se                    |
-| z      | `z`   | \* * z * * éro   | rai**s**onner | ro**s**e                         |
-| zh     | `ʒ`   | **j**ardin  | 남자**g**er    | piè**g**e                        |
-|        | `n‿`  |             |               | u**n** arbre                     |
-|        | `t‿`  |             |               | **차원**                        |
-|        | `z‿`  |             |               | di**x**                          |
+| b      | `b`   | **b**ête    | 하**b**일레   | ro**b**e                         |
+| d      | `d`   | **d**ire    | 론**d**eur   | 차우**d**e                       |
+| f      | `f`   | **f**엠메   | su**ff**ixe   | 보**F**                          |
+| g      | `g`   | **g**오치  | 에**g**에일     | 바**구**전자                        |
+| Ng     | `ŋ`   |             |               | [<sup>1</sup>](#fr-1)파크**잉** |
+| Hy     | `ɥ`   | h**u**일레   | n**u**ire     |                                  |
+| k      | `k`   | **c**아르테   | 에**c**에일   | **C가** 되시다                          |
+| l      | `l`   | **l**옹    | 에**르**이레     | 바**l**                          |
+| m      | `m`   | **m**아담  | ai**m**er     | 포**mm**e                        |
+| n      | `n`   | **n**우스    | 테**n**ir     | 보**nn**전자                        |
+| 뉴저지     | `ɲ`   |             |               | 페이**gn**전자                       |
+| p      | `p`   | **p**에테   | 다시**p로**     | ca**p**                          |
+| r      | `ʁ`   | **에서 r**     | 차**r**iot   | 센티**r**                       |
+| s      | `s`   | **s**우리의  | **SS**에즈     | pa**ss**e                        |
+| sh     | `ʃ`   | **ch**안터 | 마**ch**ine   | 포**ch**e                        |
+| t      | `t`   | **t**ête    | ô**t**er      | 네**t**                          |
+| v      | `v`   | **v**엔트    | **에서 v**입력  | 레**v**e                         |
+| w      | `w`   | **오**나는     | f**ou**ine    |                                  |
+| y      | `j`   | **y**오드     | p**i**에티네르  | 마르세유**일**                    |
+| z      | `z`   | **z **에로   | 라이**스**에너 | ro**s**e                         |
+| zh     | `ʒ`   | **j**아딘  | 남자**g**er    | 피에**g**전자                        |
+|        | `n‿`  |             |               | u**n** 아르브레                     |
+|        | `t‿`  |             |               | 콴**d**                        |
+|        | `z‿`  |             |               | 디**x**                          |
 
-<a id="fr-1"></a> *일부 외래 단어에 대해서만 1 
-합니다.*
+<a id="fr-1"></a>
+**1** *일부 외국어에 대해서만.*
 
 > [!TIP]
-> `fr-FR` Speech service phone 집합은 다음 프랑스어 liasions, `n‿`, `t‿`및 `z‿`를 지원 하지 않습니다. 필요한 경우 IPA를 직접 사용 하는 것을 고려해 야 합니다.
+> 음성 `fr-FR` 서비스 전화 세트는 다음 프랑스어 lialias `n‿` `t‿`및 `z‿`을 지원하지 않습니다. 필요한 경우 IPA를 직접 사용하는 것이 좋습니다.
 
 # <a name="de-de"></a>[de-DE](#tab/de-DE)
 
-### <a name="german-suprasegmentals"></a>독일어 suprasegmentals
+### <a name="german-suprasegmentals"></a>독일어 상분할
 
-| 예제 1 (자음의 경우 하기 시작 하면, 모음에 대 한 단어 초기) | 예 2 (자음의 경우 Intervocalic, word 중성 핵심 이기 for 모음) | 예 3 (자음 용 Coda, 모음에 대 한 단어 최종) | 주석 |
+| 예제 1(자음의 경우 시작, 모음의 이글 단어) | 예제 2(자음의 인터보컬, 모음에 대한 단어 내측 핵) | 예 3 (자음의 경우 코다, 모음에 대한 단어 최종) | 주석 |
 |--|--|--|--|
-| anders/a **1** n-d ax r s/ | Multiplikationszeichen/m \_l-t iy-p l iy-k a-ts y ow **1** n s-ts ay-c n/ | Biologie/b iy-ow-l ow-g iy **1**/ | 음성 서비스 전화 번호 설정 스트레스 음절의 모음 뒤에 스트레스 배치 |
-| Allgemeinwissen/a **2** l-g ax-m ay 1 n-v 항목-s n/ | Abfallentsorgungsfirma/a 1 p-f a l-^ eh n t-z **n2** ax r-g. s-f 항목 ax r-m a/ | Computertomographie/k n m-p y uw 1-t ax r-t ow-m ow-g r a-f iy **2**/ | 음성 서비스 전화 번호 설정 스트레스가 낮은 음절의 모음 뒤에 스트레스 배치 |
+| 앤더스 /a **1** n - d 도끼 R s/ | Multiplikationszeichen /m uh l - t iy - p l iy - k a - ts y ow **1** n s - ts ay - c n/ | 바이오로지 /b 아이 - 오우 - l ow - g iy **1**/ | 음성 서비스 전화 세트는 스트레스 음절의 모음 후 스트레스를 넣어 |
+| 알제마이인위센 /a **2l** - g 도끼 - m ay 1 n - v ih - s n/ | Abfallentsorgungsfirma / a 1 p - f a l - ^ eh n t - z oh **2** ax r - g uh ng s - f ih ax r - m a/ | 컴퓨터 tomographie /k 오 m - p y uw 1 - t 도끼 r - t ow - m ow - g r a - f iy **2**/ | 음성 서비스 전화 세트는 서브 스트레스 음절의 모음 후 스트레스를 넣어 |
 
 ### <a name="german-vowels"></a>독일어 모음
 
 | `sapi` | `ipa`     | 예 1                             | 예제 2     | 예제 3                          |
 |--------|-----------|---------------------------------------|---------------|------------------------------------|
-| a:     | `aː`      | **Ber**                              | Maßst**a**b   | 스키마                         |
-| a      | `a`       | **Bfall**.                            | B**a**ch      | Agath                         |
-| 돼     | `ɔ`       | **O**sten                             | Pf**o**   |                                    |
-| eh    | `ɛː`      | **Ä**hnlichkeit                       | B**ä**r       | [<sup>1</sup>](#de-v-1) Fasci**ae** |
-| eh     | `ɛ`       | **ä**ndern                            | Proz**e**nt   | Amygdal**ae**                      |
-| ax     | `ə`       | [<sup>2</sup>](#de-v-2)' v**e**r | Aach**e**n    | 조각**e**                          |
-| iy     | `iː`      | **실행 됨**                              | abb**ie**gt   | Relativitätstheor**ie**            |
-| 항목     | `ɪ`       | **Nnung**                            | s**i**ngen    | 목조**y**                          |
-| eu     | `øː`      | **Ö**send                              | abl**ö**sten  | Malm**ö**                          |
-| ow     | `o`, `oː` | **o**hne                              | 신데렐라**o**n    | Trept**ow**                        |
-| oe     | `œ`       | **Ö**ffnung                           | bef**ö**rdern |                                    |
-| e     | `e`, `eː` | **E-learning**하드                          | .abf**e**gt    | b                                  |
-| uw     | `uː`      | **U**do                               | H**u**t       | Akk**u**                           |
-| 네     | `ʊ`       | **U**nterschiedes                     | b**u**nt      |                                    |
-| agent     | `yː`      | **Ü**bermut                           | default.pfl**ü**gt    | 남자**ü**                           |
-| uy     | `ʏ`       | **ü**ppig                             | S**y**스템    |                                    |
+| a:     | `aː`      | **A**ber                              | 마스트**a**b   | 스키마**a**                         |
+| a      | `a`       | **a**폴                            | B**a**ch      | 아가스**a**                         |
+| 오     | `ɔ`       | **O**스텐                             | Pf**오**스텐   |                                    |
+| 어:    | `ɛː`      | **에이**리치키트                       | B**ä**r       | [<sup>1개</sup>](#de-v-1) 파시**에** |
+| 어     | `ɛ`       | **이**엔데르른                            | 프로즈**e**nt   | 에이미그달**애**                      |
+| 도끼     | `ə`       | [<sup>2</sup>](#de-v-2)'v**e**rstauen | Aach**e**n    | 프래그**전자**                          |
+| Iy     | `iː`      | **나는 달렸다.**                              | abb**즉**GT   | 상대주의자**ie**            |
+| Ih     | `ɪ`       | **나는**응웅                            | s**i**ngen    | 우드**y**                          |
+| Eu     | `øː`      | **외센**                              | abl**ö**스텐  | 말름**외**                          |
+| Ow     | `o`, `oː` | **o**hne                              | 발크**오**n    | 트렙**오우**                        |
+| Oe     | `œ`       | **외**프농                           | bef**ö**rdern |                                    |
+| Ey     | `e`, `eː` | **E**버하르트                          | abf**e**gt    | b                                  |
+| Uw     | `uː`      | **U**do                               | H**u**t       | 악크**유**                           |
+| 어     | `ʊ`       | **U**nterschiedes                     | b**u**nt      |                                    |
+| Ue     | `yː`      | **우버**베르무트                           | pfl**ü**gt    | 남자**ü**                           |
+| Uy     | `ʏ`       | **우피그**                             | S**y**줄기    |                                    |
 
 <a id="de-v-1"></a>
-예 *: Fasci**ae**와 같은 외국어 원본 단어로만* **1**<br>
+**1** *외국에서 유래한 단어만: Fasci**ae**.*<br>
 <a id="de-v-2"></a>
-**2** *단어 (intially)와 같은 외래 원본 단어에만해당 합니다. 음절-처음에는 ' v**e**rstauen '입니다.*
+**2** *어마어말은 어마어마한 **A**뜻으로, 외국에서 유래한 말만 을 가리키는 말이다. 음절 -에서 처음 : 'v**전자**rstauen.*
 
-### <a name="german-diphthong"></a>독일어 diphthong
+### <a name="german-diphthong"></a>독일 디프통
 
 | `sapi` | `ipa`       | 예 1    | 예제 2          | 예제 3 |
 |--------|-------------|--------------|--------------------|-----------|
-| 결과     | `ai`        | **ei**nsam   | Unabhängigk**ei**t | Abt**ei** |
-| aw     | `au`        | **오스트레일리아**ßen    | abb**au**st        | St**au**  |
-| oy     | `ɔy`, `ɔʏ̯` | **Eu**phorie | tr**äu**mt         | sch-m**eu** |
+| 바깥     | `ai`        | **에이**앤샘   | 우나벤기크**에이**티 | Abt**ei** |
+| 아     | `au`        | **오**센    | abb**au**st        | 세인트**오**  |
+| 야     | `ɔy`, `ɔʏ̯` | **유**포리 | 트르**아우**mt         | 슈**유** |
 
-### <a name="german-semivowels"></a>독일어 semivowels
+### <a name="german-semivowels"></a>독일 세미보벨
 
 | `sapi` | `ipa` | 예 1 | 예제 2    | 예제 3  |
 |--------|-------|-----------|--------------|------------|
-| ax r   | `ɐ`   |           | abänd**er**n | 잠금 |
+| 도끼 r   | `ɐ`   |           | abänd**er**n | 잠금**어** |
 
 ### <a name="german-consonants"></a>독일어 자음
 
 | `sapi` | `ipa` | 예 1 | 예제 2 | 예제 3 |
 |--|--|--|--|--|
-| b | `b` | **B**ank |  | [<sup>1</sup>](#de-c-1) Pu**b** |  |
-| c | `ç` | **Ch**emie | mögli**ch**st | [<sup>2</sup>](#de-c-2)i**ch** |
-| d | `d` | **d**anken | [<sup>3</sup>](#de-c-3) Len**d**l | [<sup>4</sup>](#de-c-4) Clau**d**e |  |
-| jh | `ʤ` | **J**eff | gemana**g**t | [<sup>5</sup>](#de-c-5) 변경 (**g**e |
-| f | `f` | **F**ahrtdauer | angri**ff**slustig | abbruchrei**f** |  |
-| g | `g` | **g**전 세계 |  | [<sup>6</sup>](#de-c-6) Gre**g** |  |
-| h | `h` | **H**-ausanbau |  |  |  |
-| y | `j` | **J**od | Reakt**i** | hu-hu**i** |  |
-| k | `k` | **K**oma-uri | E**k**t | Flec**k** |  |
-| l | `l` | **l**au | ähne**l**n | zuvie**l** |  |
-| m | `m` | **M**전 세계 | **M**t | Leh**m** |  |
-| n | `n` | **n**취소 | u**n**d | 나 에 게 |  |
-| ng | `ŋ` | [<sup>7</sup>](#de-c-7) **-uyen** | Schwa**빈** | R**ing** |  |
-| p | `p` | **P**artner | abru**p**t | Ti**p** |  |
-| pf | `pf` | **Pf**erd | dam**pf**t | **Pf** 로 |  |
-| r | `ʀ`, `r`, `ʁ` | **R**eise | knu**rr**t | Haa**r** |  |
-| s | `s` | [<sup>8</sup>](#de-c-8)**S**taccato | bi**s**t | mie**s** |  |
-| sh | `ʃ` | **Sch-m**u) | mi**sch-m**t | lappi**sch-m** |  |
-| t | `t` | **T**raum | S**t**raße | Mu**t** |  |
-| ts | `ts` | **Z**ug | Ar**z**t | Wit**z** |  |
-| ch | `tʃ` | **Tsch**ecto en | aufgepu**tsch**t | bundesdeu**tsch** |  |
-| v | `v` | **w**inken | Q**u**alle | [<sup>9</sup>](#de-c-9) Gr**지향**ve |  |
-| x | [<sup>10</sup>](#de-c-10)`x`,[<sup>11</sup>](#de-c-11)`ç` | [<sup>12</sup>](#de-c-12) Ba**ch**erach | Ma**ch**t mögli**ch**st | Schma**ch** ' i**ch** |
+| b | `b` | **B**앙크 |  | [<sup>1개</sup>](#de-c-1) 푸**b** |  |
+| c | `ç` | **최미** | 뫼글리**ch**st | [<sup>2</sup>](#de-c-2)i**ch** |
+| d | `d` | **d**안켄 | [<sup>3개</sup>](#de-c-3) 렌**d**l | [<sup>4개</sup>](#de-c-4) 클라우**d**전자 |  |
+| Jh | `ʤ` | **J**에프 | 제마나**g**t | [<sup>5개</sup>](#de-c-5) 찬**g**전자 |
+| f | `f` | **F**아르트다우어 | 화가**ff**slustig | 아브루흐레이**f** |  |
+| g | `g` | **g**ut |  | [<sup>6개</sup>](#de-c-6) 그레**g** |  |
+| h | `h` | **H**오산바우 |  |  |  |
+| y | `j` | **J**오드 | Reakt**i**에 | hu**i** |  |
+| k | `k` | **K**오마 | 아스프**k**t | 플렉**k** |  |
+| l | `l` | **l**au | 에네**l**n | 주비**l** |  |
+| m | `m` | **M**ut | **M**t | 레**엠** |  |
+| n | `n` | **n**un | u**n**d | 허**앤** |  |
+| Ng | `ŋ` | [<sup>7</sup>](#de-c-7)**응**우옌 | 슈바**NK** | R**잉** |  |
+| p | `p` | **P**아트너 | abru**p**t | 티**p** |  |
+| Pf | `pf` | **Pf**erd | 댐**pf**t | **pf로** |  |
+| r | `ʀ`, `r`, `ʁ` | **R**eise | 크누**rr**t | 하아**r** |  |
+| s | `s` | [<sup>8</sup>](#de-c-8)**S**타카토 | bi**s**t | 미에**s** |  |
+| sh | `ʃ` | **슈**울 | 미**쉬**t | 라피**슈** |  |
+| t | `t` | **T**라움 | S**t**raße | 뮤**t** |  |
+| ts | `ts` | **Z**우그 | 아르**z**t | 위트**z** |  |
+| ch | `tʃ` | **츠에치엔** | 오프게푸**tsch**t | 분데스두**트슈** |  |
+| v | `v` | **w**인켄 | Q**유**알레 | [<sup>9개</sup>](#de-c-9) Gr**oo**ve |  |
+| x | [<sup>10</sup>](#de-c-10)`x`,[<sup>11</sup>](#de-c-11)`ç` | [<sup>12세</sup>](#de-c-12) 바**치**에라흐 | Ma**ch**t mögli**ch**st | 슈마**ch** 'i**ch** |
 | z | `z` | **s**uper |  |  |  |
-| zh | `ʒ` | **G**enre | B**re**ezinski | Edvi**g**e |
+| zh | `ʒ` | **G**엔레 | B**레**에진스키 | 에드비**g**전자 |
 
 <a id="de-c-1"></a>
-**1** 은 *Pu**b**와 같은 외부 원본 단어로만 1입니다.*<br>
-<a id="de-c-2"></a> *"e" 및 "i" 뒤에 
-2 소프트 "ch"*<br>
+**1** *외국에서 유래한 단어만: Pu**b**.*<br>
+<a id="de-c-2"></a>
+**2** *"e"와 "i" 후 소프트 "ch"*<br>
 <a id="de-c-3"></a>
-**3** 은 ( *는) Len**d**l과 같은 외부 원점 단어로만 수행 합니다.*<br>
+**3** *: 렌**d**l과 같은 외국 기원의 단어에서만.*<br>
 <a id="de-c-4"></a>
-**4** *는 clau**d**e와 같은 외국어의 단어만* 을 기준으로 합니다.<br>
+**4** *다음과 같은 외국 기원의 말씀에 : 클라우**d**전자.*<br>
 <a id="de-c-5"></a>
- *는 변경 (**g**e와 같이 외국어의 단어 에서만 5입니다.*<br>
+**5** *외국에서 유래한 말만: 찬**g**전자.*<br>
 <a id="de-c-6"></a>
-**6** *단어 (예: Gre**g**와 같은 외국어 terminally)로만 시작 합니다.*<br>
+**6** *단어 말단은 Gre**g와**같은 외국 기원의 단어에서만 .*<br>
 <a id="de-c-7"></a>
-**7** 은 *외부 원점 (예: 고가와같은)의 단어 에서만 7입니다.*<br>
+**7** *응우옌과 같은 외국 **Ng**기원의 말만.*<br>
 <a id="de-c-8"></a>
- *: **S**taccato와 같은 외부 원본에만 8이 있습니다.*<br>
+**8** *: **S**taccato와 같은 외국 기원의 단어.*<br>
 <a id="de-c-9"></a>
-는 *Gr**oo**ve와 같이 외국어의 단어 에서만 9입니다.*<br>
+**9** 외국에서 만 같은 *외국 기원의 단어 : Gr**oo**ve.*<br>
 <a id="de-c-10"></a>
-**10** *IPA `x`는 모든 비 front 모음 (a, aa, 오, ow, diphthong aw) 후에 하드 "ch"입니다.*<br>
+**10** * `x` IPA는 모든 비 프론트 모음 (a, aa, 오, 오, 오, 어, uw 및 diphthong aw) 후 하드 "ch"입니다.*<br>
 <a id="de-c-11"></a>
-**11** *IPA `ç`는 프런트 모음 (ih, ih, eh, ae, uy, ue, oe, eu도 diphthongs ay, oy) 및 자음 후에 소프트 ' ch '입니다* .<br>
+**11** *IPA는 `ç` 앞모음 (ih, iy, eh, ae, uy, ue, oe, eu 또한 diphthongs ay, oy) 및 자음 후 부드러운 'ch'입니다.*<br>
 <a id="de-c-12"></a>
-**12** *단어-처음에는 **J**uan과 같은 외부 원본의 단어만 있습니다. 음절-처음에는 Ba**ch**erach와 같은 단어에도 있습니다.*<br>
+**12** *처음에는 외국에서 만 단어 , 와 같은 : **J**uan. 음절 - 또한 같은 단어로 : 바**ch**erach.*<br>
 
 ### <a name="german-oral-consonants"></a>독일어 구두 자음
 
 | `sapi` | `ipa` | 예 1                                  |
 |--------|-------|--------------------------------------------|
-| ^      | `ʔ`   | beachtlich/b ax-^ a 1 x t-l 항목 c/ |
+| ^      | `ʔ`   | beachtlich /b 도끼 - ^ 1 x t - l ih c/ |
 
 > [!NOTE]
-> 두 개의 모음이 진짜 diphthong는 점을 제외 하 고 두 개의 고유한 모음 사이에 [gs\] phone을 추가 해야 합니다. 이 구두 자음은 glottal stop입니다. 자세한 내용은 </a>glottal stop <span class="docon docon-navigate-external x-hidden-focus"></a>를 <a href="http://en.wikipedia.org/wiki/Glottal_stop" target="_blank">참조 하세요.
+> 우리는 두 모음이\] 정품 diphthong 제외, 두 개의 별개의 모음 사이에 [gs 전화)를 추가해야합니다. 이 구강 자음은 글로탈 정지이며, 자세한 <a href="http://en.wikipedia.org/wiki/Glottal_stop" target="_blank">내용은 글로탈 <span class="docon docon-navigate-external x-hidden-focus"> </a> </a>스톱을 참조하십시오.
 
-# <a name="es-es"></a>[es](#tab/es-ES)
+# <a name="es-es"></a>[es-ES](#tab/es-ES)
 
 ### <a name="spanish-vowels"></a>스페인어 모음
 
 | `sapi` | `ipa` | 예 1    | 예제 2     | 예제 3    |
 |--------|-------|--------------|---------------|--------------|
-| a      | `a`   | **lto**     | c**a**ntar    | cas**a**     |
-| i      | `i`   | **bérica**  | av**i**spa    | 세금     |
-| e      | `e`   | **e**lefante | at**e**    | elefant**e** |
-| o      | `o`   | **o**caso    | enc**o**ntrar | ocasenc**o** |
-| u      | `u`   | **u**sted    | p**u**nta     | Juanl**u**   |
+| a      | `a`   | **lto**     | c**ntar**    | 케이스**a**     |
+| i      | `i`   | **i**발레리카  | av**i**스파    | 세금**i**     |
+| e      | `e`   | **e**르판테 | **전자**nto에서    | 엘레판트**e** |
+| o      | `o`   | **o**카소    | 엔크**오**엔트라르 | ocasenc**o** |
+| u      | `u`   | **u**sted    | p**u**nta     | 후안**유**   |
 
 ### <a name="spanish-consonants"></a>스페인어 자음
 
 | `sapi` | `ipa`      | 예 1  | 예제 2      | 예제 3      |
 |--------|------------|------------|----------------|----------------|
-| b      | `b`        | **b**aobab |                | am**b**        |
-|        | `β`        |            | bao**b**ab     | baoba**b**     |
-| ch     | `tʃ`       | **ch**.e | co**ch**e      | Marraque**ch** |
-| d      | `d`        | **d**에 도어   |                | portlan**d**   |
-|        | `ð`        |            | de**d**o       | verda**d**     |
-| f      | `f`        | **f**ácil  | ele**f**am (ante   | pu**f**        |
-| g      | `g`        | **g**앙  |                | dópin**g**     |
-|        | `ɣ`        |            | **g**ua       | 는**g** 입니다.     |
-| j      | `j`        | **내가**   | cal**i**ente   | 다시**y**        |
-| jj     | `j.j` `jj` |            | vi      |                |
-| k      | `k`        | **c**oche  | bo**c**a       | titáni**c**    |
-| l      | `l`        | **l**ápiz  | a**l**a        | corde**l**     |
-| ll     | `ʎ`        | **ll**평균  | desarro**ll**o |                |
-| m      | `m`        | **m**순서 | **m**ar       | álbu**m**      |
-| n      | `n`        | **n**ada   | ce**n**a       | rató**n**      |
-| nj     | `ɲ`        | **ñ**aña   | ara**ñ**azo    |                |
-| p      | `p`        | **p**oca   | to**p**o       | o**p**       |
-| r      | `ɾ`        |            | ca**r**a       | abri**r**      |
-| rr     | `r`        | **r**adio  | co**rr**e      | pu**rr**       |
-| s      | `s`        | **s**aco   | va**s**o       | pelo**s**      |
-| t      | `t`        | **t**oldo  | a**t**ar       | disque**t**    |
-| th     | `θ`        | **z**ebra  | **z**ul       | lápi**z**      |
-| w      | `w`        | h**u**eso  | ag**u**a       | gua**u**       |
-| x      | `x`        | **j**ota   | **j**o        | j o**j**      |
+| b      | `b`        | **b**아오밥 |                | 오전**b**        |
+|        | `β`        |            | 바오**b**ab     | 바오바**b**     |
+| ch     | `tʃ`       | **ch**eque | co**ch**e      | 마라크**ch** |
+| d      | `d`        | **d**에도   |                | 포틀란**d**   |
+|        | `ð`        |            | 드**d**o       | 베르다**d**     |
+| f      | `f`        | **f**아실  | **엘에프앤티**   | 푸**f**        |
+| g      | `g`        | **g**앙가  |                | 도핀**g**     |
+|        | `ɣ`        |            | **g**ua       | 투아레**g**     |
+| j      | `j`        | **i**오도   | cal**i**ente   | 다시**y**        |
+| Jj     | `j.j` `jj` |            | vi**ll**a      |                |
+| k      | `k`        | **c**오슈  | 보**C**a       | 티타니**c**    |
+| l      | `l`        | **l**아피즈  | a**l**a        | 코데**l**     |
+| ll     | `ʎ`        | **ll**ave  | 데사로**ll**o |                |
+| m      | `m`        | **m**순서 | **m**ar       | 알부**m**      |
+| n      | `n`        | **n**에이다   | ce**n**a       | 라토**n**      |
+| 뉴저지     | `ɲ`        | **냐**아냐   | 아라**냐**아조    |                |
+| p      | `p`        | **p**오카   | **p**o로       | 토p**p**       |
+| r      | `ɾ`        |            | ca**r**a       | 아브리**r**      |
+| Rr     | `r`        | **r**아디오  | 공동**rr**전자      | 푸**rr**       |
+| s      | `s`        | **s**아코   | va**s**o       | 펠로**s**      |
+| t      | `t`        | **t**올도  | **t**ar       | 디스크**t**    |
+| th     | `θ`        | **z**에브라  | **z**ul       | 라피**z**      |
+| w      | `w`        | h**u**에소  | ag**u**a       | **구아우**       |
+| x      | `x`        | **j**오타   | **a j**o        | relo**j**      |
 
 > [!TIP]
-> `es-ES` Speech service phone 집합은 다음과 같은 스페인어 IPA, `β`, `ð`및 `ɣ`를 지원 하지 않습니다. 필요한 경우 IPA를 직접 사용 하는 것을 고려해 야 합니다.
+> 음성 `es-ES` 서비스 전화 세트는 다음 스페인어 `β`IPA, `ð`및 `ɣ`을 지원하지 않습니다. 필요한 경우 IPA를 직접 사용하는 것이 좋습니다.
 
 # <a name="zh-cn"></a>[zh-CN](#tab/zh-CN)
 
-`zh-CN`에 대해 설정 된 음성 서비스 전화는 네이티브 폰 <a href="https://en.wikipedia.org/wiki/Pinyin" target="_blank">핀 <span class="docon docon-navigate-external x-hidden-focus"></span> </a> 집합을 기반으로 합니다.
+음성 서비스 전화 `zh-CN` 세트는 기본 전화 <a href="https://en.wikipedia.org/wiki/Pinyin" target="_blank">병음 <span class="docon docon-navigate-external x-hidden-focus"></span> </a> 집합을 기반으로 합니다.
 
-### <a name="tone"></a>음
+### <a name="tone"></a>발신음
 
 | 병음 톤 | `sapi` | 문자 예제 |
 |-------------|--------|-------------------|
-| mā          | ma 1  | 妈                 |
-| má          | ma 2  | 麻                 |
-| mǎ          | ma 3  | 马                 |
-| mà          | ma 4  | 骂                 |
-| m          | ma 5  | 嘛                 |
+| 마 (동음이의)          | 마 1  | (것)에 따라                 |
+| 마 (것)마 (것)          | 엄마 2  | (것)들                 |
+| 마에 (것)와 같은          | ma 3  | (것)에 따라                 |
+| mà          | 엄마 4  | (것)에 따라                 |
+| ma          | 엄마 5  | (것)에 따라                 |
 
 #### <a name="example"></a>예제
 
 | 문자 | Speech Service                |
 |-----------|-------------------------------|
-| 组织关系      | zu-za 3-zhi 1-안 면 1-크 크 5 |
-| 累进        | lei 3-jin 4                 |
-| 西宅巷       | 크 크 1-zhai 2-xiang 4      |
+| 组织关系      | zu 3 - zhi 1 - 관 1 - xi 5 |
+| 累进        | 레이 3 -진 4                 |
+| 西宅巷       | xi 1 - 자이 2 - 샹 4      |
 
-# <a name="zh-tw"></a>[zh-cn-HY 얕은](#tab/zh-TW)
+# <a name="zh-tw"></a>[zh-TW](#tab/zh-TW)
 
-`zh-TW`에 대해 설정 된 음성 서비스 전화는 기본 전화 <a href="https://en.wikipedia.org/wiki/Bopomofo" target="_blank">보포모포 <span class="docon docon-navigate-external x-hidden-focus"></span> </a> 집합을 기반으로 합니다.
+음성 서비스 전화 `zh-TW` 세트는 기본 전화 <a href="https://en.wikipedia.org/wiki/Bopomofo" target="_blank">Bopomofo <span class="docon docon-navigate-external x-hidden-focus"></span> </a> 집합을 기반으로 합니다.
 
-### <a name="tone"></a>음
+### <a name="tone"></a>발신음
 
-| 음성 서비스 톤 | 보포모포 톤 | 예 (word) | 음성 서비스 폰 | 발음 | 병음 (拼音) |
+| 음성 서비스 톤 | 보포모포 톤 | 예제 (단어) | 음성 서비스 전화 | 보포모포 | 병음 (있음) |
 |---------------------|---------------|----------------|-----------------------|----------|-------------|
-| ˉ                   | empty         | 偵              | ㄓㄣ ˉ                   | ㄓㄣ       | zhēn        |
-| ˊ                   | ˊ             | 察              | ㄔㄚˊ                   | ㄔㄚˊ      | chá         |
-| ˇ                   | ˇ             | 打              | ㄉㄚˇ                   | ㄉㄚˇ      | dǎ          |
-| ˋ                   | ˋ             | 望              | ㄨㄤˋ                   | ㄨㄤˋ      | wàng        |
-| ˙                   | ˙             | 影子             | 一ㄥˇ ㄗ˙               | 一ㄥˇ ㄗ˙  | yǐng zi    |
+| (것)에 따라                   | empty         | (것)에 따라              | ㄓㄣˉ                   | ㄓㄣ       | 잔(zhn)        |
+| (것)에 따라                   | (것)에 따라             | (것)에 따라              | ㄔㄚˊ                   | ㄔㄚˊ      | 차 (것)가         |
+| (것)에 따라                   | (것)에 따라             | 치기              | ㄉㄚˇ                   | ㄉㄚˇ      | 다에 (것)들          |
+| (것)에 따라                   | (것)에 따라             | (것)에 따라              | ㄨㄤˋ                   | ㄨㄤˋ      | 와옹 (동)        |
+| ˙                   | ˙             | 影子             | 一ㄥˇ  ㄗ˙               | 一ㄥˇ  ㄗ˙  | 영지    |
 
 #### <a name="example"></a>예제
 
 | 문자 | `sapi`   |
 |-----------|----------|
-| 狗         | ㄍㄡˇ      |
+| (것)에 따라         | ㄍㄡˇ      |
 | 然后        | ㄖㄢˊㄏㄡˋ   |
 | 剪掉        | ㄐㄧㄢˇㄉㄧㄠˋ |
 
 # <a name="ja-jp"></a>[ja-JP](#tab/ja-JP)
 
-`ja-JP`에 대해 설정 된 음성 서비스 전화는 기본 phone가 <a href="https://en.wikipedia.org/wiki/Kana" target="_blank">나 <span class="docon docon-navigate-external x-hidden-focus"></span> </a> 집합을 기반으로 합니다.
+음성 서비스 전화 `ja-JP` 집합은 기본 전화 <a href="https://en.wikipedia.org/wiki/Kana" target="_blank">가나 <span class="docon docon-navigate-external x-hidden-focus"></span> </a> 집합을 기반으로 합니다.
 
-### <a name="stress"></a>상태
+### <a name="stress"></a>스트레스
 
 | `sapi` | `ipa`          |
 |--------|----------------|
-| `ˈ`    | `ˈ` mainstress |
-| `+`    | `ˌ` substress  |
+| `ˈ`    | `ˈ`메인 스트레스 |
+| `+`    | `ˌ`서브 스트레스  |
 
 #### <a name="example"></a>예제
 
 | 문자 | `sapi`  | `ipa`       |
 |-----------|---------|-------------|
-| 合成        | ゴ'ウセ    | go ˈ wɯseji   |
-| 所有者       | ショュ'ウ?ャ | ɕjojɯˈwɯɕja |
-| 最適化       | サィテキカ +  | sajitecikaˌ |
+| 合成        | '세'라고    | 고이우세지   |
+| 所有者       | '크로크'?・・・ | 조즈조자 |
+| 最適化       | 치티키카+  | 사지테카 |
 
 ***

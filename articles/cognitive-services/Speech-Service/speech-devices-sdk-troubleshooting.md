@@ -1,7 +1,7 @@
 ---
-title: 음성 장치 SDK-음성 서비스 문제 해결
+title: 음성 장치 SDK 문제 해결 - 음성 서비스
 titleSuffix: Azure Cognitive Services
-description: 이 문서에서는 음성 장치 SDK를 사용 하는 경우 발생할 수 있는 문제를 해결 하는 데 도움이 되는 정보를 제공 합니다.
+description: 이 문서에서는 음성 장치 SDK를 사용할 때 발생할 수 있는 문제를 해결하는 데 도움이 되는 정보를 제공합니다.
 services: cognitive-services
 author: mswellsi
 manager: nitinme
@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: wellsi
 ms.openlocfilehash: c590e0972de289a36890a75b220eddbded701ea8
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74815569"
 ---
 # <a name="troubleshoot-the-speech-devices-sdk"></a>Speech Devices SDK 문제 해결
 
-이 문서에서는 음성 장치 SDK를 사용 하는 경우 발생할 수 있는 문제를 해결 하는 데 도움이 되는 정보를 제공 합니다.
+이 문서에서는 음성 장치 SDK를 사용할 때 발생할 수 있는 문제를 해결하는 데 도움이 되는 정보를 제공합니다.
 
 ## <a name="certificate-failures"></a>인증서 오류
 
-음성 서비스를 사용할 때 인증서 오류가 발생 하는 경우 장치에 올바른 날짜 및 시간이 있는지 확인 합니다.
+Speech 서비스를 사용할 때 인증서 오류가 발생하는 경우 장치에 정확한 날짜와 시간이 있는지 확인합니다.
 
 1. **설정**으로 이동합니다. **시스템** 아래에서 **날짜 및 시간**을 선택합니다.
 

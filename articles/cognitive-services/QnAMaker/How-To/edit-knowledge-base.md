@@ -1,109 +1,79 @@
 ---
 title: 기술 자료 편집 - QnA Maker
-titleSuffix: Azure Cognitive Services
 description: QnA Maker는 사용하기 쉬운 편집 환경을 제공하여 기술 자료 콘텐츠를 관리할 수 있게 해줍니다.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 11/21/2019
-ms.author: diberry
-ms.custom: seodec18
-ms.openlocfilehash: b5ee7f60eab0349378767473c9c80f035a65c9a5
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.date: 03/19/2020
+ms.openlocfilehash: 223ad3a607adc20bbe608598da9742d56788b2c6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79221464"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80131647"
 ---
-# <a name="edit-a-knowledge-base-in-qna-maker"></a>QnA Maker의 기술 자료 편집
+# <a name="edit-qna-sets-in-your-knowledge-base"></a>기술 자료에서 QnA 세트 편집
 
 QnA Maker는 사용하기 쉬운 편집 환경을 제공하여 기술 자료 콘텐츠를 관리할 수 있게 해줍니다.
 
-<a name="add-datasource"></a>
+QnA 세트는 파일 이나 URL 과 같은 데이터 원본에서 추가되거나 편집 소스로 추가됩니다. 편집 소스는 QnA 집합이 QnA 포털에 수동으로 추가되었다는 것을 나타냅니다. 모든 QnA 세트는 편집할 수 있습니다.
 
-## <a name="edit-your-knowledge-base-content"></a>기술 자료 콘텐츠 편집
+## <a name="add-an-editorial-qna-set"></a>에디토리얼 QnA 세트 추가
+1. [QnA 포털에](https://www.qnamaker.ai/)로그인한 다음 QnA 집합을 추가할 기술 기반을 선택합니다.
+1. 기술 자료의 **편집** 페이지에서 **QnA 추가 세트를** 선택하여 새 QnA 집합을 추가합니다.
 
-1.  맨 위 탐색 모음에서 **내 기술 자료**를 선택합니다. 
+1. 새 QnA 집합 행에 필요한 **질문** 및 **답변** 필드를 추가합니다. 다른 필드는 선택 사항입니다. 모든 필드는 언제든지 변경할 수 있습니다.
 
-    직접 만들었거나 공유된 모든 서비스를 **마지막으로 수정한 날짜**의 내림차순으로 볼 수 있습니다.
+1. 선택적으로 **대체 관용구를 추가합니다.** 대체 관용구는 원래 질문과 크게 다르지만 동일한 답변을 제공해야 하는 모든 형태의 질문입니다.
 
-    ![내 기술 자료](../media/qnamaker-how-to-edit-kb/my-kbs.png)
+    기술 자료가 게시되고 활성 학습이 켜져 있으면 QnA Maker는 수락할 대체 관용구 선택 항목을 수집합니다. 이러한 선택 사항은 예측 정확도를 높이기 위해 선택됩니다.
 
-1. 특정 기술 자료를 선택하여 편집합니다.
- 
-1. **설정**을 선택합니다. 여기에서 필수 필드인 서비스 이름을 편집할 수 있습니다.
-  
-    |목표|작업|
-    |--|--|
-    |URL 추가|**기술 자료 관리 -> '+ URL 추가'** 링크를 클릭하여 기술 자료에 새 FAQ 콘텐츠를 추가할 새 URL을 추가할 수 있습니다.|
-    |URL 삭제|삭제 아이콘, 휴지통을 선택하여 기존 URL을 삭제할 수 있습니다.|
-    |콘텐츠 새로 고침|기술 자료에서 기존 URL의 최신 콘텐츠를 탐색하도록 하려면 **새로 고침** 확인란을 선택합니다. 이렇게 하면 기술 자료가 최신 URL 내용으로 한 번 업데이트 됩니다. 이는 정기적인 업데이트 일정을 설정 하지 않습니다.|
-    |파일 추가|**기술 자료 관리**를 선택한 다음, **+ 파일 추가**를 선택하여 기술 자료의 일부가 되도록 지원되는 파일 문서를 추가할 수 있습니다.|
-    |가져오기|**기술 자료 가져오기** 단추를 선택 하 여 기존 기술 자료를 가져올 수도 있습니다. |
-    |업데이트|기술 자료의 업데이트는 기술 자료와 관련된 QnA Maker 서비스를 만드는 동안 사용되는 **관리 가격 책정 계층**에 따라 달라집니다. 필요한 경우 Azure Portal에서 관리 계층을 업데이트할 수도 있습니다.
+1. 선택적으로 **메타데이터를**추가합니다. 메타데이터를 보려면 컨텍스트 메뉴에서 **보기 옵션을** 선택합니다. 메타데이터는 챗봇과 같은 클라이언트 응용 프로그램이 제공하는 답변에 대한 필터를 제공합니다.
 
-1. 기술 자료 변경을 마쳤으면 변경 내용을 유지하기 위해 페이지의 오른쪽 맨 위 모서리에 있는 **저장 후 학습**을 선택합니다.    
+1. 선택적으로 **후속 프롬프트를 추가합니다.** 후속 프롬프트는 사용자에게 제공할 클라이언트 응용 프로그램에 대한 추가 대화 경로를 제공합니다.
 
-    ![저장 후 학습](../media/qnamaker-how-to-edit-kb/save-and-train.png)
+1. **저장 및 학습을** 선택하여 새 QnA 세트를 포함한 예측을 확인합니다.
 
-    >[!CAUTION]
-    >**저장 후 학습**을 선택하기 전에 페이지를 나가면 모든 변경 내용이 손실됩니다.
+## <a name="edit-a-qna-set"></a>QnA 세트 편집
 
-## <a name="add-a-qna-pair"></a>QnA 쌍 추가
+원래 데이터 원본에 관계없이 QnA 집합의 모든 필드를 편집할 수 있습니다. 컨텍스트 도구 모음에 있는 현재 **옵션 보기** 설정으로 인해 일부 필드가 표시되지 않을 수 있습니다.
 
-**편집** 페이지에서 **QnA pair 추가** 를 선택 하 여 기술 자료 테이블에 새 행을 추가 합니다.
+## <a name="delete-a-qna-set"></a>QnA 세트 삭제
 
-![QnA 쌍 추가](../media/qnamaker-how-to-edit-kb/add-qnapair.png)
+QnA를 삭제하려면 QnA 행의 맨 오른쪽에 있는 **삭제** 아이콘을 클릭합니다. 영구 작업입니다. 실행을 취소할 수 없습니다. 세트를 삭제하기 전에 **게시** 페이지에서 KB를 내보내는 것이 좋습니다.
 
-## <a name="delete-a-qna-pair"></a>QnA 쌍 삭제
+![QnA 세트 삭제](../media/qnamaker-how-to-edit-kb/delete-qnapair.png)
 
-QnA를 삭제하려면 QnA 행의 맨 오른쪽에 있는 **삭제** 아이콘을 클릭합니다. 영구 작업입니다. 실행을 취소할 수 없습니다. 쌍을 삭제하기 전에 **게시** 페이지에서 KB를 내보내는 것이 좋습니다. 
+## <a name="find-the-qna-set-id"></a>QnA 세트 ID 찾기
 
-![QnA 쌍 삭제](../media/qnamaker-how-to-edit-kb/delete-qnapair.png)
+QnA 세트 ID를 찾아야 하는 경우 다음 두 위치에서 찾을 수 있습니다.
+
+* 관심 있는 QnA 세트 행의 삭제 아이콘을 마우스로 가리킵니다. 가리키기 텍스트에는 QnA 세트 ID가 포함됩니다.
+* 기술 자료 내보내기 기술 자료의 각 QnA 집합에는 QnA 집합 ID가 포함됩니다.
 
 ## <a name="add-alternate-questions"></a>대체 질문 추가
 
-기존 QnA 쌍에 대체 질문을 추가하여 사용자 쿼리와 일치할 가능성을 높입니다.
+기존 QnA 집합에 대체 질문을 추가하여 사용자 쿼리와 일치할 가능성을 높입니다.
 
 ![대체 질문 추가](../media/qnamaker-how-to-edit-kb/add-alternate-question.png)
 
+## <a name="linking-qna-sets"></a>QnA 세트 연결
+
+QnA 세트를 연결하는 것은 [후속 프롬프트와](multiturn-conversation.md)함께 제공됩니다. 이는 기술 자료 수준에서 관리되는 QnA 집합 간의 논리적 연결입니다. QnA Maker 포털에서 후속 프롬프트를 편집할 수 있습니다.
+
+답변의 메타데이터에 QnA 세트를 연결할 수 없습니다.
+
 ## <a name="add-metadata"></a>메타데이터 추가
 
-먼저 **보기 옵션**을 선택한 다음 **메타 데이터 표시**를 선택 하 여 메타 데이터 쌍을 추가 합니다. 메타 데이터 열이 표시 됩니다. 그런 다음 **+** 서명을 선택 하 여 메타 데이터 쌍을 추가 합니다. 이 쌍은 하나의 키와 하나의 값으로 구성 됩니다.
+먼저 **보기 옵션을**선택한 다음 메타데이터 표시를 선택하여 **메타데이터 집합을**추가합니다. 그러면 메타데이터 열이 표시됩니다. 다음으로 기호를 **+** 선택하여 메타데이터 집합을 추가합니다. 이 집합은 하나의 키와 하나의 값으로 구성됩니다.
+
+## <a name="save-changes-to-the-qna-sets"></a>QnA 세트에 변경 내용 저장
+
+변경 내용을 잃지 않도록 편집한 후 저장 **및 학습을** 주기적으로 선택합니다.
 
 ![메타데이터 추가](../media/qnamaker-how-to-edit-kb/add-metadata.png)
-
-> [!TIP]
-> 변경 내용이 손실되지 않도록 하려면 편집한 후 기술 자료를 주기적으로 저장하고 학습해야 합니다.
-
-## <a name="manage-large-knowledge-bases"></a>큰 기술 자료 관리
-
-* **데이터 원본 그룹**: qnas는 추출 된 데이터 원본에 따라 그룹화 됩니다. 데이터 원본을 확장하거나 축소할 수 있습니다.
-
-    ![QnA Maker 데이터 원본 막대를 사용하여 데이터 원본 질문과 답변을 축소 및 확장합니다.](../media/qnamaker-how-to-edit-kb/data-source-grouping.png)
-
-* 기술 자료 **검색**: 기술 자료 테이블의 맨 위에 있는 입력란에를 입력 하 여 기술 자료를 검색할 수 있습니다. 질문, 답변 또는 메타데이터 콘텐츠를 검색하려면 Enter 키를 클릭합니다. 검색 필터를 제거하려면 X 아이콘을 클릭합니다.
-
-    ![질문과 답변 위의 QnA Maker 검색 상자를 사용하여 필터 일치 항목으로만 뷰를 줄입니다.](../media/qnamaker-how-to-edit-kb/search-paginate-group.png)
-
-* **페이지 매김**: 데이터 원본을 빠르게 이동 하 여 방대한 기술 자료 관리
-
-    ![질문과 답변 위의 QnA Maker 페이지 매김 기능을 사용하여 질문과 답변 페이지를 이동합니다.](../media/qnamaker-how-to-edit-kb/pagination.png)
-
-## <a name="delete-knowledge-bases"></a>기술 자료 삭제
-
-KB(기술 자료)를 삭제하는 것은 영구 작업입니다. 실행을 취소할 수 없습니다. 기술 자료를 삭제하기 전에 QnA Maker 포털의 **설정** 페이지에서 기술 자료를 내보내야 합니다. 
-
-[협력자](collaborate-knowledge-base.md)와 KB를 공유한 다음, 삭제하는 경우 모든 사용자가 KB에 액세스할 수 없습니다. 
-
-## <a name="delete-azure-resources"></a>Azure 리소스 삭제 
-
-QnA Maker 기술 자료에 사용되는 Azure 리소스를 삭제하는 경우 기술 자료는 더 이상 작동하지 않습니다. 모든 리소스를 삭제하기 전에 **설정** 페이지에서 기술 자료를 내보냈는지 확인합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
 > [기술 자료에 대한 공동 작업](./collaborate-knowledge-base.md)
+
+* [QnA 메이커에서 사용하는 Azure 리소스 관리](set-up-qnamaker-service-azure.md)

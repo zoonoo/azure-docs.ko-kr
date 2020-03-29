@@ -1,7 +1,7 @@
 ---
 title: 음성 텍스트 변환에 대한 질문과 대답
 titleSuffix: Azure Cognitive Services
-description: 음성 텍스트 서비스에 대 한 자주 묻는 질문에 대 한 답을 가져옵니다.
+description: 음성 텍스트 서비스에 대한 자주 묻는 질문에 대한 답변을 얻을 수 있습니다.
 services: cognitive-services
 author: PanosPeriorellis
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/4/2019
 ms.author: panosper
 ms.openlocfilehash: a279aebdd19ebd3a41ddad0c1c279937e00838c2
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77168456"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>음성 텍스트 변환에 대한 질문과 대답
@@ -29,7 +29,7 @@ ms.locfileid: "77168456"
 
 **Q: 기준 모델을 사용하려면 무엇부터 시작해야 하나요?**
 
-**A**: 먼저 [구독 키](get-started.md)를 확보합니다. 미리 배포된 기준 모델을 REST 방식으로 호출하려면 [REST API](rest-apis.md)를 참조하세요. WebSocket을 사용하려면 [SDK를 다운로드](speech-sdk.md)합니다.
+**A**: 먼저 [구독 키](get-started.md)를 확보합니다. 미리 배포된 기준 모델을 REST 방식으로 호출하려면 [REST API](rest-apis.md)를 참조하세요. WebSockets를 사용하려면 [SDK 를 다운로드합니다.](speech-sdk.md)
 
 **Q: 사용자 지정 음성 모델을 항상 작성해야 하나요?**
 
@@ -45,7 +45,7 @@ ms.locfileid: "77168456"
 
 **A**: 컬렉션에 포함할 수 있는 모델 수에는 제한이 없습니다.
 
-**Q: 잘못 된 것으로 인식 했습니다. 진행 중인 데이터 가져오기 또는 모델 만들기를 취소 어떻게 할까요?**
+**Q: 실수를 했다는 것을 깨달았습니다. 진행 중인 데이터 가져오기 또는 모델 생성을 취소하려면 어떻게 해야 합니까?**
 
 **A**: 현재는 음향 적응 또는 언어 적응 프로세스를 롤백할 수 없습니다. 종료 상태에 있을 때 가져온 데이터와 모델을 삭제할 수 있습니다.
 
@@ -59,11 +59,11 @@ ms.locfileid: "77168456"
 
 이전 데이터 세트 및 새 데이터 세트를 단일 .zip 파일(음향 데이터) 또는 .txt 파일(언어 데이터)에 결합해야 합니다. 적응이 완료된 후에는 새로 업데이트된 모델을 다시 배포하여 새 엔드포인트를 확보해야 합니다.
 
-**Q: 새 버전의 기준을 사용할 수 있는 경우 배포가 자동으로 업데이트 되나요?**
+**Q: 새 버전의 기준을 사용할 수 있는 경우 배포가 자동으로 업데이트되나요?**
 
 **A**: 배포는 자동으로 업데이트되지 않습니다.
 
-기준 V1.0의 모델을 적응시키고 배포하면 배포는 원래 상태를 유지합니다. 고객은 새 버전의 기준선을 사용 하 고 다시 배포 하는 readapt 배포 된 모델을 서비스 해제할 수 있습니다.
+기준 V1.0의 모델을 적응시키고 배포하면 배포는 원래 상태를 유지합니다. 고객은 배포된 모델을 해제하고 최신 버전의 기준을 사용하여 다시 적응하고 다시 배포할 수 있습니다.
 
 **Q: 내 모델을 다운로드하여 로컬로 실행할 수 있나요?**
 
@@ -77,47 +77,47 @@ ms.locfileid: "77168456"
 
 **A**: REST API의 경우 5초당 25개 요청으로 제한됩니다. 자세한 내용은 [음성을 텍스트로 변환](speech-to-text.md)에 대한 페이지에서 찾을 수 있습니다.
 
-**Q: 이중 채널 오디오에 대 한 요금은 어떻게 청구 되나요?**
+**Q: 듀얼 채널 오디오는 어떻게 청구하나요?**
 
-**A**: 각 채널을 별도로 제출 하는 경우 (각 채널은 자체 파일에) 각 파일의 기간에 대해 요금이 청구 됩니다. 각 채널이 함께 멀티플렉싱 단일 파일을 제출 하면 단일 파일의 기간에 대 한 요금이 청구 됩니다. 가격 책정에 대 한 자세한 내용은 [Azure Cognitive Services 가격 책정 페이지](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)를 참조 하세요.
+**A**: 각 채널을 별도로 제출하는 경우 (자신의 파일의 각 채널), 각 파일의 기간에 대한 요금이 부과됩니다. 각 채널이 함께 멀티플렉스된 단일 파일을 제출하면 단일 파일의 지속 기간에 대한 요금이 청구됩니다. 가격에 대한 자세한 내용은 [Azure 인지 서비스 가격 페이지를](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)참조하십시오.
 
 > [!IMPORTANT]
 > 그 밖의 개인 정보 보호 문제로 인해 Custom Speech Service를 사용할 수 없는 경우에는 지원 채널 중 한 곳에 문의하세요.
 
-## <a name="increasing-concurrency"></a>동시성 증대
+## <a name="increasing-concurrency"></a>동시성 증가
 
 **Q: 포털에 제공되는 모델보다 배포된 모델에 대해 더 높은 동시성이 필요하면 어떻게 해야 하나요?**
 
 **A**: 모델은 20개씩 증분하는 동시 요청으로 강화할 수 있습니다.
 
-필요한 정보를 사용 하 여 [Azure 지원 포털](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)에서 지원 요청을 만듭니다. [지원 페이지](support.md)에 언급 된 공개 채널 (GitHub, stackoverflow, ...) 중 하나에 정보를 게시 하지 마십시오.
+필요한 정보를 사용하여 [Azure 지원 포털에서](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)지원 요청을 만듭니다. [지원 페이지에](support.md)언급 된 공개 채널 (GitHub, Stackoverflow, ...) 에 정보를 게시하지 마십시오.
 
-***사용자 지정 모델***에 대 한 동시성을 늘리려면 다음 정보가 필요 합니다.
+***사용자 지정 모델의***동시성을 높이려면 다음 정보가 필요합니다.
 
-- 모델을 배포 하는 영역입니다.
-- 배포 된 모델의 끝점 ID:
-  - [Custom Speech 포털](https://aka.ms/customspeech)에서 가져왔습니다.
-  - 로그인 (필요한 경우)
-  - 프로젝트 및 배포를 선택 합니다.
-  - 에 대해 동시성이 증가 해야 하는 끝점을 선택 합니다.
-  - `Endpoint ID`를 복사 합니다.
+- 모델이 배포된 지역,
+- 배포된 모델의 끝점 ID:
+  - [사용자 지정 음성 포털에](https://aka.ms/customspeech)도착했습니다.
+  - 로그인(필요한 경우),
+  - 프로젝트 및 배포를 선택합니다.
+  - 동시성 증가가 필요한 끝점을 선택합니다.
+  - 을 `Endpoint ID`복사합니다.
 
-***기본 모델***의 동시성을 늘리려면 다음 정보가 필요 합니다.
+***기본 모델의***동시성을 높이려면 다음 정보가 필요합니다.
 
-- 서비스의 지역입니다.
+- 서비스 지역,
 
-그리고 다음 중 하나입니다.
+그리고 중 하나
 
-- 구독에 대 한 액세스 토큰 ( [여기](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-speech-to-text#how-to-get-an-access-token)참조)
+- 구독에 대한 액세스 [토큰(여기](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-speech-to-text#how-to-get-an-access-token)참조)
 
 또는
 
-- 구독에 대 한 리소스 ID:
-  - [Azure Portal](https://portal.azure.com)로 이동 합니다.
-  - 검색 상자에서 `Cognitive Services`를 선택 합니다.
-  - 표시 된 서비스에서 동시성을 증가 시킬 음성 서비스를 선택 합니다.
-  - 이 서비스에 대 한 `Properties`를 표시 합니다.
-  - 전체 `Resource ID`를 복사 합니다.
+- 구독의 리소스 ID:
+  - [Azure 포털로](https://portal.azure.com)이동합니다.
+  - 검색 `Cognitive Services` 상자에서 선택합니다.
+  - 표시된 서비스에서 동시성을 늘리려는 음성 서비스를 선택합니다.
+  - 이 `Properties` 서비스에 대한 표시를 표시합니다.
+  - 전체 `Resource ID`를 복사합니다.
 
 ## <a name="importing-data"></a>데이터 가져오기
 
@@ -129,7 +129,7 @@ ms.locfileid: "77168456"
 
 **A**: 아니요. 현재는 압축되지 않은 텍스트 파일만 허용됩니다.
 
-**Q: 데이터 보고서에 길이 발언 실패 했다는 메시지가 표시 됩니다. 문제가 무엇 인가요?**
+**Q: 데이터 보고서에 실패한 발언이 있다고 합니다. 문제는 무엇입니까?**
 
 **A**: 파일에 발언을 100% 업로드하지 못하는 것은 문제가 아닙니다. 음향 데이터 세트나 언어 데이터 세트에서 대부분의 음성을(예: 95% 초과) 가져온 경우에는 데이터 세트를 사용할 수 있습니다. 단, 음성이 실패한 이유를 이해하고 문제 해결을 시도하는 것이 좋습니다. 가장 일반적인 문제(예: 서식 오류)는 쉽게 해결할 수 있습니다.
 
@@ -183,17 +183,17 @@ ms.locfileid: "77168456"
 
 **A**: 단어 목록을 업로드하면 단어가 어휘에 추가되지만 시스템에서 단어가 일반적으로 사용되는 방식이 학습되지는 않습니다. 전체 또는 부분 음성(사용자가 말하려는 문장이나 문구)을 제공하면 언어 모델이 새 단어를 학습하고 이 단어가 어떻게 사용되는지 학습할 수 있습니다. 사용자 지정 언어 모델은 시스템에 새 단어를 추가하는 것뿐만 아니라 애플리케이션에서 알려진 단어가 나타날 가능성을 조정하는 데에도 적합합니다. 전체 음성을 제공하면 시스템 학습 성능이 좋아집니다.
 
-## <a name="tenant-model-custom-speech-with-office-365-data"></a>테 넌 트 모델 (Office 365 데이터를 사용 하는 Custom Speech)
+## <a name="tenant-model-custom-speech-with-office-365-data"></a>테넌트 모델(Office 365 데이터가 있는 사용자 지정 음성)
 
-**Q: 테 넌 트 모델에 포함 되는 정보와 생성 방법**
+**Q: 테넌트 모델에는 어떤 정보가 포함되어 있으며 어떻게 생성됩니까?**
 
-**A:** 테 넌 트 모델은 조직의 모든 사용자가 볼 수 있는 [공개 그룹](https://support.office.com/article/learn-about-office-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2) 메일 및 문서를 사용 하 여 빌드됩니다.
+**A:** 테넌트 모델은 조직의 모든 사용자가 볼 수 있는 [공용 그룹](https://support.office.com/article/learn-about-office-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2) 전자 메일 및 문서를 사용하여 작성됩니다.
 
-**Q: 테 넌 트 모델에서 어떤 음성 환경이 개선 되나요?**
+**Q: 테넌트 모델에서 개선된 음성 환경은 무엇입니까?**
 
-**A:** 테 넌 트 모델을 사용 하도록 설정 하 고 만들고 게시 하면, 음성 서비스를 사용 하 여 빌드된 모든 엔터프라이즈 응용 프로그램에 대 한 인식을 개선 하는 데 사용 됩니다. 또한 엔터프라이즈에 대 한 멤버 자격을 나타내는 사용자 AAD 토큰을 전달 합니다.
+**A:** 테넌트 모델이 활성화, 생성 및 게시되면 Speech 서비스를 사용하여 빌드된 모든 엔터프라이즈 응용 프로그램에 대한 인식을 개선하는 데 사용됩니다. 또한 엔터프라이즈에 대한 구성원임을 나타내는 사용자 AAD 토큰을 전달합니다.
 
-음성 서비스 응용 프로그램에 대 한 테 넌 트 모델을 만들 때 받아쓰기 및 PowerPoint 캡션 등 Office 365에 내장 된 음성 환경은 변경 되지 않습니다.
+[받아쓰기 및 파워포인트 캡션]과 같은 Office 365에 기본 제공된 음성 환경은 음성 서비스 응용 프로그램에 대한 테넌트 모델을 만들 때 변경되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
 ms.openlocfilehash: 6d419135a1da68d23689f66d3134a638d71a3eab
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73044111"
 ---
 # <a name="learn-image-moderation-concepts"></a>이미지 조정 개념 알아보기
@@ -66,7 +66,7 @@ Content Moderator의 머신 지원 이미지 조정 및 [인간 참여형 검토
 
 ## <a name="detecting-faces"></a>얼굴 감지
 
-얼굴을 감지 하면 이미지의 얼굴 같은 개인 데이터를 검색 하는 데 도움이 됩니다. 각 이미지에서 잠재적인 얼굴 및 얼굴 수를 감지합니다.
+얼굴을 감지하면 이미지의 얼굴과 같은 개인 데이터를 감지하는 데 도움이 됩니다. 각 이미지에서 잠재적인 얼굴 및 얼굴 수를 감지합니다.
 
 응답에는 다음 정보가 포함됩니다.
 
@@ -147,4 +147,4 @@ Content Moderator는 사용자 지정 이미지 목록을 관리하기 위한 �
 
 ## <a name="next-steps"></a>다음 단계
 
-[이미지 조정 API 콘솔](try-image-api.md)을 시험 사용하고 REST API 코드 샘플을 사용합니다. 또한 Visual Studio 및 C#에 대해 잘 알고 있는 경우 [.net SDK 퀵 스타트](dotnet-sdk-quickstart.md) 의 이미지 조정 섹션을 확인 하세요.
+[이미지 조정 API 콘솔](try-image-api.md)을 시험 사용하고 REST API 코드 샘플을 사용합니다. 또한 Visual Studio 및 C#에 익숙한 경우 [.NET SDK 퀵스타트의](dotnet-sdk-quickstart.md) 이미지 검토 섹션을 확인하십시오.

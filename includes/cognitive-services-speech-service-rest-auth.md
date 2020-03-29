@@ -5,40 +5,40 @@ ms.topic: include
 ms.date: 03/29/2019
 ms.author: erhopf
 ms.openlocfilehash: dc5e251fee00ee22edb2261c1abd8404714834ba
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78669323"
 ---
 ## <a name="authentication"></a>인증
 
-각 요청에는 인증 헤더가 필요 합니다. 이 표에서는 각 서비스에 대해 지원되는 헤더를 보여 줍니다.
+각 요청에는 권한 부여 헤더가 필요합니다. 이 표에서는 각 서비스에 대해 지원되는 헤더를 보여 줍니다.
 
 | 지원되는 인증 헤더 | 음성 텍스트 변환 | 텍스트 음성 변환 |
 |------------------------|----------------|----------------|
 | Ocp-Apim-Subscription-Key | yes | 예 |
 | Authorization: Bearer | yes | yes |
 
-`Ocp-Apim-Subscription-Key` 헤더를 사용하는 경우 구독 키만 제공하면 됩니다. 다음은 그 예입니다.
+`Ocp-Apim-Subscription-Key` 헤더를 사용하는 경우 구독 키만 제공하면 됩니다. 예를 들어:
 
 ```http
 'Ocp-Apim-Subscription-Key': 'YOUR_SUBSCRIPTION_KEY'
 ```
 
-`Authorization: Bearer` 헤더를 사용하는 경우 `issueToken` 엔드포인트에 요청해야 합니다. 이 요청에서는 10분 동안 유효한 액세스 토큰에 대한 구독 키를 교환합니다. 다음 섹션에서는 토큰을 가져오고 토큰을 사용 하는 방법에 대해 알아봅니다.
+`Authorization: Bearer` 헤더를 사용하는 경우 `issueToken` 엔드포인트에 요청해야 합니다. 이 요청에서는 10분 동안 유효한 액세스 토큰에 대한 구독 키를 교환합니다. 다음 몇 섹션에서는 토큰을 얻고 토큰을 사용하는 방법을 배웁니다.
 
 ### <a name="how-to-get-an-access-token"></a>액세스 토큰을 가져오는 방법
 
-액세스 토큰을 가져오려면 `issueToken` 및 구독 키를 사용하여 `Ocp-Apim-Subscription-Key` 엔드포인트에 요청해야 합니다.
+액세스 토큰을 가져오려면 `Ocp-Apim-Subscription-Key` 및 구독 키를 사용하여 `issueToken` 엔드포인트에 요청해야 합니다.
 
-`issueToken` 끝점의 형식은 다음과 같습니다.
+`issueToken` 끝점에는 다음 형식이 있습니다.
 
 ```http
 https://<REGION_IDENTIFIER>.api.cognitive.microsoft.com/sts/v1.0/issueToken
 ```
 
-`<REGION_IDENTIFIER>`를이 테이블의 구독 지역과 일치 하는 식별자로 바꿉니다.
+이 `<REGION_IDENTIFIER>` 표에서 구독 지역과 일치하는 식별자로 바꿉습니다.
 
 [!INCLUDE [](cognitive-services-speech-service-region-identifier.md)]
 

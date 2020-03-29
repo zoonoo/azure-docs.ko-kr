@@ -1,5 +1,5 @@
 ---
-title: API 쿼리 및 응답 보내기 및 사용-Bing 로컬 비즈니스 검색
+title: API 쿼리 및 응답 보내기 및 사용 - Bing 로컬 비즈니스 검색
 titleSuffix: Azure Cognitive Services
 description: 이 문서를 사용하여 Bing Local Business Search API를 통해 검색 쿼리를 보내고 사용하는 방법을 알아봅니다.
 services: cognitive-services
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: rosh
 ms.openlocfilehash: 25bcdb89002fec4f9b67b091996d7bf80bcf21c8
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74326733"
 ---
 # <a name="sending-and-using-bing-local-business-search-api-queries-and-responses"></a>Bing Local Business Search API 쿼리 및 응답 보내기 및 사용
@@ -23,7 +23,7 @@ ms.locfileid: "74326733"
 
 ## <a name="creating-a-request"></a>요청 만들기
 
-Bing Local Business Search API에 요청을 보내려면 검색어를 API 엔드포인트에 추가하고 `Ocp-Apim-Subscription-Key` 헤더를 포함하기 전에 `q=` 매개 변수에 추가합니다. 다음은 그 예입니다.
+Bing Local Business Search API에 요청을 보내려면 검색어를 API 엔드포인트에 추가하고 `Ocp-Apim-Subscription-Key` 헤더를 포함하기 전에 `q=` 매개 변수에 추가합니다. 예를 들어:
 
 `https://api.cognitive.microsoft.com/bing/localbusinesses/v7.0/search?q=restaurant+in+Bellevue`
 
@@ -61,10 +61,10 @@ API에서 반환된 JSON 결과는 다음 특성을 포함합니다.
 * entityPresentationInfo
 * 지역
 * id
-* 이름
+* name
 * routeablePoint
-* 전화 번호
-* URL
+* telephone
+* url
 
 헤더, 매개 변수, 지역/국가 코드, 응답 개체, 오류 등에 대한 일반적인 내용은 [Bing Local Search API v7](local-search-reference.md) 참조를 확인하세요.
 
@@ -148,6 +148,6 @@ Expires: Tue, 16 Oct 2018 16:25:15 GMT
 
 ## <a name="next-steps"></a>다음 단계
 - [Local Business Search 빠른 시작](quickstarts/local-quickstart.md)
-- [Local Business Search Java 빠른 시작](quickstarts/local-search-java-quickstart.md)
-- [Local Business Search Node 빠른 시작](quickstarts/local-search-node-quickstart.md)
+- [로컬 비즈니스 검색 Java 빠른 시작](quickstarts/local-search-java-quickstart.md)
+- [로컬 비즈니스 검색 노드 빠른 시작](quickstarts/local-search-node-quickstart.md)
 - [Local Business Search Python 빠른 시작](quickstarts/local-search-python-quickstart.md)

@@ -1,7 +1,7 @@
 ---
 title: 컨테이너 지원
 titleSuffix: Azure Cognitive Services
-description: Azure CLI에서 Azure container instance 리소스를 만드는 방법에 대해 알아봅니다.
+description: Azure CLI에서 Azure 컨테이너 인스턴스 리소스를 만드는 방법에 대해 알아봅니다.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -10,15 +10,15 @@ ms.topic: include
 ms.date: 01/06/2020
 ms.author: dapine
 ms.openlocfilehash: 700a04b58c13a9c7fd5301875226ca234cabeb96
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "75689435"
 ---
-## <a name="create-an-azure-container-instance-resource-from-the-azure-cli"></a>Azure CLI에서 Azure Container Instance 리소스 만들기
+## <a name="create-an-azure-container-instance-resource-from-the-azure-cli"></a>Azure CLI에서 Azure 컨테이너 인스턴스 리소스 만들기
 
-아래 YAML은 Azure Container Instance 리소스를 정의 합니다. 콘텐츠를 복사 하 여 `my-aci.yaml` 라는 새 파일에 붙여넣고 주석 처리 된 값을 사용자 고유의 값으로 바꿉니다. 유효한 YAML의 [템플릿 형식을][template-format] 참조 하십시오. 사용 가능한 이미지 이름 및 해당 리포지토리의 [컨테이너 리포지토리 및 이미지][repositories-and-images] 를 참조 하세요. 컨테이너 인스턴스에 대 한 YAML 참조에 대 한 자세한 내용은 [Yaml 참조: Azure Container Instances][aci-yaml-ref]를 참조 하세요.
+아래 YAML은 Azure 컨테이너 인스턴스 리소스를 정의합니다. 주석 처리된 값을 새 파일로 복사하여 `my-aci.yaml` 붙여넣습니다. 유효한 YAML에 대한 [템플릿 형식을][template-format] 참조하십시오. 사용 가능한 이미지 이름과 해당 리포지토리에 대한 [컨테이너 리포지토리 및 이미지를][repositories-and-images] 참조하십시오. 컨테이너 인스턴스에 대한 YAML 참조에 대한 자세한 내용은 [YAML 참조: Azure 컨테이너 인스턴스][aci-yaml-ref]를 참조하십시오.
 
 ```YAML
 apiVersion: 2018-10-01
@@ -64,18 +64,18 @@ type: Microsoft.ContainerInstance/containerGroups
 ```
 
 > [!NOTE]
-> 모든 위치에서 CPU 및 메모리 가용성이 동일 하지는 않습니다. 위치 및 OS에 따라 컨테이너에 대해 사용 가능한 리소스 목록을 보려면 [위치 및 리소스][location-to-resource] 표를 참조 하세요.
+> 모든 위치의 CPU 및 메모리 가용성이 동일하지는 않습니다. 위치 및 OS별 컨테이너에 사용할 수 있는 리소스 목록은 위치 [및 리소스][location-to-resource] 테이블을 참조하십시오.
 
-[`az container create`][azure-container-create] 명령에 대해 만든 yaml 파일을 사용 합니다. Azure CLI에서 `az container create` 명령을 실행 하 여 `<resource-group>`를 고유한 것으로 바꿉니다. 또한 YAML 배포 내에서 값을 보호 하기 위해 [보안 값][secure-values]을 참조 합니다.
+명령에 대해 만든 YAML 파일에 의존합니다. [`az container create`][azure-container-create] Azure CLI에서 명령을 `az container create` 사용자 로 `<resource-group>` 대체하는 명령을 실행합니다. 또한 YAML 배포 내에서 값을 보호하려면 [보안 값을][secure-values]참조합니다.
 
 ```azurecli
 az container create -g <resource-group> -f my-aci.yaml
 ```
 
-명령의 출력은 유효한 경우 `Running...` 되며, 잠시 후에는 새로 만든 ACI 리소스를 나타내는 JSON 문자열로 출력이 변경 됩니다. 컨테이너 이미지는 잠시 동안 사용 하지 못할 수도 있지만 이제 리소스가 배포 됩니다.
+명령의 출력은 `Running...` 유효한 경우, 언젠가 출력이 새로 생성된 ACI 리소스를 나타내는 JSON 문자열로 변경됩니다. 컨테이너 이미지는 잠시 동안 사용할 수 없지만 리소스가 배포됩니다.
 
 > [!TIP]
-> YAML은 위치와 일치 하도록 적절히 조정 해야 하므로 공개 미리 보기 Azure 인지 서비스 제공의 위치에 주의 하세요.
+> YAML은 위치에 맞게 조정해야 하므로 공개 미리 보기 Azure Cognitive Service 제품의 위치에 주의를 기울이세요.
 
 [azure-container-create]: https://docs.microsoft.com/cli/azure/container?view=azure-cli-latest#az-container-create
 [template-format]: https://docs.microsoft.com/azure/templates/Microsoft.ContainerInstance/2018-10-01/containerGroups#template-format

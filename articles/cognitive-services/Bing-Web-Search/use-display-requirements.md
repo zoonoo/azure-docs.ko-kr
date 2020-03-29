@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: aahi
 ms.openlocfilehash: 5575668f164b97142e7c4b2ddb2608c3173426a6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "60499888"
 ---
 # <a name="bing-search-api-use-and-display-requirements"></a>Bing Search API 사용 및 표시 요구 사항
@@ -36,8 +36,8 @@ ms.locfileid: "60499888"
 
 |용어  |설명  |
 |---------|---------|
-|응답     | 응답에서 반환된 결과의 범주를 나타냅니다. 예를 들어 Bing Web Search API의 응답에는 웹 페이지 결과, 이미지, 비디오, 시각적 개체 및 뉴스 범주의 답변이 포함될 수 있습니다. |
-|response     | Search API에 대한 단일 호출에 대응하여 받은 모든 대답 및 관련 데이터를 나타냅니다. |
+|Answer     | 응답에서 반환된 결과의 범주를 나타냅니다. 예를 들어 Bing Web Search API의 응답에는 웹 페이지 결과, 이미지, 비디오, 시각적 개체 및 뉴스 범주의 답변이 포함될 수 있습니다. |
+|응답     | Search API에 대한 단일 호출에 대응하여 받은 모든 대답 및 관련 데이터를 나타냅니다. |
 |결과    | 대답에 있는 정보 항목을 나타냅니다. 예를 들어 하나의 뉴스 기사와 연결된 일단의 데이터는 뉴스 답변의 결과입니다. |
 |Search API    | Bing Custom Search, Entity Search, Image Search, News Search, Video Search, Visual Search, Local Business Search 및 Web Search API를 총체적으로 의미합니다. |
 

@@ -1,7 +1,7 @@
 ---
-title: Speech SDK를 사용 하 여 클라이언트에서 명령을 수행 하는 방법
+title: 음성 SDK를 사용하여 클라이언트에서 명령을 수행하는 방법
 titleSuffix: Azure Cognitive Services
-description: 이 문서에서는 Speech SDK를 사용 하 여 클라이언트에서 사용자 지정 명령 활동을 처리 하는 방법을 설명 합니다.
+description: 이 문서에서는 음성 SDK를 사용하여 클라이언트에서 사용자 지정 명령 작업을 처리하는 방법을 설명합니다.
 services: cognitive-services
 author: don-d-kim
 manager: yetian
@@ -11,52 +11,52 @@ ms.topic: conceptual
 ms.date: 03/12/2020
 ms.author: donkim
 ms.openlocfilehash: e109955774722da7f55defe1417de35ff202cce8
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79367752"
 ---
-# <a name="fulfill-commands-from-a-client-with-the-speech-sdk-preview"></a>음성 SDK (미리 보기)를 사용 하 여 클라이언트에서 명령 충족
+# <a name="fulfill-commands-from-a-client-with-the-speech-sdk-preview"></a>음성 SDK(미리 보기)를 통해 클라이언트에서 명령 이행
 
-사용자 지정 명령 응용 프로그램을 사용 하 여 작업을 완료 하려면 연결 된 클라이언트 장치에 사용자 지정 페이로드를 보낼 수 있습니다.
+사용자 지정 명령 응용 프로그램을 사용하여 작업을 완료하려면 연결된 클라이언트 장치에 사용자 지정 페이로드를 보낼 수 있습니다.
 
-이 문서에서는 다음을 수행 합니다.
+이 문서에서는 다음과 같은 작업을 수행합니다.
 
-- 사용자 지정 명령 응용 프로그램에서 사용자 지정 JSON 페이로드 정의 및 보내기
-- C# UWP Speech SDK 클라이언트 응용 프로그램에서 사용자 지정 JSON 페이로드 콘텐츠 수신 및 시각화
+- 사용자 지정 명령 응용 프로그램에서 사용자 지정 JSON 페이로드 정의 및 전송
+- C# UWP 음성 SDK 클라이언트 응용 프로그램에서 사용자 지정 JSON 페이로드 콘텐츠를 수신하고 시각화
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
-- 음성 서비스에 대 한 Azure 구독 키
-  - [무료로 다운로드](get-started.md) 하거나 [Azure Portal](https://portal.azure.com) 에서 만드세요.
+- [비주얼 스튜디오 2019](https://visualstudio.microsoft.com/downloads/)
+- 음성 서비스에 대한 Azure 구독 키
+  - [무료로 하나를 얻거나](get-started.md) Azure [포털에서](https://portal.azure.com) 만들 수 있습니다.
 - 이전에 만든 사용자 지정 명령 앱
-  - [빠른 시작: 매개 변수를 사용 하 여 사용자 지정 명령 만들기 (미리 보기)](./quickstart-custom-speech-commands-create-parameters.md)
-- 음성 SDK 사용 클라이언트 응용 프로그램
-  - [빠른 시작: 음성 SDK (미리 보기)를 사용 하 여 사용자 지정 명령 응용 프로그램에 연결](./quickstart-custom-speech-commands-speech-sdk.md)
+  - [빠른 시작: 매개 변수를 사용하여 사용자 지정 명령 만들기(미리 보기)](./quickstart-custom-speech-commands-create-parameters.md)
+- 음성 SDK 지원 클라이언트 응용 프로그램
+  - [빠른 시작: 음성 SDK(미리 보기)를 사용하여 사용자 지정 명령 응용 프로그램에 연결](./quickstart-custom-speech-commands-speech-sdk.md)
 
-## <a name="optional-get-started-fast"></a>선택 사항: 빠르게 시작
+## <a name="optional-get-started-fast"></a>선택 사항: 빠르게 시작하기
 
-이 문서에서는 클라이언트 응용 프로그램이 사용자 지정 명령 응용 프로그램과 통신 하도록 만드는 방법을 단계별로 설명 합니다. 이 문서에서 사용 하는 완전 하 고 컴파일 가능한 소스 코드는 [음성 SDK 샘플](https://aka.ms/csspeech/samples)에서 바로 사용할 수 있습니다.
+이 문서에서는 사용자 지정 명령 응용 프로그램과 대화할 클라이언트 응용 프로그램을 만드는 방법을 단계별로 설명합니다. 바로 다이빙을 하려는 경우 이 문서에서 사용할 수 있는 컴파일 즉시 사용할 수 있는 완전 한 소스 코드는 [음성 SDK 샘플에서](https://aka.ms/csspeech/samples)사용할 수 있습니다.
 
-## <a name="fulfill-with-json-payload"></a>JSON 페이로드에 만족
+## <a name="fulfill-with-json-payload"></a>JSON 페이로드로 이행
 
-1. [Speech Studio](https://speech.microsoft.com/) 에서 이전에 만든 사용자 지정 명령 응용 프로그램 열기
-1. **완료 규칙** 섹션에서 사용자에 게 다시 응답 하는 이전에 만든 규칙이 있는지 확인 합니다.
-1. 클라이언트에 직접 페이로드를 보내려면 작업 보내기 작업을 사용 하 여 새 규칙을 만듭니다.
+1. [음성 스튜디오에서](https://speech.microsoft.com/) 이전에 만든 사용자 지정 명령 응용 프로그램을 엽니다.
+1. 완료 **규칙** 섹션을 확인하여 사용자에게 다시 응답하는 이전에 만든 규칙이 있는지 확인합니다.
+1. 페이로드를 클라이언트에 직접 보내려면 활동 보내기 작업을 사용하여 새 규칙을 만듭니다.
 
    > [!div class="mx-imgBorder"]
-   > ![보내기 작업 완료 규칙](media/custom-speech-commands/fulfill-sdk-completion-rule.png)
+   > ![활동 완료 규칙 보내기](media/custom-speech-commands/fulfill-sdk-completion-rule.png)
 
-   | 설정 | 제안 값 | Description |
+   | 설정 | 제안 값 | 설명 |
    | ------- | --------------- | ----------- |
-   | 규칙 이름 | UpdateDeviceState | 규칙의 용도를 설명 하는 이름입니다. |
-   | 조건 | 필수 매개 변수-`OnOff` 및 `SubjectDevice` | 규칙을 실행할 수 있는 시기를 결정 하는 조건 |
-   | 동작 | `SendActivity` (아래 참조) | 규칙 조건이 참인 경우 수행할 동작입니다. |
+   | 규칙 이름 | 업데이트디바이스상태 | 규칙의 목적을 설명하는 이름 |
+   | 조건 | 필수 매개 `OnOff` 변수 - 및`SubjectDevice` | 규칙을 실행할 수 있는 시기를 결정하는 조건 |
+   | 동작 | `SendActivity`(아래 참조) | 규칙 조건이 true일 때 취할 작업 |
 
    > [!div class="mx-imgBorder"]
-   > ![전송 작업 페이로드](media/custom-speech-commands/fulfill-sdk-send-activity-action.png)
+   > ![활동 페이로드 보내기](media/custom-speech-commands/fulfill-sdk-send-activity-action.png)
 
    ```json
    {
@@ -67,11 +67,11 @@ ms.locfileid: "79367752"
    }
    ```
 
-## <a name="create-visuals-for-device-on-or-off-state"></a>장치 켜기 또는 끄기 상태에 대 한 시각적 개체 만들기
+## <a name="create-visuals-for-device-on-or-off-state"></a>장치 켜기 또는 끄기 상태에 대한 시각적 개체 만들기
 
-[빠른 시작: 음성 sdk (미리 보기)를 사용 하 여 사용자 지정 명령 응용 프로그램에 연결](./quickstart-custom-speech-commands-speech-sdk.md) `turn on the tv`, `turn off the fan`등의 명령을 처리 하는 음성 sdk 클라이언트 응용 프로그램을 만들었습니다. 이제 일부 시각적 개체를 추가 하 여 해당 명령의 결과를 볼 수 있습니다.
+[빠른 시작: 음성 SDK(미리 보기)를 사용하여 사용자 지정 명령 응용 프로그램에 연결하여](./quickstart-custom-speech-commands-speech-sdk.md) `turn on the tv`. `turn off the fan` 이제 이러한 명령의 결과를 볼 수 있도록 몇 가지 시각적 개체를 추가합니다.
 
-에 추가 된 다음 XML을 사용 하 여 **설정** 하거나 **해제** 하는 텍스트를 사용 하 여 레이블 상자를 추가 `MainPage.xaml.cs`
+다음 XML을 사용하여 **켜기** 또는 **끄기를** 나타내는 텍스트가 있는 레이블이 지정된 상자를 추가합니다.`MainPage.xaml.cs`
 
 ```xml
 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="20">
@@ -92,12 +92,12 @@ ms.locfileid: "79367752"
 
 ## <a name="handle-customizable-payload"></a>사용자 지정 가능한 페이로드 처리
 
-이제 JSON 페이로드를 만들었으므로 [JSON.NET](https://www.newtonsoft.com/json) 라이브러리에 대 한 참조를 추가 하 여 deserialization을 처리할 수 있습니다.
+이제 JSON 페이로드를 만들었으니 [JSON.NET](https://www.newtonsoft.com/json) 라이브러리에 대한 참조를 추가하여 직렬화를 처리할 수 있습니다.
 
 > [!div class="mx-imgBorder"]
-> ![전송 작업 페이로드](media/custom-speech-commands/fulfill-sdk-json-nuget.png)
+> ![활동 페이로드 보내기](media/custom-speech-commands/fulfill-sdk-json-nuget.png)
 
-`InitializeDialogServiceConnector`에서 `ActivityReceived` 이벤트 처리기에 다음을 추가 합니다. 추가 코드는 활동에서 페이로드를 추출 하 고 그에 따라 tv 또는 팬의 시각적 상태를 변경 합니다.
+이벤트 `InitializeDialogServiceConnector` 처리기에 다음을 추가합니다. `ActivityReceived` 추가 코드는 활동에서 페이로드를 추출하고 그에 따라 TV 또는 팬의 시각적 상태를 변경합니다.
 
 ```C#
 connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
@@ -134,12 +134,12 @@ connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
 ## <a name="try-it-out"></a>체험
 
 1. 애플리케이션 시작
-1. 마이크 사용을 선택 합니다.
-1. 대화 단추를 선택 합니다.
-1. 예 `turn on the tv`
-1. Tv의 시각적 상태가 "켜기"로 변경 됩니다.
+1. 마이크 활성화 선택
+1. 통화 버튼 선택
+1. 말할`turn on the tv`
+1. TV의 시각적 상태가 "켜기"로 변경되어야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [방법: 사용자 지정 명령 매개 변수에 유효성 검사 추가 (미리 보기)](./how-to-custom-speech-commands-validations.md)
+> [방법: 사용자 지정 명령 매개 변수에 유효성 검사를 추가(미리 보기)](./how-to-custom-speech-commands-validations.md)

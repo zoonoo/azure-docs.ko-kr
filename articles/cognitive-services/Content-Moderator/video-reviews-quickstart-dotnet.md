@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
 ms.openlocfilehash: 7130ed43183d64b00f8f5ef1697b9a3b456ad396
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "72931666"
 ---
 # <a name="create-video-reviews-using-net"></a>.NET을 사용하여 비디오 검토 만들기
@@ -27,9 +27,9 @@ ms.locfileid: "72931666"
 - 검토의 상태 및 세부 정보 가져오기
 - 검토 게시
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-- Content Moderator [검토 도구](https://contentmoderator.cognitive.microsoft.com/) 사이트에서 로그인 하거나 계정을 만드세요.
+- 콘텐츠 운영자 [검토 도구](https://contentmoderator.cognitive.microsoft.com/) 사이트에서 로그인하거나 계정을 만듭니다.
 - 이 문서에서는 [비디오를 조정(빠른 시작 참조)](video-moderation-api.md)했고 응답 데이터를 보유하고 있다고 가정합니다. 사용자 중재자를 위한 프레임 기반 검토를 만드는 데 필요합니다.
 
 ## <a name="ensure-your-api-key-can-call-the-review-api-for-review-creation"></a>API 키에서 검토 만들기에 대한 검토 API를 호출할 수 있는지 확인
@@ -92,7 +92,7 @@ using Newtonsoft.Json;
 
 ### <a name="add-private-properties"></a>프라이빗 속성 추가
 
-네임 스페이스 **VideoReviews**클래스 **프로그램**에 다음 개인 속성을 추가 합니다. `AzureEndpoint` 및 `CMSubscriptionKey` 필드를 끝점 URL 및 구독 키의 값으로 업데이트 합니다. Azure Portal에서 리소스의 **빠른 시작** 탭에서 찾을 수 있습니다.
+네임 스페이스 **VideoReviews,** 클래스 **프로그램에**다음 개인 속성을 추가합니다. 끝점 `AzureEndpoint` `CMSubscriptionKey` URL 및 구독 키의 값으로 및 필드를 업데이트합니다. Azure 포털에서 리소스의 **빠른 시작** 탭에서 찾을 수 있습니다.
 
 
 ```csharp
@@ -131,7 +131,7 @@ namespace VideoReviews
 
 ### <a name="create-content-moderator-client-object"></a>Content Moderator 클라이언트 개체 만들기
 
-네임 스페이스 **VideoReviews**클래스 **프로그램**에 다음 메서드 정의를 추가 합니다.
+네임 스페이스 **VideoReviews,** 클래스 **프로그램에**다음 메서드 정의를 추가합니다.
 
 ```csharp
 /// <summary>
@@ -157,15 +157,15 @@ public static ContentModeratorClient NewClient()
 **CreateVideoReviews**에는 다음 매개 변수가 필요합니다.
 1. MIME 형식을 포함하는 문자열로, “application/json”이어야 합니다. 
 1. Content Moderator 팀 이름입니다.
-1. **IList \<CreateVideoReviewsBodyItem >** 개체입니다. 각 **CreateVideoReviewsBodyItem** 개체는 비디오 검토를 나타냅니다. 이 빠른 시작에서는 한 번에 하나씩 검토를 만듭니다.
+1. **IList\<만들기비디오검토바디항목>** 개체입니다. 각 **CreateVideoReviewsBodyItem** 개체는 비디오 검토를 나타냅니다. 이 빠른 시작에서는 한 번에 하나씩 검토를 만듭니다.
 
 **CreateVideoReviewsBodyItem**에는 여러 속성이 있습니다. 최소한 다음 속성을 설정합니다.
-- **Content**. 검토할 비디오의 URL입니다.
+- **콘텐츠**. 검토할 비디오의 URL입니다.
 - **ContentId**. 비디오 검토에 할당할 ID입니다.
-- **Status**. 값을 "게시 취소됨"으로 설정합니다. 값을 설정하지 않을 경우 기본값인 "보류 중"으로 설정되며, 이는 비디오 검토가 게시되었으며 사용자 검토 보류 중임을 의미합니다. 비디오 검토가 게시되고 나면 비디오 프레임, 대본 또는 대본 조정 결과를 더 이상 추가할 수 없습니다.
+- **상태**. 값을 "게시 취소됨"으로 설정합니다. 값을 설정하지 않을 경우 기본값인 "보류 중"으로 설정되며, 이는 비디오 검토가 게시되었으며 사용자 검토 보류 중임을 의미합니다. 비디오 검토가 게시되고 나면 비디오 프레임, 대본 또는 대본 조정 결과를 더 이상 추가할 수 없습니다.
 
 > [!NOTE]
-> **CreateVideoReviews** 는 IList \<string >를 반환 합니다. 이러한 각 문자열에는 비디오 검토의 ID가 포함되어 있습니다. 이러한 ID는 GUID이며, **ContentId** 속성 값과 동일하지 않습니다. 
+> **CreateVideoReviews** 는 iList\<문자열> 반환합니다. 이러한 각 문자열에는 비디오 검토의 ID가 포함되어 있습니다. 이러한 ID는 GUID이며, **ContentId** 속성 값과 동일하지 않습니다. 
 
 VideoReviews 네임스페이스, Program 클래스에 다음 메서드 정의를 추가합니다.
 
@@ -205,7 +205,7 @@ private static string CreateReview(ContentModeratorClient client, string id, str
 > [!NOTE]
 > Content Moderator 서비스 키에는 RPS(초당 요청 수) 속도 제한이 있으며, 제한을 초과하는 경우 SDK에서 429 오류 코드로 예외를 throw합니다.
 >
-> 체험판 계층 키에는 하나의 RPS 속도 제한이 있습니다.
+> 체험 계층 키에는 하나의 RPS 속도 제한이 있습니다.
 
 ## <a name="add-video-frames-to-the-video-review"></a>비디오 검토에 비디오 프레임 추가
 
@@ -215,18 +215,18 @@ private static string CreateReview(ContentModeratorClient client, string id, str
 1. MIME 형식을 포함하는 문자열로, “application/json”이어야 합니다.
 1. Content Moderator 팀 이름입니다.
 1. **CreateVideoReviews**에서 반환된 비디오 검토 ID입니다.
-1. **IList \<VideoFrameBodyItem >** 개체입니다. 각 **VideoFrameBodyItem** 개체는 비디오 프레임을 나타냅니다.
+1. **IList\<비디오프레임개체>.** 각 **VideoFrameBodyItem** 개체는 비디오 프레임을 나타냅니다.
 
 **VideoFrameBodyItem**에는 다음 속성이 있습니다.
-- **Timestamp**. 비디오 프레임이 사용된 비디오의 시간(초)을 포함하는 문자열입니다.
+- **타임스탬프**. 비디오 프레임이 사용된 비디오의 시간(초)을 포함하는 문자열입니다.
 - **FrameImage**. 비디오 프레임의 URL입니다.
-- **Metadata**. IList \<VideoFrameBodyItemMetadataItem >입니다. **VideoFrameBodyItemMetadataItem**은 단순히 키/값 쌍입니다. 올바른 키는 다음과 같습니다.
+- **메타 데이터**. IList\<비디오프레임바디아이템메타디티드항목>. **VideoFrameBodyItemMetadataItem**은 단순히 키/값 쌍입니다. 올바른 키는 다음과 같습니다.
 - **reviewRecommended**. 비디오 프레임의 사용자 검토가 권장되는 경우 True입니다.
 - **adultScore**. 비디오 프레임에서 성인 콘텐츠의 심각도 등급을 지정하는 0~1의 값입니다.
-- **a**. 비디오가 성인 콘텐츠를 포함하는 경우 True입니다.
+- **.** 비디오가 성인 콘텐츠를 포함하는 경우 True입니다.
 - **racyScore**. 비디오 프레임에서 외설 콘텐츠의 심각도 등급을 지정하는 0~1의 값입니다.
 - **r**. 비디오 프레임이 외설 콘텐츠를 포함하는 경우 True입니다.
-- **ReviewerResultTags**. IList \<VideoFrameBodyItemReviewerResultTagsItem >입니다. **VideoFrameBodyItemReviewerResultTagsItem**은 단순히 키/값 쌍입니다. 애플리케이션은 이러한 태그를 사용하여 비디오 프레임을 구성할 수 있습니다.
+- **ReviewerResultTags**. IList\<비디오프레임바디항목검토자결과태그항목>. **VideoFrameBodyItemReviewerResultTagsItem**은 단순히 키/값 쌍입니다. 애플리케이션은 이러한 태그를 사용하여 비디오 프레임을 구성할 수 있습니다.
 
 > [!NOTE]
 > 이 빠른 시작은 **adultScore** 및 **racyScore** 속성에 대한 임의 값을 생성합니다. 프로덕션 애플리케이션에서 Azure 미디어 서비스로 배포된 [비디오 조정 서비스](video-moderation-api.md)에서 이러한 값을 가져옵니다.
@@ -541,7 +541,7 @@ Press any key to close the application.
 
 ## <a name="check-out-your-video-review"></a>비디오 검토 확인
 
-마지막으로 **검토**>**비디오** 화면의 Content Moderator 검토 도구 계정에서 비디오 검토를 확인합니다.
+마지막으로 콘텐츠 운영자 검토 도구 계정에 **Review**>**동영상** 검토가 표시됩니다.
 
 ![사용자 중재자를 위한 비디오 검토](images/ams-video-review.PNG)
 

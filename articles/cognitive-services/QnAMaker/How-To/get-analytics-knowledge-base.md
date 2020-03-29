@@ -1,5 +1,5 @@
 ---
-title: 기술 자료 분석-QnA Maker
+title: 기술 기반 분석 - QnA 메이커
 titleSuffix: Azure Cognitive Services
 description: QnA Maker Service를 생성하는 동안 App Insights를 사용하도록 설정한 경우 QnA Maker는 모든 채팅 로그 및 기타 원격 분석을 저장합니다. App Insights에서 채팅 로그를 가져오려면 샘플 쿼리를 실행합니다.
 services: cognitive-services
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: diberry
 ms.openlocfilehash: e769bde39bc796b5b598109328b468b15385f38a
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77650404"
 ---
 # <a name="get-analytics-on-your-knowledge-base"></a>기술 자료에 대한 분석 가져오기
@@ -26,7 +26,7 @@ ms.locfileid: "77650404"
 
     ![Application Insights 리소스 선택](../media/qnamaker-how-to-analytics-kb/resources-created.png)
 
-2. **Log(Analytics)** 를 선택합니다. QnA Maker 원격 분석을 쿼리할 수 있는 새 창이 열립니다.
+2. **로그(분석)를**선택합니다. QnA Maker 원격 분석을 쿼리할 수 있는 새 창이 열립니다.
 
 3. 다음 쿼리에 붙여넣고 실행합니다.
 
@@ -46,7 +46,7 @@ ms.locfileid: "77650404"
 
     **실행**을 선택하여 쿼리를 실행합니다.
 
-    [![쿼리를 실행 하 여 사용자의 질문, 답변 및 점수를 확인 합니다.](../media/qnamaker-how-to-analytics-kb/run-query.png)](../media/qnamaker-how-to-analytics-kb/run-query.png#lightbox)
+    [![쿼리를 실행하여 사용자질문, 답변 및 점수를 결정합니다.](../media/qnamaker-how-to-analytics-kb/run-query.png)](../media/qnamaker-how-to-analytics-kb/run-query.png#lightbox)
 
 ## <a name="run-queries-for-other-analytics-on-your-qna-maker-knowledge-base"></a>QnA Maker 기술 자료에 대한 다른 분석에 대해 쿼리 실행
 
@@ -99,7 +99,7 @@ requests
 | summarize count() by performanceBucket, KbId
 ```
 
-### <a name="unanswered-questions"></a>답변 되지 않은 질문
+### <a name="unanswered-questions"></a>답변이 없는 질문
 
 ```kusto
 // Unanswered questions
@@ -121,4 +121,4 @@ traces | extend id = operation_ParentId
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Capactiy 선택](./improve-knowledge-base.md)
+> [카박티 선택](./improve-knowledge-base.md)

@@ -1,7 +1,7 @@
 ---
 title: 텍스트 음성 변환, Python - Speech Service
 titleSuffix: Azure Cognitive Services
-description: 이 문서에서는 Python 및 텍스트 음성 변환 REST API를 사용 하 여 텍스트를 음성으로 변환 하는 방법을 알아봅니다. 이 가이드에 포함된 샘플 텍스트는 SSML(Speech Synthesis Markup Language)로 구조화되어 있습니다. 이를 통해 음성 응답의 음성 및 언어를 선택할 수 있습니다.
+description: 이 문서에서는 파이썬 및 텍스트 음성 변환 REST API를 사용하여 텍스트 음성 변환 방법을 배웁니다. 이 가이드에 포함된 샘플 텍스트는 SSML(Speech Synthesis Markup Language)로 구조화되어 있습니다. 이를 통해 음성 응답의 음성 및 언어를 선택할 수 있습니다.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: how-to
 ms.date: 02/10/2020
 ms.author: dapine
-ms.openlocfilehash: 63e6a2a47265eae08a653f3eadaf6bad86dd0635
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 79562049f48ba90a4f9a123919185521a82d7be6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77119721"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80365796"
 ---
 # <a name="convert-text-to-speech-using-python"></a>Python을 사용하여 텍스트 음성 변환
 
-이 문서에서는 Python 및 텍스트 음성 변환 REST API를 사용 하 여 텍스트를 음성으로 변환 하는 방법을 알아봅니다. 이 가이드의 요청 본문은 [SSML(Speech Synthesis Markup Language)](speech-synthesis-markup.md)로 구조화되어 있으므로 응답의 음성 및 언어를 선택할 수 있습니다.
+이 문서에서는 파이썬과 텍스트 음성 간 REST API를 사용하여 텍스트 음성 변환 방법을 배웁니다. 이 가이드의 요청 본문은 [SSML(Speech Synthesis Markup Language)](speech-synthesis-markup.md)로 구조화되어 있으므로 응답의 음성 및 언어를 선택할 수 있습니다.
 
-이 문서에는 음성 서비스 리소스를 사용 하는 [Azure Cognitive Services 계정이](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) 필요 합니다. 계정이 없는 경우 [평가판](get-started.md)을 사용하여 구독 키를 가져올 수 있습니다.
+이 문서에는 음성 서비스 리소스가 있는 [Azure Cognitive Services 계정이](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) 필요합니다. 계정이 없는 경우 [평가판](get-started.md)을 사용하여 구독 키를 가져올 수 있습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -99,7 +99,7 @@ def get_token(self):
 그런 다음, SSML(Speech Synthesis Markup Language)을 사용하여 요청 본문을 구성합니다. 이 샘플에서는 구조체를 정의하고 이전에 만든 `tts` 입력을 사용합니다.
 
 >[!NOTE]
-> 이 샘플에서는 `Guy24KRUS` 음성 글꼴을 사용합니다. Microsoft 제공 음성/언어의 전체 목록은 [언어 지원](language-support.md)을 참조하세요.
+> 이 샘플에서는 `Guy24kRUS` 음성 글꼴을 사용합니다. Microsoft 제공 음성/언어의 전체 목록은 [언어 지원](language-support.md)을 참조하세요.
 > 브랜드의 고유하고 인식 가능한 음성을 만들려면 [사용자 지정 음성 글꼴 만들기](how-to-customize-voice-font.md)를 참조하세요.
 
 마지막으로 서비스에 대한 요청을 만듭니다. 요청이 성공하고 200 상태 코드가 반환되면 음성 응답이 타임스탬프가 있는 파일에 기록됩니다.
@@ -122,7 +122,7 @@ def save_audio(self):
     voice = ElementTree.SubElement(xml_body, 'voice')
     voice.set('{http://www.w3.org/XML/1998/namespace}lang', 'en-US')
     voice.set(
-        'name', 'Microsoft Server Speech Text to Speech Voice (en-US, Guy24KRUS)')
+        'name', 'Microsoft Server Speech Text to Speech Voice (en-US, Guy24kRUS)')
     voice.text = self.tts
     body = ElementTree.tostring(xml_body)
 
@@ -168,7 +168,7 @@ python tts.py
 > [!div class="nextstepaction"]
 > [GitHub에서 Python 샘플 살펴보기](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/Samples-Http/Python)
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 * [텍스트를 음성으로 변환 API 참조](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)
 * [Python 및 Speech SDK를 사용하여 텍스트 음성 변환](quickstarts/speech-to-text-from-microphone.md)

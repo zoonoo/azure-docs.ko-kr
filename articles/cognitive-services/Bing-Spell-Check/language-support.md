@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: aahi
 ms.openlocfilehash: 5ffd9f05bb429ba611a08d7985dbc9d509a9df0c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "66390158"
 ---
 # <a name="language-and-region-support-for-bing-spell-check-api"></a>Bing Spell Check API에 대한 언어 및 지역 지원
@@ -39,7 +39,7 @@ ms.locfileid: "66390158"
 | 영어(말레이시아)     | `en-MY`          |
 | 영어(뉴질랜드)    | `en-NZ`          |
 | 영어(필리핀)     | `en-PH`          |
-| 영어(남아프리카 공화국)    | `en-ZA`          |
+| 영어(남아프리카)    | `en-ZA`          |
 | 영어(영국)    | `en-GB`          |
 | 영어(미국)    | `en-US`          |
 | 핀란드어     | `fi`          |
@@ -66,7 +66,7 @@ ms.locfileid: "66390158"
 | 스웨덴어     | `sv`          |
 | 터키어     | `tr`          |
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 - [Cognitive Services 설명서 페이지](https://docs.microsoft.com/azure/cognitive-services/)
 - [Cognitive Services 제품 페이지](https://azure.microsoft.com/services/cognitive-services/)

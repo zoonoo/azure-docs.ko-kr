@@ -1,5 +1,5 @@
 ---
-title: Kubernetes Service에서 언어 감지 컨테이너 실행
+title: Kubernetes 서비스에서 언어 검색 컨테이너 실행
 titleSuffix: Text Analytics -  Azure Cognitive Services
 description: 언어 감지 컨테이너와 실행 샘플을 Azure Kubernetes Service에 배포하고 웹 브라우저에서 테스트합니다.
 services: cognitive-services
@@ -11,32 +11,32 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: dapine
 ms.openlocfilehash: 1968bc03bfddb9d6f6c8fe743a2a1a99722c074d
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78399175"
 ---
-# <a name="deploy-the-text-analytics-language-detection-container-to-azure-kubernetes-service"></a>Text Analytics 언어 검색 컨테이너를 Azure Kubernetes Service에 배포
+# <a name="deploy-the-text-analytics-language-detection-container-to-azure-kubernetes-service"></a>Azure Kubernetes 서비스에 텍스트 분석 언어 검색 컨테이너 배포
 
 언어 감지 컨테이너를 배포하는 방법을 알아봅니다. 이 절차에서는 로컬 Docker 컨테이너를 만들고, 컨테이너를 고유한 프라이빗 컨테이너 레지스트리로 푸시하고, Kubernetes 클러스터에서 컨테이너를 실행하고, 웹 브라우저에서 테스트하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 절차를 수행하려면 로컬로 설치 및 실행해야 하는 몇 가지 도구가 필요합니다. Azure Cloud Shell은 사용하지 않도록 합니다.
 
 * Azure 구독을 사용합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
-* 이 절차에서 사용되는 [샘플](https://git-scm.com/downloads)을 복제할 수 있도록 사용하는 운영 체제용 [Git](https://github.com/Azure-Samples/cognitive-services-containers-samples)
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+* 이 절차에서 사용되는 [샘플](https://github.com/Azure-Samples/cognitive-services-containers-samples)을 복제할 수 있도록 사용하는 운영 체제용 [Git](https://git-scm.com/downloads)
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 * [Docker 엔진](https://www.docker.com/products/docker-engine). 콘솔 창에서 Docker CLI를 가 작동하는지 확인합니다.
-* [kubectl](https://storage.googleapis.com/kubernetes-release/release/v1.13.1/bin/windows/amd64/kubectl.exe).
+* [쿠베틀](https://storage.googleapis.com/kubernetes-release/release/v1.13.1/bin/windows/amd64/kubectl.exe).
 * 올바른 가격 책정 계층이 지정된 Azure 리소스. 모든 가격 책정 계층이 이 컨테이너에 작동하는 것은 아닙니다.
   * F0 또는 표준 가격 책정 계층만 있는 **Text Analytics** 리소스
   * S0 가격 책정 계층이 있는 **Cognitive Services** 리소스
 
 ## <a name="running-the-sample"></a>샘플 실행
 
-이 절차에서는 언어 감지를 위해 Cognitive Services 컨테이너 샘플을 로드하고 실행합니다. 샘플은 클라이언트 애플리케이션용 1개, Cognitive Services 컨테이너용 1개, 모두 2개의 컨테이너를 포함합니다. 이러한 이미지를 모두 Azure Container Registry로 푸시합니다. 이미지가 사용자 고유의 레지스트리에 추가되면 Azure Kubernetes Service를 만들어 이러한 이미지에 액세스하고 컨테이너를 실행합니다. 컨테이너가 실행되는 동안 **kubectl** CLI를 사용하여 컨테이너 성능을 감시합니다. HTTP 요청을 사용하여 클라이언트 애플리케이션에 액세스하고 결과를 봅니다.
+이 절차에서는 언어 감지를 위해 Cognitive Services 컨테이너 샘플을 로드하고 실행합니다. 샘플은 클라이언트 애플리케이션용 1개, Cognitive Services 컨테이너용 1개, 모두 2개의 컨테이너를 포함합니다. 이 두 이미지를 모두 Azure 컨테이너 레지스트리로 푸시합니다. 이미지가 사용자 고유의 레지스트리에 추가되면 Azure Kubernetes Service를 만들어 이러한 이미지에 액세스하고 컨테이너를 실행합니다. 컨테이너가 실행되는 동안 **kubectl** CLI를 사용하여 컨테이너 성능을 감시합니다. HTTP 요청을 사용하여 클라이언트 애플리케이션에 액세스하고 결과를 봅니다.
 
 ![샘플 컨테이너 실행에 대한 개념적 아이디어](../text-analytics/media/how-tos/container-instance-sample/containers.png)
 
@@ -129,7 +129,7 @@ Azure Kubernetes Service에 컨테이너를 배포하려면 컨테이너 이미�
 
     컨테이너 레지스트리에 버전을 추적하려면 버전 형식의 태그(예: `v1`)를 추가합니다.
 
-1. 이미지를 컨테이너 레지스트리에 푸시합니다. 이 작업은 몇 분 정도 걸릴 수 있습니다.
+1. 이미지를 컨테이너 레지스트리에 푸시합니다. 몇 분이 걸릴 수 있습니다.
 
     ```console
     docker push pattyregistry.azurecr.io/language-frontend:v1
@@ -152,7 +152,7 @@ Azure Kubernetes Service에 컨테이너를 배포하려면 컨테이너 이미�
 
 ## <a name="get-language-detection-docker-image"></a>언어 감지 Docker 이미지 가져오기
 
-1. 최신 버전의 Docker 이미지를 로컬 컴퓨터로 끌어옵니다. 이 작업은 몇 분 정도 걸릴 수 있습니다. 이 컨테이너의 최신 버전이 있으면 `1.1.006770001-amd64-preview`의 값을 최신 버전으로 변경합니다.
+1. 최신 버전의 Docker 이미지를 로컬 컴퓨터로 끌어옵니다. 몇 분이 걸릴 수 있습니다. 이 컨테이너의 최신 버전이 있으면 `1.1.006770001-amd64-preview`의 값을 최신 버전으로 변경합니다.
 
     ```console
     docker pull mcr.microsoft.com/azure-cognitive-services/language:1.1.006770001-amd64-preview
@@ -164,7 +164,7 @@ Azure Kubernetes Service에 컨테이너를 배포하려면 컨테이너 이미�
     docker tag mcr.microsoft.com/azure-cognitive-services/language pattiyregistry.azurecr.io/language:1.1.006770001-amd64-preview
     ```
 
-1. 이미지를 컨테이너 레지스트리에 푸시합니다. 이 작업은 몇 분 정도 걸릴 수 있습니다.
+1. 이미지를 컨테이너 레지스트리에 푸시합니다. 몇 분이 걸릴 수 있습니다.
 
     ```console
     docker push pattyregistry.azurecr.io/language:1.1.006770001-amd64-preview
@@ -180,7 +180,7 @@ Azure Kubernetes Service에 컨테이너를 배포하려면 컨테이너 이미�
     az ad sp create-for-rbac --skip-assignment
     ```
 
-    assignee 매개 변수에 대한 결과 `appId` 값을 3단계 `<appId>`에 저장합니다. 다음 섹션의 클라이언트-암호 매개 변수 `password`을 위해 `<client-secret>`를 저장합니다.
+    assignee 매개 변수에 대한 결과 `appId` 값을 3단계 `<appId>`에 저장합니다. 다음 섹션의 클라이언트-암호 매개 변수 `<client-secret>`을 위해 `password`를 저장합니다.
 
     ```output
     {
@@ -305,20 +305,20 @@ Azure Kubernetes Service에 컨테이너를 배포하려면 컨테이너 이미�
     aks-nodepool1-13756812-1   Ready     agent     6m        v1.9.11
     ```
 
-1. 다음 파일을 복사하고 이름을 `language.yml`로 지정합니다. 이 파일에는 두 컨테이너 유형인 `service` 웹 사이트 컨테이너 및 `deployment` 검색 컨테이너 각각에 대한 `language-frontend` 섹션 및 `language` 섹션이 있습니다.
+1. 다음 파일을 복사하고 이름을 `language.yml`로 지정합니다. 이 파일에는 두 컨테이너 유형인 `language-frontend` 웹 사이트 컨테이너 및 `language` 검색 컨테이너 각각에 대한 `service` 섹션 및 `deployment` 섹션이 있습니다.
 
     [!code-yml[Kubernetes orchestration file for the Cognitive Services containers sample](~/samples-cogserv-containers/Kubernetes/language/language.yml "Kubernetes orchestration file for the Cognitive Services containers sample")]
 
 1. 다음 표에 따라 `language.yml`의 언어-프런트 엔드 배포 줄을 변경하여 고유한 컨테이너 레지스트리에 이미지 이름, 클라이언트 비밀 및 텍스트 분석 설정을 추가합니다.
 
-    언어-프런트 엔드 배포 설정|용도|
+    언어-프런트 엔드 배포 설정|목적|
     |--|--|
     |줄 32<br> `image` 속성|Container Registry에 있는 프런트 엔드 이미지의 이미지 위치입니다.<br>`<container-registry-name>.azurecr.io/language-frontend:v1`|
     |줄 44<br> `name` 속성|이전 섹션에서 `<client-secret>`으로 나타낸 이미지의 컨테이너 레지스트리 비밀입니다.|
 
 1. 다음 표에 따라 `language.yml`의 언어 배포 줄을 변경하여 고유한 컨테이너 레지스트리에 이미지 이름, 클라이언트 비밀 및 텍스트 분석 설정을 추가합니다.
 
-    |언어 배포 설정|용도|
+    |언어 배포 설정|목적|
     |--|--|
     |줄 78<br> `image` 속성|Container Registry에 있는 언어 이미지의 이미지 위치입니다.<br>`<container-registry-name>.azurecr.io/language:1.1.006770001-amd64-preview`|
     |줄 95<br> `name` 속성|이전 섹션에서 `<client-secret>`으로 나타낸 이미지의 컨테이너 레지스트리 비밀입니다.|
@@ -387,7 +387,7 @@ replicaset.apps/language-frontend-68b9969969   1         1         1         13h
 
 ## <a name="test-the-client-application-container"></a>클라이언트 애플리케이션 컨테이너 테스트
 
-`language-frontend` 형식을 사용하여 브라우저의 URL을 `http://<external-ip>/helloworld` 컨테이너의 외부 IP로 변경합니다. 영어 문화권 텍스트인 `helloworld`는 `English`로 예측됩니다.
+`http://<external-ip>/helloworld` 형식을 사용하여 브라우저의 URL을 `language-frontend` 컨테이너의 외부 IP로 변경합니다. 영어 문화권 텍스트인 `helloworld`는 `English`로 예측됩니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -404,7 +404,7 @@ az group delete --name cogserv-container-rg
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Cognitive Services 컨테이너](../cognitive-services-container-support.md)
+> [코그너티브 서비스 컨테이너](../cognitive-services-container-support.md)
 
 <!--
 kubectl get secrets

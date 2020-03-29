@@ -1,5 +1,5 @@
 ---
-title: 철자가 잘못 된 단어 수정-LUIS
+title: 맞춤법이 틀린 단어 수정 - LUIS
 titleSuffix: Azure Cognitive Services
 description: LUIS 엔드포인트 쿼리에 Bing Spell Check API V7을 추가하여 발화에서 맞춤법이 틀린 단어를 수정합니다.
 services: cognitive-services
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: diberry
 ms.openlocfilehash: 51b0d02443df872a7fae13116ea77b13d05055fa
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74225459"
 ---
 # <a name="correct-misspelled-words-with-bing-spell-check"></a>Bing Spell Check로 맞춤법이 틀린 단어 수정
@@ -36,7 +36,7 @@ LUIS 앱을 [Bing Spell Check API V7](https://azure.microsoft.com/services/cogni
 ## <a name="create-endpoint-key"></a>엔드포인트 키 만들기
 무료 키가 만료되면 엔드포인트 키를 만듭니다.
 
-1. [Azure 포털](https://portal.azure.com) 에 로그인합니다. 
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
 
 2. 왼쪽 위 모서리에 있는 **리소스 만들기**를 선택합니다.
 
@@ -96,12 +96,12 @@ There are two places in LUIS to use the key. The first is in the [test panel](lu
 
 ## <a name="ignore-spelling-mistakes"></a>맞춤법 오류 무시
 
-Bing Spell Check API v7 서비스를 사용 하지 않으려면 올바른 철자와 잘못 된 철자를 추가 해야 합니다. 
+Bing 맞춤법 검사 API v7 서비스를 사용하지 않으려면 정확하고 잘못된 맞춤법을 추가해야 합니다. 
 
 두 가지 솔루션은 다음과 같습니다.
 
-* 레이블 예 길이 발언는 다른 모든 철자가 있으므로 LUIS가 정확한 철자와 오타를 배울 수 있습니다. 이 옵션은 맞춤법 검사기를 사용하는 것보다 더 많은 레이블 지정 작업이 필요합니다.
-* 단어의 모든 변형이 포함 된 구 목록을 만듭니다. 이 솔루션을 사용 하면 예제 길이 발언의 단어 변형에 레이블을 추가할 필요가 없습니다. 
+* LUIS가 오타뿐만 아니라 적절한 맞춤법을 배울 수 있도록 모든 다른 철자가 있는 예시 발언에 레이블을 지정합니다. 이 옵션은 맞춤법 검사기를 사용하는 것보다 더 많은 레이블 지정 작업이 필요합니다.
+* 단어의 모든 변형이 있는 구 목록을 만듭니다. 이 솔루션을 사용하면 예제 발언에서 단어 변형에 레이블을 지정할 필요가 없습니다. 
 
 ## <a name="publishing-page"></a>게시 페이지
 [게시](luis-how-to-publish-app.md) 페이지에는 **Bing Spell Checker 사용** 확인란이 있습니다. 이는 키를 만들고 엔드포인트 URL이 변경되는 방식을 이해할 수 있는 편리한 기능입니다. 각 발화에 대해 맞춤법을 교정하려면 올바른 엔드포인트 매개 변수를 사용해야 합니다. 

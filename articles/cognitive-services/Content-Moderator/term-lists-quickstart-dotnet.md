@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
 ms.openlocfilehash: 68da335875752d326ee718cade3d501623c70b49
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "72935950"
 ---
 # <a name="check-text-against-a-custom-term-list-in-c"></a>C#에서 사용자 지정 단어 목록에 대해 텍스트 확인
 
 Azure Content Moderator에서 기본 전역 용어 목록은 대부분의 콘텐츠 조정 요구에 적합합니다. 그러나 조직에 관련된 용어에 대해 차단해야 할 수 있습니다. 예를 들어 추가 검토를 위해 경쟁 업체 이름에 태그를 지정할 수 있습니다. 
 
-[.NET용 Content Moderator SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/)를 사용하여 텍스트 조정 API와 함께 사용할 사용자 지정 용어 목록을 만들 수 있습니다.
+[.NET에 대한 콘텐츠 중재자 SDK를](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) 사용하여 텍스트 중재 API와 함께 사용할 용어의 사용자 지정 목록을 만들 수 있습니다.
 
 이 문서에서는 .NET용 Content Moderator SDK를 사용하여 다음 작업을 수행할 수 있도록 지원하는 정보 및 코드 샘플을 제공합니다.
 - 목록을 만듭니다.
@@ -69,7 +69,7 @@ using System.Threading;
 
 ### <a name="create-the-content-moderator-client"></a>Content Moderator 클라이언트 만들기
 
-다음 코드를 추가하여 구독에 대한 Content Moderator 클라이언트를 만듭니다. `AzureEndpoint` 및 `CMSubscriptionKey` 필드를 끝점 URL 및 구독 키의 값으로 업데이트 합니다. Azure Portal에서 리소스의 **빠른 시작** 탭에서 찾을 수 있습니다.
+다음 코드를 추가하여 구독에 대한 Content Moderator 클라이언트를 만듭니다. 끝점 `AzureEndpoint` `CMSubscriptionKey` URL 및 구독 키의 값으로 및 필드를 업데이트합니다. Azure 포털에서 리소스의 **빠른 시작** 탭에서 찾을 수 있습니다.
 
 ```csharp
 /// <summary>
@@ -264,7 +264,7 @@ static void RefreshSearchIndex (ContentModeratorClient client, string list_id)
 - "text/html", "text/xml", "text/markdown" 또는 "text/plain"일 수 있는 MIME 형식입니다.
 - 차단할 텍스트입니다.
 - 부울 값입니다. 이 필드를 **true**로 설정하여 차단하기 전에 텍스트를 자동으로 고칩니다.
-- 부울 값입니다. 텍스트의 개인 데이터를 검색 하려면이 필드를 **true** 로 설정 합니다.
+- 부울 값입니다. 텍스트에서 개인 데이터를 검색하려면 이 필드를 **true로** 설정합니다.
 - 용어 목록 ID입니다.
 
 자세한 내용은 [API 참조](https://westus2.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f)를 참조하세요.
@@ -362,7 +362,7 @@ static void DeleteTermList (ContentModeratorClient client, string list_id)
 }
 ```
 
-## <a name="compose-the-main-method"></a>Main 메서드 작성
+## <a name="compose-the-main-method"></a>기본 방법 구성
 
 **TermLists**네임스페이스, **Program** 클래스에 **Main** 메서드 정의를 추가합니다. 마지막으로, **Program** 클래스 및 **TermLists** 네임스페이스를 닫습니다.
 

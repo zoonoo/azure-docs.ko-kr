@@ -1,7 +1,7 @@
 ---
 title: 언어 지원 - Content Moderator API
 titleSuffix: Azure Cognitive Services
-description: Azure Cognitive Services Content Moderator API에서 지 원하는 자연어 목록입니다.
+description: Azure 인지 서비스 콘텐츠 운영자 API가 지원하는 자연어 목록입니다.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
 ms.openlocfilehash: 9574af31c881589668c462099cae46d9e83b454b
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73744372"
 ---
 # <a name="language-support-for-content-moderator-api"></a>Content Moderator API를 위한 언어 지원
@@ -22,7 +22,7 @@ ms.locfileid: "73744372"
 > [!NOTE]
 > **language** 매개 변수에 대해 `eng`를 할당하거나, 기계 지원 **분류** 응답(미리 보기 기능)을 확인하려면 비워 둡니다. **이 기능은 영어만 지원합니다**.
 >
-> **욕설** 감지의 경우 이 문서에 나열된 지원되는 언어의 [ISO 639-3 코드](http://www-01.sil.org/iso639-3/codes.asp)를 사용하거나 비워둡니다.
+> **욕설** 감지의 경우 이 문서에 나열된 지원되는 언어의 [ISO 639-3 코드](http://www-01.sil.org/iso639-3/codes.asp)를 사용하거나 비워 둡니다.
 
 
 | 언어 검색 | 욕설   | OCR    | 자동 고침     |
@@ -40,7 +40,7 @@ ms.locfileid: "73744372"
 | 체코어 |  벨라루스어 | 그리스어(현대)         | 폴란드어 |
 | 디베히어 | 보스니아어 - 키릴 자모 | 헝가리어      | 포르투갈어 |
 | 네덜란드어 | 보스니아어 - 라틴 문자 | 이탈리아어             | 루마니아어 |
-| 영어 (크리올) | 브르타뉴어[비 GeoPol] | 일본어  | 러시아어 |
+| 영어(크리올어) | 브르타뉴어[비 GeoPol] | 일본어  | 러시아어 |
 | 페르시아어 | 불가리아어 | 한국어                        | 슬로바키아어 |
 | 프랑스어 | 카탈로니아어 | 노르웨이어                        | 스페인어 |
 | 독일어 | 소라니 쿠르드어 | 폴란드어        | 터키어 |
@@ -74,7 +74,7 @@ ms.locfileid: "73744372"
 | 산탈어 | 아일랜드어 | | |
 | 사사크어 | 코사어 | | |
 | 사우라슈트라 문자 | 줄루어 | | |
-| 세르비아어(키릴자모) | 이탈리아어 | | |
+| 세르비아어(키릴 자모) | 이탈리아어 | | |
 | 세르비아어(라틴 문자) | 일본어 | | |
 | 스리랑카어 | 칸나다어 | | |
 | 슬로베니아어 | 카자흐어 | | |
@@ -112,7 +112,7 @@ ms.locfileid: "73744372"
 | | 루마니아어 | | |
 | | 러시아어 | | |
 | | 스코틀랜드 게일어 | | |
-| | 세르비아어(키릴자모) | | |
+| | 세르비아어(키릴 자모) | | |
 | | 세르비아어(키릴 자모, 보스니아 헤르체고비나) | | |
 | | 세르비아어(라틴 문자) | | |
 | | 세소토어 | | |

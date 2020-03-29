@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
 ms.openlocfilehash: 71858755fe31823d4d7ef8623b915db851530116
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "72755231"
 ---
 # <a name="analyze-video-content-for-objectionable-material-in-c"></a>C#에서 불쾌한 자료에 대한 텍스트 콘텐츠 분석
@@ -23,8 +23,8 @@ ms.locfileid: "72755231"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
 
-## <a name="prerequisites"></a>전제 조건
-- [Visual Studio 2015 또는 2017](https://www.visualstudio.com/downloads/)의 모든 버전.
+## <a name="prerequisites"></a>사전 요구 사항
+- [비주얼 스튜디오 2015 또는 2017의](https://www.visualstudio.com/downloads/) 모든 버전
 
 ## <a name="set-up-azure-resources"></a>Azure 리소스 설정
 
@@ -40,7 +40,7 @@ Azure Portal에서 새 AMS 구독으로 이동한 후 측면 메뉴에서 **API 
 
 **Azure AD 앱** 섹션에서 **새로 만들기**를 선택하고 새 Azure AD 애플리케이션 등록에 이름을 지정합니다(예: "VideoModADApp"). **저장**을 클릭하고 애플리케이션이 구성되는 동안 몇 분 기다립니다. 그런 다음, 페이지의 **Azure AD 앱** 섹션에 새로운 앱 등록이 표시됩니다.
 
-앱 등록을 선택하고 아래의 **애플리케이션 관리** 단추를 클릭합니다. 나중에 필요하므로 **애플리케이션 ID** 필드의 값을 기록합니다. **설정** > **키**를 선택하고 새 키에 대한 설명을 입력합니다(예: "VideoModKey"). **저장**을 클릭하면 새 키 값이 나타납니다. 이 문자열을 복사하고 안전한 곳에 저장합니다.
+앱 등록을 선택하고 아래의 **애플리케이션 관리** 단추를 클릭합니다. 나중에 필요하므로 **애플리케이션 ID** 필드의 값을 기록합니다. **설정** > **키를**선택하고 새 키에 대한 설명을 입력합니다(예: "VideoModKey"). **저장**을 클릭하면 새 키 값이 나타납니다. 이 문자열을 복사하고 안전한 곳에 저장합니다.
 
 위 프로세스에 대한 자세한 안내는 [Azure AD 인증 시작](https://docs.microsoft.com/azure/media-services/media-services-portal-get-started-with-aad)을 참조하세요.
 
@@ -83,7 +83,7 @@ using System.Collections.Generic;
 
 ### <a name="set-up-resource-references"></a>리소스 참조 설정
 
-_Program.cs_의 **Program** 클래스에 다음 정적 필드를 추가합니다. 이 필드에는 AMS 구독 연결에 필요한 정보가 있습니다. 위의 단계에서 얻은 값으로 입력하세요. `CLIENT_ID`는 Azure AD 앱의 **애플리케이션 ID** 값이고 `CLIENT_SECRET`는 해당 앱에 대해 사용자가 생성한 "VideoModKey"의 값입니다.
+_Program.cs_ **프로그램** 클래스에 다음과 같은 정적 필드를 추가합니다. 이 필드에는 AMS 구독 연결에 필요한 정보가 있습니다. 위의 단계에서 얻은 값으로 입력하세요. `CLIENT_ID`는 Azure AD 앱의 **애플리케이션 ID** 값이고 `CLIENT_SECRET`는 해당 앱에 대해 사용자가 생성한 "VideoModKey"의 값입니다.
 
 ```csharp
 // declare constants and globals
@@ -120,7 +120,7 @@ private static readonly string CONTENT_MODERATOR_PRESET_FILE = "preset.json";
 
 로컬 비디오 파일을 사용하려면(가장 간단한 사례) 프로젝트에 추가하고 `INPUT_FILE` 값으로 경로를 입력합니다(상대 경로는 실행 디렉터리와 상대적임).
 
-또한 현재 디렉터리에 _preset.json_ 파일을 만들고 버전 번호를 지정하기 위해 사용해야 합니다. 다음은 그 예입니다.
+또한 현재 디렉터리에 _preset.json_ 파일을 만들고 버전 번호를 지정하기 위해 사용해야 합니다. 예를 들어:
 
 ```JSON
 {
@@ -158,7 +158,7 @@ RunContentModeratorJob(asset);
 
 ### <a name="create-an-azure-media-context"></a>Azure Media 컨텍스트 만들기
 
-**Program** 클래스에 다음 메서드를 추가합니다. 이 메서드는 AMS 자격 증명을 사용하여 AMS와의 통신을 허용합니다.
+**프로그램** 클래스에 다음 메서드를 추가합니다. 이 메서드는 AMS 자격 증명을 사용하여 AMS와의 통신을 허용합니다.
 
 ```csharp
 // Creates a media context from azure credentials
@@ -179,7 +179,7 @@ static void CreateMediaContext()
 
 ### <a name="add-the-code-to-create-an-azure-storage-context"></a>Azure Storage 컨텍스트를 만드는 코드 추가
 
-**Program** 클래스에 다음 메서드를 추가합니다. 스토리지 자격 증명에서 만든 Storage 컨텍스트를 사용하여 Blob 스토리지에 액세스합니다.
+**프로그램** 클래스에 다음 메서드를 추가합니다. 스토리지 자격 증명에서 만든 Storage 컨텍스트를 사용하여 Blob 스토리지에 액세스합니다.
 
 ```csharp
 // Creates a storage context from the AMS associated storage name and key

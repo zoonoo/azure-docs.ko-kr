@@ -1,5 +1,5 @@
 ---
-title: 미리 작성 한 엔터티 수-LUIS
+title: 미리 빌드된 엔터티 번호 - LUIS
 titleSuffix: Azure Cognitive Services
 description: 이 문서에는 LUIS(Language Understanding)의 number 미리 빌드된 엔터티가 포함됩니다.
 services: cognitive-services
@@ -12,17 +12,17 @@ ms.topic: reference
 ms.date: 09/27/2019
 ms.author: diberry
 ms.openlocfilehash: 85e3589d7467691e2b9a11879510ab980bbd875a
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78273456"
 ---
 # <a name="number-prebuilt-entity-for-a-luis-app"></a>LUIS 앱용 Number 미리 빌드된 엔터티
 숫자 값은 다양한 방식으로 정보를 정량화하고, 표현하고, 설명하는 데 사용됩니다. 이 문서에서는 가능한 예제 중 일부만 제공합니다. LUIS는 사용자 발언에서 변형을 해석하고 일관된 숫자 값을 반환합니다. 이 엔터티를 이미 학습했기 때문에 number를 포함하는 예제 발언을 애플리케이션 의도에 추가할 필요가 없습니다.
 
 ## <a name="types-of-number"></a>Number의 유형
-Number는 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml) GitHub 리포지토리에서 관리됩니다.
+번호는 [인식기 텍스트](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml) GitHub 리포지토리에서 관리됩니다.
 
 ## <a name="examples-of-number-resolution"></a>Number 해결 예제
 
@@ -38,17 +38,17 @@ Number는 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/
 | ```buy two dozen eggs```    | ```"two dozen"``` | ```"24"``` |
 
 
-LUIS에서 반환하는 JSON 응답의  **필드에는 `builtin.number`** `resolution` 엔터티의 인식된 값이 포함되어 있습니다.
+LUIS에는 반환하는 JSON **`builtin.number`** 응답 `resolution` 필드에 있는 엔터티의 인식된 값이 포함됩니다.
 
 ## <a name="resolution-for-prebuilt-number"></a>미리 빌드된 number의 해결
 
-쿼리에 대해 반환 되는 엔터티 개체는 다음과 같습니다.
+다음 엔터티 개체는 쿼리에 대해 반환됩니다.
 
 `order two dozen eggs`
 
 #### <a name="v3-response"></a>[V3 응답](#tab/V3)
 
-다음 JSON은 `false`로 설정 된 `verbose` 매개 변수를 사용 합니다.
+다음 JSON은 매개 `verbose` 변수를 `false`다음과 같은 것으로 설정합니다.
 
 ```json
 "entities": {
@@ -57,9 +57,9 @@ LUIS에서 반환하는 JSON 응답의  **필드에는 `builtin.number`** `resol
     ]
 }
 ```
-#### <a name="v3-verbose-response"></a>[V3 자세한 정보 표시 응답](#tab/V3-verbose)
+#### <a name="v3-verbose-response"></a>[V3 자세한 응답](#tab/V3-verbose)
 
-다음 JSON은 `true`로 설정 된 `verbose` 매개 변수를 사용 합니다.
+다음 JSON은 매개 `verbose` 변수를 `true`다음과 같은 것으로 설정합니다.
 
 ```json
 "entities": {

@@ -1,7 +1,7 @@
 ---
-title: Azure Container Instances에서 Face 컨테이너 실행
+title: Azure 컨테이너 인스턴스에서 Face 컨테이너 실행
 titleSuffix: Azure Cognitive Services
-description: Face 컨테이너를 Azure Container Instance에 배포 하 고 웹 브라우저에서 테스트 합니다.
+description: Face 컨테이너를 Azure 컨테이너 인스턴스에 배포하고 웹 브라우저에서 테스트합니다.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: dapine
 ms.openlocfilehash: 4f8a08697443ec6920b3fa73de19a950e54e7f40
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "76716253"
 ---
-# <a name="deploy-the-face-container-to-azure-container-instances"></a>Azure Container Instances에 Face 컨테이너를 배포 합니다.
+# <a name="deploy-the-face-container-to-azure-container-instances"></a>Azure 컨테이너 인스턴스에 Face 컨테이너 배포
 
-Azure [Container Instances](https://docs.microsoft.com/azure/container-instances/)에 Cognitive Services [Face](../face-how-to-install-containers.md) 컨테이너를 배포 하는 방법을 알아봅니다. 이 절차에서는 Azure Face 리소스를 만드는 방법을 보여 줍니다. 그런 다음 연결 된 컨테이너 이미지를 풀링 하는 방법을 설명 합니다. 마지막으로 브라우저에서 두 오케스트레이션의 오케스트레이션을 실행 하는 기능을 강조 표시 합니다. 컨테이너를 사용 하면 개발자가 인프라를 관리 하지 않고 응용 프로그램 개발에 집중 하는 것으로 전환할 수 있습니다.
+Azure 컨테이너 [인스턴스에](https://docs.microsoft.com/azure/container-instances/)코그너티브 서비스 [Face](../face-how-to-install-containers.md) 컨테이너를 배포하는 방법에 대해 알아봅니다. 이 절차에서는 Azure Face 리소스를 만드는 것을 보여 줍니다. 그런 다음 연결된 컨테이너 이미지를 가져오는 것에 대해 설명합니다. 마지막으로 브라우저에서 두 오케스트레이션을 연습하는 기능을 강조 표시합니다. 컨테이너를 사용하면 개발자의 관심을 인프라 관리에서 응용 프로그램 개발에 집중하는 것으로 전환할 수 있습니다.
 
 [!INCLUDE [Prerequisites](../../containers/includes/container-preview-prerequisites.md)]
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: scottwhi
 ms.openlocfilehash: b17341bc234ff3dfecc2c6dcd84ef77116a95d61
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68883541"
 ---
 # <a name="language-and-region-support-for-the-bing-visual-search-api"></a>Bing Visual Search API에 대한 언어 및 지역 지원
@@ -43,7 +43,7 @@ Bing Visual Search API는 수십 개의 국가/지역을 지원하며, 이 중�
 |오스트리아|AT|
 |벨기에|BE|
 |브라질|BR|
-|캐나다|CA|
+|Canada|CA|
 |칠레|CL|
 |덴마크|DK|
 |핀란드|FI|
@@ -54,7 +54,7 @@ Bing Visual Search API는 수십 개의 국가/지역을 지원하며, 이 중�
 |인도네시아|ID|
 |이탈리아|IT|
 |일본|JP|
-|대한민국|KR|
+|한국|KR|
 |말레이시아|MY|
 |멕시코|MX|
 |네덜란드|NL|
@@ -66,13 +66,13 @@ Bing Visual Search API는 수십 개의 국가/지역을 지원하며, 이 중�
 |필리핀|PH|
 |러시아|RU|
 |사우디아라비아|SA|
-|남아프리카 공화국|ZA|
+|남아프리카|ZA|
 |스페인|ES|
 |스웨덴|SE|
 |스위스|CH|
 |대만|TW|
 |터키|TR|
-|영국|GB|
+|United Kingdom|GB|
 |미국|US|
 
 
@@ -86,19 +86,19 @@ Bing Visual Search API는 수십 개의 국가/지역을 지원하며, 이 중�
 |벨기에|네덜란드어|nl-BE|
 |벨기에|프랑스어|fr-BE|
 |브라질|포르투갈어|pt-BR|
-|캐나다|영어|en-CA|
-|캐나다|프랑스어|fr-CA|
+|Canada|영어|en-CA|
+|Canada|프랑스어|fr-CA|
 |칠레|스페인어|es-CL|
 |덴마크|덴마크어|da-DK|
 |핀란드|핀란드어|fi-FI|
 |프랑스|프랑스어|fr-FR|
 |독일|독일어|de-DE|
-|홍콩 특별 행정구|중국어(번체)|zh-HK|
+|홍콩 특별 행정구|중국어 번체|zh-HK|
 |인도|영어|en-IN|
 |인도네시아|영어|en-ID|
 |이탈리아|이탈리아어|it-IT|
 |일본|일본어|ja-JP|
-|대한민국|한국어|ko-KR|
+|한국|한국어|en-US|
 |말레이시아|영어|en-MY|
 |멕시코|스페인어|es-MX|
 |네덜란드|네덜란드어|nl-NL|
@@ -109,13 +109,13 @@ Bing Visual Search API는 수십 개의 국가/지역을 지원하며, 이 중�
 |필리핀|영어|en-PH|
 |러시아|러시아어|ru-RU|
 |사우디아라비아|아랍어|ar-SA|
-|남아프리카 공화국|영어|en-ZA|
+|남아프리카|영어|en-ZA|
 |스페인|스페인어|es-ES|
 |스웨덴|스웨덴어|sv-SE|
 |스위스|프랑스어|fr-CH|
 |스위스|독일어|de-CH|
-|대만|중국어(번체)|zh-TW|
+|대만|중국어 번체|zh-TW|
 |터키|터키어|tr-TR|
-|영국|영어|en-GB|
+|United Kingdom|영어|en-GB|
 |미국|영어|ko-KR|
-|미국|스페인어|es (미국)|
+|미국|스페인어|es-US|

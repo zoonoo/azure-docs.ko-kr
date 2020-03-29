@@ -1,7 +1,7 @@
 ---
-title: 프로젝트 사용자 지정 번역기를 만드는 방법
+title: 프로젝트를 만드는 방법 - 사용자 지정 번역기
 titleSuffix: Azure Cognitive Services
-description: 이 문서에서는 Azure Cognitive Services 사용자 지정 변환기에서 프로젝트를 만들고 관리 하는 방법을 설명 합니다.
+description: 이 문서에서는 Azure 인지 서비스 사용자 지정 변환기에서 프로젝트를 만들고 관리하는 방법을 설명합니다.
 author: swmachan
 manager: nitinme
 ms.service: cognitive-services
@@ -10,10 +10,10 @@ ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
 ms.openlocfilehash: 5b3a6f2e903d8178554b7a076ae1277633569353
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73836558"
 ---
 # <a name="create-a-project"></a>프로젝트 만들기
@@ -34,17 +34,17 @@ ms.locfileid: "73836558"
 
     b.  설명: 프로젝트에 대한 간단한 요약입니다. 설명은 Custom Translator나 사용자 지정 시스템에 영향을 주지 않지만, 여러 프로젝트를 구분하는 데 도움이 될 수 있습니다.
 
-    c.  언어 쌍(필수): 번역할 원본 언어와 대상 언어를 선택합니다.
+    다.  언어 쌍(필수): 번역할 원본 언어와 대상 언어를 선택합니다.
 
     d.  범주(필수): 프로젝트에 해당하는 카테고리를 선택합니다. 범주는 번역하려는 문서의 스타일과 용어를 설명합니다.
 
     e.  범주 설명: 이 필드에는 특정 분야나 업계에 대한 설명을 입력합니다. 예를 들어, 범주가 의학이라면 여기에는 수술, 소아과와 같은 설명을 입력할 수 있습니다. 설명은 Custom Translator나 사용자 지정 시스템에 영향을 주지 않습니다.
 
-    f.  프로젝트 레이블: [프로젝트 레이블](workspace-and-project.md#project-labels)은 언어 쌍과 범주가 동일한 여러 프로젝트를 구분해 줍니다. 동일한 언어 쌍과 범주로 여러 개의 프로젝트를 빌드하고 각 프로젝트를 서로 다른 CategoryID를 사용하여 액세스할 계획이라면 레이블‘만’ 사용합니다. 단일 범주의 시스템을 빌드할 계획이라면 이 필드를 사용하지 않습니다. 서로 다른 언어 쌍을 구분하는 데는 프로젝트 레이블이 유용하지도, 필요하지도 않습니다. 여러 프로젝트에서 동일한 레이블을 사용할 수 있습니다.
+    f.  프로젝트 레이블: [프로젝트 레이블](workspace-and-project.md#project-labels)은 언어 쌍과 범주가 동일한 여러 프로젝트를 구분해 줍니다. 동일한 언어 쌍과 범주로 여러 개의 프로젝트를 빌드하고 각 프로젝트를 서로 다른 CategoryID를 사용하여 액세스할 계획이라면 레이블‘만’ 사용합니다.** 단일 범주의 시스템을 빌드할 계획이라면 이 필드를 사용하지 않습니다. 서로 다른 언어 쌍을 구분하는 데는 프로젝트 레이블이 유용하지도, 필요하지도 않습니다. 여러 프로젝트에서 동일한 레이블을 사용할 수 있습니다.
 
     ![프로젝트 만들기 대화 상자](media/how-to/how-to-create-project-dialog.png)
 
-3.  만들기 클릭
+3.  만들기 클릭 
 
 ## <a name="view-project-details"></a>프로젝트 세부 사항 보기
 

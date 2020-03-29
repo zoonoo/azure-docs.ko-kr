@@ -1,7 +1,7 @@
 ---
-title: 음성 SDK-음성 서비스를 사용 하 여 앱 개발
+title: 음성 SDK - 음성 서비스로 앱 개발
 titleSuffix: Azure Cognitive Services
-description: 지원 되는 플랫폼에서 Speech SDK를 사용 하는 응용 프로그램을 배포 하는 방법을 알아봅니다.
+description: 지원되는 플랫폼에서 음성 SDK를 사용하는 응용 프로그램을 배포하는 방법을 알아봅니다.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -12,10 +12,10 @@ ms.date: 01/30/2020
 ms.author: dapine
 ms.custom: seodec18
 ms.openlocfilehash: 9507428e63b337b3d8419a833d03d081d494c522
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78330807"
 ---
 # <a name="ship-an-application"></a>애플리케이션 배송
@@ -28,7 +28,7 @@ ms.locfileid: "78330807"
 
 Cognitive Services Speech SDK는 Windows 10 및 Windows Server 2016에서 테스트되었습니다.
 
-Cognitive Services Speech SDK를 사용 하려면 시스템에서 [Visual Studio 2019에 대 한 Microsoft Visual C++ Studio 재배포 가능 패키지가](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) 필요 합니다. 최신 버전의 `Microsoft Visual C++ Redistributable for Visual Studio 2019`용 설치 관리자는 여기에서 다운로드할 수 있습니다.
+코그너티브 서비스 음성 SDK에는 시스템에서 [Visual Studio 2019에 대해 재배포 가능한 Microsoft 시각적 C++ 재배포가](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) 필요합니다. 최신 버전의 `Microsoft Visual C++ Redistributable for Visual Studio 2019`용 설치 관리자는 여기에서 다운로드할 수 있습니다.
 
 - [Win32](https://aka.ms/vs/16/release/vc_redist.x86.exe)
 - [x64](https://aka.ms/vs/16/release/vc_redist.x64.exe)
@@ -39,25 +39,25 @@ Cognitive Services Speech SDK를 사용 하려면 시스템에서 [Visual Studio
 
 필요한 Speech SDK 파일은 애플리케이션과 동일한 디렉터리에 배포할 수 있습니다. 이렇게 하면 애플리케이션이 라이브러리에 직접 액세스할 수 있습니다. 애플리케이션과 일치하는 올바른 버전(Win32/x64)을 선택해야 합니다.
 
-| 속성 | 함수 |
+| 이름 | 함수 |
 | :--- | :------- |
 | `Microsoft.CognitiveServices.Speech.core.dll`   | 네이티브 및 관리된 배포에 필요한 핵심 SDK |
 | `Microsoft.CognitiveServices.Speech.csharp.dll` | 관리된 배포에 필요                      |
 
 > [!NOTE]
-> 릴리스 1.3.0 부터는 (이전 릴리스에서 제공 된) 파일 `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` 더 이상 필요 하지 않습니다. 이제 기능이 핵심 SDK에 통합 되었습니다.
+> 릴리스 1.3.0부터 파일(이전 `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` 릴리스에서 제공)은 더 이상 필요하지 않습니다. 이제 이 기능은 핵심 SDK에 통합되었습니다.
 
 > [!NOTE]
-> Windows Forms 앱 (.NET Framework) C# 프로젝트의 경우 라이브러리가 프로젝트의 배포 설정에 포함 되어 있는지 확인 합니다. `Properties -> Publish Section`에서이를 확인할 수 있습니다. `Application Files` 단추를 클릭 하 고 스크롤 다운 목록에서 해당 라이브러리를 찾습니다. 값이 `Included`로 설정 되었는지 확인 합니다. 프로젝트를 게시/배포할 때 Visual Studio에 파일이 포함 됩니다.
+> Windows Forms 앱(.NET Framework) C# 프로젝트의 경우 라이브러리가 프로젝트의 배포 설정에 포함되어 있는지 확인합니다. 아래에서 `Properties -> Publish Section`확인할 수 있습니다. 단추를 `Application Files` 클릭하고 스크롤 아래로 목록에서 해당 라이브러리를 찾습니다. 값이 `Included`로 설정되어 있는지 확인합니다. Visual Studio에는 프로젝트가 게시/배포될 때 파일이 포함됩니다.
 
 ## <a name="linux"></a>Linux
 
-Speech SDK는 현재 Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 8, CentOS 8 배포를 지원 합니다.
+음성 SDK는 현재 우분투 를 지원 16.04, 우분투 18.04, 데비안 9, RHEL 8, 센트OS 8 배포판.
 네이티브 애플리케이션의 경우 Speech SDK 라이브러리 `libMicrosoft.CognitiveServices.Speech.core.so`를 전달해야 합니다.
 애플리케이션과 일치하는 버전(x86, x64)을 선택해야 합니다. Linux 버전에 따라 다음 종속성을 포함해야 할 수도 있습니다.
 
 - GNU C 라이브러리의 공유 라이브러리(POSIX Threads Programming 라이브러리, `libpthreads` 포함)
-- OpenSSL 라이브러리 (`libssl.so.1.0.0` 또는 `libssl.so.1.0.2`)
+- OpenSSL 라이브러리`libssl.so.1.0.0` (또는) `libssl.so.1.0.2`
 - ALSA 애플리케이션의 공유 라이브러리(`libasound.so.2`)
 
 Ubuntu에는 GNU C 라이브러리가 기본적으로 이미 설치되어 있습니다. 마지막 세 가지는 다음 명령을 사용하여 설치할 수 있습니다.
@@ -67,7 +67,7 @@ sudo apt-get update
 sudo apt-get install libssl1.0.0 libasound2
 ```
 
-Debian 9에서 다음 패키지를 설치 합니다.
+데비안 9에서 다음 패키지를 설치합니다.
 
 ```sh
 sudo apt-get update
@@ -82,7 +82,7 @@ sudo yum install alsa-lib openssl
 ```
 
 > [!NOTE]
-> RHEL/CentOS 8에서 [Linux 용 OpenSSL를 구성 하는 방법](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md)에 대 한 지침을 따릅니다.
+> RHEL /CentOS 8에서 [리눅스에 대한 OpenSSL을 구성하는 방법에 대한](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md)지침을 따르십시오.
 
 ## <a name="next-steps"></a>다음 단계
 

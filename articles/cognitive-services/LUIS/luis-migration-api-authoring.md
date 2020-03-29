@@ -1,7 +1,7 @@
 ---
 title: API의 변경 내용 작성
 titleSuffix: Azure Cognitive Services
-description: 제작 V2 및 V3 Api가 변경 되었습니다. 이 가이드를 사용 하 여 제작 Api를 사용 하는 방법을 이해할 수 있습니다.
+description: 작성 V2 및 V3 API가 변경되었습니다. 이 가이드를 사용하여 작성 API를 사용하는 방법을 이해합니다.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,20 +12,20 @@ ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: diberry
 ms.openlocfilehash: eb01ccc211be55885b945c40bd88553818b0ab78
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73501029"
 ---
-# <a name="authoring-api-changes"></a>API 변경 내용 작성 
+# <a name="authoring-api-changes"></a>API 변경 사항 작성 
 
-[컴퓨터에서 학습 한 엔터티를 사용 하 여 모델 분해](luis-concept-data-extraction.md)를 수행할 수 있도록 V3 용으로 제작 api가 업데이트 됩니다. 
+작성 API는 V3에 대해 업데이트되어 [기계 학습 엔터티로 모델 분해가](luis-concept-data-extraction.md)가능합니다. 
 
-V2 또는 preview V3 API에서 제작할 수 있습니다. 동일한 앱에서 V2 또는 V3 예측 끝점 응답을 사용 하도록 선택할 수도 있습니다. 작성 및 예측 끝점 응답에는 동일한 버전의 API를 사용할 필요가 없습니다.
+V2에서 작성하거나 V3 APIIS를 미리 볼 수 있습니다. 동일한 앱에서 V2 또는 V3 예측 끝점 응답을 사용하도록 선택할 수도 있습니다. 작성 및 예측 끝점 응답을 위해 동일한 버전의 API가 있을 필요는 없습니다.
 
-LUIS 포털은 V3 제작 Api를 독점적으로 사용 합니다.
+LUIS 포털은 V3 작성 API를 단독으로 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-V3 API에 대 한 [예측 끝점에 대 한 변경 내용을](luis-migration-api-v3.md) 검토 합니다.
+V3 [API에 대한 예측 끝점에](luis-migration-api-v3.md) 대한 변경 내용을 검토합니다.

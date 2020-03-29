@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: swmachan
 ms.openlocfilehash: be9c06d45da4d83c26f82343c9cb7b19ba19b4ae
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "71257617"
 ---
 # <a name="customize-your-text-translations"></a>텍스트 번역 사용자 지정
@@ -29,7 +29,7 @@ Custom Translator를 사용하면 고유한 비즈니스 및 산업 분야에 �
 
 ### <a name="how-does-it-work"></a>작동 원리
 
-이전에 번역 된 문서 (leaflets, 웹 페이지, 설명서 등)를 사용 하 여 표준 번역 시스템 보다 더 나은 도메인별 용어 및 스타일을 반영 하는 번역 시스템을 빌드 하세요. 사용자는 TMX, XLIFF, TXT, DOCX 및 XLSX 문서를 업로드할 수 있습니다.  
+이전에 번역한 문서(전단지, 웹 페이지, 문서 등)를 사용하여 표준 번역 시스템보다 도메인별 용어와 스타일을 반영하는 번역 시스템을 구축할 수 있습니다. 사용자는 TMX, XLIFF, TXT, DOCX 및 XLSX 문서를 업로드할 수 있습니다.  
 
 또한 시스템은 문서 수준에서는 동일하게 맞춰져 있고 문장 수준에서는 아직 맞춰지지 않은 데이터만 허용합니다. 사용자가 여러 언어로 되어 있으나 별도 문서에 있는 동일한 콘텐츠 버전에 액세스할 수 있는 경우 Custom Translator는 문서 간에 문장을 자동으로 일치시킬 수 있습니다.  또한 시스템은 하나의 언어로 된 데이터를 하나 또는 두 개의 언어로 사용하여 병렬 학습 데이터를 보완함으로써 번역 품질을 개선할 수도 있습니다.
 
@@ -43,7 +43,7 @@ Custom Translator를 사용하면 고유한 비즈니스 및 산업 분야에 �
 ## <a name="microsoft-translator-hub"></a>Microsoft Translator Hub
 
 > [!NOTE]
-> 레거시 Microsoft Translator 허브는 2019 년 5 월 17 일에 사용 중지 됩니다. [중요 한 마이그레이션 정보 및 날짜를 확인](https://www.microsoft.com/translator/business/hub/)합니다.  
+> 레거시 Microsoft 번역기 허브는 2019년 5월 17일에 사용 중지됩니다. [중요한 마이그레이션 정보 및 날짜 보기.](https://www.microsoft.com/translator/business/hub/)  
 
 ## <a name="custom-translator-versus-hub"></a>Custom Translator 및 허브
 
@@ -51,10 +51,10 @@ Custom Translator를 사용하면 고유한 비즈니스 및 산업 분야에 �
 |:-----|:----:|:----:|
 |사용자 지정 기능 상태   | 일반 공급  | 일반 공급 |
 | Text API 버전  | V2만   | V3만 |
-| SMT 사용자 지정 | 예   | 아니요 |
-| NMT 사용자 지정 | 아니요    | 예 |
-| 새로운 통합 Speech Service 사용자 지정 | 아니요    | 예 |
-| [추적 없음](https://www.aka.ms/notrace) | 예  | 예 |
+| SMT 사용자 지정 | yes   | 예 |
+| NMT 사용자 지정 | 예    | yes |
+| 새로운 통합 Speech Service 사용자 지정 | 예    | yes |
+| [추적 없음](https://www.aka.ms/notrace) | yes  | yes |
 
 ## <a name="collaborative-translations-framework"></a>공동 작업 번역 프레임워크
 

@@ -1,7 +1,7 @@
 ---
-title: 언어 감지 컨테이너 docker 예
+title: 언어 검색 컨테이너 도커 예제
 titleSuffix: Azure Cognitive Services
-description: 언어 감지 컨테이너 docker 예
+description: 언어 검색 컨테이너 도커 예제
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -10,15 +10,15 @@ ms.topic: include
 ms.date: 09/19/2019
 ms.author: dapine
 ms.openlocfilehash: 6e09a19ceb7b892a8ec405b348700b65c9d55ec4
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "71148452"
 ---
-### <a name="language-detection-container-docker-examples"></a>언어 감지 컨테이너 docker 예
+### <a name="language-detection-container-docker-examples"></a>언어 검색 컨테이너 도커 예제
 
-다음 docker 예는 언어 감지 컨테이너를 위한 것입니다.
+다음 도커 예제는 언어 검색 컨테이너에 대한 예제입니다.
 
 #### <a name="basic-example"></a>기본 예제 
 
@@ -30,7 +30,7 @@ Billing={ENDPOINT_URI} \
 ApiKey={API_KEY} 
   ```
 
-#### <a name="logging-example"></a>로깅 예 
+#### <a name="logging-example"></a>로깅 예제 
 
   ```
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \

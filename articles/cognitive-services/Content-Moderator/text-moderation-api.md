@@ -1,7 +1,7 @@
 ---
 title: 텍스트 조정 - Content Moderator
 titleSuffix: Azure Cognitive Services
-description: 원치 않는 텍스트, 개인 데이터 및 사용자 지정 약관 목록에 대해 텍스트 조정을 사용 합니다.
+description: 원치 않는 텍스트, 개인 데이터 및 사용자 지정 용어 목록을 보려면 텍스트 조정을 사용합니다.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
 ms.openlocfilehash: 5a07f0749b59efc96b67df3ad5ed2fbf353be614
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74538838"
 ---
 # <a name="learn-text-moderation-concepts"></a>텍스트 조정 개념 알아보기
@@ -45,9 +45,9 @@ API가 [지원되는 언어](Text-Moderation-API-Languages.md)의 욕설을 감�
     }
 
 > [!NOTE]
-> **language** 매개 변수에 대해 `eng`를 할당하거나, 컴퓨터 지원 **분류** 응답(미리 보기 기능)을 확인하려면 비워둡니다. **이 기능은 영어만 지원합니다**.
+> **language** 매개 변수에 대해 `eng`를 할당하거나, 기계 지원 **분류** 응답(미리 보기 기능)을 확인하려면 비워 둡니다. **이 기능은 영어만 지원합니다**.
 >
-> **욕설** 감지의 경우 이 문서에 나열된 지원되는 언어의 [ISO 639-3 코드](http://www-01.sil.org/iso639-3/codes.asp)를 사용하거나 비워둡니다.
+> **욕설** 감지의 경우 이 문서에 나열된 지원되는 언어의 [ISO 639-3 코드](http://www-01.sil.org/iso639-3/codes.asp)를 사용하거나 비워 둡니다.
 
 ## <a name="classification"></a>분류
 
@@ -78,7 +78,7 @@ JSON 추출의 다음 추출은 예제 출력을 보여 줍니다.
 
 ## <a name="personal-data"></a>개인 데이터
 
-개인 데이터 기능은이 정보의 잠재적 존재 여부를 검색 합니다.
+개인 데이터 기능은 이 정보의 잠재적 존재를 감지합니다.
 
 - 메일 주소
 - 미국 우편 주소
@@ -184,4 +184,4 @@ Content Moderator는 사용자 지정 용어 목록 관리 작업이 포함된 [
 
 ## <a name="next-steps"></a>다음 단계
 
-[텍스트 조정 API 콘솔](try-text-api.md)을 시험 사용하고 REST API 코드 샘플을 사용합니다. 또한 Visual Studio 및 C#에 대해 잘 알고 있는 경우 [.net SDK 퀵 스타트](dotnet-sdk-quickstart.md) 의 텍스트 조정 단원을 확인 하세요.
+[텍스트 조정 API 콘솔](try-text-api.md)을 시험 사용하고 REST API 코드 샘플을 사용합니다. 또한 Visual Studio 및 C#에 익숙한 경우 [.NET SDK 퀵스타트의](dotnet-sdk-quickstart.md) 텍스트 검토 섹션을 확인하십시오.

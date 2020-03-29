@@ -10,10 +10,10 @@ ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
 ms.openlocfilehash: f90ada6b6cd1760b3b779010625f252533fa611d
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79221242"
 ---
 # <a name="how-to-manage-settings"></a>설정을 관리하는 방법
@@ -103,4 +103,4 @@ Custom Translator에서는 작업의 다른 부분을 다른 사람들과 공유
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Microsoft Translator Hub](how-to-migrate.md)에서 [작업 영역과 프로젝트를 마이그레이션하는 방법](https://hub.microsofttranslator.com)을 알아봅니다.
+- [Microsoft Translator Hub](https://hub.microsofttranslator.com)에서 [작업 영역과 프로젝트를 마이그레이션하는 방법](how-to-migrate.md)을 알아봅니다.

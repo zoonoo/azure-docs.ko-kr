@@ -1,7 +1,7 @@
 ---
 title: Translator Text API 언어 메서드
 titleSuffix: Azure Cognitive Services
-description: 언어 메서드는 Translator Text API의 다른 작업에서 현재 지원 되는 언어 집합을 가져옵니다.
+description: 언어 메서드는 현재 번역기 텍스트 API의 다른 작업에서 지원 되는 언어 집합을 가져옵니다.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
 ms.openlocfilehash: 37f70399e8125db559098869cdfffdf4533498d7
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73835825"
 ---
 # <a name="translator-text-api-30-languages"></a>Translator Text API 3.0: 언어
@@ -40,15 +40,15 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
     <td><em>필수 매개 변수</em>입니다.<br/>클라이언트에서 요청한 API 버전입니다. 값은 `3.0`이어야 합니다.</td>
   </tr>
   <tr>
-    <td>범위</td>
-    <td>*선택적 매개 변수*입니다.<br/>반환할 언어의 그룹을 정의하는 쉼표로 구분된 이름 목록입니다. 허용 그룹 이름은 `translation`, `transliteration` 및 `dictionary`입니다. 범위가 지정되지 않는 경우 모든 그룹이 반환됩니다. 그러면 `scope=translation,transliteration,dictionary`를 전달하는 것과 동일합니다. 시나리오에 적합한 지원되는 언어의 집합을 결정하려면 [응답 개체](#response-body)에 대한 설명을 참조하세요.</td>
+    <td>scope</td>
+    <td>*선택적 매개 변수*.<br/>반환할 언어의 그룹을 정의하는 쉼표로 구분된 이름 목록입니다. 허용 그룹 이름은 `translation`, `transliteration` 및 `dictionary`입니다. 범위가 지정되지 않는 경우 모든 그룹이 반환됩니다. 그러면 `scope=translation,transliteration,dictionary`를 전달하는 것과 동일합니다. 시나리오에 적합한 지원되는 언어의 집합을 결정하려면 [응답 개체](#response-body)에 대한 설명을 참조하세요.</td>
   </tr>
 </table> 
 
 요청 헤더는 다음과 같습니다.
 
 <table width="100%">
-  <th width="20%">헤더</th>
+  <th width="20%">headers</th>
   <th>설명</th>
   <tr>
     <td>Accept-Language</td>
@@ -224,16 +224,16 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
 
 응답 개체의 구조는 API 버전을 변경하지 않고 변경되지 않습니다. 동일한 버전의 API의 경우 Microsoft Translator가 해당 서비스에서 지원하는 언어 목록을 지속적으로 확장하기 때문에 사용 가능한 언어 목록은 시간이 지남에 따라 변경될 수 있습니다.
 
-지원되는 언어 목록은 자주 변경되지 않습니다. 네트워크 대역폭을 절약하고 응답성을 향상시키려면 클라이언트 애플리케이션은 캐싱 언어 리소스 및 해당 엔터티 태그(`ETag`)를 고려해야 합니다. 그런 다음, 클라이언트 애플리케이션은 주기적으로(예: 24시간마다) 지원되는 언어의 최신 집합을 인출하는 서비스를 쿼리합니다. 현재 `ETag` 헤더 필드에서 `If-None-Match` 값을 전달하면 서비스가 응답을 최적화할 수 있습니다. 리소스가 수정되지 않은 경우 서비스는 상태 코드 304 및 빈 응답 본문을 반환합니다.
+지원되는 언어 목록은 자주 변경되지 않습니다. 네트워크 대역폭을 절약하고 응답성을 향상시키려면 클라이언트 애플리케이션은 캐싱 언어 리소스 및 해당 엔터티 태그(`ETag`)를 고려해야 합니다. 그런 다음, 클라이언트 애플리케이션은 주기적으로(예: 24시간마다) 지원되는 언어의 최신 집합을 인출하는 서비스를 쿼리합니다. 현재 `If-None-Match` 헤더 필드에서 `ETag` 값을 전달하면 서비스가 응답을 최적화할 수 있습니다. 리소스가 수정되지 않은 경우 서비스는 상태 코드 304 및 빈 응답 본문을 반환합니다.
 
 ## <a name="response-headers"></a>응답 헤더
 
 <table width="100%">
-  <th width="20%">헤더</th>
+  <th width="20%">headers</th>
   <th>설명</th>
   <tr>
     <td>ETag</td>
-    <td>지원되는 언어의 요청된 그룹에 대한 엔터티 태그의 현재 값입니다. 보다 효율적인 후속 요청을 위해 클라이언트는 `ETag` 헤더 필드에서 `If-None-Match` 값을 보낼 수 있습니다.
+    <td>지원되는 언어의 요청된 그룹에 대한 엔터티 태그의 현재 값입니다. 보다 효율적인 후속 요청을 위해 클라이언트는 `If-None-Match` 헤더 필드에서 `ETag` 값을 보낼 수 있습니다.
     </td>
   </tr>
   <tr>
@@ -251,7 +251,7 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
   <th>설명</th>
   <tr>
     <td>200</td>
-    <td>명령 실행 성공</td>
+    <td>성공했습니다.</td>
   </tr>
   <tr>
     <td>304</td>
@@ -263,7 +263,7 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
   </tr>
   <tr>
     <td>429</td>
-    <td>클라이언트에서 요청 제한을 초과 하 여 서버가 요청을 거부 했습니다.</td>
+    <td>클라이언트가 요청 제한을 초과했기 때문에 서버가 요청을 거부했습니다.</td>
   </tr>
   <tr>
     <td>500</td>

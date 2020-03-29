@@ -1,59 +1,58 @@
 ### YamlMime:Landing
 title: 대화 시나리오 설명서
-summary: 다양 한 대화 시나리오, 대화 기록 또는 다중 장치 대화를 살펴보세요.
+summary: 다양한 대화 시나리오를 살펴보십시오. 회의 시나리오에서 대화 전사 또는 다중 장치 대화를 사용하고 콜 센터 시나리오에서 전사를 사용하는 방법을 알아봅니다.
 metadata:
-  title: 대화 시나리오 설명서-자습서, API 참조-Azure Cognitive Services | Microsoft Docs
+  title: 대화 시나리오 설명서 - 자습서, API 참조 - Azure 코그너티브 서비스 | 마이크로 소프트 문서
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
   author: IEvangelist
   manager: nitinme
-  layout: LandingPage
   ms.service: speech-service
   ms.topic: landing-page
-  ms.date: 03/10/2020
+  ms.date: 03/16/2020
   ms.author: dapine
-  ms.openlocfilehash: 0df2992564dcf90f6b927b5a917993caec18af45
-  ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+  ms.openlocfilehash: 75254b0b0b3afb391006a422300c0d4cb9d27fdb
+  ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
   ms.translationtype: MT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 03/14/2020
-  ms.locfileid: "79365786"
+  ms.lasthandoff: 03/28/2020
+  ms.locfileid: "79479691"
 landingContent:
-- title: 대화 전사 정보
+- title: 대화 녹음에 관하여(회의 시나리오)
   linkLists:
   - linkListType: overview
     links:
-    - text: 대화 내용 이란?
+    - text: 회의에서 대화 녹음이란 무엇입니까?
       url: conversation-transcription.md
   - linkListType: how-to-guide
     links:
-    - text: 콜 센터 시나리오 처리
-      url: call-center-transcription.md
-    - text: 실시간 대화 기록
+    - text: 실시간 대화 녹음
       url: how-to-use-conversation-transcription.md
     - text: 비동기 대화 전사
       url: how-to-async-conversation-transcription.md
-  - linkListType: reference
-    links:
-    - text: 대화 내용 언어 지원
-      url: conversation-transcription.md#language-support
-- title: 다중 장치 대화 정보
+- title: 다중 기기 대화 정보(모임 시나리오)
   linkLists:
   - linkListType: overview
     links:
-    - text: 다중 디바이스 대화란?
+    - text: 다중 기기 대화란?
       url: multi-device-conversation.md
   - linkListType: quickstart
     links:
     - text: 대화 시작 및 참가
       url: quickstarts/multi-device-conversation.md
-  - linkListType: reference
+- title: 콜 센터 전사(사용자 지정/에이전트 시나리오)
+  linkLists:
+  - linkListType: overview
     links:
-    - text: 다중 장치 대화 언어 지원
-      url: multi-device-conversation.md#language-support
-- title: 참조
+    - text: 콜 센터 시나리오 처리
+      url: call-center-transcription.md
+- title: 참고
   linkLists:
   - linkListType: reference
     links:
-    - text: 음성 기록 가격
+    - text: 대화 전사 언어 지원
+      url: conversation-transcription.md#language-support
+    - text: 다중 디바이스 대화 언어 지원
+      url: multi-device-conversation.md#language-support
+    - text: 음성 전사 가격
       url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/

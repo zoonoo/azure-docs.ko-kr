@@ -1,7 +1,7 @@
 ---
 title: 작업 영역 및 프로젝트란? - Custom Translator
 titleSuffix: Azure Cognitive Services
-description: 이 문서에서는 사용자 지정 변환기 서비스의 프로젝트 범주와 레이블 뿐만 아니라 작업 영역과 프로젝트 간의 차이점을 설명 합니다.
+description: 이 문서에서는 작업 영역과 프로젝트의 차이점뿐만 아니라 사용자 지정 번역기 서비스의 프로젝트 범주 및 레이블에 대해 설명합니다.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -11,10 +11,10 @@ ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
 ms.openlocfilehash: d2f7903fa85c645357e46a753d1cb043e0893254
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79221228"
 ---
 # <a name="what-is-a-custom-translator-workspace"></a>Custom Translator 작업 영역이란?

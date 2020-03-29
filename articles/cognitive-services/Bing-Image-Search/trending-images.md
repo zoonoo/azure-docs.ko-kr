@@ -13,10 +13,10 @@ ms.date: 03/04/2019
 ms.author: scottwhi
 ms.custom: seodec2018
 ms.openlocfilehash: 2936b94d7ba791b1a4e5a9b95aca3ca3ecdb5904
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "66383425"
 ---
 # <a name="get-trending-images-from-the-web"></a>웹에서 유행하는 이미지 가져오기
@@ -32,7 +32,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com  
 ```  
 
-현재 Trending Images API는 다음 시장만 지원합니다.  
+현재, Trending Images API는 다음 지역/국가만 지원합니다.  
 
 - en-US(영어, 미국)  
 - en-CA(영어, 캐나다)  

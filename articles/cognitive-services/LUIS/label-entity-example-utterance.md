@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: diberry
 ms.openlocfilehash: 5499e8362e1107a18b997a6a485e11343c328d0d
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78898366"
 ---
 # <a name="label-machine-learned-entity-in-an-example-utterance"></a>예제 발화의 기계 학습된 엔터티에 레이블 지정
@@ -96,7 +96,7 @@ ms.locfileid: "78898366"
 
 레이블을 지정하면서 실수하는 경우 엔터티 팔레트는 빠른 편집을 수행할 수 있는 손쉬운 도구입니다. 예를 들어 엔터티 레이블이 실수로 추가 단어 범위에 걸쳐 있고 이미 하위 구성 요소에 레이블이 지정된 경우 엔터티 팔레트를 사용하여 필요한 더 짧은 단어 범위 위를 브러시할 수 있습니다.
 
-다음은 그 예입니다.
+예를 들어:
 
 1. 피자 유형 하위 구성 요소는 "cheese pizza with"에 걸쳐 있고, 여기에는 잘못된 "with" 단어가 추가로 포함되어 있습니다.
 
