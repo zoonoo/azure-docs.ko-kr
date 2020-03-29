@@ -16,10 +16,10 @@ ms.date: 06/02/2017
 ms.author: alkohli
 ms.custom: ''
 ms.openlocfilehash: e05a37122647d4979089f0ba00b1fc15f9b84b0f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60321832"
 ---
 # <a name="replace-a-hardware-component-on-your-storsimple-8000-series-device"></a>StorSimple 8000 시리즈 디바이스에서 하드웨어 구성 요소 교체
@@ -67,11 +67,11 @@ StorSimple 8000 시리즈 디바이스는 기본 및/또는 EBOD 엔클로저의
 
 | 구성 요소 | 현재 개수 | 플러그 인 모듈 여부 | 교체 절차 |
 |:--- |:--- |:--- |:--- |
-| 섀시 |1 |아닙니다. |[StorSimple 디바이스의 섀시 교체](storsimple-8000-chassis-replacement.md) |
-| 기본 컨트롤러 |2 |예 |[StorSimple 디바이스의 컨트롤러 모듈 교체](storsimple-8000-controller-replacement.md) |
-| 764W PCM(전원 및 냉각 모듈) |2 |예 |[StorSimple 디바이스의 전원 및 냉각 모듈 교체](storsimple-8000-power-cooling-module-replacement.md) |
-| Backup 배터리 |2 |예 |[StorSimple 디바이스의 백업 배터리 모듈 교체](storsimple-8000-battery-replacement.md) |
-| 디스크 드라이브 |12 |예 |[StorSimple 디바이스의 디스크 드라이브 교체](storsimple-8000-disk-drive-replacement.md) |
+| 섀시 |1 |예 |[StorSimple 디바이스의 섀시 교체](storsimple-8000-chassis-replacement.md) |
+| 기본 컨트롤러 |2 |yes |[StorSimple 디바이스의 컨트롤러 모듈 교체](storsimple-8000-controller-replacement.md) |
+| 764W PCM(전원 및 냉각 모듈) |2 |yes |[StorSimple 디바이스의 전원 및 냉각 모듈 교체](storsimple-8000-power-cooling-module-replacement.md) |
+| Backup 배터리 |2 |yes |[StorSimple 디바이스의 백업 배터리 모듈 교체](storsimple-8000-battery-replacement.md) |
+| 디스크 드라이브 |12 |yes |[StorSimple 디바이스의 디스크 드라이브 교체](storsimple-8000-disk-drive-replacement.md) |
 
 **표 1** 기본 엔클로저의 하드웨어 구성 요소
 
@@ -79,16 +79,16 @@ StorSimple 8000 시리즈 디바이스는 기본 및/또는 EBOD 엔클로저의
 
 | 구성 요소 | 현재 개수 | 플러그 인 모듈 여부 | 교체 절차 |
 |:--- |:--- |:--- |:--- |
-| 섀시 |1 |아닙니다. |[StorSimple 디바이스의 섀시 교체](storsimple-8000-chassis-replacement.md) |
-| EBOD 컨트롤러 |2 |예 |[StorSimple 디바이스의 EBOD 컨트롤러 교체](storsimple-8000-ebod-controller-replacement.md) |
-| 580W PCM(전원 및 냉각 모듈) |2 |예 |[StorSimple 디바이스의 전원 및 냉각 모듈 교체](storsimple-8000-power-cooling-module-replacement.md) |
-| 디스크 드라이브 |12 |예 |[StorSimple 디바이스의 디스크 드라이브 교체](storsimple-8000-disk-drive-replacement.md) |
+| 섀시 |1 |예 |[StorSimple 디바이스의 섀시 교체](storsimple-8000-chassis-replacement.md) |
+| EBOD 컨트롤러 |2 |yes |[StorSimple 디바이스의 EBOD 컨트롤러 교체](storsimple-8000-ebod-controller-replacement.md) |
+| 580W PCM(전원 및 냉각 모듈) |2 |yes |[StorSimple 디바이스의 전원 및 냉각 모듈 교체](storsimple-8000-power-cooling-module-replacement.md) |
+| 디스크 드라이브 |12 |yes |[StorSimple 디바이스의 디스크 드라이브 교체](storsimple-8000-disk-drive-replacement.md) |
 
 **표 2** EBOD 엔클로저의 하드웨어 구성 요소
 
 디바이스의 플러그 인 모듈은 다음 앞면 및 뒷면 다이어그램에서 강조 표시되어 있습니다. 교체가 필요한 경우 이러한 다이어그램을 사용하여 다양한 플러그 인 모듈의 위치를 확인할 수 있습니다. 앞면 다이어그램에는 디스크 드라이브가 표시되고, EBOD 엔클로저 및 기본 엔클로저의 뒷면 다이어그램에는 플러그 인 모듈이 표시됩니다.
 
-![디스크 드라이브가 있는 장치의 앞면 패널](./media/storsimple-hardware-component-replacement/IC741028.png)
+![디스크 드라이브가 있는 장치의 전면 패널](./media/storsimple-hardware-component-replacement/IC741028.png)
 
 **그림 1** 디바이스 앞면
 
@@ -132,7 +132,7 @@ StorSimple 디바이스에 사용할 수 있는 FRU(필드 교체 디바이스)�
 * Backup 배터리 모듈
 * 랙 탑재 레일 키트
 
-교체 장치를 주문하려면 [Microsoft 지원에 문의](storsimple-8000-contact-microsoft-support.md) 하세요.
+이러한 교체 장비를 주문하려면 [Microsoft 지원에 문의](storsimple-8000-contact-microsoft-support.md)하세요.
 
 ## <a name="next-steps"></a>다음 단계
 StorSimple 하드웨어 구성 요소를 교체하기 전에 모든 [안전 정보](storsimple-safety.md) 를 검토하세요.

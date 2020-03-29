@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: spelluru
 ms.openlocfilehash: 0afad249f71a36bf7552da499e985b68d48ee7a9
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76721560"
 ---
 # <a name="post-to-custom-topic-for-azure-event-grid"></a>Azure Event Grid에 대한 사용자 지정 토픽에 게시
@@ -76,10 +76,10 @@ PowerShell에서 사용자 지정 토픽에 대한 키를 가져오려면 다음
 ]
 ```
 
-이 속성에 대한 설명은 [Azure Event Grid 이벤트 스키마](event-schema.md)를 참조하세요. 이벤트를 Event Grid 항목에 게시할 때 배열은 최대 1MB의 전체 크기를 가질 수 있습니다. 배열의 각 이벤트는 64 KB (일반 공급) 또는 1mb (미리 보기)로 제한 됩니다.
+이 속성에 대한 설명은 [Azure Event Grid 이벤트 스키마](event-schema.md)를 참조하세요. 이벤트를 Event Grid 항목에 게시할 때 배열은 최대 1MB의 전체 크기를 가질 수 있습니다. 배열의 각 이벤트는 64KB(일반 가용성) 또는 1MB(미리 보기)로 제한됩니다.
 
 > [!NOTE]
-> 최대 64 KB 크기의 이벤트는 GA (일반 공급) Service Level Agreement(서비스 수준 약정) (SLA)에서 다룹니다. 최대 1mb 크기의 이벤트에 대 한 지원은 현재 미리 보기 상태입니다. 64 KB를 초과 하는 이벤트는 64 KB 단위로 요금이 부과 됩니다. 
+> 최대 64KB 크기의 이벤트는 일반 가용성(GA) 서비스 수준 계약(SLA)의 적용을 받는다. 최대 1MB 크기의 이벤트에 대한 지원은 현재 미리 보기 상태입니다. 64KB를 초과하는 이벤트는 64KB 단위로 청구됩니다. 
 
 예를 들어 올바른 이벤트 데이터 스키마는 다음과 같습니다.
 

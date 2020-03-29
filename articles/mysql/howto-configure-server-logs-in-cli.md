@@ -1,30 +1,30 @@
 ---
-title: 저속 쿼리 로그 액세스-Azure CLI-Azure Database for MySQL
-description: 이 문서에서는 Azure CLI를 사용 하 여 Azure Database for MySQL의 저속 쿼리 로그에 액세스 하는 방법을 설명 합니다.
+title: 느린 쿼리 로그 에 액세스 - Azure CLI - MySQL용 Azure 데이터베이스
+description: 이 문서에서는 Azure CLI를 사용하여 MySQL용 Azure 데이터베이스의 느린 쿼리 로그에 액세스하는 방법을 설명합니다.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 44c35d6e997b4a9a6d3dfcf3e7eba5328b125fdf
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: 93840af61a69599447588be01869a20290b2db94
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770597"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80062475"
 ---
-# <a name="configure-and-access-slow-query-logs-by-using-azure-cli"></a>Azure CLI를 사용 하 여 느리게 쿼리 로그 구성 및 액세스
-Azure 명령줄 유틸리티인 Azure CLI를 사용 하 여 Azure Database for MySQL 느리게 쿼리 로그를 다운로드할 수 있습니다.
+# <a name="configure-and-access-slow-query-logs-by-using-azure-cli"></a>Azure CLI를 사용하여 느린 쿼리 로그 구성 및 액세스
+Azure 명령줄 유틸리티인 Azure CLI를 사용하여 MySQL 느린 쿼리 로그에 대한 Azure 데이터베이스를 다운로드할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
-이 방법 가이드를 단계별로 실행하려면 다음을 수행해야 합니다.
-- [Azure Database for MySQL 서버](quickstart-create-mysql-server-database-using-azure-cli.md)
+## <a name="prerequisites"></a>사전 요구 사항
+이 방법 가이드를 단계별로 실행하려면 다음이 필요합니다.
+- [MySQL 서버에 대한 Azure 데이터베이스](quickstart-create-mysql-server-database-using-azure-cli.md)
 - [Azure CLI](/cli/azure/install-azure-cli) 또는 브라우저의 Azure Cloud Shell
 
 ## <a name="configure-logging"></a>로깅 구성
 다음 단계를 수행하여 MySQL 느린 쿼리 로그에 액세스하도록 서버를 구성할 수 있습니다.
-1. **저속\_쿼리\_log** 매개 변수를 on으로 설정 하 여 쿼리 로깅 속도를 설정 합니다.
+1. 느린 쿼리 로그 매개 변수를 ON으로 설정하여 **느린\_쿼리\_로깅을** 켭니다.
 2. **long\_query\_time** 및 **log\_slow\_admin\_statements**와 같은 다른 매개 변수를 조정합니다.
 
 Azure CLI를 통해 이러한 매개 변수 값을 설정하는 방법을 알아보려면 [서버 매개 변수를 구성하는 방법](howto-configure-server-parameters-using-cli.md)을 참조하세요.
@@ -38,7 +38,7 @@ az mysql server configuration list --resource-group myresourcegroup --server myd
 ```
 
 ## <a name="list-logs-for-azure-database-for-mysql-server"></a>Azure Database for MySQL 서버에 대한 로그 나열
-서버에 사용할 수 있는 저속 쿼리 로그 파일을 나열 하려면 [az mysql server-logs list](/cli/azure/mysql/server-logs#az-mysql-server-logs-list) 명령을 실행 합니다.
+서버에 사용할 수 있는 느린 쿼리 로그 파일을 나열하려면 [az mysql 서버 로그 목록 명령을 실행합니다.](/cli/azure/mysql/server-logs#az-mysql-server-logs-list)
 
 **myresourcegroup** 리소스 그룹에서 **mydemoserver.mysql.database.azure.com** 서버에 대한 로그 파일을 나열할 수 있습니다. 그런 다음, **log\_files\_list.txt**라는 텍스트 파일에 로그 파일 목록을 전송합니다.
 ```azurecli-interactive
@@ -53,4 +53,4 @@ az mysql server-logs download --name 20170414-mydemoserver-mysql.log --resource-
 ```
 
 ## <a name="next-steps"></a>다음 단계
-- [Azure Database for MySQL의 저속 쿼리 로그](concepts-server-logs.md)에 대해 알아봅니다.
+- [MySQL에 대한 Azure 데이터베이스에서 느린 쿼리 로그에 대해](concepts-server-logs.md)알아봅니다.

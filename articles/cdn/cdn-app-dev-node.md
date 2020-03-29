@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 18dbcbf93947306334ccc2c156d9266884198e19
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67594143"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Azure CDN 개발 시작
 > [!div class="op_single_selector"]
-> * [Node.JS](cdn-app-dev-node.md)
+> * [Node.js](cdn-app-dev-node.md)
 > * [.NET](cdn-app-dev-net.md)
 > 
 > 
@@ -86,7 +86,7 @@ CDN 프로필용 리소스 그룹을 만들고 해당 그룹에서 CDN 프로필
     var msRestAzure = require('ms-rest-azure');
     var cdnManagementClient = require('azure-arm-cdn');
     ```
-2. 메서드가 사용할 몇 가지 상수를 정의해야 합니다.  다음을 추가합니다.  **&lt;꺽쇠 괄호&gt;** 를 포함한 자리 표시자를 필요에 따라 고유 값으로 교체합니다.
+2. 메서드가 사용할 몇 가지 상수를 정의해야 합니다.  다음을 추가합니다.  **각도 대괄호를&gt;포함한 자리 표시자를 필요에 따라 사용자 고유의 값으로 바꿔야 합니다. &lt;**
    
     ``` javascript
     //Tenant app constants
@@ -119,7 +119,7 @@ CDN 프로필용 리소스 그룹을 만들고 해당 그룹에서 CDN 프로필
     var cdnClient = new cdnManagementClient(credentials, subscriptionId);
     ```
    
-    올바른 정보로 **&lt;꺾쇠 괄호&gt;** 의 항목을 교체해야 합니다.  `<redirect URI>`의 경우 Azure AD에서 애플리케이션을 등록할 때 입력한 리디렉션 URI를 사용합니다.
+    **각도 브래킷의&gt; 항목을 올바른 정보로 교체해야 합니다. &lt;**  `<redirect URI>`의 경우 Azure AD에서 애플리케이션을 등록할 때 입력한 리디렉션 URI를 사용합니다.
 4. Node.js 콘솔 애플리케이션에서는 몇 가지 명령줄 매개 변수를 사용하려고 합니다.  적어도 하나의 매개 변수가 전달되었는지 유효성을 검사해 보겠습니다.
    
    ```javascript

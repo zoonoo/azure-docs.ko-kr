@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 12/06/2019
 ms.author: cynthn
 ms.openlocfilehash: c34a88c39104d3af2c5747d1cd6d3dea6929379a
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78969547"
 ---
 # <a name="detailed-steps-create-and-manage-ssh-keys-for-authentication-to-a-linux-vm-in-azure"></a>자세한 단계: Azure에서 Linux VM 인증을 위해 SSH 키 만들기 및 관리 
@@ -64,7 +64,7 @@ ssh-keygen \
 
 `ssh-keygen` = 키를 만드는 데 사용한 프로그램
 
-`-m PEM` = 키의 형식을 PEM으로 지정 합니다.
+`-m PEM`= 키를 PEM으로 서식 지정
 
 `-t rsa` = 이 경우 RSA 형식으로 만들 키 유형
 
@@ -124,11 +124,11 @@ ls -al ~/.ssh
 
 ## <a name="generate-keys-automatically-during-deployment"></a>배포 동안 키를 자동으로 생성
 
-VM을 만들기 위해 [Azure CLI](/cli/azure)를 사용하는 경우 [ 옵션으로 ](/cli/azure/vm)az vm create`--generate-ssh-keys` 명령을 실행하여 SSH 공개 및 프라이빗 키 파일을 선택적으로 생성할 수 있습니다. 키는 ~/.ssh 디렉터리에 저장됩니다. 이미 해당 위치에 있는 경우 이 명령 옵션은 키를 덮어쓰지 않습니다.
+VM을 만들기 위해 [Azure CLI](/cli/azure)를 사용하는 경우 `--generate-ssh-keys` 옵션으로 [az vm create](/cli/azure/vm) 명령을 실행하여 SSH 공개 및 프라이빗 키 파일을 선택적으로 생성할 수 있습니다. 키는 ~/.ssh 디렉터리에 저장됩니다. 이미 해당 위치에 있는 경우 이 명령 옵션은 키를 덮어쓰지 않습니다.
 
 ## <a name="provide-ssh-public-key-when-deploying-a-vm"></a>VM을 배포하는 경우 SSH 공개 키 제공
 
-인증을 위해 SSH 키를 사용하는 Linux VM을 만들려면 Azure Portal, CLI, Resource Manager 템플릿 또는 기타 방법을 사용하여 VM을 만들 때 SSH 공개 키를 제공합니다. 포털을 사용하는 경우 공개 키 자체를 입력합니다. 기존 공개 키를 사용하여 VM을 만들기 위해 [Azure CLI](/cli/azure)을 사용하는 경우 [ 옵션으로 ](/cli/azure/vm)az vm create`--ssh-key-value` 명령을 실행하여 이 공개 키의 위치나 값을 지정합니다. 
+인증을 위해 SSH 키를 사용하는 Linux VM을 만들려면 Azure Portal, CLI, Resource Manager 템플릿 또는 기타 방법을 사용하여 VM을 만들 때 SSH 공개 키를 제공합니다. 포털을 사용하는 경우 공개 키 자체를 입력합니다. 기존 공개 키를 사용하여 VM을 만들기 위해 [Azure CLI](/cli/azure)을 사용하는 경우 `--ssh-key-value` 옵션으로 [az vm create](/cli/azure/vm) 명령을 실행하여 이 공개 키의 위치나 값을 지정합니다. 
 
 SSH 공개 키의 형식을 잘 모르는 경우 다음과 같이 `cat`을 실행하여 공개 키를 확인할 수 있습니다. 이때 `~/.ssh/id_rsa.pub`를 사용자 고유의 공개 키 파일 위치로 대체합니다.
 
@@ -176,7 +176,7 @@ VM이 Just-In-Time 액세스 정책을 사용하는 경우에는 액세스 권�
 eval "$(ssh-agent -s)"
 ```
 
-이제 `ssh-agent` 명령을 사용하여 프라이빗 키를 `ssh-add`에 추가합니다.
+이제 `ssh-add` 명령을 사용하여 프라이빗 키를 `ssh-agent`에 추가합니다.
 
 ```bash
 ssh-add ~/.ssh/id_rsa
@@ -236,5 +236,5 @@ SSH 키를 사용하는 서버에 처음 로그인하면 명령은 해당 키 �
 다음으로 새 SSH 공개 키를 사용하여 Azure Linux VM을 만듭니다. 기본 로그인 방법(암호)을 사용하여 만든 VM보다 SSH 공개 키를 로그인으로 사용하여 만든 Azure VM의 보안성이 더 우수합니다.
 
 * [Azure Portal을 사용하여 Linux 가상 머신 만들기](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Azure CLI를 사용하여 Linux 가상 머신 만들기](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Azure CLI를 사용하여 Linux 가상 시스템 만들기](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Azure 템플릿을 사용하여 Linux VM 만들기](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

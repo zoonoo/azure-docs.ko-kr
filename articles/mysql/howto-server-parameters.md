@@ -1,17 +1,17 @@
 ---
-title: 서버 매개 변수 구성-Azure Portal-Azure Database for MySQL
+title: 서버 매개 변수 구성 - Azure 포털 - MySQL용 Azure 데이터베이스
 description: 이 문서에서는 Azure Portal을 사용하여 Azure Database for MySQL에서 사용 가능한 서버 매개 변수를 구성하는 방법을 설명합니다.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/05/2019
-ms.openlocfilehash: 8ec6f32d7db0161cef00330aa38601ba9bdb309d
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.date: 3/18/2020
+ms.openlocfilehash: fc2b1bbe0a3249014e663d43ee4db87cab5eedcf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79245721"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80063254"
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mysql-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for MySQL에서 서버 매개 변수 구성 방법
 
@@ -24,7 +24,7 @@ MySQL용 Azure Database는 일부 서버 매개 변수 구성을 지원합니다
 ![Azure Portal 서버 매개 변수 페이지](./media/howto-server-parameters/auzre-portal-server-parameters.png)
 3. 조정해야 하는 설정을 모두 찾습니다. **설명** 열을 검토하여 용도 및 허용되는 값을 이해합니다.
 ![드롭다운 열거](./media/howto-server-parameters/3-toggle_parameter.png)
-4. **저장**을 클릭하여 변경 내용을 저장합니다.
+4. 변경 내용을 저장하려면 **저장을** 클릭합니다.
 ![변경 내용 저장 또는 제거](./media/howto-server-parameters/4-save_parameters.png)
 5. 매개 변수에 새 값을 저장한 경우 언제든지 **모두 기본값으로 다시 설정**을 선택하여 모든 항목을 기본값으로 되돌릴 수있습니다.
 ![모두 기본값으로 다시 설정](./media/howto-server-parameters/5-reset_parameters.png)
@@ -35,9 +35,9 @@ MySQL용 Azure Database는 일부 서버 매개 변수 구성을 지원합니다
 
 ## <a name="non-configurable-server-parameters"></a>구성 불가능한 서버 매개 변수
 
-InnoDB 버퍼 풀 크기는 구성할 수 없으며 [가격 책정 계층](concepts-service-tiers.md)에 연결 됩니다.
+InnoDB 버퍼 풀 크기는 구성할 수 없으며 [가격 책정 계층에](concepts-service-tiers.md)연결됩니다.
 
-|**가격 책정 계층**|**vCore**|**InnoDB 버퍼 풀 크기 (MB <br>(최대 2TB 저장소를 지 원하는 서버)**| **InnoDB 버퍼 풀 크기 (MB <br>(최대 16TB의 저장소를 지 원하는 서버)**|
+|**가격 책정 계층**|**vCore**|**MB의 <br>InnoDB 버퍼 풀 크기(최대 4TB 스토리지를 지원하는 서버)**| **MB의 <br>InnoDB 버퍼 풀 크기(최대 16TB 스토리지를 지원하는 서버)**|
 |:---|---:|---:|---:|
 |Basic| 1| 832| |
 |Basic| 2| 2560| |
@@ -78,7 +78,7 @@ CALL mysql.az_load_timezone();
 ```
 
 > [!IMPORTANT]
-> 표준 시간대 테이블이 제대로 채워졌는지 확인 하려면 서버를 다시 시작 해야 합니다. 서버를 다시 시작 하려면 [Azure Portal](howto-restart-server-portal.md) 또는 [CLI](howto-restart-server-cli.md)를 사용 합니다.
+> 표준 시간대 테이블이 제대로 채워지도록 서버를 다시 시작해야 합니다. 서버를 다시 시작하려면 [Azure 포털](howto-restart-server-portal.md) 또는 [CLI를](howto-restart-server-cli.md)사용합니다.
 
 사용 가능한 표준 시간대 값을 보려면 다음 명령을 실행합니다.
 
@@ -104,4 +104,4 @@ SET time_zone = 'US/Pacific';
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Database for MySQL에 대한 연결 라이브러리](concepts-connection-libraries.md).
+- [MySQL에 대 한 Azure 데이터베이스에 대 한 연결 라이브러리](concepts-connection-libraries.md).

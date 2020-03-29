@@ -16,10 +16,10 @@ ms.date: 07/11/2017
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b1cb4eeb52d0680695bda266ad1a563b2ef5ee02
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65781105"
 ---
 # <a name="unexpected-application-in-my-applications-list"></a>내 애플리케이션 목록에 예기치 않은 애플리케이션
@@ -30,7 +30,7 @@ ms.locfileid: "65781105"
 
 테넌트에서 모든 애플리케이션을 보려면 **필터** 컨트롤을 사용하여 **모든 애플리케이션** 목록에 **모든 애플리케이션**을 표시해야 합니다. 다음 단계를 수행하세요.
 
-1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
+1.  Azure [**포털을**](https://portal.azure.com/) 열고 글로벌 **관리자** 또는 **공동 관리자로 로그인합니다.**
 
 2.  왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
@@ -46,17 +46,17 @@ ms.locfileid: "65781105"
 
 ## <a name="why-does-a-specific-application-appear-in-my-all-applications-list"></a>내 모든 애플리케이션 목록에 특정 애플리케이션이 나타나는 이유는 무엇입니까?
 
-**모든 애플리케이션**으로 필터링한 경우 **모든 애플리케이션** **목록** 은 테넌트의 모든 서비스 주체 개체를 보여 줍니다. 서비스 주체 개체는 다양한 방법으로 이 목록에 나타날 수 있습니다.
+**모든 애플리케이션**으로 필터링한 경우 **모든 애플리케이션** **목록**은 테넌트의 모든 서비스 주체 개체를 보여 줍니다. 서비스 주체 개체는 다양한 방법으로 이 목록에 나타날 수 있습니다.
 
 1. 다음을 포함하여 애플리케이션 갤러리에서 모든 애플리케이션을 추가하는 경우:
 
-   1. **Azure AD 갤러리 애플리케이션** – Single Sign-On에 대해 Azure AD와 사전 통합된 애플리케이션입니다.
+   1. **Azure AD 갤러리 응용 프로그램** - Azure AD를 사용 하 여 단일 사인온에 대 한 사전 통합 된 응용 프로그램
 
    2. **애플리케이션 프록시 애플리케이션** – 외부로 보안 Single Sign-On을 제공하려는 온-프레미스 환경에서 실행 중인 애플리케이션입니다.
 
    3. **사용자 지정 개발된 애플리케이션** – 조직에서 Azure AD 애플리케이션 개발 플랫폼에서 개발하고자 하지만 아직 존재하지 않을 수 있는 애플리케이션입니다.
 
-   4. **비 갤러리 애플리케이션** – 사용자의 애플리케이션을 가져옵니다. 원하는 모든 웹 링크 또는 사용자 이름 및 암호 필드를 렌더링하는 모든 애플리케이션은 SAML 또는 OpenID Connect 프로토콜을 지원하거나 Single Sign-On에 대해 Azure AD와 통합하려는 SCIM을 지원합니다.
+   4. **갤러리가 아닌 응용 프로그램** - 자신의 응용 프로그램을 가져와! 원하는 모든 웹 링크 또는 사용자 이름 및 암호 필드를 렌더링하는 모든 애플리케이션은 SAML 또는 OpenID Connect 프로토콜을 지원하거나 Single Sign-On에 대해 Azure AD와 통합하려는 SCIM을 지원합니다.
 
 2. Azure Active Directory와 통합된 타<sup>사</sup> 애플리케이션에 등록하거나 로그인하는 경우. 한 가지 예로 [Smartsheet](https://app.smartsheet.com/b/home) 또는 [DocuSign](https://www.docusign.net/member/MemberLogin.aspx)이 있습니다.
 
@@ -90,7 +90,7 @@ ms.locfileid: "65781105"
 
 **애플리케이션을 삭제**하려면 다음 단계를 따릅니다.
 
-1. [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
+1. Azure [**포털을**](https://portal.azure.com/) 열고 글로벌 **관리자** 또는 **공동 관리자로 로그인합니다.**
 
 2. 왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
@@ -100,7 +100,7 @@ ms.locfileid: "65781105"
 
 5. **모든 애플리케이션**을 클릭하여 모든 애플리케이션의 목록을 봅니다.
 
-   * 여기에 표시하려는 애플리케이션이 표시되지 않으면 **모든 애플리케이션 목록**의 맨 위에서 **필터** 컨트롤을 사용하고 **표시** 옵션을 **모든 애플리케이션**으로 설정합니다.
+   * 여기에 표시하려는 응용 프로그램이 표시되지 않으면 **모든 응용 프로그램 목록** 맨 위에 있는 **필터** 컨트롤을 사용하고 **표시** 옵션을 모든 응용 **프로그램으로 설정합니다.**
 
 6. 삭제하려는 애플리케이션을 선택합니다.
 
@@ -108,19 +108,19 @@ ms.locfileid: "65781105"
 
 ## <a name="i-want-to-disable-all-future-user-consent-operations-to-any-application"></a>모든 애플리케이션에 대한 모든 이후 사용자 동의 작업을 비활성화하려는 경우
 
-전체 디렉터리에 대한 사용자 동의를 비활성화하면 모든 애플리케이션에 대한 최종 사용자 동의를 방지합니다. 관리자는 사용자를 대신해 여전히 동의할 수 있습니다. 애플리케이션 동의 및 동의하거나 동의하지 않을 수 있는 이유에 대해 자세히 알아보려면 [사용자 및 관리자 동의 이해하기](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview)를 참조하세요.
+전체 디렉터리에 대한 사용자 동의를 비활성화하면 모든 애플리케이션에 대한 최종 사용자 동의를 방지합니다. 관리자는 여전히 사용자를 대신하여 동의할 수 있습니다. 애플리케이션 동의 및 동의하거나 동의하지 않을 수 있는 이유에 대해 자세히 알아보려면 [사용자 및 관리자 동의 이해하기](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview)를 참조하세요.
 
 **전체 디렉터리에서 모든 이후 사용자 동의 작업을 비활성화**하려면 다음 단계를 따릅니다.
 
-1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 권한으로 로그인합니다.
+1.  Azure [**포털을**](https://portal.azure.com/) 열고 글로벌 **관리자로 로그인합니다.**
 
 2.  왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
 3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
-4.  탐색 메뉴에서 **사용자 및 그룹**을 클릭합니다.
+4.  탐색 메뉴에서 **사용자 및 그룹을** 클릭합니다.
 
-5.  **사용자 설정**을 클릭합니다.
+5.  **사용자 설정을 클릭합니다.**
 
 6.  **사용자가 앱이 데이터에 액세스하도록 허용할 수 있음** 토글을 **아니요**로 설정하고 **저장** 단추를 클릭하여 모든 이후 사용자 동의 작업을 비활성화합니다.
 

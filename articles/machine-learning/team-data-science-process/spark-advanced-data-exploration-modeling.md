@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 15d9d186ef36ee9181a6ce0386aa9cc5de7838e3
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76718654"
 ---
 # <a name="advanced-data-exploration-and-modeling-with-spark"></a>고급 Spark로 데이터 탐색 및 모델링
@@ -29,16 +29,16 @@ ms.locfileid: "76718654"
 
 **CV(교차 유효성 검사)** 는 알려진 데이터 세트에서 학습된 모델이 학습되지 않은 데이터 세트의 기능 예측을 얼마나 잘 일반화하는지 평가하는 기술입니다.  여기에 사용된 일반적인 구현은 데이터 세트를 K 접기로 나눈 다음 접기 중 하나를 제외한 모든 접기에서 라운드 로빈 방식으로 모델을 학습하는 것입니다. 이 접기에서 모델을 테스트하는 데 사용되지 않은 독립 데이터 세트에 대해 모델을 테스트할 때 모델이 정확히 예측하는 기능이 평가됩니다.
 
-**하이퍼 매개 변수 최적화** 는 학습 알고리즘에 대한 하이퍼 매개 변수 집합을 선택하는 문제이며, 일반적으로 독립된 데이터 집합에서의 알고리즘 성능 측정값을 최적화하는 것을 목표로 합니다. **하이퍼 매개 변수** 는 모델 학습 절차 외부에서 지정해야 하는 값입니다. 이러한 값에 대한 가정은 모델의 유연성 및 정확도에 영향을 줄 수 있습니다. 의사 결정 트리에는 원하는 깊이와 트리의 리프 수와 같은 하이퍼 매개 변수가 있습니다. SVM(Support Vector Machine)은 오분류 페널티 조건을 설정해야 합니다. 
+**하이퍼매개 변수 최적화는** 일반적으로 독립적인 데이터 집합에서 알고리즘의 성능 측정값을 최적화하기 위해 학습 알고리즘에 대한 하이퍼매개 변수 집합을 선택하는 문제입니다. **하이퍼 매개 변수** 는 모델 학습 절차 외부에서 지정해야 하는 값입니다. 이러한 값에 대한 가정은 모델의 유연성 및 정확도에 영향을 줄 수 있습니다. 의사 결정 트리에는 원하는 깊이와 트리의 리프 수와 같은 하이퍼 매개 변수가 있습니다. SVM(Support Vector Machine)은 오분류 페널티 조건을 설정해야 합니다. 
 
-여기에 사용된 하이퍼 매개 변수 최적화를 수행하는 일반적인 방법은 그리드 검색 또는 **매개 변수 비우기**입니다. 이 검색은 학습 알고리즘에 대 한 하이퍼 매개 변수 공간의 하위 집합을 거칩니다. 교차 유효성 검사는 그리드 검색 알고리즘에 의해 생성되는 최적의 결과를 분류하는 성능 메트릭을 제공할 수 있습니다. 하이퍼 매개 변수 비우기와 함께 사용된 CV를 통해 데이터 학습 모델의 과잉 맞춤과 같은 문제를 제한하여 모델이 학습 데이터가 추출되는 일반 데이터 집합에 적용할 용량을 유지하도록 합니다.
+여기에 사용된 하이퍼 매개 변수 최적화를 수행하는 일반적인 방법은 그리드 검색 또는 **매개 변수 비우기**입니다. 이 검색은 학습 알고리즘에 대한 하이퍼 매개 변수 공간의 하위 집합을 거칩니다. 교차 유효성 검사는 그리드 검색 알고리즘에 의해 생성되는 최적의 결과를 분류하는 성능 메트릭을 제공할 수 있습니다. 하이퍼 매개 변수 비우기와 함께 사용된 CV를 통해 데이터 학습 모델의 과잉 맞춤과 같은 문제를 제한하여 모델이 학습 데이터가 추출되는 일반 데이터 집합에 적용할 용량을 유지하도록 합니다.
 
 사용하는 모델은 로지스틱 및 선형 회귀, 임의 포리스트, 그라데이션 향상된 트리를 포함합니다.
 
 * [SGD로 선형 회귀](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.regression.LinearRegressionWithSGD) 는 SGD(Stochastic Gradient Descent) 메서드를 사용하는 선형 회귀 모델이며 최적화 및 기능에 대해 크기를 조정하여 결재된 팁 금액을 예측합니다. 
 * [LBFGS로 로지스틱 회귀 분석](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.classification.LogisticRegressionWithLBFGS) 또는 "로짓" 회귀는 종속 변수가 데이터 분류를 수행하는 범주인 경우 사용할 수 있는 회귀 모델입니다. LBFGS는 제한된 양의 컴퓨터 메모리를 사용하여 BFGS(Broyden–Fletcher–Goldfarb–Shanno) 알고리즘을 비슷하게 만들고 기계 학습에서 널리 사용되는 준 뉴턴 최적화 알고리즘입니다.
 * [임의 포리스트](https://spark.apache.org/docs/latest/mllib-ensembles.html#Random-Forests) 는 결정 트리의 결합체입니다.  즉, 과잉 맞춤의 위험을 줄이기 위해 많은 결정 트리를 결합합니다. 임의 포리스트는 회귀 및 분류에 사용되며 범주 기능을 처리하고 다중 클래스 분류 설정으로 확장할 수 있습니다. 기능 크기 조정을 필요로 하지 않으며 비선형 및 기능 상호 작용을 캡처할 수 있습니다. 임의 포리스트는 분류 및 회귀를 위해 매우 성공적인 기계 학습 모델 중 하나입니다.
-* Gbts (그라데이션 향상 된 [트리](https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) )는 의사 결정 트리의 앙상블입니다. GBTS는 의사 결정 트리를 반복적으로 학습 하 여 손실 함수를 최소화 합니다. GBTS는 회귀 및 분류에 사용 되며 범주 기능을 처리 하 고, 기능 크기 조정을 필요로 하지 않으며, 비선형 및 기능 상호 작용을 캡처할 수 있습니다. 또한 다중 클래스 분류 설정에도 사용할 수 있습니다.
+* [그라데이션 부스트](https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) 트리(GBTS)는 의사 결정 트리의 앙상블입니다. GBTS는 손실 함수를 최소화하기 위해 반복적으로 의사 결정 트리를 학습합니다. GBTS는 회귀 및 분류에 사용되며 범주형 피처를 처리할 수 있으며 기능 크기 조정이 필요하지 않으며 비선형 및 기능 상호 작용을 캡처할 수 있습니다. 또한 다중 클래스 분류 설정에도 사용할 수 있습니다.
 
 이진 분류 문제에 대한 CV 및 하이퍼 매개 변수 비우기를 사용하는 모델링 예제가 표시됩니다. 더 간단한 예제(매개 변수 비우기 없음)가 회귀 작업에 대한 주요 토픽으로 표시됩니다. 하지만 부록에서는 선형 회귀에 대해 탄력적 net을 사용한 유효성 검사와 임의 포리스트 회귀에 대해 사용한 매개 변수 비우기가 있는 CV도 표시됩니다. **탄력적 net**은 L1 및 L2 메트릭을 선형으로 결합하는 선형 회귀 모델을 [lasso](https://en.wikipedia.org/wiki/Lasso%20%28statistics%29) 및 [ridge](https://en.wikipedia.org/wiki/Tikhonov_regularization) 메서드의 페널티로 맞추기 위한 정칙 회귀 메서드입니다.   
 
@@ -84,7 +84,7 @@ Spark는 Azure Storage Blob(WASB라고도 함)를 읽고 쓸 수 있습니다. �
     import datetime
     datetime.datetime.now()
 
-**OUTPUT**
+**출력**
 
 datetime.datetime(2016, 4, 18, 17, 36, 27, 832799)
 
@@ -116,7 +116,7 @@ Jupyter Notebook과 함께 제공되는 PySpark 커널에는 사전 설정 컨�
 PySpark 커널은 특수 명령인 일부 미리 정의된 "매직"을 제공하며 이러한 매직은 %%를 사용하여 호출할 수 있습니다. 이러한 코드 샘플에 사용되는 다음과 같은 두 가지 명령이 있습니다.
 
 * **%%local** 다음 줄의 코드는 로컬로 실행됩니다. 코드는 유효한 Python 코드여야 합니다.
-* **%% sql-o \<변수 이름 >** SqlContext에 대해 Hive 쿼리를 실행 합니다. -o 매개 변수가 전달된 경우 쿼리 결과가 %%local Python 컨텍스트에서 Pandas 데이터 프레임으로 유지됩니다.
+* **%%sql -o \<변수 이름>** sqlContext에 대해 하이브 쿼리를 실행합니다. -o 매개 변수가 전달된 경우 쿼리 결과가 %%local Python 컨텍스트에서 Pandas 데이터 프레임으로 유지됩니다.
 
 Jupyter Notebook의 커널 및 제공되는 미리 정의된 "매직"에 대한 자세한 내용은 [HDInsight의 HDInsight Spark Linux 클러스터에서 Jupyter Notebook에 사용할 수 있는 커널](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md)을 참조하세요.
 
@@ -187,7 +187,7 @@ Jupyter Notebook의 커널 및 제공되는 미리 정의된 "매직"에 대한 
     print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
 
-**OUTPUT**
+**출력**
 
 위의 셀을 실행하는 데 걸린 시간: 276.62초
 
@@ -198,7 +198,7 @@ Jupyter Notebook의 커널 및 제공되는 미리 정의된 "매직"에 대한 
 이 코드와 후속 코드 조각은 샘플을 쿼리하는 데 SQL 매직을 사용하고 데이터를 그리는 데 로컬 매직을 사용합니다.
 
 * **SQL 매직(`%%sql`)** HDInsight PySpark 커널은 sqlContext에 대해 간편한 인라인 HiveQL 쿼리를 지원합니다. (-o VARIABLE_NAME) 인수는 Jupyter 서버에서 Pandas 데이터 프레임으로 SQL 쿼리의 출력을 유지합니다. 즉, 로컬 모드에서 사용할 수 있습니다.
-* **`%%local` 매직** 은 HDInsight 클러스터의 헤드 노드인 Jupyter 서버에서 코드를 로컬로 실행하는 데 사용됩니다. 일반적으로 `%%local` 매직을 사용하여 쿼리를 실행한 후에 `%%sql -o`을 사용합니다. -o 매개 변수는 SQL 쿼리 출력을 로컬로 유지합니다. 그런 다음 `%%local` 매직은 로컬로 유지된 SQL 쿼리 출력에 대해 다음 코드 조각 집합이 로컬로 실행되도록 트리거합니다. 코드를 실행한 후 출력이 자동으로 시각화됩니다.
+* ** `%%local` 이 마법은** HDInsight 클러스터의 헤드노드인 Jupyter 서버에서 로컬로 코드를 실행하는 데 사용됩니다. 일반적으로 `%%sql -o` 매직을 사용하여 쿼리를 실행한 후에 `%%local`을 사용합니다. -o 매개 변수는 SQL 쿼리 출력을 로컬로 유지합니다. 그런 다음 `%%local` 매직은 로컬로 유지된 SQL 쿼리 출력에 대해 다음 코드 조각 집합이 로컬로 실행되도록 트리거합니다. 코드를 실행한 후 출력이 자동으로 시각화됩니다.
 
 이 쿼리는 승객 수에 따라 여정을 검색합니다. 
 
@@ -241,7 +241,7 @@ Jupyter Notebook의 커널 및 제공되는 미리 정의된 "매직"에 대한 
     fig.set_ylabel('Trip counts')
     plt.show()
 
-**OUTPUT**
+**출력**
 
 ![승객 수에 따른 여정 빈도](./media/spark-advanced-data-exploration-modeling/frequency-of-trips-by-passenger-count.png)
 
@@ -308,7 +308,7 @@ SQL 쿼리를 사용하여 데이터를 샘플링합니다.
 * 시간을 트래픽 시간 bin으로 분할하여 새로운 기능 만들기
 * 범주 기능 인덱스 및 원 핫 인코딩(one-hot encoding)
 * 기계 학습 함수에 입력에 대한 레이블이 지정된 지점 개체 만들기
-* 데이터의 임의 서브 샘플링을 만들고 학습 및 테스트 집합으로 분할
+* 데이터의 임의 하위 샘플링을 생성하고 교육 및 테스트 세트로 분할
 * 기능 크기 조정
 * 메모리에서 개체 캐시
 
@@ -334,7 +334,7 @@ SQL 쿼리를 사용하여 데이터를 샘플링합니다.
     taxi_df_train_with_newFeatures.cache()
     taxi_df_train_with_newFeatures.count()
 
-**OUTPUT**
+**출력**
 
 126050
 
@@ -385,12 +385,12 @@ SQL 쿼리를 사용하여 데이터를 샘플링합니다.
     print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
 
-**OUTPUT**
+**출력**
 
 위의 셀을 실행하는 데 걸린 시간: 3.14초
 
 ### <a name="create-labeled-point-objects-for-input-into-ml-functions"></a>기계 학습 함수에 입력에 대한 레이블이 지정된 지점 개체 만들기
-이 섹션에는 범주별 텍스트 데이터를 레이블이 지정된 지점 데이터 형식으로 인덱싱하는 방법과 인코딩하는 방법을 보여 주는 코드가 포함되어 있습니다. 이 변환은 MLlib 로지스틱 회귀 및 다른 분류 모델을 학습 하 고 테스트 하는 데 사용할 텍스트 데이터를 준비 합니다. 레이블이 지정된 지점 개체는 대부분 MLlib의 기계 학습 알고리즘에서 입력 데이터로 필요한 방식으로 형식이 지정된 RDD(Resilient Distributed Datasets)입니다. [레이블이 지정된 지점](https://spark.apache.org/docs/latest/mllib-data-types.html#labeled-point) 은 레이블/응답과 연결된 로컬 벡터, 밀도 또는 스파스입니다.
+이 섹션에는 범주별 텍스트 데이터를 레이블이 지정된 지점 데이터 형식으로 인덱싱하는 방법과 인코딩하는 방법을 보여 주는 코드가 포함되어 있습니다. 이 변환은 MLlib 로지스틱 회귀 및 기타 분류 모델을 학습하고 테스트하는 데 사용할 텍스트 데이터를 준비합니다. 레이블이 지정된 지점 개체는 대부분 MLlib의 기계 학습 알고리즘에서 입력 데이터로 필요한 방식으로 형식이 지정된 RDD(Resilient Distributed Datasets)입니다. [레이블이 지정된 지점](https://spark.apache.org/docs/latest/mllib-data-types.html#labeled-point) 은 레이블/응답과 연결된 로컬 벡터, 밀도 또는 스파스입니다.
 
 다음은 이진 분류를 위해 텍스트 기능을 인덱싱 및 인코딩하는 코드입니다.
 
@@ -438,8 +438,8 @@ SQL 쿼리를 사용하여 데이터를 샘플링합니다.
         return  labPt
 
 
-### <a name="create-a-random-subsampling-of-the-data-and-split-it-into-training-and-testing-sets"></a>데이터의 임의 서브 샘플링을 만들고 학습 및 테스트 집합으로 분할
-이 코드는 데이터의 무작위 샘플링을 만듭니다(25%가 여기에서 사용됨). 데이터 세트의 크기로 인해 이 예제에 필요하지 않지만 여기서는 데이터를 샘플링하는 방법도 살펴봅니다. 그러면 필요할 때 자체 문제에 사용하는 방법을 알 수 있게 됩니다. 샘플이 클 경우 샘플링을 통해 모델을 학습 하는 동안 상당한 시간을 절약할 수 있습니다. 다음 샘플을 교육 부분(여기서 75%)와 테스트 부분(여기서 25%)로 분할하여 분류 및 회귀 모델링에 사용합니다.
+### <a name="create-a-random-subsampling-of-the-data-and-split-it-into-training-and-testing-sets"></a>데이터의 임의 하위 샘플링을 생성하고 교육 및 테스트 세트로 분할
+이 코드는 데이터의 무작위 샘플링을 만듭니다(25%가 여기에서 사용됨). 데이터 세트의 크기로 인해 이 예제에 필요하지 않지만 여기서는 데이터를 샘플링하는 방법도 살펴봅니다. 그러면 필요할 때 자체 문제에 사용하는 방법을 알 수 있게 됩니다. 샘플이 큰 경우 샘플링은 모델을 학습하는 동안 상당한 시간을 절약할 수 있습니다. 다음 샘플을 교육 부분(여기서 75%)와 테스트 부분(여기서 25%)로 분할하여 분류 및 회귀 모델링에 사용합니다.
 
     # RECORD START TIME
     timestart = datetime.datetime.now()
@@ -478,9 +478,9 @@ SQL 쿼리를 사용하여 데이터를 샘플링합니다.
     timedelta = round((timeend-timestart).total_seconds(), 2) 
     print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
-**OUTPUT**
+**출력**
 
-위의 셀을 실행 하는 데 걸린 시간: 0.31 초
+셀 위 실행 시간: 0.31초
 
 ### <a name="feature-scaling"></a>기능 크기 조정
 데이터 정규화라고도 하는 기능 크기 조정은 폭 넓게 분배된 값을 가진 기능이 목적 함수에서 과도한 가중치를 부여하지 않도록 합니다. 기능 크기 조정에 대한 코드는 단위 분산에 대한 기능의 크기를 조정하는 [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.feature.StandardScaler) 를 사용합니다. 이러한 기능은 SGD(Stochastic Gradient Descent)와 함께 선형 회귀에 사용하기 위해 MLlib에서 제공합니다. SGD는 정칙 회귀 또는 SVM(support vector machine)과 같은 광범위한 다른 기계 학습 모델을 학습하기 위한 인기 있는 알고리입니다.   
@@ -519,7 +519,7 @@ SQL 쿼리를 사용하여 데이터를 샘플링합니다.
     timedelta = round((timeend-timestart).total_seconds(), 2) 
     print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
-**OUTPUT**
+**출력**
 
 위의 셀을 실행하는 데 걸린 시간: 11.67초
 
@@ -550,16 +550,16 @@ SQL 쿼리를 사용하여 데이터를 샘플링합니다.
     timedelta = round((timeend-timestart).total_seconds(), 2) 
     print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
-**OUTPUT** 
+**출력** 
 
-위의 셀을 실행 하는 데 걸린 시간: 0.13 초
+셀 위 실행 시간: 0.13초
 
 ## <a name="predict-whether-or-not-a-tip-is-paid-with-binary-classification-models"></a>팁이 지불되었는지 여부를 이진 분류 모델로 예측합니다.
 이 섹션에서는 Taxi Trip에 팁을 지불했는지 여부를 예측하는 이진 분류 작업에 대한 세 개의 모델을 사용하는 방법을 보여줍니다. 제공된 모델은 다음과 같습니다.
 
 * 로지스틱 회귀 
 * 임의 포리스트
-* 경사 부스팅 트리
+* 그라데이션 향상 트리
 
 코드 섹션을 빌드하는 각 모델은 다음과 같은 단계로 분할됩니다. 
 
@@ -569,10 +569,10 @@ SQL 쿼리를 사용하여 데이터를 샘플링합니다.
 
 매개 변수 비우기를 사용하여 CV(교차 유효성 검사)를 수행하는 두 가지 방법을 보여 줍니다.
 
-1. MLlib의 모든 알고리즘과 알고리즘의 매개 변수 집합에 적용 될 수 있는 **제네릭** 사용자 지정 코드 사용. 
-2. **pySpark CrossValidator 파이프라인 함수** 사용 간 유효성 검사기에는 Spark 1.5.0에 대 한 몇 가지 제한 사항이 있습니다. 
+1. MLlib의 모든 알고리즘과 알고리즘의 모든 매개 변수 집합에 적용할 수 있는 **일반** 사용자 지정 코드를 사용합니다. 
+2. **pySpark CrossValidator 파이프라인 함수** 사용 CrossValidator는 스파크 1.5.0에 대한 몇 가지 제한 사항이 있습니다. 
    
-   * 파이프라인 모델은 나중에 사용할 수 있도록 저장 하거나 유지할 수 없습니다.
+   * 파이프라인 모델은 향후 소비를 위해 저장하거나 지속할 수 없습니다.
    * 모델의 모든 매개 변수에 사용할 수 없습니다.
    * 모든 MLlib 알고리즘에 사용할 수 없습니다.
 
@@ -667,7 +667,7 @@ SQL 쿼리를 사용하여 데이터를 샘플링합니다.
     print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
 
-**OUTPUT**
+**출력**
 
 Coefficients: [0.0082065285375, -0.0223675576104, -0.0183812028036, -3.48124578069e-05, -0.00247646947233, -0.00165897881503, 0.0675394837328, -0.111823113101, -0.324609912762, -0.204549780032, -1.36499216354, 0.591088507921, -0.664263411392, -1.00439726852, 3.46567827545, -3.51025855172, -0.0471341112232, -0.043521833294, 0.000243375810385, 0.054518719222]
 
@@ -720,7 +720,7 @@ Intercept: -0.0111216486893
     print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
 
-**OUTPUT**
+**출력**
 
 Area under PR = 0.985336538462
 
@@ -773,7 +773,7 @@ ROC 곡선을 그리고 예측을 수행하는 코드는 다음과 같습니다.
     plt.show()
 
 
-**OUTPUT**
+**출력**
 
 ![일반적인 접근 방식에 대한 로지스틱 회귀 분석 ROC 곡선](./media/spark-advanced-data-exploration-modeling/logistic-regression-roc-curve.png)
 
@@ -800,7 +800,7 @@ ROC 곡선을 그리고 예측을 수행하는 코드는 다음과 같습니다.
     print "Time taken to execute above cell: " + str(timedelta) + " seconds";
 
 
-**OUTPUT**
+**출력**
 
 위의 셀을 실행하는 데 걸린 시간: 34.57초
 
@@ -858,7 +858,7 @@ ROC 곡선을 그리고 예측을 수행하는 코드는 다음과 같습니다.
     timedelta = round((timeend-timestart).total_seconds(), 2) 
     print "Time taken to execute above cell: " + str(timedelta) + " seconds";
 
-**OUTPUT**
+**출력**
 
 위의 셀을 실행하는 데 걸린 시간: 107.98초
 
@@ -894,7 +894,7 @@ ROC 곡선을 그리고 예측을 수행하는 코드는 다음과 같습니다.
     plt.show()
 
 
-**OUTPUT**
+**출력**
 
 ![MLlib의 CrossValidator를 사용하는 로지스틱 회귀 분석 ROC 곡선](./media/spark-advanced-data-exploration-modeling/mllib-crossvalidator-roc-curve.png)
 
@@ -943,14 +943,14 @@ ROC 곡선을 그리고 예측을 수행하는 코드는 다음과 같습니다.
     print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
 
-**OUTPUT**
+**출력**
 
 Area under ROC = 0.985336538462
 
 위의 셀을 실행하는 데 걸린 시간: 26.72초
 
-### <a name="gradient-boosting-trees-classification"></a>경사 부스팅 트리 분류
-이 섹션의 코드에서는 NYC Taxi Trip 및 요금 데이터 세트에서 팁이 여정에 지불되었는지 여부를 예측하는 경사 부스팅 트리 모델을 학습, 평가, 저장하는 방법을 보여줍니다.
+### <a name="gradient-boosting-trees-classification"></a>그라데이션 향상 트리 분류
+이 섹션의 코드에서는 NYC Taxi Trip 및 요금 데이터 세트에서 팁이 여정에 지불되었는지 여부를 예측하는 그라데이션 향상 트리 모델을 학습, 평가, 저장하는 방법을 보여줍니다.
 
     # RECORD START TIME
     timestart = datetime.datetime.now()
@@ -987,7 +987,7 @@ Area under ROC = 0.985336538462
     timedelta = round((timeend-timestart).total_seconds(), 2) 
     print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
-**OUTPUT**
+**출력**
 
 Area under ROC = 0.985336538462
 
@@ -998,7 +998,7 @@ Area under ROC = 0.985336538462
 
 * 정칙 선형 회귀
 * 임의 포리스트
-* 경사 부스팅 트리
+* 그라데이션 향상 트리
 
 이러한 모델은 소개에서 설명했습니다. 코드 섹션을 빌드하는 각 모델은 다음과 같은 단계로 분할됩니다. 
 
@@ -1066,7 +1066,7 @@ Area under ROC = 0.985336538462
     timedelta = round((timeend-timestart).total_seconds(), 2) 
     print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
-**OUTPUT**
+**출력**
 
 Coefficients: [0.0141707753435, -0.0252930927087, -0.0231442517137, 0.247070902996, 0.312544147152, 0.360296120645, 0.0122079566092, -0.00456498588241, -0.0898228505177, 0.0714046248793, 0.102171263868, 0.100022455632, -0.00289545676449, -0.00791124681938, 0.54396316518, -0.536293513569, 0.0119076553369, -0.0173039244582, 0.0119632796147, 0.00146764882502]
 
@@ -1128,7 +1128,7 @@ R-sqr = 0.597963951127
     timedelta = round((timeend-timestart).total_seconds(), 2) 
     print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
-**OUTPUT**
+**출력**
 
 RMSE = 0.931981967875
 
@@ -1136,8 +1136,8 @@ R-sqr = 0.733445485802
 
 위의 셀을 실행하는 데 걸린 시간: 25.98초
 
-### <a name="gradient-boosting-trees-regression"></a>경사 부스팅 트리 회귀
-이 섹션의 코드에서는 NYC Taxi Trip 데이터에서 팁 금액을 예측하는 경사 부스팅 트리 모델을 학습, 평가, 저장하는 방법을 보여줍니다.
+### <a name="gradient-boosting-trees-regression"></a>그라데이션 향상 트리 회귀
+이 섹션의 코드에서는 NYC Taxi Trip 데이터에서 팁 금액을 예측하는 그라데이션 향상 트리 모델을 학습, 평가, 저장하는 방법을 보여줍니다.
 
 **학습 및 평가**
 
@@ -1179,7 +1179,7 @@ R-sqr = 0.733445485802
     print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
 
-**OUTPUT**
+**출력**
 
 RMSE = 0.928172197114
 
@@ -1187,7 +1187,7 @@ R-sqr = 0.732680354389
 
 위의 셀을 실행하는 데 걸린 시간: 20.9초
 
-**그림**
+**플롯**
 
 *tmp_results*는 이전 셀에서 Hive 테이블로 등록되어 있습니다. 테이블의 결과는 그래프로 나타내기 위해 *sqlResults* 데이터 프레임에 출력됩니다. 코드는 다음과 같습니다.
 
@@ -1276,7 +1276,7 @@ R-sqr = 0.732680354389
     print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
 
-**OUTPUT**
+**출력**
 
 위의 셀을 실행하는 데 걸린 시간: 161.21초
 
@@ -1301,7 +1301,7 @@ R-sqr을 계산하는 코드는 다음과 같습니다.
     print("R-sqr = %s" % r2)
 
 
-**OUTPUT**
+**출력**
 
 R-sqr = 0.619184907088
 
@@ -1388,7 +1388,7 @@ R-sqr = 0.619184907088
     print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
 
-**OUTPUT**
+**출력**
 
 RMSE = 0.906972198262
 
@@ -1424,11 +1424,11 @@ R-sqr = 0.740751197012
     oneHotTESTregScaled.unpersist()
 
 
-**OUTPUT**
+**출력**
 
 PythonRDD[122] at RDD at PythonRDD.scala: 43
 
-\* * 소비 노트북에서 사용할 모델 파일에 대 한 경로를 출력 합니다. ** 독립적인 데이터 집합을 사용하고 점수를 매기려면 이러한 파일 이름을 복사하여 "Consumption notebook(소비 Notebook)"에 붙여넣어야 합니다.
+**소비 노트북에 사용할 모델 파일에 대한 출력 경로입니다. ** 독립적인 데이터 집합을 사용하고 점수를 매기려면 이러한 파일 이름을 복사하여 "Consumption notebook(소비 Notebook)"에 붙여넣어야 합니다.
 
     # PRINT MODEL FILE LOCATIONS FOR CONSUMPTION
     print "logisticRegFileLoc = modelDir + \"" + logisticregressionfilename + "\"";
@@ -1439,7 +1439,7 @@ PythonRDD[122] at RDD at PythonRDD.scala: 43
     print "BoostedTreeRegressionFileLoc = modelDir + \"" + btregressionfilename + "\"";
 
 
-**OUTPUT**
+**출력**
 
 logisticRegFileLoc = modelDir + "LogisticRegressionWithLBFGS_2016-05-0316_47_30.096528"
 

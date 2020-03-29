@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 09/20/2018
 ms.author: memildin
 ms.openlocfilehash: b1e1402f58b103570d6a98a5f9a01c8168abf749
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77912364"
 ---
 # <a name="understand-azure-security-center-container-recommendations"></a>Azure Security Center 컨테이너 권장 사항 이해
@@ -35,16 +35,16 @@ Azure Security Center는 컨테이너를 보호하기 위한 다음과 같은 �
 
     ![컨테이너 탭](./media/security-center-container-recommendations/container-cis-benchmark.png)
 
-- **실시간 컨테이너 위협 방지**<br> Security Center는 AuditD 구성 요소를 사용 하는 Linux 컴퓨터의 컨테이너에 대 한 실시간 위협 방지 기능을 제공 합니다. 경고는 호스트의 권한 있는 컨테이너 생성, Docker 컨테이너 내에서 실행 중인 SSH(Secure Shell) 서버의 표시 또는 암호화 마이너 사용과 같은 여러 의심스러운 Docker 활동을 식별합니다. 이 정보를 사용하여 보안 문제를 신속하게 수정하고 컨테이너의 보안을 강화할 수 있습니다.
+- **실시간 컨테이너 위협 보호**<br> 보안 센터는 AuditD 구성 요소를 갖춘 Linux 시스템의 컨테이너에 대한 실시간 위협 보호 기능을 제공합니다. 경고는 호스트의 권한 있는 컨테이너 생성, Docker 컨테이너 내에서 실행 중인 SSH(Secure Shell) 서버의 표시 또는 암호화 마이너 사용과 같은 여러 의심스러운 Docker 활동을 식별합니다. 이 정보를 사용하여 보안 문제를 신속하게 수정하고 컨테이너의 보안을 강화할 수 있습니다.
 
     ![컨테이너 탭](./media/security-center-container-recommendations/docker-threat-detection.png)
 
 ## <a name="recommendations"></a>권장 사항
 IaaS Linux 머신에 호스트된 사용 가능한 컨테이너와 해당 Docker 구성의 보안 평가를 이해하는 데 도움이 되는 아래 테이블을 참조하세요.
 
-| 권장 구성 | 설명 | 재구성 |
+| 권장 | 설명 | 재구성 |
 | --- | --- | --- |
-|컨테이너 보안 구성에서 취약성 수정 |구성 모범 사례를 기반으로 컨테이너 보안 구성에서 취약성을 해결합니다.| 컨테이너 보안 구성에서 취약성을 해결하려면<br>1. 실패 한 규칙의 목록을 검토 합니다.<br>2. 지정 된 지침에 따라 각 규칙을 수정 합니다.|
+|컨테이너 보안 구성에서 취약성 수정 |구성 모범 사례를 기반으로 컨테이너 보안 구성에서 취약성을 해결합니다.| 컨테이너 보안 구성에서 취약성을 해결하려면<br>1. 실패한 규칙 목록을 검토합니다.<br>2. 지정된 지침에 따라 각 규칙을 수정합니다.|
 
 
 ## <a name="next-steps"></a>다음 단계
@@ -57,5 +57,5 @@ IaaS Linux 머신에 호스트된 사용 가능한 컨테이너와 해당 Docker
 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
 
 * [Azure Security Center에서 머신 및 애플리케이션 보호](security-center-virtual-machine-protection.md)
-* [Azure Security Center에서 보안 정책 설정](tutorial-security-policy.md) -- Azure 구독 및 리소스 그룹에 대해 보안 정책을 구성하는 방법을 알아봅니다.
-* [Azure Security Center에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) - 보안 경고를 관리하고 대응하는 방법을 알아봅니다.
+* [Azure 보안 센터에서 보안 정책 설정](tutorial-security-policy.md) - Azure 구독 및 리소스 그룹에 대한 보안 정책을 구성하는 방법을 알아봅니다.
+* [Azure 보안 센터에서 보안 경고 관리 및 응답](security-center-managing-and-responding-alerts.md) - 보안 경고를 관리하고 대응하는 방법을 알아봅니다.

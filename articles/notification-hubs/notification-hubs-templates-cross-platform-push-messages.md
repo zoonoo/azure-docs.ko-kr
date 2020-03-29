@@ -1,6 +1,6 @@
 ---
-title: Azure Notification Hubs 템플릿
-description: Azure Notification Hubs에 대 한 템플릿 사용에 대해 알아봅니다.
+title: Azure 알림 허브 템플릿
+description: Azure 알림 허브에 대한 템플릿 사용에 대해 자세히 알아보세요.
 services: notification-hubs
 documentationcenter: .net
 author: sethmanheim
@@ -17,10 +17,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: 7d88f57fe92b9da62cc9f90d64bdec4c27642fb0
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76263747"
 ---
 # <a name="templates"></a>템플릿
@@ -133,7 +133,7 @@ Windows 스토어 클라이언트 앱에 대한 해당 템플릿은 다음과 �
 
 다음 표는 템플릿에 허용되는 언어를 보여 줍니다.
 
-| Expression       | Description |
+| 식       | 설명 |
 | ---------------- | --- |
 | $(prop)          | 지정한 이름을 가진 이벤트 속성에 대한 참조입니다. 속성 이름은 대/소문자를 구분하지 않습니다. 이 식은 속성이 없으면 속성의 텍스트 값 또는 빈 문자열로 확인됩니다. |
 | $(prop, n)       | 위와 같이 텍스트는 n 자에서 명시적으로 잘립니다. 예를 들어 $(title, 20)은 title 속성의 내용을 20 자에서 자릅니다. |
@@ -159,7 +159,7 @@ Windows 스토어 클라이언트 앱에 대한 해당 템플릿은 다음과 �
 </tile>
 ```
 
-앞에서 설명한 대로 연결을 사용하는 경우 식을 중괄호로 묶어야 합니다. 예:
+앞에서 설명한 대로 연결을 사용하는 경우 식을 중괄호로 묶어야 합니다. 예를 들어:
 
 ```xml
 <tile>
@@ -173,4 +173,4 @@ Windows 스토어 클라이언트 앱에 대한 해당 템플릿은 다음과 �
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Notification Hubs에 대 한 자세한 정보](notification-hubs-push-notification-overview.md)
+[Azure 알림 허브에 대해 알아보기](notification-hubs-push-notification-overview.md)

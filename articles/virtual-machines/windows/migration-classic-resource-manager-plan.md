@@ -1,5 +1,5 @@
 ---
-title: 클래식에서 Azure Resource Manager로 마이그레이션 계획
+title: 클래식에서 Azure 리소스 관리자로마이그레이션 계획
 description: 클래식에서 Azure Resource Manager로 IaaS 리소스의 마이그레이션 계획
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 02/06/2020
 ms.author: tagore
 ms.openlocfilehash: 62cc33b9cfe1a0dc96f0a6a771b753ff48bfb9f4
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77919552"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>클래식에서 Azure Resource Manager로 IaaS 리소스의 마이그레이션 계획
 
 > [!IMPORTANT]
-> 현재 IaaS Vm의 90%가 [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/)를 사용 하 고 있습니다. 2020 년 2 월 28 일부 터 클래식 Vm은 더 이상 사용 되지 않으며 2023 년 3 월 1 일에 완전히 사용 중지 됩니다. 이 사용 중단 및 [영향](https://docs.microsoft.com/azure/virtual-machines/classic-vm-deprecation#how-does-this-affect-me)에 대 한 [자세한 내용을 알아보세요]( https://aka.ms/classicvmretirement) .
+> 현재 IaaS VM의 약 90%가 [Azure 리소스 관리자를](https://azure.microsoft.com/features/resource-manager/)사용하고 있습니다. 2020년 2월 28일부터 클래식 VM이 더 이상 사용되지 않으며 2023년 3월 1일에 완전히 폐기됩니다. 이 사용 중단에 대해 자세히 알아보고 이 사용 [중단이 사용자에게 미치는 영향에 대해](https://docs.microsoft.com/azure/virtual-machines/classic-vm-deprecation#how-does-this-affect-me)자세히 [알아봅니다.]( https://aka.ms/classicvmretirement)
 
 Azure Resource Manager는 수많은 놀라운 기능을 제공하지만, 유연하게 이전할 수 있도록 마이그레이션 과정을 계획하는 것이 매우 중요합니다. 계획에 시간을 들이면 마이그레이션 활동을 수행하는 동안 문제가 발생하지 않습니다.
 
@@ -114,7 +114,7 @@ Azure Resource Manager는 수많은 놀라운 기능을 제공하지만, 유연�
 
 - **가용성 집합** - 가상 네트워크(vNet)를 Azure Resource Manager로 마이그레이션하려면, VM이 포함된 클래식 배포(즉, 클라우드 서비스)가 모두 하나의 가용성 집합에 있어야 하거나 VM이 모두 가용성 집합에 있지 않아야 합니다. 클라우드 서비스에 둘 이상의 가용성 집합이 있으면 Azure Resource Manager와 호환되지 않으므로 마이그레이션이 중지됩니다.  또한 가용성 집합에 일부 VM이 없는 한편 가용성 집합에 없는 일부 VM이 있을 수 있습니다. 이를 해결하려면 클라우드 서비스를 재구성하거나 재조정해야 합니다.  여기에는 시간이 오래 걸릴 수 있으므로 적절히 계획합니다.
 
-- **웹/작업자 역할 배포** - 웹 및 작업자 역할이 포함된 Cloud Services는 Azure Resource Manager로 마이그레이션할 수 없습니다. 웹 및 작업자 역할의 콘텐츠를 마이그레이션하려면 코드 자체를 최신 PaaS App Services로 마이그레이션해야 합니다 .이 내용은이 문서의 범위를 벗어났습니다. 웹/작업자 역할을 그대로 유지 하 되 리소스 관리자 배포 모델로 클래식 Vm을 마이그레이션하려면 마이그레이션을 시작 하기 전에 먼저 가상 네트워크에서 웹/작업자 역할을 제거 해야 합니다.  일반적인 해결 방법은 웹/작업자 역할 인스턴스를 Express 경로 회로에도 연결 된 별도의 클래식 가상 네트워크로 이동 하는 것입니다. 이전 재배포 사례에서 새 클래식 가상 네트워크를 만들고, 웹/작업자 역할을 해당 새 가상 네트워크로 이동한 후 다시 배포 하 고, 이동 되는 가상 네트워크에서 배포를 삭제 합니다. 코드 변경이 필요 없습니다. 새 [Virtual Network 피어링](../../virtual-network/virtual-network-peering-overview.md) 기능을 사용하여 웹/작업자 역할이 포함된 가상 네트워크와 마이그레이션될 가상 네트워크와 동일한 Azure 지역에 있는 다른 가상 네트워크를 피어링할 수 있으므로(**피어링된 가상 네트워크를 마이그레이션할 수 없으므로 가상 네트워크 마이그레이션이 완료된 후**), 성능 손실과 대기 시간/대역폭 패널티 없이 동일한 기능을 제공합니다. [Virtual Network 피어링](../../virtual-network/virtual-network-peering-overview.md)을 추가하면 웹/작업자 역할 배포를 쉽게 완화할 수 있으며 Azure Resource Manager에서 마이그레이션을 차단할 수 없습니다.
+- **웹/작업자 역할 배포** - 웹 및 작업자 역할이 포함된 Cloud Services는 Azure Resource Manager로 마이그레이션할 수 없습니다. 웹 및 작업자 역할의 내용을 마이그레이션하려면 코드 자체를 최신 PaaS 앱 서비스로 마이그레이션해야 합니다(이 설명은 이 문서의 범위를 벗어남). 웹/작업자 역할을 그대로 두고 기존 VM을 리소스 관리자 배포 모델로 마이그레이션하려면 마이그레이션을 시작하기 전에 먼저 가상 네트워크에서 웹/작업자 역할을 제거해야 합니다.  일반적인 해결책은 웹/작업자 역할 인스턴스를 ExpressRoute 회로에 연결된 별도의 클래식 가상 네트워크로 이동하는 것입니다. 이전 재배포 사례에서는 새 클래식 가상 네트워크를 만들고 웹/작업자 역할을 새 가상 네트워크에 이동/다시 배포한 다음 이동중인 가상 네트워크에서 배포를 삭제합니다. 코드 변경이 필요 없습니다. 새 [Virtual Network 피어링](../../virtual-network/virtual-network-peering-overview.md) 기능을 사용하여 웹/작업자 역할이 포함된 가상 네트워크와 마이그레이션될 가상 네트워크와 동일한 Azure 지역에 있는 다른 가상 네트워크를 피어링할 수 있으므로(**피어링된 가상 네트워크를 마이그레이션할 수 없으므로 가상 네트워크 마이그레이션이 완료된 후**), 성능 손실과 대기 시간/대역폭 패널티 없이 동일한 기능을 제공합니다. [Virtual Network 피어링](../../virtual-network/virtual-network-peering-overview.md)을 추가하면 웹/작업자 역할 배포를 쉽게 완화할 수 있으며 Azure Resource Manager에서 마이그레이션을 차단할 수 없습니다.
 
 - **Azure Resource Manager 할당량** - Azure 지역에는 클래식 및 Azure Resource Manager 모두에 대해 별도의 할당량/제한이 있습니다. 마이그레이션 시나리오에서 새 하드웨어가 사용되지는 않지만 *(기존의 VM을 클래식에서 Azure Resource Manager로 전환 중이므로)* Azure Resource Manager 할당량은 마이그레이션을 시작하기 전에 충분한 용량으로 계속 유지해야 합니다. 문제를 일으키는 주요 제한 사항은 아래와 같습니다.  할당량 지원 티켓을 열어 한도를 높입니다.
 
@@ -126,7 +126,7 @@ Azure Resource Manager는 수많은 놀라운 기능을 제공하지만, 유연�
   - 부하 분산 장치
   - 공용 IP
   - 고정 공용 IP
-  - 코어
+  - 코어 수
   - 네트워크 보안 그룹
   - 경로 테이블
 
@@ -140,13 +140,13 @@ Azure Resource Manager는 수많은 놀라운 기능을 제공하지만, 유연�
     Get-AzVMUsage -Location <azure-region>
     ```
 
-    **네트워크** *(가상 네트워크, 고정 공용 Ip, 공용 Ip, 네트워크 보안 그룹, 네트워크 인터페이스, 부하 분산 장치, 경로 테이블)*
+    **네트워크** *(Virtual Network, 고정 공용 IP, 공용 IP, 네트워크 보안 그룹, 네트워크 인터페이스, 부하 분산 장치, 경로 테이블)*
 
     ```powershell
     Get-AzUsage /subscriptions/<subscription-id>/providers/Microsoft.Network/locations/<azure-region> -ApiVersion 2016-03-30 | Format-Table
     ```
 
-    **저장소** *(저장소 계정)*
+    **스토리지** *(Storage 계정)*
 
     ```powershell
     Get-AzStorageUsage
@@ -203,7 +203,7 @@ Azure Resource Manager에 있으므로 이제 플랫폼을 극대화합니다.  
 
 이제 Azure Resource Manager에서 사용하도록 설정하려는 서비스에 대해 분명한 목적이 있어야 합니다.  많은 고객들이 Azure 환경에서 다음과 같은 강력한 요소를 찾고 있습니다.
 
-- [역할 기반 Access Control](../../role-based-access-control/overview.md)
+- [역할 기반 액세스 제어](../../role-based-access-control/overview.md).
 - [쉽고 제어 가능한 배포를 위한 Azure Resource Manager 템플릿](../../azure-resource-manager/templates/overview.md)
 - [태그](../../azure-resource-manager/management/tag-resources.md).
 - [활동 제어](../../azure-resource-manager/management/view-activity-logs.md)

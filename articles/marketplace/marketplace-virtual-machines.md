@@ -2,18 +2,18 @@
 title: Azure Marketplace에 대한 Virtual Machine 제품 게시 가이드
 description: 이 아티클에서는 Marketplace에서 배포할 가상 머신 및 소프트웨어 평가판을 게시하기 위한 요구 사항을 설명합니다.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-author: ellacroi
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/09/2018
-ms.author: ellacroi
-ms.openlocfilehash: 0f2047501b6c57b2bb98ff7e3c56498417644324
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 34de5f59e96a37282063741a1664f512697c167b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818985"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288719"
 ---
 # <a name="virtual-machine-offer-publishing-guide"></a>Virtual Machines 제품 게시 가이드
 
@@ -23,14 +23,7 @@ Marketplace를 통해 배포되고 청구되는 트랜잭션 제품은 다음과
 
 ## <a name="free-trial"></a>평가판 
 
-BYOL(사용자 라이선스 필요) 청구 모델을 사용할 때 한정된 기간 소프트웨어 라이선스에 액세스하여 제품을 테스트하도록 사용자를 위해 정렬할 수 있습니다. 이 제품을 배포하는 요구 사항은 다음과 같습니다. 
-
-|요구 사항  |세부 정보  |
-|---------|---------|
-|평가판 기간 및 체험 환경     |   고객은 제한된 기간 동안 앱을 체험해 볼 수 있습니다. 고객은 제품에 대한 라이선스 또는 구독 요금을 지급할 필요가 없습니다. 고객은 기본 Microsoft 자사 제품 또는 서비스에 대한 요금을 지급할 필요가 없습니다. 모든 평가판 옵션은 Azure 구독에 배포됩니다. 비용 최적화 및 관리를 단독으로 제어할 수 있습니다. 평가판 또는 대화형 데모 중에서 선택할 수 있습니다. 어떤 방식을 선택하든, 평가판은 추가 비용 없이 제품을 사용해볼 수 있는 미리 설정된 기간을 제공해야 합니다.|
-|쉽게 구성 가능하고 즉시 사용할 수 있는 솔루션    |  앱은 구성 및 설정이 빠르고 쉬워야 합니다.       |
-|가용성/작동 시간    |    SaaS 또는 플랫폼의 가동 시간은 최소 99.9%여야 합니다.     |
-|Azure Active Directory     |    제품은 동의가 이루어질 경우 Azure AD(Azure Active Directory) 페더레이션 SSO(Single Sign-On)(Azure AD 페더레이션 SSO)를 허용해야 합니다.     |
+BYOL(사용자 라이선스 필요) 청구 모델을 사용할 때 한정된 기간 소프트웨어 라이선스에 액세스하여 제품을 테스트하도록 사용자를 위해 정렬할 수 있습니다. 
 
 ## <a name="test-drive"></a>시험 사용
 
@@ -63,7 +56,7 @@ IaaS(Infrastructure-as-a-Service) 또는 SaaS(Software-as-a-Service) 앱을 통�
 | Azure 호환 VHD(가상 하드 디스크) | VM은 Windows 또는 Linux에서 빌드해야 합니다. <ul> <li>Linux VHD를 만드는 방법에 대한 자세한 내용은 [Azure 보증 Linux 배포판](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)을 참조하세요.</li> <li>Windows VHD를 만드는 방법에 대한 자세한 내용은 [Azure 호환 VHD 만들기](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md)를 참조하세요.</li> </ul> |  
 
 >[!Note]
->이제 CSP (클라우드 솔루션 공급자) 파트너 채널 옵트인을 사용할 수 있습니다.  Microsoft CSP 파트너 채널을 통한 제품 마케팅에 대 한 자세한 내용은 [클라우드 솔루션 공급자](./cloud-solution-providers.md) 를 참조 하세요.
+>이제 CSP(클라우드 솔루션 공급자) 파트너 채널 옵트인을 사용할 수 있습니다.  Microsoft CSP 파트너 채널을 통한 오퍼 마케팅에 대한 자세한 내용은 [클라우드 솔루션 공급자를](./cloud-solution-providers.md) 참조하십시오.
 
 ## <a name="next-steps"></a>다음 단계
 

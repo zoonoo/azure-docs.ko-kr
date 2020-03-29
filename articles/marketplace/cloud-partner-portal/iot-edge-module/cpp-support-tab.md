@@ -1,19 +1,18 @@
 ---
-title: Azure IoT Edge 모듈에 대 한 지원 | Azure Marketplace
+title: Azure IoT 에지 모듈 지원 | Azure 마켓플레이스
 description: IoT Edge 모듈에 대한 옵션을 지원합니다.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.author: pabutler
-ms.openlocfilehash: fe8ff895990471107cfaa229f7b4ced28b477afa
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 439de17ef9eb9c0c2c264884652236d47600b8ea
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73813536"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80286509"
 ---
 # <a name="iot-edge-module-support-tab"></a>IoT Edge 모듈 지원 탭
 
@@ -27,15 +26,15 @@ ms.locfileid: "73813536"
 
 |  **필드**                |     **설명**                                                          |
 |  ---------                |     ---------------                                                          |
-| ***엔지니어링 연락처***  |  *Microsoft와 조직 간의 기술 담당자의 역할* | 
-| **이름\***                  | 기술/엔지니어링 지원의 역할을 하는 개인 또는 그룹의 이름     |
-| **전자 메일\***                 | 이 기술 담당자의 이메일 주소                                      |
-| **전화\***                 | 기술 지원 전화 번호                                           |
+| ***엔지니어링 연락처***  |  *Microsoft와 조직 간의 기술 연락처 역할을 합니다.* | 
+| **이름\***                  | 기술/엔지니어링 지원 역할을 하는 사람 또는 그룹의 이름     |
+| **메일 주소\***                 | 이 기술 담당자의 이메일 주소                                      |
+| **Phone\***                 | 기술 지원 전화 번호                                           |
 | ***고객 지원***  | *Azure에서 고객이 연 지원 티켓 수신* |
 | **이름\***                  | 고객 지원 역할을 하는 사람 또는 그룹의 이름                  |
-| **전자 메일\***                 | 고객 지원 이메일 주소                                            |
-| **전화\***                 | 고객 지원 전화 번호                                            |
-| ***지원 Url***  | *고객이 지원 티켓을 열 때 Microsoft에서 사용하는 지원 사이트* |
+| **메일 주소\***                 | 고객 지원 이메일 주소                                            |
+| **Phone\***                 | 고객 지원 전화 번호                                            |
+| ***지원 URL***  | *고객이 지원 티켓을 열 때 Microsoft에서 사용하는 지원 사이트* |
 | **공용 Azure**          | 공용 인터넷 지원 사이트에 대한 URL                                         |
 | **Azure Government 클라우드**| 정부 클라우드 지원 사이트에 대한 URL                                        |
 |   |   |

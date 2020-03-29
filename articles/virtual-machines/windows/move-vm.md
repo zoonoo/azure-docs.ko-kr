@@ -14,14 +14,14 @@ ms.topic: article
 ms.date: 07/03/2019
 ms.author: cynthn
 ms.openlocfilehash: ed29c92d20a6b0d749ec44a22f42ec446ec58650
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77919569"
 ---
 # <a name="move-a-windows-vm-to-another-azure-subscription-or-resource-group"></a>다른 Azure 구독 또는 리소스 그룹으로 Windows VM 이동
-이 문서에서는 리소스 그룹 또는 구독 간에 Windows VM(가상 머신)을 이동하는 방법을 안내합니다. 개인 구독에서 원래 VM을 만들고 회사 구독으로 이동한 후 작업을 계속하려는 경우에 구독 간의 이동이 편리할 수 있습니다. VM을 이동 하기 위해 VM을 시작할 필요는 없으며 이동 중에도 계속 실행 되어야 합니다.
+이 문서에서는 리소스 그룹 또는 구독 간에 Windows VM(가상 머신)을 이동하는 방법을 안내합니다. 개인 구독에서 원래 VM을 만들고 회사 구독으로 이동한 후 작업을 계속하려는 경우에 구독 간의 이동이 편리할 수 있습니다. VM을 이동하기 위해 VM을 시작할 필요가 없으며 이동 중에 계속 실행되어야 합니다.
 
 > [!IMPORTANT]
 >새 리소스 ID는 이동의 일부로 생성됩니다. VM을 이동한 후에는 새 리소스 ID를 사용하도록 도구와 스크립트를 업데이트해야 합니다.
@@ -38,7 +38,7 @@ ms.locfileid: "77919569"
  Get-AzResource -ResourceGroupName myResourceGroup | Format-table -wrap -Property ResourceId
 ```
 
-이전 명령의 출력을 사용 하 여 [-AzResource](https://docs.microsoft.com/powershell/module/az.resources/move-azresource) 에 대 한 쉼표로 구분 된 리소스 id 목록을 만들어 각 리소스를 대상으로 이동할 수 있습니다.
+이전 명령의 출력을 사용하여 쉼표로 구분된 리소스 아이디 목록을 [Move-AzResource로](https://docs.microsoft.com/powershell/module/az.resources/move-azresource) 만들어 각 리소스를 대상으로 이동할 수 있습니다.
 
 ```azurepowershell-interactive
 Move-AzResource -DestinationResourceGroupName "myDestinationResourceGroup" `

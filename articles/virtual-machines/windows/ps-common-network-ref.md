@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: cynthn
 ms.openlocfilehash: b9debe04759772ef51946dc99943ec4eff6f61dd
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77911834"
 ---
 # <a name="common-powershell-commands-for-azure-virtual-networks"></a>Azure Virtual Networks에 대한 공통 PowerShell 명령
@@ -34,7 +34,7 @@ ms.locfileid: "77911834"
 
 ## <a name="create-network-resources"></a>네트워크 리소스 만들기
 
-| 작업 | 명령 |
+| Task | 명령 |
 | ---- | ------- |
 | 서브넷 구성 만들기 |$subnet1 = [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig) -Name "mySubnet1" -AddressPrefix XX.X.X.X/XX<BR>$subnet2 = New-AzVirtualNetworkSubnetConfig -Name "mySubnet2" -AddressPrefix XX.X.X.X/XX<BR><BR>일반적인 네트워크는 [인터넷 연결 부하 분산 장치](../../load-balancer/load-balancer-internet-overview.md)에 대한 서브넷 및 [내부 부하 분산 장치](../../load-balancer/load-balancer-internal-overview.md)에 대한 별도 서브넷을 가질 수도 있습니다. |
 | 가상 네트워크 만들기 |$vnet = [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork) -Name "myVNet" -ResourceGroupName $myResourceGroup -Location $location -AddressPrefix XX.X.X.X/XX -Subnet $subnet1, $subnet2 |
@@ -50,7 +50,7 @@ ms.locfileid: "77911834"
 
 ## <a name="get-information-about-network-resources"></a>네트워크 리소스에 대한 정보 가져오기
 
-| 작업 | 명령 |
+| Task | 명령 |
 | ---- | ------- |
 | 가상 네트워크 나열 |[Get-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork) -ResourceGroupName $myResourceGroup<BR><BR>리소스 그룹의 모든 가상 네트워크를 나열합니다. |
 | 가상 네트워크에 대한 정보 가져오기 |Get-AzVirtualNetwork -Name "myVNet" -ResourceGroupName $myResourceGroup |
@@ -64,7 +64,7 @@ ms.locfileid: "77911834"
 
 ## <a name="manage-network-resources"></a>네트워크 리소스 관리
 
-| 작업 | 명령 |
+| Task | 명령 |
 | ---- | ------- |
 | 가상 네트워크에 서브넷 추가 |[Add-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/add-azvirtualnetworksubnetconfig) -AddressPrefix XX.X.X.X/XX -Name "mySubnet1" -VirtualNetwork $vnet<BR><BR>기존 가상 네트워크에 서브넷을 추가합니다. $vnet 값은 Get-AzVirtualNetwork에서 반환되는 개체를 나타냅니다. |
 | 가상 네트워크 삭제 |[Remove-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/remove-azvirtualnetwork) -Name "myVNet" -ResourceGroupName $myResourceGroup<BR><BR>리소스 그룹에서 지정된 가상 네트워크를 제거합니다. |

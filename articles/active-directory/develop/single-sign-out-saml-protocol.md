@@ -18,10 +18,10 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
 ms.openlocfilehash: 95d3deff73ce357f012b15a7fc1cfa3decdb4bda
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76701368"
 ---
 # <a name="single-sign-out-saml-protocol"></a>Single Sign-Out SAML 프로토콜
@@ -71,9 +71,9 @@ Azure AD는 `LogoutRequest` 요소에 대한 응답에 `LogoutResponse`를 보�
 Azure AD는 `LogoutResponse` 요소에 `ID`, `Version` 및 `IssueInstant` 값을 설정합니다. 또한 `InResponseTo` 요소를 응답을 도출한 `LogoutRequest`의 `ID` 특성 값으로 설정합니다.
 
 ### <a name="issuer"></a>발급자
-Azure AD는이 값을 `https://login.microsoftonline.com/<TenantIdGUID>/`로 설정 합니다. 여기서 \<TenantIdGUID >은 Azure AD 테 넌 트의 테 넌 트 ID입니다.
+Azure AD는 `https://login.microsoftonline.com/<TenantIdGUID>/` \<이 값을 TenantIdGUID> Azure AD 테넌트의 테넌트 ID로 설정합니다.
 
 `Issuer` 요소 값을 평가하려면 애플리케이션 등록 중에 제공한 **앱 ID URI** 값을 사용합니다.
 
 ### <a name="status"></a>상태
-Azure AD는 `Status` 요소의 `StatusCode` 요소를 사용 하 여 로그 아웃 성공 또는 실패를 표시 합니다. 로그 아웃 시도가 실패 하면 `StatusCode` 요소에도 사용자 지정 오류 메시지가 포함 될 수 있습니다.
+Azure AD는 `StatusCode` 요소의 `Status` 요소를 사용하여 로그아웃의 성공 또는 실패를 나타냅니다. 로그아웃 시도가 실패하면 `StatusCode` 요소에 사용자 지정 오류 메시지가 포함될 수도 있습니다.

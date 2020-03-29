@@ -1,19 +1,18 @@
 ---
-title: Azure IoT Edge 모듈 제품 게시 | Azure Marketplace
+title: Azure IoT 에지 모듈 제공 게시 | Azure 마켓플레이스
 description: IoT Edge 모듈 제안을 게시하는 방법을 설명합니다.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/18/2018
-ms.author: pabutler
-ms.openlocfilehash: 2310d7a7cad16009bbb58469190a77eedb0619f8
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: b30fde19c4474ba7e2d3bbaed44802884a5b27f4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73813828"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80286526"
 ---
 # <a name="publish-iot-edge-module-offer"></a>IoT Edge 모듈 제안 게시
 
@@ -29,11 +28,11 @@ ms.locfileid: "73813828"
 <!-- P2: we need to tell them that if an offer seems stuck in a step, to know that they should file a support ticket (link to support ticket doc) -->
 
 
-|  **게시 단계**           | **Time**    | **설명**                                                            |
+|  **게시 단계**           | **시간**    | **설명**                                                            |
 |  -------------------           | --------    | ---------------                                                            |
 | 필수 구성 요소 유효성 검사         | 15분   | 제안 정보 및 제안 설정의 유효성이 검사됩니다.                        |
 | 인증                  | 2주 | Azure 인증 팀에서 제안을 분석합니다. 이 단계에서는 바이러스, 맬웨어, 안전 규정 준수 및 보안 문제에 대한 검사를 수행합니다. 또한 이 IoT Edge 모듈 제안이 모든 자격 조건을 충족 하는지 확인합니다([필수 구성 요소](./cpp-prerequisites.md) 및 [기술 자산 준비](./cpp-create-technical-assets.md) 참조). 문제가 발견되면 피드백이 제공됩니다. |
-| 패키징 | 1시간  | 제품의 기술 자산은 고객이 사용 하도록 패키지 되며 리드 시스템이 구성 및 설정 됩니다. |
+| 패키징 | 1시간  | 오퍼의 기술 자산은 고객용으로 패키징되며 잠재 고객 시스템이 구성 및 설정됩니다. |
 |  게시자 로그오프             |  -        | 제안이 라이브 상태가 되기 전에 최종 게시자가 검토 및 확인합니다. 선택한 구독에 제안을 배포하여(제안 정보 단계에서) 모든 요구 사항을 충족하는지 확인할 수 있습니다.  제안을 다음 단계로 넘길 수 있도록 **라이브로 전환**을 선택합니다. |
 | 패키징                 | 1시간 | 최종 제안은 마켓플레이스 프로덕션 시스템 및 지역에 복제됩니다. | 
 | 라이브                           | 4일 |제안이 릴리스되고, 필요한 지역에 복제되고, 공개적으로 사용할 수 있게 됩니다. |

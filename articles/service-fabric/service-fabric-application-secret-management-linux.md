@@ -6,17 +6,17 @@ ms.topic: conceptual
 ms.date: 01/04/2019
 ms.author: shsha
 ms.openlocfilehash: b8e0a19e3f654fc561e7c7e26c6a2da463e24d5f
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78969026"
 ---
 # <a name="set-up-an-encryption-certificate-and-encrypt-secrets-on-linux-clusters"></a>Linux 클러스터에서 암호화 인증서 설정 및 비밀 암호화
-이 문서에서는 Linux 클러스터에서 암호화 인증서를 설정하고 이를 사용하여 비밀을 암호화하는 방법을 알아봅니다. Windows 클러스터의 경우 [windows 클러스터에서 암호화 인증서 설정 및 암호 암호화][secret-management-windows-specific-link]를 참조 하세요.
+이 문서에서는 Linux 클러스터에서 암호화 인증서를 설정하고 이를 사용하여 비밀을 암호화하는 방법을 알아봅니다. Windows 클러스터의 경우 [Windows 클러스터에서 암호화 인증서 설정 및 비밀 암호화][secret-management-windows-specific-link]를 참조하세요.
 
 ## <a name="obtain-a-data-encipherment-certificate"></a>데이터 암호화 인증서 가져오기
-데이터 암호화 인증서는 서비스의 Servicemanifest.xml에 있는 서비스의 설정 .xml 및 [환경 변수][environment-variables-link] 에서 [매개 변수의][parameters-link] 암호화 및 암호 해독에 엄격 하 게 사용 됩니다. 인증 또는 암호화 텍스트의 서명에는 사용되지 않습니다. 인증서는 다음 요구 사항을 충족해야 합니다.
+데이터 암호화 인증서는 서비스의 Settings.xml에 포함된 [매개 변수][parameters-link] 및 서비스의 ServiceManifest.xml에 있는 [환경 변수][environment-variables-link]를 암호화 및 해독하는 용도로만 엄격하게 사용됩니다. 인증 또는 암호화 텍스트의 서명에는 사용되지 않습니다. 인증서는 다음 요구 사항을 충족해야 합니다.
 
 * 인증서에 프라이빗 키가 포함되어 있어야 합니다.
 * 인증서 키 사용에는 데이터 암호화(10)가 포함되어야 하며, 서버 인증 또는 클라이언트 인증은 포함되면 안 됩니다.
@@ -29,7 +29,7 @@ ms.locfileid: "78969026"
   ```
 
 ## <a name="install-the-certificate-in-your-cluster"></a>클러스터에 인증서 설치
-`/var/lib/sfcerts` 아래에 있는 클러스터의 각 노드에 인증서를 설치해야 합니다. 서비스가 실행 중인 사용자 계정(기본적으로 sfuser)에 설치된 인증서(즉, 현재 예제의 경우 **)에 대한** 읽기 권한이 있어야 합니다`/var/lib/sfcerts/TestCert.pem`.
+`/var/lib/sfcerts` 아래에 있는 클러스터의 각 노드에 인증서를 설치해야 합니다. 서비스가 실행 중인 사용자 계정(기본적으로 sfuser)에 설치된 인증서(즉, 현재 예제의 경우 `/var/lib/sfcerts/TestCert.pem`)에 대한 **읽기 권한이 있어야 합니다**.
 
 ## <a name="encrypt-secrets"></a>비밀 암호화
 다음 코드 조각은 비밀을 암호화하는 데 사용할 수 있습니다. 이 코드 조각은 값만 암호화하며, 암호화 텍스트에 서명하지 **않습니다**. 비밀 값의 암호 텍스트를 생성하려면 클러스터에 설치된 것과 동일한 암호화 인증서를 **사용해야 합니다**.
@@ -45,7 +45,7 @@ user@linux:$ cat encrypted.txt | base64 -d | openssl smime -decrypt -inform der 
 ```
 
 ## <a name="next-steps"></a>다음 단계
-[응용 프로그램에서 암호화 된 암호를 지정][secret-management-specify-encrypted-secrets-link] 하는 방법을 알아봅니다.
+[애플리케이션에서 암호화된 비밀을 지정하는][secret-management-specify-encrypted-secrets-link] 방법을 알아봅니다.
 
 <!-- Links -->
 [parameters-link]:service-fabric-how-to-parameterize-configuration-files.md

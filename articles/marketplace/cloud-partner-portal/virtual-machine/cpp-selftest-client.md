@@ -1,19 +1,18 @@
 ---
-title: 가상 컴퓨터를 미리 확인 하는 자체 테스트 클라이언트 | Azure Marketplace
+title: 가상 컴퓨터의 사전 유효성을 검사하기 위한 자체 테스트 클라이언트 | Azure 마켓플레이스
 description: Azure Marketplace용 가상 머신 이미지의 사전 유효성 검사를 위한 자체 테스트 클라이언트를 만드는 방법을 설명합니다.
-services: Azure, Marketplace, Cloud Partner Portal, Virtual Machine
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/23/2018
-ms.author: pabutler
-ms.openlocfilehash: fc62875873f38630e592c79aebd6a138665ed6e4
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: fb568400cb60f108303909353bfa703e98ab6157
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73809202"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80286424"
 ---
 # <a name="create-a-self-test-client-to-pre-validate-an-azure-virtual-machine-image"></a>Azure Virtual Machine 이미지의 유효성을 사전 검사하는 자체 테스트 클라이언트 만들기
 
@@ -21,7 +20,7 @@ ms.locfileid: "73809202"
 
 ## <a name="development-and-testing-overview"></a>개발 및 테스트 개요
 
-자체 테스트 프로세스의 일부로, Azure Marketplace에 연결 하 여 Azure 구독에서 실행 중인 VM의 유효성을 검사 하는 로컬 클라이언트를 만듭니다. VM은 Windows 또는 Linux 운영 체제를 실행할 수 있습니다.
+자체 테스트 프로세스의 일부로 Azure Marketplace에 연결하는 로컬 클라이언트를 만들어 Azure 구독에서 실행 중인 VM의 유효성을 검사합니다. VM은 Windows 또는 Linux 운영 체제를 실행할 수 있습니다.
 
 로컬 클라이언트는 자체 테스트 API를 사용하여 인증하고, 연결 정보를 보내며, 테스트 결과를 받는 스크립트를 실행합니다.
 
@@ -65,7 +64,7 @@ Request body:    The Request body parameters should use the following JSON forma
 
 |      필드         |    설명    |
 |  ---------------   |  ---------------  |
-|  권한 부여     |  "Xxxxx" 문자열에는 PowerShell을 사용 하 여 만들 수 있는 AD (Azure Active Directory) 클라이언트 토큰이 포함 되어 있습니다.          |
+|  권한 부여     |  "베어러 xxxx-xxxx-xxxxxx-xxxxxx" 문자열에는 PowerShell을 사용하여 만들 수 있는 Azure Active Directory(AD) 클라이언트 토큰이 포함되어 있습니다.          |
 |  DNSName           |  테스트할 VM의 DNS 이름    |
 |  사용자              |  VM에 로그인하는 데 사용할 사용자 이름         |
 |  암호          |  VM에 로그인하는 데 사용할 암호          |
@@ -220,7 +219,7 @@ https://isvapp.azurewebsites.net/selftest-vm
 
 다음 단계에 따라 애플리케이션을 만들려는 Azure AD 테넌트를 선택합니다.
 
-1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
+1. [Azure 포털에](https://portal.azure.com/)로그인합니다.
 2. 위쪽의 메뉴 모음에서 계정을 선택하고, [디렉터리] 목록에서 애플리케이션을 등록하려는 Active Directory 테넌트를 선택합니다. 또는 **디렉터리 + 구독** 아이콘을 선택하여 글로벌 구독 필터를 확인합니다. 다음 화면 캡처에는 이 필터의 예가 나와 있습니다.
 
    ![구독 필터 선택](./media/stclient-subscription-filter.png)
@@ -231,7 +230,7 @@ https://isvapp.azurewebsites.net/selftest-vm
 
    **테넌트 정보를 얻으려면,**
 
-   **Azure Active Directory 개요**에서 "속성"을 검색 한 다음 **속성**을 선택 합니다. 다음 화면 캡처를 예로 사용합니다.
+   **Azure Active Directory 개요에서**"속성"을 검색한 다음 **속성을**선택합니다. 다음 화면 캡처를 예로 사용합니다.
 
    - **이름** - 테넌트 이름 또는 디렉터리 이름
    - **디렉터리 ID** - 테넌트 ID 또는 디렉터리 ID입니다. 또는 스크롤 막대를 사용하여 속성을 찾습니다.
@@ -246,9 +245,9 @@ https://isvapp.azurewebsites.net/selftest-vm
 2. **앱 등록** 아래에서 **+ 새 애플리케이션 등록**을 선택합니다.
 3. **만들기** 아래에서 다음 필드에 필요한 정보를 제공합니다.
 
-   - **이름** -앱의 이름을 입력 합니다. 예를 들면 "SelfTestClient"입니다.
-   - **응용 프로그램 종류** - **웹 앱/** a p i 선택
-   - 로그온 **URL** -유형 "https:\//isvapp.azurewebsites.net/selftest-vm"
+   - **이름** - 앱에 대한 친숙한 이름을 입력합니다. 예를 들어 "셀프테스트클라이언트"입니다.
+   - **응용 프로그램 유형** - **웹 앱/API** 선택
+   - **서명 URL** - "https:\//isvapp.azurewebsites.net/selftest-vm"을 입력합니다.
 
 4. **만들기**를 선택합니다.
 5. **앱 등록** 또는 **등록된 앱** 아래에서 **애플리케이션 ID**를 복사합니다.
@@ -259,18 +258,18 @@ https://isvapp.azurewebsites.net/selftest-vm
 7. **필요한 권한**을 선택하여 애플리케이션에 대한 권한을 구성합니다.
 8. **필요한 권한** 아래에서 **+ 추가**를 선택합니다.
 9. **API 액세스 추가** 아래에서 **API 선택**을 선택합니다.
-10. **Api 선택**에서 "microsoft Azure 클래식 배포 모델"을 입력 하 여 api를 검색 합니다.
+10. **API 선택에서**"Windows Azure 클래식 배포 모델"을 입력하여 API를 검색합니다.
 11. 검색 결과에서 **Windows Azure 클래식 배포 모델**을 선택한 다음, **선택**을 클릭합니다.
 
     ![앱에 대한 다중 테넌트 구성](./media/stclient-select-api.png)
 
 12. **API 액세스 추가** 아래에서 **권한 선택**을 선택합니다.
-13. **"Windows Azure Service Management API" 액세스**를 선택 합니다.
+13. **"Windows Azure 서비스 관리 API" 액세스를**선택합니다.
 
     ![앱에 대한 API 액세스 사용](./media/stclient-enable-api-access.png)
 
 14. **선택**을 클릭합니다.
-15. **완료**를 선택합니다.
+15. **완료를 선택합니다.**
 16. **설정** 아래에서 **속성**을 선택합니다.
 17. **속성** 아래에서 **다중 테넌트**까지 아래로 스크롤합니다. **예**를 선택합니다.
 
@@ -280,13 +279,13 @@ https://isvapp.azurewebsites.net/selftest-vm
 19. **설정** 아래에서 **키**를 선택합니다.
 20. 키 **설명** 텍스트 상자를 선택하여 비밀 키를 만듭니다. 다음 필드를 구성합니다.
 
-    - 키 이름을 입력합니다. 예: "selftestclient"
-    - **만료** 드롭다운 목록에서 "1 년 안에"를 선택 합니다.
+    - 키 이름을 입력합니다. 예를 들어 , "셀프클라이언트"
+    - 만료 **된** 드롭 다운 목록에서 "1 년 중"을 선택 합니다.
     - **저장**을 선택하여 키를 생성합니다.
     - **값** 아래에서 키를 복사합니다.
 
       >[!Important]
-      >**키 양식을 종료** 한 후에는 키 값을 볼 수 없습니다.
+      >**키** 양식을 종료한 후에는 키 값을 볼 수 없습니다.
 
     ![키 값 양식](./media/stclient-create-key.png)
 
@@ -301,7 +300,7 @@ https://isvapp.azurewebsites.net/selftest-vm
 
 ### <a name="to-create-and-get-a-token-using-postman"></a>Postman을 사용하여 토큰 만들기 및 가져오기
 
- 권한 있는 애플리케이션에 대한 토큰을 Auth0에 요청하려면 다음 형식의 페이로드가 있는 [https://login.microsoftonline.com/common/oauth2/token](https://login.microsoftonline.com/common/oauth2/token) 엔드포인트에 대한 POST 작업을 수행합니다.
+ 인증된 응용 프로그램에 대해 Auth0에 토큰을 요청하려면 다음 [https://login.microsoftonline.com/common/oauth2/token](https://login.microsoftonline.com/common/oauth2/token) 형식의 페이로드를 사용하여 끝점에 POST 작업을 수행합니다.
 
 ```
 Method Type : POST
@@ -330,7 +329,7 @@ Content-Type: application/x-www-form-urlencoded
 
 ### <a name="to-create-and-get-a-token-using-curl-in-linux"></a>Linux에서 cURL을 사용하여 토큰 만들기 및 가져오기
 
-권한 있는 애플리케이션에 대한 토큰을 Auth0에 요청하려면 다음 형식의 페이로드가 있는 [https://login.microsoftonline.com/common/oauth2/token](https://login.microsoftonline.com/common/oauth2/token) 엔드포인트에 대한 POST 작업을 수행합니다.
+인증된 응용 프로그램에 대해 Auth0에 토큰을 요청하려면 다음 [https://login.microsoftonline.com/common/oauth2/token](https://login.microsoftonline.com/common/oauth2/token) 형식의 페이로드를 사용하여 끝점에 POST 작업을 수행합니다.
 
 ```
 Request:
@@ -351,7 +350,7 @@ Response:
 
 ### <a name="to-create-and-get-a-token-using-c35"></a>C#을 사용하여 토큰 만들기 및 가져오기
 
-승인 된 응용 프로그램에 대 한 토큰에 대해 좋아하게 되었습니다를 요청 하려면 다음 형식의 페이로드를 사용 하 여 https:\//soamtenant.auth0.com/oauth/token 끝점에 대 한 POST 작업을 수행 합니다.
+인증된 응용 프로그램에 대해 Auth0에 토큰을 요청하려면 다음 형식의\/페이로드가 있는 https: /soamtenant.auth0.com/oauth/token 끝점에 POST 작업을 수행합니다.
 
 ```csharp
 string clientId = "Your Application Id";
@@ -374,7 +373,7 @@ var token = JObject.Parse(content)["access_token"];
 
 ### <a name="to-create-and-get-a-token-using-powershell"></a>PowerShell을 토큰 만들기 및 가져오기
 
-승인 된 응용 프로그램에 대 한 토큰에 대해 좋아하게 되었습니다를 요청 하려면 다음 형식의 페이로드를 사용 하 여 https:\//soamtenant.auth0.com/oauth/token 끝점에 대 한 POST 작업을 수행 합니다.
+인증된 응용 프로그램에 대해 Auth0에 토큰을 요청하려면 다음 형식의\/페이로드가 있는 https: /soamtenant.auth0.com/oauth/token 끝점에 POST 작업을 수행합니다.
 
 ```powershell
 $clientId = "Application Id of AD Client APP";

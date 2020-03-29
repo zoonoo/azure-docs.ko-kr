@@ -1,5 +1,5 @@
 ---
-title: 패킷 캡처 관리-Azure Portal
+title: 패킷 캡처 관리 - Azure 포털
 titleSuffix: Azure Network Watcher
 description: Azure Portal을 사용하여 Network Watcher의 패킷 캡처 기능을 관리하는 방법을 알아봅니다.
 services: network-watcher
@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: damendo
 ms.openlocfilehash: 6fc4a25e39fb8f27151b2e3bec1959d74a619233
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76840830"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>포털에서 Azure Network Watcher를 사용하여 패킷 캡처 관리
@@ -32,7 +32,7 @@ Network Watcher 패킷 캡처를 사용하면 가상 머신 간에 트래픽을 
 * 169.254.169.254에 인바운드 및 아웃 바운드 연결
 * 168.63.129.16에 인바운드 및 아웃 바운드 연결
 
-네트워크 보안 그룹이 네트워크 인터페이스에 연결되거나 네트워크 인터페이스가 포함된 서브넷에 연결되어 있으면 이전 포트를 허용하는 규칙이 있는지 확인합니다. 마찬가지로 네트워크에 사용자 정의 트래픽 경로를 추가 하면 위에서 언급 한 Ip 및 포트에 연결 하지 못할 수 있습니다. 연결할 수 있는지 확인 하세요. 
+네트워크 보안 그룹이 네트워크 인터페이스에 연결되거나 네트워크 인터페이스가 포함된 서브넷에 연결되어 있으면 이전 포트를 허용하는 규칙이 있는지 확인합니다. 마찬가지로 네트워크에 사용자 정의 트래픽 경로를 추가하면 위에서 언급한 IP 및 포트에 대한 연결이 방지될 수 있습니다. 연락이 가능한지 확인하십시오. 
 
 ## <a name="start-a-packet-capture"></a>패킷 캡처 시작
 
@@ -44,7 +44,7 @@ Network Watcher 패킷 캡처를 사용하면 가상 머신 간에 트래픽을 
    - **대상 가상 머신**: 패킷 캡처를 만들려는 가상 머신입니다.
    - **패킷 캡처 이름**: 패킷 캡처의 이름입니다.
    - **스토리지 계정 또는 파일**: **스토리지 계정**, **파일** 또는 둘 다 선택합니다. **파일**을 선택하면 캡처가 가상 머신 내의 경로에 기록됩니다.
-   - **로컬 파일 경로**: 패킷 캡처가 저장될 가상 머신의 로컬 경로입니다(‘파일’을 선택했을 때만 유효). 경로는 유효한 경로여야 합니다. Linux 가상 머신을 사용하는 경우 경로는 */var/captures*로 시작해야 합니다.
+   - **로컬 파일 경로**: 패킷 캡처가 저장될 가상 머신의 로컬 경로입니다(‘파일’을 선택했을 때만 유효).** 경로는 유효한 경로여야 합니다. Linux 가상 머신을 사용하는 경우 경로는 */var/captures*로 시작해야 합니다.
    - **스토리지 계정**: *스토리지 계정*을 선택한 경우 기존 스토리지 계정을 선택합니다. **Storage**를 선택한 경우에만 이 옵션을 사용할 수 있습니다.
    
      > [!NOTE]
@@ -52,7 +52,7 @@ Network Watcher 패킷 캡처를 사용하면 가상 머신 간에 트래픽을 
 
    - **패킷당 최대 바이트**: 캡처된 각 패킷의 바이트 수입니다. 비워 두면 모든 바이트가 캡처됩니다.
    - **세션당 최대 바이트**: 캡처된 총 바이트 수입니다. 값에 도달하면 패킷 캡처가 중지됩니다.
-   - **시간 제한(초)** : 패킷 캡처가 중지되기 전의 시간 제한입니다. 기본값은 18,000초입니다.
+   - **시간 제한(초)**: 패킷 캡처가 중지되기 전의 시간 제한입니다. 기본값은 18,000초입니다.
    - 필터링(선택 사항). **+ 필터 추가**를 선택합니다.
      - **프로토콜**: 패킷 캡처에 대해 필터링할 프로토콜입니다. 사용 가능한 값은 TCP, UDP 및 모두입니다.
      - **로컬 IP 주소**: 로컬 IP 주소가 이 필터 값과 일치하는 패킷으로 패킷 캡처를 필터링합니다.
@@ -70,7 +70,7 @@ Network Watcher 패킷 캡처를 사용하면 가상 머신 간에 트래픽을 
 > [!NOTE]
 > 포털은 자동으로 다음을 수행합니다.
 >  * 지역에 아직 Network Watcher가 없는 경우 선택한 가상 머신이 있는 지역과 동일한 지역에 Network Watcher를 만듭니다.
->  * *AzureNetworkWatcherExtension* [Linux](../virtual-machines/linux/extensions-nwa.md) 또는 [Windows](../virtual-machines/windows/extensions-nwa.md) 가상 머신 확장이 아직 설치 되지 않은 경우 가상 머신에 추가 합니다.
+>  * 아직 설치되지 않은 경우 *AzureNetworkWatcherExtension* [Linux](../virtual-machines/linux/extensions-nwa.md) 또는 [Windows](../virtual-machines/windows/extensions-nwa.md) 가상 머신 확장을 가상 머신에 추가합니다.
 
 ## <a name="delete-a-packet-capture"></a>패킷 캡처 삭제
 

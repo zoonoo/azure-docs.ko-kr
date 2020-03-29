@@ -1,19 +1,18 @@
 ---
-title: Azure Marketplace 승인 페이지
-description: Azure Marketplace에 대 한 Cloud 파트너 포털의 승인 페이지 개요입니다.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+title: Azure 마켓플레이스에 대한 승인 페이지
+description: Azure 마켓플레이스용 클라우드 파트너 포털의 승인 페이지 개요입니다.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: pabutler
-ms.openlocfilehash: de6ad58ebd0442772eddfcf14792bc77cd76aad6
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 8bd00e3b71e74775697a615152885e55703a41fb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821543"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288940"
 ---
 # <a name="approvals-page"></a>승인 페이지
 

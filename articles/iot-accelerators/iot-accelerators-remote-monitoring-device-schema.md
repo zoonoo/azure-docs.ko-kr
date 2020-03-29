@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 12/18/2018
 ms.topic: conceptual
 ms.openlocfilehash: 0f9669d491648ecc621aab27d0908dcc3dc84438
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65823337"
 ---
 # <a name="understand-the-device-model-schema"></a>디바이스 모델 스키마 이해
@@ -114,9 +114,9 @@ GitHub의 [devicemodels 폴더](https://github.com/Azure/device-simulation-dotne
 
 시뮬레이션 서비스는 5초마다 **chiller-01-state.js** 파일을 실행하여 디바이스 상태를 업데이트합니다. GitHub의 [scripts 폴더](https://github.com/Azure/device-simulation-dotnet/tree/master/Services/data/devicemodels/scripts)에서 기본 시뮬레이션된 디바이스의 JavaScript 파일을 볼 수 있습니다. 규칙에 따라 이러한 JavaScript 파일에는 메서드 동작을 구현하는 파일과 구분하기 위해 **-state** 접미사가 있습니다.
 
-## <a name="properties"></a>properties
+## <a name="properties"></a>속성
 
-스키마의 `Properties` 섹션에서는 디바이스가 솔루션에 보고하는 속성 값을 정의합니다. 예를 들면 다음과 같습니다.
+스키마의 `Properties` 섹션에서는 디바이스가 솔루션에 보고하는 속성 값을 정의합니다. 예를 들어:
 
 ```json
 "Properties": {
@@ -164,7 +164,7 @@ GitHub의 [devicemodels 폴더](https://github.com/Azure/device-simulation-dotne
 * 개체 - JSON을 사용하여 직렬화됨
 * 이진 - base64를 사용하여 직렬화됨
 * 텍스트
-* BOOLEAN
+* 부울
 * 정수
 * Double
 * DateTime

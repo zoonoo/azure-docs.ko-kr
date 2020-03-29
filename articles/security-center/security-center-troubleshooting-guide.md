@@ -1,6 +1,6 @@
 ---
 title: Azure Security Center 문제 해결 가이드 | Microsoft Docs
-description: 이 가이드는 Azure Security Center 관련 문제를 해결 해야 하는 IT 전문가, 보안 분석가 및 클라우드 관리자를 위한 것입니다.
+description: 이 가이드는 Azure 보안 센터 와 관련된 문제를 해결해야 하는 IT 전문가, 보안 분석가 및 클라우드 관리자를 위한 것입니다.
 services: security-center
 author: v-miegge
 manager: dcscontentpm
@@ -8,18 +8,18 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 55a4aa066739203f8697fb4c9083869f5a05ef4f
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 1c751fc31ba9066cf49eabbb86d37eda230c9c98
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79282667"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80062882"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Azure Security Center 문제 해결 가이드
 
 이 가이드는 Azure Security Center를 사용 중인 정보 기술(IT) 전문가, 정보 보안 분석가 및 클라우드 관리자를 대상으로 하고 문제와 관련된 Security Center 문제를 해결해야 합니다.
 
-Security Center는 Microsoft Monitoring Agent를 사용 하 여 데이터를 수집 하 고 저장 합니다. 자세한 내용은 [Azure Security Center 플랫폼 마이그레이션](security-center-platform-migration.md)을 참조하세요. 이 문서의 정보는 Microsoft Monitoring Agent로 전환된 후의 Security Center 기능을 나타냅니다.
+보안 센터는 Microsoft 모니터링 에이전트를 사용하여 데이터를 수집하고 저장합니다. 자세한 내용은 [Azure Security Center 플랫폼 마이그레이션](security-center-platform-migration.md)을 참조하세요. 이 문서의 정보는 Microsoft Monitoring Agent로 전환된 후의 Security Center 기능을 나타냅니다.
 
 ## <a name="troubleshooting-guide"></a>문제 해결 가이드
 
@@ -36,9 +36,7 @@ Security Center는 Microsoft Monitoring Agent를 사용 하 여 데이터를 수
 
 * Windows VM(가상 머신) 이벤트 뷰어의 보안 로그
 * Linux의 AuditD
-* Azure 활동 로그와 공격 리소스에서 진단 로그를 사용 하도록 설정 합니다.
-
-일부 경고의 경우 신뢰도 점수가 있습니다. **Security Center**의 신뢰도 점수를 사용하면 팀에서 경고를 심사하여 우선 순위를 정할 수 있습니다. **Security Center** 는 분석가가 합법적인 지 여부를 확인 하는 데 사용 하는 업계 모범 사례, 인텔리전트 알고리즘 및 프로세스를 자동으로 적용 하 고 신뢰성 점수 형태로 의미 있는 통찰력을 제공 합니다.
+* Azure 활동 로그 및 공격 리소스의 진단 로그 사용
 
 고객은 경고 설명 및 관련성에 대한 피드백을 공유할 수 있습니다. 경고 자체로 이동하여 **유용했나요?** 단추를 선택하고, 이유를 선택하고, 피드백을 설명하는 의견을 입력합니다. 이 피드백 채널을 지속적으로 모니터링하여 경고를 개선하고 있습니다.
 
@@ -56,7 +54,7 @@ Security Center에서 수행되는 대부분의 문제 해결은 실패한 구�
 
 ## <a name="microsoft-monitoring-agent"></a>Microsoft Monitoring Agent
 
-Security Center은 Microsoft Monitoring Agent를 사용 합니다 .이는 Azure Monitor 서비스에서 사용 하는 것과 동일한 에이전트로, Azure 가상 머신에서 보안 데이터를 수집 하는 데 사용 됩니다. 데이터 수집을 활성화하고 에이전트가 대상 컴퓨터에 제대로 설치된 후 아래 프로세스가 실행되어야 합니다.
+보안 센터는 Azure 모니터 서비스에서 사용하는 것과 동일한 에이전트인 Microsoft 모니터링 에이전트를 사용하여 Azure 가상 컴퓨터에서 보안 데이터를 수집합니다. 데이터 수집을 활성화하고 에이전트가 대상 컴퓨터에 제대로 설치된 후 아래 프로세스가 실행되어야 합니다.
 
 * HealthService.exe
 
@@ -72,31 +70,31 @@ Security Center은 Microsoft Monitoring Agent를 사용 합니다 .이는 Azure 
 
 컴퓨터에 Microsoft Monitoring Agent를 설치하는 경우 다른 결과 생성할 수 있는 두 가지 설치 시나리오가 있습니다. 지원되는 시나리오는 다음과 같습니다.
 
-* **Security Center에서 자동으로 설치되는 에이전트**: 이 시나리오에서는 위치, Security Center 및 로그 검색에서 경고를 볼 수 있습니다. 리소스가 속한 구독의 보안 정책에 구성 된 전자 메일 주소로 전자 메일 알림을 받게 됩니다.
+* **Security Center에서 자동으로 설치되는 에이전트**: 이 시나리오에서는 위치, Security Center 및 로그 검색에서 경고를 볼 수 있습니다. 리소스가 속한 구독에 대한 보안 정책에 구성된 전자 메일 주소로 전자 메일 알림을 받게 됩니다.
 
-* **Azure에 있는 VM에 수동으로 설치 된 에이전트**:이 시나리오에서는 2 월 2017 일 전에 수동으로 다운로드 하 여 설치한 에이전트를 사용 하는 경우 작업 영역이 속한 구독을 필터링 하는 경우에만 Security Center 포털에서 경고를 볼 수 있습니다. 리소스가 속한 구독을 필터링 하는 경우 경고가 표시 되지 않습니다. 작업 영역이 속한 구독의 보안 정책에 구성 된 전자 메일 주소로 전자 메일 알림을 받게 됩니다.
+* **Azure에 있는 VM에 수동으로 설치된 에이전트:** 이 시나리오에서는 2017년 2월 이전에 수동으로 다운로드하여 설치한 에이전트를 사용하는 경우 작업 영역이 속한 구독을 필터링하는 경우에만 보안 센터 포털에서 경고를 볼 수 있습니다. 리소스가 속한 구독을 필터링하면 경고가 표시되지 않습니다. 작업 영역이 속한 구독에 대한 보안 정책에 구성된 전자 메일 주소로 전자 메일 알림을 받게 됩니다.
 
 > [!NOTE]
 > 두 번째 시나리오에서 설명한 동작을 방지하려면 최신 버전의 에이전트를 다운로드해야 합니다.
 
-## 에이전트 상태 문제 모니터링 <a name="mon-agent"></a>
+## <a name="monitoring-agent-health-issues"></a>에이전트 상태 문제 모니터링 <a name="mon-agent"></a>
 
 **모니터링 상태**는 Security Center에서 자동 프로비전을 위해 초기화된 VM 및 컴퓨터를 성공적으로 모니터링할 수 없는 이유를 정의합니다. 다음 표에서는 **모니터링 상태** 값, 설명 및 해결 단계를 보여 줍니다.
 
-| 모니터링 상태 | Description | 해결 단계: |
+| 모니터링 상태 | 설명 | 해결 단계: |
 |---|---|---|
 | 보류 중인 에이전트 설치 | Microsoft Monitoring Agent 설치가 아직 실행 중입니다.  설치하는 데 몇 시간이 걸릴 수 있습니다. | 자동 설치가 완료될 때까지 기다립니다. |
 | 전원 상태 끄기 | VM이 중지됩니다.  Microsoft Monitoring Agent는 실행 중인 VM에만 설치할 수 있습니다. | VM을 다시 시작합니다. |
 | 누락되었거나 잘못된 Azure VM 에이전트 | Microsoft Monitoring Agent가 아직 설치되지 않았습니다.  Security Center에서 확장을 설치하려면 유효한 Azure VM 에이전트가 필요합니다. | Azure VM 에이전트를 VM에 설치, 다시 설치 또는 업그레이드합니다. |
 | 설치할 준비가 되지 않은 VM 상태  | VM을 설치할 준비가 되지 않았기 때문에 Microsoft Monitoring Agent가 아직 설치되지 않았습니다. VM 에이전트 또는 VM 프로비전 문제로 인해 VM을 설치할 준비가 되지 않았습니다. | VM의 상태를 확인합니다. 포털의 **Virtual Machines**로 돌아가서 상태 정보에 대한 VM을 선택합니다. |
 |설치 실패 - 일반 오류 | Microsoft Monitoring Agent가 설치되었지만 오류로 인해 실패했습니다. | [수동으로 확장을 설치](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)하거나 확장을 제거하여 Security Center에서 설치를 다시 시도합니다. |
-| 설치 실패 - 로컬 에이전트가 이미 설치되어 있음 | Microsoft Monitoring Agent 설치가 실패했습니다. Security Center VM에 이미 설치 된 로컬 에이전트 (Log Analytics 또는 System Center Operations Manager)를 식별 합니다. VM이 두 개의 개별 작업 영역에 보고하는 멀티 호밍 구성을 방지하기 위해 Microsoft Monitoring Agent 설치가 중지되었습니다. | 두 가지 해결 방법이 있습니다. [수동으로 확장을 설치](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)하고 원하는 작업 영역에 연결합니다. 또는 원하는 작업 영역을 기본 작업 영역으로 설정하고 에이전트의 자동 프로비전을 사용하도록 설정합니다.  [자동 프로비전 사용](security-center-enable-data-collection.md)을 참조하세요. |
+| 설치 실패 - 로컬 에이전트가 이미 설치되어 있음 | Microsoft Monitoring Agent 설치가 실패했습니다. 보안 센터에서 VM에 이미 설치된 로컬 에이전트(로그 분석 또는 시스템 센터 운영 관리자)를 식별했습니다. VM이 두 개의 개별 작업 영역에 보고하는 멀티 호밍 구성을 방지하기 위해 Microsoft Monitoring Agent 설치가 중지되었습니다. | 두 가지 해결 방법이 있습니다. [수동으로 확장을 설치](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)하고 원하는 작업 영역에 연결합니다. 또는 원하는 작업 영역을 기본 작업 영역으로 설정하고 에이전트의 자동 프로비전을 사용하도록 설정합니다.  [자동 프로비전 사용](security-center-enable-data-collection.md)을 참조하세요. |
 | 에이전트에서 작업 영역에 연결할 수 없음 | Microsoft Monitoring Agent가 설치되었지만 네트워크 연결로 인해 실패했습니다.  인터넷 액세스가 있는지 또는 에이전트에 대해 유효한 HTTP 프록시가 구성되어 있는지 확인합니다. | [모니터링 에이전트 네트워크 요구 사항]을 참조하세요. |
-| 누락되었거나 알 수 없는 작업 영역에 연결된 에이전트 | Security Center에서 VM에 설치된 Microsoft Monitoring Agent가 액세스 권한이 없는 작업 영역에 연결되어 있음을 확인했습니다. | 이는 두 가지 경우에 발생할 수 있습니다. 하나는 작업 영역이 삭제되어 더 이상 존재하지 않습니다. 에이전트를 올바른 작업 영역으로 다시 설치하거나, 에이전트를 제거하고 Security Center에서 자동 프로비전 설치를 수행하도록 합니다. 두 번째 경우는 작업 영역이 Security Center에 대한 권한이 없는 구독의 일부입니다. Security Center에는 Microsoft 보안 리소스 공급자가 액세스할 수 있게 하는 구독이 필요합니다. 이 경우 Microsoft 보안 리소스 공급자에 대한 구독을 등록하여 해당 구독을 사용합니다. 이 작업은 API, PowerShell, 포털을 통하거나 Security Center **개요** 대시보드에서 구독을 필터링하여 수행할 수 있습니다. 자세한 내용은 [리소스 공급자 및 형식](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal)을 참조하세요. |
-| 에이전트가 응답하지 않거나 ID가 누락되었음 | 에이전트가 설치되어 있어도 VM에서 검색한 보안 데이터를 Security Center에서 검색할 수 없습니다. | 에이전트에서 하트비트를 포함한 모든 데이터를 보고하지 않습니다. 에이전트가 손상되었거나 트래픽을 차단하는 것이 있습니다. 또는 에이전트에서 데이터를 보고하지만 Azure 리소스 ID가 누락되어 있으므로 Azure VM에 데이터를 일치시킬 수 없습니다. Linux 문제를 해결하려면 [Linux용 Log Analytics 에이전트에 대한 문제 해결 가이드](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md#im-not-seeing-any-linux-data-in-the-oms-portal)를 참조하세요. Windows 문제를 해결하려면 [Windows 가상 머신 문제 해결](https://github.com/MicrosoftDocs/azure-docs/blob/8c53ac4371d482eda3d85819a4fb8dac09996a89/articles/log-analytics/log-analytics-azure-vm-extension.md#troubleshooting-windows-virtual-machines)을 참조하세요. |
+| 누락되었거나 알 수 없는 작업 영역에 연결된 에이전트 | 보안 센터는 VM에 설치된 Microsoft 모니터링 에이전트가 액세스할 수 없는 작업 영역에 연결되어 있음을 확인했습니다. | 이는 두 가지 경우에 발생할 수 있습니다. 하나는 작업 영역이 삭제되어 더 이상 존재하지 않습니다. 에이전트를 올바른 작업 영역으로 다시 설치하거나, 에이전트를 제거하고 Security Center에서 자동 프로비전 설치를 수행하도록 합니다. 두 번째 경우는 작업 영역이 Security Center에 대한 권한이 없는 구독의 일부입니다. Security Center에는 Microsoft 보안 리소스 공급자가 액세스할 수 있게 하는 구독이 필요합니다. 이 경우 Microsoft 보안 리소스 공급자에 대한 구독을 등록하여 해당 구독을 사용합니다. 이 작업은 API, PowerShell, 포털을 통하거나 Security Center **개요** 대시보드에서 구독을 필터링하여 수행할 수 있습니다. 자세한 내용은 [리소스 공급자 및 형식](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal)을 참조하세요. |
+| 에이전트가 응답하지 않거나 ID가 누락되었음 | 에이전트가 설치되어 있어도 VM에서 검색한 보안 데이터를 Security Center에서 검색할 수 없습니다. | 에이전트에서 하트비트를 포함한 모든 데이터를 보고하지 않습니다. 에이전트가 손상되었거나 트래픽을 차단하는 것이 있습니다. 또는 에이전트가 데이터를 보고하고 있지만 Azure 리소스 ID가 없으므로 데이터를 Azure VM에 일치할 수 없습니다. Linux 문제를 해결하려면 [Linux용 Log Analytics 에이전트에 대한 문제 해결 가이드](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md#im-not-seeing-any-linux-data-in-the-oms-portal)를 참조하세요. Windows 문제를 해결하려면 [Windows 가상 머신 문제 해결](https://github.com/MicrosoftDocs/azure-docs/blob/8c53ac4371d482eda3d85819a4fb8dac09996a89/articles/log-analytics/log-analytics-azure-vm-extension.md#troubleshooting-windows-virtual-machines)을 참조하세요. |
 | 에이전트가 설치되지 않음 | 데이터 수집을 사용하지 않도록 설정되었습니다. | 보안 정책에서 데이터 수집을 사용하도록 설정하거나 Microsoft Monitoring Agent를 수동으로 설치합니다. |
 
-## 모니터링 에이전트 네트워크 요구 사항 문제 해결 <a name="mon-network-req"></a>
+## <a name="troubleshooting-monitoring-agent-network-requirements"></a>모니터링 에이전트 네트워크 요구 사항 문제 해결<a name="mon-network-req"></a>
 
 에이전트를 Security Center에 연결하고 등록한 경우 포트 번호 및 도메인 URL을 비롯한 네트워크 리소스에 대한 액세스 권한을 가져야 합니다.
 
@@ -110,7 +108,7 @@ Security Center은 Microsoft Monitoring Agent를 사용 합니다 .이는 Azure 
 | *.ods.opinsights.azure.com | 443 | yes |
 | *.oms.opinsights.azure.com | 443 | yes |
 | \*.blob.core.windows.net | 443 | yes |
-| \* .azure-automation.net | 443 | yes |
+| * .azure-automation.net | 443 | yes |
 
 에이전트와 온보딩 문제가 발생하는 경우 [Operations Management Suite 온보딩 문제를 해결하는 방법](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues) 문서를 참조하도록 합니다.
 
@@ -134,25 +132,24 @@ Security Center 대시보드를 로드하는 문제가 있는 경우 Security Ce
 
 ## <a name="contacting-microsoft-support"></a>Microsoft 지원에 문의
 
-이 문서에서 제공된 지침을 사용하여 몇 가지 문제를 식별할 수 있으며 그 외 문제는 보안 센터 공용 [포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSecurityCenter)에 설명되어 있는 것을 찾을 수 있습니다. 그러나 추가로 문제 해결이 필요한 경우 아래와 같이 **Azure Portal**을 사용하여 새로운 지원 요청을 열 수 있습니다.
+이 문서에서 제공된 지침을 사용하여 몇 가지 문제를 식별할 수 있으며 그 외 문제는 보안 센터 공용 [포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSecurityCenter)에 설명되어 있는 것을 찾을 수 있습니다. 그러나 추가 문제 해결이 필요한 경우 아래와 같이 **Azure 포털을** 사용하여 새 지원 요청을 열 수 있습니다.
 
 ![Microsoft 지원](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig2.png)
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 이 문서에서는 Azure Security Center에서 보안 정책을 구성하는 방법을 배웠습니다. Azure Security Center에 대한 자세한 내용은 다음을 참조하세요.
 
 * [Azure Security Center의 계획 및 운영 가이드](security-center-planning-and-operations-guide.md) — 디자인 고려 사항을 계획하고 이해하여 Azure Security Center를 채택하는 방법을 알아봅니다.
-* [Azure Security Center에서 보안 상태 모니터링](security-center-monitoring.md) — Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.
-* [Azure Security Center에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) — 보안 경고를 관리하고 대응하는 방법을 알아봅니다.
-* [Azure Security Center에서 보안 경고 이해](security-center-alerts-type.md)
+* [Azure 보안 센터의 보안 상태 모니터링](security-center-monitoring.md) — Azure 리소스의 상태를 모니터링하는 방법 알아보기
+* [Azure 보안 센터에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) - 보안 경고를 관리하고 대응하는 방법 알아보기
+* [Azure 보안 센터의 보안 경고 이해](security-center-alerts-type.md)
 * [자습서: 보안 인시던트에 대응](tutorial-security-incident.md)
 * [Azure Security Center에서 경고 유효성 검사](security-center-alert-validation.md)
 * [Azure Security Center의 이메일 알림](security-center-provide-security-contact-details.md)
 * [Azure Security Center에서 보안 인시던트 처리](security-center-incident.md)
-* [경고 신뢰도 점수](security-center-secure-score.md)
 * [Azure Security Center에서 인시던트 및 경고 조사](security-center-investigation.md)
-* [Azure Security Center 감지 기능](security-center-detection-capabilities.md)
-* [Azure Security Center를 사용하여 파트너 솔루션 모니터링](security-center-partner-solutions.md) - 파트너 솔루션의 상태를 모니터링하는 방법을 알아봅니다.
-* [Azure Security Center FAQ](faq-general.md) — 서비스 사용에 관한 질문과 대답을 찾습니다.
-* [Azure 보안 블로그](https://blogs.msdn.com/b/azuresecurity/) — Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.
+* [Azure 보안 센터 검색 기능](security-center-detection-capabilities.md)
+* [Azure 보안 센터를 사용하여 파트너 솔루션 모니터링](security-center-partner-solutions.md) — 파트너 솔루션의 상태를 모니터링하는 방법을 알아봅니다.
+* [Azure 보안 센터 FAQ](faq-general.md) — 서비스 사용에 대한 자주 묻는 질문 찾기
+* [Azure 보안 블로그](https://blogs.msdn.com/b/azuresecurity/) - Azure 보안 및 규정 준수에 대한 블로그 게시물 찾기

@@ -1,6 +1,6 @@
 ---
-title: Azure DevTest Labs 가상 머신에서 아티팩트 실패 진단
-description: DevTest Labs는 아티팩트 실패를 진단 하는 데 사용할 수 있는 정보를 제공 합니다. 이 문서에서는 아티팩트 실패 문제를 해결 하는 방법을 보여 줍니다.
+title: Azure DevTest Labs 가상 컴퓨터에서 아티팩트 오류 진단
+description: DevTest 연구소는 아티팩트 오류를 진단하는 데 사용할 수 있는 정보를 제공합니다. 이 문서에서는 아티팩트 오류를 해결하는 방법을 보여 주며,
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: spelluru
 ms.openlocfilehash: 7229f1ee4061eb38b7c6da09df21102ab302ab42
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76760320"
 ---
 # <a name="diagnose-artifact-failures-in-the-lab"></a>랩에서 아티팩트 실패 진단 
@@ -52,7 +52,7 @@ ms.locfileid: "76760320"
 
 3. **상태** 파일을 엽니다.
 
-**Linux** VM에서 로그 파일을 찾는 방법에 대 한 지침은 [linux Virtual Machines에서 Azure 사용자 지정 스크립트 확장 버전 2 사용](../virtual-machines/extensions/custom-script-linux.md#troubleshooting) 문서를 참조 하세요.
+**Linux** VM에서 로그 파일을 찾는 방법에 대한 지침은 다음 문서를 [참조하십시오.](../virtual-machines/extensions/custom-script-linux.md#troubleshooting)
 
 
 ## <a name="related-blog-posts"></a>관련 블로그 게시물

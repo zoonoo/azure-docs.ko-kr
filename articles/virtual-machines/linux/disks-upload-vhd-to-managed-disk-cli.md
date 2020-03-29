@@ -1,6 +1,6 @@
 ---
-title: Azure CLI를 사용 하 여 VHD 업로드
-description: 직접 업로드를 통해 Azure 관리 디스크에 vhd를 업로드 하 고 Azure CLI를 사용 하 여 여러 지역에 관리 되는 디스크를 복사 하는 방법을 알아봅니다.
+title: Azure CLI를 사용하여 VHD 업로드
+description: 직접 업로드를 통해 Azure 관리 디스크에 vhd를 업로드하고 Azure CLI를 사용하여 여러 리전에서 관리되는 디스크를 복사하는 방법을 알아봅니다.
 services: virtual-machines,storage
 author: roygara
 ms.author: rogarana
@@ -8,96 +8,96 @@ ms.date: 03/13/2020
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: f2eb0f59d460fbf8d6595db658bb3f5f9c4a6ad0
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.openlocfilehash: d89a4279d425e4b12e92aae81edfd6c1514c3eef
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/14/2020
-ms.locfileid: "79365852"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80062660"
 ---
-# <a name="upload-a-vhd-to-azure-using-azure-cli"></a>Azure CLI를 사용 하 여 Azure에 vhd 업로드
+# <a name="upload-a-vhd-to-azure-using-azure-cli"></a>Azure CLI를 사용하여 Azure에 vhd 업로드
 
-이 문서에서는 로컬 컴퓨터에서 Azure 관리 디스크로 vhd를 업로드 하는 방법을 설명 합니다. 이전에는 저장소 계정에 데이터를 준비 하 고 저장소 계정을 관리 하는 추가 관련 프로세스를 수행 해야 했습니다. 이제 저장소 계정을 관리 하지 않아도 되며, vhd를 업로드 하기 위해 데이터를 준비 해야 합니다. 대신, 빈 관리 디스크를 만들고이 디스크에 직접 vhd를 업로드 합니다. 이는 온-프레미스 Vm을 Azure로 업로드 하는 작업을 간소화 하 고, 최대 32 TiB의 vhd를 대량 관리 디스크로 직접 업로드할 수 있게 해줍니다.
+이 문서에서는 로컬 컴퓨터에서 Azure 관리 디스크에 vhd를 업로드하는 방법을 설명합니다. 이전에는 저장소 계정에서 데이터를 스테이징하고 해당 저장소 계정을 관리하는 프로세스가 더 많이 관련되어 있었습니다. 이제 더 이상 vhd를 업로드하기 위해 저장소 계정을 관리하거나 데이터를 단계화할 필요가 없습니다. 대신 빈 관리 디스크를 만들고 vhd를 직접 업로드합니다. 이렇게 하면 온-프레미스 VM을 Azure에 업로드하는 것이 간단해지며 최대 32TiB의 vhd를 대형 관리 디스크에 직접 업로드할 수 있습니다.
 
-Azure에서 IaaS Vm에 대 한 백업 솔루션을 제공 하는 경우 직접 업로드를 사용 하 여 고객 백업을 관리 디스크로 복원 하는 것이 좋습니다. Azure 외부의 컴퓨터에서 VHD를 업로드 하는 경우 속도는 로컬 대역폭에 따라 달라 집니다. Azure VM을 사용 하는 경우 대역폭은 표준 Hdd와 동일 합니다.
+Azure에서 IaaS VM에 대한 백업 솔루션을 제공하는 경우 직접 업로드를 사용하여 관리되는 디스크에 대한 고객 백업을 복원하는 것이 좋습니다. Azure 외부에 있는 컴퓨터에서 VHD를 업로드하는 경우 속도는 로컬 대역폭에 따라 달라집니다. Azure VM을 사용하는 경우 대역폭은 표준 HDD와 동일합니다.
 
-현재 직접 업로드는 표준 HDD, 표준 SSD 및 프리미엄 SSD 관리 디스크에 대해 지원 됩니다. 아직 ultra Ssd에 대해 지원 되지 않습니다.
+현재 표준 HDD, 표준 SSD 및 프리미엄 SSD 관리 디스크에 대해 직접 업로드가 지원됩니다. 아직 울트라 SSD에 대 한 지원 되지 않습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- [AzCopy v10의 최신 버전](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy)을 다운로드 합니다.
-- [Azure CLI를 설치합니다](/cli/azure/install-azure-cli).
-- 로컬로 저장 된 vhd 파일
-- 온-프레미스에서 vhd를 업로드 하려는 경우: [Azure에 대해 준비](../windows/prepare-for-upload-vhd-image.md)된 고정 크기 vhd는 로컬에 저장 됩니다.
-- 또는 복사 작업을 수행 하려는 경우 Azure에서 관리 되는 디스크입니다.
+- [AzCopy v10의](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy)최신 버전을 다운로드합니다.
+- [Azure CLI를 설치합니다.](/cli/azure/install-azure-cli)
+- 로컬에 저장된 vhd 파일
+- 온-프레미스에서 vhd를 업로드하려는 경우: Azure용으로 준비된 고정 크기 [vhd는 로컬에](../windows/prepare-for-upload-vhd-image.md)저장됩니다.
+- 또는 복사 작업을 수행하려는 경우 Azure의 관리 디스크입니다.
 
 ## <a name="create-an-empty-managed-disk"></a>빈 관리 디스크 만들기
 
-Azure에 vhd를 업로드 하려면이 업로드 프로세스에 대해 구성 된 빈 관리 디스크를 만들어야 합니다. 계정을 만들기 전에 이러한 디스크에 대해 알아야 하는 추가 정보가 있습니다.
+VHD를 Azure에 업로드하려면 이 업로드 프로세스에 대해 구성된 빈 관리 디스크를 만들어야 합니다. 하나를 만들기 전에 이러한 디스크에 대해 알아야 할 몇 가지 추가 정보가 있습니다.
 
 이러한 종류의 관리 디스크에는 두 가지 고유한 상태가 있습니다.
 
-- ReadToUpload는 디스크가 업로드를 받을 준비가 되었지만 SAS ( [보안 액세스 서명](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) )가 생성 되지 않았음을 의미 합니다.
-- ActiveUpload-디스크가 업로드를 받을 준비가 되었으며 SAS가 생성 되었음을 의미 합니다.
+- ReadToUpload는 디스크가 업로드를 받을 준비가 되었지만 [SAS(보안 액세스 서명)가](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) 생성되지 않았습니다.
+- ActiveUpload는 디스크가 업로드를 받을 준비가 되었고 SAS가 생성되었음을 의미합니다.
 
-이러한 상태 중 하나에서 관리 디스크는 실제 디스크 유형에 상관 없이 [표준 HDD 가격](https://azure.microsoft.com/pricing/details/managed-disks/)으로 청구 됩니다. 예를 들어 P10는 S10로 청구 됩니다. 이는 디스크를 VM에 연결 하는 데 필요한 관리 디스크에서 `revoke-access`가 호출 될 때까지 적용 됩니다.
+이러한 상태 중 하나에 있는 동안 관리 되는 디스크는 [표준 HDD 가격으로](https://azure.microsoft.com/pricing/details/managed-disks/)청구 됩니다., 디스크의 실제 종류에 관계 없이. 예를 들어 P10은 S10으로 청구됩니다. 이는 VM에 `revoke-access` 디스크를 연결하기 위해 필요한 관리 디스크에서 호출될 때까지 해당됩니다.
 
-업로드할 빈 표준 HDD를 만들려면 먼저 업로드할 vhd의 파일 크기 (바이트)가 있어야 합니다. 이를 얻기 위해 `wc -c <yourFileName>.vhd` 또는 `ls -al <yourFileName>.vhd`를 사용할 수 있습니다. 이 값은 **--upload size 바이트** 매개 변수를 지정할 때 사용 됩니다.
+업로드를 위해 빈 표준 HDD를 만들려면 업로드하려는 vhd의 파일 크기가 바이트별로 있어야 합니다. 이를 얻으려면 또는 `wc -c <yourFileName>.vhd` `ls -al <yourFileName>.vhd`을 사용할 수 있습니다. 이 값은 **--upload-size-bytes** 매개 변수를 지정할 때 사용됩니다.
 
-[디스크 만들기](/cli/azure/disk#az-disk-create) cmdlet에서-- **upload** 매개 변수와 **--upload-bytes** 매개 변수를 모두 지정 하 여 업로드할 빈 표준 HDD를 만듭니다.
+**업로드용 --for-upload** 매개 변수와 cmdlet을 [만드는 디스크의](/cli/azure/disk#az-disk-create) **--upload-size-bytes** 매개 변수를 모두 지정하여 업로드를 위한 빈 표준 HDD를 만듭니다.
 
-```bash
+```azurecli
 az disk create -n mydiskname -g resourcegroupname -l westus2 --for-upload --upload-size-bytes 34359738880 --sku standard_lrs
 ```
 
-프리미엄 SSD 또는 표준 SSD를 업로드 하려면 **standard_lrs** **premium_LRS** 또는 **standardssd_lrs**으로 바꿉니다. 울트라 SSD은 아직 지원 되지 않습니다.
+프리미엄 SSD 또는 표준 SSD를 업로드하려면 **standard_lrs** **premium_LRS** 또는 **standardssd_lrs**로 바꿉습니다. 울트라 SSD는 아직 지원되지 않습니다.
 
-이제 업로드 프로세스를 위해 구성 된 빈 관리 디스크를 만들었습니다. 디스크에 vhd를 업로드 하려면 업로드할 대상으로 참조할 수 있도록 쓰기 가능한 SAS가 필요 합니다.
+이제 업로드 프로세스에 대해 구성된 빈 관리 디스크를 만들었습니다. 디스크에 vhd를 업로드하려면 쓰기 가능한 SAS가 필요하므로 업로드 대상으로 참조할 수 있습니다.
 
-비어 있는 관리 디스크의 쓰기 가능한 SAS를 생성 하려면 다음 명령을 사용 합니다.
+빈 관리 디스크의 쓰기 가능한 SAS를 생성하려면 다음 명령을 사용합니다.
 
-```bash
+```azurecli
 az disk grant-access -n mydiskname -g resourcegroupname --access-level Write --duration-in-seconds 86400
 ```
 
 샘플 반환 값:
 
-```
+```output
 {
   "accessSas": "https://md-impexp-t0rdsfgsdfg4.blob.core.windows.net/w2c3mj0ksfgl/abcd?sv=2017-04-17&sr=b&si=600a9281-d39e-4cc3-91d2-923c4a696537&sig=xXaT6mFgf139ycT87CADyFxb%2BnPXBElYirYRlbnJZbs%3D"
 }
 ```
 
-## <a name="upload-vhd"></a>Vhd 업로드
+## <a name="upload-vhd"></a>업로드 vhd
 
-이제 빈 관리 디스크에 대 한 SAS가 있으므로이를 사용 하 여 업로드 명령의 대상으로 관리 디스크를 설정할 수 있습니다.
+빈 관리 디스크에 대한 SAS가 있으므로 이를 사용하여 관리 디스크를 업로드 명령의 대상으로 설정할 수 있습니다.
 
-AzCopy v10를 사용 하 여 생성 한 SAS URI를 지정 하 여 로컬 VHD 파일을 관리 되는 디스크에 업로드 합니다.
+AzCopy v10을 사용하여 생성한 SAS URI를 지정하여 로컬 VHD 파일을 관리 디스크에 업로드합니다.
 
-이 업로드는 동일한 [표준 HDD](disks-types.md#standard-hdd)와 동일한 처리량을 갖습니다. 예를 들어 S4와 동일한 크기의 경우 최대 60 s p s/s의 처리량이 있습니다. 그러나 S70에 해당 하는 크기의 경우 최대 500 m b/s의 처리량이 있습니다.
+이 업로드는 동일한 [표준 HDD와](disks-types.md#standard-hdd)동일한 처리량을 가짐을 가짐입니다. 예를 들어 S4와 같은 크기가 있는 경우 최대 60MiB/s의 처리량을 갖게 됩니다. 그러나 S70과 같은 크기가 있는 경우 최대 500MiB/s의 처리량을 갖게 됩니다.
 
 ```bash
 AzCopy.exe copy "c:\somewhere\mydisk.vhd" "sas-URI" --blob-type PageBlob
 ```
 
-업로드가 완료 되 고 더 이상 디스크에 더 이상 데이터를 쓸 필요가 없으면 SAS를 해지 합니다. SAS를 해지 하면 관리 디스크의 상태가 변경 되 고 해당 디스크를 VM에 연결할 수 있습니다.
+업로드가 완료되면 더 이상 디스크에 데이터를 쓸 필요가 없으므로 SAS를 해지합니다. SAS를 취소하면 관리 디스크의 상태가 변경되고 디스크를 VM에 연결할 수 있습니다.
 
-```bash
+```azurecli
 az disk revoke-access -n mydiskname -g resourcegroupname
 ```
 
 ## <a name="copy-a-managed-disk"></a>관리 디스크 복사
 
-또한 직접 업로드는 관리 디스크를 복사 하는 프로세스를 간소화 합니다. 동일한 지역 내에 복사 하거나 다른 지역에 복사할 수 있습니다.
+또한 직접 업로드하면 관리되는 디스크를 복사하는 프로세스도 간소화됩니다. 동일한 리전 내에서 복사하거나 다른 지역으로 교차 영역을 복사할 수 있습니다.
 
-다음 스크립트는 사용자를 위해이 작업을 수행 합니다 .이 프로세스는 앞에서 설명한 단계와 비슷하며 기존 디스크로 작업 하기 때문에 몇 가지 차이점이 있습니다.
+다음 스크립트는 이 작업을 수행하며, 프로세스는 기존 디스크로 작업하기 때문에 몇 가지 차이점이 있는 이전 단계와 유사합니다.
 
 > [!IMPORTANT]
-> Azure에서 관리 디스크의 디스크 크기 (바이트)를 제공 하는 경우 512의 오프셋을 추가 해야 합니다. 이는 Azure에서 디스크 크기를 반환할 때 바닥글이 생략 되기 때문입니다. 이렇게 하지 않으면 복사가 실패 합니다. 다음 스크립트는 이미이를 위해이를 수행 합니다.
+> Azure에서 관리되는 디스크의 바이트 단위로 디스크 크기를 제공할 때 512의 오프셋을 추가해야 합니다. 이는 Azure가 디스크 크기를 반환할 때 바닥글이 생략하기 때문입니다. 이렇게 하지 않으면 복사본이 실패합니다. 다음 스크립트는 이미 이 작업을 수행합니다.
 
-`<sourceResourceGroupHere>`, `<sourceDiskNameHere>`, `<targetDiskNameHere>`, `<targetResourceGroupHere>`및 `<yourTargetLocationHere>` (위치 값의 예: uswest2)를 값으로 바꾼 후 관리 디스크를 복사 하기 위해 다음 스크립트를 실행 합니다.
+`<sourceResourceGroupHere>`을 `<sourceDiskNameHere>`을 `<targetDiskNameHere>`대체하고 `<targetResourceGroupHere>` `<yourTargetLocationHere>` (위치 값의 예는 uswest2) 다음 스크립트를 실행하여 관리되는 디스크를 복사합니다.
 
-```bash
+```azurecli
 sourceDiskName = <sourceDiskNameHere>
 sourceRG = <sourceResourceGroupHere>
 targetDiskName = <targetDiskNameHere>
@@ -121,5 +121,5 @@ az disk revoke-access -n $targetDiskName -g $targetRG
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 관리 디스크에 vhd를 성공적으로 업로드 했으므로 디스크를 [기존 vm에 데이터 디스크로](add-disk.md) 연결 하거나 [vm에 디스크를 OS 디스크로 연결](upload-vhd.md#create-the-vm)하 여 새 vm을 만들 수 있습니다. 
+관리 디스크에 vhd를 성공적으로 업로드했으므로 디스크를 [기존 VM에 데이터 디스크로](add-disk.md) 연결하거나 [디스크를 OS 디스크로 VM에 연결하여](upload-vhd.md#create-the-vm)새 VM을 만들 수 있습니다. 
 

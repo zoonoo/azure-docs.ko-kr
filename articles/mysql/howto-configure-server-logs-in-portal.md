@@ -1,84 +1,84 @@
 ---
-title: 저속 쿼리 로그 액세스-Azure Portal-Azure Database for MySQL
-description: 이 문서에서는 Azure Portal에서 Azure Database for MySQL의 저속 로그를 구성 하 고 액세스 하는 방법을 설명 합니다.
+title: 느린 쿼리 로그 액세스 - Azure 포털 - MySQL용 Azure 데이터베이스
+description: 이 문서에서는 Azure 포털에서 MySQL용 Azure 데이터베이스의 느린 로그를 구성하고 액세스하는 방법을 설명합니다.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 52d219a94676e0f1ce4ceac31b0b50c9d36665ba
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: 0261ff7ca8a60dc5fd986a64b9944f9cb9f101e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770580"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80062491"
 ---
-# <a name="configure-and-access-slow-query-logs-from-the-azure-portal"></a>Azure Portal에서 느리게 쿼리 로그 구성 및 액세스
+# <a name="configure-and-access-slow-query-logs-from-the-azure-portal"></a>Azure 포털에서 느린 쿼리 로그 구성 및 액세스
 
-Azure Portal에서 [Azure Database for MySQL 저속 쿼리 로그](concepts-server-logs.md) 를 구성, 나열 및 다운로드할 수 있습니다.
+Azure 포털에서 [MySQL 느린 쿼리 로그에 대한 Azure 데이터베이스를](concepts-server-logs.md) 구성, 목록 및 다운로드할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
-이 문서의 단계를 수행 하려면 [Azure Database for MySQL 서버가](quickstart-create-mysql-server-database-using-azure-portal.md)있어야 합니다.
+## <a name="prerequisites"></a>사전 요구 사항
+이 문서의 단계에는 [MySQL 서버에 대한 Azure 데이터베이스가](quickstart-create-mysql-server-database-using-azure-portal.md)있어야 합니다.
 
 ## <a name="configure-logging"></a>로깅 구성
 MySQL 느린 쿼리 로그에 대한 액세스를 구성합니다. 
 
-1. [Azure portal](https://portal.azure.com/)에 로그인합니다.
+1. [Azure 포털에](https://portal.azure.com/)로그인합니다.
 
 2. Azure Database for MySQL 서버를 선택합니다.
 
-3. 사이드바의 **모니터링** 섹션에서 **서버 로그**를 선택 합니다. 
-   서버 로그 옵션 ![스크린샷](./media/howto-configure-server-logs-in-portal/1-select-server-logs-configure.png)
+3. 사이드바의 **모니터링** 섹션에서 서버 **로그를 선택합니다.** 
+   ![서버 로그 옵션의 스크린샷](./media/howto-configure-server-logs-in-portal/1-select-server-logs-configure.png)
 
-4. 서버 매개 변수를 보려면 로그를 **사용 하도록 설정 하 고 로그 매개 변수를 구성 하려면 여기를 클릭**하십시오 .를 선택 합니다.
+4. 서버 매개 변수를 보려면 **여기를 클릭하여 로그를 활성화하고 로그 매개 변수를 구성합니다.**
 
 5. 조정해야 하는 매개 변수를 변경합니다. 이 세션에서 변경할 내용은 모두 자주색으로 강조 표시되어 있습니다. 
 
-   매개 변수를 변경한 후 **저장**을 선택 합니다. 또는 변경 내용을 취소할 수 있습니다.
+   매개 변수를 변경한 후 **저장을**선택합니다. 또는 변경 내용을 취소할 수 있습니다.
 
    ![서버 매개 변수 옵션의 스크린샷](./media/howto-configure-server-logs-in-portal/3-save-discard.png)
 
-**서버 매개 변수** 페이지에서 페이지를 닫아 로그 목록으로 돌아갈 수 있습니다.
+서버 **매개 변수** 페이지에서 페이지를 닫아 로그 목록으로 돌아갈 수 있습니다.
 
 ## <a name="view-list-and-download-logs"></a>목록 보기 및 로그 다운로드
-로깅이 시작 된 후 사용 가능한 쿼리 로그의 목록을 보고 개별 로그 파일을 다운로드할 수 있습니다.
+로깅이 시작되면 사용 가능한 느린 쿼리 로그 목록을 보고 개별 로그 파일을 다운로드할 수 있습니다.
 
 1. Azure Portal을 엽니다.
 
 2. Azure Database for MySQL 서버를 선택합니다.
 
-3. 사이드바의 **모니터링** 섹션에서 **서버 로그**를 선택 합니다. 이 페이지에는 로그 파일의 목록이 표시 됩니다.
+3. 사이드바의 **모니터링** 섹션에서 서버 **로그를 선택합니다.** 페이지에 로그 파일 목록이 표시됩니다.
 
-   ![로그 목록이 강조 표시 된 서버 로그 페이지의 스크린샷](./media/howto-configure-server-logs-in-portal/4-server-logs-list.png)
+   ![로그 목록이 강조 표시된 서버 로그 페이지의 스크린샷](./media/howto-configure-server-logs-in-portal/4-server-logs-list.png)
 
    > [!TIP]
-   > 로그의 명명 규칙은 **mysql-slow-< your server name>-yyyymmddhh.log**입니다. 파일 이름에 사용 되는 날짜와 시간은 로그가 발급 된 시간입니다. 로그 파일은 24 시간 또는 7.5 GB 마다 회전 됩니다. 
+   > 로그의 명명 규칙은 **mysql-slow-< your server name>-yyyymmddhh.log**입니다. 파일 이름에 사용된 날짜 및 시간은 로그가 발행된 시간입니다. 로그 파일은 24시간 또는 7.5GB마다 회전됩니다. 
 
-4. 필요한 경우 검색 상자를 사용 하 여 날짜 및 시간에 따라 특정 로그에 빠르게 범위를 좁힙니다. 로그의 이름이 검색됩니다.
+4. 필요한 경우 검색 상자를 사용하여 날짜와 시간에 따라 특정 로그로 빠르게 좁힐 수 있습니다. 로그의 이름이 검색됩니다.
 
-5. 개별 로그 파일을 다운로드 하려면 테이블 행의 각 로그 파일 옆에 있는 아래쪽 화살표 아이콘을 선택 합니다.
+5. 개별 로그 파일을 다운로드하려면 테이블 행의 각 로그 파일 옆에 있는 아래쪽 화살표 아이콘을 선택합니다.
 
-   ![아래쪽 화살표 아이콘이 강조 표시 된 서버 로그 페이지의 스크린샷](./media/howto-configure-server-logs-in-portal/5-download.png)
+   ![아래쪽 화살표 아이콘이 강조 표시된 서버 로그 페이지의 스크린샷](./media/howto-configure-server-logs-in-portal/5-download.png)
 
 ## <a name="set-up-diagnostic-logs"></a>진단 로그 설정
 
-1. 사이드바의 **모니터링** 섹션에서 **진단 설정** > **진단 설정 추가**를 선택 합니다.
+1. 사이드바의 **모니터링** 섹션에서 진단 **설정** > **추가 진단 설정을**선택합니다.
 
    ![진단 설정 옵션의 스크린샷](./media/howto-configure-server-logs-in-portal/add-diagnostic-setting.png)
 
-1. 진단 설정 이름을 제공 합니다.
+1. 진단 설정 이름을 제공합니다.
 
-1. 저속 쿼리 로그를 보낼 데이터 싱크 (저장소 계정, 이벤트 허브 또는 Log Analytics 작업 영역)를 지정 합니다.
+1. 느린 쿼리 로그(저장소 계정, 이벤트 허브 또는 Log Analytics 작업 영역)를 보낼 데이터 싱크를 지정합니다.
 
-1. 로그 형식으로 **MySqlSlowLogs** 를 선택 합니다.
-진단 설정 구성 옵션의 ![스크린샷](./media/howto-configure-server-logs-in-portal/configure-diagnostic-setting.png)
+1. **MySqlSlowLogs를** 로그 유형으로 선택합니다.
+![진단 설정 구성 옵션의 스크린샷](./media/howto-configure-server-logs-in-portal/configure-diagnostic-setting.png)
 
-1. 저속 쿼리 로그를 파이프 하도록 데이터 싱크를 구성한 후 **저장**을 선택 합니다.
-저장이 강조 표시 된 진단 설정 구성 옵션의 스크린샷 ![](./media/howto-configure-server-logs-in-portal/save-diagnostic-setting.png)
+1. 느린 쿼리 로그를 파이프하도록 데이터 싱크를 구성한 후 **저장을**선택합니다.
+![저장이 강조 표시된 진단 설정 구성 옵션의 스크린샷](./media/howto-configure-server-logs-in-portal/save-diagnostic-setting.png)
 
-1. 구성 된 데이터 싱크에서 탐색 하 여 느리게 쿼리 로그에 액세스 합니다. 로그가 표시 되는 데 최대 10 분이 소요 될 수 있습니다.
+1. 구성한 데이터 싱크에서 검색하여 느린 쿼리 로그에 액세스합니다. 로그가 표시되는 데 최대 10분이 걸릴 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-- 느리게 쿼리 로그를 프로그래밍 방식으로 다운로드 하는 방법을 알아보려면 [CLI에서 느리게 쿼리 로그 액세스](howto-configure-server-logs-in-cli.md) 를 참조 하세요.
-- Azure Database for MySQL의 [저속 쿼리 로그](concepts-server-logs.md) 에 대해 자세히 알아보세요.
-- 매개 변수 정의 및 MySQL 로깅에 대 한 자세한 내용은 [로그](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html)에 대 한 mysql 설명서를 참조 하세요.
+- 프로그래밍 방식으로 느린 쿼리 로그를 다운로드하는 방법을 알아보려면 [CLI의 느린 쿼리 로그 액세스를](howto-configure-server-logs-in-cli.md) 참조하십시오.
+- MySQL용 Azure 데이터베이스에서 [느린 쿼리 로그에](concepts-server-logs.md) 대해 자세히 알아봅니다.
+- 매개 변수 정의 및 MySQL 로깅에 대한 자세한 내용은 [로그에](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html)대한 MySQL 설명서를 참조하십시오.

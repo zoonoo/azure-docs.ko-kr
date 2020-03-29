@@ -1,6 +1,6 @@
 ---
 title: Azure Blob 스토리지 간 데이터 이동 - Team Data Science Process
-description: Azure Storage 탐색기, AzCopy, Python 및 SSIS를 사용 하 여 Azure Blob storage 간에 데이터를 이동 합니다.
+description: Azure 저장소 탐색기, AzCopy, 파이썬 및 SSIS를 사용하여 Azure Blob 저장소에서 데이터를 이동합니다.
 services: machine-learning
 author: marktab
 manager: marktab
@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: fc58651bcb3b266b981fb953fd7341427d47fb2c
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76717580"
 ---
 # <a name="move-data-to-and-from-azure-blob-storage"></a>Azure Blob Storage 간 데이터 이동
@@ -27,9 +27,9 @@ ms.locfileid: "76717580"
 다음 문서에서는 다양한 기술을 사용하여 Azure Blob Storage 간에 데이터를 이동하는 방법을 설명합니다.
 
 * [Azure Storage-Explorer](move-data-to-azure-blob-using-azure-storage-explorer.md)
-* [AZCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10)
+* [아즈카피](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10)
 * [Python](move-data-to-azure-blob-using-python.md)
-* [SSIS](move-data-to-azure-blob-using-ssis.md)
+* [Ssis](move-data-to-azure-blob-using-ssis.md)
 
 가장 적합한 방법은 시나리오에 따라 달라집니다. [Azure Machine Learning의 고급 분석 시나리오](plan-sample-scenarios.md) 문서는 고급 분석 프로세스에서 사용되는 다양한 데이터 과학 워크플로에 필요한 리소스를 결정하도록 도와줍니다.
 
@@ -50,8 +50,8 @@ ms.locfileid: "76717580"
 자세한 내용은 [Azure 데이터 팩터리 및 Azure Machine Learning을 사용하여 예측 파이프라인 만들기](../../data-factory/transform-data-using-machine-learning.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
-이 문서에서는 사용자에게 Azure 구독, 스토리지 계정 및 계정에 해당하는 스토리지 키가 있다고 가정합니다. 데이터를 업로드/다운로드 하기 전에 Azure Storage 계정 이름 및 계정 키를 알아야 합니다.
+이 문서에서는 사용자에게 Azure 구독, 스토리지 계정 및 계정에 해당하는 스토리지 키가 있다고 가정합니다. 데이터를 업로드/다운로드하기 전에 Azure Storage 계정 이름과 계정 키를 알고 있어야 합니다.
 
-* Azure 구독을 설정하려면 [1개월 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-* 저장소 계정을 만들고 계정 및 키 정보를 가져오는 방법에 대 한 지침은 [Azure Storage 계정 정보](../../storage/common/storage-create-storage-account.md)를 참조 하세요.
+* Azure 구독을 설정하려면 [무료 1개월 평가판을](https://azure.microsoft.com/pricing/free-trial/)참조하십시오.
+* 저장소 계정을 만들고 계정 및 주요 정보를 가져오는 방법에 대한 지침은 [Azure Storage 계정 정보를](../../storage/common/storage-create-storage-account.md)참조하십시오.
 

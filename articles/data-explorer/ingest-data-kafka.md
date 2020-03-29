@@ -1,6 +1,6 @@
 ---
 title: Kafka에서 Azure Data Explorer로 데이터 수집
-description: 이 문서에서는 Azure 데이터 탐색기에서 Kafka에 (부하) 데이터를 수집 하는 방법을 알아봅니다.
+description: 이 문서에서는 Kafka에서 Azure 데이터 탐색기로 데이터를 수집(로드)하는 방법을 배웁니다.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
@@ -8,23 +8,23 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.openlocfilehash: 03b46ff50683149a22c71ccb155480a0f08455bd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "66497272"
 ---
 # <a name="ingest-data-from-kafka-into-azure-data-explorer"></a>Kafka에서 Azure Data Explorer로 데이터 수집
  
 Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능한 빠르고 확장성이 우수한 데이터 탐색 서비스입니다. Azure Data Explorer는 Kafka에서의 수집(데이터 로드)을 제공합니다. Kafka는 시스템 또는 애플리케이션 간에 데이터를 안정적으로 이동하는 실시간 스트리밍 데이터 파이프라인을 빌드할 수 있도록 하는 분산 스트리밍 플랫폼입니다.
  
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
  
 * Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다. 
  
 * [테스트 클러스터 및 데이터베이스](create-cluster-database-portal.md).
  
-* 데이터를 생성하고 Kafka로 전송하는 [샘플 앱](https://github.com/Azure/azure-kusto-samples-dotnet/tree/master/kafka).
+* 데이터를 생성하고 카프카로 전송하는 [샘플 앱입니다.](https://github.com/Azure/azure-kusto-samples-dotnet/tree/master/kafka)
 
 * 샘플 앱을 실행하기 위한 [Visual Studio 2019](https://visualstudio.microsoft.com/vs/).
  
@@ -64,7 +64,7 @@ Kafka에 플러그 인을 로드합니다. docker를 사용하는 배포 예제�
 
 Kafka 커넥터와 이 커넥터를 배포하는 방법에 대한 자세한 설명서는 [Kafka Connect](https://kafka.apache.org/documentation/#connect)에서 찾을 수 있습니다. 
 
-### <a name="example-configuration"></a>예제 구성 
+### <a name="example-configuration"></a>구성 예 
  
 ```config
 name=KustoSinkConnector 
@@ -162,4 +162,4 @@ cd ./azure-kusto-samples-dotnet/kafka/
  
 ## <a name="next-steps"></a>다음 단계
  
-* [Azure 데이터 탐색기에서 데이터를 쿼리 합니다.](web-query-data.md)
+* [Azure 데이터 탐색기의 쿼리 데이터](web-query-data.md)

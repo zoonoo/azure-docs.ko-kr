@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: b1d0c070a9196eaa9a2706a607baa9a2926e2db4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67051754"
 ---
 # <a name="publish-media-services-content-using-net"></a>.NET을 사용하여 Media Services 콘텐츠 게시  
 > [!div class="op_single_selector"]
-> * [REST (영문)](media-services-rest-deliver-streaming-content.md)
+> * [나머지](media-services-rest-deliver-streaming-content.md)
 > * [.NET](media-services-deliver-streaming-content.md)
 > * [포털](media-services-portal-publish.md)
 > 
@@ -180,5 +180,5 @@ ms.locfileid: "67051754"
 
 ## <a name="next-steps"></a>다음 단계
 * [자산 다운로드](media-services-deliver-asset-download.md)
-* [자산 배달 정책 구성](media-services-dotnet-configure-asset-delivery-policy.md)
+* [자산 제공 정책 구성](media-services-dotnet-configure-asset-delivery-policy.md)
 

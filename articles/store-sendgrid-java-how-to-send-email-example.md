@@ -16,18 +16,18 @@ ms.date: 10/30/2014
 ms.author: erikre
 ms.reviewer: vibhork;dominic.may@sendgrid.com;elmer.thomas@sendgrid.com
 ms.openlocfilehash: 35307848c09391ae4468afc00adafd8171aaaa7b
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67876475"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java-in-an-azure-deployment"></a>Azure 배포에서 Java의 SendGrid를 사용하여 메일을 보내는 방법
-다음 예제는 Azure에 호스트된 웹 페이지에서 SendGrid를 사용하여 전자 메일을 보내는 방법을 보여 줍니다. 결과 응용 프로그램은 다음 스크린샷에 표시 된 것 처럼 사용자에 게 전자 메일 값을 입력 하 라는 메시지를 표시 합니다.
+다음 예제는 Azure에 호스트된 웹 페이지에서 SendGrid를 사용하여 전자 메일을 보내는 방법을 보여 줍니다. 결과 응용 프로그램은 다음 스크린샷과 같이 사용자에게 전자 메일 값을 묻는 메시지를 표시합니다.
 
 ![전자 메일 양식][emailform]
 
-결과 전자 메일은 다음 스크린샷에 표시 됩니다.
+결과 전자 메일은 다음 스크린샷과 유사합니다.
 
 ![전자 메일 메시지][emailsent]
 
@@ -205,7 +205,7 @@ ms.locfileid: "67876475"
     </body>
     </html>
 
-전자 메일을 보내는 것 외에도 사용자에 대 한 결과를 제공 합니다. 예를 들면 다음과 같습니다.
+emailform.jsp는 전자 메일을 보내는 것 외에도 사용자에게 결과를 제공합니다. 다음 스크린샷을 예로 들 수 있습니다.
 
 ![메일 보내기 결과][emailresult]
 
@@ -214,7 +214,7 @@ ms.locfileid: "67876475"
 
 이 코드는 Azure의 Java에서 SendGrid를 사용하는 방법을 보여 줍니다. Azure를 프로덕션에 배포하기 전에 더 많은 오류 처리 또는 기타 기능을 추가할 수 있습니다. 예를 들어: 
 
-* 웹 양식을 사용하는 대신 Azure Storage Blob 또는 SQL Database를 사용하여 전자 메일 주소 및 전자 메일 메시지를 저장할 수 있습니다. Java에서 Azure Storage Blob 사용에 대한 내용은 [Java에서 Blob Storage 서비스를 사용하는 방법](https://azure.microsoft.com/develop/java/how-to-guides/blob-storage/)(영문)을 참조하십시오. Java에서 SQL Database 사용에 대한 내용은 [Java에서 SQL Database 사용](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-java)(영문)을 참조하십시오.
+* 웹 양식을 사용하는 대신 Azure Storage Blob 또는 SQL Database를 사용하여 전자 메일 주소 및 전자 메일 메시지를 저장할 수 있습니다. Java에서 Azure 스토리지 Blob 사용에 대한 내용은 [Java에서 Blob Storage 서비스를 사용하는 방법](https://azure.microsoft.com/develop/java/how-to-guides/blob-storage/)을 참조하십시오. Java에서 SQL 데이터베이스 사용에 대한 내용은 [Java에서 SQL 데이터베이스 사용](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-java)을 참조하세요.
 * Java의 SendGrid 사용에 대한 자세한 내용은 [Java의 SendGrid를 사용하여 전자 메일을 보내는 방법](store-sendgrid-java-how-to-send-email.md)을 참조하십시오.
 
 [emailform]: ./media/store-sendgrid-java-how-to-send-email-example/SendGridJavaEmailform.jpg

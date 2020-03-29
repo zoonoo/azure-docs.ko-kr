@@ -1,5 +1,5 @@
 ---
-title: Azure에서 Linux Vm 용 SSH 키 쌍 만들기 및 사용
+title: Azure에서 Linux VM용 SSH 키 쌍 만들기 및 사용
 description: Azure에서 인증 프로세스의 보안을 개선하기 위해 Linux VM용 SSH 퍼블릭-프라이빗 키를 만들고 사용하는 방법입니다.
 author: cynthn
 ms.service: virtual-machines-linux
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 12/06/2019
 ms.author: cynthn
 ms.openlocfilehash: af18a32143ebc9db7be923b09de106b79022321f
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78969049"
 ---
 # <a name="quick-steps-create-and-use-an-ssh-public-private-key-pair-for-linux-vms-in-azure"></a>빠른 단계: Azure에서 Linux VM용 SSH퍼블릭-프라이빗 키 쌍을 만들고 사용하는 방법
@@ -21,7 +21,7 @@ SSH(보안 셸) 키 쌍을 사용하면 인증을 위해 SSH 키를 사용하는
 > [!NOTE]
 > SSH 키를 사용하여 만든 VM은 기본적으로 암호가 비활성화된 상태로 구성되므로 무차별 추측 공격의 어려움이 크게 증가합니다. 
 
-자세한 배경 및 예제는 [SSH 키 쌍을 만드는 자세한 단계](create-ssh-keys-detailed.md)를 참조하세요.
+자세한 배경 및 예제는 [SSH 키 쌍을 만드는 자세한 단계를](create-ssh-keys-detailed.md)참조하십시오.
 
 Windows 컴퓨터에서 SSH 키를 생성하고 사용하는 추가적인 방법은 [Azure에서 Windows를 통해 SSH 키를 사용하는 방법](ssh-from-windows.md)을 참조합니다.
 
@@ -31,7 +31,7 @@ Windows 컴퓨터에서 SSH 키를 생성하고 사용하는 추가적인 방법
 
 `ssh-keygen` 명령을 사용하여 SSH 공용 및 프라이빗 키 파일을 생성합니다. 기본적으로 이러한 파일은 ~/.ssh 디렉터리에 만들어집니다. 다른 위치와 선택적 암호(*암호*)를 지정하여 프라이빗 키 파일에 액세스 할 수 있습니다. 이름 같은 SSH 키 쌍이 주어진 위치에 있으면 해당 파일이 덮어쓰여집니다.
 
-다음 명령은 RSA 암호화와 비트 길이 4096를 사용 하 여 SSH 키 쌍을 만듭니다.
+다음 명령은 RSA 암호화 및 비트 길이 4096을 사용하여 SSH 키 쌍을 만듭니다.
 
 ```bash
 ssh-keygen -m PEM -t rsa -b 4096
@@ -48,7 +48,7 @@ az vm create --name VMname --resource-group RGname --generate-ssh-keys
 인증을 위해 SSH 키를 사용하는 Linux VM을 만들려면 Azure Portal, Azure CLI, Azure Resource Manager 템플릿 또는 기타 방법을 사용하여 VM을 만들 때 SSH 공개 키를 지정합니다.
 
 * [Azure Portal을 사용하여 Linux 가상 머신 만들기](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Azure CLI를 사용하여 Linux 가상 머신 만들기](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Azure CLI를 사용하여 Linux 가상 시스템 만들기](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Azure 템플릿을 사용하여 Linux VM 만들기](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 SSH 공개 키 형식에 익숙하지 않은 경우, 다음 `cat` 명령을 사용하고 필요한 경우 `~/.ssh/id_rsa.pub`을 자신의 공개 키 파일의 경로와 파일 이름으로 바꿔서 자신의 공개 키를 표시할 수 있습니다.
@@ -63,15 +63,15 @@ cat ~/.ssh/id_rsa.pub
 ssh-rsa AAAAB3NzaC1yc2EAABADAQABAAACAQC1/KanayNr+Q7ogR5mKnGpKWRBQU7F3Jjhn7utdf7Z2iUFykaYx+MInSnT3XdnBRS8KhC0IP8ptbngIaNOWd6zM8hB6UrcRTlTpwk/SuGMw1Vb40xlEFphBkVEUgBolOoANIEXriAMvlDMZsgvnMFiQ12tD/u14cxy1WNEMAftey/vX3Fgp2vEq4zHXEliY/sFZLJUJzcRUI0MOfHXAuCjg/qyqqbIuTDFyfg8k0JTtyGFEMQhbXKcuP2yGx1uw0ice62LRzr8w0mszftXyMik1PnshRXbmE2xgINYg5xo/ra3mq2imwtOKJpfdtFoMiKhJmSNHBSkK7vFTeYgg0v2cQ2+vL38lcIFX4Oh+QCzvNF/AXoDVlQtVtSqfQxRVG79Zqio5p12gHFktlfV7reCBvVIhyxc2LlYUkrq4DHzkxNY5c9OGSHXSle9YsO3F1J5ip18f6gPq4xFmo6dVoJodZm9N0YMKCkZ4k1qJDESsJBk2ujDPmQQeMjJX3FnDXYYB182ZCGQzXfzlPDC29cWVgDZEXNHuYrOLmJTmYtLZ4WkdUhLLlt5XsdoKWqlWpbegyYtGZgeZNRtOOdN6ybOPJqmYFd2qRtb4sYPniGJDOGhx4VodXAjT09omhQJpE6wlZbRWDvKC55R2d/CSPHJscEiuudb+1SG2uA/oik/WQ== username@domainname
 ```
 
-Azure Portal 또는 Resource Manager 템플릿에서 사용할 공개 키 파일의 내용을 복사하여 붙여넣으려는 경우 후행 공백은 복사하지 않아야 합니다. MacOS에서 공개 키를 복사 하려면 공개 키 파일을 `pbcopy`로 파이프 하면 됩니다. 마찬가지로, Linux에서 `xclip`와 같은 프로그램에 공개 키 파일을 파이프 할 수 있습니다.
+Azure Portal 또는 Resource Manager 템플릿에서 사용할 공개 키 파일의 내용을 복사하여 붙여넣으려는 경우 후행 공백은 복사하지 않아야 합니다. macOS에서 공개 키를 복사하려면 공개 키 파일을 `pbcopy`에 파이프할 수 있습니다. 마찬가지로 Linux에서도 공개 키 파일을 와 같은 `xclip`프로그램에 파이프할 수 있습니다.
 
-Azure에서 Linux VM에 배치하는 공개 키는 키 쌍을 만들 때 다른 위치를 지정하지 않는다면, 기본적으로 ~/.ssh/id_rsa.pub에 저장됩니다. 기존 공개 키를 사용하여 VM을 만들기 위해 [Azure CLI 2.0](/cli/azure)을 사용하는 경우 [ 옵션과 함께 ](/cli/azure/vm#az-vm-create)az vm create`--ssh-key-values` 명령을 사용하여 이 공개 키의 값과 위치(선택 사항)을 지정합니다. 다음 명령에서 *VMname*, *RGname* 및 *keyFile*을 자신의 값으로 바꿉니다.
+Azure에서 Linux VM에 배치하는 공개 키는 키 쌍을 만들 때 다른 위치를 지정하지 않는다면, 기본적으로 ~/.ssh/id_rsa.pub에 저장됩니다. 기존 공개 키를 사용하여 VM을 만들기 위해 [Azure CLI 2.0](/cli/azure)을 사용하는 경우 `--ssh-key-values` 옵션과 함께 [az vm create](/cli/azure/vm#az-vm-create) 명령을 사용하여 이 공개 키의 값과 위치(선택 사항)을 지정합니다. 다음 명령에서 *VMname*, *RGname* 및 *keyFile*을 자신의 값으로 바꿉니다.
 
 ```azurecli
 az vm create --name VMname --resource-group RGname --ssh-key-values mysshkey.pub
 ```
 
-VM에서 여러 SSH 키를 사용 하려는 경우이 `--ssh-key-values sshkey-desktop.pub sshkey-laptop.pub`와 같이 공백으로 구분 된 목록에 키를 입력할 수 있습니다.
+VM에서 여러 SSH 키를 사용하려는 경우 다음과 `--ssh-key-values sshkey-desktop.pub sshkey-laptop.pub`같이 공간 분리 목록에 입력할 수 있습니다.
 
 
 ## <a name="ssh-into-your-vm"></a>VM에 SSH 수행

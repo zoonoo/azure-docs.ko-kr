@@ -1,5 +1,5 @@
 ---
-title: Azure CLI를 사용 하 여 Linux VM 복사
+title: Azure CLI를 사용하여 Linux VM 복사
 description: Azure CLI 및 Managed Disks를 사용하여 Azure Linux VM의 복사본을 만드는 방법을 알아봅니다.
 author: cynthn
 ms.service: virtual-machines-linux
@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 10/17/2018
 ms.author: cynthn
 ms.openlocfilehash: ed8574133eafe751699e90ea8cae832ee649fb00
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78969592"
 ---
 # <a name="create-a-copy-of-a-linux-vm-by-using-azure-cli-and-managed-disks"></a>Azure CLI 및 Managed Disks를 사용하여 Linux VM의 복사본 만들기
@@ -21,7 +21,7 @@ ms.locfileid: "78969592"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
--   [Azure CLI](/cli/azure/install-az-cli2)를 설치합니다.
+-   Azure [CLI를](/cli/azure/install-az-cli2)설치합니다.
 
 -   [az login](/cli/azure/reference-index#az-login)을 사용하여 Azure 계정으로 로그인
 
@@ -125,4 +125,4 @@ az vm create --resource-group myResourceGroup \
 
 ## <a name="next-steps"></a>다음 단계
 
-[공유 이미지 갤러리](shared-images.md) 를 사용 하 여 VM 이미지를 관리 하는 방법을 알아봅니다.
+[공유 이미지 갤러리를](shared-images.md) 사용하여 VM 이미지를 관리하는 방법을 알아봅니다.

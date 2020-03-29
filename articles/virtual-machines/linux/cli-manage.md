@@ -1,5 +1,5 @@
 ---
-title: 일반적인 Azure CLI 명령
+title: 공통 Azure CLI 명령
 description: Azure Resource Manager 모드로 VM 관리를 시작하는 데 사용할 수 있는 일반적인 몇 가지 Azure CLI 명령에 대해 알아봅니다.
 author: RicksterCDN
 ms.service: virtual-machines-linux
@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 05/12/2017
 ms.author: rclaus
 ms.openlocfilehash: 253f2ab1b192d22f43e4082766adf4ec4f86fe71
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78969244"
 ---
 # <a name="common-azure-cli-commands-for-managing-azure-resources"></a>Azure 리소스 관리용 일반 Azure CLI 명령

@@ -1,26 +1,26 @@
 ---
-title: Azure Red Hat OpenShift에서 보안 컨텍스트 제약 조건 관리 Microsoft Docs
-description: Azure Red Hat OpenShift 클러스터 관리자에 대 한 보안 컨텍스트 제약 조건
+title: Azure Red Hat 오픈시프트에서 보안 컨텍스트 제약 조건 관리 | 마이크로 소프트 문서
+description: Azure Red Hat OpenShift 클러스터 관리자를 위한 보안 컨텍스트 제약 조건
 services: container-service
 author: troy0820
-ms.author: jzim
+ms.author: b-trconn
 ms.service: container-service
 ms.topic: article
 ms.date: 09/25/2019
-ms.openlocfilehash: f98f55dca8b3dbbfbe03cb8c79691cedb63335a0
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 24163adcec889e9eedc2362ff1f01f00257a98f3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72168986"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80063169"
 ---
-# <a name="manage-security-context-constraints-in-azure-red-hat-openshift"></a>Azure Red Hat OpenShift에서 보안 컨텍스트 제약 조건 관리 
+# <a name="manage-security-context-constraints-in-azure-red-hat-openshift"></a>Azure Red Hat 오픈시프트에서 보안 컨텍스트 제약 조건 관리 
 
-SCCs (보안 컨텍스트 제약 조건)를 사용 하면 클러스터 관리자가 pod에 대 한 사용 권한을 제어할 수 있습니다. 이 API 형식에 대해 자세히 알아보려면 [SCCs에 대 한 아키텍처 설명서](https://docs.openshift.com/container-platform/3.11/architecture/additional_concepts/authorization.html)를 참조 하세요. CLI를 사용 하 여 인스턴스에서 SCCs를 일반 API 개체로 관리할 수 있습니다.
+SCC(보안 컨텍스트 제약 조건)를 사용하면 클러스터 관리자가 포드에 대한 권한을 제어할 수 있습니다. 이 API 유형에 대한 자세한 내용은 [SCC에 대한 아키텍처 설명서를](https://docs.openshift.com/container-platform/3.11/architecture/additional_concepts/authorization.html)참조하십시오. CLI를 사용하여 인스턴스에서 SCC를 일반 API 개체로 관리할 수 있습니다.
 
-## <a name="list-security-context-constraints"></a>보안 컨텍스트 제약 조건 나열
+## <a name="list-security-context-constraints"></a>목록 보안 컨텍스트 제약 조건
 
-SCCs의 현재 목록을 가져오려면 다음 명령을 사용 합니다. 
+현재 SCC 목록을 얻으려면 다음 명령을 사용합니다. 
 
 ```bash
 $ oc get scc
@@ -35,41 +35,41 @@ privileged         true      [*]       RunAsAny    RunAsAny           RunAsAny  
 restricted         false     []        MustRunAs   MustRunAsRange     MustRunAs   RunAsAny    <none>     false            [configMap downwardAPI emptyDir persistentVolumeClaim secret]
 ```
 
-## <a name="examine-an-object-for-security-context-constraints"></a>개체에서 보안 컨텍스트 제약 조건을 검사 합니다.
+## <a name="examine-an-object-for-security-context-constraints"></a>보안 컨텍스트 제약 조건에 대한 개체 검사
 
-특정 SCC를 검사 하려면 `oc get`, `oc describe` 또는 `oc edit`를 사용 합니다.  예를 들어 **제한** 된 SCC를 검사 하려면 다음 명령을 사용 합니다.
+특정 SCC를 검사하려면 `oc get` `oc describe`을 `oc edit`사용하거나 을 사용합니다.  예를 들어 **제한된** SCC를 검사하려면 다음 명령을 사용합니다.
 ```bash
 $ oc describe scc restricted
-Name:                   restricted
-Priority:               <none>
+Name:                    restricted
+Priority:                <none>
 Access:
   Users:                <none>
-  Groups:               system:authenticated
+  Groups:                system:authenticated
 Settings:
-  Allow Privileged:         false
-  Default Add Capabilities:     <none>
-  Required Drop Capabilities:       KILL,MKNOD,SYS_CHROOT,SETUID,SETGID
-  Allowed Capabilities:         <none>
-  Allowed Seccomp Profiles:     <none>
-  Allowed Volume Types:         configMap,downwardAPI,emptyDir,persistentVolumeClaim,projected,secret
-  Allow Host Network:           false
-  Allow Host Ports:         false
-  Allow Host PID:           false
-  Allow Host IPC:           false
+  Allow Privileged:            false
+  Default Add Capabilities:        <none>
+  Required Drop Capabilities:        KILL,MKNOD,SYS_CHROOT,SETUID,SETGID
+  Allowed Capabilities:            <none>
+  Allowed Seccomp Profiles:        <none>
+  Allowed Volume Types:            configMap,downwardAPI,emptyDir,persistentVolumeClaim,projected,secret
+  Allow Host Network:            false
+  Allow Host Ports:            false
+  Allow Host PID:            false
+  Allow Host IPC:            false
   Read Only Root Filesystem:        false
   Run As User Strategy: MustRunAsRange
     UID:                <none>
-    UID Range Min:          <none>
-    UID Range Max:          <none>
+    UID Range Min:            <none>
+    UID Range Max:            <none>
   SELinux Context Strategy: MustRunAs
-    User:               <none>
-    Role:               <none>
-    Type:               <none>
-    Level:              <none>
+    User:                <none>
+    Role:                <none>
+    Type:                <none>
+    Level:                <none>
   FSGroup Strategy: MustRunAs
-    Ranges:             <none>
+    Ranges:                <none>
   Supplemental Groups Strategy: RunAsAny
-    Ranges:             <none>
+    Ranges:                <none>
 ```
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"]

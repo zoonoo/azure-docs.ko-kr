@@ -1,5 +1,5 @@
 ---
-title: Windows 용 Azure N 시리즈 GPU 드라이버 설치
+title: Windows용 Azure N 시리즈 GPU 드라이버 설정
 description: Azure에서 Windows Server 또는 Windows를 실행하는 N 시리즈 VM용 NVIDIA GPU 드라이버를 설정하는 방법입니다.
 services: virtual-machines-windows
 author: cynthn
@@ -15,10 +15,10 @@ ms.date: 09/24/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 631266f983886e3ca34d609b425f8a71b808b39f
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77919399"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-windows"></a>Windows를 실행하는 N 시리즈 VM의 NVIDIA GPU 드라이버 설치 
@@ -41,7 +41,7 @@ VM에서는 GRID 드라이버 설치 후 다시 시작해야 합니다. CUDA 드
 
 ## <a name="verify-driver-installation"></a>드라이버 설치 확인
 
-Nvidia 제어판은 그리드 드라이버 설치로만 액세스할 수 있습니다. Verda 드라이버를 설치한 경우에는 Nvidia 제어판이 표시 되지 않습니다.
+엔비디아 제어판은 GRID 드라이버 설치만 가능합니다. CUDA 드라이버를 설치 한 경우 다음 엔비디아 제어판 표시 되지 않습니다.
 
 디바이스 관리자에서 드라이버 설치를 확인할 수 있습니다. 다음 예제에서는 Azure NC VM에서 Tesla K80 카드의 성공적인 구성을 보여 줍니다.
 

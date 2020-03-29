@@ -1,26 +1,26 @@
 ---
-title: 읽기 복제본 관리-Azure CLI, REST API Azure Database for MySQL
-description: Azure CLI 또는 REST API를 사용 하 여 Azure Database for MySQL에서 읽기 복제본을 설정 하 고 관리 하는 방법을 알아봅니다.
+title: 읽기 복제본 관리 - Azure CLI, REST API - MySQL용 Azure 데이터베이스
+description: Azure CLI 또는 REST API를 사용하여 MySQL용 Azure 데이터베이스에서 읽기 복제본을 설정하고 관리하는 방법을 알아봅니다.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 56ba530c4f684bf89db9c5b87306592fbfeee7fa
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: ed57003c7a9a5a1a9d87aa2e8934af8c48b1d819
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74774097"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80063326"
 ---
-# <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-cli-and-rest-api"></a>Azure CLI 및 REST API를 사용 하 여 Azure Database for MySQL에서 읽기 복제본을 만들고 관리 하는 방법
+# <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-cli-and-rest-api"></a>Azure CLI 및 REST API를 사용하여 MySQL용 Azure 데이터베이스에서 읽기 복제본을 만들고 관리하는 방법
 
-이 문서에서는 Azure CLI 및 REST API를 사용 하 여 Azure Database for MySQL 서비스에서 읽기 복제본을 만들고 관리 하는 방법을 설명 합니다. 읽기 복제본에 대한 자세한 내용은 [개요](concepts-read-replicas.md)를 참조하세요.
+이 문서에서는 Azure CLI 및 REST API를 사용하여 MySQL 서비스에 대한 Azure 데이터베이스에서 읽기 복제본을 만들고 관리하는 방법을 알아봅니다. 읽기 복제본에 대한 자세한 내용은 [개요](concepts-read-replicas.md)를 참조하세요.
 
 ## <a name="azure-cli"></a>Azure CLI
-Azure CLI를 사용 하 여 읽기 복제본을 만들고 관리할 수 있습니다.
+Azure CLI를 사용하여 읽기 복제본을 만들고 관리할 수 있습니다.
 
-### <a name="prerequisites"></a>전제 조건
+### <a name="prerequisites"></a>사전 요구 사항
 
 - [Azure CLI 2.0 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 - 마스터 서버로 사용할 [Azure Database for MySQL 서버](quickstart-create-mysql-server-database-using-azure-portal.md) 
@@ -41,17 +41,17 @@ az mysql server replica create --name mydemoreplicaserver --source-server mydemo
 | 설정 | 예제 값 | 설명  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  복제본 서버가 만들어지는 리소스 그룹입니다.  |
-| 이름 | mydemoreplicaserver | 만들어지는 새 복제본 서버의 이름입니다. |
+| name | mydemoreplicaserver | 만들어지는 새 복제본 서버의 이름입니다. |
 | source-server | mydemoserver | 복제할 기존 마스터 서버의 이름 또는 ID입니다. |
 
-지역 간 읽기 복제본을 만들려면 `--location` 매개 변수를 사용 합니다. 아래 CLI 예제에서는 미국 서 부에 복제본을 만듭니다.
+교차 영역 읽기 복제본을 `--location` 만들려면 매개 변수를 사용합니다. 아래 CLI 예제는 미국 서부에서 복제본을 만듭니다.
 
 ```azurecli-interactive
 az mysql server replica create --name mydemoreplicaserver --source-server mydemoserver --resource-group myresourcegroup --location westus
 ```
 
 > [!NOTE]
-> 에서 복제본을 만들 수 있는 지역에 대 한 자세한 내용은 [복제본 개념 읽기 문서](concepts-read-replicas.md)를 참조 하세요. 
+> 복제본을 만들 수 있는 지역에 대해 자세히 알아보려면 [읽기 복제본 개념 문서를 방문하십시오.](concepts-read-replicas.md) 
 
 > [!NOTE]
 > 읽기 복제본은 마스터와 같은 서버 구성을 사용하여 생성됩니다. 복제본이 생성된 후에 복제본 서버 구성을 변경할 수 있습니다. 복제본이 마스터와 동일한 성능을 유지할 수 있도록 복제본 서버의 구성은 마스터의 구성 값 이상으로 유지하는 것이 좋습니다.
@@ -88,7 +88,7 @@ az mysql server replica stop --name mydemoreplicaserver --resource-group myresou
 | 설정 | 예제 값 | 설명  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  복제본 서버가 있는 리소스 그룹입니다.  |
-| 이름 | mydemoreplicaserver | 복제를 중지할 복제본 서버의 이름입니다. |
+| name | mydemoreplicaserver | 복제를 중지할 복제본 서버의 이름입니다. |
 
 ### <a name="delete-a-replica-server"></a>복제본 서버 삭제
 
@@ -111,10 +111,10 @@ az mysql server delete --resource-group myresourcegroup --name mydemoserver
 
 
 ## <a name="rest-api"></a>REST API
-[Azure REST API](/rest/api/azure/)를 사용 하 여 읽기 복제본을 만들고 관리할 수 있습니다.
+[Azure REST API를](/rest/api/azure/)사용하여 읽기 복제본을 만들고 관리할 수 있습니다.
 
 ### <a name="create-a-read-replica"></a>읽기 복제본 만들기
-[CREATE API](/rest/api/mysql/servers/create)를 사용 하 여 읽기 복제본을 만들 수 있습니다.
+[API 만들기를](/rest/api/mysql/servers/create)사용하여 읽기 복제본을 만들 수 있습니다.
 
 ```http
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/servers/{replicaName}?api-version=2017-12-01
@@ -131,27 +131,27 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 ```
 
 > [!NOTE]
-> 에서 복제본을 만들 수 있는 지역에 대 한 자세한 내용은 [복제본 개념 읽기 문서](concepts-read-replicas.md)를 참조 하세요. 
+> 복제본을 만들 수 있는 지역에 대해 자세히 알아보려면 [읽기 복제본 개념 문서를 방문하십시오.](concepts-read-replicas.md) 
 
-범용 또는 메모리 액세스에 최적화 된 마스터 서버에서 `azure.replication_support` 매개 변수를 **복제본** 으로 설정 하지 않은 경우 서버를 다시 시작 하면 오류가 발생 합니다. 복제본을 만들기 전에이 두 단계를 완료 합니다.
+범용 또는 메모리 `azure.replication_support` 최적화 마스터 서버에서 매개 변수를 **REPLICA로** 설정하지 않았고 서버를 다시 시작한 경우 오류가 발생합니다. 복제본을 만들기 전에 이 두 단계를 완료합니다.
 
-복제본은 마스터와 동일한 계산 및 저장소 설정을 사용 하 여 생성 됩니다. 복제본을 만든 후에는 마스터 서버와는 별도로 컴퓨팅 생성, vCores, 스토리지 및 백업 보존 기간 등의 일부 설정을 변경할 수 있습니다. 가격 책정도 기본 계층에서 다른 계층으로 또는 다른 계층에서 기본 계층으로 변경하는 경우 이외의 다른 방식으로 독립적으로 변경할 수 있습니다.
+복제본은 마스터와 동일한 계산 및 저장소 설정을 사용하여 만들어집니다. 복제본을 만든 후에는 마스터 서버와는 별도로 컴퓨팅 생성, vCores, 스토리지 및 백업 보존 기간 등의 일부 설정을 변경할 수 있습니다. 가격 책정도 기본 계층에서 다른 계층으로 또는 다른 계층에서 기본 계층으로 변경하는 경우를 제외하고 독립적으로 변경할 수 있습니다.
 
 
 > [!IMPORTANT]
-> 마스터 서버 설정을 새 값으로 업데이트 하기 전에 복제본 설정을 같거나 큰 값으로 업데이트 합니다. 이 작업을 수행 하면 복제본이 마스터의 모든 변경 내용을 유지 하는 데 도움이 됩니다.
+> 마스터 서버 설정을 새 값으로 업데이트하기 전에 복제본 설정을 같거나 더 큰 값으로 업데이트합니다. 이 작업은 복제본이 마스터에 대한 변경 내용을 유지하는 데 도움이 됩니다.
 
-### <a name="list-replicas"></a>복제본 나열
-[복제본 목록 API](/rest/api/mysql/replicas/listbyserver)를 사용 하 여 마스터 서버의 복제본 목록을 볼 수 있습니다.
+### <a name="list-replicas"></a>복제본 목록
+복제 본문 목록 [API를](/rest/api/mysql/replicas/listbyserver)사용하여 마스터 서버의 복제본 목록을 볼 수 있습니다.
 
 ```http
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/servers/{masterServerName}/Replicas?api-version=2017-12-01
 ```
 
 ### <a name="stop-replication-to-a-replica-server"></a>복제본 서버로의 복제 중지
-[업데이트 API](/rest/api/mysql/servers/update)를 사용 하 여 마스터 서버와 읽기 복제본 간의 복제를 중지할 수 있습니다.
+[업데이트 API를](/rest/api/mysql/servers/update)사용하여 마스터 서버와 읽기 복제본 간의 복제를 중지할 수 있습니다.
 
-마스터 서버와 읽기 복제본에 대한 복제를 중지한 경우 실행 취소할 수 없습니다. 읽기 복제본은 읽기 및 쓰기를 둘 다 지원하는 독립 실행형 서버가 됩니다. 독립 실행형 서버는 복제본으로 다시 만들 수 없습니다.
+마스터 서버와 읽기 복제본에 대한 복제를 중지한 경우 실행 취소할 수 없습니다. 읽기 복제본은 읽기 및 쓰기를 둘 다 지원하는 독립 실행형 서버가 됩니다. 독립 실행형 서버를 다시 복제본으로 만들 수 없습니다.
 
 ```http
 PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/servers/{masterServerName}?api-version=2017-12-01
@@ -165,8 +165,8 @@ PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups
 }
 ```
 
-### <a name="delete-a-master-or-replica-server"></a>마스터 서버 또는 복제 서버 삭제
-마스터 서버 또는 복제 서버를 삭제 하려면 [DELETE API](/rest/api/mysql/servers/delete)를 사용 합니다.
+### <a name="delete-a-master-or-replica-server"></a>마스터 또는 복제서버 삭제
+마스터 또는 복제본 서버를 삭제하려면 [API 삭제를](/rest/api/mysql/servers/delete)사용합니다.
 
 마스터 서버를 삭제하면 모든 읽기 복제본에 대한 복제가 중지됩니다. 그러면 읽기 복제본은 읽기와 쓰기를 모두 지원하는 독립 실행형 서버가 됩니다.
 

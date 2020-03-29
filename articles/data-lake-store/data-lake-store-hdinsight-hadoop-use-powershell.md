@@ -1,6 +1,6 @@
 ---
 title: 'PowerShell: Azure Data Lake Storage Gen1을 추가 기능 스토리지로 사용하는 Azure HDInsight 클러스터 | Microsoft Docs'
-description: Azure PowerShell를 사용 하 여 Azure Data Lake Storage Gen1 추가 저장소로 HDInsight 클러스터를 구성 하는 방법을 알아봅니다.
+description: Azure PowerShell을 사용하여 Azure 데이터 레이크 저장소 Gen1을 추가 저장소로 사용하여 HDInsight 클러스터를 구성하는 방법을 알아봅니다.
 services: data-lake-store,hdinsight
 documentationcenter: ''
 author: twooley
@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 4cd61619e0417ab1db8d8413872b2dff1c904fc1
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78970132"
 ---
 # <a name="use-azure-powershell-to-create-an-hdinsight-cluster-with-azure-data-lake-storage-gen1-as-additional-storage"></a>Azure PowerShell을 사용하여 Azure Data Lake Storage Gen1을 (추가 스토리지로) 사용하는 HDInsight 클러스터 만들기
@@ -57,9 +57,9 @@ PowerShell을 사용하여 Data Lake Storage Gen1과 함께 작동하도록 HDIn
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-* **Azure PowerShell 1.0 이상**. [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview)을 참조하세요.
-* **Windows SDK**. [여기](https://dev.windows.com/en-us/downloads)에서 설치할 수 있습니다. 이를 사용하여 보안 인증서를 만듭니다.
-* **Azure Active Directory 서비스 사용자**. 이 자습서의 단계에서는 Azure AD에서 서비스 사용자를 만드는 방법에 대한 지침을 제공합니다. 그러나 서비스 사용자를 만들려면 Azure AD 관리자여야 합니다. Azure AD 관리자인 경우 이 필수 조건을 건너뛰고 자습서를 진행할 수 있습니다.
+* **Azure PowerShell 1.0 이상.** [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview)을 참조하세요.
+* **윈도우 SDK**. [여기](https://dev.windows.com/en-us/downloads)에서 설치할 수 있습니다. 이를 사용하여 보안 인증서를 만듭니다.
+* **Azure Active 디렉터리 서비스 보안 주체**. 이 자습서의 단계에서는 Azure AD에서 서비스 사용자를 만드는 방법에 대한 지침을 제공합니다. 그러나 서비스 사용자를 만들려면 Azure AD 관리자여야 합니다. Azure AD 관리자인 경우 이 필수 조건을 건너뛰고 자습서를 진행할 수 있습니다.
 
     **Azure AD 관리자가 아닌 경우** 서비스 사용자를 만드는 데 필요한 단계를 수행할 수 없습니다. 이 경우 먼저 Azure AD 관리자가 서비스 주체를 만들어야 Data Lake Storage Gen1과 HDInsight 클러스터를 만들 수 있습니다. 또한 [인증서를 사용하여 서비스 사용자 만들기](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-certificate-from-certificate-authority)에 설명된 대로 인증서를 사용하여 서비스 사용자를 만들어야 합니다.
 
@@ -138,7 +138,7 @@ Data Lake Storage Gen1에 대한 Active Directory 인증을 설정하려면 다�
 
 이 섹션의 단계를 진행하기 전에 [Windows SDK](https://dev.windows.com/en-us/downloads) 가 설치되어 있는지 확인합니다. 또한 인증서가 만들어지는 **C:\mycertdir**과 같은 디렉터리가 만들어져 있어야 합니다.
 
-1. PowerShell 창에서 Windows SDK (일반적으로 `C:\Program Files (x86)\Windows Kits\10\bin\x86`를 설치한 위치로 이동 하 고, [makecert.exe][makecert] 유틸리티를 사용 하 여 자체 서명 된 인증서와 개인 키를 만듭니다. 다음 명령을 사용합니다.
+1. PowerShell 창에서 Windows SDK를 설치한 위치로 이동(일반적으로 `C:\Program Files (x86)\Windows Kits\10\bin\x86`)하고 [MakeCert][makecert] 유틸리티를 사용하여 자체 서명된 인증서와 프라이빗 키를 만듭니다. 다음 명령을 사용합니다.
 
         $certificateFileDir = "<my certificate directory>"
         cd $certificateFileDir
@@ -146,7 +146,7 @@ Data Lake Storage Gen1에 대한 Active Directory 인증을 설정하려면 다�
         makecert -sv mykey.pvk -n "cn=HDI-ADL-SP" CertFile.cer -r -len 2048
 
     프라이빗 키 암호를 입력하라는 메시지가 표시됩니다. 명령을 성공적으로 실행한 후 지정한 인증서 디렉터리에서 **CertFile.cer** 및 **mykey.pvk**를 확인해야 합니다.
-2. [Pvk2Pfx][pvk2pfx] 유틸리티를 사용 하 여 makecert.exe 및 .cer 파일을 .pfx 파일로 변환 합니다. 다음 명령을 실행합니다.
+2. [Pvk2Pfx][pvk2pfx] 유틸리티를 사용하여 MakeCert가 생성한 .pvk 및 .cer 파일을 .pfx 파일로 변환합니다. 다음 명령을 실행합니다.
 
         pvk2pfx -pvk mykey.pvk -spc CertFile.cer -pfx CertFile.pfx -po <password>
 
@@ -270,7 +270,7 @@ Data Lake Storage Gen1을 사용하도록 HDInsight 클러스터를 구성하고
 
 `hdfs dfs -put` 명령을 사용하여 일부 파일을 Data Lake Storage Gen1에 업로드한 다음, `hdfs dfs -ls`를 사용하여 파일이 성공적으로 업로드되었는지 여부를 확인할 수도 있습니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>관련 항목
 * [Azure HDInsight 클러스터에 Data Lake Storage Gen1 사용](../hdinsight/hdinsight-hadoop-use-data-lake-store.md)
 * [포털: HDInsight 클러스터를 만들어 Data Lake Storage Gen1 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
 

@@ -9,10 +9,10 @@ ms.date: 03/29/2018
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: 8361c32860d48b78c778ea5106ba04715fcc5f3c
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67621049"
 ---
 # <a name="open-a-support-ticket-for-an-importexport-job"></a>가져오기/내보내기 작업에 대한 지원 티켓 열기
@@ -33,13 +33,13 @@ ms.locfileid: "67621049"
 2. **새 지원 요청**에서 **기본**을 선택합니다. **기본**에서 다음 단계를 수행합니다.
     
     1. **문제점 유형** 드롭다운 목록에서 **기술**을 선택합니다.
-    2. **구독**을 선택합니다.
+    2. **구독을**선택합니다.
     3. **서비스**에서 **내 서비스**를 확인합니다. 드롭다운 목록에서 **스토리지 계정 관리**, **Blob** 또는 **파일** 등의 옵션 중 하나를 선택할 수 있습니다. 
         - **스토리지 계정 관리**를 선택한 경우 **리소스** 및 **지원 요금제**를 선택합니다.
             ![스토리지 계정 관리 선택](./media/storage-import-export-contact-microsoft-support/import-export-support3.png)
         - **Blob**를 선택한 경우 **리소스**, **컨테이너 이름**(선택 사항) 및 **지원 요금제**를 선택합니다.
             ![Blob 선택](./media/storage-import-export-contact-microsoft-support/import-export-support2.png)
-        - **파일**을 선택하면 **리소스**, **파일 공유 이름**(선택 사항) 및 **지원 요금제**를 선택하고 ![파일을 선택](./media/storage-import-export-contact-microsoft-support/import-export-support4.png)합니다.
+        - **파일**을 선택하면 **리소스**, **파일 공유 이름**(선택 사항) 및 **지원 요금제를 선택하고 ** ![파일을 선택](./media/storage-import-export-contact-microsoft-support/import-export-support4.png)합니다.
     4. **다음**을 클릭합니다.
 
 3. **새 지원 요청**에서 **2단계 문제**를 선택합니다. **문제**에서 다음 단계를 수행합니다.
@@ -53,12 +53,12 @@ ms.locfileid: "67621049"
     7. **진단 정보 공유**를 선택합니다.
     8. **다음**을 클릭합니다.
 
-       ![문제점](./media/storage-import-export-contact-microsoft-support/import-export-support5.png)
+       ![문제](./media/storage-import-export-contact-microsoft-support/import-export-support5.png)
 
 4. **새 지원 요청**에서 **3단계 연락처 정보**를 클릭합니다. **연락처 정보**에서 다음 단계를 수행합니다.
 
    1. **연락처 옵션**에서 기본 연락 방법(전화 또는 전자 메일) 및 언어를 지정합니다. 응답 시간은 구독 계획에 따라 자동으로 선택됩니다.
-   2. 연락처 정보, 이름, 전자 메일, 선택적 연락처, 국가/지역을 제공 합니다. **향후 지원 요청에 대한 연락처 변경 내용 저장** 확인란을 선택합니다.
+   2. 연락처 정보에서 이름, 이메일, 선택적 연락처, 국가/지역을 입력합니다. **향후 지원 요청에 대한 연락처 변경 내용 저장** 확인란을 선택합니다.
    3. **만들기**를 클릭합니다.
    
        ![연락처 정보](./media/storage-import-export-contact-microsoft-support/import-export-support7.png)   

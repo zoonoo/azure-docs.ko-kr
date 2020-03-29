@@ -1,5 +1,5 @@
 ---
-title: Docker Machine을 사용 하 여 Linux 호스트 만들기
+title: 도커 머신을 사용하여 리눅스 호스트를 만듭니다.
 description: Docker Machine을 사용하여 Azure에서 Docker 호스트를 만드는 방법에 대해 설명합니다.
 author: cynthn
 ms.service: virtual-machines-linux
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 12/15/2017
 ms.author: cynthn
 ms.openlocfilehash: c3165410809d98fd0ac4eeb515fbf30578633ef3
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78968810"
 ---
 # <a name="how-to-use-docker-machine-to-create-hosts-in-azure"></a>Docker Machine을 사용하여 Azure에서 호스트를 만드는 방법
@@ -24,7 +24,7 @@ ms.locfileid: "78968810"
 sub=$(az account show --query "id" -o tsv)
 ```
 
-드라이버로 `docker-machine create`azure*를 지정하여* 로 Azure에서 Docker 호스트 VM을 만듭니다. 자세한 내용은 [Docker Azure 드라이버 설명서](https://docs.docker.com/machine/drivers/azure/)를 참조하세요.
+드라이버로 *azure*를 지정하여 `docker-machine create`로 Azure에서 Docker 호스트 VM을 만듭니다. 자세한 내용은 [Docker Azure 드라이버 설명서](https://docs.docker.com/machine/drivers/azure/)를 참조하세요.
 
 다음 예제에서는 *myVM*이라는 VM을 만들고 "표준 D2 v2" 계획에 따라 *azureuser*라는 사용자 계정을 만들고 호스트 VM에서 포트 *80*을 엽니다. 프롬프트를 따라 Azure 계정에 로그인하고 리소스를 만들고 관리하도록 Docker Machine에 사용 권한을 부여합니다.
 

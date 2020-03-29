@@ -1,6 +1,6 @@
 ---
 title: Azure Service Bus-Event Grid 통합 개요 | Microsoft Docs
-description: 이 문서에서는 Azure Service Bus 메시지를 Azure Event Grid와 통합 하는 방법에 대해 설명 합니다.
+description: 이 문서에서는 Azure Service Bus 메시징이 Azure 이벤트 그리드와 통합되는 방법에 대한 설명을 제공합니다.
 services: service-bus-messaging
 documentationcenter: .net
 author: axisc
@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 01/27/2020
 ms.author: aschhab
 ms.openlocfilehash: 1e514e2856afae4ff6f877bb193935da1bc5d623
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76773473"
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Azure Service Bus-Event Grid 통합 개요
@@ -38,7 +38,7 @@ Azure Service Bus가 Azure Event Grid와의 새로운 통합을 시작했습니�
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ### <a name="verify-that-you-have-contributor-access"></a>참가자 액세스 권한이 있는지 확인
-Service Bus 네임 스페이스로 이동한 후 **액세스 제어 (IAM)** 를 선택 하 고 **역할 할당** 탭을 선택 합니다. 네임 스페이스에 대 한 참가자 액세스 권한이 있는지 확인 합니다. 
+서비스 버스 네임스페이스로 이동한 다음 **IAM(액세스 제어)을**선택하고 **역할 할당 탭을** 선택합니다. 
 
 ### <a name="events-and-event-schemas"></a>이벤트 및 이벤트 스키마
 
@@ -111,7 +111,7 @@ Service Bus 네임 스페이스로 이동한 후 **액세스 제어 (IAM)** 를 
 
 ### <a name="use-filters-to-limit-where-you-get-events-from"></a>이벤트를 얻는 장소를 제한하려면 필터 사용
 
-네임스페이스 내부의 특정 큐 또는 특정 구독에 대한 이벤트만 발생시키려는 경우 Event Grid에서 제공하는 *시작 문자* 또는 *끝 문자* 필터를 사용하면 됩니다. 일부 인터페이스에서는 해당 필터를 *사전* 및 *접미사* 필터라고 합니다. 전부는 아니지만 여러 큐 및 구독에 대한 이벤트를 발생시키려는 경우 여러 개의 Event Grid 구독을 만들고 각각에 필터를 제공하면 됩니다.
+네임스페이스 내부의 특정 큐 또는 특정 구독에 대한 이벤트만 발생시키려는 경우 Event Grid에서 제공하는 *시작 문자* 또는 *끝 문자* 필터를 사용하면 됩니다. 일부 인터페이스에서는 필터를 *Pre* 및 *Suffix* 필터라고 합니다. 전부는 아니지만 여러 큐 및 구독에 대한 이벤트를 발생시키려는 경우 여러 개의 Event Grid 구독을 만들고 각각에 필터를 제공하면 됩니다.
 
 ## <a name="create-event-grid-subscriptions-for-service-bus-namespaces"></a>Service Bus 네임스페이스에 대한 Event Grid 구독 만들기
 
@@ -138,7 +138,7 @@ Service Bus 네임 스페이스로 이동한 후 **액세스 제어 (IAM)** 를 
 
 ## <a name="azure-cli-instructions"></a>Azure CLI 지침
 
-먼저, Azure CLI 버전 2.0 이상이 설치되어 있는지 확인 합니다. [설치 프로그램을 다운로드합니다](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). 그런 다음, **Windows + X**를 선택한 다음, 관리자 권한으로 새 PowerShell 콘솔을 엽니다. 또는 Azure Portal 내에서 명령 셸을 사용할 수 있습니다.
+먼저, Azure CLI 버전 2.0 이상이 설치되어 있는지 확인 합니다. [설치 프로그램을 다운로드합니다](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). **Windows + X를**선택한 다음 관리자 권한이 있는 새 PowerShell 콘솔을 엽니다. 또는 Azure Portal 내에서 명령 셸을 사용할 수 있습니다.
 
 다음 코드를 실행합니다.
 
@@ -152,7 +152,7 @@ namespaceid=$(az resource show --namespace Microsoft.ServiceBus --resource-type 
 az eventgrid event-subscription create --resource-id $namespaceid --name "<YOUR EVENT GRID SUBSCRIPTION NAME (CAN BE ANY NOT EXISTING)>" --endpoint "<your_function_url>" --subject-ends-with "<YOUR SERVICE BUS SUBSCRIPTION NAME>"
 ```
 
-BASH를 사용 하는 경우 
+BASH를 사용하는 경우 
 
 ## <a name="powershell-instructions"></a>PowerShell 지침
 

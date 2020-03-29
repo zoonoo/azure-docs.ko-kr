@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 02/24/2017
 ms.author: yurid
 ms.openlocfilehash: 69062e42a5d572cf7b73bec3932613d39be9b92f
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77921507"
 ---
 # <a name="azure-security-center-and-azure-virtual-machines"></a>Azure Security Center 및 Azure Virtual Machines
@@ -33,7 +33,7 @@ Security Center를 사용하면 가상 머신의 보안 설정에 가시성을 �
 * 엔드포인트 보호 권장 사항
 * 디스크 암호화 유효성 검사
 * 취약점 평가 및 재구성
-* 위협 방지 기능의 보안 경고
+* 위협 보호 기능의 보안 경고
 
 Security Center는 Azure VM을 보호하는 것 외에도, Cloud Services, App Services, Virtual Network 등에 대한 보안 모니터링 및 관리도 제공합니다. 
 
@@ -42,12 +42,12 @@ Security Center는 Azure VM을 보호하는 것 외에도, Cloud Services, App S
 > 
 > 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 Azure Security Center를 시작하려면 다음 사항을 이해하고 고려해야 합니다.
 
 * Microsoft Azure를 구독해야 합니다. 보안 센터의 무료 및 표준 계층에 대한 자세한 내용은 [보안 센터 가격 책정](https://azure.microsoft.com/pricing/details/security-center/)을 참조하세요.
 * 보안 센터 도입을 계획하는 경우 계획 및 작업 고려 사항에 대한 자세한 내용은 [Azure Security Center 계획 및 작업 가이드](security-center-planning-and-operations-guide.md)를 참조하세요.
-* 지원 되는 운영 체제에 대 한 자세한 내용은 [AZURE SECURITY CENTER faq (질문과 대답)](faq-vms.md)를 참조 하세요. 
+* 지원되는 운영 체제에 대한 자세한 내용은 [Azure Security Center에서 자주 묻는 질문(FAQ)을](faq-vms.md)참조하십시오. 
 
 ## <a name="set-security-policy"></a>보안 정책 설정
 Azure Security Center에서 구성한 보안 정책을 기반으로 생성된 권장 사항 및 경고를 제공하는 데 필요한 정보를 수집할 수 있도록 데이터 수집을 활성화해야 합니다. 아래 그림에서 **데이터 수집**이 **사용**으로 설정된 것을 볼 수 있습니다.
@@ -64,9 +64,9 @@ Azure Security Center에서 구성한 보안 정책을 기반으로 생성된 �
 
 보안 정책이 설정되면 보안 센터는 리소스의 보안 상태를 분석하여 잠재적인 취약성을 식별합니다. 권장 사항은 각 줄이 한 가지 특정 권장을 나타내는 표 형식으로 표시됩니다. 아래 표는 Azure VM에 대한 권장 사항의 일부 예 및 적용할 경우 각 권장 사항의 역할을 제공합니다. 권장 사항을 선택하면 보안 센터에서 권장 사항을 구현하는 방법을 보여 주는 정보가 제공됩니다.
 
-| 권장 구성 | 설명 |
+| 권장 | 설명 |
 | --- | --- |
-| 구독에 대 한 데이터 수집 사용 |구독 또는 구독의 VM(가상 머신) 각각에 대해 보안 정책에서 데이터 수집을 켜는 것이 좋습니다. |
+| 구독에 대해 데이터 수집 활성화 |구독 또는 구독의 VM(가상 머신) 각각에 대해 보안 정책에서 데이터 수집을 켜는 것이 좋습니다. |
 | OS 취약성 해결 |OS 구성을 권장 구성 규칙과 정렬하라는 권장 사항입니다. 예를 들어 암호 저장을 허용하지 않습니다. |
 | 시스템 업데이트 적용 |누락된 시스템 보안 및 중요 업데이트를 VM에 배포하는 것이 좋습니다. |
 | 시스템 업데이트 후 다시 부팅 |시스템 업데이트 적용 프로세스를 완료하려면 VM을 다시 부팅하는 것이 좋습니다. |
@@ -93,9 +93,9 @@ Azure Security Center에서 구성한 보안 정책을 기반으로 생성된 �
 
 보안 경고를 선택하여 해당 경고를 트리거하는 이벤트 및 공격을 완화하기 위해 수행해야 하는 단계(있는 경우)에 대해 자세히 알아봅니다. 보안 경고는 형식 및 날짜별로 그룹화됩니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
 
-* [Azure Security Center에서 보안 정책 설정](tutorial-security-policy.md) -- Azure 구독 및 리소스 그룹에 대해 보안 정책을 구성하는 방법을 알아봅니다.
-* [Azure Security Center에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) - 보안 경고를 관리하고 대응하는 방법을 알아봅니다.
-* [FAQ-Virtual Machines](faq-vms.md) --서비스 사용에 대 한 질문과 대답을 찾습니다.
+* [Azure 보안 센터에서 보안 정책 설정](tutorial-security-policy.md) - Azure 구독 및 리소스 그룹에 대한 보안 정책을 구성하는 방법을 알아봅니다.
+* [Azure 보안 센터에서 보안 경고 관리 및 응답](security-center-managing-and-responding-alerts.md) - 보안 경고를 관리하고 대응하는 방법을 알아봅니다.
+* [FAQ - 가상 시스템](faq-vms.md) - 서비스 사용에 대한 자주 묻는 질문을 찾습니다.

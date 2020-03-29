@@ -1,6 +1,6 @@
 ---
-title: Azure Service Bus의 SQLRuleAction 구문 참조
-description: 이 문서에서는 SQLRuleAction 구문에 대 한 참조를 제공 합니다. 작업은 조정 된 메시지에 대해 수행 되는 SQL 언어 기반 구문으로 작성 됩니다.
+title: Azure 서비스 버스에서 SQLRuleAction 구문 참조
+description: 이 문서에서는 SQLRuleAction 구문에 대한 참조를 제공합니다. 작업은 중개된 메시지에 대해 수행되는 SQL 언어 기반 구문으로 작성됩니다.
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
@@ -15,13 +15,13 @@ ms.workload: na
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.openlocfilehash: 37615e39577ef60cccc9df91b61a6aa24ca794d0
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76759631"
 ---
-# <a name="sqlruleaction-syntax-reference-for-azure-service-bus"></a>Azure Service Bus에 대 한 SQLRuleAction 구문 참조
+# <a name="sqlruleaction-syntax-reference-for-azure-service-bus"></a>Azure 서비스 버스에 대한 SQLRuleAction 구문 참조
 
 *SqlRuleAction*은 [SqlRuleAction](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction) 클래스의 인스턴스이며 [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)에 대해 수행된SQL 언어 기반 구문으로 작성된 일련의 작업을 나타냅니다.   
   

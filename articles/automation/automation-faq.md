@@ -1,6 +1,6 @@
 ---
-title: Azure Automation FAQ | Microsoft Docs
-description: Azure Automation에 대 한 자주 묻는 질문에 대 한 대답입니다.
+title: Azure 자동화 자주 묻는 질문 | 마이크로 소프트 문서
+description: Azure 자동화에 대해 자주 묻는 질문에 대한 답변입니다.
 services: automation
 ms.subservice: ''
 ms.topic: conceptual
@@ -8,38 +8,38 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 02/25/2020
 ms.openlocfilehash: 129a5316c2e7be329b479c79706791e993d20b74
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77925814"
 ---
-# <a name="azure-automation-frequently-asked-questions"></a>Azure Automation 질문과 대답
+# <a name="azure-automation-frequently-asked-questions"></a>Azure 자동화 자주 묻는 질문
 
-이 Microsoft FAQ는 Azure Automation에 대 한 자주 묻는 질문의 목록입니다. 해당 기능에 대 한 추가 질문이 있는 경우 토론 포럼으로 이동 하 여 질문을 게시 하세요. 자주 묻는 질문일 경우 빠르고 쉽게 찾을 수 있도록 이 문서에 추가하겠습니다.
+이 Microsoft FAQ는 Azure 자동화에 대해 자주 묻는 질문 목록입니다. 기능에 대한 추가 질문이 있는 경우 토론 포럼으로 이동하여 질문을 게시합니다. 자주 묻는 질문일 경우 빠르고 쉽게 찾을 수 있도록 이 문서에 추가하겠습니다.
 
 ## <a name="update-management-solution"></a>업데이트 관리 솔루션
 
-### <a name="can-i-prevent-unexpected-os-level-upgrades"></a>예기치 않은 OS 수준 업그레이드를 방지할 수 있나요?
+### <a name="can-i-prevent-unexpected-os-level-upgrades"></a>예기치 않은 OS 수준 업그레이드를 방지할 수 있습니까?
 
-Red Hat Enterprise Linux와 같은 일부 Linux 변형에서 패키지를 통해 OS 수준 업그레이드가 발생할 수 있습니다. 이로 인해 OS 버전 번호가 변경되는 업데이트 관리가 실행될 수 있습니다. 업데이트 관리는 동일한 방법을 사용 하 여 관리자가 Linux 컴퓨터에서 로컬로 사용 하는 패키지를 업데이트 하기 때문에이 동작은 의도적인 것입니다.
+Red Hat 엔터프라이즈 Linux와 같은 일부 Linux 변형에서는 패키지를 통해 OS 수준 업그레이드가 발생할 수 있습니다. 이로 인해 OS 버전 번호가 변경되는 업데이트 관리가 실행될 수 있습니다. Update Management는 동일한 메서드를 사용하여 관리자가 Linux 컴퓨터에서 로컬로 사용하는 패키지를 업데이트하므로 이 동작은 의도적입니다.
 
-업데이트 관리 배포를 통해 OS 버전을 업데이트 하지 않으려면 **제외** 기능을 사용 합니다.
+업데이트 관리 배포를 통해 OS 버전을 업데이트하지 않으려면 **제외** 기능을 사용합니다.
 
 Red Hat Enterprise Linux에서 제외할 패키지 이름은 redhat-release-server.x86_64입니다.
 
-### <a name="why-arent-criticalsecurity-updates-applied"></a>중요/보안 업데이트가 적용 되지 않는 이유는 무엇 인가요?
+### <a name="why-arent-criticalsecurity-updates-applied"></a>중요/보안 업데이트가 적용되지 않는 이유는 무엇입니까?
 
-Linux 컴퓨터에 업데이트를 배포할 때 업데이트 분류를 선택할 수 있습니다. 이 옵션은 지정 된 조건을 충족 하는 컴퓨터에 적용 되는 업데이트를 필터링 합니다. 이 필터는 업데이트가 배포될 때 컴퓨터에 로컬로 적용됩니다.
+Linux 컴퓨터에 업데이트를 배포할 때 업데이트 분류를 선택할 수 있습니다. 이 옵션은 지정된 조건을 충족하는 컴퓨터에 적용되는 업데이트를 필터링합니다. 이 필터는 업데이트가 배포될 때 컴퓨터에 로컬로 적용됩니다.
 
-업데이트 관리는 클라우드에서 업데이트 보강를 수행 하기 때문에 로컬 컴퓨터에 해당 정보가 없더라도 일부 업데이트는 업데이트 관리 보안에 영향을 주는 것으로 플래그가 지정 될 수 있습니다. 따라서 Linux 컴퓨터에 중요 업데이트를 적용 하는 경우 해당 컴퓨터에 보안 영향을 미치는 것으로 표시 되지 않은 업데이트가 있을 수 있으므로 업데이트가 적용 되지 않습니다. 그러나 업데이트 관리는 관련 업데이트에 대 한 추가 정보가 있으므로 해당 컴퓨터를 비규격으로 보고할 수 있습니다.
+업데이트 관리는 클라우드에서 업데이트 보강을 수행하므로 로컬 컴퓨터에 해당 정보가 없더라도 업데이트 관리에서 일부 업데이트가 보안에 영향을 미치는 것으로 플래그를 지정할 수 있습니다. 따라서 Linux 컴퓨터에 중요한 업데이트를 적용하는 경우 해당 컴퓨터에 보안 영향이 있는 것으로 표시되지 않는 업데이트가 있을 수 있으므로 업데이트가 적용되지 않습니다. 그러나 업데이트 관리는 관련 업데이트에 대한 추가 정보가 있기 때문에 해당 컴퓨터를 비규격으로 보고할 수 있습니다.
 
-업데이트 분류를 통한 업데이트 배포는 RTM 버전의 CentOS에서 작동 하지 않습니다. CentOS에 대 한 업데이트를 제대로 배포 하려면 모든 분류를 선택 하 여 업데이트가 적용 되도록 합니다. SUSE의 경우에는 **다른 업데이트** 를 분류로 *만* 선택 하면 zypper (패키지 관리자)와 관련 된 보안 업데이트 또는 해당 종속성이 먼저 필요한 경우 일부 보안 업데이트도 설치 될 수 있습니다. 이 동작은 zypper의 제한 사항입니다. 업데이트 배포를 다시 실행 해야 하는 경우도 있습니다. 확인하려면 업데이트 로그를 확인합니다.
+업데이트 분류에 의한 업데이트를 배포하는 것은 CentOS의 RTM 버전에서 작동하지 않습니다. CentOS에 대한 업데이트를 올바르게 배포하려면 모든 분류를 선택하여 업데이트가 적용되었는지 확인합니다. SUSE의 경우 분류로 다른 *업데이트만* **Other updates** 선택하면 zypper(패키지 관리자) 또는 해당 종속성과 관련된 보안 업데이트가 먼저 필요한 경우 일부 보안 업데이트도 설치될 수 있습니다. 이 동작은 zypper의 제한 사항입니다. 경우에 따라 업데이트 배포를 다시 실행해야 할 수도 있습니다. 확인하려면 업데이트 로그를 확인합니다.
 
-### <a name="can-i-deploy-updates-across-azure-tenants"></a>Azure 테 넌 트 간에 업데이트를 배포할 수 있나요?
+### <a name="can-i-deploy-updates-across-azure-tenants"></a>Azure 테넌트를 통해 업데이트를 배포할 수 있습니까?
 
-다른 Azure 테 넌 트 보고에 컴퓨터를 사용 하 여 패치를 수행 해야 하는 업데이트 관리 경우 다음 해결 방법을 사용 하 여 예약을 수행 해야 합니다. `-ForUpdate` 스위치와 함께 [AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) cmdlet을 사용 하 여 일정을 만들고 [AzureRmAutomationSoftwareUpdateConfiguration](/powershell/module/azurerm.automation/new-azurermautomationsoftwareupdateconfiguration
-) cmdlet을 사용 하 여 다른 테 넌 트의 컴퓨터를 `-NonAzureComputer` 매개 변수에 전달할 수 있습니다. 다음 예제에 이 작업을 수행하는 방법이 나와 있습니다.
+업데이트 관리에 패치해야 하는 다른 Azure 테넌트보고에 컴퓨터가 있는 경우 다음 해결 방법을 사용하여 예약해야 합니다. 스위치와 함께 [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) cmdlet을 사용하여 일정을 만들고 [New-AzureRmAutomationSoftwareUpdateConfiguration](/powershell/module/azurerm.automation/new-azurermautomationsoftwareupdateconfiguration
+) cmdlet을 사용하고 다른 테넌트의 `-NonAzureComputer` 컴퓨터를 매개 변수로 전달할 수 있습니다. `-ForUpdate` 다음 예제에 이 작업을 수행하는 방법이 나와 있습니다.
 
 ```azurepowershell-interactive
 $nonAzurecomputers = @("server-01", "server-02")
@@ -53,8 +53,8 @@ New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -Automa
 
 ## <a name="next-steps"></a>다음 단계
 
-질문에 대 한 답변이 없는 경우 추가 질문 및 답변을 확인 하려면 다음 포럼을 참조할 수 있습니다.
+여기서 질문에 대한 답변이 없는 경우 다음 포럼을 참조하여 추가 질문과 답변을 얻을 수 있습니다.
 
-- [Azure Automation](https://social.msdn.microsoft.com/Forums/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc)
+- [Azure 자동화](https://social.msdn.microsoft.com/Forums/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc)
 
-업데이트 관리 솔루션에 대 한 일반적인 피드백은 [사용자 의견 포럼](https://feedback.azure.com/forums/905242-update-management)을 참조 하세요.
+업데이트 관리 솔루션에 대한 일반적인 피드백은 [피드백 포럼을](https://feedback.azure.com/forums/905242-update-management)방문하십시오.

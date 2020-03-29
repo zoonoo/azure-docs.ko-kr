@@ -1,6 +1,6 @@
 ---
 title: Azure DevTest Labs의 랩에서 VM 다시 시작 | Microsoft Docs
-description: 이 문서에서는 Azure DevTest Labs에서 VM (가상 머신)을 빠르고 쉽게 다시 시작 하는 단계를 제공 합니다.
+description: 이 문서에서는 Azure DevTest Labs에서 VM(가상 시스템)을 빠르고 쉽게 다시 시작하는 단계를 제공합니다.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: spelluru
 ms.openlocfilehash: 52d3b92909483a99eb82c86b727261bbeb5f8d46
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76759997"
 ---
 # <a name="restart-a-vm-in-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs의 랩에서 VM 다시 시작
@@ -37,7 +37,7 @@ ms.locfileid: "76759997"
    >
 
 ## <a name="steps-to-restart-a-vm-in-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs의 랩에서 VM을 다시 시작하는 단계
-1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
+1. [Azure 포털에](https://go.microsoft.com/fwlink/p/?LinkID=525040)로그인합니다.
 1. **모든 서비스**를 선택한 다음, 목록에서 **DevTest Labs**를 선택합니다.
 1. 랩 목록에서 다시 시작할 VM이 포함된 랩을 선택합니다.
 1. 왼쪽 패널에서 **내 Virtual Machine**을 선택합니다.
@@ -56,4 +56,4 @@ ms.locfileid: "76759997"
 
 ## <a name="next-steps"></a>다음 단계
 * 다시 시작되면 해당 관리 창에서 **연결**을 선택하여 VM에 다시 연결할 수 있습니다.
-* [DevTest Labs Azure Resource Manager quickStart template gallery](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates)(DevTest Labs Azure Resource Manager 빠른 시작 템플릿 갤러리)를 탐색합니다.
+* [DevTest 랩 Azure 리소스 관리자 퀵스타트 템플릿 갤러리](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates) 살펴보기

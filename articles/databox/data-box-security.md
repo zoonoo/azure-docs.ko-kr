@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/23/2019
 ms.author: alkohli
 ms.openlocfilehash: 21b05631f1c225c9c4b1f7c65d18588900850b8e
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77911733"
 ---
 # <a name="azure-data-box-security-and-data-protection"></a>Azure Data Box 보안 및 데이터 보호
@@ -28,7 +28,7 @@ Microsoft Azure Data Box 솔루션은 서로 상호 작용 하는 네 가지 기
 - **Azure에서 호스팅되는 Azure Data Box 서비스** - 디바이스 주문을 작성하고 디바이스를 구성한 다음, 주문이 완료될 때까지의 과정을 추적하는 데 사용하는 관리 서비스입니다.
 - **Data Box 디바이스** – Azure로 온-프레미스 데이터를 가져올 수 있도록 함께 제공되는 전송 디바이스입니다. 
 - **디바이스에 연결된 클라이언트/호스트** – Data Box 디스크에 연결하고 보호되어야 하는 데이터를 포함하는 인프라 내의 클라이언트입니다.
-- **클라우드 스토리지** – 데이터가 저장되는 Azure 클라우드의 위치입니다. 이것이 일반적으로 사용자가 만든 Azure Data Box 리소스에 연결된 스토리지 계정입니다.
+- **클라우드 저장소** – Azure 클라우드 내에서 데이터가 저장되는 위치입니다. 이것이 일반적으로 사용자가 만든 Azure Data Box 리소스에 연결된 스토리지 계정입니다.
 
 다음 다이어그램에는 Azure Data Box 솔루션을 통과하는 온-프레미스에서 Azure로의 데이터 흐름이 나와 있습니다.
 
@@ -78,13 +78,13 @@ Azure Data Box는 서비스의 다음 주요 인스턴스에서 개인 정보를
 
 - **주문 세부 정보** – 주문이 만들어지면 사용자의 배송 주소, 이메일, 연락처 정보가 Azure Portal에 저장됩니다. 저장되는 정보는 다음과 같습니다.
 
-  - 연락처 이름
+  - 담당자 이름
   - 전화 번호
   - Email
   - 주소
-  - 구/군/시
+  - City
   - 우편 번호
-  - 상태
+  - 시스템 상태
   - 국가/시/도/지역
   - 운송업체 계정 번호
   - 배송 추적 번호
@@ -93,7 +93,7 @@ Azure Data Box는 서비스의 다음 주요 인스턴스에서 개인 정보를
 
 - **배송 주소** – 주문이 완료되면 Data Box 서비스는 UPS 또는 DHL과 같은 타사 운송업체에 배송 주소를 제공합니다. 
 
-자세한 내용은 [보안 센터](https://www.microsoft.com/trustcenter)에서 Microsoft 개인 정보 취급 방침을 검토합니다.
+자세한 내용은 [트러스트 센터의](https://www.microsoft.com/trustcenter)Microsoft 개인 정보 보호 정책을 참조하십시오.
 
 
 ## <a name="security-guidelines-reference"></a>보안 지침 참조

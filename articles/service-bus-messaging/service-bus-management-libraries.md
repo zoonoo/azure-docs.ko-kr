@@ -1,6 +1,6 @@
 ---
 title: Azure Service Bus 관리 라이브러리 | Microsoft Docs
-description: 이 문서에서는 Azure Service Bus 관리 라이브러리를 사용 하 여 Service Bus 네임 스페이스 및 엔터티를 동적으로 프로 비전 하는 방법을 설명 합니다.
+description: 이 문서에서는 Azure Service Bus 관리 라이브러리를 사용하여 Service Bus 네임스페이스 및 엔터티를 동적으로 프로비전하는 방법을 설명합니다.
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.openlocfilehash: d0e90d9278ede97de04ad8efeaa59d94a4567f66
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76756269"
 ---
 # <a name="service-bus-management-libraries"></a>Service Bus 관리 라이브러리
@@ -32,11 +32,11 @@ Azure Service Bus 관리 라이브러리는 Service Bus 네임스페이스 및 �
 * 토픽 만들기, 업데이트, 삭제
 * 구독 만들기, 업데이트, 삭제
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Service Bus 관리 라이브러리 사용을 시작하려면 Azure AD(Azure Active Directory) 서비스로 인증해야 합니다. Azure AD를 사용하려면 Azure 리소스에 대한 액세스를 제공하는 서비스 주체로 인증해야 합니다. 서비스 주체 만들기에 대한 자세한 내용은 다음 문서 중 하나를 참조하세요.  
 
-* [Azure Portal을 사용하여 리소스에 액세스할 수 있는 Active Directory 애플리케이션 및 서비스 주체 만들기](/azure/azure-resource-manager/resource-group-create-service-principal-portal)
+* [Azure 포털을 사용하여 리소스에 액세스할 수 있는 Active Directory 응용 프로그램 및 서비스 주체를 만듭니다.](/azure/azure-resource-manager/resource-group-create-service-principal-portal)
 * [Azure PowerShell을 사용하여 리소스에 액세스하는 서비스 주체 만들기](/azure/azure-resource-manager/resource-group-authenticate-service-principal)
 * [Azure CLI를 사용하여 리소스에 액세스하는 서비스 주체 만들기](/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli)
 
@@ -76,8 +76,8 @@ Service Bus 리소스를 조작하는 패턴은 일반 프로토콜을 따릅니
    await sbClient.Queues.CreateOrUpdateAsync(resourceGroupName, namespaceName, QueueName, queueParams);
    ```
 
-## <a name="complete-code-to-create-a-queue"></a>큐를 만들기 위한 전체 코드
-Service Bus 큐를 만드는 전체 코드는 다음과 같습니다. 
+## <a name="complete-code-to-create-a-queue"></a>큐를 만드는 코드 완료
+다음은 서비스 버스 큐를 만드는 전체 코드입니다. 
 
 ```csharp
 using System;
@@ -164,7 +164,7 @@ namespace SBusADApp
 ```
 
 > [!IMPORTANT]
-> 전체 예제는 [GitHub의 .net 관리 샘플](https://github.com/Azure-Samples/service-bus-dotnet-management/)을 참조 하세요. 
+> 전체 예제는 [GitHub](https://github.com/Azure-Samples/service-bus-dotnet-management/)의 .NET 관리 샘플을 참조하십시오. 
 
 ## <a name="next-steps"></a>다음 단계
 [Microsoft.Azure.Management.ServiceBus API 참조](/dotnet/api/Microsoft.Azure.Management.ServiceBus)

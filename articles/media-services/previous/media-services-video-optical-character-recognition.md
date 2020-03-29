@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 11889bd6df0bcc9564c17fdaacc333df1d418660
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77918339"
 ---
 # <a name="use-azure-media-analytics-to-convert-text-content-in-video-files-into-digital-text"></a>Azure 미디어 분석을 사용하여 비디오 파일의 텍스트 콘텐츠를 디지털 텍스트로 변환  
 
 > [!NOTE]
-> **Azure 미디어 OCR** 미디어 프로세서는 사용 중지 됩니다. 사용 중지 날짜는 [레거시 구성 요소](legacy-components.md) 항목을 참조 하세요.
+> **Azure 미디어 OCR** 미디어 프로세서는 사용 중지됩니다. 사용 중지 날짜에 대 한 레거시 구성 요소 항목을 참조 [합니다.](legacy-components.md)
 
 ## <a name="overview"></a>개요
 비디오 파일에서 텍스트 콘텐츠를 추출하고 편집 및 검색 가능한 디지털 텍스트를 생성해야 할 경우 Azure 미디어 분석 OCR(광학 문자 인식)을 사용하는 것이 좋습니다. 이 Azure 미디어 프로세서는 비디오 파일의 텍스트 콘텐츠를 검색하고 사용할 수 있는 텍스트 파일을 생성합니다. OCR을 사용하면 미디어의 비디오 신호에서 의미 있는 메타데이터를 자동으로 추출할 수 있습니다.
@@ -48,7 +48,7 @@ ms.locfileid: "77918339"
 ### <a name="attribute-descriptions"></a>특성 설명
 | 특성 이름 | 설명 |
 | --- | --- |
-|AdvancedOutput| AdvancedOutput을 true로 설정하면 JSON 출력에는 모든 단일 단어(구 및 지역 외에)에 대해 위치 데이터가 포함됩니다. 이러한 세부 정보를 표시하지 않으려면 flag를 false로 설정합니다. 기본값은 false입니다. 자세한 내용은 [이 블로그](https://azure.microsoft.com/blog/azure-media-ocr-simplified-output/)를 참조하세요.|
+|AdvancedOutput| AdvancedOutput을 true로 설정하면 JSON 출력에는 모든 단일 단어(구 및 지역 외에)에 대해 위치 데이터가 포함됩니다. 이러한 세부 정보를 표시하지 않으려면 flag를 false로 설정합니다. 기본값은 False입니다. 자세한 내용은 [이 블로그를](https://azure.microsoft.com/blog/azure-media-ocr-simplified-output/)참조하십시오.|
 | 언어 |(선택 사항) 검색할 텍스트의 언어에 대해 설명합니다. AutoDetect(기본값), Arabic, ChineseSimplified, ChineseTraditional, Czech Danish, Dutch, English, Finnish, French, German, Greek, Hungarian, Italian, Japanese, Korean, Norwegian, Polish, Portuguese, Romanian, Russian, SerbianCyrillic, SerbianLatin, Slovak, Spanish, Swedish, Turkish 중 하나일 수 있습니다. |
 | TextOrientation |(선택 사항) 검색할 텍스트의 방향에 대해 설명합니다.  "Left"는 모든 문자의 위쪽이 왼쪽을 향함을 나타냅니다.  기본 텍스트(예: 책에서 사용되는 텍스트)를 "위쪽" 방향으로 호출할 수 있습니다.  AutoDetect(기본값), Up, Right, Down, Left 중 하나일 수 있습니다. |
 | TimeInterval |(선택 사항) 샘플링 속도를 설명합니다.  기본값은 1/2초 간격입니다.<br/>JSON 형식 – HH:mm:ss.SSS(기본값 00:00:00.500)<br/>XML 형식 – W3C XSD 기간 기본 형식(기본 PT0.5) |
@@ -110,20 +110,20 @@ OCR 미디어 프로세서의 출력은 JSON 파일입니다.
 | 요소 | 설명 |
 | --- | --- |
 | 시간 간격 |동영상의 초당 "틱" |
-| 오프셋 |타임스탬프의 시간 오프셋 동영상 API 버전 1.0에서는 항상 0입니다. |
+| Offset |타임스탬프의 시간 오프셋 동영상 API 버전 1.0에서는 항상 0입니다. |
 | 프레임 속도 |동영상의 초당 프레임 수 |
 | width |픽셀 단위의 동영상 너비 |
-| 높이 |픽셀 단위의 동영상 높이 |
+| height |픽셀 단위의 동영상 높이 |
 | 조각 |메타데이터가 청크되는 시간 기반 비디오 청크 배열 |
-| 시작 |"틱" 단위의 조각 시작 시간 |
+| start |"틱" 단위의 조각 시작 시간 |
 | duration |"틱" 단위의 조각 길이 |
 | interval |지정된 조각 내의 각 이벤트 간격 |
-| 이벤트 |영역을 포함하는 배열 |
+| events |영역을 포함하는 배열 |
 | region |검색된 단어 또는 구를 나타내는 개체 |
-| language |지역 내에서 검색된 텍스트의 언어 |
-| 방향(orientation) |지역 내에서 검색된 텍스트의 방향 |
-| 선 |지역 내에서 검색된 텍스트의 줄 배열 |
-| 텍스트 |실제 텍스트 |
+| 언어 |지역 내에서 검색된 텍스트의 언어 |
+| orientation |지역 내에서 검색된 텍스트의 방향 |
+| lines |지역 내에서 검색된 텍스트의 줄 배열 |
+| text |실제 텍스트 |
 
 ### <a name="json-output-example"></a>JSON 출력 예제
 다음 출력 예제는 일반 동영상 정보 및 몇 가지 동영상 조각을 포함합니다. 모든 동영상 조각에는 OCR MP에 의해 언어 및 텍스트 방향에 따라 검색되는 모든 영역이 포함됩니다. 또한 이러한 영역에는 이 영역의 모든 단어 줄과 이 줄에 포함된 줄의 텍스트, 줄의 위치 및 모든 단어 정보(단어 내용, 위치 및 신뢰도)가 들어 있습니다. 다음 예제에서는 줄 내에 주석을 추가합니다.
@@ -193,7 +193,7 @@ OCR 미디어 프로세서의 출력은 JSON 파일입니다.
    
 #### <a name="create-and-configure-a-visual-studio-project"></a>Visual Studio 프로젝트 만들기 및 구성
 
-개발 환경을 설정하고 [.NET을 사용한 Media Services 환경](media-services-dotnet-how-to-use.md)에 설명된 대로 연결 정보를 사용하여 app.config 파일을 채웁니다. 
+.NET 을 사용하면 Media Services 개발에 설명된 대로 개발 환경을 설정하고 app.config 파일을 연결 [정보로](media-services-dotnet-how-to-use.md)채웁니다. 
 
 #### <a name="example"></a>예제
 

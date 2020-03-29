@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 3/9/2020
 ms.openlocfilehash: 3e99263f6bf472c256e1747b8567249bbd62a445
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78969629"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Azure Stream Analytics 미리 보기 기능
@@ -22,29 +22,29 @@ ms.locfileid: "78969629"
 
 다음 기능은 공개 미리 보기에 있습니다. 현재 이러한 기능을 활용할 수 있지만 프로덕션 환경에서는 사용하지 마세요.
 
-### <a name="online-scaling"></a>온라인 크기 조정
+### <a name="online-scaling"></a>온라인 스케일링
 
-온라인 크기 조정을 사용 하는 경우 SU 할당을 변경 해야 하는 경우 작업을 중지할 필요가 없습니다. 실행 중인 작업을 중지 하지 않고도 SU 용량을 늘리거나 줄일 수 있습니다. 이는 오늘날 제공 Stream Analytics는 장기 실행 업무상 중요 한 파이프라인의 고객 약속을 기반으로 합니다. 자세한 내용은 [Azure Stream Analytics 스트리밍 단위 구성](stream-analytics-streaming-unit-consumption.md#configure-stream-analytics-streaming-units-sus)을 참조 하세요.
+온라인 확장의 경우 SU 할당을 변경해야 하는 경우 작업을 중지할 필요가 없습니다. 중지하지 않고도 실행 중인 작업의 SU 용량을 늘리거나 줄일 수 있습니다. 이는 Stream Analytics가 오늘날 제공하는 장기 실행 미션 크리티컬 파이프라인에 대한 고객의 약속을 기반으로 합니다. 자세한 내용은 [Azure 스트림 분석 스트리밍 단위 구성을](stream-analytics-streaming-unit-consumption.md#configure-stream-analytics-streaming-units-sus)참조하십시오.
 
-### <a name="c-custom-de-serializers"></a>C#사용자 지정 serializer
-개발자는 Azure Stream Analytics 기능을 활용 하 여 Protobuf, XML 또는 사용자 지정 형식의 데이터를 처리할 수 있습니다. Azure Stream Analytics에서 받은 이벤트를 역직렬화 하는 C#데 사용할 수 있는 [사용자 지정 serializer](custom-deserializer-examples.md) 를 구현할 수 있습니다.
+### <a name="c-custom-de-serializers"></a>C# 사용자 지정 직렬 화자
+개발자는 Azure Stream Analytics의 기능을 활용하여 Protobuf, XML 또는 사용자 지정 형식으로 데이터를 처리할 수 있습니다. C#에서 [사용자 지정 직렬 화자를](custom-deserializer-examples.md) 구현할 수 있으며, 이 경우 Azure Stream Analytics에서 수신한 이벤트를 직렬화해제하는 데 사용할 수 있습니다.
 
-### <a name="extensibility-with-c-custom-code"></a>사용자 지정 C# 코드를 사용 하 여 확장성
+### <a name="extensibility-with-c-custom-code"></a>C# 사용자 지정 코드로 확장성
 
-클라우드 또는 IoT Edge에서 Stream Analytics 모듈을 만드는 개발자는 사용자 지정 C# 함수를 작성 하거나 다시 사용 하 고 [사용자 정의 함수](stream-analytics-edge-csharp-udf-methods.md)를 통해 쿼리에서 직접 호출할 수 있습니다.
+클라우드 또는 IoT Edge에서 Stream Analytics 모듈을 만드는 개발자는 사용자 정의 C# 함수를 작성하거나 재사용하고 [사용자 정의 함수를](stream-analytics-edge-csharp-udf-methods.md)통해 쿼리에서 직접 호출할 수 있습니다.
 
 
-### <a name="debug-query-steps-in-visual-studio"></a>Visual Studio에서 쿼리 단계 디버그
+### <a name="debug-query-steps-in-visual-studio"></a>비주얼 스튜디오에서 쿼리 단계 디버그
 
-Visual Studio 용 Azure Stream Analytics 도구에서 로컬 테스트를 수행할 때 데이터 다이어그램의 중간 행 집합을 쉽게 미리 볼 수 있습니다. 
+Visual Studio용 Azure Stream Analytics 도구에서 로컬 테스트를 수행할 때 데이터 다이어그램에서 설정된 중간 행을 쉽게 미리 볼 수 있습니다. 
 
-### <a name="local-testing-with-live-data-in-visual-studio-code"></a>Visual Studio Code에서 라이브 데이터를 사용 하 여 로컬 테스트
+### <a name="local-testing-with-live-data-in-visual-studio-code"></a>비주얼 스튜디오 코드의 라이브 데이터로 로컬 테스트
 
-Azure에 작업을 제출 하기 전에 로컬 컴퓨터의 라이브 데이터에 대해 쿼리를 테스트할 수 있습니다. 각 테스트 반복은 평균에 2 ~ 3 초 미만이 소요 되므로 개발 프로세스가 매우 효율적입니다.
+작업을 Azure에 제출하기 전에 로컬 컴퓨터의 라이브 데이터에 대해 쿼리를 테스트할 수 있습니다. 각 테스트 반복은 평균 2~3초 미만이 소요되어 매우 효율적인 개발 프로세스가 이루어집니다.
 
 ### <a name="visual-studio-code-for-azure-stream-analytics"></a>Azure Stream Analytics용 Visual Studio Code
 
-Azure Stream Analytics 작업은 Visual Studio Code에서 작성할 수 있습니다. [VS Code 시작 자습서](https://docs.microsoft.com/azure/stream-analytics/quick-create-vs-code)를 참조 하세요.
+Azure Stream Analytics 작업은 Visual Studio Code에서 작성할 수 있습니다. 우리의 [VS 코드를 시작 자습서를](https://docs.microsoft.com/azure/stream-analytics/quick-create-vs-code)참조하십시오 .
 
 
 ### <a name="integration-with-azure-machine-learning"></a>Azure Machine Learning과 통합
@@ -63,12 +63,12 @@ Azure Stream Analytics용 Visual Studio 도구는 이벤트 허브 또는 IoT �
 
 ## <a name="other-previews"></a>기타 미리 보기
 
-다음 기능은 요청 시 미리 보기 에서도 사용할 수 있습니다.
+다음 기능은 요청 시 미리 보기에서도 사용할 수 있습니다.
 
-### <a name="real-time-high-performance-scoring-with-custom-ml-models-managed-by-azure-machine-learning"></a>Azure Machine Learning에서 관리 하는 사용자 지정 ML 모델을 사용 하는 실시간 고성능 점수 매기기
+### <a name="real-time-high-performance-scoring-with-custom-ml-models-managed-by-azure-machine-learning"></a>Azure 기계 학습에서 관리하는 사용자 지정 ML 모델로 실시간 고성능 점수 매기기
 
-Azure Stream Analytics은 Azure Machine Learning에서 관리 되는 사용자 지정 미리 학습 된 Machine Learning 모델을 활용 하 고 워크플로를 사용 하 여 AKS (Azure Kubernetes Service) 또는 ACI (Azure Container Instances)에서 호스트 하는 고성능의 실시간 점수 매기기를 지원 합니다. 코드를 작성 하지 않아도 됩니다. 미리 보기 [등록](https://aka.ms/asapreview1)
+Azure Stream Analytics는 워크플로우를 사용하여 Azure Kubernetes 서비스(AKS) 또는 ACI(Azure Kubernetes Service) 또는 ACI(Azure Kubernetes Service)에서 호스팅되는 사용자 지정 사전 학습된 기계 학습 모델을 활용하여 고성능 실시간 채점을 지원합니다. 코드를 작성할 필요가 없습니다. 미리 보기 [등록](https://aka.ms/asapreview1)
 
-### <a name="support-for-azure-stack"></a>Azure Stack에 대 한 지원
-Azure IoT Edge 런타임에 사용 하도록 설정 된이 기능은 Azure Stack에서 실행 되는 로컬 입력 및 출력에 대 한 기본 지원과 같은 사용자 지정 Azure Stack 기능을 활용 합니다 (예: Event Hubs, IoT Hub Blob Storage). 이 새로운 통합을 사용 하면 데이터를 생성 된 위치와 가깝게 분석 하 여 대기 시간을 줄이고 통찰력을 극대화 하는 하이브리드 아키텍처를 구축할 수 있습니다.
-이 기능을 사용 하면 데이터를 생성 된 위치와 가깝게 분석 하 여 대기 시간을 낮추고 정보를 극대화 하는 하이브리드 아키텍처를 구축할 수 있습니다. 이 미리 보기에 [등록](https://aka.ms/asapreview1) 해야 합니다.
+### <a name="support-for-azure-stack"></a>Azure 스택에 대한 지원
+Azure IoT Edge 런타임에서 활성화된 이 기능은 Azure 스택에서 실행되는 로컬 입력 및 출력에 대한 기본 지원과 같은 사용자 지정 Azure 스택 기능을 활용합니다(예: 이벤트 허브, IoT Hub, Blob 저장소). 이 새로운 통합을 통해 데이터가 생성된 위치에 가깝게 데이터를 분석하여 대기 시간을 줄이며 통찰력을 극대화할 수 있는 하이브리드 아키텍처를 구축할 수 있습니다.
+이 기능을 사용하면 데이터가 생성된 위치에 가깝게 데이터를 분석하여 대기 시간을 줄이며 통찰력을 극대화할 수 있는 하이브리드 아키텍처를 구축할 수 있습니다. 이 미리 보기에 [등록해야](https://aka.ms/asapreview1) 합니다.

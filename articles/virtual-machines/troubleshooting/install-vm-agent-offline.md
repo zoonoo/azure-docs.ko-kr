@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 8ea85b560f35c79b3d5066d794f587345810b5d0
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77920861"
 ---
 # <a name="install-the-azure-virtual-machine-agent-in-offline-mode"></a>오프라인 모드에서 Azure 가상 머신 에이전트 설치 
@@ -37,19 +37,19 @@ Azure VM 에이전트(가상 머신 에이전트)는 로컬 관리자 암호 재
 
 ### <a name="step-1-attach-the-os-disk-of-the-vm-to-another-vm-as-a-data-disk"></a>1단계: VM의 OS 디스크를 다른 VM에 데이터 디스크로 연결
 
-1. 영향을 받는 VM의 OS 디스크에 대 한 스냅숏을 만들고 스냅숏에서 디스크를 만든 다음 문제 해결 VM에 디스크를 연결 합니다. 자세한 내용은 [Azure Portal를 사용 하 여 OS 디스크를 복구 VM에 연결 함으로써 WINDOWS VM 문제 해결](troubleshoot-recovery-disks-portal-windows.md)을 참조 하세요. 클래식 VM의 경우 VM을 삭제 하 고 OS 디스크를 유지 한 다음 OS 디스크를 문제 해결 VM에 연결 합니다.
+1. 영향을 받는 VM의 OS 디스크에 대한 스냅숏을 만들고 스냅숏에서 디스크를 만든 다음 디스크를 문제 해결 VM에 연결합니다. 자세한 내용은 [Azure 포털을 사용하여 OS 디스크를 복구 VM에 연결하여 Windows VM 문제 해결을](troubleshoot-recovery-disks-portal-windows.md)참조하세요. 클래식 VM의 경우 VM을 삭제하고 OS 디스크를 유지한 다음 OS 디스크를 문제 해결 VM에 연결합니다.
 
-2.  문제 해결사 VM에 연결합니다. **컴퓨터 관리** > **디스크 관리**를 엽니다. OS 디스크가 온라인 상태이고 드라이브 문자가 디스크 파티션에 할당되었는지 확인합니다.
+2.  문제 해결사 VM에 연결합니다. 컴퓨터 **관리** > 디스크**관리**를 엽니다. OS 디스크가 온라인 상태이고 드라이브 문자가 디스크 파티션에 할당되었는지 확인합니다.
 
 ### <a name="step-2-modify-the-os-disk-to-install-the-azure-vm-agent"></a>2단계: Azure VM 에이전트를 설치하도록 OS 디스크 수정
 
 1.  문제 해결사 VM에 대한 원격 데스크톱 연결을 만듭니다.
 
-2.  문제 해결사 VM에서 연결 된 OS 디스크로 이동 하 여 \windows\system32\config 폴더를 엽니다. 롤백이 필요한 경우 이 폴더에 있는 모든 파일을 복사합니다.
+2.  문제 해결사 VM에서 연결한 OS 디스크를 찾아 \windows\system32\config 폴더를 엽니다. 롤백이 필요한 경우 이 폴더에 있는 모든 파일을 복사합니다.
 
 3.  **레지스트리 편집기**를 시작합니다(regedit.exe).
 
-4.  **HKEY_LOCAL_MACHINE** 키를 선택합니다. 메뉴에서 **파일** > **Hive 로드**를 선택합니다.
+4.  **HKEY_LOCAL_MACHINE** 키를 선택합니다. 메뉴에서 **파일** > **로드 하이브를 선택합니다.**
 
     ![Hive를 로드합니다.](./media/install-vm-agent-offline/load-hive.png)
 
@@ -94,11 +94,11 @@ Azure VM 에이전트(가상 머신 에이전트)는 로컬 관리자 암호 재
 
              ![GuestAgent 폴더 복사](./media/install-vm-agent-offline/copy-files.png)
 
-9.  **BROKENSYSTEM**을 선택합니다. 메뉴에서 **파일** > **Hive 언로드**를 선택합니다.
+9.  **BROKENSYSTEM**을 선택합니다. 메뉴에서 **하이브 파일** > **언로드를 선택합니다.**
 
-10.  **BROKENSOFTWARE**를 선택합니다. 메뉴에서 **파일** > **Hive 언로드**를 선택합니다.
+10.  **BROKENSOFTWARE**를 선택합니다. 메뉴에서 **하이브 파일** > **언로드를 선택합니다.**
 
-11.  OS 디스크를 분리 한 다음 [영향을 받는 VM에 대 한 os 디스크를 변경](troubleshoot-recovery-disks-portal-windows.md#swap-the-os-disk-for-the-vm)합니다. 클래식 VM의 경우 복구 된 OS 디스크를 사용 하 여 새 VM을 만듭니다.
+11.  OS 디스크를 분리한 다음 [영향을 받는 VM의 OS 디스크를 변경합니다.](troubleshoot-recovery-disks-portal-windows.md#swap-the-os-disk-for-the-vm) 클래식 VM의 경우 복구된 OS 디스크를 사용하여 새 VM을 만듭니다.
 
 12.  VM에 액세스합니다. RdAgent가 실행 중이고 로그가 생성됩니다.
 

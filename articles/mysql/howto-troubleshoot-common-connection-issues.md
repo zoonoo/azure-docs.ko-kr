@@ -1,18 +1,18 @@
 ---
-title: 연결 문제 해결-Azure Database for MySQL
-description: 다시 시도 해야 하는 일시적인 오류, 방화벽 문제 및 중단을 포함 하 여 Azure Database for MySQL에 대 한 연결 문제를 해결 하는 방법에 대해 알아봅니다.
+title: 연결 문제 해결 - MySQL용 Azure 데이터베이스
+description: 재시도가 필요한 일시적인 오류, 방화벽 문제 및 중단을 포함하여 MySQL용 Azure 데이터베이스에 대한 연결 문제를 해결하는 방법을 알아봅니다.
 keywords: MySQL 연결, 연결 문자열, 연결 문제, 일시적 오류, 연결 오류
 author: jan-eng
 ms.author: janeng
 ms.service: mysql
 ms.topic: troubleshooting
-ms.date: 12/02/2019
-ms.openlocfilehash: 8c1c521488270ff0bfe3b306470345bc2cd885ce
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: a68f351276c47f623728a279ad551744c61b6d14
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74773533"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80063222"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-mysql"></a>Azure Database for MySQL에 대한 연결 문제 해결
 
@@ -40,22 +40,22 @@ ms.locfileid: "74773533"
 1. [Microsoft Azure 서비스 대시보드](https://azure.microsoft.com/status)에서 애플리케이션이 오류를 보고한 시간 동안 발생한 알려진 중단을 모두 확인합니다.
 2. Azure Database for MySQL과 같은 클라우드 서비스에 연결하는 애플리케이션은 일시적 오류를 예상하고, 이러한 이벤트를 사용자에게 애플리케이션 오류로 표시하는 대신 해당 오류를 처리하는 다시 시도 논리를 구현해야 합니다. 일시적 오류 처리를 위한 모범 사례 및 설계 지침은 [Azure Database for MySQL에 대한 일시적 연결 오류 처리](concepts-connectivity.md)를 검토하세요.
 3. 서버에서 리소스 제한에 도달하면 오류가 일시적 연결 문제로 보일 수 있습니다. [Azure Database for MySQL의 제한 사항](concepts-limits.md)을 참조하세요.
-4. 연결 문제가 계속 발생하거나 애플리케이션에서 오류가 발생하는 기간이 60초를 초과하는 경우 또는 특정일에 오류가 여러 번 발생하는 경우에는 **Azure 지원** 사이트에서 [지원 받기](https://azure.microsoft.com/support/options) 를 선택하여 Azure 지원 요청을 접수합니다.
+4. 연결 문제가 계속 발생하거나 애플리케이션에서 오류가 발생하는 기간이 60초를 초과하는 경우 또는 특정일에 오류가 여러 번 발생하는 경우에는 **Azure 지원** 사이트에서 [지원 받기](https://azure.microsoft.com/support/options)를 선택하여 Azure 지원 요청을 접수합니다.
 
 ## <a name="troubleshoot-persistent-errors"></a>영구 오류 문제 해결
 
 애플리케이션에서 Azure Database for MySQL 연결에 계속 실패하는 경우 일반적으로 다음 문제 중 하나를 나타낼 수 있습니다.
 
-* 서버 방화벽 구성: 프록시 서버 및 게이트웨이를 포함 하 여 클라이언트의 연결을 허용 하도록 Azure Database for MySQL 서버 방화벽이 구성 되어 있는지 확인 합니다.
-* 클라이언트 방화벽 구성: 클라이언트의 방화벽은 데이터베이스 서버에 대 한 연결을 허용 해야 합니다. 일부 방화벽에서 MySQL과 같은 애플리케이션 이름뿐만 아니라 연결할 수 없는 서버의 IP 주소 및 포트도 허용되어야 합니다.
-* 사용자 오류: 연결 문자열의 서버 이름 또는 사용자 이름에 *\@servername* 접미사가 누락 된 연결 매개 변수를 잘못 입력 했을 수 있습니다.
+* 서버 방화벽 구성: 프록시 서버 및 게이트웨이를 포함하여 클라이언트의 연결을 허용하도록 MySQL 서버 방화벽용 Azure 데이터베이스가 구성되어 있는지 확인합니다.
+* 클라이언트 방화벽 구성: 클라이언트의 방화벽은 데이터베이스 서버에 대한 연결을 허용해야 합니다. 일부 방화벽에서 MySQL과 같은 애플리케이션 이름뿐만 아니라 연결할 수 없는 서버의 IP 주소 및 포트도 허용되어야 합니다.
+* 사용자 오류: 연결 문자열의 서버 이름 또는 사용자 이름에 누락된 * \@서버 이름* 접미사와 같은 연결 매개 변수를 잘못 입력했을 수 있습니다.
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>영구적인 연결 문제를 해결하는 단계
 
-1. 클라이언트 IP 주소를 허용하도록 [방화벽 규칙](howto-manage-firewall-using-portal.md) 을 설정합니다. 임시 테스트 용도로만 목적으로만 0.0.0.0을 시작 IP 주소로 사용하고 255.255.255.255를 끝 IP 주소로 사용하여 방화벽 규칙을 설정합니다. 이렇게 하면 서버가 모든 IP 주소로 열립니다. 이렇게 해서 연결 문제가 해결되면 이 규칙을 제거하고 적절하게 제한된 IP 주소 또는 주소 범위에 대해 방화벽 규칙을 만듭니다.
+1. 클라이언트 IP 주소를 허용하도록 [방화벽 규칙을](howto-manage-firewall-using-portal.md) 설정합니다. 임시 테스트 용도로만 목적으로만 0.0.0.0을 시작 IP 주소로 사용하고 255.255.255.255를 끝 IP 주소로 사용하여 방화벽 규칙을 설정합니다. 이렇게 하면 서버가 모든 IP 주소로 열립니다. 이렇게 해서 연결 문제가 해결되면 이 규칙을 제거하고 적절하게 제한된 IP 주소 또는 주소 범위에 대해 방화벽 규칙을 만듭니다.
 2. 클라이언트와 인터넷 간의 모든 방화벽에서 아웃바운드 연결을 위해 3306 포트가 열려 있는지 확인합니다.
 3. 연결 문자열 및 기타 연결 설정을 확인합니다. [Azure Database for MySQL에 애플리케이션을 연결하는 방법](howto-connection-string.md)을 검토합니다.
-4. 대시보드에서 서비스 상태를 확인합니다. 지역 가동 중단이 있다고 생각되는 경우 새 영역으로 복구하는 단계는 [Azure Database for MySQL의 비즈니스 연속성 개요](concepts-business-continuity.md)를 참조하세요.
+4. 대시보드에서 서비스 상태를 확인합니다. 지역 가동 중단이 생각되면 [MySQL용 Azure 데이터베이스의 비즈니스 연속성 개요를](concepts-business-continuity.md) 참조하여 새 지역으로 복구하는 단계를 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

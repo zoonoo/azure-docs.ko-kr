@@ -1,5 +1,5 @@
 ---
-title: Azure Application Gateway-Azure 클래식 CLI 만들기
+title: Azure 응용 프로그램 게이트웨이 만들기 - Azure 클래식 CLI
 description: Resource Manager에서 Azure 클래식 CLI를 사용하여 Application Gateway를 만드는 방법을 알아봅니다.
 services: application-gateway
 author: vhorne
@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 4/15/2019
 ms.author: victorh
 ms.openlocfilehash: 7107f45253c4f13b3378489726bf5034e104fa30
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "62095985"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-cli"></a>Azure CLI를 사용하여 Application Gateway 만들기
 
-Azure Application Gateway는 계층 7 부하 분산 장치입니다. 클라우드 또는 온-프레미스이든 상관없이 서로 다른 서버 간에 장애 조치(Failover), 성능 라우팅 HTTP 요청을 제공합니다. 응용 프로그램 게이트웨이 다음 기능이 응용 프로그램 배달: HTTP 부하 분산, 쿠키 기반 세션 선호도, 한 Secure Sockets Layer (SSL) 오프 로드, 사용자 지정 상태 프로브 및 다중 사이트 지원 합니다.
+Azure Application Gateway는 계층 7 부하 분산 장치입니다. 클라우드 또는 온-프레미스이든 상관없이 서로 다른 서버 간에 장애 조치(Failover), 성능 라우팅 HTTP 요청을 제공합니다. 애플리케이션 게이트웨이의 애플리케이션 전달 기능에는 HTTP 부하 분산, 쿠키 기반 세션 선호도, SSL(Secure Sockets Layer) 오프로드, 사용자 지정 상태 프로브, 다중 사이트 지원 등이 있습니다.
 
 ## <a name="prerequisite-install-the-azure-cli"></a>필수 조건: Azure CLI 설치
 
-이 문서의 단계를 수행 하려면 [Azure CLI를 설치](../xplat-cli-install.md) 필요가 [Azure에 로그인](/cli/azure/authenticate-azure-cli)합니다. 
+이 문서의 단계를 수행하려면 [Azure CLI를 설치해야](../xplat-cli-install.md) 하며 Azure 에 [로그인해야](/cli/azure/authenticate-azure-cli)합니다. 
 
 > [!NOTE]
 > Azure 계정이 없는 경우 계정이 필요합니다. [여기서 무료 평가판](../active-directory/fundamentals/sign-up-organization.md)에 등록합니다.
@@ -44,13 +44,13 @@ Azure Application Gateway에는 자체 서브넷이 필요합니다. 가상 네�
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-엽니다는 **Microsoft Azure 명령 프롬프트**, 로그인 합니다.
+Microsoft **Azure 명령 프롬프트를**열고 로그인합니다.
 
 ```azurecli-interactive
 az login
 ```
 
-앞의 예제를 입력하면 코드가 제공됩니다. 이동할 https://aka.ms/devicelogin 로그인 프로세스를 계속 하려면 브라우저에서.
+앞의 예제를 입력하면 코드가 제공됩니다. 브라우저에서 https://aka.ms/devicelogin 이동하여 사인 온 프로세스를 계속합니다.
 
 ![디바이스 로그인을 보여 주는 cmd][1]
 
@@ -104,7 +104,7 @@ azure network vnet subnet create \
 
 ## <a name="create-the-application-gateway"></a>Application Gateway 만들기
 
-가상 네트워크와 서브넷을 만들면 Application Gateway에 대한 필수 구성 요소가 완료됩니다. 또한 이전에 내보낸된.pfx 인증서 및 인증서에 대 한 암호는 다음 단계에 대 한 필요 합니다. 백 엔드에 사용되는 IP 주소는 백 엔드 서버에 대한 IP 주소입니다. 이 값은 가상 네트워크의 프라이빗 IP, 공용 IP 또는 백 엔드 서버의 정규화된 도메인 이름일 수 있습니다.
+가상 네트워크와 서브넷을 만들면 Application Gateway에 대한 필수 구성 요소가 완료됩니다. 또한 이전에 내보낸 .pfx 인증서 및 인증서의 암호는 다음 단계에 필요합니다. 백 엔드에 사용되는 IP 주소는 백 엔드 서버에 대한 IP 주소입니다. 이 값은 가상 네트워크의 프라이빗 IP, 공용 IP 또는 백 엔드 서버의 정규화된 도메인 이름일 수 있습니다.
 
 ```azurecli-interactive
 azure network application-gateway create \

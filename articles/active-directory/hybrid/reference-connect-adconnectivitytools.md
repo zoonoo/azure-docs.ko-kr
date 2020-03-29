@@ -11,13 +11,13 @@ ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d6b90ff82601acca1249c7d8c353944e39e89f95
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "66473793"
 ---
-# <a name="azure-ad-connect--adconnectivitytools-powershell-reference"></a>Azure AD Connect:  ADConnectivityTools PowerShell 참조
+# <a name="azure-ad-connect--adconnectivitytools-powershell-reference"></a>Azure AD Connect: ADConnectivityTools PowerShell 참조
 
 이 설명서에서는 Azure AD Connect에 포함된 ADConnectivityTools.psm1 PowerShell 모듈에 대해 다음과 같은 참조 정보를 제공합니다.
 
@@ -27,16 +27,16 @@ ms.locfileid: "66473793"
 
 로컬 DNS 문제를 검색합니다.
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>SYNTAX
 
 ```
 Confirm-DnsConnectivity [-Forest] <String> [-DCs] <Array> [-ReturnResultAsPSObject] [<CommonParameters>]
 ```
 
-### <a name="description"></a>DESCRIPTION
+### <a name="description"></a>설명
 
 로컬 DNS 연결 테스트를 실행합니다.
-Active Directory connector를 구성 하려면 사용자도이 포리스트에 연결 된 도메인 컨트롤러와 같이 연결 되려고 포리스트에 대 한 이름 해상도 모두 있어야 합니다.
+Active Directory 커넥터를 구성하려면 사용자는 이 포리스트에 연결된 도메인 컨트롤러뿐만 아니라 연결하려는 포리스트에 대한 이름 확인을 모두 가져야 합니다.
 
 ### <a name="examples"></a>예제
 
@@ -52,7 +52,7 @@ Confirm-DnsConnectivity -Forest "TEST.CONTOSO.COM" -DCs "MYDC1.CONTOSO.COM","MYD
 Confirm-DnsConnectivity -Forest "TEST.CONTOSO.COM"
 ```
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-forest"></a>-Forest
 
@@ -106,7 +106,7 @@ Accept wildcard characters: False
 #### <a name="commonparameters"></a>CommonParameters
 
 이 cmdlet 일반 매개 변수를 지원합니다. -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction 및 -WarningVariable.
-자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216) 를 참조하세요.
+자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216)를 참조하세요.
 
 ## <a name="confirm-forestexists"></a>Confirm-ForestExists
 
@@ -114,13 +114,13 @@ Accept wildcard characters: False
 
 지정한 포리스트가 있는지 확인합니다.
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>SYNTAX
 
 ```
 Confirm-ForestExists [-Forest] <String> [<CommonParameters>]
 ```
 
-### <a name="description"></a>DESCRIPTION
+### <a name="description"></a>설명
 
 DNS 서버에서 포리스트와 연결된 IP 주소를 쿼리합니다.
 
@@ -132,7 +132,7 @@ DNS 서버에서 포리스트와 연결된 IP 주소를 쿼리합니다.
 Confirm-TargetsAreReachable -Forest "TEST.CONTOSO.COM"
 ```
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-forest"></a>-Forest
 
@@ -153,7 +153,7 @@ Accept wildcard characters: False
 #### <a name="commonparameters"></a>CommonParameters
 
 이 cmdlet 일반 매개 변수를 지원합니다. -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction 및 -WarningVariable.
-자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216) 를 참조하세요.
+자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216)를 참조하세요.
 
 ## <a name="confirm-functionallevel"></a>Confirm-FunctionalLevel
 
@@ -161,7 +161,7 @@ Accept wildcard characters: False
 
 AD 포리스트 기능 수준을 확인합니다.
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>SYNTAX
 
 #### <a name="samaccount"></a>SamAccount
 
@@ -175,7 +175,7 @@ Confirm-FunctionalLevel -Forest <String> [-RunWithCurrentlyLoggedInUserCredentia
 Confirm-FunctionalLevel -ForestFQDN <Forest> [-RunWithCurrentlyLoggedInUserCredentials] [<CommonParameters>]
 ```
 
-### <a name="description"></a>DESCRIPTION
+### <a name="description"></a>설명
 
 AD 포리스트 기능 수준이 지정된 MinAdForestVersion(WindowsServer2003) 이상인지 확인합니다.
 계정(도메인\사용자 이름) 및 암호를 요청할 수 있습니다.
@@ -200,7 +200,7 @@ Confirm-FunctionalLevel -Forest "test.contoso.com" -RunWithCurrentlyLoggedInUser
 Confirm-FunctionalLevel -ForestFQDN $ForestFQDN -RunWithCurrentlyLoggedInUserCredentials -Verbose
 ```
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-forest"></a>-Forest
 
@@ -254,7 +254,7 @@ Accept wildcard characters: False
 #### <a name="commonparameters"></a>CommonParameters
 
 이 cmdlet 일반 매개 변수를 지원합니다. -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction 및 -WarningVariable.
-자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216) 를 참조하세요.
+자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216)를 참조하세요.
 
 ## <a name="confirm-networkconnectivity"></a>Confirm-NetworkConnectivity
 
@@ -262,13 +262,13 @@ Accept wildcard characters: False
 
 로컬 네트워크 연결 문제를 검색합니다.
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>SYNTAX
 
 ```
 Confirm-NetworkConnectivity [-DCs] <Array> [-SkipDnsPort] [-ReturnResultAsPSObject] [<CommonParameters>]
 ```
 
-### <a name="description"></a>DESCRIPTION
+### <a name="description"></a>설명
 
 로컬 네트워크 연결 테스트를 실행합니다.
 
@@ -289,7 +289,7 @@ Confirm-NetworkConnectivity -SkipDnsPort -DCs "MYDC1.CONTOSO.COM","MYDC2.CONTOSO
 Confirm-NetworkConnectivity -DCs "MYDC1.CONTOSO.COM","MYDC2.CONTOSO.COM" -Verbose
 ```
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-dcs"></a>-DCs
 
@@ -309,8 +309,8 @@ Accept wildcard characters: False
 
 #### <a name="-skipdnsport"></a>-SkipDnsPort
 
-사용자는 AD 사이트에서 제공 하는 DNS 서비스를 사용 하지 경우 / 로그온 DC를 해당 수 검사 포트 53을 건너뜁니다.
-여전히 사용자 _.ldap._tcp을 확인할 수 여야 합니다. \<forestfqdn\> Active Directory Connector 구성을 완료 하려면 순서 대로 합니다.
+사용자가 AD 사이트 /로그온 DC에서 제공하는 DNS 서비스를 사용하지 않는 경우 포트 53 을 확인하지 건너 뛸 수 있습니다.
+사용자는 여전히 _.ldap._tcp 해결할 수 있어야 합니다. \<active Directory\> 커넥터 구성이 성공하기 위해 포리스트fqdn을 사용할 수 있습니다.
 
 ```yml
 Type: SwitchParameter
@@ -344,7 +344,7 @@ Accept wildcard characters: False
 #### <a name="commonparameters"></a>CommonParameters
 
 이 cmdlet 일반 매개 변수를 지원합니다. -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction 및 -WarningVariable.
-자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216) 를 참조하세요.
+자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216)를 참조하세요.
 
 ## <a name="confirm-targetsarereachable"></a>Confirm-TargetsAreReachable
 
@@ -352,13 +352,13 @@ Accept wildcard characters: False
 
 지정된 포리스트 및 해당 연결된 도메인 컨트롤러에 연결할 수 있는지 확인합니다.
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>SYNTAX
 
 ```
 Confirm-TargetsAreReachable [-Forest] <String> [-DCs] <Array> [<CommonParameters>]
 ```
 
-### <a name="description"></a>DESCRIPTION
+### <a name="description"></a>설명
 
 "ping" 테스트(컴퓨터에서 네트워크 및/또는 인터넷을 통해 대상 컴퓨터에 연결할 수 있는지 여부)를 실행합니다.
 
@@ -376,7 +376,7 @@ Confirm-TargetsAreReachable -Forest "TEST.CONTOSO.COM" -DCs "MYDC1.CONTOSO.COM",
 Confirm-TargetsAreReachable -Forest "TEST.CONTOSO.COM"
 ```
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-forest"></a>-Forest
 
@@ -413,7 +413,7 @@ Accept wildcard characters: False
 #### <a name="commonparameters"></a>CommonParameters
 
 이 cmdlet 일반 매개 변수를 지원합니다. -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction 및 -WarningVariable.
-자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216) 를 참조하세요.
+자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216)를 참조하세요.
 
 ## <a name="confirm-validdomains"></a>Confirm-ValidDomains
 
@@ -421,7 +421,7 @@ Accept wildcard characters: False
 
 가져온 포리스트 FQDN의 도메인에 연결할 수 있는지 확인합니다.
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>SYNTAX
 
 #### <a name="samaccount"></a>SamAccount
 
@@ -435,7 +435,7 @@ Confirm-ValidDomains [-Forest <String>] [-RunWithCurrentlyLoggedInUserCredential
 Confirm-ValidDomains -ForestFQDN <Forest> [-RunWithCurrentlyLoggedInUserCredentials] [<CommonParameters>]
 ```
 
-### <a name="description"></a>DESCRIPTION
+### <a name="description"></a>설명
 
 DomainGuid 및 DomainDN을 검색하려고 시도하여 가져온 포리스트 FQDN의 모든 도메인에 연결할 수 있는지 확인합니다.
 계정(도메인\사용자 이름) 및 암호를 요청할 수 있습니다.
@@ -460,7 +460,7 @@ Confirm-ValidDomains -Forest "test.contoso.com" -RunWithCurrentlyLoggedInUserCre
 Confirm-ValidDomains -ForestFQDN $ForestFQDN -RunWithCurrentlyLoggedInUserCredentials -Verbose
 ```
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-forest"></a>-Forest
 
@@ -513,7 +513,7 @@ Accept wildcard characters: False
 #### <a name="commonparameters"></a>CommonParameters
 
 이 cmdlet 일반 매개 변수를 지원합니다. -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction 및 -WarningVariable.
-자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216) 를 참조하세요.
+자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216)를 참조하세요.
 
 ## <a name="confirm-validenterpriseadmincredentials"></a>Confirm-ValidEnterpriseAdminCredentials
 
@@ -521,13 +521,13 @@ Accept wildcard characters: False
 
 사용자에게 엔터프라이즈 관리자 자격 증명이 있는지 확인합니다.
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>SYNTAX
 
 ```
 Confirm-ValidEnterpriseAdminCredentials [-RunWithCurrentlyLoggedInUserCredentials] [<CommonParameters>]
 ```
 
-### <a name="description"></a>DESCRIPTION
+### <a name="description"></a>설명
 
 제공된 사용자에게 엔터프라이즈 관리자 자격 증명이 있는지 검색합니다.
 계정(도메인\사용자 이름) 및 암호를 요청할 수 있습니다.
@@ -546,7 +546,7 @@ Confirm-ValidEnterpriseAdminCredentials -DomainName test.contoso.com -Verbose
 Confirm-ValidEnterpriseAdminCredentials -RunWithCurrentlyLoggedInUserCredentials -Verbose
 ```
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-runwithcurrentlyloggedinusercredentials"></a>-RunWithCurrentlyLoggedInUserCredentials
 
@@ -567,7 +567,7 @@ Accept wildcard characters: False
 #### <a name="commonparameters"></a>CommonParameters
 
 이 cmdlet 일반 매개 변수를 지원합니다. -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction 및 -WarningVariable.
-자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216) 를 참조하세요.
+자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216)를 참조하세요.
 
 ## <a name="get-domainfqdndata"></a>Get-DomainFQDNData
 
@@ -575,14 +575,14 @@ Accept wildcard characters: False
 
 계정과 암호의 조합에서 DomainFQDN을 검색합니다.
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>SYNTAX
 
 ```
 Get-DomainFQDNData [[-DomainFQDNDataType] <String>] [-RunWithCurrentlyLoggedInUserCredentials]
  [-ReturnExceptionOnError] [<CommonParameters>]
 ```
 
-### <a name="description"></a>DESCRIPTION
+### <a name="description"></a>설명
 
 제공된 자격 증명에서 domainFQDN 개체를 가져오려고 시도합니다.
 domainFQDN이 유효한 경우 사용자의 선택에 따라 DomainFQDNName 또는 RootDomainName이 반환됩니다.
@@ -602,7 +602,7 @@ Get-DomainFQDNData -DomainFQDNDataType DomainFQDNName -Verbose
 Get-DomainFQDNData -DomainFQDNDataType RootDomainName -RunWithCurrentlyLoggedInUserCredentials
 ```
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-domainfqdndatatype"></a>-DomainFQDNDataType
 
@@ -656,7 +656,7 @@ Accept wildcard characters: False
 #### <a name="commonparameters"></a>CommonParameters
 
 이 cmdlet 일반 매개 변수를 지원합니다. -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction 및 -WarningVariable.
-자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216) 를 참조하세요.
+자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216)를 참조하세요.
 
 ## <a name="get-forestfqdn"></a>Get-ForestFQDN
 
@@ -664,13 +664,13 @@ Accept wildcard characters: False
 
 계정과 암호의 조합에서 ForestFQDN을 검색합니다.
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>SYNTAX
 
 ```
 Get-ForestFQDN [-Forest] <String> [-RunWithCurrentlyLoggedInUserCredentials] [<CommonParameters>]
 ```
 
-### <a name="description"></a>DESCRIPTION
+### <a name="description"></a>설명
 
 제공된 자격 증명에서 ForestFQDN을 가져오려고 시도합니다.
 계정(도메인\사용자 이름) 및 암호를 요청할 수 있습니다.
@@ -689,7 +689,7 @@ Get-ForestFQDN -Forest CONTOSO.MICROSOFT.COM -Verbose
 Get-ForestFQDN -Forest CONTOSO.MICROSOFT.COM -RunWithCurrentlyLoggedInUserCredentials -Verbose
 ```
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-forest"></a>-Forest
 
@@ -726,7 +726,7 @@ Accept wildcard characters: False
 #### <a name="commonparameters"></a>CommonParameters
 
 이 cmdlet 일반 매개 변수를 지원합니다. -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction 및 -WarningVariable.
-자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216) 를 참조하세요.
+자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216)를 참조하세요.
 
 ## <a name="start-connectivityvalidation"></a>Start-ConnectivityValidation
 
@@ -734,14 +734,14 @@ Accept wildcard characters: False
 
 Main 함수입니다.
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>SYNTAX
 
 ```
 Start-ConnectivityValidation [-Forest] <String> [-AutoCreateConnectorAccount] <Boolean> [[-UserName] <String>]
  [<CommonParameters>]
 ```
 
-### <a name="description"></a>DESCRIPTION
+### <a name="description"></a>설명
 
 AD 자격 증명이 유효한지 확인하는 사용 가능한 모든 메커니즘을 실행합니다.
 
@@ -753,7 +753,7 @@ AD 자격 증명이 유효한지 확인하는 사용 가능한 모든 메커니�
 Start-ConnectivityValidation -Forest "test.contoso.com" -AutoCreateConnectorAccount $True -Verbose
 ```
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-forest"></a>-Forest
 
@@ -773,9 +773,9 @@ Accept wildcard characters: False
 
 #### <a name="-autocreateconnectoraccount"></a>-AutoCreateConnectorAccount
 
-사용자 지정 설치의 경우: 사용자가 AADConnect 마법사의 AD 포리스트 계정 창에서 "새 AD 계정 만들기"를 선택한 경우 플래그는 $True입니다.
+사용자 지정 설치의 경우 사용자가 AADConnect 마법사의 AD 포리스트 계정 창에서 "새 AD 계정 만들기"를 선택한 경우 플래그는 $True입니다.
 사용자가 "기존 AD 계정 사용"을 선택한 경우 $False입니다.
-기본 설치의 경우: 기본 설치에 대한 이 변수의 값은 $True여야 합니다.
+기본 설치의 경우 기본 설치에 대한 이 변수의 값은 $True여야 합니다.
 
 ```yml
 Type: Boolean
@@ -808,7 +808,7 @@ Accept wildcard characters: False
 #### <a name="commonparameters"></a>CommonParameters
 
 이 cmdlet 일반 매개 변수를 지원합니다. -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction 및 -WarningVariable.
-자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216) 를 참조하세요.
+자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216)를 참조하세요.
 
 ## <a name="start-networkconnectivitydiagnosistools"></a>Start-NetworkConnectivityDiagnosisTools
 
@@ -816,7 +816,7 @@ Accept wildcard characters: False
 
 네트워크 연결 테스트를 위한 Main 함수입니다.
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>SYNTAX
 
 ```
 Start-NetworkConnectivityDiagnosisTools [[-Forest] <String>] [-Credentials] <PSCredential>
@@ -824,7 +824,7 @@ Start-NetworkConnectivityDiagnosisTools [[-Forest] <String>] [-Credentials] <PSC
  [-ValidCredentials] [<CommonParameters>]
 ```
 
-### <a name="description"></a>DESCRIPTION
+### <a name="description"></a>설명
 
 로컬 네트워크 연결 테스트를 실행합니다.
 
@@ -842,7 +842,7 @@ Start-NetworkConnectivityDiagnosisTools -Forest "TEST.CONTOSO.COM"
 Start-NetworkConnectivityDiagnosisTools -Forest "TEST.CONTOSO.COM" -DCs "DC1.TEST.CONTOSO.COM", "DC2.TEST.CONTOSO.COM"
 ```
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-forest"></a>-Forest
 
@@ -962,4 +962,4 @@ Accept wildcard characters: False
 #### <a name="commonparameters"></a>CommonParameters
 
 이 cmdlet 일반 매개 변수를 지원합니다. -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction 및 -WarningVariable.
-자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216) 를 참조하세요.
+자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216)를 참조하세요.

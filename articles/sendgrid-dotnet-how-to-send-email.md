@@ -1,10 +1,10 @@
 ---
 title: SendGrid 메일 서비스를 사용하는 방법(.NET) | Microsoft Docs
-description: Azure에서 SendGrid 메일 서비스를 사용 하 여 전자 메일을 보내는 방법에 대해 알아봅니다. 코드 샘플은 C#으로 작성되었으며 .NET API를 사용합니다.
+description: Azure에서 SendGrid 전자 메일 서비스를 사용하여 전자 메일을 보내는 방법에 대해 알아봅니다. 코드 샘플은 C#으로 작성되었으며 .NET API를 사용합니다.
 services: ''
 documentationcenter: .net
 author: georgewallace
-ms.author: erikre
+ms.author: gwallace
 editor: ''
 ms.assetid: 21bf4028-9046-476b-9799-3d3082a0f84c
 ms.service: multiple
@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/15/2017
 ms.reviewer: dx@sendgrid.com
-ms.openlocfilehash: be1644fe6b6a44edf7fad5cbbd8e3b8971ad02e3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 33df6b5c8c5c16a6eb896944de05068affc2b407
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75463455"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80062210"
 ---
 # <a name="how-to-send-email-using-sendgrid-with-azure"></a>Azure에서 SendGrid를 사용하여 전자 메일을 보내는 방법
 ## <a name="overview"></a>개요
@@ -34,7 +34,7 @@ SendGrid는 사용자 지정 통합을 쉽게 만드는 유연한 API와 함께 
 * 고객 질문 전달
 * 수신 메일 처리
 
-자세한 내용은 [https://sendgrid.com](https://sendgrid.com) 또는 SendGrid의 [ C# library][sendgrid-csharp] GitHub 리포지토리를 참조 하세요.
+자세한 내용은 SendGrid의 [https://sendgrid.com](https://sendgrid.com) [C# 라이브러리][sendgrid-csharp] GitHub 리포지토리를 방문하거나 방문하십시오.
 
 ## <a name="create-a-sendgrid-account"></a>SendGrid 계정 만들기
 [!INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
@@ -43,7 +43,7 @@ SendGrid는 사용자 지정 통합을 쉽게 만드는 유연한 API와 함께 
 [SendGrid NuGet 패키지](https://www.nuget.org/packages/Sendgrid) 는 SendGrid API를 가져오고 애플리케이션에서 종속성을 모두 갖도록 구성하는 가장 쉬운 방법입니다. NuGet은 Microsoft Visual Studio 2015 이상에 포함된 Visual Studio 확장 프로그램으로서 라이브러리 및 도구를 쉽게 설치하고 업데이트할 수 있습니다.
 
 > [!NOTE]
-> Visual Studio 2015보다 이전 버전의 Visual Studio를 실행 중인 경우 NuGet을 설치하려면 [https://www.nuget.org](https://www.nuget.org)로 이동하여 **Install NuGet** 단추를 클릭합니다.
+> Visual Studio 2015보다 이전에 Visual Studio 버전을 실행 중인 경우 [https://www.nuget.org](https://www.nuget.org) **NuGet을** 설치하려면 를 방문하여 NuGet 설치 단추를 클릭합니다.
 >
 >
 
@@ -63,7 +63,7 @@ SendGrid는 사용자 지정 통합을 쉽게 만드는 유연한 API와 함께 
 
 SendGrid의 .NET 클래스 라이브러리는 **SendGrid**라고 합니다. 다음 네임스페이스가 포함되어 있습니다.
 
-* **SendGrid**는 SendGrid API와 통신입니다.
+* **SendGrid의** API와 통신하기 위한 SendGrid.
 * **SendGrid.Helpers.Mail**은 도우미 메서드가 전자 메일을 보내는 방법을 지정하는 SendGridMessage 개체를 쉽게 만들 수 있습니다.
 
 프로그래밍 방식으로 SendGrid 전자 메일 서비스에 액세스하려는 C# 파일의 맨 위에 다음과 같은 코드 네임스페이스 선언을 추가합니다.
@@ -93,14 +93,14 @@ SendGrid의 .NET 클래스 라이브러리는 **SendGrid**라고 합니다. 다�
     msg.AddContent(MimeType.Text, "Hello World plain text!");
     msg.AddContent(MimeType.Html, "<p>Hello World!</p>");
 
-**SendGrid** 형식에서 지원하는 모든 속성 및 메서드에 대한 자세한 내용은 GitHub에서 [sendgrid-csharp][sendgrid-csharp] 를 참조하십시오.
+**SendGrid** 형식에서 지원하는 모든 속성 및 메서드에 대한 자세한 내용은 GitHub에서 [sendgrid-csharp][sendgrid-csharp]을 참조하세요.
 
 ## <a name="how-to-send-an-email"></a>방법: 전자 메일 보내기
-전자 메일 메시지를 만든 후에 SendGrid의 API를 사용하여 해당 메시지를 보낼 수 있습니다. 또는를 사용할 수 있습니다 [. NET의 기본 제공 라이브러리][NET-library].
+전자 메일 메시지를 만든 후에 SendGrid의 API를 사용하여 해당 메시지를 보낼 수 있습니다. 또는 [.NET의 기본 제공 라이브러리][NET-library]를 사용할 수도 있습니다.
 
-메일을 보내려면 SendGrid API 키를 제공해야 합니다. API 키를 구성 하는 방법에 대 한 세부 정보가 필요한 경우 SendGrid의 API 키 [설명서][documentation]를 참조 하세요.
+메일을 보내려면 SendGrid API 키를 제공해야 합니다. API 키를 구성하는 방법에 대한 세부 정보가 필요한 경우 SendGrid의 API 키 [설명서][documentation]를 방문하세요.
 
-응용 프로그램 설정을 클릭 하 고 앱 설정 아래에 키/값 쌍을 추가 하 여 Azure Portal 통해 이러한 자격 증명을 저장할 수 있습니다.
+응용 프로그램 설정을 클릭하고 앱 설정 아래에 키/값 쌍을 추가하여 Azure 포털을 통해 이러한 자격 증명을 저장할 수 있습니다.
 
  ![Azure 앱 설정][azure_app_settings]
 
@@ -232,7 +232,7 @@ SendGrid의 .NET 클래스 라이브러리는 **SendGrid**라고 합니다. 다�
     msg.AddAttachment(banner2);
 
 ## <a name="how-to-use-mail-settings-to-enable-footers-tracking-and-analytics"></a>방법: 메일 설정을 사용하여 바닥글, 추적 및 분석을 사용하도록 설정
-SendGrid는 메일 설정 및 추적 설정을 사용하여 추가 메일 기능을 제공합니다. 클릭 추적, Google 분석, 구독 추적 등과 같은 특정 기능을 사용할 수 있도록 전자 메일 메시지에 이러한 설정을 추가할 수 있습니다. 앱의 전체 목록은 [설정 설명서][settings-documentation]를 참조 하세요.
+SendGrid는 메일 설정 및 추적 설정을 사용하여 추가 메일 기능을 제공합니다. 클릭 추적, Google 분석, 구독 추적 등과 같은 특정 기능을 사용할 수 있도록 전자 메일 메시지에 이러한 설정을 추가할 수 있습니다. 앱의 전체 목록은 [설정 설명서][settings-documentation]를 참조하세요.
 
 **SendGridMessage** 클래스의 일부로 구현되는 메서드를 사용하여 앱을 **SendGrid** 메일 메시지에 적용할 수 있습니다. 다음 예에서는 바닥글 및 클릭 추적 필터를 보여 줍니다.
 
@@ -248,12 +248,12 @@ SendGrid는 메일 설정 및 추적 설정을 사용하여 추가 메일 기능
     msg.SetClickTracking(true);
 
 ## <a name="how-to-use-additional-sendgrid-services"></a>방법: 추가 SendGrid 서비스 사용
-SendGrid는 Azure 애플리케이션 내에서 추가 기능을 활용하는 데 사용할 수 있는 여러 API 및 웹후크를 제공합니다. 자세한 내용은 [SENDGRID API 참조][SendGrid API documentation]를 참조 하세요.
+SendGrid는 Azure 애플리케이션 내에서 추가 기능을 활용하는 데 사용할 수 있는 여러 API 및 웹후크를 제공합니다. 자세한 내용은 [SendGrid API 참조][SendGrid API documentation]를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 SendGrid 전자 메일 서비스에 관한 기본적인 사항들을 익혔으며 자세한 내용을 보려면 다음 링크를 따라가십시오.
 
-* SendGrid C\# 라이브러리 리포지토리: [SendGrid-csharp][sendgrid-csharp]
+* SendGrid C\# 라이브러리 리포지토리: [sendgrid-csharp][sendgrid-csharp]
 * SendGrid API 설명서: <https://sendgrid.com/docs>
 
 [Next steps]: #next-steps
@@ -279,5 +279,5 @@ SendGrid 전자 메일 서비스에 관한 기본적인 사항들을 익혔으�
 [settings-documentation]: https://sendgrid.com/docs/API_Reference/SMTP_API/apps.html
 
 [클라우드 기반 전자 메일 서비스]: https://sendgrid.com/solutions
-[트랜잭션 전자 메일 배달]: https://sendgrid.com/use-cases/transactional-email
+[트랜잭션 전자 메일 발송]: https://sendgrid.com/use-cases/transactional-email
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/28/2018
 ms.author: magattus
 ms.openlocfilehash: 9f185f58e1d33a3985777cb22bc7578f9f2c4541
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67593795"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Azure CDN에서 파일을 압축하여 성능 향상
@@ -27,7 +27,7 @@ ms.locfileid: "67593795"
 파일 압축을 사용하도록 설정하는 두 가지 방법이 있습니다.
 
 - 원본 서버에서 압축을 사용합니다. 이 경우 Azure CDN은 압축된 파일을 전달하고 이러한 파일을 요청하는 클라이언트에 배달합니다.
-- CDN POP 서버에서 직접 압축을 사용하도록 설정합니다(*즉석에서 압축*). 이 경우 원본 서버에서 압축되지 않더라도 CDN이 파일을 압축하여 최종 사용자에게 제공합니다.
+- CDN POP 서버에서 직접 압축을*활성화합니다(즉석에서 압축).* 이 경우 원본 서버에서 압축되지 않더라도 CDN이 파일을 압축하여 최종 사용자에게 제공합니다.
 
 > [!IMPORTANT]
 > Azure CDN 구성 변경이 네트워크 통해 전파되려면 다소 시간이 걸릴 수 있습니다. 
@@ -101,9 +101,9 @@ ms.locfileid: "67593795"
 ### <a name="azure-cdn-standard-from-microsoft-profiles"></a>Microsoft의 Azure CDN 표준 프로필
 
 **Microsoft의 Azure CDN 표준** 프로필의 경우에는 적합한 파일만 압축됩니다. 압축이 가능하려면 파일이 다음 조건을 충족해야 합니다.
-- 된 MIME 형식 이어야 [압축 용으로 구성](#enabling-compression)합니다.
-- 1KB 보다 클 수
-- 8MB 보다 작을 수
+- [압축을 위해 구성된](#enabling-compression)MIME 형식이어야 합니다.
+- 1KB보다 커야 합니다.
+- 8MB보다 작아지다
 
 이러한 프로필은 다음과 같은 압축 인코딩을 지원합니다.
 - gzip(GNU zip)
@@ -117,7 +117,7 @@ ms.locfileid: "67593795"
 
 **Verizon의 Azure CDN 표준** 및 **Verizon의 Azure CDN 프리미엄** 프로필의 경우, 적합한 파일만 압축될 수 있습니다. 압축이 가능하려면 파일이 다음 조건을 충족해야 합니다.
 - 128바이트 초과.
-- 3MB 보다 작을 수
+- 3MB보다 작아지다
 
 이러한 프로필은 다음과 같은 압축 인코딩을 지원합니다.
 - gzip(GNU zip)
@@ -139,22 +139,22 @@ ms.locfileid: "67593795"
 다음 표는 모든 시나리오에 적용되는 Azure CDN 압축 동작을 설명합니다.
 
 ### <a name="compression-is-disabled-or-file-is-ineligible-for-compression"></a>압축이 비활성화되었거나 파일이 압축에 부적합
-| 클라이언트 요청 형식(Accept-Encoding 헤더를 통한) | 캐시된 파일 형식 | 클라이언트에 대한 CDN 응답 | 참고&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+| 클라이언트 요청 형식(Accept-Encoding 헤더를 통한) | 캐시된 파일 형식 | 클라이언트에 대한 CDN 응답 | 참고&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 사항&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
 | --- | --- | --- | --- |
-| 압축 |압축 |압축 | |
-| 압축 |미압축 |미압축 | |
-| 압축 |캐시 되지 않습니다. |압축 또는 미압축 |원래 응답은 CDN의 압축 수행 여부를 결정합니다. |
-| 미압축 |압축 |미압축 | |
+| Compressed |Compressed |Compressed | |
+| Compressed |미압축 |미압축 | |
+| Compressed |캐시되지 않음 |압축 또는 미압축 |원래 응답은 CDN의 압축 수행 여부를 결정합니다. |
+| 미압축 |Compressed |미압축 | |
 | 미압축 |미압축 |미압축 | |
 | 미압축 |캐시되지 않음 |미압축 | |
 
 ### <a name="compression-is-enabled-and-file-is-eligible-for-compression"></a>압축이 활성화되고 파일이 압축에 적합
-| 클라이언트 요청 형식(Accept-Encoding 헤더를 통한) | 캐시된 파일 형식 | 클라이언트에 대한 CDN 응답 | 참고 |
+| 클라이언트 요청 형식(Accept-Encoding 헤더를 통한) | 캐시된 파일 형식 | 클라이언트에 대한 CDN 응답 | 메모 |
 | --- | --- | --- | --- |
-| 압축 |압축 |압축 |지원되는 형식 간 CDN 코드 변환. |
-| 압축 |미압축 |압축 |CDN이 압축 수행. |
-| 압축 |캐시 되지 않습니다. |압축 |원본에서 미압축 파일을 반환하면 CDN이 압축을 수행합니다. <br/>**Verizon에서 Azure CDN** 은 첫 번째 요청에 압축되지 않은 파일을 전달한 다음 후속 요청에 대한 파일을 압축하고 캐시합니다. <br/>`Cache-Control: no-cache` 헤더가 있는 파일은 압축되지 않습니다. |
-| 미압축 |압축 |미압축 |CDN이 압축을 풉니다. |
+| Compressed |Compressed |Compressed |지원되는 형식 간 CDN 코드 변환. |
+| Compressed |미압축 |Compressed |CDN이 압축 수행. |
+| Compressed |캐시되지 않음 |Compressed |원본에서 미압축 파일을 반환하면 CDN이 압축을 수행합니다. <br/>**Verizon에서 Azure CDN** 은 첫 번째 요청에 압축되지 않은 파일을 전달한 다음 후속 요청에 대한 파일을 압축하고 캐시합니다. <br/>`Cache-Control: no-cache` 헤더가 있는 파일은 압축되지 않습니다. |
+| 미압축 |Compressed |미압축 |CDN이 압축을 풉니다. |
 | 미압축 |미압축 |미압축 | |
 | 미압축 |캐시되지 않음 |미압축 | |
 
@@ -165,6 +165,6 @@ Media Services CDN 스트리밍을 사용하도록 설정된 엔드포인트의 
 - application/vnd.apple.mpegurl
 - application/f4m+xml 
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참조
 * [CDN 파일 압축 문제 해결](cdn-troubleshoot-compression.md)    
 

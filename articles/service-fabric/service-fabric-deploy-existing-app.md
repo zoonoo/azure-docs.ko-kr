@@ -1,13 +1,13 @@
 ---
-title: Azure Service Fabric에 기존 실행 파일 배포
+title: Azure 서비스 패브릭에 기존 실행 형 배포
 description: Service Fabric 클러스터에 배포할 수 있도록 기존 애플리케이션을 게스트 실행 파일로 패키징하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 07/02/2017
 ms.openlocfilehash: cdbc965d0e8ec4a8f42fbe438b8ac6ddfe05a1b3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75377109"
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>기존 실행 파일을 Service Fabric으로 패키징 및 배포
@@ -20,9 +20,9 @@ ms.locfileid: "75377109"
 ## <a name="use-visual-studio-to-package-and-deploy-an-existing-executable"></a>Visual Studio를 사용하여 기존 실행 파일 패키징 및 배포
 Visual Studio는 게스트 실행 파일을 서비스 패브릭 클러스터에 배포할 수 있도록 서비스 패브릭 서비스 템플릿을 제공합니다.
 
-1. **파일** > **새 프로젝트**를 선택하여 Service Fabric 애플리케이션을 만듭니다.
+1. **새 프로젝트** **파일을** > 선택하고 서비스 패브릭 응용 프로그램을 만듭니다.
 2. **게스트 실행 파일**을 서비스 템플릿으로 선택합니다.
-3. **찾아보기**를 클릭하여 실행 파일이 포함된 폴더를 선택하고 매개 변수의 나머지를 입력하여 서비스를 만듭니다.
+3. **찾아보기를** 클릭하여 실행 파일을 사용하여 폴더를 선택하고 나머지 매개 변수를 채워 서비스를 만듭니다.
    * *코드 패키지 동작*. 폴더의 모든 콘텐츠를 Visual Studio 프로젝트에 복사하도록 설정할 수 있으며 이것은 실행 파일이 변경되지 않는 경우에 유용합니다. 실행 파일을 변경하고 동적으로 새 빌드를 선택할 수 있는 기능을 원하는 경우 대신 폴더에 연결하도록 선택할 수 있습니다. Visual Studio에서 애플리케이션 프로젝트를 만들 경우 연결된 폴더를 사용할 수 있습니다. 이는 프로젝트 내에서 원본 위치에 연결되면 원본 대상에서 게스트 실행 파일을 업데이트할 수 있습니다. 이 업데이트는 빌드의 애플리케이션 패키지의 일부가 됩니다.
    * *프로그램*은 서비스를 시작하기 위해 실행해야 하는 실행 파일을 지정합니다.
    * *인수*는 실행 파일에 전달되어야 하는 인수를 지정합니다. 인수가 있는 매개 변수 목록이 될 수도 있습니다.
@@ -62,7 +62,7 @@ Yeoman은 설치 및 제거 스크립트와 함께 해당 애플리케이션과 
 -->
 
 ### <a name="create-the-package-directory-structure"></a>패키지 디렉터리 구조 만들기
-[Azure Service Fabric 앱 패키지](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps)에 설명 된 대로 디렉터리 구조를 만들어 시작할 수 있습니다.
+[Azure 서비스 패브릭 앱 패키지에](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps)설명된 대로 디렉터리 구조를 만들어 시작할 수 있습니다.
 
 ### <a name="add-the-applications-code-and-configuration-files"></a>애플리케이션의 코드 및 구성 파일 추가
 디렉터리 구조를 만든 후에 애플리케이션의 코드 및 구성 파일을 코드 및 구성 디렉터리 아래에 추가할 수 있습니다. 코드 또는 구성 디렉터리 아래에 하위 디렉터리 또는 추가 디렉터리를 만들 수도 있습니다.
@@ -260,15 +260,15 @@ New-ServiceFabricService -ApplicationName 'fabric:/nodeapp' -ServiceName 'fabric
 ```
 
 >[!TIP]
-> 패키지가 크거나 파일이 많은 경우 이미지 저장소에 복사하기 전에 [패키지를 압축](service-fabric-package-apps.md#compress-a-package)합니다. [여기](service-fabric-deploy-remove-applications.md#upload-the-application-package)서 자세히 알아보세요.
+> 패키지가 크거나 파일이 많은 경우 이미지 저장소에 복사하기 전에 [패키지를 압축](service-fabric-package-apps.md#compress-a-package)합니다. 자세한 내용은 [여기](service-fabric-deploy-remove-applications.md#upload-the-application-package)를 읽어보세요.
 >
 
 서비스 패브릭 서비스를 다양한 "구성"으로 배포할 수 있습니다. 예를 들어 단일 또는 다중 인스턴스로 배포할 수도 있고, Service Fabric 클러스터의 각 노드에 서비스 인스턴스가 하나씩 있는 방식으로 배포할 수도 있습니다.
 
 `New-ServiceFabricService` cmdlet의 `InstanceCount` 매개 변수는 서비스 패브릭 클러스터에서 실행되어야 하는 서비스의 인스턴스 개수를 지정하는 데 사용됩니다. 배포하는 애플리케이션의 유형에 따라 `InstanceCount` 값을 설정할 수 있습니다. 가장 일반적인 두 가지 시나리오는 다음과 같습니다.
 
-* `InstanceCount = "1"`에 대한 답변에 설명되어 있는 단계를 성공적으로 완료하면 활성화됩니다. 이 경우 단 한 개의 서비스 인스턴스가 클러스터에 배포됩니다. 서비스 패브릭의 스케줄러는 서비스를 배포할 노드를 결정합니다.
-* `InstanceCount ="-1"`에 대한 답변에 설명되어 있는 단계를 성공적으로 완료하면 활성화됩니다. 이 경우 서비스의 단일 인스턴스가 Service Fabric 클러스터의 모든 노드에 배포됩니다. 그 결과 클러스터의 각 노드에 대한 서비스의 인스턴스를 하나(및 하나만) 갖게 됩니다.
+* `InstanceCount = "1"`. 이 경우 단 한 개의 서비스 인스턴스가 클러스터에 배포됩니다. 서비스 패브릭의 스케줄러는 서비스를 배포할 노드를 결정합니다.
+* `InstanceCount ="-1"`. 이 경우 서비스의 단일 인스턴스가 Service Fabric 클러스터의 모든 노드에 배포됩니다. 그 결과 클러스터의 각 노드에 대한 서비스의 인스턴스를 하나(및 하나만) 갖게 됩니다.
 
 이 구성은 프런트 엔드 애플리케이션(예: REST 엔드포인트)에 유용합니다. 클라이언트 애플리케이션은 엔드포인트를 사용하려면 클러스터의 노드에 "연결"해야 하기 때문입니다. 예를 들어, Service Fabric 클러스터의 모든 노드가 부하 분산 장치에 연결된 경우 이 구성을 사용할 수도 있습니다. 그러면 클라이언트 트래픽을 클러스터의 모든 노드에서 실행되는 서비스에 배포할 수 있습니다.
 

@@ -1,19 +1,18 @@
 ---
-title: Marketplace 제품 게시 | Azure Marketplace
+title: 마켓플레이스 상품 게시 | Azure 마켓플레이스
 description: Cloud 파트너 포털을 사용하여 Azure 및 AppSource Marketplace에 제품 게시
-services: Azure, AppSource, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/12/2019
-ms.author: pabutler
-ms.openlocfilehash: e77f0994f604f3a7365f1ed1ddb9191a2510883a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: ab75afd2278433dc36c3d1280b41edfa1e34ddce
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826731"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80286407"
 ---
 # <a name="publish-azure-marketplace-and-appsource-offers"></a>Azure Marketplace 및 AppSource 제품 게시
 
@@ -30,12 +29,12 @@ ms.locfileid: "73826731"
 2. **상태** 탭에 **게시 단계**가 순서도 양식으로 표시됩니다.  이 양식은 제품의 현재 상태와 보고된 문제도 지정합니다.
 3. 모든 항목이 올바르게 보이고 미리 보기에서 제대로 작동하는지 확인한 후에는 라이브로 전환할 수 있습니다. **상태** 탭에서 **라이브 전환**을 클릭하면 Microsoft에서 프로덕션 환경 및 적절한 마켓플레이스로 제품을 이동합니다. 일반적으로 라이브 전환에는 몇 시간이 걸립니다.
 
-게시 프로세스의 어느 시점에서든지 로그인한 다음 **모든 제품** 탭을 클릭하면 모든 제품의 최신 상태를 확인할 수 있습니다. 제품에 대한 상태를 직접 클릭하여 제품이 게시 프로세스에서 어느 위치인지 세부 정보를 확인할 수 있습니다.
+게시 프로세스의 어느 시점에서든 모든 쿠폰 탭을 클릭하여 모든 **오퍼의** 최신 상태를 확인할 수도 있습니다. 제품에 대한 상태를 직접 클릭하여 제품이 게시 프로세스에서 어느 위치인지 세부 정보를 확인할 수 있습니다.
 
 
 ## <a name="canceling-the-publishing-request"></a>게시 요청 취소
 
-게시 프로세스를 시작한 후 요청을 취소해야 할 수 있습니다. 게시 요청이 ‘게시자 확인’ 단계에 도달한 후에만 게시 요청을 취소할 수 있습니다. 취소하려면 **게시 취소**를 클릭합니다. 게시 상태가 1단계로 다시 설정되며, 다시 게시하려면 **게시**를 클릭하고 **상태** 탭의 단계를 수행해야 합니다.
+게시 프로세스를 시작한 후 요청을 취소해야 할 수 있습니다. 게시 요청이 ‘게시자 확인’ 단계에 도달한 후에만 게시 요청을 취소할 수 있습니다.** 취소하려면 **게시 취소**를 클릭합니다. 게시 상태가 1단계로 다시 설정되며, 다시 게시하려면 **게시**를 클릭하고 **상태** 탭의 단계를 수행해야 합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

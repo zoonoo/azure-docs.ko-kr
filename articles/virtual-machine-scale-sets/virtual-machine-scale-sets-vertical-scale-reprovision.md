@@ -1,5 +1,5 @@
 ---
-title: Azure 가상 머신 확장 집합을 수직으로 확장
+title: Azure 가상 머신 스케일 세트를 수직으로 확장
 description: Azure Automation을 사용하여 모니터링 경고에 대한 응답으로 Virtual Machine을 수직으로 확장하는 방법
 author: mayanknayar
 tags: azure-resource-manager
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: manayar
 ms.openlocfilehash: fa1dda2907e8400491c8d18897bb41fb9cff49fd
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76274426"
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>가상 머신 확장 집합을 사용하여 수직으로 규모 조정
@@ -38,7 +38,7 @@ ms.locfileid: "76274426"
 4. Webhook 알림을 사용하여 가상 머신 확장 집합에 경고를 추가합니다.
 
 > [!NOTE]
-> 첫 번째 Virtual Machine의 크기로 인해 확장할 수 있는 크기가 제한될 수 있습니다. 이는 현재 Virtual Machine이 배포된 클러스터에서 다른 크기의 가용성 때문입니다. 이 문서에서 사용된 게시된 자동화 runbook에서는 이 점을 염두에 두고 VM 크기 쌍 이내에서만 확장합니다. 따라서 Standard_D1v2 Virtual Machine이 갑자기 Standard_G5로 확장되거나 Basic_A0으로 축소되지 않습니다. 또한 제한 된 가상 머신 크기 확장/축소는 지원 되지 않습니다. 다음 규모 쌍 범위로 규모 조정하도록 선택할 수 있습니다.
+> 첫 번째 Virtual Machine의 크기로 인해 확장할 수 있는 크기가 제한될 수 있습니다. 이는 현재 Virtual Machine이 배포된 클러스터에서 다른 크기의 가용성 때문입니다. 이 문서에서 사용된 게시된 자동화 runbook에서는 이 점을 염두에 두고 VM 크기 쌍 이내에서만 확장합니다. 따라서 Standard_D1v2 Virtual Machine이 갑자기 Standard_G5로 확장되거나 Basic_A0으로 축소되지 않습니다. 또한 제한된 가상 컴퓨터 크기는 확장/축소가 지원되지 않습니다. 다음 규모 쌍 범위로 규모 조정하도록 선택할 수 있습니다.
 > 
 > | VM 크기 조정 쌍 |  |
 > | --- | --- |
