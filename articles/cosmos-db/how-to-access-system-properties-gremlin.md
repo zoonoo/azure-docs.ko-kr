@@ -8,15 +8,15 @@ ms.date: 09/10/2019
 author: luisbosquez
 ms.author: lbosq
 ms.openlocfilehash: 4ed7e67ae0ef027b260d0e0f0407e4e05ed5a8f4
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78898299"
 ---
 # <a name="system-document-properties"></a>시스템 문서 속성
 
-Azure Cosmos DB의 모든 문서에는 ```_ts```, ```_self```, ```_attachments```, ```_rid```, ```_etag``` 등의 [시스템 속성](https://docs.microsoft.com/rest/api/cosmos-db/databases)이 있습니다. 또한 Gremlin 엔진이 모서리에 ```inVPartition``` 및 ```outVPartition``` 속성을 추가합니다. 기본적으로 이러한 속성은 통과에 사용할 수 없습니다. 그러나 Gremlin 통과에 특정 속성이나 모든 속성을 포함할 수 있습니다.
+Azure Cosmos [DB에는](https://docs.microsoft.com/rest/api/cosmos-db/databases) 의 ```_ts``` ```_self```시스템과 ```_attachments``` ```_rid``` ```_etag``` 같은 . 또한 Gremlin 엔진이 모서리에 ```inVPartition``` 및 ```outVPartition``` 속성을 추가합니다. 기본적으로 이러한 속성은 통과에 사용할 수 없습니다. 그러나 Gremlin 통과에 특정 속성이나 모든 속성을 포함할 수 있습니다.
 
 ```
 g.withStrategies(ProjectionStrategy.build().IncludeSystemProperties('_ts').create())

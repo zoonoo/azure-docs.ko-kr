@@ -1,5 +1,5 @@
 ---
-title: Java를 사용 하 여 Azure 가상 머신 만들기 및 관리
+title: Java를 사용하여 Azure 가상 컴퓨터 만들기 및 관리
 description: Java 및 Azure Resource Manager를 사용하여 가상 컴퓨터 및 모든 지원 리소스를 배포합니다.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: cynthn
 ms.openlocfilehash: 35d5569cb36cb538585b9d2c85a392b668e9fc34
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78944494"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-java"></a>Java를 사용하여 Azure에서 Windows VM 만들기 및 관리
@@ -39,7 +39,7 @@ ms.locfileid: "78944494"
 ## <a name="create-a-maven-project"></a>Maven 프로젝트 만들기
 
 1. 아직 수행하지 않았다면 [Java](https://aka.ms/azure-jdks)를 설치합니다.
-2. [Maven](https://maven.apache.org/download.cgi)을 설치합니다.
+2. [메이븐을](https://maven.apache.org/download.cgi)설치합니다 .
 3. 새 폴더와 프로젝트를 만듭니다.
     
     ```
@@ -133,14 +133,14 @@ ms.locfileid: "78944494"
     graphURL=https://graph.microsoft.com/
     ```
 
-    **&lt;subscription-id&gt;** 를 구독 식별자, **&lt;application-id&gt;** 를 Active Directory 애플리케이션 식별자, **&lt;authentication-key&gt;** 를 애플리케이션 키, **&lt;tenant-id&gt;** 를 테넌트 식별자로 바꿉니다.
+    ** &lt;구독 ID를&gt; ** 구독 식별자로 바꾸고, ** &lt;&gt; 응용 프로그램 ID를** Active Directory 응용 프로그램 식별자로 바꾸고, ** &lt;인증 키를&gt; ** 응용 프로그램 키로, ** &lt;테넌트 식별자를&gt; ** 사용합니다.
 
 2. 파일을 저장합니다.
 3. 인증 파일에 전체 경로로 프로그램 셸의 AZURE_AUTH_LOCATION이라는 환경 변수를 설정합니다.
 
 ### <a name="create-the-management-client"></a>관리 클라이언트 만들기
 
-1. `App.java`에 있는 `src\main\java\com\fabrikam` 파일을 열고 이 패키지 문이 위쪽에 있는지 확인합니다.
+1. `src\main\java\com\fabrikam`에 있는 `App.java` 파일을 열고 이 패키지 문이 위쪽에 있는지 확인합니다.
 
     ```java
     package com.fabrikam.testAzureApp;
@@ -188,7 +188,7 @@ ms.locfileid: "78944494"
 
 ### <a name="create-the-resource-group"></a>리소스 그룹 만들기
 
-모든 리소스는 [리소스 그룹](../../azure-resource-manager/management/overview.md)에 포함되어야 합니다.
+모든 리소스는 리소스 [그룹에](../../azure-resource-manager/management/overview.md)포함되어야 합니다.
 
 애플리케이션의 값을 지정하고 리소스 그룹을 만들려면 Main 메서드의 try 블록에 이 코드를 추가합니다.
 
