@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.author: alkohli
 ms.openlocfilehash: 443ed983a0eec5dfd8f7a917fbc1440cd66c3db3
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78946133"
 ---
 # <a name="use-the-azure-portal-to-manage-users-on-your-azure-data-box-edge"></a>Azure Portal을 사용하여 Azure Data Box Edge에서 사용자 관리
@@ -33,7 +33,7 @@ ms.locfileid: "78946133"
  - **전체 권한 사용자** - 전체 액세스 권한이 있는 로컬 사용자입니다.
  - **읽기 전용 사용자** - 읽기 전용 액세스 권한이 있는 로컬 사용자입니다. 이러한 사용자는 읽기 전용 작업을 허용하는 공유와 연결됩니다.
 
-사용자 권한은 공유를 생성하는 동안 사용자를 만들 때 처음 정의됩니다. 공유 수준 권한 수정은 현재 지원 되지 않습니다.
+사용자 권한은 공유를 생성하는 동안 사용자를 만들 때 처음 정의됩니다. 공유 수준 사용 권한의 수정은 현재 지원되지 않습니다.
 
 ## <a name="add-a-user"></a>사용자 추가
 

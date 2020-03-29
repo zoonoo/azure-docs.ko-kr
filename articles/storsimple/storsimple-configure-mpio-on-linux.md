@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: alkohli
 ms.openlocfilehash: 5dadd231335e93839e947077168f32dbfe96eb45
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76278355"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>CentOS를 실행하는 StorSimple 호스트에서 MPIO 구성
@@ -49,18 +49,18 @@ Linux에서 다중 경로는 아래에 정리된 커널 구성 요소 및 사용
 
 multipath.conf에는 다섯 가지 섹션이 있습니다.
 
-- **시스템 수준 기본값** *(기본값)* : 시스템 수준 기본값을 재정의할 수 있습니다.
-- **블랙 리스트에 장치** *(블랙 리스트)* : 장치 매퍼에서 제어 하지 않아야 하는 장치 목록을 지정할 수 있습니다.
-- **블랙 리스트 예외** *(blacklist_exceptions)* : 블랙 리스트에 나열 된 경우에도 다중 경로 장치로 취급할 특정 장치를 식별할 수 있습니다.
-- **저장소 컨트롤러 특정 설정** *(장치)* : 공급 업체 및 제품 정보가 있는 장치에 적용 되는 구성 설정을 지정할 수 있습니다.
-- **장치 관련 설정** *(다중 경로)* :이 섹션을 사용 하 여 개별 lun의 구성 설정을 세부적으로 조정할 수 있습니다.
+- **시스템 수준 기본값** *(기본값)*: 시스템 수준 기본값을 재정의할 수 있습니다.
+- **금지 목록에 올린 디바이스** *(금지 목록)*: 디바이스 매퍼에서 제어하지 말아야 하는 디바이스 목록을 지정할 수 있습니다.
+- **금지 목록 예외** *(blacklist_exceptions)*: 금지 목록에 나열되면 특정 디바이스를 식별하여 다중 경로 디바이스로 취급할 수 있습니다.
+- **스토리지 컨트롤러 특정 설정** *(디바이스)*: 공급업체 및 제품 정보가 있는 디바이스에 적용될 구성 설정을 지정할 수 있습니다.
+- **디바이스 특정 설정** *(다중 경로)*: 이 섹션을 사용하여 개별 LUN에 구성 설정을 미세하게 조정할 수 있습니다.
 
 ## <a name="configure-multipathing-on-storsimple-connected-to-linux-host"></a>Linux 호스트에 연결된 StorSimple에서 다중 경로 구성
 고가용성 및 부하 분산을 위해 Linux 호스트에 연결된 StorSimple 디바이스를 구성할 수 있습니다. 예를 들어 Linux 호스트에 SAN에 연결된 두 개의 인터페이스가 있고 디바이스에 SAN에 연결된 두 개의 인터페이스가 있으면 이러한 인터페이스는 동일한 서브넷에 있고 사용 가능한 4개의 경로가 있습니다. 그러나 디바이스의 각 데이터 인터페이스 및 호스트 인터페이스가 다른 IP 서브넷에 있으면(또 라우팅할 수 없음) 2개의 경로만 사용할 수 있습니다. 다중 경로를 구성하여 자동으로 사용 가능한 모든 경로를 검색하고 해당 경로에 대한 부하를 분산하는 알고리즘을 선택하며 StorSimple 전용 볼륨에 특정 구성 설정을 적용한 다음 다중 경로를 설정 및 확인할 수 있습니다.
 
 다음 절차는 두 네트워크 인터페이스가 있는 StorSimple 디바이스가 두 네트워크 인터페이스가 있는 호스트에 연결된 경우 다중 경로를 구성하는 방법에 대해 설명합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 이 섹션은 CentOS 서버 및 StorSimple 디바이스에 대한 필수 구성 요소를 자세히 설명합니다.
 
 ### <a name="on-centos-host"></a>CentOS 호스트에서
@@ -338,13 +338,13 @@ A. 두 개의 경로를 라우팅할 수 있으며 동일한 서브넷에 있는
 
 17. 사용 가능한 경로를 나열하는 경우 어떤 출력도 나타나지 않습니다.
 
-A. 일반적으로 다중 경로인 경로를 표시 하지 않으면 다중 경로 디먼에 문제가 있음을 알 수 있으며, 여기에는 `multipath.conf` 파일에 문제가 있을 가능성이 높습니다.
+A. 일반적으로 다중 경로가 표시되지 않는 것은 다중 경로 에 문제가 있음을 시사하며 여기에 문제가 `multipath.conf` 있는 것이 파일에 문제가 발생할 가능성이 큽입니다.
 
-또한 다중 경로 목록의 응답이 디스크가 없음을 의미할 수 있으므로 대상에 연결한 후에 일부 디스크를 실제로 볼 수 있는지 확인 하는 것이 좋습니다.
+또한 다중 경로 목록의 응답이 없기 때문에 대상에 연결한 후 실제로 일부 디스크를 볼 수 있는지 확인하는 것이 좋습니다.
 
 * 다음 명령을 사용하여 SCSI 버스를 다시 스캔합니다.
   
-    `$ rescan-scsi-bus.sh` (sg3_utils 패키지의 일부)
+    `$ rescan-scsi-bus.sh`(sg3_utils 패키지의 일부)
 * 다음 명령을 입력합니다.
   
     `$ dmesg | grep sd*`
@@ -358,7 +358,7 @@ A. 일반적으로 다중 경로인 경로를 표시 하지 않으면 다중 경
   
     `cat /sys/block/<DISK>/device/model`
   
-    이는 StorSimple 디스크 인지 여부를 확인 하는 문자열을 반환 합니다.
+    이렇게 하면 문자열이 반환되어 StorSimple 디스크인지 여부를 결정합니다.
 
 또한 가능성이 적지만 가능한 원인은 iscsid pid일 수 있습니다. 다음 명령을 사용하여 iSCSI 세션에서 로그오프합니다.
 
@@ -410,10 +410,10 @@ A. 디바이스를 허용 목록에 추가되었는지를 확인하려면 다음
     dm-3 devnode blacklisted, unmonitored
 
 
-자세한 내용은 [다중 경로 문제 해결](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/dm_multipath/mpio_admin-troubleshoot)을 참조 하세요.
+자세한 내용은 [다중 경로 에 대한 문제 해결로](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/dm_multipath/mpio_admin-troubleshoot)이동하십시오.
 
 ## <a name="list-of-useful-commands"></a>유용한 명령 목록
-| 유형 | 명령 | Description |
+| Type | 명령 | 설명 |
 | --- | --- | --- |
 | **iSCSI** |`service iscsid start` |iSCSI 서비스 시작 |
 | &nbsp; |`service iscsid stop` |iSCSI 서비스 중지 |

@@ -13,16 +13,16 @@ ms.date: 12/14/2017
 ms.author: damendo
 ms.custom: ''
 ms.openlocfilehash: c3a85de3a201a89d6d9500e4f4b2df9e667e3537
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76840539"
 ---
 # <a name="view-relative-latency-to-azure-regions-from-specific-locations"></a>특정 위치에서 Azure 지역에 연결할 때의 상대적 대기 시간 보기
 
 > [!WARNING]
-> 이 기능은 현재 미리 보기 상태 이며 안정성을 테스트 하 고 있습니다.
+> 이 기능은 현재 미리 보기 중이며 안정성을 위해 테스트 중입니다.
 
 이 자습서에서는 Azure [Network Watcher](network-watcher-monitoring-overview.md) 서비스를 사용하여 사용자 인구 통계를 기준으로 애플리케이션 또는 서비스를 배포할 Azure 지역을 결정하는 데 도움을 얻는 방법을 알아봅니다. 또한 이 서비스를 사용하여 Azure에 대한 서비스 공급자 연결을 평가할 수 있습니다.  
         
@@ -59,7 +59,7 @@ Get-AzNetworkWatcherReachabilityReport `
 ```
 
 > [!NOTE]
-> 네트워크 감시자를 검색할 때 이전 명령에서 지정된 지역과 같은 지역을 지정할 필요는 없습니다. 이전 명령에서는 기존 네트워크 감시자를 지정하기만 하면 됩니다. 네트워크 감시자는 어떤 지역에도 있을 수 있습니다. `-Country` 및 `-State`에 대한 값을 지정할 때는 유효한 값을 지정해야 합니다. 이 값은 대/소문자를 구분합니다. 제한 된 수의 국가/지역, 주 및 도시에 대 한 데이터를 사용할 수 있습니다. 사용 [가능한 국가/지역, 주](#view-available) , 구/군/시 및 공급자 보기에서 명령을 실행 하 여 이전 명령에서 사용할 수 있는 국가/지역, 도시 및 주 목록을 볼 수 있습니다. 
+> 네트워크 감시자를 검색할 때 이전 명령에서 지정된 지역과 같은 지역을 지정할 필요는 없습니다. 이전 명령에서는 기존 네트워크 감시자를 지정하기만 하면 됩니다. 네트워크 감시자는 어떤 지역에도 있을 수 있습니다. `-Country` 및 `-State`에 대한 값을 지정할 때는 유효한 값을 지정해야 합니다. 이 값은 대/소문자를 구분합니다. 제한된 수의 국가/지역, 주 및 도시에서 데이터를 사용할 수 있습니다. [사용 가능한 국가/지역, 주, 도시 및 공급자 보기에서](#view-available) 명령을 실행하여 이전 명령과 함께 사용할 사용 가능한 국가/지역, 도시 및 상태 목록을 봅니다. 
 
 > [!WARNING]
 > `-StartTime` 및 `-EndTime`에 대해 지난 30일 이내의 날짜를 지정해야 합니다. 이전 날짜를 지정하면 데이터가 반환되지 않습니다.
@@ -124,15 +124,15 @@ Get-AzNetworkWatcherReachabilityReport `
 > [!NOTE]
 > 단일 위치를 지정할 때와 달리, 위치를 지정하지 않거나, 여러 위치("미국 서부 2", "미국 서부")를 지정하는 경우 명령을 실행할 때 인터넷 서비스 공급자를 지정해야 합니다. 
 
-## <a name="view-available"></a>사용 가능한 국가/지역, 시/군/시 및 공급자 보기
+## <a name="view-available-countriesregions-states-cities-and-providers"></a><a name="view-available"></a>사용 가능한 국가/지역, 주, 도시 및 공급자 보기
 
-특정 인터넷 서비스 공급자, 국가/지역, 주 및 도시에 대 한 데이터를 사용할 수 있습니다. 데이터를 볼 수 있는 사용 가능한 모든 인터넷 서비스 공급자, 국가/지역, 주 및 도시 목록을 보려면 다음 명령을 입력 합니다.
+데이터는 특정 인터넷 서비스 공급자, 국가/지역, 주 및 도시에 사용할 수 있습니다. 데이터를 볼 수 있는 사용 가능한 모든 인터넷 서비스 공급자, 국가/지역, 주 및 도시 목록을 보려면 다음 명령을 입력합니다.
 
 ```powershell
 Get-AzNetworkWatcherReachabilityProvidersList -NetworkWatcherName NetworkWatcher_eastus -ResourceGroupName NetworkWatcherRG
 ```
 
-데이터는 이전 명령에서 반환 된 국가/지역, 주 및 도시에 대해서만 사용할 수 있습니다. 이전 명령에서는 기존 네트워크 감시자를 지정해야 합니다. 이 예제에서는 *NetworkWatcherRG*라는 리소스 그룹에 *NetworkWatcher_eastus* 네트워크 감시자를 지정했지만, 기존의 어떤 네트워크 감시자도 지정할 수 있습니다. 기존 네트워크 감시자가 없는 경우 [네트워크 감시자 만들기](#create-a-network-watcher)의 작업을 완료하여 만듭니다. 
+데이터는 이전 명령에서 반환된 국가/지역, 주 및 도시에 대해서만 사용할 수 있습니다. 이전 명령에서는 기존 네트워크 감시자를 지정해야 합니다. 이 예제에서는 *NetworkWatcherRG*라는 리소스 그룹에 *NetworkWatcher_eastus* 네트워크 감시자를 지정했지만, 기존의 어떤 네트워크 감시자도 지정할 수 있습니다. 기존 네트워크 감시자가 없는 경우 [네트워크 감시자 만들기](#create-a-network-watcher)의 작업을 완료하여 만듭니다. 
 
 이전 명령을 실행한 후에 **국가**, **시/도** 및 **구/군/시**에 대해 유효한 값을 지정하여 반환된 출력을 필터링할 수 있습니다(원할 경우).  예를 들어, 미국, 워싱턴주, 시애틀에서 사용할 수 있는 인터넷 서비스 공급자의 목록을 보려면 다음 명령을 입력합니다.
 

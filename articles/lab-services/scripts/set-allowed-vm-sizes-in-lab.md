@@ -1,6 +1,6 @@
 ---
 title: 'PowerShell 스크립트: Azure Lab Services에서 허용되는 VM 크기 설정 | Microsoft Docs'
-description: 이 문서에는 Azure Lab Services에서 허용 되는 VM (가상 머신) 크기를 설정 하는 샘플 PowerShell 스크립트가 포함 되어 있습니다.
+description: 이 문서에는 Azure Lab 서비스에서 허용된 VM(가상 시스템) 크기를 설정하는 샘플 PowerShell 스크립트가 포함되어 있습니다.
 services: lab-services
 author: spelluru
 manager: ''
@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: spelluru
 ms.openlocfilehash: a1b0e9a4aed475f04ec8dcffa9bc95b7c7c713e1
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76760467"
 ---
 # <a name="use-powershell-to-set-allowed-vm-sizes-in-azure-lab-services"></a>PowerShell을 사용하여 Azure Lab Services에서 허용되는 VM 크기 설정
@@ -27,7 +27,7 @@ ms.locfileid: "76760467"
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 * **랩**. 스크립트를 사용하려면 기존 랩이 있어야 합니다. 
 
 ## <a name="sample-script"></a>샘플 스크립트
@@ -40,7 +40,7 @@ ms.locfileid: "76760467"
 
 | 명령 | 메모 |
 |---|---|
-| Find-AzResource | 지정된 매개 변수를 기반으로 리소스를 검색합니다. |
+| 찾기-아즈리소스 | 지정된 매개 변수를 기반으로 리소스를 검색합니다. |
 | [Get-AzResource](/powershell/module/az.resources/get-azresource) | 리소스를 가져옵니다. |
 | [집합 AzResource](/powershell/module/az.resources/set-azresource) | 리소스를 수정합니다. |
 | [New-AzResource](/powershell/module/az.resources/new-azresource) | 리소스를 만듭니다. |

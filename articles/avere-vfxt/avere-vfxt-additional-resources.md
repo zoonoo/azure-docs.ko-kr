@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 01/13/2020
 ms.author: rohogue
 ms.openlocfilehash: 78e0500057baf407f1d26afe29d9df1e525cbf3d
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76153771"
 ---
 # <a name="additional-documentation"></a>추가 설명서
@@ -25,7 +25,7 @@ ms.locfileid: "76153771"
   * [지원 및 모니터링 설정 사용자 지정](<https://azure.github.io/Avere/legacy/create_cluster/4_8/html/config_support.html#config-support>)에서는 지원 업로드 설정을 사용자 지정하고, 원격 모니터링을 사용하도록 설정하는 방법을 설명합니다.
   * [VServers 및 글로벌 네임스페이스 구성](<https://azure.github.io/Avere/legacy/create_cluster/4_8/html/config_vserver.html#config-vserver>)에는 클라이언트 측 네임스페이스를 만드는 방법에 대한 정보가 나와 있습니다.
   * [Avere 클러스터에 대한 DNS를 구성](<https://azure.github.io/Avere/legacy/create_cluster/4_8/html/config_network.html#dns-overview>)에서는 라운드 로빈 DNS를 구성하는 방법을 설명합니다.
-  * [백 엔드 저장소](<https://azure.github.io/Avere/legacy/create_cluster/4_8/html/config_core_filer.html#add-core-filer>) 문서를 추가 하면 핵심 filers를 추가 하는 방법에 대해 설명 합니다.
+  * [백 엔드 저장소](<https://azure.github.io/Avere/legacy/create_cluster/4_8/html/config_core_filer.html#add-core-filer>) 문서를 추가 하면 핵심 파일러를 추가 합니다.
 
 * [클러스터 구성 가이드](<https://azure.github.io/Avere/#operations>)는 Avere 클러스터에 대한 설정 및 옵션에 대한 전체 참조입니다. vFXT 클러스터는 이러한 옵션의 하위 집합을 사용하지만, 동일한 구성 페이지의 대부분이 적용됩니다.
 
@@ -33,4 +33,4 @@ ms.locfileid: "76153771"
 
 ## <a name="vfxt-creation-and-management-documentation"></a>vFXT 만들기 및 관리 설명서
 
-Vfxt.py 사용에 대 한 전체 가이드 인 스크립트 기반 클라우드 클러스터 만들기 및 관리 유틸리티는 GitHub: [클라우드 클러스터 관리 vfxt.py](https://github.com/Azure/AvereSDK/blob/master/docs/README.md)를 참조 하세요.
+스크립트 기반 클라우드 클러스터 생성 및 관리 유틸리티인 vfxt.py 사용하기 위한 전체 가이드는 GitHub: [vfxt.py 있는 클라우드 클러스터 관리에서](https://github.com/Azure/AvereSDK/blob/master/docs/README.md)제공됩니다.

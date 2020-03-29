@@ -12,19 +12,19 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 8f696f1c6c414cd9db082e79e0f34c56156e1ee0
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76722495"
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Azure Data Factory를 사용하여 온-프레미스 SQL Server에서 SQL Azure로 데이터 이동
 
-이 문서에서는 Azure Data Factory (ADF)를 사용 하 여 온-프레미스 SQL Server 데이터베이스에서 SQL Azure Azure Blob Storage 데이터베이스로 데이터를 이동 하는 방법을 보여 줍니다 .이 방법은 복제 된 준비 복사본의 이점을 제공 하는 지원 되는 레거시 방법 이지만, [최신 옵션에 대 한 데이터 마이그레이션 페이지를 살펴보는 것](https://datamigration.microsoft.com/scenario/sql-to-azuresqldb?step=1)이 좋습니다.
+이 문서에서는 Azure Data Factory(ADF)를 사용하여 Azure Blob Storage를 통해 온-프레미스 SQL Server 데이터베이스에서 SQL Azure 데이터베이스로 데이터를 이동하는 방법을 [we suggest to look at our data migration page for the latest options](https://datamigration.microsoft.com/scenario/sql-to-azuresqldb?step=1)보여 주었습니다.
 
 Azure SQL Database로 데이터를 이동하는 다양한 옵션을 요약한 표는 [Azure Machine Learning을 위해 Azure SQL Database로 데이터 이동](move-sql-azure.md)을 참조하세요.
 
-## <a name="intro"></a>소개: ADF란 무엇이며 데이터를 마이그레이션하는 데 사용하려면 언제 사용해야 하나요?
+## <a name="introduction-what-is-adf-and-when-should-it-be-used-to-migrate-data"></a><a name="intro"></a>소개: ADF란 무엇이며 데이터를 마이그레이션하는 데 사용하려면 언제 사용해야 하나요?
 Azure 데이터 팩터리는 데이터의 이동과 변환을 오케스트레이션하고 자동화하는 완전히 관리되는 클라우드 기반의 데이터 통합 서비스입니다. ADF 모델의 핵심 개념은 파이프라인입니다. 파이프라인은 각각 데이터 세트에 포함된 데이터에 수행할 작업을 정의하는 활동의 논리적 그룹화입니다. 연결된 서비스는 데이터 팩터리가 데이터 리소스에 연결하기 위해 필요한 정보를 정의하는 데 사용됩니다.
 
 ADF와 함께 기존 데이터 처리 서비스는 가용성이 높고 클라우드에서 관리되는 데이터 파이프라인으로 구성될 수 있습니다. 이러한 데이터 파이프라인에서 데이터 수집, 준비, 변환, 분석 및 게시를 예약할 수 있으며 ADF가 복잡한 데이터 및 처리 종속성을 관리하고 오케스트레이션합니다. 클라우드에서 솔루션을 신속하게 구축 및 배포할 수 있으며 증가하는 온-프레미스 및 클라우드 데이터 원본을 연결합니다.
@@ -32,27 +32,27 @@ ADF와 함께 기존 데이터 처리 서비스는 가용성이 높고 클라우
 다음 경우에 ADF 사용을 고려합니다.
 
 * 온-프레미스 및 클라우드 리소스 둘 다에 액세스하는 하이브리드 시나리오에서 데이터를 지속적으로 마이그레이션해야 하는 경우
-* 데이터에 변환이 필요 하거나 마이그레이션할 때 비즈니스 논리를 추가 해야 하는 경우
+* 마이그레이션할 때 데이터에 변환이 필요하거나 비즈니스 논리가 추가된 경우
 
 ADF에서는 정기적으로 데이터 이동을 관리하는 간단한 JSON 스크립트를 사용하여 작업 예약 및 모니터링이 가능합니다. 또한 복잡한 작업을 지원하는 기타 기능도 포함하고 있습니다. ADF에 대한 자세한 내용은 [Azure 데이터 팩터리(ADF)](https://azure.microsoft.com/services/data-factory/)를 참조하세요.
 
-## <a name="scenario"></a>시나리오
-두 가지 데이터 마이그레이션 작업을 구성하는 ADF 파이프라인을 설정했습니다. 온-프레미스 SQL Database와 클라우드의 Azure SQL Database 간에 매일 데이터를 이동 합니다. 두 활동은 다음과 같습니다.
+## <a name="the-scenario"></a><a name="scenario"></a>시나리오
+두 가지 데이터 마이그레이션 작업을 구성하는 ADF 파이프라인을 설정했습니다. 함께 온-프레미스 SQL 데이터베이스와 클라우드의 Azure SQL 데이터베이스 간에 매일 데이터를 이동합니다. 두 활동은 다음과 같습니다.
 
 * 온-프레미스 SQL Server 데이터베이스에서 Azure Blob Storage 계정으로 데이터 복사
 * Azure Blob Storage 계정에서 Azure SQL Database로 데이터를 복사합니다.
 
 > [!NOTE]
-> 여기에 표시 된 단계는 ADF 팀에서 제공 하는 보다 자세한 자습서에서 적용 됩니다. [온-프레미스 SQL Server 데이터베이스에서 Azure Blob 저장소로 데이터 복사](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal/) 는 해당 항목의 관련 섹션에 대 한 참조를 제공 합니다.
+> 여기에 표시된 단계는 ADF 팀에서 제공하는 보다 자세한 자습서에서 수정되었습니다: [온-프레미스 SQL Server 데이터베이스에서 Azure Blob 저장소](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal/) 참조로 데이터를 복사하는 것이 적절하면 해당 항목의 관련 섹션에 대한 참조가 제공됩니다.
 >
 >
 
-## <a name="prereqs"></a>필수 조건
+## <a name="prerequisites"></a><a name="prereqs"></a>사전 요구 사항
 이 자습서에서는 사용자가 다음을 보유하고 있다고 가정합니다.
 
 * **Azure 구독**. 구독이 없는 경우 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 등록할 수 있습니다.
-* **Azure Storage 계정**. 이 자습서에서는 데이터 저장을 위해 Azure Storage 계정을 사용합니다. Azure Storage 계정이 없는 경우 [스토리지 계정 만들기](../../storage/common/storage-account-create.md) 문서를 참조하세요. 스토리지 계정을 만든 후에는 스토리지 액세스에 사용되는 계정 키를 확보해야 합니다. [저장소 계정 액세스 키 관리](../../storage/common/storage-account-keys-manage.md)를 참조 하세요.
-* **Azure SQL Database**에 대한 액세스. Azure SQL Database를 설정 해야 하는 경우 [Microsoft Azure SQL Database 시작](../../sql-database/sql-database-get-started.md) 항목에서 Azure SQL Database의 새 인스턴스를 프로 비전 하는 방법에 대 한 정보를 제공 합니다.
+* **Azure 저장소 계정**. 이 자습서에서는 데이터 저장을 위해 Azure Storage 계정을 사용합니다. Azure Storage 계정이 없는 경우 [스토리지 계정 만들기](../../storage/common/storage-account-create.md) 문서를 참조하세요. 스토리지 계정을 만든 후에는 스토리지 액세스에 사용되는 계정 키를 확보해야 합니다. [저장소 계정 액세스 키 관리를](../../storage/common/storage-account-keys-manage.md)참조하십시오.
+* **Azure SQL Database**에 대한 액세스. Azure SQL Database를 설정해야 하는 경우 [Microsoft Azure SQL 데이터베이스로 시작하기](../../sql-database/sql-database-get-started.md) 항목에서는 Azure SQL Database의 새 인스턴스를 프로비전하는 방법에 대한 정보를 제공합니다.
 * 로컬로 설치 및 구성된 **Azure PowerShell** . 자세한 내용은 [Azure PowerShell 설치 및 구성법](/powershell/azure/overview)을 참조하세요.
 
 > [!NOTE]
@@ -60,20 +60,20 @@ ADF에서는 정기적으로 데이터 이동을 관리하는 간단한 JSON 스
 >
 >
 
-## <a name="upload-data"></a> 온-프레미스 SQL Server에 데이터 업로드
+## <a name="upload-the-data-to-your-on-premises-sql-server"></a><a name="upload-data"></a> 온-프레미스 SQL Server에 데이터 업로드
 [NYC Taxi 데이터 세트](https://chriswhong.com/open-data/foil_nyc_taxi/)를 사용하여 마이그레이션 프로세스를 시연합니다. 해당 게시물에서 설명한 것처럼 NYC Taxi 데이터 세트는 Azure Blob Storage [NYC Taxi 데이터](https://www.andresmh.com/nyctaxitrips/)에서 제공됩니다. 데이터에는 두 개 파일이 있습니다. trip_data.csv 파일에는 여정 세부 정보가 들어 있고 trip_far.csv 파일에는 각 여정에 대한 요금 세부 정보가 들어 있습니다. 이러한 파일의 샘플 및 설명은 [NYC Taxi Trips 데이터 세트 설명](sql-walkthrough.md#dataset)에 제공됩니다.
 
 자신의 데이터 세트에 여기에 제공된 절차를 도입하거나 NYC Taxi 데이터 세트를 사용하여 설명된 대로 단계를 따릅니다. NYC Taxi 데이터 세트를 온-프레미스 SQL Server 데이터베이스에 업로드하려면 [SQL Server Database로 대량 데이터 가져오기](sql-walkthrough.md#dbload)에 설명된 절차를 따릅니다. 이러한 지침은 Azure Virtual Machine의 SQL Server에 대한 내용이지만 온-프레미스 SQL Server로 업로드하는 절차는 동일합니다.
 
-## <a name="create-adf"></a> Azure 데이터 팩터리 만들기
+## <a name="create-an-azure-data-factory"></a><a name="create-adf"></a>Azure 데이터 팩터리 만들기
 [Azure Portal](https://portal.azure.com/)에서 새 Azure Data Factory 및 리소스 그룹을 만들기 위한 지침은 [Azure Data Factory 만들기](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-data-factory)에서 제공됩니다. 새 ADF 인스턴스의 이름은 *adfdsp*이고 생성된 리소스 그룹은 *adfdsprg*입니다.
 
 ## <a name="install-and-configure-azure-data-factory-integration-runtime"></a>Azure Data Factory 통합 런타임 설치 및 구성
-Integration Runtime는 여러 네트워크 환경에서 데이터 통합 기능을 제공 하기 위해 Azure Data Factory에서 사용 하는 고객이 관리 하는 데이터 통합 인프라입니다. 이전에는 이 런타임을 “데이터 관리 게이트웨이”라고 했습니다.
+통합 런타임은 Azure Data Factory에서 다양한 네트워크 환경에서 데이터 통합 기능을 제공하는 데 사용하는 고객 관리 데이터 통합 인프라입니다. 이전에는 이 런타임을 “데이터 관리 게이트웨이”라고 했습니다.
 
-설정 하려면 [파이프라인 만들기에 대 한 지침을 따르세요](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal#create-a-pipeline) .
+설정하려면 [파이프라인 을 만들기 위한 지침을 따르십시오.](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal#create-a-pipeline)
 
-## <a name="adflinkedservices"></a>데이터 리소스에 연결할 연결된 서비스 만들기
+## <a name="create-linked-services-to-connect-to-the-data-resources"></a><a name="adflinkedservices"></a>데이터 리소스에 연결할 연결된 서비스 만들기
 연결된 서비스는 Azure 데이터 팩터리가 데이터 리소스에 연결하기 위해 필요한 정보를 정의합니다. 이 시나리오에는 연결된 서비스가 필요한 3개의 리소스가 있습니다.
 
 1. 온-프레미스 SQL Server
@@ -83,11 +83,11 @@ Integration Runtime는 여러 네트워크 환경에서 데이터 통합 기능�
 연결된 서비스를 만들기 위한 단계별 절차가 [연결된 서비스 만들기](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-pipeline)에 제공됩니다.
 
 
-## <a name="adf-tables"></a>데이터 세트에 액세스하는 방법을 지정하는 테이블 정의 및 만들기
+## <a name="define-and-create-tables-to-specify-how-to-access-the-datasets"></a><a name="adf-tables"></a>데이터 세트에 액세스하는 방법을 지정하는 테이블 정의 및 만들기
 다음 스크립트 기반 프로시저로 데이터 세트의 구조, 위치 및 가용성을 지정하는 테이블을 만듭니다. 테이블을 정의하는 데 JSON 파일이 사용됩니다. 이러한 파일의 구조에 대한 자세한 내용은 [데이터 세트](../../data-factory/concepts-datasets-linked-services.md)를 참조하세요.
 
 > [!NOTE]
-> `Add-AzureAccount`New-AzureDataFactoryTable[ cmdlet을 실행하기 전에 ](https://msdn.microsoft.com/library/azure/dn835096.aspx) cmdlet을 실행하여 명령 실행을 위해 Azure 구독을 선택했는지 확인해야 합니다. 이 cmdlet의 설명서는 [Add-azureaccount](/powershell/module/servicemanagement/azure/add-azureaccount?view=azuresmps-3.7.0)를 참조하세요.
+> [New-AzureDataFactoryTable](https://msdn.microsoft.com/library/azure/dn835096.aspx) cmdlet을 실행하기 전에 `Add-AzureAccount` cmdlet을 실행하여 명령 실행을 위해 Azure 구독을 선택했는지 확인해야 합니다. 이 cmdlet의 설명서는 [Add-azureaccount](/powershell/module/servicemanagement/azure/add-azureaccount?view=azuresmps-3.7.0)를 참조하세요.
 >
 >
 
@@ -107,7 +107,7 @@ Integration Runtime는 여러 네트워크 환경에서 데이터 통합 기능�
 >
 >
 
-### <a name="adf-table-onprem-sql"></a>SQL 온-프레미스 테이블
+### <a name="sql-on-premises-table"></a><a name="adf-table-onprem-sql"></a>SQL 온-프레미스 테이블
 온-프레미스 SQL Server에 대한 테이블 정의는 다음 JSON 파일에 지정됩니다.
 
 ```json
@@ -136,14 +136,14 @@ Integration Runtime는 여러 네트워크 환경에서 데이터 통합 기능�
 }
 ```
 
-여기서는 열 이름이 포함되지 않았습니다. 여기에 포함 하 여 열 이름을 선택할 수 있습니다. 자세한 내용은 [ADF 설명서](../../data-factory/copy-activity-overview.md) 항목을 참조 하세요.
+여기서는 열 이름이 포함되지 않았습니다. 열 이름을 여기에 포함시켜 하위 선택을 할 수 있습니다(자세한 내용은 [ADF 설명서](../../data-factory/copy-activity-overview.md) 항목을 확인하십시오)
 
 테이블의 JSON 정의를 *onpremtabledef.json* 파일로 복사하고 알려진 위치에 저장합니다(여기서는 *C:\temp\onpremtabledef.json*으로 간주). 다음 Azure PowerShell cmdlet을 사용하여 ADF에 테이블을 만듭니다.
 
     New-AzureDataFactoryTable -ResourceGroupName ADFdsprg -DataFactoryName ADFdsp –File C:\temp\onpremtabledef.json
 
 
-### <a name="adf-table-blob-store"></a>Blob 테이블
+### <a name="blob-table"></a><a name="adf-table-blob-store"></a>Blob 테이블 
 출력 blob 위치에 대한 테이블 정의는 다음과 같습니다(온-프레미스에서 수집된 데이터를 Azure blob에 매핑).
 
 ```json
@@ -175,7 +175,7 @@ Integration Runtime는 여러 네트워크 환경에서 데이터 통합 기능�
 
     New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\bloboutputtabledef.json
 
-### <a name="adf-table-azure-sql"></a>SQL Azure 테이블
+### <a name="sql-azure-table"></a><a name="adf-table-azure-sql"></a>SQL Azure 테이블
 SQL Azure 출력에 대한 테이블 정의가 다음과 같습니다(이 스키마는 blob에서 가져온 데이터를 매핑).
 
 ```json
@@ -208,7 +208,7 @@ SQL Azure 출력에 대한 테이블 정의가 다음과 같습니다(이 스키
     New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\AzureSqlTable.json
 
 
-## <a name="adf-pipeline"></a>파이프라인 정의 및 만들기
+## <a name="define-and-create-the-pipeline"></a><a name="adf-pipeline"></a>파이프라인 정의 및 만들기
 파이프라인에 포함될 활동을 지정하고 다음 스크립트 기반 프로시저로 파이프라인을 만듭니다. 파이프라인 속성을 정의하는 데 JSON 파일이 사용됩니다.
 
 * 스크립트는 **파이프라인 이름** 이 *AMLDSProcessPipeline*이라고 가정합니다.
@@ -293,7 +293,7 @@ SQL Azure 출력에 대한 테이블 정의가 다음과 같습니다(이 스키
     New-AzureDataFactoryPipeline  -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\pipelinedef.json
 
 
-## <a name="adf-pipeline-start"></a>파이프라인 시작
+## <a name="start-the-pipeline"></a><a name="adf-pipeline-start"></a>파이프라인 시작
 이제 다음 명령을 사용하여 파이프라인을 실행할 수 있습니다.
 
     Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADFdsprg -DataFactoryName ADFdsp -StartDateTime startdateZ –EndDateTime enddateZ –Name AMLDSProcessPipeline
@@ -302,4 +302,4 @@ SQL Azure 출력에 대한 테이블 정의가 다음과 같습니다(이 스키
 
 파이프라인이 실행된 후에는 blob에 대해 선택한 컨테이너에 표시된 데이터를 하루에 한 개 파일로 볼 수 있습니다.
 
-ADF에서 제공 하는 기능을 활용 하 여 데이터를 증분식으로 파이프 하지 않았습니다. 이 작업을 수행하는 방법 및 ADF에서 제공하는 기타 기능에 대한 자세한 내용은 [ADF 설명서](https://azure.microsoft.com/services/data-factory/)를 참조하세요.
+ADF에서 제공하는 기능을 점진적으로 파이프에 활용하지 않았습니다. 이 작업을 수행하는 방법 및 ADF에서 제공하는 기타 기능에 대한 자세한 내용은 [ADF 설명서](https://azure.microsoft.com/services/data-factory/)를 참조하세요.

@@ -1,5 +1,5 @@
 ---
-title: 네트워크 보안 분석-보안 그룹 보기-Azure REST API
+title: 네트워크 보안 분석 - 보안 그룹 보기 - Azure REST API
 titleSuffix: Azure Network Watcher
 description: 이 문서에서는 보안 그룹 보기를 사용하여 가상 머신 보안을 분석하기 위해 PowerShell을 사용하는 방법을 설명합니다.
 services: network-watcher
@@ -13,18 +13,18 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: c9c76e9c06d4c45a096cff79dac82bb80ebe25d1
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76840743"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-rest-api"></a>REST API를 사용하는 보안 그룹 보기에서 Virtual Machine 보안 분석
 
 > [!div class="op_single_selector"]
-> - [PowerShell](network-watcher-security-group-view-powershell.md)
+> - [Powershell](network-watcher-security-group-view-powershell.md)
 > - [Azure CLI](network-watcher-security-group-view-cli.md)
-> - [REST API](network-watcher-security-group-view-rest.md)
+> - [나머지 API](network-watcher-security-group-view-rest.md)
 
 보안 그룹 보기는 가상 컴퓨터에 적용되는 효과적으로 구성된 네트워크 보안 규칙을 반환합니다. 이 기능은 VM에 구성된 네트워크 보안 그룹 및 규칙을 감사하고 진단하여 트래픽을 올바르게 허용하거나 거부하는 데 유용합니다. 이 문서에서는 REST API를 사용하여 가상 머신에 효과적으로 적용된 보안 규칙을 검색하는 방법을 보여 줍니다.
 
@@ -33,7 +33,7 @@ ms.locfileid: "76840743"
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 시나리오에서는 Network Watcher Rest API를 호출하여 가상 머신에 대한 보안 그룹 보기를 가져옵니다. PowerShell을 사용하여 REST API를 호출하는 데 ARMclient가 사용됩니다. ARMClient는 [Chocolatey의 ARMClient](https://chocolatey.org/packages/ARMClient)에서 chocolatey에 있습니다.
+이 시나리오에서는 Network Watcher Rest API를 호출하여 가상 머신에 대한 보안 그룹 보기를 가져옵니다. PowerShell을 사용하여 REST API를 호출하는 데 ARMclient가 사용됩니다. ARM클라이언트는 [초콜릿에 ARM클라이언트에서 발견된다](https://chocolatey.org/packages/ARMClient)
 
 이 시나리오에서는 사용자가 Network Watcher를 만드는 [Network Watcher 만들기](network-watcher-create.md)의 단계를 이미 수행했다고 가정합니다. 또한 시나리오에서는 유효한 가상 머신을 포함한 리소스 그룹을 사용할 수 있다고 가정합니다.
 
@@ -51,7 +51,7 @@ armclient login
 
 다음 스크립트를 실행하여 가상 머신을 반환합니다. 다음 코드에는 변수가 필요합니다.
 
-- **subscriptionId** - **AzSubscription** cmdlet을 사용 하 여 구독 id를 검색할 수도 있습니다.
+- **subscriptionId** - 구독 ID는 **Get-AzSubscription** cmdlet을 사용할 수도 있습니다.
 - **resourceGroupName** - 가상 머신을 포함하는 리소스 그룹의 이름입니다.
 
 ```powershell

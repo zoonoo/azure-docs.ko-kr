@@ -1,6 +1,6 @@
 ---
-title: 웹 앱에서 web api 호출-Microsoft identity platform | Microsoft
-description: 웹 Api를 호출 하는 웹 앱을 빌드하는 방법 알아보기 (보호 된 웹 API 호출)
+title: 웹 앱에서 웹 API 호출 - Microsoft ID 플랫폼 | Azure
+description: 웹 API를 호출하는 웹 앱을 빌드하는 방법 알아보기(보호된 웹 API 호출)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,19 +15,19 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 28b4be46dc686c6e1b55f1ab36e0607057ebdbbd
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76758974"
 ---
-# <a name="a-web-app-that-calls-web-apis-call-a-web-api"></a>웹 api를 호출 하는 웹 앱: web API 호출
+# <a name="a-web-app-that-calls-web-apis-call-a-web-api"></a>웹 API를 호출하는 웹 앱: 웹 API 호출
 
-이제 토큰이 있으므로 보호 된 web API를 호출할 수 있습니다.
+이제 토큰이 있으므로 보호된 웹 API를 호출할 수 있습니다.
 
-# <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
+# <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-`HomeController`작업에 대 한 단순화 된 코드는 다음과 같습니다. 이 코드는 Microsoft Graph를 호출 하는 토큰을 가져옵니다. REST API Microsoft Graph를 호출 하는 방법을 보여 주는 코드가 추가 되었습니다. Microsoft Graph API에 대 한 URL은 appsettings 파일에 제공 되며 `webOptions`라는 변수에서 읽습니다.
+다음은 의 작업에 대한 단순화된 `HomeController`코드입니다. 이 코드는 Microsoft Graph를 호출하는 토큰을 가져옵니다. Microsoft Graph를 REST API로 호출하는 방법을 보여 줄 코드가 추가되었습니다. Microsoft 그래프 API의 URL은 appsettings.json 파일에 제공되며 다음 이라는 `webOptions`변수에서 읽습니다.
 
 ```JSon
 {
@@ -82,11 +82,11 @@ public async Task<IActionResult> Profile()
 ```
 
 > [!NOTE]
-> 동일한 원칙을 사용 하 여 web API를 호출할 수 있습니다.
+> 동일한 원칙을 사용하여 모든 웹 API를 호출할 수 있습니다.
 >
-> 대부분의 Azure web Api는 API 호출을 간소화 하는 SDK를 제공 합니다. Microsoft Graph도 마찬가지입니다. 다음 문서에서는 API 사용을 보여 주는 자습서를 찾을 수 있는 위치에 대해 알아봅니다.
+> 대부분의 Azure 웹 API는 API 호출을 간소화하는 SDK를 제공합니다. 이것은 또한 마이크로소프트 그래프의 사실이다. 다음 문서에서는 API 사용을 설명하는 자습서를 찾을 수 있는 위치를 배웁니다.
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 ```Java
 private String getUserInfoFromGraph(String accessToken) throws Exception {
@@ -112,7 +112,7 @@ private String getUserInfoFromGraph(String accessToken) throws Exception {
 
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 ```Python
 @app.route("/graphcall")
@@ -132,4 +132,4 @@ def graphcall():
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [프로덕션으로 이동](scenario-web-app-call-api-production.md)
+> [프로덕션 환경으로 이동](scenario-web-app-call-api-production.md)

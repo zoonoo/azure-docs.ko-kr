@@ -1,6 +1,6 @@
 ---
-title: Azure Portal에서 Service Bus 네임 스페이스를 만드는 방법
-description: 이 문서에서는 Azure Portal에서 Azure Service Bus 네임 스페이스를 만드는 방법에 대 한 지침을 제공 합니다.
+title: Azure 포털에서 서비스 버스 네임스페이스를 만드는 방법
+description: 이 문서에서는 Azure Portal에서 Azure Service Bus 네임스페이스를 만드는 방법에 대한 지침을 제공합니다.
 services: service-bus-messaging
 documentationcenter: .net
 author: axisc
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.openlocfilehash: b6351fade23f1671573964f946005d57671d3cc7
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76761069"
 ---
 # <a name="create-a-service-bus-namespace-using-the-azure-portal"></a>Azure Portal을 사용하여 Service Bus 네임스페이스 만들기
@@ -31,7 +31,7 @@ ms.locfileid: "76761069"
 
 ## <a name="next-steps"></a>다음 단계
 
-Service Bus 메시징의 고급 기능 중 일부를 보여 주는 Service Bus [GitHub 샘플][github-samples]을 확인 하세요.
+Service Bus 메시징의 더 많은 고급 기능 중 일부를 보여주는 Service Bus [GitHub 샘플][github-samples]을 확인합니다.
 
 [create-namespace-using-arm]: service-bus-resource-manager-overview.md
 [github-samples]: https://github.com/Azure/azure-service-bus/tree/master/samples

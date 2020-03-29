@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/04/2017
 ms.author: alkohli
 ms.openlocfilehash: 66b881ab13e27ee457af4fa1bafb82ad14e9674d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60631682"
 ---
 # <a name="safely-install-and-operate-your-storsimple-device"></a>StorSimple 디바이스의 안전한 설치 및 작동
@@ -33,8 +33,8 @@ ms.locfileid: "60631682"
 | 아이콘 | 설명 |
 |:--- |:--- |
 | ![위험 아이콘](./media/storsimple-safety/IC740879.png) **위험!** |피하지 않을 경우 사망 또는 심각한 부상을 당하는 위험한 상황을 나타냅니다. 이 위험도 표시는 가장 극단적인 상황으로 제한됩니다. |
-| ![경고 아이콘](./media/storsimple-safety/IC740879.png) **경고!** |피하지 않을 경우 사망 또는 심각한 부상을 당할 수 있는 위험한 상황을 나타냅니다. |
-| ![경고 아이콘](./media/storsimple-safety/IC740879.png) **주의!** |피하지 않을 경우 최소 또는 보통 수준의 부상을 당할 수 있는 위험한 상황을 나타냅니다. |
+| ![경고](./media/storsimple-safety/IC740879.png) 아이콘 **경고!** |피하지 않을 경우 사망 또는 심각한 부상을 당할 수 있는 위험한 상황을 나타냅니다. |
+| ![경고](./media/storsimple-safety/IC740879.png) **아이콘주의!** |피하지 않을 경우 최소 또는 보통 수준의 부상을 당할 수 있는 위험한 상황을 나타냅니다. |
 | ![참고 아이콘](./media/storsimple-safety/IC740881.png) **고지:** |중요하지만 위험과 관련되지 않은 것으로 간주되는 정보를 나타냅니다. |
 | ![감전 아이콘](./media/storsimple-safety/IC740882.png) **감전 위험** |높은 전압 |
 | ![무거운 무게 아이콘](./media/storsimple-safety/IC740883.png) **무거운 무게** | |
@@ -109,7 +109,7 @@ ms.locfileid: "60631682"
 ## <a name="power-cooling-module-pcm-precautions"></a>PCM(전원 냉각 모듈) 주의 사항
 디바이스는 두 개의 PCM과 함께 작동하도록 설계되었습니다. 각 PCM에는 전원 공급 장치와 이중 축 팬이 있습니다. 임계 조건에서 시스템은 한 대의 전원 공급 장치에 오류가 발생해도 정상적인 작동을 계속할 수 있습니다. 항상 두 PCM(및 전원 공급 장치)을 설치해야 합니다. PCM 하나로는 예비 전력을 제공하지 않습니다. 따라서 하나의 PCM만 고장나도 가동 중지 시간 또는 데이터 손실이 발생할 수 있습니다.
 
-![경고 아이콘](./media/storsimple-safety/IC740879.png) ![감전 아이콘](./media/storsimple-safety/IC740882.png) **경고!**
+![Warning Icon](./media/storsimple-safety/IC740879.png) ![Electrical Shock Icon](./media/storsimple-safety/IC740882.png) **경고!**
 
 부상, 감전 또는 사망 가능성을 줄이려면:
 
@@ -135,7 +135,7 @@ ms.locfileid: "60631682"
 ## <a name="battery-disposal-precautions"></a>배터리 폐기 주의 사항
 전원 공급 장치는 일시적인 단기 정전 중에 메모리 내용을 보호하는 특수 배터리를 사용합니다. 이 배터리는 PCM에 장착되어 있습니다. 배터리에 대한 다음 정보를 숙지하십시오.
 
-![경고 아이콘](./media/storsimple-safety/IC740879.png) **경고!**
+![경고](./media/storsimple-safety/IC740879.png) 아이콘 **경고!**
 
 누전, 화재, 폭발, 부상 또는 사망 위험을 줄이려면:
 
@@ -145,7 +145,7 @@ ms.locfileid: "60631682"
 
 ![참고 아이콘](./media/storsimple-safety/IC740881.png) **고지:**
 
-배터리를 선적하거나 항공편으로 운송하는 경우 [https://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx](https://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx)의 IATA 리튬 배터리 지침 문서를 따르세요.
+배터리를 운송하거나 기타 항공 운송할 때는 IATA 리튬 배터리 지침 문서를 따르십시오.[https://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx](https://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx)
 
 이 보안 공지를 검토한 후 다음 단계에서는 디바이스를 개봉하고 랙 및 케이블을 연결합니다.
 

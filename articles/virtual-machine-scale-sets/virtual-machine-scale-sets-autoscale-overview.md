@@ -11,10 +11,10 @@ ms.date: 05/29/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: eb96be187502afcccfd3fb2c88f709facfbc3b59
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76278133"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Azure 가상 머신 확장 집합을 사용한 자동 크기 조정 개요
@@ -34,8 +34,8 @@ VM 인스턴스에서 기본 제공 호스트 메트릭을 사용할 수 있는 
 
 호스트 기반 메트릭을 사용하는 자동 크기 조정 규칙은 다음 도구 중 하나로 만들 수 있습니다.
 
-- [Azure Portal](virtual-machine-scale-sets-autoscale-portal.md)
-- [Azure PowerShell](tutorial-autoscale-powershell.md)
+- [Azure 포털](virtual-machine-scale-sets-autoscale-portal.md)
+- [Azure 파워쉘](tutorial-autoscale-powershell.md)
 - [Azure CLI](tutorial-autoscale-cli.md)
 - [Azure 템플릿](tutorial-autoscale-template.md)
 
@@ -49,9 +49,9 @@ VM 인스턴스에서 기본 제공 호스트 메트릭을 사용할 수 있는 
 | 메트릭 원본        | 사용 사례                                                                                                                     |
 |----------------------|------------------------------------------------------------------------------------------------------------------------------|
 | 현재 확장 집합    | 추가 에이전트를 설치하거나 구성할 필요가 없는 호스트 기반 메트릭의 경우                                  |
-| Storage 계정      | Azure 진단 확장에서 Azure Storage에 성능 메트릭을 기록한 다음 자동 크기 조정 규칙을 트리거하는 데 이 메트릭을 사용합니다. |
+| 스토리지 계정      | Azure 진단 확장에서 Azure Storage에 성능 메트릭을 기록한 다음 자동 크기 조정 규칙을 트리거하는 데 이 메트릭을 사용합니다. |
 | Service Bus 큐    | 애플리케이션 또는 다른 구성 요소에서 Azure Service Bus 큐에 있는 메시지를 전송하여 규칙을 트리거 할 수 있습니다.                   |
-| Application Insights | 애플리케이션에 설치되어 앱에서 메트릭을 직접 스트림하는 계측 패키지입니다.                         |
+| 애플리케이션 정보 | 애플리케이션에 설치되어 앱에서 메트릭을 직접 스트림하는 계측 패키지입니다.                         |
 
 
 ### <a name="autoscale-rule-criteria"></a>자동 크기 조정 규칙 조건
@@ -78,13 +78,13 @@ VM 인스턴스에서 기본 제공 호스트 메트릭을 사용할 수 있는 
 | 최대          |
 | 합계            |
 | 마지막             |
-| 카운트            |
+| 개수            |
 
 다음 연산자 중 하나를 사용하여 메트릭과 정의된 임계값을 비교하면 자동 크기 조정 규칙이 트리거됩니다.
 
 | 연산자                 |
 |--------------------------|
-| 보다 큼             |
+| 초과             |
 | 크거나 같음 |
 | 보다 작음                |
 | 작거나 같음    |
@@ -132,11 +132,11 @@ App Insights에 대한 자세한 내용은 [Application Insights란?](../azure-m
 ## <a name="next-steps"></a>다음 단계
 다음 도구 중 하나를 사용하여 호스트 기반 메트릭을 사용하는 자동 크기 조정 규칙을 만들 수 있습니다.
 
-- [Azure PowerShell](tutorial-autoscale-powershell.md)
+- [Azure 파워쉘](tutorial-autoscale-powershell.md)
 - [Azure CLI](tutorial-autoscale-cli.md)
 - [Azure 템플릿](tutorial-autoscale-template.md)
 
-이 개요에서는 자동 크기 조정 규칙을 사용하여 수평으로 크기를 조정하고, 확장 집합의 VM 인스턴스 *수*를 늘리거나 줄이는 방법에 대해 자세히 설명했습니다. 또한 수직으로 크기를 조정하여 VM 인스턴스의 *크기*를 늘리거나 줄일 수도 있습니다. 자세한 내용은 [가상 머신 확장 집합을 사용하여 수직으로 자동 크기 조정](virtual-machine-scale-sets-vertical-scale-reprovision.md)을 참조하세요.
+이 개요에서는 자동 크기 조정 규칙을 사용하여 수평으로 크기를 조정하고, 확장 집합의 VM 인스턴스 *수*를 늘리거나 줄이는 방법에 대해 자세히 설명했습니다. 또한 수직으로 크기를 조정하여 VM 인스턴스의 *크기*를 늘리거나 줄일 수도 있습니다. 자세한 내용은 [가상 시스템 배율 집합이 있는 수직 자동 크기 조정을](virtual-machine-scale-sets-vertical-scale-reprovision.md)참조하십시오.
 
 VM 인스턴스 관리 방법에 대한 자세한 내용은 [Azure PowerShell을 사용하여 가상 머신 확장 집합 관리](virtual-machine-scale-sets-windows-manage.md)를 참조하세요.
 

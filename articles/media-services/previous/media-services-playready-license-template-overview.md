@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: fb0630f3f7a4acebcfe5dcad343030c9d1184263
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74976403"
 ---
 # <a name="media-services-playready-license-template-overview"></a>Media Services PlayReady 라이선스 템플릿 개요
@@ -32,7 +32,7 @@ Azure Media Services는 현재 PlayReady 라이선스를 배달하는 서비스�
 * 클라이언트의 영구 스토리지에 라이선스를 저장할지 여부. 일반적으로 영구 라이선스는 콘텐츠의 오프라인 재생을 허용하는 데 사용됩니다.
 * 플레이어에서 콘텐츠를 재생해야 하는 최소 보안 수준. 
 * 오디오/비디오 콘텐츠에 대한 출력 컨트롤의 출력 보호 수준. 
-* 자세한 내용은 [PlayReady Compliance Rules](https://www.microsoft.com/playready/licensing/compliance/)(PlayReady 준수 규칙) 문서에서 “출력 컨트롤” 섹션(3.5)을 참조하세요.
+* 자세한 내용은 [PlayReady 규정 준수 규칙](https://www.microsoft.com/playready/licensing/compliance/) 문서의 "출력 제어" 섹션(3.5)을 참조하십시오.
 
 > [!NOTE]
 > 현재 PlayReady 라이선스의 PlayRight만 구성할 수 있습니다. 이 권한은 필수입니다. PlayRight는 콘텐츠를 재생할 능력을 클라이언트에 제공합니다. PlayRight를 사용하여 재생과 관련된 제한 사항을 구성할 수도 있습니다. 자세한 내용은 [PlayReadyPlayRight](media-services-playready-license-template-overview.md#PlayReadyPlayRight)를 참조하세요.
@@ -60,7 +60,7 @@ Media Services는 XML에 대해 직렬화 및 역직렬화하는 데 사용할 �
 
 .NET 클래스를 사용하여 PlayReady 라이선스 템플릿을 구성하는 엔드투엔드 예제는 [PlayReady 동적 암호화 및 라이선스 배달 서비스 사용](media-services-protect-with-playready-widevine.md)을 참조하세요.
 
-## <a id="classes"></a>라이선스 템플릿을 구성하는 데 사용되는 Media Services .NET 클래스
+## <a name="media-services-net-classes-that-are-used-to-configure-license-templates"></a><a id="classes"></a>라이선스 템플릿을 구성하는 데 사용되는 Media Services .NET 클래스
 Media Services PlayReady 라이선스 템플릿을 구성하는 데 사용되는 기본 .NET 클래스는 다음과 같습니다. 이들 클래스는 [PlayReady 라이선스 템플릿 XML 스키마](media-services-playready-license-template-overview.md#schema)에 정의된 유형에 매핑됩니다.
 
 [MediaServicesLicenseTemplateSerializer](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.mediaserviceslicensetemplateserializer.aspx) 클래스는 Media Services 라이선스 템플릿 XML에 대해 직렬화 및 역직렬화하는 데 사용됩니다.
@@ -73,7 +73,7 @@ Media Services PlayReady 라이선스 템플릿을 구성하는 데 사용되는
 ### <a name="playreadylicensetemplate"></a>PlayReadyLicenseTemplate
 [PlayReadyLicenseTemplate](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadylicensetemplate.aspx) - 이 클래스는 사용자에게 반환될 PlayReady 라이선스를 만드는 데 사용되는 라이선스 템플릿을 나타냅니다. 라이선스의 콘텐츠 키에 대한 데이터도 포함합니다. 콘텐츠 키를 사용할 때 PlayReady DRM 런타임에서 적용해야 하는 모든 권한 또는 제한도 이 클래스에 포함되어 있습니다.
 
-### <a id="PlayReadyPlayRight"></a>PlayReadyPlayRight
+### <a name="playreadyplayright"></a><a id="PlayReadyPlayRight"></a>PlayReadyPlayRight
 [PlayReadyPlayRight](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadyplayright.aspx): 이 클래스는 PlayReady 라이선스의 PlayRight를 나타냅니다. 라이선스 및 재생 관련 정책의 PlayRight 자체에 구성된 임의 제한 사항이 적용되는 콘텐츠를 재생할 권한을 사용자에게 부여합니다. PlayRight의 정책 대부분은 콘텐츠가 재생될 수 있는 출력 형식을 제어하는 출력 제한 사항과 관련이 있습니다. 또한 지정된 출력이 사용될 때 적용되어야 하는 제한 사항도 포함합니다. 예를 들어 DigitalVideoOnlyContentRestriction이 사용되도록 설정되면 DRM 런타임은 비디오가 디지털 출력을 통해서만 표시되도록 합니다. (아날로그 비디오 출력으로는 콘텐츠를 전달할 수 없습니다.)
 
 > [!IMPORTANT]
@@ -83,7 +83,7 @@ Media Services PlayReady 라이선스 템플릿을 구성하는 데 사용되는
 
 Silverlight에서 지원하는 보호 수준의 예는 [출력 보호를 위한 Silverlight 지원](https://go.microsoft.com/fwlink/?LinkId=617318)을 참조하세요.
 
-## <a id="schema"></a>PlayReady 라이선스 템플릿 XML 스키마
+## <a name="playready-license-template-xml-schema"></a><a id="schema"></a>PlayReady 라이선스 템플릿 XML 스키마
     <?xml version="1.0" encoding="utf-8"?>
     <xs:schema xmlns:tns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1" xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1" xmlns:xs="https://www.w3.org/2001/XMLSchema">
       <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
@@ -308,11 +308,11 @@ Silverlight에서 지원하는 보호 수준의 예는 [출력 보호를 위한 
 
 ## <a name="additional-notes"></a>추가적인 참고 사항
 
-* Widevine는 Google i n c .에서 제공 하는 서비스로, Google, i n c .의 서비스 약관 및 개인 정보 취급 방침을 따릅니다.
+* Widevine은 Google Inc.에서 제공하는 서비스로, Google Inc.의 서비스 약관 및 개인정보처리방침을 따릅니다.
 
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>피드백 제공하기
+## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

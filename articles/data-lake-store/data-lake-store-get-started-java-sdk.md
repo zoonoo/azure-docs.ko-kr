@@ -13,29 +13,29 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: bc6e0718cdc4ccb18480dc760279da9c177db4cb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60877467"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-java-sdk"></a>Java SDK를 사용한 Azure Data Lake Storage Gen1에서의 파일 시스템 작업
 > [!div class="op_single_selector"]
 > * [.NET SDK](data-lake-store-data-operations-net-sdk.md)
 > * [Java SDK](data-lake-store-get-started-java-sdk.md)
-> * [REST API](data-lake-store-data-operations-rest-api.md)
+> * [나머지 API](data-lake-store-data-operations-rest-api.md)
 > * [Python](data-lake-store-data-operations-python.md)
 >
 > 
 
-Azure Data Lake Storage Gen1 Java SDK를 사용하여 폴더 만들기, 데이터 파일 업로드 및 다운로드 등의 기본 작업을 수행하는 방법에 대해 알아봅니다. Data Lake Storage Gen1에 대한 자세한 내용은 [Azure Data Lake Storage Gen1](data-lake-store-overview.md)을 참조하세요.
+Azure Data Lake Storage Gen1 Java SDK를 사용하여 폴더 만들기, 데이터 파일 업로드 및 다운로드 등과 같은 기본 작업을 수행하는 방법을 알아봅니다. 데이터 레이크 저장소 Gen1에 대한 자세한 내용은 [Azure 데이터 레이크 저장소 Gen1을](data-lake-store-overview.md)참조하십시오.
 
 [Azure Data Lake Storage Gen1 Java API 문서](https://azure.github.io/azure-data-lake-store-java/javadoc/)에서 Data Lake Storage Gen1용 Java SDK API 문서에 액세스할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 * Java 개발 키트(JDK 7 이상, Java 버전 1.7 이상 사용)
 * Data Lake Storage Gen1 계정 [Azure Portal을 사용하여 Azure Data Lake Storage Gen1 시작](data-lake-store-get-started-portal.md)에 있는 지침을 따릅니다.
-* [Maven](https://maven.apache.org/install.html) 이 자습서에서는 빌드 및 프로젝트 종속성을 위해 Maven을 사용합니다. Maven 또는 Gradle과 같은 빌드 시스템을 사용하지 않고 빌드할 수 있지만 이러한 시스템 생성은 종속성을 훨씬 쉽게 관리할 수 있습니다.
+* [메이븐](https://maven.apache.org/install.html). 이 자습서에서는 빌드 및 프로젝트 종속성을 위해 Maven을 사용합니다. Maven 또는 Gradle과 같은 빌드 시스템을 사용하지 않고 빌드할 수 있지만 이러한 시스템 생성은 종속성을 훨씬 쉽게 관리할 수 있습니다.
 * (선택 사항)[IntelliJ IDEA](https://www.jetbrains.com/idea/download/) 또는 [Eclipse](https://www.eclipse.org/downloads/)나 유사한 IDE
 
 ## <a name="create-a-java-application"></a>Java 애플리케이션 만들기
@@ -43,7 +43,7 @@ Azure Data Lake Storage Gen1 Java SDK를 사용하여 폴더 만들기, 데이�
 
 1. 명령줄에서 [mvn archetype](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html)을 사용하거나 IDE에서 Maven 프로젝트를 만듭니다. IntelliJ를 사용하여 Java 프로젝트를 만드는 방법에 대한 자세한 내용은 [여기](https://www.jetbrains.com/help/idea/2016.1/creating-and-running-your-first-java-application.html)를 참조하세요. Eclipse를 사용하여 프로젝트를 만드는 방법에 대한 자세한 내용은 [여기](https://help.eclipse.org/mars/index.jsp?topic=%2Forg.eclipse.jdt.doc.user%2FgettingStarted%2Fqs-3.htm)를 참조하세요. 
 
-2. Maven **pom.xml** 파일에 다음 종속성을 추가합니다. **\</project>** 태그 앞에 다음 코드 조각을 추가합니다.
+2. Maven **pom.xml** 파일에 다음 종속성을 추가합니다. ** \</project>** 태그 앞에 다음 스니펫을 추가합니다.
    
         <dependencies>
           <dependency>
@@ -73,7 +73,7 @@ Azure Data Lake Storage Gen1 Java SDK를 사용하여 폴더 만들기, 데이�
         import java.util.Arrays;
         import java.util.List;
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>인증
 
 * 애플리케이션에 대한 최종 사용자 인증의 경우 [Java를 사용한 Data Lake Storage Gen1의 최종 사용자 인증](data-lake-store-end-user-authenticate-java-sdk.md)을 참조하세요.
 * 애플리케이션에 대한 서비스 간 인증의 경우 [Java를 사용한 Data Lake Storage Gen1의 서비스 간 인증](data-lake-store-service-to-service-authenticate-java.md)을 참조하세요.

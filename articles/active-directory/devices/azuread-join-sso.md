@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f9d8c0cd803424e117bd4dc7a3382b7b32df2d05
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78672711"
 ---
 # <a name="how-sso-to-on-premises-resources-works-on-azure-ad-joined-devices"></a>온-프레미스 리소스에 대한 SSO가 Azure AD 조인 디바이스에서 작동하는 방식
@@ -26,7 +26,7 @@ Azure AD(Azure Active Directory) 조인 디바이스에서 SSO(Single Sign-On) �
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
- Azure AD 조인 컴퓨터가 조직의 네트워크에 연결 되어 있지 않으면 VPN 또는 다른 네트워크 인프라가 필요 합니다. 온-프레미스 SSO에는 온-프레미스 AD DS 도메인 컨트롤러와의 시야 통신이 필요 합니다.
+ Azure AD 조인 된 컴퓨터가 조직의 네트워크에 연결되지 않은 경우 VPN 또는 기타 네트워크 인프라가 필요합니다. 온-프레미스 SSO에는 온-프레미스 AD DS 도메인 컨트롤러와 가시간 통신이 필요합니다.
 
 ## <a name="how-it-works"></a>작동 방법 
 
@@ -34,15 +34,15 @@ Azure AD(Azure Active Directory) 조인 디바이스에서 SSO(Single Sign-On) �
 
 Azure AD 조인 디바이스는 온-프레미스 AD 환경에 조인되어 있지 않으므로 해당 환경에 대한 지식이 없습니다. 그러나 Azure AD Connect를 사용하여 온-프레미스 AD에 대한 추가 정보를 이러한 디바이스에 제공할 수 있습니다.
 
-Azure AD와 온-프레미스 AD를 모두 갖춘 환경은 하이브리드 환경에 있다고도 알려져 있습니다. 하이브리드 환경을 사용하는 경우 온-프레미스 ID 정보를 클라우드에 동기화하기 위해 Azure AD Connect를 이미 배포했을 가능성이 높습니다. 동기화 프로세스의 일부로 온-프레미스 사용자 정보를 Azure AD에 동기화 Azure AD Connect. 사용자가 하이브리드 환경에서 Azure AD 조인 디바이스에 로그인하는 경우 다음을 수행합니다.
+Azure AD와 온-프레미스 AD를 모두 갖춘 환경은 하이브리드 환경에 있다고도 알려져 있습니다. 하이브리드 환경을 사용하는 경우 온-프레미스 ID 정보를 클라우드에 동기화하기 위해 Azure AD Connect를 이미 배포했을 가능성이 높습니다. 동기화 프로세스의 일부로 Azure AD Connect는 온-프레미스 사용자 정보를 Azure AD에 동기화합니다. 사용자가 하이브리드 환경에서 Azure AD 조인 디바이스에 로그인하는 경우 다음을 수행합니다.
 
 1. Azure AD에서 사용자가 멤버인 온-프레미스 도메인의 이름을 디바이스로 다시 보냅니다.
 1. LSA(로컬 보안 기관) 서비스를 통해 디바이스에서 Kerberos 인증을 사용할 수 있습니다.
 
-사용자의 온-프레미스 환경에서 Kerberos를 요청 하는 리소스에 액세스 하려고 시도 하는 동안 장치는 다음과 같습니다.
+사용자의 온-프레미스 환경에서 Kerberos를 요청하는 리소스에 대한 액세스 시도 중 장치는 다음과 같은 것입니다.
 
 1. 온-프레미스 도메인 정보와 사용자 자격 증명을 찾아낸 DC로 보내 사용자를 인증합니다.
-1. AD 조인 리소스에 액세스하는 데 사용되는 Kerberos [TGT(Ticket-Granting Ticket)](/windows/desktop/secauthn/ticket-granting-tickets)를 수신합니다. AAD 연결 도메인에 대 한 TGT를 가져오지 못한 경우 (관련 DCLocator 시간 제한으로 인해 지연이 발생할 수 있음) 자격 증명 관리자 항목이 시도 되거나 사용자가 대상 리소스에 대 한 자격 증명을 요청 하는 인증 팝업을 받을 수 있습니다.
+1. AD 조인 리소스에 액세스하는 데 사용되는 Kerberos [TGT(Ticket-Granting Ticket)](/windows/desktop/secauthn/ticket-granting-tickets)를 수신합니다. AAD 연결 도메인에 대한 TGT를 얻으려고 시도하지 않으면(관련 DCLocator 시간 설정으로 인해 지연될 수 있음) 자격 증명 관리자 항목이 시도되거나 사용자가 대상 리소스에 대한 자격 증명을 요청하는 인증 팝업을 받을 수 있습니다.
 
 사용자가 액세스하려고 시도하면 **Windows 통합 인증**에 구성된 모든 앱에서 SSO를 원활하게 받습니다.
 

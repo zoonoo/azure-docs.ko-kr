@@ -1,17 +1,17 @@
 ---
-title: AKS (Azure Kubernetes Service) 부하 분산 장치에 고정 IP 주소 및 DNS 레이블 사용
+title: AZURE Kubernetes 서비스(AKS) 로드 밸러버와 함께 정적 IP 주소 및 DNS 레이블 사용
 description: 고정 IP 주소를 만들어 AKS(Azure Kubernetes Service) 부하 분산 장치에서 사용하는 방법에 대해 알아봅니다.
 services: container-service
 ms.topic: article
 ms.date: 03/09/2020
-ms.openlocfilehash: 32889dbbcafd9510f8d04cb9c602d4802c6d1a1a
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: 6c219976db21fb05ea1ad313b4effdf95906f986
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78943575"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80047964"
 ---
-# <a name="use-a-static-public-ip-address-and-dns-label-with-the-azure-kubernetes-service-aks-load-balancer"></a>AKS (Azure Kubernetes Service) 부하 분산 장치에 고정 공용 IP 주소 및 DNS 레이블 사용
+# <a name="use-a-static-public-ip-address-and-dns-label-with-the-azure-kubernetes-service-aks-load-balancer"></a>AZURE Kubernetes 서비스(AKS) 로드 밸런서와 함께 정적 공용 IP 주소 및 DNS 레이블 사용
 
 기본적으로 AKS 클러스터에서 만드는 부하 분산 장치 리소스에 할당되는 공용 IP 주소는 해당 리소스의 수명 동안만 유효합니다. Kubernetes 서비스를 삭제하면 연결된 부하 분산 장치 및 IP 주소도 삭제됩니다. 특정 IP 주소를 할당하거나 재배포된 Kubernetes 서비스의 IP 주소를 유지하려는 경우에는 고정 공용 IP 주소를 만들어 사용할 수 있습니다.
 
@@ -19,15 +19,15 @@ ms.locfileid: "78943575"
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터가 필요한 경우 [Azure CLI를 사용][aks-quickstart-cli] 하거나 [Azure Portal를 사용][aks-quickstart-portal]하 여 AKS 빠른 시작을 참조 하세요.
+이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터가 필요한 경우 AKS 빠른 시작[Azure CLI 사용][aks-quickstart-cli] 또는 [Azure Portal 사용][aks-quickstart-portal]을 참조하세요.
 
-또한 Azure CLI 버전 2.0.59 이상이 설치 및 구성 되어 있어야 합니다.  `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드 해야 하는 경우 [Azure CLI 설치][install-azure-cli]를 참조 하세요.
+또한 Azure CLI 버전 2.0.59 이상설치 및 구성이 필요합니다.  `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우  [Azure CLI 설치][install-azure-cli]를 참조하세요.
 
-이 문서에서는 표준 sku 부하 분산 장치를 사용 *하는* *표준* sku IP를 사용 하는 방법을 설명 합니다. 자세한 내용은 [Azure의 IP 주소 유형 및 할당 방법][ip-sku]을 참조 하세요.
+이 문서에서는 *표준* SKU 로드 밸레인저가 있는 *표준* SKU IP를 사용하는 것을 다룹니다. 자세한 내용은 Azure 의 [IP 주소 유형 및 할당 메서드를][ip-sku]참조하십시오.
 
 ## <a name="create-a-static-ip-address"></a>고정 IP 주소 만들기
 
-[Az network public ip create][az-network-public-ip-create] 명령을 사용 하 여 고정 공용 ip 주소를 만듭니다. 다음은 *Myresourcegroup* 리소스 그룹에 *MYAKSPUBLICIP* 이라는 고정 IP 리소스를 만듭니다.
+az 네트워크 공용 IP [create][az-network-public-ip-create] 명령을 사용하여 정적 공용 IP 주소를 만듭니다. 다음은 *myResourceGroup* 리소스 그룹에 *myAKSPublicIP라는* 정적 IP 리소스를 만듭니다.
 
 ```azurecli-interactive
 az network public-ip create \
@@ -38,9 +38,9 @@ az network public-ip create \
 ```
 
 > [!NOTE]
-> AKS 클러스터에서 *기본* sku 부하 분산 장치를 사용 하는 경우 공용 IP를 정의할 때 *sku* 매개 변수에 대 한 *기본* 를 사용 합니다. 기본 *Sku ip만* *기본* sku 부하 분산 장치에서 작동 하며 표준 *sku ip만* *표준* sku 부하 분산 장치에서 작동 합니다. 
+> AKS 클러스터에서 *기본* SKU 로드 밸런서를 사용하는 경우 공용 IP를 정의할 때 *sku* 매개 변수에 *Basic을* 사용합니다. *기본* SKU IP만 *기본* SKU 로드 밸레인저와 함께 작동하며 *표준* SKU IP만 *표준* SKU 로드 밸레인저와 함께 작동합니다. 
 
-IP 주소는 다음 압축 예제 출력과 같이 표시 됩니다.
+IP 주소는 다음과 같은 압축된 예제 출력에 표시된 대로 표시됩니다.
 
 ```json
 {
@@ -52,7 +52,7 @@ IP 주소는 다음 압축 예제 출력과 같이 표시 됩니다.
 }
 ```
 
-나중에 [az network 공용-ip list][az-network-public-ip-list] 명령을 사용 하 여 공용 ip 주소를 가져올 수 있습니다. 만든 노드 리소스 그룹의 이름과 공용 IP 주소를 지정한 후 다음 예제와 같이 *ipAddress*를 쿼리합니다.
+나중에 [az network public-ip list][az-network-public-ip-list] 명령을 사용하여 공용 IP 주소를 가져올 수 있습니다. 만든 노드 리소스 그룹의 이름과 공용 IP 주소를 지정한 후 다음 예제와 같이 *ipAddress*를 쿼리합니다.
 
 ```azurecli-interactive
 $ az network public-ip show --resource-group myResourceGroup --name myAKSPublicIP --query ipAddress --output tsv
@@ -62,7 +62,7 @@ $ az network public-ip show --resource-group myResourceGroup --name myAKSPublicI
 
 ## <a name="create-a-service-using-the-static-ip-address"></a>고정 IP 주소를 사용하여 서비스 만들기
 
-서비스를 만들기 전에 AKS 클러스터에서 사용 하는 서비스 사용자에 게 다른 리소스 그룹에 대 한 위임 된 권한이 있는지 확인 합니다. 다음은 그 예입니다.
+서비스를 만들기 전에 AKS 클러스터에서 사용하는 서비스 주체가 다른 리소스 그룹에 권한을 위임했는지 확인합니다. 예를 들어:
 
 ```azurecli-interactive
 az role assignment create \
@@ -71,7 +71,9 @@ az role assignment create \
     --scope /subscriptions/<subscription id>/resourceGroups/<resource group name>
 ```
 
-고정 공용 IP 주소를 사용 하 여 *LoadBalancer* 서비스를 만들려면 `loadBalancerIP` 속성 및 고정 공용 ip 주소의 값을 yaml 매니페스트에 추가 합니다. 파일 `load-balancer-service.yaml`을 만들고 다음 YAML에 복사합니다. 이전 단계에서 만든 공용 IP 주소를 입력합니다. 또한 다음 예제에서는 주석을 *Myresourcegroup*이라는 리소스 그룹에 설정 합니다. 사용자 고유의 리소스 그룹 이름을 제공 합니다.
+또는 서비스 주체 대신 관리되는 ID를 사용 권한에 할당된 시스템을 사용할 수 있습니다. 자세한 내용은 [관리되는 ID 사용을](use-managed-identity.md)참조하십시오.
+
+정적 공용 IP 주소로 *LoadBalancer* 서비스를 만들려면 YAML 매니페스트에 `loadBalancerIP` 정적 공용 IP 주소의 속성 및 값을 추가합니다. 파일 `load-balancer-service.yaml`을 만들고 다음 YAML에 복사합니다. 이전 단계에서 만든 공용 IP 주소를 입력합니다. 다음 예제는 *myResourceGroup이라는*리소스 그룹에 대한 추가 도 설정합니다. 고유한 리소스 그룹 이름을 제공합니다.
 
 ```yaml
 apiVersion: v1
@@ -97,9 +99,9 @@ kubectl apply -f load-balancer-service.yaml
 
 ## <a name="apply-a-dns-label-to-the-service"></a>서비스에 DNS 레이블 적용
 
-서비스에서 동적 또는 고정 공용 IP 주소를 사용 하는 경우 서비스 주석 `service.beta.kubernetes.io/azure-dns-label-name`를 사용 하 여 공용 DNS 레이블을 설정할 수 있습니다. 그러면 Azure의 공용 DNS 서버 및 최상위 도메인을 사용 하 여 서비스에 대 한 정규화 된 도메인 이름이 게시 됩니다. 주석 값은 Azure 위치 내에서 고유 해야 하므로 충분히 정규화 된 레이블을 사용 하는 것이 좋습니다.   
+서비스가 동적 또는 정적 공용 IP 주소를 사용하는 경우 서비스 지정을 `service.beta.kubernetes.io/azure-dns-label-name` 사용하여 공용 DNS 레이블을 설정할 수 있습니다. 이렇게 하면 Azure의 공용 DNS 서버 및 최상위 도메인을 사용하여 서비스에 대해 정규화된 도메인 이름을 게시합니다. 참조 값은 Azure 위치 내에서 고유해야 하므로 충분히 정규화된 레이블을 사용하는 것이 좋습니다.   
 
-그러면 Azure에서 사용자가 제공한 이름에 `<location>.cloudapp.azure.com` (여기서 location은 선택한 지역)와 같은 기본 서브넷을 자동으로 추가 하 여 정규화 된 DNS 이름을 만듭니다. 다음은 그 예입니다.
+그러면 Azure는 기본 `<location>.cloudapp.azure.com` 서브넷(예: 위치가 선택한 지역)을 제공한 이름에 자동으로 적용하여 정규화된 DNS 이름을 만듭니다. 예를 들어:
 
 ```yaml
 apiVersion: v1
@@ -117,11 +119,11 @@ spec:
 ```
 
 > [!NOTE] 
-> 사용자의 도메인에 서비스를 게시 하려면 [Azure DNS][azure-dns-zone] 및 [외부-DNS][external-dns] 프로젝트를 참조 하세요.
+> 사용자 고유의 도메인에 서비스를 게시하려면 [Azure DNS][azure-dns-zone] 및 [외부 dns][external-dns] 프로젝트를 참조하십시오.
 
 ## <a name="troubleshoot"></a>문제 해결
 
-Kubernetes service 매니페스트의 *loadBalancerIP* 속성에 정의 된 고정 IP 주소가 존재 하지 않거나 노드 리소스 그룹에 만들어지지 않고 추가 위임이 구성 되지 않은 경우 부하 분산 장치 서비스를 만들지 못합니다. 문제를 해결 하려면 [kubectl 설명][kubectl-describe] 명령을 사용 하 여 서비스 만들기 이벤트를 검토 합니다. 다음 예제와 같이 YAML 매니페스트에 지정된 대로 서비스의 이름을 입력합니다.
+Kubernetes 서비스 매니페스트의 *loadBalancerIP* 속성에 정의된 정적 IP 주소가 없거나 노드 리소스 그룹에 생성되지 않았으며 추가 위임이 구성되지 않은 경우 로드 밸런서 서비스 생성에 실패합니다. 문제를 해결하려면 [kubectl describe][kubectl-describe] 명령을 사용하여 서비스 만들기 이벤트를 검토합니다. 다음 예제와 같이 YAML 매니페스트에 지정된 대로 서비스의 이름을 입력합니다.
 
 ```console
 kubectl describe service azure-load-balancer
@@ -153,7 +155,7 @@ Events:
 
 ## <a name="next-steps"></a>다음 단계
 
-응용 프로그램에 대 한 네트워크 트래픽을 추가로 제어 하려면 [수신 컨트롤러][aks-ingress-basic]를 대신 만드는 것이 좋습니다. [고정 공용 IP 주소를 사용 하 여 수신 컨트롤러를 만들][aks-static-ingress]수도 있습니다.
+애플리케이션에 대한 네트워크 트래픽을 추가로 제어하려는 경우에는 [수신 컨트롤러 만들기][aks-ingress-basic]를 대신 수행할 수 있습니다. [고정 공용 IP 주소를 사용하여 수신 컨트롤러 만들기][aks-static-ingress]를 수행할 수도 있습니다.
 
 <!-- LINKS - External -->
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe

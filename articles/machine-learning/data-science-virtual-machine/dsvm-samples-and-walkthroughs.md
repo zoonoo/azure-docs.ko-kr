@@ -1,7 +1,7 @@
 ---
-title: ML 연습 & 샘플 프로그램
+title: ML 연습& 프로그램 샘플
 titleSuffix: Azure Data Science Virtual Machine
-description: 이러한 샘플과 연습을 통해 Data Science Virtual Machine를 사용 하 여 일반적인 작업 및 시나리오를 처리 하는 방법을 알아봅니다.
+description: 이러한 샘플 및 연습에서 데이터 과학 가상 머신을 사용하여 일반적인 작업 및 시나리오를 처리하는 방법을 알아봅니다.
 keywords: 데이터 과학 도구, 데이터 과학 가상 머신, 데이터 과학용 도구, linux 데이터 과학
 services: machine-learning
 ms.service: machine-learning
@@ -11,53 +11,53 @@ ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: d064e940997d13e51be4fd38e9f678b778ce31f4
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74900042"
 ---
-# <a name="samples-on-azure-data-science-virtual-machines"></a>Azure 데이터 과학에 대 한 샘플 Virtual Machines
+# <a name="samples-on-azure-data-science-virtual-machines"></a>Azure 데이터 과학 가상 머신의 샘플
 
-DSVMs (Azure 데이터 과학 Virtual Machines)은 포괄적인 샘플 코드 집합을 포함 합니다. 이러한 샘플에는 Python 및 R과 같은 언어의 Jupyter 노트북 및 스크립트가 포함 됩니다.
+Azure 데이터 과학 가상 컴퓨터(DSVM)에는 포괄적인 샘플 코드 집합이 포함됩니다. 이 샘플에는 파이썬 및 R과 같은 언어로 된 Jupyter 노트북및 스크립트가 포함되어 있습니다.
 > [!NOTE]
-> 데이터 과학 virtual machines에서 Jupyter 노트북을 실행 하는 방법에 대 한 자세한 내용은 [Jupyter 액세스](#access-jupyter) 섹션을 참조 하세요.
+> 데이터 과학 가상 컴퓨터에서 Jupyter 노트북을 실행하는 방법에 대한 자세한 내용은 [주피터 액세스](#access-jupyter) 섹션을 참조하십시오.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-이러한 샘플을 실행 하려면 Data Science Virtual Machine를 프로 비전 해야 합니다. [Windows](./provision-vm.md) 및 [Ubuntu](./dsvm-ubuntu-intro.md)에 대 한 빠른 시작을 참조 하세요.
+이러한 샘플을 실행하려면 데이터 과학 가상 컴퓨터를 프로비전해야 합니다. [윈도우와](./provision-vm.md) [우분투에](./dsvm-ubuntu-intro.md)대한 빠른 시작을 참조하십시오 .
 
 ## <a name="available-samples"></a>사용 가능한 샘플
 | 샘플 범주 | 설명 | 위치 |
 | ------------- | ------------- | ------------- |
-| R 언어  | 샘플은 Azure 기반 클라우드 데이터 저장소에 연결 하는 방법 및 오픈 소스 R 및 Microsoft Machine Learning Server 비교 하는 방법 등의 시나리오를 보여 줍니다. 또한 Microsoft Machine Learning Server 및 SQL Server에서 모델을 운영 하는 방법을 설명 합니다. <br/> [R 언어](#r-language) | <br/>`~notebooks` <br/> <br/> `~samples/MicrosoftR` <br/> <br/> `~samples/RSqlDemo` <br/> <br/> `~samples/SQLRServices`<br/> <br/>|
-| Python 언어  | 샘플에서는 Azure 기반 클라우드 데이터 저장소에 연결 하는 방법 및 Azure Machine Learning 사용 하는 방법 등의 시나리오를 설명 합니다.  <br/> [Python 언어](#python-language) | <br/>`~notebooks` <br/><br/>|
-| Julia 언어  | 줄리아의 그리기 및 심층 학습에 대 한 자세한 설명을 제공 합니다. 또한 줄리아에서 C 및 Python을 호출 하는 방법을 설명 합니다. <br/> [Julia 언어](#julia-language) |<br/> Windows:<br/> `~notebooks/Julia_notebooks`<br/><br/> Linux:<br/> `~notebooks/julia`<br/><br/> |
-| Azure Machine Learning  | Machine Learning를 사용 하 여 기계 학습 및 심층 학습 모델을 빌드하는 방법을 보여 줍니다. 어디서든지 모델을 배포합니다. 자동화된 기계 학습 및 지능형 하이퍼 매개 변수 조정을 사용합니다. 또한 모델 관리 및 분산 학습을 사용합니다. <br/> [Machine Learning](#azure-machine-learning) | <br/>`~notebooks/AzureML`<br/> <br/>|
-| PyTorch 노트북  | PyTorch 기반 신경망을 사용 하는 심층 학습 샘플. 노트북은 초급부터 고급 시나리오까지 포함합니다.  <br/> [PyTorch 노트북](#pytorch) | <br/>`~notebooks/Deep_learning_frameworks/pytorch`<br/> <br/>|
-| TensorFlow  |  TensorFlow framework를 사용 하 여 구현 되는 다양 한 신경망 샘플과 기술입니다. <br/> [Tensorflow](#tensorflow) | <br/>`~notebooks/Deep_learning_frameworks/tensorflow`<br/><br/> |
-| Microsoft Cognitive 도구 키트 <br/>   | Microsoft의 Cognitive Toolkit 팀에서 게시 한 심층 학습 샘플입니다.  <br/> [Cognitive Toolkit](#cntk) | <br/> `~notebooks/DeepLearningTools/CNTK/Tutorials`<br/><br/> Linux:<br/> `~notebooks/CNTK`<br/> <br/>|
-| Caffe2 | Caffe2 기반 신경망을 사용 하는 심층 학습 샘플. 여러 노트북은 Caffe2 및 it를 효과적으로 사용 하는 방법을 숙지 합니다. 예제에는 이미지 전처리 및 데이터 집합 생성이 포함 됩니다. 또한 회귀 및 미리 학습 된 모델을 사용 하는 방법을 포함 합니다. <br/> [Caffe2](#caffe2) | <br/>`~notebooks/Deep_learning_frameworks/caffe2`<br/><br/> |
-| H2O   | 실제 문제 시나리오에 H2O를 사용 하는 Python 기반 샘플입니다. <br/> [H2O](#h2o) | <br/>`~notebooks/h2o`<br/><br/> |
-| SparkML 언어  | PySpark 및 MMLSpark: Microsoft Machine Learning를 통해 Apache Spark MLLib 도구 키트의 기능을 사용 하는 샘플은 2.x Apache Spark의 Apache Spark를 사용 합니다.  <br/> [SparkML 언어](#sparkml) | <br/>`~notebooks/SparkML/pySpark`<br/>`~notebooks/MMLSpark`<br/><br/>  |
-| XGBoost | 분류 및 회귀와 같은 시나리오에 대 한 XGBoost의 표준 기계 학습 샘플입니다. <br/> [XGBoost](#xgboost) | <br/>Windows:<br/>`\dsvm\samples\xgboost\demo`<br/><br/> |
+| R 언어  | 샘플에서는 Azure 기반 클라우드 데이터 저장소와 연결하는 방법 및 오픈 소스 R 및 Microsoft 기계 학습 서버를 비교하는 방법과 같은 시나리오를 보여 줍니다. 또한 Microsoft 기계 학습 서버 및 SQL Server에서 모델을 작동하는 방법에 대해서도 설명합니다. <br/> [R 언어](#r-language) | <br/>`~notebooks` <br/> <br/> `~samples/MicrosoftR` <br/> <br/> `~samples/RSqlDemo` <br/> <br/> `~samples/SQLRServices`<br/> <br/>|
+| Python 언어  | 샘플에서는 Azure 기반 클라우드 데이터 저장소와 연결하는 방법 및 Azure 기계 학습을 사용하여 작업하는 방법과 같은 시나리오를 설명합니다.  <br/> [파이썬 언어](#python-language) | <br/>`~notebooks` <br/><br/>|
+| Julia 언어  | 줄리아의 플롯 및 딥 러닝에 대한 자세한 설명을 제공합니다. 또한 줄리아에서 C와 파이썬을 호출하는 방법에 대해 설명합니다. <br/> [줄리아어](#julia-language) |<br/> Windows:<br/> `~notebooks/Julia_notebooks`<br/><br/> Linux:<br/> `~notebooks/julia`<br/><br/> |
+| Azure Machine Learning  | 기계 학습을 사용하여 기계 학습 및 딥 러닝 모델을 구축하는 방법을 보여 줍니다. 어디서든지 모델을 배포합니다. 자동화된 기계 학습 및 지능형 하이퍼 매개 변수 조정을 사용합니다. 또한 모델 관리 및 분산 학습을 사용합니다. <br/> [기계 학습](#azure-machine-learning) | <br/>`~notebooks/AzureML`<br/> <br/>|
+| PyTorch 노트북  | PyTorch 기반 신경망을 사용하는 딥 러닝 샘플입니다. 노트북은 초급부터 고급 시나리오까지 포함합니다.  <br/> [파이토치 노트북](#pytorch) | <br/>`~notebooks/Deep_learning_frameworks/pytorch`<br/> <br/>|
+| TensorFlow  |  TensorFlow 프레임워크를 사용하여 구현된 다양한 신경망 샘플 및 기술입니다. <br/> [TensorFlow](#tensorflow) | <br/>`~notebooks/Deep_learning_frameworks/tensorflow`<br/><br/> |
+| Microsoft Cognitive 도구 키트 <br/>   | Microsoft의 코그너티브 툴킷 팀에서 발표한 딥 러닝 샘플입니다.  <br/> [Cognitive 도구 키트](#cntk) | <br/> `~notebooks/DeepLearningTools/CNTK/Tutorials`<br/><br/> Linux:<br/> `~notebooks/CNTK`<br/> <br/>|
+| Caffe2 | Caffe2 기반 신경망을 사용하는 딥 러닝 샘플입니다. 여러 노트북은 사용자에게 Caffe2와 이를 효과적으로 사용하는 방법을 숙지합니다. 예를 들어 이미지 전처리 및 데이터 집합 생성이 있습니다. 또한 회귀 및 미리 학습된 모델을 사용하는 방법도 포함됩니다. <br/> [카페2](#caffe2) | <br/>`~notebooks/Deep_learning_frameworks/caffe2`<br/><br/> |
+| H2O   | 실제 문제 시나리오에 H2O를 사용하는 파이썬 기반 샘플입니다. <br/> [H2O](#h2o) | <br/>`~notebooks/h2o`<br/><br/> |
+| SparkML 언어  | pySpark 및 MMLSpark를 통해 아파치 스파크 MLLib 툴킷의 기능을 사용하는 샘플 : 아파치 스파크에 아파치 스파크에 대한 마이크로 소프트 기계 학습 2.x.  <br/> [스파크ML 언어](#sparkml) | <br/>`~notebooks/SparkML/pySpark`<br/>`~notebooks/MMLSpark`<br/><br/>  |
+| XGBoost | 분류 및 회귀와 같은 시나리오에 대한 XGBoost의 표준 기계 학습 샘플입니다. <br/> [XG부스트](#xgboost) | <br/>Windows:<br/>`\dsvm\samples\xgboost\demo`<br/><br/> |
 
 <br/>
 
 ## <a name="access-jupyter"></a>액세스 Jupyter 
 
-Jupyter에 액세스 하려면 바탕 화면 또는 응용 프로그램 메뉴에서 **jupyter** 아이콘을 선택 합니다. DSVM의 Linux 버전에서 Jupyter에 액세스할 수도 있습니다. 웹 브라우저에서 원격으로 액세스 하려면 Ubuntu의 `https://<Full Domain Name or IP Address of the DSVM>:8000`로 이동 합니다.
+Jupyter에 액세스하려면 바탕 화면 또는 응용 프로그램 메뉴에서 **Jupyter** 아이콘을 선택합니다. 또한 DSVM의 리눅스 버전에서 Jupyter에 액세스할 수 있습니다. 웹 브라우저에서 원격으로 액세스하려면 우분투로 이동하십시오. `https://<Full Domain Name or IP Address of the DSVM>:8000`
 
-브라우저를 통해 예외를 추가 하 고 Jupyter 액세스를 사용할 수 있도록 설정 하려면 다음 지침을 사용 합니다.
+예외를 추가하고 브라우저를 통해 Jupyter 액세스를 사용할 수 있도록 하려면 다음 지침을 사용하십시오.
 
 
 ![Jupyter 예외 활성화](./media/ubuntu-jupyter-exception.png)
 
 
-Data Science Virtual Machine 로그인 하는 데 사용 하는 것과 동일한 암호를 사용 하 여 로그인 합니다.
+데이터 과학 가상 컴퓨터에 로그인하는 데 사용하는 것과 동일한 암호로 로그인합니다.
 <br/>
 
-**Jupyter 홈**
+**주피터 홈**
 <br/>![Jupyter 홈](./media/jupyter-home.png)<br/>
 
 ## <a name="r-language"></a>R 언어 
@@ -70,7 +70,7 @@ Data Science Virtual Machine 로그인 하는 데 사용 하는 것과 동일한
 <br/>![Julia 샘플](./media/julia-samples.png)<br/>
 
 ## <a name="azure-machine-learning"></a>Azure Machine Learning 
-<br/>![Azure Machine Learning 샘플](./media/azureml-samples.png)<br/>
+<br/>![Azure 기계 학습 샘플](./media/azureml-samples.png)<br/>
 
 ## <a name="pytorch"></a>PyTorch
 <br/>![PyTorch 샘플](./media/pytorch-samples.png)<br/>

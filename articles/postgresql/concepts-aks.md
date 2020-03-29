@@ -1,19 +1,19 @@
 ---
-title: Azure Kubernetes Service에 연결-Azure Database for PostgreSQL-단일 서버
-description: Azure Database for PostgreSQL-단일 서버를 사용 하 여 AKS (Azure Kubernetes Service)를 연결 하는 방법을 알아봅니다.
+title: Azure Kubernetes 서비스에 연결 - PostgreSQL용 Azure 데이터베이스 - 단일 서버
+description: PostgreSQL - 단일 서버에 대한 Azure Kubernetes 서비스(AKS)를 Azure 데이터베이스와 연결하는 방법에 대해 알아봅니다.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.date: 5/6/2019
 ms.topic: conceptual
 ms.openlocfilehash: 46aa411826dd3ea578a2d98b0fe631ab0a12ef4a
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74769883"
 ---
-# <a name="connecting-azure-kubernetes-service-and-azure-database-for-postgresql---single-server"></a>Azure Kubernetes Service 및 Azure Database for PostgreSQL 단일 서버 연결
+# <a name="connecting-azure-kubernetes-service-and-azure-database-for-postgresql---single-server"></a>PostgreSQL에 대한 Azure Kubernetes 서비스 및 Azure 데이터베이스 연결 - 단일 서버
 
 AKS(Azure Kubernetes Service)는 Azure에서 사용할 수 있는 관리형 Kubernetes 클러스터를 제공합니다. AKS 및 Azure Database for PostgreSQL을 함께 사용하여 애플리케이션을 만드는 경우 고려할 몇 가지 옵션은 다음과 같습니다.
 

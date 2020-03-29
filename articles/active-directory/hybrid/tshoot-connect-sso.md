@@ -13,12 +13,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1293bbf6d2966caf7e6e095c1721e29890a57b76
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 759748124893a8f906a4bc336f835546202b0b62
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72025809"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80049486"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory Seamless Single Sign-On 문제 해결
 
@@ -28,15 +28,15 @@ ms.locfileid: "72025809"
 
 - 경우에 따라 Seamless SSO를 활성화하는 데 최대 30분이 소요될 수 있습니다.
 - 테넌트에서 Seamless SSO를 사용하지 않도록 설정했다가 다시 사용하도록 설정하면, 일반적으로 10시간 동안 유효한 캐시된 Kerberos 티켓이 만료될 때까지 Single Sign-On 환경을 사용할 수 없게 됩니다.
-- Seamless SSO가 성공하면 사용자에게 **로그인 유지**를 선택하는 기회가 제공되지 않습니다. 이 동작으로 인해 [SharePoint 및 OneDrive 매핑 시나리오](https://support.microsoft.com/help/2616712/how-to-configure-and-to-troubleshoot-mapped-network-drives-that-connec)가 작동하지 않습니다.
+- Seamless SSO가 성공하면 사용자에게 **로그인 유지**를 선택하는 기회가 제공되지 않습니다. 이 동작으로 인해 [SharePoint 및 OneDrive 매핑 시나리오가](https://support.microsoft.com/help/2616712/how-to-configure-and-to-troubleshoot-mapped-network-drives-that-connec) 작동하지 않습니다.
 - 버전 16.0.8730.xxxx 이상의 Office 365 Win32 클라이언트(Outlook, Word, Excel 등)는 비대화형 흐름을 사용하여 지원됩니다. 다른 버전이 지원되지 않습니다. 해당 버전에서 사용자는 암호가 아닌 해당 사용자 이름을 입력하여 로그인합니다. OneDrive의 경우 자동 로그온 환경에 대해 [OneDrive 자동 구성 기능](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894)을 활성화해야 합니다.
 - Firefox의 프라이빗 검색 모드에서는 Seamless SSO가 작동하지 않습니다.
 - [향상된 보호] 모드가 설정되어 있는 경우 Internet Explorer에서 Seamless SSO가 작동하지 않습니다.
 - iOS 및 Android의 모바일 브라우저에서는 Seamless SSO가 작동하지 않습니다.
 - 사용자가 Active Directory에 있는 여러 그룹의 일부인 경우 사용자의 Kerberos 티켓은 처리하기에 너무 크기 때문에 원활한 SSO에 실패하게 됩니다. Azure AD HTTPS 요청에는 최대 50KB 크기인 헤더가 포함될 수 있습니다. Kerberos 티켓은 쿠키 등 다른 Azure AD 아티팩트(일반적으로 2~5KB)를 수용하는 제한보다 작아야 합니다. 사용자의 그룹 멤버 자격 수를 줄이고 다시 시도하는 것이 좋습니다.
 - 30개 이상의 Active Directory 포리스트를 동기화하는 경우 Azure AD Connect를 통해 Seamless SSO를 활성화할 수 없습니다. 이 경우 테넌트에서 이 기능을 [수동으로 활성화](#manual-reset-of-the-feature)하여 해결할 수 있습니다.
-- 로컬 인트라넷 영역 대신 신뢰할 수 있는 사이트 영역에 Azure AD 서비스 URL( https://autologon.microsoftazuread-sso.com) )을 추가하면 *사용자가 로그인하지 못하도록 차단됩니다*.
-- 원활한 SSO는 Kerberos에 대 한 AES256_HMAC_SHA1, AES128_HMAC_SHA1 및 RC4_HMAC_MD5 암호화 유형을 지원 합니다. AzureADSSOAcc $ account의 암호화 유형을 AES256_HMAC_SHA1 또는 AES 유형 중 하나로 설정 하는 것이 좋습니다. 추가 보안을 위한 RC4. 암호화 유형은 Active Directory 계정의의 msds-primary-computer-Supported Types 특성에 저장 됩니다.  AzureADSSOAcc $ account encryption 유형을 RC4_HMAC_MD5로 설정 하고 AES 암호화 유형 중 하나로 변경하려는 경우 [FAQ 문서](how-to-connect-sso-faq.md)에 설명된 대로 먼저 AzureADSSOAcc $ 계정의 Kerberos 암호 해독 키를 롤오버하는지 확인하세요. 관련 질문에서, 그렇지 않으면 원활한 SSO가 발생하지 않습니다.
+- 로컬 인트라넷 영역`https://autologon.microsoftazuread-sso.com`대신 신뢰할 수 있는 사이트 영역에 Azure AD 서비스 URL ()을 추가하면 *사용자가 로그인하지 못하도록 차단됩니다.*
+- Seamless SSO는 Kerberos의 AES256_HMAC_SHA1, AES128_HMAC_SHA1 및 RC4_HMAC_MD5 암호화 유형을 지원합니다. AzureADSSOAcc$ 계정의 암호화 유형은 AES256_HMAC_SHA1 설정하거나 보안을 강화하려면 AES 유형 과 RC4 중 하나로 설정하는 것이 좋습니다. 암호화 유형은 Active Directory에 있는 계정의 msDS 지원 암호화 유형 특성에 저장됩니다.  AzureADSSOAcc $ account encryption 유형을 RC4_HMAC_MD5로 설정 하고 AES 암호화 유형 중 하나로 변경하려는 경우 [FAQ 문서](how-to-connect-sso-faq.md)에 설명된 대로 먼저 AzureADSSOAcc $ 계정의 Kerberos 암호 해독 키를 롤오버하는지 확인하세요. 관련 질문에서, 그렇지 않으면 원활한 SSO가 발생하지 않습니다.
 
 ## <a name="check-status-of-feature"></a>기능의 상태 확인
 
@@ -54,7 +54,7 @@ ms.locfileid: "72025809"
 
 ![Azure Active Directory 관리 센터: 로그인 보고서](./media/tshoot-connect-sso/sso9.png)
 
-[Azure Active Directory 관리 센터](https://aad.portal.azure.com/)에서 **Azure Active Directory** > **로그인**으로 차례로 이동한 다음, 특정 사용자의 로그인 활동을 선택합니다. **로그인 오류 코드** 필드를 찾습니다. 다음 표를 사용하여 해당 필드의 값을 실패 이유 및 해결에 매핑합니다.
+[Azure Active Directory 관리 센터에서](https://aad.portal.azure.com/)Azure Active **Directory** > **로그인으로** 이동한 다음 특정 사용자의 로그인 활동을 선택합니다. **로그인 오류 코드** 필드를 찾습니다. 다음 표를 사용하여 해당 필드의 값을 실패 이유 및 해결에 매핑합니다.
 
 |로그인 오류 코드|로그인 실패 이유|해결 방법
 | --- | --- | ---
@@ -73,9 +73,9 @@ ms.locfileid: "72025809"
 
 다음 검사 목록을 사용하여 Seamless SSO 문제를 해결합니다.
 
-- Azure AD Connect에서 Seamless SSO 기능을 사용할 수 있는지 확인합니다. 차단된 포트 등과 같은 이유로 기능을 사용할 수 없으면 모든 [필수 구성 요소](how-to-connect-sso-quick-start.md#step-1-check-the-prerequisites)가 제대로 갖추어져 있는지 확인합니다.
+- Azure AD Connect에서 Seamless SSO 기능을 사용할 수 있는지 확인합니다. 기능을 활성화할 수 없는 경우(예: 차단된 포트로 인해) 모든 [필수 구성 조건이](how-to-connect-sso-quick-start.md#step-1-check-the-prerequisites) 마련되어 있는지 확인합니다.
 - 테넌트에서 [Azure AD Join](../active-directory-azureadjoin-overview.md) 및 Seamless SSO를 둘 다 사용하도록 설정한 경우에는 Azure AD Join의 문제는 아닌지 확인합니다. 디바이스가 Azure AD에 등록되고 도메인에 가입된 경우 Azure AD Join의 SSO가 Seamless SSO보다 우선합니다. Azure AD Join의 SSO를 사용하면 "Windows에 연결됨"이라는 로그인 타일이 표시됩니다.
-- Azure AD URL( https://autologon.microsoftazuread-sso.com) )이 사용자의 인트라넷 영역 설정에 속하는지 확인합니다.
+- Azure AD URL()이`https://autologon.microsoftazuread-sso.com`사용자의 인트라넷 영역 설정의 일부인지 확인합니다.
 - 회사 디바이스가 Active Directory 도메인에 조인되어 있는지 확인합니다. Seamless SSO가 작동하려면 디바이스가 [Azure AD에 조인](../active-directory-azureadjoin-overview.md)될 필요는 _없습니다_.
 - 사용자가 Active Directory 도메인 계정을 통해 디바이스에 로그온되어 있는지 확인합니다.
 - Seamless SSO가 설정된 Active Directory 포리스트에 사용자의 계정이 있는지 확인합니다.
@@ -113,30 +113,30 @@ ms.locfileid: "72025809"
 ### <a name="step-2-get-the-list-of-active-directory-forests-on-which-seamless-sso-has-been-enabled"></a>2단계: Seamless SSO를 사용하도록 설정된 Active Directory 포리스트 목록 가져오기
 
 1. PowerShell을 관리자 권한으로 실행합니다. PowerShell에서 `New-AzureADSSOAuthenticationContext`를 호출합니다. 메시지가 표시되면 테넌트의 전역 관리자 자격 증명을 입력합니다.
-2. `Get-AzureADSSOStatus`를 호출합니다. 이 명령은 이 기능을 사용하도록 설정된 Active Directory 포리스트 목록("도메인" 목록에 표시됨)을 제공합니다.
+2. `Get-AzureADSSOStatus`을 호출합니다. 이 명령은 이 기능을 사용하도록 설정된 Active Directory 포리스트 목록("도메인" 목록에 표시됨)을 제공합니다.
 
 ### <a name="step-3-disable-seamless-sso-for-each-active-directory-forest-where-youve-set-up-the-feature"></a>3단계: 기능을 설정한 각 Active Directory 포리스트에 대한 Seamless SSO 사용 해제
 
-1. `$creds = Get-Credential`를 호출합니다. 메시지가 표시되면 원하는 Active Directory 포리스트에 대한 도메인 관리자 자격 증명을 입력합니다.
+1. `$creds = Get-Credential`을 호출합니다. 메시지가 표시되면 원하는 Active Directory 포리스트에 대한 도메인 관리자 자격 증명을 입력합니다.
 
    > [!NOTE]
-   >도메인 관리자 자격 증명 사용자 이름은 SAM 계정 이름 형식 (예 contoso\johndoe 또는 com\johndoe)으로 입력 해야 합니다. 사용자 이름의 도메인 부분을 사용 하 여 DNS를 사용 하는 도메인 관리자의 도메인 컨트롤러를 찾습니다.
+   >도메인 관리자 자격 증명 사용자 이름은 SAM 계정 이름 형식(contoso\johndoe 또는 contoso.com\johndoe)으로 입력해야 합니다. 사용자 이름의 도메인 부분을 사용하여 DNS를 사용하여 도메인 관리자의 도메인 컨트롤러를 찾습니다.
 
    >[!NOTE]
-   >사용 되는 도메인 관리자 계정은 보호 된 사용자 그룹의 구성원이 아니어야 합니다. 이 경우 작업이 실패 합니다.
+   >사용된 도메인 관리자 계정은 보호된 사용자 그룹의 구성원이 아니어야 합니다. 이 경우 작업이 실패합니다.
 
-2. `Disable-AzureADSSOForest -OnPremCredentials $creds`를 호출합니다. 이 명령은 이 특정 Active Directory 포리스트에 대한 온-프레미스 도메인 컨트롤러에서 `AZUREADSSOACC` 컴퓨터 계정을 제거합니다.
+2. `Disable-AzureADSSOForest -OnPremCredentials $creds`을 호출합니다. 이 명령은 이 특정 Active Directory 포리스트에 대한 온-프레미스 도메인 컨트롤러에서 `AZUREADSSOACC` 컴퓨터 계정을 제거합니다.
 3. 기능을 설정한 각 Active Directory 포리스트에 대해 앞의 단계를 반복합니다.
 
 ### <a name="step-4-enable-seamless-sso-for-each-active-directory-forest"></a>4단계: 각 Active Directory 포리스트에 대한 Seamless SSO 사용 설정
 
-1. `Enable-AzureADSSOForest`를 호출합니다. 메시지가 표시되면 원하는 Active Directory 포리스트에 대한 도메인 관리자 자격 증명을 입력합니다.
+1. `Enable-AzureADSSOForest`을 호출합니다. 메시지가 표시되면 원하는 Active Directory 포리스트에 대한 도메인 관리자 자격 증명을 입력합니다.
 
    > [!NOTE]
-   >도메인 관리자 자격 증명 사용자 이름은 SAM 계정 이름 형식 (예 contoso\johndoe 또는 com\johndoe)으로 입력 해야 합니다. 사용자 이름의 도메인 부분을 사용 하 여 DNS를 사용 하는 도메인 관리자의 도메인 컨트롤러를 찾습니다.
+   >도메인 관리자 자격 증명 사용자 이름은 SAM 계정 이름 형식(contoso\johndoe 또는 contoso.com\johndoe)으로 입력해야 합니다. 사용자 이름의 도메인 부분을 사용하여 DNS를 사용하여 도메인 관리자의 도메인 컨트롤러를 찾습니다.
 
    >[!NOTE]
-   >사용 되는 도메인 관리자 계정은 보호 된 사용자 그룹의 구성원이 아니어야 합니다. 이 경우 작업이 실패 합니다.
+   >사용된 도메인 관리자 계정은 보호된 사용자 그룹의 구성원이 아니어야 합니다. 이 경우 작업이 실패합니다.
 
 2. 기능을 설정하려는 각 Active Directory 포리스트에 대해 앞의 단계를 반복합니다.
 

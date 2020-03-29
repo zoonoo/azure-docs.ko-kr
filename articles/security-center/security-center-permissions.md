@@ -15,15 +15,15 @@ ms.topic: conceptual
 ms.date: 10/28/2018
 ms.author: memildin
 ms.openlocfilehash: 0e60e782fa65cd5868bebe081673f9a158e07799
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77921320"
 ---
 # <a name="permissions-in-azure-security-center"></a>Azure Security Center의 권한
 
-Azure Security Center는 Azure에서 사용자, 그룹 및 서비스에 [기본 제공 역할](../role-based-access-control/role-assignments-portal.md)을 제공하는 [RBAC(역할 기반 Access Control)](../role-based-access-control/built-in-roles.md)를 사용합니다.
+Azure Security Center는 Azure에서 사용자, 그룹 및 서비스에 [기본 제공 역할](../role-based-access-control/built-in-roles.md)을 제공하는 [RBAC(역할 기반 Access Control)](../role-based-access-control/role-assignments-portal.md)를 사용합니다.
 
 Security Center는 리소스 구성을 평가하여 보안 문제 및 취약성을 식별합니다. Security Center에서는 리소스가 속한 구독이나 리소스 그룹에 대한 소유자, 참가자 또는 독자 역할을 할당 받을 때 리소스와 관련된 항목만 볼 수 있습니다.
 
@@ -41,7 +41,7 @@ Security Center는 리소스 구성을 평가하여 보안 문제 및 취약성�
 
 다음 표는 Security Center의 역할 및 허용되는 작업을 보여 줍니다.
 
-| Role | 보안 정책 편집 | 리소스에 보안 권장 사항 적용</br> (' 빠른 수정! ' 포함) | 경고 및 권장 사항 해제 | 경고 및 권장 사항 보기 |
+| 역할 | 보안 정책 편집 | 리소스에 보안 권장 사항 적용</br> ('빠른 수정!'을 포함) | 경고 및 권장 사항 해제 | 경고 및 권장 사항 보기 |
 |:--- |:---:|:---:|:---:|:---:|
 | 구독 소유자 | ✔ | ✔ | ✔ | ✔ |
 | 구독 참가자 | -- | ✔ | ✔ | ✔ |
@@ -62,5 +62,5 @@ Security Center는 리소스 구성을 평가하여 보안 문제 및 취약성�
 - [Security Center에서 보안 정책 설정](tutorial-security-policy.md)
 - [Security Center의 보안 권장 사항 관리](security-center-recommendations.md)
 - [Azure 리소스의 보안 상태 모니터링](security-center-monitoring.md)
-- [Security Center에서 보안 경고 관리 및 응답](security-center-managing-and-responding-alerts.md)
+- [보안 센터에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md)
 - [파트너 보안 솔루션 모니터링](security-center-partner-solutions.md)

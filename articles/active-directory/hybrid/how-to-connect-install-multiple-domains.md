@@ -16,12 +16,12 @@ ms.date: 05/31/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e822906a072ec8244c7108e98289482adebb5a7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 18b5f19e3e994aa05fa99caf360d0c1be69ec7a5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60245118"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80049781"
 ---
 # <a name="multiple-domain-support-for-federating-with-azure-ad"></a>Azure AD로 페더레이션에 대한 여러 도메인 지원
 다음 설명서에서는 Office 365 또는 Azure AD 도메인으로 페더레이션하는 경우 여러 최상위 도메인 및 하위 도메인을 사용하는 방법에 대한 지침을 제공합니다.
@@ -69,7 +69,7 @@ bmfabrikam.com 도메인의 설정을 보면 다음을 확인할 수 있습니�
 
 따라서 Azure AD 또는 Office 365에 인증하는 동안 사용자 토큰의 IssuerUri 요소는 Azure AD에서 도메인을 찾는 데 사용됩니다.  일치하는 항목이 없는 경우 인증이 실패합니다.
 
-예를 들어 사용자의 UPN이 bsimon@bmcontoso.com인 경우 토큰 AD FS 이슈의 IssuerUri 요소는 <http://bmcontoso.com/adfs/services/trust>로 설정됩니다. 이 요소는 Azure AD 구성에 일치하며 인증이 성공합니다.
+예를 들어 사용자의 UPN이 bsimon@bmcontoso.com인 경우 토큰 AD FS 이슈의 IssuerUri 요소는 `http://bmcontoso.com/adfs/services/trust`로 설정됩니다. 이 요소는 Azure AD 구성에 일치하며 인증이 성공합니다.
 
 다음은 이 논리를 구현하는 사용자 지정된 클레임 규칙입니다.
 
@@ -82,7 +82,7 @@ bmfabrikam.com 도메인의 설정을 보면 다음을 확인할 수 있습니�
 >
 
 ## <a name="how-to-update-the-trust-between-ad-fs-and-azure-ad"></a>AD FS와 Azure AD 간의 트러스트를 업데이트하는 방법
-AD FS와 Azure AD의 인스턴스 간의 페더레이션된 트러스트를 설정하지 않았을 경우 이 트러스트를 다시 만들어야 할 수 있습니다.  이는 `-SupportMultipleDomain` 매개 변수 없이 원래 설치될 때 IssuerUri가 기본 값으로 설정되기 때문입니다.  아래 스크린샷에서 IssuerUri는 https://adfs.bmcontoso.com/adfs/services/trust 로 설정되어 있습니다.
+AD FS와 Azure AD의 인스턴스 간의 페더레이션된 트러스트를 설정하지 않았을 경우 이 트러스트를 다시 만들어야 할 수 있습니다.  이는 `-SupportMultipleDomain` 매개 변수 없이 원래 설치될 때 IssuerUri가 기본 값으로 설정되기 때문입니다.  아래 스크린샷에서 IssuerUri는 `https://adfs.bmcontoso.com/adfs/services/trust`로 설정되어 있습니다.
 
 Azure AD 포털에 새 도메인을 성공적으로 추가한 다음, `Convert-MsolDomaintoFederated -DomainName <your domain>`을 사용하여 변환하려고 하는 경우 다음과 같은 오류가 발생합니다.
 
@@ -106,7 +106,7 @@ Azure AD 포털에 새 도메인을 성공적으로 추가한 다음, `Convert-M
    ![Microsoft 온라인 제거](./media/how-to-connect-install-multiple-domains/trust4.png)
 4. [Windows PowerShell용 Azure Active Directory 모듈](https://msdn.microsoft.com/library/azure/jj151815.aspx)이 설치된 컴퓨터에서 `$cred=Get-Credential`을(를) 실행합니다.  
 5. 페더레이션하는 Azure AD 도메인에 대한 전역 관리자의 사용자 이름 및 암호를 입력합니다.
-6. PowerShell에서 `Connect-MsolService -Credential $cred`를 입력합니다.
+6. PowerShell에서 `Connect-MsolService -Credential $cred`을 입력합니다.
 7. PowerShell에서 `Update-MSOLFederatedDomain -DomainName <Federated Domain Name> -SupportMultipleDomain`을 입력합니다.  이 업데이트는 원본 도메인에 대한 것입니다.  따라서 위의 도메인을 사용하는 것은 `Update-MsolFederatedDomain -DomainName bmcontoso.com -SupportMultipleDomain`입니다.
 
 PowerShell을 사용하여 새 최상위 도메인을 추가하려면 다음 단계를 사용합니다.
@@ -126,18 +126,18 @@ Azure AD Connect를 사용하여 새 최상위 도메인을 추가하려면 다�
 5. 설치 클릭
 
 ### <a name="verify-the-new-top-level-domain"></a>새 최상위 도메인 확인
-PowerShell 명령을 사용하여 `Get-MsolDomainFederationSettings -DomainName <your domain>`업데이트된 IssuerUri를 볼 수 있습니다.  아래 스크린샷은 페더레이션 설정이 원본 도메인 http://bmcontoso.com/adfs/services/trust 에 업데이트된 것을 보여줍니다.
+PowerShell 명령을 사용하여 `Get-MsolDomainFederationSettings -DomainName <your domain>`업데이트된 IssuerUri를 볼 수 있습니다.  아래 스크린샷은 페더레이션 설정이 원본 도메인 `http://bmcontoso.com/adfs/services/trust`에 업데이트된 것을 보여줍니다.
 
 ![Get-MsolDomainFederationSettings](./media/how-to-connect-install-multiple-domains/MsolDomainFederationSettings.png)
 
-새 도메인의 IssuerUri가 https://bmfabrikam.com/adfs/services/trust 로 설정됨
+새 도메인의 IssuerUri가 `https://bmfabrikam.com/adfs/services/trust`로 설정됨
 
 ![Get-MsolDomainFederationSettings](./media/how-to-connect-install-multiple-domains/settings2.png)
 
 ## <a name="support-for-subdomains"></a>하위 도메인에 대한 지원
 하위 도메인을 추가할 때 Azure AD가 도메인을 처리하는 방식으로 인해 부모의 설정을 상속합니다.  따라서 IssuerUri가 부모와 일치해야 합니다.
 
-따라서 예를 들어 bmcontoso.com이 있고 corp.bmcontoso.com을 추가한다고 가정합니다.  corp.bmcontoso.com에서 사용자에 대한 IssuerUri는 **http://bmcontoso.com/adfs/services/trust 여야 합니다.**  하지만 Azure AD에 대해 위에서 구현 표준 규칙은 **http://corp.bmcontoso.com/adfs/services/trust 와 같은 발급자를 통해 토큰을 생성합니다.** 로 발급자를 사용하여 토큰을 생성하고 인증에 실패합니다.
+따라서 예를 들어 bmcontoso.com이 있고 corp.bmcontoso.com을 추가한다고 가정합니다.  corp.bmcontoso.com 사용자에 대한 issuerUri가 ** http://bmcontoso.com/adfs/services/trust필요합니다.**  그러나 Azure AD에 대해 위에서 구현한 표준 규칙은 발급자가 있는 토큰을 ** http://corp.bmcontoso.com/adfs/services/trust.로 생성합니다.** 로 발급자를 사용하여 토큰을 생성하고 인증에 실패합니다.
 
 ### <a name="how-to-enable-support-for-subdomains"></a>하위 도메인에 대한 지원을 활성화하는 방법
 이 동작을 해결하기 위해 Microsoft 온라인에 대한 AD FS 신뢰 당사자 트러스트를 업데이트해야 합니다.  이를 위해 사용자 지정 클레임 규칙이 사용자 지정 발급자 값을 생성할 때 사용자의 UPN 접미사에서 모든 하위 도메인을 제거하도록 구성해야 합니다.
@@ -169,7 +169,7 @@ PowerShell 명령을 사용하여 `Get-MsolDomainFederationSettings -DomainName 
 ## <a name="next-steps"></a>다음 단계
 Azure AD Connect를 설치했으므로 [설치를 확인하고 라이선스를 할당](how-to-connect-post-installation.md)할 수 있습니다.
 
-다음을 설치하여 사용할 수 있는 이러한 기능에 대해 알아봅니다. [자동 업그레이드](how-to-connect-install-automatic-upgrade.md), [실수로 인한 삭제 방지](how-to-connect-sync-feature-prevent-accidental-deletes.md) 및 [Azure AD Connect Health](how-to-connect-health-sync.md).
+[자동 업그레이드](how-to-connect-install-automatic-upgrade.md), [실수로 인한 삭제 방지](how-to-connect-sync-feature-prevent-accidental-deletes.md) 및 [Azure AD Connect Health](how-to-connect-health-sync.md)를 설치하여 사용할 수 있는 이러한 기능에 대해 자세히 알아봅니다.
 
 공통 항목인 [스케줄러 및 동기화를 트리거하는 방법](how-to-connect-sync-feature-scheduler.md)에 대해 자세히 알아봅니다.
 

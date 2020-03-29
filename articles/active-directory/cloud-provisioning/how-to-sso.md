@@ -1,6 +1,6 @@
 ---
-title: 클라우드 프로 비전에서 Single Sign-on을 사용 하는 방법
-description: 이 문서에서는 클라우드 프로 비전을 사용 하 여 sso를 설치 하 고 사용 하는 방법을 설명 합니다.
+title: 클라우드 프로비저닝을 사용하여 단일 사인온을 사용하는 방법
+description: 이 문서에서는 클라우드 프로비저닝을 통해 sso를 설치하고 사용하는 방법을 설명합니다.
 services: active-directory
 author: billmath
 manager: daveba
@@ -12,14 +12,14 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3667dd529ce5542be84c5e357053d8cd11eb91e9
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76908992"
 ---
-# <a name="using-single-sign-on-with-cloud-provisioning"></a>클라우드 프로 비전에서 Single Sign-on 사용
-다음 문서에서는 클라우드 프로 비전에 Single Sign-On를 사용 하는 방법을 설명 합니다.
+# <a name="using-single-sign-on-with-cloud-provisioning"></a>클라우드 프로비저닝을 사용하여 단일 사인온 사용
+다음 문서에서는 클라우드 프로비저닝을 사용하여 단일 사인온을 사용하는 방법을 설명합니다.
 
 [!INCLUDE [active-directory-cloud-provisioning-sso.md](../../../includes/active-directory-cloud-provisioning-sso.md)]
 

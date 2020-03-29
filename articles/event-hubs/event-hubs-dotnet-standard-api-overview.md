@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 08/13/2018
 ms.author: shvija
 ms.openlocfilehash: b09f39f45936a7c43dbc1ef109780315d62c768f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60821899"
 ---
 # <a name="event-hubs-net-standard-api-overview"></a>Event Hubs .NET Standard API 개요
@@ -21,11 +21,11 @@ ms.locfileid: "60821899"
 이 문서는 핵심 Azure Event Hubs[.NET Standard 클라이언트 API](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) 일부를 요약해서 설명합니다. 현재 다음과 같은 Event Hubs에 대한 두 개의 .NET Standard 클라이언트 라이브러리가 있습니다.
 
 * [Microsoft.Azure.EventHubs](/dotnet/api/microsoft.azure.eventhubs): 모든 기본 런타임 작업을 제공합니다.
-* [Microsoft.Azure.EventHubs.Processor](/dotnet/api/microsoft.azure.eventhubs.processor): 처리된 이벤트를 추적할 수 있는 추가 기능을 추가하며, 이벤트 허브에서 읽을 수 있는 가장 쉬운 방법입니다.
+* [Microsoft.Azure.EventHubs.Processor](/dotnet/api/microsoft.azure.eventhubs.processor): 처리된 이벤트를 추적하는 추가 기능을 추가하며, 이벤트 허브에서 읽는 가장 쉬운 방법입니다.
 
 ## <a name="event-hubs-client"></a>Event Hubs 클라이언트
 
-[EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient)는 이벤트를 전송하고, 수신기를 만들고, 런타임 정보를 얻는 데 사용하는 기본 개체입니다. 이 클라이언트는 특정 이벤트 허브에 연결되며 Event Hubs 엔드포인트에 대한 새 연결을 만듭니다.
+[EventHubClient는](/dotnet/api/microsoft.azure.eventhubs.eventhubclient) 이벤트를 보내고, 수신기를 만들고, 런타임 정보를 얻는 데 사용하는 기본 개체입니다. 이 클라이언트는 특정 이벤트 허브에 연결되며 Event Hubs 엔드포인트에 대한 새 연결을 만듭니다.
 
 ### <a name="create-an-event-hubs-client"></a>Event Hubs 클라이언트 만들기
 
@@ -48,7 +48,7 @@ var eventHubClient = EventHubClient.CreateFromConnectionString(connectionStringB
 
 ### <a name="send-events"></a>이벤트 보내기
 
-이벤트 허브에 이벤트를 전송하려면 [EventData](/dotnet/api/microsoft.azure.eventhubs.eventdata) 클래스를 사용합니다. 본문은 `byte` 배열 또는 `byte` 배열 세그먼트여야 합니다.
+이벤트 허브로 이벤트를 보내려면 [EventData](/dotnet/api/microsoft.azure.eventhubs.eventdata) 클래스를 사용합니다. 본문은 `byte` 배열 또는 `byte` 배열 세그먼트여야 합니다.
 
 ```csharp
 // Create a new EventData object by encoding a string as a byte array
@@ -185,7 +185,7 @@ public class SimpleEventProcessor : IEventProcessor
 Event Hubs 시나리오에 대한 자세한 내용은 다음 링크를 방문하십시오.
 
 * [Azure Event Hubs 정의](event-hubs-what-is-event-hubs.md)
-* [사용할 수 있는 Event Hubs API](event-hubs-api-overview.md)
+* [사용 가능한 이벤트 허브 API](event-hubs-api-overview.md)
 
 .NET API 참조는 다음과 같습니다.
 

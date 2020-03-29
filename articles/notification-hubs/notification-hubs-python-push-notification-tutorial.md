@@ -1,6 +1,6 @@
 ---
 title: Python과 함께 Notification Hubs를 사용하는 방법
-description: Python 응용 프로그램에서 Azure Notification Hubs를 사용 하는 방법을 알아봅니다.
+description: 파이썬 응용 프로그램에서 Azure 알림 허브를 사용하는 방법에 대해 알아봅니다.
 services: notification-hubs
 documentationcenter: ''
 author: sethmanheim
@@ -17,10 +17,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: 1ff8c382813654b1dee38a99bf2cc0ca67afbedd
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76313830"
 ---
 # <a name="how-to-use-notification-hubs-from-python"></a>Python에서 Notification Hubs를 사용하는 방법
@@ -301,7 +301,7 @@ hub = NotificationHub("myConnectionString", "myNotificationHubName", isDebug)
 
 결과적으로 Notification Hub 보내기 요청 HTTP URL에 "test" 쿼리 문자열이 추가됩니다.
 
-## <a name="complete-tutorial"></a>자습서 완료
+## <a name="complete-the-tutorial"></a><a name="complete-tutorial"></a>자습서 완료
 
 이제 Python 백 엔드에서 알림을 보내 시작 자습서를 완료할 수 있습니다.
 
@@ -376,7 +376,7 @@ hub.send_baidu_notification(baidu_payload)
 
 Python 코드를 실행하면 대상 디바이스에 나타나는 알림이 생성됩니다.
 
-## <a name="examples"></a>예시
+## <a name="examples"></a>예
 
 ### <a name="enabling-the-debug-property"></a>`debug` 속성 사용
 
@@ -450,12 +450,12 @@ hub.send_template_notification(template_payload)
 이 문서에서는 Notification Hubs에 대한 Python REST 클라이언트를 만드는 방법을 알아보았습니다. 여기에서 다음을 수행할 수 있습니다.
 
 - 이 문서의 모든 코드가 포함된 전체 [Python REST 래퍼 샘플]을 다운로드합니다.
-- [속보 자습서]
+- [속보 자습서에서] 알림 허브 태그 지정 기능에 대해 계속 알아보다
 - [지역화 뉴스 자습서]
 
 <!-- URLs -->
 [Python REST 래퍼 샘플]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-python
-[시작 자습서]: https://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
+[튜토리얼 시작하기]: https://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
 [속보 자습서]: https://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/
 [지역화 뉴스 자습서]: https://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/
 

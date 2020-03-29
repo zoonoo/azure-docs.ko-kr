@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 11/20/2018
 ms.author: genli
 ms.openlocfilehash: 6c877690cf27edd73f1d828b8a1dda6f4f34e780
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77918175"
 ---
 #  <a name="cannot-connect-remotely-to-a-vm-because-rdp-port-is-not-enabled-in-nsg"></a>NSG에서 사용하도록 설정하지 않은 RDP 포트로 인해 Azure VM에 연결할 수 없음
@@ -28,19 +28,19 @@ ms.locfileid: "77918175"
 
 RDP 포트가 네트워크 보안 그룹에서 열려 있지 않으므로 Azure에서 VM에 대한 RDP 연결을 만들 수 없습니다.
 
-## <a name="solution"></a>솔루션 
+## <a name="solution"></a>해결 방법 
 
 새 VM을 만들면 기본적으로 인터넷의 모든 트래픽이 차단됩니다. 
 
 NSG에서 RDP 포트를 사용하도록 설정하려면 다음 단계를 수행합니다.
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure 포털에](https://portal.azure.com)로그인합니다.
 2. **Virtual Machines**에서 문제가 있는 VM을 선택합니다. 
 3. **설정**에서 **네트워킹**을 선택합니다. 
 4. **인바운드 포트 규칙**에서 RDP 포트가 올바르게 설정되어 있는지 확인합니다. 구성의 예는 다음과 같습니다. 
 
     **우선 순위**: 300 </br>
     **이름**: Port_3389 </br>
-    **포트 (대상)** : 3389 </br>
+    **포트(목적지)**: 3389 </br>
     **프로토콜**: - TCP </br>
     **원본**: 모두 </br>
     **대상**: 모두 </br>

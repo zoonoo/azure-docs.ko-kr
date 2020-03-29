@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
 ms.openlocfilehash: 7bc2c0f472a03c3f069a889c360bea9017a780f2
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77918209"
 ---
 #  <a name="cannot-rdp-to-a-vm-because-the-vm-boots-into-safe-mode"></a>VM이 안전 모드로 부팅되어 VM에 RDP로 연결할 수 없음
@@ -35,7 +35,7 @@ VM이 안전 모드로 부팅하도록 구성되어 VM에 RDP로 또는 기타 �
 안전 모드에서는 RDP 서비스를 사용할 수 없습니다. VM이 안전 모드로 부팅되면 핵심 시스템 프로그램 및 서비스만 로드됩니다. 이것은 "Safe Boot minimal" 및 "Safe Boot with connectivity"의 두 가지 안전 모드 버전에 적용됩니다.
 
 
-## <a name="solution"></a>솔루션
+## <a name="solution"></a>해결 방법
 
 다음 단계를 수행하기 전에 영향을 받는 VM의 OS 디스크 스냅샷을 백업으로 만듭니다. 자세한 내용은 [디스크 스냅샷](../windows/snapshot-copy-managed-disk.md)을 참조하세요.
 
@@ -73,9 +73,9 @@ VM이 안전 모드로 부팅하도록 구성되어 VM에 RDP로 또는 기타 �
 
 #### <a name="attach-the-os-disk-to-a-recovery-vm"></a>복구 VM에 OS 디스크 연결
 
-1. [복구 VM에 OS 디스크를 연결합니다](../windows/troubleshoot-recovery-disks-portal.md).
+1. [복구 VM에 OS 디스크를 연결합니다.](../windows/troubleshoot-recovery-disks-portal.md)
 2. 복구 VM에 대한 원격 데스크톱 연결을 시작합니다.
-3. 디스크 관리 콘솔에서 디스크의 플래그가 **온라인**으로 지정되었는지 확인합니다. 연결된 OS 디스크에 할당된 드라이브 문자를 적어 둡니다.
+3. 디스크 관리 콘솔에서 디스크가 **온라인으로** 플래그가 지정되어 있는지 확인합니다. 연결된 OS 디스크에 할당된 드라이브 문자를 적어 둡니다.
 
 #### <a name="enable-dump-log-and-serial-console-optional"></a>덤프 로그 및 직렬 콘솔을 사용하도록 설정(선택 사항)
 
@@ -83,7 +83,7 @@ VM이 안전 모드로 부팅하도록 구성되어 VM에 RDP로 또는 기타 �
 
 덤프 로그 및 직렬 콘솔을 사용하도록 설정하려면 다음 스크립트를 실행합니다.
 
-1. 관리자 권한 명령 프롬프트 세션을 엽니다(**관리자 권한으로 실행**).
+1. 상승된 명령 프롬프트**세션(관리자로 실행)을**엽니다.
 2. 다음 스크립트를 실행합니다.
 
     이 스크립트에서 연결된 OS 디스크에 할당된 드라이브 문자가 F라고 가정합니다. 이 드라이브 문자를 VM에서 적절한 값으로 바꿉니다.
@@ -112,7 +112,7 @@ VM이 안전 모드로 부팅하도록 구성되어 VM에 RDP로 또는 기타 �
 
 #### <a name="configure-the-windows-to-boot-into-normal-mode"></a>Windows를 표준 모드로 부팅되도록 구성합니다.
 
-1. 관리자 권한 명령 프롬프트 세션을 엽니다(**관리자 권한으로 실행**).
+1. 상승된 명령 프롬프트**세션(관리자로 실행)을**엽니다.
 2. 부팅 구성 데이터를 확인합니다. 다음 명령에서 연결된 OS 디스크에 할당된 드라이브 문자가 F라고 가정합니다. 이 드라이브 문자를 VM에서 적절한 값으로 바꿉니다.
 
         bcdedit /store F:\boot\bcd /enum

@@ -1,5 +1,5 @@
 ---
-title: Azure AD 앱을 사용자 집합으로 제한 | Microsoft
+title: Azure AD 앱을 사용자 집합으로 제한 | Azure
 titleSuffix: Microsoft identity platform
 description: Azure AD에 등록된 앱에 대한 액세스를 선택한 사용자 집합으로 제한하는 방법을 알아봅니다.
 services: active-directory
@@ -14,13 +14,13 @@ ms.author: kkrishna
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: cccd2df334828c0b8103e4da2ffcd8549673b69c
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76696999"
 ---
-# <a name="how-to-restrict-your-azure-ad-app-to-a-set-of-users"></a>방법: 사용자 집합으로 Azure AD 앱 제한
+# <a name="how-to-restrict-your-azure-ad-app-to-a-set-of-users"></a>방법: Azure AD 앱을 사용자 집합으로 제한
 
 기본적으로 Azure AD(Azure Active Directory) 테넌트에 등록된 애플리케이션은 성공적으로 인증한 테넌트의 모든 사용자에게 제공됩니다.
 
@@ -43,39 +43,39 @@ Azure AD를 사용하면 테넌트 관리자 및 개발자는 앱을 테넌트�
 
 ## <a name="update-the-app-to-enable-user-assignment"></a>사용자 할당을 사용하도록 앱 업데이트
 
-사용자 할당을 사용 하는 응용 프로그램을 만드는 방법에는 두 가지가 있습니다. **전역 관리자** 역할이 필요 하지만 두 번째 역할은 그렇지 않습니다.
+사용 가능한 사용자 할당을 사용하여 응용 프로그램을 만드는 방법에는 두 가지가 있습니다. 하나는 **글로벌 관리자** 역할이 필요하고 두 번째 는 그렇지 않습니다.
 
-### <a name="enterprise-applications-requires-the-global-administrator-role"></a>엔터프라이즈 응용 프로그램 (전역 관리자 역할 필요)
+### <a name="enterprise-applications-requires-the-global-administrator-role"></a>엔터프라이즈 응용 프로그램(글로벌 관리자 역할 필요)
 
-1. [**Azure Portal**](https://portal.azure.com/) 로 이동 하 여 **전역 관리자 권한**으로 로그인 합니다.
+1. [**Azure 포털로**](https://portal.azure.com/) 이동하여 글로벌 **관리자로**로그인합니다.
 1. 위쪽 바에서 로그인 계정을 선택합니다. 
 1. **디렉터리**에서 앱을 등록할 Azure AD 테넌트를 선택합니다.
-1. 왼쪽 탐색 메뉴에서 **Azure Active Directory**를 선택합니다. 탐색 창에서 Azure Active Directory을 사용할 수 없는 경우 다음 단계를 수행 합니다.
+1. 왼쪽 탐색 메뉴에서 **Azure Active Directory**를 선택합니다. 탐색 창에서 Azure Active Directory를 사용할 수 없는 경우 다음 단계를 따르십시오.
 
     1. 왼쪽 주 탐색 메뉴의 맨 위에 있는 **모든 서비스**를 선택합니다.
-    1. 필터 검색 상자에 **Azure Active Directory** 를 입력 한 다음 결과에서 **Azure Active Directory** 항목을 선택 합니다.
+    1. 필터 검색 상자에 **Azure Active Directory를** 입력한 다음 결과에서 **Azure Active Directory** 항목을 선택합니다.
 
 1. **Azure Active Directory** 창에 있는 **Azure Active Directory** 왼쪽 탐색 메뉴에서 **엔터프라이즈 애플리케이션**을 선택합니다.
-1. **모든 애플리케이션**을 선택하여 모든 애플리케이션 목록을 봅니다.
+1. **모든 응용 프로그램을** 선택하여 모든 응용 프로그램의 목록을 봅니다.
 
      여기에 원하는 애플리케이션이 보이지 않으면 **모든 애플리케이션** 목록의 맨 위에서 다양한 필터를 사용하여 목록을 제한하거나 목록을 아래로 스크롤하여 애플리케이션을 찾습니다.
 
 1. 목록에서 사용자 또는 보안 그룹을 할당하려는 애플리케이션을 선택합니다.
-1. 응용 프로그램의 **개요** 페이지에 있는 응용 프로그램의 왼쪽 탐색 메뉴에서 **속성** 을 선택 합니다.
-1. **사용자 할당이 필요합니까?** 설정을 찾아 **예**로 설정합니다. 이 옵션을 **예**로 설정 하면 사용자가 먼저이 응용 프로그램에 할당 되어야 액세스할 수 있습니다.
+1. 응용 프로그램의 **개요** 페이지에서 응용 프로그램의 왼쪽 탐색 메뉴에서 **속성을** 선택합니다.
+1. **사용자 할당이 필요합니까?** 설정을 찾아 **예**로 설정합니다. 이 옵션이 **예로**설정되면 사용자가 먼저 이 응용 프로그램에 액세스하려면 먼저 이 응용 프로그램에 할당해야 합니다.
 1. **저장**을 선택하여 이 구성 변경을 저장합니다.
 
 ### <a name="app-registration"></a>앱 등록
 
-1. [**Azure Portal**](https://portal.azure.com/)로 이동 합니다.
+1. [**Azure 포털로**](https://portal.azure.com/)이동합니다.
 1. 위쪽 바에서 로그인 계정을 선택합니다. 
 1. **디렉터리**에서 앱을 등록할 Azure AD 테넌트를 선택합니다.
 1. 왼쪽 탐색 메뉴에서 **Azure Active Directory**를 선택합니다.
-1. **Azure Active Directory** 창의 왼쪽 탐색 메뉴 **Azure Active Directory** 에서 **앱 등록** 을 선택 합니다.
-1. 관리 하려는 앱을 만들거나 선택 합니다. 이 앱 등록의 **소유자** 여야 합니다.
-1. 응용 프로그램의 **개요** 페이지에서 페이지 위쪽의 essentials 아래에 있는 **로컬 디렉터리의 관리 되는 응용 프로그램** 링크를 따릅니다. 그러면 앱 등록의 _관리 되는 엔터프라이즈 응용 프로그램_ 으로 이동 합니다.
-1. 왼쪽의 탐색 블레이드에서 **속성**을 선택 합니다.
-1. **사용자 할당이 필요합니까?** 설정을 찾아 **예**로 설정합니다. 이 옵션을 **예**로 설정 하면 사용자가 먼저이 응용 프로그램에 할당 되어야 액세스할 수 있습니다.
+1. Azure **Active Directory** 창에서 **Azure Active Directory** 왼쪽 탐색 메뉴에서 **앱 등록을** 선택합니다.
+1. 관리하려는 앱을 만들거나 선택합니다. 이 응용 프로그램 등록의 **소유자여야** 합니다.
+1. 응용 프로그램의 **개요** 페이지에서 페이지 상단의 필수 요소 아래에 있는 로컬 디렉터리 링크에서 **관리되는 응용 프로그램을** 따릅니다. 그러면 앱 등록의 _관리되는 엔터프라이즈 응용 프로그램으로_ 이동합니다.
+1. 왼쪽의 탐색 블레이드에서 **속성**을 선택합니다.
+1. **사용자 할당이 필요합니까?** 설정을 찾아 **예**로 설정합니다. 이 옵션이 **예로**설정되면 사용자가 먼저 이 응용 프로그램에 액세스하려면 먼저 이 응용 프로그램에 할당해야 합니다.
 1. **저장**을 선택하여 이 구성 변경을 저장합니다.
 
 ## <a name="assign-users-and-groups-to-the-app"></a>앱에 사용자 및 그룹 할당

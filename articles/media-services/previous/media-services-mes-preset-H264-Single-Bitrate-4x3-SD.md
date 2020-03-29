@@ -1,6 +1,6 @@
 ---
 title: H264 단일 비트 전송률 4x3 SD Media Encoder Standard 사전 설정 - Azure | Microsoft Docs
-description: 이 항목은 **H264 단일 비트 전송률 4x3 SD** 태스크 미리 설정에 대한 개요를 제공합니다.
+description: 이 항목은 **H264 단일 비트 레이트 4x3 SD** 작업 사전 설정의 개요를 제공합니다.
 author: Juliako
 manager: femila
 editor: ''
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: a1359bacdf6735ca49e22d7c7b6d0014d56f1735
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61129477"
 ---
 # <a name="h264-single-bitrate-4x3-sd"></a>H264 단일 비트 전송률 4x3 SD

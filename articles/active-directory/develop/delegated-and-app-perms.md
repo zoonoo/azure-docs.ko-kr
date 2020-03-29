@@ -1,5 +1,5 @@
 ---
-title: 위임 된 권한 및 앱 권한 간의 차이점 | Microsoft
+title: 위임된 권한과 앱 권한의 차이점 | Azure
 description: 위임된 권한과 애플리케이션 권한에 대해 알아보고 Azure AD로 개발 중인 애플리케이션에 대해 리소스에서 표시하고 클라이언트에서 사용하는 방법을 알아봅니다.
 services: active-directory
 author: rwike77
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: ryanwi
 ms.openlocfilehash: 5f7035472ae408987a14f06492a762b56fa657b8
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76697611"
 ---
 # <a name="how-to-recognize-differences-between-delegated-and-application-permissions"></a>위임된 권한과 애플리케이션 권한 간의 차이점을 인식하는 방법

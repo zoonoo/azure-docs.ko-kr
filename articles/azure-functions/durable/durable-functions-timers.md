@@ -5,31 +5,31 @@ ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 0565cc149a36baf31d8516fffcf48b194c465760
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76261486"
 ---
 # <a name="timers-in-durable-functions-azure-functions"></a>지속성 함수의 타이머(Azure Functions)
 
 [지속성 함수](durable-functions-overview.md)는 지연을 구현하거나 비동기 작업에 대한 시간 제한을 설정하기 위해 오케스트레이터 함수에 사용할 *지속성 타이머*를 제공합니다. 지속성 타이머는 `Thread.Sleep` 및 `Task.Delay`(C#) 또는 `setTimeout()` 및 `setInterval()`(JavaScript) 대신, 오케스트레이터 함수에 사용해야 합니다.
 
-[오케스트레이션 트리거 바인딩의](durable-functions-bindings.md#orchestration-trigger)`CreateTimer` (.net) 메서드 또는 `createTimer` (JavaScript) 메서드를 호출 하 여 지 속성 타이머를 만듭니다. 메서드는 지정 된 날짜와 시간에 완료 되는 작업을 반환 합니다.
+`CreateTimer` [오케스트레이션 트리거 바인딩의](durable-functions-bindings.md#orchestration-trigger)(.NET) 메서드 `createTimer` 또는 (JavaScript) 메서드를 호출 하여 내구성 있는 타이머를 만듭니다. 메서드는 지정된 날짜 및 시간에 완료 되는 작업을 반환 합니다.
 
 ## <a name="timer-limitations"></a>타이머 제한 사항
 
-오후 4:30 시에 만료 되는 타이머를 만들 때 기본 지 속성 작업 프레임 워크는 4:30 pm 에서만 표시 되는 메시지를 큐 합니다. Azure Functions 소비 계획에서 실행 하는 경우 새로 표시 되는 타이머 메시지는 함수 앱이 적절 한 VM에서 활성화 되도록 합니다.
+오후 4시 30분에 만료되는 타이머를 만들면 기본 지속적 작업 프레임워크는 오후 4시 30분에만 표시되는 메시지를 큐에 대기합니다. Azure Functions 소비 계획에서 실행 될 때 새로 보이는 타이머 메시지 함수 응용 프로그램 적절 한 VM에서 활성화 되 면 확인 합니다.
 
 > [!NOTE]
-> * 지 속성 타이머는 현재 7 일로 제한 됩니다. 지연 시간이 더 오래 걸리는 경우 `while` 루프의 타이머 Api를 사용 하 여 시뮬레이션할 수 있습니다.
-> * 영 속 타이머의 화재 시간을 계산할 때 JavaScript에서 `Date.now` 또는 `Date.UTC` 대신 .NET 또는 `currentUtcDateTime` 대신 `DateTime.UtcNow` `CurrentUtcDateTime`를 항상 사용 합니다. 자세한 내용은 [orchestrator 함수 코드 제약 조건](durable-functions-code-constraints.md) 문서를 참조 하세요.
+> * 내구성이 뛰어난 타이머는 현재 7일로 제한됩니다. 더 긴 지연이 필요한 경우 루프의 타이머 API를 `while` 사용하여 시뮬레이션할 수 있습니다.
+> * 내구성이 `CurrentUtcDateTime` 뛰어난 `DateTime.UtcNow` 타이머의 `currentUtcDateTime` 가동 `Date.now` 중지 `Date.UTC` 시간을 계산할 때는 항상 .NET 대신 사용하거나 JavaScript 대신 사용하십시오. 자세한 내용은 [오케스트레이터 함수 코드 제약 조건 문서를 참조하세요.](durable-functions-code-constraints.md)
 
 ## <a name="usage-for-delay"></a>지연 사용
 
-다음 예제에서는 실행 지연에 지속성 타이머를 사용하는 방법을 보여 줍니다. 예는 매일 10 일 동안 청구 알림을 실행 하는 것입니다.
+다음 예제에서는 실행 지연에 지속성 타이머를 사용하는 방법을 보여 줍니다. 이 예제는 10일 동안 매일 청구 알림을 발행하는 것입니다.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 ```csharp
 [FunctionName("BillingIssuer")]
@@ -46,9 +46,9 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> 이전 C# 예제에서는 Durable Functions 2.x를 대상으로 합니다. 1\.x Durable Functions의 경우 `IDurableOrchestrationContext`대신 `DurableOrchestrationContext`를 사용 해야 합니다. 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
+> 이전 C# 예제는 내구성 함수 2.x를 대상으로 합니다. 지속 기능 1.x의 경우 `DurableOrchestrationContext` `IDurableOrchestrationContext`을 대신 사용해야 합니다. 버전 간의 차이점에 대한 자세한 내용은 [지속 형 기능 버전](durable-functions-versions.md) 문서를 참조하십시오.
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[자바 스크립트](#tab/javascript)
 
 ```js
 const df = require("durable-functions");
@@ -72,7 +72,7 @@ module.exports = df.orchestrator(function*(context) {
 
 이 예제에서는 지속성 타이머를 사용하여 시간 제한을 구현하는 방법을 보여 줍니다.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 ```csharp
 [FunctionName("TryGetQuote")]
@@ -104,9 +104,9 @@ public static async Task<bool> Run(
 ```
 
 > [!NOTE]
-> 이전 C# 예제에서는 Durable Functions 2.x를 대상으로 합니다. 1\.x Durable Functions의 경우 `IDurableOrchestrationContext`대신 `DurableOrchestrationContext`를 사용 해야 합니다. 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
+> 이전 C# 예제는 내구성 함수 2.x를 대상으로 합니다. 지속 기능 1.x의 경우 `DurableOrchestrationContext` `IDurableOrchestrationContext`을 대신 사용해야 합니다. 버전 간의 차이점에 대한 자세한 내용은 [지속 형 기능 버전](durable-functions-versions.md) 문서를 참조하십시오.
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[자바 스크립트](#tab/javascript)
 
 ```js
 const df = require("durable-functions");
@@ -135,11 +135,11 @@ module.exports = df.orchestrator(function*(context) {
 ---
 
 > [!WARNING]
-> `CancellationTokenSource` (.NET)를 사용 하거나 반환 된 `TimerTask` (JavaScript)에서 `cancel()`를 호출 하 여 코드가 완료 될 때까지 기다리지 않는 경우 지 속성 타이머를 취소 합니다. 지 속성 작업 프레임 워크는 처리 중인 모든 작업이 완료 되거나 취소 될 때까지 오케스트레이션의 상태를 "완료 됨"으로 변경 하지 않습니다.
+> 코드가 `CancellationTokenSource` 완료될 때까지 기다리지 않을 `TimerTask` 경우 반환된(JavaScript)을 호출하여 `cancel()` 지속가능한 타이머를 취소합니다. 지속형 작업 프레임워크는 모든 미해결 작업이 완료되거나 취소될 때까지 오케스트레이션의 상태를 "완료"로 변경하지 않습니다.
 
-이 취소 메커니즘은 진행 중인 작업 함수 또는 하위 오케스트레이션 실행을 종료 하지 않습니다. 대신 단순히 오케스트레이터 함수를 사용하여 결과를 무시하고 계속 진행할 수 있습니다. 함수 앱이 소비 계획을 사용 하는 경우 중단 된 작업 함수에서 사용 하는 시간 및 메모리에 대 한 요금이 계속 청구 됩니다. 기본적으로 소비 계획에서 실행되는 함수의 시간 제한은 5분입니다. 이 제한을 초과하면 모든 실행을 중지하고 런어웨이 청구 상황을 방지하기 위해 Azure Functions 호스트가 재활용됩니다. [함수 시간 제한은 구성 가능](../functions-host-json.md#functiontimeout)합니다.
+이 취소 메커니즘은 진행 중인 활동 함수 또는 하위 오케스트레이션 실행을 종료하지 않습니다. 대신 단순히 오케스트레이터 함수를 사용하여 결과를 무시하고 계속 진행할 수 있습니다. 함수 앱에서 소비 계획을 사용하는 경우 중단된 활동 함수에서 소비하는 모든 시간과 메모리에 대한 요금이 계속 청구됩니다. 기본적으로 소비 계획에서 실행되는 함수의 시간 제한은 5분입니다. 이 제한을 초과하면 모든 실행을 중지하고 런어웨이 청구 상황을 방지하기 위해 Azure Functions 호스트가 재활용됩니다. [함수 시간 제한은 구성 가능](../functions-host-json.md#functiontimeout)합니다.
 
-Orchestrator 함수에서 시간 제한을 구현 하는 방법에 대 한 자세한 예제는 [사용자 상호 작용 & 시간 제한-전화 확인](durable-functions-phone-verification.md) 문서를 참조 하세요.
+오케스트레이터 함수에서 시간 시간을 구현하는 방법에 대한 자세한 예제는 [휴먼 상호 작용 & 시간 설정 - 전화 확인](durable-functions-phone-verification.md) 문서를 참조하십시오.
 
 ## <a name="next-steps"></a>다음 단계
 

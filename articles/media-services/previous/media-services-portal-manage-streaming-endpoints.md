@@ -1,6 +1,6 @@
 ---
 title: Azure Portal을 통해 스트리밍 엔드포인트 관리 | Microsoft 문서
-description: 이 문서에서는 Azure Portal를 사용 하 여 스트리밍 끝점을 관리 하는 방법을 보여 줍니다.
+description: 이 문서에서는 Azure 포털에서 스트리밍 끝점을 관리하는 방법을 보여 줍니다.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 57ec22cb02512577f8737718cae9175403fb5603
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74900874"
 ---
 # <a name="manage-streaming-endpoints-with-the-azure-portal"></a>Azure 포털을 통해 스트리밍 엔드포인트 관리 
@@ -55,15 +55,15 @@ Azure 포털을 사용하여 스트리밍 엔드포인트를 추가/삭제하려
     다른 CDN 및 직접 액세스를 사용하려는 경우 여러 스트리밍 엔드포인트를 배치하는 것이 좋습니다.
 
 2. 스트리밍 엔드포인트를 삭제하려면 **삭제** 단추를 누릅니다.      
-3. 스트리밍 엔드포인트를 시작하려면 **시작** 단추를 클릭합니다.
+3. **시작** 버튼을 클릭하여 스트리밍 끝점을 시작합니다.
    
     ![스트리밍 엔드포인트](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints2.png)
 
 
-## <a id="configure_streaming_endpoints"></a>스트리밍 엔드포인트 구성
+## <a name="configuring-the-streaming-endpoint"></a><a id="configure_streaming_endpoints"></a>스트리밍 엔드포인트 구성
 스트리밍 엔드포인트를 사용하면 다음 속성을 구성할 수 있습니다.
 
-* 액세스 제어
+* Access Control
 * 캐시 제어
 * 교차 사이트 액세스 정책
 
@@ -89,7 +89,7 @@ Azure 포털을 사용하여 스트리밍 엔드포인트를 추가/삭제하려
 
 자세한 내용은 [이](media-services-portal-scale-streaming-endpoints.md) 문서를 참조하세요.
 
-## <a id="enable_cdn"></a>Azure CDN 통합 사용
+## <a name="enable-azure-cdn-integration"></a><a id="enable_cdn"></a>Azure CDN 통합 사용
 
 새 계정을 만들면 기본 스트리밍 엔드포인트 Azure CDN 통합이 기본적으로 설정됩니다.
 
@@ -102,7 +102,7 @@ CDN 통합을 사용하는 경우 **액세스 제어**, 사용자 지정 호스�
 > [!IMPORTANT]
 > Azure Media Services와 Azure CDN의 통합은 **Verizon의 Azure CDN**에서 표준 스트리밍 엔드포인트에 구현됩니다. 프리미엄 스트리밍 엔드포인트는 모든 **Azure CDN 가격 책정 및 공급자**를 사용하여 구성할 수 있습니다. Azure CDN 기능에 대한 자세한 내용은 [CDN 개요](../../cdn/cdn-overview.md)를 참조하세요.
  
-### <a name="additional-considerations"></a>추가 고려 사항
+### <a name="additional-considerations"></a>기타 고려 사항
 
 * 스트리밍 엔드포인트에 CDN이 사용되면 클라이언트에서는 원점으로부터 직접 콘텐츠를 요청할 수 없습니다. CDN을 사용하거나 사용하지 않고 콘텐츠를 테스트하는 기능이 필요하면 CDN이 사용하도록 설정되지 않은 또 다른 스트리밍 엔드포인트를 만들 수 있습니다.
 * 스트리밍 엔드포인트 호스트 이름은 CDN을 사용하도록 설정한 후에도 동일하게 유지됩니다. CDN을 사용하도록 설정한 후 미디어 서비스 워크플로에 변경 내용을 적용할 필요가 없습니다. 예를 들어 스트리밍 엔드포인트 호스트 이름이 strasbourg.streaming.mediaservices.windows.net이면 CDN을 사용하도록 설정한 후에 똑같은 호스트 이름이 사용됩니다.
@@ -120,6 +120,6 @@ Media Services 학습 경로를 검토합니다.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>피드백 제공하기
+## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

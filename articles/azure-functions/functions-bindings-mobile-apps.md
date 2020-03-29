@@ -6,16 +6,16 @@ ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
 ms.openlocfilehash: 952a94797e01a3931fdd151461250af0c2590c11
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76120544"
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Azure Functions의 Mobile Apps 바인딩 
 
 > [!NOTE]
-> Azure Mobile Apps 바인딩은 Azure Functions 1.x에만 사용할 수 있습니다. Azure Functions 2.x 이상에서는 지원 되지 않습니다.
+> Azure Mobile Apps 바인딩은 Azure Functions 1.x에만 사용할 수 있습니다. Azure 함수 2.x 이상에서는 지원되지 않습니다.
 
 이 문서에서는 Azure Functions에서 [Azure Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md) 바인딩을 사용하여 작업하는 방법을 설명합니다. Azure Functions는 Mobile Apps에 대한 입력 및 출력 바인딩을 지원합니다.
 
@@ -132,17 +132,17 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="input---configuration"></a>입력 - 구성
 
-다음 표에서는 *function.json* 파일 및 `MobileTable` 특성에 설정된 바인딩 구성 속성을 설명합니다.
+다음 표에서는 *function.json* 파일및 특성에서 설정한 바인딩 `MobileTable` 구성 속성에 대해 설명합니다.
 
-|function.json 속성 | 특성 속성 |Description|
+|function.json 속성 | 특성 속성 |설명|
 |---------|---------|----------------------|
-| **type**| n/a | "mobileTable"로 설정해야 합니다.|
-| **direction**| n/a |"in"으로 설정해야 합니다.|
-| **name**| n/a | 함수 시그니처의 입력 매개 변수 이름입니다.|
-|**tableName** |**TableName**|모바일 앱 데이터 테이블의 이름입니다.|
+| **종류**| 해당 없음 | "mobileTable"로 설정해야 합니다.|
+| **direction**| 해당 없음 |"in"으로 설정해야 합니다.|
+| **(이름)**| 해당 없음 | 함수 시그니처의 입력 매개 변수 이름입니다.|
+|**Tablename** |**Tablename**|모바일 앱 데이터 테이블의 이름입니다.|
 | **id**| **Id** | 검색할 레코드의 식별자입니다. 정적이거나 함수를 호출하는 트리거를 기반으로 할 수 있습니다. 예를 들어, 함수에 대해 큐 트리거를 사용하는 경우 `"id": "{queueTrigger}"`는 검색할 레코드 ID로 큐 메시지의 문자열 값을 사용합니다.|
 |**연결**|**연결**|모바일 앱의 URL이 있는 앱 설정의 이름입니다. 함수는 이 URL을 사용하여 모바일 앱에 대해 필요한 나머지 작업을 구성합니다. 모바일 앱의 URL이 포함된 함수 앱에 앱 설정을 만든 다음 입력 바인딩의 `connection` 속성에 앱 설정의 이름을 지정합니다. URL은 다음과 같습니다. `http://<appname>.azurewebsites.net`
-|**apiKey**|**ApiKey**|모바일 앱의 API 키가 있는 앱 설정의 이름입니다. [Node.js 모바일 앱에 API 키를 구현](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key)하거나 [.NET 모바일 앱에 API 키를 구현](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key)하는 경우 API 키를 제공합니다. 키를 제공하려면 API 키가 포함된 함수 앱의 앱 설정을 만단 다음 `apiKey` 속성을 앱 설정의 이름과 함께 입력 바인딩에 추가합니다. |
+|**api키**|**ApiKey**|모바일 앱의 API 키가 있는 앱 설정의 이름입니다. [Node.js 모바일 앱에 API 키를 구현](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key)하거나 [.NET 모바일 앱에 API 키를 구현](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key)하는 경우 API 키를 제공합니다. 키를 제공하려면 API 키가 포함된 함수 앱의 앱 설정을 만단 다음 `apiKey` 속성을 앱 설정의 이름과 함께 입력 바인딩에 추가합니다. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -165,9 +165,9 @@ Mobile Apps 출력 바인딩을 사용하여 Mobile Apps 테이블에 새 레코
 
 언어 관련 예제를 참조하세요.
 
-* [C#](#output---c-example)
+* [C #](#output---c-example)
 * [C# 스크립트(.csx)](#output---c-script-example)
-* [JavaScript](#output---javascript-example)
+* [자바 스크립트](#output---javascript-example)
 
 ### <a name="output---c-example"></a>출력 - C# 예제
 
@@ -290,16 +290,16 @@ public static object Run(
 
 ## <a name="output---configuration"></a>출력 - 구성
 
-다음 표에서는 *function.json* 파일 및 `MobileTable` 특성에 설정된 바인딩 구성 속성을 설명합니다.
+다음 표에서는 *function.json* 파일및 특성에서 설정한 바인딩 `MobileTable` 구성 속성에 대해 설명합니다.
 
-|function.json 속성 | 특성 속성 |Description|
+|function.json 속성 | 특성 속성 |설명|
 |---------|---------|----------------------|
-| **type**| n/a | "mobileTable"로 설정해야 합니다.|
-| **direction**| n/a |"out"으로 설정해야 합니다.|
-| **name**| n/a | 함수 시그니처의 출력 매개 변수 이름입니다.|
-|**tableName** |**TableName**|모바일 앱 데이터 테이블의 이름입니다.|
+| **종류**| 해당 없음 | "mobileTable"로 설정해야 합니다.|
+| **direction**| 해당 없음 |"out"으로 설정해야 합니다.|
+| **(이름)**| 해당 없음 | 함수 시그니처의 출력 매개 변수 이름입니다.|
+|**Tablename** |**Tablename**|모바일 앱 데이터 테이블의 이름입니다.|
 |**연결**|**MobileAppUriSetting**|모바일 앱의 URL이 있는 앱 설정의 이름입니다. 함수는 이 URL을 사용하여 모바일 앱에 대해 필요한 나머지 작업을 구성합니다. 모바일 앱의 URL이 포함된 함수 앱에 앱 설정을 만든 다음 입력 바인딩의 `connection` 속성에 앱 설정의 이름을 지정합니다. URL은 다음과 같습니다. `http://<appname>.azurewebsites.net`
-|**apiKey**|**ApiKeySetting**|모바일 앱의 API 키가 있는 앱 설정의 이름입니다. [Node.js 모바일 앱 백 엔드에 API 키를 구현](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key)하거나 [.NET 모바일 앱 백 엔드에 API 키를 구현](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key)하는 경우 API 키를 제공합니다. 키를 제공하려면 API 키가 포함된 함수 앱의 앱 설정을 만단 다음 `apiKey` 속성을 앱 설정의 이름과 함께 입력 바인딩에 추가합니다. |
+|**api키**|**ApiKeySetting**|모바일 앱의 API 키가 있는 앱 설정의 이름입니다. [Node.js 모바일 앱 백 엔드에 API 키를 구현](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key)하거나 [.NET 모바일 앱 백 엔드에 API 키를 구현](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key)하는 경우 API 키를 제공합니다. 키를 제공하려면 API 키가 포함된 함수 앱의 앱 설정을 만단 다음 `apiKey` 속성을 앱 설정의 이름과 함께 입력 바인딩에 추가합니다. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

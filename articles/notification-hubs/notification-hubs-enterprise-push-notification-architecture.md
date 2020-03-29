@@ -1,6 +1,6 @@
 ---
-title: Notification Hubs enterprise push 아키텍처
-description: 엔터프라이즈 환경에서 Azure Notification Hubs를 사용 하는 방법을 알아봅니다.
+title: 알림 허브 엔터프라이즈 푸시 아키텍처
+description: 엔터프라이즈 환경에서 Azure 알림 허브 사용에 대해 알아보기
 services: notification-hubs
 documentationcenter: ''
 author: sethmanheim
@@ -17,17 +17,17 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: 0104547a432f7f78d74731e11926bcd82088cef7
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76264036"
 ---
 # <a name="enterprise-push-architectural-guidance"></a>엔터프라이즈 푸시 아키텍처 지침
 
 오늘날 기업에서는 최종 사용자(외부)를 위해 또는 직원(내부)을 위해 모바일 애플리케이션을 만드는 일이 점점 많아지고 있습니다. 기업은 가동 중인 기존 백 엔드 시스템이 모바일 애플리케이션 아키텍처에 통합되어야 하는 메인프레임 또는 일부 LoB 애플리케이션이 되도록 합니다. 이 가이드에서는 일반적인 시나리오에 사용 가능한 솔루션을 권장하는 이 통합을 가장 잘 수행할 수 있는 방법에 대해 설명합니다.
 
-백엔드 시스템에서 관심 이벤트가 발생하는 경우 해당 모바일 애플리케이션을 통해 사용자에게 푸시 알림을 보내기 위한 일반적인 요구 사항입니다. 예를 들어 iPhone에서 은행 뱅킹 앱을 보유 하 고 있는 은행 고객은 계좌에서 특정 금액을 초과 하는 경우 또는 Windows Phone에 대 한 예산 승인 앱을 보유 하 고 있는 재무 부서의 직원이 있는 인트라넷 시나리오에 대 한 알림이 표시 되려고 합니다.  승인 요청을 받을 때 알림이 표시 됩니다.
+백엔드 시스템에서 관심 이벤트가 발생하는 경우 해당 모바일 애플리케이션을 통해 사용자에게 푸시 알림을 보내기 위한 일반적인 요구 사항입니다. 예를 들어, iPhone에 은행의 뱅킹 앱을 가지고 있는 은행 고객은 계정에서 일정 금액 이상으로 직불이 이루어지거나 Windows Phone에 예산 승인 앱이 있는 재무 부서의 직원이 원하는 인트라넷 시나리오를 통해 알림을 받으려고 합니다. 승인 요청이 수신되면 알림을 받을 수 있습니다.
 
 은행 계좌 또는 승인 처리는 사용자에게 푸시를 초기화해야 하는 일부 백 엔드 시스템에서 수행될 수 있습니다. 이벤트가 알림을 트리거할 때 같은 종류의 논리를 모두 동일하게 빌드하여 푸시해야 하는 여러 백 엔드 시스템이 있을 수 있습니다. 여기에서는 여러 백 엔드 시스템을 단일 푸시 시스템에 함께 통합할 때의 복잡성을 설명합니다. 최종 사용자는 다양한 알림을 구독했을 수 있고 여기에는 여러 모바일 애플리케이션이 있을 수도 있습니다. 예를 들어 인트라넷 모바일 앱의 경우 특정 모바일 애플리케이션이 그러한 여러 백 엔드 시스템에서 알림을 받기를 원할 수 있습니다. 백 엔드 시스템은 푸시 의미론/기술을 모르거나 알고 있어야 합니다. 그래서 일반적인 솔루션은 전통적으로 모든 관심 이벤트의 백 엔드 시스템을 폴링한 구성 요소를 소개했으며 클라이언트에 푸시 메시지를 전송하는 역할을 담당합니다.
 
@@ -35,43 +35,43 @@ ms.locfileid: "76264036"
 
 이는 일반 솔루션 아키텍처입니다(여러 모바일 앱으로 일반화되었지만 모바일 앱이 하나뿐일 경우 동일하게 적용할 수 있음).
 
-## <a name="architecture"></a>아키텍처
+## <a name="architecture"></a>Architecture
 
 ![][1]
 
-이 아키텍처 다이어그램의 핵심 부분은 항목/구독 프로그래밍 모델(자세한 내용은 [Service Bus Pub/Sub 프로그래밍]참조)을 제공하는 Azure Service Bus입니다. 이 경우에 받는 사람인 모바일 백 엔드(일반적으로 모바일 앱에 푸시를 시작하는 [Azure 모바일 서비스])는 백 엔드 시스템에서 직접 메시지를 수신하지 않지만 대신 [Azure Service Bus]에서 제공하는 중간 추상화 계층을 가지고 있기 때문에 모바일 백 엔드가 하나 이상의 백 엔드 시스템에서 메시지를 받을 수 있습니다. 각각의 백 엔드 시스템(예: 계정, HR, 재정)에 대해 Service Bus 항목을 만들어야 하며 기본적으로 메시지를 푸시 알림으로 보내기 시작할 관심 "항목"입니다. 백 엔드 시스템은 이러한 항목에 메시지를 보냅니다. 모바일 백엔드는 Service Bus 구독을 만들어 이러한 항목을 하나 이상 구독할 수 있습니다. 이를 통해 모바일 백 엔드가 해당 백 엔드 시스템에서 알림을 받도록 할 수 있습니다. 모바일 백엔드는 계속 해당 구독에서 메시지를 수신하고 메시지가 도착하는 즉시 다시 해당 알림 허브에 알림을 보냅니다. 그런 다음 알림 허브는 마침내 메시지를 모바일 앱으로 전달합니다. 주요 구성 요소 목록은 다음과 같습니다.
+이 아키텍처 다이어그램의 핵심 부분은 항목/구독 프로그래밍 모델(자세한 내용은 [Service Bus Pub/Sub 프로그래밍]참조)을 제공하는 Azure Service Bus입니다. 이 경우 수신기는 모바일 백 엔드(일반적으로 [모바일]앱에 푸시를 시작하는 Azure Mobile Service)인 데다 백 엔드 시스템에서 직접 메시지를 수신하지 않고 대신 모바일 백 엔드가 하나 이상의 백 엔드 시스템에서 메시지를 받을 수 있도록 [Azure Service Bus에서]제공하는 중간 추상화 계층입니다. 각각의 백 엔드 시스템(예: 계정, HR, 재정)에 대해 Service Bus 항목을 만들어야 하며 기본적으로 메시지를 푸시 알림으로 보내기 시작할 관심 "항목"입니다. 백 엔드 시스템은 이러한 항목에 메시지를 보냅니다. 모바일 백엔드는 Service Bus 구독을 만들어 이러한 항목을 하나 이상 구독할 수 있습니다. 이를 통해 모바일 백 엔드가 해당 백 엔드 시스템에서 알림을 받도록 할 수 있습니다. 모바일 백엔드는 계속 해당 구독에서 메시지를 수신하고 메시지가 도착하는 즉시 다시 해당 알림 허브에 알림을 보냅니다. 그런 다음 알림 허브는 마침내 메시지를 모바일 앱으로 전달합니다. 주요 구성 요소 목록은 다음과 같습니다.
 
 1. 백엔드 시스템(LoB/레거시 시스템)
    * Service Bus 항목 만들기
    * 메시지 보내기
-1. 모바일 백 엔드
+1. 모바일 백엔드
    * 서비스 구독 만들기
    * 메시지 받기(백엔드 시스템에서)
    * 클라이언트에 알림 보내기(Azure 알림 허브를 통해)
 1. 모바일 애플리케이션
    * 알림 수신 및 표시
 
-### <a name="benefits"></a>혜택
+### <a name="benefits"></a>이점
 
 1. 수신자(알림 허브를 통한 모바일 앱/서비스)와 발신자(백엔드 시스템) 사이를 분리하면 최소한의 변경 내용을 가진 추가 백엔드 시스템을 통합할 수 있습니다.
 1. 이렇게 하면 하나 이상의 백 엔드 시스템에서 이벤트를 받을 수 있는 여러 모바일 앱 시나리오를 만들 수도 있습니다.  
 
-## <a name="sample"></a>샘플
+## <a name="sample"></a>예제
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>사전 요구 사항
 
 개념뿐만 아니라 일반적인 만들기 및 구성 단계에 익숙해지려면 다음 자습서를 완료합니다.
 
 1. [Service Bus Pub/Sub 프로그래밍] - 이 자습서는 Service Bus 항목/구독으로 작업하는 세부 사항, 항목/구독을 포함하는 네임스페이스를 만드는 방법 및 메시지를 송신 및 수신하는 방법에 대해 설명합니다.
 2. [Notification Hubs - Windows 범용 자습서] - 이 자습서는 Windows 스토어 앱을 설정하고 Notification Hubs를 사용하여 등록한 다음 알림을 수신하는 방법에 대해 설명합니다.
 
-### <a name="sample-code"></a>샘플 코드
+### <a name="sample-code"></a>예제 코드
 
 전체 샘플 코드는 [알림 허브 샘플]에서 사용 가능합니다. 세 가지 구성 요소로 구성되어 있습니다.
 
 1. **EnterprisePushBackendSystem**
 
-    a. 이 프로젝트는 **WindowsAzure.ServiceBus** NuGet 패키지를 사용하며 [Service Bus Pub/Sub 프로그래밍]을 기반으로 합니다.
+    a. 이 프로젝트는 **WindowsAzure.ServiceBus** NuGet 패키지를 사용 하며 [서비스 버스 Pub/하위 프로그래밍을]기반으로 합니다.
 
     b. 이 애플리케이션은 모바일 앱으로 메시지를 전달하기 시작하는 LoB 시스템을 시뮬레이션하기 위한 간단한 C# 콘솔 앱입니다.
 
@@ -240,7 +240,7 @@ ms.locfileid: "76264036"
 
 3. **EnterprisePushMobileApp**
 
-    a. 이 애플리케이션은 모바일 백 엔드의 일부로 실행 중인 WebJob에서 토스트 알림을 수신하여 이를 표시하는 Windows 스토어 애플리케이션입니다. 이 코드는 [Notification Hubs - Windows 범용 자습서]를 기반으로 합니다.  
+    a. 이 애플리케이션은 모바일 백 엔드의 일부로 실행 중인 WebJob에서 토스트 알림을 수신하여 이를 표시하는 Windows 스토어 애플리케이션입니다. 이 코드는 [Notification Hubs - Windows 유니버설 자습서]를 기반으로 합니다.  
 
     b. 애플리케이션이 토스트 알림을 받을 수 있는지 확인합니다.
 
@@ -267,7 +267,7 @@ ms.locfileid: "76264036"
 ### <a name="running-the-sample"></a>샘플 실행
 
 1. WebJob이 성공적으로 실행 중이고 계속 실행되도록 예약되었는지 확인합니다.
-2. Windows 스토어 앱을 시작 하는 **EnterprisePushMobileApp**를 실행 합니다.
+2. Windows 스토어 앱을 시작하는 **엔터프라이즈푸시모바일앱을**실행합니다.
 3. **EnterprisePushBackendSystem** 콘솔 애플리케이션을 실행하면 LoB 백 엔드를 시뮬레이션 하고 메시지를 보내기 시작하기 때문에 다음 이미지와 같이 나타나는 토스트 알림이 보여야 합니다.
 
     ![][5]
@@ -287,8 +287,8 @@ ms.locfileid: "76264036"
 <!-- Links -->
 [알림 허브 샘플]: https://github.com/Azure/azure-notificationhubs-samples
 [Azure 모바일 서비스]: https://azure.microsoft.com/documentation/services/mobile-services/
-[Azure Service Bus]: https://azure.microsoft.com/documentation/articles/fundamentals-service-bus-hybrid-solutions/
+[Azure 서비스 버스]: https://azure.microsoft.com/documentation/articles/fundamentals-service-bus-hybrid-solutions/
 [Service Bus Pub/Sub 프로그래밍]: https://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
 [Azure WebJob]: ../app-service/webjobs-create.md
 [Notification Hubs - Windows 범용 자습서]: https://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
-[Azure Portal]: https://portal.azure.com/
+[Azure 포털]: https://portal.azure.com/

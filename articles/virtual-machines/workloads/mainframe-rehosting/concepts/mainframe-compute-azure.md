@@ -1,138 +1,138 @@
 ---
-title: 메인프레임 계산을 Azure로 이동 Virtual Machines
-description: Azure 계산 리소스는 잘를 메인프레임 용량과 비교 하 여 IBM z14 응용 프로그램을 마이그레이션하고 현대화 수 있습니다.
+title: 메인프레임 계산을 Azure 가상 컴퓨터로 이동
+description: Azure 컴퓨팅 리소스는 메인프레임 용량과 유리하게 비교되므로 IBM z14 응용 프로그램을 마이그레이션하고 현대화할 수 있습니다.
 author: njray
 ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
 ms.openlocfilehash: 97f354d0a313d58c671366dd0e5f485504823e13
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76288934"
 ---
 # <a name="move-mainframe-compute-to-azure"></a>메인프레임 계산을 Azure로 이동
 
-메인프레임은 높은 안정성과 가용성을 위해 평판을가지고 있으며 많은 엔터프라이즈의 신뢰할 수 있는 백본으로 계속 유지 됩니다. 자주 발생 하는 확장성 및 컴퓨팅 전력이 거의 무제한 이라고 생각 하 고 있습니다. 그러나 일부 기업은 사용 가능한 가장 큰 메인프레임의 기능을 outgrown 합니다. 이와 같은 경우 Azure는 민첩성, 접근 및 인프라 절감 액을 제공 합니다.
+메인프레임은 높은 신뢰성과 가용성으로 명성을 얻고 있으며 많은 기업의 신뢰할 수 있는 중추역할을 계속하고 있습니다. 그들은 종종 거의 무한한 확장성과 컴퓨팅 파워를 가지고 있다고 생각됩니다. 그러나 일부 기업은 사용 가능한 가장 큰 메인프레임의 기능을 능가했습니다. 이 경우 Azure는 민첩성, 도달 범위 및 인프라 절감 효과를 제공합니다.
 
-Microsoft Azure에서 메인프레임 워크 로드를 실행 하려면 메인프레임 계산 기능이 Azure와 어떻게 비교 되는지 알아야 합니다. 이 문서는 IBM z14 메인프레임 (이 문서를 작성 하는 최신 모델)을 기반으로 하 여 Azure에서 비슷한 결과를 얻는 방법을 설명 합니다.
+Microsoft Azure에서 메인프레임 워크로드를 실행하려면 메인프레임의 계산 기능이 Azure와 어떻게 비교되는지 알아야 합니다. IBM z14 메인프레임(이 글을 쓰는 현재 모델)을 기반으로 이 문서에서는 Azure에서 비교 가능한 결과를 얻는 방법을 설명합니다.
 
-시작 하려면 환경을 나란히 고려 합니다. 다음 그림은 응용 프로그램을 실행 하는 메인프레임 환경을 Azure 호스팅 환경으로 비교 합니다.
+시작하려면 환경을 나란히 고려하십시오. 다음 그림에서 응용 프로그램을 실행하기 위한 메인프레임 환경을 Azure 호스팅 환경과 비교합니다.
 
-![Azure 서비스 및 에뮬레이션 환경에서는 비슷한 지원을 제공 하 고 마이그레이션을 간소화 합니다.](media/mainframe-compute-azure.png)
+![Azure 서비스 및 에뮬레이션 환경은 유사한 지원을 제공하고 마이그레이션을 간소화합니다.](media/mainframe-compute-azure.png)
 
-메인프레임의 강력한 기능은 수천 명의 사용자에 대해 수백만 개의 업데이트를 처리 하는 OLTP (온라인 트랜잭션 처리) 시스템에 자주 사용 됩니다. 이러한 응용 프로그램은 종종 트랜잭션 처리, 화면 처리 및 양식 입력을 위해 소프트웨어를 사용 합니다. 이러한 사용자는 CICS (고객 정보 컨트롤 시스템), IMS (정보 관리 시스템) 또는 트랜잭션 인터페이스 패키지 (TIP)를 사용할 수 있습니다.
+메인프레임의 힘은 종종 수천 명의 사용자에 대한 수백만 개의 업데이트를 처리하는 OLTP(온라인 트랜잭션 처리) 시스템에 사용됩니다. 이러한 응용 프로그램은 트랜잭션 처리, 화면 처리 및 양식 입력에 소프트웨어를 사용하는 경우가 많습니다. 고객 정보 제어 시스템(CICS), 정보 관리 시스템(IMS) 또는 트랜잭션 인터페이스 패키지(TIP)를 사용할 수 있습니다.
 
-그림에 표시 된 것 처럼 Azure의 TPM 에뮬레이터는 CICS 및 IMS 작업을 처리할 수 있습니다. Azure의 batch 시스템 에뮬레이터는 JCL (작업 제어 언어)의 역할을 수행 합니다. 메인프레임 데이터는 Azure SQL Database와 같은 Azure 데이터베이스로 마이그레이션됩니다. Azure Virtual Machines에서 호스트 되는 azure 서비스 또는 기타 소프트웨어를 시스템 관리에 사용할 수 있습니다.
+그림에서 볼 수 있듯이 Azure의 TPM 에뮬레이터는 CICS 및 IMS 워크로드를 처리할 수 있습니다. Azure의 일괄 처리 시스템 에뮬레이터는 JCL(작업 제어 언어)의 역할을 수행합니다. 메인프레임 데이터는 Azure SQL 데이터베이스와 같은 Azure 데이터베이스로 마이그레이션됩니다. Azure 가상 시스템에서 호스팅되는 Azure 서비스 또는 기타 소프트웨어를 시스템 관리에 사용할 수 있습니다.
 
-## <a name="mainframe-compute-at-a-glance"></a>메인프레임 컴퓨팅 한 눈에 보기
+## <a name="mainframe-compute-at-a-glance"></a>메인프레임 한눈에 계산
 
-Z14 메인프레임에서 프로세서는 최대 4 개의 *서랍*으로 정렬 됩니다. *서랍* 은 단순히 프로세서 및 칩셋의 클러스터입니다. 각 서랍에는 6 개의 액티브 중앙 프로세서 (CP) 칩이 있고 각 CP에는 10 개의 SC (시스템 컨트롤러) 칩이 있습니다. Intel x86 용어에는 서랍 당 6 개의 소켓, 소켓 당 10 개 코어 및 4 개의 서랍이 있습니다. 이 아키텍처는 z14에 대 한 24 소켓과 240 코어의 대략적인 값을 제공 합니다.
+z14 메인프레임에서 프로세서는 최대 *4개의 서랍에*배치되어 있습니다. *서랍은* 단순히 프로세서와 칩셋의 클러스터입니다. 각 서랍에는 6개의 액티브 센트럴 프로세서(CP) 칩이 있으며 각 CP에는 10개의 시스템 컨트롤러(SC) 칩이 있습니다. 인텔 x86 용어에는 서랍당 6개의 소켓, 소켓당 10개의 코어, 4개의 서랍이 있습니다. 이 아키텍처는 z14에 대해 최대 24개의 소켓과 240개의 코어와 대략적인 동등한 코어를 제공합니다.
 
-Fast z14 CP의 클록 속도는 5.2입니다. 일반적으로 z14는 모든 CPs와 함께 상자에 제공 됩니다. 필요에 따라 활성화 됩니다. 고객은 일반적으로 실제 사용량에도 불구 하 고 매달 4 시간 이상의 계산 시간에 대 한 요금이 부과 됩니다.
+빠른 z14 CP는 5.2GHz 클럭 속도를 가지고 있습니다. 일반적으로 z14는 상자에 있는 모든 AP와 함께 제공됩니다. 필요에 따라 활성화됩니다. 고객은 일반적으로 실제 사용량에도 불구하고 매월 최소 4시간의 계산 시간에 대한 요금이 부과됩니다.
 
 메인프레임 프로세서는 다음 유형 중 하나로 구성할 수 있습니다.
 
-- 일반 용도 (GP) 프로세서
-- 시스템 z zIIP (Integrated Information Processor)
-- Linux (IFL) 프로세서용 통합 기능
-- SAP (시스템 지원 프로세서)
-- ICF (통합 결합 기능) 프로세서
+- 범용(GP) 프로세서
+- 시스템 z 통합 정보 프로세서(zIIP)
+- 리눅스(IFL) 프로세서용 통합 시설
+- 시스템 지원 프로세서(SAP)
+- 통합 커플링 기능(ICF) 프로세서
 
-## <a name="scaling-mainframe-compute-up-and-out"></a>메인프레임 계산 확장 및 축소
+## <a name="scaling-mainframe-compute-up-and-out"></a>메인프레임 확장 계산
 
-IBM 메인프레임은 최대 240 코어 (단일 시스템의 현재 z14 크기)를 확장할 수 있는 기능을 제공 합니다. 또한 IBM 메인프레임은 CF (결합 기능) 이라는 기능을 통해 확장할 수 있습니다. CF를 사용 하면 여러 메인프레임 시스템이 동일한 데이터에 동시에 액세스할 수 있습니다. CF를 사용 하 여 메인프레임 병렬 Sysplex 기술은 클러스터의 메인프레임 프로세서를 그룹화 합니다. 이 가이드를 작성 했을 때 병렬 Sysplex 기능은 각각 64 프로세서의 32을 그룹화 하 여 지원 합니다. 계산 용량을 확장 하기 위해 최대 2048 프로세서를 이러한 방식으로 그룹화 할 수 있습니다.
+IBM 메인프레임은 최대 240개의 코어(단일 시스템의 현재 z14 크기)까지 확장할 수 있는 기능을 제공합니다. 또한 IBM 메인프레임은 커플링 시설(CF)이라는 기능을 통해 확장할 수 있습니다. CF를 사용하면 여러 메인프레임 시스템이 동일한 데이터에 동시에 액세스할 수 있습니다. 메인프레임 병렬 Sysplex 기술은 CF를 사용하여 클러스터의 메인프레임 프로세서를 그룹화합니다. 이 가이드를 작성할 때 병렬 Sysplex 기능은 각각 64개의 프로세서로 구성된 32개의 그룹을 지원했습니다. 이러한 방식으로 최대 2,048개의 프로세서를 그룹화하여 컴퓨팅 용량을 확장할 수 있습니다.
 
-CF를 사용 하면 계산 클러스터에서 직접 액세스와 데이터를 공유할 수 있습니다. 잠금 정보, 캐시 정보 및 공유 데이터 리소스 목록에 사용 됩니다. 하나 이상의 CFs를 사용 하는 병렬 Sysplex은 "모두 공유" 규모 확장 계산 클러스터로 간주할 수 있습니다. 이러한 기능에 대 한 자세한 내용은 IBM 웹 사이트에서 [Ibm Z의 Parallel Sysplex](https://www.ibm.com/it-infrastructure/z/technologies/parallel-sysplex-resources) 을 참조 하십시오.
+CF를 사용하면 계산 클러스터가 직접 액세스하여 데이터를 공유할 수 있습니다. 정보, 캐시 정보 및 공유 데이터 리소스 목록을 잠그는 데 사용됩니다. 하나 이상의 CF를 사용하는 병렬 Sysplex는 "모든 것을 공유하는" 확장 계산 클러스터로 생각할 수 있습니다. 이러한 기능에 대한 자세한 내용은 IBM 웹 사이트에서 [IBM Z의 병렬 Sysplex를](https://www.ibm.com/it-infrastructure/z/technologies/parallel-sysplex-resources) 참조하십시오.
 
-응용 프로그램은 이러한 기능을 사용 하 여 확장 성능 및 고가용성을 제공할 수 있습니다. CICS가 CF를 사용 하 여 병렬 Sysplex를 사용 하는 방법에 대 한 자세한 내용은 [IBM cics 및 결합 기능 (기본 레드북 이상](https://www.redbooks.ibm.com/redbooks/pdfs/sg248420.pdf) )을 다운로드 하세요.
+응용 프로그램은 이러한 기능을 사용하여 확장 성능과 고가용성을 모두 제공할 수 있습니다. CICS가 CF와 병렬 Sysplex를 사용하는 방법에 대한 자세한 내용은 [IBM CICS 및 커플링 기능: 기본](https://www.redbooks.ibm.com/redbooks/pdfs/sg248420.pdf) 레드북 을 넘어 다운로드하십시오.
 
-## <a name="azure-compute-at-a-glance"></a>Azure compute 한 눈에 보기
+## <a name="azure-compute-at-a-glance"></a>Azure 계산 한 눈에
 
-일부 사람들은 실수로 Intel 기반 서버를 메인프레임으로 강력 하 게 생각 하지 않는다고 생각 합니다. 그러나 새로운 코어 집적형 Intel 기반 시스템에는 메인프레임 만큼의 계산 용량이 있습니다. 이 섹션에서는 컴퓨팅 및 저장소에 대 한 Azure IaaS (infrastructure as a service) 옵션을 설명 합니다. Azure는 PaaS (platform as a service) 옵션도 제공 하지만이 문서에서는 유사한 메인프레임 용량을 제공 하는 IaaS 선택에 중점을 둘 수 있습니다.
+어떤 사람들은 인텔 기반 서버가 메인프레임만큼 강력하지 않다고 잘못 생각합니다. 그러나 새로운 코어 밀도가 높은 인텔 기반 시스템은 메인프레임만큼 의 컴퓨팅 용량을 가지고 있습니다. 이 섹션에서는 컴퓨팅 및 저장소에 대한 서비스로서의 Azure 인프라(IaaS) 옵션에 대해 설명합니다. Azure는 PaaS(서비스형 플랫폼) 옵션도 제공하지만 이 문서에서는 유사한 메인프레임 용량을 제공하는 IaaS 선택에 중점을 둡니다.
 
-Azure Virtual Machines 다양 한 크기와 형식으로 계산 능력을 제공 합니다. Azure에서 vCPU (가상 CPU)는 대략 메인프레임의 코어와 동일 합니다.
+Azure 가상 컴퓨터는 다양한 크기와 유형에서 계산 성능을 제공합니다. Azure에서 가상 CPU(vCPU)는 메인프레임의 코어와 거의 동일합니다.
 
-현재 Azure 가상 머신 크기 범위는 1 ~ 128 vCPUs를 제공 합니다. VM (가상 머신) 유형은 특정 워크 로드에 대해 최적화 됩니다. 예를 들어 다음 목록에는 VM 유형 (이 문서를 작성할 때 현재)과 권장 사용이 나와 있습니다.
+현재 Azure 가상 시스템 크기 범위는 1에서 128vCPU까지 제공합니다. 가상 컴퓨터(VM) 유형은 특정 워크로드에 최적화되어 있습니다. 예를 들어 다음 목록은 VM 유형(이 작성 현재)과 권장 용도를 보여 주었습니다.
 
 | 크기     | 유형 및 설명                                                                 |
 |----------|--------------------------------------------------------------------------------------|
-| D 시리즈 | 64 vCPU 및 최대 3.5 GHz 클럭 속도를 사용 하는 일반적인 용도                           |
-| E 시리즈 | 최대 64 vCPUs로 최적화 된 메모리                                                 |
-| F 시리즈 | 최대 64 vCPUs 및 3 ... 7ghz 클록 속도를 사용 하 여 최적화 된 계산                       |
-| H 시리즈 | HPC (고성능 컴퓨팅) 응용 프로그램에 최적화                          |
-| L 시리즈 | NoSQL과 같은 데이터베이스에서 지원 되는 처리량이 높은 응용 프로그램을 위해 최적화 된 저장소 |
-| M 시리즈 | 최대 128 vCPUs가 포함 된 가장 큰 계산 및 메모리 최적화 Vm                        |
+| D 시리즈 | 64vCPU및 최대 3.5GHz 클럭 속도의 범용                           |
+| E 시리즈 | 최대 64vCPU로 최적화된 메모리                                                 |
+| F 시리즈 | 최대 64vCPU 및 3..7GHz 클럭 속도로 최적화된 컴퓨팅                       |
+| H 시리즈 | 고성능 컴퓨팅(HPC) 애플리케이션에 최적화                          |
+| L 시리즈 | NoSQL과 같은 데이터베이스에서 지원하는 고처리량 애플리케이션에 최적화된 스토리지 |
+| M 시리즈 | 최대 128vCPU로 VM을 최적화한 최대 컴퓨팅 및 메모리                        |
 
-사용 가능한 Vm에 대 한 자세한 내용은 [가상 머신 시리즈](https://azure.microsoft.com/pricing/details/virtual-machines/series/)를 참조 하세요.
+사용 가능한 VM에 대한 자세한 내용은 [가상 컴퓨터 시리즈를](https://azure.microsoft.com/pricing/details/virtual-machines/series/)참조하십시오.
 
-Z14 메인프레임은 최대 240 코어를 포함할 수 있습니다. 그러나 z14 메인프레임은 단일 응용 프로그램 또는 워크 로드에 대 한 모든 코어를 거의 사용 하지 않습니다. 대신, 메인프레임은 워크 로드를 논리 파티션 (LPARs)으로 분리, LPARs에는 수 억 (초당 수백만 개의 명령) 또는 MSU (서비스 단위)의 등급이 있습니다. Azure에서 메인프레임 워크 로드를 실행 하는 데 필요한 동급의 VM 크기를 결정할 때 MIPS (또는 MSU) 등급을 고려해 야 합니다.
+z14 메인프레임에는 최대 240개의 코어가 있을 수 있습니다. 그러나 z14 메인프레임은 단일 응용 프로그램 이나 워크로드에 대 한 모든 코어를 사용 하지 않습니다. 대신 메인프레임은 워크로드를 논리적 파티션(LPA)으로 분리하고, LpA는 MIPS(초당 수백만 개의 명령) 또는 MSU(백만 서비스 단위)의 등급을 갖습니다. Azure에서 메인프레임 워크로드를 실행하는 데 필요한 비교 가능한 VM 크기를 결정할 때 MIPS(또는 MSU) 등급을 고려합니다.
 
-일반적인 예측은 다음과 같습니다.
+다음은 일반적인 추정치입니다.
 
--   vCPU 당 150 MIPS
+-   vCPU당 150MIPS
 
--   1000 MIPS
+-   프로세서당 1,000MIPS
 
-지정 된 워크 로드에 대 한 올바른 VM 크기를 지정 하려면 먼저 작업에 대해 VM을 최적화 합니다. 그런 다음 필요한 vCPUs 수를 결정 합니다. 보수적인 추정치는 vCPU 당 150입니다. 예를 들어이 예측을 기반으로 16 개 vCPUs가 포함 된 F 시리즈 VM은 2400 MIPS와 L-A에서 들어오는 IBM Db2 워크 로드를 쉽게 지원할 수 있습니다.
+LPAR에서 지정된 워크로드에 대한 올바른 VM 크기를 확인하려면 먼저 워크로드에 대한 VM을 최적화합니다. 그런 다음 필요한 vCPU 수를 확인합니다. 보수적인 추정치는 vCPU당 150 MIPS입니다. 예를 들어 이 추정치에 따르면 16개의 vCPU가 있는 F 시리즈 VM은 2,400MIPS의 LPAR에서 오는 IBM Db2 워크로드를 쉽게 지원할 수 있습니다.
 
 ## <a name="azure-compute-scale-up"></a>Azure 계산 확장
 
-M 시리즈 Vm은 최대 128 vCPUs (이 문서가 작성 된 시간)까지 확장 될 수 있습니다. VCPU 당 150 MIPS의 보수적인 추정치를 사용 하는 경우 M 시리즈 VM은 약 19000 MIPS와 동일 합니다. 메인프레임의 MIPS를 추정 하는 일반적인 규칙은 프로세서 당 1000입니다. Z14 메인프레임은 최대 24 개의 프로세서를 가질 수 있으며 단일 메인프레임 시스템에 대해 약 24000 MIPS를 제공할 수 있습니다.
+M 시리즈 VM은 최대 128개의 vCPU까지 확장할 수 있습니다(이 문서가 작성될 당시). VCPU당 150MIPS의 보수적인 추정치를 사용하는 M 시리즈 VM은 약 19,000MIPS에 해당합니다. 메인프레임에 대한 MIPS를 추정하는 일반적인 규칙은 프로세서당 1,000 MIPS입니다. z14 메인프레임에는 최대 24개의 프로세서가 있으며 단일 메인프레임 시스템에 대해 약 24,000MIPS를 제공할 수 있습니다.
 
-가장 큰 단일 z14 메인프레임은 Azure에서 사용할 수 있는 가장 큰 VM 보다 약 5000입니다. 그러나 작업을 배포 하는 방법을 비교 하는 것이 중요 합니다. 메인프레임 시스템에 응용 프로그램과 관계형 데이터베이스가 모두 있는 경우 일반적으로 동일한 물리적 메인프레임에 배포 됩니다. Azure의 동일한 솔루션은 응용 프로그램에 대해 하나의 VM을 사용 하 여 배포 되는 경우가 많으며, 데이터베이스에 대해 적절 한 크기의 별도의 VM이 있습니다.
+가장 큰 단일 z14 메인프레임에는 Azure에서 사용할 수 있는 가장 큰 VM보다 약 5,000MIPS가 있습니다. 그러나 워크로드가 배포되는 방식을 비교하는 것이 중요합니다. 메인프레임 시스템에 응용 프로그램과 관계형 데이터베이스가 모두 있는 경우 일반적으로 동일한 물리적 메인프레임에 배포됩니다. Azure에서 동일한 솔루션은 응용 프로그램에 대해 하나의 VM과 데이터베이스에 적합한 크기의 별도의 VM을 사용하여 배포되는 경우가 많습니다.
 
-예를 들어 M64 vCPU 시스템이 응용 프로그램을 지원 하 고 데이터베이스에 M96 vCPU가 사용 되는 경우 다음 그림에 나와 있는 것 처럼 약 150 Vcpu가 24000 필요 합니다.
+예를 들어 M64 vCPU 시스템이 응용 프로그램을 지원하고 M96 vCPU가 데이터베이스에 사용되는 경우 다음 그림과 같이 약 150개의 vCPU가 필요하거나 약 24,000개의 MiPS가 필요합니다.
 
-![24000 MIPS의 작업 배포 비교](media/mainframe-compute-mips.png)
+![24,000MIPS의 워크로드 배포 비교](media/mainframe-compute-mips.png)
 
-이 방법은 LPARs를 개별 Vm으로 마이그레이션하는 것입니다. 그런 다음 Azure는 단일 메인프레임 시스템에 배포 되는 대부분의 응용 프로그램에 필요한 크기로 쉽게 확장할 수 있습니다.
+이 방법은 개별 VM으로 LpA를 마이그레이션하는 것입니다. 그런 다음 Azure는 단일 메인프레임 시스템에 배포되는 대부분의 응용 프로그램에 필요한 크기로 쉽게 확장할 수 있습니다.
 
 ## <a name="azure-compute-scale-out"></a>Azure 계산 확장
 
-Azure 기반 솔루션의 장점 중 하나는 규모 확장 하는 기능입니다. 크기를 조정 하면 응용 프로그램에서 거의 무제한 계산 용량을 사용할 수 있습니다. Azure는 계산 능력을 확장 하는 여러 방법을 지원 합니다.
+Azure 기반 솔루션의 장점 중 하나는 확장할 수 있다는 것입니다. 확장을 통해 응용 프로그램에서 거의 무한한 컴퓨팅 용량을 사용할 수 있습니다. Azure는 계산 능력을 확장하기 위한 여러 메서드를 지원합니다.
 
-- **클러스터 간 부하 분산.** 이 시나리오에서 응용 프로그램은 [부하 분산 장치](/azure/load-balancer/load-balancer-overview) 또는 리소스 관리자를 사용 하 여 클러스터의 여러 vm 간에 작업을 분산할 수 있습니다. 더 많은 계산 용량이 필요한 경우 추가 Vm이 클러스터에 추가 됩니다.
+- **클러스터 간에 부하 분산.** 이 시나리오에서 응용 프로그램은 [로드 밸런서](/azure/load-balancer/load-balancer-overview) 또는 리소스 관리자를 사용하여 클러스터의 여러 VM 간에 워크로드를 분산할 수 있습니다. 더 많은 컴퓨팅 용량이 필요한 경우 클러스터에 추가 VM이 추가됩니다.
 
-- **가상 머신 확장 집합입니다.** 이 버스트 시나리오에서 응용 프로그램은 VM 사용량을 기준으로 추가 [계산 리소스로](/azure/virtual-machine-scale-sets/overview) 확장할 수 있습니다. 요구가 떨어지면 확장 집합의 Vm 수를 아래로 이동 하 여 계산 능력을 효율적으로 사용할 수도 있습니다.
+- **가상 시스템 스케일 집합입니다.** 이 버스트 시나리오에서 응용 프로그램은 VM 사용량을 기반으로 추가 [계산 리소스로](/azure/virtual-machine-scale-sets/overview) 확장할 수 있습니다. 수요가 감소하면 스케일 세트의 VM 수도 감소하여 컴퓨팅 파워를 효율적으로 사용할 수 있습니다.
 
-- **PaaS 크기 조정.** Azure PaaS 서비스는 계산 리소스를 확장 합니다. 예를 들어 [Azure Service Fabric](/azure/service-fabric/service-fabric-overview) 는 요청 볼륨의 증가량을 충족 하기 위해 계산 리소스를 할당 합니다.
+- **PaaS 크기 조정.** Azure PaaS 오퍼링은 계산 리소스를 확장합니다. 예를 들어 [Azure Service Fabric은](/azure/service-fabric/service-fabric-overview) 요청 볼륨의 증가를 충족하기 위해 계산 리소스를 할당합니다.
 
-- **Kubernetes 클러스터.** Azure의 응용 프로그램은 지정 된 리소스에 대해 계산 서비스에 [Kubernetes 클러스터](/azure/aks/concepts-clusters-workloads) 를 사용할 수 있습니다. AKS (azure Kubernetes Service)는 Azure에서 Kubernetes 노드, 풀 및 클러스터를 오케스트레이션 하는 관리 되는 서비스입니다.
+- **쿠버네츠 클러스터.** Azure의 응용 프로그램은 지정된 리소스에 대한 계산 서비스에 [Kubernetes 클러스터를](/azure/aks/concepts-clusters-workloads) 사용할 수 있습니다. AZURE Kubernetes 서비스(AKS)는 Azure에서 Kubernetes 노드, 풀 및 클러스터를 오케스트레이션하는 관리형 서비스입니다.
 
-계산 리소스를 확장 하는 올바른 방법을 선택 하려면 Azure와 메인프레임이 어떻게 다른 지 이해 하는 것이 중요 합니다. 키는 계산 리소스에서 데이터를 공유 하는 방법 (또는의 경우)입니다. Azure에서 기본적으로 데이터는 여러 Vm에서 공유 되지 않습니다. 스케일 아웃 계산 클러스터의 여러 Vm에서 데이터 공유를 필요로 하는 경우 공유 데이터는이 기능을 지 원하는 리소스에 있어야 합니다. Azure에서 데이터 공유는 다음 섹션에 설명 된 대로 저장소를 포함 합니다.
+계산 리소스를 확장하는 데 적합한 방법을 선택하려면 Azure와 메인프레임의 차이점을 이해하는 것이 중요합니다. 핵심은 계산 리소스에서 데이터를 공유하는 방법 또는 if-입니다. Azure에서 데이터는 일반적으로 여러 VM에서 공유되지 않습니다. 확장 계산 클러스터의 여러 VM에서 데이터 공유가 필요한 경우 공유 데이터는 이 기능을 지원하는 리소스에 있어야 합니다. Azure에서 데이터 공유에는 다음 섹션에서 설명하는 대로 저장소가 포함됩니다.
 
 ## <a name="azure-compute-optimization"></a>Azure 계산 최적화
 
-Azure 아키텍처에서 각 처리 계층을 최적화할 수 있습니다. 각 환경에 가장 적합 한 유형의 Vm 및 기능을 사용 합니다. 다음 그림은 Db2를 사용 하는 CICS 응용 프로그램을 지원 하기 위해 Azure에서 Vm을 배포 하는 한 가지 잠재적 패턴을 보여 줍니다. 기본 사이트에서는 가용성이 높은 프로덕션, 사전 프로덕션 및 테스트 VM이 배포됩니다. 보조 사이트는 백업 및 재해 복구용입니다.
+Azure 아키텍처에서 각 처리 계층을 최적화할 수 있습니다. 각 환경에 가장 적합한 유형의 VM 및 기능을 사용합니다. 다음 그림은 Db2를 사용하는 CICS 응용 프로그램을 지원하기 위해 Azure에 VM을 배포하는 하나의 잠재적패턴을 보여 주며 있습니다. 기본 사이트에서는 가용성이 높은 프로덕션, 사전 프로덕션 및 테스트 VM이 배포됩니다. 보조 사이트는 백업 및 재해 복구용입니다.
 
-또한 각 계층은 적절 한 재해 복구 서비스를 제공할 수 있습니다. 프로덕션 VM과 데이터베이스 VM에는 핫 복구나 웜 복구가 필요한 반면 개발 및 테스트 VM은 콜드 복구를 지원하는 경우를 예로 들 수 있습니다.
+각 계층은 적절한 재해 복구 서비스를 제공할 수도 있습니다. 프로덕션 VM과 데이터베이스 VM에는 핫 복구나 웜 복구가 필요한 반면 개발 및 테스트 VM은 콜드 복구를 지원하는 경우를 예로 들 수 있습니다.
 
-![재해 복구를 지 원하는 항상 사용 가능한 배포](media/mainframe-compute-dr.png)
+![재해 복구를 지원하는 고가용성 배포](media/mainframe-compute-dr.png)
 
 ## <a name="next-steps"></a>다음 단계
 
 - [메인프레임 마이그레이션](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview)
-- [Azure Virtual Machines의 메인프레임 재호스팅](/azure/virtual-machines/workloads/mainframe-rehosting/overview)
+- [Azure 가상 머신에서 메인프레임 다시 호스팅](/azure/virtual-machines/workloads/mainframe-rehosting/overview)
 - [메인프레임 저장소를 Azure로 이동](mainframe-storage-Azure.md)
 
 ### <a name="ibm-resources"></a>IBM 리소스
 
 - [IBM Z의 병렬 Sysplex](https://www.ibm.com/it-infrastructure/z/technologies/parallel-sysplex-resources)
-- [IBM CICS 및 결합 기능: 기본 사항 이외](https://www.redbooks.ibm.com/redbooks/pdfs/sg248420.pdf)
-- [Db2 pureScale 기능 설치에 대한 필수 사용자 만들기](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.qb.server.doc/doc/t0055374.html?pos=2)
+- [IBM CICS 및 커플링 기능: 기본 사항 이상](https://www.redbooks.ibm.com/redbooks/pdfs/sg248420.pdf)
+- [Db2 순수 규모 기능 설치에 필요한 사용자 만들기](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.qb.server.doc/doc/t0055374.html?pos=2)
 - [Db2icrt - 인스턴스 명령 만들기](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.admin.cmd.doc/doc/r0002057.html)
-- [Db2 pureScale 클러스터형 데이터베이스 솔루션](https://www.ibmbigdatahub.com/blog/db2-purescale-clustered-database-solution-part-1)
+- [Db2 퓨어스케일 클러스터된 데이터베이스 솔루션](https://www.ibmbigdatahub.com/blog/db2-purescale-clustered-database-solution-part-1)
 - [IBM Data Studio](https://www.ibm.com/developerworks/downloads/im/data/index.html/)
 
 ### <a name="azure-government"></a>Azure Government
 
-- [메인프레임 응용 프로그램용 Microsoft Azure Government 클라우드](https://azure.microsoft.com/resources/microsoft-azure-government-cloud-for-mainframe-applications/)
-- [Microsoft 및 FedRAMP](https://www.microsoft.com/TrustCenter/Compliance/FedRAMP)
+- [메인프레임 응용 프로그램에 대한 마이크로 소프트 Azure 정부 클라우드](https://azure.microsoft.com/resources/microsoft-azure-government-cloud-for-mainframe-applications/)
+- [마이크로소프트와 페드램](https://www.microsoft.com/TrustCenter/Compliance/FedRAMP)
 
-### <a name="more-migration-resources"></a>추가 마이그레이션 리소스
+### <a name="more-migration-resources"></a>더 많은 마이그레이션 리소스
 
 - [Azure Virtual Data Center 리프트 앤 시프트 가이드](https://azure.microsoft.com/resources/azure-virtual-datacenter-lift-and-shift-guide/)
 - [GlusterFS iSCSI](https://docs.gluster.org/en/latest/Administrator%20Guide/GlusterFS%20iSCSI/)

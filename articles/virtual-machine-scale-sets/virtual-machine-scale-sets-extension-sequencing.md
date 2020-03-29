@@ -1,5 +1,5 @@
 ---
-title: Azure 가상 머신 확장 집합에서 확장 시퀀싱 사용
+title: Azure 가상 시스템 크기 집합을 사용하여 확장 시퀀싱 사용
 description: 가상 머신 확장 집합에 여러 개의 확장을 배포할 때 확장 프로비전 시퀀스를 지정하는 방법을 알아봅니다.
 author: mayanknayar
 tags: azure-resource-manager
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: manayar
 ms.openlocfilehash: cde3fb8b56d8509a45bde00dde55e3c69d015b8e
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76278063"
 ---
 # <a name="sequence-extension-provisioning-in-virtual-machine-scale-sets"></a>가상 머신 확장 집합의 확장 프로비전 시퀀스 지정
@@ -21,7 +21,7 @@ Azure 가상 머신 확장 집합은 배포 후 구성 및 관리, 모니터링,
 
 이 문서에서는 가상 머신 확장 집합의 VM 인스턴스에 대해 구성할 확장의 시퀀스 지정 방법을 자세히 설명합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 이 문서에서는 사용자가 다음에 대해 잘 알고 있다고 가정합니다.
 -   Azure 가상 머신 [확장](../virtual-machines/extensions/overview.md)
 -   가상 머신 확장 집합 [수정](virtual-machine-scale-sets-upgrade-scale-set.md)
@@ -241,7 +241,7 @@ az vmss extension set \
 
 ### <a name="not-able-to-add-extension-with-dependencies"></a>종속성이 있는 확장을 추가할 수 없나요?
 1. provisionAfterExtensions에 지정된 확장이 확장 집합 모델에 정의되어 있는지 확인합니다.
-2. 순환 종속성이 발생하지 않는지 확인합니다. 예를 들어 다음 시퀀스는 허용 되지 않습니다. ExtensionA-> Extensiona-> Extensiona-> ExtensionA
+2. 순환 종속성이 발생하지 않는지 확인합니다. 예를 들어 다음 시퀀스는 허용되지 않습니다: 확장A-> 확장B -> 확장C -> 확장A
 3. 종속성이 있는 확장의 확장 “properties” 아래에 “settings” 속성이 있는지 확인합니다. 예를 들어 ExtentionB가 ExtensionA 이후에 프로비전되어야 하는 경우 ExtensionA의 ExtensionA “properties” 아래에 “settings” 필드가 있어야 합니다. 확장에 필수 설정이 없는 경우 비어 있는 “settings” 속성을 지정할 수 있습니다.
 
 ### <a name="not-able-to-remove-extensions"></a>확장을 제거할 수 없나요?

@@ -1,20 +1,20 @@
 ---
-title: 800 개수 제한이 없는 리소스
-description: 리소스 그룹에 800 개 이상의 인스턴스를 포함할 수 있는 Azure 리소스 종류를 나열 합니다.
+title: 800카운트 제한이 없는 리소스
+description: 리소스 그룹에 800개 이상의 인스턴스를 가질 수 있는 Azure 리소스 형식을 나열합니다.
 ms.topic: conceptual
 ms.date: 01/30/2020
 ms.openlocfilehash: 735cad0bfa936c41f603e42bdb9be77a1562cc1f
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76937945"
 ---
-# <a name="resources-not-limited-to-800-instances-per-resource-group"></a>리소스 그룹당 800 인스턴스로 제한 되지 않는 리소스
+# <a name="resources-not-limited-to-800-instances-per-resource-group"></a>리소스 그룹당 인스턴스 800개에 국한되지 않는 리소스
 
-기본적으로 각 리소스 그룹에 리소스 종류의 최대 800 개의 인스턴스를 배포할 수 있습니다. 그러나 일부 리소스 종류는 800 인스턴스 제한에서 제외 됩니다. 이 문서에서는 리소스 그룹에 800 개 이상의 인스턴스를 포함할 수 있는 Azure 리소스 종류를 나열 합니다. 다른 모든 리소스 유형은 800 인스턴스로 제한 됩니다.
+기본적으로 각 리소스 그룹에 리소스 유형의 인스턴스를 최대 800개까지 배포할 수 있습니다. 그러나 일부 리소스 유형은 800인스턴스 제한에서 제외됩니다. 이 문서에서는 리소스 그룹에 800개 이상의 인스턴스를 가질 수 있는 Azure 리소스 형식을 나열합니다. 다른 모든 리소스 유형은 800개의 인스턴스로 제한됩니다.
 
-일부 리소스 종류의 경우 지원 서비스에 문의 하 여 800 인스턴스 제한을 제거 해야 합니다. 이러한 리소스 종류는이 문서에 나와 있습니다.
+일부 리소스 유형의 경우 800개의 인스턴스 제한을 제거하려면 지원팀에 문의해야 합니다. 이러한 리소스 유형은 이 문서에서 설명합니다.
 
 
 ## <a name="microsoftautomation"></a>Microsoft.Automation
@@ -26,11 +26,11 @@ ms.locfileid: "76937945"
 * registrations
 * registrations/customerSubscriptions
 * registrations/products
-* verificationKeys
+* 확인 키
 
 ## <a name="microsoftbotservice"></a>Microsoft.BotService
 
-* botServices-기본적으로 800 인스턴스로 제한 됩니다. 지원에 문의 하 여이 제한을 늘릴 수 있습니다.
+* botServices - 기본적으로 800개의 인스턴스로 제한됩니다. 지원에 문의하여 제한을 늘릴 수 있습니다.
 
 ## <a name="microsoftcompute"></a>Microsoft.Compute
 
@@ -46,9 +46,9 @@ ms.locfileid: "76937945"
 ## <a name="microsoftcontainerregistry"></a>Microsoft.ContainerRegistry
 
 * registries/buildTasks
-* 레지스트리/buildTasks/listSourceRepositoryProperties
+* 레지스트리/빌드 작업/목록소스리포지토리속성
 * registries/buildTasks/steps
-* 레지스트리/buildTasks/단계/listBuildArguments
+* 레지스트리/빌드 작업/단계/목록빌드 인수
 * registries/eventGridFilters
 * registries/replications
 * registries/tasks
@@ -56,19 +56,19 @@ ms.locfileid: "76937945"
 
 ## <a name="microsoftdbformariadb"></a>Microsoft.DBforMariaDB
 
-* 서버
+* servers
 
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
 
-* 서버
+* servers
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
 
-* serverGroups
-* 서버
-* serversv2
+* 서버 그룹
+* servers
+* 서버v2
 
-## <a name="microsoftenterpriseknowledgegraph"></a>Microsoft.EnterpriseKnowledgeGraph
+## <a name="microsoftenterpriseknowledgegraph"></a>마이크로소프트.엔터프라이즈 지식그래프
 
 * services
 
@@ -77,18 +77,18 @@ ms.locfileid: "76937945"
 * clusters
 * 네임스페이스
 
-## <a name="microsoftexperimentation"></a>Microsoft. 실험
+## <a name="microsoftexperimentation"></a>마이크로소프트.실험
 
-* experimentWorkspaces
+* 실험워크스페이스
 
 ## <a name="microsoftguestconfiguration"></a>Microsoft.GuestConfiguration
 
-* autoManagedVmConfigurationProfiles
-* configurationprofil
+* 자동 관리Vm구성 프로필
+* 구성 프로필할당
 * guestConfigurationAssignments
 * software
-* softwareUpdateProfile
-* 업데이트
+* 소프트웨어업데이트프로필
+* 소프트웨어 업데이트
 
 ## <a name="microsoftinsights"></a>Microsoft.Insights
 
@@ -101,17 +101,17 @@ ms.locfileid: "76937945"
 
 ## <a name="microsoftnetapp"></a>Microsoft.NetApp
 
-* netAppAccounts
-* netAppAccounts/capacityPools
-* netAppAccounts/capacityPools/볼륨
-* netAppAccounts/capacityPools/볼륨/mountTargets
-* netAppAccounts/capacityPools/볼륨/스냅숏
+* 넷앱 어카운트
+* 넷앱계정/용량풀
+* netApp계정/용량풀/볼륨
+* netApp계정/용량풀/볼륨/마운트대상
+* netApp계정/용량풀/볼륨/스냅샷
 
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 
-* applicationGatewayWebApplicationFirewallPolicies
+* 응용 프로그램게이트웨이웹응용방화벽정책
 * applicationSecurityGroups
-* bastionHosts
+* 요새호스트
 * ddosProtectionPlans
 * dnszones
 * dnszones/A
@@ -128,20 +128,20 @@ ms.locfileid: "76937945"
 * dnszones/recordsets
 * networkIntentPolicies
 * networkInterfaces
-* privateDnsZones
-* privateDnsZones/A
-* privateDnsZones/AAAA
-* privateDnsZones/CNAME
-* privateDnsZones/MX
-* privateDnsZones/PTR
-* privateDnsZones/SOA
-* privateDnsZones/SRV
-* privateDnsZones/TXT
-* privateDnsZones/모두
-* privateDnsZones/virtualNetworkLinks
-* privateEndpoints
+* 프라이빗DnsZones
+* 프라이빗Dns존/A
+* 프라이빗들존/AAAA
+* 프라이빗Dns존/CNAME
+* 프라이빗센스존/MX
+* 프라이빗Dns존/PTR
+* 프라이빗DnsZones/SOA
+* 프라이빗DnsZones/SRV
+* 프라이빗디존/TXT
+* 프라이빗DnsZones/모든
+* 프라이빗DnsZones/가상네트워크링크
+* 프라이빗 엔드포인트
 * privateLinkServices
-* publicIPAddresses-기본적으로 800 인스턴스로 제한 됩니다. 지원에 문의 하 여이 제한을 늘릴 수 있습니다.
+* publicIP주소 - 기본적으로 800개의 인스턴스로 제한됩니다. 지원에 문의하여 제한을 늘릴 수 있습니다.
 * serviceEndpointPolicies
 * trafficmanagerprofiles
 * virtualNetworkTaps
@@ -152,7 +152,7 @@ ms.locfileid: "76937945"
 
 ## <a name="microsoftpowerbi"></a>Microsoft.PowerBI
 
-* workspaceCollections-기본적으로 800 인스턴스로 제한 됩니다. 지원에 문의 하 여이 제한을 늘릴 수 있습니다.
+* 작업 공간컬렉션 - 기본적으로 800개의 인스턴스로 제한됩니다. 지원에 문의하여 제한을 늘릴 수 있습니다.
 
 ## <a name="microsoftrelay"></a>Microsoft.Relay
 
@@ -186,4 +186,4 @@ ms.locfileid: "76937945"
 
 ## <a name="next-steps"></a>다음 단계
 
-할당량 및 제한의 전체 목록은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](azure-subscription-service-limits.md)을 참조 하세요.
+할당량 및 제한의 전체 목록은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건을](azure-subscription-service-limits.md)참조하십시오.

@@ -1,5 +1,5 @@
 ---
-title: Azure Automation를 사용 하 여에서 작업 시작 StorSimple Data Manager
+title: Azure 자동화를 사용하여 StorSimple 데이터 관리자에서 작업을 시작합니다.
 description: Azure Automation을 사용하여 StorSimple 데이터 관리자 작업을 트리거하는 방법에 대해 알아보기
 author: alkohli
 ms.service: storsimple
@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: alkohli
 ms.openlocfilehash: 034b4996672f0961cf31d342aa6055482f099b9f
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76273984"
 ---
 # <a name="use-azure-automation-to-trigger-a-job"></a>Azure Automation을 사용하여 작업 트리거
@@ -22,20 +22,20 @@ ms.locfileid: "76273984"
  
 이 문서에서는 Azure Automation Runbook을 만든 후 사용하여 데이터 변환 작업을 시작하는 방법을 자세히 설명합니다. .NET SDK를 통해 데이터 변환을 시작하는 방법에 대한 자세한 내용은 [.NET SDK를 사용하여 데이터 변환 작업 트리거](storsimple-data-manager-dotnet-jobs.md)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 다음 항목이 있어야 합니다.
 
-*   클라이언트 컴퓨터에 설치된 Azure PowerShell. [Azure Powershell을 다운로드합니다](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps).
+*   클라이언트 컴퓨터에 설치된 Azure PowerShell. [다운로드 Azure 파워쉘](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps).
 *   리소스 그룹 내의 StorSimple 데이터 관리자 서비스에서 올바르게 구성된 작업 정의.
-*   Github 리포지토리에서 [`DataTransformationApp.zip`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/raw/master/Azure%20Automation%20For%20Data%20Manager/DataTransformationApp.zip) 파일을 다운로드합니다. 
-*   Github 리포지토리에서 [`Trigger-DataTransformation-Job.ps1`스크립트](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Azure%20Automation%20For%20Data%20Manager/Trigger-DataTransformation-Job.ps1)를 다운로드합니다.
+*   GitHub 리포지토리에서 파일을 다운로드합니다. [`DataTransformationApp.zip`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/raw/master/Azure%20Automation%20For%20Data%20Manager/DataTransformationApp.zip) 
+*   GitHub 리포지토리에서 스크립트를 다운로드합니다. [`Trigger-DataTransformation-Job.ps1`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Azure%20Automation%20For%20Data%20Manager/Trigger-DataTransformation-Job.ps1)
 
 ## <a name="step-by-step-procedure"></a>단계별 절차
 
 ### <a name="set-up-the-automation-account"></a>Automation 계정 설정
 
-1. Azure Portal에서 Azure 실행 자동화 계정을 만듭니다. 이렇게 하려면 **Azure Marketplace > 모두**로 이동한 다음 **자동화**를 검색합니다. **Automation 계정**을 선택합니다.
+1. Azure Portal에서 Azure 실행 자동화 계정을 만듭니다. 이렇게 하려면 **Azure Marketplace > 모두**로 이동한 다음 **자동화**를 검색합니다. **자동화 계정을**선택합니다.
 
     ![Automation 실행 계정 만들기](./media/storsimple-data-manager-job-using-automation/search-automation-account1.png)
 
@@ -45,7 +45,7 @@ ms.locfileid: "76273984"
 
 3. **Automation 추가**에서
 
-   1. Automation 계정의 **이름**을 입력합니다.
+   1. 자동화 계정의 **이름을** 입력합니다.
    2. StorSimple 데이터 관리자 서비스에 연결된 **구독**을 선택합니다.
    3. 새 리소스 그룹을 만들거나 기존 리소스 그룹에서 선택합니다.
    4. **위치**를 선택합니다.
@@ -110,7 +110,7 @@ ms.locfileid: "76273984"
 
     ![Runbook 추가 7](./media/storsimple-data-manager-job-using-automation/add-runbook-7.png)
 
-9. Runbook을 **시작**합니다. **Runbook 시작**에서 모든 매개 변수를 입력합니다. **확인**을 클릭하여 제출하고 데이터 변환 작업을 시작합니다.
+9. Runbook을 **시작합니다.** **Runbook 시작**에서 모든 매개 변수를 입력합니다. **확인**을 클릭하여 제출하고 데이터 변환 작업을 시작합니다.
 
 10. Azure Portal에서 작업 진행 상황을 모니터링하려면 StorSimple 데이터 관리자 서비스의 **작업**으로 이동합니다. 작업을 선택한 후 클릭하여 작업 세부 정보를 확인합니다.
 

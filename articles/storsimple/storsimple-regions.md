@@ -1,5 +1,5 @@
 ---
-title: StorSimple 지역 가용성
+title: StorSimple 리전 가용성
 description: 다양한 StorSimple 디바이스 모델을 사용할 수 있는 Azure 지역에 대해 설명합니다.
 author: alkohli
 ms.service: storsimple
@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 11/16/2017
 ms.author: alkohli
 ms.openlocfilehash: a2f04d6faa7770eef7768437ae0e624b76713f98
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76275122"
 ---
 # <a name="available-regions-for-your-storsimple"></a>StorSimple을 사용할 수 있는 지역
@@ -55,36 +55,36 @@ StorSimple Cloud Appliance를 사용하는 경우는 서비스 및 연결된 스
 
 ## <a name="availability-of-storsimple-device"></a>StorSimple 디바이스의 가용성
 
-모델에 따라 StorSimple 장치를 다른 지역 또는 국가/지역에서 사용할 수 있습니다.
+모델에 따라 StorSimple 장치는 다른 지역 또는 국가/지역에서 사용할 수 있습니다.
 
 ### <a name="storsimple-physical-device-models-81008600"></a>StorSimple 물리적 디바이스(모델 8100/8600)
 
-StorSimple 8100 또는 8600 물리적 장치를 사용 하는 경우 다음 국가/지역에서 장치를 사용할 수 있습니다.
+StorSimple 8100 또는 8600 물리적 장치를 사용하는 경우 장치는 다음 국가/지역에서 사용할 수 있습니다.
 
 | #  | 국가/지역        | #  | 국가/지역     | #  | 국가/지역      | #  | 국가/지역             |
 |----|-----------------------|----|--------------------|----|---------------------|----|----------------------------|
-| 1  | 오스트레일리아             | 16 | 홍콩 특별 행정구      | 31 | 뉴질랜드         | 46 | 남아프리카 공화국               |
-| 2  | 오스트리아               | 17 | 헝가리            | 32 | 나이지리아             | 47 | 한국                |
+| 1  | 오스트레일리아             | 16 | 홍콩 특별 행정구      | 31 | 뉴질랜드         | 46 | 남아프리카               |
+| 2  | 오스트리아               | 17 | 헝가리            | 32 | 나이지리아             | 47 | 대한민국                |
 | 3  | 바레인               | 18 | 아이슬란드            | 33 | 노르웨이              | 48 | 스페인                      |
 | 4  | 벨기에               | 19 | 인도              | 34 | 페루                | 49 | 스리랑카                  |
 | 5  | 브라질                | 20 | 인도네시아          | 35 | 필리핀         | 50 | 스웨덴                     |
-| 6  | 캐나다                | 21 | 아일랜드            | 36 | 폴란드              | 51 | 스위스                |
+| 6  | Canada                | 21 | 아일랜드            | 36 | 폴란드              | 51 | 스위스                |
 | 7  | 칠레                 | 22 | 이스라엘             | 37 | 포르투갈            | 52 | 대만                     |
 | 8  | 콜롬비아              | 23 | 이탈리아              | 38 | 푸에르토리코         | 53 | 태국                   |
-| 9  | 체코 공화국        | 24 | 일본              | 39 | 카타르               | 54 | 터키                     |
+| 9  | 체코        | 24 | 일본              | 39 | 카타르               | 54 | 터키                     |
 | 10 | 덴마크               | 25 | 케냐              | 40 | 루마니아             | 55 | 우크라이나                    |
 | 11 | 이집트                 | 26 | 쿠웨이트             | 41 | 러시아              | 56 | 아랍에미리트       |
-| 12 | 핀란드               | 27 | 마카오          | 42 | 사우디아라비아        | 57 | 영국             |
+| 12 | 핀란드               | 27 | 마카오          | 42 | 사우디아라비아        | 57 | United Kingdom             |
 | 13 | 프랑스                | 28 | 말레이시아           | 43 | 싱가포르           | 58 | 미국              |
 | 14 | 독일               | 29 | 멕시코             | 44 | 슬로바키아            | 59 | 베트남                    |
 | 15 | 그리스                | 30 | 네덜란드        | 45 | 슬로베니아            | 60 | 크로아티아                    |
 
-이 목록은 더 많은 국가/지역이 추가 될 때 변경 됩니다. 최신 지리적 위치 목록에 대해서는 [제품 약관](https://www.microsoft.com/en-us/licensing/product-licensing/products)의 스토리지 배열 약관 부록을 참조하세요.
+이 목록은 더 많은 국가/지역이 추가됨에 따라 변경됩니다. 최신 지리적 위치 목록에 대해서는 [제품 약관](https://www.microsoft.com/en-us/licensing/product-licensing/products)의 스토리지 배열 약관 부록을 참조하세요.
 
 Microsoft는 물리적 하드웨어를 제공하며 앞의 목록에 있는 지역에 StorSimple에 대한 교체용 하드웨어 예비 부품을 제공할 수 있습니다.
 
 > [!IMPORTANT]
-> StorSimple 물리적 디바이스를 StorSimple 프로그램이 지원되지 않는 지역에 배치하지 않도록 합니다. Microsoft는 StorSimple이 지원 되지 않는 국가/지역에 대체 파트를 제공할 수 없습니다.
+> StorSimple 물리적 디바이스를 StorSimple 프로그램이 지원되지 않는 지역에 배치하지 않도록 합니다. Microsoft는 StorSimple이 지원되지 않는 국가/지역으로 교체 부품을 배송할 수 없습니다.
 
 ### <a name="storsimple-cloud-appliance-models-80108020"></a>StorSimple Cloud Appliance(모델 8010/8020)
 

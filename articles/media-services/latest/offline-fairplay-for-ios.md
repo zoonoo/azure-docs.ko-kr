@@ -1,5 +1,5 @@
 ---
-title: Azure Media Services v3를 사용 하는 iOS 용 오프 라인 FairPlay 스트리밍
+title: Azure 미디어 서비스 v3와 iOS용 오프라인 페어플레이 스트리밍
 description: 이 항목에서는 오프라인 모드에서 Azure Media Services를 사용하여 Apple FairPlay에서 HLS(HTTP 라이브 스트리밍) 콘텐츠를 동적으로 암호화하는 방법과 개요를 설명합니다.
 services: media-services
 keywords: HLS, DRM, FairPlay 스트리밍(FPS), Offline, iOS 10
@@ -16,13 +16,13 @@ ms.topic: article
 ms.date: 01/08/2019
 ms.author: willzhan
 ms.openlocfilehash: 70256046089a59df1de79b78124c5d60fde77080
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76705941"
 ---
-# <a name="offline-fairplay-streaming-for-ios-with-media-services-v3"></a>Media Services v3를 사용 하는 iOS 용 오프 라인 FairPlay 스트리밍
+# <a name="offline-fairplay-streaming-for-ios-with-media-services-v3"></a>미디어 서비스 v3와 iOS용 오프라인 페어플레이 스트리밍
 
  Azure Media Services는 다음을 대상으로 하는 적절히 디자인된 [콘텐츠 보호 서비스](https://azure.microsoft.com/services/media-services/content-protection/) 집합을 제공합니다.
 
@@ -38,15 +38,15 @@ ms.locfileid: "76705941"
 다양한 스트리밍 프로토콜을 통한 온라인 스트리밍에 대한 콘텐츠를 보호하는 것 외에도, 보호된 콘텐츠에 대한 오프 라인 모드 또한 자주 요청되는 기능입니다. 다음 시나리오에 대해 오프라인 모드 지원이 필요합니다.
 
 * 인터넷 연결을 사용할 수 없을 경우(예: 여행 중) 재생합니다.
-* 일부 콘텐츠 공급자는 국가/지역 테두리를 넘어 DRM 라이선스 배달을 허용 하지 않을 수 있습니다. 사용자가 국가/지역 외부로 여행 하는 동안 콘텐츠를 시청 하려는 경우 오프 라인 다운로드가 필요 합니다.
-* 일부 국가/지역에서는 인터넷 가용성 및/또는 대역폭이 여전히 제한 됩니다. 사용자가 만족스러운 보기 환경을 위해 충분히 높은 해상도로 콘텐츠를 보고자 먼저 다운로드를 선택할 수도 있습니다. 이 경우, 일반적으로 문제는 네트워크 가용성이 아니라 제한된 네트워크 대역폭입니다. OTT(Over-the-top)/OVP(온라인 비디오 플랫폼) 공급자는 오프라인 모드 지원을 요청합니다.
+* 일부 콘텐츠 공급자는 국가/지역의 경계를 넘어 DRM 라이선스 배달을 허용하지 않을 수 있습니다. 사용자가 국가/지역 외부로 여행하는 동안 콘텐츠를 시청하려면 오프라인 다운로드가 필요합니다.
+* 일부 국가/지역에서는 인터넷 가용성 및/또는 대역폭이 여전히 제한되어 있습니다. 사용자가 만족스러운 보기 환경을 위해 충분히 높은 해상도로 콘텐츠를 보고자 먼저 다운로드를 선택할 수도 있습니다. 이 경우, 일반적으로 문제는 네트워크 가용성이 아니라 제한된 네트워크 대역폭입니다. OTT(Over-the-top)/OVP(온라인 비디오 플랫폼) 공급자는 오프라인 모드 지원을 요청합니다.
 
 이 문서에서는 iOS 10 이상을 실행하는 디바이스를 대상으로 하는 FairPlay 스트리밍(FPS) 오프라인 모드 지원에 대해 설명합니다. 이 기능은 watchOS, tvOS, 또는 macOS의 Safari와 같은 다른 Apple 플랫폼을 지원하지 않습니다.
 
 > [!NOTE]
-> 오프 라인 DRM은 콘텐츠를 다운로드할 때 라이선스에 대 한 단일 요청을 만드는 경우에만 청구 됩니다. 모든 오류는 청구 되지 않습니다.
+> 오프라인 DRM은 콘텐츠를 다운로드할 때 라이선스에 대한 단일 요청에 대해서만 청구됩니다. 모든 오류는 청구되지 않습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 iOS 10+ 디바이스에서 FairPlay에 대한 오프라인 DRM을 구현하기 전에 다음을 수행합니다.
 
@@ -54,12 +54,12 @@ iOS 10+ 디바이스에서 FairPlay에 대한 오프라인 DRM을 구현하기 �
 
     - [Apple FairPlay 라이선스 요구 사항 및 구성](fairplay-license-overview.md)
     - [DRM 동적 암호화 및 라이선스 배달 서비스 사용](protect-with-drm.md)
-    - 온라인 FPS 스트리밍의 구성을 포함 하는 .NET 샘플: [ConfigureFairPlayPolicyOptions](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L505)
+    - 온라인 FPS 스트리밍 구성을 포함하는 .NET 샘플: [구성페어플레이정책옵션](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L505)
 * Apple Developer Network에서 FPS SDK를 가져옵니다. FPS SDK에는 두 가지 구성 요소가 들어 있습니다.
 
     - FPS Server SDK에는 KSM(키 보안 모듈), 클라이언트 샘플, 사양 및 테스트 벡터 집합이 들어 있습니다.
     - FPS Deployment Pack은 D 함수 사양 및 FPS 인증서를 생성하는 방법에 관한 지침, 고객별 프라이빗 키 및 애플리케이션 비밀 키를 포함합니다. Apple은 사용이 허가된 콘텐츠 공급자에게만 FPS Deployment Pack을 발급합니다.
-* https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials.git 을 복제합니다. 
+* https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials.git을 복제합니다. 
 
     [.NET을 사용하여 DRM으로 암호화](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/master/AMSV3Tutorials/EncryptWithDRM)에서 코드를 수정하여 FairPlay 구성을 추가해야 합니다.  
 
@@ -123,7 +123,7 @@ CommonEncryptionCbcs objStreamingPolicyInput= new CommonEncryptionCbcs()
 FPS 오프라인 모드 지원은 iOS 10 이상에서만 제공됩니다. FPS Server SDK(버전 3.0 이상)에는 FPS 오프라인 모드에 대한 문서와 샘플이 포함되어 있습니다. 특히 FPS Server SDK(버전 3.0 이상)에는 오프라인 모드와 관련된 다음 두 항목이 들어 있습니다.
 
 * 문서: "Offline Playback with FairPlay Streaming and HTTP Live Streaming(FairPlay 스트리밍 및 HTTP 라이브 스트리밍을 사용하는 오프라인 재생)". Apple, 2016년 9월 14일 발행. FPS Server SDK 버전 4.0에서 이 문서는 주 FPS 문서에 병합되어 있습니다.
-* 샘플 코드: HLSCatalog 샘플 (Apple의 FPS Server SDK의 일부) \FairPlay Streaming Server SDK 버전 3.1 \ Development\Client\ HLSCatalog_With_FPS \HLSCatalog\.에서 FPS 오프 라인 모드에 대 한 HLSCatalog 샘플 앱에서 다음 코드 파일은 오프라인 모드 기능을 구현하는 데 사용됩니다.
+* 샘플 코드: HLSCatalog 샘플 (애플의 FPS 서버 SDK의 일부) FPS 오프라인 모드에 대한 \FairPlay 스트리밍 서버 SDK 버전 3.1\개발\클라이언트\HLSCatalog_With_FPS\HLSCatalog\. HLSCatalog 샘플 앱에서 다음 코드 파일은 오프라인 모드 기능을 구현하는 데 사용됩니다.
 
     - AssetPersistenceManager.swift 코드 파일: AssetPersistenceManager는 다음 방법을 보여 주는 이 샘플의 기본 클래스입니다.
 
@@ -205,7 +205,7 @@ FPS Server SDK의 버전 3 또는 버전 4 샘플을 사용하여 마스터 재�
 
 다음 질문과 대답은 문제 해결에 도움이 됩니다.
 
-- **왜 오프라인 모드에서는 오디오만 재생되고 비디오는 재생되지 않나요?** 이 동작은 의도적으로 샘플 앱의 것입니다. 오프 라인 모드에서 대체 오디오 트랙이 있는 경우 (HLS의 경우) iOS 10과 iOS 11은 모두 대체 오디오 트랙을 기본값으로 설정 합니다. FPS 오프 라인 모드에 대 한이 동작을 보완 하려면 스트림에서 대체 오디오 트랙을 제거 합니다. Media Services에서 이를 실행하기 위해 동적 매니페스트 필터 "audio-only=false"를 추가합니다. 즉, HLS URL은 .ism/manifest(format=m3u8-aapl,audio-only=false)로 끝납니다. 
+- **왜 오프라인 모드에서는 오디오만 재생되고 비디오는 재생되지 않나요?** 이 동작은 의도적으로 샘플 앱의 것입니다. 오프라인 모드에서 대체 오디오 트랙(HLS의 경우)이 있는 경우 iOS 10과 iOS 11이 대체 오디오 트랙으로 기본설정됩니다. FPS 오프라인 모드에 대한 이 동작을 보정하려면 스트림에서 대체 오디오 트랙을 제거합니다. Media Services에서 이를 실행하기 위해 동적 매니페스트 필터 "audio-only=false"를 추가합니다. 즉, HLS URL은 .ism/manifest(format=m3u8-aapl,audio-only=false)로 끝납니다. 
 - **audio-only=false를 추가한 후에도 왜 여전히 오프라인 모드에서 동영상 없이 오디오만 재생되나요?** CDN(콘텐츠 배달 네트워크) 캐시 키 디자인에 따라, 콘텐츠가 캐시될 수 있습니다. 캐시를 제거합니다.
 - **FPS 오프라인 모드 또한 iOS 10 외에도 iOS 11에서 지원됩니까?** 예. FPS 오프라인 모드는 iOS 10과 iOS 11 모두에서 지원됩니다.
 - **FPS Server SDK에서 “FairPlay 스트리밍 및 HTTP 라이브 스트리밍을 사용하여 오프라인 재생” 문서를 찾을 수 없는 이유는 무엇인가요?** FPS Server SDK 버전 4부터 이 문서는 “FairPlay Streaming Programming Guide”에 병합되었습니다.

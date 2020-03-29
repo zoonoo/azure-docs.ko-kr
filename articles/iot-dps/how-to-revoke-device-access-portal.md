@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Hub 장치 프로 비전 서비스에서 장치 등록 해제
-description: 장치를 등록 해제 하 여 DPS (Azure IoT Hub 장치 프로 비전 서비스)를 통한 프로 비전을 방지 하는 방법
+title: Azure IoT 허브 장치 프로비저닝 서비스에서 장치 등록 해제
+description: Azure IoT 허브 장치 프로비저닝 서비스(DPS)를 통해 프로비저닝을 방지하려면 장치를 등록 해제하는 방법
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/05/2018
@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.openlocfilehash: af883da67f4e1bc819514e88ff480526e16124db
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74974924"
 ---
 # <a name="how-to-disenroll-a-device-from-azure-iot-hub-device-provisioning-service"></a>Azure IoT Hub Device Provisioning 서비스에서 디바이스 등록을 해제하는 방법
@@ -26,7 +26,7 @@ Device Provisioning Server에 등록하면 디바이스가 [자동 프로비전]
 
 ## <a name="blacklist-devices-by-using-an-individual-enrollment-entry"></a>개별 등록 항목을 사용하여 디바이스를 차단 목록에 등록
 
-개별 등록은 단일 디바이스에 적용되며, X.509 인증서 또는 SAS 토큰을 증명 메커니즘으로 사용할 수 있습니다(실제 또는 가상 TPM에서). (SAS 토큰을 증명 메커니즘으로 사용 하는 장치는 개별 등록을 통해서만 프로 비전 할 수 있습니다.) 개별 등록이 있는 장치를 블랙 리스트에 포함 하려면 해당 등록 항목을 사용 하지 않도록 설정 하거나 삭제할 수 있습니다. 
+개별 등록은 단일 디바이스에 적용되며, X.509 인증서 또는 SAS 토큰을 증명 메커니즘으로 사용할 수 있습니다(실제 또는 가상 TPM에서). SAS 토큰을 증명 메커니즘으로 사용하는 장치는 개별 등록을 통해서만 프로비전할 수 있습니다. 개별 등록이 있는 장치를 블랙리스트에 추가하려면 등록 항목을 비활성화하거나 삭제할 수 있습니다. 
 
 해당 등록 항목을 사용하지 않도록 설정하여 디바이스를 일시적으로 차단 목록에 추가하려면: 
 
@@ -104,7 +104,7 @@ X.509 증명 메커니즘을 구현하는 디바이스는 디바이스의 인증
 
 6. **등록 추가** 페이지의 아래쪽으로 스크롤하고 **항목 사용** 스위치에서 **사용 안 함**을 선택한 후 **저장**을 선택합니다. 
 
-    [![사용하지 않도록 설정된 개인 등록 항목을 사용하여 포털에서 디바이스의그룹 등록 해제](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group.png)](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group.png#lightbox)
+    [![비활성화된 개별 등록 항목을 사용하여 포털에서 그룹 등록에서 장치를 비활성화합니다.](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group.png)](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group.png#lightbox)
 
 등록을 성공적으로 만들면 **개별 등록** 탭에 나열된 사용하지 않도록 설정된 디바이스 등록을 확인할 수 있습니다. 
 

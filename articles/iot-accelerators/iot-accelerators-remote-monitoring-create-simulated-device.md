@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
 ms.openlocfilehash: 8babacfede6e13fde629492e1cd9f80af7f0e53f
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78943063"
 ---
 # <a name="create-and-test-a-new-simulated-device"></a>시뮬레이트된 새 디바이스 만들기 및 테스트
@@ -30,7 +30,7 @@ ms.locfileid: "78943063"
 
 *속성*
 
-| 속성                     | 값                      |
+| 이름                     | 값                      |
 | ------------------------ | --------------------------- |
 | 색                    | 흰색, 빨강, 파랑            |
 | 밝기               | 0~100                    |
@@ -40,7 +40,7 @@ ms.locfileid: "78943063"
 
 다음 표는 전구에서 데이터 스트림으로 클라우드에 보고하는 데이터를 보여 줍니다.
 
-| 속성   | 값      |
+| 이름   | 값      |
 | ------ | ----------- |
 | 상태 | "켜짐", "꺼짐" |
 | 온도 | 화씨 도 |
@@ -53,7 +53,7 @@ ms.locfileid: "78943063"
 
 다음 표는 새 디바이스에서 지원하는 작업을 보여 줍니다.
 
-| 속성        |
+| 이름        |
 | ----------- |
 | 켜짐   |
 | 꺼짐  |
@@ -62,7 +62,7 @@ ms.locfileid: "78943063"
 
 다음 표는 디바이스의 초기 상태를 보여 줍니다.
 
-| 속성                     | 값 |
+| 이름                     | 값 |
 | ------------------------ | -------|
 | 초기 색상            | 흰색  |
 | 초기 밝기       | 75     |
@@ -72,7 +72,7 @@ ms.locfileid: "78943063"
 
 이 가이드의 수행 단계를 완료하려면 활성 Azure 구독이 필요합니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 없는 경우 시작하기 전에 [무료 계정을](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 만드세요.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -99,7 +99,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ### <a name="download-the-microservices"></a>마이크로 서비스 다운로드
 
-[원격 모니터링 마이크로 서비스](https://github.com/Azure/remote-monitoring-services-dotnet/archive/master.zip)를 GitHub에서 로컬 머신의 적합한 위치에 다운로드하고 압축을 풉니다. 이 문서에서는 이 폴더의 이름이 **remote-monitoring-services-dotnet-master**라고 가정합니다.
+GitHub에서 [원격 모니터링 마이크로 서비스를](https://github.com/Azure/remote-monitoring-services-dotnet/archive/master.zip) 다운로드하여 로컬 컴퓨터의 적절한 위치로 압축을 풀수 있습니다. 이 문서에서는 이 폴더의 이름이 **remote-monitoring-services-dotnet-master**라고 가정합니다.
 
 GitHub에서 [디바이스 시뮬레이션 마이크로 서비스](https://github.com/Azure/device-simulation-dotnet/archive/master.zip)를 로컬 머신의 적합한 위치에 다운로드하고 압축을 풉니다. 이 문서에서는 이 폴더의 이름이 **device-simulation-dotnet-master**라고 가정합니다.
 
@@ -107,7 +107,7 @@ GitHub에서 [디바이스 시뮬레이션 마이크로 서비스](https://githu
 
 Visual Studio Code에서 **remote-monitoring-services-dotnet-master\storage-adapter** 폴더를 엽니다. **복원** 단추를 클릭하여 확인할 수 없는 종속성을 수정합니다.
 
-**Storage-adapter/WebService/appsettings ini** 파일을 열고 **documentdbconnectionstring** 변수에 Cosmos DB 연결 문자열을 할당 합니다.
+스토리지 **어댑터/WebService/appsettings.ini** 파일을 열고 Cosmos DB 연결 문자열을 **documentDBConnectionString** 변수에 할당합니다.
 
 마이크로 서비스를 로컬로 실행하려면 **디버그 > 디버그 시작**을 클릭합니다.
 
@@ -424,7 +424,7 @@ Visual Studio Code에서 **터미널** 창은 웹 서비스 상태 확인에 대
 
 Visual Studio Code의 새 인스턴스에 GitHub에서 다운로드한 **device-simulation-dotnet-master** 폴더를 엽니다. **복원** 단추를 클릭하여 확인할 수 없는 종속성을 수정합니다.
 
-**WebService/appsettings ini** 파일을 열고 **documentdb_connstring** 변수에 Cosmos DB 연결 문자열을 할당 하 고 다음과 같이 설정을 수정 합니다.
+**WebService/appsettings.ini** 파일을 열고 Cosmos DB 연결 문자열을 **documentdb_connstring** 변수에 할당하고 다음과 같이 설정을 수정합니다.
 
 ```ini
 device_models_folder = C:\temp\devicemodels\

@@ -1,6 +1,6 @@
 ---
 title: Azure Service Bus 토픽 필터 | Microsoft Docs
-description: 이 문서에서는 구독자가 필터를 지정 하 여 토픽에서 수신 하려는 메시지를 정의 하는 방법을 설명 합니다.
+description: 이 문서에서는 구독자가 필터를 지정하여 토픽에서 받을 메시지를 정의하는 방법을 설명합니다.
 services: service-bus-messaging
 documentationcenter: ''
 author: clemensv
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/27/2020
 ms.author: spelluru
 ms.openlocfilehash: b8ffbb16763bfe6485ebf2ab770f4537ddbc8569
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76774492"
 ---
 # <a name="topic-filters-and-actions"></a>토픽 필터 및 작업
@@ -38,7 +38,7 @@ Service Bus는 세 가지 필터 조건을 지원합니다.
 
 복잡한 필터 규칙에는 처리 용량이 필요합니다. 특히 SQL 필터 규칙을 사용하면 구독, 토픽 및 네임스페이스 수준에서 전반적인 메시지 처리량이 줄어듭니다. 가능할 때마다 애플리케이션은 SQL 유사 필터보다 상관 필터를 선택해야 하는데 이는 처리 효율이 훨씬 높아서 처리량에 미치는 영향이 적기 때문입니다.
 
-## <a name="actions"></a>작업
+## <a name="actions"></a>동작
 
 SQL 필터 조건을 사용하면 속성 및 값을 추가, 제거 또는 교체하여 메시지에 주석을 달 수 있는 작업을 정의할 수 있습니다. 이 작업은 SQL UPDATE 문에 개괄적으로 의지하는 [SQL-like 식을 사용](service-bus-messaging-sql-filter.md)합니다. 이 작업은 메시지가 일치된 이후 및 구독에 대해 선택되기 이전에 해당 메시지에서 수행됩니다. 메시지 속성에 대한 변경 사항은 구독에 복사된 메시지에 대한 프라이빗입니다.
 

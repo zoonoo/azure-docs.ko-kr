@@ -1,5 +1,5 @@
 ---
-title: Azure HDInsight Hadoop 클러스터의 데이터에 대 한 기능 만들기-팀 데이터 과학 프로세스
+title: Azure HDInsight Hadoop 클러스터 - 팀 데이터 과학 프로세스에서 데이터에 대한 기능 만들기
 description: Azure HDInsight Hadoop 클러스터에 저장된 데이터의 기능을 생성하는 Hive 쿼리의 예입니다.
 services: machine-learning
 author: marktab
@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: c926aac3ea4360793ff52b616a55dc6198357c8a
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76721781"
 ---
 # <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Hive 쿼리를 사용하여 Hadoop 클러스터의 데이터에 대한 기능 만들기
@@ -35,16 +35,16 @@ ms.locfileid: "76721781"
 * Azure HDInsight Hadoop 클러스터의 Hive 테이블에 데이터가 업로드되었습니다. 업로드되지 않은 경우 [데이터를 만들어서 Hive 테이블에 로드](move-hive-tables.md)의 지침에 따라 먼저 Hive 테이블에 데이터를 업로드합니다.
 * 클러스터에 대한 원격 액세스가 설정되었습니다. 지침이 필요한 경우 [Hadoop 클러스터의 헤드 노드에 액세스](customize-hadoop-cluster.md)를 참조하세요.
 
-## <a name="hive-featureengineering"></a>기능 생성
+## <a name="feature-generation"></a><a name="hive-featureengineering"></a>기능 생성
 이 섹션에서는 Hive 쿼리를 사용하여 기능을 생성할 수 있는 방법의 몇 가지 예를 설명합니다. 추가 기능을 생성한 후 기존 테이블에 열로 추가하거나 추가 기능 및 기본 키를 사용하여 새 테이블을 만들어서 원래 테이블과 조인할 수 있습니다. 제시된 예는 다음과 같습니다.
 
-1. [빈도 기반 기능 생성](#hive-frequencyfeature)
-2. [이진 분류에서 범주 변수의 위험](#hive-riskfeature)
+1. [주파수 기반 기능 생성](#hive-frequencyfeature)
+2. [이진 분류의 범주형 변수 위험](#hive-riskfeature)
 3. [날짜/시간 필드에서 기능 추출](#hive-datefeatures)
 4. [텍스트 필드에서 기능 추출](#hive-textfeatures)
 5. [GPS 좌표 사이의 거리 계산](#hive-gpsdistance)
 
-### <a name="hive-frequencyfeature"></a>빈도 기반 기능 생성
+### <a name="frequency-based-feature-generation"></a><a name="hive-frequencyfeature"></a>주파수 기반 피쳐 생성
 범주 변수의 빈도 수준 또는 여러 범주 변수로 구성된 특정 조합의 빈도 수준을 계산하는 것이 매우 유용한 경우가 종종 있습니다. 사용자는 다음 스크립트를 사용하여 빈도를 계산할 수 있습니다.
 
         select
@@ -58,7 +58,7 @@ ms.locfileid: "76721781"
         order by frequency desc;
 
 
-### <a name="hive-riskfeature"></a>이진 분류에서 범주 변수의 위험
+### <a name="risks-of-categorical-variables-in-binary-classification"></a><a name="hive-riskfeature"></a>이진 분류에서 범주 변수의 위험
 사용하는 모델에 숫자 기능만 허용되는 경우 이진 분류에서 숫자가 아닌 범주 변수를 숫자 기능으로 변환해야 합니다. 이렇게 변환하려면 숫자가 아닌 각 수준을 숫자 위험으로 바꾸면 됩니다. 이 섹션에서는 범주 변수의 위험 값(log odds)을 계산하는 몇 가지 일반적인 Hive 쿼리를 보여 줍니다.
 
         set smooth_param1=1;
@@ -83,33 +83,33 @@ ms.locfileid: "76721781"
 
 위험 테이블이 계산되면 사용자는 위험 값을 위험 테이블에 조인하여 위험 값을 할당할 수 있습니다. Hive 조인 쿼리는 이전 섹션에서 제공되었습니다.
 
-### <a name="hive-datefeatures"></a>날짜/시간 필드에서 기능 추출
+### <a name="extract-features-from-datetime-fields"></a><a name="hive-datefeatures"></a>날짜 필드에서 피처 추출
 Hive는 날짜/시간 필드를 처리할 수 있는 UDF가 함께 제공됩니다. Hive의 기본 날짜/시간 형식은 'yyyy-MM-dd 00:00:00'입니다(예: '1970-01-01 12:21:32'). 이 섹션에서는 날짜/시간 필드에서 일 및 월을 추출하는 예제 및 기본 형식 이외의 형식으로 된 날짜/시간 문자열을 기본 형식의 날짜/시간 문자열로 변환하는 예제를 보여 줍니다.
 
         select day(<datetime field>), month(<datetime field>)
         from <databasename>.<tablename>;
 
-이 Hive 쿼리는 *\<datetime 필드가 >* 기본 datetime 형식인 것으로 가정 합니다.
+이 Hive 쿼리는 * \<>datetime 필드가* 기본 datetime 형식이라고 가정합니다.
 
 날짜/시간 필드가 기본 형식이 아닌 경우 먼저 날짜/시간 필드를 Unix 타임스탬프로 변환한 후 Unix 타임스탬프를 기본 형식의 날짜/시간 문자열로 변환해야 합니다. 날짜/시간이 기본 형식으로 변환되면 포함된 날짜/시간 UDF를 적용하여 기능을 추출할 수 있습니다.
 
         select from_unixtime(unix_timestamp(<datetime field>,'<pattern of the datetime field>'))
         from <databasename>.<tablename>;
 
-이 쿼리에서 *\<datetime 필드 >* 의 패턴이 *03/26/2015 12:04:39*인 경우 *datetime 필드 > '의\<패턴* 을 `'MM/dd/yyyy HH:mm:ss'`해야 합니다. 이를 테스트하려면 다음 명령을 실행합니다.
+이 쿼리에서 * \<datetime 필드>* *03/26/2015 12:04:39와*같은 패턴이 있는 경우 날짜 `'MM/dd/yyyy HH:mm:ss'`시간 필드> 의 * \<패턴이* 있어야 합니다. 이를 테스트하려면 다음 명령을 실행합니다.
 
         select from_unixtime(unix_timestamp('05/15/2015 09:32:10','MM/dd/yyyy HH:mm:ss'))
         from hivesampletable limit 1;
 
 이 쿼리에서 *hivesampletable* 은 기본적으로 클러스터가 프로비전될 때 모든 Azure HDInsight Hadoop 클러스터에 미리 설치된 상태로 제공됩니다.
 
-### <a name="hive-textfeatures"></a>텍스트 필드에서 기능 추출
+### <a name="extract-features-from-text-fields"></a><a name="hive-textfeatures"></a>텍스트 필드에서 피처 추출
 Hive 테이블에 텍스트 필드가 있고 이 텍스트 필드에 공백으로 구분된 단어 문자열이 포함되어 있으면 다음 쿼리는 문자열의 길이와 문자열에 포함된 단어 수를 추출합니다.
 
         select length(<text field>) as str_len, size(split(<text field>,' ')) as word_num
         from <databasename>.<tablename>;
 
-### <a name="hive-gpsdistance"></a>GPS 좌표 사이의 거리 계산
+### <a name="calculate-distances-between-sets-of-gps-coordinates"></a><a name="hive-gpsdistance"></a>GPS 좌표 사이의 거리 계산
 이 섹션에 제공된 쿼리를 뉴욕시 택시 여행 데이터에 바로 적용할 수 있습니다. 이 쿼리의 목적은 Hive에 포함된 수학 함수를 적용하여 기능을 생성하는 방법을 보여 주는 것입니다.
 
 이 쿼리에 사용된 필드는 승차 위치와 하차 위치의 GPS 좌표이며 이름은 *pickup\_longitude*, *pickup\_latitude*, *dropoff\_longitude* 및 *dropoff\_latitude*입니다. 태우는 좌표와 내리는 좌표 사이의 직접 거리를 계산하는 쿼리는 다음과 같습니다.
@@ -130,13 +130,13 @@ Hive 테이블에 텍스트 필드가 있고 이 텍스트 필드에 공백으�
         and dropoff_latitude between 30 and 90
         limit 10;
 
-두 GPS 좌표 사이의 거리를 계산하는 수학 방정식은 <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">Movable Type Scripts</a> 사이트에서 찾을 수 있으며, 작성자는 Peter Lapisu입니다. 이 Javascript에서 함수 `toRad()`는 각도를 라디안으로 변환 하는 pi/180 *lat_or_lon*뿐입니다. 여기서 *lat_or_lon*은 위도 또는 경도입니다. Hive에서 `atan2` 함수를 제공하지 않고 `atan` 함수를 제공하므로 위의 Hive 쿼리에서는 `atan2`Wikipedia`atan`에서 제공하는 정의를 사용하여 <a href="https://en.wikipedia.org/wiki/Atan2" target="_blank"> 함수가 </a> 함수를 구현합니다.
+두 GPS 좌표 사이의 거리를 계산하는 수학 방정식은 <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">Movable Type Scripts</a> 사이트에서 찾을 수 있으며, 작성자는 Peter Lapisu입니다. 이 자바 스크립트에서 `toRad()` 함수는 *lat_or_lon*pi /180이며 도를 radians로 변환합니다. 여기서 *lat_or_lon*은 위도 또는 경도입니다. Hive에서 `atan2` 함수를 제공하지 않고 `atan` 함수를 제공하므로 위의 Hive 쿼리에서는 <a href="https://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a>에서 제공하는 정의를 사용하여 `atan` 함수가 `atan2` 함수를 구현합니다.
 
 ![작업 영역 만들기](./media/create-features-hive/atan2new.png)
 
-Hive에 포함된 UDF 전체 목록은 **Apache Hive wiki**의 <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions" target="_blank">기본 제공 함수</a> 섹션에서 확인할 수 있습니다.  
+Hive에 포함된 UDF 전체 목록은 <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions" target="_blank">Apache Hive wiki</a>의 **기본 제공 함수** 섹션에서 확인할 수 있습니다.  
 
-## <a name="tuning"></a> 고급 항목: Hive 매개 변수를 조정하여 쿼리 속도 개선
+## <a name="advanced-topics-tune-hive-parameters-to-improve-query-speed"></a><a name="tuning"></a> 고급 항목: Hive 매개 변수를 조정하여 쿼리 속도 개선
 Hive 클러스터의 기본 매개 변수 설정이 Hive 쿼리 및 쿼리에서 처리하는 데이터에 적합하지 않을 수 있습니다. 이 섹션에서는 사용자가 조정하여 Hive 쿼리 성능을 개선할 수 있는 일부 매개 변수에 대해 설명합니다. 사용자는 매개 변수 조정 쿼리를 먼저 추가한 후 데이터 처리 쿼리를 추가해야 합니다.
 
 1. **Java 힙 공간**: 대용량 데이터 세트를 조인하거나 긴 레코드 처리하는 것과 관련된 쿼리에서 발생하는 일반적인 오류 중 하나는 **힙 공간 부족**입니다. *mapreduce.map.java.opts* 및 *mapreduce.task.io.sort.mb* 매개 변수를 원하는 값으로 설정하여 이 오류를 피할 수 있습니다. 다음은 예제입니다.
@@ -144,18 +144,18 @@ Hive 클러스터의 기본 매개 변수 설정이 Hive 쿼리 및 쿼리에서
         set mapreduce.map.java.opts=-Xmx4096m;
         set mapreduce.task.io.sort.mb=-Xmx1024m;
 
-    이 매개 변수는 Java 힙 공간에 4gb 메모리를 할당 하 고 더 많은 메모리를 할당 하 여 정렬을 더 효율적으로 만듭니다. 힙 공간과 관련된 작업 실패 오류가 발생할 경우 이러한 할당 방법을 사용하면 좋습니다.
+    이 매개 변수는 Java 힙 공간에 4GB 메모리를 할당하고 더 많은 메모리를 할당하여 정렬을 보다 효율적으로 만듭니다. 힙 공간과 관련된 작업 실패 오류가 발생할 경우 이러한 할당 방법을 사용하면 좋습니다.
 
 1. **DFS 블록 크기**: 이 매개 변수는 파일 시스템에 저장되는 최소 데이터 단위를 설정합니다. 예를 들어 DFS 블록 크기가 128MB인 경우 128MB 이하의 모든 데이터는 단일 블록에 저장됩니다. 128MB보다 큰 데이터는 추가 블록에 할당됩니다. 
 2. 블록 크기를 작게 할 경우 이름 노드에서 해당 파일과 관련된 블록을 찾으려면 훨씬 많은 요청을 처리해야 하므로 Hadoop에서 큰 오버헤드가 발생합니다. 기가바이트 단위(또는 그 이상)의 데이터를 처리할 때 권장되는 설정은 다음과 같습니다.
 
         set dfs.block.size=128m;
 
-2. **Hive에서 조인 작업 최적화**: 맵/감소 프레임워크의 조인 작업은 일반적으로 감소 단계에서 수행되지만, 맵 단계("맵 조인"이라고도 함)에서 조인 작업을 예약하여 엄청난 이점을 얻을 수 있는 경우도 있습니다. 이 옵션을 설정 합니다.
+2. **Hive에서 조인 작업 최적화**: 맵/감소 프레임워크의 조인 작업은 일반적으로 감소 단계에서 수행되지만, 맵 단계("맵 조인"이라고도 함)에서 조인 작업을 예약하여 엄청난 이점을 얻을 수 있는 경우도 있습니다. 이 옵션을 설정합니다.
    
        set hive.auto.convert.join=true;
 
-3. **Hive에 매퍼 수 지정**: Hadoop을 사용하면 사용자가 리듀서 수를 설정할 수 있지만, 매퍼 수는 일반적으로 사용자가 설정하지 않습니다. 한 가지 팁으로, 맵 작업 각각의 크기가 다음과 같은 방법으로 결정되므로 *mapred.min.split.size* 및 *mapred.max.split.size* Hadoop 변수를 선택하여 매퍼 수를 어느 정도 조절할 수 있습니다.
+3. **Hive에 매퍼 수 지정**: Hadoop을 사용하면 사용자가 리듀서 수를 설정할 수 있지만, 매퍼 수는 일반적으로 사용자가 설정하지 않습니다. 이 숫자에 대한 어느 정도의 제어를 허용하는 트릭은 각 맵 작업의 크기가 결정됨에 따라 Hadoop 변수 *mapred.min.split.size* 및 *mapred.max.split.size를* 선택하는 것입니다.
    
         num_maps = max(mapred.min.split.size, min(mapred.max.split.size, dfs.block.size))
    
@@ -167,7 +167,7 @@ Hive 클러스터의 기본 매개 변수 설정이 Hive 쿼리 및 쿼리에서
 
      보시는 것처럼 데이터 크기를 고려하려 이러한 매개 변수를 "설정"하면 사용되는 매퍼 수를 조정할 수 있습니다.
 
-4. 아래에 Hive 성능을 최적화하는 **고급 옵션** 몇 가지가 추가로 설명되어 있습니다. 이러한 옵션을 사용 하 여 맵 및 감소 작업에 할당 된 메모리를 설정할 수 있으며 성능을 조정 하는 데 유용할 수 있습니다. 주의할 사항으로, *mapreduce.reduce.memory.mb* 가 Hadoop 클러스터에 있는 각 작업자 노드의 실제 메모리 크기보다 크면 안 됩니다.
+4. 아래에 Hive 성능을 최적화하는 **고급 옵션** 몇 가지가 추가로 설명되어 있습니다. 이러한 옵션을 사용하면 맵에 할당된 메모리를 설정하고 작업을 줄일 수 있으며 성능을 조정하는 데 유용할 수 있습니다. 주의할 사항으로, *mapreduce.reduce.memory.mb* 가 Hadoop 클러스터에 있는 각 작업자 노드의 실제 메모리 크기보다 크면 안 됩니다.
    
         set mapreduce.map.memory.mb = 2048;
         set mapreduce.reduce.memory.mb=6144;

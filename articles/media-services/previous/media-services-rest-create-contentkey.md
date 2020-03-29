@@ -1,6 +1,6 @@
 ---
 title: REST를 사용하여 콘텐츠 키 만들기 | Microsoft Docs
-description: 이 문서에서는 자산에 대 한 보안 액세스를 제공 하는 콘텐츠 키를 만드는 방법을 보여 줍니다.
+description: 이 문서에서는 자산에 대한 보안 액세스를 제공하는 콘텐츠 키를 만드는 방법을 보여 줍니다.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: d256f417fb3bacbf3f363fc2a9f8701a1bb49d71
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76773637"
 ---
 # <a name="create-content-keys-with-rest"></a>REST를 사용하여 콘텐츠 키 만들기
 > [!div class="op_single_selector"]
-> * [REST (영문)](media-services-rest-create-contentkey.md)
+> * [나머지](media-services-rest-create-contentkey.md)
 > * [.NET](media-services-dotnet-create-contentkey.md)
 > 
 > 
@@ -177,7 +177,7 @@ X.509 인증서를 검색한 다음 이 인증서의 공개 키를 사용하여 
     }
 
 
-다음 예제에서는 스토리지 암호화(&quot;1&quot;)에 대해 설정된 **ContentKeyType**과 &quot;0&quot;으로 설정된 **ProtectionKeyType**으로 **ContentKey**를 만들어서 보호 키 ID가 X.509 인증서 지문임을 나타내는 방법을 보여줍니다.  
+다음 예제에서는 저장소 암호화에 대 한 **ContentKeyType** 집합 ("1") 및 보호 KeyType "0" 설정 으로 **ContentKey를** 만드는 방법을 보여 주며 보호 키 ID는 X.509 인증서 지문임을 나타냅니다. **ProtectionKeyType**  
 
 요청
 
@@ -253,6 +253,6 @@ ContentKey를 만든 후 다음 예제와 같이 $links 작업을 사용하여 �
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>피드백 제공하기
+## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

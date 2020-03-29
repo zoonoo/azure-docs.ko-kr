@@ -14,18 +14,18 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 8254d121c62a20de0a1593920b7793195f8eb50e
-ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78926705"
 ---
 # <a name="import-the-postman-environment"></a>Postman 환경 가져오기  
 
-이 문서에는 Media Services REST API를 호출하는 그룹화된 HTTP 요청이 포함된 **Postman 컬렉션**을 사용하는 [Postman](postman-collection.md) 환경 변수의 정의가 포함되어 있습니다. 환경 및 컬렉션 파일은 [Media Services REST API 호출에 대한 Postman 구성](media-rest-apis-with-postman.md) 자습서에서 사용됩니다.
+이 문서에는 Media Services REST API를 호출하는 그룹화된 HTTP 요청이 포함된 [Postman 컬렉션](postman-collection.md)을 사용하는 **Postman** 환경 변수의 정의가 포함되어 있습니다. 환경 및 컬렉션 파일은 [Media Services REST API 호출에 대한 Postman 구성](media-rest-apis-with-postman.md) 자습서에서 사용됩니다.
 
 > [!NOTE]
-> `AzureADSTSEndpoint ` = `https://login.microsoftonline.com/{{TenantId}}/oauth2/token`의 값입니다. 테 넌 트 ID를 가져오려면 포털에서 사용자 이름 위로 마우스를 가져가면 (오른쪽 위 모서리에 있음) "디렉터리: Microsoft ({{TENANTID}})에 표시 됩니다.
+> `AzureADSTSEndpoint `  = 의 `https://login.microsoftonline.com/{{TenantId}}/oauth2/token`값입니다. 테넌트 ID를 받으려면 포털(오른쪽 상단 모서리)의 사용자 이름 위로 마우스를 마우스를 가져가면 "디렉터리: Microsoft({{TENANTID}}}) 에 있을 것입니다.
 
 ```
 {

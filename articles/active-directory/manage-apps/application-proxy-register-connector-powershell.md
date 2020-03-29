@@ -17,10 +17,10 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b43d2de0a366d7e69a025b2e4e2998dccda2038e
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76756214"
 ---
 # <a name="create-an-unattended-installation-script-for-the-azure-ad-application-proxy-connector"></a>Azure AD 애플리케이션 프록시 커넥터에 대한 무인 설치 스크립트 만들기
@@ -34,7 +34,7 @@ ms.locfileid: "76756214"
 * 커넥터 설치 및 등록을 다른 절차의 일부분으로 통합합니다.
 * 커넥터 비트를 포함하지만 등록되지 않은 표준 서버 이미지를 만듭니다.
 
-[응용 프로그램 프록시 커넥터가](application-proxy-connectors.md) 작동 하려면 응용 프로그램 관리자 및 암호를 사용 하 여 Azure AD 디렉터리에 등록 해야 합니다. 일반적으로 이러한 정보는 커넥터 설치 중에 팝업 대화 상자에서 입력되지만, 대신 PowerShell을 사용하여 이 프로세스를 자동화할 수도 있습니다.
+응용 [프로그램 프록시 커넥터가](application-proxy-connectors.md) 작동하려면 응용 프로그램 관리자 및 암호를 사용하여 Azure AD 디렉터리에 등록해야 합니다. 일반적으로 이러한 정보는 커넥터 설치 중에 팝업 대화 상자에서 입력되지만, 대신 PowerShell을 사용하여 이 프로세스를 자동화할 수도 있습니다.
 
 무인 설치를 위한 두 단계가 있습니다. 먼저 커넥터를 설치합니다. 두 번째, Azure AD에 커넥터를 등록합니다. 
 
@@ -53,7 +53,7 @@ ms.locfileid: "76756214"
 * 오프라인에서 만든 토큰을 사용하여 커넥터 등록
 
 ### <a name="register-the-connector-using-a-windows-powershell-credential-object"></a>Windows PowerShell 자격 증명 개체를 사용하여 커넥터 등록
-1. 디렉터리에 대한 관리 사용자 이름 및 암호를 포함하는 Windows PowerShell 자격 증명 개체 `$cred`를 만듭니다. 다음 명령에서 *\<username\>* 및 *\<암호\>* 를 바꿔서 실행합니다.
+1. 디렉터리에 대한 관리 사용자 이름 및 암호를 포함하는 Windows PowerShell 자격 증명 개체 `$cred`를 만듭니다. 다음 명령을 실행하여 * \<사용자\> 이름과* * \<암호를\>* 대체합니다.
    
         $User = "<username>"
         $PlainPassword = '<password>'
@@ -66,7 +66,7 @@ ms.locfileid: "76756214"
 ### <a name="register-the-connector-using-a-token-created-offline"></a>오프라인에서 만든 토큰을 사용하여 커넥터 등록
 1. 이 코드 조각의 값 또는 아래의 PowerShell cmdlet을 이용하여 AuthenticationContext 클래스를 사용하는 오프라인 토큰을 만듭니다.
 
-    **C# 사용:**
+    **C #사용:**
 
         using System;
         using System.Diagnostics;
@@ -121,7 +121,7 @@ ms.locfileid: "76756214"
             tenantID = authResult.TenantId;
         }
 
-    **PowerShell 사용:**
+    **파워쉘 사용:**
 
         # Locate AzureAD PowerShell Module
         # Change Name of Module to AzureAD after what you have installed

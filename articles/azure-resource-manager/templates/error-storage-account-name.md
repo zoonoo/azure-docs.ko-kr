@@ -4,10 +4,10 @@ description: 스토리지 계정 이름을 지정할 때 발생할 수 있는 �
 ms.topic: troubleshooting
 ms.date: 03/09/2018
 ms.openlocfilehash: 5b2706d8540ea38ef08bf7ca0f804e6811a93085
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76153975"
 ---
 # <a name="resolve-errors-for-storage-account-names"></a>스토리지 계정 이름 오류 해결
@@ -37,7 +37,7 @@ Message=The storage account named mystorage is already taken.
 
 Storage 계정 이름은 3자에서 24자 사이여야 하고 숫자 및 소문자만 사용해야 합니다. 이름은 고유해야 합니다.
 
-## <a name="solution"></a>솔루션
+## <a name="solution"></a>해결 방법
 
 스토리지 계정 이름이 고유한지 확인합니다. 명명 규칙과 [uniqueString](template-functions-string.md#uniquestring) 함수 결과를 연결하여 고유한 이름을 만들 수 있습니다.
 

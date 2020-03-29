@@ -1,6 +1,6 @@
 ---
-title: PowerShell을 사용 하 여 Notification Hubs 배포 및 관리
-description: 자동화를 위해 PowerShell을 사용 하 여 Notification Hubs를 만들고 관리 하는 방법
+title: PowerShell을 사용하여 알림 허브 배포 및 관리
+description: 자동화를 위한 PowerShell을 사용하여 알림 허브를 만들고 관리하는 방법
 services: notification-hubs
 documentationcenter: ''
 author: sethmanheim
@@ -17,10 +17,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: 863fdb445cce41f0fe4cbee63a3d6198c0a79339
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76264647"
 ---
 # <a name="deploy-and-manage-notification-hubs-using-powershell"></a>PowerShell을 사용하여 Notification Hubs 배포 및 관리
@@ -36,7 +36,7 @@ ms.locfileid: "76264647"
 
 알림 허브 관리는 Azure PowerShell에 포함된 cmdlet에서 직접 지원하지 않습니다. PowerShell에서 Microsoft.Azure.NotificationHubs.dll 어셈블리를 참조하는 것이 최선의 방법입니다. 어셈블리는 [Microsoft Azure Notification Hubs NuGet 패키지](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)와 함께 배포됩니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독 Azure는 구독 기반 플랫폼입니다. 구독을 얻는 방법에 대한 자세한 내용은 [구매 옵션], [구성원 제안] 또는 [평가판]을 참조하세요.
 - Azure PowerShell이 설치된 컴퓨터 자세한 내용은 [Azure PowerShell 설치 및 구성]을 참조하세요.
@@ -158,7 +158,7 @@ else
 
 [구매 옵션]: https://azure.microsoft.com/pricing/purchase-options/
 [구성원 제안]: https://azure.microsoft.com/pricing/member-offers/
-[평가판]: https://azure.microsoft.com/pricing/free-trial/
+[무료 평가판]: https://azure.microsoft.com/pricing/free-trial/
 [Azure PowerShell 설치 및 구성]: /powershell/azureps-cmdlets-docs
 [Notification Hubs용 .NET API]: https://docs.microsoft.com/dotnet/api/overview/azure/notification-hubs?view=azure-dotnet
 [Get-AzureSBNamespace]: https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azuresbnamespace

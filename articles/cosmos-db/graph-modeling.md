@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: lbosq
 ms.openlocfilehash: dc9a5616aa2bb1f7e09045b9cfe4f4d7e9c69be2
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78898321"
 ---
 # <a name="graph-data-modeling-for-azure-cosmos-db-gremlin-api"></a>Azure Cosmos DB Gremlin API에 대한 그래프 데이터 모델링
@@ -71,11 +71,11 @@ ms.locfileid: "78898321"
 
 한 가지 일반적인 함정은 단일 엔터티의 속성을 별도의 꼭짓점으로 매핑하는 것입니다. 동일한 엔터티가 두 가지 다른 방식으로 표현되는 아래 예제를 고려해보십시오.
 
-* **꼭짓점 기반 속성**: 이 방식에서, 엔터티는 3개의 개별 꼭짓점과 2개의 가장자리를 사용하여 속성을 설명합니다. 이 방식은 중복성을 줄일 수 있지만 모델 복잡성을 증가시킵니다. 모델 복잡성이 증가하면 대기 시간, 쿼리 복잡성 및 계산 비용이 추가될 수 있습니다. 이 모델은 분할에서 어려움을 보일 수도 있습니다.
+* **정점 기반 속성**: 이 방법에서 엔터티는 세 개의 개별 정점과 두 개의 가장자리를 사용하여 해당 속성을 설명합니다. 이 방식은 중복성을 줄일 수 있지만 모델 복잡성을 증가시킵니다. 모델 복잡성이 증가하면 대기 시간, 쿼리 복잡성 및 계산 비용이 추가될 수 있습니다. 이 모델은 분할에서 어려움을 보일 수도 있습니다.
 
 ![속성에 대한 꼭짓점이 있는 엔터티 모델입니다.](./media/graph-modeling/graph-modeling-1.png)
 
-* **속성 포함 꼭짓점**: 이 방식은 키-값 쌍 목록을 활용하여 꼭짓점 내부 엔터티의 모든 속성을 나타냅니다. 이 방식은 모델 복잡성을 줄여서 쿼리를 간소화하고 순회의 비용 효율을 높입니다.
+* **속성 임베디드 정점**: 이 방법은 키-값 쌍 목록을 활용하여 정점 내의 엔티티의 모든 속성을 나타냅니다. 이 방식은 모델 복잡성을 줄여서 쿼리를 간소화하고 순회의 비용 효율을 높입니다.
 
 ![속성에 대한 꼭짓점이 있는 엔터티 모델입니다.](./media/graph-modeling/graph-modeling-2.png)
 
