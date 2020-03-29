@@ -16,10 +16,10 @@ ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 5308badf439254062a8aefca1840eb21bc234ace
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60580415"
 ---
 # <a name="change-the-storsimple-virtual-array-device-administrator-password-via-storsimple-device-manager"></a>StorSimple Device Manager를 통해 StorSimple Virtual Array 디바이스 관리자 암호 변경
@@ -46,9 +46,9 @@ Azure Portal을 통해 디바이스 관리자 암호를 변경하려면 다음 �
 
 4. **보안 설정** 블레이드에서 다음을 수행합니다.
    
-   1. **디바이스 관리자 암호** 섹션으로 스크롤합니다. 8자에서 15자를 포함하는 관리자 암호를 입력합니다.
+   1. 장치 관리자 **암호** 섹션으로 스크롤합니다. 8자에서 15자를 포함하는 관리자 암호를 입력합니다.
    2. 암호를 확인합니다.
-   3. 블레이드 위쪽에서 **저장**을 클릭합니다.
+   3. 블레이드 상단에서 **저장을** 클릭합니다.
 
 디바이스 관리자 암호가 이제 업데이트되었습니다. 수정된 암호를 사용하여 로컬에서 디바이스에 액세스할 수 있습니다.
 
@@ -60,7 +60,7 @@ Azure Portal을 통해 디바이스 관리자 암호를 변경하려면 다음 �
 
 #### <a name="to-change-the-device-administrator-password-via-the-local-web-ui"></a>로컬 웹 UI를 통해 디바이스 관리자 암호를 변경하려면
 
-1. 로컬 웹 UI에서 디바이스에 대한 **유지 관리** > **암호 변경**을 클릭합니다.
+1. 로컬 웹 UI에서 장치에 대한 **유지 관리** > **암호 변경을** 클릭합니다.
    
     ![password1 변경](./media/storsimple-virtual-array-change-device-admin-password/image40.png)
 2. **현재 암호**를 입력합니다.
