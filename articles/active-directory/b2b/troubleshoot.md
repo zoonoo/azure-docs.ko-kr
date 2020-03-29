@@ -1,30 +1,32 @@
 ---
-title: B2B 공동 작업 문제 해결-Azure Active Directory | Microsoft Docs
+title: B2B 공동 작업 문제 해결 - Azure Active Directory | 마이크로 소프트 문서
 description: Azure Active Directory B2B 협업과 관련된 일반 문제를 해결하는 방법
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: troubleshooting
-ms.date: 11/12/2019
+ms.date: 03/19/2020
 tags: active-directory
 ms.author: mimart
-author: v-miegge
-manager: dcscontentpm
+author: msmimart
 ms.reviewer: mal
 ms.custom:
 - it-pro
 - seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c7c0a4567da11b10b9a0571656103ef2f17c7da4
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.openlocfilehash: 5f8bafb04d0a5d9c6d25a7ed7e155888d492e9fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78399061"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80050776"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Azure Active Directory B2B 협업 문제 해결
 
 Azure AD(Azure Active Directory) B2B 협업과 관련된 일반적인 문제에 대한 몇 가지 해결책은 다음과 같습니다.
+
+   > [!IMPORTANT]
+   > **2021년 3월 31일부터**Microsoft는 B2B 공동 작업 시나리오에 대해 관리되지 않는 Azure AD 계정 및 테넌드를 만들어 초대 사용의 상환을 더 이상 지원하지 않습니다. 준비에, 우리는 고객이 [이메일 일회성 암호 인증을](one-time-passcode.md)선택하는 것이 좋습니다. 이 공개 미리 보기 기능에 대한 피드백을 환영하며 더 많은 공동 작업 방법을 만들 수 있게 되어 기쁩니다.
 
 ## <a name="ive-added-an-external-user-but-do-not-see-them-in-my-global-address-book-or-in-the-people-picker"></a>외부 사용자를 추가했지만 [전체 주소 목록]이나 사용자 선택에서 볼 수 없습니다.
 
@@ -38,9 +40,9 @@ SPO(SharePoint Online) 사용자 선택에서 기존 게스트 사용자를 검�
 
 ## <a name="invitations-have-been-disabled-for-directory"></a>디렉터리에 대한 초대가 사용하도록 설정되지 않았습니다.
 
-사용자를 초대할 수 있는 권한이 없다는 알림이 표시 되는 경우 외부 사용자 > > > 사용자 설정 Azure Active Directory 외부 사용자를 초대할 수 있는 권한이 있는 사용자 계정에 외부 공동 작업 설정을 관리할 수 있는 권한이 있는지 확인 합니다.
+사용자를 초대할 권한이 없다는 알림을 받은 경우 사용자 계정이 외부 사용자 > 외부 공동 작업 설정 관리 > Azure Active Directory > 사용자 설정에서 외부 사용자를 초대할 권한이 있는지 확인합니다.
 
-![외부 사용자 설정을 보여 주는 스크린샷](media/troubleshoot/external-user-settings.png)
+![외부 사용자 설정을 보여주는 스크린샷](media/troubleshoot/external-user-settings.png)
 
 최근에 이러한 설정을 수정했거나 사용자에게 [게스트 초대자] 역할을 할당한 경우 변경 내용이 적용되는 데 15-60분 정도 걸릴 수 있습니다.
 
@@ -52,7 +54,7 @@ SPO(SharePoint Online) 사용자 선택에서 기존 게스트 사용자를 검�
 
 Azure Active Directory를 사용하는 조직의 사용자를 초대하였으나 특정 사용자의 계정이 없는(예: Azure AD contoso.com에 존재하지 않는 사용자) 경우입니다. contoso.com의 관리자가 정책을 사용하여 사용자를 만들지 못하게 할 수 있습니다. 사용자는 외부 사용자가 허용된 경우인지 해당 관리자에게 확인해야 합니다. 외부 사용자의 관리자가 자체 도메인의 전자 메일 확인 사용자를 허용해야 할 수도 있습니다(전자 메일 확인 사용자 허용은 이 [문서](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)를 확인).
 
-![테 넌 트가 전자 메일 확인 사용자를 허용 하지 않음을 나타내는 오류](media/troubleshoot/allow-email-verified-users.png)
+![테넌트가 확인된 전자 메일을 허용하지 않는다는 오류](media/troubleshoot/allow-email-verified-users.png)
 
 ### <a name="external-user-does-not-exist-already-in-a-federated-domain"></a>외부 사용자가 이미 페더레이션된 도메인에 존재하지 않습니다.
 
@@ -62,7 +64,7 @@ Azure Active Directory를 사용하는 조직의 사용자를 초대하였으나
 
 ## <a name="how-does--which-is-not-normally-a-valid-character-sync-with-azure-ad"></a>일반적으로 잘못된 문자인 ‘\#’은 Azure AD와 어떻게 동기화됩니까?
 
-초대된 계정 \# becomes user_contoso.com#EXT#user@contoso.com이므로 “@fabrikam.onmicrosoft.com”은 Azure AD B2B 협업 또는 외부 사용자에 대해 예약된 UPN 문자입니다. 따라서 온-프레미스에서 가져온 UPN의 \#은 Azure Portal에 로그인할 때 허용되지 않습니다. 
+초대된 계정 user@contoso.com becomes user_contoso.com#EXT#@fabrikam.onmicrosoft.com이므로 “\#”은 Azure AD B2B 협업 또는 외부 사용자에 대해 예약된 UPN 문자입니다. 따라서 온-프레미스에서 가져온 UPN의 \#은 Azure Portal에 로그인할 때 허용되지 않습니다. 
 
 ## <a name="i-receive-an-error-when-adding-external-users-to-a-synchronized-group"></a>동기화된 그룹에 외부 사용자를 추가할 때 오류가 발생합니다.
 
@@ -81,15 +83,15 @@ Azure Active Directory를 사용하는 조직의 사용자를 초대하였으나
 
 이 시나리오가 중요한 경우 API 초대 전자 메일을 표시하지 않으면서 선택한 전자 메일 메커니즘을 통해 전송할 수 있습니다. 조직의 법률 자문에게 문의하여 이러한 방식으로 전송하는 전자 메일이 개인 정보 보호 법률을 준수하는지도 확인하세요.
 
-## <a name="you-receive-an-aadsts65005-error-when-you-try-to-log-in-to-an-azure-resource"></a>Azure 리소스에 로그인을 시도할 때 "AADSTS65005" 오류가 표시 됩니다.
+## <a name="you-receive-an-aadsts65005-error-when-you-try-to-log-in-to-an-azure-resource"></a>Azure 리소스에 로그인하려고 할 때 "AADSTS65005" 오류가 나타납니다.
 
-게스트 계정이 있는 사용자는 로그온 할 수 없으며 다음과 같은 오류 메시지가 수신 됩니다.
+게스트 계정이 있는 사용자는 로그온할 수 없으며 다음과 같은 오류 메시지가 나타납니다.
 
     AADSTS65005: Using application 'AppName' is currently not supported for your organization contoso.com because it is in an unmanaged state. An administrator needs to claim ownership of the company by DNS validation of contoso.com before the application AppName can be provisioned.
 
-사용자에 게는 Azure 사용자 계정이 있고, 중단 또는 관리 되지 않는 바 이럴 테 넌 트가 있습니다. 또한 테 넌 트에는 전역 또는 회사 관리자가 없습니다.
+사용자에게 Azure 사용자 계정이 있으며 중단되었거나 관리되지 않는 바이러스 성 테넌트입니다. 또한 테넌트에는 전역 또는 회사 관리자가 없습니다.
 
-이 문제를 해결 하려면 중단 된 테 넌 트를 수행 해야 합니다. [Azure Active Directory 관리 되지 않는 디렉터리를 관리자 권한으로 사용](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover)을 참조 하세요. 또한 네임 스페이스를 제어 하 고 있는 직접적인 증거를 제공 하기 위해 해당 도메인 접미사에 대 한 인터넷 연결 DNS에 액세스 해야 합니다. 테 넌 트가 관리 되는 상태로 반환 된 후 사용자와 확인 된 도메인 이름이 조직에 가장 적합 한 옵션 인지 여부를 고객과 논의 하십시오.
+이 문제를 해결하려면 버려진 테넌트를 인수해야 합니다. Azure [Active Directory에서 관리되지 않는 디렉터리인 을 관리자로 인계하는 것을 참조합니다.](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover) 또한 네임스페이스를 제어하고 있다는 직접적인 증거를 제공하려면 해당 도메인 접미사에 대한 인터넷 접대 DNS에 액세스해야 합니다. 테넌트가 관리 상태로 반환된 후 사용자와 확인된 도메인 이름을 떠나는 것이 조직에 가장 적합한 옵션인지 고객과 상의하십시오.
 
 ## <a name="a-guest-user-with-a-just-in-time-or-viral-tenant-is-unable-to-reset-their-password"></a>Just-in-Time 또는 "바이럴" 테넌트가 있는 게스트 사용자가 암호를 재설정할 수 없음
 
@@ -97,11 +99,11 @@ ID 테넌트가 JIT(Just-In-Time) 또는 "바이럴" 테넌트(별개의 관리�
 
 ## <a name="a-guest-user-is-unable-to-use-the-azuread-powershell-v1-module"></a>게스트 사용자가 AzureAD PowerShell V1 모듈을 사용할 수 없습니다.
 
-2019 년 11 월 18 일까 지 디렉터리의 게스트 사용자 ( **userType** 속성이 **게스트**와 같은 사용자 계정으로 정의 됨)는 AzureAD PowerShell V1 모듈을 사용 하지 못하도록 차단 됩니다. 앞으로 사용자는 멤버 사용자 (여기서 **userType** equals **Member**) 이거나 AzureAD PowerShell V2 모듈을 사용 해야 합니다.
+2019년 11월 18일부터 **디렉터리(userType** 속성이 **게스트와**같음사용자 계정으로 정의됨)의 게스트 사용자는 AzureAD PowerShell V1 모듈을 사용하지 못하도록 차단됩니다. 앞으로 사용자는 구성원 **사용자(userType가** **멤버와**같음)이거나 AzureAD PowerShell V2 모듈을 사용해야 합니다.
 
-## <a name="in-an-azure-us-government-tenant-i-cant-invite-a-b2b-collaboration-guest-user"></a>Azure 미국 정부 테 넌 트에서 B2B 공동 작업 게스트 사용자를 초대할 수 없습니다.
+## <a name="in-an-azure-us-government-tenant-i-cant-invite-a-b2b-collaboration-guest-user"></a>Azure 미국 정부 테넌트에서는 B2B 공동 작업 게스트 사용자를 초대할 수 없습니다.
 
-Azure 미국 정부 클라우드 내에서 B2B 공동 작업은 현재 Azure 미국 정부 클라우드 내에 있고 B2B 공동 작업을 지 원하는 테 넌 트 간에만 지원 됩니다. Azure US 정부 클라우드의 일부가 아니거나 아직 B2B 공동 작업을 지원 하지 않는 테 넌 트에 사용자를 초대 하는 경우 오류가 발생 합니다. 세부 정보 및 제한 사항은 [Azure Active Directory Premium P1 및 P2 변형](https://docs.microsoft.com/azure/azure-government/documentation-government-services-securityandidentity#azure-active-directory-premium-p1-and-p2)을 참조 하세요.
+Azure 미국 정부 클라우드 내에서 B2B 공동 작업은 현재 Azure 미국 정부 클라우드 내에 있고 둘 다 B2B 공동 작업을 지원하는 테넌자 간에만 지원됩니다. Azure 미국 정부 클라우드에 속하지 않거나 아직 B2B 공동 작업을 지원하지 않는 테넌트에 사용자를 초대하면 오류가 발생합니다. 자세한 내용 및 제한 사항은 [Azure Active Directory 프리미엄 P1 및 P2 변형을](https://docs.microsoft.com/azure/azure-government/documentation-government-services-securityandidentity#azure-active-directory-premium-p1-and-p2)참조하십시오.
 
 ## <a name="next-steps"></a>다음 단계
 

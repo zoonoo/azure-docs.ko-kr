@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: rohink
 ms.openlocfilehash: 0ed2ecef86795f62aa3fe5798dcd0d07adbaf9cc
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76938682"
 ---
 # <a name="enable-diagnostic-logging-in-azure-traffic-manager"></a>Azure Traffic Manager에서 진단 로깅 사용
@@ -55,7 +55,7 @@ Azure Traffic Manager 진단 로그는 Traffic Manager 프로필 리소스의 �
       Traffic Manager 프로필 리소스와 연결된 모든 로그 범주가 '사용'으로 표시되는지 확인합니다. 또한 스토리지 계정이 올바르게 설정되어 있는지도 확인합니다.
 
 ## <a name="access-log-files"></a>로그 파일 액세스
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
+1. [Azure 포털에](https://portal.azure.com)로그인합니다. 
 1. 포털에서 Azure Storage 계정으로 이동합니다.
 2. Azure 스토리지 계정의 **개요** 페이지에 있는 **서비스** 아래에서 **Blob**을 선택합니다.
 3. **컨테이너**에 대해 **insights-logs-probehealthstatusevents**를 선택하고, PT1H.json 파일까지 아래로 이동한 다음, **다운로드**를 클릭하여 이 로그 파일의 복사본을 다운로드하고 저장합니다.
@@ -71,7 +71,7 @@ Azure Monitor를 통해 사용할 수 있는 모든 진단 로그는 일반적�
 
 |||||
 |----|----|---|---|
-|**필드 이름**|**필드 형식**|**정의**|**예제**|
+|**필드 이름**|**필드 유형**|**정의**|**예제**|
 |EndpointName|String|상태가 기록되고 있는 Traffic Manager 엔드포인트의 이름입니다.|*myPrimaryEndpoint*|
 |상태|String|검색된 Traffic Manager 엔드포인트의 상태입니다. 상태는 **위로** 또는 **아래로**일 수 있습니다.|**위로**|
 |||||
