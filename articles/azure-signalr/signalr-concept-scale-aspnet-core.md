@@ -7,17 +7,17 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: zhshang
 ms.openlocfilehash: 8a4012d204b6dafa1233e4ce3d878590120be47d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60640228"
 ---
 # <a name="scale-aspnet-core-signalr-applications-with-azure-signalr-service"></a>Azure SignalR Service를 사용하여 ASP.NET Core SignalR 애플리케이션 크기 조정
 
 ## <a name="developing-signalr-apps"></a>SignalR 앱 개발
 
-현재 웹 애플리케이션에서 사용할 수 있는 SignalR의 [두 가지 버전](https://docs.microsoft.com/aspnet/core/signalr/version-differences)은 ASP.NET용 SignalR과 최신 버전인 ASP.NET Core SignalR입니다. Azure SignalR Service는 ASP.NET Core SignalR에 기반을 둔 Azure 관리 서비스입니다.
+현재 웹 애플리케이션에서 사용할 수 있는 SignalR에는 ASP.NET용 SignalR과 최신 버전인 ASP.NET Core SignalR의 [두 가지 버전](https://docs.microsoft.com/aspnet/core/signalr/version-differences)이 있습니다. Azure SignalR Service는 ASP.NET Core SignalR에 기반을 둔 Azure 관리 서비스입니다.
 
 ASP.NET Core SignalR은 이전 버전을 다시 생성한 것입니다. 결과적으로 ASP.NET Core SignalR은 이전 버전의 SignalR과 호환되지 않습니다. API와 동작이 서로 다릅니다. ASP.NET Core SignalR SDK는 .NET Standard를 대상으로 하므로 .NET Framework에서도 사용할 수 있습니다. 그러나 이전 API 대신 새 API를 사용해야 합니다. SignalR을 사용하지만 ASP.NET Core SignalR 또는 Azure SignalR Service로 이동하려면 API의 차이를 처리하기 위해 코드를 변경해야 합니다.
 
@@ -41,4 +41,4 @@ SignalR은 일반적으로 SQL Server, Azure Service Bus 또는 Azure Cache for 
 
 ## <a name="next-steps"></a>다음 단계
 
-* [빠른 시작: Azure SignalR을 사용하여 대화방 만들기](signalr-quickstart-dotnet-core.md)
+* [빠른 시작: Azure SignalR을 사용하여 채팅방 만들기](signalr-quickstart-dotnet-core.md)

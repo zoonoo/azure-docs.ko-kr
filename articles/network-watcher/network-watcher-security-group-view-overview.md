@@ -12,19 +12,19 @@ ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: damendo
 ms.openlocfilehash: 18619cc0f7a21a39d0802575c484c68c5fa1a624
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76840760"
 ---
-# <a name="introduction-to-effective-security-rules-view-in-azure-network-watcher"></a>Azure Network Watcher의 효과적인 보안 규칙 보기 소개
+# <a name="introduction-to-effective-security-rules-view-in-azure-network-watcher"></a>Azure 네트워크 감시자의 효과적인 보안 규칙 보기 소개
 
-네트워크 보안 그룹은 서브넷 수준 또는 NIC 수준에서 연결됩니다. 서브넷 수준에서 연결되는 경우 서브넷의 모든 VM 인스턴스에 적용됩니다. 효과적인 보안 규칙 보기는 구성에 대 한 통찰력을 제공 하는 가상 머신의 NIC 및 서브넷 수준에서 연결 된 모든 구성 된 NSGs 및 규칙을 반환 합니다. 또한 VM의 각 NIC에 대해 유효 보안 규칙이 반환됩니다. 효과적인 보안 규칙 보기를 사용 하 여 포트 열기와 같은 네트워크 취약성에 대 한 VM을 평가할 수 있습니다. 또한 네트워크 보안 그룹이 [구성된 보안 규칙과 승인된 보안 규칙 간의 비교](network-watcher-nsg-auditing-powershell.md)에 따라 예상대로 작동하는지 검증할 수도 있습니다.
+네트워크 보안 그룹은 서브넷 수준 또는 NIC 수준에서 연결됩니다. 서브넷 수준에서 연결되는 경우 서브넷의 모든 VM 인스턴스에 적용됩니다. 효과적인 보안 규칙 보기는 구성에 대한 통찰력을 제공하는 가상 머신에 대해 NIC 및 서브넷 수준에서 연결된 모든 구성된 NSG 및 규칙을 반환합니다. 또한 VM의 각 NIC에 대해 유효 보안 규칙이 반환됩니다. 효과적인 보안 규칙 보기를 사용하여 열린 포트와 같은 네트워크 취약성에 대해 VM을 평가할 수 있습니다. 또한 네트워크 보안 그룹이 [구성된 보안 규칙과 승인된 보안 규칙 간의 비교](network-watcher-nsg-auditing-powershell.md)에 따라 예상대로 작동하는지 검증할 수도 있습니다.
 
 더 확장된 사용 사례는 보안 규정 준수 및 감사에 있습니다. 조직의 보안 관리를 위해 규범적인 보안 규칙의 집합을 모델로 정의할 수 있습니다. 정기적 규정 준수 감사는 네트워크의 각 VM에 대해 규범적인 규칙을 유효 규칙과 비교하여 프로그래밍 방식으로 구현할 수 있습니다.
 
-에서 포털 규칙은 각 네트워크 인터페이스에 대해 표시 되 고 인바운드 vs 아웃 바운드를 기준으로 그룹화 됩니다. 가상 머신에 적용되는 규칙에 대한 간단한 보기를 제공합니다. CSV 파일에 있는 탭에 관계 없이 모든 보안 규칙을 쉽게 다운로드하는 다운로드 단추가 제공됩니다.
+포털 규칙에서 각 네트워크 인터페이스에 대해 표시되고 인바운드 대 아웃바운드로 그룹화됩니다. 가상 머신에 적용되는 규칙에 대한 간단한 보기를 제공합니다. CSV 파일에 있는 탭에 관계 없이 모든 보안 규칙을 쉽게 다운로드하는 다운로드 단추가 제공됩니다.
 
 ![보안 그룹 보기][1]
 

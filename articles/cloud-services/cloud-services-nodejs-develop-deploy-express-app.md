@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: tagore
 ms.openlocfilehash: 79a998930a384420b22add8825ee4b2269eb4539
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75360755"
 ---
 # <a name="build-and-deploy-a-nodejs-web-application-using-express-on-an-azure-cloud-services"></a>Azure Cloud Services에서 Express를 사용하여 Node.js 웹 애플리케이션 빌드 및 배포
@@ -94,7 +94,7 @@ Node.js에는 핵심 런타임에 최소한의 기능이 들어 있습니다.
    
    ![index.jade 파일의 내용](./media/cloud-services-nodejs-develop-deploy-express-app/getting-started-19.png)
    
-   Jade는 Express 애플리케이션에서 사용하는 기본 뷰 엔진입니다. Jade 뷰 엔진에 대 한 자세한 내용은 [http://jade-lang.com][http://jade-lang.com]를 참조 하세요.
+   Jade는 Express 애플리케이션에서 사용하는 기본 뷰 엔진입니다. 비취 보기 엔진에 대한 [http://jade-lang.com][http://jade-lang.com]자세한 내용은 을 참조하십시오.
 2. **in Azure**를 추가하여 텍스트의 마지막 줄을 수정합니다.
    
    ![index.jade 파일, 마지막 줄: p Welcome to \#{title} in Azure](./media/cloud-services-nodejs-develop-deploy-express-app/node31.png)

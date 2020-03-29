@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/22/2018
 ms.author: alkohli
 ms.openlocfilehash: 55103d6307614f8796c41c35d6345e1fc3aca261
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60789640"
 ---
 # <a name="storsimple-virtual-array-update-11-release-notes"></a>StorSimple 가상 배열 업데이트 1.1 릴리스 정보
@@ -76,7 +76,7 @@ ms.locfileid: "60789640"
 | **14.** |파일 서버 |폴더의 파일에 연결된 ADS(대체 데이터 스트림)가 있는 경우 ADS는 재해 복구, 복제 및 항목 수준 복구를 통해 백업 또는 복원되지 않습니다. | |
 | **15.** |파일 서버 |기호 링크는 지원되지 않습니다. | |
 | **16.** |파일 서버 |Windows EFS(파일 시스템 암호화)에 의해 보호되는 파일을 StorSimple Virtual Array 파일 서버에 복사하거나 저장하지 마세요. 그러면 지원되지 않는 구성이 발생합니다.  | |
-| **17.** |업데이트 |오류를 참조 하는 경우 코드: 2359302 (16 진수 0x240006)에서 로컬 UI 통해 핫픽스를 설치 하려고 하면 다음 즉 핫픽스 장치에 이미 설치 되어 있습니다.   | |
+| **17.** |업데이트 |로컬 UI를 통해 핫픽스를 설치하려고 할 때 오류 코드: 2359302(16진수 0x240006)가 표시되면 해당 핫픽스가 이미 디바이스에 설치되어 있음을 의미합니다.   | |
 | **18.** |업데이트 |로컬 웹 UI를 사용하여 가상 배열에 업데이트 1을 설치하는 경우 업데이트 0.6을 실행 중인지 확인해야 합니다. 업데이트 0.6보다 낮은 버전을 실행 중인 경우 업데이트 0.6을 먼저 설치하고 업데이트 1을 적용해야 합니다. 사전 업데이트 0.6 버전에서 업데이트 1.0을 직접 설치하는 경우 일부 업데이트가 누락되며 모니터링 차트가 작동하지 않습니다.   | |
 
 
@@ -86,9 +86,9 @@ StorSimple 가상 배열에 [업데이트 1.1을 설치](storsimple-virtual-arra
 ## <a name="references"></a>참조
 이전 릴리스 정보를 찾으시나요? 다음으로 이동합니다.
 * [StorSimple 가상 배열 업데이트 1.0 릴리스 정보](storsimple-virtual-array-update-1-release-notes.md)
-* [StorSimple 가상 배열 업데이트 0.6 릴리스 정보](storsimple-virtual-array-update-06-release-notes.md)
+* [StorSimple 가상 배열 업데이트 0.6 릴리스 노트](storsimple-virtual-array-update-06-release-notes.md)
 * [StorSimple 가상 배열 업데이트 0.5 릴리스 정보](storsimple-virtual-array-update-05-release-notes.md)
-* [StorSimple 가상 배열 업데이트 0.4 릴리스 정보](storsimple-virtual-array-update-04-release-notes.md)
-* [StorSimple 가상 배열 업데이트 0.3 릴리스 정보](storsimple-ova-update-03-release-notes.md)
+* [StorSimple 가상 배열 업데이트 0.4 릴리스 노트](storsimple-virtual-array-update-04-release-notes.md)
+* [StorSimple 가상 배열 업데이트 0.3 릴리스 노트](storsimple-ova-update-03-release-notes.md)
 * [StorSimple 가상 배열 업데이트 0.1 및 0.2 릴리스 정보](storsimple-ova-update-01-release-notes.md)
 * [StorSimple 가상 배열 일반 공급 릴리스 정보](storsimple-ova-pp-release-notes.md)

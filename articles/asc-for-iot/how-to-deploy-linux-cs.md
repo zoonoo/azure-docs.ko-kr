@@ -1,6 +1,6 @@
 ---
-title: IoT 용 Azure Security Center Linux C# 에이전트 설치 및 배포 가이드 | Microsoft Docs
-description: 32 비트 및 64 비트 Linux에서 IoT 에이전트에 대 한 Azure Security Center를 설치 하는 방법에 대해 알아봅니다.
+title: IoT용 Azure 보안 센터의 Linux C# 에이전트 설치 및 배포 가이드| 마이크로 소프트 문서
+description: 32비트 및 64비트 Linux모두에서 IoT 에이전트용 Azure 보안 센터를 설치하는 방법에 대해 알아봅니다.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -16,16 +16,16 @@ ms.workload: na
 ms.date: 07/27/2019
 ms.author: mlottner
 ms.openlocfilehash: b675198756ff7bc0791d49fee3649717e3e4da7f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75367419"
 ---
 # <a name="deploy-azure-security-center-for-iot-c-based-security-agent-for-linux"></a>Linux에 IoT용 Azure Security Center C# 기반 보안 에이전트 배포
 
 
-이 가이드에서는 Linux에서 IoT C#기반 보안 에이전트에 대 한 Azure Security Center를 설치 하 고 배포 하는 방법을 설명 합니다.
+이 가이드는 Linux에서 IoT C#기반 보안 에이전트용 Azure 보안 센터를 설치하고 배포하는 방법을 설명합니다.
 
 이 가이드에서는 다음 작업 방법을 배웁니다. 
 > [!div class="checklist"]
@@ -34,9 +34,9 @@ ms.locfileid: "75367419"
 > * 에이전트 제거
 > * 문제 해결 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-다른 플랫폼 및 에이전트 버전의 경우 [올바른 보안 에이전트 선택](how-to-deploy-agent.md)을 참조 하세요.
+다른 플랫폼 및 에이전트 맛의 경우 [올바른 보안 에이전트 선택을](how-to-deploy-agent.md)참조하십시오.
 
 1. 보안 에이전트를 배포하려면 설치하려는 머신에 대한 로컬 관리자 권한이 필요합니다. 
 
@@ -44,31 +44,31 @@ ms.locfileid: "75367419"
 
 ## <a name="installation"></a>설치 
 
-보안 에이전트를 배포 하려면 다음 단계를 사용 합니다.
+보안 에이전트를 배포하려면 다음 단계를 사용합니다.
 
-1. 최신 버전을 [GitHub](https://aka.ms/iot-security-github-cs)에서 컴퓨터에 다운로드 합니다.
+1. [GitHub에서](https://aka.ms/iot-security-github-cs)컴퓨터에 최신 버전을 다운로드합니다.
 
-1. 패키지의 콘텐츠를 추출하고 _/Install_ 폴더로 이동합니다.
+1. 패키지의 내용을 추출하고 _/Install_ 폴더로 이동합니다.
 
 1. `chmod +x InstallSecurityAgent.sh`를 실행하여 **InstallSecurityAgent 스크립트**에 실행 권한을 추가합니다. 
 
-1. 다음으로 **루트 권한**으로 다음 명령을 실행 합니다. 
+1. 그런 다음 루트 권한으로 다음 명령을 **실행합니다.** 
 
    ```
    ./InstallSecurityAgent.sh -i -aui <authentication identity>  -aum <authentication method> -f <file path> -hn <host name>  -di <device id> -cl <certificate location kind>
    ```
    
-   인증 매개 변수에 대 한 자세한 내용은 [인증을 구성 하는 방법](concept-security-agent-authentication-methods.md)을 참조 하세요.
+   인증 매개 변수에 대한 자세한 내용은 [인증을 구성하는 방법을](concept-security-agent-authentication-methods.md)참조하십시오.
 
 이 스크립트는 다음 작업을 수행합니다.
 
 - 필수 구성 요소를 설치합니다.
 
-- 서비스 사용자를 추가 합니다 (대화형 로그인 사용 안 함).
+- 서비스 사용자를 추가합니다(대화형 로그인을 사용하지 않도록 설정).
 
-- **디먼** 으로 에이전트를 설치 합니다.-장치에서 클래식 배포 모델에 **systemd** 를 사용 한다고 가정 합니다.
+- 에이전트를 **데몬으로** 설치 - 장치가 클래식 배포 모델에 **대해 systemd를** 사용한다고 가정합니다.
 
-- 에이전트가 특정 작업을 루트로 수행할 수 있도록 **sudoers** 을 구성 합니다.
+- 에이전트가 특정 작업을 루트로 수행할 수 있도록 **sudoers를** 구성합니다.
 
 - 제공된 인증 매개 변수를 사용하여 에이전트를 구성합니다.
 
@@ -122,8 +122,8 @@ ms.locfileid: "75367419"
 
 ## <a name="next-steps"></a>다음 단계
 
-- IoT 서비스에 대 한 Azure Security Center [개요](overview.md) 를 참조 하십시오.
-- IoT [아키텍처](architecture.md) 에 대 한 Azure Security Center에 대해 자세히 알아보기
+- IoT 서비스를 위한 Azure 보안 센터 [개요](overview.md) 읽기
+- IoT [아키텍처를](architecture.md) 위한 Azure 보안 센터에 대해 자세히 알아보기
 - [서비스](quickstart-onboard-iot-hub.md)를 사용하도록 설정합니다.
-- [FAQ](resources-frequently-asked-questions.md)를 참조합니다.
+- 자주 [묻는 질문 읽기](resources-frequently-asked-questions.md)
 - [경고](concept-security-alerts.md)를 살펴봅니다.

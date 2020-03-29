@@ -1,13 +1,13 @@
 ---
-title: Service Fabric의 응용 프로그램 수명 주기
+title: 서비스 패브릭의 응용 프로그램 수명 주기
 description: 서비스 패브릭 애플리케이션 개발, 배포, 테스트, 업그레이드, 유지 관리 및 제거를 설명합니다.
 ms.topic: conceptual
 ms.date: 1/19/2018
 ms.openlocfilehash: beeb1f1512cf94582dd561fa768f2e8e6649d686
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75378007"
 ---
 # <a name="service-fabric-application-lifecycle"></a>서비스 패브릭 애플리케이션 수명 주기
@@ -18,16 +18,16 @@ ms.locfileid: "75378007"
 ## <a name="service-model-roles"></a>서비스 모델 역할
 서비스 모델은 다음과 같습니다.
 
-* **서비스 개발자**: 동일한 형식이 나 다른 형식의 여러 응용 프로그램에서 사용 하 고 사용할 수 있는 모듈식 및 일반 서비스를 개발 합니다. 예를 들어 큐 서비스를 사용하여 발권 애플리케이션(헬프데스크) 또는 전자 상거래 애플리케이션(장바구니)을 만들 수 있습니다.
+* **서비스 개발자**: 동일한 유형 또는 다른 유형의 여러 응용 프로그램에서 용도를 변경하고 사용할 수 있는 모듈식 및 일반 서비스를 개발합니다. 예를 들어 큐 서비스를 사용하여 발권 애플리케이션(헬프데스크) 또는 전자 상거래 애플리케이션(장바구니)을 만들 수 있습니다.
 * **애플리케이션 개발자**: 특정 요구 사항 또는 시나리오를 충족하도록 서비스 컬렉션을 통합하여 애플리케이션을 만듭니다. 예를 들어 전자 상거래 웹 사이트에 "JSON 상태 비저장 프런트엔드 서비스", "경매 상태 저장 서비스" 및 "큐 상태 저장 서비스"를 통합하여 경매 솔루션을 빌드합니다.
 * **애플리케이션 관리자**: 애플리케이션 구성(구성 템플릿 매개 변수를 입력), 배포(사용 가능한 리소스에 매핑) 및 서비스의 품질에 대한 결정을 내립니다. 예를 들어 애플리케이션 관리자가 애플리케이션의 언어 로캘을 결정합니다(예: 미국은 영어, 일본은 일본어). 배포된 다른 애플리케이션을 다르게 설정할 수 있습니다.
 * **운영자**: 애플리케이션 관리자가 지정한 애플리케이션 구성 및 요구 사항에 따라 애플리케이션을 배포합니다. 예를 들어 운영자가 애플리케이션을 프로비전 및 배포하고 Azure에서 실행되고 있는지 확인합니다. 운영자는 애플리케이션 상태 및 성능 정보를 모니터링 하고 필요에 따라 실제 인프라를 유지 관리합니다.
 
 ## <a name="develop"></a>개발
 1. *서비스 개발자*는 [Reliable Actors](service-fabric-reliable-actors-introduction.md) 또는 [Reliable Services](service-fabric-reliable-services-introduction.md) 프로그래밍 모델을 사용하여 여러 유형의 서비스를 개발합니다.
-2. *서비스 개발자* 는 하나 이상의 코드, 구성 및 데이터 패키지로 구성된 서비스 매니페스트 파일에 개발된 서비스 유형에 대한 내용을 선언적으로 설명합니다.
-3. 그런 다음, *애플리케이션 개발자*는 다른 서비스 유형을 사용하여 애플리케이션을 빌드합니다.
-4. *애플리케이션 개발자*는 구성 서비스의 서비스 매니페스트를 참조하여 애플리케이션에 대한 내용을 애플리케이션 매니페스트에 선언적으로 설명하고, 구성 서비스의 다른 구성 및 배포 설정을 적절하게 재정의 및 매개 변수화합니다.
+2. *서비스 개발자*가 하나 이상의 코드, 구성 및 데이터 패키지로 구성된 서비스 매니페스트 파일에서 개발한 서비스 형식을 선언적으로 설명합니다.
+3. 그러면 *응용 프로그램 개발자*가 다양한 서비스 형식을 사용하여 응용 프로그램을 빌드합니다.
+4. *응용 프로그램 개발자*가 구성 서비스의 서비스 매니페스트를 참조하고 구성 서비스의 여러 구성 및 배포 설정을 적절하게 재정의/매개 변수화하여 응용 프로그램 매니페스트에서 응용 프로그램 유형을 선언적으로 설명합니다.
 
 이에 대한 예는 [Reliable Actors 시작](service-fabric-reliable-actors-get-started.md) 및 [Reliable Services 시작](service-fabric-reliable-services-quick-start.md)을 참조하세요.
 
@@ -44,14 +44,14 @@ ms.locfileid: "75378007"
 ## <a name="test"></a>테스트
 1. 로컬 개발 클러스터 또는 클러스터에 배포한 후 *서비스 개발자*가 [**FailoverTestScenarioParameters**](https://docs.microsoft.com/dotnet/api/system.fabric.testability.scenario.failovertestscenarioparameters) 및 [**FailoverTestScenario**](https://docs.microsoft.com/dotnet/api/system.fabric.testability.scenario.failovertestscenario) 클래스 또는 [**Invoke-ServiceFabricFailoverTestScenario** cmdlet](/powershell/module/servicefabric/invoke-servicefabricfailovertestscenario?view=azureservicefabricps)를 사용하여 기본 제공 장애 조치(failover) 테스트 시나리오를 실행합니다. 장애 조치(failover) 테스트 시나리오는 중요한 전환 및 장애 조치(failover)를 통해 지정된 서비스를 실행하여 서비스가 중단 없이 작동되도록 보장합니다.
 2. 그런 다음 *서비스 개발자*가 [**ChaosTestScenarioParameters**](https://docs.microsoft.com/dotnet/api/system.fabric.testability.scenario.chaostestscenarioparameters) 및 [**ChaosTestScenario**](https://docs.microsoft.com/dotnet/api/system.fabric.testability.scenario.chaostestscenario) 클래스 또는 [**Invoke-ServiceFabricChaosTestScenario** cmdlet](/powershell/module/servicefabric/invoke-servicefabricchaostestscenario?view=azureservicefabricps)를 사용하여 기본 제공 비정상 상황 테스트 시나리오를 실행합니다. 비정상 상황 테스트 시나리오는 임의로 여러 노드, 코드 패키지 및 복제 오류를 클러스터로 유도합니다.
-3. *서비스 개발자* 는 클러스터 주위에서 주 복제본을 이동 하는 테스트 시나리오를 작성 하 여 [서비스 간 통신을 테스트](service-fabric-testability-scenarios-service-communication.md) 합니다.
+3. 그런 다음 *service developer* [서비스 간 통신을 테스트](service-fabric-testability-scenarios-service-communication.md) 합니다.
 
 자세한 내용은 [오류 분석 서비스 소개](service-fabric-testability-overview.md) 를 참조하세요.
 
 ## <a name="upgrade"></a>업그레이드
 1. *서비스 개발자*는 인스턴스화된 애플리케이션의 구성 서비스를 업데이트 하고/하거나 버그를 수정하고 새로운 서비스 매니페스트 버전을 제공합니다.
 2. *애플리케이션 개발자*는 구성 서비스의 구성 및 배포 설정을 재정의 및 매개 변수화하고 새로운 애플리케이션 매니페스트 버전을 제공합니다. 그런 다음, 애플리케이션 개발자가 새로운 서비스 매니페스트 버전을 애플리케이션에 통합하고 업데이트된 애플리케이션 패키지에 새로운 버전의 애플리케이션 유형을 제공합니다.
-3. *애플리케이션 관리자*는 적절한 매개 변수를 업데이트하여 새로운 버전의 애플리케이션 유형을 대상 애플리케이션에 통합합니다.
+3. *응용 프로그램 관리자*가 적절한 매개 변수를 업데이트하여 응용 프로그램 유형의 새 버전을 대상 응용 프로그램에 통합합니다.
 4. *운영자*는 [**CopyApplicationPackage** 메서드](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.applicationmanagementclient) 또는 [**Copy-ServiceFabricApplicationPackage** cmdlet](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps)을 사용하여 업데이트된 애플리케이션 패키지를 클러스터 이미지 저장소에 업로드합니다. 애플리케이션 패키지는 애플리케이션 매니페스트 및 서비스 패키지 컬렉션을 포함합니다.
 5. 그런 다음, *운영자*가 [**ProvisionApplicationAsync** 메서드](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), [**Register-ServiceFabricApplicationType** cmdlet](https://docs.microsoft.com/powershell/module/servicefabric/register-servicefabricapplicationtype) 또는 [**Provision an Application** REST 작업](https://docs.microsoft.com/rest/api/servicefabric/provision-an-application)을 사용하여 대상 클러스터에 새로운 애플리케이션 버전을 프로비전합니다.
 6. *운영자*가 [**UpgradeApplicationAsync** 메서드](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), [**Start-ServiceFabricApplicationUpgrade** cmdlet](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricapplicationupgrade) 또는 [**Upgrade an Application** REST 작업](https://docs.microsoft.com/rest/api/servicefabric/upgrade-an-application)을 사용하여 대상 애플리케이션을 새 버전으로 업그레이드합니다.
@@ -80,8 +80,8 @@ ms.locfileid: "75378007"
 ## <a name="next-steps"></a>다음 단계
 서비스 패브릭 애플리케이션 및 서비스의 개발, 테스트 및 관리에 대한 자세한 내용은 다음 항목을 참조하세요.
 
-* [Reliable Actors](service-fabric-reliable-actors-introduction.md)
-* [Reliable Services](service-fabric-reliable-services-introduction.md)
+* [신뢰할 수 있는 액터](service-fabric-reliable-actors-introduction.md)
+* [신뢰할 수 있는 서비스](service-fabric-reliable-services-introduction.md)
 * [애플리케이션 배포](service-fabric-deploy-remove-applications.md)
-* [애플리케이션 업그레이드](service-fabric-application-upgrade.md)
-* [테스트 용이성 개요](service-fabric-testability-overview.md)
+* [응용 프로그램 업그레이드](service-fabric-application-upgrade.md)
+* [테스트 가능성 개요](service-fabric-testability-overview.md)

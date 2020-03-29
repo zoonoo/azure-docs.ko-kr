@@ -1,5 +1,5 @@
 ---
-title: 원격 모니터링 솔루션 UI-Azure 플라이 아웃을 추가할 | Microsoft Docs
+title: 원격 모니터링 솔루션 UI에 플라이아웃 추가 - Azure | Microsoft Docs
 description: 이 문서에서는 원격 모니터링 솔루션 가속기 웹 UI의 페이지에 새 플라이아웃을 추가하는 방법을 보여줍니다.
 author: dominicbetts
 manager: timlt
@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 10/05/2018
 ms.topic: conceptual
 ms.openlocfilehash: ccb1a7ff6abbc68f42c7632a8ba7a392b2c48794
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61447117"
 ---
 # <a name="add-a-custom-flyout-to-the-remote-monitoring-solution-accelerator-web-ui"></a>원격 모니터링 솔루션 가속기 웹 UI에 사용자 지정 플라이아웃 추가
@@ -24,12 +24,12 @@ ms.locfileid: "61447117"
 
 이 문서의 예제 플라이아웃은 [원격 모니터링 솔루션 가속기 웹 UI에 사용자 지정 그리드 추가](iot-accelerators-remote-monitoring-customize-grid.md) 방법 문서에서 추가 방법을 보여주는 그리드가 있는 페이지에 표시됩니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 방법 가이드의 단계를 완료하려면 로컬 개발 머신에 다음과 같은 소프트웨어가 설치되어 있어야 합니다.
 
 - [Git](https://git-scm.com/downloads)
-- [Node.JS](https://nodejs.org/download/)
+- [Node.js](https://nodejs.org/download/)
 
 ## <a name="before-you-start"></a>시작하기 전에
 
@@ -133,7 +133,7 @@ export class BasicPage extends Component {
 npm start
 ```
 
-이전 명령은 [http://localhost:3000/dashboard](http://localhost:3000/dashboard)에서 UI를 로컬로 실행합니다. **예제** 페이지로 이동하여 **플라이아웃** 열기를 클릭합니다.
+이전 명령은 에서 [http://localhost:3000/dashboard](http://localhost:3000/dashboard)UI를 로컬로 실행합니다. **예제** 페이지로 이동하여 **플라이아웃** 열기를 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

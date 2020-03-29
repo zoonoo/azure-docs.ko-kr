@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: alkohli
 ms.openlocfilehash: 4c4ac9489b9613b2eeaf26a3df9f4cbc664a1026
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60730693"
 ---
 # <a name="data-transfer-for-large-datasets-with-low-or-no-network-bandwidth"></a>네트워크 대역폭이 부족하거나 없을 경우 대용량 데이터 세트의 데이터 전송
@@ -45,21 +45,21 @@ ms.locfileid: "60730693"
 
 다음 표에서는 주요 기능의 차이점을 요약해서 보여 줍니다.
 
-|                                     |    Data Box Disk      |    Data Box                                      |    Data Box Heavy              |    Import/Export                       |
+|                                     |    Data Box Disk      |    Data Box                                      |    Data Box Heavy              |    가져오기/내보내기                       |
 |-------------------------------------|---------------------------------|--------------------------------------------------|------------------------------------------|----------------------------------------|
 |    데이터 크기                        |    최대 35TB                 |    디바이스당 최대 80TB                       |    디바이스당 최대 800TB               |    변수                            |
 |    데이터 형식                        |    Azure Blob                  |    Azure Blob<br>Azure 파일                    |    Azure Blob<br>Azure 파일            |    Azure Blob<br>Azure 파일          |
 |    폼 팩터                      |    주문당 5개 SSD             |    1 X 50lbs 주문당 데스크톱 크기 디바이스    |    1 X ~500lbs 주문당 대형 디바이스    |    주문당 최대 10개 HDD/SSD        |
 |    초기 설치 시간               |    낮음 <br>(15분)            |    낮음-보통 <br> (30분 미만)               |    보통<br>(1~2시간)               |    보통-어려움<br>(가변적) |
-|    Azure에 데이터 보내기               |    예                          |    예                                           |    예                                   |    예                                 |
-|    Azure에서 데이터 가져오기           |    아닙니다.                           |    아니요                                            |    아니요                                    |    예                                 |
+|    Azure에 데이터 보내기               |    yes                          |    yes                                           |    yes                                   |    yes                                 |
+|    Azure에서 데이터 가져오기           |    예                           |    예                                            |    예                                    |    yes                                 |
 |    암호화                       |    AES 128비트                  |    AES 256비트                                   |    AES 256비트                           |    AES 128비트                         |
 |    하드웨어                         |     Microsoft 제공          |    Microsoft 제공                            |    Microsoft 제공                    |    고객 제공                   |
 |    Linux                |    USB 3.1/SATA                 |    RJ 45, SFP+                                   |    RJ45, QSFP+                           |    SATA II/SATA III                    |
-|    파트너 통합              |    일부                         |    [높음](https://azuremarketplace.microsoft.com/campaigns/databox/azure-data-box)                                          |    [높음](https://azuremarketplace.microsoft.com/campaigns/databox/azure-data-box)                                  |    일부                                |
+|    파트너 통합              |    일부                         |    [높은](https://azuremarketplace.microsoft.com/campaigns/databox/azure-data-box)                                          |    [높은](https://azuremarketplace.microsoft.com/campaigns/databox/azure-data-box)                                  |    일부                                |
 |    발송                         |    Microsoft 관리            |    Microsoft 관리                             |    Microsoft 관리                     |    고객 관리                    |
 | 데이터 이동 시 사용         |상거래 경계 이내|상거래 경계 이내|상거래 경계 이내|지리적 경계 간(예: 미국에서 EU로 이동)|
-|    가격                          |    [가격](https://azure.microsoft.com/pricing/details/databox/disk/)                    |   [가격](https://azure.microsoft.com/pricing/details/storage/databox/)                                      |  [가격](https://azure.microsoft.com/pricing/details/storage/databox/heavy/)                               |   [가격](https://azure.microsoft.com/pricing/details/storage-import-export/)                            |
+|    가격 책정                          |    [가격 책정](https://azure.microsoft.com/pricing/details/databox/disk/)                    |   [가격 책정](https://azure.microsoft.com/pricing/details/storage/databox/)                                      |  [가격 책정](https://azure.microsoft.com/pricing/details/storage/databox/heavy/)                               |   [가격 책정](https://azure.microsoft.com/pricing/details/storage-import-export/)                            |
 
 
 ## <a name="next-steps"></a>다음 단계

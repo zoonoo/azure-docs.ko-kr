@@ -1,5 +1,5 @@
 ---
-title: '자습서: Azure Active Directory로 자동 사용자 프로비저닝을 위한 Concur 구성 | Microsoft Docs'
+title: '자습서: Azure Active Directory로 자동 사용자 프로비전을 위한 Concur 구성 | Microsoft Docs'
 description: Azure Active Directory와 Concur 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: na
@@ -16,21 +16,21 @@ ms.date: 01/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 441aa9805f2a453e22f207238315125d2a281838
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60280475"
 ---
-# <a name="tutorial-configure-concur-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Concur 구성
+# <a name="tutorial-configure-concur-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Concur 구성
 
 이 자습서의 목적은 사용자 계정을 Azure AD에서 Concur로 자동으로 프로비전 및 프로비전 해제하도록 Concur 및 Azure AD에서 수행해야 하는 단계를 설명하는 것입니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
-*   Azure Active Directory 테넌트
+*   Azure Active Directory 테넌트.
 *   Concur Single Sign-On이 설정된 구독
 *   팀 관리자 권한이 있는 Concur의 사용자 계정
 
@@ -67,7 +67,7 @@ Concur 컨설턴트 또는 클라이언트 관리자는 고유한 웹 서비스 
 
 다음과 같은 이유로 이 작업은 일반 T&E 관리에 사용하는 프로필을 사용하지 말아야 합니다.
 
-* 앱을 사용하도록 설정한 후에 클라이언트가 표시되는 대화창에서 "*예*"를 클릭해야 합니다. 클릭함으로써 클라이언트는 파트너 애플리케이션이 데이터에 액세스하도록 승인하므로 사용자나 파트너가 해당 예 단추를 클릭할 수 없습니다.
+* 앱을 사용하도록 설정한 후 표시되는 대화 창에서 클라이언트가 "*예*"를 클릭해야 합니다. 클릭함으로써 클라이언트는 파트너 애플리케이션이 데이터에 액세스하도록 승인하므로 사용자나 파트너가 해당 예 단추를 클릭할 수 없습니다.
 
 * T&E 관리자 프로필을 사용하여 앱을 사용하도록 설정한 클라이언트 관리자가 퇴사하면(비활성화된 프로필이 발생함) 앱이 다른 WS 관리자 프로필로 설정될 때까지 해당 프로필을 사용하도록 설정된 앱은 작동하지 않습니다. 이 때문에 고유한 WS 관리자 프로필을 만들도록 합니다.
 
@@ -81,25 +81,25 @@ Concur 컨설턴트 또는 클라이언트 관리자는 고유한 웹 서비스 
    
     ![Concur 테넌트](./media/concur-provisioning-tutorial/IC721729.png "Concur 테넌트")
 
-3. 왼쪽의 **웹 서비스** 창에서 **파트너 애플리케이션 사용**을 선택합니다.
+3. **웹 서비스** 창의 왼쪽에서 **파트너 응용 프로그램 사용**을 선택합니다.
    
     ![파트너 애플리케이션 사용](./media/concur-provisioning-tutorial/ic721730.png "파트너 애플리케이션 사용")
 
-4. **애플리케이션 사용** 목록에서 **Azure Active Directory**를 선택하고 **사용**을 클릭합니다.
+4. **응용 프로그램 사용** 목록에서 **Azure Active Directory**를 선택하고 **사용**을 클릭합니다.
    
     ![Microsoft Azure Active Directory](./media/concur-provisioning-tutorial/ic721731.png "Microsoft Azure Active Directory")
 
-5. **예**를 클릭하여 **동작 확인** 대화 상자를 닫습니다.
+5. **예**를 클릭하여 **작업 확인** 대화 상자를 닫습니다.
    
     ![동작 확인](./media/concur-provisioning-tutorial/ic721732.png "동작 확인")
 
-6. [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory &gt; 엔터프라이즈 앱 &gt; 모든 애플리케이션** 섹션으로 이동합니다.
+6. Azure [포털에서](https://portal.azure.com) **Azure Active Directory > 엔터프라이즈 앱 > 모든 응용 프로그램 섹션으로 이동합니다.**
 
 7. Single Sign-On에 대한 Concur를 이미 구성한 경우 검색 필드를 사용하여 Concur의 인스턴스를 검색합니다. 그렇지 않은 경우 **추가**를 선택하고 애플리케이션 갤러리에서 **Concur**를 검색합니다. 검색 결과에서 Concur를 선택하고 애플리케이션의 목록에 추가합니다.
 
 8. Concur의 인스턴스를 선택한 다음 **프로비전** 탭을 선택합니다.
 
-9. **프로비전 모드**를 **자동**으로 설정합니다. 
+9. **프로비저닝 모드를** **자동으로**설정합니다. 
  
     ![프로비전](./media/concur-provisioning-tutorial/provisioning.png)
 
@@ -109,7 +109,7 @@ Concur 컨설턴트 또는 클라이언트 관리자는 고유한 웹 서비스 
 
 12. 프로비전 오류 알림을 받을 개인 또는 그룹의 이메일 주소를 **알림 메일** 필드에 입력하고 확인란을 선택합니다.
 
-13. **저장**을 클릭합니다.
+13. **저장을 클릭합니다.**
 
 14. 매핑 섹션에서 **Azure Active Directory 사용자를 Concur에 동기화**를 선택합니다.
 
@@ -117,13 +117,13 @@ Concur 컨설턴트 또는 클라이언트 관리자는 고유한 웹 서비스 
 
 16. Concur에 대한 Azure AD 프로비전 서비스를 사용하도록 설정하려면 **설정** 섹션에서 **프로비전 상태**를 **켜기**로 변경합니다.
 
-17. **저장**을 클릭합니다.
+17. **저장을 클릭합니다.**
 
 이제 테스트 계정을 만들 수 있습니다. 이제 최대 20분 동안 기다린 후 계정이 Concur에 동기화되었는지 확인합니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 
-* [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](tutorial-list.md)
-* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
-* [Single Sign-On 구성](concur-tutorial.md)
+* [엔터프라이즈 앱용 사용자 계정 프로비저닝 관리](tutorial-list.md)
+* [Azure Active Directory의 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](../manage-apps/what-is-single-sign-on.md)
+* [단일 사인온 구성](concur-tutorial.md)
 

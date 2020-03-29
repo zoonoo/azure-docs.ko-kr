@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 6bc29c098bcf7ef1d1a2e2532a00c95f0ec7e927
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61244232"
 ---
 # <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>.NET과 함께 미디어 인코더 표준을 사용하여 미리 보기를 생성하는 방법 
@@ -281,7 +281,7 @@ FileName에서 {해상도} 매크로를 사용하는 것은 출력 이미지의 
 
 위의 모든 예제는 이미지만을 생성하는 인코딩 작업을 전송하는 방법을 설명했지만 미리 보기 생성으로 동영상/오디오 인코딩을 결합할 수도 있습니다. 다음 JSON 및 XML 사전 설정은 **Media Encoder Standard**에서 인코딩하는 동안 미리 보기를 생성하도록 합니다.
 
-### <a id="json"></a>JSON 사전 설정
+### <a name="json-preset"></a><a id="json"></a>JSON 사전 설정
 스키마에 대한 자세한 내용은 [이 문서](https://msdn.microsoft.com/library/mt269962.aspx)를 참조하세요.
 
 ```json
@@ -346,7 +346,7 @@ FileName에서 {해상도} 매크로를 사용하는 것은 출력 이미지의 
     }
 ```
 
-### <a id="xml"></a>XML 사전 설정
+### <a name="xml-preset"></a><a id="xml"></a>XML 사전 설정
 스키마에 대한 자세한 내용은 [이 문서](https://msdn.microsoft.com/library/mt269962.aspx)를 참조하세요.
 
 ```csharp
@@ -401,7 +401,7 @@ FileName에서 {해상도} 매크로를 사용하는 것은 출력 이미지의 
     </Preset>   
 ```
 
-## <a id="code_sample"></a>.NET을 사용하여 동영상 인코드 및 미리 보기 생성
+## <a name="encode-video-and-generate-thumbnail-with-net"></a><a id="code_sample"></a>.NET을 사용하여 동영상 인코드 및 미리 보기 생성
 
 다음 코드 예제에서는 Media Services .NET SDK를 사용하여 다음 작업을 수행합니다.
 
@@ -552,8 +552,8 @@ namespace EncodeAndGenerateThumbnails
 * Jpg/Png/BmpImage 요소에는 Start, Step 및 Range 문자열 특성이 있으며, 이러한 특성은 다음과 같이 해석될 수 있습니다.
   
   * 음수가 아닌 정수인 경우 프레임 번호(예: "Start": "120")
-  * % 접미사로 표시된 경우 소스 기간 기준(예: "Start": "15%") 또는
-  * HH:MM:SS... 형식. 예: “Start”: "00:01:00"
+  * % 접미사로 표시된 경우 소스 기간 기준(예: "Start": "15%")
+  * HH:MM:SS... 형식. 예: “Start” : “00:01:00”
     
     표기법을 원하는 대로 혼용하거나 일치시킬 수 있습니다.
     

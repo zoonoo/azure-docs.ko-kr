@@ -14,16 +14,16 @@ ms.workload: NA
 ms.date: 04/19/2019
 ms.author: alkohli
 ms.openlocfilehash: b46e9ee8fc3e14981a01cc2425a8ce55d06c5a9a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65150749"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-azure-file-sync"></a>StorSimple 5000-7000 시리즈에서 Azure 파일 동기화로 데이터 마이그레이션
 
 > [!IMPORTANT]
-> 2019 년 7 월 9 일에 StorSimple 5000/7000 시리즈는 지원 (EOS) 상태 끝에 도달 합니다. StorSimple 5000/7000 시리즈 고객은 이 문서에 설명된 대안 제품 중 하나로 마이그레이션하는 것이 좋습니다.
+> 2019년 7월 9일, StorSimple 5000/7000 시리즈는 지원(EOS) 상태가 종료됩니다. StorSimple 5000/7000 시리즈 고객은 이 문서에 설명된 대안 제품 중 하나로 마이그레이션하는 것이 좋습니다.
 
 데이터 마이그레이션은 데이터를 한 스토리지 위치에서 다른 스토리지 위치로 이동하는 프로세스입니다. 여기서는 활성 애플리케이션을 중단하거나 비활성화하지 않고 조직의 현재 데이터를 한 디바이스에서 다른 디바이스로 정확히 복사한 다음, 모든 I/O(입/출력) 작업을 새 디바이스로 리디렉션해야 합니다. 
 
@@ -47,7 +47,7 @@ AFS로 전환하는 동안 고려해야 하는 사항은 다음과 같습니다.
 
 ## <a name="migration-prerequisites"></a>마이그레이션 필수 구성 요소
 
-여기서는 Azure 파일 동기화로 마이그레이션하기 위한 레거시 5000 또는 7000 시리즈 디바이스용 필수 구성 요소를 찾을 수 있습니다. 시작하기 전에 다음 사항을 확인합니다.
+여기서 레거시 5000 또는 7000 시리즈 장치에 대한 마이그레이션 필수 구성 조건을 Azure File Sync로 찾을 수 있습니다. 시작하기 전에 다음을 수행해야 합니다.
 
 - 소프트웨어 버전 v2.1.1.518 이상을 실행하는 StorSimple 5000/7000 시리즈 디바이스에 액세스합니다. 이보다 낮은 버전은 지원되지 않습니다. StorSimple 디바이스에 대한 웹 UI의 오른쪽 위 모서리에는 실행 중인 소프트웨어 버전이 표시됩니다.  
     디바이스에서 v2.1.1.518 버전을 실행하고 있지 않으면 시스템을 최소 필수 버전으로 업그레이드합니다. 자세한 지침은 [v2.1.1.518 버전으로 시스템 업그레이드](http://onlinehelp.storsimple.com/111_Appliance/6_System_Upgrade_Guides/Current_(v2.1.1)/000_Software_Patch_Upgrade_Guide_v2.1.1.518)를 참조하세요.
@@ -55,8 +55,8 @@ AFS로 전환하는 동안 고려해야 하는 사항은 다음과 같습니다.
 - StorSimple 5000-7000 시리즈 디바이스에 연결된 Windows Server 호스트에 액세스합니다. 호스트는 [Azure 파일 동기화 상호 운용성](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning)에서 설명한 대로 지원되는 Windows Server 버전을 실행하고 있어야 합니다.
 - StorSimple 볼륨은 호스트에 탑재되고 파일 공유를 포함합니다.
 - 호스트에는 로컬로 캐시된 데이터를 저장할 수 있을 만큼 충분한 로컬 스토리지가 있습니다.
-- Azure 파일 동기화를 배포하는 데 사용할 Azure 구독에 소유자 수준 권한으로 액세스합니다. 소유자 또는 관리자 수준의 권한이 없으면 동기화 그룹에 대한 클라우드 엔드포인트를 만들 때 문제가 발생할 수 있습니다.
-- 동기화하려는 Azure 파일 공유가 있는 [범용 v2 스토리지 계정](https://docs.microsoft.com/azure/storage/common/storage-account-overview)에 액세스합니다. 자세한 내용은 [스토리지 계정 만들기](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) 를 참조하세요.
+- Azure 파일 동기화를 배포하는 데 사용할 Azure 구독에 대한 소유자 수준 액세스입니다. 소유자 또는 관리자 수준 권한이 없는 경우 동기화 그룹에 대한 클라우드 끝점을 만들 때 문제가 발생할 수 있습니다.
+- 동기화하려는 Azure 파일 공유가 있는 [범용 v2 스토리지 계정](https://docs.microsoft.com/azure/storage/common/storage-account-overview)에 액세스합니다. 자세한 내용은 [저장소 계정 만들기를](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)참조하십시오.
   - [Azure 파일 공유를 만드는 방법](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share)
 
 ## <a name="migration-process"></a>마이그레이션 프로세스
@@ -69,10 +69,10 @@ AFS로 전환하는 동안 고려해야 하는 사항은 다음과 같습니다.
 
 StorSimple 볼륨에 구성된 Windows 파일 공유를 Azure 파일 동기화 공유로 마이그레이션하려면 다음 단계를 수행합니다. 
 1.  StorSimple 볼륨이 탑재된 동일한 Windows Server 호스트에서 다음 단계를 수행하거나 다른 시스템을 사용합니다. 
-    - [Azure 파일 동기화에 사용할 Windows Server 준비](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#prepare-windows-server-to-use-with-azure-file-sync)
-    - [Azure 파일 동기화 에이전트 설치](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#install-the-azure-file-sync-agent)
-    - [스토리지 동기화 서비스 배포](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#deploy-the-storage-sync-service) 
-    - [스토리지 동기화 서비스에 Windows Server 등록](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#register-windows-server-with-storage-sync-service) 
+    - [Azure 파일 동기화와 함께 사용할 Windows 서버를 준비합니다.](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#prepare-windows-server-to-use-with-azure-file-sync)
+    - [Azure 파일 동기화 에이전트를 설치합니다.](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#install-the-azure-file-sync-agent)
+    - [저장소 동기화 서비스를 배포합니다.](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#deploy-the-storage-sync-service) 
+    - [저장소 동기화 서비스를 통해 Windows 서버를 등록합니다.](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#register-windows-server-with-storage-sync-service) 
     - [동기화 그룹 및 클라우드 엔드포인트 만들기](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#create-a-sync-group-and-a-cloud-endpoint) 호스트에서 마이그레이션해야 하는 각 Windows 파일 공유에 대한 동기화 그룹을 만들어야 합니다.
     - [서버 엔드포인트 만들기](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal#create-a-server-endpoint). 경로를 파일 공유 데이터가 포함된 StorSimple 볼륨의 경로로 지정합니다. 예를 들어 StorSimple 볼륨이 `J` 드라이브이고 데이터가 `J:/<myafsshare>`에 있는 경우 이 경로를 서버 엔드포인트로 추가합니다. **계층화**는 **사용 안 함**으로 둡니다.
 2.  파일 서버 동기화가 완료될 때까지 기다립니다. 특정 동기화 그룹의 각 서버에 대해 다음 사항을 확인합니다.
@@ -80,14 +80,14 @@ StorSimple 볼륨에 구성된 Windows 파일 공유를 Azure 파일 동기화 �
     - 업로드 및 다운로드의 상태가 모두 녹색입니다.
     - **동기화 작업**에는 동기화하도록 남아 있는 파일이 거의 또는 전혀 표시되지 않습니다.
     - 업로드 및 다운로드에 대한 **동기화 상태가 아닌 파일**은 모두 0입니다.
-    서버 동기화가 완료되는 경우에 대한 자세한 내용은 [Azure 파일 동기화 문제 해결](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#how-do-i-know-if-my-servers-are-in-sync-with-each-other)을 참조하세요. 데이터 크기 및 대역폭에 따라 동기화하는 데 몇 시간에서 며칠이 걸릴 수 있습니다. 동기화가 완료되면 모든 데이터가 Azure 파일 공유에 안전하게 보관됩니다. 
+    서버 동기화가 완료된 시기에 대한 자세한 내용은 Azure 파일 동기화 로 [이동하십시오.](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#how-do-i-know-if-my-servers-are-in-sync-with-each-other) 동기화는 데이터 크기와 대역폭에 따라 몇 시간에서 며칠이 걸릴 수 있습니다. 동기화가 완료되면 모든 데이터가 Azure 파일 공유에 안전하게 보관됩니다. 
 3.  StorSimple 볼륨의 공유로 이동합니다. 공유를 선택하고, 마우스 오른쪽 단추로 클릭하고, **속성**을 선택합니다. **보안** 아래에서 공유 권한을 확인합니다. 이러한 권한은 이후 단계에서 새 공유에 수동으로 적용해야 합니다.
 4.  동일한 Windows Server 호스트, 아니면 다른 Windows 호스트를 사용하는지에 따라 다음 단계가 달라집니다.
 
     다른 Windows Server 호스트를 사용하는 경우 이 단계를 건너뛰고 다음 단계로 이동합니다. AFS에 동일한 Windows 파일 서버를 사용하는 경우 몇 분 동안의 가동 중지 시간이 발생합니다. 
     - **가동 중지 시간 시작** - *1F 단계*에서 만든 서버 엔드포인트를 삭제합니다. 
     - 이후에 데이터가 상주하도록 하려는 경로가 있는 새 서버 엔드포인트를 만듭니다.
-    - 서버 엔드포인트가 정상으로 표시되면(몇 분이 소요될 수 있음) 이 새 위치에 있는 데이터가 표시됩니다. 이제 이 새 위치의 파일을 제공하도록 Windows Server 호스트를 구성할 수 있습니다. -  **가동 중지 시간 종료**
+    - 서버 엔드포인트가 정상으로 표시되면(몇 분이 소요될 수 있음) 이 새 위치에 있는 데이터가 표시됩니다. 이제 이 새 위치의 파일을 제공하도록 Windows Server 호스트를 구성할 수 있습니다. - **가동 중지 시간 종료**
 5.  Azure 파일 동기화에 다른 Windows 파일 서버를 사용하는 경우 가동 중지 시간이 발생하지 않습니다. 
     - StorSimple 디바이스 대신 캐시로 사용할 준비가 된 로컬 스토리지의 경로가 있는 다른 서버 엔드포인트를 추가합니다. 
     - 몇 분 내에 새 서버의 파일이 표시될 수 있습니다. 언제든지 StorSimple 디바이스에서 호스트의 이 새 위치로 자유롭게 전환할 수 있습니다.

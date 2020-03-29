@@ -10,10 +10,10 @@ ms.custom: mvc
 ms.date: 12/03/2018
 ms.author: dobett
 ms.openlocfilehash: f58eb05ed582cf18157a76f4d637d72a228f4e96
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65464892"
 ---
 # <a name="device-simulation-solution-accelerator-overview"></a>디바이스 시뮬레이션 솔루션 가속기 개요
@@ -63,4 +63,4 @@ IoT Hub에 연결된 디바이스 한 대에서 수천 대에 대한 시뮬레�
 이 문서에서는 디바이스 시뮬레이션 솔루션 가속기 및 해당 기능에 대해 알아보았습니다. 솔루션 가속기를 사용하려면 빠른 시작:
 
 > [!div class="nextstepaction"]
-> [Azure에서 IoT 디바이스 시뮬레이션 배포 및 실행](quickstart-device-simulation-deploy.md)을 계속 진행합니다.
+> [Azure에서 IoT 디바이스 시뮬레이션 배포 및 실행](quickstart-device-simulation-deploy.md)

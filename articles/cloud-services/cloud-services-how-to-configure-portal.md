@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 12/07/2016
 ms.author: tagore
 ms.openlocfilehash: 554d3e465b42ca889ba03565e87193f80e89ed1d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75361010"
 ---
 # <a name="how-to-configure-cloud-services"></a>Cloud Services를 구성하는 방법
 
-Azure Portal에서 클라우드 서비스에 가장 일반적으로 사용되는 설정을 구성할 수 있습니다. 또는, 구성 파일을 직접 업데이트하려는 경우에는 업데이트할 서비스 구성 파일을 다운로드한 다음 업데이트된 파일을 업로드하고 구성 변경 사항을 적용하여 클라우드 서비스를 업데이트할 수 있습니다. 어느 방법이든 모든 역할 인스턴스에 구성 업데이트를 적용합니다.
+Azure Portal에서 클라우드 서비스에 가장 일반적으로 사용되는 설정을 구성할 수 있습니다. 또는 구성 파일을 직접 업데이트하려는 경우 업데이트할 서비스 구성 파일을 다운로드한 후 업데이트된 파일을 업로드하고 구성 변경 내용으로 클라우드 서비스를 업데이트합니다. 어느 방법이든 모든 역할 인스턴스에 구성 업데이트를 적용합니다.
 
 클라우드 서비스 역할의 인스턴스 또는 이에 대한 원격 데스크톱을 관리할 수도 있습니다.
 
@@ -46,7 +46,7 @@ Azure는 각 역할에 둘 이상의 역할 인스턴스가 있는 경우에만 
 
 ## <a name="monitoring"></a>모니터링
 
-클라우드 서비스에 경고를 추가할 수 있습니다. **설정** > **경고 규칙** > **경고 추가**를 클릭합니다.
+클라우드 서비스에 경고를 추가할 수 있습니다. **설정** > **경고 규칙을** > 클릭하여**경고를 추가합니다.**
 
 ![](./media/cloud-services-how-to-configure-portal/cs-alerts.png)
 
@@ -62,7 +62,7 @@ Azure는 각 역할에 둘 이상의 역할 인스턴스가 있는 경우에만 
 
 ### <a name="configure-monitoring-from-a-metric-tile"></a>메트릭 타일에서 모니터링 구성
 
-**설정** > **경고 규칙**을 사용하는 대신 클라우드 서비스의 **모니터링** 섹션에서 메트릭 타일 중 하나를 클릭할 수 있습니다.
+**설정** > **경고 규칙을**사용하는 대신 클라우드 서비스의 **모니터링** 섹션에서 메트릭 타일 중 하나를 클릭할 수 있습니다.
 
 ![클라우드 서비스 모니터링](./media/cloud-services-how-to-configure-portal/cs-monitoring.png)
 

@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 09/10/2018
 ms.openlocfilehash: 255888acf5da6149b6a964b23ed038b99715481c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75364954"
 ---
 # <a name="workspace-expression-in-azure-monitor-log-query"></a>Azure Monitor 로그 쿼리의 workspace() 식
@@ -20,13 +20,13 @@ ms.locfileid: "75364954"
 
 ## <a name="syntax"></a>구문
 
-`workspace(`*Identifier*`)`
+`workspace(`*식별자*`)`
 
 ## <a name="arguments"></a>인수
 
 - *Identifier*: 아래 표에 있는 형식 중 하나를 사용하여 작업 영역을 식별합니다.
 
-| ID | Description | 예
+| ID | Description | 예제
 |:---|:---|:---|
 | 리소스 이름 | 사용자가 읽을 수 있는 작업 영역의 이름(즉, “구성 요소 이름”) | workspace(“contosoretail”) |
 | 정규화된 이름 | “subscriptionName/resourceGroup/componentName” 형식으로 된 작업 영역의 전체 이름 | workspace(‘Contoso/ContosoResource/ContosoWorkspace’) |
@@ -39,7 +39,7 @@ ms.locfileid: "75364954"
 * 작업 영역에 대한 읽기 권한이 있어야 합니다.
 * 관련 식은 Application Insights 애플리케이션 전체에서 쿼리할 수 있는 `app`입니다.
 
-## <a name="examples"></a>예시
+## <a name="examples"></a>예
 
 ```Kusto
 workspace("contosoretail").Update | count
@@ -64,6 +64,6 @@ union
 
 ## <a name="next-steps"></a>다음 단계
 
-- Application Insights 앱을 참조 하려면 [앱 식](app-expression.md) 을 참조 하세요.
+- 응용 프로그램 인사이트 앱을 참조하는 [앱 식을](app-expression.md) 참조하십시오.
 - [Azure Monitor 데이터](log-query-overview.md)가 저장되는 방법에 대해 알아보세요.
 - [ 쿼리 언어](/azure/kusto/query/)에 대한 전체 문서에 액세스합니다.

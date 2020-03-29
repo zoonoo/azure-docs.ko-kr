@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
 ms.openlocfilehash: 37bf26db5f7ae08734410d36a892aaeb2380bd9f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60878888"
 ---
 # <a name="open-source-big-data-applications-that-work-with-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1에서 작동하는 오픈 소스 빅 데이터 애플리케이션
@@ -26,18 +26,18 @@ ms.locfileid: "60878888"
 | 공개 소스 소프트웨어 | 배포 |
 | --- | --- |
 | [Apache Sqoop](https://sqoop.apache.org/) |HDInsight 3.2, 3.4, 3.5 및 3.6 |
-| [MapReduce](https://hadoop.apache.org/docs/r1.0.4/mapred_tutorial.html) |HDInsight 3.2, 3.4, 3.5 및 3.6 |
+| [Mapreduce](https://hadoop.apache.org/docs/r1.0.4/mapred_tutorial.html) |HDInsight 3.2, 3.4, 3.5 및 3.6 |
 | [Apache Storm](https://storm.apache.org/) |HDInsight 3.2, 3.4, 3.5 및 3.6 |
 | [Apache Hive](https://hive.apache.org/) |HDInsight 3.2, 3.4, 3.5 및 3.6 |
 | [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog) |HDInsight 3.2, 3.4, 3.5 및 3.6 |
-| [Apache Mahout](https://mahout.apache.org/) |HDInsight 3.2, 3.4, 3.5 및 3.6 |
+| [아파치 마호](https://mahout.apache.org/) |HDInsight 3.2, 3.4, 3.5 및 3.6 |
 | [Apache Pig/Pig Latin](https://pig.apache.org/) |HDInsight 3.2, 3.4, 3.5 및 3.6 |
 | [Apache Oozie](https://oozie.apache.org/) |HDInsight 3.2, 3.4, 3.5 및 3.6 |
 | [Apache Zookeeper](https://zookeeper.apache.org/) |HDInsight 3.2, 3.4, 3.5 및 3.6 |
-| [Apache Tez](https://tez.apache.org/) |HDInsight 3.2, 3.4, 3.5 및 3.6 |
+| [아파치 테즈](https://tez.apache.org/) |HDInsight 3.2, 3.4, 3.5 및 3.6 |
 | [Apache Spark](https://spark.apache.org/) |HDInsight 3.4, 3.5 및 3.6 |
 
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 * [Azure Data Lake Storage Gen1 개요](data-lake-store-overview.md)
 

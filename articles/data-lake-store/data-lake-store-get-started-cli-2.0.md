@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
 ms.openlocfilehash: 9431cc7fa12b86371ce6b2325aca8e13d264442e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60885349"
 ---
 # <a name="get-started-with-azure-data-lake-store-using-azure-cli"></a>Azure CLI를 사용하여 Azure Data Lake Store 시작
@@ -23,24 +23,24 @@ ms.locfileid: "60885349"
 
 > [!div class="op_single_selector"]
 > * [포털](data-lake-store-get-started-portal.md)
-> * [PowerShell](data-lake-store-get-started-powershell.md)
+> * [Powershell](data-lake-store-get-started-powershell.md)
 > * [Azure CLI](data-lake-store-get-started-cli-2.0.md)
 >
 > 
 
-Azure CLI를 사용하여 Azure Data Lake Storage Gen1 계정을 만들고 폴더 만들기, 데이터 파일 업로드 및 다운로드, 계정 삭제 등의 기본 작업을 수행하는 방법을 알아봅니다. Data Lake Storage Gen1에 대한 자세한 내용은 [Data Lake Storage Gen1 개요](data-lake-store-overview.md)를 참조하세요.
+Azure CLI를 사용하여 Azure Data Lake Storage Gen1 계정을 만들고 폴더 만들기, 데이터 파일 업로드 및 다운로드, 계정 삭제 등과 같은 기본 작업을 수행하는 방법을 알아봅니다. 데이터 레이크 스토리지 Gen1에 대한 자세한 내용은 [데이터 레이크 스토리지 Gen1 의 개요를](data-lake-store-overview.md)참조하십시오.
 
 Azure CLI는 Azure 리소스를 관리하는 Azure의 명령줄 환경입니다. macOS, Linux 및 Windows에서 사용할 수 있습니다. 자세한 내용은 [Azure CLI 개요](https://docs.microsoft.com/cli/azure)를 참조하세요. 전체 명령 및 구문 목록은 [Azure Data Lake Storage Gen1 CL 참조](https://docs.microsoft.com/cli/azure/dls)에서 확인할 수 있습니다.
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 이 문서를 시작하기 전에 다음이 있어야 합니다.
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
 * **Azure CLI** - 지침은 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조하세요.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>인증
 
 이 문서에서는 최종 사용자로 로그인하는 Data Lake Storage Gen1에 보다 간단한 인증 방식을 사용합니다. Data Lake Storage Gen1 계정 및 파일 시스템에 대한 액세스 수준은 로그인한 사용자의 액세스 수준에 따라 결정됩니다. 단, Data Lake Storage Gen1을 통해 인증하는 다른 방법인 **최종 사용자 인증** 또는 **서비스간 인증**도 있습니다. 지침 및 인증 방법에 대한 자세한 내용은 [최종 사용자 인증](data-lake-store-end-user-authenticate-using-active-directory.md) 또는 [서비스 간 인증](data-lake-store-authenticate-using-active-directory.md)을 참조하세요.
 
@@ -134,7 +134,7 @@ az dls fs list --account mydatalakestoragegen1 --path /mynewfolder
 
 ## <a name="rename-download-and-delete-data-from-a-data-lake-storage-gen1-account"></a>Data Lake Storage Gen1 계정에서 데이터 이름 바꾸기, 다운로드 및 삭제 
 
-* **파일의 이름을 바꾸려면**다음 명령을 사용합니다.
+* **파일 이름을 바꾸려면**다음 명령을 사용합니다.
   
     ```azurecli
     az dls fs move --account mydatalakestoragegen1 --source-path /mynewfolder/vehicle1_09142014.csv --destination-path /mynewfolder/vehicle1_09142014_copy.csv

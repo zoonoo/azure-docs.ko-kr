@@ -16,10 +16,10 @@ ms.date: 05/16/2018
 ms.author: magattus
 ms.custom: mvc
 ms.openlocfilehash: a63914116f5ef9922ac05745764e0ad505dc3c91
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67593961"
 ---
 # <a name="china-content-delivery-with-azure-cdn"></a>Azure CDN를 사용한 중국 콘텐츠 전송
@@ -38,7 +38,7 @@ Azure CDN 글로벌 및 Azure CDN 중국은 다음의 특징이 있습니다.
 
      - 중국 외부에서 콘텐츠 전송 수행
 
-     - 네 가지 가격 책정 계층: Microsoft 표준, Verizon 표준, Verizon premium 및 Akamai 표준의
+     - 4개의 가격 책정 계층: Microsoft 표준, Verizon 표준, Verizon 프리미엄 및 Akamai 표준
 
      - [문서](https://docs.microsoft.com/azure/cdn/)
 
@@ -48,7 +48,7 @@ Azure CDN 글로벌 및 Azure CDN 중국은 다음의 특징이 있습니다.
 
      - 중국 내에서 콘텐츠 전송 수행
 
-     - 두 가지 가격 책정 계층: Standard 및 premium
+     - 2개의 가격 책정 계층: 표준 및 프리미엄
 
      - [문서](https://docs.azure.cn/en-us/cdn/)
  

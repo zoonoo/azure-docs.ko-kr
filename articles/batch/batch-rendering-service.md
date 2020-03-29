@@ -8,17 +8,17 @@ ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
 ms.openlocfilehash: d4423b22c4c8afea5afa9c7040e081665b17ba87
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60774032"
 ---
 # <a name="rendering-using-azure"></a>Azure를 사용한 렌더링
 
 렌더링은 3D 모델을 가져와 2D 이미지를 변환하는 프로세스입니다. 3D 장면은 Autodesk 3ds Max, Autodesk Maya, Blender 같은 애플리케이션에서 제작됩니다.  Autodesk Maya, Autodesk Arnold, Chaos Group V-Ray, Blender Cycles 등의 렌더링 애플리케이션은 2D 이미지를 생성합니다.  경우에 따라 장면 파일에서 단일 이미지가 생성됩니다. 그러나 여러 이미지를 모델링 및 렌더링한 다음, 애니메이션으로 결합하는 것이 일반적입니다.
 
-렌더링 워크로드는 미디어 및 엔터테인먼트 산업에서 특수 효과(VFX)에 널리 사용되고 있습니다. 렌더링도 광고, 소매, 오일 및 가스, 제조와 같은 다른 많은 산업에서 사용 됩니다.
+렌더링 워크로드는 미디어 및 엔터테인먼트 산업에서 특수 효과(VFX)에 널리 사용되고 있습니다. 렌더링은 광고, 소매, 석유 및 가스, 제조 등, 다른 여러 업계에서도 사용됩니다.
 
 렌더링 프로세스는 계산이 많은 가정으로, 많은 프레임/이미지를 생성할 수 있고 각각의 이미지는 렌더링에 몇 시간이 걸릴 수도 있습니다.  따라서 렌더링은 Azure와 Azure Batch를 활용하여 여러 렌더링을 병렬로 처리할 수 있는 완벽한 일괄 처리 워크로드입니다.
 
@@ -32,7 +32,7 @@ ms.locfileid: "60774032"
 * 렌더링 프로젝트에는 엄청난 규모가 필요할 수 있습니다.
   * 개별 프레임이 복잡하여 최고 사양의 하드웨어로도 렌더링에 많은 시간이 소요될 수 있고, 애니메이션은 수십 만 프레임으로 구성될 수 있습니다.  합당한 시간에 고품질 애니메이션을 렌더링하려면 엄청난 컴퓨팅 규모가 필요합니다.  경우에 따라 100,000개가 넘는 코어를 사용하여 수천 개의 프레임을 병렬로 렌더링하기도 했습니다.
 * 렌더링 프로젝트는 프로젝트 기반이며 필요한 컴퓨팅 시간이 제각각입니다.
-  * 필요 시 계산 및 스토리지 용량을 할당하고, 프로젝트 중에 로드에 따라 크기를 조정하여, 프로젝트가 완료되면 제거합니다.
+  * 필요 시 컴퓨팅 및 스토리지 용량을 할당하고, 프로젝트 중에 로드에 따라 크기를 조정하여, 프로젝트가 완료되면 제거합니다.
   * 할당 시에는 용량을 결제하지만 프로젝트 사이 등과 같이 로드가 없을 때는 결제하지 않습니다.
   * 예기치 않은 변경에 따른 급증 상황을 서비스합니다. 프로젝트 후반에 예기치 않은 변화가 있고 그러한 변화를 빡빡한 일정에 맞게 처리해야 하는 경우 확대합니다.
 * 애플리케이션, 워크로드, 기간에 따라 광범위한 하드웨어를 선택할 수 있습니다.
@@ -90,7 +90,7 @@ Azure Batch은 많은 워크로드에 사용되지만 다음 기능은 특히 �
   * 플러그 인을 통해 클라이언트 디자인 및 모델링 애플리케이션 안에서 직접 Batch 렌더링을 사용하도록 할 수 있습니다. 플러그 인은 주로 현재 3D 모델에 대한 컨텍스트 정보를 통해 Batch Explorer 애플리케이션을 호출합니다.
   * 다음과 같은 플러그 인을 사용할 수 있습니다.
     * [Azure Batch for Maya](https://github.com/Azure/azure-batch-maya)
-    * [3ds Max](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/3ds-max)
+    * [3DS Max](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/3ds-max)
     * [Blender](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/blender)
 
 ## <a name="getting-started-with-azure-batch-rendering"></a>Azure Batch 렌더링 시작

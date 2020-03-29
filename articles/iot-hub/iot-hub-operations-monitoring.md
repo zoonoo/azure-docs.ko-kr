@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Hub 작업 모니터링 (사용 되지 않음) | Microsoft Docs
+title: Azure IoT Hub 운영 모니터링(더 이상 사용되지 않는) | 마이크로 소프트 문서
 description: IoT Hub 작업 모니터링을 사용하여 실시간으로 IoT Hub에 대한 작업의 상태를 모니터링하는 방법입니다.
 author: nberdy
 manager: briz
@@ -9,25 +9,25 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: nberdy
 ms.openlocfilehash: 84f28a1cb411e7df156fc08fa683efe7f83eda64
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60345723"
 ---
-# <a name="iot-hub-operations-monitoring-deprecated"></a>IoT Hub 작업 모니터링 (사용 되지 않음)
+# <a name="iot-hub-operations-monitoring-deprecated"></a>IoT 허브 운영 모니터링(더 이상 사용되지 않는)
 
 IoT Hub 작업 모니터링을 사용하면 실시간으로 IoT Hub에 대한 작업의 상태를 모니터링할 수 있습니다. IoT Hub는 몇 가지 작업 범주에 걸쳐 이벤트를 추적합니다. 하나 이상의 범주에서 IoT hub의 엔드포인트로 처리할 이벤트를 보내도록 선택할 수 있습니다. 데이터에 오류가 있는지 모니터링하거나 데이터 패턴을 기반으로 좀 더 복잡한 처리를 설정할 수 있습니다.
 
 >[!NOTE]
->IoT Hub **작업 모니터링은 사용 되지 않으며 2019 년 3 월 10 일에 IoT Hub에서 제거 되었습니다**합니다. 작업 및 IoT Hub의 상태 모니터링에 대 한 참조 [Azure IoT Hub의 상태를 모니터링 및 신속한 문제 진단](iot-hub-monitor-resource-health.md)합니다. 사용 중단 타임라인에 대한 자세한 내용은 [Azure Monitor 및 Azure Resource Health로 Azure IoT 솔루션 모니터링](https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health)을 참조하세요.
+>IoT Hub **운영 모니터링은 더 이상 사용되지 않으며 2019년 3월 10일에 IoT Hub에서 제거되었습니다.** IoT Hub의 작동 및 상태 모니터링은 [Azure IoT Hub의 상태를 모니터링하고 문제를 신속하게 진단](iot-hub-monitor-resource-health.md)을 참조하세요. 사용 중단 타임라인에 대한 자세한 내용은 [Azure Monitor 및 Azure Resource Health로 Azure IoT 솔루션 모니터링](https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health)을 참조하세요.
 
 IoT Hub는 다음 여섯 가지 범주의 이벤트를 모니터링합니다.
 
 * 디바이스 ID 작업
 * 디바이스 원격 분석
 * 클라우드-디바이스 메시지
-* 연결
+* Connections
 * 파일 업로드
 * 메시지 라우팅
 
@@ -36,7 +36,7 @@ IoT Hub는 다음 여섯 가지 범주의 이벤트를 모니터링합니다.
 
 ## <a name="how-to-enable-operations-monitoring"></a>작업 모니터링을 사용하는 방법
 
-1. IoT Hub를 만듭니다. IoT hub를 만드는 방법에 지침을 찾을 수 합니다 [시작](quickstart-send-telemetry-dotnet.md) 가이드입니다.
+1. IoT Hub를 만듭니다. IoT Hub를 만드는 방법에 관한 지침은 [시작](quickstart-send-telemetry-dotnet.md) 가이드에서 확인할 수 있습니다.
 
 2. IoT Hub의 블레이드를 엽니다. 여기에서 **작업 모니터링**을 클릭합니다.
 
@@ -120,7 +120,7 @@ IoT Hub는 다음 여섯 가지 범주의 이벤트를 모니터링합니다.
 }
 ```
 
-### <a name="connections"></a>연결
+### <a name="connections"></a>Connections
 
 연결 범주는 디바이스가 IoT Hub에 연결되거나 연결이 해제될 때 발생하는 오류를 추적합니다. 이 범주를 추적하는 것은 무단 연결 시도를 식별하고 연결 상태가 좋지 않은 영역에서 디바이스의 연결이 끊어졌을 때 추적하는 데 유용합니다.
 

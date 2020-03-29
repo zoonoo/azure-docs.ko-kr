@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
 ms.openlocfilehash: 6c77cd43231d4596535c11564313a0fe90633cdb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60947807"
 ---
 # <a name="azure-traffic-manager-with-azure-site-recovery"></a>Azure Site Recovery를 사용한 Azure Traffic Manager
@@ -99,7 +99,7 @@ Azure Traffic Manager의 [가중치](../traffic-manager/traffic-manager-configur
 
 ![다중 지역 애플리케이션 후](./media/concepts-traffic-manager-with-site-recovery/geographic-application-after.png)
 
-예를 들어 독일 중부의 엔드포인트에서 장애가 발생하면 독일 북동부로 신속하게 복구할 수 있습니다. 새 엔드포인트는 독일에서 시작된 트래픽을 처리하여 가동 중지 시간을 최소화합니다. 마찬가지로 유럽 서부의 엔드포인트에서 정전이 발생할 경우 애플리케이션 워크로드를 북유럽에 복구하여 문제를 해결할 수 있으며, DNS를 처리하는 Azure Traffic Manager는 사용 가능한 엔드포인트로 리디렉션됩니다.
+예를 들어 독일 중부의 엔드포인트에서 장애가 발생하면 독일 북동부로 신속하게 복구할 수 있습니다. 새 엔드포인트는 독일에서 시작된 트래픽을 처리하여 가동 중지 시간을 최소화합니다. 마찬가지로 서유럽의 엔드포인트에서 정전이 발생할 경우 애플리케이션 워크로드를 북유럽에 복구하여 문제를 해결할 수 있으며, DNS를 처리하는 Azure Traffic Manager는 사용 가능한 엔드포인트로 리디렉션됩니다.
 
 필요한 만큼 영역 및 엔드포인트 조합을 포함하도록 위의 설정을 확장할 수 있습니다. Traffic Manager는 최대 10단계의 중첩 프로필을 허용하며 중첩 구성 내에서 루프를 허용하지 않습니다.
 

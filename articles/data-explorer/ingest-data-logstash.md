@@ -1,6 +1,6 @@
 ---
 title: Logstash에서 Azure Data Explorer로 데이터 수집
-description: 이 문서에서는 Logstash에서 Azure 데이터 탐색기를 (부하) 데이터를 수집 하는 방법을 알아봅니다.
+description: 이 문서에서는 Logstash에서 Azure 데이터 탐색기로 데이터를 수집(로드)하는 방법을 배웁니다.
 author: tamirkamara
 ms.author: takamara
 ms.reviewer: orspodek
@@ -8,19 +8,19 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.openlocfilehash: 86f6732cbf2409d3c79a3d7709100e8af24988a0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "66494536"
 ---
 # <a name="ingest-data-from-logstash-to-azure-data-explorer"></a>Logstash에서 Azure Data Explorer로 데이터 수집
 
-[Logstash](https://www.elastic.co/products/logstash)는 동시에 여러 원본의 데이터를 수집하고, 데이터를 변환한 다음, 데이터를 즐겨찾는 “스태시”에 전송하는 오픈 소스인 서버 쪽 데이터 처리 파이프라인입니다. 이 문서에서는 보내게 데이터는 Azure 데이터 탐색기로 로그 및 원격 분석 데이터에 대 한 빠르고 확장성이 높은 데이터 탐색 서비스인. 처음에 테이블 및 데이터 매핑을 테스트 클러스터에 만든 다음, 테이블에 데이터를 보내고 결과를 확인하도록 Logstash로 보냅니다.
+[Logstash](https://www.elastic.co/products/logstash)는 동시에 여러 원본의 데이터를 수집하고, 데이터를 변환한 다음, 데이터를 즐겨찾는 “스태시”에 전송하는 오픈 소스인 서버 쪽 데이터 처리 파이프라인입니다. 이 문서에서는 로그 및 원격 분석 데이터에 대한 빠르고 확장성이 뛰어난 데이터 탐색 서비스인 Azure Data Explorer로 해당 데이터를 보냅니다. 처음에 테이블 및 데이터 매핑을 테스트 클러스터에 만든 다음, 테이블에 데이터를 보내고 결과를 확인하도록 Logstash로 보냅니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-* Azure 구독. 구독이 없으면 시작하기 전에 [체험 Azure 계정](https://azure.microsoft.com/free/)을 만듭니다.
+* Azure 구독 구독이 없으면 시작하기 전에 [체험 Azure 계정](https://azure.microsoft.com/free/)을 만듭니다.
 * Azure Data Explorer [테스트 클러스터 및 데이터베이스](create-cluster-database-portal.md).
 * 버전 6 이상 Logstash [설치 지침](https://www.elastic.co/guide/en/logstash/current/installing-logstash.html)
 
@@ -108,12 +108,12 @@ output {
 
 | 매개 변수 이름 | 설명 |
 | --- | --- |
-| **path** | Logstash 플러그인은 이벤트를 Azure Data Explorer로 보내기 전에 임시 파일에 기록합니다. 이 매개 변수에는 파일을 작성해야 하는 경로와 Azure Data Explorer 서비스에 대한 업로드를 트리거하기 위한 파일 순환의 시간 표현식이 포함됩니다.|
+| **경로** | Logstash 플러그인은 이벤트를 Azure Data Explorer로 보내기 전에 임시 파일에 기록합니다. 이 매개 변수에는 파일을 작성해야 하는 경로와 Azure Data Explorer 서비스에 대한 업로드를 트리거하기 위한 파일 순환의 시간 표현식이 포함됩니다.|
 | **ingest_url** | 수집 관련 통신을 위한 Kusto 엔드포인트입니다.|
 | **app_id**, **app_key** 및 **app_tenant**| Azure Data Explorer에 연결하는 데 필요한 자격 증명입니다. 수집 권한이 있는 애플리케이션을 사용해야 합니다. |
-| **database**| 이벤트를 적용할 데이터베이스 이름입니다. |
+| **데이터베이스**| 이벤트를 적용할 데이터베이스 이름입니다. |
 | **테이블** | 이벤트를 적용할 대상 테이블 이름입니다. |
-| **mapping** | 매핑은 들어오는 이벤트 json 문자열을 올바른 행 형식으로 매핑하는 데 사용됩니다(어떤 속성이 열에 들어가는지 정의). |
+| **매핑** | 매핑은 들어오는 이벤트 json 문자열을 올바른 행 형식으로 매핑하는 데 사용됩니다(어떤 속성이 열에 들어가는지 정의). |
 
 ## <a name="run-logstash"></a>Logstash 실행
 

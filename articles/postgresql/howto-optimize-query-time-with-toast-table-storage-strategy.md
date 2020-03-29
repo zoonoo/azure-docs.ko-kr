@@ -1,16 +1,16 @@
 ---
-title: Azure Database에서 PostgreSQL-단일 서버에 대 한 알림 테이블 저장소 전략을 사용 하 여 쿼리 시간을 최적화 합니다.
-description: 이 문서에서는 PostgreSQL-단일 서버에 대 한 Azure Database에서 알림 테이블 저장소 전략을 사용 하 여 쿼리 시간을 최적화 하는 방법을 설명 합니다.
+title: PostgreSQL - 단일 서버에 대한 Azure 데이터베이스의 TOAST 테이블 저장소 전략을 사용하여 쿼리 시간 최적화
+description: 이 문서에서는 PostgreSQL - 단일 서버에 대한 Azure 데이터베이스의 TOAST 테이블 저장소 전략을 사용하여 쿼리 시간을 최적화하는 방법을 설명합니다.
 author: dianaputnam
 ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: ac1dc43a2b89bc1cc748947ec08e6ada87edbfcb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65066996"
 ---
 # <a name="optimize-query-time-with-the-toast-table-storage-strategy"></a>TOAST 테이블 스토리지 전략으로 쿼리 시간 최적화 

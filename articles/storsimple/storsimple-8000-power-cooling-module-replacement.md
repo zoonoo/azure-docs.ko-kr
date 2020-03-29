@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
 ms.openlocfilehash: 42561570e24aec5edd33248ef1738e53175e480e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60632460"
 ---
 # <a name="replace-a-power-and-cooling-module-on-your-storsimple-device"></a>StorSimple 디바이스의 전원 및 냉각 모듈 교체
@@ -50,12 +50,12 @@ Microsoft Azure StorSimple 디바이스에서 PCM(전원 및 냉각 모듈)을 �
 > PCM을 꺼내기 전에 올바른 교체(기본 엔클로저의 경우 764W, EBOD 엔클로저의 경우 580W)가 있는지 확인합니다.
 
 #### <a name="to-remove-a-pcm"></a>PCM을 꺼내려면
-1. Azure 클래식 포털에서 **설정 > 모니터 > 하드웨어 상태**를 클릭합니다. **공유 구성 요소** 아래에서 PCM 구성 요소의 상태를 확인하여 오류가 발생한 PCM을 식별합니다.
+1. Azure 클래식 포털에서 **설정 > 모니터 > 하드웨어 상태**를 클릭합니다. **공유 구성** 요소 아래의 PCM 구성 요소의 상태를 확인하여 실패한 PCM을 식별합니다.
    
    * PCM 0의 전원 공급 장치에서 오류가 발생한 경우 **PCM 0의 전원 공급 장치** 상태가 빨강으로 표시됩니다.
    * PCM 1의 전원 공급 장치에서 오류가 발생한 경우 **PCM 1의 전원 공급 장치** 상태가 빨강으로 표시됩니다.
    * PCM 1의 팬에서 오류가 발생한 경우 **PCM 0의 냉각 0** 또는 **PCM 0의 냉각 1** 상태가 빨강으로 표시됩니다.
-2. 기본 엔클로저 뒷면에서 오류가 발생한 PCM을 찾습니다. 8600 모델을 실행하는 경우 전면 패널 LED 디스플레이에 표시된 시스템 장치 식별 번호를 확인하여 기본 엔클로저를 식별합니다. 기본 엔클로저에 표시되는 기본 장치 ID는 **00**인 반면, EBOD 엔클로저에 표시되는 기본 장치 ID는 **01**입니다. 다음 다이어그램과 표에서는 LED 디스플레이의 전면 패널에 대해 설명합니다.
+2. 기본 엔클로저 뒷면에서 오류가 발생한 PCM을 찾습니다. 8600 모델을 실행하는 경우 전면 패널 LED 디스플레이에 표시된 시스템 장치 식별 번호를 확인하여 기본 엔클로저를 식별합니다. 기본 인클로저에 표시되는 기본 장치 ID는 **00**인 반면, EBOD 인클로저에 표시되는 기본 장치 ID는 **01**입니다. 다음 다이어그램과 표에서는 LED 디스플레이의 전면 패널에 대해 설명합니다.
    
     ![전면 OPS 패널의 시스템 ID](./media/storsimple-power-cooling-module-replacement/IC740991.png)
    
@@ -68,7 +68,7 @@ Microsoft Azure StorSimple 디바이스에서 PCM(전원 및 냉각 모듈)을 �
    | 3 |모듈 결함 |
    | 4 |논리적 결함 |
    | 5 |장치 ID 디스플레이 |
-3. 기본 엔클로저 뒷면의 모니터링 표시기 LED를 사용하여 결함이 있는 PCM을 식별할 수도 있습니다. LED를 사용하여 결함이 있는 PCM을 찾는 방법을 이해하려면 다음 다이어그램과 표를 참조하세요. 예를 들어 **팬 오류** 에 해당하는 LED가 켜지면 팬에서 오류가 발생한 것입니다. 마찬가지로, **AC 오류** 에 해당하는 LED가 켜지면 전원 공급 장치에서 오류가 발생한 것입니다. 
+3. 기본 엔클로저 뒷면의 모니터링 표시기 LED를 사용하여 결함이 있는 PCM을 식별할 수도 있습니다. LED를 사용하여 결함이 있는 PCM을 찾는 방법을 이해하려면 다음 다이어그램과 표를 참조하세요. 예를 들어 **팬 오류**에 해당하는 LED가 켜지면 팬에 오류가 발생한 것입니다. 마찬가지로 **AC 오류**에 해당하는 LED가 켜지면 전원 공급 장치에 오류가 발생한 것입니다. 
    
     ![디바이스 PCM 모니터링 표시기 LED의 백플레인](./media/storsimple-power-cooling-module-replacement/IC740992.png)
    

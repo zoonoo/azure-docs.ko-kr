@@ -1,6 +1,6 @@
 ---
-title: Azure Relay-공유 액세스 서명 권한 부여로 마이그레이션
-description: Azure Active Directory Access Control Service 사용에서 공유 액세스 서명 권한 부여로 Azure Relay 응용 프로그램을 마이그레이션하는 방법에 대해 설명 합니다.
+title: Azure 릴레이 - 공유 액세스 서명 권한 으로 마이그레이션
+description: Azure Active Directory 액세스 제어 서비스를 사용하여 공유 액세스 서명 권한으로 Azure 릴레이 응용 프로그램을 마이그레이션하는 방법을 설명합니다.
 services: service-bus-relay
 documentationcenter: ''
 author: clemensv
@@ -14,13 +14,13 @@ ms.topic: article
 ms.date: 01/21/2020
 ms.author: spelluru
 ms.openlocfilehash: 59b9e734526c56016e2ddf59c2afb5b8f7b4ad09
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76514904"
 ---
-# <a name="azure-relay---migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Azure Relay-Azure Active Directory Access Control Service에서 공유 액세스 서명 권한 부여로 마이그레이션
+# <a name="azure-relay---migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Azure 릴레이 - Azure Active Directory 액세스 제어 서비스에서 공유 액세스 서명 권한으로 마이그레이션
 
 기존에는 Azure Relay 애플리케이션에서 두 가지 권한 부여 모델 중 하나를 선택하여 사용할 수 있었습니다. 그중 하나는 Relay 서비스에서 직접 제공되는 [SAS(공유 액세스 서명)](../service-bus-messaging/service-bus-sas.md) 토큰 모델이고, 다른 하나는 페더레이션 모델입니다. 페더레이션 모델에서는 권한 부여 규칙 관리 작업이 [Azure Active Directory](/azure/active-directory/) ACS(Access Control Service)를 통해 내부에서 관리되며, 원하는 기능에 대한 액세스 권한을 부여하기 위해 ACS에서 가져온 토큰이 Relay로 전달됩니다.
 

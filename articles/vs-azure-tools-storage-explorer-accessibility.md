@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/20/2018
 ms.author: marayerm
 ms.openlocfilehash: aa42d6b898a3cc474575f6c8dae65ff420fc8e30
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60457269"
 ---
 # <a name="storage-explorer-accessibility"></a>Storage Explorer 접근성
@@ -29,9 +29,9 @@ Storage Explorer는 Windows 및 Mac에서의 화면 읽기 프로그램 사용�
 
 플랫폼 | 화면 판독기
 ---------|--------------
-Windows  | NVDA
-Mac      | 음성 전달
-Linux    | (화면 읽기 프로그램은 Linux에서 지원 되지 않음)
+Windows  | Nvda
+Mac      | 음성
+Linux    | (화면 판독기는 리눅스에서 지원되지 않습니다)
 
 Storage Explorer를 실행할 때 접근성 문제가 발생하면 [GitHub에서 문제를 제기](https://github.com/Microsoft/AzureStorageExplorer/issues)하세요.
 
@@ -45,7 +45,7 @@ Storage Explorer를 실행할 때 접근성 문제가 발생하면 [GitHub에서
 
 ## <a name="high-contrast-themes"></a>고대비 테마
 
-Storage Explorer에는 두 개의 고대비 테마(**고대비 밝게**, **고대비 어둡게**)가 있습니다. 에 도움말을 선택 하 여 테마를 변경할 수 있습니다 > 테마 메뉴.
+Storage Explorer에는 두 개의 고대비 테마(**고대비 밝게**, **고대비 어둡게**)가 있습니다. 도움말 > 테마 메뉴에서 입력을 선택하여 테마를 변경할 수 있습니다.
 
 ![테마 하위 메뉴][1]
 
@@ -66,7 +66,7 @@ Storage Explorer에는 두 개의 고대비 테마(**고대비 밝게**, **고�
 명령                | 바로 가기 키
 -----------------------|----------------------
 다음 패널에 포커스       | **F6**
-이전 패널에 포커스   | **Shift+F6**
+이전 패널에 포커스   | **시프트+F6**
 Explorer               | **Control+Shift+E**
 계정 관리     | **Control+Shift+A**
 사이드바 설정/해제        | **Control+B**
@@ -80,15 +80,15 @@ Explorer               | **Control+Shift+E**
 
 명령  | 바로 가기 키
 ---------|------------------
-확대  | **Control+=**
-축소 | **Control+-**
+확대  | **제어+=**
+축소 | **제어+-**
 
 ### <a name="blob-and-file-share-editor-commands"></a>Blob 및 파일 공유 편집기 명령
 
 명령 | 바로 가기 키
 --------|--------------------
-뒤로    | **Alt+왼쪽 화살표**
-앞으로 | **Alt+오른쪽 화살표**
+뒤로    | **대체+왼쪽 화살표**
+앞으로 | **대체+오른쪽 화살표**
 위로      | **Alt+위쪽 화살표**
 
 ### <a name="editor-commands"></a>편집기 명령
@@ -105,7 +105,7 @@ Explorer               | **Control+Shift+E**
 명령                | 바로 가기 키
 -----------------------|------------------
 개발자 도구 설정/해제 | **F12**
-다시 로드                 | **Alt+Control+R**
+다시 로드                 | **Alt+제어+R**
 
 [0]: ./media/vs-azure-tools-storage-explorer-accessibility/Zoom.png
 [1]: ./media/vs-azure-tools-storage-explorer-accessibility/HighContrast.png

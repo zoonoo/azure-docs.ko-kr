@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 11/20/2018
 ms.topic: conceptual
 ms.openlocfilehash: 1bd08596a30db7322a72b4269fddfe0b9df19119
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61447187"
 ---
 # <a name="remote-monitoring-architectural-choices"></a>원격 모니터링 아키텍처 선택
@@ -66,7 +66,7 @@ IoT 디바이스 연결을 위해 다음을 사용할 수 있습니다.
 Azure Cosmos DB는 IoT 애플리케이션에 권장되는 범용 웜 스토리지 솔루션입니다. 그러나 Azure Time Series Insights 및 Azure Data Lake와 같은 솔루션이 여러 사용 사례에 적합합니다. Azure Time Series Insights를 사용하면 추세와 이상 현상을 파악하여 시계열 센서 데이터에 대한 심층적 인사이트를 얻을 수 있습니다. 이를 통해 근본 원인을 분석하고 비용이 많이 드는 가동 중지 시간을 방지할 수 있습니다.
 
 > [!NOTE]
-> Time Series Insights는 현재 Azure 중국 클라우드에서 사용할 수 없습니다. Azure 중국 클라우드에서 새 원격 모니터링 솔루션 가속기 배포는 모든 스토리지에 대해 Cosmos DB를 사용합니다.
+> Time Series Insights는 현재 Azure 중국 클라우드에서 사용할 수 없습니다. Azure China 클라우드에서 새 원격 모니터링 솔루션 가속기를 배포하는 경우 모든 스토리지에 Cosmos DB를 사용합니다.
 
 ### <a name="business-integration"></a>비즈니스 통합
 

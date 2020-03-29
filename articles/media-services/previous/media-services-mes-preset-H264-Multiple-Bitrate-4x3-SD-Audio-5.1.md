@@ -1,6 +1,6 @@
 ---
 title: H264 다중 비트 전송률 4x3 SD Audio 5.1 | Microsoft Docs
-description: 이 항목은 **H264 다중 비트 전송률 4x3 SD Audio 5.1** 태스크 미리 설정에 대한 개요를 제공합니다.
+description: 이 항목은 **H264 다중 비트 레이트 4x3 SD 오디오 5.1** 작업 사전 설정의 개요를 제공합니다.
 author: Juliako
 manager: femila
 editor: ''
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 7f5ea80a055c34cddeab042c33071c6f5799a443
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61463670"
 ---
 # <a name="h264-multiple-bitrate-4x3-sd-audio-51"></a>H264 다중 비트 전송률 4x3 SD Audio 5.1
@@ -26,10 +26,10 @@ ms.locfileid: "61463670"
   
  이 항목은 XML 및 JSON 형식의 `H264 Multiple Bitrate 4x3 SD Audio 5.1` 미리 설정을 보여줍니다.  
   
- 미리 설정은 AAC 5.1 오디오 및 1600kbps에서 400kbps에 이르는 5 GOP 정렬 MP4 파일 집합을 생성합니다. 미리 설정의 프로필, 비트 전송률, 샘플링 주기 등에 대한 자세한 내용을 보려면 아래 정의된 XML 또는 JSON을 검토하세요. 각 요소의 의미 및 유효한 값에 대한 설명은 [Media Encoder Standard 스키마](media-services-mes-schema.md)를 참조하세요.  
+ 미리 설정은 AAC 5.1 오디오 및 1600kbps에서 400kbps에 이르는 5 GOP 정렬 MP4 파일 집합을 생성합니다. 미리 설정의 프로필, 비트 전송률, 샘플링 주기 등에 대한 자세한 내용을 보려면 아래 정의된 XML 또는 JSON을 검토하세요. 각 요소의 의미와 각 요소에 대한 유효한 값에 대한 설명은 [미디어 인코더 표준 스키마를](media-services-mes-schema.md)참조하십시오.  
   
 > [!NOTE]
->  계층에서 `Width` 및 `Height` 값을 수정하는 경우 가로 세로 비율을 일관적으로 유지해야 합니다. 예를 들면 다음과 같습니다. 1920x1080, 1280x720, 1080x576, 640x360. 가로 세로 비율을 혼합하여 사용하지 말아야 합니다. 예: 1280x720, 720x480, 640x360.  
+>  계층에서 `Width` 및 `Height` 값을 수정하는 경우 가로 세로 비율을 일관적으로 유지해야 합니다. 예: 1920x1080, 1280x720, 1080x576, 640x360. 가로 세로 비율을 혼합하여 사용하지 말아야 합니다. 예: 1280x720, 720x480, 640x360.  
   
  XML  
   

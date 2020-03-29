@@ -18,10 +18,10 @@ ms.date: 03/30/2018
 ms.author: kumud
 ms.custom: mvc
 ms.openlocfilehash: 08031bc2ac29ea77374e21c4ce6f7bcf6151bcad
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "66730027"
 ---
 # <a name="filter-network-traffic-with-a-network-security-group-using-powershell"></a>PowerShell을 사용하여 네트워크 보안 그룹을 통해 네트워크 트래픽 필터링
@@ -47,13 +47,13 @@ PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우, 이 �
 
 ### <a name="create-application-security-groups"></a>애플리케이션 보안 그룹 만들기
 
-먼저이 문서에서 만든 모든 리소스에 대 한 리소스 그룹을 만듭니다 [새로 만들기-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)합니다. 다음 예제에서는 *eastus* 위치에 리소스 그룹을 만듭니다.
+먼저 [New-AzResourceGroup을](/powershell/module/az.resources/new-azresourcegroup)사용하여 이 문서에서 만든 모든 리소스에 대한 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 리소스 그룹을 만듭니다.
 
 ```azurepowershell-interactive
 New-AzResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
 ```
 
-사용 하 여 응용 프로그램 보안 그룹을 만듭니다 [새로 만들기-AzApplicationSecurityGroup](/powershell/module/az.network/new-azapplicationsecuritygroup)합니다. 애플리케이션 보안 그룹을 사용하면 유사한 포트 필터링 요구 사항을 갖는 서버를 그룹화할 수 있습니다. 다음 예제에서는 두 애플리케이션 보안 그룹을 만듭니다.
+[New-AzApplicationSecurityGroup을](/powershell/module/az.network/new-azapplicationsecuritygroup)사용하여 응용 프로그램 보안 그룹을 만듭니다. 애플리케이션 보안 그룹을 사용하면 유사한 포트 필터링 요구 사항을 갖는 서버를 그룹화할 수 있습니다. 다음 예제에서는 두 애플리케이션 보안 그룹을 만듭니다.
 
 ```azurepowershell-interactive
 $webAsg = New-AzApplicationSecurityGroup `
@@ -69,7 +69,7 @@ $mgmtAsg = New-AzApplicationSecurityGroup `
 
 ### <a name="create-security-rules"></a>보안 규칙 만들기
 
-보안 규칙을 만듭니다 [새로 만들기-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig)합니다. 다음 예제에서는 포트 80 및 443을 통해 인터넷에서 *myWebServers* 애플리케이션 보안 그룹으로 가는 트래픽을 허용하는 규칙을 만듭니다.
+[New-AzNetworkSecurityRuleConfig를](/powershell/module/az.network/new-aznetworksecurityruleconfig)사용하여 보안 규칙을 만듭니다. 다음 예제에서는 포트 80 및 443을 통해 인터넷에서 *myWebServers* 애플리케이션 보안 그룹으로 가는 트래픽을 허용하는 규칙을 만듭니다.
 
 ```azurepowershell-interactive
 $webRule = New-AzNetworkSecurityRuleConfig `
@@ -97,7 +97,7 @@ $mgmtRule = New-AzNetworkSecurityRuleConfig `
   -DestinationPortRange 3389
 ```
 
-이 문서에서 RDP(포트 3389)는 *myAsgMgmtServers* VM에 대해 인터넷에 노출되어 있습니다. 프로덕션 환경에서는 포트 3389를 인터넷에 노출하는 대신 [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [프라이빗](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 네트워크 연결을 통해 관리하려는 Azure 리소스에 연결하는 것이 좋습니다.
+이 문서에서 RDP(포트 3389)는 *myAsgMgmtServers* VM에 대해 인터넷에 노출되어 있습니다. 프로덕션 환경의 경우 포트 3389를 인터넷에 노출하는 대신 [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [개인](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 네트워크 연결을 사용하여 관리하려는 Azure 리소스에 연결하는 것이 좋습니다.
 
 ### <a name="create-a-network-security-group"></a>네트워크 보안 그룹 만들기
 
@@ -123,7 +123,7 @@ $virtualNetwork = New-AzVirtualNetwork `
   -AddressPrefix 10.0.0.0/16
 ```
 
-사용 하 여 서브넷 구성을 만듭니다 [새로 만들기-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig)를 사용 하 여 가상 네트워크에 서브넷 구성을 작성 [집합 AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork)합니다. 다음 예에서는 *mySubnet*이라는 서브넷을 가상 네트워크에 추가하고 *myNsg* 네트워크 보안 그룹을 연결합니다.
+[New-AzVirtualNetworkSubnetConfig를](/powershell/module/az.network/new-azvirtualnetworksubnetconfig)사용하여 서브넷 구성을 만든 다음 [Set-AzVirtualNetwork를](/powershell/module/az.network/set-azvirtualnetwork)사용하여 서브넷 구성을 가상 네트워크에 씁니다. 다음 예에서는 *mySubnet*이라는 서브넷을 가상 네트워크에 추가하고 *myNsg* 네트워크 보안 그룹을 연결합니다.
 
 ```azurepowershell-interactive
 Add-AzVirtualNetworkSubnetConfig `
@@ -136,7 +136,7 @@ $virtualNetwork | Set-AzVirtualNetwork
 
 ## <a name="create-virtual-machines"></a>가상 머신 만들기
 
-Vm을 만들기 전에 사용 하 여 서브넷을 사용 하 여 가상 네트워크 개체를 검색할 [Get AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork):
+VM을 만들기 전에 [Get-AzVirtualNetwork를](/powershell/module/az.network/get-azvirtualnetwork)통해 서브넷을 통해 가상 네트워크 개체를 검색합니다.
 
 ```powershell-interactive
 $virtualNetwork = Get-AzVirtualNetwork `
@@ -144,7 +144,7 @@ $virtualNetwork = Get-AzVirtualNetwork `
  -Resourcegroupname myResourceGroup
 ```
 
-사용 하 여 각 VM에 대 한 공용 IP 주소를 만듭니다 [새로 만들기-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress):
+[New-AzPublicIpAddress를](/powershell/module/az.network/new-azpublicipaddress)사용하여 각 VM에 대한 공용 IP 주소 만들기:
 
 ```powershell-interactive
 $publicIpWeb = New-AzPublicIpAddress `
@@ -160,7 +160,7 @@ $publicIpMgmt = New-AzPublicIpAddress `
   -Name myVmMgmt
 ```
 
-사용 하 여 두 네트워크 인터페이스를 만들고 [새로 만들기-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface), 네트워크 인터페이스에 공용 IP 주소를 할당 합니다. 다음 예제에서는 네트워크 인터페이스를 만들어 *myVmWeb* 공용 IP 주소를 연결하고, *myAsgWebServers* 애플리케이션 보안 그룹의 멤버로 지정합니다.
+[New-AzNetworkInterface를](/powershell/module/az.network/new-aznetworkinterface)사용하여 두 개의 네트워크 인터페이스를 만들고 네트워크 인터페이스에 공용 IP 주소를 할당합니다. 다음 예제에서는 네트워크 인터페이스를 만들어 *myVmWeb* 공용 IP 주소를 연결하고, *myAsgWebServers* 애플리케이션 보안 그룹의 멤버로 지정합니다.
 
 ```powershell-interactive
 $webNic = New-AzNetworkInterface `
@@ -186,7 +186,7 @@ $mgmtNic = New-AzNetworkInterface `
 
 이후 단계에서 트래픽 필터링의 유효성을 검사할 수 있도록 가상 네트워크에 두 VM을 만듭니다.
 
-사용 하 여 VM 구성을 만듭니다 [새로 만들기-AzVMConfig](/powershell/module/az.compute/new-azvmconfig)를 사용 하 여 VM을 만든 [New-azvm](/powershell/module/az.compute/new-azvm)합니다. 다음 예제에서는 웹 서버 역할을 수행 하는 VM을 만듭니다. `-AsJob` 옵션은 다음 단계를 계속하기 위해 백그라운드에서 VM을 만듭니다.
+[New-AzVMConfig를](/powershell/module/az.compute/new-azvmconfig)사용하여 VM 구성을 만든 다음 [New-AzVM을](/powershell/module/az.compute/new-azvm)사용하여 VM을 만듭니다. 다음 예제에서는 웹 서버 역할을 수행 하는 VM을 만듭니다. `-AsJob` 옵션은 다음 단계를 계속하기 위해 백그라운드에서 VM을 만듭니다.
 
 ```azurepowershell-interactive
 # Create user object
@@ -277,7 +277,7 @@ mstsc /v:myvmWeb
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 ```
 
-IIS 설치가 완료된 후 *myVmWeb* VM 연결을 끊으면 *myVmMgmt* VM 원격 데스크톱 연결이 종료됩니다. IIS 시작 화면을 보려면 인터넷 브라우저를 열고 http:\//myVmWeb 합니다.
+IIS 설치가 완료된 후 *myVmWeb* VM 연결을 끊으면 *myVmMgmt* VM 원격 데스크톱 연결이 종료됩니다. IIS 환영 화면을 보려면 인터넷 브라우저를 열고 http:\//myVmWeb으로 검색하십시오.
 
 *myVmMgmt* VM과의 연결을 끊습니다.
 

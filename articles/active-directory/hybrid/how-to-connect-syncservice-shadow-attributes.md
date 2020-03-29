@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 10a4078f49abbdf431f42c6cde7cf882112e5848
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60384711"
 ---
 # <a name="azure-ad-connect-sync-service-shadow-attributes"></a>Azure AD Connect 동기화 서비스 섀도 특성
@@ -58,7 +58,7 @@ proxyAddresses에서도 확인된 도메인만 포함하기 위한 동일한 프
 | 온-프레미스 proxyAddresses | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie.spencer@fabrikam.com</br>smtp:abbie@fabrikamonline.com |
 | Exchange Online proxyAddresses | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie@fabrikamonline.com</br>SIP:abbie.spencer@fabrikamonline.com |
 
-이 예에서 **smtp:abbie.spencer\@fabrikam.com** 확인 되었지만 해당 도메인에 있으므로 제거 되었습니다. 하지만 Exchange 기능도 **SIP:abbie.spencer\@fabrikamonline.com**합니다. Fabrikam은 Lync/Skype 온-프레미스를 사용하지 않지만 Azure AD와 Exchange Online은 그에 대한 준비를 합니다.
+이 경우 **smtp:abbie.spencer\@fabrikam.com** 해당 도메인이 확인되지 않았기 때문에 제거되었습니다. 그러나 교환은 또한 **SIP를\@추가 : abbie.spencer fabrikamonline.com**. Fabrikam은 Lync/Skype 온-프레미스를 사용하지 않지만 Azure AD와 Exchange Online은 그에 대한 준비를 합니다.
 
 proxyAddresses에 대한 이 논리를 **ProxyCalc**라고 합니다. 다음과 같은 경우 사용자에 대한 모든 변경 내용과 함께 ProxyCalc가 호출됩니다.
 
@@ -74,6 +74,6 @@ ProxyCalc는 사용자에 대한 변경 내용을 처리하는 데 다소 시간
 ### <a name="quarantined-attribute-values"></a>격리된 특성 값
 중복된 특성 값이 있는 경우에도 섀도 특성이 사용됩니다. 자세한 내용은 참조 [중복 특성 복원력](how-to-connect-syncservice-duplicate-attribute-resiliency.md)을 참조하세요.
 
-## <a name="see-also"></a>참고 항목
-* [Azure AD Connect 동기화](how-to-connect-sync-whatis.md)
-* [Azure Active Directory와 온-프레미스 ID 통합](whatis-hybrid-identity.md)
+## <a name="see-also"></a>참조
+* [Azure AD 연결 동기화](how-to-connect-sync-whatis.md)
+* [온-프레미스 ID를 Azure Active Directory와 통합합니다.](whatis-hybrid-identity.md)

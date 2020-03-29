@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
 ms.openlocfilehash: 01a9582062d8eb0d039473a03901fc83fe179020
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60893403"
 ---
 # <a name="read-data-from-azure-cosmos-db-cassandra-api-tables-using-spark"></a>Spark를 사용하여 Azure Cosmos DB Cassandra API 테이블의 데이터 읽기
@@ -140,7 +140,7 @@ select * from books_vw where book_pub_year > 1891
 
 아래에는 Spark에서 Azure Cosmos DB Cassandra API로 작업하는 방법을 소개하는 추가 문서가 나와 있습니다.
  
- * [upsert 작업](cassandra-spark-upsert-ops.md)
+ * [Upsert 작업](cassandra-spark-upsert-ops.md)
  * [삭제 작업](cassandra-spark-delete-ops.md)
  * [집계 작업](cassandra-spark-aggregation-ops.md)
  * [테이블 복사 작업](cassandra-spark-table-copy-ops.md)

@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6269d00c9a6a8f827a4e31044d9d20efb0f8471b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60243534"
 ---
 # <a name="install-azure-ad-connect-using-sql-delegated-administrator-permissions"></a>SQL 위임된 관리자 권한을 사용하여 Azure AD Connect 설치
@@ -51,17 +51,17 @@ Azure AD Connect 관리자|Azure AD Connect를 설치하고 사용자 정의 설
    - SQL 로그인 
    - **데이터베이스 소유자(dbo)** 권한.
  
-   ![권한](./media/how-to-connect-install-sql-delegation/sql3a.png)
+   ![사용 권한](./media/how-to-connect-install-sql-delegation/sql3a.png)
 
    >[!NOTE]
-   >Azure AD Connect는 중첩 된 멤버 자격을 사용 하 여 로그인을 지원 하지 않습니다.  즉, Azure AD Connect 관리자 계정 및 도메인 서비스 계정에 대 한 dbo 권한이 부여 되는 로그인에 연결 되어야 합니다.  단순히 대 한 dbo 권한이 있는 로그인에 할당 된 그룹의 멤버 여야 합니다.
+   >Azure AD Connect는 중첩된 멤버 자격을 가진 로그인을 지원하지 않습니다.  즉, Azure AD Connect 관리자 계정 및 도메인 서비스 계정이 dbo 권한이 부여된 로그인에 연결되어야 합니다.  dbo 권한이 있는 로그인에 할당된 그룹의 구성원이 될 수 없습니다.
 
 3. Azure AD Connect를 설치할 때 Azure AD Connect 관리자에게 사용해야 하는 SQL 서버와 인스턴스 이름을 나타내는 이메일을 보냅니다.
 
 ## <a name="additional-information"></a>추가 정보
 데이터베이스가 프로비전되면 Azure AD Connect 관리자는 편한 때에 온-프레미스 동기화를 설치 및 구성할 수 있습니다.
 
-SQL 관리자가 Azure AD Connect 이전 백업에서 ADSync 데이터베이스를 복원, 하는 경우 기존 데이터베이스를 사용 하 여 새 Azure AD Connect 서버를 설치 해야 합니다. 기존 데이터베이스를 사용 하 여 Azure AD Connect를 설치 하는 방법은 참조 하세요 [Azure AD Connect 설치 기존 ADSync 데이터베이스를 사용 하 여](how-to-connect-install-existing-database.md)입니다.
+SQL 관리자가 이전 Azure AD Connect 백업에서 ADSync 데이터베이스를 복원한 경우 기존 데이터베이스를 사용하여 새 Azure AD Connect 서버를 설치해야 합니다. 기존 데이터베이스와 Azure AD Connect 설치에 대한 자세한 내용은 [기존 ADSync 데이터베이스를 사용하여 Azure AD Connect 설치를](how-to-connect-install-existing-database.md)참조하십시오.
 
 ## <a name="next-steps"></a>다음 단계
 - [기본 설정을 사용하여 Azure AD Connect 시작](how-to-connect-install-express.md)

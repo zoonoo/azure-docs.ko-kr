@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/20/2017
 ms.author: spelluru
 ms.openlocfilehash: fe8f057443b978e70e7cdd2591affd455fefdca8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60749039"
 ---
 # <a name="azure-relay-exceptions"></a>Azure Relay 예외
@@ -29,32 +29,32 @@ ms.locfileid: "60749039"
 
 Relay API는 다음과 같은 범주로 분류될 수 있는 예외를 생성합니다. 예외를 해결하기 위해 수행할 수 있는 권장 조치를 모두 나열합니다.
 
-*   **사용자 코딩 오류**: System.ArgumentException, [System.InvalidOperationException](https://msdn.microsoft.com/library/system.argumentexception.aspx), [System.OperationCanceledException](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx), [System.Runtime.Serialization.SerializationException](https://msdn.microsoft.com/library/system.runtime.serialization.serializationexception.aspx) 
+*   **사용자 코딩 오류**: [System.ArgumentException](https://msdn.microsoft.com/library/system.argumentexception.aspx), [System.InvalidOperationException](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx), [System.OperationCanceledException](https://msdn.microsoft.com/library/system.operationcanceledexception.aspx), [System.Runtime.Serialization.SerializationException](https://msdn.microsoft.com/library/system.runtime.serialization.serializationexception.aspx). 
 
-    **일반 조치**: 계속 진행 하기 전에 코드를 수정 하려고 합니다.
+    **일반 조치**: 코드를 수정한 후 계속합니다.
 *   **설치/구성 오류**: [System.UnauthorizedAccessException](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx). 
 
-    **일반 조치**: 구성을 검토 합니다. 필요에 따라 구성을 변경합니다.
-*   **일시적 예외**: [Microsoft.ServiceBus.Messaging.MessagingException](/dotnet/api/microsoft.servicebus.messaging.messagingexception), [Microsoft.ServiceBus.Messaging.ServerBusyException](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception), [Microsoft.ServiceBus.Messaging.MessagingCommunicationException](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception). 
+    **일반 조치**: 구성을 검토합니다. 필요에 따라 구성을 변경합니다.
+*   **일시적인 예외**: [Microsoft.ServiceBus.Messaging.Messaging예외,](/dotnet/api/microsoft.servicebus.messaging.messagingexception) [Microsoft.ServiceBus.Messaging.Server바쁜 예외,](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception) [Microsoft.ServiceBus.Messaging.Messaging.Messaging.MessagingCommunication예외](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception). 
 
-    **일반 조치**: 작업을 다시 시도 하거나 사용자에 게 알립니다.
+    **일반 조치**: 작업을 다시 시도하거나 사용자에게 알립니다.
 *   **다른 예외**: [System.Transactions.TransactionException](https://msdn.microsoft.com/library/system.transactions.transactionexception.aspx), [System.TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx). 
 
-    **일반 조치**: 예외 형식에 따라 다릅니다. 다음 섹션에 있는 표를 참조하세요. 
+    **일반 작업**: 예외 형식에 따라 다릅니다. 다음 섹션에 있는 표를 참조하세요. 
 
 ## <a name="exception-types"></a>예외 유형
 
 다음 표에서는 메시지 예외 유형과 원인을 열거합니다. 예외를 해결하기 위해 수행할 수 있는 권장 조치를 설명합니다.
 
-| **예외 형식** | **설명** | **권장 조치** | **자동 또는 즉시 다시 시도 참고** |
+| **예외 유형** | **설명** | **권장 조치** | **자동 또는 즉시 다시 시도 참고** |
 | --- | --- | --- | --- |
-| [Timeout](https://msdn.microsoft.com/library/system.timeoutexception.aspx) |서버가 [OperationTimeout](/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout)에서 제어하는 지정된 시간 안에 요청된 작업에 응답하지 않았습니다. 서버가 요청된 작업을 완료했을 수도 있습니다. 이 예외는 네트워크 또는 기타 인프라 지연으로 발생합니다. |필요한 경우 시스템 상태에서 일관성을 확인하고 다시 시도합니다. [TimeoutException](#timeoutexception)을 참조하세요. |일부 경우 다시 시도하면 문제가 해결될 수 있습니다. 코드에 재시도 논리를 추가합니다. |
+| [타임 아웃](https://msdn.microsoft.com/library/system.timeoutexception.aspx) |서버가 [OperationTimeout](/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout)에서 제어하는 지정된 시간 안에 요청된 작업에 응답하지 않았습니다. 서버가 요청된 작업을 완료했을 수도 있습니다. 이 예외는 네트워크 또는 기타 인프라 지연으로 발생합니다. |필요한 경우 시스템 상태에서 일관성을 확인하고 다시 시도합니다. [TimeoutException](#timeoutexception)을 참조하세요. |일부 경우 다시 시도하면 문제가 해결될 수 있습니다. 코드에 재시도 논리를 추가합니다. |
 | [유효하지 않은 작업](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx) |요청한 사용자 작업이 서버 또는 서비스 내에서 허용되지 않습니다. 자세한 내용은 예외 메시지를 참조하세요. |코드 및 설명서를 확인합니다. 요청된 작업이 유효한지 확인합니다. |재시도로 해결되지 않습니다. |
 | [작업 취소됨](https://msdn.microsoft.com/library/system.operationcanceledexception.aspx) |이미 종료, 중단 또는 삭제된 개체에서 작업을 호출하려 시도합니다. 드문 경우지만 앰비언트 트랜잭션이 이미 삭제되었을 수 있습니다. |코드를 확인하고 삭제된 개체에 대해 작업을 호출하지 않는지 확인합니다. |재시도로 해결되지 않습니다. |
 | [무단 액세스](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx) |[TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider) 개체가 토큰을 확보할 수 없거나, 토큰이 유효하지 않거나, 토큰에 작업 수행을 위해 필요한 클레임이 없습니다. |올바른 값을 사용하여 토큰 공급자를 만드는지 확인합니다. ACS(Access Control Service) 구성을 확인합니다. |일부 경우 다시 시도하면 문제가 해결될 수 있습니다. 코드에 재시도 논리를 추가합니다. |
 | [인수 예외](https://msdn.microsoft.com/library/system.argumentexception.aspx)<br /> [인수 Null](https://msdn.microsoft.com/library/system.argumentnullexception.aspx)<br />[인수가 범위를 벗어남](https://msdn.microsoft.com/library/system.argumentoutofrangeexception.aspx) |다음 중 하나 이상의 상황이 발생했습니다.<br />메서드에 제공된 하나 이상의 인수가 잘못되었습니다.<br /> [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) 또는 [Create](/dotnet/api/microsoft.servicebus.messaging.messagingfactory.create)에 제공된 URI에 하나 이상의 경로 세그먼트가 포함됩니다.<br />[NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) 또는 [Create](/dotnet/api/microsoft.servicebus.messaging.messagingfactory.create)에 제공된 URI 스키마가 올바르지 않습니다. <br />속성 값이 32KB보다 큽니다. |호출 코드를 확인하고 인수가 정확한지 확인합니다. |재시도로 해결되지 않습니다. |
 | [서버 작업 중](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception) |서비스가 지금은 요청을 처리할 수 없습니다. |클라이언트가 잠시 대기한 후 작업을 다시 시도할 수 있습니다. |클라이언트는 특정 간격 후에 다시 시도될 수 있습니다. 재시도에서 다른 예외가 발생한 경우 해당 예외의 재시도 작동을 확인합니다. |
-| [할당량이 초과됨](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception) |메시징 엔터티의 최대 허용 크기에 도달했습니다. |엔터티나 하위 큐에서 메시지를 수신하여 엔터티에 공간을 만듭니다. [QuotaExceededException](#quotaexceededexception)을 참조하세요. |그 사이 메시지가 제거되었으면 재시도가 도움이 될 수 있습니다. |
+| [할당량 초과](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception) |메시징 엔터티의 최대 허용 크기에 도달했습니다. |엔터티나 하위 큐에서 메시지를 수신하여 엔터티에 공간을 만듭니다. [할당량초과예외](#quotaexceededexception). |그 사이 메시지가 제거되었으면 재시도가 도움이 될 수 있습니다. |
 | [메시지 크기 초과됨](/dotnet/api/microsoft.servicebus.messaging.messagesizeexceededexception) |메시지 페이로드가 256KB 제한을 초과합니다. 256KB 제한은 총 메시지 크기입니다. 총 메시지 크기는 시스템 속성과 모든 Microsoft .NET 오버헤드가 포함됩니다. |메시지 페이로드의 크기를 줄인 다음 작업을 다시 시도합니다. |재시도로 해결되지 않습니다. |
 
 ## <a name="quotaexceededexception"></a>QuotaExceededException

@@ -10,10 +10,10 @@ ms.custom: mvc
 ms.date: 03/18/2019
 ms.author: troyhop
 ms.openlocfilehash: 4401d4b93a27e76554368ce72d256b38de61df4c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61449059"
 ---
 # <a name="create-an-advanced-device-model"></a>고급 디바이스 모델 만들기
@@ -22,7 +22,7 @@ ms.locfileid: "61449059"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 방법 가이드의 단계를 수행하려면 Azure 구독에서 디바이스 시뮬레이션의 배포된 인스턴스가 필요합니다.
 
@@ -56,7 +56,7 @@ JSON 디바이스 정의 파일과 JavaScript 파일 집합을 사용하여 디�
 각 디바이스 정의 파일에는 다음 정보를 비롯하여 시뮬레이션된 디바이스 모델에 대한 세부 정보가 들어 있습니다.
 
 * 디바이스 모델 이름: string
-* 프로토콜: AMQP | MQTT | HTTP.
+* 프로토콜: AMQP | MQTT | HTTP
 * 초기 디바이스 상태
 * 디바이스 상태 새로 고침 빈도
 * 디바이스 상태를 새로 고치는 데 사용할 JavaScript 파일
@@ -162,14 +162,14 @@ IoT 디바이스는 다양한 프로토콜을 사용하여 연결할 수 있습�
 * 개체 - JSON을 사용하여 직렬화됨
 * 이진 - base64를 사용하여 직렬화됨
 * 텍스트
-* BOOLEAN
+* 부울
 * 정수
 * Double
 * DateTime
 
 ### <a name="supported-methods"></a>지원되는 방식
 
-시뮬레이션된 디바이스는 메서드 호출에도 반응할 수 있습니다. 이 경우 메서드는 일부 논리를 실행하고 응답을 제공합니다. 시뮬레이션과 마찬가지로 메서드 논리는 JavaScript 파일에 저장되며 디바이스 상태와 상호 작용할 수 있습니다. 예를 들면 다음과 같습니다.
+시뮬레이션된 디바이스는 메서드 호출에도 반응할 수 있습니다. 이 경우 메서드는 일부 논리를 실행하고 응답을 제공합니다. 시뮬레이션과 마찬가지로 메서드 논리는 JavaScript 파일에 저장되며 디바이스 상태와 상호 작용할 수 있습니다. 예를 들어:
 
 ```json
 "CloudToDeviceMethods": {
@@ -255,11 +255,11 @@ JavaScript 파일에는 두 개의 매개 변수를 받아들이는 **main** 함
 
 * 다음 세 가지 속성을 포함하는 **context** 개체
     * **yyyy-MM-dd'T'HH:mm:sszzz** 형식의 문자열로 이루어진 **currentTime**
-    * **deviceId**. 예를 들어 **Simulated.Elevator.123**입니다.
-    * **deviceModel**. 예를 들어 **Elevator**입니다.
+    * **장치ID**. 예를 들어 **Simulated.Elevator.123**입니다.
+    * **장치 모델**. 예를 들어 **Elevator**입니다.
 * 이전 호출에서 함수에 의해 반환된 값인 **state** 개체. 이 디바이스 상태는 시뮬레이션 서비스에 의해 유지 관리되며 원격 분석 메시지를 생성하는 데 사용됩니다.
 
-**main** 함수는 새 디바이스 상태를 반환합니다. 예를 들면 다음과 같습니다.
+**main** 함수는 새 디바이스 상태를 반환합니다. 예를 들어:
 
 ```JavaScript
 function main(context, state) {
@@ -504,7 +504,7 @@ function main(context, state) {
 
 **고급**을 클릭하면 고급 디바이스 모델 탭이 열립니다.
 
-![[고급] 탭](media/iot-accelerators-device-simulation-advanced-device/advancedtab.png)
+![고급 탭](media/iot-accelerators-device-simulation-advanced-device/advancedtab.png)
 
 **찾아보기**를 클릭하고 만든 JSON 및 JavaScript 파일을 선택합니다. 세 파일을 모두 선택해야 합니다. 하나의 파일이 누락된 경우 유효성 검사에 실패합니다.
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
 ms.openlocfilehash: 3c7e1167b3326620863d35cb2d4b07235cbd5517
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61320516"
 ---
 # <a name="conceptual-understanding-of-x509-ca-certificates-in-the-iot-industry"></a>IoT 업계의 X.509 CA 인증서에 대한 개념적 이해
@@ -57,7 +57,7 @@ X.509 CA 사용은 구체적인 예와 관련될 때 가장 이해하기 쉽습�
 
 Company-X는 공용 루트 인증 기관에서 X.509 CA 인증서를 구입하거나 자체 서명된 프로세스를 통해 인증서를 생성할 수 있는 옵션이 있습니다. 애플리케이션 시나리오에 따라 한 가지 옵션이 다른 옵션보다 적합할 수 있습니다. 옵션에 관계없이 프로세스에는 퍼블릭/프라이빗 키 쌍을 생성하고 퍼블릭 키를 인증서에 서명하는 두 가지 기본 단계가 수반됩니다.
 
-![X509CA 인증서 생성에 대 한 흐름](./media/iot-hub-x509ca-concept/csr-flow.png)
+![X509CA 인증서 생성을 위한 흐름](./media/iot-hub-x509ca-concept/csr-flow.png)
 
 이러한 단계를 수행하는 방법에 대한 자세한 내용은 서비스 공급자마다 다릅니다.
 
@@ -77,7 +77,7 @@ Company-X는 Smart-X-Widget을 연결할 때 인증을 수행하는 IoT Hub에 X
 
 X.509 CA 인증서 등록에는 인증서 업로드 및 인증서 소유 증명이라는 2단계 프로세스가 있습니다.
 
-![X509CA 인증서를 등록합니다.](./media/iot-hub-x509ca-concept/pop-flow.png)
+![X509CA 인증서 등록](./media/iot-hub-x509ca-concept/pop-flow.png)
 
 ### <a name="x509-ca-certificate-upload"></a>X.509 CA 인증서 업로드
 
@@ -101,7 +101,7 @@ IoT에서는 모든 디바이스가 고유 ID를 소유해야 합니다. 이러�
 
 X.509 CA 인증서 인증은 인증서 체인을 사용하여 위에서 언급한 문제에 대한 명확한 솔루션을 제공합니다. 인증서 체인은 중간 CA에 서명하는 CA로부터 발생하는데 이 CA는 다른 중간 CA에 서명하고 결국 마지막 중간 CA가 디바이스에 서명할 때까지 서명이 계속됩니다. 이 예에서 Company-X는 Factory-Y에 서명하고 다음으로 Factory-Y가 Technician-Z에 서명하고 마지막으로 Smart-X-Widget에 서명합니다.
 
-![인증서 체인의 계층 구조](./media/iot-hub-x509ca-concept/cert-chain-hierarchy.png)
+![인증서 체인 계층 구조](./media/iot-hub-x509ca-concept/cert-chain-hierarchy.png)
 
 위의 체인에 있는 인증서 캐스케이드는 권한의 논리적인 전달을 나타냅니다. 많은 공급망에서 논리적인 전달을 수행하며 각각의 중간 CA는 모든 업스트림 CA 인증서를 받는 동안 체인에 서명하고 마지막 중간 CA가 최종적으로 각 디바이스에 서명하고 체인의 모든 기관 인증서를 디바이스에 삽입합니다. 이 방식은 팩터리 계층 구조가 있는 계약 제조 회사가 특정 팩터리에 제조를 수행하도록 위임하는 경우 일반적으로 사용됩니다. 계층 구조의 깊이에는 여러 수준이 있을 수 있지만(예: 지리/제품 유형/제조 라인별) 마지막 팩터리만 디바이스와 상호 작용하고 체인은 계층 구조의 맨 위에서 유지됩니다.
 
@@ -109,7 +109,7 @@ X.509 CA 인증서 인증은 인증서 체인을 사용하여 위에서 언급�
 
 이 예제에서는 Factory-Y와 Technician-Z가 Smart-X-Widget과 상호 작용합니다. Company-X는 Smart-X-Widget을 소유하고 있지만 실제로는 전체 공급망에서 물리적으로 상호 작용하지 않습니다. 따라서 Smart-X-Widget의 신뢰할 수 있는 인증서 체인에서는 Company-X가 Factory-Y에 서명하고 Factory-Y가 Technician-Z에 서명하면 Smart-X-Widget에 최종 서명이 제공됩니다. Smart-X-Widget 제조 및 설치는 각각의 중간 CA 인증서를 사용하여 모든 Smart-X-Widget에 서명하는 Factory-Y 및 Technician-Z로 구성됩니다. 이러한 전체 프로세스의 최종 결과는 고유한 디바이스 인증서 및 Company-X CA 인증서까지 거슬러 올라가는 신뢰할 수 있는 인증서 체인이 있는 Smart-X-Widget입니다.
 
-![다른 회사의 인증서에서 하나의 회사의 인증서 신뢰 체인](./media/iot-hub-x509ca-concept/cert-mfr-chain.png)
+![한 회사의 인증서에서 다른 회사의 인증서에 대한 신뢰의 사슬](./media/iot-hub-x509ca-concept/cert-mfr-chain.png)
 
 X.509 CA 메서드의 가치를 검토하는 것이 좋습니다. 모든 Smart-X-Widget에 대한 인증서를 공급망에 미리 생성하고 전달하는 대신 Company-X에서 Factory-Y에 한 번만 서명해야 했습니다. 이제는 디바이스의 수명 주기 전반에 걸쳐 모든 디바이스를 추적하는 대신 Company-X에서 공급망 프로세스에서 자연스럽게 나오는 그룹을 통해 디바이스(예: 특정 연도의 7월 이후 Technician-Z에서 설치한 디바이스)를 추적하고 관리할 수 있습니다.
 
@@ -127,6 +127,6 @@ X.509 CA 인증용으로 제조된 디바이스에는 디바이스 고유의 인
 
 이 예제에서 각 Smart-X-Widget은 디바이스 고유의 인증서를 Factory-Y 및 Technician-Z X.509 CA 인증서와 함께 업로드한 다음 IoT Hub의 소유 증명 챌린지에 응답합니다.
 
-![허브에서 다른, pop 챌린지를 하나의 인증서에서 흐름](./media/iot-hub-x509ca-concept/device-pop-flow.png)
+![허브에서 다른 인증서로 의 흐름, 팝 도전](./media/iot-hub-x509ca-concept/device-pop-flow.png)
 
 신뢰의 기반은 디바이스 프라이빗 키를 비롯한 프라이빗 키를 보호한다는 점에 있습니다. 따라서 디바이스 프라이빗 키 보안에 대한 HSM(Hardware Secure Modules) 형태의 보안 실리콘 칩의 중요성을 아무리 강조해도 지나치지 않으며 하나의 팩터리가 다른 팩터리에 프라이빗 키를 위임하는 것과 같이 프라이빗 키를 절대 공유하지 않는 것이 좋습니다.

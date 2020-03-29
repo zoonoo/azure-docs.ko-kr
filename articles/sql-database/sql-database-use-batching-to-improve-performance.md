@@ -1,5 +1,5 @@
 ---
-title: 일괄 처리를 사용 하 여 응용 프로그램 성능을 개선 하는 방법
+title: 일괄 처리를 사용하여 응용 프로그램 성능을 개선하는 방법
 description: 이 토픽에서는 데이터베이스 작업을 일괄 처리하면 Azure SQL Database 애플리케이션의 속도와 확장성이 대폭 향상된다는 증거를 제공합니다. 이러한 일괄 처리 기법은 SQL Server 데이터베이스에 적용되지만 이 문서는 Azure에 중점을 두었습니다.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: genemi
 ms.date: 01/25/2019
 ms.openlocfilehash: cacc01151edaf31db938cf8abf3d46e75397758f
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76545027"
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>SQL Database 애플리케이션 성능을 개선하기 위해 일괄 처리를 사용하는 방법
@@ -43,7 +43,7 @@ SQL Database를 사용하는 장점 중 하나는 데이터베이스를 호스�
 > [!NOTE]
 > 결과가 기준은 아니며 **상대적인 성능**을 표시하기 위한 것입니다. 타이밍은 평균적으로 최소 10회의 테스트 실행을 기반으로 합니다. 작업은 빈 테이블로의 삽입니다. 이러한 테스트는 V12 이전 버전에서 측정되었으며, 새로운 [DTU 서비스 계층](sql-database-service-tiers-dtu.md) 또는 [vCore 서비스 계층](sql-database-service-tiers-vcore.md)을 사용하는 V12 데이터베이스에서 경험하는 처리량과 일치하지 않을 수 있습니다. 일괄 처리 기법의 상대적인 장점은 유사합니다.
 
-### <a name="transactions"></a>트랜잭션
+### <a name="transactions"></a>의
 
 일괄 작업에 대한 검토를 트랜잭션에 대한 얘기로 시작하는 것이 생소해 보일 수 있습니다. 하지만 클라이언트 쪽 트랜잭션 사용은 서버 쪽 일괄 처리에 성능을 향상시키는 미묘한 영향을 미칩니다. 트랜잭션은 단지 몇 줄의 코드만으로 추가될 수 있으며, 순차적인 작업의 성능을 향상시키는 빠른 방법을 제공합니다.
 
@@ -91,22 +91,22 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 }
 ```
 
-트랜잭션이 양쪽 예제에 실제로 사용되고 있습니다. 첫 번째 예제에서 각각의 개별 호출은 암시적 트랜잭션입니다. 두 번째 예제에서 명시적 트랜잭션이 모든 호출을 래핑합니다. [미리 쓰기 트랜잭션 로그](https://docs.microsoft.com/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide?view=sql-server-ver15#WAL)에 대한 설명서에 따라, 로그 레코드는 트랜잭션이 커밋할 때 디스크에 플러시됩니다. 따라서 트랜잭션에 더 많은 호출을 포함시켜서, 트랜잭션 로그에 대한 쓰기를 트랜잭션이 커밋될 때까지 지연시킬 수 있습니다. 사실상, 서버의 트랜잭션 로그에 대한 쓰기에 일괄 처리를 사용하는 것입니다.
+트랜잭션이 양쪽 예제에 실제로 사용되고 있습니다. 첫 번째 예제에서 각각의 개별 호출은 암시적 트랜잭션입니다. 두 번째 예제에서 명시적 트랜잭션이 모든 호출을 래핑합니다. [미리 쓰기 트랜잭션 로그](https://docs.microsoft.com/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide?view=sql-server-ver15#WAL) 설명에 따라 로그 기록은 트랜잭션이 커밋될 때 디스크에 플러시됩니다. 따라서 트랜잭션에 더 많은 호출을 포함시켜서, 트랜잭션 로그에 대한 쓰기를 트랜잭션이 커밋될 때까지 지연시킬 수 있습니다. 사실상, 서버의 트랜잭션 로그에 대한 쓰기에 일괄 처리를 사용하는 것입니다.
 
-다음 표에는 몇 가지 임시 테스트 결과가 나와 있습니다. 테스트는 동일한 순차적 삽입을 트랜잭션을 포함한 상태와 그렇지 않은 상태로 수행하였습니다. 보다 다양한 견해를 위해, 첫 번째 테스트는 랩톱에서 Microsoft Azure의 데이터베이스에 대해 원격으로 실행했습니다. 두 번째 테스트는 동일한 Microsoft Azure 데이터 센터(미국 서부) 내에 상주하는 클라우드 서비스 및 데이터베이스에서 실행했습니다. 다음 테이블은 트랜잭션 유 무 상태에서 순차적인 삽입의 소요 시간(밀리초)를 보여줍니다.
+다음 표에서는 몇 가지 임시 테스트 결과를 보여 주며, 일부 임시 테스트 결과를 보여 주실 수 있습니다. 테스트는 동일한 순차적 삽입을 트랜잭션을 포함한 상태와 그렇지 않은 상태로 수행하였습니다. 보다 다양한 견해를 위해, 첫 번째 테스트는 랩톱에서 Microsoft Azure의 데이터베이스에 대해 원격으로 실행했습니다. 두 번째 테스트는 동일한 Microsoft Azure 데이터 센터(미국 서부) 내에 상주하는 클라우드 서비스 및 데이터베이스에서 실행했습니다. 다음 테이블은 트랜잭션 유 무 상태에서 순차적인 삽입의 소요 시간(밀리초)를 보여줍니다.
 
-**온-프레미스에서 Azure**:
+**온-프레미스에서 Azure로:**
 
-| 운영 | 트랜잭션 없음(밀리초) | 트랜잭션(밀리초) |
+| 작업 | 트랜잭션 없음(밀리초) | 트랜잭션(밀리초) |
 | --- | --- | --- |
 | 1 |130 |402 |
 | 10 |1208 |1226 |
 | 100 |12662 |10395 |
 | 1000 |128852 |102917 |
 
-**Azure에서Azure(동일한 데이터 센터)** :
+**Azure에서Azure(동일한 데이터 센터)**:
 
-| 운영 | 트랜잭션 없음(밀리초) | 트랜잭션(밀리초) |
+| 작업 | 트랜잭션 없음(밀리초) | 트랜잭션(밀리초) |
 | --- | --- | --- |
 | 1 |21 |26 |
 | 10 |220 |56 |
@@ -118,7 +118,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 
 이전 테스트 결과에 따르면, 단일 작업을 트랜잭션에 래핑하면 성능이 실제로 감소합니다. 하지만 단일 트랜잭션에 포함하는 작업의 수를 증가시키면, 성능 향상이 더 두드러집니다. 모든 작업이 Microsoft Azure 데이터 센터 내에서 발생하는 경우에는 성능 차이가 더 현저하게 나타납니다. Microsoft Azure 데이터 센터 외부에서 SQL Database를 사용하여 증가되는 대기 시간은 트랜잭션 사용으로 인한 성능 향상을 무색하게 만듭니다.
 
-트랜잭션 사용이 성능을 향상시킬 수 있지만 [트랜잭션 및 연결에 대한 모범 사례를 지속적으로 관찰](https://msdn.microsoft.com/library/ms187484.aspx)하는 것이 필요합니다. 트랜잭션을 최대한 짧게 유지하고 작업이 완료된 후에는 데이터베이스 연결을 닫습니다. 이전 예제의 using 문은 후속 코드 블록이 완료되면 연결이 닫히도록 합니다.
+트랜잭션 사용을 통해 성능을 향상시킬 수 있지만 계속해서 [트랜잭션 및 연결에 대한 모범 사례](https://msdn.microsoft.com/library/ms187484.aspx)를 살펴보겠습니다. 트랜잭션을 최대한 짧게 유지하고 작업이 완료된 후에는 데이터베이스 연결을 닫습니다. 이전 예제의 using 문은 후속 코드 블록이 완료되면 연결이 닫히도록 합니다.
 
 이전 예제는 로컬 트랜잭션을 모든 ADO.NET 코드에 두 줄로 추가할 수 있다는 것을 보여줍니다. 트랜잭션은 순차적인 삽입, 업데이트, 삭제 작업을 생성하는 코드의 성능을 향상시키는 신속한 방법을 제공합니다. 하지만 가장 빠른 성능의 경우에는, 클라이언트 쪽 일괄 처리의 장점(예: 테이블 반환 매개 변수)을 활용하기 위한 코드 변경을 고려합니다.
 
@@ -167,7 +167,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 }
 ```
 
-이전 예에서 **SqlCommand** 개체는 **TestTvp\@** 테이블 반환 매개 변수에서 행을 삽입 합니다. 이전에 만든 **DataTable** 개체는 **SqlCommand.Parameters.Add** 메서드로 이 매개 변수에 할당됩니다. 삽입을 하나의 호출로 일괄 처리하면 순차적인 삽입의 성능을 상당히 향상시킵니다.
+이전 예제에서 **SqlCommand** 개체는 테이블 값 매개 변수인 ** \@TestTvp에서**행을 삽입합니다. 이전에 만든 **DataTable** 개체는 **SqlCommand.Parameters.Add** 메서드로 이 매개 변수에 할당됩니다. 삽입을 하나의 호출로 일괄 처리하면 순차적인 삽입의 성능을 상당히 향상시킵니다.
 
 이전 예제를 더욱 향상시키려면 텍스트 기반 명령 대신 저장 프로시저를 사용합니다. 다음 Transact-SQL 명령은 **SimpleTestTableType** 테이블 반환 매개 변수를 받아들이는 저장 프로시저를 만듭니다.
 
@@ -191,9 +191,9 @@ cmd.CommandType = CommandType.StoredProcedure;
 
 대부분의 경우 테이블 반환 매개 변수는 다른 일괄 처리 기법과 동등하거나 그 보다 뛰어난 성능을 갖습니다. 테이블 반환 매개 변수는 다른 옵션에 비해 융통성이 많기 때문에 더 좋을 수 있습니다. 예를 들어 SQL 대량 복사와 같은 다른 기법은 새 행의 삽입만을 허용합니다. 하지만 테이블 반환 매개 변수를 사용하면 저장 프로시저의 논리를 사용하여 업데이트되는 행과 삽입되는 행을 결정할 수 있습니다. 지정된 행이 삽입될지, 업데이트될지 또는 삭제될지를 나타내는 “작업” 열을 포함하도록 테이블 형식이 수정될 수도 있습니다.
 
-다음 표에서는 테이블 반환 매개 변수 사용에 대 한 임시 테스트 결과를 밀리초 단위로 보여 줍니다.
+다음 표에서는 테이블 값 매개 변수를 밀리초 단위로 사용하기 위한 임시 테스트 결과를 보여 주어 있습니다.
 
-| 운영 | 온-프레미스에서 Azure(밀리초) | Azure 동일한 데이터 센터(밀리초) |
+| 작업 | 온-프레미스에서 Azure(밀리초) | Azure 동일한 데이터 센터(밀리초) |
 | --- | --- | --- |
 | 1 |124 |32 |
 | 10 |131 |25 |
@@ -231,9 +231,9 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 
 테이블 반환 매개 변수보다 대량 복사를 선호하는 경우도 있습니다. [테이블 반환 매개 변수](https://msdn.microsoft.com/library/bb510489.aspx) 문서에서 테이블 반환 매개 변수와 BULK INSERT 작업의 비교 테이블을 참고하세요.
 
-다음 임시 테스트 결과는 **SqlBulkCopy** (밀리초)로 일괄 처리의 성능을 보여 줍니다.
+다음 임시 테스트 결과는 **SqlBulkCopy를** 밀리초 단위로 일괄 처리하는 성능을 보여 준다.
 
-| 운영 | 온-프레미스에서 Azure(밀리초) | Azure 동일한 데이터 센터(밀리초) |
+| 작업 | 온-프레미스에서 Azure(밀리초) | Azure 동일한 데이터 센터(밀리초) |
 | --- | --- | --- |
 | 1 |433 |57 |
 | 10 |441 |32 |
@@ -246,9 +246,9 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 > 
 > 
 
-소규모 배치에서는, 테이블 반환 매개 변수가 **SqlBulkCopy** 클래스보다 성능이 뛰어납니다. 하지만 1,000개 및 10,000개 행에 대한 테스트의 경우 **SqlBulkCopy** 가 테이블 반환 매개 변수보다 12-31% 더 빠르게 수행됩니다. 테이블 반환 매개 변수처럼 **SqlBulkCopy** 역시 일괄 처리된 삽입의 좋은 옵션이며, 비일괄 처리 작업의 성능과 비교하면 특히 그렇습니다.
+소규모 배치에서는, 테이블 반환 매개 변수가 **SqlBulkCopy** 클래스보다 성능이 뛰어납니다. 그러나 **SqlBulkCopy는** 1,000행 및 10,000행의 테스트를 위해 테이블 값 매개 변수보다 12-31% 더 빠르게 수행했습니다. 테이블 반환 매개 변수처럼 **SqlBulkCopy** 역시 일괄 처리된 삽입의 좋은 옵션이며, 비일괄 처리 작업의 성능과 비교하면 특히 그렇습니다.
 
-ADO.NET에서 대량 복사에 대한 자세한 내용은 [SQL Server에서의 대량 복사 작업](https://msdn.microsoft.com/library/7ek5da1a.aspx)을 참조하세요.
+ADO.NET에서의 대량 복사에 대한 자세한 내용은 [SQL Server의 대량 복사 작업](https://msdn.microsoft.com/library/7ek5da1a.aspx)을 참조하세요.
 
 ### <a name="multiple-row-parameterized-insert-statements"></a>여러 행의 매개 변수가 있는 INSERT 문
 
@@ -276,9 +276,9 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 
 이 예제는 기본적인 개념을 보여주기 위한 것입니다. 보다 현실적인 시나리오는 필요한 엔터티를 이어서 쿼리 문자열과 명령 매개 변수를 동시에 구성합니다. 쿼리 매개 변수는 총 2100개로 제한되기 때문에, 이러한 방식으로 처리되는 행의 총 수가 제한됩니다.
 
-다음 임시 테스트 결과는 이러한 insert 문의 성능 (밀리초)을 보여 줍니다.
+다음 임시 테스트 결과는 밀리초 단위로 이러한 유형의 삽입 문의 성능을 보여 준다.
 
-| 운영 | 테이블 반환 매개 변수(밀리초) | 단일 문 INSERT(밀리초) |
+| 작업 | 테이블 반환 매개 변수(밀리초) | 단일 문 INSERT(밀리초) |
 | --- | --- | --- |
 | 1 |32 |20 |
 | 10 |30 |25 |
@@ -293,11 +293,11 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 
 ### <a name="dataadapter"></a>DataAdapter
 
-**DataAdapter** 클래스를 사용하면 **DataSet** 개체를 수정한 후 INSERT, UPDATE, DELETE 작업으로 제출할 수 있습니다. **DataAdapter** 를 이런 방식으로 사용하는 경우, 각각의 고유한 작업에 대해 개별 호출이 생성된다는 점에 유의해야 합니다. 성능을 향상시키려면 한 번에 일괄 처리되어야 하는 작업의 수에 대해 **UpdateBatchSize** 속성을 사용합니다. 자세한 내용은 [DataAdapters를 사용하여 Batch 작업 수행](https://msdn.microsoft.com/library/aadf8fk2.aspx)을 참조하세요.
+**DataAdapter** 클래스를 사용하면 **DataSet** 개체를 수정한 후 INSERT, UPDATE, DELETE 작업으로 제출할 수 있습니다. **DataAdapter** 를 이런 방식으로 사용하는 경우, 각각의 고유한 작업에 대해 개별 호출이 생성된다는 점에 유의해야 합니다. 성능을 향상시키려면 한 번에 일괄 처리되어야 하는 작업의 수에 대해 **UpdateBatchSize** 속성을 사용합니다. 자세한 내용은 [DataAdapter를 사용하여 일괄 처리 작업 수행](https://msdn.microsoft.com/library/aadf8fk2.aspx)을 참조하세요.
 
 ### <a name="entity-framework"></a>Entity Framework
 
-Entity Framework는 현재 일괄 처리를 지원하지 않습니다. 커뮤니티의 다른 개발자들은 **SaveChanges** 메서드 오버라이드와 같은 차선책을 설명하려는 시도를 했습니다. 하지만 솔루션이 대체적으로 복잡하고 애플리케이션 및 데이터 모델에 맞게 사용자 지정됩니다. Entity Framework CodePlex 프로젝트에는 기능 요청에 관한 토론 페이지가 있습니다. 토론 페이지를 보려면 [Design Meeting Notes – August 2, 2012](https://entityframework.codeplex.com/wikipage?title=Design%20Meeting%20Notes%20-%20August%202%2c%202012)(디자인 모임 메모 - 2012년 8월 2일)를 참조하세요.
+Entity Framework는 현재 일괄 처리를 지원하지 않습니다. 커뮤니티의 다른 개발자들은 **SaveChanges** 메서드 오버라이드와 같은 차선책을 설명하려는 시도를 했습니다. 하지만 솔루션이 대체적으로 복잡하고 애플리케이션 및 데이터 모델에 맞게 사용자 지정됩니다. Entity Framework CodePlex 프로젝트에는 기능 요청에 관한 토론 페이지가 있습니다. 이 토론을 보려면 [디자인 회의 노트 - 2012년 8월 2일](https://entityframework.codeplex.com/wikipage?title=Design%20Meeting%20Notes%20-%20August%202%2c%202012)을 참조하십시오.
 
 ### <a name="xml"></a>XML
 

@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 378aa35ff4b43f5a268ac3dcd9530783ada6921e
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76512966"
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations--next-steps"></a>Azure Active Directory 하이브리드 ID 디자인 고려 사항 - 다음 단계
@@ -39,8 +39,8 @@ ms.locfileid: "76512966"
 * [Microsoft Enterprise Mobility 블로그](https://cloudblogs.microsoft.com/ENTERPRISEMOBILITY/)
 * [Microsoft In The Cloud 블로그](https://blogs.technet.com/b/in_the_cloud/)
 * [Microsoft Intune 블로그](https://blogs.technet.com/b/microsoftintune/)
-* [Microsoft 끝점 Configuration Manager 블로그](https://techcommunity.microsoft.com/t5/Configuration-Manager-Blog/bg-p/ConfigurationManagerBlog)
+* [마이크로소프트 엔드포인트 구성 관리자 블로그](https://techcommunity.microsoft.com/t5/Configuration-Manager-Blog/bg-p/ConfigurationManagerBlog)
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 [설계 고려 사항 개요](plan-hybrid-identity-design-considerations-overview.md)
 

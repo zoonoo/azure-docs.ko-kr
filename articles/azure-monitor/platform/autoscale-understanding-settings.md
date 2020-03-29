@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 12/18/2017
 ms.subservice: autoscale
 ms.openlocfilehash: 9a2b94208de7ce490a0e7acfbb71175b4a7c846e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75364308"
 ---
 # <a name="understand-autoscale-settings"></a>자동 크기 조정 설정 이해
@@ -85,7 +85,7 @@ ms.locfileid: "75364308"
 }
 ```
 
-| 섹션 | 요소 이름 | Description |
+| 섹션 | 요소 이름 | 설명 |
 | --- | --- | --- |
 | 설정 | ID | 자동 크기 조정 설정의 리소스 ID입니다. 자동 크기 조정 설정은 Azure Resource Manager 리소스입니다. |
 | 설정 | name | 자동 크기 조정 설정 이름입니다. |
@@ -101,12 +101,12 @@ ms.locfileid: "75364308"
 | metricTrigger | metricName | 메트릭의 이름입니다. |
 | metricTrigger |  metricResourceUri | 메트릭을 내보내는 리소스의 리소스 ID입니다. 대부분의 경우, 크기가 조정되는 리소스와 같습니다. 경우에 따라 메트릭을 내보내는 리소스와 크기가 조정되는 리소스가 서로 다를 수 있습니다. 예를 들어 스토리지 큐에 있는 메시지의 수에 따라 가상 머신 확장 집합의 크기를 조정할 수 있습니다. |
 | metricTrigger | timeGrain | 메트릭 샘플링 기간입니다. 예를 들어 **TimeGrain = “PT1M”** 은 statistic 요소에 지정된 집계 방법을 사용하여 매 1분마다 집계한다는 것을 의미합니다. |
-| metricTrigger | statistic | timeGrain 기간 내 집계 방법입니다. 예를 들어 **statistic = “Average”** 및 **timeGrain = “PT1M”** 은, 평균을 구하여 메트릭이 1분마다 집계되어야 함을 의미합니다. 이 속성은 메트릭이 샘플링되는 방식을 나타냅니다. |
-| metricTrigger | timeWindow | 메트릭을 다시 확인할 기간입니다. 예를 들어 **timeWindow = “PT10M”** 은 자동 크기 조정 기능이 실행될 때마다 지난 10분 동안의 메트릭을 쿼리하는 것을 의미합니다. 이 시간 창은 메트릭을 정규화할 수 있도록 하며 일시적인 스파이크에 대응하지 않도록 합니다. |
-| metricTrigger | timeAggregation | 샘플링된 메트릭을 집계하는 데 사용되는 집계 방법입니다. 예를 들어 **TimeAggregation = “Average”** 는 평균을 구하여 샘플링된 메트릭을 집계합니다. 앞의 경우에서 1분짜리 샘플을 10개 가져와서 평균을 구합니다. |
+| metricTrigger | statistic | timeGrain 기간 내 집계 방법입니다. 예를 들어 **통계 = "평균"** 및 **timeGrain = "PT1M"은** 평균을 취하여 메트릭을 1분마다 집계해야 한다는 것을 의미합니다. 이 속성은 메트릭이 샘플링되는 방식을 나타냅니다. |
+| metricTrigger | timeWindow | 메트릭을 다시 확인할 기간입니다. 예를 들어 **timeWindow = "PT10M"은** 자동 크기 조정이 실행될 때마다 지난 10분 동안 메트릭을 쿼리한다는 것을 의미합니다. 이 시간 창은 메트릭을 정규화할 수 있도록 하며 일시적인 스파이크에 대응하지 않도록 합니다. |
+| metricTrigger | timeAggregation | 샘플링된 메트릭을 집계하는 데 사용되는 집계 방법입니다. 예를 들어 **TimeAggregation = "평균"은** 평균을 취하여 샘플링된 메트릭을 집계해야 합니다. 앞의 경우에서 1분짜리 샘플을 10개 가져와서 평균을 구합니다. |
 | rule(규칙) | scaleAction | 규칙의 metricTrigger가 트리거될 때 수행할 작업입니다. |
 | scaleAction | direction | 스케일 아웃하려는 경우 "Increase"이고, 스케일 인하려는 경우 "Decrease"입니다.|
-| scaleAction | 값 | 늘리거나 줄일 리소스 용량 크기입니다. |
+| scaleAction | value | 늘리거나 줄일 리소스 용량 크기입니다. |
 | scaleAction | cooldown | 크기 조정 작업 후, 다시 크기를 조정하기 전에 대기하는 시간입니다. 예를 들어, **cooldown = “PT10M”** 인 경우 자동 크기 조정 기능은 추가로 10분 동안 다시 크기 조정을 시도하지 않습니다. cooldown은 인스턴스의 추가 또는 제거 후에 메트릭이 안정화될 수 있도록 합니다. |
 
 ## <a name="autoscale-profiles"></a>자동 크기 조정 프로필
@@ -288,20 +288,20 @@ ms.locfileid: "75364308"
 
 자동 크기 조정 기능이 실행할 프로필을 결정하면 프로필의 모든 스케일 아웃 규칙(**direction = “Increase”** 인 규칙)을 먼저 실행합니다.
 
-하나 이상의 스케일 아웃 규칙이 트리거되면 자동 크기 조정 기능은 해당하는 각 규칙의 **scaleAction**에 따라 결정되는 새 용량을 계산합니다. 그런 다음 해당 용량의 최대 크기까지 스케일 아웃하여 서비스 가용성을 보장합니다.
+하나 이상의 스케일 아웃 규칙이 트리거되는 경우 자동 크기 조정은 각 규칙의 **scaleAction에** 의해 결정된 새 용량을 계산합니다. 그런 다음 해당 용량의 최대 크기까지 스케일 아웃하여 서비스 가용성을 보장합니다.
 
 예를 들어, 현재 용량이 10인 가상 머신 확장 집합이 있다고 가정해 보겠습니다. 2개의 스케일 아웃 규칙, 즉 용량이 10%씩 증가하는 규칙과 용량이 3씩 증가하는 규칙이 있습니다. 첫 번째 규칙 때문에 새 용량은 11이 되지만 두 번째 규칙에 따라 용량은 13이 됩니다. 서비스 가용성을 보장하기 위해, 자동 크기 조정 기능은 최대 용량을 가져올 작업을 선택하므로, 두 번째 규칙이 선택됩니다.
 
-스케일 아웃 규칙이 트리거되는 경우 자동 크기 조정 기능은 모든 스케일 인 규칙(**direction = “Decrease”** 인 규칙)을 평가합니다. 자동 크기 조정 기능은 모든 스케일 인 규칙이 트리거될 경우에만 스케일 인 작업을 수행합니다.
+배율 조정 규칙이 트리거되지 않으면 자동 크기 조정은 모든 배율 조정 규칙(방향이 있는 규칙 **= "감소")을**평가합니다. 자동 크기 조정 기능은 모든 스케일 인 규칙이 트리거될 경우에만 스케일 인 작업을 수행합니다.
 
-자동 크기 조정 기능은 해당하는 각 규칙의 **scaleAction**에 따라 결정되는 새 용량을 계산합니다. 그런 다음 최대 용량을 유지하여 서비스 가용성을 보장하는 크기 조정 작업을 선택합니다.
+자동 크기 조정은 각 규칙의 **작업 규모로** 결정된 새 용량을 계산합니다. 그런 다음 최대 용량을 유지하여 서비스 가용성을 보장하는 크기 조정 작업을 선택합니다.
 
 예를 들어, 현재 용량이 10인 가상 머신 확장 집합이 있다고 가정해 보겠습니다. 2개의 스케일 인 규칙, 즉 용량이 50%씩 감소하는 규칙과 용량이 3씩 감소하는 규칙이 있습니다. 첫 번째 규칙 때문에 새 용량은 5가 되지만 두 번째 규칙에 따라 용량은 7이 됩니다. 서비스 가용성을 보장하기 위해, 자동 크기 조정 기능은 최대 용량을 가져올 작업을 선택하므로, 두 번째 규칙이 선택됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 자동 크기 조정에 대한 자세한 내용은 다음을 참조하세요.
 
-* [자동 크기 조정 개요](../../azure-monitor/platform/autoscale-overview.md)
+* [자동 크기 개요](../../azure-monitor/platform/autoscale-overview.md)
 * [Azure Monitor 자동 크기 조정 공용 메트릭](../../azure-monitor/platform/autoscale-common-metrics.md)
 * [Azure Monitor 자동 크기 조정에 대한 모범 사례](../../azure-monitor/platform/autoscale-best-practices.md)
 * [크기 자동 조정 작업을 사용하여 전자 메일 및 웹후크 경고 알림 보내기](../../azure-monitor/platform/autoscale-webhook-email.md)

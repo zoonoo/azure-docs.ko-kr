@@ -16,19 +16,19 @@ ms.date: 10/30/2014
 ms.author: erikre
 ms.reviewer: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com
 ms.openlocfilehash: b3a9fee09d1eac6fb4d716af83c348cb2c21f7a9
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67870903"
 ---
 # <a name="how-to-use-the-sendgrid-email-service-from-php"></a>PHP에서 SendGrid 메일 서비스를 사용하는 방법
 
 이 가이드에서는 Azure에서 SendGrid 전자 메일 서비스로 일반 프로그래밍 작업을 수행하는 방법을 보여 줍니다. 샘플은 PHP로 작성되었습니다.
-**전자 메일 작성**, **전자 메일 보내기**, **첨부 파일 추가** 등의 시나리오를 다룹니다. SendGrid 및 전자 메일 보내기에 대한 자세한 내용은 [다음 단계](#next-steps) 섹션을 참조하세요.
+**전자 메일 작성**, **전자 메일 보내기**, **첨부 파일 추가** 등의 시나리오를 다룹니다. SendGrid 및 전송 이메일에 대한 자세한 내용은 [다음 단계](#next-steps) 섹션을 참조하십시오.
 
 ## <a name="what-is-the-sendgrid-email-service"></a>SendGrid 전자 메일 서비스 정의
-SendGrid는 사용자 지정 통합을 쉽게 만드는 유연한 API와 함께 신뢰할 만한 [트랜잭션 전자 메일 발송], 확장성 및 실시간 분석을 제공하는 [클라우드 기반 전자 메일 서비스]입니다. 일반적인 SendGrid 사용 시나리오는 다음과 같습니다.
+SendGrid는 사용자 지정 통합을 쉽게 만드는 유연한 API와 함께 신뢰할 만한 [트랜잭션 전자 메일 배달], 확장성 및 실시간 분석을 제공하는 [클라우드 기반 전자 메일 서비스]입니다. 일반적인 SendGrid 사용 시나리오는 다음과 같습니다.
 
 * 고객에게 확인 메일 자동으로 보내기
 * 월간 전자 전단 및 판촉 행사를 고객에게 보내기 위한 분산 목록 관리
@@ -37,7 +37,7 @@ SendGrid는 사용자 지정 통합을 쉽게 만드는 유연한 API와 함께 
 * 고객 문의 전달
 * 애플리케이션의 전자 메일 알림
 
-자세한 내용은 [https://sendgrid.com][https://sendgrid.com]를 참조하세요.
+자세한 내용은 을 [https://sendgrid.com][https://sendgrid.com]참조하십시오.
 
 ## <a name="create-a-sendgrid-account"></a>SendGrid 계정 만들기
 
@@ -47,7 +47,7 @@ SendGrid는 사용자 지정 통합을 쉽게 만드는 유연한 API와 함께 
 
 Azure PHP 애플리케이션에서 SendGrid를 사용하기 위해 특별한 구성이 필요하지는 않습니다. SendGrid는 서비스이므로, 온-프레미스 애플리케이션에서 액세스하는 것과 동일한 방법으로 클라우드 애플리케이션에서 액세스할 수 있습니다.
 
-## <a name="how-to-send-an-email"></a>방법: 이메일 보내기
+## <a name="how-to-send-an-email"></a>방법: 전자 메일 보내기
 
 SendGrid에서 제공하는 SMTP 또는 웹 API를 사용하여 전자 메일을 보낼 수 있습니다.
 
@@ -299,7 +299,7 @@ SMTP API를 사용하여 첨부 파일을 보내는 프로세스에는 Swift Mai
 
 ## <a name="how-to-use-filters-to-enable-footers-tracking-and-analytics"></a>방법: 필터를 사용하여 바닥글, 추적 및 분석을 사용하도록 설정
 
-SendGrid는 *필터*사용을 통해 추가 전자 메일 기능을 제공합니다. 클릭 추적, Google 분석, 구독 추적 등을 사용하도록 설정하는 것과 같이 특정 기능을 사용하도록 설정하기 위해 전자 메일 메시지에 추가할 수 있는 설정입니다.
+SendGrid는 *필터를*사용하여 추가 전자 메일 기능을 제공합니다. 클릭 추적, Google 분석, 구독 추적 등을 사용하도록 설정하는 것과 같이 특정 기능을 사용하도록 설정하기 위해 전자 메일 메시지에 추가할 수 있는 설정입니다.
 
 필터는 filters 속성을 사용하여 메시지에 적용할 수 있습니다. 각 필터는 필터별 설정을 포함하는 해시에 의해 지정됩니다. 다음 예제에서는 바닥글 필터를 사용하도록 설정하고 메일 메시지의 맨 아래에 추가할 텍스트 메시지를 지정합니다. 이 예제의 경우 [sendgrid-php 라이브러리]를 사용합니다.
 

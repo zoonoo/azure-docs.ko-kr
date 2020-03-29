@@ -4,13 +4,13 @@ description: 이 문서에서는 서비스 패브릭 애플리케이션 업그�
 ms.topic: conceptual
 ms.date: 1/28/2020
 ms.openlocfilehash: 09f3fdf1f26a13c6722eb039e132256f33be38ff
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76845439"
 ---
-# <a name="service-fabric-application-upgrade-advanced-topics"></a>Service Fabric 응용 프로그램 업그레이드: 고급 항목
+# <a name="service-fabric-application-upgrade-advanced-topics"></a>서비스 패브릭 응용 프로그램 업그레이드: 고급 항목
 
 ## <a name="add-or-remove-service-types-during-an-application-upgrade"></a>응용 프로그램 업그레이드 중 서비스 유형 추가 또는 제거
 
@@ -18,23 +18,23 @@ ms.locfileid: "76845439"
 
 마찬가지로, 업그레이드의 일부로 애플리케이션에서 서비스 유형을 제거할 수도 있습니다. 그러나 제거하려는 서비스 유형의 모든 서비스 인스턴스를 제거한 후 업그레이드를 진행해야 합니다([Remove-ServiceFabricService](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricservice?view=azureservicefabricps) 참조).
 
-## <a name="avoid-connection-drops-during-stateless-service-planned-downtime-preview"></a>상태 비저장 서비스의 계획 된 가동 중지 시간 (미리 보기)에 대 한 연결 삭제 방지
+## <a name="avoid-connection-drops-during-stateless-service-planned-downtime-preview"></a>상태 비수기 서비스 계획된 가동 중지 시간 동안 연결 중단 방지(미리 보기)
 
-응용 프로그램/클러스터 업그레이드 또는 노드 비활성화와 같이 계획 된 상태 비저장 인스턴스 가동 중지 시간의 경우 중단 된 끝점이 제거 되기 때문에 연결을 삭제할 수 있습니다.
+응용 프로그램/클러스터 업그레이드 또는 노드 비활성화와 같은 계획된 상태 비누비 인스턴스 가동 중단 의 경우 종료 후 노출된 끝점이 제거되어 연결이 끊어질 수 있습니다.
 
-이를 방지 하려면 서비스 구성에서 복제본 *인스턴스 닫기 지연 기간* 을 추가 하 여 *requestdrain* (미리 보기) 기능을 구성 합니다. 이렇게 하면 상태 비저장 인스턴스에서 알린 끝점이 인스턴스를 닫기 위해 지연 타이머가 시작 *되기 전에* 제거 됩니다. 이렇게 지연 하면 인스턴스가 실제로 중단 되기 전에 기존 요청을 정상적으로 종료할 수 있습니다. 클라이언트는 콜백 함수에의 한 끝점 변경에 대 한 알림이 제공 되므로 끝점을 다시 확인 하 고 인스턴스에 새 요청을 전송 하지 않을 수 있습니다.
+이를 방지하려면 서비스 구성에서 복제본 *인스턴스 닫기 지연 기간을* 추가하여 *RequestDrain(미리* 보기) 기능을 구성합니다. 이렇게 하면 지연 타이머가 인스턴스를 닫기 *시작하기 전에* 상태 비해제 인스턴스에서 보급하는 끝점이 제거됩니다. 이 지연을 통해 인스턴스가 실제로 중단되기 전에 기존 요청을 정상적으로 드레인할 수 있습니다. 클라이언트는 콜백 함수를 통해 끝점 변경에 대한 알림을 받게 되므로 끝점을 다시 해결하고 인스턴스에 새 요청을 보내지 않도록 할 수 있습니다.
 
 ### <a name="service-configuration"></a>서비스 구성
 
-서비스 쪽에서 지연을 구성 하는 방법에는 여러 가지가 있습니다.
+서비스 측에서 지연을 구성하는 방법에는 여러 가지가 있습니다.
 
- * **새 서비스를 만들 때**`-InstanceCloseDelayDuration`를 지정 합니다.
+ * **새 서비스를 만들 때 다음을**지정합니다. `-InstanceCloseDelayDuration`
 
     ```powershell
     New-ServiceFabricService -Stateless [-ServiceName] <Uri> -InstanceCloseDelayDuration <TimeSpan>`
     ```
 
- * **응용 프로그램 매니페스트의 기본값 섹션에서 서비스를 정의 하는 동안**`InstanceCloseDelayDurationSeconds` 속성을 할당 합니다.
+ * **응용 프로그램 매니페스트의 기본값 섹션에서 서비스를 정의하는** `InstanceCloseDelayDurationSeconds` 동안 속성을 할당합니다.
 
     ```xml
           <StatelessService ServiceTypeName="Web1Type" InstanceCount="[Web1_InstanceCount]" InstanceCloseDelayDurationSeconds="15">
@@ -42,7 +42,7 @@ ms.locfileid: "76845439"
           </StatelessService>
     ```
 
- * **기존 서비스를 업데이트할 때**`-InstanceCloseDelayDuration`를 지정 합니다.
+ * **기존 서비스를 업데이트할 때 다음을** `-InstanceCloseDelayDuration`지정합니다.
 
     ```powershell
     Update-ServiceFabricService [-Stateless] [-ServiceName] <Uri> [-InstanceCloseDelayDuration <TimeSpan>]`
@@ -50,7 +50,7 @@ ms.locfileid: "76845439"
 
 ### <a name="client-configuration"></a>클라이언트 구성
 
-끝점이 변경 될 때 알림을 수신 하기 위해 클라이언트는 다음과 같은 콜백 (`ServiceManager_ServiceNotificationFilterMatched`)을 등록할 수 있습니다. 
+끝점이 변경되면 알림을 받으려면 클라이언트는 다음과 같이`ServiceManager_ServiceNotificationFilterMatched`콜백()을 등록할 수 있습니다. 
 
 ```csharp
     var filterDescription = new ServiceNotificationFilterDescription
@@ -67,11 +67,11 @@ private static void ServiceManager_ServiceNotificationFilterMatched(object sende
 }
 ```
 
-변경 알림은 끝점이 변경 되었음을 나타냅니다. 클라이언트는 끝점을 다시 확인 하 고, 더 이상 보급 되지 않는 끝점은 사용 하지 않고 곧 다운 됩니다.
+변경 알림은 끝점이 변경되고 클라이언트가 끝점을 다시 해결해야 하며 곧 중단될 때 더 이상 보급되지 않는 끝점을 사용하지 않음을 나타냅니다.
 
 ### <a name="optional-upgrade-overrides"></a>선택적 업그레이드 재정의
 
-서비스 당 기본 지연 기간을 설정 하는 것 외에도 동일한 (`InstanceCloseDelayDurationSec`) 옵션을 사용 하 여 응용 프로그램/클러스터를 업그레이드 하는 동안 지연을 재정의할 수 있습니다.
+서비스당 기본 지연 기간을 설정하는 것 외에도 동일한 ()`InstanceCloseDelayDurationSec`옵션을 사용하여 응용 프로그램/클러스터 업그레이드 중 지연을 재정의할 수도 있습니다.
 
 ```powershell
 Start-ServiceFabricApplicationUpgrade [-ApplicationName] <Uri> [-ApplicationTypeVersion] <String> [-InstanceCloseDelayDurationSec <UInt32>]
@@ -79,7 +79,7 @@ Start-ServiceFabricApplicationUpgrade [-ApplicationName] <Uri> [-ApplicationType
 Start-ServiceFabricClusterUpgrade [-CodePackageVersion] <String> [-ClusterManifestVersion] <String> [-InstanceCloseDelayDurationSec <UInt32>]
 ```
 
-지연 기간은 호출 된 업그레이드 인스턴스에만 적용 되며, 그렇지 않으면 개별 서비스 지연 구성을 변경 하지 않습니다. 예를 들어 미리 구성 된 업그레이드 지연을 건너뛰려면이를 사용 하 여 `0` 지연 시간을 지정할 수 있습니다.
+지연 기간은 호출된 업그레이드 인스턴스에만 적용되며 개별 서비스 지연 구성은 변경되지 않습니다. 예를 들어 미리 구성된 업그레이드 지연을 `0` 건너뛰기 위해 지연을 지정하는 데 사용할 수 있습니다.
 
 ## <a name="manual-upgrade-mode"></a>수동 업그레이드 모드
 
@@ -142,9 +142,9 @@ app1/
 
 즉, 일반적인 방법으로 전체 애플리케이션 패키지를 만든 다음, 버전이 변경되지 않은 코드/config/데이터 패키지 폴더를 제거합니다.
 
-## <a name="upgrade-application-parameters-independently-of-version"></a>버전과 별개로 응용 프로그램 매개 변수 업그레이드
+## <a name="upgrade-application-parameters-independently-of-version"></a>버전과 독립적으로 애플리케이션 매개 변수 업그레이드
 
-경우에 따라 매니페스트 버전을 변경 하지 않고 Service Fabric 응용 프로그램의 매개 변수를 변경 하는 것이 좋습니다. **Get-servicefabricapplicationupgrade** Azure Service Fabric PowerShell cmdlet에 **-applicationparameter** 플래그를 사용 하 여이 작업을 편리 하 게 수행할 수 있습니다. 다음 속성을 사용 하 여 Service Fabric 응용 프로그램을 가정 합니다.
+경우에 따라 매니페스트 버전을 변경하지 않고 서비스 패브릭 응용 프로그램의 매개 변수를 변경하는 것이 바람직합니다. 이 작업은 **-Application매개** 플래그를 **Start-ServiceFabricApplication업그레이드** Azure 서비스 패브릭 PowerShell cmdlet과 함께 사용하여 편리하게 수행할 수 있습니다. 다음과 같은 속성이 있는 서비스 패브릭 응용 프로그램을 가정합니다.
 
 ```PowerShell
 PS C:\> Get-ServiceFabricApplication -ApplicationName fabric:/Application1
@@ -157,7 +157,7 @@ HealthState            : Ok
 ApplicationParameters  : { "ImportantParameter" = "1"; "NewParameter" = "testBefore" }
 ```
 
-이제 **get-servicefabricapplicationupgrade** cmdlet을 사용 하 여 응용 프로그램을 업그레이드 합니다. 이 예는 모니터링 되는 업그레이드를 보여 주지만 모니터링 되지 않는 업그레이드도 사용할 수 있습니다. 이 cmdlet에서 허용 하는 플래그에 대 한 전체 설명을 보려면 [Azure Service Fabric PowerShell 모듈 참조](/powershell/module/servicefabric/start-servicefabricapplicationupgrade?view=azureservicefabricps#parameters) 를 참조 하세요.
+이제 **시작 서비스패브릭응용 프로그램을** 사용하여 응용 프로그램을 업그레이드합니다. 이 예제에서는 모니터링되는 업그레이드를 보여 주지만 모니터링되지 않은 업그레이드도 사용할 수 있습니다. 이 cmdlet에서 허용하는 플래그에 대한 전체 설명을 보려면 [Azure 서비스 패브릭 PowerShell 모듈 참조를](/powershell/module/servicefabric/start-servicefabricapplicationupgrade?view=azureservicefabricps#parameters) 참조하십시오.
 
 ```PowerShell
 PS C:\> $appParams = @{ "ImportantParameter" = "2"; "NewParameter" = "testAfter"}
@@ -167,7 +167,7 @@ ion 1.0.0 -ApplicationParameter $appParams -Monitored
 
 ```
 
-업그레이드 한 후 응용 프로그램에 업데이트 된 매개 변수와 동일한 버전이 있는지 확인 합니다.
+업그레이드 후 응용 프로그램에 업데이트된 매개 변수와 동일한 버전이 있는지 확인합니다.
 
 ```PowerShell
 PS C:\> Get-ServiceFabricApplication -ApplicationName fabric:/Application1
@@ -189,12 +189,12 @@ ApplicationParameters  : { "ImportantParameter" = "2"; "NewParameter" = "testAft
 롤백 중에 언제든지 [Update-ServiceFabricApplicationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/update-servicefabricapplicationupgrade?view=azureservicefabricps)를 사용하여 *UpgradeReplicaSetCheckTimeout* 값과 모드를 변경할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-[Visual Studio를 사용하여 애플리케이션 업그레이드](service-fabric-application-upgrade-tutorial.md)에서는 Visual Studio를 사용하여 애플리케이션 업그레이드를 진행하는 방법을 안내합니다.
+[Visual Studio를 사용하여 응용 프로그램을 업그레이드하면](service-fabric-application-upgrade-tutorial.md) Visual Studio를 사용하여 응용 프로그램 업그레이드를 진행합니다.
 
-[Powershell을 사용하여 애플리케이션 업그레이드](service-fabric-application-upgrade-tutorial-powershell.md)에서는 PowerShell을 사용하여 애플리케이션 업그레이드를 진행하는 방법을 안내합니다.
+[Powershell을 사용하여 응용 프로그램을 업그레이드하면](service-fabric-application-upgrade-tutorial-powershell.md) PowerShell을 사용하여 응용 프로그램 업그레이드를 진행합니다.
 
 [업그레이드 매개 변수](service-fabric-application-upgrade-parameters.md)를 사용하여 애플리케이션 업그레이드 방법을 제어합니다.
 
-[데이터 직렬화](service-fabric-application-upgrade-data-serialization.md)사용 방법을 익혀 애플리케이션 업그레이드와 호환되도록 만듭니다.
+[데이터 직렬화를](service-fabric-application-upgrade-data-serialization.md)사용하는 방법을 학습하여 응용 프로그램 업그레이드를 호환되도록 합니다.
 
-[애플리케이션 업그레이드 문제 해결](service-fabric-application-upgrade-troubleshooting.md)의 단계를 참조하여 애플리케이션 업그레이드 중 발생하는 일반적인 문제를 해결합니다.
+응용 프로그램 업그레이드 문제 해결의 단계를 참조하여 응용 프로그램 업그레이드의 일반적인 문제를 [해결합니다.](service-fabric-application-upgrade-troubleshooting.md)

@@ -1,6 +1,6 @@
 ---
 title: Azure 데이터 탐색기 클러스터의 상태 확인
-description: 이 문서에서는 Azure 데이터 탐색기 클러스터의 상태를 모니터링 하는 단계를 설명 합니다.
+description: 이 문서에서는 Azure Data Explorer 클러스터의 상태를 모니터링하는 단계를 설명합니다.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
@@ -8,17 +8,17 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: a280d8869a3790444a97c38f792a3d9eeb6bde1d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60861321"
 ---
 # <a name="check-the-health-of-an-azure-data-explorer-cluster"></a>Azure 데이터 탐색기 클러스터의 상태 확인
 
 Azure 데이터 탐색기 클러스터의 상태에 영향을 주는 요인으로는 CPU, 메모리, 디스크 하위 시스템 등 여러 가지가 있습니다. 이 문서에서는 클러스터의 상태를 측정하기 위해 수행할 수 있는 몇 가지 기본적인 단계를 설명합니다.
 
-1. [https://dataexplorer.azure.com](https://dataexplorer.azure.com)에 로그인합니다.
+1. 에 로그인합니다. [https://dataexplorer.azure.com](https://dataexplorer.azure.com)
 
 1. 왼쪽 창에서 클러스터를 선택하고 다음 명령을 실행합니다.
 

@@ -14,10 +14,10 @@ ms.date: 02/11/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: e0ac09a68bda539fe7abd05fce1739d1a58a3c99
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "62127347"
 ---
 # <a name="orchestrate-the-implementation-of-azure-devtest-labs"></a>Azure DevTest Labs의 구현 오케스트레이션
@@ -28,9 +28,9 @@ ms.locfileid: "62127347"
 ## <a name="assumptions"></a>가정
 이 문서에서는 DevTest Labs 파일럿을 구현하기 전에 다음 항목을 준비했다고 가정합니다.
 
-- **Azure 구독**: 파일럿 팀에는 Azure 구독에 리소스를 배포할 액세스 권한이 있어야 합니다. 개발 및 테스트 워크로드만 구현에 포함되는 경우에는 Windows 가상 머신의 요금이 더 저렴하며 사용 가능한 이미지는 추가로 제공되는 Enterprise DevTest 제품을 선택하는 것이 좋습니다.
+- **Azure 구독**: 파일럿 팀에게 Azure 구독에 리소스를 배포할 액세스 권한이 있어야 합니다. 개발 및 테스트 워크로드만 구현에 포함되는 경우에는 Windows 가상 머신의 요금이 더 저렴하며 사용 가능한 이미지는 추가로 제공되는 Enterprise DevTest 제품을 선택하는 것이 좋습니다.
 - **온-프레미스 액세스**: 필요한 경우 온-프레미스 액세스를 이미 구성한 상태여야 합니다. 사이트 간 VPN 연결 또는 Express 경로를 통해 온-프레미스에 액세스할 수 있습니다. Express 경로를 통한 연결은 대개 설정하는 데 몇 주가 걸릴 수 있으므로 프로젝트를 시작하기 전에 Express 경로를 준비해 두는 것이 좋습니다.
-- **파일럿 팀**: DevTest Labs를 사용하는 초기 개발 프로젝트 팀과 함께 해당 개발 또는 테스트 활동을 확인했으며, 이러한 팀의 요구 사항/목표/목적을 설정해야 합니다.
+- **파일럿 팀**: DevTest Labs를 사용하는 초기 개발 프로젝트 팀과 해당하는 개발 또는 테스트 활동을 확인했으며, 이러한 팀의 요구 사항/목표/목적을 결정해야 합니다.
 
 ## <a name="milestone-1-establish-initial-network-topology-and-design"></a>중요 시점 1: 초기 네트워크 토폴로지 및 디자인 설정
 Azure DevTest Labs 솔루션 배포 시 처음으로 확인해야 하는 주요 분야는 가상 머신에 대해 계획된 연결을 설정하는 것입니다. 아래 단계에서는 필요한 절차를 대략적으로 설명합니다.
@@ -61,4 +61,4 @@ Azure DevTest Labs 솔루션 배포 시 처음으로 확인해야 하는 주요 
 5. 적절한 규정 준수 및 보안 검토가 완료되었는지 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
-이 시리즈의 다음 문서를 참조하세요. [Azure DevTest Labs 인프라의 거버넌스](devtest-lab-guidance-governance-resources.md)
+이 시리즈의 다음 문서인 [Azure DevTest Labs 인프라 거버넌스](devtest-lab-guidance-governance-resources.md)를 확인합니다.

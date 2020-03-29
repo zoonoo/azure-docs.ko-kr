@@ -1,6 +1,6 @@
 ---
-title: 환경에 Azure DevTest Labs에서 랩의 vnet에 연결 | Microsoft Docs
-description: 'Azure DevTest Labs에서 랩의 가상 네트워크에서 environment (예: Service Fabric 클러스터)를 연결 하는 방법을 알아봅니다'
+title: Azure DevTest 랩에서 환경을 랩의 vnet에 연결 | 마이크로 소프트 문서
+description: 'Azure DevTest Labs에서 환경(예: 서비스 패브릭 클러스터)을 랩의 가상 네트워크에 연결하는 방법을 알아봅니다.'
 services: devtest-lab,lab-services
 documentationcenter: na
 author: spelluru
@@ -13,17 +13,17 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: spelluru
 ms.openlocfilehash: bb8b5f7d6578390fd0f48c3de154cfdb034ac6c1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60777171"
 ---
-# <a name="connect-an-environment-to-your-labs-virtual-network-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩의 가상 네트워크에는 환경 연결
-Azure DevTest Labs를 사용 하면 쉽게 사용 하 여 랩에서 Vm을 만들 [기본 제공 네트워킹](devtest-lab-configure-vnet.md)합니다. 상당한 수준의 유연성을 제공 하는 기능을 사용 하 여 있기 [다중 VM 환경을 만드는](devtest-lab-test-env.md)합니다. 이 문서는 랩의 가상 네트워크 환경에서 Vm을 연결 하는 방법을 보여 줍니다. 이 기능을 사용 하는 한 가지 시나리오는 랩 VNet 허용 테스트 Vm 랩 액세스에 연결 된 SQL Server 데이터 계층을 사용 하 여 N 계층 앱 설정 합니다.  
+# <a name="connect-an-environment-to-your-labs-virtual-network-in-azure-devtest-labs"></a>Azure DevTest 랩에서 환경을 랩의 가상 네트워크에 연결합니다.
+Azure DevTest 연구소를 사용하면 [기본 제공 네트워킹이](devtest-lab-configure-vnet.md)있는 랩에서 VM을 쉽게 만들 수 있습니다. [다중 VM 환경을 만들](devtest-lab-test-env.md)수 있는 유연성이 매우 큽니다. 이 문서에서는 환경에서 VM을 랩 가상 네트워크에 연결하는 방법을 보여 주며 이 문서에서는 이 기능을 사용하는 한 가지 시나리오는 랩VNet에 연결된 SQL Server 데이터 계층을 사용하여 N 계층 앱을 설정하여 랩의 테스트 VM이 액세스할 수 있도록 하는 것입니다.  
 
-## <a name="sample-environment-that-uses-lab-vnet"></a>랩 VNet을 사용 하는 샘플 환경
-랩의 서브넷에 연결 하는 단순한 환경 템플릿을 다음과 같습니다. 이 샘플에서는 `DTLSubnetId` 매개 변수는 랩이 존재 하는 서브넷의 ID를 나타냅니다. 에 할당 됩니다. `$(LabSubnetId)`, DevTest Labs 랩의 서브넷의 ID에 의해 자동으로 해결 되는 합니다. **서브넷** 의 속성을 **네트워크 인터페이스** 이 정의에서 VM 설정 되어 `DTLSubnetId` 동일한 서브넷에 가입할 수 있도록 합니다. 
+## <a name="sample-environment-that-uses-lab-vnet"></a>랩 VNet을 사용하는 샘플 환경
+다음은 랩의 서브넷을 연결하는 간단한 환경 템플릿입니다. 이 샘플에서 `DTLSubnetId` 매개 변수는 랩이 있는 서브넷의 ID를 나타냅니다. 에 할당됩니다: `$(LabSubnetId)`에 할당됩니다. 이 정의에서 VM네트워크 **인터페이스의** **서브넷** 속성은 `DTLSubnetId` 동일한 서브넷을 조인하도록 설정됩니다. 
 
 ```json
 {
@@ -161,4 +161,4 @@ Azure DevTest Labs를 사용 하면 쉽게 사용 하 여 랩에서 Vm을 만들
 ```
 
 ## <a name="next-steps"></a>다음 단계
-Azure portal을 사용 하 여 이러한 작업을 수행 하려면 다음 문서를 참조 하세요. [VM을 다시 시작](devtest-lab-restart-vm.md)합니다.
+이러한 작업을 수행 하려면 Azure 포털을 사용 하 여 다음 문서를 참조: [VM 을 다시 시작](devtest-lab-restart-vm.md)합니다.

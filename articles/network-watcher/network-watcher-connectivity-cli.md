@@ -1,5 +1,5 @@
 ---
-title: 연결 문제 해결-Azure CLI
+title: 연결 문제 해결 - Azure CLI
 titleSuffix: Azure Network Watcher
 description: Azure CLI를 사용하여 Azure Network Watcher의 연결 문제 해결 기능을 사용하는 방법을 알아봅니다.
 services: network-watcher
@@ -14,16 +14,16 @@ ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: damendo
 ms.openlocfilehash: 842e58de8dbc06d3f045b0e9d0dc6b99e6b1e2fe
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76842889"
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure Network Watcher로 연결 문제 해결
 
 > [!div class="op_single_selector"]
-> - [PowerShell](network-watcher-connectivity-powershell.md)
+> - [Powershell](network-watcher-connectivity-powershell.md)
 > - [Azure CLI](network-watcher-connectivity-cli.md)
 > - [Azure REST API](network-watcher-connectivity-rest.md)
 
@@ -43,7 +43,7 @@ ms.locfileid: "76842889"
 
 이 예제에서는 포트 80을 통해 대상 가상 머신에 대한 연결을 확인합니다.
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 ```azurecli
 az network watcher test-connectivity --resource-group ContosoRG --source-resource MultiTierApp0 --dest-resource Database0 --dest-port 80
@@ -124,7 +124,7 @@ Nic0/ipConfigurations/ipconfig1",
 
 이 예제에서는 가상 머신과 원격 엔드포인트 간의 연결을 확인합니다.
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 ```azurecli
 az network watcher test-connectivity --resource-group ContosoRG --source-resource MultiTierApp0 --dest-address 13.107.21.200 --dest-port 80
@@ -182,7 +182,7 @@ pNic0/ipConfigurations/ipconfig1",
 
 다음 예제에서는 웹 사이트에 대한 연결을 확인합니다.
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 ```azurecli
 az network watcher test-connectivity --resource-group ContosoRG --source-resource MultiTierApp0 --dest-address https://bing.com --dest-port 80
@@ -228,7 +228,7 @@ pNic0/ipConfigurations/ipconfig1",
 
 다음 예제에서는 가상 컴퓨터에서 BLOB 스토리지 계정으로의 연결을 확인합니다.
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 ```azurecli
 az network watcher test-connectivity --resource-group ContosoRG --source-resource MultiTierApp0 --dest-address https://contosoexamplesa.blob.core.windows.net/
@@ -273,4 +273,4 @@ az network watcher test-connectivity --resource-group ContosoRG --source-resourc
 
 [경고로 트리거된 패킷 캡처 만들기](network-watcher-alert-triggered-packet-capture.md)를 확인하여 가상 머신 경고로 패킷 캡처를 자동화하는 방법을 알아봅니다.
 
-[IP 흐름 확인 확인](diagnose-vm-network-traffic-filtering-problem.md)을 방문하여 특정 트래픽이 VM에서 허용되는지 알아봅니다.
+[IP 흐름 확인 확인을](diagnose-vm-network-traffic-filtering-problem.md) 방문하여 VM 내/에서 특정 트래픽이 허용되는지 확인합니다.

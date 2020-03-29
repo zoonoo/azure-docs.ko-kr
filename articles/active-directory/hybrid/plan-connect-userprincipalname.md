@@ -11,10 +11,10 @@ ms.service: active-directory
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c198b329f07c5c7459f25165b2dc0a3bfa032276
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60382138"
 ---
 # <a name="azure-ad-userprincipalname-population"></a>Azure AD userPrincipalName 채우기
@@ -52,7 +52,7 @@ UPN은 사용자가 로그인할 수 있도록 하기 위해 Azure AD에서 사�
 
 대체 로그인 ID를 사용하면 사용자가 UPN 이외의 특성(예: 메일)을 사용하여 로그인할 수 있는 로그인 환경을 구성할 수 있습니다.
 
-Azure AD에서 대체 로그인 ID를 사용하도록 설정하기 위해 Azure AD Connect를 사용할 때 추가 구성 단계가 필요하지 않습니다. 마법사에서 직접 대체 ID를 구성할 수 있습니다. 동기화 섹션 아래에서 사용자에 대한 Azure AD 로그인 구성을 확인하세요. **사용자 계정 이름** 드롭다운에서 대체 로그인 ID에 대한 특성을 선택합니다.
+Azure AD에서 대체 로그인 ID를 사용하도록 설정하기 위해 Azure AD Connect를 사용할 때 추가 구성 단계가 필요하지 않습니다. 마법사에서 직접 대체 ID를 구성할 수 있습니다. 동기화 섹션에서 사용자에 대한 Azure AD 로그인 구성을 참조하십시오. 사용자 **주 이름** 드롭다운에서 대체 로그인 ID에 대한 특성을 선택합니다.
 
 ![확인되지 않은 도메인](./media/plan-connect-userprincipalname/altloginid.png)  
 

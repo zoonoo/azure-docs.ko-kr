@@ -13,21 +13,21 @@ ms.topic: article
 ms.date: 01/27/2017
 ms.author: stewu
 ms.openlocfilehash: 0bf0843314f38c0de28820c82e95b7921297bf40
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60518449"
 ---
 # <a name="migrate-azure-data-lake-storage-gen1-across-regions"></a>지역 간 Azure Data Lake Storage Gen1 마이그레이션
 
 Azure Data Lake Storage Gen1을 새 지역에서 사용할 수 있게 되므로 일회성 마이그레이션을 수행하여 새 지역을 이용할 수 있습니다. 마이그레이션을 계획하고 완료할 때 고려해야 할 사항에 대해 알아봅니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * **Azure 구독**. 자세한 내용은 [지금 무료 Azure 계정 만들기](https://azure.microsoft.com/pricing/free-trial/)를 참조하세요.
 * **서로 다른 두 지역의 Data Lake Storage Gen1 계정** 자세한 내용은 [Azure Data Lake Storage Gen1 시작](data-lake-store-get-started-portal.md)을 참조하세요.
-* **Azure Data Factory**. 자세한 내용은 [Azure Data Factory 소개](../data-factory/introduction.md)를 참조하세요.
+* **Azure 데이터 팩터리**. 자세한 내용은 [Azure Data Factory 소개](../data-factory/introduction.md)를 참조하세요.
 
 
 ## <a name="migration-considerations"></a>마이그레이션 고려 사항
@@ -38,11 +38,11 @@ Azure Data Lake Storage Gen1을 새 지역에서 사용할 수 있게 되므로 
 
 마이그레이션을 계획할 때 고려해야 할 다른 중요한 세부 정보는 다음과 같습니다.
 
-* **데이터 볼륨** 데이터 볼륨(기가바이트 단위, 파일 및 폴더 수 등)은 마이그레이션에 필요한 시간 및 리소스에 영향을 줍니다.
+* **데이터 볼륨**. 데이터 볼륨(기가바이트 단위, 파일 및 폴더 수 등)은 마이그레이션에 필요한 시간 및 리소스에 영향을 줍니다.
 
 * **Data Lake Storage Gen1 계정 이름**. 새 지역에 있는 새 계정 이름은 전역적으로 고유해야 합니다. 예를 들어, 미국 동부 2에 있는 이전 Data Lake Storage Gen1 계정 이름은 contosoeastus2.azuredatalakestore.net일 수 있습니다. 북유럽에 있는 Data Lake Storage Gen1 계정의 이름을 contosonortheu.azuredatalakestore.net으로 지정할 수 있습니다.
 
-* **도구** Azure Data Lake Storage Gen1 파일을 복사하는 데 [Azure Data Factory 복사 작업](../data-factory/connector-azure-data-lake-store.md)을 사용하는 것이 좋습니다. Data Factory는 데이터를 이동할 때 고성능 및 안정성을 지원합니다. Data Factory가 폴더 계층 구조와 파일의 내용만을 복사한다는 점을 기억합니다. 이전 계정에서 사용하는 모든 ACL(액세스 제어 목록)을 새 계정에 수동으로 적용해야 합니다. 최상의 시나리오에 대한 성능 목표를 비롯한 자세한 내용은 [복사 작업 성능 및 튜닝 가이드](../data-factory/copy-activity-performance.md)를 참조하세요. 더 신속하게 데이터를 복사하려면 추가 클라우드 데이터 이동 단위를 사용해야 합니다. AdlCopy와 같은 기타 도구는 지역 간에 데이터를 복사하도록 지원하지 않습니다.  
+* **도구**. Azure Data Lake Storage Gen1 파일을 복사하는 데 [Azure Data Factory 복사 작업](../data-factory/connector-azure-data-lake-store.md)을 사용하는 것이 좋습니다. Data Factory는 데이터를 이동할 때 고성능 및 안정성을 지원합니다. Data Factory가 폴더 계층 구조와 파일의 내용만을 복사한다는 점을 기억합니다. 이전 계정에서 사용하는 모든 ACL(액세스 제어 목록)을 새 계정에 수동으로 적용해야 합니다. 최상의 시나리오에 대한 성능 목표를 비롯한 자세한 내용은 [복사 작업 성능 및 튜닝 가이드](../data-factory/copy-activity-performance.md)를 참조하세요. 더 신속하게 데이터를 복사하려면 추가 클라우드 데이터 이동 단위를 사용해야 합니다. AdlCopy와 같은 기타 도구는 지역 간에 데이터를 복사하도록 지원하지 않습니다.  
 
 * **대역폭 요금** Azure 지역 외부에서 데이터를 전송하기 때문에 [대역폭 요금](https://azure.microsoft.com/pricing/details/bandwidth/)이 적용됩니다.
 

@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: tagore
 ms.openlocfilehash: 0b515c630d8a3539cdab1df64b1925e9fcaf206e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75360772"
 ---
 # <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Azure 클라우드 서비스에서 Socket.IO를 사용하여 Node.js 채팅 애플리케이션 빌드
@@ -24,10 +24,10 @@ Socket.IO는 node.js 서버와 클라이언트 간에 실시간 통신을 제공
 
 ![Azure에 호스트된 서비스를 표시하는 브라우저 창][completed-app]  
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 이 문서의 예제를 완료하려면 다음 제품 및 버전이 설치되어 있는지 확인합니다.
 
-* [Visual Studio](https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx)
+* [비주얼 스튜디오](https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx) 설치
 * [Node.js](https://nodejs.org/download/)
 * [Python 버전 2.7.10](https://www.python.org/)
 
@@ -57,7 +57,7 @@ Socket.IO는 node.js 서버와 클라이언트 간에 실시간 통신을 제공
 
 1. **복제** 단추를 눌러 리포지토리의 로컬 복사본을 만듭니다. **ZIP** 단추를 눌러 프로젝트를 다운로드할 수도 있습니다.
    
-   ![ZIP 다운로드 아이콘이 강조 표시된 https://github.com/LearnBoost/socket.io/tree/master/examples/chat 을 보는 브라우저 창](./media/cloud-services-nodejs-chat-app-socketio/socketio-22.png)
+   ![ZIP 다운로드 아이콘이 강조 표시된 https://github.com/LearnBoost/socket.io/tree/master/examples/chat을 보는 브라우저 창](./media/cloud-services-nodejs-chat-app-socketio/socketio-22.png)
 2. **examples\\chat** 디렉터리를 찾을 때까지 로컬 리포지토리의 디렉터리 구조를 탐색합니다. 이 디렉터리의 내용을 이전에 만든 **C:\\node\\chatapp\\WorkerRole1** 디렉터리로 복사합니다.
    
    ![보관 파일에서 압축을 푼 examples\\chat 디렉터리의 내용을 표시하는 탐색기][chat-contents]
@@ -106,9 +106,9 @@ Azure 에뮬레이터에서 애플리케이션을 테스트하기 전에 몇 가
    > [!NOTE]
    > 에뮬레이터 시작 문제가 발생하는 경우(예: Start-AzureEmulator: 예기치 않은 오류가 발생했습니다.  세부 정보: 예기치 않은 오류가 발생했습니다. 통신 개체 System.ServiceModel.Channels.ServiceChannel은(는) Faulted 상태이기 때문에 통신에 사용할 수 없습니다.)
    > 
-   > AzureAuthoringTools v 2.7.1 및 azure Eemulator v 2.7을 다시 설치-버전이 일치 하는지 확인 합니다.
+   > 다시 설치 AzureAuthoringTools v 2.7.1 및 AzureComputeEmulator v 2.7 - 해당 버전이 일치하는지 확인합니다.
 
-2. 브라우저를 열고 **http://127.0.0.1** 로 이동합니다.
+2. 브라우저를 열고 로 **http://127.0.0.1**이동합니다.
 3. 브라우저 창이 열리면 애칭을 입력하고 Enter 키를 누릅니다.
    이렇게 하면 특정 애칭으로 메시지를 게시할 수 있습니다. 다중 사용자 기능을 테스트하려면 같은 URL을 사용하여 브라우저 창을 추가로 열고 다른 애칭을 입력합니다.
    
@@ -116,7 +116,7 @@ Azure 에뮬레이터에서 애플리케이션을 테스트하기 전에 몇 가
 4. 애플리케이션을 테스트한 후 다음 명령을 실행하여 에뮬레이터를 중지합니다.
    
        PS C:\node\chatapp\WorkerRole1> Stop-AzureEmulator
-5. Azure에 애플리케이션을 배포하려면 **Publish-AzureServiceProject** cmdlet을 사용합니다. 예:
+5. Azure에 애플리케이션을 배포하려면 **Publish-AzureServiceProject** cmdlet을 사용합니다. 예를 들어:
    
        PS C:\node\chatapp\WorkerRole1> Publish-AzureServiceProject -ServiceName mychatapp -Location "East US" -Launch
    
@@ -142,7 +142,7 @@ Azure 에뮬레이터에서 애플리케이션을 테스트하기 전에 몇 가
 > 
 
 ## <a name="next-steps"></a>다음 단계
-이 자습서에서는 Azure 클라우드 서비스에 호스팅된 기본 채팅 애플리케이션을 만드는 방법을 학습했습니다. Azure 웹 사이트에서이 응용 프로그램을 호스트 하는 방법에 대 한 자세한 내용은 [Azure 웹 사이트에서 Socket.IO를 사용 하 여 Node.js 채팅 응용 프로그램 빌드][chatwebsite]를 참조 하세요.
+이 자습서에서는 Azure 클라우드 서비스에 호스팅된 기본 채팅 애플리케이션을 만드는 방법을 학습했습니다. 이 애플리케이션을 Azure 웹 사이트에 호스트하는 방법을 학습하려면 [Azure 웹 사이트에서 Socket.IO를 사용하여 Node.js 채팅 애플리케이션 빌드][chatwebsite]를 참조하세요.
 
 자세한 내용은 [Node.js 개발자 센터](https://docs.microsoft.com/azure/javascript/)도 참조하세요.
 

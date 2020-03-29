@@ -7,10 +7,10 @@ ms.subservice: process-automation
 ms.date: 04/17/2018
 ms.topic: conceptual
 ms.openlocfilehash: 596dc334a412b3e0839d7661a23af771e5cd7394
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75366943"
 ---
 # <a name="authenticate-runbooks-with-amazon-web-services"></a>Amazon 웹 서비스로 Runbook 인증
@@ -26,10 +26,10 @@ AWS에 인증하려면 Azure Automation에서 실행 중인 Runbook을 인증하
 
 Azure Automation가 AWS와 통신하려면 먼저 AWS 자격 증명을 검색하여 Azure Automation에 자산으로 저장해야 합니다. AWS 문서 [AWS 계정에 대한 선택키 관리](https://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html)에 설명된 다음 단계를 수행하여 선택키를 만들고 **액세스 키 ID** 및 **암호 선택키**를 복사합니다(필요에 따라 키 파일을 다운로드하여 안전한 곳에 저장).
 
-AWS 보안 키를 만들어서 복사한 후에는 보안 키를 안전하게 보관하고 Runbook에서 참조할 수 있도록 Azure Automation 계정으로 자격 증명 자산을 만들어야 합니다. [Azure Automation의 자격 증명 자산](shared-resources/credentials.md#to-create-a-new-credential-asset-with-the-azure-portal) 아티클에 있는 **새 자격 증명을 만들려면** 섹션의 단계에서 다음 정보를 입력합니다.
+AWS 보안 키를 만들어서 복사한 후에는 보안 키를 안전하게 보관하고 Runbook에서 참조할 수 있도록 Azure Automation 계정으로 자격 증명 자산을 만들어야 합니다. 섹션의 단계를 **따르십시오:** Azure 자동화 문서의 [자격 증명 자산에](shared-resources/credentials.md#to-create-a-new-credential-asset-with-the-azure-portal) 새 자격 증명을 만들고 다음 정보를 입력하려면 다음 정보를 입력합니다.
 
 1. **이름** 상자에 **AWScred**를 입력하거나 본인의 명명 기준에 따라 적합한 값을 입력합니다.
-2. **사용자 이름** 상자에 **액세스 ID**를 입력하고 **암호** 및 **암호 확인** 상자에 **비밀 선택키**를 입력합니다.
+2. 사용자 **이름** 상자에 **암호에 액세스 ID와** **비밀 액세스 키를** **입력하고** **암호 확인** 상자를 입력합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

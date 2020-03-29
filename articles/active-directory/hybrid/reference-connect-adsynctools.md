@@ -11,13 +11,13 @@ ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9a1b8abf15233c06e8ff9e507b315cc8a3703970
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60454662"
 ---
-# <a name="azure-ad-connect--adsynctools-powershell-reference"></a>Azure AD Connect:  ADSyncTools PowerShell 참조
+# <a name="azure-ad-connect--adsynctools-powershell-reference"></a>Azure AD Connect: ADSyncTools PowerShell 참조
 이 설명서에서는 Azure AD Connect에 포함된 ADSyncTools.psm1 PowerShell 모듈에 대해 다음과 같은 참조 정보를 제공합니다.
 
 ## <a name="clear-adsynctoolsconsistencyguid"></a>Clear-ADSyncToolsConsistencyGuid
@@ -25,13 +25,13 @@ ms.locfileid: "60454662"
 ### <a name="synopsis"></a>개요
 AD 사용자에서 mS-Ds-ConsistencyGuid를 지웁니다.
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>SYNTAX
 
 ```
 Clear-ADSyncToolsConsistencyGuid [-User] <Object> [<CommonParameters>]
 ```
 
-### <a name="description"></a>DESCRIPTION
+### <a name="description"></a>설명
 대상 AD 사용자에 대한 mS-Ds-ConsistencyGuid 값을 지웁니다.
 
 ### <a name="examples"></a>예제
@@ -46,7 +46,7 @@ Example of how to use this cmdlet
 Another example of how to use this cmdlet
 ```
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-user"></a>-User
 설정할 AD의 대상 사용자입니다.
@@ -65,20 +65,20 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 이 cmdlet 일반 매개 변수를 지원합니다. -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction 및 -WarningVariable.
-자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216) 를 참조하세요.
+자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216)를 참조하세요.
 
 ## <a name="confirm-adsynctoolsadmoduleloaded"></a>Confirm-ADSyncToolsADModuleLoaded
 
 ### <a name="synopsis"></a>개요
 {{개요 입력}}
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>SYNTAX
 
 ```
 Confirm-ADSyncToolsADModuleLoaded
 ```
 
-### <a name="description"></a>DESCRIPTION
+### <a name="description"></a>설명
 {{설명 입력}}
 
 ### <a name="examples"></a>예제
@@ -95,14 +95,14 @@ PS C:\> {{ Add example code here }}
 ### <a name="synopsis"></a>개요
 {{개요 입력}}
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>SYNTAX
 
 ```
 Connect-AdSyncDatabase [-Server] <String> [[-Instance] <String>] [[-Database] <String>] [[-UserName] <String>]
  [[-Password] <String>] [<CommonParameters>]
 ```
 
-### <a name="description"></a>DESCRIPTION
+### <a name="description"></a>설명
 {{설명 입력}}
 
 ### <a name="examples"></a>예제
@@ -114,7 +114,7 @@ PS C:\> {{ Add example code here }}
 
 {{여기에 설명 예제 추가}}
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-database"></a>-Database
 {{데이터베이스 설명 입력}}
@@ -146,7 +146,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-#### <a name="-password"></a>-암호
+#### <a name="-password"></a>-Password
 {{암호 설명 입력}}
 
 ```yaml
@@ -193,21 +193,21 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 이 cmdlet 일반 매개 변수를 지원합니다. -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction 및 -WarningVariable.
-자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216) 를 참조하세요.
+자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216)를 참조하세요.
 
 ## <a name="export-adsynctoolsconsistencyguidmigration"></a>Export-ADSyncToolsConsistencyGuidMigration
 
 ### <a name="synopsis"></a>개요
 ConsistencyGuid 보고서를 내보냅니다.
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>SYNTAX
 
 ```
 Export-ADSyncToolsConsistencyGuidMigration [-AlternativeLoginId] [-UserPrincipalName] <String>
  [-ImmutableIdGUID] <String> [-Output] <String> [<CommonParameters>]
 ```
 
-### <a name="description"></a>DESCRIPTION
+### <a name="description"></a>설명
 Import-ADSyncToolsImmutableIdMigration의 가져오기 CSV 파일에 기반한 ConsistencyGuid 보고서를 생성합니다.
 
 ### <a name="examples"></a>예제
@@ -222,7 +222,7 @@ Import-Csv .\AllSyncUsers.csv | Export-ADSyncToolsConsistencyGuidMigration -Outp
 Another example of how to use this cmdlet
 ```
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-alternativeloginid"></a>-AlternativeLoginId
 대체 로그인 ID(메일)를 사용합니다.
@@ -286,20 +286,20 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 이 cmdlet 일반 매개 변수를 지원합니다. -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction 및 -WarningVariable.
-자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216) 를 참조하세요.
+자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216)를 참조하세요.
 
 ## <a name="get-adsyncsqlbrowserinstances"></a>Get-ADSyncSQLBrowserInstances
 
 ### <a name="synopsis"></a>개요
 {{개요 입력}}
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>SYNTAX
 
 ```
 Get-ADSyncSQLBrowserInstances [[-hostName] <String>]
 ```
 
-### <a name="description"></a>DESCRIPTION
+### <a name="description"></a>설명
 {{설명 입력}}
 
 ### <a name="examples"></a>예제
@@ -311,7 +311,7 @@ PS C:\> {{ Add example code here }}
 
 {{여기에 설명 예제 추가}}
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-hostname"></a>-hostName
 {{호스트 이름 설명 입력}}
@@ -333,14 +333,14 @@ Accept wildcard characters: False
 ### <a name="synopsis"></a>개요
 AD에서 사용자를 가져옵니다.
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>SYNTAX
 
 ```
 Get-ADSyncToolsADuser [-User] <Object> [<CommonParameters>]
 ```
 
-### <a name="description"></a>DESCRIPTION
-AD 개체 TO DO: 다중 포리스트 지원을 반환합니다.
+### <a name="description"></a>설명
+AD 개체(TO DO: 다중 포리스트 지원)를 반환합니다.
 
 ### <a name="examples"></a>예제
 
@@ -354,7 +354,7 @@ Example of how to use this cmdlet
 Another example of how to use this cmdlet
 ```
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-user"></a>-User
 ConsistencyGuid를 설정할 AD의 대상 사용자입니다.
@@ -373,20 +373,20 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 이 cmdlet 일반 매개 변수를 지원합니다. -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction 및 -WarningVariable.
-자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216) 를 참조하세요.
+자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216)를 참조하세요.
 
 ## <a name="get-adsynctoolsconsistencyguid"></a>Get-ADSyncToolsConsistencyGuid
 
 ### <a name="synopsis"></a>개요
 AD 사용자에서 mS-Ds-ConsistencyGuid를 가져옵니다.
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>SYNTAX
 
 ```
 Get-ADSyncToolsConsistencyGuid [-User] <Object> [<CommonParameters>]
 ```
 
-### <a name="description"></a>DESCRIPTION
+### <a name="description"></a>설명
 대상 AD 사용자의 mS-Ds-ConsistencyGuid 특성 값을 GUID 형식으로 반환합니다.
 
 ### <a name="examples"></a>예제
@@ -401,7 +401,7 @@ Example of how to use this cmdlet
 Another example of how to use this cmdlet
 ```
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-user"></a>-User
 설정할 AD의 대상 사용자입니다.
@@ -420,20 +420,20 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 이 cmdlet 일반 매개 변수를 지원합니다. -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction 및 -WarningVariable.
-자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216) 를 참조하세요.
+자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216)를 참조하세요.
 
 ## <a name="get-adsynctoolsobjectguid"></a>Get-ADSyncToolsObjectGuid
 
 ### <a name="synopsis"></a>개요
 AD 사용자에서 ObjectGuid를 가져옵니다.
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>SYNTAX
 
 ```
 Get-ADSyncToolsObjectGuid [-User] <Object> [<CommonParameters>]
 ```
 
-### <a name="description"></a>DESCRIPTION
+### <a name="description"></a>설명
 대상 AD 사용자의 ObjectGUID 특성 값을 GUID 형식으로 반환합니다.
 
 ### <a name="examples"></a>예제
@@ -448,7 +448,7 @@ Example of how to use this cmdlet
 Another example of how to use this cmdlet
 ```
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-user"></a>-User
 설정할 AD의 대상 사용자입니다.
@@ -467,20 +467,20 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 이 cmdlet 일반 매개 변수를 지원합니다. -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction 및 -WarningVariable.
-자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216) 를 참조하세요.
+자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216)를 참조하세요.
 
 ## <a name="get-adsynctoolsrunhistory"></a>Get-ADSyncToolsRunHistory
 
 ### <a name="synopsis"></a>개요
 AAD Connect 실행 기록을 가져옵니다.
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>SYNTAX
 
 ```
 Get-ADSyncToolsRunHistory [[-Days] <Int32>] [<CommonParameters>]
 ```
 
-### <a name="description"></a>DESCRIPTION
+### <a name="description"></a>설명
 AAD Connect 실행 기록을 XML 형식으로 반환하는 함수입니다
 
 ### <a name="examples"></a>예제
@@ -495,7 +495,7 @@ Get-ADSyncToolsRunHistory
 Get-ADSyncToolsRunHistory -Days 1
 ```
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-days"></a>-Days
 {{일 수 설명 입력}}
@@ -514,21 +514,21 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 이 cmdlet 일반 매개 변수를 지원합니다. -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction 및 -WarningVariable.
-자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216) 를 참조하세요.
+자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216)를 참조하세요.
 
 ## <a name="get-adsynctoolssourceanchorchanged"></a>Get-ADSyncToolsSourceAnchorChanged
 
 ### <a name="synopsis"></a>개요
 SourceAnchor 변경 오류가 있는 사용자를 가져옵니다.
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>SYNTAX
 
 ```
 Get-ADSyncToolsSourceAnchorChanged [-sourcePath] <Object> [-outputPath] <Object> [<CommonParameters>]
 ```
 
-### <a name="description"></a>DESCRIPTION
-함수는 AAD Connect 실행 기록을 쿼리하고, 다음 오류를 보고하는 모든 사용자를 내보냅니다. "SourceAnchor 특성이 변경되었습니다."
+### <a name="description"></a>설명
+함수는 AAD Connect 실행 기록을 쿼리하고 오류를 보고하는 모든 사용자를 내보올합니다.
 
 ### <a name="examples"></a>예제
 
@@ -546,7 +546,7 @@ $sourcePath = Read-Host -Prompt "파일 이름이 "#"\< Source_Path \>인 로그
 Another example of how to use this cmdlet
 ```
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-sourcepath"></a>-sourcePath
 {{sourcePath 설명 입력}}
@@ -580,21 +580,21 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 이 cmdlet 일반 매개 변수를 지원합니다. -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction 및 -WarningVariable.
-자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216) 를 참조하세요.
+자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216)를 참조하세요.
 
 ## <a name="import-adsynctoolsimmutableidmigration"></a>Import-ADSyncToolsImmutableIdMigration
 
 ### <a name="synopsis"></a>개요
 AAD에서 ImmutableID를 가져옵니다.
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>SYNTAX
 
 ```
 Import-ADSyncToolsImmutableIdMigration [-Output] <String> [-IncludeSyncUsersFromRecycleBin]
  [<CommonParameters>]
 ```
 
-### <a name="description"></a>DESCRIPTION
+### <a name="description"></a>설명
 GUID 형식 요구 사항: MSOnline PowerShell 모듈의 ImmutableID 값이 있는 모든 Azure AD 동기화된 사용자가 포함된 파일을 생성합니다.
 
 ### <a name="examples"></a>예제
@@ -609,7 +609,7 @@ Import-ADSyncToolsImmutableIdMigration -OutputFile '.\AllSyncUsers.csv'
 Another example of how to use this cmdlet
 ```
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-output"></a>-Output
 출력 CSV 파일입니다.
@@ -643,7 +643,7 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 이 cmdlet 일반 매개 변수를 지원합니다. -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction 및 -WarningVariable.
-자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216) 를 참조하세요.
+자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216)를 참조하세요.
 
 
 ## <a name="invoke-adsyncdatabasequery"></a>Invoke-AdSyncDatabaseQuery
@@ -651,13 +651,13 @@ Accept wildcard characters: False
 ### <a name="synopsis"></a>개요
 {{개요 입력}}
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>SYNTAX
 
 ```
 Invoke-AdSyncDatabaseQuery [-SqlConnection] <SqlConnection> [[-Query] <String>] [<CommonParameters>]
 ```
 
-### <a name="description"></a>DESCRIPTION
+### <a name="description"></a>설명
 {{설명 입력}}
 
 ### <a name="examples"></a>예제
@@ -669,7 +669,7 @@ PS C:\> {{ Add example code here }}
 
 {{여기에 설명 예제 추가}}
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-query"></a>-Query
 {{쿼리 설명 입력}}
@@ -703,25 +703,25 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 이 cmdlet 일반 매개 변수를 지원합니다. -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction 및 -WarningVariable.
-자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216) 를 참조하세요.
+자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216)를 참조하세요.
 
 ## <a name="remove-adsynctoolsexpiredcertificates"></a>Remove-ADSyncToolsExpiredCertificates
 
 ### <a name="synopsis"></a>개요
 UserCertificate 특성에서 만료된 인증서를 제거하는 스크립트입니다.
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>SYNTAX
 
 ```
 Remove-ADSyncToolsExpiredCertificates [-TargetOU] <String> [[-BackupOnly] <Boolean>] [-ObjectClass] <String>
  [<CommonParameters>]
 ```
 
-### <a name="description"></a>DESCRIPTION
+### <a name="description"></a>설명
 이 스크립트는 Active Directory 도메인의 대상 조직 구성 단위에서 모든 개체를 가져와서 개체 클래스(User/Computer)를 기준으로 필터링하고, UserCertificate 특성에 있는 만료된 인증서를 모두 삭제합니다.
 기본적으로(BackupOnly 모드) 만료된 인증서만 파일에 백업하고, AD에서는 변경하지 않습니다.
 -BackupOnly $false를 사용하면 이러한 개체에 대한 UserCertificate 특성에 있는 만료된 인증서가 파일로 복사된 후 AD에서 제거됩니다.
-각 인증서는 별도의 파일 이름: ObjectClass_ObjectGUID_CertThumprint.cer로 백업됩니다. 또한 스크립트는 실제로 수행된 작업(건너뜀/내보냄/삭제됨)을 포함하여 유효하거나 만료된 인증서가 있는 모든 사용자를 표시하는 CSV 형식의 로그 파일을 만듭니다.
+각 인증서는 별도의 파일 이름(ObjectClass_ObjectGUID_CertThumprint.cer)으로 백업됩니다. 또한 스크립트는 실제로 수행된 작업(건너뜀/내보냄/삭제됨)을 포함하여 유효하거나 만료된 인증서가 있는 모든 사용자를 표시하는 CSV 형식의 로그 파일을 만듭니다.
 
 ### <a name="examples"></a>예제
 
@@ -739,7 +739,7 @@ Delete Expired Certs from all Computer objects in target OU - Expired Certificat
 
 Remove-ADSyncToolsExpiredCertificates -TargetOU "OU=Computers,OU=Corp,DC=Contoso,DC=com" -ObjectClass computer -BackupOnly $false
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-targetou"></a>-TargetOU
 AD 개체를 조회할 대상 OU입니다.
@@ -788,20 +788,20 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 이 cmdlet 일반 매개 변수를 지원합니다. -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction 및 -WarningVariable.
-자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216) 를 참조하세요.
+자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216)를 참조하세요.
 
 ## <a name="repair-adsynctoolsautoupgradestate"></a>Repair-ADSyncToolsAutoUpgradeState
 
 ### <a name="synopsis"></a>개요
 간단한 설명
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>SYNTAX
 
 ```
 Repair-ADSyncToolsAutoUpgradeState
 ```
 
-### <a name="description"></a>DESCRIPTION
+### <a name="description"></a>설명
 자세한 설명입니다.
 
 ### <a name="examples"></a>예제
@@ -821,13 +821,13 @@ Another example of how to use this cmdlet
 ### <a name="synopsis"></a>개요
 {{개요 입력}}
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>SYNTAX
 
 ```
 Resolve-ADSyncHostAddress [[-hostName] <String>]
 ```
 
-### <a name="description"></a>DESCRIPTION
+### <a name="description"></a>설명
 {{설명 입력}}
 
 ### <a name="examples"></a>예제
@@ -839,7 +839,7 @@ PS C:\> {{ Add example code here }}
 
 {{여기에 설명 예제 추가}}
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-hostname"></a>-hostName
 {{호스트 이름 설명 입력}}
@@ -859,15 +859,15 @@ Accept wildcard characters: False
 ## <a name="restore-adsynctoolsexpiredcertificates"></a>Restore-ADSyncToolsExpiredCertificates
 
 ### <a name="synopsis"></a>개요
-(할 일) 인증서 파일에서 AD UserCertificate 특성을 복원합니다.
+(할 일) 인증서 파일에서 AD 사용자 인증서 특성 복원
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>SYNTAX
 
 ```
 Restore-ADSyncToolsExpiredCertificates
 ```
 
-### <a name="description"></a>DESCRIPTION
+### <a name="description"></a>설명
 자세한 설명입니다.
 
 ### <a name="examples"></a>예제
@@ -887,13 +887,13 @@ Another example of how to use this cmdlet
 ### <a name="synopsis"></a>개요
 AD 사용자에 대한 mS-Ds-ConsistencyGuid를 설정합니다.
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>SYNTAX
 
 ```
 Set-ADSyncToolsConsistencyGuid [-User] <Object> [-Value] <Object> [<CommonParameters>]
 ```
 
-### <a name="description"></a>DESCRIPTION
+### <a name="description"></a>설명
 대상 AD 사용자에 대한 mS-Ds-ConsistencyGuid 특성의 값을 설정합니다.
 
 ### <a name="examples"></a>예제
@@ -908,7 +908,7 @@ Example of how to use this cmdlet
 Another example of how to use this cmdlet
 ```
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-user"></a>-User
 ConsistencyGuid를 설정할 AD의 대상 사용자입니다.
@@ -942,20 +942,20 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 이 cmdlet 일반 매개 변수를 지원합니다. -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction 및 -WarningVariable.
-자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216) 를 참조하세요.
+자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216)를 참조하세요.
 
 ## <a name="test-adsyncnetworkport"></a>Test-ADSyncNetworkPort
 
 ### <a name="synopsis"></a>개요
 {{개요 입력}}
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>SYNTAX
 
 ```
 Test-ADSyncNetworkPort [[-hostName] <String>] [[-port] <String>]
 ```
 
-### <a name="description"></a>DESCRIPTION
+### <a name="description"></a>설명
 {{설명 입력}}
 
 ### <a name="examples"></a>예제
@@ -967,7 +967,7 @@ PS C:\> {{ Add example code here }}
 
 {{여기에 설명 예제 추가}}
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-hostname"></a>-hostName
 {{호스트 이름 설명 입력}}
@@ -1004,14 +1004,14 @@ Accept wildcard characters: False
 ### <a name="synopsis"></a>개요
 AD 가져오기 단계에서 추적 파일을 만듭니다.
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>SYNTAX
 
 ```
 Trace-ADSyncToolsADImport [[-ADConnectorXML] <String>] [[-dc] <String>] [[-rootDN] <String>]
  [[-filter] <String>] [-SkipCredentials] [[-ADwatermark] <String>] [<CommonParameters>]
 ```
 
-### <a name="description"></a>DESCRIPTION
+### <a name="description"></a>설명
 지정된 AD 워터마크 검사점(파티션 쿠키)에서 실행되는 AAD Connect AD 가져오기의 모든 LDAP 쿼리를 추적합니다. 현재 폴더에 '. \ ADimportTrace_yyyyMMddHHmmss.log' 추적 파일을 만듭니다.
 
 ### <a name="examples"></a>예제
@@ -1026,7 +1026,7 @@ Example of how to use this cmdlet
 Another example of how to use this cmdlet
 ```
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-adconnectorxml"></a>-ADConnectorXML
 {{ADConnectorXML 설명 입력}}
@@ -1121,21 +1121,21 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 이 cmdlet 일반 매개 변수를 지원합니다. -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction 및 -WarningVariable.
-자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216) 를 참조하세요.
+자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216)를 참조하세요.
 
 ## <a name="trace-adsynctoolsldapquery"></a>Trace-ADSyncToolsLdapQuery
 
 ### <a name="synopsis"></a>개요
 간단한 설명
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>SYNTAX
 
 ```
 Trace-ADSyncToolsLdapQuery [-Context] <String> [-Server] <String> [-Port] <Int32> [-Filter] <String>
  [<CommonParameters>]
 ```
 
-### <a name="description"></a>DESCRIPTION
+### <a name="description"></a>설명
 자세한 설명입니다.
 
 ### <a name="examples"></a>예제
@@ -1150,7 +1150,7 @@ Example of how to use this cmdlet
 Another example of how to use this cmdlet
 ```
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-context"></a>-Context
 Param1 도움말 설명입니다.
@@ -1214,21 +1214,21 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 이 cmdlet 일반 매개 변수를 지원합니다. -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction 및 -WarningVariable.
-자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216) 를 참조하세요.
+자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216)를 참조하세요.
 
 ## <a name="update-adsynctoolsconsistencyguidmigration"></a>Update-ADSyncToolsConsistencyGuidMigration
 
 ### <a name="synopsis"></a>개요
 사용자를 새 ConsistencyGuid(ImmutableId)로 업데이트합니다.
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>SYNTAX
 
 ```
 Update-ADSyncToolsConsistencyGuidMigration [[-DistinguishedName] <String>] [-ImmutableIdGUID] <String>
  [-Action] <String> [-Output] <String> [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
-### <a name="description"></a>DESCRIPTION
+### <a name="description"></a>설명
 사용자를 ConsistencyGuid 보고서에서 가져온 새 ConsistencyGuid(ImmutableId) 값으로 업데이트합니다. 이 함수는 WhatIf 스위치를 지원합니다. 참고: ConsistencyGuid 보고서는 탭 구분 기호를 사용하여 가져와야 합니다.
 
 ### <a name="examples"></a>예제
@@ -1243,7 +1243,7 @@ Import-Csv .\AllSyncUsersTEST-Report.csv -Delimiter "`t"| Update-ADSyncToolsCons
 Import-Csv .\AllSyncUsersTEST-Report.csv -Delimiter "`t"| Update-ADSyncToolsConsistencyGuidMigration -Output .\AllSyncUsersTEST-Result2
 ```
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-distinguishedname"></a>-DistinguishedName
 DistinguishedName
@@ -1276,7 +1276,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-action"></a>-Action
-액션(Action)
+작업
 
 ```yaml
 Type: String
@@ -1307,7 +1307,7 @@ Accept wildcard characters: False
 
 #### <a name="-whatif"></a>-WhatIf
 cmdlet을 실행할 경우 발생하는 일을 표시합니다.
-cmdlet이 실행되지 않습니다.
+cmdlet은 실행되지 않습니다.
 
 ```yaml
 Type: SwitchParameter
@@ -1322,7 +1322,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-confirm"></a>-Confirm
-cmdlet을 실행하기 전에 확인 메시지가 표시됩니다.
+cmdlet을 실행하기 전에 확인을 요청합니다.
 
 ```yaml
 Type: SwitchParameter
@@ -1338,4 +1338,4 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 이 cmdlet 일반 매개 변수를 지원합니다. -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction 및 -WarningVariable.
-자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216) 를 참조하세요.
+자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216)를 참조하세요.

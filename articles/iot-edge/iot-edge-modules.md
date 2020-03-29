@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 1c625e628f53d156ad56a1c69df1c23aec9120ac
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76548716"
 ---
 # <a name="understand-azure-iot-edge-modules"></a>Azure IoT Edge 모듈 이해
 
-Azure IoT Edge를 사용하면 에지에서 비즈니스 논리를 *모듈* 형태로 배포하고 관리할 수 있습니다. Azure IoT Edge 모듈은 IoT Edge가 관리하는 계산의 최소 단위이며 Azure 서비스(예: Azure Stream Analytics) 또는 고유한 솔루션별 코드를 포함할 수 있습니다. 모듈을 개발, 배포 및 유지 관리 하는 방법을 이해 하려면 모듈의 네 가지 개념적 요소를 고려 합니다.
+Azure IoT Edge를 사용하면 에지에서 비즈니스 논리를 *모듈* 형태로 배포하고 관리할 수 있습니다. Azure IoT Edge 모듈은 IoT Edge가 관리하는 계산의 최소 단위이며 Azure 서비스(예: Azure Stream Analytics) 또는 고유한 솔루션별 코드를 포함할 수 있습니다. 모듈의 개발, 배포 및 유지 관리 방법을 이해하려면 모듈의 네 가지 개념 요소를 고려하십시오.
 
 * **모듈 이미지**는 모듈을 정의하는 소프트웨어가 포함된 패키지입니다.
 * **모듈 인스턴스**는 IoT Edge 디바이스에서 모듈 이미지를 실행하는 특정 계산 단위입니다. 모듈 인스턴스는 IoT Edge 런타임에 의해 시작됩니다.
@@ -41,7 +41,7 @@ As use cases for Azure IoT Edge grow, new types of module images and instances w
 
 ## <a name="module-identities"></a>모듈 ID
 
-IoT Edge 런타임에서 새 모듈 인스턴스를 만들면 해당 모듈 id를 가져옵니다. 모듈 id는 IoT Hub에 저장 되며 해당 모듈 인스턴스에 대 한 모든 로컬 및 클라우드 통신의 주소 지정 및 보안 범위로 사용 됩니다.
+IoT Edge 런타임에 의해 새 모듈 인스턴스가 생성되면 해당 모듈 ID가 생성됩니다. 모듈 ID는 IoT Hub에 저장되며 해당 모듈 인스턴스의 모든 로컬 및 클라우드 통신의 주소 지정 및 보안 범위로 사용됩니다.
 
 모듈 인스턴스와 연관된 ID는 인스턴스가 실행 중인 디바이스의 ID와 솔루션의 해당 모듈에 제공한 이름에 따라 다릅니다. 예를 들어 Azure Stream Analytics를 사용하는 `insight` 모듈을 호출하여 `Hannover01`이라는 디바이스에 배포하면 IoT Edge 런타임에서 `/devices/Hannover01/modules/insight`이라는 해당 모듈 ID를 만듭니다.
 
@@ -68,9 +68,9 @@ Twin twin = await client.GetTwinAsync();
 
 ## <a name="offline-capabilities"></a>오프라인 기능
 
-Azure IoT Edge 모듈은 한 번 이상 IoT Hub와 동기화 한 후 무기한으로 작업할 수 있습니다. IoT Edge 장치는이 오프 라인 기능을 다른 IoT 장치로 확장할 수도 있습니다. 자세한 내용은 [IoT Edge 디바이스, 모듈 및 하위 디바이스용 확장 오프라인 기능 이해](offline-capabilities.md)를 참조하세요.
+Azure IoT Edge 모듈은 IoT Hub와 동기화한 후 최소 한 번 오프라인에서 무기한 으로 작동할 수 있습니다. IoT Edge 장치는 이 오프라인 기능을 다른 IoT 장치로 확장할 수도 있습니다. 자세한 내용은 [IoT Edge 디바이스, 모듈 및 하위 디바이스용 확장 오프라인 기능 이해](offline-capabilities.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [IoT Edge 모듈을 개발하기 위한 요구 사항 및 도구 이해](module-development.md)
+* [IoT Edge 모듈 개발을 위한 요구 사항 및 도구 이해](module-development.md)
 * [Azure IoT Edge 런타임 및 해당 아키텍처 이해](iot-edge-runtime.md)

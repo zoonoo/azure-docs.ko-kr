@@ -17,17 +17,17 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 104b98cba0948ec5d0896877e54eab1e7cd4049f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65825811"
 ---
 # <a name="problem-creating-an-application-proxy-application"></a>애플리케이션 프록시 애플리케이션을 만들 때 문제 발생 
 
 다음은 새로운 애플리케이션 프록시 애플리케이션을 만들 때 발생하는 몇 가지 일반적인 문제입니다.
 
-## <a name="recommended-documents"></a>권장 문서 
+## <a name="recommended-documents"></a>권장되는 문서 
 
 관리 포털을 통해 애플리케이션 프록시 애플리케이션을 만드는 방법에 대한 자세한 내용은 [Azure AD 애플리케이션 프록시를 사용하여 애플리케이션 게시](application-proxy-add-on-premises-application.md)를 참조하세요.
 

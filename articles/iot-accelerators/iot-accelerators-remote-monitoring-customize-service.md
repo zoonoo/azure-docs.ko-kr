@@ -1,5 +1,5 @@
 ---
-title: 원격 모니터링 솔루션 UI-Azure에 서비스 추가 | Microsoft Docs
+title: 원격 모니터링 솔루션 UI에 서비스 추가 - Azure | Microsoft Docs
 description: 이 문서에서는 원격 모니터링 솔루션 가속기 웹 UI에 새 서비스를 추가하는 방법을 보여 줍니다.
 author: dominicbetts
 manager: timlt
@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 10/02/2018
 ms.topic: conceptual
 ms.openlocfilehash: e44aa8ade512a6005959e795cb1d4ad861da1338
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61447049"
 ---
 # <a name="add-a-custom-service-to-the-remote-monitoring-solution-accelerator-web-ui"></a>원격 모니터링 솔루션 가속기 웹 UI에 사용자 지정 서비스 추가
@@ -26,12 +26,12 @@ ms.locfileid: "61447049"
 
 React 애플리케이션에서 서비스는 일반적으로 백 엔드 서비스와 상호 작용합니다. 원격 모니터링 솔루션 가속기의 예제에는 IoT 허브 관리자 및 구성 마이크로 서비스와 상호 작용하는 서비스가 포함됩니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 방법 가이드의 단계를 완료하려면 로컬 개발 머신에 다음과 같은 소프트웨어가 설치되어 있어야 합니다.
 
 - [Git](https://git-scm.com/downloads)
-- [Node.JS](https://nodejs.org/download/)
+- [Node.js](https://nodejs.org/download/)
 
 ## <a name="before-you-start"></a>시작하기 전에
 

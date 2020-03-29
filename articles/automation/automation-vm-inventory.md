@@ -7,37 +7,37 @@ keywords: 인벤토리, 자동화, 변경, 추적
 ms.date: 01/28/2020
 ms.topic: conceptual
 ms.openlocfilehash: d0324038b8a38d7eba84e5472b8f90439b0322c1
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76844822"
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>인벤토리 수집을 사용하여 Azure 가상 컴퓨터 관리
 
-가상 컴퓨터의 리소스 페이지에서 Azure 가상 컴퓨터에 대한 인벤토리 추적을 활성화할 수 있습니다. 컴퓨터에서 다음 인벤토리 정보를 수집 하 고 볼 수 있습니다.
+가상 컴퓨터의 리소스 페이지에서 Azure 가상 컴퓨터에 대한 인벤토리 추적을 활성화할 수 있습니다. 컴퓨터에서 다음 인벤토리 정보를 수집하고 볼 수 있습니다.
 
-- Windows 소프트웨어 (Windows 응용 프로그램 및 Windows 업데이트), 서비스, 파일 및 레지스트리 키
-- Linux 소프트웨어 (패키지) 디먼 및 파일
+- Windows 소프트웨어(Windows 응용 프로그램 및 Windows 업데이트), 서비스, 파일 및 레지스트리 키
+- 리눅스 소프트웨어 (패키지) 데몬, 파일
 
 이 방법은 인벤토리 수집을 설정 및 구성하는 브라우저 기반 사용자 인터페이스를 제공합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-Azure 구독이 아직 없는 경우 [무료 계정을 만듭니다](https://azure.microsoft.com/free/).
+Azure 구독이 없는 경우 [무료 계정을 만듭니다.](https://azure.microsoft.com/free/)
 
 이 문서에서는 솔루션을 구성할 VM이 있다고 가정합니다. Azure 가상 머신이 없는 경우 [가상 머신을 만듭니다](../virtual-machines/windows/quick-create-portal.md).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
-[Azure Portal](https://portal.azure.com/)에 로그인합니다.
+[Azure 포털에](https://portal.azure.com/)로그인합니다.
 
 ## <a name="enable-inventory-collection-from-the-virtual-machine-resource-page"></a>가상 머신 리소스 페이지에서 인벤토리 수집 활성화
 
 1. Azure Portal의 왼쪽 창에서 **가상 머신**를 선택합니다.
 2. 가상 머신 목록에서 가상 머신을 선택합니다.
 3. **작업** 아래의 **리소스** 메뉴에서 **인벤토리**를 선택합니다.
-4. 데이터 로그를 저장할 Log Analytics 작업 영역을 선택 합니다.
+4. 데이터 로그를 저장하기 위해 로그 분석 작업 영역을 선택합니다.
     해당 영역에 대해 사용할 수 있는 작업 영역이 없는 경우 기본 작업 영역 및 자동화 계정을 만들라는 메시지가 표시됩니다.
 5. 컴퓨터 온보딩을 시작하려면 **활성화**를 선택합니다.
 
@@ -61,7 +61,7 @@ Azure 구독이 아직 없는 경우 [무료 계정을 만듭니다](https://azu
 
 ### <a name="windows-registry"></a>Windows 레지스트리
 
-|속성  |Description  |
+|속성  |설명  |
 |---------|---------|
 |사용     | 설정 적용 여부 결정        |
 |Item Name     | 추적할 파일의 이름        |
@@ -70,7 +70,7 @@ Azure 구독이 아직 없는 경우 [무료 계정을 만듭니다](https://azu
 
 ### <a name="windows-files"></a>Windows 파일
 
-|속성  |Description  |
+|속성  |설명  |
 |---------|---------|
 |사용     | 설정 적용 여부 결정        |
 |Item Name     | 추적할 파일의 이름        |
@@ -79,7 +79,7 @@ Azure 구독이 아직 없는 경우 [무료 계정을 만듭니다](https://azu
 
 ### <a name="linux-files"></a>Linux 파일
 
-|속성  |Description  |
+|속성  |설명  |
 |---------|---------|
 |사용     | 설정 적용 여부 결정        |
 |Item Name     | 추적할 파일의 이름        |
@@ -92,7 +92,7 @@ Azure 구독이 아직 없는 경우 [무료 계정을 만듭니다](https://azu
 
 ## <a name="manage-machine-groups"></a>머신 그룹 관리
 
-인벤토리를 사용 하면 Azure Monitor 로그에서 컴퓨터 그룹을 만들고 볼 수 있습니다. 컴퓨터 그룹은 Azure Monitor 로그의 쿼리로 정의 된 컴퓨터의 컬렉션입니다.
+인벤토리를 사용하면 Azure Monitor 로그에서 컴퓨터 그룹을 만들고 볼 수 있습니다. 컴퓨터 그룹은 Azure Monitor 로그의 쿼리에 의해 정의된 컴퓨터의 컬렉션입니다.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -106,7 +106,7 @@ Azure 구독이 아직 없는 경우 [무료 계정을 만듭니다](https://azu
 
 **+ 복제** 단추를 클릭하여 머신 그룹을 복제합니다. 여기에서 그룹에 새 이름을 제공하고 해당 그룹에 대한 별칭을 제공해야 합니다. 이번에는 정의를 변경할 수 있습니다. 쿼리를 변경한 후에는 **쿼리 유효성 검사**를 눌러 선택할 머신을 미리 봅니다. 해당 그룹에 만족하면 **만들기**를 클릭하여 머신 그룹을 만듭니다.
 
-새 컴퓨터 그룹을 만들려면 **+ 컴퓨터 그룹 만들기**를 선택 합니다. 이 단추를 누르면 새 그룹을 정의할 수 있는 **머신 그룹 만들기 페이지**가 열립니다. **만들기**를 클릭하여 그룹을 만듭니다.
+새 컴퓨터 그룹을 만들려면 + **컴퓨터 그룹 만들기를**선택합니다. 이 단추를 누르면 새 그룹을 정의할 수 있는 **머신 그룹 만들기 페이지**가 열립니다. **만들기**를 클릭하여 그룹을 만듭니다.
 
 ![새 머신 그룹 만들기](./media/automation-vm-inventory/create-new-group.png)
 
@@ -119,7 +119,7 @@ Azure 구독이 아직 없는 경우 [무료 계정을 만듭니다](https://azu
 3. 목록에서 분리할 가상 머신을 선택합니다. 가상 머신은 **OMS 연결** 열의 **이 작업 영역** 옆에 녹색 확인 표시가 있습니다.
 
    >[!NOTE]
-   >이제 OMS를 Azure Monitor 로그 라고 합니다.
+   >OMS를 이제 Azure 모니터 로그라고 합니다.
    
 4. 다음 페이지 맨 위에서 **연결 끊기**를 선택합니다.
 5. 확인 창에서 **예**를 선택합니다.

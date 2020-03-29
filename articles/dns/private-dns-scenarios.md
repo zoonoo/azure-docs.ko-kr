@@ -1,6 +1,6 @@
 ---
-title: 전용 영역에 대 한 시나리오-Azure DNS
-description: 이 문서에서는 Azure DNS Private Zones 사용에 대 한 일반적인 시나리오에 대해 알아봅니다.
+title: 개인 영역에 대한 시나리오 - Azure DNS
+description: 이 문서에서는 Azure DNS 개인 영역을 사용하는 일반적인 시나리오에 대해 알아봅니다.
 services: dns
 author: rohinkoul
 ms.service: dns
@@ -8,13 +8,13 @@ ms.topic: article
 ms.date: 10/05/2019
 ms.author: rohink
 ms.openlocfilehash: ab850adb2e9a25778d5f44ba711eb0762fe562c8
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76939332"
 ---
-# <a name="azure-dns-private-zones-scenarios"></a>Azure DNS 전용 영역 시나리오
+# <a name="azure-dns-private-zones-scenarios"></a>Azure DNS 개인 영역 시나리오
 
 Azure DNS Private Zones는 가상 네트워크 간뿐 아니라 가상 네트워크 내에서의 이름 확인을 제공합니다. 이 문서에서는 이 기능을 사용하여 실현할 수 있는 몇 가지 일반적인 시나리오를 살펴봅니다.
 
@@ -54,5 +54,5 @@ Azure DNS에서 [프라이빗 DNS 영역을 만드는](./private-dns-getstarted-
 
 [DNS 영역 및 레코드 개요](dns-zones-records.md)를 참조하여 DNS 영역 및 레코드에 대해 알아봅니다.
 
-Azure의 몇 가지 다른 주요 [네트워킹 기능](../networking/networking-overview.md)을 알아봅니다.
+Azure의 다른 주요 [네트워킹 기능에](../networking/networking-overview.md) 대해 알아봅니다.
 

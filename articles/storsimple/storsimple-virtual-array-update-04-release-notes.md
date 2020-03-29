@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 04/05/2017
 ms.author: alkohli
 ms.openlocfilehash: 06a3469507631d032535bce62b01d964e99dc603
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60334797"
 ---
 # <a name="storsimple-virtual-array-update-04-release-notes"></a>StorSimple 가상 배열 업데이트 0.4 릴리스 정보
@@ -85,12 +85,12 @@ ms.locfileid: "60334797"
 | **16.** |파일 서버 |Windows EFS(파일 시스템 암호화)에 의해 보호되는 파일을 StorSimple Virtual Array 파일 서버에 복사하거나 저장하지 마세요. 그러면 지원되지 않는 구성이 발생합니다.  | |
 
 ## <a name="next-step"></a>다음 단계
-StorSimple 가상 배열에 [업데이트 0.4를 설치](storsimple-virtual-array-install-update-04.md)합니다.
+StorSimple 가상 어레이에 [업데이트 0.4를 설치합니다.](storsimple-virtual-array-install-update-04.md)
 
 ## <a name="references"></a>참조
 이전 릴리스 정보를 찾으시나요? 다음으로 이동합니다. 
 
-* [StorSimple 가상 배열 업데이트 0.3 릴리스 정보](storsimple-ova-update-03-release-notes.md)
+* [StorSimple 가상 배열 업데이트 0.3 릴리스 노트](storsimple-ova-update-03-release-notes.md)
 * [StorSimple 가상 배열 업데이트 0.1 및 0.2 릴리스 정보](storsimple-ova-update-01-release-notes.md)
 * [StorSimple 가상 배열 일반 공급 릴리스 정보](storsimple-ova-pp-release-notes.md)
 

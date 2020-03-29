@@ -1,5 +1,5 @@
 ---
-title: Azure Portal를 사용 하 여 VM에 대 한 포트 열기
+title: Azure 포털을 사용하여 VM에 포트 열기
 description: Azure Portal의 Resource Manager 배포 모델을 사용하여 Windows VM에 대한 포트를 열고 엔드포인트를 만드는 방법 알아보기
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: cynthn
 ms.openlocfilehash: 130d3315b5a9a6f175bd3d67ed33a034ab5f8dda
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75371414"
 ---
 # <a name="how-to-open-ports-to-a-virtual-machine-with-the-azure-portal"></a>Azure Portal을 사용하여 가상 머신에 대한 포털을 여는 방법
@@ -25,7 +25,7 @@ ms.locfileid: "75371414"
 
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
-[https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
+[https://portal.azure.com](https://portal.azure.com) 에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-a-network-security-group"></a>네트워크 보안 그룹 만들기
 
@@ -85,5 +85,5 @@ ms.locfileid: "75371414"
 이 문서에서는 네트워크 보안 그룹을 만들고, 포트 80에서 HTTP 트래픽을 허용하는 인바운드 규칙을 만든 다음, 해당 규칙을 서브넷에 연결했습니다. 
 
 다음 문서에서 보다 자세한 환경을 만들기 위한 정보를 찾을 수 있습니다.
-- [Azure Resource Manager 개요](../../azure-resource-manager/management/overview.md)
+- [Azure 리소스 관리자 개요](../../azure-resource-manager/management/overview.md)
 - [보안 그룹](../../virtual-network/security-overview.md)

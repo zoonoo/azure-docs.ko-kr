@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/29/2016
 ms.author: manuaery
 ms.openlocfilehash: 9edc0b552f5c2f38e646bc4b44dd8df5c16b0457
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61408509"
 ---
 # <a name="use-the-device-summary-blade-for-storsimple-device-manager-connected-to-storsimple-virtual-array"></a>StorSimple 가상 배열에 연결된 StorSimple 디바이스 관리자에 대한 디바이스 요약 블레이드 사용
@@ -52,7 +52,7 @@ Essentials 영역은 상태, 모델, 소프트웨어 버전뿐만 아니라 배�
 * **공유** 또는 **볼륨** 타일에서는 상태별로 그룹화된 디바이스에서 공유 또는 볼륨의 수를 간략하게 설명합니다. 타일을 클릭하여 **공유** 또는 **볼륨** 목록 블레이드를 연 다음 개별 공유 또는 볼륨을 클릭하여 해당 속성을 확인하거나 수정합니다. 자세한 내용은 [공유 관리](storsimple-virtual-array-manage-shares.md) 또는 [볼륨 관리](storsimple-virtual-array-manage-volumes.md) 방법을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-다음 작업을 수행하는 방법을 배워 보십시오.
+방법 배우기:
 - [StorSimple 가상 배열에서 공유 관리](storsimple-virtual-array-manage-shares.md)
     
 - [StorSimple 가상 배열에서 볼륨 관리](storsimple-virtual-array-manage-volumes.md)

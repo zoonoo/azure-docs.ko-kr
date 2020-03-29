@@ -1,5 +1,5 @@
 ---
-title: 단일 AD FS-Azure 사용 하 여 여러 Azure AD 페더레이션
+title: 단일 AD FS로 여러 Azure AD 페더레이션 - Azure
 description: 이 문서에서는 하나의 AD FS를 통해 Azure AD를 페더레이션하는 방법에 대해 설명합니다.
 keywords: 페더레이션, ADFS, AD FS, 다중 테넌트, 단일 AD FS, 단일 ADFS, 다중 테넌트 페더레이션, 다중 포리스트 ADFS, AAD 연결, 페더레이션, 테넌트 간 페더레이션
 services: active-directory
@@ -18,10 +18,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9122e3a7af2230dc0f68e72b28891d488b01a80a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65137827"
 ---
 # <a name="federate-multiple-instances-of-azure-ad-with-single-instance-of-ad-fs"></a>AD FS의 단일 인스턴스를 사용하여 Azure AD의 여러 인스턴스를 페더레이션
@@ -54,7 +54,7 @@ contoso.com Update-MsolFederatedDomain -DomainName contoso.com –SupportMultipl
  
 도메인 페더레이션 설정의 발급자가 "http\://contoso.com/adfs/services/trust"로 변경되고, Azure AD 신뢰 당사자 트러스트에서 UPN 접미사를 기반으로 하는 올바른 issuerId 값을 발급하도록 발급 클레임 규칙이 추가됩니다.
  
-## <a name="step-3-federate-fabrikamcom-with-ad-fs"></a>3단계: AD FS와 fabrikam.com의 페더레이션
+## <a name="step-3-federate-fabrikamcom-with-ad-fs"></a>3단계: AD FS로 fabrikam.com 페더레이션
  
 Azure AD PowerShell 세션에서 다음 단계를 수행합니다. fabrikam.com 도메인이 포함된 Azure Active Directory에 연결합니다.
 
@@ -66,4 +66,4 @@ fabrikam.com 관리되는 도메인을 페더레이션된 도메인으로 변환
 위의 작업에서는 동일한 AD FS를 통해 fabrikam.com 도메인을 페더레이션합니다. 두 도메인 모두에 대해 Get-MsolDomainFederationSettings를 사용하여 도메인 설정을 확인할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-[Active Directory와 Azure Active Directory 연결](whatis-hybrid-identity.md)
+[활성 디렉터리와 Azure Active 디렉터리 연결](whatis-hybrid-identity.md)

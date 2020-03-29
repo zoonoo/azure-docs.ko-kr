@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/18/2017
 ms.author: tagore
 ms.openlocfilehash: 53f53976b20359afc45abe1b25ca60325b5d6a2b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75386173"
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>클라우드 서비스를 만들고 배포하는 방법
@@ -21,7 +21,7 @@ Azure 포털은 클라우드 서비스를 만들고 배포하는 두 가지 방�
 이 문서는 빠른 생성 방법을 사용하여 새 클라우드 서비스를 만든 다음 **업로드** 를 사용하여 Azure에서 클라우드 서비스 패키지를 업로드하고 배포하는 방법에 대해 설명합니다. 이 방법을 사용하는 경우 작업을 진행하면서 모든 요구 사항을 완료하는 데 사용할 수 있는 편리한 링크를 Azure 포털에서 제공합니다. 클라우드 서비스를 만들 때 배포할 준비가 되면 사용자 지정 만들기를 사용하여 동시에 둘 다를 수행할 수 있습니다.
 
 > [!NOTE]
-> Azure DevOps에서 클라우드 서비스를 게시하려는 경우 빠른 생성을 사용한 다음 Azure 빠른 시작 또는 대시보드에서 Azure DevOps 게시를 설정합니다. 자세한 내용은 [Azure DevOps를 사용 하 여 azure에 지속적인 전송][TFSTutorialForCloudService]을 참조 하거나 **빠른 시작** 페이지에 대 한 도움말을 참조 하세요.
+> Azure DevOps에서 클라우드 서비스를 게시하려는 경우 빠른 생성을 사용한 다음 Azure 빠른 시작 또는 대시보드에서 Azure DevOps 게시를 설정합니다. 자세한 내용은 [Continuous Delivery to Azure by Using Azure DevOps][TFSTutorialForCloudService](Azure DevOps를 사용하여 Azure에 지속적으로 전송)를 참조하거나 **빠른 시작** 페이지에 대한 도움말을 참조하세요.
 >
 >
 
@@ -29,11 +29,11 @@ Azure 포털은 클라우드 서비스를 만들고 배포하는 두 가지 방�
 Azure에서 애플리케이션을 클라우드 서비스로 배포하려면 다음과 같은 세 가지 구성 요소가 필요합니다.
 
 * **서비스 정의**  
-  클라우드 서비스 정의 파일(.csdef)은 역할 수를 포함하여 서비스 모델을 정의합니다.
+   클라우드 서비스 정의 파일(.csdef)은 역할 수를 포함하여 서비스 모델을 정의합니다.
 * **서비스 구성**  
-  클라우드 서비스 구성 파일(.cscfg)은 역할 인스턴스 수를 포함하여 클라우드 서비스 및 개별 역할에 대한 구성 설정을 제공합니다.
+   클라우드 서비스 구성 파일(.cscfg)은 역할 인스턴스 수를 포함하여 클라우드 서비스 및 개별 역할에 대한 구성 설정을 제공합니다.
 * **서비스 패키지**  
-  서비스 패키지(.cspkg)에는 애플리케이션 코드와 구성 및 서비스 정의 파일이 포함됩니다.
+   서비스 패키지(.cspkg)에는 애플리케이션 코드와 구성 및 서비스 정의 파일이 포함됩니다.
 
 이러한 구성 요소에 대한 자세한 내용과 패키지를 만드는 방법은 [여기](cloud-services-model-and-package.md)에서 볼 수 있습니다.
 
@@ -44,7 +44,7 @@ Azure에서 애플리케이션을 클라우드 서비스로 배포하려면 다�
 
 * 데이터 암호화에 SSL(Secure Sockets Layer)을 사용하는 클라우드 서비스를 배포하려는 경우 SSL에 맞게 [애플리케이션을 구성](cloud-services-configure-ssl-certificate-portal.md#modify)합니다.
 * 역할 인스턴스에 대한 원격 데스크톱 연결을 구성하려면 원격 데스크톱에 대한 [역할을 구성](cloud-services-role-enable-remote-desktop-new-portal.md) 합니다.
-* 클라우드 서비스에 대해 자세한 모니터링을 구성하려면 클라우드 서비스에 Azure Diagnostics를 사용하도록 설정합니다. *최소 모니터링* (기본 모니터링 수준)에서는 역할 인스턴스(가상 머신)에 대해 호스트 운영 체제에서 수집된 성능 카운터를 사용합니다. *세부 정보 표시 모니터링* 에서는 역할 인스턴스 내 성능 데이터를 기반으로 추가 메트릭을 수집하여 애플리케이션 처리 중 발생하는 문제를 보다 자세히 분석할 수 있습니다. Azure Diagnostics를 사용하도록 설정하는 방법에 대해 알아보려면 [Azure에서 진단 사용](cloud-services-dotnet-diagnostics.md)을 참조하세요.
+* 클라우드 서비스에 대해 자세한 모니터링을 구성하려면 클라우드 서비스에 Azure Diagnostics를 사용하도록 설정합니다. *최소 모니터링* (기본 모니터링 수준)에서는 역할 인스턴스(가상 머신)에 대해 호스트 운영 체제에서 수집된 성능 카운터를 사용합니다. *자세한 모니터링은* 역할 인스턴스 내의 성능 데이터를 기반으로 추가 메트릭을 수집하여 응용 프로그램 처리 중에 발생하는 문제를 면밀히 분석할 수 있도록 합니다. Azure 진단을 사용하도록 설정하는 방법을 알아보려면 [Azure에서 진단 사용 을 참조하세요.](cloud-services-dotnet-diagnostics.md)
 
 웹 역할 또는 작업자 역할 배포를 통해 클라우드 서비스를 만들려면 [서비스 패키지를 만들어야](cloud-services-model-and-package.md#servicepackagecspkg)합니다.
 
@@ -58,7 +58,7 @@ Azure에서 애플리케이션을 클라우드 서비스로 배포하려면 다�
 
     ![클라우드 서비스 게시](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
 3. 새 **클라우드 서비스** 창에서 **DNS 이름**의 값을 입력합니다.
-4. 새 **리소스 그룹** 을 만들거나 기존 항목을 선택합니다.
+4. 새 리소스 그룹을 만들거나 기존 **리소스 그룹을** 선택합니다.
 5. **위치**를 선택합니다.
 6. **패키지**를 클릭합니다. **패키지 업로드** 창에서 열립니다. 필수 필드를 입력합니다. 역할에 단일 인스턴스가 포함된 경우 **단일 인스턴스가 포함된 역할이 하나 이상 있는 경우에도 배포합니다.** 가 선택되어 있어야 합니다.
 7. **배포 시작** 이 선택되어 있는지 확인합니다.
