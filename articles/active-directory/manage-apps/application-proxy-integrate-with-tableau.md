@@ -14,17 +14,17 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a1aa99e7e71ad78a62c1a9da303b2ecc8347ebeb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65783858"
 ---
 # <a name="azure-active-directory-application-proxy-and-tableau"></a>Azure Active Directory 애플리케이션 프록시 및 Tableau 
 
 Azure Active Directory 애플리케이션 프록시 및 Tableau를 사용하여 Tableau 배포에 대한 원격 액세스를 제공하기 위해 애플리케이션 프록시를 쉽게 사용할 수 있도록 합니다. 이 아티클에서는 이 시나리오를 구성하는 방법에 대해 설명합니다.  
 
-## <a name="prerequisites"></a>필수 조건 
+## <a name="prerequisites"></a>사전 요구 사항 
 
 이 아티클의 시나리오에서는 다음을 가정합니다.
 
@@ -50,7 +50,7 @@ Tableau를 게시하려면 Azure Portal에서 애플리케이션을 게시해야
 **앱을 게시하려면**: 
 
 
-1. 에 로그인 합니다 [Azure portal](https://portal.azure.com) 응용 프로그램 관리자입니다. 
+1. 응용 프로그램 관리자로 [Azure 포털에](https://portal.azure.com) 로그인합니다. 
 
 2. **Azure Active Directory &gt; 엔터프라이즈 애플리케이션**을 선택합니다. 
 
@@ -60,9 +60,9 @@ Tableau를 게시하려면 Azure Portal에서 애플리케이션을 게시해야
 
 5. 새 앱에 대한 정보로 필수 필드를 작성합니다. 설정에 대해 다음 지침을 사용합니다. 
 
-    - **내부 URL**: 이 애플리케이션에는 자체 Tableau URL인 내부 URL이 있어야 합니다. 예: `https://adventure-works.tableau.com`. 
+    - **내부 URL**: 이 애플리케이션에는 자체 Tableau URL인 내부 URL이 있어야 합니다. `https://adventure-works.tableau.com`)을 입력합니다. 
 
-    - **사전 인증 방법**: Azure Active Directory(권장되지만 필수는 아님) 
+    - **사전 인증 방법**: Azure Active Directory(권장되지만 필수 아님)입니다. 
 
 6. 블레이드의 위쪽에서 **추가**를 선택합니다. 애플리케이션이 추가되고 빠른 시작 메뉴가 열립니다. 
 

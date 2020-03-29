@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 5/22/2017
 ms.author: xujing
 ms.openlocfilehash: f5639d1cf94c77d699dc6de9841698b045ac1f96
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76543021"
 ---
 # <a name="understand-common-error-messages-when-you-manage-virtual-machines-in-azure"></a>Azure에서 가상 머신을 관리할 때 발생하는 일반적인 오류 메시지를 이해
@@ -99,8 +99,8 @@ Azure VM은 오류 응답에 다음 JSON 형식을 사용합니다.
 |  InvalidParameter  |  "제공된 암호의 길이는 {0}~{1}자 사이여야 하고 최소한 다음의 암호 복잡성 요구 사항 중 적어도 {2}을(를) 충족해야 합니다. <ol><li> 대문자를 포함합니다.</li><li>소문자를 포함합니다.</li><li>숫자를 포함합니다.</li><li>특수 문자를 포함합니다.</li></ol>  |
 |  InvalidParameter  |  지정된 관리자 사용자 이름이 허용되지 않습니다.  |
 |  InvalidParameter  |  VM이 플랫폼 이미지 또는 사용자 이미지에서 만들어진 경우 기존 OS 디스크를 연결할 수 없습니다.  |
-|  InvalidParameter  |  컨테이너 이름 {0}이(가) 올바르지 않습니다. 컨테이너 이름의 길이는 3-63자여야 하며 소문자 영숫자 및 하이픈만 포함할 수 있습니다. 하이픈 앞에는 영숫자 문자를 입력 해야 합니다.  |
-|  InvalidParameter  |  URL {1}의 컨테이너 이름 {0}이(가) 올바르지 않습니다. 컨테이너 이름의 길이는 3-63자여야 하며 소문자 영숫자 및 하이픈만 포함할 수 있습니다. 하이픈 앞에는 영숫자 문자를 입력 해야 합니다.  |
+|  InvalidParameter  |  컨테이너 이름 {0}이(가) 올바르지 않습니다. 컨테이너 이름의 길이는 3-63자여야 하며 소문자 영숫자 및 하이픈만 포함할 수 있습니다. 하이픈 앞에 와 서 하 고 숫자 문자 가 야합니다.  |
+|  InvalidParameter  |  URL {1}의 컨테이너 이름 {0}이(가) 올바르지 않습니다. 컨테이너 이름의 길이는 3-63자여야 하며 소문자 영숫자 및 하이픈만 포함할 수 있습니다. 하이픈 앞에 와 서 하 고 숫자 문자 가 야합니다.  |
 |  InvalidParameter  |  URL {0}의 Blob 이름은 슬래시를 포함합니다. 이 항목은 현재 디스크에 지원되지 않습니다.  |
 |  InvalidParameter  |  URI {0}이(가) 올바른 Blob URI가 아닌 것 같습니다.  |
 |  InvalidParameter  |  이름이 '{0}'인 디스크가 이미 동일한 LUN {1}을(를) 사용합니다.  |
@@ -118,9 +118,9 @@ Azure VM은 오류 응답에 다음 JSON 형식을 사용합니다.
 |  InvalidParameter  |  {0}'은(는) 캡처된 유효한 VHD Blob 이름 접두사가 아닙니다. 유효한 접두사는 regex '{1}'와(과) 일치합니다.  |
 |  InvalidParameter  |  VM 에이전트가 프로비전되어 있지 않으면 VM에 인증서를 추가할 수 없습니다.  |
 |  InvalidParameter  |  LUN {0}에 디스크가 이미 있습니다.  |
-|  InvalidParameter  |  현재 가용성 집합이 할당된 클러스터에서 요청한 크기 {0}을(를) 사용할 수 없기 때문에 VM을 만들 수 없습니다. 사용 가능한 크기는 {1}입니다. https://aka.ms/azure-resizevm 에서 VM 크기 조정 전략에 대해 자세히 알아봅니다.  |
-|  InvalidParameter  |  요청한 VM 크기 {0}을(를) 현재 지역에서 사용할 수 없습니다. 현재 지역에서 사용할 수 있는 크기는 {1}입니다. https://aka.ms/azure-regions 에서 각 지역에서 사용 가능한 VM 크기에 대해 자세히 알아봅니다.  |
-|  InvalidParameter  |  요청한 VM 크기 {0}을(를) 현재 지역에서 사용할 수 없습니다. https://aka.ms/azure-regions 에서 각 지역에서 사용 가능한 VM 크기에 대해 자세히 알아봅니다.  |
+|  InvalidParameter  |  현재 가용성 집합이 할당된 클러스터에서 요청한 크기 {0}을(를) 사용할 수 없기 때문에 VM을 만들 수 없습니다. 사용 가능한 크기는 {1}입니다. https://aka.ms/azure-resizevm에서 VM 크기 조정 전략에 대해 자세히 알아봅니다.  |
+|  InvalidParameter  |  요청한 VM 크기 {0}을(를) 현재 지역에서 사용할 수 없습니다. 현재 지역에서 사용할 수 있는 크기는 {1}입니다. https://aka.ms/azure-regions에서 각 지역에서 사용 가능한 VM 크기에 대해 자세히 알아봅니다.  |
+|  InvalidParameter  |  요청한 VM 크기 {0}을(를) 현재 지역에서 사용할 수 없습니다. https://aka.ms/azure-regions에서 각 지역에서 사용 가능한 VM 크기에 대해 자세히 알아봅니다.  |
 |  InvalidParameter  |  Windows 관리자 사용자 이름은 길이가 {0}자 이하이거나 마침표(.)로 끝나거나 문자 {1}을(를) 포함할 수 없습니다.  |
 |  InvalidParameter  |  Windows 컴퓨터 이름은 길이가 {0}자 이하이거나 전체가 숫자이거나 문자 {1}을(를) 포함할 수 없습니다.  |
 |  MissingMoveDependentResources  |  리소스 이동 요청에는 모든 종속 리소스가 포함되지 않습니다. 누락된 리소스 ID에 대한 오류 세부 정보를 확인하세요.  |
@@ -167,12 +167,12 @@ Azure VM은 오류 응답에 다음 JSON 형식을 사용합니다.
 |  OperationNotAllowed  |  VM이 생성되어 있지 않아서 캡처 작업을 완료할 수 없습니다.  |
 |  OperationNotAllowed  |  VM 디스크가 Managed Disks로 변환 중이기 때문에 '{0}' VM에 대한 관리 작업이 허용되지 않습니다.  |
 |  OperationNotAllowed  |  진행 중인 작업이 Virtual Machine의 전원 상태를 {0}에서 {1}(으)로 변경하고 있습니다. 일정 시간이 지난 후 {2} 작업을 수행하세요.  |
-|  OperationNotAllowed  |  VM을 추가하거나 업데이트할 수 없습니다. 기존 할당 단위에서 요청된 VM 크기 {0}을(를) 사용하지 못할 수도 있습니다. https://aka.ms/azure-resizevm 에서 VM 크기 조정 전략에 대해 자세히 알아봅니다.  |
-|  OperationNotAllowed  |  현재 가용성 집합이 할당된 클러스터에서 요청한 크기 {0}을(를) 사용할 수 없기 때문에 VM의 크기를 조정할 수 없습니다. 사용 가능한 크기는 {1}입니다. https://aka.ms/azure-resizevm 에서 VM 크기 조정 전략에 대해 자세히 알아봅니다.  |
-|  OperationNotAllowed  |  현재 VM이 할당된 클러스터에서 요청한 크기 {0}을(를) 사용할 수 없기 때문에 VM의 크기를 조정할 수 없습니다. VM의 크기를 {1}(으)로 조정하려면 Azure Portal에서 중지 작업인 할당을 취소하고 크기 조정 작업을 다시 시도하세요. https://aka.ms/azure-resizevm 에서 VM 크기 조정 전략에 대해 자세히 알아봅니다.  |
+|  OperationNotAllowed  |  VM을 추가하거나 업데이트할 수 없습니다. 기존 할당 단위에서 요청된 VM 크기 {0}을(를) 사용하지 못할 수도 있습니다. https://aka.ms/azure-resizevm에서 VM 크기 조정 전략에 대해 자세히 알아봅니다.  |
+|  OperationNotAllowed  |  현재 가용성 집합이 할당된 클러스터에서 요청한 크기 {0}을(를) 사용할 수 없기 때문에 VM의 크기를 조정할 수 없습니다. 사용 가능한 크기는 {1}입니다. https://aka.ms/azure-resizevm에서 VM 크기 조정 전략에 대해 자세히 알아봅니다.  |
+|  OperationNotAllowed  |  현재 VM이 할당된 클러스터에서 요청한 크기 {0}을(를) 사용할 수 없기 때문에 VM의 크기를 조정할 수 없습니다. VM의 크기를 {1}(으)로 조정하려면 Azure Portal에서 중지 작업인 할당을 취소하고 크기 조정 작업을 다시 시도하세요. https://aka.ms/azure-resizevm에서 VM 크기 조정 전략에 대해 자세히 알아봅니다.  |
 |  OSProvisioningClientError  |  게스트 OS가 현재 프로비전되고 있는 중이므로 '{0}' VM에 대한 OS 프로비전에 실패했습니다.  |
 |  OSProvisioningClientError  |  VM '{0}'에 대한 OS를 프로비전하지 못했습니다. 오류 세부 정보: {1} 이미지가 올바르게 준비되었는지 확인합니다(일반화됨). <ul><li>Windows에 대한 지침: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/  </li></ul> |
-|  OSProvisioningClientError  |  SSH 호스트 키를 생성하지 못했습니다. 오류 세부 정보: {0} 이 문제를 해결하려면 Linux 에이전트가 올바르게 설정되었는지 확인합니다. <ul><li>https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux/ 에서 지침을 확인할 수 있습니다. </li></ul> |
+|  OSProvisioningClientError  |  SSH 호스트 키를 생성하지 못했습니다. 오류 세부 정보: {0} 이 문제를 해결하려면 Linux 에이전트가 올바르게 설정되었는지 확인합니다. <ul><li>https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux/에서 지침을 확인할 수 있습니다. </li></ul> |
 |  OSProvisioningClientError  |  VM에 지정된 사용자 이름은 이 Linux 배포판에 유효하지 않습니다. 오류 세부 정보: {0}  |
 |  OSProvisioningInternalError  |  내부 오류로 인해 VM '{0}'에 대한 OS 프로비전에 실패했습니다.  |
 |  OSProvisioningTimedOut  |  할당된 시간에 VM '{0}'에 대한 OS의 프로비전을 완료하지 못했습니다. VM은 성공적으로 프로비전을 완료할 수 있습니다. 나중에 프로비전 상태를 확인합니다.  |
@@ -205,7 +205,7 @@ Azure VM은 오류 응답에 다음 JSON 형식을 사용합니다.
 |  VMExtensionManagementInternalError  |  VM 확장을 준비하는 동안 여러 오류가 발생했습니다. 자세한 내용은 VM 확장 인스턴스 보기를 참조하세요.  |
 |  VMExtensionProvisioningError  |  확장 '{0}'을(를) 처리하는 동안 VM이 오류를 보고했습니다. 오류 메시지: "{1}"  |
 |  VMExtensionProvisioningError  |  여러 VM 확장은 VM에서 사용자를 프로비전하지 못했습니다. 자세한 내용은 VM 확장 인스턴스 보기를 참조하세요.  |
-|  VMExtensionProvisioningTimeout  |  '{0}' VM 확장의 프로 비전 시간이 초과 되었습니다. 확장을 설치 하는 데 너무 오래 걸리거나 확장 상태를 가져올 수 없습니다.  |
+|  VMExtensionProvisioningTimeout  |  VM 확장 프로비저닝 '{0}시간이 지나서야 확장 설치시간이 너무 오래 걸리거나 확장 상태를 가져올 수 없습니다.  |
 |  VMMarketplaceInvalidInput  |  Marketplace가 아닌 이미지로부터 가상 컴퓨터를 만드는 데에는 계획 정보가 필요하지 않습니다. 요청에서 계획 정보를 제거하세요. OS 디스크 이름은 {0}입니다.  |
 |  VMMarketplaceInvalidInput  |  구매 정보가 일치하지 않습니다. Marketplace 이미지에서 배포할 수 없습니다. OS 디스크 이름은 {0}입니다.  |
 |  VMMarketplaceInvalidInput  |  Marketplace 이미지로부터 가상 머신을 만들려면 요청에 계획 정보가 있어야 합니다. OS 디스크 이름은 {0}입니다.  |
@@ -216,4 +216,4 @@ Azure VM은 오류 응답에 다음 JSON 형식을 사용합니다.
 
 
 ## <a name="next-steps"></a>다음 단계
-도움이 더 필요하면 [MSDN Azure 및 Stack Overflow 포럼](https://azure.microsoft.com/support/forums/)의 Azure 전문가에게 문의하세요. 또는 Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/) 로 가서 **지원 받기**를 선택합니다.
+도움이 더 필요하면 [MSDN Azure 및 Stack Overflow 포럼](https://azure.microsoft.com/support/forums/)의 Azure 전문가에게 문의하세요. 또는 Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트로](https://azure.microsoft.com/support/options/) 이동하여 **지원 받기를**선택합니다.

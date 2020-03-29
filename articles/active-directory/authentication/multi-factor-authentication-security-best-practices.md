@@ -1,5 +1,5 @@
 ---
-title: Azure Multi-Factor Authentication에 대 한 보안 지침-Azure Active Directory
+title: Azure 다단계 인증에 대한 보안 지침 - Azure Active Directory
 description: 이 문서에서는 Azure 계정으로 Azure MFA를 사용하는 지침을 제공합니다.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e42234e9fcdcfe3ee5ce975babbe03b64a750e36
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74846830"
 ---
 # <a name="security-guidance-for-using-azure-multi-factor-authentication-with-azure-ad-accounts"></a>Azure AD 계정으로 Azure Multi-Factor Authentication을 사용하기 위한 보안 지침
@@ -24,14 +24,14 @@ ms.locfileid: "74846830"
 
 ## <a name="deploy-azure-mfa-in-the-cloud"></a>클라우드에서 Azure MFA 배포
 
-[모든 사용자에 대해 Azure MFA를 사용하도록 설정](howto-mfa-getstarted.md)하는 방법에는 두 가지가 있습니다.
+[모든 사용자에 대해 Azure MFA를 사용하도록 설정하는](howto-mfa-getstarted.md)방법에는 두 가지가 있습니다.
 
 * 각 사용자에 대해 라이선스 구입(Azure MFA, Azure AD Premium 또는 Enterprise Mobility + Security)
 * Multi-Factor Auth 공급자 및 사용자 기준 또는 인증 기준 요금제 만들기
 
 ### <a name="licenses"></a>라이선스
 
-![사용자에 게 라이선스 적용, 사용, 알림](./media/multi-factor-authentication-security-best-practices/ems.png)
+![사용자에게 라이선스 적용, 활성화, 알림](./media/multi-factor-authentication-security-best-practices/ems.png)
 
 Azure AD Premium 또는 Enterprise Mobility + Security 라이선스가 있는 경우 Azure MFA가 이미 있는 것입니다. 2단계 인증 기능을 조직의 모든 사용자에게 확장하기 위해 추가로 아무 것도 필요하지 않습니다. 사용자에게 라이선스를 할당해야 하며 그러면 MFA를 사용할 수 있습니다.
 
@@ -43,16 +43,16 @@ Multi-factor Authentication을 설정할 때 고려해야 할 사항은 다음�
 
 ### <a name="multi-factor-auth-provider"></a>Multi-Factor Auth 공급자
 
-![Multi-Factor Authentication 공급자](./media/multi-factor-authentication-security-best-practices/authprovider.png)
+![다단계 인증 공급자](./media/multi-factor-authentication-security-best-practices/authprovider.png)
 
-Azure MFA를 포함하는 라이선스가 없는 경우 [MFA Auth 공급자를 만들](concept-mfa-authprovider.md) 수 있습니다.
+Azure MFA를 포함하는 라이선스가 없는 경우 [MFA Auth 공급자를 만들](concept-mfa-authprovider.md)수 있습니다.
 
 Auth 공급자를 만드는 경우 디렉터리를 선택하고 다음 세부 사항을 고려해야 합니다.
 
 * Multi-Factor Auth 공급자를 만드는 데 Azure AD 디렉터리가 필요하지는 않지만 더 많은 기능을 사용할 수 있습니다. Azure AD 디렉터리와 Auth 공급자를 연결하면 다음과 같은 기능을 사용할 수 있게 됩니다.
   * 2단계 인증을 모든 사용자에게 확장합니다.
   * 관리 포털, 사용자 지정 인사말, 보고서 등의 글로벌 관리자 추가 기능을 제공합니다.
-* 온-프레미스 Active Directory 환경을 Azure AD 디렉터리와 동기화 하는 경우 DirSync 또는 Azure AD Sync 필요 합니다. Active Directory의 온-프레미스 인스턴스와 동기화 되지 않은 Azure AD 디렉터리를 사용 하는 경우 DirSync 또는 Azure AD Sync 필요 하지 않습니다.
+* 온-프레미스 Active Directory 환경을 Azure AD 디렉터리와 동기화하는 경우 DirSync 또는 Azure AD Sync가 필요합니다. Active Directory의 온-프레미스 인스턴스와 동기화되지 않은 Azure AD 디렉터리를 사용하는 경우 DirSync 또는 Azure AD Sync가 필요하지 않습니다.
 * 귀사에 가장 적합한 소비 모델을 선택 니다. 사용 모델을 선택한 후에는 변경할 수 없습니다. 두 모델은 다음과 같습니다.
   * 인증 기준: 각 인증에 대한 요금을 청구합니다. 특정 사용자가 아닌 특정 앱에 액세스하는 사용자에 대한 2단계 인증을 하려는 경우 이 모델을 사용합니다.
   * 활성화된 사용자 당: Azure MFA에 대해 사용하도록 설정한 각 사용자에 대한 요금을 청구합니다. 일부 사용자가 Azure AD Premium 또는 Enterprise Mobility Suite 라이선스를 갖고 일부 사용자가 라이선스를 갖지 않은 경우 이 모델을 사용합니다.
@@ -61,14 +61,14 @@ Auth 공급자를 만드는 경우 디렉터리를 선택하고 다음 세부 �
 
 사용자의 대부분은 암호만 사용하여 인증하는 데 익숙하므로 회사가 이 프로세스에 관하여 모든 사용자에게 인식하게 하는 것이 중요합니다. 이렇게 인식하면 사용자가 MFA와 관련된 경미한 문제에 대해 지원 센터에 전화할 가능성을 줄일 수 있습니다. 그러나 MFA를 일시적으로 비활성화가 필요한 시나리오도 있습니다. 그러한 시나리오를 처리하는 방법에 대해 이해하려면 다음 지침을 따릅니다.
 
-* 모바일 앱 또는 전화에서 알림 또는 전화 통화를 받지 않았으므로 사용자가 로그인하지 못하는 시나리오를 처리할 수 있도록 기술 지원 요원을 교육합니다. 기술 지원은 사용자가 2단계 인증을 "바이패스"하여 1회 인증할 수 있도록 [일회성 바이패스](howto-mfa-mfasettings.md#one-time-bypass) 옵션을 사용하도록 설정할 수 있습니다. 바이패스는 일시적이며 지정된 시간(초) 이후 만료됩니다.
+* 모바일 앱 또는 전화에서 알림 또는 전화 통화를 받지 않았으므로 사용자가 로그인하지 못하는 시나리오를 처리할 수 있도록 기술 지원 요원을 교육합니다. 기술 지원은 사용자가 2단계 인증을 "바이패스"하여 1회 인증할 수 있도록 [일회성 바이패스](howto-mfa-mfasettings.md#one-time-bypass) 옵션을 사용하도록 설정할 수 있습니다. 바이패스는 임시적이며 지정된 시간(초) 이후 만료됩니다.
 * Azure MFA의 [신뢰할 수 있는 IP 기능](howto-mfa-mfasettings.md#trusted-ips)은 2단계 인증을 최소화하는 방법으로 사용할 수 있습니다. 이 기능을 사용하여 관리되는 또는 페더레이션된 테넌트의 관리자가 회사의 로컬 인트라넷에서 로그인하는 사용자를 위해 2단계 인증을 바이패스할 수 있습니다. 기능은 Azure AD Premium, Enterprise Mobility Suite 또는 Azure Multi-Factor Authentication 라이선스가 있는 Azure AD 테넌트에서 사용할 수 있습니다.
 
 ## <a name="best-practices-for-an-on-premises-deployment"></a>온-프레미스 배포에 대한 모범 사례
 
-회사가 자체 인프라를 이용하여 MFA를 사용하도록 결정한 경우 [Azure Multi-Factor Authentication 서버 온-프레미스를 배포](howto-mfaserver-deploy.md)해야 합니다. MFA 서버 구성 요소는 다음 다이어그램에 나와 있습니다.
+회사에서 자체 인프라를 활용하여 MFA를 사용하도록 결정한 경우 [Azure 다단계 인증 서버를 온-프레미스에 배포해야](howto-mfaserver-deploy.md)합니다. MFA 서버 구성 요소는 다음 다이어그램에 나와 있습니다.
 
-기본 MFA 서버 구성 요소가 기본적으로 \*설치 되어 있지 \*기본적으로 설치 되어 있지는 않지만 기본적으로 사용 하도록 설정 되어 있지](./media/multi-factor-authentication-security-best-practices/server.png) ![.
+![기본 MFA 서버](./media/multi-factor-authentication-security-best-practices/server.png) \*구성 요소 \*기본적으로 설치 되지 않습니다 *설치 하지만 기본적으로 활성화 되지 않습니다.
 
 Azure Multi-Factor Authentication Server는 페더레이션을 사용하여 클라우드 리소스 및 온-프레미스 리소스의 보안을 유지할 수 있습니다. AD FS를 보유하고 이를 Azure AD 테넌트와 페더레이션해야 합니다.
 Multi-Factor Authentication 서버를 설정할 때 고려해야 할 세부 사항은 다음과 같습니다.
@@ -96,7 +96,7 @@ Multi-Factor Authentication 서버를 설정할 때 고려해야 할 세부 사�
 * 특정 고급 아키텍처 디자인은 클라이언트와 2단계 인증을 사용하는 경우 인증 위치에 따라 조직의 사용자 이름과 암호 및 앱 암호를 조합하여 사용할 필요가 있습니다. 온-프레미스 인프라에 대해 인증하는 클라이언트의 경우 조직의 사용자 이름과 암호를 사용합니다. Azure AD에 대해 인증하는 클라이언트의 경우 앱 암호를 사용합니다.
 * 기본적으로 사용자가 앱 암호를 만들 수 없습니다. 사용자가 앱 암호를 만들 수 있도록 해야 할 경우 **사용자가 브라우저에 기반하지 않는 애플리케이션에 로그인하기 위해 앱 암호를 만들 수 있음** 옵션을 선택합니다.
 
-## <a name="additional-considerations"></a>추가 고려 사항
+## <a name="additional-considerations"></a>기타 고려 사항
 
 온-프레미스로 배포할 각 구성 요소에 대한 추가 고려 사항 및 지침을 보려면 다음 목록을 사용하세요.
 

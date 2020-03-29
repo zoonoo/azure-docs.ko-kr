@@ -1,5 +1,5 @@
 ---
-title: 사용자 프로필 정보 추가 또는 업데이트-Azure AD
+title: 사용자 프로필 정보 추가 또는 업데이트 - Azure AD
 description: 사진 및 작업 세부 정보를 포함하여 Azure Active Directory에서 사용자의 프로필에 정보를 추가하는 방법에 대한 지침입니다.
 services: active-directory
 author: msaburnley
@@ -13,10 +13,10 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8ba51b0ad7f314058f34092dff4e26411020086a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75422871"
 ---
 # <a name="add-or-update-a-users-profile-information-using-azure-active-directory"></a>Azure Active Directory를 사용하여 사용자 프로필 정보 추가 또는 업데이트
@@ -26,7 +26,7 @@ ms.locfileid: "75422871"
 앞으로 살펴보겠지만 사용자를 만드는 동안 추가할 수 있는 것보다 많은 정보를 사용자 프로필에서 사용할 수 있습니다. 이 추가 정보는 모두 선택 사항이며 조직에서 필요에 따라 추가할 수 있습니다.
 
 ## <a name="to-add-or-change-profile-information"></a>프로필 정보를 추가 또는 변경하려면
-1. 조직의 사용자 관리자로 [Azure Portal](https://portal.azure.com/) 에 로그인 합니다.
+1. 조직의 사용자 관리자로 [Azure 포털에](https://portal.azure.com/) 로그인합니다.
 
 2. **Azure Active Directory**를 선택하고, **사용자**를 선택한 다음, 사용자를 선택합니다. 예를 들어 _Alain Charon_입니다.
 
@@ -40,15 +40,15 @@ ms.locfileid: "75422871"
 
     - **프로필 사진.** 사용자 계정의 썸네일 이미지를 선택합니다. 이 사진은 Azure Active Directory 및 사용자의 개인 페이지(예: myapps.microsoft.com 페이지)에 나타납니다.
 
-    - **ID.** 사용자에 대 한 추가 id 값 (예: 결혼 성)을 추가 하거나 업데이트 합니다. 이 이름은 이름 및 성의 값과 별개로 설정할 수 있습니다. 예를 들어 이니셜, 회사 이름을 포함 하거나 표시 된 이름의 시퀀스를 변경 하는 데 사용할 수 있습니다. 또 다른 예로, 이름이 ' Chris Green ' 인 두 사용자의 경우 Id 문자열을 사용 하 여 해당 이름을 ' Chris B. 녹색 ' ' Chris R. 녹색 (Contoso) '으로 설정할 수 있습니다.
+    - **Id.** 결혼한 성(예: 사용자에 대한 추가 ID 값)을 추가하거나 업데이트합니다. 이 이름은 이름과 성의 값과 독립적으로 설정할 수 있습니다. 예를 들어 이면, 회사 이름을 포함하거나 표시된 이름 순서를 변경하는 데 사용할 수 있습니다. 또 다른 예로 이름이 'Chris Green'인 두 사용자의 경우 ID 문자열을 사용하여 이름을 'Chris B. Green' 'Chris R. Green(콘토소)'로 설정할 수 있습니다.
 
     - **작업 정보.** 사용자의 직책, 부서 또는 관리자와 같은 작업 관련 정보를 추가합니다.
 
     - **설정.** 사용자가 Azure Active Directory 테넌트에 로그인할 수 있는지 여부를 결정합니다. 사용자의 전역 위치를 지정할 수도 있습니다.
 
-    - **연락처 정보.** 사용자의 전화 또는 모바일 연락처 정보를 제외 하 고 사용자에 대 한 관련 연락처 정보를 추가 합니다 (전역 관리자만 관리자 역할의 사용자를 업데이트할 수 있음).
+    - **연락처 정보.** 일부 사용자의 휴대폰 또는 모바일 연락처 정보를 제외한 사용자에 대한 관련 연락처 정보를 추가합니다(글로벌 관리자만 관리자 역할의 사용자에 대해 업데이트할 수 있음).
 
-    - **인증 연락처 정보.** 이 정보를 확인하여 사용자의 활성 전화 번호와 메일 주소가 있는지 확인합니다. 이 정보는 Azure Active Directory에서 로그인 중인 사용자가 실제로 사용자인지 확인하는 데 사용됩니다. 인증 연락처 정보는 전역 관리자만 업데이트할 수 있습니다.
+    - **인증 연락처 정보입니다.** 이 정보를 확인하여 사용자의 활성 전화 번호와 메일 주소가 있는지 확인합니다. 이 정보는 Azure Active Directory에서 로그인 중인 사용자가 실제로 사용자인지 확인하는 데 사용됩니다. 인증 연락처 정보는 전역 관리자만 업데이트할 수 있습니다.
 
 4. **저장**을 선택합니다.
 

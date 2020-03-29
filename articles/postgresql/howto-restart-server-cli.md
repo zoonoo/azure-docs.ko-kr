@@ -1,26 +1,26 @@
 ---
-title: 서버 다시 시작-Azure CLI-Azure Database for PostgreSQL-단일 서버
-description: 이 문서에서는 Azure CLI를 사용 하 여 Azure Database for PostgreSQL 단일 서버를 다시 시작 하는 방법을 설명 합니다.
+title: 서버 다시 시작 - Azure CLI - PostgreSQL용 Azure 데이터베이스 - 단일 서버
+description: 이 문서에서는 Azure CLI를 사용하여 PostgreSQL - 단일 서버에 대한 Azure 데이터베이스를 다시 시작하는 방법에 대해 설명합니다.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 13b26b545f9e95ce2457e4f8d9cf32da59cd91e6
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74770155"
 ---
-# <a name="restart-azure-database-for-postgresql---single-server-using-the-azure-cli"></a>Azure CLI를 사용 하 여 Azure Database for PostgreSQL 단일 서버 다시 시작
+# <a name="restart-azure-database-for-postgresql---single-server-using-the-azure-cli"></a>PostgreSQL에 대한 Azure 데이터베이스 다시 시작 - Azure CLI를 사용하여 단일 서버
 이 항목에서는 Azure Database for PostgreSQL 서버를 다시 시작하는 방법을 설명합니다. 유지 관리를 위해 서버를 다시 시작해야 할 수 있지만 이 경우 서버가 해당 작업을 수행할 때 잠깐 가동이 중단됩니다.
 
 서비스가 다른 작업 중이면 서버가 다시 시작되지 않습니다. 예를 들어, 서비스가 vCore 크기를 조정하는 것과 같이 이전에 요청된 작업을 처리할 수 있습니다.
  
 다시 시작을 완료하는 데 필요한 시간은 PostgreSQL 복구 프로세스에 따라 달라집니다. 다시 시작 시간을 줄이려면 다시 시작 전에 서버에서 발생하는 작업의 양을 최소화하는 것이 좋습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 이 방법 가이드를 완료하려면 다음이 필요합니다.
 - [PostgreSQL용 Azure Database 서버](quickstart-create-server-up-azure-cli.md)
 
@@ -32,7 +32,7 @@ ms.locfileid: "74770155"
 
 ## <a name="restart-the-server"></a>서버 다시 시작
 
-다음 명령을 사용 하 여 서버를 다시 시작 합니다.
+다음 명령으로 서버를 다시 시작합니다.
 
 ```azurecli-interactive
 az postgres server restart --name mydemoserver --resource-group myresourcegroup
@@ -40,4 +40,4 @@ az postgres server restart --name mydemoserver --resource-group myresourcegroup
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Database for PostgreSQL에서 매개 변수를 설정 하는 방법](howto-configure-server-parameters-using-cli.md) 에 대해 알아봅니다.
+[PostgreSQL에 대한 Azure 데이터베이스에서 매개 변수를 설정하는 방법에 대해](howto-configure-server-parameters-using-cli.md) 알아봅니다.

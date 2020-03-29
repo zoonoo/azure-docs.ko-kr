@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: b-juche
 ms.openlocfilehash: 996fbcc7c3c9af0da9160216785ecd54840660e8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65957029"
 ---
 # <a name="develop-for-azure-netapp-files-with-rest-api"></a>REST API를 사용한 Azure NetApp Files용 개발 
@@ -27,7 +27,7 @@ Azure NetApp Files 서비스용 REST API는 NetApp 계정, 용량 풀, 볼륨 �
 
 ## <a name="azure-netapp-files-rest-api-specification"></a>Azure NetApp 파일 REST API 사양
 
-이 통해 Azure NetApp 파일에 대 한 REST API 사양을 게시 [GitHub](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/netapp/resource-manager):
+Azure NetApp 파일에 대한 REST API 사양은 [GitHub를](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/netapp/resource-manager)통해 게시됩니다.
 
 `https://github.com/Azure/azure-rest-api-specs/tree/master/specification/netapp/resource-manager`
 

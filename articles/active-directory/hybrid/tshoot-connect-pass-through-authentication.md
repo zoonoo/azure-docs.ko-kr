@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ae83cea866367fa6a6596caa683d0287bea96c29
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60456180"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Azure Active Directory 통과 인증 문제 해결
@@ -28,7 +28,7 @@ ms.locfileid: "60456180"
 이 문서에서는 Azure AD 통과 인증과 관련된 일반적인 문제에 대한 문제 해결 정보를 찾을 수 있습니다.
 
 >[!IMPORTANT]
->통과 인증에서 사용자 로그인 문제가 발생하는 경우 클라우드 전용 전역 관리자 계정을 다시 사용하지 않고 해당 기능을 사용하지 않도록 설정하거나 통과 인증 에이전트를 제거하지 마세요. [클라우드 전용 전역 관리자 계정 추가](../active-directory-users-create-azure-portal.md)에 대해 자세히 알아봅니다. 이 단계를 수행하는 것이 중요하며 테넌트가 잠기지 않도록 합니다.
+>통과 인증에서 사용자 로그인 문제가 발생하는 경우 클라우드 전용 전역 관리자 계정을 다시 사용하지 않고 해당 기능을 사용하지 않도록 설정하거나 통과 인증 에이전트를 제거하지 마세요. 클라우드 [전용 글로벌 관리자 계정을 추가하는](../active-directory-users-create-azure-portal.md)방법에 대해 알아봅니다. 이 단계를 수행하는 것이 중요하며 테넌트가 잠기지 않도록 합니다.
 
 ## <a name="general-issues"></a>일반적인 문제
 
@@ -44,7 +44,7 @@ ms.locfileid: "60456180"
 
 사용자가 통과 인증을 통해 로그인할 수 없는 경우 Azure AD 로그인 화면에서 다음과 같은 사용자 관련 오류 메시지 중 하나가 표시될 수 있습니다. 
 
-|오류|설명|해결 방법
+|Error|설명|해결 방법
 | --- | --- | ---
 |AADSTS80001|Active Directory에 연결할 수 없음|에이전트 서버가 자신의 암호에 대한 유효성이 검사되어야 하는 사용자와 동일한 AD 포리스트의 멤버이고 Active Directory에 연결할 수 있는지 확인합니다.  
 |AADSTS8002|Active Directory에 연결하는 동안 시간 초과 발생|Active Directory를 사용할 수 있고 에이전트의 요청에 응답하는지 확인합니다.
@@ -58,7 +58,7 @@ ms.locfileid: "60456180"
 
 ![Azure Active Directory 관리 센터 - 로그인 보고서](./media/tshoot-connect-pass-through-authentication/pta4.png)
 
-[Azure Active Directory 관리 센터](https://aad.portal.azure.com/)에서 **Azure Active Directory** -> **로그인**으로 차례로 이동하고 특정 사용자의 로그인 활동을 클릭합니다. **로그인 오류 코드** 필드를 찾습니다. 다음 표를 사용하여 해당 필드의 값을 실패 이유 및 해결에 매핑합니다.
+[Azure Active Directory 관리 센터에서](https://aad.portal.azure.com/) Azure Active **Directory** -> **로그인으로** 이동하여 특정 사용자의 로그인 활동을 클릭합니다. **로그인 오류 코드** 필드를 찾습니다. 다음 표를 사용하여 해당 필드의 값을 실패 이유 및 해결에 매핑합니다.
 
 |로그인 오류 코드|로그인 실패 이유|해결 방법
 | --- | --- | ---
@@ -73,7 +73,7 @@ ms.locfileid: "60456180"
 | 80011 | 인증 에이전트에서 암호 해독 키를 검색할 수 없습니다. | 일관되게 재현될 수 있는 문제이면 새 인증 에이전트를 설치하고 등록합니다. 그리고 현재의 인증 에이전트는 제거합니다.
 
 >[!IMPORTANT]
->통과 인증 에이전트를 호출 하 여 해당 사용자 이름과 암호가 Active Directory에 대해 유효성을 검사 하 여 Azure AD 사용자를 인증 합니다 [Win32 LogonUser API](https://msdn.microsoft.com/library/windows/desktop/aa378184.aspx)합니다. 결과적으로, "로그온 To" 설정을 워크스테이션 로그온 액세스를 제한 하려면 Active Directory에서 설정한 경우에 "로그온" 서버에도 목록에 통과 인증 에이전트를 호스팅하는 서버를 추가 해야 합니다. 이렇게 하려면 실패 한 Azure AD 로그인에서 사용자가 차단 됩니다.
+>통과 인증 에이전트는 [Win32 LogonUser API를](https://msdn.microsoft.com/library/windows/desktop/aa378184.aspx)호출하여 Active Directory에 대해 사용자 이름과 암호를 검증하여 Azure AD 사용자를 인증합니다. 따라서 워크스테이션 로그온 액세스를 제한하기 위해 Active Directory에서 "로그온 투" 설정을 설정한 경우 통과 인증 에이전트를 호스팅하는 서버를 "로그온 투" 서버 목록에 추가해야 합니다. 이렇게 하지 않으면 사용자가 Azure AD에 로그인하지 못하게 됩니다.
 
 ## <a name="authentication-agent-installation-issues"></a>인증 에이전트 설치 문제
 
@@ -99,7 +99,7 @@ ms.locfileid: "60456180"
 
 ### <a name="warning-message-when-uninstalling-azure-ad-connect"></a>Azure AD Connect 제거 시 나타나는 경고 메시지
 
-테넌트에서 통과 인증을 사용하도록 설정했는데 Azure AD Connect를 제거하려고 시도하면 다음과 같은 경고 메시지가 표시됩니다. "다른 서버에 다른 통과 인증 에이전트가 설치되어 있지 않으면 사용자가 Azure AD에 로그인할 수 없습니다."
+테넌트에서 통과 인증을 사용하도록 설정했고 Azure AD Connect를 제거하려고 하면 "다른 통과 인증 에이전트가 다른 서버에 설치되어 있지 않으면 사용자가 Azure AD에 로그인할 수 없습니다."라는 경고 메시지가 표시됩니다.
 
 사용자 로그인이 중단되지 않도록 방지하려면 Azure AD Connect를 제거하기 전에 설정이 [고가용성](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability)이어야 합니다.
 
@@ -133,7 +133,7 @@ Azure AD Connect가 설치된 서버가 [여기](how-to-connect-pta-quick-start.
 
 ### <a name="detailed-trace-logs"></a>자세한 추적 로그
 
-사용자 로그인 실패 문제를 해결하려면 **%ProgramData%\Microsoft\Azure AD Connect Authentication Agent\Trace\\** 에서 추적 로그를 찾습니다. 이러한 로그에는 통과 인증 기능을 통해 특정 사용자 로그인이 실패한 이유가 포함되어 있습니다. 이러한 오류는 이전의 로그인 실패 이유 표에 나오는 로그인 실패 이유에도 매핑됩니다. 다음은 로그 항목의 예제입니다.
+사용자 로그인 실패 문제를 해결하려면 **%ProgramData%\Microsoft\Azure AD Connect Authentication Agent\Trace\\**에서 추적 로그를 찾습니다. 이러한 로그에는 통과 인증 기능을 통해 특정 사용자 로그인이 실패한 이유가 포함되어 있습니다. 이러한 오류는 이전의 로그인 실패 이유 표에 나오는 로그인 실패 이유에도 매핑됩니다. 다음은 로그 항목의 예제입니다.
 
 ```
     AzureADConnectAuthenticationAgentService.exe Error: 0 : Passthrough Authentication request failed. RequestId: 'df63f4a4-68b9-44ae-8d81-6ad2d844d84e'. Reason: '1328'.
@@ -141,7 +141,7 @@ Azure AD Connect가 설치된 서버가 [여기](how-to-connect-pta-quick-start.
         DateTime=xxxx-xx-xxTxx:xx:xx.xxxxxxZ
 ```
 
-명령 프롬프트를 열고 다음 명령을 실행하면 오류(이전 예제의 경우 '1328')에 대한 자세한 설명을 볼 수 있습니다(참고: '1328'을 로그에 표시되는 실제 오류 번호로 바꿔야 함).
+명령 프롬프트를 열고 다음 명령을 실행하면 오류(위 예제의 경우 '1328')에 대한 자세한 설명을 얻을 수 있습니다. 참고: '1328'을 로그에 표시되는 실제 오류 번호로 바꾸세요.
 
 `Net helpmsg 1328`
 
@@ -161,7 +161,7 @@ Azure AD Connect가 설치된 서버가 [여기](how-to-connect-pta-quick-start.
 
 ## <a name="performance-monitor-counters"></a>성능 모니터 카운터
 
-인증 에이전트를 모니터링하는 다른 방법은 인증 에이전트가 설치된 각 서버에서 특정 성능 모니터 카운터를 추적하는 것입니다. 다음 전역 카운터( **# PTA 인증**, **#PTA 실패 인증** 및 **#PTA 성공 인증**) 및 오류 카운터( **# PTA 인증 오류**)를 사용합니다.
+인증 에이전트를 모니터링하는 다른 방법은 인증 에이전트가 설치된 각 서버에서 특정 성능 모니터 카운터를 추적하는 것입니다. 다음 전역 카운터(**# PTA 인증**, **#PTA 실패 인증** 및 **#PTA 성공 인증**) 및 오류 카운터(**# PTA 인증 오류**)를 사용합니다.
 
 ![통과 인증 성능 모니터 카운터](./media/tshoot-connect-pass-through-authentication/pta12.png)
 

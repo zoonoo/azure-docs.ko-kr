@@ -1,19 +1,19 @@
 ---
-title: 경고 구성-Azure Portal Azure Database for PostgreSQL 단일 서버
-description: 이 문서에서는 Azure Portal에서 Azure Database for PostgreSQL 단일 서버에 대 한 메트릭 경고를 구성 하 고 액세스 하는 방법을 설명 합니다.
+title: 경고 구성 - Azure 포털 - PostgreSQL용 Azure 데이터베이스 - 단일 서버
+description: 이 문서에서는 Azure 포털에서 PostgreSQL - 단일 서버에 대한 Azure 데이터베이스에 대한 메트릭 경고를 구성하고 액세스하는 방법을 설명합니다.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: fe099dcb49d176d27466c08749a5873904d1ae2f
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74766840"
 ---
-# <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---single-server"></a>Azure Portal를 사용 하 여 Azure Database for PostgreSQL 단일 서버에 대 한 메트릭에 대 한 경고를 설정 합니다.
+# <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---single-server"></a>Azure 포털을 사용하여 PostgreSQL - 단일 서버에 대한 Azure 데이터베이스메트릭에 대한 경고를 설정합니다.
 
 이 문서에서는 Azure Portal을 사용하여 Azure Database for PostgreSQL 경고를 설정하는 방법을 보여 줍니다. Azure 서비스의 모니터링 메트릭을 기반으로 경고를 받을 수 있습니다.
 
@@ -48,7 +48,7 @@ ms.locfileid: "74766840"
    
    ![메트릭 선택](./media/howto-alert-on-metric/6-configure-signal-logic.png)
 
-7. **조건**(예: "보다 큼"), **임계값**(예: 85%), **시간 집계**, 경고를 트리거하기 전에 메트릭 규칙을 만족해야 하는 **기간**(예: "지난 30분") 및 **빈도**를 포함하는 경고 논리를 구성합니다.
+7. **조건**(예: "보다 큼"), **임계값**(예: 85%), **시간 집계**, 경고를 트리거하기 전에 메트릭 규칙을 만족해야 하는 **기간**(예: "지난 30 분 동안") 및 **주파수**.
    
    완료되면 **완료**를 선택합니다.
 

@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.openlocfilehash: 147dd0f454bd85673bcba5cd6148c5da9716c580
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65409046"
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>여러 디바이스에서 작업 예약
@@ -68,7 +68,7 @@ Content-Type: application/json; charset=utf-8
 
 [IoT Hub 쿼리 언어](iot-hub-devguide-query-language.md)에 IoT Hub 쿼리 언어의 더 자세한 설명이 나와 있습니다.
 
-다음 코드 조각은 요청 및 contoso-허브-1의 모든 장치에서 testMethod 라는 직접 메서드를 호출 하는 예약 된 작업에 대 한 응답을 보여 줍니다.
+다음 코드 조각은 contoso-hub-1의 모든 장치에서 testMethod라는 직접 메서드를 호출하도록 예약된 작업에 대한 요청 및 응답을 보여 주며 있습니다.
 
 ```
 PUT https://contoso-hub-1.azure-devices.net/jobs/v2/job01?api-version=2018-06-30 HTTP/1.1
@@ -121,9 +121,9 @@ Content-Type: application/json; charset=utf-8
 ```
 
 > [!NOTE]
-> 합니다 *updateTwin* 속성을 사용 하려면 유효한 etag 일치 하는 예를 들어, `etag="*"`합니다.
+> *updateTwin* 속성은 유효한 etag 일치가 필요합니다. 예를 들어, `etag="*"`을 참조하십시오.
 
-다음 코드 조각은 요청 및 contoso-허브-1에서 테스트 장치에 대 한 장치 쌍 속성을 업데이트 하는 예약 된 작업에 대 한 응답을 보여 줍니다.
+다음 코드 조각은 contoso-hub-1에서 테스트 장치에 대한 장치 쌍 속성을 업데이트하도록 예약된 작업에 대한 요청 및 응답을 보여 주며 있습니다.
 
 ```
 PUT https://contoso-hub-1.azure-devices.net/jobs/v2/job02?api-version=2018-06-30 HTTP/1.1
@@ -171,30 +171,30 @@ Content-Type: application/json; charset=utf-8
 
 응답에서 continuationToken이 제공됩니다.
 
-[디바이스 쌍, 작업 및 메시지 라우팅용 IoT Hub 쿼리 언어](iot-hub-devguide-query-language.md)를 사용하여 각 디바이스에서 작업 실행 상태를 쿼리할 수 있습니다.
+[디바이스 쌍, 작업 및 메시지 라우팅에 대한 IoT Hub 쿼리 언어](iot-hub-devguide-query-language.md)를 사용하여 각 디바이스에서 작업 실행 상태를 쿼리할 수 있습니다.
 
 ## <a name="jobs-properties"></a>작업 속성
 
 다음 목록은 작업 또는 작업 결과를 쿼리할 때 사용할 수 있는 속성 목록 및 해당 설명을 나타냅니다.
 
-| 자산 | 설명 |
+| 속성 | 설명 |
 | --- | --- |
-| **jobId** |작업에 대해 애플리케이션에서 제공한 ID입니다. |
+| **작업 ID** |작업에 대해 애플리케이션에서 제공한 ID입니다. |
 | **startTime** |작업에 대해 애플리케이션에서 제공한 시작 시간(ISO-8601)입니다. |
-| **endTime** |작업이 완료될 때 IoT Hub에서 제공한 날짜(ISO-8601)입니다. 작업이 '완료됨' 상태에 도달한 후에만 유효합니다. |
-| **type** |작업 형식: |
-| | **scheduleUpdateTwin**: Desired 속성 또는 태그 집합을 업데이트 하는 데 작업. |
-| | **scheduleDeviceMethod**: 장치 쌍의 집합에서 장치 메서드를 호출 하는 데 작업. |
+| **Endtime** |작업이 완료될 때 IoT Hub에서 제공한 날짜(ISO-8601)입니다. 작업이 '완료됨' 상태에 도달한 후에만 유효합니다. |
+| **종류** |작업 형식: |
+| | **scheduleUpdateTwin**: 원하는 속성 또는 태그 집합을 업데이트하는 데 사용되는 작업입니다. |
+| | **scheduleDeviceMethod**: 장치 쌍 집합에서 장치 메서드를 호출하는 데 사용되는 작업입니다. |
 | **상태** |작업의 현재 상태입니다. 가능한 상태 값: |
-| | **pending**: 예약 되어 작업 서비스에서 선택 되기를 기다립니다. |
-| | **scheduled**: 나중에 시간에 예약 합니다. |
-| | **실행**: 현재 활성 상태의 작업입니다. |
-| | **취소**: 작업이 취소 되었습니다. |
-| | **failed**: 작업이 실패 했습니다. |
-| | **완료**: 작업이 완료 되었습니다. |
+| | **보류 중** : 예약되어 작업 서비스에서 선택되기를 기다립니다. |
+| | **예약됨** : 이후 시간에 예약됩니다. |
+| | **실행 중** : 현재 활성 상태의 작업입니다. |
+| | **취소**: 작업이 취소되었습니다. |
+| | **실패함** : 작업이 실패했습니다. |
+| | **완료됨** : 작업이 완료되었습니다. |
 | **deviceJobStatistics** |작업 실행에 대한 통계입니다. |
-| | **deviceJobStatistics** 속성: |
-| | **deviceJobStatistics.deviceCount**: 작업에서 디바이스 수입니다. |
+| | **장치작업통계** 속성: |
+| | **deviceJobStatistics.deviceCount**: 작업의 디바이스 수입니다. |
 | | **deviceJobStatistics.failedCount**: 작업이 실패한 디바이스 수입니다. |
 | | **deviceJobStatistics.succeededCount**: 작업이 성공한 디바이스 수입니다. |
 | | **deviceJobStatistics.runningCount**: 현재 작업을 실행 중인 디바이스 수입니다. |
@@ -204,15 +204,15 @@ Content-Type: application/json; charset=utf-8
 
 이 IoT Hub 개발자 가이드의 다른 참조 자료:
 
-* [IoT Hub 엔드포인트](iot-hub-devguide-endpoints.md)는 각 IoT Hub에서 런타임 및 관리 작업에 대해 공개하는 다양한 엔드포인트에 대해 설명합니다.
+* [IoT Hub 엔드포인트](iot-hub-devguide-endpoints.md) - 각 IoT Hub에서 런타임 및 관리 작업에 대해 공개하는 다양한 엔드포인트에 대해 설명합니다.
 
 * [제한 및 할당량](iot-hub-devguide-quotas-throttling.md) - IoT Hub 서비스에 적용되는 할당량과 서비스를 사용할 때 예상되는 제한 동작에 대해 설명합니다.
 
-* [Azure IoT 디바이스 및 서비스 SDK](iot-hub-devguide-sdks.md)는 IoT Hub와 상호 작용하는 디바이스 및 서비스 앱 모두를 개발할 때 사용할 수 있는 다양한 언어 SDK를 나열합니다.
+* [Azure IoT 디바이스 및 서비스 SDK](iot-hub-devguide-sdks.md) - IoT Hub와 상호 작용하는 디바이스 및 서비스 앱 모두를 개발할 때 사용할 수 있는 다양한 언어 SDK를 나열합니다.
 
 * [디바이스 쌍, 작업 및 메시지 라우팅용 IoT Hub 쿼리 언어](iot-hub-devguide-query-language.md)에서는 IoT Hub 쿼리 언어를 설명합니다. 이 쿼리 언어를 사용하여 IoT Hub에서 디바이스 쌍 및 작업에 대한 정보를 검색합니다.
 
-* [IoT Hub MQTT 지원](iot-hub-mqtt-support.md)은 MQTT 프로토콜에 대한 IoT Hub 지원에 대해 자세히 설명합니다.
+* [IoT Hub MQTT 지원](iot-hub-mqtt-support.md) - MQTT 프로토콜에 대한 IoT Hub 지원에 대해 자세히 설명합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,5 +1,5 @@
 ---
-title: 복사 마법사를 사용 하 여 데이터를 쉽게 복사-Azure
+title: 복사 마법사 - Azure를 사용하여 데이터를 쉽게 복사
 description: Data Factory 복사 마법사를 사용하여 지원되는 데이터 소스의 데이터를 싱크로 복사하는 방법에 대해 알아보세요.
 services: data-factory
 documentationcenter: ''
@@ -14,15 +14,15 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 8b872cc30ae66e83274f189138dad6d609e3f536
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74927046"
 ---
 # <a name="copy-or-move-data-easily-with-azure-data-factory-copy-wizard"></a>Azure Data Factory 복사 마법사를 사용하여 데이터를 쉽게 복사 또는 이동
 > [!NOTE]
-> 이 문서는 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [복사 작업 자습서](../quickstart-create-data-factory-dot-net.md)를 참조하세요. 
+> 이 아티클은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [복사 작업 자습서](../quickstart-create-data-factory-dot-net.md)를 참조하세요. 
 
 
 Azure Data Factory Copy Wizard는 일반적으로 엔드투엔드 데이터 통합 시나리오의 첫 번째 단계인 데이터 수집 프로세스를 용이하게 합니다. Azure Data Factory Copy Wizard를 진행할 때는 연결된 서비스, 데이터 세트 및 파이프라인에 대한 JSON 정의를 이해할 필요가 없습니다. 그러나 마법사의 모든 단계를 완료한 후 선택한 데이터 원본에서 선택한 대상으로 데이터를 복사하는 파이프라인이 자동으로 생성됩니다. 또한 Copy Wizard를 사용하면 작성 당시에 수집 중인 데이터의 유효성을 검사할 수 있으므로 특히 데이터 원본에서 데이터를 처음 수집하는 경우 많은 시간이 절약됩니다. 복사 마법사를 시작하려면 Data Factory 홈 페이지에서 **데이터 복사** 타일을 클릭합니다.
@@ -62,7 +62,7 @@ Azure Data Factory Copy Wizard는 일반적으로 엔드투엔드 데이터 통�
 ![식 유효성 검사](./media/data-factory-copy-wizard/validate-expressions.png)
 
 ### <a name="filtering-of-data-in-an-azure-blob-folder"></a>Azure Blob 폴더의 데이터 필터링
-폴더 경로의 변수를 사용하여 [시스템 변수](data-factory-functions-variables.md#data-factory-system-variables)를 기반으로 런타임 시 결정되는 폴더의 데이터를 복사할 수 있습니다. 지원되는 변수는 **{year}** , **{month}** , **{day}** , **{hour}** , **{minute}** 및 **{custom}** 입니다. 예: inputfolder/{year}/{month}/{day}.
+폴더 경로의 변수를 사용하여 [시스템 변수](data-factory-functions-variables.md#data-factory-system-variables)를 기반으로 런타임 시 결정되는 폴더의 데이터를 복사할 수 있습니다. 지원되는 변수는 **{year}**, **{month}**, **{day}**, **{hour}**, **{minute}** 및 **{custom}** 입니다. 예: inputfolder/{year}/{month}/{day}.
 
 다음과 같은 형식의 입력 폴더가 있다고 가정하겠습니다.
 
@@ -71,7 +71,7 @@ Azure Data Factory Copy Wizard는 일반적으로 엔드투엔드 데이터 통�
     2016/03/01/03
     ...
 
-**파일 또는 폴더**의 **찾아보기** 단추를 클릭하여 이러한 폴더(예: 2016->03->01->02)중 하나를 찾아서 **선택**을 클릭합니다. 텍스트 상자에 `2016/03/01/02`가 표시됩니다. 이제 **2016** 을 **{year}** 로, **03** 을 **{month}** 로, **01** 을 **{Day}** 로, **02** 를 **{hour}** 로 바꾸고 tab 키를 누릅니다. 이러한 네 가지 변수에 대 한 형식을 선택 하는 드롭다운 목록이 표시 됩니다.
+**파일 또는 폴더**의 **찾아보기** 단추를 클릭하여 이러한 폴더(예: 2016->03->01->02)중 하나를 찾아서 **선택**을 클릭합니다. 텍스트 상자에 `2016/03/01/02`가 표시됩니다. 이제 **2016을** **{year}**, **03을** **{month}로,** **01을** {day}로, **02를** **{hour}로**바꾸고 **탭을**누릅니다. 다음 네 가지 변수에 대한 형식을 선택하는 드롭다운 목록이 표시됩니다.
 
 ![시스템 변수 사용](./media/data-factory-copy-wizard/blob-standard-variables-in-folder-path.png)   
 

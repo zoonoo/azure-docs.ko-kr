@@ -1,5 +1,5 @@
 ---
-title: Oracle Database에 연결
+title: 오라클 데이터베이스에 연결
 description: Oracle 데이터베이스 REST API 및 Azure Logic Apps로 레코드 삽입 및 관리
 services: logic-apps
 ms.suite: integration
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/29/2017
 tags: connectors
 ms.openlocfilehash: 99abd48bde97c2a2e085688cdfbb365e5e4cfd56
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74789429"
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Oracle 데이터베이스 커넥터 시작
@@ -23,7 +23,7 @@ Oracle 데이터베이스 커넥터를 사용하여 기존 데이터베이스의
 
 이 아티클에서는 논리 앱에서 Oracle 데이터베이스 커넥터를 사용하는 방법을 보여줍니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 지원되는 Oracle 버전: 
     * Oracle 9 이상
@@ -32,9 +32,9 @@ Oracle 데이터베이스 커넥터를 사용하여 기존 데이터베이스의
 * 온-프레미스 데이터 게이트웨이를 설치합니다. [논리 앱에서 온-프레미스 데이터에 연결](../logic-apps/logic-apps-gateway-connection.md)에 단계가 나열되어 있습니다. 게이트웨이는 온-프레미스 Oracle 데이터베이스 또는 Oracle DB가 설치된 Azure VM에 연결하는 데 필요합니다. 
 
     > [!NOTE]
-    > 온-프레미스 데이터 게이트웨이는 브리지 역할로, 온-프레미스 데이터(클라우드의 데이터가 아님)와 논리 앱 간의 보안 데이터 전송을 제공합니다. 여러 서비스 및 데이터 원본에 동일한 게이트웨이를 사용할 수 있습니다. 따라서 게이트웨이를 한 번만 설치 하면 됩니다.
+    > 온-프레미스 데이터 게이트웨이는 브리지 역할로, 온-프레미스 데이터(클라우드의 데이터가 아님)와 논리 앱 간의 보안 데이터 전송을 제공합니다. 여러 서비스 및 데이터 원본에 동일한 게이트웨이를 사용할 수 있습니다.따라서 게이트웨이를 한 번만 설치해야 할 수 있습니다.
 
-* 온-프레미스 데이터 게이트웨이를 설치한 컴퓨터에 Oracle 클라이언트를 설치합니다. Oracle에서 .NET 용 64 비트 Oracle Data Provider를 설치 해야 합니다.  
+* 온-프레미스 데이터 게이트웨이를 설치한 컴퓨터에 Oracle 클라이언트를 설치합니다.Oracle에서 제공하는 64비트 .NET용 Oracle Data Provider를 설치해야 합니다.  
 
   [Windows x64용 64비트 ODAC 12c 릴리스 4(12.1.0.2.4)](https://www.oracle.com/technetwork/database/windows/downloads/index-090165.html)
 
@@ -47,7 +47,7 @@ Oracle 데이터베이스 커넥터를 사용하여 기존 데이터베이스의
 > [!IMPORTANT]
 > 이 연결에는 트리거가 필요하지 않습니다. 작업만 있습니다. 따라서 논리 앱을 만들 때 **일정 - 되풀이** 또는 **요청/응답 - 응답**처럼 논리 앱을 시작하는 다른 트리거를 추가합니다. 
 
-1. [Azure Portal](https://portal.azure.com)에서 빈 논리 앱을 만듭니다.
+1. Azure [포털에서](https://portal.azure.com)빈 논리 앱을 만듭니다.
 
 2. 논리 앱 시작 시 **요청/응답 - 요청** 트리거를 선택합니다. 
 
@@ -81,7 +81,7 @@ Oracle 데이터베이스 커넥터를 사용하여 기존 데이터베이스의
 
 ### <a name="workflow-ideas"></a>워크플로 아이디어
 
-* \#oracle 해시 태그를 모니터하고 데이터베이스에 트윗을 배치하여 다른 애플리케이션 내에서 사용하고 쿼리할 수 있도록 하려고 합니다. 논리 앱에서 `Twitter - When a new tweet is posted` 트리거를 추가하고 **#oracle** 해시 태그를 입력합니다. 그런 다음 `Oracle Database - Insert row` 작업을 추가하고 테이블을 선택합니다.
+*  \#oracle 해시 태그를 모니터하고 데이터베이스에 트윗을 배치하여 다른 애플리케이션 내에서 사용하고 쿼리할 수 있도록 하려고 합니다. 논리 앱에서 `Twitter - When a new tweet is posted` 트리거를 추가하고 **#oracle** 해시 태그를 입력합니다. 그런 다음 `Oracle Database - Insert row` 작업을 추가하고 테이블을 선택합니다.
 
     ![](./media/connectors-create-api-oracledatabase/twitter-oracledb.png)
 
@@ -95,9 +95,9 @@ Oracle 데이터베이스 커넥터를 사용하여 기존 데이터베이스의
 
 **원인**: 온-프레미스 데이터 게이트웨이가 클라우드에 연결할 수 없습니다. 
 
-**완화**: 게이트웨이가 설치되어 있는 온-프레미스 컴퓨터에서 실행 중이며 인터넷에 연결할 수 있는지 확인합니다.  꺼져 있거나 절전 모드로 전환 될 수 있는 컴퓨터에 게이트웨이를 설치 하지 않는 것이 좋습니다. 온-프레미스 데이터 게이트웨이 서비스 (PBIEgwService)를 다시 시작할 수도 있습니다.
+**완화**: 게이트웨이가 설치되어 있는 온-프레미스 컴퓨터에서 실행 중이며 인터넷에 연결할 수 있는지 확인합니다.꺼져 있거나 절전 모드 상태일 수 있는 컴퓨터에는 게이트웨이를 설치하지 않는 것이 좋습니다.온-프레미스 데이터 게이트웨이 서비스(PBIEgwService)를 다시 시작할 수도 있습니다.
 
-#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-see-httpsgomicrosoftcomfwlinkplinkid272376httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**오류**: 사용 중인 공급자가 사용 중단됨: 'System.Data.OracleClient에 Oracle 클라이언트 소프트웨어 버전 8.1.7 이상이 필요합니다.' [https://go.microsoft.com/fwlink/p/?LinkID=272376](https://go.microsoft.com/fwlink/p/?LinkID=272376)을 참조하여 공식 공급자를 설치합니다.
+#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-see-httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**오류**: 사용 중인 공급자가 사용 중단됨: 'System.Data.OracleClient에 Oracle 클라이언트 소프트웨어 버전 8.1.7 이상이 필요합니다.' 공식 [https://go.microsoft.com/fwlink/p/?LinkID=272376](https://go.microsoft.com/fwlink/p/?LinkID=272376) 공급자를 설치하려면 확인하십시오.
 
 **원인**: 온-프레미스 데이터 게이트웨이가 실행 중인 컴퓨터에 Oracle 클라이언트 SDK가 설치되지 않았습니다.  
 
@@ -123,8 +123,8 @@ Oracle 데이터베이스 커넥터를 사용하여 기존 데이터베이스의
 
 [Azure Logic Apps 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)에서는 질문하고, 질문에 답변하고, 다른 Logic Apps 사용자가 어떤 일을 하는지 확인할 수 있습니다. 
 
-[https://aka.ms/logicapps-wish](https://aka.ms/logicapps-wish)에서 투표하고 아이디어를 제출해 주시면 Logic Apps 및 커넥터를 개선하는 데 도움이 될 수 있습니다. 
+에서 [https://aka.ms/logicapps-wish](https://aka.ms/logicapps-wish)아이디어를 투표하고 제출하여 로직 앱 및 커넥터를 개선할 수 있습니다. 
 
 
 ## <a name="next-steps"></a>다음 단계
-[논리 앱을 만들고](../logic-apps/quickstart-create-first-logic-app-workflow.md) [API 목록](apis-list.md)에서 Logic Apps의 사용 가능한 커넥터를 탐색합니다.
+[논리 앱을 만들고](../logic-apps/quickstart-create-first-logic-app-workflow.md)[API 목록](apis-list.md)에서 Logic Apps의 사용 가능한 커넥터를 탐색합니다.

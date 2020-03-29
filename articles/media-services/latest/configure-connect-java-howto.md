@@ -1,6 +1,6 @@
 ---
-title: Azure Media Services v3 API에 연결-Java
-description: 이 문서에서는 Java를 사용 하 여 Azure Media Services v3 API에 연결 하는 방법을 설명 합니다.
+title: Azure 미디어 서비스 v3 API에 연결 - Java
+description: 이 문서에서는 Java를 사용하여 Azure 미디어 서비스 v3 API에 연결하는 방법을 설명합니다.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,52 +14,52 @@ ms.topic: article
 ms.date: 09/18/2019
 ms.author: juliako
 ms.openlocfilehash: 6b0f21c3fa7a9c827f7201f4b899a33ea77eaf08
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74888498"
 ---
-# <a name="connect-to-media-services-v3-api---java"></a>Media Services v3 API에 연결-Java
+# <a name="connect-to-media-services-v3-api---java"></a>미디어 서비스 v3 API에 연결 - Java
 
-이 문서에서는 서비스 사용자 로그인 메서드를 사용 하 여 Azure Media Services v3 Java SDK에 연결 하는 방법을 보여 줍니다.
+이 문서에서는 서비스 주체 로그인 방법을 사용하여 Azure 미디어 서비스 v3 Java SDK에 연결하는 방법을 보여 주며 있습니다.
 
-이 문서에서 Visual Studio Code는 샘플 앱을 개발 하는 데 사용 됩니다.
+이 문서에서는 Visual Studio 코드가 샘플 앱을 개발하는 데 사용됩니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-- [Visual Studio Code를 사용 하 여 Java 작성](https://code.visualstudio.com/docs/java/java-tutorial) 다음을 설치 합니다.
+- [설치하려면 Visual Studio 코드로 Java 쓰기를](https://code.visualstudio.com/docs/java/java-tutorial) 따르십시오.
 
    - JDK
    - Apache Maven
-   - Java 확장 팩
-- `JAVA_HOME` 및 `PATH` 환경 변수를 설정 해야 합니다.
-- [Media Services 계정 만들기](create-account-cli-how-to.md) 리소스 그룹 이름 및 Media Services 계정 이름을 명심 해야 합니다.
-- [Api 액세스](access-api-cli-how-to.md) 항목의 단계를 따릅니다. 이후 단계에서 필요한 구독 ID, 응용 프로그램 ID (클라이언트 ID), 인증 키 (비밀) 및 테 넌 트 ID를 기록 합니다.
+   - 자바 확장 팩
+- 변수를 `PATH` 설정하고 `JAVA_HOME` 환경화해야 합니다.
+- [Media Services 계정 만들기](create-account-cli-how-to.md) 리소스 그룹 이름과 Media Services 계정 이름을 기억해야 합니다.
+- [액세스 API](access-api-cli-how-to.md) 항목의 단계를 따릅니다. 이후 단계에서 필요한 구독 ID, 응용 프로그램 ID(클라이언트 ID), 인증 키(비밀) 및 테넌트 ID를 기록합니다.
 
-또한 다음을 검토 합니다.
+또한 검토:
 
-- [Visual Studio Code의 Java](https://code.visualstudio.com/docs/languages/java)
-- [VS Code의 Java 프로젝트 관리](https://code.visualstudio.com/docs/java/java-project)
+- [비주얼 스튜디오 코드의 자바](https://code.visualstudio.com/docs/languages/java)
+- [VS 코드의 Java 프로젝트 관리](https://code.visualstudio.com/docs/java/java-project)
 
 > [!IMPORTANT]
-> [명명 규칙](media-services-apis-overview.md#naming-conventions)을 검토 합니다.
+> [명명 규칙을 검토합니다.](media-services-apis-overview.md#naming-conventions)
 
 ## <a name="create-a-maven-project"></a>Maven 프로젝트 만들기
 
-명령줄 도구를 열고 프로젝트를 만들려는 디렉터리로 `cd` 합니다.
+명령줄 도구를 `cd` 열고 프로젝트를 만들 디렉터리로 이동합니다.
     
 ```
 mvn archetype:generate -DgroupId=com.azure.ams -DartifactId=testAzureApp -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
 ```
 
-명령을 실행 하면 `pom.xml`, `App.java`및 기타 파일이 만들어집니다. 
+명령을 실행하면 `pom.xml`에서 `App.java`및 기타 파일이 만들어집니다. 
 
 ## <a name="add-dependencies"></a>종속성 추가
 
-1. Visual Studio Code에서 프로젝트가 있는 폴더를 엽니다.
-1. `pom.xml`를 찾아서 엽니다.
-1. 필요한 종속성을 추가 합니다.
+1. 비주얼 스튜디오 코드에서 프로젝트가 있는 폴더를 엽니다.
+1. 찾기 및 열기`pom.xml`
+1. 필요한 종속성 추가
 
     ```xml
    <dependency>
@@ -81,7 +81,7 @@ mvn archetype:generate -DgroupId=com.azure.ams -DartifactId=testAzureApp -Darche
 
 ## <a name="connect-to-the-java-client"></a>Java 클라이언트에 연결
 
-1. `src\main\java\com\azure\ams`에서 `App.java` 파일을 열고 패키지가 맨 위에 포함 되는지 확인 합니다.
+1. 아래 `src\main\java\com\azure\ams` `App.java` 파일을 열고 패키지가 맨 위에 포함되어 있는지 확인합니다.
 
     ```java
     package com.azure.ams;
@@ -94,7 +94,7 @@ mvn archetype:generate -DgroupId=com.azure.ams -DartifactId=testAzureApp -Darche
    import com.microsoft.azure.management.mediaservices.v2018_07_01.implementation.MediaManager;
    import com.microsoft.rest.LogLevel;
    ```
-1. 요청을 수행 하는 데 필요한 Active Directory 자격 증명을 만들려면 App 클래스의 main 메서드에 다음 코드를 추가 하 고 [액세스 api](access-api-cli-how-to.md)에서 얻은 값을 설정 합니다.
+1. 요청을 해야 하는 Active Directory 자격 증명을 만들려면 다음 코드를 App 클래스의 기본 메서드에 추가하고 [Access API에서](access-api-cli-how-to.md)얻은 값을 설정합니다.
    
    ```java
    final String clientId = "00000000-0000-0000-0000-000000000000";
@@ -119,15 +119,15 @@ mvn archetype:generate -DgroupId=com.azure.ams -DartifactId=testAzureApp -Darche
    ```
 1. 앱을 실행합니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 - [Media Services 개념](concepts-overview.md)
 - [Java SDK](https://aka.ms/ams-v3-java-sdk)
-- [Java 참조](https://aka.ms/ams-v3-java-ref)
-- [com.microsoft.azure.mediaservices.v2018_07_01:azure-mgmt-media](https://search.maven.org/artifact/com.microsoft.azure.mediaservices.v2018_07_01/azure-mgmt-media/1.0.0-beta/jar)
+- [자바 참조](https://aka.ms/ams-v3-java-ref)
+- [com.마이크로소프트.azure.mediaservices.v2018_07_01:azure-mgmt-미디어](https://search.maven.org/artifact/com.microsoft.azure.mediaservices.v2018_07_01/azure-mgmt-media/1.0.0-beta/jar)
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 `import com.microsoft.azure.management.mediaservices.v2018_07_01.*;`를 포함 하 고 엔터티 조작을 시작할 수 있습니다.
+이제 엔터티를 `import com.microsoft.azure.management.mediaservices.v2018_07_01.*;` 포함하고 조작할 수 있습니다.
 
-더 많은 코드 예제는 [JAVA SDK 샘플](https://docs.microsoft.com/samples/azure-samples/media-services-v3-java/azure-media-services-v3-samples-using-java/) 리포지토리를 참조 하세요.
+자세한 코드 예제는 [Java SDK 샘플 리포지토리를 참조하세요.](https://docs.microsoft.com/samples/azure-samples/media-services-v3-java/azure-media-services-v3-samples-using-java/)

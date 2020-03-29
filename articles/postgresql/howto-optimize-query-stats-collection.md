@@ -1,19 +1,19 @@
 ---
-title: 쿼리 통계 수집 최적화-Azure Database for PostgreSQL 단일 서버
-description: 이 문서에서는 Azure Database for PostgreSQL 단일 서버에서 쿼리 통계 수집을 최적화 하는 방법을 설명 합니다.
+title: 쿼리 통계 수집 최적화 - PostgreSQL용 Azure 데이터베이스 - 단일 서버
+description: 이 문서에서는 PostgreSQL - 단일 서버에 대한 Azure 데이터베이스에서 쿼리 통계 컬렉션을 최적화하는 방법에 대해 설명합니다.
 author: dianaputnam
 ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: f467f01118470eb51f7decf3bd6457917c566723
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74770172"
 ---
-# <a name="optimize-query-statistics-collection-on-an-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL 단일 서버에서 쿼리 통계 수집 최적화
+# <a name="optimize-query-statistics-collection-on-an-azure-database-for-postgresql---single-server"></a>PostgreSQL - 단일 서버에 대한 Azure 데이터베이스에서 쿼리 통계 수집 최적화
 이 문서에서는 Azure Database for PostgreSQL 서버에서 쿼리 통계 컬렉션을 최적화하는 방법을 설명합니다.
 
 ## <a name="use-pg_stats_statements"></a>pg_stats_statements 사용
@@ -37,6 +37,6 @@ Azure Database for PostgreSQL의 [쿼리 저장소](concepts-query-store.md) 기
 ## <a name="next-steps"></a>다음 단계
 [Azure Portal](howto-configure-server-parameters-using-portal.md)에서 `pg_stat_statements.track = NONE`을 설정하거나 [Azure CLI](howto-configure-server-parameters-using-cli.md)을 사용하는 것이 좋습니다.
 
-자세한 내용은 
+자세한 내용은 다음을 참조하세요. 
 - [쿼리 저장소 사용 시나리오](concepts-query-store-scenarios.md) 
 - [쿼리 저장소 모범 사례](concepts-query-store-best-practices.md) 

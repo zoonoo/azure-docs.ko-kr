@@ -1,6 +1,6 @@
 ---
-title: 일시적인 연결 오류 처리-Azure Database for PostgreSQL 단일 서버
-description: Azure Database for PostgreSQL 단일 서버에 대 한 일시적인 연결 오류를 처리 하는 방법을 알아봅니다.
+title: 일시적인 연결 오류 처리 - PostgreSQL용 Azure 데이터베이스 - 단일 서버
+description: PostgreSQL - 단일 서버에 대한 Azure 데이터베이스에 대한 일시적인 연결 오류를 처리하는 방법에 대해 알아봅니다.
 keywords: PostgreSQL 연결, 연결 문자열, 연결 문제, 일시적 오류, 연결 오류
 author: jan-eng
 ms.author: janeng
@@ -8,19 +8,19 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: fe5b772946bece165a4e09f170355dc7b595a48f
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74768846"
 ---
-# <a name="handling-transient-connectivity-errors-for-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL-단일 서버에 대 한 일시적인 연결 오류 처리
+# <a name="handling-transient-connectivity-errors-for-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL에 대한 일시적 연결 오류 처리 - 단일 서버
 
-이 문서에서는 Azure Database for PostgreSQL에 연결 하는 일시적인 오류를 처리 하는 방법을 설명 합니다.
+이 문서에서는 PostgreSQL용 Azure 데이터베이스에 연결하는 일시적인 오류를 처리하는 방법을 설명합니다.
 
 ## <a name="transient-errors"></a>일시적 오류
 
-일시적 결함이라고도 하는 일시적 오류는 자체적으로 해결되는 오류입니다. 가장 일반적으로 이러한 오류는 삭제되는 데이터베이스 서버에 대한 연결로 나타납니다. 또한 서버에 대한 새 연결을 열 수 없습니다. 예를 들어 하드웨어 또는 네트워크 오류가 발생할 때 일시적 오류가 발생할 수 있습니다. 또 다른 이유는 롤아웃 중인 PaaS 서비스의 새 버전이 될 수 있습니다. 이러한 이벤트의 대부분은 시스템에 의해 60 초 이내에 자동으로 완화 됩니다. 클라우드에서 애플리케이션을 설계하고 개발하는 가장 좋은 방법은 일시적 오류를 예상하는 것입니다. 언제든지 모든 구성 요소에서 발생할 수 있으며 이러한 상황을 처리할 수 있는 적절한 논리를 갖추고 있다고 가정합니다.
+일시적 결함이라고도 하는 일시적 오류는 자체적으로 해결되는 오류입니다. 가장 일반적으로 이러한 오류는 삭제되는 데이터베이스 서버에 대한 연결로 나타납니다. 또한 서버에 대한 새 연결을 열 수 없습니다. 예를 들어 하드웨어 또는 네트워크 오류가 발생할 때 일시적 오류가 발생할 수 있습니다. 또 다른 이유는 롤아웃 중인 PaaS 서비스의 새 버전일 수 있습니다. 이러한 이벤트의 대부분은 60초 이내에 시스템에서 자동으로 완화됩니다. 클라우드에서 애플리케이션을 설계하고 개발하는 가장 좋은 방법은 일시적 오류를 예상하는 것입니다. 언제든지 모든 구성 요소에서 발생할 수 있으며 이러한 상황을 처리할 수 있는 적절한 논리를 갖추고 있다고 가정합니다.
 
 ## <a name="handling-transient-errors"></a>일시적 오류 처리
 

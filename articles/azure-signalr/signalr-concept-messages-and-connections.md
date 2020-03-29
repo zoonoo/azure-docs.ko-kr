@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: zhshang
 ms.openlocfilehash: 5f6428231a3639738e8fb52e7dc3f2f2a3d2a26e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75392821"
 ---
 # <a name="messages-and-connections-in-azure-signalr-service"></a>Azure SignalR Service의 메시지 및 연결
@@ -20,7 +20,7 @@ Azure SignalR Service의 청구 모델은 연결 수와 메시지 수를 기반�
 
 ## <a name="message-formats"></a>메시지 형식 
 
-Azure SignalR Service는 ASP.NET Core SignalR와 동일한 형식 ( [JSON](https://www.json.org/) 및 [MessagePack](/aspnet/core/signalr/messagepackhubprotocol))을 지원 합니다.
+Azure SignalR 서비스는 코어 신호기 ASP.NET [JSON](https://www.json.org/) 및 [메시지 팩과](/aspnet/core/signalr/messagepackhubprotocol)동일한 형식을 지원합니다.
 
 ## <a name="message-size"></a>메시지 크기
 
@@ -40,15 +40,15 @@ Azure SignalR Service에서 나가는 아웃바운드 메시지만 청구 대상
 
 ## <a name="how-connections-are-counted"></a>연결 수를 계산하는 방법
 
-Azure SignalR Service를 사용 하는 서버 연결 및 클라이언트 연결이 있습니다. 기본적으로 각 응용 프로그램 서버는 허브 당 5 개의 초기 연결로 시작 하 고 각 클라이언트에는 하나의 클라이언트 연결이 있습니다.
+Azure SignalR 서비스와 서버 연결 및 클라이언트 연결이 있습니다. 기본적으로 각 응용 프로그램 서버는 허브당 5개의 초기 연결로 시작하며 각 클라이언트에는 하나의 클라이언트 연결이 있습니다.
 
 Azure Portal에 표시되는 연결 수에는 서버 연결과 클라이언트 연결이 모두 포함됩니다.
 
-예를 들어 고객에게 2개의 애플리케이션 서버가 있고 코드로 허브 5개를 정의한다고 가정해 봅시다. 서버 연결 수는 50:2 개의 앱 서버 * 5 허브 * 허브 당 5 개의 연결입니다.
+예를 들어 고객에게 2개의 애플리케이션 서버가 있고 코드로 허브 5개를 정의한다고 가정해 봅시다. 서버 연결 수는 50: 2개의 앱 서버 * 허브당 5개의 허브 * 5개의 연결입니다.
 
-ASP.NET SignalR은 다른 방법으로 서버 연결 수를 계산합니다. 고객이 정의하는 허브 외에도 기본 허브 하나가 포함됩니다. 기본적으로 각 응용 프로그램 서버에는 5 개의 초기 서버 연결이 필요 합니다. 기본 허브에 대 한 초기 연결 수는 다른 허브와 일치 하는 것으로 유지 됩니다.
+ASP.NET SignalR은 다른 방법으로 서버 연결 수를 계산합니다. 고객이 정의하는 허브 외에도 기본 허브 하나가 포함됩니다. 기본적으로 각 응용 프로그램 서버에는 5개의 초기 서버 연결이 더 필요합니다. 기본 허브의 초기 연결 수는 다른 허브의 연결과 일치하게 유지됩니다.
 
-응용 프로그램 서버의 수명 동안 서비스와 응용 프로그램 서버는 동기화 연결 상태를 유지 하 고 성능 및 서비스 안정성 향상을 위해 서버 연결을 조정 합니다. 따라서 서버 연결 번호가 시간에서 변경 되는 것을 볼 수 있습니다.
+응용 프로그램 서버의 수명 동안 서비스 및 응용 프로그램 서버는 동기화 연결 상태를 유지하고 서버 연결을 조정하여 성능과 서비스 안정성을 향상시고 있습니다. 따라서 서버 연결 번호가 수시로 변경될 수 있습니다.
 
 ## <a name="how-inboundoutbound-traffic-is-counted"></a>인바운드/아웃바운드 트래픽을 계산하는 방법
 

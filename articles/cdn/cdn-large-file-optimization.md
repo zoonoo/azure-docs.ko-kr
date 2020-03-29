@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/01/2018
 ms.author: magattus
 ms.openlocfilehash: 4fe72985a799595908a0ff6bceb1a73dca823c8f
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67593778"
 ---
 # <a name="large-file-download-optimization-with-azure-cdn"></a>Azure CDN을 통해 대용량 파일 다운로드 최적화
@@ -110,8 +110,8 @@ CDN은 받은 청크를 모두 캐시합니다. CDN 캐시에서 전체 파일�
 
 |    | 일반 웹 | 대용량 파일 최적화 
 --- | --- | --- 
-Caching: 양수 <br> HTTP 200, 203, 300, <br> 301, 302 및 410 | 7 일 |1일  
-Caching: 음수 <br> HTTP 204, 305, 404 <br> 및 405 | 없음 | 1 초 
+캐싱: 긍정 <br> HTTP 200, 203, 300, <br> 301, 302 및 410 | 7 일 |1일  
+캐싱: 부정 <br> HTTP 204, 305, 404 <br> 및 405 | None | 1초 
 
 ### <a name="deal-with-origin-failure"></a>원본 오류 처리
 
@@ -130,7 +130,7 @@ Caching: 음수 <br> HTTP 204, 305, 404 <br> 및 405 | 없음 | 1 초
 최대 파일 크기 | 150GB 
 원본 서버 특성 | 바이트 범위 요청을 지원해야 함 
 
-## <a name="additional-considerations"></a>추가 고려 사항
+## <a name="additional-considerations"></a>기타 고려 사항
 
 이 최적화 형식을 사용할 때 추가로 고려해야 할 다음 몇 가지 측면이 있습니다.
 

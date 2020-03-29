@@ -7,17 +7,17 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: 04ac6c2bf0137289221a4ae6ed58d5a71ad21739
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68950232"
 ---
-# <a name="how-to-data-profile-data-sources-in-azure-data-catalog"></a>Azure Data Catalog에서 데이터 소스를 프로 파일링 하는 방법
+# <a name="how-to-data-profile-data-sources-in-azure-data-catalog"></a>Azure 데이터 카탈로그의 데이터 프로필 데이터 원본데이터
 
 ## <a name="introduction"></a>소개
 
-**Microsoft Azure 데이터 카탈로그** 는 등록 시스템 및 기업 데이터 원본을 위한 검색 시스템 역할을 하는 완전히 관리되는 클라우드 서비스입니다. 다시 말해서 **Azure 데이터 카탈로그** 는 사람들이 데이터 원본을 검색하고 이해하고 사용하도록 도우면서 조직의 기존 데이터로부터 더 많은 가치를 얻어내도록 돕는 역할을 합니다. **Azure Data Catalog**를 사용하여 데이터 원본을 등록하면 해당 메타데이터를 복사하고 서비스로 인덱싱하지만 여기서 끝이 아닙니다.
+**Microsoft Azure 데이터 카탈로그**는 등록 시스템 및 기업 데이터 원본을 위한 검색 시스템 역할을 하는 완전히 관리되는 클라우드 서비스입니다. 즉, **Azure 데이터 카탈로그는** 사람들이 데이터 원본을 검색, 이해 및 사용할 수 있도록 돕고 조직이 기존 데이터에서 더 많은 가치를 얻을 수 있도록 돕는 것입니다. **Azure Data Catalog**를 사용하여 데이터 원본을 등록하면 해당 메타데이터를 복사하고 서비스로 인덱싱하지만 여기서 끝이 아닙니다.
 
 **Azure Data Catalog**의 **데이터 프로파일링** 기능은 카탈로그에서 지원되는 데이터 원본에서 데이터를 검사하고 해당 데이터에 대한 통계 및 정보를 수집합니다. 데이터 자산의 프로필을 포함하는 것은 쉽습니다. 데이터 자산을 등록하면 데이터 원본 등록 도구에서 **데이터 프로필 포함** 을 선택합니다.
 
@@ -51,7 +51,7 @@ ms.locfileid: "68950232"
 
 데이터 원본의 프로필을 포함하는 것은 쉽습니다. 데이터 원본에 등록할 때 데이터 원본 등록 도구의 **등록할 개체** 패널에서 **데이터 프로필 포함**을 선택합니다.
 
-![데이터 프로필 포함 확인란](media/data-catalog-data-profile/data-catalog-register-profile.png)
+![데이터 프로파일 확인란 포함](media/data-catalog-data-profile/data-catalog-register-profile.png)
 
 데이터 원본을 등록하는 방법에 대해 자세히 알아보려면 [데이터 원본을 등록하는 방법](data-catalog-how-to-register.md) 및 [Azure Data Catalog 시작](data-catalog-get-started.md)을 참조하세요.
 
@@ -88,7 +88,7 @@ ms.locfileid: "68950232"
 
 데이터 프로파일링은 등록된 데이터 자산에 대한 통계와 정보를 제공하여 비즈니스 문제를 해결하기 위해 데이터의 적합성을 결정할 수 있도록 합니다. 주석 달기 및 데이터 원본을 문서화하는 작업과 함께 데이터 프로필은 사용자가 데이터를 잘 이해할 수 있도록 합니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>관련 항목
 
 * [데이터 원본을 등록하는 방법](data-catalog-how-to-register.md)
-* [Azure 데이터 카탈로그 시작](data-catalog-get-started.md)
+* [Azure Azure Data Catalog 시작](data-catalog-get-started.md)

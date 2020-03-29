@@ -16,13 +16,13 @@ ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: juliako
 ms.openlocfilehash: d2f4ddfbff791fbfeb2eb006a628c0fdeb4fdce1
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74975196"
 ---
-# <a name="hybrid-design-of-drm-subsystems"></a>DRM 하위 시스템의 하이브리드 디자인 
+# <a name="hybrid-design-of-drm-subsystems"></a>DRM 하위 시스템의 하이브리드 설계 
 
 이 항목에서는 Azure Media Services를 사용하는 DRM 하위 시스템의 하이브리드 디자인에 대해 설명합니다.
 
@@ -93,9 +93,9 @@ DRM/CENC 하위 시스템 설계 및 구현에 대한 자세한 내용은 [다�
 
 ## <a name="scenarios-and-samples"></a>시나리오 및 샘플
 
-이전 섹션의 설명에 따라 다음 5가지 하이브리드 시나리오에서는 각각의 **콘텐츠 키**-**자산 배정 정책** 구성 조합을 사용합니다(마지막 열에 언급된 샘플은 표에 나와 있음).
+이전 섹션의 설명에 따라 다음 5개의 하이브리드 시나리오에서는 각 **콘텐츠 키**-**자산 배달 정책** 구성 조합(마지막 열에 언급된 샘플은 표를 따릅니다)을 사용합니다.
 
-|**콘텐츠 호스팅 및 원본**|**DRM 암호화**|**DRM 라이선스 배달**|**콘텐츠 키 구성**|**자산 배달 정책 구성**|**샘플**|
+|**콘텐츠 호스팅 및 원본**|**DRM 암호화**|**DRM 라이선스 배달**|**콘텐츠 키 구성**|**자산 제공 정책 구성**|**예제**|
 |---|---|---|---|---|---|
 |AMS|AMS|AMS|yes|yes|샘플 1|
 |AMS|AMS|타사|yes|yes|샘플 2|

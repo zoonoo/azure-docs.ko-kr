@@ -1,16 +1,16 @@
 ---
-title: Azure Logic Apps에서 웹 Api & REST Api 배포 및 호출
-description: Azure Logic Apps에서 시스템 통합 워크플로에 대 한 REST Api & 웹 Api 배포 및 호출
+title: Azure 논리 앱에서 나머지 API를 & 웹 API 배포 및 호출
+description: Azure Logic Apps에서 시스템 통합 워크플로를 위해 웹 API & REST API 배포 및 호출
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 05/26/2017
 ms.openlocfilehash: d1305be54a22b1460000a357074cbb1f67123bd6
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74790760"
 ---
 # <a name="deploy-and-call-custom-apis-from-workflows-in-azure-logic-apps"></a>Azure Logic Apps의 워크플로에서 사용자 지정 API 배포 및 호출
@@ -31,7 +31,7 @@ ms.locfileid: "74790760"
 
    ![사용자 지정 API에 대한 OpenAPI 파일에 연결](./media/logic-apps-custom-api-deploy-call/custom-api-swagger-url.png)
 
-3. **API** 아래에서 **CORS**를 선택합니다. **허용된 원본**에 대한 CORS 정책을 **'*'** (모두 허용)로 설정합니다.
+3. **API** 아래에서 **CORS**를 선택합니다. **허용된 원본**에 대한 CORS 정책을 **'*'**(모두 허용)로 설정합니다.
 
    이 설정은 Logic App Designer의 요청을 허용합니다.
 

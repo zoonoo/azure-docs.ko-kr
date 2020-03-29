@@ -10,14 +10,14 @@ ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.openlocfilehash: 572139743c66546622450cef8f8a0fa264d24779
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65519974"
 ---
 # <a name="troubleshoot-issues-when-you-use-the-java-async-sdk-with-azure-cosmos-db-sql-api-accounts"></a>Azure Cosmos DB SQL API 계정에서 Java 비동기 SDK를 사용하는 경우 발생하는 문제 해결
-이 문서에서는 Azure Cosmos DB SQL API 계정으로 [Java 비동기 SDK](sql-api-sdk-async-java.md)를 사용할 때 일반적인 문제, 해결, 진단 단계 및 도구를 설명합니다.
+이 문서에서는 Azure Cosmos DB SQL API 계정과 함께 [Java 비동기 SDK를](sql-api-sdk-async-java.md) 사용할 때의 일반적인 문제, 해결 방법, 진단 단계 및 도구를 다룹니다.
 Java 비동기 SDK는 Azure Cosmos DB SQL API에 액세스하기 위한 클라이언트 쪽 논리적 표현을 제공합니다. 이 문서에서는 문제가 발생하는 경우 사용자에게 도움이 되는 도구 및 방법을 설명합니다.
 
 이 목록을 사용하여 시작합니다.
@@ -27,7 +27,7 @@ Java 비동기 SDK는 Azure Cosmos DB SQL API에 액세스하기 위한 클라�
 * [성능 팁](performance-tips-async-java.md)을 검토하고 제안된 사례를 따릅니다.
 * 솔루션을 찾지 못한 경우 이 문서의 나머지 부분을 읽어봅니다. 그런 후, [GitHub 문제](https://github.com/Azure/azure-cosmosdb-java/issues)를 제출합니다.
 
-## <a name="common-issues-workarounds"></a>일반적인 문제 및 해결 방법
+## <a name="common-issues-and-workarounds"></a><a name="common-issues-workarounds"></a>일반적인 이슈 및 해결 방법
 
 ### <a name="network-issues-netty-read-timeout-failure-low-throughput-high-latency"></a>네트워크 문제, Netty 읽기 시간 제한 오류, 낮은 처리량, 높은 대기 시간
 
@@ -38,7 +38,7 @@ Java 비동기 SDK는 Azure Cosmos DB SQL API에 액세스하기 위한 클라�
 #### <a name="connection-throttling"></a>연결 제한
 연결 제한은 [호스트 컴퓨터의 연결 제한] 또는 [Azure SNAT(PAT) 포트 고갈] 중 하나로 인해 발생할 수 있습니다.
 
-##### <a name="connection-limit-on-host"></a>호스트 컴퓨터의 연결 제한
+##### <a name="connection-limit-on-a-host-machine"></a><a name="connection-limit-on-host"></a>호스트 컴퓨터의 연결 제한
 일부 Linux 시스템(예: 'Red Hat')에는 열려 있는 파일의 총 수에 상한이 있습니다. Linux의 소켓은 파일로 구현되므로 이 숫자는 총 연결 수도 제한합니다.
 다음 명령을 실행합니다.
 
@@ -47,7 +47,7 @@ ulimit -a
 ```
 "nofile"로 식별되는 허용되는 열린 파일의 최대 수는 연결 풀 크기의 두 배 이상이어야 합니다. 자세한 내용은 [성능 팁](performance-tips-async-java.md)을 참조하세요.
 
-##### <a name="snat"></a>Azure SNAT(PAT) 포트 고갈
+##### <a name="azure-snat-pat-port-exhaustion"></a><a name="snat"></a>Azure SNAT(PAT) 포트 고갈
 
 공용 IP 주소 없이 앱이 Azure Virtual Machines에 배포되는 경우 기본적으로 [Azure SNAT 포트](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports)는 VM 외부의 모든 엔드포인트에 대한 연결을 설정하는 데 사용됩니다. VM에서 Azure Cosmos DB 엔드포인트로 허용되는 연결 수는 [Azure SNAT 구성](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports)으로 제한됩니다.
 
@@ -58,15 +58,15 @@ ulimit -a
     서비스 엔드포인트를 사용하도록 설정한 경우 요청이 더 이상 공용 IP에서 Azure Cosmos DB로 전송되지 않습니다. 대신 가상 네트워크 및 서브넷 ID가 전송됩니다. 공용 IP만 허용되는 경우 이 변경 내용으로 인해 방화벽이 삭제될 수 있습니다. 방화벽을 사용하는 경우 서비스 엔드포인트를 사용하도록 설정하면 [Virtual Network ACL](https://docs.microsoft.com/azure/virtual-network/virtual-networks-acl)을 사용하여 방화벽에 서브넷을 추가합니다.
 * Azure VM에 공용 IP를 할당합니다.
 
-##### <a name="cant-connect"></a>이 서비스에 도달할 수 없습니다.-방화벽
-``ConnectTimeoutException`` SDK 서비스를 연결할 수 없습니다 나타냅니다.
-직접 모드를 사용 하는 경우 오류를 다음과 유사한 나타날 수 있습니다.
+##### <a name="cant-reach-the-service---firewall"></a><a name="cant-connect"></a>서비스에 연결할 수 없습니다 - 방화벽
+``ConnectTimeoutException``은 SDK가 서비스에 연결할 수 없음을 나타냅니다.
+직접 모드를 사용할 때 다음과 유사한 오류가 발생할 수 있습니다.
 ```
 GoneException{error=null, resourceAddress='https://cdb-ms-prod-westus-fd4.documents.azure.com:14940/apps/e41242a5-2d71-5acb-2e00-5e5f744b12de/services/d8aa21a5-340b-21d4-b1a2-4a5333e7ed8a/partitions/ed028254-b613-4c2a-bf3c-14bd5eb64500/replicas/131298754052060051p//', statusCode=410, message=Message: The requested resource is no longer available at the server., getCauseInfo=[class: class io.netty.channel.ConnectTimeoutException, message: connection timed out: cdb-ms-prod-westus-fd4.documents.azure.com/101.13.12.5:14940]
 ```
 
-앱에서 사용 하는 컴퓨터에서 실행 되는 방화벽이 있는 경우 10,000 20,000 대 직접 모드에서 사용 되는 포트 범위를 엽니다.
-또한 따릅니다 합니다 [호스트 컴퓨터에서 연결 제한을](#connection-limit-on-host)합니다.
+앱 컴퓨터에서 방화벽이 실행 중인 경우 직접 모드에서 사용되는 열린 포트 범위는 10,000에서 20,000사이입니다.
+또한 [호스트 컴퓨터의 연결 제한을 따릅니다.](#connection-limit-on-host)
 
 #### <a name="http-proxy"></a>HTTP 프록시
 
@@ -167,17 +167,17 @@ Azure Cosmos DB 에뮬레이터 HTTPS 인증서는 자체 서명입니다. SDK�
 Exception in thread "main" java.lang.NoSuchMethodError: rx.Observable.toSingle()Lrx/Single;
 ```
 
-위의 예외 RxJava lib (예: 1.2.2)의 이전 버전에 종속성이 있는 것을 제안 합니다. SDK RxJava 1.3.8 RxJava의 이전 버전에서 사용할 수 없는 Api에 의존 합니다. 
+위의 예외는 이전 버전의 RxJava lib(예: 1.2.2)에 종속성이 있음을 시사합니다. 우리의 SDK는 RxJava의 이전 버전에서 사용할 수없는 API가 있는 RxJava 1.3.8에 의존합니다. 
 
-RxJava 1.2.2에는 이러한 issuses 다른 종속성을 식별 하는 것에 대 한 해결 방법은 RxJava-1.2.2 종속 전이 제외 하 고 CosmosDB SDK 허용 최신 버전을 표시 합니다.
+이러한 issuses에 대 한 해결 방법은 RxJava-1.2.2에 제공 하는 다른 종속성을 식별 하 고 RxJava-1.2.2에 전이 종속성을 제외 하 고 CosmosDB SDK 최신 버전을 가져올 수 있도록 하는 것입니다.
 
-RxJava 1.2.2 옆에 있는 프로젝트 pom.xml 파일에 다음 명령을 실행 하는 라이브러리는 식별:
+RxJava-1.2.2에 어떤 라이브러리가 가져오는지 확인하려면 프로젝트 pom.xml 파일 옆에 다음 명령을 실행합니다.
 ```bash
 mvn dependency:tree
 ```
-자세한 내용은 참조는 [maven 종속성 트리 가이드](https://maven.apache.org/plugins/maven-dependency-plugin/examples/resolving-conflicts-using-the-dependency-tree.html)합니다.
+자세한 내용은 [maven 종속성 트리 가이드를](https://maven.apache.org/plugins/maven-dependency-plugin/examples/resolving-conflicts-using-the-dependency-tree.html)참조하십시오.
 
-1\.2.2 RxJava 식별 한 후은 pom 파일에 제외 RxJava 전이적 종속성 lib는 전이적 종속성은 다른 프로젝트의 종속성에 대 한 종속성을 수정할 수 있습니다.
+RxJava-1.2.2가 프로젝트의 다른 종속성에 대한 전이적 종속성임을 확인한 후 pom 파일에서 해당 lib에 대한 종속성을 수정하고 RxJava 전이적 종속성을 제외할 수 있습니다.
 
 ```xml
 <dependency>
@@ -193,10 +193,10 @@ mvn dependency:tree
 </dependency>
 ```
 
-자세한 내용은 참조는 [전이적 종속성 가이드 제외](https://maven.apache.org/guides/introduction/introduction-to-optional-and-excludes-dependencies.html)합니다.
+자세한 내용은 [전이적 종속성 제외 가이드를](https://maven.apache.org/guides/introduction/introduction-to-optional-and-excludes-dependencies.html)참조하십시오.
 
 
-## <a name="enable-client-sice-logging"></a>클라이언트 SDK 로깅 사용
+## <a name="enable-client-sdk-logging"></a><a name="enable-client-sice-logging"></a>클라이언트 SDK 로깅 사용
 
 Java 비동기 SDK는 log4j 및 logback과 같은 인기 있는 로깅 프레임워크로 로깅을 지원하는 로깅 외관으로 SLF4j를 사용합니다.
 
@@ -235,7 +235,7 @@ log4j.appender.A1.layout.ConversionPattern=%d %5X{pid} [%t] %-5p %c - %m%n
 
 자세한 내용은 [sfl4j 로깅 설명서](https://www.slf4j.org/manual.html)를 참조하세요.
 
-## <a name="netstats"></a>OS 네트워크 통계
+## <a name="os-network-statistics"></a><a name="netstats"></a>OS 네트워크 통계
 netstat 명령을 실행하여 `ESTABLISHED` 및 `CLOSE_WAIT`와 같은 상태에 있는 연결 수를 확인합니다.
 
 Linux에서 다음 명령을 실행할 수 있습니다.
@@ -249,9 +249,9 @@ Azure Cosmos DB 엔드포인트에 대한 연결로만 결과를 필터링합니
 Azure Cosmos DB 엔드포인트에 대한 많은 연결이 `CLOSE_WAIT` 상태일 수 있습니다. 1,000개가 넘을 수 있습니다. 이렇게 숫자가 높으면 연결이 설정되었다가 빠르게 삭제되는 것을 나타냅니다. 이 경우 잠재적으로 문제가 발생할 수 있습니다. 자세한 내용은 [일반적인 문제 및 해결 방법] 섹션을 참조하세요.
 
  <!--Anchors-->
-[일반적인 문제 및 해결 방법]: #common-issues-workarounds
+[일반적인 이슈 및 해결 방법]: #common-issues-workarounds
 [Enable client SDK logging]: #enable-client-sice-logging
 [호스트 컴퓨터의 연결 제한]: #connection-limit-on-host
-[Azure SNAT(PAT) 포트 고갈]: #snat
+[Azure SNAT(PAT) 포트 소모]: #snat
 
 

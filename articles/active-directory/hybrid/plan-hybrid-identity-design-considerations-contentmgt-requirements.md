@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0d970fd133f8c43319e7f1fdb6b3a50c3c05f687
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "64918448"
 ---
 # <a name="determine-content-management-requirements-for-your-hybrid-identity-solution"></a>하이브리드 ID 솔루션에 대한 콘텐츠 관리 요구 사항 확인
@@ -60,7 +60,7 @@ ID 솔루션은 아래 그림에 표시된 것처럼 콘텐츠 관리를 제공�
 * 회사가 특정 유형의 메일에 회사 정책을 적용해야 하나요(전체 회신 금지, 전달 금지)?
 
 > [!NOTE]
-> 각 답변을 주목하고 답변 이유를 이해해야 합니다. [데이터 보호 전략 정의](plan-hybrid-identity-design-considerations-data-protection-strategy.md) 에서는 사용할 수 있는 옵션과 각 옵션의 장점/단점을 살펴봅니다.  질문에 답변함으로써 비즈니스 요구 사항에 가장 적합한 옵션을 선택할 수 있습니다.
+> 각 답변을 주목하고 답변 이유를 이해해야 합니다. [데이터 보호 전략 정의는](plan-hybrid-identity-design-considerations-data-protection-strategy.md) 사용 가능한 옵션과 각 옵션의 장점/단점을 다 수있습니다.  질문에 답변함으로써 비즈니스 요구 사항에 가장 적합한 옵션을 선택할 수 있습니다.
 > 
 > 
 

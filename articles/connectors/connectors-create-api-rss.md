@@ -1,5 +1,5 @@
 ---
-title: Azure Logic Apps에서 RSS 피드에 연결
+title: Azure 논리 앱에서 RSS 피드에 연결
 description: Azure Logic Apps를 사용하여 RSS 피드를 모니터링하고 관리하는 작업 및 워크플로 자동화
 services: logic-apps
 ms.suite: integration
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/24/2018
 tags: connectors
 ms.openlocfilehash: 3f1e092c2ff325cdcbc32c617af316d6fbe6dd74
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74789344"
 ---
 # <a name="manage-rss-feeds-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용하여 RSS 피드 관리
@@ -23,21 +23,21 @@ Azure Logic Apps 및 RSS 커넥터를 통해 모든 RSS 피드에 대한 자동�
 
 Really Simple Syndication이라고도 하는 RSS(Rich Site Summary)는 웹 배포를 위한 인기 있는 형식으로서, 블로그 게시물 및 뉴스 헤드라인 같이 자주 업데이트되는 콘텐츠를 게시하는 데 사용됩니다. 많은 콘텐츠 게시자는 사용자가 해당 콘텐츠를 구독할 수 있도록 RSS 피드를 제공합니다. 
 
-RSS 트리거를 사용하여 RSS 피드에서 응답을 가져오고 출력을 다른 작업에 사용할 수 있게 할 수 있습니다. 논리 앱에서 RSS 동작을 사용하여 RSS 피드에서 작업을 수행할 수 있습니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토하세요.
+RSS 트리거를 사용하여 RSS 피드에서 응답을 가져오고 출력을 다른 작업에 사용할 수 있게 할 수 있습니다. 논리 앱에서 RSS 동작을 사용하여 RSS 피드에서 작업을 수행할 수 있습니다. 로직 앱을 새로 접하는 경우 [Azure 논리 앱이란 무엇입니까?](../logic-apps/logic-apps-overview.md)
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-* Azure 구독. Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다. 
+* Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다. 
 
 * RSS 피드의 URL
 
-* [논리 앱 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)에 관한 기본 지식
+* [논리 앱을 만드는 방법에](../logic-apps/quickstart-create-first-logic-app-workflow.md) 대한 기본 지식
 
 * RSS 피드에 액세스하려는 논리 앱입니다. RSS 트리거를 시작하려면 [빈 논리 앱을 만듭니다](../logic-apps/quickstart-create-first-logic-app-workflow.md). RSS 동작을 사용하려면, 예를 들어 **되풀이** 트리거 같은 다른 트리거를 통해 논리 앱을 시작합니다.
 
 ## <a name="connect-to-an-rss-feed"></a>RSS 피드에 연결
 
-1. [Azure Portal](https://portal.azure.com)에 로그인하고 아직 열리지 않은 경우 Logic App Designer에서 논리 앱을 엽니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인하고, 아직 열리지 않은 경우 Logic App Designer에서 논리 앱을 엽니다.
 
 1. 경로를 선택합니다. 
 
@@ -51,7 +51,7 @@ RSS 트리거를 사용하여 RSS 피드에서 응답을 가져오고 출력을 
 
 ## <a name="connector-reference"></a>커넥터 참조
 
-커넥터의 OpenAPI(이전의 Swagger) 설명서에 설명된 트리거, 작업 및 제한에 대한 기술 정보는 커넥터의 [참조 페이지](/connectors/rss/)를 참조하세요.
+커넥터의 OpenAPI(이전의 Swagger) 설명서에 설명된 트리거, 작업 및 제한에 대한 기술 정보는 커넥터의 [참조 페이지](/connectors/rss/)를 검토하세요.
 
 ## <a name="get-support"></a>지원 받기
 

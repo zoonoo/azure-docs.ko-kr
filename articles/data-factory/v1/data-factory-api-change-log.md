@@ -1,6 +1,6 @@
 ---
-title: Data Factory-.NET API 변경 로그
-description: Azure Data Factory에 대 한 특정 버전의 .NET API에 대 한 주요 변경 내용, 기능 추가 내용, 버그 수정 등을 설명 합니다.
+title: 데이터 팩터리 - .NET API 변경 로그
+description: Azure 데이터 팩터리를 위한 .NET API의 특정 버전에서 주요 변경 사항, 기능 추가, 버그 수정 등을 설명합니다.
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -13,10 +13,10 @@ ms.topic: conceptual
 robots: noindex
 ms.date: 01/22/2018
 ms.openlocfilehash: dbbbdebdcf1db7afe485166f5744f2291b757d50
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74979005"
 ---
 # <a name="azure-data-factory---net-api-change-log"></a>Azure 데이터 팩터리 - .NET API 변경 로그
@@ -38,11 +38,11 @@ ms.locfileid: "74979005"
 * 다음과 같은 원본 복사 형식이 추가되었습니다.
   * [MongoDbSource](https://msdn.microsoft.com/library/mt765123.aspx)
 
-## <a name="version-4100"></a>4\.10.0 버전
+## <a name="version-4100"></a>4.10.0 버전
 * 다음 선택적 속성이 TextFormat에 추가되었습니다.
   * [SkipLineCount](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.textformat.skiplinecount.aspx)
   * [FirstRowAsHeader](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.textformat.firstrowasheader.aspx)
-  * [TreatEmptyAsNull](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.textformat.treatemptyasnull.aspx)
+  * [치료빈아스널](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.textformat.treatemptyasnull.aspx)
 * 다음에 링크된 서비스 유형이 추가 되었습니다.
   * [OnPremisesCassandraLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.onpremisescassandralinkedservice.aspx)
   * [SalesforceLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.salesforcelinkedservice.aspx)
@@ -68,7 +68,7 @@ ms.locfileid: "74979005"
 ## <a name="version-480"></a>버전 4.8.0
 ### <a name="feature-additions"></a>기능 추가 사항
 * 복사 성능을 조정할 수 있도록 하기 위해 복사 작업 유형에 다음과 같은 옵션 속성이 추가되었습니다.
-  * [ParallelCopies](https://msdn.microsoft.com/library/mt767910.aspx)
+  * [병렬 복사](https://msdn.microsoft.com/library/mt767910.aspx)
   * [CloudDataMovementUnits](https://msdn.microsoft.com/library/mt767912.aspx)
 
 ## <a name="version-470"></a>버전 4.7.0
@@ -86,7 +86,7 @@ ms.locfileid: "74979005"
 ### <a name="feature-additions"></a>기능 추가 사항
 * 다음 속성이 [PipelineProperties](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.pipelineproperties_properties.aspx)에 추가되었습니다.
   * [PipelineMode](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.pipelineproperties.pipelinemode.aspx)
-  * [ExpirationTime](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.pipelineproperties.expirationtime.aspx)
+  * [만료 시간](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.pipelineproperties.expirationtime.aspx)
   * [데이터 세트](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.pipelineproperties.datasets.aspx)
 * 다음 속성이 [PipelineRuntimeInfo](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.common.models.pipelineruntimeinfo.aspx)에 추가되었습니다.
   * [PipelineState](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.common.models.pipelineruntimeinfo.pipelinestate.aspx)
@@ -131,14 +131,14 @@ ms.locfileid: "74979005"
 * 다음과 같은 데이터 세트가 추가 되었습니다.
   * [AzureDataLakeStoreDataset](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestoredataset.aspx)
 * 다음 복사 작업에 대한 원본 및 싱크 유형은 추가 되었습니다.
-  * [AzureDataLakeStoreSource](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestoresource.aspx)
-  * [AzureDataLakeStoreSink](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestoresink.aspx)
+  * [AzureDataLake스토어소스](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestoresource.aspx)
+  * [AzureDataLake스토어싱크](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestoresink.aspx)
 
 ## <a name="version-401"></a>버전 4.0.1
-### <a name="breaking-changes"></a>주요 변경 내용
+### <a name="breaking-changes"></a>호환성이 손상되는 변경
 다음 클래스의 이름이 변경되었습니다. 새 이름은 4.0.0 릴리스 전의 클래스 원래 이름이었습니다.
 
-| 4\.0.0의 이름 | 4\.0.1의 이름 |
+| 4.0.0의 이름 | 4.0.1의 이름 |
 |:--- |:--- |
 | AzureSqlDataWarehouseDataset |[AzureSqlDataWarehouseTableDataset](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuresqldatawarehousetabledataset.aspx) |
 | AzureSqlDataset |[AzureSqlTableDataset](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuresqltabledataset.aspx) |
@@ -148,7 +148,7 @@ ms.locfileid: "74979005"
 | SqlServerDataset |[SqlServerTableDataset](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.sqlservertabledataset.aspx) |
 
 ## <a name="version-400"></a>버전 4.0.0
-### <a name="breaking-changes"></a>주요 변경 내용
+### <a name="breaking-changes"></a>호환성이 손상되는 변경
 * 다음 클래스/인터페이스의 이름이 변경되었습니다.
 
 | 이전 이름 | 새 이름 |

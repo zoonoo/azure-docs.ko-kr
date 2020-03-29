@@ -1,5 +1,5 @@
 ---
-title: Azure MFA 사용자 데이터 수집-Azure Active Directory
+title: Azure MFA 사용자 데이터 컬렉션 - Azure Active 디렉터리
 description: Azure Multi-Factor Authentication에서 사용자를 인증하는 데 사용되는 정보
 services: multi-factor-authentication
 ms.service: active-directory
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3bc0f0dbcd08df887b2484be6ca8c92a85962c1c
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74848292"
 ---
 # <a name="azure-multi-factor-authentication-user-data-collection"></a>Azure Multi-Factor Authentication 사용자 데이터 컬렉션
@@ -30,7 +30,7 @@ MFA 서버, NPS 확장 및 Windows Server 2016 Azure MFA AD FS 어댑터는 다�
 
 인증 시도(보고 및 문제 해결에 사용):
 
-- Timestamp
+- 타임스탬프
 - 사용자 이름
 - 이름
 - 성
@@ -71,7 +71,7 @@ MFA 서버, NPS 확장 및 Windows Server 2016 Azure MFA AD FS 어댑터는 다�
 활성화(Microsoft Authenticator 모바일 앱에서 계정을 활성화하기 위한 시도):
 - 사용자 이름
 - 계정 이름
-- Timestamp
+- 타임스탬프
 - 활성화 코드 결과 가져오기
 - 활성화 성공
 - 활성화 오류
@@ -89,7 +89,7 @@ MFA 서버, NPS 확장 및 Windows Server 2016 Azure MFA AD FS 어댑터는 다�
 - 국가 코드
 - 전화 번호
 - 서식이 지정된 전화 번호
-- 확장
+- 내선 번호
 - 새 내선 번호
 - Blocked
 - 차단 이유
@@ -109,14 +109,14 @@ MFA 서버, NPS 확장 및 Windows Server 2016 Azure MFA AD FS 어댑터는 다�
 - 국가 코드
 - 전화 번호
 - 서식이 지정된 전화 번호
-- 확장
+- 내선 번호
 - 새 내선 번호
 - 바이패스 이유
 - 완료 타임스탬프
 - 완료 이유
 - 사용된 바이패스
 
-변경 내용 (사용자 변경 내용을 MFA 서버 또는 Azure AD와 동기화 하는 데 사용 됨):
+변경 사항(사용자 변경 내용을 MFA 서버 또는 Azure AD에 동기화하는 데 사용됨):
 
 - 변경 타임스탬프
 - 사용자 이름
@@ -138,7 +138,7 @@ MFA 서버 8.0 이상 버전의 경우 다음 프로세스를 통해 관리자�
 - MFA 서버에 로그인하고, **사용자** 탭으로 이동하여, 해당 사용자를 선택하고, **편집** 단추를 클릭합니다. 각 탭의 스크린샷을 만들고(Alt-PrtScn) 현재 해당 MFA 설정 사용자를 제공합니다.
 - MFA 서버 명령줄에서 해당 설치에 따라 경로를 변경하여 `C:\Program Files\Multi-Factor Authentication Server\MultiFactorAuthGdpr.exe export <username>` 명령을 실행하여 JSON 형식 파일을 생성합니다.
 - 또한 관리자는 웹 서비스 SDK GetUserGdpr 작업을 옵션으로 사용하여 지정된 사용자에 대해 수집된 모든 MFA 클라우드 서비스 정보를 내보내거나 더 큰 보고 솔루션에 통합할 수 있습니다.
-- "\<> 사용자 이름" (검색에 따옴표 포함)에 대 한 `C:\Program Files\Multi-Factor Authentication Server\Logs\MultiFactorAuthSvc.log` 및 모든 백업을 검색 하 여 추가 되거나 변경 되는 사용자 레코드의 모든 인스턴스를 찾습니다.
+- "사용자 이름>"(검색에 따옴표를 포함)에 대한 모든 백업을 검색하여 `C:\Program Files\Multi-Factor Authentication Server\Logs\MultiFactorAuthSvc.log` 추가되거나 변경되는 사용자 레코드의 모든 인스턴스를 찾습니다.\<
    - 이러한 레코드는 MFA 서버 UX, 로깅 섹션, 로그 파일 탭에서 **"사용자 변경 내용 로깅"** 을 선택 취소하여 제한할 수 있습니다(제거할 수는 없음).
    - 대신 Syslog가 구성되고 MFA 서버 UX, 로깅 섹션, Syslog 탭에서 **"사용자 변경 내용 로깅"** 이 선택된 경우에는 로그 항목을 syslog에서 수집할 수 있습니다.
 - MultiFactorAuthSvc.log 및 인증 시도와 관련된 다른 MFA 서버 로그 파일에서 사용자 이름의 다른 항목은 MultiFactorAuthGdpr.exe 내보내기 또는 웹 서비스 SDK GetUserGdpr을 사용하여 제공된 정보에 대한 작동 및 중복 항목으로 간주됩니다.

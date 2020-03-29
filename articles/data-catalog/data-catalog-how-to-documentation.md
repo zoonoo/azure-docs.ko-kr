@@ -7,10 +7,10 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: e9e9013d354585d04f205feb93a84d94c0f05905
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68950197"
 ---
 # <a name="how-to-document-data-sources-in-azure-data-catalog"></a>Azure Data Catalog에서 데이터 원본을 문서화하는 방법
@@ -24,7 +24,7 @@ ms.locfileid: "68950197"
 
 태그와 설명은 간단한 주석에 유용합니다. 그러나 데이터 원본의 사용, 데이터 원본에 대한 비즈니스 시나리오를 더 잘 이해하도록 데이터 소비자를 돕기 위해 전문가는 자세한 전체 설명서를 제공할 수 있습니다. 데이터 원본을 문서화하는 것이 쉽습니다. 데이터 자산 또는 컨테이너를 선택하고 **설명서**를 선택합니다.
 
-![Data Catalog의 설명서 탭](media/data-catalog-documentation/data-catalog-documentation.png)
+![데이터 카탈로그의 문서 탭](media/data-catalog-documentation/data-catalog-documentation.png)
 
 ## <a name="documenting-data-assets"></a>데이터 자산 문서화
 **Azure Data Catalog** 설명서를 사용하는 장점은 데이터 카탈로그를 콘텐츠 리포지토리로 사용하여 데이터 자산의 전체 설명을 만들 수 있다는 점입니다. 컨테이너 및 테이블을 설명하는 자세한 내용을 둘러볼 수 있습니다. SharePoint 또는 파일 공유 등의 다른 콘텐츠 리포지토리의 내용이 이미 있는 경우 이 기존 콘텐츠를 참조하는 자산 설명서 링크를 추가할 수 있습니다. 이 기능을 사용해 기존 문서를 더 쉽게 검색할 수 있습니다.
@@ -33,13 +33,13 @@ ms.locfileid: "68950197"
 > 설명서는 검색 인덱스에 포함되지 않습니다.
 >
 
-![웹 링크에 대 한 설명서 탭 및 하이퍼링크](media/data-catalog-documentation/data-catalog-documentation2.png)
+![문서 탭 및 웹 링크에 대한 하이퍼링크](media/data-catalog-documentation/data-catalog-documentation2.png)
 
 설명서의 수준은 데이터 자산 컨테이너의 특성 및 값을 설명하는 정도에서 컨테이너 내의 테이블 스키마에 대한 자세한 설명의 범위까지 다양합니다. 제공된 설명서의 수준은 비즈니스 요구 사항에 따라 결정되어야 합니다. 하지만 데이터 자산을 문서화하는 일반적인 몇 가지 장단점은 다음과 같습니다.
 
-* 컨테이너만 문서화: 모든 콘텐츠는 한 곳에 있지만 사용자가 의사 결정을 내리는 데 필요한 세부 정보가 부족할 수 있습니다.
-* 테이블만 문서화 합니다. 콘텐츠는 해당 개체와 관련이 있지만 사용자에 게 문서에 대 한 여러 위치가 있습니다.
-* 문서 컨테이너 및 테이블: 가장 포괄적인 방법 이지만 문서를 더 쉽게 유지 관리할 수 있습니다.
+* 컨테이너만 문서화: 모든 콘텐츠가 한 곳에 있지만 사용자가 필요한 정보를 결정하기 위해 필요한 세부 정보는 부족할 수 있습니다.
+* 테이블만 문서화: 콘텐츠는 해당 개체에 지정되지만 사용자가 문서를 여러 위치에서 찾아야 합니다.
+* 컨테이너 및 테이블 문서화: 가장 포괄적인 접근 방식이지만 문서의 유지 관리가 더 필요할 수 있습니다.
 
 ## <a name="summary"></a>요약
 **Azure Data Catalog** 로 데이터 원본을 문서화하는 작업은 필요한 만큼의 세부 정보로 데이터 자산에 대한 설명을 만들 수 있습니다.  링크를 사용하여 기존 문서 및 데이터 자산을 함께 제공하는 기존 콘텐츠 리포지토리에 저장된 콘텐츠에 연결할 수 있습니다. 사용자가 적절한 데이터 자산을 검색하면 일련의 전체 설명서를 가져올 수 있습니다.

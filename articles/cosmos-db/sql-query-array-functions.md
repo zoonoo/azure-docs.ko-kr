@@ -1,6 +1,6 @@
 ---
-title: Azure Cosmos DB 쿼리 언어의 배열 함수
-description: 배열 함수를 사용 하 여 Azure Cosmos DB 배열에 대 한 작업을 수행 하는 방법에 대해 알아봅니다.
+title: Azure 코스모스 DB 쿼리 언어의 배열 함수
+description: Array 함수를 통해 Azure Cosmos DB의 배열에서 작업을 수행하는 방법에 대해 알아봅니다.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,19 +8,19 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: a0256470892d634361498f1632027aff562c7761
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74871808"
 ---
-# <a name="array-functions-azure-cosmos-db"></a>배열 함수 (Azure Cosmos DB)
+# <a name="array-functions-azure-cosmos-db"></a>배열 함수(Azure 코스모스 DB)
 
-배열 함수를 사용 하 여 Azure Cosmos DB 배열에 대 한 작업을 수행할 수 있습니다.
+배열 함수를 사용하면 Azure Cosmos DB의 배열에 대한 작업을 수행할 수 있습니다.
 
-## <a name="functions"></a>Functions
+## <a name="functions"></a>함수
 
-다음 스칼라 함수는 배열 입력 값에 대 한 작업을 수행 하 고 숫자, 부울 또는 배열 값을 반환 합니다.
+다음 스칼라 함수는 배열 입력 값에 대한 작업을 수행하고 숫자, 부울 또는 배열 값을 반환합니다.
   
 ||||  
 |-|-|-|  
@@ -30,7 +30,7 @@ ms.locfileid: "74871808"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [시스템 함수 Azure Cosmos DB](sql-query-system-functions.md)
-- [Azure Cosmos DB 소개](introduction.md)
+- [시스템 기능 Azure 코스모스 DB](sql-query-system-functions.md)
+- [Azure 코스모스 DB 소개](introduction.md)
 - [사용자 정의 함수](sql-query-udfs.md)
 - [집계](sql-query-aggregates.md)

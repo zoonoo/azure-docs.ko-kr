@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Hub 장치 프로 비전 서비스를 사용 하 여 x.509 CA 인증서 확인
-description: Azure IoT Hub 장치 프로 비전 서비스 (DPS)를 사용 하 여 x.509 CA 인증서의 소유 증명을 수행 하는 방법
+title: Azure IoT Hub 장치 프로비저닝 서비스를 통해 X.509 CA 인증서 확인
+description: Azure IoT 허브 장치 프로비저닝 서비스(DPS)를 사용하여 X.509 CA 인증서에 대한 소유권 증명을 수행하는 방법
 author: wesmc7777
 ms.author: wesmc
 ms.date: 02/26/2018
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: b008c4ebc83200043d51fc8ef367f1983c549949
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74973444"
 ---
 # <a name="how-to-do-proof-of-possession-for-x509-ca-certificates-with-your-device-provisioning-service"></a>Device Provisioning Service를 사용하여 X.509 CA 인증서에 대해 소유 증명을 수행하는 방법

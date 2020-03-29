@@ -9,10 +9,10 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 01/27/2017
 ms.openlocfilehash: c87a61dc77e656a1cfe667ce87f852303a0cc486
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74792354"
 ---
 # <a name="encode-x12-messages-in-azure-logic-apps-with-enterprise-integration-pack"></a>엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에서 X12 메시지 인코딩
@@ -25,13 +25,13 @@ X12 메시지 인코딩 커넥터를 사용하여 EDI 및 파트너 관련 속�
 필요한 항목은 다음과 같습니다.
 
 * Azure 계정의 경우 [무료 계정](https://azure.microsoft.com/free)
-* [통합 계정](logic-apps-enterprise-integration-create-integration-account.md)이 이미 정의되고 Azure 구독과 연결되었습니다. X12 메시지 인코딩 커넥터를 사용하는 통합 계정이 있어야 합니다.
+* Azure 구독에 이미 정의되고 연결된 [통합 계정입니다.](logic-apps-enterprise-integration-create-integration-account.md) X12 메시지 인코딩 커넥터를 사용하는 통합 계정이 있어야 합니다.
 * 통합 계정에 이미 정의된 둘 이상의 [파트너](logic-apps-enterprise-integration-partners.md)
 * 통합 계정에 이미 정의된 [X12 규약](logic-apps-enterprise-integration-x12.md)
 
 ## <a name="encode-x12-messages"></a>X12 메시지 인코딩
 
-1. [Create a logic app를 참조하세요.
+1. [논리 앱 만들기](quickstart-create-first-logic-app-workflow.md)
 
 2. X12 메시지 인코딩 커넥터에는 트리거가 없으므로 요청 트리거와 마찬가지로 논리 앱을 시작하는 트리거를 추가해야 합니다. Logic App Designer에서 트리거를 추가하고 작업을 논리 앱에 추가합니다.
 
@@ -45,7 +45,7 @@ X12 메시지 인코딩 커넥터를 사용하여 EDI 및 파트너 관련 속�
 
     별표가 있는 속성은 필수 사항입니다.
 
-    | 자산 | 세부 정보 |
+    | 속성 | 세부 정보 |
     | --- | --- |
     | 연결 이름 * |연결의 이름을 입력합니다. |
     | 통합 계정 * |통합 계정의 이름을 입력합니다. 통합 계정 및 논리 앱이 동일한 Azure 위치에 있어야 합니다. |
@@ -91,5 +91,5 @@ X12 인코딩 커넥터는 다음과 같은 태스크를 수행합니다.
 [swagger 정보](/connectors/x12/)를 참조하세요. 
 
 ## <a name="next-steps"></a>다음 단계
-[엔터프라이즈 통합 팩에 대해 자세히 알아보기](logic-apps-enterprise-integration-overview.md "엔터프라이즈 통합 팩에 대해 알아보기") 
+[엔터프라이즈 통합 팩에 대해 자세히 알아보기](logic-apps-enterprise-integration-overview.md "엔터프라이즈 통합 팩에 대해 자세히 알아보기") 
 

@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 056d0caf2bfc6e99d5d659a2561bc41844feb79a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "64918787"
 ---
 # <a name="plan-for-enhancing-data-security-through-a-strong-identity-solution"></a>강력한 ID 솔루션을 통해 데이터 보안을 향상하기 위한 계획
@@ -72,7 +72,7 @@ ms.locfileid: "64918787"
   * 그렇다면 하이브리드 ID 솔루션은 SSL/TLS와 같은 보안 제어와 통합할 수 있나요?
 * 클라우드 ID 관리는 서명된 디렉터리 저장소(내부 및 데이터 센터 간) 간에 트래픽을 유지합니까?
 
-## <a name="compliance"></a>준수
+## <a name="compliance"></a>규정 준수
 규정, 법률 및 규정 준수 요구 사항은 회사가 속해 있는 업계에 따라 달라집니다. 강력하게 규제된 업계에 있는 회사는 규정 준수 문제와 관련된 ID 관리 문제를 해결해야 합니다. SOX(Sarbanes-Oxley), HIPAA(Health Insurance Portability and Accountability Act), GLBA(Gramm-Leach-Bliley Act) 및 PCI DSS(Payment Card Industry Data Security Standard)와 같은 규정은 ID 및 액세스에 관해 엄격합니다. 회사가 도입하는 하이브리드 ID 솔루션에는 하나 이상의 이러한 규정 요구 사항을 충족하는 핵심 기능이 있어야 합니다. 이 영역의 경우 다음 질문을 묻는지를 확인합니다.
 
 * 하이브리드 ID 솔루션은 비즈니스에 대한 규정 요구 사항을 준수합니까?
@@ -80,7 +80,7 @@ ms.locfileid: "64918787"
 * 회사가 규정 요구 사항을 준수할 수 있게 해주는 기본 제공 기능이 있습니까? 
 
 > [!NOTE]
-> 각 답변을 주목하고 답변 이유를 이해해야 합니다. [데이터 보호 전략 정의](plan-hybrid-identity-design-considerations-data-protection-strategy.md) 에서는 사용할 수 있는 옵션과 각 옵션의 장점/단점을 살펴봅니다.  질문에 답변함으로써 비즈니스 요구 사항에 가장 적합한 옵션을 선택할 수 있습니다.
+> 각 답변을 주목하고 답변 이유를 이해해야 합니다. [데이터 보호 전략 정의는](plan-hybrid-identity-design-considerations-data-protection-strategy.md) 사용 가능한 옵션과 각 옵션의 장점/단점을 다 수있습니다.  질문에 답변함으로써 비즈니스 요구 사항에 가장 적합한 옵션을 선택할 수 있습니다.
 > 
 > 
 

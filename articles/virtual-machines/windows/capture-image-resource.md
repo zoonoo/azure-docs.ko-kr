@@ -1,5 +1,5 @@
 ---
-title: Azure에서 관리 되는 이미지 만들기
+title: Azure에서 관리되는 이미지 만들기
 description: Azure에서 일반화된 VM 또는 VHD의 관리 이미지를 만듭니다. 이미지를 사용하여 관리 디스크를 사용하는 여러 VM을 만들 수 있습니다.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/27/2018
 ms.author: cynthn
 ms.openlocfilehash: 01619027ddc79530dc9541584efa9a3e518f5136
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74842061"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Azure에서 일반화된 VM의 관리 이미지 만들기
@@ -31,7 +31,7 @@ ms.locfileid: "74842061"
 
 Sysprep은 모든 개인 계정 및 보안 정보를 제거한 다음 이미지로 사용할 컴퓨터를 준비합니다. Sysprep에 대한 자세한 내용은 [Sysprep 개요](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview)를 참조하세요.
 
-가상 컴퓨터에서 실행되는 서버 역할이 Sysprep에서 지원되는지 확인합니다. 자세한 내용은 서버 역할 및 [지원 되지 않는 시나리오](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview#unsupported-scenarios) [에 대 한 Sysprep 지원](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep-support-for-server-roles) 을 참조 하세요.
+가상 컴퓨터에서 실행되는 서버 역할이 Sysprep에서 지원되는지 확인합니다. 자세한 내용은 서버 역할 및 [지원되지 않는 시나리오에](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview#unsupported-scenarios) [대한 Sysprep 지원을](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep-support-for-server-roles) 참조하십시오.
 
 > [!IMPORTANT]
 > VM에서 Sysprep을 실행하고 나면 해당 VM은 *일반화*된 것으로 간주되므로 다시 시작할 수 없습니다. VM 일반화 프로세스는 되돌릴 수 없습니다. 원래 VM을 작동하는 상태로 유지해야 하는 경우에는 [VM의 복사본](create-vm-specialized.md#option-3-copy-an-existing-azure-vm)을 만들고 복사본을 일반화해야 합니다. 
@@ -44,7 +44,7 @@ Windows VM을 일반화하려면 다음 단계를 수행합니다.
 
 1. Windows VM에 로그인합니다.
    
-2. 관리자로 명령 프롬프트 창을 엽니다. 디렉터리를 %windir%\system32\sysprep로 변경한 후 `sysprep.exe`를 실행합니다.
+2. 관리자로 명령 프롬프트 창을 엽니다. 디렉터리를 %windir%\system32\sysprep으로 변경한 다음, `sysprep.exe`를 실행합니다.
    
 3. **시스템 준비 도구** 대화 상자에서 **시스템 OOBE(첫 실행 경험) 시작**을 선택하고 **일반화** 확인란을 선택합니다.
    
@@ -57,22 +57,22 @@ Windows VM을 일반화하려면 다음 단계를 수행합니다.
 6. Sysprep은 작업을 완료하면 VM을 종료합니다. VM을 다시 시작하지 않습니다.
 
 > [!TIP]
-> **선택 사항** [DISM](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-optimize-image-command-line-options) 을 사용 하 여 이미지를 최적화 하 고 VM의 첫 번째 부팅 시간을 줄입니다.
+> **선택 사항** [DISM을](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-optimize-image-command-line-options) 사용하여 이미지를 최적화하고 VM의 첫 번째 부팅 시간을 단축할 수 있습니다.
 >
-> 이미지를 최적화 하려면 Windows 탐색기에서 VHD를 두 번 클릭 하 여 탑재 한 다음 `/optimize-image` 매개 변수를 사용 하 여 DISM을 실행 합니다.
+> 이미지를 최적화하려면 Windows 탐색기에서 VHD를 두 번 클릭하여 마운트한 다음 `/optimize-image` 매개 변수를 사용하여 DISM을 실행합니다.
 >
 > ```cmd
 > DISM /image:D:\ /optimize-image /boot
 > ```
-> 여기서 D:는 탑재 된 VHD의 경로입니다.
+> 여기서 D: 탑재된 VHD의 경로입니다.
 >
-> `DISM /optimize-image`를 실행 하는 작업은 VHD를 마지막으로 수정한 것입니다. 배포 전에 VHD를 변경 하는 경우 `DISM /optimize-image`를 다시 실행 해야 합니다.
+> 실행은 `DISM /optimize-image` VHD에 대한 마지막 수정이어야 합니다. 배포 하기 전에 VHD를 변경 하는 경우 다시 실행 `DISM /optimize-image` 해야 합니다.
 
 ## <a name="create-a-managed-image-in-the-portal"></a>포털에서 관리 이미지 만들기 
 
-1. VM 이미지를 관리 하려면 [Azure Portal](https://portal.azure.com) 로 이동 합니다. **가상 컴퓨터**를 검색 하 고 선택 합니다.
+1. [Azure 포털로](https://portal.azure.com) 이동하여 VM 이미지를 관리합니다. **가상 컴퓨터를**검색하고 선택합니다.
 
-2. 목록에서 VM을 선택 합니다.
+2. 목록에서 VM을 선택합니다.
 
 3. VM의 **가상 머신** 페이지 위쪽 메뉴에서 **캡처**를 선택합니다.
 
@@ -80,7 +80,7 @@ Windows VM을 일반화하려면 다음 단계를 수행합니다.
 
 4. **이름**에서 미리 입력된 이름을 적용하거나 이미지에 사용할 이름을 입력합니다.
 
-5. **리소스 그룹**에 대해 **새로 만들기** 를 선택 하 고 이름을 입력 하거나 드롭다운 목록에서 사용할 리소스 그룹을 선택 합니다.
+5. **리소스 그룹의**경우 **새 만들기를** 선택하고 이름을 입력하거나 드롭다운 목록에서 사용할 리소스 그룹을 선택합니다.
 
 6. 이미지가 만들어진 후 원본 VM을 삭제하려면 **이미지를 만든 후 이 가상 머신을 자동으로 삭제**를 선택합니다.
 
@@ -98,7 +98,7 @@ Windows VM을 일반화하려면 다음 단계를 수행합니다.
 
 VM에서 직접 이미지를 만들면 OS 디스크와 데이터 디스크를 포함하여 VM에 연결된 모든 디스크가 이미지에 포함됩니다. 이 예제에서는 VM에서 관리되는 디스크를 사용하는 관리되는 이미지를 만드는 방법을 보여 줍니다.
 
-시작 하기 전에 최신 버전의 Azure PowerShell 모듈이 있는지 확인 합니다. 버전을 확인하려면 PowerShell에서 `Get-Module -ListAvailable Az`를 실행합니다. 버전을 업그레이드해야 하는 경우 [PowerShellGet을 사용하여 Windows에서 Azure PowerShell 설치](/powershell/azure/install-az-ps)를 참조하세요. PowerShell을 로컬로 실행하는 경우 `Connect-AzAccount`를 실행하여 Azure와 연결합니다.
+시작하기 전에 Azure PowerShell 모듈의 최신 버전이 있는지 확인합니다. 버전을 확인하려면 PowerShell에서 `Get-Module -ListAvailable Az`를 실행합니다. 버전을 업그레이드해야 하는 경우 [PowerShellGet을 사용하여 Windows에서 Azure PowerShell 설치](/powershell/azure/install-az-ps)를 참조하세요. PowerShell을 로컬로 실행하는 경우 `Connect-AzAccount`를 실행하여 Azure와 연결합니다.
 
 
 > [!NOTE]
@@ -126,7 +126,7 @@ VM 이미지를 만들려면 다음 단계를 수행합니다.
     Set-AzVm -ResourceGroupName $rgName -Name $vmName -Generalized
     ```
     
-4. 가상 컴퓨터를 가져옵니다. 
+4. 가상 머신을 가져옵니다. 
 
     ```azurepowershell-interactive
     $vm = Get-AzVM -Name $vmName -ResourceGroupName $rgName
@@ -216,9 +216,9 @@ OS 디스크의 이미지만 만들려면 관리 디스크 ID를 OS 디스크로
     ``` 
 
 
-## <a name="create-an-image-from-a-vm-that-uses-a-storage-account"></a>저장소 계정을 사용 하는 VM에서 이미지 만들기
+## <a name="create-an-image-from-a-vm-that-uses-a-storage-account"></a>저장소 계정을 사용하는 VM에서 이미지 만들기
 
-관리 디스크를 사용 하지 않는 VM에서 관리 되는 이미지를 만들려면 저장소 계정에서 OS VHD의 URI가 다음 형식으로 필요 합니다. https://*mystorageaccount*. blob.core.windows.net/*vhdcontainer*/*vhdfilename*. 이 예제의 VHD는 *vhdcontainer* 컨테이너의 *mystorageaccount*에 있으며 VHD 파일 이름은 *vhdfilename.vhd*입니다.
+관리 디스크를 사용하지 않는 VM에서 관리되는 이미지를 만들려면 다음 형식의 저장소 계정에 OS VHD의 URI가 필요합니다: https://*mystorageaccount*.blob.core.windows.net/*vhdcontainer*/*vhdfilename.vhd.* 이 예제의 VHD는 *vhdcontainer* 컨테이너의 *mystorageaccount*에 있으며 VHD 파일 이름은 *vhdfilename.vhd*입니다.
 
 
 1.  일부 변수를 만듭니다.

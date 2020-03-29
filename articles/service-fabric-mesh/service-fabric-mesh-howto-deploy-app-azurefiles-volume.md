@@ -1,5 +1,5 @@
 ---
-title: Service Fabric 메시 앱에서 Azure Files 기반 볼륨 사용
+title: 서비스 패브릭 메시 앱에서 Azure 파일 기반 볼륨 사용
 description: Azure CLI를 사용하여 서비스 내부에 Azure Files 기반 볼륨을 탑재하여 Azure Service Fabric Mesh 애플리케이션에 상태를 저장하는 방법을 알아봅니다.
 author: dkkapur
 ms.topic: conceptual
@@ -7,10 +7,10 @@ ms.date: 11/21/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 5bb7ab6c861d958f6811ca852363c59cfced3940
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76718823"
 ---
 # <a name="mount-an-azure-files-based-volume-in-a-service-fabric-mesh-application"></a>Service Fabric Mesh 애플리케이션에서 Azure Files 기반 볼륨 사용 
@@ -21,13 +21,13 @@ ms.locfileid: "76718823"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 > [!NOTE]
-> **WINDOWS RS5 개발 컴퓨터에 대 한 배포의 알려진 문제:** Azurefile 볼륨의 탑재를 방지 하는 RS5 Windows 컴퓨터에 Powershell cmdlet SmbGlobalMapping에 대 한 오픈 버그가 있습니다. 다음은 AzureFile 기반 볼륨이 로컬 개발 컴퓨터에 탑재 될 때 발생 하는 샘플 오류입니다.
+> **Windows RS5 개발 컴퓨터에 배포할 때 알려진 문제:** Azurefile 볼륨의 설치를 방지 하는 RS5 Windows 컴퓨터에 Powershell cmdlet New-SmbGlobalMapping와 오픈 버그가 있습니다. 다음은 AzureFile 기반 볼륨이 로컬 개발 컴퓨터에 탑재될 때 발생하는 샘플 오류입니다.
 ```
 Error event: SourceId='System.Hosting', Property='CodePackageActivation:counterService:EntryPoint:131884291000691067'.
 There was an error during CodePackage activation.System.Fabric.FabricException (-2147017731)
 Failed to start Container. ContainerName=sf-2-63fc668f-362d-4220-873d-85abaaacc83e_6d6879cf-dd43-4092-887d-17d23ed9cc78, ApplicationId=SingleInstance_0_App2, ApplicationName=fabric:/counterApp. DockerRequest returned StatusCode=InternalServerError with ResponseBody={"message":"error while mounting volume '': mount failed"}
 ```
-문제에 대 한 해결 방법은 1) 아래 명령을 Powershell 관리자로 실행 하 고 2) 컴퓨터를 다시 부팅 하는 것입니다.
+이 문제의 해결 방법은 1)Powershell 관리자로 아래 명령을 실행하고 2)컴퓨터를 재부팅하는 것입니다.
 ```powershell
 PS C:\WINDOWS\system32> Mofcomp c:\windows\system32\wbem\smbwmiv2.mof
 ```
@@ -85,7 +85,7 @@ az storage account keys list --account-name <storageAccountName> --query "[?keyN
 
 애플리케이션 리소스의 피어로 볼륨 리소스를 만듭니다. 이름 및 공급 기업(Azure Files 기반 볼륨을 사용하려면 “SFAzureFile”)를 지정합니다. `azureFileParameters`에서 이전 단계에서 확인한 `<fileShareName>`, `<storageAccountName>` 및 `<storageAccountKey>` 값에 대한 매개 변수를 지정합니다.
 
-서비스에 볼륨을 탑재하려면 서비스의 `volumeRefs` 요소에 `codePackages`를 추가합니다.  `name`은 볼륨의 리소스 ID(또는 볼륨 리소스의 배포 템플릿 매개 변수)와 volume.yaml 리소스 파일에 선언된 볼륨의 이름입니다.  `destinationPath`는 볼륨이 탑재될 로컬 디렉터리입니다.
+서비스에 볼륨을 탑재하려면 서비스의 `codePackages` 요소에 `volumeRefs`를 추가합니다.  `name`은 볼륨의 리소스 ID(또는 볼륨 리소스의 배포 템플릿 매개 변수)와 volume.yaml 리소스 파일에 선언된 볼륨의 이름입니다.  `destinationPath`는 볼륨이 탑재될 로컬 디렉터리입니다.
 
 ```json
 {

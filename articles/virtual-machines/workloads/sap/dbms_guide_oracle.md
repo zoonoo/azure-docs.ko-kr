@@ -16,10 +16,10 @@ ms.date: 12/14/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a23fb981e24f6152d99b76bd72115f8159f5d60f
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75645847"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-workload"></a>SAP 워크로드용 Azure Virtual Machines DBMS 배포
@@ -29,7 +29,7 @@ ms.locfileid: "75645847"
 [826037]:https://launchpad.support.sap.com/#/notes/826037
 [965908]:https://launchpad.support.sap.com/#/notes/965908
 [1031096]:https://launchpad.support.sap.com/#/notes/1031096
-[1114181]: https://launchpad.support.sap.com/#/notes/1114181
+[1114181]:https://launchpad.support.sap.com/#/notes/1114181
 [1139904]:https://launchpad.support.sap.com/#/notes/1139904
 [1173395]:https://launchpad.support.sap.com/#/notes/1173395
 [1245200]:https://launchpad.support.sap.com/#/notes/1245200
@@ -38,7 +38,7 @@ ms.locfileid: "75645847"
 [1585981]:https://launchpad.support.sap.com/#/notes/1585981
 [1588316]:https://launchpad.support.sap.com/#/notes/1588316
 [1590719]:https://launchpad.support.sap.com/#/notes/1590719
-[1597355]: https://launchpad.support.sap.com/#/notes/1597355
+[1597355]:https://launchpad.support.sap.com/#/notes/1597355
 [1605680]:https://launchpad.support.sap.com/#/notes/1605680
 [1619720]:https://launchpad.support.sap.com/#/notes/1619720
 [1619726]:https://launchpad.support.sap.com/#/notes/1619726
@@ -54,23 +54,23 @@ ms.locfileid: "75645847"
 [1882376]:https://launchpad.support.sap.com/#/notes/1882376
 [1909114]:https://launchpad.support.sap.com/#/notes/1909114
 [1922555]:https://launchpad.support.sap.com/#/notes/1922555
-[1928533]: https://launchpad.support.sap.com/#/notes/1928533
+[1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1941500]:https://launchpad.support.sap.com/#/notes/1941500
 [1956005]:https://launchpad.support.sap.com/#/notes/1956005
 [1973241]:https://launchpad.support.sap.com/#/notes/1973241
 [1984787]:https://launchpad.support.sap.com/#/notes/1984787
-[1999351]: https://launchpad.support.sap.com/#/notes/1999351
+[1999351]:https://launchpad.support.sap.com/#/notes/1999351
 [2002167]:https://launchpad.support.sap.com/#/notes/2002167
-[2015553]: https://launchpad.support.sap.com/#/notes/2015553
-[2039619]: https://launchpad.support.sap.com/#/notes/2039619
-[2069760]: https://launchpad.support.sap.com/#/notes/2069760
+[2015553]:https://launchpad.support.sap.com/#/notes/2015553
+[2039619]:https://launchpad.support.sap.com/#/notes/2039619
+[2069760]:https://launchpad.support.sap.com/#/notes/2069760
 [2121797]:https://launchpad.support.sap.com/#/notes/2121797
 [2134316]:https://launchpad.support.sap.com/#/notes/2134316
-[2171857]: https://launchpad.support.sap.com/#/notes/2171857
-[2178632]: https://launchpad.support.sap.com/#/notes/2178632
-[2191498]: https://launchpad.support.sap.com/#/notes/2191498
+[2171857]:https://launchpad.support.sap.com/#/notes/2171857
+[2178632]:https://launchpad.support.sap.com/#/notes/2178632
+[2191498]:https://launchpad.support.sap.com/#/notes/2191498
 [2233094]:https://launchpad.support.sap.com/#/notes/2233094
-[2243692]: https://launchpad.support.sap.com/#/notes/2243692
+[2243692]:https://launchpad.support.sap.com/#/notes/2243692
 
 [azure-cli]:../../../cli-install-nodejs.md
 [azure-portal]:https://portal.azure.com
@@ -320,12 +320,12 @@ Oracle 소프트웨어는 Microsoft Azure에서 실행되도록 Oracle에서 지
 
 | Note 번호 | 제목 |
 | --- | --- |
-| [1928533] |Azure의 SAP 응용 프로그램: 지원 되는 제품 및 Azure VM 유형 |
-| [2015553] |Microsoft Azure의 SAP: 지원 필수 구성 요소 |
+| [1928533] |Azure에서 SAP 응용 프로그램: 지원되는 제품 및 Azure VM 형식 |
+| [2015553] |마이크로소프트 Azure에 SAP: 지원 필수 구성 조건 |
 | [1999351] |SAP용 고급 Azure 모니터링 문제 해결 |
 | [2178632] |Microsoft Azure의 SAP용 주요 모니터링 메트릭 |
-| [2191498] |Azure를 사용 하는 Linux의 SAP: 향상 된 모니터링 |
-| [2039619] |Oracle 데이터베이스를 사용 하는 Microsoft Azure의 SAP 응용 프로그램: 지원 되는 제품 및 버전 |
+| [2191498] |Azure와 리눅스에 SAP: 향상 된 모니터링 |
+| [2039619] |Oracle 데이터베이스를 사용하여 Microsoft Azure의 SAP 응용 프로그램: 지원되는 제품 및 버전 |
 | [2243692] |Microsoft Azure(IaaS) VM의 Linux: SAP 라이선스 문제 |
 | [2069760] |Oracle Linux 7.x SAP 설치 및 업그레이드 |
 | [1597355] |Linux에 대한 스왑 공간 권장 사항 |
@@ -366,18 +366,18 @@ NTFS로 포맷된 디스크를 사용하는 하나의 Oracle 인스턴스만 지
 
 Azure 페이지 Blob 스토리지 또는 Managed Disks를 기준으로 하는 디스크를 사용하는 경우 [SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항](dbms_guide_general.md)에 제공된 설명은 Oracle Database를 사용한 배포에도 적용됩니다.
 
-Azure 디스크에 대한 IOPS 처리량의 할당량이 존재합니다. 이 개념은 [SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항](dbms_guide_general.md)에서 설명하고 있습니다. 정확한 할당량은 사용하는 VM 유형에 따라 달라집니다. [Azure의 Windows 가상 머신에 대 한 크기][virtual-machines-sizes-windows]에서 할당량을 포함 하는 VM 유형 목록을 찾을 수 있습니다.
+Azure 디스크에 대한 IOPS 처리량의 할당량이 존재합니다. 이 개념은 [SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항](dbms_guide_general.md)에서 설명하고 있습니다. 정확한 할당량은 사용하는 VM 유형에 따라 달라집니다. VM 유형과 해당 할당량 목록은 [Azure의 Windows Virtual Machines 크기][virtual-machines-sizes-windows]에서 확인할 수 있습니다.
 
 지원되는 Azure VM 유형을 식별하려면 SAP Note [1928533]을 참조하세요.
 
 최소 구성은 다음과 같습니다. 
 
-| 구성 요소 | Disk | 캐싱 | 스토리지 풀 |
+| 구성 요소 | 디스크 | 캐싱 | 스토리지 풀 |
 | --- | ---| --- | --- |
-| \oracle\<SID>\origlogaA & mirrlogB | 프리미엄 | 없음 | 필요하지 않음 |
-| \oracle\<SID>\origlogaB & mirrlogA | 프리미엄 | 없음 | 필요하지 않음 |
-| \oracle\<SID>\sapdata1...n | 프리미엄 | 읽기 전용 | 사용할 수 있음 |
-| \oracle\<SID>\oraarch | Standard | 없음 | 필요하지 않음 |
+| \oracle\<SID>\origlogaA & mirrlogB | Premium | None | 필요하지 않음 |
+| \oracle\<SID>\origlogaB & mirrlogA | Premium | None | 필요하지 않음 |
+| \oracle\<SID>\sapdata1...n | Premium | 읽기 전용 | 사용할 수 있음 |
+| \oracle\<SID>\oraarch | Standard | None | 필요하지 않음 |
 | Oracle 홈, saptrace, ... | OS 디스크 | | 필요하지 않음 |
 
 
@@ -385,20 +385,20 @@ Azure 디스크에 대한 IOPS 처리량의 할당량이 존재합니다. 이 �
 
 성능 구성은 다음과 같습니다.
 
-| 구성 요소 | Disk | 캐싱 | 스토리지 풀 |
+| 구성 요소 | 디스크 | 캐싱 | 스토리지 풀 |
 | --- | ---| --- | --- |
-| \oracle\<SID>\origlogaA | 프리미엄 | 없음 | 사용할 수 있음  |
-| \oracle\<SID>\origlogaB | 프리미엄 | 없음 | 사용할 수 있음 |
-| \oracle\<SID>\mirrlogAB | 프리미엄 | 없음 | 사용할 수 있음 |
-| \oracle\<SID>\mirrlogBA | 프리미엄 | 없음 | 사용할 수 있음 |
-| \oracle\<SID>\sapdata1...n | 프리미엄 | 읽기 전용 | 권장  |
-| \oracle\SID\sapdata(n+1)* | 프리미엄 | 없음 | 사용할 수 있음 |
-| \oracle\<SID>\oraarch* | 프리미엄 | 없음 | 필요하지 않음 |
+| \oracle\<SID>\origlogaA | Premium | None | 사용할 수 있음  |
+| \oracle\<SID>\origlogaB | Premium | None | 사용할 수 있음 |
+| \oracle\<SID>\mirrlogAB | Premium | None | 사용할 수 있음 |
+| \oracle\<SID>\mirrlogBA | Premium | None | 사용할 수 있음 |
+| \oracle\<SID>\sapdata1...n | Premium | 읽기 전용 | 권장  |
+| \oracle\SID\sapdata(n+1)* | Premium | None | 사용할 수 있음 |
+| \oracle\<SID>\oraarch* | Premium | None | 필요하지 않음 |
 | Oracle 홈, saptrace, ... | OS 디스크 | 필요하지 않음 |
 
 *(n+1): SYSTEM, TEMP 및 UNDO 테이블스페이스를 호스트합니다. I/O 패턴의 시스템 및 Undo 테이블스페이스는 애플리케이션 데이터를 호스팅하는 다른 테이블스페이스와 다릅니다. 캐싱 없음이 시스템의 성능 및 Undo 테이블스페이스에 최적의 옵션입니다.
 
-\* oraarch: 성능 관점에서 스토리지 풀이 필요하지 않습니다. 더 많은 공간을 확보하는 데 사용할 수 있습니다.
+* oraarch: 성능 관점에서 스토리지 풀이 필요하지 않습니다. 더 많은 공간을 확보하는 데 사용할 수 있습니다.
 
 더 많은 IOPS가 필요한 경우 Window 스토리지 풀(Windows Server 2012 이상에서만 사용 가능)을 사용하여 탑재된 여러 디스크를 하나의 큰 논리적 디바이스로 만드는 것이 좋습니다. 이 방법을 사용하면 디스크 공간 관리를 위한 관리 오버헤드를 간소화하고 탑재된 여러 디스크에 수동으로 파일을 배포하는 수고를 덜 수 있습니다.
 
@@ -456,18 +456,18 @@ Oracle Linux UEK 커널의 경우 [Azure 프리미엄 SSD](https://docs.microsof
 
 Azure 페이지 Blob 스토리지 또는 Managed Disks를 기준으로 하는 디스크를 사용하는 경우 [SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항](dbms_guide_general.md)에 제공된 설명은 Oracle Database를 사용한 배포에도 적용됩니다.
 
- Azure 디스크에 대한 IOPS 처리량의 할당량이 존재합니다. 이 개념은 [SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항](dbms_guide_general.md)에서 설명하고 있습니다. 정확한 할당량은 사용되는 VM 유형에 따라 다릅니다. VM 유형 및 할당량의 목록은 [Azure에서 Linux 가상 머신에 대 한 크기][virtual-machines-sizes-linux]를 참조 하세요.
+ Azure 디스크에 대한 IOPS 처리량의 할당량이 존재합니다. 이 개념은 [SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항](dbms_guide_general.md)에서 설명하고 있습니다. 정확한 할당량은 사용되는 VM 유형에 따라 다릅니다. VM 유형과 해당 할당량 목록은 [Azure의 Linux Virtual Machines 크기][virtual-machines-sizes-linux]를 참조하세요.
 
 지원되는 Azure VM 유형을 식별하려면 SAP Note [1928533]을 참조하세요.
 
 최소 구성
 
-| 구성 요소 | Disk | 캐싱 | 제거* |
+| 구성 요소 | 디스크 | 캐싱 | 제거* |
 | --- | ---| --- | --- |
-| /oracle/\<SID >/origlogaA & mirrlogB | 프리미엄 | 없음 | 필요하지 않음 |
-| /oracle/\<SID >/origlogaB & mirrlogA | 프리미엄 | 없음 | 필요하지 않음 |
-| /oracle/\<SID >/sapdata1... 개의 | 프리미엄 | 읽기 전용 | 사용할 수 있음 |
-| /oracle/\<SID >/oraarch | Standard | 없음 | 필요하지 않음 |
+| /오라클/시드\<>/오리글로가a & mirrlogB | Premium | None | 필요하지 않음 |
+| /오라클/시드\<>/오리글로가비 & mirrlogA | Premium | None | 필요하지 않음 |
+| /오라클/\<SID>/삽데이터1... N | Premium | 읽기 전용 | 사용할 수 있음 |
+| /오라클/시드\<>/오라크 | Standard | None | 필요하지 않음 |
 | Oracle 홈, saptrace, ... | OS 디스크 | | 필요하지 않음 |
 
 *제거: RAID0를 사용한 LVM 스트라이프 또는 MDADM
@@ -476,22 +476,22 @@ Oracle의 온라인 다시 실행 로그를 호스팅하기 위한 디스크 선
 
 성능 구성
 
-| 구성 요소 | Disk | 캐싱 | 제거* |
+| 구성 요소 | 디스크 | 캐싱 | 제거* |
 | --- | ---| --- | --- |
-| /oracle/\<SID >/origlogaA | 프리미엄 | 없음 | 사용할 수 있음  |
-| /oracle/\<SID>/origlogaB | 프리미엄 | 없음 | 사용할 수 있음 |
-| /oracle/\<SID>/mirrlogAB | 프리미엄 | 없음 | 사용할 수 있음 |
-| /oracle/\<SID>/mirrlogBA | 프리미엄 | 없음 | 사용할 수 있음 |
-| /oracle/\<SID >/sapdata1... 개의 | 프리미엄 | 읽기 전용 | 권장  |
-| /oracle/\<SID > 형식이 며/sapdata (n + 1) * | 프리미엄 | 없음 | 사용할 수 있음 |
-| /oracle/\<SID>/oraarch* | 프리미엄 | 없음 | 필요하지 않음 |
+| /오라클/시드\<>/오리글로가 | Premium | None | 사용할 수 있음  |
+| /오라클/\<시드>/오리글로가B | Premium | None | 사용할 수 있음 |
+| /오라클/시드\<>/mirrlogAB | Premium | None | 사용할 수 있음 |
+| /오라클/시드\<>/미르로그바 | Premium | None | 사용할 수 있음 |
+| /오라클/\<SID>/삽데이터1... N | Premium | 읽기 전용 | 권장  |
+| /오라클/\<SID>/삽데이터(n+1)* | Premium | None | 사용할 수 있음 |
+| /오라클/시드\<>/오라아크* | Premium | None | 필요하지 않음 |
 | Oracle 홈, saptrace, ... | OS 디스크 | 필요하지 않음 |
 
 *제거: RAID0를 사용한 LVM 스트라이프 또는 MDADM
 
-\* (n + 1): 호스팅 시스템, 임시 및 실행 취소 테이블: 시스템의 i/o 패턴 및 실행 테이블은 다른 테이블 스페이스 호스팅 응용 프로그램 데이터와 다릅니다. 캐싱 없음이 시스템의 성능 및 Undo 테이블스페이스에 최적의 옵션입니다.
+*(n+1): 호스팅 시스템, TEMP 및 UNDO 테이블스페이스: 시스템 및 취소 테이블스페이스의 I/O 패턴은 응용 프로그램 데이터를 호스팅하는 다른 테이블스페이스와 다릅니다. 캐싱 없음이 시스템의 성능 및 Undo 테이블스페이스에 최적의 옵션입니다.
 
-\* oraarch: 성능 관점에서 스토리지 풀이 필요하지 않습니다.
+* oraarch: 성능 관점에서 스토리지 풀이 필요하지 않습니다.
 
 
 더 많은 IOPS가 필요한 경우 LVM(논리 볼륨 관리자) 또는 MDADM을 사용하여 탑재된 여러 디스크에 대해 하나의 큰 논리 볼륨을 만드는 것이 좋습니다. 자세한 내용은 LVM 또는 MDADM을 활용하는 방법에 대한 지침과 조언을 제공하는 [SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항](dbms_guide_general.md)을 참조하세요. 이 방법을 사용하면 디스크 공간 관리를 위한 관리 오버헤드를 간소화하고 탑재된 여러 디스크에 파일을 수동으로 배포하는 수고를 덜 수 있습니다.

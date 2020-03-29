@@ -1,21 +1,21 @@
 ---
-title: Azure Cosmos DB SQL 쿼리의 스칼라 식
-description: Azure Cosmos DB에 대 한 스칼라 식 SQL 구문에 대해 알아봅니다. 이 문서에서는 연산자를 사용 하 여 스칼라 식을 복합 식으로 결합 하는 방법에 대해서도 설명 합니다.
+title: Azure 코스모스 DB SQL 쿼리의 스칼라 식
+description: Azure Cosmos DB의 스칼라 식 SQL 구문에 대해 알아봅니다. 이 문서에서는 연산자사용을 사용하여 스칼라 식을 복잡한 표현식으로 결합하는 방법에 대해서도 설명합니다.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: mjbrown
 ms.openlocfilehash: f8c98915ad3b682af00492acc7bc51672ec874a8
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74870737"
 ---
-# <a name="scalar-expressions-in-azure-cosmos-db-sql-queries"></a>Azure Cosmos DB SQL 쿼리의 스칼라 식
+# <a name="scalar-expressions-in-azure-cosmos-db-sql-queries"></a>Azure 코스모스 DB SQL 쿼리의 스칼라 식
 
-[SELECT 절](sql-query-select.md) 은 스칼라 식을 지원 합니다. 스칼라 식은 단일 값을 얻기 위해 평가될 수 있는 기호와 연산자의 조합입니다. 스칼라 식의 예로는 상수, 속성 참조, 배열 요소 참조, 별칭 참조 또는 함수 호출 등이 있습니다. 스칼라 식은 연산자를 사용 하 여 복잡 한 식으로 결합 될 수 있습니다.
+[SELECT 절은](sql-query-select.md) 스칼라 식을 지원합니다. 스칼라 식은 단일 값을 얻기 위해 평가될 수 있는 기호와 연산자의 조합입니다. 스칼라 식의 예로는 상수, 속성 참조, 배열 요소 참조, 별칭 참조 또는 함수 호출이 있습니다. 스칼라 식은 연산자를 사용하여 복잡한 표현식으로 결합할 수 있습니다.
 
 ## <a name="syntax"></a>구문
   
@@ -50,7 +50,7 @@ ms.locfileid: "74870737"
   
 - `<constant>`  
   
-   상수 값을 나타냅니다. 자세한 내용은 [상수](sql-query-constants.md) 섹션을 참조하세요.  
+   상수 값을 나타냅니다. 세부 정보는 [상수](sql-query-constants.md) 섹션을 참조하세요.  
   
 - `input_alias`  
   
@@ -59,11 +59,11 @@ ms.locfileid: "74870737"
   
 - `<scalar_expression>.property_name`  
   
-   개체의 속성 값을 나타냅니다. 속성이 없거나 속성이 개체가 아닌 값에서 참조 되 면 식이 **undefined** 값으로 평가 됩니다.  
+   개체의 속성 값을 나타냅니다. 속성이 없거나 개체가 아닌 값에서 속성이 참조되는 경우 식은 **정의되지 않은** 값으로 평가됩니다.  
   
 - `<scalar_expression>'['"property_name"|array_index']'`  
   
-   배열의 인덱스 `array_index`를 사용 하 여 이름 `property_name` 또는 배열 요소가 포함 된 속성의 값을 나타냅니다. 속성/배열 인덱스가 존재하지 않거나 속성/배열이 아닌 값에서 참조되면 식이 undefined 값으로 평가됩니다.  
+   배열의 인덱스와 `property_name` `array_index` 이름 또는 배열 요소와 속성의 값을 나타냅니다. 속성/배열 인덱스가 존재하지 않거나 속성/배열이 아닌 값에서 참조되면 식이 undefined 값으로 평가됩니다.  
   
 - `unary_operator <scalar_expression>`  
   
@@ -99,13 +99,13 @@ ms.locfileid: "74870737"
   
 ## <a name="remarks"></a>설명
   
-  기본 제공 또는 사용자 정의 스칼라 함수를 호출 하는 경우 모든 인수를 정의 해야 합니다. 인수 중 하나라도 정의되지 않으면 함수가 호출되지 않고 결과가 정의되지 않습니다.  
+  기본 제공 또는 사용자 정의 스칼라 함수를 호출할 때 모든 인수를 정의해야 합니다. 인수 중 하나라도 정의되지 않으면 함수가 호출되지 않고 결과가 정의되지 않습니다.  
   
   개체를 만들 때 정의되지 않은 값이 할당된 속성은 건너뛰고 만든 개체에 포함되지 않습니다.  
   
   배열을 만들 때 **undefined** 값이 할당된 요소 값은 건너뛰고 만든 개체에 포함되지 않습니다. 이렇게 하면 건너뛴 인덱스가 만드는 배열에 포함되지 않는 방식으로 다음에 정의된 요소가 해당 위치로 이동합니다.  
 
-## <a name="examples"></a>예시
+## <a name="examples"></a>예
 
 ```sql
     SELECT ((2 + 11 % 7)-2)/3
@@ -141,6 +141,6 @@ ms.locfileid: "74870737"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Cosmos DB 소개](introduction.md)
+- [Azure 코스모스 DB 소개](introduction.md)
 - [Azure Cosmos DB .NET 샘플](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [하위 쿼리](sql-query-subquery.md)

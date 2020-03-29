@@ -1,5 +1,5 @@
 ---
-title: 호환 되지 않는 행을 건너뛰어 Azure Data Factory 복사 작업에 내결함성을 추가 합니다.
+title: 호환되지 않는 행을 건너뛰고 Azure 데이터 팩터리 복사 활동에 내결함성 추가
 description: 복사 중에 호환되지 않는 행을 건너뛰어 Azure Data Factory 복사 작업에 내결함성을 추가하는 방법 알아보기
 services: data-factory
 documentationcenter: ''
@@ -12,10 +12,10 @@ ms.date: 03/27/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 8ffaee75154fd5fe025bdb683c89f16799d6e86b
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74926143"
 ---
 # <a name="add-fault-tolerance-in-copy-activity-by-skipping-incompatible-rows"></a>호환되지 않는 행을 건너뛰어 복사 작업에 내결함성 추가
@@ -25,7 +25,7 @@ ms.locfileid: "74926143"
 > * [버전 2(현재 버전)](../copy-activity-fault-tolerance.md)
 
 > [!NOTE]
-> 이 문서는 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [Data Factory 복사 작업에서의 내결함성](../copy-activity-fault-tolerance.md)을 참조하세요.
+> 이 아티클은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [Data Factory 복사 작업에서의 내결함성](../copy-activity-fault-tolerance.md)을 참조하세요.
 
 Azure Data Factory [복사 작업](data-factory-data-movement-activities.md)은 원본 및 싱크 데이터 저장소 간에 데이터를 복사할 때 호환되지 않는 행을 처리하는 2가지 방법을 제공합니다.
 
@@ -50,7 +50,7 @@ Azure Data Factory [복사 작업](data-factory-data-movement-activities.md)은 
 >[!NOTE]
 >이 기능은 복사 작업이 [Azure SQL Data Warehouse PolyBase](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) 또는 [Amazon Redshift Unload](data-factory-amazon-redshift-connector.md#use-unload-to-copy-data-from-amazon-redshift)를 포함하는 외부 데이터 로드 메커니즘을 호출하도록 구성된 경우에는 적용되지 않습니다. PolyBase를 사용하여 SQL Data Warehouse로 데이터를 로드하려는 경우, 복사 작업에서 "[polyBaseSettings](data-factory-azure-sql-data-warehouse-connector.md#sqldwsink)"를 지정하여 PolyBase의 네이티브 내결함성 지원을 사용합니다.
 
-## <a name="configuration"></a>구성
+## <a name="configuration"></a>Configuration
 다음 예제에서는 복사 작업에서 호환되지 않는 행을 건너뛰도록 구성하기 위한 JSON 정의를 제공합니다.
 
 ```json
@@ -69,12 +69,12 @@ Azure Data Factory [복사 작업](data-factory-data-movement-activities.md)은 
 }
 ```
 
-| 자산 | 설명 | 허용되는 값 | 필수 |
+| 속성 | 설명 | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| **enableSkipIncompatibleRow** | 복사 중 호환되지 않는 행을 건너뛸지 여부를 설정합니다. | 참<br/>False(기본값) | 아닙니다. |
-| **redirectIncompatibleRowSettings** | 호환되지 않는 행을 기록하려는 경우 지정할 수 있는 속성 그룹입니다. | &nbsp; | 아닙니다. |
-| **linkedServiceName** | 건너뛰는 행을 포함하는 로그를 저장하는 Azure Storage의 연결된 서비스입니다. | 로그 파일을 저장하는 데 사용할 스토리지 인스턴스를 참조하는 [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) 또는 [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) 연결된 서비스의 이름입니다. | 아닙니다. |
-| **path** | 건너뛴 행을 포함하는 로그 파일의 경로입니다. | 호환되지 않는 데이터를 기록하는 데 사용하려는 Blob Storage 경로를 지정합니다. 경로를 지정하지 않으면 서비스가 대신 컨테이너를 만듭니다. | 아닙니다. |
+| **enableSkipIncompatibleRow** | 복사 중 호환되지 않는 행을 건너뛸지 여부를 설정합니다. | True<br/>False(기본값) | 예 |
+| **redirectIncompatibleRowSettings** | 호환되지 않는 행을 기록하려는 경우 지정할 수 있는 속성 그룹입니다. | &nbsp; | 예 |
+| **linkedServiceName** | 건너뛰는 행을 포함하는 로그를 저장하는 Azure Storage의 연결된 서비스입니다. | 로그 파일을 저장하는 데 사용할 스토리지 인스턴스를 참조하는 [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) 또는 [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) 연결된 서비스의 이름입니다. | 예 |
+| **경로** | 건너뛴 행을 포함하는 로그 파일의 경로입니다. | 호환되지 않는 데이터를 기록하는 데 사용하려는 Blob Storage 경로를 지정합니다. 경로를 지정하지 않으면 서비스가 대신 컨테이너를 만듭니다. | 예 |
 
 ## <a name="monitoring"></a>모니터링
 복사 작업 실행이 완료되면 모니터링 섹션에서 건너뛴 행의 수를 볼 수 있습니다.

@@ -1,5 +1,5 @@
 ---
-title: IOS에서 인증서 기반 인증-Azure Active Directory
+title: iOS에서 인증서 기반 인증 - Azure Active Directory
 description: iOS 디바이스에서 솔루션의 인증서 기반 인증을 구성하는 데 지원되는 시나리오 및 요구 사항에 대한 자세한 정보
 services: active-directory
 ms.service: active-directory
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d2f9e7d71ab660c4df6f65d6bebe1d3854086bdd
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74848802"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-ios"></a>iOS에서 Azure Active Directory 인증서 기반 인증
@@ -33,18 +33,18 @@ iOS 디바이스는 연결할 때 자신의 디바이스에서 클라이언트 �
 
 ## <a name="microsoft-mobile-applications-support"></a>Microsoft 모바일 애플리케이션 지원
 
-| 앱 | 지원 |
+| 앱 | 고객 지원팀 |
 | --- | --- |
-| Azure Information Protection 앱 |![이 응용 프로그램에 대 한 지원을 나타내는 확인 표시][1] |
-| Intune 회사 포털 |![이 응용 프로그램에 대 한 지원을 나타내는 확인 표시][1] |
-| Microsoft Teams |![이 응용 프로그램에 대 한 지원을 나타내는 확인 표시][1] |
-| OneNote |![이 응용 프로그램에 대 한 지원을 나타내는 확인 표시][1] |
-| OneDrive |![이 응용 프로그램에 대 한 지원을 나타내는 확인 표시][1] |
-| Outlook |![이 응용 프로그램에 대 한 지원을 나타내는 확인 표시][1] |
-| Power BI |![이 응용 프로그램에 대 한 지원을 나타내는 확인 표시][1] |
-| 비즈니스용 Skype |![이 응용 프로그램에 대 한 지원을 나타내는 확인 표시][1] |
-| Word / Excel / PowerPoint |![이 응용 프로그램에 대 한 지원을 나타내는 확인 표시][1] |
-| Yammer |![이 응용 프로그램에 대 한 지원을 나타내는 확인 표시][1] |
+| Azure Information Protection 앱 |![이 응용 프로그램에 대한 지원을 나타내는 표시를 확인하십시오.][1] |
+| Intune 회사 포털 |![이 응용 프로그램에 대한 지원을 나타내는 표시를 확인하십시오.][1] |
+| Microsoft 팀 |![이 응용 프로그램에 대한 지원을 나타내는 표시를 확인하십시오.][1] |
+| OneNote |![이 응용 프로그램에 대한 지원을 나타내는 표시를 확인하십시오.][1] |
+| OneDrive |![이 응용 프로그램에 대한 지원을 나타내는 표시를 확인하십시오.][1] |
+| Outlook |![이 응용 프로그램에 대한 지원을 나타내는 표시를 확인하십시오.][1] |
+| Power BI |![이 응용 프로그램에 대한 지원을 나타내는 표시를 확인하십시오.][1] |
+| 비즈니스용 Skype |![이 응용 프로그램에 대한 지원을 나타내는 표시를 확인하십시오.][1] |
+| Word / Excel / PowerPoint |![이 응용 프로그램에 대한 지원을 나타내는 표시를 확인하십시오.][1] |
+| Yammer |![이 응용 프로그램에 대한 지원을 나타내는 표시를 확인하십시오.][1] |
 
 ## <a name="requirements"></a>요구 사항
 

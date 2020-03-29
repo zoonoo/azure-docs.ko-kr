@@ -1,5 +1,5 @@
 ---
-title: 다른 그룹에서 그룹 추가 또는 제거-Azure AD
+title: 다른 그룹에서 그룹 추가 또는 제거 - Azure AD
 description: Azure Active Directory를 사용하여 다른 그룹에서 그룹을 추가하거나 제거하는 방법에 대한 지침입니다.
 services: active-directory
 author: msaburnley
@@ -14,10 +14,10 @@ ms.custom: it-pro, seodec18
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 830bf7134b3a8b0425c53673a1347dd77897a5bd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75423074"
 ---
 # <a name="add-or-remove-a-group-from-another-group-using-azure-active-directory"></a>Azure Active Directory를 사용하여 다른 그룹에서 그룹 추가 또는 제거
@@ -30,7 +30,7 @@ ms.locfileid: "75423074"
 기존 보안 그룹을 다른 기존 그룹(중첩 그룹이라고도 함)에 추가하여 멤버 그룹(하위 그룹) 및 부모 그룹을 만들 수 있습니다. 멤버 그룹은 부모 그룹의 특성과 속성을 상속하므로 구성 시간이 절약됩니다.
 
 >[!Important]
->다음 작업은 현재 지원되지 않습니다.<ul><li>온-프레미스 Active Directory와 동기화되는 그룹에 그룹 추가</li><li>Office 365 그룹에 보안 그룹 추가</li><li>보안 그룹 또는 다른 Office 365 그룹에 Office 365 그룹 추가</li><li>중첩된 그룹에 앱 할당</li><li>중첩된 그룹에 라이선스 적용</li><li>중첩 시나리오에서 배포 그룹 추가</li></ul>
+>다음 작업은 현재 지원되지 않습니다.<ul><li>온-프레미스 Active Directory와 동기화되는 그룹에 그룹 추가</li><li>Office 365 그룹에 보안 그룹 추가</li><li>보안 그룹 또는 다른 Office 365 그룹에 Office 365 그룹 추가</li><li>중첩된 그룹에 앱 할당</li><li>중첩된 그룹에 라이선스 적용</li><li>중첩 시나리오에서 메일 그룹을 추가합니다.</li></ul>
 
 ### <a name="to-add-a-group-as-a-member-of-another-group"></a>그룹을 다른 그룹의 멤버로 추가하려면
 

@@ -12,15 +12,15 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 598f3bd8500a59cd41cc4126915e6cccbd4fb2f3
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74848564"
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Azure AD 셀프 서비스 암호 재설정의 라이선스 요구 사항
 
-Azure AD (Azure Active Directory)는 Free, Premium P1 및 Premium P2의 여러 버전으로 제공 됩니다. 변경, 재설정, 잠금 해제, 쓰기 저장 등 여러 Azure AD 버전에서 제공되는 여러 기능이 모여서 셀프 서비스 암호 재설정을 구성합니다. 이 문서에서는 차이점을 설명하려고 합니다. 각 Azure AD 버전에 포함된 기능에 대한 자세한 내용은 [Azure Active Directory 가격 책정 페이지](https://azure.microsoft.com/pricing/details/active-directory/)를 참조하세요.
+Azure Active Directory(Azure AD)는 무료, 프리미엄 P1 및 프리미엄 P2의 여러 버전으로 제공됩니다. 변경, 재설정, 잠금 해제, 쓰기 저장 등 여러 Azure AD 버전에서 제공되는 여러 기능이 모여서 셀프 서비스 암호 재설정을 구성합니다. 이 문서에서는 차이점을 설명하려고 합니다. 각 Azure AD 버전에 포함된 기능에 대한 자세한 내용은 [Azure Active Directory 가격 책정 페이지](https://azure.microsoft.com/pricing/details/active-directory/)를 참조하세요.
 
 ## <a name="compare-editions-and-features"></a>버전 및 기능 비교
 
@@ -34,7 +34,7 @@ Azure AD 셀프 서비스 암호 재설정은 사용자 단위로 라이선스�
 * 클라우드 사용자를 위한 셀프 서비스 암호 재설정
    * 저는 **클라우드 전용 사용자**이며 암호가 기억 나지 않습니다.
       * 제가 알고 있는 다른 암호로 **변경**하고 싶습니다.
-   * 이 기능은 Azure AD Premium P1 또는 P2, Microsoft 365 Business 또는 Office 365에 포함 되어 있습니다.
+   * 이 기능은 Azure AD 프리미엄 P1 또는 P2, Microsoft 365 비즈니스 또는 Office 365에 포함되어 있습니다.
 
 * **온-프레미스 쓰기 저장**으로 셀프 서비스 암호 재설정/변경/잠금 해제
    * 저는 **하이브리드 사용자**이고, 저의 온-프레미스 Active Directory 사용자 계정은 Azure AD Connect를 사용하여 저의 Azure AD 계정과 동기화됩니다. 암호가 기억 나지 않아 또는 암호가 잠겨서 암호를 변경하고 싶습니다.
@@ -57,12 +57,12 @@ Azure AD 셀프 서비스 암호 재설정은 사용자 단위로 라이선스�
 
 Azure AD가 이제 그룹 기반 라이선스를 지원합니다. 관리자는 라이선스를 한 번에 하나씩 할당하는 대신 사용자 그룹에 한꺼번에 라이선스를 할당할 수 있습니다. 자세한 내용은 [라이선스 할당, 확인 및 문제 해결](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses)을 참조하세요.
 
-일부 Microsoft 서비스는 모든 위치에서 사용할 수 없습니다. 사용자에게 라이선스를 할당하려면 먼저 관리자가 해당 사용자의 **사용 위치** 속성을 지정해야 합니다. 라이선스는 Azure Portal의 **사용자** > **프로필** > **설정**에서 할당할 수 있습니다. *그룹 라이선스 할당을 사용할 때 사용 위치가 지정되지 않은 사용자는 디렉터리의 위치를 상속합니다.*
+일부 Microsoft 서비스는 모든 위치에서 사용할 수 없습니다. 사용자에게 라이선스를 할당하려면 먼저 관리자는 사용자에 **대한 사용 위치** 속성을 지정해야 합니다. 라이선스 할당은 Azure 포털의 **사용자** > **프로필** > **설정** 섹션에서 수행할 수 있습니다. *그룹 라이선스 할당을 사용할 때 사용 위치가 지정되지 않은 사용자는 디렉터리의 위치를 상속합니다.*
 
 ## <a name="next-steps"></a>다음 단계
 
 * [성공적인 SSPR 롤아웃을 어떻게 완료합니까?](howto-sspr-deployment.md)
-* [암호 재설정 또는 변경](../user-help/active-directory-passwords-update-your-own-password.md)
+* [비밀번호 재설정 또는 변경](../user-help/active-directory-passwords-update-your-own-password.md)
 * [셀프 서비스 암호 재설정 등록](../user-help/active-directory-passwords-reset-register.md)
 * [SSPR에서 사용하는 데이터는 무엇이며, 사용자에 대해 어떤 데이터를 채워야 합니까?](howto-sspr-authenticationdata.md)
 * [사용자가 사용할 수 있는 인증 방법은 무엇입니까?](concept-sspr-howitworks.md#authentication-methods)
@@ -70,5 +70,5 @@ Azure AD가 이제 그룹 기반 라이선스를 지원합니다. 관리자는 �
 * [비밀번호 쓰기 저장은 무엇이며, 왜 관심을 가져야 합니까?](howto-sspr-writeback.md)
 * [SSPR 작업은 어떻게 보고 합니까?](howto-sspr-reporting.md)
 * [모든 SSPR 옵션과 그 의미는 무엇입니까?](concept-sspr-howitworks.md)
-* [뭐가 손상 된 것으로 생각 합니다. SSPR 문제 해결을 어떻게 할까요??](active-directory-passwords-troubleshoot.md)
+* [뭔가 깨진 것 같아요. SSPR 문제를 해결하려면 어떻게 해야 합니까?](active-directory-passwords-troubleshoot.md)
 * [다른 곳에서 다루지 않았던 질문이 있습니다.](active-directory-passwords-faq.md)

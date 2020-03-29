@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 86c91582256261d701dc3c73b1bdfdcb6002f6e6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "64867227"
 ---
 # <a name="monitor-encoding-job-progress-with-the-azure-portal"></a>Azure 포털을 통해 인코딩 작업 진행 상태 모니터링
 
 > [!NOTE]
-> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 참고: [v2에서 v3 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)
+> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>최신 버전, [미디어 서비스 v3을](https://docs.microsoft.com/azure/media-services/latest/)확인하십시오. 또한 [v2에서 v3로의 마이그레이션 지침을](../latest/migrate-from-v2-to-v3.md) 참조하십시오.
 
 ## <a name="overview"></a>개요
 
@@ -32,11 +32,11 @@ ms.locfileid: "64867227"
 
 인코딩 작업의 진행 상태를 모니터링하려면 페이지 맨 위에 있는 **설정**을 클릭한 후 **작업**을 선택합니다.
 
-![교육](./media/media-services-portal-vod-get-started/media-services-jobs.png)
+![작업](./media/media-services-portal-vod-get-started/media-services-jobs.png)
 
 작업을 클릭하면 자세한 내용을 확인할 수 있습니다.
 
-![교육](./media/media-services-portal-vod-get-started/media-services-job-progress2.png)
+![작업](./media/media-services-portal-vod-get-started/media-services-job-progress2.png)
 
 ## <a name="next-steps"></a>다음 단계
 인코딩 작업이 완료되면 [여기서](media-services-portal-publish.md)설명하는 대로 자산을 게시 및 재생할 수 있습니다.

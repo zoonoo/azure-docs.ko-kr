@@ -9,10 +9,10 @@ ms.date: 12/20/2017
 ms.author: jonor
 ms.custom: seodec18
 ms.openlocfilehash: bb68919fba731caa32dcca3f4c991b8881afc6f9
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74869649"
 ---
 # <a name="troubleshooting-network-performance"></a>네트워크 성능 문제 해결
@@ -59,7 +59,7 @@ Azure는 온-프레미스 네트워크에서 Azure에 빠르고 안정적으로 
 이러한 도구와 메서드를 개발자가 설치하여 사용할 수 있는 PowerShell 모듈(AzureCT) 하나에 통합했습니다.
 
 ### <a name="azurect---the-azure-connectivity-toolkit"></a>AzureCT - Azure 연결 도구 키트
-AzureCT PowerShell 모듈에는 두 가지 구성 요소인 [가용성 테스트][Availability Doc] 와 [성능 테스트가][Performance Doc]있습니다. 이 문서에서는 성능 테스트에 대한 내용만 다루기 때문에 이 PowerShell 모듈의 두 가지 링크 성능 명령을 집중적으로 살펴볼 것입니다.
+AzureCT PowerShell 모듈은 [가용성 테스트][Availability Doc] 및 [성능 테스트][Performance Doc]라는 두 가지 구성 요소를 포함하고 있습니다. 이 문서에서는 성능 테스트에 대한 내용만 다루기 때문에 이 PowerShell 모듈의 두 가지 링크 성능 명령을 집중적으로 살펴볼 것입니다.
 
 성능 테스트에 이 도구 키트를 사용하기 위한 세 가지 기본 단계가 있습니다. 1) PowerShell 모듈을 설치하고, 2) 지원 애플리케이션 iPerf 및 PSPing을 설치하고, 3) 성능 테스트를 실행합니다.
 
@@ -144,7 +144,7 @@ AzureCT PowerShell 모듈에는 두 가지 구성 요소인 [가용성 테스트
 
 WAN 문제인 경우 서비스 공급자 또는 ISP와 테스트 결과를 공유하면 그들이 바로 문제 해결을 시작하고 여러분이 이미 테스트한 내용을 다시 살펴보는 번거로움을 피할 수 있습니다. 하지만 여러분이 테스트한 결과를 그들이 다시 확인하려 하더라도 불쾌하게 생각하지는 마세요. 타인이 보고한 결과를 토대로 문제를 해결할 때에는 "신뢰하되 검증하라"는 모토를 잊어서는 안 됩니다.
 
-Azure를 사용 하 여 문제를 최대한 자세히 파악 했으면 [Azure 네트워크 설명서][Network Docs] 를 검토 하 고 필요한 경우 [지원 티켓을 열어야][Ticket Link]합니다.
+Azure에서 문제를 최대한 구체적으로 격리한 후에는 [Azure 네트워크 설명서][Network Docs]를 검토하고 여전히 [지원 티켓을 열어야][Ticket Link] 하는지 결정해야 합니다.
 
 ## <a name="references"></a>참조
 ### <a name="latencybandwidth-expectations"></a>대기 시간/대역폭 예상치
@@ -160,7 +160,7 @@ Azure를 사용 하 여 문제를 최대한 자세히 파악 했으면 [Azure �
  - 프라이빗 피어링을 사용하도록 설정된 식별된 위치의 10Gbps Premium ExpressRoute 회로.
  - 지정된 지역의 UltraPerformance 게이트웨이를 사용하는 Azure VNet.
  - VNet에서 Windows Server 2016을 실행하는 DS5v2 VM. VM은 도메인에 가입되지 않았으며, AzureCT가 설치된 기본 Azure 이미지(최적화 또는 사용자 지정 없는)를 사용하여 빌드되었습니다.
- - 6회의 테스트가 실행되었으며, 테스트마다 AzureCT Get-LinkPerformance 명령을 사용하여 5분 부하 테스트를 수행했습니다. 다음은 그 예입니다.
+ - 6회의 테스트가 실행되었으며, 테스트마다 AzureCT Get-LinkPerformance 명령을 사용하여 5분 부하 테스트를 수행했습니다. 예를 들어:
 
     ```powershell
     Get-LinkPerformance -RemoteHost 10.0.0.1 -TestSeconds 300
@@ -179,33 +179,33 @@ Azure를 사용 하 여 문제를 최대한 자세히 파악 했으면 [Azure �
 
 | | | | | | |
 |-|-|-|-|-|-|
-|Express Route<br/>위치|Azure<br/>지역|예상<br/>거리(km)|대기 시간|1 세션<br/>Bandwidth|최대<br/>Bandwidth|
-| 시애틀 | 미국 서부 2        |    191km |   5ms | 262.0Mbits/sec |  3.74Gbits/sec |
-| 시애틀 | 미국 서부          |  1,094km |  18ms |  82.3Mbits/sec |  3.70Gbits/sec |
-| 시애틀 | 미국 중부       |  2,357km |  40ms |  38.8Mbits/sec |  2.55Gbits/sec |
-| 시애틀 | 미국 중남부 |  2,877km |  51ms |  30.6Mbits/sec |  2.49Gbits/sec |
-| 시애틀 | 미국 중북부 |  2,792km |  55ms |  27.7Mbits/sec |  2.19Gbits/sec |
-| 시애틀 | 미국 동부 2        |  3,769km |  73ms |  21.3Mbits/sec |  1.79Gbits/sec |
-| 시애틀 | 미국 동부          |  3,699km |  74ms |  21.1Mbits/sec |  1.78Gbits/sec |
-| 시애틀 | 일본 동부       |  7,705km | 106ms |  14.6Mbits/sec |  1.22Gbits/sec |
-| 시애틀 | 영국 남부         |  7,708km | 146ms |  10.6Mbits/sec |   896Mbits/sec |
-| 시애틀 | 서유럽      |  7,834km | 153ms |  10.2Mbits/sec |   761Mbits/sec |
-| 시애틀 | 오스트레일리아 동부   | 12,484km | 165ms |   9.4Mbits/sec |   794Mbits/sec |
-| 시애틀 | 동남아시아   | 12,989km | 170ms |   9.2Mbits/sec |   756Mbits/sec |
-| 시애틀 | 브라질 남부 *   | 10,930km | 189ms |   8.2Mbits/sec |   699Mbits/sec |
-| 시애틀 | 인도 남부      | 12,918km | 202ms |   7.7Mbits/sec |   634Mbits/sec |
+|ExpressRoute<br/>위치|Azure<br/>지역|예상<br/>거리(km)|대기 시간|1 세션<br/>대역폭|최대<br/>대역폭|
+| Seattle | 미국 서부 2        |    191km |   5ms | 262.0Mbits/sec |  3.74Gbits/sec |
+| Seattle | 미국 서부          |  1,094km |  18ms |  82.3Mbits/sec |  3.70Gbits/sec |
+| Seattle | 미국 중부       |  2,357km |  40ms |  38.8Mbits/sec |  2.55Gbits/sec |
+| Seattle | 미국 중남부 |  2,877km |  51ms |  30.6Mbits/sec |  2.49Gbits/sec |
+| Seattle | 미국 중북부 |  2,792km |  55ms |  27.7Mbits/sec |  2.19Gbits/sec |
+| Seattle | 미국 동부 2        |  3,769km |  73ms |  21.3Mbits/sec |  1.79Gbits/sec |
+| Seattle | 미국 동부          |  3,699km |  74ms |  21.1Mbits/sec |  1.78Gbits/sec |
+| Seattle | 일본 동부       |  7,705km | 106ms |  14.6Mbits/sec |  1.22Gbits/sec |
+| Seattle | 영국 남부         |  7,708km | 146ms |  10.6Mbits/sec |   896Mbits/sec |
+| Seattle | 서유럽      |  7,834km | 153ms |  10.2Mbits/sec |   761Mbits/sec |
+| Seattle | 오스트레일리아 동부   | 12,484km | 165ms |   9.4Mbits/sec |   794Mbits/sec |
+| Seattle | 동남아시아   | 12,989km | 170ms |   9.2Mbits/sec |   756Mbits/sec |
+| Seattle | 브라질 남부 *   | 10,930km | 189ms |   8.2Mbits/sec |   699Mbits/sec |
+| Seattle | 인도 남부      | 12,918km | 202ms |   7.7Mbits/sec |   634Mbits/sec |
 
 \* 브라질까지의 대기 시간은 직선 거리가 파이버 실행 거리와 크게 다르다는 것을 보여 주는 좋은 예입니다. 저는 대기 시간이 160ms 근처일 것으로 예상했지만 실제로는 189ms입니다. 어딘가에 네트워크 문제가 있어서 제 예상과 다른 결과가 나올 수도 있지만, 대부분은 파이버 실행이 브라질까지 직선으로 가는 것이 아니라 시애틀에서 브라질까지 이동할 때 약 1,000km를 더 이동하기 때문입니다.
 
 ## <a name="next-steps"></a>다음 단계
-1. GitHub에서 Azure 연결 도구 키트 다운로드 [https://aka.ms/AzCT][ACT]
-2. [링크 성능 테스트][Performance Doc] 에 대 한 지침을 따릅니다.
+1. 에서 GitHub에서 Azure 연결 도구 키트를 다운로드합니다.[https://aka.ms/AzCT][ACT]
+2. [링크 성능 테스트][Performance Doc]에 대한 지침 수행
 
 <!--Image References-->
 [1]: ./media/expressroute-troubleshooting-network-performance/network-components.png "Azure 네트워크 구성 요소"
-[2]: ./media/expressroute-troubleshooting-network-performance/expressroute-troubleshooting.png "Express 경로 문제 해결"
-[3]: ./media/expressroute-troubleshooting-network-performance/test-diagram.png "Perf 테스트 환경"
-[4]: ./media/expressroute-troubleshooting-network-performance/powershell-output.png "PowerShell 출력"
+[2]: ./media/expressroute-troubleshooting-network-performance/expressroute-troubleshooting.png "익스프레스루트 문제 해결"
+[3]: ./media/expressroute-troubleshooting-network-performance/test-diagram.png "퍼프 테스트 환경"
+[4]: ./media/expressroute-troubleshooting-network-performance/powershell-output.png "파워쉘 출력"
 
 <!--Link References-->
 [Performance Doc]: https://github.com/Azure/NetworkMonitoring/blob/master/AzureCT/PerformanceTesting.md

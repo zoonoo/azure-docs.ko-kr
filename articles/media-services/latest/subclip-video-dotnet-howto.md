@@ -1,6 +1,6 @@
 ---
-title: 서브 클립 Azure Media Services를 사용 하 여 인코딩할 때 비디오
-description: 이 항목에서는 Azure Media services.NET SDK를 사용 하 여 인코딩할 때에 비디오를 서브 클립 방법 설명
+title: Azure 미디어 서비스로 인코딩할 때 비디오 서브클립
+description: 이 항목에서는 .NET SDK를 사용하여 Azure Media Services로 인코딩할 때 비디오를 서브클립하는 방법에 대해 설명합니다.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,27 +14,27 @@ ms.topic: article
 ms.date: 06/09/2019
 ms.author: juliako
 ms.openlocfilehash: 3d584ee742aa93cdecf4b04d942afb2ed83a7357
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67304980"
 ---
-# <a name="subclip-a-video-when-encoding-with-media-services---net"></a>서브 클립 Media Services-.NET을 사용 하 여 인코딩할 때 비디오
+# <a name="subclip-a-video-when-encoding-with-media-services---net"></a>미디어 서비스로 인코딩할 때 비디오 서브클립 - .NET
 
-Trim 또는 사용 하 여 인코딩할 때에 비디오를 서브 클립 수는 [작업](https://docs.microsoft.com/rest/api/media/jobs)합니다. 이 기능을 사용 하 여 사용할 [변환](https://docs.microsoft.com/rest/api/media/transforms) 중 하나를 사용 하 여 빌드된 합니다 [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) 미리 설정 또는 [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) 사전 설정입니다.
+[Job](https://docs.microsoft.com/rest/api/media/jobs)을 사용하여 인코딩할 때 비디오를 트리밍하거나 서브클립할 수 있습니다. 이 기능은 [BuiltInStandardEncoder 사전](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) 설정 사전 설정 또는 [StandardEncoder 사전](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) 설정 사전 설정을 사용하여 빌드된 모든 [변환에서](https://docs.microsoft.com/rest/api/media/transforms) 작동합니다.
 
-다음 C# 예제에서는 인코딩 작업을 제출 하는 대로 자산에서 비디오를 삭제 하는 작업을 만듭니다. 
+다음 C# 예제에서는 인코딩 작업을 제출할 때 자산에서 비디오를 트리밍하는 작업을 만듭니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 항목에 설명된 단계를 완료하려면 다음을 수행해야 합니다.
 
-- [Azure Media Services 계정 만들기](create-account-cli-how-to.md)
-- 변환 및 입력 만들고 자산을 출력 합니다. 변환 및 입력 및 출력 자산을 만드는 방법을 표시 합니다 [업로드, 인코딩 및.NET을 사용 하 여 비디오를 스트림](stream-files-tutorial-with-api.md) 자습서.
-- 검토 합니다 [인코딩 개념](encoding-concept.md) 항목입니다.
+- [Azure 미디어 서비스 계정 만들기](create-account-cli-how-to.md)
+- 변환 및 입력 및 출력 자산을 만듭니다. .NET 자습서를 [사용하여 업로드, 인코딩 및 스트림 비디오에서](stream-files-tutorial-with-api.md) 변환 및 입력 및 출력 에셋을 만드는 방법을 확인할 수 있습니다.
+- [인코딩 개념](encoding-concept.md) 항목을 검토합니다.
 
-## <a name="example"></a>예
+## <a name="example"></a>예제
 
 ```csharp
 /// <summary>
@@ -91,4 +91,4 @@ private static async Task<Job> JobWithBuiltInStandardEncoderWithSingleClipAsync(
 
 ## <a name="next-steps"></a>다음 단계
 
-[사용자 지정 변환을 사용 하 여 인코딩하는 방법](customize-encoder-presets-how-to.md) 
+[사용자 지정 변환으로 인코딩하는 방법](customize-encoder-presets-how-to.md) 

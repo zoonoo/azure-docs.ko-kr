@@ -1,5 +1,5 @@
 ---
-title: 8 월-1-2015 미리 보기의 스키마 업데이트
+title: 2015년 8월-1일 미리 보기의 스키마 업데이트
 description: Azure Logic Apps의 논리 앱 정의에 대한 2015-08-01-preview 스키마 버전 업데이트
 services: logic-apps
 ms.suite: integration
@@ -9,10 +9,10 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/31/2016
 ms.openlocfilehash: b6746baaede777eb8c2afcae9eb3fe80b669c468
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74792849"
 ---
 # <a name="schema-updates-for-azure-logic-apps---august-1-2015-preview"></a>Azure Logic Apps에 대한 스키마 업데이트 - 2015년 8월 1일 미리 보기
@@ -21,8 +21,8 @@ ms.locfileid: "74792849"
 
 * **APIApp** 작업 형식의 이름은 이제 [**APIConnection**](#api-connections)입니다.
 * **Repeat** 작업 이름은 이제 [**Foreach**](#foreach)입니다.
-* [**HTTP 수신기** API 앱](#http-listener)은 더 이상 필요하지 않습니다.
-* 하위 워크플로 호출에 [새 스키마](#child-workflows)를 사용합니다.
+* [ **HTTP 수신기** API 앱이](#http-listener) 더 이상 필요하지 않습니다.
+* 자식 워크플로를 호출하는 것은 [새 스키마를](#child-workflows)사용합니다.
 
 <a name="api-connections"></a>
 
@@ -37,7 +37,7 @@ ms.locfileid: "74792849"
 
 ### <a name="managed-apis"></a>관리되는 API
 
-Microsoft는 사용자를 대신해서 Office 365, Salesforce, Twitter, FTP 등의 몇 가지 API를 관리합니다. 관리되는 일부 API를 Bing Translate처럼 있는 그대로 사용할 수도 있지만, 구성 즉 “연결”이 필요한 경우도 있습니다.
+Microsoft는 사용자를 대신해서 Office 365, Salesforce, Twitter, FTP 등의 몇 가지 API를 관리합니다. 관리되는 일부 API를 Bing Translate처럼 있는 그대로 사용할 수도 있지만, 구성 즉 “연결”이 필요한 경우도 있습니다.**
 
 예를 들어, Office 365를 사용하는 경우 Office 365 로그인 토큰을 포함하는 연결을 만들어야 합니다. 이 토큰은 논리 앱에서 항상 Office 365 API를 호출할 수 있도록 안전하게 저장되어 새로 고침됩니다. SQL이나 FTP 서버에 연결하려는 경우에는 연결 문자열이 있는 연결을 만들어야 합니다. 
 
@@ -290,7 +290,7 @@ Azure App Service에서 Web API를 호스트하는 경우 Web API는 디자이�
 
 | 작업 속성 | 설명 |
 | --- | --- |
-| `type` | `Http`다음 위치 대신`APIapp` |
+| `type` | `Http` 대신 `APIapp` |
 | `metadata.apiDefinitionUrl` | 논리 앱 디자이너에서 이 작업을 사용하려는 경우 다음에서 생성되는 메타데이터 엔드포인트를 포함합니다. `{api app host.gateway}/api/service/apidef/{last segment of the api app host.id}/?api-version=2015-01-14&format=swagger-2.0-standard` |
 | `inputs.uri` | 생성된 위치: `{api app host.gateway}/api/service/invoke/{last segment of the api app host.id}/{api app operation}?api-version=2015-01-14` |
 | `inputs.method` | 항상 `POST` |

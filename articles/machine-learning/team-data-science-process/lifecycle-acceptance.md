@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 7224a7bb26ef491915df9fcb9b6b84ff171a9fc0
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76720523"
 ---
 # <a name="customer-acceptance-stage-of-the-team-data-science-process-lifecycle"></a>Team Data Science Process 수명 주기의 고객 승인 단계
@@ -34,7 +34,7 @@ ms.locfileid: "76720523"
 
 
 ## <a name="goal"></a>목표
-**프로젝트 결과물 마무리**: 프로덕션 환경의 파이프라인, 모델 및 배포가 고객의 목표를 충족 하는지 확인 합니다.
+**프로젝트 결과물 최종 화**: 파이프라인, 모델 및 프로덕션 환경의 배포가 고객의 목표를 충족하는지 확인합니다.
 
 ## <a name="how-to-do-it"></a>수행 방법
 이 단계에서 설명하는 두 가지 기본 작업은 다음과 같습니다.
@@ -58,6 +58,6 @@ TDSP의 수명 주기에서 각 단계에 대한 링크는 다음과 같습니�
    4. [배포](lifecycle-deployment.md)
    5. [고객 승인](lifecycle-acceptance.md)
 
-특정 시나리오에 대 한 프로세스의 모든 단계를 보여 주는 전체 연습을 제공 합니다. [예제 연습](walkthroughs.md) 문서는 링크 및 썸네일 설명을 포함하는 시나리오 목록을 제공합니다. 이 연습에서는 클라우드 및 온-프레미스 도구와 서비스를 워크플로 또는 파이프라인에 결합하여 지능형 애플리케이션을 만드는 방법을 설명합니다. 
+특정 시나리오에 대한 프로세스의 모든 단계를 보여 주는 전체 연습을 제공합니다. [예제 연습](walkthroughs.md) 문서는 링크 및 썸네일 설명을 포함하는 시나리오 목록을 제공합니다. 이 연습에서는 클라우드 및 온-프레미스 도구와 서비스를 워크플로 또는 파이프라인에 결합하여 지능형 애플리케이션을 만드는 방법을 설명합니다. 
 
 Azure Machine Learning Studio를 사용하는 TDSP의 단계 실행 방법의 예제를 보려면 [Azure Machine Learning에서 TDSP 사용](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)을 참조하세요.

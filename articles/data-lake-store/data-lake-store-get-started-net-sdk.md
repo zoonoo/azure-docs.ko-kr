@@ -1,5 +1,5 @@
 ---
-title: '.NET SDK: 계정 관리 작업 Azure 데이터 레이크 저장소 Gen1 | Microsoft Docs'
+title: '.NET SDK: Azure Data Lake Storage Gen1의 계정 관리 작업 | Microsoft Docs'
 description: Azure Data Lake Storage Gen1 .NET SDK를 사용하여 Data Lake Storage Gen1 계정에서 계정 관리 작업 수행
 services: data-lake-store
 documentationcenter: ''
@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 8da40aa04381542c8c750c8d7e33c9a29879371d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65900867"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>.NET SDK를 사용한 Azure Data Lake Storage Gen1의 계정 관리 작업
 > [!div class="op_single_selector"]
 > * [.NET SDK](data-lake-store-get-started-net-sdk.md)
-> * [REST API](data-lake-store-get-started-rest-api.md)
+> * [나머지 API](data-lake-store-get-started-rest-api.md)
 > * [Python](data-lake-store-get-started-python.md)
 >
 >
@@ -31,27 +31,27 @@ ms.locfileid: "65900867"
 
 .NET SDK를 사용하여 Data Lake Storage Gen1에서 데이터 관리 작업을 수행하는 방법에 대한 지침은 [.NET SDK를 사용한 Data Lake Storage Gen1의 파일 시스템 작업](data-lake-store-data-operations-net-sdk.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
-* **Visual Studio 2013 이상**합니다. 아래 지침에서는 Visual Studio 2019를 사용 합니다.
+## <a name="prerequisites"></a>사전 요구 사항
+* **비주얼 스튜디오 2013 이상**. 아래 지침은 Visual Studio 2019를 사용합니다.
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
 ## <a name="create-a-net-application"></a>.NET 애플리케이션 만들기
-1. Visual Studio에서 선택 합니다 **파일** 메뉴에서 **새로 만들기**를 차례로 **프로젝트**합니다.
-2. 선택할 **콘솔 앱 (.NET Framework)** 를 선택한 후 **다음**합니다.
-3. **프로젝트 이름**를 입력 `CreateADLApplication`를 선택한 후 **만들기**합니다.
+1. Visual Studio에서 **파일** 메뉴, **새**및 **프로젝트**를 선택합니다.
+2. **콘솔 앱(.NET 프레임워크)을**선택한 다음 다음 을 **선택합니다.**
+3. **프로젝트 이름**에 `CreateADLApplication`를 입력하고 **만들기**를 선택합니다.
 
 4. NuGet 패키지를 프로젝트에 추가합니다.
 
    1. 솔루션 탐색기에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭한 후 **NuGet 패키지 관리**를 클릭합니다.
-   2. **NuGet 패키지 관리자** 탭에서 **패키지 원본**이 **nuget.org**로 설정되어 있고 **시험판 포함** 확인란이 선택되어 있는지 확인합니다.
+   2. **NuGet 패키지 관리자** 탭에서 **패키지 소스가** **nuget.org** 설정되어 있는지 확인하고 **시험판 포함** 확인란을 선택합니다.
    3. 다음 NuGet 패키지를 검색하고 설치합니다.
 
       * `Microsoft.Azure.Management.DataLake.Store` - 이 자습서에서는 v2.1.3-미리 보기를 사용합니다.
       * `Microsoft.Rest.ClientRuntime.Azure.Authentication` - 이 자습서는 v2.2.12를 사용합니다.
 
-        ![NuGet 원본 추가](./media/data-lake-store-get-started-net-sdk/data-lake-store-install-nuget-package.png "새 Azure Data Lake 계정 만들기")
-   4. **NuGet 패키지 관리자**를 닫습니다.
+        ![NuGet 소스 추가](./media/data-lake-store-get-started-net-sdk/data-lake-store-install-nuget-package.png "새 Azure 데이터 레이크 계정 만들기")
+   4. **NuGet 패키지 관리자를**닫습니다.
 5. **Program.cs**를 열고 기존 코드를 삭제한 후 다음 문을 포함시켜서 네임스페이스에 대한 참조를 추가합니다.
 
         using System;
@@ -93,7 +93,7 @@ ms.locfileid: "65900867"
 
 문서의 나머지 섹션에서는 제공되는 .NET 메서드를 사용하여 인증, 파일 업로드 등의 작업을 수행하는 방법을 볼 수 있습니다.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>인증
 
 * 애플리케이션에 대한 최종 사용자 인증의 경우 [.NET SDK를 사용한 Data Lake Storage Gen1의 최종 사용자 인증](data-lake-store-end-user-authenticate-net-sdk.md)을 참조하세요.
 * 애플리케이션에 대한 서비스 간 인증의 경우 [.NET SDK를 사용한 Data Lake Storage Gen1의 서비스 간 인증](data-lake-store-service-to-service-authenticate-net-sdk.md)을 참조하세요.
@@ -135,7 +135,7 @@ ms.locfileid: "65900867"
     // Delete Data Lake Storage Gen1 account
     _adlsClient.Account.Delete(_resourceGroupName, _adlsAccountName);
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 * [.NET SDK를 사용한 Data Lake Storage Gen1의 파일 시스템 작업](data-lake-store-data-operations-net-sdk.md)
 * [Data Lake Storage Gen1 .NET SDK 참조](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 

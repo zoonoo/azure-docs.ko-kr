@@ -1,5 +1,5 @@
 ---
-title: 통합 계정 아티팩트 메타 데이터 관리
+title: 통합 계정 아티팩트 메타데이터 관리
 description: 엔터프라이즈 통합 팩을 사용하여 Azure Logic Apps의 통합 계정에서 아티팩트 메타데이터 추가 또는 가져오기
 services: logic-apps
 ms.suite: integration
@@ -9,26 +9,26 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/17/2019
 ms.openlocfilehash: bc119f1ce8efb821781dabfb9dd259cc5c8d9c23
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74792476"
 ---
 # <a name="manage-artifact-metadata-in-integration-accounts-with-azure-logic-apps-and-enterprise-integration-pack"></a>Azure Logic Apps 및 엔터프라이즈 통합 팩을 사용하여 통합 계정에서 아티팩트 메타데이터 관리
 
 통합 계정에서 아티팩트에 대한 사용자 지정 메타데이터를 정의하고 사용할 논리 앱에 대한 런타임 동안 해당 메타데이터를 가져올 수 있습니다. 예를 들어 파트너, 규약, 스키마 및 맵 등의 아티팩트에 대해 메타데이터를 제공할 수 있습니다. 모두 키-값 쌍을 사용해서 메타데이터를 저장합니다. 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-* Azure 구독. 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target="_blank">Azure 체험 계정에 등록</a>합니다.
+* Azure 구독 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target="_blank">Azure 체험 계정에 등록</a>합니다.
 
 * 메타데이터를 추가하려는 아티팩트를 포함하는 기본 [통합 계정](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md), 예를 들어 다음과 같습니다. 
 
   * [파트너](logic-apps-enterprise-integration-partners.md)
   * [규약](logic-apps-enterprise-integration-agreements.md)
-  * [스키마](logic-apps-enterprise-integration-schemas.md)
-  * [Map](logic-apps-enterprise-integration-maps.md)
+  * [Schema](logic-apps-enterprise-integration-schemas.md)
+  * [지도](logic-apps-enterprise-integration-maps.md)
 
 * 통합 계정에 연결된 논리 앱 및 사용하려는 아티팩트 메타데이터 논리 앱이 아직 연결되지 않은 경우 [논리 앱을 통합 계정에 연결하는 방법](logic-apps-enterprise-integration-create-integration-account.md#link-account)을 알아봅니다. 
 
@@ -43,7 +43,7 @@ ms.locfileid: "74792476"
 
    ![메타데이터 입력](media/logic-apps-enterprise-integration-metadata/add-partner-metadata.png)
 
-1. 완료하면 **확인**을 선택합니다.
+1. 작업을 완료하면 **확인**을 선택합니다.
 
 1. 통합 계정에 대한 JSON(JavaScript Object Notation) 정의에서 이 메타데이터를 보려면 JSON 편집기가 열리도록 **JSON으로 편집**을 선택합니다. 
 
@@ -53,18 +53,18 @@ ms.locfileid: "74792476"
 
 1. Azure Portal에서 원하는 통합 계정에 연결된 논리 앱을 엽니다. 
 
-1. 논리 앱 디자이너에서 트리거 또는 워크플로의 마지막 작업에서 메타데이터를 가져오는 단계를 추가하는 경우 **새 단계** > **작업 추가**를 선택합니다. 
+1. 논리 앱 디자이너에서 트리거 또는 워크플로의 마지막 작업 에서 메타데이터를 가져오는 단계를 추가하는 경우 **새 단계** > **추가 작업을 선택합니다.** 
 
-1. 검색 상자에 "통합 계정"을 입력합니다. 검색 상자에서 **모두**를 선택합니다. 작업 목록에서이 작업: **통합 계정 아티팩트 조회-통합 계정** 을 선택 합니다.
+1. 검색 상자에 "통합 계정"을 입력합니다. 검색 상자에서 **모두**를 선택합니다. 작업 목록에서 다음 작업을 선택합니다: **통합 계정 아티팩트 조회 - 통합 계정**
 
    !["통합 계정 아티팩트 조회" 선택](media/logic-apps-enterprise-integration-metadata/integration-account-artifact-lookup.png)
 
 1. 찾으려는 아티팩트에 대해 다음 정보를 제공합니다.
 
-   | 자산 | 필수 | Value | 설명 | 
+   | 속성 | 필수 | 값 | 설명 | 
    |----------|---------|-------|-------------| 
-   | **아티팩트 형식** | yes | **스키마**, **맵**, **파트너**, **규약** 또는 사용자 지정 형식 | 원하는 아티팩트에 대한 형식 | 
-   | **아티팩트 이름** | yes | <*artifact-name*> | 원하는 아티팩트에 대한 이름 | 
+   | **아티팩트 유형** | yes | **스키마**, **맵**, **파트너**, **규약** 또는 사용자 지정 형식 | 원하는 아티팩트에 대한 형식 | 
+   | **아티팩트 이름** | yes | <*아티팩트 이름*> | 원하는 아티팩트에 대한 이름 | 
    ||| 
 
    예를 들어 거래 파트너 아티팩트에 대한 메타데이터를 가져오려고 한다고 가정합니다.
@@ -75,7 +75,7 @@ ms.locfileid: "74792476"
 
    1. **통합 계정 아티팩트 조회** 작업에서 **다음 단계**를 선택하고, **작업 추가**를 선택합니다. 
 
-   1. 검색 상자에 "http"를 입력합니다. 검색 상자에서 **기본 제공**을 선택 하 고 다음 작업을 선택 합니다. **http-http**
+   1. 검색 상자에 "http"를 입력합니다. 검색 상자에서 **기본 제공을**선택하고 이 작업을 **선택합니다.**
 
       ![HTTP 작업 추가](media/logic-apps-enterprise-integration-metadata/http-action.png)
 
@@ -83,15 +83,15 @@ ms.locfileid: "74792476"
 
       예를 들어 이 항목의 앞부분에 추가된 `routingUrl` 메타데이터를 가져오려고 한다고 가정합니다. 지정할 수 있는 속성 값은 다음과 같습니다. 
 
-      | 자산 | 필수 | Value | 설명 | 
+      | 속성 | 필수 | 값 | 설명 | 
       |----------|----------|-------|-------------| 
-      | **메서드** | yes | <*operation-to-run*> | 아티팩트에서 실행할 HTTP 작업입니다. 예를 들어 이 HTTP 작업은 **GET** 메서드를 사용합니다. | 
-      | **URI** | yes | <*metadata-location*> | 검색한 아티팩트에서 `routingUrl` 메타데이터 값에 액세스하기 위해 식을 사용할 수 있습니다. 예를 들면 다음과 같습니다. <p>`@{outputs('Integration_Account_Artifact_Lookup')['properties']['metadata']['routingUrl']}` | 
-      | **헤더** | 아닙니다. | <*header-values*> | HTTP 작업에 전달하려는 트리거의 모든 헤더 출력입니다. 예를 들어 트리거의 `headers` 속성 값을 전달하기 위해 식을 사용할 수 있습니다. 예를 들면 다음과 같습니다. <p>`@triggeroutputs()['headers']` | 
-      | **본문** | 아닙니다. | <*body-content*> | HTTP 작업의 `body` 속성을 통해 전달하려는 다른 콘텐츠입니다. 이 예제에서는 아티팩트의 `properties` 값을 HTTP 작업으로 전달합니다. <p>1. **본문** 속성 내부를 클릭 하 여 동적 콘텐츠 목록이 표시 되도록 합니다. 속성이 표시되지 않는 경우 **자세히 보기**를 선택합니다. <br>2. 동적 콘텐츠 목록의 **통합 계정 아티팩트 조회**에서 **속성**을 선택 합니다. | 
+      | **메서드** | yes | <*작동 간 작업*> | 아티팩트에서 실행할 HTTP 작업입니다. 예를 들어 이 HTTP 작업은 **GET** 메서드를 사용합니다. | 
+      | **URI** | yes | <*메타데이터 위치*> | 검색한 아티팩트에서 `routingUrl` 메타데이터 값에 액세스하기 위해 식을 사용할 수 있습니다. 예를 들면 다음과 같습니다. <p>`@{outputs('Integration_Account_Artifact_Lookup')['properties']['metadata']['routingUrl']}` | 
+      | **헤더** | 예 | <*헤더 값*> | HTTP 작업에 전달하려는 트리거의 모든 헤더 출력입니다. 예를 들어 트리거의 `headers` 속성 값을 전달하기 위해 식을 사용할 수 있습니다. 예를 들면 다음과 같습니다. <p>`@triggeroutputs()['headers']` | 
+      | **본문** | 예 | <*신체 내용*> | HTTP 작업의 `body` 속성을 통해 전달하려는 다른 콘텐츠입니다. 이 예제에서는 아티팩트의 `properties` 값을 HTTP 작업으로 전달합니다. <p>1. 동적 콘텐츠 목록이 나타나지 않도록 **Body** 속성 내부를 클릭합니다. 속성이 표시되지 않는 경우 **자세히 보기**를 선택합니다. <br>2. 동적 콘텐츠 목록에서 **통합 계정 아티팩트 조회에서** **속성을**선택합니다. | 
       |||| 
 
-      다음은 그 예입니다.
+      예를 들어:
 
       ![HTTP 작업에 대한 값 및 식 지정](media/logic-apps-enterprise-integration-metadata/add-http-action-values.png)
 

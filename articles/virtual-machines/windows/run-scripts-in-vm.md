@@ -9,10 +9,10 @@ ms.date: 05/02/2018
 ms.topic: article
 manager: carmonm
 ms.openlocfilehash: e10cab5261d6bd970135273bd4632b7c916641de
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67476751"
 ---
 # <a name="run-scripts-in-your-windows-vm"></a>Windows VM에서 스크립트 실행
@@ -71,4 +71,4 @@ VM 내에서 스크립트 및 명령을 실행할 수 있는 다양한 기능에
 * [사용자 지정 스크립트 확장](../extensions/custom-script-windows.md)
 * [명령 실행](run-command.md)
 * [Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md)
-* [직렬 콘솔](serial-console.md)
+* [시리얼 콘솔](serial-console.md)

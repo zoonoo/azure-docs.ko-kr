@@ -1,6 +1,6 @@
 ---
 title: SQL Server Stretch Database 서비스에 대한 모든 항목 | Microsoft Docs
-description: https://azure.microsoft.com/documentation/articles/ 에 있는 SQL Server Stretch Database라는 Azure 서비스에 대한 모든 항목, 제목 및 설명에 대한 표입니다.
+description: https://azure.microsoft.com/documentation/articles/에 있는 SQL Server Stretch Database라는 Azure 서비스에 대한 모든 항목, 제목 및 설명에 대한 표입니다.
 services: sql-server-stretch-database
 documentationcenter: ''
 ms.assetid: b1718024-84d6-4f5c-a912-3a99edb3f632
@@ -14,27 +14,27 @@ ms.author: blazem
 ms.reviewer: jroth
 manager: jroth
 ms.openlocfilehash: 81f1ac3280381ef08a1daf1fa4e041227a07aeaf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "66003018"
 ---
 # <a name="all-topics-for-azure-sql-server-stretch-database-service"></a>Azure SQL Server Stretch Database 서비스에 대한 모든 토픽
 이 토픽에서는 Azure의 **SQL Server Stretch Database** 서비스에 직접 적용되는 모든 항목을 나열합니다. 이 웹 페이지에서 **Ctrl+F**를 사용해 키워드를 검색하여 현재 관심 있는 항목을 찾을 수 있습니다.
 
-## <a name="get-started"></a>시작하기
+## <a name="get-started"></a>시작
 | &nbsp; | 제목 | 설명 |
 | ---:|:--- |:--- |
-| 1 |[Stretch Database 관리자를 실행하여 Stretch Database에 대한 데이터베이스 및 테이블 식별](sql-server-stretch-database-identify-databases.md) |Stretch Database의 후보인 데이터베이스 및 테이블을 식별하는 방법에 대해 알아봅니다. |
-| 2 |[Stretch Database에 대한 제한](sql-server-stretch-database-limitations.md) |Stretch Database에 대한 제한 사항에 대해 알아봅니다. |
-| 3 |[Stretch Database 개요](sql-server-stretch-database-overview.md) |Stretch Database가 콜드 데이터를 투명하고 안전하게 Microsoft Azure 클라우드로 마이그레이션하는 방법에 대해 알아봅니다. |
-| 4 |[스트레치 마법사에 대한 데이터베이스 사용을 실행하여 시작](sql-server-stretch-database-wizard.md) |스트레치에 데이터베이스 사용 마법사를 실행하여 Stretch Database에 대해 데이터베이스를 구성하는 방법을 알아봅니다. |
+| 1 |[스트레치 데이터베이스 관리자를 실행하여 스트레치 데이터베이스용 데이터베이스 및 테이블 식별](sql-server-stretch-database-identify-databases.md) |Stretch Database의 후보인 데이터베이스 및 테이블을 식별하는 방법에 대해 알아봅니다. |
+| 2 |[스트레치 데이터베이스에 대한 제한 사항](sql-server-stretch-database-limitations.md) |Stretch Database에 대한 제한 사항에 대해 알아봅니다. |
+| 3 |[스트레치 데이터베이스 개요](sql-server-stretch-database-overview.md) |Stretch Database가 콜드 데이터를 투명하고 안전하게 Microsoft Azure 클라우드로 마이그레이션하는 방법에 대해 알아봅니다. |
+| 4 |[Stretch에 데이터베이스 사용 마법사를 실행하여 시작](sql-server-stretch-database-wizard.md) |스트레치에 데이터베이스 사용 마법사를 실행하여 Stretch Database에 대해 데이터베이스를 구성하는 방법을 알아봅니다. |
 
 ## <a name="enable"></a>사용
 | &nbsp; | 제목 | 설명 |
 | ---:|:--- |:--- |
-| 5 |[데이터베이스에 대해 Stretch Database를 사용하도록 설정](sql-server-stretch-database-enable-database.md) |Stretch Database에 대해 데이터베이스를 구성하는 방법을 알아봅니다. |
+| 5 |[Enable Stretch Database for a database](sql-server-stretch-database-enable-database.md) |Stretch Database에 대해 데이터베이스를 구성하는 방법을 알아봅니다. |
 | 6 |[테이블에 대해 Stretch Database를 사용하도록 설정](sql-server-stretch-database-enable-table.md) |Stretch Database에 대해 테이블을 구성하는 방법을 알아봅니다. |
 | 7 |[필터 함수를 사용하여 마이그레이션할 행 선택(Stretch Database)](sql-server-stretch-database-predicate-function.md) |필터 함수를 사용하여 마이그레이션할 행을 선택하는 방법을 알아봅니다. |
 
@@ -55,6 +55,6 @@ ms.locfileid: "66003018"
 ## <a name="backup-and-recovery"></a>Backup 및 복구
 | &nbsp; | 제목 | 설명 |
 | ---:|:--- |:--- |
-| 14 |[스트레치 지원 데이터베이스 백업](sql-server-stretch-database-backup.md) |스트레치\-지원 데이터베이스를 백업하는 방법을 알아봅니다. |
-| 15 |[스트레치 지원 데이터베이스 복원](sql-server-stretch-database-restore.md) |스트레치\-지원 데이터베이스를 복원하는 방법을 알아봅니다. |
+| 14 |[스트레치 사용 데이터베이스 백업](sql-server-stretch-database-backup.md) |스트레치\-지원 데이터베이스를 백업하는 방법을 알아봅니다. |
+| 15 |[스트레치 사용 데이터베이스 복원](sql-server-stretch-database-restore.md) |스트레치\-지원 데이터베이스를 복원하는 방법을 알아봅니다. |
 

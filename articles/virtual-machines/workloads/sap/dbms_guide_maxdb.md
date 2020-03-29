@@ -16,22 +16,22 @@ ms.date: 07/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 90de49ae3137735683bae6a18b5f7c8951b021ae
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75645874"
 ---
 # <a name="sap-maxdb-livecache-and-content-server-deployment-on-azure-vms"></a>Azure VM에서 SAP MaxDB, liveCache 및 Content Server 배포
 
-[767598]: https://launchpad.support.sap.com/#/notes/767598
+[767598]:https://launchpad.support.sap.com/#/notes/767598
 [773830]:https://launchpad.support.sap.com/#/notes/773830
-[826037]: https://launchpad.support.sap.com/#/notes/826037
+[826037]:https://launchpad.support.sap.com/#/notes/826037
 [965908]:https://launchpad.support.sap.com/#/notes/965908
 [1031096]:https://launchpad.support.sap.com/#/notes/1031096
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
-[1139904]: https://launchpad.support.sap.com/#/notes/1139904
-[1173395]: https://launchpad.support.sap.com/#/notes/1173395
+[1139904]:https://launchpad.support.sap.com/#/notes/1139904
+[1173395]:https://launchpad.support.sap.com/#/notes/1173395
 [1245200]:https://launchpad.support.sap.com/#/notes/1245200
 [1409604]:https://launchpad.support.sap.com/#/notes/1409604
 [1558958]:https://launchpad.support.sap.com/#/notes/1558958
@@ -41,7 +41,7 @@ ms.locfileid: "75645874"
 [1597355]:https://launchpad.support.sap.com/#/notes/1597355
 [1605680]:https://launchpad.support.sap.com/#/notes/1605680
 [1619720]:https://launchpad.support.sap.com/#/notes/1619720
-[1619726]: https://launchpad.support.sap.com/#/notes/1619726
+[1619726]:https://launchpad.support.sap.com/#/notes/1619726
 [1619967]:https://launchpad.support.sap.com/#/notes/1619967
 [1750510]:https://launchpad.support.sap.com/#/notes/1750510
 [1752266]:https://launchpad.support.sap.com/#/notes/1752266
@@ -54,7 +54,7 @@ ms.locfileid: "75645874"
 [1882376]:https://launchpad.support.sap.com/#/notes/1882376
 [1909114]:https://launchpad.support.sap.com/#/notes/1909114
 [1922555]:https://launchpad.support.sap.com/#/notes/1922555
-[1928533]: https://launchpad.support.sap.com/#/notes/1928533
+[1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1941500]:https://launchpad.support.sap.com/#/notes/1941500
 [1956005]:https://launchpad.support.sap.com/#/notes/1956005
 [1973241]:https://launchpad.support.sap.com/#/notes/1973241
@@ -319,8 +319,8 @@ SAP MaxDB에서 SAP NetWeaver를 실행하는 방법에 대한 일반적인 내�
 ### <a name="supported-microsoft-windows-versions-and-azure-vm-types-for-sap-maxdb-dbms"></a>SAP MaxDB DBMS에 대해 지원되는 Microsoft Windows 버전 및 Azure VM 유형
 Azure에서 지원되는 SAP MaxDB DBMS용 Microsoft Windows 버전을 찾으려면 다음을 참조하세요.
 
-* [SAP PAM (제품 가용성 매트릭스)][sap-pam]
-* SAP Note [1928533]
+* [SAP PAM(제품 가용성 매트릭스)][sap-pam]
+* SAP 주 [1928533]
 
 최신 버전의 Microsoft Windows 운영 체제인 Microsoft Windows 2016을 사용하는 것이 좋습니다.
 
@@ -328,7 +328,7 @@ Azure에서 지원되는 SAP MaxDB DBMS용 Microsoft Windows 버전을 찾으려
 SAP Note [767598]
 
 ### <a name="sap-maxdb-configuration-guidelines-for-sap-installations-in-azure-vms"></a>Azure VM의 SAP 설치에 대한 SAP MaxDB 구성 지침
-#### <a name="b48cfe3b-48e9-4f5b-a783-1d29155bd573"></a>스토리지 구성
+#### <a name="storage-configuration"></a><a name="b48cfe3b-48e9-4f5b-a783-1d29155bd573"></a>스토리지 구성
 SAP MaxDB에 대한 Azure 스토리지 모범 사례는 [RDBMS 배포를 위한 VM의 스토리지 구조](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64) 챕터에서 설명한 일반 추천을 따릅니다.
 
 > [!IMPORTANT]
@@ -348,12 +348,12 @@ SAP MaxDB에 대한 Azure 스토리지 모범 사례는 [RDBMS 배포를 위한 
 ![SAP MaxDB DBMS에 대한 Azure IaaS VM의 참조 구성](./media/dbms_maxdb_deployment_guide/Simple_disk_structure_maxdb.PNG)
 
 
-#### <a name="23c78d3b-ca5a-4e72-8a24-645d141a3f5d"></a>Backup 및 복원
+#### <a name="backup-and-restore"></a><a name="23c78d3b-ca5a-4e72-8a24-645d141a3f5d"></a>백업 및 복원
 Azure에 SAP MaxDB를 배포하는 경우 백업 방법을 검토해야 합니다. 생산성이 높은 시스템이 아니더라도 SAP MaxDB에서 호스트하는 SAP 데이터베이스를 정기적으로 백업해야 합니다. Azure Storage에는 세 개의 이미지가 유지되므로 스토리지 오류 및 더 중요한 작동 또는 관리 오류에 대한 시스템 보호 면에서 백업의 중요성이 줄어들었습니다. 적절한 백업 및 복원 계획 유지 관리가 중요한 이유는 지정 시간 복구 기능을 제공하여 논리 또는 수동 오류를 보완할 수 있기 때문입니다. 따라서 목표는 백업을 사용하여 데이터베이스를 특정 시점으로 복원하거나 기존 데이터베이스를 복사하여 Azure의 백업을 다른 시스템에 시딩하는 데 Azure의 백업을 사용하는 것입니다. 
 
 Azure에서의 데이터베이스 백업 및 복원 방법은 온-프레미스 시스템에서와 동일합니다. 그러므로 SAP Note [767598]에 나열된 SAP MaxDB 설명서 중 하나에서 설명한 표준 SAP MaxDB 백업/복원 도구를 사용할 수 있습니다. 
 
-#### <a name="77cd2fbb-307e-4cbf-a65f-745553f72d2c"></a>Backup 및 복원에 대한 성능 고려 사항
+#### <a name="performance-considerations-for-backup-and-restore"></a><a name="77cd2fbb-307e-4cbf-a65f-745553f72d2c"></a>Backup 및 복원에 대한 성능 고려 사항
 완전 배포에서와 같이 백업 및 복원 성능은 병렬로 읽을 수 있는 볼륨 수와 이러한 볼륨의 처리량에 따라 다릅니다. 따라서 다음을 가정할 수 있습니다.
 
 * 데이터베이스 디바이스를 저장하는 데 사용하는 디스크 수가 적을수록 전반적인 읽기 처리량이 줄어듭니다.
@@ -370,7 +370,7 @@ Azure에서의 데이터베이스 백업 및 복원 방법은 온-프레미스 �
 
 탑재된 여러 개의 디스크에 볼륨을 스트라이핑하는 방법은 [SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항](dbms_guide_general.md)의 앞부분에서 설명했습니다. 
 
-#### <a name="f77c1436-9ad8-44fb-a331-8671342de818"></a>기타 고려 사항
+#### <a name="other-considerations"></a><a name="f77c1436-9ad8-44fb-a331-8671342de818"></a>기타 고려 사항
 Azure 가용성 집합 또는 SAP 모니터링과 같은 다른 모든 일반 영역도 [SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항](dbms_guide_general.md)에서 설명한 대로 적용됩니다.  SAP MaxDB 데이터베이스가 있는 VM 배포도 마찬가지입니다.
 다른 SAP MaxDB 관련 설정은 Azure VM에 투명하며 SAP Note [767598]에 나와 있는 다른 문서 및 다음 SAP Note에서 설명하고 있습니다.
 
@@ -385,8 +385,8 @@ Azure Virtual Machines에서 지원되는 SAP liveCache의 최소 버전은 **Eh
 ### <a name="supported-microsoft-windows-versions-and-azure-vm-types-for-sap-livecache-dbms"></a>SAP liveCache DBMS에 대해 지원되는 Microsoft Windows 버전 및 Azure VM 유형
 Azure에서 지원되는 SAP liveCache용 Microsoft Windows 버전을 찾으려면 다음을 참조하세요.
 
-* [SAP PAM (제품 가용성 매트릭스)][sap-pam]
-* SAP Note [1928533]
+* [SAP PAM(제품 가용성 매트릭스)][sap-pam]
+* SAP 주 [1928533]
 
 최신 버전의 운영 체제인 Microsoft Windows Server를 사용하는 것이 좋습니다. 
 
@@ -427,18 +427,18 @@ SAP에서 현재 다음을 지원합니다.
 
 최신 버전의 SAP Content Server 및 **Microsoft IIS**를 사용하는 것이 좋습니다. 
 
-Sap Content Server 및 Microsoft IIS의 지원 되는 최신 버전을 [SAP PAM (제품 가용성 매트릭스)][sap-pam]에서 확인 합니다.
+지원되는 최신 버전의 SAP Content Server 및 Microsoft IIS는 [SAP PAM(제품 가용성 매트릭스)][sap-pam]을 참조하세요.
 
 ### <a name="supported-microsoft-windows-and-azure-vm-types-for-sap-content-server"></a>SAP Content Server에 대해 지원되는 Microsoft Windows 버전 및 Azure VM 유형
 Azure의 SAP Content Server에서 지원되는 Windows 버전을 확인하려면 다음을 참조하세요.
 
-* [SAP PAM (제품 가용성 매트릭스)][sap-pam]
-* SAP Note [1928533]
+* [SAP PAM(제품 가용성 매트릭스)][sap-pam]
+* SAP 주 [1928533]
 
 최신 버전의 Microsoft Windows Server를 사용하는 것이 좋습니다.
 
 ### <a name="sap-content-server-configuration-guidelines-for-sap-installations-in-azure-vms"></a>Azure VM의 SAP 설치에 대한 SAP Content Server 구성 지침
-#### <a name="storage-configuration-for-content-server-in-azure"></a>Azure의 콘텐츠 서버에 대 한 저장소 구성
+#### <a name="storage-configuration-for-content-server-in-azure"></a>Azure의 콘텐츠 서버에 대한 저장소 구성
 SAP MaxDB 데이터베이스에 파일을 저장하도록 SAP Content Server를 구성하는 경우 이 문서에서 SAP MaxDB에 대해 언급한 모든 Azure Storage 모범 사례 권장 사항이 SAP Content Server 시나리오에도 적용됩니다. 
 
 파일 시스템에 파일을 저장하도록 SAP Content Server를 구성한 경우 전용 논리 드라이브를 사용하는 것이 좋습니다. Windows 스토리지 공간을 사용하면 [SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항](dbms_guide_general.md)에서 설명한 대로 논리 디스크 크기 및 IOPS 처리량을 늘릴 수 있습니다. 
@@ -462,7 +462,7 @@ SAP Cache Server는 로컬에 있는 (캐시된) 문서에 대한 액세스를 �
 ![SAP Cache Server 온-프레미스 설치 옵션](./media/dbms_maxdb_deployment_guide/900-sap-cache-server-on-premises.png)
 <a name="642f746c-e4d4-489d-bf63-73e80177a0a8"></a>
 
-#### <a name="backup--restore"></a>Backup/복원
+#### <a name="backup--restore"></a>백업/복원
 SAP MaxDB 데이터베이스에 파일을 저장하도록 SAP Content Server를 구성하는 경우 백업/복원 절차 및 성능 고려 사항은 이미 이 문서의 SAP MaxDB 관련 챕터에서 설명하고 있습니다. 
 
 파일 시스템에 파일을 저장하도록 SAP Content Server를 구성하는 경우 문서가 위치한 전체 파일 구조의 수동 백업/복원을 실행할 수 있습니다. SAP MaxDB 백업/복원과 마찬가지로, 백업 목적을 위한 전용 디스크 볼륨을 사용하는 것이 좋습니다. 

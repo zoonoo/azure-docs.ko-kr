@@ -1,5 +1,5 @@
 ---
-title: Azure Logic Apps에서 Salesforce에 연결
+title: Azure 논리 앱에서 Salesforce에 연결
 description: Azure Logic Apps를 사용하여 Salesforce 레코드를 모니터링하고 관리하는 작업 및 워크플로 자동화
 services: logic-apps
 ms.suite: integration
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/24/2018
 tags: connectors
 ms.openlocfilehash: 000f4381ef2a7c0a2099a021b991087725ff2070
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74789293"
 ---
 # <a name="monitor-create-and-manage-salesforce-resources-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용하여 Salesforce 리소스 모니터링, 만들기 및 관리
@@ -21,15 +21,15 @@ Azure Logic Apps 및 Salesforce 커넥터를 사용하여 레코드, 작업 및 
 * 레코드를 만들거나 변경할 때 모니터링합니다. 
 * 삽입, 업데이트 및 삭제 작업을 포함하여 작업 및 레코드를 만들고 가져오고 관리합니다.
 
-Salesforce 트리거를 사용하여 Salesforce에서 응답을 가져오고 출력을 다른 작업에 사용하게 할 수 있습니다. 논리 앱에서 작업을 사용하여 Salesforce 리소스로 다양한 작업을 수행할 수 있습니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토하세요.
+Salesforce 트리거를 사용하여 Salesforce에서 응답을 가져오고 출력을 다른 작업에 사용하게 할 수 있습니다. 논리 앱에서 작업을 사용하여 Salesforce 리소스로 다양한 작업을 수행할 수 있습니다. 로직 앱을 새로 접하는 경우 [Azure 논리 앱이란 무엇입니까?](../logic-apps/logic-apps-overview.md)
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-* Azure 구독. Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다. 
+* Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다. 
 
 * [Salesforce 계정](https://salesforce.com/)
 
-* [논리 앱 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)에 관한 기본 지식
+* [논리 앱을 만드는 방법에](../logic-apps/quickstart-create-first-logic-app-workflow.md) 대한 기본 지식
 
 * Salesforce 계정에 액세스하려는 논리 앱입니다. Salesforce 트리거를 시작하려면 [빈 논리 앱을 만듭니다](../logic-apps/quickstart-create-first-logic-app-workflow.md). Salesforce 동작을 사용하려면, 예를 들어 **되풀이** 트리거와 같은 다른 트리거를 통해 논리 앱을 시작합니다.
 
@@ -37,7 +37,7 @@ Salesforce 트리거를 사용하여 Salesforce에서 응답을 가져오고 출
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-1. [Azure Portal](https://portal.azure.com)에 로그인하고 아직 열리지 않은 경우 Logic App Designer에서 논리 앱을 엽니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인하고, 아직 열리지 않은 경우 Logic App Designer에서 논리 앱을 엽니다.
 
 1. 경로를 선택합니다. 
 
@@ -56,7 +56,7 @@ Salesforce 트리거를 사용하여 Salesforce에서 응답을 가져오고 출
 
 ## <a name="connector-reference"></a>커넥터 참조
 
-커넥터의 OpenAPI(이전의 Swagger) 설명서에 설명된 트리거, 작업 및 제한에 대한 기술 정보는 커넥터의 [참조 페이지](/connectors/salesforce/)를 참조하세요.
+커넥터의 OpenAPI(이전의 Swagger) 설명서에 설명된 트리거, 작업 및 제한에 대한 기술 정보는 커넥터의 [참조 페이지](/connectors/salesforce/)를 검토하세요.
 
 ## <a name="get-support"></a>지원 받기
 

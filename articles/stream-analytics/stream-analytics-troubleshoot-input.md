@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
 ms.openlocfilehash: dac3037f82c38980c9ac16685aa7fddac68a2e7b
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76720302"
 ---
 # <a name="troubleshoot-input-connections"></a>입력 연결 문제 해결
@@ -26,16 +26,16 @@ ms.locfileid: "76720302"
 
     1. 해당 입력 데이터가 이벤트 허브로 전달되고 있는지 확인하려면 [Service Bus 탐색기](https://code.msdn.microsoft.com/windowsapps/Service-Bus-Explorer-f2abca5a)를 사용하여 Azure Event Hub(이벤트 허브 입력이 사용되는 경우)에 연결합니다.
         
-    1. 각 입력에 대 한 [**샘플 데이터**](stream-analytics-sample-data-input.md) 단추를 사용 합니다. 입력 샘플 데이터를 다운로드 합니다.
+    1. 각 입력에 대해 [**샘플 데이터**](stream-analytics-sample-data-input.md) 단추를 사용합니다. 입력 샘플 데이터를 다운로드합니다.
         
-    1. 데이터의 형태 즉, 스키마 및 [데이터 형식을](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics)이해 하려면 샘플 데이터를 검사 합니다.
+    1. 샘플 데이터를 검사하여 데이터 모양, 즉 스키마 및 [데이터 형식을](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics)이해합니다.
 
-3.  입력 미리 보기에서 시간 범위를 선택 했는지 확인 합니다. **시간 범위 선택**을 선택 하 고 쿼리를 테스트 하기 전에 샘플 기간을 입력 합니다.
+3.  입력 미리 보기에서 시간 범위를 선택했어야 합니다. **시간 범위 선택을**선택한 다음 쿼리를 테스트하기 전에 샘플 기간을 입력합니다.
 
 ## <a name="malformed-input-events-causes-deserialization-errors"></a>잘못된 형식의 입력 이벤트로 인해 역직렬화 오류가 발생할 수 있습니다. 
 Stream Analytics 작업의 입력 스트림에 잘못된 형식의 메시지가 포함되어 있으면 역직렬화 문제가 발생합니다. 예를 들어 잘못된 형식의 메시지는 JSON 개체에서 괄호나 중괄호가 누락되거나 시간 필드의 타임스탬프 형식이 잘못된 경우 발생할 수 있습니다. 
  
-Stream Analytics 작업이 입력으로부터 잘못된 형식의 메시지를 수신하면 해당 메시지를 삭제하고 경고로 알립니다. 경고 기호는 Stream Analytics 작업의 **입력** 타일에 표시됩니다. 작업이 실행 중인 경우 이 경고 기호가 존재합니다.
+Stream Analytics 작업이 입력으로부터 잘못된 형식의 메시지를 수신하면 해당 메시지를 삭제하고 경고로 알립니다. 스트림 분석 작업의 **입력** 타일에 경고 기호가 표시됩니다. 작업이 실행 중인 경우 이 경고 기호가 존재합니다.
 
 ![Azure Stream Analytics 입력 타일](media/stream-analytics-malformed-events/stream-analytics-inputs-tile.png)
 
@@ -70,7 +70,7 @@ Event Hubs를 사용하는 모범 사례는 여러 소비자 그룹을 사용하
 ### <a name="add-a-consumer-group-in-event-hubs"></a>Event Hubs에 소비자 그룹 추가
 Event Hubs 인스턴스에 새 소비자 그룹을 추가하려면 다음 단계를 수행합니다.
 
-1. Azure 포털에 로그인합니다.
+1. Azure Portal에 로그인합니다.
 
 2. Event Hubs를 찾습니다.
 
@@ -139,12 +139,12 @@ FROM data
 
 ## <a name="get-help"></a>도움말 보기
 
-추가 지원이 필요한 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)을 참조하세요.
+추가 지원은 [Azure 스트림 분석 포럼을](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)참조하십시오.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)
-* [Azure Stream Analytics 사용 시작](stream-analytics-real-time-fraud-detection.md)
+* [Azure 스트림 분석 사용 시작](stream-analytics-real-time-fraud-detection.md)
 * [Azure  Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
-* [Azure  Stream Analytics 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+* [Azure 스트림 분석 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)

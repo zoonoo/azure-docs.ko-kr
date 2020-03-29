@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 3a955060eb5f19544860c1c97abe1577084bef24
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67985540"
 ---
 # <a name="connect-qlik-sense-to-azure-cosmos-db-and-visualize-your-data"></a>Qlik Sense를 Azure Cosmos DB에 연결하고 데이터 시각화
@@ -34,7 +34,7 @@ Qlik Sense는 여러 소스의 데이터를 단일 보기로 결합하는 데이
 
 이 문서에서는 ODBC 커넥터를 사용하여 Cosmos DB SQL API에 연결하는 자세한 방법을 설명합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서의 지침을 따르기 전에, 다음 리소스가 준비되었는지 확인합니다.
 
@@ -70,7 +70,7 @@ Qlik Sense는 여러 소스의 데이터를 단일 보기로 결합하는 데이
 
 6. 다음으로, **데이터 추가**를 선택하여 Qlik Sense에 데이터를 로드합니다. Qlik Sense에 데이터를 로드한 후에는 데이터에 대한 인사이트를 생성하고 데이터를 분석할 수 있습니다. 인사이트를 사용할 수도 있고 비디오 게임 판매를 탐색하는 고유의 앱을 빌드할 수도 있습니다. 다음 이미지에 예가 나와 있습니다. 
 
-   ![데이터 가상화](./media/visualize-qlik-sense/visualize-data.png)
+   ![데이터 시각화](./media/visualize-qlik-sense/visualize-data.png)
 
 ### <a name="limitations-when-connecting-with-odbc"></a>ODBC를 사용하여 연결할 때의 제한 사항 
 

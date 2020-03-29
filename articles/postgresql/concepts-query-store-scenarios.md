@@ -1,21 +1,21 @@
 ---
-title: 쿼리 저장소 시나리오-Azure Database for PostgreSQL 단일 서버
-description: 이 문서에서는 Azure Database for PostgreSQL 단일 서버에서 쿼리 저장소에 대 한 몇 가지 시나리오에 대해 설명 합니다.
+title: 쿼리 저장소 시나리오 - PostgreSQL용 Azure 데이터베이스 - 단일 서버
+description: 이 문서에서는 PostgreSQL - 단일 서버에 대한 Azure 데이터베이스의 쿼리 저장소에 대한 몇 가지 시나리오를 설명합니다.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 31e3f82b6ea1b1fc15c0832dc03edce2a59f1e1b
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74768353"
 ---
 # <a name="usage-scenarios-for-query-store"></a>쿼리 저장소 사용 시나리오
 
-**적용 대상:** Azure Database for PostgreSQL-단일 서버 버전 9.6, 10, 11
+**다음에 적용됩니다.** PostgreSQL용 Azure 데이터베이스 - 단일 서버 버전 9.6, 10, 11
 
 예측 가능한 작업 로드 성능을 추적하고 유지 관리하는 것이 중요한 매우 다양한 시나리오에서 쿼리 저장소를 사용할 수 있습니다. 다음 예제를 살펴보세요. 
 - 비용이 많이 드는 상위 쿼리 식별 및 조정 
