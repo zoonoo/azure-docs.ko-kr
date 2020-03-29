@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: d56007e5a196a0857f3b69ac51f5e3b5a88c4f6e
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67593501"
 ---
 # <a name="real-time-stats-in-microsoft-azure-cdn"></a>Microsoft Azure CDN의 실시간 통계
@@ -35,7 +35,7 @@ ms.locfileid: "67593501"
 * [연결](#connections)
 
 ## <a name="accessing-real-time-stats"></a>실시간 통계에 액세스
-1. [Azure Portal](https://portal.azure.com)에서 CDN 프로필로 이동합니다.
+1. Azure [포털에서](https://portal.azure.com)CDN 프로필로 검색합니다.
    
     ![CDN 프로필 블레이드](./media/cdn-real-time-stats/cdn-profile-blade.png)
 2. CDN 프로필 블레이드에서 **관리** 단추를 클릭합니다.
@@ -92,5 +92,5 @@ HTTP 상태 코드의 목록은 그래프 바로 위에 표시됩니다. 이 목
 ## <a name="next-steps"></a>다음 단계
 * [Azure CDN에서 실시간 경고](cdn-real-time-alerts.md)
 * [고급 HTTP 보고서](cdn-advanced-http-reports.md)
-* [사용 패턴](cdn-analyze-usage-patterns.md)
+* [사용 패턴](cdn-analyze-usage-patterns.md) 분석
 

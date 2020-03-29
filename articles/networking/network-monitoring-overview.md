@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor에서 네트워크 모니터링에 대 한 로그 | Microsoft Docs
+title: Azure 모니터 로그의 네트워크 모니터링 정보 | 마이크로 소프트 문서
 description: 클라우드, 온-프레미스 및 하이브리드 환경에 걸친 네트워크를 관리하는, NPM을 비롯한 네트워크 모니터링 솔루션의 개요입니다.
 services: monitoring-and-diagnostics
 documentationcenter: na
@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: agummadi
 ms.openlocfilehash: 2912488286745bf8d2e567d09e445b0a44dc7c39
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67672172"
 ---
 # <a name="network-monitoring-solutions"></a>네트워크 모니터링 솔루션 
@@ -37,7 +37,7 @@ NPM(네트워크 성능 모니터)은 애플리케이션에 대한 네트워크 
 
 성능 모니터, ExpressRoute 모니터 및 서비스 연결 모니터는 NPM 내의 모니터링 기능이며 아래에 설명되어 있습니다.
 
-## <a name="performance-monitor"></a>성능 모니터
+## <a name="performance-monitor"></a>성능 모니터링
 
 성능 모니터는 NPM의 일부이며 클라우드, 하이브리드 및 온-프레미스 환경에 대한 네트워크 모니터링입니다. 원격 분기와 지사, 상점 위치, 데이터 센터 및 클라우드 전반의 네트워크 연결을 모니터링할 수 있습니다. 사용자가 불만을 제기하기 전에 네트워크 문제를 감지할 수 있습니다. 주요 이점은 다음과 같습니다.
 
@@ -51,11 +51,11 @@ NPM(네트워크 성능 모니터)은 애플리케이션에 대한 네트워크 
 
 자세한 내용은 다음 문서를 참조하세요.
 
-* [Azure Monitor 로그에는 네트워크 성능 모니터 솔루션 구성](../azure-monitor/insights/network-performance-monitor.md) 
+* [Azure 모니터 로그에서 네트워크 성능 모니터 솔루션 구성](../azure-monitor/insights/network-performance-monitor.md) 
 * [사용 사례](https://blogs.technet.microsoft.com/msoms/2016/08/30/monitor-on-premises-cloud-iaas-and-hybrid-networks-using-oms-network-performance-monitor/)
 * 제품 업데이트:
-  * [2017 년 2 월](https://blogs.technet.microsoft.com/msoms/2017/02/27/oms-network-performance-monitor-is-now-generally-available/)
-  * [2017 년 8 월](https://blogs.technet.microsoft.com/msoms/2017/08/14/improvements-to-oms-network-performance-monitor/)
+  * [2017년 2월](https://blogs.technet.microsoft.com/msoms/2017/02/27/oms-network-performance-monitor-is-now-generally-available/)
+  * [2017년 8월](https://blogs.technet.microsoft.com/msoms/2017/08/14/improvements-to-oms-network-performance-monitor/)
 
 ## <a name="expressroute-monitor"></a>ExpressRoute 모니터
 

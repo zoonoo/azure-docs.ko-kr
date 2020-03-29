@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 05/24/2017
 ms.author: alkohli
 ms.openlocfilehash: e984531feced2d61332e4c399848c12cd245a34a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60870709"
 ---
 # <a name="storsimple-virtual-array-update-06-release-notes"></a>StorSimple 가상 배열 업데이트 0.6 릴리스 정보
@@ -80,7 +80,7 @@ ms.locfileid: "60870709"
 | **14.** |파일 서버 |폴더의 파일에 연결된 ADS(대체 데이터 스트림)가 있는 경우 ADS는 재해 복구, 복제 및 항목 수준 복구를 통해 백업 또는 복원되지 않습니다. | |
 | **15.** |파일 서버 |기호 링크는 지원되지 않습니다. | |
 | **16.** |파일 서버 |Windows EFS(파일 시스템 암호화)에 의해 보호되는 파일을 StorSimple Virtual Array 파일 서버에 복사하거나 저장하지 마세요. 그러면 지원되지 않는 구성이 발생합니다.  | |
-| **17.** |업데이트 |오류를 참조 하는 경우 코드: 2359302 (16 진수 0x240006)에서 로컬 UI 통해 핫픽스를 설치 하려고 하면 다음 즉 핫픽스 장치에 이미 설치 되어 있습니다.   | |
+| **17.** |업데이트 |로컬 UI를 통해 핫픽스를 설치하려고 할 때 오류 코드: 2359302(16진수 0x240006)가 표시되면 해당 핫픽스가 이미 디바이스에 설치되어 있음을 의미합니다.   | |
 
 ## <a name="next-step"></a>다음 단계
 StorSimple 가상 배열에 [업데이트 0.6 설치](storsimple-virtual-array-install-update-06.md)
@@ -89,8 +89,8 @@ StorSimple 가상 배열에 [업데이트 0.6 설치](storsimple-virtual-array-i
 이전 릴리스 정보를 찾으시나요? 다음으로 이동합니다.
 
 * [StorSimple 가상 배열 업데이트 0.5 릴리스 정보](storsimple-virtual-array-update-05-release-notes.md)
-* [StorSimple 가상 배열 업데이트 0.4 릴리스 정보](storsimple-virtual-array-update-04-release-notes.md)
-* [StorSimple 가상 배열 업데이트 0.3 릴리스 정보](storsimple-ova-update-03-release-notes.md)
+* [StorSimple 가상 배열 업데이트 0.4 릴리스 노트](storsimple-virtual-array-update-04-release-notes.md)
+* [StorSimple 가상 배열 업데이트 0.3 릴리스 노트](storsimple-ova-update-03-release-notes.md)
 * [StorSimple 가상 배열 업데이트 0.1 및 0.2 릴리스 정보](storsimple-ova-update-01-release-notes.md)
 * [StorSimple 가상 배열 일반 공급 릴리스 정보](storsimple-ova-pp-release-notes.md)
 

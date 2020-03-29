@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: b36a3faab49ee8d51c25aa18879e6f5d1db8c2fb
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76716769"
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>Azure에서 Scala 및 Spark를 사용하는 데이터 과학
@@ -56,7 +56,7 @@ Azure 포털에서 Jupyter Notebook을 시작할 수 있습니다. 대시보드�
 
 ![클러스터 대시보드 및 Jupyter Notebook](./media/scala-walkthrough/spark-jupyter-on-portal.png)
 
-https://&lt;clustername&gt;.azurehdinsight.net/jupyter에서 Jupyter Notebook에 액세스할 수도 있습니다. *clustername* 을 사용자의 클러스터 이름으로 바꿉니다. Jupyter Notebook에 액세스하려면 관리자 계정에 대한 암호가 필요합니다.
+https://&lt;clustername&gt;.azurehdinsight.net/jupyter에서 Jupyter Notebook에 액세스할 수도 있습니다. *클러스터 이름을 클러스터* 이름으로 바꿉니다. Jupyter Notebook에 액세스하려면 관리자 계정에 대한 암호가 필요합니다.
 
 ![클러스터 이름을 사용하여 Jupyter Notebook으로 이동](./media/scala-walkthrough/spark-jupyter-notebook.png)
 
@@ -254,13 +254,13 @@ Blob Storage에 모델 또는 파일을 저장하려면 경로를 적절히 지�
 |        10.5 |2.0 |1.0 |1.0 |
 
 ## <a name="data-exploration-and-visualization"></a>데이터 탐색 및 시각화
-데이터를 Spark로 가져오면 데이터 과학 프로세스의 다음 단계에서 탐색 및 시각화를 통해 데이터를 더 잘 이해할 수 있습니다. 이 섹션에서는 SQL 쿼리를 사용하여 Taxi 데이터를 검사합니다. 그런 다음 자동 시각화 Jupyter 기능을 사용 하 여 결과를 데이터 프레임으로 가져와 시각적 검사에 대 한 대상 변수 및 예상 기능을 그립니다.
+데이터를 Spark로 가져오면 데이터 과학 프로세스의 다음 단계에서 탐색 및 시각화를 통해 데이터를 더 잘 이해할 수 있습니다. 이 섹션에서는 SQL 쿼리를 사용하여 Taxi 데이터를 검사합니다. 그런 다음 결과를 데이터 프레임으로 가져와 자동 시각화 Jupyter 기능을 사용하여 시각적 검사를 위한 대상 변수 및 예상 피처를 플로팅합니다.
 
 ### <a name="use-local-and-sql-magic-to-plot-data"></a>로컬 및 SQL 매직을 사용하여 데이터 그리기
 기본적으로 Jupyter Notebook에서 실행하는 코드 조각의 출력은 작업자 노드에서 유지되는 세션 컨텍스트 내에서 사용할 수 있습니다. 모든 계산에 대한 작업자 노드에 여정을 저장하는 경우와 계산에 필요한 모든 데이터를 Jupyter 서버 노드(헤드 노드)에서 로컬로 사용할 수 있는 경우, `%%local` 매직을 사용하여 Jupyter 서버에서 코드 조각을 실행할 수 있습니다.
 
-* **SQL 매직**(`%%sql`). HDInsight Spark 커널은 SQLContext에 대해 간편한 인라인 HiveQL 쿼리를 지원합니다. (`-o VARIABLE_NAME`) 인수는 Jupyter 서버에서 Pandas 데이터 프레임으로 SQL 쿼리의 출력을 유지합니다. 이 설정은 로컬 모드에서 출력을 사용할 수 있음을 의미 합니다.
-* `%%local` **magic**. `%%local` 매직은 HDInsight 클러스터의 헤드 노드인 Jupyter 서버에서 코드를 로컬로 실행하는 데 사용됩니다. 일반적으로 `%%local` 매개 변수를 사용하여 `%%sql` 매직을 `-o` 매직과 함께 사용합니다. `-o` 매개 변수는 SQL 쿼리의 출력을 로컬로 유지하고 그 다음 `%%local` 매직은 로컬로 유지되는 SQL 쿼리의 출력에 대해 로컬로 실행할 다음 코드 조각 집합을 트리거합니다.
+* **SQL** 매직`%%sql`(). HDInsight Spark 커널은 SQLContext에 대해 간편한 인라인 HiveQL 쿼리를 지원합니다. (`-o VARIABLE_NAME`) 인수는 Jupyter 서버에서 Pandas 데이터 프레임으로 SQL 쿼리의 출력을 유지합니다. 이 설정은 로컬 모드에서 출력을 사용할 수 있다는 것을 의미합니다.
+* `%%local` **매직**. `%%local` 매직은 HDInsight 클러스터의 헤드 노드인 Jupyter 서버에서 코드를 로컬로 실행하는 데 사용됩니다. 일반적으로 `-o` 매개 변수를 사용하여 `%%local` 매직을 `%%sql` 매직과 함께 사용합니다. `-o` 매개 변수는 SQL 쿼리의 출력을 로컬로 유지하고 그 다음 `%%local` 매직은 로컬로 유지되는 SQL 쿼리의 출력에 대해 로컬로 실행할 다음 코드 조각 집합을 트리거합니다.
 
 ### <a name="query-the-data-by-using-sql"></a>SQL을 사용하여 데이터 쿼리
 이 쿼리는 요금 금액, 승객 수 및 팁 금액에 따라 택시 여정을 검색합니다.
@@ -289,7 +289,7 @@ Blob Storage에 모델 또는 파일을 저장하려면 경로를 적절히 지�
 
  Spark 커널은 코드를 실행한 후 SQL(HiveQL) 쿼리의 출력을 자동으로 시각화합니다. 여러 형식의 시각화 요소 중에서 선택할 수 있습니다.
 
-* Table
+* 테이블
 * 원형
 * 꺾은선형
 * 영역
@@ -498,7 +498,7 @@ MLlib의 모델링 및 예측 함수는 사용하기 전에 범주 입력 데이
 ### <a name="automatically-categorize-and-vectorize-features-and-targets-to-use-as-inputs-for-machine-learning-models"></a>기계 학습 모델에 대한 입력으로 사용할 기능과 대상을 자동으로 범주화 및 벡터화
 Spark ML을 사용하여 트리 기반 모델링 기능에 사용할 대상 및 기능을 범주화합니다. 이 코드는 다음 두 작업을 완료합니다.
 
-* 0\.5의 임계값을 사용하는 0과 1 사이의 각 데이터 요소에 0 또는 1 값을 할당하여 분류의 이진 대상을 만듭니다.
+* 0.5의 임계값을 사용하는 0과 1 사이의 각 데이터 요소에 0 또는 1 값을 할당하여 분류의 이진 대상을 만듭니다.
 * 기능을 자동으로 범주화합니다. 기능에 대한 고유 숫자 값이 32보다 작은 경우 해당 기능은 범주화됩니다.
 
 이러한 두 작업에 대한 코드는 다음과 같습니다.
@@ -535,9 +535,9 @@ Spark ML을 사용하여 트리 기반 모델링 기능에 사용할 대상 및 
 ## <a name="binary-classification-model-predict-whether-a-tip-should-be-paid"></a>이진 분류 모델: 팁이 지불되었는지 예측
 이 섹션에서는 팁이 지불되었는지 아닌지를 예측하기 위해 이진 분류 모델을 세 가지 형식으로 만듭니다.
 
-* Spark ML **함수를 사용하는**로지스틱 회귀 모델`LogisticRegression()`
-* Spark ML **함수를 사용하는**임의 포리스트 분류 모델`RandomForestClassifier()`
-* MLlib **함수를 사용하는**그라데이션 향상 트리 분류 모델`GradientBoostedTrees()`
+* Spark ML `LogisticRegression()` 함수를 사용하는 **로지스틱 회귀 모델**
+* Spark ML `RandomForestClassifier()` 함수를 사용하는 **임의 포리스트 분류 모델**
+* MLlib `GradientBoostedTrees()` 함수를 사용하는 **그라데이션 향상 트리 분류 모델**
 
 ### <a name="create-a-logistic-regression-model"></a>로지스틱 회귀 모델 만들기
 다음으로, Spark ML `LogisticRegression()` 함수를 사용하여 로지스틱 회귀 모델을 만듭니다. 다음과 같은 단계를 통해 모델 빌딩 코드를 만듭니다.
@@ -728,8 +728,8 @@ Area under ROC curve: 0.9846895479241554
 ## <a name="regression-model-predict-tip-amount"></a>회귀 모델: 팁 금액 예측
 이 섹션에서는 팁 금액을 예측하기 위해 두 가지 형식의 회귀 모델을 만듭니다.
 
-* Spark ML **함수를 사용하는**정칙 선형 회귀 모델`LinearRegression()` 모델을 저장하고 테스트 데이터에 대해 모델을 평가합니다.
-* Spark ML **함수를 사용하는**그라데이션 향상 트리 회귀 모델`GBTRegressor()`
+* Spark ML `LinearRegression()` 함수를 사용하는 **정칙 선형 회귀 모델** 모델을 저장하고 테스트 데이터에 대해 모델을 평가합니다.
+* Spark ML `GBTRegressor()` 함수를 사용하는 **그라데이션 향상 트리 회귀 모델**
 
 ### <a name="create-a-regularized-linear-regression-model"></a>정칙 선형 회귀 모델 만들기
     # RECORD THE START TIME
@@ -853,7 +853,7 @@ Python matplotlib를 사용하여 도표를 만듭니다.
 ### <a name="create-a-gbt-regression-model"></a>GBT 회귀 모델 만들기
 Spark ML `GBTRegressor()` 함수를 사용하여 GBT 회귀 모델을 만들고 테스트 데이터에 대해 모델을 평가합니다.
 
-Gbts ( [그라데이션 수준 향상 트리](https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) )는 의사 결정 트리의 앙상블입니다. GBTS는 의사 결정 트리를 반복적으로 학습 하 여 손실 함수를 최소화 합니다. 회귀 및 분류에는 GBTS를 사용할 수 있습니다. GBT는 범주 기능을 처리하고 기능 규모 결정을 요구하지 않으며 비선형 기능 상호 작용을 캡처할 수 있습니다. 또한 다중 클래스 분류 설정에도 사용할 수 있습니다.
+[그라데이션 부스트](https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) 트리(GBTS)는 의사 결정 트리의 앙상블입니다. GBTS는 손실 함수를 최소화하기 위해 결정 트리를 반복적으로 훈련시훈련합니다. 회귀 및 분류에 GBTS를 사용할 수 있습니다. GBT는 범주 기능을 처리하고 기능 규모 결정을 요구하지 않으며 비선형 기능 상호 작용을 캡처할 수 있습니다. 또한 다중 클래스 분류 설정에도 사용할 수 있습니다.
 
     # RECORD THE START TIME
     val starttime = Calendar.getInstance().getTime()

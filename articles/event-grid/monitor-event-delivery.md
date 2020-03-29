@@ -1,6 +1,6 @@
 ---
 title: Azure Event Grid 메시지 배달 모니터링
-description: 이 문서에서는 Azure Portal를 사용 하 여 Azure Event Grid 메시지의 배달 상태를 확인 하는 방법을 설명 합니다.
+description: 이 문서에서는 Azure 포털을 사용하여 Azure Event Grid 메시지 배달 상태를 확인하는 방법을 설명합니다.
 services: event-grid
 author: spelluru
 manager: timlt
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: spelluru
 ms.openlocfilehash: 16587feaca65aa21836d9be1c44e00faa0f4f8d8
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76722138"
 ---
 # <a name="monitor-event-grid-message-delivery"></a>Event Grid 메시지 배달 모니터링 
@@ -78,12 +78,12 @@ Event Grid는 지속성이 있는 배달을 제공합니다. 각 메시지를 �
 
 ## <a name="set-alerts"></a>경고 설정
 
-항목 및 도메인 수준 메트릭에 대 한 경고는 사용자 지정 토픽 및 이벤트 도메인에 대해 설정할 수 있습니다. 의 개요 블레이드에서 왼쪽에 있는 리소스 메뉴 **에서 경고를 선택 하** 여 경고 규칙을 보고, 관리 하 고, 만듭니다. [Azure Monitor 경고에 대해 자세히 알아보기](../azure-monitor/platform/alerts-overview.md)
+사용자 지정 토픽 및 이벤트 도메인에 대한 주제 및 도메인 수준 측정항목에 대한 경고를 설정할 수 있습니다. 개요 블레이드에서 경고 규칙을 보고 관리하고 만들려면 왼쪽에서 **경고** 메뉴가 있는 경고를 선택합니다. [Azure 모니터 경고에 대해 자세히 알아보기](../azure-monitor/platform/alerts-overview.md)
 
 ![이벤트 메트릭 보기](./media/monitor-event-delivery/select-alerts.png)
 
 ## <a name="next-steps"></a>다음 단계
 
 * 이벤트 배달 및 다시 시도에 대한 자세한 내용은 [Event Grid 메시지 배달 및 다시 시도](delivery-and-retry.md)를 참조하세요.
-* Event Grid에 대한 소개는 [Event Grid 정보](overview.md)를 참조하세요.
+* 이벤트 그리드에 대한 소개는 [이벤트 그리드 소개를](overview.md)참조하십시오.
 * Event Grid를 빠르게 시작하려면 [Azure Event Grid를 사용하여 사용자 지정 이벤트 만들기 및 라우팅](custom-event-quickstart.md)을 참조하세요.

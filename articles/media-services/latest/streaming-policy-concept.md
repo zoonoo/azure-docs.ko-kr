@@ -12,17 +12,17 @@ ms.topic: article
 ms.date: 05/28/2019
 ms.author: juliako
 ms.openlocfilehash: a813c77e81e51bfe13e75ed6c8d0e24b4d0fa645
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "66392916"
 ---
 # <a name="streaming-policies"></a>스트리밍 정책
 
-Azure Media Services v3에서 [스트리밍 정책](https://docs.microsoft.com/rest/api/media/streamingpolicies)을 사용하여 [스트리밍 로케이터](streaming-locators-concept.md)의 스트리밍 프로토콜 및 암호화 옵션을 정의할 수 있습니다. Media Services v3에서는 일부 미리 정의 된 스트리밍 정책 평가판 또는 프로덕션에 직접 사용할 수 있도록 제공 합니다. 
+Azure Media Services v3에서 [스트리밍 정책](https://docs.microsoft.com/rest/api/media/streamingpolicies)을 사용하여 [스트리밍 로케이터](streaming-locators-concept.md)의 스트리밍 프로토콜 및 암호화 옵션을 정의할 수 있습니다. 미디어 서비스 v3는 평가판 또는 프로덕션에 직접 사용할 수 있도록 미리 정의된 몇 가지 스트리밍 정책을 제공합니다. 
 
-현재 사용할 수 있는 미리 정의 된 스트리밍 정책:<br/>
+현재 사용 가능한 미리 정의된 스트리밍 정책:<br/>
 * 'Predefined_DownloadOnly'
 * 'Predefined_ClearStreamingOnly'
 * 'Predefined_DownloadAndClearStreaming'
@@ -30,7 +30,7 @@ Azure Media Services v3에서 [스트리밍 정책](https://docs.microsoft.com/r
 * 'Predefined_MultiDrmCencStreaming' 
 * 'Predefined_MultiDrmStreaming'
 
-다음 "의사 결정 트리" 시나리오에 대 한 미리 정의 된 스트리밍 정책의 방법을 선택할 수 있습니다.
+다음 "의사 결정 트리"는 시나리오에 대해 미리 정의된 스트리밍 정책을 선택하는 데 도움이 됩니다.
 
 > [!IMPORTANT]
 > * 날짜/시간 형식의 **스트리밍 정책** 속성은 언제나 UTC 형식입니다.
@@ -42,13 +42,13 @@ Azure Media Services v3에서 [스트리밍 정책](https://docs.microsoft.com/r
 
 <a href="./media/streaming-policy/large.png" target="_blank"><img src="./media/streaming-policy/large.png"></a> 
 
-생성 해야 하는 콘텐츠를 암호화 하는 경우는 [콘텐츠 키 정책](content-key-policy-concept.md)의 **콘텐츠 키 정책** clear 스트리밍 또는 다운로드 필요 하지 않습니다. 
+콘텐츠를 암호화하는 경우 [콘텐츠 키 정책을](content-key-policy-concept.md)만들어야 합니다. **Content Key Policy** 
 
-할 수 있습니다 (예를 들어, 사용자 지정 키 배달 서비스를 사용 하는 데 필요한 다른 프로토콜을 지정 하려면 있거나 필요한 경우 지우기 오디오 트랙을 사용 하려면) 특별 한 요구 사항이 있는 경우 [만들](https://docs.microsoft.com/rest/api/media/streamingpolicies/create) 사용자 지정 스트리밍 정책입니다. 
+특별한 요구 사항이 있는 경우(예: 다른 프로토콜을 지정하거나, 사용자 지정 키 배달 서비스를 사용해야 하거나, 명확한 오디오 트랙을 사용해야 하는 경우) 사용자 지정 스트리밍 정책을 [만들](https://docs.microsoft.com/rest/api/media/streamingpolicies/create) 수 있습니다. 
 
-## <a name="get-a-streaming-policy-definition"></a>스트리밍 정책 정의 가져오기  
+## <a name="get-a-streaming-policy-definition"></a>스트리밍 정책 정의 받기  
 
-사용 하 여 스트리밍 정책을 정의 하려는 경우 [가져올](https://docs.microsoft.com/rest/api/media/streamingpolicies/get) 정책 이름을 지정 합니다. 예를 들면 다음과 같습니다.
+스트리밍 정책의 정의를 보려면 [Get을](https://docs.microsoft.com/rest/api/media/streamingpolicies/get) 사용하고 정책 이름을 지정합니다. 예를 들어:
 
 ### <a name="rest"></a>REST (영문)
 

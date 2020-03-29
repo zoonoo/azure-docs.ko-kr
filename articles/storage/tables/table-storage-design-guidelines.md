@@ -9,10 +9,10 @@ ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
 ms.openlocfilehash: d056d29469ad9a60fceeee307aca3c0e1319283c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61269850"
 ---
 # <a name="guidelines-for-table-design"></a>테이블 디자인 지침
@@ -32,7 +32,7 @@ Azure Storage Table service와 함께 사용할 테이블을 디자인하는 것
 
 * ***핫 파티션을 만들지 마세요.*** 언제든 여러 파티션으로 요청을 분산할 수 있는 키를 선택합니다.  
 * ***트래픽 급증을 방지합니다.*** 적절한 기간에 걸쳐 트래픽을 원활하게 유지하고 트래픽 급증을 방지합니다.
-* ***각 엔터티 유형에 대한 별도의 테이블을 만들 필요가 없습니다.*** 엔터티 유형 간에 원자성 트랜잭션이 필요한 경우 이러한 여러 엔터티 유형을 동일한 테이블의 동일한 파티션에 저장할 수 있습니다.
+* ***각 엔터티 유형에 대해 별도의 테이블을 만들 필요는 없습니다.*** 엔터티 유형 간에 원자성 트랜잭션이 필요한 경우 이러한 여러 엔터티 유형을 동일한 테이블의 동일한 파티션에 저장할 수 있습니다.
 * ***달성해야 하는 최대 처리량을 고려합니다.*** Table service의 확장성 목표를 알고 디자인으로 인해 이러한 목표가 초과되지 않도록 해야 합니다.  
 
 이 가이드에서는 이 모든 원칙을 실습해 볼 수 있는 예제를 제공합니다. 

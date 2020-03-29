@@ -1,14 +1,14 @@
 ---
-title: REST API를 사용 하 여 백업 정책 만들기
-description: 이 문서에서는 REST API를 사용 하 여 백업 정책 (일정 및 보존)을 만들고 관리 하는 방법에 대해 설명 합니다.
+title: REST API를 사용하여 백업 정책 만들기
+description: 이 문서에서는 REST API를 사용하여 백업 정책(일정 및 보존)을 만들고 관리하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
 ms.openlocfilehash: 0718ebc3612f53f1c2cc279096dd92de69bb5ef6
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76963855"
 ---
 # <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>REST API를 사용하여 Azure Recovery Services 백업 정책 만들기
@@ -29,10 +29,10 @@ URI에서 `{policyName}` 및 `{vaultName}`을 제공합니다. 요청 본문에 
 
 예를 들어 Azure VM 백업의 백업을 만들려면 요청 본문의 구성 요소는 다음과 같습니다.
 
-|이름  |필수  |유형  |Description  |
+|이름  |필수  |Type  |Description  |
 |---------|---------|---------|---------|
-|properties     |   참      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](/rest/api/backup/protectionpolicies/createorupdate#azureiaasvmprotectionpolicy)      | ProtectionPolicyResource 속성        |
-|tags     |         | 개체        |  리소스 태그       |
+|properties     |   True      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](/rest/api/backup/protectionpolicies/createorupdate#azureiaasvmprotectionpolicy)      | ProtectionPolicyResource 속성        |
+|tags     |         | Object        |  리소스 태그       |
 
 요청 본문의 전체 정의 목록은 [백업 정책 REST API 문서](/rest/api/backup/protectionpolicies/createorupdate)를 참조하세요.
 
@@ -135,9 +135,9 @@ URI에서 `{policyName}` 및 `{vaultName}`을 제공합니다. 요청 본문에 
 
 백업 정책 만들기/업데이트는 [비동기 작업](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations)입니다. 즉, 이 작업은 별도로 추적해야 하는 다른 작업을 만듭니다.
 
-다른 작업을 만들 때 202 (수락 됨) 두 개의 응답을 반환 하 고 해당 작업이 완료 되 면 200 (OK)를 반환 합니다.
+다른 작업이 생성될 때 202(허용됨)와 해당 작업이 완료되면 200(확인)이라는 두 개의 응답을 반환합니다.
 
-|이름  |유형  |Description  |
+|이름  |Type  |Description  |
 |---------|---------|---------|
 |200 정상     |    [보호 PolicyResource](/rest/api/backup/protectionpolicies/createorupdate#protectionpolicyresource)     |  확인       |
 |202 수락됨     |         |     수락됨    |

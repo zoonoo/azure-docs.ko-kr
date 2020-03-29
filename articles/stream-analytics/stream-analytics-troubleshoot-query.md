@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
 ms.openlocfilehash: bf0740bbdd4754aeba43e64f1076a1bea33cffc6
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76844425"
 ---
 # <a name="troubleshoot-azure-stream-analytics-queries"></a>Azure Stream Analytics 쿼리 문제 해결
@@ -21,11 +21,11 @@ ms.locfileid: "76844425"
 
 ## <a name="query-is-not-producing-expected-output"></a>쿼리가 예상 출력을 생성하지 않음
 1.  로컬로 테스트하여 오류를 검사합니다.
-    - Azure Portal의 **쿼리** 탭에서 **테스트**를 선택 합니다. 다운로드한 샘플 데이터를 사용하여 [쿼리를 테스트](stream-analytics-test-query.md)합니다. 모든 오류를 검사하고 수정합니다.   
-    - Visual Studio 또는 [Visual Studio Code](visual-studio-code-local-run-live-input.md)Azure Stream Analytics 도구를 사용 하 여 [쿼리를 로컬로 테스트할](stream-analytics-live-data-local-testing.md) 수도 있습니다. 
+    - Azure 포털에서 **쿼리** 탭에서 **테스트를**선택합니다. 다운로드한 샘플 데이터를 사용하여 [쿼리를 테스트](stream-analytics-test-query.md)합니다. 모든 오류를 검사하고 수정합니다.   
+    - 또한 Visual Studio 또는 [Visual Studio 코드에](visual-studio-code-local-run-live-input.md)대한 Azure Stream Analytics 도구를 사용하여 [쿼리를 로컬로 테스트할](stream-analytics-live-data-local-testing.md) 수도 있습니다. 
 
-2.  Visual Studio 용 Azure Stream Analytics 도구에서 [작업 다이어그램을 사용 하 여 로컬로 쿼리 디버그 단계별 작업 다이어그램을 사용](debug-locally-using-job-diagram.md) 합니다. 작업 다이어그램은 여러 쿼리 단계를 통해 입력 원본 (이벤트 허브, IoT Hub 등)에서 데이터 흐름을 표시 하 고, 마지막으로 싱크에 출력 하는 방법을 보여 주기 위한 것입니다. 각 쿼리 단계는 WITH 문을 사용 하 여 스크립트에 정의 된 임시 결과 집합에 매핑됩니다. 각 중간 결과 집합의 각 쿼리 단계에서 데이터와 메트릭을 확인 하 여 문제의 원인을 찾을 수 있습니다.
-    작업 다이어그램 미리 보기 결과를 ![](./media/debug-locally-using-job-diagram/preview-result.png)
+2.  Visual Studio용 Azure 스트림 분석 도구에서 [작업 다이어그램을 사용하여 쿼리를 로컬로 단계별로 디버그합니다.](debug-locally-using-job-diagram.md) 작업 다이어그램은 여러 쿼리 단계를 통해 입력 소스(이벤트 허브, IoT Hub 등)에서 데이터가 흐르는 방식을 보여 주며 마지막으로 싱크로 출력됩니다. 각 쿼리 단계는 WITH 문을 사용하여 스크립트에 정의된 임시 결과 집합에 매핑됩니다. 각 중간 결과 집합에서 각 쿼리 단계의 데이터와 메트릭을 보고 문제의 원인을 찾을 수 있습니다.
+    ![작업 다이어그램 미리 보기 결과](./media/debug-locally-using-job-diagram/preview-result.png)
 
 3.  [**Timestamp By**](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics)를 사용하는 경우 이벤트에 [작업 시작 시간](stream-analytics-out-of-order-and-late-events.md)보다 큰 타임스탬프가 있는지 확인합니다.
 
@@ -69,10 +69,10 @@ Azure Stream Analytics 작업의 다음 예제 쿼리에는 Azure Table Storage�
 이제 작업을 다시 시작하고 몇 분 동안 실행되도록 합니다. 그런 다음 Visual Studio Cloud Explorer를 통해 temp1 및 temp2를 쿼리하여 다음과 같은 테이블을 생성합니다.
 
 **temp1 테이블**
-![SELECT INTO temp1 테이블 Stream Analytics 쿼리](./media/stream-analytics-select-into/stream-analytics-select-into-temp-table-1.png)
+![SELECT INTO temp1 테이블 스트림 분석 쿼리](./media/stream-analytics-select-into/stream-analytics-select-into-temp-table-1.png)
 
 **temp2 테이블**
-![SELECT INTO temp2 테이블 Stream Analytics 쿼리](./media/stream-analytics-select-into/stream-analytics-select-into-temp-table-2.png)
+![SELECT INTO temp2 테이블 스트림 분석 쿼리](./media/stream-analytics-select-into/stream-analytics-select-into-temp-table-2.png)
 
 보시다시피 temp1 및 temp2에 모두 데이터가 있고 이름 열이 temp2에서 올바르게 채워집니다. 그러나 여전히 출력에 데이터가 없기 때문에 문제가 있습니다.
 
@@ -92,14 +92,14 @@ Azure Stream Analytics 작업의 다음 예제 쿼리에는 Azure Table Storage�
 
 ![SELECT INTO 최종 테이블 Stream Analytics 쿼리](./media/stream-analytics-select-into/stream-analytics-select-into-final-table.png)
 
-## <a name="get-help"></a>도움 받기
+## <a name="get-help"></a>도움말 보기
 
-추가 지원이 필요한 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)을 참조하세요.
+추가 지원은 [Azure 스트림 분석 포럼을](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)참조하십시오.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)
-* [Azure Stream Analytics 사용 시작](stream-analytics-real-time-fraud-detection.md)
+* [Azure 스트림 분석 사용 시작](stream-analytics-real-time-fraud-detection.md)
 * [Azure  Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
-* [Azure  Stream Analytics 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+* [Azure 스트림 분석 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)

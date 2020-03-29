@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/16/2018
 ms.author: magattus
 ms.openlocfilehash: a5881bea578f2791f8dc0d6e760fd15c6f47e435
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67593257"
 ---
 # <a name="verizon-specific-http-headers-for-azure-cdn-rules-engine"></a>Azure CDN 규칙 엔진의 Verizon 특정 HTTP 헤더
@@ -27,22 +27,22 @@ ms.locfileid: "67593257"
 
 이러한 예약된 헤더 중 하나가 Azure CDN(콘텐츠 전송 네트워크) POP 요청에서 원본 서버에 추가되지 않도록 하려면 규칙 엔진에서 [프록시 특별 헤더 기능](cdn-verizon-premium-rules-engine-reference-features.md#proxy-special-headers)을 사용하여 규칙을 만들어야 합니다. 이 규칙에서는 헤더 필드의 기본 헤더 목록에서 제거하려는 헤더를 제외합니다. [디버그 캐시 응답 헤더 기능](cdn-verizon-premium-rules-engine-reference-features.md#debug-cache-response-headers)을 사용하도록 설정한 경우 필요한 `X-EC-Debug` 헤더를 추가해야 합니다. 
 
-예를 들어 제거할는 `Via` 헤더 규칙의 헤더 필드는 다음과 같은 헤더를 포함 해야 합니다. *X-전달-에 X-전달-Proto, X-host, X-midgress, X 게이트웨이 목록, X-EC-이름, 호스트*합니다. 
+예를 들어 `Via` 헤더를 제거하려면 규칙의 헤더 필드에 *X-Forwarded-For, X-Forwarded-Proto, X-Host, X-Midgress, X-Gateway-List, X-EC-Name, Host* 헤더의 목록이 포함되어야 합니다. 
 
 ![프록시 특별 헤더 규칙](./media/cdn-http-headers/cdn-proxy-special-header-rule.png)
 
 다음 표에서는 Verizon CDN POP에서 요청에 추가할 수 있는 헤더를 설명합니다.
 
-요청 헤더 | 설명 | 예제
+요청 헤더 | Description | 예제
 ---------------|-------------|--------
 [Via](#via-request-header) | 요청을 원본 서버에 프록시한 POP 서버를 식별합니다. | HTTP/1.1 ECS (dca/1A2B)
 X-Forwarded-For | 요청자의 IP 주소를 나타냅니다.| 10.10.10.10
 X-Forwarded-Proto | 요청의 프로토콜을 나타냅니다. | http
 X-Host | 요청의 호스트 이름을 나타냅니다. | cdn.mydomain.com
 X-Midgress | 요청이 추가 CDN 서버를 통해 프록시되었는지 여부를 나타냅니다. 예를 들어 POP 서버-원본 실드 서버 또는 POP 서버-ADN 게이트웨이 서버 프록시 연결이 있습니다. <br />중간 트래픽이 발생할 때만 요청에 이 헤더가 추가됩니다. 이 경우 헤더가 1로 설정되어 요청이 추가 CDN 서버를 통해 프록시되었음을 나타냅니다.| 1
-[Host](#host-request-header) | 요청된 콘텐츠를 찾을 수 있는 호스트와 포트를 식별합니다. | marketing.mydomain.com:80
-[X-Gateway-List](#x-gateway-list-request-header) | ADN: 고객 원본에 할당 된 ADN 게이트웨이 서버 장애 조치 목록을 식별 합니다. <br />원본 실드: 고객 원본에 할당 된 원본 실드 서버 집합을 나타냅니다. | `icn1,hhp1,hnd1`
-X-EC- _&lt;name&gt;_ | *X-EC*로 시작하는 요청 헤더(예: X-EC-Tag, [X-EC-Debug](cdn-http-debug-headers.md))는 CDN에서 사용하도록 예약됩니다.| waf-production
+[호스트](#host-request-header) | 요청된 콘텐츠를 찾을 수 있는 호스트와 포트를 식별합니다. | marketing.mydomain.com:80
+[X-Gateway-List](#x-gateway-list-request-header) | ADN: 고객 원본에 할당된 ADN 게이트웨이 서버의 장애 조치 목록을 식별합니다. <br />원본 실드: 고객 원본에 할당된 원본 실드 서버 집합을 나타냅니다. | `icn1,hhp1,hnd1`
+X-EC-_&lt;이름&gt;_ | *X-EC*로 시작하는 요청 헤더(예: X-EC-Tag, [X-EC-Debug](cdn-http-debug-headers.md))는 CDN에서 사용하도록 예약됩니다.| waf-production
 
 ## <a name="via-request-header"></a>Via 요청 헤더
 `Via` 요청 헤더에서 POP 서버를 식별하는 형식은 다음 구문으로 지정됩니다.
@@ -50,9 +50,9 @@ X-EC- _&lt;name&gt;_ | *X-EC*로 시작하는 요청 헤더(예: X-EC-Tag, [X-EC
 `Via: Protocol from Platform (POP/ID)` 
 
 구문에 사용된 용어는 다음과 같이 정의됩니다.
-- 프로토콜: 프록시 사용 (예: HTTP/1.1) 프로토콜의 버전을 요청을 나타냅니다. 
+- Protocol: 요청을 프록시하는 데 사용된 프로토콜 버전(예: HTTP/1.1)을 나타냅니다. 
 
-- 플랫폼: 콘텐츠가 요청 된 플랫폼을 나타냅니다. 이 필드에 유효한 코드는 다음과 같습니다. 
+- Platform: 콘텐츠가 요청된 플랫폼을 나타냅니다. 이 필드에 유효한 코드는 다음과 같습니다. 
 
     코드 | 플랫폼
     -----|---------
@@ -60,7 +60,7 @@ X-EC- _&lt;name&gt;_ | *X-EC*로 시작하는 요청 헤더(예: X-EC-Tag, [X-EC
     ECS   | HTTP Small
     ECD   | ADN(애플리케이션 전달 네트워크)
 
-- POP: 나타냅니다 합니다 [POP](cdn-pop-abbreviations.md) 요청을 처리 하는 합니다. 
+- POP: 요청을 처리한 [POP](cdn-pop-abbreviations.md)를 나타냅니다. 
 
 - ID: 내부 전용입니다.
 

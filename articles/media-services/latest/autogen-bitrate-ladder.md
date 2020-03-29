@@ -15,10 +15,10 @@ ms.date: 02/10/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: c25c32f35adc1c017f0f4c012c82bd7e0af8d452
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60733320"
 ---
 #  <a name="encode-with-an-auto-generated-bitrate-ladder"></a>자동 생성된 비트 전송률 사다리로 인코딩
@@ -49,7 +49,7 @@ ms.locfileid: "60733320"
 |5|270|480|720|
 |6|180|320|380|
 
-### <a name="example-2"></a>예 2
+### <a name="example-2"></a>예제 2
 높이가 "720"이고 프레임 속도가 "23.970"인 원본은 5개의 비디오 계층을 생성합니다.
 
 |계층|높이|너비|비트 전송률(kbps)|
@@ -60,7 +60,7 @@ ms.locfileid: "60733320"
 |4|270|480|600|
 |5|180|320|320|
 
-### <a name="example-3"></a>예 3
+### <a name="example-3"></a>예제 3
 높이가 "360"이고 프레임 속도가 "29.970"인 원본은 3개의 비디오 계층을 생성합니다.
 
 |계층|높이|너비|비트 전송률(kbps)|

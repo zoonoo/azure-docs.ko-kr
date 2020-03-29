@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/03/2018
 ms.author: damaerte
 ms.openlocfilehash: 4fc4f6523eb19294cabdf6b5b910dd346a877502
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67204132"
 ---
 # <a name="powershell-in-azure-cloud-shell-for-windows-users"></a>Windows 사용자용 Azure Cloud Shell의 PowerShell
@@ -36,7 +36,7 @@ Azure Cloud Shell의 PowerShell 환경은 이제 Linux 환경에서 [PowerShell 
 
 ## <a name="windows-powershell-aliases-vs-linux-utilities"></a>Windows PowerShell 별칭 대 Linux 유틸리티
 
-일부 기존 PowerShell 별칭에는 `cat`,`ls`, `sort`, `sleep` 등과 같이 기본 제공 Linux 명령과 동일한 이름이 있습니다. PowerShell Core 6에서 기본 제공 Linux 명령과 충돌하는 별칭이 제거되었습니다.
+일부 기존 PowerShell 별칭에는 `cat`기본`ls` `sort` `sleep`제공 Linux 명령과 같은 이름이 있습니다. PowerShell Core 6에서는 기본 제공 Linux 명령과 충돌하는 별칭이 제거되었습니다.
 다음은 제거된 일반적인 별칭과 상응하는 명령입니다.  
 
 |제거된 별칭   |해당 명령   |

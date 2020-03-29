@@ -1,6 +1,6 @@
 ---
 title: 개발자를 위한 Azure DevTest Labs 사용 | Microsoft Docs
-description: 개발자 요구 사항을 충족 하는 데 사용할 수 있는 Azure DevTest Labs 기능과 랩을 설정 하기 위해 수행할 수 있는 자세한 단계에 대해 알아봅니다.
+description: 개발자 요구 사항을 충족하는 데 사용할 수 있는 Azure DevTest Labs 기능및 랩을 설정하기 위해 수행할 수 있는 자세한 단계에 대해 알아봅니다.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: spelluru
 ms.openlocfilehash: ae44696f62a085bf1e798f0915e2bd1e27c3a78f
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76760150"
 ---
 # <a name="use-azure-devtest-labs-for-developers"></a>개발자를 위한 Azure DevTest Labs 사용
@@ -74,7 +74,7 @@ Azure DevTest Labs를 사용하여 여러 주요 시나리오를 구현할 수 �
 
    - VM에 설치하려는 도구(예: 에이전트, Fiddler 및 Visual Studio)
    - VM에서 실행하려는 작업(예: 리포지토리 복제)
-   - 테스트하려는 애플리케이션.
+   - 테스트하려는 애플리케이션
 
    많은 아티팩트는 이미 기본 제공되어 있습니다. 특정 요구에 맞게 추가로 사용자 지정하려는 경우 사용자 고유의 사용자 지정 아티팩트를 만들 수 있습니다.
 

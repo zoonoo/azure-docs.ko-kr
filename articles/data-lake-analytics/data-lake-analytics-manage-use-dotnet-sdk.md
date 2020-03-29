@@ -1,6 +1,6 @@
 ---
 title: Azure .NET SDK를 사용하여 Azure Data Lake Analytics 관리
-description: 이 문서에서는 Azure.NET SDK를 사용 하 여 Data Lake Analytics 작업, 데이터 원본 및 사용자를 관리 하는 앱을 작성 하는 방법을 설명 합니다.
+description: 이 문서에서는 Azure .NET SDK를 사용하여 데이터 레이크 애널리틱스 작업, 데이터 원본, & 사용자를 관리하는 앱을 작성하는 방법을 설명합니다.
 services: data-lake-analytics
 author: saveenr
 ms.author: saveenr
@@ -10,10 +10,10 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 06/18/2017
 ms.openlocfilehash: 0a10af73d754596e9b5bb34b2974d7f1647d06f8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60617710"
 ---
 # <a name="manage-azure-data-lake-analytics-a-net-app"></a>Azure Data Lake Analytics .NET 앱 관리
@@ -22,15 +22,15 @@ ms.locfileid: "60617710"
 
 이 문서에서는 Azure .NET SDK를 사용하여 작성한 앱을 사용하여 Azure Data Lake Analytics 계정, 데이터 원본, 사용자 및 작업을 관리하는 방법을 설명합니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-* **Visual Studio 2015, Visual Studio 2013 업데이트 4 또는 Visual Studio 2012와 Visual C++ 설치**.
-* **.NET 버전 2.5 이상용 Microsoft Azure SDK**.  [웹 플랫폼 설치 관리자](https://www.microsoft.com/web/downloads/platform.aspx)를 사용하여 설치합니다.
+* **Visual Studio 2015, Visual Studio 2013 업데이트 4 또는 Visual Studio 2012와 Visual C++ 설치.**
+* **.NET 버전 2.5 이상용 Microsoft Azure SDK**.  웹 플랫폼 [설치 관리자를](https://www.microsoft.com/web/downloads/platform.aspx)사용하여 설치합니다.
 * **필요한 NuGet 패키지**
 
 ### <a name="install-nuget-packages"></a>NuGet 패키지 설치
 
-|패키지|Version|
+|패키지|버전|
 |-------|-------|
 |[Microsoft.Rest.ClientRuntime.Azure.Authentication](https://www.nuget.org/packages/Microsoft.Rest.ClientRuntime.Azure.Authentication)| 2.3.1|
 |[Microsoft.Azure.Management.DataLake.Analytics](https://www.nuget.org/packages/Microsoft.Azure.Management.DataLake.Analytics)|3.0.0|
@@ -57,7 +57,7 @@ string rg == "<value>"; // Resource  group name
 string clientid = "1950a258-227b-4e31-a9cf-717495945fc2"; // Sample client ID (this will work, but you should pick your own)
 ```
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>인증
 
 Azure Data Lake Analytics에 로그온하는 옵션은 여러 가지가 있습니다. 다음 코드 조각은 팝업을 사용한 대화형 사용자 인증의 인증 예를 보여 줍니다.
 
@@ -219,7 +219,7 @@ if (adlaClient.Account.Exists(rg, adla))
 
 데이터 레이크 분석은 현재 다음 데이터 원본을 지원합니다.
 
-* [Azure Data Lake Storage](../data-lake-store/data-lake-store-overview.md)
+* [Azure 데이터 레이크 스토어](../data-lake-store/data-lake-store-overview.md)
 * [Azure Storage 계정](../storage/common/storage-introduction.md)
 
 ### <a name="link-to-an-azure-storage-account"></a>Azure Storage 계정에 대한 링크
@@ -443,6 +443,6 @@ adlaAccountClient.ComputePolicies.CreateOrUpdate(rg, adla, "GaryMcDaniel", newPo
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Microsoft Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)
-* [Azure 포털을 사용하여 Azure Data Lake Analytics 관리](data-lake-analytics-manage-use-portal.md)
-* [Azure 포털을 사용하여 Azure Data Lake Analytics 작업 모니터링 및 문제 해결](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+* [Microsoft Azure Data Lake Analytics 개요](data-lake-analytics-overview.md)
+* [Azure 포털을 사용하여 Azure 데이터 레이크 분석 관리](data-lake-analytics-manage-use-portal.md)
+* [Azure 포털을 사용하여 Azure 데이터 레이크 분석 작업 모니터링 및 문제 해결](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)

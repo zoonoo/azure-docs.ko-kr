@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 63715f668438519131eba5bfff7aa38fc73267d0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61094660"
 ---
 # <a name="retry-logic-in-the-media-services-sdk-for-net"></a>.NET용 Media Services SDK의 다시 시도 논리  
@@ -39,47 +39,47 @@ Microsoft Azure 서비스에서 작업할 때 일시적 오류가 발생할 수 
 
 | 예외 | 웹 요청 | 스토리지 | 쿼리 | SaveChanges |
 | --- | --- | --- | --- | --- |
-| WebException<br/>자세한 내용은 [WebException 상태 코드](media-services-retry-logic-in-dotnet-sdk.md#WebExceptionStatus) 섹션을 참조하세요. |예 |예 |예 |예 |
-| DataServiceClientException<br/> 자세한 내용은 [HTTP 오류 상태 코드](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode)를 참조하세요. |아닙니다. |예 |예 |예 |
-| DataServiceQueryException<br/> 자세한 내용은 [HTTP 오류 상태 코드](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode)를 참조하세요. |아닙니다. |예 |예 |예 |
-| DataServiceRequestException<br/> 자세한 내용은 [HTTP 오류 상태 코드](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode)를 참조하세요. |아닙니다. |예 |예 |예 |
-| DataServiceTransportException |아닙니다. |아니요 |예 |예 |
-| TimeoutException |예 |예 |예 |아닙니다. |
-| SocketException |예 |예 |예 |예 |
-| StorageException |아닙니다. |사용자 계정 컨트롤 |아니오 |아닙니다. |
-| IOException |아닙니다. |사용자 계정 컨트롤 |아니오 |아닙니다. |
+| WebException<br/>자세한 내용은 [WebException 상태 코드](media-services-retry-logic-in-dotnet-sdk.md#WebExceptionStatus) 섹션을 참조하세요. |yes |yes |yes |yes |
+| DataServiceClientException<br/> 자세한 내용은 [HTTP 오류 상태 코드](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode)를 참조하세요. |예 |yes |yes |yes |
+| DataServiceQueryException<br/> 자세한 내용은 [HTTP 오류 상태 코드](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode)를 참조하세요. |예 |yes |yes |yes |
+| DataServiceRequestException<br/> 자세한 내용은 [HTTP 오류 상태 코드](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode)를 참조하세요. |예 |yes |yes |yes |
+| DataServiceTransportException |예 |예 |yes |yes |
+| TimeoutException |yes |yes |yes |예 |
+| SocketException |yes |yes |yes |yes |
+| StorageException |예 |yes |예 |예 |
+| IOException |예 |yes |예 |예 |
 
-### <a name="WebExceptionStatus"></a> WebException 상태 코드
+### <a name="webexception-status-codes"></a><a name="WebExceptionStatus"></a> WebException 상태 코드
 다음 테이블은 어떤 WebException 오류 코드에 대해 재시도 논리가 구현되었는지 보여줍니다. [WebExceptionStatus](https://msdn.microsoft.com/library/system.net.webexceptionstatus.aspx) 열거형은 상태 코드를 정의합니다.  
 
 | 상태 | 웹 요청 | 스토리지 | 쿼리 | SaveChanges |
 | --- | --- | --- | --- | --- |
-| ConnectFailure |예 |예 |예 |예 |
-| NameResolutionFailure |예 |예 |예 |예 |
-| ProxyNameResolutionFailure |예 |예 |예 |예 |
-| SendFailure |예 |예 |예 |예 |
-| PipelineFailure |예 |예 |예 |아닙니다. |
-| ConnectionClosed |예 |예 |예 |아닙니다. |
-| KeepAliveFailure |예 |예 |예 |아닙니다. |
-| UnknownError |예 |예 |예 |아닙니다. |
-| ReceiveFailure |예 |예 |예 |아닙니다. |
-| RequestCanceled |예 |예 |예 |아닙니다. |
-| 시간 제한 |예 |예 |예 |아닙니다. |
-| ProtocolError <br/>ProtocolError 시의 재시도는 HTTP 상태 코드 처리에 의해 제어됩니다. 자세한 내용은 [HTTP 오류 상태 코드](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode)를 참조하세요. |예 |예 |예 |예 |
+| ConnectFailure |yes |yes |yes |yes |
+| NameResolutionFailure |yes |yes |yes |yes |
+| ProxyNameResolutionFailure |yes |yes |yes |yes |
+| SendFailure |yes |yes |yes |yes |
+| PipelineFailure |yes |yes |yes |예 |
+| ConnectionClosed |yes |yes |yes |예 |
+| KeepAliveFailure |yes |yes |yes |예 |
+| UnknownError |yes |yes |yes |예 |
+| ReceiveFailure |yes |yes |yes |예 |
+| RequestCanceled |yes |yes |yes |예 |
+| 시간 제한 |yes |yes |yes |예 |
+| ProtocolError <br/>ProtocolError 시의 재시도는 HTTP 상태 코드 처리에 의해 제어됩니다. 자세한 내용은 [HTTP 오류 상태 코드](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode)를 참조하세요. |yes |yes |yes |yes |
 
-### <a name="HTTPStatusCode"></a> HTTP 오류 상태 코드
+### <a name="http-error-status-codes"></a><a name="HTTPStatusCode"></a> HTTP 오류 상태 코드
 Query 및 SaveChanges 작업에서 DataServiceClientException, DataServiceQueryException 또는 DataServiceQueryException를 던질 경우 HTTP 오류 상태 코드가 StatusCode 속성에 반환됩니다.  다음 테이블은 어떤 오류 코드에 대해 재시도 논리가 구현되었는지 보여줍니다.  
 
 | 상태 | 웹 요청 | 스토리지 | 쿼리 | SaveChanges |
 | --- | --- | --- | --- | --- |
-| 401 |아닙니다. |사용자 계정 컨트롤 |아니오 |아닙니다. |
-| 403 |아닙니다. |예<br/>더 긴 대기 시간으로 재시도를 처리함. |아닙니다. |아닙니다. |
-| 408 |예 |예 |예 |예 |
-| 429 |예 |예 |예 |예 |
-| 500 |예 |예 |예 |아닙니다. |
-| 502 |예 |예 |예 |아닙니다. |
-| 503 |예 |예 |예 |예 |
-| 504 |예 |예 |예 |아닙니다. |
+| 401 |예 |yes |예 |예 |
+| 403 |예 |yes<br/>더 긴 대기 시간으로 재시도를 처리함. |예 |예 |
+| 408 |yes |yes |yes |yes |
+| 429 |yes |yes |yes |yes |
+| 500 |yes |yes |yes |예 |
+| 502 |yes |yes |yes |예 |
+| 503 |yes |yes |yes |yes |
+| 504 |yes |yes |yes |예 |
 
 .NET용 Media Services SDK 재처리 논리의 실제 구현을 보려면 [azure-sdk-for-media-services](https://github.com/Azure/azure-sdk-for-media-services/tree/dev/src/net/Client/TransientFaultHandling)를 참조하세요.
 

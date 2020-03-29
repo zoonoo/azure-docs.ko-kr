@@ -16,16 +16,16 @@ ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewr: cenkdin
 ms.openlocfilehash: b778ad8c59cf51f92584cd3590f7d99244f37b2c
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76774948"
 ---
 # <a name="creating-filters-with-azure-media-services-rest-api"></a>Azure Media Services REST API로 필터 생성 
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-dynamic-manifest.md)
-> * [REST (영문)](media-services-rest-dynamic-manifest.md)
+> * [나머지](media-services-rest-dynamic-manifest.md)
 > 
 > 
 
@@ -38,9 +38,9 @@ Media Services 2.17 버전부터 자산에 대한 필터를 정의할 수 있습
 ## <a name="types-used-to-create-filters"></a>필터 생성에 사용되는 형식
 필터를 생성할 때는 다음 형식이 사용됩니다.  
 
-* [Filter](https://docs.microsoft.com/rest/api/media/operations/filter)
+* [필터](https://docs.microsoft.com/rest/api/media/operations/filter)
 * [AssetFilter](https://docs.microsoft.com/rest/api/media/operations/assetfilter)
-* [PresentationTimeRange](https://docs.microsoft.com/rest/api/media/operations/presentationtimerange)
+* [프리젠테이션타임레인지](https://docs.microsoft.com/rest/api/media/operations/presentationtimerange)
 * [FilterTrackSelect 및 FilterTrackPropertyCondition](https://docs.microsoft.com/rest/api/media/operations/filtertrackselect)
 
 > [!NOTE]
@@ -51,7 +51,7 @@ Media Services 2.17 버전부터 자산에 대한 필터를 정의할 수 있습
 
 AMS API에 연결하는 방법에 대한 자세한 내용은 [Azure AD 인증을 사용하여 Azure Media Services API 액세스](media-services-use-aad-auth-to-access-ams-api.md)를 참조하세요. 
 
-## <a name="create-filters"></a>필터 만들기
+## <a name="create-filters"></a>필터 생성
 ### <a name="create-global-filters"></a>전역 Filter 생성
 전역 Filter를 만들려면 다음 HTTP 요청을 사용합니다.  
 
@@ -218,7 +218,7 @@ PATCH, PUT 또는 MERGE를 사용하여 새 속성 값으로 필터를 업데이
     Host: media.windows.net 
     Content-Length: 384
 
-요청 본문: 
+본문 요청: 
 
     { 
        "Tracks":[   
@@ -257,7 +257,7 @@ PATCH, PUT 또는 MERGE를 사용하여 새 속성 값으로 필터를 업데이
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
     Host: media.windows.net 
 
-요청 본문: 
+본문 요청: 
 
     { 
        "Tracks":[   
@@ -333,9 +333,9 @@ PATCH, PUT 또는 MERGE를 사용하여 새 속성 값으로 필터를 업데이
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>피드백 제공하기
+## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>관련 항목
 [동적 매니페스트 개요](media-services-dynamic-manifest-overview.md)
 

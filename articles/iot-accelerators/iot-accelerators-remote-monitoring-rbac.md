@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
 ms.openlocfilehash: b0c9699bccbb539c9617fac2f3296483139e7188
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67203146"
 ---
 # <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>원격 모니터링 솔루션 가속기에서 역할 기반 액세스 제어 구성
@@ -21,26 +21,26 @@ ms.locfileid: "67203146"
 
 ## <a name="default-settings"></a>기본 설정
 
-원격 모니터링 솔루션을 처음 배포할 때에 두 가지 역할이 있습니다. **Admin** 하 고 **읽기 전용**합니다.
+원격 모니터링 솔루션을 처음 배포하는 경우 **관리자** 및 **읽기 전용**이라는 두 가지 역할이 있습니다.
 
 **관리자** 역할의 모든 사용자는 아래의 다음 권한을 포함하여 솔루션에 대한 전체 액세스 권한이 있습니다. **읽기 전용** 역할의 사용자는 솔루션을 보는 액세스만을 갖습니다.
 
-| 사용 권한            | 관리자 | 읽기 전용 |
+| 사용 권한            | Admin | 읽기 전용 |
 |----------------       |-------|-----------|
-| 솔루션 보기         | 예   | 예       |
-| 알람 업데이트         | 예   | 아닙니다.        |
-| 알람 삭제         | 예   | 아닙니다.        |
-| 디바이스 만들기        | 예   | 아닙니다.        |
-| 디바이스 업데이트        | 예   | 아닙니다.        |
-| 디바이스 삭제        | 예   | 아닙니다.        |
-| 디바이스 그룹 만들기  | 예   | 아닙니다.        |
-| 디바이스 그룹 업데이트  | 예   | 아닙니다.        |
-| 디바이스 그룹 삭제  | 예   | 아닙니다.        |
-| 규칙 만들기          | 예   | 아닙니다.        |
-| 규칙 업데이트          | 예   | 아닙니다.        |
-| 규칙 삭제          | 예   | 아닙니다.        |
-| 작업 만들기           | 예   | 아닙니다.        |
-| SIM 관리 업데이트 | 예   | 아닙니다.        |
+| 솔루션 보기         | yes   | yes       |
+| 알람 업데이트         | yes   | 예        |
+| 알람 삭제         | yes   | 예        |
+| 디바이스 만들기        | yes   | 예        |
+| 디바이스 업데이트        | yes   | 예        |
+| 디바이스 삭제        | yes   | 예        |
+| 디바이스 그룹 만들기  | yes   | 예        |
+| 디바이스 그룹 업데이트  | yes   | 예        |
+| 디바이스 그룹 삭제  | yes   | 예        |
+| 규칙 만들기          | yes   | 예        |
+| 규칙 업데이트          | yes   | 예        |
+| 규칙 삭제          | yes   | 예        |
+| 작업 만들기           | yes   | 예        |
+| SIM 관리 업데이트 | yes   | 예        |
 
 기본적으로 솔루션을 배포한 사용자에게는 **관리자** 역할이 자동으로 할당되고 Azure Active Directory 애플리케이션 소유자입니다. 애플리케이션 소유자로서 Azure Portal을 통해 다른 사용자에게 역할을 할당할 수 있습니다. 다른 사용자가 솔루션에서 역할을 할당하게 하려면, Azure Portal에서 애플리케이션 소유자로 설정해야 합니다.
 
@@ -51,7 +51,7 @@ ms.locfileid: "67203146"
 
 Azure Active Directory 애플리케이션 소유자로서 Azure Portal을 사용하여 원격 모니터링 솔루션에서 역할에 사용자를 추가하거나 제거할 수 있습니다. 다음 단계에서는 원격 모니터링 솔루션을 배포할 때 만들어진 [Azure Active Directory 엔터프라이즈 애플리케이션](../active-directory/manage-apps/add-application-portal.md#find-your-azure-ad-tenant-application)을 사용합니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure 포털에](https://portal.azure.com)로그인합니다.
 
 1. 사용 중인[디렉터리에 사용자가 있는지](../active-directory/fundamentals/add-users-azure-active-directory.md) 확인합니다. 사용할 디렉터리는 [Microsoft Azure IoT Solution Accelerators](https://www.azureiotsolutions.com/Accelerators) 사이트에 로그인할 때 선택합니다. 디렉터리 이름은 해당 [페이지](https://www.azureiotsolutions.com/Accelerators)의 오른쪽 위 모서리에서 볼 수 있습니다.
 
@@ -247,7 +247,7 @@ public async Task DeleteAsync(string id)
 
 원격 모니터링 솔루션 액셀러레이터에서 Time Series Insights 탐색기에 대한 액세스 권한을 관리하는 방법에 대한 자세한 내용은 [Time Series Insights Explorer에 대한 액세스 제어 구성](iot-accelerators-remote-monitoring-rbac-tsi.md)을 참조하세요.
 
-원격 모니터링 솔루션 가속기에 대한 자세한 개념 정보는 [원격 모니터링 아키텍처](iot-accelerators-remote-monitoring-sample-walkthrough.md)를 참조하세요.
+원격 모니터링 솔루션 가속기에 대한 자세한 개념 정보는 [원격 모니터링 아키텍처를](iot-accelerators-remote-monitoring-sample-walkthrough.md) 참조하십시오.
 
 원격 모니터링 솔루션 사용자 지정에 대한 자세한 내용은 [마이크로 서비스 사용자 지정 및 재배포](iot-accelerators-microservices-example.md)를 참조하세요.
 <!-- Next tutorials in the sequence -->
