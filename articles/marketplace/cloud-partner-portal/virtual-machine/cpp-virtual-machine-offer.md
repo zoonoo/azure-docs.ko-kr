@@ -1,19 +1,18 @@
 ---
-title: Azure Marketplace의 가상 머신 제품
+title: Azure 마켓플레이스의 가상 시스템 제공
 description: Azure Marketplace에서 VM 제안을 게시하는 프로세스에 대한 개요입니다.
-services: Azure, Marketplace, Cloud Partner Portal
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/04/2018
-ms.author: pabutler
-ms.openlocfilehash: 0313c4f2581615e1d1a3a57fc191db7d7cc6e825
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 939a5f6a4c70a8a1229507e0357cb588c17152fe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73808569"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288770"
 ---
 # <a name="virtual-machine-offer"></a>가상 머신 제안
 

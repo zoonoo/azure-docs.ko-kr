@@ -1,19 +1,18 @@
 ---
-title: Azure 가상 머신 생성 후 WinRM 구성 | Azure Marketplace
+title: Azure 가상 시스템 생성 후 WinRM 구성 | Azure 마켓플레이스
 description: Azure에 호스트된 가상 머신을 만든 후 WinRM(Windows 원격 관리)을 구성하는 방법을 설명합니다.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.author: pabutler
-ms.openlocfilehash: 7d050b32b212f66623a24bcf87d40111fc5973a5
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.author: dsindona
+ms.openlocfilehash: 673fe1f31f6a8602225e7cde3bf1eb4c3b28b8a3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77481377"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80278147"
 ---
 # <a name="configure-winrm-after-virtual-machine-creation"></a>가상 머신을 만든 후 WinRM 구성
 
@@ -25,9 +24,9 @@ ms.locfileid: "77481377"
 
 ## <a name="enabling-port-traffic"></a>포트 트래픽 사용
 
-WinRM over HTTPS 프로토콜은 포트 5986를 사용 합니다 .이 포트는 Azure Marketplace에서 제공 하는 미리 구성 된 Windows Vm에서 기본적으로 사용 되지 않습니다. 이 프로토콜을 사용하려면 [Azure Portal](https://portal.azure.com)에서 다음 단계를 수행하여 NSG(네트워크 보안 그룹)에 새 규칙을 추가합니다.  NSG에 대한 자세한 내용은 [보안 그룹](https://docs.microsoft.com/azure/virtual-network/security-overview)을 참조하세요.
+HTTPS 를 통해 WinRM 포트를 사용 하 여 5986, Azure 마켓 플레이스에서 제공 하는 미리 구성된된 Windows VM에서 기본적으로 활성화 되지 않습니다. 이 프로토콜을 사용하려면 [Azure Portal](https://portal.azure.com)에서 다음 단계를 수행하여 NSG(네트워크 보안 그룹)에 새 규칙을 추가합니다.  NSG에 대한 자세한 내용은 [보안 그룹](https://docs.microsoft.com/azure/virtual-network/security-overview)을 참조하세요.
 
-1.  **가상 머신 >**   <*vm-name*>   **> 설정/네트워킹** 블레이드로 이동합니다.
+1.  블레이드 가상 **컴퓨터 >**   < *vm 이름* >   **> 설정/네트워킹으로**이동합니다.
 2.  NSG 이름(이 예제에서는 **testvm11002**)을 클릭하여 해당 속성을 표시합니다.
 
     ![네트워크 보안 그룹 속성](./media/nsg-properties.png)

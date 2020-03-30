@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: fadf1aa54f525fb3d4c414161583f8a89f2e4c05
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 5f7611fd9df207df51fa0e51218d8a234583b1f9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79251272"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79529786"
 ---
 # <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>MES 사전 설정을 사용자 지정하여 고급 인코딩 수행 
 
@@ -30,7 +30,7 @@ ms.locfileid: "79251272"
 XML 사전 설정을 사용하는 경우 아래 XML 예제에 표시된 것처럼 요소 순서를 유지해야 합니다(예를 들어, KeyFrameInterval은 SceneChangeDetection 앞에 와야 함).
 
 > [!NOTE] 
-> Media Encoder Standard의 advanced Media Services v2 기능 중 상당수는 현재 v3에서 사용할 수 없습니다. 자세한 내용은 [기능 간격](https://docs.microsoft.com/azure/media-services/latest/migrate-from-v2-to-v3#feature-gaps-with-respect-to-v2-apis)을 참조 하세요.
+> 미디어 인코더 표준의 고급 미디어 서비스 v2 기능 중 대부분은 현재 v3에서 사용할 수 없습니다. 자세한 내용은 [피처 간격을](https://docs.microsoft.com/azure/media-services/latest/media-services-v2-vs-v3#feature-gaps-with-respect-to-v2-apis)참조하십시오.
 
 ## <a name="support-for-relative-sizes"></a>상대적 크기에 대한 지원
 
@@ -44,7 +44,7 @@ XML 사전 설정을 사용하는 경우 아래 XML 예제에 표시된 것처�
     <Width>100%</Width>
     <Height>100%</Height>
 
-## <a id="thumbnails"></a>미리 보기 생성
+## <a name="generate-thumbnails"></a><a id="thumbnails"></a>미리 보기 생성
 
 이 섹션에서는 미리 보기를 생성하는 기본 설정을 사용자 지정하는 방법을 보여줍니다. 아래에 정의된 사전 설정은 미리 보기를 생성하는 데 필요한 정보 뿐만 아니라 파일을 인코딩하는 방법에 대한 정보를 포함합니다. [이 섹션](media-services-mes-presets-overview.md)에 문서화된 MES 사전 설정 중 하나를 가져와서 미리 보기를 생성하는 코드를 추가할 수 있습니다.  
 
@@ -57,7 +57,7 @@ XML 사전 설정을 사용하는 경우 아래 XML 예제에 표시된 것처�
 
 [고려 사항](#considerations) 섹션을 검토해야 합니다.
 
-### <a id="json"></a>JSON 사전 설정
+### <a name="json-preset"></a><a id="json"></a>JSON 사전 설정
     {
       "Version": 1.0,
       "Codecs": [
@@ -157,7 +157,7 @@ XML 사전 설정을 사용하는 경우 아래 XML 예제에 표시된 것처�
     }
 
 
-### <a id="xml"></a>XML 사전 설정
+### <a name="xml-preset"></a><a id="xml"></a>XML 사전 설정
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Encoding>
@@ -243,16 +243,16 @@ XML 사전 설정을 사용하는 경우 아래 XML 예제에 표시된 것처�
 
     표기법을 원하는 대로 혼용하거나 일치시킬 수 있습니다.
 
-    또한 Start는 콘텐츠의 첫 번째 "흥미로운" 프레임의 결정을 시도하는 특수 Macro:{Best}를 지원합니다. 참고: (Step 및 Range는 Start를 {Best}로 설정하면 무시됨)
+    또한 Start는 콘텐츠 NOTE의 첫 번째 "흥미로운" 프레임을 결정하려고 시도하는 특수 매크로:{Best}도 지원합니다.
   * 기본값: Start:{Best}
 * 각 이미지 형식에 대해 출력 형식을 명시적으로 제공해야 합니다. Jpg/Png/BmpFormat. 출력 형식이 있는 경우 MES는 JpgVideo를 JpgFormat에 일치시키는 식으로 진행합니다. OutputFormat은 새 이미지 코덱 특유의 Macro: {Index}를 도입하며, 이는 이미지 출력 형식에 대해 존재해야(한 번만) 합니다.
 
-## <a id="trim_video"></a>비디오 자르기(클리핑)
+## <a name="trim-a-video-clipping"></a><a id="trim_video"></a>비디오 자르기(클리핑)
 이 섹션에서는 입력이 소위 중 2층 파일이나 주문형 파일인 경우 입력 비디오를 클립하거나 자르는 인코더 사전 설정을 수정하는 방법을 설명합니다. 인코더는 라이브 스트림에서 캡처되거나 보관된 자산을 클립하거나 자르는 데 사용할 수도 있습니다. 이에 대한 세부 정보는 [이 블로그](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/)에서 확인할 수 있습니다.
 
 비디오를 자르려면 [이 섹션](media-services-mes-presets-overview.md)에 문서화된 MES 사전 설정 중 하나를 수행하고 **Sources** 요소를 아래와 같이 수정할 수 있습니다. StartTime 값이 입력 비디오의 절대 타임스탬프와 일치해야 합니다. 예를 들어 입력 비디오의 첫 번째 프레임에 12:00:10.000 타임스탬프가 있으면 StartTime은 12:00:10.000 이상이어야 합니다. 아래 예에서는 입력 비디오의 시작 타임스탬프가 0인 것으로 가정합니다. **Sources** 는 사전 설정의 맨 앞에 있어야 합니다.
 
-### <a id="json"></a>JSON 사전 설정
+### <a name="json-preset"></a><a id="json"></a>JSON 사전 설정
     {
       "Version": 1.0,
       "Sources": [
@@ -489,13 +489,13 @@ XML 사전 설정을 사용하는 경우 아래 XML 예제에 표시된 것처�
       </Outputs>
     </Preset>
 
-## <a id="overlay"></a>오버레이 만들기
+## <a name="create-an-overlay"></a><a id="overlay"></a>오버레이 만들기
 
 미디어 인코더 표준을 사용하면 이미지를 기존 비디오에 오버레이할 수 있습니다. 현재 png, jpg, gif 및 bmp 형식이 지원됩니다. 아래에 정의된 사전 설정은 비디오 오버레이의 기본적인 예입니다.
 
 또한 사전 설정 파일을 정의하는 것 외에도 Media Services를 통해 오버레이 이미지에 해당하는 자산의 파일 및 이미지를 오버레이하려는 원본 비디오에 해당하는 파일을 알 수 있습니다. 비디오 파일은 **기본** 파일이어야 합니다.
 
-.NET을 사용하는 경우 [이 항목](media-services-custom-mes-presets-with-dotnet.md#encoding_with_dotnet)에 정의된 .NET 예제에 다음 두 함수를 추가합니다. **UploadMediaFilesFromFolder** 함수는 폴더에서 파일(예: BigBuckBunny.mp4 및 Image001.png)을 업로드하고 mp4 파일을 자산의 기본 파일로 설정합니다. **EncodeWithOverlay** 함수는 전달된 사용자 지정 사전 설정 파일(예: 다음에 나오는 사전 설정)을 사용하여 인코딩 태스크를 만듭니다.
+.NET을 사용하는 경우 [이 항목](media-services-custom-mes-presets-with-dotnet.md#encoding_with_dotnet)에 정의된 .NET 예제에 다음 두 함수를 추가합니다. **UploadMediaFilesFromFolder** 기능은 폴더에서 파일을 업로드합니다(예: BigBuckBunny.mp4 및 Image001.png)에서 mp4 파일을 에셋의 기본 파일로 설정합니다. **EncodeWithOverlay** 함수는 전달된 사용자 지정 사전 설정 파일(예: 다음에 나오는 사전 설정)을 사용하여 인코딩 태스크를 만듭니다.
 
 
     static public IAsset UploadMediaFilesFromFolder(string folderPath)
@@ -696,7 +696,7 @@ XML 사전 설정을 사용하는 경우 아래 XML 예제에 표시된 것처�
     </Preset>
 
 
-## <a id="silent_audio"></a>입력에 오디오가 없을 때 조용한 오디오 트랙 삽입
+## <a name="insert-a-silent-audio-track-when-input-has-no-audio"></a><a id="silent_audio"></a>입력에 오디오가 없을 때 조용한 오디오 트랙 삽입
 기본적으로 비디오만 포함하며 오디오는 없는 입력을 인코더로 보내면 출력 자산에는 비디오 데이터만 들어 있는 파일이 포함됩니다. 일부 플레이어는 해당 출력 스트림을 처리할 수 없습니다. 이 시나리오에서는 이 설정을 사용하여 출력에 조용한 오디오 트랙을 추가하는 인코더를 강제할 수 있습니다.
 
 입력에 오디오가 없을 때 조용한 오디오 트랙을 포함하는 자산을 생성하도록 인코더를 적용하려면 "InsertSilenceIfNoAudio" 값을 지정합니다.
@@ -719,8 +719,8 @@ XML 사전 설정을 사용하는 경우 아래 XML 예제에 표시된 것처�
       <Bitrate>96</Bitrate>
     </AACAudio>
 
-## <a id="deinterlacing"></a>자동 디인터레이스 사용 안 함
-인터레이스 콘텐츠가 자동으로 디인터레이스되도록 원하는 고객은 아무 작업도 수행할 필요가 없습니다. 자동 디인터레이스가 설정(기본값)된 경우 MES에서는 인터레이스 프레임 및 인터레이스로 표시된 디인터레이스 프레임만 자동으로 검색합니다.
+## <a name="disable-auto-de-interlacing"></a><a id="deinterlacing"></a>자동 디인터레이스 사용 안 함
+인터레이스 내용이 자동으로 인터레이스 해제되기를 원한다면 고객은 아무 것도 할 필요가 없습니다. 자동 디인터레이스가 설정(기본값)된 경우 MES에서는 인터레이스 프레임 및 인터레이스로 표시된 디인터레이스 프레임만 자동으로 검색합니다.
 
 자동 디인터레이스를 해제할 수 있습니다. 이 방법은 권장되지 않습니다.
 
@@ -747,7 +747,7 @@ XML 사전 설정을 사용하는 경우 아래 XML 예제에 표시된 것처�
     </Sources>
 
 
-## <a id="audio_only"></a>오디오 전용 사전 설정
+## <a name="audio-only-presets"></a><a id="audio_only"></a>오디오 전용 사전 설정
 이 섹션에서는 AAC 오디오 및 AAC 고급 품질 오디오라는 두 개의 오디오 전용 MES 사전 설정을 설명합니다.
 
 ### <a name="aac-audio"></a>AAC 오디오
@@ -794,7 +794,7 @@ XML 사전 설정을 사용하는 경우 아래 XML 예제에 표시된 것처�
       ]
     }
 
-## <a id="concatenate"></a>둘 이상의 비디오 파일 연결
+## <a name="concatenate-two-or-more-video-files"></a><a id="concatenate"></a>둘 이상의 비디오 파일 연결
 
 다음 예제에서는 사전 설정을 생성하여 둘 이상의 비디오 파일을 연결하는 방법을 보여줍니다. 가장 일반적인 시나리오는 기본 비디오에 헤더나 트레일러를 추가하려는 경우입니다. 편집 중인 비디오 파일이 속성(비디오 해상도, 프레임 속도, 오디오 트랙 수 등)을 공유하는 경우에 적합합니다. 프레임 속도나 오디오 트랙 수가 서로 다른 비디오를 섞지 않게 주의가 필요합니다.
 
@@ -904,10 +904,10 @@ XML 사전 설정을 사용하는 경우 아래 XML 예제에 표시된 것처�
       ]
     }
 
-## <a id="crop"></a>미디어 인코더 표준으로 비디오 자르기
+## <a name="crop-videos-with-media-encoder-standard"></a><a id="crop"></a>미디어 인코더 표준으로 비디오 자르기
 [미디어 인코더 표준으로 비디오 자르기](media-services-crop-video.md) 항목을 참조하세요.
 
-## <a id="no_video"></a>입력에 비디오가 없을 때 비디오 트랙 삽입
+## <a name="insert-a-video-track-when-input-has-no-video"></a><a id="no_video"></a>입력에 비디오가 없을 때 비디오 트랙 삽입
 
 기본적으로 오디오만 포함하며 비디오는 없는 입력을 인코더로 보내면 출력 자산에는 오디오 데이터만 들어 있는 파일이 포함됩니다. Azure Media Player( [이 항목](https://feedback.azure.com/forums/169396-azure-media-services/suggestions/8082468-audio-only-scenarios)참조)를 비롯한 일부 플레이어는 이러한 스트림을 처리하지 못할 수도 있습니다. 해당 시나리오에서는 이 설정을 사용하여 인코더가 출력에 단색 비디오 트랙을 추가하도록 강제 지정할 수 있습니다.
 
@@ -960,7 +960,7 @@ XML을 사용하는 경우 **H264Video** 요소에 대한 특성으로 Condition
 ```
 
 ### <a name="inserting-video-at-all-output-bitrates"></a>모든 출력 비트 전송률에서 비디오 삽입
-["H264 다중 비트 전송률 720p"](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) 와 같은 다중 비트 전송률 인코딩 사전 설정을 사용하여 비디오 파일과 오디오 전용 파일이 혼합되어 있는 입력 카탈로그 전체를 스트리밍용으로 인코딩한다고 가정해 보겠습니다. 이 시나리오에서는 입력에 비디오가 없으면 인코더가 모든 출력 비트 속도에서 단색 비디오 트랙을 삽입하도록 강제 지정할 수 있습니다. 이렇게 하면 출력 자산의 비디오 트래픽 및 오디오 트랙 수가 모두 같아집니다. 이렇게 하려면 "InsertBlackIfNoVideo" 플래그를 지정해야 합니다.
+["H264 다중 비트레이트 720p"와](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) 같은 여러 비트레이트 인코딩 사전 설정을 사용하여 비디오 파일과 오디오 전용 파일이 혼합된 스트리밍을 위한 전체 입력 카탈로그를 인코딩한다고 가정합니다. 이 시나리오에서는 입력에 비디오가 없으면 인코더가 모든 출력 비트 속도에서 단색 비디오 트랙을 삽입하도록 강제 지정할 수 있습니다. 이렇게 하면 출력 자산의 비디오 트래픽 및 오디오 트랙 수가 모두 같아집니다. 이렇게 하려면 "InsertBlackIfNoVideo" 플래그를 지정해야 합니다.
 
 [이 섹션](media-services-mes-presets-overview.md)에 문서화된 MES 사전 설정 중 하나를 가져온 후에 다음과 같이 수정할 수 있습니다.
 
@@ -1002,7 +1002,7 @@ XML을 사용하는 경우 **H264Video** 요소에 대한 특성으로 Condition
 . . .  
 ```
 
-## <a id="rotate_video"></a>비디오 회전
+## <a name="rotate-a-video"></a><a id="rotate_video"></a>비디오 회전
 [Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md)는 0/90/180/270도 회전을 지원합니다. 기본 동작은 들어오는 비디오 파일에서 회전 메타데이터를 검색하여 그에 맞게 보정하는 "Auto"입니다. 다음 **Sources** 요소를 [이 섹션](media-services-mes-presets-overview.md)에 정의된 사전 설정 중 하나에 포함합니다.
 
 ### <a name="json-preset"></a>JSON 사전 설정
@@ -1037,5 +1037,5 @@ XML을 사용하는 경우 **H264Video** 요소에 대한 특성으로 Condition
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>관련 항목
 [Media Services Encoding 개요](media-services-encode-asset.md)

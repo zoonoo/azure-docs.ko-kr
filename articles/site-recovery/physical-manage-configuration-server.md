@@ -1,5 +1,5 @@
 ---
-title: Azure Site Recovery의 실제 서버에 대 한 구성 서버 관리
+title: Azure 사이트 복구에서 실제 서버에 대한 구성 서버 관리
 description: 이 문서에서는 물리적 서버와 Azure 간 재해 복구를 위한 Azure Site Recovery 구성 서버를 관리하는 방법을 설명합니다.
 services: site-recovery
 author: mayurigupta13
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: mayg
-ms.openlocfilehash: f443f0362ecad8448895322686a7175b2813141e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 25be48e9caed446be3a86a11143ce3040808065a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79257785"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294305"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>물리적 서버 재해 복구용 구성 서버 관리
 
@@ -39,7 +39,7 @@ Azure에 대한 물리적 서버 재해 복구를 위해 [Azure Site Recovery](s
 | IIS | - 기존의 기본 웹 사이트 없음 <br> - [익명 인증](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) 사용 <br> - [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) 설정 사용  <br> - 포트 443에서 수신 대기하는 기존의 웹 사이트/애플리케이션 없음<br>|
 | NIC 유형 | VMXNET3(VMware VM으로 배포될 경우) |
 | IP 주소 유형 | 정적 |
-| 인터넷 액세스 | 서버에서 다음 URL에 액세스해야 합니다. <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - https://management.azure.com <br> - *.services.visualstudio.com <br> - https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi(스케일 아웃 프로세스 서버에는 필요하지 않음) <br> - time.nist.gov <br> - time.windows.com |
+| 인터넷 액세스 | 서버에서 다음 URL에 액세스해야 합니다. <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - `https://management.azure.com` <br> - *.services.visualstudio.com <br> - https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi(스케일 아웃 프로세스 서버에는 필요하지 않음) <br> - time.nist.gov <br> - time.windows.com |
 | 포트 | 443(컨트롤 채널 오케스트레이션)<br>9443(데이터 전송)|
 
 ## <a name="download-the-latest-installation-file"></a>최신 설치 파일 다운로드
@@ -47,7 +47,7 @@ Azure에 대한 물리적 서버 재해 복구를 위해 [Azure Site Recovery](s
 구성 서버 설치 파일의 최신 버전은 Site Recovery 포털에서 사용할 수 있습니다. 또한 [Microsoft 다운로드 센터](https://aka.ms/unifiedsetup)에서 직접 다운로드할 수 있습니다.
 
 1. Azure Portal에 로그온하고 Recovery Services 자격 증명 모음으로 이동합니다.
-2. **Site Recovery 인프라** > **구성 서버**(VMware 및 물리적 컴퓨터용 아래)로 이동합니다.
+2. VMware & 물리적 컴퓨터의 경우 **사이트 복구 인프라** > **구성 서버를** 찾아봅니다.
 3. **+ 서버** 단추를 클릭합니다.
 4. **서버 추가** 페이지에서 다운로드 단추를 클릭하여 등록 키를 다운로드합니다. 구성 서버 설치 동안 Azure Site Recovery 서비스에 등록하기 위해 이 키가 필요합니다.
 5. **Microsoft Azure Site Recovery 통합 설치 다운로드** 링크를 클릭하여 구성 서버의 최신 버전을 다운로드합니다.
@@ -58,7 +58,7 @@ Azure에 대한 물리적 서버 재해 복구를 위해 [Azure Site Recovery](s
 ## <a name="install-and-register-the-server"></a>서버 설치 및 등록
 
 1. 통합 설치 프로그램 설치 파일을 실행합니다.
-2. **시작하기 전에**에서 **구성 서버 및 프로세스 서버 설치**를 선택합니다.
+2. **시작하기 전에**구성 **서버 설치 및 프로세스 서버**를 선택합니다.
 
     ![시작하기 전에](./media/physical-manage-configuration-server/combined-wiz1.png)
 
@@ -69,7 +69,7 @@ Azure에 대한 물리적 서버 재해 복구를 위해 [Azure Site Recovery](s
     - 공급자를 직접 연결하려면 **프록시 서버 없이 Azure Site Recovery에 직접 연결**을 선택합니다.
     - 기존 프록시에 인증이 필요하거나 공급자 연결에 사용자 지정 프록시를 사용하려면 **사용자 지정 프록시 설정으로 연결**을 선택하고 주소, 포트 및 자격 증명을 지정합니다.
      ![방화벽](./media/physical-manage-configuration-server/combined-wiz4.png)
-6. **필수 조건 확인**에서 설치 프로그램은 설치가 실행될 수 있는지 확인합니다. **글로벌 시간 동기화 확인**에 대한 경고가 표시되면 시스템 시계의 시간(**날짜 및 시간** 설정)이 표준 시간대와 같은지 확인합니다.
+6. **필수 구성 조건 검사에서**설치는 설치를 실행할 수 있는지 확인하기 위해 검사를 실행합니다. 전역 시간 동기화 **검사에**대한 경고가 나타나면 시스템 시계(날짜 및 시간 설정)의 시간이 표준**시간대와** 동일한지 확인합니다.
 
     ![사전 요구 사항](./media/physical-manage-configuration-server/combined-wiz5.png)
 7. **MySQL 구성**에서 설치된 MySQL 서버 인스턴스에 로그온하기 위한 자격 증명을 만듭니다.
@@ -87,7 +87,7 @@ Azure에 대한 물리적 서버 재해 복구를 위해 [Azure Site Recovery](s
 11. **요약**에서 정보를 검토하고 **설치**를 클릭합니다. 설치가 완료되면 암호가 생성됩니다. 복제를 사용하도록 설정할 때 필요하므로 암호를 복사하고 안전한 위치에 보관합니다.
 
 
-등록이 완료되면 자격 증명 모음의 **설정** > **서버** 블레이드에 서버가 표시됩니다.
+등록이 완료되면 서버가 볼트의 **설정** > **서버** 블레이드에 표시됩니다.
 
 
 ## <a name="install-from-the-command-line"></a>명령줄에서 설치
@@ -118,12 +118,12 @@ Azure에 대한 물리적 서버 재해 복구를 위해 [Azure Site Recovery](s
 |/PSIP|필수|복제 데이터 전송에 사용할 NIC의 IP 주소입니다.| 모든 유효한 IP 주소|
 |/CSIP|필수|구성 서버가 수신 대기하는 NIC의 IP 주소입니다.| 모든 유효한 IP 주소|
 |/PassphraseFilePath|필수|암호 파일의 위치에 대한 전체 경로입니다.|유효한 파일 경로|
-|/BypassProxy|옵션|구성 서버가 프록시 없이 Azure에 연결되도록 지정합니다.|이렇게 하려면 Venu에서 이 값을 가져옵니다.|
-|/ProxySettingsFilePath|옵션|프록시 설정(인증이 필요한 기본 프록시 또는 사용자 지정 프록시)입니다.|파일은 아래에 지정된 형식이어야 합니다.|
-|DataTransferSecurePort|옵션|복제 데이터에 사용할 PSIP의 포트 번호입니다.| 유효한 포트 번호(기본값: 9433)|
-|/SkipSpaceCheck|옵션|캐시 디스크의 공간 확인을 건너뜁니다.| |
+|/BypassProxy|Optional|구성 서버가 프록시 없이 Azure에 연결되도록 지정합니다.|이렇게 하려면 Venu에서 이 값을 가져옵니다.|
+|/ProxySettingsFilePath|Optional|프록시 설정(인증이 필요한 기본 프록시 또는 사용자 지정 프록시)입니다.|파일은 아래에 지정된 형식이어야 합니다.|
+|DataTransferSecurePort|Optional|복제 데이터에 사용할 PSIP의 포트 번호입니다.| 유효한 포트 번호(기본값: 9433)|
+|/SkipSpaceCheck|Optional|캐시 디스크의 공간 확인을 건너뜁니다.| |
 |/AcceptThirdpartyEULA|필수|플래그는 타사 EULA에 대한 동의를 의미합니다.| |
-|/ShowThirdpartyEULA|옵션|타사 EULA를 표시합니다. 입력으로 제공되는 경우 다른 모든 매개 변수가 무시됩니다.| |
+|/ShowThirdpartyEULA|Optional|타사 EULA를 표시합니다. 입력으로 제공되는 경우 다른 모든 매개 변수가 무시됩니다.| |
 
 
 
@@ -217,10 +217,10 @@ ProxyPassword="Password"
 
 ## <a name="upgrade-a-configuration-server"></a>구성 서버 업그레이드
 
-구성 서버를 업데이트하려면 업데이트 롤업을 실행합니다. 업데이트는 N-4 버전까지 적용할 수 있습니다. 다음은 그 예입니다.
+구성 서버를 업데이트하려면 업데이트 롤업을 실행합니다. 업데이트는 N-4 버전까지 적용할 수 있습니다. 예를 들어:
 
-- 9\.7, 9.8, 9.9 또는 9.10을 실행 중인 경우 9.11로 바로 업그레이드할 수 있습니다.
-- 9\.6 이하를 실행 중이고 9.11로 업그레이드하려는 경우 먼저 9.7 버전으로 업그레이드한 후 9\.11로 업그레이드해야 합니다.
+- 9.7, 9.8, 9.9 또는 9.10을 실행 중인 경우 9.11로 바로 업그레이드할 수 있습니다.
+- 9.6 이하를 실행 중이고 9.11로 업그레이드하려는 경우 먼저 9.7 버전으로 업그레이드한 후 9.11로 업그레이드해야 합니다.
 
 모든 버전의 구성 서버로 업그레이드할 수 있는 업데이트 롤업 링크가 [wiki 업데이트 페이지](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx)에 제공됩니다.
 
@@ -236,13 +236,13 @@ ProxyPassword="Password"
 
 > [!WARNING]
 > 구성 서버의 서비스 해제를 시작하기 전에 다음 사항을 확인하세요.
-> 1. 이 구성 서버 아래의 모든 가상 머신에 대한 [보호를 사용하지 않도록 설정](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure)합니다.
-> 2. 구성 서버에서 모든 복제 정책을 [연결 해제](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) 및 [삭제](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy)합니다.
-> 3. 구성 서버에 연결된 모든 vCenter 서버/vSphere 호스트를 [삭제](vmware-azure-manage-vcenter.md#delete-a-vcenter-server)합니다.
+> 1. 이 구성 서버의 모든 가상 시스템에 대한 [보호를 비활성화합니다.](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure)
+> 2. 구성 서버에서 모든 복제 정책을 [연결 해제하고](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) [삭제합니다.](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy)
+> 3. 구성 서버에 연결된 모든 vCenters 서버/vSphere 호스트를 [삭제합니다.](vmware-azure-manage-vcenter.md#delete-a-vcenter-server)
 
 
 ### <a name="delete-the-configuration-server-from-azure-portal"></a>Azure Portal에서 구성 서버 삭제
-1. Azure Portal의 자격 증명 모음 메뉴에서 **Site Recovery 인프라** > **구성 서버**로 이동합니다.
+1. Azure 포털에서 Vault 메뉴에서 **사이트 복구 인프라** > **구성 서버를** 찾아봅습니다.
 2. 서비스를 해제하려는 구성 서버를 클릭합니다.
 3. 구성 서버의 세부 정보 페이지에서 **삭제** 단추를 클릭합니다.
 4. **예**를 클릭하여 서버 삭제를 확인합니다.
@@ -288,7 +288,7 @@ ProxyPassword="Password"
     `Remove-AzSiteRecoveryFabric -Fabric $Fabric [-Force]`
 
 > [!NOTE]
-> AzSiteRecoveryFabric의 **-force** 옵션을 사용 하 여 구성 서버를 강제로 제거 하거나 삭제할 수 있습니다.
+> 제거-AzSiteRecoveryFabric의 **-Force** 옵션은 구성 서버의 제거/삭제를 강제로 사용할 수 있습니다.
 
 ## <a name="renew-ssl-certificates"></a>SSL 인증서 갱신
 구성 서버에는 기본 제공 웹 서버가 있습니다. 이 서버는 모바일 서비스, 프로세스 서버 및 마스터 대상 서버의 작업을 오케스트레이션합니다. 웹 서버는 SSL 인증서를 사용하여 클라이언트를 인증합니다. 인증서는 3년 후에 만료되며 언제든지 갱신할 수 있습니다.
@@ -303,8 +303,8 @@ ProxyPassword="Password"
 
 ### <a name="renew-the-certificate"></a>인증서 갱신
 
-1. 자격 증명 모음에서 **Site Recovery 인프라** > **구성 서버**를 열고 필요한 구성 서버를 클릭합니다.
-2. 만료 날짜가 **구성 서버 상태** 아래에 표시됩니다.
+1. 볼트에서 사이트 **복구 인프라** > **구성 서버를**열고 필요한 구성 서버를 클릭합니다.
+2. 만료 날짜가 **구성 서버 상태** 아래에 나타납니다.
 3. **인증서 갱신**을 클릭합니다. 
 
 

@@ -1,20 +1,18 @@
 ---
 title: Web Analytics
-description: 에서 수집된 앱의 원격 분석을 통해 유용한 쿼리를 실행할 수 있습니다.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: pbutlerm
-manager: Ricardo.Villalobos
+description: 이 문서에서는 최적의 방식으로 사업을 확장하기 위해 Web Analytics를 학습하고 사용하는 방법의 지침을 제공합니다.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: d47a67be157f71a30a6ae155790ed78a78fd6743
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 446e579a7205f0e785d7e940c1dbdd36cff8f370
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73814653"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80285336"
 ---
 <a name="web-analytics"></a>Web Analytics
 =============
@@ -49,13 +47,13 @@ ms.locfileid: "73814653"
     1. **utm\_campaign**
     2. **utm\_source**
     3. **ref**
-    4. **src**
+    4. **Src**
 
 예를 들어 다음과 같은 주소를 사용할 수 있습니다. <https://appsource.microsoft.com/product/dynamics-365/contoso.offername?utm_campaign=NewCampaign>
 
 이러한 캠페인 ID를 여러 개 조합하여 캠페인의 트래픽을 생성하는 여러 출처(예: 전자 메일, 블로그, 소셜 미디어 소스 등 고객이 유입되는 위치)를 추가로 지정할 수도 있습니다.
 
-예:
+예를 들어:
 
 1. 뉴스레터 참조 페이지: <https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign&src=newsletter>
 2. LinkedIn 참조 페이지: <https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign&src=LinkedIn>
@@ -66,7 +64,7 @@ ms.locfileid: "73814653"
 
 다음은 예제입니다.
 
-1. 마케팅 담당 직원이 회사 방문 페이지 \'으로 트래픽을 전달하기 위해 Google에서 광고를 구매합니다. 이 방문 페이지에는 \"으로 이동하는 \"제품 사용해 보기<https://appsource.com> 링크가 있습니다.
+1. 마케팅 담당 직원이 회사 방문 페이지 <https://contoso.com>으로 트래픽을 전달하기 위해 Google에서 광고를 구매합니다. 이 방문 페이지에는 <https://appsource.com>으로 이동하는 \"제품 사용해 보기\" 링크가 있습니다.
 2. 사용자가 광고를 클릭하여 회사 방문 페이지를 방문합니다.
     1.  추천 URL = google.com
     2.  방문 페이지 URL = <https://contoso.com/?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName>

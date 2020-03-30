@@ -14,21 +14,21 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 52723ca53b9156dd8e8183d92d8d4a350750c936
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 7a165935e2c232167a0752272d244ce98bf6aff2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100100"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79534408"
 ---
 # <a name="implement-oracle-data-guard-on-an-azure-linux-virtual-machine"></a>Azure Linux 가상 머신에서 Oracle Data Guard 구현 
 
 Azure CLI는 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 사용됩니다. 이 문서에서는 Azure CLI를 사용하여 Azure Marketplace 이미지에서 Oracle Database 12c 데이터베이스를 배포하는 방법을 설명합니다. 그런 다음 이 문서는 Azure VM(가상 머신)에서 Data Guard를 설치하고 구성하는 방법을 단계별로 보여 줍니다.
 
-시작하기 전에 Azure CLI가 설치되어 있는지 확인합니다. 자세한 내용은 [Azure CLI 설치 가이드](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조하세요.
+시작하기 전에 Azure CLI가 설치되어 있는지 확인합니다. 자세한 내용은 Azure [CLI 설치 가이드를](https://docs.microsoft.com/cli/azure/install-azure-cli)참조하십시오.
 
 ## <a name="prepare-the-environment"></a>환경 준비
-### <a name="assumptions"></a>Assumptions
+### <a name="assumptions"></a>가정
 
 Oracle Data Guard를 설치하려면 동일한 가용성 집합에서 두 개의 Azure VM을 만들어야 합니다.
 
@@ -87,7 +87,7 @@ az vm create \
 
 VM을 만든 후 Azure CLI는 다음 예제와 비슷한 정보를 표시합니다. `publicIpAddress` 값을 기록해 둡니다. 이 주소는 VM에 액세스하는 데 사용됩니다.
 
-```azurecli
+```output
 {
   "fqdns": "",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
@@ -101,6 +101,7 @@ VM을 만든 후 Azure CLI는 다음 예제와 비슷한 정보를 표시합니�
 ```
 
 myVM2(대기)를 만듭니다.
+
 ```azurecli
 az vm create \
      --resource-group myResourceGroup \
@@ -130,7 +131,7 @@ az network nsg rule create --resource-group myResourceGroup\
 
 결과는 다음 응답과 유사하게 나타납니다.
 
-```bash
+```output
 {
   "access": "Allow",
   "description": null,
@@ -159,7 +160,7 @@ az network nsg rule create --resource-group myResourceGroup\
     --destination-address-prefix '*' --destination-port-range 1521 --access allow
 ```
 
-### <a name="connect-to-the-virtual-machine"></a>가상 컴퓨터에 연결
+### <a name="connect-to-the-virtual-machine"></a>가상 머신에 연결
 
 다음 명령을 사용하여 가상 머신과의 SSH 세션을 만듭니다. 해당 IP 주소를 가상 머신의 `publicIpAddress` 값으로 바꿉니다.
 
@@ -198,9 +199,10 @@ $ dbca -silent \
    -storageType FS \
    -ignorePreReqs
 ```
+
 출력은 다음 응답과 유사하게 나타납니다.
 
-```bash
+```output
 Copying database files
 1% complete
 2% complete
@@ -263,6 +265,7 @@ SQL> STARTUP MOUNT;
 SQL> ALTER DATABASE ARCHIVELOG;
 SQL> ALTER DATABASE OPEN;
 ```
+
 강제 로깅을 사용하도록 설정하고 하나 이상의 로그 파일이 있는지 확인합니다.
 
 ```bash
@@ -279,7 +282,7 @@ SQL> ALTER DATABASE ADD STANDBY LOGFILE ('/u01/app/oracle/oradata/cdb1/standby_r
 SQL> ALTER DATABASE ADD STANDBY LOGFILE ('/u01/app/oracle/oradata/cdb1/standby_redo04.log') SIZE 50M;
 ```
 
-복구가 훨씬 용이해지는 플래시백을 설정하고 STANDBY\_FILE\_MANAGEMENT를 자동으로 설정합니다. 그런 다음 SQL*Plus를 끝냅니다.
+플래시백을 켜고 (복구가 훨씬 쉬워짐)\_\_대기 파일 관리를 자동으로 설정합니다. 그 후 SQL*Plus를 종료합니다.
 
 ```bash
 SQL> ALTER DATABASE FLASHBACK ON;
@@ -341,11 +344,13 @@ ADR_BASE_LISTENER = /u01/app/oracle
 ```
 
 Data Guard Broker를 사용하도록 설정합니다.
+
 ```bash
 $ sqlplus / as sysdba
 SQL> ALTER SYSTEM SET dg_broker_start=true;
 SQL> EXIT;
 ```
+
 수신기를 시작합니다.
 
 ```bash
@@ -429,6 +434,7 @@ $ lsnrctl start
 ### <a name="restore-the-database-to-myvm2-standby"></a>myVM2(대기)로 데이터베이스 복원
 
 다음 콘텐츠로 매개 변수 파일 /tmp/initcdb1_stby.ora를 만듭니다.
+
 ```bash
 *.db_name='cdb1'
 ```
@@ -447,6 +453,7 @@ mkdir -p /u01/app/oracle/admin/cdb1/adump
 ```bash
 $ orapwd file=/u01/app/oracle/product/12.1.0/dbhome_1/dbs/orapwcdb1 password=OraPasswd1 entries=10
 ```
+
 myVM2에서 데이터베이스를 시작합니다.
 
 ```bash
@@ -464,6 +471,7 @@ $ rman TARGET sys/OraPasswd1@cdb1 AUXILIARY sys/OraPasswd1@cdb1_stby
 ```
 
 RMAN에서 다음 명령을 실행합니다.
+
 ```bash
 DUPLICATE TARGET DATABASE
   FOR STANDBY
@@ -475,11 +483,14 @@ DUPLICATE TARGET DATABASE
 ```
 
 명령이 완료되면 다음과 비슷한 메시지가 표시됩니다. RMAN을 끝냅니다.
-```bash
+
+```output
 media recovery complete, elapsed time: 00:00:00
 Finished recover at 29-JUN-17
 Finished Duplicate Db at 29-JUN-17
+```
 
+```bash
 RMAN> EXIT;
 ```
 
@@ -501,7 +512,7 @@ SQL> EXIT;
 
 ### <a name="configure-data-guard-broker-on-myvm1-primary"></a>myVM1(기본)에서 Data Guard Broker 구성
 
-Data Guard Manager를 시작하고 SYS 및 암호를 사용하여 로그인합니다. OS 인증을 사용하지 마세요. 다음을 수행합니다.
+Data Guard Manager를 시작하고 SYS 및 암호를 사용하여 로그인합니다. (OS 인증을 사용하지 마십시오.) 다음을 수행합니다.
 
 ```bash
 $ dgmgrl sys/OraPasswd1@cdb1
@@ -520,6 +531,7 @@ Enabled.
 ```
 
 구성을 검토합니다.
+
 ```bash
 DGMGRL> SHOW CONFIGURATION;
 
@@ -586,6 +598,7 @@ With the Partitioning, OLAP, Advanced Analytics and Real Application Testing opt
 
 SQL>
 ```
+
 ## <a name="test-the-data-guard-configuration"></a>Data Guard 구성 테스트
 
 ### <a name="switch-over-the-database-on-myvm1-primary"></a>myVM1(기본)에서 데이터베이스 전환
@@ -635,6 +648,7 @@ SQL>
 ### <a name="switch-over-the-database-on-myvm2-standby"></a>myVM2(대기)에서 데이터베이스 전환
 
 전환하려면 myVM2에서 다음을 실행합니다.
+
 ```bash
 $ dgmgrl sys/OraPasswd1@cdb1_stby
 DGMGRL for Linux: Version 12.1.0.2.0 - 64bit Production

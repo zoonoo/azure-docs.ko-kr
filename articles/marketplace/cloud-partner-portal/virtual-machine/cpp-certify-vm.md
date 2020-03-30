@@ -1,19 +1,18 @@
 ---
-title: Azure Marketplace에 대 한 VM 이미지 인증
+title: Azure 마켓플레이스에 대한 VM 이미지 인증
 description: Azure Marketplace 인증을 위해 VM 이미지를 테스트하고 제출하는 방법을 설명합니다.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: pbutlerm
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/26/2018
-ms.author: pabutler
-ms.openlocfilehash: 4088864db4bf861d07821f5a0287336d8431f889
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 0225069179e0d7d94a983c5161976a5c1933fac5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826517"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80278198"
 ---
 # <a name="certify-your-vm-image"></a>VM 이미지 인증
 

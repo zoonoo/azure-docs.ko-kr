@@ -1,17 +1,17 @@
 ---
-title: 데이터 인 복제-Azure Database for MariaDB
-description: 데이터에서 복제를 사용 하 여 외부 서버에서 Azure Database for MariaDB 서비스로 동기화 하는 방법에 대해 알아봅니다.
+title: 데이터 인 복제 - MariaDB용 Azure 데이터베이스
+description: 데이터 입력 복제를 사용하여 외부 서버에서 MariaDB 서비스에 대한 Azure 데이터베이스로 동기화하는 방법에 대해 알아봅니다.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: e98f0dffe1ae004905c2b0969d825a1bca89014a
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: 1fbcc1fb27d5e6df4641f79c0d634580f74000b8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74772641"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79532063"
 ---
 # <a name="replicate-data-into-azure-database-for-mariadb"></a>Azure Database for MariaDB에 데이터 복제
 
@@ -34,12 +34,12 @@ ms.locfileid: "74772641"
 - 각 표에는 기본 키가 있어야 합니다.
 - 마스터 서버는 InnoDB 엔진을 사용해야 합니다.
 - 사용자는 이진 로깅을 구성하고 마스터 서버에서 새 사용자를 만들 수 있는 권한이 있어야 합니다.
-- 마스터 서버에서 SSL을 사용 하도록 설정한 경우 도메인에 제공 된 SSL CA 인증서가 `mariadb.az_replication_change_master` 저장 프로시저에 포함 되어 있는지 확인 합니다. 다음 [예제](https://docs.microsoft.com/azure/mariadb/howto-data-in-replication#link-the-master-and-replica-servers-to-start-data-in-replication) 와 `master_ssl_ca` 매개 변수를 참조 하세요.
+- 마스터 서버에 SSL이 활성화되어 있는 경우 도메인에 대해 제공된 SSL `mariadb.az_replication_change_master` CA 인증서가 저장 프로시저에 포함되어 있는지 확인합니다. 다음 [예제](https://docs.microsoft.com/azure/mariadb/howto-data-in-replication#link-the-master-and-replica-servers-to-start-data-in-replication) 및 매개 `master_ssl_ca` 변수를 참조하십시오.
 - 마스터 서버의 IP 주소가 Azure Database for MariaDB 복제본 서버의 방화벽 규칙에 추가되었는지 확인합니다. [Azure Portal](https://docs.microsoft.com/azure/mariadb/howto-manage-firewall-portal) 또는 [Azure CLI](https://docs.microsoft.com/azure/mariadb/howto-manage-firewall-cli)를 사용하여 방화벽 규칙을 업데이트합니다.
 - 마스터 서버를 호스트하는 컴퓨터에서 포트 3306에 대한 인바운드 및 아웃바운드 트래픽을 둘 다 허용하는지 확인합니다.
-- 마스터 서버에 **공용 IP 주소가**있거나, DNS에 공개적으로 액세스할 수 있거나, FQDN (정규화 된 도메인 이름)이 있는지 확인 합니다.
+- 마스터 서버에 **공용 IP 주소가**있는지, DNS에 공개적으로 액세스할 수 있는지, 또는 정규화된 도메인 이름(FQDN)이 있는지 확인합니다.
 
-### <a name="other"></a>다른
+### <a name="other"></a>기타
 - 입력 데이터 복제는 범용 및 메모리 최적화 가격 책정 계층에서만 지원됩니다.
 
 ## <a name="next-steps"></a>다음 단계

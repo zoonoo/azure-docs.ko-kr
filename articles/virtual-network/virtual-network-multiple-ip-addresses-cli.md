@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/17/2016
 ms.author: kumud
-ms.openlocfilehash: b99e5e6809a909184d775c70b56c249c11734cb9
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 144f30463adb3dfbce1717e06548baccc8286f8b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646611"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80240233"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-cli"></a>Azure CLI를 사용하여 가상 머신에 여러 IP 주소 할당
 
@@ -28,7 +28,7 @@ ms.locfileid: "75646611"
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
 
-## <a name = "create"></a>여러 IP 주소를 사용하여 VM 만들기
+## <a name="create-a-vm-with-multiple-ip-addresses"></a><a name = "create"></a>여러 IP 주소를 사용하여 VM 만들기
 
 다음 단계는 시나리오에 설명된 대로 여러 IP 주소를 가진 예시 가상 머신을 만드는 방법을 설명합니다. ""의 변수 값과 IP 주소 유형을 구현에 필요한 대로 변경합니다. 
 
@@ -164,7 +164,7 @@ VM을 만든 후에 `az network nic show --name MyNic1 --resource-group myResour
 
 이 문서의 [VM 운영 체제에 IP 주소 추가](#os-config) 섹션에 나오는 사용자 운영 체제별 단계를 완료하여 개인 IP 주소를 VM 운영 체제에 추가합니다.
 
-## <a name="add"></a>VM에 IP 주소 추가
+## <a name="add-ip-addresses-to-a-vm"></a><a name="add"></a>VM에 IP 주소 추가
 
 다음 단계를 완료하여 개인 및 공용 IP 주소를 기존 Azure 네트워크 인터페이스에 더 추가할 수 있습니다. 예제는 이 문서에서 설명된 [시나리오](#scenario)를 기반으로 합니다.
 
@@ -176,7 +176,7 @@ VM을 만든 후에 `az network nic show --name MyNic1 --resource-group myResour
     
     NIC에 개인 IP 주소를 추가하려면 다음 명령을 사용하여 IP 구성을 만들어야 합니다. 고정 IP 주소는 서브넷에 사용되지 않는 주소여야 합니다.
 
-    ```bash
+    ```azurecli
     az network nic ip-config create \
     --resource-group myResourceGroup \
     --nic-name myNic1 \
@@ -196,7 +196,7 @@ VM을 만든 후에 `az network nic show --name MyNic1 --resource-group myResour
     
         새 IP 구성의 공용 IP 주소를 추가할 때마다 모든 IP 구성 시 개인 IP 주소가 있어야 하기 때문에 개인 IP 주소도 추가해야 합니다. 기존 공용 IP 주소 리소스를 추가하거나 새로 만들 수 있습니다. 새 파일을 만들려면 다음 명령을 입력합니다.
     
-        ```bash
+        ```azurecli
         az network public-ip create \
         --resource-group myResourceGroup \
         --location westcentralus \
@@ -206,7 +206,7 @@ VM을 만든 후에 `az network nic show --name MyNic1 --resource-group myResour
 
         고정 개인 IP 주소 및 여기에 연결된 *myPublicIP3* 공용 IP 주소 리소스가 있는 새 IP 구성을 만들려면 다음 명령을 입력합니다.
 
-        ```bash
+        ```azurecli
         az network nic ip-config create \
         --resource-group myResourceGroup \
         --nic-name myNic1 \
@@ -215,9 +215,9 @@ VM을 만든 후에 `az network nic show --name MyNic1 --resource-group myResour
         --public-ip-address myPublicIP3
         ```
 
-    - **기존 IP 구성에 리소스 연결** 공용 IP 주소 리소스는 아직 연결한 리소스가 없는 IP 구성에만 연결될 수 있습니다. 다음 명령을 입력하면 IP 구성에 연결된 공용 IP 주소가 있는지 여부를 확인할 수 있습니다.
+    - **리소스를 기존 IP 구성에 연결** 공용 IP 주소 리소스는 아직 연결된 IP 구성에만 연결할 수 있습니다. 다음 명령을 입력하면 IP 구성에 연결된 공용 IP 주소가 있는지 여부를 확인할 수 있습니다.
 
-        ```bash
+        ```azurecli
         az network nic ip-config list \
         --resource-group myResourceGroup \
         --nic-name myNic1 \
@@ -234,7 +234,7 @@ VM을 만든 후에 `az network nic show --name MyNic1 --resource-group myResour
 
         *IpConfig-3*에 대한 **PublicIpAddressId** 열이 출력에서 비어 있기 때문에 현재 공용 IP 주소 리소스가 여기에 연결되어 있지 않습니다. IpConfig-3에 기존 공용 IP 주소 리소스를 추가하거나 다음 명령을 입력하여 새로 만들 수 있습니다.
 
-        ```bash
+        ```azurecli
         az network public-ip create \
         --resource-group  myResourceGroup
         --location westcentralus \
@@ -243,9 +243,9 @@ VM을 만든 후에 `az network nic show --name MyNic1 --resource-group myResour
         --allocation-method Static
         ```
     
-        *IPConfig 3*이라는 기존 IP 구성에 공용 IP 주소 리소스를 연결하려면 다음 명령을 입력합니다.
+        *IPConfig-3라는*기존 IP 구성에 공용 IP 주소 리소스를 연결하려면 다음 명령을 입력합니다.
     
-        ```bash
+        ```azurecli
         az network nic ip-config update \
         --resource-group myResourceGroup \
         --nic-name myNic1 \
@@ -255,7 +255,7 @@ VM을 만든 후에 `az network nic show --name MyNic1 --resource-group myResour
 
 3. NIC에 할당된 개인 IP 주소 및 공용 IP 주소 리소스 ID를 보려면 다음 명령을 입력합니다.
 
-    ```bash
+    ```azurecli
     az network nic ip-config list \
     --resource-group myResourceGroup \
     --nic-name myNic1 \

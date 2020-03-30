@@ -1,19 +1,18 @@
 ---
-title: 제안 상태 검색 | Azure Marketplace
+title: 쿠폰 상태 검색 | Azure 마켓플레이스
 description: API는 제안의 현재 상태를 검색합니다.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: 5ce546d79497f462f6c262de738036d7e3a30226
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 2f5211716145d6c05bbfb0132c4a6ba2f9cceabe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819658"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280510"
 ---
 <a name="retrieve-offer-status"></a>제안 상태 검색 
 =====================
@@ -27,8 +26,8 @@ ms.locfileid: "73819658"
 
 |  **이름**       |   **설명**                            |  **데이터 형식** |
 |  -------------  |  ------------------------------------------  |  ------------  |
-|  publisherid    | 게시자 식별자입니다(예: `Contoso`).  |     문자열     |
-|  offerId        | 제안을 고유하게 식별하는 GUID입니다.      |     문자열     |
+|  publisherId    | 게시자 식별자입니다(예: `Contoso`).  |     String     |
+|  offerId        | 제안을 고유하게 식별하는 GUID입니다.      |     String     |
 |  api-version    | 최신 버전 API                        |     Date       |
 |  |  |
 
@@ -36,7 +35,7 @@ ms.locfileid: "73819658"
 <a name="header"></a>헤더
 ------
 
-|  Name           |  값               |
+|  이름           |  값               |
 |  -------------  | -------------------  |
 |  콘텐츠 형식   |  `application/json`  |
 |  권한 부여  | `Bearer YOUR_TOKEN`  |
@@ -125,14 +124,14 @@ ms.locfileid: "73819658"
 
 |  **이름**             |    **설명**                                                                             |
 | --------------------  |   -------------------------------------------------------------------------------------------- |
-|  status               | 제안의 상태입니다. 가능한 값 목록을 보려면 아래 [제품 상태](#offer-status)를 참조하세요. |
+|  상태               | 제안의 상태입니다. 가능한 값 목록을 보려면 아래 [제안 상태](#offer-status)를 참조하세요. |
 |  messages             | 제안과 연결된 메시지 배열                                                    |
 |  단계                | 제안 게시 동안 제안이 거치는 단계의 배열입니다.                      |
 |  estimatedTimeFrame   | 이 단계를 완료하는 데 걸리는 예상 시간(일반 형식)입니다.                       |
 |  id                   | 단계의 식별자입니다.                                                                         |
 |  stepName             | 단계의 이름입니다.                                                                               |
 |  description          | 단계에 대한 설명입니다.                                                                        |
-|  status               | 단계의 상태입니다. 가능한 값 목록을 보려면 아래의 [단계 상태](#step-status)를 참조하세요.    |
+|  상태               | 단계의 상태입니다. 가능한 값 목록을 보려면 아래의 [단계 상태](#step-status)를 참조하세요.    |
 |  messages             | 단계와 관련된 메시지의 배열입니다.                                                          |
 |  processPercentage    | 단계의 완료율입니다.                                                              |
 |  previewLinks         | *현재 구현되지 않음*                                                                    |
@@ -159,9 +158,9 @@ ms.locfileid: "73819658"
 |  NotStarted                  | 새 제안이지만 시작되지 않았습니다.                            |
 |  WaitingForPublisherReview   | 제안이 게시자 승인을 기다리고 있습니다.                 |
 |  실행 중                     | 제안 제출을 처리 중입니다.                     |
-|  Succeeded                   | 제안 제출 처리를 완료했습니다.               |
-|  Canceled                    | 제안 제출이 취소되었습니다.                           |
-|  Failed                      | 제안 제출에 실패했습니다.                                 |
+|  성공                   | 제안 제출 처리를 완료했습니다.               |
+|  취소됨                    | 제안 제출이 취소되었습니다.                           |
+|  실패                      | 제안 제출에 실패했습니다.                                 |
 |  |  |
 
 
@@ -176,5 +175,5 @@ ms.locfileid: "73819658"
 |  Blocked                     | 단계가 차단되었습니다.                             |
 |  거부됨                    | 단계가 거부되었습니다.                            |
 |  완료                    | 단계가 완료되었습니다.                            |
-|  Canceled                    | 단계가 취소되었습니다.                           |
+|  취소됨                    | 단계가 취소되었습니다.                           |
 |  |  |

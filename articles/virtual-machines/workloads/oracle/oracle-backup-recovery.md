@@ -14,22 +14,22 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: c493f79a066f872be6b38d127622cc757ab3c1cc
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: bae7e53a316fa6ca3158639cc551a0a3de5cb952
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100232"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79536924"
 ---
 # <a name="back-up-and-recover-an-oracle-database-12c-database-on-an-azure-linux-virtual-machine"></a>Azure Linux Virtual Machine에서 Oracle Database 12c 데이터베이스 백업 및 복구
 
 Azure CLI를 사용하여 명령줄 프롬프트 또는 스크립트를 사용하여 Azure 리소스를 만들고 관리할 수 있습니다. 이 문서에서는 Azure Marketplace 갤러리 이미지에서 Oracle Database 12c 데이터베이스를 배포하는 데 Azure CLI의 스크립트를 사용합니다.
 
-시작하기 전에 Azure CLI가 설치되어 있는지 확인합니다. 자세한 내용은 [Azure CLI 설치 가이드](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조하세요.
+시작하기 전에 Azure CLI가 설치되어 있는지 확인합니다. 자세한 내용은 Azure [CLI 설치 가이드를](https://docs.microsoft.com/cli/azure/install-azure-cli)참조하십시오.
 
 ## <a name="prepare-the-environment"></a>환경 준비
 
-### <a name="step-1-prerequisites"></a>1단계: 필수 구성 요소
+### <a name="step-1-prerequisites"></a>1단계: 필수 조건
 
 *   백업 및 복구 프로세스를 수행하려면 먼저 Oracle Database 12c의 인스턴스가 설치되어 있는 Linux VM을 만들어야 합니다. VM을 만드는 데 사용하는 Marketplace 이미지는 *Oracle:Oracle-Database-Ee:12.1.0.2:latest*라고 합니다.
 
@@ -40,7 +40,7 @@ Azure CLI를 사용하여 명령줄 프롬프트 또는 스크립트를 사용�
 
 *   VM으로 SSH(Secure Shell) 세션을 만들려면 다음 명령을 사용합니다. IP 주소 및 호스트 이름 조합을 VM에 대한 `publicIpAddress` 값으로 바꿉니다.
 
-    ```bash 
+    ```bash
     ssh <publicIpAddress>
     ```
 
@@ -94,6 +94,7 @@ Azure CLI를 사용하여 명령줄 프롬프트 또는 스크립트를 사용�
     SQL> ALTER DATABASE OPEN;
     SQL> ALTER SYSTEM SWITCH LOGFILE;
     ```
+
 3.  (선택 사항) 커밋을 테스트하려면 테이블을 만듭니다.
 
     ```bash
@@ -115,6 +116,7 @@ Azure CLI를 사용하여 명령줄 프롬프트 또는 스크립트를 사용�
     SQL> commit;
     Commit complete.
     ```
+
 4.  백업 파일 위치 및 크기를 확인하거나 변경합니다.
 
     ```bash
@@ -125,6 +127,7 @@ Azure CLI를 사용하여 명령줄 프롬프트 또는 스크립트를 사용�
     db_recovery_file_dest                string      /u01/app/oracle/fast_recovery_area
     db_recovery_file_dest_size           big integer 4560M
     ```
+
 5. Oracle RMAN(Recovery Manager)을 사용하여 데이터베이스를 백업합니다.
 
     ```bash
@@ -132,15 +135,15 @@ Azure CLI를 사용하여 명령줄 프롬프트 또는 스크립트를 사용�
     RMAN> backup database plus archivelog;
     ```
 
-### <a name="step-4-application-consistent-backup-for-linux-vms"></a>4단계: Linux Vm에 대 한 응용 프로그램 일치 백업
+### <a name="step-4-application-consistent-backup-for-linux-vms"></a>4단계: Linux VM의 애플리케이션 일치 백업
 
 애플리케이션 일치 백업은 Azure Backup의 새 기능입니다. VM 스냅샷(사전 스냅샷 및 사후 스냅샷) 이전 및 이후에 실행하는 스크립트를 만들고 선택할 수 있습니다.
 
 1. JSON 파일을 다운로드합니다.
 
-    [https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig](https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig ) 에서 VMSnapshotScriptPluginConfig.json을 다운로드합니다. 파일 콘텐츠는 다음과 유사하게 나타납니다.
+    https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig에서 VMSnapshotScriptPluginConfig.json을 다운로드합니다. 파일 콘텐츠는 다음과 유사하게 나타납니다.
 
-    ```azurecli
+    ```output
     {
         "pluginName" : "ScriptRunner",
         "preScriptLocation" : "",
@@ -171,7 +174,7 @@ Azure CLI를 사용하여 명령줄 프롬프트 또는 스크립트를 사용�
 
     `PreScriptLocation` 및 `PostScriptlocation` 매개 변수를 포함하도록 VMSnapshotScriptPluginConfig.json 파일을 편집합니다. 예를 들어:
 
-    ```azurecli
+    ```output
     {
         "pluginName" : "ScriptRunner",
         "preScriptLocation" : "/etc/azure/pre_script.sh",
@@ -265,7 +268,7 @@ Azure CLI를 사용하여 명령줄 프롬프트 또는 스크립트를 사용�
 자세한 내용은 [Linux VM에 대한 애플리케이션 일치 백업](https://azure.microsoft.com/blog/announcing-application-consistent-backup-for-linux-vms-using-azure-backup/)을 참조하세요.
 
 
-### <a name="step-5-use-azure-recovery-services-vaults-to-back-up-the-vm"></a>5단계: Azure Recovery Services 자격 증명 모음을 사용 하 여 VM 백업
+### <a name="step-5-use-azure-recovery-services-vaults-to-back-up-the-vm"></a>5 단계: Azure Recovery Services 자격 증명 모음을 사용하여 VM 백업
 
 1.  Azure Portal에서 **Recovery Services 자격 증명 모음**을 검색합니다.
 
@@ -302,11 +305,11 @@ Azure CLI를 사용하여 명령줄 프롬프트 또는 스크립트를 사용�
 
     ![Recovery Services 자격 증명 모음 myVault 세부 정보 페이지](./media/oracle-backup-recovery/recovery_service_08.png)
 
-9.  **Backup 항목(Azure Virtual Machine)** 블레이드에서 페이지의 오른쪽에 있는 줄임표( **...** ) 단추를 클릭한 다음 **지금 Backup**을 클릭합니다.
+9.  **Backup 항목(Azure Virtual Machine)** 블레이드에서 페이지의 오른쪽에 있는 줄임표(**...**) 단추를 클릭한 다음 **지금 Backup**을 클릭합니다.
 
     ![Recovery Services 자격 증명 모음 지금 Backup 명령](./media/oracle-backup-recovery/recovery_service_09.png)
 
-10. **Backup** 단추를 클릭합니다. 백업 프로세스가 완료될 때까지 기다립니다. 그런 다음 6 [단계로 이동 합니다. 데이터베이스 파일](#step-6-remove-the-database-files)을 제거 합니다.
+10. **Backup** 단추를 클릭합니다. 백업 프로세스가 완료될 때까지 기다립니다. 그런 다음, [6단계: 데이터베이스 파일 제거](#step-6-remove-the-database-files)로 이동합니다.
 
     백업 작업의 상태를 보려면 **작업**을 클릭합니다.
 
@@ -368,6 +371,7 @@ Azure CLI를 사용하여 명령줄 프롬프트 또는 스크립트를 사용�
     ```bash
     $ scp Linux_myvm1_xx-xx-2017 xx-xx-xx PM.sh <publicIpAddress>:/<folder>
     ```
+
 6. 루트에서 소유하고 있으므로 파일을 변경합니다.
 
     다음 예제에서는 루트에서 소유하고 있으므로 파일을 변경합니다. 그런 다음, 사용 권한을 변경합니다.
@@ -379,9 +383,10 @@ Azure CLI를 사용하여 명령줄 프롬프트 또는 스크립트를 사용�
     # chmod 755 /<folder>/Linux_myvm1_xx-xx-2017 xx-xx-xx PM.sh
     # /<folder>/Linux_myvm1_xx-xx-2017 xx-xx-xx PM.sh
     ```
+
     다음 예제에서는 이전 스크립트를 실행한 후 표시되는 내용이 나옵니다. 계속할 것인지 묻는 메시지가 표시되면 **Y**를 입력합니다.
 
-    ```bash
+    ```output
     Microsoft Azure VM Backup - File Recovery
     ______________________________________________
     The script requires 'open-iscsi' and 'lshw' to run.
@@ -429,6 +434,7 @@ Azure CLI를 사용하여 명령줄 프롬프트 또는 스크립트를 사용�
     # cd /u01/app/oracle/oradata/cdb1
     # chown oracle:oinstall *.dbf
     ```
+
 9. 다음 스크립트에서 RMAN을 사용하여 데이터베이스를 복구합니다.
 
     ```bash
@@ -440,7 +446,7 @@ Azure CLI를 사용하여 명령줄 프롬프트 또는 스크립트를 사용�
     RMAN> alter database open resetlogs;
     RMAN> SELECT * FROM scott.scott_table;
     ```
-    
+
 10. 디스크를 분리합니다.
 
     Azure Portal의 **파일 복구(미리 보기)** 블레이드에서 **디스크 분리**를 클릭합니다.
@@ -451,7 +457,7 @@ Azure CLI를 사용하여 명령줄 프롬프트 또는 스크립트를 사용�
 
 Recovery Services 자격 증명 모음에서 삭제된 파일을 복원하는 대신 전체 VM을 복원할 수 있습니다.
 
-### <a name="step-1-delete-myvm"></a>1단계: MyVM 삭제
+### <a name="step-1-delete-myvm"></a>1단계: myVM 삭제
 
 *   Azure Portal에서 **myVM1**로 이동한 다음, **삭제**를 선택합니다.
 
@@ -471,7 +477,7 @@ Recovery Services 자격 증명 모음에서 삭제된 파일을 복원하는 �
 
     ![VM 복구 페이지](./media/oracle-backup-recovery/recover_vm_04.png)
 
-4.  **myvm1** 블레이드의 줄임표( **...** ) 단추를 클릭한 다음 **VM 복원**을 클릭합니다.
+4.  **myvm1** 블레이드의 줄임표(**...**) 단추를 클릭한 다음 **VM 복원**을 클릭합니다.
 
     ![VM 복원 명령](./media/oracle-backup-recovery/recover_vm_05.png)
 
@@ -502,7 +508,7 @@ VM을 복원한 후에 공용 IP 주소를 설정합니다.
 
     ![공용 IP 주소의 목록](./media/oracle-backup-recovery/create_ip_00.png)
 
-2.  **공용 IP 주소** 블레이드에서 **추가**를 클릭합니다. **공용 IP 주소 만들기** 블레이드에서 **이름**에 공용 IP 이름을 선택합니다. **리소스 그룹**의 경우 **기존 항목 사용**을 선택합니다. 그런 다음 **만들기**를 클릭합니다.
+2.  **공용 IP 주소** 블레이드에서 **추가**를 클릭합니다. **공용 IP 주소 만들기** 블레이드에서 **이름**에 공용 IP 이름을 선택합니다. **리소스 그룹**에 **기존 항목 사용**을 선택합니다. 그런 다음 을 **만들기를 클릭합니다.**
 
     ![IP 주소 만들기](./media/oracle-backup-recovery/create_ip_01.png)
 
@@ -522,23 +528,23 @@ VM을 복원한 후에 공용 IP 주소를 설정합니다.
 
 *   VM에 연결하려면 다음 스크립트를 사용합니다.
 
-    ```bash 
+    ```bash
     ssh <publicIpAddress>
     ```
 
 ### <a name="step-5-test-whether-the-database-is-accessible"></a>5단계: 데이터베이스에 액세스할 수 있는지 여부 테스트
 *   액세스 가능 여부를 테스트하려면 다음 스크립트를 사용합니다.
 
-    ```bash 
+    ```bash
     $ sudo su - oracle
     $ sqlplus / as sysdba
     SQL> startup
     ```
 
     > [!IMPORTANT]
-    > 데이터베이스 **시작** 명령에 오류가 발생 하 여 데이터베이스 [를 복구 하는 경우 6 단계: RMAN을 사용 하 여 데이터베이스](#step-6-optional-use-rman-to-recover-the-database)를 복구 합니다.
+    > 데이터베이스 **시작** 명령으로 인해 오류가 발생한 경우 데이터베이스를 복구하려면 [6단계: RMAN을 사용하여 데이터베이스 복구](#step-6-optional-use-rman-to-recover-the-database)를 참조하세요.
 
-### <a name="step-6-optional-use-rman-to-recover-the-database"></a>6단계: 필드 RMAN을 사용 하 여 데이터베이스 복구
+### <a name="step-6-optional-use-rman-to-recover-the-database"></a>6단계: (선택 사항) RMAN을 사용하여 데이터베이스 복구
 *   데이터베이스를 복구하려면 다음 스크립트를 사용합니다.
 
     ```bash

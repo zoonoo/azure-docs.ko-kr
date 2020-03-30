@@ -3,18 +3,17 @@ title: Azure Marketplace 및 AppSource 게시자에 대한 지침 | Azure
 description: 앱 및 서비스 게시자에 대한 Azure Marketplace 및 AppSource 지침
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: jm-aditi-ms
-manager: pabutler
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/13/2018
-ms.author: ellacroi
-ms.openlocfilehash: 371f36e13c244439a583cbeb7ff06c6a1283d272
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: f41aeb75253c803eac03b856d1e1ed0edb74a7e6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825945"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80281530"
 ---
 # <a name="guidelines"></a>지침  
 
@@ -29,7 +28,7 @@ ms.locfileid: "73825945"
 두 명 이상의 사용자가 Marketplace 계정을 만드는 데 사용된 것과 동일한 Microsoft ID에 액세스해야 하는 경우 다음 지침을 참조하여 회사 계정을 만들어야 합니다. 
 
 >[!IMPORTANT]
->여러 사용자가 Microsoft 개발자 센터(개발자 센터) 계정에 액세스하도록 권한을 부여하려면 Azure AD(Azure Active Directory)를 사용하여 개별 사용자에게 역할을 할당하는 것이 좋습니다. 각 사용자는 개별 Azure AD 자격 증명으로 로그인하여 계정에 액세스해야 합니다. 회사에 등록된 도메인의 메일 주소를 사용하여 Microsoft ID를 만듭니다. 해당 메일은 개인에게 할당하지 않는 것이 좋습니다. 예는 `windowsapps@fabrikam.com`입니다.  
+>여러 사용자가 Microsoft 개발자 센터(개발자 센터) 계정에 액세스하도록 권한을 부여하려면 Azure AD(Azure Active Directory)를 사용하여 개별 사용자에게 역할을 할당하는 것이 좋습니다. 각 사용자는 개별 Azure AD 자격 증명으로 로그인하여 계정에 액세스해야 합니다. 회사에 등록된 도메인의 메일 주소를 사용하여 Microsoft ID를 만듭니다. 해당 메일은 개인에게 할당하지 않는 것이 좋습니다. 예제는 `windowsapps@fabrikam.com`입니다.  
 >*   자세한 내용은 [문제: Azure AD 페더레이션된 도메인의 Microsoft ID](#issue-microsoft-id-in-an-azure-ad-federated-domain) 섹션을 참조하세요.  
 
 *   Microsoft ID에 대한 액세스는 최소한의 개발자 수로 제한합니다. 

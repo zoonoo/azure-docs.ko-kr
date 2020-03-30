@@ -4,12 +4,12 @@ description: Azure API Management를 빠르게 시작하고 Service Fabric에서
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: mvc
-ms.openlocfilehash: 201d617ce15216ba168bc484f644e165d5ae0e71
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7bd781a21a32ca29fe3f5dd2f4432dbf1e5ca411
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75465349"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80292135"
 ---
 # <a name="integrate-api-management-with-service-fabric-in-azure"></a>Azure에서 Service Fabric과 API Management 통합
 
@@ -25,11 +25,11 @@ Service Fabric을 사용한 Azure API Management 배포는 고급 시나리오�
 > [!IMPORTANT]
 > 이 기능은 필수 가상 네트워크 지원으로 인해 API Management의 **프리미엄** 및 **개발자** 계층에서 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에
 
-* Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+* Azure 구독이 없는 경우 [무료 계정을](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 만듭니다.
 * [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-Az-ps) 또는 [Azure CLI](/cli/azure/install-azure-cli)를 설치합니다.
 * 네트워크 보안 그룹에서 보안 [Windows 클러스터](service-fabric-tutorial-create-vnet-and-windows-cluster.md)를 만듭니다.
 * Windows 클러스터를 배포하는 경우 Windows 개발 환경을 설정합니다. [Visual Studio 2019](https://www.visualstudio.com), **Azure 개발**, **ASP.NET 및 웹 개발** 및 **.NET Core 플랫폼 간 개발** 워크로드를 설치합니다.  그런 후 [.NET 개발 환경](service-fabric-get-started.md)을 설정합니다.
@@ -66,7 +66,7 @@ Visual Studio를 관리자 권한으로 시작하고 ASP.NET Core 서비스를 �
  1. Visual Studio에서 파일 -> 새 프로젝트를 선택합니다.
  2. 클라우드에서 Service Fabric 애플리케이션 템플릿을 선택하고 이름을 **"ApiApplication"** 으로 지정합니다.
  3. 상태 비저장 ASP.NET Core 서비스 템플릿을 선택하고 프로젝트 이름을 **"WebApiService"** 로 지정합니다.
- 4. Web API ASP.NET Core 2.1 프로젝트 템플릿을 선택 합니다.
+ 4. 코어 2.1 프로젝트 템플릿을 ASP.NET 웹 API를 선택합니다.
  5. 프로젝트가 만들어지면 `PackageRoot\ServiceManifest.xml`을 열고 엔드포인트 리소스 구성에서 `Port` 특성을 제거합니다.
 
     ```xml
@@ -77,7 +77,7 @@ Visual Studio를 관리자 권한으로 시작하고 ASP.NET Core 서비스를 �
     </Resources>
     ```
 
-    포트를 제거 하면 Service Fabric는 클러스터 리소스 관리자 템플릿에서 네트워크 보안 그룹을 통해 연 응용 프로그램 포트 범위에서 동적으로 포트를 지정 하 여 트래픽이 API Management에서 전송 될 수 있도록 합니다.
+    포트를 제거하면 Service Fabric이 클러스터 리소스 관리자 템플릿의 네트워크 보안 그룹을 통해 열리는 응용 프로그램 포트 범위에서 동적으로 포트를 지정하여 API 관리에서 트래픽이 흐를 수 있도록 합니다.
 
  6. Web API를 로컬에서 사용할 수 있는지 확인하려면 Visual Studio에서 F5 키를 누릅니다.
 
@@ -97,10 +97,10 @@ Visual Studio를 관리자 권한으로 시작하고 ASP.NET Core 서비스를 �
 
 다음 리소스 관리자 템플릿 및 매개 변수 파일을 다운로드하고 저장합니다.
 
-* [네트워크-apim. json][network-arm]
-* [네트워크-apim. parameters. json][network-parameters-arm]
-* [apim. json][apim-arm]
-* [apim. parameters. json][apim-parameters-arm]
+* [network-apim.json][network-arm]
+* [network-apim.parameters.json][network-parameters-arm]
+* [apim.json][apim-arm]
+* [apim.parameters.json][apim-parameters-arm]
 
 *network-apim.json* 템플릿은 Service Fabric 클러스터가 배포된 가상 네트워크에 새로운 서브넷 및 네트워크 보안 그룹을 배포합니다.
 
@@ -134,7 +134,7 @@ Service Fabric 백 엔드의 경우 특정 Service Fabric 서비스가 아니라
 
 * **displayName**은 API에 대한 어떤 이름도 될 수 있습니다. 이 문서에서는 "Service Fabric 앱"을 사용합니다.
 * **name**은 API를 설명하는 고유한 이름(예: "service-fabric-app")을 제공합니다. 개발자 및 게시자 포털에 표시됩니다.
-* **serviceUrl**은 API를 구현하는 HTTP 서비스를 참조합니다. API 관리는 이 주소로 요청을 전달합니다. Service Fabric 백 엔드에는 이 URL 값이 사용되지 않습니다. 여기에 임의의 값을 입력할 수 있습니다. 이 문서의 경우 "http:\//servicefabric"와 같습니다.
+* **serviceUrl**은 API를 구현하는 HTTP 서비스를 참조합니다. API 관리는 이 주소로 요청을 전달합니다. Service Fabric 백 엔드에는 이 URL 값이 사용되지 않습니다. 여기에 임의의 값을 입력할 수 있습니다. 이 문서의 경우, 예를\/들어 "http: /servicefabric".
 * **path**는 API Management 서비스의 기본 URL에 추가됩니다. 기본 URL은 API Management 서비스 인스턴스에서 호스트되는 모든 API에 공통으로 사용됩니다. API Management는 접미사를 사용하여 API를 구분하므로, 접미사는 지정된 게시자의 모든 API에 대해 고유해야 합니다.
 * **protocols**는 API에 액세스하는 데 사용할 수 있는 프로토콜을 결정합니다. 이 문서에서는 **http** 및 **https**가 나열됩니다.
 * **path**는 API에 대한 접미사입니다. 이 문서에서는 "myapp"을 사용합니다.
@@ -190,13 +190,13 @@ Service Fabric 백 엔드의 경우 특정 Service Fabric 서비스가 아니라
 |---|---|
 |apimInstanceName|sf-apim|
 |apimPublisherEmail|myemail@contosos.com|
-|apimSku|개발자|
+|apimSku|Developer|
 |serviceFabricCertificateName|sfclustertutorialgroup320171031144217|
 |certificatePassword|q6D7nN%6ck@6|
 |serviceFabricCertificateThumbprint|C4C1E541AD512B8065280292A8BA6079C3F26F10 |
 |serviceFabricCertificate|&lt;base-64로 인코딩된 문자열&gt;|
 |url_path|/api/values|
-|clusterHttpManagementEndpoint|https://mysfcluster.southcentralus.cloudapp.azure.com:19080|
+|clusterHttpManagementEndpoint|`https://mysfcluster.southcentralus.cloudapp.azure.com:19080`|
 |inbound_policy|&lt;XML 문자열&gt;|
 
 *certificatePassword* 및 *serviceFabricCertificateThumbprint*는 클러스터를 설정하는 데 사용되는 클러스터 인증서와 일치해야 합니다.
@@ -277,7 +277,7 @@ az group deployment create --name ApiMgmtDeployment --resource-group $ResourceGr
 
 클러스터는 클러스터 리소스 외에도 다른 Azure 리소스로 이루어져 있습니다. 클러스터 및 클러스터에서 사용하는 모든 리소스를 삭제하는 가장 간단한 방법은 리소스 그룹을 삭제하는 것입니다.
 
-Azure에 로그인하고, 클러스터를 제거하려는 구독 ID를 선택합니다.  [Azure Portal](https://portal.azure.com)에 로그인하여 구독 ID를 찾을 수 있습니다. [AzResourceGroup cmdlet](/en-us/powershell/module/az.resources/remove-azresourcegroup)을 사용 하 여 리소스 그룹 및 모든 클러스터 리소스를 삭제 합니다.
+Azure에 로그인하고, 클러스터를 제거하려는 구독 ID를 선택합니다.  [Azure Portal](https://portal.azure.com)에 로그인하여 구독 ID를 찾을 수 있습니다. [제거-AzResourceGroup cmdlet을](/en-us/powershell/module/az.resources/remove-azresourcegroup)사용하여 리소스 그룹 및 모든 클러스터 리소스를 삭제합니다.
 
 ```powershell
 $ResourceGroupName = "sfclustertutorialgroup"
@@ -303,7 +303,7 @@ az group delete --name $ResourceGroupName
 
 <!-- pics -->
 [sf-apim-topology-overview]: ./media/service-fabric-tutorial-deploy-api-management/sf-apim-topology-overview.png
-vice-fabric-scripts-and-templates/blob/master/templates/service-integration/network-apim.parameters.jsonn
+부패브릭 스크립트 및 템플릿/Blob/마스터/템플릿/서비스 통합/네트워크 apim.parameters.jsonn
 
 <!-- pics -->
 [sf-apim-topology-overview]: ./media/service-fabric-tutorial-deploy-api-management/sf-apim-topology-overview.png

@@ -1,16 +1,16 @@
 ---
-title: Azure Service Fabric 행위자에서 기능 구현
+title: Azure 서비스 패브릭 행위자에서 기능 구현
 description: StatefulService를 상속하는 경우와 동일한 방식으로 서비스 수준 기능을 구현하는 고유의 행위자 서비스를 작성하는 방법을 설명합니다.
 author: vturecek
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: vturecek
-ms.openlocfilehash: 9f5f9e00c374b16026f22d4efdee51ec94d2902a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 55ee4c7498dcda3060d4e4221711793b80132bdf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75426728"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79502275"
 ---
 # <a name="implement-service-level-features-in-your-actor-service"></a>행위자 서비스에서 서비스 수준 기능 구현
 
@@ -143,7 +143,7 @@ public class Program
 
 ## <a name="implement-actor-backup-and-restore"></a>행위자 백업 및 복원 구현
 
-사용자 지정 행위자 서비스가 `ActorService`에 이미 나타난 원격 수신기를 활용하여 행위자 데이터를 백업하는 메서드를 노출할 수 있습니다. 예를 들어 [행위자 Backup 및 복원](service-fabric-reliable-actors-backup-and-restore.md)을 참조하세요.
+사용자 지정 행위자 서비스가 `ActorService`에 이미 나타난 원격 수신기를 활용하여 행위자 데이터를 백업하는 메서드를 노출할 수 있습니다. 예를 들어 [행위자 Backup 및 복원](../synapse-analytics/sql-data-warehouse/backup-and-restore.md)을 참조하세요.
 
 ## <a name="actor-that-uses-a-remoting-v2-interface-compatible-stack"></a>Remoting V2(인터페이스 호환 가능) 스택을 사용하는 행위자
 

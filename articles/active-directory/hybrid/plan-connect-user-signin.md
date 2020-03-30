@@ -16,20 +16,20 @@ ms.date: 05/31/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dbcc05093d801261493745c61dc5f68878d338b0
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: a08120b98c7a08bca50453df59df313b1645c5c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79253742"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80331263"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Azure AD Connect 사용자 로그인 옵션
 Azure Active Directory(Azure AD) Connect를 사용하면 사용자가 동일한 암호를 사용하여 온-프레미스 및 클라우드 리소스 모두에 로그인할 수 있습니다. 이 문서에서는 Azure AD에 로그인할 때 사용하려는 ID 선택에 도움이 되도록 모든 ID 모델의 주요 개념에 대해 설명합니다.
 
 이미 Azure AD 신원 모델에 익숙하고 특정 방법에 대해 자세히 알고 싶다면 해당 링크를 참조하십시오.
 
-* [Seamless SSO(Single Sign-on)](#password-hash-synchronization)를 사용한 [암호 해시 동기화](how-to-connect-sso.md)
-* [Seamless SSO(Single Sign-on)](how-to-connect-pta.md)를 사용한 [통과 인증](how-to-connect-sso.md)
+* [Seamless SSO(Single Sign-on)](how-to-connect-sso.md)를 사용한 [암호 해시 동기화](#password-hash-synchronization)
+* [Seamless SSO(Single Sign-on)](how-to-connect-sso.md)를 사용한 [통과 인증](how-to-connect-pta.md)
 * [Federated SSO(Active Directory Federation Services(AD FS) 지원)](#federation-that-uses-a-new-or-existing-farm-with-ad-fs-in-windows-server-2012-r2)
 * [PingFederate을 사용한 페더레이션](#federation-with-pingfederate)
 
@@ -77,7 +77,7 @@ Office 365, SaaS 애플리케이션 및 기타 Azure AD 기반 리소스에 사�
 
 <center>
 
-Windows Server 2012 r 2에서 AD FS를 사용 하 ![페더레이션](./media/plan-connect-user-signin/federatedsignin.png)</center>
+![Windows Server 2012 R2의 AD FS와 페더레이션](./media/plan-connect-user-signin/federatedsignin.png)</center>
 
 #### <a name="deploy-federation-with-ad-fs-in-windows-server-2012-r2"></a>Windows Server 2012 R2의 AD FS로 페더레이션 배포
 
@@ -85,7 +85,7 @@ Windows Server 2012 r 2에서 AD FS를 사용 하 ![페더레이션](./media/pla
 
 * 페더레이션 서버용 Windows Server 2012 R2 서버
 * 웹 애플리케이션 프록시용 Windows Server 2012 R2 서버
-* 원하는 페더레이션 서비스 이름에 대한 하나의 SSL 인증서가 있는 .pfx 파일 예: fs.contoso.com
+* 의도한 페더레이션 서비스 이름에 대해 하나의 TLS/SSL 인증서가 있는 .pfx 파일입니다. 예: fs.contoso.com
 
 새 팜을 배포 하거나 기존 팜을 사용하는 경우 필수 요건은 다음과 같습니다.
 
@@ -126,7 +126,7 @@ Azure AD 로그인 환경은 Azure AD를 Azure AD 디렉터리에서 확인된 �
 Azure AD Connect는 도메인에 대해 정의된 UPN 접미사를 나열하며 Azure AD의 사용자 지정 도메인과 매칭하려고 합니다. 그러면 적절한 조치를 취하는 데 도움이 됩니다.
 Azure AD 로그인 페이지는 온-프레미스 Active Directory에 대해 정의된 UPN 접미사를 나열하고 각 접미사에 해당하는 상태를 표시합니다. 상태 값은 다음 중 하나가 될 수 있습니다.
 
-| 시스템 상태 | Description | 작업 필요 |
+| 시스템 상태 | 설명 | 작업 필요 |
 |:--- |:--- |:--- |
 | Verified |Azure AD Connect가 Azure AD에서 확인된 일치하는 도메인을 찾았습니다. 이 도메인에 대한 모든 사용자는 온-프레미스 자격 증명을 사용하여 로그인할 수 있습니다. |어떤 조치가 필요하지 않습니다. |
 | 확인되지 않음 |Azure AD Connect는 Azure AD에서 사용자 지정 도메인을 찾을 수 있지만 확인되지 않습니다. 이 도메인의 사용자의 UPN 접미사는 도메인이 확인되지 않으면 동기화 후에 기본값 .onmicrosoft.com 접미사로 변경됩니다. | [Azure AD에서 사용자 지정 도메인 확인](../fundamentals/add-custom-domain.md#verify-your-custom-domain-name) |
@@ -191,5 +191,5 @@ Azure AD의 기본 .onmicrosoft.com 도메인 또는 Azure AD의 확인되지 �
 >
 
 ## <a name="next-steps"></a>다음 단계
-- [Azure Active Directory와 온-프레미스 ID 통합](whatis-hybrid-identity.md)에 대해 자세히 알아봅니다.
-- [Azure AD Connect 설계 개념](plan-connect-design-concepts.md)에 대해 자세히 알아봅니다.
+- [온-프레미스 ID를 Azure Active Directory.](whatis-hybrid-identity.md)
+- [Azure AD Connect 디자인 개념에](plan-connect-design-concepts.md)대해 자세히 알아봅니다.

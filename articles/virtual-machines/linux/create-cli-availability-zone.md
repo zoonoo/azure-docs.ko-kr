@@ -1,21 +1,21 @@
 ---
-title: Azure CLI를 사용 하 여 배열로 영역 설정 Linux VM 만들기
+title: Azure CLI를 사용하여 영역이 지정된 Linux VM 만들기
 description: Azure CLI를 사용하여 가용성 영역에서 Linux VM 만들기
 author: cynthn
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: cynthn
-ms.openlocfilehash: 3f15b59be1182a65da7acb54d0748caf69fc0af3
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.openlocfilehash: e229bb7af02255c0714c559b841afac9a66a7c7d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78970197"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79535615"
 ---
 # <a name="create-a-linux-virtual-machine-in-an-availability-zone-with-the-azure-cli"></a>Azure CLI를 사용하여 가용성 영역에서 Linux 가상 머신 만들기
 
-이 문서는 Azure CLI를 사용하여 Azure 가용성 영역에서 Linux VM을 만드는 단계를 안내합니다. [가용성 영역](../../availability-zones/az-overview.md)은 Azure 지역에서 물리적으로 별도 영역입니다. 가용성 영역을 사용하여 가능성이 적은 실패 또는 전체 데이터 센터의 손실로부터 앱 및 데이터를 보호합니다.
+이 문서는 Azure CLI를 사용하여 Azure 가용성 영역에서 Linux VM을 만드는 단계를 안내합니다. [가용성 영역은](../../availability-zones/az-overview.md) Azure 지역의 물리적으로 분리된 영역입니다. 가용성 영역을 사용하여 가능성이 적은 실패 또는 전체 데이터 센터의 손실로부터 앱 및 데이터를 보호합니다.
 
 가용성 영역을 사용하려면 [지원되는 Azure 지역](../../availability-zones/az-overview.md#services-support-by-region)에 가상 머신을 만들어야 합니다.
 
@@ -33,7 +33,7 @@ az vm list-skus --location eastus2 --output table
 
 출력은 다음과 같이 압축된 예제와 비슷하며, 각 VM 크기를 사용할 수 있는 가용성 영역을 보여 줍니다.
 
-```azurecli
+```output
 ResourceType      Locations  Name               [...]    Tier       Size     Zones
 ----------------  ---------  -----------------           ---------  -------  -------
 virtualMachines   eastus2    Standard_DS1_v2             Standard   DS1_v2   1,2,3
@@ -68,13 +68,13 @@ az group create --name myResourceGroupVM --location eastus2
 
 가상 머신을 만들 때 운영 체제 이미지, 디스크 크기 조정 및 관리 자격 증명 등의 몇 가지 옵션을 사용할 수 있습니다. 이 예제에서는 Ubuntu Server를 실행하는 *myVM*이라는 가상 머신을 만듭니다. VM은 가용성 영역 *1*에서 생성됩니다. 기본적으로 VM은 *Standard_DS1_v2* 크기에서 생성됩니다.
 
-```azurecli-interactive 
+```azurecli-interactive
 az vm create --resource-group myResourceGroupVM --name myVM --location eastus2 --image UbuntuLTS --generate-ssh-keys --zone 1
 ```
 
 VM을 만드는 데 몇 분이 걸릴 수 있습니다. VM이 만들어지면 Azure CLI에서 VM에 대한 정보를 출력합니다. VM이 실행되고 있는 가용성 영역을 나타내는 `zones` 값을 기록해 둡니다. 
 
-```azurecli 
+```output
 {
   "fqdns": "",
   "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroupVM/providers/Microsoft.Compute/virtualMachines/myVM",
@@ -92,7 +92,7 @@ VM을 만드는 데 몇 분이 걸릴 수 있습니다. VM이 만들어지면 Az
 
 가용성 영역에 VM을 배포하는 경우 VM에 대한 관리 디스크는 동일한 가용성 영역에서 만들어집니다. 기본적으로 공용 IP 주소도 해당 영역에서 만들어집니다. 다음 예에서는 이러한 리소스에 대한 정보를 가져옵니다.
 
-VM의 관리 디스크가 가용성 영역에 있는지 확인 하려면 [az VM show](/cli/azure/vm) 명령을 사용 하 여 디스크 ID를 반환 합니다. 이 예제에서 디스크 ID는 이후 단계에서 사용 되는 변수에 저장 됩니다. 
+VM의 관리 디스크가 가용성 영역에 있는지 확인하려면 [az vm show](/cli/azure/vm) 명령을 사용하여 디스크 ID를 반환합니다. 이 예제에서는 디스크 ID가 이후 단계에서 사용되는 변수에 저장됩니다. 
 
 ```azurecli-interactive
 osdiskname=$(az vm show -g myResourceGroupVM -n myVM --query "storageProfile.osDisk.name" -o tsv)
@@ -105,7 +105,7 @@ az disk show --resource-group myResourceGroupVM --name $osdiskname
 
 관리 디스크를 보여 주는 출력은 VM과 동일한 가용성 영역에 있습니다.
 
-```azurecli
+```output
 {
   "creationData": {
     "createOption": "FromImage",
@@ -153,7 +153,7 @@ az network public-ip show --resource-group myResourceGroupVM --name $ipaddressna
 
 IP 주소를 보여 주는 출력은 VM과 동일한 가용성 영역에 있습니다.
 
-```azurecli
+```output
 {
   "dnsSettings": null,
   "etag": "W/\"b7ad25eb-3191-4c8f-9cec-c5e4a3a37d35\"",
@@ -188,7 +188,7 @@ IP 주소를 보여 주는 출력은 VM과 동일한 가용성 영역에 있습�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 가용성 영역에서 VM을 만드는 방법을 배웠습니다. Azure Vm의 [가용성](availability.md) 에 대해 자세히 알아보세요.
+이 문서에서는 가용성 영역에서 VM을 만드는 방법을 배웠습니다. Azure VM의 [가용성에](availability.md) 대해 자세히 알아보세요.
 
 
 

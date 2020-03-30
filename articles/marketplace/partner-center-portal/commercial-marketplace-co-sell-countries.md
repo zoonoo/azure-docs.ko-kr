@@ -1,41 +1,40 @@
 ---
-title: 국가 및 지역 코드 공동 판매 | Azure Marketplace
-description: 제품의 공동 판매 페이지에서 연락처 정보를 제공할 때 이러한 두 문자로 이루어진 국가/지역 코드를 사용 합니다.
-author: MaggiePucciEvans
-manager: evansma
-ms.author: evansma
+title: 국가 및 지역 공동 판매 | Azure 마켓플레이스
+description: 오퍼의 공동 판매 페이지에서 연락처 정보를 제공할 때 이 두 글자로 된 국가/지역 코드를 사용하세요.
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.openlocfilehash: 925218879ce0dc1c69054f861e37e86c122d47f9
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 097fe2c394cb48a13fbc9cb253ef4df9c9959713
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934345"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80277059"
 ---
 # <a name="co-sell-country-and-region-codes"></a>국가 및 지역 코드 공동 판매
 
-[제품의 공동 판매 페이지에서 연락처 정보를 제공할](commercial-marketplace-co-sell.md)때 이러한 두 문자로 이루어진 국가/지역 코드를 사용 합니다.
+[쿠폰의 공동 판매 페이지에서 연락처 정보를 제공할](commercial-marketplace-co-sell.md)때 다음 두 글자로 된 국가/지역 코드를 사용합니다.
 
-연락처가 모든 국가/지역을 포함 하는 경우 세 문자 코드 "OOO"를 사용 합니다.
+연락처가 모든 국가/지역을 포함하는 경우 세 문자 코드 "OOO"를 사용합니다.
 
-연락처가 둘 이상의 국가/지역을 포함 하는 경우 쉼표로 구분 된 두 문자 코드를 입력 합니다 (예: 따옴표 없이 "US, CA, FR" 입력).
+연락처가 둘 이상의 국가/지역을 포함하는 경우 쉼표로 구분된 두 문자 코드를 각각 입력합니다(예: 인용 부호 없이 "US, CA, FR"을 입력).
 
-## <a name="countryregion-table"></a>국가/지역 테이블
+## <a name="countryregion-table"></a>국가/지역 표
 
 |   국가/지역 이름               |   ISO-2   |
 |-------------------------------------|-----------|
-| 전역 연락처                     | OOO       |
+| 글로벌 연락처                     | Ooo       |
 | 아프가니스탄                         | AF        |
-| 올란드 제도                       | AX        |
+| 올란드 제도                       | 도끼        |
 | 알바니아                             | AL        |
 | 알제리                             | DZ        |
-| 미국령 사모아                      | AS        |
+| 아메리칸 사모아                      | AS        |
 | 안도라                             | AD        |
 | 앙골라                              | AO        |
-| 남극 대륙                          | AQ        |
+| 남극                          | AQ        |
 | 앤티가 바부다                 | AG        |
 | 아르헨티나                           | AR        |
 | 아르메니아                             | AM        |
@@ -54,10 +53,10 @@ ms.locfileid: "75934345"
 | 버뮤다                             | BM        |
 | 부탄                              | BT        |
 | 볼리비아                             | BO        |
-| 보네르                             | BQ        |
+| Bonaire                             | Bq        |
 | 보스니아 헤르체고비나              | BA        |
 | 보츠와나                            | BW        |
-| 부베이 섬                       | BV        |
+| 부베섬                       | BV        |
 | 브라질                              | BR        |
 | 영국령 인도양 식민지      | IO        |
 | 영국령 버진아일랜드              | VG        |
@@ -68,7 +67,7 @@ ms.locfileid: "75934345"
 | 카보베르데                          | CV        |
 | 캄보디아                            | KH        |
 | 카메룬                            | CM        |
-| 캐나다                              | CA        |
+| Canada                              | CA        |
 | 케이맨 제도                      | KY        |
 | 중앙 아프리카 공화국            | CF        |
 | 차드                                | TD        |
@@ -86,7 +85,7 @@ ms.locfileid: "75934345"
 | 코트디부아르                       | CI        |
 | 크로아티아                             | HR        |
 | 쿠바                                | CU        |
-| 퀴라소                             | CW        |
+| 퀴라소                             | Cw        |
 | 키프로스                              | CY        |
 | 덴마크                             | DK        |
 | 지부티                            | DJ        |
@@ -98,7 +97,7 @@ ms.locfileid: "75934345"
 | 적도 기니                   | GQ        |
 | 에리트리아                             | ER        |
 | 에스토니아                             | EE        |
-| eSwatini                            | SZ        |
+| 이스와티니                            | SZ        |
 | 에티오피아                            | ET        |
 | 페로 제도                       | FO        |
 | 피지                                | FJ        |
@@ -144,7 +143,7 @@ ms.locfileid: "75934345"
 | 카자흐스탄                          | KZ        |
 | 케냐                               | KE        |
 | 키리바시                            | KI        |
-| 대한민국 (남부)                       | KR        |
+| 대한민국 (대한민국)                       | KR        |
 | 쿠웨이트                              | KW        |
 | 키르기스스탄                          | KG        |
 | 라오스                                | LA        |
@@ -174,7 +173,7 @@ ms.locfileid: "75934345"
 | 모나코                              | MC        |
 | 몽골                            | MN        |
 | 몬테네그로                          | ME        |
-| 몬트세라트                          | MS        |
+| 몬세라트                          | MS        |
 | 모로코                             | MA        |
 | 모잠비크                          | MZ        |
 | 미얀마                             | MM        |
@@ -202,7 +201,7 @@ ms.locfileid: "75934345"
 | 파라과이                            | PY        |
 | 페루                                | PE        |
 | 필리핀                         | PH        |
-| 핏케언 제도                    | PN        |
+| 핏케언 제도                    | Pn        |
 | 폴란드                              | PL        |
 | 포르투갈                            | PT        |
 | 푸에르토리코                         | PR        |
@@ -213,33 +212,33 @@ ms.locfileid: "75934345"
 | 르완다                              | RW        |
 | 생바르텔레미                    | BL        |
 | 세인트키츠 네비스               | KN        |
-| 세인트 루시아                         | LC        |
-| 생마르탱                        | MF        |
+| 세인트루시아                         | LC        |
+| 생마르탱                        | Mf        |
 | 생피에르앤드미클롱           | PM        |
 | 세인트 빈센트 그레나딘    | VC        |
 | 사모아                               | WS        |
 | 산마리노                          | SM        |
-| 상투메 프린시페               | 위        |
+| 상 토메와 프린시페               | ST        |
 | 사우디아라비아                        | SA        |
 | 세네갈                             | SN        |
 | 세르비아                              | RS        |
 | 세이셸                          | SC        |
 | 시에라리온                        | SL        |
 | 싱가포르                           | SG        |
-| 신트마르턴                        | SX        |
+| 신트마르턴                        | Sx        |
 | 슬로바키아                            | SK        |
 | 슬로베니아                            | SI        |
 | 솔로몬 제도                     | SB        |
 | 소말리아                             | SO        |
-| 남아프리카 공화국                        | ZA        |
+| 남아프리카                        | ZA        |
 | 사우스 조지아 및 사우스 샌드위치 제도 | GS    |
 | 남수단                         | SS        |
 | 스페인                               | ES        |
 | 스리랑카                           | LK        |
-| 세인트 헬레나, 어센션, 트리스탄 다 쿠나 | SH     |
+| 세인트 헬레나, 어센션, 트리스탄 다 쿠냐 | SH     |
 | 수단                               | SD        |
 | 수리남                            | SR        |
-| 스발바르                            | SJ        |
+| 스발바르 제도                            | SJ        |
 | 스웨덴                              | SE        |
 | 스위스                         | CH        |
 | 시리아                               | SY        |
@@ -260,11 +259,11 @@ ms.locfileid: "75934345"
 | 우간다                              | UG        |
 | 우크라이나                             | UA        |
 | 아랍에미리트                | AE        |
-| 영국                      | GB        |
-| 미국                       | 미국        |
+| United Kingdom                      | GB        |
+| 미국                       | US        |
 | 우루과이                             | UY        |
-| 미국령 해외 제도               | UM        |
-| 미국령 버전 아일랜드                 | VI        |
+| 미국 외딴 섬               | UM        |
+| 미국령 버진 아일랜드                 | VI        |
 | 우즈베키스탄                          | UZ        |
 | 바누아투                             | VU        |
 | 바티칸 시국                        | VA        |
@@ -278,4 +277,4 @@ ms.locfileid: "75934345"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [파트너 센터의 공동 판매 옵션](./commercial-marketplace-co-sell.md)에 대해 알아봅니다.
+- [파트너 센터에서 공동 판매 옵션에](./commercial-marketplace-co-sell.md)대해 알아봅니다.

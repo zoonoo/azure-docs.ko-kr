@@ -1,10 +1,10 @@
 ---
-title: 관리자 작업으로 역할 위임-Azure Active Directory | Microsoft Docs
+title: 관리자 작업별 역할 위임 - Azure Active Directory | 마이크로 소프트 문서
 description: Azure Active Directory에서 ID 작업을 위임하는 역할
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1197eb074b9afeb74c6793835455611ab784a83b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 1ac44661dd5a52ba19a3b2dd461aabec1ec250bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79259722"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80284877"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Azure Active Directory에서 관리 작업별 관리자 역할
 
@@ -46,18 +46,18 @@ Azure AD B2C 디렉터리 만들기 | 모든 비 게스트 사용자([설명서 
 B2C 애플리케이션 만들기 | 전역 관리자 | 
 엔터프라이즈 애플리케이션 만들기 | 클라우드 애플리케이션 관리자 | 애플리케이션 관리자
 B2C 정책 만들기, 읽기, 업데이트 및 삭제 | B2C IEF 정책 관리자 | 
-ID 공급자 만들기, 읽기, 업데이트 및 삭제 | 외부 Id 공급자 관리자 | 
+ID 공급자 만들기, 읽기, 업데이트 및 삭제 | 외부 ID 공급자 관리자 | 
 암호 재설정 사용자 흐름 만들기, 읽기, 업데이트 및 삭제 | B2C 사용자 흐름 관리자 | 
 프로필 편집 사용자 흐름 만들기, 읽기, 업데이트 및 삭제 | B2C 사용자 흐름 관리자 | 
 로그인 사용자 흐름 만들기, 읽기, 업데이트 및 삭제 | B2C 사용자 흐름 관리자 | 
 등록 사용자 흐름 만들기, 읽기, 업데이트 및 삭제 |B2C 사용자 흐름 관리자 | 
 사용자 특정 만들기, 읽기, 업데이트 및 삭제 | B2C 사용자 흐름 특성 관리자 | 
 사용자 만들기, 읽기, 업데이트 및 삭제 | 사용자 관리자
-모든 구성 읽기 | 전역 판독기 | 
-B2C 감사 로그 읽기 | 전역 판독기 ([설명서 참조](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-faqs)) | 
+모든 구성 읽기 | 글로벌 리더 | 
+B2C 감사 로그 읽기 | 글로벌 리더[(설명서 참조)](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-faqs) | 
 
 > [!NOTE]
-> Azure AD B2C 전역 판독기에는 Azure AD 전역 관리자와 같은 권한이 없습니다. 전역 관리자 권한이 Azure AD B2C 경우 Azure AD 디렉터리가 아니라 Azure AD B2C 디렉터리에 있는지 확인 합니다.
+> Azure AD B2C 글로벌 독자는 Azure AD 전역 관리자와 동일한 권한을 갖지 않습니다. Azure AD B2C 글로벌 관리자 권한이 있는 경우 Azure AD B2C 디렉터리에 있고 Azure AD 디렉터리에 있는지 확인합니다.
 
 ## <a name="company-branding"></a>회사 브랜딩
 
@@ -77,7 +77,7 @@ Task | 최소 권한 역할 | 추가 역할
 Task | 최소 권한 역할 | 추가 역할
 ---- | --------------------- | ----------------
 통과 인증 | 전역 관리자 | 
-모든 구성 읽기 | 전역 판독기 | 
+모든 구성 읽기 | 글로벌 리더 | 
 원활한 Single Sign-On | 전역 관리자 | 
 
 ## <a name="connect-health"></a>Connect Health
@@ -126,8 +126,8 @@ BitLocker 키 읽기 | 보안 판독기 | 암호 관리자, 보안 관리자
 Task | 최소 권한 역할 | 추가 역할
 ---- | --------------------- | ----------------
 모든 위임된 권한에 동의 | 클라우드 애플리케이션 관리자 | 애플리케이션 관리자
-Microsoft Graph를 포함 하지 않는 응용 프로그램 권한에 동의 | 클라우드 애플리케이션 관리자 | 애플리케이션 관리자
-Microsoft Graph에 대 한 응용 프로그램 사용 권한에 동의 | 권한 있는 역할 관리자 | 
+Microsoft Graph를 포함하지 않는 응용 프로그램 권한에 대한 동의 | 클라우드 애플리케이션 관리자 | 애플리케이션 관리자
+Microsoft 그래프에 대한 응용 프로그램 권한에 대한 동의 | 권한 있는 역할 관리자 | 
 자체 데이터에 액세스하는 애플리케이션에 동의 | 기본 사용자 역할([설명서 참조](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 
 엔터프라이즈 애플리케이션 만들기 | 클라우드 애플리케이션 관리자 | 애플리케이션 관리자
 애플리케이션 프록시 관리 | 애플리케이션 관리자 | 
@@ -144,8 +144,8 @@ Single Sign-On 속성 업데이트 | 엔터프라이즈 애플리케이션 소�
 ## <a name="entitlement-management"></a>권한 관리
 Task | 최소 권한 역할 | 추가 역할
 ---- | --------------------- | ----------------
-카탈로그에 리소스 추가 | 사용자 관리자 | 권한 관리를 사용 하 여이 작업을 카탈로그 소유자에 게 위임할 수 있습니다 ([설명서 참조](../governance/entitlement-management-catalog-create.md#add-additional-catalog-owners)).
-카탈로그에 SharePoint Online 사이트 추가 | 전역 관리자
+카탈로그에 리소스 추가 | 사용자 관리자 | 권한 부여 관리를 사용하면 이 작업을 카탈로그 소유자에게 위임할 수[있습니다(설명서 참조).](../governance/entitlement-management-catalog-create.md#add-additional-catalog-owners)
+카탈로그에 SharePoint 온라인 사이트 추가 | 전역 관리자
 
 
 ## <a name="groups"></a>그룹
@@ -174,10 +174,10 @@ MFA 정책을 구성하고 설정/해제| 보안 관리자 |
 로그인 위험 정책을 구성하고 설정/해제| 보안 관리자 | 
 사용자 위험 정책을 구성하고 설정/해제 | 보안 관리자 | 
 주간 다이제스트 구성 | 보안 관리자| 
-모든 위험 검색 해제 | 보안 관리자 | 
+모든 위험 탐지 해제 | 보안 관리자 | 
 취약점 수정 또는 해결 | 보안 관리자 | 
 모든 구성 읽기 | 보안 판독기 | 
-모든 위험 검색 읽기 | 보안 판독기 | 
+모든 위험 탐지 읽기 | 보안 판독기 | 
 취약점 읽기 | 보안 판독기 | 
 
 ## <a name="licenses"></a>라이선스
@@ -226,18 +226,18 @@ Task | 최소 권한 역할 | 추가 역할
 전화 통화 설정 구성 | 전역 관리자 | 
 공급자 구성 | 전역 관리자 | 
 서버 설정 구성 | 전역 관리자 | 
-활동 보고서 읽기 | 전역 판독기 | 
-모든 구성 읽기 | 전역 판독기 | 
-서버 상태 읽기 | 전역 판독기 |  
+활동 보고서 읽기 | 글로벌 리더 | 
+모든 구성 읽기 | 글로벌 리더 | 
+서버 상태 읽기 | 글로벌 리더 |  
 
 ## <a name="organizational-relationships"></a>조직 관계
 
 Task | 최소 권한 역할 | 추가 역할
 ---- | --------------------- | ----------------
-ID 공급자 관리 | 외부 Id 공급자 관리자 | 
+ID 공급자 관리 | 외부 ID 공급자 관리자 | 
 설정 관리 | 전역 관리자 | 
 사용 약관 관리 | 전역 관리자 | 
-모든 구성 읽기 | 전역 판독기 | 
+모든 구성 읽기 | 글로벌 리더 | 
 
 ## <a name="password-reset"></a>암호 재설정
 
@@ -273,9 +273,9 @@ Azure AD 역할의 액세스 검토 읽기  | 보안 판독기 | 보안 관리�
 Task | 최소 권한 역할 | 추가 역할
 ---- | --------------------- | ----------------
 인증 방법 구성 | 전역 관리자 | 
-모든 구성 읽기 | 전역 판독기 | 
+모든 구성 읽기 | 글로벌 리더 | 
 
-## <a name="security---conditional-access"></a>보안-조건부 액세스
+## <a name="security---conditional-access"></a>보안 - 조건부 액세스
 
 Task | 최소 권한 역할 | 추가 역할
 ---- | --------------------- | ----------------
@@ -331,7 +331,7 @@ Task | 최소 권한 역할 | 추가 역할
 제한된 관리자의 새로 고침 토큰 무효화(설명서 참조) | 사용자 관리자 | 
 비 관리자의 새로 고침 토큰 무효화(설명서 참조) | 암호 관리자 | 사용자 관리자
 권한 있는 관리자의 새로 고침 토큰 무효화(설명서 참조) | 권한 있는 인증 관리자 | 
-기본 구성 읽기 | 기본 사용자 역할([설명서 참조](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 
+기본 구성 읽기 | 기본 사용자[역할(설명서 참조)](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions) | 
 제한된 관리자의 암호 재설정(설명서 참조) | 사용자 관리자 | 
 비 관리자의 암호 재설정(설명서 참조) | 암호 관리자 | 사용자 관리자
 권한 있는 관리자의 암호 재설정 | 권한 있는 인증 관리자 | 
@@ -342,13 +342,13 @@ Task | 최소 권한 역할 | 추가 역할
 사용자 설정 업데이트 | 전역 관리자 | 
 
 
-## <a name="support"></a>지원
+## <a name="support"></a>고객 지원팀
 
 Task | 최소 권한 역할 | 추가 역할
 ---- | --------------------- | ----------------
-지원 티켓 제출 | 서비스 관리자 | 응용 프로그램 관리자, Azure Information Protection 관리자, 대금 청구 관리자, 클라우드 응용 프로그램 관리자, 준수 관리자, Dynamics 365 관리자, 데스크톱 분석 관리자, Exchange 관리자, 암호 관리자, Intune 관리자, 비즈니스용 Skype 관리자, Power BI 관리자, 권한 있는 인증 관리자, SharePoint 관리자, 팀 통신 관리자, 팀 관리자, 사용자 관리자 작업 공간 분석 관리자
+지원 티켓 제출 | 서비스 관리자 | 응용 프로그램 관리자, Azure 정보 보호 관리자, 청구 관리자, 클라우드 응용 프로그램 관리자, 규정 준수 관리자, Dynamics 365 관리자, 데스크톱 분석 관리자, Exchange 관리자, 암호 관리자, Intune 관리자, 비즈니스 관리자용 Skype, Power BI 관리자, 권한 있는 인증 관리자, SharePoint 관리자, 팀 커뮤니케이션 관리자, 팀 관리자, 사용자 관리자, 직장 분석 관리자
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure AD 관리자 역할을 할당 또는 제거하는 방법](directory-manage-roles-portal.md)
+* [Azure AD 관리자 역할을 할당하거나 제거하는 방법](directory-manage-roles-portal.md)
 * [Azure AD 관리자 역할 참조](directory-assign-admin-roles.md)

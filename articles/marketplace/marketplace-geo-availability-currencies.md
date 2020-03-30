@@ -1,23 +1,22 @@
 ---
-title: 지리적 가용성 및 통화 지원 | Microsoft
-description: Azure Marketplace 및 AppSource의 지리적 가용성
-services: Azure, Marketplace, Compute, Storage, Networking
+title: 지리적 가용성 및 통화 지원 | Azure
+description: Azure 마켓플레이스 및 앱소스의 지리적 가용성
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/29/2020
-ms.author: ellacroi
-ms.openlocfilehash: f2369388f00f6a023ac77865ab8e3540bc35de70
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.author: dsindona
+ms.openlocfilehash: 79965180d897b91afc1fb1a27e777e385108d2c1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905679"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288430"
 ---
 # <a name="geographic-availability-and-currency-support"></a>지리적 가용성 및 통화 지원
 
-Azure Marketplace 및 AppSource 제품은 고객의 청구 주소에서 정의한 대로 141 지역에서 구매할 수 있으며, 트랜잭션은 17 통화로 완료할 수 있습니다. 아래 표에는 지원 되는 각 지리적 위치, [ISO 3166 2 자리의 알파 코드](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)및 할당 된 통화가 나열 되어 있습니다.
+Azure Marketplace 및 AppSource 제품은 고객의 청구 주소에 정의된 대로 141개 지역에서 구매할 수 있으며 트랜잭션은 17개 통화로 완료할 수 있습니다. 아래 표에는 지원되는 각 지리적 위치, [ISO 3166 두 자리 알파 코드](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)및 할당된 통화가 나열되어 있습니다.
 
 |   국가/지역 이름               |   ISO-2   |   통화   |
 |-------------------------------------|-----------|--------------|
@@ -45,18 +44,18 @@ Azure Marketplace 및 AppSource 제품은 고객의 청구 주소에서 정의�
 | 브루나이                              | BN        | USD          |
 | 불가리아                            | BG        | EUR          |
 | 카메룬                            | CM        | USD          |
-| 캐나다                              | CA        | CAD          |
+| Canada                              | CA        | CAD          |
 | 카보베르데                          | CV        | USD          |
 | 케이맨 제도                      | KY        | USD          |
 | 칠레                               | CL        | USD          |
-| 중국\**                            | CN        | N/A          |
+| 중국\**                            | CN        | 해당 없음          |
 | 콜롬비아                            | CO        | USD          |
 | 코스타리카                          | CR        | USD          |
 | 코트디부아르                       | CI        | USD          |
 | 크로아티아                             | HR        | EUR          |
-| 퀴라소                             | CW        | USD          |
+| 퀴라소                             | Cw        | USD          |
 | 키프로스                              | CY        | EUR          |
-| 체코 공화국                      | CZ        | EUR          |
+| 체코                      | CZ        | EUR          |
 | 덴마크                             | DK        | DKK          |
 | 도미니카 공화국                  | DO        | USD          |
 | 에콰도르                             | EC        | USD          |
@@ -88,7 +87,7 @@ Azure Marketplace 및 AppSource 제품은 고객의 청구 주소에서 정의�
 | 요르단                              | JO        | USD          |
 | 카자흐스탄                          | KZ        | USD          |
 | 케냐                               | KE        | USD          |
-| 대한민국 (남부)                       | KR        | KRW          |
+| 대한민국 (대한민국)                       | KR        | KRW          |
 | 쿠웨이트                              | KW        | USD          |
 | 키르기스스탄                          | KG        | USD          |
 | 라트비아                              | LV        | EUR          |
@@ -136,7 +135,7 @@ Azure Marketplace 및 AppSource 제품은 고객의 청구 주소에서 정의�
 | 싱가포르                           | SG        | USD          |
 | 슬로바키아                            | SK        | EUR          |
 | 슬로베니아                            | SI        | EUR          |
-| 남아프리카 공화국                        | ZA        | USD          |
+| 남아프리카                        | ZA        | USD          |
 | 스페인                               | ES        | EUR          |
 | 스리랑카                           | LK        | USD          |
 | 스웨덴                              | SE        | SEK          |
@@ -149,13 +148,13 @@ Azure Marketplace 및 AppSource 제품은 고객의 청구 주소에서 정의�
 | 튀니지                             | TN        | USD          |
 | 터키                              | TR        | USD          |
 | 투르크메니스탄                        | TM        | USD          |
-| 바티칸 시티 (성 참조)             | VA        | EUR          |
-| 미국령 버진아일랜드 | VI        | USD          |
+| 바티칸 시국 (거룩한 참조)             | VA        | EUR          |
+| 미국령 버진 아일랜드 | VI        | USD          |
 | 우간다                              | UG        | USD          |
 | 우크라이나                             | UA        | USD          |
 | 아랍에미리트                | AE        | USD          |
-| 영국                      | GB        | GBP          |
-| 미국                       | 미국        | USD          |
+| United Kingdom                      | GB        | GBP          |
+| 미국                       | US        | USD          |
 | 우루과이                             | UY        | USD          |
 | 우즈베키스탄                          | UZ        | USD          |
 | 베네수엘라                           | VE        | USD          |
@@ -165,6 +164,6 @@ Azure Marketplace 및 AppSource 제품은 고객의 청구 주소에서 정의�
 | 짐바브웨                            | ZW        | USD          |
 |   |   |   |
 
-브라질의 고객을 위한 \*, CSP (클라우드 솔루션 공급자)를 통한 Marketplace에서는 USD를 사용 합니다.
+\*브라질 고객의 경우 CSP(클라우드 솔루션 공급자)를 통한 마켓플레이스에서 USD를 사용합니다.
 
-\* Free 및 BYOL VM 이미지만 \*합니다.
+\** 무료 및 BYOL VM 이미지만.

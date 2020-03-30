@@ -1,19 +1,18 @@
 ---
-title: Azure Marketplace에서 기존 VM 제품 업데이트
+title: Azure 마켓플레이스에서 기존 VM 오퍼 업데이트
 description: Azure Marketplace에서 기존 VM 제안을 업데이트하는 방법을 설명합니다.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: MaggiePucciEvans
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/27/2018
-ms.author: evansma
-ms.openlocfilehash: 1ba2abb3fbeb1d08ed780669fb94a2ef83cbfb1b
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.author: dsindona
+ms.openlocfilehash: fe1397d7ad00a2eb6e9fe04d8bfa50e49839fe34
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934238"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288787"
 ---
 # <a name="update-an-existing-vm-offer-on-azure-marketplace"></a>Azure Marketplace에서 기존 VM 제안 업데이트
 
@@ -30,7 +29,7 @@ ms.locfileid: "75934238"
 이러한 수정 작업을 지원하기 위해 포털에서 **비교** 및 **기록** 기능을 제공합니다.  
 
 >[!Note]
->이제 CSP (클라우드 솔루션 공급자) 파트너 채널 옵트인을 사용할 수 있습니다.  Microsoft CSP 파트너 채널을 통한 제품 마케팅에 대 한 자세한 내용은 [클라우드 솔루션 공급자](../../cloud-solution-providers.md) 를 참조 하세요.
+>이제 CSP(클라우드 솔루션 공급자) 파트너 채널 옵트인을 사용할 수 있습니다.  Microsoft CSP 파트너 채널을 통한 오퍼 마케팅에 대한 자세한 내용은 [클라우드 솔루션 공급자를](../../cloud-solution-providers.md) 참조하십시오.
 
 ## <a name="unpermitted-changes-to-vm-offer-or-sku"></a>VM 제안 또는 SKU에 허용되지 않는 변경
 
@@ -76,7 +75,7 @@ VM 제안에서 변경할 수 있는 특성은 다양하지만 일반적인 작�
 
 1.  [Cloud 파트너 포털](https://cloudpartner.azure.com/)에 로그인합니다.
 
-2.  **모든 제안** 아래에서 업데이트하려는 제안을 찾습니다.
+2.  **모든 제안에서** 업데이트하려는 제안을 찾을 수 있습니다.
 
 3.  **SKU** 탭에서 가용성을 수정하려는 SKU를 클릭합니다.
 
@@ -95,7 +94,7 @@ VM 제안에서 변경할 수 있는 특성은 다양하지만 일반적인 작�
 
 1.  [Cloud 파트너 포털](https://cloudpartner.azure.com/)에 로그인합니다.
 
-2.  **모든 제안** 아래에서 업데이트하려는 제안을 찾습니다.
+2.  **모든 제안에서** 업데이트하려는 제안을 찾을 수 있습니다.
 
 3.  **SKU** 탭 아래에서 **새 SKU 추가**를 클릭하고, 팝업에서 **SKU ID**를 제공합니다.
 
@@ -110,7 +109,7 @@ VM 제안에서 변경할 수 있는 특성은 다양하지만 일반적인 작�
 
 1.  [Cloud 파트너 포털](https://cloudpartner.azure.com/)에 로그인합니다.
 
-2.  **모든 제안** 아래에서 업데이트하려는 제안을 찾습니다.
+2.  **모든 제안에서** 업데이트하려는 제안을 찾을 수 있습니다.
 
 3.  **Marketplace** 탭으로 이동한 다음, 문서 [Azure Marketplace에 가상 머신 게시](./cpp-publish-offer.md)의 지침에 따라 메타데이터를 변경합니다.
 
@@ -119,7 +118,7 @@ VM 제안에서 변경할 수 있는 특성은 다양하지만 일반적인 작�
 
 ### <a name="update-pricing-on-published-offers"></a>게시된 제안 가격 업데이트
 
-종량제 제안이 게시되면 SKU 가격을 직접 높일 수 없습니다.  (그러나 동일한 제품에서 새 SKU를 만들고 이전 SKU를 삭제 한 다음 새 고객을 위해 제품을 다시 게시할 수 있습니다.)  반면, 다음 단계에 따라 게시 된 제품의 가격을 낮출 수 있습니다.
+종량제 제안이 게시되면 SKU 가격을 직접 높일 수 없습니다.  그러나 동일한 오퍼에서 새 SKU를 만들고 이전 SKU를 삭제한 다음 새 고객을 위해 제품을 다시 게시할 수 있습니다.  반대로 다음 단계를 사용하여 게시된 제품의 가격을 낮출 수 있습니다.
 
 1.  [Cloud 파트너 포털](https://cloudpartner.azure.com/)에 로그인합니다.
 
@@ -145,7 +144,7 @@ VM 제안에서 변경할 수 있는 특성은 다양하지만 일반적인 작�
 
 2018년 9월 1일부터 **간소화된 통화 가격 책정**이라는 새 섹션이 포털에 추가됩니다. Microsoft는 전 세계 고객으로부터의 더욱 예측 가능한 가격 책정 및 요금 징수 방식을 사용하여 Azure Marketplace 비즈니스를 간소화하고 있습니다. 이 간소화에는 고객에게 발급되는 송장의 통화 단위 수를 줄이는 작업이 포함됩니다.
 
-새로운 섹션에서 가격은 이러한 새 통화로 책정됩니다. 모든 고객이 이러한 새 정착지 통화로 마이그레이션된 후에는 원래 가격 책정 섹션이 사용 중지 되며 단순화 된 통화 가격 책정 섹션만 유지 됩니다.
+새로운 섹션에서 가격은 이러한 새 통화로 책정됩니다.모든 고객이 이러한 새 결제 통화로 마이그레이션되면 원래 가격 책정 섹션은 더 이상 사용되지 않고 간소화된 통화 가격 책정 섹션만 유지됩니다.
 
 결제 통화가 변경되는 지역에 대한 새로운 가격은 2018년 11월 1일까지 설정해야 합니다. 결제 통화가 변경되지 않는 지역에 대한 가격은 인상할 수 없습니다.
 

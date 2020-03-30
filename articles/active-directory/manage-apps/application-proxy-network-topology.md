@@ -1,5 +1,5 @@
 ---
-title: Azure AD 응용 프로그램 프록시에 대 한 네트워크 토폴로지 고려 사항
+title: Azure AD 응용 프로그램 프록시에 대한 네트워크 토폴로지 고려 사항
 description: Azure AD 애플리케이션 프록시를 사용할 때 네트워크 토폴로지 고려 사항을 다룹니다.
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 075b2c92168afe0c366608266c38b14394b73cff
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: eaceaf1f5e9b6e34ced5db39b61e607fffcb5953
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79244278"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80295130"
 ---
 # <a name="network-topology-considerations-when-using-azure-active-directory-application-proxy"></a>Azure Active Directory 애플리케이션 프록시를 사용할 때 네트워크 토폴로지 고려 사항
 
@@ -39,9 +39,9 @@ Azure AD 애플리케이션 프록시를 통해 애플리케이션을 게시할 
 
 ## <a name="tenant-location-and-application-proxy-service"></a>테넌트 위치 및 애플리케이션 프록시 서비스
 
-Azure AD 테 넌 트에 등록할 때 테 넌 트의 지역은 지정 하는 국가/지역에 따라 결정 됩니다. 애플리케이션 프록시를 사용하도록 설정하면 테넌트에 대한 애플리케이션 프록시 서비스 인스턴스가 Azure AD 테넌트와 동일한 지역이나 가장 가까운 지역에서 선택되거나 만들어집니다.
+Azure AD 테넌트에 등록하면 테넌트의 지역은 지정한 국가/지역에 따라 결정됩니다. 애플리케이션 프록시를 사용하도록 설정하면 테넌트에 대한 애플리케이션 프록시 서비스 인스턴스가 Azure AD 테넌트와 동일한 지역이나 가장 가까운 지역에서 선택되거나 만들어집니다.
 
-예를 들어 Azure AD 테넌트의 국가 또는 지역이 영국인 경우 모든 애플리케이션 프록시 커넥터는 EU 데이터 센터의 서비스 인스턴스를 사용합니다. 사용자가 게시된 애플리케이션에 액세스할 때 해당 트래픽은 이러한 위치의 애플리케이션 프록시 서비스 인스턴스를 통과합니다.
+예를 들어 Azure AD 테넌트의 국가 또는 지역이 영국인 경우 모든 응용 프로그램 프록시 커넥터는 유럽 데이터 센터에서 서비스 인스턴스를 사용합니다. 사용자가 게시된 애플리케이션에 액세스할 때 해당 트래픽은 이러한 위치의 애플리케이션 프록시 서비스 인스턴스를 통과합니다.
 
 ## <a name="considerations-for-reducing-latency"></a>대기 시간 단축을 위한 고려 사항
 
@@ -86,7 +86,7 @@ Azure 및 회사 네트워크 간에 전용 VPN 또는 ExpressRoute가 있는 �
 
 도메인 컨트롤러에 대한 가시선이 커넥터에 필요한 경우 이 패턴이 유리합니다. 대부분의 시나리오에 적합하기 때문에 대부분의 고객이 이 패턴을 사용합니다. 이 패턴을 패턴 2와 조합하여 서비스와 커넥터 사이의 트래픽을 최적화할 수도 있습니다.
 
-### <a name="pattern-2-take-advantage-of-expressroute-with-microsoft-peering"></a>패턴 2: Microsoft 피어 링으로 Express 경로 활용
+### <a name="pattern-2-take-advantage-of-expressroute-with-microsoft-peering"></a>패턴 2: 마이크로소프트 피어링으로 익스프레스 루트 활용
 
 Microsoft 피어링이 있는 ExpressRoute를 설정한 경우 애플리케이션 프록시와 커넥터 간 트래픽에 대해 더 빨라진 ExpressRoute 연결을 사용할 수 있습니다. 커넥터는 여전히 네트워크에서 앱에 가까운 위치를 유지합니다.
 
@@ -124,7 +124,7 @@ Azure 및 회사 네트워크 간에 프라이빗 피어링이 있는 전용 VPN
 
 이것은 단순한 패턴입니다. 커넥터를 앱 가까이에 배치하여 홉 3을 최적화합니다. 일반적으로 커넥터는 KCD 작업을 수행하기 위해 앱과 데이터 센터에 대한 시야를 사용하여 설치되므로 자연스러운 선택이기도 합니다.
 
-![사용자, 프록시, 커넥터 및 앱이 모두 미국에 있음을 보여 주는 다이어그램](./media/application-proxy-network-topology/application-proxy-pattern1.png)
+![사용자, 프록시, 커넥터 및 앱을 모두 보여 주는 다이어그램이 모두 미국에 있습니다.](./media/application-proxy-network-topology/application-proxy-pattern1.png)
 
 ### <a name="use-case-2"></a>사용 사례 2
 
@@ -134,7 +134,7 @@ Azure 및 회사 네트워크 간에 프라이빗 피어링이 있는 전용 VPN
 
 일반적인 패턴은 홉 3을 최적화하는 것이며, 이 경우 커넥터를 앱 근처에 배치합니다. 홉 3이 모두 동일한 지역에 있는 경우 일반적으로 비용이 많이 들지 않습니다. 하지만 전 세계의 사용자가 미국에 있는 애플리케이션 프록시 인스턴스에 액세스하므로 홉 1은 사용자 위치에 따라 비용이 더 높을 수 있습니다. 모든 프록시 솔루션은 전 세계에 분산된 사용자에 따라 유사한 특성을 포함한다는 것에 주목해야 합니다.
 
-![사용자는 전 세계에 분산 되어 있지만 다른 모든 항목은 미국에 있습니다.](./media/application-proxy-network-topology/application-proxy-pattern2.png)
+![사용자는 전 세계적으로 확산되지만 다른 모든 사용자는 미국에 있습니다.](./media/application-proxy-network-topology/application-proxy-pattern2.png)
 
 ### <a name="use-case-3"></a>사용 사례 3
 
@@ -158,19 +158,19 @@ ExpressRoute 프라이빗 피어링을 통해 회사 네트워크에 연결된 A
 
 커넥터를 Azure 데이터 센터에 배치할 수 있습니다. 커넥터가 프라이빗 네트워크를 통해 애플리케이션 및 데이터 센터에 대한 가시권을 계속 확보하므로 홉 3은 최적화된 상태로 유지됩니다. 또한 홉 2는 더욱 최적화됩니다.
 
-![Azure 데이터 센터의 커넥터, 커넥터와 앱 간 Express 경로](./media/application-proxy-network-topology/application-proxy-pattern4.png)
+![Azure 데이터 센터의 커넥터, 커넥터와 앱 사이의 ExpressRoute](./media/application-proxy-network-topology/application-proxy-pattern4.png)
 
 ### <a name="use-case-5"></a>사용 사례 5
 
-**시나리오:** 앱은 EU의 조직 네트워크에 있고 애플리케이션 프록시 인스턴스와 대부분의 사용자는 미국에 있습니다.
+**시나리오:** 응용 프로그램은 응용 프로그램 프록시 인스턴스와 미국의 대부분의 사용자와 유럽의 조직의 네트워크에 있습니다.
 
 **권장 사항:** 커넥터를 앱 가까이 배치합니다. 미국 사용자는 동일한 지역에 있는 애플리케이션 프록시 인스턴스에 액세스하므로 홉 1의 비용은 그다지 비싸지 않습니다. 홉 3이 최적화됩니다. ExpressRoute를 사용하여 홉 2를 최적화하는 것이 좋습니다.
 
-![다이어그램은 EU의 미국, 커넥터 및 앱에서 사용자 및 프록시를 보여줍니다.](./media/application-proxy-network-topology/application-proxy-pattern5b.png)
+![다이어그램은 유럽의 미국, 커넥터 및 앱의 사용자와 프록시를 보여줍니다.](./media/application-proxy-network-topology/application-proxy-pattern5b.png)
 
-이 상황에서 다른 한 가지 변수를 사용하도록 고려할 수 있습니다. 조직에 있는 대부분 사용자가 미국에 있는 경우 네트워크가 미국으로도 확장될 가능성이 있습니다. 커넥터를 미국에 배치하고, 전용 내부 회사 네트워크 회선을 유럽에 있는 애플리케이션에 사용할 수 있습니다. 이 방식으로 홉 2와 3이 최적화됩니다.
+이 상황에서 다른 한 가지 변수를 사용하도록 고려할 수 있습니다. 조직에 있는 대부분 사용자가 미국에 있는 경우 네트워크가 미국으로도 확장될 가능성이 있습니다. 미국에 커넥터를 배치하고 전용 내부 회사 네트워크 회선을 유럽의 응용 프로그램에 사용합니다. 이 방식으로 홉 2와 3이 최적화됩니다.
 
-![다이어그램은 미국, 유럽의 앱에서 사용자, 프록시 및 커넥터를 보여줍니다.](./media/application-proxy-network-topology/application-proxy-pattern5c.png)
+![다이어그램은 미국의 사용자, 프록시 및 커넥터, 유럽의 앱을 보여줍니다.](./media/application-proxy-network-topology/application-proxy-pattern5c.png)
 
 ## <a name="next-steps"></a>다음 단계
 

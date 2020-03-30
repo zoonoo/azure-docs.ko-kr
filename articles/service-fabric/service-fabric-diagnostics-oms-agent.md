@@ -1,23 +1,23 @@
 ---
-title: Azure Monitor 로그를 사용 하 여 성능 모니터링
+title: Azure 모니터 로그를 통해 성능 모니터링
 description: Azure Service Fabric 클러스터의 컨테이너 및 성능 카운터를 모니터링하기 위해 Log Analytics 에이전트를 설정하는 방법에 대해 알아보세요.
 author: srrengar
 ms.topic: conceptual
 ms.date: 04/16/2018
 ms.author: srrengar
 ms.openlocfilehash: c3c1bf511f3313e7408d6ce90b73de60bd1309f7
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79366748"
 ---
-# <a name="performance-monitoring-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용 하 여 성능 모니터링
+# <a name="performance-monitoring-with-azure-monitor-logs"></a>Azure 모니터 로그를 통해 성능 모니터링
 
 이 문서에서는 Log Analytics 에이전트를 가상 머신 확장 집합의 확장 기능으로 클러스터에 추가하고 이를 기존의 Azure Log Analytics 작업 영역에 연결하는 단계를 설명합니다. 이를 통해 컨테이너, 애플리케이션 및 성능 모니터링에 대한 진단 데이터를 수집할 수 있습니다. 이것을 가상 머신 확장 집합 리소스에 확장으로 추가하면 Azure Resource Manager는 클러스터 크기 조정 시에도 해당 항목이 모든 노드에 설치되도록 보장합니다.
 
 > [!NOTE]
-> 이 문서는 Azure Log Analytics 작업 영역이 이미 설정되었다고 가정합니다. 그렇지 않으면 [Azure Monitor 로그 설정](service-fabric-diagnostics-oms-setup.md) 으로 이동 합니다.
+> 이 문서는 Azure Log Analytics 작업 영역이 이미 설정되었다고 가정합니다. 그렇지 않은 경우 Azure [모니터 로그 설정으로 이동하십시오.](service-fabric-diagnostics-oms-setup.md)
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -27,13 +27,13 @@ Log Analytics 에이전트를 클러스터에 추가하는 가장 좋은 방법�
 
 1. Cloud Shell이 요청되면 리소스와 동일한 구독에서 작업 중인지 확인합니다. `az account show`로 이를 확인하여 "name" 값이 클러스터 구독의 값과 일치하는지 확인합니다.
 
-2. 포털에서 Log Analytics 작업 영역이 있는 리소스 그룹으로 이동합니다. Log analytics 리소스를 클릭 합니다 (리소스의 유형은 작업 영역 Log Analytics 됨). 리소스 개요 페이지에서 왼쪽 메뉴의 설정 섹션 아래에 있는 **고급 설정**을 클릭합니다.
+2. 포털에서 Log Analytics 작업 영역이 있는 리소스 그룹으로 이동합니다. 로그 분석 리소스를 클릭합니다(리소스 유형은 Log Analytics 작업 영역이 됩니다). 리소스 개요 페이지에서 왼쪽 메뉴의 설정 섹션 아래에 있는 **고급 설정**을 클릭합니다.
 
-    ![Log analytics 속성 페이지](media/service-fabric-diagnostics-oms-agent/oms-advanced-settings.png)
+    ![로그 분석 속성 페이지](media/service-fabric-diagnostics-oms-agent/oms-advanced-settings.png)
 
 3. Windows 클러스터를 준비하는 경우 **Windows 서버**를 클릭하고 Linux 클러스터를 만드는 경우 **Linux 서버**를 클릭합니다. 이 페이지에는 `workspace ID` 및 `workspace key`(포털에 기본 키로 나열됨)가 표시됩니다. 두 가지 모두 다음 단계에서 필요합니다.
 
-4. `vmss extension set` API를 사용 하 여 클러스터에 Log Analytics 에이전트를 설치 하려면 명령을 실행 합니다.
+4. `vmss extension set` API를 사용하여 로그 분석 에이전트를 클러스터에 설치하려면 명령을 실행합니다.
 
     Windows 클러스터의 경우:
 
@@ -92,5 +92,5 @@ Log Analytics 에이전트를 추가했으니, Log Analytics 포털로 이동하
 ## <a name="next-steps"></a>다음 단계
 
 * 관련 [성능 카운터](service-fabric-diagnostics-event-generation-perf.md)를 수집합니다. Log Analytics 에이전트를 구성하여 특정 성능 카운터를 수집하려면 [데이터 원본 구성](../azure-monitor/platform/agent-data-sources.md#configuring-data-sources)을 검토합니다.
-* 검색 및 진단에 도움이 되는 [자동 경고](../log-analytics/log-analytics-alerts.md) 를 설정 하도록 Azure Monitor 로그 구성
+* Azure Monitor 로그를 구성하여 [자동 경고를](../log-analytics/log-analytics-alerts.md) 설정하여 검색 및 진단에 도움을 주도록 합니다.
 * 또는 [Azure Diagnostics 확장을 통해 성능 카운터를 수집하여 Application Insights](service-fabric-diagnostics-event-aggregation-wad.md#add-the-application-insights-sink-to-the-resource-manager-template)에 보낼 수 있습니다.

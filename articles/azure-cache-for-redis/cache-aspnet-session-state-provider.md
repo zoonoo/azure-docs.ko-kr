@@ -1,17 +1,17 @@
 ---
 title: 캐시 ASP.NET 세션 상태 제공자
-description: Redis 용 Azure Cache를 사용 하 여 메모리 내에 ASP.NET 세션 상태를 저장 하는 방법에 대해 알아봅니다.
+description: Redis에 대한 Azure 캐시를 사용하여 세션 상태 ASP.NET 메모리에 저장하는 방법에 대해 알아봅니다.
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 05/01/2017
-ms.openlocfilehash: 5c9af862ca2df3d812384c0f4ab660730aece872
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 25cef95e2d01012506148f03be45104e455e1fcd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433551"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79530277"
 ---
 # <a name="aspnet-session-state-provider-for-azure-cache-for-redis"></a>Azure Cache for Redis에 대한 ASP.NET 세션 상태 제공자
 
@@ -31,7 +31,7 @@ Install-Package Microsoft.Web.RedisSessionStateProvider
 ```
 
 > [!IMPORTANT]
-> 프리미엄 계층에서 클러스터링 기능을 사용하는 경우 [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.1 이상을 사용하지 않으면 예외가 throw됩니다. 2\.0.1 이상 버전으로 이동하는 주요 변경 내용입니다. 자세한 내용은 [v2.0.0 주요 변경 세부 사항](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details)을 참조하세요. 이 문서를 업데이트할 당시 이 패키지의 현재 버전은 2.2.3입니다.
+> 프리미엄 계층에서 클러스터링 기능을 사용하는 경우 [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.1 이상을 사용하지 않으면 예외가 throw됩니다. 2.0.1 이상 버전으로 이동하는 주요 변경 내용입니다. 자세한 내용은 [v2.0.0 주요 변경 세부 사항](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details)을 참조하세요. 이 문서를 업데이트할 당시 이 패키지의 현재 버전은 2.2.3입니다.
 > 
 > 
 
@@ -125,6 +125,11 @@ Web.config 파일에서 표준 InProc 세션 상태 제공자 섹션을 주석�
 * Azure Cache for Redis 세션 상태 제공자와 같은 배포된 메모리 내 세션 상태 제공자 - 이 공급자는 두 분야의 모든 장점을 제공합니다. Web App에는 빠르고 간단하며 확장성 있는 세션 상태 제공자가 있을 수 있습니다. 이 제공자가 캐시에서 세션 상태를 저장하기 때문에 앱이 일시적인 네트워크 오류와 같은 분산된 메모리 내 캐시와 통신할 때 관련된 모든 특성을 고려해야 합니다. 캐시 사용의 모범 사례는 Microsoft Patterns &amp; Practices [Azure 클라우드 애플리케이션 설계 및 구현 지침](https://github.com/mspnp/azure-guidance)에서 [캐싱 지침](../best-practices-caching.md)을 참조하세요.
 
 세션 상태 및 기타 모범 사례에 대한 자세한 내용은 [웹 개발 모범 사례(Azure를 사용하는 실제 클라우드 앱 빌드)](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices)를 참조하세요.
+
+## <a name="third-party-session-state-providers"></a>타사 세션 상태 공급자
+
+* [N캐시 (주)](https://www.alachisoft.com/ncache/session-index.html)
+* [아파치 점화](https://apacheignite-net.readme.io/docs/aspnet-session-state-caching)
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Cloud Shell 빠른 시작-Bash
-description: Azure Cloud Shell를 사용 하 여 브라우저에서 Bash 명령줄을 사용 하는 방법을 알아봅니다.
+title: Azure 클라우드 셸 빠른 시작 - Bash
+description: Azure 클라우드 셸을 사용하여 브라우저에서 Bash 명령줄을 사용하는 방법에 대해 알아봅니다.
 author: maertendMSFT
 manager: timlt
 tags: azure-resource-manager
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: damaerte
-ms.openlocfilehash: 574841b3a89385a3b8bf048d5ed36f40fac99a83
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 58d795a5aee79e4149864a79a923ce34950b31d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79252130"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79458072"
 ---
 # <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Azure Cloud Shell의 Bash에 대한 빠른 시작
 
@@ -25,7 +25,7 @@ ms.locfileid: "79252130"
 > [Azure Cloud Shell의 PowerShell](quickstart-powershell.md) 빠른 시작도 사용할 수 있습니다.
 
 ## <a name="start-cloud-shell"></a>Cloud Shell 시작
-1. Azure Portal의 위쪽 탐색 모음에서 **Cloud Shell**을 시작합니다. <br>
+1. Azure 포털의 맨 위 탐색에서 **클라우드 셸을** 시작합니다. <br>
 ![](media/quickstart/shell-icon.png)
 
 2. 구독을 선택하여 스토리지 계정 및 Microsoft Azure Files 공유를 만듭니다.
@@ -85,7 +85,7 @@ SSH 연결을 설정할 때 Ubuntu 시작 프롬프트가 표시되어야 합니
 
 ## <a name="cleaning-up"></a>정리 
 1. SSH 세션을 종료합니다.
-   ```azurecli-interactive
+   ```
    exit
    ```
 
