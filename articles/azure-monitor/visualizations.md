@@ -5,65 +5,18 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/24/2018
-ms.openlocfilehash: 7bace6ff6eb7dd1c02e4907e338fc0be9d66471c
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.date: 03/17/2020
+ms.openlocfilehash: 877616f6fd31bdfbe193bd8f03efb3f79317ad42
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79274113"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79535372"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Azure Monitor의 데이터 시각화
 이 문서에서는 Azure Monitor에 저장된 로그 및 메트릭 데이터를 시각화하는 데 사용할 수 있는 방법을 요약해서 보여 줍니다.
 
 차트 및 그래프와 같은 시각화는 모니터링 데이터를 분석하여 문제에 대해 드릴다운하고 패턴을 식별하는 데 도움이 될 수 있습니다. 사용하는 도구에 따라 조직 내부 및 외부의 다른 사용자와 시각화를 공유하는 옵션이 제공될 수도 있습니다.
-
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
-
-## <a name="azure-dashboards"></a>Azure 대시보드
-[Azure 대시보드](../azure-portal/azure-portal-dashboards.md)는 Azure의 주요 대시보드 기술입니다. 중요한 문제를 빠르게 파악할 수 있는 Azure 인프라 및 서비스에 대한 단일 창을 제공하는 점에서 특히 유용합니다.
-
-![대시보드](media/visualizations/dashboard.png)
-
-### <a name="advantages"></a>장점
-- Azure에 긴밀하게 통합됩니다. 시각화는 메트릭 탐색기, Log Analytics 및 Application Insights를 비롯 한 여러 Azure 페이지에서 대시보드에 고정 될 수 있습니다.
-- 메트릭 및 로그를 둘 다 지원합니다.
-- [메트릭 탐색기](platform/metrics-charts.md), [로그 쿼리](log-query/log-query-overview.md), Application Insights의 [맵](app/app-map.md) 및 가용성의 출력을 포함 하 여 여러 소스의 데이터를 결합 합니다.
-- 개인 또는 공유 대시보드 옵션을 제공합니다. Azure [역할 기반 인증(RBAC)](../role-based-access-control/overview.md)과 통합됩니다.
-- 자동으로 새로 고침됩니다. 메트릭 새로 고침은 시간 범위에 따라 달라지며, 시간 범위는 최소 5분입니다. 지정 된 시각화에서 "새로 고침" 아이콘을 클릭 하거나 전체 대시보드를 새로 고쳐 요청 시 수동 새로 고침 옵션을 사용 하 여 매시간 로그를 새로 고칩니다.
-- 타임스탬프 및 사용자 지정 매개 변수로 메트릭 대시보드가 매개 변수화됩니다.
-- 유연한 레이아웃 옵션을 제공합니다.
-- 전체 화면 모드를 제공합니다.
-
-
-### <a name="limitations"></a>제한 사항
-- 데이터 테이블이 지원되지 않으므로 로그 시각화를 제한적으로만 제어할 수 있습니다. 총 데이터 계열 수는 10개로 제한되며 추가 데이터 계열은 _다른_ 버킷 아래에서 그룹화됩니다.
-- 로그 차트에는 사용자 지정 매개 변수가 지원되지 않습니다.
-- 로그 차트는 최근 30일로 제한됩니다.
-- 로그 차트는 공유 대시보드에만 고정할 수 있습니다.
-- 대시보드 데이터의 대화형 작업은 지원되지 않습니다.
-- 상황별 드릴다운이 제한됩니다.
-
-## <a name="azure-monitor-views"></a>Azure Monitor 뷰
-[Azure Monitor의 뷰](platform/view-designer.md)를 통해 로그 데이터로 사용자 지정 시각화를 만들 수 있습니다. [모니터링 솔루션](insights/solutions.md)에서 수집한 데이터를 표시하는 데 사용됩니다.
-
-![보기](media/visualizations/view.png)
-
-### <a name="advantages"></a>장점
-- 로그 데이터를 다양하게 시각화할 수 있습니다.
-- 뷰를 내보내고 가져오는 방법을 통해 다른 리소스 그룹 및 구독으로 전송합니다.
-- 작업 영역 및 모니터링 솔루션을 사용하여 Azure Monitor 관리 모델로 통합합니다.
-- 사용자 지정 매개 변수에 대해 [필터링](platform/view-designer-filters.md)할 수 있습니다.
-- 대화형이며, 여러 수준의 드릴인(다른 뷰로 드릴하는 뷰)을 지원합니다.
-
-### <a name="limitations"></a>제한 사항
-- 로그는 지원되지만 메트릭은 지원되지 않습니다.
-- 개인 뷰가 없습니다. 작업 영역에 액세스할 수 있는 모든 사용자가 사용할 수 있습니다.
-- 자동으로 새로 고침되지 않습니다.
-- 제한된 레이아웃 옵션을 제공합니다.
-- 여러 작업 영역 또는 Application Insights 애플리케이션에서 쿼리가 지원되지 않습니다.
-- 쿼리 응답 크기는 8MB, 쿼리 실행 시간은 110초로 제한됩니다.
-
 
 ## <a name="workbooks"></a>통합 문서
 [통합 문서](../azure-monitor/app/usage-workbooks.md)는 팀 내 데이터, 조사, 협업에 대한 깊이 있는 인사이트를 제공하는 대화형 문서입니다. 통합 문서가 효율적으로 활용되는 구체적인 예는 문제 해결 가이드 및 인시던트 사후 검토에 나와 있습니다.
@@ -81,6 +34,31 @@ ms.locfileid: "79274113"
 ### <a name="limitations"></a>제한 사항
 - 자동으로 새로 고침되지 않습니다.
 - 대시보드 같은 덴스 레이아웃이 없으므로 단일 창과 같이 통합 문서의 유용성을 낮춥니다. 더 심층적인 인사이트를 제공하기 위한 것입니다.
+
+
+## <a name="azure-dashboards"></a>Azure 대시보드
+[Azure 대시보드](../azure-portal/azure-portal-dashboards.md)는 Azure의 주요 대시보드 기술입니다. 중요한 문제를 빠르게 파악할 수 있는 Azure 인프라 및 서비스에 대한 단일 창을 제공하는 점에서 특히 유용합니다.
+
+![대시보드](media/visualizations/dashboard.png)
+
+### <a name="advantages"></a>장점
+- Azure에 긴밀하게 통합됩니다. 시각화는 메트릭 탐색기, 로그 분석 및 응용 프로그램 인사이트를 비롯한 여러 Azure 페이지의 대시보드에 고정할 수 있습니다.
+- 메트릭 및 로그를 둘 다 지원합니다.
+- [메트릭 탐색기](platform/metrics-charts.md), [로그 쿼리](log-query/log-query-overview.md), Application Insights의 [맵](app/app-map.md)과 가용성 출력을 비롯한 여러 출처의 데이터를 결합할 수 있습니다.
+- 개인 또는 공유 대시보드 옵션을 제공합니다. Azure [역할 기반 인증(RBAC)](../role-based-access-control/overview.md)과 통합됩니다.
+- 자동으로 새로 고침됩니다. 메트릭 새로 고침은 시간 범위에 따라 달라지며, 시간 범위는 최소 5분입니다. 지정된 시각화에서 "새로 고침" 아이콘을 클릭하거나 전체 대시보드를 새로 고쳐 요청 시 수동 새로 고침 옵션을 통해 매시간 로그 새로 고쳐집니다.
+- 타임스탬프 및 사용자 지정 매개 변수로 메트릭 대시보드가 매개 변수화됩니다.
+- 유연한 레이아웃 옵션을 제공합니다.
+- 전체 화면 모드를 제공합니다.
+
+
+### <a name="limitations"></a>제한 사항
+- 데이터 테이블이 지원되지 않으므로 로그 시각화를 제한적으로만 제어할 수 있습니다. 총 데이터 계열 수는 10개로 제한되며 추가 데이터 계열은 _다른_ 버킷 아래에서 그룹화됩니다.
+- 로그 차트에는 사용자 지정 매개 변수가 지원되지 않습니다.
+- 로그 차트는 최근 30일로 제한됩니다.
+- 로그 차트는 공유 대시보드에만 고정할 수 있습니다.
+- 대시보드 데이터의 대화형 작업은 지원되지 않습니다.
+- 상황별 드릴다운이 제한됩니다.
 
 
 ## <a name="power-bi"></a>Power BI
@@ -130,11 +108,36 @@ ms.locfileid: "79274113"
 - 상당한 엔지니어링 작업이 필요합니다.
 
 
+## <a name="azure-monitor-views"></a>Azure Monitor 뷰
+
+> [!IMPORTANT]
+> 뷰가 더 이상 사용되지 않는 중입니다. 뷰를 통합 문서로 변환하는 방법에 대한 지침은 [Azure Monitor 보기 디자이너에서 통합 문서 전환 가이드를](platform/view-designer-conversion-overview.md) 참조하세요.
+
+[Azure Monitor의 뷰](platform/view-designer.md)를 통해 로그 데이터로 사용자 지정 시각화를 만들 수 있습니다. [모니터링 솔루션](insights/solutions.md)에서 수집한 데이터를 표시하는 데 사용됩니다.
+
+
+![보기](media/visualizations/view.png)
+
+### <a name="advantages"></a>장점
+- 로그 데이터를 다양하게 시각화할 수 있습니다.
+- 뷰를 내보내고 가져오는 방법을 통해 다른 리소스 그룹 및 구독으로 전송합니다.
+- 작업 영역 및 모니터링 솔루션을 사용하여 Azure Monitor 관리 모델로 통합합니다.
+- 사용자 지정 매개 변수에 대해 [필터링](platform/view-designer-filters.md)할 수 있습니다.
+- 대화형이며, 여러 수준의 드릴인(다른 뷰로 드릴하는 뷰)을 지원합니다.
+
+### <a name="limitations"></a>제한 사항
+- 로그는 지원되지만 메트릭은 지원되지 않습니다.
+- 개인 뷰가 없습니다. 작업 영역에 액세스할 수 있는 모든 사용자가 사용할 수 있습니다.
+- 자동으로 새로 고침되지 않습니다.
+- 제한된 레이아웃 옵션을 제공합니다.
+- 여러 작업 영역 또는 Application Insights 애플리케이션에서 쿼리가 지원되지 않습니다.
+- 쿼리 응답 크기는 8MB, 쿼리 실행 시간은 110초로 제한됩니다.
+
 ## <a name="next-steps"></a>다음 단계
 - [Azure Monitor에서 수집하는 데이터](platform/data-platform.md)에 대해 알아봅니다.
 - [Azure 대시보드](../azure-portal/azure-portal-dashboards.md)에 대해 알아봅니다.
 - [Azure Monitor의 뷰](platform/view-designer.md)에 대해 알아봅니다.
-- [통합 문서](../azure-monitor/app/usage-workbooks.md)에 대해 알아봅니다.
+- 통합 [문서에](../azure-monitor/app/usage-workbooks.md)대해 자세히 알아봅니다.
 - [Power BI로 로그 데이터 가져오기](../azure-monitor/platform/powerbi.md)에 대해 알아봅니다.
 - [Grafana Azure Monitor 데이터 원본 플러그 인](../azure-monitor/platform/grafana-plugin.md)에 대해 알아봅니다.
 

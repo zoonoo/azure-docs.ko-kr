@@ -14,24 +14,24 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 31137bba8c9b6b88c6a8b9569c02ae887e73e8d0
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 0706b7d3c238c154d3694b5760266299a7d788ae
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309600"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79536873"
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Azure Linux VM에서 Oracle Golden Gate 구현 
 
 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 Azure CLI가 사용됩니다. 이 가이드에서는 Azure CLI를 사용하여 Azure Marketplace 갤러리 이미지에서 Oracle 12c 데이터베이스를 배포하는 방법을 자세히 설명합니다. 
 
-이 문서에서는 Azure VM에서 Oracle Golden Gate를 만들고, 설치 및 구성하는 방법을 단계별로 보여 줍니다. 이 자습서에서는 단일 지역의 가용성 집합에서 두 개의 가상 머신을 설정 합니다. 동일한 자습서를 사용 하 여 단일 Azure 지역에서 다른 가용성 영역 Vm에 대 한 OracleGolden 게이트를 설정 하거나 두 개의 다른 지역에서 Vm을 설정할 수 있습니다.
+이 문서에서는 Azure VM에서 Oracle Golden Gate를 만들고, 설치 및 구성하는 방법을 단계별로 보여 줍니다. 이 자습서에서는 두 개의 가상 컴퓨터가 단일 리전의 가용성 집합에 설정되어 있습니다. 동일한 자습서를 사용하여 단일 Azure 리전의 서로 다른 가용성 영역에서 VM에 대한 OracleGolden 게이트를 설정하거나 두 개의 서로 다른 리전에서 VM 을 설정할 수 있습니다.
 
 시작하기 전에 Azure CLI가 설치되었는지 확인합니다. 자세한 내용은 [Azure CLI 설치 가이드](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="prepare-the-environment"></a>환경 준비
 
-Oracle Golden Gate 설치를 수행하려면 동일한 가용성 집합에서 두 개의 Azure VM을 만들어야 합니다. VM을 만드는 데 사용하는 Marketplace 이미지는 **Oracle:Oracle-Database-Ee:12.1.0.2:latest**입니다.
+Oracle Golden Gate 설치를 수행하려면 동일한 가용성 집합에서 두 개의 Azure VM을 만들어야 합니다. VM을 만드는 데 사용하는 마켓플레이스 이미지는 **오라클:오라클-데이터베이스-Ee:12.1.0.2:최신.**
 
 Unix 편집기 vi를 잘 알고 있고 x11(X Windows)을 기본적으로 이해해야 합니다.
 
@@ -60,7 +60,7 @@ az login
 
 [az group create](/cli/azure/group) 명령을 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포되며 관리될 수 있는 논리적 컨테이너입니다. 
 
-다음 예제는 `westus` 위치에 `myResourceGroup`이라는 리소스 그룹을 만듭니다.
+다음 예제에서는 `westus` 위치에 `myResourceGroup`이라는 리소스 그룹을 만듭니다.
 
 ```azurecli
 az group create --name myResourceGroup --location westus
@@ -85,6 +85,7 @@ az vm availability-set create \
 다음 예제에서는 `myVM1` 및 `myVM2`라고 하는 VM 두 개를 만듭니다. 기본 키 위치에 SSH 키가 없는 경우 이 키를 만듭니다. 특정 키 집합을 사용하려면 `--ssh-key-value` 옵션을 사용합니다.
 
 #### <a name="create-myvm1-primary"></a>myVM1(기본) 만들기:
+
 ```azurecli
 az vm create \
      --resource-group myResourceGroup \
@@ -97,7 +98,7 @@ az vm create \
 
 VM을 만든 후 Azure CLI는 다음 예제와 비슷한 정보를 표시합니다. `publicIpAddress`를 기록해 둡니다. 이 주소는 VM에 액세스하는 데 사용됩니다.
 
-```azurecli
+```output
 {
   "fqdns": "",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
@@ -111,6 +112,7 @@ VM을 만든 후 Azure CLI는 다음 예제와 비슷한 정보를 표시합니�
 ```
 
 #### <a name="create-myvm2-replicate"></a>myVM2(복제) 만들기:
+
 ```azurecli
 az vm create \
      --resource-group myResourceGroup \
@@ -139,7 +141,7 @@ az network nsg rule create --resource-group myResourceGroup\
 
 결과는 다음 응답과 유사하게 나타납니다.
 
-```bash
+```output
 {
   "access": "Allow",
   "description": null,
@@ -168,11 +170,11 @@ az network nsg rule create --resource-group myResourceGroup\
     --destination-address-prefix '*' --destination-port-range 1521 --access allow
 ```
 
-### <a name="connect-to-the-virtual-machine"></a>가상 컴퓨터에 연결
+### <a name="connect-to-the-virtual-machine"></a>가상 머신에 연결
 
 다음 명령을 사용하여 가상 머신과의 SSH 세션을 만듭니다. 해당 IP 주소를 가상 머신의 `publicIpAddress`로 바꿉니다.
 
-```bash 
+```bash
 ssh <publicIpAddress>
 ```
 
@@ -207,9 +209,10 @@ $ dbca -silent \
    -storageType FS \
    -ignorePreReqs
 ```
+
 출력은 다음 응답과 유사하게 나타납니다.
 
-```bash
+```output
 Copying database files
 1% complete
 2% complete
@@ -259,6 +262,7 @@ export LD_LIBRARY_PATH=$ORACLE_HOME/lib
 ```
 
 ### <a name="start-oracle-listener"></a>Oracle 수신기 시작
+
 ```bash
 $ lsnrctl start
 ```
@@ -268,6 +272,7 @@ $ lsnrctl start
 ```bash
 sudo su - oracle
 ```
+
 데이터베이스를 만듭니다.
 
 ```bash
@@ -289,6 +294,7 @@ $ dbca -silent \
    -storageType FS \
    -ignorePreReqs
 ```
+
 ORACLE_SID 및 ORACLE_HOME 변수를 설정합니다.
 
 ```bash
@@ -309,6 +315,7 @@ export LD_LIBRARY_PATH=$ORACLE_HOME/lib
 ```
 
 ### <a name="start-oracle-listener"></a>Oracle 수신기 시작
+
 ```bash
 $ sudo su - oracle
 $ lsnrctl start
@@ -389,7 +396,7 @@ Oracle Golden Gate 소프트웨어를 다운로드 및 준비하려면 다음 �
 3. PuTTY 키 생성기에서,
 
    - 키를 생성하려면 **생성** 단추를 선택합니다.
-   - 키의 콘텐츠를 복사합니다(**Ctrl + C**).
+   - 키의 내용을**복사합니다(Ctrl+C).**
    - **프라이빗 키 저장** 단추를 선택합니다.
    - 표시되는 경고를 무시하고 **확인**을 선택합니다.
 
@@ -409,7 +416,7 @@ Oracle Golden Gate 소프트웨어를 다운로드 및 준비하려면 다음 �
    > 키에는 문자열 `ssh-rsa`가 포함되어야 합니다. 또한 키의 콘텐츠는 한 줄 텍스트여야 합니다.
    >  
 
-6. PuTTY를 시작합니다. **범주** 창에서 **연결** > **SSH** > **인증**을 선택합니다. **인증에 대한 프라이빗 키 파일** 상자에서 이전에 생성한 키를 찾아봅니다.
+6. PuTTY를 시작합니다. **범주** 창에서 **연결** > **SSH** > **Auth를**선택합니다. 인증 상자에 **대한 개인 키 파일에서** 이전에 생성한 키를 찾아봅습니다.
 
    ![프라이빗 키 설정 페이지의 스크린샷](./media/oracle-golden-gate/setprivatekey.png)
 
@@ -425,12 +432,13 @@ Oracle Golden Gate 소프트웨어를 다운로드 및 준비하려면 다음 �
 
 Oracle Golden Gate를 설치하려면 다음 단계를 완료합니다.
 
-1. oracle로 로그인합니다. (로그인할 때 암호 입력 화면이 나타나지 않아야 합니다.) 설치를 시작하기 전에 Xming이 실행되고 있는지 확인합니다.
- 
+1. oracle로 로그인합니다. (암호를 입력하지 않고 로그인할 수 있어야 합니다.) 설치를 시작하기 전에 Xming이 실행되고 있는지 확인합니다.
+
    ```bash
    $ cd /opt/fbo_ggs_Linux_x64_shiphome/Disk1
    $ ./runInstaller
    ```
+
 2. 'Oracle GoldenGate for Oracle Database 12c'를 선택합니다. 그리고 **다음**을 선택하여 계속합니다.
 
    ![설치 관리자 설치 선택 페이지의 스크린샷](./media/oracle-golden-gate/golden_gate_install_01.png)
@@ -536,6 +544,7 @@ Oracle Golden Gate를 설치하려면 다음 단계를 완료합니다.
 
    GGSCI> EDIT PARAMS EXTORA
    ```
+
 5. EXTRACT 매개 변수 파일에 다음을 추가합니다(vi 명령 사용). Esc 키, ':wq!'를 눌러 파일을 저장합니다. 
 
    ```bash
@@ -550,6 +559,7 @@ Oracle Golden Gate를 설치하려면 다음 단계를 완료합니다.
    TABLE pdb1.test.TCUSTMER;
    TABLE pdb1.test.TCUSTORD;
    ```
+
 6. extract--integrated extract를 등록합니다.
 
    ```bash
@@ -565,6 +575,7 @@ Oracle Golden Gate를 설치하려면 다음 단계를 완료합니다.
 
    GGSCI> exit
    ```
+
 7. extract 검사점을 설정하고 실시간 추출을 시작합니다.
 
    ```bash
@@ -587,6 +598,7 @@ Oracle Golden Gate를 설치하려면 다음 단계를 완료합니다.
    MANAGER     RUNNING
    EXTRACT     RUNNING     EXTORA      00:00:11      00:00:04
    ```
+
    이 단계에서는 나중에 다른 섹션에서 사용되는 시작 SCN을 찾습니다.
 
    ```bash
@@ -684,6 +696,7 @@ Oracle Golden Gate를 설치하려면 다음 단계를 완료합니다.
    $ ./ggsci
    GGSCI> EDIT PARAMS REPORA  
    ```
+
    REPORA 매개 변수 파일의 콘텐츠:
 
    ```bash
@@ -719,19 +732,21 @@ Oracle Golden Gate를 설치하려면 다음 단계를 완료합니다.
 
 ### <a name="set-up-the-replication-myvm1-and-myvm2"></a>복제 설정(myVM1 및 myVM2)
 
-#### <a name="1-set-up-the-replication-on-myvm2-replicate"></a>1. myVM2(복제)에서 복제 설정
+#### <a name="1-set-up-the-replication-on-myvm2-replicate"></a>1. myVM2에서 복제 설정(복제)
 
   ```bash
   $ cd /u01/app/oracle/product/12.1.0/oggcore_1
   $ ./ggsci
   GGSCI> EDIT PARAMS MGR
   ```
+
 다음을 사용하여 파일을 업데이트합니다.
 
   ```bash
   PORT 7809
   ACCESSRULE, PROG *, IPADDR *, ALLOW
   ```
+
 관리자 서비스를 다시 시작합니다.
 
   ```bash
@@ -750,7 +765,8 @@ $ ./ggsci
 GGSCI> START EXTRACT INITEXT
 GGSCI> VIEW REPORT INITEXT
 ```
-#### <a name="3-set-up-the-replication-on-myvm2-replicate"></a>3. myVM2(복제)에서 복제 설정
+
+#### <a name="3-set-up-the-replication-on-myvm2-replicate"></a>3. myVM2에서 복제 설정(복제)
 
 이전에 얻은 번호로 SCN 번호를 변경합니다.
 
@@ -759,6 +775,7 @@ GGSCI> VIEW REPORT INITEXT
   $ ./ggsci
   START REPLICAT REPORA, AFTERCSN 1857887
   ```
+
 복제가 시작되면 새 레코드를 TEST 테이블에 삽입하여 테스트할 수 있습니다.
 
 

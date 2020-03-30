@@ -1,13 +1,13 @@
 ---
-title: Azure Service Fabric 앱 패키지
-description: Azure Service Fabric 응용 프로그램 패키징 및 클러스터에 배포를 준비 하는 방법에 대해 알아봅니다.
+title: Azure 서비스 패브릭 앱 패키지
+description: Azure Service Fabric 응용 프로그램 패키징 및 클러스터에 배포를 준비하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: 7c99eec28ac06ecf666d6dda1015f889841a5dbf
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79258344"
 ---
 # <a name="package-an-application"></a>애플리케이션 패키지 작성
@@ -43,12 +43,12 @@ D:\TEMP\MYAPPLICATIONTYPE
 
 ## <a name="use-setupentrypoint"></a>SetupEntryPoint 사용
 
-**SetupEntryPoint** 를 사용하는 일반적인 시나리오는 서비스를 시작하기 전에 실행 파일을 실행해야 하는 경우 또는 높은 권한을 사용하여 작업을 수행해야 하는 경우입니다. 다음은 그 예입니다.
+**SetupEntryPoint** 를 사용하는 일반적인 시나리오는 서비스를 시작하기 전에 실행 파일을 실행해야 하는 경우 또는 높은 권한을 사용하여 작업을 수행해야 하는 경우입니다. 예를 들어:
 
 * 서비스 실행 파일에 필요한 환경 변수를 설정하고 초기화합니다. 이것은 Service Fabric 프로그래밍 모델을 통해 작성된 실행 파일에만 국한되지 않습니다. 예를 들어 npm.exe 파일에는 node.js 애플리케이션 배포를 위해 구성되는 환경 변수가 필요합니다.
 * 보안 인증서를 설치하여 액세스 제어를 설정합니다.
 
-**SetupEntryPoint**를 구성하는 방법에 대한 자세한 내용은 [서비스 설치 진입점에 대한 정책 구성](service-fabric-application-runas-security.md)을 참조하세요.
+**SetupEntryPoint를**구성하는 방법에 대한 자세한 내용은 [서비스 설정 진입점에 대한 정책 구성을](service-fabric-application-runas-security.md) 참조하십시오.
 
 <a id="Package-App"></a>
 
@@ -56,9 +56,9 @@ D:\TEMP\MYAPPLICATIONTYPE
 
 ### <a name="build-a-package-by-using-visual-studio"></a>Visual Studio를 사용하여 패키지 빌드
 
-Visual Studio를 사용 하 여 응용 프로그램을 만든 경우 *패키지* 명령을 사용 하 여 위에 설명 된 레이아웃과 일치 하는 패키지를 자동으로 만들 수 있습니다.
+Visual Studio를 사용하여 응용 프로그램을 만든 경우 *패키지* 명령을 사용하여 위에서 설명한 레이아웃과 일치하는 패키지를 자동으로 만들 수 있습니다.
 
-패키지를 만들려면 *솔루션 탐색기* 에서 응용 프로그램 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **패키지** 명령을 선택 합니다.
+패키지를 만들려면 *솔루션 탐색기에서* 응용 프로그램 프로젝트를 마우스 오른쪽 단추로 클릭하고 **패키지** 명령을 선택합니다.
 
 ![Visual Studio를 통해 애플리케이션 패키징][vs-package-command]
 
@@ -134,9 +134,9 @@ True
 배포 메커니즘은 압축된 패키지와 압축되지 않은 패키지에 대해 모두 동일합니다. 압축된 패키지는 클러스터 이미지 저장소에 그대로 저장되며, 먼저 노드에서 압축이 풀린 후에 애플리케이션이 실행됩니다.
 압축은 유효한 Service Fabric 패키지를 압축된 버전으로 바꿉니다. 폴더에 대한 쓰기 권한을 허용해야 합니다. 이미 압축된 패키지에 압축을 실행하면 아무런 변화가 없습니다.
 
-[ 스위치와 함께 ](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps)Copy-ServiceFabricApplicationPackage`CompressPackage` PowerShell 명령을 실행하여 패키지를 압축할 수 있습니다. `UncompressPackage` 스위치를 사용하면 동일한 명령으로 패키지의 압축을 풀 수 있습니다.
+`CompressPackage` 스위치와 함께 [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) PowerShell 명령을 실행하여 패키지를 압축할 수 있습니다. `UncompressPackage` 스위치를 사용하면 동일한 명령으로 패키지의 압축을 풀 수 있습니다.
 
-다음 명령은 패키지를 이미지 저장소에 복사하지 않고 압축합니다. [ 플래그 없이 ](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps)Copy-ServiceFabricApplicationPackage`SkipCopy`를 사용하여 필요에 따라 하나 이상의 Service Fabric 클러스터에 압축된 패키지를 복사할 수 있습니다.
+다음 명령은 패키지를 이미지 저장소에 복사하지 않고 압축합니다. `SkipCopy` 플래그 없이 [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps)를 사용하여 필요에 따라 하나 이상의 Service Fabric 클러스터에 압축된 패키지를 복사할 수 있습니다.
 이제 패키지에 `code`, `config` 및 `data` 패키지의 압축 파일이 포함됩니다. 애플리케이션 매니페스트 및 서비스 매니페스트는 많은 내부 작업에 필요하기 때문에 압축되지 않습니다. 예를 들어 특정 유효성 검사에 대한 패키지 공유, 애플리케이션 유형 이름 및 버전 추출은 모두 매니페스트에 액세스해야 합니다. 매니페스트를 압축하면 이러한 작업이 비효율적으로 수행됩니다.
 
 ```
@@ -226,11 +226,11 @@ ZipFile.CreateFromDirectory(appPackageDirectoryPath, sfpkgFilePath);
 
 ## <a name="next-steps"></a>다음 단계
 
-응용 [프로그램 배포 및 제거][10] PowerShell을 사용 하 여 응용 프로그램 인스턴스를 관리 하는 방법을 설명 합니다.
+[응용 프로그램 배포 및 제거는][10] PowerShell을 사용하여 응용 프로그램 인스턴스를 관리하는 방법을 설명합니다.
 
-[여러 환경에 대 한 응용 프로그램 매개 변수 관리][11] 여러 응용 프로그램 인스턴스에 대 한 매개 변수 및 환경 변수를 구성 하는 방법을 설명 합니다.
+[여러 환경에 대한 애플리케이션 매개 변수 관리][11]에서는 여러 애플리케이션 인스턴스의 매개 변수 및 환경 변수를 구성하는 방법을 설명합니다.
 
-[응용 프로그램에 대 한 보안 정책 구성][12] 보안 정책에서 서비스를 실행 하 여 액세스를 제한 하는 방법을 설명 합니다.
+[애플리케이션에 대한 보안 정책 구성][12]에서는 액세스를 제한하는 보안 정책에 따라 서비스를 실행하는 방법을 설명합니다.
 
 <!--Image references-->
 [vs-package-command]: ./media/service-fabric-package-apps/vs-package-command.png

@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/29/2018
-ms.openlocfilehash: d43ad2ce88108a728b26e10eecc7082262a4b637
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: ccb840caea5d28975daaf8cbf6f0d4985bdf006d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79271357"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79499132"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>IoT Hub의 ID 레지스트리 이해
 
@@ -79,7 +79,7 @@ ID 레지스트리에서 ID의 **상태** 속성을 업데이트하여 디바이
 
 API를 가져오고 내보내는 작업에 대한 자세한 정보는 [IoT Hub 리소스 공급자 REST API](/rest/api/iothub/iothubresource)를 참조하세요. 가져오기 및 내보내기 작업 실행에 대한 자세한 내용은 [IoT Hub 디바이스 ID의 대량 관리](iot-hub-bulk-identity-mgmt.md)를 참조하세요.
 
-[REST API](/rest/api/iothub/service/createimportexportjob) 또는 IoT Hub [서비스 sdk](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-hub-service-sdks)중 하나를 통해 서비스 API를 통해 IoT Hub에서 장치 id를 내보내고 가져올 수도 있습니다.
+장치 ID는 REST API 또는 [IoT](/rest/api/iothub/service/jobclient/createimportexportjob) Hub 서비스 [SDK](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-hub-service-sdks)중 하나를 통해 서비스 API를 통해 IoT Hub에서 내보내고 가져올 수도 있습니다.
 
 ## <a name="device-provisioning"></a>디바이스 프로비전
 
@@ -107,7 +107,7 @@ ID가 생성 또는 삭제되면 IoT Hub에서 수명 주기 알림을 전송하
 
 디바이스에 대한 알림 메시지:
 
-| 속성 | 값 |
+| 이름 | 값 |
 | --- | --- |
 |$content-type | application/json |
 |$iothub-enqueuedtime |  알림이 전송된 시간 |
@@ -143,7 +143,7 @@ ID가 생성 또는 삭제되면 IoT Hub에서 수명 주기 알림을 전송하
 ```
 모듈에 대한 알림 메시지:
 
-| 속성 | 값 |
+| 이름 | 값 |
 | --- | --- |
 $content-type | application/json |
 $iothub-enqueuedtime |  알림이 전송된 시간 |
@@ -183,11 +183,11 @@ iothub-message-schema | moduleLifecycleNotification |
 
 디바이스 ID는 다음 속성을 사용하여 JSON 문서로 표시됩니다.
 
-| 속성 | 옵션 | Description |
+| 속성 | 옵션 | 설명 |
 | --- | --- | --- |
 | deviceId |필요한 경우 업데이트에서 읽기 전용입니다. |ASCII 7 비트 영숫자 문자 + 특정 특수 문자 `- . + % _ # * ? ! ( ) , = @ $ '`의 대/소문자 구분 문자열(최대 128자 길이)입니다. |
 | generationId |필요한 경우 읽기 전용 |IoT Hub에서 생성된 최대 128자의 대/소문자 구분 문자열입니다. 이 값은 삭제되고 다시 만들 때와 동일한 **deviceId**로 디바이스를 구분하는 데 사용됩니다. |
-| etag |필요한 경우 읽기 전용 |[RFC7232](https://tools.ietf.org/html/rfc7232)에 따라 디바이스 ID에 대해 약한 ETag를 나타내는 문자열입니다. |
+| etag |필요한 경우 읽기 전용 |[RFC7232에](https://tools.ietf.org/html/rfc7232)따라 장치 ID에 대한 약한 ETag를 나타내는 문자열입니다. |
 | auth |선택 사항 |인증 정보 및 보안 자료를 포함하는 복합 개체입니다. |
 | auth.symkey |선택 사항 |base64 형식으로 저장된 기본 및 보조 키를 포함하는 복합 개체입니다. |
 | 상태 |required |액세스 표시기입니다. **사용** 또는 **사용 안 함**으로 설정할 수 있습니다. **사용**이면 디바이스를 연결할 수 있습니다. **사용 안 함**이면 이 디바이스는 디바이스 연결 엔드포인트에 액세스할 수 없습니다. |
@@ -201,18 +201,18 @@ iothub-message-schema | moduleLifecycleNotification |
 > 연결 상태는 연결 상태의 IoT Hub 뷰만을 나타낼 수 있습니다. 이 상태에 대한 업데이트는 네트워크 상태 및 구성에 따라 지연될 수도 있습니다.
 
 > [!NOTE]
-> 현재 디바이스 SDK는 `+`deviceId`#`에서 **및** 문자를 지원하지 않습니다.
+> 현재 디바이스 SDK는 **deviceId**에서 `+` 및 `#` 문자를 지원하지 않습니다.
 
 ## <a name="module-identity-properties"></a>모듈 ID 속성
 
 모듈 ID는 다음 속성을 사용하여 JSON 문서로 표현됩니다.
 
-| 속성 | 옵션 | Description |
+| 속성 | 옵션 | 설명 |
 | --- | --- | --- |
 | deviceId |필요한 경우 업데이트에서 읽기 전용입니다. |ASCII 7 비트 영숫자 문자 + 특정 특수 문자 `- . + % _ # * ? ! ( ) , = @ $ '`의 대/소문자 구분 문자열(최대 128자 길이)입니다. |
 | moduleId |필요한 경우 업데이트에서 읽기 전용입니다. |ASCII 7 비트 영숫자 문자 + 특정 특수 문자 `- . + % _ # * ? ! ( ) , = @ $ '`의 대/소문자 구분 문자열(최대 128자 길이)입니다. |
 | generationId |필요한 경우 읽기 전용 |IoT Hub에서 생성된 최대 128자의 대/소문자 구분 문자열입니다. 이 값은 삭제되고 다시 만들 때와 동일한 **deviceId**로 디바이스를 구분하는 데 사용됩니다. |
-| etag |필요한 경우 읽기 전용 |[RFC7232](https://tools.ietf.org/html/rfc7232)에 따라 디바이스 ID에 대해 약한 ETag를 나타내는 문자열입니다. |
+| etag |필요한 경우 읽기 전용 |[RFC7232에](https://tools.ietf.org/html/rfc7232)따라 장치 ID에 대한 약한 ETag를 나타내는 문자열입니다. |
 | auth |선택 사항 |인증 정보 및 보안 자료를 포함하는 복합 개체입니다. |
 | auth.symkey |선택 사항 |base64 형식으로 저장된 기본 및 보조 키를 포함하는 복합 개체입니다. |
 | 상태 |required |액세스 표시기입니다. **사용** 또는 **사용 안 함**으로 설정할 수 있습니다. **사용**이면 디바이스를 연결할 수 있습니다. **사용 안 함**이면 이 디바이스는 디바이스 연결 엔드포인트에 액세스할 수 없습니다. |
@@ -223,21 +223,21 @@ iothub-message-schema | moduleLifecycleNotification |
 | lastActivityTime |읽기 전용 |디바이스 연결이 마지막으로 연결되거나 메시지를 받거나 보낸 날짜 및 시간을 표시하는 임시 표시기입니다. |
 
 > [!NOTE]
-> 현재 디바이스 SDK는 `+`deviceId`#` 및 **moduleId**에서 **및** 문자를 지원하지 않습니다.
+> 현재 디바이스 SDK는 **deviceId** 및 **moduleId**에서 `+` 및 `#` 문자를 지원하지 않습니다.
 
 ## <a name="additional-reference-material"></a>추가 참조 자료
 
 이 IoT Hub 개발자 가이드의 다른 참조 자료:
 
-* [IoT Hub 엔드포인트](iot-hub-devguide-endpoints.md)는 각 IoT Hub에서 런타임 및 관리 작업에 대해 공개하는 다양한 엔드포인트에 대해 설명합니다.
+* [IoT Hub 엔드포인트](iot-hub-devguide-endpoints.md) - 각 IoT Hub에서 런타임 및 관리 작업에 대해 공개하는 다양한 엔드포인트에 대해 설명합니다.
 
 * [제한 및 할당량](iot-hub-devguide-quotas-throttling.md)은 IoT Hub 서비스에 적용되는 할당량과 제한 동작에 대해 설명합니다.
 
-* [Azure IoT 디바이스 및 서비스 SDK](iot-hub-devguide-sdks.md)는 IoT Hub와 상호 작용하는 디바이스 및 서비스 앱 모두를 개발할 때 사용할 수 있는 다양한 언어 SDK를 나열합니다.
+* [Azure IoT 디바이스 및 서비스 SDK](iot-hub-devguide-sdks.md) - IoT Hub와 상호 작용하는 디바이스 및 서비스 앱 모두를 개발할 때 사용할 수 있는 다양한 언어 SDK를 나열합니다.
 
 * [IoT Hub 쿼리 언어](iot-hub-devguide-query-language.md)는 IoT Hub에서 디바이스 쌍 및 작업에 대한 정보를 검색하는 데 사용할 수 있는 쿼리 언어에 대해 설명합니다.
 
-* [IoT Hub MQTT 지원](iot-hub-mqtt-support.md)은 MQTT 프로토콜에 대한 IoT Hub 지원에 대해 자세히 설명합니다.
+* [IoT Hub MQTT 지원](iot-hub-mqtt-support.md) - MQTT 프로토콜에 대한 IoT Hub 지원에 대해 자세히 설명합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -253,7 +253,7 @@ IoT Hub ID 레지스트리를 사용하는 방법에 대해 알아봤으니 다�
 
 이 문서에서 설명한 일부 개념을 시도해 보려면 다음과 같은 IoT Hub 자습서를 참조하세요.
 
-* [Azure IoT Hub 시작](quickstart-send-telemetry-dotnet.md)
+* [Azure IoT 허브시작](quickstart-send-telemetry-dotnet.md)
 
 IoT Hub Device Provisioning Service를 사용하여 무인 Just-In-Time 프로비저닝을 수행하는 방법을 알아보려면 다음을 참조하세요. 
 

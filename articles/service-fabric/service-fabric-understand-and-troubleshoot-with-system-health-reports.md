@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: oanapl
 ms.openlocfilehash: a76ae803b1283ce50d2f4e259943ce5ffcf0274c
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79282017"
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>시스템 상태 보고서를 사용하여 문제 해결
@@ -20,14 +20,14 @@ Azure Service Fabric 구성 요소가 클러스터 내의 모든 엔터티에 �
 > 
 > 
 
-시스템 상태 보고서는 클러스터 및 애플리케이션에 대한 가시성을 제공하고 문제를 플래그합니다. 애플리케이션 및 서비스의 경우, 시스템 상태 보고서는 서비스 패브릭 관점에서 엔터티가 올바르게 구현되고 동작하는지 확인합니다. 이 보고서는 서비스의 비즈니스 논리 또는 응답 하지 않는 프로세스의 검색에 대 한 상태 모니터링을 제공 하지 않습니다. 사용자 서비스는 논리에 고유한 정보로 건강 데이터를 보강할 수 있습니다.
+시스템 상태 보고서는 클러스터 및 애플리케이션에 대한 가시성을 제공하고 문제를 플래그합니다. 애플리케이션 및 서비스의 경우, 시스템 상태 보고서는 서비스 패브릭 관점에서 엔터티가 올바르게 구현되고 동작하는지 확인합니다. 보고서는 서비스의 비즈니스 논리또는 응답하지 않는 프로세스의 검색에 대한 상태 모니터링을 제공하지 않습니다. 사용자 서비스는 논리에 고유한 정보로 건강 데이터를 보강할 수 있습니다.
 
 > [!NOTE]
 > 사용자 워치독이 보낸 상태 보고서는 시스템 구성 요소가 엔터티를 만든 *후*에만 표시됩니다. 엔터티가 삭제되면 Health 스토어가 모든 관련 상태 보고서를 자동으로 삭제합니다. 엔터티의 새 인스턴스가 만들어질 때도 마찬가지입니다. 예를 들어 새 상태 저장 유지 서비스 복제본 인스턴스가 만들어지는 경우가 있습니다. 이전 인스턴스와 연결된 모든 보고서는 삭제되고 저장소에서 정리됩니다.
 > 
 > 
 
-시스템 구성 요소 보고서는 "**System.** " 접두사로 시작되는 원본에 의해 찾습니다. 잘못된 매개 변수가 있는 보고서가 거부되므로 Watchdogs는 소스에 대해 동일한 접두사를 사용할 수 없습니다.
+시스템 구성 요소 보고서는 "**System.**" 접두사로 시작되는 원본에 의해 찾습니다. 잘못된 매개 변수가 있는 보고서가 거부되므로 Watchdogs는 소스에 대해 동일한 접두사를 사용할 수 없습니다.
 
 몇 가지 시스템 보고서를 검토하여 무엇이 해당 보고서를 트리거하는지 이해하고 보고서가 나타내는 가능한 문제의 해결 방법을 살펴봅니다.
 
@@ -53,32 +53,32 @@ Azure Service Fabric 구성 요소가 클러스터 내의 모든 엔터티에 �
 FM(장애 조치(Failover) 관리자) 서비스는 클러스터 노드에 대한 정보를 관리합니다. FM이 해당 데이터를 잃어 데이터 손실이 발생하면 클러스터 노드에 대한 최신 업데이트 정보를 보장할 수 없습니다. 이 경우 시스템은 다시 빌드되고, System.FM은 상태를 다시 작성하기 위해 클러스터의 모든 노드에서 데이터를 수집합니다. 경우에 따라 네트워킹 또는 노드 문제로 인해 다시 빌드가 중지되거나 중단될 수도 있습니다. FMM(장애 조치(Failover) 관리자 마스터) 서비스에서도 마찬가지입니다. FMM은 모든 FM이 클러스터에 있는 위치를 추적하는 상태 비저장 시스템 서비스입니다. FMM의 기본 노드는 항상 0에 가장 가까운 ID가 있는 노드입니다. 노드가 삭제되면 다시 빌드가 트리거됩니다.
 이전 조건 중 하나가 발생하면 **System.FM** 또는 **System.FMM**에서 오류 보고서를 통해 플래그를 지정합니다. 다시 빌드는 두 단계 중 하나에서 중단될 수 있습니다.
 
-* **브로드캐스트 대기**: FM/FMM에서 다른 노드로부터의 브로드캐스트 메시지 회신을 기다립니다.
+* **브로드캐스트 대기**중 : FM/FMM은 다른 노드의 브로드캐스트 메시지 응답을 기다립니다.
 
-  * **다음 단계:** 노드 간에 네트워크 연결 문제가 있는지 조사합니다.
-* **노드 대기**: FM/FMM에서 이미 다른 노드로부터 브로드캐스트 회신을 받았으며 특정 노드로부터의 회신을 기다리고 있습니다. 상태 보고서에서 FM/FMM이 응답을 기다리고 있는 노드를 나열합니다.
-   * **다음 단계:** FM/FMM 및 나열된 노드 간 네트워크 연결을 조사합니다. 다른 가능한 문제에 대해 나열된 각 노드를 조사합니다.
+  * **다음 단계:** 노드 간에 네트워크 연결 문제가 있는지 여부를 조사합니다.
+* **노드 대기**중 : FM/FMM이 이미 다른 노드에서 브로드캐스트 응답을 받았으며 특정 노드의 응답을 기다리고 있습니다. 상태 보고서에서 FM/FMM이 응답을 기다리고 있는 노드를 나열합니다.
+   * **다음 단계:** FM/FMM과 나열된 노드 간의 네트워크 연결을 조사합니다. 다른 가능한 문제에 대해 나열된 각 노드를 조사합니다.
 
 * **SourceID**: System.FM 또는 System.FMM
 * **속성**: 다시 빌드합니다.
 * **다음 단계**: 상태 보고서의 설명에 나열된 특정 노드의 상태와 함께 노드 간의 네트워크 연결을 조사합니다.
 
 ### <a name="seed-node-status"></a>시드 노드 상태
-**System.FM** 일부 시드 노드가 비정상 상태인 경우 클러스터 수준 경고를 보고 합니다. 시드 노드는 기본 클러스터의 가용성을 유지 하는 노드입니다. 이러한 노드는 다른 노드와 임대 관계를 설정하고 특정 종류의 네트워크 오류 중에 결정적인 요인으로 작용하여 클러스터를 계속 작동시키는 데 도움을 줍니다. 클러스터에서 대부분의 시드 노드가 다운 되어 다시 가져오지 않으면 클러스터가 자동으로 종료 됩니다. 
+**System.FM** 일부 시드 노드가 비정상인 경우 클러스터 수준 경고를 보고합니다. 시드 노드는 기본 클러스터의 가용성을 유지하는 노드입니다. 이러한 노드는 다른 노드와 임대 관계를 설정하고 특정 종류의 네트워크 오류 중에 결정적인 요인으로 작용하여 클러스터를 계속 작동시키는 데 도움을 줍니다. 대부분의 시드 노드가 클러스터에 다운되어 다시 가져오지 않으면 클러스터가 자동으로 종료됩니다. 
 
-노드 상태가 다운 됨, 제거 됨 또는 알 수 없음 인 경우 시드 노드는 비정상 상태입니다.
-시드 노드 상태에 대 한 경고 보고서에는 자세한 정보가 포함 된 비정상 초기값 노드가 모두 나열 됩니다.
+시드 노드의 노드 상태가 다운, 제거 또는 알 수 없는 경우 비정상입니다.
+시드 노드 상태에 대한 경고 보고서에는 모든 비정상 시드 노드에 자세한 정보가 나열됩니다.
 
-* **SourceID**: System.FM
-* **속성**: SeedNodeStatus
-* **다음 단계**: 클러스터에이 경고가 표시 되는 경우 아래 지침에 따라 문제를 해결 합니다. Service Fabric 버전 6.5 이상을 실행 하는 클러스터의 경우, Azure에서 Service Fabric 클러스터의 경우 시드 노드가 다운 된 후에 Service Fabric가 초기값이 아닌 노드로 자동 변경 합니다. 이렇게 하려면 주 노드 형식에서 초기값이 아닌 노드 수가 다운 시드 노드 수와 같거나 더 큰지 확인 합니다. 필요한 경우 주 노드 형식에 노드를 더 추가 하 여이를 구현 합니다.
-클러스터 상태에 따라 문제를 해결 하는 데 다소 시간이 걸릴 수 있습니다. 이 작업이 완료 되 면 경고 보고서가 자동으로 지워집니다.
+* **출처 :** System.FM
+* **속성**: 시드노드 상태
+* **다음 단계**: 이 경고가 클러스터에 표시되는 경우 아래 지침을 따라 수정합니다: 클러스터 실행 서비스 패브릭 버전 6.5 이상: Azure에서 서비스 패브릭 클러스터의 경우 시드 노드가 다운된 후 Service Fabric은 자동으로 비시드 노드로 변경하려고 시도합니다. 이렇게 하려면 기본 노드 유형의 비시드 노드 수가 Down 시드 노드 수보다 크거나 같는지 확인합니다. 필요한 경우 이를 위해 기본 노드 유형에 노드를 더 추가합니다.
+클러스터 상태에 따라 문제를 해결하는 데 다소 시간이 걸릴 수 있습니다. 이 작업이 완료되면 경고 보고서가 자동으로 지워집니다.
 
-Service Fabric 독립 실행형 클러스터의 경우 경고 보고서를 지우려면 모든 초기값 노드가 정상 상태가 되어야 합니다. 시드 노드가 비정상 인 이유에 따라 시드 노드가 다운 되는 경우 사용자가 초기값 노드를 만들어야 합니다. 초기값 노드가 제거 되거나 알 수 없는 경우이 시드 노드를 [클러스터에서 제거 해야](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-windows-server-add-remove-nodes)합니다.
-모든 시드 노드가 정상 상태가 되 면 경고 보고서가 자동으로 지워집니다.
+Service Fabric 독립 실행형 클러스터의 경우 경고 보고서를 지우려면 모든 시드 노드가 정상이 되어야 합니다. 시드 노드가 비정상인 이유에 따라 시드 노드가 다운된 경우 사용자는 해당 시드 노드를 위로 가져와야 합니다. 시드 노드가 제거되거나 알 수 없는 경우 이 시드 노드는 [클러스터에서 제거되어야 합니다.](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-windows-server-add-remove-nodes)
+모든 시드 노드가 정상이 되면 경고 보고서가 자동으로 지워집니다.
 
-6\.5 보다 오래 된 Service Fabric 버전을 실행 하는 클러스터의 경우 경고 보고서를 수동으로 지워야 합니다. **사용자는 보고서를 지우기 전에 모든 초기값 노드가 정상 상태 인지 확인 해야**합니다. 초기값 노드가 다운 된 경우에는 사용자가 초기값 노드를 설정 해야 합니다. 초기값 노드가 제거 되거나 알 수 없는 경우에는 해당 시드 노드를 클러스터에서 제거 해야 합니다.
-모든 시드 노드가 정상 상태가 된 후 Powershell에서 다음 명령을 사용 하 여 [경고 보고서를 지웁니다](https://docs.microsoft.com/powershell/module/servicefabric/send-servicefabricclusterhealthreport).
+6.5보다 오래된 클러스터 실행 서비스 패브릭 버전: 이 경우 경고 보고서를 수동으로 지워야 합니다. **사용자는 보고서를 지우기 전에 모든 시드 노드가 정상인지 확인해야 합니다:** 시드 노드가 다운된 경우 시드 노드를 위로 가져와야 합니다.시드 노드가 제거되었거나 알 수 없는 경우 해당 시드 노드를 클러스터에서 제거해야 합니다.
+모든 시드 노드가 정상이 되면 Powershell의 다음 명령을 사용하여 [경고 보고서를 지웁니까?](https://docs.microsoft.com/powershell/module/servicefabric/send-servicefabricclusterhealthreport)
 
 ```powershell
 PS C:\> Send-ServiceFabricClusterHealthReport -SourceId "System.FM" -HealthProperty "SeedNodeStatus" -HealthState OK
@@ -126,7 +126,7 @@ HealthEvents          :
 노드 용량 위반이 발견되면 서비스 패브릭 부하 분산 장치에서 경고를 보고합니다.
 
 * **SourceId**: System.PLB
-* **Property**: **용량**으로 시작합니다.
+* **속성**: **용량으로**시작합니다.
 * **다음 단계**: 제공된 메트릭을 확인하고 노드에서 현재 용량을 검토합니다.
 
 ### <a name="node-capacity-mismatch-for-resource-governance-metrics"></a>리소스 거버넌스 메트릭의 노드 용량 불일치
@@ -143,8 +143,8 @@ HealthEvents          :
 애플리케이션을 만들거나 업데이트할 때 System.CM은 확인을 보고합니다. 애플리케이션을 삭제할 때 스토어에서 제거할 수 있도록 Health 스토어에 이를 알려줍니다.
 
 * **SourceId**: System.CM
-* **Property**: State
-* **다음 단계**: 애플리케이션이 만들어지거나 업데이트된 경우 클러스터 관리자 상태 보고서를 포함해야 합니다. 그렇지 않으면 쿼리를 실행하여 애플리케이션의 상태를 확인합니다. 예를 들어 PowerShell cmdlet **get-servicefabricapplication-applicationname** *applicationname*을 사용 합니다.
+* **속성**: 상태.
+* **다음 단계**: 애플리케이션이 만들어지거나 업데이트된 경우 클러스터 관리자 상태 보고서를 포함해야 합니다. 그렇지 않으면 쿼리를 실행하여 애플리케이션의 상태를 확인합니다. 예를 들어 **Get-ServiceFabricApplication -ApplicationName** *applicationName* PowerShell cmdlet을 사용합니다.
 
 다음 예제는 **fabric:/WordCount** 애플리케이션에 대한 상태 이벤트를 보여 줍니다.
 
@@ -176,7 +176,7 @@ HealthEvents                    :
 System.FM은 서비스가 만들어질 때 확인을 보고합니다. 서비스가 삭제되면 Health 스토어에서 엔터티를 삭제합니다.
 
 * **SourceId**: System.FM
-* **Property**: State
+* **속성**: 상태.
 
 다음 예제는 서비스 **fabric:/WordCount/WordCountWebService**에 상태 이벤트를 보여 줍니다.
 
@@ -222,7 +222,7 @@ System.FM은 파티션이 생성되고 정상적이면 확인을 보고합니다
 기타 주목할 만한 이벤트는 재구성이 예상보다 오래 걸리며 빌드가 예상보다 오래 걸리는 경우 경고를 포함합니다. 예상되는 빌드 및 재구성 시간을 서비스 시나리오에 따라 구성할 수 있습니다. 예를 들어 서비스에 Azure SQL Database와 같은 테라바이트 상태가 있는 경우 작은 양의 상태가 있는 서비스보다 빌드가 오래 걸립니다.
 
 * **SourceId**: System.FM
-* **Property**: State
+* **속성**: 상태.
 * **다음 단계**: 상태가 정상이 아니라면 일부 복제본이 주 또는 보조에 올바르게 생성되거나 열리고 승격되지 않았을 수 있습니다. 
 
 설명에 쿼럼 손실이 표시될 경우 다운된 복제본에 대한 자세한 상태 보고서를 검토하고 복제본을 다시 시작하면 파티션을 다시 온라인으로 전환할 수 있습니다.
@@ -386,7 +386,7 @@ HealthEvents          :
 **System.PLB**는 복제본 제약 조건 위반을 감지하고 일부 파티션 복제본을 배치할 수 없는 경우 경고를 보고합니다. 보고서 상세 정보에는 복제본 배치에 방해가 되는 제약과 속성을 표시합니다.
 
 * **SourceId**: System.PLB
-* **Property**: **ReplicaConstraintViolation**으로 시작합니다.
+* **속성**: **복제범 위반으로**시작합니다.
 
 ## <a name="replica-system-health-reports"></a>복제본 시스템 상태 보고서
 재구성 에이전트 구성 요소를 나타내는 **System.RA**는 복제본 상태의 기관입니다.
@@ -395,7 +395,7 @@ HealthEvents          :
 System.RA는 복제본이 만들어지면 정상으로 보고합니다.
 
 * **SourceId**: System.RA
-* **Property**: State
+* **속성**: 상태.
 
 다음 예제는 정상 복제본을 보여줍니다.
 
@@ -521,7 +521,7 @@ HealthEvents          :
 드문 경우지만 이 노드와 장애 조치(Failover) 관리자 서비스 간 통신 또는 기타 문제로 인해 재구성이 멈출 수 있습니다.
 
 * **SourceId**: System.RA
-* **Property**: Reconfiguration
+* **속성**: 재구성.
 * **다음 단계**: 상태 보고서의 설명에 따라 로컬 또는 원격 복제본을 조사합니다.
 
 다음 예제에서는 로컬 복제본에서 재구성이 멈춘 상태 보고서를 나타냅니다. 이 예제에서는 서비스가 취소 토큰을 허용하지 않은 것이 원인입니다.
@@ -637,42 +637,42 @@ HealthEvents          :
                         
 ```
 
-속성과 텍스트가 API가 멈추었음을 나타냅니다. 중단된 API에 대해 수행할 다음 단계는 서로 다릅니다. *IStatefulServiceReplica* 또는 *IStatelessServiceInstance*의 API는 보통 서비스 코드의 버그입니다. 다음 섹션에서는 이런 API를 [신뢰할 수 있는 서비스 모델](service-fabric-reliable-services-lifecycle.md)로 전환하는 방법을 설명합니다.
+속성과 텍스트가 API가 멈추었음을 나타냅니다. 중단된 API에 대해 수행할 다음 단계는 서로 다릅니다. *IStatefulServiceReplica* 또는 *IStatelessServiceInstance의* 모든 API는 일반적으로 서비스 코드의 버그입니다. 다음 섹션에서는 이러한 서비스가 [신뢰할 수 있는 서비스 모델로](service-fabric-reliable-services-lifecycle.md)변환되는 방법을 설명합니다.
 
-- **IStatefulServiceReplica.Open**: 이 경고는 `CreateServiceInstanceListeners` 또는 `ICommunicationListener.OpenAsync`에 대한 호출을 나타내거나 재정의된 `OnOpenAsync`가 멈춘 경우를 나타냅니다.
+- **IStatefulServiceReplica.Open**: 이 경고는 `CreateServiceInstanceListeners`에 `ICommunicationListener.OpenAsync`대한 호출이 [ `OnOpenAsync` 또는 재정의된 경우)에 대한 호출이 멈췄음을 나타냅니다.
 
 - **IStatefulServiceReplica.Close** 및 **IStatefulServiceReplica.Abort**: 가장 일반적인 경우는 `RunAsync`에 전달된 취소 토큰을 허용하지 않는 서비스입니다. `ICommunicationListener.CloseAsync`를 나타내거나 재정의된 `OnCloseAsync`가 멈춘 경우를 나타낼 수도 있습니다.
 
-- **IStatefulServiceReplica.ChangeRole(S)** 및 **IStatefulServiceReplica.ChangeRole(N)** : 가장 일반적인 경우는 `RunAsync`에 전달된 취소 토큰을 허용하지 않는 서비스입니다. 이 시나리오에서 가장 좋은 방법은 복제본을 다시 시작 하는 것입니다.
+- **IStatefulServiceReplica.ChangeRole(S)** 및 **IStatefulServiceReplica.ChangeRole(N)**: 가장 일반적인 경우는 `RunAsync`에 전달된 취소 토큰을 허용하지 않는 서비스입니다. 이 시나리오에서 가장 좋은 방법은 복제본을 다시 시작하는 것입니다.
 
-- **IStatefulServiceReplica.ChangeRole(P)** : 가장 일반적인 경우는 서비스가 `RunAsync`에서 작업을 반환하지 않은 경우입니다.
+- **IStatefulServiceReplica.ChangeRole(P)**: 가장 일반적인 경우는 서비스에서 작업을 반환하지 않은 `RunAsync`것입니다.
 
-멈출 수 있는 다른 API 호출은 **IReplicator** 인터페이스에 있습니다. 다음은 그 예입니다.
+붙어 얻을 수있는 다른 API 호출은 **IReplicator** 인터페이스에 있습니다. 예를 들어:
 
 - **IReplicator.CatchupReplicaSet**:이 경고는 다음 두 가지 중 하나를 나타냅니다. 복제본이 충분하지 않습니다. 이러한 경우에 해당하는지 확인하려면 파티션에 있는 복제본의 복제본 상태 또는 중단된 재구성을 위한 System.FM 상태 보고서를 살펴봅니다. 복제본이 작업을 승인하고 있지 않습니다. `Get-ServiceFabricDeployedReplicaDetail` PowerShell cmdlet은 모든 복제본의 진행 상황을 확인하는 데 사용할 수 있습니다. 문제는 `LastAppliedReplicationSequenceNumber` 값이 주 복제본의 `CommittedSequenceNumber` 값 뒤에 있는 복제본에 있습니다.
 
-- **Ireplicator. BuildReplica (\<원격 ReplicaId >)** :이 경고는 빌드 프로세스에 문제가 있음을 나타냅니다. 자세한 내용은 [복제본 수명 주기](service-fabric-concepts-replica-lifecycle.md)를 참조하세요. 복제기 주소의 잘못된 구성이 원인일 수 있습니다. 자세한 내용은 [상태 저장 신뢰할 수 있는 서비스 구성](service-fabric-reliable-services-configuration.md) 및 [서비스 매니페스트에서 리소스 지정](service-fabric-service-manifest-resources.md)을 참조하세요. 원격 노드의 문제일 수도 있습니다.
+- **IReplicator.BuildReplica(원격\<복제>)**: 이 경고는 빌드 프로세스에 문제가 있음을 나타냅니다. 자세한 내용은 [복제본 수명 주기](service-fabric-concepts-replica-lifecycle.md)를 참조하세요. 복제기 주소의 잘못된 구성이 원인일 수 있습니다. 자세한 내용은 [상태 저장 신뢰할 수 있는 서비스 구성](service-fabric-reliable-services-configuration.md) 및 [서비스 매니페스트에서 리소스 지정](service-fabric-service-manifest-resources.md)을 참조하세요. 원격 노드의 문제일 수도 있습니다.
 
 ### <a name="replicator-system-health-reports"></a>복제자 시스템 상태 보고서
-**복제 큐가 가득 찼습니다.** 
-**System.Replicator**는 복제본 큐가 가득 차면 경고를 보고합니다. 보통은 기본 데이터베이스에서는 하나 이상의 보조 복제본이 작업을 승인하는 속도가 느리기 때문에 복제본 큐가 가득차게 됩니다. 보조 데이터베이스에서는 서비스가 작업에 적용하는 속도가 느릴 때 일반적으로 발생합니다. 큐가 더 이상 가득 차지 않으면 경고가 지워집니다.
+**복제 큐 전체:**
+**System.Replicator는** 복제 큐가 가득 차면 경고를 보고합니다. 보통은 기본 데이터베이스에서는 하나 이상의 보조 복제본이 작업을 승인하는 속도가 느리기 때문에 복제본 큐가 가득차게 됩니다. 보조 데이터베이스에서는 서비스가 작업에 적용하는 속도가 느릴 때 일반적으로 발생합니다. 큐가 더 이상 가득 차지 않으면 경고가 지워집니다.
 
 * **SourceId**: System.Replicator
-* **Property**: 복제본의 역할에 따라 **PrimaryReplicationQueueStatus** 또는 **SecondaryReplicationQueueStatus**입니다.
+* **속성**: 복제본 역할에 따라 **기본 복제큐 상태** 또는 보조 **복제큐 상태입니다.**
 * **다음 단계**: 보고서가 기본 데이터베이스에 있는 경우 클러스터의 노드 간 연결을 확인합니다. 모든 연결이 정상이면 디스크 대기 시간이 길고 속도가 느린 보조 복제본이 하나 이상 있을 수 있으며, 이러한 복제본에 작업을 적용합니다. 보고서가 보조 복제본에 있으면 먼저 노드에서 디스크 사용량 및 성능을 확인합니다. 그런 다음, 저속 노드에서 주 복제본으로 나가는 연결을 확인합니다.
 
-**RemoteReplicatorConnectionStatus**: 기본 복제본의 
-**System.Replicator**는 보조(원격) 복제자에 대한 연결이 정상이 아닐 경우 경고를 보고합니다. 원격 복제자의 주소가 보고서 메시지에 표시되므로 잘못된 구성이 전달되었는지 또는 복제자 간에 네트워크 문제가 있는지를 더 편리하게 검색할 수 있습니다.
+**원격 복제자 연결 상태:**
+기본 복제본의**System.Replicator는** 보조(원격) 복제기에 대한 연결이 정상적이지 않을 때 경고를 보고합니다. 원격 복제자의 주소가 보고서 메시지에 표시되므로 잘못된 구성이 전달되었는지 또는 복제자 간에 네트워크 문제가 있는지를 더 편리하게 검색할 수 있습니다.
 
 * **SourceId**: System.Replicator
-* **Property**: **RemoteReplicatorConnectionStatus**
+* **속성**: **원격 복제자 연결 상태**.
 * **다음 단계**: 오류 메시지를 확인하고 원격 복제자 주소가 올바르게 구성되었는지 확인합니다. 예를 들어 원격 복제자가 "localhost" 수신 주소를 통해 열리면 외부에서 연결할 수 없습니다. 주소가 올바르게 표시되면 주 노드와 원격 주소 간의 연결을 확인하여 잠재적인 네트워크 문제를 찾습니다.
 
 ### <a name="replication-queue-full"></a>복제 큐 전체
 **System.Replicator**는 복제본 큐가 가득 차면 경고를 보고합니다. 보통은 기본 데이터베이스에서는 하나 이상의 보조 복제본이 작업을 승인하는 속도가 느리기 때문에 복제본 큐가 가득차게 됩니다. 보조 데이터베이스에서는 서비스가 작업에 적용하는 속도가 느릴 때 일반적으로 발생합니다. 큐가 더 이상 가득 차지 않으면 경고가 지워집니다.
 
 * **SourceId**: System.Replicator
-* **Property**: 복제본의 역할에 따라 **PrimaryReplicationQueueStatus** 또는 **SecondaryReplicationQueueStatus**입니다.
+* **속성**: 복제본 역할에 따라 **기본 복제큐 상태** 또는 보조 **복제큐 상태입니다.**
 
 ### <a name="slow-naming-operations"></a>느린 이름 지정 작업
 **System.NamingService**는 이름 지정 작업이 허용 가능한 시간보다 오래 걸리는 경우 주 복제본에 해당 상태를 보고합니다. 이름 지정 작업의 예는 [CreateServiceAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) 또는 [DeleteServiceAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync)입니다. FabricClient에서 더 많은 메서드를 찾을 수 있습니다. 예를 들어 [서비스 관리 메서드](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient) 또는 [속성 관리 메서드](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.propertymanagementclient)에 있습니다.
@@ -685,7 +685,7 @@ HealthEvents          :
 이름 지정 작업이 예상보다 오래 걸리는 경우 작업은 작업을 사용하는 이름 지정 서비스 파티션의 주 복제본의 경고 보고서로 플래그 지정됩니다. 작업이 성공적으로 완료되면 경고는 해제됩니다. 오류와 함께 작업이 완료되면 상태 보고서는 오류에 대한 세부 정보를 포함합니다.
 
 * **SourceId**: System.NamingService
-* **Property**: "**Duration_** " 접두사로 시작하고, 느린 작업 및 해당 작업이 적용되는 Service Fabric 이름을 식별합니다. 예를 들어 이름 **fabric:/MyApp/MyService**에서 서비스 만들기가 너무 오래 걸리는 경우 속성은 **Duration_AOCreateService.fabric:/MyApp/MyService**입니다. “AO”는 이 이름 및 작업에 대한 이름 지정 파티션의 역할을 가리킵니다.
+* **Property**: "**Duration_**" 접두사로 시작하고, 느린 작업 및 해당 작업이 적용되는 Service Fabric 이름을 식별합니다. 예를 들어 이름 패브릭에서 서비스를 만드는 **경우:/MyApp/MyService가** 너무 오래 걸리는 경우 속성은 **Duration_AOCreateService.fabric:/MyApp/MyService**. “AO”는 이 이름 및 작업에 대한 이름 지정 파티션의 역할을 가리킵니다.
 * **다음 단계**: 명명 작업이 실패하는 이유를 확인합니다. 각 작업에는 다른 원인이 있을 수 있습니다. 예를 들어 삭제 서비스가 멈춰 있을 수 있습니다. 서비스 코드의 사용자 버그로 인해 애플리케이션 호스트가 노드에서 계속 충돌하기 때문에 서비스가 중단되었을 수 있습니다.
 
 다음 예제는 서비스 만들기 작업을 보여 줍니다. 작업이 구성된 기간보다 오래 걸렸습니다. “AO”는 다시 시도하고 “NO”로 작업을 보냅니다. “NO”에서 시간 제한이 있는 마지막 작업을 완료했습니다. 이 경우 동일한 복제본은 “AO” 및 “NO” 역할에 대해 주 복제본입니다.
@@ -742,7 +742,7 @@ HealthEvents          :
 System.Hosting은 애플리케이션이 노드에서 성공적으로 활성화되면 확인을 보고합니다. 그렇지 않으면 오류를 보고합니다.
 
 * **SourceId**: System.Hosting
-* **Property**: **Activation**(롤아웃 버전 포함)
+* **속성**: **활성화,** 롤아웃 버전을 포함합니다.
 * **다음 단계**: 애플리케이션이 비정상인 경우 활성화에 실패한 이유를 조사합니다.
 
 다음 예제는 성공적인 활성화를 보여줍니다.
@@ -787,17 +787,17 @@ System.Hosting은 애플리케이션 패키지 다운로드에 실패하면 오�
 System.Hosting은 노드에서 서비스 패키지 활성화가 성공하면 확인을 보고합니다. 그렇지 않으면 오류를 보고합니다.
 
 * **SourceId**: System.Hosting
-* **Property**: Activation
+* **속성**: 활성화.
 * **다음 단계**: 활성화가 실패한 이유를 조사합니다.
 
 ### <a name="code-package-activation"></a>코드 패키지 활성화
 System.Hosting은 활성화가 성공한 경우 각 코드 패키지에 대해 확인을 보고합니다. 활성화에 실패하는 경우 구성된 대로 경고를 보고합니다. **CodePackage**가 활성화에 실패하거나 구성된 **CodePackageHealthErrorThreshold**보다 큰 오류와 함께 종료되면 호스팅이 오류를 보고합니다. 서비스 패키지에 여러 코드 패키지가 있다면 각 패키지에 대해 생성된 활성화 보고서가 있습니다.
 
 * **SourceId**: System.Hosting
-* **Property**: **CodePackageActivation** 접두사를 사용하고, 코드 패키지 이름과 진입점을 *CodePackageActivation:CodePackageName:SetupEntryPoint/EntryPoint*로 포함합니다. 예를 들어 **CodePackageActivation:Code:SetupEntryPoint**입니다.
+* **속성**: 접두사 **코드 패키지활성화를** 사용하고 코드 패키지의 이름과 진입점을 *CodePackageActivation:CodePackageName:SetupEntryPoint/진입점로*포함합니다. 예를 들어 **CodePackageActivation:Code:SetupEntryPoint**입니다.
 
 ### <a name="service-type-registration"></a>서비스 유형 등록
-서비스 유형이 제대로 등록되면 System.Hosting이 OK를 보고합니다. 등록이 제시간에 완료되지 않으면 **ServiceTypeRegistrationTimeout**을 사용하여 구성된 대로 오류를 보고합니다. 런타임은 닫혀 있는 경우 서비스 유형이 노드에서 등록 해제되고 호스팅이 경고를 보고합니다.
+서비스 유형이 제대로 등록되면 System.Hosting이 OK를 보고합니다. **ServiceTypeRegistrationTimeout을**사용하여 구성된 대로 등록이 제 시간에 수행되지 않은 경우 오류를 보고합니다. 런타임은 닫혀 있는 경우 서비스 유형이 노드에서 등록 해제되고 호스팅이 경고를 보고합니다.
 
 * **SourceId**: System.Hosting
 * **Property**: **ServiceTypeRegistration** 접두사를 사용하며 서비스 유형 이름을 포함합니다. 예를 들어 **ServiceTypeRegistration:FileStoreServiceType**입니다.
@@ -862,8 +862,8 @@ HealthEvents               :
 System.Hosting은 업그레이드 중에 유효성 검사에 실패하거나 노드에서 업그레이드에 실패하면 오류를 보고합니다.
 
 * **SourceId**: System.Hosting
-* **Property**: **FabricUpgradeValidation** 접두사를 포함하고 업그레이드 버전을 포함합니다.
-* **Description**: 발생한 오류를 가리킵니다.
+* **속성**: 접두사 **패브릭업그레이드유효성** 검사를 사용하고 업그레이드 버전을 포함합니다.
+* **설명:** 오류가 발생한 지점을 가리킵니다.
 
 ### <a name="undefined-node-capacity-for-resource-governance-metrics"></a>리소스 거버넌스 메트릭의 노드 용량이 정의되지 않음
 클러스터 매니페스트에 노드 용량이 정의되어 있지 않고 자동 검색 구성이 해제되어 있으면 System.Hosting에서 경고를 보고합니다. [리소스 관리](service-fabric-resource-governance.md)를 사용하는 서비스 패키지가 지정된 노드에 등록할 때마다 Service Fabric에서 상태 경고가 발생합니다.

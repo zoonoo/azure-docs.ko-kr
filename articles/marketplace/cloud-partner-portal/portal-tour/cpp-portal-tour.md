@@ -1,26 +1,25 @@
 ---
-title: Azure Cloud 파트너 포털 둘러보기 | Azure Marketplace
-description: Azure Marketplace Cloud 파트너 포털의 사용자 환경에 대 한 개요입니다.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+title: Azure 클라우드 파트너 포털 투어 | Azure 마켓플레이스
+description: Azure 마켓플레이스용 클라우드 파트너 포털의 사용자 환경 개요입니다.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/08/2018
-ms.author: pabutler
-ms.openlocfilehash: 85ddf2e2141ad77321710ad03e4d7f67572f3688
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 53378be9b72792b320699341e4b6b16b20217687
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821460"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80278317"
 ---
 # <a name="cloud-partner-portal-tour"></a>Cloud 파트너 포털 둘러보기
 
 이 문서에서는 [Cloud 파트너 포털](https://cloudpartner.azure.com)의 콘텐츠, 탐색 메커니즘 및 기능을 소개합니다.   등록된 파트너는 이 포털을 통해 [Azure Marketplace](https://azuremarketplace.microsoft.com) 및 [AppSource Marketplace](https://azuremarketplace.microsoft.com)를 위한 새 제품을 만들고, 기존 제품을 관리할 수 있습니다.  Cloud 파트너 포털은 등록된 파트너만 액세스할 수 있습니다. 자세한 내용은 [Cloud Marketplace 게시자 되기](https://docs.microsoft.com/azure/marketplace/become-publisher)를 참조하세요.
 
-[![프로필 페이지가 표시된 Cloud 파트너 포털](./media/portal-window_001a.png)](./media/portal-window_001b.png#lightbox)
-<br/>   (*이미지를 확대하려면 클릭하세요.* )
+[![프로필 페이지를 표시하는 클라우드 파트너 포털](./media/portal-window_001a.png)](./media/portal-window_001b.png#lightbox)
+<br/>   (*이미지를 확대하려면 클릭하세요.*)
 
 
 ## <a name="section-contents"></a>섹션 콘텐츠

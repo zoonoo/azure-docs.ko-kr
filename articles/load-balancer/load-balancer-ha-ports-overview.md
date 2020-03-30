@@ -13,26 +13,26 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2019
 ms.author: allensu
-ms.openlocfilehash: c6529e2585a7fca2d160d093d303afa02e6f9379
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 5ada709350802344bfa65cce269735baa416edf6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74215069"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80234442"
 ---
 # <a name="high-availability-ports-overview"></a>고가용성 포트 개요
 
 Azure Standard Load Balancer는 내부 부하 분산 장치를 사용하는 경우 모든 포트에서 TCP 및 UDP 흐름의 부하를 동시에 분산하도록 도와줍니다. 
 
-HA (고가용성) 포트 부하 분산 규칙은 내부 표준 Load Balancer 구성 된 부하 분산 규칙의 변형입니다. 내부 Standard Load Balancer의 모든 포트에 도달하는 모든 TCP 및 UDP 흐름의 부하를 분산하기 위한 단일 규칙을 제공하여 부하 분산 장치 사용을 간소화할 수 있습니다. 부하 분산 의사 결정은 흐름 단위로 이루어집니다. 원본 IP 주소, 원본 포트, 대상 IP 주소, 대상 포트 및 프로토콜의 5 튜플 연결을 기준으로 합니다.
+고가용성(HA) 포트 로드 밸런싱 규칙은 내부 표준 부하 분산기에서 구성된 부하 분산 규칙의 변형입니다. 내부 Standard Load Balancer의 모든 포트에 도달하는 모든 TCP 및 UDP 흐름의 부하를 분산하기 위한 단일 규칙을 제공하여 부하 분산 장치 사용을 간소화할 수 있습니다. 부하 분산 의사 결정은 흐름 단위로 이루어집니다. 원본 IP 주소, 원본 포트, 대상 IP 주소, 대상 포트 및 프로토콜의 5 튜플 연결을 기준으로 합니다.
 
-HA 포트 부하 분산 규칙은 가상 네트워크 내에서 Nva (네트워크 가상 어플라이언스)의 고가용성 및 규모와 같은 중요 한 시나리오를 지원 합니다. 이 기능은 많은 수의 포트에서 부하를 분산시켜야 할 때도 도움이 될 수 있습니다. 
+HA 포트 로드 밸런싱 규칙은 가상 네트워크 내의 NV(네트워크 가상 어플라이언스)에 대한 고가용성 및 확장과 같은 중요한 시나리오를 수행하는 데 도움이 됩니다. 이 기능은 많은 수의 포트에서 부하를 분산시켜야 할 때도 도움이 될 수 있습니다. 
 
-HA 포트 부하 분산 규칙은 프런트 엔드 및 백 엔드 포트를 **0** 으로 설정 하 고 프로토콜을 **모두**로 설정할 때 구성 됩니다. 그러면 내부 Load Balancer 리소스가 포트 번호에 관계없이 모든 TCP 및 UDP 흐름의 부하를 분산합니다.
+HA 포트 로드 밸런싱 규칙은 프런트 엔드 및 백 엔드 포트를 **0으로** 설정하고 프로토콜을 **모두로**설정할 때 구성됩니다. 그러면 내부 Load Balancer 리소스가 포트 번호에 관계없이 모든 TCP 및 UDP 흐름의 부하를 분산합니다.
 
 ## <a name="why-use-ha-ports"></a>HA 포트를 사용하는 이유
 
-### <a name="nva"></a>네트워크 가상 어플라이언스
+### <a name="network-virtual-appliances"></a><a name="nva"></a>네트워크 가상 어플라이언스
 
 여러 유형의 보안 위협에서 Azure 워크로드를 보호하기 위해 NVA를 사용할 수 있습니다. NVA가 이러한 시나리오에서 사용되는 경우 신뢰할 수 있고 가용성이 뛰어나며 요청 시 확장 가능해야 합니다.
 
@@ -44,10 +44,10 @@ NVA HA 시나리오의 경우 HA 포트는 다음과 같은 장점을 제공합�
 - *n*개의 활성 및 활성-수동 시나리오
 - 어플라이언스를 모니터링하기 위해 Apache ZooKeeper 노드 같은 복합 솔루션의 필요성 해소
 
-다음 다이어그램은 허브 및 스포크 가상 네트워크 배포를 나타냅니다. 스포크는 신뢰할 수 있는 공간을 벗어나기 전에 허브 가상 네트워크 및 NVA를 통해 트래픽을 강제 터널링합니다. NVA는 HA 포트가 구성된 내부 Standard Load Balancer를 통해 지원됩니다. 그에 따라 모든 트래픽을 처리하고 전달할 수 있습니다. 다음 다이어그램에 표시 된 것 처럼 구성 된 HA 포트 부하 분산 규칙은 수신 및 송신 트래픽에 대 한 흐름 대칭을 추가로 제공 합니다.
+다음 다이어그램은 허브 및 스포크 가상 네트워크 배포를 나타냅니다. 스포크는 신뢰할 수 있는 공간을 벗어나기 전에 허브 가상 네트워크 및 NVA를 통해 트래픽을 강제 터널링합니다. NVA는 HA 포트가 구성된 내부 Standard Load Balancer를 통해 지원됩니다. 그에 따라 모든 트래픽을 처리하고 전달할 수 있습니다. 다음 다이어그램에 표시로 구성된 경우 HA 포트 로드 분산 규칙은 유입 및 송신 트래픽에 대한 흐름 대칭을 추가로 제공합니다.
 
 <a node="diagram"></a>
-![HA 모드로 배포된 NVA가 있는 허브 및 스포크 가상 네트워크의 다이어그램](./media/load-balancer-ha-ports-overview/nvaha.png)
+![HA 모드에 배포된 NAS를 갖춘 허브 및 스포크 가상 네트워크 다이어그램](./media/load-balancer-ha-ports-overview/nvaha.png)
 
 >[!NOTE]
 > NVA를 사용하는 경우 해당 공급자에게 HA 포트를 사용하는 최선의 방법과 지원되는 시나리오에 대해 문의하세요.
@@ -87,21 +87,20 @@ HA 포트 기능은 모든 글로벌 Azure 지역에서 사용할 수 있습니�
 
 ### <a name="an-internal-load-balancer-with-ha-ports-and-a-public-load-balancer-on-the-same-back-end-instance"></a>HA 포트가 있는 내부 부하 분산 장치 및 동일한 백 엔드 인스턴스의 공용 부하 분산 장치
 
-HA 포트가 있는 단일 내부 Standard Load Balancer 외에 백 엔드 리소스에 대해 *하나*의 공용 Standard Load Balancer 리소스를 구성할 수 있습니다.
+HA 포트가 있는 단일 내부 표준 로드 밸런서와 함께 백 엔드 리소스에 대해 *하나의* 공용 표준 로드 밸런서 리소스를 구성할 수 있습니다.
 
 >[!NOTE]
 >이 기능은 현재 Azure Resource Manager 템플릿을 통해서만 사용할 수 있고 Azure Portal에서는 사용할 수 없습니다.
 
 ## <a name="limitations"></a>제한 사항
 
-- HA 포트 부하 분산 규칙은 내부 표준 Load Balancer에 대해서만 사용할 수 있습니다.
+- HA 포트 로드 밸런싱 규칙은 내부 표준 부하 밸런서에만 사용할 수 있습니다.
 - HA 포트 부하 분산 규칙과 비 HA 포트 부하 분산 규칙을 함께 사용할 수는 없습니다.
-- 기존 IP 조각은 HA 포트에서 첫 번째 패킷과 동일한 대상으로 부하 분산 규칙을 전달 합니다.  IP 조각화 하면 UDP 또는 TCP 패킷은 지원 되지 않습니다.
-- HA 포트 부하 분산 규칙은 i p v 6에서 사용할 수 없습니다.
-- 위의 다이어그램에 표시 된 것 처럼 사용 하 고 HA 포트 부하 분산 규칙을 사용 하는 경우에만 백 엔드 인스턴스와 단일 NIC (및 단일 IP 구성)를 사용 하는 경우에만 흐름 대칭 (주로 NVA 시나리오의 경우)이 지원 됩니다. 다른 시나리오에서는 제공되지 않습니다. 즉, 둘 이상의 Load Balancer 리소스와 해당 규칙이 독립적인 의사 결정을 하며 조정되지 않음을 의미합니다. [네트워크 가상 어플라이언스](#nva)에 대한 설명과 다이어그램을 참조하세요. 여러 Nic를 사용 하거나 공용 및 내부 Load Balancer 간에 NVA를 sandwiching는 경우 흐름 대칭을 사용할 수 없습니다.  회신이 동일한 NVA에 도착할 수 있도록 수신 흐름을 어플라이언스의 IP로 소스 NAT 처리하여 이 문제를 해결할 수 있습니다.  그러나 위의 다이어그램에 표시된 참조 아키텍처와 단일 NIC를 사용하는 것이 좋습니다.
+- 기존 IP 조각은 HA 포트 로드 밸런싱 규칙에 의해 첫 번째 패킷과 동일한 대상으로 전달됩니다.  UDP 또는 TCP 패킷을 조각화하는 IP는 지원되지 않습니다.
+- 흐름 대칭(주로 NVA 시나리오의 경우)은 위의 다이어그램에 표시된 대로 사용되고 HA 포트 로드 밸런싱 규칙을 사용하는 경우에만 백 엔드 인스턴스 및 단일 NIC(및 단일 IP 구성)에서 지원됩니다. 다른 시나리오에서는 제공되지 않습니다. 즉, 둘 이상의 Load Balancer 리소스와 해당 규칙이 독립적인 의사 결정을 하며 조정되지 않음을 의미합니다. [네트워크 가상 어플라이언스](#nva)에 대한 설명과 다이어그램을 참조하세요. 여러 NIC를 사용하거나 공용 및 내부 로드 밸런서 간에 NVA를 끼우는 경우 흐름 대칭을 사용할 수 없습니다.  회신이 동일한 NVA에 도착할 수 있도록 수신 흐름을 어플라이언스의 IP로 소스 NAT 처리하여 이 문제를 해결할 수 있습니다.  그러나 위의 다이어그램에 표시된 참조 아키텍처와 단일 NIC를 사용하는 것이 좋습니다.
 
 
 ## <a name="next-steps"></a>다음 단계
 
-- [내부 Standard Load Balancer에서 HA 포트 구성](load-balancer-configure-ha-ports.md)
-- [Standard Load Balancer에 대한 자세한 정보](load-balancer-standard-overview.md)
+- [내부 표준 부하 밸런서에서 HA 포트 구성](load-balancer-configure-ha-ports.md)
+- [표준 로드 밸워서에 대해 알아보기](load-balancer-standard-overview.md)

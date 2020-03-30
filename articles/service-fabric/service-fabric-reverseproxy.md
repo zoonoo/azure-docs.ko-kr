@@ -1,15 +1,15 @@
 ---
-title: Azure Service Fabric 역방향 프록시
+title: Azure 서비스 패브릭 역방향 프록시
 description: Service Fabric의 역방향 프록시를 사용하여 클러스터 내부 및 외부에서 마이크로 서비스와 통신
 author: BharatNarasimman
 ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: bharatn
 ms.openlocfilehash: 4fa4c6e46dd786b833087f892d995e85b5d2ea47
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79282225"
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Azure Service Fabric의 역방향 프록시
@@ -71,7 +71,7 @@ http(s)://<Cluster FQDN | internal IP>:Port/<ServiceInstanceName>/<Suffix path>?
 * **ServiceInstanceName:** "fabric:/" 체계 없이 연결하려고 하는 배포된 서비스 인스턴스의 정규화된 이름입니다. 예를 들어 *fabric:/myapp/myservice/* 서비스에 연결하려면 *myapp/myservice*를 사용합니다.
 
     서비스 인스턴스 이름은 대/소문자를 구분합니다. URL에서 서비스 인스턴스 이름의 대/소문자 표기가 달라지면 요청이 실패하고 404(찾을 수 없음)가 표시됩니다.
-* **접미사 경로:** *myapi/values/add/3*과 같이 연결할 서비스에 대한 실제 URL 경로입니다.
+* **접미사 경로:***myapi/values/add/3*과 같이 연결할 서비스에 대한 실제 URL 경로입니다.
 * **PartitionKey:** 분할 서비스의 경우 연결할 파티션의 계산된 파티션 키입니다. 참고로 이는 파티션 ID GUID가 *아닙니다* . 이 매개 변수는 단일 파티션 체계를 사용하는 서비스에는 필요하지 않습니다.
 * **PartitionKind:** 서비스 파티션 체계입니다. 이는 'Int64Range' 또는 'Named'일 수 있습니다. 이 매개 변수는 단일 파티션 체계를 사용하는 서비스에는 필요하지 않습니다.
 * **ListenerName**: 서비스의 엔드포인트 형식은 {"Endpoints":{"Listener1":"Endpoint1","Listener2":"Endpoint2" ...}}입니다. 서비스에서 여러 엔드포인트를 노출하는 경우 이 매개 변수는 클라이언트 요청을 전달해야 하는 엔드포인트를 식별합니다. 서비스에 수신기 하나만 있으면 생략할 수 있습니다.
@@ -139,7 +139,7 @@ Service Fabric 역방향 프록시는 서비스 주소의 다시 확인을 시�
 
 ## <a name="special-handling-for-services-running-in-containers"></a>컨테이너에서 실행되는 서비스에 대한 특수 처리
 
-컨테이너 내에서 실행되는 서비스의 경우 다음 코드에서처럼 `Fabric_NodeIPOrFQDN`역방향 프록시 URL[을 생성하는 환경 변수 ](#uri-format-for-addressing-services-by-using-the-reverse-proxy)을 사용할 수 있습니다.
+컨테이너 내에서 실행되는 서비스의 경우 다음 코드에서처럼 [역방향 프록시 URL](#uri-format-for-addressing-services-by-using-the-reverse-proxy)을 생성하는 환경 변수 `Fabric_NodeIPOrFQDN`을 사용할 수 있습니다.
 
 ```csharp
     var fqdn = Environment.GetEnvironmentVariable("Fabric_NodeIPOrFQDN");

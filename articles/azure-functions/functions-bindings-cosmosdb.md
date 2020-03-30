@@ -7,22 +7,22 @@ ms.topic: reference
 ms.date: 11/21/2017
 ms.custom: seodec18
 ms.openlocfilehash: e30b256d9fa43402c3b2c444aa1a0e0dc16cfdcf
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79277545"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>Azure Functions 1.x의 Azure Cosmos DB 바인딩
 
-> [!div class="op_single_selector" title1="사용 중인 Azure Functions 런타임 버전을 선택 합니다. "]
+> [!div class="op_single_selector" title1="사용 중인 Azure Functions 런타임 버전을 선택합니다. "]
 > * [버전 1](functions-bindings-cosmosdb.md)
 > * [버전 2](functions-bindings-cosmosdb-v2.md)
 
 이 문서에서는 Azure Functions에서 [Azure Cosmos DB](../cosmos-db/serverless-computing-database.md) 바인딩을 사용하는 방법을 설명합니다. Azure Functions는 Azure Cosmos DB에 대한 트리거, 입력 및 출력 바인딩을 지원합니다.
 
 > [!NOTE]
-> 이 문서는 Azure Functions 1.x에 대한 것입니다. 함수 2.x 이상에서 이러한 바인딩을 사용 하는 방법에 대 한 자세한 내용은 Azure Functions 2.x [에 대 한 Azure Cosmos DB 바인딩](functions-bindings-cosmosdb-v2.md)을 참조 하세요.
+> 이 문서는 Azure Functions 1.x에 대한 것입니다. 함수 2.x 이상에서 이러한 바인딩을 사용하는 방법에 대한 자세한 내용은 [Azure Functions 2.x에 대한 Azure Cosmos DB 바인딩을](functions-bindings-cosmosdb-v2.md)참조하십시오.
 >
 >이 바인딩의 원래 이름은 DocumentDB입니다. 함수 버전 1.x에서 트리거만 Cosmos DB로 명명되었습니다. 입력 바인딩, 출력 바인딩 및 NuGet 패키지는 DocumentDB 이름을 유지합니다.
 
@@ -43,7 +43,7 @@ Azure Cosmos DB 트리거는 [Azure Cosmos DB 변경 피드](../cosmos-db/change
 
 ## <a name="trigger---example"></a>트리거 - 예제
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 다음 예제에서는 지정한 데이터베이스 및 컬렉션에서 삽입 또는 업데이트가 있을 때 호출되는 [C# 함수](functions-dotnet-class-library.md)를 보여줍니다.
 
@@ -76,7 +76,7 @@ namespace CosmosDBSamplesV1
 }
 ```
 
-# <a name="c-script"></a>[C#스크립트도](#tab/csharp-script)
+# <a name="c-script"></a>[C# 스크립트](#tab/csharp-script)
 
 다음 예에서는 *function.json* 파일의 Cosmos DB 트리거 바인딩 및 바인딩을 사용하는 [C# 스크립트 함수](functions-reference-csharp.md)를 보여줍니다. 이 함수는 Cosmos DB 레코드가 수정될 때 로그 메시지를 작성합니다.
 
@@ -112,7 +112,7 @@ C# 스크립트 코드는 다음과 같습니다.
     }
 ```
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[자바 스크립트](#tab/javascript)
 
 다음 예에서는 *function.json* 파일의 Cosmos DB 트리거 바인딩 및 바인딩을 사용하는 [JavaScript 함수](functions-reference-node.md)를 보여줍니다. 이 함수는 Cosmos DB 레코드가 수정될 때 로그 메시지를 작성합니다.
 
@@ -145,7 +145,7 @@ JavaScript 코드는 다음과 같습니다.
 
 ## <a name="trigger---attributes"></a>트리거 - 특성
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 [C# 클래스 라이브러리](functions-dotnet-class-library.md)에서 [CosmosDBTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/Trigger/CosmosDBTriggerAttribute.cs) 특성을 사용합니다.
 
@@ -164,41 +164,41 @@ JavaScript 코드는 다음과 같습니다.
 
 전체 예제는 [트리거 - C# 예제](#trigger)를 참조하세요.
 
-# <a name="c-script"></a>[C#스크립트도](#tab/csharp-script)
+# <a name="c-script"></a>[C# 스크립트](#tab/csharp-script)
 
-스크립트에서 C# 특성을 지원 하지 않습니다.
+특성은 C# 스크립트에서 지원되지 않습니다.
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[자바 스크립트](#tab/javascript)
 
-JavaScript에서는 특성을 지원 하지 않습니다.
+속성은 자바 스크립트에서 지원되지 않습니다.
 
 ---
 
 ## <a name="trigger---configuration"></a>트리거 - 구성
 
-다음 표에서는 *function.json* 파일 및 `CosmosDBTrigger` 특성에 설정된 바인딩 구성 속성을 설명합니다.
+다음 표에서는 *function.json* 파일및 특성에서 설정한 바인딩 `CosmosDBTrigger` 구성 속성에 대해 설명합니다.
 
-|function.json 속성 | 특성 속성 |Description|
+|function.json 속성 | 특성 속성 |설명|
 |---------|---------|----------------------|
-|**type** | 해당 없음 | `cosmosDBTrigger`로 설정해야 합니다. |
+|**종류** | 해당 없음 | `cosmosDBTrigger`로 설정해야 합니다. |
 |**direction** | 해당 없음 | `in`로 설정해야 합니다. 이 매개 변수는 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다. |
-|**name** | 해당 없음 | 변경 사항이 포함된 문서 목록을 나타내는 함수 코드에 사용되는 변수 이름. |
-|**connectionStringSetting**|**ConnectionStringSetting** | 모니터링되는 Azure Cosmos DB 계정에 연결하는 데 사용되는 연결 문자열을 포함하고 있는 앱 설정의 이름입니다. |
-|**databaseName**|**DatabaseName**  | 컬렉션이 모니터링되는 Azure Cosmos DB 데이터베이스의 이름입니다. |
-|**collectionName** |**CollectionName** | 모니터링되는 컬렉션의 이름입니다. |
-|**leaseConnectionStringSetting** | **LeaseConnectionStringSetting** | (선택 사항) 임대 컬렉션을 보유하고 있는 서비스에 대한 연결 문자열을 포함하는 앱 설정의 이름입니다. 설정하지 않으면 `connectionStringSetting` 값이 사용됩니다. 이 매개 변수는 포털에서 바인딩이 생성될 때 자동으로 설정됩니다. 임대 컬렉션에 대한 연결 문자열에 쓰기 권한이 있어야 합니다.|
-|**leaseDatabaseName** |**LeaseDatabaseName** | (선택 사항) 임대를 저장하는 데 사용되는 컬렉션을 보유하는 데이터베이스의 이름입니다. 설정하지 않으면 `databaseName` 설정 값이 사용됩니다. 이 매개 변수는 포털에서 바인딩이 생성될 때 자동으로 설정됩니다. |
-|**leaseCollectionName** | **LeaseCollectionName** | (선택 사항) 임대를 저장하는 데 사용되는 컬렉션의 이름입니다. 설정하지 않으면 `leases` 값이 사용됩니다. |
-|**createLeaseCollectionIfNotExists** | **CreateLeaseCollectionIfNotExists** | (선택 사항) `true`로 설정하면 임대 컬렉션이 없는 경우 자동으로 임대 컬렉션이 생성됩니다. 기본값은 `false`입니다. |
-|**leasesCollectionThroughput**| **LeasesCollectionThroughput**| (선택 사항) 임대 컬렉션이 생성될 때 할당할 요청 단위의 양을 정의합니다. 이 설정은 `createLeaseCollectionIfNotExists`가 `true`로 설정된 경우에만 사용됩니다. 이 매개 변수는 포털을 사용하여 바인딩이 생성될 때 자동으로 설정됩니다.
-|**leaseCollectionPrefix**| **LeaseCollectionPrefix**| (선택 사항) 설정하면 이 함수에 대한 임대 컬렉션에 생성된 임대에 접두사를 추가하여, 서로 다른 접두사를 사용하여 두 별도의 Azure Functions가 동일한 임대 컬렉션을 효과적으로 공유할 수 있도록 합니다.
-|**feedPollDelay**| **FeedPollDelay**| (선택 사항) 설정하면 현재 변경 내용이 모두 삭제된 후에 피드에 대한 새로운 변경 내용의 파티션을 폴링하는 작업 간의 지연을 밀리초로 정의합니다. 기본값은 5000(5초)입니다.
-|**leaseAcquireInterval**| **LeaseAcquireInterval**| (선택 사항) 설정하면 파티션이 알려진 호스트 인스턴스 간에 균등하게 배포되는지를 계산하는 태스크를 시작하는 간격을 밀리초로 정의합니다. 기본값은 13000(13초)입니다.
-|**leaseExpirationInterval**| **LeaseExpirationInterval**| (선택 사항) 설정하면 파티션을 나타내는 임대에 대한 임대 기간인 간격을 밀리초로 정의합니다. 이 간격 내에서 임대를 갱신하지 않으면 기간이 만료되어 다른 인스턴스로 파티션 소유권이 이동합니다. 기본값은 60000(60초)입니다.
-|**leaseRenewInterval**| **LeaseRenewInterval**| (선택 사항) 설정하면 인스턴스가 현재 보유한 파티션의 모든 임대에 대한 갱신 간격을 밀리초로 정의합니다. 기본값은 17000(17초)입니다.
-|**checkpointFrequency**| **CheckpointFrequency**| (선택 사항) 설정하면 임대 검사점 간격을 밀리초로 정의합니다. 기본값은 항상 각 함수 호출 이후입니다.
-|**maxItemsPerInvocation**| **MaxItemsPerInvocation**| (선택 사항) 설정하면 함수 호출당 받은 최대 항목 수를 사용자 지정합니다.
-|**startFromBeginning**| **StartFromBeginning**| (선택 사항) 설정하면 현재 시간이 아니라 컬렉션 기록 시작부터 변경 내용을 읽기 시작하도록 트리거에 알립니다. 후속 실행에서는 검사점이 이미 저장되므로 트리거가 처음 시작될 때만 작동합니다. 임대가 이미 만들어진 후에 이 값을 `true`로 설정하면 아무 효과가 없습니다.
+|**(이름)** | 해당 없음 | 변경 사항이 포함된 문서 목록을 나타내는 함수 코드에 사용되는 변수 이름. |
+|**연결문자열 설정**|**ConnectionStringSetting** | 모니터링되는 Azure Cosmos DB 계정에 연결하는 데 사용되는 연결 문자열을 포함하고 있는 앱 설정의 이름입니다. |
+|**databaseName**|**Databasename**  | 컬렉션이 모니터링되는 Azure Cosmos DB 데이터베이스의 이름입니다. |
+|**컬렉션이름** |**CollectionName** | 모니터링되는 컬렉션의 이름입니다. |
+|**임대연결문자열 설정** | **LeaseConnectionStringSetting** | (선택 사항) 임대 컬렉션을 보유하고 있는 서비스에 대한 연결 문자열을 포함하는 앱 설정의 이름입니다. 설정하지 않으면 `connectionStringSetting` 값이 사용됩니다. 이 매개 변수는 포털에서 바인딩이 생성될 때 자동으로 설정됩니다. 임대 컬렉션에 대한 연결 문자열에 쓰기 권한이 있어야 합니다.|
+|**임대데이터베이스 이름** |**LeaseDatabaseName** | (선택 사항) 임대를 저장하는 데 사용되는 컬렉션을 보유하는 데이터베이스의 이름입니다. 설정하지 않으면 `databaseName` 설정 값이 사용됩니다. 이 매개 변수는 포털에서 바인딩이 생성될 때 자동으로 설정됩니다. |
+|**임대컬렉션 이름** | **LeaseCollectionName** | (선택 사항) 임대를 저장하는 데 사용되는 컬렉션의 이름입니다. 설정하지 않으면 `leases` 값이 사용됩니다. |
+|**createLease컬렉션If존재하지 않음** | **CreateLeaseCollectionIfNotExists** | (선택 사항) `true`로 설정하면 임대 컬렉션이 없는 경우 자동으로 임대 컬렉션이 생성됩니다. 기본값은 `false`입니다. |
+|**leasesCollectionThroughput**| **리스컬렉션관통**| (선택 사항) 임대 컬렉션이 생성될 때 할당할 요청 단위의 양을 정의합니다. 이 설정은 `createLeaseCollectionIfNotExists`가 `true`로 설정된 경우에만 사용됩니다. 이 매개 변수는 포털을 사용하여 바인딩이 생성될 때 자동으로 설정됩니다.
+|**임대컬렉션사전수정**| **LeaseCollectionPrefix**| (선택 사항) 설정하면 이 함수에 대한 임대 컬렉션에 생성된 임대에 접두사를 추가하여, 서로 다른 접두사를 사용하여 두 별도의 Azure Functions가 동일한 임대 컬렉션을 효과적으로 공유할 수 있도록 합니다.
+|**피드폴딜레이**| **FeedPollDelay**| (선택 사항) 설정하면 현재 변경 내용이 모두 삭제된 후에 피드에 대한 새로운 변경 내용의 파티션을 폴링하는 작업 간의 지연을 밀리초로 정의합니다. 기본값은 5000(5초)입니다.
+|**임대취득간격**| **LeaseAcquireInterval**| (선택 사항) 설정하면 파티션이 알려진 호스트 인스턴스 간에 균등하게 배포되는지를 계산하는 태스크를 시작하는 간격을 밀리초로 정의합니다. 기본값은 13000(13초)입니다.
+|**리스 익스피어레이션간격**| **LeaseExpirationInterval**| (선택 사항) 설정하면 파티션을 나타내는 임대에 대한 임대 기간인 간격을 밀리초로 정의합니다. 이 간격 내에서 임대를 갱신하지 않으면 기간이 만료되어 다른 인스턴스로 파티션 소유권이 이동합니다. 기본값은 60000(60초)입니다.
+|**임대갱신간격**| **LeaseRenewInterval**| (선택 사항) 설정하면 인스턴스가 현재 보유한 파티션의 모든 임대에 대한 갱신 간격을 밀리초로 정의합니다. 기본값은 17000(17초)입니다.
+|**체크포인트 주파수**| **CheckpointFrequency**| (선택 사항) 설정하면 임대 검사점 간격을 밀리초로 정의합니다. 기본값은 항상 각 함수 호출 이후입니다.
+|**maxItemsPerInvocation**| **맥스아이템스퍼호출**| (선택 사항) 설정하면 함수 호출당 받은 최대 항목 수를 사용자 지정합니다.
+|**시작 시작부터**| **StartFromBeginning**| (선택 사항) 설정하면 현재 시간이 아니라 컬렉션 기록 시작부터 변경 내용을 읽기 시작하도록 트리거에 알립니다. 후속 실행에서는 검사점이 이미 저장되므로 트리거가 처음 시작될 때만 작동합니다. 임대가 이미 만들어진 후에 이 값을 `true`로 설정하면 아무 효과가 없습니다.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -215,7 +215,7 @@ JavaScript에서는 특성을 지원 하지 않습니다.
 
 Azure Cosmos DB 입력 바인딩은 SQL API를 사용하여 하나 이상의 Azure Cosmos DB 문서를 검색하고, 함수의 입력 매개 변수에 전달합니다. 문서 ID 또는 쿼리 매개 변수는 함수를 호출하는 트리거를 기반으로 결정할 수 있습니다.
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 이 섹션에는 다음 예제가 포함되어 있습니다.
 
@@ -379,7 +379,7 @@ namespace CosmosDBSamplesV1
 
 <a id="http-trigger-look-up-id-from-route-data-using-sqlquery-c"></a>
 
-### <a name="http-trigger-look-up-id-from-route-data-using-sqlquery"></a>SqlQuery를 사용 하 여 HTTP 트리거, 경로 데이터에서 ID 조회
+### <a name="http-trigger-look-up-id-from-route-data-using-sqlquery"></a>HTTP 트리거, 경로 데이터에서 ID 조회, SqlQuery 사용
 
 다음 예제에서는 단일 문서를 검색하는 [C# 함수](functions-dotnet-class-library.md)를 보여줍니다. 함수는 조회할 ID를 지정하기 위해 경로 데이터를 사용하는 HTTP 요청에 의해 트리거됩니다. ID는 지정된 데이터베이스 및 컬렉션에서 `ToDoItem` 문서를 검색하는 데 사용됩니다.
 
@@ -421,7 +421,7 @@ namespace CosmosDBSamplesV1
 
 <a id="http-trigger-get-multiple-docs-using-sqlquery-c"></a>
 
-### <a name="http-trigger-get-multiple-docs-using-sqlquery"></a>SqlQuery를 사용 하 여 HTTP 트리거, 여러 문서 가져오기
+### <a name="http-trigger-get-multiple-docs-using-sqlquery"></a>HTTP 트리거, 여러 문서 가져오기, SqlQuery 사용
 
 다음 예제에서는 문서 목록을 검색하는 [C# 함수](functions-dotnet-class-library.md)를 보여줍니다. 함수는 HTTP 요청에 의해 트리거됩니다. 쿼리는 `SqlQuery` 특성 속성에 지정됩니다.
 
@@ -523,7 +523,7 @@ namespace CosmosDBSamplesV1
 }
 ```
 
-# <a name="c-script"></a>[C#스크립트도](#tab/csharp-script)
+# <a name="c-script"></a>[C# 스크립트](#tab/csharp-script)
 
 이 섹션에는 다음 예제가 포함되어 있습니다.
 
@@ -584,7 +584,7 @@ C# 스크립트 코드는 다음과 같습니다.
 
 <a id="queue-trigger-get-multiple-docs-using-sqlquery-c-script"></a>
 
-### <a name="queue-trigger-get-multiple-docs-using-sqlquery"></a>SqlQuery를 사용 하 여 큐 트리거, 여러 문서 가져오기
+### <a name="queue-trigger-get-multiple-docs-using-sqlquery"></a>큐 트리거, 여러 문서 가져오기, SqlQuery 사용
 
 다음 예제에서는 *function.json* 파일의 Azure Cosmos DB 입력 바인딩 및 해당 바인딩을 사용하는 [C# 스크립트 함수](functions-reference-csharp.md)를 보여 줍니다. 이 함수는 큐 트리거를 사용하여 쿼리 매개 변수를 사용자 지정하여 SQL 쿼리로 지정된 여러 문서를 검색합니다.
 
@@ -748,7 +748,7 @@ public static HttpResponseMessage Run(HttpRequestMessage req, ToDoItem toDoItem,
 
 <a id="http-trigger-get-multiple-docs-using-sqlquery-c-script"></a>
 
-### <a name="http-trigger-get-multiple-docs-using-sqlquery"></a>SqlQuery를 사용 하 여 HTTP 트리거, 여러 문서 가져오기
+### <a name="http-trigger-get-multiple-docs-using-sqlquery"></a>HTTP 트리거, 여러 문서 가져오기, SqlQuery 사용
 
 다음 예제에서는 문서 목록을 검색하는 [C# 스크립트 함수](functions-reference-csharp.md)를 보여줍니다. 함수는 HTTP 요청에 의해 트리거됩니다. 쿼리는 `SqlQuery` 특성 속성에 지정됩니다.
 
@@ -805,7 +805,7 @@ public static HttpResponseMessage Run(HttpRequestMessage req, IEnumerable<ToDoIt
 
 <a id="http-trigger-get-multiple-docs-using-documentclient-c-script"></a>
 
-### <a name="http-trigger-get-multiple-docs-using-documentclient"></a>DocumentClient를 사용 하 여 HTTP 트리거, 여러 문서 가져오기
+### <a name="http-trigger-get-multiple-docs-using-documentclient"></a>HTTP 트리거, 여러 문서 가져오기, DocumentClient 사용
 
 다음 예제에서는 문서 목록을 검색하는 [C# 스크립트 함수](functions-reference-csharp.md)를 보여줍니다. 함수는 HTTP 요청에 의해 트리거됩니다. 코드를 Azure Cosmos DB 바인딩에 의해 제공된 `DocumentClient` 인스턴스를 사용하여 문서 목록을 읽습니다. `DocumentClient` 인스턴스는 쓰기 작업에 사용될 수도 있습니다.
 
@@ -881,7 +881,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, Docume
 }
 ```
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[자바 스크립트](#tab/javascript)
 
 이 섹션에는 다음 예제가 포함되어 있습니다.
 
@@ -1054,7 +1054,7 @@ module.exports = function (context, req, toDoItem) {
 
 <a id="queue-trigger-get-multiple-docs-using-sqlquery-javascript"></a>
 
-### <a name="queue-trigger-get-multiple-docs-using-sqlquery"></a>SqlQuery를 사용 하 여 큐 트리거, 여러 문서 가져오기
+### <a name="queue-trigger-get-multiple-docs-using-sqlquery"></a>큐 트리거, 여러 문서 가져오기, SqlQuery 사용
 
 다음 예제에서는 *function.json* 파일의 Azure Cosmos DB 입력 바인딩 및 해당 바인딩을 사용하는 [JavaScript 함수](functions-reference-node.md)를 보여 줍니다. 이 함수는 큐 트리거를 사용하여 쿼리 매개 변수를 사용자 지정하여 SQL 쿼리로 지정된 여러 문서를 검색합니다.
 
@@ -1093,53 +1093,53 @@ JavaScript 코드는 다음과 같습니다.
 
 ## <a name="input---attributes"></a>입력 - 특성
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 [C# 클래스 라이브러리](functions-dotnet-class-library.md)에서 [DocumentDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) 특성을 사용합니다.
 
 특성의 생성자는 데이터베이스 이름과 컬렉션 이름을 사용합니다. 이러한 설정 및 구성할 수 있는 다른 속성에 대한 자세한 내용은 [다음 구성 섹션](#input---configuration)을 참조하세요.
 
-# <a name="c-script"></a>[C#스크립트도](#tab/csharp-script)
+# <a name="c-script"></a>[C# 스크립트](#tab/csharp-script)
 
-스크립트에서 C# 특성을 지원 하지 않습니다.
+특성은 C# 스크립트에서 지원되지 않습니다.
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[자바 스크립트](#tab/javascript)
 
-JavaScript에서는 특성을 지원 하지 않습니다.
+속성은 자바 스크립트에서 지원되지 않습니다.
 
 ---
 
 ## <a name="input---configuration"></a>입력 - 구성
 
-다음 표에서는 *function.json* 파일 및 `DocumentDB` 특성에 설정된 바인딩 구성 속성을 설명합니다.
+다음 표에서는 *function.json* 파일및 특성에서 설정한 바인딩 `DocumentDB` 구성 속성에 대해 설명합니다.
 
-|function.json 속성 | 특성 속성 |Description|
+|function.json 속성 | 특성 속성 |설명|
 |---------|---------|----------------------|
-|**type**     | 해당 없음 | `documentdb`로 설정해야 합니다.        |
+|**종류**     | 해당 없음 | `documentdb`로 설정해야 합니다.        |
 |**direction**     | 해당 없음 | `in`로 설정해야 합니다.         |
-|**name**     | 해당 없음 | 함수에서 문서를 나타내는 바인딩 매개 변수의 이름입니다.  |
-|**databaseName** |**DatabaseName** |문서를 포함하는 데이터베이스입니다.        |
-|**collectionName** |**CollectionName** | 문서를 포함하는 컬렉션의 이름입니다. |
+|**(이름)**     | 해당 없음 | 함수에서 문서를 나타내는 바인딩 매개 변수의 이름입니다.  |
+|**databaseName** |**Databasename** |문서를 포함하는 데이터베이스입니다.        |
+|**컬렉션이름** |**CollectionName** | 문서를 포함하는 컬렉션의 이름입니다. |
 |**id**    | **Id** | 검색할 문서의 ID입니다. 이 속성은 [바인딩 식](./functions-bindings-expressions-patterns.md)을 지원합니다. **id** 및 **sqlQuery** 속성을 둘 다 설정하지 마십시오. 둘 중 하나를 설정하지 않으면 전체 컬렉션이 검색됩니다. |
-|**sqlQuery**  |**SqlQuery**  | 여러 문서를 검색하는 데 사용되는 Azure Cosmos DB SQL 쿼리입니다. 이 속성은 런타임 바인딩을 지원합니다(예: `SELECT * FROM c where c.departmentId = {departmentId}`). **id** 및 **sqlQuery** 속성을 둘 다 설정하지 마십시오. 둘 중 하나를 설정하지 않으면 전체 컬렉션이 검색됩니다.|
+|**sql쿼리**  |**SqlQuery**  | 여러 문서를 검색하는 데 사용되는 Azure Cosmos DB SQL 쿼리입니다. 이 속성은 런타임 바인딩을 지원합니다(예: `SELECT * FROM c where c.departmentId = {departmentId}`). **id** 및 **sqlQuery** 속성을 둘 다 설정하지 마십시오. 둘 중 하나를 설정하지 않으면 전체 컬렉션이 검색됩니다.|
 |**연결**     |**ConnectionStringSetting**|Azure Cosmos DB 연결 문자열을 포함하는 앱 설정의 이름입니다.        |
-|**partitionKey**|**PartitionKey**|조회를 위한 파티션 키 값을 지정합니다. 바인딩 매개 변수가 포함될 수 있습니다.|
+|**파티션키**|**PartitionKey**|조회를 위한 파티션 키 값을 지정합니다. 바인딩 매개 변수가 포함될 수 있습니다.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="input---usage"></a>입력 - 사용
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
-함수가 성공적으로 종료 되 면 명명 된 입력 매개 변수를 통해 입력 문서에 대 한 모든 변경 내용이 자동으로 유지 됩니다.
+함수가 성공적으로 종료되면 명명된 입력 매개 변수를 통해 입력 문서에 대한 변경 내용이 자동으로 유지됩니다.
 
-# <a name="c-script"></a>[C#스크립트도](#tab/csharp-script)
+# <a name="c-script"></a>[C# 스크립트](#tab/csharp-script)
 
-함수가 성공적으로 종료 되 면 명명 된 입력 매개 변수를 통해 입력 문서에 대 한 모든 변경 내용이 자동으로 유지 됩니다.
+함수가 성공적으로 종료되면 명명된 입력 매개 변수를 통해 입력 문서에 대한 변경 내용이 자동으로 유지됩니다.
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[자바 스크립트](#tab/javascript)
 
-함수 종료 시 업데이트가 자동으로 수행 되지 않습니다. 대신 `context.bindings.<documentName>In` 및 `context.bindings.<documentName>Out`을 사용하여 업데이트합니다. [입력 예제](#input)를 참조 하십시오.
+함수 종료 시 업데이트가 자동으로 이루어지지 않습니다. 대신 `context.bindings.<documentName>In` 및 `context.bindings.<documentName>Out`을 사용하여 업데이트합니다. 입력 [예제를](#input)참조하십시오.
 
 ---
 
@@ -1147,12 +1147,12 @@ JavaScript에서는 특성을 지원 하지 않습니다.
 
 Azure Cosmos DB 출력 바인딩을 사용하면 Azure Cosmos DB 데이터베이스에 SQL API를 사용하여 새 문서를 작성할 수 있습니다.
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 이 섹션에는 다음 예제가 포함되어 있습니다.
 
 * 큐 트리거, 하나의 문서 쓰기
-* 큐 트리거, `IAsyncCollector`를 사용 하 여 문서 작성
+* 큐 트리거, 사용 문서 작성`IAsyncCollector`
 
 예제에서는 간단한 `ToDoItem` 형식을 참조하세요.
 
@@ -1233,12 +1233,12 @@ namespace CosmosDBSamplesV1
 }
 ```
 
-# <a name="c-script"></a>[C#스크립트도](#tab/csharp-script)
+# <a name="c-script"></a>[C# 스크립트](#tab/csharp-script)
 
 이 섹션에는 다음 예제가 포함되어 있습니다.
 
 * 큐 트리거, 하나의 문서 쓰기
-* 큐 트리거, `IAsyncCollector`를 사용 하 여 문서 작성
+* 큐 트리거, 사용 문서 작성`IAsyncCollector`
 
 ### <a name="queue-trigger-write-one-doc"></a>큐 트리거, 하나의 문서 쓰기
 
@@ -1361,7 +1361,7 @@ public static async Task Run(ToDoItem[] toDoItemsIn, IAsyncCollector<ToDoItem> t
 }
 ```
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[자바 스크립트](#tab/javascript)
 
 다음 예제에서는 *function.json* 파일의 Azure Cosmos DB 출력 바인딩 및 해당 바인딩을 사용하는 [JavaScript 함수](functions-reference-node.md)를 보여 줍니다. 이 함수는 다음 형식으로 JSON을 수신하는 큐에 대한 큐 입력 바인딩을 사용합니다.
 
@@ -1420,7 +1420,7 @@ JavaScript 코드는 다음과 같습니다.
 
 ## <a name="output---attributes"></a>출력 - 특성
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 [C# 클래스 라이브러리](functions-dotnet-class-library.md)에서 [DocumentDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) 특성을 사용합니다.
 
@@ -1436,32 +1436,32 @@ JavaScript 코드는 다음과 같습니다.
     }
 ```
 
-전체 예제는 [Output](#output)을 참조 하세요.
+전체 예제를 보려면 [출력](#output)을 참조하십시오.
 
-# <a name="c-script"></a>[C#스크립트도](#tab/csharp-script)
+# <a name="c-script"></a>[C# 스크립트](#tab/csharp-script)
 
-스크립트에서 C# 특성을 지원 하지 않습니다.
+특성은 C# 스크립트에서 지원되지 않습니다.
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[자바 스크립트](#tab/javascript)
 
-JavaScript에서는 특성을 지원 하지 않습니다.
+속성은 자바 스크립트에서 지원되지 않습니다.
 
 ---
 
 ## <a name="output---configuration"></a>출력 - 구성
 
-다음 표에서는 *function.json* 파일 및 `DocumentDB` 특성에 설정된 바인딩 구성 속성을 설명합니다.
+다음 표에서는 *function.json* 파일및 특성에서 설정한 바인딩 `DocumentDB` 구성 속성에 대해 설명합니다.
 
-|function.json 속성 | 특성 속성 |Description|
+|function.json 속성 | 특성 속성 |설명|
 |---------|---------|----------------------|
-|**type**     | 해당 없음 | `documentdb`로 설정해야 합니다.        |
+|**종류**     | 해당 없음 | `documentdb`로 설정해야 합니다.        |
 |**direction**     | 해당 없음 | `out`로 설정해야 합니다.         |
-|**name**     | 해당 없음 | 함수에서 문서를 나타내는 바인딩 매개 변수의 이름입니다.  |
-|**databaseName** | **DatabaseName**|문서가 만들어진 컬렉션을 포함하는 데이터베이스입니다.     |
-|**collectionName** |**CollectionName**  | 문서가 만들어진 컬렉션의 이름입니다. |
-|**createIfNotExists**  |**CreateIfNotExists**    | 컬렉션이 존재하지 않는 경우 만들 수 있는지 여부를 나타내는 부울 값입니다. 새 컬렉션이 예약된 처리량으로 만들어져 비용이 부과되기 기본값은 *false*입니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/documentdb/)를 참조하세요.  |
-|**partitionKey**|**PartitionKey** |`CreateIfNotExists`가 true이면 생성된 컬렉션의 파티션 키 경로를 정의합니다.|
-|**collectionThroughput**|**CollectionThroughput**| `CreateIfNotExists`가 true이면 생성된 컬렉션의 [처리량](../cosmos-db/set-throughput.md)을 정의합니다.|
+|**(이름)**     | 해당 없음 | 함수에서 문서를 나타내는 바인딩 매개 변수의 이름입니다.  |
+|**databaseName** | **Databasename**|문서가 만들어진 컬렉션을 포함하는 데이터베이스입니다.     |
+|**컬렉션이름** |**CollectionName**  | 문서가 만들어진 컬렉션의 이름입니다. |
+|**createIfNotExists**  |**CreateIfNotExists**    | 컬렉션이 존재하지 않는 경우 만들 수 있는지 여부를 나타내는 부울 값입니다. 새 컬렉션이 예약된 처리량으로 만들어져 비용이 부과되기 기본값은 *false*입니다. 자세한 내용은 가격 [책정 페이지를](https://azure.microsoft.com/pricing/details/documentdb/)참조하십시오.  |
+|**파티션키**|**PartitionKey** |`CreateIfNotExists`가 true이면 생성된 컬렉션의 파티션 키 경로를 정의합니다.|
+|**컬렉션관통**|**CollectionThroughput**| `CreateIfNotExists`가 true이면 생성된 컬렉션의 [처리량](../cosmos-db/set-throughput.md)을 정의합니다.|
 |**연결**    |**ConnectionStringSetting** |Azure Cosmos DB 연결 문자열을 포함하는 앱 설정의 이름입니다.        |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -1475,7 +1475,7 @@ JavaScript에서는 특성을 지원 하지 않습니다.
 
 ## <a name="exceptions-and-return-codes"></a>예외 및 반환 코드
 
-| 바인딩 | 참조 |
+| 바인딩 | 참고 |
 |---|---|
 | CosmosDB | [CosmosDB 오류 코드](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb) |
 

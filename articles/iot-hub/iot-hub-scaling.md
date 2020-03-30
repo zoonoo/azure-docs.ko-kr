@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: wesmc
-ms.openlocfilehash: d1de29124825a7f398b9722bb2455d1105e9c9f7
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: ecc1ae5138fe5a1e42fed9be2e31b5afa8b6d5b0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79284422"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79497512"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>솔루션에 대한 올바른 IoT Hub 계층 선택
 
@@ -33,15 +33,15 @@ Azure IoT Hub는 지원하는 기능의 수가 다른 두 계층, 기본 및 표
 
 IoT Hub의 표준 계층은 모든 기능을 활성화하고 양방향 통신 기능을 활용하려는 IoT 솔루션에 필요합니다. 기본 계층은 기능의 하위 집합을 활성화하고 디바이스에서 클라우드로의 단방향 통신만 필요한 IoT 솔루션을 위한 것입니다. 두 계층은 동일한 보안 및 인증 기능을 제공합니다.
 
-계층 내에서 한 가지 형식의 [버전](https://azure.microsoft.com/pricing/details/iot-hub/)만 IoT Hub에 선택할 수 있습니다. 예를 들어 S1 및 s 2와 같은 여러 버전의 단위를 혼합 하 여 사용 하는 것이 아니라 S1의 여러 단위를 사용 하 여 IoT Hub를 만들 수 있습니다.
+계층 내에서 한 가지 형식의 [버전](https://azure.microsoft.com/pricing/details/iot-hub/)만 IoT Hub에 선택할 수 있습니다. 예를 들어 여러 S1 단위로 IoT Hub를 만들 수 있지만 S1 및 S2와 같은 다른 버전의 단위는 혼합하지 않습니다.
 
 | 기능 | 기본 계층 | 무료/표준 계층 |
 | ---------- | ---------- | ------------- |
 | [디바이스-클라우드 원격 분석](iot-hub-devguide-messaging.md) | yes | yes |
 | [디바이스당 ID](iot-hub-devguide-identity-registry.md) | yes | yes |
-| [메시지 라우팅](iot-hub-devguide-messages-read-custom.md), [메시지 강화](iot-hub-message-enrichments-overview.md)및 [Event Grid 통합](iot-hub-event-grid.md) | yes | yes |
+| [메시지 라우팅,](iot-hub-devguide-messages-read-custom.md) [메시지 보강](iot-hub-message-enrichments-overview.md)및 [이벤트 그리드 통합](iot-hub-event-grid.md) | yes | yes |
 | [HTTP, AMQP 및 MQTT 프로토콜](iot-hub-devguide-protocols.md) | yes | yes |
-| [디바이스 프로비저닝 서비스](../iot-dps/about-iot-dps.md) | yes | yes |
+| [장치 프로비저닝 서비스](../iot-dps/about-iot-dps.md) | yes | yes |
 | [모니터링 및 진단](iot-hub-monitor-resource-health.md) | yes | yes |
 | [클라우드-디바이스 메시징](iot-hub-devguide-c2d-guidance.md) |   | yes |
 | [디바이스 쌍](iot-hub-devguide-device-twins.md), [모듈 쌍](iot-hub-devguide-module-twins.md) 및 [디바이스 관리](iot-hub-device-management-overview.md) |   | yes |
@@ -53,18 +53,18 @@ IoT Hub는 또한 테스트와 평가를 위한 무료 계층을 제공합니다
 
 ## <a name="partitions"></a>파티션
 
-Azure IoT Hub에는 [파티션](../event-hubs/event-hubs-features.md)을 비롯한 [Azure Event Hubs](../event-hubs/event-hubs-features.md#partitions)의 많은 핵심 구성 요소가 포함됩니다. IoT Hub의 이벤트 스트림은 일반적으로 다양한 IoT 디바이스에서 보고되는 들어오는 원격 분석 데이터로 채워집니다. 이벤트 스트림의 분할을 통해 동시에 이벤트 스트림을 읽고 작성할 때 발생하는 경합을 줄일 수 없습니다.
+Azure IoT Hub에는 [파티션](../event-hubs/event-hubs-features.md#partitions)을 비롯한 [Azure Event Hubs](../event-hubs/event-hubs-features.md)의 많은 핵심 구성 요소가 포함됩니다. IoT Hub의 이벤트 스트림은 일반적으로 다양한 IoT 디바이스에서 보고되는 들어오는 원격 분석 데이터로 채워집니다. 이벤트 스트림의 분할을 통해 동시에 이벤트 스트림을 읽고 작성할 때 발생하는 경합을 줄일 수 없습니다.
 
-IoT Hub를 만들 때 파티션 제한을 선택하고 변경할 수 없습니다. 기본 계층 IoT Hub 및 표준 계층 IoT Hub의 최대 파티션 제한은 32입니다. 대부분의 IoT Hub는 4개의 파티션만 필요합니다. 파티션을 결정하는 방법에 대한 자세한 내용은 Event Hubs FAQ. [얼마나 많은 파티션이 필요한가요?](../event-hubs/event-hubs-faq.md#how-many-partitions-do-i-need)를 참조하세요.
+IoT Hub를 만들 때 파티션 제한을 선택하고 변경할 수 없습니다. 기본 계층 IoT 허브 및 표준 계층 IoT Hub의 최대 파티션 제한은 32입니다. 대부분의 IoT Hub는 4개의 파티션만 필요합니다. 파티션을 결정하는 방법에 대한 자세한 내용은 Event Hubs FAQ. [얼마나 많은 파티션이 필요한가요?](../event-hubs/event-hubs-faq.md#how-many-partitions-do-i-need)를 참조하세요.
 
 ## <a name="tier-upgrade"></a>계층 업그레이드
 
-IoT 허브를 만들면 기존 작업을 중단하지 않고 기본 계층에서 표준 계층으로 업그레이드할 수 있습니다. 자세한 내용은 [IoT 허브를 업그레이드하는 방법](iot-hub-upgrade.md)을 참조하세요.
+IoT 허브를 만들면 기존 작업을 중단하지 않고 기본 계층에서 표준 계층으로 업그레이드할 수 있습니다. 자세한 내용은 [IoT 허브를 업그레이드하는 방법을 참조하세요.](iot-hub-upgrade.md)
 
 기본 계층에서 표준 계층으로 마이그레이션할 때 파티션 구성은 변경되지 않습니다.
 
 > [!NOTE]
-> 무료 계층은 기본 또는 표준으로의 업그레이드를 지원 하지 않습니다.
+> 프리 티어는 기본 또는 표준으로 업그레이드를 지원하지 않습니다.
 
 ## <a name="iot-hub-rest-apis"></a>IoT Hub REST API
 
@@ -72,37 +72,37 @@ IoT Hub의 기본 및 표준 계층 간의 지원되는 기능 차이는 일부 
 
 | API | 기본 계층 | 무료/표준 계층 |
 | --- | ---------- | ------------- |
-| [디바이스 삭제](https://docs.microsoft.com/rest/api/iothub/service/deletedevice) | yes | yes |
-| [디바이스 가져오기](https://docs.microsoft.com/rest/api/iothub/service/getdevice) | yes | yes |
-| [모듈 삭제](https://docs.microsoft.com/rest/api/iothub/service/deletemodule) | yes | yes |
-| [모듈 가져오기](https://docs.microsoft.com/rest/api/iothub/service/getmodule) | yes | yes |
-| [레지스트리 통계 가져오기](https://docs.microsoft.com/rest/api/iothub/service/getdeviceregistrystatistics) | yes | yes |
-| [서비스 통계 가져오기](https://docs.microsoft.com/rest/api/iothub/service/getservicestatistics) | yes | yes |
-| [장치 만들기 또는 업데이트](https://docs.microsoft.com/rest/api/iothub/service/createorupdatedevice) | yes | yes |
-| [모듈 만들기 또는 업데이트](https://docs.microsoft.com/rest/api/iothub/service/createorupdatemodule) | yes | yes |
-| [IoT Hub 쿼리](https://docs.microsoft.com/rest/api/iothub/service/queryiothub) | yes | yes |
+| [디바이스 삭제](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/deletedevice) | yes | yes |
+| [디바이스 가져오기](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/getdevice) | yes | yes |
+| [모듈 삭제](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/deletemodule) | yes | yes |
+| [모듈 가져오기](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/getmodule) | yes | yes |
+| [레지스트리 통계 가져오기](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/getdevicestatistics) | yes | yes |
+| [서비스 통계 받기](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/getservicestatistics) | yes | yes |
+| [장치 만들기 또는 업데이트](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/createorupdatedevice) | yes | yes |
+| [모듈 만들기 또는 업데이트](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/createorupdatemodule) | yes | yes |
+| [IoT Hub 쿼리](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/queryiothub) | yes | yes |
 | [파일 업로드 SAS URI 만들기](https://docs.microsoft.com/rest/api/iothub/device/createfileuploadsasuri) | yes | yes |
 | [바인딩된 디바이스 알림 수신](https://docs.microsoft.com/rest/api/iothub/device/receivedeviceboundnotification) | yes | yes |
 | [디바이스 이벤트 보내기](https://docs.microsoft.com/rest/api/iothub/device/senddeviceevent) | yes | yes |
-| 모듈 이벤트 보내기 | AMQP 및 MQTT만 해당 | AMQP 및 MQTT만 해당 |
+| 모듈 이벤트 보내기 | AMQP 및 MQTT 전용 | AMQP 및 MQTT 전용 |
 | [파일 업로드 상태 업데이트](https://docs.microsoft.com/rest/api/iothub/device/updatefileuploadstatus) | yes | yes |
-| [대량 디바이스 작업](https://docs.microsoft.com/rest/api/iothub/service/bulkcreateorupdatedevices) | 예, IoT Edge 기능을 제외하고 맞습니다. | yes |
-| [가져오기 내보내기 작업 취소](https://docs.microsoft.com/rest/api/iothub/service/cancelimportexportjob) | yes | yes |
-| [가져오기/내보내기 작업 만들기](https://docs.microsoft.com/rest/api/iothub/service/createimportexportjob) | yes | yes |
-| [가져오기 내보내기 작업 가져오기](https://docs.microsoft.com/rest/api/iothub/service/getimportexportjob) | yes | yes |
-| [가져오기 내보내기 작업 가져오기](https://docs.microsoft.com/rest/api/iothub/service/getimportexportjobs) | yes | yes |
-| [명령 큐 제거](https://docs.microsoft.com/rest/api/iothub/service/purgecommandqueue) |   | yes |
-| [디바이스 쌍 가져오기](https://docs.microsoft.com/rest/api/iothub/service/gettwin) |   | yes |
-| [모듈 쌍 가져오기](https://docs.microsoft.com/rest/api/iothub/service/getmoduletwin) |   | yes |
-| [디바이스 메서드 호출](https://docs.microsoft.com/rest/api/iothub/service/invokedevicemethod) |   | yes |
-| [디바이스 쌍 업데이트](https://docs.microsoft.com/rest/api/iothub/service/updatetwin) |   | yes |
-| [모듈 쌍 업데이트](https://docs.microsoft.com/rest/api/iothub/service/updatemoduletwin) |   | yes |
+| [대량 디바이스 작업](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/bulkdevicecrud) | 예, IoT Edge 기능을 제외하고 맞습니다. | yes |
+| [가져오기 내보내기 작업 취소](https://docs.microsoft.com/rest/api/iothub/service/jobclient/cancelimportexportjob) | yes | yes |
+| [가져오기 내보내기 작업 만들기](https://docs.microsoft.com/rest/api/iothub/service/jobclient/createimportexportjob) | yes | yes |
+| [가져오기 내보내기 작업 가져오기](https://docs.microsoft.com/rest/api/iothub/service/jobclient/getimportexportjob) | yes | yes |
+| [가져오기 내보내기 작업 가져오기](https://docs.microsoft.com/rest/api/iothub/service/jobclient/getimportexportjobs) | yes | yes |
+| [명령 큐 제거](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/purgecommandqueue) |   | yes |
+| [디바이스 쌍 가져오기](https://docs.microsoft.com/rest/api/iothub/service/twin/getdevicetwin) |   | yes |
+| [모듈 쌍 가져오기](https://docs.microsoft.com/rest/api/iothub/service/twin/getmoduletwin) |   | yes |
+| [디바이스 메서드 호출](https://docs.microsoft.com/rest/api/iothub/service/devicemethod/invokedevicemethod) |   | yes |
+| [디바이스 쌍 업데이트](https://docs.microsoft.com/rest/api/iothub/service/twin/updatedevicetwin) |   | yes |
+| [모듈 쌍 업데이트](https://docs.microsoft.com/rest/api/iothub/service/twin/updatemoduletwin) |   | yes |
 | [바인딩된 디바이스 알림 중단](https://docs.microsoft.com/rest/api/iothub/device/abandondeviceboundnotification) |   | yes |
 | [바인딩된 디바이스 알림 완료](https://docs.microsoft.com/rest/api/iothub/device/completedeviceboundnotification) |   | yes |
-| [작업 취소](https://docs.microsoft.com/rest/api/iothub/service/canceljob) |   | yes |
-| [작업 만들기](https://docs.microsoft.com/rest/api/iothub/service/createjob) |   | yes |
-| [작업 가져오기](https://docs.microsoft.com/rest/api/iothub/service/getjob) |   | yes |
-| [작업 쿼리](https://docs.microsoft.com/rest/api/iothub/service/queryjobs) |   | yes |
+| [작업 취소](https://docs.microsoft.com/rest/api/iothub/service/jobclient/canceljob) |   | yes |
+| [작업 만들기](https://docs.microsoft.com/rest/api/iothub/service/jobclient/createjob) |   | yes |
+| [작업 가져오기](https://docs.microsoft.com/rest/api/iothub/service/jobclient/getjob) |   | yes |
+| [작업 쿼리](https://docs.microsoft.com/rest/api/iothub/service/jobclient/queryjobs) |   | yes |
 
 ## <a name="message-throughput"></a>메시지 처리량
 
@@ -112,17 +112,17 @@ IoT Hub 솔루션의 크기를 조정하는 가장 적절한 방법은 장치별
 * 클라우드-디바이스 메시지
 * ID 레지스트리 작업
 
-트래픽은 단위당 IoT hub에 대해 측정 됩니다. IoT hub를 만들 때 계층 및 버전을 선택 하 고 사용 가능한 단위 수를 설정 합니다. B1, B2, S1 또는 S2 버전의 경우 최대 200 단위를 구매 하거나 B3 또는 S3 버전의 경우 최대 10 개까지 구매할 수 있습니다. IoT hub를 만든 후에는 해당 버전 내에서 사용할 수 있는 단위 수를 변경 하거나, 해당 계층 내의 버전 간 업그레이드 또는 다운 그레이드 (B1에서 B2로) 하거나, 기존 작업을 중단 하지 않고 기본에서 표준 계층 (B1에서 S1)으로 업그레이드할 수 있습니다. 자세한 내용은 [IoT 허브를 업그레이드하는 방법](iot-hub-upgrade.md)을 참조하세요.  
+트래픽은 단위단위로 IoT 허브에 대해 측정됩니다. IoT 허브를 만들 때 해당 계층 및 버전을 선택하고 사용 가능한 단위 수를 설정합니다. B1, B2, S1 또는 S2 에디션의 경우 최대 200대, B3 또는 S3 에디션의 경우 최대 10개까지 구매할 수 있습니다. IoT Hub를 만든 후 기존 작업을 중단하지 않고 에디션 내에서 사용 가능한 단위 수를 변경하거나, 해당 계층(B1에서 B2)으로 에디션 간에 업그레이드 또는 다운그레이드하거나 기본 계층에서 표준 계층(B1에서 S1)으로 업그레이드할 수 있습니다. 자세한 내용은 [IoT 허브를 업그레이드하는 방법을 참조하세요.](iot-hub-upgrade.md)  
 
 각 계층의 트래픽 기능의 예로 디바이스-클라우드 메시지는 지속적인 처리량 지침을 따릅니다.
 
-| 계층 버전 | 지속적인 처리량 | 지속적인 전송 속도 |
+| 티어 에디션 | 지속적인 처리량 | 지속적인 전송 속도 |
 | --- | --- | --- |
 | B1, S1 |장치당 최대 1111KB/분<br/>(1.5GB/일/장치) |장치당 평균 278메시지/분<br/>(400,000메시지/일/장치당) |
 | B2, S2 |장치당 최대 16MB/분<br/>(22.8GB/일/장치) |장치당 평균 4,167개 메시지/분<br/>(6백만 개의 메시지/일/장치당) |
 | B3, S3 |장치당 최대 814MB/분<br/>(1144.4GB/일/장치) |장치당 평균 208,333 메시지/분<br/>(3억 개의 메시지/일/장치당) |
 
-장치-클라우드 처리량은 IoT 솔루션을 설계할 때 고려해 야 하는 메트릭 중 하나일 뿐입니다. 자세한 내용은 [IoT Hub 할당량 및 제한](iot-hub-devguide-quotas-throttling.md)을 참조 하세요.
+디바이스-클라우드 처리량은 IoT 솔루션을 설계할 때 고려해야 할 메트릭 중 하나일 뿐입니다. 보다 포괄적인 정보는 [IoT Hub 할당량 및 스로틀을](iot-hub-devguide-quotas-throttling.md)참조하십시오.
 
 ### <a name="identity-registry-operation-throughput"></a>ID 레지스트리 작업 처리량
 
@@ -132,10 +132,10 @@ IoT Hub ID 레지스트리 작업은 대부분이 디바이스 프로비저닝�
 
 ## <a name="auto-scale"></a>자동 크기 조정
 
-IoT hub에서 허용 되는 메시지 제한에 도달 하는 경우 이러한 단계를 사용 하 여 [자동으로 크기를 조정](https://azure.microsoft.com/resources/samples/iot-hub-dotnet-autoscale/) 하 여 동일한 IoT Hub 계층의 IoT Hub 단위를 증가 시킬 수 있습니다.
+IoT Hub에서 허용되는 메시지 제한에 접근하는 경우 다음 단계를 사용하여 동일한 IoT Hub 계층에서 IoT Hub 단위를 [자동으로 확장하여 증분할](https://azure.microsoft.com/resources/samples/iot-hub-dotnet-autoscale/) 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* IoT Hub 기능 및 성능 세부 정보에 대 한 자세한 내용은 [IoT Hub 가격 책정](https://azure.microsoft.com/pricing/details/iot-hub) 또는 [IoT Hub 할당량 및 제한](iot-hub-devguide-quotas-throttling.md)을 참조 하세요.
+* IoT Hub 기능 및 성능 세부 정보에 대한 자세한 내용은 [IoT Hub 가격 책정](https://azure.microsoft.com/pricing/details/iot-hub) 또는 [IoT Hub 할당량 및 제한](iot-hub-devguide-quotas-throttling.md)을 참조하세요.
 
 * IoT Hub 계층을 변경하려면 [IoT 허브 업그레이드](iot-hub-upgrade.md)의 단계를 따릅니다.

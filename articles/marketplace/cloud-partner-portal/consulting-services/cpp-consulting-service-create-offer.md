@@ -1,21 +1,20 @@
 ---
-title: 컨설팅 제안 만들기 | Azure Marketplace
-description: Azure Marketplace에 대 한 Cloud 파트너 포털에서 Azure 또는 Dynamics 365 컨설팅 서비스 제품을 만듭니다.
-services: Azure, Marketplace, Cloud Partner Portal,
+title: 컨설팅 오퍼 만들기 | Azure 마켓플레이스
+description: Azure 마켓플레이스용 클라우드 파트너 포털에서 Azure 또는 Dynamics 365 컨설팅 서비스 오퍼를 만듭니다.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/30/2018
-ms.author: pabutler
-ms.openlocfilehash: 0cea0810300db1448540f58aa25b5f3197080d0e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: c2700339a7ac8342da0250227cff898c20e60118
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818147"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80278555"
 ---
-# <a name="create-a-consulting-offer"></a>컨설팅 제안 만들기
+# <a name="create-a-consulting-offer"></a>컨설팅 오퍼 만들기
 
 이 문서에서는 컨설팅 서비스 제품을 만들고 게시하는 방법을 설명합니다.
 
@@ -35,5 +34,5 @@ ms.locfileid: "73818147"
 
 컨설팅 서비스 제품 유형에 대한 **새 제품** 페이지에서는 새 제품을 만드는 데 사용할 탭 세트 및 양식 필드가 제공됩니다. 다음 문서에서는 탭을 사용하여 새 제품의 제품 설정 및 상점 세부 정보를 정의하는 방법을 설명합니다.
 
--   [제품 설정 정의](./cpp-consulting-service-define-offer-settings.md)
+-   [오퍼 설정 정의](./cpp-consulting-service-define-offer-settings.md)
 -   [상점 세부 정보 및 게시할 위치(Azure Marketplace 또는 AppSource) 입력](./cpp-consulting-service-storefront-details.md)

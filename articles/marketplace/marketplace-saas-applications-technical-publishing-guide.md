@@ -5,15 +5,15 @@ services: Marketplace, Compute, Storage, Networking, Blockchain, Security, SaaS
 author: keithcharlie
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/09/2018
 ms.author: kevidal
-ms.openlocfilehash: c213bbcb3c7859aa4718916aafab970b3ffd4613
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 2c1cb755b62812336a306994f6820573130815e6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73813036"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288362"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>SaaS 애플리케이션 제품 게시 가이드
 
@@ -26,16 +26,16 @@ SaaS 애플리케이션은 모두 Azure 상점에서 사용할 수 있습니다.
 | 상점 옵션 | 나열 | 평가판/거래 |  
 | --- | --- | --- |  
 | AppSource | 예(연락처) | 예(PowerBI/Dynamics) |
-| Azure 마켓플레이스 | 아니요 | 예(SaaS 앱) |   
+| Azure 마켓플레이스 | 예 | 예(SaaS 앱) |   
 
 **목록:** 나열 게시 옵션은 연락처 제품 형식으로 이루어지고 평가판 또는 거래 수준의 참여가 불가능할 때 사용됩니다. 이 방식은 마켓 내 솔루션의 게시자가 비즈니스 수익을 창출하는 거래를 할 수 있는 잠재 고객을 바로 받을 수 있다는 장점이 있습니다.  
 **평가판/트랜잭션:** 고객은 솔루션에 대한 평가판을 직접 구입하거나 요청할 수 있습니다. 평가판 환경을 제공하면 고객에게 제공되는 참여 수준이 높아지고 고객이 솔루션을 구입하기 전에 탐색할 수 있습니다. 평가판 환경을 사용할 경우 상점에서 홍보할 기회를 갖고 고객 참여를 통해 보다 풍부하고 많은 잠재 고객을 창출할 수 있습니다. 체험의 경우 적어도 체험 기간 동안 무료 지원이 포함되어야 합니다.  
 
 | SaaS 앱 제품 | 비즈니스 요구 사항 | 기술적인 요구 사항 |  
 | --- | --- | --- |  
-| **문의처** | 예 | 아니요 |  
-| **PowerBI/Dynamics** | 예 | 예(Azure AD 통합) |  
-| **SaaS 앱**| 예 | 예(Azure AD 통합) |     
+| **문의** | yes | 예 |  
+| **PowerBI/Dynamics** | yes | 예(Azure AD 통합) |  
+| **SaaS 앱**| yes | 예(Azure AD 통합) |     
 
 ## <a name="saas-list"></a>SaaS 목록
 
@@ -69,9 +69,9 @@ SaaS 애플리케이션에 대한 기술 요구 사항은 간단합니다. 게�
 
 * [Azure Active Directory 개발자 가이드](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)
 
-* [Azure Active Directory와 통합](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-to-integrate)
+* [Azure Active Directory와의 통합](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-to-integrate)
 
-* [Azure Active Directory와 애플리케이션 통합](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)
+* [응용 프로그램을 Azure Active 디렉터리와 통합](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)
 
 * [Azure 로드맵 - 보안 및 ID](https://azure.microsoft.com/roadmap/?category=security-identity)
 
@@ -95,7 +95,7 @@ SaaS 애플리케이션에 대한 기술 요구 사항은 간단합니다. 게�
 
 ## <a name="using-azure-active-directory-to-enable-trials"></a>Azure Active Directory를 사용하여 체험 지원  
 
-Microsoft는 Azure AD를 사용 하 여 모든 Marketplace 사용자를 인증 하므로 인증 된 사용자가 Marketplace에서 평가판 목록을 클릭 하 고 체험 환경으로 리디렉션되는 경우, 사용자는 추가 로그인 단계입니다. 인증 중에 Azure AD에서 앱이 수신하는 토큰에는 앱에서 사용자 계정을 만드는 데 사용할 수 있는 귀중한 사용자 정보가 포함되어 있으므로, 프로비전 환경을 자동화하고 변환 가능성을 높일 수 있습니다. 토큰에 대한 자세한 내용은 [샘플 토큰](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims)을 참조하세요.
+Microsoft는 Azure AD를 사용하여 모든 마켓플레이스 사용자를 인증하므로 인증된 사용자가 마켓플레이스에서 평가판 목록을 클릭하고 평가판 환경으로 리디렉션되면 사용자를 평가판에 직접 프로비전할 수 있습니다. 추가 로그인 단계입니다. 인증 중에 Azure AD에서 앱이 수신하는 토큰에는 앱에서 사용자 계정을 만드는 데 사용할 수 있는 귀중한 사용자 정보가 포함되어 있으므로, 프로비전 환경을 자동화하고 변환 가능성을 높일 수 있습니다. 토큰에 대한 자세한 내용은 [샘플 토큰](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims)을 참조하세요.
 
 Azure AD를 사용하면 다음과 같이 앱 또는 평가판에 대한 원클릭 인증을 사용할 수 있습니다.  
 * 고객이 Marketplace의 환경에서 평가판으로 간단히 전환할 수 있습니다.  
@@ -105,9 +105,9 @@ Azure AD를 사용하면 다음과 같이 앱 또는 평가판에 대한 원클�
 
 ## <a name="certifying-your-azure-ad-integration-for-marketplace"></a>Marketplace에 대한 Azure AD 통합 인증  
 
-응용 프로그램이 단일 테 넌 트 인지 다중 테 넌 트 인지 여부, Azure AD 페더레이션된 Single Sign-On (SSO)를 처음 사용할 때 또는 이미 지원 하는지 여부에 따라 몇 가지 방법으로 Azure AD 통합을 인증 합니다.  
+응용 프로그램이 단일 테넌트인지 다중 테넌트인지, Azure AD 페더레이션 단일 사인온(SSO)을 새로 접할지 또는 이미 지원하는지에 따라 몇 가지 다른 방법으로 Azure AD 통합을 인증합니다.  
 
-**다중 테넌트 애플리케이션의 경우:**  
+**다중 테넌트 응용 프로그램의 경우:**  
 
 이미 Azure AD를 지원하는 경우 다음을 수행합니다.
 1.  Azure Portal에서 애플리케이션을 등록합니다.
@@ -127,19 +127,19 @@ Azure AD 페더레이션 SSO를 처음 사용하는 경우 다음을 수행합�
 ## <a name="saas-subscriptions"></a>SaaS 구독
 
 SaaS 앱 제품 유형을 사용하면 고객이 SaaS 기반, 기술 솔루션을 구독으로 구매할 수 있습니다. SaaS 앱에 대해 다음 요구 사항이 충족되어야 합니다.
-- 균등형 (월별 또는 연도별)에서 또는 사용자 당 요금으로 서비스 요금을 청구 합니다.
+- 가격을 책정하고 평면 (월별 또는 연간) 또는 사용자 당 요금으로 서비스를 청구합니다.
 - 언제든지 서비스를 업그레이드하거나 취소할 방법을 제공합니다.
-Microsoft는 상거래를 주도합니다. Microsoft는 사용자를 대신하여 고객에게 요금을 청구합니다. SaaS 앱을 구독으로 제공 하려면 SaaS 앱 Api와 통합 해야 합니다.  서비스는 프로 비전, 업그레이드 및 취소를 지원 해야 합니다.
+Microsoft는 상거래를 주도합니다. Microsoft는 사용자를 대신하여 고객에게 요금을 청구합니다. SaaS 앱을 구독으로 제공하려면 SaaS 주문 처리 API와 통합해야 합니다.  서비스는 프로비저닝, 업그레이드 및 취소를 지원해야 합니다.
 
 | 요구 사항 | 세부 정보 |  
 |:--- |:--- |  
-|청구 및 계량 | 제품은 게시 하기 전에 선택 하는 가격 책정 모델을 기준으로 가격이 책정 됩니다 (flat rate 또는 사용자 단위).  정액 요금 모델을 사용 하는 경우에는 기본 요금에 포함 되지 않은 사용량에 대 한 고객의 요금을 청구 하는 데 사용할 추가 차원을 선택적으로 포함할 수 있습니다. |  
+|청구 및 계량 | 쿠폰은 게시 하기 전에 선택한 가격 책정 모델(고정 요금 또는 사용자당)에 따라 가격이 책정됩니다.  정액 요금 모델을 사용하는 경우 선택적으로 고정 요금에 포함되지 않은 사용량에 대해 고객에게 요금을 부과하는 데 사용되는 추가 치수를 포함할 수 있습니다. |  
 |취소 | 제품은 언제든지 고객에 의해 취소될 수 있습니다. |  
 |트랜잭션 방문 페이지 | 사용자가 SaaS 서비스 계정을 만들고 관리할 수 있는 Azure 공동 브랜드 트랜잭션 방문 페이지를 호스트합니다. |   
 | 구독 API | SaaS 구독과 상호 작용할 수 있는 서비스를 노출하여 사용자 계정 및 서비스 계획을 생성하고, 업데이트하고, 삭제합니다. 24시간 내에 중요한 API 변경 내용이 지원되어야 합니다. 중요하지 않은 API 변경 내용은 정기적으로 릴리스됩니다. |  
 
 >[!Note]
->이제 CSP (클라우드 솔루션 공급자) 파트너 채널 옵트인을 사용할 수 있습니다.  Microsoft CSP 파트너 채널을 통한 제품 마케팅에 대 한 자세한 내용은 [클라우드 솔루션 공급자](./cloud-solution-providers.md) 를 참조 하세요.
+>이제 CSP(클라우드 솔루션 공급자) 파트너 채널 옵트인을 사용할 수 있습니다.  Microsoft CSP 파트너 채널을 통한 오퍼 마케팅에 대한 자세한 내용은 [클라우드 솔루션 공급자를](./cloud-solution-providers.md) 참조하십시오.
 
 ## <a name="next-steps"></a>다음 단계
 아직 수행하지 않았다면

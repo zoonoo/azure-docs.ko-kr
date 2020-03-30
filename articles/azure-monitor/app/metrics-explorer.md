@@ -4,14 +4,14 @@ description: 메트릭 탐색기에 차트를 해석하는 방법 및 메트릭 
 ms.topic: conceptual
 ms.date: 01/22/2019
 ms.openlocfilehash: f85a8fe79e7f4f820d7c0e5b942730305e892095
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79275894"
 ---
 # <a name="exploring-metrics-in-application-insights"></a>Application Insights에서 메트릭 탐색
-[Application Insights][start] 메트릭은 응용 프로그램의 원격 분석에서 전송 된 측정 된 값 및 이벤트 수입니다. 성능 문제를 감지하고 애플리케이션 사용 방식의 추세를 볼 수 있습니다. 다양한 표준 메트릭이 있으며 사용자 고유의 사용자 지정 메트릭 및 이벤트를 만들 수도 있습니다.
+[Application Insights][start]의 메트릭은 애플리케이션의 원격 분석에서 전송된 측정된 값 및 이벤트 수입니다. 성능 문제를 감지하고 애플리케이션 사용 방식의 추세를 볼 수 있습니다. 다양한 표준 메트릭이 있으며 사용자 고유의 사용자 지정 메트릭 및 이벤트를 만들 수도 있습니다.
 
 > [!NOTE]
 > 이 문서에서는 현재 사용되지 않으며 결국 사용 중지될 예정인 클래식 메트릭 탐색기 환경을 설명합니다. [이 문서](../platform/metrics-charts.md)에 설명된 새 환경을 확인해 볼 것을 권장합니다.
@@ -66,7 +66,7 @@ Application Insights 포털 어디에나 메트릭 차트가 있습니다. 대�
 
 함께 표시할 수 있는 조합에 관한 제한이 있지만 차트에 하나 이상의 메트릭을 표시할 수 있습니다. 한 메트릭을 선택하면 일부 다른 메트릭을 사용할 수 없습니다.
 
-앱에 [사용자 지정 메트릭을][track] 코딩 (TrackEvent 메트릭 및 호출) 하는 경우 여기에 나열 됩니다.
+[사용자 지정 메트릭][track]을 앱으로 코딩한 경우(TrackMetric 및 TrackEvent 호출) 여기에 나열됩니다.
 
 ## <a name="segment-your-data"></a>데이터 분할
 메트릭을 속성별로 분할할 수 있습니다. 예를 들어 서로 다른 운영 체제를 사용하는 클라이언트에서 페이지 보기를 비교하려는 경우가 여기에 해당합니다.
@@ -80,7 +80,7 @@ Application Insights 포털 어디에나 메트릭 차트가 있습니다. 대�
 >
 >
 
-[사용자 지정 메트릭을][track] 앱에 코딩 하 고 속성 값을 포함 하는 경우 목록에서 속성을 선택할 수 있습니다.
+[사용자 지정 메트릭][track]을 앱으로 코딩하고 속성 값을 포함하는 경우 목록에서 속성을 선택할 수 있게 됩니다.
 
 데이터를 분할하기에 차트가 너무 작나요? 높이 조정:
 
@@ -97,7 +97,7 @@ Application Insights 포털 어디에나 메트릭 차트가 있습니다. 대�
 * **합계** 는 샘플링 간격 또는 차트의 기간 동안 받은 모든 데이터 요소의 값을 더합니다.
 * **평균** 은 합계를 간격을 통해 받은 데이터 요소 수로 나눕니다.
 * **고유** 개수는 사용자 및 계정의 수를 세는 데 사용됩니다. 그림에서는 샘플링 간격 또는 차트의 기간 동안 해당 시간에 표시된 서로 다른 사용자의 수를 보여 줍니다.
-* **%** - 각 집계의 백분율 버전은 세그먼트 차트에서만 사용됩니다. 합계는 항상 최대 100%이며, 차트에는 합계의 여러 구성 요소의 상대적 기여도가 표시됩니다.
+* **%**- 각 집계의 백분율 버전은 분할 된 차트에서만 사용됩니다. 합계는 항상 최대 100%이며, 차트에는 합계의 여러 구성 요소의 상대적 기여도가 표시됩니다.
 
     ![백분율 집계](./media/metrics-explorer/percentage-aggregation.png)
 
@@ -166,7 +166,7 @@ Application Insights 포털 어디에나 메트릭 차트가 있습니다. 대�
 
 ![메트릭 탐색기에서 경고 규칙, 경고 추가 선택](./media/metrics-explorer/appinsights-413setMetricAlert.png)
 
-[경고에 대해 자세히 알아보세요][alerts].
+[경고에 대해 자세히 알아봅니다.][alerts]
 
 
 ## <a name="continuous-export"></a>연속 내보내기
@@ -187,7 +187,7 @@ Application Insights 포털 어디에나 메트릭 차트가 있습니다. 대�
 
     여러 차트에서 서로 다른 필터를 설정하려면 해당 차트를 서로 다른 블레이드를 만들어 별도의 즐겨찾기로 저장합니다. 필요한 경우 대시보드에 고정하여 서로 나란히 볼 수 있습니다.
 * 메트릭에 정의되지 않은 속성으로 차트를 그룹화한 경우 차트에 아무 것도 표시되지 않습니다. '그룹화 기준'을 지우거나 다른 그룹화 속성을 선택하세요.
-* 성능 데이터(CPU, IO 속도 등)는 Java 웹 서비스, Windows 데스크톱 앱, [IIS Web Apps 및 서비스(상태 모니터를 설치한 경우)](../../azure-monitor/app/monitor-performance-live-website-now.md) 및 [Azure Cloud Services](../../azure-monitor/app/app-insights-overview.md)에 사용할 수 있습니다. Azure 웹 사이트에는 사용할 수는 없습니다.
+* 성능 데이터(CPU, IO 속도 등)는 Java 웹 서비스, Windows 데스크톱 앱, [상태 모니터 를 설치하는 경우 IIS 웹 앱 및 서비스](../../azure-monitor/app/monitor-performance-live-website-now.md)및 Azure 클라우드 [서비스에](../../azure-monitor/app/app-insights-overview.md)사용할 수 있습니다. Azure 웹 사이트에는 사용할 수는 없습니다.
 
 ## <a name="video"></a>비디오
 
