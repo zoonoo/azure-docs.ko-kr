@@ -1,6 +1,6 @@
 ---
 title: 연결 아키텍처
-description: 이 문서에서는 azure 내부 또는 Azure 외부에서의 데이터베이스 연결에 대 한 Azure SQL 연결 아키텍처에 대해 설명 합니다.
+description: 이 문서에서는 Azure 내에서 또는 Azure 외부에서 데이터베이스 연결을 위한 Azure SQL 연결 아키텍처에 대해 설명합니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -13,10 +13,10 @@ ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 03/09/2020
 ms.openlocfilehash: 6fdfbce6dce2428a8f2757b0755e6f982f02240f
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79256420"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Azure SQL 연결 아키텍처
@@ -24,9 +24,9 @@ ms.locfileid: "79256420"
 > 이 문서는 Azure SQL 서버 및 Azure SQL 서버에서 생성된 SQL Database와 SQL Data Warehouse 데이터베이스에 적용됩니다. 간단히 하기 위해 SQL Database는 SQL Database와 SQL Data Warehouse를 참조할 때 사용됩니다.
 
 > [!IMPORTANT]
-> 이 문서는 *Azure SQL Database Managed Instance*에 적용되지 **않습니다**. [관리 되는 인스턴스의 연결 아키텍처](sql-database-managed-instance-connectivity-architecture.md)를 참조 하세요.
+> 이 문서는 **Azure SQL Database Managed Instance**에 적용되지 *않습니다*. [관리되는 인스턴스의 연결 아키텍처를](sql-database-managed-instance-connectivity-architecture.md)참조하십시오.
 
-이 문서에서는 Azure SQL Database 또는 SQL Data Warehouse 네트워크 트래픽을 전달 하는 다양 한 구성 요소의 아키텍처에 대해 설명 합니다. 또한 다양 한 연결 정책 및 azure 외부에서 연결 하는 클라이언트와 Azure 내에서 연결 하는 클라이언트에 영향을 주는 방법을 설명 합니다. 
+이 문서에서는 Azure SQL Database 또는 SQL 데이터 웨어하우스로 네트워크 트래픽을 전달하는 다양한 구성 요소의 아키텍처에 대해 설명합니다. 또한 다양한 연결 정책과 Azure 내에서 연결하는 클라이언트 및 Azure 외부에서 연결하는 클라이언트에 미치는 영향에 대해서도 설명합니다. 
 
 ## <a name="connectivity-architecture"></a>연결 아키텍처
 
@@ -44,15 +44,15 @@ ms.locfileid: "79256420"
 
 Azure SQL Database는 SQL Database 서버의 연결 정책 설정에 대한 다음 세 가지 옵션을 지원합니다.
 
-- **리디렉션 (권장):** 클라이언트는 데이터베이스를 호스팅하는 노드에 직접 연결을 설정 하 여 대기 시간을 줄이고 처리량을 향상 시킵니다. 이 모드를 사용 하는 연결의 경우 클라이언트는 다음을 수행 해야 합니다.
-   - 11000 11999 범위의 포트에서 지역의 모든 Azure IP 주소에 대 한 클라이언트의 아웃 바운드 통신을 허용 합니다. SQL의 서비스 태그를 사용 하 여이 작업을 보다 쉽게 관리할 수 있습니다.  
-   - 1433 포트에서 클라이언트의 Azure SQL Database 게이트웨이 IP 주소에 대 한 아웃 바운드 통신을 허용 합니다.
+- **리디렉션(권장):** 클라이언트는 데이터베이스를 호스팅하는 노드에 직접 연결을 설정하여 대기 시간을 줄이고 처리량을 개선합니다. 이 모드를 사용하려면 클라이언트는 다음을 수행해야 합니다.
+   - 클라이언트에서 11000 11999 범위의 포트에 있는 리전의 모든 Azure IP 주소로 아웃바운드 통신을 허용합니다. SQL용 서비스 태그를 사용하여 이 작업을 보다 쉽게 관리할 수 있습니다.  
+   - 포트 1433에서 클라이언트에서 Azure SQL Database 게이트웨이 IP 주소로의 아웃바운드 통신을 허용합니다.
 
-- **프록시:** 이 모드에서는 모든 연결이 Azure SQL Database 게이트웨이를 통해 프록시 되므로 대기 시간이 길어지고 처리량이 감소 합니다. 이 모드를 사용 하는 연결의 경우 클라이언트에서 1433 포트의 게이트웨이 IP 주소를 Azure SQL Database에 대 한 클라이언트의 아웃 바운드 통신을 허용 해야 합니다.
+- **프록시:** 이 모드에서는 모든 연결이 Azure SQL Database 게이트웨이를 통해 프록시되어 대기 시간이 증가하고 처리량이 줄어듭니다. 이 모드를 사용하려면 클라이언트가 포트 1433에서 클라이언트에서 Azure SQL Database 게이트웨이 IP 주소로 아웃바운드 통신을 허용해야 합니다.
 
-- **기본값:** `Proxy` 또는 `Redirect`연결 정책을 명시적으로 변경 하지 않는 한 생성 후 모든 서버에 적용 되는 연결 정책입니다. 기본 정책은 Azure 내부에서 시작 되는 모든 클라이언트 연결 (예: Azure Virtual Machine) 및 외부에서 발생 하는 모든 클라이언트 연결에 대 한 `Proxy`(예: 로컬 워크스테이션의 연결)에 대 한`Redirect` 됩니다.
+- **기본값:** 이 정책은 연결 정책을 명시적으로 변경하지 않는 한 생성 후 모든 `Proxy` 서버에 `Redirect`적용되는 연결 정책입니다. 기본 정책은`Redirect` Azure 내부에서 시작된 모든 클라이언트 연결(예: Azure 가상 머신)과 `Proxy`외부에서 발생하는 모든 클라이언트 연결(예: 로컬 워크스테이션의 연결)에 대한 것입니다.
 
- 가장 낮은 대기 시간 및 최고 처리량에 대해 `Proxy` 연결 정책에 대 한 `Redirect` 연결 정책을 적극 권장 합니다. 그러나 위에서 설명한 대로 네트워크 트래픽을 허용 하기 위한 추가 요구 사항을 충족 해야 합니다. 클라이언트가 Azure Virtual Machine 인 경우 [서비스 태그](../virtual-network/security-overview.md#service-tags)를 포함 하는 Nsg (네트워크 보안 그룹)를 사용 하 여이를 수행할 수 있습니다. 클라이언트가 온-프레미스의 워크스테이션에서 연결 하는 경우 네트워크 관리자와 협력 하 여 회사 방화벽을 통해 네트워크 트래픽을 허용 해야 할 수 있습니다.
+ 가장 낮은 `Redirect` 대기 시간 `Proxy` 및 가장 높은 처리량에 대해 연결 정책에 대한 연결 정책을 적극 권장합니다. 그러나 위에서 설명한 대로 네트워크 트래픽을 허용하기 위한 추가 요구 사항을 충족해야 합니다. 클라이언트가 Azure 가상 컴퓨터인 경우 [서비스 태그가](../virtual-network/security-overview.md#service-tags)있는 NSG(네트워크 보안 그룹)를 사용하여 이 작업을 수행할 수 있습니다. 클라이언트가 온-프레미스 워크스테이션에서 연결하는 경우 네트워크 관리자와 협력하여 회사 방화벽을 통한 네트워크 트래픽을 허용해야 할 수 있습니다.
 
 ## <a name="connectivity-from-within-azure"></a>Azure 내부에서 연결
 
@@ -67,20 +67,20 @@ Azure 외부에서 연결하는 경우 연결에는 기본적으로 `Proxy` 연�
 ![아키텍처 개요](./media/sql-database-connectivity-architecture/connectivity-onprem.png)
 
 > [!IMPORTANT]
-> 또한 포트 14000-14999을 열어 [DAC와 연결할](https://docs.microsoft.com/sql/database-engine/configure-windows/diagnostic-connection-for-database-administrators?view=sql-server-2017#connecting-with-dac) 수 있습니다.
+> 또한 [DAC와 연결](https://docs.microsoft.com/sql/database-engine/configure-windows/diagnostic-connection-for-database-administrators?view=sql-server-2017#connecting-with-dac) 가능 하도록 포트 를 열 14000-14999
 
 
 ## <a name="azure-sql-database-gateway-ip-addresses"></a>Azure SQL Database 게이트웨이 IP 주소
 
-다음 표에서는 지역별 게이트웨이의 IP 주소를 나열 합니다. Azure SQL Database에 연결 하려면 네트워크 트래픽이 해당 지역에 대 한 **모든** 게이트웨이에서 & 하도록 허용 해야 합니다.
+아래 표에는 지역별 게이트웨이의 IP 주소가 나열되어 있습니다. Azure SQL 데이터베이스에 연결하려면 네트워크의 트래픽이 지역의 **모든** 게이트웨이에서 & 수 있도록 허용해야 합니다.
 
-특정 지역의 새 게이트웨이로 트래픽을 마이그레이션하는 방법에 대 한 세부 정보는 다음 문서에 나와 있습니다. [최신 게이트웨이로의 트래픽 마이그레이션 Azure SQL Database](sql-database-gateway-migration.md)
+특정 지역의 새 게이트웨이로 트래픽을 마이그레이션하는 방법에 대한 자세한 내용은 다음 문서에서 확인할 수 [있습니다.](sql-database-gateway-migration.md)
 
 
 | 지역 이름          | 게이트웨이 IP 주소 |
 | --- | --- |
 | 오스트레일리아 중부    | 20.36.105.0 |
-| 오스트레일리아 Central2   | 20.36.113.0 |
+| 오스트레일리아 센트럴2   | 20.36.113.0 |
 | 오스트레일리아 동부       | 13.75.149.87, 40.79.161.1 |
 | 오스트레일리아 동남부 | 191.239.192.109, 13.73.109.251 |
 | 브라질 남부         | 104.41.11.5, 191.233.200.14 |
@@ -107,9 +107,9 @@ Azure 외부에서 연결하는 경우 연결에는 기본적으로 `Proxy` 연�
 | 미국 중북부     | 23.96.178.199, 23.98.55.75, 52.162.104.33 |
 | 북유럽         | 40.113.93.91, 191.235.193.75, 52.138.224.1 | 
 | 노르웨이 동부          | 51.120.96.0        |
-| 노르웨이 서 부          | 51.120.216.0       |
+| 노르웨이 웨스트          | 51.120.216.0       |
 | 남아프리카 북부   | 102.133.152.0      |
-| 남아프리카 서부    | 102.133.24.0       |
+| 남아프리카 공화국 서부    | 102.133.24.0       |
 | 미국 중남부     | 13.66.62.124, 23.98.162.75, 104.214.16.32   | 
 | 동남아시아      | 104.43.15.0, 23.100.117.95, 40.78.232.3   | 
 | 아랍에미리트 중부          | 20.37.72.64        |

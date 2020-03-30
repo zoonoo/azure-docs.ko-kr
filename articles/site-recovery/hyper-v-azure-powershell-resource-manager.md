@@ -1,5 +1,5 @@
 ---
-title: Azure Site Recovery 및 PowerShell을 사용 하 여 hyper-v VM 재해 복구
+title: Azure 사이트 복구 및 PowerShell을 사용하는 Hyper-V VM 재해 복구
 description: PowerShell 및 Azure Resource Manager를 사용하여 Azure Site Recovery 서비스로 Hyper-V VM과 Azure 간 재해 복구를 자동화합니다.
 author: sujayt
 manager: rochakm
@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: sutalasi
 ms.openlocfilehash: 6499c986bef965848303ee9833fd59f5e3f0889c
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79257993"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>PowerShell과 Azure Resource Manager를 사용하여 Hyper-V VM용 Azure에 대한 재해 복구 설정
@@ -25,7 +25,7 @@ ms.locfileid: "79257993"
 
 Azure PowerShell은 Windows PowerShell을 사용하여 Azure를 관리하기 위한 cmdlet을 제공합니다. Azure Resource Manager에 대한 Azure PowerShell과 함께 사용할 수 있는 사이트 복구 PowerShell cmdlet을 사용하여 Azure에서 서버를 보호하고 복구할 수 있습니다.
 
-이 문서를 사용하기 위해 PowerShell 전문가가 될 필요는 없지만 모듈, cmdlet 및 세션과 같은 기본 개념은 이해해야 합니다. 자세한 내용은 [PowerShell 설명서](/powershell) 및 [Azure Resource Manager에서 Azure PowerShell 사용](../powershell-azure-resource-manager.md)을 참조 하세요.
+이 문서를 사용하기 위해 PowerShell 전문가가 될 필요는 없지만 모듈, cmdlet 및 세션과 같은 기본 개념은 이해해야 합니다. 자세한 내용은 Azure [리소스 관리자를 사용하여](../powershell-azure-resource-manager.md) [PowerShell 설명서](/powershell) 및 Azure PowerShell 사용을 참조하십시오.
 
 > [!NOTE]
 > CSP(클라우드 솔루션 공급자) 프로그램의 Microsoft 파트너는 고객의 각 CSP 구독(테넌트 구독)에 대한 고객의 서버 보호를 구성하고 관리할 수 있습니다.
@@ -35,7 +35,7 @@ Azure PowerShell은 Windows PowerShell을 사용하여 Azure를 관리하기 위
 다음 필수 조건이 충족되었는지 확인합니다.
 
 - [Microsoft Azure](https://azure.microsoft.com/) 계정. [평가판](https://azure.microsoft.com/pricing/free-trial/)으로 시작할 수 있습니다. [Azure Site Recovery Manager 가격](https://azure.microsoft.com/pricing/details/site-recovery/)에 대해 알아볼 수도 있습니다.
-- Azure PowerShell. 이 릴리스와 설치 방법에 대 한 자세한 내용은 [Azure PowerShell 설치](/powershell/azure/install-az-ps)를 참조 하세요.
+- Azure PowerShell. 이 릴리스 및 설치 방법에 대한 자세한 내용은 [Azure PowerShell 설치](/powershell/azure/install-az-ps)를 참조하십시오.
 
 또한 이 문서에 설명된 특정 예제에는 다음과 같은 필수 조건이 있습니다.
 
@@ -44,9 +44,9 @@ Azure PowerShell은 Windows PowerShell을 사용하여 Azure를 관리하기 위
 
 ## <a name="step-1-sign-in-to-your-azure-account"></a>1단계: Azure 계정에 로그인
 
-1. PowerShell 콘솔을 열고 이 명령을 실행하여 Azure 계정에 로그인합니다. Cmdlet은 계정 자격 증명을 입력 하 라는 메시지를 표시 하는 웹 페이지를 `Connect-AzAccount`합니다.
-   - 또는 **Credential** 매개 변수를 사용 하 여 `Connect-AzAccount` cmdlet에 계정 자격 증명을 매개 변수로 포함할 수 있습니다.
-   - 테 넌 트를 대신 하 여 작업 중인 CSP 파트너인 경우 tenantID 또는 테 넌 트 주 도메인 이름을 사용 하 여 고객을 테 넌 트로 지정 합니다. 예: `Connect-AzAccount -Tenant "fabrikam.com"`
+1. PowerShell 콘솔을 열고 이 명령을 실행하여 Azure 계정에 로그인합니다. cmdlet에는 계정 자격 증명을 묻는 웹 페이지가 `Connect-AzAccount`표시됩니다.
+   - 또는 `Connect-AzAccount` **자격** 증명 매개 변수를 사용하여 cmdlet에 계정 자격 증명을 매개 변수로 포함할 수 있습니다.
+   - 테넌트를 대신하여 작업하는 CSP 파트너인 경우 테넌트ID 또는 테넌트 기본 도메인 이름을 사용하여 고객을 테넌트로 지정합니다. 예: `Connect-AzAccount -Tenant "fabrikam.com"`
 1. 계정에 여러 구독이 있을 수 있으므로 사용하려는 구독을 계정과 연결합니다.
 
    ```azurepowershell
@@ -73,20 +73,20 @@ Azure PowerShell은 Windows PowerShell을 사용하여 Azure를 관리하기 위
 
 ## <a name="step-2-set-up-the-vault"></a>2단계: 자격 증명 모음 설정
 
-1. 자격 증명 모음을 만들 Azure Resource Manager 리소스 그룹을 만들거나 기존 리소스 그룹을 사용합니다. 다음과 같이 새 리소스 그룹을 만듭니다. `$ResourceGroupName` 변수는 만들려는 리소스 그룹의 이름을 포함 하 고 $Geo 변수는 리소스 그룹을 만들 Azure 지역 (예: "브라질 남부")을 포함 합니다.
+1. 자격 증명 모음을 만들 Azure Resource Manager 리소스 그룹을 만들거나 기존 리소스 그룹을 사용합니다. 다음과 같이 새 리소스 그룹을 만듭니다. 변수에는 `$ResourceGroupName` 만들려는 리소스 그룹의 이름이 포함되며 $Geo 변수에는 리소스 그룹을 만들 Azure 지역(예: "브라질 남부")이 포함됩니다.
 
    ```azurepowershell
    New-AzResourceGroup -Name $ResourceGroupName -Location $Geo
    ```
 
-1. 구독에서 리소스 그룹 목록을 가져오려면 `Get-AzResourceGroup` cmdlet을 실행 합니다.
+1. 구독에서 리소스 그룹 목록을 가져오려면 cmdlet을 `Get-AzResourceGroup` 실행합니다.
 1. 다음과 같이 새 Azure Recovery Services 자격 증명 모음을 만듭니다.
 
    ```azurepowershell
    $vault = New-AzRecoveryServicesVault -Name <string> -ResourceGroupName <string> -Location <string>
    ```
 
-`Get-AzRecoveryServicesVault` cmdlet을 사용 하 여 기존 자격 증명 모음 목록을 검색할 수 있습니다.
+cmdlet을 사용 하 고 `Get-AzRecoveryServicesVault` 기존 볼트 목록을 검색할 수 있습니다.
 
 ## <a name="step-3-set-the-recovery-services-vault-context"></a>3단계: Recovery Services 자격 증명 모음 설정
 
@@ -106,7 +106,7 @@ Set-AzRecoveryServicesAsrVaultContext -Vault $vault
    ```
 
 1. 이 cmdlet은 사이트 복구 작업을 시작하여 사이트를 만들고 사이트 복구 작업 개체를 반환합니다. 작업이 완료될 때까지 기다리고 작업이 성공적으로 완료되었는지 확인합니다.
-1. `Get-AzRecoveryServicesAsrJob` cmdlet을 사용 하 여 작업 개체를 검색 하 고 작업의 현재 상태를 확인 합니다.
+1. cmdlet을 `Get-AzRecoveryServicesAsrJob` 사용하여 작업 개체를 검색하고 작업의 현재 상태를 확인합니다.
 1. 다음과 같이 사이트에 대한 등록 키를 생성하고 다운로드합니다.
 
    ```azurepowershell
@@ -118,8 +118,8 @@ Set-AzRecoveryServicesAsrVaultContext -Vault $vault
 
 ## <a name="step-5-install-the-provider-and-agent"></a>5단계: 공급자 및 에이전트 설치
 
-1. [Microsoft](https://aka.ms/downloaddra)에서 공급자의 최신 버전을 위한 설치 관리자를 다운로드합니다.
-1. Hyper-v 호스트에서 설치 관리자를 실행 합니다.
+1. [Microsoft에서](https://aka.ms/downloaddra)공급자의 최신 버전에 대 한 설치 프로그램을 다운로드 합니다.
+1. 하이퍼-V 호스트에서 설치 프로그램을 실행합니다.
 1. 설치가 끝나면 등록 단계를 계속합니다.
 1. 메시지가 표시되면 다운로드한 키를 제공하고 사이트에 Hyper-V 호스트의 등록을 완료합니다.
 1. 다음을 사용하여 Hyper-V 호스트가 사이트에 등록되었는지 확인합니다.
@@ -130,7 +130,7 @@ Set-AzRecoveryServicesAsrVaultContext -Vault $vault
 
 Hyper-V 코어 서버를 실행하는 경우 설치 파일을 다운로드하고 다음 단계를 수행합니다.
 
-1. 다음 명령을 실행 하 여 _AzureSiteRecoveryProvider_ 에서 로컬 디렉터리로 파일의 압축을 풉니다.
+1. 이 명령을 실행 하여 _AzureSiteRecoveryProvider.exe에서_ 로컬 디렉터리로 파일을 추출합니다.
 
    ```console
    AzureSiteRecoveryProvider.exe /x:. /q
@@ -142,7 +142,7 @@ Hyper-V 코어 서버를 실행하는 경우 설치 파일을 다운로드하고
    .\setupdr.exe /i
    ```
 
-   결과는 _%ProgramData%\ASRLogs\DRASetupWizard.log_에 기록 됩니다.
+   결과는 _%ProgramData%\ASRLogs\DRASetupWizard.log_.
 
 1. 다음 명령을 실행하여 서버를 등록합니다.
 
@@ -152,7 +152,7 @@ Hyper-V 코어 서버를 실행하는 경우 설치 파일을 다운로드하고
 
 ## <a name="step-6-create-a-replication-policy"></a>6단계: 복제 정책 만들기
 
-시작 하기 전에 지정 된 저장소 계정이 자격 증명 모음과 동일한 Azure 지역에 있어야 하 고 지역에서 복제를 사용 하도록 설정 해야 합니다.
+시작하기 전에 지정된 저장소 계정은 볼트와 동일한 Azure 지역에 있어야 하며 지역 복제를 사용하도록 설정해야 합니다.
 
 1. 다음과 같이 복제 정책을 만듭니다.
 
@@ -182,7 +182,7 @@ Hyper-V 코어 서버를 실행하는 경우 설치 파일을 다운로드하고
 
 1. 연결 작업이 완료될 때까지 기다립니다.
 
-1. 보호 컨테이너 매핑을 검색 합니다.
+1. 보호 컨테이너 매핑을 검색합니다.
 
    ```azurepowershell
    $ProtectionContainerMapping = Get-AzRecoveryServicesAsrProtectionContainerMapping -ProtectionContainer $protectionContainer
@@ -197,7 +197,7 @@ Hyper-V 코어 서버를 실행하는 경우 설치 파일을 다운로드하고
    $ProtectableItem = Get-AzRecoveryServicesAsrProtectableItem -ProtectionContainer $protectionContainer -FriendlyName $VMFriendlyName
    ```
 
-1. VM을 보호합니다. 보호 하는 VM에 둘 이상의 디스크가 연결 되어 있는 경우 **Osdiskname** 매개 변수를 사용 하 여 운영 체제 디스크를 지정 합니다.
+1. VM을 보호합니다. 보호하는 VM에 두 개 이상의 디스크가 연결된 경우 **OSDiskName** 매개 변수를 사용하여 운영 체제 디스크를 지정합니다.
 
    ```azurepowershell
    $OSType = "Windows"          # "Windows" or "Linux"
@@ -216,7 +216,7 @@ Hyper-V 코어 서버를 실행하는 경우 설치 파일을 다운로드하고
    Completed
    ```
 
-1. 장애 조치 (failover) 후 VM NIC를 연결할 Azure 네트워크 및 복구 속성 (예: VM 역할 크기)을 업데이트 합니다.
+1. 장애 조치 후 VM NIC를 연결할 복구 속성(예: VM 역할 크기)과 Azure 네트워크를 업데이트합니다.
 
    ```console
    PS C:\> $nw1 = Get-AzVirtualNetwork -Name "FailoverNw" -ResourceGroupName "MyRG"
@@ -237,12 +237,12 @@ Hyper-V 코어 서버를 실행하는 경우 설치 파일을 다운로드하고
    ```
 
 > [!NOTE]
-> Azure에서 CMK를 사용 하는 관리 디스크에 복제 하려는 경우 Az PowerShell 3.3.0을 사용 하 여 다음 단계를 수행 합니다.
+> Azure에서 CMK 지원 관리 디스크로 복제하려면 Az PowerShell 3.3.0 이후를 사용하여 다음 단계를 수행합니다.
 >
-> 1. VM 속성을 업데이트 하 여 관리 디스크에 대 한 장애 조치 (failover) 사용
-> 1. `Get-AzRecoveryServicesAsrReplicationProtectedItem` cmdlet을 사용 하 여 보호 된 항목의 각 디스크에 대 한 디스크 ID를 인출 합니다.
-> 1. 디스크 ID를 디스크 암호화 집합으로 매핑하는 것을 포함 하는 `New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]"` cmdlet을 사용 하 여 사전 개체를 만듭니다. 이러한 디스크 암호화 집합은 대상 지역에서 미리 생성 됩니다.
-> 1. **Diskidtodiskencryptionsetmap** 매개 변수에 사전 개체를 전달 하 여 `Set-AzRecoveryServicesAsrReplicationProtectedItem` cmdlet을 사용 하 여 VM 속성을 업데이트 합니다.
+> 1. VM 속성을 업데이트하여 관리 디스크에 장애 조치 사용
+> 1. cmdlet을 `Get-AzRecoveryServicesAsrReplicationProtectedItem` 사용하여 보호된 항목의 각 디스크에 대한 디스크 ID를 가져옵니다.
+> 1. cmdlet을 `New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]"` 사용하여 디스크 ID를 디스크 암호화 집합에 매핑하는 데 포함하는 사전 개체를 만듭니다. 이러한 디스크 암호화 집합은 대상 영역에서 미리 만들어야 합니다.
+> 1. `Set-AzRecoveryServicesAsrReplicationProtectedItem` **DiskIdToDisk암호화셋맵** 매개 변수에서 사전 개체를 전달하여 cmdlet을 사용하여 VM 속성을 업데이트합니다.
 
 ## <a name="step-8-run-a-test-failover"></a>8단계: 테스트 장애 조치 실행
 

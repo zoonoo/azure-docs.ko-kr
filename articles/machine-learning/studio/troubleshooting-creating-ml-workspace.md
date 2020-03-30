@@ -1,7 +1,7 @@
 ---
 title: 작업 영역 문제 해결
 titleSuffix: ML Studio (classic) - Azure
-description: 이 가이드는 Azure Machine Learning Studio (클래식) 작업 영역을 설정할 때 자주 발생 하는 몇 가지 문제에 대 한 해결 방법을 제공 합니다.
+description: 이 가이드에서는 Azure 기계 학습 스튜디오(클래식) 작업 영역을 설정할 때 자주 발생하는 몇 가지 문제에 대한 솔루션을 제공합니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -11,34 +11,34 @@ ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
 ms.openlocfilehash: 58ccd63e16382aca8e16eb67efba951a055eb254
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79217829"
 ---
-# <a name="troubleshooting-guide-create-and-connect-to-an-azure-machine-learning-studio-classic-workspace"></a>문제 해결 가이드: Azure Machine Learning Studio (클래식) 작업 영역 만들기 및 연결
+# <a name="troubleshooting-guide-create-and-connect-to-an-azure-machine-learning-studio-classic-workspace"></a>문제 해결 가이드: Azure 기계 학습 스튜디오(클래식) 작업 영역 만들기 및 연결
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
-이 가이드는 Azure Machine Learning Studio (클래식) 작업 영역을 설정할 때 자주 발생 하는 몇 가지 문제에 대 한 해결 방법을 제공 합니다.
+이 가이드에서는 Azure 기계 학습 스튜디오(클래식) 작업 영역을 설정할 때 자주 발생하는 몇 가지 문제에 대한 솔루션을 제공합니다.
 
 ## <a name="workspace-owner"></a>작업 영역 소유자
-Machine Learning Studio (클래식)에서 작업 영역을 열려면 작업 영역을 만드는 데 사용한 Microsoft 계정에 로그인 하거나 작업 영역에 가입 하는 데 필요한 소유자의 초대를 받아야 합니다. Azure Portal에서 액세스를 구성하는 기능을 포함하여 작업 영역을 관리할 수 있습니다.
+기계 학습 스튜디오(클래식)에서 작업 영역을 열려면 작업 영역을 만드는 데 사용한 Microsoft 계정에 로그인해야 하거나 소유자로부터 작업 영역에 참여하라는 초대를 받아야 합니다. Azure Portal에서 액세스를 구성하는 기능을 포함하여 작업 영역을 관리할 수 있습니다.
 
-작업 영역을 관리 하는 방법에 대 한 자세한 내용은 [Azure Machine Learning Studio (클래식) 작업 영역 관리]를 참조 하세요.
+작업 영역 관리에 대한 자세한 내용은 [Azure 기계 학습 스튜디오(클래식) 작업 영역 관리를]참조하십시오.
 
-[Azure Machine Learning Studio (클래식) 작업 영역 관리]: manage-workspace.md
+[Azure 기계 학습 스튜디오(클래식) 작업 영역 관리]: manage-workspace.md
 
 ## <a name="allowed-regions"></a>허용되는 지역
-Machine Learning은 현재 제한된 지역에서 사용할 수 있습니다. 구독에 이러한 지역 중 하나가 포함 되지 않은 경우 "허용 된 지역에 구독이 없습니다." 라는 오류 메시지가 표시 될 수 있습니다.
+Machine Learning은 현재 제한된 지역에서 사용할 수 있습니다. 구독에 이러한 리전 중 하나가 포함되지 않은 경우 "허용된 지역에 구독이 없습니다."라는 오류 메시지가 표시될 수 있습니다.
 
 구독에 영역을 추가하도록 요청하려면 Azure Portal에서 Microsoft 지원 요청을 만들고 문제 유형으로 **청구**를 선택한 다음 프롬프트에 따라 요청을 제출합니다.
 
 ## <a name="storage-account"></a>스토리지 계정
-Machine Learning 서비스에서 데이터를 저장하려면 스토리지 계정이 필요합니다. 기존 저장소 계정을 사용 하거나 새 Machine Learning Studio (클래식) 작업 영역을 만들 때 새 저장소 계정을 만들 수 있습니다 (새 저장소 계정을 만들 수 있는 할당량이 있는 경우).
+Machine Learning 서비스에서 데이터를 저장하려면 스토리지 계정이 필요합니다. 기존 저장소 계정을 사용하거나 새 기계 학습 스튜디오(클래식) 작업 영역을 만들 때 새 저장소 계정을 만들 수 있습니다(새 저장소 계정을 만들 수 있는 할당량이 있는 경우).
 
-새 Machine Learning Studio (클래식) 작업 영역을 만든 후에는 작업 영역을 만드는 데 사용한 Microsoft 계정 사용 하 여 Machine Learning Studio (클래식)에 로그인 할 수 있습니다. 다음 스크린샷 처럼 "작업 영역을 찾을 수 없습니다." 라는 오류 메시지가 표시 되 면 다음 단계를 사용 하 여 브라우저 쿠키를 삭제 하세요.
+새 기계 학습 스튜디오(클래식) 작업 영역이 만들어지면 작업 영역을 만드는 데 사용한 Microsoft 계정을 사용하여 기계 학습 스튜디오(클래식)에 로그인할 수 있습니다. 다음 스크린샷과 유사하게 "작업 영역을 찾을 수 없습니다"라는 오류 메시지가 발생하면 다음 단계를 사용하여 브라우저 쿠키를 삭제하십시오.
 
 ![작업 영역을 찾을 수 없음](media/troubleshooting-creating-ml-workspace/screen3.png)
 
@@ -56,7 +56,7 @@ Machine Learning 서비스에서 데이터를 저장하려면 스토리지 계�
 
    ![쿠키 삭제](media/troubleshooting-creating-ml-workspace/screen6.png)
 
-쿠키를 삭제 한 후 브라우저를 다시 시작 하 고 [Microsoft Azure Machine Learning Studio (클래식)](https://studio.azureml.net) 페이지로 이동 합니다. 사용자 이름과 암호를 묻는 메시지가 표시되면 작업 영역을 만드는 데 사용한 동일한 Microsoft 계정을 입력합니다.
+쿠키가 삭제된 후 브라우저를 다시 시작한 다음 [Microsoft Azure 기계 학습 스튜디오(클래식)](https://studio.azureml.net) 페이지로 이동합니다. 사용자 이름과 암호를 묻는 메시지가 표시되면 작업 영역을 만드는 데 사용한 동일한 Microsoft 계정을 입력합니다.
 
 ## <a name="comments"></a>주석
 

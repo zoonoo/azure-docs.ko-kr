@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 393563427e936e07315cd44b78cb793d4292b352
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79243927"
 ---
 # <a name="product-templates-in-azure-api-management"></a>Azure API Management의 제품 템플릿
@@ -37,7 +37,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-##  <a name="ProductList"></a> 제품 목록  
+##  <a name="product-list"></a><a name="ProductList"></a>제품 목록  
  **제품 목록** 템플릿을 통해 개발자 포털에서 제품 목록 페이지의 본문을 사용자 지정할 수 있습니다.  
   
  ![제품 목록](./media/api-management-product-templates/APIM_ProductsListTemplatePage.png "APIM_ProductsListTemplatePage")  
@@ -73,16 +73,16 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 ### <a name="controls"></a>컨트롤  
  `Product list` 템플릿에서 다음 [페이지 컨트롤](api-management-page-controls.md)을 사용할 수 있습니다.  
   
--   [paging-control](api-management-page-controls.md#paging-control)  
+-   [페이징 제어](api-management-page-controls.md#paging-control)  
   
--   [search-control](api-management-page-controls.md#search-control)  
+-   [검색 제어](api-management-page-controls.md#search-control)  
   
 ### <a name="data-model"></a>데이터 모델  
   
 |속성|Type|Description|  
 |--------------|----------|-----------------|  
-|Paging|[페이징](api-management-template-data-model-reference.md#Paging) 엔터티입니다.|제품 컬렉션에 대한 페이징 정보입니다.|  
-|Filtering|[필터링](api-management-template-data-model-reference.md#Filtering) 엔터티.|제품 목록 페이지에 대한 필터링 정보입니다.|  
+|페이징|[페이징](api-management-template-data-model-reference.md#Paging) 엔터티입니다.|제품 컬렉션에 대한 페이징 정보입니다.|  
+|필터링|[필터링](api-management-template-data-model-reference.md#Filtering) 엔터티.|제품 목록 페이지에 대한 필터링 정보입니다.|  
 |Products|[제품](api-management-template-data-model-reference.md#Product) 엔터티의 컬렉션입니다.|현재 사용자에게 표시되는 제품입니다.|  
   
 ### <a name="sample-template-data"></a>샘플 템플릿 데이터  
@@ -123,7 +123,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 }  
 ```  
   
-##  <a name="Product"></a> 제품  
+##  <a name="product"></a><a name="Product"></a>제품  
  **제품** 템플릿을 통해 개발자 포털에서 제품 페이지의 본문을 사용자 지정할 수 있습니다.  
   
  ![개발자 포털 제품 페이지](./media/api-management-product-templates/APIM_ProductPage.png "APIM_ProductPage")  
@@ -200,7 +200,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 ### <a name="controls"></a>컨트롤  
  `Product list` 템플릿에서 다음 [페이지 컨트롤](api-management-page-controls.md)을 사용할 수 있습니다.  
   
--   [subscribe-button](api-management-page-controls.md#subscribe-button)  
+-   [구독 버튼](api-management-page-controls.md#subscribe-button)  
   
 ### <a name="data-model"></a>데이터 모델  
   

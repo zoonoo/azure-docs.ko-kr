@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 1e75acc03209fdd7e613801c9152f24aaecfa6de
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79267782"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>StorSimple 8000 시리즈 디바이스에 StorSimple 디바이스 관리자 서비스 배포
@@ -57,8 +57,8 @@ StorSimple 디바이스 관리자 서비스를 만들려면 다음 항목이 필
 
 각 StorSimple 디바이스 관리자 서비스에 대해 다음과 같은 특성이 존재합니다.
 
-* **이름** – StorSimple 디바이스 관리자 서비스를 만들었을 때 할당된 이름입니다. **서비스 이름은 서비스를 만든 후에 변경할 수 없습니다. 이는 Azure Portal에서 이름을 바꿀 수 없는 장치, 볼륨, 볼륨 컨테이너 및 백업 정책과 같은 다른 엔터티의 경우에도 마찬가지입니다.**
-* **상태** – **활성**, **만들기** 또는 **온라인** 등의 서비스 상태입니다.
+* **이름** – StorSimple 디바이스 관리자 서비스를 만들었을 때 할당된 이름입니다. **서비스를 만든 후에는 서비스 이름을 변경할 수 없습니다. Azure Portal에서 이름을 바꿀 수 없는 장치, 볼륨, 볼륨 컨테이너 및 백업 정책과 같은 다른 엔터티에도 적용됩니다.**
+* **상태** – 서비스의 상태로, **활성**, **만드는 중** 또는 **온라인**일 수 있습니다.
 * **위치** – StorSimple 디바이스를 배포할 지리적 위치입니다.
 * **구독** – 서비스와 연관된 청구 구독입니다.
 
@@ -81,7 +81,7 @@ StorSimple 디바이스 관리자 서비스를 만들려면 다음 항목이 필
 
     ![서비스 삭제](./media/storsimple-8000-manage-service/deletessdevman2.png)
 
-3. 확인 알림에서 **예** 를 클릭합니다. 서비스 삭제에는 몇 분 정도 걸릴 수 있습니다.
+3. 확인 알림에서 **예**를 클릭합니다. 서비스 삭제에는 몇 분 정도 걸릴 수 있습니다.
 
     ![삭제 확인](./media/storsimple-8000-manage-service/deletessdevman3.png)
 
@@ -103,7 +103,7 @@ StorSimple 디바이스 관리자 서비스를 만들려면 다음 항목이 필
 서비스 등록 키를 다시 생성하려 다음 단계를 수행합니다.
 
 ### <a name="to-regenerate-the-service-registration-key"></a>서비스 등록 키를 다시 생성하려면
-1. **StorSimple Device Manager** 블레이드에서 **관리 &gt;** **키**로 이동 합니다.
+1. **StorSimple 디바이스 관리자** 블레이드에서 **관리 &gt;** **키**로 이동합니다.
     
     ![키 블레이드](./media/storsimple-8000-manage-service/regenregkey2.png)
 

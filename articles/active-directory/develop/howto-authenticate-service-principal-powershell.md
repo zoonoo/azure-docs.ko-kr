@@ -1,5 +1,5 @@
 ---
-title: Azure 앱 id 만들기 (PowerShell) | Microsoft
+title: Azure 앱 ID 만들기(PowerShell) | Azure
 titleSuffix: Microsoft identity platform
 description: Azure PowerShell을 사용하여 Azure Active Directory 애플리케이션 및 서비스 주체를 만들고 역할 기반 액세스 제어를 통해 리소스에 대한 액세스를 부여하는 방법을 설명합니다. 인증서를 사용하여 애플리케이션을 인증하는 방법을 보여줍니다.
 services: active-directory
@@ -15,10 +15,10 @@ ms.date: 10/10/2019
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.openlocfilehash: 8e428732fb49d27e3991071b87abee53b6e375b2
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79262959"
 ---
 # <a name="how-to-use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>방법: Azure PowerShell을 사용하여 인증서로 서비스 주체 만들기
@@ -46,14 +46,14 @@ ms.locfileid: "79262959"
 ## <a name="assign-the-application-to-a-role"></a>애플리케이션을 역할에 할당
 구독의 리소스에 액세스하려면 역할에 애플리케이션을 할당해야 합니다. 애플리케이션에 적합한 권한을 제공하는 역할을 결정합니다. 사용 가능한 역할에 대해 알아보려면 [RBAC: 기본 제공 역할](/azure/role-based-access-control/built-in-roles)을 참조하세요.
 
-구독, 리소스 그룹 또는 리소스 수준에서 범위를 설정할 수 있습니다. 권한은 하위 수준의 범위로 상속됩니다. 예를 들어 리소스 그룹에 대 한 *읽기 권한자* 역할에 응용 프로그램을 추가 하면 리소스 그룹 및 리소스 그룹에 포함 된 모든 리소스를 읽을 수 있습니다. 응용 프로그램에서 다시 부팅, 시작 및 중지와 같은 작업을 실행 하도록 허용 하려면 *참가자* 역할을 선택 합니다.
+구독, 리소스 그룹 또는 리소스 수준에서 범위를 설정할 수 있습니다. 권한은 하위 수준의 범위로 상속됩니다. 예를 들어 리소스 그룹에 대한 *Reader* 역할에 응용 프로그램을 추가하면 리소스 그룹과 리소스 그룹에 포함된 모든 리소스를 읽을 수 있습니다. 응용 프로그램이 인스턴스 재부팅, 시작 및 중지와 같은 작업을 실행할 수 있도록 하려면 *기여자* 역할을 선택합니다.
 
 ## <a name="create-service-principal-with-self-signed-certificate"></a>자체 서명된 인증서를 사용하여 서비스 주체 만들기
 
-다음 예제는 간단한 시나리오를 다룹니다. [AzADServicePrincipal](/powershell/module/az.resources/new-azadserviceprincipal) 를 사용 하 여 자체 서명 된 인증서로 서비스 주체를 만들고 [AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) 를 사용 하 여 [읽기 권한자](/azure/role-based-access-control/built-in-roles#reader) 역할을 서비스 주체에 할당 합니다. 역할 할당의 범위가 현재 선택된 Azure 구독에 지정됩니다. 다른 구독을 선택하려면 [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext)를 사용합니다.
+다음 예제는 간단한 시나리오를 다룹니다. [New-AzADServicePrincipal을](/powershell/module/az.resources/new-azadserviceprincipal) 사용하여 자체 서명된 인증서를 사용하여 서비스 주체를 만들고 [New-AzRoleAssignment를](/powershell/module/az.resources/new-azroleassignment) 사용하여 서비스 주체에 [리더](/azure/role-based-access-control/built-in-roles#reader) 역할을 할당합니다. 역할 할당의 범위가 현재 선택된 Azure 구독에 지정됩니다. 다른 구독을 선택하려면 [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext)를 사용합니다.
 
 > [!NOTE]
-> New-selfsignedcertificate cmdlet 및 PKI 모듈은 현재 PowerShell Core에서 지원 되지 않습니다. 
+> 새 자체 서명인증서 cmdlet 및 PKI 모듈은 현재 PowerShell 코어에서 지원되지 않습니다. 
 
 ```powershell
 $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" `
@@ -107,7 +107,7 @@ $ApplicationId = (Get-AzADApplication -DisplayNameStartWith exampleapp).Applicat
 
 ## <a name="create-service-principal-with-certificate-from-certificate-authority"></a>인증 기관의 인증서를 사용하여 서비스 주체 만들기
 
-다음 예제에서는 인증 기관에서 발급한 인증서를 사용하여 서비스 주체를 만듭니다. 지정된 Azure 구독에 할당 범위가 지정됩니다. 서비스 주체를 [판독기](../../role-based-access-control/built-in-roles.md#reader) 역할에 추가 합니다. 역할 할당 중에 오류가 발생하는 경우 할당을 다시 시도합니다.
+다음 예제에서는 인증 기관에서 발급한 인증서를 사용하여 서비스 주체를 만듭니다. 지정된 Azure 구독에 할당 범위가 지정됩니다. 서비스 주체를 [Reader](../../role-based-access-control/built-in-roles.md#reader) 역할에 추가합니다. 역할 할당 중에 오류가 발생하는 경우 할당을 다시 시도합니다.
 
 ```powershell
 Param (
@@ -217,7 +217,7 @@ Get-AzADApplication -DisplayName exampleapp | New-AzADAppCredential `
 
 서비스 주체를 만들 때 다음과 같은 오류가 발생할 수 있습니다.
 
-* **"Authentication_Unauthorized"** 또는 **"컨텍스트에서 구독을 찾을 수 없습니다."** - 계정에 Azure AD에서 앱을 등록하는 데 [필요한 권한](#required-permissions)이 없으면 이 오류가 발생합니다. 일반적으로 Azure Active Directory의 관리 사용자만 앱을 등록할 수 있고 계정이 관리자가 아닌 경우이 오류가 표시 됩니다. 관리자에 게 관리자 역할을 할당 하거나 사용자가 앱을 등록할 수 있도록 하려면 관리자에 게 문의 하세요.
+* **"Authentication_Unauthorized"** 또는 **"컨텍스트에서 구독을 찾을 수 없습니다."** - 계정에 Azure AD에서 앱을 등록하는 데 [필요한 권한](#required-permissions)이 없으면 이 오류가 발생합니다. 일반적으로 Azure Active Directory의 관리자 사용자만 앱을 등록할 수 있고 계정이 관리자가 아닌 경우 이 오류가 표시됩니다. 관리자에게 관리자 역할에 사용자를 할당하거나 사용자가 앱을 등록할 수 있도록 하도록 요청합니다.
 
 * 계정에 **"'/subscriptions/{guid}' 범위에 대해 'Microsoft.Authorization/roleAssignments/write' 작업을 수행할 수 있는 권한이 없습니다."** - 이 오류는 ID에 역할을 할당할 수 있는 충분한 권한이 계정에 없을 때 표시됩니다. 구독 관리자에게 사용자 액세스 관리자 역할에 사용자를 추가할 것을 요청합니다.
 

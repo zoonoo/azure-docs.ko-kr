@@ -1,5 +1,5 @@
 ---
-title: Azure CLI를 사용 하 여 Linux VM에 데이터 디스크 추가
+title: Azure CLI를 사용하여 Linux VM에 데이터 디스크 추가
 description: Azure CLI를 사용하여 Linux VM에 영구 데이터 디스크를 추가하는 방법 알아보기
 author: roygara
 manager: twooley
@@ -9,10 +9,10 @@ ms.date: 06/13/2018
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: a80a1fe21ba0b40aebf9e426e3d49f499c2d2a21
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79250414"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Linux VM에 디스크 추가
@@ -67,9 +67,9 @@ dmesg | grep SCSI
 ```
 
 > [!NOTE]
-> 배포판에 사용할 수 있는 최신 버전의 fdisk 또는 parted를 사용 하는 것이 좋습니다.
+> 배포판에 사용할 수 있는 최신 버전의 fdisk 또는 parted를 사용하는 것이 좋습니다.
 
-여기서 *sdc*는 원하는 디스크입니다. `parted`를 사용하여 디스크를 분할합니다. 디스크 크기가 2테비바이트(TiB) 이상이면 GPT 분할을 사용해야 하고, 2TiB 미만이면 MBR 또는 GPT 분할을 사용하면 됩니다. MBR 분할을 사용하는 경우 `fdisk`를 사용할 수 있습니다. 파티션 1에 기본 디스크를 만들고, 나머지는 기본값을 적용합니다. 다음 예제에서는 `fdisk`/dev/sdc*에서*  프로세스를 시작합니다.
+여기서 *sdc*는 원하는 디스크입니다. `parted`를 사용하여 디스크를 분할합니다. 디스크 크기가 2테비바이트(TiB) 이상이면 GPT 분할을 사용해야 하고, 2TiB 미만이면 MBR 또는 GPT 분할을 사용하면 됩니다. MBR 분할을 사용하는 경우 `fdisk`를 사용할 수 있습니다. 파티션 1에 기본 디스크를 만들고, 나머지는 기본값을 적용합니다. 다음 예제에서는 */dev/sdc*에서 `fdisk` 프로세스를 시작합니다.
 
 ```bash
 sudo fdisk /dev/sdc
@@ -118,7 +118,7 @@ The partition table has been altered!
 Calling ioctl() to re-read partition table.
 Syncing disks.
 ```
-다음 명령을 사용 하 여 커널을 업데이트 합니다.
+아래 명령을 사용하여 커널을 업데이트합니다.
 ```
 partprobe 
 ```
@@ -198,23 +198,23 @@ UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail 
 > [!NOTE]
 > 나중에 fstab을 편집하지 않고 데이터 디스크를 제거하면 VM이 부팅되지 않을 수 있습니다. 대부분의 배포는 *nofail* 및/또는 *nobootwait* fstab 옵션을 제공합니다. 이러한 옵션을 사용하면 디스크가 부팅 시 탑재되지 않더라도 시스템을 부팅할 수 있습니다. 이러한 매개 변수에 대한 자세한 내용은 배포 설명서를 참조하세요.
 >
-> *nofail* 옵션은 파일 시스템이 손상되었거나 디스크가 부팅 시 존재하지 않더라도 VM이 시작되도록 합니다. 이 옵션이 없으면 [FSTAB 오류로 인해 Linux에 SSH를 사용할 수 없음](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/)(영문)에 설명되어 있는 동작이 발생할 수 있습니다.
+> *nofail* 옵션은 파일 시스템이 손상되었거나 디스크가 부팅 시 존재하지 않더라도 VM이 시작되도록 합니다. 이 옵션이 없으면 [FSTAB 오류로 인해 SSH에서 Linux VM으로 SSH를 사용할 수 없음에](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/) 설명된 동작이 발생할 수 있습니다.
 >
-> Fstab를 수정 하 여 부팅 실패가 발생 한 경우 Azure VM 직렬 콘솔을 사용 하 여 VM에 대 한 콘솔 액세스를 사용할 수 있습니다. 자세한 내용은 [직렬 콘솔 설명서](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux)에서 확인할 수 있습니다.
+> Fstab을 수정하면 부팅 실패가 발생한 경우 Azure VM 직렬 콘솔을 VM에 콘솔 액세스에 사용할 수 있습니다. 자세한 내용은 [직렬 콘솔 설명서에서](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux)확인할 수 있습니다.
 
 ### <a name="trimunmap-support-for-linux-in-azure"></a>Azure에서 Linux에 대한 TRIM/UNMAP 지원
 일부 Linux 커널은 디스크에서 사용되지 않은 블록을 버릴 수 있도록 TRIM/UNMAP 작업을 지원합니다. 이 기능은 삭제된 페이지가 더 이상 유효하지 않으며 폐기될 수 있음을 Azure에 알리기 위해 표준 스토리지에서 주로 유용하며, 큰 파일을 만들고 삭제하는 경우 비용을 절약할 수 있습니다.
 
 Linux VM에서 TRIM 지원을 사용하는 두 가지 방법이 있습니다. 평소와 같이 권장되는 방법에 대해 배포에 확인하세요.
 
-* `discard`/etc/fstab*에*  탑재 옵션을 사용합니다. 예:
+* */etc/fstab*에 `discard` 탑재 옵션을 사용합니다. 예:
 
     ```bash
     UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,discard   1   2
     ```
 * 경우에 따라 `discard` 옵션을 사용하면 성능이 저하될 수 있습니다. 또는 `fstrim` 명령을 명령줄에서 수동으로 실행하거나, 또는 정기적으로 실행하기 위해 crontab에 추가할 수 있습니다.
 
-    **Ubuntu**
+    **우분투**
 
     ```bash
     sudo apt-get install util-linux

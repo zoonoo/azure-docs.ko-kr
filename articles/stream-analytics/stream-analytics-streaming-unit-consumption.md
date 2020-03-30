@@ -1,5 +1,5 @@
 ---
-title: Azure Stream Analytics의 스트리밍 단위
+title: Azure 스트림 분석의 스트리밍 단위
 description: 이 문서에서는 Azure Stream Analytics에서 성능에 영향을 주는 스트리밍 단위 설정 및 다른 요소에 대해 설명합니다.
 author: JSeb225
 ms.author: jeanb
@@ -8,22 +8,22 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/27/2020
 ms.openlocfilehash: 397e455c8b6a1097e2a32473036e1acd2bbdf2eb
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79267353"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>스트리밍 단위 이해 및 조정
 
-SUs (스트리밍 단위)는 Stream Analytics 작업을 실행 하기 위해 할당 된 컴퓨팅 리소스를 나타냅니다. SU 수가 클수록 작업에 더 많은 CPU 및 메모리 리소스가 할당됩니다. 이러한 용량을 통해 쿼리 논리에 중점을 두고 Stream Analytics 작업을 적시에 실행하도록 하드웨어를 관리해야 할 필요성을 요약할 수 있습니다.
+스트리밍 단위(SUs)는 스트림 분석 작업을 실행하기 위해 할당된 컴퓨팅 리소스를 나타냅니다. SU 수가 클수록 작업에 더 많은 CPU 및 메모리 리소스가 할당됩니다. 이러한 용량을 통해 쿼리 논리에 중점을 두고 Stream Analytics 작업을 적시에 실행하도록 하드웨어를 관리해야 할 필요성을 요약할 수 있습니다.
 
 Azure Stream Analytics 작업은 대기 시간이 짧은 스트리밍 처리를 위해 모든 처리를 메모리 안에서 수행합니다. 메모리가 부족하면 스트리밍 작업이 실패합니다. 결과적으로, 프로덕션 작업의 경우 스트리밍 작업의 리소스 사용을 모니터링하고 작업을 중단 없이 실행하기에 충분한 리소스가 할당되도록 확인해야 합니다.
 
 0%에서 100% 범위의 SU % 사용률 메트릭은 워크로드의 메모리 사용량을 설명합니다. 최소 사용되는 스트리밍 작업의 경우 이 메트릭은 보통 10~20% 범위입니다. SU % 사용률이 낮고 입력 이벤트가 백로그되면, 워크로드에 더 많은 컴퓨팅 리소스가 필요할 수 있으므로 SU 수를 늘려야 합니다. 경우에 따른 사용량 급증을 대비하여 SU 메트릭을 80% 이하로 유지하는 것이 가장 좋습니다. 리소스 소진을 방지하기 위해 80% SU 사용률 메트릭에 대한 경고를 설정하는 것이 좋습니다. 자세한 내용은 [자습서: Azure Stream Analytics 작업에 대한 경고 설정](stream-analytics-set-up-alerts.md)을 참조하세요.
 
 ## <a name="configure-stream-analytics-streaming-units-sus"></a>Stream Analytics 스트리밍 단위(SU) 구성
-1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+1. [Azure 포털에](https://portal.azure.com/) 로그인
 
 2. 리소스 목록에서 확장할 Stream Analytics 작업을 찾은 후 엽니다. 
 
@@ -32,7 +32,7 @@ Azure Stream Analytics 작업은 대기 시간이 짧은 스트리밍 처리를 
     ![Azure Portal Stream Analytics 작업 구성][img.stream.analytics.preview.portal.settings.scale]
     
 4. 슬라이더를 사용하여 작업에 대한 SU를 설정합니다. 특정 SU 설정으로 제한되는 것을 확인합니다. 
-5. 작업을 실행 하는 경우에도 작업에 할당 되는 SUs의 수를 변경할 수 있습니다. 작업에서 [분할 되지 않은 출력](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#query-using-non-partitioned-output) 을 사용 하거나 [값에 따라 다른 파티션이 있는 다단계 쿼리를](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#multi-step-query-with-different-partition-by-values)사용 하는 경우에는이 작업을 수행할 수 없습니다. 작업이 실행 중일 때 SU 값 집합에서 선택 하는 것으로 제한 될 수도 있습니다. 
+5. 작업에 할당된 S의 수는 실행 중인 경우에도 변경할 수 있습니다. 작업이 [분할되지 않은 출력을](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#query-using-non-partitioned-output) 사용하거나 [다른 PARTITION BY 값을 가진 다중 단계 쿼리가](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#multi-step-query-with-different-partition-by-values)있는 경우에는 불가능합니다. 작업이 실행 중일 때 SU 값 집합에서 선택하도록 제한할 수 있습니다. 
 
 ## <a name="monitor-job-performance"></a>작업 성능 모니터링
 Azure Portal을 사용하여 작업 처리량을 추적할 수 있습니다.
@@ -50,7 +50,7 @@ Azure Portal을 사용하여 작업 처리량을 추적할 수 있습니다.
 올바른 SU 수 선택에 대한 자세한 내용은 [처리량을 높이기 위한 Azure Stream Analytic 작업 비율 크기 조정](stream-analytics-scale-jobs.md) 페이지를 참조하세요.
 
 > [!Note]
-> 특정 작업에 필요한 SU 수 선택은 입력에 대한 파티션 구성 및 작업에 정의된 쿼리에 따라 달라집니다. 작업에 대해 SU의 할당량까지 선택할 수 있습니다. 기본적으로 각 Azure 구독에는 특정 지역의 모든 분석 작업에 대해 최대 500 su의 할당량이 있습니다. 구독의 SU를 이 할당량을 초과하여 늘리려면 [Microsoft 지원](https://support.microsoft.com)에 문의하세요. 작업당 SU에 대한 유효한 값은 1, 3, 6이며 6 단위로 증가합니다.
+> 특정 작업에 필요한 SU 수 선택은 입력에 대한 파티션 구성 및 작업에 정의된 쿼리에 따라 달라집니다. 작업에 대해 SU의 할당량까지 선택할 수 있습니다. 기본적으로 각 Azure 구독에는 특정 지역의 모든 분석 작업에 대해 최대 500개의 SUs가 할당됩니다. 구독의 SU를 이 할당량을 초과하여 늘리려면 [Microsoft 지원](https://support.microsoft.com)에 문의하세요. 작업당 SU에 대한 유효한 값은 1, 3, 6이며 6 단위로 증가합니다.
 
 ## <a name="factors-that-increase-su-utilization"></a>SU% 사용률이 증가하는 요인 
 
@@ -58,12 +58,12 @@ temporal(시간 지향적인) 쿼리 요소는 Stream Analytics에서 제공하�
 
 복잡한 쿼리 논리를 사용하는 작업은 입력 이벤트를 지속적으로 수신하지 않더라도 높은 SU% 사용률을 나타낼 수 있습니다. 입력 및 출력 이벤트가 급격히 증가한 후에 이러한 현상이 발생할 수 있습니다. 쿼리가 복잡한 경우 작업은 메모리의 상태를 계속 유지할 수 있습니다.
 
-SU% 사용률은 잠시 동안 갑자기 0으로 떨어졌다가 정상 수준으로 돌아올 수도 있습니다. 이러한 현상은 일시적인 오류 또는 시스템에서 시작한 업그레이드로 인해 발생합니다. 쿼리가 [완전히 병렬](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization)처리 되지 않은 경우 작업에 대 한 스트리밍 단위 수를 늘릴 경우 SU% 사용률을 줄일 수 없습니다.
+SU% 사용률은 잠시 동안 갑자기 0으로 떨어졌다가 정상 수준으로 돌아올 수도 있습니다. 이러한 현상은 일시적인 오류 또는 시스템에서 시작한 업그레이드로 인해 발생합니다. 쿼리가 [완전히 병렬상태가](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization)아닌 경우 작업에 대한 스트리밍 단위 수가 증가하면 SU% 사용률이 줄어들지 않을 수 있습니다.
 
-일정 기간 동안의 사용률을 비교 하는 동안 [이벤트 요금 메트릭을](stream-analytics-monitoring.md)사용 합니다. InputEvents 및 OutputEvents 메트릭은 읽고 처리 한 이벤트의 수를 표시 합니다. Deserialization 오류와 같은 오류 이벤트의 수도 나타내는 메트릭이 있습니다. 시간 단위 당 이벤트 수가 늘어나면 대부분의 경우 SU%가 늘어납니다.
+기간 동안의 사용률을 비교하는 동안 [이벤트 비율 메트릭을](stream-analytics-monitoring.md)사용합니다. 입력이벤트 및 OutputEvents 메트릭은 읽고 처리한 이벤트 수를 보여 준다. 직렬화 오류와 같은 오류 이벤트 수를 나타내는 메트릭도 있습니다. 시간 단위당 이벤트 수가 증가하면 대부분의 경우 SU%가 증가합니다.
 
 ## <a name="stateful-query-logicin-temporal-elements"></a>temporal 요소의 상태 저장 쿼리 논리
-Azure Stream Analytics 작업의 고유한 기능 중 하나는 기간 이동 집계, 임시 조인 및 임시 분석 함수 등과 같은 상태 저장 처리를 수행하는 것입니다. 이러한 연산자마다 상태 정보를 유지합니다. 이러한 쿼리 요소에 대 한 최대 창 크기는 7 일입니다. 
+Azure Stream Analytics 작업의 고유한 기능 중 하나는 기간 이동 집계, 임시 조인 및 임시 분석 함수 등과 같은 상태 저장 처리를 수행하는 것입니다. 이러한 연산자마다 상태 정보를 유지합니다.이러한 쿼리 요소의 최대 시간 범위는 7일입니다. 
 
 temporal 시간 범위 개념은 몇 가지 Stream Analytics 쿼리 요소에 나타납니다.
 1. 기간 이동 집계: 연속, 도착 및 슬라이딩 시간 범위의 GROUP BY
@@ -86,7 +86,7 @@ temporal 시간 범위 개념은 몇 가지 Stream Analytics 쿼리 요소에 �
    GROUP BY  clusterid, tumblingwindow (minutes, 5)
    ```
 
-이전 쿼리에서 높은 카디널리티로 인해 발생 하는 문제를 완화 하기 위해 `clusterid`에 의해 분할 된 이벤트 허브로 이벤트를 전송 하 고, 아래 예제와 같이 시스템에서 **PARTITION by** 를 사용 하 여 별도로 각 입력 파티션을 처리 하도록 허용 하 여 쿼리를 확장할 수 있습니다.
+이전 쿼리에서 높은 카디널리티로 인한 문제를 완화하기 위해 `clusterid`에서 분할된 Event Hub로 이벤트를 보내고 아래 예제와 같이 PARTITION **BY를** 사용하여 시스템이 각 입력 파티션을 별도로 처리하도록 하여 쿼리를 확장할 수 있습니다.
 
    ```sql
    SELECT count(*) 
@@ -99,7 +99,7 @@ temporal 시간 범위 개념은 몇 가지 Stream Analytics 쿼리 요소에 �
 이벤트 허브 파티션은 단계를 줄이지 않아도 되도록 그룹 키로 분할되어야 합니다. 자세한 내용은 [Event Hubs 개요](../event-hubs/event-hubs-what-is-event-hubs.md)를 참조하세요. 
 
 ## <a name="temporal-joins"></a>temporal 조인
-Temporal 조인의 사용 된 메모리 (상태 크기)는 조인의 임시 공간에 있는 이벤트 수에 비례 합니다. 즉, 이벤트 입력 률에는 흔들기 방 크기를 곱합니다. 즉, 조인에 의해 소비되는 메모리는 DateDiff 시간 범위에 평균 이벤트 속도를 곱한 값에 비례합니다.
+시간 조인의 소비된 메모리(상태 크기)는 조인의 시간 흔들기 룸에 있는 이벤트 수에 비례하며, 이벤트 입력 속도에 흔들기 룸 크기를 곱한 값입니다. 즉, 조인에 의해 소비되는 메모리는 DateDiff 시간 범위에 평균 이벤트 속도를 곱한 값에 비례합니다.
 
 조인에서 일치하지 않는 이벤트 수는 쿼리에 대한 메모리 사용률에 영향을 줍니다. 다음 쿼리는 클릭을 유도하는 광고 노출을 찾는 것입니다.
 
@@ -111,7 +111,7 @@ Temporal 조인의 사용 된 메모리 (상태 크기)는 조인의 임시 공�
 
 이 예제에서 광고는 많은 데 사용자가 거의 클릭하지 않는 경우 모든 이벤트를 timewindow에 있도록 해야 합니다. 사용된 메모리는 창 크기와 이벤트 속도에 비례합니다. 
 
-이를 수정 하려면 조인 키 (이 경우 ID)로 분할 된 이벤트 허브에 이벤트를 보내고 다음과 같이 시스템에서 **PARTITION by** 를 사용 하 여 별도로 각 입력 파티션을 처리 하도록 허용 하 여 쿼리를 확장 합니다.
+이 작업을 해결하려면 조인 키(이 경우 ID)로 분할된 이벤트 허브로 이벤트를 보내고, 그림과 같이 **파티션 BY를** 사용하여 시스템이 각 입력 파티션을 별도로 처리하도록 하여 쿼리를 확장합니다.
 
    ```sql
    SELECT clicks.id
@@ -123,7 +123,7 @@ Temporal 조인의 사용 된 메모리 (상태 크기)는 조인의 임시 공�
 쿼리가 분할되면 여러 노드에 걸쳐 분산됩니다. 결과적으로, 각 노드로 들어오는 이벤트 수가 감소하여 조인 창에 유지되는 상태 크기가 줄어듭니다. 
 
 ## <a name="temporal-analytic-functions"></a>temporal 분석 함수
-temporal 분석 함수의 소비 메모리(상태 크기)는 이벤트 속도와 기간의 곱에 비례합니다. 분석 함수에서 사용 하는 메모리는 창 크기에 비례 하지 않고 각 시간 창의 파티션 수에 비례 합니다.
+temporal 분석 함수의 소비 메모리(상태 크기)는 이벤트 속도와 기간의 곱에 비례합니다.분석 함수가 소비하는 메모리는 시간 범위의 크기에 비례하지 않고 각 시간 범위의 파티션 수에 비례합니다.
 
 조치는 임시 조인과 유사합니다. **PARTITION BY**를 사용하여 쿼리를 확장할 수 있습니다. 
 
@@ -147,7 +147,7 @@ UDF 함수를 추가하면 Azure Stream Analytics가 JavaScript 런타임을 메
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Stream Analytics에서 병렬 처리 가능 쿼리 만들기](stream-analytics-parallelization.md)
-* [처리량을 높이기 위한 Azure Stream Analytics 작업 비율 크기 조정](stream-analytics-scale-jobs.md)
+* [Azure Stream Analytics 작업을 확장하여 처리량을 높입니다.](stream-analytics-scale-jobs.md)
 
 <!--Image references-->
 

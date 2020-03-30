@@ -1,15 +1,15 @@
 ---
-title: Windows에서 Azure Service Fabric 앱 디버그
+title: Windows에서 Azure 서비스 패브릭 앱 디버그
 description: 로컬 개발 컴퓨터에서 Microsoft Azure 서비스 패브릭을 사용하여 작성된 서비스를 모니터링하고 진단하는 방법에 대해 알아보세요.
 author: srrengar
 ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: srrengar
 ms.openlocfilehash: 8435bb82afddd0070679768bb8d22ad9290f2279
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79258513"
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>로컬 컴퓨터 개발 설정에서의 모니터링 및 진단 서비스
@@ -24,9 +24,9 @@ ms.locfileid: "79258513"
 ## <a name="event-tracing-for-windows"></a>Windows용 이벤트 추적
 [Windows용 이벤트 추적](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW)은 서비스 패브릭의 추적 메시지용으로 바람직한 기술입니다. ETW를 사용하면 다음과 같은 이점이 있습니다.
 
-* **ETW는 속도가 빠릅니다.** 코드 실행 시간에 미치는 영향을 최소화하도록 설계된 추적 기술입니다.
+* **ETW는 속도가 빠릅니다.**  코드 실행 시간에 미치는 영향을 최소화하도록 설계된 추적 기술입니다.
 * **ETW 추적은 로컬 개발 환경 및 실제 사용 클러스터 설정에서도 매끄럽게 작동합니다.** 즉, 실제 클러스터에 코드를 배포할 준비가 되었을 때 추적 코드를 다시 쓸 필요가 없습니다.
-* **서비스 패브릭은 내부 추적에도 ETW를 사용합니다.** 따라서 서비스 패브릭 시스템 추적으로 인터리브된 애플리케이션 추적을 볼 수 있습니다. 또한 기본 시스템에서 애플리케이션 코드와 이벤트 간의 시퀀스 및 상호 관계를 보다 쉽게 이해할 수 있습니다.
+* **서비스 패브릭은 내부 추적에도 ETW를 사용합니다.**  따라서 서비스 패브릭 시스템 추적으로 인터리브된 애플리케이션 추적을 볼 수 있습니다. 또한 기본 시스템에서 애플리케이션 코드와 이벤트 간의 시퀀스 및 상호 관계를 보다 쉽게 이해할 수 있습니다.
 * **서비스 패브릭 Visual Studio 도구는 ETW 이벤트 보기를 내부적으로 지원합니다.** Service Fabric을 통해 Visual Studio를 올바르게 구성하고 나면 ETW 이벤트가 Visual Studio의 진단 이벤트 보기에 표시됩니다. 
 
 ## <a name="view-service-fabric-system-events-in-visual-studio"></a>Visual Studio에서 서비스 패브릭 시스템 이벤트 보기
@@ -43,12 +43,12 @@ ms.locfileid: "79258513"
 **서비스 템플릿**(상태 비저장 또는 상태 저장)에서 만들어진 프로젝트의 경우 `RunAsync` 구현을 검색하기만 하면 됩니다.
 
 1. `ServiceEventSource.Current.ServiceMessage` in the `RunAsync` 호출은 애플리케이션 코드에서 사용자 지정 ETW 추적의 예를 보여 줍니다.
-2. **ServiceEventSource.cs** 파일을 보면 성능상의 이유로 빈도가 높은 이벤트에 사용해야 하는`ServiceEventSource.ServiceMessage` 메서드에서 오버로드를 확인할 수 있습니다.
+2. **ServiceEventSource.cs`ServiceEventSource.ServiceMessage` 파일을 보면 성능상의 이유로 빈도가 높은 이벤트에 사용해야 하는** 메서드에서 오버로드를 확인할 수 있습니다.
 
 **행위자 템플릿** (상태 비저장 또는 상태 저장)에서 만들어진 프로젝트의 경우:
 
 1. **ProjectName** 이 Visual Studio 프로젝트용으로 선택한 이름인 *“ProjectName”.cs* 파일을 엽니다.  
-2. `ActorEventSource.Current.ActorMessage(this, "Doing Work");`DoWorkAsync*메서드에서* 코드를 찾습니다.  이는 애플리케이션 코드에서 작성된 사용자 지정 ETW의 예제입니다.  
+2. *DoWorkAsync* 메서드에서 `ActorEventSource.Current.ActorMessage(this, "Doing Work");` 코드를 찾습니다.  이는 애플리케이션 코드에서 작성된 사용자 지정 ETW의 예제입니다.  
 3. **ActorEventSource.cs** 파일을 보면 성능상의 이유로 빈도가 높은 이벤트에 사용해야 하는 `ActorEventSource.ActorMessage` 메서드에서 오버로드를 확인할 수 있습니다.
 
 서비스 코드에 사용자 지정 ETW 추적을 추가한 다음에는 애플리케이션을 다시 빌드, 배포, 실행하여 진단 이벤트 뷰어에서 이벤트를 볼 수 있습니다. **F5**키를 눌러서 애플리케이션을 디버깅하면 진단 이벤트 뷰어가 자동으로 열립니다.

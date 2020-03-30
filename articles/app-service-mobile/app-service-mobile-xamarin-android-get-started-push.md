@@ -1,16 +1,16 @@
 ---
 title: Xamarin.Android 앱에 푸시 알림 추가
-description: Azure App Service 및 Azure Notification Hubs를 사용 하 여 Xamarin Android 앱에 푸시 알림을 보내는 방법에 대해 알아봅니다.
+description: Azure 앱 서비스 및 Azure 알림 허브를 사용하여 Xamarin.Android 앱에 푸시 알림을 보내는 방법을 알아봅니다.
 ms.assetid: 6f7e8517-e532-4559-9b07-874115f4c65b
 ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
 ms.openlocfilehash: 5657be0dbaeb46f8f899a9b4a2f8ba9b4fe9ebaa
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79249309"
 ---
 # <a name="add-push-notifications-to-your-xamarinandroid-app"></a>Xamarin.Android 앱에 푸시 알림 추가
@@ -30,11 +30,11 @@ ms.locfileid: "79249309"
 * 활성 Google 계정. [accounts.google.com](https://go.microsoft.com/fwlink/p/?LinkId=268302)에서 Google 계정을 등록할 수 있습니다.
 * [Google Cloud Messaging 클라이언트 구성 요소](https://components.xamarin.com/view/GCMClient/).
 
-## <a name="configure-hub"></a>알림 허브 구성
+## <a name="configure-a-notification-hub"></a><a name="configure-hub"></a>알림 허브 구성
 
 [!INCLUDE [app-service-mobile-configure-notification-hub](../../includes/app-service-mobile-configure-notification-hub.md)]
 
-## <a id="register"></a>Firebase Cloud Messaging 사용
+## <a name="enable-firebase-cloud-messaging"></a><a id="register"></a>Firebase Cloud Messaging 사용
 
 [!INCLUDE [notification-hubs-enable-firebase-cloud-messaging](../../includes/notification-hubs-enable-firebase-cloud-messaging.md)]
 
@@ -42,19 +42,19 @@ ms.locfileid: "79249309"
 
 [!INCLUDE [app-service-mobile-android-configure-push](../../includes/app-service-mobile-android-configure-push-for-firebase.md)]
 
-## <a id="update-server"></a>푸시 알림을 전송하도록 서버 프로젝트 업데이트
+## <a name="update-the-server-project-to-send-push-notifications"></a><a id="update-server"></a>푸시 알림을 전송하도록 서버 프로젝트 업데이트
 
 [!INCLUDE [app-service-mobile-update-server-project-for-push-template](../../includes/app-service-mobile-update-server-project-for-push-template.md)]
 
-## <a id="configure-app"></a>푸시 알림에 대한 클라이언트 프로젝트 구성
+## <a name="configure-the-client-project-for-push-notifications"></a><a id="configure-app"></a>푸시 알림에 대한 클라이언트 프로젝트 구성
 
 [!INCLUDE [mobile-services-xamarin-android-push-configure-project](../../includes/mobile-services-xamarin-android-push-configure-project.md)]
 
-## <a id="add-push"></a>앱에 푸시 알림 코드 추가
+## <a name="add-push-notifications-code-to-your-app"></a><a id="add-push"></a>앱에 푸시 알림 코드 추가
 
 [!INCLUDE [app-service-mobile-xamarin-android-push-add-to-app](../../includes/app-service-mobile-xamarin-android-push-add-to-app.md)]
 
-## <a name="test"></a>앱에서 푸시 알림 테스트
+## <a name="test-push-notifications-in-your-app"></a><a name="test"></a>앱에서 푸시 알림 테스트
 
 에뮬레이터에서 가상 디바이스를 사용하여 앱을 테스트할 수 있습니다. 에뮬레이터에서 실행할 때 필요한 추가 구성 단계가 있습니다.
 
@@ -62,7 +62,7 @@ ms.locfileid: "79249309"
 
     ![](./media/app-service-mobile-xamarin-android-get-started-push/google-apis-avd-settings.png)
 
-2. **앱** > **설정** > **계정 추가**를 클릭하여 Android 디바이스에 Google 계정을 추가한 다음, 지시를 따릅니다.
+2. **앱** > **설정** > **계정 추가를**클릭하여 Android 기기에 Google 계정을 추가한 다음 프롬프트를 따릅니다.
 
     ![](./media/app-service-mobile-xamarin-android-get-started-push/add-google-account.png)
 

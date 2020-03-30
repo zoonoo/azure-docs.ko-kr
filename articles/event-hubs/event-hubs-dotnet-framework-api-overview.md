@@ -1,6 +1,6 @@
 ---
 title: Azure Event Hubs .NET Framework API 개요 | Microsoft Docs
-description: 이 문서에서는 클라이언트 Api (management 및 runtime)를 .NET Framework Event Hubs 몇 가지 주요 사항에 대해 간략하게 설명 합니다.
+description: 이 문서에서는 몇 가지 주요 이벤트 허브 .NET Framework 클라이언트 API(관리 및 런타임)에 대한 요약을 제공합니다.
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: timlt
@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 08/16/2018
 ms.author: shvija
 ms.openlocfilehash: b14759ed39037bfa172366a2ed8f8ca089786ec6
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79137614"
 ---
 # <a name="event-hubs-net-framework-api-overview"></a>Event Hubs .NET Framework API 개요

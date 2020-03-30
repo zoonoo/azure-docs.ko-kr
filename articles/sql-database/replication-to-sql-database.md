@@ -12,10 +12,10 @@ ms.author: xiwu
 ms.reviewer: mathoma
 ms.date: 01/25/2019
 ms.openlocfilehash: f718bc17b987926f4324635f096d5983acdb63fc
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79256472"
 ---
 # <a name="replication-to-sql-database-single-and-pooled-databases"></a>SQL Database 단일 및 풀링된 데이터베이스에 복제
@@ -32,14 +32,14 @@ Azure SQL Database에서 [SQL Database 서버](sql-database-servers.md)의 단�
 
 ## <a name="versions"></a>버전  
 
-온-프레미스 SQL Server 게시자 및 배포자는 다음 버전 중 하나 이상을 사용 해야 합니다.  
+온-프레미스 SQL Server 게시자 및 배포자는 최소한 다음 버전 중 하나를 사용해야 합니다.  
 
 - SQL Server 2016 이상
-- SQL Server 2014 [RTM CU10 (12.0.4427.24)](https://support.microsoft.com/help/3094220/cumulative-update-10-for-sql-server-2014) 또는 [SP1 CU3 (12.0.2556.4)](https://support.microsoft.com/help/3094221/cumulative-update-3-for-sql-server-2014-service-pack-1)
-- SQL Server 2012 [SP2 CU8 (11.0.5634.1)](https://support.microsoft.com/help/3082561/cumulative-update-8-for-sql-server-2012-sp2) 또는 [SP3 (11.0.6020.0)](https://www.microsoft.com/download/details.aspx?id=49996)
+- SQL Server 2014 [RTM CU10(12.0.4427.24)](https://support.microsoft.com/help/3094220/cumulative-update-10-for-sql-server-2014) 또는 [SP1 CU3(12.0.2556.4)](https://support.microsoft.com/help/3094221/cumulative-update-3-for-sql-server-2014-service-pack-1)
+- SQL Server 2012 [SP2 CU8(11.0.5634.1)](https://support.microsoft.com/help/3082561/cumulative-update-8-for-sql-server-2012-sp2) 또는 [SP3(11.0.6020.0)](https://www.microsoft.com/download/details.aspx?id=49996)
 
 > [!NOTE]
-> 지원 되지 않는 버전을 사용 하 여 복제를 구성 하려고 하면 오류 번호가 MSSQL_REPL20084 (구독자에 연결할 수 없습니다.) MSSQL_REPL40532 (로그인에서 요청한 > 서버 \<이름을 열 수 없습니다. 로그인이 실패했습니다.)가 발생할 수 있습니다.  
+> 지원되지 않는 버전을 사용하여 복제를 구성하려고 하면 오류 번호 MSSQL_REPL20084(프로세스가 구독자에 연결할 수 \<없음)과 MSSQL_REPL40532(로그인에서 요청한 서버 이름> 열 수 없음)이 발생할 수 있습니다. 로그인이 실패했습니다.)가 발생할 수 있습니다.  
 
 Azure SQL Database의 모든 기능을 사용하려면 최신 버전의 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 및 [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)를 사용해야 합니다.  
 
@@ -108,13 +108,13 @@ Azure SQL Database의 모든 기능을 사용하려면 최신 버전의 [SQL Ser
 
 게시 및 밀어넣기 구독을 만듭니다. 자세한 내용은 다음을 참조하세요.
   
-- [게시 만들기](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
-- 구독자로는 Azure SQL Database 서버 이름(예: [N'azuresqldbdns.database.windows.net'](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/))을, 대상 데이터베이스로는 Azure SQL 데이터베이스 이름(예: **AdventureWorks**)을 사용하여 **밀어넣기 구독을 만듭니다**.  
+- [발행물 만들기](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
+- 구독자로는 Azure SQL Database 서버 이름(예: **N'azuresqldbdns.database.windows.net'**)을, 대상 데이터베이스로는 Azure SQL 데이터베이스 이름(예: **AdventureWorks**)을 사용하여 [밀어넣기 구독을 만듭니다](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/).  
 
-## <a name="see-also"></a>참고 항목  
+## <a name="see-also"></a>관련 항목  
 
 - [트랜잭션 복제](sql-database-managed-instance-transactional-replication.md)
-- [게시 만들기](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
+- [발행물 만들기](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
 - [밀어넣기 구독 만들기](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/)
 - [복제 유형](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication)
 - [모니터링(복제)](https://docs.microsoft.com/sql/relational-databases/replication/monitor/monitoring-replication)

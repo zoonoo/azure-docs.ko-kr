@@ -14,13 +14,13 @@ ms.author: ninarn
 ms.reviewer: carlrab, vanto
 ms.date: 01/14/2020
 ms.openlocfilehash: d2b56e259f551f7655936c975a7a864a27a1df79
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79269082"
 ---
-# <a name="troubleshooting-transient-connection-errors-to-sql-database"></a>SQL Database에 대 한 일시적인 연결 오류 해결
+# <a name="troubleshooting-transient-connection-errors-to-sql-database"></a>SQL 데이터베이스에 대한 일시적인 연결 오류 문제 해결
 
 이 문서에서는 클라이언트 애플리케이션이 Azure SQL Database와 상호 작용할 때 발생하는 연결 오류 및 일시적 오류를 방지, 해결, 진단, 완화하는 방법에 대해 설명합니다. 재시도 논리를 구성하고 연결 문자열을 빌드하며 타 연결 설정을 조정하는 방법에 대해 알아봅니다.
 
@@ -77,8 +77,8 @@ ADO.NET을 사용하는 클라이언트에 대한 차단 기간의 설명은 [SQ
 
 재시도 논리가 포함된 코드 예제는 다음에 있습니다.
 
-- [ADO.NET을 사용하여 탄력적으로 SQL에 연결][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
-- [PHP를 사용하여 탄력적으로 SQL에 연결][step-4-connect-resiliently-to-sql-with-php-p42h]
+- [ADO.NET 사용하여 SQL에 복원력 있게 연결][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
+- [PHP로 SQL에 탄력적으로 연결][step-4-connect-resiliently-to-sql-with-php-p42h]
 
 <a id="k-test-retry-logic" name="k-test-retry-logic"></a>
 
@@ -93,7 +93,7 @@ ADO.NET을 사용하는 클라이언트에 대한 차단 기간의 설명은 [SQ
 - **SqlException.Number** = 11001
 - 메시지: "해당 호스트가 없습니다"
 
-첫 번째 다시 시도의 일부로 클라이언트 컴퓨터를 네트워크에 다시 연결한 다음 연결을 시도할 수 있습니다.
+첫 번째 재시도 시도의 일부로 클라이언트 컴퓨터를 네트워크에 다시 연결한 다음 연결을 시도할 수 있습니다.
 
 이 테스트를 실제로 사용하려면 프로그램을 시작하기 전에 네트워크와 컴퓨터 간 케이블을 분리합니다. 그러면 프로그램에서 프로그램이 다음과 같이 작동하는 런타임 매개 변수를 인식합니다.
 
@@ -131,11 +131,11 @@ ADO.NET을 사용하는 클라이언트에 대한 차단 기간의 설명은 [SQ
 2015-11-30, FwLink 393996 points to dn632678.aspx, which links to a downloadable .docx related to SqlClient and SQL Server 2014.
 -->
 
-[SqlConnection](https://msdn.microsoft.com/library/System.Data.SqlClient.SqlConnection.connectionstring.aspx) 개체에 대한 **연결 문자열**을 작성하는 경우 다음 매개 변수 중에서 값을 조정합니다.
+**SqlConnection** 개체에 대한 [연결 문자열](https://msdn.microsoft.com/library/System.Data.SqlClient.SqlConnection.connectionstring.aspx)을 작성하는 경우 다음 매개 변수 중에서 값을 조정합니다.
 
-- **ConnectRetryCount**:&nbsp;&nbsp;기본값은 1입니다. 범위는 0에서 255입니다.
-- **ConnectRetryInterval**:&nbsp;&nbsp;기본값은 10 초입니다. 범위는 1에서 60입니다.
-- **연결 제한 시간**:&nbsp;&nbsp;기본값은 15초입니다. 범위는 0에서 2147483647입니다.
+- **ConnectRetryCount**&nbsp;&nbsp;: 기본값은 1입니다. 범위는 0에서 255입니다.
+- **연결 재시도**&nbsp;&nbsp;간격 : 기본값은 10초입니다. 범위는 1에서 60입니다.
+- **연결 시간**&nbsp;&nbsp;설정 : 기본값은 15초입니다. 범위는 0에서 2147483647입니다.
 
 특히 선택한 값은 다음 같음을 true로 만들어야 합니다. Connection Timeout = ConnectRetryCount * ConnectionRetryInterval
 
@@ -164,7 +164,7 @@ ADO.NET을 사용하는 클라이언트에 대한 차단 기간의 설명은 [SQ
 
 ### <a name="connection-connection-string"></a>연결: 연결 문자열
 
-SQL Database에 연결하는 데 필요한 연결 문자열은 SQL Server에 연결하는 데 사용되는 문자열과 약간 다릅니다. [Azure Portal](https://portal.azure.com/)에서 데이터베이스에 대한 연결 문자열을 복사할 수 있습니다.
+SQL Database에 연결하는 데 필요한 연결 문자열은 SQL Server에 연결하는 데 사용되는 문자열과 약간 다릅니다. [Azure 포털에서](https://portal.azure.com/)데이터베이스에 대한 연결 문자열을 복사할 수 있습니다.
 
 [!INCLUDE [sql-database-include-connection-string-20-portalshots](../../includes/sql-database-include-connection-string-20-portalshots.md)]
 
@@ -188,7 +188,7 @@ IP 주소를 구성하지 않을 경우 프로그램이 실패하고 간단한 �
 예를 들어 클라이언트 프로그램이 Windows 컴퓨터에 호스팅된 경우 호스트의 Windows 방화벽을 사용하여 포트 1433을 열 수 있습니다.
 
 1. 제어판을 엽니다.
-2. **모든 제어판 항목** > **Windows 방화벽** > **고급 설정** > **아웃바운드 규칙**  > **동작** > **새 규칙**을 선택합니다.
+2. **모든 제어판 항목** > 선택**윈도우 방화벽** > **고급 설정** > **아웃바운드 규칙** > **작업** > **새 규칙**.
 
 클라이언트 프로그램이 Azure VM(가상 머신)에서 호스팅되는 경우 [ADO.NET 4.5 및 SQL Database에 대한 1433 이외의 포트](sql-database-develop-direct-route-ports-adonet-v12.md)를 참조하세요.
 
@@ -226,7 +226,7 @@ ADO.NET 4.0 이전 버전을 사용할 경우 최신 ADO.NET으로 업그레이�
 모든 Windows 컴퓨터에서 이러한 유틸리티를 시도할 수 있습니다.
 
 - ADO.NET을 사용하여 연결하는 SQL Server Management Studio(ssms.exe)
-- `sqlcmd.exe`ODBC[를 사용하여 연결하는 ](https://msdn.microsoft.com/library/jj730308.aspx)
+- [ODBC](https://msdn.microsoft.com/library/jj730308.aspx)를 사용하여 연결하는 `sqlcmd.exe`
 
 프로그램이 연결된 후에는 짧은 SQL SELECT 쿼리가 작동하는지 테스트합니다.
 
@@ -275,10 +275,10 @@ Enterprise Library 6(EntLib60)은 로깅을 지원하기 위해 .NET 관리 클�
 
 다음은 오류 로그 및 기타 정보를 쿼리하는 몇 가지 Transact-SQL SELECT 문입니다.
 
-| 로그 쿼리 | Description |
+| 로그 쿼리 | 설명 |
 |:--- |:--- |
 | `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` |[sys.event_log](https://msdn.microsoft.com/library/dn270018.aspx) 보기는 일시적인 오류 또는 연결 실패를 일으킬 수 있는 일부를 포함하여 개별 이벤트에 대한 정보를 제공합니다.<br/><br/>이상적으로 **start_time** 또는 **end_time** 값을 클라이언트 프로그램에 문제가 발생하는 방법에 대한 정보와 함께 상호 연결할 수 있습니다.<br/><br/>*마스터* 데이터베이스에 연결하여 이 쿼리를 실행해야 합니다. |
-| `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` |[sys.database_connection_stats](https://msdn.microsoft.com/library/dn269986.aspx) 보기는 추가 진단을 위해 이벤트 유형별로 집계된 개수를 제공합니다.<br/><br/>*마스터* 데이터베이스에 연결하여 이 쿼리를 실행해야 합니다. |
+| `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` |[sys.database_connection_stats](https://msdn.microsoft.com/library/dn269986.aspx) 보기는 추가 진단을 위해 집계된 이벤트 유형 수를 제공합니다.<br/><br/>*마스터* 데이터베이스에 연결하여 이 쿼리를 실행해야 합니다. |
 
 <a id="d-search-for-problem-events-in-the-sql-database-log" name="d-search-for-problem-events-in-the-sql-database-log"></a>
 
@@ -338,11 +338,11 @@ Enterprise Library 6(EntLib60)은 SQL Database를 포함한 견고한 클라우�
 
 다음 EntLib60 클래스는 특히 재시도 논리에 유용합니다. 이러한 클래스는 모두 **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling** 네임스페이스에 있으며, 여기에서 찾을 수 있습니다.
 
-**Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling** 네임스페이스:
+네임스페이스에서 **마이크로 소프트.Practices.Enterprise라이브러리.TransientFault처리**:
 
 - **RetryPolicy** 클래스
   - **ExecuteAction** 메서드
-- **ExponentialBackoff** 클래스
+- **지수 백오프** 클래스
 - **SqlDatabaseTransientErrorDetectionStrategy** 클래스
 - **ReliableSqlConnection** 클래스
   - **ExecuteCommand** 메서드

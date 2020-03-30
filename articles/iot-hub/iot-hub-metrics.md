@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: jlian
 ms.openlocfilehash: ec8a00460b4a750339f929eb6879ac6eb63cac8e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79284435"
 ---
 # <a name="understand-iot-hub-metrics"></a>IoT Hub 메트릭 이해
@@ -21,7 +21,7 @@ IoT Hub 메트릭은 Azure 구독의 Azure IoT 리소스 상태에 대한 더 �
 메트릭은 기본적으로 사용하도록 설정됩니다. Azure Portal에서 IoT Hub 메트릭을 볼 수 있습니다.
 
 > [!NOTE]
-> IoT Hub 메트릭을 사용 하 여 IoT Hub에 연결 된 IoT 플러그 앤 플레이 장치에 대 한 정보를 볼 수 있습니다. IoT 플러그 앤 플레이 장치는 [iot 플러그 앤 플레이 공개 미리 보기](../iot-pnp/overview-iot-plug-and-play.md)의 일부입니다.
+> IoT Hub 메트릭을 사용하여 IoT Hub에 연결된 IoT 플러그 앤 플레이 장치에 대한 정보를 볼 수 있습니다. IoT 플러그 앤 플레이 장치는 [IoT 플러그 앤 플레이 공개 미리 보기의](../iot-pnp/overview-iot-plug-and-play.md)일부입니다.
 
 ## <a name="how-to-view-iot-hub-metrics"></a>IoT Hub 메트릭을 보는 방법
 
@@ -43,14 +43,14 @@ IoT Hub 메트릭은 Azure 구독의 Azure IoT 리소스 상태에 대한 더 �
 
 IoT Hub는 허브의 상태와 연결된 디바이스의 총 수에 대한 개요를 제공하는 몇 가지 메트릭을 제공합니다. IoT Hub 상태의 큰 그림을 그리기 위해 여러 가지 메트릭의 정보를 결합할 수 있습니다. 다음 테이블에는 각 IoT Hub가 추적하는 메트릭과 각 메트릭이 IoT hub의 전반적인 상태와 어떤 관련성이 있는지 설명합니다.
 
-|메트릭|메트릭 표시 이름|단위|집계 형식|Description|차원|
+|메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
 |---|---|---|---|---|---|
 |d2c.telemetry.ingress.allProtocol|원격 분석 메시지 보내기 시도|개수|합계|IoT Hub로 보내려 한 디바이스-클라우드 원격 분석 메시지 수|None|
 |d2c.telemetry.ingress.success|보낸 원격 분석 메시지|개수|합계|IoT Hub로 보내기 성공한 디바이스-클라우드 원격 분석 메시지 수|None|
-|c2d.commands.egress.complete.success|C2D 메시지 배달이 완료 됨|개수|합계|장치에서 성공적으로 완료 한 클라우드-장치 메시지 배달 수|None|
-|c2d.commands.egress.abandon.success|C2D 메시지 중단 됨|개수|합계|장치에서 중단 한 클라우드-장치 메시지 수|None|
-|c2d.commands.egress.reject.success|거부 된 C2D 메시지|개수|합계|장치에서 거부 한 클라우드-장치 메시지 수|None|
-|C2DMessagesExpired|C2D 메시지 만료 됨 (미리 보기)|개수|합계|만료 된 클라우드-장치 메시지 수|None|
+|c2d.commands.egress.complete.success|C2D 메시지 배달 완료|개수|합계|장치에서 성공적으로 완료된 클라우드-장치 메시지 배달 수|None|
+|c2d.commands.egress.abandon.success|C2D 메시지가 중단되었습니다.|개수|합계|장치에서 포기한 클라우드-장치 메시지 수|None|
+|c2d.commands.egress.reject.success|C2D 메시지가 거부됨|개수|합계|장치에서 거부된 클라우드-장치 메시지 수|None|
+|C2D메시지 만료됨|C2D 메시지가 만료됨(미리 보기)|개수|합계|만료된 클라우드-장치 메시지 수|None|
 |devices.totalDevices|총 디바이스(사용되지 않음)|개수|합계|IoT 허브에 등록된 디바이스 수|None|
 |devices.connectedDevices.allProtocol|연결된 디바이스(사용되지 않음) |개수|합계|IoT 허브에 연결된 디바이스 수|None|
 |d2c.telemetry.egress.success|라우팅: 배달된 원격 분석 메시지|개수|합계|IoT Hub 라우팅을 사용하여 모든 엔드포인트에 메시지가 성공적으로 배달된 횟수입니다. 메시지가 여러 엔드포인트로 라우팅되는 경우 이 값은 각 성공적인 배달에 대해 하나씩 증가합니다. 메시지가 동일한 엔드포인트로 여러 번 배달되는 경우 이 값은 각 성공적인 배달에 대해 하나씩 증가합니다.|None|
@@ -70,8 +70,8 @@ IoT Hub는 허브의 상태와 연결된 디바이스의 총 수에 대한 개�
 |d2c.endpoints.latency.storage|라우팅: 스토리지에 대한 메시지 대기 시간|밀리초|평균|IoT Hub에 대한 메시지 수신과 스토리지 엔드포인트에 대한 원격 분석 메시지 수신 간의 평균 대기 시간(밀리초)입니다.|None|
 |d2c.endpoints.egress.storage.bytes|라우팅: 스토리지에 배달된 데이터|바이트|합계|IoT Hub 라우팅에서 스토리지 엔드포인트에 배달된 데이터 양입니다(바이트).|None|
 |d2c.endpoints.egress.storage.blobs|라우팅: 스토리지에 배달된 Blob|개수|합계|IoT Hub 라우팅에서 스토리지 엔드포인트에 Blob을 배달한 횟수입니다.|None|
-|EventGridDeliveries|Event Grid 배달 (미리 보기)|개수|합계|Event Grid에 게시 된 IoT Hub 이벤트 수입니다. 성공 및 실패 한 요청의 수에 대해 결과 차원을 사용 합니다. EventType dimension 이벤트 유형 (https://aka.ms/ioteventgrid)을 표시 합니다.|ResourceId<br/>만들어집니다<br/>EventType|
-|EventGridLatency|Event Grid 대기 시간 (미리 보기)|밀리초|평균|Event Grid에 이벤트가 게시 될 때 Iot Hub 이벤트가 생성 된 시간에 대 한 평균 대기 시간 (밀리초)입니다. 이 숫자는 모든 이벤트 유형 사이의 평균입니다. 특정 유형의 이벤트에 대 한 대기 시간을 확인 하려면 EventType 차원을 사용 합니다.|ResourceId<br/>EventType|
+|이벤트그리드 배달|이벤트 그리드 배달(미리 보기)|개수|합계|이벤트 그리드에 게시된 IoT Hub 이벤트 수입니다. 성공 및 실패 한 요청의 수에 대 한 결과 차원을 사용 합니다. EventType 차원은 이벤트 유형(를https://aka.ms/ioteventgrid)표시합니다.|Resourceid<br/>결과<br/>EventType|
+|이벤트그리드지연|이벤트 그리드 대기 시간(미리 보기)|밀리초|평균|Iot Hub 이벤트가 생성된 시점부터 이벤트 그리드에 이벤트가 게시된 시점까지의 평균 대기 시간(밀리초)입니다. 이 숫자는 모든 이벤트 유형 간의 평균입니다. EventType 차원을 사용하여 특정 유형의 이벤트의 대기 시간을 확인합니다.|Resourceid<br/>EventType|
 |d2c.twin.read.success|디바이스에서의 성공한 쌍 읽기|개수|합계|성공한 모든 디바이스 시작 쌍 읽기 수입니다.|None|
 |d2c.twin.read.failure|디바이스에서의 실패한 쌍 읽기|개수|합계|실패한 모든 디바이스 시작 쌍 읽기 수입니다.|None|
 |d2c.twin.read.size|디바이스에서의 쌍 읽기 응답 크기|바이트|평균|성공한 모든 디바이스 시작 쌍 읽기 수의 평균, 최소값 및 최대값입니다.|None|

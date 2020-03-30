@@ -9,10 +9,10 @@ ms.date: 01/09/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 4b61caecd67881eb08c82ea0c26522c63c3e8396
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79254613"
 ---
 # <a name="update-3-release-notes-for-your-storsimple-8000-series-device"></a>StorSimple 8000 시리즈 디바이스의 업데이트 3 릴리스 정보
@@ -47,7 +47,7 @@ StorSimple 솔루션에 업데이트를 배포하기 전에 릴리스 정보에 
 | 2 |로컬로 고정된 볼륨 |이전 릴리스에서는 I/O 오류, 볼륨 변환 오류 및 로컬에 고정된 볼륨에 대한 데이터 경로 오류와 관련 문제가 있었습니다. 이러한 문제는 근본 원인이 파악되었고 이 릴리스에서 수정되었습니다. |yes |예 |
 | 3 |모니터링 |보고 단위 및 모니터링과 로컬로 고정된 볼륨에 대해 잘못된 정보가 표시되었던 디바이스 대시보드 차트와 관련하여 여러 문제가 있었습니다. 이러한 문제는 이 릴리스에서 해결되었습니다. |yes |예 |
 | 4 |많은 쓰기 I/O |많은 쓰기가 포함된 워크로드에 StorSimple을 사용할 경우 사용자는 작업 집합이 클라우드로 계층화된 드문 버그에 직면합니다. 이 버그는 이 릴리스에서 수정되었습니다. |yes |yes |
-| 5 |Backup |이전 버전의 소프트웨어에서 사용자가 원격 클론의 백업을 수행한 경우 클라우드 오류가 발생 하 고 작업이 오류를 발생 시킬 수 있습니다. 이 릴리스에서는 문제가 해결 되 고 작업이 성공적으로 완료 됩니다. |yes |yes |
+| 5 |Backup |이전 버전의 소프트웨어에서는 사용자가 원격 복제본을 백업할 때 클라우드 오류가 발생하여 작업이 오류가 발생했습니다. 이 릴리스에서는 문제가 해결되고 작업이 성공적으로 완료됩니다. |yes |yes |
 | 6 |Backup 정책 |드물게 이전 릴리스의 소프트웨어에서 백업 정책 삭제와 관련된 버그가 있었습니다. 이 문제는 이 릴리스에서 해결되었습니다. |yes |yes |
 
 ## <a name="known-issues-in-update-3"></a>업데이트 3의 알려진 문제

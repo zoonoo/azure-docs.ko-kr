@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 12/19/2019
-ms.openlocfilehash: ef8f5d1e011990e1d98a492ab8bfd871b7f429aa
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 74d696c19ac2a2d0d367f5a018fde8cd3a0eedb2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79275920"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79535207"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Application Insights 및 Log Analytics에서 사용되는 IP 주소
 [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) 서비스는 많은 IP 주소를 사용합니다. 모니터링하는 앱이 방화벽 뒤에서 호스팅되는 경우 이러한 주소를 알아야 할 수도 있습니다.
@@ -30,38 +30,38 @@ Application Insights SDK 및/또는 상태 모니터가 데이터를 포털에 �
 
 | 목적 | URL | IP | 포트 |
 | --- | --- | --- | --- |
-| 원격 분석 |dc.services.visualstudio.com<br/>dc.applicationinsights.microsoft.com |40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221<br/>52.167.221.184<br/>52.169.64.244<br/>40.85.218.175<br/>104.211.92.54<br/>52.175.198.74<br/>51.140.6.23<br/>40.71.12.231<br/>13.69.65.22<br/>13.78.108.165<br/>13.70.72.233<br/>20.44.8.7<br/>13.86.218.248<br/>40.79.138.41<br/>52.231.18.241<br/>13.75.38.7<br/>102.133.155.50<br/>52.162.110.67<br/>191.233.204.248<br/>13.69.66.140<br/>13.77.52.29<br/>51.107.59.180<br/>40.71.12.235<br/>20.44.8.10<br/>40.71.13.169 | 443 |
-| 라이브 메트릭 스트림 (미국 동부) |use.rt.prod.applicationinsights.trafficmanager.net |23.96.28.38<br/>13.92.40.198<br/>40.112.49.101<br/>40.117.80.207 |443 |
-| 라이브 메트릭 스트림 (미국 중 남부) |ussc.rt.prod.applicationinsights.trafficmanager.net |157.55.177.6<br/>104.44.140.84<br/>104.215.81.124<br/>23.100.122.113 |443 |
-| 라이브 메트릭 스트림 (유럽 북부) |eun.rt.prod.applicationinsights.trafficmanager.net |40.115.103.168<br/>40.115.104.31<br/>40.87.140.215<br/>40.87.138.220 |443 |
-| 라이브 메트릭 스트림 (유럽 서부) |euw.rt.prod.applicationinsights.trafficmanager.net |13.80.134.255<br/>40.68.61.229<br/>23.101.69.223<br/>52.232.106.242 |443 |
-| 라이브 메트릭 스트림 (동아시아) |ase.rt.prod.applicationinsights.trafficmanager.net |23.100.90.7<br/>23.101.13.65<br/>23.101.0.142<br/>23.101.9.4 |443 |
-| 라이브 메트릭 스트림 (동남 아시아) |asse.rt.prod.applicationinsights.trafficmanager.net |207.46.224.101<br/>207.46.236.191<br/>137.116.151.139<br/>13.76.87.86 |443 |
+| 원격 분석 |dc.applicationinsights.azure.com<br/>dc.applicationinsights.microsoft.com<br/>dc.services.visualstudio.com |40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221<br/>52.167.221.184<br/>52.169.64.244<br/>40.85.218.175<br/>104.211.92.54<br/>52.175.198.74<br/>51.140.6.23<br/>40.71.12.231<br/>13.69.65.22<br/>13.78.108.165<br/>13.70.72.233<br/>20.44.8.7<br/>13.86.218.248<br/>40.79.138.41<br/>52.231.18.241<br/>13.75.38.7<br/>102.133.155.50<br/>52.162.110.67<br/>191.233.204.248<br/>13.69.66.140<br/>13.77.52.29<br/>51.107.59.180<br/>40.71.12.235<br/>20.44.8.10<br/>40.71.13.169<br/>13.66.141.156<br/>40.71.13.170 | 443 |
+| 실시간 지표 스트림(미국 동부) |use.rt.prod.applicationinsights.trafficmanager.net |23.96.28.38<br/>13.92.40.198<br/>40.112.49.101<br/>40.117.80.207 |443 |
+| 실시간 지표 스트림(미국 중남부) |ussc.rt.prod.applicationinsights.trafficmanager.net |157.55.177.6<br/>104.44.140.84<br/>104.215.81.124<br/>23.100.122.113 |443 |
+| 실시간 지표 스트림(북유럽) |eun.rt.prod.applicationinsights.trafficmanager.net |40.115.103.168<br/>40.115.104.31<br/>40.87.140.215<br/>40.87.138.220 |443 |
+| 실시간 지표 스트림(서유럽) |euw.rt.prod.applicationinsights.trafficmanager.net |13.80.134.255<br/>40.68.61.229<br/>23.101.69.223<br/>52.232.106.242 |443 |
+| 실시간 지표 스트림(동아시아) |ase.rt.prod.applicationinsights.trafficmanager.net |23.100.90.7<br/>23.101.13.65<br/>23.101.0.142<br/>23.101.9.4 |443 |
+| 실시간 지표 스트림(동남아시아) |asse.rt.prod.applicationinsights.trafficmanager.net |207.46.224.101<br/>207.46.236.191<br/>137.116.151.139<br/>13.76.87.86 |443 |
 
 ## <a name="status-monitor"></a>상태 모니터
 상태 모니터 구성 - 변경하는 경우에만 필요합니다.
 
 | 목적 | URL | IP | 포트 |
 | --- | --- | --- | --- |
-| 구성 |`management.core.windows.net` | |`443` |
-| 구성 |`management.azure.com` | |`443` |
-| 구성 |`login.windows.net` | |`443` |
-| 구성 |`login.microsoftonline.com` | |`443` |
-| 구성 |`secure.aadcdn.microsoftonline-p.com` | |`443` |
-| 구성 |`auth.gfx.ms` | |`443` |
-| 구성 |`login.live.com` | |`443` |
-| 설치 | `globalcdn.nuget.org`, `packages.nuget.org`,`api.nuget.org/v3/index.json` `nuget.org`, `api.nuget.org`, `dc.services.vsallin.net` | |`443` |
+| Configuration |`management.core.windows.net` | |`443` |
+| Configuration |`management.azure.com` | |`443` |
+| Configuration |`login.windows.net` | |`443` |
+| Configuration |`login.microsoftonline.com` | |`443` |
+| Configuration |`secure.aadcdn.microsoftonline-p.com` | |`443` |
+| Configuration |`auth.gfx.ms` | |`443` |
+| Configuration |`login.live.com` | |`443` |
+| 설치 | `globalcdn.nuget.org`, `packages.nuget.org` ,`api.nuget.org/v3/index.json` `nuget.org`, `api.nuget.org`, `dc.services.vsallin.net` | |`443` |
 
 ## <a name="availability-tests"></a>가용성 테스트
 [가용성 웹 테스트](../../azure-monitor/app/monitor-web-app-availability.md) 가 실행되는 주소 목록입니다. 앱에서 웹 테스트를 실행하려고 하지만 웹 서버가 특정 클라이언트 서비스를 제공하도록 제한된 경우 가용성 테스트 서버에서 들어오는 트래픽을 허용해야 합니다.
 
-Azure 네트워크 보안 그룹을 사용 하는 경우 원본 **서비스 태그로** **서비스 태그** 를 **원본** 으로 선택 하 고 **ApplicationInsightsAvailability** 를 사용 하 여 가용성 테스트 Application Insights의 트래픽을 허용 하는 **인바운드 포트 규칙** 을 추가 하기만 하면 됩니다.
+Azure 네트워크 보안 그룹을 사용하는 경우 **인바운드 포트 규칙을** 추가하기만 하면 서비스 **태그를** **소스** 서비스 **ApplicationInsightsAvailability** **태그로**선택하여 응용 프로그램 인사이트 가용성 테스트에서 트래픽을 허용합니다.
 
 >[!div class="mx-imgBorder"]
->설정 아래에서 인바운드 보안 규칙을 선택한 다음 탭의 맨 위에 있는 추가를 선택 ](./media/ip-addresses/add-inbound-security-rule.png) ![
+>![설정에서 인바운드 보안 규칙을 선택한 다음 탭 상단에서 추가를 선택합니다.](./media/ip-addresses/add-inbound-security-rule.png)
 
 >[!div class="mx-imgBorder"]
->인바운드 보안 규칙 추가 탭을 ![](./media/ip-addresses/add-inbound-security-rule2.png)
+>![인바운드 보안 규칙 탭 추가](./media/ip-addresses/add-inbound-security-rule2.png)
 
 이 주소에서 들어오는 트래픽에 대한 80(http) 및 443(https) 포트를 엽니다(IP 주소가 위치별로 그룹화됨).
 

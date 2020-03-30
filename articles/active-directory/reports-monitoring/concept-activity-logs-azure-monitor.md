@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor에서 활동 로그 Azure Active Directory Microsoft Docs
-description: Azure Monitor의 Azure Active Directory 활동 로그 소개
+title: Azure 모니터의 Azure Active Directory 활동 로그 | 마이크로 소프트 문서
+description: Azure 모니터의 Azure Active Directory 활동 로그 소개
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -18,15 +18,15 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 46e29fff3308f35b16dbff2f9cead82abc222a5c
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79266547"
 ---
-# <a name="azure-ad-activity-logs-in-azure-monitor"></a>Azure Monitor의 Azure AD 활동 로그
+# <a name="azure-ad-activity-logs-in-azure-monitor"></a>Azure 모니터의 Azure AD 활동 로그
 
-장기 보존 및 데이터 통찰력을 위해 Azure AD (Azure Active Directory) 활동 로그를 여러 끝점으로 라우팅할 수 있습니다. 이 기능을 사용 하면 다음을 수행할 수 있습니다.
+장기 보존 및 데이터 통찰력을 위해 Azure Active Directory(Azure AD) 활동 로그를 여러 끝점으로 라우팅할 수 있습니다. 이 기능을 사용하여 다음을 할 수 있습니다.
 
 * 데이터를 장기간 보존하기 위해 Azure 스토리지 계정에 Azure AD 활동 로그를 보관합니다.
 * Splunk 및 QRadar 같은 인기 있는 SIEM(보안 정보 및 이벤트 관리) 도구를 사용하여 Azure AD 활동 로그를 Azure 이벤트 허브로 스트리밍하여 분석합니다.
@@ -70,7 +70,7 @@ Azure AD 라이선스가 이미 있는 경우 스토리지 계정 및 이벤트 
 
 ### <a name="storage-size-for-activity-logs"></a>활동 로그의 스토리지 크기
 
-모든 감사 로그 이벤트는 약 2KB의 데이터 스토리지를 사용합니다. 로그인 이벤트 로그는 약 4kb의 데이터 저장소입니다. 사용자가 100,000명이고 하루에 약 150만 개의 이벤트가 발생하는 테넌트의 경우 하루에 약 3GB의 데이터 스토리지가 필요합니다. 약 5분 단위로 쓰기가 발생하므로 매달 약 9000개의 쓰기 작업을 예상할 수 있습니다. 
+모든 감사 로그 이벤트는 약 2KB의 데이터 스토리지를 사용합니다. 로그인 이벤트 로그는 약 4KB의 데이터 저장소입니다. 사용자가 100,000명이고 하루에 약 150만 개의 이벤트가 발생하는 테넌트의 경우 하루에 약 3GB의 데이터 스토리지가 필요합니다. 약 5분 단위로 쓰기가 발생하므로 매달 약 9000개의 쓰기 작업을 예상할 수 있습니다. 
 
 
 다음 표에는 미국 서부에서 범용 v2 스토리지 계정을 1년 이상 보유할 때 발생할 것으로 예상되는 테넌트 크기에 따른 예상 비용이 정리되어 있습니다. 애플리케이션의 예상 데이터 볼륨에 해당하는 정확한 예상 가격을 계산하려면 [Azure Storage 가격 계산기](https://azure.microsoft.com/pricing/details/storage/blobs/)를 사용하세요.
@@ -110,7 +110,7 @@ Azure AD 라이선스가 이미 있는 경우 스토리지 계정 및 이벤트 
 
 
 
-| 로그 범주       | 사용자 수 | 일간 이벤트 수 | 월 당 이벤트 (30 일) | USD (est)의 월간 비용 |
+| 로그 범주       | 사용자 수 | 일간 이벤트 수 | 월별 이벤트(30일) | 월 비용 USD(추산) |
 | :--                | ---             | ---            | ---                        | --:                          |
 | 감사 및 로그인 | 100,000         | 16,500,000     | 495,000,000                |  $1093.00                       |
 | 감사              | 100,000         | 1,500,000      | 45,000,000                 |  $246.66                     |
@@ -149,9 +149,9 @@ Azure Monitor 로그 관리와 관련된 비용을 검토하려면 [Azure Monito
 
 ---
 
-**Q: 관리자가 진단 설정의 보존 기간을 변경 하면 어떻게 되나요?**
+**Q: 관리자가 진단 설정의 보존 기간을 변경하면 어떻게 됩니까?**
 
-**A**: 새 보존 정책은 변경 후 수집 된 로그에 적용 됩니다. 정책 변경 이전에 수집된 로그에는 아무런 변화가 없습니다.
+**A**: 새 보존 정책은 변경 후 수집된 로그에 적용됩니다. 정책 변경 이전에 수집된 로그에는 아무런 변화가 없습니다.
 
 ---
 

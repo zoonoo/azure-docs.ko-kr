@@ -1,45 +1,45 @@
 ---
-title: VM용 Azure Monitor 종속성 에이전트를 업그레이드 하는 방법 | Microsoft Docs
-description: 이 문서에서는 명령줄, 설치 마법사 및 기타 방법을 사용 하 여 VM용 Azure Monitor 종속성 에이전트를 업그레이드 하는 방법을 설명 합니다.
+title: VM 종속성 에이전트에 대한 Azure 모니터를 업그레이드하는 방법
+description: 이 문서에서는 명령줄, 설치 마법사 및 기타 메서드를 사용하여 VM 종속성 에이전트에 대한 Azure 모니터를 업그레이드하는 방법에 대해 설명합니다.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 09/30/2019
-ms.openlocfilehash: c98c48a4494ac37ef4868c44d4a7adacfd0d48da
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.date: 03/12/2020
+ms.openlocfilehash: c55bee9880c4134f2e304a7fc5176225477fe5f3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77662436"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79480762"
 ---
-# <a name="how-to-upgrade-the-azure-monitor-for-vms-dependency-agent"></a>VM용 Azure Monitor 종속성 에이전트를 업그레이드 하는 방법
+# <a name="how-to-upgrade-the-azure-monitor-for-vms-dependency-agent"></a>VM 종속성 에이전트에 대한 Azure 모니터를 업그레이드하는 방법
 
-VM용 Azure Monitor 종속성 에이전트의 초기 배포 후에는 버그 수정 이나 새로운 기능 지원을 포함 하는 업데이트가 릴리스됩니다.  이 문서는 사용 가능한 방법과 자동화를 통해 업그레이드를 수행 하는 방법을 이해 하는 데 도움이 됩니다.
+VM 종속성 에이전트에 대한 Azure 모니터를 초기 배포한 후 버그 수정 또는 새로운 기능 또는 기능에 대한 지원이 포함된 업데이트가 릴리스됩니다.  이 문서에서는 사용 가능한 방법과 수동으로 또는 자동화를 통해 업그레이드를 수행하는 방법을 이해하는 데 도움이 됩니다.
 
 ## <a name="upgrade-options"></a>업그레이드 옵션 
 
-Windows 및 Linux 용 종속성 에이전트는 컴퓨터가 실행 되는 배포 시나리오 및 환경에 따라 수동으로 또는 자동으로 최신 릴리스로 업그레이드할 수 있습니다. 다음 메서드를 사용 하 여 에이전트를 업그레이드할 수 있습니다.
+Windows 및 Linux용 종속성 에이전트는 컴퓨터가 실행 중인 배포 시나리오 및 환경에 따라 수동으로 또는 자동으로 최신 릴리스로 업그레이드할 수 있습니다. 에이전트를 업그레이드하는 데 다음 방법을 사용할 수 있습니다.
 
 |Environment |설치 방법 |업그레이드 방법 |
 |------------|--------------------|---------------|
-|Azure VM | [Windows](../../virtual-machines/extensions/agent-dependency-windows.md) 및 [Linux](../../virtual-machines/extensions/agent-dependency-linux.md) 용 종속성 에이전트 VM 확장 | *AutoUpgradeMinorVersion* 속성을 **false**로 설정 하 여 옵트아웃 (opt out) 하도록 Azure Resource Manager 템플릿을 구성 하지 않은 경우 에이전트는 기본적으로 자동으로 업그레이드 됩니다. 자동 업그레이드를 사용 하지 않도록 설정 된 부 버전에 대 한 업그레이드 및 주 버전 업그레이드는 동일한 방법을 따릅니다. 제거 하 고 확장을 다시 설치 합니다. |
-| 사용자 지정 Azure VM 이미지 | Windows/Linux 용 종속성 에이전트 수동 설치 | Vm을 최신 버전으로 업데이트 하려면 Windows installer 패키지를 실행 하는 명령줄 이나 Linux 자동 압축 풀기 및 설치 가능 셸 스크립트 번들에서 수행 해야 합니다.|
-| 비 Azure Vm | Windows/Linux 용 종속성 에이전트 수동 설치 | Vm을 최신 버전으로 업데이트 하려면 Windows installer 패키지를 실행 하는 명령줄 이나 Linux 자동 압축 풀기 및 설치 가능 셸 스크립트 번들에서 수행 해야 합니다. |
+|Azure VM | [Windows](../../virtual-machines/extensions/agent-dependency-windows.md) 및 [Linux용](../../virtual-machines/extensions/agent-dependency-linux.md) 종속성 에이전트 VM 확장 | 속성 *autoUpgradeMinorVersion을* **false로**설정하여 옵트아웃하도록 Azure 리소스 관리자 템플릿을 구성하지 않는 한 에이전트는 기본적으로 자동으로 업그레이드됩니다. 자동 업그레이드가 비활성화된 부 버전의 업그레이드와 주 버전 업그레이드는 확장을 제거하고 다시 설치하는 동일한 방법을 따릅니다. |
+| 사용자 지정 Azure VM 이미지 | Windows/Linux용 종속성 에이전트의 수동 설치 | Windows 설치 관리자 패키지 또는 Linux 자체 추출 및 설치 가능한 셸 스크립트 번들을 실행하는 명령줄에서 에이전트의 최신 버전으로 VM을 업데이트해야 합니다.|
+| 비Azure VM | Windows/Linux용 종속성 에이전트의 수동 설치 | Windows 설치 관리자 패키지 또는 Linux 자체 추출 및 설치 가능한 셸 스크립트 번들을 실행하는 명령줄에서 에이전트의 최신 버전으로 VM을 업데이트해야 합니다. |
 
 ## <a name="upgrade-windows-agent"></a>Windows 에이전트 업그레이드 
 
-Windows VM의 에이전트를 종속성 에이전트 VM 확장을 사용 하 여 설치 되지 않은 최신 버전으로 업데이트 하려면 명령 프롬프트, 스크립트 또는 다른 자동화 솔루션에서 실행 하거나 Installdependencyagent-windows.exe 설치 마법사를 사용 합니다.  
+Windows VM의 에이전트를 종속성 에이전트 VM 확장을 사용하여 설치되지 않은 최신 버전으로 업데이트하려면 명령 프롬프트, 스크립트 또는 기타 자동화 솔루션에서 실행하거나 InstallDependencyAgent-Windows.exe 설치 마법사를 사용하여 실행합니다.  
 
-최신 버전의 Windows 에이전트는 [여기](https://aka.ms/dependencyagentwindows)에서 다운로드할 수 있습니다.
+여기에서 최신 버전의 Windows 에이전트를 다운로드할 수 [있습니다.](https://aka.ms/dependencyagentwindows)
 
-### <a name="using-the-setup-wizard"></a>설치 마법사 사용
+### <a name="using-the-setup-wizard"></a>설정 마법사 사용
 
 1. 관리 권한이 있는 계정으로 컴퓨터에 로그인합니다.
 
-2. **Installdependencyagent-windows.exe** 를 실행 하 여 설치 마법사를 시작 합니다.
+2. **설치를 실행의존에이전트-Windows.exe** 설치 마법사를 시작합니다.
    
-3. **Dependency Agent 설치** 마법사의 지침에 따라 이전 버전의 종속성 에이전트를 제거한 다음 최신 버전을 설치 합니다.
+3. **종속성 에이전트 설치** 마법사를 따라 종속성 에이전트의 이전 버전을 제거한 다음 최신 버전을 설치합니다.
 
 
 ### <a name="from-the-command-line"></a>명령줄에서
@@ -52,22 +52,22 @@ Windows VM의 에이전트를 종속성 에이전트 VM 확장을 사용 하 여
     InstallDependencyAgent-Windows.exe /S /RebootMode=manual
     ```
 
-    `/RebootMode=manual` 매개 변수를 사용 하면 일부 프로세스에서 이전 버전의 파일을 사용 하 고 있는 경우 해당 컴퓨터를 자동으로 다시 부팅할 수 없습니다. 
+    이 `/RebootMode=manual` 매개 변수는 일부 프로세스가 이전 버전의 파일을 사용하고 있고 잠금이 있는 경우 업그레이드가 자동으로 컴퓨터를 재부팅하지 못하게 합니다. 
 
-3. 업그레이드에 성공 했는지 확인 하려면 자세한 설치 정보는 `install.log`를 확인 하세요. 로그 디렉터리는 *%Programfiles%\Microsoft Dependency Agent\logs*입니다.
+3. 업그레이드가 성공적으로 시작됐는지 `install.log` 확인하려면 자세한 설정 정보를 확인하십시오. 로그 디렉터리는 *%Programfiles%\Microsoft Dependency Agent\logs*입니다.
 
-## <a name="upgrade-linux-agent"></a>Linux 에이전트 업그레이드 
+## <a name="upgrade-linux-agent"></a>리눅스 에이전트 업그레이드 
 
-Linux에서 종속성 에이전트의 이전 버전에서의 업그레이드는 지원 되며 새로 설치 하는 것과 동일한 명령에 따라 수행 됩니다.
+Linux의 종속성 에이전트의 이전 버전에서 업그레이드가 지원되고 새 설치와 동일한 명령에 따라 수행됩니다.
 
-최신 버전의 Windows 에이전트는 [여기](https://aka.ms/dependencyagentlinux)에서 다운로드할 수 있습니다.
+여기에서 최신 버전의 Windows 에이전트를 다운로드할 수 [있습니다.](https://aka.ms/dependencyagentlinux)
 
 1. 관리 권한이 있는 계정으로 컴퓨터에 로그인합니다.
 
-2. 다음 명령을 루트`sh InstallDependencyAgent-Linux64.bin -s`실행 합니다. 
+2. 다음 명령을 루트로`sh InstallDependencyAgent-Linux64.bin -s`실행합니다. 
 
-Dependency Agent를 시작하지 못하는 경우 로그에서 자세한 오류 정보를 확인합니다. Linux 에이전트에서 로그 디렉터리는 */var/opt/microsoft/dependency-agent/log*입니다. 
+Dependency Agent를 시작하지 못하는 경우 로그에서 자세한 오류 정보를 확인합니다. Linux 에이전트에서 로그 디렉터리 */var/opt/microsoft/종속성 에이전트/로그입니다.* 
 
 ## <a name="next-steps"></a>다음 단계
 
-일정 시간 동안 Vm 모니터링을 중지 하거나 VM용 Azure Monitor 완전히 제거 하려면 [VM용 Azure Monitor에서 vm 모니터링 사용 안 함](vminsights-optout.md)을 참조 하세요.
+시간 동안 VM 모니터링을 중지하거나 VM에 대한 Azure 모니터를 완전히 제거하려면 [VM에 대한 Azure 모니터의 모니터링 을 사용하지 않도록](vminsights-optout.md)설정합니다.

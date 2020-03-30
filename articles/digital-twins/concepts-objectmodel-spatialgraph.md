@@ -1,5 +1,5 @@
 ---
-title: 개체 모델 및 공간 인텔리전스 그래프 이해-Azure Digital Twins | Microsoft Docs
+title: 개체 모델 및 공간 인텔리전스 그래프 이해 - Azure 디지털 트윈 | 마이크로 소프트 문서
 description: Azure Digital Twins를 사용하여 사람, 장소 및 디바이스 간 관계 모델링
 ms.author: alinast
 author: alinamstanciu
@@ -9,21 +9,21 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 12/30/2019
 ms.openlocfilehash: cafec321e7c40e27d8de731feda1103451271507
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79265208"
 ---
 # <a name="understand-digital-twins-object-models-and-spatial-intelligence-graph"></a>Digital Twins 개체 모델 및 공간 인텔리전스 그래프 이해
 
 Azure Digital Twins는 물리적 환경 및 환경과 연결된 디바이스, 센서, 사람의 포괄적인 가상 표현을 가능하게 해주는 Azure IoT 서비스입니다. 도메인별 개념을 유용한 모델로 구성하여 개발을 개선합니다. 그런 다음, 모델은 공간 인텔리전스 그래프 내의 배치합니다. 이러한 개념은 사람, 공간, 디바이스 간의 관계와 상호 작용을 정확하게 모델링합니다.
 
-Digital Twins 개체 모델은 도메인별 개념, 범주 및 속성을 설명합니다. 모델은 특정 요구 사항에 맞게 솔루션을 조정하려는 사용자에 의해 미리 정의됩니다. 이러한 미리 정의된 Digital Twins 개체 모델이 합쳐져서 _온톨로지_를 구성합니다. 스마트 건물의 온톨로지는 지역, 장소, 층, 사무실, 영역, 회의실 및 포커스 룸을 설명합니다. 에너지 그리드 온톨로지는 다양한 발전소, 변전소, 에너지 리소스 및 고객을 설명합니다. Digital Twins 개체 모델과 온톨로지를 통해 다양한 시나리오 및 요구 사항을 사용자 지정할 수 있습니다.
+Digital Twins 개체 모델은 도메인별 개념, 범주 및 속성을 설명합니다. 모델은 특정 요구 사항에 맞게 솔루션을 조정하려는 사용자에 의해 미리 정의됩니다. 함께, 이러한 미리 정의 된 디지털 쌍둥이 개체 모델은 _온톨로를_구성합니다. 스마트 건물의 온톨로지는 지역, 장소, 층, 사무실, 영역, 회의실 및 포커스 룸을 설명합니다. 에너지 그리드 온톨로지는 다양한 발전소, 변전소, 에너지 리소스 및 고객을 설명합니다. Digital Twins 개체 모델과 온톨로지를 통해 다양한 시나리오 및 요구 사항을 사용자 지정할 수 있습니다.
 
 Digital Twins 개체 모델 및 온톨로지가 작동하면 _공간 그래프_를 채울 수 있습니다. 공간 그래프는 IoT 솔루션과 관련된 공간, 디바이스 및 사람 사이의 여러 관계를 가상으로 표현한 것입니다. 이 다이어그램은 스마트 건물의 온톨로지를 사용하는 공간 그래프의 예제를 보여줍니다.
 
-[![Digital Twins 공간 그래프 빌드](media/concepts/digital-twins-spatial-graph-building.png)](media/concepts/digital-twins-spatial-graph-building.png#lightbox)
+[![디지털 트윈 공간 그래프 빌딩](media/concepts/digital-twins-spatial-graph-building.png)](media/concepts/digital-twins-spatial-graph-building.png#lightbox)
 
 공간 그래프는 공간, 디바이스, 센서 및 사용자를 하나로 합칩니다. 각각은 실제 세계를 모델링하는 방식으로 함께 연결됩니다. 이 샘플에서 장소 43은 4개의 층으로 구성되어 있으며 각각 다른 영역이 있습니다. 사용자는 자신의 워크스테이션과 연결되어 있고 그래프 일부에 대한 액세스 권한이 부여됩니다. 관리자는 공간 그래프를 변경하는 권한이 있는 반면 방문자는 특정 건물 데이터만 볼 수 있는 권한이 있습니다.
 
@@ -31,19 +31,19 @@ Digital Twins 개체 모델 및 온톨로지가 작동하면 _공간 그래프_�
 
 Digital Twins 개체 모델은 다음과 같은 주요 범주를 지원합니다.
 
-- **공간**은 가상 또는 실제 위치입니다(예: `Tenant`, `Customer`, `Region` 및 `Venue`).
+- **공백은** `Tenant`가상 또는 물리적 위치(예: `Venue`" . `Customer` `Region`
 - **디바이스**는 가상 또는 실제 장비입니다(예: `AwesomeCompany Device` 및 `Raspberry Pi 3`).
 - **센서**는 이벤트를 검색하는 개체입니다(예: `AwesomeCompany Temperature Sensor` 및 `AwesomeCompany Presence Sensor`).
 - **사용자**는 점유자 및 점유자의 특징을 식별합니다.
 
 그 외에도 다음과 같은 개체 범주가 있습니다.
 
-- **리소스**는 공간에 연결되며, 일반적으로 공간 그래프의 개체가 사용할 Azure 리소스를 나타냅니다(예: `IoTHub`).
+- **리소스는** 공간에 연결되며 일반적으로 공간 그래프의 개체에서 사용할 Azure 리소스를 `IoTHub`나타냅니다.
 - **Blob**은 개체(예: 공간, 디바이스, 센서 및 사용자)에 연결됩니다. mime 형식 및 메타데이터가 있는 파일로 사용됩니다(`maps`, `pictures` 및 `manuals`).
 - **확장 유형**은 특정 특성을 사용하여 엔터티를 보강하는 확장 가능한 열거형입니다(예: `SpaceType` 및 `SpaceSubtype`).
-- **온톨로지**는 확장된 형식의 집합을 나타냅니다(예: `Default`, `Building`, `BACnet` 및 `EnergyGrid`).
-- **속성 키 및 값**은 공간, 디바이스, 센서 및 사용자로 구성되는 사용자 지정 특성입니다. 기본 제공 특성과 함께 사용할 수 있습니다. 예를 들어 키로 `DeltaProcessingRefreshTime`, 값으로 `10`을 사용합니다.
-- **역할**은 공간 그래프의 사용자 및 디바이스에 할당된 권한 집합입니다(예: `Space Administrator`, `User Administrator` 및 `Device Administrator`).
+- **온로그(예:** `Default`" `Building` `BACnet` `EnergyGrid`및) 확장 형식 집합을 나타냅니다.
+- **속성 키와 값은** 공간, 장치, 센서 및 사용자의 사용자 지정 특성입니다. 기본 제공 특성과 함께 사용할 수 있습니다. 예를 들어 키로 `DeltaProcessingRefreshTime`, 값으로 `10`을 사용합니다.
+- **역할은** 공간 그래프의 사용자 및 장치에 할당된 권한 집합입니다(예: `Space Administrator`및 `User Administrator`. `Device Administrator`
 - **역할 할당**은 역할과 공간 그래프에서 역할과 개체 간의 연결입니다. 예를 들어, 사용자 또는 서비스 주체에 공간 그래프의 공간을 관리할 수 있는 권한이 부여될 수 있습니다.
 - **보안 키 저장소**는 디바이스가 Digital Twins와 안전하게 통신할 수 있도록 특정 공간 개체 아래의 계층 구조에 있는 모든 디바이스를 위한 보안 키를 제공합니다.
 - **사용자 정의 함수**(UDF)를 사용하면 공간 그래프 내에서 사용자 지정 가능한 센서 원격 분석 데이터를 처리할 수 있습니다. 예를 들어 UDF는 다음과 같은 작업을 수행할 수 있습니다.
@@ -52,13 +52,13 @@ Digital Twins 개체 모델은 다음과 같은 주요 범주를 지원합니다
   - 공간에 메타데이터를 연결합니다.
   - 미리 정의된 조건이 충족되면 알림을 보냅니다. 현재 UDF는 JavaScript로 작성할 수 있습니다.
 - **검사기**는 지정된 원격 분석 메시지에 대해 실행할 UDF를 결정하는 개체입니다.
-- **엔드포인트**는 원격 분석 메시지 및 Digital Twins 이벤트를 라우팅할 수 있는 위치입니다(예: `Event Hub`, `Service Bus` 및 `Event Grid`).
+- **끝점은** 원격 분석 메시지 및 디지털 Twins 이벤트를 라우팅할 수 `Event Hub`있는 `Service Bus`위치입니다(예: " 및) `Event Grid`
 
 ## <a name="spatial-intelligence-graph"></a>공간 인텔리전스 그래프
 
 공간 그래프는 Digital Twins 개체 모델에 정의된 공간, 디바이스 및 사람으로 구성되는 계층 그래프입니다. 공간 그래프는 상속, 필터링, 트래버스, 확장성 및 연장성을 지원합니다. REST API 컬렉션을 사용하여 공간 그래프를 관리하고 상호 작용할 수 있습니다.
 
-구독에 Digital Twins 서비스를 배포하면 루트 노드의 글로벌 관리자가 됩니다. 그런 다음, 전체 구조에 대한 모든 액세스 권한이 자동으로 부여됩니다. Space API를 사용하여 그래프에 공간을 프로비저닝합니다. Sensor API를 사용하여 Device API 및 센서를 통해 서비스를 프로비저닝합니다. [오픈 소스 도구](https://github.com/Azure-Samples/digital-twins-samples-csharp) 를 사용 하 여 그래프를 대량으로 프로 비전 할 수도 있습니다.
+구독에 Digital Twins 서비스를 배포하면 루트 노드의 글로벌 관리자가 됩니다. 그런 다음, 전체 구조에 대한 모든 액세스 권한이 자동으로 부여됩니다. Space API를 사용하여 그래프에 공간을 프로비저닝합니다. Sensor API를 사용하여 Device API 및 센서를 통해 서비스를 프로비저닝합니다. [오픈 소스 도구는](https://github.com/Azure-Samples/digital-twins-samples-csharp) 그래프를 대량으로 프로비전할 수도 있습니다.
 
 **그래프 상속**. 상속은 부모 노드에서 해당 부모 노드에 속한 모든 노드로 전달되는 권한 및 속성에 적용됩니다. 예를 들어 특정 노드의 사용자에게 역할이 할당되면 사용자는 지정된 노드와 해당 노드에 속한 모든 노드에 대한 해당 역할의 권한을 가지게 됩니다. 지정된 노드에 대해 정의된 각 속성 키 및 확장 유형은 해당 노드 아래에 있는 모든 노드에 상속됩니다.
 
@@ -78,14 +78,14 @@ Digital Twins 개체 모델은 다음과 같은 주요 범주를 지원합니다
 https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 ```
 
-| 속성 | 다음 항목으로 교체 |
+| 이름 | 다음 항목으로 교체 |
 | --- | --- |
 | YOUR_INSTANCE_NAME | Digital Twins 인스턴스의 이름 |
 | YOUR_LOCATION | 인스턴스를 호스팅하는 서버 지역 |
 
  전체 URL 형식은 이 이미지에 표시됩니다.
 
-[![Digital Twins 포털 관리 API](media/concepts/digital-twins-spatial-graph-management-api-url.png)](media/concepts/digital-twins-spatial-graph-management-api-url.png#lightbox)
+[![디지털 트윈스 포털 관리 API](media/concepts/digital-twins-spatial-graph-management-api-url.png)](media/concepts/digital-twins-spatial-graph-management-api-url.png#lightbox)
 
 공간 인텔리전스 그래프를 사용하는 방법에 대한 자세한 내용은 Azure Digital Twins 관리 API 미리 보기를 방문하세요.
 

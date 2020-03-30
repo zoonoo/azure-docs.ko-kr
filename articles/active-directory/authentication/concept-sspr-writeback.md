@@ -1,6 +1,6 @@
 ---
-title: Azure AD SSPR와 온-프레미스 비밀 번호 쓰기 저장 통합-Azure Active Directory
-description: 온-프레미스 AD 인프라에 다시 쓴 클라우드 암호 가져오기
+title: Azure AD SSPR - Azure Active Directory를 통해 온-프레미스 암호 쓰기 제거 통합
+description: 온-프레미스 AD 인프라에 클라우드 암호 다시 기록 받기
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa66299753ab11dcad280361cb5fb6f0c31ef242
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 7fe58ae95c8d9c6b93c7e92e093541af009781ce
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79263921"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79454434"
 ---
 # <a name="what-is-password-writeback"></a>비밀번호 쓰기 저장이란?
 
@@ -24,7 +24,7 @@ ms.locfileid: "79263921"
 
 비밀번호 쓰기 저장은 다음을 사용하는 환경에서 지원됩니다.
 
-* [ADFS(Active Directory Federation Services)](../hybrid/how-to-connect-fed-management.md)
+* [활성 디렉토리 페더레이션 서비스](../hybrid/how-to-connect-fed-management.md)
 * [암호 해시 동기화](../hybrid/how-to-connect-password-hash-synchronization.md)
 * [통과 인증](../hybrid/how-to-connect-pta.md)
 
@@ -43,7 +43,7 @@ ms.locfileid: "79263921"
 * **인바운드 방화벽 규칙 필요 없음**: 비밀번호 쓰기 저장은 Azure Service Bus 릴레이를 기본 통신 채널로 사용합니다. 모든 통신은 포트 443을 통해 아웃바운드됩니다.
 
 > [!NOTE]
-> 온-프레미스 AD의 보호 그룹 내에 있는 관리자 계정은 비밀번호 쓰기 저장에 사용할 수 없습니다. 관리자는 클라우드에서 암호를 변경할 수 있지만 암호 재설정을 사용 하 여 잊어버린 암호를 재설정할 수 없습니다. 보호 그룹에 대한 자세한 내용은 [Active Directory의 보호 계정 및 그룹](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-c--protected-accounts-and-groups-in-active-directory)을 참조하세요.
+> 온-프레미스 AD의 보호 그룹 내에 있는 관리자 계정은 비밀번호 쓰기 저장에 사용할 수 없습니다. 관리자는 클라우드에서 암호를 변경할 수 있지만 암호 재설정을 사용하여 잊어버린 암호를 재설정할 수는 없습니다. 보호 그룹에 대한 자세한 내용은 [Active Directory의 보호 계정 및 그룹](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-c--protected-accounts-and-groups-in-active-directory)을 참조하세요.
 
 ## <a name="licensing-requirements-for-password-writeback"></a>비밀번호 쓰기 저장에 대한 라이선스 요구 사항
 
@@ -106,7 +106,7 @@ ms.locfileid: "79263921"
    * Service Bus Relay를 만든 후 회선을 통해 도착하는 암호를 암호화하는 데 사용할 강력한 대칭 키가 생성됩니다. 이 키는 클라우드의 회사의 암호 저장소에만 존재하며 디렉터리의 다른 암호와 마찬가지로 강력하게 잠겨 있고 감사됩니다.
 * **업계 표준 TLS(전송 계층 보안)**
    1. 클라우드에서 암호 재설정 또는 변경 작업이 발생하면 공개 키를 사용하여 일반 텍스트 암호가 암호화됩니다.
-   1. 암호화된 암호는 Microsoft의 SSL 인증서를 사용하여 암호화된 채널을 통해 Service Bus Relay로 전송되는 HTTPS 메시지에 배치됩니다.
+   1. 암호화된 암호는 Microsoft TLS/SSL 인증서를 사용하여 서비스 버스 릴레이로 암호화된 채널을 통해 전송되는 HTTPS 메시지에 배치됩니다.
    1. Service Bus에 메시지가 도착한 후에 온-프레미스 에이전트가 시작하고 이전에 생성된 강력한 암호를 사용하여 Service Bus에 인증합니다.
    1. 온-프레미스 에이전트는 암호화된 메시지를 선택하고 프라이빗 키를 사용하여 암호를 해독합니다.
    1. 온-프레미스 에이전트는 AD DS SetPassword API를 통해 암호를 설정하려고 합니다. 이 단계에서는 클라우드에서 Active Directory 온-프레미스 암호 정책(예: 복잡성, 나이, 기록, 필터)을 적용할 수 있습니다.
@@ -155,16 +155,16 @@ ms.locfileid: "79263921"
 
 ## <a name="unsupported-writeback-operations"></a>지원되지 않는 쓰기 저장 작업
 
-암호는 다음과 같은 경우에 다시 기록되지 *않습니다*.
+암호는 다음 상황에서 다시 *기록되지 않습니다.*
 
 * **지원되지 않는 최종 사용자 작업**
-   * PowerShell 버전 1, 버전 2 또는 Microsoft Graph API를 사용 하 여 자신의 암호를 다시 설정 하는 모든 최종 사용자
+   * PowerShell 버전 1, 버전 2 또는 Microsoft 그래프 API를 사용하여 자신의 암호를 재설정하는 최종 사용자
 * **지원되지 않는 관리자 작업**
-   * PowerShell 버전 1, 버전 2 또는 Microsoft Graph API에서 관리자 시작 최종 사용자 암호 재설정
-   * [Microsoft 365 관리 센터](https://admin.microsoft.com) 에서 관리자가 시작한 최종 사용자 암호 재설정
+   * PowerShell 버전 1, 버전 2 또는 Microsoft 그래프 API에서 관리자가 시작한 최종 사용자 암호 재설정
+   * [Microsoft 365 관리자 센터에서](https://admin.microsoft.com) 관리자가 시작한 최종 사용자 암호 재설정
 
 > [!WARNING]
-> 사용자 및 컴퓨터 Active Directory 같은 온-프레미스 Active Directory 관리 도구에서 "다음 로그온 할 때 암호를 변경 해야 합니다." 확인란을 사용 Active Directory 관리 센터 하거나 Azure AD Connect의 미리 보기 기능으로 지원 됩니다. 자세한 내용은 [Azure AD Connect sync를 사용 하 여 암호 해시 동기화 구현](../hybrid/how-to-connect-password-hash-synchronization.md)문서를 참조 하세요.
+> Active Directory 사용자 및 컴퓨터 또는 Active Directory 관리 센터와 같은 온-프레미스 Active Directory 관리 도구에서 "사용자는 다음 로그온 시 암호를 변경해야 합니다" 확인란을 Azure AD Connect의 미리 보기 기능으로 사용할 수 있습니다. 자세한 내용은 문서를 참조, [Azure AD Connect 동기화와 암호 해시 동기화 구현](../hybrid/how-to-connect-password-hash-synchronization.md).
 
 ## <a name="next-steps"></a>다음 단계
 

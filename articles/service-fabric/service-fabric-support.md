@@ -1,15 +1,15 @@
 ---
-title: Azure Service Fabric 지원 옵션에 대 한 자세한 정보
+title: Azure 서비스 패브릭 지원 옵션에 대해 자세히 알아보기
 description: 지원되는 Azure Service Fabric 클러스터 버전 및 파일 지원 티켓에 대한 링크
 author: pkcsf
 ms.topic: troubleshooting
 ms.date: 8/24/2018
 ms.author: pkc
 ms.openlocfilehash: 7494f0072f27f2c9b00db7070f19dfc05627eacf
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79282095"
 ---
 # <a name="azure-service-fabric-support-options"></a>Azure Service Fabric 지원 옵션
@@ -26,9 +26,9 @@ Azure에 배포된 Service Fabric 클러스터의 문제를 보고하여 [Azure 
 - [Microsoft 프리미어 지원](https://support.microsoft.com/en-us/premier)
 
 > [!Note]
-> 청동 안정성 계층 또는 단일 노드 클러스터에서 실행 되는 클러스터는 테스트 작업을 실행할 수 있도록 합니다. 청동 안정성 또는 단일 노드 클러스터에서 실행 되는 클러스터에 문제가 발생 하는 경우 Microsoft 지원 팀은 문제를 완화 하는 데 도움을 주지만 근본 원인 분석을 수행 하지는 않습니다. 자세한 내용은 [클러스터의 안정성 특성](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-reliability-characteristics-of-the-cluster) 을 참조 하세요.
+> 브론즈 안정성 계층 또는 단일 노드 클러스터에서 실행되는 클러스터를 사용하면 테스트 워크로드만 실행할 수 있습니다. 브론즈 안정성 또는 단일 노드 클러스터에서 실행되는 클러스터에 문제가 있는 경우 Microsoft 지원 팀에서 문제를 완화하는 데 도움을 주지만 근본 원인 분석을 수행하지는 않습니다. 자세한 내용은 [클러스터의 안정성 특성을](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-reliability-characteristics-of-the-cluster) 참조하십시오.
 >
-> 프로덕션 준비 클러스터에 필요한 항목에 대 한 자세한 내용은 [프로덕션 준비 검사 목록](https://docs.microsoft.com/azure/service-fabric/service-fabric-production-readiness-checklist)을 참조 하세요.
+> 프로덕션 준비 클러스터에 필요한 내용에 대한 자세한 내용은 [프로덕션 준비 확인 목록을](https://docs.microsoft.com/azure/service-fabric/service-fabric-production-readiness-checklist)참조하십시오.
 
 <a id="getlivesitesupportonprem"></a>
 
@@ -51,11 +51,11 @@ Service Fabric 문제를 보고하기 위해 GitHub 리포지토리를 설정했
 
 ### <a name="stackoverflow-and-msdn-forums"></a>StackOverflow 및 MSDN 포럼
 
-StackOverflow 및 [MSDN의 Service Fabric 포럼][msdn-forum] 의 [Service Fabric 태그][stackoverflow] 는 플랫폼의 작동 방식 및 특정 작업을 수행 하는 방법에 대 한 질문을 하는 데 가장 적합 합니다.
+[StackOverflow에서 Service Fabric 태그][stackoverflow] 및 [MSDN의 Service Fabric 포럼][msdn-forum]은 플랫폼의 작동 방식 및 특정 작업을 수행하는 방법에 대한 질문을 제공하는 데 가장 적합합니다.
 
 ### <a name="azure-feedback-forum"></a>Azure 피드백 포럼
 
-[Service Fabric에 대 한 Azure 사용자 의견 포럼][uservoice-forum] 은 가장 인기 있는 요청을 가장 인기 있는 요청을 검토 하는 데 가장 적합 한 제품을 제출 하는 가장 좋은 장소입니다. 커뮤니티 내에서 제안하신 요구가 충분히 지원될 수 있게 최선을 다하고 있습니다.
+[Service Fabric을 위한 Azure 피드백 포럼][uservoice-forum]은 중장기적 계획의 일환으로 가장 인기 있는 요청을 검토하면서 제품에 대해 갖게 된 포괄적인 기능 아이디어를 제출할 수 있는 유용한 장소입니다. 커뮤니티 내에서 제안하신 요구가 충분히 지원될 수 있게 최선을 다하고 있습니다.
 
 ## <a name="service-fabric-preview-versions---unsupported-for-production-use"></a>Service Fabric 미리 보기 버전 - 프로덕션 사용이 지원되지 않습니다.
 

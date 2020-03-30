@@ -1,6 +1,6 @@
 ---
-title: Azure Express 경로 v1 구성
-description: Azure Express 경로를 사용 하는 PowerApps의 App Service Environment에 대 한 네트워크 구성 이 문서는 레거시 v1 ASE를 사용 하는 고객 에게만 제공 됩니다.
+title: Azure 익스프레스라우팅 구성 v1
+description: Azure ExpressRoute를 사용한 PowerApps용 앱 서비스 환경에 대한 네트워크 구성입니다. 이 문서는 레거시 v1 ASE를 사용하는 고객에게만 제공됩니다.
 author: stefsch
 ms.assetid: 34b49178-2595-4d32-9b41-110c96dde6bf
 ms.topic: article
@@ -8,15 +8,15 @@ ms.date: 10/14/2016
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: 8a83c2f6ac7599ff37237834a85b7771cf4ee502
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79243875"
 ---
 # <a name="network-configuration-details-for-app-service-environment-for-powerapps-with-azure-expressroute"></a>Azure ExpressRoute를 사용하는 PowerApps용 App Service Environment의 네트워크 구성 세부 정보
 
-고객은 [Azure express][ExpressRoute] 경로 회로를 가상 네트워크 인프라에 연결 하 여 온-프레미스 네트워크를 azure로 확장할 수 있습니다. App Service Environment은 [가상 네트워크][virtualnetwork] 인프라의 서브넷에 생성 됩니다. App Service Environment에서 실행되는 앱은 ExpressRoute 연결을 통해서만 액세스할 수 있는 백 엔드 리소스의 보안 연결을 설정합니다.  
+고객은 [Azure ExpressRoute][ExpressRoute] 회로를 가상 네트워크 인프라에 연결하여 온-프레미스 네트워크를 Azure로 확장합니다. App Service Environment는 [가상 네트워크][virtualnetwork] 인프라의 서브넷에서 만들어집니다. App Service Environment에서 실행되는 앱은 ExpressRoute 연결을 통해서만 액세스할 수 있는 백 엔드 리소스의 보안 연결을 설정합니다.  
 
 다음 시나리오에서 App Service Environment를 만들 수 있습니다.
 - Azure Resource Manager 가상 네트워크.
@@ -49,11 +49,11 @@ App Service Environment에서는 다음 네트워크 연결 설정이 제대로 
 
 * 아웃바운드 네트워크 경로는 내부 회사 프록시를 통과할 수 없고 온-프레미스에 강제로 터널링될 수 없습니다. 이러한 작업은 App Service Environment에서 아웃바운드 네트워크 트래픽의 유효 NAT 주소를 변경합니다. App Service Environment 아웃바운드 네트워크 트래픽의 NAT 주소를 변경하면 많은 엔드포인트에 연결 오류가 발생합니다. App Service Environment가 만들어지지 않습니다. 기존의 모든 App Service Environment가 비정상으로 표시됩니다.
 
-* App Service Environment에 필요한 포트에 대한 인바운드 네트워크 액세스가 허용되어야 합니다. 자세한 내용은 [App Service Environment에 대 한 인바운드 트래픽을 제어 하는 방법][requiredports]을 참조 하세요.
+* App Service Environment에 필요한 포트에 대한 인바운드 네트워크 액세스가 허용되어야 합니다. 자세한 내용은 [App Service Environment에 대한 인바운드 트래픽을 제어하는 방법][requiredports]을 참조하세요.
 
-DNS 요구 사항을 충족하려면 가상 네트워크에 유효한 DNS 인프라를 구성하고 유지 관리해야 합니다. App Service Environment를 만든 후에 DNS 구성이 변경되면 개발자는 App Service Environment를 강제로 적용하여 새 DNS 구성을 선택할 수 있습니다. [Azure Portal][NewPortal]의 App Service Environment 관리에서 **다시 시작** 아이콘을 사용 하 여 롤링 환경 다시 부팅을 트리거할 수 있습니다. 다시 부팅되면 환경이 새 DNS 구성을 선택합니다.
+DNS 요구 사항을 충족하려면 가상 네트워크에 유효한 DNS 인프라를 구성하고 유지 관리해야 합니다. App Service Environment를 만든 후에 DNS 구성이 변경되면 개발자는 App Service Environment를 강제로 적용하여 새 DNS 구성을 선택할 수 있습니다. [Azure Portal][NewPortal]의 App Service Environment 관리에서 **다시 시작** 아이콘을 사용하여 롤링 환경 다시 부팅을 트리거할 수 있습니다. 다시 부팅되면 환경이 새 DNS 구성을 선택합니다.
 
-인바운드 네트워크 액세스 요구 사항을 충족 하려면 App Service Environment 서브넷에 [NSG (네트워크 보안 그룹)][NetworkSecurityGroups] 를 구성 합니다. NSG는 [App Service Environment에 대 한 인바운드 트래픽을 제어 하][requiredports]는 데 필요한 액세스를 허용 합니다.
+인바운드 네트워크 액세스 요구 사항을 충족하려면 App Service Environment 서브넷에서 [NSG(네트워크 보안 그룹)][NetworkSecurityGroups]를 구성합니다. NSG는 [App Service Environment에 대한 인바운드 트래픽을 제어][requiredports]하는 데 필요한 액세스를 허용합니다.
 
 ## <a name="outbound-network-connectivity"></a>아웃바운드 네트워크 연결
 
@@ -77,9 +77,9 @@ DNS 요구 사항을 충족하려면 가상 네트워크에 유효한 DNS 인프
 > 
 > 
 
-사용자 정의 경로에 대 한 배경 정보는 [가상 네트워크 트래픽 라우팅][UDROverview]을 참조 하세요.  
+사용자 정의 경로에 대한 배경 정보는 [가상 네트워크 트래픽 라우팅][UDROverview]을 참조하세요.  
 
-사용자 정의 경로를 만들고 구성 하는 방법에 대 한 자세한 내용은 [PowerShell을 사용 하 여 경로 테이블][UDRHowTo]을 사용 하 여 네트워크 트래픽 라우팅을 참조 하세요.
+사용자 정의 경로를 만들고 구성하는 방법을 알아보려면 [PowerShell을 사용하여 경로 테이블로 네트워크 트래픽 라우팅][UDRHowTo]을 참조하세요.
 
 ## <a name="udr-configuration"></a>UDR 구성
 
@@ -87,20 +87,20 @@ DNS 요구 사항을 충족하려면 가상 네트워크에 유효한 DNS 인프
 
 ### <a name="prerequisites"></a>사전 요구 사항
 
-* [Azure 다운로드 페이지][AzureDownloads]에서 Azure PowerShell를 설치 합니다. 2015년 6월 이후 날짜의 다운로드를 선택합니다. **명령줄 도구** > **Windows PowerShell**에서 **설치**를 선택하여 최신 PowerShell cmdlet을 설치합니다.
+* [Azure 다운로드 페이지][AzureDownloads]에서 Azure PowerShell을 설치합니다. 2015년 6월 이후 날짜의 다운로드를 선택합니다. **명령줄 도구에서** > **Windows PowerShell,** 최신 PowerShell cmdlet을 설치하려면 **설치를** 선택합니다.
 
 * App Service Environment에서만 사용할 고유 서브넷을 만듭니다. 고유 서브넷을 사용하면 서브넷에 적용된 UDR이 App Service Environment의 아웃바운드 트래픽만 엽니다.
 
 > [!IMPORTANT]
 > App Service Environment는 구성 단계를 완료한 후에 배포해야 합니다. 이러한 단계에서 App Service Environment를 배포하기 전에 네트워크 연결을 사용할 수 있는지 확인합니다.
 
-### <a name="step-1-create-a-route-table"></a>1 단계: 경로 테이블 만들기
+### <a name="step-1-create-a-route-table"></a>1단계: 경로 테이블 만들기
 
 다음 코드 조각에 표시된 대로 미국 서부 Azure 지역에서 **DirectInternetRouteTable**이라는 경로 테이블을 만듭니다.
 
 `New-AzureRouteTable -Name 'DirectInternetRouteTable' -Location uswest`
 
-### <a name="step-2-create-routes-in-the-table"></a>2 단계: 테이블에 경로 만들기
+### <a name="step-2-create-routes-in-the-table"></a>2단계: 테이블에서 경로 만들기
 
 경로 테이블에 경로를 추가하여 아웃바운드 인터넷 액세스를 사용하도록 설정합니다.  
 
@@ -108,9 +108,9 @@ DNS 요구 사항을 충족하려면 가상 네트워크에 유효한 DNS 인프
 
 `Get-AzureRouteTable -Name 'DirectInternetRouteTable' | Set-AzureRoute -RouteName 'Direct Internet Range 0' -AddressPrefix 0.0.0.0/0 -NextHopType Internet`
 
-0.0.0.0/0은 광범위한 주소 범위입니다. 이 범위는 ExpressRoute에서 보급하는 더 구체적인 주소 범위로 재정의됩니다. 0\.0.0.0/0 경로가 있는 UDR은 0.0.0.0/0만 보급하는 ExpressRoute 구성과 함께 사용해야 합니다. 
+0.0.0.0/0은 광범위한 주소 범위입니다. 이 범위는 ExpressRoute에서 보급하는 더 구체적인 주소 범위로 재정의됩니다. 0.0.0.0/0 경로가 있는 UDR은 0.0.0.0/0만 보급하는 ExpressRoute 구성과 함께 사용해야 합니다. 
 
-대신 Azure에서 사용 중인 포괄적인 최신 CIDR 범위 목록을 다운로드합니다. 모든 Azure IP 주소 범위에 대 한 XML 파일은 [Microsoft 다운로드 센터][DownloadCenterAddressRanges]에서 사용할 수 있습니다.  
+대신 Azure에서 사용 중인 포괄적인 최신 CIDR 범위 목록을 다운로드합니다. 모든 Azure IP 주소 범위에 대한 XML 파일은 [Microsoft 다운로드 센터][DownloadCenterAddressRanges]에서 사용할 수 있습니다.  
 
 > [!NOTE]
 >
@@ -119,13 +119,13 @@ DNS 요구 사항을 충족하려면 가상 네트워크에 유효한 DNS 인프
 > 단일 UDR의 기본 상한은 100개 경로입니다. 100개 경로 한도 내에 맞게 Azure IP 주소 범위를 “요약”해야 합니다. UDR 정의 경로는 ExpressRoute 연결에서 보급하는 경로보다 더 구체적이어야 합니다.
 > 
 
-### <a name="step-3-associate-the-table-to-the-subnet"></a>3 단계: 서브넷에 테이블 연결
+### <a name="step-3-associate-the-table-to-the-subnet"></a>3단계: 테이블을 서브넷에 연결
 
 App Service Environment를 배포하려는 경우 서브넷에 경로 테이블을 연결합니다. 이 명령은 App Service Environment를 포함하는 **ASESubnet** 서브넷에 **DirectInternetRouteTable** 테이블을 연결합니다.
 
 `Set-AzureSubnetRouteTable -VirtualNetworkName 'YourVirtualNetworkNameHere' -SubnetName 'ASESubnet' -RouteTableName 'DirectInternetRouteTable'`
 
-### <a name="step-4-test-and-confirm-the-route"></a>4 단계: 경로 테스트 및 확인
+### <a name="step-4-test-and-confirm-the-route"></a>4단계: 경로 테스트 및 확인
 
 경로 테이블이 서브넷에 바인딩된 후에 경로를 테스트하고 확인합니다.
 
@@ -140,7 +140,7 @@ App Service Environment를 배포하려는 경우 서브넷에 경로 테이블�
 
 ## <a name="next-steps"></a>다음 단계
 
-PowerApps에 대 한 App Service Environment를 시작 하려면 [App Service Environment 소개][IntroToAppServiceEnvironment]를 참조 하세요.
+PowerApps용 App Service Environment를 시작하려면 [App Service Environment 소개][IntroToAppServiceEnvironment]를 참조하세요.
 
 <!-- LINKS -->
 [virtualnetwork]: https://azure.microsoft.com/services/virtual-network/ 

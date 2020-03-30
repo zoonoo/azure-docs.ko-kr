@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/12/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 64aa01995460837c820c90010d7c4e3f3d78e6a2
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.openlocfilehash: 8f2e2081ee31e2ce7b21677bd261ed7eda705334
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79300233"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79485956"
 ---
 [!INCLUDE [virtual-machines-disks-incremental-snapshots-description](virtual-machines-disks-incremental-snapshots-description.md)]
 
@@ -26,22 +26,22 @@ ms.locfileid: "79300233"
 
 ## <a name="portal"></a>포털
 
-전역 Azure Portal에서 증분 스냅숏을 만들고 구성 하려면 [https://aka.ms/incrementalsnapshots](https://aka.ms/incrementalsnapshots)링크를 사용 해야 합니다. 증분 스냅숏 만들기는 글로벌 Azure Portal에서 아직 사용할 수 없습니다.
+전역 Azure 포털에서 증분 스냅숏을 만들고 구성하려면 다음 링크를 [https://aka.ms/incrementalsnapshots](https://aka.ms/incrementalsnapshots)사용해야 합니다. 증분 스냅숏 생성은 아직 전역 Azure Portal에서 사용할 수 없습니다.
 
-1. 제공 된 링크를 사용 하 여 [Azure Portal](https://aka.ms/incrementalsnapshots) 에 로그인 하 고 원하는 디스크로 이동 합니다.
-1. 디스크에서 **스냅숏 만들기** 를 선택 합니다.
+1. 제공된 링크를 사용하여 [Azure 포털에](https://aka.ms/incrementalsnapshots) 로그인하고 스냅숏을 지정하려는 디스크로 이동합니다.
+1. 디스크에서 **스냅샷 만들기를 선택합니다.**
 
-    :::image type="content" source="media/virtual-machines-disks-incremental-snapshots-portal/create-snapshot-button-incremental.png" alt-text=" ":::
+    :::image type="content" source="media/virtual-machines-disks-incremental-snapshots-portal/create-snapshot-button-incremental.png" alt-text="스크린샷. **+스냅샷 만들기**가 강조 표시된 디스크의 블레이드는 선택해야 합니다.":::
 
-1. 사용 하려는 리소스 그룹을 선택 하 고 이름을 입력 합니다.
-1. **증분** 을 선택 하 고 **검토 + 만들기** 를 선택 합니다.
+1. 사용할 리소스 그룹을 선택하고 이름을 입력합니다.
+1. **증분** 및 **검토 + 만들기** 선택
 
-    :::image type="content" source="media/virtual-machines-disks-incremental-snapshots-portal/incremental-snapshot-create-snapshot-blade.png" alt-text=" ":::
+    :::image type="content" source="media/virtual-machines-disks-incremental-snapshots-portal/incremental-snapshot-create-snapshot-blade.png" alt-text="스크린샷. 스냅샷 블레이드를 만들고 이름을 입력하고 증분을 선택한 다음 스냅샷을 만듭니다.":::
 
-1. **만들기**
+1. **만들기** 선택
 
-    :::image type="content" source="media/virtual-machines-disks-incremental-snapshots-portal/create-incremental-snapshot-validation.png" alt-text=" ":::
+    :::image type="content" source="media/virtual-machines-disks-incremental-snapshots-portal/create-incremental-snapshot-validation.png" alt-text="스크린샷. 스냅샷에 대한 유효성 검사 페이지에서 선택한 항목을 확인한 다음 스냅샷을 만듭니다.":::
 
 ## <a name="next-steps"></a>다음 단계
 
-.NET을 사용 하 여 증분 스냅숏의 차등 기능을 보여 주는 샘플 코드를 보려면 [증분 스냅숏의 차등 기능을 사용 하 여 다른 지역에 Azure Managed Disks 백업 복사](https://github.com/Azure-Samples/managed-disks-dotnet-backup-with-incremental-snapshots)를 참조 하세요.
+.NET을 사용하여 증분 스냅숏의 차등 기능을 보여 주는 샘플 코드를 보려면 [증분 스냅숏의 차동 기능을 사용하여 다른 지역으로 Azure 관리 디스크 백업 복사를](https://github.com/Azure-Samples/managed-disks-dotnet-backup-with-incremental-snapshots)참조하십시오.

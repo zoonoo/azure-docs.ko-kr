@@ -6,19 +6,19 @@ ms.topic: conceptual
 ms.date: 2/21/2019
 ms.author: dekapur
 ms.openlocfilehash: 461d6021a201ca1fa5722bb44c427baca2a7728e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79258825"
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Windows Server에서 실행되는 독립 실행형 클러스터 만들기
-Azure Service Fabric을 사용하면 Windows Server를 실행 중인 가상 머신 또는 컴퓨터에서 Service Fabric 클러스터를 만들 수 있습니다. 즉, 온-프레미스 또는 클라우드 공급자에 서로 연결된 일련의 Windows Server 컴퓨터가 있는 환경에서 Service Fabric 애플리케이션을 배포하고 실행할 수 있습니다. 서비스 패브릭은 독립 실행형 Windows Server 패키지라는 서비스 패브릭 클러스터를 만들 수 있는 설치 패키지를 제공합니다. Azure의 기존 Service Fabric 클러스터는 관리 서비스로 사용할 수 있으며 독립 실행형 Service Fabric 클러스터는 셀프 서비스입니다. 차이점에 대 한 자세한 내용은 [Azure 및 독립 실행형 Service Fabric 클러스터 비교](./service-fabric-deploy-anywhere.md)를 참조 하세요.
+Azure Service Fabric을 사용하면 Windows Server를 실행 중인 가상 머신 또는 컴퓨터에서 Service Fabric 클러스터를 만들 수 있습니다. 즉, 온-프레미스 또는 클라우드 공급자에 서로 연결된 일련의 Windows Server 컴퓨터가 있는 환경에서 Service Fabric 애플리케이션을 배포하고 실행할 수 있습니다. 서비스 패브릭은 독립 실행형 Windows Server 패키지라는 서비스 패브릭 클러스터를 만들 수 있는 설치 패키지를 제공합니다. Azure의 기존 서비스 패브릭 클러스터는 관리되는 서비스로 사용할 수 있으며 독립 실행형 서비스 패브릭 클러스터는 셀프 서비스입니다. 차이점에 대한 자세한 내용은 [Azure 및 독립 실행형 서비스 패브릭 클러스터 비교를](./service-fabric-deploy-anywhere.md)참조하십시오.
 
 이 문서에서는 Service Fabric 독립 실행형 클러스터를 만들기 위한 단계를 안내합니다.
 
 > [!NOTE]
-> 이 독립 실행형 Windows Server 패키지는 무료로 제공 되며 프로덕션 배포에 사용 될 수 있습니다. 이 패키지는 "Preview"에 있는 새 Service Fabric 기능을 포함할 수 있습니다. "[이 패키지에 포함된 미리 보기 기능](#previewfeatures_anchor)"까지 아래로 스크롤합니다. 미리 보기 기능 목록 섹션입니다. 현재 [EULA 사본을 다운로드](https://go.microsoft.com/fwlink/?LinkID=733084)할 수 있습니다.
+> 이 독립 실행형 Windows Server 패키지는 무료로 사용할 수 있으며 프로덕션 배포에 사용할 수 있습니다. 이 패키지는 "Preview"에 있는 새 Service Fabric 기능을 포함할 수 있습니다. "[이 패키지에 포함된 미리 보기 기능](#previewfeatures_anchor)"까지 아래로 스크롤합니다. 미리 보기 기능 목록 섹션입니다. 현재 [EULA 사본을 다운로드](https://go.microsoft.com/fwlink/?LinkID=733084)할 수 있습니다.
 > 
 > 
 
@@ -52,12 +52,12 @@ Service Fabric 런타임 패키지는 클러스터 생성 시 자동으로 다�
 
 이 문서에서 만든 클러스터는 안전하지 않습니다.  누구든지 익명으로 연결하고 관리 작업을 수행할 수 있으므로 프로덕션 클러스터가 항상 X.509 인증서 또는 Windows 보안을 사용하여 보호되어야 합니다.  클러스터 생성 시에만 보안을 구성하므로 클러스터를 만든 후에 보안을 사용하도록 설정할 수 없습니다. 구성 파일을 업데이트하여 [인증서 보안](service-fabric-windows-cluster-x509-security.md) 또는 [Windows 보안](service-fabric-windows-cluster-windows-security.md)을 사용하도록 설정합니다. Service Fabric 클러스터 보안에 대한 자세한 내용은 [클러스터에 보안 적용](service-fabric-cluster-security.md)을 읽어 보세요.
 
-### <a name="step-1-create-the-cluster"></a>1 단계: 클러스터 만들기
+### <a name="step-1-create-the-cluster"></a>1단계: 클러스터 만들기
 
-#### <a name="scenario-a-create-an-unsecured-local-development-cluster"></a>시나리오 A: 보안 되지 않은 로컬 개발 클러스터 만들기
-*샘플*에 포함된 [ClusterConfig.Unsecure.DevCluster.json](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples) 파일을 사용하여 하나의 컴퓨터 개발 클러스터에 Service Fabric을 배포할 수 있습니다.
+#### <a name="scenario-a-create-an-unsecured-local-development-cluster"></a>시나리오 A: 보안되지 않은 로컬 개발 클러스터 만들기
+[샘플](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples)에 포함된 *ClusterConfig.Unsecure.DevCluster.json* 파일을 사용하여 하나의 컴퓨터 개발 클러스터에 Service Fabric을 배포할 수 있습니다.
 
-머신에 독립 실행형 패키지의 압축을 풀고 로컬 머신에 샘플 구성 파일을 복사한 다음, 독립 실행형 패키지 폴더에서 관리자 PowerShell 세션을 통해 *CreateServiceFabricCluster.ps1* 스크립트를 실행합니다.
+독립 실행형 패키지를 컴퓨터에 압축 해제하고 샘플 구성 파일을 로컬 컴퓨터에 복사한 다음 독립 실행형 패키지 폴더에서 관리자 PowerShell 세션을 통해 *CreateServiceFabricCluster.ps1* 스크립트를 실행합니다.
 
 ```powershell
 .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.DevCluster.json -AcceptEULA
@@ -107,9 +107,9 @@ Service Fabric 런타임 패키지는 클러스터 생성 시 자동으로 다�
 > 
 > 
 
-#### <a name="scenario-c-create-an-offline-internet-disconnected-cluster"></a>시나리오 C: 오프 라인 (인터넷 연결 끊김) 클러스터 만들기
+#### <a name="scenario-c-create-an-offline-internet-disconnected-cluster"></a>시나리오 C: 오프라인(인터넷 연결이 끊긴) 클러스터 만들기
 Service Fabric 런타임 패키지는 클러스터 생성 시 자동으로 다운로드됩니다. 클러스터를 인터넷에 연결되지 않은 컴퓨터에 배포할 때 Service Fabric 런타임 패키지를 별도로 다운로드하고 클러스터 생성 시 경로를 제공해야 합니다.
-런타임 패키지는 [다운로드 링크 - Service Fabric 런타임 - Windows Server](https://go.microsoft.com/fwlink/?linkid=839354)에서 인터넷에 연결된 다른 컴퓨터에서 개별적으로 다운로드할 수 있습니다. 오프라인 클러스터를 배포하는 위치에 런타임 패키지를 복사하고 다음 예제와 같이 포함된 `CreateServiceFabricCluster.ps1` 매개 변수를 사용하여 `-FabricRuntimePackagePath`을 실행하여 클러스터를 만듭니다. 
+런타임 패키지는 [다운로드 링크 - Service Fabric 런타임 - Windows Server](https://go.microsoft.com/fwlink/?linkid=839354)에서 인터넷에 연결된 다른 컴퓨터에서 개별적으로 다운로드할 수 있습니다. 오프라인 클러스터를 배포하는 위치에 런타임 패키지를 복사하고 다음 예제와 같이 포함된 `-FabricRuntimePackagePath` 매개 변수를 사용하여 `CreateServiceFabricCluster.ps1`을 실행하여 클러스터를 만듭니다. 
 
 ```powershell
 .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.json -FabricRuntimePackagePath .\MicrosoftAzureServiceFabric.cab
@@ -126,7 +126,7 @@ Service Fabric 런타임 패키지는 클러스터 생성 시 자동으로 다�
 Connect-ServiceFabricCluster -ConnectionEndpoint <*IPAddressofaMachine*>:<Client connection end point port>
 ```
 
-다음은 그 예입니다.
+예를 들어:
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint 192.13.123.2345:19000
 ```
@@ -144,7 +144,7 @@ NodeDeactivationInfo NodeName IpAddressOrFQDN NodeType  CodeVersion  ConfigVersi
 ```
 
 ### <a name="step-3-visualize-the-cluster-using-service-fabric-explorer"></a>3단계: Service Fabric Explorer를 사용하여 클러스터 시각화
-[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)는 클러스터를 시각화하고 애플리케이션을 관리할 수 있는 좋은 도구입니다.  Service Fabric Explorer는 브라우저를 사용하여 [http://localhost:19080/Explorer](http://localhost:19080/Explorer)로 이동하여 액세스할 수 있는 클러스터에서 실행되는 서비스입니다.
+[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)는 클러스터를 시각화하고 애플리케이션을 관리할 수 있는 좋은 도구입니다.  서비스 패브릭 탐색기는 클러스터에서 실행되는 서비스로, [http://localhost:19080/Explorer](http://localhost:19080/Explorer)로 이동하여 브라우저를 사용하여 액세스합니다.
 
 클러스터 대시보드는 애플리케이션 및 노드 상태에 대한 요약을 포함하여 클러스터에 대한 개요를 제공합니다. 노드 보기는 클러스터의 물리적 레이아웃을 보여 줍니다. 지정된 노드의 경우 해당 노드에 배포된 코드를 가진 애플리케이션을 검사할 수 있습니다.
 
@@ -172,9 +172,9 @@ NodeDeactivationInfo NodeName IpAddressOrFQDN NodeType  CodeVersion  ConfigVersi
 <a id="telemetry"></a>
 
 ## <a name="telemetry-data-collected-and-how-to-opt-out-of-it"></a>수집된 원격 분석 데이터 및 옵트아웃(opt out)
-기본적으로 이 제품은 제품을 개선하기 위해 Service Fabric 사용 현황에 대한 원격 분석을 수집합니다. 설치의 일부로 실행되는 모범 사례 분석기는 [https://vortex.data.microsoft.com/collect/v1](https://vortex.data.microsoft.com/collect/v1)에 대한 연결을 확인하고 연결할 수 없는 경우 원격 분석을 옵트아웃하지 않으면 설치가 실패합니다. 연결할 수 없는 경우 원격 분석을 옵트아웃하지 않으면 설치가 실패합니다.
+기본적으로 이 제품은 제품을 개선하기 위해 Service Fabric 사용 현황에 대한 원격 분석을 수집합니다. 설정의 일부로 실행되는 모범 사례 분석기는 에 대한 [https://vortex.data.microsoft.com/collect/v1](https://vortex.data.microsoft.com/collect/v1)연결을 검사합니다. 연결할 수 없는 경우 원격 분석을 옵트아웃하지 않으면 설치가 실패합니다.
 
-1. 원격 분석 파이프라인은 하루에 한 번 다음 데이터를 [https://vortex.data.microsoft.com/collect/v1](https://vortex.data.microsoft.com/collect/v1)에 업로드하려고 시도합니다. 최상의 업로드이며 클러스터 기능에는 영향이 없습니다. 원격 분석은 장애 조치(Failover) 관리자 기본이 실행되는 노드에서만 전송됩니다. 다른 노드에서는 원격 분석이 전송되지 않습니다.
+1. 원격 분석 파이프라인은 다음 데이터를 매일 [https://vortex.data.microsoft.com/collect/v1](https://vortex.data.microsoft.com/collect/v1) 한 번 업로드하려고 시도합니다. 최상의 업로드이며 클러스터 기능에는 영향이 없습니다. 원격 분석은 장애 조치(Failover) 관리자 기본이 실행되는 노드에서만 전송됩니다. 다른 노드에서는 원격 분석이 전송되지 않습니다.
 2. 원격 분석은 다음으로 구성됩니다.
 
 * 서비스 수
