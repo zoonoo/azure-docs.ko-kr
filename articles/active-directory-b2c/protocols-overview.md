@@ -11,10 +11,10 @@ ms.date: 11/30/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: ed393f721d4461ebadea41f8dad707d4881865cd
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78183908"
 ---
 # <a name="azure-ad-b2c-authentication-protocols"></a>Azure AD B2C: 인증 프로토콜
@@ -27,8 +27,8 @@ Azure AD B2C(Azure Active Directory B2C)는 두 개의 업계 표준 프로토�
 ## <a name="the-basics"></a>기본 사항
 Azure AD B2C를 사용하는 모든 앱은 [Azure 포털](https://portal.azure.com)의 B2C 디렉터리에 등록해야 합니다. 앱 등록 프로세스는 몇 개의 값을 수집하고 앱에 할당합니다.
 
-* 앱을 고유하게 식별하는 **애플리케이션 ID**
-* 응답을 다시 앱으로 보내는 데 사용할 수 있는 **리디렉션 URI** 또는 **패키지 식별자**.
+* 앱을 고유하게 식별하는 **응용 프로그램 ID입니다.**
+* 응답을 앱으로 다시 전달하는 데 사용할 수 있는 URI 또는 **패키지 식별자** **리디렉션**
 * 다른 몇 가지 시나리오 관련 값. 자세한 내용은 [애플리케이션을 등록하는 방법](tutorial-register-applications.md)을 참조하세요.
 
 앱을 등록하면 앱이 엔드포인트에 요청을 전송하여 Azure AD(Azure Active Directory)와 통신합니다.
@@ -40,15 +40,15 @@ https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/oauth2/v2.0/token
 
 거의 모든 OAuth 및 OpenID Connect 흐름에서 다음과 같이 네 주체가 교환에 포함됩니다.
 
-![4 개의 OAuth 2.0 역할을 보여 주는 다이어그램](./media/protocols-overview/protocols_roles.png)
+![4개의 OAuth 2.0 역할을 보여주는 다이어그램](./media/protocols-overview/protocols_roles.png)
 
 * **권한 부여 서버**는 Azure AD 엔드포인트입니다. 사용자 정보 및 액세스와 관련된 모든 것을 안전하게 처리합니다. 또한 흐름에서 당사자 간의 트러스트 관계를 처리합니다. 사용자 ID를 확인하고 리소스에 대한 액세스 권한을 부여 및 해지하고, 토큰을 발급합니다. ID 공급자라고도 합니다.
 
-* **리소스 소유자** 는 일반적으로 최종 사용자입니다. 데이터를 소유하는 당사자이며 제3자가 해당 데이터 또는 리소스에 액세스하도록 허용할 권한이 있습니다.
+* **리소스 소유자는** 일반적으로 최종 사용자입니다. 데이터를 소유하는 당사자이며 제3자가 해당 데이터 또는 리소스에 액세스하도록 허용할 권한이 있습니다.
 
 * **OAuth 클라이언트** 는 앱입니다. 애플리케이션 ID로 식별됩니다. 일반적으로 최종 사용자가 상호 작용하는 당사자입니다. 권한 부여 서버에서 토큰도 요청합니다. 리소스 소유자가 리소스에 액세스할 수 있는 클라이언트 권한을 부여해야 합니다.
 
-* **리소스 서버** 는 리소스 또는 데이터가 있는 곳입니다. OAuth 클라이언트를 안전하게 인증하고 권한을 부여하는 권한 부여 서버를 신뢰합니다. 또한 전달자 액세스 토큰을 사용하여 리소스에 액세스 권한이 부여되어야 합니다.
+* **리소스 서버는** 리소스 또는 데이터가 있는 위치입니다. OAuth 클라이언트를 안전하게 인증하고 권한을 부여하는 권한 부여 서버를 신뢰합니다. 또한 전달자 액세스 토큰을 사용하여 리소스에 액세스 권한이 부여되어야 합니다.
 
 ## <a name="policies-and-user-flows"></a>정책 및 사용자 흐름
 Azure AD B2C 정책은 분명히 서비스의 가장 중요한 기능입니다. Azure AD B2C에서 정책이 도입되어 표준 OAuth 2.0 및 OpenID Connect 프로토콜이 확장됩니다. 이렇게 하면 Azure AD B2C에서 더 쉽게 인증 및 권한 부여를 수행할 수 있습니다.

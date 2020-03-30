@@ -9,21 +9,21 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.openlocfilehash: 02dc1b55d85b7137a5c1f57999cc3b7e9b1efe29
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77591339"
 ---
 # <a name="device-to-cloud-communications-guidance"></a>디바이스-클라우드 통신 지침
 
 디바이스 앱에서 솔루션 백 엔드로 정보를 전송할 때 IoT Hub은 다음 세 가지 옵션을 공개합니다.
 
-* 시계열 원격 분석 및 경고의 경우 [디바이스-클라우드 메시지](iot-hub-devguide-messages-d2c.md)
+* [디바이스-클라우드 메시지](iot-hub-devguide-messages-d2c.md) 시계열 원격 분석 및 경고의 경우
 
 * 장기 실행 워크플로의 사용 가능한 기능, 조건 또는 상태와 같은 디바이스 상태 정보를 보고하는 경우 [디바이스 쌍의 보고된 속성](iot-hub-devguide-device-twins.md) 예를 들어 구성 및 소프트웨어 업데이트입니다.
 
-* 간헐적으로 연결된 디바이스로 업로드되거나 대역폭을 절약하기 위해 압축된 미디어 파일 및 대형 원격 분석 배치의 경우 [파일 업로드](iot-hub-devguide-file-upload.md)
+* [파일 업로드](iot-hub-devguide-file-upload.md) 간헐적으로 연결된 디바이스로 업로드되거나 대역폭을 절약하기 위해 압축된 미디어 파일 및 대형 원격 분석 배치의 경우
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
@@ -33,7 +33,7 @@ ms.locfileid: "77591339"
 | ---- | ------- | ---------- | ---- |
 | 시나리오 | 원격 분석 시계열 및 알림 예를 들어 256KB의 센서 데이터 배치는 5분마다 전송합니다. | 사용할 수 있는 기능 및 조건 예를 들어 셀룰러 또는 WiFi와 같은 현재 디바이스 연결 모드입니다. 구성 및 소프트웨어 업데이트와 같이 장기 실행 워크플로 동기화 | 미디어 파일. 대형(일반적으로 압축됨) 원격 분석 일괄 처리 |
 | 스토리지 및 검색 | IoT Hub에서 일시적으로 최대 7일 동안 저장합니다. 순차 읽기만 | IoT Hub에서 디바이스 쌍에 저장합니다. [IoT Hub 쿼리 언어](iot-hub-devguide-query-language.md)를 사용하여 검색할 수 있습니다. | 사용자 제공 Azure Storage 계정에 저장됩니다. |
-| 크기 | 최대 256KB 메시지입니다. | 보고 된 최대 속성 크기는 32 KB입니다. | Azure Blob Storage에서 지원하는 최대 파일 크기 |
+| 크기 | 최대 256KB 메시지입니다. | 보고된 최대 속성 크기는 32KB입니다. | Azure Blob Storage에서 지원하는 최대 파일 크기 |
 | 빈도 | 높음. 자세한 내용은 [IoT Hub 제한](iot-hub-devguide-quotas-throttling.md)을 참조하세요. | 중간. 자세한 내용은 [IoT Hub 제한](iot-hub-devguide-quotas-throttling.md)을 참조하세요. | 낮음. 자세한 내용은 [IoT Hub 제한](iot-hub-devguide-quotas-throttling.md)을 참조하세요. |
 | 프로토콜 | 모든 프로토콜에서 사용할 수 있습니다. | MQTT 또는 AMQP를 통해 사용 가능합니다. | 프로토콜을 사용할 때 사용할 수 있지만 디바이스에 HTTPS가 필요합니다. |
 

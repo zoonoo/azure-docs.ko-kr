@@ -1,26 +1,26 @@
 ---
-title: Advanced Threat Protection-Azure Database for MySQL
-description: 데이터베이스에 대 한 잠재적인 보안 위협을 나타내는 비정상적인 데이터베이스 활동을 검색 하는 고급 위협 방지에 대 한 개념을 알아봅니다.
+title: 고급 위협 보호 - MySQL용 Azure 데이터베이스
+description: 데이터베이스에 대한 잠재적인 보안 위협을 나타내는 비정상적인 데이터베이스 활동을 검색하는 고급 위협 보호에 대한 개념을 알아봅니다.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 747e2f088b545026775feed45535b1f9bc90209f
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: 01ac6ccbc2789d2052bab07e2da51630b6dbf581
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74771005"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79537162"
 ---
 # <a name="azure-database-for-mysql-advanced-threat-protection"></a>Azure Database for MySQL Advanced Threat Protection
 
-Azure Database for MySQL에 대한 Advanced Threat Protection은 비정상적이며 잠재적으로 유해할 수 있는 데이터베이스 액세스 또는 악용 시도를 나타내는 비정상적인 활동을 검색합니다.
+Azure Database for MySQL용 Advanced Threat Protection은 비정상적이며 유해할 가능성이 있는 데이터베이스 액세스 또는 악용 시도를 나타내는 비정상적인 활동을 검색합니다.
 
 > [!NOTE]
-> Advanced Threat Protection은 공개 미리 보기로 제공 됩니다.
+> 고급 위협 보호는 공개 미리 보기입니다.
 
-Advanced Threat Detection은 고급 보안 기능용 통합 패키지인 Advanced Data Security 제품의 일부입니다. 고급 위협 방지는 [Azure Portal](https://portal.azure.com) 또는 [REST API](/rest/api/mysql/serversecurityalertpolicies)를 통해 액세스 하 고 관리할 수 있습니다. 이 기능은 범용 및 메모리 액세스에 최적화 된 서버에서 사용할 수 있습니다.
+Advanced Threat Detection은 고급 보안 기능용 통합 패키지인 Advanced Data Security 제품의 일부입니다. 고급 위협 보호는 [Azure 포털을](https://portal.azure.com) 통해 액세스하고 관리하거나 [REST API를](/rest/api/mysql/serversecurityalertpolicies)사용하여 관리할 수 있습니다. 이 기능은 범용 및 메모리 최적화 된 서버에 사용할 수 있습니다.
 
 > [!NOTE]
 > Advanced Threat Protection 기능을 사용할 수 **없는** Azure 정부 및 소버린 클라우드 지역은 US Gov 텍사스, US Gov 애리조나, US Gov 아이오와, US Gov 버지니아, US DoD 동부, US DoD 중부, 독일 중부, 독일 북부, 중국 동부, 중국 동부 2입니다. 전반적인 제품 사용 가능성을 확인하려면 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 참조하세요.
@@ -42,6 +42,6 @@ Azure Database for MySQL용 Advanced Threat Protection은 비정상적이며 유
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)에 대한 자세한 정보
+* [Azure 보안 센터에](https://docs.microsoft.com/azure/security-center/security-center-intro) 대해 자세히 알아보기
 * 가격 책정에 대한 자세한 내용은 [Azure Database for MySQL 가격 책정 페이지](https://azure.microsoft.com/pricing/details/mysql/)를 참조하세요. 
 * Azure Portal을 사용하여 [Azure Database for MySQL Advanced Threat Protection](howto-database-threat-protection-portal.md) 구성  

@@ -1,26 +1,26 @@
 ---
 title: CloudEvents 스키마에서 이벤트에 Azure Event Grid 사용
-description: Azure Event Grid에서 이벤트에 CloudEvents 스키마를 사용 하는 방법을 설명 합니다. 이 서비스는 클라우드 이벤트의 JSON 구현에서 이벤트를 지원 합니다.
+description: Azure 이벤트 그리드의 이벤트에 CloudEvents 스키마를 사용하는 방법을 설명합니다. 이 서비스는 클라우드 이벤트의 JSON 구현에서 이벤트를 지원합니다.
 services: event-grid
 author: banisadr
 ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: babanisa
-ms.openlocfilehash: 25a24c5bb44c77038a508e4c2f4e099132101f6a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 0efccd2851885dad209d5548a76737c25777b891
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79265078"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80372442"
 ---
-# <a name="use-cloudevents-v10-schema-with-event-grid"></a>Event Grid에서 CloudEvents v 1.0 스키마 사용
+# <a name="use-cloudevents-v10-schema-with-event-grid"></a>이벤트 그리드에서 CloudEvents v1.0 스키마 사용
 
-[기본 이벤트 스키마](event-schema.md)외에도 Azure Event Grid는 [CloudEvents v 1.0](https://github.com/cloudevents/spec/blob/v1.0/json-format.md) 및 [HTTP 프로토콜 바인딩의](https://github.com/cloudevents/spec/blob/v1.0/http-protocol-binding.md)JSON 구현에서 이벤트를 기본적으로 지원 합니다. [CloudEvents](https://cloudevents.io/)는 이벤트 데이터를 설명하는 [공개 사양](https://github.com/cloudevents/spec/blob/v1.0/spec.md)입니다.
+Azure Event Grid는 [기본 이벤트 스키마](event-schema.md)외에도 [CloudEvents v1.0](https://github.com/cloudevents/spec/blob/v1.0/json-format.md) 및 HTTP 프로토콜 [바인딩의](https://github.com/cloudevents/spec/blob/v1.0/http-protocol-binding.md)JSON 구현에서 이벤트를 기본적으로 지원합니다. [CloudEvents](https://cloudevents.io/)는 이벤트 데이터를 설명하는 [공개 사양](https://github.com/cloudevents/spec/blob/v1.0/spec.md)입니다.
 
 CloudEvents는 클라우드 기반 이벤트를 게시 및 사용하기 위한 일반적인 이벤트 스키마를 제공하여 상호 운용성을 간소화합니다. 이 스키마를 통해 균일한 도구, 이벤트를 라우팅 및 처리하는 표준 방법, 외부 이벤트 스키마를 역직렬화하는 유니버설 방법이 가능해집니다. 공통 스키마를 통해 여러 플랫폼에서 작업을 보다 쉽게 통합할 수 있습니다.
 
-CloudEvents는 [Cloud Native Computing Foundation](https://github.com/cloudevents/spec/blob/master/community/contributors.md)을 통해 Microsoft를 포함한 여러 [협력자](https://www.cncf.io/)가 작성하고 있습니다. 현재 버전 1.0로 사용할 수 있습니다.
+CloudEvents는 [Cloud Native Computing Foundation](https://www.cncf.io/)을 통해 Microsoft를 포함한 여러 [협력자](https://github.com/cloudevents/spec/blob/master/community/contributors.md)가 작성하고 있습니다. 현재 버전 1.0으로 사용할 수 있습니다.
 
 이 문서에서는 Event Grid에서 CloudEvents 스키마를 사용하는 방법을 설명합니다.
 
@@ -60,7 +60,7 @@ CloudEvents 형식의 Azure Blob Storage 이벤트의 예는 다음과 같습니
 }
 ```
 
-CloudEvents v 1.0의 사용 가능한 필드, 해당 형식 및 정의에 대 한 자세한 설명은 [여기에서 사용할 수](https://github.com/cloudevents/spec/blob/v1.0/spec.md#required-attributes)있습니다.
+CloudEvents v1.0에서 사용 가능한 필드, 해당 유형 및 정의에 대한 자세한 설명은 [여기에서 확인할 수 있습니다.](https://github.com/cloudevents/spec/blob/v1.0/spec.md#required-attributes)
 
 `content-type`을 제외하고 CloudEvents 스키마 및 Event Grid 스키마에 배달된 이벤트에 대한 헤더 값은 동일합니다. CloudEvents 스키마의 경우 헤더 값은 `"content-type":"application/cloudevents+json; charset=utf-8"`입니다. Event Grid 스키마의 경우 헤더 값은 `"content-type":"application/json; charset=utf-8"`입니다.
 
@@ -136,17 +136,17 @@ New-AzureRmEventGridSubscription `
   -DeliverySchema CloudEventSchemaV1_0
 ```
 
- 현재는, 이벤트가 CloudEvents 스키마에 전달되는 경우 Azure Functions 앱에 Event Grid 트리거를 사용할 수 없습니다. HTTP 트리거를 사용합니다. CloudEvents 스키마에서 이벤트를 수신 하는 HTTP 트리거를 구현 하는 방법에 대 한 예제는 [Using CloudEvents with Azure Functions](#azure-functions)를 참조 하세요.
+ 현재는, 이벤트가 CloudEvents 스키마에 전달되는 경우 Azure Functions 앱에 Event Grid 트리거를 사용할 수 없습니다. HTTP 트리거를 사용합니다. CloudEvents 스키마에서 이벤트를 수신하는 HTTP 트리거를 구현하는 예제는 [Azure Functions를 사용하여 CloudEvents 사용](#azure-functions)을 참조하십시오.
 
- ## <a name="endpoint-validation-with-cloudevents-v10"></a>CloudEvents v 1.0을 사용 하는 끝점 유효성 검사
+ ## <a name="endpoint-validation-with-cloudevents-v10"></a>클라우드 이벤트 v1.0을 통한 엔드포인트 유효성 검사
 
-Event Grid에 대해 잘 알고 있는 경우 남용 방지를 위한 Event Grid의 끝점 유효성 검사 핸드셰이크를 알고 있을 수 있습니다. CloudEvents v 1.0은 HTTP OPTIONS 메서드를 사용 하 여 자체 [불건전 보호 의미 체계](security-authentication.md#webhook-event-delivery) 를 구현 합니다. 해당 서비스에 대한 자세한 내용은 [여기](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection)에서 확인할 수 있습니다. 출력에 CloudEvents 스키마를 사용 하는 경우 Event Grid는 Event Grid 유효성 검사 이벤트 메커니즘 대신 CloudEvents v1.0 남용 보호와 함께를 사용 합니다.
+이벤트 그리드에 이미 익숙한 경우 악용을 방지하기 위한 Event Grid의 끝점 유효성 검사 핸드셰이크를 알고 있을 수 있습니다. CloudEvents v1.0HTTP OPTIONS 메서드를 사용 하 여 자체 [남용 보호 의미 체계를](security-authentication.md#webhook-event-delivery) 구현 합니다. 자세한 내용은 여기에서 확인할 수 [있습니다.](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection) 출력에 CloudEvents 스키마를 사용하는 경우 이벤트 그리드는 이벤트 그리드 유효성 검사 이벤트 메커니즘 대신 CloudEvents v1.0 남용 보호와 함께 사용합니다.
 
 <a name="azure-functions"></a>
 
-## <a name="use-with-azure-functions"></a>Azure Functions와 함께 사용
+## <a name="use-with-azure-functions"></a>Azure 함수와 함께 사용
 
-[Azure Functions Event Grid 바인딩은](../azure-functions/functions-bindings-event-grid.md) 기본적으로 CloudEvents을 지원 하지 않으므로 HTTP로 트리거되는 함수를 사용 하 여 CloudEvents 메시지를 읽습니다. HTTP 트리거를 사용 하 여 CloudEvents를 읽는 경우 Event Grid 트리거가 자동으로 수행 하는 작업에 대 한 코드를 작성 해야 합니다.
+[Azure Functions 이벤트 그리드 바인딩은](../azure-functions/functions-bindings-event-grid.md) 기본적으로 CloudEvents를 지원하지 않으므로 HTTP 트리거 함수는 CloudEvents 메시지를 읽는 데 사용됩니다. HTTP 트리거를 사용하여 CloudEvents를 읽을 때 이벤트 그리드 트리거가 자동으로 수행하는 일에 대한 코드를 작성해야 합니다.
 
 * 유효성 검사 응답을 [구독 유효성 검사 요청](../event-grid/security-authentication.md#webhook-event-delivery)으로 보냅니다.
 * 요청 본문에 포함된 이벤트 배열의 요소별로 한 번씩 함수를 호출합니다.
@@ -157,35 +157,27 @@ HTTP 트리거에 대한 다음 샘플 C# 코드는 Event Grid 트리거 동작�
 
 ```csharp
 [FunctionName("HttpTrigger")]
-public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)]HttpRequestMessage req, ILogger log)
+public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", "options", Route = null)]HttpRequestMessage req, ILogger log)
 {
     log.LogInformation("C# HTTP trigger function processed a request.");
+    if (req.Method == "OPTIONS")
+    {
+        // If the request is for subscription validation, send back the validation code
+        
+        var response = req.CreateResponse(HttpStatusCode.OK);
+        response.Add("Webhook-Allowed-Origin", "eventgrid.azure.net");
+
+        return response;
+    }
 
     var requestmessage = await req.Content.ReadAsStringAsync();
     var message = JToken.Parse(requestmessage);
 
-    if (message.Type == JTokenType.Array)
-    {
-        // If the request is for subscription validation, send back the validation code.
-        if (string.Equals((string)message[0]["eventType"],
-        "Microsoft.EventGrid.SubscriptionValidationEvent",
-        System.StringComparison.OrdinalIgnoreCase))
-        {
-            log.LogInformation("Validate request received");
-            return req.CreateResponse<object>(new
-            {
-                validationResponse = message[0]["data"]["validationCode"]
-            });
-        }
-    }
-    else
-    {
-        // The request is not for subscription validation, so it's for an event.
-        // CloudEvents schema delivers one event at a time.
-        log.LogInformation($"Source: {message["source"]}");
-        log.LogInformation($"Time: {message["eventTime"]}");
-        log.LogInformation($"Event data: {message["data"].ToString()}");
-    }
+    // The request is not for subscription validation, so it's for an event.
+    // CloudEvents schema delivers one event at a time.
+    log.LogInformation($"Source: {message["source"]}");
+    log.LogInformation($"Time: {message["eventTime"]}");
+    log.LogInformation($"Event data: {message["data"].ToString()}");
 
     return req.CreateResponse(HttpStatusCode.OK);
 }
@@ -196,15 +188,18 @@ HTTP 트리거에 대한 다음 샘플 JavaScript 코드는 Event Grid 트리거
 ```javascript
 module.exports = function (context, req) {
     context.log('JavaScript HTTP trigger function processed a request.');
-
-    var message = req.body;
-    // If the request is for subscription validation, send back the validation code.
-    if (message.length > 0 && message[0].eventType == "Microsoft.EventGrid.SubscriptionValidationEvent") {
+    
+    if (req.method == "OPTIONS) {
+        // If the request is for subscription validation, send back the validation code
+        
         context.log('Validate request received');
-        var code = message[0].data.validationCode;
         context.res = { status: 200, body: { "ValidationResponse": code } };
+        context.res.headers.append('Webhook-Allowed-Origin', 'eventgrid.azure.net');
     }
-    else {
+    else
+    {
+        var message = req.body;
+        
         // The request is not for subscription validation, so it's for an event.
         // CloudEvents schema delivers one event at a time.
         var event = JSON.parse(message);
@@ -212,6 +207,7 @@ module.exports = function (context, req) {
         context.log('Time: ' + event.eventTime);
         context.log('Data: ' + JSON.stringify(event.data));
     }
+ 
     context.done();
 };
 ```

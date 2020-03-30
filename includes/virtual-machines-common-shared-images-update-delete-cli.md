@@ -9,22 +9,22 @@ ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 8d0f9866864ca4b02ca6238be2ac44537a586c2d
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67182215"
 ---
 ## <a name="update-resources"></a>리소스 업데이트
 
-몇 가지 제한 사항이에서 업데이트할 수 있습니다. 다음 항목을 업데이트할 수 있습니다. 
+업데이트할 수 있는 내용에는 몇 가지 제한 사항이 있습니다. 다음 항목을 업데이트할 수 있습니다. 
 
 공유 이미지 갤러리:
 - 설명
 
 이미지 정의:
 - 권장 vCPU
-- 권장 되는 메모리
+- 권장 메모리
 - 설명
 - 수명 주기 끝
 
@@ -34,9 +34,9 @@ ms.locfileid: "67182215"
 - 최신에서 제외
 - 수명 주기 끝
 
-지역 복제본을 추가 하려는 경우에 소스 관리 되는 이미지를 삭제 하지 마세요. 원본 관리 되는 이미지의 이미지 버전 추가 지역에 복제 하기 위해 필요 합니다. 
+복제본 영역을 추가하려는 경우 원본 관리 이미지를 삭제하지 마십시오. 이미지 버전을 추가 영역으로 복제하려면 소스 관리 이미지가 필요합니다. 
 
-사용 하 여 갤러리의 설명을 업데이트 ([az sig 업데이트](https://docs.microsoft.com/cli/azure/sig?view=azure-cli-latest#az-sig-update)합니다. 
+(az[sig 업데이트)](https://docs.microsoft.com/cli/azure/sig?view=azure-cli-latest#az-sig-update)를 사용하여 갤러리의 설명을 업데이트합니다. 
 
 ```azurecli-interactive
 az sig update \
@@ -46,7 +46,7 @@ az sig update \
 ```
 
 
-사용 하 여 이미지 정의에 대 한 설명을 업데이트할 [az sig 이미지 정의 업데이트](https://docs.microsoft.com/cli/azure/sig/image-definition?view=azure-cli-latest#az-sig-image-definition-update)합니다.
+az sig 이미지 정의 업데이트를 사용하여 이미지 정의 설명을 [업데이트합니다.](https://docs.microsoft.com/cli/azure/sig/image-definition?view=azure-cli-latest#az-sig-image-definition-update)
 
 ```azurecli-interactive
 az sig image-definition update \
@@ -56,7 +56,7 @@ az sig image-definition update \
    --set description="My updated description."
 ```
 
-복제를 사용 하 여 하위 지역을 추가 하는 이미지 버전을 업데이트 [az sig 이미지 버전 업데이트](https://docs.microsoft.com/cli/azure/sig/image-definition?view=azure-cli-latest#az-sig-image-definition-update)합니다. 이미지를 새 지역으로 복제 하는 대로이 변경 시간이 걸립니다.
+[az sig 이미지 버전 업데이트를](https://docs.microsoft.com/cli/azure/sig/image-definition?view=azure-cli-latest#az-sig-image-definition-update)사용하여 복제할 영역을 추가하도록 이미지 버전을 업데이트합니다. 이 변경 은 이미지가 새 영역에 복제될 때 시간이 걸릴 것입니다.
 
 ```azurecli-interactive
 az sig image-version update \
@@ -69,9 +69,9 @@ az sig image-version update \
 
 ## <a name="delete-resources"></a>리소스 삭제
 
-이미지 버전을 먼저 삭제 하 여 역순으로 리소스를 삭제 해야 합니다. 모든 이미지 버전을 삭제 하면 이미지 정의 삭제할 수 있습니다. 모든 이미지 정의 삭제 한 후에 갤러리를 삭제할 수 있습니다. 
+먼저 이미지 버전을 삭제하여 리소스를 역순으로 삭제해야 합니다. 모든 이미지 버전이 삭제되면 이미지 정의를 삭제할 수 있습니다. 모든 이미지 정의가 삭제되면 갤러리를 삭제할 수 있습니다. 
 
-사용 하 여 이미지 버전을 삭제 [az sig 이미지 버전 삭제](https://docs.microsoft.com/cli/azure/sig/image-version?view=azure-cli-latest#az-sig-image-version-delete)합니다.
+az sig 이미지 버전 삭제를 사용하여 [이미지 버전을 삭제합니다.](https://docs.microsoft.com/cli/azure/sig/image-version?view=azure-cli-latest#az-sig-image-version-delete)
 
 ```azurecli-interactive
 az sig image-version delete \
@@ -81,7 +81,7 @@ az sig image-version delete \
    --gallery-image-version 1.0.0 
 ```
 
-사용 하 여 이미지 정의 삭제 [az sig 이미지 정의 삭제](https://docs.microsoft.com/cli/azure/sig/image-definition?view=azure-cli-latest#az-sig-image-definition-delete)합니다.
+az sig 이미지 정의 삭제를 사용하여 [이미지 정의를 삭제합니다.](https://docs.microsoft.com/cli/azure/sig/image-definition?view=azure-cli-latest#az-sig-image-definition-delete)
 
 ```azurecli-interactive
 az sig image-definition delete \
@@ -91,7 +91,7 @@ az sig image-definition delete \
 ```
 
 
-사용 하 여 이미지 갤러리 삭제할 [az sig 삭제](https://docs.microsoft.com/cli/azure/sig?view=azure-cli-latest#az-sig-delete)합니다.
+az sig 삭제를 사용하여 이미지 [갤러리를 삭제합니다.](https://docs.microsoft.com/cli/azure/sig?view=azure-cli-latest#az-sig-delete)
 
 ```azurecli-interactive
 az sig delete \

@@ -15,22 +15,22 @@ ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
 ms.openlocfilehash: ba6f1300353247ef2de99b2bd903bc82665d9a52
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75978151"
 ---
 # <a name="configure-the-always-on-availability-group-on-an-azure-vm-with-powershell"></a>PowerShell을 사용하여 Azure VM에 Always On 가용성 그룹 구성
 > [!div class="op_single_selector"]
 > * [클래식: UI](../classic/portal-sql-alwayson-availability-groups.md)
-> * [클래식: PowerShell](../classic/ps-sql-alwayson-availability-groups.md)
+> * [클래식: 파워쉘](../classic/ps-sql-alwayson-availability-groups.md)
 <br/>
 
 시작하기 전에 이제 Azure Resource Manager 모델에서 이 작업을 완료할 수 있는지 확인하는 것이 좋습니다. 새 배포에는 Azure Resource Manager 모델을 사용하는 것이 좋습니다. [Azure Virtual Machines의 SQL Server Always On 가용성 그룹](../sql/virtual-machines-windows-portal-sql-availability-group-overview.md)을 참조하세요.
 
 > [!IMPORTANT]
-> 대부분의 새로운 배포에서는 Azure Resource Manager 모델을 사용하는 것이 좋습니다. Azure에는 리소스를 만들고 작업하는 [Resource Manager와 클래식](../../../azure-resource-manager/management/deployment-models.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다.
+> 대부분의 새로운 배포에서는 Azure Resource Manager 모델을 사용하는 것이 좋습니다. Azure에는 리소스 를 만들고 작업하기 위한 두 가지 배포 모델( [리소스 관리자 및 클래식.](../../../azure-resource-manager/management/deployment-models.md) 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다.
 
 Azure Virtual Machines(VM)는 데이터베이스 관리자가 고가용성 SQL Server 시스템의 비용을 절감하도록 도와줍니다. 이 자습서에서는 Azure 환경 내에서 엔드투엔드 SQL Server Always On을 사용하여 가용성 그룹을 구현하는 방법을 보여줍니다. 자습서 마지막에서 Azure의 SQL Server Always On 솔루션은 다음 요소로 구성됩니다.
 
@@ -46,7 +46,7 @@ Azure Virtual Machines(VM)는 데이터베이스 관리자가 고가용성 SQL S
 
 * 가상 머신 구독이 포함된 Azure 계정이 이미 있습니다.
 * [Azure PowerShell cmdlet](/powershell/azure/overview)이 설치되어 있습니다.
-* 온-프레미스 솔루션에 대한 Always On 가용성 그룹을 확실하게 이해하고 있습니다. 자세한 내용은 [Always On 가용성 그룹(SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx)을 참조하세요.
+* 온-프레미스 솔루션에 대한 Always On 가용성 그룹을 확실하게 이해하고 있습니다. 자세한 내용은 [SQL Server(가용성 그룹)에 항상](https://msdn.microsoft.com/library/hh510230.aspx)표시를 참조하십시오.
 
 ## <a name="connect-to-your-azure-subscription-and-create-the-virtual-network"></a>Azure 구독에 연결하고 가상 네트워크 만들기
 1. 로컬 컴퓨터의 PowerShell 창에서 Azure 모듈을 가져오고, 게시 설정 파일을 사용자 컴퓨터에 다운로드한 다음 다운로드한 게시 설정을 가져와서 PowerShell 세션을 Azure 구독에 연결합니다.
@@ -84,7 +84,7 @@ Azure Virtual Machines(VM)는 데이터베이스 관리자가 고가용성 SQL S
 
    * **$storageAccountName** 및 **$dcServiceName** 변수는 인터넷에서 각각 클라우드 스토리지 계정 및 클라우드 서버를 식별하는 데 사용되므로 고유해야 합니다.
    * **$affinityGroupName** 및 **$virtualNetworkName** 변수에 지정하는 이름은 나중에 사용하게 될 가상 네트워크 구성 문서에서 구성됩니다.
-   * **$sqlImageName** 은 SQL Server 2012 Service Pack 1 Enterprise Edition을 포함하는 VM 이미지의 업데이트된 이름을 지정합니다.
+   * **$sqlImageName**은 SQL Server 2012 서비스 팩 1 엔터프라이즈 버전이 포함된 VM 이미지의 업데이트된 이름을 지정합니다.
    * 간단히 하기 위해 이 자습서에서는 전체적으로 **Contoso!000**을 동일한 암호로 사용합니다.
 
 3. 선호도 그룹을 만듭니다.
@@ -100,7 +100,7 @@ Azure Virtual Machines(VM)는 데이터베이스 관리자가 고가용성 SQL S
         Set-AzureVNetConfig `
             -ConfigurationPath $networkConfigPath
 
-    구성 파일은 다음 XML 문서를 포함합니다. 간단히 말해 **ContosoAG**라는 선호도 그룹에 **ContosoNET**이라는 가상 네트워크를 지정합니다. 주소 공간은 **10.10.0.0/16**이고 서브넷 두 개 즉, **10.10.1.0/24** 및**10.10.2.0/24**있으며, 각각 프런트 서브넷 및 백 서브넷입니다. 프런트 서브넷은 Microsoft SharePoint와 같은 클라이언트 애플리케이션을 배치하는 곳입니다. 백 서브넷은 SQL Server VM을 배치할 곳입니다. **$affinityGroupName** 및 **$virtualNetworkName** 변수를 앞에서 변경할 경우 아래의 해당하는 이름도 함께 변경해야 합니다.
+    구성 파일은 다음 XML 문서를 포함합니다. 간단히 말해 **ContosoAG**라는 선호도 그룹에 **ContosoNET**이라는 가상 네트워크를 지정합니다. 주소 공간은 **10.10.0.0/16**이고 서브넷 두 개 즉, **10.10.1.0/24** 및**10.10.2.0/24**있으며, 각각 프런트 서브넷 및 백 서브넷입니다. 프런트 서브넷은 Microsoft SharePoint와 같은 클라이언트 애플리케이션을 배치하는 곳입니다. 백 서브넷은 SQL Server VM을 배치할 곳입니다. **$affinityGroupName** 및 **$virtualNetworkName** 변수를 이전에 변경한 경우 아래의 해당 이름도 변경해야 합니다.
 
         <NetworkConfiguration xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
           <VirtualNetworkConfiguration>
@@ -289,7 +289,7 @@ Azure Virtual Machines(VM)는 데이터베이스 관리자가 고가용성 SQL S
    * **Add-AzureProvisioningConfig**는 VM을 사용자가 만든 Active Directory 도메인에 가입시킵니다.
    * **Set-AzureSubnet**은 백 서브넷에 VM을 배치합니다.
    * **New-AzureVM** 은 새 클라우드 서비스를 만들고 새 클라우드 서비스에 새 Azure VM을 만듭니다. **DnsSettings** 매개 변수는 새 클라우드 서비스에서 서버의 DNS 서버가 IP 주소 **10.10.0.4**를 갖도록 지정합니다. 이 주소는 도메인 컨트롤러 서버의 IP 주소입니다. 이 매개 변수는 클라우드 서비스의 새 VM을 성공적으로 Active Directory 도메인에 연결하기 위해 필요합니다. 이 매개 변수가 없으면 VM이 프로비전된 후 도메인 컨트롤러 서버를 기본 DNS 서버로 사용하도록 VM에서 IPv4 설정을 수동으로 설정하고 VM을 Active Directory 도메인에 가입시켜야 합니다.
-3. 다음 파이프 명령을 실행하여 이름이 **ContosoSQL1** 및 **ContosoSQL2**인 SQL Server VM을 만듭니다.
+3. 다음 파이프된 명령을 실행하여 **ContosoSQL1** 및 **ContosoSQL2**라는 SQL Server VM을 만듭니다.
 
         # Create ContosoSQL1...
         New-AzureVMConfig `
@@ -377,11 +377,11 @@ Azure Virtual Machines(VM)는 데이터베이스 관리자가 고가용성 SQL S
     SQL Server VM이 프로비전되어 실행 중이지만 기본 옵션으로 SQL Server가 설치되어 있습니다.
 
 ## <a name="initialize-the-failover-cluster-vms"></a>장애 조치(Failover) 클러스터 VM 초기화
-이 섹션에서는 장애 조치(Failover) 클러스터 및 SQL Server 설치에 사용할 3개의 서버를 수정해야 합니다. 특히 다음과 같은 혜택이 있습니다.
+이 섹션에서는 장애 조치(Failover) 클러스터 및 SQL Server 설치에 사용할 3개의 서버를 수정해야 합니다. 특히 다음에 대한 내용을 설명합니다.
 
 * 모든 서버: **장애 조치(Failover) 클러스터링** 기능을 설치해야 합니다.
 * 모든 서버: **CORP\Install**을 컴퓨터 **관리자**로 추가해야 합니다.
-* ContosoSQL1 및 ContosoSQL2만 해당: 기본 데이터베이스에서 **CORP\Install**을 **sysadmin** 역할로 추가해야 합니다.
+* ContosoSQL1 및 ContosoSQL2만: 기본 데이터베이스에서 **CORP\Install를** **시스템 관리자** 역할로 추가해야 합니다.
 * ContosoSQL1 및 ContosoSQL2만 해당: **NT AUTHORITY\System**을 다음 권한이 있는 로그인으로 추가해야 합니다.
 
   * 가용성 그룹 변경
@@ -389,41 +389,41 @@ Azure Virtual Machines(VM)는 데이터베이스 관리자가 고가용성 SQL S
   * 서버 상태 보기
 * ContosoSQL1 및 ContosoSQL2만 해당: **TCP** 프로토콜은 이미 SQL Server VM에서 사용하도록 설정되었습니다. 그래도 SQL Server의 원격 액세스를 위해 방화벽을 열어야 합니다.
 
-이제 시작할 준비가 되었습니다. **ContosoQuorum**부터 다음 단계를 수행합니다.
+이제 시작할 준비가 되었습니다. **ContosoQuorum**부터 시작하여 다음 단계를 따르십시오.
 
-1. 원격 데스크톱 파일을 실행하여 **ContosoQuorum** 에 연결합니다. VM을 만들 때 지정한 컴퓨터 관리자의 사용자 이름 **AzureAdmin**과 암호 **Contoso!000**을 사용합니다.
-2. 컴퓨터가 **corp.contoso.com**에 성공적으로 연결되어 있는지 확인합니다.
+1. 원격 데스크톱 파일을 시작하여 **ContosoQuorum**에 연결합니다. VM을 만들 때 지정한 컴퓨터 관리자의 사용자 이름 **AzureAdmin**과 암호 **Contoso!000**을 사용합니다.
+2. 컴퓨터가 **corp.contoso.com**에 성공적으로 연결되었는지 확인합니다.
 3. 계속하기 전에 SQL Server 설치가 자동 초기화 작업 실행을 마칠 때까지 기다립니다.
 4. 관리자 모드에서 PowerShell 창을 엽니다.
 5. Windows 장애 조치 클러스터링 기능을 설치합니다.
 
         Import-Module ServerManager
         Add-WindowsFeature Failover-Clustering
-6. **CORP\Install**을 로컬 관리자로 추가합니다.
+6. 로컬 관리자로 **CORP\Install**을 추가합니다.
 
         net localgroup administrators "CORP\Install" /Add
 7. ContosoQuorum에서 로그아웃합니다. 이제 이 서버에서는 작업을 마쳤습니다.
 
         logoff.exe
 
-다음으로 **ContosoSQL1** 및 **ContosoSQL2**를 초기화합니다. 아래 단계를 따릅니다. 이 절차는 SQL Server VM 모두에 동일합니다.
+다음 작업으로, **ContosoSQL1** 및 **ContosoSQL2**를 초기화합니다. 아래 단계를 따릅니다. 이 절차는 SQL Server VM 모두에 동일합니다.
 
 1. 원격 데스크톱 파일을 실행하여두 SQL Server VM에 연결합니다. VM을 만들 때 지정한 컴퓨터 관리자의 사용자 이름 **AzureAdmin**과 암호 **Contoso!000**을 사용합니다.
-2. 컴퓨터가 **corp.contoso.com**에 성공적으로 연결되어 있는지 확인합니다.
+2. 컴퓨터가 **corp.contoso.com**에 성공적으로 연결되었는지 확인합니다.
 3. 계속하기 전에 SQL Server 설치가 자동 초기화 작업 실행을 마칠 때까지 기다립니다.
 4. 관리자 모드에서 PowerShell 창을 엽니다.
 5. Windows 장애 조치 클러스터링 기능을 설치합니다.
 
         Import-Module ServerManager
         Add-WindowsFeature Failover-Clustering
-6. **CORP\Install**을 로컬 관리자로 추가합니다.
+6. 로컬 관리자로 **CORP\Install**을 추가합니다.
 
         net localgroup administrators "CORP\Install" /Add
 7. SQL Server PowerShell 공급자를 가져옵니다.
 
         Set-ExecutionPolicy -Execution RemoteSigned -Force
         Import-Module -Name "sqlps" -DisableNameChecking
-8. 기본 SQL Server 인스턴스에 sysadmin 역할로 **CORP\Install**을 추가합니다.
+8. 기본 SQL Server 인스턴스에 대한 sysadmin 역할로 **CORP\Install**을 추가합니다.
 
         net localgroup administrators "CORP\Install" /Add
         Invoke-SqlCmd -Query "EXEC sp_addsrvrolemember 'CORP\Install', 'sysadmin'" -ServerInstance "."
@@ -443,7 +443,7 @@ Azure Virtual Machines(VM)는 데이터베이스 관리자가 고가용성 SQL S
 마지막으로 가용성 그룹을 구성할 준비가 되었습니다. SQL Server PowerShell 공급자를 사용하여 **ContosoSQL1**에서 모든 작업을 수행하게 됩니다.
 
 ## <a name="configure-the-availability-group"></a>가용성 그룹 구성
-1. 원격 데스크톱 파일을 실행하여 **ContosoSQL1** 에 다시 연결합니다. 컴퓨터 계정을 사용하여 로그인하는 대신 **CORP\Install**로 로그인합니다.
+1. 원격 데스크톱 파일을 시작하여 **ContosoSQL1**에 다시 연결합니다. 컴퓨터 계정을 사용하여 로그인하는 대신 **CORP\Install**로 로그인합니다.
 2. 관리자 모드에서 PowerShell 창을 엽니다.
 3. 다음 변수를 정의합니다.
 

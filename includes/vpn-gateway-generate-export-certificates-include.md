@@ -5,17 +5,17 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 10/10/2019
+ms.date: 03/19/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 1e18223736964b0327a4c8f6ddb73ddb4f58889a
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: e85dc8c079205484db9b7b7c43a0086f69feb3be
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78305047"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80059969"
 ---
-## <a name="rootcert"></a>자체 서명된 루트 인증서 만들기
+## <a name="create-a-self-signed-root-certificate"></a><a name="rootcert"></a>자체 서명된 루트 인증서 만들기
 
 New-SelfSignedCertificate cmdlet을 사용하여 자체 서명된 루트 인증서를 만듭니다. 추가 매개 변수 정보는 [New-SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate)를 참조하세요.
 
@@ -28,9 +28,9 @@ New-SelfSignedCertificate cmdlet을 사용하여 자체 서명된 루트 인증�
    -HashAlgorithm sha256 -KeyLength 2048 `
    -CertStoreLocation "Cert:\CurrentUser\My" -KeyUsageProperty Sign -KeyUsage CertSign
    ```
- 3. 이 루트 인증서를 만든 후에 클라이언트 인증서를 즉시 만들려면 PowerShell 콘솔을 열어 둡니다.
+ 3. 이 루트 인증서를 만든 직후에 클라이언트 인증서를 만들려면 PowerShell 콘솔을 열어 둡니다.
 
-## <a name="clientcert"></a>클라이언트 인증서 생성
+## <a name="generate-a-client-certificate"></a><a name="clientcert"></a>클라이언트 인증서 생성
 
 지점 및 사이트 간을 사용하여 VNet에 연결하는 각 클라이언트 컴퓨터에 클라이언트 인증서가 설치되어 있어야 합니다. 자체 서명된 루트 인증서에서 클라이언트 인증서를 생성한 후 클라이언트 인증서를 내보내고 설치합니다. 클라이언트 인증서가 설치되어 있지 않으면 인증이 실패합니다. 
 
@@ -38,9 +38,9 @@ New-SelfSignedCertificate cmdlet을 사용하여 자체 서명된 루트 인증�
 
 예제에서는 New-SelfSignedCertificate cmdlet을 사용하여 1년 후에 만료되는 클라이언트 인증서를 생성합니다. 클라이언트 인증서에 대해 다른 만료 값을 설정하는 등의 추가 매개 변수 정보는 [New-SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate)를 참조하세요.
 
-### <a name="example-1---powershell-console-session-still-open"></a>예제 1-PowerShell 콘솔 세션이 아직 열려 있습니다.
+### <a name="example-1---powershell-console-session-still-open"></a>예제 1 - PowerShell 콘솔 세션이 여전히 열려 있습니다.
 
-자체 서명된 루트 인증서를 만든 후에 PowerShell 콘솔을 닫지 않은 경우 이 예제를 사용합니다. 이 예제는 이전 섹션에서 계속되며 선언된 ‘$cert’ 변수를 사용합니다. 자체 서명된 루트 인증서를 만든 후 PowerShell 콘솔을 종료했거나 새 PowerShell 콘솔 세션에서 추가 클라이언트 인증서를 생성하려는 경우 [예제 2](#ex2)의 단계를 사용합니다.
+자체 서명된 루트 인증서를 만든 후에 PowerShell 콘솔을 닫지 않은 경우 이 예제를 사용합니다. 이 예제는 이전 섹션에서 계속되며 선언된 ‘$cert’ 변수를 사용합니다. 자체 서명된 루트 인증서를 만든 후 PowerShell 콘솔을 닫았거나 새 PowerShell 콘솔 세션에서 추가 클라이언트 인증서를 만드는 경우 [예제 2의](#ex2)단계를 사용합니다.
 
 샘플을 수정 및 실행하여 클라이언트 인증서를 생성합니다. 다음 예제를 수정하지 않고 실행할 경우 결과적으로 'P2SChildCert'라는 클라이언트 인증서가 만들어집니다.  자식 인증서에 다른 이름을 지정하려는 경우 CN 값을 수정합니다. 이 예제를 실행하는 경우는 TextExtension을 변경하지 마세요. 생성하는 클라이언트 인증서는 컴퓨터의 'Certificates - Current User\Personal\Certificates'에 자동으로 설치됩니다.
 
@@ -52,7 +52,7 @@ New-SelfSignedCertificate -Type Custom -DnsName P2SChildCert -KeySpec Signature 
 -Signer $cert -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.2")
 ```
 
-### <a name="ex2"></a>예 2-새 PowerShell 콘솔 세션
+### <a name="example-2---new-powershell-console-session"></a><a name="ex2"></a>예제 2 - 새 PowerShell 콘솔 세션
 
 추가 클라이언트 인증서를 만들거나 자체 서명된 루트 인증서를 만드는 데 사용한 것과 동일한 PowerShell 세션을 사용하지 않을 경우 다음 단계를 사용합니다.
 
@@ -90,7 +90,7 @@ New-SelfSignedCertificate -Type Custom -DnsName P2SChildCert -KeySpec Signature 
    -Signer $cert -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.2")
    ```
 
-## <a name="cer"></a>루트 인증서 공개 키 (.cer) 내보내기
+## <a name="export-the-root-certificate-public-key-cer"></a><a name="cer"></a>루트 인증서 공개 키(.cer) 내보내기
 
 [!INCLUDE [Export public key](vpn-gateway-certificates-export-public-key-include.md)]
 
@@ -98,6 +98,6 @@ New-SelfSignedCertificate -Type Custom -DnsName P2SChildCert -KeySpec Signature 
 
 자체 서명된 루트 인증서를 내보내고 백업으로 안전하게 저장할 수 있습니다. 필요한 경우 나중에 다른 컴퓨터에 설치하고 더 많은 클라이언트 인증서를 생성할 수 있습니다. 자체 서명된 루트 인증서를 .pfx로 내보내려면 루트 인증서를 선택하고 [클라이언트 인증서 내보내기](#clientexport)에서 설명하는 것과 같은 단계를 사용합니다.
 
-## <a name="clientexport"></a>클라이언트 인증서 내보내기
+## <a name="export-the-client-certificate"></a><a name="clientexport"></a>클라이언트 인증서 내보내기
 
 [!INCLUDE [Export client certificate](vpn-gateway-certificates-export-client-cert-include.md)]

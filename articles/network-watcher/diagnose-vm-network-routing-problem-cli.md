@@ -1,5 +1,5 @@
 ---
-title: VM 네트워크 라우팅 문제 진단-Azure CLI
+title: VM 네트워크 라우팅 문제 진단 - Azure CLI
 titleSuffix: Azure Network Watcher
 description: 이 문서에서는 Azure Network Watcher의 다음 홉 기능을 사용하여 가상 머신 네트워크 라우팅 문제를 진단하는 방법에 대해 알아봅니다.
 services: network-watcher
@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: damendo
 ms.custom: ''
-ms.openlocfilehash: bf4c5e364b7f18b363f9915f54e43c7ea54c33c4
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: ae139ea7aca7c3896fcd7b0acf2bf6673490a2f4
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76834681"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80382905"
 ---
 # <a name="diagnose-a-virtual-machine-network-routing-problem---azure-cli"></a>가상 머신 네트워크 라우팅 문제 진단 - Azure CLI
 
@@ -32,17 +32,17 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 문서에서는 Azure CLI 버전 2.0.28 이상을 실행해야 합니다. 설치되어 있는 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. CLI 버전을 확인한 후 `az login`을 실행하여 Azure와의 연결을 만듭니다. 이 문서에서 CLI 명령은 Bash 셸에서 실행하도록 형식이 지정됩니다.
+Azure CLI를 로컬로 설치하고 사용하도록 선택한 경우 이 문서에서는 Azure CLI 버전 2.0.28 이상을 실행해야 합니다. 설치되어 있는 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. Azure CLI 버전을 확인한 후 `az login` 실행하여 Azure와의 연결을 만듭니다. 이 문서의 Azure CLI 명령은 Bash 셸에서 실행되도록 서식이 지정됩니다.
 
 ## <a name="create-a-vm"></a>VM 만들기
 
-VM을 만들려면 먼저 VM이 포함될 리소스 그룹을 만들어야 합니다. [az group create](/cli/azure/group#az-group-create)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
+VM을 만들려면 먼저 VM이 포함될 리소스 그룹을 만들어야 합니다. [az group create](/cli/azure/group#az-group-create)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *동쪽* 위치에 *myResourceGroup이라는* 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-[az vm create](/cli/azure/vm#az-vm-create)로 VM을 만듭니다. 또한 기본 키 위치에 SSH 키가 없는 경우 해당 명령이 이 키를 만듭니다. 특정 키 집합을 사용하려면 `--ssh-key-value` 옵션을 사용합니다. 다음 예제에서는 *myVm*이라는 VM을 만듭니다.
+[az vm 만들기를 사용하여 VM을 만듭니다.](/cli/azure/vm#az-vm-create) 또한 기본 키 위치에 SSH 키가 없는 경우 해당 명령이 이 키를 만듭니다. 특정 키 집합을 사용하려면 `--ssh-key-value` 옵션을 사용합니다. 다음 예제에서는 *myVm*이라는 VM을 만듭니다.
 
 ```azurecli-interactive
 az vm create \
@@ -52,7 +52,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-VM을 만드는 데 몇 분이 걸립니다. VM이 만들어지고 CLI에서 출력을 반환할 때까지 나머지 단계를 진행하지 마세요.
+VM을 만드는 데 몇 분이 걸립니다. VM이 만들어지고 Azure CLI가 출력을 반환할 때까지 나머지 단계를 계속하지 마십시오.
 
 ## <a name="test-network-communication"></a>네트워크 통신 테스트
 
@@ -85,7 +85,7 @@ az network watcher show-next-hop \
   --out table
 ```
 
-몇 초 후에 결과는 **nextHopType**이 **인터넷**이며, **routeTableId**가 **시스템 경로**임을 알려줍니다. 이 출력 결과를 통해 대상에 대한 유효한 경로가 있음을 알 수 있습니다.
+몇 초 후 출력은 **nextHopType이** **인터넷이고** **routeTableId가** **시스템 경로임을**알려줍니다. 이 출력 결과를 통해 대상에 대한 유효한 경로가 있음을 알 수 있습니다.
 
 VM에서 172.31.0.100으로 아웃바운드 통신을 테스트합니다.
 
@@ -113,7 +113,7 @@ az network nic show-effective-route-table \
 
 반환되는 출력에 다음 텍스트가 포함됩니다.
 
-```azurecli
+```
 {
   "additionalProperties": {
     "disableBgpRoutePropagation": false
@@ -133,7 +133,7 @@ az network nic show-effective-route-table \
 
 그러나 `az network watcher show-next-hop` 명령을 사용하여 172.31.0.100에 대한 아웃바운드 통신을 테스트하는 경우 결과에서 다음 홉 유형이 없음을 알 수 있습니다. 반환되는 출력에서 다음 텍스트를 볼 수 있습니다.
 
-```azurecli
+```
 {
   "additionalProperties": {
     "disableBgpRoutePropagation": false
