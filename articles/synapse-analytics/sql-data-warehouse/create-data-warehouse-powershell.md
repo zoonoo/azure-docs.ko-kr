@@ -1,22 +1,22 @@
 ---
 title: Azure PowerShell을 사용하여 Synapse SQL 풀 만들기 및 쿼리
 description: Azure PowerShell을 사용하여 서버 수준 방화벽 규칙으로 Synapse SQL 풀 논리 서버를 신속하게 만듭니다.
-services: sql-data-warehouse
+services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: quickstart
-ms.subservice: development
+ms.subservice: ''
 ms.date: 4/11/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: b4aa6997188bc8fa1c2d2bdef5641c4149a97307
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 45982c0761fecdb456dba5dc4a5d604972b9c3e5
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80124642"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80349306"
 ---
 # <a name="quickstart-create-and-query-a-synapse-sql-pool-with-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Synapse SQL 풀 만들기 및 쿼리
 

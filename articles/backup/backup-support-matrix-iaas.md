@@ -3,12 +3,12 @@ title: Azure VM Backup의 지원 매트릭스
 description: Azure Backup 서비스를 사용하여 Azure VM을 백업할 때의 지원 설정 및 제한 사항에 대한 요약을 제공합니다.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: c30a1d1b30fcc7a12449b44d35704b3b43daa385
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d86ce94c62ec9f25b364e9fdc963e3043b274722
+ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79247905"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80389293"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM Backup의 지원 매트릭스
 
@@ -115,7 +115,6 @@ DPM/MABS 디스크의 복구 지점 수 | 파일 서버의 경우 64개, 앱 서
 **복원** | **지원됨**
 --- | ---
 운영 체제에서 파일 복원 | 백업된 VM과 동일한(또는 호환되는) OS가 있는 모든 컴퓨터에서 파일을 복원할 수 있습니다. [호환되는 OS 테이블을](backup-azure-restore-files-from-vm.md#system-requirements)참조하십시오.
-클래식 VM에서 파일 복원 | 지원되지 않습니다.
 암호화된 VM에서 파일 복원 | 지원되지 않습니다.
 네트워크 제한 스토리지 계정에서 파일 복원 | 지원되지 않습니다.
 Windows 스토리지 공간을 사용하여 VM에서 파일 복원 | 동일한 VM에서 복원이 지원되지 않습니다.<br/><br/> 대신, 호환되는 VM에서 파일을 복원합니다.

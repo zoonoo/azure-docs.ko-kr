@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: likebupt
 ms.author: keli19
 ms.date: 03/18/2020
-ms.openlocfilehash: 578e935ee742ad476aeafb53670f0a92035249e5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b68efbb64e9634ade001373e8cd9d61355bf786f
+ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80064076"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80388987"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>기계 학습 파이프라인 디버그 및 문제 해결
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -136,8 +136,8 @@ logger.error("I am an OpenCensus error statement with custom dimensions", {'step
 파이프라인 실행을 제출하고 작성 페이지에 머물면 각 모듈에 대해 생성된 로그 파일을 찾을 수 있습니다.
 
 1. 작성 캔버스에서 모듈을 선택합니다.
-1. 모듈의 오른쪽 창에서 **Outputs+ogs** 탭으로 이동합니다.
-1. 로그 파일 선택`70_driver_log.txt`
+1. 모듈의 오른쪽 창에서 출력 + 로그 탭으로 **이동합니다.**
+1. 로그 파일을 `70_driver_log.txt`선택합니다.
 
     ![페이지 모듈 로그 작성](./media/how-to-debug-pipelines/pipelinerun-05.png)
 
@@ -148,8 +148,8 @@ logger.error("I am an OpenCensus error statement with custom dimensions", {'step
 1. 디자이너에서 만든 파이프라인 실행을 선택합니다.
     ![파이프라인 실행 페이지](./media/how-to-debug-pipelines/pipelinerun-04.png)
 1. 미리 보기 창에서 모듈을 선택합니다.
-1. 모듈의 오른쪽 창에서 **Outputs+ogs** 탭으로 이동합니다.
-1. 로그 파일 선택`70_driver_log.txt`
+1. 모듈의 오른쪽 창에서 출력 + 로그 탭으로 **이동합니다.**
+1. 로그 파일을 `70_driver_log.txt`선택합니다.
 
 ## <a name="debug-and-troubleshoot-in-application-insights"></a>애플리케이션 인사이트 디버그 및 문제 해결
 이러한 방식으로 OpenCensus 파이썬 라이브러리를 사용하는 방법에 대한 자세한 내용은 이 가이드: [응용 프로그램 인사이트에서 기계 학습 파이프라인 디버그 및 문제 해결](how-to-debug-pipelines-application-insights.md) 을 참조하십시오.

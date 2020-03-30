@@ -1,22 +1,22 @@
 ---
 title: Azure Portal을 통해 Synapse SQL 풀에서 컴퓨팅 일시 중지 및 다시 시작
 description: Azure Portal을 사용하여 SQL 풀에 대한 컴퓨팅을 일시 중지하고 비용을 절약할 수 있습니다. 데이터 웨어하우스를 사용할 준비가 되면 컴퓨팅을 다시 시작합니다.
-services: sql-data-warehouse
+services: synapse-analytics
 author: kevinvngo
 manager: craigg
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: quickstart
-ms.subservice: manage
+ms.subservice: ''
 ms.date: 04/18/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: e3ab6e623b79e3ec3a35e055d239f6c1937fa8ed
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 55e3d5bf4fb63c35d484e4a764c7eeb2e2484fcf
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79539319"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80350969"
 ---
 # <a name="quickstart-pause-and-resume-compute-in-synapse-sql-pool-via-the-azure-portal"></a>빠른 시작: Azure Portal을 통해 Synapse SQL 풀에서 컴퓨팅 일시 중지 및 다시 시작
 
