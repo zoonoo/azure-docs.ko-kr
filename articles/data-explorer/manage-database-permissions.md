@@ -1,5 +1,5 @@
 ---
-title: Azure 데이터 탐색기에서 데이터베이스 사용 권한 관리
+title: Azure 데이터 탐색기에서 데이터베이스 권한 관리
 description: 이 문서에서는 Azure 데이터 탐색기의 데이터베이스 및 테이블에 대한 역할 기반 액세스 제어에 대해 설명합니다.
 author: orspod
 ms.author: orspodek
@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: b4d5e56e990c0353f44209c6b19ae2d1727de27a
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76030098"
 ---
 # <a name="manage-azure-data-explorer-database-permissions"></a>Azure 데이터 탐색기 데이터베이스 권한 관리
@@ -24,7 +24,7 @@ Azure 데이터 탐색기를 사용하면 *역할 기반 액세스 제어* 모�
 
 Azure 데이터 탐색기에는 다음 역할이 있습니다.
 
-|역할                       |권한                                                                        |
+|역할                       |사용 권한                                                                        |
 |---------------------------|-----------------------------------------------------------------------------------|
 |데이터베이스 관리자             |특정 데이터베이스의 범위에서 모든 작업을 수행할 수 있습니다.|
 |데이터베이스 사용자              |데이터베이스의 모든 데이터 및 메타데이터를 읽을 수 있습니다. 또한 데이터베이스에서 테이블(해당 테이블의 테이블 관리자가 됨) 및 함수를 만들 수 있습니다.|
@@ -36,7 +36,7 @@ Azure 데이터 탐색기에는 다음 역할이 있습니다.
 
 ## <a name="manage-permissions-in-the-azure-portal"></a>Azure Portal에서 권한 관리
 
-1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+1. [Azure 포털에](https://portal.azure.com/)로그인합니다.
 
 1. Azure 데이터 탐색기 클러스터로 이동합니다.
 
@@ -62,7 +62,7 @@ Azure 데이터 탐색기에는 다음 역할이 있습니다.
 
 ## <a name="manage-permissions-with-management-commands"></a>관리 명령으로 권한 관리
 
-1. [https://dataexplorer.azure.com](https://dataexplorer.azure.com)에 로그인하고 클러스터가 없는 경우 클러스터를 추가합니다.
+1. 에 로그인하고 [https://dataexplorer.azure.com](https://dataexplorer.azure.com)아직 사용할 수 없는 클러스터를 추가합니다.
 
 1. 왼쪽 창에서 적절한 데이터베이스를 선택합니다.
 
@@ -74,7 +74,7 @@ Azure 데이터 탐색기에는 다음 역할이 있습니다.
 
     명령의 출력은 데이터베이스에서 기존 사용자 및 해당 사용자가 할당된 역할의 목록을 표시합니다.
     
-    Azure Active Directory 및 Kusto 권한 부여 모델과 관련 된 예는 [원칙 및 Id 공급자](https://docs.microsoft.com/azure/kusto/management/access-control/principals-and-identity-providers) 를 참조 하세요.
+    Azure Active Directory 및 Kusto 권한 부여 모델과 관련된 예제는 [원칙 및 ID 공급자를](https://docs.microsoft.com/azure/kusto/management/access-control/principals-and-identity-providers) 참조하십시오.
 
 ## <a name="next-steps"></a>다음 단계
 

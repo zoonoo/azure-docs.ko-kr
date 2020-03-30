@@ -1,15 +1,15 @@
 ---
-title: StorageAccountSelector UI 요소
+title: 스토리지계정선택기 UI 요소
 description: Azure Portal의 Microsoft.Storage.StorageAccountSelector UI 요소에 대해 설명합니다.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 06/28/2018
 ms.author: tomfitz
 ms.openlocfilehash: 4fcaf0e5842ce8a65175d2fc1dfa2483a1203b2f
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75651892"
 ---
 # <a name="microsoftstoragestorageaccountselector-ui-element"></a>Microsoft.Storage.StorageAccountSelector UI 요소
@@ -65,7 +65,7 @@ ms.locfileid: "75651892"
 - 지정하는 경우 `defaultValue.name`의 고유성에 대한 유효성 검사가 자동으로 수행됩니다. 스토리지 계정 이름이 고유하지 않으면 사용자가 다른 이름을 지정하거나 기존 스토리지 계정을 선택해야 합니다.
 - `defaultValue.type`의 기본값은 **Premium_LRS**입니다.
 - `constraints.allowedTypes`에 지정되지 않은 형식은 숨겨지며, `constraints.excludedTypes`에 지정되지 않은 형식이 표시됩니다. `constraints.allowedTypes` 및 `constraints.excludedTypes`는 모두 선택 사항이지만 동시에 사용할 수는 없습니다.
-- `options.hideExisting`이 **true**이면 사용자가 기존 스토리지 계정을 선택할 수 없습니다. 기본 값은 **false**입니다.
+- `options.hideExisting`이 **true**이면 사용자가 기존 스토리지 계정을 선택할 수 없습니다. 기본값은 **false**입니다.
 
 ## <a name="next-steps"></a>다음 단계
 * UI 정의 만들기에 대한 소개는 [CreateUiDefinition 시작](create-uidefinition-overview.md)을 참조하세요.

@@ -10,10 +10,10 @@ ms.date: 05/23/2018
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: 55e57d12b6d632f19318f221a49668804724e865
-ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67659853"
 ---
 다음 표에서는 각 개발 환경에서 이 바인딩에 대한 지원을 추가하는 방법을 보여줍니다.

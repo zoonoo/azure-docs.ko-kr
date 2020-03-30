@@ -5,16 +5,16 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: alkohli
 ms.openlocfilehash: b657ee32e76dd90671f7e91337ced01b925889a1
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67182662"
 ---
-모든 장치 문제가 있는 경우에 시스템 로그에서 지원 패키지를 만들 수 있습니다. Microsoft 지원에서 문제를 해결 하려면이 패키지를 사용 합니다. 지원 패키지를 만들려면 다음이 단계를 수행 합니다.
+장치 문제가 발생하면 시스템 로그에서 지원 패키지를 만들 수 있습니다. Microsoft 지원은 이 패키지를 사용하여 문제를 해결합니다. 다음 단계에 따라 지원 패키지를 만듭니다.
 
-1. [장치의 PowerShell 인터페이스를 연결할](#connect-to-the-powershell-interface)합니다.
-2. 사용 된 `Get-HcsNodeSupportPackage` 지원 패키지 만들기 명령을 합니다. Cmdlet의 사용법은 다음과 같습니다.
+1. [장치의 PowerShell 인터페이스에 연결합니다.](#connect-to-the-powershell-interface)
+2. `Get-HcsNodeSupportPackage` 명령을 사용하여 지원 패키지를 만듭니다. cmdlet의 사용은 다음과 같습니다.
 
     ```powershell
     Get-HcsNodeSupportPackage [-Path] <string> [-Zip] [-ZipFileName <string>] [-Include {None | RegistryKeys | EtwLogs
@@ -27,15 +27,15 @@ ms.locfileid: "67182662"
             [-IncludeArchived] [-IncludePeriodicStats] [-Credential <pscredential>]  [<CommonParameters>]
     ```
 
-    Cmdlet은 장치에서 로그를 수집 하 고 지정 된 네트워크 또는 로컬 공유에 이러한 로그를 복사 합니다.
+    cmdlet은 장치에서 로그를 수집하고 해당 로그를 지정된 네트워크 또는 로컬 공유로 복사합니다.
 
-    사용 된 매개 변수는 다음과 같습니다.
+    사용되는 매개 변수는 다음과 같습니다.
 
-    - `-Path` -네트워크 또는 지원 패키지를 복사 하려면 로컬 경로 지정 합니다. (필수)
-    - `-Credential` -보호 된 경로 액세스할 자격 증명을 지정 합니다.
-    - `-Zip` -Zip 파일을 생성 하도록 지정 합니다.
-    - `-Include` -지원 패키지에 포함 될 구성 요소를 포함 하도록 지정 합니다. 지정 하지 않으면 `Default` 것으로 간주 됩니다.
-    - `-IncludeArchived` -지원 패키지에 보관 된 로그를 포함 하도록 지정 합니다.
-    - `-IncludePeriodicStats` -Stat 정기적인 로그 지원 패키지에 포함 하도록 지정 합니다.
+    - `-Path`- 지원 패키지를 복사할 네트워크 또는 로컬 경로를 지정합니다. (필수)
+    - `-Credential`- 보호된 경로에 액세스할 자격 증명을 지정합니다.
+    - `-Zip`- zip 파일을 생성하도록 지정합니다.
+    - `-Include`- 지원 패키지에 포함할 구성 요소를 포함하도록 지정합니다. 지정하지 않으면 `Default` 가정됩니다.
+    - `-IncludeArchived`- 지원 패키지에 보관된 로그를 포함하도록 지정합니다.
+    - `-IncludePeriodicStats`- 지원 패키지에 주기적인 통계 로그를 포함하도록 지정합니다.
 
     

@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric 보안에 대 한 모범 사례
+title: Azure 서비스 패브릭 보안을 위한 모범 사례
 description: 이 문서에서는 Azure Service Fabric 보안을 위한 여러 모범 사례를 제공합니다.
 author: unifycloud
 ms.author: tomsh
@@ -8,16 +8,16 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 01/16/2019
 ms.openlocfilehash: 458a1d474e9a722a98ca068e1827cf0e1abf4b47
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75548822"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Azure Service Fabric 보안 모범 사례
 Azure에 애플리케이션을 배포하는 것은 빠르고, 쉽고, 비용 효율적입니다. 프로덕션에 클라우드 애플리케이션을 배포하기 전에 애플리케이션에서 보안 클러스터를 구현하기 위한 필수 및 권장 모범 사례의 목록을 검토합니다.
 
-Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하고 안정성이 뛰어난 마이크로 서비스를 관리하는 분산된 시스템 플랫폼입니다. 또한 서비스 패브릭은 클라우드 애플리케이션 개발 및 관리에서 발생하는 중요한 과제를 해결합니다. 개발자와 관리자가 복잡한 인프라 문제를 피하고, 업무 수행에 필수적인 까다로운 워크로드를 확장 가능하고 신뢰할 수 있으며 관리가 가능하도록 구현하는 데 집중할 수 있습니다.
+Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하고 안정성이 뛰어난 마이크로 서비스를 관리하는 분산된 시스템 플랫폼입니다. 또한 서비스 패브릭은 클라우드 애플리케이션 개발 및 관리에서 발생하는 중요한 과제를 해결합니다. 개발자와 관리자가 복잡한 인프라 문제를 피하고 업무 수행에 필수적인 까다로운 워크로드를 확장 가능하고 신뢰할 수 있으며 관리가 가능하도록 구현하는 데 집중할 수 있습니다.
 
 각 모범 사례에 대해 다음과 같이 설명합니다.
 
@@ -119,7 +119,7 @@ Service Fabric의 경우 행위자는 Reliable Actors 애플리케이션 프레�
 복제자 구성은 행위자 상태 제공자의 상태를 매우 안정적으로 만드는 작업을 담당하는 복제자를 구성합니다.
 
 ## <a name="configure-ssl-for-azure-service-fabric"></a>Azure Service Fabric에 대해 SSL 구성
-서버 인증 프로세스는 관리 클라이언트에 대해 클러스터 관리 엔드포인트를 [인증](../../service-fabric/service-fabric-cluster-creation-via-arm.md)합니다. 그러면 관리 클라이언트가 실제 클러스터와 통신하고 있음을 인식합니다. 이 인증은 HTTPS 관리 API 및 HTTPS를 통한 Service Fabric Explorer용 [SSL](../../service-fabric/service-fabric-cluster-creation-via-arm.md)도 제공합니다.
+서버 인증 프로세스는 관리 클라이언트에 대해 클러스터 관리 엔드포인트를 [인증](../../service-fabric/service-fabric-cluster-creation-via-arm.md)합니다. 그러면 관리 클라이언트가 실제 클러스터와 통신하고 있음을 인식합니다. 또한 이 인증서는 HTTPS 관리 API 및 HTTPS를 통해 서비스 패브릭 탐색기용 [SSL을](../../service-fabric/service-fabric-cluster-creation-via-arm.md) 제공합니다.
 클러스터에 대한 사용자 지정 도메인 이름을 획득해야 합니다. 인증 기관으로부터 인증서를 요청하는 경우 인증서의 주체 이름이 클러스터에 사용되는 사용자 지정 도메인 이름과 일치해야 합니다.
 
 애플리케이션에 대해 SSL을 구성하려면 먼저 CA에서 서명한 SSL 인증서를 얻어야 합니다. CA가 SSL 보안 목적을 위해 인증서를 발급하는 신뢰할 수 있는 타사입니다. SSL 인증서가 아직 없는 경우 SSL 인증서를 판매하는 회사에서 구입해야 합니다.
@@ -132,10 +132,10 @@ Service Fabric의 경우 행위자는 Reliable Actors 애플리케이션 프레�
 -   인증서의 주체 이름은 클라우드 서비스 액세스에 사용되는 도메인 이름과 일치해야 합니다.
 
     - 클라우드 서비스에 액세스할 때 사용할 사용자 지정 도메인 이름을 획득합니다.
-    - 서비스의 사용자 지정 도메인 이름과 일치하는 주체 이름을 가진 CA로부터 인증서를 요청합니다. 예를 들어 사용자 지정 도메인 이름이 __contoso__ **.com**인 경우 CA로부터 받은 인증서에 **.contoso.com** 또는 __www__ **.contoso.com**의 주체 이름이 있어야 합니다.
+    - 서비스의 사용자 지정 도메인 이름과 일치하는 주체 이름을 가진 CA로부터 인증서를 요청합니다. 예를 들어 사용자 지정 도메인 이름이 __contoso__**.com**인 경우 CA로부터 받은 인증서에 **.contoso.com** 또는 __www__**.contoso.com**의 주체 이름이 있어야 합니다.
 
     >[!NOTE]
-    >__cloudapp__ **.net** 도메인에 사용되는 SSL 인증서는 CA에서 얻을 수 없습니다.
+    >__cloudapp__**.net** 도메인에 사용되는 SSL 인증서는 CA에서 얻을 수 없습니다.
 
 -   인증서는 최소한 2,048비트 암호화를 사용해야 합니다.
 
@@ -169,7 +169,7 @@ Service Fabric은 클러스터에 보안을 적용하고 애플리케이션 보�
 키 자격 증명 모음 설정 방법에 대한 자세한 내용은 [Azure Key Vault란?](../../key-vault/key-vault-overview.md)을 참조하세요.
 
 ## <a name="assign-users-to-roles"></a>역할에 사용자 할당
-클러스터를 나타내는 응용 프로그램을 만든 후에는 Service Fabric에서 지 원하는 역할 (읽기 전용 및 관리자)에 사용자를 할당 합니다. Azure Portal를 사용 하 여 이러한 역할을 할당할 수 있습니다.
+클러스터를 나타내는 응용 프로그램을 만든 후 서비스 패브릭에서 지원하는 역할( 읽기 전용 및 관리자)에 사용자를 할당합니다. Azure 포털을 사용하여 이러한 역할을 할당할 수 있습니다.
 
 >[!NOTE]
 > Service Fabric에서 역할 사용에 대한 자세한 내용은 [Service Fabric 클라이언트의 역할 기반 액세스 제어](../../service-fabric/service-fabric-cluster-security-roles.md)를 참조하세요.

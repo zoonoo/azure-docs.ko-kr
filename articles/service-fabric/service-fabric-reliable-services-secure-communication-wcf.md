@@ -1,15 +1,15 @@
 ---
-title: WCF 기반 서비스 통신 보안
+title: 안전한 WCF 기반 서비스 통신
 description: Azure Service Fabric 클러스터에서 실행되는 안정적인 서비스를 위해 WCF 기반 통신을 보호하는 방법을 알아봅니다.
 author: suchiagicha
 ms.topic: conceptual
 ms.date: 04/20/2017
 ms.author: pepogors
 ms.openlocfilehash: ca5eafa4612503a13f80b7f238e4827979c0358b
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75614165"
 ---
 # <a name="secure-wcf-based-communications-for-a-service"></a>서비스에 대한 WCF 기반 통신 보호

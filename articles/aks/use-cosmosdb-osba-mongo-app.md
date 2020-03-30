@@ -9,10 +9,10 @@ ms.author: zarhoads
 ms.custom: mvc
 keywords: Cosmos DB, Open Service Broker, Open Service Broker for Azure
 ms.openlocfilehash: ddaa3b9aa198bc142e1bcbcab6b7b1e028eff2aa
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78247930"
 ---
 # <a name="integrate-existing-mongodb-application-with-azure-cosmos-db-api-for-mongodb-and-open-service-broker-for-azure-osba"></a>기존 MongoDB 애플리케이션을 MongoDB용 Azure Cosmos DB API 및 OSBA(Open Service Broker for Azure)와 통합
@@ -187,7 +187,7 @@ java -jar -Dspring.profiles.active=mongodb build/libs/spring-music-1.0.jar
 
 ## <a name="run-your-application-on-your-aks-cluster"></a>AKS 클러스터에서 애플리케이션 실행
 
-[Azure Dev Spaces](../dev-spaces/azure-dev-spaces.md)를 사용하여 애플리케이션을 AKS 클러스터에 배포할 수 있습니다. Azure Dev Spaces는 Dockerfiles 및 투구 차트와 같은 아티팩트를 생성 하 고 AKS에서 응용 프로그램을 배포 및 실행 하는 데 도움이 됩니다.
+[Azure Dev Spaces](../dev-spaces/azure-dev-spaces.md)를 사용하여 애플리케이션을 AKS 클러스터에 배포할 수 있습니다. Azure 개발자 공간은 Dockerfiles 및 Helm 차트와 같은 아티팩트를 생성하고 AKS에서 응용 프로그램을 배포및 실행하는 데 도움이 됩니다.
 
 AKS 클러스터에서 Azure Dev Spaces를 사용하도록 설정하려면 다음을 수행합니다.
 
@@ -265,7 +265,7 @@ press Ctrl+C to detach
 ...
 ```
 
-로그에 표시된 URL로 이동합니다. 위 예제에서는 *http://spring-music.1234567890abcdef1234.eastus.aksapp.io/* 를 사용합니다. 
+로그에 표시된 URL로 이동합니다. 앞의 예제에서는 을 사용합니다. *http://spring-music.1234567890abcdef1234.eastus.aksapp.io/* 
 
 애플리케이션이 변경 내용과 함께 표시되는지 확인합니다.
 

@@ -1,6 +1,6 @@
 ---
-title: 데이터 수정을 위해 Azure Table storage 디자인 | Microsoft Docs
-description: Azure 테이블 저장소에서 데이터를 수정 하기 위한 테이블을 디자인 합니다.
+title: 데이터 수정을 위한 Azure 테이블 저장소 디자인 | 마이크로 소프트 문서
+description: Azure 테이블 저장소에서 데이터 수정을 위한 테이블을 디자인합니다.
 services: storage
 author: MarkMcGeeAtAquent
 ms.service: storage
@@ -9,10 +9,10 @@ ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
 ms.openlocfilehash: c95be7afae5c0a84c06b691c8225f32f2aa68260
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75771549"
 ---
 # <a name="design-for-data-modification"></a>데이터 수정을 위한 디자인
@@ -34,13 +34,13 @@ ms.locfileid: "75771549"
 [테이블 디자인 패턴](table-storage-design-patterns.md) 아티클의 다음 패턴은 일관성 관리를 다룹니다.  
 
 * [파티션 간 보조 인덱스 패턴](table-storage-design-patterns.md#intra-partition-secondary-index-pattern) - 서로 다른 **RowKey** 값을 사용하여 각 엔터티의 여러 복사본을 동일한 파티션에 저장하여 빠르고 효율적인 조회를 지원하며, 서로 다른 **RowKey** 값을 사용하여 대체 정렬 순서를 허용합니다.  
-* [파티션 간 보조 인덱스 패턴](table-storage-design-patterns.md#inter-partition-secondary-index-pattern) - 서로 다른 RowKey 값을 사용하여 각 엔터티의 여러 복사본을 별도의 파티션과 별도의 테이블에 저장하여 빠르고 효율적인 조회를 지원하며, 서로 다른 **RowKey** 값을 사용하여 대체 정렬 순서를 허용합니다.  
+* [파티션 간 보조 인덱스 패턴](table-storage-design-patterns.md#inter-partition-secondary-index-pattern) - 서로 다른 **RowKey** 값을 사용하여 각 엔터티의 여러 복사본을 별도의 파티션과 별도의 테이블에 저장하여 빠르고 효율적인 조회를 지원하며, 서로 다른 RowKey 값을 사용하여 대체 정렬 순서를 허용합니다.  
 * [결과적으로 일관성 있는 트랜잭션 패턴](table-storage-design-patterns.md#eventually-consistent-transactions-pattern) - Azure 큐를 사용하여 파티션 경계 또는 스토리지 시스템 경계 간에 결과적으로 일관성 있는 동작을 지원합니다.
-* [인덱스 엔터티 패턴](table-storage-design-patterns.md#index-entities-pattern) - 인덱스 엔터티를 유지 관리하여 엔터티 목록을 반환하는 효율적인 검색을 지원합니다.  
+* [인덱스 엔터티 패턴](table-storage-design-patterns.md#index-entities-pattern) - 엔터티 목록을 반환하는 효율적인 검색을 사용하도록 인덱스 엔터티를 유지 관리합니다.  
 * [비정규화 패턴](table-storage-design-patterns.md#denormalization-pattern) - 관련 데이터를 단일 엔터티에 함께 통합하여 단일 지점 쿼리로 필요한 모든 데이터를 검색할 수 있습니다.  
 * [데이터 계열 패턴](table-storage-design-patterns.md#data-series-pattern) - 전체 데이터 계열을 단일 엔터티에 저장하여 요청 수를 최소화합니다.  
 
-엔터티 그룹 트랜잭션에 대한 자세한 내용은 [엔터티 그룹 트랜잭션](table-storage-design.md#entity-group-transactions)섹션을 참조하세요.  
+엔터티 그룹 트랜잭션에 대한 자세한 내용은 [엔터티 그룹 트랜잭션](table-storage-design.md#entity-group-transactions)섹션을 참조하십시오.  
 
 ## <a name="ensure-your-design-for-efficient-modifications-facilitates-efficient-queries"></a>효율적인 수정을 위한 디자인이 효율적인 쿼리에도 유용
 대부분의 경우 효율적인 쿼리를 위한 디자인은 효율적인 수정으로 이어지지만 항상 특정 시나리오에 이 사항이 적용되는지 평가해야 합니다. [테이블 디자인 패턴](table-storage-design-patterns.md) 아티클의 일부 패턴은 엔터티 쿼리와 수정 간의 장단점을 명시적으로 평가하므로 항상 각 작업 유형 수를 고려해야 합니다.  

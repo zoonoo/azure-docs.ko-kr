@@ -1,13 +1,13 @@
 ---
-title: 컨테이너에 인증서 가져오기
+title: 인증서를 컨테이너로 가져오기
 description: 이제 Service Fabric 컨테이너 서비스에 인증서 파일을 가져오는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: da4babd8f9d1a25a8514d0c6f1526b43a9723854
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75614114"
 ---
 # <a name="import-a-certificate-file-into-a-container-running-on-service-fabric"></a>Service Fabric에서 실행되는 컨테이너에 인증서 파일 가져오기

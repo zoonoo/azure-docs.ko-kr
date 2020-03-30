@@ -1,16 +1,16 @@
 ---
 title: 콘텐츠 형식 처리
-description: Azure Logic Apps에서 디자인 타임 및 런타임에 워크플로의 다양 한 콘텐츠 형식을 처리 하는 방법에 대해 알아봅니다.
+description: Azure Logic Apps에서 디자인 시간 및 실행 시간 동안 워크플로에서 다양한 콘텐츠 유형을 처리하는 방법을 알아봅니다.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 07/20/2018
 ms.openlocfilehash: ae0abe288edda2ce01311d8533b1f104409efce0
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75666876"
 ---
 # <a name="handle-content-types-in-azure-logic-apps"></a>Azure Logic Apps에서 콘텐츠 형식 처리
@@ -59,7 +59,7 @@ Logic Apps는 JSON 콘텐츠의 속성을 나타내는 친숙한 토큰을 생�
   
   1. 요청 트리거에서 **샘플 페이로드를 사용하여 스키마 생성**을 선택합니다.  
   
-  2. **샘플 JSON 페이로드를 입력하거나 붙여넣기**에서 샘플 페이로드를 입력하고 **완료**를 선택합니다. 예: 
+  2. **샘플 JSON 페이로드를 입력하거나 붙여넣기**에서 샘플 페이로드를 입력하고 **완료**를 선택합니다. 예를 들어: 
 
      ![샘플 JSON 페이로드 입력](./media/logic-apps-content-type/request-trigger.png)
 
@@ -101,7 +101,7 @@ Logic Apps는 JSON 콘텐츠의 속성을 나타내는 친숙한 토큰을 생�
 
   3. 요청에서, `Content-Type` 헤더를 포함하고 헤더 값을 `application/json`으로 설정합니다.
 
-* **JSON 구문 분석 작업**
+* **Parse JSON 작업**
 
   논리 앱 디자이너에서 이 작업을 사용할 때 JSON 출력을 구문 분석하고 JSON 콘텐츠의 속성을 나타내는 친숙한 토큰을 생성할 수 있습니다. 
   그 후 이러한 속성을 논리 앱 워크플로 전체에서 간편하게 참조하고 사용할 수 있습니다. 요청 트리거와 마찬가지로, 구문 분석할 JSON 콘텐츠를 설명하는 JSON 스키마를 입력하거나 생성할 수 있습니다. 
@@ -140,12 +140,12 @@ Logic Apps는 항상 수신한 HTTP 요청 또는 응답의 `Content-Type`을 �
 * `xml()`: 데이터를 `application/xml`로 캐스팅합니다.
 * `binary()`: 데이터를 `application/octet-stream`로 캐스팅합니다.
 * `string()`: 데이터를 `text/plain`로 캐스팅합니다.
-* `base64()`: 콘텐츠를 b a s e 64로 인코딩된 문자열로 변환 합니다.
-* `base64toString()`: b a s e 64로 인코딩된 문자열을 `text/plain` 변환
-* `base64toBinary()`: b a s e 64로 인코딩된 문자열을 `application/octet-stream` 변환
-* `dataUri()`: 문자열을 데이터 URI로 변환 합니다.
-* `dataUriToBinary()`: 데이터 URI를 이진 문자열로 변환 합니다.
-* `dataUriToString()`: 데이터 URI를 문자열로 변환 합니다.
+* `base64()`: 콘텐츠를 base64 인코딩된 문자열로 변환합니다.
+* `base64toString()`: base64 인코딩된 문자열을`text/plain`
+* `base64toBinary()`: base64 인코딩된 문자열을`application/octet-stream`
+* `dataUri()`: 문자열을 데이터 URI로 변환합니다.
+* `dataUriToBinary()`: 데이터 URI를 이진 문자열로 변환합니다.
+* `dataUriToString()`: 데이터 URI를 문자열로 변환합니다.
 
 예를 들어 이 콘텐츠처럼 `Content-Type`이 `application/xml`로 설정된 HTTP 요청을 받는 경우:
 

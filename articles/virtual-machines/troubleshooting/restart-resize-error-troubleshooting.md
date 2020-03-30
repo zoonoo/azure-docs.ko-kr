@@ -14,10 +14,10 @@ ms.date: 06/15/2018
 ms.author: delhan
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a6532558107463311c4225b9855bc4cd3f19eed9
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75965620"
 ---
 # <a name="troubleshoot-deployment-issues-with-restarting-or-resizing-an-existing-windows-vm-in-azure"></a>Azure에서 기존 Windows VM 재시작 또는 크기 조정 관련 배포 문제 해결
@@ -38,10 +38,10 @@ ms.locfileid: "75965620"
 ### <a name="cause"></a>원인
 중지된 VM을 시작하기 위한 요청은 클라우드 서비스를 호스트하는 원본 클러스터에서 시도되어야 합니다. 하지만, 클러스터에 요청을 수행하는 데 사용할 여유 공간이 없습니다.
 
-### <a name="resolution"></a>해상도
+### <a name="resolution"></a>해결 방법
 * 가용성 집합의 VM을 모두 중지하고 각각의 VM을 다시 시작합니다.
   
-  1. **리소스 그룹** > *사용자의 리소스 그룹* > **리소스** > *사용자의 가용성 집합* > **Virtual Machines** > *사용자의 가상 머신* > **중지**를 클릭합니다.
+  1. 리소스**Resources****Stop** **그룹을** >  >  >  > *your resource group* > 클릭하면*가용성설정* > **가상 머신가상 머신에서***중지할*수 있습니다.
   2. VM을 모두 중지한 후에, 중지된 각각의 VM을 선택하고 시작을 클릭합니다.
 * 나중에 다시 시작 요청을 다시 시도합니다.
 
@@ -51,13 +51,13 @@ ms.locfileid: "75965620"
 ### <a name="cause"></a>원인
 VM 크기를 조정하기 위한 요청은 클라우드 서비스를 호스트하는 원본 클러스터에서 시도되어야 합니다. 하지만, 클러스터가 요청한 VM 크기를 지원하지 않습니다.
 
-### <a name="resolution"></a>해상도
+### <a name="resolution"></a>해결 방법
 * 더 작은 VM 크기를 사용하여 요청을 다시 시도합니다.
 * 요청한 VM의 크기를 변경할 수 없으면:
   
   1. 가용성 집합의 VM을 모두 중지합니다.
      
-     * **리소스 그룹** > *사용자의 리소스 그룹* > **리소스** > *사용자의 가용성 집합* > **Virtual Machines** > *사용자의 가상 머신* > **중지**를 클릭합니다.
+     * 리소스**Resources****Stop** **그룹을** >  >  >  > *your resource group* > 클릭하면*가용성설정* > **가상 머신가상 머신에서***중지할*수 있습니다.
   2. VM을 모두 중지한 후에, 원하는 VM을 더 크게 조정합니다.
   3. 크기가 조정된 VM을 선택하고 **시작**을 클릭한 다음 중지된 각각의 VM을 시작합니다.
 

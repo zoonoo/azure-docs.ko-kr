@@ -1,15 +1,15 @@
 ---
-title: Azure Service Fabric의 메트릭 조각 모음
-description: Service Fabric의 메트릭에 대 한 전략으로 조각 모음 또는 압축을 사용 하는 방법에 대해 알아봅니다. 이 기술은 매우 큰 서비스에 유용 합니다.
+title: Azure 서비스 패브릭에서 메트릭 조각 모음
+description: 서비스 패브릭의 메트릭을 위한 전략으로 조각 모음 또는 압축을 사용하는 방법에 대해 알아봅니다. 이 기술은 매우 큰 서비스에 유용합니다.
 author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: bba459be4408f4a4bc438bb33b0570a91e84f2cd
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75563363"
 ---
 # <a name="defragmentation-of-metrics-and-load-in-service-fabric"></a>서비스 패브릭에서 부하 및 메트릭의 조각 모음
@@ -33,7 +33,7 @@ Service Fabric Cluster Resource Manager는 조각 모음이라는 다른 로드 
 
 <center>
 
-분산 및 조각 모음 된 클러스터를 비교 하는 ![][Image1]
+![균형 및 조각 모음 클러스터 비교][Image1]
 </center>
 
 분산된 경우에 가장 큰 서비스 개체 중 하나를 배치하는 데 필요한 이동 수를 고려합니다. 조각 모음된 클러스터에서는 다른 서비스가 이동할 때까지 기다릴 필요 없이 대량의 워크로드를 4개 또는 5개의 노드에 배치할 수 있습니다.
@@ -89,7 +89,7 @@ ClusterManifest.xml:
 
 
 ## <a name="next-steps"></a>다음 단계
-- Cluster Resource Manager에는 클러스터를 설명하기 위한 많은 옵션이 있습니다. 이에 대해 자세히 알아보려면 [Service Fabric 클러스터 설명](service-fabric-cluster-resource-manager-cluster-description.md)에 대한 문서를 확인하세요.
-- 메트릭은 서비스 패브릭 클러스터 리소스 관리자가 클러스터의 소비와 용량을 관리하는 방법입니다. 메트릭 및 구성 방법에 대한 자세한 내용은 [이 문서](service-fabric-cluster-resource-manager-metrics.md)를 확인하세요.
+- Cluster Resource Manager에는 클러스터를 설명하기 위한 많은 옵션이 있습니다. 자세한 내용은 [서비스 패브릭 클러스터 설명에](service-fabric-cluster-resource-manager-cluster-description.md) 대한 이 문서를 확인하십시오.
+- 메트릭은 서비스 패브릭 클러스터 리소스 관리자가 클러스터의 소비와 용량을 관리하는 방법입니다. 측정항목 및 메트릭 구성 방법에 대해 자세히 알아보려면 [이 도움말을](service-fabric-cluster-resource-manager-metrics.md) 확인하세요.
 
 [Image1]:./media/service-fabric-cluster-resource-manager-defragmentation-metrics/balancing-defrag-compared.png

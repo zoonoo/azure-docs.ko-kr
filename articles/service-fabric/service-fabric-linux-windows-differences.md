@@ -1,14 +1,14 @@
 ---
-title: Linux와 Windows 간의 Azure Service Fabric 차이점
+title: 리눅스와 윈도우 사이의 Azure 서비스 패브릭 의 차이점
 description: Linux의 Azure Service Fabric과 Windows의 Azure Service Fabric 간의 차이점입니다.
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.custom: sfrev
 ms.openlocfilehash: c064291491110b17c172a561afbd1e65d6c08d06
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75748535"
 ---
 # <a name="differences-between-service-fabric-on-linux-and-windows"></a>Linux와 Windows의 Service Fabric 간의 차이점
@@ -21,7 +21,7 @@ ms.locfileid: "75748535"
 * Linux의 FAS(오류 분석 서비스)
 * Service Fabric 서비스에 대한 DNS 서비스(DNS 서비스는 Linux의 컨테이너에 지원됨)
 * 특정 Powershell 명령에 해당하는 CLI 명령(아래 목록은 대부분 독립 실행형 클러스터에만 적용됨)
-* [확장성에 영향을 줄 수 있는 로그 구현의 차이점](service-fabric-concepts-scalability.md#choosing-a-platform)
+* [확장성에 영향을 줄 수 있는 로그 구현의 차이](service-fabric-concepts-scalability.md#choosing-a-platform)
 
 ## <a name="powershell-cmdlets-that-do-not-work-against-a-linux-service-fabric-cluster"></a>Linux Service Fabric 클러스터에서 작동하지 않는 PowerShell cmdlet
 
@@ -83,6 +83,6 @@ ms.locfileid: "75748535"
 * [Linux에서 개발 환경 준비](service-fabric-get-started-linux.md)
 * [OSX에서 개발 환경 준비](service-fabric-get-started-mac.md)
 * [Yeoman을 사용하여 Linux에서 첫 번째 Service Fabric Java 애플리케이션 만들기 및 배포](service-fabric-create-your-first-linux-application-with-java.md)
-* [Eclipse용 Service Fabric 플러그 인을 사용하여 Linux에서 첫 번째 Service Fabric Java 애플리케이션 만들기 및 배포](service-fabric-get-started-eclipse.md)
+* [만들고 이클립스에 대한 서비스 패브릭 플러그인을 사용하여 리눅스에서 첫 번째 서비스 패브릭 자바 응용 프로그램을 배포](service-fabric-get-started-eclipse.md)
 * [Linux에서 첫 번째 CSharp 애플리케이션 만들기](service-fabric-create-your-first-linux-application-with-csharp.md)
 * [Service Fabric CLI를 사용하여 애플리케이션 관리](service-fabric-application-lifecycle-sfctl.md)

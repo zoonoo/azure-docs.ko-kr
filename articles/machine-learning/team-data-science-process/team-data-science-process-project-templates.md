@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: c003145acd423fd96dd0ac6c054884024c2ce4a0
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75864233"
 ---
 # <a name="team-data-science-process-project-planning"></a>Team Data Science Process 프로젝트 계획
@@ -58,7 +58,7 @@ Microsoft Project에 대한 액세스 권한이 없는 경우 동일한 데이�
 
 ## <a name="next-steps"></a>다음 단계
 
-[데이터 과학 프로젝트의 Agile 개발](agile-development.md) 이 문서에서는 팀 데이터 과학 프로세스를 사용 하 여 체계적이 고 버전이 제어 되 고 공동 작업 방식으로 데이터 과학 프로젝트에 대해 설명 합니다.
+[데이터 과학 프로젝트의 민첩한 개발](agile-development.md) 이 문서에서는 팀 데이터 과학 프로세스를 사용하여 체계적이고 버전이 제어되고 협업적인 방식으로 데이터 과학 프로젝트를 설명합니다.
 
 **특정 시나리오**에 대한 프로세스의 모든 단계를 보여 주는 연습도 제공됩니다. 이러한 단계는 [예제 연습](walkthroughs.md) 자료에서 미리 보기 설명과 함께 나열되고 연결되어 있습니다. 이 연습에서는 클라우드 및 온-프레미스 도구와 서비스를 워크플로 또는 파이프라인에 결합하여 지능형 애플리케이션을 만드는 방법을 보여 줍니다. 
 

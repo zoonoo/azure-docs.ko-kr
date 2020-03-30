@@ -1,6 +1,6 @@
 ---
-title: Azure Automation 계정을 다른 구독으로 이동
-description: 이 문서에서는 Automation 계정을 다른 구독으로 이동 하는 방법을 설명 합니다.
+title: Azure 자동화 계정을 다른 구독으로 이동
+description: 이 문서에서는 자동화 계정을 다른 구독으로 이동하는 방법에 대해 설명합니다.
 services: automation
 ms.service: automation
 ms.subservice: process-automation
@@ -10,38 +10,38 @@ ms.date: 03/11/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 1aa759a2984764169eb28935e095d0f7c0f90c08
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75969838"
 ---
-# <a name="move-your-azure-automation-account-to-another-subscription"></a>Azure Automation 계정을 다른 구독으로 이동
+# <a name="move-your-azure-automation-account-to-another-subscription"></a>Azure 자동화 계정을 다른 구독으로 이동
 
-Azure는 일부 리소스를 새 리소스 그룹 또는 구독으로 이동 하는 기능을 제공 합니다. Azure Portal, PowerShell, Azure CLI 또는 REST API를 통해 리소스를 이동할 수 있습니다. 프로세스에 대해 자세히 알아보려면 [새 리소스 그룹 또는 구독으로 리소스 이동](../../azure-resource-manager/management/move-resource-group-and-subscription.md)을 참조 하세요.
+Azure는 일부 리소스를 새 리소스 그룹 또는 구독으로 이동하는 기능을 제공합니다. Azure 포털, PowerShell, Azure CLI 또는 REST API를 통해 리소스를 이동할 수 있습니다. 프로세스에 대한 자세한 내용은 [리소스를 새 리소스 그룹 또는 구독으로 이동을](../../azure-resource-manager/management/move-resource-group-and-subscription.md)참조합니다.
 
-Azure Automation 계정은 이동할 수 있는 리소스 중 하나입니다. 이 문서에서는 Automation 계정을 다른 리소스 또는 구독으로 이동 하는 단계에 대해 알아봅니다.
+Azure 자동화 계정은 이동할 수 있는 리소스 중 하나입니다. 이 문서에서는 자동화 계정을 다른 리소스 또는 구독으로 이동하는 단계를 배웁니다.
 
-Automation 계정을 이동 하는 개략적인 단계는 다음과 같습니다.
+자동화 계정을 이동하는 고급 단계는 다음과 같습니다.
 
-1. 솔루션을 제거 합니다.
-2. 작업 영역 연결을 해제 합니다.
-3. Automation 계정을 이동 합니다.
-4. 실행 계정을 삭제 하 고 다시 만듭니다.
-5. 솔루션을 다시 사용 하도록 설정 합니다.
+1. 솔루션을 제거합니다.
+2. 작업 영역의 연결을 해제합니다.
+3. 자동화 계정을 이동합니다.
+4. 계정을 삭제하고 다시 만듭니다.
+5. 솔루션을 다시 활성화합니다.
 
 ## <a name="remove-solutions"></a>솔루션 제거
 
-Automation 계정에서 작업 영역의 연결을 끊으려면 이러한 솔루션을 작업 영역에서 제거 해야 합니다.
+자동화 계정에서 작업 영역의 연결을 해제하려면 다음 솔루션을 작업 영역에서 제거해야 합니다.
 - **변경 내용 추적 및 인벤토리**
 - **업데이트 관리**
-- **업무 시간 외 Vm 시작/중지**
+- **영업 외 시간 동안 VM 시작/중지**
 
-리소스 그룹에서 각 솔루션을 찾고 **삭제**를 선택 합니다. **리소스 삭제** 페이지에서 제거할 리소스를 확인 하 고 **삭제**를 선택 합니다.
+리소스 그룹에서 각 솔루션을 찾아 **삭제를**선택합니다. 리소스 **삭제** 페이지에서 제거할 리소스를 확인하고 **삭제를**선택합니다.
 
-![Azure Portal에서 솔루션 삭제](../media/move-account/delete-solutions.png)
+![Azure 포털에서 솔루션 삭제](../media/move-account/delete-solutions.png)
 
-다음 예제와 같이 [move-azurermresource](/powershell/module/azurerm.resources/remove-azurermresource) cmdlet을 사용 하 여 동일한 작업을 수행할 수 있습니다.
+다음 예제와 같이 [제거-AzureRmResource](/powershell/module/azurerm.resources/remove-azurermresource) cmdlet을 사용 하 고 동일한 작업을 수행할 수 있습니다.
 
 ```azurepowershell-interactive
 $workspaceName = <myWorkspaceName>
@@ -51,36 +51,36 @@ Remove-AzureRmResource -ResourceType 'Microsoft.OperationsManagement/solutions' 
 Remove-AzureRmResource -ResourceType 'Microsoft.OperationsManagement/solutions' -ResourceName "Start-Stop-VM($workspaceName)" -ResourceGroupName $resourceGroupName
 ```
 
-### <a name="additional-steps-for-startstop-vms"></a>Vm 시작/중지에 대 한 추가 단계
+### <a name="additional-steps-for-startstop-vms"></a>VM 시작/중지를 위한 추가 단계
 
-**Vm 시작/중지** 솔루션의 경우 솔루션에서 만든 경고 규칙도 제거 해야 합니다.
+**VM 시작/중지** 솔루션의 경우 솔루션에서 만든 경고 규칙을 제거해야 합니다.
 
-Azure Portal에서 리소스 그룹으로 이동 하 고 **모니터링** ** > 경고** > **경고 규칙 관리**를 선택 합니다.
+Azure 포털에서 리소스 그룹으로 이동하여 **경고 모니터링** > **경고 규칙**관리를**선택합니다.** > 
 
-![경고 관리 규칙의 선택 항목을 보여 주는 경고 페이지](../media/move-account/alert-rules.png)
+![경고 관리 규칙 의 선택을 보여주는 경고 페이지](../media/move-account/alert-rules.png)
 
-**규칙** 페이지에 해당 리소스 그룹에 구성 된 경고 목록이 표시 됩니다. **Vm 시작/중지** 솔루션은 세 가지 경고 규칙을 만듭니다.
+**규칙** 페이지에 해당 리소스 그룹에 구성된 경고 목록이 표시됩니다. **VM 시작/중지** 솔루션은 세 가지 경고 규칙을 만듭니다.
 
 * AutoStop_VM_Child
 * ScheduledStartStop_Parent
 * SequencedStartStop_Parent
 
-이 세 가지 경고 규칙을 선택한 다음 **삭제**를 선택 합니다. 이 작업을 수행 하면 이러한 경고 규칙이 제거 됩니다.
+이 세 가지 경고 규칙을 선택한 다음 **삭제를**선택합니다. 이 작업을 수행하면 이러한 경고 규칙이 제거됩니다.
 
-![선택한 규칙에 대 한 삭제 확인을 요청 하는 규칙 페이지](../media/move-account/delete-rules.png)
+![선택한 규칙에 대한 삭제 확인을 요청하는 규칙 페이지](../media/move-account/delete-rules.png)
 
 > [!NOTE]
-> **규칙** 페이지에서 경고 규칙이 표시 되지 않는 경우 사용 하지 않도록 설정 했을 수 있으므로 **사용 하지 않도록 설정** 된 경고 표시로 **상태** 를 변경 합니다.
+> **규칙** 페이지에 경고 규칙이 표시되지 않으면 비활성화되었을 수 있으므로 **상태를** 변경하여 **사용 중지된** 경고를 표시합니다.
 
-경고 규칙이 제거 되 면 **Vm 시작/중지** 솔루션 알림에 대해 만든 작업 그룹을 제거 합니다.
+경고 규칙이 제거되면 **시작/중지 VMs** 솔루션 알림에 대해 만들어진 작업 그룹을 제거합니다.
 
-Azure Portal에서 **모니터** > **경고** > **작업 그룹 관리**를 선택 합니다.
+Azure 포털에서 경고 **관리** > **작업 그룹을****선택합니다.** > 
 
-목록에서 **StartStop_VM_Notification** 을 선택 합니다. 작업 그룹 페이지에서 **삭제**를 선택 합니다.
+목록에서 **StartStop_VM_Notification** 선택합니다. 작업 그룹 페이지에서 **삭제를**선택합니다.
 
-![작업 그룹 페이지에서 삭제를 선택 합니다.](../media/move-account/delete-action-group.png)
+![작업 그룹 페이지, 삭제 선택](../media/move-account/delete-action-group.png)
 
-마찬가지로, 다음 예제와 같이 [AzureRmActionGroup](/powershell/module/azurerm.insights/remove-azurermactiongroup) cmdlet을 사용 하 여 PowerShell을 사용 하 여 작업 그룹을 삭제할 수 있습니다.
+마찬가지로 다음 예제와 같이 [제거-AzureRmActionGroup](/powershell/module/azurerm.insights/remove-azurermactiongroup) cmdlet을 사용하여 작업 그룹을 삭제할 수 있습니다.
 
 ```azurepowershell-interactive
 Remove-AzureRmActionGroup -ResourceGroupName <myResourceGroup> -Name StartStop_VM_Notification
@@ -88,63 +88,63 @@ Remove-AzureRmActionGroup -ResourceGroupName <myResourceGroup> -Name StartStop_V
 
 ## <a name="unlink-your-workspace"></a>작업 영역 연결 해제
 
-Azure Portal에서 **Automation 계정** > **관련 리소스** > **연결 된 작업 영역**을 선택 합니다. **작업 영역 연결 해제** 를 선택 하 여 Automation 계정에서 작업 영역의 연결을 해제 합니다.
+Azure 포털에서 **자동화 계정** > **관련 리소스** > **연결된 작업 영역을**선택합니다. 작업 **영역을 연결 해제를** 선택하여 자동화 계정에서 작업 영역의 연결을 해제합니다.
 
-![Automation 계정에서 작업 영역 연결 끊기](../media/move-account/unlink-workspace.png)
+![자동화 계정에서 작업 영역 연결 해제](../media/move-account/unlink-workspace.png)
 
-## <a name="move-your-automation-account"></a>Automation 계정 이동
+## <a name="move-your-automation-account"></a>자동화 계정 이동
 
-이전 항목을 제거한 후에도 Automation 계정 및 해당 runbook을 계속 제거할 수 있습니다. Azure Portal에서 Automation 계정의 리소스 그룹으로 이동 합니다. **다른 구독으로** **이동 > 이동** 을 선택 합니다.
+이전 항목을 제거한 후 자동화 계정과 Runbook을 계속 제거할 수 있습니다. Azure 포털에서 자동화 계정의 리소스 그룹을 찾아봅습니다.  > **다른 구독으로 이동** **이동을**선택합니다.
 
 ![리소스 그룹 페이지, 다른 구독으로 이동](../media/move-account/move-resources.png)
 
-이동 하려는 리소스 그룹의 리소스를 선택 합니다. **Automation 계정**, **Runbook**및 **Log Analytics 작업 영역** 리소스를 포함 해야 합니다.
+이동할 리소스 그룹의 리소스를 선택합니다. **자동화 계정,** **Runbook**및 **로그 분석 작업 영역** 리소스를 포함해야 합니다.
 
-이동이 완료 되 면 모든 작업을 수행 하는 데 필요한 추가 단계가 있습니다.
+이동이 완료되면 모든 작업을 완료하는 데 필요한 추가 단계가 있습니다.
 
-## <a name="re-create-run-as-accounts"></a>실행 계정 다시 만들기
+## <a name="re-create-run-as-accounts"></a>계정으로 실행 다시 만들기
 
-[실행 계정](../manage-runas-account.md) Azure 리소스를 사용 하 여 인증 하는 Azure Active Directory에서 서비스 주체를 만듭니다. 구독을 변경 하면 Automation 계정에서 기존 실행 계정을 더 이상 사용 하지 않습니다.
+[실행 As 계정은](../manage-runas-account.md) Azure Active Directory에서 서비스 주체를 만들어 Azure 리소스를 사용하여 인증합니다. 구독을 변경하면 자동화 계정이 더 이상 기존 Run As 계정을 사용하지 않습니다.
 
-새 구독의 Automation 계정으로 이동 하 고 **계정 설정**에서 **실행 계정** 을 선택 합니다. 실행 계정이 불완전 하 게 표시 되는 것을 볼 수 있습니다.
+새 구독의 자동화 계정으로 이동하여 계정 **설정에서** **계정으로 실행을** 선택합니다. 현재 로 실행 계정이 불완전으로 표시됩니다.
 
-![실행 계정은 불완전 합니다.](../media/move-account/run-as-accounts.png)
+![계정이 불완전한 것으로 실행](../media/move-account/run-as-accounts.png)
 
-각 실행 계정을 선택 합니다. **속성** 페이지에서 **삭제** 를 선택 하 여 실행 계정을 삭제 합니다.
+각 계정으로 실행을 선택합니다. **속성** 페이지에서 **삭제를** 선택하여 계정으로 실행(Run As) 계정을 삭제합니다.
 
 > [!NOTE]
-> 실행 계정을 만들거나 볼 수 있는 권한이 없는 경우 다음 메시지가 표시 됩니다. `You do not have permissions to create an Azure Run As account (service principal) and grant the Contributor role to the service principal.` 실행 계정을 구성 하는 데 필요한 사용 권한을 알아보려면 [실행 계정을 구성 하는 데 필요한 권한](../manage-runas-account.md#permissions)을 참조 하세요.
+> 계정을 만들거나 볼 수 있는 권한이 없는 경우 다음과 같은 메시지가 표시됩니다. `You do not have permissions to create an Azure Run As account (service principal) and grant the Contributor role to the service principal.` [Permissions required to configure Run As accounts](../manage-runas-account.md#permissions)
 
-실행 계정이 삭제 된 후 **Azure 실행 계정**에서 **만들기** 를 선택 합니다. **Azure 실행 계정 추가** 페이지에서 **만들기** 를 선택 하 여 실행 계정 및 서비스 주체를 만듭니다. **Azure 클래식 실행 계정**으로 이전 단계를 반복 합니다.
+로 실행 계정이 삭제된 후 **Azure Run 에서 계정으로** **만들기를** 선택합니다. **계정으로 실행추가** 페이지에서 계정으로 실행 **을** 만들기를 선택합니다. **Azure 클래식 실행 을 계정으로**실행하여 이전 단계를 반복합니다.
 
 ## <a name="enable-solutions"></a>솔루션 사용
 
-실행 계정을 다시 만든 후에는 이동 하기 전에 제거한 솔루션을 다시 사용 하도록 설정 합니다. **변경 내용 추적 및 인벤토리** 및 **업데이트 관리**를 켜려면 Automation 계정에서 해당 기능을 선택 합니다. 이동한 Log Analytics 작업 영역을 선택 하 고 **사용**을 선택 합니다.
+Run As 계정을 다시 만든 후 이동 하기 전에 제거 한 솔루션을 다시 활성화 합니다. **변경 정보 추적 및 인벤토리** 및 업데이트 **관리를**설정하려면 자동화 계정에서 각각의 기능을 선택합니다. 이동한 로그 분석 작업 영역을 선택하고 **사용 을**선택합니다.
 
-![이동한 Automation 계정에서 솔루션 다시 사용](../media/move-account/reenable-solutions.png)
+![이동한 자동화 계정에서 솔루션 다시 활성화](../media/move-account/reenable-solutions.png)
 
-솔루션과 등록 된 컴퓨터는 기존 Log Analytics 작업 영역에 연결 된 경우 표시 됩니다.
+기존 Log Analytics 작업 영역을 연결하면 솔루션과 함께 온보기되는 컴퓨터가 표시됩니다.
 
-업무 시간 외 **Vm 시작/중지** 솔루션을 켜려면 솔루션을 다시 배포 해야 합니다. **관련 리소스**에서 **Vm 시작/중지** > 선택 하 고, 솔루션 > **만들기** 를 **사용 하도록 설정** 하 여 배포를 시작 합니다.
+근무 외 솔루션 중에 **VM 시작/중지를** 설정하려면 솔루션을 다시 배포해야 합니다. **관련 리소스에서** **VM** > 시작/중지를 선택하고 솔루션 > **만들기에서** 배포를 시작하도록**설정합니다.**
 
-**솔루션 추가** 페이지에서 Log Analytics 작업 영역 및 Automation 계정을 선택 합니다.
+솔루션 **추가** 페이지에서 로그 분석 작업 영역 및 자동화 계정을 선택합니다.
 
 ![솔루션 추가 메뉴](../media/move-account/add-solution-vm.png)
 
-솔루션을 구성 하는 방법에 대 한 자세한 내용은 [작업 시간 외 VM 시작/중지 solution in Azure Automation](../automation-solution-vm-management.md)을 참조 하십시오.
+솔루션 구성에 대한 자세한 지침은 [Azure Automation의 근무 외 솔루션 중 VM 시작/중지를](../automation-solution-vm-management.md)참조하십시오.
 
 ## <a name="post-move-verification"></a>이동 후 확인
 
-이동이 완료 되 면 확인 해야 하는 다음 작업 목록을 확인 합니다.
+이동이 완료되면 확인해야 하는 다음 작업 목록을 확인합니다.
 
-|기능|테스트|문제 해결 링크|
+|기능|테스트|트러블슈팅 링크|
 |---|---|---|
-|Runbook|Runbook을 성공적으로 실행 하 고 Azure 리소스에 연결할 수 있습니다.|[Runbook 문제 해결](../troubleshoot/runbooks.md)
-|원본 제어|원본 제어 리포지토리에서 수동 동기화를 실행할 수 있습니다.|[원본 제어 통합](../source-control-integration.md)|
-|변경 내용 추적 및 인벤토리|컴퓨터의 현재 인벤토리 데이터가 표시 되는지 확인 합니다.|[변경 내용 추적 문제 해결](../troubleshoot/change-tracking.md)|
-|업데이트 관리|컴퓨터가 정상 상태 인지 확인 합니다.</br>테스트 소프트웨어 업데이트 배포를 실행 합니다.|[업데이트 관리 문제 해결](../troubleshoot/update-management.md)|
-|공유 리소스|[자격 증명](../shared-resources/credentials.md), [변수](../shared-resources/variables.md)등의 모든 공유 리소스가 표시 되는지 확인 합니다.|
+|Runbook|Runbook을 성공적으로 실행하고 Azure 리소스에 연결할 수 있습니다.|[런북 문제 해결](../troubleshoot/runbooks.md)
+|원본 제어|소스 제어 리포지토리에서 수동 동기화를 실행할 수 있습니다.|[원본 제어 통합](../source-control-integration.md)|
+|변경 추적 및 인벤토리|컴퓨터의 현재 인벤토리 데이터가 표시되는지 확인합니다.|[변경 경로 추적 문제 해결](../troubleshoot/change-tracking.md)|
+|업데이트 관리|컴퓨터가 표시되고 정상인지 확인합니다.</br>테스트 소프트웨어 업데이트 배포를 실행합니다.|[업데이트 관리 문제 해결](../troubleshoot/update-management.md)|
+|공유 리소스|[자격 증명,](../shared-resources/credentials.md)변수 등과 같은 모든 공유 [리소스가 표시되는지 확인합니다.](../shared-resources/variables.md)|
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure에서 리소스를 이동 하는 방법에 대해 자세히 알아보려면 [azure에서 리소스 이동](../../azure-resource-manager/management/move-support-resources.md)을 참조 하세요.
+Azure에서 리소스이동에 대해 자세히 알아보려면 [Azure의 리소스 이동](../../azure-resource-manager/management/move-support-resources.md)을 참조하십시오.

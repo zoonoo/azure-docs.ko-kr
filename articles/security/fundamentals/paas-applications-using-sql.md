@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 1b0a4627d377f5fa9ca997d1cc96bc38b0a6c37f
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: c73f585e3102618cea378716491f9354810a6db8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79217216"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80125004"
 ---
 # <a name="best-practices-for-securing-paas-databases-in-azure"></a>Azure에서 PaaS 데이터베이스 보안을 유지하기 위한 모범 사례
 
-이 문서에서는 PaaS(Platform as a Service) 웹 및 모바일 애플리케이션 보안을 위한 [Azure SQL Database](../../sql-database/sql-database-technical-overview.md) 및 [SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) 보안 모범 사례에 대해 설명합니다. 이러한 모범 사례는 Azure에 대한 Microsoft와 고객의 경험에서 비롯된 것입니다.
+이 문서에서는 PaaS(Platform as a Service) 웹 및 모바일 애플리케이션 보안을 위한 [Azure SQL Database](../../sql-database/sql-database-technical-overview.md) 및 [SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) 보안 모범 사례에 대해 설명합니다. 이러한 모범 사례는 Azure에 대한 Microsoft와 고객의 경험에서 비롯된 것입니다.
 
 Azure SQL Database 및 SQL Data Warehouse는 인터넷 기반 애플리케이션용 관계형 데이터베이스 서비스를 제공합니다. PaaS 배포에서 Azure SQL Database 및 SQL Data Warehouse를 사용할 때 애플리케이션과 데이터를 보호하는 데 도움이 되는 서비스를 살펴보겠습니다.
 
@@ -35,9 +35,9 @@ Azure SQL Database 및 SQL Data Warehouse는 인터넷 기반 애플리케이션
 ## <a name="use-a-centralized-identity-repository"></a>중앙 집중식 ID 리포지토리 사용
 Azure SQL 데이터베이스는 다음 두 가지 인증 유형 중 하나를 사용하도록 구성할 수 있습니다.
 
-- **SQL 인증**은 사용자 이름과 암호를 사용합니다. 데이터베이스의 논리 서버를 만들 때 사용자 이름 및 암호를 사용하여 "서버 관리자" 로그인을 지정했습니다. 이러한 자격 증명을 사용하면 해당 서버의 모든 데이터베이스에 대해 데이터베이스 소유자로 인증 할 수 있습니다.
+- **SQL 인증은** 사용자 이름과 암호를 사용합니다. 데이터베이스의 논리 서버를 만들 때 사용자 이름 및 암호를 사용하여 "서버 관리자" 로그인을 지정했습니다. 이러한 자격 증명을 사용하면 해당 서버의 모든 데이터베이스에 대해 데이터베이스 소유자로 인증 할 수 있습니다.
 
-- **Azure Active Directory 인증**은 Azure Active Directory에서 관리하는 ID를 사용하며, 관리되는 도메인과 통합된 도메인에서 지원됩니다. Azure Active Directory 인증을 사용하려면 Azure AD 사용자와 그룹을 관리할 수 있는 "Azure AD 관리자"라는 다른 서버 관리자를 만들어야 합니다. 이 관리자는 일반 서버 관리자가 할 수 있는 모든 작업을 수행할 수도 있습니다.
+- **Azure Active Directory 인증은** Azure Active Directory에서 관리하는 ID를 사용하며 관리 및 통합 도메인에 대해 지원됩니다. Azure Active Directory 인증을 사용하려면 Azure AD 사용자와 그룹을 관리할 수 있는 "Azure AD 관리자"라는 다른 서버 관리자를 만들어야 합니다. 이 관리자는 일반 서버 관리자가 할 수 있는 모든 작업을 수행할 수도 있습니다.
 
 [Azure Active Directory 인증](../../active-directory/develop/authentication-scenarios.md)은 Azure AD(Azure Active Directory)의 ID를 사용하여 Azure SQL Database 및 SQL Data Warehouse에 연결하는 메커니즘입니다. Azure AD는 SQL Server 인증에 대한 대안을 제공하므로 데이터베이스 서버에서 사용자 ID의 확산을 중지할 수 있습니다. Azure AD 인증을 사용하면 데이터베이스 사용자 및 다른 Microsoft 서비스의 ID를 한 곳에서 집중적으로 관리할 수 있습니다. 중앙 ID 관리는 데이터베이스 사용자 관리를 위한 단일 위치를 제공하며 권한 관리를 간소화합니다.  
 
@@ -53,7 +53,7 @@ Azure SQL 데이터베이스는 다음 두 가지 인증 유형 중 하나를 �
 Azure AD 인증에 대한 자세한 내용은 다음을 참조하세요.
 
 - [SQL Database, Managed Instance 및 SQL Data Warehouse에서 인증을 위해 Azure Active Directory 인증 사용](../../sql-database/sql-database-aad-authentication.md)
-- [Azure SQL Data Warehouse에 대한 인증](../../sql-data-warehouse/sql-data-warehouse-authentication.md)
+- [Azure SQL Data Warehouse에 대한 인증](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-authentication.md)
 - [Azure AD 인증을 사용하는 Azure SQL DB에 대한 토큰 기반 인증 지원](../../sql-database/sql-database-aad-authentication.md)(영문)
 
 > [!NOTE]
@@ -79,7 +79,7 @@ Azure SQL은 TDE와 관련된 주요 문제를 관리합니다. TDE를 사용할
 
 Azure SQL은 [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine)를 통해 열에 대한 암호화를 제공합니다. 이를 통해 승인된 애플리케이션만 중요한 열에 액세스할 수 있습니다. 이러한 종류의 암호화를 사용하면 암호화된 열에 대한 SQL 쿼리가 동등 기반 값으로 제한됩니다.
 
-선택적 데이터에는 애플리케이션 수준 암호화도 사용해야 합니다. 데이터 주권 문제는 올바른 국가/지역에 유지 되는 키로 데이터를 암호화 하 여 완화할 수 있습니다. 이렇게 하면 강한 알고리즘(예: AES 256)을 사용한다고 가정하여 키를 사용하지 않고는 데이터를 해독할 수 없으므로 실수로 인한 데이터 전송에 문제가 발생하지 않도록 방지할 수 있습니다.
+선택적 데이터에는 애플리케이션 수준 암호화도 사용해야 합니다. 올바른 국가/지역에 보관된 키로 데이터를 암호화하여 데이터 주권 문제를 완화할 수 있습니다. 이렇게 하면 강한 알고리즘(예: AES 256)을 사용한다고 가정하여 키를 사용하지 않고는 데이터를 해독할 수 없으므로 실수로 인한 데이터 전송에 문제가 발생하지 않도록 방지할 수 있습니다.
 
 보안 시스템 설계, 중요한 자산 암호화 및 데이터베이스 서버 방화벽 구축과 같은 데이터베이스 보호에 도움이 되는 몇 가지 예방 조치를 추가적으로 취할 수 있습니다.
 

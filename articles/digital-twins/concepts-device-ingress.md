@@ -1,6 +1,6 @@
 ---
-title: 장치 연결 및 원격 분석 수신-Azure Digital Twins | Microsoft Docs
-description: Azure Digital Twins의 IoT 장치에서 원격 분석을 연결 하 고, 등록 하 고, 전송 하는 방법을 알아봅니다.
+title: 장치 연결 및 원격 분석 사용 - Azure 디지털 트윈 | 마이크로 소프트 문서
+description: Azure 디지털 Twins의 IoT 장치에서 원격 분석을 연결, 온보온 및 전송하는 방법을 알아봅니다.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -9,10 +9,10 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 01/03/2020
 ms.openlocfilehash: 5c2c519ece9806b92c3e455d5f550bc2abfc9f3b
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75862478"
 ---
 # <a name="device-connectivity-and-telemetry-ingress"></a>디바이스 연결 및 원격 분석 수신
@@ -21,14 +21,14 @@ ms.locfileid: "75862478"
 
 시작하려면 공간 그래프의 루트에서 Azure IoT Hub 리소스를 만듭니다. IoT Hub 리소스는 루트 공간 아래의 모든 디바이스가 메시지를 보낼 수 있도록 허용합니다. IoT Hub가 만들어지면 Azure Digital Twins 내의 센서에 디바이스를 등록합니다. 디바이스는 [Azure IoT 디바이스 SDK](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks)를 통해 Digital Twins 서비스로 데이터를 보낼 수 있습니다.
 
-장치를 등록 하는 방법에 대 한 단계별 가이드는 [디지털 쌍 배포 및 구성 자습서](tutorial-facilities-setup.md)를 참조 하세요. 간략히 보면 단계는 다음과 같습니다.
+장치를 온보드로 가져오는 방법에 대한 단계별 가이드는 [디지털 트윈을 배포하고 구성하는 자습서를](tutorial-facilities-setup.md)참조하십시오. 간략히 보면 단계는 다음과 같습니다.
 
 - [Azure Portal](https://portal.azure.com)에서 Digital Twins 인스턴스를 배포합니다.
 - 그래프에 공간을 만듭니다.
 - IoT Hub 리소스를 만들어서 그래프의 공간에 할당합니다.
 - 그래프에서 디바이스와 센서를 만들고, 이전 단계에서 만든 공간에 할당합니다.
 - 조건에 따라 원격 분석 메시지를 필터링하는 검사기를 만듭니다.
-- [사용자 정의 함수](concepts-user-defined-functions.md)를 만들고, 원격 분석 메시지를 사용자 지정 처리할 수 있도록 그래프의 공간에 할당합니다.
+- 사용자 [정의 함수를](concepts-user-defined-functions.md)만들고 원격 분석 메시지를 사용자 지정 처리하기 위해 그래프의 공간에 할당합니다.
 - 사용자 정의 함수가 그래프 데이터에 액세스하는 것을 허용하는 역할을 할당합니다.
 - Digital Twins 관리 API에서 IoT Hub 디바이스 연결 문자열을 가져옵니다.
 - Azure IoT 디바이스 SDK를 사용하여 디바이스에서 디바이스 연결 문자열을 구성합니다.
@@ -61,18 +61,18 @@ YOUR_MANAGEMENT_API_URL/devices?HardwareIds=YOUR_DEVICE_HARDWARE_ID&includes=Con
 
 ## <a name="device-to-cloud-message"></a>디바이스-클라우드 메시지
 
-디바이스의 메시지 형식과 페이로드를 솔루션 요구 사항에 맞게 사용자 지정할 수 있습니다. [Azure IoT 디바이스 클라이언트 메시지 클래스 Message(byte[] byteArray)](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.message.-ctor?view=azure-dotnet#Microsoft_Azure_Devices_Client_Message__ctor_System_Byte___)에서 지원하는 바이트 배열 또는 스트림으로 직렬화할 수 있는 모든 데이터 계약을 사용할 수 있습니다. 해당 사용자 정의 함수에서 데이터 계약을 디코드하는 경우, 메시지는 선택한 사용자 지정 이진 형식일 수 있습니다. 디바이스-클라우드 메시지에 대한 요구 사항은 하나밖에 없습니다. 메시지를 처리 엔진으로 적절 하 게 라우팅하도록 속성 집합을 유지 관리 합니다.
+디바이스의 메시지 형식과 페이로드를 솔루션 요구 사항에 맞게 사용자 지정할 수 있습니다. [Azure IoT 디바이스 클라이언트 메시지 클래스 Message(byte[] byteArray)](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.message.-ctor?view=azure-dotnet#Microsoft_Azure_Devices_Client_Message__ctor_System_Byte___)에서 지원하는 바이트 배열 또는 스트림으로 직렬화할 수 있는 모든 데이터 계약을 사용할 수 있습니다. 해당 사용자 정의 함수에서 데이터 계약을 디코드하는 경우, 메시지는 선택한 사용자 지정 이진 형식일 수 있습니다. 디바이스-클라우드 메시지에 대한 요구 사항은 하나밖에 없습니다. 속성 집합을 유지 관리하여 메시지가 처리 엔진에 적절하게 라우팅되도록 합니다.
 
 ### <a name="telemetry-properties"></a>원격 분석 속성
 
- **Message**의 페이로드 콘텐츠는 최대 256KB의 임의 데이터일 수 있습니다. [`Message.Properties`](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.message.properties?view=azure-dotnet) 형식의 속성에 대한 요구 사항으로 몇 가지가 예상됩니다. 이 표는 시스템에서 지원하는 필수 속성 및 선택적 속성을 보여줍니다.
+ **Message**의 페이로드 콘텐츠는 최대 256KB의 임의 데이터일 수 있습니다. 형식의 속성에 대해 예상되는 [`Message.Properties`](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.message.properties?view=azure-dotnet) 몇 가지 요구 사항이 있습니다. 이 표는 시스템에서 지원하는 필수 속성 및 선택적 속성을 보여줍니다.
 
-| 속성 이름 | 값 | 필수 | Description |
+| 속성 이름 | 값 | 필수 | 설명 |
 |---|---|---|---|
-| **DigitalTwins-Telemetry** | 1.0 | 예 | 시스템에 메시지를 식별하는 상수 값입니다. |
-| **DigitalTwins-SensorHardwareId** | `string(72)` | 예 | **Message**를 보내는 센서의 고유 식별자입니다. 이 값은 시스템에서 처리하려면 개체의 **HardwareId** 속성과 일치해야 합니다. `00FF0643BE88-CO2`)을 입력합니다. |
-| **CreationTimeUtc** | `string` | 아닙니다. | 페이로드의 샘플링 시간을 식별하는 [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) 형식의 날짜 문자열입니다. `2018-09-20T07:35:00.8587882-07:00`)을 입력합니다. |
-| **CorrelationId** | `string` | 아닙니다. | 시스템에서 이벤트를 추적하는 데 사용되는 UUID입니다. `cec16751-ab27-405d-8fe6-c68e1412ce1f`)을 입력합니다.
+| **DigitalTwins-Telemetry** | 1.0 | yes | 시스템에 메시지를 식별하는 상수 값입니다. |
+| **DigitalTwins-SensorHardwareId** | `string(72)` | yes | **Message**를 보내는 센서의 고유 식별자입니다. 이 값은 시스템에서 처리하려면 개체의 **HardwareId** 속성과 일치해야 합니다. `00FF0643BE88-CO2`)을 입력합니다. |
+| **CreationTimeUtc** | `string` | 예 | 페이로드의 샘플링 시간을 식별하는 [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) 형식의 날짜 문자열입니다. `2018-09-20T07:35:00.8587882-07:00`)을 입력합니다. |
+| **Correlationid** | `string` | 예 | 시스템에서 이벤트를 추적하는 데 사용되는 UUID입니다. `cec16751-ab27-405d-8fe6-c68e1412ce1f`)을 입력합니다.
 
 ### <a name="send-your-message-to-digital-twins"></a>Digital Twins로 메시지 보내기
 
@@ -80,4 +80,4 @@ Digital Twins에 메시지를 보내려면 DeviceClient [SendEventAsync](https:/
 
 ## <a name="next-steps"></a>다음 단계
 
-- Azure Digital Twins의 데이터 처리 및 사용자 정의 함수 기능에 대해 알아보려면 [Azure Digital Twins 데이터 처리 및 사용자 정의 함수](concepts-user-defined-functions.md)를 참조하세요.
+- Azure Digital Twins 데이터 처리 및 사용자 정의 기능 기능에 대해 알아보려면 [Azure Digital Twins 데이터 처리 및 사용자 정의 함수를](concepts-user-defined-functions.md)참조하십시오.

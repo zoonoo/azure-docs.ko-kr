@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: c10482029e6cfce7063d205161fed54030919c48
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67182261"
 ---
 #### <a name="to-stop-and-start-a-cloud-appliance"></a>클라우드 어플라이언스를 중지 및 시작하려면
@@ -20,7 +20,7 @@ ms.locfileid: "67182261"
 
     ![StorSimple Cloud Appliance Virtual Machine](./media/storsimple-8000-stop-restart-cloud-appliance/sca-stop-restart2.png)
 
-3. 확인하라는 메시지가 표시되면 **예**를 클릭합니다.
+3. 확인 메시지가 표시되면 **예**를 클릭합니다.
 
     ![StorSimple Cloud Appliance Virtual Machine](./media/storsimple-8000-stop-restart-cloud-appliance/sca-stop-restart3.png)
 

@@ -1,15 +1,15 @@
 ---
-title: SizeSelector UI 요소
-description: Azure Portal의 Microsoft.Compute.SizeSelector UI 요소에 대해 설명합니다. 가상 컴퓨터의 크기를 선택 하는 데 사용 합니다.
+title: 크기 선택기 UI 요소
+description: Azure Portal의 Microsoft.Compute.SizeSelector UI 요소에 대해 설명합니다. 가상 시스템의 크기를 선택하는 데 사용합니다.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: tomfitz
 ms.openlocfilehash: d98ddbb09ac4f1f933237b3288db7a0cb78380b5
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75652048"
 ---
 # <a name="microsoftcomputesizeselector-ui-element"></a>Microsoft.Compute.SizeSelector UI 요소
@@ -72,7 +72,7 @@ ms.locfileid: "75652048"
 - `constraints.allowedSizes` 및 `constraints.excludedSizes`는 모두 선택 사항이지만 동시에 사용할 수는 없습니다. 사용 가능한 크기 목록은 [구독에 사용 가능한 가상 머신 크기 목록](/rest/api/compute/virtualmachines/virtualmachines-list-sizes-region)을 호출하여 확인할 수 있습니다. `constraints.allowedSizes`에 지정되지 않은 크기는 숨겨지며 `constraints.excludedSizes`에 지정되지 않은 크기가 표시됩니다.
 - `osPlatform`을 지정해야 하며 **Windows** 또는 **Linux**일 수 있습니다. 가상 머신의 하드웨어 비용을 결정하는 데 사용됩니다.
 - `imageReference`은 자사 이미지에 대해 생략되지만, 타사 이미지에 대해서는 제공됩니다. 가상 머신의 소프트웨어 비용을 결정하는 데 사용됩니다.
-- `count`는 요소에 적절한 승수를 설정하는 데 사용됩니다. **2**와 같은 정적 값 또는 `[steps('step1').vmCount]`와 같은 다른 요소의 동적 값을 지원합니다. 기본값은 **1**입니다.
+- `count`는 요소에 적절한 승수를 설정하는 데 사용됩니다. **2**와 같은 정적 값 또는 `[steps('step1').vmCount]`와 같은 다른 요소의 동적 값을 지원합니다. 기본값은 **1입니다.**
 - `numAvailabilityZonesRequired`는 1, 2 또는 3일 수 있습니다.
 - 기본적으로 `hideDiskTypeFilter`는 **false**입니다. 디스크 형식 필터를 사용하면 모든 디스크 형식 또는 SSD만을 볼 수 있습니다.
 

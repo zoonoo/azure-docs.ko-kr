@@ -1,5 +1,5 @@
 ---
-title: VSCode 용 Azure IoT 도구를 사용 하 여 azure IoT 장치 관리
+title: VSCode용 Azure IoT 도구를 사용하여 Azure IoT 장치 관리
 description: Direct 메서드와 Twin의 desired 속성 관리 옵션을 제공하는 Visual Studio Code용 Azure IoT Tools를 사용하여 Azure IoT Hub 디바이스를 관리합니다.
 author: formulahendry
 ms.service: iot-hub
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/04/2019
 ms.author: junhan
 ms.openlocfilehash: 9d4d82472664900c96b77b31740573d0463465b8
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75911936"
 ---
 # <a name="use-azure-iot-tools-for-visual-studio-code-for-azure-iot-hub-device-management"></a>Visual Studio Code용 Azure IoT Tools를 사용한 Azure IoT Hub 디바이스 관리
@@ -47,8 +47,8 @@ ms.locfileid: "75911936"
 
 * 활성화된 Azure 구독.
 * 구독 중인 Azure IoT Hub
-* [Visual Studio Code](https://code.visualstudio.com/)
-* [Azure IoT Tools for VS Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) 또는 [Visual Studio Code에서이 링크를 엽니다](vscode:extension/vsciot-vscode.azure-iot-tools).
+* [비주얼 스튜디오 코드](https://code.visualstudio.com/)
+* [VS 코드에 대한 Azure IoT 도구](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) 또는 [시각적 스튜디오 코드에서 이 링크를 엽니다.](vscode:extension/vsciot-vscode.azure-iot-tools)
 
 ## <a name="sign-in-to-access-your-iot-hub"></a>로그인하여 IoT Hub에 액세스
 
@@ -63,7 +63,7 @@ ms.locfileid: "75911936"
 5. 잠시 후 디바이스 목록이 **Azure IoT Hub 디바이스** 탭에 표시됩니다.
 
    > [!Note]
-   > **IoT Hub 연결 문자열 설정**을 선택하여 설정을 완료할 수도 있습니다. 팝업 창에서 IoT 장치를 연결 하는 IoT hub에 대 한 **iothubowner** 정책 연결 문자열을 입력 합니다.
+   > **IoT Hub 연결 문자열 설정**을 선택하여 설정을 완료할 수도 있습니다. 팝업 창에서 IoT 장치가 연결하는 IoT 허브의 **iothubowner** 정책 연결 문자열을 입력합니다.
 
 ## <a name="direct-methods"></a>직접 메서드
 
@@ -71,7 +71,7 @@ ms.locfileid: "75911936"
 
 2. 입력 상자에 메서드 이름 및 페이로드를 입력합니다.
 
-3. 결과는 **출력** > **Azure IoT Hub** 보기에 표시 됩니다.
+3. 결과는 **OUTPUT** > **Azure IoT Hub** 보기에 표시됩니다.
 
 ## <a name="read-device-twin"></a>디바이스 쌍 읽기
 
@@ -87,7 +87,7 @@ ms.locfileid: "75911936"
 
 3. **디바이스 쌍 업데이트**를 선택하여 디바이스 쌍을 업데이트합니다.
 
-## <a name="send-cloud-to-device-messages"></a>클라우드-디바이스 메시지 전송
+## <a name="send-cloud-to-device-messages"></a>클라우드-디바이스 메시지 보내기
 
 IoT Hub에서 디바이스로 메시지를 보내려면 다음 단계를 수행합니다.
  
@@ -95,7 +95,7 @@ IoT Hub에서 디바이스로 메시지를 보내려면 다음 단계를 수행�
 
 2. 입력 상자에 메시지를 입력합니다.
 
-3. 결과는 **출력** > **Azure IoT Hub** 보기에 표시 됩니다.
+3. 결과는 **OUTPUT** > **Azure IoT Hub** 보기에 표시됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

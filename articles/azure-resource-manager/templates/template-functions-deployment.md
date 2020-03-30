@@ -1,23 +1,23 @@
 ---
-title: 템플릿 함수-배포
+title: 템플릿 기능 - 배포
 description: Azure Resource Manager 템플릿에서 배포 정보를 검색하는 데 사용할 수 있는 함수에 대해 설명합니다.
 ms.topic: conceptual
 ms.date: 11/27/2019
-ms.openlocfilehash: b241aaf43ee3204c9960d0099ce3c61d4c1a80ee
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 86a1d3d7e05fedacd7a3c044ecab241ca9d059c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79274269"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80156330"
 ---
-# <a name="deployment-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿용 배포 함수 
+# <a name="deployment-functions-for-arm-templates"></a>ARM 템플릿을 위한 배포 기능 
 
-리소스 관리자는 현재 배포와 관련 된 값을 가져오기 위한 다음 함수를 제공 합니다.
+리소스 관리자는 ARM(Azure Resource Manager) 템플릿의 현재 배포와 관련된 값을 가져오는 다음 함수를 제공합니다.
 
-* [deployment](#deployment)
-* [개발](#environment)
-* [parameters](#parameters)
-* [variables](#variables)
+* [배포](#deployment)
+* [환경](#environment)
+* [매개 변수](#parameters)
+* [변수](#variables)
 
 리소스, 리소스 그룹 또는 구독에서 값을 가져오려면 [리소스 함수](template-functions-resource.md)를 참조하세요.
 
@@ -137,11 +137,11 @@ deployment()를 사용하여 부모 템플릿의 URI를 기반으로 하는 다�
 
 `environment()`
 
-배포에 사용 되는 Azure 환경에 대 한 정보를 반환 합니다.
+배포에 사용되는 Azure 환경에 대한 정보를 반환합니다.
 
 ### <a name="return-value"></a>반환 값
 
-이 함수는 현재 Azure 환경에 대 한 속성을 반환 합니다. 다음 예제에서는 글로벌 Azure에 대 한 속성을 보여 줍니다. 소 버린 클라우드는 약간 다른 속성을 반환할 수 있습니다.
+이 함수는 현재 Azure 환경에 대한 속성을 반환합니다. 다음 예제에서는 전역 Azure에 대한 속성을 보여 주습니다. 주권 구름은 약간 다른 속성을 반환할 수 있습니다.
 
 ```json
 {
@@ -179,7 +179,7 @@ deployment()를 사용하여 부모 템플릿의 URI를 기반으로 하는 다�
 
 ### <a name="example"></a>예제
 
-다음 예제 템플릿에서는 환경 개체를 반환 합니다.
+다음 예제 템플릿은 환경 개체를 반환합니다.
 
 ```json
 {
@@ -195,7 +195,7 @@ deployment()를 사용하여 부모 템플릿의 URI를 기반으로 하는 다�
 }
 ```
 
-위의 예제는 글로벌 Azure에 배포 된 경우 다음 개체를 반환 합니다.
+위의 예제는 전역 Azure에 배포할 때 다음 개체를 반환합니다.
 
 ```json
 {
@@ -326,7 +326,7 @@ deployment()를 사용하여 부모 템플릿의 URI를 기반으로 하는 다�
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | stringOutput | String | 옵션 1 |
 | intOutput | Int | 1 |
@@ -334,7 +334,7 @@ deployment()를 사용하여 부모 템플릿의 URI를 기반으로 하는 다�
 | arrayOutput | Array | [1, 2, 3] |
 | crossOutput | String | 옵션 1 |
 
-매개 변수 사용에 대 한 자세한 내용은 [Azure Resource Manager 템플릿의 매개 변수](template-parameters.md)를 참조 하세요.
+매개 변수 사용에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿의 매개 변수를](template-parameters.md)참조하십시오.
 
 ## <a name="variables"></a>variables
 
@@ -392,7 +392,7 @@ deployment()를 사용하여 부모 템플릿의 URI를 기반으로 하는 다�
         "var4": {
             "property1": "value1",
             "property2": "value2"
-        }
+          }
     },
     "resources": [],
     "outputs": {
@@ -418,18 +418,18 @@ deployment()를 사용하여 부모 템플릿의 URI를 기반으로 하는 다�
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | exampleOutput1 | String | myVariable |
 | exampleOutput2 | Array | [1, 2, 3, 4] |
 | exampleOutput3 | String | myVariable |
 | exampleOutput4 |  Object | {“property1”: “value1”, “property2”: “value2”} |
 
-변수를 사용 하는 방법에 대 한 자세한 내용은 [Azure Resource Manager 템플릿에서 변수](template-variables.md)를 참조 하세요.
+변수 사용에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿의 변수를](template-variables.md)참조하십시오.
 
 ## <a name="next-steps"></a>다음 단계
-* Azure Resource Manager 템플릿의 섹션에 대한 설명은 [Azure Resource Manager 템플릿 작성](template-syntax.md)을 참조하세요.
+* Azure 리소스 관리자 템플릿의 섹션에 대한 설명은 [Azure 리소스 관리자 템플릿 작성을](template-syntax.md)참조하십시오.
 * 여러 템플릿을 병합하려면 [Azure Resource Manager에서 연결된 템플릿 사용](linked-templates.md)을 참조하세요.
-* 리소스 유형을 만들 때 지정된 횟수만큼 반복하려면 [Azure 리소스 관리자에서 리소스의 여러 인스턴스 만들기](copy-resources.md)를 참조하세요.
+* 리소스 형식을 만들 때 지정된 횟수를 반복하려면 [Azure 리소스 관리자에서 여러 리소스 인스턴스 만들기를](copy-resources.md)참조하십시오.
 * 만든 템플릿을 배포하는 방법을 보려면 [Azure Resource Manager 템플릿을 사용하여 애플리케이션 배포](deploy-powershell.md)를 참조하세요.
 

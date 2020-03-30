@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell를 사용 하 여 VM에 대 한 포트 열기
+title: Azure PowerShell을 사용하여 VM에 포트 열기
 description: Azure Resource Manager 배포 모델 및 Azure PowerShell을 사용하여 Windows VM에 대한 포트를 열고 엔드포인트를 만드는 방법 알아보기
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,17 +14,17 @@ ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: cynthn
 ms.openlocfilehash: 547ca9c98d77b2aaa6d3630bff4b2ec10dcc5be0
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75754177"
 ---
 # <a name="how-to-open-ports-and-endpoints-to-a-vm-in-azure-using-powershell"></a>PowerShell을 사용하여 Azure에서 VM의 포트 및 엔드포인트를 여는 방법
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
 
 ## <a name="quick-commands"></a>빠른 명령
-네트워크 보안 그룹 및 ACL 규칙을 만들려면 [최신 버전의 Azure PowerShell을 설치](/powershell/azureps-cmdlets-docs)해야 합니다. [Azure 포털을 사용하여 수행할 수도 있습니다](nsg-quickstart-portal.md).
+네트워크 보안 그룹 및 ACL 규칙을 만들려면 [최신 버전의 Azure PowerShell을 설치](/powershell/azureps-cmdlets-docs)해야 합니다. Azure 포털 을 [사용하여 이러한 단계를 수행할](nsg-quickstart-portal.md)수도 있습니다.
 
 Azure 계정에 로그인합니다.
 
@@ -34,7 +34,7 @@ Connect-AzAccount
 
 다음 예제에서 매개 변수 이름을 고유한 값으로 바꿉니다. 예제 매개 변수 이름에는 *myResourceGroup*, *myNetworkSecurityGroup* 및 *myVnet*이 포함됩니다.
 
-[New-AzNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecurityruleconfig)를 사용하여 규칙을 만듭니다. 다음 예제에서는 포트 *80*의 *tcp* 트래픽을 허용하도록 *myNetworkSecurityGroupRule*이라는 규칙을 만듭니다.
+[New-AzNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecurityruleconfig)를 사용하여 규칙을 만듭니다. 다음 예제는 포트 *80에서* *tcp* 트래픽을 허용 하도록 *myNetworkSecurityGroupRule* 라는 규칙을 만듭니다.
 
 ```powershell
 $httprule = New-AzNetworkSecurityRuleConfig `
@@ -50,7 +50,7 @@ $httprule = New-AzNetworkSecurityRuleConfig `
     -DestinationPortRange 80
 ```
 
-그런 다음, 다음과 같이 [New-AzNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecuritygroup)을 사용하여 네트워크 보안 그룹을 만들고 방금 만든 HTTP 규칙을 할당합니다. 다음 예제에서는 *myNetworkSecurityGroup*이라는 네트워크 보안 그룹을 만듭니다.
+그런 다음, 다음과 같이 [New-AzNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecuritygroup)을 사용하여 네트워크 보안 그룹을 만들고 방금 만든 HTTP 규칙을 할당합니다. 다음 예제는 *myNetworkSecurityGroup이라는*네트워크 보안 그룹을 만듭니다.
 
 ```powershell
 $nsg = New-AzNetworkSecurityGroup `
@@ -95,7 +95,7 @@ Set-AzVirtualNetwork -VirtualNetwork $vnet
 ## <a name="next-steps"></a>다음 단계
 이 예제에서는 HTTP 트래픽을 허용하는 간단한 규칙을 만들었습니다. 다음 문서에서 보다 자세한 환경을 만들기 위한 정보를 찾을 수 있습니다.
 
-* [Azure Resource Manager 개요](../../azure-resource-manager/management/overview.md)
+* [Azure 리소스 관리자 개요](../../azure-resource-manager/management/overview.md)
 * [네트워크 보안 그룹이란?](../../virtual-network/security-overview.md)
-* [Azure Load Balancer 개요](../../load-balancer/load-balancer-overview.md)
+* [Azure 로드 밸리뷰커 개요](../../load-balancer/load-balancer-overview.md)
 

@@ -1,13 +1,13 @@
 ---
-title: Azure Service Fabric 응용 프로그램 모델
-description: 응용 프로그램 및 서비스 매니페스트 파일을 사용 하 여 Azure Service Fabric에서 응용 프로그램 및 서비스를 모델링 하 고 설명 하는 방법입니다.
+title: Azure 서비스 패브릭 응용 프로그램 모델
+description: 응용 프로그램 및 서비스 매니페스트 파일을 사용하여 Azure 서비스 패브릭에서 응용 프로그램 및 서비스를 모델링하고 설명하는 방법
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: 7179686b7d4ef2df267cb95ece8f83d5fb7682b8
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75551882"
 ---
 # <a name="model-an-application-in-service-fabric"></a>서비스 패브릭에서 애플리케이션 모델링

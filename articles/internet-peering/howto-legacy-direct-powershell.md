@@ -1,7 +1,7 @@
 ---
-title: PowerShell을 사용 하 여 레거시 직접 피어 링을 Azure 리소스로 변환
+title: PowerShell을 사용하여 레거시 직접 피어링을 Azure 리소스로 변환
 titleSuffix: Azure
-description: PowerShell을 사용 하 여 레거시 직접 피어 링을 Azure 리소스로 변환
+description: PowerShell을 사용하여 레거시 직접 피어링을 Azure 리소스로 변환
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
@@ -9,31 +9,31 @@ ms.topic: article
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: ba41f4ad8014ba3e85174b7c32e11394f0068643
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75775018"
 ---
-# <a name="convert-a-legacy-direct-peering-to-azure-resource-using-powershell"></a>PowerShell을 사용 하 여 레거시 직접 피어 링을 Azure 리소스로 변환
+# <a name="convert-a-legacy-direct-peering-to-azure-resource-using-powershell"></a>PowerShell을 사용하여 레거시 직접 피어링을 Azure 리소스로 변환
 
-이 문서에서는 PowerShell cmdlet을 사용 하 여 기존 레거시 직접 피어 링을 Azure 리소스로 변환 하는 방법을 설명 합니다.
+이 문서에서는 PowerShell cmdlet을 사용하여 기존 레거시 직접 피어링을 Azure 리소스로 변환하는 방법을 설명합니다.
 
-원한다 면 [포털](howto-legacy-direct-portal.md)을 사용 하 여이 가이드를 완료할 수 있습니다.
+원하는 경우 [포털](howto-legacy-direct-portal.md)을 사용하여 이 가이드를 완료할 수 있습니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
-* 구성을 시작 하기 전에 [필수 조건](prerequisites.md) 및 [직접 피어 링 연습](walkthrough-direct-all.md) 을 검토 합니다.
+* 구성을 시작하기 전에 [필수 구성 조건](prerequisites.md) 및 직접 [피어링 연습을](walkthrough-direct-all.md) 검토합니다.
 
 ### <a name="working-with-azure-powershell"></a>Azure PowerShell 작업
 [!INCLUDE [CloudShell](./includes/cloudshell-powershell-about.md)]
 
-## <a name="convert-legacy-direct-peering-to-azure-resource"></a>레거시 직접 피어 링을 Azure 리소스로 변환
+## <a name="convert-legacy-direct-peering-to-azure-resource"></a>레거시 직접 피어링을 Azure 리소스로 변환
 
 ### <a name="sign-in-to-your-azure-account-and-select-your-subscription"></a>Azure 계정에 로그인하고 구독을 선택합니다.
 [!INCLUDE [Account](./includes/account-powershell.md)]
 
-### <a name= get></a>변환에 대 한 레거시 직접 피어 링 가져오기
-다음은 시애틀 피어 링 위치에서 레거시 직접 피어 링을 가져오는 예제입니다.
+### <a name="get-legacy-direct-peering-for-conversion"></a><a name= get></a>변환을 위한 레거시 직접 피어링 받기
+다음은 시애틀 피어링 위치에서 레거시 직접 피어링을 얻는 예제입니다.
 
 ```powershell
 $legacyPeering = Get-AzLegacyPeering `
@@ -41,7 +41,7 @@ $legacyPeering = Get-AzLegacyPeering `
 $legacyPeering
 ```
 
-다음은 응답 예제입니다.
+다음은 예제 응답입니다.
 ```powershell
 Name                       :
 Sku                        : Basic_Direct_Free
@@ -79,13 +79,13 @@ ProvisionedBandwidthInMbps : 20000
 ProvisioningState          : Succeeded
 ```
 
-### <a name="convert-legacy-direct-peering"></a>레거시 직접 피어 링 변환
+### <a name="convert-legacy-direct-peering"></a>레거시 직접 피어링 변환
 
 &nbsp;
 > [!IMPORTANT]
-> 레거시 피어 링을 azure 리소스로 변환할 때 수정은 지원 되지 않습니다. &nbsp;
+> 레거시 피어링을 Azure 리소스로 변환할 때 수정은 지원되지 않습니다. &nbsp;
 
-다음 명령을 사용 하 여 레거시 직접 피어 링을 Azure 리소스로 변환 합니다.
+아래 명령을 사용하여 레거시 직접 피어링을 Azure 리소스로 변환합니다.
 
 ```powershell
 $legacyPeering[0] | New-AzPeering `
@@ -94,7 +94,7 @@ $legacyPeering[0] | New-AzPeering `
 
 ```
 
-다음은 응답 예제입니다.
+다음은 예제 응답입니다.
 
 ```powershell
 Name                 : SeattleDirectPeering
@@ -118,8 +118,8 @@ Tags                 : {}
 Get-Help Get-AzPeering -detailed
 ```
 
-자세한 내용은 [인터넷 피어 링 faq](faqs.md) (영문)를 참조 하세요.
+자세한 내용은 [인터넷 피어링 자주 묻는 질문(FAQ)을 방문하십시오.](faqs.md)
 
 ## <a name="next-steps"></a>다음 단계
 
-* [PowerShell을 사용 하 여 직접 피어 링을 만들거나 수정](howto-direct-powershell.md)합니다.
+* [PowerShell 을 사용하여 직접 피어링을 만들거나 수정합니다.](howto-direct-powershell.md)

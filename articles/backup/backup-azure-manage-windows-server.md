@@ -1,18 +1,18 @@
 ---
 title: Azure Recovery Services 자격 증명 모음 및 서버 관리
-description: 이 문서에서는 Recovery Services 자격 증명 모음 개요 대시보드를 사용 하 여 Recovery Services 자격 증명 모음을 모니터링 하 고 관리 하는 방법을 알아봅니다.
+description: 이 문서에서는 복구 서비스 볼트 개요 대시보드를 사용하여 복구 서비스 자격 증명 모음을 모니터링하고 관리하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.openlocfilehash: b57d6eff5f5dfa2163962a47eee079d7e26257b5
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.openlocfilehash: 1a4d23c157700f42422cfe7ca8fa1c49e2cf128a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2020
-ms.locfileid: "79136959"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80131967"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Recovery Services 자격 증명 모음 모니터링 및 관리
 
-이 문서에서는 Recovery Services 자격 증명 모음 **개요** 대시보드를 사용하여 Recovery Services 자격 증명 모음을 모니터링하고 관리하는 방법에 대해 설명합니다. 목록에서 Recovery Services 자격 증명 모음을 열면 선택한 자격 증명 모음에 대한 **개요** 대시보드가 열립니다. 대시보드는 자격 증명 모음에 대한 다양한 세부 정보를 제공합니다. 중요/경고 알림 상태, 진행 중/실패 백업 작업, LRS(로컬 중복 스토리지)/GRS(지역 중복 스토리지) 사용량을 보여 주는 *타일*이 있습니다. Azure VM을 자격 증명 모음에 백업하면 [**백업 사전 검사 상태** 타일에 위험 또는 경고 항목](https://azure.microsoft.com/blog/azure-vm-backup-pre-checks/)이 표시됩니다. 다음 이미지는 **Contoso-vault**에 대한 **개요** 대시보드입니다. **백업 항목** 타일에는 자격 증명 모음에 등록된 9개의 항목이 표시되어 있습니다.
+이 문서에서는 Recovery Services 자격 증명 모음 **개요** 대시보드를 사용하여 Recovery Services 자격 증명 모음을 모니터링하고 관리하는 방법에 대해 설명합니다. 목록에서 Recovery Services 자격 증명 모음을 열면 선택한 자격 증명 모음에 대한 **개요** 대시보드가 열립니다. 대시보드는 자격 증명 모음에 대한 다양한 세부 정보를 제공합니다. 중요/경고 알림 상태, 진행 중/실패 백업 작업, LRS(로컬 중복 스토리지)/GRS(지역 중복 스토리지) 사용량을 보여 주는 *타일*이 있습니다. Azure VM을 자격 증명 모음에 백업하면 [**백업 사전 검사 상태** 타일에 위험 또는 경고 항목](https://docs.microsoft.com/azure/backup/backup-azure-manage-windows-server#backup-pre-check-status)이 표시됩니다. 다음 이미지는 **Contoso-vault**에 대한 **개요** 대시보드입니다. **백업 항목** 타일에는 자격 증명 모음에 등록된 9개의 항목이 표시되어 있습니다.
 
 ![복구 서비스 자격 증명 모음 대시보드](./media/backup-azure-manage-windows-server/rs-vault-blade.png)
 
@@ -49,7 +49,7 @@ Recovery Services 자격 증명 모음 **개요** 대시보드는 모니터링 �
 [모니터링] 섹션에는 미리 정의된 **백업 경고** 및 **백업 작업** 쿼리의 결과가 표시됩니다. [모니터링] 타일에서 제공하는 최신 정보는 다음과 같습니다.
 
 * 백업 작업에 대한 중요/경고 알림(지난 24시간 동안)
-* Azure Vm에 대 한 사전 검사 상태. 사전 검사 상태에 대 한 자세한 내용은 [백업 사전 검사 상태](#backup-pre-check-status)를 참조 하세요.
+* Azure VM의 상태를 미리 확인합니다. 사전 확인 상태에 대한 전체 정보는 [백업 사전 확인 상태를](#backup-pre-check-status)참조하십시오.
 * 진행 중 백업 작업 및 실패한 작업(지난 24시간 동안).
 
 [사용량] 타일에서 제공하는 정보는 다음과 같습니다.
@@ -63,21 +63,21 @@ Recovery Services 자격 증명 모음 **개요** 대시보드는 모니터링 �
 
 위의 이미지에서 [백업 경고] 메뉴의 경우 [상태]는 [활성], [심각도]는 [위험], 시간은 이전 24시간을 기준으로 필터링되었습니다.
 
-### <a name="backup-pre-check-status"></a>백업 사전 검사 상태
+### <a name="backup-pre-check-status"></a>백업 사전 확인 상태
 
-백업 사전 검사는 Vm의 구성을 확인 하 여 백업에 부정적인 영향을 미칠 수 있는 문제를 확인 합니다. Recovery Services 자격 증명 모음 대시보드에서 직접 볼 수 있도록이 정보를 집계 하 고 성공적인 파일 일치 또는 응용 프로그램 일치 백업에 대 한 권장 조치를 제공 합니다. 인프라를 요구 하지 않으며 추가 비용이 없습니다.  
+백업 사전 검사는 VM의 구성에서 백업에 부정적인 영향을 줄 수 있는 문제가 있는지 확인합니다. 복구 서비스 Vault 대시보드에서 직접 볼 수 있도록 이 정보를 집계하고 파일 일관성 또는 응용 프로그램 일관성 백업을 성공적으로 수행할 수 있도록 수정 조치에 대한 권장 사항을 제공합니다. 인프라가 필요하지 않으며 추가 비용이 들지 않습니다.  
 
-백업 사전 검사는 Azure Vm에 대 한 예약 된 백업 작업의 일부로 실행 됩니다. 다음 상태 중 하나로 결론을 합니다.
+백업 사전 검사는 Azure VM에 대해 예약된 백업 작업의 일부로 실행됩니다. 다음 상태 중 하나로 결론을 내립니다.
 
-* **통과**:이 상태는 VM의 구성이 성공적인 백업을 유발 하 고 정정 작업을 수행 하지 않아야 함을 나타냅니다.
-* **경고**:이 상태는 VM의 구성에서 백업 오류가 발생할 *수* 있는 하나 이상의 문제를 나타냅니다. 성공적인 백업을 보장 하기 위해 *권장 되는* 단계를 제공 합니다. 예를 들어 최신 VM 에이전트를 설치 하지 않으면 백업이 간헐적으로 실패할 수 있습니다. 이 경우 경고 상태가 제공 됩니다.
-* **위험**:이 상태는 백업 실패 *를 유발 하는 VM* 의 구성에서 하나 이상의 중요 한 문제를 나타내며 성공적인 백업을 위해 *필요한* 단계를 제공 합니다. 예를 들어 VM의 NSG 규칙에 대 한 업데이트로 인해 발생 하는 네트워크 문제로 인해 VM이 Azure Backup 서비스와 통신 하지 못하도록 하는 작업이 실패 합니다. 이 경우는 위험 상태를 제공 합니다.
+* **전달**: 이 상태는 VM의 구성이 성공적인 백업으로 이어져야 하며 수정 작업을 수행할 필요가 없음을 나타냅니다.
+* **경고**: 이 상태는 VM 구성에서 백업 실패로 이어질 *수* 있는 하나 이상의 문제를 나타냅니다. 성공적인 백업을 보장하기 위한 *권장* 단계를 제공합니다. 예를 들어 최신 VM 에이전트를 설치하지 않으면 백업이 간헐적으로 실패할 수 있습니다. 이 상황은 경고 상태를 제공합니다.
+* **중요**: 이 상태는 VM 구성에서 백업 실패로 *이어질* 하나 이상의 중요한 문제를 나타내며 성공적인 백업을 보장하기 위해 *필요한* 단계를 제공합니다. 예를 들어 VM의 NSG 규칙 업데이트로 인해 발생하는 네트워크 문제로 인해 VM이 Azure Backup 서비스와 통신하지 못하도록 백업이 실패하게 됩니다. 이 상황은 위험 상태를 제공할 것입니다.
 
-아래 단계에 따라 Recovery Services 자격 증명 모음에서 VM 백업에 대 한 백업 사전 검사에 의해 보고 된 모든 문제를 해결 합니다.
+복구 서비스 자격 증명 모음에서 VM 백업에 대한 백업 사전 검사에서 보고된 문제를 해결하려면 아래 단계에 따라
 
-* Recovery Services 자격 증명 모음 대시보드에서 **백업 사전 검사 상태 (Azure vm)** 타일을 선택 합니다.
-* 백업 사전 검사 상태가 **위험** 또는 **경고**인 VM을 선택 합니다. 이 작업을 수행 하면 **VM 세부 정보** 창이 열립니다.
-* 창 맨 위에 있는 창 알림을 선택 하 여 구성 문제 설명 및 수정 단계를 표시 합니다.
+* 복구 서비스 볼트 대시보드에서 **백업 사전 확인 상태(Azure VM)** 타일을 선택합니다.
+* **중요** 또는 **경고의**백업 사전 검사 상태가 있는 VM을 선택합니다. 이 작업은 **VM 세부 정보** 창을 엽니다.
+* 창 상단의 창 알림을 선택하여 구성 문제 설명 및 수정 단계를 표시합니다.
 
 ## <a name="manage-backup-alerts"></a>Backup 경고 관리
 
@@ -166,7 +166,7 @@ Recovery Services 자격 증명 모음 **개요** 대시보드는 모니터링 �
 
 ## <a name="manage-backup-items"></a>Backup 항목 관리
 
-Recovery Services 자격 증명 모음은 다양한 유형의 백업 데이터를 보유합니다. 백업할 수 있는 항목에 [대해 자세히 알아보세요](backup-overview.md#what-can-i-back-up) . 다양한 서버, 컴퓨터, 데이터베이스 및 워크로드를 관리하려면 **백업 항목** 타일을 클릭하여 자격 증명 모음의 내용을 봅니다.
+Recovery Services 자격 증명 모음은 다양한 유형의 백업 데이터를 보유합니다. 백업할 수 있는 내용에 대해 [자세히 알아보세요.](backup-overview.md#what-can-i-back-up) 다양한 서버, 컴퓨터, 데이터베이스 및 워크로드를 관리하려면 **백업 항목** 타일을 클릭하여 자격 증명 모음의 내용을 봅니다.
 
 ![Backup 항목 타일](./media/backup-azure-manage-windows-server/backup-items.png)
 
@@ -178,7 +178,7 @@ Recovery Services 자격 증명 모음은 다양한 유형의 백업 데이터�
 
 ![백업 유형 목록](./media/backup-azure-manage-windows-server/list-of-protected-virtual-machines.png)
 
-가상 머신 목록에는 연결된 리소스 그룹, 이전 [백업 사전 검사](https://azure.microsoft.com/blog/azure-vm-backup-pre-checks/), 마지막 백업 상태 및 최근 복원 지점 날짜 등 유용한 데이터가 있습니다. 마지막 열의 줄임표를 사용하면 일반적인 작업을 트리거하는 메뉴를 엽니다. 열에 제공된 유용한 데이터는 각 백업 유형마다 다릅니다.
+가상 머신 목록에는 연결된 리소스 그룹, 이전 [백업 사전 검사](https://docs.microsoft.com/azure/backup/backup-azure-manage-windows-server#backup-pre-check-status), 마지막 백업 상태 및 최근 복원 지점 날짜 등 유용한 데이터가 있습니다. 마지막 열의 줄임표를 사용하면 일반적인 작업을 트리거하는 메뉴를 엽니다. 열에 제공된 유용한 데이터는 각 백업 유형마다 다릅니다.
 
 ![백업 유형 목록](./media/backup-azure-manage-windows-server/ellipsis-menu.png)
 
@@ -274,7 +274,7 @@ Recovery Services 자격 증명 모음은 다양한 유형의 백업 데이터�
 
 **문제:** 포털에서 Azure Backup 에이전트의 작업과 경고가 표시되지 않습니다.
 
-**문제 해결 단계:** ```OBRecoveryServicesManagementAgent``` 프로세스에서 Azure Backup 서비스 작업 및 경고 데이터를 보냅니다. 때때로 이 프로세스가 멈추거나 종료될 수 있습니다.
+**문제 해결 단계:**```OBRecoveryServicesManagementAgent``` 프로세스에서 Azure Backup 서비스 작업 및 경고 데이터를 보냅니다. 때때로 이 프로세스가 멈추거나 종료될 수 있습니다.
 
 1. 프로세스가 실행되고 있지 않은지 확인하려면 **작업 관리자**를 열고 ```OBRecoveryServicesManagementAgent```가 실행되고 있는지 확인합니다.
 

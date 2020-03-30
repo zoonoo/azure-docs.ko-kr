@@ -1,5 +1,5 @@
 ---
-title: SQL Data Warehouse로 tb의 데이터 로드
+title: 테라바이트 규모의 데이터를 SQL 데이터 웨어하우스에 로드
 description: Azure Data Factory를 통해 15분 내에 Azure SQL Data Warehouse에 1TB 데이터를 로드하는 방법을 보여 줍니다.
 services: data-factory
 documentationcenter: ''
@@ -12,19 +12,19 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 68afc782e13f967bc1b455434c3ae952baff81b9
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 079d29c241cfbbdcc991f024c07b07b378670c10
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980913"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80130884"
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>Data Factory를 통해 15분 내에 Azure SQL Data Warehouse에 1TB 로드
 > [!NOTE]
 > 이 아티클은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우 [Data Factory를 사용하여 Azure SQL Data Warehouse 간에 데이터 복사](../connector-azure-sql-data-warehouse.md)를 참조하세요.
 
 
-[Azure SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)는 거대한 양의 관계형 및 비관계형 데이터를 처리할 수 있는 클라우드 기반 규모 확장 데이터베이스입니다.  대규모 병렬 처리(MPP) 아키텍처를 기반으로 하는 SQL Data Warehouse는 엔터프라이즈 데이터 웨어하우스 워크로드에 최적화됩니다.  스토리지를 확장하고 개별적으로 계산할 수 있는 클라우드 탄력성을 유연하게 제공합니다.
+[Azure SQL Data Warehouse는](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) 관계형 및 비관계형 모두 방대한 양의 데이터를 처리할 수 있는 클라우드 기반의 확장 데이터베이스입니다.  대규모 병렬 처리(MPP) 아키텍처를 기반으로 하는 SQL Data Warehouse는 엔터프라이즈 데이터 웨어하우스 워크로드에 최적화됩니다.  스토리지를 확장하고 개별적으로 계산할 수 있는 클라우드 탄력성을 유연하게 제공합니다.
 
 이제는 Azure SQL Data Warehouse를 시작하는 것이 **Azure Data Factory**를 사용하는 것보다 더 쉽습니다.  Azure Data Factory는 완벽하게 관리되는 클라우드 기반 데이터 통합 서비스이며, SQL Data Warehouse를 기존 시스템에서 나온 데이터로 채우는 데 사용되므로 SQL Data Warehouse를 평가하고 분석 솔루션을 빌드하는 동안 소중한 시간을 절약할 수 있습니다. Azure Data Factory를 사용하여 Azure SQL Data Warehouse로 데이터를 로드하는 방법의 주요 이점은 다음과 같습니다.
 
@@ -40,11 +40,11 @@ ms.locfileid: "75980913"
 > [!NOTE]
 >  Azure SQL Data Warehouse 간에 데이터를 이동하는 Data Factory 기능에 대한 일반적인 내용은 [Azure Data Factory를 사용하여 Azure SQL Data Warehouse 간 데이터 이동](data-factory-azure-sql-data-warehouse-connector.md) 문서를 참조하세요.
 >
-> Visual Studio, PowerShell 등을 사용 하 여 파이프라인을 빌드할 수도 있습니다. Azure Data Factory에서 복사 작업을 사용 하는 방법에 대 한 단계별 지침을 보려면 [자습서: Azure Blob에서 데이터 복사를 Azure SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) 합니다.  
+> 비주얼 스튜디오, PowerShell 등을 사용하여 파이프라인을 빌드할 수도 있습니다. [자습서 참조: Azure Blob에서 Azure SQL Database로 데이터를 복사하여](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) Azure 데이터 팩터리에서 복사 활동 사용에 대한 단계별 지침을 사용하여 빠른 단계를 수행합니다.  
 >
 >
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 * Azure Blob Storage: 이 실험에서는 Azure Blob Storage(GRS)를 사용하여 TPC-H 테스트 데이터 세트를 저장합니다.  Azure Storage 계정이 없을 경우 [스토리지 계정을 만드는 방법](../../storage/common/storage-account-create.md)을 참조하세요.
 * [TPC-H](http://www.tpc.org/tpch/) 데이터: 테스트 집합으로는 TPC-H를 사용할 것입니다.  이렇게 하려면 데이터 세트를 생성하도록 도와주는 TPC-H 도구 키트의 `dbgen`을 사용해야 합니다.  [TPC 도구](http://www.tpc.org/tpc_documents_current_versions/current_specifications.asp)에서 `dbgen`에 대한 원본 코드를 다운로드하여 직접 컴파일하거나, [GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TPCHTools)에서 컴파일된 이진 파일을 다운로드할 수 있습니다.  dbgen.exe를 다음 명령과 함께 실행하여 10개 파일에 분산되어 있는 `lineitem` 표에 대한 1TB의 플랫 파일을 생성합니다.
 
@@ -117,14 +117,14 @@ ms.locfileid: "75980913"
 
    1. **이름**으로 **LoadIntoSQLDWDataFactory**를 입력합니다.
        Azure Data Factory 이름은 전역적으로 고유해야 합니다. **Data Factory 이름 “LoadIntoSQLDWDataFactory”를 사용할 수 없습니다.** 오류가 표시되는 경우 Data Factory 이름을 변경하고(예: yournameLoadIntoSQLDWDataFactory) 다시 만듭니다. 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 - 명명 규칙](data-factory-naming-rules.md) 항목을 참조하세요.  
-   2. Azure **구독**을 선택합니다.
+   2. Azure **구독을**선택합니다.
    3. 리소스 그룹에 대해 다음 단계 중 하나를 수행합니다.
       1. **기존 항목 사용**을 선택하고 기존 리소스 그룹을 선택합니다.
       2. **새로 만들기**를 선택하고 리소스 그룹의 이름을 입력합니다.
    4. Data Factory의 **위치**를 선택합니다.
    5. 블레이드 하단에서 **대시보드에 고정** 확인란을 선택합니다.  
    6. **만들기**를 클릭합니다.
-4. 만들기가 완료되면 다음 이미지와 같이 **Data Factory** 블레이드가 표시됩니다.
+4. 생성이 완료되면 다음 이미지와 같이 **데이터 팩터리** 블레이드가 표시됩니다.
 
    ![데이터 팩터리 홈페이지](media/data-factory-load-sql-data-warehouse/data-factory-home-page-copy-data.png)
 5. 데이터 팩터리 홈 페이지에서 **데이터 복사** 타일을 클릭하여 **복사 마법사**를 시작합니다.
@@ -198,7 +198,7 @@ ms.locfileid: "75980913"
 
     오른쪽 패널의 **Activity Window Explorer**(활동 기간 탐색기)에서는 원본에서 읽고 대상에 쓴 데이터 볼륨, 기간, 평균 실행 처리량을 비롯한 복사 실행 세부 정보를 확인할 수 있습니다.
 
-    다음 스크린샷에서 볼 수 있듯이 1TB를 Azure Blob Storage에서 SQL Data Warehouse로 복사 하는 데 14 분이 걸리며 1.22 g b 처리량을 효과적으로 달성 했습니다.
+    다음 스크린샷에서 볼 수 있듯이 Azure Blob Storage에서 1TB를 SQL 데이터 웨어하우스로 복사하는 데 14분이 걸렸으며 1.22GBps 처리량을 효과적으로 달성했습니다!
 
     ![복사 마법사 - 성공 대화 상자](media/data-factory-load-sql-data-warehouse/succeeded-info.png)
 
@@ -210,7 +210,7 @@ Azure SQL Data Warehouse 데이터베이스 실행에 대한 몇 가지 모범 �
 * 로드 속도를 높이려면 임시 데이터에 힙을 사용하는 것이 좋습니다.
 * Azure SQL Data Warehouse 로드를 완료한 후 통계를 만듭니다.
 
-자세한 내용은 [Azure SQL Data Warehouse에 대한 모범 사례](../../sql-data-warehouse/sql-data-warehouse-best-practices.md)를 참조하세요.
+자세한 내용은 [Azure SQL Data Warehouse에 대한 모범 사례](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-best-practices.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 * [Data Factory 복사 마법사](data-factory-copy-wizard.md) - 이 문서에서는 복사 마법사에 대해 자세히 설명합니다.

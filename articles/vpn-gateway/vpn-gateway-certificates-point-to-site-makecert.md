@@ -1,5 +1,5 @@
 ---
-title: 'Azure VPN Gateway: P2S에 대 한 & 내보내기 인증서 생성: Makecert.exe'
+title: 'Azure VPN 게이트웨이: P2S에 대한 & 내보내기 인증서 생성: MakeCert'
 description: MakeCert를 사용하여 자체 서명된 루트 인증서를 만들고, 공개 키를 내보내고, 클라이언트 인증서를 생성합니다.
 services: vpn-gateway
 author: cherylmc
@@ -8,25 +8,25 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.author: cherylmc
 ms.openlocfilehash: ad2ab31e6771efc54238d5747863fa2a9bb2f356
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75833981"
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-connections-using-makecert"></a>MakeCert를 사용하여 지점 및 사이트 간 연결에 대한 인증서 생성 및 내보내기
 
 지점 및 사이트 간 연결은 인증서를 사용하여 인증을 합니다. 이 문서에서는 MakeCert를 사용하여 자체 서명된 루트 인증서를 만들고 클라이언트 인증서를 생성하는 방법을 보여 줍니다. 다른 인증서 지침을 찾는 경우 [인증서 - PowerShell](vpn-gateway-certificates-point-to-site.md) 또는 [인증서 - Linux](vpn-gateway-certificates-point-to-site-linux.md)를 참조하세요.
 
-[Windows 10 PowerShell 단계](vpn-gateway-certificates-point-to-site.md)를 사용하여 인증서를 만드는 것이 좋지만 하나의 선택적 방법으로 이러한 MakeCert 지침을 제공합니다. 두 방법 중 하나를 사용하여 생성하는 인증서는 [지원되는 모든 클라이언트 운영 체제](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq)에 설치할 수 있습니다. 그러나 MakeCert에는 다음과 같은 제한이 있습니다.
+[Windows 10 PowerShell 단계](vpn-gateway-certificates-point-to-site.md)를 사용하여 인증서를 만드는 것이 좋지만 하나의 선택적 방법으로 이러한 MakeCert 지침을 제공합니다. 두 방법 중 하나를 사용하여 생성하는 인증서는 [지원되는 클라이언트 운영 체제에](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq)설치할 수 있습니다. 그러나 MakeCert에는 다음과 같은 제한이 있습니다.
 
 * MakeCert는 더 이상 사용되지 않습니다. 즉, 언제든지 이 도구가 제거될 수 있습니다. MakeCert를 더 이상 사용할 수 없는 경우 MakeCert를 사용하여 이미 생성한 인증서는 영향을 받지 않습니다. MakeCert는 메커니즘 유효성 검사에 사용되지 않으며 인증서를 생성하는 데에만 사용됩니다.
 
-## <a name="rootcert"></a>자체 서명된 루트 인증서 만들기
+## <a name="create-a-self-signed-root-certificate"></a><a name="rootcert"></a>자체 서명된 루트 인증서 만들기
 
 다음 단계에서는 MakeCert를 사용하여 자체 서명된 인증서를 만드는 방법을 보여 줍니다. 이러한 단계는 배포 모델에 한정되지 않습니다. 리소스 관리자와 클래식에 대해 모두 유효합니다.
 
-1. [MakeCert](https://msdn.microsoft.com/library/windows/desktop/aa386968(v=vs.85).aspx)를 다운로드 및 설치합니다.
+1. 다운로드 및 [MakeCert를](https://msdn.microsoft.com/library/windows/desktop/aa386968(v=vs.85).aspx)설치합니다.
 2. 설치가 끝나면 일반적으로 'C:\Program Files (x86)\Windows Kits\10\bin\<arch>' 경로 아래에서 makecert.exe 유틸리티를 찾을 수 있습니다. 하지만 다른 위치에 설치되었을 수도 있습니다. 관리자 권한으로 명령 프롬프트를 열고 MakeCert 유틸리티의 위치로 이동합니다. 적절한 위치에 대해 조정하여 다음 예제를 사용할 수 있습니다.
 
    ```cmd
@@ -38,7 +38,7 @@ ms.locfileid: "75833981"
    makecert -sky exchange -r -n "CN=P2SRootCert" -pe -a sha256 -len 2048 -ss My
    ```
 
-## <a name="cer"></a>공개 키(.cer) 내보내기
+## <a name="export-the-public-key-cer"></a><a name="cer"></a>공개 키(.cer) 내보내기
 
 [!INCLUDE [Export public key](../../includes/vpn-gateway-certificates-export-public-key-include.md)]
 
@@ -52,7 +52,7 @@ exported.cer 파일을 Azure에 업로드해야 합니다. 자세한 내용은 [
 
 자체 서명된 인증서를 클라이언트 컴퓨터에 직접 설치하지는 않으며, 자체 서명된 인증서에서 클라이언트 인증서를 생성해야 합니다. 그런 다음 클라이언트 인증서를 클라이언트 컴퓨터로 내보낸 후 설치해야 합니다. 이러한 단계는 배포 모델에 관계없이 적용됩니다. 리소스 관리자와 클래식에 대해 모두 유효합니다.
 
-### <a name="clientcert"></a>클라이언트 인증서 생성
+### <a name="generate-a-client-certificate"></a><a name="clientcert"></a>클라이언트 인증서 생성
 
 지점 및 사이트 간을 사용하여 VNet에 연결하는 각 클라이언트 컴퓨터에 클라이언트 인증서가 설치되어 있어야 합니다. 자체 서명된 루트 인증서에서 클라이언트 인증서를 생성한 후 클라이언트 인증서를 내보내고 설치합니다. 클라이언트 인증서가 설치되어 있지 않으면 인증이 실패합니다. 
 
@@ -69,11 +69,11 @@ exported.cer 파일을 Azure에 업로드해야 합니다. 자세한 내용은 [
    makecert.exe -n "CN=P2SChildCert" -pe -sky exchange -m 96 -ss My -in "P2SRootCert" -is my -a sha256
    ```
 
-### <a name="clientexport"></a>클라이언트 인증서 내보내기
+### <a name="export-a-client-certificate"></a><a name="clientexport"></a>클라이언트 인증서 내보내기
 
 [!INCLUDE [Export client certificate](../../includes/vpn-gateway-certificates-export-client-cert-include.md)]
 
-### <a name="install"></a>내보낸 클라이언트 인증서 설치
+### <a name="install-an-exported-client-certificate"></a><a name="install"></a>내보낸 클라이언트 인증서 설치
 
 클라이언트 인증서를 설치하려면 [클라이언트 인증서 설치](point-to-site-how-to-vpn-client-install-azure-cert.md)를 참조하세요.
 

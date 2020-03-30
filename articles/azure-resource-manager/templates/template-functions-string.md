@@ -1,49 +1,49 @@
 ---
-title: 템플릿 함수-문자열
+title: 템플릿 함수 - 문자열
 description: Azure Resource Manager 템플릿에서 문자열 작업을 수행하는 데 사용할 수 있는 함수에 대해 설명합니다.
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.openlocfilehash: f8d19179461693331a6091ec7a3562f536b959e4
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 070133c3db538e5df76644b62c25ced916adc4af
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79274204"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80156279"
 ---
-# <a name="string-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿용 문자열 함수
+# <a name="string-functions-for-arm-templates"></a>ARM 템플릿용 문자열 함수
 
-Resource Manager는 문자열 작업을 위한 다음 함수를 제공합니다.
+리소스 관리자는 ARM(Azure 리소스 관리자) 템플릿에서 문자열로 작업하기 위한 다음 함수를 제공합니다.
 
-* [base64](#base64)
+* [베이스64](#base64)
 * [base64ToJson](#base64tojson)
 * [base64ToString](#base64tostring)
 * [concat](#concat)
-* [contains](#contains)
-* [dataUri](#datauri)
+* [포함](#contains)
+* [데이터우리](#datauri)
 * [dataUriToString](#datauritostring)
-* [empty](#empty)
+* [빈](#empty)
 * [endsWith](#endswith)
-* [first](#first)
-* [format](#format)
-* [guid](#guid)
+* [첫 번째](#first)
+* [형식](#format)
+* [Guid](#guid)
 * [indexOf](#indexof)
-* [last](#last)
+* [마지막](#last)
 * [lastIndexOf](#lastindexof)
 * [length](#length)
-* [newGuid](#newguid)
+* [뉴가드](#newguid)
 * [padLeft](#padleft)
-* [replace](#replace)
-* [skip](#skip)
-* [split](#split)
-* [startsWith](#startswith)
-* [string](#string)
-* [substring](#substring)
-* [take](#take)
-* [toLower](#tolower)
+* [교체](#replace)
+* [건너뛸](#skip)
+* [분할](#split)
+* [시작](#startswith)
+* [문자열](#string)
+* [부분](#substring)
+* [테이크](#take)
+* [로어](#tolower)
 * [toUpper](#toupper)
-* [trim](#trim)
+* [트림](#trim)
 * [uniqueString](#uniquestring)
-* [uri](#uri)
+* [Uri](#uri)
 * [uriComponent](#uricomponent)
 * [uriComponentToString](#uricomponenttostring)
 * [utcNow](#utcnow)
@@ -107,7 +107,7 @@ Base64 표현을 포함하는 문자열입니다.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | base64Output | String | b25lLCB0d28sIHRocmVl |
 | toStringOutput | String | one, two, three |
@@ -172,7 +172,7 @@ JSON 개체입니다.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | base64Output | String | b25lLCB0d28sIHRocmVl |
 | toStringOutput | String | one, two, three |
@@ -237,7 +237,7 @@ base64 표현을 문자열로 변환합니다.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | base64Output | String | b25lLCB0d28sIHRocmVl |
 | toStringOutput | String | one, two, three |
@@ -253,10 +253,10 @@ base64 표현을 문자열로 변환합니다.
 
 | 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |yes |문자열 또는 배열 |연결할 첫 번째 문자열 또는 배열입니다. |
-| 추가 인수 |예 |문자열 또는 배열 |연결에 대 한 순서 대로 추가 문자열 또는 배열 |
+| arg1 |yes |문자열 또는 배열 |연결에 대한 첫 번째 문자열 또는 배열입니다. |
+| 추가 인수 |예 |문자열 또는 배열 |연결에 대한 순차적 순서로 추가 문자열 또는 배열입니다. |
 
-이 함수는 인수를 개수에 관계없이 사용할 수 있으며 매개 변수에 대한 문자열이나 배열 중 하나를 사용할 수 있습니다. 그러나 매개 변수에 대 한 배열과 문자열을 둘 다 제공할 수는 없습니다. 문자열은 다른 문자열과만 연결 됩니다.
+이 함수는 인수를 개수에 관계없이 사용할 수 있으며 매개 변수에 대한 문자열이나 배열 중 하나를 사용할 수 있습니다. 그러나 매개 변수에 대한 배열과 문자열을 모두 제공할 수는 없습니다. 문자열은 다른 문자열과만 연결됩니다.
 
 ### <a name="return-value"></a>반환 값
 
@@ -288,7 +288,7 @@ base64 표현을 문자열로 변환합니다.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | concatOutput | String | prefix-5yj4yjf5mbg72 |
 
@@ -329,7 +329,7 @@ base64 표현을 문자열로 변환합니다.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | return | Array | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
@@ -405,7 +405,7 @@ base64 표현을 문자열로 변환합니다.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | stringTrue | Bool | True |
 | stringFalse | Bool | False |
@@ -464,7 +464,7 @@ base64 표현을 문자열로 변환합니다.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | dataUriOutput | String | data:text/plain;charset=utf8;base64,SGVsbG8= |
 | toStringOutput | String | Hello, World! |
@@ -519,7 +519,7 @@ base64 표현을 문자열로 변환합니다.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | dataUriOutput | String | data:text/plain;charset=utf8;base64,SGVsbG8= |
 | toStringOutput | String | Hello, World! |
@@ -583,7 +583,7 @@ base64 표현을 문자열로 변환합니다.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | arrayEmpty | Bool | True |
 | objectEmpty | Bool | True |
@@ -646,7 +646,7 @@ base64 표현을 문자열로 변환합니다.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | startsTrue | Bool | True |
 | startsCapTrue | Bool | True |
@@ -702,7 +702,7 @@ base64 표현을 문자열로 변환합니다.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | arrayOutput | String | one |
 | stringOutput | String | O |
@@ -711,23 +711,23 @@ base64 표현을 문자열로 변환합니다.
 
 `format(formatString, arg1, arg2, ...)`
 
-입력 값에서 형식이 지정 된 문자열을 만듭니다.
+입력 값에서 서식이 지정된 문자열을 만듭니다.
 
 ### <a name="parameters"></a>매개 변수
 
 | 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | formatString | yes | 문자열 | 합성 형식 문자열입니다. |
-| arg1 | yes | 문자열, 정수 또는 부울 | 서식이 지정 된 문자열에 포함할 값입니다. |
-| 추가 인수 | 예 | 문자열, 정수 또는 부울 | 서식이 지정 된 문자열에 포함할 추가 값입니다. |
+| arg1 | yes | 문자열, 정수 또는 부울 | 형식이 지정된 문자열에 포함할 값입니다. |
+| 추가 인수 | 예 | 문자열, 정수 또는 부울 | 서식이 지정된 문자열에 포함할 추가 값입니다. |
 
 ### <a name="remarks"></a>설명
 
-템플릿에서 문자열의 형식을 지정 하려면이 함수를 사용 합니다. .NET의 [system.string](/dotnet/api/system.string.format) 메서드와 동일한 형식 지정 옵션을 사용 합니다.
+이 함수를 사용하여 템플릿에서 문자열을 포맷합니다. .NET에서 [System.String.Format](/dotnet/api/system.string.format) 메서드와 동일한 서식 옵션을 사용합니다.
 
 ### <a name="examples"></a>예
 
-다음 예제 템플릿에서는 format 함수를 사용 하는 방법을 보여 줍니다.
+다음 예제 템플릿에서는 형식 함수를 사용하는 방법을 보여 주며 있습니다.
 
 ```json
 {
@@ -760,9 +760,9 @@ base64 표현을 문자열로 변환합니다.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
-| formatTest | String | Hello, User. 형식이 지정 된 숫자: 8175133 |
+| 형식 테스트 | String | 안녕하세요, 사용자. 형식이 지정된 번호: 8,175,133 |
 
 ## <a name="guid"></a>guid
 
@@ -781,7 +781,7 @@ base64 표현을 문자열로 변환합니다.
 
 이 함수는 고유 식별자 형식의 값을 만들어야 할 때 유용합니다. 결과의 고유성 범위를 제한하는 매개 변수 값을 제공합니다. 구독, 리소스 그룹 또는 배포까지 해당 이름이 고유한지 여부를 지정할 수 있습니다.
 
-반환 된 값은 임의의 문자열이 아니라 매개 변수에 대 한 해시 함수의 결과입니다. 반환된 값은 36자입니다. 전역적으로 고유 하지 않습니다. 매개 변수의 해당 해시 값을 기반으로 하지 않는 새 GUID를 만들려면 [newguid](#newguid) 함수를 사용 합니다.
+반환된 값은 임의 문자열이 아니라 매개 변수에 대한 해시 함수의 결과입니다. 반환된 값은 36자입니다. 그것은 전 세계적으로 고유하지 않습니다. 매개 변수의 해시 값을 기반으로 하지 않는 새 GUID를 만들려면 [newGuid](#newguid) 함수를 사용합니다.
 
 다음 예제에서는 guid를 사용하여 일반적으로 사용하는 수준에 대해 고유한 값을 만드는 방법을 보여 줍니다.
 
@@ -850,7 +850,7 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="return-value"></a>반환 값
 
-찾을 항목의 위치를 나타내는 정수입니다. 값은 0부터 시작합니다. 항목을 찾을 수 없는 경우-1이 반환 됩니다.
+찾을 항목의 위치를 나타내는 정수입니다. 값은 0부터 시작합니다. 항목을 찾을 수 없는 경우 -1이 반환됩니다.
 
 ### <a name="examples"></a>예
 
@@ -888,7 +888,7 @@ base64 표현을 문자열로 변환합니다.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | firstT | Int | 0 |
 | lastT | Int | 3 |
@@ -943,7 +943,7 @@ base64 표현을 문자열로 변환합니다.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | arrayOutput | String | three |
 | stringOutput | String | e |
@@ -963,7 +963,7 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="return-value"></a>반환 값
 
-찾을 항목의 마지막 위치를 나타내는 정수입니다. 값은 0부터 시작합니다. 항목을 찾을 수 없는 경우-1이 반환 됩니다.
+찾을 항목의 마지막 위치를 나타내는 정수입니다. 값은 0부터 시작합니다. 항목을 찾을 수 없는 경우 -1이 반환됩니다.
 
 ### <a name="examples"></a>예
 
@@ -1001,7 +1001,7 @@ base64 표현을 문자열로 변환합니다.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | firstT | Int | 0 |
 | lastT | Int | 3 |
@@ -1013,13 +1013,13 @@ base64 표현을 문자열로 변환합니다.
 
 `length(string)`
 
-문자열의 문자 수, 배열의 요소 또는 개체의 루트 수준 속성을 반환 합니다.
+문자열의 문자 수, 배열의 요소 또는 개체의 루트 수준 속성을 반환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
 | 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |yes |array, string 또는 object |요소 수를 가져오는 데 사용할 배열, 문자 수를 가져오는 데 사용할 문자열 또는 루트 수준 속성의 수를 가져오는 데 사용할 개체입니다. |
+| arg1 |yes |배열, 문자열 또는 개체 |요소 수를 가져오는 데 사용할 배열, 문자 수를 가져오는 데 사용할 문자열 또는 루트 수준 속성 수를 가져오는 데 사용할 개체입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -1079,29 +1079,29 @@ int입니다.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | arrayLength | Int | 3 |
 | stringLength | Int | 13 |
-| objectLength | Int | 4 |
+| 개체길이 | Int | 4 |
 
-## <a name="newguid"></a>newGuid
+## <a name="newguid"></a>뉴가드
 
 `newGuid()`
 
-전역적으로 고유한 식별자 형식의 값을 반환 합니다. **이 함수는 매개 변수의 기본값에만 사용할 수 있습니다.**
+전역고유 식별자 형식으로 값을 반환합니다. **이 함수는 매개 변수의 기본값에서만 사용할 수 있습니다.**
 
 ### <a name="remarks"></a>설명
 
-이 함수는 매개 변수의 기본값에 대해서만 식 내에서 사용할 수 있습니다. 템플릿의 다른 위치에서이 함수를 사용 하면 오류가 반환 됩니다. 함수는 호출 될 때마다 다른 값을 반환 하므로 템플릿의 다른 부분에서는 허용 되지 않습니다. 동일한 매개 변수를 사용 하 여 동일한 템플릿을 배포 하는 것은 안정적으로 동일한 결과를 생성 하지 않습니다.
+매개 변수의 기본값에 대해서만 이 함수를 식 내에서 사용할 수 있습니다. 템플릿의 다른 곳에서이 함수를 사용하면 오류가 반환됩니다. 함수는 호출될 때마다 다른 값을 반환하기 때문에 템플릿의 다른 부분에서는 허용되지 않습니다. 동일한 매개 변수를 사용 하 여 동일한 템플릿을 배포 하면 동일한 결과 안정적으로 생성 되지 않습니다.
 
-NewGuid 함수는 매개 변수를 사용 하지 않으므로 [guid](#guid) 함수와 다릅니다. 동일한 매개 변수를 사용 하 여 guid를 호출 하면 매번 동일한 식별자를 반환 합니다. 특정 환경에 대해 동일한 GUID를 안정적으로 생성 해야 하는 경우 guid를 사용 합니다. 테스트 환경에 리소스를 배포 하는 것과 같이 매번 다른 식별자가 필요한 경우 newGuid를 사용 합니다.
+newGuid 함수는 매개 변수를 고려하지 않기 때문에 [guid](#guid) 함수와 다릅니다. 동일한 매개 변수를 가진 guid를 호출하면 매번 동일한 식별자를 반환합니다. 특정 환경에 대해 동일한 GUID를 안정적으로 생성해야 하는 경우 guid를 사용합니다. 테스트 환경에 리소스를 배포하는 등 매번 다른 식별자가 필요한 경우 newGuid를 사용합니다.
 
-[이전에 성공한 배포](rollback-on-error.md)를 다시 배포 하는 옵션을 사용 하는 경우 이전 배포에 newguid를 사용 하는 매개 변수가 포함 된 경우 매개 변수는 다시 평가 되지 않습니다. 대신 이전 배포의 매개 변수 값이 롤백 배포에서 자동으로 다시 사용 됩니다.
+이전 성공적인 [배포를 다시 배포하는 옵션을](rollback-on-error.md)사용하고 이전 배포에 newGuid를 사용하는 매개 변수가 포함되어 있으면 매개 변수가 다시 평가되지 않습니다. 대신 이전 배포의 매개 변수 값은 롤백 배포에서 자동으로 다시 사용됩니다.
 
-테스트 환경에서는 짧은 시간 동안만 지속 되는 리소스를 반복적으로 배포 해야 할 수 있습니다. 고유 이름을 생성 하는 대신 [uniqueString](#uniquestring) 와 함께 newguid를 사용 하 여 고유한 이름을 만들 수 있습니다.
+테스트 환경에서는 짧은 시간 동안만 라이브하는 리소스를 반복적으로 배포해야 할 수 있습니다. 고유한 이름을 구성하는 대신 newGuid with [uniqueString을](#uniquestring) 사용하여 고유한 이름을 만들 수 있습니다.
 
-기본값에 대해 newGuid 함수를 사용 하는 템플릿을 다시 배포 해야 합니다. 다시 배포 하는 경우 매개 변수에 대 한 값을 제공 하지 않으면 함수가 재평가 됩니다. 새 리소스를 만드는 대신 기존 리소스를 업데이트 하려면 이전 배포에서 매개 변수 값을 전달 합니다.
+기본값에 대 한 newGuid 함수에 의존 하는 서식 파일을 다시 배포 주의 해야 합니다. 매개 변수에 대한 값을 다시 배포하고 제공하지 않으면 함수가 다시 평가됩니다. 새 리소스를 만드는 대신 기존 리소스를 업데이트하려면 이전 배포에서 매개 변수 값을 전달합니다.
 
 ### <a name="return-value"></a>반환 값
 
@@ -1109,7 +1109,7 @@ NewGuid 함수는 매개 변수를 사용 하지 않으므로 [guid](#guid) 함�
 
 ### <a name="examples"></a>예
 
-다음 예제 템플릿에서는 새 식별자를 포함 하는 매개 변수를 보여 줍니다.
+다음 예제 템플릿은 새 식별자가 있는 매개 변수를 보여 주며 있습니다.
 
 ```json
 {
@@ -1132,13 +1132,13 @@ NewGuid 함수는 매개 변수를 사용 하지 않으므로 [guid](#guid) 함�
 }
 ```
 
-이전 예제의 출력은 각 배포에 따라 다르지만 다음과 유사 합니다.
+앞의 예제의 출력은 배포마다 다르지만 다음과 유사합니다.
 
-| 속성 | Type | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
-| guidOutput | 문자열 | b76a51fc-bd72-4a77-b9a2-3c29e7d2e551 |
+| guid출력 | 문자열 | b76a51fc-bd72-4a77-b9a2-3c29e7d2e551 |
 
-다음 예에서는 newGuid 함수를 사용 하 여 저장소 계정에 대 한 고유한 이름을 만듭니다. 이 템플릿은 저장소 계정이 짧은 시간 동안 존재 하 고 다시 배포 되지 않는 테스트 환경에 사용할 수 있습니다.
+다음 예제에서는 newGuid 함수를 사용 하 여 저장소 계정에 대 한 고유한 이름을 만듭니다. 이 템플릿은 저장소 계정이 짧은 시간 동안 존재하고 재배포되지 않는 테스트 환경에서 작동할 수 있습니다.
 
 ```json
 {
@@ -1175,11 +1175,11 @@ NewGuid 함수는 매개 변수를 사용 하지 않으므로 [guid](#guid) 함�
 }
 ```
 
-이전 예제의 출력은 각 배포에 따라 다르지만 다음과 유사 합니다.
+앞의 예제의 출력은 배포마다 다르지만 다음과 유사합니다.
 
-| 속성 | Type | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
-| nameOutput | 문자열 | storagenziwvyru7uxie |
+| 이름출력 | 문자열 | 스토리지젠지비브루7uxie |
 
 
 ## <a name="padleft"></a>padLeft
@@ -1228,7 +1228,7 @@ NewGuid 함수는 매개 변수를 사용 하지 않으므로 [guid](#guid) 함�
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | stringOutput | String | 0000000123 |
 
@@ -1280,7 +1280,7 @@ NewGuid 함수는 매개 변수를 사용 하지 않으므로 [guid](#guid) 함�
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | firstOutput | String | 1231231234 |
 | secondOutput | String | 123-123-xxxx |
@@ -1296,7 +1296,7 @@ NewGuid 함수는 매개 변수를 사용 하지 않으므로 [guid](#guid) 함�
 | 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | originalValue |yes |배열 또는 문자열 |건너뛰는 데 사용할 배열 또는 문자열입니다. |
-| numberToSkip |yes |int |건너뛸 요소 또는 문자 수입니다. 이 값이 0 이하이면 값의 모든 요소 또는 문자가 반환됩니다. 배열이 나 문자열의 길이 보다 크면 빈 배열 또는 문자열이 반환 됩니다. |
+| numberToSkip |yes |int |건너뛸 요소 또는 문자 수입니다. 이 값이 0 이하이면 값의 모든 요소 또는 문자가 반환됩니다. 배열 또는 문자열의 길이보다 크면 빈 배열 또는 문자열이 반환됩니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -1348,7 +1348,7 @@ NewGuid 함수는 매개 변수를 사용 하지 않으므로 [guid](#guid) 함�
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | arrayOutput | Array | ["three"] |
 | stringOutput | String | two three |
@@ -1407,7 +1407,7 @@ NewGuid 함수는 매개 변수를 사용 하지 않으므로 [guid](#guid) 함�
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | firstOutput | Array | [“one”, “two”, “three”] |
 | secondOutput | Array | [“one”, “two”, “three”] |
@@ -1469,7 +1469,7 @@ NewGuid 함수는 매개 변수를 사용 하지 않으므로 [guid](#guid) 함�
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | startsTrue | Bool | True |
 | startsCapTrue | Bool | True |
@@ -1543,7 +1543,7 @@ NewGuid 함수는 매개 변수를 사용 하지 않으므로 [guid](#guid) 함�
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | objectOutput | String | {“valueA”:10,“valueB”:“Example Text”} |
 | arrayOutput | String | [“a”,“b”,“c”] |
@@ -1606,7 +1606,7 @@ NewGuid 함수는 매개 변수를 사용 하지 않으므로 [guid](#guid) 함�
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | substringOutput | String | two |
 
@@ -1621,7 +1621,7 @@ NewGuid 함수는 매개 변수를 사용 하지 않으므로 [guid](#guid) 함�
 | 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | originalValue |yes |배열 또는 문자열 |요소를 가져올 배열 또는 문자열입니다. |
-| numberToTake |yes |int |수락할 요소 또는 문자의 수입니다. 이 값이 0 이하이면 빈 배열 또는 문자열이 반환됩니다. 지정 된 배열 또는 문자열의 길이 보다 크면 배열 또는 문자열의 모든 요소가 반환 됩니다. |
+| numberToTake |yes |int |수락할 요소 또는 문자의 수입니다. 이 값이 0 이하이면 빈 배열 또는 문자열이 반환됩니다. 지정된 배열 또는 문자열의 길이보다 크면 배열 또는 문자열의 모든 요소가 반환됩니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -1673,10 +1673,10 @@ NewGuid 함수는 매개 변수를 사용 하지 않으므로 [guid](#guid) 함�
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | arrayOutput | Array | ["one", "two"] |
-| stringOutput | String | on |
+| stringOutput | String | On |
 
 ## <a name="tolower"></a>toLower
 
@@ -1724,7 +1724,7 @@ NewGuid 함수는 매개 변수를 사용 하지 않으므로 [guid](#guid) 함�
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | toLowerOutput | String | one two three |
 | toUpperOutput | String | ONE TWO THREE |
@@ -1775,7 +1775,7 @@ NewGuid 함수는 매개 변수를 사용 하지 않으므로 [guid](#guid) 함�
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | toLowerOutput | String | one two three |
 | toUpperOutput | String | ONE TWO THREE |
@@ -1822,7 +1822,7 @@ NewGuid 함수는 매개 변수를 사용 하지 않으므로 [guid](#guid) 함�
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | return | String | one two three |
 
@@ -1843,7 +1843,7 @@ NewGuid 함수는 매개 변수를 사용 하지 않으므로 [guid](#guid) 함�
 
 이 함수는 리소스의 고유한 이름을 만들어야 할 때 유용합니다. 결과의 고유성 범위를 제한하는 매개 변수 값을 제공합니다. 구독, 리소스 그룹 또는 배포까지 해당 이름이 고유한지 여부를 지정할 수 있습니다. 
 
-반환 된 값은 임의의 문자열이 아니라 해시 함수의 결과입니다. 반환된 값은 13자입니다. 전역적으로 고유 하지 않습니다. 의미있는 이름을 만들기 위해 해당 값과 명명 규칙의 접두사를 결합할 수도 있습니다. 다음 예제에서는 반환된 값의 형식을 보여 줍니다. 실제 값은 제공된 매개 변수에 따라 달라집니다.
+반환된 값은 임의 문자열이 아니라 해시 함수의 결과입니다. 반환된 값은 13자입니다. 그것은 전 세계적으로 고유하지 않습니다. 의미있는 이름을 만들기 위해 해당 값과 명명 규칙의 접두사를 결합할 수도 있습니다. 다음 예제에서는 반환된 값의 형식을 보여 줍니다. 실제 값은 제공된 매개 변수에 따라 달라집니다.
 
     tcvhiyu5h2o5o
 
@@ -1867,7 +1867,7 @@ NewGuid 함수는 매개 변수를 사용 하지 않으므로 [guid](#guid) 함�
 "[uniqueString(resourceGroup().id, deployment().name)]"
 ```
 
-다음 예제에서는 리소스 그룹에 따라 스토리지 계정에 고유한 이름을 만드는 방법을 보여 줍니다. 리소스 그룹 내에서 이름이 동일한 방식으로 생성 된 경우 고유 하지 않습니다.
+다음 예제에서는 리소스 그룹에 따라 스토리지 계정에 고유한 이름을 만드는 방법을 보여 줍니다. 리소스 그룹 내에서 같은 방식으로 구성된 경우 이름은 고유하지 않습니다.
 
 ```json
 "resources": [{ 
@@ -1876,7 +1876,7 @@ NewGuid 함수는 매개 변수를 사용 하지 않으므로 [guid](#guid) 함�
     ...
 ```
 
-템플릿을 배포할 때마다 새 고유 이름을 만들어야 하 고 리소스를 업데이트 하지 않으려는 경우 uniqueString에 [utcNow](#utcnow) 함수를 사용할 수 있습니다. 테스트 환경에서이 방법을 사용할 수 있습니다. 예제를 보려면 [utcNow](#utcnow)를 참조 하세요.
+템플릿을 배포할 때마다 새 고유 이름을 만들어야 하고 리소스를 업데이트하지 않으려는 경우 [utcNow](#utcnow) 함수를 고유String을 사용하여 사용할 수 있습니다. 테스트 환경에서 이 방법을 사용할 수 있습니다. 예를 들어 [utcNow](#utcnow).
 
 ### <a name="return-value"></a>반환 값
 
@@ -1914,16 +1914,16 @@ baseUri와 relativeUri 문자열을 결합하여 절대 URI를 만듭니다.
 
 | 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
-| baseUri |yes |문자열 |기본 uri 문자열입니다. 이 표 다음에 설명 된 대로 후행 슬래시 ('/')의 처리와 관련 된 동작을 주의 해 서 살펴봅니다.  |
+| baseUri |yes |문자열 |기본 uri 문자열입니다. 이 표에 설명된 대로 후행 슬래시('/')의 처리와 관련된 동작을 관찰하십시오.  |
 | relativeUri |yes |문자열 |기본 uri 문자열에 추가할 상대 uri 문자열입니다. |
 
-* **Baseuri** 가 후행 슬래시로 끝나는 경우 결과는 **relativeUri** **이 뒤에 오는 것** 입니다.
+* **baseUri** 후행 슬래시로 끝나는 경우, 결과는 단순히 **baseUri** 다음에 **relativeUri입니다.**
 
-* **BaseUri** 가 후행 슬래시로 끝나지 않는 경우 두 가지 중 하나가 발생 합니다.  
+* **baseUri후행** 슬래시에서 끝나지 않으면 두 가지 중 하나가 발생합니다.  
 
-   * **Baseuri** 에 슬래시가 전혀 없는 경우 (앞의 "//"를 제외 하 고) 결과는 **relativeUri** **이 뒤에** 오는 것입니다.
+   * **baseUri전혀** 슬래시가없는 경우 (이외에도 "/" 전면 근처) 결과는 단순히 **baseUri** 다음에 **relativeUri**.
 
-   * **Baseuri** 에 슬래시가 있지만 슬래시가 끝나지 않는 경우 마지막 슬래시의 모든 항목은 **baseuri** 에서 제거 되 고 **결과는** **relativeUri**.
+   * **baseUri는** 약간의 슬래시가 있지만 슬래시로 끝나지 않는 경우, 이후 마지막 슬래시에서 모든 것이 **baseUri에서** 제거되고 결과는 **baseUri** 다음에 **relativeUri**.
      
 예를 들어 다음과 같은 노래를 선택할 수 있다.
 
@@ -1933,7 +1933,7 @@ uri('http://contoso.org/firstpath/', 'myscript.sh') -> http://contoso.org/firstp
 uri('http://contoso.org/firstpath/azuredeploy.json', 'myscript.sh') -> http://contoso.org/firstpath/myscript.sh
 uri('http://contoso.org/firstpath/azuredeploy.json/', 'myscript.sh') -> http://contoso.org/firstpath/azuredeploy.json/myscript.sh
 ```
-전체 세부 정보를 보려면 [RFC 3986, 섹션 5](https://tools.ietf.org/html/rfc3986#section-5)에 지정 된 대로 **baseUri** 및 **relativeUri** 매개 변수를 확인 합니다.
+전체 세부 정보의 경우 **baseUri** 및 **relativeUri** 매개 변수는 [RFC 3986, 섹션 5에](https://tools.ietf.org/html/rfc3986#section-5)지정된 대로 확인됩니다.
 
 ### <a name="return-value"></a>반환 값
 
@@ -1978,7 +1978,7 @@ uri('http://contoso.org/firstpath/azuredeploy.json/', 'myscript.sh') -> http://c
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | uriOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
 | componentOutput | String | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
@@ -2033,7 +2033,7 @@ URI로 인코딩된 값의 문자열입니다.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | uriOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
 | componentOutput | String | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
@@ -2088,7 +2088,7 @@ URI로 인코딩된 값의 디코딩된 문자열입니다.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | uriOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
 | componentOutput | String | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
@@ -2098,29 +2098,29 @@ URI로 인코딩된 값의 디코딩된 문자열입니다.
 
 `utcNow(format)`
 
-지정 된 형식의 현재 (UTC) datetime 값을 반환 합니다. 형식이 제공 되지 않으면 ISO 8601 (yyyyMMddTHHmmssZ) 형식이 사용 됩니다. **이 함수는 매개 변수의 기본값에만 사용할 수 있습니다.**
+지정된 형식으로 현재(UTC) 날짜 시간 값을 반환합니다. 형식이 제공되지 않으면 ISO 8601(yyyMMddHMmssZ) 형식이 사용됩니다. **이 함수는 매개 변수의 기본값에서만 사용할 수 있습니다.**
 
 ### <a name="parameters"></a>매개 변수
 
 | 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
-| format |예 |문자열 |문자열로 변환할 URI 인코딩 값입니다. [표준 형식 문자열](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 문자열](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)을 사용 합니다. |
+| format |예 |문자열 |문자열로 변환할 URI 인코딩 값입니다. 표준 [형식 문자열](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 문자열을](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)사용합니다. |
 
 ### <a name="remarks"></a>설명
 
-이 함수는 매개 변수의 기본값에 대해서만 식 내에서 사용할 수 있습니다. 템플릿의 다른 위치에서이 함수를 사용 하면 오류가 반환 됩니다. 함수는 호출 될 때마다 다른 값을 반환 하므로 템플릿의 다른 부분에서는 허용 되지 않습니다. 동일한 매개 변수를 사용 하 여 동일한 템플릿을 배포 하는 것은 안정적으로 동일한 결과를 생성 하지 않습니다.
+매개 변수의 기본값에 대해서만 이 함수를 식 내에서 사용할 수 있습니다. 템플릿의 다른 곳에서이 함수를 사용하면 오류가 반환됩니다. 함수는 호출될 때마다 다른 값을 반환하기 때문에 템플릿의 다른 부분에서는 허용되지 않습니다. 동일한 매개 변수를 사용 하 여 동일한 템플릿을 배포 하면 동일한 결과 안정적으로 생성 되지 않습니다.
 
-[이전에 성공한 배포](rollback-on-error.md)를 다시 배포 하는 옵션을 사용 하는 경우 이전 배포에 utcNow를 사용 하는 매개 변수가 포함 된 경우 매개 변수는 다시 평가 되지 않습니다. 대신 이전 배포의 매개 변수 값이 롤백 배포에서 자동으로 다시 사용 됩니다.
+이전 성공적인 [배포를 다시 배포하는 옵션을](rollback-on-error.md)사용하고 이전 배포에 utcNow를 사용하는 매개 변수가 포함되어 있으면 매개 변수가 다시 평가되지 않습니다. 대신 이전 배포의 매개 변수 값은 롤백 배포에서 자동으로 다시 사용됩니다.
 
-기본값에 대해 utcNow 함수를 사용 하는 템플릿을 다시 배포 해야 합니다. 다시 배포 하는 경우 매개 변수에 대 한 값을 제공 하지 않으면 함수가 재평가 됩니다. 새 리소스를 만드는 대신 기존 리소스를 업데이트 하려면 이전 배포에서 매개 변수 값을 전달 합니다.
+기본값에 대 한 utcNow 함수에 의존 하는 서식 파일을 다시 배포 주의 해야 합니다. 매개 변수에 대한 값을 다시 배포하고 제공하지 않으면 함수가 다시 평가됩니다. 새 리소스를 만드는 대신 기존 리소스를 업데이트하려면 이전 배포에서 매개 변수 값을 전달합니다.
 
 ### <a name="return-value"></a>반환 값
 
-현재 UTC 날짜/시간 값입니다.
+현재 UTC 날짜 시간 값입니다.
 
 ### <a name="examples"></a>예
 
-다음 예제 템플릿에서는 datetime 값에 대 한 다양 한 형식을 보여 줍니다.
+다음 예제 템플릿에서는 datetime 값에 대한 다양한 형식을 보여 주며 있습니다.
 
 ```json
 {
@@ -2159,15 +2159,15 @@ URI로 인코딩된 값의 디코딩된 문자열입니다.
 }
 ```
 
-이전 예제의 출력은 각 배포에 따라 다르지만 다음과 유사 합니다.
+앞의 예제의 출력은 배포마다 다르지만 다음과 유사합니다.
 
-| 속성 | Type | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
-| utcOutput | 문자열 | 20190305T175318Z |
-| utcShortOutput | 문자열 | 03/05/2019 |
-| utcCustomOutput | 문자열 | 3 5 |
+| utc출력 | 문자열 | 20190305T175318Z |
+| utc쇼트출력 | 문자열 | 2019/03/05 |
+| utc사용자 출력 | 문자열 | 3 5 |
 
-다음 예제에서는 태그 값을 설정할 때 함수의 값을 사용 하는 방법을 보여 줍니다.
+다음 예제에서는 태그 값을 설정할 때 함수에서 값을 사용하는 방법을 보여 주며 있습니다.
 
 ```json
 {
@@ -2204,8 +2204,8 @@ URI로 인코딩된 값의 디코딩된 문자열입니다.
 ```
 
 ## <a name="next-steps"></a>다음 단계
-* Azure Resource Manager 템플릿의 섹션에 대한 설명은 [Azure Resource Manager 템플릿 작성](template-syntax.md)을 참조하세요.
-* 여러 템플릿을 병합하려면 [Azure Resource Manager에서 연결된 템플릿 사용](linked-templates.md)을 참조하세요.
-* 리소스 유형을 만들 때 지정된 횟수만큼 반복하려면 [Azure 리소스 관리자에서 리소스의 여러 인스턴스 만들기](copy-resources.md)를 참조하세요.
+* Azure 리소스 관리자 템플릿의 섹션에 대한 설명은 [Azure 리소스 관리자 템플릿 작성을](template-syntax.md)참조하십시오.
+* 여러 템플릿을 병합하려면 [연결된 템플릿 사용을 Azure 리소스 관리자와](linked-templates.md)함께 참조합니다.
+* 리소스 형식을 만들 때 지정된 횟수를 반복하려면 [Azure 리소스 관리자에서 여러 리소스 인스턴스 만들기를](copy-resources.md)참조하십시오.
 * 만든 템플릿을 배포하는 방법을 보려면 [Azure Resource Manager 템플릿을 사용하여 애플리케이션 배포](deploy-powershell.md)를 참조하세요.
 

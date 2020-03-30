@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 0755c01fe8e13e8e39c0b453198f2b67c51a2bc4
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67182402"
 ---
 #### <a name="to-download-hotfixes"></a>핫픽스를 다운로드하려면
 
 Microsoft 업데이트 카탈로그에서 소프트웨어 업데이트를 다운로드하려면 다음 단계를 수행합니다.
 
-1. Internet Explorer를 시작하고 [http://catalog.update.microsoft.com](https://catalog.update.microsoft.com)으로 이동합니다.
+1. 인터넷 익스플로러를 시작하고 로 이동합니다. [http://catalog.update.microsoft.com](https://catalog.update.microsoft.com)
 2. 이 컴퓨터에서 Microsoft 업데이트 카탈로그를 처음 사용하는 경우 Microsoft 업데이트 카탈로그 추가 기능을 설치하라는 메시지가 나타나면 **설치** 를 클릭합니다.
 
     ![카탈로그 설치](./media/storsimple-install-update2-hotfix/HCS_InstallCatalog-include.png)
@@ -26,7 +26,7 @@ Microsoft 업데이트 카탈로그에서 소프트웨어 업데이트를 다운
    
     ![카탈로그 검색](./media/storsimple-install-update2-hotfix/HCS_SearchCatalog1-include.png)
 
-4. **다운로드**를 클릭합니다. 다운로드를 표시할 로컬 위치를 지정하거나 **검색** 합니다. 파일을 클릭하여 지정된 위치 및 폴더로 다운로드합니다. 디바이스에서 연결할 수 있는 네트워크 공유에 폴더도 복사할 수 있습니다.
+4. **다운로드**를 다운로드를 표시할 로컬 위치를 지정하거나 **검색** 합니다. 파일을 클릭하여 지정된 위치 및 폴더로 다운로드합니다. 디바이스에서 연결할 수 있는 네트워크 공유에 폴더도 복사할 수 있습니다.
 5. 위의 표에 나열된 추가 핫픽스(**4011841**)를 검색하고 해당 파일을 이전 표에 나열된 대로 특정 폴더에 다운로드합니다.
 
 > [!NOTE]
@@ -92,7 +92,7 @@ Microsoft 업데이트 카탈로그에서 소프트웨어 업데이트를 다운
     > [!NOTE]
     > 업데이트가 진행 중일 때 cmdlet에서 `False`를 보고하는 경우도 있습니다. 핫픽스가 완료되었는지 확인하려면 몇 분 동안 기다린 후 이 명령을 다시 실행하고 `RunInProgress`가 `False`인지 확인합니다. 맞으면 핫픽스가 완료된 것입니다.
 
-6. 소프트웨어 업데이트가 완료된 후 시스템 소프트웨어 버전을 확인합니다. 형식:
+6. 소프트웨어 업데이트가 완료된 후 시스템 소프트웨어 버전을 확인합니다. 유형:
    
     `Get-HcsSystem`
    
@@ -107,7 +107,7 @@ Microsoft 업데이트 카탈로그에서 소프트웨어 업데이트를 다운
      > 다음 업데이트를 적용하기 전에 `Restart-HcsController` cmdlet을 통해 활성 컨트롤러를 다시 시작해야 합니다.
      
 7. _FirstOrderUpdate_ 폴더에 다운로드한 Cis/MDS 에이전트를 설치하려면 3-5단계를 반복합니다. 
-8. 두 번째 주문 업데이트를 설치하려면 3-5 단계를 반복합니다. **두 번째 주문 업데이트의 경우 `Start-HcsHotfix cmdlet`을 실행하고 두 번째 주문 업데이트가 있는 폴더를 가리키면 여러 업데이트를 설치할 수 있습니다. 이 cmdlet은 폴더에서 사용할 수 있는 모든 업데이트를 실행합니다.** 업데이트가 이미 설치되어 경우 업데이트 논리를 감지하고 해당 업데이트를 적용하지 않습니다. 
+8. 두 번째 주문 업데이트를 설치하려면 3-5 단계를 반복합니다. **두 번째 순서 업데이트의 경우 두 번째 `Start-HcsHotfix cmdlet` 순서 업데이트가 있는 폴더를 가리키기만 하면 여러 업데이트를 설치할 수 있습니다. cmdlet은 폴더에서 사용할 수 있는 모든 업데이트를 실행합니다.** 업데이트가 이미 설치되어 경우 업데이트 논리를 감지하고 해당 업데이트를 적용하지 않습니다. 
 
 핫픽스를 모두 설치한 후 `Get-HcsSystem` cmdlet을 사용합니다. 버전은 다음과 같아야 합니다.
 
@@ -123,7 +123,7 @@ KB4011837을 사용하여 디스크 펌웨어 업데이트를 설치합니다. �
 
 디스크 펌웨어 업데이트를 설치하려면 아래 지침을 따릅니다.
 
-1. 디바이스를 유지 관리 모드로 설정합니다. **유지 관리 모드에서 디바이스에 연결할 때는 Windows PowerShell 원격을 사용해서는 안 됩니다. 디바이스 직렬 콘솔을 통해 연결된 경우에는 디바이스 컨트롤러에서 이 cmdlet을 실행해야 합니다.** 형식:
+1. 디바이스를 유지 관리 모드로 설정합니다. **유지 관리 모드에서 장치에 연결할 때 Windows PowerShell 원격을 사용해서는 안 됩니다. 대신 장치 시리얼 콘솔을 통해 연결될 때 장치 컨트롤러에서 이 cmdlet을 실행합니다.** 유형:
    
     `Enter-HcsMaintenanceMode`
    
@@ -164,7 +164,7 @@ KB4011837을 사용하여 디스크 펌웨어 업데이트를 설치합니다. �
         [Y] Yes [N] No (Default is "Y"): Y
         WARNING: Installation is currently in progress. This operation can take several minutes to complete.
 3. `Get-HcsUpdateStatus` 명령을 사용하여 설치 진행률을 모니터링합니다. `RunInProgress`가 `False`로 변경되면 업데이트가 완료됩니다.
-4. 설치가 완료된 후에 유지 관리 모드 핫픽스가 설치된 컨트롤러가 다시 시작됩니다. 옵션 1, **모든 권한으로 로그인**으로 로그인하고 디스크 펌웨어 버전을 확인합니다. 형식:
+4. 설치가 완료된 후에 유지 관리 모드 핫픽스가 설치된 컨트롤러가 다시 시작됩니다. 옵션 1, **모든 권한으로 로그인**으로 로그인하고 디스크 펌웨어 버전을 확인합니다. 유형:
    
    `Get-HcsFirmwareVersion`
    

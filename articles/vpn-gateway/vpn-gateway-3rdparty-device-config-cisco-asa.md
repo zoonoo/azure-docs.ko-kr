@@ -1,5 +1,5 @@
 ---
-title: Azure VPN gateway에 Cisco GLOBAL.ASA 장치를 연결 하기 위한 샘플 구성
+title: Cisco ASA 장치를 Azure VPN 게이트웨이에 연결하기 위한 샘플 구성
 description: 이 문서에서는 Azure VPN Gateway에 Cisco ASA 디바이스를 연결하는 샘플 구성을 제공합니다.
 services: vpn-gateway
 author: yushwang
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 10/19/2018
 ms.author: yushwang
 ms.openlocfilehash: 96e5c26ea7b5f1baa33fd8830491ee3aa1e60221
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75778085"
 ---
 # <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>샘플 구성: Cisco ASA 디바이스(IKEv2/BGP 아님)
@@ -21,13 +21,13 @@ ms.locfileid: "75778085"
 
 |                        |                                   |
 | ---                    | ---                               |
-| 디바이스 공급 업체          | Cisco                             |
+| 디바이스 공급 업체          | 시스코                             |
 | 디바이스 모델           | ASA                               |
 | 대상 버전         | 8.4 이상                     |
 | 테스트 모델           | ASA 5505                          |
 | 테스트 버전         | 9.2                               |
 | IKE 버전            | IKEv2                             |
-| BGP                    | 아닙니다.                                |
+| BGP                    | 예                                |
 | Azure VPN 게이트웨이 유형 | 경로 기반 VPN Gateway           |
 |                        |                                   |
 
@@ -111,13 +111,13 @@ Azure 구성을 빌드하는 단계별 지침은 [단일 VPN 터널 설정](vpn-
 * 디바이스에서 모든 이름 및 정책 번호가 고유한지 확인합니다.
 * 디바이스에서 암호화 알고리즘이 지원되는지 확인합니다.
 * 다음 **자리 표시자 값**을 구성에 대한 실제 값으로 바꿉니다.
-  - 외부 인터페이스 이름: **outside**
+  - 외부 인터페이스 이름: **외부**
   - **Azure_Gateway_Public_IP**
   - **OnPrem_Device_Public_IP**
   - IKE: **Pre_Shared_Key**
   - 가상 네트워크 및 로컬 네트워크 게이트웨이 이름: **VNetName** 및 **LNGName**
   - 가상 네트워크 및 온-프레미스 네트워크 주소 **접두사**
-  - 적절한 **네트워크 마스크**
+  - 적절한 **넷마스크**
 
 #### <a name="sample-script"></a>샘플 스크립트
 

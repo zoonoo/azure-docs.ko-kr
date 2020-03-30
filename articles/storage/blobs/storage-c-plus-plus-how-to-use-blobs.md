@@ -8,10 +8,10 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.openlocfilehash: 0a9015e33f5456efeac7f7c887995ac4a69f0259
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75941805"
 ---
 # <a name="how-to-use-blob-storage-from-c"></a>C++에서 Blob Storage를 사용하는 방법
@@ -32,14 +32,14 @@ Blob Storage에 대한 자세한 내용은 [Azure Blob Storage 소개](storage-b
 
 Azure Storage Client Library for C++를 설치하려면 다음 메서드를 사용할 수 있습니다.
 
-* **Linux:** [추가 정보에 대 한 C++ Azure Storage 클라이언트 라이브러리](https://github.com/Azure/azure-storage-cpp#getting-started-on-linux) 에서 제공 하는 지침에 따라 Linux에서 시작 페이지 합니다.
-* **Windows:** Windows에서는 종속성 관리자로 [vcpkg](https://github.com/microsoft/vcpkg) 을 사용 합니다. [빠른 시작](https://github.com/microsoft/vcpkg#quick-start)에 따라 vcpkg를 초기화합니다. 그런 후, 다음 명령을 사용하여 라이브러리를 설치합니다.
+* **리눅스 :** [C++ README: Linux 페이지에서 시작하기에 대한 Azure 저장소 클라이언트 라이브러리의 지침을 따릅니다.](https://github.com/Azure/azure-storage-cpp#getting-started-on-linux)
+* **윈도우:** Windows에서 [vcpkg을](https://github.com/microsoft/vcpkg) 종속성 관리자로 사용합니다. [빠른 시작](https://github.com/microsoft/vcpkg#quick-start)에 따라 vcpkg를 초기화합니다. 그런 후, 다음 명령을 사용하여 라이브러리를 설치합니다.
 
 ```powershell
 .\vcpkg.exe install azure-storage-cpp
 ```
 
-소스 코드를 빌드하고 [추가 정보](https://github.com/Azure/azure-storage-cpp#download--install) 파일에서 NuGet로 내보내는 방법에 대 한 지침을 찾을 수 있습니다.
+README 파일에서 소스 코드를 빌드하고 NuGet으로 내보내는 방법에 대한 [가이드를](https://github.com/Azure/azure-storage-cpp#download--install) 찾을 수 있습니다.
 
 ## <a name="configure-your-application-to-access-blob-storage"></a>Blob Storage에 액세스하도록 애플리케이션 구성
 Azure Storage API를 사용하여 Blob에 액세스하려는 C++ 파일의 맨 위에 다음 include 문을 추가합니다.  
@@ -52,7 +52,7 @@ Azure Storage API를 사용하여 Blob에 액세스하려는 C++ 파일의 맨 �
 ```
 
 ## <a name="setup-an-azure-storage-connection-string"></a>Azure Storage 연결 문자열 설정
-Azure Storage 클라이언트는 스토리지 연결 문자열을 사용하여 데이터 관리 서비스에 액세스하기 위한 엔드포인트 및 자격 증명을 저장합니다. 클라이언트 애플리케이션에서 실행할 경우, 스토리지 계정의 이름 및 [Azure Portal](https://portal.azure.com)에 나열된 스토리지 계정의 스토리지 액세스 키를 *AccountName* 및 *AccountKey* 값에 사용하여 다음 형식의 스토리지 연결 문자열을 제공해야 합니다. Storage 계정 및 액세스 키에 대한 자세한 내용은 [Azure Storage 계정 정보](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)를 참조하세요. 이 예제는 정적 필드가 연결 문자열을 포함할 수 있도록 선언하는 방법을 보여 줍니다.  
+Azure Storage 클라이언트는 스토리지 연결 문자열을 사용하여 데이터 관리 서비스에 액세스하기 위한 엔드포인트 및 자격 증명을 저장합니다. 클라이언트 애플리케이션에서 실행할 경우, 스토리지 계정의 이름 및 [Azure Portal](https://portal.azure.com)에 나열된 스토리지 계정의 스토리지 액세스 키를 *AccountName* 및 *AccountKey* 값에 사용하여 다음 형식의 스토리지 연결 문자열을 제공해야 합니다. 저장소 계정 및 액세스 키에 대한 자세한 내용은 [Azure 저장소 계정 정보를](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)참조하십시오. 이 예제는 정적 필드가 연결 문자열을 포함할 수 있도록 선언하는 방법을 보여 줍니다.  
 
 ```cpp
 // Define the connection-string with your values.
@@ -66,12 +66,12 @@ const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=ht
 const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;"));  
 ```
 
-Azure Storage 에뮬레이터를 시작하려면 **시작** 단추를 선택하거나 **Windows** 키를 누릅니다. **Azure Storage 에뮬레이터** 입력을 시작하고 애플리케이션 목록에서 **Microsoft Azure Storage 에뮬레이터**를 선택합니다.  
+Azure 저장소 에뮬레이터를 시작하려면 **시작** 단추를 선택하거나 **Windows** 키를 누릅니다. **Azure Storage 에뮬레이터** 입력을 시작하고 애플리케이션 목록에서 **Microsoft Azure Storage 에뮬레이터**를 선택합니다.  
 
 다음 샘플에서는 스토리지 연결 문자열을 가져오기 위해 위의 두 메서드 중 하나를 사용한 것으로 가정합니다.  
 
 ## <a name="retrieve-your-storage-account"></a>저장소 계정 검색
-**cloud_storage_account** 클래스를 사용하여 Storage 계정 정보를 나타낼 수 있습니다. 스토리지 연결 문자열에서 스토리지 계정 정보를 검색하려면 **구문 분석** 메서드를 사용할 수 있습니다.  
+**cloud_storage_account** 클래스를 사용하여 저장소 계정 정보를 나타낼 수 있습니다. 스토리지 연결 문자열에서 스토리지 계정 정보를 검색하려면 **구문 분석** 메서드를 사용할 수 있습니다.  
 
 ```cpp
 // Retrieve storage account from connection string.
@@ -158,7 +158,7 @@ blob3.upload_text(U("other text"));
 또는, **upload_from_file** 메서드를 사용하여 블록 Blob에 파일을 업로드할 수 있습니다.
 
 ## <a name="how-to-list-the-blobs-in-a-container"></a>방법: 컨테이너에 Blob 나열
-컨테이너의 Blob을 나열하려면 먼저 컨테이너 참조를 가져옵니다. 컨테이너의 **list_blobs** 메서드를 사용하여 컨테이너 내의 Blob 및/또는 디렉터리를 검색할 수 있습니다. 반환된 **list_blob_item**의 메서드 및 다양한 속성에 액세스하려면 **cloud_blob** 개체를 가져오는 **list_blob_item.as_blob** 메서드를 호출하거나, cloud_blob_directory 개체를 가져오는**list_blob.as_directory** 메서드를 호출해야 합니다. 다음 코드는 **my-sample-container** 컨테이너에 있는 각 항목의 URI를 검색하고 출력하는 방법을 보여 줍니다.
+컨테이너의 Blob을 나열하려면 먼저 컨테이너 참조를 가져옵니다. 그런 다음 컨테이너의 **list_blobs** 메서드를 사용하여 컨테이너 내의 Blob 및/또는 디렉터리를 검색할 수 있습니다. 반환된 **list_blob_item**의 메서드 및 다양한 속성에 액세스하려면 **cloud_blob** 개체를 가져오는 **list_blob_item.as_blob** 메서드를 호출하거나, cloud_blob_directory 개체를 가져오는**list_blob.as_directory** 메서드를 호출해야 합니다. 다음 코드는 **my-sample-container** 컨테이너에 있는 각 항목의 URI를 검색하고 출력하는 방법을 보여 줍니다.
 
 ```cpp
 // Retrieve storage account from connection string.
@@ -188,7 +188,7 @@ for (auto it = container.list_blobs(); it != end_of_results; ++it)
 작업 나열에 대한 자세한 내용은 [C++에서 Azure Storage 리소스 나열](../storage-c-plus-plus-enumeration.md)을 참조하세요.
 
 ## <a name="how-to-download-blobs"></a>방법: Blob 다운로드
-Blob을 다운로드하려면 먼저 Blob 참조를 검색한 다음 **download_to_stream** 메서드를 호출합니다. 다음 예제에서는 **download_to_stream** 메서드를 사용하여 Blob 콘텐츠를 스트림 개체로 전송한 다음 이 개체를 로컬 파일에 저장할 수 있습니다.  
+Blob을 다운로드하려면 먼저 Blob 참조를 검색한 다음 **download_to_stream** 메서드를 호출합니다. 다음 예제에서는 **download_to_stream** 메서드를 사용 하 여 Blob 내용을 로컬 파일에 유지 할 수 있는 스트림 개체로 전송 합니다.  
 
 ```cpp
 // Retrieve storage account from connection string.
@@ -260,8 +260,8 @@ blockBlob.delete_blob();
 
 * [C++에서 Queue Storage를 사용하는 방법](../storage-c-plus-plus-how-to-use-queues.md)
 * [C++에서 Table Storage를 사용하는 방법](../../cosmos-db/table-storage-how-to-use-c-plus.md)
-* [C++에서 Azure Storage 리소스 나열](../storage-c-plus-plus-enumeration.md)
-* [C++용 Storage Client Library 참조(영문)](https://azure.github.io/azure-storage-cpp)
-* [Azure Storage 설명서](https://azure.microsoft.com/documentation/services/storage/)
+* [C++에서 Azure 저장소 리소스 목록](../storage-c-plus-plus-enumeration.md)
+* [C++ 참조용 스토리지 클라이언트 라이브러리](https://azure.github.io/azure-storage-cpp)
+* [Azure 저장소 설명서](https://azure.microsoft.com/documentation/services/storage/)
 * [AzCopy 명령줄 유틸리티로 데이터 전송](../storage-use-azcopy.md)
 

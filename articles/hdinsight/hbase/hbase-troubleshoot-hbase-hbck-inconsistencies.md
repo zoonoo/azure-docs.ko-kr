@@ -1,6 +1,6 @@
 ---
-title: Azure HDInsight에서 hbase hbck의 불일치를 반환 합니다.
-description: Azure HDInsight에서 hbase hbck의 불일치를 반환 합니다.
+title: hbase hbck Azure HDInsight에서 불일치를 반환합니다.
+description: hbase hbck Azure HDInsight에서 불일치를 반환합니다.
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
@@ -8,50 +8,50 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/08/2019
 ms.openlocfilehash: fa02ac0dfe229f3e82d1c1c62d83ca06a81efca6
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75887328"
 ---
-# <a name="scenario-hbase-hbck-command-returns-inconsistencies-in-azure-hdinsight"></a>시나리오: Azure HDInsight에서 `hbase hbck` 명령이 불일치를 반환 합니다.
+# <a name="scenario-hbase-hbck-command-returns-inconsistencies-in-azure-hdinsight"></a>시나리오: `hbase hbck` Azure HDInsight에서 명령 반환 불일치
 
-이 문서에서는 Azure HDInsight 클러스터와 상호 작용할 때 문제에 대 한 문제 해결 단계 및 가능한 해결 방법을 설명 합니다.
+이 문서에서는 Azure HDInsight 클러스터와 상호 작용할 때 문제에 대한 문제 해결 단계 및 가능한 해결 에 대해 설명합니다.
 
-## <a name="issue-region-is-not-in-hbasemeta"></a>문제: 지역이 `hbase:meta`에 없습니다.
+## <a name="issue-region-is-not-in-hbasemeta"></a>문제: 지역이`hbase:meta`
 
-HDFS의 지역 xxx 이지만 `hbase:meta`에 나열 되지 않았거나 모든 지역 서버에 배포 되지 않습니다.
+HDFS의 지역 xxx이지만 모든 `hbase:meta` 리전 서버에 나열되거나 배포되지 는 않습니다.
 
 ### <a name="cause"></a>원인
 
 다양함
 
-### <a name="resolution"></a>해상도
+### <a name="resolution"></a>해결 방법
 
-1. 다음을 실행 하 여 meta 테이블을 수정 합니다.
+1. 다음을 실행하여 메타 테이블을 수정합니다.
 
     ```
     hbase hbck -ignorePreCheckPermission –fixMeta
     ```
 
-1. 다음을 실행 하 여 영역 서버에 영역을 할당 합니다.
+1. 다음을 실행하여 RegionServers에 지역 할당
 
     ```
     hbase hbck -ignorePreCheckPermission –fixAssignment
     ```
 ---
 
-## <a name="issue-region-is-offline"></a>문제: 지역이 오프 라인 상태임
+## <a name="issue-region-is-offline"></a>문제: 지역이 오프라인 상태입니다.
 
-Xxx 지역이 영역 서버에 배포 되지 않았습니다. 즉, 지역이 `hbase:meta`이지만 오프 라인 상태입니다.
+지역 xxx는 모든 RegionServer에 배포되지 않습니다. 즉, 지역이 `hbase:meta`에 있지만 오프라인 상태입니다.
 
 ### <a name="cause"></a>원인
 
 다양함
 
-### <a name="resolution"></a>해상도
+### <a name="resolution"></a>해결 방법
 
-다음을 실행 하 여 영역을 온라인 상태로 만들기:
+다음을 실행하여 지역을 온라인 으로 가져오십시오.
 
 ```
 hbase hbck -ignorePreCheckPermission –fixAssignment
@@ -59,15 +59,15 @@ hbase hbck -ignorePreCheckPermission –fixAssignment
 
 ---
 
-## <a name="issue-regions-have-the-same-startend-keys"></a>문제: 영역에 동일한 시작/종료 키가 있습니다.
+## <a name="issue-regions-have-the-same-startend-keys"></a>문제: 리전이 시작/종료 키와 동일합니다.
 
 ### <a name="cause"></a>원인
 
 다양함
 
-### <a name="resolution"></a>해상도
+### <a name="resolution"></a>해결 방법
 
-이러한 겹치는 영역을 수동으로 병합 합니다. HBase HMaster 웹 UI 테이블 섹션으로 이동 하 여 문제가 있는 테이블 링크를 선택 합니다. 해당 테이블에 속하는 각 지역의 시작 키/끝 키가 표시 됩니다. 그런 다음 이러한 겹치는 영역을 병합 합니다. HBase shell에서 `merge_region 'xxxxxxxx','yyyyyyy', true`을 수행 합니다. 예:
+겹친 영역을 수동으로 병합합니다. HBase HMaster 웹 UI 테이블 섹션으로 이동하여 문제가 있는 테이블 링크를 선택합니다. 해당 테이블에 속한 각 지역의 시작 키/종료 키가 표시됩니다. 그런 다음 겹친 영역을 병합합니다. HBase 셸에서 `merge_region 'xxxxxxxx','yyyyyyy', true`수행합니다. 예를 들어:
 
 ```
 RegionA, startkey:001, endkey:010,
@@ -77,27 +77,27 @@ RegionB, startkey:001, endkey:080,
 RegionC, startkey:010, endkey:080.
 ```
 
-이 시나리오에서는 영역 a와 영역 c를 병합 하 고 영역 b와 동일한 키 범위를 사용 하 여 영역 d를 가져온 다음 영역 b와 영역 d를 병합 해야 합니다. xxxxxxx 및 yyyyyy는 각 지역 이름의 끝에 있는 해시 문자열입니다. 두 개의 불연속 영역을 병합 하지 않도록 주의 해야 합니다. Merge A 및 C와 같이 각 병합 후에는 HBase에서 지역 d에 대 한 압축을 시작 합니다. 다른 지역으로 병합을 수행 하기 전에 압축이 완료 될 때까지 기다립니다. HBase HMaster UI에서 해당 지역 서버 페이지에 대 한 압축 상태를 찾을 수 있습니다.
+이 시나리오에서는 RegionA 및 RegionC를 병합 하 고 RegionB와 동일한 키 범위로 RegionD를 가져옵니다. xxxxxxx 및 yyyyyy는 각 지역 이름의 끝에 있는 해시 문자열입니다. 두 개의 불연속 영역을 병합하지 않도록 주의하십시오. 병합 A 및 C와 같은 각 병합 후 HBase는 RegionD에서 압축을 시작합니다. 지역D와 다른 병합을 수행하기 전에 압축이 완료될 때까지 기다립니다. HBase HMaster UI에서 해당 지역 서버 페이지에서 압축 상태를 찾을 수 있습니다.
 
 ---
 
-## <a name="issue-cant-load-regioninfo"></a>문제: `.regioninfo`을 로드할 수 없습니다.
+## <a name="issue-cant-load-regioninfo"></a>문제: 로드할 수 없습니다.`.regioninfo`
 
-영역 `/hbase/data/default/tablex/regiony`에 대 한 `.regioninfo`를 로드할 수 없습니다.
+지역에 `/hbase/data/default/tablex/regiony`대 `.regioninfo` 한 로드할 수 없습니다.
 
 ### <a name="cause"></a>원인
 
-영역 서버가 충돌 하거나 VM을 다시 부팅 하는 경우 영역 부분 삭제 때문일 수 있습니다. 현재 Azure Storage는 플랫 blob 파일 시스템 이며 일부 파일 작업은 원자성이 아닙니다.
+이는 RegionServer가 충돌하거나 VM이 재부팅될 때 지역 부분 삭제로 인해 발생할 가능성이 큽니다. 현재 Azure Storage는 플랫 Blob 파일 시스템이며 일부 파일 작업은 원자성되지 않습니다.
 
-### <a name="resolution"></a>해상도
+### <a name="resolution"></a>해결 방법
 
-다음 남은 파일 및 폴더를 수동으로 정리:
+이러한 나머지 파일 및 폴더를 수동으로 정리합니다.
 
-1. `hdfs dfs -ls /hbase/data/default/tablex/regiony`를 실행 하 여 아직 아래에 있는 폴더/파일을 확인 합니다.
+1. 실행하여 `hdfs dfs -ls /hbase/data/default/tablex/regiony` 폴더/파일이 아직 아래에 있는지 확인합니다.
 
-1. 모든 자식 파일/폴더를 삭제 하는 `hdfs dfs -rmr /hbase/data/default/tablex/regiony/filez` 실행
+1. 실행하여 `hdfs dfs -rmr /hbase/data/default/tablex/regiony/filez` 모든 하위 파일/폴더 삭제
 
-1. `hdfs dfs -rmr /hbase/data/default/tablex/regiony`를 실행 하 여 region 폴더를 삭제 합니다.
+1. 실행하여 `hdfs dfs -rmr /hbase/data/default/tablex/regiony` 영역 폴더를 삭제합니다.
 
 ---
 
@@ -105,8 +105,8 @@ RegionC, startkey:010, endkey:080.
 
 문제가 표시되지 않거나 문제를 해결할 수 없는 경우 다음 채널 중 하나를 방문하여 추가 지원을 받으세요.
 
-* Azure [커뮤니티 지원을](https://azure.microsoft.com/support/community/)통해 azure 전문가 로부터 답변을 받으세요.
+* Azure 커뮤니티 지원을 통해 Azure 전문가의 답변을 얻을 [수 있습니다.](https://azure.microsoft.com/support/community/)
 
-* [@AzureSupport](https://twitter.com/azuresupport) 연결-고객 환경을 개선 하기 위한 공식 Microsoft Azure 계정입니다. Azure 커뮤니티를 적절 한 리소스 (답변, 지원 및 전문가)에 연결 합니다.
+* 연결 [@AzureSupport](https://twitter.com/azuresupport) - 고객 경험을 개선하기 위한 공식 Microsoft Azure 계정입니다. Azure 커뮤니티를 올바른 리소스( 답변, 지원 및 전문가)에 연결합니다.
 
-* 도움이 더 필요한 경우 [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)에서 지원 요청을 제출할 수 있습니다. 메뉴 모음에서 **지원** 을 선택 하거나 **도움말 + 지원** 허브를 엽니다. 자세한 내용은 [Azure 지원 요청을 만드는 방법](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)을 참조 하세요. 구독 관리 및 청구 지원에 대 한 액세스는 Microsoft Azure 구독에 포함 되며, [Azure 지원 계획](https://azure.microsoft.com/support/plans/)중 하나를 통해 기술 지원이 제공 됩니다.
+* 추가 도움이 필요한 경우 [Azure 포털](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)에서 지원 요청을 제출할 수 있습니다. 메뉴 모음에서 **지원을** 선택하거나 도움말 + 지원 허브를 **엽니다.** 자세한 내용은 Azure [지원 요청을 만드는 방법을](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)검토합니다. 구독 관리 및 청구 지원에 대한 액세스는 Microsoft Azure 구독에 포함되며 기술 지원은 [Azure 지원 계획](https://azure.microsoft.com/support/plans/)중 하나를 통해 제공됩니다.

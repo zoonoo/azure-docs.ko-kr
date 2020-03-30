@@ -1,5 +1,5 @@
 ---
-title: 데이터베이스 보안 모범 사례-Microsoft Azure
+title: 데이터베이스 보안 모범 사례 - Microsoft Azure
 description: 이 문서에서는 Azure 데이터베이스 보안을 위한 일단의 모범 사례를 제공합니다.
 services: security
 documentationcenter: na
@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 316c3ef3c5bd16b52291029924d04fc159375bc8
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: 0f2e0257c5bf855b0d9be61c43b68b4e30b3d80d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78943653"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80125100"
 ---
 # <a name="azure-database-security-best-practices"></a>Azure 데이터베이스 보안 모범 사례
-이 문서에서는 데이터베이스 보안에 대 한 모범 사례를 설명 합니다.
+이 문서에서는 데이터베이스 보안에 대한 모범 사례를 설명합니다.
 
-모범 사례는 의견의 일치를 기반으로 하며 현재 Azure 플랫폼 기능 및 기능 집합과 함께 작동합니다. 의견 및 기술은 시간이 지남에 따라 변경 되며이 문서는 이러한 변경 내용을 반영 하기 위해 정기적으로 업데이트 됩니다.
+모범 사례는 의견의 일치를 기반으로 하며 현재 Azure 플랫폼 기능 및 기능 집합과 함께 작동합니다. 의견과 기술은 시간이 지남에 따라 변경되며 이 문서는 이러한 변경 사항을 반영하기 위해 정기적으로 업데이트됩니다.
 
-## <a name="secure-databases"></a>보안 데이터베이스
+## <a name="secure-databases"></a>안전한 데이터베이스
 보안은 데이터베이스 관리에서 가장 중요하며 항상 [Azure SQL Database](../../sql-database/index.yml)의 최우선 순위였습니다. HIPAA, ISO 27001/27002, PCI DSS 수준 1을 포함한 대부분의 규정 또는 보안 요구 사항을 충족할 수 있도록 데이터베이스를 철저히 보호할 수 있습니다. 보안 규정 준수 인증의 최신 목록은 [Microsoft Azure 보안 센터 사이트](https://azure.microsoft.com/support/trust-center/services/)에서 제공합니다. 또한 규정 요구 사항에 따라 특정 Azure 데이터 센터에 데이터베이스를 배치하도록 선택할 수도 있습니다.
 
 ## <a name="use-firewall-rules-to-restrict-database-access"></a>방화벽 규칙을 사용하여 데이터베이스 액세스 제한
@@ -55,7 +55,7 @@ SQL Database의 방화벽 규칙에 대한 자세한 내용은 [SQL Database 방
 ## <a name="enable-database-authentication"></a>데이터베이스 인증 사용
 SQL Database는 두 가지 인증 유형, 즉 SQL Server 인증 및 Azure AD 인증을 지원합니다.
 
-### <a name="sql-server-authentication"></a>*SQL Server 인증*
+### <a name="sql-server-authentication"></a>*SQL 서버 인증*
 
 이점은 다음과 같습니다.
 
@@ -72,10 +72,10 @@ SQL Server 인증을 사용하는 경우 다음을 수행해야 합니다.
 
 - 강력한 자격 증명을 직접 관리합니다.
 - 연결 문자열에서 자격 증명을 보호합니다.
-- 네트워크를 통해 웹 서버에서 데이터베이스로 전달되는 자격 증명을 보호해야 할 수 있습니다. 자세한 내용은 [방법: ASP.NET 2.0에서 SQL 인증을 사용하여 SQL Server에 연결](/previous-versions/msp-n-p/ff648340(v=pandp.10))을 참조하세요.
+- 네트워크를 통해 웹 서버에서 데이터베이스로 전달되는 자격 증명을 보호해야 할 수 있습니다. 자세한 내용은 ASP.NET [2.0에서 SQL 인증을 사용하여 SQL 서버에 연결하는 방법을](/previous-versions/msp-n-p/ff648340(v=pandp.10))참조하십시오.
 
 ### <a name="azure-active-directory-ad-authentication"></a>*Azure AD(Active Directory) 인증*
-Azure AD 인증은 Azure AD의 ID를 사용하여 Azure SQL Database 및 [SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)에 연결하는 메커니즘입니다. Azure AD 인증을 사용하면 데이터베이스 사용자 및 기타 Microsoft 서비스의 ID를 중앙 위치 한 곳에서 관리할 수 있습니다. 중앙 ID 관리는 데이터베이스 사용자 관리를 위한 단일 위치를 제공하며 권한 관리를 간소화합니다.
+Azure AD 인증은 Azure AD의 ID를 사용하여 Azure SQL Database 및 [SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)에 연결하는 메커니즘입니다. Azure AD 인증을 사용하면 데이터베이스 사용자 및 기타 Microsoft 서비스의 ID를 중앙 위치 한 곳에서 관리할 수 있습니다. 중앙 ID 관리는 데이터베이스 사용자 관리를 위한 단일 위치를 제공하며 권한 관리를 간소화합니다.
 
 > [!NOTE]
 > SQL Server 인증을 사용하는 대신 Azure AD 인증을 사용하는 것이 좋습니다.
@@ -132,7 +132,7 @@ SQL Server Database Engine 또는 개별 데이터베이스의 인스턴스를 �
 
 설치에 대한 정부 또는 표준 요구 사항에 따라 SQL Server에 대한 여러 수준의 감사가 있습니다. SQL Server 감사는 다양한 서버 및 데이터베이스 개체에 대한 감사를 사용, 저장 및 확인하는 데 필요한 도구와 프로세스를 제공합니다.
 
-[Azure SQL 데이터베이스 감사](/azure/sql-database/sql-database-auditing)는 데이터베이스 이벤트를 추적하고 Azure Storage 계정의 감사 로그에 이벤트를 기록합니다.
+[Azure SQL Database 감사는](/azure/sql-database/sql-database-auditing) 데이터베이스 이벤트를 추적하고 Azure 저장소 계정의 감사 로그에 씁니다.
 
 감사를 수행하면 규정 준수 상태를 유지하고, 데이터베이스 활동을 파악하고, 업무상의 문제나 보안 위반을 나타낼 수 있는 불일치 및 비정상적 현상을 찾아낼 수 있습니다. 감사를 통해 규정 준수 표준을 더 원활하게 따를 수는 있지만, 규정 준수가 보장되지는 않습니다.
 

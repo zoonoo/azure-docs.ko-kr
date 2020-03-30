@@ -9,10 +9,10 @@ ms.date: 09/17/2018
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: c79b6f854dc78670a7eb8a1275c3e2fc46fcdd99
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67182638"
 ---
 ### <a name="code-walkthrough"></a>코드 연습
@@ -41,7 +41,7 @@ ms.locfileid: "67182638"
 
 [!code-cpp[Device method callback](~/iot-samples-c/samples/solutions/remote_monitoring_client/remote_monitoring.c?name=devicemethodcallback "Device method callback")]
 
-솔루션 가속기가 펌웨어 업데이트 메서드를 호출할 때 샘플은 JSON 페이로드를 deserialize하고 백그라운드 스레드를 시작하여 업데이트 프로세스를 완료합니다. 다음 코드 조각은 스레드에서 실행되는 **do_firmware_update**를 보여 줍니다.
+솔루션 가속기가 펌웨어 업데이트 메서드를 호출할 때 샘플은 JSON 페이로드를 역직렬화하고 백그라운드 스레드를 시작하여 업데이트 프로세스를 완료합니다. 다음 코드 조각은 스레드에서 실행되는 **do_firmware_update**를 보여 줍니다.
 
 [!code-cpp[Firmware update thread](~/iot-samples-c/samples/solutions/remote_monitoring_client/remote_monitoring.c?name=firmwareupdate "Firmware update thread")]
 

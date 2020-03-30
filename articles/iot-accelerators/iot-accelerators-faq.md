@@ -1,6 +1,6 @@
 ---
 title: Azure IoT 솔루션 가속기 FAQ - Azure | Microsoft Docs
-description: 이 문서에서는 IoT 솔루션 가속기에 대 한 자주 묻는 질문에 답변 합니다. GitHub 리포지토리에 대 한 링크를 포함 합니다.
+description: 이 문서에서는 IoT 솔루션 가속기에 대해 자주 묻는 질문에 대한 답변을 제공합니다. 여기에는 GitHub 리포지토리에 대한 링크가 포함되어 있습니다.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
 ms.openlocfilehash: 7a2b167f90b4ec79f5fa515ded1c676ca7085e72
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75647716"
 ---
 # <a name="frequently-asked-questions-for-iot-solution-accelerators"></a>IoT 솔루션 가속기에 대한 질문과 대답
 
-[연결된 팩터리-특정 FAQ](iot-accelerators-faq-cf.md) 그리고 [원격 모니터링-특정 FAQ](iot-accelerators-faq-rm-v2.md)도 참조하세요.
+또한 연결된 [공장별 FAQ](iot-accelerators-faq-cf.md) 및 [원격 모니터링 관련 FAQ를](iot-accelerators-faq-rm-v2.md) 참조하십시오.
 
-### <a name="where-can-i-find-the-source-code-for-the-solution-accelerators"></a>솔루션 가속기에 대한 소스 코드는 어디에서 찾을 수 있나요?
+### <a name="where-can-i-find-the-source-code-for-the-solution-accelerators"></a>어디에서 솔루션 가속기에 대한 소스 코드를 찾을 수 있나요?
 
 소스 코드는 다음 GitHub 리포지토리에 저장됩니다.
 
@@ -65,15 +65,15 @@ Azure 구독이 있는 것이 확실하다면, 구독에 대한 테넌트 매핑
 
 ### <a name="where-can-i-find-information-about-the-previous-version-of-the-remote-monitoring-solution"></a>원격 모니터링 솔루션의 이전 버전 관련 정보는 어디서 확인할 수 있나요?
 
-원격 모니터링 솔루션 가속기 이전 버전의 명칭은 IoT Suite Remote Monitoring 미리 구성된 솔루션이었습니다. [https://docs.microsoft.com/previous-versions/azure/iot-suite/](https://docs.microsoft.com/previous-versions/azure/iot-suite/)에서 보관된 설명서를 확인할 수 있습니다.
+원격 모니터링 솔루션 가속기 이전 버전의 명칭은 IoT Suite Remote Monitoring 미리 구성된 솔루션이었습니다. 보관된 설명서를 찾을 [https://docs.microsoft.com/previous-versions/azure/iot-suite/](https://docs.microsoft.com/previous-versions/azure/iot-suite/)수 있습니다.
 
 ### <a name="is-the-new-solution-accelerator-available-in-the-same-geographic-region-as-the-existing-solution"></a>기존 솔루션과 동일한 지역에서 새로운 솔루션 가속기를 사용할 수 있나요?
 
 예, 새로운 원격 모니터링을 동일한 지역에서 사용할 수 있습니다.
 
-### <a name="whats-the-difference-between-deleting-a-resource-group-in-the-azure-portal-and-clicking-delete-on-a-solution-accelerator-in-azureiotsolutionscom"></a>Azure Portal에서 리소스 그룹을 삭제 하 고 azureiotsolutions.com의 솔루션 가속기에서 삭제를 클릭 하는 경우의 차이점은 무엇 인가요?
+### <a name="whats-the-difference-between-deleting-a-resource-group-in-the-azure-portal-and-clicking-delete-on-a-solution-accelerator-in-azureiotsolutionscom"></a>Azure 포털에서 리소스 그룹을 삭제하고 azureiotsolutions.com 솔루션 가속기에서 삭제를 클릭하는 차이점은 무엇입니까?
 
-* [Azureiotsolutions.com](https://www.azureiotsolutions.com/)에서 솔루션 가속기를 삭제 하는 경우 솔루션 가속기를 만들 때 배포 된 모든 리소스를 삭제 합니다. 리소스 그룹에 리소스를 추가하면 이들 역시 삭제됩니다.
+* [azureiotsolutions.com](https://www.azureiotsolutions.com/)솔루션 가속기를 삭제하면 솔루션 가속기를 만들 때 배포된 모든 리소스가 삭제됩니다. 리소스 그룹에 리소스를 추가하면 이들 역시 삭제됩니다.
 * [Azure Portal](https://portal.azure.com)에서 리소스 그룹을 삭제하는 경우 해당 리소스 그룹의 리소스만 삭제됩니다. 또한 솔루션 가속기와 연결된 Azure Active Directory 애플리케이션을 삭제해야 합니다.
 
 ### <a name="can-i-continue-to-leverage-my-existing-investments-in-azure-iot-solution-accelerators"></a>Azure IoT 솔루션 가속기에 대한 기존 투자를 계속 활용할 수 있나요?
@@ -107,7 +107,7 @@ Eric Golpe의 블로그 게시물 [Azure AD 테넌트 삭제 연습(영문)](htt
 
 IoT 솔루션 가속기의 몇 가지 다른 기능을 탐색할 수도 있습니다.
 
-* [원격 모니터링 솔루션 가속기의 기능 탐색](quickstart-remote-monitoring-deploy.md)
+* [원격 모니터링 솔루션 가속기의 기능 살펴보기](quickstart-remote-monitoring-deploy.md)
 * [예측 유지 관리 솔루션 가속기 개요](iot-accelerators-predictive-overview.md)
 * [연결된 팩터리 솔루션 가속기 배포](quickstart-connected-factory-deploy.md)
 * [처음부터 IoT 보안을 고려](/azure/iot-fundamentals/iot-security-ground-up)

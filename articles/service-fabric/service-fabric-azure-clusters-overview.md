@@ -1,5 +1,5 @@
 ---
-title: Windows Server 및 Linux에서 클러스터 만들기
+title: 윈도우 서버와 리눅스에 클러스터 만들기
 description: 서비스 패브릭 클러스터는 Windows Server 및 Linux에서 실행됩니다. 즉, Windows Server 또는 Linux를 실행할 수 있는 모든 위치에 서비스 패브릭 애플리케이션을 배포 및 호스트할 수 있습니다.
 services: service-fabric
 documentationcenter: .net
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: dekapur
 ms.openlocfilehash: b6942c2a0647401df0d88b83e1b144ca3207a6db
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75614675"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Azure의 Service Fabric 클러스터 개요
@@ -48,9 +48,9 @@ Azure의 Service Fabric 클러스터는 다른 Azure 리소스를 사용하고 �
 자세한 내용은 [Service Fabric 노드 형식 및 가상 머신 확장 집합](service-fabric-cluster-nodetypes.md)을 참조하세요.
 
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
-VM 인스턴스는 [공용 IP 주소](/azure/virtual-network/virtual-network-ip-addresses-overview-arm#public-ip-addresses) 및 DNS 레이블과 연결되는 [Azure Load Balancer](/azure/load-balancer/load-balancer-overview) 뒤에서 조인됩니다.  *&lt;clustername&gt;* , DNS 이름으로 클러스터를 프로비전하면 *&lt;clustername&gt;.&lt;location&gt;.cloudapp.azure.com*은 확장 집합 앞에서 부하 분산 장치와 연결되는 DNS 레이블입니다.
+VM 인스턴스는 [공용 IP 주소](/azure/virtual-network/virtual-network-ip-addresses-overview-arm#public-ip-addresses) 및 DNS 레이블과 연결되는 [Azure Load Balancer](/azure/load-balancer/load-balancer-overview) 뒤에서 조인됩니다.  *클러스터 이름,&gt;DNS 이름, 클러스터 이름으로 클러스터를 프로비전할 때 . &lt;* * &lt;&gt;&lt; 위치&gt;.cloudapp.azure.com* 축척 세트 앞의 부하 분산기와 연결된 DNS 레이블입니다.
 
-클러스터의 VM에는 [개인 IP 주소](/azure/virtual-network/virtual-network-ip-addresses-overview-arm#private-ip-addresses)만 있습니다.  관리 트래픽 및 서비스 트래픽은 공용 Load Balancer를 통해 라우팅됩니다.  네트워크 트래픽은 NAT 규칙(클라이언트가 특정 노드/인스턴스에 연결) 또는 부하 분산 규칙(트래픽이 VM으로 왕복 이동)을 통해 이러한 컴퓨터로 라우팅됩니다.  부하 분산 장치에서는 *&lt;clustername&gt;.&lt;location&gt;.cloudapp.azure.com* 형식으로 DNS 이름에 공용 IP가 연결됩니다.  공용 IP는 리소스 그룹의 다른 Azure 리소스입니다.  클러스터에 여러 노드 형식을 정의하면 각 노드 형식/확장 집합에 대해 부하 분산 장치가 만들어집니다. 또는 여러 노드 형식에 대해 단일 부하 분산 장치를 설정할 수도 있습니다.  주 노드 형식은 DNS 레이블이 *&lt;clustername&gt;.&lt;location&gt;.cloudapp.azure.com*이고, 다른 노드 형식은 DNS 레이블이 *&lt;clustername&gt;-&lt;nodetype&gt;.&lt;location&gt;.cloudapp.azure.com*입니다.
+클러스터의 VM에는 [개인 IP 주소](/azure/virtual-network/virtual-network-ip-addresses-overview-arm#private-ip-addresses)만 있습니다.  관리 트래픽 및 서비스 트래픽은 공용 Load Balancer를 통해 라우팅됩니다.  네트워크 트래픽은 NAT 규칙(클라이언트가 특정 노드/인스턴스에 연결) 또는 부하 분산 규칙(트래픽이 VM으로 왕복 이동)을 통해 이러한 컴퓨터로 라우팅됩니다.  로드 밸런서에는 DNS 이름이 있는 연결된 공용 IP가 * &lt;&gt;있습니다.&lt; 위치&gt;.cloudapp.azure.com*.  공용 IP는 리소스 그룹의 다른 Azure 리소스입니다.  클러스터에 여러 노드 형식을 정의하면 각 노드 형식/확장 집합에 대해 부하 분산 장치가 만들어집니다. 또는 여러 노드 형식에 대해 단일 부하 분산 장치를 설정할 수도 있습니다.  기본 노드 유형에는 DNS 레이블 * &lt;클러스터 이름이&gt;&lt; 있습니다. 위치&gt;.cloudapp.azure.com*다른 노드 유형에는 DNS 레이블 * &lt;클러스터&gt;-&lt;이름 노드&gt;유형이 있습니다.&lt; 위치&gt;.cloudapp.azure.com*.
 
 ### <a name="storage-accounts"></a>Storage 계정
 각 클러스터 노드 형식은 [Azure Storage 계정](/azure/storage/common/storage-introduction) 및 Managed Disks에서 지원됩니다.
@@ -82,7 +82,7 @@ NSG(네트워크 보안 그룹)은 서브넷, VM 또는 특정 NIC의 인바운�
 
 자세한 내용은 [보안 그룹](/azure/virtual-network/security-overview)을 참조하세요.
 
-## <a name="scaling"></a>크기 조정
+## <a name="scaling"></a>확장
 
 애플리케이션 수요는 시간이 지남에 따라 달라집니다. 늘어난 애플리케이션 워크로드나 네트워크 트래픽을 충족하기 위해 클러스터 리소스를 늘리고, 수요가 줄어들면 클러스터 리소스를 줄여야 할 수 있습니다. Service Fabric 클러스터를 만든 후에 수평으로(노드 수 변경) 또는 수직으로(노드의 리소스 변경) 클러스터 크기를 조정할 수 있습니다. 클러스터에서 워크로드가 실행되는 경우에도 언제든지 클러스터의 크기를 조정할 수 있습니다. 클러스터의 크기를 조정하면 애플리케이션 크기도 자동으로 조정됩니다.
 
@@ -96,17 +96,17 @@ Azure 서비스 패브릭 클러스터는 개인이 소유하지만 Microsoft에
 ## <a name="supported-operating-systems"></a>지원되는 운영 체제
 다음 운영 체제를 실행하는 가상 머신에서 클러스터를 만들 수 있습니다.
 
-| 운영 체제 | 가장 이른 지원 Service Fabric 버전 |
+| 운영 체제 | 가장 초기 지원되는 서비스 패브릭 버전 |
 | --- | --- |
 | Windows Server 2012 R2 | 모든 버전 |
 | Windows Server 2016 | 모든 버전 |
 | Windows Server 1709 | 6.0 |
 | Windows Server 1803 | 6.4 |
-| Windows Server 1809 | 6.4.654.9590 |
+| 윈도우 서버 1809 | 6.4.654.9590 |
 | Windows Server 2019 | 6.4.654.9590 |
 | Linux Ubuntu 16.04 | 6.0 |
 
-자세한 내용은 [Azure에서 지원 되는 클러스터 버전](https://docs.microsoft.com/azure/service-fabric/service-fabric-versions#supported-operating-systems) 을 참조 하세요.
+자세한 내용은 [Azure에서 지원되는 클러스터 버전을](https://docs.microsoft.com/azure/service-fabric/service-fabric-versions#supported-operating-systems) 참조하십시오.
 
 > [!NOTE]
 > Windows Server 1709에 Service Fabric을 배포하기로 결정한 경우 (1) 장기 서비스 분기가 아니므로 나중에 버전을 이동해야 할 수 있으며 (2) 컨테이너를 배포하는 경우 Windows Server 2016에 빌드한 컨테이너는 Windows Server 1709에서 작동하지 않으며 그 반대의 경우도 마찬가지라는(배포하려면 다시 빌드가 필요함) 점에 유의해야 합니다.

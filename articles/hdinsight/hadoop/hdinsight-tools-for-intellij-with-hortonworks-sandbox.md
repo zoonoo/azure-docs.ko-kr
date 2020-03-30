@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 05/16/2018
 ms.openlocfilehash: 65a15a8506b88e95e14af8c87bcbe33087301519
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75647835"
 ---
 # <a name="use-hdinsight-tools-for-intellij-with-hortonworks-sandbox"></a>Hortonworks 샌드박스에서 IntelliJ용 HDInsight Tools 사용
@@ -22,7 +22,7 @@ IntelliJ용 HDInsight 도구를 사용하여 컴퓨터에서 실행되는 [Horto
 
 [IntelliJ IDEA](https://www.jetbrains.com/idea/)는 컴퓨터 소프트웨어를 개발하기 위한 Java IDE(통합 개발 환경)입니다. Hortonworks 샌드박스에서 애플리케이션을 개발하고 테스트한 후에 [Azure HDInsight](apache-hadoop-introduction.md)로 애플리케이션을 이동할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서를 시작하기 전에 다음 항목이 있어야 합니다.
 
@@ -49,13 +49,13 @@ IntelliJ용 HDInsight 도구를 사용하여 컴퓨터에서 실행되는 [Horto
 
 1. 컴퓨터에서 IntelliJ IDEA를 엽니다. **새 프로젝트** 대화 상자에서 다음 단계를 완료합니다.
 
-   1. **HDInsight** > **HDInsight의 Spark(Scala)** 를 선택합니다.
+   1.  > **HDInsight (스칼라)에 HDInsight 스파크를**선택합니다. **HDInsight**
    2. **빌드 도구** 목록에서 시나리오에 따라 다음 중 하나를 선택합니다.
 
-      * **Maven**: Scala 프로젝트 만들기 마법사 지원의 경우
+      * **메이븐**: 스칼라 프로젝트 생성 마법사 지원.
       * **SBT**: 종속성 관리 및 Scala 프로젝트에 대한 빌드의 경우
 
-   ![Intellij create new scala project](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project.png)
+   ![Intellij는 새로운 스칼라 프로젝트를 만듭니다.](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project.png)
 
 2. **다음**을 선택합니다.
 3. 다음 **새 프로젝트** 대화 상자에서 다음 단계를 완료합니다.
@@ -63,7 +63,7 @@ IntelliJ용 HDInsight 도구를 사용하여 컴퓨터에서 실행되는 [Horto
    1. **프로젝트 이름** 상자에 프로젝트 이름을 입력합니다.
    2. **프로젝트 위치** 상자에 프로젝트 위치를 입력합니다.
    3. **프로젝트 SDK** 드롭다운 목록 옆의 **새로 만들기**를 선택하고 **JDK**를 선택한 다음 Java JDK 버전 1.7 이상의 폴더를 지정합니다. Spark 2.x 클러스터에 대해 **Java 1.8**을 선택합니다. Spark 1.x 클러스터에 대해 **Java 1.7**을 선택합니다. 기본 위치는 C:\Program Files\Java\jdk1.8.x_xxx입니다.
-   4. **Spark 버전** 드롭다운 목록에서 Scala 프로젝트 생성 마법사는 Spark SDK 및 Scala SDK에 대한 올바른 버전을 통합합니다. Spark 클러스터 버전이 2.0 이전인 경우 **Spark 1.x**를 선택합니다. 그렇지 않으면 **Spark2.x**를 선택합니다. 이 예제에서는 Spark 1.6.2(Scala 2.10.5)를 사용합니다. **Scala 2.10.x**가 표시된 리포지토리를 사용하고 있는지 확인합니다. Scala 2.11.x가 표시된 리포지토리를 사용하지 마십시오.
+   4. **Spark 버전** 드롭다운 목록에서 Scala 프로젝트 생성 마법사는 Spark SDK 및 Scala SDK에 대한 올바른 버전을 통합합니다. 스파크 클러스터 버전이 2.0보다 이전인 경우 **스파크 1.x를**선택합니다. 그렇지 않으면 **Spark2.x**를 선택합니다. 이 예제에서는 Spark 1.6.2(Scala 2.10.5)를 사용합니다. **Scala 2.10.x**가 표시된 리포지토리를 사용하고 있는지 확인합니다. Scala 2.11.x가 표시된 리포지토리를 사용하지 마십시오.
     
       ![IntelliJ Scala 프로젝트 속성 만들기](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project-properties.png)
 
@@ -72,7 +72,7 @@ IntelliJ용 HDInsight 도구를 사용하여 컴퓨터에서 실행되는 [Horto
 5. **프로젝트** 뷰가 열려 있지 않은 경우 **Alt + 1** 키를 눌러 엽니다.
 6. **프로젝트 탐색기**에서 프로젝트를 확장한 다음 **src**를 선택합니다.
 7. **src**를 마우스 오른쪽 단추로 클릭하고 **새로 만들기**를 가리킨 다음 **Scala 클래스**를 선택합니다.
-8. **이름** 상자에 이름을 입력합니다. **종류** 상자에서 **개체**를 선택합니다. 그런 다음 **확인**을 선택합니다.
+8. **이름** 상자에 이름을 입력합니다. **종류** 상자에서 **개체**를 선택합니다. 그런 다음 **확인을**선택합니다.
 
     ![새 Scala 클래스 만들기 대화 상자](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-new-scala-class.png)
 
@@ -124,7 +124,7 @@ Hortonworks 샌드박스(에뮬레이터)에 연결하려면 기존 IntelliJ 애
 1. IntelliJ에서 프로젝트를 엽니다.
 2. **보기** 메뉴에서 **도구 창**, **Azure 탐색기**를 차례로 선택합니다.
 3. **Azure**를 확장하고 **HDInsight**를 마우스 오른쪽 단추로 클릭한 다음 **에뮬레이터에 연결**을 선택합니다.
-4. **새 에뮬레이터 연결** 대화 상자에 Hortonworks 샌드박스의 루트 계정에 대해 설정한 암호를 입력합니다. 다음으로, 다음 스크린샷에 사용된 것과 유사한 값을 입력합니다. 그런 다음 **확인**을 선택합니다. 
+4. **새 에뮬레이터 연결** 대화 상자에 Hortonworks 샌드박스의 루트 계정에 대해 설정한 암호를 입력합니다. 다음으로, 다음 스크린샷에 사용된 것과 유사한 값을 입력합니다. 그런 다음 **확인을**선택합니다. 
 
    ![새 에뮬레이터 연결 대화 상자](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-link-an-emulator.png)
 
@@ -142,7 +142,7 @@ IntelliJ IDEA를 에뮬레이터에 연결한 후에는 프로젝트를 제출�
 2. 다음 단계를 완료합니다.
 
     1. **Spark 클러스터(Linux만 해당)** 드롭다운 목록에서 로컬 Hortonworks 샌드박스를 선택합니다.
-    2. **기본 클래스 이름** 상자에서 기본 클래스 이름을 선택하거나 입력합니다. 이 문서에서는 이름이 **Groupbytest**입니다.
+    2. **기본 클래스 이름** 상자에서 기본 클래스 이름을 선택하거나 입력합니다. 이 문서의 이름은 **GroupByTest**입니다.
 
 3. **제출**을 선택합니다. 작업 제출 로그가 Spark 제출 도구 창에 표시됩니다.
 

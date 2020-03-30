@@ -1,6 +1,6 @@
 ---
-title: 역할 기반 액세스 제어 이해-Azure Digital Twins | Microsoft Docs
-description: Azure Digital Twins의 역할 기반 액세스 제어 및 관리 권한에 대해 알아봅니다.
+title: 역할 기반 액세스 제어 이해 - Azure 디지털 트윈 | 마이크로 소프트 문서
+description: Azure 디지털 Twins에서 역할 기반 액세스 제어 및 사용 권한 관리에 대해 알아봅니다.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -9,15 +9,15 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 01/15/2020
 ms.openlocfilehash: feda4b3a7f21b581fb4f08aec013f87c0fabb7e5
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76044949"
 ---
 # <a name="role-based-access-control-in-azure-digital-twins"></a>Azure Digital Twins의 역할 기반 액세스 제어
 
-Azure Digital Twins를 사용 하면 공간 그래프의 특정 데이터, 리소스 및 작업에 대 한 정확한 액세스를 제어할 수 있습니다. 이를 위해 [역할 기반 액세스 제어](https://docs.microsoft.com/azure/role-based-access-control/) (RBAC) 라고 하는 세분화 된 역할 및 권한 관리를 통해 수행 됩니다. RBAC는 _역할_ 및 _역할 할당_으로 구성됩니다. 역할은 권한 수준을 식별합니다. 역할 할당은 역할을 사용자나 디바이스와 연결합니다.
+Azure Digital Twins를 사용하면 공간 그래프의 특정 데이터, 리소스 및 작업에 대한 정확한 액세스 제어를 수행할 수 있습니다. RBAC(역할 [기반 액세스 제어)라고](https://docs.microsoft.com/azure/role-based-access-control/) 하는 세분화된 역할 및 권한 관리를 통해 이를 수행합니다. RBAC는 _역할_ 및 _역할 할당_으로 구성됩니다. 역할은 권한 수준을 식별합니다. 역할 할당은 역할을 사용자나 디바이스와 연결합니다.
 
 RBAC를 사용하여 권한을 다음에 부여할 수 있습니다.
 
@@ -49,7 +49,7 @@ RBAC는 권한이 공간 그래프에서 상속된다는 점에서 고유합니�
 
 ### <a name="role-definitions"></a>역할 정의
 
-역할 정의는 사용 권한 및 역할을 구성하는 기타 특성의 컬렉션입니다. 역할 정의에는 해당 역할을 지닌 모든 개체가 수행할 수 있는 *만들기*, *읽기*, *업데이트* 및 *삭제*를 포함한 허용되는 작업이 있습니다. 또한 사용 권한이 적용 되는 개체 유형을 지정 합니다.
+역할 정의는 사용 권한 및 역할을 구성하는 기타 특성의 컬렉션입니다. 역할 정의에는 해당 역할을 지닌 모든 개체가 수행할 수 있는 *만들기*, *읽기*, *업데이트* 및 *삭제*를 포함한 허용되는 작업이 있습니다. 또한 사용 권한이 적용되는 개체 유형을 지정합니다.
 
 [!INCLUDE [digital-twins-roles](../../includes/digital-twins-roles.md)]
 
@@ -85,4 +85,4 @@ Azure Digital Twins 역할 할당은 개체(사용자, Azure AD 테넌트 등)�
 
 - Azure Digital Twins 역할 할당 만들기 및 관리에 대한 자세한 내용은 [역할 할당 만들기 및 관리](./security-create-manage-role-assignments.md)를 참조하세요.
 
-- [Azure 용 RBAC](https://docs.microsoft.com/azure/role-based-access-control/)에 대해 자세히 알아보세요.
+- [Azure에 대한 RBAC에](https://docs.microsoft.com/azure/role-based-access-control/)대해 자세히 알아보기.

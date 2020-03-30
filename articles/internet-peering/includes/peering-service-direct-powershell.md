@@ -9,13 +9,13 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: badba278e88e5065d8a4ff57ca9506fe1f9ad203
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75774199"
 ---
-1. 선택한 직접 피어 링에 대 한 연결을 봅니다.
+1. 선택한 직접 피어링에서 연결을 봅니다.
     ```powershell
     $directPeering.Connections
 
@@ -31,7 +31,7 @@ ms.locfileid: "75774199"
     SessionStateV6              : None
     ConnectionState             : Active
     ```
-1. 피어 링 서비스를 사용 하도록 설정 하려는 연결을 선택 합니다. 이 예에서는 사용 가능한 유일한 연결을 사용 합니다.
+1. 피어링 서비스에 대해 사용할 연결을 선택합니다. 이 예제에서는 사용 가능한 유일한 연결을 사용합니다.
     ```powershell
     $directPeering.Connections[1] = $directPeering.Connections[1] | Set-AzPeeringDirectConnectionObject -UseForPeeringService $true
 
@@ -47,12 +47,12 @@ ms.locfileid: "75774199"
     SessionStateV6              : None
     ConnectionState             : Active
     ```
-1. 이제 다음 명령을 사용 하 여 직접 피어 링에 대 한 변경 내용을 저장 합니다.
+1. 이제 아래 명령을 사용하여 직접 피어링에 대한 변경 내용을 저장합니다.
     ```powershell
     $directPeering | Update-AzPeering
     ```
     
-    샘플 출력은 다음과 같습니다.
+    다음은 샘플 출력입니다.
     
     ```powershell
         Name                 : SeattleDirectPeering

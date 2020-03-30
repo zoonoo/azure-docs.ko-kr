@@ -4,21 +4,21 @@ description: 이 문서에서는 Azure Active Directory가 Azure Active Director
 services: active-directory
 author: rwike77
 manager: CelesteDG
-ms.assetid: c2d5f80b-aa74-452c-955b-d8eb3ed62652
 ms.service: active-directory
 ms.subservice: azuread-dev
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/07/2017
 ms.author: ryanwi
-ms.reviewer: hirsin, dastrock
+ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: ff034da1f2f40ad0162e5b9fad477d066bc4c3e7
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ROBOTS: NOINDEX
+ms.openlocfilehash: bcc44f61ccb7b4a19e7df39ab979669c5aa37da1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77165099"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80154902"
 ---
 # <a name="federation-metadata"></a>페더레이션 메타데이터
 
@@ -43,7 +43,7 @@ Azure AD는 페더레이션 메타데이터를 `https://login.microsoftonline.co
 
 **테넌트에 독립적인 엔드포인트**의 경우 `TenantDomainName`은(는) `common`입니다. 이 문서는 login.microsoftonline.com에서 호스트되는 모든 Azure AD 테넌트에 공통된 페더레이션 메타데이터 요소만을 나열합니다.
 
-예를 들어, 테넌트별 엔드포인트는 `https://login.microsoftonline.com/contoso.onmicrosoft.com/FederationMetadata/2007-06/FederationMetadata.xml`일 수 있습니다. 테넌트 독립적 엔드포인트는 [https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml](https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml)입니다. 브라우저에서 이 URL을 입력하여 페더레이션 메타데이터 문서를 볼 수 있습니다.
+예를 들어, 테넌트별 엔드포인트는 `https://login.microsoftonline.com/contoso.onmicrosoft.com/FederationMetadata/2007-06/FederationMetadata.xml`일 수 있습니다. 테넌트 독립적인 끝점은 [https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml](https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml). 브라우저에서 이 URL을 입력하여 페더레이션 메타데이터 문서를 볼 수 있습니다.
 
 ## <a name="contents-of-federation-metadata"></a>페더레이션 메타데이터의 내용
 다음 섹션에는 Azure AD에서 발급한 토큰을 사용하는 서비스에 필요한 정보를 제공합니다.
@@ -51,7 +51,7 @@ Azure AD는 페더레이션 메타데이터를 `https://login.microsoftonline.co
 ### <a name="entity-id"></a>엔터티 ID
 `EntityDescriptor` 요소는 `EntityID` 특성을 포함하고 있습니다. `EntityID` 특성의 값은 발급자, 즉, 토큰을 발행한 보안 토큰 서비스(STS)를 나타냅니다. 토큰을 받을 때 발급자 유효성을 검사해야 합니다.
 
-다음 메타데이터는 `EntityDescriptor` 요소가 있는 샘플 테넌트별 `EntityID` 요소를 보여줍니다.
+다음 메타데이터는 `EntityID` 요소가 있는 샘플 테넌트별 `EntityDescriptor` 요소를 보여줍니다.
 
 ```
 <EntityDescriptor
@@ -71,7 +71,7 @@ entityID="https://sts.windows.net/{tenant}/">
 ```
 
 ### <a name="token-signing-certificates"></a>토큰 서명 인증서
-서비스에서 Azure AD 테 넌 트에서 발급 한 토큰을 받으면 페더레이션 메타 데이터 문서에 게시 된 서명 키를 사용 하 여 토큰의 서명 유효성을 검사 해야 합니다. 페더레이션 메타데이터는 테넌트를 토큰 서명에 사용하는 인증서의 공개 부분을 포함합니다. 인증서 원시 바이트는 `KeyDescriptor` 요소에 표시됩니다. 토큰 서명 인증서는 `use` 특성의 값이 `signing`인 경우의 서명에만 유효합니다.
+서비스가 Azure AD 테넌트에서 발급한 토큰을 받으면 페더레이션 메타데이터 문서에 게시된 서명 키로 토큰서명의 유효성을 검사해야 합니다. 페더레이션 메타데이터는 테넌트를 토큰 서명에 사용하는 인증서의 공개 부분을 포함합니다. 인증서 원시 바이트는 `KeyDescriptor` 요소에 표시됩니다. 토큰 서명 인증서는 `use` 특성의 값이 `signing`인 경우의 서명에만 유효합니다.
 
 Azure AD를 통해 게시된 페더레이션 메타데이터 문서에는 Azure AD가 서명 인증서 업데이트를 준비하는 경우와 같은 여러 서명 키가 있을 수 있습니다. 페더레이션 메타데이터 문서가 둘 이상의 인증서를 포함하는 경우, 토큰의 유효성을 검사하는 서비스는 문서에서 모든 인증서를 지원해야 합니다.
 
@@ -91,7 +91,7 @@ MIIDPjCCAiqgAwIBAgIQVWmXY/+9RqFA/OG9kFulHDAJBgUrDgMCHQUAMC0xKzApBgNVBAMTImFjY291
 
 `KeyDescriptor` 요소는 페더레이션 메타데이터 문서에서 WS-Federation 관련 섹션 및 SAML 관련 섹션의 두 곳에 표시됩니다. 두 섹션 모두에서 게시된 인증서는 동일해야 합니다.
 
-WS-Federation 관련 섹션에서 WS-Federation 메타데이터 판독기는 `RoleDescriptor` 형식을 가진 `SecurityTokenServiceType` 요소에서 인증서를 읽습니다.
+WS-Federation 관련 섹션에서 WS-Federation 메타데이터 판독기는 `SecurityTokenServiceType` 형식을 가진 `RoleDescriptor` 요소에서 인증서를 읽습니다.
 
 다음 메타데이터는 샘플 `RoleDescriptor` 요소를 보여줍니다.
 

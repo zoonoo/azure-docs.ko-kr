@@ -1,70 +1,70 @@
 ---
-title: 삭제 된 앱 복원
-description: Azure App Service에서 삭제 된 앱을 복원 하는 방법을 알아봅니다. 실수로 삭제 된 앱의 골칫거리을 방지 합니다.
+title: 삭제된 앱 복원
+description: Azure 앱 서비스에서 삭제된 앱을 복원하는 방법에 대해 알아봅니다. 실수로 삭제 된 응용 프로그램의 두통을 피하십시오.
 author: btardif
 ms.author: byvinyal
 ms.date: 9/23/2019
 ms.topic: article
 ms.openlocfilehash: c7d778a0afca4b3552976526d58a2cb2efe12161
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75689611"
 ---
-# <a name="restore-deleted-app-service-app-using-powershell"></a>PowerShell을 사용 하 여 삭제 된 App Service 앱 복원
+# <a name="restore-deleted-app-service-app-using-powershell"></a>PowerShell을 사용하여 삭제된 App Service 앱 복원
 
-Azure App Service에서 앱을 실수로 삭제 한 경우 [Az PowerShell 모듈](https://docs.microsoft.com/powershell/azure/?view=azps-2.6.0&viewFallbackFrom=azps-2.2.0)의 명령을 사용 하 여 복원할 수 있습니다.
+Azure 앱 서비스에서 실수로 앱을 삭제한 경우 [Az PowerShell 모듈의](https://docs.microsoft.com/powershell/azure/?view=azps-2.6.0&viewFallbackFrom=azps-2.2.0)명령을 사용하여 앱을 복원할 수 있습니다.
 
 > [!NOTE]
-> 삭제 된 앱은 초기 삭제 후 30 일 후 시스템에서 제거 됩니다. 제거 된 앱은 복구할 수 없습니다.
+> 삭제된 앱은 초기 삭제 후 30일 후에 시스템에서 제거됩니다. 앱이 제거되면 복구할 수 없습니다.
 >
 
-## <a name="re-register-app-service-resource-provider"></a>App Service 리소스 공급자를 다시 등록 합니다.
-일부 고객은 삭제 된 앱 목록을 검색 하는 데 실패 하는 문제가 발생할 수 있습니다. 이 문제를 해결 하려면 다음 명령을 실행 합니다.
+## <a name="re-register-app-service-resource-provider"></a>앱 서비스 리소스 공급자 다시 등록
+일부 고객은 삭제된 앱 목록을 검색하는 데 실패하는 문제가 발생할 수 있습니다. 이 문제를 해결하려면 다음 명령을 실행합니다.
 
 ```powershell
  Register-AzResourceProvider -ProviderNamespace "Microsoft.Web"
 ```
 
-## <a name="list-deleted-apps"></a>삭제된 앱 나열
+## <a name="list-deleted-apps"></a>삭제된 앱 목록
 
-삭제 된 앱의 컬렉션을 가져오기 위해 `Get-AzDeletedWebApp`를 사용할 수 있습니다.
+삭제된 앱의 컬렉션을 얻으려면 을 `Get-AzDeletedWebApp`사용할 수 있습니다.
 
-삭제 된 특정 앱에 대 한 자세한 내용은 다음을 사용할 수 있습니다.
+삭제된 특정 앱에 대한 자세한 내용은 다음을 사용할 수 있습니다.
 
 ```powershell
 Get-AzDeletedWebApp -Name <your_deleted_app> -Location <your_deleted_app_location> 
 ```
 
-세부 정보에는 다음이 포함 됩니다.
+자세한 정보는 다음과 같습니다.
 
-- **DeletedSiteId**: 동일한 이름의 여러 앱이 삭제 된 시나리오에 사용 되는 앱의 고유 식별자입니다.
-- **SubscriptionID**: 삭제 된 리소스를 포함 하는 구독
+- **DeletedSiteId**: 같은 이름의 여러 앱이 삭제 된 시나리오에 사용되는 앱의 고유 식별자
+- **구독ID**: 삭제된 리소스가 포함된 구독
 - **위치**: 원래 앱의 위치
-- **ResourceGroupName**: 원래 리소스 그룹의 이름
+- **리소스 그룹 이름**: 원래 리소스 그룹의 이름
 - **이름**: 원래 앱의 이름입니다.
 - **슬롯**: 슬롯의 이름입니다.
-- **삭제 시간**: 앱이 삭제 된 시간  
+- **삭제 시간**: 앱이 삭제된 시기  
 
-## <a name="restore-deleted-app"></a>삭제 된 앱 복원
+## <a name="restore-deleted-app"></a>삭제된 앱 복원
 
-복원 하려는 앱이 식별 되 면 `Restore-AzDeletedWebApp`를 사용 하 여 복원할 수 있습니다.
+복원하려는 앱이 식별되면 을 사용하여 `Restore-AzDeletedWebApp`복원할 수 있습니다.
 
 ```powershell
 Restore-AzDeletedWebApp -ResourceGroupName <my_rg> -Name <my_app> -TargetAppServicePlanName <my_asp>
 ```
 
-명령에 대 한 입력은 다음과 같습니다.
+명령의 입력은 다음과 같습니다.
 
-- **리소스 그룹**: 앱이 복원 되는 대상 리소스 그룹
-- **이름**: 앱의 이름은 전역적으로 고유 해야 합니다.
-- **Targetappserviceplan 이름**: 앱에 연결 된 App Service 계획
+- **리소스 그룹**: 앱이 복원될 대상 리소스 그룹
+- **이름**: 앱의 이름은 전역적으로 고유해야 합니다.
+- **TargetAppServicePlanName**: 앱에 연결된 앱 서비스 계획
 
-기본적으로 `Restore-AzDeletedWebApp`는 앱 구성과 콘텐츠를 모두 복원 합니다. 콘텐츠만 복원 하려면이 이상에서 `-RestoreContentOnly` 플래그를 사용 합니다.
+기본적으로 `Restore-AzDeletedWebApp` 앱 구성과 콘텐츠를 모두 복원합니다. 콘텐츠만 복원하려면 이 명령어와 `-RestoreContentOnly` 함께 플래그를 사용합니다.
 
 > [!NOTE]
-> 앱이에서 호스트 된 후 App Service Environment에서 삭제 된 경우에는 해당 App Service Environment 여전히 있는 경우에만 복원할 수 있습니다.
+> 앱이 앱 서비스 환경에서 호스팅된 다음 삭제된 경우 해당 앱 서비스 환경이 여전히 존재하는 경우에만 복원할 수 있습니다.
 >
 
-여기에서 전체 기능 참조를 찾을 수 있습니다. [AzDeletedWebApp](https://docs.microsoft.com/powershell/module/az.websites/restore-azdeletedwebapp).
+여기에서 전체 명령어 참조를 찾을 수 있습니다: [Restore-AzDeletedWebApp](https://docs.microsoft.com/powershell/module/az.websites/restore-azdeletedwebapp).

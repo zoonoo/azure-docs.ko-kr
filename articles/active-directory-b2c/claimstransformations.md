@@ -11,10 +11,10 @@ ms.date: 09/10/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: e71d521dce40f6a8ec81286fcc95dc97bf10078c
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78189739"
 ---
 # <a name="claimstransformations"></a>ClaimsTransformations
@@ -33,12 +33,12 @@ ms.locfileid: "78189739"
 </ClaimsTransformations>
 ```
 
-**ClaimsTransformation** 요소는 다음 특성을 포함 합니다.
+**클레임변환** 요소에는 다음 특성이 포함되어 있습니다.
 
 | 특성 |필수 | 설명 |
 | --------- |-------- | ----------- |
-| Id |예 | 클레임 변환을 고유하게 식별하는 데 사용되는 식별자입니다. 정책의 다른 XML 요소에서 식별자를 참조합니다. |
-| TransformationMethod | 예 | 클레임 변환에서 사용할 변환 메서드입니다. 각 클레임 변환에는 고유한 값이 있습니다. 사용 가능한 값의 전체 목록은 [클레임 변환 참조](#claims-transformations-reference)를 참조하세요. |
+| Id |yes | 클레임 변환을 고유하게 식별하는 데 사용되는 식별자입니다. 정책의 다른 XML 요소에서 식별자를 참조합니다. |
+| TransformationMethod | yes | 클레임 변환에서 사용할 변환 메서드입니다. 각 클레임 변환에는 고유한 값이 있습니다. 사용 가능한 값의 전체 목록은 [클레임 변환 참조](#claims-transformations-reference)를 참조하세요. |
 
 ## <a name="claimstransformation"></a>ClaimsTransformation
 
@@ -79,8 +79,8 @@ ms.locfileid: "78189739"
 
 | 특성 |필수 | 설명 |
 | --------- | ----------- | ----------- |
-| ClaimTypeReferenceId |예 | 정책의 ClaimsSchema 섹션에 이미 정의되어 있는 ClaimType에 대한 참조입니다. |
-| TransformationClaimType |예 | 변환 클레임 유형을 참조하는 식별자입니다. 각 클레임 변환에는 고유한 값이 있습니다. 사용 가능한 값의 전체 목록은 [클레임 변환 참조](#claims-transformations-reference)를 참조하세요. |
+| ClaimTypeReferenceId |yes | 정책의 ClaimsSchema 섹션에 이미 정의되어 있는 ClaimType에 대한 참조입니다. |
+| TransformationClaimType |yes | 변환 클레임 유형을 참조하는 식별자입니다. 각 클레임 변환에는 고유한 값이 있습니다. 사용 가능한 값의 전체 목록은 [클레임 변환 참조](#claims-transformations-reference)를 참조하세요. |
 
 ### <a name="inputparameters"></a>InputParameters
 
@@ -94,9 +94,9 @@ ms.locfileid: "78189739"
 
 | 특성 | 필수 |설명 |
 | --------- | ----------- |----------- |
-| Id | 예 | 클레임 변환 메서드의 매개 변수에 대한 참조인 식별자입니다. 각 클레임 변환 메서드에는 고유한 값이 있습니다. 사용 가능한 값의 전체 목록은 클레임 변환 표를 참조하세요. |
-| DataType | 예 | 사용자 지정 정책 XML 스키마의 DataType 열거에 따른 String, Boolean, Int, DateTime 등의 매개 변수 데이터 형식입니다. 이 형식은 산술 연산을 정확하게 수행하는 데 사용됩니다. 각 클레임 변환에는 고유한 값이 있습니다. 사용 가능한 값의 전체 목록은 [클레임 변환 참조](#claims-transformations-reference)를 참조하세요. |
-| 값 | 예 | 그대로 정확하게 변환에 전달되는 값입니다. 임의로 전달되는 값도 있고 클레임 변환 메서드에서 사용자가 직접 선택하는 값도 있습니다. |
+| Id | yes | 클레임 변환 메서드의 매개 변수에 대한 참조인 식별자입니다. 각 클레임 변환 메서드에는 고유한 값이 있습니다. 사용 가능한 값의 전체 목록은 클레임 변환 표를 참조하세요. |
+| DataType | yes | 사용자 지정 정책 XML 스키마의 DataType 열거에 따른 String, Boolean, Int, DateTime 등의 매개 변수 데이터 형식입니다. 이 형식은 산술 연산을 정확하게 수행하는 데 사용됩니다. 각 클레임 변환에는 고유한 값이 있습니다. 사용 가능한 값의 전체 목록은 [클레임 변환 참조](#claims-transformations-reference)를 참조하세요. |
+| 값 | yes | 그대로 정확하게 변환에 전달되는 값입니다. 임의로 전달되는 값도 있고 클레임 변환 메서드에서 사용자가 직접 선택하는 값도 있습니다. |
 
 ### <a name="outputclaims"></a>OutputClaims
 
@@ -112,8 +112,8 @@ ms.locfileid: "78189739"
 
 | 특성 |필수 | 설명 |
 | --------- | ----------- |----------- |
-| ClaimTypeReferenceId | 예 | 정책의 ClaimsSchema 섹션에 이미 정의되어 있는 ClaimType에 대한 참조입니다.
-| TransformationClaimType | 예 | 변환 클레임 유형을 참조하는 식별자입니다. 각 클레임 변환에는 고유한 값이 있습니다. 사용 가능한 값의 전체 목록은 [클레임 변환 참조](#claims-transformations-reference)를 참조하세요. |
+| ClaimTypeReferenceId | yes | 정책의 ClaimsSchema 섹션에 이미 정의되어 있는 ClaimType에 대한 참조입니다.
+| TransformationClaimType | yes | 변환 클레임 유형을 참조하는 식별자입니다. 각 클레임 변환에는 고유한 값이 있습니다. 사용 가능한 값의 전체 목록은 [클레임 변환 참조](#claims-transformations-reference)를 참조하세요. |
 
 입력 클레임과 출력 클레임의 유형(문자열, 부울 등)이 같은 경우에는 같은 입력 클레임을 출력 클레임으로 사용할 수 있습니다. 이 경우 클레임 변환에서 입력 클레임이 출력값으로 변경됩니다.
 
@@ -159,12 +159,12 @@ ms.locfileid: "78189739"
 
 클레임 변환의 예는 다음 참조 페이지를 참조하세요.
 
-- [Boolean](boolean-transformations.md)
-- [Date](date-transformations.md)
+- [부울](boolean-transformations.md)
+- [날짜](date-transformations.md)
 - [정수](integer-transformations.md)
 - [JSON](json-transformations.md)
 - [일반](general-transformations.md)
 - [소셜 계정](social-transformations.md)
-- [String](string-transformations.md)
+- [문자열](string-transformations.md)
 - [StringCollection](stringcollection-transformations.md)
 

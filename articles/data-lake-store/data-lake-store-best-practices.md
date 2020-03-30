@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: sachins
 ms.openlocfilehash: a8ca67d1ff3100aee02ed473c9cc2180de3973b8
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75638938"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1을 사용하는 모범 사례
@@ -45,9 +45,9 @@ Azure Active Directory 서비스 사용자는 일반적으로 Azure HDInsight와
 
 ### <a name="enable-the-data-lake-storage-gen1-firewall-with-azure-service-access"></a>Azure 서비스 액세스 권한으로 Data Lake Storage Gen1 방화벽 사용
 
-Data Lake Storage Gen1은 방화벽을 설정하고 액세스를 Azure 서비스만으로 제한하는 옵션을 지원합니다. 이 옵션은 외부 침입으로 인한 공격 벡터가 더 작은 경우에 사용하는 것이 좋습니다. Azure Portal의 **방화벽** > **방화벽 사용(켜기)**  > **Azure 서비스에 대한 액세스 허용** 옵션을 통해 Data Lake Storage Gen1 계정에서 방화벽을 사용하도록 설정할 수 있습니다.
+Data Lake Storage Gen1은 방화벽을 설정하고 액세스를 Azure 서비스만으로 제한하는 옵션을 지원합니다. 이 옵션은 외부 침입으로 인한 공격 벡터가 더 작은 경우에 사용하는 것이 좋습니다. 방화벽 활성화 **Firewall** > **방화벽(ON)을** > 통해 Azure 포털의 Data Lake Storage Gen1 계정에서**방화벽을 활성화할** 수 있습니다.
 
-![Data Lake Storage Gen1 방화벽 설정](./media/data-lake-store-best-practices/data-lake-store-firewall-setting.png "Data Lake Storage Gen1 방화벽 설정")
+![데이터 레이크 스토리지 Gen1의 방화벽 설정](./media/data-lake-store-best-practices/data-lake-store-firewall-setting.png "데이터 레이크 스토리지 Gen1의 방화벽 설정")
 
 방화벽을 사용하도록 설정하면 HDInsight, Data Factory, SQL Data Warehouse 등과 같은 Azure 서비스만 Data Lake Storage Gen1에 액세스할 수 있습니다. Azure에서 사용하는 내부 네트워크 주소 변환으로 인해 Data Lake Storage Gen1 방화벽에서는 IP를 통해 특정 서비스를 제한할 수 없으며, 온-프레미스와 같은 Azure 외부 엔드포인트에 대한 제한에만 사용됩니다.
 
@@ -86,7 +86,7 @@ Hadoop에서 Data Lake Storage Gen1에 쓸 때 성능을 최적화하고 IOPS를
 
 ## <a name="resiliency-considerations"></a>복원력 고려 사항
 
-Data Lake Storage Gen1 또는 클라우드 서비스를 사용하여 시스템을 설계할 때는 가용성 요구 사항과 잠재적인 서비스 중단에 대응하는 방법을 고려해야 합니다. 문제는 특정 인스턴스 또는 지역 전체에 국한될 수 있으므로 둘 모두에 대한 계획이 있어야 합니다. 작업에 대한 **복구 시간 목표** 및 **복구 지점 목표** SLA에 따라 고가용성 및 재해 복구에 대해 다소 공격적인 전략을 선택할 수 있습니다.
+Data Lake Storage Gen1 또는 클라우드 서비스를 사용하여 시스템을 설계할 때는 가용성 요구 사항과 잠재적인 서비스 중단에 대응하는 방법을 고려해야 합니다. 문제는 특정 인스턴스 또는 지역 전체에 국한될 수 있으므로 둘 모두에 대한 계획이 있어야 합니다. **워크로드에** 대한 복구 시간 목표 및 **복구 지점 목표** SLA에 따라 고가용성 및 재해 복구를 위해 다소 공격적인 전략을 선택할 수 있습니다.
 
 ### <a name="high-availability-and-disaster-recovery"></a>고가용성 및 재해 복구
 
@@ -98,13 +98,13 @@ Data Lake Storage Gen1을 사용하여 데이터를 복원하는 경우 HA/DR �
 
 다음은 Data Lake Storage Gen1 계정 간의 복제를 오케스트레이션하는 데 권장되는 상위 세 가지 옵션과 각각의 주요 차이점입니다.
 
-|  |Distcp  |Azure Data Factory  |AdlCopy  |
+|  |Distcp  |Azure 데이터 팩터리  |AdlCopy  |
 |---------|---------|---------|---------|
-|**크기 조정 제한**     | 작업자 노드로 제한됨        | 최대 클라우드 데이터 이동 단위로 제한됨        | 분석 단위로 제한됨        |
-|**델타 복사 지원**     |   예      | 아닙니다.         | 아닙니다.         |
-|**기본 제공 오케스트레이션**     |  아니요(Oozie Airflow 또는 cron 작업 사용)       | 예        | 아니요(Azure Automation 또는 Windows 작업 스케줄러 사용)         |
+|**스케일 제한**     | 작업자 노드로 제한됨        | 최대 클라우드 데이터 이동 단위로 제한됨        | 분석 단위로 제한됨        |
+|**델타 복사 지원**     |   yes      | 예         | 예         |
+|**기본 제공 오케스트레이션**     |  아니요(Oozie Airflow 또는 cron 작업 사용)       | yes        | 아니요(Azure Automation 또는 Windows 작업 스케줄러 사용)         |
 |**지원되는 파일 시스템**     | ADL, HDFS, WASB, S3, GS, CFS        |많음, [커넥터](../data-factory/connector-azure-blob-storage.md) 참조         | ADL 간, WASB 및 ADL 간(동일한 지역에만 해당)        |
-|**OS 지원**     |Hadoop을 실행하는 모든 OS         | N/A          | Windows 10         |
+|**OS 지원**     |Hadoop을 실행하는 모든 OS         | 해당 없음          | 윈도우 10         |
 
 ### <a name="use-distcp-for-data-movement-between-two-locations"></a>두 위치 간 데이터 이동에 Distcp 사용
 
@@ -114,7 +114,7 @@ Distcp(Distributed Copy의 약자)는 Hadoop과 함께 제공되고 두 위치 �
 
 ### <a name="use-azure-data-factory-to-schedule-copy-jobs"></a>Azure Data Factory를 사용하여 복사 작업 예약
 
-Azure Data Factory는 **복사 활동**을 사용하여 복사 작업을 예약하는 데 사용할 수 있으며 **복사 마법사**를 통해 빈도에 설정할 수도 있습니다. Azure Data Factory에는 클라우드 DMU(데이터 이동 단위) 제한이 있으며, 결국에는 대규모 데이터 작업에 대한 처리량/계산을 제한한다는 것을 명심하세요. 또한 Azure Data Factory는 현재 Data Lake Storage Gen1 계정 간에 델타 업데이트를 제공하지 않으므로 Hive 테이블과 같은 폴더에는 복제하는 데 전체 복사본이 필요합니다. Data Factory를 사용하여 복사하는 방법에 대한 자세한 내용은 [복사 활동 튜닝 가이드](../data-factory/copy-activity-performance.md)를 참조하세요.
+Azure Data Factory는 **복사 작업을**사용하여 복사 작업을 예약하는 데 사용할 수도 있으며 **복사 마법사를**통해 빈도로 설정할 수도 있습니다. Azure Data Factory에는 클라우드 DMU(데이터 이동 단위) 제한이 있으며, 결국에는 대규모 데이터 작업에 대한 처리량/계산을 제한한다는 것을 명심하세요. 또한 Azure Data Factory는 현재 Data Lake Storage Gen1 계정 간에 델타 업데이트를 제공하지 않으므로 Hive 테이블과 같은 폴더에는 복제하는 데 전체 복사본이 필요합니다. Data Factory를 사용하여 복사하는 방법에 대한 자세한 내용은 [복사 활동 튜닝 가이드](../data-factory/copy-activity-performance.md)를 참조하세요.
 
 ### <a name="adlcopy"></a>AdlCopy
 
@@ -136,11 +136,11 @@ Data Lake Storage Gen1에서 검색 가능한 로그에 액세스하는 가장 �
 
 ### <a name="turn-on-debug-level-logging-in-hdinsight"></a>HDInsight에서 디버그 수준 로깅 설정
 
-Data Lake Storage Gen1 로그 전달이 켜져 있지 않으면 Azure HDInsight는 log4j를 통해 [Data Lake Storage Gen1에 대한 클라이언트 쪽 로깅](data-lake-store-performance-tuning-mapreduce.md)을 사용하도록 설정하는 방법을 제공합니다. **Ambari** > **YARN** > **Config** > **고급 yarn-log4j 구성**에서 다음 속성을 설정해야 합니다.
+Data Lake Storage Gen1 로그 전달이 켜져 있지 않으면 Azure HDInsight는 log4j를 통해 [Data Lake Storage Gen1에 대한 클라이언트 쪽 로깅](data-lake-store-performance-tuning-mapreduce.md)을 사용하도록 설정하는 방법을 제공합니다. **Ambari** > **YARN** > **Config** > 고급**원사-log4j 구성에서**다음 속성을 설정 해야 합니다.
 
     log4j.logger.com.microsoft.azure.datalake.store=DEBUG
 
-속성이 설정되고 노드가 다시 시작되면 Data Lake Storage Gen1 진단이 노드의 YARN 로그(/tmp/\<user\>/yarn.log)에 기록되고 오류 또는 제한(HTTP 429 오류 코드)과 같은 중요한 세부 정보를 모니터링할 수 있습니다. 이 정보는 Azure Monitor 로그 나 로그가 Data Lake Storage Gen1 계정의 [진단](data-lake-store-diagnostic-logs.md) 블레이드에 전달 되는 위치 에서도 모니터링할 수 있습니다. 최소한 클라이언트 쪽 로깅을 설정하거나 Data Lake Storage Gen1을 통해 로그 전달 옵션을 활용하여 운영 가시성을 확보하고 더 쉽게 디버그하는 것이 좋습니다.
+속성이 설정되고 노드가 다시 시작되면 Data Lake Storage Gen1 진단이 노드의 YARN 로그(/tmp/\<user\>/yarn.log)에 기록되고 오류 또는 제한(HTTP 429 오류 코드)과 같은 중요한 세부 정보를 모니터링할 수 있습니다. 이 같은 정보는 Azure Monitor 로그 또는 데이터 레이크 저장소 Gen1 계정의 [진단](data-lake-store-diagnostic-logs.md) 블레이드에서 로그가 배송되는 모든 곳에서 모니터링할 수도 있습니다. 최소한 클라이언트 쪽 로깅을 설정하거나 Data Lake Storage Gen1을 통해 로그 전달 옵션을 활용하여 운영 가시성을 확보하고 더 쉽게 디버그하는 것이 좋습니다.
 
 ### <a name="run-synthetic-transactions"></a>가상 트랜잭션 실행
 

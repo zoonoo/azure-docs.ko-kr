@@ -16,34 +16,34 @@ ms.date: 07/12/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: b76ade40db1e85abc0fb42af2e6f4ab88cb092c4
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75982278"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-classic"></a>SQL Server 에이전트 확장을 사용하여 Azure Virtual Machines에서 관리 작업 자동화(클래식)
 > [!div class="op_single_selector"]
 > * [리소스 관리자](../sql/virtual-machines-windows-sql-server-agent-extension.md)
-> * [클래식](../classic/sql-server-agent-extension.md)
+> * [고전적인](../classic/sql-server-agent-extension.md)
 > 
 >
  
 관리 작업을 자동화하기 위해 Azure 가상 머신에서 SQL Server IaaS 에이전트 확장(SQLIaaSAgent)을 실행합니다. 이 항목에서는 설치, 상태 및 제거에 대한 지침뿐만 아니라 확장에 의해 지원되는 서비스의 개요를 제공합니다.
 
 > [!IMPORTANT] 
-> Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../../../azure-resource-manager/management/deployment-models.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. 이 문서의 Resource Manager 버전을 보려면 [SQL Server VM Resource Manager에 대한 SQL Server 에이전트 확장](../sql/virtual-machines-windows-sql-server-agent-extension.md)을 참조하세요.
+> Azure에는 리소스 를 만들고 작업하기 위한 두 가지 배포 모델( [리소스 관리자 및 클래식.](../../../azure-resource-manager/management/deployment-models.md) 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다.  이 문서의 리소스 관리자 버전을 보려면 [SQL Server VM 리소스 관리자에 대한 SQL Server 에이전트 확장](../sql/virtual-machines-windows-sql-server-agent-extension.md)을 참조하세요.
 
 ## <a name="supported-services"></a>지원되는 서비스
 SQL Server IaaS 에이전트 확장은 다음 관리 작업을 지원합니다.
 
-| 관리 기능 | Description |
+| 관리 기능 | 설명 |
 | --- | --- |
 | **SQL 자동화된 Backup** |VM에 있는 SQL Server의 기본 인스턴스에 대한 모든 데이터베이스 백업 예약을 자동화합니다. 자세한 내용은 [Azure Virtual Machines에서 SQL Server에 대한 자동화된 백업(클래식)](../classic/sql-automated-backup.md)을 참조하세요. |
 | **SQL 자동화된 패치** |워크로드가 가장 많은 시간에 업데이트하지 않도록 VM에 대한 중요한 Windows 업데이트가 수행될 유지 관리 기간을 구성할 수 있습니다. 자세한 내용은 [Azure Virtual Machines에서 SQL Server에 대한 자동화된 패치(클래식)](../classic/sql-automated-patching.md)를 참조하세요. |
 | **Azure Key Vault 통합** |SQL Server VM에서 Azure Key Vault를 자동으로 설치하고 구성할 수 있습니다. 자세한 내용은 [Azure VM에서 SQL Server에 대한 Azure Key Vault 통합 구성(클래식)](../classic/ps-sql-keyvault.md)을 참조하세요. |
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 VM에서 SQL Server IaaS 에이전트 확장을 사용하기 위한 요구 사항:
 
 ### <a name="operating-system"></a>운영 체제:
@@ -89,7 +89,7 @@ SQL IaaS 에이전트 확장의 최신 버전으로 업데이트하는 경우 �
 
 ![Azure Portal에서 SQL Server IaaS 에이전트 확장](./media/virtual-machines-windows-classic-sql-server-agent-extension/azure-sql-server-iaas-agent-portal.png)
 
-**Get-AzureVMSqlServerExtension** Azure Powershell cmdlet을 사용할 수도 있습니다.
+**Get-AzureVMSqlServerExtension** Azure 파워쉘 cmdlet을 사용할 수도 있습니다.
 
     Get-AzureVM –ServiceName "service" –Name "vmname" | Get-AzureVMSqlServerExtension
 

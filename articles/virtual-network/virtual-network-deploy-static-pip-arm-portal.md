@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/08/2018
 ms.author: kumud
 ms.openlocfilehash: 66050c16f40e0a06117327ef53e3aae87d03c5db
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76043547"
 ---
 # <a name="create-a-virtual-machine-with-a-static-public-ip-address-using-the-azure-portal"></a>Azure Portal을 사용하여 고정 공용 IP 주소로 가상 머신 만들기
@@ -28,7 +28,7 @@ ms.locfileid: "76043547"
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-[https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
+[https://portal.azure.com](https://portal.azure.com) 에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-a-virtual-machine"></a>가상 머신 만들기
 
@@ -42,8 +42,8 @@ ms.locfileid: "76043547"
     |사용자 이름| 선택한 사용자 이름을 입력합니다.|
     |암호| 선택한 암호를 입력합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.|
     |Subscription| 구독을 선택합니다.|
-    |리소스 그룹| **기존 항목 사용**을 선택하고, **myResourceGroup**을 선택합니다.|
-    |위치| **미국 동부**를 선택합니다.|
+    |Resource group| **기존 항목 사용**을 선택하고, **myResourceGroup**을 선택합니다.|
+    |위치| **미국 동부** 선택|
 
 4. VM에 대한 크기를 선택한 다음, **선택**을 선택합니다.
 5. **설정** 아래에서 **공용 IP 주소**를 선택합니다.
@@ -79,7 +79,7 @@ ms.locfileid: "76043547"
 
 1. 포털 맨 위에 있는 **검색** 상자에 *myResourceGroup*을 입력합니다. 검색 결과에 **myResourceGroup**이 보이면 선택합니다.
 2. **리소스 그룹 삭제**를 선택합니다.
-3. **리소스 그룹 이름 입력:** 에 *myResourceGroup*을 입력하고 **삭제**를 선택합니다.
+3. **리소스 그룹 이름 입력에** *myResourceGroup을* 입력하고 **삭제를**선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
