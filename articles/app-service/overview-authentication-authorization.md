@@ -1,22 +1,22 @@
 ---
 title: 인증 및 권한 부여
-description: Azure App Service에서 기본 제공 되는 인증 및 권한 부여 지원과, 무단 액세스 로부터 앱을 보호 하는 방법에 대해 알아봅니다.
+description: Azure App Service의 기본 제공 인증 및 권한 부여 지원에 대해 알아보고 무단 액세스에 대해 앱을 보호하는 방법을 알아보십시오.
 ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
 ms.topic: article
 ms.date: 08/12/2019
 ms.reviewer: mahender
 ms.custom: seodec18
-ms.openlocfilehash: efef578f5c62bef4ae33b98b568fd6d5c1389c4a
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 825d113bbe081ba6fb85da19ff6449824db92d10
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76715114"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79475394"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Azure App Service의 인증 및 권한 부여
 
 > [!NOTE]
-> 지금은 AAD V2 (MSAL 포함)가 Azure 앱 서비스 및 Azure Functions에 대해 지원 되지 않습니다. 업데이트를 다시 확인 하세요.
+> 현재 AAD V2(MSAL 포함)는 Azure 앱 서비스 및 Azure 함수에 대해 지원되지 않습니다. 업데이트를 다시 확인하시기 바랍니다.
 >
 
 Azure App Service는 내장된 인증 및 권한 부여 지원을 제공하므로 웹앱, RESTful API 및 모바일 백 엔드에 코드를 최소한으로 작성하거나 코드를 작성하지 않고 사용자를 로그인시켜 데이터에 액세스할 수 있으며 [Azure Functions](../azure-functions/functions-overview.md)도 사용할 수 있습니다. 이 문서는 App Service가 앱의 인증 및 권한 부여를 단순화하는 방법에 대해 설명합니다.
@@ -24,9 +24,9 @@ Azure App Service는 내장된 인증 및 권한 부여 지원을 제공하므�
 안전한 인증 및 권한 부여에는 페더레이션, 암호화, [JSON 웹 토큰(JWT)](https://wikipedia.org/wiki/JSON_Web_Token) 관리, [부여 유형](https://oauth.net/2/grant-types/) 등 보안에 대한 깊은 이해가 필요합니다. App Service가 이러한 유틸리티를 제공하기 때문에, 고객에게 비즈니스 가치를 제공하는 데 더 많은 시간과 에너지를 투자할 수 있습니다.
 
 > [!IMPORTANT]
-> 인증/AuthO에 App Service를 사용할 필요가 없습니다. 선택한 웹 프레임 워크에서 번들로 제공 되는 보안 기능을 사용 하거나 사용자 고유의 유틸리티를 작성할 수 있습니다. 그러나 [Chrome 80은 쿠키에 대 한 SameSite 구현에 대 한 주요 변경 내용](https://www.chromestatus.com/feature/5088147346030592) (11 월 2020에 출시 된 릴리스 날짜)이 고, 사용자 지정 원격 인증 또는 사이트 간 쿠키 게시를 사용 하는 기타 시나리오는 클라이언트 Chrome 브라우저가 업데이트 될 때 중단 될 수 있다는 점에 유의 하세요. 해결 방법은 다양 한 브라우저에 대해 서로 다른 SameSite 동작을 지원 해야 하기 때문에 복잡 합니다. 
+> AuthN/AuthO에 앱 서비스를 사용할 필요는 없습니다. 선택한 웹 프레임워크에서 번들 보안 기능을 사용하거나 직접 유틸리티를 작성할 수 있습니다. 그러나 Chrome 80은 쿠키용 SameSite(2020년 3월 경 출시일)의 [구현을 주요 변경 중이며,](https://www.chromestatus.com/feature/5088147346030592) 클라이언트 Chrome 브라우저가 업데이트될 때 교차 사이트 쿠키 게시에 의존하는 사용자 지정 원격 인증 또는 기타 시나리오가 중단될 수 있습니다. 해결 방법은 다른 브라우저에 대해 서로 다른 SameSite 동작을 지원해야 하기 때문에 복잡합니다. 
 >
-> App Service에서 호스팅하는 ASP.NET Core 2.1 이상 버전은이 주요 변경 내용에 대해 이미 패치 되었으며 Chrome 80 및 이전 브라우저를 적절 하 게 처리 합니다. 또한 ASP.NET Framework 4.7.2에 대 한 동일한 패치가 1 월 2020 전체에 App Service 인스턴스에 배포 됩니다. 앱이 패치를 받았는지 확인 하는 방법을 비롯 한 자세한 내용은 [Azure App Service SameSite cookie update](https://azure.microsoft.com/updates/app-service-samesite-cookie-update/)를 참조 하십시오.
+> ASP.NET 코어 2.1 이상 버전 앱 서비스에서 호스팅하는 이 주요 변경 내용은 이미 패치되어 Chrome 80 및 이전 브라우저를 적절하게 처리합니다. 또한 ASP.NET 프레임워크 4.7.2에 대한 동일한 패치가 2020년 1월 내내 앱 서비스 인스턴스에 배포됩니다. 앱이 패치를 받았는지 확인하는 방법을 포함하여 자세한 내용은 [Azure App Service SameSite 쿠키 업데이트를](https://azure.microsoft.com/updates/app-service-samesite-cookie-update/)참조하십시오.
 >
 
 기본 모바일 응용 프로그램과 관련된 자세한 내용은 [Azure App Service를 사용하여 모바일 응용 프로그램에 대한 사용자 인증 및 권한 부여](../app-service-mobile/app-service-mobile-auth.md)를 참조하세요.
@@ -48,9 +48,9 @@ Azure App Service는 내장된 인증 및 권한 부여 지원을 제공하므�
 
 ### <a name="user-claims"></a>사용자 클레임
 
-모든 언어 프레임워크의 경우 App Service는 요청 헤더에 코드를 삽입하여 사용자의 클레임을 코드에 사용할 수 있게 합니다. ASP.NET 4.6 응용 프로그램의 경우 App Service는 인증된 사용자의 클레임을 사용하여 [ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current)를 채우기 때문에 `[Authorize]` 특성을 비롯한 표준 .NET 코드 패턴을 따를 수 있습니다. 마찬가지로 PHP 앱의 경우, App Service는 `_SERVER['REMOTE_USER']` 변수를 채웁니다. Java 앱의 경우 [Tomcat 서블릿에서 클레임에 액세스할 수](containers/configure-language-java.md#authenticate-users-easy-auth)있습니다.
+모든 언어 프레임워크의 경우 App Service는 요청 헤더에 코드를 삽입하여 사용자의 클레임을 코드에 사용할 수 있게 합니다. ASP.NET 4.6 응용 프로그램의 경우 App Service는 인증된 사용자의 클레임을 사용하여 [ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current)를 채우기 때문에 `[Authorize]` 특성을 비롯한 표준 .NET 코드 패턴을 따를 수 있습니다. 마찬가지로 PHP 앱의 경우, App Service는 `_SERVER['REMOTE_USER']` 변수를 채웁니다. Java 앱의 경우 [Tomcat 서볼릿에서 클레임에 액세스할 수](containers/configure-language-java.md#authenticate-users-easy-auth)있습니다.
 
-[Azure Functions](../azure-functions/functions-overview.md)의 경우, `ClaimsPrincipal.Current`는 .NET 코드에 대해 하이드레이션되지 않지만 요청 헤더에서 사용자 클레임을 찾을 수 있습니다.
+Azure `ClaimsPrincipal.Current` [Functions의](../azure-functions/functions-overview.md)경우 .NET 코드에 대해 하이드레이션되지 않지만 요청 헤더에서 사용자 클레임을 찾을 수 있습니다.
 
 자세한 내용은 [사용자 클레임 액세스](app-service-authentication-how-to.md#access-user-claims)를 참조하세요.
 
@@ -59,7 +59,7 @@ Azure App Service는 내장된 인증 및 권한 부여 지원을 제공하므�
 App Service는 웹앱, API 또는 기본 모바일 앱의 사용자와 연결된 토큰 리포지토리인 내장 토큰 저장소를 제공합니다. 공급자와 인증을 사용하도록 설정하면 이 토큰 저장소를 앱에서 즉시 사용할 수 있습니다. 다음과 같이 애플리케이션 코드가 사용자를 대신하여 이러한 공급자의 데이터에 액세스해야 하는 경우, 
 
 - 인증된 사용자의 Facebook 타임라인에 게시
-- Azure Active Directory Graph API 또는 Microsoft Graph에서 사용자의 회사 데이터 읽기
+- Microsoft 그래프 API를 사용하여 사용자의 회사 데이터 읽기
 
 일반적으로 애플리케이션에서 이러한 토큰을 수집, 저장 및 새로 고치는 코드를 작성해야 합니다. 토큰 저장소를 사용하면 토큰이 필요할 때 [토큰을 가져오고](app-service-authentication-how-to.md#retrieve-tokens-in-app-code) 토큰이 무효화되면 [App Service에 알려 이를 새로 고치도록](app-service-authentication-how-to.md#refresh-identity-provider-tokens) 해야 합니다. 
 
@@ -79,11 +79,11 @@ App Service는 [페더레이션 ID](https://en.wikipedia.org/wiki/Federated_iden
 | - | - |
 | [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) | `/.auth/login/aad` |
 | [Microsoft 계정](../active-directory/develop/v2-overview.md) | `/.auth/login/microsoftaccount` |
-| [Facebook](https://developers.facebook.com/docs/facebook-login) | `/.auth/login/facebook` |
+| [페이스 북](https://developers.facebook.com/docs/facebook-login) | `/.auth/login/facebook` |
 | [Google](https://developers.google.com/identity/choose-auth) | `/.auth/login/google` |
 | [Twitter](https://developer.twitter.com/en/docs/basics/authentication) | `/.auth/login/twitter` |
 
-이러한 공급자중 하나를 사용하여 인증 및 권한 부여를 활성화하면 사용자 인증과 공급자의 인증 토큰 유효성 검사에 로그인 엔드포인트를 사용할 수 있습니다. 사용자에게 여러 가지 로그인 옵션을 쉽게 제공할 수 있습니다. 다른 id 공급자 또는 [사용자 고유의 사용자 지정 id 솔루션][custom-auth]을 통합할 수도 있습니다.
+이러한 공급자중 하나를 사용하여 인증 및 권한 부여를 활성화하면 사용자 인증과 공급자의 인증 토큰 유효성 검사에 로그인 엔드포인트를 사용할 수 있습니다. 사용자에게 여러 가지 로그인 옵션을 쉽게 제공할 수 있습니다. 다른 ID 공급자 또는 [사용자 고유의 사용자 지정 ID 솔루션][custom-auth]을 통합할 수도 있습니다.
 
 ## <a name="authentication-flow"></a>인증 흐름
 
@@ -100,10 +100,10 @@ App Service는 [페더레이션 ID](https://en.wikipedia.org/wiki/Federated_iden
 
 | 단계 | SDK 공급자가 없는 경우 | SDK 공급자가 있는 경우 |
 | - | - | - |
-| 1. 사용자 로그인 | 클라이언트를 `/.auth/login/<provider>`로 리디렉션합니다. | 클라이언트 코드는 공급자의 SDK를 사용하여 사용자를 직접 로그인시키고 인증 토큰을 받습니다. 자세한 내용은 공급자 설명서를 참조하세요. |
-| 2. 인증 후 | 공급자가 클라이언트를 `/.auth/login/<provider>/callback`으로 리디렉션합니다. | 클라이언트 코드는 유효성 검사를 위해 [에 ](app-service-authentication-how-to.md#validate-tokens-from-providers)공급자의 토큰을 게시`/.auth/login/<provider>`합니다. |
-| 3. 인증 된 세션 설정 | App Service는 인증된 쿠키를 응답에 추가합니다. | App Service는 자체 인증 토큰을 클라이언트 코드로 반환합니다. |
-| 4. 인증 된 콘텐츠 제공 | 클라이언트는 후속 요청에 인증 쿠키를 포함합니다(브라우저에 의해 자동 처리됨). | 클라이언트 코드는 `X-ZUMO-AUTH` 헤더에 인증 토큰을 제공합니다(Mobile Apps 클라이언트 SDK에 의해 자동 처리됨). |
+| 1. 로그인 사용자 | 클라이언트를 `/.auth/login/<provider>`로 리디렉션합니다. | 클라이언트 코드는 공급자의 SDK를 사용하여 사용자를 직접 로그인시키고 인증 토큰을 받습니다. 자세한 내용은 공급자 설명서를 참조하세요. |
+| 2. 사후 인증 | 공급자가 클라이언트를 `/.auth/login/<provider>/callback`으로 리디렉션합니다. | 클라이언트 코드는 유효성 `/.auth/login/<provider>` 검사를 위해 [공급자에서 토큰을 게시합니다.](app-service-authentication-how-to.md#validate-tokens-from-providers) |
+| 3. 인증된 세션 설정 | App Service는 인증된 쿠키를 응답에 추가합니다. | App Service는 자체 인증 토큰을 클라이언트 코드로 반환합니다. |
+| 4. 인증된 콘텐츠 제공 | 클라이언트는 후속 요청에 인증 쿠키를 포함합니다(브라우저에 의해 자동 처리됨). | 클라이언트 코드는 `X-ZUMO-AUTH` 헤더에 인증 토큰을 제공합니다(Mobile Apps 클라이언트 SDK에 의해 자동 처리됨). |
 
 클라이언트 브라우저의 경우 App Service는 인증되지 않은 모든 사용자를 자동으로 `/.auth/login/<provider>`로 보냅니다. 사용자 자신이 선택한 제공자를 사용하여 앱에 로그인할 수 있도록 하나 이상의 `/.auth/login/<provider>` 링크를 사용자에게 할 수도 있습니다.
 
@@ -111,15 +111,15 @@ App Service는 [페더레이션 ID](https://en.wikipedia.org/wiki/Federated_iden
 
 ## <a name="authorization-behavior"></a>권한 부여 동작
 
-[Azure Portal](https://portal.azure.com)에서 들어오는 요청이 인증 되지 않은 경우 여러 동작을 사용 하 여 App Service 권한 부여를 구성할 수 있습니다.
+Azure [포털에서](https://portal.azure.com)들어오는 요청이 인증되지 않은 경우 여러 동작으로 앱 서비스 인증을 구성할 수 있습니다.
 
 ![](media/app-service-authentication-overview/authorization-flow.png)
 
 다음 제목은 옵션을 설명합니다.
 
-### <a name="allow-anonymous-requests-no-action"></a>익명 요청 허용 (작업 없음)
+### <a name="allow-anonymous-requests-no-action"></a>익명 요청 허용(작업 없음)
 
-이 옵션은 응용 프로그램 코드에 대 한 인증 되지 않은 트래픽의 권한 부여를 지연 시킵니다. 인증된 요청의 경우 App Service는 HTTP 헤더의 인증 정보도 전달합니다. 
+이 옵션은 응용 프로그램 코드에 대한 인증되지 않은 트래픽의 승인을 연기합니다. 인증된 요청의 경우 App Service는 HTTP 헤더의 인증 정보도 전달합니다. 
 
 이 옵션은 익명 요청을 보다 유연하게 처리할 수 있습니다. 예를 들어 [여러 로그인 공급자](app-service-authentication-how-to.md#use-multiple-sign-in-providers)를 사용자에게 제공할 수 있습니다. 그러나 코드를 작성해야 합니다. 
 
@@ -130,7 +130,7 @@ App Service는 [페더레이션 ID](https://en.wikipedia.org/wiki/Federated_iden
 이 옵션을 사용하면 앱에서 인증 코드를 작성할 필요가 없습니다. 역할별 권한 부여와 같이 보다 정교한 권한 부여는 사용자의 클레임을 검사하여 처리할 수 있습니다([사용자 클레임 액세스](app-service-authentication-how-to.md#access-user-claims) 참조).
 
 > [!CAUTION]
-> 이러한 방식으로 액세스를 제한 하는 것은 앱에 대 한 모든 호출에 적용 됩니다 .이는 여러 단일 페이지 응용 프로그램과 마찬가지로 공개적으로 사용 가능한 홈 페이지를 사용 하는 앱에는 바람직하지 않을 수 있습니다.
+> 이러한 방식으로 액세스를 제한하는 것은 앱에 대한 모든 호출에 적용되며, 이는 많은 단일 페이지 응용 프로그램과 마찬가지로 공개적으로 사용 가능한 홈 페이지를 원하는 앱에는 바람직하지 않을 수 있습니다.
 
 ## <a name="more-resources"></a>추가 리소스
 

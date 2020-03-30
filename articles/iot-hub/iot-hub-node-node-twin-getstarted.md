@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: elioda
 ms.openlocfilehash: 55dc7f73a3e5bbff2e6e331ba0bd7d4088a86536
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77110836"
 ---
-# <a name="get-started-with-device-twins-nodejs"></a>장치 쌍 시작 (node.js)
+# <a name="get-started-with-device-twins-nodejs"></a>장치 쌍(Node.js)으로 시작하기
 
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
 
@@ -33,11 +33,11 @@ ms.locfileid: "77110836"
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* Node.js 버전 10.0. x 이상
+* Node.js 버전 10.0.x 이상.
 
-* 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)을 만들 수 있습니다.
+* 활성 Azure 계정. 계정이 없는 경우 몇 분 안에 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)을 만들 수 있습니다.
 
-* 방화벽에서 포트 8883가 열려 있는지 확인 합니다. 이 문서의 device 샘플에서는 포트 8883을 통해 통신 하는 MQTT 프로토콜을 사용 합니다. 이 포트는 일부 회사 및 교육용 네트워크 환경에서 차단 될 수 있습니다. 이 문제를 해결 하는 방법 및 방법에 대 한 자세한 내용은 [IoT Hub에 연결 (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub)을 참조 하세요.
+* 방화벽에서 포트 8883이 열려 있는지 확인합니다. 이 문서의 장치 샘플은 포트 8883을 통해 통신하는 MQTT 프로토콜을 사용합니다. 이 포트는 일부 회사 및 교육용 네트워크 환경에서 차단될 수 있습니다. 이 문제를 해결하는 자세한 내용과 방법은 [IoT Hub에 연결(MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub)을 참조하세요.
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 
@@ -47,7 +47,7 @@ ms.locfileid: "77110836"
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
-## <a name="get-the-iot-hub-connection-string"></a>IoT hub 연결 문자열을 가져옵니다.
+## <a name="get-the-iot-hub-connection-string"></a>IoT 허브 연결 문자열 받기
 
 [!INCLUDE [iot-hub-howto-twin-shared-access-policy-text](../../includes/iot-hub-howto-twin-shared-access-policy-text.md)]
 
@@ -57,7 +57,7 @@ ms.locfileid: "77110836"
 
 이 섹션에서는 **myDeviceId**와 연결된 디바이스 쌍에 위치 메타데이터를 추가하는 Node.js 콘솔 앱을 만듭니다. 그런 다음, IoT Hub에 저장된 디바이스 쌍을 쿼리하여 미국에 있는 디바이스를 선택한 다음, 셀룰러 연결을 보고하는 디바이스를 선택합니다.
 
-1. **addtagsandqueryapp**라는 빈 폴더를 새로 만듭니다. **addtagsandqueryapp** 폴더의 명령 프롬프트에 다음 명령을 사용하여 package.json 파일을 만듭니다. `--yes` 매개 변수는 모든 기본값을 허용 합니다.
+1. **addtagsandqueryapp**라는 빈 폴더를 새로 만듭니다. **addtagsandqueryapp** 폴더의 명령 프롬프트에 다음 명령을 사용하여 package.json 파일을 만듭니다. 매개 `--yes` 변수는 모든 기본값을 허용합니다.
 
     ```cmd/sh
     npm init --yes
@@ -71,7 +71,7 @@ ms.locfileid: "77110836"
 
 3. 텍스트 편집기를 사용하여 **addtagsandqueryapp** 폴더에 새 **AddTagsAndQuery.js** 파일을 만듭니다.
 
-4. **AddTagsAndQuery** 파일에 다음 코드를 추가 합니다. `{iot hub connection string}`를 [IoT Hub 연결 문자열 가져오기](#get-the-iot-hub-connection-string)에서 복사한 IoT Hub 연결 문자열로 바꿉니다.
+4. **AddTagsAndQuery.js** 파일에 다음 코드를 추가합니다. IoT 허브 연결 문자열 받기에서 복사한 `{iot hub connection string}` [IoT Hub 연결 문자열로](#get-the-iot-hub-connection-string)바꿉입니다.
 
    ``` javascript
         'use strict';
@@ -134,7 +134,7 @@ ms.locfileid: "77110836"
 
     이전 코드는 두 개의 쿼리를 실행합니다. 첫 번째는 **Redmond43** 공장에 위치한 디바이스의 디바이스 쌍만을 선택하고, 두 번째는 또한 셀룰러 네트워크를 통해서 연결된 디바이스만을 선택하기 위해 쿼리를 구체화합니다.
 
-    코드는 **쿼리** 개체를 만들 때 두 번째 매개 변수에서 반환 되는 최대 문서 수를 지정 합니다. **query** 개체에는 모든 결과를 검색하기 위해 여러번 **nextAsTwin** 메서드를 호출하는 데 사용할 수 있는 **hasMoreResults** 부울 속성이 들어 있습니다. **Next** 라는 메서드는 장치 쌍이 아닌 결과 (예: 집계 쿼리의 결과)에 대해 사용할 수 있습니다.
+    코드에서 **쿼리** 개체를 만들면 두 번째 매개 변수에서 반환되는 문서의 최대 수를 지정합니다. **query** 개체에는 모든 결과를 검색하기 위해 여러번 **nextAsTwin** 메서드를 호출하는 데 사용할 수 있는 **hasMoreResults** 부울 속성이 들어 있습니다. **다음이라는** 메서드는 장치 쌍이 아닌 결과(예: 집계 쿼리의 결과)에 사용할 수 있습니다.
 
 6. 다음으로 애플리케이션을 실행합니다.
 
@@ -144,7 +144,7 @@ ms.locfileid: "77110836"
 
    **Redmond43**에 위치한 모든 디바이스를 요청하는 쿼리에 대한 결과로는 하나의 디바이스를 보고 셀룰러 네트워크를 사용하는 디바이스에 대해서는 결과를 제한하는 쿼리에 대한 결과로는 아무 디바이스도 볼 수 없어야 합니다.
 
-   ![쿼리 결과에서 하나의 장치 확인](media/iot-hub-node-node-twin-getstarted/service1.png)
+   ![쿼리 결과에서 하나의 장치 보기](media/iot-hub-node-node-twin-getstarted/service1.png)
 
 다음 섹션에서는 연결 정보를 보고하고 이전 섹션의 쿼리 결과를 변경하는 디바이스 앱을 만듭니다.
 
@@ -152,13 +152,13 @@ ms.locfileid: "77110836"
 
 이 섹션에서는 **myDeviceId**로 허브에 연결하는 Node.js 콘솔 앱을 만들고 셀룰러 네트워크를 사용하여 연결된 정보를 포함하도록 디바이스 쌍의 reported 속성을 업데이트합니다.
 
-1. **reportconnectivity**라는 빈 폴더를 새로 만듭니다. **reportconnectivity** 폴더의 명령 프롬프트에서 다음 명령을 사용하여 package.json 파일을 만듭니다. `--yes` 매개 변수는 모든 기본값을 허용 합니다.
+1. **reportconnectivity**라는 빈 폴더를 새로 만듭니다. **reportconnectivity** 폴더의 명령 프롬프트에서 다음 명령을 사용하여 package.json 파일을 만듭니다. 매개 `--yes` 변수는 모든 기본값을 허용합니다.
 
     ```cmd/sh
     npm init --yes
     ```
 
-2. **Reportconnectivity** 폴더의 명령 프롬프트에서 다음 명령을 실행 하 여 **azure-iot**-장치 및 **azure-iot-mqtt** 패키지를 설치 합니다.
+2. **보고서 연결** 폴더의 명령 프롬프트에서 다음 명령을 실행하여 **azure-iot 장치**및 **azure-iot 장치-mqtt** 패키지를 설치합니다.
 
     ```cmd/sh
     npm install azure-iot-device azure-iot-device-mqtt --save
@@ -166,7 +166,7 @@ ms.locfileid: "77110836"
 
 3. 텍스트 편집기를 사용하여 **reportconnectivity** 폴더에 새 **ReportConnectivity.js** 파일을 만듭니다.
 
-4. 다음 코드를 **Reportconnectivity .js** 파일에 추가 합니다. `{device connection string}`를 [IoT hub에서 새 장치 등록](#register-a-new-device-in-the-iot-hub)에서 **mydeviceid** 장치 id를 만들 때 복사한 장치 연결 문자열로 바꿉니다.
+4. **보고서 연결.js** 파일에 다음 코드를 추가합니다. `{device connection string}` [IoT 허브에서 새 장치 등록에서](#register-a-new-device-in-the-iot-hub) **myDeviceId** 장치 ID를 만들 때 복사한 장치 연결 문자열로 바꿉꿉입니다.
 
     ```javascript
         'use strict';
@@ -224,7 +224,7 @@ ms.locfileid: "77110836"
 
     이번에는 **myDeviceId**가 두 쿼리 결과에 모두 나타나야 합니다.
 
-    ![두 쿼리 결과에 myDeviceId 표시](media/iot-hub-node-node-twin-getstarted/service2.png)
+    ![두 쿼리 결과모두에서 myDeviceId 표시](media/iot-hub-node-node-twin-getstarted/service2.png)
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -232,8 +232,8 @@ ms.locfileid: "77110836"
 
 아래와 같이 실행할 방법을 알아보려면 다음 리소스를 참조하세요.
 
-* [IoT Hub 시작](quickstart-send-telemetry-node.md) 자습서를 사용 하 여 장치에서 원격 분석을 보냅니다.
+* [IoT Hub 자습서를 시작으로](quickstart-send-telemetry-node.md) 장치에서 원격 분석을 전송하고,
 
 * [desired 속성을 사용하여 디바이스 구성](tutorial-device-twins.md) 자습서를 참조하여 디바이스 쌍의 desired 속성을 사용하여 디바이스 구성,
 
-* [직접 메서드 사용](quickstart-control-device-node.md) 자습서를 사용 하 여 대화형으로 (예: 사용자 제어 앱에서 팬 켜기) 장치를 제어 합니다.
+* 직접 [메서드 사용](quickstart-control-device-node.md) 자습서를 사용하여 대화형으로 제어할 수 있습니다(예: 사용자 제어 앱에서 팬 켜기).

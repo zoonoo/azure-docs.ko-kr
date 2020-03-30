@@ -1,5 +1,6 @@
 ---
 title: Azure Cloud Services 정의 스키마(.cscfg 파일) | Microsoft Docs
+description: 서비스 구성(.cscfg) 파일은 역할에 대해 각 역할, 구성 값 및 인증서 지문에 대해 배포할 역할 인스턴스 수를 지정합니다.
 services: cloud-services
 ms.custom: ''
 ms.date: 12/07/2016
@@ -8,12 +9,12 @@ ms.topic: reference
 caps.latest.revision: 35
 author: tgore03
 ms.author: tagore
-ms.openlocfilehash: 71c0bb1b09d480a05a9e5a54b269d0da8fde5bc3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: cb77181e00c97b7f426429793f17af3cb5e84ebe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75449110"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79534748"
 ---
 # <a name="azure-cloud-services-config-schema-cscfg-file"></a>Azure Cloud Services 구성 스키마(.cscfg 파일)
 서비스 구성 파일은 서비스의 각 역할에 대해 배포할 역할 인스턴스의 수, 구성 설정의 값 및 역할에 연결된 인증서의 지문을 지정합니다. 서비스가 Virtual Network의 일부인 경우, 가상 네트워킹 구성 파일 뿐 아니라 서비스 구성 파일에도 네트워크에 대한 구성 정보를 제공해야 합니다. 서비스 구성 파일의 기본 확장명은 .cscfg입니다.
@@ -50,12 +51,12 @@ ms.locfileid: "75449110"
 ## <a name="service-configuration-namespace"></a>서비스 구성 네임스페이스
 서비스 구성 파일에 대한 XML 네임스페이스는 `http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration`입니다.
 
-##  <a name="ServiceConfiguration"></a> ServiceConfiguration 요소
+##  <a name="serviceconfiguration-element"></a><a name="ServiceConfiguration"></a> ServiceConfiguration 요소
 `ServiceConfiguration` 요소는 서비스 구성 파일의 최상위 요소입니다.
 
 다음 표에서는 `ServiceConfiguration` 요소의 특성을 설명합니다. 모든 특성 값은 문자열 유형입니다.
 
-| attribute | Description |
+| 특성 | 설명 |
 | --------- | ----------- |
 |serviceName|필수 사항입니다. 클라우드 서비스의 이름입니다. 여기서 지정된 이름은 서비스 정의 파일에서 지정된 이름과 일치해야 합니다.|
 |osFamily|(선택 사항) 클라우드 서비스의 역할 인스턴스에서 실행될 게스트 OS를 지정합니다. 지원되는 게스트 OS 릴리스에 대한 정보는 [Azure 게스트 OS 릴리스 및 SDK 호환성 매트릭스](cloud-services-guestos-update-matrix.md)를 참조하세요.<br /><br /> `osFamily` 값을 포함하지 않고 특정 게스트 OS 버전에 `osVersion` 특성을 설정하지 않은 경우 기본값인 1이 사용됩니다.|

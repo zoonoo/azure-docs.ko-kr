@@ -8,20 +8,18 @@ ms.topic: include
 ms.date: 03/11/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 717bf922ac600242892d86ad6b58d80b36a0710e
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.openlocfilehash: 3d0bd5d6403264ae6c71b43468b61930bcf6b86c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79299515"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79504383"
 ---
-Premium Ssd, standard Ssd 및 standard Hdd의 경우 다음 지역 에서만 현재 고객이 관리 하는 키를 지원 합니다.
+프리미엄 SSD, 표준 SSD 및 표준 HDD의 경우 현재 고객 관리 키를 지원하는 다음 지역만 지원됩니다.
 
-- 미국 동부, 미국 서 부 2, 미국 중부, 영국 남부 지역에서 GA 제품으로 제공 됩니다.
-- 미국 서 부, 미국 동부 2, 캐나다 중부 및 북아메리카 유럽 지역에서 공개 미리 보기로 제공 됩니다.
+- 공용 지역 및 Azure 정부 지역에서 GA 오퍼링으로 사용할 수 있습니다.
 
-
-Ultra disks의 경우 다음 지역 에서만 GA 제품으로 고객 관리 키를 지원 합니다.
+울트라 디스크의 경우 다음 리전만 GA 오퍼링으로 고객 관리 키를 지원합니다.
 
 - 미국 동부
 - 미국 서부 2

@@ -1,5 +1,5 @@
 ---
-title: Azure 클래식 CLI를 사용 하 여 Azure Cache for Redis 관리
+title: Azure 클래식 CLI를 사용하여 Redis에 대한 Azure 캐시 관리
 description: 모든 플랫폼에 Azure 클래식 CLI를 설치하고, 이를 사용하여 Azure 계정에 연결하고, 이 클래식 CLI에서 Cache for Redis를 만들고 관리하는 방법을 알아봅니다.
 author: yegu-ms
 ms.service: cache
@@ -7,15 +7,15 @@ ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: yegu
 ms.openlocfilehash: e2b1ed693ea57e3414d465a57a5ba2b1203f67c5
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79277987"
 ---
 # <a name="how-to-create-and-manage-azure-cache-for-redis-using-the-azure-classic-cli"></a>Azure 클래식 CLI를 사용하여 Azure Cache for Redis를 만들고 관리하는 방법
 > [!div class="op_single_selector"]
-> * [PowerShell](cache-how-to-manage-redis-cache-powershell.md)
+> * [Powershell](cache-how-to-manage-redis-cache-powershell.md)
 > * [Azure 클래식 CLI](cache-manage-cli.md)
 >
 
@@ -36,7 +36,7 @@ Azure 클래식 CLI를 사용하여 Azure Cache for Redis 인스턴스를 만들
 ## <a name="azure-cache-for-redis-properties"></a>Azure Cache for Redis 속성
 Azure Cache for Redis 인스턴스를 만들고 업데이트하는 경우 사용되는 속성은 다음과 같습니다.
 
-| 속성 | 스위치 | Description |
+| 속성 | 스위치 | 설명 |
 | --- | --- | --- |
 | name |-n, --name |Azure Cache for Redis의 이름입니다. |
 | 리소스 그룹 |-g, --resource-group |리소스 그룹의 이름입니다. |
@@ -49,9 +49,9 @@ Azure Cache for Redis 인스턴스를 만들고 업데이트하는 경우 사용
 | 분할된 데이터베이스 수 |-r, --shard-count |클러스터링을 사용하는 프리미엄 클러스터 캐시에서 만드는 분할된 데이터베이스 수입니다. |
 | Virtual Network |-v, --virtual-network |VNET에서 캐시를 호스팅하는 경우 Azure Cache for Redis를 배포하는 가상 네트워크의 정확한 ARM 리소스 ID를 지정합니다. 형식 예: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
 | 키 유형 |-t, --key-type |갱신하는 키의 유형입니다. 유효한 값: [주, 보조] |
-| StaticIP |-p,--고정 ip \<고정 ip\> |VNET에서 캐시를 호스팅하는 경우 서브넷에서 캐시에 대한 고유 IP 주소를 지정합니다. 제공되지 않으면 하나의 IP 주소가 서브넷에서 자동으로 선택됩니다. |
-| 서브넷 |t,--subnet \<서브넷\> |VNET에서 캐시를 호스팅하는 경우에 캐시를 배포할 서브넷의 이름을 지정합니다. |
-| VirtualNetwork |-v,--virtual-네트워크 \<가상 네트워크\> |VNET에서 캐시를 호스팅하는 경우 Azure Cache for Redis를 배포하는 가상 네트워크의 정확한 ARM 리소스 ID를 지정합니다. 형식 예: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
+| StaticIP |-p, --정적 \<IP 정적 IP\> |VNET에서 캐시를 호스팅하는 경우 서브넷에서 캐시에 대한 고유 IP 주소를 지정합니다. 제공되지 않으면 하나의 IP 주소가 서브넷에서 자동으로 선택됩니다. |
+| 서브넷 |t, --서브넷 \<서브넷\> |VNET에서 캐시를 호스팅하는 경우에 캐시를 배포할 서브넷의 이름을 지정합니다. |
+| VirtualNetwork |-v, --가상 \<네트워크 가상 네트워크\> |VNET에서 캐시를 호스팅하는 경우 Azure Cache for Redis를 배포하는 가상 네트워크의 정확한 ARM 리소스 ID를 지정합니다. 형식 예: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
 | Subscription |-s, --subscription |구독 식별자입니다. |
 
 ## <a name="see-all-azure-cache-for-redis-commands"></a>모든 Azure Cache for Redis 명령 보기
@@ -219,7 +219,7 @@ Azure Cache for Redis를 삭제하려면 다음 명령을 사용합니다.
 
     azure rediscache renew-key [--name <name> --resource-group <resource-group> --key-type <key-type>]
 
-`Primary`에 대해 `Secondary` 또는 `key-type`를 지정합니다.
+`key-type`에 대해 `Primary` 또는 `Secondary`를 지정합니다.
 
 이 명령에 대한 자세한 내용은 `azure rediscache renew-key -h` 명령을 실행합니다.
 

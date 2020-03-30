@@ -1,5 +1,5 @@
 ---
-title: XTP 메모리 내 저장소 모니터링
+title: 모니터 XTP 인메모리 스토리지
 description: XTP 메모리 내 스토리지 사용, 용량을 예측 및 모니터링합니다. 41823 용량 오류를 해결합니다.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: jrasnick
 ms.reviewer: genemi
 ms.date: 01/25/2019
 ms.openlocfilehash: 22ff83b1ccd009624082e45073123a45006df70f
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79209412"
 ---
 # <a name="monitor-in-memory-oltp-storage"></a>메모리 내 OLTP 스토리지 모니터링

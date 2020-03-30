@@ -1,15 +1,15 @@
 ---
-title: Azure Service Fabric의 복제본 및 인스턴스
-description: 수명 주기 및 함수에 대 한 개요를 포함 하 여 Service Fabric의 복제본 및 인스턴스에 대해 알아봅니다.
+title: Azure 서비스 패브릭의 복제본 및 인스턴스
+description: 서비스 패브릭의 복제본 및 인스턴스에 대해 자세히 알아보고 수명 주기 및 기능에 대한 개요를 제공합니다.
 author: appi101
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: aprameyr
 ms.openlocfilehash: cf21af43de553a2802289e44eaece12952d077d3
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79258565"
 ---
 # <a name="replicas-and-instances"></a>복제본 및 인스턴스 
@@ -37,7 +37,7 @@ ms.locfileid: "79258565"
 삭제됨 상태에서는 인스턴스가 더 이상 노드에서 실행되지 않습니다. 이 시점에서 Service Fabric은 해당 인스턴스에 대한 메타데이터를 유지 관리합니다(결과적으로는 역시 삭제됨).
 
 > [!NOTE]
-> 어느 상태에서나 **의** ForceRemove`Remove-ServiceFabricReplica` 옵션을 사용하여 삭제됨 상태로 전환할 수 있습니다.
+> 어느 상태에서나 `Remove-ServiceFabricReplica`의 **ForceRemove** 옵션을 사용하여 삭제됨 상태로 전환할 수 있습니다.
 >
 
 ## <a name="replicas-of-stateful-services"></a>상태 저장 서비스 복제본
@@ -101,17 +101,17 @@ StandBy 복제본은 다운되었다가 열린 지속형 서비스의 복제본�
 >
 
 > [!NOTE]
-> 어느 상태에서나 **의** ForceRemove`Remove-ServiceFabricReplica` 옵션을 사용하여 삭제됨 상태로 전환할 수 있습니다.
+> 어느 상태에서나 `Remove-ServiceFabricReplica`의 **ForceRemove** 옵션을 사용하여 삭제됨 상태로 전환할 수 있습니다.
 >
 
 ## <a name="replica-role"></a>복제본 역할 
 복제본의 역할은 복제본 세트에서의 기능을 결정합니다.
 
-- **Primary(P)** : 복제본 세트에서 읽기 및 쓰기 작업의 수행을 담당하는 하나의 주 복제본이 있습니다. 
-- **ActiveSecondary(S)** : 주 데이터베이스에서 상태 업데이트를 수신하여 적용하고 승인을 다시 전송하는 복제본입니다. 복제본 세트에 여러 활성 보조 복제본이 있습니다. 이러한 활성 보조 복제본의 수는 서비스가 처리할 수 있는 오류 수를 결정합니다.
-- **IdleSecondary (I)** : 이러한 복제본은 주 복제본에 의해 작성됩니다. 먼저 주 복제본에서 상태를 수신해야 활성 보조 복제본으로 승격될 수 있습니다. 
-- **None(N)** : 이 복제본은 복제본 세트에서 역할이 없습니다.
-- **Unknown(U)** : 복제본이 Service Fabric에서 **ChangeRole** API 호출을 수신하기 전의 최초 역할입니다.
+- **Primary(P)**: 복제본 세트에서 읽기 및 쓰기 작업의 수행을 담당하는 하나의 주 복제본이 있습니다. 
+- **ActiveSecondary(S)**: 주 데이터베이스에서 상태 업데이트를 수신하여 적용하고 승인을 다시 전송하는 복제본입니다. 복제본 세트에 여러 활성 보조 복제본이 있습니다. 이러한 활성 보조 복제본의 수는 서비스가 처리할 수 있는 오류 수를 결정합니다.
+- **IdleSecondary (I)**: 이러한 복제본은 주 복제본에 의해 작성됩니다. 먼저 주 복제본에서 상태를 수신해야 활성 보조 복제본으로 승격될 수 있습니다. 
+- **None(N)**: 이 복제본은 복제본 세트에서 역할이 없습니다.
+- **Unknown(U)**: 복제본이 Service Fabric에서 **ChangeRole** API 호출을 수신하기 전의 최초 역할입니다.
 
 다음 다이어그램은 복제본 역할 전환과, 발생할 수 있는 몇 가지 시나리오 예제를 설명합니다.
 

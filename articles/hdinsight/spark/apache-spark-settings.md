@@ -1,6 +1,6 @@
 ---
 title: Spark 설정 구성 - Azure HDInsight
-description: Azure HDInsight 클러스터에 대 한 Apache Spark 설정을 보고 구성 하는 방법
+description: Azure HDInsight 클러스터에 대한 아파치 스파크 설정을 보고 구성하는 방법
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/17/2019
 ms.openlocfilehash: 48f19e5da8c7703cc597518246c2f62ebce3ae17
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79272020"
 ---
 # <a name="configure-apache-spark-settings"></a>Apache Spark 설정 구성
@@ -57,7 +57,7 @@ spark.sql.files.openCostInBytes 1099511627776
 
 ## <a name="view-cluster-configuration-settings"></a>클러스터 구성 설정 보기
 
-클러스터에서 성능 최적화를 수행하기 전에, 현재 HDInsight 클러스터 구성 설정을 확인합니다. Spark 클러스터 창에서 **대시보드** 링크를 클릭하여 Azure Portal에서 HDInsight 대시보드를 시작합니다. 클러스터 관리자의 사용자 이름 및 암호를 사용 하 여 로그인 합니다.
+클러스터에서 성능 최적화를 수행하기 전에, 현재 HDInsight 클러스터 구성 설정을 확인합니다. Spark 클러스터 창에서 **대시보드** 링크를 클릭하여 Azure Portal에서 HDInsight 대시보드를 시작합니다. 클러스터 관리자의 사용자 이름과 암호로 로그인합니다.
 
 핵심 클러스터 리소스 사용률 메트릭의 대시보드 보기를 포함하는 Apache Ambari 웹 UI가 표시됩니다.  Ambari 대시보드에는 Apache Spark 구성 및 사용자가 설치한 다른 서비스가 표시됩니다. 대시보드에는 Spark를 포함하여 설치된 모든 서비스에 대한 구성 정보를 볼 수 있는 **구성 기록** 탭이 포함되어 있습니다.
 

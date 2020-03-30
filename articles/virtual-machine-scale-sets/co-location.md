@@ -1,6 +1,6 @@
 ---
-title: Azure 가상 머신 확장 집합 공동 배치
-description: Azure 가상 머신 확장 집합 리소스를 공동 배치 하 여 성능을 향상 시키는 방법에 대해 알아봅니다.
+title: Azure 가상 시스템 스케일 집합 공동 배치
+description: Azure 가상 시스템 집합 리소스를 공동 배치하여 성능을 향상시키는 방법에 대해 알아봅니다.
 author: cynthn
 ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
@@ -9,15 +9,15 @@ ms.workload: infrastructure-services
 ms.date: 05/14/2019
 ms.author: cynthn
 ms.openlocfilehash: 9d6e4e15c552cc4467dd17221a1ba901fd8e4f58
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79250830"
 ---
 # <a name="co-location"></a>공동 배치
 
-Vm 사이의 대기 시간에 대 한 가장 큰 기여자 중 하나는 단순히 거리입니다.
+VM 간의 대기 시간에 가장 큰 기여 요인 중 하나는 단순히 거리입니다.
 
 ## <a name="preview-proximity-placement-groups"></a>미리 보기: 근접 배치 그룹 
 
@@ -25,5 +25,5 @@ Vm 사이의 대기 시간에 대 한 가장 큰 기여자 중 하나는 단순�
 
 ## <a name="next-steps"></a>다음 단계
 
-확장 집합에 대 한 [근접 배치 그룹](proximity-placement-groups.md) 을 만듭니다.
+축척 집합에 대한 [근접 배치 그룹을](proximity-placement-groups.md) 만듭니다.
 

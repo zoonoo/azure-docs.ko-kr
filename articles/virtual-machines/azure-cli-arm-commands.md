@@ -1,6 +1,6 @@
 ---
 title: Azure 클래식 CLI 명령
-description: 리소스를 관리 하는 Azure CLI (명령줄 인터페이스) 명령
+description: AZURE 명령줄 인터페이스(CLI) 명령으로 리소스를 관리합니다.
 author: cynthn
 manager: gwallace
 ms.service: virtual-machines
@@ -9,21 +9,21 @@ ms.topic: article
 ms.date: 04/18/2017
 ms.author: cynthn
 ms.openlocfilehash: ad213cc02f707609a837ea66b79e51c6f2a617f8
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79250882"
 ---
 # <a name="azure-classic-cli-commands"></a>Azure 클래식 CLI 명령 
 
 [!INCLUDE [classic-vm-deprecation](../../includes/classic-vm-deprecation.md)]
 
-이 항목에서는 Azure 클래식 CLI를 설치하는 방법을 설명합니다. 클래식 CLI는 사용되지 않으므로 클래식 배포 모델과 함께만 사용해야 합니다. 다른 모든 배포의 경우 [Azure CLI](https://docs.microsoft.com/cli/azure/)를 사용 합니다.
+이 항목에서는 Azure 클래식 CLI를 설치하는 방법을 설명합니다. 클래식 CLI는 사용되지 않으므로 클래식 배포 모델과 함께만 사용해야 합니다. 다른 모든 배포의 경우 [Azure CLI를](https://docs.microsoft.com/cli/azure/)사용합니다.
 
-이 문서에서는 Azure 리소스를 만들고 관리 하는 데 일반적으로 사용 하는 Azure CLI CLI (명령줄 인터페이스) 명령에 대 한 구문 및 옵션을 제공 합니다. 전체 참조는 아니며 CLI 버전에서 약간 다른 명령 또는 매개 변수를 표시할 수도 있습니다. 
+이 문서에서는 Azure 리소스를 만들고 관리하는 데 일반적으로 사용하는 CLI(Azure 클래식 명령줄 인터페이스) 명령에 대한 구문 및 옵션을 제공합니다. 전체 참조는 아니며 CLI 버전에서 약간 다른 명령 또는 매개 변수를 표시할 수도 있습니다. 
 
-시작 하려면 먼저 [azure 클래식 CLI를 설치](../cli-install-nodejs.md) 하 고 [azure 구독에 연결](/cli/azure/authenticate-azure-cli)합니다.
+시작하려면 먼저 [Azure 클래식 CLI를 설치하고](../cli-install-nodejs.md) [Azure 구독에 연결합니다.](/cli/azure/authenticate-azure-cli)
 
 리소스 관리자 모드의 명령줄에 있는 현재 명령 구문 및 옵션의 경우 `azure help`를 입력합니다. 그렇지 않고 특정 명령에 대한 도움말을 표시하려면 `azure help [command]`를 입력합니다. 또한 설명서에 특정 Azure 서비스 만들기 및 관리에 대한 CLI 예제가 나와 있습니다.
 
@@ -301,7 +301,7 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
 
     hdinsight cluster disable-rdp-access [options] <clusterName>
 
-## <a name="insights-events-alert-rules-autoscale-settings-metrics"></a>정보 (이벤트, 경고 규칙, 자동 크기 조정 설정, 메트릭)
+## <a name="insights-events-alert-rules-autoscale-settings-metrics"></a>인사이트(이벤트, 경고 규칙, 자동 크기 조정 설정, 메트릭)
 **구독, 상관 관계 ID, 리소스 그룹, 리소스 또는 리소스 공급자에 대한 작업 로그 검색**
 
     insights logs list [options]
@@ -1330,7 +1330,7 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
 <br>
 
     network public-ip list [options] <resource-group>
-리소스 그룹 내의 모든 공용 IP 리소스를 나열 합니다.
+리소스 그룹 내의 모든 공용 IP 리소스를 나열합니다.
 
     azure network public-ip list -g myresourcegroup
 

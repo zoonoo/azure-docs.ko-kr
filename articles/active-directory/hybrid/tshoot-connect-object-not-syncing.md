@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 931865803328189d89c0fbae15caa801c3f7f7c6
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79253534"
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-with-azure-active-directory"></a>Azure Active Directory와 동기화되지 않는 개체 문제 해결
@@ -39,20 +39,20 @@ ms.locfileid: "79253534"
 ### <a name="terminology"></a>**용어**
 
 * **CS:** 커넥터 공간, 데이터베이스의 테이블
-* **MV:** 메타 버스, 데이터베이스의 테이블
+* **MV:** 메타버스, 데이터베이스의 테이블
 
 ### <a name="synchronization-steps"></a>**동기화 단계**
 동기화 프로세스에서 다음 단계가 진행됩니다.
 
-1. **AD에서 가져오기:** Active Directory 개체가 Active Directory CS로 전환 됩니다.
+1. **AD에서 가져오기:** Active Directory 개체는 Active 디렉터리 CS로 가져온다.
 
-2. **AZURE AD에서 가져오기:** Azure ad 개체가 Azure AD CS로 전환 됩니다.
+2. **Azure AD에서 가져오기:** Azure AD 개체는 Azure AD CS로 가져온다.
 
-3. **동기화:** 인바운드 동기화 규칙 및 아웃 바운드 동기화 규칙은 우선 순위가 낮은 것부터 높은 순서로 실행 됩니다. 동기화 규칙을 보려면 데스크톱 애플리케이션에서 동기화 규칙 편집기로 이동합니다. 인바운드 동기화 규칙은 CS에서 MV로 데이터를 가져옵니다. 아웃바운드 동기화 규칙은 MV에서 CS로 데이터를 가져옵니다.
+3. **동기화:** 인바운드 동기화 규칙 및 아웃바운드 동기화 규칙은 우선 순위 번호의 순서로 아래에서 더 높은 순서로 실행됩니다. 동기화 규칙을 보려면 데스크톱 애플리케이션에서 동기화 규칙 편집기로 이동합니다. 인바운드 동기화 규칙은 CS에서 MV로 데이터를 가져옵니다. 아웃바운드 동기화 규칙은 MV에서 CS로 데이터를 가져옵니다.
 
-4. **AD로 내보내기:** 동기화 후 Active Directory CS에서 Active Directory 개체를 내보냅니다.
+4. **AD로 내보내기:** 동기화 후 개체는 Active Directory CS에서 Active Directory로 내보내됩니다.
 
-5. **AZURE AD로 내보내기:** 동기화 한 후에는 Azure AD CS에서 Azure AD로 개체를 내보냅니다.
+5. **Azure AD로 내보내기:** 동기화 후 개체는 Azure AD CS에서 Azure AD로 내보내됩니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 
@@ -87,7 +87,7 @@ Synchronization Service Manager의 **작업** 탭에서 문제 해결을 시작�
 오류가 발생하는 경우 Synchronization Service Manager는 오류 개체 및 오류 자체가 모두 자세한 정보를 제공하는 링크를 표시합니다.
 
 ![Synchronization Service Manager의 오류 스크린샷](./media/tshoot-connect-object-not-syncing/errorsync.png)  
-먼저 오류 문자열을 선택합니다. 위의 그림에서 오류 문자열은 **동기화-오류-함수 트리거**입니다. 먼저 개체의 개요가 표시 됩니다. 실제 오류를 보려면 **스택 추적**을 선택합니다. 이 추적은 오류에 대한 디버그 수준 정보를 제공합니다.
+먼저 오류 문자열을 선택합니다. (앞그림에서 오류 문자열은 **동기화 규칙-오류 함수-트리거됩니다.)** 먼저 개체의 개요가 표시됩니다. 실제 오류를 보려면 **스택 추적**을 선택합니다. 이 추적은 오류에 대한 디버그 수준 정보를 제공합니다.
 
 **호출 스택 정보** 상자를 마우스 오른쪽 단추로 클릭하고 **모두 선택**을 클릭한 후 **복사**를 선택합니다. 그런 다음 스택을 복사하고 메모장 등 즐겨 사용하는 편집기에서 오류를 확인합니다.
 
@@ -110,7 +110,7 @@ Synchronization Service Manager에서 **커넥터**를 선택하고 Active Direc
  
 ![커넥터 공간 검색 스크린샷](./media/tshoot-connect-object-not-syncing/cssearch.png)  
 
-찾으려는 개체를 찾지 못할 경우 [도메인 기반 필터링](how-to-connect-sync-configure-filtering.md#domain-based-filtering) 또는 [OU 기반 필터링](how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering)으로 필터링되었을 수 있습니다. 필터링이 예상 대로 구성 되었는지 확인 하려면 [Azure AD Connect 동기화: 필터링 구성](how-to-connect-sync-configure-filtering.md)을 참조 하세요.
+찾으려는 개체를 찾지 못할 경우 [도메인 기반 필터링](how-to-connect-sync-configure-filtering.md#domain-based-filtering) 또는 [OU 기반 필터링](how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering)으로 필터링되었을 수 있습니다. 필터링이 예상대로 구성되었는지 확인하려면 Azure [AD Connect 동기화: 필터링 구성](how-to-connect-sync-configure-filtering.md)을 참조하십시오.
 
 Azure AD Connect를 선택하여 또 다른 유용한 검색을 수행할 수 있습니다. **범위** 상자에서 **보류 중인 가져오기**를 선택한 후 **추가** 확인란을 선택합니다. 이 검색은 온-프레미스 개체와 연결될 수 없는 Azure AD의 모든 동기화된 개체를 제공합니다.  
 
@@ -143,7 +143,7 @@ CS 개체를 열면 위쪽에 여러 개의 탭이 표시됩니다. **가져오�
 **계보** 탭에서 [**메타버스 개체 속성**](#mv-attributes)을 선택하여 메타버스로 이동할 수 있습니다.
 
 ### <a name="preview"></a>미리 보기
-**커넥터 공간 개체 속성** 창의 왼쪽 아래 모서리에는 **미리 보기** 단추가 있습니다. 이 단추를 선택하여 단일 개체를 동기화할 수 있는 **미리 보기** 페이지를 엽니다. 이 페이지는 일부 사용자 동기화 규칙 문제를 해결하고 단일 개체에서 변경 내용의 영향을 보려는 경우에 유용합니다. **전체 동기화** 또는 **델타 동기화**를 선택할 수 있습니다. 메모리 에서만 변경 내용을 유지 하는 **미리 보기 생성**을 선택할 수도 있습니다. 또는 메타버스를 업데이트하고 대상 커넥터 공간에 모든 변경 내용을 단계적으로 적용하는 **커밋 미리 보기**를 선택합니다.  
+**커넥터 공간 개체 속성** 창의 왼쪽 아래 모서리에는 **미리 보기** 단추가 있습니다. 이 단추를 선택하여 단일 개체를 동기화할 수 있는 **미리 보기** 페이지를 엽니다. 이 페이지는 일부 사용자 동기화 규칙 문제를 해결하고 단일 개체에서 변경 내용의 영향을 보려는 경우에 유용합니다. **전체 동기화** 또는 델타 **동기화를**선택할 수 있습니다. 메모리의 변경 사항만 유지하는 **미리 보기 생성을**선택할 수도 있습니다. 또는 메타버스를 업데이트하고 대상 커넥터 공간에 모든 변경 내용을 단계적으로 적용하는 **커밋 미리 보기**를 선택합니다.  
 
 ![미리 보기 시작이 선택된 미리 보기 페이지 스크린샷](./media/tshoot-connect-object-not-syncing/preview.png)  
 
@@ -195,7 +195,7 @@ CS 개체를 열면 위쪽에 여러 개의 탭이 표시됩니다. **가져오�
 - 특성 **sourceAnchor**가 있나요? 없으면 계정-리소스 포리스트 토폴로지가 있나요? 개체가 연결된 사서함으로 식별되는 경우(특성 **msExchRecipientTypeDetails**의 값이 **2**임) **sourceAnchor**는 Active Directory 계정이 사용하도록 설정된 포리스트에서 제공한 것입니다. 마스터 계정을 제대로 가져와 동기화했는지 확인합니다. 마스터 계정은 개체에 대한 [커넥터](#mv-connectors)에 나열되어야 합니다.
 
 ### <a name="mv-connectors"></a>MV 커넥터
-**커넥터** 탭은 개체의 표현이 있는 모든 커넥터 공간을 표시합니다. 
+**커넥터** 탭에는 객체를 나타내는 모든 커넥터 공간이 표시됩니다. 
  
 ![커넥터 탭이 선택된 메타버스 개체 속성 창 스크린샷](./media/tshoot-connect-object-not-syncing/mvconnectors.png)  
 

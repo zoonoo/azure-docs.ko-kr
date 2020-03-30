@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
 ms.openlocfilehash: aec3fe2386ce916c556f6da295a8554fff140259
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79249101"
 ---
 # <a name="agent-data-sources-in-azure-monitor"></a>Azure Monitor의 에이전트 데이터 원본
@@ -22,15 +22,15 @@ Azure Monitor가 에이전트에서 수집하는 데이터는 구성한 데이�
 다음 표에는 현재 Azure Monitor에서 사용할 수 있는 에이전트 데이터 원본이 나와 있습니다.  각각 해당 데이터 원본에 대한 세부 정보를 제공하는 별도의 문서에 대한 링크가 있습니다.   수집 방법 및 빈도에 대한 정보도 제공합니다. 
 
 
-| 데이터 원본 | 플랫폼 | Log analytics 에이전트 | Operations Manager 에이전트 | Azure Storage | Operations Manager 필요 여부 | 관리 그룹을 통해 전송되는 Operations Manager 에이전트 데이터 | 수집 빈도 |
+| 데이터 원본 | 플랫폼 | 로그 분석 에이전트 | Operations Manager 에이전트 | Azure Storage | Operations Manager 필요 여부 | 관리 그룹을 통해 전송되는 Operations Manager 에이전트 데이터 | 수집 빈도 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | [사용자 지정 로그](data-sources-custom-logs.md) | Windows |&#8226; |  | |  |  | 도착 시 |
 | [사용자 지정 로그](data-sources-custom-logs.md) | Linux   |&#8226; |  | |  |  | 도착 시 |
 | [IIS 로그](data-sources-iis-logs.md) | Windows |&#8226; |&#8226; |&#8226; |  |  |로그 파일 롤오버 설정에 따라 다름 |
 | [성능 카운터](data-sources-performance-counters.md) | Windows |&#8226; |&#8226; |  |  |  |예약된 대로, 최소 10초 |
 | [성능 카운터](data-sources-performance-counters.md) | Linux |&#8226; |  |  |  |  |예약된 대로, 최소 10초 |
-| [Syslog](data-sources-syslog.md) | Linux |&#8226; |  |  |  |  |Azure Storage: 10분, 에이전트: 도착 시 |
-| [Windows 이벤트 로그](data-sources-windows-events.md) |Windows |&#8226; |&#8226; |&#8226; |  |&#8226; | 도착 시 |
+| [syslog](data-sources-syslog.md) | Linux |&#8226; |  |  |  |  |Azure Storage: 10분, 에이전트: 도착 시 |
+| [윈도우 이벤트 로그](data-sources-windows-events.md) |Windows |&#8226; |&#8226; |&#8226; |  |&#8226; | 도착 시 |
 
 
 ## <a name="configuring-data-sources"></a>데이터 원본 구성

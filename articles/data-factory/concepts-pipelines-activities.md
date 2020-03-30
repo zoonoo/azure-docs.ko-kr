@@ -10,10 +10,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.openlocfilehash: 6e466675a9bd86693ce0ee048480712a55829ce6
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79246163"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Azure Data Factory의 파이프라인 및 작업
@@ -25,11 +25,11 @@ ms.locfileid: "79246163"
 이 문서는 Azure Data Factory의 파이프라인 및 활동을 이해하고 데이터 이동 및 데이터 처리 시나리오를 위한 엔드투엔드 데이터 기반 워크플로 사용하는 데 도움이 됩니다.
 
 ## <a name="overview"></a>개요
-데이터 팩터리에는 하나 이상의 파이프라인이 포함될 수 있습니다. 파이프라인은 함께 작업을 수행하는 활동의 논리적 그룹화입니다. 예를 들어 파이프라인에는 로그 데이터를 수집 하 고 정리 하는 일련의 작업이 포함 될 수 있습니다. 그런 다음 매핑 데이터 흐름을 시작 하 여 로그 데이터를 분석 합니다. 파이프라인을 사용 하면 각 작업을 개별적이 아니라 하나의 집합으로 관리할 수 있습니다. 활동 대신 파이프라인을 독립적으로 배포 하 고 예약 합니다.
+데이터 팩터리에는 하나 이상의 파이프라인이 포함될 수 있습니다. 파이프라인은 함께 작업을 수행하는 활동의 논리적 그룹화입니다. 예를 들어 파이프라인에는 로그 데이터를 수집하고 정리한 다음 매핑 데이터 흐름을 시작하여 로그 데이터를 분석하는 활동 집합이 포함될 수 있습니다. 파이프라인을 사용하면 각 활동을 개별적으로 관리하는 대신 집합으로 활동을 관리할 수 있습니다. 활동 대신 파이프라인을 독립적으로 배포하고 예약합니다.
 
-파이프라인의 활동은 데이터에 수행할 작업을 정의합니다. 예를 들어 복사 활동을 사용하여 온-프레미스 SQL Server에서 Azure Blob Storage로 데이터를 복사할 수 있습니다. 그런 다음 데이터 흐름 활동 또는 Databricks 노트북 활동을 사용 하 여 blob storage의 데이터를 처리 하 고 비즈니스 인텔리전스 보고 솔루션을 기반으로 하는 Azure Synapse Analytics 풀로 변환 합니다.
+파이프라인의 활동은 데이터에 수행할 작업을 정의합니다. 예를 들어 복사 활동을 사용하여 온-프레미스 SQL Server에서 Azure Blob Storage로 데이터를 복사할 수 있습니다. 그런 다음 데이터 흐름 활동 또는 Databricks Notebook 활동을 사용하여 데이터를 처리하고 Blob 저장소에서 Azure Synapse 분석 풀로 변환하여 비즈니스 인텔리전스 보고 솔루션이 빌드되는 위에 있습니다.
 
-Data Factory에는 [데이터 이동 작업](copy-activity-overview.md), [데이터 변환 작업](transform-data.md)및 [제어 작업](control-flow-web-activity.md)이라는 세 가지 작업 그룹이 있습니다. 활동은 0개 이상의 입력 [데이터 세트](concepts-datasets-linked-services.md)를 받고 하나 이상의 출력 [데이터 세트](concepts-datasets-linked-services.md)를 생성할 수 있습니다. 다음 다이어그램은 데이터 팩터리의 파이프라인, 활동 및 데이터 세트 간 관계를 보여 줍니다.
+Data Factory에는 [데이터 이동 활동,](copy-activity-overview.md)데이터 [변환 활동](transform-data.md)및 제어 [활동의](control-flow-web-activity.md)세 가지 활동 그룹이 있습니다. 활동은 입력 [데이터 집합이](concepts-datasets-linked-services.md) 0개 이상이고 하나 이상의 출력 데이터 집합을 생성할 수 [있습니다.](concepts-datasets-linked-services.md) 다음 다이어그램은 데이터 팩터리의 파이프라인, 활동 및 데이터 세트 간 관계를 보여 줍니다.
 
 ![데이터 세트, 작업 및 파이프라인 간 관계](media/concepts-pipelines-activities/relationship-between-dataset-pipeline-activity.png)
 
@@ -48,11 +48,11 @@ Azure Data Factory는 개별적 또는 다른 작업과 연계하여 파이프�
 
 데이터 변환 작업 | 컴퓨팅 환경
 ---------------------------- | -------------------
-[데이터 흐름](control-flow-execute-data-flow-activity.md) | Azure Data Factory에서 관리 하는 Azure Databricks
-[Azure Function](control-flow-azure-function-activity.md) | Azure 기능
-[Hive](transform-data-using-hadoop-hive.md) | HDInsight [Hadoop]
+[데이터 흐름](control-flow-execute-data-flow-activity.md) | Azure 데이터 팩터리에서 관리하는 Azure 데이터 브릭
+[Azure 함수](control-flow-azure-function-activity.md) | Azure Functions
+[하이브](transform-data-using-hadoop-hive.md) | HDInsight [Hadoop]
 [Pig](transform-data-using-hadoop-pig.md) | HDInsight [Hadoop]
-[MapReduce](transform-data-using-hadoop-map-reduce.md) | HDInsight [Hadoop]
+[Mapreduce](transform-data-using-hadoop-map-reduce.md) | HDInsight [Hadoop]
 [Hadoop 스트리밍](transform-data-using-hadoop-streaming.md) | HDInsight [Hadoop]
 [Spark](transform-data-using-spark.md) | HDInsight [Hadoop]
 [Machine Learning 작업: Batch 실행 및 업데이트 리소스](transform-data-using-machine-learning.md) | Azure VM
@@ -60,29 +60,29 @@ Azure Data Factory는 개별적 또는 다른 작업과 연계하여 파이프�
 [U-SQL](transform-data-using-data-lake-analytics.md) | Azure 데이터 레이크 분석
 [사용자 지정 작업](transform-data-using-dotnet-custom-activity.md) | Azure Batch
 [Databricks Notebook](transform-data-databricks-notebook.md) | Azure Databricks
-[Databricks Jar 활동](transform-data-databricks-jar.md) | Azure Databricks
-[Databricks Python 활동](transform-data-databricks-python.md) | Azure Databricks
+[데이터브릭 항아리 활동](transform-data-databricks-jar.md) | Azure Databricks
+[데이터 브릭 파이썬 활동](transform-data-databricks-python.md) | Azure Databricks
 
 자세한 내용은 [데이터 변환 작업](transform-data.md) 문서를 참조하세요.
 
-## <a name="control-flow-activities"></a>제어 흐름 작업
+## <a name="control-flow-activities"></a>흐름 활동 제어
 다음과 같은 제어 흐름 작업이 지원 됩니다.
 
-제어 작업 | Description
+제어 작업 | 설명
 ---------------- | -----------
-[변수 추가](control-flow-append-variable-activity.md) | 기존 배열 변수에 값을 추가 합니다.
+[변수 부속](control-flow-append-variable-activity.md) | 기존 배열 변수에 값을 추가합니다.
 [파이프라인 실행](control-flow-execute-pipeline-activity.md) | 파이프라인 실행 작업을 사용하면 하나의 Data Factory 파이프라인에서 다른 파이프라인을 호출할 수 있습니다.
-[Filter](control-flow-filter-activity.md) | 입력 배열에 필터 식 적용
-[For Each](control-flow-for-each-activity.md) | ForEach 작업은 파이프라인의 반복 제어 흐름을 정의합니다. 이 작업을 사용하여 컬렉션을 반복하고 루프의 지정된 작업을 실행합니다. 이 작업의 루프 구현은 프로그래밍 언어에서 구조를 반복하는 Foreach와 비슷합니다.
+[필터](control-flow-filter-activity.md) | 입력 배열에 필터 식 적용
+[각](control-flow-for-each-activity.md) | ForEach 작업은 파이프라인의 반복 제어 흐름을 정의합니다. 이 작업을 사용하여 컬렉션을 반복하고 루프의 지정된 작업을 실행합니다. 이 작업의 루프 구현은 프로그래밍 언어에서 구조를 반복하는 Foreach와 비슷합니다.
 [메타데이터 가져오기](control-flow-get-metadata-activity.md) | GetMetadata 작업을 사용하면 Azure Data Factory에 있는 모든 데이터의 메타데이터를 검색할 수 있습니다.
 [If 조건 작업](control-flow-if-condition-activity.md) | If 조건을 사용하여 True 또는 False로 평가되는 조건을 기반으로 분기할 수 있습니다. If 조건 작업은 if 문에서 프로그래밍 언어로 제공하는 것과 동일한 기능을 제공합니다. 조건이 `true`로 평가되면 작업 집합을 평가하고, 조건이 `false`로 평가되면 다른 작업 집합을 평가합니다.
 [조회 작업](control-flow-lookup-activity.md) | 조회 작업을 사용하면 모든 외부 소스에서 레코드/테이블 이름/값을 읽거나 조회할 수 있습니다. 이 출력을 다음 작업에서 추가로 참조할 수 있습니다.
-[변수 설정](control-flow-set-variable-activity.md) | 기존 변수의 값을 설정 합니다.
+[변수 설정](control-flow-set-variable-activity.md) | 기존 변수의 값을 설정합니다.
 [Until 작업](control-flow-until-activity.md) | 프로그래밍 언어의 Do-Until 루핑 구조와 유사한 Do-Until 루프를 구현합니다. 작업과 관련된 조건이 참으로 평가될 때까지 일단의 반복 작업을 실행합니다. Data Factory에서 until 작업의 시간 제한 값을 지정할 수 있습니다.
-[유효성 검사 작업](control-flow-validation-activity.md) | 참조 데이터 집합이 존재 하거나 지정 된 조건을 충족 하거나 시간 제한에 도달 하는 경우에만 파이프라인이 실행을 계속 하도록 합니다.
-[Wait 작업](control-flow-wait-activity.md) | 파이프라인에서 대기 작업을 사용하는 경우 파이프라인은 후속 작업을 계속 실행하기 전에 지정된 기간 동안 대기합니다.
-[웹 작업](control-flow-web-activity.md) | 웹 작업은 Data Factory 파이프라인에서 사용자 지정 REST 엔드포인트를 호출하는 데 사용할 수 있습니다. 작업에서 사용하고 액세스하도록 데이터 세트 및 연결된 서비스를 전달할 수 있습니다.
-[Webhook 활동](control-flow-webhook-activity.md) | Webhook 활동을 사용 하 여 끝점을 호출 하 고 콜백 URL을 전달 합니다. 파이프라인 실행은 다음 작업을 진행 하기 전에 콜백이 호출 될 때까지 기다립니다.
+[유효성 검사 작업](control-flow-validation-activity.md) | 참조 데이터 집합이 있거나 지정된 조건을 충족하거나 시간 시간에 도달한 경우에만 파이프라인이 실행을 계속하는지 확인합니다.
+[대기 활동](control-flow-wait-activity.md) | 파이프라인에서 대기 작업을 사용하는 경우 파이프라인은 후속 작업을 계속 실행하기 전에 지정된 기간 동안 대기합니다.
+[웹 활동](control-flow-web-activity.md) | 웹 작업은 Data Factory 파이프라인에서 사용자 지정 REST 엔드포인트를 호출하는 데 사용할 수 있습니다. 작업에서 사용하고 액세스하도록 데이터 세트 및 연결된 서비스를 전달할 수 있습니다.
+[웹후크 작업](control-flow-webhook-activity.md) | 웹후크 활동을 사용하여 끝점을 호출하고 콜백 URL을 전달합니다. 파이프라인 실행은 다음 활동을 진행하기 전에 콜백이 호출될 때까지 기다립니다.
 
 ## <a name="pipeline-json"></a>파이프라인 JSON
 파이프라인은 다음과 같은 방식에 따라 JSON 형식으로 정의됩니다.
@@ -105,14 +105,14 @@ Azure Data Factory는 개별적 또는 다른 작업과 연계하여 파이프�
 }
 ```
 
-태그 | Description | Type | 필수
+태그 | 설명 | Type | 필수
 --- | ----------- | ---- | --------
 name | 파이프라인의 이름입니다. 파이프라인이 수행하는 작업을 나타내는 이름을 지정합니다. <br/><ul><li>최대 문자 수: 140개</li><li>문자, 숫자 또는 밑줄(\_)로 시작해야 합니다.</li><li>다음 문자는 사용할 수 없습니다. “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\”</li></ul> | String | yes
 description | 파이프라인의 용도를 설명하는 텍스트를 지정합니다. | String | 예
 작업 | **활동** 섹션에는 내부에서 정의된 하나 이상의 활동이 있을 수 있습니다. JSON 작업 요소에 대한 자세한 내용은 [JSON 작업](#activity-json) 섹션을 참조하세요. | Array | yes
 매개 변수 | **매개 변수** 섹션은 파이프라인 내에 정의된 매개 변수 한 개 이상을 포함할 수 있으므로 파이프라인을 유연하게 다시 사용할 수 있습니다. | 목록 | 예
-동시성 | 파이프라인에 포함할 수 있는 최대 동시 실행 수입니다. 기본적으로 최대값이 없습니다. 동시성 한도에 도달 하면 추가 파이프라인 실행은 이전에 완료 될 때까지 큐에 대기 됩니다. | Number | 예 
-주석 | 파이프라인과 연결 된 태그 목록입니다. | Array | 예
+동시성 | 파이프라인이 가질 수 있는 최대 동시 실행 수입니다. 기본적으로 최대값은 없습니다. 동시성 한도에 도달하면 이전 파이프라인이 완료될 때까지 추가 파이프라인 실행이 큐에 대기됩니다. | Number | 예 
+주석 | 파이프라인과 연결된 태그 목록 | Array | 예
 
 ## <a name="activity-json"></a>활동 JSON
 **활동** 섹션에는 내부에서 정의된 하나 이상의 활동이 있을 수 있습니다. 작업에는 실행 및 제어 작업의 두 가지 주요 유형이 있습니다.
@@ -140,7 +140,7 @@ description | 파이프라인의 용도를 설명하는 텍스트를 지정합�
 
 다음 표에서는 활동 JSON 정의의 속성을 설명합니다.
 
-태그 | Description | 필수
+태그 | 설명 | 필수
 --- | ----------- | ---------
 name | 활동의 이름입니다. 활동이 수행하는 작업을 나타내는 이름을 지정합니다. <br/><ul><li>최대 문자 수: 55개</li><li>문자, 숫자 또는 밑줄(\_)로 시작해야 합니다.</li><li>다음 문자는 사용할 수 없습니다. “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\” | yes</li></ul>
 description | 활동의 용도를 설명하는 텍스트입니다. | yes
@@ -181,7 +181,7 @@ dependsOn | 이 속성을 사용하여 작업 종속성 및 이후 작업이 이
 }
 ```
 
-JSON 이름 | Description | 허용되는 값 | 필수
+JSON 이름 | 설명 | 허용되는 값 | 필수
 --------- | ----------- | -------------- | --------
 시간 제한 | 작업 실행에 대한 시간 제한을 지정합니다. | Timespan | 아니요. 기본 시간 제한은 7일입니다.
 retry | 최대 다시 시도 횟수 | 정수 | 아니요. 기본값은 0입니다.
@@ -205,13 +205,13 @@ secureOutput | true로 설정된 경우 작업의 출력은 안전하다고 여�
 }
 ```
 
-태그 | Description | 필수
+태그 | 설명 | 필수
 --- | ----------- | --------
 name | 활동의 이름입니다. 활동이 수행하는 작업을 나타내는 이름을 지정합니다.<br/><ul><li>최대 문자 수: 55개</li><li>문자, 숫자 또는 밑줄(\_)로 시작해야 합니다.</li><li>다음 문자는 사용할 수 없습니다. “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\” | yes</li><ul>
 description | 활동의 용도를 설명하는 텍스트입니다. | yes
-type | 활동의 형식입니다. 작업의 여러 가지 유형에 대해서는 [데이터 이동 작업](#data-movement-activities), [데이터 변환 작업](#data-transformation-activities) 및 [제어 작업](#control-flow-activities) 섹션을 참조하세요. | yes
+type | 활동의 형식입니다. 다양한 유형의 활동에 대한 [데이터 이동 활동,](#data-movement-activities) [데이터 변환 활동](#data-transformation-activities)및 제어 [활동](#control-flow-activities) 섹션을 참조하십시오. | yes
 typeProperties | typeProperties 섹션의 속성은 각 작업 유형에 따라 달라집니다. 활동의 형식 속성을 보려면 이전 섹션의 활동 링크를 클릭합니다. | 예
-dependsOn | 이 속성을 사용하여 작업 종속성 및 이후 작업이 이전 작업에 따라 달라지는 방법을 정의합니다. 자세한 내용은 [작업 종속성](#activity-dependency)을 참조하세요. | 예
+dependsOn | 이 속성을 사용하여 작업 종속성 및 이후 작업이 이전 작업에 따라 달라지는 방법을 정의합니다. 자세한 내용은 [활동 종속성](#activity-dependency)을 참조하십시오. | 예
 
 ### <a name="activity-dependency"></a>작업 종속성
 작업 종속성은 이후 작업이 이전 작업에 따라 달라지는 방법을 정의하여 다음 작업의 실행을 계속할지 여부에 대한 조건을 결정합니다. 작업은 서로 다른 종속성 조건을 포함하는 한 개 또는 여러 이전 작업에 따라 달라질 수 있습니다.
@@ -311,7 +311,7 @@ dependsOn | 이 속성을 사용하여 작업 종속성 및 이후 작업이 이
 
 - 작업 섹션에는 **형식**이 **복사**로 설정된 작업만 있습니다.
 - 작업에 대한 입력을 **InputDataset**으로 설정하고 작업에 대한 출력을 **OutputDataset**으로 설정합니다. JSON의 데이터 세트 정의에 대해서는 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요.
-- **typeProperties** 섹션에서 **BlobSource**를 원본 유형으로 지정하고 **SqlSink**를 싱크 유형으로 지정합니다. [데이터 이동 작업](#data-movement-activities) 섹션에서 소스 또는 싱크로 사용할 데이터 저장소를 클릭하여 해당 데이터 저장소로/부터 데이터를 이동하는 방법을 알아봅니다.
+- **typeProperties** 섹션에서 **BlobSource**를 원본 유형으로 지정하고 **SqlSink**를 싱크 유형으로 지정합니다. 데이터 [이동 활동](#data-movement-activities) 섹션에서 원본 또는 싱크로 사용할 데이터 저장소를 클릭하여 해당 데이터 저장소로 데이터를 이동하는 방법에 대해 자세히 알아봅니다.
 
 이 파이프라인 만드는 전체 연습은 [빠른 시작: 데이터 팩터리 만들기](quickstart-create-data-factory-powershell.md)를 참조하세요.
 
@@ -374,7 +374,7 @@ dependsOn | 이 속성을 사용하여 작업 종속성 및 이후 작업이 이
 
 트리거가 파이프라인 실행을 시작하게 하려면 특정 파이프라인의 파이프라인 참조를 트리거 정의에 포함해야 합니다. 파이프라인 및 트리거는 n-m 관계를 가지고 있습니다. 다중 트리거는 단일 파이프라인을 시작할 수 있으며 같은 트리거가 여러 파이프라인을 시작할 수 있습니다. 트리거가 정의된 후 트리거를 시작하여 파이프라인 트리거를 시작하도록 해야 합니다. 트리거에 대한 자세한 내용은 [파이프라인 실행 및 트리거](concepts-pipeline-execution-triggers.md) 문서를 참조하세요.
 
-예를 들어 파이프라인 "MyCopyPipeline"를 시작 하려는 스케줄러 트리거 "트리거 A"가 있다고 가정해 보겠습니다. 다음 예제와 같이 트리거를 정의합니다.
+예를 들어 내 파이프라인인 "MyCopyPipeline"을 시작하려는 스케줄러 트리거인 "트리거 A"가 있다고 가정해 보겠습니다. 다음 예제와 같이 트리거를 정의합니다.
 
 ### <a name="trigger-a-definition"></a>트리거 A 정의
 

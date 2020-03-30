@@ -6,40 +6,40 @@ ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 07a96fdd6350d8db38a92c23e510afb05f7416fb
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79277753"
 ---
 # <a name="manage-instances-in-durable-functions-in-azure"></a>Azure에서 Durable Functions의 인스턴스 관리
 
-Azure Functions에 대 한 [Durable Functions](durable-functions-overview.md) 확장을 사용 하 고 있거나 작업을 시작 하려는 경우 해당 확장을 사용 하는 것이 좋습니다. Durable Functions 오케스트레이션 인스턴스를 관리 하는 방법에 대해 자세히 알아보는 방법으로 최적화할 수 있습니다. 이 문서에서는 각 인스턴스 관리 작업에 대해 자세히 설명합니다.
+Azure [Functions에](durable-functions-overview.md) 대해 지속형 함수 확장을 사용중이거나 작업을 시작하려면 이 확장을 최대한 활용해야 합니다. 지속형 함수 오케스트레이션 인스턴스를 관리하는 방법에 대해 자세히 알아보면 최적화할 수 있습니다. 이 문서에서는 각 인스턴스 관리 작업에 대해 자세히 설명합니다.
 
-예를 들어 인스턴스를 시작 및 종료 하 고 필터를 사용 하 여 모든 인스턴스 및 쿼리 인스턴스를 쿼리 하는 기능을 포함 하 여 인스턴스를 쿼리할 수 있습니다. 또한 이벤트를 인스턴스로 보내고, 오케스트레이션이 완료 될 때까지 대기 하 고, HTTP management webhook Url을 검색할 수 있습니다. 이 문서에서는 인스턴스 되감기, 인스턴스 기록 제거 및 작업 허브 삭제를 포함 하 여 다른 관리 작업에 대해서도 설명 합니다.
+예를 들어 인스턴스를 시작하고 종료할 수 있으며 필터를 사용하여 모든 인스턴스 및 쿼리 인스턴스를 쿼리하는 기능을 포함하여 인스턴스를 쿼리할 수 있습니다. 또한 인스턴스에 이벤트를 보내고, 오케스트레이션 완료를 기다리며, HTTP 관리 웹후크 URL을 검색할 수 있습니다. 이 문서에서는 인스턴스 되감기, 인스턴스 기록 제거 및 작업 허브 삭제를 비롯한 다른 관리 작업도 다룹니다.
 
-Durable Functions에는 이러한 각 관리 작업을 구현 하는 방법에 대 한 옵션이 있습니다. 이 문서에서는 .NET (C#) 및 JavaScript에 대 한 [Azure Functions Core Tools](../functions-run-local.md) 를 사용 하는 예제를 제공 합니다.
+지속형 함수에서는 이러한 각 관리 작업을 구현하는 방법에 대한 옵션이 있습니다. 이 문서에서는 .NET(C#) 및 JavaScript 모두에 대해 [Azure 함수 핵심 도구를](../functions-run-local.md) 사용하는 예제를 제공합니다.
 
-## <a name="start-instances"></a>시작 인스턴스
+## <a name="start-instances"></a>인스턴스 시작
 
-오케스트레이션 인스턴스를 시작할 수 있는 것이 중요 합니다. 이는 다른 함수의 트리거에서 Durable Functions 바인딩을 사용 하는 경우에 일반적으로 수행 됩니다.
+오케스트레이션 인스턴스를 시작할 수 있어야 합니다. 이 작업은 일반적으로 다른 함수의 트리거에서 바인딩되는 지속 함수를 사용할 때 수행됩니다.
 
-[Orchestration 클라이언트 바인딩의](durable-functions-bindings.md#orchestration-client) `StartNewAsync` (.net) 또는 `startNew` (JavaScript) 메서드는 새 인스턴스를 시작 합니다. 내부적으로이 메서드는 메시지를 제어 큐에 큐 [오케스트레이션 트리거 바인딩을](durable-functions-bindings.md#orchestration-trigger)사용 하는 지정 된 이름을 사용 하 여 함수의 시작을 트리거합니다.
+`StartNewAsync` [오케스트레이션 클라이언트 바인딩의](durable-functions-bindings.md#orchestration-client) (.NET) 또는 `startNew` (JavaScript) 메서드는 새 인스턴스를 시작합니다. 내부적으로 이 메서드는 메시지를 제어 큐에 큐에 넣은 다음 [오케스트레이션 트리거 바인딩을](durable-functions-bindings.md#orchestration-trigger)사용하는 지정된 이름으로 함수의 시작을 트리거합니다.
 
 오케스트레이션 프로세스가 성공적으로 예약되면 이 비동기 작업이 완료됩니다.
 
-새 오케스트레이션 인스턴스를 시작 하는 데 사용할 수 있는 매개 변수는 다음과 같습니다.
+새 오케스트레이션 인스턴스를 시작하기 위한 매개 변수는 다음과 같습니다.
 
 * **Name**: 예약할 오케스트레이터 함수의 이름입니다.
 * **Input**: 오케스트레이터 함수에 대한 입력으로 전달해야 하는 JSON 직렬화 가능 데이터입니다.
-* **InstanceId**: (선택 사항) 인스턴스의 고유 ID입니다. 이 매개 변수를 지정 하지 않으면 메서드는 임의의 ID를 사용 합니다.
+* **InstanceId**: (선택 사항) 인스턴스의 고유 ID입니다. 이 매개 변수를 지정하지 않으면 메서드에서 임의 ID를 사용합니다.
 
 > [!TIP]
-> 인스턴스 ID에 임의의 식별자를 사용하세요. 임의 인스턴스 Id는 여러 Vm에서 오 케 스트레이 터 함수를 확장할 때 동일한 부하 분산을 보장 하는 데 도움이 됩니다. 해당 ID를 외부 원본에서 가져와야 하거나 [singleton orchestrator](durable-functions-singletons.md) 패턴을 구현 하는 경우에는 임의의 인스턴스 id를 적절 하 게 사용할 수 있습니다.
+> 인스턴스 ID에 임의의 식별자를 사용하세요. 임의 인스턴스 아이디는 여러 VM에서 오케스트레이션 함수를 확장할 때 동일한 부하 분포를 보장합니다. 비무작위 인스턴스 ID를 사용하는 적절한 시간은 ID가 외부 소스에서 제공되어야 하거나 [singleton 오케스트레이터](durable-functions-singletons.md) 패턴을 구현하는 경우입니다.
 
-다음 코드는 새 오케스트레이션 인스턴스를 시작 하는 예제 함수입니다.
+다음 코드는 새 오케스트레이션 인스턴스를 시작하는 예제 함수입니다.
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 ```csharp
 [FunctionName("HelloWorldManualStart")]
@@ -54,13 +54,13 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> 이전 C# 코드는 Durable Functions 2.x에 대 한 것입니다. 1\.x Durable Functions의 경우 `DurableClient` 특성 대신 `OrchestrationClient` 특성을 사용 해야 하며 `IDurableOrchestrationClient`대신 `DurableOrchestrationClient` 매개 변수 형식을 사용 해야 합니다. 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
+> 이전 C# 코드는 내구성 함수 2.x용입니다. 지속 함수 1.x의 경우 `OrchestrationClient` 특성 대신 `DurableClient` 특성을 사용해야 `IDurableOrchestrationClient`하며. `DurableOrchestrationClient` 버전 간의 차이점에 대한 자세한 내용은 [지속 형 기능 버전](durable-functions-versions.md) 문서를 참조하십시오.
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[자바 스크립트](#tab/javascript)
 
-<a name="javascript-function-json"></a>별도로 지정 하지 않는 한,이 페이지의 예제에서는 다음과 같은 json을 사용 하 여 HTTP 트리거를 사용 합니다.
+<a name="javascript-function-json"></a>달리 명시되지 않는 한 이 페이지의 예제에서는 다음 function.json과 함께 HTTP 트리거를 사용합니다.
 
-**function.json**
+**함수.json**
 
 ```json
 {
@@ -87,7 +87,7 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> 이 예제는 Durable Functions 버전 2.x를 대상으로 합니다. 버전 1.x에서 `durableClient`대신 `orchestrationClient`를 사용 합니다.
+> 이 예제는 내성 함수 버전 2.x를 대상으로 합니다. 버전 1.x에서는 `orchestrationClient` `durableClient`을 대신 사용합니다.
 
 **index.js**
 
@@ -106,18 +106,18 @@ module.exports = async function(context, input) {
 
 ### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
-[Azure Functions Core Tools](../functions-run-local.md) `durable start-new` 명령을 사용 하 여 직접 인스턴스를 시작할 수도 있습니다. 사용되는 매개 변수는 다음과 같습니다.
+[ AzureFunctionsCoreTools](../functions-run-local.md) `durable start-new`명령을 사용하여 직접 인스턴스를 시작할 수도 있습니다. 사용되는 매개 변수는 다음과 같습니다.
 
-* **`function-name` (필수)** : 시작할 함수의 이름입니다.
-* **`input` (옵션)** : 함수에 대 한 입력 (인라인 또는 JSON 파일)입니다. 파일의 경우 `@path/to/file.json`와 같이 `@`를 사용 하 여 파일 경로에 접두사를 추가 합니다.
-* **`id`(선택 사항)** : 오케스트레이션 인스턴스의 ID입니다. 이 매개 변수를 지정 하지 않으면 명령에서 임의 GUID를 사용 합니다.
-* **`connection-string-setting`(선택 사항)** : 사용할 스토리지 연결 문자열이 포함된 애플리케이션 설정 이름입니다. 기본값은 AzureWebJobsStorage입니다.
-* **`task-hub-name` (선택 사항)** : 사용할 Durable Functions 작업 허브의 이름입니다. 기본값은 DurableFunctionsHub입니다. Microsoft.azure.webjobs.extensions.durabletask: HubName를 사용 하 여 [호스트 json](durable-functions-bindings.md#host-json) 에서이를 설정할 수도 있습니다.
+* (필수) : 시작할 함수의 이름입니다. ** `function-name` **
+* (선택 사항) : 인라인 또는 JSON 파일을 통해 함수에 입력합니다. ** `input` ** 파일의 경우 와 같은 `@` `@path/to/file.json`을 사용하여 파일의 경로에 접두사를 추가합니다.
+* (선택 사항) : 오케스트레이션 인스턴스의 ID입니다. ** `id` ** 이 매개 변수를 지정하지 않으면 명령에서 임의의 GUID를 사용합니다.
+* (선택 사항) : 사용할 저장소 연결 문자열을 포함하는 응용 프로그램 설정의 이름입니다. ** `connection-string-setting` ** 기본값은 AzureWebJobsStorage입니다.
+* (선택 사항) : 사용할 지속 기능 작업 허브의 이름입니다. ** `task-hub-name` ** 기본값은 DurableFunctionsHub입니다. 또한 내구형Task:HubName를 사용하여 [host.json에서](durable-functions-bindings.md#host-json) 이 것을 설정할 수도 있습니다.
 
 > [!NOTE]
-> 핵심 도구 명령은 함수 앱의 루트 디렉터리에서 실행 하는 것으로 가정 합니다. `connection-string-setting` 및 `task-hub-name` 매개 변수를 명시적으로 제공 하는 경우 모든 디렉터리에서 명령을 실행할 수 있습니다. 함수 앱 호스트를 실행 하지 않고 이러한 명령을 실행할 수 있지만 호스트가 실행 되 고 있지 않으면 일부 효과를 확인할 수 없을 수 있습니다. 예를 들어 `start-new` 명령은 시작 메시지를 대상 작업 허브에 큐, 메시지를 처리할 수 있는 함수 앱 호스트 프로세스가 실행 되 고 있지 않으면 오케스트레이션이 실제로 실행 되지 않습니다.
+> 핵심 도구 명령은 함수 앱의 루트 디렉토리에서 실행중인 것으로 가정합니다. 및 `connection-string-setting` `task-hub-name` 매개 변수를 명시적으로 제공하는 경우 모든 디렉터리에서 명령을 실행할 수 있습니다. 함수 앱 호스트가 실행되지 않고 이러한 명령을 실행할 수 있지만 호스트가 실행되지 않는 한 일부 효과를 관찰할 수 없습니다. 예를 들어 `start-new` 명령은 시작 메시지를 대상 작업 허브로 큐에 넣지만 메시지를 처리할 수 있는 함수 앱 호스트 프로세스가 실행되지 않는 한 오케스트레이션은 실제로 실행되지 않습니다.
 
-다음 명령은 HelloWorld 라는 함수를 시작 하 고 파일의 내용을 `counter-data.json`에 전달 합니다.
+다음 명령은 HelloWorld라는 함수를 시작하고 파일의 `counter-data.json` 내용을 전달합니다.
 
 ```bash
 func durable start-new --function-name HelloWorld --input @counter-data.json --task-hub-name TestTaskHub
@@ -125,15 +125,15 @@ func durable start-new --function-name HelloWorld --input @counter-data.json --t
 
 ## <a name="query-instances"></a>쿼리 인스턴스
 
-오케스트레이션을 관리 하는 작업의 일환으로 오케스트레이션 인스턴스 상태에 대 한 정보 (예: 정상적으로 완료 되었는지 아니면 실패 했는지)를 수집 해야 하는 경우가 많습니다.
+오케스트레이션을 관리하려는 노력의 일환으로 오케스트레이션 인스턴스의 상태(예: 정상적으로 완료되었는지 실패했는지 여부)에 대한 정보를 수집해야 할 가능성이 큽니다.
 
-[오케스트레이션 클라이언트 바인딩의](durable-functions-bindings.md#orchestration-client) `GetStatusAsync` (.net) 또는 `getStatus` (JavaScript) 메서드는 오케스트레이션 인스턴스의 상태를 쿼리 합니다.
+`GetStatusAsync` [오케스트레이션 클라이언트 바인딩의](durable-functions-bindings.md#orchestration-client) `getStatus` (.NET) 또는 (JavaScript) 메서드는 오케스트레이션 인스턴스의 상태를 쿼리합니다.
 
 `instanceId`(필수), `showHistory`(선택 사항), `showHistoryOutput`(선택 사항) 및 `showInput`(선택 사항)을 매개 변수로 사용합니다.
 
-* **`showHistory`** : `true`로 설정 된 경우 응답에 실행 기록이 포함 됩니다.
-* **`showHistoryOutput`** : `true`로 설정 하면 실행 기록에 작업 출력이 포함 됩니다.
-* **`showInput`** : `false`로 설정 된 경우 응답은 함수 입력을 포함 하지 않습니다. 기본값은 `true`입니다.
+* **`showHistory`**: `true`로 설정된 경우 응답에는 실행 기록이 포함됩니다.
+* **`showHistoryOutput`**: `true`로 설정된 경우 실행 기록에 활동 출력이 포함됩니다.
+* **`showInput`**: `false`로 설정하면 응답에 함수의 입력이 포함되지 않습니다. 기본값은 `true`입니다.
 
 메서드는 다음과 같은 속성이 있는 개체를 반환합니다.
 
@@ -141,21 +141,21 @@ func durable start-new --function-name HelloWorld --input @counter-data.json --t
 * **InstanceId**: 오케스트레이션의 인스턴스 ID입니다(`instanceId` 입력과 동일해야 함).
 * **CreatedTime**: 오케스트레이터 함수가 실행되기 시작한 시간입니다.
 * **LastUpdatedTime**: 오케스트레이션에서 마지막으로 검사점을 설정한 시간입니다.
-* **Input**: JSON 값의 함수 입력입니다. `showInput` false 이면이 필드는 채워지지 않습니다.
+* **Input**: JSON 값의 함수 입력입니다. 이 필드는 false인 경우 `showInput` 채워지지 않습니다.
 * **CustomStatus**: JSON 형식의 사용자 지정 오케스트레이션 상태입니다.
-* **Output**: JSON 값의 함수 출력입니다(함수가 완료된 경우). 오 케 스트레이 터 함수가 실패 한 경우이 속성에는 오류 세부 정보가 포함 됩니다. 오 케 스트레이 터 함수가 종료 되 면이 속성에 종료 이유가 포함 됩니다 (있는 경우).
+* **Output**: JSON 값의 함수 출력입니다(함수가 완료된 경우). 오케스트레이터 함수가 실패한 경우 이 속성에는 실패 세부 정보가 포함됩니다. 오케스트레이터 함수가 종료된 경우 이 속성에는 종료 이유(있는 경우)가 포함됩니다.
 * **RuntimeStatus**: 다음 값 중 하나입니다.
   * **보류 중**: 인스턴스는 일정이 있지만 아직 실행을 시작하지 않았습니다.
   * **실행 중**: 인스턴스가 실행되기 시작했습니다.
   * **완료됨**: 인스턴스가 정상적으로 완료되었습니다.
-  * **ContinuedAsNew(새 기록으로 계속됨)** : 인스턴스가 새 기록으로 다시 시작되었습니다. 이 상태는 일시적인 상태입니다.
+  * **ContinuedAsNew(새 기록으로 계속됨)**: 인스턴스가 새 기록으로 다시 시작되었습니다. 이 상태는 일시적인 상태입니다.
   * **실패**: 인스턴스가 오류로 인해 실패했습니다.
   * **종료됨**: 인스턴스가 갑자기 중지되었습니다.
 * **기록**: 오케스트레이션의 실행 기록입니다. 이 필드는 `showHistory`를 `true`로 설정한 경우에 채워집니다.
 
-이 메서드는 인스턴스가 존재 하지 않는 경우 `null` (.NET) 또는 `undefined` (JavaScript)를 반환 합니다.
+이 메서드는 인스턴스가 `undefined` 없는 경우 (.NET) 또는 (자바스크립트)를 반환합니다. `null`
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 ```csharp
 [FunctionName("GetStatus")]
@@ -169,9 +169,9 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> 이전 C# 코드는 Durable Functions 2.x에 대 한 것입니다. 1\.x Durable Functions의 경우 `DurableClient` 특성 대신 `OrchestrationClient` 특성을 사용 해야 하며 `IDurableOrchestrationClient`대신 `DurableOrchestrationClient` 매개 변수 형식을 사용 해야 합니다. 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
+> 이전 C# 코드는 내구성 함수 2.x용입니다. 지속 함수 1.x의 경우 `OrchestrationClient` 특성 대신 `DurableClient` 특성을 사용해야 `IDurableOrchestrationClient`하며. `DurableOrchestrationClient` 버전 간의 차이점에 대한 자세한 내용은 [지속 형 기능 버전](durable-functions-versions.md) 문서를 참조하십시오.
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[자바 스크립트](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -184,31 +184,31 @@ module.exports = async function(context, instanceId) {
 }
 ```
 
-함수에 대 한 [시작 인스턴스](#javascript-function-json) json 구성을 참조 하세요.
+function.json 구성에 대한 [인스턴스 시작을](#javascript-function-json) 참조하십시오.
 
 ---
 
 ### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
-[Azure Functions Core Tools](../functions-run-local.md) `durable get-runtime-status` 명령을 사용 하 여 오케스트레이션 인스턴스의 상태를 직접 가져올 수도 있습니다. 사용되는 매개 변수는 다음과 같습니다.
+[AzureFunctionsCoreTools](../functions-run-local.md) `durable get-runtime-status` 명령을 사용하여 오케스트레이션 인스턴스의 상태를 직접 가져올 수도 있습니다. 사용되는 매개 변수는 다음과 같습니다.
 
-* **`id` (필수)** : 오케스트레이션 인스턴스의 ID입니다.
-* **`show-input` (옵션)** : `true`로 설정 된 경우 응답에는 함수 입력이 포함 됩니다. 기본값은 `false`입니다.
-* **`show-output` (옵션)** : `true`로 설정 된 경우 응답에는 함수의 출력이 포함 됩니다. 기본값은 `false`입니다.
-* **`connection-string-setting`(선택 사항)** : 사용할 스토리지 연결 문자열이 포함된 애플리케이션 설정 이름입니다. 기본값은 `AzureWebJobsStorage`입니다.
-* **`task-hub-name` (선택 사항)** : 사용할 Durable Functions 작업 허브의 이름입니다. 기본값은 `DurableFunctionsHub`입니다. Microsoft.azure.webjobs.extensions.durabletask: HubName를 사용 하 여 [호스트 json](durable-functions-bindings.md#host-json)에서 설정할 수도 있습니다.
+* (필수) : 오케스트레이션 인스턴스의 ID입니다. ** `id` **
+* (선택 사항) : `true`로 설정하면 응답에 함수의 입력이 포함되어 있습니다. ** `show-input` ** 기본값은 `false`입니다.
+* (선택 사항) : `true`로 설정하면 응답에 함수의 출력이 포함됩니다. ** `show-output` ** 기본값은 `false`입니다.
+* (선택 사항) : 사용할 저장소 연결 문자열을 포함하는 응용 프로그램 설정의 이름입니다. ** `connection-string-setting` ** 기본값은 `AzureWebJobsStorage`입니다.
+* (선택 사항) : 사용할 지속 기능 작업 허브의 이름입니다. ** `task-hub-name` ** 기본값은 `DurableFunctionsHub`입니다. 또한 내구형Task:HubName을 사용하여 [host.json에서](durable-functions-bindings.md#host-json)설정할 수도 있습니다.
 
-다음 명령을 사용 하 여 오케스트레이션 인스턴스 ID가 0ab8c55a66644d68a3a8b220b12d209c 인 인스턴스의 상태 (입력 및 출력 포함)를 검색 합니다. 함수 앱의 루트 디렉터리에서 `func` 명령을 실행 한다고 가정 합니다.
+다음 명령은 0ab8c5a6644d68a3a8b220b12d209c의 오케스트레이션 인스턴스 ID가 있는 인스턴스의 상태(입력 및 출력 포함)를 검색합니다. 함수 앱의 `func` 루트 디렉터리에서 명령을 실행 한다고 가정 합니다.
 
 ```bash
 func durable get-runtime-status --id 0ab8c55a66644d68a3a8b220b12d209c --show-input true --show-output true
 ```
 
-`durable get-history` 명령을 사용 하 여 오케스트레이션 인스턴스의 기록을 검색할 수 있습니다. 사용되는 매개 변수는 다음과 같습니다.
+명령을 `durable get-history` 사용하여 오케스트레이션 인스턴스의 기록을 검색할 수 있습니다. 사용되는 매개 변수는 다음과 같습니다.
 
-* **`id` (필수)** : 오케스트레이션 인스턴스의 ID입니다.
-* **`connection-string-setting`(선택 사항)** : 사용할 스토리지 연결 문자열이 포함된 애플리케이션 설정 이름입니다. 기본값은 `AzureWebJobsStorage`입니다.
-* **`task-hub-name` (선택 사항)** : 사용할 Durable Functions 작업 허브의 이름입니다. 기본값은 `DurableFunctionsHub`입니다. Microsoft.azure.webjobs.extensions.durabletask: HubName를 사용 하 여 호스트 json에서 설정할 수도 있습니다.
+* (필수) : 오케스트레이션 인스턴스의 ID입니다. ** `id` **
+* (선택 사항) : 사용할 저장소 연결 문자열을 포함하는 응용 프로그램 설정의 이름입니다. ** `connection-string-setting` ** 기본값은 `AzureWebJobsStorage`입니다.
+* (선택 사항) : 사용할 지속 기능 작업 허브의 이름입니다. ** `task-hub-name` ** 기본값은 `DurableFunctionsHub`입니다. 또한 내구성 태스크:HubName을 사용하여 host.json에서 설정할 수도 있습니다.
 
 ```bash
 func durable get-history --id 0ab8c55a66644d68a3a8b220b12d209c
@@ -216,11 +216,11 @@ func durable get-history --id 0ab8c55a66644d68a3a8b220b12d209c
 
 ## <a name="query-all-instances"></a>모든 인스턴스 쿼리
 
-오케스트레이션에 서 한 번에 하나의 인스턴스를 쿼리 하는 대신 모든 항목을 한 번에 쿼리 하는 것이 더 효율적일 수 있습니다.
+한 번에 하나의 인스턴스를 쿼리하는 대신 한 번에 모든 인스턴스를 쿼리하는 것이 더 효율적일 수 있습니다.
 
-`GetStatusAsync`(.NET) 또는 `getStatusAll`(JavaScript) 메서드를 사용하여 모든 오케스트레이션 인스턴스의 상태를 쿼리할 수 있습니다. .NET에서는 취소 하려는 경우 `CancellationToken` 개체를 전달할 수 있습니다. 이 메서드는 매개 변수가 있는 `GetStatusAsync` 메서드와 속성이 동일한 개체를 반환합니다.
+`GetStatusAsync`(.NET) 또는 `getStatusAll`(JavaScript) 메서드를 사용하여 모든 오케스트레이션 인스턴스의 상태를 쿼리할 수 있습니다. .NET에서 취소하려는 경우 `CancellationToken` 객체를 전달할 수 있습니다. 이 메서드는 매개 변수가 있는 `GetStatusAsync` 메서드와 속성이 동일한 개체를 반환합니다.
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 ```csharp
 [FunctionName("GetAllStatus")]
@@ -238,9 +238,9 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> 이전 C# 코드는 Durable Functions 2.x에 대 한 것입니다. 1\.x Durable Functions의 경우 `DurableClient` 특성 대신 `OrchestrationClient` 특성을 사용 해야 하며 `IDurableOrchestrationClient`대신 `DurableOrchestrationClient` 매개 변수 형식을 사용 해야 합니다. 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
+> 이전 C# 코드는 내구성 함수 2.x용입니다. 지속 함수 1.x의 경우 `OrchestrationClient` 특성 대신 `DurableClient` 특성을 사용해야 `IDurableOrchestrationClient`하며. `DurableOrchestrationClient` 버전 간의 차이점에 대한 자세한 내용은 [지속 형 기능 버전](durable-functions-versions.md) 문서를 참조하십시오.
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[자바 스크립트](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -255,30 +255,30 @@ module.exports = async function(context, req) {
 };
 ```
 
-함수에 대 한 [시작 인스턴스](#javascript-function-json) json 구성을 참조 하세요.
+function.json 구성에 대한 [인스턴스 시작을](#javascript-function-json) 참조하십시오.
 
 ---
 
 ### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
-또한 [Azure Functions Core Tools](../functions-run-local.md) `durable get-instances` 명령을 사용 하 여 인스턴스를 직접 쿼리할 수 있습니다. 사용되는 매개 변수는 다음과 같습니다.
+[AzureFunctionsCoreTools](../functions-run-local.md) `durable get-instances` 명령을 사용하여 인스턴스를 직접 쿼리할 수도 있습니다. 사용되는 매개 변수는 다음과 같습니다.
 
-* **`top`(선택 사항)** : 이 명령은 페이징을 지원합니다. 이 매개 변수는 요청당 검색된 인스턴스의 수에 해당합니다. 기본값은 10입니다.
-* **`continuation-token` (선택 사항)** : 검색할 인스턴스의 페이지 또는 섹션을 나타내는 토큰입니다. `get-instances` 실행할 때마다 다음 인스턴스 집합에 토큰이 반환됩니다.
-* **`connection-string-setting`(선택 사항)** : 사용할 스토리지 연결 문자열이 포함된 애플리케이션 설정 이름입니다. 기본값은 `AzureWebJobsStorage`입니다.
-* **`task-hub-name` (선택 사항)** : 사용할 Durable Functions 작업 허브의 이름입니다. 기본값은 `DurableFunctionsHub`입니다. Microsoft.azure.webjobs.extensions.durabletask: HubName를 사용 하 여 [호스트 json](durable-functions-bindings.md#host-json)에서 설정할 수도 있습니다.
+* (선택 사항) : 이 명령은 페이징을 지원합니다. ** `top` ** 이 매개 변수는 요청당 검색된 인스턴스의 수에 해당합니다. 기본값은 10입니다.
+* (선택 사항) : 검색할 인스턴스의 페이지 또는 섹션을 나타내는 토큰입니다. ** `continuation-token` ** `get-instances` 실행할 때마다 다음 인스턴스 집합에 토큰이 반환됩니다.
+* (선택 사항) : 사용할 저장소 연결 문자열을 포함하는 응용 프로그램 설정의 이름입니다. ** `connection-string-setting` ** 기본값은 `AzureWebJobsStorage`입니다.
+* (선택 사항) : 사용할 지속 기능 작업 허브의 이름입니다. ** `task-hub-name` ** 기본값은 `DurableFunctionsHub`입니다. 또한 내구형Task:HubName을 사용하여 [host.json에서](durable-functions-bindings.md#host-json)설정할 수도 있습니다.
 
 ```bash
 func durable get-instances
 ```
 
-## <a name="query-instances-with-filters"></a>필터를 사용 하 여 인스턴스 쿼리
+## <a name="query-instances-with-filters"></a>필터가 있는 쿼리 인스턴스
 
-표준 인스턴스 쿼리에서 제공할 수 있는 모든 정보가 필요 하지 않은 경우 어떻게 되나요? 예를 들어 오케스트레이션 만든 시간 또는 오케스트레이션 런타임 상태를 검색 하는 경우는 어떻게 되나요? 필터를 적용 하 여 쿼리 범위를 좁힐 수 있습니다.
+표준 인스턴스 쿼리가 제공할 수 있는 모든 정보가 실제로 필요하지 않으면 어떻게 해야 할까요? 예를 들어 오케스트레이션 생성 시간 또는 오케스트레이션 런타임 상태를 찾고 있다면 어떨까요? 필터를 적용하여 쿼리 범위를 좁힐 수 있습니다.
 
-`GetStatusAsync` (.NET) 또는 `getStatusBy` (JavaScript) 메서드를 사용 하 여 미리 정의 된 필터 집합과 일치 하는 오케스트레이션 인스턴스 목록을 가져옵니다.
+`GetStatusAsync` (.NET) 또는 `getStatusBy` (JavaScript) 메서드를 사용하여 미리 정의된 필터 집합과 일치하는 오케스트레이션 인스턴스 목록을 가져옵니다.
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 ```csharp
 [FunctionName("QueryStatus")]
@@ -304,9 +304,9 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> 이전 C# 코드는 Durable Functions 2.x에 대 한 것입니다. 1\.x Durable Functions의 경우 `DurableClient` 특성 대신 `OrchestrationClient` 특성을 사용 해야 하며 `IDurableOrchestrationClient`대신 `DurableOrchestrationClient` 매개 변수 형식을 사용 해야 합니다. 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
+> 이전 C# 코드는 내구성 함수 2.x용입니다. 지속 함수 1.x의 경우 `OrchestrationClient` 특성 대신 `DurableClient` 특성을 사용해야 `IDurableOrchestrationClient`하며. `DurableOrchestrationClient` 버전 간의 차이점에 대한 자세한 내용은 [지속 형 기능 버전](durable-functions-versions.md) 문서를 참조하십시오.
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[자바 스크립트](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -329,23 +329,23 @@ module.exports = async function(context, req) {
 };
 ```
 
-함수에 대 한 [시작 인스턴스](#javascript-function-json) json 구성을 참조 하세요.
+function.json 구성에 대한 [인스턴스 시작을](#javascript-function-json) 참조하십시오.
 
 ---
 
 ### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
-Azure Functions Core Tools에서 필터와 함께 `durable get-instances` 명령을 사용할 수도 있습니다. 앞서 언급 한 `top`, `continuation-token`, `connection-string-setting`및 `task-hub-name` 매개 변수 외에도 세 개의 필터 매개 변수 (`created-after`, `created-before`및 `runtime-status`)를 사용할 수 있습니다.
+Azure 함수 핵심 도구에서 필터와 `durable get-instances` 함께 명령을 사용할 수도 있습니다. 전술한 `top` `continuation-token`, 및 `connection-string-setting` `task-hub-name` 매개 변수 외에도 세 가지 필터 매개 변수`created-after`(, `created-before` `runtime-status`및 )를 사용할 수 있습니다.
 
-* **`created-after`(선택 사항)** : 이 날짜/시간(UTC) 이후에 생성된 인스턴스를 검색합니다. ISO 8601 형식으로 된 날짜/시간이 허용됩니다.
-* **`created-before`(선택 사항)** : 이 날짜/시간(UTC) 전에 생성된 인스턴스를 검색합니다. ISO 8601 형식으로 된 날짜/시간이 허용됩니다.
-* **`runtime-status` (선택 사항)** : 특정 상태 (예: 실행 중 또는 완료 됨)를 사용 하 여 인스턴스를 검색 합니다. 여러 상태를 공백으로 구분하여 제공할 수 있습니다.
-* **`top`(선택 사항)** : 요청당 검색된 인스턴스 수입니다. 기본값은 10입니다.
-* **`continuation-token` (선택 사항)** : 검색할 인스턴스의 페이지 또는 섹션을 나타내는 토큰입니다. `get-instances` 실행할 때마다 다음 인스턴스 집합에 토큰이 반환됩니다.
-* **`connection-string-setting`(선택 사항)** : 사용할 스토리지 연결 문자열이 포함된 애플리케이션 설정 이름입니다. 기본값은 `AzureWebJobsStorage`입니다.
-* **`task-hub-name` (선택 사항)** : 사용할 Durable Functions 작업 허브의 이름입니다. 기본값은 `DurableFunctionsHub`입니다. Microsoft.azure.webjobs.extensions.durabletask: HubName를 사용 하 여 [호스트 json](durable-functions-bindings.md#host-json)에서 설정할 수도 있습니다.
+* (선택 사항) : 이 날짜/시간(UTC) 이후에 생성된 인스턴스를 검색합니다. ** `created-after` ** ISO 8601 형식으로 된 날짜/시간이 허용됩니다.
+* (선택 사항) : 이 날짜/시간(UTC) 이전에 생성된 인스턴스를 검색합니다. ** `created-before` ** ISO 8601 형식으로 된 날짜/시간이 허용됩니다.
+* (선택 사항) : 특정 상태(예: 실행 중 또는 완료됨)가 있는 인스턴스를 검색합니다. ** `runtime-status` ** 여러 상태를 공백으로 구분하여 제공할 수 있습니다.
+* (선택 사항) : 요청당 검색된 인스턴스 수입니다. ** `top` ** 기본값은 10입니다.
+* (선택 사항) : 검색할 인스턴스의 페이지 또는 섹션을 나타내는 토큰입니다. ** `continuation-token` ** `get-instances` 실행할 때마다 다음 인스턴스 집합에 토큰이 반환됩니다.
+* (선택 사항) : 사용할 저장소 연결 문자열을 포함하는 응용 프로그램 설정의 이름입니다. ** `connection-string-setting` ** 기본값은 `AzureWebJobsStorage`입니다.
+* (선택 사항) : 사용할 지속 기능 작업 허브의 이름입니다. ** `task-hub-name` ** 기본값은 `DurableFunctionsHub`입니다. 또한 내구형Task:HubName을 사용하여 [host.json에서](durable-functions-bindings.md#host-json)설정할 수도 있습니다.
 
-필터 (`created-after`, `created-before`또는 `runtime-status`)를 제공 하지 않는 경우 명령은 런타임 상태나 생성 시간과 관계 없이 `top` 인스턴스를 검색 합니다.
+필터`created-after`(또는) `created-before` `runtime-status`명령을 제공하지 않으면 런타임 상태 또는 `top` 생성 시간과 관계없이 인스턴스를 검색합니다.
 
 ```bash
 func durable get-instances --created-after 2018-03-10T13:57:31Z --created-before  2018-03-10T23:59Z --top 15
@@ -353,11 +353,11 @@ func durable get-instances --created-after 2018-03-10T13:57:31Z --created-before
 
 ## <a name="terminate-instances"></a>인스턴스 종료
 
-오케스트레이션 인스턴스를 실행 하는 데 시간이 너무 오래 걸리거나 어떤 이유로 든 완료 되기 전에 중지 해야 하는 경우에는 종료 하는 옵션이 있습니다.
+실행하는 데 너무 오래 걸리는 오케스트레이션 인스턴스가 있거나 어떤 이유로든 오케스트레이션 인스턴스를 완료하기 전에 중지해야 하는 경우 오케스트레이션 인스턴스를 종료할 수 있습니다.
 
-[오케스트레이션 클라이언트 바인딩의](durable-functions-bindings.md#orchestration-client) `TerminateAsync` (.net) 또는 `terminate` (JavaScript) 메서드를 사용 하 여 인스턴스를 종료할 수 있습니다. 두 매개 변수는 로그 및 인스턴스 상태에 기록 되는 `reason` 문자열과 `instanceId`입니다.
+`TerminateAsync` [오케스트레이션 클라이언트 바인딩의](durable-functions-bindings.md#orchestration-client) `terminate` (.NET) 또는 (JavaScript) 메서드를 사용하여 인스턴스를 종료할 수 있습니다. 두 매개 변수는 `instanceId` 로그와 인스턴스 상태에 기록되는 `reason` 문자열과 문자열입니다.
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 ```csharp
 [FunctionName("TerminateInstance")]
@@ -371,9 +371,9 @@ public static Task Run(
 ```
 
 > [!NOTE]
-> 이전 C# 코드는 Durable Functions 2.x에 대 한 것입니다. 1\.x Durable Functions의 경우 `DurableClient` 특성 대신 `OrchestrationClient` 특성을 사용 해야 하며 `IDurableOrchestrationClient`대신 `DurableOrchestrationClient` 매개 변수 형식을 사용 해야 합니다. 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
+> 이전 C# 코드는 내구성 함수 2.x용입니다. 지속 함수 1.x의 경우 `OrchestrationClient` 특성 대신 `DurableClient` 특성을 사용해야 `IDurableOrchestrationClient`하며. `DurableOrchestrationClient` 버전 간의 차이점에 대한 자세한 내용은 [지속 형 기능 버전](durable-functions-versions.md) 문서를 참조하십시오.
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[자바 스크립트](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -386,25 +386,25 @@ module.exports = async function(context, instanceId) {
 };
 ```
 
-함수에 대 한 [시작 인스턴스](#javascript-function-json) json 구성을 참조 하세요.
+function.json 구성에 대한 [인스턴스 시작을](#javascript-function-json) 참조하십시오.
 
 ---
 
-종료 된 인스턴스는 궁극적으로 `Terminated` 상태로 전환 됩니다. 그러나이 전환은 즉시 발생 하지 않습니다. 대신 종료 작업은 해당 인스턴스에 대 한 다른 작업과 함께 작업 허브에서 큐에 대기 됩니다. [인스턴스 쿼리](#query-instances) api를 사용 하 여 종료 된 인스턴스가 실제로 `Terminated` 상태에 도달 했을 때를 알 수 있습니다.
+종료된 인스턴스는 결국 `Terminated` 상태로 전환됩니다. 그러나 이 전환은 즉시 발생하지 않습니다. 대신 종료 작업은 해당 인스턴스의 다른 작업과 함께 작업 허브에 큐에 대기됩니다. [인스턴스 쿼리](#query-instances) API를 사용하여 종료된 인스턴스가 실제로 상태에 `Terminated` 도달한 시기를 알 수 있습니다.
 
 > [!NOTE]
-> 인스턴스 종료가 현재 전파 되지 않습니다. 작업 함수 및 하위 오케스트레이션은이를 호출한 오케스트레이션 인스턴스를 종료 했는지 여부에 관계 없이 완료 될 때까지 실행 됩니다.
+> 인스턴스 종료는 현재 전파되지 않습니다. 활동 함수 및 하위 오케스트레이션은 해당 함수를 호출한 오케스트레이션 인스턴스를 종료했는지 여부에 관계없이 완료될 때까지 실행됩니다.
 
 ### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
-[Azure Functions Core Tools](../functions-run-local.md) `durable terminate` 명령을 사용 하 여 오케스트레이션 인스턴스를 직접 종료할 수도 있습니다. 사용되는 매개 변수는 다음과 같습니다.
+[ AzureFunctionsCoreTools](../functions-run-local.md) `durable terminate` 명령을 사용하여 오케스트레이션 인스턴스를 직접 종료할 수도 있습니다. 사용되는 매개 변수는 다음과 같습니다.
 
-* **`id` (필수)** : 종료할 오케스트레이션 인스턴스의 ID입니다.
-* **`reason` (선택 사항)** : 종료 이유입니다.
-* **`connection-string-setting`(선택 사항)** : 사용할 스토리지 연결 문자열이 포함된 애플리케이션 설정 이름입니다. 기본값은 `AzureWebJobsStorage`입니다.
-* **`task-hub-name` (선택 사항)** : 사용할 Durable Functions 작업 허브의 이름입니다. 기본값은 `DurableFunctionsHub`입니다. Microsoft.azure.webjobs.extensions.durabletask: HubName를 사용 하 여 [호스트 json](durable-functions-bindings.md#host-json)에서 설정할 수도 있습니다.
+* (필수) : 종료할 오케스트레이션 인스턴스의 ID입니다. ** `id` **
+* (선택 사항) : 종료 사유. ** `reason` **
+* (선택 사항) : 사용할 저장소 연결 문자열을 포함하는 응용 프로그램 설정의 이름입니다. ** `connection-string-setting` ** 기본값은 `AzureWebJobsStorage`입니다.
+* (선택 사항) : 사용할 지속 기능 작업 허브의 이름입니다. ** `task-hub-name` ** 기본값은 `DurableFunctionsHub`입니다. 또한 내구형Task:HubName을 사용하여 [host.json에서](durable-functions-bindings.md#host-json)설정할 수도 있습니다.
 
-다음 명령은 ID가 0ab8c55a66644d68a3a8b220b12d209c 인 오케스트레이션 인스턴스를 종료 합니다.
+다음 명령은 0ab8c55a66644d68a3a8b20b12d209c의 ID로 오케스트레이션 인스턴스를 종료합니다.
 
 ```bash
 func durable terminate --id 0ab8c55a66644d68a3a8b220b12d209c --reason "It was time to be done."
@@ -412,17 +412,17 @@ func durable terminate --id 0ab8c55a66644d68a3a8b220b12d209c --reason "It was ti
 
 ## <a name="send-events-to-instances"></a>인스턴스에 이벤트 보내기
 
-일부 시나리오에서는 오 케 스트레이 터 함수가 외부 이벤트를 대기 하 고 수신할 수 있는 것이 중요 합니다. 여기에는 [사용자 상호 작용](durable-functions-overview.md#human)을 기다리는 [모니터 함수](durable-functions-overview.md#monitoring) 및 함수가 포함 됩니다.
+일부 시나리오에서는 오케스트레이터 함수가 외부 이벤트를 기다렸다가 들을 수 있어야 합니다. 여기에는 [인간의 상호 작용을](durable-functions-overview.md#human)기다리는 모니터 [기능](durable-functions-overview.md#monitoring) 및 기능이 포함됩니다.
 
-[Orchestration 클라이언트 바인딩의](durable-functions-bindings.md#orchestration-client)`raiseEvent` (JavaScript) 메서드 또는 `RaiseEventAsync` (.net) 메서드를 사용 하 여 실행 중인 인스턴스에 이벤트 알림을 보냅니다. 이러한 이벤트를 처리할 수 있는 인스턴스는 `WaitForExternalEvent` (.NET)에 대 한 호출을 대기 하거나 `waitForExternalEvent` (JavaScript) 호출을 대기 하는 것입니다.
+`RaiseEventAsync` [오케스트레이션 클라이언트 바인딩의](durable-functions-bindings.md#orchestration-client)(.NET) 메서드 `raiseEvent` 또는 (JavaScript) 메서드를 사용 하 여 실행 중인 인스턴스에 이벤트 알림을 보냅니다. 이러한 이벤트를 처리할 수 있는 인스턴스는 `WaitForExternalEvent` (.NET) 호출을 기다리거나 `waitForExternalEvent` (JavaScript) 호출에 양보하는 인스턴스입니다.
 
-`RaiseEventAsync` (.NET) 및 `raiseEvent` (JavaScript)에 대 한 매개 변수는 다음과 같습니다.
+(.NET) `RaiseEventAsync` 및 `raiseEvent` (자바 스크립트)에 대한 매개 변수는 다음과 같습니다 .
 
-* **InstanceId**: 인스턴스의 고유 ID입니다.
+* **인스턴스 Id**: 인스턴스의 고유 ID입니다.
 * **EventName**: 보낼 이벤트의 이름입니다.
 * **EventData**: 인스턴스에 보낼 JSON 직렬화 가능 페이로드입니다.
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 ```csharp
 [FunctionName("RaiseEvent")]
@@ -436,9 +436,9 @@ public static Task Run(
 ```
 
 > [!NOTE]
-> 이전 C# 코드는 Durable Functions 2.x에 대 한 것입니다. 1\.x Durable Functions의 경우 `DurableClient` 특성 대신 `OrchestrationClient` 특성을 사용 해야 하며 `IDurableOrchestrationClient`대신 `DurableOrchestrationClient` 매개 변수 형식을 사용 해야 합니다. 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
+> 이전 C# 코드는 내구성 함수 2.x용입니다. 지속 함수 1.x의 경우 `OrchestrationClient` 특성 대신 `DurableClient` 특성을 사용해야 `IDurableOrchestrationClient`하며. `DurableOrchestrationClient` 버전 간의 차이점에 대한 자세한 내용은 [지속 형 기능 버전](durable-functions-versions.md) 문서를 참조하십시오.
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[자바 스크립트](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -451,22 +451,22 @@ module.exports = async function(context, instanceId) {
 };
 ```
 
-함수에 대 한 [시작 인스턴스](#javascript-function-json) json 구성을 참조 하세요.
+function.json 구성에 대한 [인스턴스 시작을](#javascript-function-json) 참조하십시오.
 
 ---
 
 > [!NOTE]
-> 지정 된 인스턴스 ID를 가진 오케스트레이션 인스턴스가 없으면 이벤트 메시지가 무시 됩니다. 인스턴스가 있지만 이벤트를 아직 기다리지 않는 경우 이벤트를 수신 하 고 처리할 준비가 될 때까지 인스턴스 상태에 저장 됩니다.
+> 지정된 인스턴스 ID가 있는 오케스트레이션 인스턴스가 없으면 이벤트 메시지가 삭제됩니다. 인스턴스가 있지만 아직 이벤트를 기다리지 않는 경우 이벤트를 수신 및 처리할 준비가 될 때까지 인스턴스 상태에 저장됩니다.
 
 ### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
-[Azure Functions Core Tools](../functions-run-local.md) `durable raise-event` 명령을 사용 하 여 오케스트레이션 인스턴스에 직접 이벤트를 발생 시킬 수도 있습니다. 사용되는 매개 변수는 다음과 같습니다.
+[AzureFunctionsCoreTools](../functions-run-local.md) `durable raise-event` 명령을 사용하여 오케스트레이션 인스턴스에 직접 이벤트를 발생 시킬 수도 있습니다. 사용되는 매개 변수는 다음과 같습니다.
 
-* **`id` (필수)** : 오케스트레이션 인스턴스의 ID입니다.
-* **`event-name`** : 발생 시킬 이벤트의 이름입니다.
-* **`event-data`(선택 사항)** : 오케스트레이션 인스턴스로 전송할 데이터입니다. JSON 파일의 경로 이거나 명령줄에서 직접 데이터를 제공할 수 있습니다.
-* **`connection-string-setting`(선택 사항)** : 사용할 스토리지 연결 문자열이 포함된 애플리케이션 설정 이름입니다. 기본값은 `AzureWebJobsStorage`입니다.
-* **`task-hub-name` (선택 사항)** : 사용할 Durable Functions 작업 허브의 이름입니다. 기본값은 `DurableFunctionsHub`입니다. Microsoft.azure.webjobs.extensions.durabletask: HubName를 사용 하 여 [호스트 json](durable-functions-bindings.md#host-json)에서 설정할 수도 있습니다.
+* (필수) : 오케스트레이션 인스턴스의 ID입니다. ** `id` **
+* **`event-name`**: 제기할 이벤트 이름입니다.
+* (선택 사항) : 오케스트레이션 인스턴스로 보낼 데이터입니다. ** `event-data` ** JSON 파일의 경로이거나 명령줄에서 직접 데이터를 제공할 수 있습니다.
+* (선택 사항) : 사용할 저장소 연결 문자열을 포함하는 응용 프로그램 설정의 이름입니다. ** `connection-string-setting` ** 기본값은 `AzureWebJobsStorage`입니다.
+* (선택 사항) : 사용할 지속 기능 작업 허브의 이름입니다. ** `task-hub-name` ** 기본값은 `DurableFunctionsHub`입니다. 또한 내구형Task:HubName을 사용하여 [host.json에서](durable-functions-bindings.md#host-json)설정할 수도 있습니다.
 
 ```bash
 func durable raise-event --id 0ab8c55a66644d68a3a8b220b12d209c --event-name MyEvent --event-data @eventdata.json
@@ -478,25 +478,25 @@ func durable raise-event --id 1234567 --event-name MyOtherEvent --event-data 3
 
 ## <a name="wait-for-orchestration-completion"></a>오케스트레이션 완료 대기
 
-장기 실행 오케스트레이션에 서 오케스트레이션의 결과를 대기 하 고 가져올 수 있습니다. 이 경우 오케스트레이션에 서 제한 시간을 정의 하는 것도 유용 합니다. 제한 시간을 초과 하는 경우 오케스트레이션의 상태가 결과 대신 반환 되어야 합니다.
+장기 실행 오케스트레이션에서는 오케스트레이션의 결과를 기다렸다가 얻을 수 있습니다. 이러한 경우 오케스트레이션에서 시간 시간 시간(시간)을 정의할 수도 있습니다. 시간 초과가 초과되면 결과 대신 오케스트레이션 상태를 반환해야 합니다.
 
-`WaitForCompletionOrCreateCheckStatusResponseAsync` (.NET) 또는 `waitForCompletionOrCreateCheckStatusResponse` (JavaScript) 메서드를 사용 하 여 오케스트레이션 인스턴스에서 실제 출력을 동기적으로 가져올 수 있습니다. 기본적으로 이러한 메서드는 `timeout`에 대해 기본값인 10 초를 사용 하 고 `retryInterval`에는 1 초를 사용 합니다.  
+`WaitForCompletionOrCreateCheckStatusResponseAsync` (.NET) 또는 `waitForCompletionOrCreateCheckStatusResponse` (자바 스크립트) 메서드는 동기 적으로 오케스트레이션 인스턴스에서 실제 출력을 가져옵니다. 기본적으로 이러한 메서드는 에 대해 10초, 에 `timeout`대해 `retryInterval`1초의 기본값을 사용합니다.  
 
 다음은 이 API를 사용하는 방법을 보여 주는 예제 HTTP 트리거 함수입니다.
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpSyncStart.cs)]
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[자바 스크립트](#tab/javascript)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpSyncStart/index.js)]
 
-함수에 대 한 [시작 인스턴스](#javascript-function-json) json 구성을 참조 하세요.
+function.json 구성에 대한 [인스턴스 시작을](#javascript-function-json) 참조하십시오.
 
 ---
 
-다음 줄을 사용 하 여 함수를 호출 합니다. 재시도 간격으로 시간 제한 및 0.5 초에 2 초를 사용 합니다.
+다음 줄로 함수를 호출합니다. 시간 시간에는 2초, 재시도 간격은 0.5초 사용하십시오.
 
 ```bash
     http POST http://localhost:7071/orchestrators/E1_HelloSequence/wait?timeout=2&retryInterval=0.5
@@ -504,7 +504,7 @@ func durable raise-event --id 1234567 --event-name MyOtherEvent --event-data 3
 
 오케스트레이션 인스턴스에 대한 응답을 가져오는 데 필요한 시간에 따라 두 가지 경우가 있습니다.
 
-* 오케스트레이션 인스턴스는 정의 된 제한 시간 (이 경우 2 초) 내에 완료 되 고 응답은 동기식으로 배달 되는 실제 오케스트레이션 인스턴스 출력입니다.
+* 오케스트레이션 인스턴스는 정의된 시간 시간(이 경우 2초) 내에 완료되고 응답은 동기적으로 전달되는 실제 오케스트레이션 인스턴스 출력입니다.
 
     ```http
         HTTP/1.1 200 OK
@@ -519,7 +519,7 @@ func durable raise-event --id 1234567 --event-name MyOtherEvent --event-data 3
         ]
     ```
 
-* 오케스트레이션 인스턴스는 정의 된 시간 제한 내에 완료할 수 없으며, 응답은 [HTTP API URL 검색](durable-functions-http-api.md)에 설명 된 기본 응답입니다.
+* 오케스트레이션 인스턴스는 정의된 시간 시간 내에 완료할 수 없으며 응답은 [HTTP API URL 검색에](durable-functions-http-api.md)설명된 기본 인스턴스입니다.
 
     ```http
         HTTP/1.1 202 Accepted
@@ -538,27 +538,27 @@ func durable raise-event --id 1234567 --event-name MyOtherEvent --event-data 3
     ```
 
 > [!NOTE]
-> 웹 후크 Url의 형식은 실행 중인 Azure Functions 호스트의 버전에 따라 다를 수 있습니다. 앞의 예제는 Azure Functions 2.0 호스트에 대한 것입니다.
+> 실행 중인 Azure Functions 호스트 버전에 따라 웹후크 URL의 형식이 다를 수 있습니다. 앞의 예제는 Azure Functions 2.0 호스트에 대한 것입니다.
 
-## <a name="retrieve-http-management-webhook-urls"></a>HTTP 관리 webhook Url 검색
+## <a name="retrieve-http-management-webhook-urls"></a>HTTP 관리 웹후크 URL 검색
 
-외부 시스템을 사용 하 여 이벤트를 모니터링 하거나 오케스트레이션에 서 이벤트를 발생 시킬 수 있습니다. 외부 시스템은 [HTTP API url 검색](durable-functions-http-features.md#http-api-url-discovery)에 설명 된 기본 응답의 일부인 웹 후크 url을 통해 Durable Functions와 통신할 수 있습니다. [오케스트레이션 클라이언트 바인딩을](durable-functions-bindings.md#orchestration-client)사용 하 여 프로그래밍 방식으로 webhook url에 액세스할 수도 있습니다. `CreateHttpManagementPayload` (.NET) 또는 `createHttpManagementPayload` (JavaScript) 메서드를 사용 하 여 이러한 webhook Url이 포함 된 serializable 개체를 가져올 수 있습니다.
+외부 시스템을 사용하여 이벤트를 모니터링하거나 오케스트레이션에 올릴 수 있습니다. 외부 시스템은 [HTTP API URL 검색에](durable-functions-http-features.md#http-api-url-discovery)설명된 기본 응답의 일부인 웹후크 URL을 통해 내구성 있는 함수와 통신할 수 있습니다. 웹후크 URL은 [오케스트레이션 클라이언트 바인딩을](durable-functions-bindings.md#orchestration-client)사용하여 프로그래밍 방식으로 액세스할 수 있습니다. `CreateHttpManagementPayload` (.NET) 또는 `createHttpManagementPayload` (자바 스크립트) 메서드는 이러한 웹 후크 URL을 포함 하는 직렬화 가능한 개체를 얻을 수 있습니다.
 
-`CreateHttpManagementPayload` (.NET) 및 `createHttpManagementPayload` (JavaScript) 메서드에는 매개 변수가 하나 있습니다.
+`CreateHttpManagementPayload` (.NET) 및 `createHttpManagementPayload` (자바 스크립트) 메서드에는 하나의 매개 변수가 있습니다.
 
 * **instanceId**: 인스턴스의 고유 ID입니다.
 
-메서드는 다음과 같은 문자열 속성을 포함 하는 개체를 반환 합니다.
+메서드는 다음 문자열 속성을 사용 하 고 개체를 반환 합니다.
 
 * **Id**: 오케스트레이션의 인스턴스 ID입니다(`InstanceId` 입력과 동일해야 함).
 * **StatusQueryGetUri**: 오케스트레이션 인스턴스의 상태 URL입니다.
 * **SendEventPostUri**: 오케스트레이션 인스턴스의 "이벤트 발생" URL입니다.
 * **TerminatePostUri**: 오케스트레이션 인스턴스의 "종료" URL입니다.
-* **PurgeHistoryDeleteUri**: 오케스트레이션 인스턴스의 "제거 기록" URL입니다.
+* **퍼지역사삭제**: 오케스트레이션 인스턴스의 "지우기 기록" URL입니다.
 
-다음 예제와 같이 함수는 이러한 개체의 인스턴스를 외부 시스템으로 보내 해당 오케스트레이션에 대 한 이벤트를 모니터링 하거나 발생 시킬 수 있습니다.
+함수는 다음 예제와 같이 이러한 개체의 인스턴스를 외부 시스템으로 보내 해당 오케스트레이션의 이벤트를 모니터링하거나 발생시킬 수 있습니다.
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 ```csharp
 [FunctionName("SendInstanceInfo")]
@@ -578,9 +578,9 @@ public static void SendInstanceInfo(
 ```
 
 > [!NOTE]
-> 이전 C# 코드는 Durable Functions 2.x에 대 한 것입니다. 1\.x Durable Functions의 경우 `IDurableActivityContext`대신 `DurableActivityContext`를 사용 해야 하며, `DurableClient` 특성 대신 `OrchestrationClient` 특성을 사용 해야 하 고 `DurableOrchestrationClient` 대신 `IDurableOrchestrationClient`매개 변수 형식을 사용 해야 합니다. 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
+> 이전 C# 코드는 내구성 함수 2.x용입니다. 지속 `DurableActivityContext` 함수 1.x의 `IDurableActivityContext`경우 은 대신 속성을 사용해야 `OrchestrationClient` `DurableClient` `DurableOrchestrationClient` `IDurableOrchestrationClient`하며. 버전 간의 차이점에 대한 자세한 내용은 [지속 형 기능 버전](durable-functions-versions.md) 문서를 참조하십시오.
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[자바 스크립트](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -598,25 +598,25 @@ modules.exports = async function(context, ctx) {
 };
 ```
 
-함수에 대 한 [시작 인스턴스](#javascript-function-json) json 구성을 참조 하세요.
+function.json 구성에 대한 [인스턴스 시작을](#javascript-function-json) 참조하십시오.
 
 ---
 
-## <a name="rewind-instances-preview"></a>인스턴스 되감기 (미리 보기)
+## <a name="rewind-instances-preview"></a>인스턴스 되감기(미리 보기)
 
-예기치 않은 이유로 인해 오케스트레이션 오류가 발생 한 경우 해당 목적으로 작성 된 API를 사용 하 여 인스턴스를 이전에 정상 상태로 *되감을* 수 있습니다.
-
-> [!NOTE]
-> 이 API로 적절한 오류 처리 및 재시도 정책을 대체할 수 없습니다. 예기치 않은 이유로 오케스트레이션 인스턴스가 실패하는 경우에만 사용할 수 있습니다. 오류 처리 및 다시 시도 정책에 대 한 자세한 내용은 [오류 처리](durable-functions-error-handling.md) 문서를 참조 하세요.
-
-[오케스트레이션 클라이언트 바인딩의](durable-functions-bindings.md#orchestration-client) `RewindAsync` (.net) 또는 `rewind` (JavaScript) 메서드를 사용 하 여 오케스트레이션을 *실행 중인* 상태로 전환 합니다. 또한이 메서드는 오케스트레이션 실패를 일으킨 작업 또는 하위 오케스트레이션 실행 오류를 다시 실행 합니다.
-
-예를 들어 일련의 [인적 승인을](durable-functions-overview.md#human)포함 하는 워크플로가 있다고 가정해 보겠습니다. 사용자에 게 승인이 필요 함을 알리는 일련의 작업 함수가 있다고 가정 하 고 실시간 응답을 기다립니다. 모든 승인 작업에서 응답을 받았거나 시간이 초과 되 면 잘못 된 데이터베이스 연결 문자열과 같은 응용 프로그램의 잘못 된 구성으로 인해 다른 작업이 실패 하는 것으로 가정 합니다. 결과적으로 워크플로에 대한 오케스트레이션 실패가 발생합니다. 응용 프로그램 관리자는 `RewindAsync` (.NET) 또는 `rewind` (JavaScript) API를 사용 하 여 구성 오류를 해결 하 고 실패 한 오케스트레이션을 실패 직전의 상태로 다시 되감을 수 있습니다. 사용자 상호 작용 단계를 다시 승인 하지 않아도 되 고 오케스트레이션이 성공적으로 완료 될 수 있습니다.
+예기치 않은 이유로 오케스트레이션 오류가 있는 경우 해당 목적을 위해 빌드된 API를 사용하여 인스턴스를 이전 정상 상태로 *되감기할* 수 있습니다.
 
 > [!NOTE]
-> *되감기* 기능은 내구성이 있는 타이머를 사용 하는 되감기 오케스트레이션 인스턴스를 지원 하지 않습니다.
+> 이 API로 적절한 오류 처리 및 재시도 정책을 대체할 수 없습니다. 예기치 않은 이유로 오케스트레이션 인스턴스가 실패하는 경우에만 사용할 수 있습니다. 오류 처리 및 다시 시도 정책에 대한 자세한 내용은 [오류 처리](durable-functions-error-handling.md) 문서를 참조하십시오.
 
-# <a name="c"></a>[C#](#tab/csharp)
+`RewindAsync` [오케스트레이션 클라이언트 바인딩의](durable-functions-bindings.md#orchestration-client) (.NET) 또는 `rewind` (JavaScript) 메서드를 사용하여 오케스트레이션을 *실행 상태로* 다시 넣습니다. 또한 이 메서드는 오케스트레이션 실패를 일으킨 활동 또는 하위 오케스트레이션 실행 실패를 다시 실행합니다.
+
+예를 들어 일련의 [사용자 승인과](durable-functions-overview.md#human)관련된 워크플로가 있다고 가정해 보겠습니다. 승인이 필요하다고 사용자에게 알리고 실시간 응답을 기다리는 일련의 활동 함수가 있다고 가정합니다. 모든 승인 활동이 응답을 받거나 시간 초과된 후 잘못된 데이터베이스 연결 문자열과 같은 응용 프로그램 잘못된 구성으로 인해 다른 활동이 실패한다고 가정합니다. 결과적으로 워크플로에 대한 오케스트레이션 실패가 발생합니다. (.NET) 또는 `RewindAsync` `rewind` (JavaScript) API를 사용하면 응용 프로그램 관리자는 구성 오류를 수정하고 실패한 오케스트레이션을 오류 직전 상태로 되돌릴 수 있습니다. 인간 상호 작용 단계를 다시 승인할 필요가 없으며 이제 오케스트레이션을 성공적으로 완료할 수 있습니다.
+
+> [!NOTE]
+> *되감기* 기능은 지속형 타이머를 사용하는 오케스트레이션 인스턴스되감기를 지원하지 않습니다.
+
+# <a name="c"></a>[C #](#tab/csharp)
 
 ```csharp
 [FunctionName("RewindInstance")]
@@ -630,9 +630,9 @@ public static Task Run(
 ```
 
 > [!NOTE]
-> 이전 C# 코드는 Durable Functions 2.x에 대 한 것입니다. 1\.x Durable Functions의 경우 `DurableClient` 특성 대신 `OrchestrationClient` 특성을 사용 해야 하며 `IDurableOrchestrationClient`대신 `DurableOrchestrationClient` 매개 변수 형식을 사용 해야 합니다. 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
+> 이전 C# 코드는 내구성 함수 2.x용입니다. 지속 함수 1.x의 경우 `OrchestrationClient` 특성 대신 `DurableClient` 특성을 사용해야 `IDurableOrchestrationClient`하며. `DurableOrchestrationClient` 버전 간의 차이점에 대한 자세한 내용은 [지속 형 기능 버전](durable-functions-versions.md) 문서를 참조하십시오.
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[자바 스크립트](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -645,30 +645,30 @@ module.exports = async function(context, instanceId) {
 };
 ```
 
-함수에 대 한 [시작 인스턴스](#javascript-function-json) json 구성을 참조 하세요.
+function.json 구성에 대한 [인스턴스 시작을](#javascript-function-json) 참조하십시오.
 
 ---
 
 ### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
-[Azure Functions Core Tools](../functions-run-local.md) `durable rewind` 명령을 사용 하 여 오케스트레이션 인스턴스를 직접 되감을 수도 있습니다. 사용되는 매개 변수는 다음과 같습니다.
+[AzureFunctionsCoreTools](../functions-run-local.md) `durable rewind` 명령을 사용하여 오케스트레이션 인스턴스를 직접 되감을 수도 있습니다. 사용되는 매개 변수는 다음과 같습니다.
 
-* **`id` (필수)** : 오케스트레이션 인스턴스의 ID입니다.
-* **`reason` (선택 사항)** : 오케스트레이션 인스턴스를 되감기 하는 이유입니다.
-* **`connection-string-setting`(선택 사항)** : 사용할 스토리지 연결 문자열이 포함된 애플리케이션 설정 이름입니다. 기본값은 `AzureWebJobsStorage`입니다.
-* **`task-hub-name` (선택 사항)** : 사용할 Durable Functions 작업 허브의 이름입니다. 기본적으로, [호스트 json](durable-functions-bindings.md#host-json) 파일의 작업 허브 이름이 사용 됩니다.
+* (필수) : 오케스트레이션 인스턴스의 ID입니다. ** `id` **
+* (선택 사항) : 오케스트레이션 인스턴스를 되감는 이유입니다. ** `reason` **
+* (선택 사항) : 사용할 저장소 연결 문자열을 포함하는 응용 프로그램 설정의 이름입니다. ** `connection-string-setting` ** 기본값은 `AzureWebJobsStorage`입니다.
+* (선택 사항) : 사용할 지속 기능 작업 허브의 이름입니다. ** `task-hub-name` ** 기본적으로 [host.json](durable-functions-bindings.md#host-json) 파일의 작업 허브 이름이 사용됩니다.
 
 ```bash
 func durable rewind --id 0ab8c55a66644d68a3a8b220b12d209c --reason "Orchestrator failed and needs to be revived."
 ```
 
-## <a name="purge-instance-history"></a>인스턴스 기록 제거
+## <a name="purge-instance-history"></a>인스턴스 기록 지우기
 
-오케스트레이션과 연결 된 모든 데이터를 제거 하려면 인스턴스 기록을 제거 하면 됩니다. 예를 들어 완료 된 인스턴스와 연결 된 모든 Azure Table 행 및 large message blob을 삭제할 수 있습니다. 이렇게 하려면 [orchestration 클라이언트 바인딩의](durable-functions-bindings.md#orchestration-client)`PurgeInstanceHistoryAsync` (.net) 또는 `purgeInstanceHistory` (JavaScript) 메서드를 사용 합니다.
+오케스트레이션과 관련된 모든 데이터를 제거하려면 인스턴스 기록을 제거할 수 있습니다. 예를 들어 완료된 인스턴스와 연결된 Azure Table 행 및 큰 메시지 Blob을 삭제할 수 있습니다. 이렇게 하려면 `PurgeInstanceHistoryAsync` [오케스트레이션 클라이언트 바인딩의](durable-functions-bindings.md#orchestration-client)(.NET) 또는 `purgeInstanceHistory` (JavaScript) 메서드를 사용 합니다.
 
-이 메서드에는 두 개의 오버 로드가 있습니다. 첫 번째 오버 로드는 오케스트레이션 인스턴스의 ID로 기록을 제거 합니다.
+이 메서드에는 두 개의 오버로드가 있습니다. 첫 번째 오버로드는 오케스트레이션 인스턴스의 ID에 의해 기록을 제거합니다.
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 ```csharp
 [FunctionName("PurgeInstanceHistory")]
@@ -680,7 +680,7 @@ public static Task Run(
 }
 ```
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[자바 스크립트](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -691,13 +691,13 @@ module.exports = async function(context, instanceId) {
 };
 ```
 
-함수에 대 한 [시작 인스턴스](#javascript-function-json) json 구성을 참조 하세요.
+function.json 구성에 대한 [인스턴스 시작을](#javascript-function-json) 참조하십시오.
 
 ---
 
-다음 예에서는 지정 된 시간 간격 후 완료 된 모든 오케스트레이션 인스턴스에 대 한 기록을 제거 하는 타이머 트리거 함수를 보여 줍니다. 이 경우 30 일 전에 완료 된 모든 인스턴스에 대 한 데이터를 제거 합니다. 하루에 한 번, 오전 12 시에 실행 되도록 예약 되어 있습니다.
+다음 예제에서는 지정된 시간 간격 이후에 완료된 모든 오케스트레이션 인스턴스의 기록을 지우는 타이머 트리거 함수를 보여 주며, 이 함수는 타이머 트리거함수입니다. 이 경우 30일 이상 전에 완료된 모든 인스턴스에 대한 데이터가 제거됩니다. 오전 12시에 하루에 한 번 실행될 예정입니다.
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 ```csharp
 [FunctionName("PurgeInstanceHistory")]
@@ -716,13 +716,13 @@ public static Task Run(
 ```
 
 > [!NOTE]
-> 이전 C# 코드는 Durable Functions 2.x에 대 한 것입니다. 1\.x Durable Functions의 경우 `DurableClient` 특성 대신 `OrchestrationClient` 특성을 사용 해야 하며 `IDurableOrchestrationClient`대신 `DurableOrchestrationClient` 매개 변수 형식을 사용 해야 합니다. 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
+> 이전 C# 코드는 내구성 함수 2.x용입니다. 지속 함수 1.x의 경우 `OrchestrationClient` 특성 대신 `DurableClient` 특성을 사용해야 `IDurableOrchestrationClient`하며. `DurableOrchestrationClient` 버전 간의 차이점에 대한 자세한 내용은 [지속 형 기능 버전](durable-functions-versions.md) 문서를 참조하십시오.
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[자바 스크립트](#tab/javascript)
 
-`purgeInstanceHistoryBy` 메서드를 사용 하 여 여러 인스턴스에 대 한 인스턴스 기록을 조건부로 제거할 수 있습니다.
+메서드는 `purgeInstanceHistoryBy` 여러 인스턴스에 대한 인스턴스 기록을 조건부로 제거하는 데 사용할 수 있습니다.
 
-**function.json**
+**함수.json**
 
 ```json
 {
@@ -744,7 +744,7 @@ public static Task Run(
 ```
 
 > [!NOTE]
-> 이 예제는 Durable Functions 버전 2.x를 대상으로 합니다. 버전 1.x에서 `durableClient`대신 `orchestrationClient`를 사용 합니다.
+> 이 예제는 내성 함수 버전 2.x를 대상으로 합니다. 버전 1.x에서는 `orchestrationClient` `durableClient`을 대신 사용합니다.
 
 **index.js**
 
@@ -763,19 +763,19 @@ module.exports = async function (context, myTimer) {
 ---
 
 > [!NOTE]
-> 제거 기록 작업이 성공 하려면 대상 인스턴스의 런타임 상태를 **완료**하거나 **종료**하거나 **실패**해야 합니다.
+> 제거 기록 작업이 성공하려면 대상 인스턴스의 런타임 상태가 **완료,** **종료**또는 **실패해야**합니다.
 
 ### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
-[Azure Functions Core Tools](../functions-run-local.md) `durable purge-history` 명령을 사용 하 여 오케스트레이션 인스턴스의 기록을 제거할 수 있습니다. 이전 섹션에서 두 C# 번째 예제와 마찬가지로 지정 된 시간 간격 동안 생성 된 모든 오케스트레이션 인스턴스에 대 한 기록을 제거 합니다. 런타임 상태별로 제거 된 인스턴스를 추가로 필터링 할 수 있습니다. 명령에는 다음과 같은 매개 변수가 있습니다.
+[AzureFunctionsCoreTools](../functions-run-local.md) `durable purge-history` 명령을 사용하여 오케스트레이션 인스턴스의 기록을 제거할 수 있습니다. 이전 섹션의 두 번째 C# 예제와 마찬가지로 지정된 시간 간격 동안 생성된 모든 오케스트레이션 인스턴스에 대한 기록을 제거합니다. 런타임 상태별로 제거된 인스턴스를 추가로 필터링할 수 있습니다. 명령에는 다음과 같은 매개 변수가 있습니다.
 
-* **`created-after`(선택 사항)** : 이 날짜/시간(UTC) 이후에 생성된 인스턴스의 기록을 제거합니다. ISO 8601 형식으로 된 날짜/시간이 허용됩니다.
-* **`created-before`(선택 사항)** : 이 날짜/시간(UTC) 전에 생성된 인스턴스의 기록을 제거합니다. ISO 8601 형식으로 된 날짜/시간이 허용됩니다.
-* **`runtime-status` (선택 사항)** : 특정 상태 (예: 실행 중 또는 완료 됨)의 인스턴스 기록을 제거 합니다. 여러 상태를 공백으로 구분하여 제공할 수 있습니다.
-* **`connection-string-setting`(선택 사항)** : 사용할 스토리지 연결 문자열이 포함된 애플리케이션 설정 이름입니다. 기본값은 `AzureWebJobsStorage`입니다.
-* **`task-hub-name` (선택 사항)** : 사용할 Durable Functions 작업 허브의 이름입니다. 기본적으로, [호스트 json](durable-functions-bindings.md#host-json) 파일의 작업 허브 이름이 사용 됩니다.
+* (선택 사항) : 이 날짜/시간(UTC) 이후에 생성된 인스턴스의 기록을 제거합니다. ** `created-after` ** ISO 8601 형식으로 된 날짜/시간이 허용됩니다.
+* (선택 사항) : 이 날짜/시간(UTC) 이전에 생성된 인스턴스의 기록을 제거합니다. ** `created-before` ** ISO 8601 형식으로 된 날짜/시간이 허용됩니다.
+* (선택 사항) : 특정 상태(예: 실행 또는 완료됨)로 인스턴스 기록을 제거합니다. ** `runtime-status` ** 여러 상태를 공백으로 구분하여 제공할 수 있습니다.
+* (선택 사항) : 사용할 저장소 연결 문자열을 포함하는 응용 프로그램 설정의 이름입니다. ** `connection-string-setting` ** 기본값은 `AzureWebJobsStorage`입니다.
+* (선택 사항) : 사용할 지속 기능 작업 허브의 이름입니다. ** `task-hub-name` ** 기본적으로 [host.json](durable-functions-bindings.md#host-json) 파일의 작업 허브 이름이 사용됩니다.
 
-다음 명령은 11 월 14 일 (UTC) 7:35에 2018 년 11 월 14 일 이전에 생성 된 모든 실패 한 인스턴스의 기록을 삭제 합니다.
+다음 명령은 2018년 11월 14일 오후 7:35(UTC) 이전에 생성된 모든 실패한 인스턴스의 기록을 삭제합니다.
 
 ```bash
 func durable purge-history --created-before 2018-11-14T19:35:00.0000000Z --runtime-status failed
@@ -783,12 +783,12 @@ func durable purge-history --created-before 2018-11-14T19:35:00.0000000Z --runti
 
 ## <a name="delete-a-task-hub"></a>작업 허브 삭제
 
-[Azure Functions Core Tools](../functions-run-local.md) `durable delete-task-hub` 명령을 사용 하 여 Azure storage 테이블, 큐 및 blob을 비롯 하 여 특정 작업 허브와 연결 된 모든 저장소 아티팩트를 삭제할 수 있습니다. 명령에는 다음 두 개의 매개 변수가 있습니다.
+Azure [Functions Core Tools](../functions-run-local.md) `durable delete-task-hub` 명령을 사용하여 Azure 저장소 테이블, 큐 및 Blob을 포함하여 특정 작업 허브와 연결된 모든 저장소 아티팩트를 삭제할 수 있습니다. 명령에는 다음 두 개의 매개 변수가 있습니다.
 
-* **`connection-string-setting`(선택 사항)** : 사용할 스토리지 연결 문자열이 포함된 애플리케이션 설정 이름입니다. 기본값은 `AzureWebJobsStorage`입니다.
-* **`task-hub-name` (선택 사항)** : 사용할 Durable Functions 작업 허브의 이름입니다. 기본적으로, [호스트 json](durable-functions-bindings.md#host-json) 파일의 작업 허브 이름이 사용 됩니다.
+* (선택 사항) : 사용할 저장소 연결 문자열을 포함하는 응용 프로그램 설정의 이름입니다. ** `connection-string-setting` ** 기본값은 `AzureWebJobsStorage`입니다.
+* (선택 사항) : 사용할 지속 기능 작업 허브의 이름입니다. ** `task-hub-name` ** 기본적으로 [host.json](durable-functions-bindings.md#host-json) 파일의 작업 허브 이름이 사용됩니다.
 
-다음 명령은 `UserTest` 작업 허브와 연결 된 모든 Azure storage 데이터를 삭제 합니다.
+다음 명령은 `UserTest` 작업 허브와 연결된 모든 Azure 저장소 데이터를 삭제합니다.
 
 ```bash
 func durable delete-task-hub --task-hub-name UserTest
@@ -800,4 +800,4 @@ func durable delete-task-hub --task-hub-name UserTest
 > [버전 관리 처리](durable-functions-versioning.md)
 
 > [!div class="nextstepaction"]
-> [인스턴스 관리에 대 한 기본 제공 HTTP API 참조](durable-functions-http-api.md)
+> [인스턴스 관리를 위한 기본 제공 HTTP API 참조](durable-functions-http-api.md)

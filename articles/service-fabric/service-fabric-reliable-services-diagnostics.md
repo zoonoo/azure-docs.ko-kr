@@ -1,22 +1,22 @@
 ---
-title: Azure Service Fabric 상태 저장 Reliable Services 진단
+title: Azure 서비스 패브릭 상태 관리 신뢰할 수 있는 서비스 진단
 description: Azure Service Fabric 상태 저장 Reliable Services의 진단 기능
 author: dkkapur
 ms.topic: conceptual
 ms.date: 8/24/2018
 ms.author: dekapur
 ms.openlocfilehash: 37162287e130b05dc41453c579b3a628ac878fca
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79282264"
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>상태 저장 Reliable Services의 진단 기능
 Azure Service Fabric 상태 저장 Reliable Services StatefulServiceBase 클래스는 서비스를 디버그하는 데 사용할 수 있는 [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) 이벤트를 내보내고, 런타임이 작동하는 방법에 대한 고급 정보를 제공하고 문제 해결에 도움을 줍니다.
 
 ## <a name="eventsource-events"></a>EventSource 이벤트
-상태 저장 Reliable Services StatefulServiceBase 클래스의 EventSource 이름은 “Microsoft-ServiceFabric-Services”입니다. 이 이벤트 원본의 이벤트는 서비스가 [Visual Studio에서 디버깅](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio)될 때 [진단 이벤트](service-fabric-debugging-your-application.md) 창에 표시됩니다.
+상태 저장 Reliable Services StatefulServiceBase 클래스의 EventSource 이름은 “Microsoft-ServiceFabric-Services”입니다. 이 이벤트 원본의 이벤트는 서비스가 [Visual Studio에서 디버깅](service-fabric-debugging-your-application.md)될 때 [진단 이벤트](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) 창에 표시됩니다.
 
 EventSource 이벤트를 수집하거나 보는 데 도움이 되는 도구 및 기술의 예로 [PerfView](https://www.microsoft.com/download/details.aspx?id=28567), [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md) 및 [Microsoft TraceEvent 라이브러리](https://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent)가 있습니다.
 
@@ -41,7 +41,7 @@ RunAsync 작업에 대한 취소 요청이 4초보다 오래 걸릴 경우 State
 ## <a name="performance-counters"></a>성능 카운터
 Reliable Services 런타임은 다음과 같은 성능 카운터 범주를 정의합니다.
 
-| Category | Description |
+| Category | 설명 |
 | --- | --- |
 | Service Fabric 트랜잭션 복제기 |Azure Service Fabric 트랜잭션 복제기 관련 카운터 |
 | Service Fabric TStore |Azure Service Fabric TStore 관련 카운터 |
@@ -60,9 +60,9 @@ Windows 운영 체제에서 기본적으로 사용할 수 있는 [Windows 성능
 
 `ServiceFabricPartitionId:ServiceFabricReplicaId`
 
-*ServiceFabricPartitionId*는 성능 카운터 인스턴스와 연결된 Service Fabric 파티션 ID의 문자열 표현입니다. 파티션 ID는 GUID이며 해당 문자열 표현은 형식 지정자 "D"와 함께 [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx)을 통해 생성됩니다.
+*ServiceFabricPartitionId*는 성능 카운터 인스턴스와 연결된 Service Fabric 파티션 ID의 문자열 표현입니다. 파티션 ID는 GUID이며 형식 지정 "D"를 통해 [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) 문자열 표현이 생성됩니다.
 
-*ServiceFabricReplicaId*는 지정된 Reliable Services 복제본와 연결된 ID입니다. 복제본 ID는 고유성을 보장 하기 위해 성능 카운터 인스턴스 이름에 포함 되며 동일한 파티션에서 생성 된 다른 성능 카운터 인스턴스와 충돌 하지 않습니다. Reliable Services의 복제본 및 해당 역할에 대한 자세한 내용은 [여기](service-fabric-concepts-replica-lifecycle.md)에서 찾을 수 있습니다.
+*ServiceFabricReplicaId*는 지정된 Reliable Services 복제본와 연결된 ID입니다. 복제본 ID는 고유성을 보장하고 동일한 파티션에서 생성된 다른 성능 카운터 인스턴스와의 충돌을 방지하기 위해 성능 카운터 인스턴스 이름에 포함됩니다. Reliable Services의 복제본 및 해당 역할에 대한 자세한 내용은 [여기](service-fabric-concepts-replica-lifecycle.md)에서 찾을 수 있습니다.
 
 다음 카운터 인스턴스 이름은 `Service Fabric Transactional Replicator` 범주 아래의 카운터에 일반적인 이름입니다.
 
@@ -75,40 +75,40 @@ Windows 운영 체제에서 기본적으로 사용할 수 있는 [Windows 성능
 
 `ServiceFabricPartitionId:ServiceFabricReplicaId:StateProviderId_PerformanceCounterInstanceDifferentiator_StateProviderName`
 
-*ServiceFabricPartitionId*는 성능 카운터 인스턴스와 연결된 Service Fabric 파티션 ID의 문자열 표현입니다. 파티션 ID는 GUID이며 해당 문자열 표현은 형식 지정자 "D"와 함께 [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx)을 통해 생성됩니다.
+*ServiceFabricPartitionId*는 성능 카운터 인스턴스와 연결된 Service Fabric 파티션 ID의 문자열 표현입니다. 파티션 ID는 GUID이며 형식 지정 "D"를 통해 [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) 문자열 표현이 생성됩니다.
 
-*ServiceFabricReplicaId*는 지정된 Reliable Services 복제본와 연결된 ID입니다. 복제본 ID는 고유성을 보장 하기 위해 성능 카운터 인스턴스 이름에 포함 되며 동일한 파티션에서 생성 된 다른 성능 카운터 인스턴스와 충돌 하지 않습니다. Reliable Services의 복제본 및 해당 역할에 대한 자세한 내용은 [여기](service-fabric-concepts-replica-lifecycle.md)에서 찾을 수 있습니다.
+*ServiceFabricReplicaId*는 지정된 Reliable Services 복제본와 연결된 ID입니다. 복제본 ID는 고유성을 보장하고 동일한 파티션에서 생성된 다른 성능 카운터 인스턴스와의 충돌을 방지하기 위해 성능 카운터 인스턴스 이름에 포함됩니다. Reliable Services의 복제본 및 해당 역할에 대한 자세한 내용은 [여기](service-fabric-concepts-replica-lifecycle.md)에서 찾을 수 있습니다.
 
-*Stateproviderid* 는 신뢰할 수 있는 서비스 내에서 상태 공급자와 연결 된 ID입니다. 상태 공급자 ID는 성능 카운터 인스턴스 이름에 포함 되어 있습니다.
+*StateProviderId는* 신뢰할 수 있는 서비스 내에서 상태 공급자와 연결된 ID입니다. 상태 공급자 ID는 성능 카운터 인스턴스 이름에 포함되어 TStore를 다른 이름과 구분합니다.
 
 *PerformanceCounterInstanceDifferentiator*는 상태 공급자 내에서 성능 카운터 인스턴스와 연결된 차별화 ID입니다. 이 구별자는 고유성을 보장하고 동일한 상태 공급자가 생성한 다른 성능 카운터 인스턴스와 충돌하지 않도록 하기 위해 성능 카운터 인스턴스에 포함됩니다.
 
-*Stateprovidername* 은 신뢰할 수 있는 서비스 내에서 상태 공급자와 연결 된 이름입니다. 상태 제공자 이름은 사용자가 제공 하는 상태를 쉽게 식별할 수 있도록 성능 카운터 인스턴스 이름에 포함 됩니다.
+*StateProviderName은* 신뢰할 수 있는 서비스 내에서 상태 공급자와 연결된 이름입니다. 상태 공급자 이름은 사용자가 제공하는 상태를 쉽게 식별할 수 있도록 성능 카운터 인스턴스 이름에 포함됩니다.
 
 다음 카운터 인스턴스 이름은 `Service Fabric TStore` 범주 아래의 카운터에 일반적인 이름입니다.
 
 `00d0126d-3e36-4d68-98da-cc4f7195d85e:131652217797162571:142652217797162571_1337_urn:MyReliableDictionary/dataStore`
 
-앞의 예제에서 `00d0126d-3e36-4d68-98da-cc4f7195d85e`는 Service Fabric 파티션 ID의 문자열 표현이고, `131652217797162571`은 복제본 ID이고, `142652217797162571`은 상태 공급자 ID이고, `1337`은 성능 카운터 인스턴스 구별자입니다. `urn:MyReliableDictionary/dataStore`은 `urn:MyReliableDictionary`라는 컬렉션에 대 한 데이터를 저장 하는 상태 공급자의 이름입니다.
+앞의 예제에서 `00d0126d-3e36-4d68-98da-cc4f7195d85e`는 Service Fabric 파티션 ID의 문자열 표현이고, `131652217797162571`은 복제본 ID이고, `142652217797162571`은 상태 공급자 ID이고, `1337`은 성능 카운터 인스턴스 구별자입니다. `urn:MyReliableDictionary/dataStore`은 은 명명된 컬렉션에 대한 데이터를 `urn:MyReliableDictionary`저장하는 상태 공급자의 이름입니다.
 
 ### <a name="transactional-replicator-performance-counters"></a>트랜잭션 복제기 성능 카운터
 
 Reliable Services 런타임은 `Service Fabric Transactional Replicator` 범주 아래에 다음 이벤트를 내보냅니다.
 
- 카운터 이름 | Description |
+ 카운터 이름 | 설명 |
 | --- | --- |
 | Begin Txn Operations/sec | 초당 만들어진 새 쓰기 트랜잭션의 수입니다.|
 | Txn Operations/sec | 초당 신뢰할 수 있는 컬렉션에 대해 수행된 추가/업데이트/삭제 작업의 수입니다.|
-| Log Flush Bytes/sec | 트랜잭션 복제기가 초당 디스크에 플러시하는 바이트 수입니다. |
+| 로그 플러시 바이트/초 | 트랜잭션 복제기가 초당 디스크에 플러시하는 바이트 수입니다. |
 | Throttled Operations/sec | 제한 때문에 트랜잭션 복제기가 초당 거부한 작업 수입니다. |
-| 평균 트랜잭션 밀리초/커밋 | 트랜잭션당 평균 커밋 대기 시간(밀리초)입니다. |
-| 평균 플러시 대기 시간 (밀리초) | 트랜잭션 복제기가 시작한 디스크 플러시 작업의 평균 지속 시간(밀리초)입니다. |
+| 평균 거래 ms/커밋 | 트랜잭션당 평균 커밋 대기 시간(밀리초)입니다. |
+| 평균. 플러시 대기 시간 (ms) | 트랜잭션 복제기가 시작한 디스크 플러시 작업의 평균 지속 시간(밀리초)입니다. |
 
 ### <a name="tstore-performance-counters"></a>TStore 성능 카운터
 
 Reliable Services 런타임은 `Service Fabric TStore` 범주 아래에 다음 이벤트를 내보냅니다.
 
- 카운터 이름 | Description |
+ 카운터 이름 | 설명 |
 | --- | --- |
 | 항목 개수 | 스토어에 있는 항목의 수|
 | 디스크 크기 | 저장소에 대한 검사점 파일의 전체 디스크 크기(바이트)|

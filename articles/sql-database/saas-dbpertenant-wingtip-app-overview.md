@@ -1,5 +1,5 @@
 ---
-title: 다중 테 넌 트 앱 예제-정문 SaaS
+title: 다중 테넌트 앱 예제 - 윙팁 SaaS
 description: Azure SQL Database를 사용하는 샘플 다중 테넌트 애플리케이션인 Wingtip SaaS 예제를 통해 방법을 알아봅니다.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
 ms.openlocfilehash: 46cdcd5f768278dbc729f48e450c68a63be604be
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79256498"
 ---
 # <a name="introduction-to-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>SQL Database로 테넌트별 데이터베이스 패턴을 사용하는 다중 테넌트 SaaS 앱 소개
@@ -39,16 +39,16 @@ Wingtip SaaS 앱은 테넌트별 데이터베이스 모델을 사용합니다. S
 앱을 배포한 후 초기 배포를 기반으로 하는 다음 자습서를 탐색합니다. 이러한 자습서에서는 SQL Database, Azure SQL Data Warehouse 및 기타 Azure 서비스의 기본 제공 기능을 활용하는 일반적인 SaaS 패턴을 살펴봅니다. 자습서에는 PowerShell 스크립트와 자세한 설명이 포함되어 있습니다. 쉽게 이해하고 애플리케이션에서 동일한 SaaS 관리 패턴을 구현할 수 있도록 설명되어 있습니다.
 
 
-| 자습서 | Description |
+| 자습서 | 설명 |
 |:--|:--|
 | [SQL Database 다중 테넌트 SaaS 앱 예제에 대한 지침 및 팁](saas-tenancy-wingtip-app-guidance-tips.md) | PowerShell 스크립트를 다운로드한 후 실행하여 애플리케이션 부분을 준비하세요. |
 |[Wingtip SaaS 애플리케이션 배포 및 탐색](saas-dbpertenant-get-started-deploy.md)|  Azure 구독으로 Wingtip SaaS 애플리케이션을 배포하고 탐색합니다. |
 |[프로비전 및 카탈로그 테넌트](saas-dbpertenant-provision-and-catalog.md)| 카탈로그 데이터베이스를 사용하여 애플리케이션을 테넌트에 연결하는 방법 및 카탈로그가 테넌트를 해당 데이터에 매핑하는 방법을 알아봅니다. |
 |[성능 모니터링 및 관리](saas-dbpertenant-performance-monitoring.md)| SQL Database의 모니터링 기능을 사용하고 성능 임계값이 초과된 경우 경고를 설정하는 방법을 알아봅니다. |
-|[Azure Monitor 로그를 사용 하 여 모니터링](saas-dbpertenant-log-analytics.md) | [Azure Monitor 로그](../log-analytics/log-analytics-overview.md) 를 사용 하 여 여러 풀에서 많은 양의 리소스를 모니터링 하는 방법을 알아봅니다. |
+|[Azure Monitor 로그로 모니터링](saas-dbpertenant-log-analytics.md) | Azure Monitor [로그를](../log-analytics/log-analytics-overview.md) 사용하여 여러 풀에서 많은 양의 리소스를 모니터링하는 방법을 알아봅니다. |
 |[단일 테넌트 복원](saas-dbpertenant-restore-single-tenant.md)| 테넌트 데이터베이스를 이전 시점으로 복원하는 방법을 알아봅니다. 또한 기존 테넌트 데이터베이스를 온라인 상태로 유지하여 병렬 데이터베이스로 복원하는 방법도 알아봅니다. |
 |[테넌트 데이터베이스 스키마 관리](saas-tenancy-schema-management.md)| 모든 테넌트 데이터베이스를 대상으로 스키마와 참조 데이터를 업데이트하는 방법을 알아봅니다. |
-|[교차 테넌트 분산 쿼리 실행](saas-tenancy-cross-tenant-reporting.md) | 임시 분석 데이터베이스를 만들고 모든 테 넌 트에서 실시간 분산 쿼리를 실행 합니다.  |
+|[교차 테넌트 분산 쿼리 실행](saas-tenancy-cross-tenant-reporting.md) | 임시 분석 데이터베이스를 만들고 모든 테넌트가 실시간으로 분산된 쿼리를 실행합니다.  |
 |[추출된 테넌트 데이터를 이용하여 분석 실행](saas-tenancy-tenant-analytics.md) | 오프라인 분석 쿼리를 실행하기 위해 테넌트 데이터를 분석 데이터베이스 또는 데이터 웨어하우스로 추출합니다. |
 
 

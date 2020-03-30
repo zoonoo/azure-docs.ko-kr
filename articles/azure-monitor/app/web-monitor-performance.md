@@ -5,22 +5,22 @@ ms.topic: conceptual
 ms.date: 05/10/2018
 ms.reviewer: sdash
 ms.openlocfilehash: e398f23559729580ae4ad8b6507c2f09328052b5
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79275621"
 ---
 # <a name="monitor-performance-in-web-applications"></a>웹 애플리케이션의 성능 모니터링
 
 
-애플리케이션이 정상적으로 작동하는지 확인하고 오류가 발생하는지 신속하게 파악합니다. [Application Insights][start] 는 성능 문제 및 예외에 대 한 정보를 제공 하 고 근본 원인을 찾아 진단 하는 데 도움을 줍니다.
+애플리케이션이 정상적으로 작동하는지 확인하고 오류가 발생하는지 신속하게 파악합니다. [Application Insights][start]는 성능 문제 및 예외에 대한 정보와, 이러한 현상에 대한 근본 원인을 확인하고 진단하는 기능을 제공합니다.
 
 Application Insights에서 Java 및 ASP.NET 웹 애플리케이션과 서비스, WCF 서비스를 모니터링할 수 있습니다. 온-프레미스, 가상 머신에서 또는 Microsoft Azure 웹 사이트로 호스트할 수 있습니다. 
 
 Application Insights는 클라이언트 쪽에서 iOS, Android 및 Windows 스토어 앱을 포함한 다양한 디바이스 및 웹 페이지에서 원격 분석을 수행할 수 있습니다.
 
-## <a name="setup"></a>성능 모니터링 설정
+## <a name="set-up-performance-monitoring"></a><a name="setup"></a>성능 모니터링 설정
 Application Insights를 아직 프로젝트에 추가하지 않은 경우(프로젝트에 ApplicationInsights.config가 없음) 다음 방법 중 하나를 선택하여 작업을 시작합니다.
 
 * [ASP.NET 웹 앱](../../azure-monitor/app/asp-net.md)
@@ -29,7 +29,7 @@ Application Insights를 아직 프로젝트에 추가하지 않은 경우(프로
 * [Java EE 웹앱](../../azure-monitor/app/java-get-started.md)
   * [종속성 모니터링 추가](../../azure-monitor/app/java-agent.md)
 
-## <a name="view"></a>성능 메트릭 탐색
+## <a name="exploring-performance-metrics"></a><a name="view"></a>성능 메트릭 탐색
 [Azure 포털](https://portal.azure.com)에서 애플리케이션에 대해 설정한 Application Insights 리소스를 찾습니다. 개요 블레이드에 기본 성능 데이터가 표시됩니다.
 
 무엇이든 클릭하면 추가 세부 정보와 장기간에 걸친 결과를 확인할 수 있습니다. 예를 들어 요청 타일을 클릭하고 시간 범위를 선택합니다.
@@ -43,7 +43,7 @@ Application Insights를 아직 프로젝트에 추가하지 않은 경우(프로
 > [!NOTE]
 > **모든 메트릭의 선택을 취소합니다** . 메트릭은 그룹으로 구분되며 그룹 내의 모든 멤버를 선택하면 해당 그룹의 다른 멤버만 표시됩니다.
 
-## <a name="metrics"></a>성능 메트릭의 의미 성능 타일 및 보고서
+## <a name="what-does-it-all-mean-performance-tiles-and-reports"></a><a name="metrics"></a>성능 메트릭의 의미 성능 타일 및 보고서
 다양한 성능 메트릭을 가져올 수 있습니다. 먼저 애플리케이션 블레이드에 기본적으로 표시되는 메트릭부터 살펴보겠습니다.
 
 ### <a name="requests"></a>요청
@@ -96,18 +96,18 @@ catch되지 않은 예외를 throw한 요청의 수입니다.
 
 *경고 추가 단추가 보이지 않습니다.* -이것은 읽기 전용 액세스 권한이 있는 그룹 계정입니까? 계정 관리자에게 확인하세요.
 
-## <a name="diagnosis"></a>문제 진단
+## <a name="diagnosing-issues"></a><a name="diagnosis"></a>문제 진단
 아래에는 성능 문제를 찾고 진단하기 위한 몇 가지 팁이 나와 있습니다.
 
-* 웹 사이트의 작동이 중단 되거나 응답이 잘못 되거나 느리게 응답 하는 경우 경고를 표시 하도록 [웹 테스트][availability] 를 설정 합니다. 
+* 웹 사이트의 작동이 중단되거나 응답이 잘못되거나 속도가 느려지는 경우 경고를 받도록 [웹 테스트][availability]를 설정합니다. 
 * 요청 수를 다른 메트릭과 비교하여 오류 또는 느린 응답이 부하와 관련되어 있는지 확인합니다.
-* 코드에 [추적 문을 삽입 하 고 검색][diagnostic] 하 여 문제를 파악 합니다.
-* [라이브 메트릭 스트림][livestream]를 사용 하 여 작업에서 웹 앱을 모니터링 합니다.
-* [스냅숏 디버거][snapshot]를 사용 하 여 .net 응용 프로그램의 상태를 캡처합니다.
+* 코드에서 [검사 추적 문을 삽입 및 검색][diagnostic]하여 문제를 파악합니다.
+* [라이브 메트릭 스트림][livestream]을 사용하여 작업에서 웹앱을 모니터링합니다.
+* [스냅숏 디버거를][snapshot]사용 하 고 .NET 응용 프로그램의 상태를 캡처합니다.
 
 ## <a name="find-and-fix-performance-bottlenecks-with-performance-investigation-experience"></a>성능 조사 환경을 사용하여 성능 병목 현상 찾기 및 수정
 
-성능 조사 환경을 사용하여 웹앱에서 성능이 느린 작업을 검토합니다. 느린 특정 작업을 신속하게 선택하고 [프로파일러](../../azure-monitor/app/profiler.md)를 사용하여 코드에 대한 작업 속도를 저하시키는 근본 원인을 파악할 수 있습니다. 선택한 작업이 표시된 새 기간 분포를 사용하면 해당 환경이 얼마나 고객에게 나쁜지를 빠르게 즉시 가늠할 수 있습니다. 느린 작업마다 영향을 받은 사용자 상호 작용의 상태를 확인할 수 있습니다. 다음 예제에서는 고객/세부 정보 가져오기 작업에 대한 환경을 자세히 살펴보겠습니다. 기간 분포에서 세 가지 스파이크가 있음을 알 수 있습니다. 맨 왼쪽 스파이크는 약 400ms이며 뛰어난 응답 환경을 나타냅니다. 중간 스파이크는 약 1.2s이며 보통의 환경을 나타냅니다. 3\.6s에서 99번째 백분위수 환경을 나타내는 마지막 작은 스파이크는 고객 불만족으로 이어질 가능성이 높습니다. 그러한 환경은 동일한 작업에 대해 탁월한 환경보다 10배 더 느립니다. 
+성능 조사 환경을 사용하여 웹앱에서 성능이 느린 작업을 검토합니다. 느린 특정 작업을 신속하게 선택하고 [프로파일러](../../azure-monitor/app/profiler.md)를 사용하여 코드에 대한 작업 속도를 저하시키는 근본 원인을 파악할 수 있습니다. 선택한 작업이 표시된 새 기간 분포를 사용하면 해당 환경이 얼마나 고객에게 나쁜지를 빠르게 즉시 가늠할 수 있습니다. 느린 작업마다 영향을 받은 사용자 상호 작용의 상태를 확인할 수 있습니다. 다음 예제에서는 고객/세부 정보 가져오기 작업에 대한 환경을 자세히 살펴보겠습니다. 기간 분포에서 세 가지 스파이크가 있음을 알 수 있습니다. 맨 왼쪽 스파이크는 약 400ms이며 뛰어난 응답 환경을 나타냅니다. 중간 스파이크는 약 1.2s이며 보통의 환경을 나타냅니다. 3.6s에서 99번째 백분위수 환경을 나타내는 마지막 작은 스파이크는 고객 불만족으로 이어질 가능성이 높습니다. 그러한 환경은 동일한 작업에 대해 탁월한 환경보다 10배 더 느립니다. 
 
 ![고객/세부 정보 가져오기 세 가지 기간 스파이크](./media/web-monitor-performance/PerformanceTriageViewZoomedDistribution.png)
 
@@ -130,14 +130,14 @@ catch되지 않은 예외를 throw한 요청의 수입니다.
 ![고객/세부 정보 가져오기 세 가지 기간 스파이크(기간: 7일 범위)](./media/web-monitor-performance/Performance30DayOveralllnsights.png)
 
 
-## <a name="next"></a>다음 단계
-[웹 테스트][availability] -전 세계의 일정 한 간격으로 응용 프로그램에 웹 요청을 보냅니다.
+## <a name="next-steps"></a><a name="next"></a>다음 단계
+[웹 테스트][availability] - 전 세계에서 웹 요청이 일정한 간격으로 애플리케이션에 전송되도록 합니다.
 
-[진단 추적 캡처 및 검색][diagnostic] -추적 호출을 삽입 하 고 결과를 자세히 살펴볼 하 여 문제를 파악 합니다.
+[진단 추적 캡처 및 검색][diagnostic] - 추적 호출을 삽입하고 결과를 확인하여 문제를 파악합니다.
 
-[사용 추적][usage] -사용자가 응용 프로그램을 사용 하는 방법을 알아봅니다.
+[사용 현황 추적][usage] - 사용자의 애플리케이션 사용 방식을 파악합니다.
 
-[문제 해결][qna] -및 Q & A
+[문제 해결][qna] - 질문과 대답
 
 
 

@@ -4,10 +4,10 @@ description: JSON의 연속 내보내기에서 내보내고 필터로 사용하�
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.openlocfilehash: e4dd2310169476e54c06083fee11b2e4cccecd8d
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77663878"
 ---
 # <a name="application-insights-export-data-model"></a>Application Insights 데이터 모델 내보내기
@@ -292,7 +292,7 @@ TrackMetric()에서 생성합니다.
 
 메트릭 값은 context.custom.metrics[0]에서 찾을 수 있습니다.
 
-다음은 그 예입니다.
+예를 들어:
 
     {
      "metric": [ ],
@@ -318,7 +318,7 @@ TrackMetric()에서 생성합니다.
     }
 
 ## <a name="about-metric-values"></a>메트릭 값 정보
-메트릭 보고서 및 기타 다른 곳의 메트릭 값은 모두 표준 개체 구조를 사용하여 보고됩니다. 다음은 그 예입니다.
+메트릭 보고서 및 기타 다른 곳의 메트릭 값은 모두 표준 개체 구조를 사용하여 보고됩니다. 예를 들어:
 
       "durationMetric": {
         "name": "contoso.org",
@@ -342,7 +342,7 @@ TrackMetric()에서 생성합니다.
 ### <a name="durations"></a>기간
 달리 명시된 경우를 제외하고, 기간은 10분의 1 마이크로초로 표현되므로 10000000.0은 1초를 의미합니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 * [Application Insights](../../azure-monitor/app/app-insights-overview.md)
 * [연속 내보내기](export-telemetry.md)
 * [코드 샘플](export-telemetry.md#code-samples)
