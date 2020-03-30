@@ -1,6 +1,6 @@
 ---
-title: 아웃 바운드 규칙-Azure Load Balancer
-description: 이 학습 경로를 사용 하 여 아웃 바운드 네트워크 주소 변환을 정의 하는 아웃 바운드 규칙 사용을 시작 합니다.
+title: 아웃바운드 규칙 - Azure 로드 밸러저
+description: 이 학습 경로를 사용하여 아웃바운드 규칙을 사용하여 아웃바운드 네트워크 주소 변환을 정의합니다.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 7/17/2019
 ms.author: allensu
 ms.openlocfilehash: d419c213b3bcfef3631d68eb9d4cb485291bed31
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78304194"
 ---
 # <a name="load-balancer-outbound-rules"></a>Load Balancer 아웃바운드 규칙
@@ -34,15 +34,15 @@ Azure Load Balancer는 가상 네트워크에서 인바운드 연결 외에도 �
 - [아웃바운드 SNAT 포트](load-balancer-outbound-connections.md#snat)를 할당해야 하는 방법
 - 아웃바운드 변환을 제공하는 프로토콜
 - 아웃바운드 연결 유휴 시간 제한에 사용할 기간(4-120분)
-- 유휴 시간 제한 시 TCP 재설정을 보낼지 여부
+- 유휴 시간 시간에 TCP 재설정을 보낼지 여부
 
-아웃바운드 규칙은 [아웃바운드 연결](load-balancer-outbound-connections.md#lb) 문서에서 설명한 [시나리오 2](load-balancer-outbound-connections.md)를 확장하며 시나리오 우선 순위는 그대로 유지됩니다.
+아웃바운드 규칙은 [아웃바운드 연결](load-balancer-outbound-connections.md) 문서에서 설명한 [시나리오 2](load-balancer-outbound-connections.md#lb)를 확장하며 시나리오 우선 순위는 그대로 유지됩니다.
 
 ## <a name="outbound-rule"></a>아웃바운드 규칙
 
 모든 Load Balancer 규칙과 마찬가지로, 아웃바운드 규칙은 부하 분산 및 인바운드 NAT 규칙과 동일한 친숙한 구문을 따릅니다.
 
-**프런트 엔드** + **매개 변수** + **백 엔드 풀**
+**프런트 엔드** + **매개변수** + **백 엔드 풀**
 
 아웃바운드 규칙은 _백 엔드 풀에서 식별된 모든 가상 머신_에 대한 아웃바운드 NAT를 _프런트 엔드_로 변환하도록 구성합니다.  그리고 _매개 변수_는 아웃바운드 NAT 알고리즘에 대해 세분화된 제어를 추가로 제공합니다.
 
@@ -64,7 +64,7 @@ Azure Load Balancer는 가상 네트워크에서 인바운드 연결 외에도 �
 >[!NOTE]
 >효과적인 아웃바운드 NAT 구성은 모든 아웃바운드 규칙과 부하 분산 규칙을 합성한 것입니다. 아웃바운드 규칙은 부하 분산 규칙에 따라 증분합니다. [부하 분산 규칙에 대해 아웃바운드 NAT 사용 안 함](#disablesnat)을 검토하여 VM에 여러 규칙이 적용될 때 효과적인 아웃바운드 NAT 변환을 관리합니다. 부하 분산 규칙과 동일한 공용 IP 주소를 사용하는 아웃바운드 규칙을 정의하는 경우 [아웃바운드 SNAT를 사용하지 않도록 설정](#disablesnat)해야 합니다.
 
-### <a name="scale"></a> 여러 IP 주소를 사용하여 아웃바운드 NAT 확장
+### <a name="scale-outbound-nat-with-multiple-ip-addresses"></a><a name="scale"></a> 여러 IP 주소를 사용하여 아웃바운드 NAT 확장
 
 하나의 아웃바운드 규칙은 하나의 공용 IP 주소에만 사용할 수 있지만, 아웃바운드 규칙은 아웃바운드 NAT를 확장하기 위한 구성에 대한 부담을 덜어줍니다. 여러 IP 주소를 사용하여 대규모 시나리오를 계획하고, 아웃바운드 규칙을 사용하여 [SNAT 고갈](load-balancer-outbound-connections.md#snatexhaust) 가능성이 높은 경향의 패턴을 완화할 수 있습니다.  
 
@@ -74,7 +74,7 @@ Azure Load Balancer는 가상 네트워크에서 인바운드 연결 외에도 �
 
 아웃바운드 규칙에서 공용 IP 접두사를 완전히 제어해야 하므로, 이 옵션을 사용하는 경우 공용 IP 접두사에서 만든 개별 공용 IP 주소 리소스는 사용할 수 없습니다.  더 세분화된 제어가 필요한 경우, 공용 IP 접두사에서 개별 공용 IP 주소 리소스를 만들고 여러 공용 IP 주소를 개별적으로 아웃바운드 규칙의 프런트 엔드에 할당할 수 있습니다.
 
-### <a name="snatports"></a> SNAT 포트 할당 튜닝
+### <a name="tune-snat-port-allocation"></a><a name="snatports"></a> SNAT 포트 할당 튜닝
 
 아웃바운드 규칙을 사용하여 [백 엔드 풀 크기를 기준으로 자동 SNAT 포트 할당](load-balancer-outbound-connections.md#preallocatedports)을 튜닝하고 자동 SNAT 포트 할당보다 더 많거나 적게 할당할 수 있습니다.
 
@@ -83,11 +83,11 @@ VM당 10,000개의 SNAT 포트를 할당하려면 다음 매개 변수를 사용
 
           "allocatedOutboundPorts": 10000
 
-아웃바운드 규칙의 모든 프런트 엔드에 있는 각 공용 IP 주소는 SNAT 포트로 사용할 최대 64,000개의 사용 후 삭제 포트를 제공합니다.  Load Balancer는 SNAT 포트를 8의 배수로 할당합니다. 8로 나눌 수 없는 값을 제공하면 구성 작업이 거부됩니다.  공용 IP 주소의 수를 기준으로 사용 가능한 것보다 더 많은 SNAT 포트를 할당하려고 하면 구성 작업이 거부됩니다.  예를 들어 VM 당 1만 포트를 할당 하 고 백 엔드 풀의 Vm 7 개에서 단일 공용 IP 주소를 공유 하는 경우 구성이 거부 됩니다 (7 x 1만 SNAT 포트 > 64000 SNAT 포트).  아웃바운드 규칙의 프런트 엔드에 더 많은 공용 IP 주소를 추가하여 시나리오를 사용하도록 설정할 수 있습니다.
+아웃바운드 규칙의 모든 프런트 엔드에 있는 각 공용 IP 주소는 SNAT 포트로 사용할 최대 64,000개의 사용 후 삭제 포트를 제공합니다.  Load Balancer는 SNAT 포트를 8의 배수로 할당합니다. 8로 나눌 수 없는 값을 제공하면 구성 작업이 거부됩니다.  공용 IP 주소의 수를 기준으로 사용 가능한 것보다 더 많은 SNAT 포트를 할당하려고 하면 구성 작업이 거부됩니다.  예를 들어 VM당 10,000개의 포트와 백엔드 풀에 7개의 VM을 할당하여 단일 공용 IP 주소를 공유하는 경우 구성이 거부됩니다(7 x 10,000 SNAT 포트 > 64,000 SNAT 포트).  아웃바운드 규칙의 프런트 엔드에 더 많은 공용 IP 주소를 추가하여 시나리오를 사용하도록 설정할 수 있습니다.
 
-포트 수로 0을 지정하여 [백 엔드 풀 크기를 기준으로 자동 SNAT 포트 할당](load-balancer-outbound-connections.md#preallocatedports)으로 되돌릴 수 있습니다. 이 경우 첫 번째 50 VM 인스턴스는 1024 포트를 얻게 됩니다. 51-100 VM 인스턴스는 테이블에 따라 512을 받습니다.
+포트 수로 0을 지정하여 [백 엔드 풀 크기를 기준으로 자동 SNAT 포트 할당](load-balancer-outbound-connections.md#preallocatedports)으로 되돌릴 수 있습니다. 이 경우 처음 50개의 VM 인스턴스는 1024개의 포트를, 51-100VM 인스턴스는 테이블에 따라 512개 등을 가져옵니다.
 
-### <a name="idletimeout"></a> 아웃바운드 흐름 유휴 시간 제한 제어
+### <a name="control-outbound-flow-idle-timeout"></a><a name="idletimeout"></a> 아웃바운드 흐름 유휴 시간 제한 제어
 
 아웃바운드 규칙은 아웃바운드 흐름 유휴 시간 제한을 제어하고 이를 애플리케이션의 요구와 일치시키는 구성 매개 변수를 제공합니다.  아웃바운드 유휴 시간 제한은 기본적으로 4분입니다.  매개 변수는 이 특정 규칙과 일치하는 흐름에 대한 유휴 시간 제한을 분 단위로 지정하기 위해 4-120의 값을 허용합니다.
 
@@ -95,7 +95,7 @@ VM당 10,000개의 SNAT 포트를 할당하려면 다음 매개 변수를 사용
 
           "idleTimeoutInMinutes": 60
 
-### <a name="tcprst"></a><a name="tcpreset"></a> 유휴 시간 제한 시 TCP 다시 설정 사용
+### <a name="enable-tcp-reset-on-idle-timeout"></a><a name="tcprst"></a><a name="tcpreset"></a> 유휴 시간 설정시 TCP 재설정 사용
 
 Load Balancer의 기본 동작은 아웃바운드 유휴 시간 제한에 도달하는 경우 흐름을 자동으로 삭제하는 것입니다.  enableTCPReset 매개 변수를 사용하면 예측 가능한 애플리케이션 동작을 사용하도록 설정하고 아웃바운드 유휴 시간 제한 시간을 초과할 때 양방향 TCP 재설정(TCP RST)을 보낼지 여부를 제어할 수 있습니다. 
 
@@ -103,9 +103,9 @@ Load Balancer의 기본 동작은 아웃바운드 유휴 시간 제한에 도달
 
            "enableTcpReset": true
 
-지역 가용성을 비롯 한 세부 정보는 [유휴 시간 제한에서 TCP 다시 설정](https://aka.ms/lbtcpreset) 을 검토 합니다.
+유휴 [시간 설정에서 TCP 재설정을](https://aka.ms/lbtcpreset) 검토하여 지역 가용성을 포함한 세부 정보를 확인합니다.
 
-### <a name="proto"></a> 단일 규칙으로 TCP 및 UDP 전송 프로토콜을 모두 지원
+### <a name="support-both-tcp-and-udp-transport-protocols-with-a-single-rule"></a><a name="proto"></a> 단일 규칙으로 TCP 및 UDP 전송 프로토콜을 모두 지원
 
 아웃바운드 규칙의 전송 프로토콜에 "모두"를 사용할 수 있지만, 필요한 경우 아웃바운드 규칙을 특정 전송 프로토콜에도 적용할 수 있습니다.
 
@@ -113,7 +113,7 @@ Load Balancer의 기본 동작은 아웃바운드 유휴 시간 제한에 도달
 
           "protocol": "All"
 
-### <a name="disablesnat"></a> 부하 분산 규칙에 대해 아웃바운드 NAT 사용 안 함
+### <a name="disable-outbound-nat-for-a-load-balancing-rule"></a><a name="disablesnat"></a> 부하 분산 규칙에 대해 아웃바운드 NAT 사용 안 함
 
 앞에서 설명한 대로 부하 분산 규칙은 자동 아웃바운드 NAT 프로그래밍을 제공합니다. 그러나 일부 시나리오에서는 동작을 제어하거나 구체화할 수 있도록 부하 분산 규칙을 통해 자동 아웃바운드 NAT 프로그래밍을 사용하지 않도록 설정하거나 이렇게 설정해야 합니다.  아웃바운드 규칙에는 자동 아웃바운드 NAT 프로그래밍을 중지해야 하는 시나리오가 있습니다.
 
@@ -145,7 +145,7 @@ disableOutboundSNAT 매개 변수의 기본값은 false입니다. 즉 부하 분
 
 ## <a name="scenarios"></a>시나리오
 
-### <a name="groom"></a> 특정 공용 IP 주소 집합에 대한 아웃바운드 연결 영구 제거
+### <a name="groom-outbound-connections-to-a-specific-set-of-public-ip-addresses"></a><a name="groom"></a> 특정 공용 IP 주소 집합에 대한 아웃바운드 연결 영구 제거
 
 아웃바운드 규칙을 사용하여 특정 공용 IP 주소 집합에서 시작된 것으로 보이는 아웃바운드 연결을 영구 제거하여 허용 목록 시나리오를 쉽게 만들 수 있습니다.  이 원본 공용 IP 주소는 부하 분산 규칙에서 사용하는 것과 같거나 부하 분산 규칙에서 사용하는 것과 다른 공용 IP 주소 집합일 수 있습니다.  
 
@@ -157,7 +157,7 @@ disableOutboundSNAT 매개 변수의 기본값은 false입니다. 즉 부하 분
    
 아웃바운드에 부하 분산 규칙을 사용하지 않으려면 부하 분산 규칙에서 [아웃바운드 SNAT를 사용하지 않도록 설정](#disablesnat)해야 합니다.
 
-### <a name="modifysnat"></a> SNAT 포트 할당 수정
+### <a name="modify-snat-port-allocation"></a><a name="modifysnat"></a> SNAT 포트 할당 수정
 
 아웃바운드 규칙을 사용하여 [백 엔드 풀 크기를 기준으로 자동 SNAT 포트 할당](load-balancer-outbound-connections.md#preallocatedports)을 튜닝할 수 있습니다.
 
@@ -165,7 +165,7 @@ disableOutboundSNAT 매개 변수의 기본값은 false입니다. 즉 부하 분
 
 [아웃바운드 연결](load-balancer-outbound-connections.md) 및 [SNAT](load-balancer-outbound-connections.md#snat) 포트가 할당되고 사용되는 방법에 대한 자세한 내용을 검토하세요.
 
-### <a name="outboundonly"></a> 아웃바운드만 사용
+### <a name="enable-outbound-only"></a><a name="outboundonly"></a> 아웃바운드만 사용
 
 공용 표준 Load Balancer를 사용하여 VM 그룹에 아웃바운드 NAT를 제공할 수 있습니다. 이 시나리오에서는 추가 규칙 없이 아웃바운드 규칙 자체만 사용할 수 있습니다.
 
@@ -206,7 +206,7 @@ disableOutboundSNAT 매개 변수의 기본값은 false입니다. 즉 부하 분
 - 프런트 엔드 IP 주소당 사용 가능한 사용 후 삭제 포트의 최대 수는 64,000개입니다.
 - 구성 가능한 아웃바운드 유휴 시간 제한 범위는 4-120분(240-7200초)입니다.
 - Load Balancer는 아웃바운드 NAT에 대해 ICMP를 지원하지 않습니다.
-- 아웃 바운드 규칙은 NIC의 기본 IP 구성에만 적용할 수 있습니다.  여러 Nic가 지원 됩니다.
+- 아웃바운드 규칙은 NIC의 기본 IP 구성에만 적용할 수 있습니다.  여러 NIC가 지원됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

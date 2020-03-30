@@ -1,5 +1,5 @@
 ---
-title: Azure Site Recovery를 사용 하 여 VMware VM 재해 복구에서 장애 복구 문제 해결
+title: Azure 사이트 복구를 사용 하 고 VM웨어 VM 재해 복구에서 장애 해결
 description: 이 문서에서는 Azure Site Recovery를 사용하여 Azure로 VMware VM 재해 복구하는 동안 발생하는 장애 복구(failback) 및 다시 보호 문제를 해결하는 방법을 설명합니다.
 author: rajani-janaki-ram
 manager: gauravd
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
 ms.openlocfilehash: b577b82585ffad0547818b4f19554a2f39cb830c
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75498096"
 ---
 # <a name="troubleshoot-failback-to-on-premises-from-azure"></a>Azure에서 온-프레미스로 장애 복구(failback) 문제 해결
@@ -20,7 +20,7 @@ ms.locfileid: "75498096"
 
 장애 복구(failback)는 기본적으로 두 가지 기본 단계로 이루어집니다. 첫 번째 단계로 장애 조치 후에 Azure VM을 온-프레미스로 다시 보호해야 복제가 시작됩니다. 두 번째 단계는 Azure에서 장애 조치를 실행하여 온-프레미스 사이트로 장애 복구하는 것입니다.
 
-## <a name="common-issues"></a>일반 문제
+## <a name="common-issues"></a>일반적인 문제
 
 - 읽기 전용 사용자 vCenter 검색을 수행하고 가상 머신을 보호하면 보호에 성공하고 장애 조치가 작동합니다. 다시 보호 중에는 데이터 저장소를 검색할 수 없기 때문에 장애 조치가 실패합니다. 증상은 다시 보호 중에 데이터 저장소가 나열되지 않는 것입니다. 이 문제를 해결하려면 vCenter 자격 증명을 권한이 있는 적절한 계정으로 업데이트한 다음, 작업을 다시 시도하면 됩니다.
 - Linux 가상 컴퓨터를 장애 복구하고 온-프레미스에서 실행하면 네트워크 관리자 패키지가 컴퓨터에서 제거되었음을 알 수 있습니다. Azure에서 가상 머신을 복구할 때 네트워크 관리자 패키지가 제거되었기 때문에 이 기능이 제거됩니다.
@@ -29,7 +29,7 @@ ms.locfileid: "75498096"
 - 프로세스 서버에서 구성 서버에 연결할 수 없는 경우 텔넷을 사용하여 443 포트에서 구성 서버에 대한 연결을 확인합니다. 프로세스 서버에서 구성 서버를 ping할 수도 있습니다. 또한 프로세스 서버에는 구성 서버에 연결될 때 하트비트도 있어야 합니다.
 - 물리적 온-프레미스 서버로 보호되는 Windows Server 2008 R2 SP1 서버는 Azure에서 온-프레미스 사이트로 장애 복구할 수 없습니다.
 - 다음과 같은 경우에 장애 복구(failback)를 수행할 수 없습니다.
-    - Azure에 컴퓨터를 마이그레이션했습니다. [자세히 알아보기](migrate-overview.md#what-do-we-mean-by-migration).
+    - Azure에 컴퓨터를 마이그레이션했습니다. [자세히 알아봅니다](migrate-overview.md#what-do-we-mean-by-migration).
     - 다른 리소스 그룹으로 VM을 이동했습니다.
     - Azure VM을 삭제했습니다.
     - VM의 보호를 해제했습니다.
@@ -73,7 +73,7 @@ ms.locfileid: "75498096"
 
 이 문제를 해결하려면:
 
-장애 조치된 VM을 다시 보호하려면 모바일 서비스를 온-프레미스 구성 서버에 등록하고 프로세스 서버와 통신하여 복제를 시작할 수 있도록 Azure VM을 실행해야 합니다. 컴퓨터가 잘못 된 네트워크에 있거나 실행 중이 아닌 경우 (응답 없음 또는 종료) 구성 서버에서 VM의 모바일 서비스에 연결 하 여 다시 보호를 시작할 수 없습니다.
+장애 조치된 VM을 다시 보호하려면 모바일 서비스를 온-프레미스 구성 서버에 등록하고 프로세스 서버와 통신하여 복제를 시작할 수 있도록 Azure VM을 실행해야 합니다. 컴퓨터가 잘못된 네트워크에 있거나 실행 중이 아닌 경우(응답하지 않거나 종료되지 않음) 구성 서버가 VM의 모빌리티 서비스에 연락하여 다시 보호를 시작할 수 없습니다.
 
 * 온-프레미스와의 통신을 다시 시작할 수 있도록 VM을 다시 시작합니다.
 * Azure 가상 머신을 시작한 후에 다시 보호 작업을 다시 시작합니다.
@@ -91,7 +91,7 @@ ms.locfileid: "75498096"
 
 ### <a name="error-code-8038"></a>오류 코드 8038
 
-**오류로 인해 온-프레미스 가상 머신을 불러오지 못했습니다.**
+**오류로 인해 온-프레미스 가상 컴퓨터를 가져오지 못했습니다.**
 
 이 문제는 메모리가 충분히 프로비전되지 않은 호스트에서 온-프레미스 VM을 가동하는 경우에 발생합니다. 
 

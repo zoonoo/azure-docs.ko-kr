@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: c27cde85952ca6d982accddad59eceae76e3f1e8
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78194460"
 ---
 # <a name="certificate-creation-methods"></a>인증서 생성 방법
@@ -32,7 +32,7 @@ ms.locfileid: "78194460"
 1. 위의 다이어그램에서 애플리케이션은 내부적으로 키 자격 증명 모음에서 키를 만드는 작업으로 시작하는 인증서를 만듭니다.
 2. Key Vault는 애플리케이션 CSR(Certificate Signing Request)에 반환됨
 3. 애플리케이션에서 CSR을 선택한 CA에 전달합니다.
-4. 선택한 CA는 X509 인증서를 사용 하 여 응답 합니다.
+4. 선택한 CA가 X509 인증서로 응답합니다.
 5. 애플리케이션이 CA에서 X509 인증서를 병합해 인증서 만들기를 완료합니다.
 
 -   **알려진 인증서 발급자 공급자를 통해 인증서 만들기:** 이 방법을 사용하면 발급자 개체를 만드는 일회성 작업을 수행해야 합니다. 키 자격 증명 모음에서 발급자 개체를 만든 후에 해당 이름을 KV 인증서 정책에서 참조할 수 있습니다. KV 인증서 같은 인증서 만들기를 요청하면 자격 증명 모음에서 키 쌍을 만들고 x509 인증서를 가져오기 위해 참조된 발급자 개체의 정보를 사용하여 발급자 공급자 서비스와 통신합니다. x509 인증서는 인증서 발급자 서비스에서 검색되며, KV 인증서 생성을 완료하기 위해 키 쌍과 병합됩니다.  
@@ -42,10 +42,10 @@ ms.locfileid: "78194460"
 다음 설명은 위의 다이어그램에서 녹색 글자로 된 단계에 해당합니다.
 
 1. 위의 다이어그램에서 애플리케이션은 내부적으로 키 자격 증명 모음에서 키를 만드는 작업으로 시작하는 인증서를 만듭니다.
-2. Key Vault는 CA에 TLS/SSL 인증서 요청을 보냅니다.
+2. 키 볼트는 CA에 TLS/SSL 인증서 요청을 보냅니다.
 3. 애플리케이션이 인증서 완료를 위해 Key Vault에 대해 반복 및 대기 프로세스에서 폴링합니다. Key Vault가 x509 인증서를 통해 CA의 응답을 수신하는 경우 인증서 만들기가 완료됩니다.
-4. CA는 TLS/SSL x.509 인증서를 사용 하 여 Key Vault의 TLS/SSL 인증서 요청에 응답 합니다.
-5. 새 인증서 만들기는 CA에 대 한 TLS/SSL x.509 인증서의 합병을 사용 하 여 완료 됩니다.
+4. CA는 TLS/SSL X.509 인증서를 사용하여 키 볼트의 TLS/SSL 인증서 요청에 응답합니다.
+5. 새 인증서 생성은 CA에 대한 TLS/SSL X.509 인증서의 합병으로 완료됩니다.
 
 ## <a name="asynchronous-process"></a>비동기 처리
 KV 인증서 만들기는 비동기 프로세스입니다. 이 작업은 KV 인증서 요청을 만들고 http 상태 코드 202(수락)를 반환합니다. 이 작업에서 생성한 보류 중인 개체를 폴링하여 요청 상태를 추적할 수 있습니다. 보류 중인 개체의 전체 URI이 위치 헤더에서 반환됩니다.  
@@ -80,7 +80,7 @@ KV 인증서 만들기 요청이 완료되면 보류 중인 개체의 상태가 
 ## <a name="partnered-ca-providers"></a>파트너 CA 공급자
 인증서 만들기는 수동으로 또는 “Self” 발급자를 사용하여 완료할 수 있습니다. 또한 Key Vault는 인증서 생성을 단순화하기 위해 특정 발급자 공급자와도 파트너 관계를 맺습니다. 다음 유형의 인증서는 이러한 파트너 발급자 공급자를 통해 키 자격 증명 모음에 대해 순서를 지정할 수 있습니다.  
 
-|공급자|인증서 유형|  
+|공급자|인증서 종류|  
 |--------------|----------------------|  
 |DigiCert|Key Vault가 DigiCert를 통해 OV 또는 EV SSL 인증서 제공|
 |GlobalSign|Key Vault가 GlobalSign을 통해 OV 또는 EV SSL 인증서 제공|
@@ -92,5 +92,5 @@ KV 인증서 만들기 요청이 완료되면 보류 중인 개체의 상태가 
  권한 부여: 인증서/만들기 권한이 필요합니다.
 
 ## <a name="see-also"></a>관련 항목
- - [키, 비밀 및 인증서에 대한 정보](about-keys-secrets-and-certificates.md)
- - [인증서 생성 모니터링 및 관리](create-certificate-scenarios.md)
+ - [키, 비밀 및 인증서 정보](about-keys-secrets-and-certificates.md)
+ - [인증서 만들기 모니터링 및 관리](create-certificate-scenarios.md)

@@ -1,7 +1,7 @@
 ---
-title: 검색 인덱스에 대 한 쿼리 확장의 동의어
+title: 검색 인덱스를 통해 쿼리 확장을 위한 동의어
 titleSuffix: Azure Cognitive Search
-description: 동의어 맵을 만들어 Azure Cognitive Search 인덱스에서 검색 쿼리의 범위를 확장 합니다. 범위는 목록으로 제공하는 동급 용어를 포함하도록 확장됩니다.
+description: 동의어 맵을 만들어 Azure 인지 검색 인덱스에서 검색 쿼리의 범위를 확장합니다. 범위는 목록으로 제공하는 동급 용어를 포함하도록 확장됩니다.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -9,27 +9,27 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/28/2020
 ms.openlocfilehash: aa573e84fa9fff83bd6a894f516ce5f67b3afa79
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78194345"
 ---
-# <a name="synonyms-in-azure-cognitive-search"></a>Azure Cognitive Search의 동의어
+# <a name="synonyms-in-azure-cognitive-search"></a>Azure 인지 검색의 동의어
 
 검색 엔진의 동의어는 사용자가 실제로 용어를 제공할 필요 없이 쿼리의 범위를 암시적으로 확장하는 동등한 용어를 연결합니다. 예를 들어 용어 "dog"와 "canine" 및 "puppy"의 동의어 연결을 지정하면 "dog", "canine" 또는 "puppy"를 포함하는 모든 문서는 쿼리의 범위에 속하게 됩니다.
 
-Azure Cognitive Search에서 동의어 확장은 쿼리 시에 수행 됩니다. 기존 작업을 중단하지 않고 동의어 맵을 서비스에 추가할 수 있습니다. 인덱스를 다시 빌드할 필요 없이 **synonymMaps** 속성을 필드 정의에 추가할 수 있습니다.
+Azure 인지 검색에서 동의어 확장은 쿼리 시간에 수행됩니다. 기존 작업을 중단하지 않고 동의어 맵을 서비스에 추가할 수 있습니다. 인덱스를 다시 빌드할 필요 없이 **synonymMaps** 속성을 필드 정의에 추가할 수 있습니다.
 
 ## <a name="create-synonyms"></a>동의어 만들기
 
-동의어를 만들 수 있는 포털 지원은 없지만 REST API 또는 .NET SDK를 사용할 수 있습니다. REST를 시작 하려면이 API를 사용 하 여 Postman 및 공식화 요청을 [사용 하](search-get-started-postman.md) 는 것이 좋습니다. [동의어 맵 만들기](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map)를 사용 하는 것이 좋습니다. 개발자 C# 의 경우를 [사용 하 여 C#Azure 인식 검색에서 동의어 추가 ](search-synonyms-tutorial-sdk.md)를 시작할 수 있습니다.
+동의어를 만들기 위한 포털 지원은 없지만 REST API 또는 .NET SDK를 사용할 수 있습니다. REST를 시작하려면 이 API를 [사용하여 Postman](search-get-started-postman.md) 및 요청 공식을 사용하는 것이 [좋습니다.](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map) C# 개발자의 경우 [C#을 사용하여 Azure 인지 검색에서 동의어 추가를](search-synonyms-tutorial-sdk.md)시작할 수 있습니다.
 
-선택적으로 서비스 쪽 암호화를 위해 [고객 관리 키](search-security-manage-encryption-keys.md) 를 사용 하는 경우 해당 보호를 동의어 맵의 내용에 적용할 수 있습니다.
+선택적으로 서비스 측 암호화 에 대한 [고객 관리 키를](search-security-manage-encryption-keys.md) 사용하는 경우 해당 보호를 동의어 맵의 내용에 적용할 수 있습니다.
 
 ## <a name="use-synonyms"></a>동의어 사용
 
-Azure Cognitive Search에서 동의어 지원은 사용자가 정의 하 고 서비스에 업로드 하는 동의어 맵을 기반으로 합니다. 이러한 맵은 독립적인 리소스(인덱스 또는 데이터 원본 등)를 구성하며 검색 서비스의 모든 인덱스에서 검색 가능한 필드에 의해 사용될 수 있습니다.
+Azure Cognitive Search에서 동의어 지원은 서비스에 정의하고 업로드하는 동의어 맵을 기반으로 합니다. 이러한 맵은 독립적인 리소스(인덱스 또는 데이터 원본 등)를 구성하며 검색 서비스의 모든 인덱스에서 검색 가능한 필드에 의해 사용될 수 있습니다.
 
 동의어 맵과 인덱스는 독립적으로 유지됩니다. 동의어 맵을 정의하고 서비스에 업로드하면 필드 정의에서 **synonymMaps**라는 새 속성을 추가하여 필드에서 동의어 기능을 사용할 수 있습니다. 동의어 맵 만들기, 업데이트 및 삭제는 항상 전체 문서 작업이므로 증분식으로 동의어 맵의 일부분을 만들거나 업데이트하거나 삭제할 수 없습니다. 단일 항목을 업데이트하는 경우에도 다시 로드해야 합니다.
 
@@ -45,7 +45,7 @@ Azure Cognitive Search에서 동의어 지원은 사용자가 정의 하 고 서
 
 #### <a name="add-or-update-a-synonym-map-under-your-service-using-post-or-put"></a>POST 또는 PUT을 사용하여 서비스 아래에 동의어 맵을 추가하거나 업데이트합니다.
 
-동의어 맵은 POST 또는 PUT을 통해 서비스에 업로드됩니다. 각 규칙은 줄 바꿈 문자('\n')로 구분되어야 합니다. 무료 서비스에서 동의어 맵 당 최대 5000 개의 규칙을 정의 하 고 다른 모든 Sku에서 맵 당 2만 규칙을 정의할 수 있습니다. 각 규칙에는 최대 20개의 확장이 있을 수 있습니다.
+동의어 맵은 POST 또는 PUT을 통해 서비스에 업로드됩니다. 각 규칙은 줄 바꿈 문자('\n')로 구분되어야 합니다. 무료 서비스에서 동의어 맵당 최대 5,000개의 규칙과 다른 모든 SCO에서 맵당 20,000개의 규칙을 정의할 수 있습니다. 각 규칙에는 최대 20개의 확장이 있을 수 있습니다.
 
 동의어 맵은 아래에 설명된 Apache Solr 형식이어야 합니다. 다른 형식의 기존 동의어 사전이 있어 이를 직접 사용하려는 경우 [UserVoice](https://feedback.azure.com/forums/263029-azure-search)에 알려 주세요.
 
@@ -76,14 +76,14 @@ Azure Cognitive Search에서 동의어 지원은 사용자가 정의 하 고 서
 
 ##### <a name="apache-solr-synonym-format"></a>Apache Solr 동의어 형식
 
-Solr 형식은 동등하고 명시적인 동의어 매핑을 지원합니다. 매핑 규칙은이 문서에서 설명 하는 Apache [SynonymFilter](https://cwiki.apache.org/confluence/display/solr/Filter+Descriptions#FilterDescriptions-SynonymFilter)r의 오픈 소스 동의어 필터 사양을 따릅니다. 다음은 동등한 동의어에 대한 샘플 규칙입니다.
+Solr 형식은 동등하고 명시적인 동의어 매핑을 지원합니다. 매핑 규칙은 이 문서에서 설명하는 아파치 Solr의 오픈 소스 동의어 필터 [SynonymFilter](https://cwiki.apache.org/confluence/display/solr/Filter+Descriptions#FilterDescriptions-SynonymFilter)사양을 준수합니다. 다음은 동등한 동의어에 대한 샘플 규칙입니다.
 ```
 USA, United States, United States of America
 ```
 
 위의 규칙을 사용하면 검색 쿼리 "USA"가 "USA" 또는 "United States" 또는 "United States of America"로 확장됩니다.
 
-명시적 매핑은 "=>" 화살표로 표시됩니다. 이 지정 된 경우 "= >"의 왼쪽과 일치 하는 검색 쿼리의 용어 순서가 오른쪽의 대체 항목으로 바뀝니다. 아래 규칙이 지정되면 검색 쿼리 "Washington", "Wash" 또는 "WA"가 모두 "WA"로 다시 작성됩니다. 명시적 매핑은 지정된 방향으로만 적용돠며 이 경우 "WA" 쿼리를 "Washington"으로 다시 작성하지 않습니다.
+명시적 매핑은 "=>" 화살표로 표시됩니다. 지정하면 "=>"의 왼쪽과 일치하는 검색 쿼리의 용어 시퀀스가 오른쪽의 대안으로 대체됩니다. 아래 규칙이 지정되면 검색 쿼리 "Washington", "Wash" 또는 "WA"가 모두 "WA"로 다시 작성됩니다. 명시적 매핑은 지정된 방향으로만 적용돠며 이 경우 "WA" 쿼리를 "Washington"으로 다시 작성하지 않습니다.
 ```
 Washington, Wash., WA => WA
 ```

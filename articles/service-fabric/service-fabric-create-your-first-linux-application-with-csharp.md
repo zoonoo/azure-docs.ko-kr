@@ -1,13 +1,13 @@
 ---
-title: 을 사용 하 여 Linux에서 첫 번째 Azure Service Fabric 앱 만들기C#
+title: 'C를 사용하여 Linux에서 첫 번째 Azure 서비스 패브릭 앱 만들기 #'
 description: C# 및 .NET Core 2.0을 사용하여 Service Fabric 애플리케이션을 만들고 배포하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 04/11/2018
 ms.openlocfilehash: 202dde933b41a98c1c119f422d47cbdbb0be84ae
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75458129"
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>첫 번째 Azure Service Fabric 애플리케이션 만들기
@@ -19,7 +19,7 @@ ms.locfileid: "75458129"
 
 Service Fabric은 .NET Core 및 Java 모두에서 Linux에 대한 서비스를 구축하는 SDK를 제공합니다. 이 자습서에서는 .NET Core 2.0에서 C#을 사용하여 Linux용 애플리케이션을 만들고 서비스를 구축하는 방법을 살펴보겠습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 시작하기 전에 [Linux 개발 환경을 설정](service-fabric-get-started-linux.md)하도록 합니다. Mac OS X을 사용하는 경우 [Vagrant를 사용하여 가상 머신에서 Linux one-box 환경을 설정](service-fabric-get-started-mac.md)할 수 있습니다.
 
 또한 [Service Fabric CLI](service-fabric-cli.md)를 설치합니다.
@@ -33,7 +33,7 @@ Service Fabric은 Yeoman 템플릿 생성기를 사용하여 터미널에서 Ser
    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash 
    nvm install node 
    ```
-2. NPM의 컴퓨터에 [Yeoman](https://yeoman.io/) 템플릿 생성기 설치
+2. NPM에서 컴퓨터에 [Yeoman](https://yeoman.io/) 템플릿 생성기 설치
 
    ```bash
    npm install -g yo
@@ -97,7 +97,7 @@ Service Fabric Yeoman 템플릿은 빌드 스크립트를 포함하며 이것을
 
 1. 행위자 서비스의 출력을 확인하려면 조사식 유틸리티를 사용하여 스크립트를 실행합니다.
 
-   MAC OS X의 경우 다음과 같은 추가 명령을 실행 하 여 myactorsvcTestClient 폴더를 컨테이너 내의 동일한 위치에 복사 해야 합니다.
+   MAC OS X의 경우 다음 추가 명령을 실행하여 myactorsvcTestClient 폴더를 컨테이너 내부의 동일한 위치에 복사해야 합니다.
     
     ```bash
     docker cp  [first-four-digits-of-container-ID]:/home
@@ -123,7 +123,7 @@ Service Fabric Yeoman 템플릿은 빌드 스크립트를 포함하며 이것을
 ## <a name="next-steps"></a>다음 단계
 
 * [Service Fabric CLI를 사용하여 Service Fabric 클러스터와 상호 작용](service-fabric-cli.md)
-* [Service Fabric 지원 옵션](service-fabric-support.md) 알아보기
+* 서비스 [패브릭 지원 옵션에](service-fabric-support.md) 대해 자세히 알아보기
 * [Service Fabric CLI 시작](service-fabric-cli.md)
 
 <!-- Images -->

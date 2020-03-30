@@ -9,21 +9,21 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 58294c7afdf31ddd29611351d6442db1c4966157
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78269043"
 ---
-# <a name="understand-how-azure-iot-edge-uses-certificates"></a>Azure IoT Edge에서 인증서를 사용 하는 방법 이해
+# <a name="understand-how-azure-iot-edge-uses-certificates"></a>Azure IoT Edge에서 인증서를 사용하는 방법 이해
 
-IoT Edge 인증서는 모듈 및 다운스트림 IoT 장치에서 [IoT Edge hub](iot-edge-runtime.md#iot-edge-hub) 런타임 모듈의 id 및 적법성을 확인 하는 데 사용 됩니다. 이러한 유효성 검사를 통해 런타임, 모듈 및 IoT 디바이스 간의 TLS(전송 계층 보안) 보안 연결을 사용하도록 설정합니다. IoT Hub 자체와 마찬가지로 IoT Edge에는 IoT 다운스트림(또는 리프) 디바이스 및 IoT Edge 모듈의 보안 및 암호화된 연결이 필요합니다. 보안 TLS 연결을 설정하기 위해 Edge Hub 모듈은 연결 대상 클라이언트가 해당 ID를 확인할 수 있도록 서버 인증서 체인을 제공합니다.
+IoT Edge 인증서는 모듈 및 다운스트림 IoT 장치에서 [IoT Edge 허브](iot-edge-runtime.md#iot-edge-hub) 런타임 모듈의 ID 및 적법성을 확인하는 데 사용됩니다. 이러한 유효성 검사를 통해 런타임, 모듈 및 IoT 디바이스 간의 TLS(전송 계층 보안) 보안 연결을 사용하도록 설정합니다. IoT Hub 자체와 마찬가지로 IoT Edge에는 IoT 다운스트림(또는 리프) 디바이스 및 IoT Edge 모듈의 보안 및 암호화된 연결이 필요합니다. 보안 TLS 연결을 설정하기 위해 Edge Hub 모듈은 연결 대상 클라이언트가 해당 ID를 확인할 수 있도록 서버 인증서 체인을 제공합니다.
 
 이 문서에서는 프로덕션, 개발 및 테스트 시나리오에서 IoT Edge 인증서의 작동 방식을 설명합니다. 스크립트는 다르지만(Powershell 대 bash), 개념은 Linux와 Windows 간에 동일합니다.
 
 ## <a name="iot-edge-certificates"></a>IoT Edge 인증서
 
-일반적으로 제조업체는 IoT Edge 장치의 최종 사용자가 아닙니다. 최종 사용자(운영자)가 제조업체에서 제조한 일반 디바이스를 구매해야 두 당사자 간의 관계가 생성되는 경우도 있습니다. 다른 경우에는 제조업체에서 운영자에 대 한 사용자 지정 장치를 빌드하기 위해 계약에 따라 작동 합니다. IoT Edge 인증서 디자인은 두 시나리오를 모두 고려하고자 합니다.
+일반적으로 제조업체는 IoT Edge 장치의 최종 사용자가 아닙니다. 최종 사용자(운영자)가 제조업체에서 제조한 일반 디바이스를 구매해야 두 당사자 간의 관계가 생성되는 경우도 있습니다. 다른 경우 제조업체는 계약에 따라 작업자를 위한 사용자 지정 장치를 빌드합니다. IoT Edge 인증서 디자인은 두 시나리오를 모두 고려하고자 합니다.
 
 다음 그림은 IoT Edge의 인증서 사용을 보여줍니다. 루트 CA 인증서와 디바이스 CA 인증서 간에는 중간 서명 인증서가 없을 수도 있고 하나 이상 있을 수도 있습니다. 아래에 한 가지 사례가 나와 있습니다.
 
@@ -51,7 +51,7 @@ IoT Edge 인증서는 모듈 및 다운스트림 IoT 장치에서 [IoT Edge hub]
 
 ### <a name="device-ca-certificate"></a>디바이스 CA 인증서
 
-디바이스 CA 인증서는 프로세스에서 최종 중간 CA 인증서로 생성 및 서명됩니다. 이 인증서는 IoT Edge 디바이스 자체에 설치되며, HSM(하드웨어 보안 모듈)과 같은 보안 스토리지에 설치하는 것이 좋습니다. 또한 디바이스 CA 인증서는 IoT Edge 디바이스를 고유하게 식별합니다. 장치 CA 인증서는 다른 인증서를 서명할 수 있습니다.
+디바이스 CA 인증서는 프로세스에서 최종 중간 CA 인증서로 생성 및 서명됩니다. 이 인증서는 IoT Edge 디바이스 자체에 설치되며, HSM(하드웨어 보안 모듈)과 같은 보안 스토리지에 설치하는 것이 좋습니다. 또한 디바이스 CA 인증서는 IoT Edge 디바이스를 고유하게 식별합니다. 장치 CA 인증서는 다른 인증서에 서명할 수 있습니다.
 
 ### <a name="iot-edge-workload-ca"></a>IoT Edge 워크로드 CA
 
@@ -59,7 +59,7 @@ IoT Edge를 처음 시작하면 [IoT Edge 보안 관리자](iot-edge-security-ma
 
 ### <a name="iot-edge-hub-server-certificate"></a>IoT Edge Hub 서버 인증서
 
-IoT Edge Hub 서버 인증서는 IoT Edge에 필요한 TLS 연결을 설정하는 동안 ID 확인을 위해 리프 디바이스와 모듈에 표시되는 실제 인증서입니다. 이 인증서는 리프 IoT 디바이스가 신뢰해야 하는 루트 CA 인증서를 생성하는 데 사용되는 서명 인증서의 전체 체인을 표시합니다. IoT Edge 보안 관리자에서 생성되는 경우 이 IoT Edge Hub 인증서의 CN(일반 이름)은 소문자로 변환된 후 config.yaml 파일의 'hostname' 속성으로 설정됩니다. 이 구성은 IoT Edge와 혼동 되는 일반적인 원인입니다.
+IoT Edge Hub 서버 인증서는 IoT Edge에 필요한 TLS 연결을 설정하는 동안 ID 확인을 위해 리프 디바이스와 모듈에 표시되는 실제 인증서입니다. 이 인증서는 리프 IoT 디바이스가 신뢰해야 하는 루트 CA 인증서를 생성하는 데 사용되는 서명 인증서의 전체 체인을 표시합니다. IoT Edge 보안 관리자에서 생성되는 경우 이 IoT Edge Hub 인증서의 CN(일반 이름)은 소문자로 변환된 후 config.yaml 파일의 'hostname' 속성으로 설정됩니다. 이 구성은 IoT Edge와 혼동의 일반적인 원인입니다.
 
 ## <a name="production-implications"></a>프로덕션 영향
 
@@ -69,7 +69,7 @@ IoT Edge Hub 서버 인증서는 IoT Edge에 필요한 TLS 연결을 설정하�
 
 * 모든 인증서 기반 프로세스에서는 IoT Edge 디바이스를 롤아웃하는 전체 프로세스 동안 루트 CA 인증서 및 중간 CA 인증서를 보호하고 모니터링해야 합니다. IoT Edge 디바이스 제조업체는 중간 인증서를 적절하게 스토리지하고 사용할 수 있도록 강력한 프로세스를 갖추어야 합니다. 또한 디바이스 CA 인증서는 디바이스 자체, 특히 하드웨어 보안 모듈에 최대한 안전하게 스토리지해야 합니다.
 
-* IoT Edge Hub에서 IoT Edge Hub 서버 인증서를 연결 대상 클라이언트 디바이스와 모듈에 제시합니다. 디바이스 CA 인증서의 CN(일반 이름)은 IoT Edge 디바이스의 config.yaml에서 사용할 "hostname"과 같을 수 **없습니다**. 클라이언트에서 IoT Edge에 연결 하는 데 사용 하는 이름 (예: 연결 문자열의 경우에는 연결 문자열의 경우, 연결 문자열의 경우에는 연결 문자열의 경우)은 장치 CA 인증서에 사용 된 일반 이름과 같을 **수 없습니다** . 이 제한이 적용되는 이유는 클라이언트에서 확인할 수 있도록 IoT Edge Hub가 전체 인증서 체인을 표시하기 때문입니다. IoT Edge Hub 서버 인증서와 디바이스 CA 인증서의 CN이 같은 경우에는 확인이 계속 반복되어 인증서가 무효화됩니다.
+* IoT Edge Hub에서 IoT Edge Hub 서버 인증서를 연결 대상 클라이언트 디바이스와 모듈에 제시합니다. 디바이스 CA 인증서의 CN(일반 이름)은 IoT Edge 디바이스의 config.yaml에서 사용할 "hostname"과 같을 수 **없습니다**. 클라이언트가 IoT Edge에 연결하는 데 사용하는 이름(예: 연결 문자열의 GatewayHostName 매개 변수 또는 MQTT의 CONNECT 명령을 통해)은 장치 CA 인증서에 사용되는 일반적인 이름과 **같을 수 없습니다.** 이 제한이 적용되는 이유는 클라이언트에서 확인할 수 있도록 IoT Edge Hub가 전체 인증서 체인을 표시하기 때문입니다. IoT Edge Hub 서버 인증서와 디바이스 CA 인증서의 CN이 같은 경우에는 확인이 계속 반복되어 인증서가 무효화됩니다.
 
 * 디바이스 CA 인증서는 IoT Edge 보안 디먼에서 최종 IoT Edge 인증서를 생성하는 데 사용되므로 그 자체가 인증서 서명 기능이 있는 서명 인증서여야 합니다. 디바이스 CA 인증서에 "V3 기본 제한 CA:True"를 적용하면 필요한 키 사용 속성이 자동 설정됩니다.
 
@@ -78,7 +78,7 @@ IoT Edge Hub 서버 인증서는 IoT Edge에 필요한 TLS 연결을 설정하�
 
 ## <a name="devtest-implications"></a>개발/테스트 영향
 
-개발 및 테스트 시나리오를 간소화하기 위해 Microsoft는 투명 게이트웨이 시나리오의 IoT Edge에 적합한 비-프로덕션 인증서를 생성하기 위한 [편리한 스크립트](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates) 집합을 제공합니다. 스크립트의 작동 방식에 대 한 예제는 [데모 인증서를 만들어 IoT Edge 장치 기능 테스트](how-to-create-test-certificates.md)를 참조 하세요.
+개발 및 테스트 시나리오를 간소화하기 위해 Microsoft는 투명 게이트웨이 시나리오의 IoT Edge에 적합한 비-프로덕션 인증서를 생성하기 위한 [편리한 스크립트](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates) 집합을 제공합니다. 스크립트작동 방식의 예는 데모 [인증서 만들기를 참조하여 IoT Edge 장치 기능을 테스트합니다.](how-to-create-test-certificates.md)
 
 >[!Tip]
 > 디바이스 IoT “리프” 디바이스 및 IoT Edge를 통해 IoT 디바이스 SDK를 사용하는 애플리케이션에 연결하려면 디바이스의 연결 문자열의 끝에 선택적 GatewayHostName 매개 변수를 추가해야 합니다. Edge Hub 서버 인증서는 생성될 때 config.yaml의 소문자 버전 호스트 이름을 기반으로 하므로, 이름을 일치시키고 TLS 인증서 확인에 성공하려면 GatewayHostName 매개 변수를 소문자로 입력해야 합니다.

@@ -1,5 +1,5 @@
 ---
-title: Apache Maven를 사용 하 여 Azure HDInsight 용 Java HBase 클라이언트 빌드
+title: 아파치 메이븐을 사용하여 Azure HDInsight용 Java HBase 클라이언트 구축
 description: Apache Maven을 사용하여 Java 기반 Apache HBase 애플리케이션을 빌드한 다음 Azure HDInsight의 HBase에 배포하는 방법에 대해 알아봅니다.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,seodec18
 ms.date: 12/24/2019
 ms.openlocfilehash: 3e9b23ce450e45dfedcee8b20e09b1c2b52b6e68
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75495792"
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Apache HBase에 대한 Java 애플리케이션 빌드
@@ -21,25 +21,25 @@ Java에서 [Apache HBase](https://hbase.apache.org/) 애플리케이션을 만�
 
 이 문서에 나온 단계에서는 [Apache Maven](https://maven.apache.org/)을 사용하여 프로젝트를 만들고 빌드합니다. Maven은 Java 프로젝트용 소프트웨어, 문서화 및 보고를 빌드할 수 있는 소프트웨어 프로젝트 관리 및 종합 도구입니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-* HDInsight의 Apache HBase 클러스터. [Apache HBase 시작을](./apache-hbase-tutorial-get-started-linux.md)참조 하세요.
+* HDInsight의 아파치 HBase 클러스터. [아파치 HBase로 시작하기 를](./apache-hbase-tutorial-get-started-linux.md)참조하십시오.
 
-* [JDK (Java Developer Kit) 버전 8](https://aka.ms/azure-jdks)입니다.
+* [자바 개발자 키트 (JDK) 버전 8](https://aka.ms/azure-jdks).
 
 * Apache에 따라 올바르게 [설치된](https://maven.apache.org/install.html)[Apache Maven](https://maven.apache.org/download.cgi)  Maven은 Java 프로젝트용 프로젝트 빌드 시스템입니다.
 
 * SSH 클라이언트. 자세한 내용은 [SSH를 사용하여 HDInsight(Apache Hadoop)에 연결](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
-* PowerShell을 사용 하는 경우 [AZ Module](https://docs.microsoft.com/powershell/azure/overview)이 필요 합니다.
+* PowerShell을 사용하는 경우 AZ [모듈이](https://docs.microsoft.com/powershell/azure/overview)필요합니다.
 
-* 텍스트 편집기. 이 문서에서는 Microsoft 메모장을 사용 합니다.
+* 텍스트 편집기. 이 문서에서는 Microsoft 메모장을 사용합니다.
 
 ## <a name="test-environment"></a>테스트 환경
 
-이 문서에 사용 되는 환경은 Windows 10을 실행 하는 컴퓨터 였습니다.  명령은 명령 프롬프트에서 실행 되었으며 다양 한 파일이 메모장을 사용 하 여 편집 되었습니다. 사용자 환경에 맞게 수정 합니다.
+이 문서에 사용된 환경은 Windows 10을 실행하는 컴퓨터였습니다.  명령은 명령 프롬프트에서 실행되었으며 다양한 파일은 메모장으로 편집되었습니다. 환경에 맞게 수정합니다.
 
-명령 프롬프트에서 아래 명령을 입력 하 여 작업 환경을 만듭니다.
+명령 프롬프트에서 아래 명령을 입력하여 작업 환경을 만듭니다.
 
 ```cmd
 IF NOT EXIST C:\HDI MKDIR C:\HDI
@@ -48,7 +48,7 @@ cd C:\HDI
 
 ## <a name="create-a-maven-project"></a>Maven 프로젝트 만들기
 
-1. 다음 명령을 입력 하 여 **hbaseapp**이라는 Maven 프로젝트를 만듭니다.
+1. 다음 명령을 입력하여 **hbaseapp라는**Maven 프로젝트를 만듭니다.
 
     ```cmd
     mvn archetype:generate -DgroupId=com.microsoft.examples -DartifactId=hbaseapp -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
@@ -57,13 +57,13 @@ cd C:\HDI
     mkdir conf
     ```
 
-    이 명령은 기본 Maven 프로젝트를 포함하는 현재 위치에 `hbaseapp`라는 디렉터리를 만듭니다. 두 번째 명령은 `hbaseapp`작업 디렉터리를 변경 합니다. 세 번째 명령은 나중에 사용 될 새 디렉터리 `conf`를 만듭니다. `hbaseapp` 디렉터리에는 다음과 같은 항목이 포함됩니다.
+    이 명령은 기본 Maven 프로젝트를 포함하는 현재 위치에 `hbaseapp`라는 디렉터리를 만듭니다. 두 번째 명령은 작업 디렉토리를 로 변경합니다. `hbaseapp` 세 번째 명령은 나중에 사용될 `conf`새 디렉터리를 만듭니다. `hbaseapp` 디렉터리에는 다음과 같은 항목이 포함됩니다.
 
-    * `pom.xml`: 프로젝트 개체 모델 ([Pom](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html))은 프로젝트를 빌드하는 데 사용 된 정보 및 구성 세부 정보를 포함 합니다.
+    * `pom.xml`: POM 프로젝트 개체[모델(POM)에는](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html)프로젝트를 빌드하는 데 사용되는 정보 및 구성 세부 정보가 포함되어 있습니다.
     * `src\main\java\com\microsoft\examples`: 애플리케이션 코드를 포함합니다.
     * `src\test\java\com\microsoft\examples`: 애플리케이션에 대한 테스트를 포함합니다.
 
-2. 생성 된 예제 코드를 제거 합니다. `AppTest.java`생성 된 테스트 및 응용 프로그램 파일을 삭제 하 고 아래 명령을 입력 하 여 `App.java` 합니다.
+2. 생성된 예제 코드를 제거합니다. 생성된 테스트 및 응용 `AppTest.java`프로그램 `App.java` 파일을 삭제하고 아래 명령을 입력하여 다음을 수행합니다.
 
     ```cmd
     DEL src\main\java\com\microsoft\examples\App.java
@@ -72,7 +72,7 @@ cd C:\HDI
 
 ## <a name="update-the-project-object-model"></a>프로젝트 개체 모델 업데이트
 
-Pom .xml 파일에 대 한 전체 참조는 https://maven.apache.org/pom.html 를 참조 하세요.  아래 명령을 입력 하 여 `pom.xml`를 엽니다.
+pom.xml 파일에 대한 전체 참조를 보려면 https://maven.apache.org/pom.html을 참조하세요.  아래 `pom.xml` 명령을 입력하여 엽니다.
 
 ```cmd
 notepad pom.xml
@@ -80,7 +80,7 @@ notepad pom.xml
 
 ### <a name="add-dependencies"></a>종속성 추가
 
-`pom.xml`의 `<dependencies>` 섹션에 다음 텍스트를 추가 합니다.
+에서 `pom.xml`다음 텍스트를 섹션에 `<dependencies>` 추가합니다.
 
 ```xml
 <dependency>
@@ -111,7 +111,7 @@ HDInsight 버전 및 구성 요소에 대한 자세한 내용은 [HDInsight에�
 
 Maven 플러그 인을 사용하면 프로젝트의 빌드 단계를 사용자 지정할 수 있습니다. 이 섹션은 플러그 인, 리소스 및 다른 빌드 구성 옵션을 추가하는 데 사용됩니다.
 
-`pom.xml` 파일에 다음 코드를 추가 하 고 파일을 저장 한 후 닫습니다. 이 텍스트는 파일의 `<project>...</project>` 태그 내에 있어야 합니다. 예를 들어 `</dependencies>`와 `</project>` 사이에 있어야 합니다.
+`pom.xml` 다음 코드를 파일에 추가한 다음 파일을 저장하고 닫습니다. 이 텍스트는 파일의 `<project>...</project>` 태그 내에 있어야 합니다. 예를 들어 `</dependencies>`와 `</project>` 사이에 있어야 합니다.
 
 ```xml
 <build>
@@ -169,7 +169,7 @@ Maven 플러그 인을 사용하면 프로젝트의 빌드 단계를 사용자 �
 
 ### <a name="download-the-hbase-sitexml"></a>hbase-site.xml 다운로드
 
-다음 명령을 사용하여 HBase 클러스터에서 `conf` 디렉터리로 HBase 구성을 복사합니다. `CLUSTERNAME`를 HDInsight 클러스터 이름으로 바꾸고 다음 명령을 입력 합니다.
+다음 명령을 사용하여 HBase 클러스터에서 `conf` 디렉터리로 HBase 구성을 복사합니다. HDInsight 클러스터 이름으로 바꾼 `CLUSTERNAME` 다음 명령을 입력합니다.
 
 ```cmd
 scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/etc/hbase/conf/hbase-site.xml ./conf/hbase-site.xml
@@ -179,13 +179,13 @@ scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/etc/hbase/conf/hbase-site.xml ./
 
 ### <a name="implement-a-createtable-class"></a>CreateTable 클래스 구현
 
-다음 명령을 입력 하 여 `CreateTable.java`새 파일을 만들고 엽니다. 프롬프트에서 **예** 를 선택 하 여 새 파일을 만듭니다.
+아래 명령을 입력하여 새 파일을 `CreateTable.java`만들고 엽니다. 프롬프트에서 **예를** 선택하여 새 파일을 만듭니다.
 
 ```cmd
 notepad src\main\java\com\microsoft\examples\CreateTable.java
 ```
 
-그런 다음 아래 java 코드를 복사 하 여 새 파일에 붙여넣습니다. 그런 다음 파일을 닫습니다.
+그런 다음 아래 자바 코드를 복사하여 새 파일에 붙여 넣습니다. 그런 다음 파일을 닫습니다.
 
 ```java
 package com.microsoft.examples;
@@ -257,17 +257,17 @@ public class CreateTable {
 }
 ```
 
-이 코드는 `people` 이라는 테이블을 만들고 미리 정의 된 사용자로 채우는 `CreateTable` 클래스입니다.
+이 코드는 `CreateTable` 미리 정의된 일부 `people` 사용자로 테이블을 만들고 채우는 클래스입니다.
 
 ### <a name="implement-a-searchbyemail-class"></a>SearchByEmail 클래스 구현
 
-다음 명령을 입력 하 여 `SearchByEmail.java`새 파일을 만들고 엽니다. 프롬프트에서 **예** 를 선택 하 여 새 파일을 만듭니다.
+아래 명령을 입력하여 새 파일을 `SearchByEmail.java`만들고 엽니다. 프롬프트에서 **예를** 선택하여 새 파일을 만듭니다.
 
 ```cmd
 notepad src\main\java\com\microsoft\examples\SearchByEmail.java
 ```
 
-그런 다음 아래 java 코드를 복사 하 여 새 파일에 붙여넣습니다. 그런 다음 파일을 닫습니다.
+그런 다음 아래 자바 코드를 복사하여 새 파일에 붙여 넣습니다. 그런 다음 파일을 닫습니다.
 
 ```java
 package com.microsoft.examples;
@@ -342,17 +342,17 @@ public class SearchByEmail {
 }
 ```
 
-`SearchByEmail` 클래스를 사용 하 여 전자 메일 주소를 기준으로 행을 쿼리할 수 있습니다. 정규식 필터를 사용하므로, 이 클래스를 사용할 때 문자열 또는 정규식을 제공할 수 있습니다.
+클래스는 `SearchByEmail` 전자 메일 주소로 행을 쿼리하는 데 사용할 수 있습니다. 정규식 필터를 사용하므로, 이 클래스를 사용할 때 문자열 또는 정규식을 제공할 수 있습니다.
 
-### <a name="implement-a-deletetable-class"></a>Deletetable.java 클래스 구현
+### <a name="implement-a-deletetable-class"></a>삭제 테이블 클래스 구현
 
-다음 명령을 입력 하 여 `DeleteTable.java`새 파일을 만들고 엽니다. 프롬프트에서 **예** 를 선택 하 여 새 파일을 만듭니다.
+아래 명령을 입력하여 새 파일을 `DeleteTable.java`만들고 엽니다. 프롬프트에서 **예를** 선택하여 새 파일을 만듭니다.
 
 ```cmd
 notepad src\main\java\com\microsoft\examples\DeleteTable.java
 ```
 
-그런 다음 아래 java 코드를 복사 하 여 새 파일에 붙여넣습니다. 그런 다음 파일을 닫습니다.
+그런 다음 아래 자바 코드를 복사하여 새 파일에 붙여 넣습니다. 그런 다음 파일을 닫습니다.
 
 ```java
 package com.microsoft.examples;
@@ -376,7 +376,7 @@ public class DeleteTable {
 }
 ```
 
-`DeleteTable` 클래스는 `CreateTable` 클래스에서 만든 테이블을 사용 하지 않도록 설정 하 고 삭제 하 여이 예제에서 만든 HBase 테이블을 정리 합니다.
+클래스는 `DeleteTable` 클래스에서 만든 테이블을 사용하지 않도록 설정하고 삭제하여 이 예제에서 만든 `CreateTable` HBase 테이블을 정리합니다.
 
 ## <a name="build-and-package-the-application"></a>애플리케이션 빌드 및 패키지화
 
@@ -397,19 +397,19 @@ public class DeleteTable {
 
 다음 단계에서는 `scp`를 사용하여 HDInsight 클러스터에서 Apache HBase의 기본 헤드 노드에 JAR을 복사합니다. 그런 후 `ssh` 명령은 클러스터에 연결하고 헤드 노드에서 직접 예제를 실행하는 데 사용됩니다.
 
-1. 클러스터에 jar을 업로드 합니다. `CLUSTERNAME`를 HDInsight 클러스터 이름으로 바꾸고 다음 명령을 입력 합니다.
+1. 항아리를 클러스터에 업로드합니다. HDInsight 클러스터 이름으로 바꾼 `CLUSTERNAME` 다음 다음 명령을 입력합니다.
 
     ```cmd
     scp ./target/hbaseapp-1.0-SNAPSHOT.jar sshuser@CLUSTERNAME-ssh.azurehdinsight.net:hbaseapp-1.0-SNAPSHOT.jar
     ```
 
-2. HBase 클러스터에 연결 합니다. `CLUSTERNAME`를 HDInsight 클러스터 이름으로 바꾸고 다음 명령을 입력 합니다.
+2. HBase 클러스터에 연결합니다. HDInsight 클러스터 이름으로 바꾼 `CLUSTERNAME` 다음 다음 명령을 입력합니다.
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-3. Java 응용 프로그램을 사용 하 여 HBase 테이블을 만들려면 오픈 ssh 연결에서 다음 명령을 사용 합니다.
+3. Java 응용 프로그램을 사용하여 HBase 테이블을 만들려면 열려 있는 ssh 연결에서 다음 명령을 사용합니다.
 
     ```bash
     yarn jar hbaseapp-1.0-SNAPSHOT.jar com.microsoft.examples.CreateTable
@@ -440,9 +440,9 @@ public class DeleteTable {
 
 ## <a name="upload-the-jar-and-run-jobs-powershell"></a>JAR 업로드 및 작업 실행(PowerShell)
 
-다음 단계에서는 Azure PowerShell [AZ module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) 을 사용 하 여 Apache HBase 클러스터의 기본 저장소에 JAR을 업로드 합니다. HDInsight cmdlet은 예제를 원격으로 실행하는 데 사용됩니다.
+다음 단계에서는 Azure PowerShell [AZ 모듈을](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) 사용하여 Jar를 아파치 HBase 클러스터의 기본 저장소에 업로드합니다. HDInsight cmdlet은 예제를 원격으로 실행하는 데 사용됩니다.
 
-1. AZ module을 설치 하 고 구성한 후 `hbase-runner.psm1`라는 파일을 만듭니다. 이 파일의 내용으로 다음 텍스트를 사용합니다.
+1. AZ 모듈을 설치하고 구성한 후 `hbase-runner.psm1`. 이 파일의 내용으로 다음 텍스트를 사용합니다.
 
    ```powershell
     <#
@@ -646,9 +646,9 @@ public class DeleteTable {
    * **Add-HDInsightFile** - 클러스터에 파일을 업로드하는 데 사용합니다.
    * **Start-HBaseExample** - 이전에 생성한 클래스를 실행하는 데 사용합니다.
 
-2. `hbaseapp` 디렉터리에 `hbase-runner.psm1` 파일을 저장 합니다.
+2. `hbase-runner.psm1` 디렉토리에 `hbaseapp` 파일을 저장합니다.
 
-3. Azure PowerShell를 사용 하 여 모듈을 등록 합니다. 새 Azure PowerShell 창을 열고 아래 명령을 편집 하 여 `CLUSTERNAME`를 클러스터의 이름으로 바꿉니다. 다음 명령을 입력 합니다.
+3. Azure PowerShell을 통해 모듈을 등록합니다. 새 Azure PowerShell 창을 열고 클러스터 이름으로 대체하여 `CLUSTERNAME` 아래 명령을 편집합니다. 그런 다음 다음 명령을 입력합니다.
 
     ```powershell
     cd C:\HDI\hbaseapp
@@ -705,4 +705,4 @@ public class DeleteTable {
 
 ## <a name="next-steps"></a>다음 단계
 
-[Apache HBase에서 SQLLine을 사용 하는 방법을 알아봅니다.](apache-hbase-query-with-phoenix.md)
+[아파치 HBase와 SQLLine을 사용하는 방법에 대해 알아보기](apache-hbase-query-with-phoenix.md)

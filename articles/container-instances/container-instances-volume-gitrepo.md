@@ -1,13 +1,13 @@
 ---
-title: 컨테이너 그룹에 gitRepo 볼륨 탑재
+title: 컨테이너 그룹에 gitRepo 볼륨 마운트
 description: gitRepo 볼륨을 탑재하여 컨테이너 인스턴스에 Git 리포지토리를 복제하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 06/15/2018
 ms.openlocfilehash: 405cacd7a1649f95640a8dabf476729e101d03f8
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78252096"
 ---
 # <a name="mount-a-gitrepo-volume-in-azure-container-instances"></a>Azure Container Instances에서 gitRepo 볼륨 탑재
@@ -15,7 +15,7 @@ ms.locfileid: "78252096"
 *gitRepo* 볼륨을 탑재하여 컨테이너 인스턴스에 Git 리포지토리를 복제하는 방법을 알아봅니다.
 
 > [!NOTE]
-> *gitRepo* 볼륨 탑재는 현재 Linux 컨테이너로 제한됩니다. Windows 컨테이너에 모든 기능을 제공 하기 위해 작업 하는 동안 [개요](container-instances-overview.md#linux-and-windows-containers)에서 현재 플랫폼 차이를 찾을 수 있습니다.
+> *gitRepo* 볼륨 탑재는 현재 Linux 컨테이너로 제한됩니다. 모든 기능을 Windows 컨테이너에 가져오기 위해 노력하고 있지만 [개요에서](container-instances-overview.md#linux-and-windows-containers)현재 플랫폼 의 차이점을 확인할 수 있습니다.
 
 ## <a name="gitrepo-volume"></a>gitRepo 볼륨
 
@@ -23,7 +23,7 @@ ms.locfileid: "78252096"
 
 *gitRepo* 볼륨을 탑재할 때 세 개의 속성을 설정하여 볼륨을 구성할 수 있습니다.
 
-| 속성 | 필수 | Description |
+| 속성 | 필수 | 설명 |
 | -------- | -------- | ----------- |
 | `repository` | yes | 복제할 Git 리포지토리의 `http://` 또는 `https://`를 포함한 전체 URL입니다.|
 | `directory` | 예 | 리포지토리를 복제해야 하는 디렉터리입니다. 경로는 "`..`"을 포함하거나 이것으로 시작되지 않아야 합니다.  "`.`"을 지정하면 리포지토리가 볼륨의 디렉터리에 복제됩니다. 그렇지 않을 경우 Git 리포지토리가 볼륨 디렉터리 내 지정된 이름의 하위 디렉터리에 복제됩니다. |
@@ -31,9 +31,9 @@ ms.locfileid: "78252096"
 
 ## <a name="mount-gitrepo-volume-azure-cli"></a>gitRepo 볼륨 탑재: Azure CLI
 
-[Azure CLI](/cli/azure)를 사용 하 여 컨테이너 인스턴스를 배포할 때 gitRepo 볼륨을 탑재 하려면 [az container create][az-container-create] 명령에 `--gitrepo-url` 및 `--gitrepo-mount-path` 매개 변수를 제공 합니다. 선택적으로 복제할 볼륨 내 디렉터리(`--gitrepo-dir`)와 복제된 수정 작업의 커밋 해시(`--gitrepo-revision`)를 지정할 수 있습니다.
+[Azure CLI](/cli/azure)로 컨테이너 인스턴스를 배포할 때 gitRepo 볼륨을 탑재하려면 `--gitrepo-url` 및 `--gitrepo-mount-path` 매개 변수를 [az container create][az-container-create] 명령에 제공합니다. 선택적으로 복제할 볼륨 내 디렉터리(`--gitrepo-dir`)와 복제된 수정 작업의 커밋 해시(`--gitrepo-revision`)를 지정할 수 있습니다.
 
-이 예제 명령은 Microsoft [aci-helloworld][aci-helloworld] 샘플 응용 프로그램을 컨테이너 인스턴스의 `/mnt/aci-helloworld`에 복제 합니다.
+이 예제 명령은 Microsoft [aci-helloworld][aci-helloworld] 샘플 `/mnt/aci-helloworld` 응용 프로그램을 컨테이너 인스턴스에 복제합니다.
 
 ```azurecli-interactive
 az container create \
@@ -46,7 +46,7 @@ az container create \
     --gitrepo-mount-path /mnt/aci-helloworld
 ```
 
-GitRepo 볼륨이 탑재 되었는지 확인 하려면 [az container exec][az-container-exec] 를 사용 하 여 컨테이너에서 셸을 시작 하 고 디렉터리를 나열 합니다.
+gitRepo 볼륨이 탑재되었는지 확인하려면 [az container exec][az-container-exec]로 컨테이너에서 셸을 시작하고 디렉터리를 나열합니다.
 
 ```azurecli
 az container exec --resource-group myResourceGroup --name hellogitrepo --exec-command /bin/sh
@@ -63,7 +63,7 @@ drwxr-xr-x    2 root     root          4096 Apr 16 16:35 app
 
 ## <a name="mount-gitrepo-volume-resource-manager"></a>gitRepo 볼륨 탑재: Resource Manager
 
-[Azure Resource Manager 템플릿](/azure/templates/microsoft.containerinstance/containergroups)을 사용하여 gitRepo 볼륨을 탑재하려면 먼저 템플릿의 컨테이너 그룹 `volumes` 섹션에서 `properties` 배열을 입력합니다. 다음으로 *gitRepo* 볼륨을 탑재하려는 컨테이너 그룹에 있는 각 컨테이너의 경우 컨테이너 정의의 `volumeMounts` 섹션에서 `properties` 배열을 채웁니다.
+[Azure Resource Manager 템플릿](/azure/templates/microsoft.containerinstance/containergroups)을 사용하여 gitRepo 볼륨을 탑재하려면 먼저 템플릿의 컨테이너 그룹 `properties` 섹션에서 `volumes` 배열을 입력합니다. 다음으로 *gitRepo* 볼륨을 탑재하려는 컨테이너 그룹에 있는 각 컨테이너의 경우 컨테이너 정의의 `properties` 섹션에서 `volumeMounts` 배열을 채웁니다.
 
 예를 들어 다음과 같은 Resource Manager 템플릿은 단일 컨테이너로 구성된 컨테이너 그룹을 만듭니다. 컨테이너는 *gitRepo* 볼륨 블록으로 지정된 GitHub 리포지토리 두 개를 복제합니다. 두 번째 볼륨에는 복제할 디렉터리를 지정하는 추가 속성과 복제할 특정 수정 내용의 커밋 해시가 포함됩니다.
 
@@ -97,9 +97,9 @@ Azure Repos Git 리포지토리의 경우 유효한 PAT와 조합해서 사용�
 
 GitHub 및 Azure Repos의 개인용 액세스 토큰에 대한 자세한 내용은 다음을 참조하세요.
 
-GitHub: [명령줄에 대 한 개인용 액세스 토큰 만들기][pat-github]
+GitHub: [명령줄에 대한 개인용 액세스 토큰 만들기][pat-github]
 
-Azure Repos: [액세스를 인증 하는 개인 액세스 토큰 만들기][pat-repos]
+Azure Repos: [액세스 인증을 위한 개인용 액세스 토큰 만들기][pat-repos]
 
 ## <a name="next-steps"></a>다음 단계
 

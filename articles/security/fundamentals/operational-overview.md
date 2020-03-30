@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 10/31/2019
 ms.author: tomsh
 ms.openlocfilehash: bcaf45af4c02dad22e2cc611fa7ea5a32ad3a853
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75443874"
 ---
 # <a name="azure-operational-security-overview"></a>Azure 운영 보안 개요
@@ -30,13 +30,13 @@ ms.locfileid: "75443874"
 
 IT 운영 팀은 이러한 시스템의 안정성과 보안을 포함하여 데이터 센터 인프라, 애플리케이션 및 데이터를 관리하는 역할을 담당합니다. 그러나 점점 더 복잡해지는 IT 환경에서 보안 정보를 얻으려면 조직에서 여러 보안 및 관리 시스템의 데이터를 급하게 맞추어야 합니다.
 
-[Microsoft Azure 모니터 로그](/azure/operations-management-suite/operations-management-suite-overview) 는 온-프레미스 및 클라우드 인프라를 관리 하 고 보호 하는 데 도움이 되는 클라우드 기반 IT 관리 솔루션입니다. 핵심 기능은 Azure에서 실행되는 다음 서비스를 통해 제공됩니다. Azure는 온-프레미스 및 클라우드 인프라를 관리하고 보호하는 여러 서비스를 제공합니다. 각 서비스는 특정 관리 기능을 제공합니다. 이러한 서비스를 결합하여 다양한 관리 시나리오를 해결할 수 있습니다. 
+[Microsoft Azure Monitor 로그는](/azure/operations-management-suite/operations-management-suite-overview) 온-프레미스 및 클라우드 인프라를 관리하고 보호하는 데 도움이 되는 클라우드 기반 IT 관리 솔루션입니다. 핵심 기능은 Azure에서 실행되는 다음 서비스를 통해 제공됩니다. Azure는 온-프레미스 및 클라우드 인프라를 관리하고 보호하는 여러 서비스를 제공합니다. 각 서비스는 특정 관리 기능을 제공합니다. 이러한 서비스를 결합하여 다양한 관리 시나리오를 해결할 수 있습니다. 
 
 ### <a name="azure-monitor"></a>Azure Monitor
 
 [Azure Monitor](/azure/azure-monitor/overview)는 관리되는 원본에서 중앙 데이터 저장소로 데이터를 수집합니다. 이 데이터에는 이벤트, 성능 데이터 또는 API를 통해 제공되는 사용자 지정 데이터가 포함될 수 있습니다. 데이터를 수집한 후에는 경고, 분석 및 내보내기에 사용할 수 있습니다.
 
-다양한 원본의 데이터를 통합하고 Azure 서비스의 데이터를 기존 온-프레미스 환경과 결합할 수 있습니다. 또한 Azure Monitor 로그는 모든 종류의 데이터에서 모든 작업을 사용할 수 있도록 해당 데이터에 대해 수행 되는 작업과 데이터 컬렉션을 명확 하 게 구분 합니다.
+다양한 원본의 데이터를 통합하고 Azure 서비스의 데이터를 기존 온-프레미스 환경과 결합할 수 있습니다. 또한 Azure Monitor 로그는 모든 종류의 데이터에 모든 작업을 사용할 수 있도록 해당 데이터에 대해 수행된 작업과 데이터 컬렉션을 명확하게 구분합니다.
 
 ### <a name="automation"></a>Automation
 
@@ -73,11 +73,11 @@ Azure Backup에서는 컴퓨터, 서버 또는 클라우드에 적절히 다운�
 - [풍부한 감사](/azure/active-directory/active-directory-reporting-activity-audit-logs)
 - [보안 모니터링 및 경고](/azure/operations-management-suite/oms-security-responding-alerts)
 
-Azure Active Directory를 사용하면 파트너 및 고객(비즈니스 또는 소비자)을 위해 게시하는 모든 애플리케이션에 동일한 ID 및 액세스 관리 기능이 제공됩니다. 이렇게 하면 운영 비용을 크게 줄일 수 있습니다.
+Azure Active Directory를 사용하면 파트너 및 고객(비즈니스 또는 소비자)을 위해 게시하는 모든 애플리케이션에 동일한 ID 및 액세스 관리 기능이 제공됩니다.  이렇게 하면 운영 비용을 크게 줄일 수 있습니다.
 
 ## <a name="azure-security-center"></a>Azure Security Center
 
-[Azure Security Center](/azure/security-center/security-center-intro)는 Azure 리소스의 보안에 대한 향상된 가시성과 제어권을 통해 위협을 예방하고 감지하며 위협에 대응하는 데 도움이 됩니다. 이는 구독에서 통합된 보안 모니터링 및 정책 관리를 제공하며, 다른 방법으로 발견되지 않을 수 있는 위협을 감지하는 데 도움이 되고 보안 솔루션의 광범위한 환경에서 작동합니다.
+[Azure 보안 센터를](/azure/security-center/security-center-intro) 사용하면 Azure 리소스의 보안에 대한 가시성을 높이고 제어하여 위협을 방지, 탐지 및 대응할 수 있습니다. 이는 구독에서 통합된 보안 모니터링 및 정책 관리를 제공하며, 다른 방법으로 발견되지 않을 수 있는 위협을 감지하는 데 도움이 되고 보안 솔루션의 광범위한 환경에서 작동합니다.
 
 가상 머신의 보안 설정에 대한 가시성을 제공하고 위협을 모니터링하여 Azure의 [VM(가상 머신) 데이터를 보호](/azure/security-center/security-center-linux-virtual-machine)합니다. Security Center는 다음의 목적으로 가상 머신을 모니터링할 수 있습니다.
 
@@ -94,7 +94,7 @@ Security Center는 리소스 구성을 평가하여 보안 문제 및 취약성�
 >[!Note]
 >Security Center의 역할 및 허용된 작업에 대해 알아보려면 [Azure Security Center의 권한](/azure/security-center/security-center-permissions)을 참조하세요.
 
-Security Center에서는 Microsoft Monitoring Agent를 사용하며, 이는 Azure Monitor 서비스에서 사용 하는 것과 동일한 에이전트입니다. 이 에이전트에서 수집된 데이터는 VM의 지리적 위치를 고려하여 Azure 구독 또는 새 작업 영역과 연결된 기존 Log Analytics [작업 영역](/azure/log-analytics/log-analytics-manage-access) 중 하나에 저장됩니다.
+Security Center에서는 Microsoft Monitoring Agent를 사용하며, Azure Monitor 서비스가 사용하는 에이전트와 동일합니다. 이 에이전트에서 수집된 데이터는 VM의 지리적 위치를 고려하여 Azure 구독 또는 새 작업 영역과 연결된 기존 Log Analytics [작업 영역](/azure/log-analytics/log-analytics-manage-access) 중 하나에 저장됩니다.
 
 ## <a name="azure-monitor"></a>Azure Monitor
 
@@ -166,7 +166,7 @@ Blueprints는 다음과 같은 다양한 리소스 템플릿 및 기타 아티�
 
 - 역할 할당
 - 정책 할당
-- Azure Resource Manager 템플릿
+- Azure 리소스 관리자 템플릿
 - 리소스 그룹
 
 ## <a name="devops"></a>DevOps
@@ -192,5 +192,5 @@ Microsoft Azure와 같은 클라우드 플랫폼은 기존 병목 현상을 제�
 보안 및 감사 솔루션에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 - [보안 및 규정 준수](https://azure.microsoft.com/overview/trusted-cloud/)
-- [Azure Security Center](/azure/security-center/security-center-intro)
+- [Azure 보안 센터](/azure/security-center/security-center-intro)
 - [Azure Monitor](/azure/azure-monitor/overview)

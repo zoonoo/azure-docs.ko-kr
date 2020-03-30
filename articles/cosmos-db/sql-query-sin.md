@@ -1,6 +1,6 @@
 ---
-title: Azure Cosmos DB 쿼리 언어의 SIN
-description: Azure Cosmos DB의 SQL 시스템 함수 사인에 대해 알아봅니다.
+title: Azure 코스모스 DB 쿼리 언어의 SIN
+description: Azure Cosmos DB에서 SQL 시스템 함수 SIN에 대해 알아봅니다.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,13 +8,13 @@ ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 25e7cf66fdd55a0b641c35443e38b0a67cbe365d
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78303106"
 ---
-# <a name="sin-azure-cosmos-db"></a>SIN (Azure Cosmos DB)
+# <a name="sin-azure-cosmos-db"></a>신 (Azure 코스모스 DB)
  지정된 식의 라디안에서 지정된 각도의 삼각 사인을 반환합니다.  
   
 ## <a name="syntax"></a>구문
@@ -34,7 +34,7 @@ SIN(<numeric_expr>)
   
 ## <a name="examples"></a>예
   
-  다음 예에서는 지정 된 각도의 `SIN` 계산 합니다.  
+  다음 예제는 지정된 `SIN` 각도를 계산합니다.  
   
 ```sql
 SELECT SIN(45.175643) AS sin  
@@ -48,10 +48,10 @@ SELECT SIN(45.175643) AS sin
 
 ## <a name="remarks"></a>설명
 
-이 시스템 함수는 인덱스를 활용 하지 않습니다.
+이 시스템 함수는 인덱스를 사용하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [수치 연산 함수 Azure Cosmos DB](sql-query-mathematical-functions.md)
-- [시스템 함수 Azure Cosmos DB](sql-query-system-functions.md)
-- [Azure Cosmos DB 소개](introduction.md)
+- [수학적 함수 Azure 코스모스 DB](sql-query-mathematical-functions.md)
+- [시스템 기능 Azure 코스모스 DB](sql-query-system-functions.md)
+- [Azure 코스모스 DB 소개](introduction.md)

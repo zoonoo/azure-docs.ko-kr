@@ -1,7 +1,7 @@
 ---
 title: Azure 응용 프로그램 보안 그룹 개요
 titlesuffix: Azure Virtual Network
-description: 응용 프로그램 보안 그룹을 사용 하는 방법에 대해 알아봅니다.
+description: 응용 프로그램 보안 그룹의 사용에 대해 알아봅니다.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -14,10 +14,10 @@ ms.date: 02/27/2020
 ms.author: kumud
 ms.reviewer: kumud
 ms.openlocfilehash: 775ef92a0ca486d1f8a6c44c78a4df04cd5ef467
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78274711"
 ---
 # <a name="application-security-groups"></a>애플리케이션 보안 그룹

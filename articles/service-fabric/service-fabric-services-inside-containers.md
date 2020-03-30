@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 5/23/2018
 ms.author: anmola
 ms.openlocfilehash: 9fe5980c13f655f8f30cc42771971a5015460420
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75466178"
 ---
 # <a name="containerize-your-service-fabric-reliable-services-and-reliable-actors-on-windows"></a>Windows에서 Service Fabric Reliable Services 및 Reliable Actors 컨테이너화
@@ -111,7 +111,7 @@ Service Fabric은 Service Fabric 마이크로 서비스(Reliable Services 및 Re
    ```
 
 > [!NOTE] 
-> 기본적으로 Service Fabric 응용 프로그램은 응용 프로그램별 요청을 수락 하는 끝점 형식의 Service Fabric 런타임에 액세스할 수 있습니다. 응용 프로그램이 신뢰할 수 없는 코드를 호스팅하는 경우이 액세스를 사용 하지 않도록 설정 하십시오. 자세한 내용은 [Service Fabric의 보안 모범 사례](service-fabric-best-practices-security.md#platform-isolation)를 참조 하세요. Service Fabric 런타임에 대 한 액세스를 사용 하지 않도록 설정 하려면 다음과 같이 가져온 서비스 매니페스트에 해당 하는 응용 프로그램 매니페스트의 정책 섹션에서 다음 설정을 추가 합니다.
+> 기본적으로 Service Fabric 응용 프로그램은 응용 프로그램별 요청을 수락하는 끝점 의 형태로 서비스 패브릭 런타임에 액세스할 수 있습니다. 응용 프로그램이 신뢰할 수 없는 코드를 호스트할 때 이 액세스를 사용하지 않도록 설정하는 것이 좋습니다. 자세한 내용은 서비스 [패브릭의 보안 모범 사례를](service-fabric-best-practices-security.md#platform-isolation)참조하십시오. 서비스 패브릭 런타임에 대한 액세스를 비활성화하려면 가져온 서비스 매니페스트에 해당하는 응용 프로그램 매니페스트의 정책 섹션에 다음과 같은 설정을 추가합니다.
 >
 ```xml
   <Policies>

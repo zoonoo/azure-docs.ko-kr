@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB Gremlin API를 사용 하 여 그래프 대량 실행자 .NET 라이브러리 사용
+title: Azure 코스모스 DB 그렘린 API를 사용하여 그래프 대량 실행기 .NET 라이브러리 사용
 description: Bulk Executor 라이브러리를 사용하여 그래프 데이터를 대량으로 Azure Cosmos DB Gremlin API 컨테이너로 가져오는 방법을 알아봅니다.
 author: luisbosquez
 ms.service: cosmos-db
@@ -9,10 +9,10 @@ ms.date: 05/28/2019
 ms.author: lbosq
 ms.reviewer: sngun
 ms.openlocfilehash: cf51d418a008d332bfcea01a7a9dc1a265116e29
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75442178"
 ---
 # <a name="using-the-graph-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db-gremlin-api"></a>Graph Bulk Executor .NET 라이브러리를 사용하여 Azure Cosmos DB Gremlin API에서 대량 작업 수행
@@ -77,7 +77,7 @@ Bulk Executor 라이브러리의 매개 변수에 대한 자세한 내용은 [Az
 
 페이로드를 `GremlinVertex` 및 `GremlinEdge` 개체로 인스턴스화해야 합니다. 이러한 개체를 만드는 방법은 다음과 같습니다.
 
-**꼭짓점**:
+**정점**:
 ```csharp
 // Creating a vertex
 GremlinVertex v = new GremlinVertex(
@@ -113,9 +113,9 @@ e.AddProperty("customProperty", "value");
 
 ## <a name="sample-application"></a>샘플 애플리케이션
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>사전 요구 사항
 * Azure 개발 워크로드를 사용하는 Visual Studio 2019. [Visual Studio 2019 Community Edition](https://visualstudio.microsoft.com/downloads/)을 무료로 시작할 수 있습니다.
-* Azure 구독 [여기](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cosmos-db)서 무료 Azure 계정을 만들 수 있습니다. 또는 Azure 구독 없이 [Azure Cosmos DB 평가판 사용해보기](https://azure.microsoft.com/try/cosmosdb/)로 Cosmos 데이터베이스 계정을 만들 수 있습니다.
+* Azure 구독 여기에서 무료 Azure 계정을 만들 수 [있습니다.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cosmos-db) 또는 Azure 구독 없이 [Azure Cosmos DB 평가판 사용해보기](https://azure.microsoft.com/try/cosmosdb/)로 Cosmos 데이터베이스 계정을 만들 수 있습니다.
 * **무제한 컬렉션**을 사용하는 Azure Cosmos DB Gremlin API 데이터베이스. 이 가이드에서는 [.NET의 Azure Cosmos DB Gremlin API](https://docs.microsoft.com/azure/cosmos-db/create-graph-dotnet)를 시작하는 방법을 보여줍니다.
 * Git. 자세한 내용은 [Git 다운로드 페이지](https://git-scm.com/downloads)를 참조하세요.
 
@@ -128,7 +128,7 @@ git clone https://github.com/Azure-Samples/azure-cosmosdb-graph-bulkexecutor-dot
 
 이 리포지토리에는 다음 파일이 포함된 GraphBulkExecutor 샘플이 들어 있습니다.
 
-File|Description
+파일|설명
 ---|---
 `App.config`|여기서 애플리케이션 및 데이터베이스 관련 매개 변수를 지정합니다. 대상 데이터베이스 및 컬렉션에 연결하도록 이 파일을 먼저 수정해야 합니다.
 `Program.cs`| 이 파일에는 `DocumentClient` 컬렉션을 만들고 Bulk Executor 요청의 정리 및 전송을 처리하는 논리가 들어 있습니다.
@@ -136,7 +136,7 @@ File|Description
 
 `App.config` 파일에서, 다음은 입력 가능한 구성 값입니다.
 
-설정|Description
+설정|설명
 ---|---
 `EndPointUrl`|Azure Cosmos DB Gremlin API 데이터베이스 계정의 개요 블레이드에서 찾을 수 있는 **.NET SDK 엔드포인트**입니다. `https://your-graph-database-account.documents.azure.com:443/` 형식입니다.
 `AuthorizationKey`|Azure Cosmos DB 계정 아래에 나열되는 기본 키 또는 보조 키입니다. [Azure Cosmos DB 리소스에 대한 액세스 보호](https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data#master-keys)에 대해 자세히 알아보세요.

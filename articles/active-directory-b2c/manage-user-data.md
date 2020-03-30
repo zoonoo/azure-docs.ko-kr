@@ -12,21 +12,21 @@ ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
 ms.openlocfilehash: e245b58449ab773914fc60be056082b82f05035a
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78184488"
 ---
 # <a name="manage-user-data-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 데이터 관리
 
- 이 문서에서는 [MICROSOFT GRAPH API](https://docs.microsoft.com/graph/use-the-api)에서 제공 하는 작업을 사용 하 여 Azure Active Directory B2C (Azure AD B2C)에서 사용자 데이터를 관리 하는 방법을 설명 합니다. 사용자 데이터를 관리하는 작업에는 감사 로그에서 데이터를 삭제하거나 내보내는 작업이 포함됩니다.
+ 이 문서에서는 [Microsoft 그래프 API에서](https://docs.microsoft.com/graph/use-the-api)제공하는 작업을 사용하여 Azure Active Directory B2C(Azure AD B2C)에서 사용자 데이터를 관리하는 방법에 대해 설명합니다. 사용자 데이터를 관리하는 작업에는 감사 로그에서 데이터를 삭제하거나 내보내는 작업이 포함됩니다.
 
 [!INCLUDE [gdpr-intro-sentence.md](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="delete-user-data"></a>사용자 데이터 삭제
 
-사용자 데이터는 Azure AD B2C 디렉터리와 감사 로그에 저장됩니다. 모든 사용자 감사 데이터는 Azure AD B2C 7 일 동안 보존 됩니다. 7 일 동안 사용자 데이터를 삭제 하려는 경우 [사용자 삭제](https://docs.microsoft.com/graph/api/user-delete) 작업을 사용할 수 있습니다. 데이터가 상주할 수도 있는 Azure AD B2C 테넌트마다 삭제 작업이 필요합니다.
+사용자 데이터는 Azure AD B2C 디렉터리와 감사 로그에 저장됩니다. 모든 사용자 감사 데이터는 Azure AD B2C에서 7일 동안 유지됩니다. 해당 7일 기간 내에 사용자 데이터를 삭제하려면 사용자 [삭제](https://docs.microsoft.com/graph/api/user-delete) 작업을 사용할 수 있습니다. 데이터가 상주할 수도 있는 Azure AD B2C 테넌트마다 삭제 작업이 필요합니다.
 
 Azure AD B2C의 모든 사용자에게는 개체 ID가 할당됩니다. 개체 ID는 Azure AD B2C에서 사용자 데이터를 삭제하는 데 사용할 수 있는 명확한 식별자를 제공합니다. 아키텍처에 따라 개체 ID는 재무, 마케팅 및 고객 관계 관리 데이터베이스와 같은 기타 서비스 전반에서 유용한 상관 관계 식별자가 될 수 있습니다.
 
@@ -37,7 +37,7 @@ Azure AD B2C의 모든 사용자에게는 개체 ID가 할당됩니다. 개체 I
 1. 사용자가 로그인하여 **내 데이터 삭제**를 선택합니다.
 2. 애플리케이션이 애플리케이션의 관리 섹션 내에 데이터를 삭제하는 옵션을 제공합니다.
 3. 애플리케이션이 Azure AD B2C에 인증을 강제로 수행합니다. Azure AD B2C가 사용자의 개체 ID가 포함된 토큰을 애플리케이션에 제공합니다.
-4. 토큰은 응용 프로그램에서 수신 되 고 개체 ID는 Microsoft Graph API를 호출 하 여 사용자 데이터를 삭제 하는 데 사용 됩니다. Microsoft Graph API는 사용자 데이터를 삭제 하 고 상태 코드 200 OK를 반환 합니다.
+4. 토큰은 응용 프로그램에서 수신되며 개체 ID는 Microsoft 그래프 API를 호출하여 사용자 데이터를 삭제하는 데 사용됩니다. Microsoft 그래프 API는 사용자 데이터를 삭제하고 200 OK의 상태 코드를 반환합니다.
 5. 애플리케이션이 개체 ID나 기타 식별자를 사용하여 필요에 따라 다른 조직 시스템에서 사용자 데이터 삭제를 조정합니다.
 6. 애플리케이션이 데이터 삭제를 확인하고 사용자에게 다음 단계를 제공합니다.
 
@@ -53,8 +53,8 @@ Azure AD B2C 사용자 데이터는 다음 항목으로 제한됩니다.
 다음과 같은 데이터 내보내기 흐름 예제에서 애플리케이션이 수행하는 것으로 언급된 단계는 백 엔드 프로세스 또는 디렉터리의 관리자 역할이 있는 사용자에 의해 수행될 수도 있습니다.
 
 1. 사용자가 애플리케이션에 로그인합니다. Azure AD B2C는 필요한 경우 Azure Multi-Factor Authentication을 사용하여 인증을 적용합니다.
-2. 응용 프로그램은 사용자 자격 증명을 사용 하 여 Microsoft Graph API 작업을 호출 하 여 사용자 특성을 검색 합니다. Microsoft Graph API는 JSON 형식의 특성 데이터를 제공 합니다. 스키마에 따라 사용자에 대한 모든 개인 데이터를 포함하도록 ID 토큰 콘텐츠를 설정할 수 있습니다.
-3. 애플리케이션이 사용자 감사 활동을 검색합니다. Microsoft Graph API는 응용 프로그램에 이벤트 데이터를 제공 합니다.
+2. 응용 프로그램은 사용자 자격 증명을 사용하여 Microsoft Graph API 작업을 호출하여 사용자 특성을 검색합니다. Microsoft 그래프 API는 JSON 형식으로 특성 데이터를 제공합니다. 스키마에 따라 사용자에 대한 모든 개인 데이터를 포함하도록 ID 토큰 콘텐츠를 설정할 수 있습니다.
+3. 애플리케이션이 사용자 감사 활동을 검색합니다. Microsoft 그래프 API는 응용 프로그램에 이벤트 데이터를 제공합니다.
 4. 애플리케이션이 사용자가 사용할 수 있도록 데이터를 집계합니다.
 
 ## <a name="next-steps"></a>다음 단계

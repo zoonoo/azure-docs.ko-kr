@@ -1,5 +1,5 @@
 ---
-title: 앱에 대 한 서비스 약관 및 개인 정보 취급 방침 | Microsoft
+title: 앱에 대한 서비스 약관 및 개인 정보 보호 정보 | Azure
 description: Azure AD를 사용하도록 등록된 앱의 서비스 약관 및 개인정보처리방침을 구성하는 방법을 알아봅니다.
 services: active-directory
 author: rwike77
@@ -13,13 +13,13 @@ ms.author: ryanwi
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
 ms.openlocfilehash: 8fc85781f139b45e9e37f6e0f7cc36974041352d
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78300012"
 ---
-# <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>방법: 앱에 대 한 서비스 약관 및 개인 정보 취급 방침 구성
+# <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>방법: 앱에 대한 서비스 약관 및 개인 정보 취급 방침 구성
 
 Azure AD(Azure Active Directory)와 Microsoft 계정을 통합하는 앱을 빌드하고 관리하는 개발자는 앱의 서비스 약관 및 개인정보처리방침에 대한 링크를 포함해야 합니다. 서비스 약관 및 개인정보처리방침은 사용자 동의 환경을 통해 사용자에게 표시됩니다. 서비스 약관 및 개인정보처리방침은 사용자가 앱을 믿고 사용할 수 있게 도와줍니다. 서비스 약관 및 개인정보처리방침은 여러 디렉터리에서 사용되거나 모든 Microsoft 계정에 제공되는 사용자용 다중 테넌트 앱에서 특히 중요합니다.
 
@@ -39,7 +39,7 @@ Azure AD(Azure Active Directory)와 Microsoft 계정을 통합하는 앱을 빌�
 
 앱의 서비스 약관 및 개인정보처리방침 문서에 링크를 추가하기 전에 URL이 지침을 준수하는지 확인해야 합니다.
 
-| 지침     | Description                           |
+| 지침     | 설명                           |
 |---------------|---------------------------------------|
 | 형식        | 유효한 URL                             |
 | 유효한 스키마 | HTTP 및 HTTPS<br/>HTTPS 권장 |
@@ -51,22 +51,22 @@ Azure AD(Azure Active Directory)와 Microsoft 계정을 통합하는 앱을 빌�
 
 서비스 약관 및 개인정보처리방침이 준비되면 다음 방법 중 하나를 사용하여 앱에 이러한 문서의 링크를 추가할 수 있습니다.
 
-* [Azure Portal을 통해](#azure-portal)
+* [Azure 포털을 통해](#azure-portal)
 * [앱 개체 JSON을 사용하여](#app-object-json)
-* [Microsoft Graph API 사용](#msgraph-rest-api)
+* [마이크로소프트 그래프 API 사용](#msgraph-rest-api)
 
-### <a name="azure-portal"></a>Azure Portal 사용
-Azure Portal에서 다음 단계를 수행 합니다.
+### <a name="using-the-azure-portal"></a><a name="azure-portal"></a>Azure 포털 사용
+Azure 포털에서 다음 단계를 따릅니다.
 
-1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+1. [Azure 포털에](https://portal.azure.com/)로그인합니다.
 2. **앱 등록** 섹션으로 이동하여 앱을 선택합니다.
-3. **브랜딩** 창을 엽니다.
+3. 브랜딩 창을 **엽니다.**
 4. **서비스 약관 URL** 및 **개인정보처리방침 URL** 필드를 채웁니다.
 5. 변경 내용을 저장합니다.
 
-    ![앱 속성에는 서비스 약관 및 개인정보 처리 방침 Url이 포함 됩니다.](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
+    ![앱 속성에는 서비스 약관 및 개인 정보 취급방침 URL이 포함되어 있습니다.](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
 
-### <a name="app-object-json"></a>앱 개체 JSON을 사용하여
+### <a name="using-the-app-object-json"></a><a name="app-object-json"></a>앱 개체 JSON을 사용하여
 
 앱 개체 JSON을 직접 수정하는 것을 선호하는 경우 Azure Portal 또는 애플리케이션 등록 포털에서 매니페스트 편집기를 사용하여 앱의 서비스 약관 및 개인정보처리방침 링크를 포함할 수 있습니다.
 
@@ -77,9 +77,9 @@ Azure Portal에서 다음 단계를 수행 합니다.
     }
 ```
 
-### <a name="msgraph-rest-api"></a>Microsoft Graph API 사용
+### <a name="using-the-microsoft-graph-api"></a><a name="msgraph-rest-api"></a>마이크로소프트 그래프 API 사용
 
-모든 앱을 프로그래밍 방식으로 업데이트 하려면 Microsoft Graph API를 사용 하 여 모든 앱을 업데이트 하 여 서비스 약관 및 개인정보 처리 방침 문서에 대 한 링크를 포함 합니다.
+모든 앱을 프로그래밍 방식으로 업데이트하려면 Microsoft Graph API를 사용하여 서비스 약관 및 개인 정보 취급 방침 문서에 대한 링크를 포함하도록 모든 앱을 업데이트할 수 있습니다.
 
 ```
 PATCH https://graph.microsoft.com/v1.0/applications/{application id}
@@ -97,4 +97,4 @@ PATCH https://graph.microsoft.com/v1.0/applications/{application id}
 
 > [!NOTE]
 > * `supportUrl`, `marketingUrl` 및 `logoUrl` 필드에 할당된 기존 값을 덮어쓰지 않도록 주의해야 합니다.
-> * Microsoft Graph API는 Azure AD 계정으로 로그인 하는 경우에만 작동 합니다. 개인 Microsoft 계정은 지원되지 않습니다.
+> * Microsoft 그래프 API는 Azure AD 계정으로 로그인할 때만 작동합니다. 개인 Microsoft 계정은 지원되지 않습니다.

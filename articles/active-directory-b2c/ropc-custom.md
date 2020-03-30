@@ -1,7 +1,7 @@
 ---
-title: 사용자 지정 정책을 사용 하 여 리소스 소유자 암호 자격 증명 흐름 구성
+title: 사용자 지정 정책으로 리소스 소유자 암호 자격 증명 흐름 구성
 titleSuffix: Azure AD B2C
-description: Azure Active Directory B2C에서 사용자 지정 정책을 사용 하 여 ROPC (리소스 소유자 암호 자격 증명) 흐름을 구성 하는 방법에 대해 알아봅니다.
+description: Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 리소스 소유자 암호 자격 증명(ROPC) 흐름을 구성하는 방법을 알아봅니다.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,21 +12,21 @@ ms.date: 02/27/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 55b4750d2c601a4d3c66bcd8235a9718d6daaf9d
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78187006"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 리소스 소유자 암호 자격 증명 흐름 구성
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-Azure Active Directory B2C (Azure AD B2C)에서 리소스 소유자 암호 자격 증명 (ROPC) 흐름은 OAuth 표준 인증 흐름입니다. 이 흐름에서 신뢰 당사자라고도 하는 애플리케이션은 토큰에 유효한 자격 증명을 교환합니다. 자격 증명에는 사용자 ID 및 암호가 포함됩니다. 반환되는 토큰은 ID 토큰, 액세스 토큰 및 새로 고침 토큰입니다.
+Azure Active Directory B2C(Azure AD B2C)에서 리소스 소유자 암호 자격 증명(ROPC) 흐름은 OAuth 표준 인증 흐름입니다. 이 흐름에서 신뢰 당사자라고도 하는 애플리케이션은 토큰에 유효한 자격 증명을 교환합니다. 자격 증명에는 사용자 ID 및 암호가 포함됩니다. 반환되는 토큰은 ID 토큰, 액세스 토큰 및 새로 고침 토큰입니다.
 
 [!INCLUDE [active-directory-b2c-ropc-notes](../../includes/active-directory-b2c-ropc-notes.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 시작](custom-policy-get-started.md)의 단계를 완료합니다.
 
@@ -86,7 +86,7 @@ Azure Active Directory B2C (Azure AD B2C)에서 리소스 소유자 암호 자�
     </ClaimsTransformations>
     ```
 
-4. **의** DisplayName**이 있는** ClaimsProvider`Local Account SignIn` 요소를 찾아 다음 기술 프로필을 추가합니다.
+4. `Local Account SignIn`의 **DisplayName**이 있는 **ClaimsProvider** 요소를 찾아 다음 기술 프로필을 추가합니다.
 
     ```XML
     <TechnicalProfile Id="ResourceOwnerPasswordCredentials-OAUTH2">
@@ -124,7 +124,7 @@ Azure Active Directory B2C (Azure AD B2C)에서 리소스 소유자 암호 자�
     </TechnicalProfile>
     ```
 
-    **Client_id** **DefaultValue** 를 필수 구성 요소 자습서에서 만든 ProxyIdentityExperienceFramework 응용 프로그램의 응용 프로그램 id로 바꿉니다. 그런 다음 **Resource_id** **DefaultValue** 를 필수 구성 요소 자습서에서 만든 IdentityExperienceFramework 응용 프로그램의 응용 프로그램 id로 바꿉니다.
+    **기본값** **client_id** 프록시IdentityExperienceFramework 응용 프로그램의 응용 프로그램 ID를 필수 구성 요소 자습서에서 만든 것으로 바꿉을 바꿉꿉입니다. 그런 다음 resource_id **resource_id** **DefaultValue를** 필수 구성 요소 자습서에서 만든 IdentityExperienceFramework 응용 프로그램의 응용 프로그램 ID로 바꿉습니다.
 
 5. 다음 **ClaimsProvider** 요소를 기술 프로필과 함께 **ClaimsProviders** 요소에 추가합니다.
 
@@ -239,7 +239,7 @@ Azure Active Directory B2C (Azure AD B2C)에서 리소스 소유자 암호 자�
     ```
 
 5. Azure AD B2C 테넌트의 **사용자 지정 정책** 페이지에서 **업로드 정책**을 선택합니다.
-6. **정책이 있는 경우 덮어쓰기**를 사용 하도록 설정한 다음 *ROPC_Auth .xml* 파일로 이동 하 여 선택 합니다.
+6. **정책이 있는 경우 덮어쓰기를**사용하도록 설정한 다음 *ROPC_Auth.xml* 파일을 찾아서 선택합니다.
 7. **업로드**를 클릭합니다.
 
 ## <a name="test-the-policy"></a>정책 테스트
@@ -253,10 +253,10 @@ Azure Active Directory B2C (Azure AD B2C)에서 리소스 소유자 암호 자�
 
 | Key | 값 |
 | --- | ----- |
-| username | `user-account` |
+| 사용자 이름 | `user-account` |
 | password | `password1` |
 | grant_type | password |
-| 범위 | openid `application-id` offline_access |
+| scope | openid `application-id` offline_access |
 | client_id | `application-id` |
 | response_type | 토큰 id_token |
 

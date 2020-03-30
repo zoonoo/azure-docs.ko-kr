@@ -1,10 +1,10 @@
 ---
-title: '자습서: Oracle online을 Azure Database for PostgreSQL로 마이그레이션'
+title: '자습서: Oracle을 온라인 으로 마이그레이션하는 경우 PostgreSQL용 Azure 데이터베이스'
 titleSuffix: Azure Database Migration Service
 description: Azure Database Migration Service를 사용하여 Oracle 온-프레미스 또는 가상 머신에서 Azure Database for PostgreSQL로의 온라인 마이그레이션을 수행하는 방법을 알아봅니다.
 services: dms
-author: pochiraju
-ms.author: rajpo
+author: HJToland3
+ms.author: jtoland
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/24/2020
-ms.openlocfilehash: 14db95adccf5118321bc763cbe599e19febc7eac
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.openlocfilehash: 956523e2b51795a4bc97c653dab8b408b06061f4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78255572"
 ---
-# <a name="tutorial-migrate-oracle-to-azure-database-for-postgresql-online-using-dms-preview"></a>자습서: DMS (미리 보기)를 사용 하 여 Azure Database for PostgreSQL 온라인으로 Oracle 마이그레이션
+# <a name="tutorial-migrate-oracle-to-azure-database-for-postgresql-online-using-dms-preview"></a>자습서: DMS(미리 보기)를 사용하여 Oracle을 PostgreSQL 온라인용 Azure 데이터베이스로 마이그레이션합니다.
 
 Azure Database Migration Service를 사용하여 가동 중지 시간을 최소화하면서 온-프레미스 또는 가상 머신에서 호스팅되는 Oracle 데이터베이스에서 [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/)로 데이터베이스를 마이그레이션할 수 있습니다. 즉 애플리케이션에 대한 가동 중지 시간을 최소화하면서 마이그레이션을 완료할 수 있습니다. 이 자습서에서는 Azure Database Migration Service의 온라인 마이그레이션 작업을 사용하여 **HR** 샘플 데이터베이스를 Oracle 11g의 온-프레미스 또는 가상 머신 인스턴스에서 Azure Database for PostgreSQL로 마이그레이션합니다.
 
@@ -48,14 +48,14 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
 이 자습서를 완료하려면 다음이 필요합니다.
 
 * [Oracle 11g 릴리스 2(Standard Edition, Standard Edition One 또는 Enterprise Edition)](https://www.oracle.com/technetwork/database/enterprise-edition/downloads/index.html)를 다운로드하여 설치합니다.
-* **여기**에서 [HR](https://docs.oracle.com/database/121/COMSC/installation.htm#COMSC00002) 샘플 데이터베이스를 다운로드합니다.
-* [Windows 또는 Linux에서 ora2pg](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/Steps%20to%20Install%20ora2pg%20on%20Windows%20and%20Linux.pdf)를 다운로드 하 여 설치 합니다.
+* [여기](https://docs.oracle.com/database/121/COMSC/installation.htm#COMSC00002)에서 **HR** 샘플 데이터베이스를 다운로드합니다.
+* 다운로드 및 [윈도우 또는 리눅스 중 하나에 ora2pg를 설치합니다.](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/Steps%20to%20Install%20ora2pg%20on%20Windows%20and%20Linux.pdf)
 * [Azure Database for PostgreSQL에서 인스턴스를 만듭니다](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal).
 * 이 [문서](https://docs.microsoft.com/azure/postgresql/tutorial-design-database-using-azure-portal)의 지침을 사용하여 인스턴스에 연결하고 데이터베이스를 만듭니다.
-* [Express](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 경로 또는 [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)을 사용 하 여 온-프레미스 원본 서버에 대 한 사이트 간 연결을 제공 하는 Azure Resource Manager 배포 모델을 사용 하 여 Azure Database Migration Service에 대 한 Microsoft Azure Virtual Network를 만듭니다. 가상 네트워크를 만드는 방법에 대 한 자세한 내용은 [Virtual Network 설명서](https://docs.microsoft.com/azure/virtual-network/)와 특히 단계별 정보를 포함 하는 빠른 시작 문서를 참조 하세요.
+* [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 또는 [VPN을](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)사용하여 온-프레미스 소스 서버에 대한 사이트 간 연결을 제공하는 Azure 리소스 관리자 배포 모델을 사용하여 Azure 데이터베이스 마이그레이션 서비스에 대한 Microsoft Azure 가상 네트워크를 만듭니다. 가상 네트워크 만들기에 대한 자세한 내용은 [가상 네트워크 설명서](https://docs.microsoft.com/azure/virtual-network/)및 특히 단계별 세부 정보가 있는 빠른 시작 문서를 참조하십시오.
 
   > [!NOTE]
-  > 가상 네트워크를 설정 하는 동안 Microsoft에 네트워크 피어 링을 사용 하는 Express 경로를 사용 하는 경우 서비스가 프로 비전 될 서브넷에 다음 서비스 [끝점](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) 을 추가 합니다.
+  > 가상 네트워크 설정 중에 Microsoft에 피어링하는 네트워크와 함께 ExpressRoute를 사용하는 경우 서비스를 프로비전할 서브넷에 다음 서비스 [끝점을](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) 추가합니다.
   >
   > * 대상 데이터베이스 엔드포인트(예: SQL 엔드포인트, Cosmos DB 엔드포인트 등)
   > * 스토리지 엔드포인트
@@ -63,11 +63,11 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
   >
   > Azure Database Migration Service에는 인터넷 연결이 없으므로 이 구성이 필요합니다.
 
-* 가상 네트워크 NSG (네트워크 보안 그룹) 규칙이 Azure Database Migration Service에 대해 443, 53, 9354, 445, 12000 인바운드 통신 포트를 차단 하지 않는지 확인 합니다. Virtual network NSG 트래픽 필터링에 대 한 자세한 내용은 [네트워크 보안 그룹을 사용 하 여 네트워크 트래픽 필터링](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm)문서를 참조 하세요.
+* 가상 네트워크 네트워크 보안 그룹(NSG) 규칙이 Azure 데이터베이스 마이그레이션 서비스(443, 53, 9354, 445, 12000)에 대한 다음 인바운드 통신 포트를 차단하지 않도록 합니다. 가상 네트워크 NSG 트래픽 필터링에 대한 자세한 내용은 [네트워크 보안 그룹과 네트워크 트래픽 필터링](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm)문서를 참조하십시오.
 * [데이터베이스 엔진 액세스를 위한 Windows 방화벽](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access)을 구성합니다.
 * Windows 방화벽을 열어 Azure Database Migration Service에서 원본 Oracle 서버(기본적으로 1521 TCP 포트)에 액세스하도록 허용합니다.
 * 원본 데이터베이스 앞에 방화벽 어플라이언스를 사용하는 경우 Azure Database Migration Service에서 원본 데이터베이스에 액세스하여 마이그레이션할 수 있도록 허용하는 방화벽 규칙을 추가해야 합니다.
-* Azure Database Migration Service에서 대상 데이터베이스에 액세스할 수 있도록 Azure Database for PostgreSQL에 대한 서버 수준 [방화벽 규칙](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure)을 만듭니다. Azure Database Migration Service에 사용 되는 가상 네트워크의 서브넷 범위를 제공 합니다.
+* Azure Database Migration Service에서 대상 데이터베이스에 액세스할 수 있도록 Azure Database for PostgreSQL에 대한 서버 수준 [방화벽 규칙](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure)을 만듭니다. Azure 데이터베이스 마이그레이션 서비스에 사용되는 가상 네트워크의 서브넷 범위를 제공합니다.
 * 원본 Oracle 데이터베이스에 대한 액세스를 사용하도록 설정합니다.
 
   > [!NOTE]
@@ -174,7 +174,7 @@ ora2pg를 사용하여 Oracle에서 Azure Database for PostgreSQL로 마이그�
 
 대부분의 고객은 평가 보고서를 검토하고 자동 및 수동 변환 작업을 고려하는 데 상당한 시간을 할애합니다.
 
-Ora2pg를 구성 하 고 실행 하 여 평가 보고서를 만들려면 Oracle의 **Premigration: 평가** 섹션을 참조 [하 여 Cookbook를 Azure Database for PostgreSQL](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Oracle%20to%20Azure%20PostgreSQL%20Migration%20Cookbook.pdf)합니다. 샘플 ora2pg 평가 보고서는 [여기](https://ora2pg.darold.net/report.html)서 참조할 수 있습니다.
+ora2pg를 구성하고 실행하여 평가 보고서를 만들려면 [오라클의 PostgreSQL 쿡북에 대한 Azure 데이터베이스의](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Oracle%20to%20Azure%20PostgreSQL%20Migration%20Cookbook.pdf) **사전 마이그레이션: 평가** 섹션을 참조하십시오. 샘플 ora2pg 평가 보고서는 [여기](https://ora2pg.darold.net/report.html)서 참조할 수 있습니다.
 
 ## <a name="export-the-oracle-schema"></a>Oracle 스키마 내보내기
 
@@ -186,13 +186,13 @@ ora2pg를 실행하여 각 데이터베이스 개체를 .sql 파일로 내보낼
 psql -f [FILENAME] -h [AzurePostgreConnection] -p 5432 -U [AzurePostgreUser] -d database 
 ```
 
-다음은 그 예입니다.
+예를 들어:
 
 ```
 psql -f %namespace%\schema\sequences\sequence.sql -h server1-server.postgres.database.azure.com -p 5432 -U username@server1-server -d database
 ```
 
-스키마 변환을 위해 ora2pg을 구성 하 고 실행 하려면 Oracle의 **Migration: schema and data** 섹션 [to Azure Database for PostgreSQL Cookbook를](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Oracle%20to%20Azure%20PostgreSQL%20Migration%20Cookbook.pdf)참조 하세요.
+스키마 변환을 위해 ora2pg를 구성하고 실행하려면 Oracle의 **스키마 및 데이터** 섹션을 [PostgreSQL 쿡북용 Azure 데이터베이스로](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Oracle%20to%20Azure%20PostgreSQL%20Migration%20Cookbook.pdf)참조하십시오.
 
 ## <a name="set-up-the-schema-in-azure-database-for-postgresql"></a>Azure Database for PostgreSQL에서 스키마 설정
 
@@ -206,7 +206,7 @@ Azure Database Migration Service는 PostgreSQL 테이블 스키마도 만들 수
 > [!IMPORTANT]
 > Azure Database Migration Service는 테이블 스키마만 만듭니다. 저장 프로시저, 패키지, 인덱스 등과 같은 다른 데이터베이스 개체는 생성되지 않습니다.
 
-또한, 전체 로드를 실행하려면 대상 데이터베이스에서 외래 키를 삭제해야 합니다. 외래 키를 삭제하는 데 사용할 수 있는 스크립트는 **이 문서**의 [샘플 스키마 마이그레이션](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online) 섹션을 참조하세요. Azure Database Migration Service를 사용하여 전체 로드 및 동기화를 실행합니다.
+또한, 전체 로드를 실행하려면 대상 데이터베이스에서 외래 키를 삭제해야 합니다. 외래 키를 삭제하는 데 사용할 수 있는 스크립트는 [이 문서](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online)의 **샘플 스키마 마이그레이션** 섹션을 참조하세요. Azure Database Migration Service를 사용하여 전체 로드 및 동기화를 실행합니다.
 
 ### <a name="when-the-postgresql-table-schema-already-exists"></a>PostgreSQL 테이블 스키마가 이미 있는 경우
 
@@ -221,7 +221,7 @@ Azure Database Migration Service를 통해 데이터 이동을 시작하기 전�
     ![포털 구독 표시](media/tutorial-oracle-azure-postgresql-online/dms-migration-settings.png)
 
 > [!NOTE]
-> 원본 테이블 이름을 이름이 다른 테이블에 매핑해야 하는 경우 [dmsfeedback@microsoft.com](mailto:dmsfeedbac@microsoft.com)에 이메일을 보내면 프로세스를 자동화하는 스크립트를 제공받을 수 있습니다.
+> 소스 테이블 이름을 다른 이름의 테이블에 매핑해야 [dmsfeedback@microsoft.com](mailto:dmsfeedbac@microsoft.com) 하는 경우 전자 메일을 보내 프로세스를 자동화하는 스크립트를 제공할 수 있습니다.
 
 ### <a name="when-the-postgresql-table-schema-doesnt-exist"></a>PostgreSQL 테이블 스키마가 없는 경우
 
@@ -239,7 +239,7 @@ Azure Database Migration Service에서 스키마가 생성되도록 하려면 �
 
     Oracle 원본의 스키마 이름과 Azure Database for PostgreSQL의 스키마 이름이 일치하면 Azure Database Migration Service는 *대상과 동일한 대/소문자를 사용하여 테이블 스키마를 생성*합니다.
 
-    다음은 그 예입니다.
+    예를 들어:
 
     | 원본 Oracle 스키마 | 대상 PostgreSQL Database.Schema | DMS 생성 schema.table.column |
     | ------------- | ------------- | ------------- |
@@ -249,7 +249,7 @@ Azure Database Migration Service에서 스키마가 생성되도록 하려면 �
     | HR | targetHR.HR | "HR"."COUNTRIES"."COUNTRY_ID" |
     | HR | targetHR.Hr | *대/소문자를 혼합하여 매핑할 수 없음 |
 
-    *대상 PostgreSQL에서 대/소문자 혼합 스키마와 테이블 이름을 생성하려면 [dmsfeedback@microsoft.com](mailto:dmsfeedback@microsoft.com)에 문의하세요. 대상 PostgreSQL에서 대/소문자 혼합 스키마를 설정하는 스크립트를 제공받을 수 있습니다.
+    *대상 PostgreSQL에서 혼합 대/소문자 스키마 [dmsfeedback@microsoft.com](mailto:dmsfeedback@microsoft.com)및 테이블 이름을 만들려면 에 문의하십시오. 대상 PostgreSQL에서 대/소문자 혼합 스키마를 설정하는 스크립트를 제공받을 수 있습니다.
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Microsoft.DataMigration 리소스 공급자 등록
 
@@ -261,7 +261,7 @@ Azure Database Migration Service에서 스키마가 생성되도록 하려면 �
 
     ![리소스 공급자 보기](media/tutorial-oracle-azure-postgresql-online/portal-select-resource-provider.png)
 
-3. 마이그레이션을 검색한 다음 **Microsoft.DataMigration**의 오른쪽에서 **등록**을 선택합니다.
+3. 마이그레이션을 검색한 다음 **Microsoft.DataMigration**의 오른쪽에서 **레지스터를**선택합니다.
 
     ![리소스 공급자 등록](media/tutorial-oracle-azure-postgresql-online/portal-register-resource-provider.png)
 
@@ -277,15 +277,15 @@ Azure Database Migration Service에서 스키마가 생성되도록 하려면 �
   
 3. **Migration Service 만들기** 화면에서 서비스, 구독, 신규 또는 기존 리소스 그룹의 이름을 지정합니다.
 
-4. 기존 가상 네트워크를 선택 하거나 새 가상 네트워크를 만드세요.
+4. 기존 가상 네트워크를 선택하거나 새 가상 네트워크를 만듭니다.
 
-    가상 네트워크는 원본 Oracle 및 대상 Azure Database for PostgreSQL 인스턴스에 대 한 액세스 권한을 Azure Database Migration Service 제공 합니다.
+    가상 네트워크는 Azure 데이터베이스 마이그레이션 서비스에 소스 오라클 및 PostgreSQL 인스턴스에 대한 대상 Azure 데이터베이스에 대한 액세스를 제공합니다.
 
-    Azure Portal에서 가상 네트워크를 만드는 방법에 대 한 자세한 내용은 [Azure Portal를 사용 하 여 가상 네트워크 만들기](https://aka.ms/DMSVnet)문서를 참조 하세요.
+    Azure 포털에서 가상 네트워크를 만드는 방법에 대한 자세한 내용은 [Azure 포털을 사용하여 가상 네트워크 만들기](https://aka.ms/DMSVnet)문서를 참조하십시오.
 
 5. 가격 책정 계층을 선택합니다.
 
-    비용 및 가격 책정 계층에 대한 자세한 내용은 [가격 책정 페이지](https://aka.ms/dms-pricing)를 참조하세요.
+    비용 및 가격 책정 계층에 대한 자세한 내용은 [가격 책정 페이지를](https://aka.ms/dms-pricing)참조하십시오.
 
     ![Azure Database Migration Service 인스턴스 설정 구성](media/tutorial-oracle-azure-postgresql-online/dms-settings5.png)
 
@@ -305,7 +305,7 @@ Azure Database Migration Service에서 스키마가 생성되도록 하려면 �
 
 3. **+ 새 마이그레이션 프로젝트**를 선택합니다.
 4. **새 마이그레이션 프로젝트** 화면에서 프로젝트 이름을 지정하고, **원본 서버 유형** 텍스트 상자에서 **Oracle**을 선택하고, **대상 서버 유형** 텍스트 상자에서 **Azure Database for PostgreSQL**을 선택합니다.
-5. **활동 유형 선택** 섹션에서 **온라인 데이터 마이그레이션**을 선택합니다.
+5. 활동 **유형 선택** 섹션에서 **온라인 데이터 마이그레이션을**선택합니다.
 
    ![Database Migration Service 프로젝트 만들기](media/tutorial-oracle-azure-postgresql-online/dms-create-project5.png)
 
@@ -322,7 +322,7 @@ Azure Database Migration Service에서 스키마가 생성되도록 하려면 �
 
 ## <a name="upload-oracle-oci-driver"></a>Oracle OCI 드라이버를 업로드 합니다.
 
-1. **저장**을 선택한 다음, **OCI 드라이버 설치** 화면에서 Oracle 계정에 로그인 하 고 **instantclient-basiclite-windows. x64-12.2.0.1.0** (37128586 바이트) (SHA1 Checksum: 865082268) 드라이버를 [여기](https://www.oracle.com/technetwork/topics/winx64soft-089540.html#ic_winx64_inst)에서 다운로드 합니다.
+1. **저장을**선택한 다음 **OCI 드라이버 설치** 화면에서 오라클 계정에 로그인하고 드라이버 **인스턴트 클라이언트-basiclite-windows.x64-12.0.1.0.zip(37,128,586** 바이트)(SHA1 Checksum: 865082268)을 [다운로드합니다.](https://www.oracle.com/technetwork/topics/winx64soft-089540.html#ic_winx64_inst)
 2. 드라이버를 공유 폴더에 다운로드합니다.
 
    폴더가 최소 읽기 전용 액세스 권한으로 지정한 사용자 이름과 공유되는지 확인합니다. Azure Database Migration Service는 사용자가 지정한 사용자 이름을 가장하여 OCI 드라이버를 Azure에 업로드하기 위해 공유에 액세스하여 이를 읽습니다.
@@ -359,7 +359,7 @@ Azure Database Migration Service에서 스키마가 생성되도록 하려면 �
 
      ![작업 상태 - 실행 중](media/tutorial-oracle-azure-postgresql-online/dms-activity-running.png)
 
-2. **데이터베이스 이름** 아래에서 특정 데이터베이스를 선택하여 **전체 데이터 로드** 및 **증분 데이터 동기화** 작업에 대한 마이그레이션 상태로 이동합니다.
+2. **데이터베이스 이름에서** **전체 데이터 로드** 및 **증분 데이터 동기화** 작업에 대한 마이그레이션 상태로 이동하려면 특정 데이터베이스를 선택합니다.
 
     전체 데이터 로드는 초기 로드 마이그레이션 상태를 표시하는 한편, 증분 데이터 동기화는 CDC(변경 데이터 캡처) 상태를 표시합니다.
 

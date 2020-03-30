@@ -1,35 +1,35 @@
 ---
-title: Azure Service Fabric에서 행위자 기반 서비스 만들기
+title: Azure 서비스 패브릭에서 행위자 기반 서비스 만들기
 description: Service Fabric Reliable Actors를 사용하여 C#에 행위자 기반 서비스를 처음 생성, 디버그 및 배포하는 방법을 알아봅니다.
 author: vturecek
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: vturecek
 ms.openlocfilehash: a6e4fb48653572139463738c82de632ff7d55074
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75466259"
 ---
 # <a name="getting-started-with-reliable-actors"></a>Reliable Actors 시작
 > [!div class="op_single_selector"]
-> * [Windows에서 C#](service-fabric-reliable-actors-get-started.md)
+> * [윈도우에서 C #](service-fabric-reliable-actors-get-started.md)
 > * [Linux에서 Java](service-fabric-reliable-actors-get-started-java.md)
 
 이 문서에서는 Visual Studio에서 간단한 Reliable Actor 애플리케이션을 만들고 디버그하는 과정을 안내합니다. Reliable Actors에 대한 자세한 내용은 [Service Fabric Reliable Actors 소개](service-fabric-reliable-actors-introduction.md)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 컴퓨터에 Visual Studio를 비롯한 Service Fabric 개발 환경이 설정되어 있는지 확인합니다. 자세한 내용은 [개발 환경 설정 방법](service-fabric-get-started.md)을 참조하세요.
 
 ## <a name="create-a-new-project-in-visual-studio"></a>Visual Studio에서 새 프로젝트 만들기
 
-관리자 권한으로 Visual Studio 2019 이상을 시작한 후 새 **Service Fabric 응용 프로그램** 프로젝트를 만듭니다.
+Visual Studio 2019 이상 관리자를 실행한 다음 새 **서비스 패브릭 응용 프로그램** 프로젝트를 만듭니다.
 
 ![Visual Studio용 서비스 패브릭 도구 - 새 프로젝트][1]
 
-다음 대화 상자에서 **.Net Core 2.0** 아래에 있는 **행위자 서비스** 를 선택 하 고 서비스의 이름을 입력 합니다.
+다음 대화 상자에서 **.NET Core 2.0에서** **행위자 서비스를** 선택하고 서비스의 이름을 입력합니다.
 
 ![서비스 패브릭 프로젝트 템플릿][5]
 
@@ -41,11 +41,11 @@ ms.locfileid: "75466259"
 
 솔루션에는 3개의 프로젝트가 포함되어 있습니다.
 
-* **애플리케이션 프로젝트(MyApplication)** . 이 프로젝트는 배포를 위해 모든 서비스를 함께 패키지합니다. 애플리케이션을 관리하기 위한 *ApplicationManifest.xml* 및 PowerShell 스크립트가 포함되어 있습니다.
+* **애플리케이션 프로젝트(MyApplication)**. 이 프로젝트는 배포를 위해 모든 서비스를 함께 패키지합니다. 애플리케이션을 관리하기 위한 *ApplicationManifest.xml* 및 PowerShell 스크립트가 포함되어 있습니다.
 
-* **인터페이스 프로젝트(HelloWorld.Interfaces)** . 이 프로젝트는 행위자에 대한 인터페이스 정의를 포함합니다. 행위자 인터페이스는 임의 이름의 모든 프로젝트에 정의할 수 있습니다.  인터페이스는 행위자 구현 및 행위자를 호출하는 클라이언트에 의해 공유되는 행위자 계약을 정의합니다.  클라이언트 프로젝트가 의존하므로, 일반적으로 행위자 구현과는 별도의 어셈블리에 정의하는 것이 적절합니다.
+* **인터페이스 프로젝트(HelloWorld.Interfaces)**. 이 프로젝트는 행위자에 대한 인터페이스 정의를 포함합니다. 행위자 인터페이스는 임의 이름의 모든 프로젝트에 정의할 수 있습니다.  인터페이스는 행위자 구현 및 행위자를 호출하는 클라이언트에 의해 공유되는 행위자 계약을 정의합니다.  클라이언트 프로젝트가 의존하므로, 일반적으로 행위자 구현과는 별도의 어셈블리에 정의하는 것이 적절합니다.
 
-* **행위자 서비스 프로젝트(HelloWorld)** . 이 프로젝트는 행위자를 호스트할 Service Fabric 서비스를 정의합니다. 행위자의 *HelloWorld.cs* 구현이 포함되어 있습니다. 행위자 구현은 기본 형식(`Actor`)에서 파생되는 클래스로서, *MyActor.Interfaces* 프로젝트에 정의된 인터페이스를 구현합니다. 또한 행위자 클래스는 `ActorService` 인스턴스 및 `ActorId`를 허용하고 이를 기본 `Actor` 클래스에 전달하는 생성자를 구현해야 합니다.
+* **행위자 서비스 프로젝트(HelloWorld)**. 이 프로젝트는 행위자를 호스트할 Service Fabric 서비스를 정의합니다. 행위자의 *HelloWorld.cs* 구현이 포함되어 있습니다. 행위자 구현은 기본 형식(`Actor`)에서 파생되는 클래스로서, *MyActor.Interfaces* 프로젝트에 정의된 인터페이스를 구현합니다. 또한 행위자 클래스는 `ActorService` 인스턴스 및 `ActorId`를 허용하고 이를 기본 `Actor` 클래스에 전달하는 생성자를 구현해야 합니다.
     
     이 프로젝트에는 `ActorRuntime.RegisterActorAsync<T>()`를 사용하여 행위자 클래스를 Service Fabric 런타임에 등록하는 *Program.cs*도 포함되어 있습니다. `HelloWorld` 클래스는 이미 등록되어 있습니다. 프로젝트에 추가된 추가 행위자 구현을 `Main()` 메서드에도 등록해야 합니다.
 
@@ -86,7 +86,7 @@ internal class HelloWorld : Actor, IHelloWorld
 
 행위자 서비스를 호출하는 간단한 콘솔 애플리케이션을 만듭니다.
 
-1. 솔루션 탐색기에서 솔루션을 마우스 오른쪽 단추로 클릭하고 **추가** > **새 프로젝트...** 를 클릭합니다.
+1. 솔루션 탐색기에서 솔루션을 마우스 오른쪽 버튼으로 클릭> 새 프로젝트 **추가...** > **New Project...**
 
 2. **.NET Core** 프로젝트 형식에서 **콘솔 응용 프로그램(.NET Core)** 을 선택합니다.  프로젝트 이름을 *ActorClient*로 지정합니다.
     
@@ -99,7 +99,7 @@ internal class HelloWorld : Actor, IHelloWorld
     
     ![빌드 속성][8]
 
-4. 클라이언트 프로젝트에는 Reliable Actors NuGet 패키지가 필요합니다.  **도구** > **NuGet 패키지 관리자** > **패키지 관리자 콘솔**을 클릭합니다.  패키지 관리자 콘솔에서 다음 명령을 입력합니다.
+4. 클라이언트 프로젝트에는 Reliable Actors NuGet 패키지가 필요합니다.  **도구를** > **NuGet 패키지 관리자** > **패키지 관리자 콘솔을**클릭합니다.  패키지 관리자 콘솔에서 다음 명령을 입력합니다.
     
     ```powershell
     Install-Package Microsoft.ServiceFabric.Actors -IncludePrerelease -ProjectName ActorClient
@@ -107,7 +107,7 @@ internal class HelloWorld : Actor, IHelloWorld
 
     NuGet 패키지 및 모든 해당 종속성이 ActorClient 프로젝트에 설치됩니다.
 
-5. 클라이언트 프로젝트에는 인터페이스 프로젝트에 대한 참조도 필요합니다.  ActorClient 프로젝트에서 **종속성** 을 마우스 오른쪽 단추로 클릭 한 다음 **참조 추가**...를 클릭 합니다.  **프로젝트 > 솔루션** (아직 선택 하지 않은 경우)을 선택한 다음 **HelloWorld. 인터페이스**옆의 확인란을 선택 합니다.  **확인**을 클릭합니다.
+5. 클라이언트 프로젝트에는 인터페이스 프로젝트에 대한 참조도 필요합니다.  ActorClient 프로젝트에서 **종속성을** 마우스 오른쪽 단추로 클릭한 다음 **참조 추가를 클릭합니다...**  **프로젝트를 > 솔루션을** 선택한 다음(아직 선택되지 않은 경우) **HelloWorld.Interfaces**옆에 있는 확인란을 선택합니다.  **확인**을 클릭합니다.
     
     ![참조 추가 대화 상자][7]
 

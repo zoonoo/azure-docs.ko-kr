@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5486a8d8bd4c295f49e0ab847daf45d0fcab47ad
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78300539"
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Azure AD Connect 동기화 서비스 기능
@@ -96,7 +96,7 @@ Set-MsolDirSyncFeature -Feature EnableSoftMatchOnUpn -Enable $true
 
 자세한 내용은 [Office 365, Azure 또는 Intune의 사용자 이름이 온-프레미스 UPN 또는 대체 로그인 ID와 일치하지 않음](https://support.microsoft.com/kb/2523192)을 참조하세요.
 
-이 기능을 사용 하도록 설정 하면 동기화 엔진이 온-프레미스로 변경 되 고 암호 해시 동기화 또는 통과 인증을 사용 하는 경우 userPrincipalName를 업데이트할 수 있습니다.
+이 기능을 사용하면 동기화 엔진이 온-프레미스에서 변경될 때 사용자PrincipalName을 업데이트하고 암호 해시 동기화 또는 통과 인증을 사용할 수 있습니다.
 
 이 기능은 새로 만든 Azure AD 디렉터리에 기본적으로 설정되어 있습니다. 다음을 실행하여 이 기능을 사용하도록 설정했는지 확인할 수 있습니다.  
 
@@ -112,7 +112,7 @@ Set-MsolDirSyncFeature -Feature SynchronizeUpnForManagedUsers -Enable $true
 
 이 기능을 사용하도록 설정하면 기존 userPrincipalName 값이 그대로 유지됩니다. userPrincipalName 특성 온-프레미스의 다음 변경 시 사용자에 대한 일반 델타 동기화가 UPN을 업데이트합니다.  
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
-* [Azure AD Connect 동기화](how-to-connect-sync-whatis.md)
-* [Azure Active Directory와 온-프레미스 ID 통합](whatis-hybrid-identity.md)
+* [Azure AD 연결 동기화](how-to-connect-sync-whatis.md)
+* [온-프레미스 ID를 Azure Active Directory와 통합합니다.](whatis-hybrid-identity.md)

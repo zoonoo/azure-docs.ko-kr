@@ -5,10 +5,10 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.openlocfilehash: 7dc60c28b56982f82c1ac90db55ac752977ea2d6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75457486"
 ---
 # <a name="how-data-serialization-affects-an-application-upgrade"></a>데이터 serialization이 애플리케이션 업그레이드에 미치는 영향
@@ -44,13 +44,13 @@ Azure 서비스 패브릭에서 유지 및 복제되는 데이터는 C# 클래�
 데이터 계약은 데이터 호환성을 보장하기 위해 권장되는 솔루션입니다. 데이터 계약에는 필드의 추가, 제거 및 변경에 대해 잘 정의된 버전 관리 규칙이 있습니다. 또한 알 수 없는 필드를 처리하는 기능, serialization 및 역직렬화 프로세스에 연결하는 기능 및 클래스 상속을 처리하는 기능을 지원합니다. 자세한 내용은 [데이터 계약 사용](https://msdn.microsoft.com/library/ms733127.aspx)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-[Visual Studio를 사용하여 애플리케이션 업그레이드](service-fabric-application-upgrade-tutorial.md)에서는 Visual Studio를 사용하여 애플리케이션 업그레이드를 진행하는 방법을 안내합니다.
+[Visual Studio를 사용하여 응용 프로그램을 업그레이드하면](service-fabric-application-upgrade-tutorial.md) Visual Studio를 사용하여 응용 프로그램 업그레이드를 진행합니다.
 
-[Powershell을 사용하여 애플리케이션 업그레이드](service-fabric-application-upgrade-tutorial-powershell.md)에서는 PowerShell을 사용하여 애플리케이션 업그레이드를 진행하는 방법을 안내합니다.
+[Powershell을 사용하여 응용 프로그램을 업그레이드하면](service-fabric-application-upgrade-tutorial-powershell.md) PowerShell을 사용하여 응용 프로그램 업그레이드를 진행합니다.
 
 [업그레이드 매개 변수](service-fabric-application-upgrade-parameters.md)를 사용하여 애플리케이션 업그레이드 방법을 제어합니다.
 
-[고급 항목](service-fabric-application-upgrade-advanced.md)을 참조하여 애플리케이션을 업그레이드하는 동안 고급 기능을 사용하는 방법에 대해 알아봅니다.
+[고급 항목을](service-fabric-application-upgrade-advanced.md)참조하여 응용 프로그램을 업그레이드하는 동안 고급 기능을 사용하는 방법을 알아봅니다.
 
-[애플리케이션 업그레이드 문제 해결](service-fabric-application-upgrade-troubleshooting.md)의 단계를 참조하여 애플리케이션 업그레이드 중 발생하는 일반적인 문제를 해결합니다.
+응용 프로그램 업그레이드 문제 해결의 단계를 참조하여 응용 프로그램 업그레이드의 일반적인 문제를 [해결합니다.](service-fabric-application-upgrade-troubleshooting.md)
 

@@ -5,25 +5,25 @@ ms.topic: include
 ms.date: 11/03/2019
 ms.author: orspodek
 ms.openlocfilehash: 3cd9d017429b629acad39f5b902e842886c3c818
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78304945"
 ---
 ## <a name="configure-the-data-source"></a>데이터 원본 구성
 
-다음 단계를 수행 하 여 Azure 데이터 탐색기를 대시보드 도구의 데이터 원본으로 구성 합니다. 이 섹션에서 이 단계를 더 자세히 다룹니다.
+다음 단계를 수행하여 Azure 데이터 탐색기를 대시보드 도구의 데이터 원본으로 구성합니다. 이 섹션에서 이 단계를 더 자세히 다룹니다.
 
-1. Azure Active Directory(Azure AD) 서비스 주체를 만듭니다. 서비스 주체는 대시보드 도구에서 Azure 데이터 탐색기 서비스에 액세스 하는 데 사용 됩니다.
+1. Azure Active Directory(Azure AD) 서비스 주체를 만듭니다. 서비스 주체는 대시보드 도구에서 Azure 데이터 탐색기 서비스에 액세스하는 데 사용됩니다.
 
 1. Azure AD 서비스 주체를 Azure Data Explorer 데이터베이스에서 *뷰어* 역할에 추가합니다.
 
-1. Azure AD 서비스 주체의 정보에 따라 대시보드 도구 연결 속성을 지정 하 고 연결을 테스트 합니다.
+1. Azure AD 서비스 주체의 정보를 기반으로 대시보드 도구 연결 속성을 지정한 다음 연결을 테스트합니다.
 
 ### <a name="create-a-service-principal"></a>서비스 주체 만들기
 
-[Azure CLI](#azure-portal) 명령줄 환경을 사용하여 또는 [Azure Portal](#azure-cli)에 서비스 주체를 만들 수 있습니다. 어떤 방법을 사용하든 서비스 주체를 만든 후 이후 단계에서 사용하는 네 가지 연결 속성에 대한 값을 가져옵니다.
+[Azure CLI](#azure-cli) 명령줄 환경을 사용하여 또는 [Azure Portal](#azure-portal)에 서비스 주체를 만들 수 있습니다. 어떤 방법을 사용하든 서비스 주체를 만든 후 이후 단계에서 사용하는 네 가지 연결 속성에 대한 값을 가져옵니다.
 
 #### <a name="azure-portal"></a>Azure portal
 
@@ -31,7 +31,7 @@ ms.locfileid: "78304945"
 
     1. [역할에 애플리케이션 할당](/azure/active-directory/develop/howto-create-service-principal-portal#assign-a-role-to-the-application) 섹션에서 **Reader** 역할 유형을 Azure Data Explorer 클러스터에 할당합니다.
 
-    1. 로그인에 [사용할 값 가져오기](/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) 섹션에서 **디렉터리 ID** (테 넌 트 Id), **응용 프로그램 id**및 **암호**단계에서 설명 하는 세 가지 속성 값을 복사 합니다.
+    1. 에 [로그인할 수 있는 값 받기](/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) 섹션에서 디렉터리 ID(테넌트 **ID),** **응용 프로그램 ID**및 **암호**의 세 가지 속성 값을 복사합니다.
 
 1. Azure Portal에서 **구독**을 선택한 다음, 서비스 주체를 만든 구독에 대한 ID를 복사합니다.
 
@@ -91,7 +91,7 @@ ms.locfileid: "78304945"
 
     ![데이터베이스 권한 추가](media/data-explorer-configure-data-source/add-permission.png)
 
-1. 만든 서비스 사용자를 검색 합니다. 주체를 선택한 다음, **선택**을 클릭합니다.
+1. 만든 서비스 주체를 검색합니다. 주체를 선택한 다음, **선택**을 클릭합니다.
 
     ![Azure Portal에서 권한 관리](media/data-explorer-configure-data-source/new-principals.png)
 

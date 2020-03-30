@@ -1,7 +1,7 @@
 ---
-title: 사용자 지정 정책에 대 한 정수 클레임 변환 예제
+title: 정수 사용자 지정 정책에 대 한 변환 예제를 클레임
 titleSuffix: Azure AD B2C
-description: Azure Active Directory B2C의 IEF (Identity Experience Framework) 스키마에 대 한 정수 클레임 변환 예입니다.
+description: 정수는 Azure Active Directory B2C의 IEF(ID 환경 프레임워크) 스키마에 대한 변환 예제를 주장합니다.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,26 +12,26 @@ ms.date: 09/10/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: ece25e95bbbe9f1a1fa591c29ea9ffda0fefd369
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78187681"
 ---
 # <a name="integer-claims-transformations"></a>정수 클레임 변환
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-이 문서에서는 Azure Active Directory B2C (Azure AD B2C)에서 Id 경험 프레임 워크 스키마의 정수 클레임 변환을 사용 하는 예제를 제공 합니다. 자세한 내용은 [ClaimsTransformations](claimstransformations.md)를 참조하세요.
+이 문서에서는 Azure Active Directory B2C(Azure AD B2C)에서 Id 환경 프레임워크 스키마의 정수 클레임 변환을 사용하는 예제를 제공합니다. 자세한 내용은 [ClaimsTransformations](claimstransformations.md)를 참조하세요.
 
 ## <a name="convertnumbertostringclaim"></a>ConvertNumberToStringClaim
 
 long 데이터 형식을 문자열 데이터 형식으로 변환합니다.
 
-| 항목 | TransformationClaimType | 데이터 형식 | 참고 |
+| 항목 | TransformationClaimType | 데이터 형식 | 메모 |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim | long | 문자열로 변환할 ClaimType입니다. |
-| OutputClaim | outputClaim | string | 이 ClaimsTransformation이 호출된 후에 생성되는 ClaimType입니다. |
+| OutputClaim | outputClaim | 문자열 | 이 ClaimsTransformation이 호출된 후에 생성되는 ClaimType입니다. |
 
 이 예제에서는 값 형식이 long인 `numericUserId` 클레임이 값 형식이 문자열인 `UserId` 클레임으로 변환됩니다.
 

@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 03/02/2020
 ms.custom: sfrev
 ms.openlocfilehash: f08c6b0675475b4e15ce6db3a9dbe0e2863b9ddb
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78252761"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Windows에서 개발 환경 준비
@@ -21,7 +21,7 @@ ms.locfileid: "78252761"
 >
 >
 
-Windows 개발 컴퓨터에서 [Azure Service Fabric 응용 프로그램][1] 을 빌드하고 실행 하려면 Service Fabric 런타임, SDK 및 도구를 설치 합니다. 또한 SDK에 포함된 [Windows PowerShell 스크립트의 실행을 사용하도록 설정](#enable-powershell-script-execution)해야 합니다.
+Windows 개발 컴퓨터에서 [Azure Service Fabric 애플리케이션][1]을 빌드 및 실행하려면 Service Fabric 런타임, SDK, 도구를 설치합니다. 또한 SDK에 포함된 [Windows PowerShell 스크립트를 실행하도록 설정해야](#enable-powershell-script-execution) 합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -37,7 +37,7 @@ Windows 개발 컴퓨터에서 [Azure Service Fabric 응용 프로그램][1] 을
 
 > [!NOTE]
 > Windows 7 지원:
-> - Windows 7은 기본적으로 Windows PowerShell 2.0만을 포함합니다. 서비스 패브릭 PowerShell cmdlet에는 PowerShell 3.0 이상이 필요합니다. Microsoft 다운로드 센터에서 [Windows PowerShell 5.1을 다운로드할][powershell5-download] 수 있습니다.
+> - Windows 7은 기본적으로 Windows PowerShell 2.0만을 포함합니다. 서비스 패브릭 PowerShell cmdlet에는 PowerShell 3.0 이상이 필요합니다. 마이크로소프트 다운로드 센터에서 [윈도우 파워쉘 5.1을 다운로드할][powershell5-download] 수 있습니다.
 > - Service Fabric 역방향 프록시는 Windows 7에서 사용할 수 없습니다.
 
 ## <a name="install-the-sdk-and-tools"></a>SDK 및 도구 설치
@@ -47,9 +47,9 @@ SDK와 도구를 설치하려면 WebPI(웹 플랫폼 설치 관리자)를 사용
 > [!NOTE]
 > 로컬 Service Fabric 개발 클러스터 업그레이드는 지원되지 않습니다.
 
-### <a name="to-use-visual-studio-2017-or-2019"></a>Visual Studio 2017 또는 2019를 사용 하려면
+### <a name="to-use-visual-studio-2017-or-2019"></a>비주얼 스튜디오 2017 또는 2019를 사용하려면
 
-Service Fabric 도구는 Visual Studio 2017 및 2019의 Azure 개발 워크 로드에 포함 되어 있습니다. 이 워크로드를 Visual Studio 설치의 일부로 사용하도록 설정해야 합니다.
+서비스 패브릭 도구는 Visual Studio 2017 및 2019의 Azure 개발 워크로드의 일부입니다. 이 워크로드를 Visual Studio 설치의 일부로 사용하도록 설정해야 합니다.
 또한 웹 플랫폼 설치 관리자를 사용하여 Microsoft Azure Service Fabric SDK 및 런타임을 설치해야 합니다.
 
 * [Microsoft Azure Service Fabric SDK 설치][core-sdk]
@@ -58,7 +58,7 @@ Service Fabric 도구는 Visual Studio 2017 및 2019의 Azure 개발 워크 로�
 
 Visual Studio 2015의 경우 Service Fabric 도구는 웹 플랫폼 설치 관리자를 사용하여 SDK 및 런타임과 함께 설치됩니다.
 
-* [Microsoft Azure Service Fabric SDK 및 도구를 설치 합니다.][full-bundle-vs2015]
+* [Microsoft Azure 서비스 패브릭 SDK 및 도구 설치][full-bundle-vs2015]
 
 ### <a name="sdk-installation-only"></a>SDK 설치만
 
@@ -68,8 +68,8 @@ SDK만 필요한 경우 다음 패키지를 설치할 수 있습니다.
 
 현재 버전은 다음과 같습니다.
 
-* Service Fabric SDK 및 도구 4.0.470
-* Service Fabric runtime 7.0.470
+* 서비스 패브릭 SDK 및 도구 4.0.470
+* 서비스 패브릭 런타임 7.0.470
 
 지원되는 버전 목록은 [Service Fabric 버전](service-fabric-versions.md)을 참조하세요.
 
@@ -96,11 +96,11 @@ Service Fabric은 머신 클러스터에 마이크로 서비스를 배포하기 
 * [프로그래밍 모델에 대해 알아보기: Reliable Services 및 Reliable Actors](service-fabric-choose-framework.md)
 * [GitHub의 서비스 패브릭 코드 샘플 확인](https://aka.ms/servicefabricsamples)
 * [서비스 패브릭 탐색기를 사용하여 클러스터 시각화](service-fabric-visualizing-your-cluster.md)
-* [Service Fabric 지원 옵션](service-fabric-support.md) 알아보기
+* 서비스 [패브릭 지원 옵션에](service-fabric-support.md) 대해 자세히 알아보기
 
 [1]: https://azure.microsoft.com/campaigns/service-fabric/ "Service Fabric 캠페인 페이지"
 [2]: https://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
-[full-bundle-vs2015]: https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015 "VS 2015 WebPI 링크"
-[full-bundle-dev15]: https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-Dev15 "Dev15 WebPI 링크"
-[core-sdk]: https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK "Core SDK WebPI 링크"
+[full-bundle-vs2015]:https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015 "VS 2015 WebPI 링크"
+[full-bundle-dev15]:https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-Dev15 "Dev15 WebPI 링크"
+[core-sdk]:https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK "Core SDK WebPI 링크"
 [powershell5-download]:https://www.microsoft.com/download/details.aspx?id=54616

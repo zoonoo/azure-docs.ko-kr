@@ -1,14 +1,14 @@
 ---
-title: OS 및 런타임 패치 주기
-description: OS 및 런타임, 앱의 런타임 및 패치 수준, 업데이트 공지를 가져오는 방법 Azure App Service 업데이트 하는 방법에 대해 알아봅니다.
+title: OS 및 런타임 패치 케이던스
+description: Azure App Service에서 OS 및 런타임을 업데이트하는 방법, 앱의 런타임 및 패치 수준, 업데이트 공지를 받는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 02/02/2018
 ms.custom: seodec18
 ms.openlocfilehash: 597964914f4022899ab027b735ec6932105497b4
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78273631"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>Azure App Service의 OS 및 런타임 패치
@@ -51,11 +51,11 @@ Azure는 App Service 리소스를 실행하는 2개의 수준, 즉 물리적 서
 
 ### <a name="new-patch-updates"></a>새 패치 업데이트
 
-.NET, PHP, Java SDK 또는 Tomcat/Jetty 버전에 대한 패치 업데이트는 기존 설치를 새 버전으로 덮어쓰는 방법으로 자동으로 적용됩니다. Node.js 패치 업데이트는 기존 버전과 병렬로 설치됩니다(다음 섹션의 주 및 부 버전과 유사). 새 Python 패치 버전은 [사이트 확장](https://azure.microsoft.com/blog/azure-web-sites-extensions/)을 통해 기본 제공 python 설치와 함께 수동으로 설치할 수 있습니다.
+.NET, PHP, Java SDK 또는 Tomcat/Jetty 버전에 대한 패치 업데이트는 기존 설치를 새 버전으로 덮어쓰는 방법으로 자동으로 적용됩니다. Node.js 패치 업데이트는 기존 버전과 병렬로 설치됩니다(다음 섹션의 주 및 부 버전과 유사). 새로운 파이썬 패치 버전은 내장 된 파이썬 설치와 나란히 [사이트 확장을](https://azure.microsoft.com/blog/azure-web-sites-extensions/)통해 수동으로 설치 할 수 있습니다.
 
 ### <a name="new-major-and-minor-versions"></a>새 주 버전 및 부 버전
 
-새 주 버전 또는 부 버전이 추가되면 기존 버전과 병렬로 설치됩니다. 앱을 수동으로 새 버전으로 업그레이드할 수 있습니다. 구성 파일(예: `web.config` 및 `package.json`)에서 런타임 버전을 구성한 경우 동일한 방법으로 업그레이드해야 합니다. App Service 설정을 사용하여 런타임 버전을 구성한 경우 [Azure Portal](https://portal.azure.com)에서 변경하거나 다음 예제와 같이 [Cloud Shell](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)에서 [Azure CLI](../cloud-shell/overview.md) 명령을 실행하여 변경할 수 있습니다.
+새 주 버전 또는 부 버전이 추가되면 기존 버전과 병렬로 설치됩니다. 앱을 수동으로 새 버전으로 업그레이드할 수 있습니다. 구성 파일(예: `web.config` 및 `package.json`)에서 런타임 버전을 구성한 경우 동일한 방법으로 업그레이드해야 합니다. App Service 설정을 사용하여 런타임 버전을 구성한 경우 [Azure Portal](https://portal.azure.com)에서 변경하거나 다음 예제와 같이 [Cloud Shell](../cloud-shell/overview.md)에서 [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) 명령을 실행하여 변경할 수 있습니다.
 
 ```azurecli-interactive
 az webapp config set --net-framework-version v4.7 --resource-group <groupname> --name <appname>

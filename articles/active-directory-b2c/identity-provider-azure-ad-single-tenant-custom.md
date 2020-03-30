@@ -1,5 +1,5 @@
 ---
-title: 사용자 지정 정책을 사용 하 여 Azure AD 계정을 사용 하 여 로그인 설정
+title: 사용자 지정 정책을 사용하여 Azure AD 계정으로 로그인 설정
 titleSuffix: Azure AD B2C
 description: Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 Azure Active Directory 계정으로 로그인하도록 설정합니다.
 services: active-directory-b2c
@@ -12,19 +12,19 @@ ms.date: 02/11/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 5a6c85ebed7271655745de45694542fb359836e7
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78188413"
 ---
 # <a name="set-up-sign-in-with-an-azure-active-directory-account-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 Azure Active Directory 계정으로 로그인하도록 설정
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-이 문서에서는 Azure Active Directory B2C (Azure AD B2C)에서 [사용자 지정 정책을](custom-policy-overview.md) 사용 하 여 Azure Active Directory (Azure AD) 조직에서 사용자에 대 한 로그인을 사용 하도록 설정 하는 방법을 보여 줍니다.
+이 문서에서는 Azure Active Directory B2C(Azure AD B2C)에서 [사용자 지정 정책을](custom-policy-overview.md) 사용하여 Azure Active Directory(Azure AD) 조직의 사용자에 대해 로그인을 활성화하는 방법을 보여 주며 이 문서에서는
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 시작](custom-policy-get-started.md)의 단계를 완료합니다.
 
@@ -32,13 +32,13 @@ ms.locfileid: "78188413"
 
 특정 Azure AD 조직의 사용자에 대한 로그인을 사용하도록 설정하려면 조직의 Azure AD 테넌트 내에 애플리케이션을 등록해야 합니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. 조직 Azure AD 테 넌 트를 포함 하는 디렉터리 (예: contoso.com)를 사용 하 고 있는지 확인 합니다. 상단 메뉴에서 **디렉터리 + 구독 필터** 를 선택 하 고 Azure AD 테 넌 트가 포함 된 디렉터리를 선택 합니다.
+1. [Azure 포털에](https://portal.azure.com)로그인합니다.
+1. 조직 Azure AD 테넌트(예: contoso.com)가 포함된 디렉터리를 사용하고 있는지 확인합니다. 최상위 메뉴에서 **디렉터리 + 구독 필터를** 선택한 다음 Azure AD 테넌트가 포함된 디렉터리를 선택합니다.
 1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택한 다음, **앱 등록**을 검색하여 선택합니다.
 1. **새 등록**을 선택합니다.
-1. 애플리케이션의 **이름**을 입력합니다. `Azure AD B2C App`)을 입력합니다.
-1. 이 응용 프로그램에 대해서 **만이 조직 디렉터리에서** 기본 선택 된 계정을 적용 합니다.
-1. **리디렉션 URI**의 경우 **웹**의 값을 그대로 사용 하 고 다음 URL을 소문자로 입력 합니다. 여기서 `your-B2C-tenant-name`은 Azure AD B2C 테 넌 트의 이름으로 바뀝니다.
+1. 응용 프로그램의 **이름을** 입력합니다. `Azure AD B2C App`)을 입력합니다.
+1. 이 응용 프로그램에 **대해서만 이 조직 디렉터리에서 계정의** 기본 선택을 수락합니다.
+1. 리디렉션 **URI의**경우 **Web**값을 수락하고 모든 소문자에 다음 URL을 `your-B2C-tenant-name` 입력하며 여기서 Azure AD B2C 테넌트의 이름으로 바뀝니다.
 
     ```
     https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp
@@ -46,34 +46,34 @@ ms.locfileid: "78188413"
 
     `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`)을 입력합니다.
 
-1. **등록**을 선택합니다. 이후 단계에서 사용할 수 있게 **애플리케이션(클라이언트) ID**를 기록합니다.
-1. **인증서 & 암호**를 선택 하 고 **새 클라이언트 암호**를 선택 합니다.
-1. 비밀에 대 한 **설명을** 입력 하 고 만료를 선택한 다음 **추가**를 선택 합니다. 이후 단계에서 사용할 암호의 **값** 을 기록 합니다.
+1. **등록을**선택합니다. 이후 단계에서 사용할 수 있게 **애플리케이션(클라이언트) ID**를 기록합니다.
+1. **인증서 & 비밀을**선택한 다음 새 클라이언트 **보안**입니다.
+1. 비밀에 대한 **설명을** 입력하고 만료를 선택한 다음 **추가를**선택합니다. 이후 단계에서 사용할 비밀의 **값을** 기록합니다.
 
 ## <a name="configuring-optional-claims"></a>선택적 클레임 구성
 
-Azure AD에서 `family_name` 및 `given_name` 클레임을 가져오려는 경우 Azure Portal UI 또는 응용 프로그램 매니페스트에서 응용 프로그램에 대 한 선택적 클레임을 구성할 수 있습니다. 자세한 내용은 [AZURE AD 앱에 선택적 클레임을 제공 하는 방법](../active-directory/develop/active-directory-optional-claims.md)을 참조 하세요.
+Azure AD에서 `family_name` 클레임 `given_name` 및 클레임을 얻으려면 Azure 포털 UI 또는 응용 프로그램 매니페스트에서 응용 프로그램에 대한 선택적 클레임을 구성할 수 있습니다. 자세한 내용은 [Azure AD 앱에 선택적 클레임을 제공하는 방법을 참조하세요.](../active-directory/develop/active-directory-optional-claims.md)
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **Azure Active Directory**를 검색하고 선택합니다.
-1. **관리** 섹션에서 **앱 등록**을 선택 합니다.
-1. 목록에서 선택적 클레임을 구성 하려는 응용 프로그램을 선택 합니다.
-1. **관리** 섹션에서 **토큰 구성 (미리 보기)** 을 선택 합니다.
-1. **선택적 클레임 추가**를 선택 합니다.
-1. 구성 하려는 토큰 유형을 선택 합니다.
-1. 추가할 선택적 클레임을 선택 합니다.
+1. [Azure 포털에](https://portal.azure.com)로그인합니다. **Azure Active Directory**를 검색하고 선택합니다.
+1. **관리** 섹션에서 앱 **등록을 선택합니다.**
+1. 목록에서 선택적 클레임을 구성할 응용 프로그램을 선택합니다.
+1. **관리** 섹션에서 토큰 **구성(미리 보기)을**선택합니다.
+1. **선택적 클레임 추가를**선택합니다.
+1. 구성할 토큰 유형을 선택합니다.
+1. 추가할 선택적 클레임을 선택합니다.
 1. **추가**를 클릭합니다.
 
 ## <a name="create-a-policy-key"></a>정책 키 만들기
 
 만든 애플리케이션 키를 Azure AD B2C 테넌트에 저장해야 합니다.
 
-1. Azure AD B2C 테 넌 트를 포함 하는 디렉터리를 사용 하 고 있는지 확인 합니다. 상단 메뉴에서 **디렉터리 + 구독 필터** 를 선택 하 고 Azure AD B2C 테 넌 트를 포함 하는 디렉터리를 선택 합니다.
+1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 상단 메뉴에서 **디렉터리 + 구독 필터를** 선택한 다음 Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
 1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
-1. **정책**에서 **Id 경험 프레임 워크**를 선택 합니다.
-1. **정책 키** 를 선택 하 고 **추가**를 선택 합니다.
+1. **정책에서** **ID 환경 프레임워크를**선택합니다.
+1. **정책 키를** 선택한 다음 **에 추가를**선택합니다.
 1. **옵션**으로는 `Manual`을 선택합니다.
-1. 정책 키의 **이름**을 입력합니다. `ContosoAppSecret`)을 입력합니다.  접두사 `B2C_1A_` 생성 될 때 키 이름에 자동으로 추가 되므로 다음 섹션의 XML 참조는 *B2C_1A_ContosoAppSecret*하는 것입니다.
-1. **비밀**에서 이전에 기록한 클라이언트 암호를 입력 합니다.
+1. 정책 키의 **이름**을 입력합니다. `ContosoAppSecret`)을 입력합니다.  접두사는 `B2C_1A_` 키를 만들 때 키 이름에 자동으로 추가되므로 다음 섹션의 XML에서 참조하는 것은 *B2C_1A_ContosoAppSecret.*
+1. **비밀에서**이전에 기록한 클라이언트 비밀을 입력합니다.
 1. **키 사용**에서 `Signature`를 선택합니다.
 1. **만들기**를 선택합니다.
 
@@ -135,13 +135,13 @@ Azure AD에서 `family_name` 및 `given_name` 클레임을 가져오려는 경�
 
 Azure AD 엔드포인트에서 토큰을 가져오려면 Azure AD B2C에서 Azure AD와 통신하는 데 사용해야 하는 프로토콜을 정의해야 합니다. 이 작업은 **ClaimsProvider**의 **TechnicalProfile** 요소 내에서 수행됩니다.
 
-1. **TechnicalProfile** 요소의 ID를 업데이트합니다. 이 ID는 정책의 다른 부분에서이 기술 프로필을 참조 하는 데 사용 됩니다 (예: `OIDC-Contoso`).
+1. **TechnicalProfile** 요소의 ID를 업데이트합니다. 이 ID는 예를 들어 `OIDC-Contoso`정책의 다른 부분에서 이 기술 프로필을 참조하는 데 사용됩니다.
 1. **DisplayName**의 값을 업데이트합니다. 이 값은 로그인 화면의 로그인 단추에 표시됩니다.
 1. **설명**값을 업데이트합니다.
 1. Azure AD는 OpenID Connect 프로토콜을 사용하므로 **Protocol** 값이 `OpenIdConnect`인지 확인합니다.
 1. **METADATA** 값을 `https://login.microsoftonline.com/tenant-name.onmicrosoft.com/v2.0/.well-known/openid-configuration`으로 설정합니다. 여기서 `tenant-name`는 Azure AD 테넌트 이름입니다. 예를 들어 `https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0/.well-known/openid-configuration`
 1. **client_id**를 애플리케이션 등록의 애플리케이션 ID로 설정합니다.
-1. **CryptographicKeys**에서 **StorageReferenceId** 의 값을 앞에서 만든 정책 키의 이름으로 업데이트 합니다. `B2C_1A_ContosoAppSecret`)을 입력합니다.
+1. **암호화키에서** **StorageReferenceId** 값을 앞에서 만든 정책 키의 이름으로 업데이트합니다. `B2C_1A_ContosoAppSecret`)을 입력합니다.
 
 ### <a name="upload-the-extension-file-for-verification"></a>확인을 위한 확장 파일 업로드
 
@@ -153,19 +153,19 @@ Azure AD 엔드포인트에서 토큰을 가져오려면 Azure AD B2C에서 Azur
 
 ## <a name="register-the-claims-provider"></a>클레임 공급자 등록
 
-이 시점에서 id 공급자가 설정 되었지만 등록/로그인 페이지에는 아직 사용할 수 없습니다. 사용할 수 있도록 하려면 기존 템플릿 사용자 경험의 복제본을 만든 다음 Azure AD id 공급자도 포함 하도록 수정 합니다.
+이 시점에서 ID 공급자가 설정되었지만 아직 등록/로그인 페이지에서 사용할 수 없습니다. 사용할 수 있도록 하려면 기존 템플릿 사용자 설명의 복제본을 만든 다음 Azure AD ID 공급자가 있도록 수정합니다.
 
 1. 시작 팩에서 *TrustFrameworkBase.xml* 파일을 엽니다.
-1. **이 포함된** UserJourney`Id="SignUpOrSignIn"` 요소를 찾아서 전체 콘텐츠를 복사합니다.
+1. `Id="SignUpOrSignIn"`이 포함된 **UserJourney** 요소를 찾아서 전체 콘텐츠를 복사합니다.
 1. *TrustFrameworkExtensions.xml*을 열어 **UserJourneys** 요소를 찾습니다. 요소가 존재하지 않는 경우 추가합니다.
 1. 이전 단계에서 복사한 **UserJourney** 요소의 전체 콘텐츠를 **UserJourneys** 요소의 자식으로 붙여넣습니다.
 1. 사용자 경험 ID의 이름을 바꿉니다. `SignUpSignInContoso`)을 입력합니다.
 
 ### <a name="display-the-button"></a>단추 표시
 
-**ClaimsProviderSelection** 요소는 등록/로그인 페이지에서 id 공급자 단추와 유사 합니다. Azure AD에 대해 **ClaimsProviderSelection** 요소를 추가하면 사용자가 페이지를 방문할 때 새 단추가 표시됩니다.
+**클레임공급자선택** 요소는 등록/로그인 페이지의 ID 공급자 단추와 유사합니다. Azure AD에 대해 **ClaimsProviderSelection** 요소를 추가하면 사용자가 페이지를 방문할 때 새 단추가 표시됩니다.
 
-1. *Trustframeworkextensions.xml*에서 만든 사용자 경험에 `Order="1"`를 포함 하는 **OrchestrationStep** 요소를 찾습니다.
+1. *TrustFrameworkExtensions.xml에서*만든 사용자 여정에 포함된 `Order="1"` **오케스트레이션Step** 요소를 찾습니다.
 1. **ClaimsProviderSelections** 아래에 다음 요소를 추가합니다. **TargetClaimsExchangeId** 값을 적절한 값(예: `ContosoExchange`)으로 설정합니다.
 
     ```XML
@@ -176,7 +176,7 @@ Azure AD 엔드포인트에서 토큰을 가져오려면 Azure AD B2C에서 Azur
 
 이제 단추가 준비되었으므로 동작에 연결해야 합니다. 이 경우에 작업을 통해 Azure AD B2C에서 Azure AD와 통신하여 토큰을 수신할 수 있게 됩니다. Azure AD 클레임 공급자의 기술 프로필을 연결하여 동작에 단추를 연결합니다.
 
-1. 사용자 경험에서 **가 포함된** OrchestrationStep`Order="2"`을 찾습니다.
+1. 사용자 경험에서 `Order="2"`가 포함된 **OrchestrationStep**을 찾습니다.
 1. 다음 **ClaimsExchange** 요소를 추가합니다. **Id**에는 **TargetClaimsExchangeId**에 사용한 것과 같은 값을 사용해야 합니다.
 
     ```XML
@@ -189,7 +189,7 @@ Azure AD 엔드포인트에서 토큰을 가져오려면 Azure AD B2C에서 Azur
 
 ## <a name="create-an-azure-ad-b2c-application"></a>Azure AD B2C 애플리케이션 만들기
 
-Azure AD B2C와의 통신은 B2C 테 넌 트에 등록 하는 응용 프로그램을 통해 발생 합니다. 이 섹션에는 아직 만들지 않은 경우 테스트 애플리케이션을 만들기 위해 완료할 수 있는 선택적 단계가 나와 있습니다.
+Azure AD B2C와의 통신은 B2C 테넌트에 등록하는 응용 프로그램을 통해 발생합니다. 이 섹션에는 아직 만들지 않은 경우 테스트 애플리케이션을 만들기 위해 완료할 수 있는 선택적 단계가 나와 있습니다.
 
 [!INCLUDE [active-directory-b2c-appreg-idp](../../includes/active-directory-b2c-appreg-idp.md)]
 
@@ -200,17 +200,17 @@ Azure AD B2C와의 통신은 B2C 테 넌 트에 등록 하는 응용 프로그�
 1. 작업 디렉터리에서 *SignUpOrSignIn.xml*의 복사본을 만들고 이름을 바꿉니다. 예를 들어, 파일 이름을 *SignUpSignInContoso.xml*로 바꿉니다.
 1. 새 파일을 열고 **TrustFrameworkPolicy**의 **PolicyId** 특성 값을 고유 값으로 업데이트합니다. `SignUpSignInContoso`)을 입력합니다.
 1. **PublicPolicyUri** 값을 정책의 URI로 업데이트합니다. `http://contoso.com/B2C_1A_signup_signin_contoso`)을 입력합니다.
-1. **Defaultuserjourney** 에서 **ReferenceId** 특성의 값을 이전에 만든 사용자 경험의 ID와 일치 하도록 업데이트 합니다. 예를 들면 *SignUpSignInContoso*입니다.
+1. **[DefaultUserJourney]에서** **ReferenceId** 특성값을 업데이트하여 이전에 만든 사용자 여정의 ID와 일치합니다. 예를 들어, *가입로그인 콘토소*.
 1. 변경 내용을 저장하고 파일을 업로드합니다.
-1. **사용자 지정 정책**아래의 목록에서 새 정책을 선택 합니다.
-1. **응용 프로그램 선택** 드롭다운에서 이전에 만든 Azure AD B2C 응용 프로그램을 선택 합니다. 예를 들면 *testapp1-development*입니다.
-1. **지금 실행 끝점** 을 복사 하 여 개인 브라우저 창에서 엽니다 (예: Google Chrome의 Incognito 모드 또는 Microsoft Edge의 InPrivate 창). 개인 브라우저 창에서 열면 현재 캐시 된 Azure AD 자격 증명을 사용 하지 않고 전체 사용자 경험을 테스트할 수 있습니다.
-1. Azure AD 로그인 단추 (예: *Contoso Employee*)를 선택 하 고 azure ad 조직 테 넌 트의 사용자에 대 한 자격 증명을 입력 합니다. 응용 프로그램에 권한을 부여 하 라는 메시지가 표시 되 면 프로필에 대 한 정보를 입력 합니다.
+1. **사용자 지정 정책에서**목록에서 새 정책을 선택합니다.
+1. 응용 **프로그램 드롭다운 선택에서** 이전에 만든 Azure AD B2C 응용 프로그램을 선택합니다. 예를 들어, *testapp1*.
+1. 지금 **실행 끝점을** 복사하고 개인 브라우저 창에서 열, 예를 들어, 구글 크롬의 시크릿 모드 또는 마이크로 소프트 에지의 개인 창. 개인 브라우저 창에서 열면 현재 캐시된 Azure AD 자격 증명을 사용하지 않고 전체 사용자 여정을 테스트할 수 있습니다.
+1. *Contoso Employee*와 같은 Azure AD 로그인 단추를 선택한 다음 Azure AD 조직 테넌트에 있는 사용자에 대한 자격 증명을 입력합니다. 응용 프로그램에 권한을 부여한 다음 프로필에 대한 정보를 입력하라는 메시지가 표시됩니다.
 
-로그인 프로세스가 정상적으로 완료 되 면 브라우저가 `https://jwt.ms`으로 리디렉션되고 Azure AD B2C에서 반환 된 토큰의 내용을 표시 합니다.
+로그인 프로세스가 성공하면 브라우저가 `https://jwt.ms`로 리디렉션되며 Azure AD B2C에서 반환된 토큰의 내용을 표시합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-사용자 지정 정책을 사용 하는 경우 개발 하는 동안 정책의 문제를 해결할 때 추가 정보가 필요할 수 있습니다.
+사용자 지정 정책으로 작업할 때 개발 중에 정책을 문제 해결할 때 추가 정보가 필요할 수 있습니다.
 
-문제를 진단 하는 데 도움이 되도록 정책을 일시적으로 "개발자 모드"에 배치 하 고 Azure 애플리케이션 Insights로 로그를 수집할 수 있습니다. [Azure Active Directory B2C: 로그 수집](troubleshoot-with-application-insights.md)방법을 알아보세요.
+문제를 진단하는 데 도움이 되려면 정책을 일시적으로 "개발자 모드"로 전환하고 Azure Application Insights를 사용하여 로그를 수집할 수 있습니다. Azure Active [Directory B2C: 로그 수집](troubleshoot-with-application-insights.md)에서 방법을 알아보십시오.

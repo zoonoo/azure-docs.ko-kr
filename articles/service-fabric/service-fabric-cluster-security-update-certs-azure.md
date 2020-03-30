@@ -1,19 +1,19 @@
 ---
-title: Azure Service Fabric 클러스터에서 인증서 관리
+title: Azure 서비스 패브릭 클러스터에서 인증서 관리
 description: Service Fabric 클러스터에서 새 인증서를 추가, 교체 및 제거하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.openlocfilehash: a3c92e1b39261af32085e4d9b6cb2462d5c0eb64
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75458357"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Azure에서 서비스 패브릭 클러스터에 대한 인증서 추가 또는 제거
 Service Fabric이 X.509 인증서를 사용하는 방법을 숙지하고 [클러스터 보안 시나리오](service-fabric-cluster-security.md)를 읽어보는 것이 좋습니다. 다음 과정으로 진행하기 전에 클러스터 인증서가 무엇이며 어떤 용도로 사용되는지를 이해해야 합니다.
 
-Azure 서비스 패브릭 SDK의 기본 인증서 로드 동작은 가장 quantity 만료 날짜를 사용 하 여 정의 된 인증서를 배포 하 고 사용 하는 것입니다. 주 또는 보조 구성 정의에 관계 없이 클래식 동작으로 대체 하는 것은 권장 되지 않는 고급 작업 이므로 `Fabric.Code` 구성 내에서 "UseSecondaryIfNewer" 설정 매개 변수 값을 false로 설정 해야 합니다.
+Azure Service Fabrics SDK의 기본 인증서 로드 동작은 나중에 만료 날짜가 있는 정의된 인증서를 배포하고 사용하는 것입니다. 기본 또는 보조 구성 정의에 관계없이 클래식 동작으로 돌아가는 것은 권장되지 않는 고급 작업이며 구성 내에서 "UseSecondaryIfNewer" `Fabric.Code` 설정 매개 변수 값을 false로 설정해야 합니다.
 
 클러스터를 만드는 동안 클라이언트 인증서 외에도 인증서 보안을 구성할 때 Service Fabric을 사용하여 기본 인증서와 보조 인증서의 두 클러스터 인증서를 지정할 수 있습니다. 만드는 시점에서의 설정에 관한 자세한 내용은 [포털을 통해 Azure 클러스터 만들기](service-fabric-cluster-creation-via-portal.md) 또는 [Azure Resource Manager를 통해 Azure 클러스터 만들기](service-fabric-cluster-creation-via-arm.md)를 참조하세요. 만드는 시점에 클러스터 인증서를 하나만 지정하는 경우 해당 인증서가 기본 인증서로 사용됩니다. 클러스터를 만든 후 새 인증서를 보조 인증서로 추가할 수 있습니다.
 
@@ -29,7 +29,7 @@ Azure 서비스 패브릭 SDK의 기본 인증서 로드 동작은 가장 quanti
 Azure Portal로는 보조 클러스터 인증서를 추가할 수 없습니다. Azure Powershell을 사용합니다. 이 프로세스는 이 문서의 뒷부분에서 설명합니다.
 
 ## <a name="remove-a-cluster-certificate-using-the-portal"></a>포털을 사용하여 클러스터 인증서 제거
-보안 클러스터의 경우 하나 이상의 유효한(해지되지 않고 만기되지 않은) 인증서가 항상 필요합니다. 이후에 만료 되는 날짜에 가장 quantity 배포 된 인증서를 사용 하 게 되며,이를 제거 하면 클러스터의 작동이 중지 됩니다. 만료 된 인증서 또는 제거를 만료 하는 사용 되지 않는 인증서를 제거 해야 합니다.
+보안 클러스터의 경우 하나 이상의 유효한(해지되지 않고 만기되지 않은) 인증서가 항상 필요합니다. 향후 만료 날짜에 가장 먼 상태로 배포된 인증서가 사용 중이며 이를 제거하면 클러스터작동이 중지됩니다. 만료된 인증서 또는 가장 빨리 만료되는 사용되지 않는 인증서만 제거해야 합니다.
 
 사용하지 않는 클러스터 보안 인증서를 제거하려면 보안 섹션으로 이동하여 사용하지 않은 인증서의 바로 가기 메뉴에서 '삭제' 옵션을 선택합니다.
 
@@ -37,18 +37,18 @@ Azure Portal로는 보조 클러스터 인증서를 추가할 수 없습니다. 
 
 ## <a name="add-a-secondary-certificate-using-resource-manager-powershell"></a>Resource Manager Powershell을 사용하여 보조 인증서 추가
 > [!TIP]
-> 이제 [AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) cmdlet을 사용 하 여 보조 인증서를 추가 하는 더 쉽고 쉬운 방법이 있습니다. 이 섹션의 나머지 단계를 따를 필요가 없습니다.  또한 [AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) cmdlet을 사용할 때 원래 클러스터를 만들고 배포 하는 데 사용 된 템플릿이 필요 하지 않습니다.
+> 이제 [Add-AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) cmdlet을 사용하여 보조 인증서를 추가하는 더 쉽고 쉬운 방법이 있습니다. 이 섹션의 나머지 단계를 따를 필요가 없습니다.  또한 [Add-AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) cmdlet을 사용할 때 클러스터를 만들고 배포하는 데 원래 사용된 템플릿이 필요하지 않습니다.
 
 이러한 단계에서는 Resource Manager의 작동 원리에 익숙하며, Resource Manager 템플릿을 사용하여 하나 이상의 Service Fabric 클러스터를 배포했고, 클러스터를 설정하는 데 사용한 템플릿이 있다고 가정합니다. 또한 JSON을 잘 사용하여 작업할 수 있다고 간주합니다.
 
 > [!NOTE]
-> 시작 지점으로 사용하거나 필요할 때 사용할 수 있는 샘플 템플릿 및 매개 변수를 찾으려는 경우 이 [git-repo](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Cert-Rollover-Sample)에서 다운로드합니다. 
+> 따라 또는 시작 점으로 사용할 수 있는 샘플 템플릿 및 매개 변수를 찾고 있는 경우 이 [git-repo에서](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Cert-Rollover-Sample)다운로드합니다. 
 > 
 > 
 
 ### <a name="edit-your-resource-manager-template"></a>Resource Manager 템플릿 편집
 
-편의를 위해 5-VM-1-NodeTypes-Secure_Step2.JSON 샘플에는 앞으로 수행할 모든 편집이 포함되어 있습니다. 이 샘플은 [git-repo](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Cert-Rollover-Sample)에서 사용할 수 있습니다.
+편의를 위해 5-VM-1-NodeTypes-Secure_Step2.JSON 샘플에는 앞으로 수행할 모든 편집이 포함되어 있습니다. 샘플은 [git-repo에서](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Cert-Rollover-Sample)사용할 수 있습니다.
 
 **모든 단계를 수행해야 합니다.**
 
@@ -106,7 +106,7 @@ Azure Portal로는 보조 클러스터 인증서를 추가할 수 없습니다. 
          }
     ``` 
 
-4. **모든** **Microsoft.Compute/virtualMachineScaleSets** 리소스 정의를 변경합니다. Microsoft.Compute/virtualMachineScaleSets 리소스 정의를 찾습니다. "virtualMachineProfile" 아래 "publisher": "Microsoft.Azure.ServiceFabric"으로 스크롤합니다.
+4. **모든** **Microsoft.Compute/virtualMachineScaleSet** 리소스 정의 변경 - Microsoft.Compute/virtualMachineScaleSet 리소스 정의를 찾습니다. "virtualMachineProfile" 아래 "publisher": "Microsoft.Azure.ServiceFabric"으로 스크롤합니다.
 
     Service Fabric 게시자 설정에서 다음과 같이 나타납니다.
     
@@ -144,7 +144,7 @@ Azure Portal로는 보조 클러스터 인증서를 추가할 수 없습니다. 
     이제 속성이 다음과 같이 표시됩니다.    
     ![Json_Pub_Setting3][Json_Pub_Setting3]
 
-5. **모든** **Microsoft.Compute/virtualMachineScaleSets** 리소스 정의를 변경합니다. Microsoft.Compute/virtualMachineScaleSets 리소스 정의를 찾습니다. "OSProfile" 아래 "VaultCertificates"로 스크롤합니다. 다음과 같이 표시됩니다.
+5. **모든****Microsoft.Compute/virtualMachineScaleSets** 리소스 정의를 변경합니다. Microsoft.Compute/virtualMachineScaleSets 리소스 정의를 찾습니다. "OSProfile" 아래 "VaultCertificates"로 스크롤합니다. 다음과 같이 표시됩니다.
 
     ![Json_Pub_Setting4][Json_Pub_Setting4]
     
@@ -184,7 +184,7 @@ Resource Manager 템플릿 매개 변수 파일을 편집하고 secCertificateTh
 ### <a name="deploy-the-template-to-azure"></a>Azure에 템플릿 배포
 
 - 이제 Azure에 템플릿을 배포할 준비가 되었습니다. Azure PS 버전 1+ 명령 프롬프트를 엽니다.
-- Azure 계정에 로그인 하 고 특정 azure 구독을 선택 합니다. 이 단게는 둘 이상의 Azure 구독에 대해 액세스 권한이 있는 사용자들을 위한 중요한 단계입니다.
+- Azure 계정에 로그인하고 특정 Azure 구독을 선택합니다. 이 단게는 둘 이상의 Azure 구독에 대해 액세스 권한이 있는 사용자들을 위한 중요한 단계입니다.
 
 ```powershell
 Connect-AzAccount
@@ -199,7 +199,7 @@ Test-AzResourceGroupDeployment -ResourceGroupName <Resource Group that your clus
 
 ```
 
-리소스 그룹에 템플릿을 배포합니다. 현재 클러스터가 배포된 동일한 리소스 그룹을 사용합니다. AzResourceGroupDeployment 명령을 실행 합니다. 기본값은 **incremental**이므로 모드는 지정할 필요가 없습니다.
+리소스 그룹에 템플릿을 배포합니다. 현재 클러스터가 배포된 동일한 리소스 그룹을 사용합니다. 새 AzResourceGroup 배포 명령을 실행합니다. 기본값은 **incremental**이므로 모드는 지정할 필요가 없습니다.
 
 > [!NOTE]
 > Mode를 Complete로 설정하면 템플릿에 없는 리소스를 실수로 삭제할 수 있습니다. 따라서 이러한 경우에는 사용하지 않도록 합니다.
@@ -251,7 +251,7 @@ Connect-serviceFabricCluster -ConnectionEndpoint $ClusterName -KeepAliveInterval
 Get-ServiceFabricClusterHealth 
 ```
 
-## <a name="deploying-client-certificates-to-the-cluster"></a>클러스터에 클라이언트 인증서를 배포 합니다.
+## <a name="deploying-client-certificates-to-the-cluster"></a>클러스터에 클라이언트 인증서를 배포합니다.
 
 앞의 5단계에서 설명한 것과 같은 단계를 사용하여 Key Vault에서 인증서를 노드에 배포할 수 있습니다. 다른 매개 변수를 정의하여 사용하면 됩니다.
 
@@ -277,9 +277,9 @@ Get-ServiceFabricClusterHealth
 
 클러스터 보안에서 사용되는 특정 인증서를 제거하려면 보안 섹션으로 이동하여 특정 인증서에 대한 바로 가기 메뉴에서 ‘삭제’ 옵션을 선택합니다.
 
-## <a name="adding-application-certificates-to-a-virtual-machine-scale-set"></a>가상 머신 확장 집합에 응용 프로그램 인증서 추가
+## <a name="adding-application-certificates-to-a-virtual-machine-scale-set"></a>가상 시스템 규모 집합에 응용 프로그램 인증서 추가
 
-응용 프로그램에 사용 하는 인증서를 클러스터에 배포 하려면 [이 샘플 Powershell 스크립트](scripts/service-fabric-powershell-add-application-certificate.md)를 참조 하세요.
+응용 프로그램에 사용하는 인증서를 클러스터에 배포하려면 [이 샘플 Powershell 스크립트를](scripts/service-fabric-powershell-add-application-certificate.md)참조하십시오.
 
 ## <a name="next-steps"></a>다음 단계
 클러스터 관리에 대한 자세한 내용은 다음 문서를 읽어보세요.

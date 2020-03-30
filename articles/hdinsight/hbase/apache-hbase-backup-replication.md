@@ -1,6 +1,6 @@
 ---
-title: Apache HBase, Phoenix에 대 한 백업 & 복제-Azure HDInsight
-description: Azure HDInsight에서 Apache HBase 및 Apache Phoenix에 대 한 백업 및 복제 설정
+title: 아파치 HBase에 대 한 백업 & 복제, 피닉스 - Azure HDInsight
+description: Azure HDInsight에서 아파치 HBase 및 아파치 피닉스에 대한 백업 및 복제 설정
 author: ashishthaps
 ms.author: ashishth
 ms.reviewer: jasonh
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/19/2019
 ms.openlocfilehash: c6d33158b581bf4394a0d1bac2b277830328e110
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75495939"
 ---
 # <a name="set-up-backup-and-replication-for-apache-hbase-and-apache-phoenix-on-hdinsight"></a>HDInsight에서 Apache HBase 및 Apache Phoenix에 대한 백업 및 복제 설정
@@ -44,7 +44,7 @@ HDInsight의 HBase는 클러스터를 만들 때 선택한 기본 스토리지�
     wasbs://<containername>@<accountname>.blob.core.windows.net/hbase
     ```
 
-* Azure Data Lake Storage에서 `hbase` 폴더는 클러스터를 프로 비전 할 때 지정한 루트 경로 아래에 있습니다. 이 루트 경로에는 일반적으로 `clusters` 폴더가 있으며, 여기에는 HDInsight 클러스터 뒤에 이름이 지정된 하위 폴더가 있습니다.
+* Azure Data Lake Storage에서 폴더는 `hbase` 클러스터프로비저닝 할 때 지정한 루트 경로 아래에 있습니다. 이 루트 경로에는 일반적으로 `clusters` 폴더가 있으며, 여기에는 HDInsight 클러스터 뒤에 이름이 지정된 하위 폴더가 있습니다.
 
     ```
     /clusters/<clusterName>/hbase
@@ -60,19 +60,19 @@ HDInsight의 HBase는 클러스터를 만들 때 선택한 기본 스토리지�
 
 ## <a name="export-then-import"></a>내보낸 후 가져오기
 
-원본 HDInsight 클러스터에서 [내보내기 유틸리티](https://hbase.apache.org/book.html#export) (HBase에 포함)를 사용 하 여 원본 테이블의 데이터를 기본 연결 된 저장소로 내보냅니다. 그런 다음 내보낸 폴더를 대상 저장소 위치에 복사 하 고 대상 HDInsight 클러스터에서 [가져오기 유틸리티](https://hbase.apache.org/book.html#import) 를 실행할 수 있습니다.
+원본 HDInsight 클러스터에서 [내보내기](https://hbase.apache.org/book.html#export) 유틸리티(HBase에 포함)를 사용하여 원본 테이블에서 연결된 기본 저장소로 데이터를 내보냅니다. 그런 다음 내보낸 폴더를 대상 저장소 위치로 복사하고 대상 HDInsight 클러스터에서 [가져오기 유틸리티를](https://hbase.apache.org/book.html#import) 실행할 수 있습니다.
 
-테이블 데이터를 내보내려면 먼저 원본 HDInsight 클러스터의 헤드 노드로 SSH를 수행 하 고 다음 `hbase` 명령을 실행 합니다.
+테이블 데이터를 내보내려면 먼저 SSH를 소스 HDInsight 클러스터의 헤드 `hbase` 노드로 이동한 다음 다음 명령을 실행합니다.
 
     hbase org.apache.hadoop.hbase.mapreduce.Export "<tableName>" "/<path>/<to>/<export>"
 
-내보내기 디렉터리는 아직 존재 하지 않아야 합니다. 테이블 이름은 대/소문자를 구분 합니다.
+내보내기 디렉터리가 아직 없어야 합니다. 테이블 이름은 대/소문자를 구분합니다.
 
-테이블 데이터를 가져오려면 대상 HDInsight 클러스터의 헤드 노드로 SSH를 실행 하 고 다음 `hbase` 명령을 실행 합니다.
+테이블 데이터를 가져오려면 SSH를 대상 HDInsight 클러스터의 헤드 노드로 가져온 다음 다음 `hbase` 명령을 실행합니다.
 
     hbase org.apache.hadoop.hbase.mapreduce.Import "<tableName>" "/<path>/<to>/<export>"
 
-테이블이 이미 존재 해야 합니다.
+테이블이 이미 있어야 합니다.
 
 기본 스토리지 또는 연결된 스토리지 옵션 중 하나에 대한 전체 내보내기 경로를 지정합니다. 예를 들어 Azure Storage에서 구문은 다음과 같습니다.
 
@@ -94,7 +94,7 @@ Azure Data Lake Storage Gen1에서 구문은 다음과 같습니다.
 
 ## <a name="copy-tables"></a>테이블 복사
 
-[Copytable 유틸리티](https://hbase.apache.org/book.html#copy.table) 는 원본과 동일한 스키마를 사용 하 여 원본 테이블의 데이터를 행 단위로 복사 하 여 기존 대상 테이블에 복사 합니다. 대상 테이블은 동일한 클러스터 또는 다른 HBase 클러스터에 있을 수 있습니다. 테이블 이름은 대/소문자를 구분 합니다.
+[CopyTable 유틸리티는](https://hbase.apache.org/book.html#copy.table) 원본 테이블의 행별로 데이터를 원본과 동일한 스키마를 가진 기존 대상 테이블로 복사합니다. 대상 테이블은 동일한 클러스터 또는 다른 HBase 클러스터에 있을 수 있습니다. 테이블 이름은 대/소문자를 구분합니다.
 
 클러스터 내에서 CopyTable을 사용하려면 먼저 원본 HDInsight 클러스터의 헤드 노드에 SSH를 연결하고, 다음 `hbase` 명령을 실행합니다.
 
@@ -130,7 +130,7 @@ CopyTable은 대상 테이블에 복사될 원본 테이블 내용 전체를 스
 
 ### <a name="manually-collect-the-apache-zookeeper-quorum-list"></a>수동으로 Apache ZooKeeper 쿼럼 목록 수집
 
-앞에서 설명한 대로 두 HDInsight 클러스터가 동일한 가상 네트워크에 있는 경우 내부 호스트 이름 확인이 자동으로 수행됩니다. VPN Gateway로 연결 된 별도의 두 가상 네트워크에서 HDInsight 클러스터에 대해 CopyTable을 사용 하려면 쿼럼에 있는 아웃 들 노드의 호스트 IP 주소를 제공 해야 합니다.
+앞에서 설명한 대로 두 HDInsight 클러스터가 동일한 가상 네트워크에 있는 경우 내부 호스트 이름 확인이 자동으로 수행됩니다. VPN 게이트웨이로 연결된 두 개의 별도 가상 네트워크에서 HDInsight 클러스터에 CopyTable을 사용하려면 쿼럼에 사육사 노드의 호스트 IP 주소를 제공해야 합니다.
 
 쿼럼 호스트 이름을 얻으려면 다음 curl 명령을 실행합니다.
 
@@ -160,7 +160,7 @@ curl 명령은 HBase 구성 정보를 사용하여 JSON 문서를 검색하고, 
 
 ## <a name="snapshots"></a>스냅샷
 
-[스냅숏을](https://hbase.apache.org/book.html#ops.snapshots) 사용 하 여 HBase 데이터 저장소에 있는 데이터의 특정 시점 백업을 수행할 수 있습니다. 스냅샷 작업은 실질적으로 해당 시점에서 스토리지에 있는 모든 파일의 이름을 캡처하는 메타데이터 작업이기 때문에 스냅샷은 최소한의 오버헤드를 가지며 수초 내에 완료됩니다. 스냅샷이 만들어지는 시점에서 실제 데이터는 복사되지 않습니다. 스냅샷은 업데이트, 삭제 및 삽입이 모두 새 데이터로 표시되는 HDFS에 저장된 데이터의 변경 불가능 특성을 사용합니다. 스냅샷은 동일한 클러스터에서 복원(*복제*)하거나 다른 클러스터로 내보낼 수 있습니다.
+[스냅샷을](https://hbase.apache.org/book.html#ops.snapshots) 사용하면 HBase 데이터스토어에서 데이터를 적시에 백업할 수 있습니다. 스냅샷 작업은 실질적으로 해당 시점에서 스토리지에 있는 모든 파일의 이름을 캡처하는 메타데이터 작업이기 때문에 스냅샷은 최소한의 오버헤드를 가지며 수초 내에 완료됩니다. 스냅샷이 만들어지는 시점에서 실제 데이터는 복사되지 않습니다. 스냅샷은 업데이트, 삭제 및 삽입이 모두 새 데이터로 표시되는 HDFS에 저장된 데이터의 변경 불가능 특성을 사용합니다. 스냅샷은 동일한 클러스터에서 복원(*복제*)하거나 다른 클러스터로 내보낼 수 있습니다.
 
 스냅샷을 만들려면 HDInsight HBase 클러스터의 헤드 노드에 SSH를 연결하고 `hbase` 셸을 시작합니다.
 
@@ -190,11 +190,11 @@ hbase 셸 내에서 테이블 및 이 스냅샷의 이름이 포함된 snapshot 
 
 스냅샷을 내보낸 후 SSH를 대상 클러스터의 헤드 노드에 연결하고, 앞에서 설명한 대로 restore_snapshot 명령을 사용하여 스냅샷을 복원합니다.
 
-스냅샷은 `snapshot` 명령을 실행할 때 테이블의 전체 백업을 제공합니다. 스냅숏은 시간 windows에서 증분 스냅숏을 수행 하는 기능을 제공 하지 않으며 스냅숏에 포함할 열 패밀리의 하위 집합을 지정 하지 않습니다.
+스냅샷은 `snapshot` 명령을 실행할 때 테이블의 전체 백업을 제공합니다. 스냅숏은 시간 창별로 증분 스냅숏을 수행하거나 스냅숏에 포함할 열 패밀리의 하위 집합을 지정하는 기능을 제공하지 않습니다.
 
 ## <a name="replication"></a>복제
 
-[HBase 복제](https://hbase.apache.org/book.html#_cluster_replication) 는 원본 클러스터에서 오버 헤드가 최소화 된 비동기 메커니즘을 사용 하 여 원본 클러스터에서 대상 클러스터로 트랜잭션을 자동으로 푸시합니다. HDInsight에서 다음과 같은 클러스터 간에 복제를 설정할 수 있습니다.
+[HBase 복제는](https://hbase.apache.org/book.html#_cluster_replication) 원본 클러스터에서 최소한의 오버헤드로 비동기 메커니즘을 사용하여 원본 클러스터에서 대상 클러스터로 트랜잭션을 자동으로 푸시합니다. HDInsight에서 다음과 같은 클러스터 간에 복제를 설정할 수 있습니다.
 
 * 원본 및 대상 클러스터가 동일한 가상 네트워크에 있습니다.
 * 원본 및 대상 클러스터가 VPN 게이트웨이에서 연결된 서로 다른 가상 네트워크에 있지만, 모두 동일한 지리적 위치에 있습니다.
@@ -214,4 +214,4 @@ HDInsight에서 복제를 사용하도록 설정하려면 실행 중인 원본 H
 ## <a name="next-steps"></a>다음 단계
 
 * [Apache HBase 복제 구성](apache-hbase-replication.md)
-* [HBase 가져오기 및 내보내기 유틸리티 사용](https://blogs.msdn.microsoft.com/data_otaku/2016/12/21/working-with-the-hbase-import-and-export-utility/)
+* [HBase 가져오기 및 내보내기 유틸리티 작업](https://blogs.msdn.microsoft.com/data_otaku/2016/12/21/working-with-the-hbase-import-and-export-utility/)
