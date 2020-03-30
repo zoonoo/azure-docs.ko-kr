@@ -1,15 +1,15 @@
 ---
 title: Blockchain Data Manager를 사용하여 Azure Cosmos DB 업데이트 - Azure Blockchain Service
 description: Azure Blockchain Service용 Blockchain Data Manager를 사용하여 Azure Cosmos DB로 블록체인 데이터 보내기
-ms.date: 12/04/2019
+ms.date: 03/08/2020
 ms.topic: tutorial
 ms.reviewer: chroyal
-ms.openlocfilehash: 79c39d9883b5ba618e368b0ff6d3e95f1af5bd96
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 483a5246274f63549dfb2914361ede6aa001e02e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977400"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79533184"
 ---
 # <a name="tutorial-use-blockchain-data-manager-to-send-data-to-azure-cosmos-db"></a>자습서: Blockchain Data Manager를 사용하여 Azure Cosmos DB로 데이터 보내기
 
@@ -29,7 +29,7 @@ ms.locfileid: "74977400"
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [빠른 시작: Azure Portal을 사용하여 블록체인 멤버 만들기](create-member.md) 또는 [빠른 시작: Azure CLI를 사용하여 Azure Blockchain Service 블록체인 멤버 만들기](create-member-cli.md)를 완료합니다.
 * [빠른 시작: Visual Studio Code를 사용하여 Azure Blockchain Service 컨소시엄 네트워크에 연결](connect-vscode.md)을 완료해야 합니다. 이 빠른 시작에서는 [Ethereum용 Azure Blockchain Development Kit](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain)를 설치하고 블록체인 개발 환경을 설정하는 방법을 안내합니다.
@@ -49,9 +49,9 @@ Blockchain Data Manager 인스턴스는 Azure Blockchain Service 트랜잭션 �
 
     다음 세부 정보를 입력합니다.
 
-    설정 | 예 | 설명
+    설정 | 예제 | Description
     --------|---------|------------
-    Name | mywatcher | 연결된 Blockchain Data Manager의 고유 이름을 입력합니다.
+    속성 | mywatcher | 연결된 Blockchain Data Manager의 고유 이름을 입력합니다.
     트랜잭션 노드 | myblockchainmember | 필수 조건에서 만든 Azure Blockchain Service 멤버의 기본 트랜잭션 노드를 선택합니다.
     연결 이름 | cosmosdb | 블록체인 트랜잭션 데이터가 전송되는 아웃바운드 연결의 고유 이름을 입력합니다.
     Event Grid 엔드포인트 | myTopic | 필수 조건에서 만든 Event Grid 토픽을 선택합니다. 참고: Blockchain Data Manager 인스턴스와 Event Grid 토픽은 동일한 구독에 있어야 합니다.
@@ -108,9 +108,9 @@ Blockchain Data Manager을 사용하려면 애플리케이션을 추가할 때 U
 
     ![스토리지 계정 컨테이너 만들기](./media/data-manager-cosmosdb/create-container.png)
 
-    | 설정 | 설명 |
+    | 설정 | Description |
     |---------|-------------|
-    | Name  | 컨테이너 이름을 지정합니다. 예: *smartcontract* |
+    | 속성  | 컨테이너 이름을 지정합니다. 예: *smartcontract* |
     | 공용 액세스 수준 | *프라이빗(익명 액세스 없음)* 선택 |
 
 1. **확인**을 선택하여 컨테이너를 만듭니다.
@@ -144,9 +144,9 @@ Blockchain Data Manager을 사용하려면 애플리케이션을 추가할 때 U
 
     블록체인 애플리케이션의 이름과 스마트 계약 ABI 및 바이트 코드 URL을 입력합니다.
 
-    설정 | 설명
+    설정 | Description
     --------|------------
-    Name | 추적할 블록체인 애플리케이션의 고유 이름을 입력합니다.
+    속성 | 추적할 블록체인 애플리케이션의 고유 이름을 입력합니다.
     계약 ABI | 계약 ABI 파일의 URL 경로입니다. 자세한 내용은 [계약 ABI 및 바이트 코드 URL 만들기](#create-contract-abi-and-bytecode-url)를 참조하세요.
     계약 바이트 코드 | 바이트 코드 파일의 URL 경로입니다. 자세한 내용은 [계약 ABI 및 바이트 코드 URL 만들기](#create-contract-abi-and-bytecode-url)를 참조하세요.
 
@@ -171,7 +171,7 @@ Azure Portal에서 데이터 탐색기를 사용하여 데이터베이스와 컨
 
     ![컨테이너 설정 추가](./media/data-manager-cosmosdb/add-container.png)
 
-    | 설정 | 설명
+    | 설정 | Description
     |---------|-------------|
     | 데이터베이스 ID | 새 데이터베이스의 이름으로 **blockchain-data**를 입력합니다. |
     | 처리량 | 처리량을 **400**RU/s(초당 요청 단위)로 유지합니다. 대기 시간을 줄이면 나중에 처리량을 늘릴 수 있습니다.|
@@ -202,7 +202,7 @@ Azure Logic Apps를 사용하면 시스템과 서비스를 통합해야 할 때 
 
     ![Event Grid 트리거 설정](./media/data-manager-cosmosdb/event-grid-trigger.png)
 
-    | 설정 | 설명
+    | 설정 | Description
     |---------|-------------|
     | Subscription | Event Grid 토픽을 포함하는 구독을 선택합니다. |
     | 리소스 종류 | **Microsoft.EventGrid.Topics**를 선택합니다. |
@@ -219,7 +219,7 @@ Cosmos DB에 각 트랜잭션에 대한 문서를 만드는 작업을 추가합�
 
     ![Cosmos DB 연결 설정](./media/data-manager-cosmosdb/cosmosdb-connection.png)
 
-    | 설정 | 설명
+    | 설정 | Description
     |---------|-------------|
     | 연결 이름 | Event Grid 토픽을 포함하는 구독을 선택합니다. |
     | DocumentDB 계정 | [Azure Cosmos DB 계정 만들기](#create-azure-cosmos-db) 섹션에서 만든 DocumentDB 계정을 선택합니다. |
@@ -247,17 +247,17 @@ Cosmos DB에 각 트랜잭션에 대한 문서를 만드는 작업을 추가합�
 
 ## <a name="send-a-transaction"></a>트랜잭션 보내기
 
-다음으로, 트랜잭션을 블록체인 원장으로 보내서 만든 항목을 테스트합니다. **sendrequest.js** 스크립트를 사용합니다. 이 스크립트는 필수 조건 [자습서: Visual Studio Code를 사용하여 스마트 계약 생성, 빌드 및 배포](send-transaction.md)에서 만든 스크립트입니다.
+다음으로, 트랜잭션을 블록체인 원장으로 보내서 만든 항목을 테스트합니다. 다음의 필수 구성 요소에서 작성한 **HelloBlockchain** 계약의 **SendRequest** 기능을 사용하세요. [자습서: Visual Studio Code를 사용하여 스마트 계약 생성, 빌드 및 배포](send-transaction.md)
 
-VS Code의 터미널 창에서 Truffle을 사용하여 컨소시엄 블록체인 네트워크에서 스크립트를 실행합니다. 터미널 창 메뉴 모음의 드롭다운에서 **터미널** 탭 및 **PowerShell**을 선택합니다.
+1. Azure Blockchain Development Kit 스마트 계약 상호 작용 페이지를 사용하여 **SendRequest** 함수를 호출합니다. 마우스 오른쪽 단추로 **HelloBlockchain.sol**을 클릭하고 메뉴에서 **스마트 계약 상호 작용 페이지 표시**를 선택합니다.
 
-``` PowerShell
-truffle exec sendrequest.js --network <blockchain network>
-```
+    ![메뉴에서 스마트 계약 상호 작용 페이지 표시 선택](./media/data-manager-cosmosdb/contract-interaction.png)
 
-\<블록체인 네트워크\>를 **truffle-config.js**에 정의된 블록체인 네트워크 이름으로 바꿉니다.
+1. **SendRequest** 계약 작업을 선택하고, **Hello, Blockchain!** 을 **requestMessage** 매개 변수에 입력합니다. **실행**을 선택하여 트랜잭션을 통해 **SendRequest** 함수를 호출합니다.
 
-![트랜잭션 보내기](./media/data-manager-cosmosdb/send-request.png)
+    ![SendRequest 작업 실행](./media/data-manager-cosmosdb/sendrequest-action.png)
+
+SendRequest 함수는 **RequestMessage** 및 **State** 필드를 설정합니다. **RequestMessage**의 현재 상태는 **Hello, Blockchain**을 전달한 인수입니다. **State** 필드 값은 **Request**로 유지됩니다.
 
 ## <a name="view-transaction-data"></a>트랜잭션 데이터 보기
 

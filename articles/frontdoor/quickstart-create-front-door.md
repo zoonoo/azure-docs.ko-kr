@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/31/2018
 ms.author: sharadag
-ms.openlocfilehash: 67a4f9eb3290ba09a2c19325464cf7ad224856e7
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: a98a933113322509f6fda8678350e9415d0b4058
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184506"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79471424"
 ---
 # <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application"></a>빠른 시작: 고가용성 글로벌 웹 애플리케이션에 대한 Front Door 만들기
 
@@ -31,15 +31,15 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 ## <a name="sign-in-to-azure"></a>Azure에 로그인 
 [https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
 
-## <a name="prerequisites"></a>필수 조건
-이 빠른 시작을 진행하려면 서로 다른 Azure 지역(*미국 동부* 및 *유럽 서부*)에서 실행되는 두 개의 웹 애플리케이션 인스턴스를 배포해야 합니다. 두 웹 애플리케이션 인스턴스 모두 활성/활성 모드에서 실행됩니다. 즉, 둘 중 하나가 장애 조치(failover) 역할을 하는 능동/대기 모드와는 달리 둘 중 하나가 언제든지 트래픽을 받을 수 있습니다.
+## <a name="prerequisites"></a>사전 요구 사항
+이 빠른 시작을 진행하려면 서로 다른 Azure 지역(*미국 동부* 및 *서유럽*)에서 실행되는 두 개의 웹 애플리케이션 인스턴스를 배포해야 합니다. 두 웹 애플리케이션 인스턴스 모두 활성/활성 모드에서 실행됩니다. 즉, 둘 중 하나가 장애 조치(failover) 역할을 하는 능동/대기 모드와는 달리 둘 중 하나가 언제든지 트래픽을 받을 수 있습니다.
 
 1. 화면 왼쪽 상단에서 **리소스 만들기** > **웹** > **웹앱** > **만들기**를 선택합니다.
 2. **웹앱**에서, 다음 정보를 입력 또는 선택하고, 지정된 설정이 없으면 기본 설정을 입력합니다.
 
      | 설정         | 값     |
      | ---              | ---  |
-     | Name           | 웹앱의 고유한 이름을 입력합니다.  |
+     | 속성           | 웹앱의 고유한 이름을 입력합니다.  |
      | Resource group          | **새로 만들기**를 선택한 다음, *myResourceGroupFD1*을 입력합니다. |
      | App Service 계획/위치         | **새로 만들기**를 선택합니다.  App Service 계획에서 *myAppServicePlanEastUS*를 입력하고 **확인**을 선택합니다. 
      |      위치  |   미국 동부        |
@@ -51,7 +51,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
      | 설정         | 값     |
      | ---              | ---  |
-     | Name           | 웹앱의 고유한 이름을 입력합니다.  |
+     | 속성           | 웹앱의 고유한 이름을 입력합니다.  |
      | Resource group          | **새로 만들기**를 선택한 다음, *myResourceGroupFD2*를 입력합니다. |
      | App Service 계획/위치         | **새로 만들기**를 선택합니다.  App Service 계획에서 *myAppServicePlanWestEurope*을 입력하고 **확인**을 선택합니다. 
      |      위치  |   서유럽      |
@@ -59,7 +59,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 
 ## <a name="create-a-front-door-for-your-application"></a>애플리케이션에 대한 Front Door 만들기
-### <a name="a-add-a-frontend-host-for-front-door"></a>a. Front Door에 대한 프런트 엔드 호스트 추가
+### <a name="a-add-a-frontend-host-for-front-door"></a>A. Front Door에 대한 프런트 엔드 호스트 추가
 두 개의 백 엔드 간의 가장 낮은 대기 시간에 따라 사용자 트래픽을 전달하는 Front Door 구성을 만듭니다.
 
 1. 화면 왼쪽 상단에서 **리소스 만들기** > **네트워킹** > **Front Door** > **만들기**를 선택합니다.

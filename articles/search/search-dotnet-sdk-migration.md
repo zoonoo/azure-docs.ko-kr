@@ -1,5 +1,5 @@
 ---
-title: Azure Search .NET SDK 버전 3으로 업그레이드
+title: Azure 검색 .NET SDK 버전 3으로 업그레이드
 titleSuffix: Azure Cognitive Search
 description: 이전 버전에서 Azure Search .NET SDK 버전 3으로 코드를 마이그레이션합니다. 새로운 기능과 필요한 코드 변경 내용을 알아봅니다.
 manager: nitinme
@@ -10,13 +10,13 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: fcad05749892e3a652e110a7e351450bffaca6f2
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72792976"
 ---
-# <a name="upgrade-to-azure-search-net-sdk-version-3"></a>Azure Search .NET SDK 버전 3으로 업그레이드
+# <a name="upgrade-to-azure-search-net-sdk-version-3"></a>Azure 검색 .NET SDK 버전 3으로 업그레이드
 
 <!--- DETAILS in the word doc
 cosmosdb
@@ -32,7 +32,7 @@ the data source API will no longer return in the response of any REST operation,
 Azure Search .NET SDK 버전 3에는 이전 버전에서 변경된 사항이 일부 포함되어 있습니다. 대부분 소소한 변경이므로 코드를 변경하는 데 최소한의 작업만 필요합니다. 새 SDK 버전을 사용하는 코드를 변경하는 방법에 대한 지침은 [업그레이드 단계](#UpgradeSteps) 를 참조하세요.
 
 > [!NOTE]
-> 1\.0.2-preview 또는 이전 버전을 사용하는 경우 먼저 버전 1.1로 업그레이드한 후 버전 3으로 업그레이드해야 합니다. 지침은 [Azure Search .NET SDK 버전 1.1로 업그레이드](search-dotnet-sdk-migration-version-1.md)를 참조하세요.
+> 1.0.2-preview 또는 이전 버전을 사용하는 경우 먼저 버전 1.1로 업그레이드한 후 버전 3으로 업그레이드해야 합니다. 지침은 [Azure Search .NET SDK 버전 1.1로 업그레이드](search-dotnet-sdk-migration-version-1.md)를 참조하세요.
 >
 > Azure Search 서비스 인스턴스는 최신 버전을 포함한 여러 REST API 버전을 지원합니다. 더 이상 최신 버전이 아닌 버전을 계속 사용할 수는 있지만 코드를 마이그레이션하여 최신 버전을 사용하는 것이 좋습니다. REST API를 사용하는 경우 api-version 매개 변수를 통해 모든 요청에 API 버전을 지정해야 합니다. .NET SDK를 사용하는 경우 사용 중인 SDK의 버전에 따라 해당하는 REST API 버전이 결정됩니다. 이전 버전의 SDK를 사용하는 경우 최신 API 버전을 지원하기 위해 서비스가 업그레이드된 경우에도 변경 내용 없이 해당 코드를 계속 실행할 수 있습니다.
 
@@ -147,6 +147,6 @@ index.Analyzers = new Analyzer[]
 ## <a name="conclusion"></a>결론
 Azure Search .NET SDK 사용에 대한 자세한 내용은 [.NET 방법](search-howto-dotnet-sdk.md)을 참조하세요.
 
-SDK에 대한 귀하의 피드백을 환영합니다! 문제가 발생 하는 경우 [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-search)에 대 한 도움을 요청 하세요. 버그를 발견하는 경우 [Azure .NET SDK GitHub 리포지토리](https://github.com/Azure/azure-sdk-for-net/issues)에 문제를 제출할 수 있습니다. 문제 제목에 "[Azure Search]"라는 접두사를 지정해야 합니다.
+SDK에 대한 귀하의 피드백을 환영합니다! 문제가 발생하면 [스택 오버플로에](https://stackoverflow.com/questions/tagged/azure-search)대한 도움을 요청하십시오. 버그를 발견하는 경우 [Azure .NET SDK GitHub 리포지토리](https://github.com/Azure/azure-sdk-for-net/issues)에 문제를 제출할 수 있습니다. 문제 제목에 "[Azure Search]"라는 접두사를 지정해야 합니다.
 
 Azure Search를 이용해 주셔서 감사합니다!

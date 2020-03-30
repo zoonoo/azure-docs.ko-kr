@@ -1,0 +1,179 @@
+---
+title: 서버용 Azure Arc 관리(미리 보기) 에이전트
+description: 이 문서에서는 연결된 컴퓨터 에이전트에 대한 Azure Arc의 수명 주기 동안 일반적으로 수행할 다양한 관리 작업에 대해 설명합니다.
+services: azure-arc
+ms.service: azure-arc
+ms.subservice: azure-arc-servers
+author: mgoedtel
+ms.author: magoedte
+ms.date: 03/24/2020
+ms.topic: conceptual
+ms.openlocfilehash: 758e6123fd09df1e3f8b2e883a729b9fec4328d1
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80367292"
+---
+# <a name="managing-and-maintaining-the-connected-machine-agent"></a>연결된 컴퓨터 에이전트 관리 및 유지 관리
+
+Windows 또는 Linux용 Azure Arc를 처음 배포한 후 Windows 또는 Linux용 연결된 컴퓨터 에이전트를 다시 구성하거나 업그레이드하거나 수명 주기의 폐기 단계에 도달하면 컴퓨터에서 제거해야 할 수 있습니다. 이러한 일상적인 유지 관리 작업을 수동으로 또는 자동화를 통해 간단히 관리하여 조작 오류와 비용을 모두 줄일 수 있습니다.
+
+## <a name="upgrading-agent"></a>업그레이드 에이전트
+
+Windows 및 Linux용 Azure Connected Machine 에이전트는 요구 사항에 따라 수동으로 또는 자동으로 최신 릴리스로 업그레이드할 수 있습니다. 다음 표는 에이전트 업그레이드를 수행하기 위해 지원되는 메서드에 대해 설명합니다.
+
+| 운영 체제 | 업그레이드 방법 |
+|------------------|----------------|
+| Windows | 수동<br> Windows 업데이트 |
+| Ubuntu | [Apt](https://help.ubuntu.com/lts/serverguide/apt.html) |
+| SUSE Linux Enterprise Server | [지퍼 ()지퍼 ()와 새끼](https://en.opensuse.org/SDB:Zypper_usage_11.3) |
+| 레드 햇 엔터프라이즈, 아마존, 센트로스 리눅스 | [냠](https://wiki.centos.org/PackageManagement/Yum) | 
+
+### <a name="windows-agent"></a>Windows 에이전트
+
+Windows 컴퓨터의 에이전트를 최신 버전으로 업데이트하려면 Microsoft Update에서 에이전트를 사용할 수 있으며 기존 소프트웨어 업데이트 관리 프로세스를 사용하여 배포할 수 있습니다. 명령 프롬프트, 스크립트 또는 기타 자동화 솔루션 또는 실행하여 UI 마법사에서 수동으로 실행할 `AzureConnectedMachine.msi`수도 있습니다. 
+
+> [!NOTE]
+> * 에이전트를 업그레이드하려면 *관리자* 권한이 있어야 합니다.
+> * 수동으로 업그레이드하려면 먼저 Installer 패키지를 다운로드하여 대상 서버의 폴더 또는 공유 네트워크 폴더에 복사해야 합니다. 
+
+Windows Installer 패키지의 명령줄 옵션에 익숙하지 않은 경우 [Msiexec 표준 명령줄 옵션](https://docs.microsoft.com/windows/win32/msi/standard-installer-command-line-options) 및 [Msiexec 명령줄 옵션을](https://docs.microsoft.com/windows/win32/msi/command-line-options)검토하십시오.
+
+#### <a name="to-upgrade-using-the-setup-wizard"></a>설치 마법사를 사용하여 업그레이드하려면
+
+1. 관리 권한이 있는 계정으로 컴퓨터에 로그인합니다.
+
+2. **AzureConnectedMachineAgent.msi를** 실행하여 설치 마법사를 시작합니다.
+
+설치 마법사는 이전 버전이 있는지 검색한 다음 에이전트의 업그레이드를 자동으로 수행합니다. 업그레이드가 완료되면 설치 마법사가 자동으로 닫힙니까.
+
+#### <a name="to-upgrade-from-the-command-line"></a>명령줄에서 업그레이드하려면
+
+1. 관리 권한이 있는 계정으로 컴퓨터에 로그인합니다.
+
+2. 에이전트를 자동으로 업그레이드하고 `C:\Support\Logs` 폴더에 설치 로그 파일을 만들려면 다음 명령을 실행합니다.
+
+    ```dos
+    msiexec.exe /i AzureConnectedMachineAgent.msi /qn /l*v "C:\Support\Logs\Azcmagentupgradesetup.log"
+    ```
+
+### <a name="linux-agent"></a>Linux 에이전트
+
+Linux 컴퓨터의 에이전트를 최신 버전으로 업데이트하려면 두 가지 명령이 포함됩니다. 하나의 명령은 리포지토리에서 사용 가능한 최신 패키지 목록으로 로컬 패키지 인덱스를 업데이트하고 다른 명령은 로컬 패키지를 업그레이드합니다. 
+
+#### <a name="upgrade-ubuntu"></a>업그레이드 우분투
+
+1. 리포지토리에서 변경한 최신 변경 내용으로 로컬 패키지 인덱스를 업데이트하려면 다음 명령을 실행합니다.
+
+    ```bash
+    apt update
+    ```
+
+2. 시스템을 업그레이드하려면 다음 명령을 실행합니다.
+
+    ```bash
+    apt upgrade
+    ```
+
+패키지 설치 및 제거와 같은 [apt](https://help.ubuntu.com/lts/serverguide/apt.html) 명령의 작업은 `/var/log/dpkg.log` 로그 파일에 기록됩니다.
+
+#### <a name="upgrade-red-hatcentosamazon-linux"></a>업그레이드 레드 햇 / 센트OS / 아마존 리눅스
+
+1. 리포지토리에서 변경한 최신 변경 내용으로 로컬 패키지 인덱스를 업데이트하려면 다음 명령을 실행합니다.
+
+    ```bash
+    yum check-update
+    ```
+
+2. 시스템을 업그레이드하려면 다음 명령을 실행합니다.
+
+    ```bash
+    yum update
+    ```
+
+패키지 설치 및 제거와 같은 [yum](https://access.redhat.com/articles/yum-cheat-sheet) 명령의 작업은 `/var/log/yum.log` 로그 파일에 기록됩니다. 
+
+#### <a name="upgrade-suse-linux-enterprise"></a>업그레이드 수세 리눅스 엔터프라이즈
+
+1. 리포지토리에서 변경한 최신 변경 내용으로 로컬 패키지 인덱스를 업데이트하려면 다음 명령을 실행합니다.
+
+    ```bash
+    zypper refresh
+    ```
+
+2. 시스템을 업그레이드하려면 다음 명령을 실행합니다.
+
+    ```bash
+    zypper update
+    ```
+
+패키지 설치 및 제거와 같은 [zypper](https://en.opensuse.org/Portal:Zypper) 명령의 작업은 `/var/log/zypper.log` 로그 파일에 기록됩니다. 
+
+## <a name="remove-the-agent"></a>에이전트 제거
+
+다음 절차 중 하나를 사용하여 이 섹션에 설명된 명령줄 또는 설치 마법사를 사용하여 Windows 또는 Linux 에이전트를 제거합니다. 에이전트를 제거하기 전에 먼저 다음 단계를 완료하여 서버용 Azure Arc에서 컴퓨터를 분리(미리 보기)합니다. 
+
+1. [Azure Portal](https://aka.ms/hybridmachineportal)로 이동하여 서버용 Azure Arc를 엽니다.
+
+2. 목록에서 머신을 선택하고, 줄임표 (**...**)를 선택한 다음, **삭제**를 선택합니다.
+
+### <a name="windows-agent"></a>Windows 에이전트
+
+#### <a name="uninstall-from-control-panel"></a>제어판에서 제거
+
+1. 머신에서 Windows 에이전트를 제거하려면 다음을 수행합니다.
+
+    a. 관리자 권한이 있는 계정으로 컴퓨터에 로그인합니다.  
+    b. **제어판**에서 **프로그램 및 기능**을 선택합니다.  
+    다. **프로그램 및 기능**에서 **Azure Connected Machine 에이전트**, ** 제거**, **예**를 차례로 선택합니다.  
+
+    >[!NOTE]
+    > **AzureConnectedMachineAgent.msi** 설치 관리자 패키지를 두 번 클릭하여 에이전트 설정 마법사를 실행할 수도 있습니다.
+
+#### <a name="uninstall-from-the-command-line"></a>명령줄에서 제거
+
+명령 프롬프트에서 에이전트를 수동으로 제거하거나 스크립트와 같은 자동화된 메서드를 사용하려면 다음 예제를 사용할 수 있습니다. 먼저 운영 체제에서 응용 프로그램 패키지의 주 식별자인 GUID인 제품 코드를 검색해야 합니다. 제거는 Msiexec.exe 명령줄을 사용하여 수행됩니다. `msiexec /x {Product Code}`
+    
+1. 레지스트리 편집기를 엽니다.
+
+2. `HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall` 레지스트리 키 아래에서 제품 코드 GUID를 찾아 복사합니다.
+
+3. 그런 다음 다음 예제를 사용하여 Msiexec을 사용하여 에이전트를 제거할 수 있습니다.
+
+   * 명령줄 유형에서:
+
+       ```dos
+       msiexec.exe /x {product code GUID} /qn
+       ```
+
+   * PowerShell을 사용하여 동일한 단계를 수행할 수 있습니다.
+
+       ```powershell
+       Get-ChildItem -Path HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall | `
+       Get-ItemProperty | `
+       Where-Object {$_.DisplayName -eq "Azure Connected Machine Agent"} | `
+       ForEach-Object {MsiExec.exe /x "$($_.PsChildName)" /qn}
+       ```
+
+### <a name="linux-agent"></a>Linux 에이전트
+
+Linux 에이전트를 제거하려면 사용할 명령은 Linux 운영 체제에 따라 다릅니다.
+
+- 우분투의 경우 다음 명령을 실행합니다.
+
+    ```bash
+    sudo apt purge azcmagent
+    ```
+
+- RHEL, CentOS 및 Amazon Linux의 경우 다음 명령을 실행합니다.
+
+    ```bash
+    sudo yum remove azcmagent
+    ```
+
+- SLES의 경우 다음 명령을 실행합니다.
+
+    ```bash
+    sudo zypper remove azcmagent
+    ```

@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Hub 메시지 라우팅에 대한 쿼리 | Microsoft Docs
-description: 중요 한 데이터를 수신 하기 위해 메시지에 다양 한 쿼리를 적용 하는 데 사용할 수 있는 IoT Hub 메시지 라우팅 쿼리 언어에 대해 알아봅니다.
+description: 메시지에 풍부한 쿼리를 적용하여 중요한 데이터를 수신하는 데 사용할 수 있는 IoT Hub 메시지 라우팅 쿼리 언어에 대해 알아봅니다.
 author: ash2017
 ms.service: iot-hub
 services: iot-hub
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
 ms.openlocfilehash: b76ef431e4c0ad63929378c1f48c6ab06776cb25
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79271110"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>IoT Hub 메시지 라우팅 쿼리 구문
@@ -56,7 +56,7 @@ IoT Hub는 프로토콜 전체에서의 상호 운용성을 위해 모든 디바
 | contentEncoding | 문자열 | 사용자가 메시지의 인코딩 형식을 지정합니다. 허용되는 값은 contentType이 application/JSON으로 설정된 경우 UTF-8, UTF-16, UTF-32입니다. |
 | iothub-connection-device-id | 문자열 | 이 값은 IoT Hub에 의해 설정되며 디바이스의 ID를 식별합니다. 쿼리하려면 `$connectionDeviceId`을 사용합니다. |
 | iothub-enqueuedtime | 문자열 | 이 값은 IoT Hub에 의해 설정되며 UTC에서 메시지를 큐에 넣는 실제 시간을 나타냅니다. 쿼리하려면 `enqueuedTime`을 사용합니다. |
-| iothub-interface-name | 문자열 | 이 값은 사용자가 설정 하 고 원격 분석 메시지를 구현 하는 디지털 쌍 인터페이스의 이름을 나타냅니다. 쿼리하려면 `$interfaceName`을 사용합니다. 이 기능은 [IoT 플러그 앤 플레이 공개 미리 보기](../iot-pnp/overview-iot-plug-and-play.md)의 일부로 사용할 수 있습니다. |
+| iothub 인터페이스 이름 | 문자열 | 이 값은 사용자가 설정하고 원격 분석 메시지를 구현하는 디지털 트윈 인터페이스의 이름을 나타냅니다. 쿼리하려면 `$interfaceName`을 사용합니다. 이 기능은 [IoT 플러그 앤 플레이 공개 미리 보기의](../iot-pnp/overview-iot-plug-and-play.md)일부로 사용할 수 있습니다. |
 
 [IoT Hub 메시지](iot-hub-devguide-messages-construct.md)에 설명된 대로, 메시지에 추가적인 시스템 속성에 있습니다. **contentType**, **contentEncoding** 및 **enqueuedTime** 이외에 **connectionDeviceId** 및 **connectionModuleId**도 쿼리할 수 있습니다.
 
@@ -66,7 +66,7 @@ IoT Hub는 프로토콜 전체에서의 상호 운용성을 위해 모든 디바
 
 ### <a name="query-expressions"></a>쿼리 식
 
-메시지 시스템 속성에 대한 쿼리는 접두사로 `$` 기호를 사용해야 합니다. 애플리케이션 속성에 대한 쿼리는 이름으로 액세스하며 `$` 기호를 접두사로 사용하지 않아야 합니다. 애플리케이션 속성 이름이 `$`로 시작하는 경우, IoT Hub는 시스템 속성에서 해당 항목을 검색하며, 찾을 수 없으면 애플리케이션 속성에서 찾습니다. 다음은 그 예입니다. 
+메시지 시스템 속성에 대한 쿼리는 접두사로 `$` 기호를 사용해야 합니다. 애플리케이션 속성에 대한 쿼리는 이름으로 액세스하며 `$` 기호를 접두사로 사용하지 않아야 합니다. 애플리케이션 속성 이름이 `$`로 시작하는 경우, IoT Hub는 시스템 속성에서 해당 항목을 검색하며, 찾을 수 없으면 애플리케이션 속성에서 찾습니다. 예를 들어: 
 
 시스템 속성 contentEncoding에서 쿼리 
 
@@ -86,7 +86,7 @@ processingPath = 'hot'
 $contentEncoding = 'UTF-8' AND processingPath = 'hot'
 ```
 
-지원 되는 연산자 및 함수에 대 한 전체 목록은 [식 및 조건](iot-hub-devguide-query-language.md#expressions-and-conditions)에 나와 있습니다.
+지원되는 연산자 및 함수의 전체 목록은 [Expression 및 조건에](iot-hub-devguide-query-language.md#expressions-and-conditions)표시됩니다.
 
 ## <a name="message-routing-query-based-on-message-body"></a>메시지 본문에 따른 메시지 라우팅 쿼리
 
@@ -142,7 +142,7 @@ deviceClient.sendEvent(message, (err, res) => {
 ```
 
 > [!NOTE] 
-> Javascript에서 본문의 인코딩을 처리 하는 방법을 보여 줍니다. 에서 C#샘플을 보려는 경우 [Azure IoT C# 샘플](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip)을 다운로드 합니다. master.zip 파일의 압축을 풉니다. Visual Studio solution *SimulatedDevice*의 Program.cs 파일은 메시지를 인코딩 및 전송 하 여 IoT Hub 하는 방법을 보여 줍니다. [메시지 라우팅 자습서](tutorial-routing.md)에 설명 된 것 처럼 메시지 라우팅을 테스트 하는 데 사용 되는 것과 동일한 샘플입니다. Program.cs의 맨 아래에는 인코딩된 파일 중 하나에서 읽고 디코드 하 여 읽을 수 있도록 ASCII로 다시 쓸 수 있는 메서드가 있습니다. 
+> 이것은 자바 스크립트에서 본문의 인코딩을 처리하는 방법을 보여줍니다. C#에서 샘플을 보려면 [Azure IoT C# 샘플을 다운로드합니다.](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) master.zip 파일의 압축을 풉니다. Visual Studio 솔루션 *SimulatedDevice의*Program.cs 파일은 IoT Hub에 메시지를 인코딩하고 제출하는 방법을 보여줍니다. 메시지 라우팅 [자습서에](tutorial-routing.md)설명된 대로 메시지 라우팅을 테스트하는 데 사용되는 것과 동일한 샘플입니다. Program.cs 하단에는 인코딩된 파일 중 하나에서 읽고 디코딩한 다음 ASCII로 다시 작성하여 읽을 수 있는 메서드도 있습니다. 
 
 
 ### <a name="query-expressions"></a>쿼리 식
@@ -167,7 +167,7 @@ $body.Weather.Temperature = 50 AND processingPath = 'hot'
 
 ## <a name="message-routing-query-based-on-device-twin"></a>디바이스 쌍에 따른 메시지 라우팅 쿼리 
 
-메시지 라우팅을 사용하면 JSON 개체인 [디바이스 쌍](iot-hub-devguide-device-twins.md) 태그 및 속성에서 쿼리를 사용할 수 있습니다. 모듈 쌍에 대 한 쿼리도 지원 됩니다. 디바이스 쌍 태그 및 속성의 샘플은 다음과 같습니다.
+메시지 라우팅을 사용하면 JSON 개체인 [디바이스 쌍](iot-hub-devguide-device-twins.md) 태그 및 속성에서 쿼리를 사용할 수 있습니다. 모듈 쌍에 대한 쿼리도 지원됩니다. 디바이스 쌍 태그 및 속성의 샘플은 다음과 같습니다.
 
 ```JSON
 {
@@ -200,7 +200,7 @@ $body.Weather.Temperature = 50 AND processingPath = 'hot'
 
 ### <a name="query-expressions"></a>쿼리 식
 
-메시지 쌍에 대 한 쿼리에는 `$twin`접두사가와 야 합니다. 또한 쿼리 식은 쌍 태그 또는 속성 참조를 본문 참조, 메시지 시스템 속성 및 메시지 애플리케이션 속성 참조와 결합할 수 있습니다. 쿼리가 대/소문자를 구분하지 않으므로 태그 및 속성에 고유한 이름을 사용하는 것이 좋습니다. 이는 장치 쌍 및 모듈 쌍 모두에 적용 됩니다. 또한 속성 이름으로 `twin`, `$twin`, `body` 또는 `$body`를 사용하지 않도록 합니다. 예를 들어 다음은 모든 유효한 쿼리 식입니다. 
+메시지 쌍에 대한 쿼리를 `$twin`에 접두사에 고정해야 합니다. 또한 쿼리 식은 쌍 태그 또는 속성 참조를 본문 참조, 메시지 시스템 속성 및 메시지 애플리케이션 속성 참조와 결합할 수 있습니다. 쿼리가 대/소문자를 구분하지 않으므로 태그 및 속성에 고유한 이름을 사용하는 것이 좋습니다. 이는 장치 쌍과 모듈 쌍 모두에 적용됩니다. 또한 속성 이름으로 `twin`, `$twin`, `body` 또는 `$body`를 사용하지 않도록 합니다. 예를 들어 다음은 모든 유효한 쿼리 식입니다. 
 
 ```sql
 $twin.properties.desired.telemetryConfig.sendFrequency = '5m'
@@ -214,9 +214,9 @@ $body.Weather.Temperature = 50 AND $twin.properties.desired.telemetryConfig.send
 $twin.tags.deploymentLocation.floor = 1 
 ```
 
-페이로드 또는 속성 이름에 마침표가 있는 장치 쌍 또는 본문에 대 한 라우팅 쿼리는 지원 되지 않습니다.
+페이로드 또는 속성 이름의 마침표가 있는 본문 또는 장치 쌍에 대한 라우팅 쿼리는 지원되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [메시지 라우팅](iot-hub-devguide-messages-d2c.md)에 대해 알아봅니다.
-* [메시지 라우팅 자습서](tutorial-routing.md)를 사용해 봅니다.
+* 메시지 [라우팅 자습서를](tutorial-routing.md)사용해 보십시오.

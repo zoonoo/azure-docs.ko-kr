@@ -1,7 +1,7 @@
 ---
-title: Active Directory를 사용 하 여 결과를 트리밍하는 보안 필터
+title: Active Directory를 사용하여 결과를 트리밍하는 보안 필터
 titleSuffix: Azure Cognitive Search
-description: AAD (보안 필터 및 Azure Active Directory) id를 사용 하 여 Azure Cognitive Search 콘텐츠에 대 한 액세스 제어.
+description: 보안 필터 및 AAD(Azure Active Directory) ID를 사용하여 Azure Cognitive Search 콘텐츠에 대한 액세스 제어
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -9,15 +9,15 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 01280b6ee9dda15af3c0fc707a385501580c624c
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72794314"
 ---
-# <a name="security-filters-for-trimming-azure-cognitive-search-results-using-active-directory-identities"></a>Active Directory id를 사용 하 여 Azure Cognitive Search 결과를 자르는 보안 필터
+# <a name="security-filters-for-trimming-azure-cognitive-search-results-using-active-directory-identities"></a>Active Directory ID를 사용하여 Azure 인지 검색 결과를 트리밍하기 위한 보안 필터
 
-이 문서에서는 Azure Cognitive Search의 필터와 함께 AAD (Azure Active Directory) 보안 id를 사용 하 여 사용자 그룹 멤버 자격에 따라 검색 결과를 잘라내는 방법을 보여 줍니다.
+이 문서에서는 Azure Cognitive Search의 필터와 함께 Azure Active Directory(AAD) 보안 ID를 사용하여 사용자 그룹 구성원자격에 따라 검색 결과를 트리밍하는 방법을 보여 줍니다.
 
 이 문서에서 다루는 작업은 다음과 같습니다.
 > [!div class="checklist"]
@@ -30,9 +30,9 @@ ms.locfileid: "72794314"
 > [!NOTE]
 > 이 문서의 샘플 코드 조각은 C#으로 작성되었습니다. 전체 소스 코드는 [GitHub](https://aka.ms/search-dotnet-howto)를 참조하세요. 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-Azure Cognitive Search의 인덱스에는 문서에 대 한 읽기 권한이 있는 그룹 id 목록을 저장할 [보안 필드가](search-security-trimming-for-azure-search.md) 있어야 합니다. 이 사용 사례에서는 보안 개체 항목(예: 개인의 대학 지원서) 및 해당 항목에 대한 액세스 권한이 있는 사람을 지정하는 보안 필드(입학 담당자) 간의 일대일 대응을 가정합니다.
+Azure Cognitive Search의 인덱스에는 문서에 대한 읽기 액세스 권한이 있는 그룹 ID 목록을 저장할 [보안 필드가](search-security-trimming-for-azure-search.md) 있어야 합니다. 이 사용 사례에서는 보안 개체 항목(예: 개인의 대학 지원서) 및 해당 항목에 대한 액세스 권한이 있는 사람을 지정하는 보안 필드(입학 담당자) 간의 일대일 대응을 가정합니다.
 
 이 연습에서는 AAD에서 사용자, 그룹 및 연결을 만들려면 AAD 관리자 권한이 있어야 합니다.
 
@@ -42,11 +42,11 @@ Azure Cognitive Search의 인덱스에는 문서에 대 한 읽기 권한이 있
 
 이 단계에서는 사용자 및 그룹 계정 로그인을 수락하기 위해 애플리케이션을 AAD와 통합합니다. 조직의 AAD 관리자가 아닌 경우 다음 단계를 수행할 [새 테넌트를 만들어야](https://docs.microsoft.com/azure/active-directory/develop/active-directory-howto-tenant) 할 수도 있습니다.
 
-1. [**애플리케이션 등록 포털**](https://apps.dev.microsoft.com) >  **수렴형 앱** > **앱 추가**로 이동합니다.
+1. [**응용 프로그램 등록 포털**](https://apps.dev.microsoft.com) >  **수렴 앱으로** > 이동**앱 추가**.
 2. 애플리케이션의 이름을 입력한 다음, **만들기**를 클릭합니다. 
 3. [내 애플리케이션] 페이지에서 새로 등록한 애플리케이션을 선택합니다.
-4. [애플리케이션 등록] 페이지 &gt; **플랫폼** > **플랫폼 추가**에서 **웹 API**를 선택합니다.
-5. 계속해서 [애플리케이션 등록] 페이지에서 **Microsoft Graph 권한** > **추가**로 이동합니다.
+4. 플랫폼 > **추가**플랫폼 **>** 응용 프로그램 등록 페이지에서 **웹 API를**선택합니다.
+5. 여전히 응용 프로그램 등록 페이지에서 **Microsoft 그래프 사용 권한** > **추가를**>.
 6. [권한 선택]에서 다음 위임된 권한을 추가하고 **확인**을 클릭합니다.
 
    + **Directory.ReadWrite.All**
@@ -59,11 +59,11 @@ Microsoft Graph는 REST API를 통해 AAD에 프로그래밍 방식으로 액세
 
 기존 애플리케이션에 검색을 추가하려는 경우 AAD에 기존 사용자 및 그룹 식별자가 있을 수도 있습니다. 이 경우 다음 세 단계를 건너뛸 수 있습니다. 
 
-그러나 기존 사용자가 없는 경우에는 Microsoft Graph API를 사용하여 보안 주체를 만들 수 있습니다. 다음 코드 조각에서는 식별자를 생성 하는 방법을 보여 줍니다 .이는 Azure Cognitive Search 인덱스의 보안 필드에 대 한 데이터 값이 됩니다. 앞에서 예로 든 대학 입학 지원서에서는 입학 담당의 보안 식별자가 됩니다.
+그러나 기존 사용자가 없는 경우에는 Microsoft Graph API를 사용하여 보안 주체를 만들 수 있습니다. 다음 코드 조각에서는 Azure Cognitive Search 인덱스의 보안 필드에 대한 데이터 값이 되는 식별자를 생성하는 방법을 보여 줍니다. 앞에서 예로 든 대학 입학 지원서에서는 입학 담당의 보안 식별자가 됩니다.
 
-사용자 및 그룹 멤버 자격은 유동적이며, 조직 규모가 클수록 더욱 그렇습니다. 조직 멤버 자격의 변경 내용을 선택할 수 있을 만큼 사용자 및 그룹 ID를 빌드하는 코드를 충분히 자주 실행해야 합니다. 마찬가지로 Azure Cognitive Search 인덱스에는 허용 된 사용자 및 리소스의 현재 상태를 반영 하기 위해 유사한 업데이트 일정이 필요 합니다.
+사용자 및 그룹 멤버 자격은 유동적이며, 조직 규모가 클수록 더욱 그렇습니다. 조직 멤버 자격의 변경 내용을 선택할 수 있을 만큼 사용자 및 그룹 ID를 빌드하는 코드를 충분히 자주 실행해야 합니다. 마찬가지로 Azure Cognitive Search 인덱스에는 허용된 사용자 및 리소스의 현재 상태를 반영하기 위해 유사한 업데이트 일정이 필요합니다.
 
-### <a name="step-1-create-aad-grouphttpsdocsmicrosoftcomgraphapigroup-post-groupsviewgraph-rest-10"></a>1단계: [AAD 그룹](https://docs.microsoft.com/graph/api/group-post-groups?view=graph-rest-1.0) 만들기 
+### <a name="step-1-create-aad-group"></a>1단계: [AAD 그룹](https://docs.microsoft.com/graph/api/group-post-groups?view=graph-rest-1.0) 만들기 
 ```csharp
 // Instantiate graph client 
 GraphServiceClient graph = new GraphServiceClient(new DelegateAuthenticationProvider(...));
@@ -77,7 +77,7 @@ Group group = new Group()
 Group newGroup = await graph.Groups.Request().AddAsync(group);
 ```
    
-### <a name="step-2-create-aad-userhttpsdocsmicrosoftcomgraphapiuser-post-usersviewgraph-rest-10"></a>2단계: [AAD 사용자](https://docs.microsoft.com/graph/api/user-post-users?view=graph-rest-1.0) 만들기
+### <a name="step-2-create-aad-user"></a>2단계: [AAD 사용자](https://docs.microsoft.com/graph/api/user-post-users?view=graph-rest-1.0) 만들기
 ```csharp
 User user = new User()
 {
@@ -98,17 +98,17 @@ await graph.Groups[newGroup.Id].Members.References.Request().AddAsync(newUser);
 ```
 
 ### <a name="step-4-cache-the-groups-identifiers"></a>4단계: 그룹 식별자 캐시
-필요에 따라 네트워크 대기 시간을 줄이기 위해, 검색 요청이 실행되면 캐시에서 그룹이 반환되어 AAD로의 왕복 시간을 단축하도록 사용자 그룹 연결을 캐시할 수 있습니다. [AAD Batch API](https://developer.microsoft.com/graph/docs/concepts/json_batching)를 사용하여 여러 사용자가 있는 단일 Http 요청을 보내고 캐시를 빌드할 수 있습니다.
+필요에 따라 네트워크 대기 시간을 줄이기 위해, 검색 요청이 실행되면 캐시에서 그룹이 반환되어 AAD로의 왕복 시간을 단축하도록 사용자 그룹 연결을 캐시할 수 있습니다. [AAD Batch API를](https://developer.microsoft.com/graph/docs/concepts/json_batching) 사용하여 여러 사용자와 단일 Http 요청을 보내고 캐시를 빌드할 수 있습니다.
 
 Microsoft Graph는 많은 양의 요청을 처리하도록 설계되었습니다. 요청이 너무 많이 발생하면 Microsoft Graph가 HTTP 상태 코드 429와 함께 요청을 실패합니다. 자세한 내용은 [Microsoft Graph 제한](https://developer.microsoft.com/graph/docs/concepts/throttling)을 참조하세요.
 
 ## <a name="index-document-with-their-permitted-groups"></a>그룹이 허용된 인덱스 문서
 
-Azure Cognitive Search의 쿼리 작업은 Azure Cognitive Search 인덱스를 통해 실행 됩니다. 이 단계에서 인덱싱 작업은 보안 필터로 사용되는 식별자를 포함하여 검색 가능한 데이터를 인덱스로 가져옵니다. 
+Azure 인지 검색의 쿼리 작업은 Azure 인지 검색 인덱스를 통해 실행됩니다. 이 단계에서 인덱싱 작업은 보안 필터로 사용되는 식별자를 포함하여 검색 가능한 데이터를 인덱스로 가져옵니다. 
 
-Azure Cognitive Search 사용자 id를 인증 하거나 사용자에 게 볼 수 있는 권한이 있는 콘텐츠를 설정 하는 논리를 제공 하지 않습니다. 보안 조정에 대한 사용 사례에서는 중요한 문서와 해당 문서에 대한 액세스 권한을 가진 그룹 식별자를 연결하고 온전한 상태로 검색 인덱스로 가져온 것으로 가정합니다. 
+Azure Cognitive Search는 사용자 ID를 인증하거나 사용자에게 볼 권한이 있는 콘텐츠를 설정하는 논리를 제공하지 않습니다. 보안 조정에 대한 사용 사례에서는 중요한 문서와 해당 문서에 대한 액세스 권한을 가진 그룹 식별자를 연결하고 온전한 상태로 검색 인덱스로 가져온 것으로 가정합니다. 
 
-가상의 예제에서 Azure Cognitive Search 인덱스에 대 한 PUT 요청의 본문에는 해당 콘텐츠를 볼 수 있는 권한이 있는 그룹 식별자와 함께 신청자의 대학 세 번째 또는 성적 증명서가 포함 됩니다. 
+가상예제에서 Azure Cognitive Search 인덱스의 PUT 요청 본문에는 해당 콘텐츠를 볼 수 있는 권한이 있는 그룹 식별자와 함께 지원자의 대학 에세이 또는 성적증명서가 포함됩니다. 
 
 이 연습의 코드 샘플에 사용된 일반적인 예에서는 인덱스 작업이 다음과 같이 표시될 수 있습니다.
 
@@ -132,7 +132,7 @@ _indexClient.Documents.Index(batch);
 
 ## <a name="issue-a-search-request"></a>검색 요청 실행
 
-보안 조정을 위해 인덱스의 보안 필드 값은 검색 결과에 문서를 포함하거나 제외하는 데 사용되는 고정적인 값입니다. 예를 들어 입학에 대 한 그룹 식별자가 "A11B22C33D44-E55F66G77-H88I99JKK" 인 경우 요청자에 게 다시 전송 된 검색 결과에는 보안 필드에 해당 식별자가 있는 Azure Cognitive Search 인덱스의 모든 문서가 포함 (또는 제외) 됩니다.
+보안 조정을 위해 인덱스의 보안 필드 값은 검색 결과에 문서를 포함하거나 제외하는 데 사용되는 고정적인 값입니다. 예를 들어 입학을 위한 그룹 식별자가 "A11B22C33D44-E55F66G77-H88I99JKK"인 경우 요청자로 다시 전송된 검색 결과에 해당 식별자가 있는 Azure 인지 검색 인덱스의 모든 문서가 포함되거나 제외됩니다.
 
 요청을 실행하는 사용자 그룹을 기반으로 검색 결과에 반환되는 문서를 필터링하려면 다음 단계를 검토합니다.
 
@@ -184,10 +184,10 @@ DocumentSearchResult<SecuredFiles> results = _indexClient.Documents.Search<Secur
 
 ## <a name="conclusion"></a>결론
 
-이 연습에서는 AAD 로그인을 사용 하 여 Azure Cognitive Search 결과에서 문서를 필터링 하 고 요청에 제공 된 필터와 일치 하지 않는 문서의 결과를 잘라내는 방법을 배웠습니다.
+이 연습에서는 AAD 로그인을 사용하여 Azure Cognitive Search 결과의 문서를 필터링하고 요청에 제공된 필터와 일치하지 않는 문서의 결과를 트리밍하는 기술을 배웠습니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
-+ [Azure Cognitive Search 필터를 사용 하 여 id 기반 액세스 제어](search-security-trimming-for-azure-search.md)
-+ [Azure Cognitive Search의 필터](search-filters.md)
-+ [Azure Cognitive Search 작업의 데이터 보안 및 액세스 제어](search-security-overview.md)
++ [Azure 인지 검색 필터를 사용하는 ID 기반 액세스 제어](search-security-trimming-for-azure-search.md)
++ [Azure 인지 검색의 필터](search-filters.md)
++ [Azure 코그너티브 검색 작업의 데이터 보안 및 액세스 제어](search-security-overview.md)

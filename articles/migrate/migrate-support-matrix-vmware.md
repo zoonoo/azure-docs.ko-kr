@@ -1,113 +1,111 @@
 ---
-title: Azure Migrate의 VMware 평가 지원
-description: Azure Migrate의 VMware 평가 지원에 대해 알아봅니다.
+title: Azure 마이그레이션에서 VM웨어 평가 지원
+description: Azure 마이그레이션 서버 평가를 통해 VMware VM 평가에 대한 지원에 대해 알아봅니다.
 ms.topic: conceptual
-ms.date: 01/08/2020
-ms.openlocfilehash: b887508fb8e422bd83aa9d13e42085d7a6bd2283
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.date: 03/23/2020
+ms.openlocfilehash: 03d07adb6f19346901286bdae148f95e68290e4e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79269589"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80336869"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>VMware 평가를 위한 지원 매트릭스 
 
-이 문서에서는 [Azure Migrate: 서버 평가](migrate-services-overview.md#azure-migrate-server-migration-tool)를 사용 하 여 VMware vm을 평가 하기 위한 지원 설정 및 제한 사항을 요약 합니다. VMware Vm을 Azure로 마이그레이션하는 방법에 대 한 정보를 찾고 있는 경우 [마이그레이션 지원 매트릭스](migrate-support-matrix-vmware-migration.md)를 검토 하세요.
+이 문서에서는 Azure로 마이그레이션할 준비를 위해 VMware VM을 평가하기 위한 필수 구성 조건 및 지원 요구 사항을 요약합니다. VMware VM을 Azure로 마이그레이션하려면 마이그레이션 [지원 매트릭스를](migrate-support-matrix-vmware-migration.md)검토합니다.
 
-## <a name="overview"></a>개요
-
-이 문서를 사용 하 여 Azure로의 마이그레이션에 대 한 온-프레미스 컴퓨터를 평가 하려면 Azure Migrate: 서버 평가 도구를 Azure Migrate 프로젝트에 추가 합니다. [Azure Migrate 어플라이언스](migrate-appliance.md)를 배포 합니다. 어플라이언스는 온-프레미스 컴퓨터를 지속적으로 검색 하 고 구성 및 성능 데이터를 Azure로 전송 합니다. 컴퓨터 검색 후에는 검색 된 컴퓨터를 그룹으로 수집 하 고 그룹에 대 한 평가를 실행 합니다.
-
+[Azure 마이그레이션:서버 평가](migrate-services-overview.md#azure-migrate-server-assessment-tool) 도구를 사용하여 실제 서버를 평가합니다. Azure 마이그레이션 프로젝트를 만든 다음 프로젝트에 도구를 추가합니다. 도구가 추가된 후 Azure [마이그레이션 어플라이언스를](migrate-appliance.md)배포합니다. 어플라이언스는 온-프레미스 컴퓨터를 지속적으로 검색하고 컴퓨터 메타데이터 및 성능 데이터를 Azure로 보냅니다. 컴퓨터 검색 후 검색된 컴퓨터를 그룹으로 수집하고 그룹에 대한 평가를 실행합니다.
 
 ## <a name="limitations"></a>제한 사항
 
 **지원** | **세부 정보**
 --- | ---
-**평가 제한**| 단일 [프로젝트](migrate-support-matrix.md#azure-migrate-projects)에서 최대 35000 VMware vm을 검색 하 고 평가 합니다.
-**프로젝트 제한** | Azure 구독에서 여러 프로젝트를 만들 수 있습니다. 프로젝트는 VMware Vm, Hyper-v Vm 및 물리적 서버를 평가 제한까지 포함할 수 있습니다.
-**조사** | Azure Migrate 어플라이언스는 vCenter Server에서 VMware Vm을 1만 개까지 검색할 수 있습니다.
-**평가** | 단일 그룹에 최대 35000 대의 컴퓨터를 추가할 수 있습니다.<br/><br/> 단일 평가에서 최대 35000 Vm을 평가할 수 있습니다.
+**프로젝트 한도** | Azure 구독에서 여러 프로젝트를 만들 수 있습니다.<br/><br/> 단일 [프로젝트에서](migrate-support-matrix.md#azure-migrate-projects)최대 35,000개의 VMware VM을 검색하고 평가할 수 있습니다. 프로젝트에는 VMware VM, 물리적 서버 및 하이퍼 VM이 포함될 수 있으며 각 VM에 대한 평가 한도까지 포함됩니다.
+**검색** | Azure 마이그레이션 어플라이언스는 vCenter 서버에서 최대 10,000개의 VMware VM을 검색할 수 있습니다.
+**평가** | 단일 그룹에 최대 35,000대의 컴퓨터를 추가할 수 있습니다.<br/><br/> 단일 평가에서 최대 35,000개의 VM을 평가할 수 있습니다.
 
-평가에 대해 자세히 [알아보세요](concepts-assessment-calculation.md) .
+평가에 대해 [자세히 알아보세요.](concepts-assessment-calculation.md)
 
 
 ## <a name="application-discovery"></a>애플리케이션 검색
 
-컴퓨터를 검색 하는 것 외에도 Azure Migrate: 서버 평가는 컴퓨터에서 실행 되는 앱, 역할 및 기능을 검색할 수 있습니다. 앱 인벤토리를 검색 하면 온-프레미스 워크 로드에 맞게 조정 된 마이그레이션 경로를 식별 하 고 계획할 수 있습니다. 
+컴퓨터를 검색하는 것 외에도 Azure 마이그레이션: 서버 평가는 컴퓨터에서 실행되는 앱, 역할 및 기능을 검색할 수 있습니다. 앱 인벤토리를 검색하면 온-프레미스 워크로드에 맞게 조정된 마이그레이션 경로를 식별하고 계획할 수 있습니다. 
 
 **지원** | **세부 정보**
 --- | ---
-**조사** | 검색은 에이전트 없이 컴퓨터 게스트 자격 증명을 사용 하 고 WMI 및 SSH 호출을 사용 하 여 컴퓨터에 원격으로 액세스 합니다.
-**지원 되는 컴퓨터** | 온-프레미스 VMware Vm.
-**컴퓨터 운영 체제** | 모든 Windows 및 Linux 버전
-**vCenter 자격 증명** | 읽기 전용 액세스 권한이 있는 vCenter Server 계정과 게스트 작업 > Virtual Machines에 대 한 권한이 설정 되어 있습니다.
-**VM 자격 증명** | 현재에서는 모든 Windows server에 대해 하나의 자격 증명을 사용할 수 있으며 모든 Linux 서버에 대해 하나의 자격 증명을 사용할 수 있습니다.<br/><br/> Windows Vm에 대 한 게스트 사용자 계정과 모든 Linux Vm에 대 한 일반/일반 사용자 계정 (비 sudo 액세스)을 만듭니다.
-**VMware 도구** | 검색 하려는 Vm에 VMware 도구를 설치 하 고 실행 해야 합니다. <br/> VMware tools 버전이 9.10-10.2.0 사이인 경우 10.2.0 이상으로 업그레이드 하세요.
-**Powershell** | Vm의 Powershell 버전은 2.0 이상 이어야 합니다.
-**포트 액세스** | 검색 하려는 Vm을 실행 하는 ESXi 호스트에서 Azure Migrate 어플라이언스는 TCP 포트 443에 연결할 수 있어야 합니다.
-**제한** | 앱 검색의 경우 어플라이언스 당 최대 1만 개를 검색할 수 있습니다. 
+**지원되는 컴퓨터** | 앱 검색은 현재 온-프레미스 VMware VM에서만 지원됩니다.
+**검색** | 앱 검색은 에이전트가 없습니다. 컴퓨터 게스트 자격 증명을 사용하고 WMI 및 SSH 호출을 사용하여 컴퓨터에 원격으로 액세스합니다.
+**VM 지원** | 앱 검색은 모든 Windows 및 Linux 버전에서 지원됩니다.
+**v센터 자격 증명** | 앱 검색에는 읽기 전용 액세스 권한이 있는 vCenter Server 계정이 필요하며 가상 컴퓨터 > 게스트 작업에 사용할 수 있는 권한이 필요합니다.
+**VM 자격 증명** | 앱 검색은 현재 모든 Windows 서버에 대해 하나의 자격 증명과 모든 Linux 서버에 대해 하나의 자격 증명을 사용하는 것을 지원합니다.<br/><br/> Windows VM용 게스트 사용자 계정과 모든 Linux VM에 대한 일반/일반 사용자 계정(비sudo 액세스)을 만듭니다.
+**VM웨어 도구** | VMware 도구를 설치하고 검색하려는 VM에서 실행해야 합니다. <br/> VMware 도구 버전은 10.2.0 이상이어야 합니다.
+**Powershell** | VM에는 PowerShell 버전 2.0 이상이 설치되어 있어야 합니다.
+**포트 액세스** | 검색하려는 VM을 실행하는 ESXi 호스트에서 Azure 마이그레이션 어플라이언스는 TCP 포트 443에 연결할 수 있어야 합니다.
+**제한** | 앱 검색을 위해 각 Azure 마이그레이션 어플라이언스에서 최대 10000개의 VM을 검색할 수 있습니다.
+
+
 
 ## <a name="vmware-requirements"></a>VMware 요구 사항
 
-**VMware** | **세부 정보**
+**Vm 웨어** | **세부 정보**
 --- | ---
-**vCenter Server** | 검색 하 고 평가 하려는 컴퓨터는 vCenter Server 버전 5.5, 6.0, 6.5 또는 6.7에서 관리 해야 합니다.
-**사용 권한 (평가)** | 읽기 전용 계정을 vCenter Server 합니다.
-**권한 (앱 검색)** | 읽기 전용 액세스 권한이 있는 vCenter Server 계정 및 가상 컴퓨터에 대 한 권한이 설정 된 **게스트 작업 >** 합니다.
-**권한 (종속성 시각화)** | 읽기 전용 액세스 권한이 있는 센터 서버 계정 및 **게스트 작업** > **가상 컴퓨터** 에 대 한 권한이 설정 되어 있습니다.
+**VMware VM** | 평가는 모든 Windows 및 Linux 운영 체제에 대해 지원됩니다.
+**v센터 서버** | 검색 및 평가하려는 컴퓨터는 vCenter Server 버전 5.5, 6.0, 6.5 또는 6.7에서 관리해야 합니다.
+**사용 권한(평가)** | vCenter 서버 읽기 전용 계정입니다.
+**권한(앱 검색)** | vCenter 서버 계정 읽기 전용 액세스 및 가상 시스템에 사용할 수 있는 권한 **> 게스트 작업.**
+**사용 권한(종속성 시각화)** | 읽기 전용 액세스 권한이 있는 Center Server 계정 및 **가상 컴퓨터** > **게스트 작업에**대해 사용할 수 있는 권한.
 
 
 ## <a name="azure-migrate-appliance-requirements"></a>Azure Migrate 어플라이언스 요구 사항
 
-Azure Migrate는 검색 및 평가를 위해 [Azure Migrate 어플라이언스](migrate-appliance.md) 를 사용 합니다. VMware에 대 한 어플라이언스는 OVA 템플릿을 사용 하 여 배포 되며 vCenter Server로 가져왔습니다. 
+Azure Migrate는 검색 및 평가를 위해 [Azure 마이그레이션 어플라이언스를](migrate-appliance.md) 사용합니다. VMware용 어플라이언스는 vCenter 서버로 가져온 OVA 템플릿을 사용하여 배포됩니다. 
 
-- VMware에 대 한 [어플라이언스 요구 사항](migrate-appliance.md#appliance---vmware) 에 대해 알아봅니다.
-- 어플라이언스에서 액세스 해야 하는 [url](migrate-appliance.md#url-access) 에 대해 알아봅니다.
+- VMware의 [어플라이언스 요구 사항에](migrate-appliance.md#appliance---vmware) 대해 알아봅니다.
+- 어플라이언스가 액세스해야 하는 [URL에](migrate-appliance.md#url-access) 대해 알아봅니다.
 
 ## <a name="port-access"></a>포트 액세스
 
 **디바이스** | **연결**
 --- | ---
-기기가 | 어플라이언스에 대 한 원격 데스크톱 연결을 허용 하기 위해 TCP 포트 3389에서 인바운드 연결<br/><br/> URL을 사용 하 여 어플라이언스 관리 앱에 원격으로 액세스 하기 위한 포트 44368의 인바운드 연결: ```https://<appliance-ip-or-name>:44368``` <br/><br/>Azure Migrate에 검색 및 성능 메타 데이터를 보내기 위한 포트 443 (HTTPS), 5671 및 5672 (AMQP)의 아웃 바운드 연결
-vCenter Server | 어플라이언스에서 평가를 위한 구성 및 성능 메타 데이터를 수집할 수 있도록 TCP 포트 443에서 인바운드 연결 <br/><br/> 어플라이언스는 기본적으로 포트 443의 vCenter에 연결 됩니다. VCenter 서버가 다른 포트에서 수신 대기 하는 경우 검색을 설정할 때 포트를 수정할 수 있습니다.
-ESXi 호스트 | **[응용 프로그램 검색](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#application-discovery) 및 에이전트 없는 [종속성 시각화](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-dependency-visualization) 에만 필요 합니다.** <br/><br/> 어플라이언스는 TCP 포트 443의 ESXi 호스트에 연결 하 여 응용 프로그램을 검색 하 고 호스트에서 실행 되는 Vm에서 에이전트 없는 종속성 시각화를 실행 합니다.
+어플라이언스 | TCP 포트 3389의 인바운드 연결로 어플라이언스에 대한 원격 데스크톱 연결을 허용합니다.<br/><br/> URL을 사용하여 어플라이언스 관리 앱에 원격으로 액세스하기 위해 포트 44368의 인바운드 연결:```https://<appliance-ip-or-name>:44368``` <br/><br/>검색 및 성능 메타데이터를 Azure 마이그레이션에 전송하기 위해 포트 443(HTTPS)의 아웃바운드 연결입니다.
+vCenter Server | TCP 포트 443의 인바운드 연결은 어플라이언스가 평가를 위한 구성 및 성능 메타데이터를 수집할 수 있도록 합니다. <br/><br/> 어플라이언스는 기본적으로 포트 443의 vCenter에 연결됩니다. vCenter 서버가 다른 포트에서 수신되는 경우 검색을 설정할 때 포트를 수정할 수 있습니다.
+ESXi 호스트(앱 검색/에이전트 없는 종속성 분석) | [앱 검색](how-to-discover-applications.md) 또는 에이전트 [없는 종속성 분석을](concepts-dependency-visualization.md#agentless-analysis)수행하려는 경우 어플라이언스는 TCP 포트 443의 ESXi 호스트에 연결하여 응용 프로그램을 검색하고 VM에서 에이전트 없는 종속성 시각화를 실행합니다.
 
-## <a name="agent-based-dependency-visualization"></a>에이전트 기반 종속성 시각화
+## <a name="agentless-dependency-analysis-requirements"></a>에이전트 없는 종속성 분석 요구 사항
 
-[종속성 시각화](concepts-dependency-visualization.md) 를 사용 하면 평가 하 고 마이그레이션하려는 컴퓨터 간에 종속성을 시각화할 수 있습니다. 에이전트 기반 시각화의 경우 요구 사항 및 제한 사항이 다음 표에 요약 되어 있습니다.
-
-
-**요구 사항** | **세부 정보**
---- | ---
-**배포** | 종속성 시각화를 배포 하기 전에 Azure Migrate: 서버 평가 도구를 프로젝트에 추가 하 여 Azure Migrate 프로젝트가 준비 되어 있어야 합니다. 온-프레미스 컴퓨터를 검색 하도록 Azure Migrate 어플라이언스를 설정한 후 종속성 시각화를 배포 합니다.<br/><br/> Azure Government에서 종속성 시각화를 사용할 수 없습니다.
-**서비스 맵** | 에이전트 기반 종속성 시각화는 [Azure Monitor 로그](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)에 [서비스 맵](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) 솔루션을 사용 합니다.<br/><br/> 를 배포 하려면 새 또는 기존 Log Analytics 작업 영역을 Azure Migrate 프로젝트와 연결 합니다.
-**Log Analytics 작업 영역** | 작업 영역은 Azure Migrate 프로젝트와 동일한 구독에 있어야 합니다.<br/><br/> Azure Migrate는 미국 동부, 동남 아시아 및 유럽 서부 지역에 거주 하는 작업 영역을 지원 합니다.<br/><br/>  작업 영역은 [서비스 맵 지원](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-enable-overview#prerequisites)되는 지역에 있어야 합니다.<br/><br/> Azure Migrate 프로젝트에 대 한 작업 영역은 추가 된 후 수정할 수 없습니다.
-**요금** | 서비스 맵 솔루션은 Log Analytics 작업 영역을 연결한 날부터 Azure Migrate 프로젝트와 관련 하 여 처음 180 일에 대 한 요금을 부과 하지 않습니다.<br/><br/> 180일 후에는 표준 Log Analytics 요금이 적용됩니다.<br/><br/> 연결 된 Log Analytics 작업 영역에서 서비스 맵 이외의 다른 솔루션을 사용 하면 표준 Log Analytics 요금이 발생 합니다.<br/><br/> Azure Migrate 프로젝트를 삭제 하면 작업 영역이 삭제 되지 않습니다. 프로젝트를 삭제 한 후에는 서비스 맵 무료로 제공 되며 각 노드에는 Log Analytics 작업 영역의 유료 계층에 따라 요금이 부과 됩니다.
-**에이전트** | 에이전트 기반 종속성 시각화를 사용 하려면 분석 하려는 각 컴퓨터에 두 개의 에이전트를 설치 해야 합니다.<br/><br/> - [MMA (Microsoft Monitoring agent)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows)<br/><br/> [종속성 에이전트](https://docs.microsoft.com/azure/azure-monitor/platform/agents-overview#dependency-agent)를 - 합니다. 
-**인터넷 연결** | 컴퓨터가 인터넷에 연결 되어 있지 않으면 Log Analytics 게이트웨이를 설치 해야 합니다.
-
-
-## <a name="agentless-dependency-visualization"></a>에이전트 없는 종속성 시각화
-
-이 옵션은 현재 미리 보기로 제공되고 있습니다. [자세히 알아봅니다](how-to-create-group-machine-dependencies-agentless.md). 요구 사항은 다음 표에 요약 되어 있습니다.
+[종속성 분석을](concepts-dependency-visualization.md) 사용하면 Azure를 평가하고 마이그레이션하려는 온-프레미스 컴퓨터 간의 종속성을 식별할 수 있습니다. 이 표에는 에이전트 없는 종속성 분석을 설정하기 위한 요구 사항이 요약됩니다. 
 
 **요구 사항** | **세부 정보**
---- | ---
-**배포** | 종속성 시각화를 배포 하기 전에 Azure Migrate: 서버 평가 도구를 프로젝트에 추가 하 여 Azure Migrate 프로젝트가 준비 되어 있어야 합니다. 온-프레미스 컴퓨터를 검색 하도록 Azure Migrate 어플라이언스를 설정한 후 종속성 시각화를 배포 합니다.
-**VM 지원** | 현재 VMware Vm에 대해서만 지원 됩니다.
-**Windows VM** | Windows Server 2016<br/> Windows Server 2012 R2<br/> Windows Server 2012<br/> Windows Server 2008 R2(64비트)
-**Linux VM** | Red Hat Enterprise Linux 7, 6, 5<br/> Ubuntu Linux 14.04, 16.04<br/> Debian 7, 8<br/> Oracle Linux 6, 7<br/> CentOS 5, 6, 7.
-**Windows 계정** |  시각화에는 로컬 또는 도메인 관리자 계정이 필요 합니다.
-**Linux 계정** | 시각화에는 루트 권한이 있는 사용자 계정이 필요 합니다.<br/><br/> 또는 사용자 계정에/bin/netstat 및/bin/ls 파일에 대 한 다음 권한이 필요 합니다. CAP_DAC_READ_SEARCH 및 CAP_SYS_PTRACE.
-**VM 에이전트** | Vm에 에이전트가 필요 하지 않습니다.
-**VMware 도구** | 분석 하려는 Vm에 VMware 도구를 설치 하 고 실행 해야 합니다. <br/> VMware tools 버전이 9.10-10.2.0 사이인 경우 10.2.0 이상으로 업그레이드 하세요.
-**Powershell** | Vm의 Powershell 버전은 2.0 이상 이어야 합니다.
-**vCenter 자격 증명** | 읽기 전용 액세스 권한이 있는 vCenter Server 계정과 게스트 작업 > Virtual Machines에 대 한 권한이 설정 되어 있습니다.
-**포트 액세스** | 분석 하려는 Vm을 실행 하는 ESXi 호스트에서 Azure Migrate 어플라이언스는 TCP 포트 443에 연결할 수 있어야 합니다.
+--- | --- 
+**배포 전** | Azure 마이그레이션: 서버 평가 도구가 프로젝트에 추가된 Azure 마이그레이션 프로젝트가 있어야 합니다.<br/><br/>  Azure Migrate 어플라이언스를 설정하여 온-프레미스 VMWare 컴퓨터를 검색한 후 종속성 시각화를 배포합니다.<br/><br/> 프로젝트를 처음 만드는 [방법에 대해 알아봅니다.](create-manage-projects.md)<br/> 기존 프로젝트에 평가 도구를 추가하는 [방법을 알아봅니다.](how-to-assess.md)<br/> VMware VM 평가를 위해 Azure 마이그레이션 어플라이언스를 설정하는 [방법에 대해 알아봅니다.](how-to-set-up-appliance-vmware.md)
+**VM 지원** | 현재 VMware VM에서만 지원됩니다.
+**Windows VM** | Windows Server 2016<br/> Windows Server 2012 R2<br/> Windows Server 2012<br/> 윈도우 서버 2008 R2 (64 비트).
+**Windows 계정** |  종속성 분석을 위해 Azure 마이그레이션 어플라이언스는 Windows VM에 액세스하려면 로컬 또는 도메인 관리자 계정이 필요합니다.
+**Linux VM** | 레드 햇 엔터프라이즈 리눅스 7, 6, 5<br/> 우분투 리눅스 14.04, 16.04<br/> Debian 7, 8<br/> 오라클 리눅스 6, 7<br/> 센트OS 5, 6, 7.
+**리눅스 계정** | 종속성 분석의 경우 Linux 컴퓨터에서 Azure Migrate 어플라이언스에 루트 권한이 있는 사용자 계정이 필요합니다.<br/><br/> 또는 사용자 계정에는 /bin/netstat 및 /bin/ls 파일(CAP_DAC_READ_SEARCH 및 CAP_SYS_PTRACE)에 대한 이러한 권한이 필요합니다.
+**필수 에이전트** | 분석하려는 컴퓨터에 에이전트가 필요하지 않습니다.
+**VMware Tools** | VMware 도구(10.2 이상)는 분석하려는 각 VM에 설치및 실행되어야 합니다.
+**v센터 서버 자격 증명** | 종속성 시각화에는 읽기 전용 액세스 권한이 있는 vCenter Server 계정이 필요하며 가상 컴퓨터 > 게스트 작업에 사용할 수 있는 권한이 필요합니다. 
+**Powershell** | VM에는 PowerShell 버전 2.0 이상이 설치되어 있어야 합니다.
+**포트 액세스** | 분석하려는 VM을 실행하는 ESXi 호스트에서 Azure 마이그레이션 어플라이언스는 TCP 포트 443에 연결할 수 있어야 합니다.
 
+## <a name="agent-based-dependency-analysis-requirements"></a>에이전트 기반 종속성 분석 요구 사항
+
+[종속성 분석을](concepts-dependency-visualization.md) 사용하면 Azure를 평가하고 마이그레이션하려는 온-프레미스 컴퓨터 간의 종속성을 식별할 수 있습니다. 이 표에는 에이전트 기반 종속성 분석을 설정하기 위한 요구 사항이 요약됩니다. 
+
+**요구 사항** | **세부 정보** 
+--- | --- 
+**배포 전** | Azure 마이그레이션: 서버 평가 도구가 프로젝트에 추가된 Azure 마이그레이션 프로젝트가 있어야 합니다.<br/><br/>  Azure Migrate 어플라이언스를 설정하여 온-프레미스 컴퓨터를 검색한 후 종속성 시각화를 배포합니다.<br/><br/> 프로젝트를 처음 만드는 [방법에 대해 알아봅니다.](create-manage-projects.md)<br/> 기존 프로젝트에 평가 도구를 추가하는 [방법을 알아봅니다.](how-to-assess.md)<br/> [하이퍼 V,](how-to-set-up-appliance-hyper-v.md) [VMware](how-to-set-up-appliance-vmware.md)또는 물리적 서버의 평가를 위해 Azure 마이그레이션 어플라이언스를 설정하는 방법에 대해 알아봅니다.
+**Azure Government** | Azure 정부에서는 종속성 시각화를 사용할 수 없습니다.
+**Log Analytics** | Azure Migrate는 종속성 시각화를 위해 [Azure Monitor 로그의](../log-analytics/log-analytics-overview.md) [서비스 맵](../operations-management-suite/operations-management-suite-service-map.md) 솔루션을 사용합니다.<br/><br/> 새 또는 기존 로그 분석 작업 영역을 Azure 마이그레이션 프로젝트와 연결합니다. Azure 마이그레이션 프로젝트의 작업 영역은 추가된 후에는 수정할 수 없습니다. <br/><br/> 작업 영역은 Azure 마이그레이션 프로젝트와 동일한 구독에 있어야 합니다.<br/><br/> 작업 영역은 미국 동부, 동남아시아 또는 서유럽 지역에 있어야 합니다. 다른 지역의 작업 영역은 프로젝트와 연결할 수 없습니다.<br/><br/> 작업 영역은 [서비스 맵이 지원되는](../azure-monitor/insights/vminsights-enable-overview.md#prerequisites)지역에 있어야 합니다.<br/><br/> 로그 분석에서 Azure 마이그레이션과 연관된 작업 영역에 마이그레이션 프로젝트 키 및 프로젝트 이름이 태그가 지정됩니다.
+**필수 에이전트** | 분석하려는 각 컴퓨터에서 다음 에이전트를 설치합니다.<br/><br/> [마이크로 소프트 모니터링 에이전트 (MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows).<br/> [종속성 에이전트](../azure-monitor/platform/agents-overview.md#dependency-agent).<br/><br/> 온-프레미스 컴퓨터가 인터넷에 연결되어 있지 않은 경우 Log Analytics 게이트웨이를 다운로드하여 설치해야 합니다.<br/><br/> [종속성 에이전트](how-to-create-group-machine-dependencies.md#install-the-dependency-agent) 및 [MMA](how-to-create-group-machine-dependencies.md#install-the-mma)설치에 대해 자세히 알아봅니다.
+**로그 분석 작업 영역** | 작업 영역은 Azure 마이그레이션 프로젝트와 동일한 구독에 있어야 합니다.<br/><br/> Azure Migrate는 미국 동부, 동남아시아 및 서유럽 지역에 있는 작업 영역을 지원합니다.<br/><br/>  작업 영역은 [서비스 맵이 지원되는](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-enable-overview#prerequisites)지역에 있어야 합니다.<br/><br/> Azure 마이그레이션 프로젝트의 작업 영역은 추가된 후에는 수정할 수 없습니다.
+**비용** | 서비스 맵 솔루션은 처음 180일 동안(로그 애널리틱스 작업 영역을 Azure 마이그레이션 프로젝트와 연결하는 날부터) 요금이 발생하지 않습니다.<br/><br/> 180일 후에는 표준 Log Analytics 요금이 적용됩니다.<br/><br/> 연결된 로그 분석 작업 영역에서 서비스 맵 이외의 솔루션을 사용하면 로그 분석에 대한 [표준 요금이 부과됩니다.](https://azure.microsoft.com/pricing/details/log-analytics/)<br/><br/> Azure Migrate 프로젝트가 삭제될 때 작업 영역은 함께 삭제되지 않습니다. 프로젝트를 삭제한 후 서비스 맵 사용량은 무료가 아니며 각 노드는 Log Analytics 작업 영역의 유료 계층에 따라 요금이 부과됩니다.<br/><br/>Azure 마이그레이션 일반 가용성(GA- 2018년 2월 28일) 이전에 만든 프로젝트가 있는 경우 추가 서비스 맵 요금이 부과되었을 수 있습니다. 180일 후에만 결제를 보장하려면 GA 이전의 기존 작업 영역이 여전히 유료이므로 새 프로젝트를 만드는 것이 좋습니다.
+**관리** | 에이전트를 작업 영역에 등록할 때 Azure Migrate 프로젝트에서 제공하는 ID와 키를 사용합니다.<br/><br/> Azure Migrate 외부에서 Log Analytics 작업 영역을 사용할 수 있습니다.<br/><br/> 연결된 Azure Migrate 프로젝트를 삭제하면 작업 영역이 자동으로 삭제되지 않습니다. [수동으로 삭제합니다.](../azure-monitor/platform/manage-access.md)<br/><br/> Azure 마이그레이션 프로젝트를 삭제하지 않는 한 Azure 마이그레이션에서 만든 작업 영역을 삭제하지 마십시오. 작업 영역을 삭제하면 종속성 시각화 기능이 정상적으로 작동하지 않습니다.
+**인터넷 연결** | 컴퓨터가 인터넷에 연결되어 있지 않은 경우 Log Analytics 게이트웨이를 설치해야 합니다.
 
 
 ## <a name="next-steps"></a>다음 단계
 
-- 평가 만들기에 대 한 모범 사례를 [검토](best-practices-assessment.md) 합니다.
-- [VMware 평가를 준비](tutorial-prepare-vmware.md) 합니다.
+- 평가 를 만들기 위한 모범 사례를 [검토합니다.](best-practices-assessment.md)
+- [VMware 평가를 준비합니다.](tutorial-prepare-vmware.md)

@@ -1,7 +1,7 @@
 ---
 title: R을 사용하여 실험 확장
 titleSuffix: ML Studio (classic) - Azure
-description: R 스크립트 실행 모듈을 사용 하 여 R 언어를 통해 Azure Machine Learning Studio (클래식)의 기능을 확장 하는 방법입니다.
+description: R 스크립트 실행 모듈을 사용하여 R 언어를 통해 Azure 기계 학습 스튜디오(클래식)의 기능을 확장하는 방법.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -11,33 +11,33 @@ ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
 ms.openlocfilehash: 7b4b869695eb2073121a889cd81d99c4fc06d4b9
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79218046"
 ---
-# <a name="azure-machine-learning-studio-classic-extend-your-experiment-with-r"></a>Azure Machine Learning Studio (클래식): R을 사용 하 여 실험 확장 
+# <a name="azure-machine-learning-studio-classic-extend-your-experiment-with-r"></a>Azure 기계 학습 스튜디오(클래식): R로 실험을 확장합니다. 
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
-R [스크립트 실행][execute-r-script] 모듈을 사용 하 여 r 언어를 통해 Azure Machine Learning Studio (클래식)의 기능을 확장할 수 있습니다.
+[R 스크립트 실행][execute-r-script] 모듈을 사용하여 R 언어를 통해 Azure 기계 학습 스튜디오(클래식)의 기능을 확장할 수 있습니다.
 
-이 모듈에서는 여러 입력 데이터 세트를 허용하고 출력으로 단일 데이터 세트를 생성합니다. R 스크립트 [실행][execute-r-script] 모듈의 **r** 스크립트 매개 변수에 r 스크립트를 입력할 수 있습니다.
+이 모듈에서는 여러 입력 데이터 세트를 허용하고 출력으로 단일 데이터 세트를 생성합니다. [R 스크립트 실행][execute-r-script] 모듈의 **R 스크립트** 매개 변수에 R 스크립트를 입력할 수 있습니다.
 
 다음과 비슷한 코드를 사용하여 모듈의 각 입력 포트에 액세스합니다.
 
     dataset1 <- maml.mapInputPort(1)
 
 ## <a name="listing-all-currently-installed-packages"></a>현재 설치된 모든 패키지 나열
-설치된 패키지 목록을 변경할 수 있습니다. 현재 설치 된 패키지 목록은 [Azure Machine Learning Studio (클래식)에서 지 원하는 R 패키지](https://msdn.microsoft.com/library/azure/mt741980.aspx)에서 찾을 수 있습니다.
+설치된 패키지 목록을 변경할 수 있습니다. 현재 설치된 패키지 목록은 [Azure 기계 학습 스튜디오(클래식)에서 지원하는 R 패키지에서](https://msdn.microsoft.com/library/azure/mt741980.aspx)찾을 수 있습니다.
 
-[R 스크립트 실행][execute-r-script] 모듈에 다음 코드를 입력 하 여 설치 된 패키지의 완전 한 현재 목록을 가져올 수도 있습니다.
+[R 스크립트 실행][execute-r-script] 모듈에 다음 코드를 입력하여 설치된 패키지의 완전한 현재 목록을 가져올 수도 있습니다.
 
     out <- data.frame(installed.packages(,,,fields="Description"))
     maml.mapOutputPort("out")
 
-[R 스크립트 실행][execute-r-script] 모듈의 출력 포트에 패키지 목록을 보냅니다.
-패키지 목록을 보려면 [CSV로 변환][convert-to-csv] 과 같은 변환 모듈을 [R 스크립트 실행][execute-r-script] 모듈의 왼쪽 출력에 연결 하 고 실험을 실행 한 다음 변환 모듈의 출력을 클릭 하 고 **다운로드**를 선택 합니다. 
+[R 스크립트 실행][execute-r-script] 모듈의 출력 포트에 패키지의 목록을 전송합니다.
+패키지 목록을 보려면 [CSV로 변환][convert-to-csv]과 같은 변환 모듈을 [R 스크립트 실행][execute-r-script] 모듈의 왼쪽 출력에 연결하고, 실험을 실행한 다음, 변환 모듈의 출력을 클릭하고 **다운로드**를 선택합니다. 
 
 !["CSV로 변환" 모듈의 출력 다운로드](./media/extend-your-experiment-with-r/download-package-list.png)
 
@@ -47,7 +47,7 @@ For convenience, here is the [current full list with version numbers in Excel fo
 -->
 
 ## <a name="importing-packages"></a>패키지 가져오기
-[R 스크립트 실행][execute-r-script] 모듈에서 다음 명령을 사용 하 여 아직 설치 되지 않은 패키지를 가져올 수 있습니다.
+[R 스크립트 실행][execute-r-script] 모듈에서 다음 명령을 사용하여 아직 설치되지 않은 패키지를 가져올 수 있습니다.
 
     install.packages("src/my_favorite_package.zip", lib = ".", repos = NULL, verbose = TRUE)
     success <- library("my_favorite_package", lib.loc = ".", logical.return = TRUE, verbose = TRUE)

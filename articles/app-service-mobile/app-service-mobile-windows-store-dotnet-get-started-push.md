@@ -6,12 +6,12 @@ ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
-ms.openlocfilehash: 4438084a9471bf816b371b7e663856205f87f8ba
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: 6f200e9649a00bfe890d46f86e62404f1a7e844f
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77461422"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80366285"
 ---
 # <a name="add-push-notifications-to-your-windows-app"></a>Windows 앱에 푸시 알림 추가
 
@@ -23,15 +23,15 @@ ms.locfileid: "77461422"
 
 다운로드한 빠른 시작 서버 프로젝트를 사용하지 않는 경우 푸시 알림 확장 패키지가 필요합니다. 자세한 내용은 [Azure Mobile Apps용 .NET 백 엔드 서버 SDK 사용](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)을 참조하세요.
 
-## <a name="configure-hub"></a>알림 허브 구성
+## <a name="configure-a-notification-hub"></a><a name="configure-hub"></a>알림 허브 구성
 
 [!INCLUDE [app-service-mobile-configure-notification-hub](../../includes/app-service-mobile-configure-notification-hub.md)]
 
 ## <a name="register-your-app-for-push-notifications"></a>푸시 알림에 대해 앱 등록
 
-Microsoft Store에 앱을 제출한 다음, 푸시를 전송하는 [WNS(Windows Notification Services)](https://docs.microsoft.com/windows/uwp/design/shell/tiles-and-notifications/windows-push-notification-services--wns--overview)를 통합하도록 서버 프로젝트를 구성해야 합니다.
+Microsoft 스토어에 앱을 제출한 다음 서버 프로젝트를 구성하여 [WINDOWS 푸시 알림 서비스(WNS)와](https://docs.microsoft.com/windows/uwp/design/shell/tiles-and-notifications/windows-push-notification-services--wns--overview) 통합하여 푸시를 보내야 합니다.
 
-1. Visual Studio 솔루션 탐색기에서 UWP 앱 프로젝트를 마우스 오른쪽 단추로 클릭하고 **스토어** > **스토어와 앱을 연결...** 을 클릭합니다.
+1. Visual Studio 솔루션 탐색기에서 UWP 앱 프로젝트를 마우스 오른쪽 단추로 클릭하고 **스토어** > **연결 앱을 클릭합니다.**
 
     ![Microsoft Store와 앱 연결](./media/app-service-mobile-windows-store-dotnet-get-started-push/notification-hub-associate-uwp-app.png)
 
@@ -51,11 +51,11 @@ Microsoft Store에 앱을 제출한 다음, 푸시를 전송하는 [WNS(Windows 
 
 [!INCLUDE [app-service-mobile-configure-wns](../../includes/app-service-mobile-configure-wns.md)]
 
-## <a id="update-service"></a>푸시 알림을 전송하도록 서버 업데이트
+## <a name="update-the-server-to-send-push-notifications"></a><a id="update-service"></a>푸시 알림을 전송하도록 서버 업데이트
 
 백 엔드 프로젝트 형식&mdash;([.NET 백 엔드](#dotnet) 또는 [Node.js 백 엔드](#nodejs))과 일치하는 아래의 절차를 사용합니다.
 
-### <a name="dotnet"></a>.NET 백 엔드 프로젝트
+### <a name="net-backend-project"></a><a name="dotnet"></a>.NET 백엔드 프로젝트
 
 1. Visual Studio에서 서버 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 클릭합니다. Microsoft.Azure.NotificationHubs를 검색한 다음 **설치**를 클릭합니다. Notification Hubs 클라이언트 라이브러리를 설치합니다.
 2. **컨트롤러**를 확장하고 TodoItemController.cs를 열고 다음 using 문을 추가합니다.
@@ -106,8 +106,8 @@ Microsoft Store에 앱을 제출한 다음, 푸시를 전송하는 [WNS(Windows 
 
 4. 서버 프로젝트를 다시 게시합니다.
 
-### <a name="nodejs"></a>Node.js 백 엔드 프로젝트
-1. 백 엔드 프로젝트를 설정 합니다.
+### <a name="nodejs-backend-project"></a><a name="nodejs"></a>Node.js 백 엔드 프로젝트
+1. 백 엔드 프로젝트를 설정합니다.
 2. todoitem.js 파일의 기존 코드를 다음으로 바꿉니다.
 
     ```javascript
@@ -156,7 +156,7 @@ Microsoft Store에 앱을 제출한 다음, 푸시를 전송하는 [WNS(Windows 
 
 3. 로컬 컴퓨터에서 파일을 편집할 때 서버 프로젝트를 다시 게시합니다.
 
-## <a id="update-app"></a>앱에 푸시 알림 추가
+## <a name="add-push-notifications-to-your-app"></a><a id="update-app"></a>앱에 푸시 알림 추가
 다음으로 앱은 시작에서 푸시 알림에 등록해야 합니다. 사용할 수 있는 인증이 있는 경우 푸시 알림을 등록하기 전에 사용자가 로그인해야 합니다.
 
 1. **App.xaml.cs** 프로젝트 파일을 열고 다음 `using` 문을 추가합니다.
@@ -197,11 +197,11 @@ Microsoft Store에 앱을 제출한 다음, 푸시를 전송하는 [WNS(Windows 
 
 4. UWP 앱 프로젝트를 다시 빌드합니다. 이제 앱에서 알림을 받을 수 있습니다.
 
-## <a id="test"></a>앱에서 푸시 알림 테스트
+## <a name="test-push-notifications-in-your-app"></a><a id="test"></a>앱에서 푸시 알림 테스트
 
 [!INCLUDE [app-service-mobile-windows-universal-test-push](../../includes/app-service-mobile-windows-universal-test-push.md)]
 
-## <a id="more"></a>다음 단계
+## <a name="next-steps"></a><a id="more"></a>다음 단계
 
 푸시 알림에 대해 자세히 알아봅니다.
 

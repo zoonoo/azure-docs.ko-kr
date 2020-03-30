@@ -9,12 +9,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 02/20/2020
 ms.reviewer: ''
-ms.openlocfilehash: c18e1b1a1feba5c528a692b7d63287b3751b62cf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9c1260bb1fab23ede2d1a96725c3086dc128fffc
+ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77506217"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80387651"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database"></a>Azure SQL 데이터베이스로 일반적인 보안 요구 사항을 해결하기 위한 플레이북
 
@@ -657,7 +657,7 @@ DDoS 보호는 Azure 플랫폼의 일부로 자동으로 활성화됩니다. 여
 **모범 사례**:
 
 - 이벤트를 감사하기 위해 데이터베이스 서버에서 [SQL Database 감사를](sql-database-auditing.md) 구성하면 해당 서버의 기존 데이터베이스와 새로 생성된 모든 데이터베이스가 감사됩니다.
-- 기본적으로 감사 정책에는 데이터베이스에 대한 모든 작업(쿼리, 저장 프로시저 및 성공 및 실패한 로그인)이 포함되며, 이로 인해 감사 로그가 많이 발생할 수 있습니다. 고객은 PowerShell 을 [사용하여 다양한 유형의 작업 및 작업 그룹에 대한 감사를 구성하는](sql-database-auditing.md#subheading-7)것이 좋습니다. 이렇게 구성하면 감사된 작업 수를 제어하고 이벤트 손실 위험을 최소화할 수 있습니다. 사용자 지정 감사 구성을 통해 고객은 필요한 감사 데이터만 캡처할 수 있습니다.
+- 기본적으로 감사 정책에는 데이터베이스에 대한 모든 작업(쿼리, 저장 프로시저 및 성공 및 실패한 로그인)이 포함되며, 이로 인해 감사 로그가 많이 발생할 수 있습니다. 고객은 PowerShell 을 [사용하여 다양한 유형의 작업 및 작업 그룹에 대한 감사를 구성하는](sql-database-auditing.md#manage-auditing)것이 좋습니다. 이렇게 구성하면 감사된 작업 수를 제어하고 이벤트 손실 위험을 최소화할 수 있습니다. 사용자 지정 감사 구성을 통해 고객은 필요한 감사 데이터만 캡처할 수 있습니다.
 - 감사 로그는 [Azure 포털](https://portal.azure.com/)또는 구성된 저장소 위치에서 직접 사용할 수 있습니다. 
 
 

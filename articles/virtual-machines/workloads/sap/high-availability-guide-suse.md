@@ -1,5 +1,5 @@
 ---
-title: SLES의 SAP NetWeaver에 대 한 Azure Vm 고가용성 Microsoft Docs
+title: SLES에서 SAP 넷위버에 대한 Azure VM 고가용성 | 마이크로 소프트 문서
 description: SAP 애플리케이션용 SUSE Linux Enterprise Server의 SAP NetWeaver에 대한 고가용성 가이드
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
@@ -13,14 +13,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/06/2020
+ms.date: 03/26/2020
 ms.author: radeltch
-ms.openlocfilehash: 9a9e8e4ac406186ba0ca9aaec065301e31ef0f02
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 05effb7d2e64c5f27acabad4b086ba27d6849cc8
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79264467"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80348813"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>SAP 애플리케이션용 SUSE Linux Enterprise Server의 Azure VM에 있는 SAP NetWeaver에 대한 고가용성
 
@@ -53,7 +53,7 @@ ms.locfileid: "79264467"
 [nfs-ha]:high-availability-guide-suse-nfs.md
 
 이 문서에서는 가상 머신을 배포 및 구성하고 클러스터 프레임워크 및 고가용성 SAP NetWeaver 7.50 시스템을 설치하는 방법을 설명합니다.
-예제 구성, 설치 명령 등에 있습니다. ASCS 인스턴스 번호 00, ERS 인스턴스 번호 02 및 SAP 시스템 ID N W 1가 사용 됩니다. 예제에서 리소스 (예: 가상 머신, 가상 네트워크)의 이름은 SAP 시스템 ID가 N W 1 인 [수렴 형 템플릿][template-converged] 을 사용 하 여 리소스를 만들었다고 가정 합니다.
+예제 구성에서 설치 명령 등 ASCS 인스턴스 번호 00, ERS 인스턴스 번호 02 및 SAP 시스템 ID NW1이 사용됩니다. 예제에 포함된 리소스(예: 가상 머신, 가상 네트워크)의 이름은 SAP 시스템 ID가 NW1인 [수렴형 템플릿][template-converged]을 사용하여 리소스를 만들었다고 가정합니다.
 
 먼저 다음 SAP 참고와 문서 읽기
 
@@ -64,7 +64,7 @@ ms.locfileid: "79264467"
   * Microsoft Azure에서 Windows 및 Linux에 필요한 SAP 커널 버전
 
 * SAP Note [2015553][2015553]는 Azure에서 SAP을 지원하는 SAP 소프트웨어 배포에 대한 필수 구성 요소를 나열합니다.
-* SAP Note [2205917][2205917]에는 SAP 애플리케이션용 SUSE Linux Enterprise Server에 권장되는 OS 설정이 나와 있습니다.
+* SAP 참고 [2205917][2205917] SAP 응용 프로그램에 대 한 SUSE 리눅스 엔터프라이즈 서버에 대 한 OS 설정을 권장 했다
 * SAP Note [1944799][1944799]에는 SAP 애플리케이션용 SUSE Linux Enterprise Server에 대한 SAP HANA 지침이 나와 있습니다.
 * SAP Note [2178632][2178632]는 Azure에서 SAP에 대해 보고된 모든 모니터링 메트릭에 대한 자세한 정보를 포함하고 있습니다.
 * SAP Note [2191498][2191498]는 Azure에서 Linux에 필요한 SAP Host Agent 버전을 포함하고 있습니다.
@@ -72,11 +72,11 @@ ms.locfileid: "79264467"
 * SAP Note [1984787][1984787]은 SUSE LINUX Enterprise Server 12에 대한 일반 정보를 포함하고 있습니다.
 * SAP Note [1999351][1999351]은 SAP용 Azure 고급 모니터링 확장을 위한 추가 문제 해결 정보를 포함하고 있습니다.
 * [SAP Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes)는 Linux에 필요한 모든 SAP Note를 포함하고 있습니다.
-* [Linux에서 SAP 용 Azure Virtual Machines 계획 및 구현][planning-guide]
-* [Linux에서 SAP 용 Azure Virtual Machines 배포][deployment-guide]
-* [Linux에서 SAP 용 Azure Virtual Machines DBMS 배포][dbms-guide]
-* [SUSE SAP HA 모범 사례 가이드][suse-ha-guide] 이 가이드에는 온-프레미스에서 Netweaver HA 및 SAP HANA 시스템 복제를 설정 하는 데 필요한 모든 정보가 포함 되어 있습니다. 이 가이드를 일반 기준으로 사용하세요. 여기서 훨씬 더 자세한 정보를 제공합니다.
-* [SUSE 고가용성 확장 12 SP3 릴리스 정보][suse-ha-12sp3-relnotes]
+* [Linux에서 SAP용 Azure Virtual Machines 계획 및 구현][planning-guide]
+* [Linux에서 SAP용 Azure Virtual Machines 배포][deployment-guide]
+* [Linux에서 SAP용 Azure Virtual Machines DBMS 배포][dbms-guide]
+* [SUSE SAP HA 모범 사례 가이드][suse-ha-guide] 이 가이드에는 Netweaver HA 및 SAP HANA 시스템 복제 온-프레미스를 설정하는 데 필요한 모든 정보가 포함됩니다. 이 가이드를 일반 기준으로 사용하세요. 여기서 훨씬 더 자세한 정보를 제공합니다.
+* [SUSE High Availability Extension 12 SP3 릴리스 정보][suse-ha-12sp3-relnotes]
 
 ## <a name="overview"></a>개요
 
@@ -84,47 +84,47 @@ SAP NetWeaver의 가용성을 높이려면 NFS 서버가 필요합니다. NFS �
 
 ![SAP NetWeaver 고가용성 개요](./media/high-availability-guide-suse/ha-suse.png)
 
-NFS 서버, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS 및 SAP HANA 데이터베이스는 가상 호스트 이름 및 가상 IP 주소를 사용합니다. Azure에서는 가상 IP 주소를 사용하려면 부하 분산 장치가 필요합니다. [표준 부하 분산 장치](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal)를 사용 하는 것이 좋습니다. 아래 목록에서는(A)SCS 및 ERS 부하 분산 장치에 대한 구성이 나와 있습니다.
+NFS 서버, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS 및 SAP HANA 데이터베이스는 가상 호스트 이름 및 가상 IP 주소를 사용합니다. Azure에서는 가상 IP 주소를 사용하려면 부하 분산 장치가 필요합니다. [표준 로드 밸워서를](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal)사용하는 것이 좋습니다. 아래 목록에서는(A)SCS 및 ERS 부하 분산 장치에 대한 구성이 나와 있습니다.
 
 ### <a name="ascs"></a>(A)SCS
 
 * 프런트 엔드 구성
   * IP 주소: 10.0.0.7
-* 백 엔드 구성
-  * (A)SCS/ERS 클러스터의 일부분이어야 하는 모든 가상 머신의 주 네트워크 인터페이스에 연결됨
 * 프로브 포트
   * 포트 620<strong>&lt;nr&gt;</strong>
 * 부하 분산 규칙
-  * 표준 Load Balancer 사용 하는 경우 **HA 포트** 를 선택 합니다.
-  * 기본 Load Balancer 사용 하는 경우 다음 포트에 대 한 부하 분산 규칙을 만듭니다.
-    * 32<strong>&lt;nr&gt;</strong> TCP
-    * 36<strong>&lt;nr&gt;</strong> TCP
-    * 39<strong>&lt;nr&gt;</strong> TCP
-    * 81<strong>&lt;nr&gt;</strong> TCP
-    * 5<strong>&lt;nr&gt;</strong>13 TCP
-    * 5<strong>&lt;nr&gt;</strong>14 TCP
-    * 5<strong>&lt;nr&gt;</strong>16 TCP
+  * 표준 로드 밸로터를 사용하는 경우 **HA 포트를** 선택합니다.
+  * 기본 로드 밸런서를 사용하는 경우 다음 포트에 대한 로드 균형 규칙을 만듭니다.
+    * 32<strong>&lt;&gt; nr</strong> TCP
+    * 36<strong>&lt;&gt; nr</strong> TCP
+    * 39<strong>&lt;&gt; nr</strong> TCP
+    * 81<strong>&lt;&gt; nr</strong> TCP
+    * 5<strong>&lt;&gt;nr</strong>13 TCP
+    * 5<strong>&lt;&gt;nr</strong>14 TCP
+    * 5<strong>&lt;&gt;nr</strong>16 TCP
 
 ### <a name="ers"></a>ERS
 
 * 프런트 엔드 구성
   * IP 주소: 10.0.0.8
-* 백 엔드 구성
-  * (A)SCS/ERS 클러스터의 일부분이어야 하는 모든 가상 머신의 주 네트워크 인터페이스에 연결됨
 * 프로브 포트
   * 포트 621<strong>&lt;nr&gt;</strong>
-* 부하 분산 규칙
-  * 표준 Load Balancer 사용 하는 경우 **HA 포트** 를 선택 합니다.
-  * 기본 Load Balancer 사용 하는 경우 다음 포트에 대 한 부하 분산 규칙을 만듭니다.
-    * 32<strong>&lt;nr&gt;</strong> TCP
-    * 33<strong>&lt;nr&gt;</strong> TCP
-    * 5<strong>&lt;nr&gt;</strong>13 TCP
-    * 5<strong>&lt;nr&gt;</strong>14 TCP
-    * 5<strong>&lt;nr&gt;</strong>16 TCP
+* 로드 밸런싱 규칙
+  * 표준 로드 밸로터를 사용하는 경우 **HA 포트를** 선택합니다.
+  * 기본 로드 밸런서를 사용하는 경우 다음 포트에 대한 로드 균형 규칙을 만듭니다.
+    * 32<strong>&lt;&gt; nr</strong> TCP
+    * 33<strong>&lt;&gt; nr</strong> TCP
+    * 5<strong>&lt;&gt;nr</strong>13 TCP
+    * 5<strong>&lt;&gt;nr</strong>14 TCP
+    * 5<strong>&lt;&gt;nr</strong>16 TCP
+
+* 백 엔드 구성
+  * (A)SCS/ERS 클러스터의 일부분이어야 하는 모든 가상 머신의 주 네트워크 인터페이스에 연결됨
+
 
 ## <a name="setting-up-a-highly-available-nfs-server"></a>고가용성 NFS 서버 설정
 
-SAP NetWeaver에는 전송 및 프로필 디렉터리에 대한 공유 스토리지가 필요합니다. SAP NetWeaver NFS 서버를 설정 하는 방법에 대 한 자세한 내용은 [Azure SUSE Linux Enterprise Server vm에서 nfs에 대 한 고가용성][nfs-ha] 을 참조 하세요.
+SAP NetWeaver에는 전송 및 프로필 디렉터리에 대한 공유 스토리지가 필요합니다. SAP NetWeaver용 NFS 서버를 설정하는 방법은 [SUSE Linux Enterprise Server의 Azure VM에 있는 NFS의 고가용성][nfs-ha]을 참조하세요.
 
 ## <a name="setting-up-ascs"></a>(A)SCS 설정
 
@@ -134,10 +134,10 @@ GitHub의 Azure 템플릿을 사용하여 필요한 Azure 리소스(가상 머�
 
 Azure Marketplace에는 새 가상 머신을 배포하는 데 사용할 수 있는 SAP Applications 12용 SUSE Linux Enterprise Server의 이미지가 포함되어 있습니다. Marketplace 이미지는 SAP NetWeaver용 리소스 에이전트를 포함합니다.
 
-GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든 리소스를 배포할 수 있습니다. 템플릿은 가상 머신, 부하 분산 장치, 가용성 집합 등을 배포 합니다. 템플릿을 배포 하려면 다음 단계를 수행 합니다.
+GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든 리소스를 배포할 수 있습니다. 템플릿은 가상 시스템, 로드 밸레인저, 가용성 세트 등을 배포합니다. 다음 단계에 따라 템플릿을 배포합니다.
 
-1. Azure Portal에서 [Ascs/SCS 다중 SID 템플릿][template-multisid-xscs] 또는 [수렴 형 템플릿][template-converged] 을 엽니다. 
-   ASCS/SCS 템플릿은 SAP NetWeaver ASCS/SCS 및 ERS (Linux 전용) 인스턴스에만 부하 분산 규칙을 만들지만 수렴 형 템플릿은 데이터베이스의 부하 분산 규칙을 만듭니다 (예: Microsoft SQL Server 또는 SAP HANA). SAP NetWeaver 기반 시스템을 설치 하려는 경우 같은 컴퓨터에도 데이터베이스를 설치 하려면 [수렴 된 템플릿을][template-converged]사용 합니다.
+1. Azure 포털에서 [ASCS/SCS 다중 SID 템플릿][template-multisid-xscs] 또는 [수렴된 템플릿을][template-converged] 엽니다. 
+   ASCS/SCS 템플릿은 SAP NetWeaver ASCS/SCS 및 ERS(Linux 전용) 인스턴스에 대한 로드 균형 조정 규칙만 생성하는 반면, 수렴된 템플릿은 데이터베이스에 대한 로드 균형 조정 규칙(예: Microsoft SQL Server 또는 SAP HANA)도 만듭니다. SAP NetWeaver 기반 시스템을 설치할 계획이며 동일한 컴퓨터에 데이터베이스도 설치하려는 경우에는 [수렴형 템플릿][template-converged]을 사용합니다.
 1. 다음 매개 변수를 입력합니다.
    1. 리소스 접두사(ASCS/SCS 다중 SID 템플릿에만 해당)  
       사용할 접두사를 입력합니다. 이 값은 배포되는 리소스의 접두사로 사용됩니다.
@@ -149,18 +149,18 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
       Linux 배포판 중 하나를 선택합니다. 이 예에서는 SLES 12 BYOS 선택
    6. Db 형식  
       HANA 선택
-   7. Sap 시스템 크기.  
+   7. 수액 시스템 크기.  
       새 시스템에서 제공하는 SAP의 양입니다. 시스템에 필요한 SAP의 수를 모를 경우 SAP 기술 파트너 또는 시스템 통합자에 문의하세요.
    8. 시스템 가용성 -  
       HA를 선택합니다.
    9. 관리자 사용자 이름 및 관리자 암호 -  
       컴퓨터에 로그온하는 데 사용할 수 있게 만들어진 새 사용자입니다.
    10. 서브넷 ID  
-   서브넷이 VM을 할당하도록 정의된 기존 VNet에 VM을 배포하려는 경우 해당 서브넷의 ID 이름을 지정합니다. ID는 대개 /subscriptions/ **&lt;구독 ID&gt;** /resourceGroups/ **&lt;리소스 그룹 이름&gt;** /providers/Microsoft.Network/virtualNetworks/ **&lt;가상 네트워크 이름&gt;** /subnets/ **&lt;서브넷 이름&gt;** 과 같은 형식입니다.
+   서브넷이 VM을 할당하도록 정의된 기존 VNet에 VM을 배포하려는 경우 해당 서브넷의 ID 이름을 지정합니다. ID는 일반적으로 /subscriptions/**&lt;구독&gt;ID**/resourceGroups/**&lt;리소스 그룹&gt;이름**/공급자/Microsoft.Network/가상 네트워크/가상**&lt;네트워크 이름/서브넷/서브넷&gt;****&lt;이름처럼&gt; ** 보입니다.
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Azure Portal을 통해 Linux를 수동으로 배포
 
-먼저 NFS 클러스터에 대한 가상 머신을 만들어야 합니다. 그런 다음, 부하 분산 장치를 만들고 백 엔드 풀의 가상 머신을 사용합니다.
+먼저 NFS 클러스터에 대한 가상 머신을 만들어야 합니다. 그런 다음 로드 밸러커를 만들고 백 엔드 풀에서 가상 컴퓨터를 사용합니다.
 
 1. 리소스 그룹 만들기
 1. Virtual Network 만들기
@@ -176,7 +176,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
    이전에 만든 가용성 집합 선택  
 1. 두 가상 머신 모두에 하나 이상의 데이터 디스크 추가  
    데이터 디스크는 /usr/sap/`<SAPSID`> 디렉터리에 사용됩니다
-1. 부하 분산 장치 만들기 (내부, 표준):  
+1. 부하 분산기 만들기(내부, 표준):  
    1. 프런트 엔드 IP 주소 만들기
       1. IP 주소: 10.0.0.7(ASCS용)
          1. 부하 분산 장치 열기, 프런트 엔드 IP 풀 선택 및 추가 클릭
@@ -186,15 +186,12 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
       1. IP 주소: 10.0.0.8(ASCS ERS용)
          * 위의 단계를 반복하여 ERS에 대한 IP 주소를 만듭니다(예: **10.0.0.8** 및 **nw1-aers-backend**).
    1. 백 엔드 풀 만들기
-      1. ASCS에 대한 백 엔드 풀 만들기
-         1. 부하 분산 장치를 열고 백 엔드 풀을 선택한 다음 추가 클릭
-         1. 새 백 엔드 풀의 이름 입력(예: **nw1-ascs-backend**)
-         1. 가상 머신 추가 클릭
-         1. 가상 컴퓨터 선택
-         1. (A) SCS 클러스터의 가상 머신 및 해당 IP 주소를 선택 합니다.
-         1. 추가를 클릭합니다.
-      1. ASCS ERS에 대한 백 엔드 풀 만들기
-         * 위의 단계를 반복하여 ERS에 대한 백 엔드 풀을 만듭니다(예: **nw1-aers-backend**).
+      1. 부하 분산 장치를 열고 백 엔드 풀을 선택한 다음 추가 클릭
+      1. 새 백 엔드 풀의 이름 입력(예: **nw1-backend**)
+      1. 가상 머신 추가 클릭
+      1. 가상 컴퓨터 선택
+      1. (A)SCS 클러스터의 가상 컴퓨터와 해당 IP 주소를 선택합니다.
+      1. 추가를 클릭합니다.
    1. 상태 프로브 만들기
       1. 포트: 620**00**(ASCS용)
          1. 부하 분산 장치를 열고 상태 프로브를 선택한 다음 추가 클릭
@@ -203,17 +200,17 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
          1. 확인 클릭
       1. 포트: 621**02**(ASCS ERS용)
          * 위의 단계를 반복하여 ERS에 대한 상태 프로브를 만듭니다(예: 621**02** 및 **nw1-aers-hp**).
-   1. 부하 분산 규칙
-      1. ASCS에 대 한 부하 분산 규칙
-         1. 부하 분산 장치를 열고 부하 분산 규칙을 선택한 다음 추가를 클릭 합니다.
-         1. 새 부하 분산 장치 규칙의 이름 입력 (예: **n w 1-ascs**)
-         1. 이전에 만든 프런트 엔드 IP 주소, 백 엔드 풀 및 상태 프로브 선택 (예: **n w 1**, **n w 1** , **n w 1 및-ascs-hp**)
+   1. 로드 밸런싱 규칙
+      1. ASCS에 대한 부하 분산 규칙
+         1. 로드 밸런서를 열고 로드 밸런싱 규칙을 선택한 다음 추가를 클릭합니다.
+         1. 새 로드 밸런서 규칙의 이름을 입력합니다(예: **nw1-lb-ascs)**
+         1. 앞에서 만든 프런트 엔드 IP 주소, 백 엔드 풀 및 상태 프로브를 선택합니다(예: **nw1-ascs-frontend,** **nw1-backend** 및 **nw1-ascs-hp)**
          1. **HA 포트** 선택
          1. 유휴 상태 시간 제한을 30분으로 증가
          1. **부동 IP를 사용하도록 설정**
          1. 확인 클릭
-         * 위의 단계를 반복 하 여 ERS에 대 한 부하 분산 규칙을 만듭니다 (예: **n w 1**).
-1. 또는 시나리오에 기본 부하 분산 장치 (내부)가 필요한 경우 다음 단계를 수행 합니다.  
+         * 위의 단계를 반복하여 ERS에 대한 부하 분산 규칙(예: **nw1-lb-ers)을**만듭니다.
+1. 또는 시나리오에 기본 로드 밸러터(내부)가 필요한 경우 다음 단계를 따르십시오.  
    1. 프런트 엔드 IP 주소 만들기
       1. IP 주소: 10.0.0.7(ASCS용)
          1. 부하 분산 장치 열기, 프런트 엔드 IP 풀 선택 및 추가 클릭
@@ -221,17 +218,14 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
          1. 할당을 정적으로 설정하고 IP 주소 입력(예: **10.0.0.7**)
          1. 확인 클릭
       1. IP 주소: 10.0.0.8(ASCS ERS용)
-         * 위의 단계를 반복하여 ERS에 대한 IP 주소를 만듭니다(예: **10.0.0.8** 및 **nw1-aers-backend**).
+         * 위의 단계를 반복하여 ERS에 대한 IP 주소를 만듭니다(예: **10.0.0.8** 및 **nw1-aers-frontend).**
    1. 백 엔드 풀 만들기
-      1. ASCS에 대한 백 엔드 풀 만들기
-         1. 부하 분산 장치를 열고 백 엔드 풀을 선택한 다음 추가 클릭
-         1. 새 백 엔드 풀의 이름 입력(예: **nw1-ascs-backend**)
-         1. 가상 머신 추가 클릭
-         1. 이전에 만든 가용성 집합 선택
-         1. (A)SCS 클러스터의 가상 머신 선택
-         1. 확인 클릭
-      1. ASCS ERS에 대한 백 엔드 풀 만들기
-         * 위의 단계를 반복하여 ERS에 대한 백 엔드 풀을 만듭니다(예: **nw1-aers-backend**).
+      1. 부하 분산 장치를 열고 백 엔드 풀을 선택한 다음 추가 클릭
+      1. 새 백 엔드 풀의 이름 입력(예: **nw1-backend**)
+      1. 가상 머신 추가 클릭
+      1. 이전에 만든 가용성 집합 선택
+      1. (A)SCS 클러스터의 가상 머신 선택
+      1. 확인 클릭
    1. 상태 프로브 만들기
       1. 포트: 620**00**(ASCS용)
          1. 부하 분산 장치를 열고 상태 프로브를 선택한 다음 추가 클릭
@@ -240,9 +234,9 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
          1. 확인 클릭
       1. 포트: 621**02**(ASCS ERS용)
          * 위의 단계를 반복하여 ERS에 대한 상태 프로브를 만듭니다(예: 621**02** 및 **nw1-aers-hp**).
-   1. 부하 분산 규칙
+   1. 로드 밸런싱 규칙
       1. TCP: 32**00**(ASCS용)
-         1. 부하 분산 장치를 열고 부하 분산 규칙을 선택한 다음 추가를 클릭 합니다.
+         1. 로드 밸런서를 열고 로드 밸런싱 규칙을 선택한 다음 추가를 클릭합니다.
          1. 새 부하 분산 장치 규칙의 이름 입력(예: **nw1-lb-3200**)
          1. 이전에 만든 프런트 엔드 IP 주소, 백 엔드 풀 및 상태 프로브 선택(예: **nw1-ascs-frontend**)
          1. 프로토콜로 **TCP**를 유지하고. 포트로 **3200** 입력
@@ -255,10 +249,10 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
          * ASCS ERS의 경우 33**02**, 5**02**13, 5**02**14, 5**02**16 포트 및 TCP에 대해 위의 단계를 반복합니다.
 
 > [!Note]
-> 공용 IP 주소가 없는 Vm이 내부 (공용 IP 주소 없음) 표준 Azure 부하 분산 장치의 백 엔드 풀에 배치 되는 경우 공용 끝점으로의 라우팅을 허용 하기 위해 추가 구성을 수행 하지 않는 한 아웃 바운드 인터넷 연결이 없습니다. 아웃 바운드 연결을 설정 하는 방법에 대 한 자세한 내용은 [SAP 고가용성 시나리오에서 Azure 표준 Load Balancer를 사용 하 여 Virtual Machines에 대 한 공용 끝점 연결](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections)을 참조 하세요.  
+> 공용 IP 주소가 없는 VM이 내부(공용 IP 주소 없음) 표준 Azure 로드 밸런서의 백 엔드 풀에 배치되면 공용 끝점으로 라우팅을 허용하기 위한 추가 구성이 수행되지 않는 한 아웃바운드 인터넷 연결이 없습니다. 아웃바운드 연결을 달성하는 방법에 대한 자세한 내용은 [SAP 고가용성 시나리오에서 Azure 표준 로드 밸런서를 사용하는 가상 시스템에 대한 공용 엔드포인트 연결을](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections)참조하십시오.  
 
 > [!IMPORTANT]
-> Azure Load Balancer 뒤에 배치 되는 Azure Vm에서 TCP 타임 스탬프를 사용 하도록 설정 하지 마세요. TCP 타임 스탬프를 사용 하도록 설정 하면 상태 프로브가 실패 합니다. **Tcp_timestamps** 매개 변수를 **0**으로 설정 합니다. 자세한 내용은 [Load Balancer 상태 프로브](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)를 참조 하세요.
+> Azure 로드 밸러워 뒤에 배치된 Azure VM에서 TCP 타임스탬프를 사용하지 마십시오. TCP 타임스탬프를 사용하면 상태 프로브가 실패합니다. 매개 변수 **net.ipv4.tcp_timestamps** **0으로**설정합니다. 자세한 내용은 [로드 밸러저 상태 프로브를](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)참조하십시오.
 
 ### <a name="create-pacemaker-cluster"></a>Pacemaker 클러스터 만들기
 
@@ -266,7 +260,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
 
 ### <a name="installation"></a>설치
 
-다음 항목에는 접두사 **[A]** (모든 노드에 적용됨), **[1]** (노드 1에만 적용됨), **[2]** (노드 2에만 적용됨) 접두사가 표시되어 있습니다.
+다음 항목은 모든 노드에 적용 가능한 **[A]** 중 하나, **[1]** - 노드 1 또는 **[2]에만** 적용가능하며 노드 2에만 적용됩니다.
 
 1. **[A]** SUSE 커넥터 설치
 
@@ -274,7 +268,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
    </code></pre>
 
    > [!NOTE]
-   > 호스트 이름에 대시를 사용 하 **는 경우 알려진**문제는 **3.1.1** 패키지의 버전을 사용 하 여 수정 됩니다. 호스트 이름에 대시를 사용 하 여 클러스터 노드를 사용 하는 경우 최소 버전의 3.1.1 패키지를 사용 하 고 있는지 확인 합니다. 대시를 사용하면 클러스터가 작동하지 않습니다. 
+   > 호스트 이름에 대시를 사용 하 여 알려진된 문제는 패키지 **sap-suse-클러스터 커넥터의**버전 **3.1.1로** 해결 됩니다. 호스트 이름에 대시가 있는 클러스터 노드를 사용하는 경우 패키지 sap-suse-cluster-커넥터의 최소 버전 3.1.1을 사용하고 있는지 확인합니다. 대시를 사용하면 클러스터가 작동하지 않습니다. 
 
    SAP SUSE 클러스터 커넥터의 새 버전을 설치했는지 확인합니다. 기존 버전은 sap_suse_cluster_connector라고 하며 새 버전은 **sap suse-cluster-connector**라고 합니다.
 
@@ -403,13 +397,13 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
 1. **[1]** ASCS 인스턴스에 대한 가상 IP 리소스 및 상태 프로브 만들기
 
    > [!IMPORTANT]
-   > 최신 테스트로 인해 netcat이 백로그로 인 한 요청 응답을 중지 하 고 하나의 연결만 처리할 수 있는 경우를 확인할 수 있습니다. Netcat 리소스는 Azure 부하 분산 장치 요청에 대 한 수신 대기를 중지 하 고 부동 IP는 사용할 수 없게 됩니다.  
-   > 기존 Pacemaker 클러스터의 경우 netcat을 socat로 교체 하는 것이 좋습니다. 현재 패키지 리소스 에이전트의 일부인 azure-lb 리소스 에이전트를 사용 하는 것이 좋습니다. 패키지 버전 요구 사항은 다음과 같습니다.
-   > - SLES 12 SP4/SP5의 경우 버전은 4.3.018. a7fb5035-3.30.1 이상 이어야 합니다.  
-   > - SLES 15/15 s p 1의 경우 버전은 4.3.0184.6 ee15eb2-4.13.1 이상 이어야 합니다.  
+   > 최근 테스트결과 netcat이 백로그로 인해 요청에 응답하지 않는 상황과 하나의 연결만 처리하는 데 제한이 있는 상황이 나타났습니다. netcat 리소스는 Azure Load 밸러버 요청 수신을 중지하고 부동 IP를 사용할 수 없게 됩니다.  
+   > 기존 페이스 메이커 클러스터의 경우 과거에 netcat을 socat으로 교체하는 것이 좋습니다. 현재 패키지 리소스 에이전트의 일부인 azure-lb 리소스 에이전트를 다음과 같은 패키지 버전 요구 사항과 함께 사용하는 것이 좋습니다.
+   > - SLES 12 SP4/SP5의 경우 버전은 최소 리소스 에이전트-4.3.018.a7fb5035-3.30.1이상이어야 합니다.  
+   > - SLES 15/15 SP1의 경우 버전은 최소 리소스 에이전트-4.3.0184.6e15eb2-4.13.1이어야 합니다.  
    >
-   > 변경 작업을 수행 하려면 짧은 가동 중지 시간이 필요 합니다.  
-   > 기존 Pacemaker 클러스터의 경우 [Azure 부하 분산 장치 검색 강화](https://www.suse.com/support/kb/doc/?id=7024128)에 설명 된 대로 구성이 이미 socat을 사용 하도록 변경 된 경우 azure-lb 리소스 에이전트로 즉시 전환 하지 않아도 됩니다.
+   > 변경에는 짧은 가동 중지 시간이 필요합니다.  
+   > 기존 Pacemaker 클러스터의 경우 [Azure Load-Balancer 감지 강화에](https://www.suse.com/support/kb/doc/?id=7024128)설명된 대로 socat을 사용하도록 구성이 이미 변경된 경우 Azure-lb 리소스 에이전트로 즉시 전환할 필요가 없습니다.
 
    <pre><code>sudo crm node standby <b>nw1-cl-1</b>
    
@@ -553,7 +547,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
 
 1. **[A]** 연결 유지 구성
 
-   SAP NetWeaver 애플리케이션 서버와 ASCS/SCS 간의 통신은 소프트웨어 부하 분산 장치를 통해 라우팅됩니다. 부하 분산 장치는 구성 가능한 시간 제한이 지나면 비활성 연결을 끊습니다. 이 연결 끊김을 방지하려면 SAP NetWeaver ASCS/SCS 프로필에서 매개 변수를 설정하고 Linux 시스템 설정을 변경해야 합니다. 자세한 내용은 [SAP Note 1410736][1410736] 을 참조 하세요.
+   SAP NetWeaver 애플리케이션 서버와 ASCS/SCS 간의 통신은 소프트웨어 부하 분산 장치를 통해 라우팅됩니다. 부하 분산 장치는 구성 가능한 시간 제한이 지나면 비활성 연결을 끊습니다. 이 연결 끊김을 방지하려면 SAP NetWeaver ASCS/SCS 프로필에서 매개 변수를 설정하고 Linux 시스템 설정을 변경해야 합니다. 자세한 내용은 [SAP Note 1410736][1410736]을 참조하세요.
 
    ASCS/SCS profile 매개 변수 enque/encni/set_so_keepalive는 마지막 단계에서 이미 추가된 상태입니다.
 
@@ -577,7 +571,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
 
 1. **[1]** SAP 클러스터 리소스 만들기
 
-ENSA1 (큐에 넣기 서버 1 아키텍처)를 사용 하는 경우 다음과 같이 리소스를 정의 합니다.
+ENQUEUE 서버 1 아키텍처(ENSA1)를 사용하는 경우 리소스를 다음과 같이 정의합니다.
 
    <pre><code>sudo crm configure property maintenance-mode="true"
    
@@ -605,8 +599,8 @@ ENSA1 (큐에 넣기 서버 1 아키텍처)를 사용 하는 경우 다음과 �
    sudo crm configure property maintenance-mode="false"
    </code></pre>
 
-  Sap는 복제를 비롯 하 여 SAP NW 7.52에 대 한 지원 서비스를 도입 했습니다. ABAP Platform 1809부터 시작 하 여 큐에 넣기 서버 2가 기본적으로 설치 됩니다. 큐에 넣기 서버 2 지원에 대해서는 SAP note [2630416](https://launchpad.support.sap.com/#/notes/2630416) 을 참조 하세요.
-[ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)(큐에 넣기 서버 2 아키텍처)를 사용 하는 경우 다음과 같이 리소스를 정의 합니다.
+  SAP는 SAP NW 7.52를 비롯한 큐 서버 2에 대한 복제를 포함했습니다. ABAP 플랫폼 1809부터 는 enqueue 서버 2가 기본적으로 설치됩니다. Enqueue 서버 2 지원은 SAP 참고 [2630416을](https://launchpad.support.sap.com/#/notes/2630416) 참조하십시오.
+enqueue 서버 2 아키텍처[(ENSA2)를](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)사용하는 경우 다음과 같이 리소스를 정의하십시오.
 
 <pre><code>sudo crm configure property maintenance-mode="true"
    
@@ -632,7 +626,7 @@ ENSA1 (큐에 넣기 서버 1 아키텍처)를 사용 하는 경우 다음과 �
    sudo crm configure property maintenance-mode="false"
    </code></pre>
 
-  이전 버전에서 업그레이드 하 고 큐에 넣기 서버 2로 전환 하는 경우 SAP note [2641019](https://launchpad.support.sap.com/#/notes/2641019)을 참조 하세요. 
+  이전 버전에서 업그레이드하고 큐 서버 2로 전환하는 경우 SAP note [2641019를](https://launchpad.support.sap.com/#/notes/2641019)참조하십시오. 
 
    클러스터 상태가 정상이며 모든 리소스가 시작되었는지 확인합니다. 리소스가 실행되는 노드는 중요하지 않습니다.
 
@@ -656,7 +650,7 @@ ENSA1 (큐에 넣기 서버 1 아키텍처)를 사용 하는 경우 다음과 �
    #      rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   <b>Started nw1-cl-0</b>
    </code></pre>
 
-## <a name="2d6008b0-685d-426c-b59e-6cd281fd45d7"></a> SAP NetWeaver 애플리케이션 서버 준비
+## <a name="sap-netweaver-application-server-preparation"></a><a name="2d6008b0-685d-426c-b59e-6cd281fd45d7"></a> SAP NetWeaver 애플리케이션 서버 준비
 
 일부 데이터베이스에서는 데이터베이스 인스턴스 설치가 애플리케이션 서버에서 실행되어야 합니다. 이러한 경우 애플리케이션 서버 가상 머신을 사용할 수 있도록 준비합니다.
 
@@ -751,7 +745,7 @@ ENSA1 (큐에 넣기 서버 1 아키텍처)를 사용 하는 경우 다음과 �
 
 ## <a name="install-database"></a>데이터베이스 설치
 
-이 예제에서는 SAP NetWeaver가 SAP HANA에 설치됩니다. 이 설치에 지원되는 모든 데이터베이스를 사용할 수 있습니다. Azure에 SAP HANA를 설치 하는 방법에 대 한 자세한 내용은 [azure Virtual Machines (vm)의 SAP HANA 고가용성][sap-hana-ha]을 참조 하세요. 지원 되는 데이터베이스 목록은 [SAP Note 1928533][1928533]을 참조 하세요.
+이 예제에서는 SAP NetWeaver가 SAP HANA에 설치됩니다. 이 설치에 지원되는 모든 데이터베이스를 사용할 수 있습니다. Azure에서 SAP HANA를 설치하는 방법에 대한 자세한 내용은 [Azure VM(Virtual Machines)의 SAP HANA 고가용성][sap-hana-ha]을 참조하세요. 지원되는 데이터베이스 목록은 [SAP Note 1928533][1928533]을 참조하십시오.
 
 1. SAP 데이터베이스 인스턴스 설치 실행
 
@@ -1040,7 +1034,7 @@ ENSA1 (큐에 넣기 서버 1 아키텍처)를 사용 하는 경우 다음과 �
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
    </code></pre>
 
-   예를 들어 트랜잭션 su01에서 사용자를 편집하여 큐에 넣기 잠금을 만듭니다. ASCS 인스턴스를 실행 중인 노드에서 \<sapsid>adm으로 다음 명령을 실행합니다. 이러한 명령은 ASCS 인스턴스를 중지했다가 다시 시작합니다. 큐에 넣기 서버 1 아키텍처를 사용 하는 경우이 테스트에서 큐에 넣기 잠금이 손실 될 것으로 예상 됩니다. 큐에 넣기 서버 2 아키텍처를 사용 하는 경우 큐에 대기 됩니다. 
+   예를 들어 트랜잭션 su01에서 사용자를 편집하여 큐에 넣기 잠금을 만듭니다. ASCS 인스턴스를 실행 중인 노드에서 \<sapsid>adm으로 다음 명령을 실행합니다. 이러한 명령은 ASCS 인스턴스를 중지했다가 다시 시작합니다. enqueue 서버 1 아키텍처를 사용하는 경우 이 테스트에서 큐 잠금이 손실될 수 있습니다. enqueue 서버 2 아키텍처를 사용하는 경우 큐가 유지됩니다. 
 
    <pre><code>nw1-cl-1:nw1adm 54> sapcontrol -nr 00 -function StopWait 600 2
    </code></pre>
@@ -1240,8 +1234,8 @@ ENSA1 (큐에 넣기 서버 1 아키텍처)를 사용 하는 경우 다음과 �
 
 ## <a name="next-steps"></a>다음 단계
 
-* [SLES for SAP applications의 Azure Vm에 대 한 HA-다중 SID 가이드](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-multi-sid)
-* [SAP 용 Azure Virtual Machines 계획 및 구현][planning-guide]
-* [SAP 용 Azure Virtual Machines 배포][deployment-guide]
-* [SAP 용 Azure Virtual Machines DBMS 배포][dbms-guide]
-* Azure Vm에서 SAP HANA의 고가용성을 설정 하 고 재해 복구를 계획 하는 방법에 대 한 자세한 내용은 [azure Virtual Machines (vm)의 SAP HANA 고가용성][sap-hana-ha] 을 참조 하세요.
+* [SAP 응용 프로그램 다중 SID 가이드에 대 한 SLES에 Azure VM에 SAP NW에 대 한 HA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-multi-sid)
+* [SAP용 Azure Virtual Machines 계획 및 구현][planning-guide]
+* [SAP용 Azure Virtual Machines 배포][deployment-guide]
+* [SAP용 Azure Virtual Machines DBMS 배포][dbms-guide]
+* Azure VM에서 SAP HANA의 재해 복구를 계획하고 고가용성을 설정하는 방법을 알아보려면 [Azure VM(Virtual Machines)의 SAP HANA 고가용성][sap-hana-ha]을 참조하세요.
