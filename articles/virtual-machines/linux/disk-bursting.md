@@ -1,23 +1,23 @@
 ---
-title: 관리 디스크 버스트
-description: 디스크 버스트 및 Azure premium Ssd에 대해 작동 하는 방식에 대해 알아봅니다.
+title: 관리되는 디스크 버스팅
+description: 디스크 버스트 및 Azure 프리미엄 SSD의 작동 방식에 대해 알아봅니다.
 author: roygara
 ms.author: rogarana
-ms.date: 10/22/2019
+ms.date: 03/28/2019
 ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: f5ec4cb63db1522153c0600d719a22e4744cb4d7
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.openlocfilehash: 4cac3c3e5346fa9c8ab68a4238d64419060a0967
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78970708"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80385200"
 ---
-# <a name="premium-ssd-bursting-preview"></a>프리미엄 SSD 버스트 (미리 보기)
+# <a name="premium-ssd-bursting"></a>프리미엄 SSD 파열
 
 [!INCLUDE [managed-disks-bursting](../../../includes/managed-disks-bursting.md)]
 
 ## <a name="next-steps"></a>다음 단계
 
-[포털을 사용 하 여 Linux VM에 데이터 디스크 연결](attach-disk-portal.md)
+[포털을 사용하여 데이터 디스크를 Linux VM에 연결](attach-disk-portal.md)

@@ -1,19 +1,18 @@
 ---
-title: Power BI 앱 제안에 대 한 기술 자산 만들기 | Azure Marketplace
+title: Power BI 앱 오퍼를 위한 기술 자산 만들기 | Azure 마켓플레이스
 description: Microsoft AppSource Marketplace에서 Power BI 앱 제안을 게시하는 데 필요한 기술 자산을 나열합니다.
-services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.author: pabutler
-ms.openlocfilehash: 2d0ae48b7314b63f2863e238fd38d0351546502d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: df0708ff964595181d00d8402f1162e0832c70eb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73817922"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80286373"
 ---
 # <a name="create-power-bi-app-offer-technical-assets"></a>Power BI 앱 제품 기술 자산 만들기
 

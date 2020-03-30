@@ -4,7 +4,6 @@ description: ADAL SDK의 기능을 사용하여 애플리케이션에서 Single 
 services: active-directory
 author: rwike77
 manager: CelesteDG
-ms.assetid: d042d6da-7503-4e20-bb55-06917de01fcd
 ms.service: active-directory
 ms.subservice: azuread-dev
 ms.workload: identity
@@ -15,12 +14,13 @@ ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 00ec2d328265e8d301b9f54b9a6a2013072f1ed4
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ROBOTS: NOINDEX
+ms.openlocfilehash: 082cbb931c9dae60b39f9ee5323337bf051fb56d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78190282"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80154783"
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>방법: ADAL을 사용하여 iOS에서 앱 간 SSO를 사용하도록 설정
 
@@ -39,11 +39,11 @@ Microsoft의 ID 플랫폼을 SDK와 함께 사용하여 사용자 고유의 앱 
 * Azure Active Directory B2B
 * Azure Active Directory 조건부 액세스
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 방법에서는 다음 작업을 수행하는 방법을 알고 있다고 가정합니다.
 
-* Azure AD에 대한 레거시 포털을 사용하여 앱 프로비전 자세한 내용은 [앱 등록](../develop/quickstart-register-app.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) 을 참조 하세요.
+* Azure AD에 대한 레거시 포털을 사용하여 앱 프로비전 자세한 내용은 [앱 등록을](../develop/quickstart-register-app.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) 참조하세요.
 * [Azure AD iOS SDK](https://github.com/AzureAD/azure-activedirectory-library-for-objc)와 애플리케이션 통합
 
 ## <a name="single-sign-on-concepts"></a>Single Sign-On 개념
@@ -109,7 +109,7 @@ Android 및 Windows의 경우 계정 선택기가 사용자에게 덜 방해가 
 
 #### <a name="how-we-ensure-the-application-is-valid"></a>애플리케이션이 유효한지 확인하는 방법
 
-Broker를 호출 하는 응용 프로그램의 id를 확인 해야 하는 이유는 broker 보조 로그인에 제공 하는 보안에 중요 합니다. iOS와 Android 모두 제공된 애플리케이션에만 유효한 고유한 식별자를 적용하지 않으므로 악의적 애플리케이션은 합법적인 애플리케이션의 ID를 "스푸핑"하고 합법적인 애플리케이션을 의미하는 토큰을 받을 수도 있습니다. 런타임 시 적절한 애플리케이션으로 항상 통신하고 있음을 확인하기 위해 Microsoft에 해당 애플리케이션을 등록할 때 개발자에게 사용자 지정 redirectURI를 요청합니다. 개발자가 이 리디렉션 URI를 만드는 방법은 아래에 자세히 설명되어 있습니다. 이 사용자 지정 redirectURI는 애플리케이션의 번들 ID를 포함하고 Apple 앱 스토어에서 애플리케이션에 고유하도록 보장됩니다. 애플리케이션이 브로커를 호출하면 브로커는 iOS 운영 체제에 브로커를 호출한 번들 ID를 제공하도록 요청합니다. 브로커는 ID 시스템에 대한 호출에서 Microsoft에 이 번들 ID를 제공합니다. 애플리케이션의 번들 ID가 등록하는 동안 개발자가 제공한 번들 ID와 일치하지 않는 경우 애플리케이션이 요청하는 리소스를 위한 토큰에 대한 액세스를 거부합니다. 이러한 확인을 통해 개발자가 등록한 애플리케이션만 토큰을 받습니다.
+브로커를 호출하는 응용 프로그램의 ID를 보장할 필요성은 브로커 지원 로그인에서 제공하는 보안에 매우 중요합니다. iOS와 Android 모두 제공된 애플리케이션에만 유효한 고유한 식별자를 적용하지 않으므로 악의적 애플리케이션은 합법적인 애플리케이션의 ID를 "스푸핑"하고 합법적인 애플리케이션을 의미하는 토큰을 받을 수도 있습니다. 런타임 시 적절한 애플리케이션으로 항상 통신하고 있음을 확인하기 위해 Microsoft에 해당 애플리케이션을 등록할 때 개발자에게 사용자 지정 redirectURI를 요청합니다. 개발자가 이 리디렉션 URI를 만드는 방법은 아래에 자세히 설명되어 있습니다. 이 사용자 지정 redirectURI는 애플리케이션의 번들 ID를 포함하고 Apple 앱 스토어에서 애플리케이션에 고유하도록 보장됩니다. 애플리케이션이 브로커를 호출하면 브로커는 iOS 운영 체제에 브로커를 호출한 번들 ID를 제공하도록 요청합니다. 브로커는 ID 시스템에 대한 호출에서 Microsoft에 이 번들 ID를 제공합니다. 애플리케이션의 번들 ID가 등록하는 동안 개발자가 제공한 번들 ID와 일치하지 않는 경우 애플리케이션이 요청하는 리소스를 위한 토큰에 대한 액세스를 거부합니다. 이러한 확인을 통해 개발자가 등록한 애플리케이션만 토큰을 받습니다.
 
 **개발자는 SDK가 브로커를 호출할지 비 브로커 지원 흐름을 사용할지 여부를 선택할 수 있습니다.** 그러나 개발자가 브로커 지원 흐름을 사용하지 않도록 선택하는 경우 사용자가 디바이스에 이미 추가했으며 조건부 액세스, Intune 관리 기능 및 인증서 기반 인증과 같은 Microsoft가 고객에게 제공하는 비즈니스 기능으로 애플리케이션이 사용되는 것을 예방하는 SSO 자격 증명 사용의 이점을 잃게 됩니다.
 
@@ -164,7 +164,7 @@ SDK가 broker 애플리케이션과 함께 작동하여 SSO를 사용하도록 �
 
 소유하고 있는 애플리케이션에서 SSO를 활성화하려면 다음을 수행해야 합니다.
 
-1. 모든 응용 프로그램이 동일한 클라이언트 ID 또는 응용 프로그램 ID를 사용 하는지 확인 합니다.
+1. 모든 응용 프로그램이 동일한 클라이언트 ID 또는 응용 프로그램 ID를 사용하는지 확인합니다.
 2. 모든 애플리케이션이 키 집합을 공유할 수 있도록 Apple에서 동일한 서명 인증서를 공유하는지 확인합니다.
 3. 각 애플리케이션에 대한 동일한 키 집합 권한 부여를 요청합니다.
 4. SDK에 사용했으면 하는 공유 키 집합을 제공합니다.
@@ -230,7 +230,7 @@ App3 리디렉션 URI: `x-msauth-mytestiosapp://com.myapp.mytestapp3`
 </plist>
 ```
 
-각 응용 프로그램에서 키 집합 자격을 사용 하도록 설정 하 고 SSO를 사용할 준비가 되 면 다음 설정을 사용 하 여 `ADAuthenticationSettings`에서 다음 설정을 사용 하 여 id SDK에 키 집합을 알려 줍니다.
+각 응용 프로그램에서 키체인 사용 권한을 사용하도록 설정하고 SSO를 사용할 준비가 되면 다음 설정을 사용하여 키체인에 대해 ID `ADAuthenticationSettings` SDK에 알리십시오.
 
 ```
 defaultKeychainSharingGroup=@"com.myapp.mycache";
@@ -239,7 +239,7 @@ defaultKeychainSharingGroup=@"com.myapp.mycache";
 > [!WARNING]
 > 애플리케이션에서 키 집합을 공유하는 경우 모든 애플리케이션은 사용자를 삭제하거나 더 심한 경우 애플리케이션에서 모든 토큰을 삭제할 수 있습니다. 백그라운드 작업을 하기 위해 토큰을 사용하는 애플리케이션이 있는 경우에 특히 미치는 영향이 커집니다. 키 집합을 공유하면 ID SDK를 통한 모든 제거 작업에 특히 주의해야 합니다.
 
-정말 간단하죠. 이제 SDK는 모든 애플리케이션에서 자격 증명을 공유합니다. 사용자 목록도 애플리케이션 인스턴스 간에 공유됩니다.
+이것으로 끝입니다. 이제 SDK는 모든 애플리케이션에서 자격 증명을 공유합니다. 사용자 목록도 애플리케이션 인스턴스 간에 공유됩니다.
 
 ### <a name="turning-on-sso-for-broker-assisted-sso"></a>브로커 지원 SSO에 대한 SSO 설정
 
@@ -297,7 +297,7 @@ ID 플랫폼은 URL을 사용하여 브로커를 호출한 다음, 애플리케�
 
 예: *x-msauth-mytestiosapp://com.myapp.mytestapp*
 
-[Azure Portal](https://portal.azure.com/)을 사용하여 앱 등록에 이 리디렉션 URI를 지정해야 합니다. Azure AD 앱 등록에 대한 자세한 내용은 [Azure Active Directory와 통합](../develop/active-directory-how-to-integrate.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)을 참조하세요.
+이 리디렉션 [URIAzure 포털을](https://portal.azure.com/)사용 하 여 응용 프로그램 등록에 지정 해야 합니다. Azure AD 앱 등록에 대한 자세한 내용은 [Azure Active Directory와 통합](../develop/active-directory-how-to-integrate.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)을 참조하세요.
 
 ##### <a name="step-3a-add-a-redirect-uri-in-your-app-and-dev-portal-to-support-certificate-based-authentication"></a>3a단계: 인증서 기반 인증을 지원하도록 앱 및 개발자 포털에 리디렉션 URI 추가
 
@@ -309,7 +309,7 @@ ID 플랫폼은 URL을 사용하여 브로커를 호출한 다음, 애플리케�
 
 #### <a name="step-4-add-a-configuration-parameter-to-your-app"></a>4단계: 앱에 구성 매개 변수 추가
 
-ADAL은 canOpenURL을 사용하여 브로커가 디바이스에 설치되어 있는지 확인합니다. iOS 9에서 Apple은 애플리케이션에서 쿼리할 수 있는 구성표를 잠갔습니다. `info.plist file`의 LSApplicationQueriesSchemes 섹션에 "Msauth"를 추가해야 합니다.
+ADAL은 canOpenURL을 사용하여 브로커가 디바이스에 설치되어 있는지 확인합니다. iOS 9에서 Apple은 애플리케이션에서 쿼리할 수 있는 구성표를 잠갔습니다. 의 LSApplicationQueryScheme 섹션에 "msauth"를 추가해야 합니다. `info.plist file`
 
 ```
     <key>LSApplicationQueriesSchemes</key>

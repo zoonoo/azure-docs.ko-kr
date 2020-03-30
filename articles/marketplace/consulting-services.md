@@ -3,23 +3,22 @@ title: Azure Marketplace 및 AppSource 컨설팅 서비스
 description: 이 문서에서는 Azure Marketplace의 새 컨설팅 서비스 제품에 대한 자격 기준 및 게시 요구 사항을 설명합니다.
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
-manager: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/27/2020
-ms.author: evansma
-ms.openlocfilehash: 1506a4180a5991e6f6e8ed946192bcbf10bbeac0
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.author: dsindona
+ms.openlocfilehash: 987d04a4138c37d9073e5e9925f06c93d7ebb8e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78296154"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80281581"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Azure Marketplace 및 AppSource 컨설팅 서비스
 Azure Marketplace 및 AppSource의 컨설팅 서비스는 Microsoft 파트너에게 고객과 서비스를 연결하여 고객의 Azure 사용을 지원하고 확대한다는 목표와 비즈니스 목표를 제공합니다. 
 
-Azure Marketplace 및 AppSource는 Microsoft SI (시스템 통합자) 파트너의 컨설팅 서비스 제품 목록을 지원 합니다 .이 목표는 고객이 필요한 전문 서비스에 연결할 수 있도록 품질 컨설팅 서비스를 제공 하는 것입니다. 고객이 비즈니스 목표와 목적에 도움이 되는 적절한 솔루션 및 구현을 평가, 산정 및 배포할 수 있도록 지원합니다.  
+Azure Marketplace 및 AppSource는 고객이 필요한 전문가 서비스와 연결할 수 있도록 양질의 컨설팅 서비스를 제공하는 것이 목표인 Microsoft의 시스템 통합자(SI) 파트너의 컨설팅 서비스 목록을 지원합니다. 고객이 비즈니스 목표와 목적에 도움이 되는 적절한 솔루션 및 구현을 평가, 산정 및 배포할 수 있도록 지원합니다.  
 
 이러한 컨설팅 서비스 제품은 고객별로 참여합니다. 게시자에게는 목록 형식, 고정된 범위 및 기간, 고정 가격 또는 무료를 결정할 수 있는 옵션이 제공되고 고객을 위한 결과물을 포함하는 정의된 일정이 있습니다. 리드는 파트너 CRM 시스템의 알림을 통해 수신되고 48시간 이내에 고객에게 응답하는 것을 목표로 합니다. 
 
@@ -28,24 +27,24 @@ Azure Marketplace 및 AppSource는 Microsoft SI (시스템 통합자) 파트너�
 
 |         |Azure Marketplace  |Microsoft AppSource |
 |---------|---------|---------|
-|**대상**   |**IT 전문가 및 클라우드 개발자**|**비즈니스 사용자/LOB(기간 업무) 의사 결정자**|
+|**관객**   |**IT 전문가 및 클라우드 개발자**|**비즈니스 사용자/LOB(기간 업무) 의사 결정자**|
 |솔루션 연관성     |Azure용으로 또는 Azure에서 빌드된 기술 앱|D365, Power BI, O365, Azure를 활용/확장하는 비즈니스 앱. (추가 기능 또는 추가 항목 완성 앱)|
-|게시 옵션     |Azure에 대 한 문의처, 평가판, Transact-sql 또는 서비스|Dynamics 365 및 Power BI에 대 한 Me, 평가판 또는 서비스를 문의 하세요.|
+|게시 옵션     |Azure용 평가판, 평가판, 거래 또는 서비스에 문의하기|역학 365 및 Power BI를 위한 나, 평가판 또는 서비스에 문의하기|
 |제품 환경 내      |Azure 관리 포털|Dynamics 365, Office 365, Office 클라이언트 앱| 
-|기타      |Azure Stack를 통한 온-프레미스 게시, Azure 용 컨설팅 서비스, Azure 용 관리 서비스|Dynamics 및 Power BI용 컨설팅 서비스|
+|기타      |Azure 스택을 통한 온-프레미스 게시, Azure에 대한 컨설팅 서비스, Azure용 관리형 서비스|Dynamics 및 Power BI용 컨설팅 서비스|
 
-Microsoft Dynamics 365, Power Apps 및 Power BI을 기반으로 하는 컨설팅 서비스 제안은 Microsoft AppSource에 나열 될 수 있습니다. 자세한 내용은 [Microsoft AppSource 컨설팅 서비스 목록 지침](https://go.microsoft.com/fwlink/?LinkId=828734&clcid=0x409)을 참조하세요.
+Microsoft Dynamics 365, 파워 앱 및 Power BI를 기반으로 하는 컨설팅 서비스는 Microsoft AppSource에 등록될 수 있습니다. 자세한 내용은 [Microsoft AppSource 컨설팅 서비스 목록 지침](https://go.microsoft.com/fwlink/?LinkId=828734&clcid=0x409)을 참조하세요.
 
-Microsoft Azure 기반으로 하는 컨설팅 서비스 및 관리 서비스 제안은 Azure Marketplace에 나열 될 수 있습니다. 자세한 내용은 [Azure 컨설팅 서비스 게시](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer) 및 [Azure Marketplace에 관리 서비스 제품 게시](https://docs.microsoft.com/azure/lighthouse/how-to/publish-managed-services-offers)에 대 한 문서를 참조 하세요.
+Microsoft Azure를 기반으로 하는 컨설팅 서비스 및 관리 서비스 오퍼는 Azure 마켓플레이스에 나열될 수 있습니다. 자세한 내용은 [Azure 컨설팅 서비스 게시에](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer) 대한 문서를 참조하고 [관리되는 서비스 제안을 Azure Marketplace에 게시합니다.](https://docs.microsoft.com/azure/lighthouse/how-to/publish-managed-services-offers)
 
 > [!Note]
-> Azure Marketplace의 컨설팅 서비스는 *Azure 기술 솔루션 및 서비스*에 중점을 두고 **기술직 종사자에 맞게 조정된 솔루션을 활용해야 합니다. \* * AppSource의 컨설팅 서비스는 Dynamics 365, Power BI 또는 Power Apps에 대 한 품질 솔루션을 제공 하 여 AppSource에서 컨설팅 서비스 제품을 나열 하는 데 전문 지식을 제공 하는 제품을 활용 해야 합니다.
+> Azure Marketplace의 컨설팅 서비스는 Azure 기술 솔루션 및 서비스에 중점을 둔 **기술 잠재고객을 대상으로 하는 제품을 활용해야 *합니다.* ** AppSource의 컨설팅 서비스는 Dynamics 365, Power BI 또는 Power Apps를 위한 고품질 솔루션을 제공하는 전문 지식에 적합한 제품을 활용하여 AppSource에 컨설팅 서비스를 나열해야 합니다.
 > 
 > 
 > [!TIP]
 > Azure Marketplace 상점에 게시하려면 Cloud 파트너 포털의 "기본 제품" 드롭다운 메뉴에서 "Azure"를 선택하여 이러한 옵션을 선택합니다. AppSource에 게시하려면 Cloud 파트너 포털의 "기본 제품" 드롭다운 메뉴에서 "Dynamics 365", "Power BI" 또는 "Power Apps"를 선택하여 이 옵션을 선택합니다.
 
-## <a name="eligible-partners-and-supported-countriesregions"></a>적격 파트너 및 지원 되는 국가/지역
+## <a name="eligible-partners-and-supported-countriesregions"></a>적격 파트너 및 지원 국가/지역
 
 파트너 자신들의 서비스와 관련된 영역의 **실버 또는 골드 역량**이 필요합니다. 
 
@@ -62,21 +61,21 @@ Microsoft Azure 기반으로 하는 컨설팅 서비스 및 관리 서비스 제
 
 |기본 제품 |적합성 요구 사항 |
 |---------|---------|
-| Dynamics 365 판매 <br> Dynamics 365 마케팅 <br> Dynamics 365 고객 서비스 <br> Dynamics 365 필드 서비스 <br> Dynamics 365 인적 자원 |   고객 Engagement 옵션에 대 한 [클라우드 Business Applications 역량](https://partner.microsoft.com/membership/cloud-business-applications-competency) 에서 골드 또는 실버 인증을 받아야 합니다.    | 
-| Dynamics 365 재무 <br> Dynamics 365 공급망 관리 <br> Dynamics 365 상거래 <br> Dynamics 365 인적 자원 <br> Dynamics 365 프로젝트 서비스 자동화 |  [클라우드 Business Applications](https://partner.microsoft.com/membership/cloud-business-applications-competency) 기능에서 통합 작업 옵션에 대해 골드 또는 실버 인증을 받아야 합니다.       |
-| Dynamics 365 Customer Insights | 5 개 이상의 측정값과 5 개 세그먼트를 포함 하는 [Dynamics 365 Customer Insights](https://dynamics.microsoft.com/ai/customer-insights/) 의 성공적인 비프로덕션 구현이 하나 이상 있어야 합니다. |
-| Dynamics 365 Business Central | [엔터프라이즈 리소스 계획 역량](https://partner.microsoft.com/membership/enterprise-resource-planning-competency) 에서 골드 또는 실버 인증을 받아야 하며, 3 개 이상의 비즈니스 센터 고객을 위한 클라우드 솔루션 공급자 여야 합니다. <br> <br> 또는 <br> <br> [AppSource에 비즈니스 중앙 응용 프로그램](https://appsource.microsoft.com/) 을 게시 해야 합니다. |
-| Power BI | [Power BI 파트너 소개](https://powerbi.microsoft.com/partner-showcase/?term=&country=&industry=&department=)에 나열 되어야 합니다.|
-|Power Apps | [Power Apps 파트너 관계 프로그램](https://aka.ms/PowerAppsPartner)의 고급 혜택을 받을 자격이 있어야 합니다. |
+| Dynamics 365 판매 <br> 역학 365 마케팅 <br> 역학 365 고객 서비스 <br> 역학 365 현장 서비스 <br> 역학 365 인적 자원 |   고객 참여 옵션에 대한 [클라우드 비즈니스 애플리케이션 역량에서](https://partner.microsoft.com/membership/cloud-business-applications-competency) 골드 또는 실버 인증을 받아야 합니다.    | 
+| 역학 365 금융 <br> 역학 365 공급망 관리 <br> 역학 365 상거래 <br> 역학 365 인적 자원 <br> 역학 365 프로젝트 서비스 자동화 |  통합 운영 옵션에 대한 [클라우드 비즈니스 애플리케이션 역량에서](https://partner.microsoft.com/membership/cloud-business-applications-competency) 골드 또는 실버 인증을 받아야 합니다.       |
+| Dynamics 365 Customer Insights | 5개 이상의 측정값과 5개의 세그먼트를 갖춘 [Dynamics 365 고객 인사이트를](https://dynamics.microsoft.com/ai/customer-insights/) 구현하여 1회 이상 성공적으로 구현해야 합니다. |
+| Dynamics 365 Business Central | [엔터프라이즈 리소스 계획 역량에서](https://partner.microsoft.com/membership/enterprise-resource-planning-competency) 골드 또는 실버 인증을 받아야 하며 최소 3명의 비즈니스 센트럴 고객을 위한 클라우드 솔루션 공급자여야 합니다. <br> <br> 또는 <br> <br> [AppSource에서 비즈니스 중앙 응용 프로그램을](https://appsource.microsoft.com/) 게시해야 합니다. |
+| Power BI | [Power BI 파트너 쇼케이스에](https://powerbi.microsoft.com/partner-showcase/?term=&country=&industry=&department=)나열되어야 합니다.|
+|Power Apps | [Power Apps 파트너십 프로그램에서](https://aka.ms/PowerAppsPartner)고급 혜택을 받을 자격이 있어야 합니다. |
 
 추가 리소스 및 지원:
 
-1. [Microsoft 클라우드 지원 센터](https://aka.ms/CEDnominate) <br> 클라우드 사용 데스크 안내 환경 파트너 추천는 클라우드 프로그램 전문가에 게 MPN 혜택을 분명히 하 고 역량 attainment에 대 한 지침을 제공 하는 데 도움을 주는 것입니다.  
-2. Power BI 전시에 나열 하는 방법 <br> 나열 될 요청을 제출 하 여 시작 합니다. [파트너가 되기](https://powerbi.microsoft.com/become-a-partner/)를 참조 하세요.
+1. [마이크로소프트 클라우드 인에이블먼트 데스크](https://aka.ms/CEDnominate) <br> 클라우드 인에이블먼트 데스크 가이드 경험 파트너 지명 양식은 클라우드 프로그램 전문가가 MPN 혜택을 명확히 하고 역량 달성을 위한 가이드 역할을 하는 것입니다.  
+2. Power BI 쇼케이스에 등록하는 방법은 무엇입니까? <br> 먼저 나열되는 요청을 제출하여 [파트너가 되는 것을](https://powerbi.microsoft.com/become-a-partner/)참조하십시오.
 
-<b> 자세한 내용은 [Microsoft 파트너 네트워크를 통한 역량](https://partner.microsoft.com/membership/competencies)을 참조하세요. </b>
+<b>자세한 내용은 [Microsoft 파트너 네트워크를 통한 역량을](https://partner.microsoft.com/membership/competencies)참조하십시오.</b>
 
-**SI 파트너는 다음 21 개 국가/지역에 대 한 컨설팅 서비스 제품을 제출할 수 있습니다.**
+**SI 파트너는 다음 21개 국가/지역에 대한 컨설팅 서비스 오퍼링을 제출할 수 있습니다.**
 
 |   |   |   |   |
 |---------|----------|----------|----------|
@@ -126,18 +125,18 @@ Azure Marketplace 및 AppSource에 컨설팅 서비스 제품을 나열하려면
 3. **제출**: 지침에 나열된 필수 정보를 제공합니다. 모든 콘텐츠 및 지원 자료는 영어로 제출해야 합니다. 
 4. **검토**: 마케팅 및 편집 팀에서 제출을 검토하고 가독성, 문법 및 효율성에 최적화합니다. 
 5. **준비**: 제출이 검토를 위해 준비됩니다. 
-6. **게시**: 제출자와 Microsoft가 준비된 콘텐츠에 만족하면 목록이 Marketplace에 게시될 준비가 끝난 것입니다. 목록의 라이브 이동 날짜는 제품에 지정 된 국가/지역에 따라 달라 집니다. 선택한 국가/지역에 대 한 카탈로그가 이미 Azure Marketplace 또는 AppSource에 있으면 목록에 몇 시간 이내에 표시 됩니다. 그렇지 않으면 카탈로그가 게시되는 즉시 목록이 표시됩니다.
+6. **게시**: 제출자와 Microsoft가 준비된 콘텐츠에 만족하면 목록이 Marketplace에 게시될 준비가 끝난 것입니다. 리스팅의 실시간 날짜는 오퍼링에 지정된 국가/지역에 따라 다릅니다. 선택한 국가/지역의 카탈로그가 Azure 마켓플레이스 또는 AppSource에 이미 있는 경우 몇 시간 내에 목록이 표시됩니다. 그렇지 않으면 카탈로그가 게시되는 즉시 목록이 표시됩니다.
 
 ## <a name="offer-listings-and-content-review-criteria"></a>솔루션 목록 및 콘텐츠 검토 기준
 제품은 다음 5개 서비스 형식 중 하나여야 합니다(둘 이상을 나열할 수 있음). 
 
-* **평가**: 솔루션의 적용 가능성을 확인 하 고 예상 비용 및 타이밍을 제공 하기 위한 고객 환경 평가입니다. 
+* **평가**: 솔루션의 적용 가능성을 결정하고 비용 및 타이밍의 추정을 제공하기 위해 고객의 환경에 대한 평가입니다. 
 * **브리핑:** 프레임워크, 데모 및 고객 예제를 사용하여 고객의 관심을 끌기 위한 솔루션 또는 컨설팅 서비스 소개입니다. 
 * **구현:** 완벽하게 작동하는 솔루션으로 이어지는 완전한 설치입니다. 2주 이내에 구현할 수 있는 솔루션으로 제한하는 것이 좋습니다. 
 * **개념 증명:** 솔루션이 고객의 요구 사항을 충족하는지 확인하기 위한 제한된 범위 구현입니다. 
-* **워크숍**: 고객의 온-프레미스에서 수행 되는 대화형 참여입니다. 고객의 데이터 또는 환경을 기반으로 하는 교육, 브리핑, 평가 또는 데모가 포함 될 수 있습니다. 
+* **워크샵**: 고객의 구내에서 진행되는 대화형 참여입니다. 여기에는 고객의 데이터 또는 환경에 구축된 교육, 브리핑, 평가 또는 데모가 포함될 수 있습니다. 
 
-**참고:** *브리핑* 서비스 유형을 제외한 컨설팅 서비스는 사용자 (즉, 고객의 위치 또는 파트너의 시설에서 온사이트) 또는 가상으로 (즉, 온사이트로, 웹 회의 또는 원격 구현 통해) 제공할 수 있습니다. 브리핑은 직접 제공해야 합니다.
+**참고:** *브리핑* 서비스 유형을 제외하고, 컨설팅 서비스는 직접(즉, 고객의 위치 또는 파트너 시설의 현장) 또는 가상(즉, 전화 회의, 웹 회의 또는 원격 구현을 통해) 제공될 수 있습니다. 브리핑은 직접 제공해야 합니다.
 
 위에 나열된 필수 요소를 구성한 경우, 콘텐츠 검토 팀에서는 사용자의 제품 설명이 대상 사용자를 위해 충분한 정보를 포함하고 완전한지 검사합니다. 
 

@@ -1,17 +1,17 @@
 ---
-title: Azure Cosmos 계정에 대 한 가상 네트워크 기반 액세스 구성
+title: Azure Cosmos 계정에 대한 가상 네트워크 기반 액세스 구성
 description: 이 문서에서는 Azure Cosmos DB의 가상 네트워크 서비스 엔드포인트에 필요한 단계를 설명합니다.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/28/2019
+ms.date: 03/26/2020
 ms.author: mjbrown
-ms.openlocfilehash: 36f6152e52d6cb45d0a30b385678596331232560
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 442623880c1b95f3d7e038ae44832b74853d2c4a
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980683"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80366239"
 ---
 # <a name="configure-access-from-virtual-networks-vnet"></a>가상 네트워크(VNet)에서 액세스 구성
 
@@ -30,7 +30,7 @@ Azure 가상 네트워크의 특정 서브넷에서만 액세스할 수 있도�
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a id="configure-using-portal"></a>Azure Portal을 사용하여 서비스 엔드포인트 구성
+## <a name="configure-a-service-endpoint-by-using-the-azure-portal"></a><a id="configure-using-portal"></a>Azure Portal을 사용하여 서비스 엔드포인트 구성
 
 ### <a name="configure-a-service-endpoint-for-an-existing-azure-virtual-network-and-subnet"></a>Azure Virtual Network 및 서브넷에 대한 서비스 엔드포인트 구성
 
@@ -38,9 +38,9 @@ Azure 가상 네트워크의 특정 서브넷에서만 액세스할 수 있도�
 
 1. 설정 메뉴에서 **방화벽 및 가상 네트워크**를 선택하고 **선택된 네트워크**에서 액세스를 허용하도록 선택합니다.
 
-1. 기존 가상 네트워크의 서브넷에 대한 액세스를 허용하려면 **가상 네트워크**에서 **기존 Azure Virtual Network 추가**를 선택합니다.
+1. **가상 네트워크에서**기존 가상 네트워크의 서브넷에 대한 액세스 권한을 부여하려면 기존 Azure 가상 **네트워크 추가를**선택합니다.
 
-1. Azure 가상 네트워크를 추가할 **구독**을 선택합니다. Azure Cosmos DB 계정에 대한 액세스를 제공하려는 Azure **가상 네트워크** 및 **서브넷**을 선택합니다. 다음으로, **사용**을 선택하여 선택한 네트워크가 "Microsoft.AzureCosmosDB"에 대한 서비스 엔드포인트를 사용하도록 설정합니다. 완료되면 **추가**를 선택합니다.
+1. Azure 가상 네트워크를 추가할 **구독**을 선택합니다. Azure Cosmos DB 계정에 대한 액세스를 제공하려는 Azure **가상 네트워크** 및 **서브넷**을 선택합니다. 다음으로, **사용**을 선택하여 선택한 네트워크가 "Microsoft.AzureCosmosDB"에 대한 서비스 엔드포인트를 사용하도록 설정합니다. 완료되면 **추가를**선택합니다.
 
    ![Virtual Network 및 서브넷 선택](./media/how-to-configure-vnet-service-endpoint/choose-subnet-and-vnet.png)
 
@@ -52,9 +52,9 @@ Azure 가상 네트워크의 특정 서브넷에서만 액세스할 수 있도�
 > 가상 네트워크 서비스 엔드포인트를 사용하도록 설정하려면 다음 구독 사용 권한이 필요합니다.
 >   * 가상 네트워크를 포함한 구독: 네트워크 기여자
 >   * Azure Cosmos DB 계정을 포함한 구독: DocumentDB 계정 기여자
->   * 가상 네트워크와 Azure Cosmos DB 계정이 서로 다른 구독에 있는 경우 가상 네트워크를 포함 하는 구독에도 `Microsoft.DocumentDB` 리소스 공급자가 등록 되어 있는지 확인 합니다. 리소스 공급자를 등록 하려면 [Azure 리소스 공급자 및 형식](../azure-resource-manager/management/resource-providers-and-types.md) 문서를 참조 하세요.
+>   * 가상 네트워크 및 Azure Cosmos DB 계정이 다른 구독에 있는 경우 가상 네트워크가 `Microsoft.DocumentDB` 있는 구독에도 리소스 공급자가 등록되어 있는지 확인합니다. 리소스 공급자를 등록하려면 [Azure 리소스 공급자 및 형식 아티클을](../azure-resource-manager/management/resource-providers-and-types.md) 참조하세요.
 
-리소스 공급자에 구독을 등록 하기 위한 지침은 다음과 같습니다.
+리소스 공급자에 구독을 등록하는 방법은 다음과 같습니다.
 
 ### <a name="configure-a-service-endpoint-for-a-new-azure-virtual-network-and-subnet"></a>새로운 Azure 가상 네트워크 및 서브넷에 대한 서비스 엔드포인트 구성
 
@@ -68,23 +68,23 @@ Azure 가상 네트워크의 특정 서브넷에서만 액세스할 수 있도�
 
    ![새 가상 네트워크에 대한 가상 네트워크 및 서브넷을 선택합니다.](./media/how-to-configure-vnet-service-endpoint/choose-subnet-and-vnet-new-vnet.png)
 
-Azure Cosmos DB 계정이 Azure Cognitive Search 같은 다른 Azure 서비스에서 사용 되거나 Stream analytics 또는 Power BI에서 액세스 되는 경우 **글로벌 Azure 데이터 센터 내에서 연결 허용**을 선택 하 여 액세스를 허용 합니다.
+Azure Cosmos DB 계정이 Azure Cognitive Search와 같은 다른 Azure 서비스에서 사용되거나 Stream 분석 또는 Power BI에서 액세스되는 경우 **전역 Azure 데이터 센터 내에서 연결 수락을**선택하여 액세스를 허용합니다.
 
 포털에서 Azure Cosmos DB 메트릭에 대한 액세스 권한이 있는지 확인하려면 **Azure Portal에서 액세스 허용** 옵션을 사용하도록 설정해야 합니다. 이러한 옵션에 대한 자세한 내용은 [IP 방화벽 구성](how-to-configure-firewall.md) 문서를 참조하세요. 액세스를 사용하도록 설정한 후에 **저장**을 선택하여 설정을 저장합니다.
 
-## <a id="remove-vnet-or-subnet"></a>가상 네트워크 또는 서브넷 제거
+## <a name="remove-a-virtual-network-or-subnet"></a><a id="remove-vnet-or-subnet"></a>가상 네트워크 또는 서브넷 제거
 
 1. **모든 리소스** 블레이드에서 서비스 엔드포인트를 할당한 Azure Cosmos DB 계정을 찾습니다.  
 
-2. 설정 메뉴에서 **방화벽 및 가상 네트워크**를 선택합니다.  
+1. 설정 메뉴에서 **방화벽 및 가상 네트워크**를 선택합니다.  
 
-3. 가상 네트워크 또는 서브넷 규칙을 제거하려면 가상 네트워크 또는 서브넷 옆에 있는 **...** 를 선택하고, **제거**를 선택합니다.
+1. 가상 네트워크 또는 서브넷 규칙을 제거하려면 가상 네트워크 또는 서브넷 옆에 있는 **...** 를 선택하고, **제거**를 선택합니다.
 
    ![가상 네트워크 제거](./media/how-to-configure-vnet-service-endpoint/remove-a-vnet.png)
 
-4. **저장**을 선택하여 변경 내용을 적용합니다.
+1. **저장**을 선택하여 변경 내용을 적용합니다.
 
-## <a id="configure-using-powershell"></a>Azure PowerShell을 사용하여 서비스 엔드포인트 구성
+## <a name="configure-a-service-endpoint-by-using-azure-powershell"></a><a id="configure-using-powershell"></a>Azure PowerShell을 사용하여 서비스 엔드포인트 구성
 
 > [!NOTE]
 > PowerShell 또는 Azure CLI를 사용하는 경우 매개 변수에서 추가해야 하는 것뿐만 아니라 IP 필터 및 가상 네트워크 ACL의 전체 목록을 지정해야 합니다.
@@ -96,100 +96,67 @@ Azure PowerShell을 사용하여 Azure Cosmos DB 계정에 서비스 엔드포�
 1. 가상 네트워크의 기존 서브넷에 대한 서비스 엔드포인트를 사용하도록 설정합니다.  
 
    ```powershell
-   $rgname = "<Resource group name>"
-   $vnName = "<Virtual network name>"
-   $sname = "<Subnet name>"
+   $resourceGroupName = "<Resource group name>"
+   $vnetName = "<Virtual network name>"
+   $subnetName = "<Subnet name>"
    $subnetPrefix = "<Subnet address range>"
+   $serviceEndpoint = "Microsoft.AzureCosmosDB"
 
    Get-AzVirtualNetwork `
-    -ResourceGroupName $rgname `
-    -Name $vnName | Set-AzVirtualNetworkSubnetConfig `
-    -Name $sname  `
-    -AddressPrefix $subnetPrefix `
-    -ServiceEndpoint "Microsoft.AzureCosmosDB" | Set-AzVirtualNetwork
+      -ResourceGroupName $resourceGroupName `
+      -Name $vnetName | Set-AzVirtualNetworkSubnetConfig `
+      -Name $subnetName `
+      -AddressPrefix $subnetPrefix `
+      -ServiceEndpoint $serviceEndpoint | Set-AzVirtualNetwork
    ```
 
 1. 가상 네트워크 정보를 가져옵니다.
 
    ```powershell
-   $vnProp = Get-AzVirtualNetwork `
-     -Name $vnName `
-     -ResourceGroupName $rgName
+   $vnet = Get-AzVirtualNetwork `
+      -ResourceGroupName $resourceGroupName `
+      -Name $vnetName
+
+   $subnetId = $vnet.Id + "/subnets/" + $subnetName
    ```
 
-1. 다음 cmdlet을 실행하여 Azure Cosmos DB 계정의 속성을 가져옵니다.  
+1. 코스모스 DB 가상 네트워크 규칙 준비
 
    ```powershell
-   $apiVersion = "2015-04-08"
-   $acctName = "<Azure Cosmos DB account name>"
-
-   $cosmosDBConfiguration = Get-AzResource `
-     -ResourceType "Microsoft.DocumentDB/databaseAccounts" `
-     -ApiVersion $apiVersion `
-     -ResourceGroupName $rgName `
-     -Name $acctName
+   $vnetRule = New-AzCosmosDBVirtualNetworkRule `
+      -Id $subnetId
    ```
 
-1. 나중에 사용할 수 있도록 변수를 초기화합니다. 기존 계정 정의에서 모든 변수를 설정합니다.
+1. Azure Cosmos DB 계정 속성을 새 가상 네트워크 끝점 구성으로 업데이트합니다. 
 
    ```powershell
-   $locations = @()
+   $accountName = "<Cosmos DB account name>"
 
-   foreach ($readLocation in $cosmosDBConfiguration.Properties.readLocations) {
-      $locations += , @{
-         locationName     = $readLocation.locationName;
-         failoverPriority = $readLocation.failoverPriority;
-      }
-   }
-
-   $virtualNetworkRules = @(@{
-      id = "$($vnProp.Id)/subnets/$sname";
-   })
-
-   if ($cosmosDBConfiguration.Properties.isVirtualNetworkFilterEnabled) {
-      $virtualNetworkRules = $cosmosDBConfiguration.Properties.virtualNetworkRules + $virtualNetworkRules
-   }
-   ```
-
-1. 다음 cmdlet을 실행하여 새 구성으로 Azure Cosmos DB 계정 속성을 업데이트합니다. 
-
-   ```powershell
-   $cosmosDBProperties = @{
-      databaseAccountOfferType      = $cosmosDBConfiguration.Properties.databaseAccountOfferType;
-      consistencyPolicy             = $cosmosDBConfiguration.Properties.consistencyPolicy;
-      ipRangeFilter                 = $cosmosDBConfiguration.Properties.ipRangeFilter;
-      locations                     = $locations;
-      virtualNetworkRules           = $virtualNetworkRules;
-      isVirtualNetworkFilterEnabled = $True;
-   }
-
-   Set-AzResource `
-     -ResourceType "Microsoft.DocumentDB/databaseAccounts" `
-     -ApiVersion $apiVersion `
-     -ResourceGroupName $rgName `
-     -Name $acctName `
-     -Properties $CosmosDBProperties
+   Update-AzCosmosDBAccount `
+      -ResourceGroupName $resourceGroupName `
+      -Name $accountName `
+      -EnableVirtualNetwork $true `
+      -VirtualNetworkRuleObject @($vnetRule)
    ```
 
 1. 다음 명령을 실행하여 이전 단계에서 구성한 가상 네트워크 서비스 엔드포인트로 Azure Cosmos DB 계정이 업데이트되었는지 확인합니다.
 
    ```powershell
-   $UpdatedcosmosDBConfiguration = Get-AzResource `
-     -ResourceType "Microsoft.DocumentDB/databaseAccounts" `
-     -ApiVersion $apiVersion `
-     -ResourceGroupName $rgName `
-     -Name $acctName
+   $account = Get-AzCosmosDBAccount `
+      -ResourceGroupName $resourceGroupName `
+      -Name $accountName
 
-   $UpdatedcosmosDBConfiguration.Properties
+   $account.IsVirtualNetworkFilterEnabled
+   $account.VirtualNetworkRules
    ```
 
-## <a id="configure-using-cli"></a>Azure CLI를 사용하여 서비스 엔드포인트 구성
+## <a name="configure-a-service-endpoint-by-using-the-azure-cli"></a><a id="configure-using-cli"></a>Azure CLI를 사용하여 서비스 엔드포인트 구성
 
-Azure Cosmos 계정은 나중에 생성 되거나 업데이트 되는 경우 서비스 끝점에 대해 서브넷이 이미 구성 되어 있는 경우 구성할 수 있습니다. 서브넷이 아직 구성 되지 않은 Cosmos 계정에서 서비스 끝점을 사용 하도록 설정 하 고 나중에 서브넷을 구성할 때 작동을 시작할 수도 있습니다. 이러한 유연성을 통해 Cosmos 계정 및 가상 네트워크 리소스 모두에 액세스할 수 없는 관리자가 구성을 서로 독립적으로 만들 수 있습니다.
+Azure Cosmos 계정은 서브넷이 이미 구성되어 있는 경우 나중에 만들거나 업데이트할 때 서비스 끝점에 대해 구성할 수 있습니다. 서비스 끝점은 서브넷이 아직 구성되지 않은 Cosmos 계정에서활성화한 다음 나중에 서브넷이 구성될 때 작동을 시작할 수 있습니다. 이러한 유연성을 통해 Cosmos 계정과 가상 네트워크 리소스모두에 액세스할 수 없는 관리자는 서로 독립적으로 구성할 수 있습니다.
 
-### <a name="create-a-new-cosmos-account-and-connect-it-to-a-back-end-subnet-for-a-new-virtual-network"></a>새 Cosmos 계정을 만들고 새 가상 네트워크에 대 한 백 엔드 서브넷에 연결 합니다.
+### <a name="create-a-new-cosmos-account-and-connect-it-to-a-back-end-subnet-for-a-new-virtual-network"></a>새 Cosmos 계정을 만들고 백 엔드 서브넷에 연결하여 새 가상 네트워크를 만듭니다.
 
-이 예제에서는 가상 네트워크 및 서브넷이 생성 될 때 둘 다에 대해 서비스 끝점을 사용 하도록 설정 된 상태로 만들어집니다.
+이 예제에서는 가상 네트워크와 서브넷이 만들 때 둘 다에 대해 서비스 끝점을 사용하도록 설정되어 만들어집니다.
 
 ```azurecli-interactive
 # Create an Azure Cosmos Account with a service endpoint connected to a backend subnet
@@ -233,9 +200,9 @@ az cosmosdb create \
    --virtual-network-rules $svcEndpoint
 ```
 
-### <a name="connect-and-configure-a-cosmos-account-to-a-back-end-subnet-independently"></a>Cosmos 계정을 백 엔드 서브넷에 독립적으로 연결 및 구성
+### <a name="connect-and-configure-a-cosmos-account-to-a-back-end-subnet-independently"></a>Cosmos 계정을 백 엔드 서브넷에 독립적으로 연결하고 구성
 
-이 샘플은 Azure Cosmos 계정을 서비스 끝점에 대 한 서브넷이 아직 구성 되지 않은 기존 새 가상 네트워크에 연결 하는 방법을 보여 주기 위해 작성 되었습니다. 이 작업은 `--ignore-missing-vnet-service-endpoint` 매개 변수를 사용 하 여 수행 됩니다. 이렇게 하면 가상 네트워크의 서브넷에 대 한 구성이 완료 되기 전에 Cosmos 계정에 대 한 구성이 오류 없이 완료 될 수 있습니다. 서브넷 구성이 완료되면 구성된 서브넷을 통해 Cosmos 계정에 액세스할 수 있게 됩니다.
+이 샘플은 서브넷이 아직 서비스 끝점에 대해 구성되지 않은 기존 새 가상 네트워크에 Azure Cosmos 계정을 연결하는 방법을 보여 드리기 위한 것입니다. 이 작업은 매개 `--ignore-missing-vnet-service-endpoint` 변수를 사용하여 수행됩니다. 이렇게 하면 가상 네트워크의 서브넷에 대한 구성이 완료되기 전에 Cosmos 계정의 구성을 오류 없이 완료할 수 있습니다. 서브넷 구성이 완료되면 구성된 서브넷을 통해 Cosmos 계정에 액세스할 수 있게 됩니다.
 
 ```azurecli-interactive
 # Create an Azure Cosmos Account with a service endpoint connected to a backend subnet
@@ -291,90 +258,49 @@ az network vnet subnet update \
    --service-endpoints Microsoft.AzureCosmosDB
 ```
 
-## <a id="migrate-from-firewall-to-vnet"></a>IP 방화벽 규칙에서 가상 네트워크 ACL로 마이그레이션
+## <a name="migrating-from-an-ip-firewall-rule-to-a-virtual-network-acl"></a><a id="migrate-from-firewall-to-vnet"></a>IP 방화벽 규칙에서 가상 네트워크 ACL로 마이그레이션
 
-IP 방화벽 규칙 대신 가상 네트워크 및 서브넷 기반 ACL을 사용하려는 경우 서브넷을 허용하는 기존 IP 방화벽 규칙을 사용하는 Azure Cosmos DB 계정에만 다음 단계를 사용합니다.
+Azure Cosmos DB 계정을 IP 방화벽 규칙을 사용하여 가상 네트워크 서비스 끝점을 사용하는 것으로 마이그레이션하려면 다음 단계를 사용합니다.
 
-Azure Cosmos DB 계정에 대한 서비스 엔드포인트가 서브넷에 대해 설정되면 공용 IP 대신 가상 네트워크 및 서브넷 정보를 포함하는 원본을 사용하여 요청이 전송됩니다. 이러한 요청은 IP 필터와 일치하지 않습니다. 이 원본 전환은 서비스 엔드포인트를 사용하는 서브넷에서 액세스하는 모든 Azure Cosmos DB 계정에서 발생합니다. 가동 중지 시간을 방지하려면 다음 단계를 사용합니다.
+Azure Cosmos DB 계정이 서브넷의 서비스 끝점에 대해 구성된 후 해당 서브넷의 요청은 원본 공용 IP 주소 대신 가상 네트워크 및 서브넷 소스 정보가 있는 Azure Cosmos DB로 전송됩니다. 이러한 요청은 더 이상 Azure Cosmos DB 계정에 구성된 IP 필터와 일치하지 않기 때문에 가동 중지 시간을 피하기 위해 다음 단계가 필요합니다.
 
-1. 다음 cmdlet을 실행하여 Azure Cosmos DB 계정의 속성을 가져옵니다.
+계속하기 전에 "가상 네트워크의 기존 서브넷에 대한 서비스 엔드포인트 활성화"에 표시된 단계를 사용하여 가상 네트워크 및 서브넷에서 Azure Cosmos DB 서비스 엔드포인트를 활성화합니다.
 
-   ```powershell
-   $apiVersion = "2015-04-08"
-   $acctName = "<Azure Cosmos DB account name>"
-
-   $cosmosDBConfiguration = Get-AzResource `
-     -ResourceType "Microsoft.DocumentDB/databaseAccounts" `
-     -ApiVersion $apiVersion `
-     -ResourceGroupName $rgName `
-     -Name $acctName
-   ```
-
-1. 나중에 사용할 수 있도록 변수를 초기화합니다. 기존 계정 정의에서 모든 변수를 설정합니다. `ignoreMissingVNetServiceEndpoint` 플래그를 사용하여 서브넷에서 액세스하는 모든 Azure Cosmos DB 계정에 가상 네트워크 ACL을 추가합니다.
+1. 가상 네트워크 및 서브넷 정보 얻기:
 
    ```powershell
-   $locations = @()
+   $resourceGroupName = "myResourceGroup"
+   $accountName = "mycosmosaccount"
+   $vnetName = "myVnet"
+   $subnetName = "mySubnet"
 
-   foreach ($readLocation in $cosmosDBConfiguration.Properties.readLocations) {
-      $locations += , @{
-         locationName     = $readLocation.locationName;
-         failoverPriority = $readLocation.failoverPriority;
-      }
-   }
+   $vnet = Get-AzVirtualNetwork `
+      -ResourceGroupName $resourceGroupName `
+      -Name $vnetName
 
-   $subnetID = "Subnet ARM URL" e.g "/subscriptions/f7ddba26-ab7b-4a36-a2fa-7d01778da30b/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/testvnet/subnets/subnet1"
-
-   $virtualNetworkRules = @(@{
-      id = $subnetID;
-      ignoreMissingVNetServiceEndpoint = "True";
-   })
-
-   if ($cosmosDBConfiguration.Properties.isVirtualNetworkFilterEnabled) {
-      $virtualNetworkRules = $cosmosDBConfiguration.Properties.virtualNetworkRules + $virtualNetworkRules
-   }
+   $subnetId = $vnet.Id + "/subnets/" + $subnetName
    ```
 
-1. 다음 cmdlet을 실행하여 새 구성으로 Azure Cosmos DB 계정 속성을 업데이트합니다.
+1. Azure Cosmos DB 계정에 대한 새 가상 네트워크 규칙 개체 준비:
 
    ```powershell
-   $cosmosDBProperties = @{
-      databaseAccountOfferType      = $cosmosDBConfiguration.Properties.databaseAccountOfferType;
-      consistencyPolicy             = $cosmosDBConfiguration.Properties.consistencyPolicy;
-      ipRangeFilter                 = $cosmosDBConfiguration.Properties.ipRangeFilter;
-      locations                     = $locations;
-      virtualNetworkRules           = $virtualNetworkRules;
-      isVirtualNetworkFilterEnabled = $True;
-   }
-
-   Set-AzResource `
-      -ResourceType "Microsoft.DocumentDB/databaseAccounts" `
-      -ApiVersion $apiVersion `
-      -ResourceGroupName $rgName `
-      -Name $acctName `
-      -Properties $CosmosDBProperties
+   $vnetRule = New-AzCosmosDBVirtualNetworkRule `
+      -Id $subnetId
    ```
 
-1. 서브넷에서 액세스하는 모든 Azure Cosmos DB 계정에 대해 1-3단계를 반복합니다.
+1. 서브넷에서 서비스 끝점 액세스를 사용하도록 사용하도록 Azure Cosmos DB 계정을 업데이트합니다.
 
-1.  15분 동안 기다린 다음, 서브넷을 업데이트하여 서비스 엔드포인트를 사용하도록 설정합니다.
+   ```powershell
+   Update-AzCosmosDBAccount `
+      -ResourceGroupName $resourceGroupName `
+      -Name $accountName `
+      -EnableVirtualNetwork $true `
+      -VirtualNetworkRuleObject @($vnetRule)
+   ```
 
-1.  가상 네트워크의 기존 서브넷에 대한 서비스 엔드포인트를 사용하도록 설정합니다.
+1. 서브넷에서 액세스한 모든 Azure Cosmos DB 계정에 대해 이전 단계를 반복합니다.
 
-    ```powershell
-    $rgname= "<Resource group name>"
-    $vnName = "<virtual network name>"
-    $sname = "<Subnet name>"
-    $subnetPrefix = "<Subnet address range>"
-
-    Get-AzVirtualNetwork `
-       -ResourceGroupName $rgname `
-       -Name $vnName | Set-AzVirtualNetworkSubnetConfig `
-       -Name $sname `
-       -AddressPrefix $subnetPrefix `
-       -ServiceEndpoint "Microsoft.AzureCosmosDB" | Set-AzVirtualNetwork
-    ```
-
-1. 서브넷에 대한 IP 방화벽 규칙을 제거합니다.
+1. Azure Cosmos DB 계정의 방화벽 규칙에서 서브넷에 대한 IP 방화벽 규칙을 제거합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

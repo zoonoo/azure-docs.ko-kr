@@ -1,24 +1,24 @@
 ---
-title: 템플릿 함수-논리적
+title: 템플릿 기능 - 논리
 description: Azure Resource Manager 템플릿에서 논리 값을 확인하는 데 사용할 수 있는 함수에 대해 설명합니다.
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: aef520a26124a85f414c4f4aa1a3e307d383c29b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: f058baa32e5f93a4177913287a5e9873fa7a9acb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79248685"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80156313"
 ---
-# <a name="logical-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿용 논리 함수
+# <a name="logical-functions-for-arm-templates"></a>ARM 템플릿에 대한 논리 함수
 
-Resource Manager는 템플릿에서 비교를 수행하기 위한 몇 가지 함수를 제공합니다.
+리소스 관리자는 ARM(Azure 리소스 관리자) 템플릿에서 비교하기 위한 몇 가지 기능을 제공합니다.
 
-* [and](#and)
+* [및](#and)
 * [bool](#bool)
 * [if](#if)
-* [not](#not)
-* [or](#or)
+* [하지 않습니다.](#not)
+* [또는](#or)
 
 ## <a name="and"></a>and
 
@@ -66,7 +66,7 @@ Resource Manager는 템플릿에서 비교를 수행하기 위한 몇 가지 함
 
 위 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | False |
 | orExampleOutput | Bool | True |
@@ -119,7 +119,7 @@ Resource Manager는 템플릿에서 비교를 수행하기 위한 몇 가지 함
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | trueString | Bool | True |
 | falseString | Bool | False |
@@ -136,7 +136,7 @@ Resource Manager는 템플릿에서 비교를 수행하기 위한 몇 가지 함
 
 | 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
-| condition(조건) |yes |boolean |True 인지 false 인지 확인 하는 값입니다. |
+| condition(조건) |yes |boolean |true인지 거짓인지 확인하는 값입니다. |
 | trueValue |yes | 문자열, 정수, 개체 또는 배열 |조건이 true이면 반환할 값입니다. |
 | falseValue |yes | 문자열, 정수, 개체 또는 배열 |조건이 false이면 반환할 값입니다. |
 
@@ -146,7 +146,7 @@ Resource Manager는 템플릿에서 비교를 수행하기 위한 몇 가지 함
 
 ### <a name="remarks"></a>설명
 
-조건이 **true**이면 true 값만 평가 됩니다. 조건이 **false**이면 false 값만 평가 됩니다. **If** 함수를 사용 하 여 조건적 으로만 유효한 식을 포함할 수 있습니다. 예를 들어 한 조건에 있는 리소스를 참조할 수 있지만 다른 조건에는 없는 리소스를 참조할 수 있습니다. 조건에 따라 식을 평가 하는 예는 다음 섹션에 나와 있습니다.
+조건이 **True이면**true 값만 평가됩니다. 조건이 **False이면**false 값만 평가됩니다. **if** 함수를 사용하면 조건부로만 유효한 식을 포함할 수 있습니다. 예를 들어 한 조건에서는 있지만 다른 조건에서는 없는 리소스를 참조할 수 있습니다. 조건부로 식을 평가하는 예제는 다음 섹션에 나와 있습니다.
 
 ### <a name="examples"></a>예
 
@@ -177,13 +177,13 @@ Resource Manager는 템플릿에서 비교를 수행하기 위한 몇 가지 함
 
 위 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | yesOutput | String | 예 |
 | noOutput | String | 아니요 |
 | objectOutput | Object | { "test": "value1" } |
 
-다음 [예제 템플릿에서는](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/conditionWithReference.json) 조건부로 유효한 식으로이 함수를 사용 하는 방법을 보여 줍니다.
+다음 [예제 템플릿에서는](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/conditionWithReference.json) 조건부로만 유효한 식과 함께 이 함수를 사용하는 방법을 보여 주며 있습니다.
 
 ```json
 {
@@ -275,13 +275,13 @@ Resource Manager는 템플릿에서 비교를 수행하기 위한 몇 가지 함
 
 위 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | False |
 | orExampleOutput | Bool | True |
 | notExampleOutput | Bool | False |
 
-다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json)에서는 **equals**에 [not](template-functions-comparison.md#equals)을 사용합니다.
+다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json)에서는 [equals](template-functions-comparison.md#equals)에 **not**을 사용합니다.
 
 ```json
 {
@@ -299,7 +299,7 @@ Resource Manager는 템플릿에서 비교를 수행하기 위한 몇 가지 함
 
 위 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | checkNotEquals | Bool | True |
 
@@ -349,7 +349,7 @@ True인 값이 하나라도 있으면 **True**를 반환하고 그렇지 않으�
 
 위 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | False |
 | orExampleOutput | Bool | True |
@@ -357,8 +357,8 @@ True인 값이 하나라도 있으면 **True**를 반환하고 그렇지 않으�
 
 ## <a name="next-steps"></a>다음 단계
 
-* Azure Resource Manager 템플릿의 섹션에 대한 설명은 [Azure Resource Manager 템플릿 작성](template-syntax.md)을 참조하세요.
-* 여러 템플릿을 병합하려면 [Azure Resource Manager에서 연결된 템플릿 사용](linked-templates.md)을 참조하세요.
-* 리소스 유형을 만들 때 지정된 횟수만큼 반복하려면 [Azure 리소스 관리자에서 리소스의 여러 인스턴스 만들기](copy-resources.md)를 참조하세요.
+* Azure 리소스 관리자 템플릿의 섹션에 대한 설명은 [Azure 리소스 관리자 템플릿 작성을](template-syntax.md)참조하십시오.
+* 여러 템플릿을 병합하려면 [연결된 템플릿 사용을 Azure 리소스 관리자와](linked-templates.md)함께 참조합니다.
+* 리소스 형식을 만들 때 지정된 횟수를 반복하려면 [Azure 리소스 관리자에서 여러 리소스 인스턴스 만들기를](copy-resources.md)참조하십시오.
 * 만든 템플릿을 배포하는 방법을 보려면 [Azure Resource Manager 템플릿을 사용하여 애플리케이션 배포](deploy-powershell.md)를 참조하세요.
 

@@ -1,30 +1,28 @@
 ---
-title: Hyper-v에 대 한 Azure Migrate 어플라이언스 설정
-description: Hyper-v Vm을 평가 하 고 마이그레이션하기 위해 Azure Migrate 어플라이언스를 설정 하는 방법에 대해 알아봅니다.
+title: 하이퍼-V용 Azure 마이그레이션 어플라이언스 설정
+description: 하이퍼-V VM을 평가하고 마이그레이션하기 위해 Azure 마이그레이션 어플라이언스를 설정하는 방법에 대해 알아봅니다.
 ms.topic: article
-ms.date: 11/19/2019
-ms.openlocfilehash: 8199525a118ffca2cfc03734283eb26facba8483
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.date: 03/23/2020
+ms.openlocfilehash: 80db2c1d4f5482604ca1507174b127c150f76044
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77598343"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80336807"
 ---
-# <a name="set-up-an-appliance-for-hyper-v-vms"></a>Hyper-v Vm에 대 한 어플라이언스 설정
+# <a name="set-up-an-appliance-for-hyper-v-vms"></a>하이퍼 VM용 어플라이언스 설정
 
-이 문서에서는 Azure Migrate Server 평가 도구를 사용 하 여 Hyper-v Vm을 평가 하는 경우 또는 Azure Migrate 서버 마이그레이션 도구를 사용 하 여 VMware Vm을 Azure로 마이그레이션하는 경우 Azure Migrate 어플라이언스를 설정 하는 방법을 설명 합니다.
+이 문서에서는 [Azure 마이그레이션:서버 평가](migrate-services-overview.md#azure-migrate-server-assessment-tool) 도구를 사용하여 Hyper-V VM평가를 위해 Azure 마이그레이션 어플라이언스를 설정하는 방법에 대해 설명합니다.
 
-Hyper-v VM 어플라이언스는 다음을 수행 하기 위해 Azure Migrate 서버 평가/마이그레이션에 사용 되는 경량 어플라이언스입니다.
+[Azure 마이그레이션 어플라이언스는](migrate-appliance.md) Azure Migrate:Server 평가/마이그레이션에서 온-프레미스 하이퍼-V VM을 검색하고 VM 메타데이터/성능 데이터를 Azure로 보내는 데 사용되는 경량 어플라이언스입니다.
 
-- 온-프레미스 Hyper-v Vm을 검색 합니다.
-- 검색 된 Vm에 대 한 메타 데이터 및 성능 데이터를 Azure Migrate 서버 평가/마이그레이션으로 보냅니다.
-
-Azure Migrate 어플라이언스에 [대해 자세히 알아보세요](migrate-appliance.md) .
+다운로드하는 VHD 템플릿을 사용하거나 PowerShell 설치 스크립트를 사용하여 Hyper-V VM 평가용 Azure 마이그레이션 어플라이언스를 설정할 수 있습니다. 이 문서에서는 VHD 템플릿을 사용하여 어플라이언스를 설정하는 방법에 대해 설명합니다. 스크립트를 사용하여 어플라이언스를 설정하려면 [이 문서의](deploy-appliance-script.md)지침을 따르십시오.
 
 
-## <a name="appliance-deployment-steps"></a>어플라이언스 배포 단계
+## <a name="appliance-deployment-vhd"></a>어플라이언스 배포(VHD)
 
-어플라이언스를 설정하려면 다음을 수행합니다.
+VHD 템플릿을 사용하여 어플라이언스를 설정하려면 다음을 수행하십시오.
+
 - Azure Portal에서 압축된 Hyper-V VHD를 다운로드합니다.
 - 어플라이언스를 만들고, Azure Migrate 서버 평가에 연결할 수 있는지 확인합니다.
 - 어플라이언스를 처음으로 구성하고, Azure Migrate 프로젝트에 등록합니다.
@@ -33,8 +31,8 @@ Azure Migrate 어플라이언스에 [대해 자세히 알아보세요](migrate-a
 
 어플라이언스에 대한 압축된 VHD 템플릿을 다운로드합니다.
 
-1. **마이그레이션 목표** > **서버** > **Azure Migrate: 서버 평가**에서 **검색**을 클릭 합니다.
-2. **머신 검색** > **머신이 가상화되어 있습니까?** 에서 **예, Hyper-V 사용**을 클릭합니다.
+1. **마이그레이션 목표** > **서버 Azure** > **마이그레이션: 서버 평가**, **검색**을 클릭합니다.
+2. **검색 컴퓨터에서** > **컴퓨터가 가상화되어 있습니까?** **Yes, with Hyper-V**
 3. **다운로드**를 클릭하여 VHD 파일을 다운로드합니다.
 
     ![VM 다운로드](./media/how-to-set-up-appliance-hyper-v/download-appliance-hyperv.png)
@@ -48,7 +46,7 @@ Azure Migrate 어플라이언스에 [대해 자세히 알아보세요](migrate-a
 2. 다음 명령을 실행하여 VHD에 대한 해시를 생성합니다.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - 사용 예: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.vhd SHA256```
-3.  어플라이언스 버전 2.19.11.12의 경우 생성 된 해시가 이러한 [설정과](https://docs.microsoft.com/azure/migrate/tutorial-assess-hyper-v#verify-security)일치 해야 합니다.
+3.  어플라이언스 버전 2.19.11.12의 경우 생성된 해시가 이러한 [설정과](https://docs.microsoft.com/azure/migrate/tutorial-assess-hyper-v#verify-security)일치해야 합니다.
 
 
 
@@ -63,9 +61,9 @@ Azure Migrate 어플라이언스에 [대해 자세히 알아보세요](migrate-a
     ![VHD 배포](./media/how-to-set-up-appliance-hyper-v/deploy-vhd.png)
 
 2. Virtual Machine 가져오기 마법사 > **시작하기 전에**에서 **다음**을 클릭합니다.
-3. **폴더 찾기**에서 추출된 VHD가 포함된 폴더를 지정합니다. 그런 후 **Next** 를 클릭합니다.
+3. **폴더 찾기**에서 추출된 VHD가 포함된 폴더를 지정합니다. 그리고 **다음**을 클릭합니다.
 1. **Virtual Machine 선택**에서 **다음**을 클릭합니다.
-2. **가져오기 유형 선택**에서 **가상 머신 복사(새로운 고유 ID 만들기)** 를 클릭합니다. 그런 후 **Next** 를 클릭합니다.
+2. **가져오기 유형 선택**에서 **가상 머신 복사(새로운 고유 ID 만들기)** 를 클릭합니다. 그리고 **다음**을 클릭합니다.
 3. **대상 선택**에서 기본 설정을 그대로 둡니다. **다음**을 클릭합니다.
 4. **스토리지 폴더**에서 기본 설정을 그대로 둡니다. **다음**을 클릭합니다.
 5. **네트워크 선택**에서 VM에서 사용할 가상 스위치를 지정합니다. 이 스위치에는 데이터를 Azure로 보내기 위한 인터넷 연결이 필요합니다.
@@ -79,25 +77,25 @@ Azure Migrate 어플라이언스에 [대해 자세히 알아보세요](migrate-a
 
 ## <a name="configure-the-appliance"></a>어플라이언스 구성
 
-어플라이언스를 처음으로 설정합니다.
+어플라이언스를 처음으로 설정합니다. VHD 대신 스크립트를 사용하여 어플라이언스를 배포하는 경우 절차의 처음 두 단계는 적용할 수 없습니다.
 
 1. Hyper-V 관리자 > **Virtual Machines**에서 마우스 오른쪽 단추로 VM > **연결**을 클릭합니다.
 2. 어플라이언스에 대한 언어, 표준 시간대 및 암호를 제공합니다.
-3. VM에 연결할 수 있는 모든 컴퓨터에서 브라우저를 열고 어플라이언스 웹 앱의 URL ( **https://*어플라이언스 이름 또는 IP 주소*: 44368**)을 엽니다.
+3. VM에 연결할 수 있는 모든 컴퓨터에서 브라우저를 열고 어플라이언스 웹 앱의 URL을 엽니다: **https://*어플라이언스 이름 또는 IP 주소:* 44368**.
 
    또는 앱 바로 가기를 클릭하여 어플라이언스 데스크톱에서 앱을 열 수 있습니다.
 1. 웹앱 > **필수 구성 요소 설정**에서 다음을 수행합니다.
-    - **라이선스**: 사용 조건에 동의 하 고 타사 정보를 읽습니다.
-    - **연결**: 앱에서 VM이 인터넷에 연결 되어 있는지 확인 합니다. VM에서 프록시를 사용하는 경우:
+    - **라이센스**: 라이센스 약관을 수락하고 타사 정보를 읽습니다.
+    - **연결**: 앱에서 VM에 인터넷에 액세스할 수 있도록 합니다. VM에서 프록시를 사용하는 경우:
         - **프록시 설정**을 클릭하고, 프록시 주소와 수신 포트를 http://ProxyIPAddress 또는 http://ProxyFQDN 형식으로 지정합니다.
         - 프록시에 인증이 필요한 경우 자격 증명을 지정합니다.
         - HTTP 프록시만 지원됩니다.
-    - **시간 동기화**: 시간이 확인 됩니다. VM 검색이 제대로 작동하려면 어플라이언스의 시간이 인터넷 시간과 동기화되어야 합니다.
-    - **업데이트 설치**: Azure Migrate 서버 평가는 어플라이언스에 최신 업데이트가 설치 되어 있는지 확인 합니다.
+    - **시간 동기화**: 시간이 확인됩니다. VM 검색이 제대로 작동하려면 어플라이언스의 시간이 인터넷 시간과 동기화되어야 합니다.
+    - **업데이트 설치**: Azure 마이그레이션 서버 평가는 어플라이언스에 최신 업데이트가 설치되어 있는지 확인합니다.
 
 ### <a name="register-the-appliance-with-azure-migrate"></a>Azure Migrate를 사용하여 어플라이언스 등록
 
-1. **로그인**을 클릭합니다. 표시되지 않으면 브라우저에서 팝업 차단을 사용하지 않도록 설정했는지 확인합니다.
+1. **Log In(로그인)** 을 클릭합니다. 표시되지 않으면 브라우저에서 팝업 차단을 사용하지 않도록 설정했는지 확인합니다.
 2. 새로 만들기 탭에서 Azure 자격 증명을 사용하여 로그인합니다.
     - 사용자 이름과 암호를 사용하여 로그인합니다.
     - PIN을 사용한 로그인은 지원되지 않습니다.
@@ -109,7 +107,7 @@ Azure Migrate 어플라이언스에 [대해 자세히 알아보세요](migrate-a
 
 ### <a name="delegate-credentials-for-smb-vhds"></a>SMB VHD에 대한 자격 증명 위임
 
-SMB에서 VHD를 실행하는 경우 자격 증명을 어플라이언스에서 Hyper-V 호스트로 위임하도록 설정해야 합니다. 어플라이언스에서이 작업을 수행 하려면 다음을 수행 합니다.
+SMB에서 VHD를 실행하는 경우 자격 증명을 어플라이언스에서 Hyper-V 호스트로 위임하도록 설정해야 합니다. 어플라이언스에서 이 작업을 수행하려면 다음을 수행하십시오.
 
 1. 어플라이언스 VM에서 다음 명령을 실행합니다. HyperVHost1/HyperVHost2는 예제 호스트 이름입니다.
 
@@ -118,7 +116,7 @@ SMB에서 VHD를 실행하는 경우 자격 증명을 어플라이언스에서 H
     ```
 
 2. 또는 어플라이언스의 로컬 그룹 정책 편집기에서 다음을 수행합니다.
-    - **로컬 컴퓨터 정책** > **컴퓨터구성**에서 **관리 템플릿** > **시스템** > **자격 증명 위임**을 차례로 클릭합니다.
+    - **로컬 컴퓨터 정책** > **컴퓨터 구성에서**관리 템플릿**시스템** > **자격 증명 위임을 클릭합니다.** **Administrative Templates** > 
     - **새로운 자격 증명 위임 허용**을 두 번 클릭하고 **사용**을 선택합니다.
     - **옵션**에서 **표시**를 클릭하고, **wsman/** 을 접두사로 사용하여 검색하려는 각 Hyper-V 호스트를 목록에 추가합니다.
     - **자격 증명 위임**에서 **서버 인증이 NTLM 전용일 경우 새로운 자격 증명 허용**을 두 번 클릭합니다. **wsman/** 을 접두사로 사용하여 검색하려는 각 Hyper-V 호스트를 목록에 추가합니다.
@@ -143,9 +141,9 @@ SMB에서 VHD를 실행하는 경우 자격 증명을 어플라이언스에서 H
 검색이 완료되면 Azure Portal에서 해당 VM이 표시되는지 확인할 수 있습니다.
 
 1. Azure Migrate 대시보드를 엽니다.
-2. **Azure Migrate 서버** > **Azure Migrate: 서버 평가** 페이지에서 **검색 된 서버의**수를 표시 하는 아이콘을 클릭 합니다.
+2. **Azure 마이그레이션 - 서버** > **Azure 마이그레이션: 서버 평가** 페이지에서 검색된 서버의 수를 표시하는 **아이콘을 클릭합니다.**
 
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Migrate Server 평가를 사용 하 여 [hyper-v 평가](tutorial-assess-hyper-v.md) 를 사용해 보세요.
+Azure 마이그레이션 서버 [평가를](tutorial-assess-hyper-v.md) 사용 해 보십시오.

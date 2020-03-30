@@ -1,6 +1,6 @@
 ---
-title: 관리 되는 인스턴스 데이터베이스에서 복제 구성
-description: Azure SQL Database 관리 되는 인스턴스 게시자/배포자와 관리 되는 인스턴스 구독자 간에 트랜잭션 복제를 구성 하는 방법에 대해 알아봅니다.
+title: 관리되는 인스턴스 데이터베이스에서 복제 구성
+description: Azure SQL Database 관리 인스턴스 게시자/배포자 및 관리되는 인스턴스 구독자 간에 트랜잭션 복제를 구성하는 방법을 알아봅니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -12,40 +12,40 @@ ms.author: ferno
 ms.reviewer: mathoma
 ms.date: 02/07/2019
 ms.openlocfilehash: 9af7b471210ca3cc69428e68aef4aafaee159344
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79299076"
 ---
 # <a name="configure-replication-in-an-azure-sql-database-managed-instance-database"></a>Azure SQL Database 관리형 인스턴스 데이터베이스에서 복제 구성
 
 트랜잭션 복제를 사용하면 SQL Server 데이터베이스 또는 다른 인스턴스 데이터베이스에서 Azure SQL Database 관리형 인스턴스 데이터베이스로 데이터를 복제할 수 있습니다. 
 
-이 문서에서는 관리 되는 인스턴스 게시자/배포자와 관리 되는 인스턴스 구독자 간에 복제를 구성 하는 방법을 보여 줍니다. 
+이 문서에서는 관리되는 인스턴스 게시자/배포자와 관리되는 인스턴스 구독자 간에 복제를 구성하는 방법을 보여 주며, 이 문서에서는 복제를 구성하는 방법을 보여 주며, 이 문서에서는 
 
-![두 개의 관리 되는 인스턴스 간 복제](media/replication-with-sql-database-managed-instance/sqlmi-sqlmi-repl.png)
+![관리되는 두 인스턴스 간에 복제](media/replication-with-sql-database-managed-instance/sqlmi-sqlmi-repl.png)
 
-또한 트랜잭션 복제를 사용 하 여 Azure SQL Database 관리 되는 인스턴스에서 인스턴스 데이터베이스의 변경 내용을 다음과 같이 푸시할 수 있습니다.
+트랜잭션 복제를 사용하여 Azure SQL Database 관리 인스턴스의 인스턴스 데이터베이스에서 변경한 내용을 다음으로 푸시할 수도 있습니다.
 
 - SQL Server 데이터베이스입니다.
-- Azure SQL Database의 단일 데이터베이스.
-- Azure SQL Database 탄력적 풀의 풀링된 데이터베이스입니다.
+- Azure SQL 데이터베이스의 단일 데이터베이스입니다.
+- Azure SQL Database 탄력적 풀의 풀린 데이터베이스입니다.
  
-트랜잭션 복제는 [Azure SQL Database 관리 되는 인스턴스에서](sql-database-managed-instance.md)공개 미리 보기로 제공 됩니다. 관리되는 인스턴스는 게시자, 배포자 및 구독자 데이터베이스를 호스트할 수 있습니다. 사용 가능한 구성에 대해서는 [트랜잭션 복제 구성](sql-database-managed-instance-transactional-replication.md#common-configurations)을 참조하세요.
+트랜잭션 복제는 Azure SQL [Database 관리 인스턴스에서](sql-database-managed-instance.md)공개 미리 보기에 있습니다. 관리되는 인스턴스는 게시자, 배포자 및 구독자 데이터베이스를 호스트할 수 있습니다. 사용 가능한 구성에 대한 [트랜잭션 복제 구성을](sql-database-managed-instance-transactional-replication.md#common-configurations) 참조하십시오.
 
   > [!NOTE]
-  > - 이 문서에서는 Azure Database 관리 되는 인스턴스를 사용 하 여 리소스 그룹을 만드는 것부터 끝까지 Azure Database 관리 되는 인스턴스를 사용 하 여 복제를 구성 하는 사용자를 안내 합니다. 관리 되는 인스턴스를 이미 배포한 경우에는 [4 단계로](#4---create-a-publisher-database) 이동 하 여 게시자 데이터베이스를 만들거나 6 단계를 진행 합니다. 게시자 및 구독자 데이터베이스가 이미 있고 복제 구성을 시작할 준비가 된 경우에는 [6 단계로](#6---configure-distribution) 건너뜁니다.  
-  > - 이 문서에서는 동일한 관리 되는 인스턴스에서 게시자와 배포자를 구성 합니다. 별도의 관리 되 인스턴스에 배포자를 추가 하려면 [mi와 mi 배포자 간의 복제 구성](sql-database-managed-instance-configure-replication-tutorial.md)자습서를 참조 하세요. 
+  > - 이 문서는 리소스 그룹을 만드는 것부터 시작하여 Azure Database 관리 인스턴스를 처음부터 끝까지 사용하여 복제를 구성하는 사용자를 안내하기 위한 것입니다. 이미 관리되는 인스턴스가 배포된 경우 [4단계로](#4---create-a-publisher-database) 건너뛰면 게시자 데이터베이스를 만들거나 게시자 및 구독자 데이터베이스가 이미 있고 복제 구성을 시작할 준비가 된 경우 [6단계를](#6---configure-distribution) 건너뜁니다.  
+  > - 이 문서에서는 동일한 관리되는 인스턴스에서 게시자 및 배포자를 구성합니다. 배포자를 별도의 매니지드 인스턴스에 배치하려면 [MI 게시자와 MI 배포자 간의 복제 구성 자습서를](sql-database-managed-instance-configure-replication-tutorial.md)참조하십시오. 
 
 ## <a name="requirements"></a>요구 사항
 
-관리 되는 인스턴스를 게시자 및/또는 배포자로 작동 하도록 구성 하려면 다음이 필요 합니다.
+게시자 및/또는 배포자로 작동하도록 관리되는 인스턴스를 구성하려면 다음이 필요합니다.
 
-- 게시자 관리 되는 인스턴스가 배포자 및 구독자와 동일한 가상 네트워크에 있거나, 세 엔터티의 가상 네트워크 간에 [vNet 피어 링](../virtual-network/tutorial-connect-virtual-networks-powershell.md) 이 설정 되었습니다. 
+- 게시자 관리 인스턴스가 배포자 및 구독자와 동일한 가상 네트워크에 있거나 세 엔터티의 가상 네트워크 간에 [vNet 피어링이](../virtual-network/tutorial-connect-virtual-networks-powershell.md) 설정되었습니다. 
 - 연결은 복제 참가자 간에 SQL 인증을 사용합니다.
 - 복제 작업 디렉터리에 대한 Azure Storage 계정 공유
-- Azure 파일 공유에 액세스 하기 위해 관리 되는 인스턴스에 대 한 NSG의 보안 규칙에서 포트 445 (TCP 아웃 바운드)이 열립니다.  "Azure storage \<storage 계정 이름에 연결 하지 못했습니다 > os 오류 53" 오류가 발생 하는 경우 해당 SQL Managed Instance 서브넷의 NSG에 아웃 바운드 규칙을 추가 해야 합니다.
+- 포트 445(TCP 아웃바운드)는 관리되는 인스턴스가 Azure 파일 공유에 액세스하기 위해 NSG의 보안 규칙에서 열립니다.  "os 오류 53이 있는> \<Azure 저장소 저장소 계정 이름에 연결하지 못했습니다"라는 오류가 발생하면 해당 SQL 관리 인스턴스 서브넷의 NSG에 아웃바운드 규칙을 추가해야 합니다.
 
 
  > [!NOTE]
@@ -57,28 +57,28 @@ ms.locfileid: "79299076"
 지원:
 
 - Azure SQL Database의 SQL Server 온-프레미스 및 관리형 인스턴스의 트랜잭션 및 스냅샷 복제 조합.
-- 구독자는 온-프레미스 SQL Server 데이터베이스, Azure SQL Database의 단일 데이터베이스/관리 되는 인스턴스 또는 Azure SQL Database 탄력적 풀의 풀링된 데이터베이스에 있을 수 있습니다.
+- 구독자는 온-프레미스 SQL Server 데이터베이스, Azure SQL Database의 단일 데이터베이스/관리되는 인스턴스 또는 Azure SQL Database 탄력적 풀의 풀린 데이터베이스에 있을 수 있습니다.
 - 단방향 또는 양방향 복제.
 
 Azure SQL Database의 관리형 인스턴스에서는 다음과 같은 기능이 지원되지 않습니다.
 
-- [업데이트할](/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication)수 있는 구독.
-- 트랜잭션 복제를 사용한 [활성 지역 복제](sql-database-active-geo-replication.md) 활성 지역 복제 대신 [자동 장애 조치 (failover) 그룹](sql-database-auto-failover-group.md)을 사용 하지만 주 관리 되는 인스턴스에서 게시를 [수동으로 삭제](sql-database-managed-instance-transact-sql-information.md#replication) 하 고 장애 조치 (failover) 후에 보조 관리 되는 인스턴스에서 다시 만들어야 합니다.  
+- [구독을 업데이터로 설정합니다.](/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication)
+- 트랜잭션 복제를 사용 하 고 [활성 지역 복제.](sql-database-active-geo-replication.md) 활성 지역 복제 대신 [자동 장애 조치 그룹을](sql-database-auto-failover-group.md)사용하지만 게시는 기본 관리 인스턴스에서 수동으로 [삭제하고](sql-database-managed-instance-transact-sql-information.md#replication) 장애 조치 후 보조 관리 인스턴스에서 다시 만들어야 합니다.  
  
-## <a name="1---create-a-resource-group"></a>1-리소스 그룹 만들기
+## <a name="1---create-a-resource-group"></a>1 - 리소스 그룹 만들기
 
-[Azure Portal](https://portal.azure.com) 를 사용 하 여 이름이 `SQLMI-Repl`인 리소스 그룹을 만듭니다.  
+Azure [포털을](https://portal.azure.com) 사용하여 이름으로 `SQLMI-Repl`리소스 그룹을 만듭니다.  
 
-## <a name="2---create-managed-instances"></a>2-관리 되는 인스턴스 만들기
+## <a name="2---create-managed-instances"></a>2 - 관리형 인스턴스 만들기
 
-[Azure Portal](https://portal.azure.com) 를 사용 하 여 동일한 가상 네트워크 및 서브넷에 두 개의 [관리 되는 인스턴스](sql-database-managed-instance-create-tutorial-portal.md) 를 만듭니다. 예를 들어 두 개의 관리 되는 인스턴스의 이름을로 합니다.
+Azure [포털을](https://portal.azure.com) 사용하여 동일한 가상 네트워크 및 서브넷에서 관리되는 두 [개의 인스턴스를](sql-database-managed-instance-create-tutorial-portal.md) 만듭니다. 예를 들어 관리되는 두 인스턴스의 이름을 지정합니다.
 
-- `sql-mi-pub` (임의 임의 문자를 포함 하는 일부 문자 포함)
-- `sql-mi-sub` (임의 임의 문자를 포함 하는 일부 문자 포함)
+- `sql-mi-pub`(무작위화를 위한 일부 문자와 함께)
+- `sql-mi-sub`(무작위화를 위한 일부 문자와 함께)
 
-또한 Azure SQL Database 관리 되는 인스턴스에 [연결 하도록 AZURE VM을 구성](sql-database-managed-instance-configure-vm.md) 해야 합니다. 
+또한 Azure SQL Database 관리 형 인스턴스에 [연결하려면 Azure VM을 구성해야](sql-database-managed-instance-configure-vm.md) 합니다. 
 
-## <a name="3---create-azure-storage-account"></a>3-Azure Storage 계정 만들기
+## <a name="3---create-azure-storage-account"></a>3 - Azure 저장소 계정 만들기
 
 작업 디렉터리에 대한 [Azure Storage 계정](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account)을 만든 다음, 스토리지 계정 내에서 [ 파일 공유](../storage/files/storage-how-to-create-file-share.md)를 만듭니다. 
 
@@ -86,15 +86,15 @@ Azure SQL Database의 관리형 인스턴스에서는 다음과 같은 기능이
 
 예: `\\replstorage.file.core.windows.net\replshare`
 
-`DefaultEndpointsProtocol=https;AccountName=<Storage-Account-Name>;AccountKey=****;EndpointSuffix=core.windows.net` 형식으로 저장소 액세스 키를 복사 합니다.
+다음 형식으로 저장소 액세스 키를 복사합니다.`DefaultEndpointsProtocol=https;AccountName=<Storage-Account-Name>;AccountKey=****;EndpointSuffix=core.windows.net`
 
 예: `DefaultEndpointsProtocol=https;AccountName=replstorage;AccountKey=dYT5hHZVu9aTgIteGfpYE64cfis0mpKTmmc8+EP53GxuRg6TCwe5eTYWrQM4AmQSG5lb3OBskhg==;EndpointSuffix=core.windows.net`
 
 자세한 내용은 [스토리지 계정 액세스 키 관리](../storage/common/storage-account-keys-manage.md)를 참조하세요. 
 
-## <a name="4---create-a-publisher-database"></a>4-게시자 데이터베이스 만들기
+## <a name="4---create-a-publisher-database"></a>4 - 게시자 데이터베이스 만들기
 
-SQL Server Management Studio를 사용 하 여 `sql-mi-pub` 관리 되는 인스턴스에 연결 하 고 다음 Transact-sql (T-sql) 코드를 실행 하 여 게시자 데이터베이스를 만듭니다.
+SQL Server `sql-mi-pub` 관리 스튜디오를 사용하여 관리되는 인스턴스에 연결하고 다음 T-SQL(Transact-SQL) 코드를 실행하여 게시자 데이터베이스를 만듭니다.
 
 ```sql
 USE [master]
@@ -126,9 +126,9 @@ SELECT * FROM ReplTest
 GO
 ```
 
-## <a name="5---create-a-subscriber-database"></a>5-구독자 데이터베이스 만들기
+## <a name="5---create-a-subscriber-database"></a>5 - 구독자 데이터베이스 만들기
 
-SQL Server Management Studio를 사용 하 여 `sql-mi-sub` 관리 되는 인스턴스에 연결 하 고 다음 T-sql 코드를 실행 하 여 빈 구독자 데이터베이스를 만듭니다.
+SQL Server `sql-mi-sub` 관리 Studio를 사용하여 관리되는 인스턴스에 연결하고 다음 T-SQL 코드를 실행하여 빈 구독자 데이터베이스를 만듭니다.
 
 ```sql
 USE [master]
@@ -147,9 +147,9 @@ CREATE TABLE ReplTest (
 GO
 ```
 
-## <a name="6---configure-distribution"></a>6-배포 구성
+## <a name="6---configure-distribution"></a>6 - 배포 구성
 
-SQL Server Management Studio를 사용 하 여 `sql-mi-pub` 관리 되는 인스턴스에 연결 하 고 다음 T-sql 코드를 실행 하 여 배포 데이터베이스를 구성 합니다. 
+SQL Server `sql-mi-pub` 관리 Studio를 사용하여 관리되는 인스턴스에 연결하고 다음 T-SQL 코드를 실행하여 배포 데이터베이스를 구성합니다. 
 
 ```sql
 USE [master]
@@ -160,9 +160,9 @@ EXEC sp_adddistributiondb @database = N'distribution';
 GO
 ```
 
-## <a name="7---configure-publisher-to-use-distributor"></a>7-배포자를 사용 하도록 게시자 구성 
+## <a name="7---configure-publisher-to-use-distributor"></a>7 - 배포자를 사용하도록 게시자 구성 
 
-게시자 관리 되는 인스턴스 `sql-mi-pub`에서 쿼리 실행을 [SQLCMD](/sql/ssms/scripting/edit-sqlcmd-scripts-with-query-editor) 모드로 변경 하 고 다음 코드를 실행 하 여 새 배포자를 게시자에 등록 합니다. 
+게시자 관리 `sql-mi-pub`인스턴스에서 쿼리 실행을 [SQLCMD](/sql/ssms/scripting/edit-sqlcmd-scripts-with-query-editor) 모드로 변경하고 다음 코드를 실행하여 게시자에 새 배포자를 등록합니다. 
 
 ```sql
 :setvar username loginUsedToAccessSourceManagedInstance
@@ -184,13 +184,13 @@ EXEC sp_adddistpublisher
 ```
 
    > [!NOTE]
-   > File_storage 매개 변수에는 백슬래시 (`\`)만 사용 해야 합니다. 슬래시(`/`)를 사용하면 파일 공유에 연결할 때 오류가 발생할 수 있습니다. 
+   > file_storage 매개 변수에는 백슬래시()`\`만 사용해야 합니다. 슬래시(`/`)를 사용하면 파일 공유에 연결할 때 오류가 발생할 수 있습니다. 
 
-이 스크립트는 관리 되는 인스턴스에서 로컬 게시자를 구성 하 고, 연결 된 서버를 추가 하 고, SQL Server 에이전트 작업 집합을 만듭니다. 
+이 스크립트는 관리되는 인스턴스에서 로컬 게시자를 구성하고, 연결된 서버를 추가하고, SQL Server 에이전트에 대한 작업 집합을 만듭니다. 
 
-## <a name="8---create-publication-and-subscriber"></a>8-게시 및 구독자 만들기
+## <a name="8---create-publication-and-subscriber"></a>8 - 발행물 및 구독자 만들기
 
-[SQLCMD](/sql/ssms/scripting/edit-sqlcmd-scripts-with-query-editor) 모드에서 다음 t-sql 스크립트를 실행 하 여 데이터베이스에 대 한 복제를 사용 하도록 설정 하 고 게시자, 배포자 및 구독자 간의 복제를 구성 합니다. 
+[SQLCMD](/sql/ssms/scripting/edit-sqlcmd-scripts-with-query-editor) 모드를 사용하여 다음 T-SQL 스크립트를 실행하여 데이터베이스에 대한 복제를 활성화하고 게시자, 배포자 및 구독자 간에 복제를 구성합니다. 
 
 ```sql
 -- Set variables
@@ -267,11 +267,11 @@ EXEC sp_startpublication_snapshot
   @publication = N'$(publication_name)';
 ```
 
-## <a name="9---modify-agent-parameters"></a>9-에이전트 매개 변수 수정
+## <a name="9---modify-agent-parameters"></a>9 - 에이전트 매개 변수 수정
 
-현재 관리 되는 인스턴스에 복제 에이전트와의 연결에 대 한 일부 백 엔드 문제가 발생 하 고 있습니다. Azure SQL Database 이 문제를 해결 하는 동안 복제 에이전트에 대 한 로그인 제한 시간 값을 늘리는 해결 방법이 제공 됩니다. 
+Azure SQL Database 관리 인스턴스에서 현재 복제 에이전트와의 연결에 일부 백 엔드 문제가 발생 했습니다. 이 문제를 해결하는 동안 복제 에이전트에 대한 로그인 시간 시간 시간 값을 늘리는 해결 방법을 사용할 수 있습니다. 
 
-게시자에서 다음 T-sql 명령을 실행 하 여 로그인 제한 시간을 늘립니다. 
+게시자에서 다음 T-SQL 명령을 실행하여 로그인 시간 시간을 늘립니다. 
 
 ```sql
 -- Increase login timeout to 150s
@@ -279,7 +279,7 @@ update msdb..sysjobsteps set command = command + N' -LoginTimeout 150'
 where subsystem in ('Distribution','LogReader','Snapshot') and command not like '%-LoginTimeout %'
 ```
 
-다음 T-sql 명령을 다시 실행 하 여 로그인 제한 시간을 기본값으로 다시 설정 합니다. 이렇게 하려면 다음을 수행 해야 합니다.
+다음 T-SQL 명령을 다시 실행하여 로그인 시간 설정을 기본값으로 다시 설정해야 합니다.
 
 ```sql
 -- Increase login timeout to 30
@@ -287,9 +287,9 @@ update msdb..sysjobsteps set command = command + N' -LoginTimeout 30'
 where subsystem in ('Distribution','LogReader','Snapshot') and command not like '%-LoginTimeout %'
 ```
 
-이러한 변경 내용을 적용 하려면 3 개의 에이전트를 모두 다시 시작 합니다. 
+세 에이전트를 모두 다시 시작하여 이러한 변경 내용을 적용합니다. 
 
-## <a name="10---test-replication"></a>10-복제 테스트
+## <a name="10---test-replication"></a>10 - 테스트 복제
 
 복제가 구성되면 새 항목을 게시자에 삽입하고 구독자에 전파되는 변경 내용을 감시하여 이를 테스트할 수 있습니다. 
 
@@ -307,7 +307,7 @@ INSERT INTO ReplTest (ID, c1) VALUES (15, 'pub')
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-게시를 삭제 하려면 다음 T-sql 명령을 실행 합니다.
+게시를 삭제하려면 다음 T-SQL 명령을 실행합니다.
 
 ```sql
 -- Drops the publication
@@ -316,7 +316,7 @@ EXEC sp_droppublication @publication = N'PublishData'
 GO
 ```
 
-데이터베이스에서 복제 옵션을 제거 하려면 다음 T-sql 명령을 실행 합니다.
+데이터베이스에서 복제 옵션을 제거하려면 다음 T-SQL 명령을 실행합니다.
 
 ```sql
 -- Disables publishing of the database
@@ -325,7 +325,7 @@ EXEC sp_removedbreplication
 GO
 ```
 
-게시 및 배포를 사용 하지 않도록 설정 하려면 다음 T-sql 명령을 실행 합니다.
+게시 및 배포를 사용하지 않도록 설정하려면 다음 T-SQL 명령을 실행합니다.
 
 ```sql
 -- Drops the distributor
@@ -334,10 +334,10 @@ EXEC sp_dropdistributor @no_checks = 1
 GO
 ```
 
-[리소스 그룹에서 관리 되는 인스턴스 리소스를 삭제](../azure-resource-manager/management/manage-resources-portal.md#delete-resources) 한 다음 `SQLMI-Repl`리소스 그룹을 삭제 하 여 Azure 리소스를 정리할 수 있습니다. 
+[리소스 그룹에서 관리되는 인스턴스 리소스를 삭제한](../azure-resource-manager/management/manage-resources-portal.md#delete-resources) 다음 리소스 그룹을 삭제하여 Azure 리소스를 `SQLMI-Repl`정리할 수 있습니다. 
 
    
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>관련 항목
 
 - [트랜잭션 복제](sql-database-managed-instance-transactional-replication.md)
 - [자습서: MI 게시자와 SQL Server 구독자 간의 트랜잭션 복제 구성](sql-database-managed-instance-configure-replication-tutorial.md)

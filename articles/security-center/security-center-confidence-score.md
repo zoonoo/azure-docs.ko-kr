@@ -1,6 +1,6 @@
 ---
 title: Azure Security Center의 신뢰도 점수 | Microsoft Docs
-description: Security Center은 팀에서 위협이 합법적인 지 여부 및 경고를 심사 하 고 우선 순위를 정하는 방법을 결정 하는 데 도움이 되는 신뢰도 점수를 생성 합니다.
+description: 보안 센터는 신뢰도 점수를 생성하여 위협이 합법적인지 여부와 경고를 분류하고 우선 순위를 지정하는 방법을 결정하는 데 도움이 됩니다.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,17 +14,17 @@ ms.workload: na
 ms.date: 08/23/2018
 ms.author: memildin
 ms.openlocfilehash: 8aa17f473c550c99d91862754e6a746575aca202
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77604373"
 ---
-# <a name="alert-confidence-score-preview"></a>경고 신뢰 점수 (미리 보기)
+# <a name="alert-confidence-score-preview"></a>경고 신뢰도 점수(미리 보기)
 
 Azure Security Center는 Azure에서 실행하는 리소스 전반에 대한 가시성을 제공하고 잠재적인 문제를 발견하면 알려줍니다. 보안 운영 팀이 개별적으로 해결하기에 경고의 양이 너무 많을 수 있으며 조사할 경고의 우선 순위를 정하는 작업이 필요할 수 있습니다. 경고를 조사하는 작업은 복잡하고 시간이 오래 걸릴 수 있기 때문에 일부 경고는 무시됩니다.
 
-Security Center의 신뢰도 점수 (현재 미리 보기 상태)는 팀이 경고를 심사 하 고 우선 순위를 정하는 데 도움이 될 수 있습니다. Security Center는 분석가가 사용하는 업계 모범 사례, 지능형 알고리즘 및 프로세스를 적용하여 위협이 합법적인지 여부를 판단하고 신뢰도 점수의 형태로 유용한 인사이트를 제공합니다.
+보안 센터의 신뢰도 점수(현재 미리 보기)는 팀이 경고를 심사하고 우선 순위를 지정하는 데 도움이 될 수 있습니다. Security Center는 분석가가 사용하는 업계 모범 사례, 지능형 알고리즘 및 프로세스를 적용하여 위협이 합법적인지 여부를 판단하고 신뢰도 점수의 형태로 유용한 인사이트를 제공합니다.
 
 ## <a name="how-the-confidence-score-is-triggered"></a>신뢰도 점수가 트리거되는 방법
 

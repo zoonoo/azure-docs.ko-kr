@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 03/10/2020
-ms.openlocfilehash: 3784b94a8571ab57d191d0bdb1e38aaa16d3cabb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 880072c9865e38e181869506e35968767fa95e8a
+ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79255978"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80387906"
 ---
 # <a name="configure-streaming-export-of-azure-sql-database-diagnostic-telemetry"></a>Azure SQL Database 진단 원격 분석의 스트리밍 내보내기 구성
 
@@ -84,7 +84,7 @@ ms.locfileid: "79255978"
 - Azure Resource Manager 템플릿
 
 > [!NOTE]
-> 보안 원격 분석의 감사 로그 스트리밍을 사용하려면 [Azure Monitor 로그 및 Azure Event Hubs에서](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242)데이터베이스 및 감사 로그에 [대한 감사 설정](sql-database-auditing.md#subheading-2) 을 참조하십시오.
+> 보안 원격 분석의 감사 로그 스트리밍을 사용하려면 [Azure Monitor 로그 및 Azure Event Hubs에서](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242)데이터베이스 및 감사 로그에 [대한 감사 설정](sql-database-auditing.md#setup-auditing) 을 참조하십시오.
 
 ## <a name="configure-the-streaming-export-of-diagnostic-telemetry"></a>진단 원격 분석의 스트리밍 내보내기 구성
 
@@ -464,7 +464,7 @@ Azure SQL Analytics를 사용하는 경우 Azure SQL Analytics의 탐색 메뉴�
 
 #### <a name="resource-usage-stats-for-managed-instances"></a>관리되는 인스턴스의 리소스 사용 통계
 
-|속성|설명|
+|속성|Description|
 |---|---|
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure|
@@ -489,7 +489,7 @@ Azure SQL Analytics를 사용하는 경우 Azure SQL Analytics의 탐색 메뉴�
 
 #### <a name="query-store-runtime-statistics"></a>쿼리 저장소 런타임 통계
 
-|속성|설명|
+|속성|Description|
 |---|---|
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |
@@ -540,7 +540,7 @@ Azure SQL Analytics를 사용하는 경우 Azure SQL Analytics의 탐색 메뉴�
 
 #### <a name="query-store-wait-statistics"></a>쿼리 저장소 대기 통계
 
-|속성|설명|
+|속성|Description|
 |---|---|
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |
@@ -578,7 +578,7 @@ Azure SQL Analytics를 사용하는 경우 Azure SQL Analytics의 탐색 메뉴�
 
 #### <a name="errors-dataset"></a>오류 데이터 세트
 
-|속성|설명|
+|속성|Description|
 |---|---|
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |
@@ -607,7 +607,7 @@ Azure SQL Analytics를 사용하는 경우 Azure SQL Analytics의 탐색 메뉴�
 
 #### <a name="database-wait-statistics-dataset"></a>데이터베이스 대기 통계 데이터 세트
 
-|속성|설명|
+|속성|Description|
 |---|---|
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |
@@ -636,7 +636,7 @@ Azure SQL Analytics를 사용하는 경우 Azure SQL Analytics의 탐색 메뉴�
 
 #### <a name="time-outs-dataset"></a>제한 시간 데이터 세트
 
-|속성|설명|
+|속성|Description|
 |---|---|
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |
@@ -659,7 +659,7 @@ Azure SQL Analytics를 사용하는 경우 Azure SQL Analytics의 탐색 메뉴�
 
 #### <a name="blockings-dataset"></a>차단 데이터 세트
 
-|속성|설명|
+|속성|Description|
 |---|---|
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |
@@ -683,7 +683,7 @@ Azure SQL Analytics를 사용하는 경우 Azure SQL Analytics의 탐색 메뉴�
 
 #### <a name="deadlocks-dataset"></a>교착 상태 데이터 세트
 
-|속성|설명|
+|속성|Description|
 |---|---|
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |
@@ -704,7 +704,7 @@ Azure SQL Analytics를 사용하는 경우 Azure SQL Analytics의 탐색 메뉴�
 
 #### <a name="automatic-tuning-dataset"></a>자동 조정 데이터 세트
 
-|속성|설명|
+|속성|Description|
 |---|---|
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |

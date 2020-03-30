@@ -1,19 +1,18 @@
 ---
-title: 상업적 Marketplace에서 Azure Apps 제품에 대 한 검토 피드백 처리
-description: Microsoft 파트너 센터에서 상용 Marketplace 포털을 사용 하 여 Azure Marketplace, AppSource 또는 CSP (클라우드 솔루션 공급자) 프로그램을 통해 나열 하거나 판매 하기 위해 Azure Apps 제품에 대 한 검토 피드백을 처리 하는 방법입니다.
-author: MaggiePucciEvans
-manager: evansma
-ms.author: evansma
+title: 상용 마켓플레이스에서 Azure Apps 제안에 대한 검토 피드백 처리
+description: Azure 마켓플레이스, AppSource 또는 Microsoft 파트너 센터의 상용 마켓플레이스 포털을 사용하여 CSP(클라우드 솔루션 공급자) 프로그램을 통해 Azure 앱 에 대한 검토 피드백을 처리하는 방법.
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/11/2019
-ms.openlocfilehash: 5dd74a7be95ecf92289f2a144c9c509c71ce935b
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 3932f3fc71dc6427b6cdf93d3a7bc58534a9981c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75933656"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80279796"
 ---
 # <a name="handling-review-feedback"></a>검토 피드백 처리
 
@@ -21,15 +20,15 @@ ms.locfileid: "75933656"
 
 ![피드백 프로세스 검토](./media/review-feedback-process.png)
 
-일반적으로 검토 문제는 PR(끌어오기 요청)로 참조됩니다. 문제에 대한 세부 정보를 포함하는 온라인 [Azure DevOps](https://azure.microsoft.com/services/devops/)(이전의 VSTS(Visual Studio Team Services)) 항목에 각 PR이 연결됩니다. 다음 그림은 검토 하는 동안 문제가 발견 되 면 파트너 센터 환경의 예를 보여 줍니다. 
+일반적으로 검토 문제는 PR(끌어오기 요청)로 참조됩니다. 문제에 대한 세부 정보를 포함하는 온라인 [Azure DevOps](https://azure.microsoft.com/services/devops/)(이전의 VSTS(Visual Studio Team Services)) 항목에 각 PR이 연결됩니다. 다음 이미지는 검토 중에 문제가 발견되면 파트너 센터 환경의 예를 표시합니다. 
 
 ![게시 상태](./media/publishing-status.png)
 
-제출에 대 한 특정 세부 정보를 포함 하는 PR은 "인증 보고서 보기" 링크에 설명 되어 있습니다. 복잡한 상황의 경우 검토 및 지원 팀이 메일을 보낼 수도 있습니다.
+제출에 대한 자세한 내용이 포함된 PR은 "인증 보고서 보기" 링크에 언급됩니다. 복잡한 상황의 경우 검토 및 지원 팀이 메일을 보낼 수도 있습니다.
 
-## <a name="azure-devops-access"></a>Azure DevOps 액세스
+## <a name="azure-devops-access"></a>Azure 데브옵스 액세스
 
-파트너 센터의 "개발자" 역할에 액세스할 수 있는 모든 사용자는 검토 피드백에서 참조 된 PR 항목을 볼 수 있습니다.
+파트너 센터의 "개발자" 역할에 액세스할 수 있는 모든 사용자는 검토 피드백에서 참조된 PR 항목을 볼 수 있습니다.
 
 <!---
 To view the PR items referenced in review feedback, publishers must first be granted proper authorization. Otherwise, new publishers receive a 401 - Not Authorized response page when trying to view PRs. To request access to this Azure DevOps repository, perform the following steps:
@@ -53,16 +52,16 @@ If the incident creation was successful, a confirmation page is displayed. Save 
 
 끌어오기 요청에 문서화된 문제를 검토하려면 다음 절차를 따릅니다.
 
-1. 게시 단계 양식의 **Microsoft 검토** 섹션에서 pr 링크를 클릭 하 여 브라우저를 시작 하 고이 Pr의 **개요** (홈) 페이지로 이동 합니다. 다음 이미지는 Contoso 샘플 앱 제품에 대 한 중요 한 문제 홈페이지의 예를 보여 줍니다. 이 페이지에는 Azure 앱에서 발견된 검토 문제에 대한 유용한 요약 정보가 포함되어 있습니다.
+1. 게시 단계 양식의 **Microsoft 검토** 섹션에서 PR 링크를 클릭하여 브라우저를 실행하고 이 PR의 **개요(홈)** 페이지로 이동합니다. 다음 이미지는 Contoso 샘플 앱 제공에 대한 중요한 문제 홈 페이지의 예를 설명합니다. 이 페이지에는 Azure 앱에서 발견된 검토 문제에 대한 유용한 요약 정보가 포함되어 있습니다.
 
-    [끌어오기 요청 홈 페이지를![](./media/pr-home-page-thumb.png)](./media/pr-home-page.png)
-    <br/> 펼치려면 이미지를 클릭하세요.
+    [![끌어오기 요청 홈 페이지](./media/pr-home-page-thumb.png)](./media/pr-home-page.png)
+    <br/> 펼치려면 이미지를 클릭하세요.**
 
-1. 필드 창의 오른쪽에 있는 **정책**섹션에서 문제 메시지 (이 예에서는 **정책 유효성 검사 실패**)를 클릭 하 여 관련 로그 파일을 포함 하 여 문제에 대 한 하위 수준 세부 정보를 조사 합니다. 일반적으로 오류는 로그 파일의 맨 아래에 표시됩니다.
+1. (선택 사항) 창의 오른쪽에서 **정책**섹션에서 문제 메시지(이 예: 정책 유효성 **검사 실패)를**클릭하여 관련 로그 파일을 포함하여 문제의 하위 수준 세부 정보를 조사합니다. 일반적으로 오류는 로그 파일의 맨 아래에 표시됩니다.
 1. 홈페이지의 왼쪽 메뉴에서 **파일**을 선택하여 이 제품의 기술 자산을 구성하는 목록 파일을 표시합니다. Microsoft 검토자가 발견된 심각한 문제를 설명하는 주석을 추가해 두었을 것입니다. 다음 예제에서는 두 가지 문제가 발견되었습니다.
 
-    [끌어오기 요청 홈 페이지를![](./media/pr-files-page-thumb.png)](./media/pr-files-page.png)
-    <br/> 펼치려면 이미지를 클릭하세요.
+    [![끌어오기 요청 홈 페이지](./media/pr-files-page-thumb.png)](./media/pr-files-page.png)
+    <br/> 펼치려면 이미지를 클릭하세요.**
 
 1. 왼쪽 트리에서 각 주석 노드를 클릭하여 주변 코드 컨텍스트의 주석으로 이동합니다. 팀 프로젝트의 소스 코드를 수정하여 주석에서 설명된 문제를 해결합니다.
 

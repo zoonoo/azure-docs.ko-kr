@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: jeedes
 ms.openlocfilehash: 2149b8410104b39652b176895a31b42e094265f5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67100099"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insideview"></a>자습서: InsideView와 Azure Active Directory 통합
@@ -35,7 +35,7 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 InsideView와 Azure AD의 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -92,7 +92,7 @@ InsideView에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
     ![Single Sign-On 선택](common/select-sso.png)
 
-2. **Single Sign-On 방법 선택** 대화 상자에서 **SAML/WS-Fed** 모드를 선택하여 Single Sign-On을 사용하도록 설정합니다.
+2. **Single Sign-On 선택 방법** 대화 상자에서 **SAML/WS-Fed** 모드를 선택하여 Single Sign-On을 사용하도록 설정합니다.
 
     ![Single Sign-On 방법 선택](common/select-saml-option.png)
 
@@ -131,11 +131,11 @@ InsideView에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
 1. 창 위쪽에서 **Admin**(관리자), **SingleSignOn Settings**(SingleSignOn 설정), **Add SAML**(SAML 추가)을 차례로 선택합니다.
    
-   ![SAML Single Sign-On 설정](./media/insideview-tutorial/ic794135.png "SAML Single Sign-On 설정")
+   ![SAML Singl Sign On 설정](./media/insideview-tutorial/ic794135.png "SAML Singl Sign On 설정")
 
 1. **Add a New SAML**(새 SAML 추가) 섹션에서 다음 단계를 수행합니다.
 
-    ![Add a New SAML 섹션](./media/insideview-tutorial/ic794136.png "Add a New SAML 섹션")
+    ![새 SAML 섹션 추가](./media/insideview-tutorial/ic794136.png "새 SAML 섹션 추가")
 
     1. **STS Name**(STS 이름) 상자에서 구성 이름을 입력합니다.
 
