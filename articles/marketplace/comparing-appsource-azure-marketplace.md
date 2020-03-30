@@ -1,20 +1,18 @@
 ---
 title: AppSource와 Azure Marketplace 비교 | Azure
 description: 이 문서에서는 Microsoft AppSource와 Azure Marketplace의 상점을 설명합니다.
-services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: jm-aditi-ms
-manager: pabutler
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/05/2018
-ms.author: ellacroi
-ms.openlocfilehash: 1e1ce36fa29000b5d8dd82a31278f390144384e2
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: c07bba7340a1934fc422598c798022602e7c046a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825988"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80281615"
 ---
 # <a name="comparing-appsource-and-the-azure-marketplace"></a>AppSource와 Azure Marketplace 비교
 [Azure Marketplace](https://azuremarketplace.microsoft.com) 및 [Microsoft AppSource](https://appsource.microsoft.com)의 상점은 고유한 고객 요구에 맞춰 서비스합니다. 상점을 사용하여 역할별로 대상 고객을 지정할 수 있습니다. 사용자는 고객에 따라 적합한 솔루션 또는 서비스를 제공할 수 있습니다.
@@ -28,13 +26,13 @@ ms.locfileid: "73825988"
  
 다음 표에서는 상점 사용의 이점에 대해 설명합니다.
 
-| 혜택 | Azure Marketplace | AppSource | 
+| 이점 | Azure Marketplace | AppSource | 
 |:--- |:--- | :--- |
-| **청구 유연성** | Azure Marketplace은 무료, 평가판, BYOL 및 불가능 제품 형식을 지원 합니다. 불가능 제안은 소비 기반 또는 구독 기반입니다. 소비 기반 제품은 시간별 사용량에 따라 청구 되며 초기 무료 기간을 제공할 수 있습니다. 구독 기반 서비스는 사용자 단위 또는 정액 요금으로 매월 또는 매년 청구 됩니다.| AppSource는 free, 체험, BYOL 및 불가능 제품 유형을 지원 합니다. 불가능 제품은 사용자 단위 또는 정액 요금으로 매월 또는 매년 청구 될 수 있는 구독 기반 SaaS 제품입니다. |
+| **청구 유연성** | Azure Marketplace는 무료, 평가판, BYOL 및 거래 가능한 오퍼 유형을 지원합니다. 거래 가능한 오퍼는 소비 기반 또는 구독 기반입니다. 소비 기반 오퍼는 시간당 사용량에 따라 청구되며 초기 무료 기간을 제공할 수 있습니다. 구독 기반 서비스는 시트당 또는 고정 요금으로 매월 또는 연간 청구됩니다.| AppSource는 무료, 평가판, BYOL 및 거래 가능한 오퍼 유형을 지원합니다. 거래 가능한 혜택은 구독 기반 SaaS 제품으로, 시트당 또는 정액 요금으로 매월 또는 연간 청구할 수 있습니다. |
 |**다른 파트너와의 연결**  | 현재는 서비스 공급자 또는 배달 파트너를 자신의 제품에 연결할 수 없습니다. | 특정 구현 시나리오에서 독립 소프트웨어 공급업체, 시스템 통합업체 및 관리되는 서비스 공급업체로 연결됩니다. 공동으로 새 고객에게 판매할 수 있습니다. |
 | **Automation** | 현재는 서비스 공급자 또는 배달 파트너를 자신의 제품에 연결할 수 없습니다. 추가 기능 프로비전과 함께 자동화된 SaaS(Software as a Service)를 활용합니다. Azure 앱: 솔루션 템플릿 게시 옵션을 사용하여 SaaS 기반 데이터 수집 및 배포 시나리오를 자동화합니다. | 특정 구현 시나리오에서 독립 소프트웨어 공급업체, 시스템 통합업체 및 관리되는 서비스 공급업체로 연결됩니다. 공동으로 새 고객에게 판매할 수 있습니다. |
-| **다중 클라우드 유형** | 다음과 같은 형식을 사용하여 퍼블릭 클라우드 및 온-프레미스 둘 다를 위한 솔루션을 게시합니다.<ul> <li>Azure Stack</li> <li>Azure Government</li> <li>중국 및 독일을 포함하는 지역별 클라우드</li></ul> | 현재 Azure Stack, Azure Government 또는 지역별 클라우드를 지원하지 않습니다. |
-| **고객의 상황에 맞는 제품 제공** | 상황별 검색을 위해 Azure Portal 내 환경에서 사용자 솔루션을 사용하도록 할 수 있습니다. 가상 머신 및 Azure 앱 사용: 솔루션 템플릿 게시 옵션 | Microsoft 제품(예: Dynamics 365, Power BI 및 Office 365)에 대한 인앱 환경을 통해 더 많은 고객에게 연결합니다. |
+| **여러 클라우드 유형** | 다음과 같은 형식을 사용하여 퍼블릭 클라우드 및 온-프레미스 둘 다를 위한 솔루션을 게시합니다.<ul> <li>Azure Stack</li> <li>Azure Government</li> <li>중국 및 독일을 포함하는 지역별 클라우드</li></ul> | 현재 Azure Stack, Azure Government 또는 지역별 클라우드를 지원하지 않습니다. |
+| **고객에게 컨텍스트 내 프레젠테이션** | 상황별 검색을 위해 Azure Portal 내 환경에서 사용자 솔루션을 사용하도록 할 수 있습니다. 가상 머신 및 Azure 앱 사용: 솔루션 템플릿 게시 옵션 | Microsoft 제품(예: Dynamics 365, Power BI 및 Office 365)에 대한 인앱 환경을 통해 더 많은 고객에게 연결합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 *   [Azure Marketplace 및 AppSource 게시 가이드](./marketplace-publishers-guide.md)를 검토합니다.

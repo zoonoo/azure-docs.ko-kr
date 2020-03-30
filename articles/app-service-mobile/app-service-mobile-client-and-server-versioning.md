@@ -1,17 +1,17 @@
 ---
 title: 클라이언트 및 서버 SDK 버전 관리
-description: Mobile Services 및 Azure Mobile Apps에 대 한 클라이언트 Sdk 및 서버 SDK 버전과의 호환성을 나열 합니다.
+description: 클라이언트 SDK 목록 및 모바일 서비스 및 Azure 모바일 앱용 서버 SDK 버전과의 호환성입니다.
 ms.assetid: 35b19672-c9d6-49b5-b405-a6dcd1107cd5
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
-ms.openlocfilehash: f24ae0a48b835785a2e000210f3609b82d42d0f6
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: a9ba442c00ec2498139ee34a1ff7497c98f17ede
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77461558"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80293478"
 ---
 # <a name="client-and-server-versioning-in-mobile-apps-and-mobile-services"></a>Mobile Apps 및 Mobile Services에서 클라이언트 및 서버 버전 관리
 
@@ -20,18 +20,18 @@ Azure Mobile Services의 최신 버전은 Azure App Service의 **Mobile Apps** �
 Mobile Apps 클라이언트 및 서버 SDK는 원래 Mobile Services를 기반으로 하지만 서로 호환되지 *않습니다* .
 즉, *Mobile Apps* 서버 SDK 및 마찬가지로 *Mobile Services*를 사용하는 *Mobile Apps* 클라이언트 SDK를 사용해야 합니다. 이 계약은 클라이언트 및 서버 SDK인 `ZUMO-API-VERSION`에서 사용하는 특별한 헤더 값을 통해 적용됩니다.
 
-참고: 이 문서가 *Mobile Services* 백 엔드를 참조할 때마다 반드시 Mobile Services에서 호스팅해야 할 필요는 없습니다. 이제 코드를 변경하지 않고 App Service에서 실행되도록 Mobile Services를 마이그레이션할 수 있지만 서비스는 *Mobile Services* SDK 버전을 사용합니다.
+참고: 이 문서가 *Mobile Services* 백 엔드를 참조할 때마다 반드시 Mobile Services에서 호스팅해야 할 필요는 없습니다. 이제 코드 변경 없이 앱 서비스에서 실행되도록 모바일 서비스를 마이그레이션할 수 있지만 서비스는 여전히 *모바일 서비스* SDK 버전을 사용하고 있습니다.
 
 ## <a name="header-specification"></a>헤더 사양
 키 `ZUMO-API-VERSION` 는 HTTP 헤더 또는 쿼리 문자열에 지정될 수 있습니다. 값은 **x.y.z**형식의 버전 문자열입니다.
 
-다음은 그 예입니다.
+예를 들어:
 
-GET https://service.azurewebsites.net/tables/TodoItem
+`GET https://service.azurewebsites.net/tables/TodoItem`
 
 HEADERS: ZUMO-API-VERSION: 2.0.0
 
-POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
+`POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0`
 
 ## <a name="opting-out-of-version-checking"></a>버전 확인 건너뛰기
 앱 설정 **MS_SkipVersionCheck**에 대한 **true** 값을 설정하여 버전 확인을 건너뛸 수 있습니다. Web.config 또는 Azure Portal의 애플리케이션 설정 섹션에서 이를 지정합니다.
@@ -39,8 +39,8 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 > [!NOTE]
 > 오프라인 동기화, 인증 및 푸시 알림 영역에서 특히 Mobile Services와 Mobile Apps 간의 많은 동작 변경 사항이 있습니다. 이러한 동작 변경이 앱의 기능을 중단하지 않도록 테스트를 완료한 후에 버전 확인을 옵트아웃해야 합니다.
 
-## <a name="2.0.0"></a>Azure Mobile Apps 클라이언트 및 서버
-### <a name="MobileAppsClients"></a> Mobile *Apps* 클라이언트 SDK
+## <a name="azure-mobile-apps-client-and-server"></a><a name="2.0.0"></a>Azure Mobile Apps 클라이언트 및 서버
+### <a name="mobile-apps-client-sdks"></a><a name="MobileAppsClients"></a>모바일 *앱* 클라이언트 SDK
 버전 확인은 **Azure Mobile Apps**에 대한 클라이언트 SDK의 다음 버전부터 도입됩니다.
 
 | 클라이언트 플랫폼 | 버전 | 버전 헤더 값 |

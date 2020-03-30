@@ -1,15 +1,15 @@
 ---
 title: Azure Blockchain Service 개요
 description: Azure Blockchain Service 개요
-ms.date: 11/21/2019
+ms.date: 03/12/2020
 ms.topic: overview
-ms.reviewer: janders
-ms.openlocfilehash: 55e1be191b21c7c66b013f70d83fe6c046488e05
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.reviewer: ravastra
+ms.openlocfilehash: b9f5deb501fb93327fa5d5cfcfd5bb583ed6135e
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75387380"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79205079"
 ---
 # <a name="what-is-azure-blockchain-service"></a>Azure Blockchain Service란?
 
@@ -29,7 +29,7 @@ Azure Blockchain Service는 Azure Portal이나 Azure CLI를 통해 배포할 수
 
 ### <a name="performance-and-service-tiers"></a>성능 및 서비스 계층
 
-Azure Blockchain Service는 두 가지 서비스 계층인 *기본* 및 *표준*을 제공합니다. 각 계층은 경량 개발 및 테스트 워크로드에서 대규모로 확장된 프로덕션 블록체인 배포까지 지원할 수 있는 다양한 성능 및 기능을 제공합니다. 두 계층 모두 하나 이상의 트랜잭션 노드와 하나의 유효성 검사기 노드(기본) 또는 두 개의 유효성 검사기 노드(표준)를 포함합니다.
+Azure Blockchain Service는 두 가지 서비스 계층인 *기본* 및 *표준*을 제공합니다. 각 계층은 경량 개발 및 테스트 워크로드에서 대규모로 확장된 프로덕션 블록체인 배포까지 지원할 수 있는 다양한 성능 및 기능을 제공합니다. 개발, 테스트 및 개념 증명에 *기본* 계층을 사용합니다. 프로덕션 등급 배포에 *표준* 계층을 사용합니다. 두 계층 모두 하나 이상의 트랜잭션 노드와 하나의 유효성 검사기 노드(기본) 또는 두 개의 유효성 검사기 노드(표준)를 포함합니다. 
 
 ![가격 책정 계층](./media/overview/pricing-tiers.png)
 

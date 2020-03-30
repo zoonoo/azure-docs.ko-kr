@@ -4,12 +4,12 @@ description: 요청을 인증하고 Azure Monitor REST API를 사용하여 사�
 ms.subservice: metrics
 ms.topic: conceptual
 ms.date: 03/19/2018
-ms.openlocfilehash: 42a7034c586f4e01066e989dcb2b9fae4eebfa85
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: f52776fc6b5f5f530cc368a2f148a2ff63fb5b40
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79248555"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294632"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Azure Monitoring REST API 연습
 
@@ -84,7 +84,7 @@ $authHeader = @{
 2. 메트릭 값 검색
 
 > [!NOTE]
-> Azure REST API을 사용 하 여 인증 하는 방법에 대 한 자세한 내용은 [azure REST API 참조](https://docs.microsoft.com/rest/api/azure/)를 참조 하세요.
+> Azure REST API를 사용하여 인증하는 방법에 대한 자세한 내용은 [Azure REST API 참조를](https://docs.microsoft.com/rest/api/azure/)참조하십시오.
 >
 >
 
@@ -94,7 +94,7 @@ $authHeader = @{
 
 **메서드**: GET
 
-**요청 URI**: https:\/\/Management.azure.com/subscriptions/ *{subscriptionId}* /Stgg/ *{ResourceGroupName}* /providers/ *{resourceprovidernamespace}* / *{resourceType* }/ *{context.resourcename}* /providers/microsoft.insights/metricdefinitions? api-version? api-version = *{apiVersion}*
+**요청 URI**:\/\/https :*management.azure.com/subscriptions/ {subscriptionId}*/ 리소스 그룹 /*{resourceGroupName} / {resourceGroupName}*/*{resourceProviderNamespace}*/*{resourceType}*/*{resourceName} {resourceName}*/공급자/microsoft.insights/metricDefinitions?api-version=*{api-version}*
 
 예를 들어 Azure Storage 계정의 메트릭 정의를 검색하기 위해 요청이 다음과 같이 표시됩니다.
 
@@ -238,7 +238,7 @@ Invoke-RestMethod -Uri $request `
 
 **메서드**: GET
 
-**요청 URI**: https\://management.azure.com/subscriptions/ *{subscription-id}* /stgg// *{* /providers/ *}/providers/microsoft.insights/metrics {* resource-name}/{*resource-* *name*}? metricnames = *{metric}* & Timespan = *{starttime/endtime}* & $filter = *{filter}* & resultType = 메타 데이터 & api-version = *{ apiVersion}*
+**요청 URI**\:: https //management.azure.com/subscriptions/*{구독 id}*/resourceGroups/{resource-group-name} /provider/{resource-provider-namespace}/*{resource-group-name}*/*{리소스-이름} {리소스-이름/{리소스 유형}**{resource-provider-namespace}*{리소스-이름/microsoft.insights/메트릭?metricname=*{메트릭}*&시간 범위=*{시작 시간/종료 시간]*&$filter =*{필터}*&결과&=*{resource-name}**api aapia }*
 
 예를 들어 지정된 시간 범위 동안 GeoType dimension = 'Primary'인 'API Name dimension'에 대해 내보내진 차원의 값 목록을 검색하기 위해 요청은 다음과 같을 수 있습니다.
 
@@ -311,7 +311,7 @@ Invoke-RestMethod -Uri $request `
 
 **메서드**: GET
 
-**Request URI**: https://management.azure.com/subscriptions/ *{subscription-id}* /resourceGroups/ *{resource-group-name}* /providers/ *{resource-provider-namespace}* / *{resource-type}* / *{resource-name}* /providers/microsoft.insights/metrics?metricnames= *{metric}* &timespan= *{starttime/endtime}* &$filter= *{filter}* &interval= *{timeGrain}* &aggregation= *{aggreation}* &api-version= *{apiVersion}*
+**요청**URI https://management.azure.com/subscriptions/: *{구독 id}*/ 리소스 그룹 / 리소스 그룹 /*{자원 그룹 이름 }*{ 자원 - 그룹 - 이름 /*{자원 - 공급자 - 네임 스페이스 }*/*{자원 유형} {자원 유형}*/*{자원 이름} {자원 이름} {자원 이름} {자원 이름} {자원 이름}**{메트릭= {메트릭}*&시간 범위 =*{시작 시간/종료 시간}*&$filter =*{필터}*&구간=*{timeGrain}*&*&* 집계= {시간]* apiVersion}*
 
 예를 들어 GeotType이 'Primary'였던 5분 범위 동안 'Transactions' 수에 의한 내림차순 값에서 상위 3개의 API를 검색하기 위해 요청은 다음과 같습니다.
 
@@ -390,7 +390,7 @@ Invoke-RestMethod -Uri $request `
 
 **메서드**: GET
 
-**요청 URI**: https:\/\/Management.azure.com/subscriptions/ *{subscriptionId}* /Stgg/ *{ResourceGroupName}* /providers/ *{resourceprovidernamespace}* / *{resourceType* }/ *{context.resourcename}* /providers/microsoft.insights/metricdefinitions? api-version? api-version = *{apiVersion}*
+**요청 URI**:\/\/https :*management.azure.com/subscriptions/ {subscriptionId}*/ 리소스 그룹 /*{resourceGroupName} / {resourceGroupName}*/*{resourceProviderNamespace}*/*{resourceType}*/*{resourceName} {resourceName}*/공급자/microsoft.insights/metricDefinitions?api-version=*{api-version}*
 
 예를 들어 Azure Logic App의 메트릭 정의를 검색하기 위해 요청이 다음과 같이 표시됩니다.
 
@@ -463,7 +463,7 @@ Invoke-RestMethod -Uri $request `
 
 **메서드**: GET
 
-**Request URI**: https://management.azure.com/subscriptions/ *{subscription-id}* /resourceGroups/ *{resource-group-name}* /providers/ *{resource-provider-namespace}* / *{resource-type}* / *{resource-name}* /providers/microsoft.insights/metrics?$filter= *{filter}* &api-version= *{apiVersion}*
+**요청 URI**:`https://management.azure.com/subscriptions/\*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?$filter=*{filter}*&api-version=*{apiVersion}*`
 
 예를 들어, 주어진 범위와 시간 조직 1시간에 대해 RunsSucceeded 메트릭 데이터를 검색하려면 요청은 다음과 같습니다.
 
@@ -601,13 +601,13 @@ REST API를 사용하면 사용 가능한 메트릭 정의, 세분성, 관련 �
 
 다음 목록은 다양한 Azure 리소스에 대한 리소스 ID 형식의 몇 가지 예입니다.
 
-* **IoT Hub** - /subscriptions/ *{subscription-id}* /resourceGroups/ *{resource-group-name}* /providers/Microsoft.Devices/IotHubs/ *{iot-hub-name}*
-* **탄력적인 SQL 풀** - /subscriptions/ *{subscription-id}* /resourceGroups/ *{resource-group-name}* /providers/Microsoft.Sql/servers/ *{pool-db}* /elasticpools/ *{sql-pool-name}*
-* **SQL Database(v12)** - /subscriptions/ *{subscription-id}* /resourceGroups/ *{resource-group-name}* /providers/Microsoft.Sql/servers/ *{server-name}* /databases/ *{database-name}*
-* **Service Bus** - /subscriptions/ *{subscription-id}* /resourceGroups/ *{resource-group-name}* /providers/Microsoft.ServiceBus/ *{namespace}* / *{servicebus-name}*
-* **가상 머신 확장 집합** - /subscriptions/ *{subscription-id}* /resourceGroups/ *{resource-group-name}* /providers/Microsoft.Compute/virtualMachineScaleSets/ *{vm-name}*
-* **VM** - /subscriptions/ *{subscription-id}* /resourceGroups/ *{resource-group-name}* /providers/Microsoft.Compute/virtualMachines/ *{vm-name}*
-* **Event Hubs** - /subscriptions/ *{subscription-id}* /resourceGroups/ *{resource-group-name}* /providers/Microsoft.EventHub/namespaces/ *{eventhub-namespace}*
+* **IoT Hub** - /subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/Microsoft.Devices/IotHubs/*{iot-hub-name}*
+* **탄력적인 SQL 풀** - /subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/Microsoft.Sql/servers/*{pool-db}*/elasticpools/*{sql-pool-name}*
+* **SQL Database(v12)** - /subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/Microsoft.Sql/servers/*{server-name}*/databases/*{database-name}*
+* **Service Bus** - /subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/Microsoft.ServiceBus/*{namespace}*/*{servicebus-name}*
+* **가상 머신 확장 집합** - /subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/Microsoft.Compute/virtualMachineScaleSets/*{vm-name}*
+* **VM** - /subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/Microsoft.Compute/virtualMachines/*{vm-name}*
+* **Event Hubs** - /subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/Microsoft.EventHub/namespaces/*{eventhub-namespace}*
 
 Azure Resource Explorer 등, 다른 방법으로 리소스 ID를 검색하고 Azure 포털과 PowerShell 또는 Azure CLI를 통해 원하는 리소스를 확인할 수 있습니다.
 
@@ -653,7 +653,7 @@ Version        : 08586982649483762729
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Azure CLI를 사용 하 여 Azure Storage 계정에 대 한 리소스 ID를 검색 하려면 다음 예제와 같이 `az storage account show` 명령을 실행 합니다.
+Azure CLI를 사용하여 Azure Storage 계정에 대한 리소스 `az storage account show` ID를 검색하려면 다음 예제와 같이 명령을 실행합니다.
 
 ```azurecli
 az storage account show -g azmon-rest-api-walkthrough -n contosotweets2017

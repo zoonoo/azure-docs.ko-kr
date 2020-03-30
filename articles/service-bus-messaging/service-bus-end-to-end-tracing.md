@@ -1,6 +1,6 @@
 ---
 title: Azure Service Bus 엔드투엔드 추적 및 진단 | Microsoft Docs
-description: Service Bus 클라이언트 진단 및 종단 간 추적 (처리에 관련 된 모든 서비스를 통해 클라이언트)에 대 한 개요입니다.
+description: Service Bus 클라이언트 진단 및 종단 간 추적 개요(처리에 관련된 모든 서비스를 통해 클라이언트)
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: a184e76faa89199d3e13ece3e17f94f73d995a12
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 7c2efc9c736097873201505f280af5d47bed4847
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76760269"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294163"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Service Bus 메시징을 통한 분산 추적 및 상관관계
 
@@ -30,12 +30,12 @@ ms.locfileid: "76760269"
 Microsoft Azure Service Bus 메시징에는 생산자와 소비자가 이러한 추적 컨텍스트를 전달하는 데 사용하는 페이로드 속성이 정의되어 있습니다.
 프로토콜은 [HTTP 상관관계 프로토콜](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md)을 기반으로 합니다.
 
-| 속성 이름        | Description                                                 |
+| 속성 이름        | 설명                                                 |
 |----------------------|-------------------------------------------------------------|
 |  Diagnostic-Id       | 큐에 대한 생산자의 외부 호출 고유 식별자입니다. 이유, 고려 사항 및 형식은 [HTTP 프로토콜의 Request-Id](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#request-id)를 참조하세요. |
 |  Correlation-Context | 작업 처리에 관련된 모든 서비스에 전파되는 작업 컨텍스트입니다. 자세한 내용은 [HTTP 프로토콜의 Correlation-Context](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#correlation-context)를 참조하세요. |
 
-## <a name="service-bus-net-client-auto-tracing"></a>Service Bus .NET 클라이언트 자동 추적
+## <a name="service-bus-net-client-autotracing"></a>서비스 버스 .NET 클라이언트 자동 추적
 
 버전 3.0.0부터 [Microsoft Azure ServiceBus Client for .NET](/dotnet/api/microsoft.azure.servicebus.queueclient)은 추적 시스템 또는 클라이언트 코드 조각에서 연결할 수 있는 추적 계측 지점을 제공합니다.
 계측을 사용하면 클라이언트 쪽에서 모든 Service Bus 메시징 서비스 호출을 추적할 수 있습니다. [메시지 처리기 패턴](/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler)을 사용하여 메시지 처리를 완료하면 메시지 처리도 계측됩니다.
@@ -84,6 +84,12 @@ async Task ProcessAsync(Message message)
 또한 메시지 처리 중에 보고된 중첩된 추적 및 예외에 `RequestTelemetry`의 ‘하위’로 표시되는 상관관계 속성을 사용하여 스탬프가 지정됩니다.
 
 메시지 처리 중에 지원되는 외부 구성 요소를 호출하는 경우 해당 구성 요소도 자동으로 추적되고 상호 연결됩니다. 수동 추적 및 상관관계는 [Application Insights .NET SDK를 사용하여 사용자 지정 작업 추적](../azure-monitor/app/custom-operations-tracking.md)을 참조하세요.
+
+응용 프로그램 인사이트 SDK 외에 외부 코드를 실행하는 경우 응용 프로그램 인사이트 로그를 볼 때 더 긴 **기간이** 있을 것으로 예상됩니다. 
+
+![애플리케이션 인사이트 로그에서 더 긴 기간](./media/service-bus-end-to-end-tracing/longer-duration.png)
+
+메시지를 받는 데 지연이 있음을 의미하지는 않습니다. 이 시나리오에서는 메시지가 SDK 코드에 매개 변수로 전달 되기 때문에 메시지가 이미 수신 되었습니다. 또한 앱 인사이트 로그(Process)의 **이름** 표는 메시지가 이제 외부 이벤트 처리 코드에서 처리되고 있음을 나타냅니다.**Process** 이 문제는 Azure와 관련이 없습니다. 대신 이러한 메트릭은 서비스가 이미 서비스 버스에서 메시지를 받은 경우 외부 코드의 효율성을 참조합니다. 서비스 버스에서 메시지를 받은 후 **프로세스** 태그가 생성되고 할당된 위치를 보려면 [GitHub에서 이 파일을](https://github.com/Azure/azure-sdk-for-net/blob/4bab05144ce647cc9e704d46d3763de5f9681ee0/sdk/servicebus/Microsoft.Azure.ServiceBus/src/ServiceBusDiagnosticsSource.cs) 참조하십시오. 
 
 ### <a name="tracking-without-tracing-system"></a>추적 시스템 없이 추적
 추적 시스템이 자동 Service Bus 호출 추적을 지원하지 않는 경우 추적 시스템 또는 애플리케이션에 해당 지원을 추가하는 것이 좋습니다. 이 섹션에서는 Service Bus .NET 클라이언트가 보내는 진단 이벤트에 대해 설명합니다.  
@@ -141,7 +147,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 
 #### <a name="events"></a>이벤트
 
-각 작업에 대해 두 개의 이벤트(‘Start’ 및 ‘Stop’)가 전송됩니다. 대체로 ‘Stop’ 이벤트에만 관심이 있습니다. 이 이벤트는 작업 결과, 시작 시간 및 지속 기간을 활동 속성으로 제공합니다.
+각 작업에 대해 두 개의 이벤트(‘Start’ 및 ‘Stop’)가 전송됩니다. 대체로 ‘Stop’ 이벤트에만 관심이 있습니다. 작업 결과뿐만 아니라 활동 속성으로 시작 시간 및 기간을 제공합니다.
 
 이벤트 페이로드는 수신기에 작업 컨텍스트를 제공하며 API 수신 매개 변수 및 반환 값을 복제합니다. ‘Stop’ 이벤트 페이로드에 ‘Start’ 이벤트 페이로드의 모든 속성이 있으므로 ‘Start’ 이벤트는 완전히 무시해도 됩니다.
 

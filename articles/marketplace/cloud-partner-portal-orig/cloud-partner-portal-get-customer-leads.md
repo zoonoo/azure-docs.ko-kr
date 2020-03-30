@@ -1,19 +1,18 @@
 ---
-title: 고객 리드 구성 | Azure Marketplace
+title: 고객 잠재 고객 구성 | Azure 마켓플레이스
 description: 클라우드 파트너 포털에서 잠재 고객을 구성하는 방법을 설명합니다.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.author: pabutler
-ms.openlocfilehash: 312e172321c25248f1b0801bdbccf71762319989
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 56012fb2a907a6db6f87554660ee36b99a3dcbf9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818821"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280323"
 ---
 <a name="get-customer-leads"></a>리드 가져오기
 ==================
@@ -26,7 +25,7 @@ ms.locfileid: "73818821"
 
 ### <a name="azure-marketplace"></a>Azure Marketplace
 
-1.  고객이 제품을 “시험 사용”해 봅니다. 시험 사용은 진입 장벽 없이 회사와 잠재 고객을 즉시 공유할 수 있는 신속한 기회입니다. 모든 시험 사용에서는 제품에 대해 더 자세히 알아보려는 잠재 고객이 생성됩니다. [Azure Marketplace 시험 사용](https://azuremarketplace.azureedge.net/documents/azure-marketplace-test-drive-program.pdf)에서 시험 사용에 대해 자세히 알아보세요.
+1.  고객이 제품을 “시험 사용”해 봅니다. 시험 사용은 진입 장벽 없이 회사와 잠재 고객을 즉시 공유할 수 있는 신속한 기회입니다. 모든 시험 사용에서는 제품에 대해 더 자세히 알아보려는 잠재 고객이 생성됩니다. [Azure 마켓플레이스 테스트 드라이브에서](https://azuremarketplace.azureedge.net/documents/azure-marketplace-test-drive-program.pdf)테스트 드라이브에 대해 자세히 알아보십시오.
 
     ![Marketplace 시험 사용 예제](./media/cloud-partner-portal-get-customer-leads/test-drive-offer.png)
  
@@ -64,20 +63,20 @@ ms.locfileid: "73818821"
 
 ### <a name="lead-source"></a>잠재 고객 확보 기회
 
-잠재 고객 확보 기회의 형식은 **확보 기회**-**작업** |  **제품**입니다.
+잠재 고객 소스의 형식은 **소스**-**작업** |  **제안입니다.**
 
 **확보 기회**: "AzureMarketplace", "AzurePortal", "TestDrive" 및 "AppSource(SPZA)"
 
-**작업**:
+**동작**:
 - "INS" -- 설치. 고객이 제품을 구매할 때 Azure Marketplace 또는 AppSource에서 이 작업이 수행됩니다.
 - "PLT" -- Partner Led Trial(파트너 진행 체험)의 약어. 고객이가 문의처 옵션을 사용할 때 AppSource에서 이 작업이 수행됩니다.
 - "DNC" -- Do Not Contact(연락 안 함)의 약어. 앱 페이지에서 교차 목록에 올라 있는 파트너가 연락 요청을 받으면 AppSource에서 이 작업이 수행됩니다. 이 고객이 앱의 교차 목록에 올라 있다는 사실을 공유하지만 고객에게 연락할 필요는 없습니다.
 - “Create” -- 이 작업은 Azure Portal 내에서만 수행되며, 고객이 자신의 계정에서 제품을 구매하면 생성됩니다.
 - “StartTestDrive” -– 이 작업은 시험 사용 시에만 수행되며, 고객이 시험 사용을 시작할 때 생성됩니다.
 
-**제품**
+**제공**
 
-다음 예에서는 게시자 및 특정 제안에 할당 된 고유 식별자를 보여 줍니다. r77-10sg-byol, bitnami 및 docusign.
+다음 예제에서는 게시자 및 특정 오퍼에 할당된 고유 식별자를 보여 준다: checkpoint.check-point-r77-10sg-byol, bitnami.openedxcypress 및 docusign.3701c77e-1cfa-41e6-3ed0b62145a.
 
 
 ### <a name="customer-info"></a>고객 정보
@@ -116,4 +115,4 @@ Microsoft는 리드 향상에 적극적으로 노력하고 있으며, 여기에 
 <a name="what-next"></a>다음 단계
 ----------
 
-기술 설정이 완료되면 이러한 리드를 현재 영업 및 마케팅 전략과 운영 프로세스에 통합해야 합니다. Microsoft는 전반적인 판매 프로세스를 보다 잘 이해하고 고품질 리드와 충분한 데이터를 제공하여 궁극적으로는 고객이 성공하도록 지원하기 위해 노력하고 있습니다. 이렇게 고객의 성공을 지원할 수 있도록, 추가 데이터를 제공하여 리드를 최적화하고 향상시킬 수 있는 방법에 대한 의견을 환영합니다. 영업 팀이 Marketplace 잠재 고객을 더 많이 확보하는 데 도움이 되는 [피드백과 제안 사항을 제공](mailto:AzureMarketOnboard@microsoft.com)하려면 전자 메일을 보내 주시기 바랍니다.
+기술 설정이 완료되면 이러한 리드를 현재 영업 및 마케팅 전략과 운영 프로세스에 통합해야 합니다. Microsoft는 전반적인 판매 프로세스를 보다 잘 이해하고 고품질 리드와 충분한 데이터를 제공하여 궁극적으로는 고객이 성공하도록 지원하기 위해 노력하고 있습니다. 이렇게 고객의 성공을 지원할 수 있도록, 추가 데이터를 제공하여 리드를 최적화하고 향상시킬 수 있는 방법에 대한 의견을 환영합니다. 영업 팀이 마켓플레이스 잠재 고객을 보다 성공적으로 수행할 수 있도록 [피드백과](mailto:AzureMarketOnboard@microsoft.com) 제안을 제공하는 데 관심이 있으시면 알려주세요.

@@ -1,19 +1,18 @@
 ---
-title: Marketo에서 리드 관리 구성 | Azure Marketplace
-description: Azure marketplace 고객에 대 한 Marketo에 대 한 리드 관리를 구성 합니다.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+title: Marketo에서 잠재 고객 관리 구성 | Azure 마켓플레이스
+description: Azure 마켓플레이스 고객을 위한 Marketo에 대한 잠재 고객 관리를 구성합니다.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.author: pabutler
-ms.openlocfilehash: 7949507c8c7ef57cded25cde8579c1945aa93a81
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 9fa05eae2d297cbd6ae7243d191cae5a7a3f990e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825210"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288532"
 ---
 # <a name="configure-lead-management-in-marketo"></a>Marketo의 잠재 고객 관리 구성
 
@@ -42,7 +41,7 @@ ms.locfileid: "73825210"
 `<script src="//app-ys12.marketo.com/js/forms2/js/forms2.min.js"></script>`
 
     <form id="mktoForm_1179"></form>
-    <script>MktoForms2.loadForm("("//app-ys12.marketo.com", "123-PQR-789", 1179);</script>
+    <script>MktoForms2.loadForm("//app-ys12.marketo.com", "123-PQR-789", 1179);</script>
 
 1. 클라우드 파트너 포털의 Marketo 필드에서 **서버 ID**, **Munchkin ID** 및 **양식 ID**를 구성할 수 있도록 embed 태그에 표시된 값을 복사합니다.
 
@@ -50,4 +49,4 @@ ms.locfileid: "73825210"
 
 - 서버 ID = **ys12**
 - Munchkin ID = **123-PQR-789**
-- 양식 ID = **1179**\
+- 양식 ID = **1179**

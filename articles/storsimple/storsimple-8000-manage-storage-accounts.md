@@ -1,5 +1,5 @@
 ---
-title: 저장소 계정 자격 증명, StorSimple 8000 시리즈 장치 관리
+title: 스토리지 계정 자격 증명 관리, StorSimple 8000 시리즈 장치
 description: StorSimple 디바이스 관리자 구성 페이지를 사용하여 스토리지 계정에 대한 보안 키를 추가, 편집, 삭제 또는 회전하는 방법을 설명합니다.
 services: storsimple
 documentationcenter: NA
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
-ms.openlocfilehash: 11bc97be7ff8d924f7ccd0b4672a8f4cb0a178ff
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 65aa83731be97b59a36a5baf60ea308690a0dcf8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79254860"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80297740"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-your-storage-account-credentials"></a>StorSimple 디바이스 관리자 서비스를 사용하여 스토리지 계정 자격 증명 관리
 
@@ -39,9 +39,9 @@ Storage 계정에는 StorSimple 디바이스가 클라우드 서비스 공급자
 
 **Storage 계정 자격 증명** 블레이드에는 청구 구독에 대해 만들어진 모든 Storage 계정이 다음 정보를 포함하여 테이블 형식으로 표시됩니다.
 
-* **이름** – 만들어졌을 때 계정에 할당된 고유 이름입니다.
-* **SSL 사용** – SSL 사용 및 디바이스와 클라우드 사이의 통신이 보안 채널을 통해 이루어지는지 여부입니다.
-* **사용 볼륨** – 스토리지 계정을 사용하는 볼륨의 수입니다.
+* **이름** – 계정을 만들 때 계정에 할당된 고유한 이름입니다.
+* **SSL 사용** - TLS가 활성화되어 있는지 여부와 장치-클라우드 통신이 보안 채널을 통해 전달되는지 여부입니다.
+* **사용 대상** – 저장소 계정을 사용하는 볼륨의 수입니다.
 
 스토리지 계정과 관련하여 수행할 수 있는 가장 일반적인 작업은 다음과 같습니다.
 
@@ -54,13 +54,13 @@ Storage 계정에는 StorSimple 디바이스가 클라우드 서비스 공급자
 
 StorSimple 디바이스에서 사용할 수 있는 스토리지 계정에는 다음과 같은 세 종류가 있습니다.
 
-* **자동 생성된 스토리지 계정** – 이름 제안 시, 서비스를 처음 만들 때 이 스토리지 계정 유형이 자동으로 생성됩니다. 이 스토리지 계정을 만드는 방법에 대해 자세히 알아보려면 [온-프레미스 StorSimple 디바이스 배포](storsimple-8000-deployment-walkthrough-u2.md#step-1-create-a-new-service)에서 [1단계: 새 서비스 만들기](storsimple-8000-deployment-walkthrough-u2.md)를 참조하세요. 
-* **서비스 구독의 Storage 계정** – 이러한 계정은 서비스와 동일한 구독과 연결된 Azure Storage 계정입니다. 이러한 Storage 계정을 만드는 방법에 대해 더 알아보려면 [Azure Storage 계정 정보](../storage/common/storage-create-storage-account.md)를 참조하세요. 
-* **서비스 구독 외의 Storage 계정** - 이러한 계정은 서비스와 연결되지 않았고 서비스가 만들어지기 전에 존재했던 Azure Storage 계정입니다.
+* **자동 생성된 스토리지 계정** – 이름 제안 시, 서비스를 처음 만들 때 이 스토리지 계정 유형이 자동으로 생성됩니다. 이 스토리지 계정을 만드는 방법에 대해 자세히 알아보려면 [온-프레미스 StorSimple 디바이스 배포](storsimple-8000-deployment-walkthrough-u2.md)에서 [1단계: 새 서비스 만들기](storsimple-8000-deployment-walkthrough-u2.md#step-1-create-a-new-service)를 참조하세요. 
+* **서비스 구독의 저장소 계정** – 서비스의 구독과 같은 구독에 연결된 Azure 저장소 계정입니다. 이러한 Storage 계정을 만드는 방법에 대해 더 알아보려면 [Azure Storage 계정 정보](../storage/common/storage-create-storage-account.md)를 참조하세요. 
+* **서비스 구독 외부의 저장소 계정** – 서비스와 연결되어 있지 않으며 서비스를 만들기 전부터 있었을 가능성이 높은 Azure 저장소 계정입니다.
 
 ## <a name="add-a-storage-account"></a>스토리지 계정 추가
 
-스토리지 계정(지정된 클라우드 서비스 공급자를 통해)에 연결된 액세스 자격 증명 및 친숙한 고유 이름을 제공하여 스토리지 계정을 추가할 수 있습니다. 디바이스와 클라우드 사이에서 네트워크 통신을 위한 보안 채널을 만들기 위해 SSL(Secure Sockets Layer) 모드를 사용하는 옵션도 있습니다.
+스토리지 계정(지정된 클라우드 서비스 공급자를 통해)에 연결된 액세스 자격 증명 및 친숙한 고유 이름을 제공하여 스토리지 계정을 추가할 수 있습니다. 또한 이전에 SSL(보안 소켓 계층) 모드라고 도는 TLS(전송 계층 보안) 모드를 활성화하여 장치와 클라우드 간의 네트워크 통신을 위한 보안 채널을 만들 수도 있습니다.
 
 특정 클라우드 서비스 공급자에 대해 여러 계정을 만들 수 있습니다. 하지만 스토리지 계정을 만든 후에는 클라우드 서비스 공급자를 변경할 수 없습니다.
 
@@ -86,7 +86,7 @@ Azure Storage 계정 자격 증명을 추가하려면 다음 절차를 사용합
    
     3. **스토리지 계정 선택키** 텍스트 상자에서 Azure Storage 계정 자격 증명의 기본 선택키를 지정합니다. 이 키를 가져오려면 Azure Storage 서비스로 이동하고 스토리지 계정 자격 증명을 선택한 다음 **계정 키 관리**를 클릭합니다. 이제 기본 선택키를 복사할 수 있습니다.
    
-    4. SSL을 사용하도록 설정하려면 **사용** 단추를 클릭하여 StorSimple 디바이스 관리자 서비스와 클라우드 간의 네트워크 통신을 위한 보안 채널을 만듭니다. 프라이빗 클라우드 내에서 작동하는 경우에만 **사용 안 함** 단추를 클릭합니다.
+    4. TLS를 사용하려면 **사용** 버튼을 클릭하여 StorSimple 장치 관리자 서비스와 클라우드 간의 네트워크 통신을 위한 보안 채널을 만듭니다. 프라이빗 클라우드 내에서 작동하는 경우에만 **사용 안 함** 단추를 클릭합니다.
    
     5. **추가**를 클릭합니다. 스토리지 계정 자격 증명이 성공적으로 만들어진 후 알림이 표시됩니다.
 
@@ -110,7 +110,7 @@ Azure Storage 계정 자격 증명을 추가하려면 다음 절차를 사용합
 
     ![편집된 스토리지 계정 자격 증명 저장](./media/storsimple-8000-manage-storage-accounts/editstorageacct3.png)
 
-4. 확인하라는 메시지가 표시되면 **예**를 클릭합니다. 
+4. 확인 메시지가 표시되면 **예**를 클릭합니다. 
 
     ![수정 확인](./media/storsimple-8000-manage-storage-accounts/editstorageacct4.png)
 
@@ -169,11 +169,11 @@ StorSimple 디바이스 관리자 서비스에 변경을 알리려면 StorSimple
 
 #### <a name="to-synchronize-keys-for-storage-accounts-outside-of-the-service-subscription"></a>서비스 구독 외의 스토리지 계정에 대한 키를 동기화하려면
 1. **서비스** 페이지에서 **구성** 탭을 클릭합니다.
-2. **Storage 계정 추가/편집**을 클릭합니다.
+2. **저장소 계정 추가/편집**을 클릭합니다.
 3. 대화 상자에서 다음을 수행합니다.
    
    1. 업데이트하려는 액세스 키가 있는 스토리지 계정을 선택합니다.
-   2. StorSimple 디바이스 관리자 서비스에서 스토리지 액세스 키를 업데이트해야 합니다. 이 경우 스토리지 액세스 키를 볼 수 있습니다. **Storage 계정 액세스 키** 상자에 새 키를 입력합니다. 
+   2. StorSimple 디바이스 관리자 서비스에서 스토리지 액세스 키를 업데이트해야 합니다. 이 경우 스토리지 액세스 키를 볼 수 있습니다. **저장소 계정 액세스 키** 상자에 새 키를 입력합니다. 
    3. 변경 내용을 저장합니다. 이제 스토리지 계정 액세스 키가 업데이트됩니다.
 
 ## <a name="next-steps"></a>다음 단계

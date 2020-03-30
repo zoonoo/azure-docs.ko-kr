@@ -1,19 +1,18 @@
 ---
-title: 제품 API 검색 | Azure Marketplace
+title: API 검색 | Azure 마켓플레이스
 description: API는 게시자 네임스페이스에서 요약된 제품 목록을 검색합니다.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: 5c94c03a63936be2b086085a1e52064dedf214b0
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: a1f15e269481b9706f81fd02f19effc9ad37df32
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819612"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280493"
 ---
 <a name="retrieve-offers"></a>제품 검색
 ===============
@@ -28,7 +27,7 @@ ms.locfileid: "73819612"
 
 | **이름**         |  **설명**                         |  **데이터 형식** |
 | -------------    |  ------------------------------------    |  -----------   |
-|  publisherid     | 게시자 식별자입니다(예: `contoso`). |   문자열    |
+|  publisherId     | 게시자 식별자입니다(예: `contoso`). |   String    |
 |  api-version     | 최신 버전 API                    |    Date        |
 |  |  |
 
@@ -70,10 +69,10 @@ ms.locfileid: "73819612"
 |  **이름**       |       **설명**                                                                                                  |
 |  -------------  |      --------------------------------------------------------------------------------------------------------------    |
 |  offerTypeId    | 제안의 형식을 식별합니다.                                                                                           |
-|  publisherid    | 게시자를 고유하게 식별하는 식별자                                                                      |
-|  status         | 제품 상태. 가능한 값 목록을 보려면 아래 [제품 상태](#offer-status)를 참조하세요.                         |
+|  publisherId    | 게시자를 고유하게 식별하는 식별자                                                                      |
+|  상태         | 제안의 상태입니다. 가능한 값 목록을 보려면 아래 [제안 상태](#offer-status)를 참조하세요.                         |
 |  id             | 게시자 네임스페이스에서 제품을 고유하게 식별하는 GUID                                                    |
-|  버전        | 제품의 현재 버전. 버전 속성은 클라이언트가 수정할 수 없습니다. 각 게시 후에 증분됩니다. |
+|  버전        | 제안의 현재 버전입니다. 버전 속성은 클라이언트가 수정할 수 없습니다. 각 게시 후에 증분됩니다. |
 |  정의     | 워크로드 실제 정의에 대한 요약 보기를 포함합니다. 자세한 정의를 얻으려면 [특정 제안 검색](./cloud-partner-portal-api-retrieve-specific-offer.md) API를 사용하세요. |
 |  changedTime    | 제품이 마지막으로 수정된 UTC 시간                                                                              |
 |  |  |
@@ -98,7 +97,7 @@ ms.locfileid: "73819612"
 |  NotStarted                  | 제안이 새 제안이지만 시작되지 않았습니다.                 |
 |  WaitingForPublisherReview   | 제안이 게시자 승인을 기다리고 있습니다.         |
 |  실행 중                     | 제안 제출을 처리 중입니다.             |
-|  Succeeded                   | 제안 제출 처리를 완료했습니다.       |
-|  Canceled                    | 제안 제출이 취소되었습니다.                   |
-|  Failed                      | 제안 제출에 실패했습니다.                         |
+|  성공                   | 제안 제출 처리를 완료했습니다.       |
+|  취소됨                    | 제안 제출이 취소되었습니다.                   |
+|  실패                      | 제안 제출에 실패했습니다.                         |
 |  |  |

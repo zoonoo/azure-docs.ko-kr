@@ -1,5 +1,5 @@
 ---
-title: Windows 인증 및 Azure MFA 서버-Azure Active Directory
+title: Windows 인증 및 Azure MFA 서버 - Azure Active 디렉터리
 description: Windows 인증 및 Azure Multi-Factor Authentication 서버 배포
 services: multi-factor-authentication
 ms.service: active-directory
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: faab28a714b1a62e1e34de5b07119aa3018db24e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79263661"
 ---
 # <a name="windows-authentication-and-azure-multi-factor-authentication-server"></a>Windows 인증 및 Azure Multi-Factor Authentication 서버
@@ -27,24 +27,24 @@ Azure Multi-Factor Authentication 서버의 Windows 인증 섹션을 사용하�
 * 신뢰할 수 있는 IP는 애플리케이션이 클라이언트 IP에 인증을 제공할 수 있는지 여부에 따라 달라집니다. 현재는 터미널 서비스만 지원됩니다.  
 
 > [!IMPORTANT]
-> 2019 년 7 월 1 일부 터 Microsoft는 더 이상 새 배포에 대해 MFA 서버를 제공 하지 않습니다. 사용자에 게 multi-factor authentication을 요구 하려는 새 고객은 클라우드 기반 Azure Multi-Factor Authentication를 사용 해야 합니다. 7 월 1 일 이전에 MFA 서버를 활성화 한 기존 고객은 최신 버전을 다운로드 하 고, 나중에 업데이트 하 고 활성화 자격 증명을 생성할 수 있습니다.
+> 2019년 7월 1일부터 Microsoft는 더 이상 새 배포를 위해 MFA 서버를 제공하지 않습니다. 사용자로부터 다단계 인증을 요구하려는 신규 고객은 클라우드 기반 Azure 다단계 인증을 사용해야 합니다. 7월 1일 이전에 MFA Server를 활성화한 기존 고객은 최신 버전, 향후 업데이트를 다운로드하고 평소와 같이 정품 인증 자격 증명을 생성할 수 있습니다.
 
 > [!NOTE]
 > 이 기능은 Windows Server 2012 R2에서 보안 터미널 서비스를 보안하는 데 지원되지 않습니다.
 
-## <a name="to-secure-an-application-with-windows-authentication-use-the-following-procedure"></a>Windows 인증을 사용 하 여 응용 프로그램을 보호 하려면 다음 절차를 따르십시오.
+## <a name="to-secure-an-application-with-windows-authentication-use-the-following-procedure"></a>Windows 인증을 사용하여 응용 프로그램을 보호하려면 다음 절차를 따르려면
 
 1. Azure Multi-Factor Authentication 서버에서 Windows 인증 아이콘을 클릭합니다.
-   MFA 서버에서 Windows 인증 ![](./media/howto-mfaserver-windows/windowsauth.png)
+   ![MFA 서버의 Windows 인증](./media/howto-mfaserver-windows/windowsauth.png)
 2. **Windows 인증 사용** 확인란을 선택합니다. 이 상자는 기본적으로 선택되지 않습니다.
 3. 애플리케이션 탭에서 관리자는 Windows 인증을 위해 하나 이상의 애플리케이션을 구성할 수 있습니다.
 4. 서버 또는 애플리케이션을 선택합니다. 서버/애플리케이션이 사용되는지 여부를 지정합니다. **확인**을 클릭합니다.
-5. **추가**를 클릭합니다.
+5. **추가를 클릭합니다...**
 6. 신뢰할 수 있는 IP 탭에서 특정 IP에서 오는 Windows용 Azure Multi-Factor Authentication 세션을 건너뛸 수 있습니다. 예를 들어, 직원이 사무실과 집에서 애플리케이션을 사용하는 경우 사무실에 있는 동안 Azure Multi-Factor Authentication 확인용 전화를 원하지 않음을 결정할 수 있습니다. 이를 위해 사무실 서브넷을 신뢰할 수 있는 IP 항목으로 지정할 수 있습니다.
-7. **추가**를 클릭합니다.
-8. 단일 IP 주소를 건너뛰려면 **단일 IP**를 선택합니다.
-9. 전체 IP 범위를 건너뛰려면 **IP 범위**를 선택합니다. 예 10.63.193.1-10.63.193.100.
-10. 서브넷 표기법을 사용하여 IP 범위를 지정하려면 **서브넷**을 선택합니다. 시작 IP 서브넷을 입력하고 드롭다운 목록에서 적절한 네트워크 마스크를 선택합니다.
+7. **추가를 클릭합니다...**
+8. **단일 IP** 주소를 건너뛰려면 단일 IP를 선택합니다.
+9. 전체 **IP 범위를** 건너뛰려면 IP 범위를 선택합니다. 예 10.63.193.1-10.63.193.100.
+10. 서브넷 표기법의 범위를 지정하려면 **서브넷을** 선택합니다. 시작 IP 서브넷을 입력하고 드롭다운 목록에서 적절한 네트워크 마스크를 선택합니다.
 11. **확인**을 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계

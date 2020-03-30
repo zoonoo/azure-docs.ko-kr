@@ -10,13 +10,13 @@ ms.date: 03/28/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Data Box Edge so I can use it to transfer data to Azure.
 ms.openlocfilehash: 144c59c8bc24e8e10584702ec6cd48f7aa8c15c1
-ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
-ms.translationtype: MT
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79129578"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79222910"
 ---
-# <a name="tutorial-connect-set-up-and-activate-azure-data-box-edge"></a>자습서: 연결, 설정 및 활성화 Azure Data Box Edge 
+# <a name="tutorial-connect-set-up-and-activate-azure-data-box-edge"></a>자습서: Azure Data Box Edge 연결, 설정 및 활성화 
 
 이 자습서에는 로컬 웹 UI를 사용하여 Azure Data Box Edge 디바이스에 연결하고, 설정하고, 활성화하는 방법을 설명합니다.
 
@@ -47,7 +47,7 @@ Data Box Edge 디바이스를 구성하고 설정하기 전에 다음 사항을 
 3. 브라우저 창을 열고 `https://192.168.100.10`에서 디바이스의 로컬 웹 UI에 액세스합니다.  
     이 작업은 디바이스를 켠 후 몇 분 정도 걸릴 수 있습니다. 
 
-    웹 사이트의 보안 인증서에 문제가 있음을 나타내는 오류 또는 경고가 표시 됩니다. 
+    웹 사이트의 보안 인증서에 문제가 있음을 나타내는 오류 또는 경고가 표시됩니다. 
    
     ![웹 사이트 보안 인증서 오류 메시지](./media/data-box-edge-deploy-connect-setup-activate/image2.png)
 
@@ -103,9 +103,9 @@ Data Box Edge 디바이스를 구성하고 설정하기 전에 다음 사항을 
    d. 구성한 웹 프록시 설정의 유효성을 검사하고 적용하려면 **설정 적용**을 클릭합니다.
    
    > [!NOTE]
-   > PAC (프록시 자동 구성) 파일은 지원 되지 않습니다. PAC 파일은 웹 브라우저 및 다른 사용자 에이전트가 지정 된 URL을 가져오는 데 적절 한 프록시 서버 (액세스 방법)를 자동으로 선택 하는 방법을 정의 합니다.
-   > 프록시의 인증서를 신뢰할 수 없기 때문에 모든 트래픽을 가로채 고 읽은 다음 (자체 인증을 사용 하 여 모든 항목을 다시 서명 함) 프록시가 호환 되지 않습니다.
-   > 일반적으로 투명 프록시는 Azure Data Box Edge에서 잘 작동 합니다.
+   > PAC(프록시 자동 구성) 파일은 지원되지 않습니다. PAC 파일은 웹 브라우저 및 다른 사용자 에이전트가 지정된 URL을 가져오는 데 적절한 프록시 서버(액세스 방법)를 자동으로 선택하는 방법을 정의합니다.
+   > 프록시의 인증서를 신뢰할 수 없기 때문에 모든 트래픽을 가로채고 읽는(그런 다음, 자체 인증을 사용하여 모든 항목을 다시 서명함) 프록시는 호환되지 않습니다.
+   > 일반적으로 투명 프록시는 Azure Data Box Edge에서 잘 작동합니다.
 
 4. (선택 사항) 왼쪽 창에서 **시간 설정**을 선택하고 디바이스의 표준 시간대와 기본 및 보조 NTP 서버를 구성합니다.  
     클라우드 서비스 공급자와 인증할 수 있도록 디바이스 시간을 동기화해야 하기 때문에 NTP 서버가 필요합니다.

@@ -1,20 +1,18 @@
 ---
-title: 호스트 된 테스트 드라이브 | Azure Marketplace
+title: 호스팅 테스트 드라이브 | Azure 마켓플레이스
 description: Marketplace 호스트형 시험 사용을 설정하고 유지 관리하는 방법을 설명합니다.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: pbutlerm
-manager: Ricardo.Villalobos
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: 2ce43402fb283cce09687bc7226770731f1bae0d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 6d054064e236e121e02bf58a0eb73b5a62f24a09
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827526"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80278266"
 ---
 # <a name="hosted-test-drive"></a>호스트형 시험 사용
 
@@ -42,14 +40,14 @@ ms.locfileid: "73827526"
 
 - **시험 사용 유형**: \'Microsoft 호스팅(예: Dynamics 365 for Customer Engagement)' 옵션을 선택합니다. 이 옵션은 시험 사용 사용자 프로비저닝 및 프로비전 해제를 수행하는 서비스를 Microsoft에서 호스팅하고 유지 관리함을 나타냅니다.
 - **최대 동시 시험 사용 수**: 이 필드의 값은 지정된 시점에 시험 사용을 활성화할 수 있는 동시 사용자의 수로 설정합니다. 각 사용자는 시험 사용을 활성화할 때 Dynamics 라이선스를 사용하므로 여기서 설정하는 시험 사용 사용자 수 이상의 Dynamics 라이선스가 있는지 확인해야 합니다. 권장 값은 3~5입니다.
-- **시험 사용 기간(시간)** : 이 필드의 값은 사용자의 시험 사용이 활성 상태로 유지되는 시간으로 설정합니다. 이 시간이 지나면 사용자가 테넌트에서 프로비전 해제됩니다. 권장 값은 앱의 복잡도에 따라 2~24시간입니다. 시간이 만료된 후 시험 사용에 다시 액세스하려는 사용자는 언제든지 시험 사용을 또다시 요청할 수 있습니다.
-- **인스턴스 URL**: 시험 사용 사용자가 시험 사용을 시작할 때 처음으로 이동할 URL을 입력하합니다. 일반적으로는 앱과 샘플 데이터가 설치된 Dynamics 365 인스턴스의 URL입니다. 값 예: https:\//testdrive.crm.dynamics.com
+- **시험 사용 기간(시간)**: 이 필드의 값은 사용자의 시험 사용이 활성 상태로 유지되는 시간으로 설정합니다. 이 시간이 지나면 사용자가 테넌트에서 프로비전 해제됩니다. 권장 값은 앱의 복잡도에 따라 2~24시간입니다. 시간이 만료된 후 시험 사용에 다시 액세스하려는 사용자는 언제든지 시험 사용을 또다시 요청할 수 있습니다.
+- **인스턴스 URL**: 시험 사용 사용자가 시험 사용을 시작할 때 처음으로 이동할 URL을 입력하합니다. 일반적으로는 앱과 샘플 데이터가 설치된 Dynamics 365 인스턴스의 URL입니다. 예제 값:\/https: /testdrive.crm.dynamics.com
 - **Azure AD 테넌트 ID**: Dynamics 365 인스턴스용 Azure 테넌트의 ID를 입력합니다. 이 값을 검색하려면 Azure Portal에 로그인하여 \'Azure Active Directory\' -\> 메뉴 블레이드에서 속성 선택 -\> 디렉터리 ID를 복사합니다. 예제 값은 72f988bf-86f1-41af-91ab-2d7cd0111234와 같습니다.
 - **Azure AD 앱 ID**: 7단계에서 만든 Azure AD 앱의 ID입니다. 예제 값은 53852862-a2ae-4e43-9461-faa49650a096과 같습니다.
 - **Azure AD 앱 키**: 7단계에서 만든 Azure AD 앱의 비밀입니다. 예제 값은 IJUgaIOfq9b9LbUjeQmzNBW4VGn6grr1l/n3aMrnfdk=와 같습니다.
 - **Azure AD 테넌트 이름**: Dynamics 365 인스턴스용 Azure 테넌트의 이름을 입력합니다. \<tenantname.\>onmicrosoft.com 형식을 사용합니다. 예제 값은 testdrive.onmicrosoft.com과 같습니다.
-- **인스턴스 웹 API URL**: Dynamics 365 인스턴스의 웹 API URL을 입력합니다. Microsoft Dynamics 365 인스턴스에 로그인하여 설정 -\> 사용자 지정 -\> 개발자 리소스 -\> 인스턴스 웹 API로 이동하면 이 값을 검색할 수 있습니다(인스턴스 웹 API URL을 복사해야 함). 값 예: https:\//testdrive.crm.dynamics.com/api/data/v9.0 
-- **역할 이름**: 시험 사용을 위해 만든 사용자 지정 Dynamics 365 보안 역할의 이름을 입력합니다. 시험 사용 중에 사용자에게 이 역할이 할당됩니다. 예제 값: testdriverole
+- **인스턴스 웹 API URL**: Dynamics 365 인스턴스의 웹 API URL을 입력합니다. Microsoft Dynamics 365 인스턴스에 로그인하여 설정 -\> 사용자 지정 -\> 개발자 리소스 -\> 인스턴스 웹 API로 이동하면 이 값을 검색할 수 있습니다(인스턴스 웹 API URL을 복사해야 함). 예제 값:\/https: /testdrive.crm.dynamics.com/api/data/v9.0
+- **역할 이름**: 시험 사용을 위해 만든 사용자 지정 Dynamics 365 보안 역할의 이름을 입력합니다. 시험 사용 중에 사용자에게 이 역할이 할당됩니다. 예제 값은 testdriverole과 같습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

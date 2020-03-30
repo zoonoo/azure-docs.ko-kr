@@ -1,20 +1,18 @@
 ---
-title: 시험 사용이란? | Azure Marketplace
+title: 시험 사용이란? | Azure 마켓플레이스
 description: Marketplace 시험 사용 기능에 대한 설명
-services: Azure, Marketplace, Cloud Partner Portal,
-author: pbutlerm
-manager: Ricardo.Villalobos
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: a6826657a4af74276e363acd585e80d101cc1459
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: bdfadf359195464c4024b28c5e597c571305481a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73828150"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80278232"
 ---
 <a name="what-is-test-drive"></a>시험 사용이란?
 ===================
@@ -48,8 +46,8 @@ ms.locfileid: "73828150"
 
 애플리케이션이 얼마나 복잡한지에 관계없이 Microsoft 시험 사용을 통해 고객을 위한 제품을 실현할 수 있습니다. 지금은 제품 유형, 시나리오 및 현재 위치의 마켓플레이스를 기준으로 하는 세 가지 다른 유형의 시험 사용이 제공됩니다.
 
-- **[Azure Resource Manager](./azure-resource-manager-test-drive.md)** : Azure Resource Manager 시험 사용은 게시자가 빌드하는 솔루션을 구성하는 모든 Azure 리소스가 포함된 배포 템플릿입니다. 이 시나리오에 맞는 제품은 Azure 리소스만 사용하는 제품입니다.
-- **[논리 앱](./logic-app-test-drive.md)** : 논리 앱 시험 사용은 모든 복잡한 솔루션 아키텍처를 포함하기 위한 배포 템플릿입니다. 모든 Dynamics 애플리케이션 또는 사용자 지정 제품은 이 유형의 시험 사용을 사용해야 합니다.
+- **[Azure Resource Manager](./azure-resource-manager-test-drive.md)**: Azure Resource Manager 시험 사용은 게시자가 빌드하는 솔루션을 구성하는 모든 Azure 리소스가 포함된 배포 템플릿입니다. 이 시나리오에 맞는 제품은 Azure 리소스만 사용하는 제품입니다.
+- **[논리 앱](./logic-app-test-drive.md)**: 논리 앱 시험 사용은 모든 복잡한 솔루션 아키텍처를 포함하기 위한 배포 템플릿입니다. 모든 Dynamics 애플리케이션 또는 사용자 지정 제품은 이 유형의 시험 사용을 사용해야 합니다.
 - **Power BI**: Power BI 시험 사용은 단순히 사용자 지정 빌드 대시보드의 포함된 링크입니다. 대화형 Power BI 시각적 개체를 보여 주려는 제품은 이 유형의 시험 사용을 사용해야 합니다.
     포함된 Power BI URL만 업로드하면 됩니다.
 
@@ -65,7 +63,7 @@ ms.locfileid: "73828150"
 
 시험 사용이 어떤 의미인지 이해했으므로 게시하려는 특정 시험 사용 유형으로 이동한 후 필수 필드에 대한 모든 사항을 확인합니다.
 
-- **[Azure Resource Manager](./azure-resource-manager-test-drive.md)**
+- **[Azure 리소스 관리자](./azure-resource-manager-test-drive.md)**
 - **[논리 앱](./logic-app-test-drive.md)**
 
 추가 문의 사항이 있거나 문제 해결 관련 자문을 받거나 시험 사용의 효율성을 개선하려는 경우 [FAQ, 문제 해결 및 모범 사례](./marketing-and-best-practices.md)를 참조하세요.

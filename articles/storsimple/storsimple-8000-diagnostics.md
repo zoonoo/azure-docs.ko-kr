@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 5cce4337e3ef95c6407d46d9b8b6401fe4f6600b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 48bd909eefbaea15cf6ca2427e106ad9bc0ffbb4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60576189"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80298756"
 ---
 # <a name="use-the-storsimple-diagnostics-tool-to-troubleshoot-8000-series-device-issues"></a>StorSimple 진단 도구를 사용하여 8000 시리즈 디바이스 문제 해결
 
@@ -33,7 +33,7 @@ StorSimple 진단 도구는 StorSimple 디바이스에 대한 시스템, 성능,
 
 이 도구는 사용자의 StorSimple 디바이스의 Windows PowerShell 인터페이스를 통해 실행할 수 있습니다. 사용자 디바이스의 로컬 인터페이스에 액세스하는 방법에는 두 가지가 있습니다.
 
-* [PuTTY를 사용하여 디바이스 직렬 콘솔에 연결합니다](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
+* [PuTTY를 사용하여 장치 직렬 콘솔에 연결합니다.](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console)
 * [StorSimple용 Windows PowerShell을 통해 도구에 원격으로 액세스합니다](storsimple-8000-remote-connect.md).
 
 이 문서에서는 PuTTY를 통해 디바이스 직렬 콘솔에 연결한 것으로 가정합니다.
@@ -323,7 +323,7 @@ hcs_startup                                   Stopped hcs_startup
 
 ### <a name="network-test"></a>네트워크 테스트
 
-이 테스트는 사용자 StorSimple 디바이스의 네트워크 인터페이스, 포트, DNS 및 NTP 서버 연결, SSL 인증서, 스토리지 계정 자격 증명, 업데이트 서버에 대한 연결 및 웹 프록시 연결 상태를 확인합니다.
+이 테스트는 네트워크 인터페이스, 포트, DNS 및 NTP 서버 연결, TLS/SSL 인증서, 저장소 계정 자격 증명, 업데이트 서버에 대한 연결 및 StorSimple 장치의 웹 프록시 연결 상태를 확인합니다.
 
 #### <a name="sample-output-of-network-test-when-only-data0-is-enabled"></a>DATA0만 사용하는 경우 네트워크 테스트의 샘플 출력
 
@@ -333,7 +333,7 @@ hcs_startup                                   Stopped hcs_startup
 * DNS 서버 구성은 유효하며 디바이스는 DNS 서버를 통해 연결할 수 있습니다.
 * NTP 서버 연결도 가능합니다.
 * 포트 80 및 443이 열려 있습니다. 그러나 포트 9354는 차단되어 있습니다. [시스템 네트워크 요구 사항](storsimple-system-requirements.md)에 따라 Service Bus 통신에 대한 이 포트를 열어야 합니다.
-* SSL 인증이 유효합니다.
+* TLS/SSL 인증은 유효합니다.
 * 디바이스를 스토리지 계정인 _myss8000storageacct_에 연결할 수 있습니다.
 * 업데이트 서버에 대한 연결이 유효합니다.
 * 이 디바이스에 대한 웹 프록시가 구성되어 있지 않습니다.
@@ -378,7 +378,7 @@ Web proxy                               Not enabled         Web proxy is not...
 
 1.  첫째, 계층화된 볼륨과 선택된 보관 옵션을 사용하는 계층화된 볼륨의 조합을 만듭니다. 이 작업은 도구에서 64KB와 512KB Blob 크기 모두에 대한 테스트를 실행하는지 확인합니다.
 
-2. 볼륨을 만들고 구성한 후 cmdlet을 실행합니다. 형식:
+2. 볼륨을 만들고 구성한 후 cmdlet을 실행합니다. 유형:
 
     `Invoke-HcsDiagnostics -Scope Performance`
 

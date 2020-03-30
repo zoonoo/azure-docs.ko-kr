@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
 ms.author: rohink
-ms.openlocfilehash: 709e89b94ba10db954aa5cf3f70aeffb0d239edb
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 4863ffd383cfcd46bad462156e26293d145fd418
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76938629"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294863"
 ---
 # <a name="how-traffic-manager-works"></a>Traffic Manager 작동 방식
 
@@ -34,7 +34,7 @@ Traffic Manager는 다음과 같은 두 가지 주요 이점을 제공합니다.
 
 ## <a name="traffic-manager-example"></a>Traffic Manager 예제
 
-Contoso Corp에서 새 파트너 포털을 개발했습니다. 이 포털의 URL은 https://partners.contoso.com/login.aspx 입니다. 애플리케이션은 3개의 Azure 지역에서 호스팅됩니다. 가용성을 개선하고 전역 성능을 최대화하려면 Traffic Manager를 사용하여 클라이언트 트래픽을 사용 가능한 가장 가까운 엔드포인트에 배포합니다.
+Contoso Corp에서 새 파트너 포털을 개발했습니다. 이 포털의 URL은 `https://partners.contoso.com/login.aspx`입니다. 애플리케이션은 3개의 Azure 지역에서 호스팅됩니다. 가용성을 개선하고 전역 성능을 최대화하려면 Traffic Manager를 사용하여 클라이언트 트래픽을 사용 가능한 가장 가까운 엔드포인트에 배포합니다.
 
 이 구성을 만들기 위해 다음 단계를 완료합니다.
 
@@ -49,7 +49,7 @@ Contoso Corp에서 새 파트너 포털을 개발했습니다. 이 포털의 URL
 
 ### <a name="how-clients-connect-using-traffic-manager"></a>Traffic Manager를 사용하여 클라이언트를 연결하는 방법
 
-이전 예제를 계속하면 클라이언트가 https://partners.contoso.com/login.aspx 페이지를 요청하는 경우 클라이언트는 다음 단계를 수행하여 DNS 이름을 확인하고 연결을 설정합니다.
+이전 예제를 계속하면 클라이언트가 `https://partners.contoso.com/login.aspx` 페이지를 요청하는 경우 클라이언트는 다음 단계를 수행하여 DNS 이름을 확인하고 연결을 설정합니다.
 
 ![Traffic Manager를 사용하여 연결 설정][2]
 
@@ -60,7 +60,7 @@ Contoso Corp에서 새 파트너 포털을 개발했습니다. 이 포털의 URL
 
     - 각 엔드포인트의 구성된 상태(사용하지 않는 엔드포인트는 반환되지 않음)
     - Traffic Manager 상태 검사에서 확인된 각 엔드포인트의 현재 상태. 자세한 내용은 [Traffic Manager 엔드포인트 모니터링](traffic-manager-monitoring.md)을 참조하세요.
-    - 선택된 트래픽 라우팅 메서드. 자세한 내용은 [Traffic Manager 라우팅 메서드](traffic-manager-routing-methods.md)를 참조하세요.
+    - 선택된 트래픽 라우팅 메서드. 자세한 내용은 [트래픽 관리자 라우팅 방법을](traffic-manager-routing-methods.md)참조하십시오.
 
 5. 선택한 엔드포인트는 다른 DNS CNAME 레코드로 반환됩니다. 이 경우에 contoso us.cloudapp.net을 반환한다고 가정하겠습니다.
 6. 다음으로 재귀 DNS 서비스가 'cloudapp.net' 도메인에 대한 이름 서버를 찾습니다. 이러한 이름 서버에 연결하여 'contoso-us.cloudapp.net' DNS 레코드를 요청합니다. 미국 기반 서비스 엔드포인트의 IP 주소를 포함하는 DNS 'A' 레코드가 반환됩니다.
@@ -71,27 +71,27 @@ Contoso Corp에서 새 파트너 포털을 개발했습니다. 이 포털의 URL
 
 ## <a name="faqs"></a>FAQ
 
-* [Traffic Manager 사용 하는 IP 주소는 무엇 인가요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-ip-address-does-traffic-manager-use)
+* [Traffic Manager가 사용하는 IP 주소는 어떻게 되나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-ip-address-does-traffic-manager-use)
 
-* [Traffic Manager를 사용 하 여 라우팅할 수 있는 트래픽 종류는 무엇 인가요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-types-of-traffic-can-be-routed-using-traffic-manager)
+* [Traffic Manager를 사용하여 라우팅할 수 있는 트래픽 유형은 무엇입니까?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-types-of-traffic-can-be-routed-using-traffic-manager)
 
-* ["고정" 세션을 지원할 Traffic Manager 있나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-traffic-manager-support-sticky-sessions)
+* [트래픽 관리자가 "고정" 세션을 지원합니까?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-traffic-manager-support-sticky-sessions)
 
-* [Traffic Manager를 사용할 때 HTTP 오류가 표시 되는 이유는 무엇 인가요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#why-am-i-seeing-an-http-error-when-using-traffic-manager)
+* [Traffic Manager를 사용할 때 HTTP 오류가 나타나는 이유는 무엇인가요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#why-am-i-seeing-an-http-error-when-using-traffic-manager)
 
-* [Traffic Manager를 사용할 때 성능에 미치는 영향은 무엇입니까?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-is-the-performance-impact-of-using-traffic-manager)
+* [Traffic Manager를 사용할 때 성능 영향은 무엇인가요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-is-the-performance-impact-of-using-traffic-manager)
 
-* [Traffic Manager에서 사용할 수 있는 응용 프로그램 프로토콜은 무엇 인가요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-application-protocols-can-i-use-with-traffic-manager)
+* [Traffic Manager에는 어떤 애플리케이션 프로토콜을 사용할 수 있나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-application-protocols-can-i-use-with-traffic-manager)
 
-* ["Naked" 도메인 이름과 함께 Traffic Manager를 사용할 수 있나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-a-naked-domain-name)
+* ['벌거벗은' 도메인 이름으로 트래픽 관리자를 사용할 수 있나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-a-naked-domain-name)
 
-* [DNS 쿼리를 처리할 때 클라이언트 서브넷 주소를 고려 Traffic Manager?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-traffic-manager-consider-the-client-subnet-address-when-handling-dns-queries)
+* [DNS 쿼리를 처리할 때 Traffic Manager는 클라이언트 서브넷 주소를 고려하나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-traffic-manager-consider-the-client-subnet-address-when-handling-dns-queries)
 
-* [DNS TTL 이란 무엇 이며, 어떤 방법으로 내 사용자에 게 영향을 미칩니까?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-is-dns-ttl-and-how-does-it-impact-my-users)
+* [DNS TTL이란 무엇이며 사용자에게 어떤 영향을 주나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-is-dns-ttl-and-how-does-it-impact-my-users)
 
-* [Traffic Manager 응답에 대 한 TTL을 설정할 수 있는 최대 또는 낮음](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-high-or-low-can-i-set-the-ttl-for-traffic-manager-responses)
+* [Traffic Manager 응답에 대해 설정할 수 있는 TTL 상한 또는 하한은 어느 정도인가요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-high-or-low-can-i-set-the-ttl-for-traffic-manager-responses)
 
-* [내 프로필에 들어오는 쿼리 볼륨을 어떻게 이해할 수 있나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-understand-the-volume-of-queries-coming-to-my-profile)
+* [내 프로필로 들어오는 쿼리 볼륨을 파악하려면 어떻게 해야 할까요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-understand-the-volume-of-queries-coming-to-my-profile)
 
 ## <a name="next-steps"></a>다음 단계
 
