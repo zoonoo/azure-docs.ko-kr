@@ -1,5 +1,5 @@
 ---
-title: Amazon Redshift에서 데이터 복사
+title: 아마존 레드 시프트에서 데이터 복사
 description: Azure Data Factory를 사용하여 Amazon Redshift에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/04/2018
 ms.openlocfilehash: 4d729a0117c7c409d1a3e0c3fd440aed96153203
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79243589"
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Amazon Redshift에서 데이터 복사
@@ -28,10 +28,10 @@ ms.locfileid: "79243589"
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
-이 Amazon Redshift 커넥터는 다음과 같은 작업에 대해 지원 됩니다.
+이 Amazon Redshift 커넥터는 다음 활동에 대해 지원됩니다.
 
-- [지원 되는 원본/싱크 매트릭스](copy-activity-overview.md) 를 사용 하 여 [복사 작업](copy-activity-overview.md)
-- [조회 작업](control-flow-lookup-activity.md)
+- [지원되는 소스/싱크 매트릭스로](copy-activity-overview.md) [활동 복사](copy-activity-overview.md)
+- [조회 활동](control-flow-lookup-activity.md)
 
 Amazon Redshift에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 복사 작업의 원본/싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
 
@@ -55,17 +55,17 @@ Amazon Redshift에서 지원되는 모든 싱크 데이터 저장소로 데이�
 
 Amazon Redshift 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 형식 속성은 **AmazonRedshift**로 설정되어야 합니다. | yes |
+| type | 형식 속성을 설정 해야 **합니다.** | yes |
 | 서버 |Amazon Redshift 서버의 IP 주소 또는 호스트 이름입니다. |yes |
 | 포트 |Amazon Redshift 서버가 클라이언트 연결을 수신하는 데 사용하는 TCP 포트 수입니다. |아니요(기본값: 5439) |
 | 데이터베이스 |Amazon Redshift 데이터베이스의 이름입니다. |yes |
 | 사용자 이름 |데이터베이스에 대한 액세스 권한이 있는 사용자의 이름입니다. |yes |
-| password |사용자 계정의 password입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. |yes |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime을 사용할 수 있습니다(데이터 저장소가 프라이빗 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |예 |
+| password |사용자 계정의 password입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. |yes |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임입니다.](concepts-integration-runtime.md) Azure Integration Runtime 또는 자체 호스팅 Integration Runtime을 사용할 수 있습니다(데이터 저장소가 프라이빗 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |예 |
 
-**예:**
+**예제:**
 
 ```json
 {
@@ -93,16 +93,16 @@ Amazon Redshift 연결된 서비스에 다음 속성이 지원됩니다.
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
 
-데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 Amazon Redshift 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
+데이터 집합을 정의하는 데 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 집합](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 Amazon Redshift 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
 
-Amazon Redshift에서 데이터를 복사 하기 위해 지원 되는 속성은 다음과 같습니다.
+Amazon Redshift에서 데이터를 복사하려면 다음 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 데이터 집합의 type 속성은 **AmazonRedshiftTable** 로 설정 해야 합니다. | yes |
+| type | 데이터 집합의 형식 속성을 설정 해야 **합니다.** | yes |
 | 스키마 | 스키마의 이름입니다. |아니요(작업 원본에서 "query"가 지정된 경우)  |
 | 테이블 | 테이블 이름입니다. |아니요(작업 원본에서 "query"가 지정된 경우)  |
-| tableName | 스키마가 있는 테이블의 이름입니다. 이 속성은 이전 버전과의 호환성을 위해 지원 됩니다. 새 워크 로드에 `schema` 및 `table`를 사용 합니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
+| tableName | 스키마가 있는 테이블의 이름입니다. 이 속성은 이전 버전과의 호환성을 위해 지원됩니다. 새 `schema` `table` 워크로드에 사용하고 사용합니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
 
 **예제**
 
@@ -122,7 +122,7 @@ Amazon Redshift에서 데이터를 복사 하기 위해 지원 되는 속성은 
 }
 ```
 
-형식화 된 데이터 집합 `RelationalTable` 사용 하 고 있는 경우에는 계속 해 서 새 데이터 집합을 사용 하는 것이 좋습니다.
+형식이 지정된 데이터 집합을 사용하는 `RelationalTable` 경우 계속 지원되지만 앞으로 새 데이터 집합을 사용하는 것이 좋습니다.
 
 ## <a name="copy-activity-properties"></a>복사 작업 속성
 
@@ -130,9 +130,9 @@ Amazon Redshift에서 데이터를 복사 하기 위해 지원 되는 속성은 
 
 ### <a name="amazon-redshift-as-source"></a>원본으로 Amazon Redshift
 
-Amazon Redshift에서 데이터를 복사하려면 복사 작업의 원본 형식을 **AmazonRedshiftSource**로 설정합니다. 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
+Amazon Redshift에서 데이터를 복사하려면 복사 작업의 원본 형식을 **AmazonRedshiftSource**로 설정합니다. 다음 속성은 복사 활동 **소스** 섹션에서 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 type 속성을 **AmazonRedshiftSource**로 설정해야 합니다. | yes |
 | Query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. 예: select * from MyTable. |아니요(데이터 세트의 "tableName"이 지정된 경우) |
@@ -231,9 +231,9 @@ Amazon Redshift에서 데이터를 복사하는 경우 Amazon Redshift 데이터
 | timestamp |DateTime |
 | VARCHAR |String |
 
-## <a name="lookup-activity-properties"></a>조회 작업 속성
+## <a name="lookup-activity-properties"></a>조회 활동 속성
 
-속성에 대 한 자세한 내용을 보려면 [조회 작업](control-flow-lookup-activity.md)을 확인 하세요.
+속성에 대한 자세한 내용을 보려면 [조회 활동을](control-flow-lookup-activity.md)선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 Azure Data Factory에서 복사 작업의 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.

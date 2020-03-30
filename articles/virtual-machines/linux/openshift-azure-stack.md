@@ -1,5 +1,5 @@
 ---
-title: Azure Stack에서 OpenShift 배포
+title: Azure Stack에 OpenShift 배포
 description: Azure Stack에서 OpenShift를 배포합니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,17 +15,17 @@ ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
 ms.openlocfilehash: d6c73b8cd33aa85793a2ce839410065e03b97be7
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74035541"
 ---
 # <a name="deploy-openshift-container-platform-or-okd-in-azure-stack"></a>Azure Stack에서 OKD 또는 OpenShift Container Platform 배포
 
 Azure Stack에서 OpenShift를 배포할 수 있습니다. Azure와 Azure Stack 간에는 몇 가지 주요 차이점이 있으므로 배포가 약간 다르고 기능도 약간 다릅니다.
 
-현재 Azure 클라우드 공급자는 Azure Stack에서 작동하지 않습니다. 이러한 이유로 Azure Stack에서 영구 스토리지를 위해 디스크 연결을 사용할 수 없습니다. 대신 NFS, iSCSI, GlusterFS 등의 다른 저장소 옵션을 구성할 수 있습니다. 또는 CN을 사용 하도록 설정 하 고 영구 저장소에 GlusterFS를 사용할 수 있습니다. CNS를 사용하도록 설정하면 GlusterFS 사용량에 대한 추가 스토리지와 함께 3개의 노드가 추가로 배포됩니다.
+현재 Azure 클라우드 공급자는 Azure Stack에서 작동하지 않습니다. 이러한 이유로 Azure Stack에서 영구 스토리지를 위해 디스크 연결을 사용할 수 없습니다. 대신 NFS, iSCSI, GlusterFS 등과 같은 다른 저장소 옵션을 구성할 수 있습니다. 또는 CNS를 사용하도록 설정하고 영구 저장소에 GlusterFS를 사용할 수 있습니다. CNS를 사용하도록 설정하면 GlusterFS 사용량에 대한 추가 스토리지와 함께 3개의 노드가 추가로 배포됩니다.
 
 Azure Stack에서 OpenShift Container Platform 또는 OKD를 배포하는 몇 가지 방법 중 하나를 사용할 수 있습니다.
 

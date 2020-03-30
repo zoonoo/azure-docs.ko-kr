@@ -1,5 +1,5 @@
 ---
-title: 'Azure Express 경로: 라우터 구성 샘플'
+title: 'Azure 익스프레스라우팅: 라우터 구성 샘플'
 description: 이 페이지는 Cisco 및 Juniper 라우터에 대한 라우터 구성 샘플을 제공합니다.
 services: expressroute
 author: cherylmc
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 12/06/2018
 ms.author: cherylmc
 ms.openlocfilehash: 2c37dadeb669fb88f858b5487379828a8dddec6c
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74076658"
 ---
 # <a name="router-configuration-samples-to-set-up-and-manage-routing"></a>라우팅 설정 및 관리를 위한 라우터 구성 샘플
@@ -63,7 +63,7 @@ Microsoft에 연결하는 모든 라우터에서 피어링별로 하위 인터�
      exit-address-family
     !
 
-### <a name="3-setting-up-prefixes-to-be-advertised-over-the-bgp-session"></a>3. BGP 세션을 통해 보급 하도록 접두사 설정
+### <a name="3-setting-up-prefixes-to-be-advertised-over-the-bgp-session"></a>3. BGP 세션에 광고할 접두사 설정
 선택된 접두사를 Microsoft에 알리도록 라우터를 구성할 수 있습니다. 아래의 샘플을 사용하여 이 작업을 수행할 수 있습니다.
 
     router bgp <Customer_ASN>
@@ -76,7 +76,7 @@ Microsoft에 연결하는 모든 라우터에서 피어링별로 하위 인터�
      exit-address-family
     !
 
-### <a name="4-route-maps"></a>4. 경로 맵
+### <a name="4-route-maps"></a>4. 경로 지도
 경로 맵과 접두사 목록을 사용하여 네트워크에 전파되는 접두사를 필터링할 수 있습니다. 아래의 샘플을 사용하여 이 작업을 수행할 수 있습니다. 적절한 접두사 목록이 설정되어 있어야 합니다.
 
     router bgp <Customer_ASN>
@@ -148,7 +148,7 @@ Microsoft에 연결하는 모든 라우터에서 피어링별로 하위 인터�
         }                                   
     }
 
-### <a name="3-setting-up-prefixes-to-be-advertised-over-the-bgp-session"></a>3. BGP 세션을 통해 보급 하도록 접두사 설정
+### <a name="3-setting-up-prefixes-to-be-advertised-over-the-bgp-session"></a>3. BGP 세션에 광고할 접두사 설정
 선택된 접두사를 Microsoft에 알리도록 라우터를 구성할 수 있습니다. 아래의 샘플을 사용하여 이 작업을 수행할 수 있습니다.
 
     policy-options {
@@ -173,7 +173,7 @@ Microsoft에 연결하는 모든 라우터에서 피어링별로 하위 인터�
     }
 
 
-### <a name="4-route-maps"></a>4. 경로 맵
+### <a name="4-route-maps"></a>4. 경로 지도
 경로 맵과 접두사 목록을 사용하여 네트워크에 전파되는 접두사를 필터링할 수 있습니다. 아래의 샘플을 사용하여 이 작업을 수행할 수 있습니다. 적절한 접두사 목록이 설정되어 있어야 합니다.
 
     policy-options {

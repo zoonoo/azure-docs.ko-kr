@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 48f3109b4c87e25444629ca25411894eab8a9d56
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71827138"
 ---
 # <a name="azure-ad-connect-sync-prevent-accidental-deletes"></a>Azure AD Connect 동기화: 실수로 인한 삭제 방지
@@ -31,7 +31,7 @@ Azure AD Connect를 설치하면 실수로 인한 삭제 방지가 기본적으�
 ## <a name="what-is-prevent-accidental-deletes"></a>실수로 인한 삭제를 방지하는 기능
 다수의 삭제가 다음을 포함하는 경우의 일반적인 시나리오입니다.
 
-* 전체 [OU](how-to-connect-sync-configure-filtering.md) 또는 [도메인](how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering)을 선택하지 않은 [필터링](how-to-connect-sync-configure-filtering.md#domain-based-filtering)으로 변경합니다.
+* 전체 [OU](how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering) 또는 [도메인을](how-to-connect-sync-configure-filtering.md#domain-based-filtering) 선택하지 않은 [필터링을](how-to-connect-sync-configure-filtering.md) 변경합니다.
 * OU의 모든 개체가 삭제됩니다.
 * OU 이름이 변경되면 OU의 모든 개체가 동기화 범위를 벗어난 것으로 간주됩니다.
 
@@ -45,12 +45,12 @@ Azure AD로 내보내도록 스테이징된 삭제 수가 너무 많을 경우 �
 >
 > 
 
-또한 프로파일 내보내기에 대한 `stopped-deletion-threshold-exceeded`Synchronization Service Manager**UI를 찾아보면** 상태를 볼 수 있습니다.
+또한 프로파일 내보내기에 대한 **Synchronization Service Manager** UI를 찾아보면 `stopped-deletion-threshold-exceeded` 상태를 볼 수 있습니다.
 ![실수로 인한 삭제 방지 동기화 서비스 관리자 UI](./media/how-to-connect-sync-feature-prevent-accidental-deletes/syncservicemanager.png)
 
 예상된 경우가 아니라면 조사하여 수정 작업을 수행합니다. 삭제되는 개체를 확인하려면 다음을 수행합니다.
 
-1. 시작 메뉴에서 **동기화 서비스** 를 시작합니다.
+1. 시작 메뉴에서 **동기화 서비스를** 시작합니다.
 2. **커넥터**로 이동합니다.
 3. **Azure Active Directory**유형의 커넥터를 선택합니다.
 4. 오른쪽에 있는 **작업**에서 **커넥터 공간 검색**을 선택합니다.
@@ -58,7 +58,7 @@ Azure AD로 내보내도록 스테이징된 삭제 수가 너무 많을 경우 �
 
 ![커넥터 공간 검색](./media/how-to-connect-sync-feature-prevent-accidental-deletes/searchcs.png)
 
-[!NOTE] 모든 삭제가 필요 하지 않은 경우 더 안전한 경로를 다운 하려고 합니다. PowerShell cmdlet: `Enable-ADSyncExportDeletionThreshold`을 사용 하 여 원하지 않는 삭제를 허용할 수 있는 임계값을 사용 하지 않고 새 임계값을 설정할 수 있습니다. 
+[!NOTE] 모든 삭제가 필요한지 확실하지 않은 경우 더 안전한 경로를 따라 가야합니다. PowerShell cmdlet : `Enable-ADSyncExportDeletionThreshold` 원하지 않는 삭제를 허용할 수 있는 임계값을 사용하지 않도록 설정하는 대신 새 임계값을 설정할 수 있습니다. 
 
 ## <a name="if-all-deletes-are-desired"></a>모든 삭제가 필요한 경우
 모든 삭제를 진행하려면 다음을 수행합니다.

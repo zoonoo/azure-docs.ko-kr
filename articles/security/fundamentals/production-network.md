@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: 7c0748e4ff1531649274834cb1e602c228f102e8
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68726703"
 ---
 # <a name="the-azure-production-network"></a>Azure 프로덕션 네트워크
@@ -55,14 +55,14 @@ Azure는 강력한 소프트웨어 보안 및 방화벽 기능을 다양한 수�
 ### <a name="azure-security-features"></a>Azure 보안 기능
 Azure는 프로덕션 네트워크 내에서 호스트 기반 소프트웨어 방화벽을 구현합니다. 몇 가지 핵심 보안 및 방화벽 기능이 핵심 Azure 환경 내에 상주합니다. 이러한 보안 기능에는 Azure 환경 내의 심층 방어 전략이 반영됩니다. Azure에서 고객 데이터는 다음 방화벽으로 보호됩니다.
 
-**하이퍼바이저 방화벽(패킷 필터)** : 이 방화벽은 하이퍼바이저에서 구현되고 FC(패브릭 컨트롤러) 에이전트에서 구성됩니다. 이 방화벽은 VM 내에서 실행되는 테넌트를 무단 액세스로부터 보호합니다. 기본적으로는 VM을 만들 때 모든 트래픽이 차단되며, FC 에이전트는 필터에 규칙 및 예외를 추가하여 권한이 부여된 트래픽을 허용합니다.
+**하이퍼바이저 방화벽(패킷 필터)**: 이 방화벽은 하이퍼바이저에서 구현되고 FC(패브릭 컨트롤러) 에이전트에서 구성됩니다. 이 방화벽은 VM 내에서 실행되는 테넌트를 무단 액세스로부터 보호합니다. 기본적으로는 VM을 만들 때 모든 트래픽이 차단되며, FC 에이전트는 필터에 규칙 및 예외를 추가하여 권한이 부여된 트래픽을 허용합니다.
 
 다음과 같은 두 가지 규칙 범주가 프로그래밍됩니다.
 
 - **머신 구성 또는 인프라 규칙**: 기본적으로 모든 통신이 차단됩니다. 예외적으로 VM에서 DHCP(Dynamic Host Configuration Protocol) 통신 및 DNS 정보를 송수신하고, “공용” 인터넷으로, FC 클러스터 및 OS 정품 인증 서버 내의 다른 VM에 아웃바운드로 트래픽을 전송할 수 있도록 허용하기도 합니다. VM의 나가는 대상 허용 목록에 Azure 라우터 서브넷 및 기타 Microsoft 속성은 포함되지 않으므로 이러한 규칙이 이러한 항목에 대한 방어 계층의 역할을 합니다.
-- **역할 구성 파일 규칙**: 테넌트의 서비스 모델에 기반하여 인바운드 ACL을 정의합니다. 예를 들어, 테넌트의 특정 VM에 있는 포트 80에 웹 프런트 엔드가 있는 경우, 포트 80은 모든 IP 주소에 열려 있습니다. VM에 실행 중인 작업자 역할이 있는 경우, 동일한 테넌트 내에서 VM에만 작업자 역할이 열려 있습니다.
+- **역할 구성 파일**: 테넌트의 서비스 모델을 기반으로 인바운드 ACL을 정의합니다. 예를 들어, 테넌트의 특정 VM에 있는 포트 80에 웹 프런트 엔드가 있는 경우, 포트 80은 모든 IP 주소에 열려 있습니다. VM에 실행 중인 작업자 역할이 있는 경우, 동일한 테넌트 내에서 VM에만 작업자 역할이 열려 있습니다.
 
-**네이티브 호스트 방화벽**: Azure Service Fabric 및 Azure Storage는 하이퍼바이저가 없는 네이티브 OS에서 실행됩니다. 따라서 Windows 방화벽은 앞의 두 가지 규칙 집합으로 구성됩니다.
+**기본 호스트 방화벽**: Azure Service Fabric 및 Azure Storage는 하이퍼바이저가 없는 기본 OS에서 실행됩니다. 따라서 Windows 방화벽은 앞의 두 가지 규칙 집합으로 구성됩니다.
 
 **호스트 방화벽**: 호스트 방화벽은 하이퍼바이저를 실행하는 호스트 파티션을 보호합니다. 규칙은 FC 및 점프 상자만이 특정 포트에서 호스트 파티션과 통신하도록 프로그래밍됩니다. 다른 예외는 DHCP 응답 및 DNS 응답을 허용하는 것입니다. Azure는 호스트 파티션에 대한 방화벽 규칙의 템플릿이 포함된 머신 구성 파일을 사용합니다. VM이 특정 프로토콜/포트를 통해 호스트 구성 요소, 유선 서버 및 메타데이터 서버와 통신할 수 있도록 허용하는 호스트 방화벽 예외도 있습니다.
 
@@ -85,7 +85,7 @@ Azure 인프라를 보호하기 위해 Microsoft에서 수행하는 작업에 �
 - [Azure 인프라 가용성](infrastructure-availability.md)
 - [Azure 정보 시스템 구성 요소 및 경계](infrastructure-components.md)
 - [Azure 네트워크 아키텍처](infrastructure-network.md)
-- [Azure SQL Database 보안 기능](infrastructure-sql.md)
+- [Azure SQL 데이터베이스 보안 기능](infrastructure-sql.md)
 - [Azure 프로덕션 운영 및 관리](infrastructure-operations.md)
 - [심층 인프라 모니터링](infrastructure-monitoring.md)
 - [Azure 인프라 무결성](infrastructure-integrity.md)

@@ -8,10 +8,10 @@ ms.date: 01/17/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: c05b79d2f1da8076b507ca9ee7a06504de21d5ea
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72333170"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Azure Files의 공유 스냅샷 개요 
@@ -37,7 +37,7 @@ REST API 및 SMB 둘 다를 사용하여 공유의 스냅샷을 볼 수 있습�
 
 공유 스냅샷 기능은 파일 공유 수준에서 제공됩니다. 검색은 개별 파일을 복원할 수 있도록 개별 파일 수준에서 제공됩니다. SMB, REST API, 포털, 클라이언트 라이브러리 또는 PowerShell/CLI 툴링을 사용하여 전체 파일 공유를 복원할 수 있습니다.
 
-파일 공유의 공유 스냅샷은 기본 파일 공유와 동일합니다. 유일한 차이는 공유 스냅샷을 생성한 시간을 나타내기 위해 **DateTime** 값이 공유 URI에 추가되는 것입니다. 예를 들어 파일 공유 URI가 http://storagesample.core.file.windows.net/myshare 이면 공유 스냅샷 URI는 다음과 유사합니다.
+파일 공유의 공유 스냅샷은 기본 파일 공유와 동일합니다. 유일한 차이는 공유 스냅샷을 생성한 시간을 나타내기 위해 **DateTime** 값이 공유 URI에 추가되는 것입니다. 예를 들어 파일 공유 URI가 http://storagesample.core.file.windows.net/myshare이면 공유 스냅샷 URI는 다음과 유사합니다.
 ```
 http://storagesample.core.file.windows.net/myshare?snapshot=2011-03-09T01:42:34.9360000Z
 ```
@@ -57,7 +57,7 @@ http://storagesample.core.file.windows.net/myshare?snapshot=2011-03-09T01:42:34.
 
 스냅샷은 5TB 공유 제한에 포함되지 않습니다. 공유 스냅샷이 차지하는 총 공간에는 제한이 없습니다. 다만 스토리지 계정 제한은 여전히 적용됩니다.
 
-## <a name="limits"></a>Limits
+## <a name="limits"></a>제한
 Azure Files에서 허용하는 최대 공유 스냅샷 수는 200개입니다. 공유 스냅샷 200이후로 새 공유 스냅샷을 생성하려면 이전 공유 스냅샷을 삭제해야 합니다. 
 
 공유 스냅샷 생성을 위한 동시 호출에는 제한이 없습니다. 특정 파일 공유의 공유 스냅샷이 사용할 수 있는 공간의 양에는 제한이 없습니다. 
@@ -71,7 +71,7 @@ Azure Files에서 허용하는 최대 공유 스냅샷 수는 200개입니다. �
 
 공유 스냅샷은 복사 후 그대로 유지되지만 기본 파일 공유는 공유 스냅샷에 사용할 수 있는 데이터 복사본으로 덮어씁니다. 모든 복원된 파일은 "변경한 콘텐츠"에 포함됩니다.
 
-공유 스냅숏의 파일을 다른 이름으로 다른 대상에 복사할 수 있습니다. 그 결과 생성되는 대상 파일은 공유 스냅샷이 아닌 쓰기 가능한 파일입니다. 이 경우 기본 파일 공유는 그대로 유지 됩니다.
+공유 스냅숏의 파일을 다른 이름으로 다른 대상에 복사할 수 있습니다. 그 결과 생성되는 대상 파일은 공유 스냅샷이 아닌 쓰기 가능한 파일입니다. 이 경우 기본 파일 공유는 그대로 유지됩니다.
 
 대상 파일을 복사본으로 덮어쓸 때 원래 대상 파일과 연결된 공유 스냅샷은 그대로 유지됩니다.
 
@@ -84,7 +84,7 @@ Azure에서 인프라를 실행할 때 데이터 복구를 위해 가능하면 �
 
 ## <a name="next-steps"></a>다음 단계
 - 다음에서 공유 스냅샷으로 작업:
-    - [PowerShell](storage-how-to-use-files-powershell.md)
-    - [CLI](storage-how-to-use-files-cli.md)
+    - [Powershell](storage-how-to-use-files-powershell.md)
+    - [Cli](storage-how-to-use-files-cli.md)
     - [Windows](storage-how-to-use-files-windows.md#accessing-share-snapshots-from-windows)
     - [공유 스냅샷 FAQ](storage-files-faq.md#share-snapshots)

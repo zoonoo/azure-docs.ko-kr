@@ -9,10 +9,10 @@ ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: 3c09a95309e001def306698bbba4f6d0a1a2804d
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79255536"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen2"></a>DistCp를 사용하여 Azure Storage Blob과 Azure Data Lake Storage Gen2 간에 데이터 복사
@@ -71,9 +71,9 @@ DistCp의 가장 낮은 세분성은 단일 파일이므로 최대 동시 복사
 
 다음은 사용할 수 있는 몇 가지 지침입니다.
 
-* **1 단계: ' default ' YARN app queue에 사용할 수 있는 총 메모리를 확인** 합니다. 첫 번째 단계는 ' 기본 ' YARN app queue에 사용할 수 있는 메모리를 확인 하는 것입니다. 이 정보는 클러스터와 연결된 Ambari 포털에서 사용할 수 있습니다. YARN으로 이동하여 Configs(구성) 탭을 보고 '기본' 앱 큐에서 사용할 수 있는 YARN 메모리 양을 확인합니다. 이는 DistCp 작업(실제로 MapReduce 작업임)에 사용할 수 있는 총 메모리 양입니다.
+* **1단계: '기본' YARN 앱 큐에서 사용할 수 있는 총 메모리 를 결정합니다** - 첫 번째 단계는 '기본' YARN 앱 큐에 사용할 수 있는 메모리를 확인하는 것입니다. 이 정보는 클러스터와 연결된 Ambari 포털에서 사용할 수 있습니다. YARN으로 이동하여 Configs(구성) 탭을 보고 '기본' 앱 큐에서 사용할 수 있는 YARN 메모리 양을 확인합니다. 이는 DistCp 작업(실제로 MapReduce 작업임)에 사용할 수 있는 총 메모리 양입니다.
 
-* **2단계: 매퍼 수 계산** - **m** 값은 전체 YARN 메모리를 YARN 컨테이너 크기로 나눈 몫과 같습니다. YARN 컨테이너 크기 정보도 Ambari 포털에서 사용할 수 있습니다. YARN으로 이동 하 여 Configs 탭을 확인 합니다. YARN 컨테이너 크기가이 창에 표시 됩니다. 매퍼 수(**m**)를 구하는 수식은 다음과 같습니다.
+* **2단계: 매퍼 수 계산** - **m** 값은 전체 YARN 메모리를 YARN 컨테이너 크기로 나눈 몫과 같습니다. YARN 컨테이너 크기 정보도 Ambari 포털에서 사용할 수 있습니다. YARN으로 이동하여 구성 설정 탭을 봅니다. YARN 컨테이너 크기가 이 창에 표시됩니다. 매퍼 수(**m**)를 구하는 수식은 다음과 같습니다.
 
         m = (number of nodes * YARN memory for each node) / YARN container size
 
@@ -85,7 +85,7 @@ DistCp의 가장 낮은 세분성은 단일 파일이므로 최대 동시 복사
 
         YARN memory = 4 * 96GB = 384GB
 
-* **매퍼 수**: Ambari 포털에서 YARN 컨테이너 크기가 D14 클러스터 노드에 대해 3072 MB 임을 확인 합니다. 따라서 매퍼 수는 다음과 같습니다.
+* **매퍼 수**: Ambari 포털에서 D14 클러스터 노드의 YARN 컨테이너 크기가 3,072MB임을 확인합니다. 따라서 매퍼 수는 다음과 같습니다.
 
         m = (4 nodes * 96GB) / 3072MB = 128 mappers
 

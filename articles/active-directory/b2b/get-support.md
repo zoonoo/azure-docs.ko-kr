@@ -1,5 +1,5 @@
 ---
-title: B2B 공동 작업 지원 가져오기-Azure Active Directory
+title: B2B 공동 작업 지원 받기 - Azure Active Directory
 description: Azure Active Directory B2B 협업에 대한 지원 환경이란?
 services: active-directory
 ms.service: active-directory
@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 00817acf93295becefab2d1a61de84a3f5519338
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74272762"
 ---
 # <a name="getting-support-for-b2b-collaboration"></a>B2B 협업에 대한 지원 받기
@@ -29,7 +29,7 @@ ms.locfileid: "74272762"
      - 서비스: Active Directory
      - 지원 계획: 관련 지원 계획 선택
 
-   ![새 지원 요청을 보여 주는 스크린샷](media/get-support/new-support-request.png)
+   ![새 지원 요청을 보여주는 스크린샷](media/get-support/new-support-request.png)
 
 2. 문제에 대해 설명합니다.
    - 필요 사항을 반영하는 적절한 심각도를 선택합니다.
@@ -37,6 +37,6 @@ ms.locfileid: "74272762"
    - 사용자 추가(B2B)를 범주로 선택
    - CorrelationID, 영향을 받는 사용자와 같은 오류 메시지를 포함합니다.
 
-   ![지원 티켓 문제 설명을 보여 주는 스크린샷](media/get-support/problem-description.png)
+   ![지원 티켓 문제 설명을 보여주는 스크린샷](media/get-support/problem-description.png)
 
 3. 지원 담당자가 추가 문제 해결을 위해 연락할 수 있도록 하려면 연락처 정보를 추가합니다.

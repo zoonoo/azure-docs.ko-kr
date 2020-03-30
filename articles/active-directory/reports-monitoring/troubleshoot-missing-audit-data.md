@@ -1,5 +1,5 @@
 ---
-title: 활동 로그에서 누락 된 데이터 문제 해결 | Microsoft Docs
+title: 활동 로그에서 누락된 데이터 문제 해결 | 마이크로 소프트 문서
 description: Azure Active Directory 활동 로그의 데이터 누락 문제 해결 방법을 제공합니다.
 services: active-directory
 documentationcenter: ''
@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9c335a4d30846f7c1b4dbd6b6aedc4d100a9b43a
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74014279"
 ---
 # <a name="troubleshoot-missing-data-in-the-azure-active-directory-activity-logs"></a>문제 해결: Azure Active Directory 활동 로그의 데이터 누락 | Microsoft Docs 
@@ -72,7 +72,7 @@ Azure Portal에서 일부 작업을 수행했고 `Activity logs > Audit Logs` �
 
 ### <a name="symptoms"></a>증상
 
-Azure Portal에서 30일이 초과된 로그인 및 감사 데이터를 볼 수 없습니다. 이유가 무엇일까요? 
+Azure Portal에서 30일이 초과된 로그인 및 감사 데이터를 볼 수 없습니다. 그 이유는 
 
  ![보고](./media/troubleshoot-missing-audit-data/03.png)
 
@@ -83,7 +83,7 @@ Azure Active Directory 작업은 사용자 라이선스에 따라 다음 기간 
 | 보고서           | &nbsp; |  Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
 | ---              | ----   |  ---           | ---                 | ---                 |
 | 디렉터리 감사  | &nbsp; |   7 일     | 30일             | 30일             |
-| 로그인 작업 | &nbsp; | 사용할 수 없음. 로그인 작업은 개별 사용자 프로필 블레이드에서 7일 동안 액세스할 수 있습니다. | 30일 | 30일             |
+| 로그인 작업 | &nbsp; | 사용할 수 없습니다. 로그인 작업은 개별 사용자 프로필 블레이드에서 7일 동안 액세스할 수 있습니다. | 30일 | 30일             |
 
 자세한 내용은 [Azure Active Directory 보고서 보존 정책](reference-reports-data-retention.md)을 참조하세요.  
 
@@ -94,6 +94,6 @@ Azure Active Directory 작업은 사용자 라이선스에 따라 다음 기간 
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure AD 보고서 보존](reference-reports-data-retention.md).
-* [Azure Active Directory 보고 대기 시간](reference-reports-latencies.md).
+* [Azure Active Directory 보고 대기 시간](reference-reports-latencies.md)입니다.
 * [Azure Active Directory 보고 FAQ](reports-faq.md).
 

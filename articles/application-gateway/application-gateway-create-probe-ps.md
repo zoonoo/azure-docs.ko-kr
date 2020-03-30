@@ -1,5 +1,5 @@
 ---
-title: PowerShell을 사용 하 여 사용자 지정 프로브 만들기
+title: PowerShell을 사용하여 사용자 지정 프로브 만들기
 titleSuffix: Azure Application Gateway
 description: 리소스 관리자에서 PowerShell을 사용하여 Application Gateway에 대한 사용자 지정 프로브를 만드는 방법에 대해 알아봅니다.
 services: application-gateway
@@ -9,18 +9,18 @@ ms.topic: article
 ms.date: 11/14/2019
 ms.author: victorh
 ms.openlocfilehash: 1fef24f4065ca6fc749f35a07143487e049ee6ea
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74075267"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-by-using-powershell-for-azure-resource-manager"></a>Azure Resource Manager에 대해 PowerShell을 사용하여 Azure Application Gateway에 대한 사용자 지정 프로브 만들기
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](application-gateway-create-probe-portal.md)
+> * [Azure 포털](application-gateway-create-probe-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-create-probe-ps.md)
-> * [Azure 클래식 PowerShell](application-gateway-create-probe-classic-ps.md)
+> * [Azure 클래식 파워쉘](application-gateway-create-probe-classic-ps.md)
 
 이 문서에서는 PowerShell을 사용하여 기존 애플리케이션 게이트웨이에 사용자 지정 프로브를 추가합니다. 사용자 지정 프로브는 특정 상태 확인 페이지를 사용하는 애플리케이션이나 기본 웹 애플리케이션에서 성공적으로 응답을 제공하지 않는 애플리케이션에 유용합니다.
 
@@ -77,7 +77,7 @@ $subnet = $vnet.Subnets[0]
 
 ### <a name="create-a-public-ip-address-for-the-front-end-configuration"></a>프런트 엔드 구성에 대한 공용 IP 주소 만들기
 
-미국 서부 지역에 리소스 그룹 **appgw-rg**에서 공용 IP 리소스 **publicIP01**을 만듭니다. 이 예제에서는 애플리케이션 게이트웨이의 프런트 엔드 IP 주소에 공용 IP 주소를 사용합니다.  애플리케이션 게이트웨이를 사용하려면 공용 IP 주소에 동적으로 만들어진 DNS 이름이 있어야 하므로 공용 IP 주소를 만드는 동안에는 `-DomainNameLabel`을 지정할 수 없습니다.
+미국 서부 지역의 리소스 그룹 **appgw-rg에서** 공용 IP 리소스 **publicIP01을** 만듭니다. 이 예제에서는 애플리케이션 게이트웨이의 프런트 엔드 IP 주소에 공용 IP 주소를 사용합니다.  애플리케이션 게이트웨이를 사용하려면 공용 IP 주소에 동적으로 만들어진 DNS 이름이 있어야 하므로 공용 IP 주소를 만드는 동안에는 `-DomainNameLabel`을 지정할 수 없습니다.
 
 ```powershell
 $publicip = New-AzPublicIpAddress -ResourceGroupName appgw-rg -Name publicIP01 -Location 'West US' -AllocationMethod Dynamic
@@ -197,5 +197,5 @@ DnsSettings              : {
 
 ## <a name="next-steps"></a>다음 단계
 
-[SSL 오프로드 구성](application-gateway-ssl-arm.md)을 방문하여 SSL 오프로드를 구성하는 방법을 알아봅니다.
+방문하여 SSL 오프로드 구성 배우기: [SSL 오프로드 구성](application-gateway-ssl-arm.md)
 

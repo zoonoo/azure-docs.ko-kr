@@ -1,5 +1,5 @@
 ---
-title: RLS 및 탄력적 데이터베이스 도구를 사용 하는 다중 테 넌 트 앱
+title: RLS 및 탄력적 데이터베이스 도구가 있는 다중 테넌트 앱
 description: 행 수준 보안으로 탄력적 데이터베이스 도구를 사용하여 확장성이 높은 데이터 계층으로 애플리케이션을 빌드합니다.
 services: sql-database
 ms.service: sql-database
@@ -12,17 +12,17 @@ ms.author: vanto
 ms.reviewer: sstein
 ms.date: 12/18/2018
 ms.openlocfilehash: a5fe5d6d4076c5d82d33737d05bb95ede0a89c00
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73822026"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>탄력적 데이터베이스 도구 및 행 수준 보안을 제공하는 다중 테넌트 애플리케이션
 
-[탄력적 데이터베이스 도구](sql-database-elastic-scale-get-started.md) 및 [RLS (행 수준 보안)][rls] 는 Azure SQL Database를 사용 하 여 다중 테 넌 트 응용 프로그램의 데이터 계층을 확장할 수 있도록 합니다. 이러한 기술을 함께 사용하면 확장성이 뛰어난 데이터 계층이 있는 애플리케이션을 작성할 수 있습니다. 데이터 계층은 다중 테넌트 분할된 데이터베이스를 지원하며 **ADO.NET SqlClient** 또는 **Entity Framework**를 사용합니다. 자세한 내용은 [Azure SQL Database를 사용한 다중 테넌트 SaaS 애플리케이션의 설계 패턴](saas-tenancy-app-design-patterns.md)을 참조하세요.
+[탄력적 데이터베이스 도구](sql-database-elastic-scale-get-started.md) 및 [RLS(행 수준 보안)][rls]는 Azure SQL Database를 사용하여 다중 테넌트 애플리케이션의 데이터 계층을 확장할 수 있도록 지원합니다. 이러한 기술을 함께 사용하면 확장성이 뛰어난 데이터 계층이 있는 애플리케이션을 작성할 수 있습니다. 데이터 계층은 다중 테넌트 분할된 데이터베이스를 지원하며 **ADO.NET SqlClient** 또는 **Entity Framework**를 사용합니다. 자세한 내용은 [Azure SQL Database를 사용한 다중 테넌트 SaaS 애플리케이션의 설계 패턴](saas-tenancy-app-design-patterns.md)을 참조하세요.
 
-- **탄력적 데이터베이스 도구**를 사용하면 개발자는 .NET 라이브러리 및 Azure 서비스 템플릿을 사용하여 표준 분할 방법을 통해 데이터 계층을 확장할 수 있습니다. [Elastic Database 클라이언트 라이브러리][s-d-elastic-database-client-library] 를 사용 하 여 분할를 관리 하면 일반적으로 분할와 관련 된 여러 인프라 작업을 자동화 하 고 간소화할 수 있습니다.
+- **탄력적 데이터베이스 도구**를 사용하면 개발자는 .NET 라이브러리 및 Azure 서비스 템플릿을 사용하여 표준 분할 방법을 통해 데이터 계층을 확장할 수 있습니다. [Elastic Database 클라이언트 라이브러리][s-d-elastic-database-client-library]를 사용하여 분할된 데이터베이스를 관리하면 일반적으로 분할과 관련된 여러 인프라 작업을 자동화 및 간소화하는 데 도움이 됩니다.
 - **행 수준 보안**을 사용하면 개발자가 동일한 데이터베이스에 여러 테넌트에 대한 데이터를 안전하게 저장할 수 있습니다. RLS 보안 정책은 쿼리를 실행하는 테넌트에 속하지 않는 행을 필터링합니다. 데이터베이스 내부에 필터 논리를 중앙화하면 유지 관리가 단순해지고 보안 오류 위험이 줄어듭니다. 모든 클라이언트 코드에 의존하여 보안을 강제 적용하는 다른 대안은 위험합니다.
 
 이러한 기능을 함께 사용하면 애플리케이션이 같은 분할된 데이터베이스에 여러 테넌트에 대한 데이터를 저장할 수 있습니다. 그러면 테넌트가 데이터베이스를 공유하는 경우 테넌트당 비용이 적게 듭니다. 또한 동일한 애플리케이션이 계속 해당 프리미엄 테넌트에 고유한 전용 단일 테넌트 분할된 데이터베이스에 대한 지불 옵션을 제공할 수 있습니다. 단일 테넌트 격리의 이점 중 하나는 더욱 견고한 성능을 보장한다는 것입니다. 단일 테넌트 데이터베이스에는 리소스에 대해 경쟁할 다른 테넌트가 없습니다.
@@ -36,7 +36,7 @@ ms.locfileid: "73822026"
 
 ## <a name="download-the-sample-project"></a>샘플 프로젝트 다운로드
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>사전 요구 사항
 
 - Visual Studio 2012 이상 사용
 - Azure SQL 데이터베이스 3개 만들기
@@ -53,10 +53,10 @@ ms.locfileid: "73822026"
 
 분할된 데이터베이스에서 아직 RLS를 설정하지 않았기 때문에 각 테스트에서 다음 문제가 발생합니다. 테넌트가 자신에게 속하지 않은 블로그를 볼 수 있으며 애플리케이션에서 잘못된 테넌트에 대한 블로그를 삽입할 수 있습니다. 이 문서의 나머지 부분에서는 RLS로 테넌트를 강제 격리하여 이러한 문제를 해결하는 방법을 설명합니다. 두 단계가 있습니다.
 
-1. **애플리케이션 계층**: 연결을 연 후 애플리케이션 코드를 수정하여 SESSION\_CONTEXT에서 현재 TenantId를 항상 설정합니다. 샘플 프로젝트에서는 이미 TenantId를 이 방법으로 설정합니다.
-2. **데이터 계층**: 각 분할된 데이터베이스에서 SESSION\_CONTEXT에 저장된 TenantId에 따라 행을 필터링하는 RLS 보안 정책을 만듭니다. 분할된 데이터베이스 각각에 대해 정책을 만듭니다. 그렇지 않으면 다중 테넌트 분할된 데이터베이스의 행이 필터링되지 않습니다.
+1. **응용 프로그램 계층**: 연결을 연 후 세션\_컨텍스트에서 항상 현재 TenantId를 설정하도록 응용 프로그램 코드를 수정합니다. 샘플 프로젝트에서는 이미 TenantId를 이 방법으로 설정합니다.
+2. **데이터 계층**: 세션\_컨텍스트에 저장된 TenantId를 기반으로 행을 필터링하기 위해 각 샤드 데이터베이스에 RLS 보안 정책을 만듭니다. 분할된 데이터베이스 각각에 대해 정책을 만듭니다. 그렇지 않으면 다중 테넌트 분할된 데이터베이스의 행이 필터링되지 않습니다.
 
-## <a name="1-application-tier-set-tenantid-in-the-session_context"></a>1. 응용 프로그램 계층: 세션\_컨텍스트에서 TenantId를 설정 합니다.
+## <a name="1-application-tier-set-tenantid-in-the-session_context"></a>1. 응용 프로그램 계층: 세션\_컨텍스트에서 테넌트 Id 설정
 
 먼저 탄력적 데이터베이스 클라이언트 라이브러리의 데이터 종속 라우팅 API를 사용하여 분할된 데이터베이스에 연결합니다. 애플리케이션은 연결을 사용 중인 TenantId를 계속 데이터베이스에 알려야 합니다. TenantId는 어떤 행을 다른 테넌트에 속하는 것으로 필터링해야 하는지 RLS 보안 정책에 알려줍니다. 연결의 [SESSION\_CONTEXT](https://docs.microsoft.com/sql/t-sql/functions/session-context-transact-sql)에 현재 TenantId를 저장합니다.
 
@@ -64,7 +64,7 @@ SESSION\_CONTEXT에 대한 대안은 [CONTEXT\_INFO](https://docs.microsoft.com/
 
 ### <a name="entity-framework"></a>Entity Framework
 
-Entity Framework를 사용하는 애플리케이션의 경우 가장 간단한 방법은 \_EF DbContext를 사용하는 데이터 종속 라우팅[에 설명된 ElasticScaleContext 재정의 내에서 SESSION](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md#data-dependent-routing-using-ef-dbcontext)CONTEXT를 설정하는 것입니다. SESSION\_CONTEX에서 TenantId를 연결에 대해 지정된 shardingKey로 설정하는 SqlCommand를 만들어서 실행합니다. 그러면 데이터 종속 라우팅을 통해 조정된 연결이 반환됩니다. 이 방법을 사용하면 SESSION\_CONTEXT를 설정하는 코드를 한 번만 작성하면 됩니다.
+Entity Framework를 사용하는 애플리케이션의 경우 가장 간단한 방법은 [EF DbContext를 사용하는 데이터 종속 라우팅](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md#data-dependent-routing-using-ef-dbcontext)에 설명된 ElasticScaleContext 재정의 내에서 SESSION\_CONTEXT를 설정하는 것입니다. SESSION\_CONTEX에서 TenantId를 연결에 대해 지정된 shardingKey로 설정하는 SqlCommand를 만들어서 실행합니다. 그러면 데이터 종속 라우팅을 통해 조정된 연결이 반환됩니다. 이 방법을 사용하면 SESSION\_CONTEXT를 설정하는 코드를 한 번만 작성하면 됩니다.
 
 ```csharp
 // ElasticScaleContext.cs
@@ -304,7 +304,7 @@ SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
 > Entity Framework 프로젝트에 기본 제약 조건을 사용하는 경우 EF 데이터 모델에 TenantId 열을 포함하지 *않는* 것이 좋습니다. 이 권장 사항은 Entity Framework 쿼리에서 자동으로 기본값을 제공하는데, 이 기본값은 T-SQL에서 만든 SESSION\_CONTEXT를 사용하는 기본 제약 조건을 재정의하기 때문입니다.
 > 예를 들어 샘플 프로젝트에서 기본 제약 조건을 사용하려면 DataClasses.cs에서 TenantId를 제거하고(그리고 패키지 관리자 콘솔에서 Add-Migration을 실행하고) 데이터베이스 테이블에만 필드가 있도록 T-SQL을 사용해야 합니다. 그러면 데이터 삽입 시 EF에서 잘못된 기본값을 자동으로 제공합니다.
 
-### <a name="optional-enable-a-superuser-to-access-all-rows"></a>(선택 사항) 모든 행에 액세스 하려면 *superuser*를 사용 하도록 설정
+### <a name="optional-enable-a-superuser-to-access-all-rows"></a>(선택 사항) *수퍼유저가* 모든 행에 액세스할 수 있도록 설정
 
 일부 애플리케이션은 모든 행에 액세스할 수 있는 *superuser*를 만들어야 할 수 있습니다. superuser는 모든 분할된 데이터베이스의 모든 테넌트에서 보고를 사용할 수 있습니다. 또는 superuser가 데이터베이스 간에 테넌트 행 이동과 관련된 분할된 데이터베이스에서 분할-병합 작업을 수행할 수 있습니다.
 

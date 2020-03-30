@@ -1,6 +1,6 @@
 ---
-title: Apache Hive를 사용 하 여 & 프로세스 JSON 분석-Azure HDInsight
-description: Azure HDInsight의 Apache Hive를 사용 하 여 JSON 문서를 사용 하 고 분석 하는 방법을 알아봅니다.
+title: 아파치 하이브로 jSON 을 & 프로세스 분석 - Azure HDInsight
+description: Azure HDInsight에서 아파치 하이브를 사용하여 JSON 문서를 사용하고 분석하는 방법을 알아봅니다.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,15 +8,15 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/29/2019
 ms.openlocfilehash: 1c519533625835677ddae0a274c9ce9f10edc6dd
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73097992"
 ---
 # <a name="process-and-analyze-json-documents-by-using-apache-hive-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Hive를 사용하여 JSON 문서 처리 및 분석
 
-Azure HDInsight에서 Apache Hive를 사용하여 JSON(JavaScript Object Notation) 파일을 처리하고 분석하는 방법에 대해 알아봅니다. 이 문서에서는 다음 JSON 문서를 사용 합니다.
+Azure HDInsight에서 Apache Hive를 사용하여 JSON(JavaScript Object Notation) 파일을 처리하고 분석하는 방법에 대해 알아봅니다. 이 문서에서는 다음 JSON 문서를 사용합니다.
 
 ```json
 {
@@ -57,7 +57,7 @@ Azure HDInsight에서 Apache Hive를 사용하여 JSON(JavaScript Object Notatio
 
 이 파일은 `wasb://processjson@hditutorialdata.blob.core.windows.net/`에 있습니다. HDInsight에서 Azure Blob Storage를 사용하는 방법에 대한 자세한 내용은 [HDInsight에서 Apache Hadoop을 사용하여 HDFS 호환 Azure Blob Storage 사용](../hdinsight-hadoop-use-blob-storage.md)을 참조하세요. 클러스터의 기본 컨테이너에 파일을 복사할 수 있습니다.
 
-이 문서에서는 Apache Hive 콘솔을 사용 합니다. Hive 콘솔을 여는 방법에 대 한 지침은 [HDInsight에서 Apache Hadoop Apache Ambari Hive 보기 사용](apache-hadoop-use-hive-ambari-view.md)을 참조 하세요.
+이 문서에서는 아파치 하이브 콘솔을 사용합니다. 하이브 콘솔을 여는 방법에 대한 지침은 [HDInsight의 아파치 하두롭과 아파치 암바리 하이브 뷰 사용을](apache-hadoop-use-hive-ambari-view.md)참조하십시오.
 
 ## <a name="flatten-json-documents"></a>JSON 문서 평면화
 
@@ -82,7 +82,7 @@ SELECT CONCAT_WS(' ',COLLECT_LIST(textcol)) AS singlelineJSON
 SELECT * FROM StudentsOneLine
 ```
 
-원시 JSON 파일은 `wasb://processjson@hditutorialdata.blob.core.windows.net/`에 있습니다. **StudentsRaw** Hive 테이블은 평면화 되지 않은 원시 JSON 문서를 가리킵니다.
+원시 JSON 파일은 `wasb://processjson@hditutorialdata.blob.core.windows.net/`에 있습니다. **StudentsRaw** 하이브 테이블은 평평하지 않은 원시 JSON 문서를 가리킵니다.
 
 **StudentsOneLine** Hive 테이블은 HDInsight 기본 파일 시스템에서 데이터를 **/json/students/** 경로에 저장합니다.
 
@@ -92,7 +92,7 @@ SELECT * FROM StudentsOneLine
 
 **SELECT** 문의 출력은 다음과 같습니다.
 
-![JSON 문서를 평면화 하는 HDInsight](./media/using-json-in-hive/hdinsight-flatten-json.png)
+![JSON 문서를 평평하게 하는 HDInsight](./media/using-json-in-hive/hdinsight-flatten-json.png)
 
 ## <a name="analyze-json-documents-in-hive"></a>Hive에서 JSON 문서 분석
 
@@ -101,7 +101,7 @@ Hive는 JSON 문서에서 쿼리를 실행할 수 있는 서로 다른 세 가�
 * get_json_object UDF(사용자 정의 함수) 사용
 * json_tuple UDF 사용
 * 사용자 지정 Serializer/Deserializer(SerDe) 사용
-* Python 또는 다른 언어를 사용하여 사용자 고유의 UDF 작성 Hive를 사용 하 여 사용자 고유의 Python 코드를 실행 하는 방법에 대 한 자세한 내용은 [Apache Hive 및 Apache Pig를 사용 하는 PYTHON UDF](./python-udf-hdinsight.md)를 참조 하세요.
+* Python 또는 다른 언어를 사용하여 사용자 고유의 UDF 작성 Hive를 사용하여 사용자 고유의 Python 코드를 실행하는 방법에 대한 자세한 내용은 [Apache Hive와 Apache Pig에서 Python UDF 사용](./python-udf-hdinsight.md)을 참조하세요.
 
 ### <a name="use-the-get_json_object-udf"></a>get_json_object UDF 사용
 
@@ -118,18 +118,18 @@ FROM StudentsOneLine;
 
 콘솔 창에서 이 쿼리를 실행하는 경우 출력은 다음과 같습니다.
 
-![Json 개체 UDF 가져오기 Apache Hive](./media/using-json-in-hive/hdinsight-get-json-object.png)
+![아파치 하이브 는 json 개체 UDF를 얻을](./media/using-json-in-hive/hdinsight-get-json-object.png)
 
 get-json_object UDF에는 다음과 같은 제한 사항이 있습니다.
 
 * 쿼리의 각 필드는 쿼리를 다시 구문 분석하는 데 필요하므로 성능에 영향을 줍니다.
 * **GET\_JSON_OBJECT()** 는 배열의 문자열 표현을 반환합니다. 이 배열을 Hive 배열로 변환하려면 정규식을 사용하여 대괄호("[" 및 "]")를 바꾼 다음 분할된 호출을 통해 배열을 가져와야 합니다.
 
-Hive wiki를 사용 하 여 **json_tuple**를 사용 하는 것이 좋습니다.  
+이것이 Hive 위키가 **json_tuple**사용하는 것이 좋습니다.  
 
 ### <a name="use-the-json_tuple-udf"></a>json_tupl UDF 사용
 
-Hive에서 제공하는 다른 UDF는 [get_ json _object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-json_tuple)보다 성능이 뛰어난 [json_tuple](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object)입니다. 이 메서드는 키 집합 및 JSON 문자열을 사용하며, 하나의 함수를 통해 값의 튜플을 반환합니다. 다음 쿼리는 JSON 문서에서 학생 ID와 등급을 반환합니다.
+하이브에서 제공하는 또 다른 UDF는 [get_ json _object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object)보다 더 나은 수행 [json_tuple](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-json_tuple)라고합니다. 이 메서드는 키 집합 및 JSON 문자열을 사용하며, 하나의 함수를 통해 값의 튜플을 반환합니다. 다음 쿼리는 JSON 문서에서 학생 ID와 등급을 반환합니다.
 
 ```sql
 SELECT q1.StudentId, q1.Grade
@@ -140,9 +140,9 @@ LATERAL VIEW JSON_TUPLE(jt.json_body, 'StudentId', 'Grade') q1
 
 Hive 콘솔에 표시되는 이 스크립트의 출력은 다음과 같습니다.
 
-![Apache Hive json 쿼리 결과](./media/using-json-in-hive/hdinsight-json-tuple.png)
+![아파치 하이브 json 쿼리 결과](./media/using-json-in-hive/hdinsight-json-tuple.png)
 
-json_tuple UDF는 Hive에서 [lateral view](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) 구문을 사용합니다. 이 구문을 사용하면 json\_tuple에서 원래 테이블의 각 행에 UDT 함수를 적용하여 가상 테이블을 만들 수 있습니다. **LATERAL VIEW**를 반복적으로 사용하기 때문에 복잡한 JSON을 다루기가 너무 어려워집니다. 또한 **JSON_TUPLE** 는 중첩 된 json을 처리할 수 없습니다.
+json_tuple UDF는 Hive에서 [lateral view](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) 구문을 사용합니다. 이 구문을 사용하면 json\_tuple에서 원래 테이블의 각 행에 UDT 함수를 적용하여 가상 테이블을 만들 수 있습니다. **LATERAL VIEW**를 반복적으로 사용하기 때문에 복잡한 JSON을 다루기가 너무 어려워집니다. 또한 **JSON_TUPLE** 중첩 된 JSON을 처리할 수 없습니다.
 
 ### <a name="use-a-custom-serde"></a>사용자 지정 SerDe 사용
 
@@ -150,12 +150,12 @@ SerDe는 중첩된 JSON 문서를 구문 분석하기 위한 최상의 선택입
 
 ## <a name="summary"></a>요약
 
-결론적으로 선택하는 하이브의 JSON 연산자 유형은 시나리오에 따라 달라집니다. 간단한 JSON 문서가 있고 조회할 필드가 하나 뿐 이면 Hive UDF **get_json_object**를 사용 하도록 선택할 수 있습니다. 조회할 키가 두 개 이상 있는 경우 **json_tuple**를 사용할 수 있습니다. 중첩 된 문서를 사용 하는 경우 **JSON SerDe**을 사용 해야 합니다.
+결론적으로 선택하는 하이브의 JSON 연산자 유형은 시나리오에 따라 달라집니다. 간단한 JSON 문서가 있고 조회할 필드가 하나만 있는 경우 Hive UDF **get_json_object**사용하도록 선택할 수 있습니다. 조회할 키가 두 개 이상 인 경우 **json_tuple**사용할 수 있습니다. 중첩 된 문서가있는 경우 **JSON SerDe를**사용해야합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 관련 문서는 다음을 참조하세요.
 
 * [샘플 Apache log4j 파일 분석을 위해 HDInsight에서 Apache Hadoop과 함께 Apache Hive 및 HiveQL 사용](../hdinsight-use-hive.md)
-* [HDInsight에서 대화형 쿼리를 사용 하 여 비행 지연 데이터 분석](../interactive-query/interactive-query-tutorial-analyze-flight-data.md)
+* [HDInsight에서 대화형 쿼리를 사용하여 비행 지연 데이터 분석](../interactive-query/interactive-query-tutorial-analyze-flight-data.md)
 * [HDInsight에서 Apache Hive를 사용하여 Twitter 데이터 분석](../hdinsight-analyze-twitter-data-linux.md)

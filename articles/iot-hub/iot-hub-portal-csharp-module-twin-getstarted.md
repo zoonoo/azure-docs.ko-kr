@@ -1,5 +1,5 @@
 ---
-title: 모듈 쌍 & 모듈 쌍 Azure IoT Hub (포털 및 .NET)
+title: Azure IoT Hub 모듈 ID & 모듈 트윈(포털 및 .NET)
 description: 포털 및 .NET을 사용하여 모듈 ID를 만들고 모듈 쌍을 업데이트하는 방법을 알아봅니다.
 author: robinsh
 manager: philmea
@@ -10,10 +10,10 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.openlocfilehash: 289c269100eb6ab672bb8d60562c1fa77d8d091a
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73954612"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-the-portal-and-net-device"></a>포털 및 .NET 디바이스를 사용하여 IoT Hub 모듈 ID 및 모듈 쌍 시작
@@ -21,24 +21,24 @@ ms.locfileid: "73954612"
 [!INCLUDE [iot-hub-selector-module-twin-getstarted](../../includes/iot-hub-selector-module-twin-getstarted.md)]
 
 > [!NOTE]
-> [모듈 ID 및 모듈 쌍](iot-hub-devguide-module-twins.md)은 Azure IoT Hub 디바이스 ID 및 디바이스 쌍과 비슷하지만 더 자세한 세분성을 제공합니다. 장치 id 및 장치 쌍 Azure IoT Hub를 사용 하 여 백 엔드 응용 프로그램에서 장치를 구성 하 고 장치 조건에 대 한 가시성을 제공할 수 있지만, 모듈 id 및 모듈 쌍은 장치의 개별 구성 요소에 대해 이러한 기능을 제공 합니다. 운영 체제 기반 장치 또는 펌웨어 장치와 같은 여러 구성 요소가 포함 된 지원 장치에서 모듈 id 및 모듈 쌍은 각 구성 요소에 대 한 격리 된 구성 및 조건을 허용 합니다.
+> [모듈 ID 및 모듈 쌍](iot-hub-devguide-module-twins.md)은 Azure IoT Hub 디바이스 ID 및 디바이스 쌍과 비슷하지만 더 자세한 세분성을 제공합니다. Azure IoT Hub 장치 ID 및 장치 쌍은 백 엔드 응용 프로그램이 장치를 구성하고 장치의 조건에 대한 가시성을 제공할 수 있도록 하는 반면 모듈 ID 및 모듈 쌍은 장치의 개별 구성 요소에 대해 이러한 기능을 제공합니다. 운영 체제 기반 장치 또는 펌웨어 장치와 같은 여러 구성 요소가 있는 지원 장치에서 모듈 ID 및 모듈 트윈을 사용하면 각 구성 요소에 대해 격리된 구성 및 조건을 사용할 수 있습니다.
 >
 
 이 자습서에서는 다음에 대해 알아봅니다.
 
 * 포털에서 모듈 ID를 만드는 방법
 
-* .NET 장치 SDK를 사용 하 여 장치에서 모듈 쌍을 업데이트 하는 방법입니다.
+* .NET 장치 SDK를 사용하여 장치에서 모듈 쌍업데이트를 하는 방법.
 
 > [!NOTE]
-> 장치 및 솔루션 백 엔드에서 실행 하기 위해 두 응용 프로그램을 빌드하는 데 사용할 수 있는 Azure IoT Sdk에 대 한 자세한 내용은 [Azure Iot sdk](iot-hub-devguide-sdks.md)를 참조 하세요.
+> 장치에서 실행되는 두 응용 프로그램과 솔루션 백 엔드를 빌드하는 데 사용할 수 있는 Azure IoT SDK에 대한 자세한 내용은 [Azure IoT SDK를](iot-hub-devguide-sdks.md)참조하십시오.
 >
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-* 있습니다.
+* Visual Studio.
 
-* 활성 Azure 계정. 계정이 없는 경우 몇 분 안에 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)을 만들 수 있습니다.
+* 활성 Azure 계정. 계정이 없는 경우 단 몇 분 만에 [무료 계정을](https://azure.microsoft.com/pricing/free-trial/) 만들 수 있습니다.
 
 ## <a name="create-a-hub"></a>허브 만들기
 
@@ -50,19 +50,19 @@ ms.locfileid: "73954612"
 
 ## <a name="create-a-module-identity-in-the-portal"></a>포털에서 모듈 ID 만들기
 
-하나의 디바이스 ID 내에 최대 20개의 모듈 ID를 만들 수 있습니다. Id를 추가 하려면 다음 단계를 수행 합니다.
+하나의 디바이스 ID 내에 최대 20개의 모듈 ID를 만들 수 있습니다. ID를 추가하려면 다음 단계를 따르십시오.
 
-1. 이전 섹션에서 만든 장치에 대해 **모듈 Id 추가** 를 선택 하 여 첫 번째 모듈 id를 만듭니다.
+1. 이전 섹션에서 만든 장치의 경우 **모듈 ID 추가를** 선택하여 첫 번째 모듈 ID를 만듭니다.
 
-1. *Myfirstmodule*이름을 입력 합니다. 모듈 id를 저장 합니다.
+1. *myFirstModule*의 이름을 입력합니다. 모듈 ID를 저장합니다.
 
-    ![모듈 id 추가](./media/iot-hub-portal-csharp-module-twin-getstarted/add-module-identity.png)
+    ![모듈 ID 추가](./media/iot-hub-portal-csharp-module-twin-getstarted/add-module-identity.png)
 
-    새 모듈 id가 화면 맨 아래에 나타납니다. 모듈 id 세부 정보를 보려면 선택 합니다.
+    새 모듈 ID가 화면 하단에 나타납니다. 모듈 ID 세부 정보를 보려면 선택합니다.
 
-    ![모듈 id 세부 정보를 참조 하세요.](./media/iot-hub-portal-csharp-module-twin-getstarted/module-identity-details.png)
+    ![모듈 ID 세부 정보 보기](./media/iot-hub-portal-csharp-module-twin-getstarted/module-identity-details.png)
 
-**연결 문자열-기본 키**를 저장 합니다. 다음 섹션에서 사용 하 여 장치에서 모듈을 설정 합니다.
+연결 **문자열 저장 - 기본 키**. 다음 섹션에서 장치를 설정하여 모듈을 설정합니다.
 
 ## <a name="update-the-module-twin-using-net-device-sdk"></a>.NET 디바이스 SDK를 사용하여 모듈 쌍 업데이트
 
@@ -70,43 +70,43 @@ IoT Hub에서 모듈 ID를 성공적으로 만들었습니다. 시뮬레이트�
 
 ### <a name="create-a-visual-studio-project"></a>Visual Studio 프로젝트 만들기
 
-모듈 쌍으로 보고 된 속성을 업데이트 하는 앱을 만들려면 다음 단계를 수행 합니다.
+모듈 쌍보고 속성을 업데이트하는 앱을 만들려면 다음 단계를 따르십시오.
 
-1. Visual Studio에서 **새 프로젝트 만들기**를 선택한 다음 **콘솔 앱 (.NET Framework)** 을 선택 하 고 **다음**을 선택 합니다.
+1. Visual Studio에서 **새 프로젝트 만들기를**선택한 다음 **콘솔 앱(.NET 프레임워크)을**선택하고 다음 을 **선택합니다.**
 
-1. **새 프로젝트 구성**에서 **프로젝트 이름**으로 *UpdateModuleTwinReportedProperties* 을 입력 합니다. **만들기** 를 선택하여 계속합니다.
+1. 새 프로젝트 구성에서 *UpdateModuleTwin보고된 속성을* **프로젝트 이름으로** **입력합니다.** **만들기** 를 선택하여 계속합니다.
 
-    ![Visual studio 프로젝트를 구성 합니다.](./media/iot-hub-portal-csharp-module-twin-getstarted/configure-twins-project.png)
+    ![비주얼 스튜디오 프로젝트로 구성](./media/iot-hub-portal-csharp-module-twin-getstarted/configure-twins-project.png)
 
 ### <a name="install-the-latest-azure-iot-hub-net-device-sdk"></a>최신 Azure IoT Hub .NET 디바이스 SDK 설치
 
-모듈 ID 및 모듈 쌍은 공개 미리 보기로 제공됩니다. IoT Hub 시험판 장치 Sdk 에서만 사용할 수 있습니다. 이를 설치 하려면 다음 단계를 수행 합니다.
+모듈 ID 및 모듈 쌍은 공개 미리 보기로 제공됩니다. IoT Hub 시험판 장치 SDK에서만 사용할 수 있습니다. 설치하려면 다음 단계를 따르십시오.
 
-1. Visual Studio에서 **도구** > **nuget 패키지 관리자** > **솔루션에 대 한 nuget 패키지 관리**를 엽니다.
+1. Visual Studio에서 오픈 **도구** > **NuGet 패키지 관리자는** > **솔루션에 대한 NuGet 패키지를 관리합니다.**
 
-1. **찾아보기**를 선택한 다음 **시험판 포함**을 선택 합니다. *Microsoft. Azure. Devices. 클라이언트*를 검색 합니다. 최신 버전을 선택하고 설치합니다.
+1. **찾아보기를**선택한 다음 **시험판 포함을**선택합니다. *Microsoft.Azure.Devices.Client*을 검색합니다. 최신 버전을 선택하고 설치합니다.
 
-    ![Azure IoT Hub .NET service SDK 미리 보기 설치](./media/iot-hub-csharp-csharp-module-twin-getstarted/install-sdk.png)
+    ![Azure IoT Hub .NET 서비스 SDK 미리 보기 설치](./media/iot-hub-csharp-csharp-module-twin-getstarted/install-sdk.png)
 
     이제 모든 모듈 기능에 액세스할 수 있습니다.
 
 ### <a name="get-your-module-connection-string"></a>모듈 연결 문자열 가져오기
 
-콘솔 앱에 대 한 모듈 연결 문자열이 필요 합니다. 다음 단계를 수행하세요.
+콘솔 앱의 모듈 연결 문자열이 필요합니다. 다음 단계를 수행하세요.
 
-1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+1. [Azure 포털에](https://portal.azure.com/)로그인합니다.
 
-1. IoT hub로 이동 하 여 **Iot 장치**를 선택 합니다. **Myfirstdevice** 를 열고 **myfirstdevice** 이 성공적으로 만들어졌는지 확인 합니다.
+1. IoT 허브로 이동하여 **IoT 장치를**선택합니다. **myFirstDevice를** 열면 **myFirstModule이** 성공적으로 만들어졌습니다.
 
-1. **모듈 id**에서 **myfirstmodule** 을 선택 합니다. **모듈 Id 세부 정보**에서 **연결 문자열 (기본 키)** 을 복사 합니다.
+1. **모듈 ID**에서 **myFirstModule을** 선택합니다. **모듈 ID 세부 정보에서**연결 **문자열(기본 키)을**복사합니다.
 
     ![Azure Portal 모듈 세부 정보](./media/iot-hub-portal-csharp-module-twin-getstarted/module-identity-details.png)
 
 ### <a name="create-updatemoduletwinreportedproperties-console-app"></a>UpdateModuleTwinReportedProperties 콘솔 앱 만들기
 
-앱을 만들려면 다음 단계를 수행 합니다.
+앱을 만들려면 다음 단계를 따르세요.
 
-1. `using`Program.cs**파일 위에 다음** 문을 추가합니다.
+1. **Program.cs** 파일 위에 다음 `using` 문을 추가합니다.
 
   ```csharp
   using Microsoft.Azure.Devices.Client;
@@ -179,7 +179,7 @@ IoT Hub에서 모듈 ID를 성공적으로 만들었습니다. 시뮬레이트�
   }
   ```
   
-  **F5 키**를 사용 하 여이 앱을 빌드하고 실행할 수 있습니다.
+  **F5를**사용하여이 응용 프로그램을 빌드하고 실행할 수 있습니다.
 
 이 코드 샘플에서는 AMQP 프로토콜을 사용하여 모듈 쌍을 검색하고 reported 속성을 업데이트하는 방법을 보여 줍니다. 공개 미리 보기에서는 모듈 쌍 작업에 대해서만 AMQP를 지원합니다.
 
@@ -187,6 +187,6 @@ IoT Hub에서 모듈 ID를 성공적으로 만들었습니다. 시뮬레이트�
 
 계속해서 IoT Hub을 시작하고 다른 IoT 시나리오를 탐색하려면 다음을 참조하세요.
 
-* [.NET 백업 및 .NET 장치를 사용 하 여 IoT Hub 모듈 id 및 모듈 쌍 시작](iot-hub-csharp-csharp-module-twin-getstarted.md)
+* [.NET 백업 및 .NET 디바이스를 사용하여 IoT Hub 모듈 ID 및 모듈 쌍 시작](iot-hub-csharp-csharp-module-twin-getstarted.md)
 
 * [IoT Edge 시작](../iot-edge/tutorial-simulate-device-linux.md)

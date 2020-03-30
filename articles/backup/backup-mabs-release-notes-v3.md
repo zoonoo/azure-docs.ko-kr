@@ -1,14 +1,14 @@
 ---
 title: Microsoft Azure Backup Server v3 릴리스 정보
-description: 이 문서에서는 MABS (Microsoft Azure Backup 서버) v3의 알려진 문제 및 해결 방법에 대 한 정보를 제공 합니다.
+description: 이 문서에서는 Microsoft Azure 백업 서버(MABS) v3에 대한 알려진 문제 및 해결 방법에 대한 정보를 제공합니다.
 ms.topic: conceptual
 ms.date: 11/22/2018
 ms.asset: 0c4127f2-d936-48ef-b430-a9198e425d81
 ms.openlocfilehash: b47d83e0e3714f3f035397acaadeac9cda39d12a
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74172273"
 ---
 # <a name="release-notes-for-microsoft-azure-backup-server"></a>Microsoft Azure Backup Server 릴리스 정보
@@ -50,7 +50,7 @@ ms.locfileid: "74172273"
 
 ## <a name="upgrade-to-mabs-v3-fails-in-russian-locale"></a>러시아어 로캘에서 MABS V3로의 업그레이드 실패
 
-**설명:** **4387** 오류 코드로 인해 러시아어 로캘의 MABS V2에서 MABS V3으로 업그레이드하지 못했습니다.
+**설명:****4387** 오류 코드로 인해 러시아어 로캘의 MABS V2에서 MABS V3으로 업그레이드하지 못했습니다.
 
 **해결 방법:** 다음 단계에 따라 러시아어 설치 패키지를 사용하여 MABS V3으로 업그레이드합니다.
 
@@ -73,4 +73,4 @@ ms.locfileid: "74172273"
 
 ## <a name="next-steps"></a>다음 단계
 
-[MABS V3의 새로운 기능](backup-mabs-whats-new-mabs.md)
+[MABS V3의 새로운 점](backup-mabs-whats-new-mabs.md)

@@ -16,10 +16,10 @@ ms.date: 03/20/2019
 ms.author: anilmur
 ms.reviewer: juliako;johndeu
 ms.openlocfilehash: 4dceb558532305c6d2e84563e25ab05508423090
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72801947"
 ---
 # <a name="create-advanced-encoding-workflows-with-workflow-designer"></a>워크플로 디자이너와 고급 Encoding 워크플로 만들기  
@@ -41,7 +41,7 @@ ms.locfileid: "72801947"
 
 워크플로 파일을 만든 후 이를 자산으로 업로드한 다음 미디어 파일을 인코딩하는 데 사용할 수 있습니다. **.NET**을 사용하여 **미디어 인코더 Premium 워크플로**에서 인코딩하는 방법에 대한 자세한 내용은 [미디어 인코더 Premium 워크플로 사용하여 고급 인코딩](media-services-encode-with-premium-workflow.md)을 참조하세요.
 
-## <a id="existing_workflows"></a>기존 워크플로 수정
+## <a name="modify-existing-workflows"></a><a id="existing_workflows"></a>기존 워크플로 수정
 디자이너 도구를 사용하여 기본 [게시 워크플로](media-services-workflow-designer.md#existing_workflows) 를 수정할 수 있습니다. [여기](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows)에서 기본 워크플로 파일을 가져올 수 있습니다. 폴더에는 이러한 파일에 대한 설명도 포함되어 있습니다.
 
 다음 비디오에서는 디자이너를 사용하는 방법을 보여줍니다.
@@ -57,7 +57,7 @@ ms.locfileid: "72801947"
 > 
 > 
 
-### <a name="day-2"></a>2일
+### <a name="day-2"></a>2일차
 2일차 비디오에서 다루는 내용은 다음과 같습니다.
 
 * 다양한 소스 파일 시나리오 – 오디오 처리
@@ -79,18 +79,18 @@ ms.locfileid: "72801947"
 > 
 > 
 
-## <a name="need-help"></a>도움이 필요하십니까?
+## <a name="need-help"></a>도움 필요 시
 
-[새 지원 요청](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) 으로 이동 하 여 지원 티켓을 열 수 있습니다.
+[새 지원 요청으로](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) 이동하여 지원 티켓을 열 수 있습니다.
 
 ## <a name="next-step"></a>다음 단계
 Media Services 학습 경로를 검토합니다.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>피드백 제공하기
+## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>관련 항목
 [Azure Premium 인코더 워크플로 디자이너 교육 비디오](http://johndeutscher.com/2015/07/06/azure-premium-encoder-workflow-designer-training-videos/)
 

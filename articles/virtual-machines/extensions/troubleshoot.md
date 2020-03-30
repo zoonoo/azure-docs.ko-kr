@@ -1,5 +1,5 @@
 ---
-title: Windows VM 확장 오류 문제 해결
+title: Windows VM 확장 실패 문제 해결
 description: Azure Windows VM 확장 오류 문제 해결에 대해 자세히 알아봅니다.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 03/29/2016
 ms.author: kundanap
 ms.openlocfilehash: bc99a9c9e9ff985730ec97dbacd1d7c1de06a45e
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74073646"
 ---
 # <a name="troubleshooting-azure-windows-vm-extension-failures"></a>Azure Windows VM 확장 오류 문제 해결
@@ -27,7 +27,7 @@ ms.locfileid: "74073646"
 ## <a name="viewing-extension-status"></a>확장 상태 보기
 Azure Powershell에서 Azure Resource Manager 템플릿을 실행할 수 있습니다. 템플릿을 실행하면 Azure Resource Explorer 또는 명령줄 도구에서 확장 상태를 볼 수 있습니다.
 
-다음 예를 참조하세요.
+다음은 예제입니다.
 
 Azure PowerShell:
 

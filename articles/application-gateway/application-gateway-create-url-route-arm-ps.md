@@ -1,5 +1,5 @@
 ---
-title: PowerShell을 사용 하 여 URL 경로 기반 라우팅 규칙
+title: PowerShell을 사용하는 URL 경로 기반 라우팅 규칙
 titleSuffix: Azure Application Gateway
 description: Azure PowerShell을 사용하여 애플리케이션 게이트웨이 및 가상 머신 확장 집합에 URL 경로 기반 회람 규칙을 만드는 방법을 알아봅니다.
 services: application-gateway
@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 11/14/2019
 ms.author: victorh
 ms.openlocfilehash: e7934ba0b33bff7ffb8e89e7b56c5b998a232289
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74048046"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-routing-rules-using-azure-powershell"></a>Azure PowerShell을 사용하여 URL 경로 기반 회람 규칙으로 애플리케이션 게이트웨이 만들기
 
-Azure PowerShell을 사용하여 [애플리케이션 게이트웨이](application-gateway-url-route-overview.md)를 만들 때 [URL 경로 기반 회람 규칙](application-gateway-introduction.md)을 구성할 수 있습니다. 이 자습서에서는 [가상 머신 확장 집합](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)을 사용하여 백 엔드 풀을 만듭니다. 그런 다음, 웹 트래픽이 풀의 적절한 서버에 도착하도록 하는 라우팅 규칙을 만듭니다.
+Azure PowerShell을 사용하여 [애플리케이션 게이트웨이](application-gateway-introduction.md)를 만들 때 [URL 경로 기반 회람 규칙](application-gateway-url-route-overview.md)을 구성할 수 있습니다. 이 자습서에서는 [가상 머신 확장 집합](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)을 사용하여 백 엔드 풀을 만듭니다. 그런 다음, 웹 트래픽이 풀의 적절한 서버에 도착하도록 하는 라우팅 규칙을 만듭니다.
 
 이 문서에서는 다음 방법을 설명합니다.
 
@@ -28,7 +28,7 @@ Azure PowerShell을 사용하여 [애플리케이션 게이트웨이](applicatio
 
 ![URL 라우팅 예제](./media/application-gateway-create-url-route-arm-ps/scenario.png)
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -46,7 +46,7 @@ New-AzResourceGroup -Name myResourceGroupAG -Location eastus
 
 ## <a name="create-network-resources"></a>네트워크 리소스 만들기
 
-*New-AzVirtualNetworkSubnetConfig*를 사용하여 *myAGSubnet* 및 [myBackendSubnet](/powershell/module/az.network/new-azvirtualnetworksubnetconfig)이라는 서브넷 구성을 만듭니다. 서브넷 구성으로 *New-AzVirtualNetwork*를 사용하여 [myVNet](/powershell/module/az.network/new-azvirtualnetwork)이라는 가상 네트워크를 만듭니다. 마지막으로 *New-AzPublicIpAddress*를 사용하여 [myAGPublicIPAddress](/powershell/module/az.network/new-azpublicipaddress)라는 공용 IP 주소를 만듭니다. 이러한 리소스는 애플리케이션 게이트웨이 및 연결된 리소스에 대한 네트워크 연결을 제공하는 데 사용됩니다.
+[New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig)를 사용하여 *myAGSubnet* 및 *myBackendSubnet*이라는 서브넷 구성을 만듭니다. 서브넷 구성으로 [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork)를 사용하여 *myVNet*이라는 가상 네트워크를 만듭니다. 마지막으로 [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress)를 사용하여 *myAGPublicIPAddress*라는 공용 IP 주소를 만듭니다. 이러한 리소스는 애플리케이션 게이트웨이 및 연결된 리소스에 대한 네트워크 연결을 제공하는 데 사용됩니다.
 
 ```azurepowershell-interactive
 $backendSubnetConfig = New-AzVirtualNetworkSubnetConfig `
@@ -72,7 +72,7 @@ $pip = New-AzPublicIpAddress `
 
 ### <a name="create-the-ip-configurations-and-frontend-port"></a>IP 구성 및 프론트 엔드 포트 만들기
 
-*New-AzApplicationGatewayIPConfiguration*을 사용하여 이전에 애플리케이션 게이트웨이에 만든 [myAGSubnet](/powershell/module/az.network/new-azapplicationgatewayipconfiguration)을 연결합니다. [AzApplicationGatewayFrontendIPConfig](/powershell/module/az.network/new-azapplicationgatewayfrontendipconfig)를 사용 하 여 응용 프로그램 게이트웨이에 *myAGPublicIPAddress* 을 할당 합니다.
+[New-AzApplicationGatewayIPConfiguration](/powershell/module/az.network/new-azapplicationgatewayipconfiguration)을 사용하여 이전에 애플리케이션 게이트웨이에 만든 *myAGSubnet*을 연결합니다. [new-AzApplication게이트웨이프론트엔드IPConfig를](/powershell/module/az.network/new-azapplicationgatewayfrontendipconfig)사용하여 응용 프로그램 게이트웨이에 *myAGPublicIPAddress를* 할당합니다.
 
 ```azurepowershell-interactive
 $vnet = Get-AzVirtualNetwork `
@@ -95,7 +95,7 @@ $frontendport = New-AzApplicationGatewayFrontendPort `
 
 ### <a name="create-the-default-pool-and-settings"></a>기본 풀 및 설정 만들기
 
-*New-AzApplicationGatewayBackendAddressPool*을 사용하여 애플리케이션 게이트웨이에 대해 [appGatewayBackendPool](/powershell/module/az.network/new-azapplicationgatewaybackendaddresspool)이라는 기본 백 엔드 풀을 만듭니다. [New-AzApplicationGatewayBackendHttpSettings](/powershell/module/az.network/new-azapplicationgatewaybackendhttpsetting)를 사용하여 백 엔드 풀에 대한 설정을 구성합니다.
+[New-AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/new-azapplicationgatewaybackendaddresspool)을 사용하여 애플리케이션 게이트웨이에 대해 *appGatewayBackendPool*이라는 기본 백 엔드 풀을 만듭니다. [New-AzApplicationGatewayBackendHttpSettings](/powershell/module/az.network/new-azapplicationgatewaybackendhttpsetting)를 사용하여 백 엔드 풀에 대한 설정을 구성합니다.
 
 ```azurepowershell-interactive
 $defaultPool = New-AzApplicationGatewayBackendAddressPool `
@@ -112,7 +112,7 @@ $poolSettings = New-AzApplicationGatewayBackendHttpSettings `
 
 애플리케이션 게이트웨이에서 트래픽을 백 엔드 풀로 적절히 라우팅할 수 있는 수신기가 필요합니다. 이 자습서에서는 두 개의 수신기를 만듭니다. 사용자가 만드는 첫 번째 기본 수신기는 루트 URL에서 트래픽을 수신 대기합니다. 사용자가 만드는 두 번째 수신기는 특정 URL에서 트래픽을 수신 대기합니다.
 
-이전에 만든 프런트 엔드 구성 및 프런트 엔드 포트에서 *New-AzApplicationGatewayHttpListener*를 사용하여 [myDefaultListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener)라는 기본 수신기를 만듭니다. 수신기에서 들어오는 트래픽에 사용할 백 엔드 풀을 인식할 수 있는 규칙이 필요합니다. *New-AzApplicationGatewayRequestRoutingRule*을 사용하여 [rule1](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule)이라는 기본 규칙을 만듭니다.
+이전에 만든 프런트 엔드 구성 및 프런트 엔드 포트에서 [New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener)를 사용하여 *myDefaultListener*라는 기본 수신기를 만듭니다. 수신기에서 들어오는 트래픽에 사용할 백 엔드 풀을 인식할 수 있는 규칙이 필요합니다. [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule)을 사용하여 *rule1*이라는 기본 규칙을 만듭니다.
 
 ```azurepowershell-interactive
 $defaultlistener = New-AzApplicationGatewayHttpListener `
@@ -130,7 +130,7 @@ $frontendRule = New-AzApplicationGatewayRequestRoutingRule `
 
 ### <a name="create-the-application-gateway"></a>Application Gateway 만들기
 
-필요한 지원 리소스를 만들었으므로 *New-AzApplicationGatewaySku*를 사용하여 [myAppGateway](/powershell/module/az.network/new-azapplicationgatewaysku)라는 애플리케이션 게이트웨이에 대한 매개 변수를 지정한 다음, [New-AzApplicationGateway](/powershell/module/az.network/new-azapplicationgateway)를 사용하여 만듭니다.
+필요한 지원 리소스를 만들었으므로 [New-AzApplicationGatewaySku](/powershell/module/az.network/new-azapplicationgatewaysku)를 사용하여 *myAppGateway*라는 애플리케이션 게이트웨이에 대한 매개 변수를 지정한 다음, [New-AzApplicationGateway](/powershell/module/az.network/new-azapplicationgateway)를 사용하여 만듭니다.
 
 ```azurepowershell-interactive
 $sku = New-AzApplicationGatewaySku `
@@ -153,7 +153,7 @@ $appgw = New-AzApplicationGateway `
 
 ### <a name="add-image-and-video-backend-pools-and-port"></a>이미지와 비디오 백 엔드 풀 및 포트 추가
 
-[AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/add-azapplicationgatewaybackendaddresspool)를 사용 하 여 *imagesBackendPool* 및 *videoBackendPool* 라는 백 엔드 풀을 응용 프로그램 게이트웨이에 추가할 수 있습니다. [Add-AzApplicationGatewayFrontendPort](/powershell/module/az.network/add-azapplicationgatewayfrontendport)를 사용하여 풀에 대한 프런트 엔드 포트를 추가합니다. [Set-AzApplicationGateway](/powershell/module/az.network/set-azapplicationgateway)를 사용하여 애플리케이션 게이트웨이에 변경 내용을 제출합니다.
+[Add-AzApplicationGatewayendendAddressPool을](/powershell/module/az.network/add-azapplicationgatewaybackendaddresspool)사용하여 응용 프로그램 게이트웨이에 *백엔드풀* 및 *비디오백엔드풀이라는* 이름의 백엔드 풀을 추가할 수 있습니다. [Add-AzApplicationGatewayFrontendPort](/powershell/module/az.network/add-azapplicationgatewayfrontendport)를 사용하여 풀에 대한 프런트 엔드 포트를 추가합니다. [Set-AzApplicationGateway](/powershell/module/az.network/set-azapplicationgateway)를 사용하여 애플리케이션 게이트웨이에 변경 내용을 제출합니다.
 
 ```azurepowershell-interactive
 $appgw = Get-AzApplicationGateway `
@@ -174,7 +174,7 @@ Set-AzApplicationGateway -ApplicationGateway $appgw
 
 ### <a name="add-backend-listener"></a>백 엔드 수신기 추가
 
-*Add-AzApplicationGatewayHttpListener*를 사용하여 트래픽을 라우팅하는 데 필요한 [backendListener](/powershell/module/az.network/add-azapplicationgatewayhttplistener)라는 백 엔드 수신기를 추가합니다.
+[Add-AzApplicationGatewayHttpListener](/powershell/module/az.network/add-azapplicationgatewayhttplistener)를 사용하여 트래픽을 라우팅하는 데 필요한 *backendListener*라는 백 엔드 수신기를 추가합니다.
 
 ```azurepowershell-interactive
 $appgw = Get-AzApplicationGateway `
@@ -196,7 +196,7 @@ Set-AzApplicationGateway -ApplicationGateway $appgw
 
 ### <a name="add-url-path-map"></a>URL 경로 맵 추가
 
-URL 경로 맵은 특정 URL을 특정 백 엔드 풀로 라우팅하도록 합니다. [AzApplicationGatewayPathRuleConfig](/powershell/module/az.network/new-azapplicationgatewaypathruleconfig) 및 [AzApplicationGatewayUrlPathMapConfig](/powershell/module/az.network/add-azapplicationgatewayurlpathmapconfig)를 사용 하 여 *imagepathrule 이라는* 및 *videoPathRule* 라는 URL 경로 맵을 만들 수 있습니다.
+URL 경로 맵은 특정 URL을 특정 백 엔드 풀로 라우팅하도록 합니다. [새 AzApplication게이트웨이패스규칙구성](/powershell/module/az.network/new-azapplicationgatewaypathruleconfig) 및 [추가 AzApplication게이트웨이UrlPathMapConfig를](/powershell/module/az.network/add-azapplicationgatewayurlpathmapconfig)사용하여 *imagePathRule* 및 *videoPathRule이라는* URL 경로 맵을 만들 수 있습니다.
 
 ```azurepowershell-interactive
 $appgw = Get-AzApplicationGateway `
@@ -235,7 +235,7 @@ Set-AzApplicationGateway -ApplicationGateway $appgw
 
 ### <a name="add-routing-rule"></a>라우팅 규칙 추가
 
-라우팅 규칙은 URL 맵을 사용자가 만든 수신기에 연결합니다. [AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/add-azapplicationgatewayrequestroutingrule)를 사용 하 여 **rule2* 이라는 규칙을 추가할 수 있습니다.
+라우팅 규칙은 URL 맵을 사용자가 만든 수신기에 연결합니다. [Add-AzApplication게이트웨이요청 라우팅룰을](/powershell/module/az.network/add-azapplicationgatewayrequestroutingrule)사용하여 **rule2라는* 규칙을 추가할 수 있습니다.
 
 ```azurepowershell-interactive
 $appgw = Get-AzApplicationGateway `
@@ -354,11 +354,11 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 ![애플리케이션 게이트웨이의 기준 URL 테스트](./media/application-gateway-create-url-route-arm-ps/application-gateway-iistest.png)
 
-`<ip-address>`에 대 한 IP 주소를 대체 하 여 URL을 `http://<ip-address>:8080/video/test.htm`로 변경 하면 다음 예제와 같은 내용이 표시 됩니다.
+에 대한 `<ip-address>` `http://<ip-address>:8080/video/test.htm`IP 주소를 대체 하는 URL을 변경 하 고 다음과 같은 예제를 표시 해야 합니다.
 
 ![애플리케이션 게이트웨이의 이미지 URL 테스트](./media/application-gateway-create-url-route-arm-ps/application-gateway-iistest-images.png)
 
-URL을 `http://<ip-address>:8080/video/test.htm`로 변경 하면 다음 예제와 같은 내용이 표시 됩니다.
+URL을 다음 `http://<ip-address>:8080/video/test.htm` 예제로 변경하면 다음과 같은 예제가 표시됩니다.
 
 ![애플리케이션 게이트웨이의 비디오 URL 테스트](./media/application-gateway-create-url-route-arm-ps/application-gateway-iistest-video.png)
 

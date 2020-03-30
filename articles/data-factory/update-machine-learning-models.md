@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory를 사용 하 여 machine learning 모델 업데이트
+title: Azure 데이터 팩터리를 사용하여 기계 학습 모델 업데이트
 description: Azure Data Factory 및 기계 학습을 사용하여 예측 파이프라인을 만드는 방법을 설명합니다.
 services: data-factory
 documentationcenter: ''
@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.openlocfilehash: 3313c9c362a9b82cf7ed8db63479aaa5cf0c777e
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73683250"
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>리소스 업데이트 작업을 사용하여 Azure Machine Learning 모델 업데이트
@@ -58,19 +58,19 @@ Machine Learning을 사용하여 만드는 모델은 일반적으로 정적이�
 
 | 속성                      | 설명                              | 필수 |
 | :---------------------------- | :--------------------------------------- | :------- |
-| name                          | 파이프라인의 작업 이름입니다.     | 예      |
-| description                   | 작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.  | 아니요       |
-| type                          | Azure Machine Learning 리소스 업데이트 작업의 경우 작업 유형은 **AzureMLUpdateResource**입니다. | 예      |
-| linkedServiceName             | updateResourceEndpoint 속성을 포함하는 Azure Machine Learning 연결된 서비스입니다. | 예      |
-| trainedModelName              | 업데이트할 웹 서비스 실험의 학습된 모델 모듈의 이름입니다. | 예      |
-| trainedModelLinkedServiceName | 업데이트 작업으로 업로드되는 ilearner 파일을 보유한 Azure Storage 연결된 서비스의 이름입니다. | 예      |
-| trainedModelFilePath          | 업데이트 작업으로 업로드되는 ilearner 파일을 나타내는 trainedModelLinkedService의 상대 파일 경로입니다. | 예      |
+| name                          | 파이프라인의 작업 이름입니다.     | yes      |
+| description                   | 작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.  | 예       |
+| type                          | Azure Machine Learning 리소스 업데이트 작업의 경우 작업 유형은 **AzureMLUpdateResource**입니다. | yes      |
+| linkedServiceName             | updateResourceEndpoint 속성을 포함하는 Azure Machine Learning 연결된 서비스입니다. | yes      |
+| trainedModelName              | 업데이트할 웹 서비스 실험의 학습된 모델 모듈의 이름입니다. | yes      |
+| trainedModelLinkedServiceName | 업데이트 작업으로 업로드되는 ilearner 파일을 보유한 Azure Storage 연결된 서비스의 이름입니다. | yes      |
+| trainedModelFilePath          | 업데이트 작업으로 업로드되는 ilearner 파일을 나타내는 trainedModelLinkedService의 상대 파일 경로입니다. | yes      |
 
 ## <a name="end-to-end-workflow"></a>엔드투엔드 워크플로
 
 모델을 다시 학습하고 예측 웹 서비스를 업데이트하는 전체 프로세스에는 다음 단계가 포함됩니다.
 
-- **일괄 처리 실행 작업**을 사용하여 **학습 웹 서비스**를 호출합니다. 학습 웹 서비스 호출은 [Azure Machine Learning 및 Azure Data Factory 일괄 처리 실행 작업을 사용하여 예측 파이프라인 만들기](transform-data-using-machine-learning.md)에서 설명하는 예측 웹 서비스 호출과 동일합니다. 학습 웹 서비스의 출력은 예측 웹 서비스를 업데이트 하는 데 사용할 수 있는 iLearner 파일입니다.
+- **일괄 처리 실행 작업**을 사용하여 **학습 웹 서비스**를 호출합니다. 학습 웹 서비스 호출은 [Azure Machine Learning 및 Azure Data Factory 일괄 처리 실행 작업을 사용하여 예측 파이프라인 만들기](transform-data-using-machine-learning.md)에서 설명하는 예측 웹 서비스 호출과 동일합니다. 교육 웹 서비스의 출력은 예측 웹 서비스를 업데이트하는 데 사용할 수 있는 iLearner 파일입니다.
 - **리소스 업데이트 작업**을 통해 **예측 웹 서비스**의 **리소스 업데이트 엔드포인트**를 호출하여 새로운 학습된 모델을 통해 웹 서비스를 업데이트합니다.
 
 ## <a name="azure-machine-learning-linked-service"></a>Azure Machine Learning 연결된 서비스
@@ -271,9 +271,9 @@ Azure Storage는 다음 데이터를 보관합니다.
 
 * [U-SQL 작업](transform-data-using-data-lake-analytics.md)
 * [Hive 작업](transform-data-using-hadoop-hive.md)
-* [Pig 작업](transform-data-using-hadoop-pig.md)
+* [돼지 활동](transform-data-using-hadoop-pig.md)
 * [MapReduce 작업](transform-data-using-hadoop-map-reduce.md)
-* [Hadoop 스트리밍 작업](transform-data-using-hadoop-streaming.md)
-* [Spark 작업](transform-data-using-spark.md)
-* [.NET 사용자 지정 작업](transform-data-using-dotnet-custom-activity.md)
+* [하두롭 스트리밍 활동](transform-data-using-hadoop-streaming.md)
+* [스파크 액티비티](transform-data-using-spark.md)
+* [.NET 사용자 지정 활동](transform-data-using-dotnet-custom-activity.md)
 * [저장 프로시저 작업](transform-data-using-stored-procedure.md)

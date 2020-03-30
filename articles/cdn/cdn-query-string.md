@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/11/2018
 ms.author: magattus
 ms.openlocfilehash: 6471241527dd9b594eaaca20ebc75cacb27f8f72
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74083040"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-query-strings---standard-tier"></a>쿼리 문자열을 사용하여 Azure CDN 캐싱 동작 제어 - 표준 계층

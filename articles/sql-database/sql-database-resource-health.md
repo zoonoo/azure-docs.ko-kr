@@ -1,5 +1,5 @@
 ---
-title: Azure Resource Health를 사용 하 여 데이터베이스 상태 모니터링
+title: Azure 리소스 상태를 사용하여 데이터베이스 상태 모니터링
 description: Azure Resource Health를 사용하여 SQL Database 상태를 모니터링하면 Azure 문제가 SQL 리소스에 영향을 줄 때 문제를 진단하고 지원을 받는 데 도움이 됩니다.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 ms.date: 02/26/2019
 ms.openlocfilehash: 9e19e904b47d69444b491dd88ffe49ff812aafc3
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79208867"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database"></a>Resource Health를 사용하여 Azure SQL Database 연결 문제 해결
@@ -40,7 +40,7 @@ Resource Health는 리소스에 대한 로그인의 성공 및 실패를 검사�
 
 ### <a name="degraded"></a>성능 저하됨
 
-**성능 저하됨** 상태는 Resource Health가 대부분의 성공적인 로그인을 감지했지만 일부 오류도 감지했음을 의미합니다. 이러한 오류는 일시적인 로그인 오류일 가능성이 높습니다. 일시적인 로그인 오류로 인한 연결 문제의 영향을 줄이려면 코드에서 [재시도 논리](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors)를 구현하세요.
+**성능이 저하된** 상태는 리소스 상태가 성공적인 로그인의 대부분을 검색했지만 일부 오류도 감지되었음을 의미합니다. 이러한 오류는 일시적인 로그인 오류일 가능성이 높습니다. 일시적인 로그인 오류로 인한 연결 문제의 영향을 줄이려면 코드에서 [재시도 논리](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors)를 구현하세요.
 
 ![성능 저하됨](./media/sql-database-resource-health/sql-resource-health-degraded.jpg)
 

@@ -1,5 +1,5 @@
 ---
-title: Azure에서 VHD의 스냅숏 만들기
+title: Azure에서 VHD의 스냅샷 만들기
 description: 백업 또는 문제 해결을 위해 Azure에서 VHD의 복사본을 만드는 방법을 알아봅니다.
 documentationcenter: ''
 author: roygara
@@ -15,10 +15,10 @@ ms.date: 07/11/2018
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: 15696469ca3861586617e9f418f8a55a7ea90467
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74034791"
 ---
 # <a name="create-a-snapshot"></a>스냅샷 만들기 
@@ -41,7 +41,7 @@ osDiskId=$(az vm show \
    -o tsv)
 ```
 
-*az snapshot create*를 사용하여 [osDisk-backup](/cli/azure/snapshot#az-snapshot-create)이라는 스냅샷을 만듭니다.
+[az snapshot create](/cli/azure/snapshot#az-snapshot-create)를 사용하여 *osDisk-backup*이라는 스냅샷을 만듭니다.
 
 ```azurecli-interactive
 az snapshot create \
@@ -63,7 +63,7 @@ az snapshot list \
 
 ## <a name="use-azure-portal"></a>Azure Portal 사용 
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure 포털에](https://portal.azure.com)로그인합니다.
 2. 왼쪽 위에서 **리소스 만들기**를 클릭하고 **스냅샷**을 검색합니다. 검색 결과에서 **스냅샷**을 선택합니다.
 3. **스냅샷** 블레이드에서 **만들기**를 클릭합니다.
 4. 스냅샷의 **이름**을 입력합니다.

@@ -1,5 +1,5 @@
 ---
-title: 단일 데이터베이스에 Excel 연결
+title: Excel을 단일 데이터베이스에 연결
 description: Azure SQL 데이터베이스의 단일 데이터베이스에 Microsoft Excel을 연결하는 방법을 알아봅니다. 보고 및 데이터 탐색을 위해 Excel로 데이터를 가져옵니다.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: craigg
 ms.reviewer: ''
 ms.date: 02/12/2019
 ms.openlocfilehash: de5f23bf1e8acd8a5fcd0cf8e1526f88667800c1
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73827124"
 ---
 # <a name="connect-excel-to-a-single-database-in-azure-sql-database-and-create-a-report"></a>Azure SQL 데이터베이스의 단일 데이터베이스에 Excel을 연결하고 보고서 만들기
@@ -36,9 +36,9 @@ Azure SQL Database의 단일 데이터베이스에 Excel을 연결하여 데이�
    ![데이터 원본 선택: SQL 데이터베이스에 Excel을 연결합니다.](./media/sql-database-connect-excel/excel_data_source.png)
 
    데이터 연결 마법사가 열립니다.
-3. **데이터베이스 서버에 연결** 대화 상자에서 <**servername**.database.windows.net> 형식에서 연결하려는 SQL Database **서버 이름**을 입력합니다. 예를 들어, **msftestserver.database.windows.net**입니다. 선택적으로 데이터베이스 이름을 입력합니다. **확인**을 선택하여 자격 증명 창을 엽니다. 
+3. **데이터베이스 서버에 연결** 대화 상자에서 <*servername*>**.database.windows.net** 형식에서 연결하려는 SQL Database **서버 이름**을 입력합니다. 예를 들어, **msftestserver.database.windows.net**입니다. 선택적으로 데이터베이스 이름을 입력합니다. **확인**을 선택하여 자격 증명 창을 엽니다. 
 
-   ![데이터베이스 서버에 연결 대화 상자](media/sql-database-connect-excel/server-name.png)
+   ![데이터베이스 서버 대화 상자에 연결](media/sql-database-connect-excel/server-name.png)
 
 4. **SQL Server 데이터베이스** 대화 상자에서 왼쪽의 **데이터베이스**를 선택한 다음, 연결할 SQL Database 서버의 **사용자 이름**과 **암호**를 입력합니다. **연결**을 선택하여 **탐색기**를 엽니다. 
 
@@ -67,7 +67,7 @@ Azure SQL Database의 단일 데이터베이스에 Excel을 연결하여 데이�
 
 > [!TIP]
 > 다른 Excel 통합 문서 및 워크시트를 데이터베이스에 연결하려면 **데이터** 탭을 선택하고 **최근 원본**을 선택하여 **최근 원본** 대화 상자를 시작합니다. 여기서, 목록에서 만든 연결을 선택한 다음, **열기**를 클릭합니다.
-> 최근 소스 대화 상자 ![](media/sql-database-connect-excel/recent-connections.png)
+> ![최근 소스 대화 상자](media/sql-database-connect-excel/recent-connections.png)
 
 ## <a name="create-a-permanent-connection-using-odc-file"></a>.odc 파일을 사용하여 영구 연결 만들기
 

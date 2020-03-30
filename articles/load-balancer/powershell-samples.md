@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell 샘플-Azure Load Balancer
-description: 이러한 샘플을 통해 Vm의 여러 웹 사이트에 대 한 트래픽 부하를 분산 하 고 Azure Load Balancer를 사용 하는 HA 용 Vm에 대 한 트래픽을 분산
+title: Azure PowerShell 샘플 - Azure 로드 밸러서
+description: 이러한 샘플을 사용하면 Azure 로드 밸러블러를 사용하여 VM의 여러 웹 사이트로 트래픽을 로드하고 HA용 VM으로 트래픽을 분산시면 됩니다.
 services: virtual-network
 documentationcenter: load-balancer
 author: asudbring
@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 12/10/2018
 ms.author: allensu
 ms.openlocfilehash: 4311c1dca2ad299ac8b064769db5eb928e6a4513
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74048721"
 ---
 # <a name="azure-powershell-samples-for-load-balancer"></a>Load Balancer에 대한 Azure PowerShell 샘플

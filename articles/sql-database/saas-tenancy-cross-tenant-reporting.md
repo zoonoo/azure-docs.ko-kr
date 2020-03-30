@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewers: billgib,ayolubek
 ms.date: 01/25/2019
 ms.openlocfilehash: c863946934df9990c14e49ef1a0a82bbc55b27c6
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73822075"
 ---
 # <a name="cross-tenant-reporting-using-distributed-queries"></a>분산 쿼리를 사용한 교차 테넌트 보고
@@ -35,7 +35,7 @@ ms.locfileid: "73822075"
 이 자습서를 수행하려면 다음 필수 조건이 완료되었는지 확인합니다.
 
 
-* Wingtip Tickets SaaS 테넌트당 데이터베이스 앱이 배포됩니다. 5분 내에 배포하려면 [Wingtip Tickets SaaS Database Per Tenant 애플리케이션 배포 및 탐색](saas-dbpertenant-get-started-deploy.md)을 참조하세요.
+* Wingtip Tickets SaaS Database Per Tenant 앱이 배포됩니다. 5분 이내에 배포하려면 [테넌트당 Wingtip 티켓 SaaS 데이터베이스 배포 및 탐색을](saas-dbpertenant-get-started-deploy.md) 참조하세요.
 * Azure PowerShell이 설치되었습니다. 자세한 내용은 [Azure PowerShell 시작](https://docs.microsoft.com/powershell/azure/get-started-azureps)을 참조하세요.
 * SSMS(SQL Server Management Studio)가 설치되었습니다. SSMS를 다운로드하고 설치하려면 [SSMS(SQL Server Management Studio) 다운로드](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)를 참조하세요.
 
@@ -52,7 +52,7 @@ SaaS 애플리케이션을 사용했을 때의 장점은 애플리케이션 작�
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Wingtip Tickets SaaS Database Per Tenant 애플리케이션 스크립트 가져오기
 
-Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 애플리케이션 소스 코드는 [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub 리포지토리에서 확인할 수 있습니다. [일반 지침](saas-tenancy-wingtip-app-guidance-tips.md)에서 Wingtip Tickets SaaS 스크립트를 다운로드하고 차단을 해제하는 단계를 확인하세요.
+윙팁 티켓 SaaS 다중 테넌트 데이터베이스 스크립트 및 응용 프로그램 소스 코드는 [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub 리포지토리에서 사용할 수 있습니다. Wingtip Tickets SaaS 스크립트를 다운로드하고 차단을 해제하는 단계는 [일반 지침](saas-tenancy-wingtip-app-guidance-tips.md)을 확인하세요.
 
 ## <a name="create-ticket-sales-data"></a>티켓 판매 데이터 만들기
 
@@ -95,7 +95,7 @@ Wingtip Tickets SaaS Database Per Tenant 애플리케이션에서는 각각의 �
    ![뷰](media/saas-tenancy-cross-tenant-reporting/views.png)
 
 2. **dbo.Venues**를 마우스 오른쪽 단추로 클릭합니다.
-3. **뷰 스크립팅** > **CREATE** > **새 쿼리 편집기 창**를 선택합니다.
+3.  > **새 쿼리 편집기로**  > **만들기로** **스크립트 보기**선택
 
 다른 *부문* 보기를 스크립팅하여 *VenueId*를 추가하는 방법을 확인합니다.
 
@@ -105,9 +105,9 @@ Wingtip Tickets SaaS Database Per Tenant 애플리케이션에서는 각각의 �
 
 1. *PowerShell ISE*에서 \\학습 모듈\\운영 분석\\임시 보고\\*Demo-AdhocReporting.ps1*을 엽니다. 
 
-1. **$DemoScenario = 2**를 설정 하 고 _임시 보고 데이터베이스를 배포_합니다.
+1. **$DemoScenario = 2**, 임시 보고 데이터베이스 _배포_설정 .
 
-1. 스크립트를 실행하고 **adhocreporting** 데이터베이스를 만들려면 *F5* 키를 누릅니다.
+1. 스크립트를 실행하고 *adhocreporting* 데이터베이스를 만들려면 **F5** 키를 누릅니다.
 
 다음 섹션에서 배포된 쿼리를 실행하는 데 사용할 수 있도록 데이터베이스에 스키마를 추가합니다.
 
@@ -137,7 +137,7 @@ Wingtip Tickets SaaS Database Per Tenant 애플리케이션에서는 각각의 �
 
    이러한 방식으로 참조 테이블을 포함하는 경우 테넌트 데이터베이스를 업데이트할 때마다 테이블 스키마 및 데이터를 업데이트해야 합니다.
 
-4. 스크립트를 실행하고 **adhocreporting** 데이터베이스를 초기화하려면 *F5* 키를 누릅니다. 
+4. 스크립트를 실행하고 *adhocreporting* 데이터베이스를 초기화하려면 **F5** 키를 누릅니다. 
 
 이제 배포된 쿼리를 실행하고 모든 테넌트 간에 정보를 수집할 수 있습니다.
 
@@ -147,7 +147,7 @@ Wingtip Tickets SaaS Database Per Tenant 애플리케이션에서는 각각의 �
 
 실행 계획을 검사할 때 자세한 내용을 보려면 계획 아이콘 위로 마우스를 가져갑니다. 
 
-기억할 점으로, 외부 데이터 원본이 정의되었을 때 **DISTRIBUTION = SHARDED(VenueId)** 를 설정하면 여러 시나리오의 성능이 향상됩니다. 각 *Venueid* 가 개별 데이터베이스에 매핑되면 필터링은 원격으로 쉽게 수행 되며 필요한 데이터만 반환 합니다.
+기억할 점으로, 외부 데이터 원본이 정의되었을 때 **DISTRIBUTION = SHARDED(VenueId)** 를 설정하면 여러 시나리오의 성능이 향상됩니다. 각 *VenueId가* 개별 데이터베이스에 매핑되면 필터링이 원격으로 쉽게 수행되어 필요한 데이터만 반환됩니다.
 
 1. SSMS에서 \\학습 모듈\\운영 분석\\임시 보고\\*Demo-AdhocReportingQueries.sql*을 엽니다.
 2. **adhocreporting** 데이터베이스에 연결되었는지 확인합니다.
@@ -172,7 +172,7 @@ Wingtip Tickets SaaS Database Per Tenant 애플리케이션에서는 각각의 �
 
    이 쿼리는 좀 더 복잡한 조인 및 집계를 수행합니다. 대부분의 작업은 원격으로 처리됩니다.  각 장소의 일일 티켓에 대한 일별 판매 횟수가 포함된 단일 행만 헤드 데이터베이스로 반환됩니다.
 
-   ![쿼리](media/saas-tenancy-cross-tenant-reporting/query3-plan.png)
+   ![Query](media/saas-tenancy-cross-tenant-reporting/query3-plan.png)
 
 
 ## <a name="next-steps"></a>다음 단계
@@ -189,5 +189,5 @@ Wingtip Tickets SaaS Database Per Tenant 애플리케이션에서는 각각의 �
 
 ## <a name="additional-resources"></a>추가 리소스
 
-* [Tickets SaaS Database Per Tenant 애플리케이션을 기반으로 빌드되는 추가 자습서](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
+* [테넌트당 Wingtip 티켓 SaaS 데이터베이스 를 기반으로 하는](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials) 추가 자습서
 * [탄력적 쿼리](sql-database-elastic-query-overview.md)

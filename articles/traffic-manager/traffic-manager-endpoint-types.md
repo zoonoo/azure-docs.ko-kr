@@ -13,21 +13,21 @@ ms.workload: infrastructure-services
 ms.date: 03/29/2017
 ms.author: rohink
 ms.openlocfilehash: 3d8f899a7899243129d31c2620a51dc764a8e917
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79250934"
 ---
 # <a name="traffic-manager-endpoints"></a>Traffic Manager 엔드포인트
 
-Microsoft Azure Traffic Manager를 사용하면 다른 데이터 센터에서 실행 중인 애플리케이션 배포에 네트워크 트래픽을 분산하는 방법을 제어할 수 있습니다. 각 애플리케이션 배포를 Traffic Manager에서 '엔드포인트'로 구성합니다. Traffic Manager는 DNS 요청을 받으면 DNS 응답에서 반환할 사용 가능한 엔드포인트를 선택합니다. Traffic Manager는 현재 엔드포인트 상태와 트래픽 라우팅 메서드에 근거하여 선택합니다. 자세한 내용은 [Traffic Manager 작동 방식](traffic-manager-how-it-works.md)을 참조하세요.
+Microsoft Azure Traffic Manager를 사용하면 다른 데이터 센터에서 실행 중인 애플리케이션 배포에 네트워크 트래픽을 분산하는 방법을 제어할 수 있습니다. 각 애플리케이션 배포를 Traffic Manager에서 '엔드포인트'로 구성합니다. Traffic Manager는 DNS 요청을 받으면 DNS 응답에서 반환할 사용 가능한 엔드포인트를 선택합니다. Traffic Manager는 현재 엔드포인트 상태와 트래픽 라우팅 메서드에 근거하여 선택합니다. 자세한 내용은 [트래픽 관리자의 작동 방식을](traffic-manager-how-it-works.md)참조하십시오.
 
 Traffic Manager에서 지원되는 엔드포인트에는 세 가지 종류가 있습니다.
 
 * **Azure 엔드포인트** 는 Azure에서 호스팅되는 서비스에 사용됩니다.
-* **외부 끝점** 은 온-프레미스 또는 다른 호스팅 공급자를 사용 하 여 IPv4/IPv6 주소, Fqdn 또는 Azure 외부에서 호스팅되는 서비스에 사용 됩니다.
-* **중첩 엔드포인트** 는 더 크고 복잡한 배포에 대한 요구 사항을 지원하는 더 유연한 트래픽 라우팅 체계를 만들도록 Traffic Manager 프로필을 결합하는 데 사용됩니다.
+* **외부 엔드포인트**는 IPv4/IPv6 주소나 FQDNs 또는 Azure 외부에서 호스팅되는 서비스(온-프레미스 또는 다른 호스팅 공급자의 서비스일 수 있음)에 사용됩니다.
+* **중첩된 끝점은** 트래픽 관리자 프로필을 결합하여 보다 유연하고 복잡한 배포의 요구를 지원하기 위해 보다 유연한 트래픽 라우팅 스키마를 만드는 데 사용됩니다.
 
 단일 Traffic Manager 프로필에서 서로 다른 유형의 엔드포인트를 결합하는 방법에는 제한이 없습니다. 각 프로필은 모든 엔드포인트 유형의 혼합을 포함할 수 있습니다.
 
@@ -44,11 +44,11 @@ Azure 엔드포인트는 Traffic Manager에서 Azure 기반 서비스에 사용�
 
 PublicIPAddress 리소스는 Azure Resource Manager 리소스입니다. 클래식 배포 모델에는 존재하지 않습니다. 따라서 Traffic Manager의 Azure Resource Manager 환경에서만 지원됩니다. 다른 엔드포인트 유형은 리소스 관리자 및 클래식 배포 모델을 통해 지원됩니다.
 
-Azure 끝점을 사용 하는 경우 웹 앱이 중지 되 고 시작 되는 시기를 검색 Traffic Manager. 이 상태는 엔드포인트 상태에 반영됩니다. 자세한 내용은 [Traffic Manager 엔드포인트 모니터링](traffic-manager-monitoring.md#endpoint-and-profile-status)을 참조하세요. 기본 서비스 중지되면 Traffic Manager는 엔드포인트 상태 검사를 수행하지 않거나 엔드포인트에 트래픽을 보내지 않습니다. 중단된 인스턴스에 대해서는 Traffic Manager 청구 이벤트가 발생하지 않습니다. 서비스가 다시 시작되면 청구를 다시 시작하고 엔드포인트는 트래픽을 받을 수 있게 됩니다. 이 감지는 PublicIpAddress 엔드포인트에는 적용되지 않습니다.
+Azure 끝점을 사용하는 경우 트래픽 관리자는 웹 앱이 중지되고 시작되는 시기를 감지합니다. 이 상태는 엔드포인트 상태에 반영됩니다. 자세한 내용은 [Traffic Manager 엔드포인트 모니터링](traffic-manager-monitoring.md#endpoint-and-profile-status)을 참조하세요. 기본 서비스 중지되면 Traffic Manager는 엔드포인트 상태 검사를 수행하지 않거나 엔드포인트에 트래픽을 보내지 않습니다. 중단된 인스턴스에 대해서는 Traffic Manager 청구 이벤트가 발생하지 않습니다. 서비스가 다시 시작되면 청구를 다시 시작하고 엔드포인트는 트래픽을 받을 수 있게 됩니다. 이 감지는 PublicIpAddress 엔드포인트에는 적용되지 않습니다.
 
 ## <a name="external-endpoints"></a>외부 엔드포인트
 
-외부 끝점은 IPv4/IPv6 주소, Fqdn 또는 Azure 외부의 서비스에 사용 됩니다. IPv4/IPv6 주소 엔드포인트를 사용하는 경우 Traffic Manager가 엔드포인트의 DNS 이름 없이도 엔드포인트 상태를 확인할 수 있습니다. 따라서 Traffic Manager는 응답에서 해당 엔드포인트를 반환할 때 A/AAAA 레코드로 쿼리에 응답할 수 있습니다. Azure 외부 서비스에는 온-프레미스에서 호스팅되는 서비스나 다른 공급자의 서비스가 포함될 수 있습니다. 외부 엔드포인트는 개별적으로 사용할 수도 있고, 동일한 Traffic Manager 프로필에서 Azure 엔드포인트와 결합될 수도 있습니다. 단, IPv4 또는 IPv6 주소로 지정된 엔드포인트는 반드시 외부 엔드포인트여야 합니다. 외부 엔드포인트와 Azure 엔드포인트를 결합하여 다양한 시나리오를 사용할 수 있습니다.
+외부 끝점은 IPv4/IPv6 주소, FQDNs 또는 Azure 외부 서비스에 사용됩니다. IPv4/IPv6 주소 엔드포인트를 사용하는 경우 Traffic Manager가 엔드포인트의 DNS 이름 없이도 엔드포인트 상태를 확인할 수 있습니다. 따라서 Traffic Manager는 응답에서 해당 엔드포인트를 반환할 때 A/AAAA 레코드로 쿼리에 응답할 수 있습니다. Azure 외부 서비스에는 온-프레미스에서 호스팅되는 서비스나 다른 공급자의 서비스가 포함될 수 있습니다. 외부 엔드포인트는 개별적으로 사용할 수도 있고, 동일한 Traffic Manager 프로필에서 Azure 엔드포인트와 결합될 수도 있습니다. 단, IPv4 또는 IPv6 주소로 지정된 엔드포인트는 반드시 외부 엔드포인트여야 합니다. 외부 엔드포인트와 Azure 엔드포인트를 결합하여 다양한 시나리오를 사용할 수 있습니다.
 
 * Azure를 사용하는 활성-활성 또는 활성-수동 장애 조치(failover) 모델에서 기존 온-프레미스 애플리케이션의 백업 기능을 개선할 수 있습니다. 
 * DNS 이름이 연결되어 있지 않은 엔드포인트로 트래픽을 라우팅할 수 있습니다. 또한 두 번째 DNS 쿼리를 실행하여 반환되는 DNS 이름의 IP 주소를 가져올 필요가 없으므로 전체 DNS 조회 대기 시간도 줄일 수 있습니다.
@@ -93,18 +93,18 @@ Traffic Manager 포털, PowerShell, CLI 또는 REST API를 통해 엔드포인�
 
 ## <a name="faqs"></a>FAQ
 
-* [여러 구독의 끝점과 함께 Traffic Manager를 사용할 수 있나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-endpoints-from-multiple-subscriptions)
+* [여러 구독에서 엔드포인트로 Traffic Manager를 사용할 수 있습니까?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-endpoints-from-multiple-subscriptions)
 
-* [클라우드 서비스 ' 스테이징 ' 슬롯에 Traffic Manager를 사용할 수 있나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-cloud-service-staging-slots)
+* [클라우드 서비스 '스테이징' 슬롯으로 Traffic Manager를 사용할 수 있습니까?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-cloud-service-staging-slots)
 
-* [Traffic Manager IPv6 끝점을 지원 하나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-traffic-manager-support-ipv6-endpoints)
+* [Traffic Manager는 IPv6 엔드포인트를 지원하나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-traffic-manager-support-ipv6-endpoints)
 
-* [동일한 지역에서 둘 이상의 웹 앱과 Traffic Manager를 사용할 수 있나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-more-than-one-web-app-in-the-same-region)
+* [동일한 지역에서 둘 이상의 Web App에 Traffic Manager를 사용할 수 있습니까?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-more-than-one-web-app-in-the-same-region)
 
-* [내 Traffic Manager 프로필의 Azure 끝점을 다른 리소스 그룹으로 이동 어떻게 할까요? 있나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-do-i-move-my-traffic-manager-profiles-azure-endpoints-to-a-different-resource-group-or-subscription)
+* [Traffic Manager 프로필의 Azure 엔드포인트를 다른 리소스 그룹으로 이동하려면 어떻게 해야 하나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-do-i-move-my-traffic-manager-profiles-azure-endpoints-to-a-different-resource-group-or-subscription)
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Traffic Manager 작동 방식](traffic-manager-how-it-works.md)에 대해 알아봅니다.
+* [트래픽 관리자의 작동 방식에](traffic-manager-how-it-works.md)대해 알아봅니다.
 * Traffic Manager [엔드포인트 모니터링 및 자동 장애 조치(failover)](traffic-manager-monitoring.md)에 대해 알아봅니다.
 * Traffic Manager [트래픽 라우팅 방법](traffic-manager-routing-methods.md)에 대해 알아봅니다.

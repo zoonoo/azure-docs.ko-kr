@@ -1,5 +1,5 @@
 ---
-title: 온-프레미스 앱에 대 한 원격 액세스-Azure AD 응용 프로그램 프록시
+title: 온-프레미스 앱에 대한 원격 액세스 - Azure AD 응용 프로그램 프록시
 description: Azure Active Directory 애플리케이션 프록시는 온-프레미스 웹 애플리케이션에 대한 보안 원격 액세스를 제공합니다. Azure AD에 Single Sign-On 되면 사용자는 외부 URL 또는 내부 애플리케이션 포털을 통해 클라우드와 온-프레미스 애플리케이션에 모두 액세스할 수 있습니다. 예를 들어 애플리케이션 프록시는 원격 데스크톱, SharePoint, Teams, Tableau, Qlik 및 LOB(기간 업무) 애플리케이션에 대한 원격 액세스와 Single Sign-On을 제공할 수 있습니다.
 services: active-directory
 author: msmimart
@@ -13,10 +13,10 @@ ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4780786f0caea2c211b6b93fb0736feaade8de80
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74274845"
 ---
 # <a name="remote-access-to-on-premises-applications-through-azure-active-directorys-application-proxy"></a>Azure Active Directory 애플리케이션 프록시를 통해 온-프레미스 애플리케이션에 원격 액세스 
@@ -27,7 +27,7 @@ Azure AD 애플리케이션 프록시는:
 
 - **간편한 사용**. 사용자는 O365 및 Azure AD와 통합된 다른 SaaS 앱에 액세스할 때와 같은 방식으로 온-프레미스 애플리케이션에 액세스할 수 있습니다. 애플리케이션 프록시를 사용하도록 애플리케이션을 변경하거나 업데이트할 필요가 없습니다. 
 
-- **보안**. 온-프레미스 애플리케이션은 Azure의 권한 부여 컨트롤 및 보안 분석을 사용할 수 있습니다. 예를 들어 온-프레미스 응용 프로그램은 조건부 액세스 및 2 단계 인증을 사용할 수 있습니다. 애플리케이션 프록시는 방화벽을 통해 인바운드 연결을 열 필요가 없습니다.
+- **보안**. 온-프레미스 애플리케이션은 Azure의 권한 부여 컨트롤 및 보안 분석을 사용할 수 있습니다. 예를 들어 온-프레미스 응용 프로그램은 조건부 액세스 및 2단계 확인을 사용할 수 있습니다. 애플리케이션 프록시는 방화벽을 통해 인바운드 연결을 열 필요가 없습니다.
  
 - **비용 효율성**. 온-프레미스 솔루션을 사용하려면 일반적으로 DMZ(완충 영역), 에지 서버 또는 기타 복잡한 인프라를 설정하고 유지 관리해야 합니다. 애플리케이션 프록시는 클라우드에서 실행되므로 쉽게 사용할 수 있습니다. 애플리케이션 프록시를 사용하기 위해 네트워크 인프라를 변경하거나 온-프레미스 환경에 추가 어플라이언스를 설치할 필요가 없습니다.
 
@@ -44,7 +44,7 @@ Azure AD 애플리케이션 프록시는:
 
 애플리케이션 프록시는 Single Sign-On을 지원합니다. 지원되는 방법에 대한 자세한 내용은 [Single Sign-On 방법 선택](what-is-single-sign-on.md#choosing-a-single-sign-on-method)을 참조하세요.
 
-원격 사용자에 게 내부 리소스에 대 한 액세스를 제공 하기 위해 응용 프로그램 프록시가 권장 됩니다. 응용 프로그램 프록시는 VPN 또는 역방향 프록시에 대 한 필요성을 대체 합니다. 회사 네트워크의 내부 사용자에 게 적합 하지 않습니다.  응용 프로그램 프록시를 불필요 하 게 사용 하는 이러한 사용자는 예기치 않은 성능 문제를 일으킬 수 있습니다.
+원격 사용자에게 내부 리소스에 대한 액세스 권한을 부여하는 데 응용 프로그램 프록시를 권장합니다. 응용 프로그램 프록시는 VPN 또는 역방향 프록시의 필요성을 대체합니다. 회사 네트워크의 내부 사용자를 위한 것은 아닙니다.  응용 프로그램 프록시를 불필요하게 사용하는 이러한 사용자는 예기치 않은 바람직하지 않은 성능 문제를 야기할 수 있습니다.
 
 ## <a name="how-application-proxy-works"></a>애플리케이션 프록시의 작동 원리
 
@@ -69,7 +69,7 @@ Azure AD 애플리케이션 프록시는:
 | 온-프레미스 애플리케이션 | 마지막으로, 사용자는 온-프레미스 애플리케이션에 액세스할 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
-응용 프로그램 프록시 사용을 시작 하려면 [자습서: 응용 프로그램 프록시를 통해 원격 액세스를 위한 온-프레미스 응용 프로그램 추가](application-proxy-add-on-premises-application.md)를 참조 하세요. 
+응용 프로그램 프록시 사용을 시작하려면 [자습서: 응용 프로그램 프록시를 통해 원격 액세스를 위한 온-프레미스 응용 프로그램 추가](application-proxy-add-on-premises-application.md)를 참조하십시오. 
 
 최신 뉴스 및 업데이트는 [애플리케이션 프록시 블로그](https://blogs.technet.com/b/applicationproxyblog/)를 참조하세요.
 

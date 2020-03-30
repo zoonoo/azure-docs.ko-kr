@@ -16,10 +16,10 @@ ms.date: 07/05/2018
 ms.author: kirpas
 ms.subservice: disks
 ms.openlocfilehash: c76f57d15cd4cbdad5ded3b7545aab4d57272a50
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74033493"
 ---
 # <a name="how-to-expand-the-os-drive-of-a-virtual-machine"></a>가상 머신의 OS 드라이브 확장 방법
@@ -31,7 +31,7 @@ ms.locfileid: "74033493"
 
 
 > [!IMPORTANT]
-> Azure 가상 컴퓨터의 OS 디스크 크기를 조정 하려면 가상 컴퓨터의 할당을 취소 해야 합니다.
+> Azure 가상 시스템의 OS 디스크 크기를 조정하려면 가상 컴퓨터를 할당 지정해야 합니다.
 >
 > 디스크를 확장한 후 더 큰 디스크를 활용하려면 [OS 내에서 볼륨](#expand-the-volume-within-the-os)을 확장해야 합니다.
 > 
@@ -166,9 +166,9 @@ Start-AzVM -ResourceGroupName $rgName -Name $vmName
 
 ## <a name="resizing-data-disks"></a>데이터 디스크 크기 조정
 
-이 문서는 주로 VM의 OS 디스크를 확장하는 데 중점을 두지만 스크립트는 VM에 연결된 데이터 디스크를 확장하는 데 사용할 수도 있습니다. 예를 들어 VM에 연결된 첫 번째 데이터 디스크를 확장하려면 아래와 같이 `OSDisk`의 `StorageProfile` 개체를 `DataDisks` 배열로 바꾸고 숫자 인덱스를 사용하여 첫 번째 연결된 데이터 디스크의 참조를 가져옵니다.
+이 문서는 주로 VM의 OS 디스크를 확장하는 데 중점을 두지만 스크립트는 VM에 연결된 데이터 디스크를 확장하는 데 사용할 수도 있습니다. 예를 들어 VM에 연결된 첫 번째 데이터 디스크를 확장하려면 아래와 같이 `StorageProfile`의 `OSDisk` 개체를 `DataDisks` 배열로 바꾸고 숫자 인덱스를 사용하여 첫 번째 연결된 데이터 디스크의 참조를 가져옵니다.
 
-**관리 디스크**
+**Managed Disk**
 
 ```powershell
 $disk= Get-AzDisk -ResourceGroupName $rgName -DiskName $vm.StorageProfile.DataDisks[0].Name
@@ -187,7 +187,7 @@ $vm.StorageProfile.DataDisks[0].DiskSizeGB = 1023
 마찬가지로 위와 같이 인덱스를 사용하거나 디스크의 **Name** 속성을 사용하여 VM에 연결된 다른 데이터 디스크를 참조할 수 있습니다.
 
 
-**관리 디스크**
+**Managed Disk**
 
 ```powershell
 (Get-AzDisk -ResourceGroupName $rgName -DiskName ($vm.StorageProfile.DataDisks | Where ({$_.Name -eq 'my-second-data-disk'})).Name).DiskSizeGB = 1023
@@ -207,11 +207,11 @@ VM의 디스크를 확장한 후에는 OS로 이동하고 볼륨을 확장하여
 
 2.  명령 프롬프트를 열고 **diskpart**를 입력합니다.
 
-2.  **DISKPART** 프롬프트에 `list volume`을 입력합니다. 확장할 볼륨을 기록해 둡니다.
+2.  **DISKPART** 프롬프트에 `list volume`를 입력합니다. 확장할 볼륨을 기록해 둡니다.
 
-3.  **DISKPART** 프롬프트에 `select volume <volumenumber>`을 입력합니다. 동일한 디스크의 인접한 빈 공간으로 확장하려는 볼륨 *volumenumber*가 선택됩니다.
+3.  **DISKPART** 프롬프트에 `select volume <volumenumber>`를 입력합니다. 동일한 디스크의 인접한 빈 공간으로 확장하려는 볼륨 *volumenumber*가 선택됩니다.
 
-4.  **DISKPART** 프롬프트에 `extend [size=<size>]`을 입력합니다. 선택된 볼륨이 *size*(MB)만큼 확장됩니다.
+4.  **DISKPART** 프롬프트에 `extend [size=<size>]`를 입력합니다. 선택된 볼륨이 *size*(MB)만큼 확장됩니다.
 
 
 ## <a name="next-steps"></a>다음 단계

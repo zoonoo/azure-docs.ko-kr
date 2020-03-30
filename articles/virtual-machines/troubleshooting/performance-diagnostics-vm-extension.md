@@ -14,10 +14,10 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 6f104fc6513874bfef5f4bf9fe7f536c3e3d69cf
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71057538"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Windows용 Azure Performance Diagnostics VM 확장
@@ -27,12 +27,12 @@ Azure 성능 진단 VM 확장을 통해 Windows VM의 성능 진단 데이터를
 > [!NOTE]
 > 클래식이 아닌 VM에 대한 Azure Portal의 VM에서 진단을 실행하려는 경우 새 환경을 사용하는 것이 좋습니다. 자세한 내용은 [Azure 가상 머신에 대한 진단 수행](performance-diagnostics.md)을 참조 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 확장은 Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 및 Windows Server 2016에 설치될 수 있습니다. Windows 8.1 및 Windows 10에 설치할 수도 있습니다.
 
 ## <a name="extension-schema"></a>확장 스키마
-다음 JSON은 Azure 성능 진단 VM 확장에 대한 스키마를 나타냅니다. 이 확장에는 진단 출력과 보고서를 저장하기 위해 스토리지 계정의 이름과 키가 필요합니다. 이러한 값은 중요합니다. 스토리지 계정 키는 보호되는 설정 구성 안에 저장되어야 합니다. Azure VM 확장으로 보호되는 설정 데이터는 암호화되어 대상 가상 머신에서만 해독됩니다. **storageAccountName** 및 **storageAccountKey**는 대소문자를 구분합니다. 다른 필수 매개 변수는 다음 섹션에 나열됩니다.
+다음 JSON은 Azure 성능 진단 VM 확장에 대한 스키마를 나타냅니다. 이 확장에는 진단 출력과 보고서를 저장하기 위해 스토리지 계정의 이름과 키가 필요합니다. 이러한 값은 중요합니다. 스토리지 계정 키는 보호되는 설정 구성 안에 저장되어야 합니다. Azure VM 확장으로 보호되는 설정 데이터는 암호화되어 대상 가상 머신에서만 해독됩니다. **저장소계정이름** 및 **저장소계정키는** 대/소문자를 구분합니다. 다른 필수 매개 변수는 다음 섹션에 나열됩니다.
 
 ```JSON
     {
@@ -72,7 +72,7 @@ Azure 성능 진단 VM 확장을 통해 Windows VM의 성능 진단 데이터를
 |publisher|Microsoft.Azure.Performance.Diagnostics|확장의 게시자 네임스페이스입니다.
 |type|AzurePerformanceDiagnostics|VM 확장의 형식입니다.
 |typeHandlerVersion|1.0|확장 처리기 버전입니다.
-|performanceScenario|기본|데이터를 캡처할 성능 시나리오입니다. 유효한 값: **basic**, **vmslow**, **azurefiles** 및 **custom**
+|performanceScenario|basic|데이터를 캡처할 성능 시나리오입니다. 유효한 값: **basic**, **vmslow**, **azurefiles** 및 **custom**
 |traceDurationInSeconds|300|추적 옵션을 선택한 경우 추적 기간입니다.
 |perfCounterTrace|p|성능 카운터 추적을 사용하는 옵션. 유효한 값은 **p** 또는 빈 값입니다. 이 추적을 캡처하지 않을 경우 빈 값으로 둡니다.
 |networkTrace|n|네트워크 추적을 사용하는 옵션입니다. 유효한 값은 **n** 또는 빈 값입니다. 이 추적을 캡처하지 않을 경우 빈 값으로 둡니다.
@@ -88,7 +88,7 @@ Azure 성능 진단 VM 확장을 통해 Windows VM의 성능 진단 데이터를
 
 Windows 가상 머신에서 확장을 설치하려면 다음 지침을 따릅니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure 포털에](https://portal.azure.com)로그인합니다.
 2. 이 확장을 설치하려는 가상 컴퓨터를 선택합니다.
 
     ![가상 머신을 강조 표시한 Azure Portal의 스크린샷](media/performance-diagnostics-vm-extension/select-the-virtual-machine.png)
@@ -112,7 +112,7 @@ Windows 가상 머신에서 확장을 설치하려면 다음 지침을 따릅니
 가상 머신에서 확장을 제거하려면 다음 단계를 따릅니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인하고, 이 확장을 제거하려는 가상 머신을 선택한 다음 **확장** 블레이드를 선택합니다. 
-2. 목록에서 성능 진단 확장 항목에 대해 ( **...** )를 클릭하고 **제거**를 선택합니다.
+2. 목록에서 성능 진단 확장 항목에 대해 (**...**)를 클릭하고 **제거**를 선택합니다.
 
     ![제거를 강조 표시한 확장 블레이드 스크린샷](media/performance-diagnostics-vm-extension/uninstall-the-extension.png)
 
@@ -255,4 +255,4 @@ Microsoft에서는 지원 티켓에서 작업하는 지원 엔지니어를 지�
 
         C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics\<version>
 
-이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 Stack Overflow 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 가서 **지원 받기**를 선택합니다. Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조하세요.
+이 문서의 어느 시점에서든 도움이 필요한 경우 [MSDN Azure 및 스택 오버플로 포럼의](https://azure.microsoft.com/support/forums/)Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트로](https://azure.microsoft.com/support/options/)이동하여 **지원 받기를**선택합니다. Azure 지원 사용에 대한 자세한 내용은 [Microsoft Azure 지원 FAQ를](https://azure.microsoft.com/support/faq/)참조하십시오.

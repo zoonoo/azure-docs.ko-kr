@@ -1,6 +1,6 @@
 ---
-title: Azure Site Recovery Deployment Planner에서 비용 추정치 검토
-description: 이 문서에서는 VMware 재해 복구에 대 한 Azure Site Recovery Deployment Planner의 비용 추정치를 검토 하는 방법을 설명 합니다.
+title: Azure 사이트 복구 배포 플래너에서 비용 예측 검토
+description: 이 문서에서는 VMware 재해 복구에 대한 Azure 사이트 복구 배포 계획기에서 비용 추정을 검토하는 방법을 설명합니다.
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 7/29/2019
 ms.author: mayg
 ms.openlocfilehash: 27678fff1c0322f9755e7726026c73934810d5d6
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73953332"
 ---
-# <a name="review-cost-estimations-in-the-vmware-deployment-planner"></a>VMware Deployment Planner에서 비용 추정치 검토 
+# <a name="review-cost-estimations-in-the-vmware-deployment-planner"></a>VMware 배포 플래너의 비용 예측 검토 
 
 Deployment Planner 보고서는 [권장 사항](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations) 시트에 비용 예측 요약을 제공하고 비용 예측 시트에 자세한 비용 분석을 제공합니다. VM당 자세한 비용 분석이 있습니다. 
 
 >[!Note]
->최신 버전의 Deployment planner tool v 2.5는 Managed Disks로 복제 되는 Vm에 대 한 비용 예측을 제공 합니다.
+>현재 버전의 배포 플래너 도구 v2.5는 관리되는 디스크로 복제하는 VM에 대한 비용 추정을 제공합니다.
 
 ### <a name="cost-estimation-summary"></a>비용 예측 요약 
 이 그래프는 사용자가 선택한 대상 지역에 대해 예측한 총 DR(재해 복구) 비용 및 사용자가 보고서 생성을 위해 지정한 통화의 요약 보기를 보여줍니다.
@@ -101,10 +101,10 @@ VM을 수동으로 추가하려면:
 
 * VM 수, IaaS 크기(사용자 선택)
 * 스토리지 유형(표준/프리미엄)
-* VM 원본 컴퓨터의 총 저장소 크기 (GB)
+* 원본 컴퓨터의 VM 총 스토리지 크기(GB)
 * 연간 DR 드릴 횟수 
 * 각 DR 드릴 지속 시간(일) 
-* OS 종류
+* OS 유형
 * 데이터 중복 
 * Azure 하이브리드 혜택
 
@@ -116,17 +116,17 @@ VM을 수동으로 추가하려면:
 
 **VM 수**: 구성과 일치하는 VM의 수입니다. 유사한 구성 VM이 프로파일링되지 않지만 보호되는 경우 기존 VM 수를 업데이트할 수 있습니다.
 
-**IaaS 크기(권장)** : 도구에서 권장하는 호환 가능한 VM의 VM 역할 크기입니다. 
+**IaaS 크기(권장)**: 도구에서 권장하는 호환 가능한 VM의 VM 역할 크기입니다. 
 
-**IaaS 크기(사용자 선택)** : 기본적으로 권장 VM 역할 크기와 같습니다. 요구 사항에 따라 역할을 변경할 수 있습니다. 컴퓨팅 비용은 사용자가 선택한 VM 역할 크기를 기반으로 합니다.
+**IaaS 크기(사용자 선택)**: 기본적으로 권장 VM 역할 크기와 같습니다. 요구 사항에 따라 역할을 변경할 수 있습니다. 컴퓨팅 비용은 사용자가 선택한 VM 역할 크기를 기반으로 합니다.
 
 **스토리지 유형**: VM에 사용되는 스토리지 유형입니다. Standard Storage 또는 Premium Storage입니다.
 
-**Vm 총 저장소 크기 (GB)** : 원본 VM의 총 저장소입니다.
+**VM 총 저장소 크기(GB)**: 원본 VM의 총 저장소입니다.
 
 **연간 DR 드릴 횟수**: 연간 DR 드릴을 수행하는 횟수입니다. 기본적으로 1년에 4번입니다. 특정 VM의 기간을 수정하거나 맨 위 행에 새 값을 입력하고 'Apply to all(모든 항목에 적용)' 단추를 클릭하여 새 값을 모든 VM에 적용할 수 있습니다. 연간 DR 드릴 횟수와 각 DR 드릴 지속 시간에 따라 총 DR 드릴 비용이 계산됩니다.  
 
-**각 DR 드릴 지속 시간(일)** : 각 DR 드릴의 지속 시간입니다. 기본적으로 [재해 복구 Software Assurance 혜택](https://azure.microsoft.com/pricing/details/site-recovery)당 90일마다 7일입니다. 특정 VM의 기간을 수정하거나 맨 위 행에 새 값을 입력하고 'Apply to all(모든 항목에 적용)' 단추를 클릭하여 새 값을 모든 VM에 적용할 수 있습니다. 총 DR 드릴 비용은 연간 DR 드릴 횟수와 각 DR 드릴 지속 시간을 기반으로 계산됩니다.
+**각 DR 드릴 지속 시간(일)**: 각 DR 드릴의 지속 시간입니다. 기본적으로 [재해 복구 Software Assurance 혜택](https://azure.microsoft.com/pricing/details/site-recovery)당 90일마다 7일입니다. 특정 VM의 기간을 수정하거나 맨 위 행에 새 값을 입력하고 'Apply to all(모든 항목에 적용)' 단추를 클릭하여 새 값을 모든 VM에 적용할 수 있습니다. 총 DR 드릴 비용은 연간 DR 드릴 횟수와 각 DR 드릴 지속 시간을 기반으로 계산됩니다.
   
 **OS 종류**: VM의 OS 종류입니다. Windows 또는 Linux입니다. OS 종류가 Windows이면 Azure 하이브리드 사용 혜택을 해당 VM에 적용할 수 있습니다. 
 
@@ -138,7 +138,7 @@ VM을 수동으로 추가하려면:
 
 **안정적 상태 복제 비용**: 복제를 위한 스토리지 비용이 포함됩니다.
 
-**총 DR 드릴 비용(평균)** : DR 드릴에 대한 컴퓨팅 및 스토리지 비용이 포함됩니다.
+**총 DR 드릴 비용(평균)**: DR 드릴에 대한 컴퓨팅 및 스토리지 비용이 포함됩니다.
 
 **ASR 라이선스 비용**: Azure Site Recovery 라이선스 비용입니다.
 
@@ -158,7 +158,7 @@ Azure Site Recovery Deployment Planner는 다음 통화 중 하나로 비용 보
 |IDR|인도네시아 루피아(Rp)||INR|인도 루피(₹)||JPY|일본 엔(¥)|
 |KRW|한국 원(₩)||MXN|멕시코 페소(MX$)||MYR|말레이시아 링깃(RM$)|
 |NOK|노르웨이 크론(kr)||NZD|뉴질랜드 달러($)||RUB|러시아 루블(руб)|
-|특별 행정구|사우디아라비아 리얄(SR)||SEK|스웨덴 크로나(kr)||TWD|대만 달러(NT$)|
+|SAR|사우디아라비아 리얄(SR)||SEK|스웨덴 크로나(kr)||TWD|대만 달러(NT$)|
 |TRY|터키 리라(TL)||USD| 미국 달러($)||ZAR|남아프리카공화국 랜드(R)|
 
 ## <a name="next-steps"></a>다음 단계

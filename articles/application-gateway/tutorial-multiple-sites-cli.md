@@ -1,5 +1,5 @@
 ---
-title: CLI를 사용 하 여 여러 웹 사이트 호스트
+title: CLI를 사용하여 여러 웹 사이트 호스트
 titleSuffix: Azure Application Gateway
 description: Azure CLI를 사용하여 여러 웹 사이트를 호스트하는 애플리케이션 게이트웨이를 만드는 방법을 알아봅니다.
 services: application-gateway
@@ -10,10 +10,10 @@ ms.date: 11/13/2019
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: 0a92d0f7d17f6bb83efbe94434c25072975dbe57
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74047351"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-the-azure-cli"></a>Azure CLI를 사용하여 여러 웹 사이트를 호스트하는 애플리케이션 게이트웨이 만들기
@@ -34,11 +34,11 @@ Azure CLI를 사용하여 [애플리케이션 게이트웨이](multiple-site-ove
 
 원하는 경우 [Azure PowerShell](tutorial-multiple-sites-powershell.md)을 사용하여 이 절차를 완료할 수 있습니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치 하 고 사용 하도록 선택 하는 경우이 문서에서는 Azure CLI 버전 2.0.4 이상을 이상을 실행 해야 합니다. 버전을 찾으려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
+CLI를 로컬로 설치하고 사용하도록 선택한 경우 이 문서에서는 Azure CLI 버전 2.0.4 이상을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하십시오.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -52,7 +52,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>네트워크 리소스 만들기
 
-*az network vnet create*를 사용하여 가상 네트워크와 [myAGSubnet](/cli/azure/network/vnet)이라는 서브넷을 만듭니다. 그런 후 [az network vnet subnet create](/cli/azure/network/vnet/subnet)를 사용하여 백 엔드 서버에 필요한 서브넷을 추가할 수 있습니다. *az network public-ip create*를 사용하여 [myAGPublicIPAddress](/cli/azure/network/public-ip)라는 IP 주소를 만듭니다.
+[az network vnet create](/cli/azure/network/vnet)를 사용하여 가상 네트워크와 *myAGSubnet*이라는 서브넷을 만듭니다. 그런 후 [az network vnet subnet create](/cli/azure/network/vnet/subnet)를 사용하여 백 엔드 서버에 필요한 서브넷을 추가할 수 있습니다. [az network public-ip create](/cli/azure/network/public-ip)를 사용하여 *myAGPublicIPAddress*라는 IP 주소를 만듭니다.
 
 ```azurecli-interactive
 az network vnet create \
@@ -106,7 +106,7 @@ az network application-gateway create \
 
 ### <a name="add-the-backend-pools"></a>백 엔드 풀 추가
 
-[az network application-gateway address-pool create](/cli/azure/network/application-gateway/address-pool#az-network-application-gateway-address-pool-create) 명령을 사용하여 백 엔드 서버를 포함하는 데 필요한 백 엔드 풀 추가
+az 네트워크 응용 프로그램 게이트웨이 주소 풀 만들기를 사용하여 백 엔드 서버를 포함하는 데 필요한 백 엔드 [풀추가](/cli/azure/network/application-gateway/address-pool#az-network-application-gateway-address-pool-create)
 ```azurecli-interactive
 az network application-gateway address-pool create \
   --gateway-name myAppGateway \
@@ -143,9 +143,9 @@ az network application-gateway http-listener create \
 
 ### <a name="add-routing-rules"></a>라우팅 규칙 추가
 
-규칙은 나열 된 순서 대로 처리 됩니다. 특이성에 관계 없이 일치 하는 첫 번째 규칙을 사용 하 여 트래픽을 전송 합니다. 예를 들어 기본 수신기를 사용하는 규칙과 다중 사이트 수신기를 사용하는 규칙이 둘 다 같은 포트에 있는 경우 다중 사이트 규칙이 예상대로 작동하려면 다중 사이트 수신기를 사용하는 규칙은 기본 수신기를 사용하는 규칙 앞에 나열되어야 합니다. 
+규칙은 나열된 순서대로 처리됩니다. 트래픽은 특이성에 관계없이 일치하는 첫 번째 규칙을 사용하여 전달됩니다. 예를 들어 기본 수신기를 사용하는 규칙과 다중 사이트 수신기를 사용하는 규칙이 둘 다 같은 포트에 있는 경우 다중 사이트 규칙이 예상대로 작동하려면 다중 사이트 수신기를 사용하는 규칙은 기본 수신기를 사용하는 규칙 앞에 나열되어야 합니다. 
 
-이 예제에서는 두 개의 새 규칙을 만들고 응용 프로그램 게이트웨이를 배포할 때 생성 된 기본 규칙을 삭제 합니다. [az network application-gateway rule create](/cli/azure/network/application-gateway/rule#az-network-application-gateway-rule-create)를 사용하여 규칙을 추가할 수 있습니다.
+이 예제에서는 두 개의 새 규칙을 만들고 응용 프로그램 게이트웨이를 배포할 때 만든 기본 규칙을 삭제합니다. [az network application-gateway rule create](/cli/azure/network/application-gateway/rule#az-network-application-gateway-rule-create)를 사용하여 규칙을 추가할 수 있습니다.
 
 ```azurecli-interactive
 az network application-gateway rule create \
@@ -232,7 +232,7 @@ az network public-ip show \
   --output tsv
 ```
 
-A 레코드를 사용 하는 것은 application gateway를 다시 시작할 때 VIP가 변경 될 수 있기 때문에 권장 되지 않습니다.
+응용 프로그램 게이트웨이가 다시 시작될 때 VIP가 변경될 수 있으므로 A 레코드를 사용하지 않는 것이 좋습니다.
 
 ## <a name="test-the-application-gateway"></a>애플리케이션 게이트웨이 테스트
 

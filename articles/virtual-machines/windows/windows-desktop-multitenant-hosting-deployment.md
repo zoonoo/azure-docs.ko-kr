@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 1/24/2018
 ms.author: xujing
 ms.openlocfilehash: 9ff8cc64266375a2d439763b222870843136f67a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70101499"
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>다중 테넌트 호스팅 권한으로 Azure에서 Windows 10을 배포하는 방법 
@@ -32,7 +32,7 @@ Windows 10 Enterprise E3/E5 사용자 단위 또는 Windows Virtual Desktop Acce
 ## <a name="deploying-windows-10-image-from-azure-marketplace"></a>Azure Marketplace에서 Windows 10 이미지 배포 
 Powershell, CLI 및 Azure Resource Manager 템플릿 배포의 경우 Windows 10 이미지를 다음 publishername, 제품, SKU로 찾을 수 있습니다.
 
-| OS  |      PublisherName      |  제공 | SKU |
+| OS  |      PublisherName      |  제안 | SKU |
 |:----------|:-------------:|:------|:------|
 | Windows 10 Pro    | MicrosoftWindowsDesktop | Windows-10  | RS2-Pro   |
 | Windows 10 Pro N  | MicrosoftWindowsDesktop | Windows-10  | RS2-ProN  |
@@ -55,7 +55,7 @@ if($adminAccount.Disabled)
     $adminAccount.Put()
 }
 ```
-추가 정보 
+자세한 내용은 다음을 참조하세요. 
 * [Azure에 VHD를 업로드하는 방법](upload-generalized-managed.md)
 * [Azure에 업로드할 Windows VHD를 준비하는 방법](prepare-for-upload-vhd-image.md)
 
@@ -69,7 +69,7 @@ Add-AzVhd -ResourceGroupName "myResourceGroup" -LocalFilePath "C:\Path\To\myvhd.
 ```
 
 
-**Azure Resource Manager 템플릿 배포를 사용하여 배포** Resource Manager 템플릿 내에서 `licenseType`에 대한 추가 매개 변수는 지정할 수 있습니다. [Azure Resource Manager 템플릿 작성](../../resource-group-authoring-templates.md)에 대해 자세히 알아볼 수 있습니다. Azure에 VHD를 업로드하고 나면 Resource Manager 템플릿을 편집하여 컴퓨팅 공급자의 일부로 라이선스 유형을 포함하고 정상적으로 템플릿을 배포합니다.
+**Azure Resource Manager 템플릿 배포를 사용하여 배포** Resource Manager 템플릿 내에서 `licenseType`에 대한 추가 매개 변수는 지정할 수 있습니다. [Azure 리소스 관리자 템플릿 작성에](../../resource-group-authoring-templates.md)대해 자세히 확인할 수 있습니다. Azure에 VHD를 업로드하고 나면 Resource Manager 템플릿을 편집하여 컴퓨팅 공급자의 일부로 라이선스 유형을 포함하고 정상적으로 템플릿을 배포합니다.
 ```json
 "properties": {
     "licenseType": "Windows_Client",

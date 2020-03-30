@@ -1,6 +1,6 @@
 ---
 title: 'Azure Cloud Shell에서 Databricks CLI 사용 '
-description: Azure Cloud Shell에서 Databricks CLI를 사용 하 여 Azure Databricks에 대 한 작업을 수행 하는 방법에 대해 알아봅니다.
+description: Azure 클라우드 셸의 Databricks CLI를 사용하여 Azure Databricks에서 작업을 수행하는 방법을 알아봅니다.
 services: azure-databricks
 author: mamccrea
 ms.reviewer: jasonh
@@ -10,17 +10,17 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: mamccrea
 ms.openlocfilehash: efb0d3222bfd98b15502163979425d47fa459e07
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73605713"
 ---
 # <a name="use-databricks-cli-from-azure-cloud-shell"></a>Azure Cloud Shell에서 Databricks CLI 사용
 
 Azure Cloud Shell에서 Databricks CLI를 사용하여 Databricks에서 작업을 수행하는 방법에 대해 알아봅니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure Databricks 작업 영역 및 클러스터. 지침은 [Azure Databricks 시작](quickstart-create-databricks-workspace-portal.md)을 참조하세요. 
 
@@ -28,15 +28,15 @@ Azure Cloud Shell에서 Databricks CLI를 사용하여 Databricks에서 작업�
 
 ## <a name="use-the-azure-cloud-shell"></a>Azure Cloud Shell 사용
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure 포털에](https://portal.azure.com)로그인합니다.
  
 2. 오른쪽 위 모서리에서 **Cloud Shell** 아이콘을 클릭합니다.
 
-   ![시작 Cloud Shell](./media/databricks-cli-from-azure-cloud-shell/launch-azure-cloud-shell.png "Azure Cloud Shell 시작")
+   ![Cloud Shell 시작](./media/databricks-cli-from-azure-cloud-shell/launch-azure-cloud-shell.png "Azure Cloud Shell 시작")
 
 3. Cloud Shell 환경에 대해 **Bash**를 선택해야 합니다. 다음 스크린샷과 같이 드롭다운 옵션에서 선택할 수 있습니다.
 
-   ![Cloud Shell 환경의 Bash를 선택 합니다.](./media/databricks-cli-from-azure-cloud-shell/select-bash-for-shell.png "Bash 선택") 
+   ![클라우드 셸 환경에 대한 배쉬 선택](./media/databricks-cli-from-azure-cloud-shell/select-bash-for-shell.png "Bash 선택") 
 
 4. Databricks CLI를 설치할 수 있는 가상 환경을 만듭니다. 아래 코드 조각에서는 `databrickscli`라는 가상 환경을 만듭니다.
 

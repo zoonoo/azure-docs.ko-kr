@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
 ms.openlocfilehash: 061194422a8c1bc449dbef0c4f04bb8e1db10dea
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68965281"
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>StorSimple 디바이스에 대한 기술 사양 및 규정 준수
@@ -39,14 +39,14 @@ EBOD 엔클로저는 580 W PCM을 사용하며 기본 엔클로저는 764 W PCM�
 | --- | --- | --- |
 | 최대 출력 전원 |580W |764 |
 | 빈도 |50/60Hz |50/60Hz |
-| 전압 범위 선택 |자동 범위: 90 – 264 V AC, 47/63 Hz |자동 범위: 90-264 V AC, 47/63 Hz |
+| 전압 범위 선택 |자동 범위 지정: 90-264V AC, 47/63Hz |자동 범위 지정: 90- 264 V AC, 47/63Hz |
 | 최대 유입 전류 |20A |20A |
 | 전원 요소 수정 |> 95% 정격 입력 전압 |> 95% 정격 입력 전압 |
 | 고주파 |EN61000-3-2를 충족합니다. |EN61000-3-2를 충족합니다. |
 | 출력 |5V 대기 전압 \@ 2.0 A |5V 대기 전압 \@ 2.7 A |
 | +5V \@ 42 A |+5V \@ 40 A | |
 | +12V \@ 38 A |+12V \@ 38 A | |
-| 핫 플러그형 |예 |예 |
+| 핫 플러그형 |yes |yes |
 | 스위치 및 LED |AC ON/OFF 스위치와 4개의 상태 표시기 LED |AC ON/OFF 스위치와 6개의 상태 표시기 LED |
 | 냉각 엔클로저 |가변 팬 속도 제어를 사용한 냉각팬 축 |가변 팬 속도 제어를 사용한 냉각팬 축 |
 
@@ -75,15 +75,15 @@ StorSimple 디바이스에는 8100 및 8600에 대한 하드 디스크 드라이
 | --- | --- | --- |
 | HDD(하드 디스크 드라이브)의 수 |8 |19 |
 | SSD(반도체 드라이브)의 수 |4 |5 |
-| 단일 HDD 용량 |4 TB |4TB |
-| 단일 SSD 용량 |400 GB |800GB |
+| 단일 HDD 용량 |4 TB |4 TB |
+| 단일 SSD 용량 |400GB |800GB |
 | 예비 용량 |4 TB |4 TB |
-| 사용 가능한 HDD 용량 |14TB |36TB |
+| 사용 가능한 HDD 용량 |14TB |36 TB |
 | 사용 가능한 SSD 용량 |800GB |2TB |
 | 총 사용 가능한 용량 * |최대 15TB |최대 38TB |
 | 최대 솔루션 용량(클라우드 포함) |200TB |500TB |
 
-<sup>* </sup>- *총 사용 가능한 용량에는 데이터, 메타데이터 및 버퍼에 사용할 수 있는 용량이 포함됩니다. 로컬로 고정된 볼륨을 8100 디바이스에서는 최대 8.5TB, 더 큰 8600 디바이스에서는 최대 22.5TB까지 프로비전할 수 있습니다. 자세한 내용은 [StorSimple 로컬로 고정된 볼륨](storsimple-8000-local-volume-faq.md)을 참조하세요.*
+<sup>* </sup>- *총 사용 가능한 용량에는 데이터, 메타데이터 및 버퍼에 사용할 수 있는 용량이 포함됩니다. 8100 장치에서 로컬로 고정된 볼륨을 최대 8.5TB 또는 더 큰 8600 장치에서 최대 22.5TB까지 프로비전할 수 있습니다. 자세한 내용은 [StorSimple 로컬 고정 볼륨으로](storsimple-8000-local-volume-faq.md)이동하십시오.*
 
 ## <a name="enclosure-dimensions-and-weight-specifications"></a>엔클로저 차원과 가중치 사양
 
@@ -152,7 +152,7 @@ Microsoft Azure StorSimple 디바이스에서 다음 국제 표준을 준수합�
 Microsoft Azure StorSimple 디바이스는 다음 안전 등급을 만족합니다.
 
 * 시스템 제품 유형 승인: UL, cUL, CE
-* 안전 규정 준수: UL 60950, IEC 60950, EN 60950
+* 보안 준수: UL 60950, IEC 60950, EN 60950
 
 ## <a name="emc-compliance"></a>EMC 규정 준수
 
@@ -162,8 +162,8 @@ Microsoft Azure StorSimple 디바이스는 다음 EMC 등급을 만족합니다.
 
 디바이스는 전도성 및 복사성 배출 수준에 대한 EMC 규정을 준수합니다.
 
-* 수행 되는 방출 제한 수준: CFR 47 Part 15B 클래스 a EN55022 클래스 a CISPR CLASS A 클래스 a
-* 방출 되는 방출 제한 수준: CFR 47 Part 15B 클래스 a EN55022 클래스 a CISPR CLASS A 클래스 a
+* 전도성 배출 제한 수준: CFR 47 Part 15B Class A EN55022 Class A CISPR Class A
+* 복사성 배출 제한 수준: CFR 47 Part 15B Class A EN55022 Class A CISPR Class A
 
 ### <a name="harmonics-and-flicker"></a>고주파 및 깜박임
 
@@ -175,7 +175,7 @@ Microsoft Azure StorSimple 디바이스는 다음 EMC 등급을 만족합니다.
 
 ## <a name="ac-power-cord-compliance"></a>AC 전원 코드 규정 준수
 
-플러그 앤 전체 전원 코드 어셈블리는 장치를 사용 하는 국가/지역에 적합 한 표준을 충족 해야 하며, 해당 국가/지역에서 허용 되는 안전 승인을 보유 해야 합니다. 다음 표에서 미국과 유럽에 대한 표준을 보여줍니다.
+플러그와 전체 전원 코드 어셈블리는 장치가 사용되는 국가/지역에 적합한 표준을 충족해야 하며 해당 국가/지역에서 허용되는 안전 승인을 받아야 합니다. 다음 표에서 미국과 유럽에 대한 표준을 보여줍니다.
 
 ### <a name="ac-power-cords---usa-must-be-nrtl-listed"></a>AC 전원 코드-미국(나열된 NRTL이어야 함)
 

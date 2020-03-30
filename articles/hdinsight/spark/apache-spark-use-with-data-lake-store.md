@@ -1,6 +1,6 @@
 ---
-title: HDInsight를 사용 하 여 Azure Data Lake Storage Gen1 분석 Apache Spark
-description: Apache Spark 작업을 실행 하 여 Azure Data Lake Storage Gen1에 저장 된 데이터 분석
+title: HDInsight 아파치 스파크로 Azure 데이터 레이크 스토리지 Gen1 분석
+description: 아파치 스파크 작업을 실행하여 Azure 데이터 레이크 스토리지 Gen1에 저장된 데이터를 분석합니다.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,17 +9,17 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.openlocfilehash: f7a6ab954aff1bcc2e3dae3fc035db4b136ccbbe
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73818177"
 ---
 # <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-storage-gen1"></a>HDInsight Spark 클러스터를 사용하여 Data Lake Storage Gen1의 데이터 분석
 
-이 문서에서는 HDInsight Spark 클러스터에서 사용할 수 있는 [Jupyter Notebook](https://jupyter.org/) 를 사용 하 여 Data Lake Storage 계정에서 데이터를 읽는 작업을 실행 합니다.
+이 문서에서는 HDInsight 스파크 클러스터에서 사용할 수 있는 [Jupyter 노트북을](https://jupyter.org/) 사용하여 데이터 레이크 저장소 계정에서 데이터를 읽는 작업을 실행합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure Data Lake Storage Gen1 계정. [Azure Portal을 사용하여 Azure Data Lake Storage Gen1 시작](../../data-lake-store/data-lake-store-get-started-portal.md)에 있는 지침을 따릅니다.
 
@@ -56,7 +56,7 @@ Data Lake Storage를 추가 스토리지로, Azure Storage Blob을 기본 스토
 
 ## <a name="use-an-hdinsight-spark-cluster-with-data-lake-storage-gen1"></a>Data Lake Storage Gen1을 포함한 HDInsight Spark 클러스터 사용
 
-1. [Azure Portal](https://portal.azure.com/)시작 보드에서 Apache Spark 클러스터 (시작 보드에 고정 한 경우)에 대 한 타일을 클릭 합니다. **모두 찾아보기** > **HDInsight 클러스터**에서 클러스터로 이동할 수도 있습니다.
+1. 시작 보드에서 [Azure 포털에서](https://portal.azure.com/)아파치 스파크 클러스터의 타일을 클릭합니다(시작 보드에 고정한 경우). **모든** > HDInsight 클러스터 찾아보기 아래에서 클러스터로 이동할 수도**있습니다.**
 
 2. Spark 클러스터 블레이드에서 **빠른 연결**을 클릭한 다음 **클러스터 대시보드** 블레이드에서 **Jupyter Notebook**을 클릭합니다. 메시지가 표시되면 클러스터에 대한 관리자 자격 증명을 입력합니다.
 
@@ -75,7 +75,7 @@ Data Lake Storage를 추가 스토리지로, Azure Storage Blob을 기본 스토
 
     Jupyter에서 작업을 실행할 때마다, 웹 브라우저 창 제목에 Notebook 제목과 함께 **(사용 중)** 상태가 표시됩니다. 또한 오른쪽 위 모서리에 있는 **PySpark** 텍스트 옆에 단색 원이 표시됩니다. 작업이 완료되면 속이 빈 원으로 변경됩니다.
 
-     ![Jupyter 노트북 작업 상태](./media/apache-spark-use-with-data-lake-store/hdinsight-jupyter-job-status.png "Jupyter 노트북 작업의 상태")
+     ![Jupyter 노트북 작업의 상태](./media/apache-spark-use-with-data-lake-store/hdinsight-jupyter-job-status.png "Jupyter 노트북 작업의 상태")
 
 5. Data Lake Storage Gen1 계정에 복사한 **HVAC.csv** 파일을 사용하여 샘플 데이터를 임시 테이블에 로드합니다. 다음 URL 패턴을 사용하여 Data Lake Storage 계정의 데이터에 액세스할 수 있습니다.
 
@@ -108,7 +108,7 @@ Data Lake Storage를 추가 스토리지로, Azure Storage Blob을 기본 스토
            # Register the data fram as a table to run queries against
            hvacdf.registerTempTable("hvac")
 
-6. PySpark 커널을 사용하기 때문에 이제 **매직을 사용하여 방금 만든 임시 테이블**hvac`%%sql`에서 SQL 쿼리를 직접 실행할 수 있습니다. `%%sql` 매직 및 PySpark 커널에서 사용 가능한 기타 매직에 대한 자세한 내용은 [Apache Spark HDInsight 클러스터와 함께 Jupyter Notebook에서 사용 가능한 커널](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic)을 참조하세요.
+6. PySpark 커널을 사용하기 때문에 이제 `%%sql` 매직을 사용하여 방금 만든 임시 테이블 **hvac**에서 SQL 쿼리를 직접 실행할 수 있습니다. `%%sql` 매직 및 PySpark 커널에서 사용 가능한 기타 매직에 대한 자세한 내용은 [Apache Spark HDInsight 클러스터와 함께 Jupyter Notebook에서 사용 가능한 커널](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic)을 참조하세요.
 
         %%sql
         SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
@@ -121,7 +121,7 @@ Data Lake Storage를 추가 스토리지로, Azure Storage Blob을 기본 스토
 
      ![쿼리 결과의 영역 그래프](./media/apache-spark-use-with-data-lake-store/jupyter-area-output1.png "쿼리 결과의 영역 그래프")
 
-8. 애플리케이션 실행을 완료한 후 리소스를 해제하도록 Notebook을 종료해야 합니다. 이렇게 하기 위해 Notebook의 **파일** 메뉴에서 **닫기 및 중지**를 클릭합니다. 그러면 Notebook이 종료되고 닫힙니다.
+8. 애플리케이션 실행을 완료한 후 리소스를 해제하도록 노트북을 종료해야 합니다. 이렇게 하기 위해 Notebook의 **파일** 메뉴에서 **닫기 및 중지**를 클릭합니다. 그러면 Notebook이 종료되고 닫힙니다.
 
 
 ## <a name="next-steps"></a>다음 단계

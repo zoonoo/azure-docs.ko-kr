@@ -1,5 +1,5 @@
 ---
-title: Azure AD 갤러리 앱에 대해 페더레이션된 SSO를 구성 하는 문제
+title: Azure AD 갤러리 앱에 대해 페더레이션된 SSO를 구성하는 문제
 description: Azure AD 애플리케이션 갤러리에 나열된 애플리케이션의 SAML을 사용하여 페더레이션된 Single Sign-On을 구성할 때 발생하는 일반적인 문제 몇 가지를 해결
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 07/11/2017
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 87c2497a781b0d46b3b2f1e281a3d7b327b60952
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74274649"
 ---
 # <a name="problem-configuring-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Azure AD 갤러리 애플리케이션에 대해 페더레이션된 Single Sign-On을 구성할 때 발생하는 문제
@@ -42,17 +42,17 @@ ms.locfileid: "74274649"
 
 애플리케이션에 대해 미리 구성된 패턴을 알려면:
 
-1. [**Azure Portal**](https://portal.azure.com/) 을 열고 **전역 관리자** 또는 공동 관리자 권한으로 로그인 **합니다.** 7 단계로 이동 합니다. 이미 Azure AD의 애플리케이션 구성 블레이드에 있는 경우.
+1. Azure [**포털을**](https://portal.azure.com/) 열고 글로벌 **관리자** 또는 **공동 관리자로 로그인합니다.** 7단계로 이동합니다. 이미 Azure AD의 애플리케이션 구성 블레이드에 있는 경우.
 
 2. 왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
-3. 필터 검색 상자에 **"Azure Active Directory**"를 입력하고 **Azure Active Directory** 항목을 선택합니다.
+3. 필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
 4. Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 애플리케이션**을 클릭합니다.
 
 5. **모든 애플리케이션**을 클릭하여 모든 애플리케이션의 목록을 봅니다.
 
-   * 여기에 표시하려는 애플리케이션이 표시되지 않으면 **모든 애플리케이션 목록**의 맨 위에서 **필터** 컨트롤을 사용하고 **표시** 옵션을 **모든 애플리케이션**으로 설정합니다.
+   * 여기에 표시하려는 응용 프로그램이 표시되지 않으면 **모든 응용 프로그램 목록** 맨 위에 있는 **필터** 컨트롤을 사용하고 **표시** 옵션을 모든 응용 **프로그램으로 설정합니다.**
 
 6. Single Sign-On을 구성하려는 애플리케이션을 선택합니다.
 
@@ -86,17 +86,17 @@ Azure AD에서는 선택한 값 또는 SAML AuthRequest에서 애플리케이션
 
 Azure AD에서 애플리케이션 메타데이터 또는 인증서를 다운로드하려면 아래 단계를 수행합니다.
 
-1. [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
+1. Azure [**포털을**](https://portal.azure.com/) 열고 글로벌 **관리자** 또는 **공동 관리자로 로그인합니다.**
 
 2. 왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
-3. 필터 검색 상자에 **"Azure Active Directory**"를 입력하고 **Azure Active Directory** 항목을 선택합니다.
+3. 필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
 4. Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 애플리케이션**을 클릭합니다.
 
 5. **모든 애플리케이션**을 클릭하여 모든 애플리케이션의 목록을 봅니다.
 
-   * 여기에 표시하려는 애플리케이션이 표시되지 않으면 **모든 애플리케이션 목록**의 맨 위에서 **필터** 컨트롤을 사용하고 **표시** 옵션을 **모든 애플리케이션**으로 설정합니다.
+   * 여기에 표시하려는 응용 프로그램이 표시되지 않으면 **모든 응용 프로그램 목록** 맨 위에 있는 **필터** 컨트롤을 사용하고 **표시** 옵션을 모든 응용 **프로그램으로 설정합니다.**
 
 6. Single Sign-On을 구성한 애플리케이션을 선택합니다.
 

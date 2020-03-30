@@ -1,5 +1,5 @@
 ---
-title: Azure Site Recovery에서 복구 계획에 스크립트를 추가 합니다.
+title: Azure 사이트 복구에서 복구 계획에 스크립트 추가
 description: VMM 클라우드에서 Hyper-V VM의 재해 복구를 위해 복구 계획에 VMM 스크립트를 추가하는 방법을 알아봅니다.
 author: rajani-janaki-ram
 manager: rochakm
@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
 ms.openlocfilehash: 6902876e066649ae4dff4134fb8cc462f30dd0b7
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74084868"
 ---
 # <a name="add-a-vmm-script-to-a-recovery-plan"></a>복구 계획에 VMM 스크립트 추가
 
 이 문서에서는 [Azure Site Recovery](site-recovery-overview.md)에서 System Center Virtual Machine Manager(VMM) 스크립트를 생성하여 복구 계획에 추가하는 방법을 설명합니다.
 
-의견이나 질문은 이 문서의 하단이나 [Azure Recovery Services 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)에 게시하세요.
+이 문서의 맨 아래 또는 Azure 복구 [서비스 포럼에](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)주석이나 질문을 게시합니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 복구 계획에서 PowerShell 스크립트를 사용할 수 있습니다. 복구 계획에서 스크립트를 액세스할 수 있도록 스크립트를 작성하여 VMM 라이브러리에 배치해야 합니다. 스크립트를 작성할 때는 다음 사항에 유의하세요.
 
@@ -29,11 +29,11 @@ ms.locfileid: "74084868"
     - 오류가 발생하면 스크립트의 나머지 부분이 실행되지 않습니다.
     - 계획되지 않은 장애 조치를 실행할 때 오류가 발생하면 복구 계획이 계속됩니다.
     - 계획된 장애 조치를 실행할 때 오류가 발생하면 복구 계획이 중단됩니다. 스크립트를 수정하고 예상대로 실행되는지 확인한 다음, 복구 계획을 다시 실행합니다.
-        - 복구 계획 스크립트에서는 `Write-Host` 명령이 작동하지 않습니다. 스크립트에서 `Write-Host` 명령을 사용하면 스크립트가 제대로 실행되지 않습니다. 출력을 만들려면 기본 스크립트를 실행하는 프록시 스크립트를 만듭니다. 모든 출력이 표시되도록 **\>\>** 명령을 사용합니다.
+        - 복구 계획 스크립트에서는 `Write-Host` 명령이 작동하지 않습니다. 스크립트에서 `Write-Host` 명령을 사용하면 스크립트가 제대로 실행되지 않습니다. 출력을 만들려면 기본 스크립트를 실행하는 프록시 스크립트를 만듭니다. 모든 출력이 파이프아웃되도록 하려면 ** \> ** 명령을 사용합니다.
         - 600초 이내에 반환하지 않는 경우 스크립트 시간이 초과됩니다.
         - STDERR에 기록되는 항목이 하나라도 존재하면 스크립트가 실패로 분류됩니다. 이 정보는 스크립트 실행 세부 정보에 표시됩니다.
 
-* 복구 계획의 스크립트는 VMM 서비스 계정에서 실행됩니다. 따라서 VMM 서비스 계정에 스크립트가 위치한 원격 공유에 대한 읽기 권한이 있어야 합니다. 스크립트가 VMM 서비스 계정에 부여된 사용자 권한과 동일한 수준으로 실행되는지 테스트합니다.
+* 복구 계획의 스크립트는 VMM 서비스 계정 컨텍스트에서 실행됩니다. 따라서 VMM 서비스 계정에 스크립트가 위치한 원격 공유에 대한 읽기 권한이 있어야 합니다. 스크립트가 VMM 서비스 계정에 부여된 사용자 권한과 동일한 수준으로 실행되는지 테스트합니다.
 * VMM cmdlet은 Windows PowerShell 모듈로 배달됩니다. 모듈은 VMM 콘솔을 설치할 때 설치됩니다. 스크립트에 모듈을 로드하려면 스크립트에서 다음 명령을 사용합니다. 
 
     `Import-Module -Name virtualmachinemanager`
@@ -45,7 +45,7 @@ ms.locfileid: "74084868"
   
   1. 레지스트리 편집기를 열고 **HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\Azure Site Recovery\Registration**으로 이동합니다.
 
-  1. **ScriptLibraryPath**의 값을 **\\\libserver2.contoso.com\share\\** 로 변경합니다. 전체 FQDN을 지정합니다. 공유 위치에 대한 사용 권한을 제공합니다. 이것은 공유의 루트 노드입니다. 루트 노드를 확인하려면 VMM에서 라이브러리의 루트 노드로 이동합니다. 이때 열리는 경로가 경로의 루트입니다. 이 경로를 변수에 사용해야 합니다.
+  1. **ScriptLibraryPath**의 값을 **\\\libserver2.contoso.com\share\\**로 변경합니다. 전체 FQDN을 지정합니다. 공유 위치에 대한 사용 권한을 제공합니다. 이것은 공유의 루트 노드입니다. 루트 노드를 확인하려면 VMM에서 라이브러리의 루트 노드로 이동합니다. 이때 열리는 경로가 경로의 루트입니다. 이 경로를 변수에 사용해야 합니다.
 
   1. VMM 서비스 계정과 동일한 사용자 권한 수준을 갖는 사용자 계정으로 스크립트를 테스트합니다. 이렇게 하면 스크립트를 독립형 테스트 환경에서 실행할 때도 복구 계획과 동일한 환경으로 테스트할 수 있습니다. VMM 서버에서 실행 정책을 다음과 같이 우회로 설정합니다.
 

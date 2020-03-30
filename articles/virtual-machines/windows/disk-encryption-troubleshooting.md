@@ -1,6 +1,6 @@
 ---
 title: Azure Disk Encryption 문제 해결 가이드
-description: 이 문서에서는 Windows Vm 용 Microsoft Azure 디스크 암호화에 대 한 문제 해결 팁을 제공 합니다.
+description: 이 문서에서는 Windows VM용 Microsoft Azure 디스크 암호화에 대한 문제 해결 팁을 제공합니다.
 author: msmbaldwin
 ms.service: security
 ms.topic: article
@@ -8,21 +8,21 @@ ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
 ms.openlocfilehash: 0d4e76f4d02b0287770243bfddf995a19f90d232
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73749457"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Azure Disk Encryption 문제 해결 가이드
 
 이 가이드는 조직에서 Azure Disk Encryption을 사용하는 IT 전문가, 정보 보안 분석가 및 클라우드 관리자를 위한 것입니다. 이 문서는 디스크 암호화 관련 문제를 해결하는 데 도움을 드리기 위해 작성되었습니다.
 
-아래 단계를 수행 하기 전에 먼저 암호화 하려는 vm이 지원 되는 [vm 크기 및 운영 체제](disk-encryption-overview.md#supported-vms-and-operating-systems)중 어느 것이 고 모든 필수 구성 요소를 충족 하는지 확인 합니다.
+아래 단계를 수행하기 전에 먼저 암호화하려는 VM이 [지원되는 VM 크기 및 운영 체제](disk-encryption-overview.md#supported-vms-and-operating-systems)에 속해 있는지, 그리고 모든 필수 구성 조건을 충족되었는지 확인합니다.
 
 - [네트워킹 요구 사항](disk-encryption-overview.md#networking-requirements)
 - [그룹 정책 요구 사항](disk-encryption-overview.md#group-policy-requirements)
-- [암호화 키 저장소 요구 사항](disk-encryption-overview.md#encryption-key-storage-requirements)
+- [암호화 키 스토리지 요구 사항](disk-encryption-overview.md#encryption-key-storage-requirements)
 
  
 
@@ -38,7 +38,7 @@ ms.locfileid: "73749457"
 [Azure AD 자격 증명](disk-encryption-windows-aad.md#)에 암호화가 사용하도록 설정된 경우 대상 VM은 Azure Active Directory 엔드포인트 및 Key Vault 엔드포인트 모두에 대한 연결을 허용해야 합니다. 현재 Azure Active Directory 인증 엔드포인트는 [Office 365 URL 및 IP 주소 범위](https://docs.microsoft.com/office365/enterprise/urls-and-ip-address-ranges) 설명서의 56 및 59 섹션에서 유지 관리됩니다. Key Vault 지침은 [방화벽 뒤에 있는 Azure Key Vault에 액세스](../../key-vault/key-vault-access-behind-firewall.md)하는 방법에 관한 설명서에서 제공됩니다.
 
 ### <a name="azure-instance-metadata-service"></a>Azure Instance Metadata Service 
-VM은 VM 내에서만 액세스할 수 있는 잘 알려진 라우팅이 불가능한 IP 주소([)를 사용하는 ](../windows/instance-metadata-service.md)Azure Instance Metadata 서비스`169.254.169.254` 엔드포인트에 액세스할 수 있어야 합니다.  이 주소에 대 한 로컬 HTTP 트래픽 (예: X 전달 된 헤더 추가)을 변경 하는 프록시 구성은 지원 되지 않습니다.
+VM은 VM 내에서만 액세스할 수 있는 잘 알려진 라우팅이 불가능한 IP 주소(`169.254.169.254`)를 사용하는 [Azure Instance Metadata 서비스](../windows/instance-metadata-service.md) 엔드포인트에 액세스할 수 있어야 합니다.  이 주소로 로컬 HTTP 트래픽을 변경하는 프록시 구성(예: X-Forwarded-For 헤더 추가)은 지원되지 않습니다.
 
 ## <a name="troubleshooting-windows-server-2016-server-core"></a>Windows Server 2016 Server Core 문제 해결
 
@@ -63,7 +63,7 @@ Windows Server 2016 Server Core에서 bdehdcfg 구성 요소는 기본적으로 
 
 1. DiskPart를 사용하여 볼륨을 확인한 다음 계속합니다.  
 
-예:
+예를 들어:
 
 ```
 DISKPART> list vol
@@ -77,11 +77,11 @@ DISKPART> list vol
 
 ## <a name="troubleshooting-encryption-status"></a>암호화 상태 문제 해결 
 
-포털은 VM 내에서 암호화 되지 않은 경우에도 디스크를 암호화 된 상태로 표시할 수 있습니다.  낮은 수준의 명령을 사용 하 여 VM 내에서 디스크의 암호를 직접 해독 하는 데 더 높은 수준의 Azure Disk Encryption 관리 명령을 사용 하는 대신이 오류가 발생할 수 있습니다.  더 높은 수준의 명령은 VM 내에서 디스크의 암호를 해독 하는 것이 아니라 vm 외부의 중요 한 플랫폼 수준 암호화 설정 및 VM에 연결 된 확장 설정도 업데이트 합니다.  이러한 설정이 그대로 유지 되지 않으면 플랫폼이 암호화 상태를 보고 하거나 VM을 올바르게 프로 비전 할 수 없습니다.   
+포털은 VM 내에서 암호화되지 않은 후에도 디스크를 암호화된 것으로 표시할 수 있습니다.  이 문제는 상위 수준 Azure Disk 암호화 관리 명령을 사용하는 대신 VM 내에서 디스크의 암호를 직접 해독하는 데 하위 수준 명령을 사용하는 경우에 발생할 수 있습니다.  상위 수준 명령은 VM 내에서 디스크의 암호를 해독할 뿐만 아니라 VM 외부에서도 VM과 관련된 중요한 플랫폼 수준 암호화 설정 및 확장 설정을 업데이트합니다.  이러한 설정이 정렬되지 않으면 플랫폼에서 암호화 상태를 보고하거나 VM을 올바르게 프로비전할 수 없습니다.   
 
-PowerShell을 사용 하 여 Azure Disk Encryption를 사용 하지 않도록 설정 하려면 [AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) 뒤에 [AzVMDiskEncryptionExtension](/powershell/module/az.compute/remove-azvmdiskencryptionextension)을 사용 합니다. 암호화를 사용 하지 않도록 설정 하기 전에 AzVMDiskEncryptionExtension를 실행 하면 오류가 발생 합니다.
+PowerShell을 사용하여 Azure 디스크 암호화를 사용하지 않으려면 [사용 안 함-AzVMDisk암호화](/powershell/module/az.compute/disable-azvmdiskencryption) 를 사용하고 [제거-AzVMDisk암호화 확장.](/powershell/module/az.compute/remove-azvmdiskencryptionextension) 암호화를 사용하지 않도록 설정하기 전에 제거-AzVMDisk암호화확장 실행은 실패합니다.
 
-CLI를 사용 하 여 Azure Disk Encryption를 사용 하지 않도록 설정 하려면 [az vm Encryption disable](/cli/azure/vm/encryption)을 사용 합니다. 
+CLI를 사용하여 Azure 디스크 암호화를 사용하지 않으려면 [az vm 암호화를 사용하지 않도록 설정합니다.](/cli/azure/vm/encryption) 
 
 ## <a name="next-steps"></a>다음 단계
 

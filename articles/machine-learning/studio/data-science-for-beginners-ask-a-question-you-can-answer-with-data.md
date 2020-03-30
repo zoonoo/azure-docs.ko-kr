@@ -10,10 +10,10 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 03/22/2019
 ms.openlocfilehash: 26837337b49d79a26404fd6709b036f6907720f8
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73838845"
 ---
 # <a name="ask-a-question-you-can-answer-with-data"></a>데이터로 대답할 수 있는 질문하기
@@ -48,7 +48,7 @@ ms.locfileid: "73838845"
 
 모호한 질문에는 이름이나 숫자로 답변할 필요가 없습니다. 하지만 정확한 질문에는 그렇게 해야만 합니다.
 
-묻는 질문에 정직하게 답하는 지니의 요술 램프를 찾았다고 상상해 보겠습니다. 그러나 짓궂은 genie는이를 사용 하는 것 처럼 모호 하 고 혼란 스 러 울 수 있도록 하는 것입니다. 질문을 하 고, 원하는 정보를 알려 주는 데 도움이 되는 정보를 제공 합니다.
+묻는 질문에 정직하게 답하는 지니의 요술 램프를 찾았다고 상상해 보겠습니다. 그러나 그것은 장난 요정, 그들은 멀리 얻을 수있는 모호하고 혼란으로 자신의 대답을 만들려고합니다. 당신은 그들이 도울 수 있지만 당신이 알고 싶은 것을 말할 수 있도록 밀폐 질문으로 그들을 고정 할 수 있습니다.
 
 “내 주식이 어떻게 될까요?”라는 모호한 질문을 한다면, 지니는 “가격이 변할 것입니다.”라고 답변할 것입니다. 정직한 답변이지만 별로 도움은 되지 않습니다.
 
@@ -88,8 +88,8 @@ ms.locfileid: "73838845"
 
 데이터로 답할 수 있는 질문의 기본적인 원리에 대해 알아보았습니다.
 
-Microsoft Azure Machine Learning Studio (클래식)에서 "초보자를 위한 데이터 과학"의 다른 비디오를 확인 하세요.
+Microsoft Azure 기계 학습 스튜디오(클래식)의 "초보자를 위한 데이터 과학"의 다른 비디오를 확인하십시오.
 
 ## <a name="next-steps"></a>다음 단계
-* [Machine Learning Studio를 사용 하 여 첫 번째 데이터 과학 실험 시도 (클래식)](create-experiment.md)
+* [기계 학습 스튜디오(클래식)를 사용하여 첫 번째 데이터 과학 실험을 해보세요.](create-experiment.md)
 * [Microsoft Azure의 Machine Learning 소개 보기](/azure/machine-learning/preview/overview-what-is-azure-ml)

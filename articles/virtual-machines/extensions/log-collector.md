@@ -1,5 +1,5 @@
 ---
-title: AzureLogCollector VM 확장
+title: Azure로그 수집기 VM 확장
 description: 모든 로그 파일을 수집하고 Azure Storage의 한 위치에 모으는 AzureLogCollector VM 확장에 대해 설명합니다.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 08/23/2016
 ms.author: gwallace
 ms.openlocfilehash: ecbd4311160cb37916be259ead1ebd1b3b226773
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74073087"
 ---
 # <a name="azurelogcollector-extension"></a>AzureLogCollector 확장

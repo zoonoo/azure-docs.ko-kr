@@ -1,6 +1,6 @@
 ---
 title: Azure Firewall 샘플
-description: 이 문서에는 Azure 방화벽을 만드는 Azure PowerShell 스크립트 샘플에 대 한 링크가 포함 되어 있습니다.
+description: 이 문서에는 Azure 방화벽을 만드는 Azure PowerShell 스크립트 샘플에 대한 링크가 포함되어 있습니다.
 services: firewall
 author: vhorne
 ms.service: firewall
@@ -9,10 +9,10 @@ ms.date: 11/19/2019
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: 5e4fab3d632bca6eb62f1233f681a3611d7ccddf
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74168730"
 ---
 # <a name="azure-firewall-powershell-samples"></a>Azure Firewall PowerShell 샘플

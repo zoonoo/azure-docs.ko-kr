@@ -1,5 +1,5 @@
 ---
-title: Temporal 테이블 시작
+title: 임시 테이블 시작하기
 description: Azure SQL Database에서 임시 테이블을 사용하여 시작하는 방법을 알아봅니다.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: bonova
 ms.reviewer: carlrab
 ms.date: 06/26/2019
 ms.openlocfilehash: 98fd2658f3fbcb0e7e29114d29f8dc6ed39eedf2
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73820716"
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database"></a>Azure SQL Database의 임시 테이블 시작
@@ -108,7 +108,7 @@ WITH (DROP_EXISTING = ON);
 ## <a name="step-2-run-your-workload-regularly"></a>2단계: 정기적으로 워크로드 실행
 임시 테이블의 주요 장점은 변경 내용 추적을 사용하는 방식으로 웹 사이트를 변경하거나 조정할 필요가 없다는 것입니다. 임시 테이블은 한 번 만들면 데이터에 수정 작업을 수행할 때마다 이전 행 버전을 분명하게 유지합니다. 
 
-이 특정 시나리오에 대 한 변경 내용 자동 추적을 활용 하기 위해 사용자가 웹 사이트에서 세션을 종료할 때마다 열 작업을 **방문** 하 여 업데이트 해 보겠습니다.
+이 특정 시나리오에 대한 자동 변경 추적을 활용하기 위해 사용자가 웹 사이트에서 세션을 종료 할 때마다 **페이지 방문** 열을 업데이트해 보겠습니다.
 
 ```
 UPDATE WebsiteUserInfo  SET [PagesVisited] = 5 
@@ -188,13 +188,13 @@ ALTER TABLE dbo.WebsiteUserInfo
 또는 최신 [SSDT](https://msdn.microsoft.com/library/mt204009.aspx) 를 사용하여 데이터베이스(온라인 모드) 또는 데이터베이스 프로젝트(오프라인 모드)의 일부에 연결되어 있는 동안 임시 테이블 스키마를 변경합니다.
 
 ## <a name="controlling-retention-of-historical-data"></a>과거 데이터의 보존 제어
-기록 테이블에서는 시스템 버전 임시 테이블로 일반 테이블보다 데이터베이스 크기를 늘릴 수 있습니다. 점점 커지는 기록 테이블은 임시 쿼리에 대한 성능세를 부과할 뿐만 아니라 순수 스토리지 비용으로 인해 문제가 될 수 있습니다. 따라서 기록 테이블에 데이터를 관리하기 위한 데이터 보존 정책을 개발하는 것은 모든 임시 테이블의 수명 주기를 계획하고 관리하는 중요한 부분입니다. Azure SQL Database로 임시 테이블에서 과거 데이터를 관리하는 데 다음 방법 중 하나를 사용할 수 있습니다.
+기록 테이블에서는 시스템 버전 임시 테이블로 일반 테이블보다 데이터베이스 크기를 늘릴 수 있습니다. 점점 커지는 기록 테이블은 임시 쿼리에 대한 성능세를 부과할 뿐만 아니라 순수 스토리지 비용으로 인해 문제가 될 수 있습니다. 따라서 기록 테이블에서 데이터를 관리하기 위한 데이터 보존 정책을 개발하는 것이 모든 temporal 테이블의 수명 주기 계획 및 관리의 중요한 요소입니다. Azure SQL Database로 임시 테이블에서 과거 데이터를 관리하는 데 다음 방법 중 하나를 사용할 수 있습니다.
 
 * [테이블 분할](https://msdn.microsoft.com/library/mt637341.aspx#Anchor_2)
 * [사용자 지정 정리 스크립트](https://msdn.microsoft.com/library/mt637341.aspx#Anchor_3)
 
 ## <a name="next-steps"></a>다음 단계
 
-- Temporal 테이블에 대 한 자세한 내용은 [Temporal 테이블](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables)체크 아웃을 참조 하세요.
+- 임시 테이블에 대한 자세한 내용은 [임시 테이블을](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables)참조하십시오.
 - Channel 9을 방문하여 [실제 고객 임시 구현 성공 사례](https://channel9.msdn.com/Blogs/jsturtevant/Azure-SQL-Temporal-Tables-with-RockStep-Solutions)를 듣고 [라이브 임시 데모](https://channel9.msdn.com/Shows/Data-Exposed/Temporal-in-SQL-Server-2016)를 시청합니다.
 

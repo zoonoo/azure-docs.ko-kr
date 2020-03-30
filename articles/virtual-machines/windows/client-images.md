@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: cynthn
 ms.openlocfilehash: 812e6d251943d4418666f221ad8b5d2b6e501736
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74039493"
 ---
 # <a name="use-windows-client-in-azure-for-devtest-scenarios"></a>개발/테스트 시나리오용으로 Azure에서 Windows 클라이언트 사용
@@ -26,8 +26,8 @@ ms.locfileid: "74039493"
 ![Azure Portal의 이미지 세부 정보](./media/client-images/windows-client-msdn-images.png) 
 
 > [!NOTE]
-> Azure 갤러리의 Windows 10 Pro 및 Windows 10 Pro N 이미지는 [다중 테넌트 호스팅 권한으로 Azure에서 Windows 10을 배포하는 방법](windows-desktop-multitenant-hosting-deployment.md)
->을 참조하세요.![Azure Portal의 Pro 이미지 세부 정보](./media/client-images/windows-client-pro-images.png) 
+> Windows에 대 한 10 프로 및 윈도우 10 프로 N 이미지 Azure 갤러리에서, Windows를 배포 하는 방법을 참조 하십시오 [10 Azure포털에서 다중 테넌트 호스팅 권한](windows-desktop-multitenant-hosting-deployment.md)
+>![프로 이미지 세부 정보와 Azure에](./media/client-images/windows-client-pro-images.png) 
 >
 
 ## <a name="subscription-eligibility"></a>구독 적격성
@@ -40,14 +40,14 @@ ms.locfileid: "74039493"
 
 | 제품 이름 | 제품 번호 | 사용 가능한 클라이언트 이미지 |
 |:--- |:---:|:---:|
-| [종량제 개발/테스트](https://azure.microsoft.com/offers/ms-azr-0023p/) |0023P |Windows 10 |
-| [Visual Studio Enterprise(MPN) 구독자](https://azure.microsoft.com/offers/ms-azr-0029p/) |0029P |Windows 10 |
-| [Visual Studio Professional 구독자](https://azure.microsoft.com/offers/ms-azr-0059p/) |0059P |Windows 10 |
-| [Visual Studio Test Professional 구독자](https://azure.microsoft.com/offers/ms-azr-0060p/) |0060P |Windows 10 |
-| [Visual Studio Premium with MSDN(혜택)](https://azure.microsoft.com/offers/ms-azr-0061p/) |0061P |Windows 10 |
-| [Visual Studio Enterprise 구독자](https://azure.microsoft.com/offers/ms-azr-0063p/) |0063P |Windows 10 |
-| [Visual Studio Enterprise(BizSpark) 구독자](https://azure.microsoft.com/offers/ms-azr-0064p/) |0064P |Windows 10 |
-| [Enterprise 개발/테스트](https://azure.microsoft.com/offers/ms-azr-0148p/) |0148P |Windows 10 |
+| [종량제 개발/테스트](https://azure.microsoft.com/offers/ms-azr-0023p/) |0023P |윈도우 10 |
+| [Visual Studio Enterprise(MPN) 구독자](https://azure.microsoft.com/offers/ms-azr-0029p/) |0029P |윈도우 10 |
+| [Visual Studio Professional 구독자](https://azure.microsoft.com/offers/ms-azr-0059p/) |0059P |윈도우 10 |
+| [Visual Studio Test Professional 구독자](https://azure.microsoft.com/offers/ms-azr-0060p/) |0060P |윈도우 10 |
+| [Visual Studio Premium with MSDN(혜택)](https://azure.microsoft.com/offers/ms-azr-0061p/) |0061P |윈도우 10 |
+| [Visual Studio Enterprise 구독자](https://azure.microsoft.com/offers/ms-azr-0063p/) |0063P |윈도우 10 |
+| [Visual Studio Enterprise(BizSpark) 구독자](https://azure.microsoft.com/offers/ms-azr-0064p/) |0064P |윈도우 10 |
+| [Enterprise 개발/테스트](https://azure.microsoft.com/offers/ms-azr-0148p/) |0148P |윈도우 10 |
 
 ## <a name="check-your-azure-subscription"></a>Azure 구독 확인
 제품 ID를 모르는 경우 다음 두 방법 중 하나로 Azure Portal을 통해 얻을 수 있습니다.  

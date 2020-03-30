@@ -4,10 +4,10 @@ description: 사용자 할당 또는 시스템 할당 관리 Azure ID를 사용�
 ms.topic: article
 ms.date: 01/16/2019
 ms.openlocfilehash: 9b8bed78629d3a9739ec00772ad5c8216a04c122
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74456501"
 ---
 # <a name="use-an-azure-managed-identity-to-authenticate-to-an-azure-container-registry"></a>Azure Container Registry에 인증하기 위해 Azure 관리 ID 사용 
@@ -21,7 +21,7 @@ ms.locfileid: "74456501"
 > * Azure Container Registry에 ID 액세스 권한 부여
 > * 관리 ID를 사용하여 레지스트리에 액세스하고 컨테이너 이미지 가져오기 
 
-Azure 리소스를 만들려면 이 문서에서는 Azure CLI 버전 2.0.55 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli]를 참조하세요.
+Azure 리소스를 만들려면 이 문서에서는 Azure CLI 버전 2.0.55 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli]를 참조하십시오.
 
 컨테이너 레지스트리를 설정하고 컨테이너 이미지를 푸시하려면 Docker를 로컬로 설치해야 합니다. Docker는 모든 [macOS][docker-mac], [Windows][docker-windows] 또는 [Linux][docker-linux] 시스템에서 Docker를 쉽게 구성할 수 있는 패키지를 제공합니다.
 
@@ -35,7 +35,7 @@ Azure 리소스에 대한 관리 ID는 Azure AD(Azure Active Directory)에서 �
 
 * *시스템 관리 ID*는 단일 가상 머신과 같은 특정 리소스에 고유하며 해당 리소스의 수명만큼 지속됩니다.
 
-관리 ID를 사용하여 Azure 리소스를 설정한 후에 모든 보안 주체와 마찬가지로 다른 리소스에 대한 액세스 권한을 해당 ID에 제공합니다. 예를 들어 관리 ID에 Azure의 프라이빗 레지스트리에 대한 풀, 푸시 및 풀 또는 기타 권한이 있는 역할을 할당합니다. 레지스트리 역할의 전체 목록은 [Azure Container Registry 역할 및 사용 권한](container-registry-roles.md)을 참조 하세요. 하나 이상의 리소스에 대 한 id 액세스를 제공할 수 있습니다.
+관리 ID를 사용하여 Azure 리소스를 설정한 후에 모든 보안 주체와 마찬가지로 다른 리소스에 대한 액세스 권한을 해당 ID에 제공합니다. 예를 들어 관리 ID에 Azure의 프라이빗 레지스트리에 대한 풀, 푸시 및 풀 또는 기타 권한이 있는 역할을 할당합니다. 레지스트리 역할의 전체 목록은 Azure [컨테이너 레지스트리 역할 및 사용 권한을](container-registry-roles.md)참조하십시오. 하나 이상의 리소스에 대한 ID 액세스를 제공할 수 있습니다.
 
 그런 다음, 해당 ID를 사용하면 모든 [Azure AD 인증을 지원하는 서비스](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)에 인증할 수 있으므로 코드에 자격 증명이 필요 없습니다. ID를 사용하여 가상 머신에서 Azure Container Registry에 액세스하려면 Azure Resource Manager를 사용하여 인증합니다. 시나리오에 따라 관리 ID를 사용하여 인증하는 방법을 선택합니다.
 
@@ -47,7 +47,7 @@ Azure 리소스에 대한 관리 ID는 Azure AD(Azure Active Directory)에서 �
 
 ## <a name="create-a-container-registry"></a>컨테이너 레지스트리 만들기
 
-Azure Container Registry가 아직 없는 경우 레지스트리를 만들어 샘플 컨테이너 이미지를 레지스트리에 푸시합니다. 단계에 대해서 [는 빠른 시작: Azure CLI을 사용 하 여 개인 컨테이너 레지스트리 만들기](container-registry-get-started-azure-cli.md)를 참조 하세요.
+Azure Container Registry가 아직 없는 경우 레지스트리를 만들어 샘플 컨테이너 이미지를 레지스트리에 푸시합니다. 단계는 [빠른 시작: Azure CLI를 사용하여 개인 컨테이너 레지스트리 만들기를](container-registry-get-started-azure-cli.md)참조하십시오.
 
 이 문서에서는 레지스트리에 `aci-helloworld:v1` 컨테이너 이미지가 저장되어 있다고 가정합니다. 이 예제에서는 *myContainerRegistry*라는 레지스트리 이름을 사용합니다. 이후 단계에서 사용자 고유의 레지스트리 및 이미지 이름으로 바꿉니다.
 
@@ -55,7 +55,7 @@ Azure Container Registry가 아직 없는 경우 레지스트리를 만들어 �
 
 Docker 사용 가능 Ubuntu 가상 머신을 만듭니다. 또한 가상 머신에 [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)를 설치해야 합니다. Azure 가상 머신이 이미 있는 경우 이 단계를 건너뛰고 가상 머신을 만듭니다.
 
-[Az vm create][az-vm-create]를 사용 하 여 기본 Ubuntu Azure virtual machine을 배포 합니다. 다음 예제에서는 기존의 *myResourceGroup* 리소스 그룹에 *myDockerVM*이라는 VM을 만듭니다.
+[az vm create][az-vm-create]를 사용하여 기본 Ubuntu Azure 가상 머신을 배포합니다. 다음 예제에서는 기존의 *myResourceGroup* 리소스 그룹에 *myDockerVM*이라는 VM을 만듭니다.
 
 ```azurecli
 az vm create \
@@ -102,7 +102,7 @@ This message shows that your installation appears to be working correctly.
 
 SSH 세션을 종료합니다.
 
-## <a name="example-1-access-with-a-user-assigned-identity"></a>예제 1: 사용자 할당 id를 사용 하 여 액세스
+## <a name="example-1-access-with-a-user-assigned-identity"></a>예제 1: 사용자 할당된 ID로 액세스
 
 ### <a name="create-an-identity"></a>ID 만들기
 
@@ -112,7 +112,7 @@ SSH 세션을 종료합니다.
 az identity create --resource-group myResourceGroup --name myACRId
 ```
 
-다음 단계에서 id를 구성 하려면 [az identity show][az-identity-show] 명령을 사용 하 여 id의 리소스 id 및 서비스 주체 id를 변수에 저장 합니다.
+다음 단계에서 ID를 구성하려면 [az identity show][az-identity-show] 명령을 사용하여 ID의 리소스 ID 및 서비스 주체 ID를 변수에 저장합니다.
 
 ```azurecli
 # Get resource ID of the user-assigned identity
@@ -122,7 +122,7 @@ userID=$(az identity show --resource-group myResourceGroup --name myACRId --quer
 spID=$(az identity show --resource-group myResourceGroup --name myACRId --query principalId --output tsv)
 ```
 
-가상 머신에서 CLI에 로그인 할 때 이후 단계에서 id ID가 필요 하기 때문에 값을 표시 합니다.
+가상 컴퓨터에서 CLI에 로그인할 때 이후 단계에서 IDID가 필요하므로 값을 표시합니다.
 
 ```bash
 echo $userID
@@ -136,7 +136,7 @@ ID의 형식은 다음과 같습니다.
 
 ### <a name="configure-the-vm-with-the-identity"></a>ID를 사용하여 VM 구성
 
-다음 [az vm identity assign][az-vm-identity-assign] 명령은 사용자 할당 id를 사용 하 여 Docker vm을 구성 합니다.
+다음 [az vm identity assign][az-vm-identity-assign] 명령은 사용자 할당 ID를 사용하여 Docker VM을 구성합니다.
 
 ```azurecli
 az vm identity assign --resource-group myResourceGroup --name myDockerVM --identities $userID
@@ -144,13 +144,13 @@ az vm identity assign --resource-group myResourceGroup --name myDockerVM --ident
 
 ### <a name="grant-identity-access-to-the-container-registry"></a>컨테이너 레지스트리에 ID 액세스 권한 부여
 
-이제 컨테이너 레지스트리에 액세스하도록 ID를 구성합니다. 먼저 [az acr show][az-acr-show] 명령을 사용 하 여 레지스트리의 리소스 ID를 가져옵니다.
+이제 컨테이너 레지스트리에 액세스하도록 ID를 구성합니다. 먼저 [az acr show][az-acr-show] 명령을 사용하여 레지스트리의 리소스 ID를 가져옵니다.
 
 ```azurecli
 resourceID=$(az acr show --resource-group myResourceGroup --name myContainerRegistry --query id --output tsv)
 ```
 
-[Az role assign create][az-role-assignment-create] 명령을 사용 하 여 레지스트리에 AcrPull 역할을 할당 합니다. 이 역할은 [끌어오기 권한](container-registry-roles.md)을 레지스트리에 제공합니다. 끌어오기 및 밀어넣기 권한을 모두 제공하려면 ACRPush 역할을 할당합니다.
+[az role assignment create][az-role-assignment-create] 명령을 사용하여 AcrPull 역할을 레지스트리에 할당합니다. 이 역할은 [끌어오기 권한](container-registry-roles.md)을 레지스트리에 제공합니다. 끌어오기 및 밀어넣기 권한을 모두 제공하려면 ACRPush 역할을 할당합니다.
 
 ```azurecli
 az role assignment create --assignee $spID --scope $resourceID --role acrpull
@@ -160,35 +160,35 @@ az role assignment create --assignee $spID --scope $resourceID --role acrpull
 
 ID를 사용하여 구성된 Docker 가상 머신에 SSH를 수행합니다. VM에 설치된 Azure CLI를 사용하여 다음 Azure CLI 명령을 실행합니다.
 
-먼저 VM에 구성 된 id를 사용 하 여 [az login][az-login]을 사용 하 여 Azure CLI에 인증 합니다. `<userID>`의 경우 이전 단계에서 검색한 ID의 ID로 대체합니다. 
+먼저 VM에서 구성한 ID를 사용하여 [az 로그인을][az-login]사용하여 Azure CLI를 인증합니다. `<userID>`의 경우 이전 단계에서 검색한 ID의 ID로 대체합니다. 
 
 ```azurecli
 az login --identity --username <userID>
 ```
 
-그런 다음 [az acr login][az-acr-login]을 사용 하 여 레지스트리에 인증 합니다. 이 명령을 사용하는 경우 CLI는 `az login`을 실행할 때 만든 Active Directory 토큰을 사용하여 원활하게 컨테이너 레지스트리로 세션을 인증합니다. (VM의 설정에 따라 `sudo`를 사용하여 이 명령 및 docker 명령을 실행해야 합니다.)
+그런 다음 [az acr 로그인을][az-acr-login]사용하여 레지스트리에 인증합니다. 이 명령을 사용하는 경우 CLI는 `az login`을 실행할 때 만든 Active Directory 토큰을 사용하여 원활하게 컨테이너 레지스트리로 세션을 인증합니다. (VM의 설정에 따라 `sudo`를 사용하여 이 명령 및 docker 명령을 실행해야 합니다.)
 
 ```azurecli
 az acr login --name myContainerRegistry
 ```
 
-`Login succeeded` 메시지가 표시되어야 합니다. 그런 다음, 자격 증명을 제공하지 않고 `docker` 명령을 실행할 수 있습니다. 예를 들어 [docker pull][docker-pull] 를 실행 하 여 `aci-helloworld:v1` 이미지를 가져오고 레지스트리의 로그인 서버 이름을 지정 합니다. 로그인 서버 이름은 컨테이너 레지스트리 이름(모두 소문자)과 뒤에 나오는 `.azurecr.io`(예: `mycontainerregistry.azurecr.io`)로 구성됩니다.
+`Login succeeded` 메시지가 표시되어야 합니다. 그런 다음, 자격 증명을 제공하지 않고 `docker` 명령을 실행할 수 있습니다. 예를 들어 [docker pull][docker-pull]을 실행하여 `aci-helloworld:v1` 이미지를 가져와서 레지스트리의 로인 서버 이름을 지정합니다. 로그인 서버 이름은 컨테이너 레지스트리 이름(모두 소문자)과 뒤에 나오는 `.azurecr.io`(예: `mycontainerregistry.azurecr.io`)로 구성됩니다.
 
 ```
 docker pull mycontainerregistry.azurecr.io/aci-helloworld:v1
 ```
 
-## <a name="example-2-access-with-a-system-assigned-identity"></a>예 2: 시스템 할당 id로 액세스
+## <a name="example-2-access-with-a-system-assigned-identity"></a>예 2: 시스템 할당된 ID로 액세스
 
 ### <a name="configure-the-vm-with-a-system-managed-identity"></a>시스템 관리 ID를 사용하여 VM을 구성합니다.
 
-다음 [az vm identity assign][az-vm-identity-assign] 명령은 시스템 할당 id를 사용 하 여 Docker vm을 구성 합니다.
+다음 [az vm identity assign][az-vm-identity-assign] 명령은 시스템 할당 ID를 사용하여 Docker VM을 구성합니다.
 
 ```azurecli
 az vm identity assign --resource-group myResourceGroup --name myDockerVM 
 ```
 
-[Az vm show][az-vm-show] 명령을 사용 하 여 이후 단계에서 사용할 변수를 vm id의 `principalId` (서비스 주체 ID) 값으로 설정 합니다.
+[az vm show][az-vm-show] 명령을 사용하여 후속 단계에서 사용할 수 있도록 변수를 VM ID의 `principalId` 값(서비스 주체 ID)으로 설정합니다.
 
 ```azurecli-interactive
 spID=$(az vm show --resource-group myResourceGroup --name myDockerVM --query identity.principalId --out tsv)
@@ -196,13 +196,13 @@ spID=$(az vm show --resource-group myResourceGroup --name myDockerVM --query ide
 
 ### <a name="grant-identity-access-to-the-container-registry"></a>컨테이너 레지스트리에 ID 액세스 권한 부여
 
-이제 컨테이너 레지스트리에 액세스하도록 ID를 구성합니다. 먼저 [az acr show][az-acr-show] 명령을 사용 하 여 레지스트리의 리소스 ID를 가져옵니다.
+이제 컨테이너 레지스트리에 액세스하도록 ID를 구성합니다. 먼저 [az acr show][az-acr-show] 명령을 사용하여 레지스트리의 리소스 ID를 가져옵니다.
 
 ```azurecli
 resourceID=$(az acr show --resource-group myResourceGroup --name myContainerRegistry --query id --output tsv)
 ```
 
-[Az role assign create][az-role-assignment-create] 명령을 사용 하 여 AcrPull 역할을 id에 할당 합니다. 이 역할은 [끌어오기 권한](container-registry-roles.md)을 레지스트리에 제공합니다. 끌어오기 및 밀어넣기 권한을 모두 제공하려면 ACRPush 역할을 할당합니다.
+[az role assignment create][az-role-assignment-create] 명령을 사용하여 AcrPull 역할을 ID에 할당합니다. 이 역할은 [끌어오기 권한](container-registry-roles.md)을 레지스트리에 제공합니다. 끌어오기 및 밀어넣기 권한을 모두 제공하려면 ACRPush 역할을 할당합니다.
 
 ```azurecli
 az role assignment create --assignee $spID --scope $resourceID --role acrpull
@@ -212,19 +212,19 @@ az role assignment create --assignee $spID --scope $resourceID --role acrpull
 
 ID를 사용하여 구성된 Docker 가상 머신에 SSH를 수행합니다. VM에 설치된 Azure CLI를 사용하여 다음 Azure CLI 명령을 실행합니다.
 
-먼저 VM에서 시스템 할당 id를 사용 하 여 [az login][az-login]을 사용 하 여 Azure CLI을 인증 합니다.
+먼저 VM에서 시스템 할당된 ID를 사용하여 [az 로그인을][az-login]사용하여 Azure CLI를 인증합니다.
 
 ```azurecli
 az login --identity
 ```
 
-그런 다음 [az acr login][az-acr-login]을 사용 하 여 레지스트리에 인증 합니다. 이 명령을 사용하는 경우 CLI는 `az login`을 실행할 때 만든 Active Directory 토큰을 사용하여 원활하게 컨테이너 레지스트리로 세션을 인증합니다. (VM의 설정에 따라 `sudo`를 사용하여 이 명령 및 docker 명령을 실행해야 합니다.)
+그런 다음 [az acr 로그인을][az-acr-login]사용하여 레지스트리에 인증합니다. 이 명령을 사용하는 경우 CLI는 `az login`을 실행할 때 만든 Active Directory 토큰을 사용하여 원활하게 컨테이너 레지스트리로 세션을 인증합니다. (VM의 설정에 따라 `sudo`를 사용하여 이 명령 및 docker 명령을 실행해야 합니다.)
 
 ```azurecli
 az acr login --name myContainerRegistry
 ```
 
-`Login succeeded` 메시지가 표시되어야 합니다. 그런 다음, 자격 증명을 제공하지 않고 `docker` 명령을 실행할 수 있습니다. 예를 들어 [docker pull][docker-pull] 를 실행 하 여 `aci-helloworld:v1` 이미지를 가져오고 레지스트리의 로그인 서버 이름을 지정 합니다. 로그인 서버 이름은 컨테이너 레지스트리 이름(모두 소문자)과 뒤에 나오는 `.azurecr.io`(예: `mycontainerregistry.azurecr.io`)로 구성됩니다.
+`Login succeeded` 메시지가 표시되어야 합니다. 그런 다음, 자격 증명을 제공하지 않고 `docker` 명령을 실행할 수 있습니다. 예를 들어 [docker pull][docker-pull]을 실행하여 `aci-helloworld:v1` 이미지를 가져와서 레지스트리의 로인 서버 이름을 지정합니다. 로그인 서버 이름은 컨테이너 레지스트리 이름(모두 소문자)과 뒤에 나오는 `.azurecr.io`(예: `mycontainerregistry.azurecr.io`)로 구성됩니다.
 
 ```
 docker pull mycontainerregistry.azurecr.io/aci-helloworld:v1

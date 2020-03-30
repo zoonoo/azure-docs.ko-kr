@@ -1,6 +1,6 @@
 ---
-title: LVM (논리 볼륨 관리자)이 사용 되는 chroot를 사용 하 여 Linux Vm 복구-Azure Vm
-description: LVMs을 사용 하 여 Linux Vm을 복구 합니다.
+title: LVM(논리 볼륨 관리자)이 사용되는 chroot를 사용하여 Linux VM 복구 - Azure VM
+description: LvM을 가진 리눅스 VM의 복구.
 services: virtual-machines-linux
 documentationcenter: ''
 author: vilibert
@@ -15,68 +15,68 @@ ms.workload: infrastructure-services
 ms.date: 11/24/2019
 ms.author: vilibert
 ms.openlocfilehash: 20d710f717a9dff26f46ac7a201a9b694f3fbe84
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74684140"
 ---
-# <a name="troubleshooting-a-linux-vm-when-there-is-no-access-to-the-azure-serial-console-and-the-disk-layout-is-using-lvm-logical-volume-manager"></a>Azure 직렬 콘솔에 대 한 액세스 권한이 없고 디스크 레이아웃이 LVM을 사용 하는 경우 Linux VM 문제 해결 (논리 볼륨 관리자)
+# <a name="troubleshooting-a-linux-vm-when-there-is-no-access-to-the-azure-serial-console-and-the-disk-layout-is-using-lvm-logical-volume-manager"></a>Azure 시리얼 콘솔에 액세스할 수 없고 디스크 레이아웃이 LVM(논리 볼륨 관리자)을 사용하는 경우 Linux VM 문제 해결
 
-이 문제 해결 가이드는 Linux VM이 부팅 되지 않는 시나리오에 유용 하며, ssh를 사용할 수 없고 기본 파일 시스템 레이아웃이 LVM (논리 볼륨 관리자)을 사용 하 여 구성 됩니다.
+이 문제 해결 가이드는 Linux VM이 부팅되지 않고 ssh가 불가능하며 기본 파일 시스템 레이아웃이 LVM(논리 볼륨 관리자)으로 구성된 시나리오에 유용합니다.
 
-## <a name="take-snapshot-of-the-failing-vm"></a>실패 한 VM의 스냅숏 만들기
+## <a name="take-snapshot-of-the-failing-vm"></a>실패한 VM의 스냅샷 생성
 
-영향을 받는 VM의 스냅숏을 만듭니다. 
+영향을 받는 VM의 스냅숏을 가져옵니다. 
 
-그러면 스냅숏이 **복구** VM에 연결 됩니다. **스냅숏을**만드는 방법 [에 대 한 지침을](https://docs.microsoft.com/azure/virtual-machines/linux/snapshot-copy-managed-disk#use-azure-portal) 따르세요.
+그러면 스냅샷이 **구조** VM에 연결됩니다. **스냅샷을**찍는 방법에 대한 지침을 [따르십시오.](https://docs.microsoft.com/azure/virtual-machines/linux/snapshot-copy-managed-disk#use-azure-portal)
 
-## <a name="create-a-rescue-vm"></a>복구 VM 만들기
-일반적으로 동일한 운영 체제 버전 또는 유사한 운영 체제 버전의 복구 VM을 권장 합니다. 영향을 받는 VM의 동일한 **지역** 및 **리소스 그룹** 사용
+## <a name="create-a-rescue-vm"></a>구조 VM 만들기
+일반적으로 동일하거나 유사한 운영 체제 버전의 구조 VM을 권장합니다. 영향을 받는 VM의 동일한 **지역** 및 **리소스 그룹** 사용
 
-## <a name="connect-to-the-rescue-vm"></a>복구 VM에 연결
-Ssh를 사용 하 여 **복구** VM에 연결 합니다. 권한 상승 및를 사용 하 여 슈퍼 사용자가 됩니다.
+## <a name="connect-to-the-rescue-vm"></a>구조 VM에 연결
+**구조** VM에 ssh를 사용하여 연결합니다. 권한을 높이고 사용 하 여 슈퍼 사용자가 되 십시오.
 
 `sudo su -`
 
 ## <a name="attach-the-disk"></a>디스크 연결
-이전에 만든 스냅숏에서 디스크를 **복구** VM에 연결 합니다.
+이전에 수행한 스냅숏에서 만든 **구조** VM에 디스크를 연결합니다.
 
-Azure Portal- **> VM >** **디스크** 를 선택 합니다. 
+Azure 포털 -> **구조** VM -> **디스크를 선택합니다.** 
 
 ![디스크 만들기](./media/chroot-logical-volume-manager/create-disk-from-snap.png)
 
-필드를 채웁니다. 새 디스크에 이름을 할당 하 고, 스냅숏과 동일한 리소스 그룹을 선택 하 고, 영향을 받는 VM을 선택 하 고, VM을 복구 합니다.
+필드를 채웁니다. 새 디스크에 이름을 할당하고 스냅샷, 영향을 받는 VM 및 구조 VM과 동일한 리소스 그룹을 선택합니다.
 
-**원본 유형이** **Snapshot** 입니다.
-**원본 스냅숏은** 이전에 만든 **스냅숏의** 이름입니다.
+**소스 유형은** **스냅숏** 입니다.
+**소스 스냅숏은** 이전에 만든 **스냅숏의** 이름입니다.
 
 ![디스크 2 만들기](./media/chroot-logical-volume-manager/create-disk-from-snap-2.png)
 
-연결 된 디스크에 대 한 탑재 지점을 만듭니다.
+연결된 디스크에 대해 마운트 지점을 작성합니다.
 
 `mkdir /rescue`
 
-**Fdisk-l** 명령을 실행 하 여 스냅숏 디스크가 연결 되어 있는지 확인 하 고 사용 가능한 모든 장치 및 파티션을 나열 합니다.
+**fdisk -l** 명령을 실행하여 스냅샷 디스크가 연결되었는지 확인하고 사용 가능한 모든 장치 및 파티션을 나열합니다.
 
 `fdisk -l`
 
-대부분의 시나리오에서 연결 된 스냅숏 디스크는 **/sv/sdc** 로 표시 되며, 두 개의 파티션을 표시 합니다. **/sv/sdc1** 및 **/stv/sdc2**
+대부분의 시나리오에서 첨부된 스냅샷 디스크는 두 개의 **파티션/dev/sdc1** 및 **/dev/sdc2를** 표시하는 **/dev/sdc로** 표시됩니다.
 
 ![Fdisk](./media/chroot-logical-volume-manager/fdisk-output-sdc.png)
 
-**\*** 는 부팅 파티션을 나타내며 두 파티션이 모두 탑재 됩니다.
+는 **\*** 부팅 파티션을 나타내며 두 파티션을 모두 마운트해야 합니다.
 
-**Lsblk** 명령을 실행 하 여 영향을 받는 Vm의 lvms을 확인 합니다.
+**lsblk** 명령을 실행하여 영향을 받는 VM의 LPM을 확인합니다.
 
 `lsblk`
 
-![Lsblk 실행](./media/chroot-logical-volume-manager/lsblk-output-mounted.png)
+![실행 lsblk](./media/chroot-logical-volume-manager/lsblk-output-mounted.png)
 
 
-영향을 받는 VM의 LVMs이 표시 되는지 확인 합니다.
-그렇지 않은 경우 다음 명령을 사용 하 여 사용 하도록 설정 하 고 **lsblk**를 다시 실행 합니다.
-계속 하기 전에 연결 된 디스크의 LVMs이 표시 되는지 확인 합니다.
+영향을 받는 VM의 LvM이 표시되는지 확인합니다.
+그렇지 않은 경우 아래 명령을 사용하여 활성화하고 **lsblk를**다시 실행합니다.
+계속하기 전에 연결된 디스크의 LvM이 표시되도록 하십시오.
 
 ```
 vgscan --mknodes
@@ -86,37 +86,37 @@ mount –a
 lsblk
 ```
 
-/(루트) 파티션을 포함 하는 논리 볼륨을 탑재 하는 경로를 찾습니다. /Etc/default/grub와 같은 구성 파일이 있습니다.
+/(루트) 파티션이 포함된 논리 볼륨을 탑재할 경로를 찾습니다. /etc/기본/grub과 같은 구성 파일이 있습니다.
 
-이 예제에서는 이전 **lsblk** 명령 **rootvg-rootlv** 의 출력을 탑재 하는 데 올바른 **루트** LV를 사용 하 고 다음 명령에서 사용할 수 있습니다.
+이 예제에서는 이전 **lsblk** 명령 **rootvg-rootlv의** 출력을 탑재하는 올바른 **루트** LV이며 다음 명령에서 사용할 수 있습니다.
 
-다음 명령의 출력은 **루트** LV에 대해 탑재할 경로를 표시 합니다.
+다음 명령의 출력에는 **루트** LV에 대해 마운트할 경로가 표시됩니다.
 
 `pvdisplay -m | grep -i rootlv`
 
-![Rootlv](./media/chroot-logical-volume-manager/locate-rootlv.png)
+![루트LV](./media/chroot-logical-volume-manager/locate-rootlv.png)
 
-디렉터리에이 장치 탑재/복구로 이동 합니다.
+디렉토리 / 구조에이 장치를 탑재 진행
 
 `mount /dev/rootvg/rootlv /rescue`
 
-/Rescue/boot에 **부팅 플래그가** 설정 된 파티션을 탑재 합니다.
+/rescue/boot에 **부팅 플래그가** 설정된 파티션마운트
 
 `
 mount /dev/sdc1 /rescue/boot
 `
 
-이제 **lsblk** 명령을 사용 하 여 연결 된 디스크의 파일 시스템이 올바르게 탑재 되었는지 확인 합니다.
+**이제 lsblk** 명령을 사용하여 연결된 디스크의 파일 시스템이 올바르게 마운트되었는지 확인합니다.
 
-![Lsblk 실행](./media/chroot-logical-volume-manager/lsblk-output-1.png)
+![실행 lsblk](./media/chroot-logical-volume-manager/lsblk-output-1.png)
 
-또는 **Df 번째** 명령
+또는 **df -Th** 명령
 
 ![Df](./media/chroot-logical-volume-manager/df-output.png)
 
-## <a name="gaining-chroot-access"></a>Chroot 액세스 권한 얻기
+## <a name="gaining-chroot-access"></a>chroot 액세스 권한 얻기
 
-**Chroot** 액세스를 통해 다양 한 픽스를 수행할 수 있고 각 Linux 배포에 대해 약간의 변형이 있습니다.
+이득 **chroot** 액세스, 다양 한 수정을 수행할 수 있도록 합니다., 각 리눅스 배포판에 대 한 약간의 변화 존재.
 
 ```
  cd /rescue
@@ -127,29 +127,29 @@ mount /dev/sdc1 /rescue/boot
  chroot /rescue
 ```
 
-다음과 같은 오류가 발생 하는 경우
+다음과 같은 오류가 발생한 경우:
 
-**chroot: '/bin/bash ' 명령을 실행 하지 못했습니다. 해당 파일 또는 디렉터리가 없습니다.**
+**chroot: 명령 '/bin/bash'를 실행하지 못했습니다: 이러한 파일이나 디렉토리가 없습니다.**
 
-**usr** 논리 볼륨을 탑재 하려고 합니다.
+**usr** 논리 볼륨을 마운트하려고 시도
 
 `
 mount  /dev/mapper/rootvg-usrlv /rescue/usr
 `
 
 > [!TIP]
-> **Chroot** 환경에서 명령을 실행할 때 로컬 **복구** VM이 아닌 연결 된 OS 디스크에 대해 실행 됩니다. 
+> **chroot** 환경에서 명령을 실행할 때 로컬 **구조** VM이 아니라 연결된 OS 디스크에 대해 실행됩니다. 
 
-명령을 사용 하 여 소프트웨어를 설치, 제거 및 업데이트할 수 있습니다. 오류를 해결 하기 위해 Vm 문제를 해결 합니다.
+명령을 사용하여 소프트웨어를 설치, 제거 및 업데이트할 수 있습니다. 오류를 수정하기 위해 VM 문제를 해결합니다.
 
 
-Lsblk 명령을 실행 하 고/및/rescue/boot is/boot ![Chrooted 루 팅 된
+lsblk 명령을 실행하고 /rescue는 지금 / / / 구조 ![/ 부팅 / 부팅 Chrooted입니다](./media/chroot-logical-volume-manager/chrooted.png)
 
 ## <a name="perform-fixes"></a>수정 수행
 
-### <a name="example-1---configure-the-vm-to-boot-from-a-different-kernel"></a>예 1-다른 커널에서 부팅 하도록 VM 구성
+### <a name="example-1---configure-the-vm-to-boot-from-a-different-kernel"></a>예제 1 - VM이 다른 커널에서 부팅하도록 구성
 
-일반적인 시나리오는 현재 설치 된 커널이 손상 되었거나 업그레이드가 제대로 완료 되지 않았을 수 있으므로 VM을 이전 커널에서 강제로 부팅 하는 것입니다.
+일반적인 시나리오는 현재 설치된 커널이 손상되었거나 업그레이드가 올바르게 완료되지 않았기 때문에 이전 커널에서 VM을 부팅하도록 하는 것입니다.
 
 
 ```
@@ -166,58 +166,58 @@ grub2-editenv list
 grub2-mkconfig -o /boot/grub2/grub.cfg
 ```
 
-*walkthrough*
+*연습*
 
-**Grep** 명령은 grub에서 인식 하는 커널을 나열 합니다 **.**
+**grep** 명령은 **grub.cfg가** 알고 있는 커널을 나열합니다.
 ![커널](./media/chroot-logical-volume-manager/kernels.png)
 
-**grub2-** 는 다음 부팅 ![커널 기본값에서 로드 되는 커널을 표시](./media/chroot-logical-volume-manager/kernel-default.png)
+**grub2-editenv 목록** 표시 어떤 커널 다음 ![부팅 커널 기본에 로드 됩니다.](./media/chroot-logical-volume-manager/kernel-default.png)
 
-**grub2-기본값** 은 다른 커널 ![grub2 집합으로 변경 하는 데 사용 됩니다](./media/chroot-logical-volume-manager/grub2-set-default.png)
+**grub2-set-default는** 다른 커널 ![Grub2 세트로 변경하는 데 사용됩니다.](./media/chroot-logical-volume-manager/grub2-set-default.png)
 
-**grub2-** 는 다음 부팅 ![새 커널에 로드 되는 커널을 표시](./media/chroot-logical-volume-manager/kernel-new.png)
+**grub2-editenv** 목록 표시 어떤 커널 다음 ![부팅 새 커널에 로드 됩니다.](./media/chroot-logical-volume-manager/kernel-new.png)
 
-**grub2 grub2-mkconfig** ![grub2 grub2-mkconfig](./media/chroot-logical-volume-manager/grub2-mkconfig.png)를 사용 하 여 grub를 다시 빌드합니다.
+**grub2-mkconfig** 는 Grub2 mkconfig필요한 ![버전을 사용하여 grub.cfg를 재구축합니다.](./media/chroot-logical-volume-manager/grub2-mkconfig.png)
 
 
 
-### <a name="example-2---upgrade-packages"></a>예제 2-패키지 업그레이드
+### <a name="example-2---upgrade-packages"></a>예제 2 - 패키지 업그레이드
 
-실패 한 커널 업그레이드는 VM을 부팅할 수 없는 상태로 렌더링할 수 있습니다.
-모든 논리 볼륨을 탑재 하 여 패키지 제거 또는 다시 설치 허용
+실패한 커널 업그레이드는 VM을 부팅할 수 없게 만들 수 있습니다.
+패키지를 제거하거나 다시 설치할 수 있도록 모든 논리 볼륨 마운트
 
-**Lvs** 명령을 실행 하 여 탑재에 사용할 수 있는 **lvs** 를 확인 합니다. 마이그레이션 되었거나 다른 클라우드 공급자에서 가져온 모든 VM은 구성에 따라 달라 집니다.
+**lvs** 명령을 실행하여 장착할 수 있는 **LV를** 확인하고 마이그레이션되었거나 다른 클라우드 공급자에서 온 모든 VM은 구성에 따라 다릅니다.
 
-**Chroot** 환경을 종료 하 고 필요한 **LV** 를 탑재 합니다.
+필요한 **LV를** 장착하는 **chroot** 환경을 종료합니다.
 
 ![고급](./media/chroot-logical-volume-manager/advanced.png)
 
-이제를 실행 하 여 **chroot** 환경에 다시 액세스 합니다.
+이제 실행하여 **chroot** 환경에 다시 액세스
 
 `chroot /rescue`
 
-모든 LVs는 탑재 된 파티션으로 표시 되어야 합니다.
+모든 LV는 마운트 된 파티션으로 표시되어야합니다.
 
 ![고급](./media/chroot-logical-volume-manager/chroot-all-mounts.png)
 
-설치 된 **커널** 쿼리
+설치된 **커널** 쿼리
 
 ![고급](./media/chroot-logical-volume-manager/rpm-kernel.png)
 
 필요한 경우 **커널**
-![고급](./media/chroot-logical-volume-manager/rpm-remove-kernel.png) 제거 하거나 업그레이드 합니다.
+![어드밴스드를 제거하거나 업그레이드해야 합니다.](./media/chroot-logical-volume-manager/rpm-remove-kernel.png)
 
 
-### <a name="example-3---enable-serial-console"></a>예제 3-직렬 콘솔 사용
-Azure 직렬 콘솔에 액세스할 수 없는 경우 Linux VM에 대 한 GRUB 구성 매개 변수를 확인 하 고 수정 합니다. [이 문서에서](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-grub-proactive-configuration) 자세한 정보를 찾을 수 있습니다.
+### <a name="example-3---enable-serial-console"></a>예 3 - 직렬 콘솔 사용
+Azure 시리얼 콘솔에 액세스할 수 없는 경우 Linux VM에 대한 GRUB 구성 매개 변수를 확인하고 수정합니다. 자세한 내용은 [이 문서에서](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-grub-proactive-configuration) 찾을 수 있습니다.
 
-### <a name="example-4---kernel-loading-with-problematic-lvm-swap-volume"></a>예제 4-문제가 있는 LVM 스왑 볼륨을 사용한 커널 로드
+### <a name="example-4---kernel-loading-with-problematic-lvm-swap-volume"></a>예제 4 - 문제가 있는 LVM 스왑 볼륨이 있는 커널 로딩
 
-VM이 완전히 부팅 되지 않고 **dracgprompt** 프롬프트로 전환 될 수 있습니다.
-실패에 대 한 자세한 내용은 Azure 직렬 콘솔에서 찾을 수도 있고, Azure Portal-> boot diagnostics-> Serial log로 이동할 수도 있습니다.
+VM이 완전히 부팅되지 못하고 **dracut** 프롬프트에 떨어질 수 있습니다.
+오류에 대한 자세한 내용은 Azure 직렬 콘솔에서 찾거나 Azure portal -> 부팅 진단 -> 직렬 로그로 이동할 수 있습니다.
 
 
-다음과 같은 오류가 있을 수 있습니다.
+이와 유사한 오류가 있을 수 있습니다.
 
 ```
 [  188.000765] dracut-initqueue[324]: Warning: /dev/VG/SwapVol does not exist
@@ -225,19 +225,19 @@ VM이 완전히 부팅 되지 않고 **dracgprompt** 프롬프트로 전환 될 
 Warning: /dev/VG/SwapVol does not exist
 ```
 
-이 예제에서는 이름이 **VG/SwapVol** 인 lv를 로드 하도록 grub를 구성 하 고 VM에서이를 찾을 수 없습니다. 이 줄은 LV를 참조 하는 커널이 로드 되는 방법을 보여 줍니다.
+이 예제에서는 **rd.lvm.lv=VG/SwapVol의** 이름으로 LV를 로드하도록 grub.cfg가 구성되었으며 VM이 이를 찾을 수 없습니다. 이 줄은 LV SwapVol을 참조하여 커널이 로드되는 방식을 보여 주며
 
 ```
 [    0.000000] Command line: BOOT_IMAGE=/vmlinuz-3.10.0-1062.4.1.el7.x86_64 root=/dev/mapper/VG-OSVol ro console=tty0 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0 biosdevname=0 crashkernel=256M rd.lvm.lv=VG/OSVol rd.lvm.lv=VG/SwapVol nodmraid rhgb quiet
 [    0.000000] e820: BIOS-provided physical RAM map:
 ```
 
- /Etc/default/grub 구성에서 잘못 된 LV를 제거 하 고 grub2를 다시 빌드합니다.
+ /etc/기본/grub 구성에서 잘못된 LV를 제거하고 grub2.cfg를 다시 빌드합니다.
 
 
-## <a name="exit-chroot-and-swap-the-os-disk"></a>Chroot를 종료 하 고 OS 디스크를 교환 합니다.
+## <a name="exit-chroot-and-swap-the-os-disk"></a>chroot를 종료하고 OS 디스크를 교체
 
-문제를 복구한 후에는 복구 VM에서 디스크를 분리 하 고 분리 하 여 영향을 받는 VM OS 디스크로 교환할 수 있도록 합니다.
+문제를 복구한 후 복구 VM에서 디스크마운트를 분리하고 분리하여 영향을 받는 VM OS 디스크로 교체할 수 있습니다.
 
 ```
 exit
@@ -250,27 +250,27 @@ umount /rescue/boot
 umount /rescue
 ```
 
-복구 VM에서 디스크를 분리 하 고 디스크 교체를 수행 합니다.
+구조 VM에서 디스크를 분리하고 디스크 스왑을 수행합니다.
 
-포털 **디스크** 에서 VM을 선택 하 고 **분리**
-![디스크 분리를 선택](./media/chroot-logical-volume-manager/detach-disk.png) 
+포털 **디스크에서 VM을** 선택하고 **detach**
+![분리 디스크를 선택합니다.](./media/chroot-logical-volume-manager/detach-disk.png) 
 
-변경 내용을 저장 하 ![분리를 저장](./media/chroot-logical-volume-manager/save-detach.png) 
+변경 ![내용 저장 분리 저장](./media/chroot-logical-volume-manager/save-detach.png) 
 
-이제 디스크를 사용할 수 있게 되 면 영향을 받는 VM의 원래 OS 디스크와 교체할 수 있습니다.
+이제 영향을 받는 VM의 원래 OS 디스크로 교환할 수 있도록 디스크를 사용할 수 있게 됩니다.
 
-Azure Portal에서 오류가 발생 한 VM으로 이동 하 고 **디스크를 선택 하** -> **OS 디스크 교체**
-![](./media/chroot-logical-volume-manager/swap-disk.png) 
+Azure 포털에서 실패한 VM으로 이동하여 **디스크** -> **스왑 OS 디스크**
+![스왑 디스크를 선택합니다.](./media/chroot-logical-volume-manager/swap-disk.png) 
 
-필드를 완료 합니다. **디스크 선택** 은 이전 단계에서 바로 분리 된 스냅숏 디스크입니다. 영향을 받는 VM의 VM 이름도 필요 합니다. 그런 다음 **확인** 을 선택 합니다.
+**디스크 선택** 필드 완료는 이전 단계에서 분리된 스냅샷 디스크입니다. 영향을 받는 VM의 VM 이름도 필요한 다음 **확인을** 선택합니다.
 
-![새 os 디스크](./media/chroot-logical-volume-manager/new-osdisk.png) 
+![새 OS 디스크](./media/chroot-logical-volume-manager/new-osdisk.png) 
 
-VM을 실행 하는 경우 디스크 교환이 종료 되 고 디스크 교환 작업이 완료 되 면 VM을 다시 부팅 합니다.
+VM이 디스크 스왑을 실행 중이면 디스크 스왑 작업이 완료되면 VM을 재부팅합니다.
 
 
 ## <a name="next-steps"></a>다음 단계
-다음에 대한 자세한 정보
+자세한 정보
 
  [Azure 직렬 콘솔]( https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux)
 

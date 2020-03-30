@@ -1,5 +1,5 @@
 ---
-title: 자습서`:` 관리 되는 id를 사용 하 여 SAS 자격 증명을 사용 하 여 Azure Storage에 액세스-Azure AD
+title: 자습서`:` SAS 자격 증명을 사용 하 여 Azure 저장소에 액세스 하는 관리되는 ID를 사용 하 여 - Azure AD
 description: Windows VM 시스템 할당 관리 ID를 사용하여 스토리지 계정 액세스 키 대신 SAS 자격 증명으로 Azure Storage에 액세스하는 방법을 보여주는 자습서입니다.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 01/24/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c344c25a696500182030ff849a001ad586c92032
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74232154"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage-via-a-sas-credential"></a>자습서: Windows VM 시스템 할당 관리 ID를 사용하여 SAS 자격 증명으로 Azure Storage에 액세스
@@ -35,7 +35,7 @@ ms.locfileid: "74232154"
 > * Resource Manager의 스토리지 계정 SAS에 대한 VM 액세스 권한 부여 
 > * VM ID를 사용하여 액세스 토큰을 가져오고 리소스 관리자에서 SAS를 검색하는 데 사용 
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
@@ -83,7 +83,7 @@ Azure Storage는 Azure AD 인증을 기본적으로 지원하지 않습니다.  
 
 자습서의 나머지 부분에서는 이전에 만든 VM에서 작업합니다.
 
-이 부분에서는 Azure Resource Manager PowerShell cmdlet을 사용해야 합니다.  설치하지 않은 경우 계속하기 전에 [최신 버전을 다운로드](https://docs.microsoft.com/powershell/azure/overview)합니다.
+이 부분에서는 Azure Resource Manager PowerShell cmdlet을 사용해야 합니다.  설치되어 있지 않은 경우 계속하기 전에 [최신 버전을 다운로드합니다.](https://docs.microsoft.com/powershell/azure/overview)
 
 1. Azure Portal에서 **Virtual Machines**, Windows 가상 머신으로 이동한 후 **개요** 페이지 위쪽의 **연결**을 클릭합니다.
 2. Windows VM을 만들 때 추가한 **사용자 이름**과 **암호**를 입력합니다. 
@@ -159,7 +159,7 @@ sv=2015-04-05&sr=c&spr=https&se=2017-09-23T00%3A00%3A00Z&sp=rcw&sig=JVhIWG48nmxq
 echo "This is a test text file." > test.txt
 ```
 
-가장 먼저 `Install-Module Azure.Storage`을(를) 사용하여 Azure Storage cmdlet을 설치합니다. `Set-AzStorageBlobContent` PowerShell cmdlet을 사용하여 방금 만든 Blob을 업로드합니다.
+먼저 `Install-Module Azure.Storage`를 사용하여 Azure Storage cmdlet을 설치해야 합니다. `Set-AzStorageBlobContent` PowerShell cmdlet을 사용하여 방금 만든 Blob을 업로드합니다.
 
 ```powershell
 $ctx = New-AzStorageContext -StorageAccountName <STORAGE-ACCOUNT-NAME> -SasToken $sasCred
