@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Hub Device Provisioning Service - 대칭 키 증명
-description: 이 문서에서는 DPS (IoT 장치 프로 비전 서비스)를 사용 하 여 대칭 키 증명에 대 한 개념적 개요를 제공 합니다.
+description: 이 문서에서는 DPS(IoT 장치 프로비저닝 서비스)를 사용하여 대칭 키 증명에 대한 개념적 개요를 제공합니다.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/04/2019
@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.openlocfilehash: 0e3d343c0a68dd527e4e8e8d23e5b3843a216a78
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79271513"
 ---
 # <a name="symmetric-key-attestation"></a>대칭 키 증명
@@ -38,7 +38,7 @@ ms.locfileid: "79271513"
 
 Device Provisioning Service의 대칭 키 증명은 IoT 허브에서 지원하는 것과 동일한 [보안 토큰](../iot-hub/iot-hub-devguide-security.md#security-token-structure)을 사용하여 수행되어 디바이스를 식별합니다. 이러한 보안 토큰은 [SAS(공유 액세스 서명) 토큰](../service-bus-messaging/service-bus-sas.md)입니다. 
 
-SAS 토큰에는 대칭 키를 사용하여 생성된 해시된 서명이 있습니다. 서명은 Device Provisioning Service에서 다시 생성되어 증명 중에 제시되는 보안 토큰의 진위 여부를 확인합니다.
+SAS 토큰에는 대칭 키를 사용하여 생성된 해시된 서명이 있습니다.** 서명은 Device Provisioning Service에서 다시 생성되어 증명 중에 제시되는 보안 토큰의 진위 여부를 확인합니다.
 
 SAS 토큰은 다음과 같은 형식입니다.
 
@@ -46,7 +46,7 @@ SAS 토큰은 다음과 같은 형식입니다.
 
 각 토큰의 구성 요소는 다음과 같습니다.
 
-| 값 | Description |
+| 값 | 설명 |
 | --- | --- |
 | {signature} |HMAC-SHA256 서명 문자열입니다. 개별 등록의 경우 이 서명은 대칭 키(기본 또는 보조)를 사용하여 해시를 수행함으로써 생성됩니다. 등록 그룹의 경우, 등록 그룹 키에서 파생된 키가 해시를 수행하는 데 사용됩니다. 해시는 `URL-encoded-resourceURI + "\n" + expiry` 형식의 메시지에서 수행됩니다. **중요**: 키는 HMAC-SHA256 계산을 수행하는 데 사용되기 전에 base64에서 디코딩되어야 합니다. 또한 서명 결과는 URL로 인코딩되어야 합니다. |
 | {resourceURI} |Device Provisioning Service 인스턴스의 범위 ID로 시작되는, 이 토큰으로 액세스할 수 있는 등록 엔드포인트의 URI입니다. 예를 들어 `{Scope ID}/registrations/{Registration ID}` |

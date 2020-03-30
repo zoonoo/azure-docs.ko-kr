@@ -1,19 +1,18 @@
 ---
-title: Cloud 파트너 포털 API 참조 | Azure Marketplace
+title: 클라우드 파트너 포털 API 참조 | Azure 마켓플레이스
 description: 사용할 필수 조건에 대한 설명과 Marketplace API 작업 목록입니다.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: b6591e1780d03cbfaff70fbd19ec3dfd274fae79
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 296c667876807bdd05a6281de461df76207b5490
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819610"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288549"
 ---
 <a name="cloud-partner-portal-api-reference"></a>Cloud 파트너 포털 API 참조
 ==================================
@@ -54,7 +53,7 @@ Cloud 파트너 포털 REST API를 사용하면 프로그래밍 방식으로 워
 
 ### <a name="publish-an-app"></a>앱 게시
 
--   [라이브로 전환](./cloud-partner-portal-api-go-live.md)
+-   [라이브 로이동](./cloud-partner-portal-api-go-live.md)
 
 ### <a name="other-tasks"></a>다른 작업
 

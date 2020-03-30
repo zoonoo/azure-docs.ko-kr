@@ -1,6 +1,6 @@
 ---
-title: Azure 데이터 탐색기 .NET Standard SDK (미리 보기)를 사용 하 여 데이터 수집
-description: 이 문서에서는 .NET Standard SDK를 사용 하 여 데이터를 Azure 데이터 탐색기 수집 (로드) 하는 방법에 대해 알아봅니다.
+title: Azure 데이터 탐색기 .NET 표준 SDK(미리 보기)로 데이터 수집
+description: 이 문서에서는 .NET 표준 SDK를 사용하여 Azure 데이터 탐색기로 데이터를 수집(로드)하는 방법을 알아봅니다.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.openlocfilehash: 9b6eda60f0b0cb1b697560cccc2cffe719d58536
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79251779"
 ---
 # <a name="ingest-data-using-the-azure-data-explorer-net-standard-sdk-preview"></a>Azure Data Explorer .NET Standard SDK(미리 보기)를 사용하여 데이터 수집
@@ -74,14 +74,14 @@ var kustoConnectionStringBuilder =
 
 ## <a name="set-source-file-information"></a>소스 파일 정보 설정
 
-원본 파일의 경로를 설정합니다. 이 예제에서는 Azure Blob Storage에 호스트된 예제 파일을 사용합니다. **StormEvents** 샘플 데이터 집합에는 [National Centers for Environmental Information](https://www.ncdc.noaa.gov/stormevents/)에서 제공하는 날씨 관련 데이터가 포함되어 있습니다.
+원본 파일의 경로를 설정합니다. 이 예제에서는 Azure Blob Storage에 호스트된 예제 파일을 사용합니다. **StormEvents** 샘플 데이터 세트에는 [국립 환경 정보 센터의](https://www.ncdc.noaa.gov/stormevents/)날씨 관련 데이터가 포함되어 있습니다.
 
 ```csharp
 var blobPath = "https://kustosamplefiles.blob.core.windows.net/samplefiles/StormEvents.csv?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D";
 ```
 
 ## <a name="create-a-table-on-your-test-cluster"></a>테스트 클러스터에 테이블 만들기
-`StormEvents` 파일에 있는 데이터 스키마와 일치하는 `StormEvents.csv`라는 테이블을 만듭니다.
+`StormEvents.csv` 파일에 있는 데이터 스키마와 일치하는 `StormEvents`라는 테이블을 만듭니다.
 
 ```csharp
 var table = "StormEvents";
@@ -209,7 +209,7 @@ using (var cslQueryProvider = KustoClientFactory.CreateCslQueryProvider(kustoCon
 
 ## <a name="run-troubleshooting-queries"></a>쿼리 문제 해결 실행
 
-[https://dataexplorer.azure.com](https://dataexplorer.azure.com)에 로그인하고 클러스터에 연결합니다. 데이터베이스에서 다음 명령을 실행하여 지난 4시간 동안 수집 실패가 있었는지 확인합니다. 실행하기 전에 데이터베이스 이름을 바꿉니다.
+클러스터에 [https://dataexplorer.azure.com](https://dataexplorer.azure.com) 로그인하여 클러스터에 연결합니다. 데이터베이스에서 다음 명령을 실행하여 지난 4시간 동안 수집 실패가 있었는지 확인합니다. 실행하기 전에 데이터베이스 이름을 바꿉니다.
 
 ```Kusto
 .show ingestion failures
@@ -226,7 +226,7 @@ using (var cslQueryProvider = KustoClientFactory.CreateCslQueryProvider(kustoCon
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-다른 문서를 따르려면 만든 리소스를 유지 합니다. 그렇지 않으면 데이터베이스에서 다음 명령을 실행하여 `StormEvents` 테이블을 정리합니다.
+다른 기사를 팔로우하려면 만든 리소스를 보관하십시오. 그렇지 않으면 데이터베이스에서 다음 명령을 실행하여 `StormEvents` 테이블을 정리합니다.
 
 ```Kusto
 .drop table StormEvents

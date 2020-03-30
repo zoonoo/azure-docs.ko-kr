@@ -1,6 +1,6 @@
 ---
-title: Azure Site Recovery를 사용 하 여 서버 및 Vm을 Azure로 마이그레이션
-description: Azure Site Recovery 서비스를 사용 하 여 온-프레미스 및 Azure IaaS Vm을 Azure로 마이그레이션하는 방법을 설명 합니다.
+title: Azure 사이트 복구를 사용하여 서버 및 VM을 Azure로 마이그레이션
+description: Azure 사이트 복구 서비스를 사용하여 온-프레미스 및 Azure IaaS VM을 Azure로 마이그레이션하는 방법을 설명합니다.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: raynew
 ms.openlocfilehash: 8e256aac16bb8c2d2f1eca494981458f71cc2e4d
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79257941"
 ---
 # <a name="about-migration"></a>마이그레이션 정보

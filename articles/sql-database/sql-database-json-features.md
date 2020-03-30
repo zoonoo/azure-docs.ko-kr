@@ -12,18 +12,18 @@ ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 01/15/2019
 ms.openlocfilehash: 958d937ad85fd62249c7ce3f0e0ab2f8cc1d1b80
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73819934"
 ---
 # <a name="getting-started-with-json-features-in-azure-sql-database"></a>Azure SQL Database의 JSON 기능 시작
 Azure SQL Database를 사용하면 [JSON](https://www.json.org/)(JavaScript Object Notation) 형식으로 표현된 데이터를 구문 분석 및 쿼리하고 관계형 데이터를 JSON 텍스트로 내보낼 수 있습니다. 다음 JSON 시나리오는 Azure SQL Database에서 사용할 수 있습니다.
-- [ 절을 사용하여 ](#formatting-relational-data-in-json-format)관계형 데이터 형식을 JSON으로 지정`FOR JSON`.
+- `FOR JSON` 절을 사용하여 [관계형 데이터 형식을 JSON으로 지정](#formatting-relational-data-in-json-format).
 - [JSON 데이터 작업](#working-with-json-data)
 - JSON 스칼라 함수를 사용하여 [JSON 데이터 쿼리](#querying-json-data).
-- [ 함수를 사용하여 ](#transforming-json-into-tabular-format)JSON을 테이블 형식으로 변환`OPENJSON`.
+- `OPENJSON` 함수를 사용하여 [JSON을 테이블 형식으로 변환](#transforming-json-into-tabular-format).
 
 ## <a name="formatting-relational-data-in-json-format"></a>관계형 데이터 형식을 JSON으로 지정
 데이터베이스 계층에서 데이터를 가져오고 JSON 형식으로 응답을 제공하는 웹 서비스 또는 JSON으로 형식이 지정된 데이터를 수락하는 클라이언트 쪽 JavaScript 프레임워크나 라이브러리가 있는 경우 SQL 쿼리에서 직접 데이터베이스 콘텐츠 형식을 JSON으로 지정할 수 있습니다. Azure SQL Database의 결과 형식을 JSON으로 지정하는 애플리케이션 코드를 작성하거나 테이블 형식 쿼리 결과를 변환한 다음, 개체를 JSON 형식으로 직렬화하는 JSON 직렬화 라이브러리를 더 이상 포함할 필요가 없습니다. 대신, FOR JSON 절을 사용하여 Azure SQL Database에서 SQL 쿼리 결과의 형식을 JSON으로 지정하고 애플리케이션에서 직접 사용할 수 있습니다.
@@ -71,7 +71,7 @@ FOR JSON PATH, WITHOUT_ARRAY_WRAPPER
 
 이 예제에서는 [WITHOUT_ARRAY_WRAPPER](https://msdn.microsoft.com/library/mt631354.aspx) 옵션을 지정하여 배열 대신 단일 JSON 개체를 반환했습니다. 쿼리 결과로 단일 개체를 반환하는지 알고 있다면 이 옵션을 사용할 수 있습니다.
 
-FOR JSON 절의 주 값은 중첩된 JSON 개체 또는 배열로 형식이 지정된 데이터베이스에서 복잡한 계층적 데이터를 반환할 수 있도록 합니다. 다음 예제에서는 `Orders`에 속하는 `Customer` 테이블의 행을 `Orders`의 중첩 배열로 포함하는 방법을 보여 줍니다.
+FOR JSON 절의 주 값은 중첩된 JSON 개체 또는 배열로 형식이 지정된 데이터베이스에서 복잡한 계층적 데이터를 반환할 수 있도록 합니다. 다음 예제에서는 `Customer`에 속하는 `Orders` 테이블의 행을 `Orders`의 중첩 배열로 포함하는 방법을 보여 줍니다.
 
 ```
 select CustomerName as Name, PhoneNumber as Phone, FaxNumber as Fax,

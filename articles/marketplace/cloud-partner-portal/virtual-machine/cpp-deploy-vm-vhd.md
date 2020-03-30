@@ -1,19 +1,18 @@
 ---
-title: Azure Marketplace에 대 한 Vhd에서 VM 배포
+title: Azure 마켓플레이스용 VHD에서 VM 배포
 description: Azure에서 배포한 VHD에서 VM을 등록하는 방법을 설명합니다.
-services: Azure, Marketplace, Cloud Partner Portal,
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/08/2019
-ms.author: evansma
-ms.openlocfilehash: 797c258c963d0daec32a8f9ac7c4e0665dc465d3
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 5263d24c411ef8de4187c2fd750013374d779f04
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73813408"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80277942"
 ---
 # <a name="deploy-a-vm-from-your-vhds"></a>VHD에서 VM 배포
 
@@ -24,7 +23,7 @@ VHD(가상 하드 디스크), 즉 일반화된 운영 체제 VHD 및 0개 이상
 VM 이미지에 대해 자세히 알아보려면 다음 블로그 게시물을 참조하세요.
 
 - [VM 이미지](https://azure.microsoft.com/blog/vm-image-blog-post/)
-- [VM 이미지 PowerShell '방법'](https://azure.microsoft.com/blog/vm-image-powershell-how-to-blog-post/)
+- [VM 이미지 파워쉘 '방법'](https://azure.microsoft.com/blog/vm-image-powershell-how-to-blog-post/)
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
@@ -60,10 +59,10 @@ VM이 배포되면 [VM 이미지를 인증](./cpp-certify-vm.md)할 준비가 �
    |  -------------              |   ---------------                                                            |
    | 사용자 스토리지 계정 이름   | 일반화된 VHD가 있는 스토리지 계정 이름                    |
    | 사용자 스토리지 컨테이너 이름 | 일반화된 VHD가 있는 컨테이너 이름                          |
-   | 공용 IP에 대한 DNS 이름      | 공용 IP DNS 이름입니다. VM의 DNS 이름은 제품을 배포한 후 Azure Portal에서 정의 합니다.  |
+   | 공용 IP에 대한 DNS 이름      | 공용 IP DNS 이름입니다. DNS 이름은 VM의 이름으로, 제안이 배포되면 Azure Portal에서 이를 정의합니다.  |
    | 관리자 사용자 이름             | 새 VM에 대한 관리자 계정의 사용자 이름                                  |
    | 관리자 암호              | 새 VM에 대한 관리자 계정의 암호                                  |
-   | OS 종류                     | VM 운영 체제: `Windows` \| `Linux`                                    |
+   | OS 유형                     | VM 운영 `Windows` \| 체제:`Linux`                                    |
    | 구독 ID             | 선택한 구독의 식별자                                      |
    | 위치                    | 배포의 지리적 위치                                        |
    | VM 크기                     | [Azure VM 크기](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)(예: `Standard_A2`) |

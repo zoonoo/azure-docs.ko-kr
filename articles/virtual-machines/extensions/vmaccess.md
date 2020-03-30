@@ -1,5 +1,5 @@
 ---
-title: Azure Linux VM에 대 한 액세스 다시 설정
+title: Azure Linux VM에 대한 액세스 재설정
 description: VMAccess 확장 및 Azure CLI를 사용하여 관리 사용자를 관리하고 Linux VM에 대한 액세스를 다시 설정하는 방법
 services: virtual-machines-linux
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/10/2018
 ms.author: akjosh
 ms.openlocfilehash: bd9dc05a84a4ee54fce40e6c88e87ac90bfee8a5
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79250362"
 ---
 # <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli"></a>Azure CLI에서 VMAccess 확장을 사용하여 관리 사용자, SSH를 관리하고 Linux VM의 디스크를 검사 또는 복구
@@ -56,7 +56,7 @@ Linux VM에서 두 가지 방법으로 VMAccess 확장을 사용할 수 있습�
 다음 예에서는 [az vm user](/cli/azure/vm/user) 명령을 사용합니다. 이러한 단계를 수행하려면 최신 [Azure CLI](/cli/azure/install-az-cli2)를 설치하고 [az login](/cli/azure/reference-index)을 사용하여 Azure 계정에 로그인해야 합니다.
 
 ## <a name="update-ssh-key"></a>SSH 키 업데이트
-다음 예제에서는 VM `azureuser`에서 사용자 `myVM`에 대한 SSH 키를 업데이트합니다.
+다음 예제에서는 VM `myVM`에서 사용자 `azureuser`에 대한 SSH 키를 업데이트합니다.
 
 ```azurecli-interactive
 az vm user update \
@@ -66,10 +66,10 @@ az vm user update \
   --ssh-key-value ~/.ssh/id_rsa.pub
 ```
 
-> **참고:** `az vm user update` 명령은 VM의 관리 사용자에 대한 `~/.ssh/authorized_keys` 파일에 새 공개 키 텍스트를 추가합니다. 기존 SSH 키를 대체하거나 제거하지 않습니다. 배포 시 설정된 이전 키 또는 VMAccess 확장을 통한 후속 업데이트를 제거하지 않습니다.
+> **참고:**`az vm user update` 명령은 VM의 관리 사용자에 대한 `~/.ssh/authorized_keys` 파일에 새 공개 키 텍스트를 추가합니다. 기존 SSH 키를 대체하거나 제거하지 않습니다. 배포 시 설정된 이전 키 또는 VMAccess 확장을 통한 후속 업데이트를 제거하지 않습니다.
 
 ## <a name="reset-password"></a>암호 재설정
-다음 예제에서는 VM `azureuser`에서 사용자 `myVM`에 대한 암호를 다시 설정합니다.
+다음 예제에서는 VM `myVM`에서 사용자 `azureuser`에 대한 암호를 다시 설정합니다.
 
 ```azurecli-interactive
 az vm user update \
@@ -89,7 +89,7 @@ az vm user reset-ssh \
 ```
 
 ## <a name="create-an-administrativesudo-user"></a>관리/sudo 사용자 만들기
-다음 예제에서는 `myNewUser`sudo**권한을 가진**라는 사용자를 만듭니다. 계정은 `myVM`이라는 VM에서 인증을 위해 SSH 키를 사용합니다. 이 메서드는 현재 자격 증명을 분실하거나 잊어버린 상황에서 VM에 대한 액세스 권한을 다시 얻을 수 있도록 설계되었습니다. 모범 사례로, **sudo** 권한이 있는 계정은 제한되어야 합니다.
+다음 예제에서는 **sudo** 권한을 가진 `myNewUser`라는 사용자를 만듭니다. 계정은 `myVM`이라는 VM에서 인증을 위해 SSH 키를 사용합니다. 이 메서드는 현재 자격 증명을 분실하거나 잊어버린 상황에서 VM에 대한 액세스 권한을 다시 얻을 수 있도록 설계되었습니다. 모범 사례로, **sudo** 권한이 있는 계정은 제한되어야 합니다.
 
 ```azurecli-interactive
 az vm user update \
@@ -100,7 +100,7 @@ az vm user update \
 ```
 
 ## <a name="delete-a-user"></a>사용자 삭제
-다음 예제에서는 VM `myNewUser`에서 사용자 `myVM`을 삭제합니다.
+다음 예제에서는 VM `myVM`에서 사용자 `myNewUser`을 삭제합니다.
 
 ```azurecli-interactive
 az vm user delete \
@@ -255,6 +255,6 @@ az vm extension set \
 az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 ```
 
-### <a name="support"></a>지원
+### <a name="support"></a>고객 지원팀
 
-이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 Stack Overflow 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 가서 지원 받기를 선택합니다. Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조하세요.
+이 문서의 어느 시점에서든 도움이 필요한 경우 [MSDN Azure 및 스택 오버플로 포럼의](https://azure.microsoft.com/support/forums/)Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트로](https://azure.microsoft.com/support/options/) 이동하여 지원 받기를 선택합니다. Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조하세요.

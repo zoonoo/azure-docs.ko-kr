@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 7188cb5774699fc6e31fc3b8c78068bb33c6f552
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79281146"
 ---
 # <a name="repeatable-copy-in-azure-data-factory"></a>Azure Data Factory에서 반복 가능한 복사
@@ -110,7 +110,7 @@ ID    Product        Quantity    ModifiedDate
 
 이 열은 반복성을 위해 Azure Data Factory에서 사용되며 Azure Data Factory가 테이블의 어떠한 스키마도 변경하지 않는 프로세스에도 사용됩니다. 이 방식을 사용하는 방법:
 
-1. 대상 SQL 테이블에서 **이진 형식(32)** 으로 열을 정의합니다. 이 열에는 제약 조건이 없어야 합니다. 이 예에서는 이 열의 이름을 AdfSliceIdentifier라고 하겠습니다.
+1. 대상 SQL Table에서 **형식 이진(32)의** 열을 정의합니다. 이 열에는 제약 조건이 없어야 합니다. 이 예에서는 이 열의 이름을 AdfSliceIdentifier라고 하겠습니다.
 
 
     원본 테이블:
@@ -151,5 +151,5 @@ Azure Data Factory는 원본과 대상의 동기화 상태를 유지하기 위�
 완전한 JSON 예제에 대한 다음 커넥터 문서를 검토합니다. 
 
 - [Azure SQL Database](data-factory-azure-sql-connector.md)
-- [Azure SQL 데이터 웨어하우스](data-factory-azure-sql-data-warehouse-connector.md)
+- [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md)
 - [SQL Server](data-factory-sqlserver-connector.md)

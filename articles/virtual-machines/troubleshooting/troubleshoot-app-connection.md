@@ -16,10 +16,10 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: caf73ffbc18a603ace22acfbd0da490048da698a
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71058130"
 ---
 # <a name="troubleshoot-application-connectivity-issues-on-virtual-machines-in-azure"></a>Azure의 가상 머신에서 애플리케이션 연결 문제해결
@@ -28,10 +28,10 @@ Azure VM(가상 머신)에서 실행되는 애플리케이션을 시작 또는 �
 
 RDP 또는 SSH를 사용하여 VM에 연결하는 데 문제가 있는 경우 먼저 다음 문서 중 하나를 참조하세요.
 
-* [Windows 기반 Azure Virtual Machine에 대한 원격 데스크톱 연결 문제 해결](troubleshoot-rdp-connection.md)
-* [Linux 기반 Azure 가상 머신에 SSH(Secure Shell) 연결 문제 해결](troubleshoot-ssh-connection.md)
+* [Windows 기반 Azure 가상 컴퓨터에 대한 원격 데스크톱 연결 문제 해결](troubleshoot-rdp-connection.md)
+* [Linux 기반 Azure 가상 시스템에 대한 보안 셸(SSH) 연결 문제 해결.](troubleshoot-ssh-connection.md)
 
-이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 스택 오버플로 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수도 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/) 로 가서 **지원 받기**를 선택합니다.
+이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 스택 오버플로 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수도 있습니다. [Azure 지원 사이트로](https://azure.microsoft.com/support/options/) 이동하여 **지원 받기를**선택합니다.
 
 ## <a name="quick-start-troubleshooting-steps"></a>빠른 시작 문제 해결 단계
 애플리케이션에 연결하는 데 문제가 있는 경우 다음과 같은 일반적인 문제 해결 단계를 시도하세요. 각 단계 후 애플리케이션을 다시 연결해 보세요.
@@ -68,7 +68,7 @@ Azure 가상 머신에서 실행되는 애플리케이션의 액세스 문제 �
 
 문제 및 해당 보정의 원인을 확인하려면 다음 단계를 수행합니다.
 
-## <a name="step-1-access-application-from-target-vm"></a>1단계: 대상 VM에서 응용 프로그램 액세스
+## <a name="step-1-access-application-from-target-vm"></a>1단계: 대상 VM에서 애플리케이션에 액세스
 애플리케이션이 실행 중인 VM에서 해당 클라이언트 프로그램으로 애플리케이션에 액세스합니다. 로컬 호스트 이름, 로컬 IP 주소 또는 루프백 주소(127.0.0.1)를 사용합니다.
 
 ![VM에서 직접 애플리케이션 시작](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access2.png)
@@ -84,7 +84,7 @@ Azure 가상 머신에서 실행되는 애플리케이션의 액세스 문제 �
 
 Windows 및 Linux 기반 가상 머신 둘 다에서 **netstat -a** 명령을 사용하여 활성 수신 포트를 표시합니다. 애플리케이션이 수신해야 할 예상되는 포트에 대한 출력을 검토하세요. 애플리케이션을 다시 시작하거나 필요에 따라 예상되는 포트를 사용하도록 구성하여 다시 로컬로 애플리케이션에 액세스해 보세요.
 
-## <a id="step2"></a>2단계: 동일한 가상 네트워크의 다른 VM에서 응용 프로그램에 액세스
+## <a name="step-2-access-application-from-another-vm-in-the-same-virtual-network"></a><a id="step2"></a>2단계: 동일한 가상 네트워크의 다른 VM에서 애플리케이션에 액세스
 VM의 호스트 이름 또는 Azure 할당 공용, 프라이빗 또는 공급자 IP 주소를 사용하여 다른 VM이지만 동일한 가상 네트워크에서 애플리케이션에 액세스합니다. 클래식 배포 모델을 사용하여 만든 가상 머신의 경우 클라우드 서비스의 공용 IP 주소를 사용하지 않습니다.
 
 ![다른 VM에서 애플리케이션 시작](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access3.png)
@@ -104,7 +104,7 @@ VM의 호스트 이름 또는 Azure 할당 공용, 프라이빗 또는 공급자
 
 Windows 기반 가상 컴퓨터에서, 방화벽 규칙이 사용자의 애플리케이션의 인바운드 및 아웃 바운드 트래픽을 제외할지 여부를 확인하려면 고급 보안이 포함된 Windows 방화벽을 사용하세요.
 
-## <a id="step3"></a>3단계: 가상 네트워크 외부에서 응용 프로그램에 액세스
+## <a name="step-3-access-application-from-outside-the-virtual-network"></a><a id="step3"></a>3단계: 가상 네트워크 외부에서 애플리케이션에 액세스
 VM에서 애플리케이션이 실행되고 있는 경우 가상 네트워크 외부의 컴퓨터에서 애플리케이션에 대한 액세스를 시도하세요. 다른 네트워크를 원래의 클라이언트 컴퓨터로 사용합니다.
 
 ![가상 네트워크 외부의 컴퓨터에서 애플리케이션 시작](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access4.png)
@@ -122,7 +122,7 @@ VM에서 애플리케이션이 실행되고 있는 경우 가상 네트워크 �
   
   * VM의 인바운드 NAT 규칙 구성에서 수신 트래픽을 허용하는지, 특히 프로토콜(TCP 또는 UDP), 공용 및 프라이빗 포트 번호를 허용하는지 확인합니다.
   * 네트워크 보안 그룹이 인바운드 요청 및 아웃바운드 요청 트래픽을 허용하는지 확인합니다.
-  * 자세한 내용은 [NSG(네트워크 보안 그룹)란?](../../virtual-network/security-overview.md)을 참조하세요.
+  * 자세한 내용은 [네트워크 보안 그룹이란 무엇입니까?](../../virtual-network/security-overview.md)
 
 가상 머신 또는 엔드포인트가 부하 분산 집합의 구성원인 경우:
 
@@ -140,9 +140,9 @@ VM에서 애플리케이션이 실행되고 있는 경우 가상 네트워크 �
 
 자세한 내용은 [Azure 네트워크 모니터링 개요](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)를 참조하세요. 
 
-## <a name="additional-resources"></a>추가 자료
-[Windows 기반 Azure Virtual Machine에 대한 원격 데스크톱 연결 문제 해결](troubleshoot-rdp-connection.md)
+## <a name="additional-resources"></a>추가 리소스
+[Windows 기반 Azure 가상 컴퓨터에 대한 원격 데스크톱 연결 문제 해결](troubleshoot-rdp-connection.md)
 
-[Linux 기반 Azure 가상 컴퓨터에 SSH(보안 셸) 연결 문제 해결](troubleshoot-ssh-connection.md)
+[Linux 기반 Azure 가상 머신에 SSH(보안 셸) 연결 문제 해결](troubleshoot-ssh-connection.md)
 
 

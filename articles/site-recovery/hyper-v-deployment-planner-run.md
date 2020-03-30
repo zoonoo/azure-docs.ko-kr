@@ -1,5 +1,5 @@
 ---
-title: Azure Site Recovery에서 Hyper-v Deployment Planner를 실행 합니다.
+title: Azure 사이트 복구에서 Hyper-V 배포 플래너 실행
 description: 이 문서에서는 Azure로 Hyper-V 재해 복구를 위해 Azure Site Recovery Deployment Planner를 실행하는 방법을 설명합니다.
 author: mayurigupta13
 manager: rochakm
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/09/2019
 ms.author: mayg
 ms.openlocfilehash: ba1979c940d4a92b3d1a7a52a4f356b2896ece55
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74082614"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Azure로 Hyper-V 재해 복구를 위해 Azure Site Recovery Deployment Planner 실행
@@ -42,7 +42,7 @@ ASRDeploymentPlanner.exe -Operation GetVMList /?
 | -ServerListFile | 프로파일링할 VM이 포함된 서버 목록이 있는 파일입니다. 파일 경로는 절대 경로 또는 상대 경로일 수 있습니다. 이 파일의 각 행에 다음 중 하나를 포함해야 합니다.<ul><li>Hyper-V 호스트 이름 또는 IP 주소</li><li>Hyper-V 클러스터 이름 또는 IP 주소</li></ul><br>**예:** ServerList.txt에는 다음 서버가 포함됩니다.<ul><li>Host_1</li><li>10.8.59.27</li><li>Cluster_1</li><li>Host_2</li>|
 | -Directory|(선택 사항) 이 작업 중에 생성된 데이터를 저장하기 위한 UNC(범용 명명 규칙) 또는 로컬 디렉터리 경로입니다. 이름을 지정하지 않으면 현재 경로 아래에 ProfiledData라는 디렉터리가 기본 디렉터리로 사용됩니다.|
 |-OutputFile| (선택 사항) Hyper-V 서버에서 가져온 VM 목록이 들어 있는 파일이 저장됩니다. 이름이 언급되지 않으면 세부 정보는 VMList.txt에 저장됩니다.  프로파일링할 필요가 없는 VM을 제거한 후 파일을 사용하여 프로파일링을 시작합니다.|
-|-암호|(선택 사항) Hyper-V 호스트에 연결하기 위한 암호입니다. 매개 변수로 지정하지 않으면 명령을 실행하는 경우 메시지가 표시됩니다.|
+|-Password|(선택 사항) Hyper-V 호스트에 연결하기 위한 암호입니다. 매개 변수로 지정하지 않으면 명령을 실행하는 경우 메시지가 표시됩니다.|
 
 ### <a name="getvmlist-discovery"></a>GetVMList 검색
 
@@ -95,10 +95,10 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 |-NoOfDaysToProfile |프로파일링을 실행할 시간(일)입니다. 7일 이상 프로파일링하는 것이 좋습니다. 지정된 기간 동안 사용자 환경에서 워크로드 패턴을 관찰하고 정확한 권장 사항을 제공하는 데 사용하도록 하는 것이 좋습니다.|
 |-Virtualization|가상화 유형(VMware 또는 Hyper-V)입니다.|
 |-Directory|(선택 사항) 프로파일링 도중 생성된 프로파일링 데이터를 저장하기 위한 UNC 또는 로컬 디렉터리 경로입니다. 이름을 지정하지 않으면 현재 경로 아래에 ProfiledData라는 디렉터리가 기본 디렉터리로 사용됩니다.|
-|-암호|(선택 사항) Hyper-V 호스트에 연결하기 위한 암호입니다. 매개 변수로 지정하지 않으면 명령을 실행하는 경우 메시지가 표시됩니다.|
-|-StorageAccountName|(선택 사항) 온-프레미스 환경에서 Azure로의 데이터 복제에서 달성할 수 있는 처리량을 확인하기 위해 사용되는 스토리지 계정 이름입니다. 도구에서 이 스토리지 계정에 테스트 데이터를 업로드하여 처리량을 계산합니다. 스토리지 계정은 GPv1(General-purpose v1) 형식이어야 합니다.|
-|-StorageAccountKey|(선택 사항) 스토리지 계정에 액세스하는 데 사용되는 키입니다. Azure Portal &gt; **스토리지 계정** > *스토리지-계정 이름* > **설정** > **액세스 키** > **키1**(또는 클래식 스토리지 계정용 기본 액세스 키)로 이동합니다.|
-|-Environment|(선택 사항) Azure Storage 계정을 위한 대상 환경입니다. AzureCloud, AzureUSGovernment 또는 AzureChinaCloud의 3가지 값 중 하나일 수 있습니다. 기본값은 AzureCloud입니다. 대상 지역이 Azure 미국 정부 또는 Azure 중국 21Vianet 인 경우 매개 변수를 사용 합니다.|
+|-Password|(선택 사항) Hyper-V 호스트에 연결하기 위한 암호입니다. 매개 변수로 지정하지 않으면 명령을 실행하는 경우 메시지가 표시됩니다.|
+|-StorageAccountName|(선택 사항) 온-프레미스 환경에서 Azure로의 데이터 복제에서 달성할 수 있는 처리량을 확인하기 위해 사용되는 스토리지 계정 이름입니다. 도구에서 이 스토리지 계정에 테스트 데이터를 업로드하여 처리량을 계산합니다. 스토리지 계정은 GPv1(범용 v1) 형식이어야 합니다.|
+|-StorageAccountKey|(선택 사항) 스토리지 계정에 액세스하는 데 사용되는 키입니다. Azure 포털 > **저장소 계정** > *저장소-계정 이름* > **설정** > **키** > **키1** (또는 클래식 저장소 계정의 기본 액세스 키)로 이동합니다.|
+|-Environment|(선택 사항) Azure Storage 계정을 위한 대상 환경입니다. AzureCloud, AzureUSGovernment 또는 AzureChinaCloud의 3가지 값 중 하나일 수 있습니다. 기본값은 AzureCloud입니다. 대상 지역이 Azure 미국 정부 또는 Azure China 21Vianet인 경우 매개 변수를 사용합니다.|
 
 VM을 7일 이상 프로파일링하는 것이 좋습니다. 한 달 내에 변동 패턴이 다양한 경우, 변동폭이 최대인 주에 프로파일링하는 것이 좋습니다. 가장 좋은 방법은 31일 동안 프로파일링하여 보다 나은 권장 사항을 확보하는 것입니다. 
 
@@ -157,7 +157,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization Hyper-V -Dire
 Azure Site Recovery는 iSCSI 및 통과 디스크가 있는 VM을 지원하지 않습니다. 이 도구는 VM에 연결된 iSCSI 및 통과 디스크를 검색 및 프로파일링할 수 없습니다.
 
 ## <a name="generate-a-report"></a>보고서 생성
-이 도구는 보고서 출력으로 매크로가 사용하도록 설정된 Microsoft Excel 파일(XLSM 파일)을 생성합니다. 배포의 모든 권장 사항을 요약합니다. 이 보고서는 DeploymentPlannerReport_*고유 숫자 식별자*.xlsm으로 명명되어 지정된 디렉터리에 배치됩니다.
+이 도구는 보고서 출력으로 매크로가 사용하도록 설정된 Microsoft Excel 파일(XLSM 파일)을 생성합니다. 배포의 모든 권장 사항을 요약합니다. 보고서는*고유한 숫자 식별자*.xlsm에 DeploymentPlannerReport_ 이름이 지정되고 지정된 디렉터리에 배치됩니다.
 
 프로파일링이 완료되면 보고서 생성 모드에서 도구를 실행할 수 있습니다. 
 
@@ -174,8 +174,8 @@ ASRDeploymentPlanner.exe -Operation GenerateReport /?
 |-Virtualization|가상화 유형(VMware 또는 Hyper-V)입니다.|
 |-Directory|(선택 사항) 프로파일링된 데이터(프로파일링 중에 생성된 파일)가 저장되는 UNC 또는 로컬 디렉터리 경로입니다. 이 데이터는 보고서를 생성하는 데 필요합니다. 이름을 지정하지 않으면 현재 경로 아래에 ProfiledData라는 디렉터리가 기본 디렉터리로 사용됩니다.|
 | -User | (선택 사항) Hyper-V 호스트 또는 Hyper-V 클러스터에 연결할 사용자 이름입니다. 사용자에게 관리 액세스 권한이 필요합니다. 사용자 및 암호는 보고서에 사용할 디스크 수, 코어 수, NIC 수 등과 같은 VM의 최신 구성 정보를 페치하는 데 사용됩니다. 이 값이 제공되지 않으면 프로파일링 중에 수집된 구성 정보가 사용됩니다.|
-|-암호|(선택 사항) Hyper-V 호스트에 연결하기 위한 암호입니다. 매개 변수로 지정하지 않으면 명령을 실행하는 경우 메시지가 표시됩니다.|
-| -DesiredRPO | (선택 사항) 원하는 RPO(복구 지점 목표) (분)입니다. 기본값은 15 분입니다.|
+|-Password|(선택 사항) Hyper-V 호스트에 연결하기 위한 암호입니다. 매개 변수로 지정하지 않으면 명령을 실행하는 경우 메시지가 표시됩니다.|
+| -DesiredRPO | (선택 사항) 원하는 RPO(복구 지점 목표) (분)입니다. 기본값은 15분입니다.|
 | -Bandwidth | (선택 사항) 초당 메가비트 대역폭입니다. 이 매개 변수는 지정된 대역폭에서 달성할 수 있는 RPO를 계산하는 데 사용합니다. |
 | -StartDate | (선택 사항) MM-DD-YYYY:HH:MM(24시간) 단위의 시작 날짜 및 시간 형식입니다. StartDate는 EndDate와 함께 지정해야 합니다. StartDate를 지정한 경우 StartDate와 EndDate 사이에 수집한 프로파일링된 데이터에 대한 보고서를 생성합니다. |
 | -EndDate | (선택 사항) MM-DD-YYYY:HH:MM(24시간) 형식의 종료 날짜 및 시간입니다. EndDate는 StartDate와 함께 지정해야 합니다. EndDate를 지정한 경우 StartDate와 EndDate 사이에 수집한 프로파일링된 데이터에 대한 보고서가 생성됩니다. |
@@ -247,7 +247,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization Hyper-V -Dire
 예를 들어 현재 VM이 표준 스토리지 복제 계정에 적합하다고 가정해 보겠습니다. 다음 3개월 동안 다음과 같은 변경 사항이 발생할 가능성이 있습니다.
 
 1. VM에서 실행되는 애플리케이션의 사용자 수가 증가합니다.
-2. VM에서 변동이 증가하므로 Azure Site Recovery 복제가 일어날 수 있도록 VM을 Premium Storage로 이동해야 합니다.
+2. VM에서 변동이 증가하므로 Azure Site Recovery 복제가 일어날 수 있도록 VM을 프리미엄 스토리지로 이동해야 합니다.
 3. 따라서 프리미엄 스토리지 계정에 대한 보호를 해제하고 다시 사용하도록 설정해야 합니다.
 
 배포 계획 중에 증가에 대해 계획할 것을 적극 권장합니다. 기본값이 30%여도 애플리케이션 사용 패턴 및 증가 프로젝션의 전문가입니다. 보고서를 생성하는 동안 이 숫자를 적절하게 변경할 수 있습니다. 또한 프로파일링된 동일한 데이터로 다양한 성장 요소를 사용하여 여러 보고서를 생성할 수 있습니다. 그러면 가장 적합한 대상 스토리지 및 소스 대역폭 권장 사항을 확인할 수 있습니다. 
@@ -261,7 +261,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization Hyper-V -Dire
 * [호환되지 않는 VM](hyper-v-deployment-planner-analyze-report.md#incompatible-vms)
 * [온-프레미스 스토리지 요구 사항](hyper-v-deployment-planner-analyze-report.md#on-premises-storage-requirement)
 * [IR 일괄 처리](hyper-v-deployment-planner-analyze-report.md#initial-replication-batching)
-* [비용 예측](hyper-v-deployment-planner-cost-estimation.md)
+* [비용 추정](hyper-v-deployment-planner-cost-estimation.md)
 
 ![Deployment Planner 보고서](media/hyper-v-deployment-planner-run/deployment-planner-report-h2a.png)
 
@@ -280,12 +280,12 @@ ASRDeploymentPlanner.exe -Operation GetThroughput /?
 | -Operation | GetThroughput |
 |-Virtualization|가상화 유형(VMware 또는 Hyper-V)입니다.|
 |-Directory|(선택 사항) 프로파일링된 데이터(프로파일링 중에 생성된 파일)가 저장되는 UNC 또는 로컬 디렉터리 경로입니다. 이 데이터는 보고서를 생성하는 데 필요합니다. 이름을 지정하지 않으면 현재 경로 아래에 ProfiledData라는 디렉터리가 기본 디렉터리로 사용됩니다.|
-| -StorageAccountName | 온-프레미스 환경에서 Azure로의 데이터 복제에서 사용되는 대역폭을 확인하기 위해 사용하는 스토리지 계정 이름입니다. 도구에서 이 스토리지 계정에 테스트 데이터를 업로드하여 사용되는 대역폭을 찾습니다. 스토리지 계정은 GPv1(General-purpose v1) 형식이어야 합니다.|
-| -StorageAccountKey | 스토리지 계정에 액세스하는 데 사용되는 스토리지 계정 키입니다. Azure Portal &gt; **스토리지 계정** > *스토리지-계정 이름* > **설정** > **액세스 키** > **키1**로 이동합니다.|
+| -StorageAccountName | 온-프레미스 환경에서 Azure로의 데이터 복제에서 사용되는 대역폭을 확인하기 위해 사용하는 스토리지 계정 이름입니다. 도구에서 이 스토리지 계정에 테스트 데이터를 업로드하여 사용되는 대역폭을 찾습니다. 스토리지 계정은 GPv1(범용 v1) 형식이어야 합니다.|
+| -StorageAccountKey | 스토리지 계정에 액세스하는 데 사용되는 스토리지 계정 키입니다. Azure 포털 > **저장소 계정** > *저장소-계정 이름* > **설정** > 액세스**키키1로****Access Keys** > 이동합니다.|
 | -VMListFile | 사용되는 대역폭을 계산하기 위해 프로파일링할 VM의 목록을 포함하고 있는 파일입니다. 파일 경로는 절대 경로 또는 상대 경로일 수 있습니다. Hyper-V의 경우 이 파일은 GetVMList 작업의 출력 파일입니다. 수동으로 준비하는 경우 파일에 뒤에 VM 이름이 붙는 서버 이름이나 IP 주소가 포함되어야 합니다(줄마다 \ 로 구분). 파일에 지정된 VM 이름은 Hyper-V 호스트의 VM 이름과 동일해야 합니다.<br><br>**예:** VMList.txt에는 다음과 같은 VM이 포함됩니다.<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
-|-Environment|(선택 사항) Azure Storage 계정을 위한 대상 환경입니다. AzureCloud, AzureUSGovernment 또는 AzureChinaCloud의 3가지 값 중 하나일 수 있습니다. 기본값은 AzureCloud입니다. 대상 Azure 지역이 Azure 미국 정부 또는 Azure 중국 21Vianet 인 경우 매개 변수를 사용 합니다.|
+|-Environment|(선택 사항) Azure Storage 계정을 위한 대상 환경입니다. AzureCloud, AzureUSGovernment 또는 AzureChinaCloud의 3가지 값 중 하나일 수 있습니다. 기본값은 AzureCloud입니다. 대상 Azure 지역이 Azure 미국 정부 또는 Azure China 21Vianet인 경우 매개 변수를 사용합니다.|
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 ```
 ASRDeploymentPlanner.exe -Operation GetThroughput -Virtualization Hyper-V -Directory "E:\Hyper-V_ProfiledData" -VMListFile "E:\Hyper-V_ProfiledData\ProfileVMList1.txt"  -StorageAccountName  asrspfarm1 -StorageAccountKey by8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
 ```

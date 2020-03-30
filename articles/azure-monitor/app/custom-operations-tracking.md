@@ -1,14 +1,14 @@
 ---
-title: Azure 애플리케이션 Insights .NET SDK를 사용 하 여 사용자 지정 작업 추적
+title: Azure 응용 프로그램 인사이트 .NET SDK로 사용자 지정 작업 추적
 description: Azure Application Insights .NET SDK를 통한 사용자 지정 작업 추적
 ms.topic: conceptual
 ms.date: 11/26/2019
 ms.reviewer: sergkanz
 ms.openlocfilehash: 31c1fb366e7b109ea1fa4977d8e2f908e766e0f2
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79276102"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Application Insights .NET SDK를 통한 사용자 지정 작업 추적
@@ -117,10 +117,10 @@ public class ApplicationInsightsMiddleware : OwinMiddleware
 상관 관계에 대한 HTTP 프로토콜도 `Correlation-Context` 헤더를 선언하지만, 여기서는 간소화하기 위해 생략했습니다.
 
 ## <a name="queue-instrumentation"></a>큐 계측
-HTTP 요청과 상관 관계 세부 정보를 전달 하는 데 [상관 관계를 위한](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md) [W3C 추적 컨텍스트](https://www.w3.org/TR/trace-context/) 및 http 프로토콜을 사용 하는 경우 모든 큐 프로토콜은 큐 메시지를 따라 동일한 세부 정보를 전달 하는 방법을 정의 해야 합니다. 일부 큐 프로토콜(예: AMQP)은 추가 메타데이터 전달을 허용하며 일부 다른 큐 프로토콜(예: Azure Storage 큐)은 메시지 페이로드로 인코딩될 컨텍스트가 필요합니다.
+HTTP 요청과의 상관 관계 세부 정보를 전달하기 위한 상관 관계에 대한 [W3C 추적 컨텍스트](https://www.w3.org/TR/trace-context/) 및 [HTTP 프로토콜이](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md) 있지만 모든 큐 프로토콜은 큐 메시지를 따라 동일한 세부 정보가 전달되는 방식을 정의해야 합니다. 일부 큐 프로토콜(예: AMQP)은 추가 메타데이터 전달을 허용하며 일부 다른 큐 프로토콜(예: Azure Storage 큐)은 메시지 페이로드로 인코딩될 컨텍스트가 필요합니다.
 
 > [!NOTE]
-> * **큐에 대해 구성 요소 간 추적이 아직 지원 되지 않음** HTTP를 사용 하는 경우 생산자와 소비자가 서로 다른 Application Insights 리소스에 원격 분석을 보내면 트랜잭션 진단 환경 및 응용 프로그램 맵에 트랜잭션 및 맵 끝이 표시 됩니다. 큐의 경우에는이를 아직 지원 하지 않습니다. 
+> * **큐에 대해 구성 요소 간 추적이 지원되지 않습니다.** HTTP를 사용하면 생산자와 소비자가 다른 응용 프로그램 인사이트 리소스로 원격 분석을 보내는 경우 트랜잭션 진단 환경 및 응용 프로그램 맵에 트랜잭션이 표시되고 종단 간 매핑됩니다. 큐의 경우 아직 지원되지 않습니다. 
 
 ### <a name="service-bus-queue"></a>Service Bus 큐
 Application Insights는 새 [.NET용 Microsoft Azure Service Bus 클라이언트](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus/) 버전 3.0.0 이상을 사용하여 Service Bus 메시징 호출을 추적합니다.
@@ -206,7 +206,7 @@ public async Task Process(BrokeredMessage message)
 다음 예제에서는 [Azure Storage 큐](../../storage/queues/storage-dotnet-how-to-use-queues.md) 작업을 추적하고 생산자, 소비자 및 Azure Storage 간의 원격 분석 상관 관계를 지정하는 방법을 보여 줍니다. 
 
 Storage 큐에는 HTTP API가 있습니다. 큐에 대한 모든 호출은 HTTP 요청에 대한 Application Insights 종속성 수집기에서 추적됩니다.
-ASP.NET 및 ASP.NET Core 응용 프로그램에서 기본적으로 구성 되며 다른 종류의 응용 프로그램을 사용 하 여 [콘솔 응용 프로그램 설명서](../../azure-monitor/app/console.md) 를 참조할 수 있습니다.
+ASP.NET 및 ASP.NET 핵심 응용 프로그램에서 기본적으로 구성되며 다른 종류의 응용 프로그램과 함께 [콘솔 응용 프로그램 설명서를](../../azure-monitor/app/console.md) 참조할 수 있습니다.
 
 또한 Application Insights 작업 ID와 Storage 요청 ID 사이의 상관 관계를 지정할 수도 있습니다. Storage 요청 클라이언트와 서버 요청 ID를 설정하고 가져 오는 방법에 대한 자세한 내용은 [Azure Storage 모니터링, 진단 및 문제 해결](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md#end-to-end-tracing)을 참조하세요.
 
@@ -215,8 +215,8 @@ Storage 큐는 HTTP API를 지원하므로 큐를 통한 모든 작업은 Applic
 
 이 예제는 `Enqueue` 작업을 추적하는 방법을 보여 줍니다. 다음을 수행할 수 있습니다.
 
- - **상관 관계 지정 재시도(있는 경우)** : 모든 작업에는 `Enqueue` 작업인 하나의 공통 부모가 있습니다. 그렇지 않으면 들어오는 요청의 자식으로 추적됩니다. 큐에 대한 논리적 요청이 여러 개 있으면 재시도가 발생한 호출을 찾는 것이 어려울 수 있습니다.
- - **스토리지 상관 관계 지정 로그(필요한 경우)** : Application Insights 원격 분석과의 상관 관계가 지정됩니다.
+ - **상관 관계 지정 재시도(있는 경우)**: 모든 작업에는 `Enqueue` 작업인 하나의 공통 부모가 있습니다. 그렇지 않으면 들어오는 요청의 자식으로 추적됩니다. 큐에 대한 논리적 요청이 여러 개 있으면 재시도가 발생한 호출을 찾는 것이 어려울 수 있습니다.
+ - **스토리지 상관 관계 지정 로그(필요한 경우)**: Application Insights 원격 분석과의 상관 관계가 지정됩니다.
 
 `Enqueue` 작업은 부모 작업의 자식(예 : 들어오는 HTTP 요청)입니다. HTTP 종속성 호출은 `Enqueue` 작업의 자식 및 들어오는 요청의 손자입니다.
 
@@ -264,13 +264,13 @@ public async Task Enqueue(CloudQueue queue, string message)
 애플리케이션 보고서에서 원격 분석의 양을 줄이거나 다른 이유로 `Enqueue` 작업을 추적하지 않으려면 `Activity` API를 직접 사용합니다.
 
 - Application Insights 작업을 시작하는 대신 새 `Activity`를 만듭니다(및 시작합니다). 작업 이름을 제외한 모든 속성을 *지정하지 않아도 됩니다*.
-- `yourActivity.Id` 대신 메시지 페이로드에 `operation.Telemetry.Id`를 직렬화합니다. 또한 `Activity.Current.Id`을 사용할 수 있습니다.
+- `operation.Telemetry.Id` 대신 메시지 페이로드에 `yourActivity.Id`를 직렬화합니다. 또한 `Activity.Current.Id`을 사용할 수 있습니다.
 
 
 #### <a name="dequeue"></a>큐에서 제거
 `Enqueue`와 비슷하게 Storage 큐에 대한 실제 HTTP 요청은 Application Insights에서 자동으로 추적됩니다. 그러나 `Enqueue` 작업은 아마도 들어오는 요청 컨텍스트와 같은 부모 컨텍스트에서 발생합니다. Application Insights SDK는 이러한 작업(및 해당하는 HTTP 부분)과 부모 요청 및 동일한 범위에서 보고되는 다른 원격 분석 사이의 상관 관계를 자동으로 지정합니다.
 
-`Dequeue` 작업은 까다롭습니다. Application Insights SDK에서 HTTP 요청을 자동으로 추적합니다. 그러나 메시지가 구문 분석될 때까지 상관 관계 컨텍스트를 인식할 수 없습니다. 두 개 이상의 메시지를 수신 하는 경우에는 원격 분석의 나머지 부분을 사용 하 여 메시지를 가져오기 위해 HTTP 요청에 상관 관계를 지정할 수 없습니다.
+`Dequeue` 작업은 까다롭습니다. Application Insights SDK에서 HTTP 요청을 자동으로 추적합니다. 그러나 메시지가 구문 분석될 때까지 상관 관계 컨텍스트를 인식할 수 없습니다. 특히 두 개 이상의 메시지가 수신된 경우 HTTP 요청의 상관 관계를 지정하여 메시지를 나머지 원격 분석과 상호 연관시킬 수 없습니다.
 
 ```csharp
 public async Task<MessagePayload> Dequeue(CloudQueue queue)
@@ -346,13 +346,13 @@ public async Task Process(MessagePayload message)
 
 ### <a name="dependency-types"></a>종속성 유형
 
-Application Insights는 종속성 형식을 사용 하 여 UI 환경을 cusomize 합니다. 큐의 경우 [트랜잭션 진단 환경을](/azure/azure-monitor/app/transaction-diagnostics)개선 하는 다음과 같은 `DependencyTelemetry` 유형을 인식 합니다.
-- Azure Storage 큐에 대 한 `Azure queue`
-- Azure Event Hubs에 대 한 `Azure Event Hubs`
-- Azure Service Bus에 대 한 `Azure Service Bus`
+응용 프로그램 인사이트는 종속성 유형을 사용하여 UI 환경을 큐미즈합니다. 큐의 경우 트랜잭션 진단 `DependencyTelemetry` 환경을 개선하는 다음과 같은 유형의 [것을 인식합니다.](/azure/azure-monitor/app/transaction-diagnostics)
+- `Azure queue`Azure 저장소 큐에 대 한
+- `Azure Event Hubs`Azure 이벤트 허브용
+- `Azure Service Bus`Azure 서비스 버스용
 
 ### <a name="batch-processing"></a>일괄 처리
-일부 큐의 경우 하나의 요청으로 여러 메시지를 큐에서 제거할 수 있습니다. 이러한 메시지를 처리하는 것은 아마도 독립적이며 다른 논리 연산에 속합니다. `Dequeue` 작업을 처리 중인 특정 메시지와 상호 연결할 수는 없습니다.
+일부 큐의 경우 하나의 요청으로 여러 메시지를 큐에서 제거할 수 있습니다. 이러한 메시지를 처리하는 것은 아마도 독립적이며 다른 논리 연산에 속합니다. `Dequeue` 작업을 처리 중인 특정 메시지와 상관 관계를 지정할 수 없습니다.
 
 각 메시지는 자체 비동기 제어 흐름에서 처리되어야 합니다. 자세한 내용은 [나가는 종속성 추적](#outgoing-dependencies-tracking) 섹션을 참조하세요.
 
@@ -390,7 +390,7 @@ async Task BackgroundTask()
 
 이 예제에서 `telemetryClient.StartOperation`은 `DependencyTelemetry`를 만들고 상관 컨텍스트를 채웁니다. 작업을 예약한 들어오는 요청으로 만들어진 부모 작업이 있다고 가정해 보겠습니다. 들어오는 요청과 동일한 비동기 제어 흐름에서 `BackgroundTask`가 시작되는 한 해당 부모 작업과 상관 관계가 지정됩니다. `BackgroundTask` 및 모든 중첩된 원격 분석 항목은 요청이 종료된 후에도 원인이 된 요청과의 상관 관계가 자동으로 지정됩니다.
 
-연결된 작업(`Activity`)이 없는 백그라운드 스레드에서 작업이 시작되면 `BackgroundTask`에는 부모가 없습니다. 그러나 중첩된 작업이 있을 수 있습니다. 이 작업에서 보고되는 모든 원격 분석 항목과 `DependencyTelemetry`에서 만들어진 `BackgroundTask` 사이의 상관 관계가 지정됩니다.
+연결된 작업(`Activity`)이 없는 백그라운드 스레드에서 작업이 시작되면 `BackgroundTask`에는 부모가 없습니다. 그러나 중첩된 작업이 있을 수 있습니다. 이 작업에서 보고되는 모든 원격 분석 항목과 `BackgroundTask`에서 만들어진 `DependencyTelemetry` 사이의 상관 관계가 지정됩니다.
 
 ## <a name="outgoing-dependencies-tracking"></a>나가는 종속성 추적
 사용자 고유의 종속성 종류 또는 Application Insights에서 지원하지 않는 작업을 추적할 수 있습니다.
@@ -399,7 +399,7 @@ Service Bus 큐의 `Enqueue` 메서드 또는 Azure Storage 큐는 이러한 사
 
 사용자 지정 종속성 추적을 위한 일반적인 방법은 다음과 같습니다.
 
-- 상관 관계 및 일부 다른 속성(시작 타임스탬프, 기간)에 필요한 `TelemetryClient.StartOperation` 속성을 채우는 `DependencyTelemetry`(확장) 메서드를 호출합니다.
+- 상관 관계 및 일부 다른 속성(시작 타임스탬프, 기간)에 필요한 `DependencyTelemetry` 속성을 채우는 `TelemetryClient.StartOperation`(확장) 메서드를 호출합니다.
 - 이름 및 기타 필요한 컨텍스트와 같이 `DependencyTelemetry`에서 다른 사용자 지정 속성을 설정합니다.
 - 종속성을 호출하고 기다립니다.
 - 완료되면 `StopOperation`을 통해 작업을 중지합니다.
@@ -425,7 +425,7 @@ public async Task RunMyTaskAsync()
 
 작업을 삭제하면 작업이 중지되므로 `StopOperation`을 호출하는 대신 수행할 수 있습니다.
 
-*경고*: 경우에 따라 예외가 발생 하지 않을 [`finally` 수 있으므로](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/try-finally) 작업이 추적 되지 않을 수 있습니다.
+*경고*: 경우에 따라 손으로 하지 않은 예외가 호출되지 [않을](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/try-finally) `finally` 수 있으므로 작업이 추적되지 않을 수 있습니다.
 
 ### <a name="parallel-operations-processing-and-tracking"></a>병렬 작업 처리 및 추적
 
@@ -468,17 +468,17 @@ public async Task RunAllTasks()
 }
 ```
 
-## <a name="applicationinsights-operations-vs-systemdiagnosticsactivity"></a>ApplicationInsights 작업 vs System.web. 작업
-`System.Diagnostics.Activity`는 분산 추적 컨텍스트를 나타내며, 프레임 워크 및 라이브러리에서 프로세스 내부 및 외부에 컨텍스트를 만들고 전파 하 고 원격 분석 항목의 상관 관계를 적용 하는 데 사용 됩니다. 활동은 `System.Diagnostics.DiagnosticSource`와 함께 작동 합니다. 프레임 워크/라이브러리 간의 알림 메커니즘을 사용 하 여 관심 있는 이벤트 (들어오거나 나가는 요청, 예외 등)에 대해 알립니다.
+## <a name="applicationinsights-operations-vs-systemdiagnosticsactivity"></a>응용 프로그램 인사이트 작업 대 시스템.진단.활동
+`System.Diagnostics.Activity`분산 추적 컨텍스트를 나타내며 프레임워크 및 라이브러리에서 프로세스 내부 및 외부컨텍스트를 만들고 전파하고 원격 분석 항목을 상호 연관시키는 데 사용됩니다. 활동은 흥미로운 `System.Diagnostics.DiagnosticSource` 이벤트(수신 또는 나가는 요청, 예외 등)에 대해 알리기 위해 프레임워크/라이브러리 간의 알림 메커니즘과 함께 작동합니다.
 
-활동은 Application Insights의 최고 수준의 시민이 며, 자동 종속성과 요청 컬렉션은 `DiagnosticSource` 이벤트와 함께 사용 됩니다. 응용 프로그램에서 작업을 만드는 경우 Application Insights 원격 분석이 생성 되지 않습니다. Application Insights는 DiagnosticSource 이벤트를 받고 작업을 원격 분석으로 변환 하는 이벤트 이름 및 페이로드를 알고 있어야 합니다.
+활동은 응용 프로그램 인사이트 및 자동 종속성및 요청 수집의 일류 `DiagnosticSource` 시민이며 이벤트와 함께 이에 크게 의존합니다. 응용 프로그램에서 활동을 만드는 경우 응용 프로그램 인사이트 원격 분석이 만들어지지 않습니다. 응용 프로그램 인사이트는 DiagnosticSource 이벤트를 수신하고 활동을 원격 분석으로 변환하기 위해 이벤트 이름과 페이로드를 알아야 합니다.
 
-각 Application Insights 작업 (요청 또는 종속성)에는 `Activity`이 포함 됩니다. `StartOperation`가 호출 되 면 아래에 작업이 생성 됩니다. `StartOperation`은 요청 또는 종속성 원격 분석을 수동으로 추적 하 고 모든 것이 상관 관계를 유지 하는 데 권장 되는 방법입니다.
+각 응용 프로그램 인사이트 작업(요청 `Activity` 또는 `StartOperation` 종속성)은 호출될 때 아래에 활동이 생성됩니다. `StartOperation`는 요청 또는 종속성 원격 분석을 수동으로 추적하고 모든 것이 상관 관계가 있는지 확인하는 권장 방법입니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 - Application Insights에서 [원격 분석 상관 관계](correlation.md) 기본 사항을 알아봅니다.
-- 상관 관계가 지정 된 데이터의 [트랜잭션 진단 환경](../../azure-monitor/app/transaction-diagnostics.md) 및 [응용 프로그램 맵을](../../azure-monitor/app/app-map.md)확인 합니다.
+- 상관 관계가 있는 데이터가 [트랜잭션 진단 환경](../../azure-monitor/app/transaction-diagnostics.md) 및 응용 프로그램 [맵을](../../azure-monitor/app/app-map.md)어떻게 강화하는지 확인하십시오.
 - Application Insights 유형 및 데이터 모델은 [데이터 모델](../../azure-monitor/app/data-model.md)을 참조합니다.
 - 사용자 지정 [이벤트 및 메트릭](../../azure-monitor/app/api-custom-events-metrics.md)을 Application Insights에 보고합니다.
 - 컨텍스트 속성 컬렉션에 대한 표준 [구성](configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet)을 확인합니다.

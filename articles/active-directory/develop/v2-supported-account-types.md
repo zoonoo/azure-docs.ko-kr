@@ -1,5 +1,5 @@
 ---
-title: 지원 되는 계정 유형-Microsoft identity platform | Microsoft
+title: 지원되는 계정 유형 - Microsoft ID 플랫폼 | Azure
 description: 애플리케이션의 대상 그룹 및 지원되는 계정 유형에 대한 개념 설명서
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,15 +17,15 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: de90c81f56b6017b2d53ecbfb2c400a4c9f05d81
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79262283"
 ---
 # <a name="supported-account-types"></a>지원되는 계정 유형
 
-이 문서에서는 응용 프로그램에서 지원 되는 계정 유형 (경우에 따라 이름이 지정 된 대상)을 설명 합니다.
+이 문서에서는 응용 프로그램에서 지원되는 계정 유형(때로는 명명된 대상)에 대해 설명합니다.
 
 <!-- This section can be in an include for many of the scenarios (SPA, Web App signing-in users, protecting a Web API, Desktop (depending on the flows), Mobile -->
 

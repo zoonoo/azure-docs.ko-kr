@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: tagore
 ms.openlocfilehash: 34cb4282f64544e67b3724699380d1d54fd9b806
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79247476"
 ---
 # <a name="sizes-for-cloud-services"></a>Cloud Services에 적합한 크기
@@ -53,7 +53,7 @@ Azure SKU에서 컴퓨팅(CPU) 성능을 비교하는 방법을 제공하고 성
 
 | SKU 제품군 | ACU/코어 |
 | --- | --- |
-| [ExtraSmall](#a-series) |50 |
+| [매우 작음](#a-series) |50 |
 | [Small-ExtraLarge](#a-series) |100 |
 | [A5-7](#a-series) |100 |
 | [A8-A11](#a-series) |225* |
@@ -214,7 +214,7 @@ Get-AzureRoleSize | where SupportedByWebWorkerRoles -eq $true | select InstanceS
 ```
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-resource-manager/management/azure-subscription-service-limits.md)에 대해 자세히 알아보세요.
+* Azure [구독 및 서비스 제한, 할당량 및 제약 조건에 대해 알아봅니다.](../azure-resource-manager/management/azure-subscription-service-limits.md)
 * 자세한 내용은 HPC 워크로드의 [고성능 컴퓨팅 VM 크기](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에 대해 자세히 알아보세요.
 
 

@@ -1,6 +1,6 @@
 ---
-title: 추적 및 로그 Azure Data Box, Azure Data Box Heavy 이벤트 | Microsoft Docs
-description: Azure Data Box의 다양 한 단계에서 이벤트를 추적 하 고 기록 하는 방법 및 Azure Data Box Heavy 순서를 설명 합니다.
+title: Azure 데이터 상자, Azure 데이터 상자 헤비 이벤트 추적 및 로그 | 마이크로 소프트 문서
+description: Azure 데이터 상자 및 Azure 데이터 상자 무거운 순서의 다양 한 단계에서 이벤트를 추적 하 고 로깅 하는 방법을 설명 합니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,79 +9,79 @@ ms.topic: article
 ms.date: 08/08/2019
 ms.author: alkohli
 ms.openlocfilehash: 72e1d3b0ad72b1e68b88eb0550cbe839ade9d929
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79260021"
 ---
-# <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy"></a>Azure Data Box 및 Azure Data Box Heavy에 대 한 추적 및 이벤트 로깅
+# <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy"></a>Azure 데이터 상자 및 Azure 데이터 상자 중대한 에 대한 추적 및 이벤트 로깅
 
-Data Box 또는 Data Box Heavy 순서는 순서, 설정, 데이터 복사, 반환, Azure에 업로드 및 확인 및 데이터 지우기 단계를 거칩니다. 주문에 대 한 각 단계에 해당 하는 여러 작업을 수행 하 여 주문에 대 한 액세스를 제어 하 고, 이벤트를 감사 하 고, 주문을 추적 하 고, 생성 되는 다양 한 로그를 해석할 수 있습니다.
+데이터 상자 또는 데이터 상자 무거운 순서는 다음 단계를 통해 간다: 순서, 설정, 데이터 복사, 반환, Azure에 업로드 하 고 확인, 그리고 데이터 삭제. 순서대로 각 단계에 대응하여 여러 작업을 수행하여 주문에 대한 액세스를 제어하고, 이벤트를 감사하고, 순서를 추적하고, 생성된 다양한 로그를 해석할 수 있습니다.
 
-다음 표에서는 각 단계에서 순서를 추적 하 고 감사 하는 데 사용할 수 있는 Data Box 또는 Data Box Heavy 주문 단계 및 도구에 대 한 요약을 보여 줍니다.
+다음 표에서는 데이터 상자 또는 데이터 상자 무거운 주문 단계의 요약과 각 단계에서 주문을 추적하고 감사하는 데 사용할 수 있는 도구에 대한 요약을 보여 주며, 이 에 대한 요약을 보여 주실 수 있습니다.
 
-| Data Box 주문 단계       | 추적 및 감사 도구                                                                        |
+| 데이터 박스 주문 단계       | 추적하고 감사할 수 있는 도구                                                                        |
 |----------------------------|------------------------------------------------------------------------------------------------|
-| 주문 만들기               | [RBAC를 통해 주문에 대 한 액세스 제어 설정](#set-up-access-control-on-the-order)                                                    |
-| 처리 된 주문            | [주문 추적](#track-the-order) <ul><li> Azure portal </li><li> 운송 업체 웹 사이트 </li><li>이메일 알림</ul> |
-| 디바이스 설정              | 장치 자격 증명 액세스는 [활동 로그](#query-activity-logs-during-setup) 에 기록 됩니다.                                              |
-| 장치에 데이터 복사        | 데이터 복사를 위한 [ *오류 .Xml* 파일 보기](#view-error-log-during-data-copy)                                                             |
-| 배송 준비            | 장치에서 BOM 파일 또는 매니페스트 파일 [을 검사 합니다](#inspect-bom-during-prepare-to-ship) .                                      |
-| Azure에 데이터 업로드       | Azure 데이터 센터에서 데이터를 업로드 하는 동안 오류에 대 한 [복사 로그 검토](#review-copy-log-during-upload-to-azure)                         |
-| 장치에서 데이터 지우기   | 감사 로그 및 주문 기록을 포함 하 [는 관리 권의 로그의 체인 보기](#get-chain-of-custody-logs-after-data-erasure)                |
+| 주문 만들기               | [RBAC를 통해 주문에 대한 액세스 제어 설정](#set-up-access-control-on-the-order)                                                    |
+| 주문 처리            | [통해 순서를 추적](#track-the-order) <ul><li> Azure portal </li><li> 배송 배송 캐리어 웹 사이트 </li><li>이메일 알림</ul> |
+| 디바이스 설정              | [활동 로그에](#query-activity-logs-during-setup) 기록된 장치 자격 증명 액세스                                              |
+| 장치에 대한 데이터 사본        | 데이터 복사본에 대한 [ *error.xml* 파일 보기](#view-error-log-during-data-copy)                                                             |
+| 배송 준비            | [BOM 파일](#inspect-bom-during-prepare-to-ship) 또는 장치의 매니페스트 파일 검사                                      |
+| Azure에 데이터 업로드       | Azure 데이터 센터에서 데이터 업로드 하는 동안 오류에 대 한 [복사 로그 검토](#review-copy-log-during-upload-to-azure)                         |
+| 장치에서 데이터 지우기   | 감사 로그 및 주문 내역을 포함한 [보관 로그 체인 보기](#get-chain-of-custody-logs-after-data-erasure)                |
 
-이 문서에서는 Data Box 또는 Data Box Heavy 순서를 추적 하 고 감사 하는 데 사용할 수 있는 다양 한 메커니즘 또는 도구에 대해 자세히 설명 합니다. 이 문서의 정보는, Data Box 및 Data Box Heavy에 모두 적용 됩니다. 이후 섹션에서는 Data Box에 대 한 모든 참조가 Data Box Heavy에도 적용 됩니다.
+이 문서에서는 데이터 상자 또는 데이터 상자 무거운 순서를 추적하고 감사하는 데 사용할 수 있는 다양한 메커니즘 또는 도구에 대해 자세히 설명합니다. 이 문서의 정보는 데이터 상자와 데이터 상자 헤비 모두에 적용됩니다. 이후 섹션에서는 데이터 상자에 대한 참조가 데이터 상자 헤비에도 적용됩니다.
 
-## <a name="set-up-access-control-on-the-order"></a>주문에 대 한 액세스 제어 설정
+## <a name="set-up-access-control-on-the-order"></a>주문에 대한 액세스 제어 설정
 
-주문이 처음 생성 될 때 주문에 액세스할 수 있는 사용자를 제어할 수 있습니다. 다양 한 범위에서 RBAC (역할 기반 Access Control) 역할을 설정 하 여 Data Box 순서에 대 한 액세스를 제어 합니다. RBAC 역할은 작업의 하위 집합에 대 한 읽기/쓰기, 읽기 전용, 읽기/쓰기 권한 유형을 결정 합니다.
+주문이 처음 생성될 때 주문에 액세스할 수 있는 사람을 제어할 수 있습니다. 다양한 범위에서 역할 기반 액세스 제어(RBAC) 역할을 설정하여 데이터 상자 순서에 대한 액세스를 제어합니다. RBAC 역할은 작업의 하위 집합에 대한 읽기-쓰기, 읽기 전용, 읽기-쓰기-액세스 유형을 결정합니다.
 
-Azure Data Box 서비스에 대해 정의할 수 있는 두 가지 역할은 다음과 같습니다.
+Azure 데이터 박스 서비스에 대해 정의할 수 있는 두 가지 역할은 다음과 같습니다.
 
-- **Data Box 판독기** -범위에 정의 된 주문에 대 한 읽기 전용 액세스 권한이 있습니다. 주문에 대 한 세부 정보만 볼 수 있습니다. 저장소 계정과 관련 된 다른 정보에 액세스 하거나 주소 등의 주문 세부 정보를 편집할 수 없습니다.
-- **Data Box 참여자** - *저장소 계정에 대 한 쓰기 권한이 이미 있는 경우*지정 된 저장소 계정으로 데이터를 전송 하는 순서만 만들 수 있습니다. 저장소 계정에 대 한 액세스 권한이 없는 경우 계정에 데이터를 복사 하는 Data Box 순서를 만들 수 없습니다. 이 역할은 저장소 계정 관련 사용 권한을 정의 하지 않으며 저장소 계정에 대 한 액세스 권한을 부여 하지 않습니다.  
+- **데이터 상자 판독기** - 범위에 정의된 순서에 대한 읽기 전용 액세스 권한이 있습니다. 주문의 세부 정보만 볼 수 있습니다. 저장소 계정과 관련된 다른 세부 정보에 액세스하거나 주소 등의 주문 세부 정보를 편집할 수 없습니다.
+- **데이터 상자 기여자** - 저장소 계정에 대한 쓰기 *액세스 권한이 이미 있는 경우에만*지정된 저장소 계정으로 데이터를 전송하는 주문을 만들 수 있습니다. 저장소 계정에 액세스할 수 없는 경우 계정에 데이터를 복사하는 데이터 상자 주문을 만들 수도 없습니다. 이 역할은 저장소 계정 관련 권한을 정의하지 않으며 저장소 계정에 대한 액세스 권한을 부여하지 않습니다.  
 
-주문에 대 한 액세스를 제한 하려면 다음을 수행할 수 있습니다.
+주문에 대한 액세스를 제한하려면 다음을 수행할 수 있습니다.
 
-- 순서 수준에서 역할을 할당 합니다. 사용자에 게는 해당 특정 Data Box 순서만 상호 작용 하기 위해 역할에 정의 된 권한만 있고 다른 작업은 없습니다.
-- 리소스 그룹 수준에서 역할을 할당 합니다. 사용자는 리소스 그룹 내의 모든 Data Box 주문에 액세스할 수 있습니다.
+- 주문 수준에서 역할을 할당합니다. 사용자는 특정 데이터 상자 순서만 상호 작용하는 역할에 정의된 권한만 가지고 있으며 다른 권한은 없습니다.
+- 리소스 그룹 수준에서 역할을 할당하면 사용자는 리소스 그룹 내의 모든 데이터 상자 주문에 액세스할 수 있습니다.
 
-권장 RBAC 사용에 대 한 자세한 내용은 [rbac에 대 한 모범 사례](../role-based-access-control/overview.md#best-practice-for-using-rbac)를 참조 하세요.
+제안된 RBAC 사용에 대한 자세한 내용은 [RBAC에 대한 모범 사례를](../role-based-access-control/overview.md#best-practice-for-using-rbac)참조하십시오.
 
 ## <a name="track-the-order"></a>주문 추적
 
-Azure Portal 및 운송 업체 웹 사이트를 통해 주문을 추적할 수 있습니다. 다음 메커니즘은 언제 든 지 Data Box 순서를 추적 하는 데 사용할 수 있습니다.
+Azure 포털및 배송사업자 웹사이트를 통해 주문을 추적할 수 있습니다. 언제든지 데이터 상자 순서를 추적하기 위한 다음 메커니즘이 있습니다.
 
-- 장치가 Azure 데이터 센터 또는 온-프레미스에 있는 경우 순서를 추적 하려면 Azure Portal에서 **Data Box > 개요** 로 이동 합니다.
+- 장치가 Azure 데이터 센터 또는 구내에 있는 경우 순서를 추적하려면 Azure Portal의 **데이터 상자 주문 > 개요로** 이동합니다.
 
-    ![주문 상태 보기 및 추적 안 함](media/data-box-logs/overview-view-status-1.png)
+    ![주문 상태 및 추적 없음 보기](media/data-box-logs/overview-view-status-1.png)
 
-- 장치가 전송 되는 동안 주문을 추적 하려면 지역 통신 회사 웹 사이트 (예: US의 UPS 웹 사이트)로 이동 합니다. 주문과 관련 된 추적 번호를 제공 합니다.
-- 또한 Data Box는 주문 생성 시 제공 된 전자 메일에 따라 주문 상태가 변경 될 때마다 전자 메일 알림을 보냅니다. 모든 Data Box 주문 [상태 목록은 주문 상태 보기](data-box-portal-admin.md#view-order-status)를 참조 하세요. 주문과 연결 된 알림 설정을 변경 하려면 [알림 세부 정보 편집](data-box-portal-admin.md#edit-notification-details)을 참조 하세요.
+- 기기가 운송 되는 동안 주문을 추적하려면 지역 이동통신사 웹사이트(예: 미국 UPS 웹 사이트)로 이동하십시오. 주문과 연결된 추적 번호를 제공합니다.
+- 또한 Data Box는 주문이 생성될 때 제공된 이메일에 따라 주문 상태가 변경될 때마다 이메일 알림을 보냅니다. 모든 데이터 상자 주문 상태 목록은 [주문 보기 상태를](data-box-portal-admin.md#view-order-status)참조하십시오. 주문과 관련된 알림 설정을 변경하려면 [알림 세부 정보 편집을](data-box-portal-admin.md#edit-notification-details)참조하십시오.
 
-## <a name="query-activity-logs-during-setup"></a>설치 하는 동안 활동 로그 쿼리
+## <a name="query-activity-logs-during-setup"></a>설정 중 작업 로그 쿼리
 
-- Data Box가 잠긴 상태에서 온-프레미스에 도착 합니다. Azure Portal에서 사용할 수 있는 장치 자격 증명을 순서 대로 사용할 수 있습니다.  
+- 데이터 상자는 잠긴 상태로 구내에 도착합니다. Azure 포털에서 사용할 수 있는 장치 자격 증명을 주문에 사용할 수 있습니다.  
 
-    Data Box 설정 되 면 장치 자격 증명에 액세스 한 사람을 알아야 할 수 있습니다. **장치 자격 증명** 블레이드에 액세스 한 사람을 파악 하기 위해 활동 로그를 쿼리할 수 있습니다.  **장치 세부 정보 > 자격 증명에 대** 한 액세스를 포함 하는 모든 작업은 `ListCredentials` 작업으로 활동 로그에 기록 됩니다.
+    데이터 상자를 설정하면 누가 장치 자격 증명에 액세스하는지 알아야 할 수 있습니다. **장치 자격 증명** 블레이드에 액세스한 사람을 파악하려면 활동 로그를 쿼리할 수 있습니다.  장치 세부 정보 **> 자격 증명** 블레이드에 액세스하는 모든 작업은 `ListCredentials` 활동 로그에 작업으로 기록됩니다.
 
     ![활동 로그 쿼리](media/data-box-logs/query-activity-log-1.png)
 
-- Data Box에 대 한 각 로그인은 실시간으로 기록 됩니다. 그러나이 정보는 주문이 성공적으로 완료 된 후에 [감사 로그](#audit-logs) 에서만 사용할 수 있습니다.
+- 데이터 상자에 있는 각 로그인은 실시간으로 기록됩니다. 그러나 이 정보는 주문이 성공적으로 완료된 후 [감사 로그에서만](#audit-logs) 사용할 수 있습니다.
 
-## <a name="view-error-log-during-data-copy"></a>데이터를 복사 하는 동안 오류 로그 보기
+## <a name="view-error-log-during-data-copy"></a>데이터 복사 중 오류 로그 보기
 
-Data Box 또는 Data Box Heavy 데이터를 복사 하는 동안 복사 되는 데이터에 문제가 있으면 오류 파일이 생성 됩니다.
+데이터 상자 또는 데이터 상자 헤비에 데이터 복사 하는 동안 복사 하는 데이터에 문제가 있는 경우 오류 파일이 생성 됩니다.
 
-### <a name="errorxml-file"></a>오류 .xml 파일
+### <a name="errorxml-file"></a>오류.xml 파일
 
-복사 작업이 오류 없이 완료 되었는지 확인 합니다. 복사하는 동안 오류가 있는 경우 **연결 및 복사** 페이지에서 로그를 다운로드합니다.
+복사 작업이 오류 없이 완료되었는지 확인합니다. 복사하는 동안 오류가 있는 경우 **연결 및 복사** 페이지에서 로그를 다운로드합니다.
 
-- 512 바이트가 아닌 파일을 Data Box의 관리 디스크 폴더에 복사한 경우 파일은 준비 저장소 계정에 페이지 blob으로 업로드 되지 않습니다. 로그에 오류가 표시됩니다. 파일을 제거하고 512 바이트로 정렬된 파일을 복사합니다.
-- VHDX 또는 동적 VHD 또는 차이점 보관용 VHD를 복사한 경우 (이러한 파일은 지원 되지 않음) 로그에 오류가 표시 됩니다.
+- 데이터 상자의 관리 디스크 폴더에 정렬된 512바이트가 아닌 파일을 복사한 경우 파일이 스테이징 저장소 계정에 페이지 Blob로 업로드되지 않습니다. 로그에 오류가 표시됩니다. 파일을 제거하고 512 바이트로 정렬된 파일을 복사합니다.
+- VHDX 또는 동적 VHD 또는 다른 VHD(이러한 파일은 지원되지 않음)를 복사한 경우 로그에 오류가 표시됩니다.
 
-다음은 managed disks에 복사할 때 발생 하는 오류에 대 한 xml의 샘플입니다 *.*
+다음은 관리되는 디스크에 복사할 때 다른 오류에 대한 *error.xml의* 샘플입니다.
 
 ```xml
 <file error="ERROR_BLOB_OR_FILE_TYPE_UNSUPPORTED">\StandardHDD\testvhds\differencing-vhd-022019.vhd</file>
@@ -90,7 +90,7 @@ Data Box 또는 Data Box Heavy 데이터를 복사 하는 동안 복사 되는 �
 <file error="ERROR_BLOB_OR_FILE_TYPE_UNSUPPORTED">\StandardHDD\testvhds\insidediffvhd-022019.vhd</file>
 ```
 
-다음은 페이지 blob에 복사할 때 발생 하는 오류에 대 한 xml의 샘플입니다 *.*
+다음은 페이지 Blob에 복사할 때 다른 오류에 대한 *error.xml의* 샘플입니다.
 
 ```xml
 <file error="ERROR_BLOB_OR_FILE_SIZE_ALIGNMENT">\PageBlob512NotAligned\File100Bytes</file>
@@ -101,7 +101,7 @@ Data Box 또는 Data Box Heavy 데이터를 복사 하는 동안 복사 되는 �
 ```
 
 
-블록 blob에 복사할 때 발생 하는 오류에 대 한 *xml* 의 샘플은 다음과 같습니다.
+다음은 Blob을 차단하기 위해 복사할 때 다른 오류에 대한 *error.xml의* 샘플입니다.
 
 ```xml
 <file error="ERROR_CONTAINER_OR_SHARE_NAME_LENGTH">\ab</file>
@@ -129,7 +129,7 @@ Data Box 또는 Data Box Heavy 데이터를 복사 하는 동안 복사 되는 �
 <file error="ERROR_BLOB_OR_FILE_NAME_CHARACTER_ILLEGAL" name_encoding="Base64">XEludmFsaWRVbmljb2RlRmlsZXNcU3BjQ2hhci01NTI5Ny3vv70=</file>
 ```
 
-Azure Files에 복사할 때 발생 하는 오류에 대 한 xml의 샘플은 다음과 같습니다 *.*
+다음은 Azure Files로 복사할 때 다른 오류에 대한 *error.xml의* 샘플입니다.
 
 ```xml
 <file error="ERROR_BLOB_OR_FILE_SIZE_LIMIT">\AzFileMorethan1TB\AzFile1.2TB</file>
@@ -147,31 +147,31 @@ Azure Files에 복사할 때 발생 하는 오류에 대 한 xml의 샘플은 �
 <file error="ERROR_CONTAINER_OR_SHARE_NAME_ALPHA_NUMERIC_DASH">\Starting with Capital</file>
 ```
 
-위의 각 경우에서 다음 단계로 진행 하기 전에 오류를 해결 하십시오. SMB 또는 NFS 프로토콜을 통해 Data Box으로 데이터를 복사 하는 동안 수신 된 오류에 대 한 자세한 내용은 [문제 해결 Data Box 및 Data Box Heavy 문제](data-box-troubleshoot.md)를 참조 하세요. REST를 통해 Data Box으로 데이터를 복사 하는 동안 수신 되는 오류에 대 한 자세한 내용은 [Blob storage 문제 해결 Data Box](data-box-troubleshoot-rest.md)을 참조 하세요.
+위의 각 경우에서 다음 단계를 진행하기 전에 오류를 해결합니다. SMB 또는 NFS 프로토콜을 통해 데이터 상자에 데이터 복사 중에 발생한 오류에 대한 자세한 내용은 [문제 해결 데이터 상자 및 데이터 상자 무거운 문제로](data-box-troubleshoot.md)이동하십시오. REST를 통해 데이터 상자에 데이터 복사 중에 받은 오류에 대한 자세한 내용은 [문제 해결 데이터 상자 Blob 저장소 문제로](data-box-troubleshoot-rest.md)이동하십시오.
 
-## <a name="inspect-bom-during-prepare-to-ship"></a>준비 중 BOM 검사
+## <a name="inspect-bom-during-prepare-to-ship"></a>출하 준비 중 BOM 검사
 
-출시 준비 중에 BOM (자재 청구) 또는 매니페스트 파일 이라는 파일 목록이 생성 됩니다.
+배송을 준비하는 동안 BOM(BOM) 또는 매니페스트 파일로 알려진 파일 목록이 만들어집니다.
 
-- 이 파일을 사용 하 여 실제 이름과 Data Box에 복사 된 파일 수를 확인 합니다.
-- 이 파일을 사용 하 여 파일의 실제 크기를 확인 합니다.
-- *Crc64* 이 0이 아닌 문자열에 해당 하는지 확인 합니다. <!--A null value for crc64 indicates that there was a reparse point error)-->
+- 이 파일을 사용하여 데이터 상자에 복사된 파일의 실제 이름과 수에 대해 확인합니다.
+- 이 파일을 사용하여 파일의 실제 크기에 대해 확인합니다.
+- *crc64가* 0이 아닌 문자열에 해당하는지 확인합니다. <!--A null value for crc64 indicates that there was a reparse point error)-->
 
-준비 중에 수신 되는 오류에 대 한 자세한 내용은 문제 [해결 Data Box 및 Data Box Heavy 문제](data-box-troubleshoot.md)를 참조 하세요.
+배송 준비 중에 받은 오류에 대한 자세한 내용은 [문제 해결 데이터 상자 및 데이터 상자 무거운 문제로](data-box-troubleshoot.md)이동하십시오.
 
 ### <a name="bom-or-manifest-file"></a>BOM 또는 매니페스트 파일
 
-BOM 또는 매니페스트 파일에는 Data Box 장치에 복사 되는 모든 파일의 목록이 포함 됩니다. BOM 파일에는 체크섬 뿐만 아니라 파일 이름과 해당 크기가 있습니다. 블록 blob, 페이지 blob, Azure Files에 대 한 별도의 BOM 파일이 생성 되 고 REST Api를 통해 복사 하는 경우에는 Data Box에서 관리 디스크로 복사 됩니다. 준비를 제공 하는 동안 장치의 로컬 웹 UI에서 BOM 파일을 다운로드할 수 있습니다.
+BOM 또는 매니페스트 파일에는 데이터 상자 장치에 복사된 모든 파일 목록이 포함되어 있습니다. BOM 파일에는 파일 이름과 해당 크기 및 체크섬이 있습니다. 블록 Blob, 페이지 Blob, Azure 파일, REST API를 통한 복사 및 데이터 상자에서 관리되는 디스크에 대한 복사본에 대해 별도의 BOM 파일이 만들어집니다. 출하 준비 중에 장치의 로컬 웹 UI에서 BOM 파일을 다운로드할 수 있습니다.
 
-이러한 파일은 Data Box 장치에도 있으며 Azure 데이터 센터의 연결 된 저장소 계정에 업로드 됩니다.
+이러한 파일은 데이터 상자 장치에도 상주하며 Azure 데이터 센터의 연결된 저장소 계정에 업로드됩니다.
 
 ### <a name="bom-file-format"></a>BOM 파일 형식
 
-BOM 또는 매니페스트 파일의 일반적인 형식은 다음과 같습니다.
+BOM 또는 매니페스트 파일에는 다음과 같은 일반적인 형식이 있습니다.
 
 `<file size = "file-size-in-bytes" crc64="cyclic-redundancy-check-string">\folder-path-on-data-box\name-of-file-copied.md</file>`
 
-다음은 Data Box의 블록 blob 공유에 데이터가 복사 될 때 생성 되는 매니페스트의 샘플입니다.
+다음은 데이터가 데이터 상자의 블록 Blob 공유에 복사될 때 생성된 매니페스트의 샘플입니다.
 
 ```
 <file size="10923" crc64="0x51c78833c90e4e3f">\databox\media\data-box-deploy-copy-data\connect-shares-file-explorer1.png</file>
@@ -191,29 +191,29 @@ BOM 또는 매니페스트 파일의 일반적인 형식은 다음과 같습니�
 <file size="3220" crc64="0x7257a263c434839a">\databox\data-box-system-requirements.md</file>
 ```
 
-BOM 또는 매니페스트 파일도 Azure 저장소 계정에 복사 됩니다. BOM 또는 매니페스트 파일을 사용 하 여 Azure에 업로드 된 파일이 Data Box에 복사 된 데이터와 일치 하는지 확인할 수 있습니다.
+BOM 또는 매니페스트 파일도 Azure 저장소 계정에 복사됩니다. BOM 또는 매니페스트 파일을 사용하여 Azure에 업로드된 파일이 데이터 상자에 복사된 데이터와 일치하는지 확인할 수 있습니다.
 
-## <a name="review-copy-log-during-upload-to-azure"></a>Azure에 업로드 하는 동안 복사 로그 검토
+## <a name="review-copy-log-during-upload-to-azure"></a>Azure에 업로드하는 동안 복사 로그 검토
 
-Azure로 데이터를 업로드 하는 동안 복사 로그가 생성 됩니다.
+Azure에 데이터를 업로드하는 동안 복사 로그가 만들어집니다.
 
 ### <a name="copy-log"></a>로그 복사
 
-처리 되는 각 주문에 대해 Data Box 서비스는 연결 된 저장소 계정에 복사 로그를 만듭니다. 복사 로그에는 업로드 된 총 파일 수와 Data Box에서 Azure storage 계정으로 데이터를 복사 하는 동안 오류 발생 된 파일 수가 있습니다.
+처리되는 각 주문에 대해 Data Box 서비스는 연결된 저장소 계정에 복사 로그를 만듭니다. 복사 로그에는 업로드된 총 파일 수와 데이터 상자에서 Azure 저장소 계정으로의 데이터 복사 중에 오류가 발생한 파일 수가 있습니다.
 
-Azure로 업로드 하는 동안 CRC (순환 중복 검사) 계산이 수행 됩니다. 데이터 복사와 데이터 업로드 후의 CRCs가 비교 됩니다. CRC 불일치는 해당 파일을 업로드 하지 못했음을 나타냅니다.
+순환 중복 검사(CRC) 계산은 Azure에 업로드하는 동안 수행됩니다. 데이터 복사 및 데이터 업로드 후의 CRC를 비교합니다. CRC 불일치는 해당 파일이 업로드되지 못했음을 나타냅니다.
 
-기본적으로 로그는 `copylog`라는 컨테이너에 기록됩니다. 로그는 다음과 같은 명명 규칙을 사용 하 여 저장 됩니다.
+기본적으로 로그는 `copylog`라는 컨테이너에 기록됩니다. 로그는 다음과 같은 명명 규칙과 함께 저장됩니다.
 
-`storage-account-name/databoxcopylog/ordername_device-serial-number_CopyLog_guid.xml`입니다.
+`storage-account-name/databoxcopylog/ordername_device-serial-number_CopyLog_guid.xml`.
 
-또한 포털에 대 한 **개요** 블레이드에서 복사 로그 경로도 표시 됩니다.
+복사 로그 경로는 포털의 **개요** 블레이드에도 표시됩니다.
 
-![완료 되 면 개요 블레이드의 복사 로그 경로](media/data-box-logs/copy-log-path-1.png)
+![완료되면 개요 블레이드에서 로그 복사 경로](media/data-box-logs/copy-log-path-1.png)
 
-### <a name="upload-completed-successfully"></a>업로드가 완료 되었습니다. 
+### <a name="upload-completed-successfully"></a>업로드가 성공적으로 완료됨 
 
-다음 샘플에서는 성공적으로 완료 된 Data Box 업로드에 대 한 복사 로그의 일반 형식을 설명 합니다.
+다음 샘플에서는 성공적으로 완료된 데이터 상자 업로드에 대한 복사 로그의 일반적인 형식에 대해 설명합니다.
 
 ```
 <?xml version="1.0"?>
@@ -224,13 +224,13 @@ Azure로 업로드 하는 동안 CRC (순환 중복 검사) 계산이 수행 됩
 </CopyLog>
 ```
 
-### <a name="upload-completed-with-errors"></a>업로드가 완료 되었으나 오류가 발생 했습니다. 
+### <a name="upload-completed-with-errors"></a>오류로 완료된 업로드 
 
-Azure로 업로드가 완료 되 면 오류가 발생할 수도 있습니다.
+Azure에 업로드하는 데 오류가 발생할 수도 있습니다.
 
-![오류가 발생 했을 때 개요 블레이드에서 복사 로그 경로](media/data-box-logs/copy-log-path-2.png)
+![오류로 완료될 때 개요 블레이드에서 로그 복사 경로](media/data-box-logs/copy-log-path-2.png)
 
-다음은 업로드가 완료 되었으나 오류가 발생 한 복사 로그의 예입니다.
+다음은 업로드가 오류로 완료된 복사 로그의 예입니다.
 
 ```xml
 <ErroredEntity Path="iso\samsungssd.iso">
@@ -249,15 +249,15 @@ Azure로 업로드가 완료 되 면 오류가 발생할 수도 있습니다.
   <FilesErrored>2</FilesErrored>
 </CopyLog>
 ```
-### <a name="upload-completed-with-warnings"></a>업로드가 완료 되었지만 경고가 발생 했습니다.
+### <a name="upload-completed-with-warnings"></a>경고와 함께 완료된 업로드
 
-Azure로의 업로드는 Azure 명명 규칙을 준수 하지 않는 컨테이너/b a b/파일 이름이 데이터에 있고 Azure에 데이터를 업로드 하기 위해 이름이 수정 된 경우 경고와 함께 완료 됩니다.
+데이터에 Azure 명명 규칙을 준수하지 않는 컨테이너/Blob/파일 이름이 있고 Azure에 데이터를 업로드하도록 이름이 수정된 경우 Azure에 업로드가 완료됩니다.
 
-![경고와 함께 완료 되었을 때 개요 블레이드에서 복사 로그 경로](media/data-box-logs/copy-log-path-3.png)
+![경고와 함께 완료되면 개요 블레이드에서 로그 복사 경로](media/data-box-logs/copy-log-path-3.png)
 
-Azure로 데이터를 업로드 하는 동안 Azure 명명 규칙을 준수 하지 않는 컨테이너의 이름이 바뀐 복사 로그의 예는 다음과 같습니다.
+다음은 Azure에 데이터를 업로드하는 동안 Azure 명명 규칙을 준수하지 않는 컨테이너의 이름이 변경된 복사 로그의 예입니다.
 
-컨테이너의 새로운 고유 이름은 `DataBox-GUID` 형식으로 되어 있으며 컨테이너의 데이터는 이름이 바뀐 새 컨테이너에 저장 됩니다. 복사 로그는 컨테이너에 대 한 이전 및 새 컨테이너 이름을 지정 합니다.
+컨테이너에 대한 새 고유 이름은 `DataBox-GUID` 형식에 있으며 컨테이너의 데이터는 이름이 변경된 새 컨테이너에 저장됩니다. 복사 로그는 컨테이너의 이전 컨테이너 이름과 새 컨테이너 이름을 지정합니다.
 
 ```xml
 <ErroredEntity Path="New Folder">
@@ -268,9 +268,9 @@ Azure로 데이터를 업로드 하는 동안 Azure 명명 규칙을 준수 하�
 </ErroredEntity>
 ```
 
-Azure로 데이터를 업로드 하는 동안 Azure 명명 규칙을 따르지 않는 blob 또는 파일의 이름이 바뀐 복사 로그의 예는 다음과 같습니다. 새 blob 또는 파일 이름은 컨테이너에 대 한 상대 경로의 SHA256 다이제스트로 변환 되 고 대상 유형에 따라 경로에 업로드 됩니다. 대상은 블록 blob, 페이지 blob 또는 Azure Files 수 있습니다.
+다음은 Azure 명명 규칙을 준수하지 않는 Blob 또는 파일이 Azure에 데이터를 업로드하는 동안 이름이 변경된 복사 로그의 예입니다. 새 Blob 또는 파일 이름은 컨테이너에 대한 상대 경로의 SHA256 다이제스트로 변환되고 대상 유형에 따라 경로에 업로드됩니다. 대상은 블록 Blob, 페이지 Blob 또는 Azure 파일일 수 있습니다.
 
-`copylog`은 Azure에서 이전 및 새 blob 또는 파일 이름과 경로를 지정 합니다.
+이전 `copylog` 및 새 Blob 또는 파일 이름 및 Azure의 경로를 지정합니다.
 
 ```xml
 <ErroredEntity Path="TesDir028b4ba9-2426-4e50-9ed1-8e89bf30d285\Ã">
@@ -291,15 +291,15 @@ Azure로 데이터를 업로드 하는 동안 Azure 명명 규칙을 따르지 �
 </ErroredEntity>
 ```
 
-## <a name="get-chain-of-custody-logs-after-data-erasure"></a>데이터 지우기 후 관리 권의 로그 체인 가져오기
+## <a name="get-chain-of-custody-logs-after-data-erasure"></a>데이터 삭제 후 관리 로그 체인 받기
 
-NIST SP 800-88 수정 1 지침에 따라 Data Box 디스크에서 데이터를 지운 후에는 관리 권의 로그 체인을 사용할 수 있습니다. 이러한 로그에는 감사 로그 및 주문 기록이 포함 됩니다. BOM 또는 매니페스트 파일도 감사 로그를 사용 하 여 복사 됩니다.
+NIST SP 800-88 개정 1 지침에 따라 데이터 상자 디스크에서 데이터가 지워진 후 관리 로그 체인을 사용할 수 있습니다. 이러한 로그에는 감사 로그와 주문 기록이 포함됩니다. BOM 또는 매니페스트 파일도 감사 로그와 함께 복사됩니다.
 
 ### <a name="audit-logs"></a>감사 로그
 
-감사 로그에는 Azure 데이터 센터 외부에 있을 때 Data Box 또는 Data Box Heavy에서 전원 켜기 및 액세스 하는 방법에 대 한 정보가 포함 되어 있습니다. 이러한 로그는: `storage-account/azuredatabox-chainofcustodylogs`에 있습니다.
+감사 로그에는 Azure 데이터 센터 외부에 있을 때 데이터 상자 또는 데이터 상자 Heavy의 공유전원을 켜고 액세스하는 방법에 대한 정보가 포함되어 있습니다. 이러한 로그는 다음 에 있습니다.`storage-account/azuredatabox-chainofcustodylogs`
 
-다음은 Data Box의 감사 로그 샘플입니다.
+다음은 데이터 상자의 감사 로그 샘플입니다.
 
 ```
 9/10/2018 8:23:01 PM : The operating system started at system time ‎2018‎-‎09‎-‎10T20:23:01.497758400Z.
@@ -354,15 +354,15 @@ The authentication information fields provide detailed information about this sp
 
 ## <a name="download-order-history"></a>주문 기록 다운로드
 
-Azure Portal에서 주문 기록을 사용할 수 있습니다. 주문이 완료 되 고 장치 정리 (디스크에서 데이터 지우기)가 완료 되 면 장치 주문으로 이동 하 여 **주문 정보**로 이동 합니다. **주문 기록 다운로드** 옵션을 사용할 수 있습니다. 자세한 내용은 [다운로드 주문 기록](data-box-portal-admin.md#download-order-history)을 참조 하세요.
+주문 내역은 Azure 포털에서 사용할 수 있습니다. 주문이 완료되고 장치 정리(디스크에서 데이터 삭제)가 완료되면 장치 순서로 이동하여 주문 **세부 정보로**이동합니다. **주문 기록 다운로드** 옵션을 사용할 수 있습니다. 자세한 내용은 [주문 내역 다운로드를](data-box-portal-admin.md#download-order-history)참조하십시오.
 
-주문 내역을 스크롤하면 다음과 같이 표시 됩니다.
+주문 내역을 스크롤하면 다음이 표시됩니다.
 
-- 장치에 대 한 반송파 추적 정보입니다.
-- *Secureerase* 작업을 사용 하는 이벤트입니다. 이러한 이벤트는 디스크의 데이터를 지울 때 해당 됩니다.
-- 로그 링크를 Data Box 합니다. *감사 로그*, *복사 로그*및 *BOM* 파일의 경로가 표시 됩니다.
+- 기기의 이동통신사 추적 정보.
+- *SecureErase* 활동이 있는 이벤트입니다. 이러한 이벤트는 디스크의 데이터 지우기와 일치합니다.
+- 데이터 상자 로그 링크입니다. *감사 로그,* *복사 로그*및 *BOM* 파일에 대한 경로가 표시됩니다.
 
-다음은 Azure Portal의 주문 기록 로그 샘플입니다.
+Azure 포털의 주문 기록 로그의 샘플은 다음과 같습니다.
 
 ```
 -------------------------------
@@ -413,4 +413,4 @@ BOM Files Path       : azuredatabox-chainofcustodylogs\<GUID>\<Device-serial-no>
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Data Box 및 Data Box Heavy에 대 한 문제를 해결](data-box-troubleshoot.md)하는 방법을 알아봅니다.
+- [데이터 상자 및 데이터 상자 헤비에서 문제를 해결하는](data-box-troubleshoot.md)방법에 대해 알아봅니다.

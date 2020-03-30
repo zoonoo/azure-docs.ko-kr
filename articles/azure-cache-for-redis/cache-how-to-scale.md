@@ -1,16 +1,16 @@
 ---
 title: Azure Cache for Redis 크기를 조정하는 방법
-description: Azure Portal 및 Azure PowerShell, Azure CLI 등의 도구를 사용 하 여 Redis 인스턴스에 대 한 Azure 캐시 크기를 조정 하는 방법에 대해 알아봅니다.
+description: Azure 포털 및 Azure PowerShell 및 Azure CLI와 같은 도구를 사용하여 Redis 인스턴스에 대한 Azure 캐시의 크기를 조정하는 방법을 알아봅니다.
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 04/11/2017
 ms.openlocfilehash: 68c668561123aee943f54e6fdcbad7c6450957f4
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79278000"
 ---
 # <a name="how-to-scale-azure-cache-for-redis"></a>Azure Cache for Redis 크기를 조정하는 방법
@@ -64,7 +64,7 @@ Azure Portal에서 캐시 인스턴스의 크기를 조정할 뿐만 아니라 P
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-[, ](https://docs.microsoft.com/powershell/module/az.rediscache/set-azrediscache) 또는 `Size` 속성을 수정할 때 `Sku`Set-AzRedisCache`ShardCount` cmdlet를 사용하여 PowerShell을 통해 Azure Cache for Redis 인스턴스의 크기를 조정할 수 있습니다. 다음 예제에서는 `myCache` 라는 캐시를 2.5GB 캐시로 크기를 조정하는 방법을 보여 줍니다. 
+의 속성이 `Sku` `ShardCount` 수정될 때 `Size` [Set-AzRedisCache](https://docs.microsoft.com/powershell/module/az.rediscache/set-azrediscache) cmdlet을 사용하여 PowerShell을 사용하여 Redis 인스턴스에 대한 Azure 캐시를 확장할 수 있습니다. 다음 예제에서는 `myCache` 라는 캐시를 2.5GB 캐시로 크기를 조정하는 방법을 보여 줍니다. 
 
     Set-AzRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
 
@@ -126,7 +126,7 @@ Azure Cache for Redis 크기 조정에 대해 자주 묻는 질문과 대답이 
 ### <a name="how-does-scaling-work"></a>크기 조정은 어떻게 수행되나요?
 * **기본** 캐시 크기를 다른 크기로 조정하는 경우 캐시가 종료되고 새 크기를 사용하여 새 캐시를 프로비전합니다. 이 시간 동안에는 캐시를 사용할 수 없으며 캐시의 모든 데이터가 손실됩니다.
 * **기본** 캐시를 **표준** 캐시로 확장하는 경우 복제본 캐시가 프로비전되며 데이터가 주 캐시에서 복제본 캐시로 복사됩니다. 크기를 조정하는 동안 캐시를 계속 사용할 수 있습니다.
-* **표준** 캐시 크기를 다른 크기 또는 **프리미엄** 캐시로 조정하는 경우 복제본 중 하나가 종료되고 새 크기로 다시 프로비전되며 데이터가 전송됩니다. 그런 다음 나머지 복제본이 장애 조치(failover)를 수행한 후 다시 프로비전됩니다. 캐시 노드 중 하나에 오류가 발생하면 수행되는 프로세스와 비슷합니다.
+* **표준** 캐시가 다른 크기 또는 **프리미엄** 캐시로 확장되면 복제본 중 하나가 종료되고 새 크기로 다시 프로비전되고 데이터가 전송된 다음 다른 복제본은 캐시 노드 중 하나의 장애 발생 시 발생하는 프로세스와 유사하게 다시 프로비저닝되기 전에 장애 조치(failover)를 수행합니다.
 
 ### <a name="will-i-lose-data-from-my-cache-during-scaling"></a>크기를 조정하는 동안 캐시의 데이터가 손실되나요?
 * **기본** 캐시 크기를 새 크기로 조정하는 경우 모든 데이터가 손실되고 크기 조정 작업을 수행하는 동안 캐시를 사용할 수 없습니다.
@@ -166,7 +166,7 @@ Azure Cache for Redis 크기 조정에 대해 자주 묻는 질문과 대답이 
 
 
 ### <a name="how-long-does-scaling-take"></a>크기 조정은 시간이 얼마나 걸리나요?
-크기 조정 시간은 캐시에 있는 데이터의 양에 따라 달라 지 며 완료 하는 데 시간이 더 오래 걸립니다. 크기 조정에는 약 20 분이 걸립니다. 클러스터형 캐시의 경우 분할은 분할 당 약 20 분이 걸립니다.
+크기 조정 시간은 캐시에 있는 데이터의 양에 따라 달라지며, 더 많은 양의 데이터를 완료하는 데 시간이 더 오래 걸린다. 크기 조정은 약 20분 정도 걸립니다. 클러스터된 캐시의 경우 샤드당 크기 조정은 약 20분 정도 걸립니다.
 
 ### <a name="how-can-i-tell-when-scaling-is-complete"></a>크기 조정이 완료되었는지 어떻게 알 수 있나요?
 Azure Portal에서 진행 중인 크기 조정 작업을 볼 수 있습니다. 크기 조정이 완료되면 캐시 상태가 **실행 중**으로 변경됩니다.

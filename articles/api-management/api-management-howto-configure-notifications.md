@@ -1,5 +1,5 @@
 ---
-title: 알림 및 전자 메일 템플릿 구성
+title: 알림 및 이메일 템플릿 구성
 titleSuffix: Azure API Management
 description: Azure API Management에서 알림 및 메일 템플릿을 구성하는 방법에 대해 알아봅니다.
 services: api-management
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
 ms.openlocfilehash: 786a9e26003a7afb98307e0bd7fae94c42a2f00d
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79244070"
 ---
 # <a name="how-to-configure-notifications-and-email-templates-in-azure-api-management"></a>Azure API Management에서 알림 및 전자 메일 템플릿을 구성하는 방법
@@ -30,9 +30,9 @@ API Management 서비스 인스턴스가 없는 경우 [Azure API Management 인
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="publisher-notifications"> </a>알림 구성
+## <a name="configure-notifications"></a><a name="publisher-notifications"> </a>알림 구성
 
-1.  **API Management** 인스턴스를 선택합니다.
+1.  API **관리** 인스턴스를 선택합니다.
 2.  **알림**을 클릭하여 사용 가능한 알림을 볼 수 있습니다.
 
     ![게시자 알림][api-management-publisher-notifications]
@@ -48,7 +48,7 @@ API Management 서비스 인스턴스가 없는 경우 [Azure API Management 인
     -   **구독 할당량 한도 근접** - 구독 사용량이 사용 할당량에 근접하면 다음 메일 받는 사람 및 사용자가 메일 알림을 받습니다.
 
         > [!NOTE]
-        > [구독은 구독](api-management-access-restriction-policies.md#SetUsageQuota) 정책에 의해서만 할당량에 의해 트리거됩니다. [키 정책의 할당량은](api-management-access-restriction-policies.md#SetUsageQuotaByKey) 알림을 생성 하지 않습니다.
+        > 알림은 구독 정책에 의해서만 [할당량에 의해](api-management-access-restriction-policies.md#SetUsageQuota) 트리거됩니다. [키 정책별 할당량은](api-management-access-restriction-policies.md#SetUsageQuotaByKey) 알림을 생성하지 않습니다.
 
     각 이벤트에 대해 메일 주소 입력란을 사용하여 메일 받는 사람을 지정하거나 목록에서 사용자를 선택할 수 있습니다.
 
@@ -58,7 +58,7 @@ API Management 서비스 인스턴스가 없는 경우 [Azure API Management 인
 
 4.  **추가**를 누릅니다.
 
-## <a name="email-templates"> </a>알림 템플릿 구성
+## <a name="configure-notification-templates"></a><a name="email-templates"> </a>알림 템플릿 구성
 
 API Management는 서비스를 관리하고 사용하는 과정에서 전송된 이메일 메시지에 대한 알림 템플릿을 제공합니다. 다음 메일 템플릿이 제공됩니다.
 

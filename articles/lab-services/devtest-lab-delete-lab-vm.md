@@ -1,6 +1,6 @@
 ---
 title: Azure DevTest Labs의 랩에서 랩 또는 VM 삭제
-description: 이 문서에서는 Azure Portal (Azure DevTest Labs)를 사용 하 여 랩에서 랩을 삭제 하거나 VM을 삭제 하는 방법을 보여 줍니다.
+description: 이 문서에서는 Azure 포털(Azure DevTest Labs)을 사용하여 랩에서 랩을 삭제하거나 VM을 삭제하는 방법을 보여 주며 이 문서에서는
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: spelluru
 ms.openlocfilehash: 28fb464714f464a4c0a8f5eaf304dcdd5d603c90
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79270811"
 ---
 # <a name="delete-a-lab-or-vm-in-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs의 랩에서 랩 또는 VM 삭제
@@ -31,7 +31,7 @@ ms.locfileid: "79270811"
 
 랩을 삭제하려면 다음 작업을 수행합니다. 
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure 포털에](https://portal.azure.com)로그인합니다.
 2. 왼쪽 메뉴에서 **모든 리소스**를 선택하고, 서비스 유형에 대해 **DevTest Labs**를 선택한 다음, 랩을 선택합니다.
 
     ![랩 선택](media/devtest-lab-delete-lab-vm/select-lab.png)
@@ -56,7 +56,7 @@ VM과 연결된 가상 머신, 네트워크 인터페이스 및 디스크가 삭
 
 랩에서 VM을 삭제하려면 다음 작업을 수행합니다. 
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure 포털에](https://portal.azure.com)로그인합니다.
 2. 왼쪽 메뉴에서 **모든 리소스**를 선택하고, 서비스 유형에 대해 **DevTest Labs**를 선택한 다음, 랩을 선택합니다.
 
     ![랩 선택](media/devtest-lab-delete-lab-vm/select-lab.png)

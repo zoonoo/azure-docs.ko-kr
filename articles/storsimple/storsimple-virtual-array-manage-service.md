@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 2ff987448e3900c2a533789b2f38fd3ced71ce72
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79267457"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-virtual-array"></a>StorSimple 가상 배열에 StorSimple 디바이스 관리자 서비스 배포
@@ -70,7 +70,7 @@ StorSimple 디바이스 관리자 서비스와 관련된 일반적인 태스크�
 
 #### <a name="to-delete-a-service"></a>서비스를 삭제하려면
 
-1. **모든 리소스**로 이동합니다. StorSimple 디바이스 관리자 서비스를 검색합니다. 삭제하려는 서비스를 선택합니다.
+1. 모든 **리소스로**이동합니다. StorSimple 디바이스 관리자 서비스를 검색합니다. 삭제하려는 서비스를 선택합니다.
    
     ![삭제할 서비스 선택](./media/storsimple-virtual-array-manage-service/deleteservice2.png)
 2. 서비스 대시보드로 이동하여 서비스에 연결된 디바이스가 없는지 확인합니다. 이 서비스에 등록된 디바이스가 없는 경우 효과에 대한 배너 메시지가 나타납니다. **삭제**를 클릭합니다.
@@ -94,7 +94,7 @@ StorSimple 디바이스 관리자 서비스와 관련된 일반적인 태스크�
 서비스 등록 키를 가져오려면 다음 단계를 수행합니다.
 
 #### <a name="to-get-the-service-registration-key"></a>서비스 등록 키를 가져오려면
-1. **StorSimple Device Manager** 블레이드에서 **관리 &gt;** **키**로 이동 합니다.
+1. **StorSimple 디바이스 관리자** 블레이드에서 **관리 &gt;** **키**로 이동합니다.
    
    ![키 블레이드](./media/storsimple-virtual-array-manage-service/getregkey2.png)
 2. **키** 블레이드에서 서비스 등록 키가 표시됩니다. 복사 아이콘을 사용하여 등록 키를 복사합니다. 
@@ -107,7 +107,7 @@ StorSimple 디바이스 관리자 서비스와 관련된 일반적인 태스크�
 서비스 등록 키를 다시 생성하려 다음 단계를 수행합니다.
 
 #### <a name="to-regenerate-the-service-registration-key"></a>서비스 등록 키를 다시 생성하려면
-1. **StorSimple Device Manager** 블레이드에서 **관리 &gt;** **키**로 이동 합니다.
+1. **StorSimple 디바이스 관리자** 블레이드에서 **관리 &gt;** **키**로 이동합니다.
    
    ![키 블레이드](./media/storsimple-virtual-array-manage-service/getregkey2.png)
 2. **키** 블레이드에서 **다시 생성**을 클릭합니다.
@@ -123,6 +123,6 @@ StorSimple 디바이스 관리자 서비스와 관련된 일반적인 태스크�
    이 서비스에 새 디바이스 등록을 위해 이 키를 복사하고 저장합니다.
 
 ## <a name="next-steps"></a>다음 단계
-* StorSimple 가상 배열 [시작](storsimple-virtual-array-deploy1-portal-prep.md) 방법에 대해 알아봅니다.
+* StorSimple 가상 배열을 [시작하는](storsimple-virtual-array-deploy1-portal-prep.md) 방법에 대해 알아봅니다.
 * [StorSimple 디바이스 관리](storsimple-ova-web-ui-admin.md)방법에 대해 알아봅니다.
 

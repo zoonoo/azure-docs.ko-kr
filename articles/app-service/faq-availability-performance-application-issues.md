@@ -1,6 +1,6 @@
 ---
-title: 응용 프로그램 성능 Faq
-description: Azure App Service의 가용성, 성능 및 응용 프로그램 문제에 대 한 자주 묻는 질문에 대 한 대답을 확인 하세요.
+title: 애플리케이션 성능 자주 묻는 질문
+description: Azure App Service의 가용성, 성능 및 응용 프로그램 문제에 대해 자주 묻는 질문에 대한 답변을 얻을 수 있습니다.
 author: genlin
 manager: dcscontentpm
 tags: top-support-issue
@@ -10,16 +10,16 @@ ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
 ms.openlocfilehash: 433f5885c7f057226e78c4ae57e03d7619004d21
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79259865"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Azure의 Web Apps에 대한 애플리케이션 성능 FAQ
 
 > [!NOTE]
-> 아래 지침 중 일부는 Windows 또는 Linux App Services 에서만 작동할 수 있습니다. 예를 들어 Linux App Services는 기본적으로 64 비트 모드로 실행 됩니다.
+> 아래 지침 중 일부는 Windows 또는 Linux 앱 서비스에서만 작동할 수 있습니다. 예를 들어 Linux 앱 서비스는 기본적으로 64비트 모드에서 실행됩니다.
 >
 
 이 문서에는 [Azure App Service의 Web Apps 기능](https://azure.microsoft.com/services/app-service/web/) 관련 애플리케이션 성능 문제에 대한 FAQ(질문과 대답)가 있습니다.
@@ -32,11 +32,11 @@ ms.locfileid: "79259865"
 
 ## <a name="how-do-i-troubleshoot-a-high-cpu-consumption-scenario"></a>높은 CPU 사용 시나리오의 문제는 어떻게 해결하나요?
 
-일부 높은 CPU 사용 시나리오의 경우 앱에는 실제로 더 많은 컴퓨팅 리소스가 필요할 수 있습니다. 이 경우 응용 프로그램에서 필요한 모든 리소스를 가져오는 상위 서비스 계층으로 크기를 조정 하는 것이 좋습니다. 다른 경우에 높은 CPU 사용은 잘못된 반복이나 코딩 사례로 인해 발생할 수 있습니다. CPU 사용 증가를 트리거하는 항목을 파악하는 프로세스는 두 부분으로 구성됩니다. 먼저 프로세스 덤프를 만들고 프로세스 덤프를 분석합니다. 자세한 내용은 [Capture and analyze a dump file for high CPU consumption for Web Apps](https://blogs.msdn.microsoft.com/asiatech/2016/01/20/how-to-capture-dump-when-intermittent-high-cpu-happens-on-azure-web-app/)(Web Apps의 높은 CPU 사용에 대한 덤프 파일 캡처 및 분석)를 참조하세요.
+일부 높은 CPU 사용 시나리오의 경우 앱에는 실제로 더 많은 컴퓨팅 리소스가 필요할 수 있습니다.이 경우 애플리케이션이 필요한 모든 리소스를 얻도록 상위 서비스 계층으로 크기를 조정하는 것이 좋습니다. 다른 경우에 높은 CPU 사용은 잘못된 반복이나 코딩 사례로 인해 발생할 수 있습니다. CPU 사용 증가를 트리거하는 항목을 파악하는 프로세스는 두 부분으로 구성됩니다. 먼저 프로세스 덤프를 만들고 프로세스 덤프를 분석합니다. 자세한 내용은 [Capture and analyze a dump file for high CPU consumption for Web Apps](https://blogs.msdn.microsoft.com/asiatech/2016/01/20/how-to-capture-dump-when-intermittent-high-cpu-happens-on-azure-web-app/)(Web Apps의 높은 CPU 사용에 대한 덤프 파일 캡처 및 분석)를 참조하세요.
 
 ## <a name="how-do-i-troubleshoot-a-high-memory-consumption-scenario"></a>높은 메모리 사용 시나리오의 문제는 어떻게 해결하나요?
 
-일부 높은 메모리 사용 시나리오의 경우 앱에는 실제로 더 많은 컴퓨팅 리소스가 필요할 수 있습니다. 이 경우 응용 프로그램에서 필요한 모든 리소스를 가져오는 상위 서비스 계층으로 크기를 조정 하는 것이 좋습니다. 다른 경우에는 코드의 버그로 인해 메모리 누수가 발생할 수 있습니다. 코딩 사례가 메모리 사용을 증가시킬 수도 있습니다. 높은 메모리 사용을 트리거하는 것을 파악 하는 것은 두 부분으로 이루어진 프로세스입니다. 먼저 프로세스 덤프를 만들고 프로세스 덤프를 분석합니다. Azure Site Extension Gallery의 Crash Diagnoser가 이러한 단계를 둘 다 효율적으로 수행할 수 있습니다. 자세한 내용은 [Capture and analyze a dump file for intermittent high memory for Web Apps](https://blogs.msdn.microsoft.com/asiatech/2016/02/02/how-to-capture-and-analyze-dump-for-intermittent-high-memory-on-azure-web-app/)(Web Apps의 간헐적 높은 메모리에 대한 덤프 파일 캡처 및 분석)를 참조하세요.
+일부 높은 메모리 사용 시나리오의 경우 앱에는 실제로 더 많은 컴퓨팅 리소스가 필요할 수 있습니다.이 경우 애플리케이션이 필요한 모든 리소스를 얻도록 상위 서비스 계층으로 크기를 조정하는 것이 좋습니다. 다른 경우에는 코드의 버그로 인해 메모리 누수가 발생할 수 있습니다. 코딩 사례가 메모리 사용을 증가시킬 수도 있습니다.높은 메모리 사용을 트리거하는 항목을 파악하는 프로세스는 두 부분으로 구성됩니다. 먼저 프로세스 덤프를 만들고 프로세스 덤프를 분석합니다. Azure Site Extension Gallery의 Crash Diagnoser가 이러한 단계를 둘 다 효율적으로 수행할 수 있습니다. 자세한 내용은 [Capture and analyze a dump file for intermittent high memory for Web Apps](https://blogs.msdn.microsoft.com/asiatech/2016/02/02/how-to-capture-and-analyze-dump-for-intermittent-high-memory-on-azure-web-app/)(Web Apps의 간헐적 높은 메모리에 대한 덤프 파일 캡처 및 분석)를 참조하세요.
 
 ## <a name="how-do-i-automate-app-service-web-apps-by-using-powershell"></a>PowerShell를 사용하여 App Service Web Apps를 어떻게 자동화할 수 있나요?
 
@@ -47,7 +47,7 @@ PowerShell cmdlet을 사용하여 App Service Web Apps를 관리 및 유지 관�
 웹앱의 이벤트 로그를 보려면:
 
 1. [Kudu 웹 사이트](https://*yourwebsitename*.scm.azurewebsites.net)에 로그인합니다.
-2. 메뉴에서 **디버그 콘솔** > **CMD**를 선택합니다.
+2. 메뉴에서 **디버그 콘솔** > **CMD를**선택합니다.
 3. **LogFiles** 폴더를 선택합니다.
 4. 이벤트 로그를 보려면 **eventlog.xml** 옆에 있는 연필 아이콘을 선택합니다.
 5. 로그를 다운로드하려면 PowerShell cmdlet `Save-AzureWebSiteLog -Name webappname`을 실행합니다.
@@ -59,7 +59,7 @@ PowerShell cmdlet을 사용하여 App Service Web Apps를 관리 및 유지 관�
 1. [Kudu 웹 사이트](https://*yourwebsitename*.scm.azurewebsites.net)에 로그인합니다.
 2. **프로세스 탐색기** 메뉴를 선택합니다.
 3. **w3wp.exe** 프로세스 또는 WebJob 프로세스를 마우스 오른쪽 단추로 클릭합니다.
-4. **Download Memory Dump**(메모리 덤프 다운로드) > **Full Dump**(전체 덤프)를 선택합니다.
+4. 메모리 덤프**전체** **덤프** > 다운로드를 선택합니다.
 
 ## <a name="how-do-i-view-process-level-info-for-my-web-app"></a>내 웹앱의 프로세스 수준 정보는 어떻게 볼 수 있나요?
 
@@ -93,7 +93,7 @@ PowerShell cmdlet을 사용하여 App Service Web Apps를 관리 및 유지 관�
 
 1. Azure Portal에서 웹앱으로 이동합니다.
 2. **구성** 선택
-3. **일반 설정**을 선택 합니다.
+3. **일반 설정을**선택합니다.
 4. **무중단**에 대해 **켜기**를 선택합니다.
 
 ## <a name="how-do-i-turn-on-failed-request-tracing"></a>실패한 요청 추적을 어떻게 켜나요?
@@ -101,7 +101,7 @@ PowerShell cmdlet을 사용하여 App Service Web Apps를 관리 및 유지 관�
 실패한 요청 추적을 켜려면:
 
 1. Azure Portal에서 웹앱으로 이동합니다.
-3. **모든 설정** > **진단 로그**를 선택합니다.
+3. **모든 설정** > **진단 로그를 선택합니다.**
 4. **실패한 요청 추적**에 대해 **켜기**를 선택합니다.
 5. **저장**을 선택합니다.
 6. 웹앱 블레이드에서 **도구**를 선택합니다.
@@ -142,8 +142,8 @@ PowerShell cmdlet을 사용하여 App Service Web Apps를 관리 및 유지 관�
     </tracing>
     ```
 13. 실패한 요청 추적을 다운로드하려면 [Portal](https://portal.azure.com)에서 웹 사이트로 이동합니다.
-15. **도구** > **Kudu** > **이동**을 선택합니다.
-18. 메뉴에서 **디버그 콘솔** > **CMD**를 선택합니다.
+15. **도구** > **쿠두** > **이동을**선택합니다.
+18. 메뉴에서 **디버그 콘솔** > **CMD를**선택합니다.
 19. **LogFiles** 폴더를 선택하고 이름이 **W3SVC**로 시작하는 폴더를 선택합니다.
 20. XML 파일을 확인하려면 연필 아이콘을 선택합니다.
 
@@ -174,7 +174,7 @@ WebJobs는 백그라운드에서 처리되도록 디자인됩니다. WebJob에�
 
 App Service의 로컬 캐시 기능을 사용할 경우 App Service 인스턴스에 대한 LogFiles 및 Data 폴더의 폴더 구조에 영향을 미칩니다. 로컬 캐시가 사용될 경우 하위 폴더는 스토리지 LogFiles 및 Data 폴더에 생성됩니다. 하위 폴더에는 명명 패턴 "고유 식별자" + 타임스탬프가 사용됩니다. 각 하위 폴더는 웹앱이 실행 중이거나 실행된 VM 인스턴스에 해당합니다.
 
-로컬 캐시를 사용 하 고 있는지 확인 하려면 App Service **응용 프로그램 설정** 탭을 확인 합니다. 로컬 캐시를 사용 하는 경우 앱 설정 `WEBSITE_LOCAL_CACHE_OPTION` `Always`로 설정 됩니다.
+로컬 캐시를 사용하고 있는지 확인하려면 앱 서비스 **응용 프로그램 설정** 탭을 확인합니다. 로컬 캐시를 사용하는 경우 앱 `WEBSITE_LOCAL_CACHE_OPTION` 설정이 `Always`로 설정됩니다.
 
 로컬 캐시를 사용하고 있지 않고 이 문제가 발생하지 않으면 지원 요청을 제출합니다.
 

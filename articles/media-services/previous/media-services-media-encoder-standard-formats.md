@@ -1,6 +1,6 @@
 ---
 title: Media Encoder Standard 형식 및 코덱 - Azure
-description: 이 문서에서는 Media Encoder Standard 형식 및 코덱에 대 한 개요를 제공 합니다.
+description: 이 문서에서는 미디어 인코더 표준 형식 및 코덱에 대한 개요를 제공합니다.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -15,15 +15,15 @@ ms.date: 03/18/2019
 ms.author: juliako
 ms.reviewer: anilmur
 ms.openlocfilehash: e2ccce13e4ef09426d0f3a02dcbce2f330b0ead8
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79251025"
 ---
 # <a name="media-encoder-standard-formats-and-codecs"></a>미디어 인코더 표준 형식 및 코덱
 
-> [!div class="op_single_selector" title1="사용 중인 Media Services의 버전을 선택 합니다."]
+> [!div class="op_single_selector" title1="사용 중인 미디어 서비스의 버전을 선택합니다."]
 > * [버전 2](media-services-media-encoder-standard-formats.md)
 > * [버전 3](../latest/media-encoder-standard-formats.md)
 
@@ -89,8 +89,8 @@ ms.locfileid: "79251025"
 | MP3(MPEG-1 Audio Layer 3) |yes |
 | Windows Media 오디오 |yes |
 | WAV/PCM |yes |
-| [FLAC](https://en.wikipedia.org/wiki/FLAC)</a> |yes |
-| [Opus](https://go.microsoft.com/fwlink/?LinkId=822667) |yes |
+| [Flac](https://en.wikipedia.org/wiki/FLAC)</a> |yes |
+| [오푸스](https://go.microsoft.com/fwlink/?LinkId=822667) |yes |
 | [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a> |yes |
 | AMR(Adaptive Multi-Rate) |yes |
 | AES(SMPTE 331M 및 302M, AES3-2003) |예 |
@@ -112,7 +112,7 @@ ms.locfileid: "79251025"
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 [Azure Media Services로 주문형 콘텐츠 인코딩](media-services-encode-asset.md)
 
 [미디어 인코더 표준으로 인코딩하는 방법](media-services-dotnet-encode-with-media-encoder-standard.md)

@@ -6,17 +6,17 @@ ms.topic: reference
 ms.date: 12/12/2017
 ms.author: cshoe
 ms.openlocfilehash: 76af1f51c83e9554a51e6c17266fac739e6bd6b1
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79276817"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Azure Functions C# 스크립트(.csx) 개발자 참조
 
 <!-- When updating this article, make corresponding changes to any duplicate content in functions-dotnet-class-library.md -->
 
-이 문서는 C# 스크립트( *.csx*)를 사용하여 Azure Functions를 개발하는 방법을 소개합니다.
+이 문서는 C# 스크립트(*.csx*)를 사용하여 Azure Functions를 개발하는 방법을 소개합니다.
 
 Azure Functions는 C# 및 C# 스크립트 프로그래밍 언어를 지원합니다. [Visual Studio 클래스 라이브러리 프로젝트에서 C#을 사용](functions-develop-vs.md)하기 위한 지침을 찾고 있는 경우 [C# 개발자 참조](functions-dotnet-class-library.md)를 참조하세요.
 
@@ -24,7 +24,7 @@ Azure Functions는 C# 및 C# 스크립트 프로그래밍 언어를 지원합니
 
 ## <a name="how-csx-works"></a>.csx의 작동 원리
 
-Azure Functions에 대한 C# 스크립트 환경은 [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki/Introduction)를 기준으로 합니다. 데이터는 메서드 인수를 통해 C# 함수로 흐릅니다. 인수 이름은 `function.json` 파일에 지정되며 함수 로거 및 취소 토큰 같은 항목에 액세스하기 위해 미리 정의된 이름이 있습니다.
+Azure 함수에 대한 C# 스크립트 환경은 [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki/Introduction)를 기반으로 합니다. 데이터는 메서드 인수를 통해 C# 함수로 흐릅니다. 인수 이름은 `function.json` 파일에 지정되며 함수 로거 및 취소 토큰 같은 항목에 액세스하기 위해 미리 정의된 이름이 있습니다.
 
 *.csx* 형식을 사용하면 "상용구"를 덜 작성하고 C# 함수를 작성하는 데 집중할 수 있습니다. 네임스페이스 및 클래스의 모든 항목을 래핑하는 대신 `Run` 메서드만 정의합니다. 일반적으로 파일의 시작 부분에 모든 어셈블리 참조 및 네임스페이스를 포함합니다.
 
@@ -51,11 +51,11 @@ FunctionsProject
 
 함수 앱을 구성하는 데 사용할 수 있는 공유 [host.json](functions-host-json.md) 파일이 있습니다. 각 함수에는 자체 코드 파일(.csx)과 바인딩 구성 파일(function.json)이 있습니다.
 
-[버전 2.x 및 이후 버전](functions-versions.md) 의 함수 런타임에 필요한 바인딩 확장은 `bin` 폴더의 실제 라이브러리 파일을 사용 하 여 `extensions.csproj` 파일에 정의 됩니다. 로컬에서 개발할 때는 [바인딩 확장을 등록](./functions-bindings-register.md#extension-bundles)해야 합니다. Azure Portal에서 함수를 개발할 때 이 등록이 자동으로 수행됩니다.
+[버전 2.x 및 함수](functions-versions.md) 런타임의 이후 버전에 필요한 바인딩 확장은 `extensions.csproj` `bin` 폴더에 실제 라이브러리 파일과 함께 파일에 정의됩니다. 로컬에서 개발할 때는 [바인딩 확장을 등록](./functions-bindings-register.md#extension-bundles)해야 합니다. Azure Portal에서 함수를 개발할 때 이 등록이 자동으로 수행됩니다.
 
 ## <a name="binding-to-arguments"></a>인수에 바인딩
 
-입력 또는 출력 데이터는 `name`function.json*구성 파일의* 속성을 통해 C# 스크립트 함수 매개 변수에 바인딩됩니다. 다음 예제에서는 큐 트리거 함수에 대한 *function.json* 파일 및 *run.csx* 파일을 보여 줍니다. 큐 메시지에서 데이터를 받는 매개 변수 이름은 `myQueueItem` 속성의 값이기 때문에 `name`으로 지정됩니다.
+입력 또는 출력 데이터는 *function.json* 구성 파일의 `name` 속성을 통해 C# 스크립트 함수 매개 변수에 바인딩됩니다. 다음 예제에서는 큐 트리거 함수에 대한 *function.json* 파일 및 *run.csx* 파일을 보여 줍니다. 큐 메시지에서 데이터를 받는 매개 변수 이름은 `name` 속성의 값이기 때문에 `myQueueItem`으로 지정됩니다.
 
 ```json
 {
@@ -116,7 +116,7 @@ POCO 클래스에는 각 속성에 대해 정의된 Getter 및 setter가 있어�
 
 ## <a name="reusing-csx-code"></a>.csx 코드 재사용
 
-*run.csx* 파일에 있는 다른 *.csx* 파일에 정의된 클래스와 메서드를 사용할 수 있습니다. 이를 위해 `#load`run.csx*파일의* 지시문을 사용합니다. 다음 예제에서는 `MyLogger`이라는 이름의 로깅 루틴이 *myLogger.csx*에서 공유되고 *지시문을 사용하여*run.csx`#load`로 로드됩니다.
+*run.csx* 파일에 있는 다른 *.csx* 파일에 정의된 클래스와 메서드를 사용할 수 있습니다. 이를 위해 *run.csx* 파일의 `#load` 지시문을 사용합니다. 다음 예제에서는 `MyLogger`이라는 이름의 로깅 루틴이 *myLogger.csx*에서 공유되고 `#load` 지시문을 사용하여 *run.csx*로 로드됩니다.
 
 예제 *run.csx*:
 
@@ -218,13 +218,13 @@ public class Order
 
 ## <a name="binding-to-method-return-value"></a>메서드 반환 값에 바인딩
 
-`$return`function.json*에서 이름* 을 사용하여 출력 바인딩에 메서드 반환 값을 사용할 수 있습니다. 예제를 보려면 [트리거 및 바인딩](./functions-bindings-return-value.md)을 참조하세요.
+*function.json*에서 이름 `$return`을 사용하여 출력 바인딩에 메서드 반환 값을 사용할 수 있습니다. 예제를 보려면 [트리거 및 바인딩](./functions-bindings-return-value.md)을 참조하세요.
 
 성공적인 함수 실행이 항상 출력 바인딩으로 전달할 반환 값을 생성하는 경우에만 반환 값을 사용합니다. 그렇지 않으면 다음 섹션에 나와 있는 것처럼 `ICollector` 또는 `IAsyncCollector`를 사용합니다.
 
 ## <a name="writing-multiple-output-values"></a>여러 출력 값 쓰기
 
-출력 바인딩에 여러 값을 쓰거나 성공적인 함수 호출이 출력 바인딩에 전달할 값을 생성하지 않는 경우 [`ICollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) 또는 [`IAsyncCollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) 형식을 사용합니다. 이러한 형식은 메서드가 완료될 때 출력 바인딩에 기록되는 쓰기 전용 컬렉션입니다.
+출력 바인딩에 여러 값을 쓰거나 함수 호출에 성공하면 출력 바인딩에 전달할 수 없는 [`ICollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) [`IAsyncCollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) 경우 또는 형식을 사용합니다. 이러한 형식은 메서드가 완료될 때 출력 바인딩에 기록되는 쓰기 전용 컬렉션입니다.
 
 이 예제에서는 `ICollector`를 사용하여 동일한 큐에 여러 큐 메시지를 씁니다.
 
@@ -248,7 +248,7 @@ public static void Run(string myBlob, ILogger log)
 ```
 
 > [!NOTE]
-> `TraceWriter` 대신 사용할 수 있는 최신 로깅 프레임워크에 대한 내용은 [Azure Functions 모니터링](functions-monitoring.md#write-logs-in-c-functions) 문서에서 **C# 함수로 로그 작성**을 참조하세요.
+> `TraceWriter` 대신 사용할 수 있는 최신 로깅 프레임워크에 대한 내용은 **Azure Functions 모니터링** 문서에서 [C# 함수로 로그 작성](functions-monitoring.md#write-logs-in-c-functions)을 참조하세요.
 
 ## <a name="async"></a>Async
 
@@ -359,7 +359,7 @@ public static Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger log)
 
 사용자 지정 어셈블리를 참조하려면 *공유* 어셈블리 또는 *프라이빗* 어셈블리를 사용합니다.
 
-* 공유 어셈블리는 함수 앱 내의 모든 함수에서 공유됩니다. 사용자 지정 어셈블리를 참조하려면 `bin`함수 앱 루트 폴더[(wwwroot)의 ](functions-reference.md#folder-structure) 폴더에 해당 어셈블리를 업로드합니다.
+* 공유 어셈블리는 함수 앱 내의 모든 함수에서 공유됩니다. 사용자 지정 어셈블리를 참조하려면 [함수 앱 루트 폴더](functions-reference.md#folder-structure)(wwwroot)의 `bin` 폴더에 해당 어셈블리를 업로드합니다.
 
 * 프라이빗 어셈블리는 지정된 함수 컨텍스트의 일부이며 여러 버전의 테스트용 로드를 지원합니다. 프라이빗 어셈블리는 함수 디렉터리의 `bin` 폴더에 업로드해야 합니다. `#r "MyAssembly.dll"`과 같은 파일 이름을 사용하여 어셈블리를 참조합니다.
 
@@ -367,10 +367,10 @@ public static Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger log)
 
 ### <a name="watched-directories"></a>감시 디렉터리
 
-함수 스크립트 파일을 포함하는 디렉터리는 어셈블리 변경 내용이 자동으로 감시됩니다. 다른 디렉터리의 어셈블리 변경 내용을 감시하려면 `watchDirectories`host.json[의 ](functions-host-json.md) 목록에 해당 디렉터리를 추가합니다.
+함수 스크립트 파일을 포함하는 디렉터리는 어셈블리 변경 내용이 자동으로 감시됩니다. 다른 디렉터리의 어셈블리 변경 내용을 감시하려면 [host.json](functions-host-json.md)의 `watchDirectories` 목록에 해당 디렉터리를 추가합니다.
 
 ## <a name="using-nuget-packages"></a>NuGet 패키지 사용
-2\.x 이상 C# 함수에서 NuGet 패키지를 사용 하려면 함수 앱의 파일 시스템에 있는 함수의 폴더에 *함수 proj* 파일을 업로드 합니다. 다음은 *Microsoft.ProjectOxford.Face* 버전 *1.1.0*에 참조를 추가하는 예제 *function.proj* 파일입니다.
+2.x 및 이후 C# 함수에서 NuGet 패키지를 사용하려면 *function.proj* 파일을 함수 앱의 파일 시스템에서 함수의 폴더에 업로드합니다. 다음은 *Microsoft.ProjectOxford.Face* 버전 *1.1.0*에 참조를 추가하는 예제 *function.proj* 파일입니다.
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -387,9 +387,9 @@ public static Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger log)
 사용자 지정 NuGet 피드를 사용하려면 함수 앱 루트의 *Nuget.Config* 파일에서 피드를 지정합니다. 자세한 내용은 참조 [NuGet 동작 구성](/nuget/consume-packages/configuring-nuget-behavior)을 참조하세요.
 
 > [!NOTE]
-> 1\.x C# 함수에서 NuGet 패키지는 *함수 proj* 파일 대신 *프로젝트. json* 파일을 사용 하 여 참조 됩니다.
+> 1.x C# 함수에서 NuGet 패키지는 *function.proj* 파일 대신 *project.json* 파일로 참조됩니다.
 
-1\.x 함수의 경우 *프로젝트. json* 파일을 대신 사용 합니다. 다음은 *project. json* 파일의 예입니다.
+1.x 함수의 경우 *project.json* 파일을 대신 사용합니다. 다음은 *project.json* 파일 예제입니다.
 
 ```json
 {
@@ -403,11 +403,11 @@ public static Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger log)
 }
 ```
 
-### <a name="using-a-functionproj-file"></a>함수 proj 파일 사용
+### <a name="using-a-functionproj-file"></a>function.proj 파일 사용
 
 1. Azure Portal에서 함수를 엽니다. 로그 탭에 패키지 설치 출력이 표시됩니다.
-2. *함수 proj* 파일을 업로드 하려면 Azure Functions 개발자 참조 항목에서 [함수 앱 파일을 업데이트](functions-reference.md#fileupdate) 하는 방법 항목에 설명 된 방법 중 하나를 사용 합니다.
-3. *함수 proj* 파일을 업로드 한 후 함수의 스트리밍 로그에 다음 예제와 같은 출력이 표시 됩니다.
+2. *function.proj* 파일을 업로드하려면 Azure Functions 개발자 참조 항목에서 [함수 앱 파일을 업데이트하는 방법](functions-reference.md#fileupdate) 항목에 설명된 방법 중 하나를 사용합니다.
+3. *function.proj* 파일이 업로드된 후 함수의 스트리밍 로그에 다음과 같은 출력이 표시됩니다.
 
 ```
 2018-12-14T22:00:48.658 [Information] Restoring packages.
@@ -444,12 +444,12 @@ public static string GetEnvironmentVariable(string name)
 
 ## <a name="binding-at-runtime"></a>런타임에 바인딩
 
-C# 및 기타 .NET 언어에서는 [function.json](https://en.wikipedia.org/wiki/Imperative_programming)의 [*declarative*](https://en.wikipedia.org/wiki/Declarative_programming) 바인딩과 달리 *명령적* 바인딩 패턴을 사용할 수 있습니다. 명령적 바인딩은 바인딩 매개 변수를 디자인 타임이 아닌 런타임에 계산해야 할 경우 유용합니다. 이 패턴을 사용하면 함수 코드에서 지원되는 입력 및 출력 바인딩을 즉시 바인딩할 수 있습니다.
+C# 및 기타 .NET 언어에서는 *function.json*의 [*declarative*](https://en.wikipedia.org/wiki/Declarative_programming) 바인딩과 달리 [명령적](https://en.wikipedia.org/wiki/Imperative_programming) 바인딩 패턴을 사용할 수 있습니다. 명령적 바인딩은 바인딩 매개 변수를 디자인 타임이 아닌 런타임에 계산해야 할 경우 유용합니다. 이 패턴을 사용하면 함수 코드에서 지원되는 입력 및 출력 바인딩을 즉시 바인딩할 수 있습니다.
 
 다음과 같이 명령적 바인딩을 정의합니다.
 
-- 원하는 명령적 바인딩에 대한 **function.json**에 항목을 포함하지 *마세요*.
-- 입력 매개 변수 [`Binder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/Bindings/Runtime/Binder.cs) 또는 [`IBinder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IBinder.cs)에 전달합니다.
+- 원하는 명령적 바인딩에 대한 *function.json*에 항목을 포함하지 **마세요**.
+- 입력 매개 변수 [`Binder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/Bindings/Runtime/Binder.cs) [`IBinder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IBinder.cs)또는 에 전달합니다.
 - 다음 C# 패턴을 사용하여 데이터 바인딩을 수행합니다.
 
 ```cs
@@ -459,7 +459,7 @@ using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
 }
 ```
 
-`BindingTypeAttribute`는 바인딩을 정의하는 .NET 특성이며, `T`는 해당 바인딩 형식에서 지원되는 입력 또는 출력 형식입니다. `T`는 `out` 매개 변수 형식(예: `out JObject`)일 수 없습니다. 예를 들어 Mobile Apps 테이블 출력 바인딩은 [6 개의 출력 형식을](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22)지원 하지만 `T`에 대해 [ICollector\<t >](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) 또는 [`IAsyncCollector<T>`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) 만 사용할 수 있습니다.
+`BindingTypeAttribute`는 바인딩을 정의하는 .NET 특성이며, `T`는 해당 바인딩 형식에서 지원되는 입력 또는 출력 형식입니다. `T`는 `out` 매개 변수 형식(예: `out JObject`)일 수 없습니다. 예를 들어 Mobile Apps 테이블 출력 바인딩은 [6개의 출력 유형을](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22)지원하지만 [`IAsyncCollector<T>`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) `T` [ICollector\<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) 또는 에 대해서만 사용할 수 있습니다.
 
 ### <a name="single-attribute-example"></a>단일 특성 예제
 
@@ -482,7 +482,7 @@ public static async Task Run(string input, Binder binder)
 
 ### <a name="multiple-attribute-example"></a>다중 특성 예제
 
-앞의 예제에서는 함수 앱의 주 Storage 계정 연결 문자열(`AzureWebJobsStorage`)에 대한 앱 설정을 가져옵니다. [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)를 추가하고 `BindAsync<T>()`에 특성 배열을 전달하여 스토리지 계정에 사용할 사용자 지정 앱 설정을 지정할 수 있습니다. `Binder`가 아닌 `IBinder` 매개 변수를 사용합니다.  다음은 그 예입니다.
+앞의 예제에서는 함수 앱의 주 Storage 계정 연결 문자열(`AzureWebJobsStorage`)에 대한 앱 설정을 가져옵니다. [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)를 추가하고 `BindAsync<T>()`에 특성 배열을 전달하여 스토리지 계정에 사용할 사용자 지정 앱 설정을 지정할 수 있습니다. `IBinder`가 아닌 `Binder` 매개 변수를 사용합니다.  예를 들어:
 
 ```cs
 using Microsoft.Azure.WebJobs;
@@ -506,7 +506,7 @@ public static async Task Run(string input, Binder binder)
 다음 표에는 각 바인딩 유형의 .NET 특성과 해당 특성이 정의된 패키지가 나열되어 있습니다.
 
 > [!div class="mx-codeBreakAll"]
-> | 바인딩 | attribute | 추가 참조 |
+> | 바인딩 | 특성 | 추가 참조 |
 > |------|------|------|
 > | Cosmos DB | [`Microsoft.Azure.WebJobs.DocumentDBAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.CosmosDB"` |
 > | Event Hubs | [`Microsoft.Azure.WebJobs.ServiceBus.EventHubAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/v2.x/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs), [`Microsoft.Azure.WebJobs.ServiceBusAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAccountAttribute.cs) | `#r "Microsoft.Azure.Jobs.ServiceBus"` |

@@ -1,6 +1,6 @@
 ---
-title: Linux Hybrid Runbook Worker 진단-Azure 업데이트 관리
-description: 업데이트 관리를 지 원하는 Linux의 Azure Automation Hybrid Runbook Worker 문제를 해결 하 고 문제를 해결 하는 방법을 알아봅니다.
+title: 리눅스 하이브리드 Runbook 작업자 진단 - Azure 업데이트 관리
+description: 업데이트 관리를 지원하는 Linux의 Azure 자동화 하이브리드 Runbook 작업자를 사용하여 문제를 해결하고 해결하는 방법을 알아봅니다.
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -10,35 +10,35 @@ ms.service: automation
 ms.subservice: update-management
 manager: carmonm
 ms.openlocfilehash: e60ba71607b99f0ea97e0725ffdd0740f3e9c579
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79278299"
 ---
-# <a name="understand-and-resolve-linux-hybrid-runbook-worker-health-for-update-management"></a>업데이트 관리에 대 한 Linux Hybrid Runbook Worker 상태 이해 및 해결
+# <a name="understand-and-resolve-linux-hybrid-runbook-worker-health-for-update-management"></a>업데이트 관리를 위한 Linux 하이브리드 Runbook 작업자 상태 이해 및 해결
 
-업데이트 관리에서 컴퓨터가 **준비**를 표시하지 않는 이유에는 여러 가지가 있을 수 있습니다. 업데이트 관리에서 Hybrid Runbook Worker 에이전트의 상태를 확인 하 여 근본적인 문제를 확인할 수 있습니다. 이 문서에서는 [오프 라인 시나리오](#troubleshoot-offline)에서 Azure Portal 및 비 azure 컴퓨터에서 azure 컴퓨터에 대 한 문제 해결사를 실행 하는 방법을 설명 합니다.
+업데이트 관리에서 컴퓨터가 **준비**를 표시하지 않는 이유에는 여러 가지가 있을 수 있습니다. 업데이트 관리에서 하이브리드 Runbook 작업자 에이전트의 상태를 확인하여 근본적인 문제를 확인할 수 있습니다. 이 문서에서는 [오프라인 시나리오에서](#troubleshoot-offline)Azure 포털 및 Azure가 아닌 컴퓨터에서 Azure 컴퓨터에 대한 문제 해결사를 실행하는 방법에 대해 설명합니다.
 
 다음 목록은 컴퓨터가 나타낼 수 있는 세 가지 준비 상태입니다.
 
-* **준비** 됨-Hybrid Runbook Worker 배포 되었으며 마지막으로 1 시간 전에 표시 되었습니다.
-* **연결 끊김** -Hybrid Runbook Worker 배포 되었으며 마지막으로 1 시간 전에 표시 되었습니다.
-* **구성 되지 않음** -Hybrid Runbook Worker를 찾을 수 없거나 등록을 완료 하지 못했습니다.
+* **준비** - 하이브리드 Runbook 작업자가 배포되었으며 1시간 전에 마지막으로 보였습니다.
+* **연결 해제** - 하이브리드 Runbook 작업자가 배포되었으며 1시간 전에 마지막으로 보였습니다.
+* **구성되지 않음** - 하이브리드 Runbook 작업자를 찾을 수 없거나 온보딩이 완료되지 않았습니다.
 
 > [!NOTE]
-> Azure Portal 표시 되는 내용과 컴퓨터의 현재 상태 사이에 약간의 지연이 있을 수 있습니다.
+> Azure 포털에 표시되는 내용과 컴퓨터의 현재 상태 사이에 약간의 지연이 있을 수 있습니다.
 
 ## <a name="start-the-troubleshooter"></a>문제 해결사 시작
 
-Azure 머신의 경우 포털의 **업데이트 에이전트 준비** 열에서 **문제 해결** 링크를 클릭하여 **업데이트 에이전트 문제 해결** 페이지를 시작합니다. 비 Azure 컴퓨터의 경우 링크를 통해이 문서를 볼 수 있습니다. 비 Azure 컴퓨터 문제를 해결 하려면 오프 라인 지침을 참조 하세요.
+Azure 머신의 경우 포털의 **업데이트 에이전트 준비** 열에서 **문제 해결** 링크를 클릭하여 **업데이트 에이전트 문제 해결** 페이지를 시작합니다. Azure가 아닌 컴퓨터의 경우 링크가 이 문서에 대해 제공합니다. 비 Azure 컴퓨터 의 문제 해결을 위해 오프라인 지침을 참조하세요.
 
 ![VM 목록 페이지](../media/update-agent-issues-linux/vm-list.png)
 
 > [!NOTE]
 > 검사를 수행하려면 VM이 실행되고 있어야 합니다. VM이 실행되고 있지 않으면 **VM 시작** 단추가 제공됩니다.
 
-**업데이트 에이전트 문제 해결** 페이지에서 **검사 실행**을 클릭하여 문제 해결사를 시작합니다. 문제 해결사는 [실행 명령을](../../virtual-machines/linux/run-command.md) 사용 하 여 컴퓨터에서 종속성을 확인 하는 스크립트를 실행 합니다. 문제 해결사가 완료되면 검사 결과를 반환합니다.
+**업데이트 에이전트 문제 해결** 페이지에서 **검사 실행**을 클릭하여 문제 해결사를 시작합니다. 문제 해결사는 [Run 명령을](../../virtual-machines/linux/run-command.md) 사용하여 컴퓨터에서 스크립트를 실행하여 종속성을 확인합니다. 문제 해결사가 완료되면 검사 결과를 반환합니다.
 
 ![문제 해결 페이지](../media/update-agent-issues-linux/troubleshoot-page.png)
 
@@ -50,7 +50,7 @@ Azure 머신의 경우 포털의 **업데이트 에이전트 준비** 열에서 
 
 ### <a name="operating-system"></a>운영 체제
 
-운영 체제 검사는 Hybrid Runbook Worker에서 다음 운영 체제 중 하나를 실행 하 고 있는지 확인 합니다.
+운영 체제 검사는 하이브리드 Runbook 작업자가 다음 운영 체제 중 하나를 실행 중인지 확인합니다.
 
 |운영 체제  |메모  |
 |---------|---------|
@@ -63,12 +63,12 @@ Azure 머신의 경우 포털의 **업데이트 에이전트 준비** 열에서 
 
 ### <a name="log-analytics-agent"></a>Log Analytics 에이전트
 
-이렇게 하면 Linux 용 Log Analytics 에이전트가 설치 되어 있는지 확인할 수 있습니다. 이 에이전트를 설치하는 방법에 대한 지침은 [Linux용 에이전트 설치](../../azure-monitor/learn/quick-collect-linux-computer.md#install-the-agent-for-linux
+이 검사는 Linux용 로그 분석 에이전트가 설치되었는지 확인합니다. 이 에이전트를 설치하는 방법에 대한 지침은 [Linux용 에이전트 설치](../../azure-monitor/learn/quick-collect-linux-computer.md#install-the-agent-for-linux
 )를 참조하세요.
 
-### <a name="log-analytics-agent-status"></a>Log Analytics 에이전트 상태
+### <a name="log-analytics-agent-status"></a>로그 분석 에이전트 상태
 
-이렇게 하면 Linux 용 Log Analytics 에이전트가 실행 되 고 있는지 확인 됩니다. 에이전트가 실행되지 않는 경우 다음 명령을 실행하여 다시 시작할 수 있습니다. 에이전트 문제 해결에 대한 자세한 내용은 [Linux Hybrid Runbook Worker 문제 해결](hybrid-runbook-worker.md#linux)을 참조하세요.
+이 검사는 Linux용 로그 분석 에이전트가 실행중임을 확인합니다. 에이전트가 실행되지 않는 경우 다음 명령을 실행하여 다시 시작할 수 있습니다. 에이전트 문제 해결에 대한 자세한 내용은 [Linux Hybrid Runbook Worker 문제 해결](hybrid-runbook-worker.md#linux)을 참조하세요.
 
 ```bash
 sudo /opt/microsoft/omsagent/bin/service_control restart
@@ -80,7 +80,7 @@ sudo /opt/microsoft/omsagent/bin/service_control restart
 
 ### <a name="hybrid-runbook-worker"></a>Hybrid Runbook Worker
 
-이 검사는 Linux 용 Log Analytics 에이전트에 Hybrid Runbook Worker 패키지가 있는지 확인 합니다. 이 패키지에는 작업할 업데이트 관리가 필요합니다.
+이 검사는 Linux용 로그 분석 에이전트에 하이브리드 Runbook 작업자 패키지가 있는지 확인합니다. 이 패키지에는 작업할 업데이트 관리가 필요합니다.
 
 ### <a name="hybrid-runbook-worker-status"></a>Hybrid Runbook Worker 상태
 
@@ -100,7 +100,7 @@ nxautom+   8595      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfi
 
 ### <a name="registration-endpoint"></a>등록 엔드포인트
 
-이 검사는 Hybrid Runbook Worker Log Analytics 작업 영역 Azure Automation와 제대로 통신할 수 있는지 여부를 확인 합니다.
+이 검사는 하이브리드 Runbook 작업자가 Azure 자동화 로그 분석 작업 영역과 제대로 통신할 수 있는지 여부를 결정합니다.
 
 프록시 및 방화벽 구성에서는 Hybrid Runbook Worker 에이전트가 등록 엔드포인트와 통신하도록 허용해야 합니다. 주소 및 열 포트 목록에 대해서는 [Hybrid Worker에 대한 네트워크 계획](../automation-hybrid-runbook-worker.md#network-planning)을 참조하세요.
 
@@ -122,7 +122,7 @@ nxautom+   8595      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfi
 
 이 검사에서는 머신이 Log Analytics 에이전트에 필요한 엔드포인트에 대해 액세스 권한이 있는지 확인합니다.
 
-## <a name="troubleshoot-offline"></a>오프라인으로 문제 해결
+## <a name="troubleshoot-offline"></a><a name="troubleshoot-offline"></a>오프라인으로 문제 해결
 
 이 스크립트를 로컬로 실행하여 Hybrid Runbook Worker에서 오프라인으로 문제 해결사를 사용할 수 있습니다. Python 스크립트 [update_mgmt_health_check.py](https://gallery.technet.microsoft.com/scriptcenter/Troubleshooting-utility-3bcbefe6)는 스크립트 센터에서 찾을 수 있습니다. 이 스크립트의 출력 예제는 다음 예제에 표시됩니다.
 
@@ -179,4 +179,4 @@ Passed: TCP test for {ods.systemcenteradvisor.com} (port 443) succeeded
 
 ## <a name="next-steps"></a>다음 단계
 
-Hybrid Runbook Worker와 관련 된 추가 문제를 해결 하려면 [문제 해결-Hybrid Runbook worker](hybrid-runbook-worker.md)를 참조 하세요.
+하이브리드 Runbook 작업자의 추가 문제 해결은 [문제 해결 - 하이브리드 Runbook 작업자를](hybrid-runbook-worker.md)참조하십시오.

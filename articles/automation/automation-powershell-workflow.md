@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 12/14/2018
 ms.topic: conceptual
 ms.openlocfilehash: 6e4c8057322b6208ea3b447b264e2bde1344540c
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79278689"
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Automation runbook에 대한 주요 Windows PowerShell 워크플로 개념 학습
@@ -222,7 +222,7 @@ Workflow Copy-Files
 
 ## <a name="checkpoints"></a>검사점
 
-*검사점* 은 워크플로의 현재 상태에 대한 스냅샷으로, 변수의 현재 값 및 해당 지점에 생성된 모든 출력을 포함합니다. 워크플로가 오류 때문에 종료되었거나 일시 중단한 다음 실행하면 워크플로의 처음부터 시작하는 게 아니라 마지막 검사점에서 시작됩니다.  **Checkpoint-Workflow** 활동을 사용하여 워크플로에서 검사점을 설정할 수 있습니다. Azure Automation에는 3 시간 동안 실행 되는 모든 runbook이 언로드되고 다른 runbook이 실행 될 수 있도록 하는 [공평 공유](automation-runbook-execution.md#fair-share)이라는 기능이 있습니다. 결국 언로드된 runbook이 다시 로드 되 고,이 runbook이 다시 로드 되 면 runbook에서 수행 된 마지막 검사점에서 실행을 다시 시작 합니다. Runbook이 최종적으로 완료 되도록 하려면 3 시간 미만 동안 실행 되는 간격에 검사점을 추가 해야 합니다. 각 실행 중에 새 검사점이 추가 되 고, 오류로 인해 3 시간 후에 runbook이 제거 되 면 runbook이 무기한 다시 시작 됩니다.
+*검사점* 은 워크플로의 현재 상태에 대한 스냅샷으로, 변수의 현재 값 및 해당 지점에 생성된 모든 출력을 포함합니다. 워크플로가 오류 때문에 종료되었거나 일시 중단한 다음 실행하면 워크플로의 처음부터 시작하는 게 아니라 마지막 검사점에서 시작됩니다.  **Checkpoint-Workflow** 활동을 사용하여 워크플로에서 검사점을 설정할 수 있습니다. Azure Automation에는 3시간 동안 실행되는 모든 Runbook이 언로드되어 다른 Runbook을 실행할 수 있도록 하는 [공정 공유라는](automation-runbook-execution.md#fair-share)기능이 있습니다. 결국 언로드된 Runbook이 다시 로드되고 실행 이 완료되면 Runbook에서 가져온 마지막 검사에서 실행을 다시 시작합니다. Runbook이 결국 완료되도록 하려면 3시간 미만 동안 실행되는 간격으로 검사점을 추가해야 합니다. 각 실행 중에 새 검사점이 추가되고 오류로 인해 3시간 후에 Runbook이 제거되면 Runbook이 무기한 재개됩니다.
 
 다음 샘플 코드에서는 Activity2 이후에 예외가 발생하여 워크플로가 끝납니다. 설정된 마지막 검사점 직후이므로 워크플로를 다시 시작하면 Activity2를 실행하는 것으로 작업이 시작됩니다.
 
@@ -254,7 +254,7 @@ Workflow Copy-Files
 }
 ```
 
-[Suspend-workflow](https://technet.microsoft.com/library/jj733586.aspx) 작업을 호출한 후 또는 마지막 검사점 이후에 사용자 이름 자격 증명을 유지하지 않기 때문에 자격 증명을 null로 설정하고 **Suspend-workflow** 또는 검사점을 호출한 후에 자산 저장소에서 다시 검색해야 합니다.  그렇지 않으면 다음과 같은 오류 메시지가 표시 될 수 있습니다. *지 속성 데이터를 완전히 저장할 수 없거나 저장 된 지 속성 데이터가 손상 되었기 때문에 워크플로 작업을 다시 시작할 수 없습니다. 워크플로를 다시 시작 해야 합니다.*
+[Suspend-workflow](https://technet.microsoft.com/library/jj733586.aspx) 작업을 호출한 후 또는 마지막 검사점 이후에 사용자 이름 자격 증명을 유지하지 않기 때문에 자격 증명을 null로 설정하고 **Suspend-workflow** 또는 검사점을 호출한 후에 자산 저장소에서 다시 검색해야 합니다.  그렇지 않으면 *지속성 데이터를 완전히 저장할 수 없거나 저장된 지속성 데이터가 손상되었기 때문에 워크플로 작업을 다시 시작할 수 없다는 오류 메시지가 나타날 수 있습니다. 워크플로를 다시 시작해야 합니다.*
 
 다음과 같은 코드에서는 PowerShell 워크플로 runbook에서 이를 처리하는 방법을 보여 줍니다.
 
@@ -291,5 +291,5 @@ workflow CreateTestVms
 
 ## <a name="next-steps"></a>다음 단계
 
-* PowerShell 워크플로 Runbook을 시작하려면 [내 첫 번째 PowerShell 워크플로 Runbook](automation-first-runbook-textual.md)
+* PowerShell 워크플로 런북을 시작하려면 [내 첫 번째 PowerShell 워크플로 런북을 참조하십시오.](automation-first-runbook-textual.md)
 

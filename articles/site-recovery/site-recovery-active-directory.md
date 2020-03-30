@@ -1,5 +1,5 @@
 ---
-title: Azure Site Recovery를 사용 하 여 Active Directory/DNS 재해 복구 설정
+title: Azure 사이트 복구를 사용 하 여 활성 디렉터리/DNS 재해 복구 설정
 description: 이 문서에서는 Azure Site Recovery를 사용하여 Active Directory 및 DNS에 대한 재해 복구 솔루션을 구현하는 방법에 대해 설명합니다.
 author: mayurigupta13
 manager: rochakm
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
 ms.openlocfilehash: 8c1f85217db12b60cdcd8ea0bdb65792b8d02648
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79257811"
 ---
 # <a name="set-up-disaster-recovery-for-active-directory-and-dns"></a>Active Directory 및 DNS에 대한 재해 복구 설정
@@ -25,7 +25,7 @@ SharePoint, Dynamics AX 및 SAP와 같은 엔터프라이즈 애플리케이션�
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure에 복제하는 경우 구독, Azure Virtual Network, 스토리지 계정 및 Recovery Services 자격 증명 모음을 비롯한 [Azure 리소스를 준비](tutorial-prepare-azure.md)합니다.
-* 모든 구성 요소에 대한 [지원 요구 사항](site-recovery-support-matrix-to-azure.md)을 검토합니다.
+* 모든 구성 요소에 대한 [지원 요구 사항을](site-recovery-support-matrix-to-azure.md) 검토합니다.
 
 ## <a name="replicate-the-domain-controller"></a>도메인 컨트롤러 복제
 
@@ -50,7 +50,7 @@ Site Recovery를 사용하여 복제된 도메인 컨트롤러는 [테스트 장
 ## <a name="protect-active-directory"></a>Active Directory 보호
 
 ### <a name="site-to-site-protection"></a>사이트-사이트 보호
-보조 사이트에 도메인 컨트롤러를 만듭니다. 서버를 도메인 컨트롤러 역할로 승격할 때 기본 사이트에 사용된 도메인과 동일한 이름을 지정합니다. **Active Directory 사이트 및 서비스** 스냅인을 사용하여 사이트가 추가된 사이트 링크 개체에서 설정을 구성할 수 있습니다. 사이트 링크에서 설정을 구성하면 둘 이상의 사이트에서 복제가 실행되는 시기와 빈도를 관리할 수 있습니다. 자세한 내용은 [사이트 간 복제 일정 예약](https://technet.microsoft.com/library/cc731862.aspx)을 참조하세요.
+보조 사이트에 도메인 컨트롤러를 만듭니다. 서버를 도메인 컨트롤러 역할로 승격할 때 기본 사이트에 사용된 도메인과 동일한 이름을 지정합니다. **Active Directory 사이트 및 서비스** 스냅인을 사용하여 사이트가 추가된 사이트 링크 개체에서 설정을 구성할 수 있습니다. 사이트 링크에서 설정을 구성하면 둘 이상의 사이트에서 복제가 실행되는 시기와 빈도를 관리할 수 있습니다. 자세한 내용은 [사이트 간의 복제 예약](https://technet.microsoft.com/library/cc731862.aspx)을 참조하십시오.
 
 ### <a name="site-to-azure-protection"></a>사이트-Azure 보호
 먼저 Azure 가상 네트워크에서 도메인 컨트롤러를 만듭니다. 서버를 도메인 컨트롤러 역할로 승격할 때 기본 사이트에 사용된 도메인과 동일한 이름을 지정합니다.
@@ -104,9 +104,9 @@ Site Recovery를 사용하여 복제된 도메인 컨트롤러는 [테스트 장
 Windows Server 2012부터 [AD DS(Active Directory Domain Services)에 추가 세이프가드가 기본적으로 제공됩니다](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100). 이러한 세이프가드는 기본 하이퍼바이저 플랫폼이 **VM-GenerationID**를 지원하는 경우 USN 롤백으로부터 가상화된 도메인 컨트롤러를 보호합니다. Azure는 **VM-GenerationID**를 지원합니다. 이로 인해 Azure Virtual Machines에서 Windows Server 2012 이상을 실행하는 도메인 컨트롤러에는 이러한 추가 세이프가드가 있습니다.
 
 
-**VM-GenerationID**를 다시 설정할 때 AD DS 데이터베이스의 **InvocationID**도 다시 설정됩니다. 또한 RID 풀은 삭제 되 고 sysvol 폴더는 신뢰할 수 없는 것으로 표시 됩니다. 자세한 내용은 [Active Directory Domain Services 가상화 소개](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100) 및 [안전하게 DFSR 가상화](https://blogs.technet.microsoft.com/filecab/2013/04/05/safely-virtualizing-dfsr/)를 참조하세요.
+**VM-GenerationID**를 다시 설정할 때 AD DS 데이터베이스의 **InvocationID**도 다시 설정됩니다. 또한 RID 풀은 삭제되고 sysvol 폴더는 권한이 없는 것으로 표시됩니다. 자세한 내용은 [활성 디렉터리 도메인 서비스 가상화 소개](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100) 및 [DFSR을 안전하게 가상화하는](https://blogs.technet.microsoft.com/filecab/2013/04/05/safely-virtualizing-dfsr/)것을 참조하십시오.
 
-Azure로 장애 조치(failover)를 수행하면 **VM-GenerationID**가 다시 설정될 수 있습니다. **VM-GenerationID**가 다시 설정되면 Azure에서 도메인 컨트롤러 가상 머신이 시작될 때 추가 세이프가드를 트리거합니다. 이로 인해 도메인 컨트롤러 가상 머신에 로그인 할 수 있는 *시간이 길어질* 수 있습니다.
+Azure로 장애 조치(failover)를 수행하면 **VM-GenerationID**가 다시 설정될 수 있습니다. **VM-GenerationID**가 다시 설정되면 Azure에서 도메인 컨트롤러 가상 머신이 시작될 때 추가 세이프가드를 트리거합니다. 이로 인해 도메인 컨트롤러 가상 시스템에 로그인할 수 있는 *데 상당한 지연이* 발생할 수 있습니다.
 
 이 도메인 컨트롤러는 테스트 장애 조치(failover)에만 사용되므로 가상화 세이프가드가 필요하지 않습니다. 도메인 컨트롤러 가상 머신의 **VM-GenerationID** 값이 변경되지 않도록 하려면 온-프레미스 도메인 컨트롤러에서 다음 DWORD의 값을 **4**로 변경하면 됩니다.
 
@@ -126,11 +126,11 @@ Azure로 장애 조치(failover)를 수행하면 **VM-GenerationID**가 다시 �
 
     ![Invocation ID 변경](./media/site-recovery-active-directory/Event1109.png)
 
-* Sysvol 폴더 및 NETLOGON 공유를 사용할 수 없습니다.
+* Sysvol 폴더 및 넷로온 공유를 사용할 수 없습니다.
 
     ![Sysvol 폴더 공유](./media/site-recovery-active-directory/sysvolshare.png)
 
-    ![NtFrs sysvol 폴더](./media/site-recovery-active-directory/Event13565.png)
+    ![NtFrs 시스볼 폴더](./media/site-recovery-active-directory/Event13565.png)
 
 * DFSR 데이터베이스가 삭제됩니다.
 
@@ -144,7 +144,7 @@ Azure로 장애 조치(failover)를 수행하면 **VM-GenerationID**가 다시 �
 >
 >
 
-1. 명령 프롬프트에서 다음 명령을 실행 하 여 sysvol 폴더 및 NETLOGON 폴더가 공유 되어 있는지 확인 합니다.
+1. 명령 프롬프트에서 다음 명령을 실행하여 sysvol 폴더와 NETLOGON 폴더가 공유되는지 확인합니다.
 
     `NET SHARE`
 
@@ -164,7 +164,7 @@ Azure로 장애 조치(failover)를 수행하면 **VM-GenerationID**가 다시 �
     * [FRS 복제](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs/)를 권장하지는 않지만 사용 중이라면 신뢰할 수 있는 복원 단계를 수행합니다. 프로세스는 [BurFlags 레지스트리 키를 사용하여 파일 복제 서비스 다시 초기화](https://support.microsoft.com/kb/290762)에 설명되어 있습니다.
 
         BurFlags에 대한 자세한 내용은 블로그 게시물 [D2 and D4: What is it for?](https://blogs.technet.microsoft.com/janelewis/2006/09/18/d2-and-d4-what-is-it-for/)(D2 및 D4의 용도)를 참조하세요.
-    * DFSR 복제를 사용하는 경우 신뢰할 수 있는 복원 단계를 완료합니다. 프로세스는 [DFSR에서 복제 된 sysvol 폴더 (예: FRS의 경우 "D4/D2")에 대해 신뢰할 수 있는 동기화와 신뢰할 수 없는 동기화 강제 적용](https://support.microsoft.com/kb/2218556)에 설명 되어 있습니다.
+    * DFSR 복제를 사용하는 경우 신뢰할 수 있는 복원 단계를 완료합니다. 이 프로세스는 [[FRS의 경우 "D4/D2"와 같이 DFSR 복제 된 sysvol 폴더에 대한 신뢰할 수 있고 신뢰할 수 없는 동기화Force에 설명되어 있습니다.](https://support.microsoft.com/kb/2218556)
 
         Powershell 함수를 사용할 수도 있습니다. 자세한 내용은 [DFSR-SYSVOL authoritative/non-authoritative restore PowerShell functions](https://blogs.technet.microsoft.com/thbouche/2013/08/28/dfsr-sysvol-authoritative-non-authoritative-restore-powershell-functions/)(DFSR SYSVOL 신뢰할 수 있는/신뢰할 수 없는 복원 PowerShell 함수)를 참조하세요.
 
@@ -208,4 +208,4 @@ DNS가 도메인 컨트롤러와 동일한 VM에 있지 않은 경우 테스트 
     `dnscmd /config contoso.com /allowupdate 1`
 
 ## <a name="next-steps"></a>다음 단계
-[Azure Site Recovery로 엔터프라이즈 워크로드를 보호하는 방법](site-recovery-workload.md)에 대해 자세히 알아봅니다.
+[Azure 사이트 복구를 통해 엔터프라이즈 워크로드 보호에](site-recovery-workload.md)대해 자세히 알아봅니다.

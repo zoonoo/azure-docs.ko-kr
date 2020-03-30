@@ -1,5 +1,5 @@
 ---
-title: 연결 문제 해결-Azure PowerShell
+title: 연결 문제 해결 - Azure PowerShell
 titleSuffix: Azure Network Watcher
 description: PowerShell을 사용하여 Azure Network Watcher의 연결 문제 해결 기능을 사용하는 방법을 알아봅니다.
 services: network-watcher
@@ -14,17 +14,17 @@ ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: damendo
 ms.openlocfilehash: abc9389c2c5fd5576795c26a89e3941b6eb5a939
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76842838"
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-powershell"></a>PowerShell을 사용하여 Azure Network Watcher로 연결 문제 해결
 
 > [!div class="op_single_selector"]
 > - [포털](network-watcher-connectivity-portal.md)
-> - [PowerShell](network-watcher-connectivity-powershell.md)
+> - [Powershell](network-watcher-connectivity-powershell.md)
 > - [Azure CLI](network-watcher-connectivity-cli.md)
 > - [Azure REST API](network-watcher-connectivity-rest.md)
 
@@ -45,7 +45,7 @@ ms.locfileid: "76842838"
 
 이 예제에서는 포트 80을 통해 대상 가상 머신에 대한 연결을 확인합니다. 이 예제에서는 원본 VM이 포함된 지역에서 Network Watcher를 사용할 수 있어야 합니다.  
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 ```powershell
 $rgName = "ContosoRG"
@@ -139,7 +139,7 @@ Hops             : [
 
 이 예제에서는 가상 머신과 원격 엔드포인트 간의 연결을 확인합니다. 이 예제에서는 원본 VM이 포함된 지역에서 Network Watcher를 사용할 수 있어야 합니다.  
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 ```powershell
 $rgName = "ContosoRG"
@@ -202,7 +202,7 @@ Hops             : [
 
 다음 예제에서는 웹 사이트에 대한 연결을 확인합니다. 이 예제에서는 원본 VM이 포함된 지역에서 Network Watcher를 사용할 수 있어야 합니다.  
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 ```powershell
 $rgName = "ContosoRG"
@@ -254,7 +254,7 @@ Hops             : [
 
 다음 예제에서는 가상 머신에서 Blob 스토리지 계정으로의 연결을 확인합니다. 이 예제에서는 원본 VM이 포함된 지역에서 Network Watcher를 사용할 수 있어야 합니다.  
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 ```powershell
 $rgName = "ContosoRG"

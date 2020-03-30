@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/31/2017
 ms.openlocfilehash: cbf0a1f033ddafc68debab8de26dff29d73cc98e
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77651477"
 ---
 # <a name="exchange-x12-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에서 B2B 엔터프라이즈 통합용 X12 메시지 교환
@@ -22,19 +22,19 @@ Azure Logic Apps의 X12 메시지를 교환하기 전에 X12 규약을 만들고
 > [!NOTE]
 > 이 페이지에서는 Azure Logic Apps의 X12 기능을 다룹니다. 자세한 내용은 [EDIFACT](logic-apps-enterprise-integration-edifact.md)를 참조하세요.
 
-## <a name="before-you-start"></a>시작하기 전 확인 사항
+## <a name="before-you-start"></a>시작하기 전에
 
 필요한 항목은 다음과 같습니다.
 
 * 이미 정의되고 Azure 구독과 연결된 [통합 계정](logic-apps-enterprise-integration-create-integration-account.md)
-* 통합 계정에 정의되고 [비즈니스 ID](../logic-apps/logic-apps-enterprise-integration-partners.md) 아래에서 X12 식별자를 사용하여 구성된 둘 이상의 **파트너**    
+* 통합 계정에 정의되고 **비즈니스 ID** 아래에서 X12 식별자를 사용하여 구성된 둘 이상의 [파트너](../logic-apps/logic-apps-enterprise-integration-partners.md)    
 * 통합 계정에 업로드할 수 있는 필수 [스키마](../logic-apps/logic-apps-enterprise-integration-schemas.md)
 
 [통합 계정을 만들고](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)[파트너를 추가하고](logic-apps-enterprise-integration-partners.md) 사용하려는 [스키마](../logic-apps/logic-apps-enterprise-integration-schemas.md)를 만든 후에 다음과 같은 단계에 따라 X12 규약을 만들 수 있습니다.
 
 ## <a name="create-an-x12-agreement"></a>X12 규약 만들기
 
-1. [Azure Portal](https://portal.azure.com "Azure 포털")에 로그인합니다. 
+1. [Azure 포털에](https://portal.azure.com "Azure portal")로그인합니다. 
 
 2. Azure의 주 메뉴에서 **모든 서비스**를 선택합니다. 
    검색 상자에 "통합"을 입력한 다음, **통합 계정**을 선택합니다.  
@@ -109,7 +109,7 @@ Azure Logic Apps의 X12 메시지를 교환하기 전에 X12 규약을 만들고
 | 속성 | 설명 |
 | --- | --- |
 | TA1이 예상됨 |교환 보낸 사람에게 기술 승인을 반환합니다. |
-| FA가 예상됨 |기능 승인을 교환 보낸 사람에게 반환합니다. 그런 다음 스키마 버전에 따라 원하는 승인(997 또는 999)을 선택합니다. |
+| FA가 예상됨 |교환 보낸 사람에게 기능 확인을 반환합니다. 그런 다음 스키마 버전에 따라 원하는 승인(997 또는 999)을 선택합니다. |
 | AK2/IK2 루프 포함 |수락된 트랜잭션 집합에 대한 기능 확인에서 AK2 루프를 생성할 수 있습니다. |
 
 ### <a name="schemas"></a>스키마
@@ -126,17 +126,17 @@ Azure Logic Apps의 X12 메시지를 교환하기 전에 X12 규약을 만들고
 | 스키마 |사용하려는 스키마 파일을 선택합니다. 스키마가 통합 계정에 추가됩니다. |
 
 > [!NOTE]
-> [통합 계정](../logic-apps/logic-apps-enterprise-integration-schemas.md)에 업로드된 필수 [스키마](../logic-apps/logic-apps-enterprise-integration-accounts.md)를 구성합니다.
+> [통합 계정](../logic-apps/logic-apps-enterprise-integration-accounts.md)에 업로드된 필수 [스키마](../logic-apps/logic-apps-enterprise-integration-schemas.md)를 구성합니다.
 
-### <a name="envelopes"></a>포락선
+### <a name="envelopes"></a>봉투
 
 ![트랜잭션 집합의 구분 기호를 지정합니다. 표준 식별자 또는 반복 구분 기호 선택](./media/logic-apps-enterprise-integration-x12/x12-34.png)
 
 | 속성 | 설명 |
 | --- | --- |
-| ISA11 사용 |트랜잭션 집합에서 사용할 구분 기호를 지정합니다. <p>EDI 수신 파이프라인에서 들어오는 문서의 소수 표기법 대신 **표준 식별자**를 선택하여 소수 표기법에 마침표(.)를 사용합니다. <p>단순 데이터 요소 또는 반복되는 데이터 구조의 반복 발생에 대한 구분 기호를 지정하려면 **반복 구분 기호**를 선택합니다. 예를 들어 일반적으로 캐럿(^)을 반복 구분 기호로 사용합니다. HIPAA 스키마의 경우 캐럿만 사용할 수 있습니다. |
+| ISA11 사용 |트랜잭션 집합에서 사용할 구분 기호를 지정합니다. <p>EDI 수신 파이프라인에서 들어오는 문서의 소수 표기법 대신 **표준 식별자**를 선택하여 소수 표기법에 마침표(.)를 사용합니다. <p>**반복 구분 기호를** 선택하여 단순 데이터 요소 또는 반복데이터 구조의 반복 발생에 대해 구분 기호를 지정합니다. 예를 들어 일반적으로 캐럿(^)을 반복 구분 기호로 사용합니다. HIPAA 스키마의 경우 캐럿만 사용할 수 있습니다. |
 
-### <a name="control-numbers"></a>컨트롤 번호
+### <a name="control-numbers"></a>제어 번호
 
 ![컨트롤 번호 중복을 처리하는 방법 선택](./media/logic-apps-enterprise-integration-x12/x12-35.png) 
 
@@ -148,7 +148,7 @@ Azure Logic Apps의 X12 메시지를 교환하기 전에 X12 규약을 만들고
 
 ### <a name="validation"></a>유효성 검사
 
-![받은 메시지의 유효성 검사 속성 설정](./media/logic-apps-enterprise-integration-x12/x12-36.png) 
+![수신된 메시지에 대한 유효성 검사 속성 설정](./media/logic-apps-enterprise-integration-x12/x12-36.png) 
 
 각 유효성 검사 행을 완료하면 다른 행이 자동으로 추가됩니다. 모든 규칙을 지정하지 않으면 유효성 검사에서는 "기본" 행을 사용합니다.
 
@@ -216,22 +216,22 @@ Azure Logic Apps의 X12 메시지를 교환하기 전에 X12 규약을 만들고
 | --- | --- |
 | 버전 |X12 버전 선택 |
 | 트랜잭션 유형(ST01) |트랜잭션 유형 선택 |
-| 스키마 |사용할 스키마를 선택합니다. 스키마는 통합 계정에 있습니다. 스키마를 먼저 선택하면 버전 및 트랜잭션 유형이 자동으로 구성됩니다.  |
+| SCHEMA |사용할 스키마를 선택합니다. 스키마는 통합 계정에 있습니다. 스키마를 먼저 선택하면 버전 및 트랜잭션 유형이 자동으로 구성됩니다.  |
 
 > [!NOTE]
-> [통합 계정](../logic-apps/logic-apps-enterprise-integration-schemas.md)에 업로드된 필수 [스키마](../logic-apps/logic-apps-enterprise-integration-accounts.md)를 구성합니다.
+> [통합 계정](../logic-apps/logic-apps-enterprise-integration-accounts.md)에 업로드된 필수 [스키마](../logic-apps/logic-apps-enterprise-integration-schemas.md)를 구성합니다.
 
-### <a name="envelopes"></a>포락선
+### <a name="envelopes"></a>봉투
 
 ![트랜잭션 집합의 구분 기호를 지정합니다. 표준 식별자 또는 반복 구분 기호 선택](./media/logic-apps-enterprise-integration-x12/x12-6.png) 
 
 | 속성 | 설명 |
 | --- | --- |
-| ISA11 사용 |트랜잭션 집합에서 사용할 구분 기호를 지정합니다. <p>EDI 수신 파이프라인에서 들어오는 문서의 소수 표기법 대신 **표준 식별자**를 선택하여 소수 표기법에 마침표(.)를 사용합니다. <p>단순 데이터 요소 또는 반복되는 데이터 구조의 반복 발생에 대한 구분 기호를 지정하려면 **반복 구분 기호**를 선택합니다. 예를 들어 일반적으로 캐럿(^)을 반복 구분 기호로 사용합니다. HIPAA 스키마의 경우 캐럿만 사용할 수 있습니다. |
+| ISA11 사용 |트랜잭션 집합에서 사용할 구분 기호를 지정합니다. <p>EDI 수신 파이프라인에서 들어오는 문서의 소수 표기법 대신 **표준 식별자**를 선택하여 소수 표기법에 마침표(.)를 사용합니다. <p>**반복 구분 기호를** 선택하여 단순 데이터 요소 또는 반복데이터 구조의 반복 발생에 대해 구분 기호를 지정합니다. 예를 들어 일반적으로 캐럿(^)을 반복 구분 기호로 사용합니다. HIPAA 스키마의 경우 캐럿만 사용할 수 있습니다. |
 
-### <a name="control-numbers"></a>컨트롤 번호
+### <a name="control-numbers"></a>제어 번호
 
-![컨트롤 번호 지정 속성](./media/logic-apps-enterprise-integration-x12/x12-8.png) 
+![제어 번호 속성 지정](./media/logic-apps-enterprise-integration-x12/x12-8.png) 
 
 | 속성 | 설명 |
 | --- | --- |
@@ -248,7 +248,7 @@ Azure Logic Apps의 X12 메시지를 교환하기 전에 X12 규약을 만들고
 | 교환 컨트롤 번호(ISA13) |(필수) 교환 컨트롤 번호의 값 범위를 입력합니다. 1~999999999 사이의 숫자 값을 입력합니다. |
 | 그룹 컨트롤 번호(GS06) |(필수) 그룹 컨트롤 번호의 숫자 범위를 입력합니다. 1~999999999 사이의 숫자 값을 입력합니다. |
 | 트랜잭션 집합 컨트롤 번호(ST02) |(필수) 트랜잭션 집합 컨트롤 번호의 숫자 범위를 입력합니다. 1~999999999 사이의 숫자 값 범위를 입력합니다. |
-| 접두사 |(선택) 승인에 사용되는 트랜잭션 집합 컨트롤 번호의 범위로 지정됩니다. 가운데 두 필드에 숫자 값을 입력하고 접두사 및 접미사 필드에 영숫자 값을 입력합니다(원하는 경우). 중간의 필드는 필수이며, 컨트롤 번호의 최소값과 최대값을 포함합니다. |
+| 접두사 |(선택) 승인에 사용되는 트랜잭션 집합 컨트롤 번호의 범위로 지정됩니다. 중간의 두 필드에는 숫자 값을 입력하고 접두사/접미사 필드에는 원하는 경우 영숫자 값을 입력합니다. 중간의 필드는 필수이며, 컨트롤 번호의 최소값과 최대값을 포함합니다. |
 | 접미사 |(선택) 승인에 사용되는 트랜잭션 집합 컨트롤 번호의 범위로 지정됩니다. 중간의 두 필드에는 숫자 값을 입력하고 접두사/접미사 필드에는 원하는 경우 영숫자 값을 입력합니다. 중간의 필드는 필수이며, 컨트롤 번호의 최소값과 최대값을 포함합니다. |
 
 ### <a name="character-sets-and-separators"></a>문자 집합 및 구분 기호
@@ -261,9 +261,9 @@ Azure Logic Apps의 X12 메시지를 교환하기 전에 X12 규약을 만들고
 | --- | --- |
 | 사용할 문자 집합 |속성의 유효성을 검사하려면 X12 문자 집합을 선택합니다. 옵션은 기본, 확장 및 UTF8입니다. |
 | 스키마 |드롭다운 목록에서 스키마를 선택합니다. 각 행을 완료한 후에 새 행이 자동으로 추가됩니다. 선택한 스키마의 경우 아래의 구분 기호 설명에 따라 사용하려는 구분 기호 집합을 선택합니다. |
-| 입력 유형 |드롭다운 목록에서 입력 형식을 선택합니다. |
+| 입력 형식 |드롭다운 목록에서 입력 형식을 선택합니다. |
 | Component Separator |복합 데이터 요소를 분리하려면 단일 문자를 입력합니다. |
-| 데이터 요소 구분 기호 |복합 데이터 요소 내에서 단순 데이터 요소를 분리하려면 단일 문자를 입력합니다. |
+| Data Element Separator |복합 데이터 요소 내에서 단순 데이터 요소를 분리하려면 단일 문자를 입력합니다. |
 | Replacement Character |아웃바운드 X12 메시지를 생성할 때 페이로드 데이터에 있는 모든 구분 기호 문자를 바꾸는 데 사용한 대체 문자를 입력합니다. |
 | Segment Terminator |EDI 세그먼트의 끝을 나타내려면 단일 문자를 입력합니다. |
 | 접미사 |세그먼트 식별자와 함께 사용할 문자를 선택합니다. 접미사를 지정하면 세그먼트 마침 표시 데이터 요소를 비워 둘 수 있습니다. 세그먼트 마침 표시를 비워 두는 경우 접미사를 지정해야 합니다. |
@@ -273,7 +273,7 @@ Azure Logic Apps의 X12 메시지를 교환하기 전에 X12 규약을 만들고
 
 ### <a name="validation"></a>유효성 검사
 
-![메시지를 보내기 위한 유효성 검사 속성 설정](./media/logic-apps-enterprise-integration-x12/x12-10.png) 
+![메시지 전송을 위한 유효성 검사 속성 설정](./media/logic-apps-enterprise-integration-x12/x12-10.png) 
 
 각 유효성 검사 행을 완료하면 다른 행이 자동으로 추가됩니다. 모든 규칙을 지정하지 않으면 유효성 검사에서는 "기본" 행을 사용합니다.
 
@@ -298,10 +298,10 @@ Azure Logic Apps의 X12 메시지를 교환하기 전에 X12 규약을 만들고
 
 ## <a name="connector-reference"></a>커넥터 참조
 
-커넥터의 Swagger 파일에 설명 된 작업 및 제한과 같이이 커넥터에 대 한 자세한 기술 정보는 [커넥터의 참조 페이지](https://docs.microsoft.com/connectors/x12/)를 참조 하세요. 
+커넥터의 Swagger 파일에 설명된 작업 및 제한과 같은 이 커넥터에 대한 자세한 내용은 [커넥터의 참조 페이지를](https://docs.microsoft.com/connectors/x12/)참조하십시오. 
 
 > [!NOTE]
-> [Ise (통합 서비스 환경](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md))의 논리 앱의 경우이 커넥터의 ise 레이블 버전은 [ise 메시지 제한을](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) 대신 사용 합니다.
+> [통합 서비스 환경(ISE)의](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)논리 앱의 경우 이 커넥터의 ISE 레이블이 지정된 버전은 [ISE 메시지 제한을](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) 대신 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

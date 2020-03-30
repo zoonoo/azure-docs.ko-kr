@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 03/04/2020
 ms.openlocfilehash: 36ff0d5f1fc96b2013555d37a869ebf629a22be7
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79272124"
 ---
 # <a name="connect-to-apache-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Azure Virtual Network를 통해 HDInsight의 Apache Kafka에 연결
@@ -56,9 +56,9 @@ HDInsight는 공용 인터넷을 통해 Kafka에 직접 연결하는 것을 허�
      > * 각 클라이언트는 VPN 소프트웨어 클라이언트를 사용하여 연결해야 합니다.
      > * VPN 클라이언트는 가상 네트워크에 이름 확인 요청을 전달하지 않으므로, Kafka와 통신하기 위해 IP 주소 지정을 사용해야 합니다. IP 통신을 하려면 Kafka 클러스터에 추가 구성을 해야 합니다.
 
-가상 네트워크에서 HDInsight를 사용 하는 방법에 대 한 자세한 내용은 [Azure hdinsight 클러스터에 대 한 가상 네트워크 계획](../hdinsight-plan-virtual-network-deployment.md)을 참조 하세요.
+가상 네트워크에서 HDInsight를 사용하는 방법에 대한 자세한 내용은 [Azure HDInsight 클러스터에 대한 가상 네트워크 계획을](../hdinsight-plan-virtual-network-deployment.md)참조하십시오.
 
-## <a id="on-premises"></a> 온-프레미스 네트워크에서 Apache Kafka에 연결
+## <a name="connect-to-apache-kafka-from-an-on-premises-network"></a><a id="on-premises"></a> 온-프레미스 네트워크에서 Apache Kafka에 연결
 
 온-프레미스 네트워크와 통신하는 Kafka 클러스터를 만들려면 [온-프레미스 네트워크에 HDInsight 연결](./../connect-on-premises-network.md) 문서에 나오는 단계를 수행합니다.
 
@@ -74,7 +74,7 @@ HDInsight는 공용 인터넷을 통해 Kafka에 직접 연결하는 것을 허�
 
 Kafka 클라이언트가 온-프레미스에서 클러스터로 연결할 수 있는지 확인하려면 [예: Python 클라이언트](#python-client) 섹션에 나오는 단계를 사용합니다.
 
-## <a id="vpnclient"></a> VPN 클라이언트에 Apache Kafka 연결
+## <a name="connect-to-apache-kafka-with-a-vpn-client"></a><a id="vpnclient"></a> VPN 클라이언트에 Apache Kafka 연결
 
 다음 구성을 만들려면 이 섹션에 나오는 단계를 사용합니다.
 
@@ -85,7 +85,7 @@ Kafka 클라이언트가 온-프레미스에서 클러스터로 연결할 수 �
 
 1. [지점 및 사이트 간 연결에 대한 자체 서명된 인증서로 작업](../../vpn-gateway/vpn-gateway-certificates-point-to-site.md) 문서에 나오는 단계를 수행합니다. 이 문서는 게이트웨이에 필요한 인증서를 만듭니다.
 
-2. PowerShell 프롬프트를 열고 다음 코드를 사용 하 여 Azure 구독에 로그인 합니다.
+2. PowerShell 프롬프트를 열고 다음 코드를 사용하여 Azure 구독에 로그인합니다.
 
     ```powershell
     Connect-AzAccount
@@ -242,7 +242,7 @@ Kafka 클라이언트가 온-프레미스에서 클러스터로 연결할 수 �
 
 기본적으로 Apache Zookeeper는 Kafka 브로커의 도메인 이름을 클라이언트에 반환합니다. 이 구성은 가상 네트워크의 엔터티에 대해 이름 확인을 사용할 수 없으므로 VPN 소프트웨어 클라이언트에 작동하지 않습니다. 이 구성의 경우, 다음 단계에 따라 도메인 이름 대신 IP 주소를 보급하도록 Kafka를 구성합니다.
 
-1. 웹 브라우저를 사용하여 `https://CLUSTERNAME.azurehdinsight.net`으로 이동합니다. `CLUSTERNAME`를 HDInsight 클러스터의 Kafka 이름으로 바꿉니다.
+1. 웹 브라우저를 사용하여 `https://CLUSTERNAME.azurehdinsight.net`으로 이동합니다. HDInsight 클러스터에서 카프카의 이름으로 바꿉니다. `CLUSTERNAME`
 
     메시지가 표시되면, 클러스터의 HTTPS 사용자 이름 및 암호를 입력합니다. 클러스터에 대한 Ambari Web UI가 표시됩니다.
 
@@ -252,9 +252,9 @@ Kafka 클라이언트가 온-프레미스에서 클러스터로 연결할 수 �
 
 3. Kafka 구성을 보려면 위쪽 가운데에서 __Configs__를 선택합니다.
 
-    ![Apache Ambari services 구성](./media/apache-kafka-connect-vpn-gateway/select-kafka-config1.png)
+    ![아파치 암바리 서비스 구성](./media/apache-kafka-connect-vpn-gateway/select-kafka-config1.png)
 
-4. __kafka-env__ 구성을 찾으려면 오른쪽 위에 있는 `kafka-env`필터__필드에__를 입력합니다.
+4. __kafka-env__ 구성을 찾으려면 오른쪽 위에 있는 __필터__ 필드에 `kafka-env`를 입력합니다.
 
     ![kafka-env의 Kafka 구성](./media/apache-kafka-connect-vpn-gateway/search-for-kafka-env.png)
 
@@ -268,13 +268,13 @@ Kafka 클라이언트가 온-프레미스에서 클러스터로 연결할 수 �
     echo "advertised.listeners=PLAINTEXT://$IP_ADDRESS:9092" >> /usr/hdp/current/kafka-broker/conf/server.properties
     ```
 
-6. Kafka에서 수신 대기하는 인터페이스를 구성하려면 오른쪽 위의 `listeners`필터__필드에__를 입력합니다.
+6. Kafka에서 수신 대기하는 인터페이스를 구성하려면 오른쪽 위의 __필터__ 필드에 `listeners`를 입력합니다.
 
 7. 모든 네트워크 인터페이스에서 수신 대기하도록 Kafka를 구성하려면 __수신기__ 필드의 값을 `PLAINTEXT://0.0.0.0:9092`로 변경합니다.
 
 8. 구성 변경 내용을 저장하려면 __저장__ 단추를 사용합니다. 변경 내용을 설명하는 텍스트 메시지를 입력합니다. 변경 내용이 저장되면 __확인__을 선택합니다.
 
-    ![Apache Ambari 구성 저장](./media/apache-kafka-connect-vpn-gateway/save-configuration-button.png)
+    ![아파치 암바리 저장 구성](./media/apache-kafka-connect-vpn-gateway/save-configuration-button.png)
 
 9. Kafka를 다시 시작할 때 오류를 방지하려면 __서비스 작업__ 단추를 사용하여 __유지 관리 모드 켜기__를 선택합니다. 확인을 선택하여 이 작업을 완료합니다.
 
@@ -288,9 +288,9 @@ Kafka 클라이언트가 온-프레미스에서 클러스터로 연결할 수 �
 
 ### <a name="connect-to-the-vpn-gateway"></a>VPN Gateway에 연결
 
-VPN 게이트웨이에 연결하려면 __지점-사이트 간 연결 구성__ 문서의 [Azure에 연결](../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md#connect) 섹션을 사용합니다.
+VPN 게이트웨이에 연결하려면 [지점-사이트 간 연결 구성](../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md#connect) 문서의 __Azure에 연결__ 섹션을 사용합니다.
 
-## <a id="python-client"></a>예: Python 클라이언트
+## <a name="example-python-client"></a><a id="python-client"></a>예: Python 클라이언트
 
 Kafka에 대한 연결 유효성 검사를 하려면, 다음 단계를 사용하여 Python 생산자와 소비자를 만들고 실행합니다.
 
@@ -368,7 +368,7 @@ Kafka에 대한 연결 유효성 검사를 하려면, 다음 단계를 사용하
 
 ## <a name="next-steps"></a>다음 단계
 
-가상 네트워크에서 HDInsight를 사용 하는 방법에 대 한 자세한 내용은 [Azure hdinsight 클러스터에 대 한 가상 네트워크 배포 계획](../hdinsight-plan-virtual-network-deployment.md) 문서를 참조 하세요.
+가상 네트워크와 함께 HDInsight를 사용하는 방법에 대한 자세한 내용은 [Azure HDInsight 클러스터에 대한 가상 네트워크 배포 계획을](../hdinsight-plan-virtual-network-deployment.md) 참조하십시오.
 
 지점-사이트 간 VPN Gateway를 사용하여 Azure Virtual Network를 만드는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 

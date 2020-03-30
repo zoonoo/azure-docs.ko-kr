@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
 ms.openlocfilehash: d40157523a074547885a14a3d92379f8e8b6f351
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79254288"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>Azure Stream Analytics 출력 문제 해결
@@ -22,7 +22,7 @@ ms.locfileid: "79254288"
 ## <a name="output-not-produced-by-job"></a>작업에 의해 생성되지 않은 출력
 1.  각 출력에 대해 **테스트 연결** 단추를 사용하여 출력에 대한 연결을 확인합니다.
 
-2.  **모니터** 탭에서 [**모니터링 메트릭**](stream-analytics-monitoring.md) 을 확인 합니다. 값이 집계 되므로 메트릭은 몇 분 정도 지연 됩니다.
+2.  **모니터** 탭에서 [**모니터링 메트릭을**](stream-analytics-monitoring.md) 살펴봅니다. 값이 집계되므로 메트릭이 몇 분 지연됩니다.
     - 입력 이벤트가 0보다 큰 경우, 작업은 입력 데이터를 읽을 수 있습니다. 입력 이벤트가 0보다 크지 않으면 다음을 수행합니다.
       - 데이터 원본에 유효한 데이터가 있는지 확인하려면 [Service Bus 탐색기](https://code.msdn.microsoft.com/windowsapps/Service-Bus-Explorer-f2abca5a)를 사용하여 확인합니다. 이 확인은 작업이 입력으로 이벤트 허브를 사용하는 경우 적용됩니다.
       - 데이터 serialization 형식과 데이터 인코딩이 예상대로인지 확인합니다.
@@ -90,18 +90,18 @@ SQL 테이블에 UNIQUE KEY 제약 조건이 설정되고 SQL 테이블에 중�
 * 고유 인덱스에 ALTER INDEX를 사용하여 IGNORE_DUP_KEY 옵션을 설정할 수 있습니다. PRIMARY KEY/UNIQUE 제약 조건과 다르게 CREATE INDEX 또는 INDEX 정의를 사용하여 만듭니다.  
 * 이러한 인덱스에 고유성을 적용할 수 없기 때문에 IGNORE_DUP_KEY는 열 저장소 인덱스에 적용되지 않습니다.  
 
-## <a name="column-names-are-lower-cased-by-azure-stream-analytics"></a>열 이름은 Azure Stream Analytics의 소문자를 구분 합니다.
-원래 호환성 수준 (1.0)을 사용 하는 경우 열 이름을 소문자로 변경 하는 데 사용 Azure Stream Analytics. 이 동작은 이후 호환성 수준에서 수정 되었습니다. 사례를 유지 하기 위해 고객은 호환성 수준 1.1 이상으로 이동 하는 것을 권장 합니다. [Azure Stream Analytics 작업에 대 한 호환성 수준](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level)에 대 한 자세한 정보를 찾을 수 있습니다.
+## <a name="column-names-are-lower-cased-by-azure-stream-analytics"></a>열 이름은 Azure 스트림 분석에 의해 소문자로 지정됩니다.
+원래 호환성 수준(1.0)을 사용하는 경우 Azure Stream Analytics는 열 이름을 소문자로 변경하는 데 사용했습니다. 이 동작은 이후 호환성 수준에서 해결되었습니다. 케이스를 보존하기 위해 고객에게 호환성 수준 1.1 이상으로 이동하는 것이 좋습니다. Azure Stream Analytics [작업에 대한 호환성 수준에 대한](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level)자세한 정보를 찾을 수 있습니다.
 
 
 ## <a name="get-help"></a>도움말 보기
 
-추가 지원이 필요한 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)을 참조하세요.
+추가 지원은 [Azure 스트림 분석 포럼을](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)참조하십시오.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)
-* [Azure Stream Analytics 사용 시작](stream-analytics-real-time-fraud-detection.md)
+* [Azure 스트림 분석 사용 시작](stream-analytics-real-time-fraud-detection.md)
 * [Azure  Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
-* [Azure  Stream Analytics 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+* [Azure 스트림 분석 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)

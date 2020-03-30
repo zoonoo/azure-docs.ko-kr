@@ -1,14 +1,14 @@
 ---
-title: 인바운드/아웃 바운드 IP 주소
-description: Azure App Service에서 인바운드 및 아웃 바운드 IP 주소를 사용 하는 방법, 변경 될 때 그리고 앱에 대 한 주소를 찾는 방법을 알아봅니다.
+title: 인바운드/아웃바운드 IP 주소
+description: Azure App Service에서 인바운드 및 아웃바운드 IP 주소가 사용되는 방법, 변경 시기 및 앱의 주소를 찾는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 06/06/2019
 ms.custom: seodec18
 ms.openlocfilehash: aebce04fe2f1b055a4d498021dcd25144cd122a9
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79279209"
 ---
 # <a name="inbound-and-outbound-ip-addresses-in-azure-app-service"></a>Azure App Service의 인바운드 및 아웃바운드 IP 주소
@@ -23,17 +23,17 @@ ms.locfileid: "79279209"
 
 - 앱을 삭제하고 다른 리소스 그룹에서 다시 만듭니다.
 - 리소스 그룹 _및_ 지역 조합에서 마지막 앱을 삭제하고 다시 만듭니다.
-- 인증서 갱신 중과 같은 기존 SSL 바인딩을 삭제 합니다 ( [인증서 갱신](configure-ssl-certificate.md#renew-certificate)참조).
+- 인증서 갱신 중과 같은 기존 SSL 바인딩을 삭제합니다(인증서 [갱신](configure-ssl-certificate.md#renew-certificate)참조).
 
 ## <a name="find-the-inbound-ip"></a>인바운드 IP 찾기
 
-로컬 터미널에서 다음 명령을 실행 하기만 하면 됩니다.
+로컬 터미널에서 다음 명령을 실행하기만 하면 됩니다.
 
 ```bash
 nslookup <app-name>.azurewebsites.net
 ```
 
-## <a name="get-a-static-inbound-ip"></a>고정 인바운드 IP 가져오기
+## <a name="get-a-static-inbound-ip"></a>정적 인바운드 IP 받기
 
 경우에 따라 앱에 대해 고정 전용 IP 주소를 사용하고자 할 수 있습니다. 고정 인바운드 IP 주소를 얻으려면 [IP 기반 SSL 바인딩](configure-ssl-bindings.md#secure-a-custom-domain)을 구성해야 합니다. 실제로 앱을 보호하는 SSL 기능이 필요하지 않은 경우 이 바인딩에 대한 자체 서명된 인증서를 업로드할 수도 있습니다. IP 기반 SSL 바인딩에서는 인증서가 자체 IP 주소에 바인딩되므로 App Service는 고정 IP 주소를 프로비전하여 이를 구현합니다. 
 
@@ -43,11 +43,11 @@ nslookup <app-name>.azurewebsites.net
 
 더 낮은 계층(**Basic**, **Standard** 및 **Premium**)과 **Premium V2** 계층 사이에서 앱의 규모를 조정하는 경우 앱에 대한 아웃바운드 IP 주소 집합이 변경됩니다.
 
-가격 책정 계층에 관계 없이 `possibleOutboundIpAddresses` 속성이 나 Azure Portal의 **속성** 블레이드에서 **추가 아웃 바운드 ip 주소** 필드를 검색 하 여 앱에서 사용할 수 있는 모든 아웃 바운드 ip 주소 집합을 찾을 수 있습니다. [아웃바운드 IP 찾기](#find-outbound-ips)를 참조하세요.
+Azure 포털의 속성 **블레이드에서** 속성을 찾거나 **추가 아웃바운드 IP 주소** 필드에서 가격 책정 계층에 관계없이 앱에서 사용할 수 있는 모든 아웃바운드 IP 주소 집합을 찾을 수 있습니다. `possibleOutboundIpAddresses` [아웃바운드 IP 찾기](#find-outbound-ips)를 참조하세요.
 
 ## <a name="find-outbound-ips"></a>아웃바운드 IP 찾기
 
-Azure Portal의 앱에서 현재 사용하는 아웃바운드 IP 주소를 찾으려면 앱의 왼쪽 탐색 창에서 **속성**을 클릭합니다. 이러한 필드는 **아웃 바운드 IP 주소** 필드에 나열 됩니다.
+Azure Portal의 앱에서 현재 사용하는 아웃바운드 IP 주소를 찾으려면 앱의 왼쪽 탐색 창에서 **속성**을 클릭합니다. 아웃바운드 IP 주소 필드에 **나열됩니다.**
 
 [Cloud Shell](../cloud-shell/quickstart.md)에서 다음 명령을 실행하면 동일한 정보를 찾을 수 있습니다.
 
@@ -59,7 +59,7 @@ az webapp show --resource-group <group_name> --name <app_name> --query outboundI
 (Get-AzWebApp -ResourceGroup <group_name> -name <app_name>).OutboundIpAddresses
 ```
 
-가격 책정 계층에 관계 없이 앱에 대해 가능한 _모든_ 아웃 바운드 IP 주소를 찾으려면 앱의 왼쪽 탐색에서 **속성** 을 클릭 합니다. **추가 아웃 바운드 IP 주소** 필드에 나열 됩니다.
+가격 책정 계층에 관계없이 앱에 대해 가능한 _모든_ 아웃바운드 IP 주소를 찾으려면 앱의 왼쪽 탐색에서 **속성을** 클릭합니다. 추가 아웃바운드 IP 주소 필드에 **나열됩니다.**
 
 [Cloud Shell](../cloud-shell/quickstart.md)에서 다음 명령을 실행하면 동일한 정보를 찾을 수 있습니다.
 

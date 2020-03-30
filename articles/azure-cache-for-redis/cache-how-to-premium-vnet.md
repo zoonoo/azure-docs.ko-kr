@@ -1,5 +1,5 @@
 ---
-title: Virtual Network 구성-Premium Azure Cache for Redis
+title: 가상 네트워크 구성 - Redis를 위한 프리미엄 Azure 캐시
 description: 프리미엄 계층 Azure Cache for Redis 인스턴스에 대한 Virtual Network 지원을 만들고 관리하는 방법을 알아봅니다.
 author: yegu-ms
 ms.author: yegu
@@ -7,10 +7,10 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.openlocfilehash: 6c7c041565f6376e7f8b8b84f5076b30c1eec7bf
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79278117"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>프리미엄 Azure Cache for Redis에 대한 Virtual Network 지원을 구성하는 방법
@@ -24,7 +24,7 @@ Azure Cache for Redis에는 클러스터링, 지속성, 가상 네트워크 지�
 다른 프리미엄 캐시 기능에 대한 자세한 내용은 [Azure Cache for Redis 프리미엄 계층 소개](cache-premium-tier-intro.md)를 참조하세요.
 
 ## <a name="why-vnet"></a>VNet을 사용하는 이유
-[Azure VNet(Virtual Network)](https://azure.microsoft.com/services/virtual-network/) 배포는 액세스를 추가로 제한하는 서브넷, 액세스 제어 정책 및 기타 기능을 포함하여 Azure Cache for Redis에 대한 향상된 보안 및 격리를 제공합니다.
+[Azure 가상 네트워크(VNet)](https://azure.microsoft.com/services/virtual-network/) 배포는 Redis에 대한 Azure 캐시에 대한 향상된 보안 및 격리뿐만 아니라 서브넷, 액세스 제어 정책 및 기타 기능을 제공하여 액세스를 더욱 제한합니다.
 
 ## <a name="virtual-network-support"></a>가상 네트워크 지원
 VNet(Virtual Network) 지원은 캐시를 만드는 중에 **새 Azure Cache for Redis** 블레이드에 구성됩니다. 
@@ -37,7 +37,7 @@ VNet(Virtual Network) 지원은 캐시를 만드는 중에 **새 Azure Cache for
 
 ![가상 네트워크][redis-cache-vnet]
 
-**서브넷** 드롭다운 목록에서 원하는 서브넷을 선택 합니다.  원하는 경우 **고정 IP 주소**를 지정 합니다. **고정 IP 주소** 필드는 선택 사항이 며, 지정 되지 않은 경우 선택한 서브넷에서 하나를 선택 합니다.
+**서브넷** 드롭다운 목록에서 원하는 서브넷을 선택합니다.  원하는 경우 **정적 IP 주소를**지정합니다. **정적 IP 주소** 필드는 선택 사항이며, 지정되지 않은 경우 선택한 서브넷에서 하나가 선택됩니다.
 
 > [!IMPORTANT]
 > Azure Cache for Redis를 Resource Manager VNet에 배포하는 경우 캐시는 Azure Cache for Redis 인스턴스를 제외하고는 다른 리소스가 포함되지 않은 전용 서브넷에 있어야 합니다. Azure Cache for Redis를 다른 리소스가 포함된 서브넷의 Resource Manager VNet에 배포하려고 하면 배포가 실패합니다.
@@ -96,29 +96,29 @@ Azure Cache for Redis가 VNet에 호스팅되는 경우 사용되는 포트는 �
 
 #### <a name="outbound-port-requirements"></a>아웃바운드 포트 요구 사항
 
-아웃 바운드 포트 요구 사항은 9 가지가 있습니다. 이러한 범위의 아웃 바운드 요청은 캐시가 작동 하는 데 필요한 다른 서비스 또는 노드 간 통신용 Redis 서브넷 내부에 대 한 아웃 바운드입니다. 지리적 복제의 경우 기본 캐시와 보조 캐시의 서브넷 간 통신을 위한 추가 아웃 바운드 요구 사항이 있습니다.
+9개의 아웃바운드 포트 요구 사항이 있습니다. 이러한 범위의 아웃바운드 요청은 캐시가 작동하는 데 필요한 다른 서비스에 대한 아웃바운드이거나 노드 간 통신을 위해 Redis 서브넷 내부에 있는 것입니다. 지역 복제의 경우 주 캐시와 보조 캐시의 서브넷 간의 통신에 추가 아웃바운드 요구 사항이 있습니다.
 
 | 포트 | Direction | 전송 프로토콜 | 목적 | 로컬 IP | 원격 IP |
 | --- | --- | --- | --- | --- | --- |
 | 80, 443 |아웃바운드 |TCP |Azure Storage/PKI(인터넷)에 대한 Redis 종속성 | (Redis 서브넷) |* |
-| 443 | 아웃바운드 | TCP | Azure Key Vault에 대 한 Redis 종속성 | (Redis 서브넷) | AzureKeyVault <sup>1</sup> |
-| 53 |아웃바운드 |TCP/UDP |DNS(인터넷/VNet)에 대한 Redis 종속성 | (Redis 서브넷) | 168.63.129.16 및 169.254.169.254 <sup>2</sup> 및 서브넷 <sup>3</sup> 에 대 한 모든 사용자 지정 DNS 서버 |
+| 443 | 아웃바운드 | TCP | Azure 키 자격 증명 모음에 대한 중복 종속성 | (Redis 서브넷) | AzureKeyVault <sup>1</sup> |
+| 53 |아웃바운드 |TCP/UDP |DNS(인터넷/VNet)에 대한 Redis 종속성 | (Redis 서브넷) | 168.63.129.16 및 169.254.169.254 <sup>2</sup> 및 서브넷에 대한 사용자 지정 DNS 서버 <sup>3</sup> |
 | 8443 |아웃바운드 |TCP |Redis에 대한 내부 통신 | (Redis 서브넷) | (Redis 서브넷) |
 | 10221-10231 |아웃바운드 |TCP |Redis에 대한 내부 통신 | (Redis 서브넷) | (Redis 서브넷) |
 | 20226 |아웃바운드 |TCP |Redis에 대한 내부 통신 | (Redis 서브넷) |(Redis 서브넷) |
 | 13000-13999 |아웃바운드 |TCP |Redis에 대한 내부 통신 | (Redis 서브넷) |(Redis 서브넷) |
-| 15000-15999 |아웃바운드 |TCP |Redis 및 지역에서 복제에 대 한 내부 통신 | (Redis 서브넷) |(Redis 서브넷) (지역 복제본 피어 서브넷) |
+| 15000-15999 |아웃바운드 |TCP |재배포 및 지역 복제를 위한 내부 통신 | (Redis 서브넷) |(레디스 서브넷) (지리적 복제 피어 서브넷) |
 | 6379-6380 |아웃바운드 |TCP |Redis에 대한 내부 통신 | (Redis 서브넷) |(Redis 서브넷) |
 
-<sup>1</sup> 리소스 관리자 네트워크 보안 그룹에서 서비스 태그 ' AzureKeyVault '를 사용할 수 있습니다.
+<sup>1</sup> 리소스 관리자 네트워크 보안 그룹과 함께 서비스 태그 'AzureKeyVault'를 사용할 수 있습니다.
 
-<sup>2</sup> Microsoft에서 소유 하는 이러한 IP 주소는 Azure DNS 서비스를 제공 하는 호스트 VM의 주소를 결정 하는 데 사용 됩니다.
+<sup>2</sup> Microsoft가 소유한 이러한 IP 주소는 Azure DNS를 제공하는 호스트 VM을 처리하는 데 사용됩니다.
 
-<sup>3</sup> 사용자 지정 dns 서버가 없는 서브넷 또는 사용자 지정 dns를 무시 하는 최신 redis 캐시가 필요 하지 않습니다.
+<sup>3</sup> 사용자 지정 DNS 서버가 없는 서브넷이나 사용자 지정 DNS를 무시하는 최신 redis 캐시에는 필요하지 않습니다.
 
-#### <a name="geo-replication-peer-port-requirements"></a>지역에서 복제 피어 포트 요구 사항
+#### <a name="geo-replication-peer-port-requirements"></a>지역 복제 피어 포트 요구 사항
 
-Azure 가상 네트워크의 캐시 간에 georeplication를 사용 하는 경우 모든 복제본 구성 요소에 대 한 인바운드 및 아웃 바운드 방향 모두에서 전체 서브넷에 대 한 포트 15000-15999의 차단을 해제 하는 것이 좋습니다. 에서 서브넷은 향후 지역 장애 조치 (failover) 시에도 서로 직접 통신할 수 있습니다.
+Azure Virtual Networks에서 캐시 간에 지오복제를 사용하는 경우 모든 복제본 구성 요소가 두 캐시에 대한 인바운드 및 아웃바운드 방향모두에서 전체 서브넷에 대한 포트 15000-15999의 차단을 해제하는 것이 좋습니다. 서브넷에서 미래의 지리적 장애 조치의 경우에도 서로 직접 통신 할 수 있습니다.
 
 #### <a name="inbound-port-requirements"></a>인바운드 포트 요구 사항
 
@@ -126,16 +126,16 @@ Azure 가상 네트워크의 캐시 간에 georeplication를 사용 하는 경�
 
 | 포트 | Direction | 전송 프로토콜 | 목적 | 로컬 IP | 원격 IP |
 | --- | --- | --- | --- | --- | --- |
-| 6379, 6380 |인바운드 |TCP |Redis에 대한 클라이언트 통신, Azure 부하 분산 | (Redis 서브넷) | (Redis 서브넷), Virtual Network, Azure Load Balancer <sup>1</sup> |
+| 6379, 6380 |인바운드 |TCP |Redis에 대한 클라이언트 통신, Azure 부하 분산 | (Redis 서브넷) | (Redis 서브넷), 가상 네트워크, Azure 로드 밸러저 <sup>1</sup> |
 | 8443 |인바운드 |TCP |Redis에 대한 내부 통신 | (Redis 서브넷) |(Redis 서브넷) |
 | 8500 |인바운드 |TCP/UDP |Azure 부하 분산 | (Redis 서브넷) |Azure Load Balancer |
 | 10221-10231 |인바운드 |TCP |Redis에 대한 내부 통신 | (Redis 서브넷) |(Redis 서브넷), Azure Load Balancer |
 | 13000-13999 |인바운드 |TCP |Redis 클러스터에 대한 클라이언트 통신, Azure 부하 분산 | (Redis 서브넷) |Virtual Network, Azure Load Balancer |
-| 15000-15999 |인바운드 |TCP |Redis 클러스터에 대 한 클라이언트 통신, Azure 부하 분산 및 지역에서 복제 | (Redis 서브넷) |Virtual Network, Azure Load Balancer, (지역 복제본 피어 서브넷) |
+| 15000-15999 |인바운드 |TCP |Redis 클러스터에 대한 클라이언트 통신, Azure 로드 분산 및 지리적 복제 | (Redis 서브넷) |가상 네트워크, Azure 로드 밸러커( 지리적 복제 피어 서브넷) |
 | 16001 |인바운드 |TCP/UDP |Azure 부하 분산 | (Redis 서브넷) |Azure Load Balancer |
 | 20226 |인바운드 |TCP |Redis에 대한 내부 통신 | (Redis 서브넷) |(Redis 서브넷) |
 
-<sup>1</sup> nsg 규칙을 작성 하는 데 서비스 태그 ' azureloadbalancer ' (리소스 관리자) (또는 클래식의 경우 ' AZURE_LOADBALANCER ')를 사용할 수 있습니다.
+<sup>1</sup> NSG 규칙을 작성하기 위해 서비스 태그 'AzureLoadBalancer'(리소스 관리자)(또는 클래식의 경우 'AZURE_LOADBALANCER')를 사용할 수 있습니다.
 
 #### <a name="additional-vnet-network-connectivity-requirements"></a>추가 VNET 네트워크 연결 요구 사항
 
@@ -149,7 +149,7 @@ Azure 가상 네트워크의 캐시 간에 georeplication를 사용 하는 경�
 ### <a name="how-can-i-verify-that-my-cache-is-working-in-a-vnet"></a>캐시가 VNET에서 작동하는지 확인하려면 어떻게 해야 하나요?
 
 >[!IMPORTANT]
->VNET에서 호스트 되는 Redis 인스턴스에 대 한 Azure 캐시에 연결 하는 경우 캐시 클라이언트는 동일한 VNET에 있거나 동일한 Azure 지역 내에서 VNET 피어 링을 사용 하도록 설정 된 VNET에 있어야 합니다. 전역 VNet 피어링 현재 지원 되지 않습니다. 여기에는 모든 테스트 애플리케이션 또는 진단 핑 도구가 포함됩니다. 클라이언트 애플리케이션이 호스트된 위치와 상관없이 네트워크 보안 그룹은 클라이언트의 네트워크 트래픽이 Redis 인스턴스에 도달할 수 있도록 구성되어야 합니다.
+>VNET에서 호스팅되는 Redis 인스턴스용 Azure 캐시에 연결할 때 캐시 클라이언트는 동일한 VNET 또는 동일한 Azure 리전 내에서 활성화된 VNET 피어링이 활성화된 VNET에 있어야 합니다. 글로벌 VNET 피어링은 현재 지원되지 않습니다. 여기에는 모든 테스트 애플리케이션 또는 진단 핑 도구가 포함됩니다. 클라이언트 애플리케이션이 호스트된 위치와 상관없이 네트워크 보안 그룹은 클라이언트의 네트워크 트래픽이 Redis 인스턴스에 도달할 수 있도록 구성되어야 합니다.
 >
 >
 
@@ -157,7 +157,7 @@ Azure 가상 네트워크의 캐시 간에 georeplication를 사용 하는 경�
 
 - 모든 캐시 노드를 [다시 부팅](cache-administration.md#reboot)합니다. [인바운드 포트 요구 사항](cache-how-to-premium-vnet.md#inbound-port-requirements) 및 [아웃바운드 포트 요구 사항](cache-how-to-premium-vnet.md#outbound-port-requirements)에 설명된 대로 모든 필요한 캐시 종속성에 연결할 수 없는 경우 캐시가 다시 시작되지 않을 수 있습니다.
 - Azure Portal의 캐시 상태에 보고된 대로 캐시 노드가 다시 시작되었으면 다음 테스트를 수행할 수 있습니다.
-  - 캐시와 동일한 VNET 내에 있는 컴퓨터에서 [tcping](https://www.elifulkerson.com/projects/tcping.php)을 사용하여 캐시 엔드포인트(포트 6380 사용)를 ping합니다. 다음은 그 예입니다.
+  - 캐시와 동일한 VNET 내에 있는 컴퓨터에서 [tcping](https://www.elifulkerson.com/projects/tcping.php)을 사용하여 캐시 엔드포인트(포트 6380 사용)를 ping합니다. 예를 들어:
     
     `tcping.exe contosocache.redis.cache.windows.net 6380`
     
@@ -180,7 +180,7 @@ IP 주소를 통해 호스트에 연결하는 것이 원인일 수 있습니다.
 
 `10.128.2.84:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False`
 
-DNS 이름을 확인할 수 없는 경우 일부 클라이언트 라이브러리에 StackExchange.Redis 클라이언트에서 제공하는 `sslHost`와 같은 구성 옵션이 포함됩니다. 이 옵션을 사용하면 인증서 유효성 검사에 사용되는 호스트 이름을 재정의할 수 있습니다. 다음은 그 예입니다.
+DNS 이름을 확인할 수 없는 경우 일부 클라이언트 라이브러리에 StackExchange.Redis 클라이언트에서 제공하는 `sslHost`와 같은 구성 옵션이 포함됩니다. 이 옵션을 사용하면 인증서 유효성 검사에 사용되는 호스트 이름을 재정의할 수 있습니다. 예를 들어:
 
 `10.128.2.84:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False;sslHost=[mycachename].redis.windows.net`
 

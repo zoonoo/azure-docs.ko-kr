@@ -1,19 +1,18 @@
 ---
-title: Azure 응용 프로그램 기술 자산 만들기 | Azure Marketplace
+title: Azure 응용 프로그램 기술 자산 만들기 | Azure 마켓플레이스
 description: Azure 애플리케이션 제품에 대한 기술 자산을 만듭니다.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/13/2018
-ms.author: pabutler
-ms.openlocfilehash: c9abaab4597e9fea43a2f0dcabc0e4a527ed5a6a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 041b2133ed63a906d3fea3ab67890a0057151b9b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827600"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80285268"
 ---
 # <a name="prepare-your-azure-application-technical-assets"></a>Azure 애플리케이션 기술 자산 준비
 
@@ -28,10 +27,10 @@ Azure Resource Manager 템플릿을 작성하여 Azure 애플리케이션 솔루
 
 빠른 시작, 자습서 및 샘플을 제공하는 다음 Azure 애플리케이션 설명서를 검토합니다.
 
-- [Azure Resource Manager 템플릿 이해](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates)
+- [Azure 리소스 관리자 템플릿 이해](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates)
 - 빠른 시작:
 
-  - [Azure Quickstart 템플릿](https://azure.microsoft.com/documentation/templates/)
+  - [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/)
   - [GitHub Azure 빠른 시작 템플릿](https://github.com/azure/azure-quickstart-templates)
   - [애플리케이션 정의 게시](https://docs.microsoft.com/azure/managed-applications/publish-managed-app-definition-quickstart)
   - [서비스 카탈로그 앱 배포](https://docs.microsoft.com/azure/managed-applications/deploy-service-catalog-quickstart)
@@ -45,7 +44,7 @@ Azure Resource Manager 템플릿을 작성하여 Azure 애플리케이션 솔루
   - 샘플:
 
     - [Azure CLI](https://docs.microsoft.com/azure/managed-applications/cli-samples)
-    - [Azure PowerShell](https://docs.microsoft.com/azure/managed-applications/powershell-samples)
+    - [Azure 파워쉘](https://docs.microsoft.com/azure/managed-applications/powershell-samples)
     - [관리되는 애플리케이션 솔루션](https://docs.microsoft.com/azure/managed-applications/sample-projects)
 
 ## <a name="fundamental-technical-knowledge"></a>기본 기술 지식
@@ -56,20 +55,20 @@ Azure Resource Manager 템플릿을 작성하여 Azure 애플리케이션 솔루
 
 - [Azure 서비스](https://azure.microsoft.com/services/)에 대한 기본적 이해
 - [Azure 애플리케이션을 디자인 및 설계](https://azure.microsoft.com/solutions/architecture/)하는 방법
-- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/), [Azure Storage](https://azure.microsoft.com/services/?filter=storage) 및 [Azure 네트워킹](https://azure.microsoft.com/services/?filter=networking)에 대한 실무 지식
+- [Azure 가상 컴퓨터,](https://azure.microsoft.com/services/virtual-machines/) [Azure 저장소](https://azure.microsoft.com/services/?filter=storage)및 Azure [네트워킹에](https://azure.microsoft.com/services/?filter=networking) 대한 작업 지식
 - [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/)에 대한 실무 지식
-- [JSON](https://www.json.org/)에 대한 실무 지식
+- [JSON의](https://www.json.org/) 실무 지식
 
 ## <a name="suggested-tools"></a>권장되는 도구
 
 Azure 애플리케이션을 관리하는 데 도움이 되는 다음 스크립팅 환경 중 하나 또는 둘 다를 선택합니다.
 
-- [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
+- [Azure 파워쉘](https://docs.microsoft.com/powershell/azure/overview)
 - [Azure CLI](https://docs.microsoft.com/cli/azure)
 
 개발 환경에 다음 도구를 추가하는 것이 좋습니다.
 
-- [Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
+- [Azure 저장소 탐색기](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
 - [Visual Studio Code](https://code.visualstudio.com/)(다음 확장 포함):
 
   - 확장: [Azure Resource Manager Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)

@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ae932191c7b76590ea217386dfd729add5566f87
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79261048"
 ---
 # <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>Auzre AD Connect Sync Service Manager에서 커넥터 사용
@@ -35,7 +35,7 @@ ms.locfileid: "79261048"
 | --- | --- |
 | 생성 |사용하지 마십시오. 추가 AD 포리스트에 연결하려면 설치 마법사를 사용합니다. |
 | 속성 |모든 도메인 및 OU 필터링에 사용 |
-| [Delete](#delete) |커넥터 공간에서 데이터를 삭제하거나 포리스트에 대한 연결을 삭제하는 데 사용 |
+| [삭제](#delete) |커넥터 공간에서 데이터를 삭제하거나 포리스트에 대한 연결을 삭제하는 데 사용 |
 | [실행 프로필 구성](#configure-run-profiles) |여기서는 도메인 필터링만 구성 이 작업을 사용하여 이미 구성된 실행 프로필을 볼 수 있습니다. |
 | 다음을 실행합니다. |프로필의 일회성 실행을 시작하는 데 사용 |
 | 중지 |현재 프로필을 실행하는 커넥터 중지 |
@@ -67,7 +67,7 @@ ms.locfileid: "79261048"
 
 먼저 **범위**를 선택합니다. 데이터(RDN, DN 앵커, 하위 트리) 또는 개체의 상태(다른 모든 옵션)에 따라 검색할 수 있습니다.  
 ![Sync Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/cssearchscope.png)  
-예를 들어 하위 트리 검색을 수행하는 경우 모든 개체를 하나의 OU로 가져옵니다.  
+ 예를 들어 하위 트리 검색을 수행하는 경우 모든 개체를 하나의 OU로 가져옵니다.  
 ![Sync Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/cssearchsubtree.png)  
 이 표에서 개체를 선택하고, **속성**을 선택한 다음 원본 커넥터 공간의 메타버스, 대상 커넥터 공간으로 이어지는 [흐름을 따릅니다](tshoot-connect-object-not-syncing.md).
 
@@ -86,7 +86,7 @@ ms.locfileid: "79261048"
 3. AD DS 계정을 사용하도록 구성된 AD 커넥터를 선택합니다.
 4. 작업 아래에서 **속성**을 선택합니다.
 5. 팝업 대화 상자에서 Active Directory 포리스트에 연결을 선택합니다.
-6. 포리스트 이름은 해당 온-프레미스 AD를 나타냅니다.
+6. 포리스트 이름은 해당 온프레미스 AD를 나타냅니다.
 7. 사용자 이름은 동기화에 사용되는 AD DS 계정을 나타냅니다.
 8. 암호 텍스트 상자에 AD DS 계정의 새 암호를 입력합니다. ![Azure AD Connect 동기화 암호화 키 유틸리티](./media/how-to-connect-sync-service-manager-ui-connectors/key6.png)
 9. 확인을 클릭하여 새 암호를 저장하고 동기화 서비스를 다시 시작하여 메모리 캐시에서 이전 암호를 제거합니다.

@@ -1,5 +1,5 @@
 ---
-title: Azure Resource Manager에서 Windows Vm에 대 한 Key Vault 설정
+title: Azure 리소스 관리자에서 Windows VM용 키 볼트 설정
 description: Azure Resource Manager에서 사용할 주요 자격 증명 모음을 설정하는 방법
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/24/2017
 ms.author: kasing
 ms.openlocfilehash: a64163da1dee2bceb567436dc18ba0fa5274cfcb
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79243147"
 ---
 # <a name="set-up-key-vault-for-virtual-machines-in-azure-resource-manager"></a>Azure Resource Manager에서 가상 머신에 대한 주요 자격 증명 모음 설정
@@ -51,7 +51,7 @@ CLI의 경우 먼저 주요 자격 증명 모음을 만든 다음 배포 정책�
 
     az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --location "EastAsia"
     
-그런 다음 템플릿 배포에 사용할 Key Vault를 사용 하도록 설정 하려면 다음 명령을 실행 합니다.
+그런 다음 키 볼트를 템플릿 배포에 사용할 수 있도록 설정하려면 다음 명령을 실행합니다.
 
     az keyvault update --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --enabled-for-deployment "true"
 
@@ -70,4 +70,4 @@ CLI의 경우 먼저 주요 자격 증명 모음을 만든 다음 배포 정책�
       }
     }
 
-템플릿을 사용하여 주요 자격 증명 모음을 만들 때 구성할 수 있는 다른 옵션에 대해서는 [주요 자격 증명 모음 만들기](https://azure.microsoft.com/documentation/templates/101-key-vault-create/)를 참조하세요.
+템플릿을 사용하여 키 자격 증명 모음을 만들 때 구성할 수 있는 다른 옵션의 경우 [키 자격 증명 모음 만들기](https://azure.microsoft.com/documentation/templates/101-key-vault-create/)를 참조하십시오.

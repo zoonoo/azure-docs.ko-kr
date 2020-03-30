@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell를 사용 하 여 Azure 리소스에 대 한 사용자 지정 역할 만들기 또는 업데이트
-description: Azure PowerShell를 사용 하 여 Azure 리소스에 대 한 RBAC (역할 기반 액세스 제어)를 사용 하 여 사용자 지정 역할을 나열, 생성, 업데이트 또는 삭제 하는 방법에 대해 알아봅니다.
+title: Azure PowerShell을 사용하여 Azure 리소스에 대한 사용자 지정 역할 만들기 또는 업데이트
+description: Azure PowerShell을 사용하여 Azure 리소스에 대한 역할 기반 액세스 제어(RBAC)를 사용하여 사용자 지정 역할을 나열, 생성, 업데이트 또는 삭제하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,25 +11,30 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/20/2019
+ms.date: 03/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 52057477fdba9757be2737c223d569b9e9a3e749
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: 3c72e04ff7a08fecc2ef352a5879898c4c6d41c9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77137447"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80062267"
 ---
-# <a name="create-or-update-custom-roles-for-azure-resources-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 Azure 리소스에 대 한 사용자 지정 역할 만들기 또는 업데이트
+# <a name="create-or-update-custom-roles-for-azure-resources-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure 리소스에 대한 사용자 지정 역할 만들기 또는 업데이트
 
-[Azure 리소스에 대한 기본 제공 역할](built-in-roles.md)이 조직의 특정 요구 사항을 충족하지 않는 경우 사용자 지정 역할을 만들 수 있습니다. 이 문서에서는 Azure PowerShell를 사용 하 여 사용자 지정 역할을 나열, 생성, 업데이트 또는 삭제 하는 방법을 설명 합니다.
+> [!IMPORTANT]
+> 관리 그룹을 추가하려면 `AssignableScopes` 현재 미리 보기 상태입니다.
+> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
+> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-사용자 지정 역할을 만드는 방법에 대 한 단계별 자습서는 [자습서: Azure PowerShell 사용 하 여 Azure 리소스에 대 한 사용자 지정 역할 만들기](tutorial-custom-role-powershell.md)를 참조 하세요.
+[Azure 리소스에 대한 기본 제공 역할](built-in-roles.md)이 조직의 특정 요구 사항을 충족하지 않는 경우 사용자 지정 역할을 만들 수 있습니다. 이 문서에서는 Azure PowerShell을 사용하여 사용자 지정 역할을 나열, 생성, 업데이트 또는 삭제하는 방법에 대해 설명합니다.
+
+사용자 지정 역할을 만드는 방법에 대한 단계별 자습서는 [자습서: Azure PowerShell을 사용하여 Azure 리소스에 대한 사용자 지정 역할 만들기를](tutorial-custom-role-powershell.md)참조하십시오.
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 사용자 지정 역할을 만들려면 다음이 필요합니다.
 
@@ -71,10 +76,10 @@ Virtual Machine Operator     True
 
 ## <a name="list-a-custom-role-definition"></a>사용자 지정 역할 정의 나열
 
-사용자 지정 역할 정의를 나열 하려면 [AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition)를 사용 합니다. 이는 기본 제공 역할에 대해를 사용 하는 것과 동일한 명령입니다.
+사용자 지정 역할 정의를 나열하려면 [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition)를 사용합니다. 기본 제공 역할에 사용하는 명령과 동일한 명령입니다.
 
 ```azurepowershell
-Get-AzRoleDefinition <role name> | ConvertTo-Json
+Get-AzRoleDefinition <role_name> | ConvertTo-Json
 ```
 
 ```Example
@@ -106,10 +111,10 @@ PS C:\> Get-AzRoleDefinition "Virtual Machine Operator" | ConvertTo-Json
 }
 ```
 
-다음 예에서는 역할의 작업만 나열 합니다.
+다음 예제에는 역할의 작업만 나열됩니다.
 
 ```azurepowershell
-(Get-AzRoleDefinition <role name>).Actions
+(Get-AzRoleDefinition <role_name>).Actions
 ```
 
 ```Example
@@ -182,7 +187,7 @@ $role.AssignableScopes.Add("/subscriptions/11111111-1111-1111-1111-111111111111"
 New-AzRoleDefinition -Role $role
 ```
 
-다음 예제에서는 *Virtual Machine Operator* 사용자 지정 역할을 만드는 다른 방법을 보여줍니다. 먼저 새 `PSRoleDefinition` 개체를 만듭니다. 해당 작업은 `perms` 변수에서 지정되고 `Actions` 속성으로 설정됩니다. `NotActions` 속성은 `NotActions`Virtual Machine Contributor[ 기본 제공 역할에서 ](built-in-roles.md#virtual-machine-contributor)를 읽어 설정됩니다. [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor)는 `NotActions`가 없으므로 이 줄은 필요하지 않지만 다른 역할에서 정보를 검색할 수 있는 방법을 보여줍니다.
+다음 예제에서는 *Virtual Machine Operator* 사용자 지정 역할을 만드는 다른 방법을 보여줍니다. 먼저 새 `PSRoleDefinition` 개체를 만듭니다. 해당 작업은 `perms` 변수에서 지정되고 `Actions` 속성으로 설정됩니다. `NotActions` 속성은 [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) 기본 제공 역할에서 `NotActions`를 읽어 설정됩니다. [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor)는 `NotActions`가 없으므로 이 줄은 필요하지 않지만 다른 역할에서 정보를 검색할 수 있는 방법을 보여줍니다.
 
 ```azurepowershell
 $role = [Microsoft.Azure.Commands.Resources.Models.Authorization.PSRoleDefinition]::new()
@@ -239,7 +244,7 @@ New-AzRoleDefinition -InputFile "C:\CustomRoles\customrole1.json"
 
 사용자 지정 역할을 수정하려면 먼저 [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) 명령을 사용하여 역할 정의를 검색합니다. 그런 다음 역할 정의를 원하는 대로 변경합니다. 마지막으로 [Set-AzRoleDefinition](/powershell/module/az.resources/set-azroledefinition) 명령을 사용하여 수정한 역할 정의를 저장합니다.
 
-다음 예제에서는 `Microsoft.Insights/diagnosticSettings/*`Virtual Machine Operator*사용자 지정 역할에* 작업을 추가합니다.
+다음 예제에서는 *Virtual Machine Operator* 사용자 지정 역할에 `Microsoft.Insights/diagnosticSettings/*` 작업을 추가합니다.
 
 ```azurepowershell
 $role = Get-AzRoleDefinition "Virtual Machine Operator"
@@ -295,6 +300,42 @@ NotActions       : {}
 AssignableScopes : {/subscriptions/00000000-0000-0000-0000-000000000000,
                    /subscriptions/11111111-1111-1111-1111-111111111111,
                    /subscriptions/22222222-2222-2222-2222-222222222222}
+```
+
+다음 예제는 가상 시스템 `AssignableScopes` *운영자* 사용자 지정 역할의 관리 그룹을 추가합니다. 관리 그룹을 추가하려면 `AssignableScopes` 현재 미리 보기 상태입니다.
+
+```azurepowershell
+Get-AzManagementGroup
+
+$role = Get-AzRoleDefinition "Virtual Machine Operator"
+$role.AssignableScopes.Add("/providers/Microsoft.Management/managementGroups/{groupId1}")
+Set-AzRoleDefinition -Role $role
+```
+
+```Example
+PS C:\> Get-AzManagementGroup
+
+Id          : /providers/Microsoft.Management/managementGroups/marketing-group
+Type        : /providers/Microsoft.Management/managementGroups
+Name        : marketing-group
+TenantId    : 99999999-9999-9999-9999-999999999999
+DisplayName : Marketing group
+
+PS C:\> $role = Get-AzRoleDefinition "Virtual Machine Operator"
+PS C:\> $role.AssignableScopes.Add("/providers/Microsoft.Management/managementGroups/marketing-group")
+PS C:\> Set-AzRoleDefinition -Role $role
+
+Name             : Virtual Machine Operator
+Id               : 88888888-8888-8888-8888-888888888888
+IsCustom         : True
+Description      : Can monitor and restart virtual machines.
+Actions          : {Microsoft.Storage/*/read, Microsoft.Network/*/read, Microsoft.Compute/*/read,
+                   Microsoft.Compute/virtualMachines/start/action...}
+NotActions       : {}
+AssignableScopes : {/subscriptions/00000000-0000-0000-0000-000000000000,
+                   /subscriptions/11111111-1111-1111-1111-111111111111,
+                   /subscriptions/22222222-2222-2222-2222-222222222222,
+                   /providers/Microsoft.Management/managementGroups/marketing-group}
 ```
 
 ### <a name="update-a-custom-role-with-a-json-template"></a>JSON 템플릿을 사용하여 사용자 지정 역할 업데이트
@@ -360,6 +401,6 @@ Are you sure you want to remove role definition with name 'Virtual Machine Opera
 
 ## <a name="next-steps"></a>다음 단계
 
-- [자습서: Azure PowerShell을 사용 하 여 Azure 리소스에 대 한 사용자 지정 역할 만들기](tutorial-custom-role-powershell.md)
+- [자습서: Azure PowerShell을 사용하여 Azure 리소스에 대한 사용자 지정 역할 만들기](tutorial-custom-role-powershell.md)
 - [Azure 리소스에 대한 사용자 지정 역할](custom-roles.md)
-- [Azure Resource Manager 리소스 공급자 작업](resource-provider-operations.md)
+- [Azure 리소스 관리자 리소스 공급자 작업](resource-provider-operations.md)

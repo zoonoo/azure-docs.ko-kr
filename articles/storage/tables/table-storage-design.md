@@ -9,10 +9,10 @@ ms.date: 03/09/2020
 ms.author: sngun
 ms.subservice: tables
 ms.openlocfilehash: 8df639eea757c374554fa19e57c43cef79308e98
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79255146"
 ---
 # <a name="design-scalable-and-performant-tables"></a>확장 가능하고 성능이 우수한 테이블 설계
@@ -128,7 +128,7 @@ Table service란? 이름에서 알 수 있듯이, Table service에서는 테이�
 테이블이 하나 이상의 파티션으로 구성되므로 디자인 의사 결정은 대부분 적절한 **PartitionKey** 및 **RowKey**를 선택하여 솔루션을 최적화하는 데 중점을 둡니다. 솔루션은 파티션으로 구성된 모든 엔터티를 포함하는 단일 테이블로 구성될 수 있지만 일반적으로 솔루션에는 여러 테이블이 있습니다. 테이블을 사용하면 엔터티를 논리적으로 구성하고, 액세스 제어 목록을 사용하여 데이터 액세스를 보다 쉽게 관리하며, 단일 스토리지 작업을 사용하여 전체 테이블을 삭제할 수 있습니다.  
 
 ## <a name="table-partitions"></a>테이블 파티션
-계정 이름, 테이블 이름 및 **PartitionKey**는 Table service가 엔터티를 저장하는 스토리지 서비스 내에서 파티션을 식별합니다. 파티션은 엔터티의 주소 지정 체계의 일부일 뿐만 아니라 트랜잭션의 범위를 정의(아래의 [EGT(엔터티 그룹 트랜잭션)](#entity-group-transactions) 참조)하며, 테이블 서비스를 확장하는 방법의 기초가 됩니다. 파티션에 대 한 자세한 내용은 [테이블 저장소에 대 한 성능 및 확장성 검사 목록](storage-performance-checklist.md)을 참조 하세요.  
+계정 이름, 테이블 이름 및 **PartitionKey는** 테이블 서비스가 엔터티를 저장하는 저장소 서비스 내의 파티션을 함께 식별합니다. 파티션은 엔터티의 주소 지정 체계의 일부일 뿐만 아니라 트랜잭션의 범위를 정의(아래의 [EGT(엔터티 그룹 트랜잭션)](#entity-group-transactions) 참조)하며, 테이블 서비스를 확장하는 방법의 기초가 됩니다. 파티션에 대한 자세한 내용은 [테이블 저장소에 대한 성능 및 확장성 검사 목록을](storage-performance-checklist.md)참조하십시오.  
 
 Table service에서 개별 노드는 하나 이상의 전체 파티션을 지원하며, 서비스는 노드 간에 파티션 부하를 동적으로 분산하여 크기가 조정됩니다. 하나의 노드에 부하가 걸려 있는 경우 Table service는 해당 노드가 지원하는 파티션 범위를 여러 노드로 *분할*할 수 있습니다. 트래픽이 진정되면 서비스는 안정된 노드의 파티션 범위를 단일 노드로 다시*병합*할 수 있습니다.  
 
@@ -137,14 +137,14 @@ Table service의 내부 세부 정보, 특히 서비스에서 파티션을 관�
 ## <a name="entity-group-transactions"></a>EGT(엔터티 그룹 트랜잭션)
 Table service에서 EGT(엔터티 그룹 트랜잭션)는 여러 엔터티 간에 원자성 업데이트를 수행하기 위한 유일한 기본 제공 메커니즘입니다. EGT를 *일괄 처리 트랜잭션*이라고도 합니다. EGT는 동일한 파티션에 저장된 엔터티에서만 작동할 수 있습니다(즉, 지정된 테이블에서 동일한 파티션 키를 공유함). 따라서 여러 엔터티 간에 원자성 트랜잭션 동작이 필요하면 언제든지 해당 엔터티가 동일한 파티션에 있도록 해야 합니다. 따라서 서로 다른 엔터티 유형에 여러 테이블을 사용하지 말고 여러 엔터티 유형을 동일한 테이블(및 파티션)에 유지하는 것이 좋습니다. 단일 EGT는 최대 100개의 엔터티에서 작동할 수 있습니다.  처리하기 위해 여러 개의 동시에 발생하는 EGT를 제출하는 경우 해당 EGT가 EGT에서 공통되는 엔터티에서 작동하지 않도록 해야 합니다. 그렇지 않으면 처리가 지연될 수 있습니다.
 
-EGT는 디자인을 평가하기 위해 잠재적인 장단점에 대해서도 소개합니다. 즉, Azure가 노드에 대한 요청의 부하를 용이하게 분산할 수 있기 때문에 더 많은 파티션을 사용하면 애플리케이션의 확장성을 증가시킵니다. 하지만 많은 파티션을 사용하면 원자성 트랜잭션을 수행하고 데이터에 강력한 일관성을 유지하는 애플리케이션의 기능을 제한할 수 있습니다. 또한 단일 노드에서 예상할 수 있는 트랜잭션 처리량을 제한할 수 있는 파티션 수준에서 특정 확장성 목표가 있습니다. Azure standard storage 계정에 대 한 확장성 목표에 대 한 자세한 내용은 [standard storage 계정에 대 한 확장성 목표](../common/scalability-targets-standard-account.md)를 참조 하세요. Table Service의 확장성 목표에 대한 자세한 내용은 [Table Storage에 대한 확장성 및 성능 목표](scalability-targets.md)를 참조하세요.
+EGT는 디자인을 평가하기 위해 잠재적인 장단점에 대해서도 소개합니다. 즉, Azure가 노드에 대한 요청의 부하를 용이하게 분산할 수 있기 때문에 더 많은 파티션을 사용하면 애플리케이션의 확장성을 증가시킵니다. 하지만 많은 파티션을 사용하면 원자성 트랜잭션을 수행하고 데이터에 강력한 일관성을 유지하는 애플리케이션의 기능을 제한할 수 있습니다. 또한 단일 노드에서 예상할 수 있는 트랜잭션 처리량을 제한할 수 있는 파티션 수준에서 특정 확장성 목표가 있습니다. Azure 표준 저장소 계정의 확장성 목표에 대한 자세한 내용은 [표준 저장소 계정에 대한 확장성 목표를](../common/scalability-targets-standard-account.md)참조하십시오. Table Service의 확장성 목표에 대한 자세한 내용은 [Table Storage에 대한 확장성 및 성능 목표](scalability-targets.md)를 참조하세요.
 
 ## <a name="capacity-considerations"></a>용량 고려 사항
 
 [!INCLUDE [storage-table-scale-targets](../../../includes/storage-tables-scale-targets.md)]
 
 ## <a name="cost-considerations"></a>비용 고려 사항
-Table Storage는 비교적 저렴하지만 용량 사용량 및 트랜잭션 수량 모두에 대한 예상 비용을 Table service 솔루션 평가의 일부로 포함시켜야 합니다. 그러나 대부분의 시나리오에서는 비정규화되거나 중복된 데이터를 저장하여 솔루션의 성능 또는 확장성을 개선하는 것이 유효한 접근 방식입니다. 가격 책정에 대한 자세한 내용은 [Azure Storage 가격 책정](https://azure.microsoft.com/pricing/details/storage/)을 참조하세요.  
+Table Storage는 비교적 저렴하지만 용량 사용량 및 트랜잭션 수량 모두에 대한 예상 비용을 Table service 솔루션 평가의 일부로 포함시켜야 합니다. 그러나 대부분의 시나리오에서는 비정규화되거나 중복된 데이터를 저장하여 솔루션의 성능 또는 확장성을 개선하는 것이 유효한 접근 방식입니다. 가격 책정에 대한 자세한 내용은 [Azure 저장소 가격 책정](https://azure.microsoft.com/pricing/details/storage/)을 참조하십시오.  
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,6 +1,6 @@
 ---
-title: 표준 인코더 형식 및 코덱-Azure
-description: 이 문서에는 StandardEncoderPreset에서 사용할 수 있는 가장 일반적인 가져오기 및 내보내기 파일 형식 목록이 포함 되어 있습니다.
+title: 표준 인코더 형식 및 코덱 - Azure
+description: 이 문서에는 StandardEncoderPreset에서 사용할 수 있는 가장 일반적인 가져오기 및 내보내기 파일 형식 목록이 포함되어 있습니다.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -15,10 +15,10 @@ ms.date: 02/10/2019
 ms.author: juliako
 ms.reviewer: anilmur
 ms.openlocfilehash: f1d4d4f4006702ebe0d057e56cf24a022e73b83e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79251363"
 ---
 # <a name="standard-encoder-formats-and-codecs"></a>표준 인코더 형식 및 코덱
@@ -43,7 +43,7 @@ ms.locfileid: "79251363"
 
 ### <a name="audio-formats-in-input-containers"></a>입력 컨테이너의 오디오 형식
 
-표준 인코더는 입력 컨테이너에서 다음과 같은 오디오 형식의 운반을 지원 합니다.
+표준 인코더는 입력 컨테이너에 다음과 같은 오디오 형식을 전달하는 것을 지원합니다.
 
 * 인터리브 스테레오 오디오 또는 5.1 샘플을 포함하는 오디오 트랙이 있는 MXF, GXF 및 QuickTime 파일
 
@@ -82,8 +82,8 @@ ms.locfileid: "79251363"
 | MP3(MPEG-1 Audio Layer 3) |yes |
 | Windows Media 오디오 |yes |
 | WAV/PCM |yes |
-| [FLAC](https://en.wikipedia.org/wiki/FLAC)</a> |yes |
-| [Opus](https://go.microsoft.com/fwlink/?LinkId=822667) |yes |
+| [Flac](https://en.wikipedia.org/wiki/FLAC)</a> |yes |
+| [오푸스](https://go.microsoft.com/fwlink/?LinkId=822667) |yes |
 | [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a> |yes |
 | AMR(Adaptive Multi-Rate) |yes |
 | AES(SMPTE 331M 및 302M, AES3-2003) |예 |

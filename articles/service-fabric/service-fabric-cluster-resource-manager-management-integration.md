@@ -1,15 +1,15 @@
 ---
-title: 클러스터 리소스 관리자-관리 통합
+title: 클러스터 리소스 관리자 - 관리 통합
 description: 클러스터 리소스 관리자과 서비스 패브릭 관리 간에 통합 지점의 개요입니다.
 author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 50751c7d23797a597dc5e2d209c1e3eecf6f7a40
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79258747"
 ---
 # <a name="cluster-resource-manager-integration-with-service-fabric-cluster-management"></a>클러스터 리소스 관리자와 서비스 패브릭 클러스터 관리 통합
@@ -68,7 +68,7 @@ HealthEvents          :
 2. 현재 업그레이드 도메인 분산 제약 조건이 위반되었습니다. 이는 특정 업그레이드 도메인에 이 파티션보다 더 많은 복제본이 있음을 의미합니다.
 3. 위반이 발생하는 복제본을 포함한 노드 - 이 경우 이름이 "Node.8"인 노드입니다.
 4. 이 파티션에서 현재 업그레이드가 진행 중인지 여부("현재 업그레이드 중 - false")
-5. 이 서비스에 대한 배포 정책("배포 정책 - 압축 중") - 이는 `RequireDomainDistribution` [배치 정책](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md#requiring-replica-distribution-and-disallowing-packing)에 의해 제어 됩니다. "압축 중"은 이 경우 DomainDistribution이 필요하지 _않음_을 나타냅니다. 따라서 이 서비스에 대해 배치 정책이 지정되지 않았습니다. 
+5. 이 서비스에 대한 배포 정책("배포 정책 - 압축 중") - `RequireDomainDistribution` [배치 정책](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md#requiring-replica-distribution-and-disallowing-packing)으로 관리됩니다. "압축 중"은 이 경우 DomainDistribution이 필요하지 _않음_을 나타냅니다. 따라서 이 서비스에 대해 배치 정책이 지정되지 않았습니다. 
 6. 보고서가 발생한 시기 - 2015년 8월 10일 오후 7:13:02
 
 이와 같은 정보는 무언가 문제가 발생했음을 알려주기 위해 프로덕션에서 실행되는 경고를 제공하며, 잘못된 업그레이드를 검색하고 중단하는 데에도 사용됩니다. 이 경우에 Resource Manager가 업그레이드 도메인에 복제본을 압축해야 했던 이유를 알아낼 수 있는지 확인하려고 합니다. 예를 들어 다른 업그레이드 도메인의 노드가 중단되었기 때문에 압축이 일반적으로 일시적일 수 있습니다.
@@ -84,16 +84,16 @@ HealthEvents          :
 이러한 상태 보고서에서 서로 다른 제약 조건 각각에 대해 살펴보겠습니다. 복제본을 배치할 수 없는 경우 이러한 제약 조건과 관련된 상태 메시지가 표시됩니다.
 
 * **ReplicaExclusionStatic** 및 **ReplicaExclusionDynamic**: 이러한 제약 조건은 동일한 파티션의 두 서비스 개체가 동일한 노드에 배치되어야 하므로 솔루션이 거부되었음을 나타냅니다. 이는 해당 노드의 실패가 해당 파티션에 지나치게 영향을 줄 수 있으므로 허용되지 않습니다. ReplicaExclusionStatic 및 ReplicaExclusionDynamic은 거의 동일한 규칙이며, 차이점은 실제로 문제가 되지 않습니다. ReplicaExclusionStatic 또는 ReplicaExclusionDynamic 제약 조건이 포함된 제약 조건 제거 시퀀스가 표시되는 경우 클러스터 리소스 관리자에서는 노드가 충분하지 않다고 인식합니다. 이 경우 나머지 솔루션에서 허용되지 않는 이러한 잘못된 배치를 사용해야 합니다. 시퀀스의 다른 제약 조건은 일반적으로 노드가 처음부터 제거되는 이유를 알려줍니다.
-* **PlacementConstraint**: 이 메시지가 표시되는 경우 서비스의 배치 제약 조건에 일치하지 않는 일부 노드를 제거했음을 의미합니다. 현재 구성된 배치 제약 조건을 이 메시지의 일부분으로 추적합니다. 배치 제약 조건이 정의되어 있는 경우 이는 정상입니다. 그러나 배치 제약 조건이 잘못되어 너무 많은 노드를 제거하면 이를 인식하게 됩니다.
+* **배치 제약**: 이 메시지가 표시되면 서비스의 배치 제약 조건과 일치하지 않기 때문에 일부 노드를 제거했습니다. 현재 구성된 배치 제약 조건을 이 메시지의 일부분으로 추적합니다. 배치 제약 조건이 정의되어 있는 경우 이는 정상입니다. 그러나 배치 제약 조건이 잘못되어 너무 많은 노드를 제거하면 이를 인식하게 됩니다.
 * **NodeCapacity**: 이 제약 조건은 노드의 용량을 초과할 수 있기 때문에 클러스터 리소스 관리자에서 지정된 노드에 복제본을 배치할 수 없었다는 의미입니다.
-* **선호도**: 이 제약 조건은 선호도 제약 조건을 위반하기 때문에 영향을 받는 노드에 복제본을 배치할 수 없었다는 것을 나타냅니다. 선호도에 대한 자세한 내용은 [이 문서](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md)에 있습니다.
+* **선호도**: 이 제약 조건은 선호도 제약 조건을 위반할 수 있으므로 영향을 받는 노드에 복제본을 배치할 수 없다는 것을 나타냅니다. 선호도에 대한 자세한 내용은 [이 문서](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md)에 있습니다.
 * **FaultDomain** 및 **UpgradeDomain**: 이 제약 조건은 표시된 노드에 복제본을 배치하여 특정 장애 또는 업그레이드 도메인에서 압축이 일어나는 경우 노드를 제거합니다. 이 제약 조건을 설명하는 몇 가지 예는 [장애 및 업그레이드 도메인 제약 조건 및 결과 동작](service-fabric-cluster-resource-manager-cluster-description.md)
 * **PreferredLocation**: 기본적으로 최적화로 실행되므로 솔루션에서 노드를 제거하면 일반적으로 이 제약 조건이 표시되지 않아야 합니다. 또한 기본 설정 위치 제약 조건은 업그레이드 중에도 존재합니다. 이 제약 조건은 업그레이드하는 동안 업그레이드를 시작했을 때의 위치로 서비스를 다시 이동하는 데 사용합니다.
 
 ## <a name="blocklisting-nodes"></a>노드 차단 목록 작성
 클러스터 리소스 관리자에서 보고하는 또 다른 상태 메시지는 노드가 차단 목록에 있는 경우입니다. 차단 목록은 자동으로 적용되는 임시 제약 조건으로 간주할 수 있습니다. 해당 서비스 유형의 인스턴스를 시작할 때 반복적인 오류가 발생하면 노드가 차단 목록에 포함됩니다. 노드는 서비스 유형별로 차단 목록에 포함됩니다. 하나의 서비스 유형에 대한 노드가 차단 목록에 포함되지만 다른 유형에 대해서는 차단 목록에 포함될 수 없습니다. 
 
-개발하는 중에 차단 목록이 자주 표시됩니다. 일부 버그로 인해 서비스 호스트가 시작될 때 크래시가 발생합니다. Service Fabric에서 서비스 호스트를 만들려고 몇 번을 시도하지만 오류가 계속 발생합니다. 몇 번 시도한 후에 해당 노드가 차단 목록에 포함되고 클러스터 리소스 관리자에서는 다른 위치에 해당 서비스를 만들려고 시도합니다. 이 오류가 여러 노드에서 계속 발생하면 클러스터에서 유효한 모든 노드가 차단될 수 있습니다. Blocklisting 수도 있으므로 원하는 크기에 맞게 서비스를 성공적으로 시작할 수 없는 많은 노드가 제거 될 수도 있습니다. 일반적으로 서비스가 원하는 복제본 또는 인스턴스 수 이하에 있음을 나타내는 추가 오류 또는 경고뿐만 아니라 처음에 차단 목록으로 연결되는 오류가 무엇인지 알려주는 상태 메시지도 클러스터 리소스 관리자에서 표시합니다.
+개발하는 중에 차단 목록이 자주 표시됩니다. 일부 버그로 인해 서비스 호스트가 시작될 때 크래시가 발생합니다. Service Fabric에서 서비스 호스트를 만들려고 몇 번을 시도하지만 오류가 계속 발생합니다. 몇 번 시도한 후에 해당 노드가 차단 목록에 포함되고 클러스터 리소스 관리자에서는 다른 위치에 해당 서비스를 만들려고 시도합니다. 이 오류가 여러 노드에서 계속 발생하면 클러스터에서 유효한 모든 노드가 차단될 수 있습니다. 블록 목록은 또한 너무 많은 노드를 제거하여 원하는 규모를 충족하도록 서비스를 성공적으로 시작할 수 없습니다. 일반적으로 서비스가 원하는 복제본 또는 인스턴스 수 이하에 있음을 나타내는 추가 오류 또는 경고뿐만 아니라 처음에 차단 목록으로 연결되는 오류가 무엇인지 알려주는 상태 메시지도 클러스터 리소스 관리자에서 표시합니다.
 
 차단 목록은 영구적인 조건이 아닙니다. 몇 분 후에 노드가 차단 목록에서 제거되고 Service Fabric에서 해당 노드의 서비스를 다시 활성화할 수 있습니다. 서비스가 계속 실패하면 해당 서비스 유형에 대한 노드가 차단 목록에 다시 포함됩니다. 
 
@@ -174,12 +174,12 @@ ClusterManifest.xml
 ## <a name="fault-domain-and-upgrade-domain-constraints"></a>장애 도메인 및 업그레이드 도메인 제약 조건
 클러스터 리소스 관리자에서 장애 도메인과 업그레이드 도메인 간에 서비스가 분산되도록 유지하려고 합니다. 이를 위해 클러스터 리소스 관리자 엔진 내부의 제약 조건으로 모델링합니다. 이들의 사용 방법과 특정 동작에 대한 자세한 내용은 [클러스터 구성](service-fabric-cluster-resource-manager-cluster-description.md#fault-and-upgrade-domain-constraints-and-resulting-behavior) 문서를 확인하세요.
 
-클러스터 리소스 관리자는 업그레이드, 오류 또는 다른 제약 조건 위반을 처리하기 위해 업그레이드 도메인에 몇 개의 복제본을 압축해야 할 수 있습니다. 장애 도메인 또는 업그레이드 도메인에 압축하는 것은 일반적으로 시스템에 여러 번의 실패 또는 다른 변동이 있어 올바르게 배치할 수 없는 경우에만 발생합니다. 이러한 상황 에서도 압축을 방지 하려는 경우 `RequireDomainDistribution` [배치 정책을](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md#requiring-replica-distribution-and-disallowing-packing)활용할 수 있습니다. 이 경우 서비스 가용성 및 안정성에 부작용을 미칠 수 있으므로 신중하게 고려해야 합니다.
+클러스터 리소스 관리자는 업그레이드, 오류 또는 다른 제약 조건 위반을 처리하기 위해 업그레이드 도메인에 몇 개의 복제본을 압축해야 할 수 있습니다. 장애 도메인 또는 업그레이드 도메인에 압축하는 것은 일반적으로 시스템에 여러 번의 실패 또는 다른 변동이 있어 올바르게 배치할 수 없는 경우에만 발생합니다. 이러한 상황에서도 압축을 방지하려면 `RequireDomainDistribution` [배치 정책](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md#requiring-replica-distribution-and-disallowing-packing)을 활용할 수 있습니다. 이 경우 서비스 가용성 및 안정성에 부작용을 미칠 수 있으므로 신중하게 고려해야 합니다.
 
 환경이 올바르게 구성되면 업그레이드 중에도 모든 제약 조건이 완전히 준수됩니다. 클러스터 리소스 관리자에서 제약 조건을 감시하고 있다는 것이 중요합니다. 위반을 검색하는 즉시 문제를 보고하고 해결하려고 시도합니다.
 
 ## <a name="the-preferred-location-constraint"></a>기본 설정 위치 제약 조건
-PreferredLocation 제약 조건은 두 가지 용도로 사용되므로 약간 다릅니다. 이 제약 조건의 한 가지 용도는 애플리케이션 업그레이드 중에 있습니다. 클러스터 리소스 관리자는 업그레이드하는 동안 이 제약 조건을 자동으로 관리합니다. 업그레이드가 완료되면 해당 복제본이 초기 위치로 반환되는지 확인하는 데 사용됩니다. PreferredLocation 제약 조건의 다른 용도는 [`PreferredPrimaryDomain`배치 정책](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)에 대한 것입니다. 이러한 두 가지 용도가 모두 최적화이므로 PreferredLocation 제약 조건은 기본적으로 "Optimization(최적화)"으로 설정되는 유일한 제약 조건입니다.
+PreferredLocation 제약 조건은 두 가지 용도로 사용되므로 약간 다릅니다. 이 제약 조건의 한 가지 용도는 애플리케이션 업그레이드 중에 있습니다. 클러스터 리소스 관리자는 업그레이드하는 동안 이 제약 조건을 자동으로 관리합니다. 업그레이드가 완료되면 해당 복제본이 초기 위치로 반환되는지 확인하는 데 사용됩니다. 기본 설정 위치 제약 조건의 다른 용도는 [ `PreferredPrimaryDomain` 배치 정책에](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)대한 것입니다. 이러한 두 가지 용도가 모두 최적화이므로 PreferredLocation 제약 조건은 기본적으로 "Optimization(최적화)"으로 설정되는 유일한 제약 조건입니다.
 
 ## <a name="upgrades"></a>업그레이드
 애플리케이션 및 클러스터를 업그레이드하는 동안 Cluster Resource Manager가 유용합니다. 이 때 다음과 같은 두 개의 작업이 있습니다.
