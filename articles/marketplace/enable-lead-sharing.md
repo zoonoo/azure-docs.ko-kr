@@ -1,18 +1,18 @@
 ---
 title: Azure Marketplace에서 잠재 고객 공유 사용 | Azure
 description: 앱 및 서비스 게시자에 대해 Azure Marketplace 및 AppSource에서 잠재 고객 공유를 사용하도록 설정하는 방법을 알아봅니다.
-author: jm-aditi-ms
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/05/2018
 ms.author: dsindona
-ms.openlocfilehash: 09282f3a54eeded52c63fab6bfe13528eaace48a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b41a29fb3548937e9071cfb9f065dd46f63df83e
+ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80286305"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80387612"
 ---
 # <a name="enable-lead-sharing"></a>잠재 고객 공유 사이트 사용
 [Azure Marketplace](https://azuremarketplace.microsoft.com) 또는 [Microsoft AppSource](https://appsource.microsoft.com)에서 목록에 잠재 고객 관리를 사용하면 다음 대상에 대한 연락처 정보를 받을 수 있습니다.

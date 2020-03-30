@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 03/27/2020
 ms.custom: azure-synapse
-ms.openlocfilehash: 8b50cb95e51ef36ed4436a6eb9c9143c9c613cc7
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 682735e1189333c2455863b8fde8e57d815111ba
+ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80346438"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80387702"
 ---
 # <a name="azure-sql-auditing"></a>Azure SQL 감사
 
@@ -30,7 +30,7 @@ Azure SQL [데이터베이스](sql-database-technical-overview.md) 및 [Azure Sy
 > [!NOTE] 
 > 이 항목은 Azure SQL 데이터베이스와 Azure 시냅스 분석 데이터베이스에 모두 적용됩니다. 간단히 하기 위해 SQL 데이터베이스는 Azure SQL 데이터베이스와 Azure 시냅스 분석을 모두 참조할 때 사용됩니다.
 
-## <a name="overview"></a><a id="subheading-1"></a>개요
+## <a name="overview"></a><a id="overview"></a>개요
 
 SQL Database 감사를 사용하여 다음을 수행할 수 있습니다.
 
@@ -40,8 +40,14 @@ SQL Database 감사를 사용하여 다음을 수행할 수 있습니다.
 
 > [!IMPORTANT]
 > - Azure SQL Database 감사는 가용성 & 성능에 최적화되어 있습니다. 매우 높은 작업 동안 Azure SQL Database 작업을 진행할 수 있으며 일부 감사 된 이벤트를 기록 하지 않을 수 있습니다.
-   
-## <a name="define-server-level-vs-database-level-auditing-policy"></a><a id="subheading-8"></a>서버 수준 및 데이터베이스 수준 감사 정책 정의
+
+#### <a name="auditing-limitations"></a>감사 제한 사항
+
+- **프리미엄 스토리지**는 현재 **지원되지 않습니다**.
+- **Azure Data Lake 저장소 Gen2 저장소 계정에** 대한 **계층적 네임스페이스는** 현재 **지원되지 않습니다.**
+- 일시 중지된 **Azure SQL 데이터 웨어하우스에** 대한 감사는 지원되지 않습니다. 감사를 활성화하려면 데이터 웨어하우스를 다시 시작합니다.
+
+## <a name="define-server-level-vs-database-level-auditing-policy"></a><a id="server-vs-database-level"></a>서버 수준 및 데이터베이스 수준 감사 정책 정의
 
 특정 데이터베이스에 대해 또는 기본 서버 정책으로 감사 정책을 정의할 수 있습니다.
 
@@ -58,8 +64,17 @@ SQL Database 감사를 사용하여 다음을 수행할 수 있습니다.
    >
    > 그렇지 않으면 서버 수준 Blob 감사만 활성화하고 모든 데이터베이스에 대해 데이터베이스 수준 감사를 비활성화로 유지하는 것이 좋습니다.
 
-## <a name="set-up-auditing-for-your-server"></a><a id="subheading-2"></a>서버에 대한 감사 설정
+## <a name="set-up-auditing-for-your-server"></a><a id="setup-auditing"></a>서버에 대한 감사 설정
 
+기본 감사 정책에는 모든 작업 및 다음과 같은 일련의 작업 그룹이 포함됩니다. 여기서는 성공 및 실패한 로그인뿐만 아니라 데이터베이스에 대해 실행된 모든 쿼리 및 저장 프로시저를 감사합니다.
+  
+  - BATCH_COMPLETED_GROUP
+  - SUCCESSFUL_DATABASE_AUTHENTICATION_GROUP
+  - FAILED_DATABASE_AUTHENTICATION_GROUP
+  
+[Azure PowerShell을 사용하여 SQL 데이터베이스 감사 관리](#manage-auditing) 섹션에 설명된 대로 PowerShell을 사용하여 다양한 형식의 작업 및 작업 그룹에 대한 감사를 구성할 수 있습니다.
+
+Azure SQL 데이터베이스 감사는 감사 레코드의 문자 필드에 대해 4000자의 데이터를 저장합니다. 감사가 가능한 작업에서 반환된 **statement** 또는 **data_sensitivity_information** 값에 4000자가 넘게 포함되면 처음 4000자를 초과하는 문자는 **잘리고 감사되지 않습니다**.
 다음 섹션에서는 Azure Portal을 사용하여 감사 구성을 설명합니다.
 
 1. [Azure 포털로](https://portal.azure.com)이동합니다.
@@ -78,35 +93,20 @@ SQL Database 감사를 사용하여 다음을 수행할 수 있습니다.
 
 스토리지 계정에 감사 로그 작성을 구성하려면 **스토리지**를 선택하고 **스토리지 세부 정보**를 엽니다. 로그를 저장할 Azure 스토리지 계정을 선택한 다음, 보존 기간을 선택합니다. 그런 다음 **확인**을 클릭합니다. 보존 기간보다 오래된 로그는 삭제됩니다.
 
+- 보존 기간의 기본값은 0(무제한 보존)입니다. 감사를 위해 저장소 계정을 구성할 때 **저장소 설정에서** **보존(일)** 슬라이더를 이동하여 이 값을 변경할 수 있습니다.
+  - 보존 기간을 0(무제한 보존)에서 다른 값으로 변경하는 경우 보존 값변경 후 작성된 로그에만 보존이 적용됩니다(보존이 무제한으로 설정된 기간 동안 작성된 로그는 보존 후 보존이 활성화됩니다).
+
   ![스토리지 계정 만들기](./media/sql-database-auditing-get-started/auditing_select_storage.png)
-
-#### <a name="log-audits-to-storage-account-behind-vnet-or-firewall"></a>VNet 또는 방화벽 뒤의 저장소 계정에 감사를 기록합니다.
-
-VNet 또는 방화벽 뒤에 있는 Azure Storage 계정에 감사 로그를 작성할 수 있습니다. 특정 지침은 [VNet 및 방화벽 뒤에 있는 저장소 계정에 감사를 작성하십시오.](create-auditing-storage-account-vnet-firewall.md)
 
 #### <a name="remarks"></a>설명
 
-- 모든 스토리지 종류(v1, v2, Blob)가 지원됩니다.
-- 모든 스토리지 복제 구성이 지원됩니다.
-- 가상 네트워크 및 방화벽 뒤에 있는 저장소가 지원됩니다.
-- **프리미엄 스토리지**는 현재 **지원되지 않습니다**.
-- **Azure Data Lake 저장소 Gen2 저장소 계정에** 대한 **계층적 네임스페이스는** 현재 **지원되지 않습니다.**
-- 일시 중지된 **Azure SQL 데이터 웨어하우스에** 대한 감사는 지원되지 않습니다. 감사를 활성화하려면 데이터 웨어하우스를 다시 시작합니다.
-- 보존 기간의 기본값은 0(무제한 보존)입니다. 감사를 위해 저장소 계정을 구성할 때 **저장소 설정에서** **보존(일)** 슬라이더를 이동하여 이 값을 변경할 수 있습니다.
-  - 보존 기간을 0(무제한 보존)에서 다른 값으로 변경하는 경우 보존 값변경 후 작성된 로그에만 보존이 적용됩니다(보존이 무제한으로 설정된 기간 동안 작성된 로그는 보존 후 보존이 활성화됩니다).
-- 서버 또는 데이터베이스 수준 감사 이벤트에 대해 변경할 수 없는 로그 저장소를 구성하려는 고객은 [Azure Storage에서 제공하는 지침을](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage#enabling-allow-protected-append-blobs-writes) 따라야 합니다(변경할 수 없는 Blob 저장소를 구성할 때 추가 **부가 선 추가 허용을** 선택했으면 합니다).
+- 감사 로그는 Azure 구독의 Azure Blob 저장소에 **Blob을 추가하기** 위해 작성됩니다.
+- 서버 또는 데이터베이스 수준 감사 이벤트에 대해 변경할 수 없는 로그 저장소를 구성하려면 [Azure Storage에서 제공하는 지침을](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage#enabling-allow-protected-append-blobs-writes) 따릅니다(변경할 수 없는 Blob 저장소를 구성할 때 추가 추가 **부감 허용을** 선택했으십시오).
+- VNet 또는 방화벽 뒤에 있는 Azure Storage 계정에 감사 로그를 작성할 수 있습니다. 특정 지침은 [VNet 및 방화벽 뒤에 있는 저장소 계정에 감사를 작성하십시오.](create-auditing-storage-account-vnet-firewall.md)
 - 감사 설정을 구성했으면 새로운 위협 감지 기능을 켜고, 보안 경고를 받을 전자 메일을 구성할 수 있습니다. 위협 감지를 사용하면 잠재적인 보안 위협을 나타낼 수 있는 비정상적인 데이터베이스 활동에 대해 사전 경고를 받을 수 있습니다. 자세한 내용은 [위협 감지 시작](sql-database-threat-detection-get-started.md)을 참조하세요.
 - 로그 형식, 스토리지 폴더의 계층 구조 및 명명 규칙에 대한 자세한 내용은 [Blob 감사 로그 형식 참조](https://go.microsoft.com/fwlink/?linkid=829599)를 참조하세요.
-- Azure SQL 데이터베이스 감사는 감사 레코드의 문자 필드에 대해 4000자의 데이터를 저장합니다. 감사가 가능한 작업에서 반환된 **statement** 또는 **data_sensitivity_information** 값에 4000자가 넘게 포함되면 처음 4000자를 초과하는 문자는 **잘리고 감사되지 않습니다**.
-- 감사 로그는 Azure 구독의 Azure Blob 저장소에 **Blob을 추가하기** 위해 작성됩니다.
-- 기본 감사 정책에는 모든 작업 및 다음과 같은 일련의 작업 그룹이 포함됩니다. 여기서는 성공 및 실패한 로그인뿐만 아니라 데이터베이스에 대해 실행된 모든 쿼리 및 저장 프로시저를 감사합니다.
-  
-  - BATCH_COMPLETED_GROUP
-  - SUCCESSFUL_DATABASE_AUTHENTICATION_GROUP
-  - FAILED_DATABASE_AUTHENTICATION_GROUP
-  
-- [Azure PowerShell을 사용하여 SQL 데이터베이스 감사 관리](#subheading-7) 섹션에 설명된 대로 PowerShell을 사용하여 다양한 형식의 작업 및 작업 그룹에 대한 감사를 구성할 수 있습니다.
 - AAD 인증을 사용하는 경우 실패한 로그인 레코드는 SQL 감사 로그에 나타나지 *않습니다*. 실패한 로그인 감사 레코드를 보려면 이러한 이벤트의 세부 정보를 로깅하는 [Azure Active Directory 포털]( ../active-directory/reports-monitoring/reference-sign-ins-error-codes.md)을 방문해야 합니다.
+- [읽기 전용 복제본에](sql-database-read-scale-out.md) 대한 감사가 자동으로 활성화됩니다. 저장소 폴더의 계층 구조, 명명 규칙 및 로그 형식에 대한 자세한 내용은 [SQL Database 감사 로그 형식을](sql-database-audit-log-format.md)참조하십시오. 
 
 ### <a name=""></a><a id="audit-log-analytics-destination">로그 분석 대상에 대한 감사</a>
   
@@ -160,9 +160,6 @@ Azure Monitor 로그에 감사 로그를 작성하도록 선택한 경우:
 
 Azure Storage 계정에 감사 로그를 작성하도록 선택한 경우 로그를 보는 데 사용할 수 있는 여러 가지 방법이 있습니다.
 
-> [!NOTE] 
-> [읽기 전용 복제본에](sql-database-read-scale-out.md) 대한 감사가 자동으로 활성화됩니다. 저장소 폴더의 계층 구조, 명명 규칙 및 로그 형식에 대한 자세한 내용은 [SQL Database 감사 로그 형식을](sql-database-audit-log-format.md)참조하십시오. 
-
 - 감사 로그는 설치 중에 선택한 계정에 집계됩니다. [Azure 저장소 탐색기와](https://storageexplorer.com/)같은 도구를 사용하여 감사 로그를 탐색할 수 있습니다. Azure Storage에서 감사 로그는 **sqldbauditlogs**라는 컨테이너 내부에 Blob 파일의 컬렉션으로 저장됩니다. 저장소 폴더의 계층 구조, 명명 규칙 및 로그 형식에 대한 자세한 내용은 [SQL Database 감사 로그 형식을](https://go.microsoft.com/fwlink/?linkid=829599)참조하십시오.
 
 - Azure [포털](https://portal.azure.com)을 사용합니다.  관련 데이터베이스를 엽니다. 데이터베이스의 **감사** 페이지 맨 위에서 **감사 로그 보기**를 클릭합니다.
@@ -201,11 +198,11 @@ Azure Storage 계정에 감사 로그를 작성하도록 선택한 경우 로그
 
     - PowerShell을 사용하여 [확장 이벤트 파일을 쿼리](https://sqlscope.wordpress.com/20../../reading-extended-event-files-using-client-side-tools-only/)합니다.
 
-## <a name="production-practices"></a><a id="subheading-5"></a>프로덕션 사례
+## <a name="production-practices"></a><a id="production-practices"></a>프로덕션 사례
 
 <!--The description in this section refers to preceding screen captures.-->
 
-### <a name=""></a><a id="subheading-6">지역에서 복제된 데이터베이스 감사</a>
+#### <a name="auditing-geo-replicated-databases"></a>지역에서 복제된 데이터베이스 감사
 
 지역 복제 데이터베이스에서 주 데이터베이스에 대해 감사를 활성화하면 보조 데이터베이스에도 동일한 감사 정책이 적용됩니다. 또한 주 데이터베이스와는 별도로 **보조 서버**에서 감사를 활성화하여 보조 데이터베이스에 대한 감사를 설정할 수도 있습니다.
 
@@ -217,7 +214,7 @@ Azure Storage 계정에 감사 로그를 작성하도록 선택한 경우 로그
     >[!IMPORTANT]
     >데이터베이스 수준 감사에서 보조 데이터베이스의 스토리지 설정은 주 데이터베이스와 동일하기 때문에 지역 간 트래픽이 발생합니다. 서버 수준 감사만 활성화하고 모든 데이터베이스에 대해 데이터베이스 수준 감사를 비활성화로 유지하는 것이 좋습니다.
 
-### <a name=""></a><a id="subheading-6">스토리지 키 다시 생성</a>
+#### <a name="storage-key-regeneration"></a>스토리지 키 다시 생성
 
 프로덕션에서는 스토리지 키를 주기적으로 새로 고치게 됩니다. Azure Storage에 감사 로그를 작성하는 경우 키를 새로 고칠 때 감사 정책을 다시 저장해야 합니다. 프로세스는 다음과 같습니다.
 
@@ -230,7 +227,9 @@ Azure Storage 계정에 감사 로그를 작성하도록 선택한 경우 로그
 3. 감사 구성 페이지로 다시 돌아가서 스토리지 액세스 키를 보조에서 기본으로 전환한 다음, **확인**을 클릭합니다. 그런 다음, 감사 구성 페이지의 맨 위에서 **저장**을 클릭합니다.
 4. 스토리지 구성 페이지로 다시 돌아와서 보조 액세스 키를 다시 생성합니다(다음 키의 새로 고침 주기를 위한 준비).
 
-## <a name="manage-azure-sql-server-and-database-auditing-using-azure-powershell"></a><a id="subheading-7"></a>Azure PowerShell을 사용하여 Azure SQL 서버 및 데이터베이스 감사 관리
+## <a name="manage-azure-sql-server-and-database-auditing"></a><a id="manage-auditing"></a>Azure SQL 서버 및 데이터베이스 감사 관리
+
+#### <a name="using-azure-powershell"></a>Azure PowerShell 사용
 
 **PowerShell cmdlet(추가 필터링을 위한 WHERE 절 지원 포함)**:
 
@@ -243,7 +242,7 @@ Azure Storage 계정에 감사 로그를 작성하도록 선택한 경우 로그
 
 스크립트 예제는 [PowerShell을 사용하여 감사 및 위협 감지 구성](scripts/sql-database-auditing-and-threat-detection-powershell.md)을 참조하세요.
 
-## <a name="manage-azure-sql-server-and-database-auditing-using-rest-api"></a><a id="subheading-8"></a>REST API를 사용하여 Azure SQL Server 및 데이터베이스 감사 관리
+#### <a name="using-rest-api"></a>REST API 사용
 
 **나머지 API**:
 
@@ -259,7 +258,7 @@ WHERE 절 지원을 사용하여 추가 필터링에 대해 확장된 정책입�
 - [데이터베이스 *확장* 감사 정책 받기](/rest/api/sql/database%20extended%20auditing%20settings/get)
 - [서버 *확장* 감사 정책 받기](/rest/api/sql/server%20auditing%20settings/get)
 
-## <a name="manage-azure-sql-server-and-database-auditing-using-azure-resource-manager-templates"></a><a id="subheading-9"></a>Azure 리소스 관리자 템플릿을 사용하여 Azure SQL Server 및 데이터베이스 감사 관리
+#### <a name="using-azure-resource-manager-templates"></a>Azure 리소스 관리자 템플릿 사용
 
 다음 예제처럼 [Azure Resource Manager](../azure-resource-manager/management/overview.md) 템플릿을 사용하여 Azure SQL 데이터베이스 감사를 관리할 수 있습니다.
 
@@ -269,16 +268,6 @@ WHERE 절 지원을 사용하여 추가 필터링에 대해 확장된 정책입�
 
 > [!NOTE]
 > 연결된 샘플은 외부 공용 리포지토리에 있으며 보증 없이 '있는 그대로' 제공되며 Microsoft 지원 프로그램/서비스에서는 지원되지 않습니다.
-
-<!--Anchors-->
-[Azure SQL Database Auditing overview]: #subheading-1
-[Set up auditing for your database]: #subheading-2
-[Analyze audit logs and reports]: #subheading-3
-[Practices for usage in production]: #subheading-5
-[Storage Key Regeneration]: #subheading-6
-[Manage Azure SQL Server and Database auditing using Azure PowerShell]: #subheading-7
-[Manage SQL database auditing using REST API]: #subheading-8
-[Manage Azure SQL Server and Database auditing using ARM templates]: #subheading-9
 
 <!--Image references-->
 [1]: ./media/sql-database-auditing-get-started/1_auditing_get_started_settings.png

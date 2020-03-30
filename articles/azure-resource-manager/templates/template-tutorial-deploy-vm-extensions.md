@@ -5,16 +5,16 @@ author: mumian
 ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 30b7aeaed0bfc2621cb2c71ab3f5e618771a1c26
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 469948d3d3207dd684d5a9b752e0c448ac7e83a9
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250079"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80239256"
 ---
-# <a name="tutorial-deploy-virtual-machine-extensions-with-azure-resource-manager-templates"></a>자습서: Azure Resource Manager 템플릿을 사용하여 가상 머신 확장 배포
+# <a name="tutorial-deploy-virtual-machine-extensions-with-arm-templates"></a>자습서: ARM 템플릿을 사용하여 가상 머신 확장 배포
 
-[Azure 가상 머신 확장](../../virtual-machines/extensions/features-windows.md)을 사용하여 Azure VM에서 배포 후 구성 및 자동화 작업을 수행하는 방법을 알아봅니다. Azure VM에서 여러 다양한 VM 확장을 사용할 수 있습니다. 이 자습서에서는 Azure Resource Manager 템플릿의 사용자 지정 스크립트 확장을 배포하여 Windows VM에서 PowerShell 스크립트를 실행합니다.  이 스크립트는 VM에 웹 서버를 설치합니다.
+[Azure 가상 머신 확장](../../virtual-machines/extensions/features-windows.md)을 사용하여 Azure VM에서 배포 후 구성 및 자동화 작업을 수행하는 방법을 알아봅니다. Azure VM에서 여러 다양한 VM 확장을 사용할 수 있습니다. 이 자습서에서는 ARM(Azure Resource Manager) 템플릿의 사용자 지정 스크립트 확장을 배포하여 Windows VM에서 PowerShell 스크립트를 실행합니다.  이 스크립트는 VM에 웹 서버를 설치합니다.
 
 이 자습서에서 다루는 작업은 다음과 같습니다.
 
@@ -31,14 +31,14 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 이 문서를 완료하려면 다음이 필요합니다.
 
-* Resource Manager 도구 확장이 포함된 Visual Studio Code. [Visual Studio Code를 사용하여 Azure Resource Manager 템플릿 만들기](use-vs-code-to-create-template.md)를 참조하세요.
+* Resource Manager 도구 확장이 포함된 Visual Studio Code. [Visual Studio Code를 사용하여 ARM 템플릿 만들기](use-vs-code-to-create-template.md)를 참조하세요.
 * 보안을 강화하려면 가상 머신 관리자 계정에 생성된 암호를 사용합니다. 암호를 생성하는 방법에 대한 샘플은 다음과 같습니다.
 
     ```console
     openssl rand -base64 32
     ```
 
-    Azure Key Vault는 암호화 키 및 기타 비밀을 보호하기 위한 것입니다. 자세한 내용은 [자습서: Resource Manager 템플릿 배포에 Azure Key Vault 통합](./template-tutorial-use-key-vault.md)을 참조하세요. 또한 3개월마다 암호를 업데이트하는 것도 좋습니다.
+    Azure Key Vault는 암호화 키 및 기타 비밀을 보호하기 위한 것입니다. 자세한 내용은 [자습서: ARM 템플릿 배포에 Azure Key Vault 통합](./template-tutorial-use-key-vault.md)을 참조하세요. 또한 3개월마다 암호를 업데이트하는 것도 좋습니다.
 
 ## <a name="prepare-a-powershell-script"></a>PowerShell 스크립트 준비
 
@@ -52,7 +52,7 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 ## <a name="open-a-quickstart-template"></a>빠른 시작 템플릿 열기
 
-Azure 빠른 시작 템플릿은 Resource Manager 템플릿용 리포지토리입니다. 템플릿을 처음부터 새로 만드는 대신 샘플 템플릿을 찾아서 사용자 지정할 수 있습니다. 이 자습서에 사용되는 템플릿의 이름은 [Deploy a simple Windows VM](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/)입니다.
+Azure 빠른 시작 템플릿은 ARM 템플릿용 리포지토리입니다. 템플릿을 처음부터 새로 만드는 대신 샘플 템플릿을 찾아서 사용자 지정할 수 있습니다. 이 자습서에 사용되는 템플릿의 이름은 [Deploy a simple Windows VM](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/)입니다.
 
 1. Visual Studio Code에서 **파일** > **파일 열기**를 차례로 선택합니다.
 1. **파일 이름** 상자에서 다음 URL을 붙여넣습니다. https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
@@ -107,7 +107,7 @@ Azure 빠른 시작 템플릿은 Resource Manager 템플릿용 리포지토리�
 
 ## <a name="deploy-the-template"></a>템플릿 배포
 
-배포 절차는 다음의 “템플릿 배포” 섹션을 참조하세요. [자습서: 종속 리소스가 있는 Azure Resource Manager 템플릿 만들기](./template-tutorial-create-templates-with-dependent-resources.md#deploy-the-template)에서 사용한 대로 Cloud Shell 배포 방법을 사용합니다. 가상 머신 관리자 계정에 대해 생성된 암호를 사용하는 것이 좋습니다. 이 문서의 [필수 구성 요소](#prerequisites) 섹션을 참조하세요.
+배포 절차는 다음의 “템플릿 배포” 섹션을 참조하세요. [자습서: 종속 리소스를 사용하여 ARM 템플릿 만들기](./template-tutorial-create-templates-with-dependent-resources.md#deploy-the-template). 가상 머신 관리자 계정에 대해 생성된 암호를 사용하는 것이 좋습니다. 이 문서의 [필수 구성 요소](#prerequisites) 섹션을 참조하세요.
 
 ## <a name="verify-the-deployment"></a>배포 확인
 

@@ -8,12 +8,12 @@ keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
 manager: gwallace
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.openlocfilehash: 5deebf7a51917a2b199ad525ab087fd5b0268c18
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 5d0d1541600f4c10b021d5d7f7f435f1aa5ae589
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78245027"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80239714"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-visual-studio--net-core---azure-dev-spaces"></a>빠른 시작: Kubernetes에서 디버그 및 반복: Visual Studio 및 .NET Core - Azure Dev Spaces
 
@@ -94,7 +94,9 @@ Service 'webfrontend' port 80 (http) is available at http://localhost:62266
 Completed warmup for project 'webfrontend' in 125 seconds.
 ```
 
-위의 예제에서 공용 URL은 http://default.webfrontend.1234567890abcdef1234.eus.azds.io/ 입니다. 서비스의 공용 URL로 이동하여 개발 공간에서 실행 중인 서비스와 상호 작용합니다.
+위의 예제에서 공용 URL은 http://default.webfrontend.1234567890abcdef1234.eus.azds.io/ 입니다. 
+
+**디버그**를 선택한 다음, **디버깅 시작**을 선택합니다. 몇 초 후에 서비스가 시작되고 Visual Studio에서 서비스의 공용 URL이 있는 브라우저를 엽니다. 브라우저가 자동으로 열리지 않으면 브라우저에서 서비스의 공용 URL로 이동하여 개발 공간에서 실행 중인 서비스와 상호 작용합니다.
 
 이 프로세스는 서비스에 대한 공용 액세스가 비활성화되었을 수 있습니다. 공용 액세스를 활성화하기 위해 [*values.yaml*에서 수신 값][ingress-update]을 업데이트할 수 있습니다.
 
@@ -106,7 +108,7 @@ Visual Studio가 개발 공간에 여전히 연결되어 있으면 중지 단추
 ViewData["Message"] = "Your application description page in Azure.";
 ```
 
-변경 내용을 저장하고 시작 설정 드롭다운에서 **Azure Dev Spaces**를 사용하여 서비스를 시작합니다. 브라우저에서 서비스의 공용 URL을 열고 *정보*를 클릭합니다. 업데이트된 메시지가 표시되는 것을 확인합니다.
+변경 내용을 저장하고 **디버그** 선택한 다음, **디버깅 시작**을 선택합니다. 몇 초 후에 서비스가 시작되고 Visual Studio에서 서비스의 공용 URL이 있는 브라우저를 엽니다. 브라우저가 자동으로 열리지 않으면 브라우저에서 서비스의 공용 URL을 탐색하고 *정보*를 클릭합니다. 업데이트된 메시지가 표시되는 것을 확인합니다.
 
 코드 편집이 완료될 때마다 새 컨테이너 이미지 다시 빌드 및 다시 배포 작업을 수행하는 대신 Azure Dev Spaces는 기존 컨테이너 내에서 코드를 점진적으로 다시 컴파일하여 더 빠른 편집/디버그 루프를 제공합니다.
 
@@ -133,5 +135,5 @@ az group delete --name MyResourceGroup --yes --no-wait
 > [!div class="nextstepaction"]
 > [여러 컨테이너 작업 및 팀 개발](multi-service-netcore-visualstudio.md)
 
-[ingress-update]: how-dev-spaces-works.md#how-running-your-code-is-configured
+[ingress-update]: how-dev-spaces-works-up.md#how-running-your-code-is-configured
 [supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service

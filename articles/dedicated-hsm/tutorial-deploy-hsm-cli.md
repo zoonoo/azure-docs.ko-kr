@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 4750673eb60529d812e4df71de9203d4d59a0cc9
-ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
+ms.openlocfilehash: 76b7a97a5be5e7952b0ac11d93bd68656ff8f1ec
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77212267"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79454315"
 ---
 # <a name="tutorial-deploying-hsms-into-an-existing-virtual-network-using-cli"></a>자습서: CLI를 사용하여 기존 가상 네트워크에 HSM 배포
 
@@ -47,7 +47,7 @@ Azure Dedicated HSM을 현재 Azure Portal에서 사용할 수 없습니다. 서
 - 이러한 리소스에 대한 리소스 그룹을 만들었으며, 이 자습서에서 배포된 새 리소스가 해당 그룹에 가입됩니다.
 - 위의 다이어그램에 따라 필요한 가상 네트워크, 서브넷, 가상 머신을 이미 만들었으며, 이제 해당 배포판에 2개의 HSM을 통합하려고 합니다.
 
-아래의 모든 지침에서는 이미 Azure Portal로 이동했고 Cloud Shell(포털 오른쪽 위에서 “\>\_” 선택)을 열었다고 가정합니다.
+아래의 모든 지침에서는 이미 Azure Portal로 이동했고 Cloud Shell(포털 오른쪽 위에서 "\>\_" 선택)을 열었다고 가정합니다.
 
 ## <a name="provisioning-a-dedicated-hsm"></a>Dedicated HSM 프로비전
 
@@ -71,15 +71,15 @@ az feature show \
    --name AllowBaremetalServers
 ```
 
-두 명령은 모두 아래에 표시된 것처럼 “등록됨” 상태를 반환해야 합니다. 명령이 "등록됨" 상태를 반환하지 않을 경우 이 서비스에 등록해야 합니다. Microsoft 계정 담당자에게 문의하세요.
+두 명령은 모두 아래에 표시된 것처럼 "등록됨" 상태를 반환해야 합니다. 명령이 "등록됨" 상태를 반환하지 않을 경우 이 서비스에 등록해야 합니다. Microsoft 계정 담당자에게 문의하세요.
 
 ![구독 상태](media/tutorial-deploy-hsm-cli/subscription-status.png)
 
 ### <a name="creating-hsm-resources"></a>HSM 리소스 만들기
 
-HSM은 고객의 가상 네트워크에 프로비전되므로 가상 네트워크 및 서브넷이 필요합니다. HSM이 가상 네트워크와 물리적 디바이스 간 통신을 구현하는 데 필요한 종속 항목은 ExpressRoute 게이트웨이이며, 마지막으로 Gemalto 클라이언트 소프트웨어를 사용하여 HSM 디바이스에 액세스하기 위해 가상 머신이 필요합니다. 이러한 리소스는 사용 편의를 위해 해당 매개 변수 파일과 함께 템플릿 파일에 수집되었습니다. 이러한 파일은 Microsoft(HSMrequest@Microsoft.com)에 직접 문의하면 사용 가능합니다.
+HSM은 고객의 가상 네트워크에 프로비저닝되므로 가상 네트워크 및 서브넷이 필요합니다. HSM이 가상 네트워크와 물리적 디바이스 간 통신을 구현하는 데 필요한 종속 항목은 ExpressRoute 게이트웨이이며, 마지막으로 Gemalto 클라이언트 소프트웨어를 사용하여 HSM 디바이스에 액세스하기 위해 가상 머신이 필요합니다. 이러한 리소스는 사용 편의를 위해 해당 매개 변수 파일과 함께 템플릿 파일에 수집되었습니다. 이러한 파일은 Microsoft(HSMrequest@Microsoft.com)에 직접 문의하면 사용 가능합니다.
 
-파일을 확보하면 매개 변수 파일을 편집하여 리소스의 기본 이름을 삽입해야 합니다. “value”: “”를 사용하여 줄을 편집합니다.
+파일을 확보하면 매개 변수 파일을 편집하여 리소스의 기본 이름을 삽입해야 합니다. "value": ""를 사용하여 줄을 편집합니다.
 
 - `namingInfix` HSM 리소스 이름의 접두사
 - `ExistingVirtualNetworkName` HSM에 사용하는 가상 네트워크의 이름
@@ -126,7 +126,7 @@ HSM은 고객의 가상 네트워크에 프로비전되므로 가상 네트워�
 - 스탬프 1의 HSM
 - 스탬프 2의 HSM
 
-매개 변수 값이 설정되면 파일을 사용하기 위해 Azure Portal Cloud Shell 파일 공유에 업로드해야 합니다. Azure Portal에서 오른쪽 상단에 있는 “\>\_” Cloud Shell 기호를 클릭하면 화면의 하단 부분이 명령 환경이 됩니다. 이에 대한 옵션은 BASH 및 PowerShell이며, 아직 설정되지 않은 경우 BASH를 선택해야 합니다.
+매개 변수 값이 설정되면 파일을 사용하기 위해 Azure Portal Cloud Shell 파일 공유에 업로드해야 합니다. Azure Portal에서 오른쪽 상단에 있는 "\>\_" 클라우드 셸 기호를 클릭하면 화면의 하단 부분이 명령 환경으로 설정됩니다. 이에 대한 옵션은 BASH 및 PowerShell이며, 아직 설정되지 않은 경우 BASH를 선택해야 합니다.
 
 명령 셸 도구 모음에는 업로드/다운로드 옵션이 있고, 파일 공유에 템플릿 및 매개 변수 파일을 업로드하려면 이 옵션을 선택해야 합니다.
 
@@ -144,7 +144,8 @@ az network vnet create \
 ```
 
 ```azurecli
---vnet-name myHSM-vnet \
+az network vnet create \
+  --vnet-name myHSM-vnet \
   --resource-group myRG \
   --name hsmsubnet \
   --address-prefixes 10.2.1.0/24 \
@@ -160,7 +161,7 @@ az network vnet subnet create \
 ```
 
 >[!NOTE]
->가상 네트워크에서 주목해야 할 가장 중요한 구성은 HSM 디바이스의 서브넷에 “Microsoft.HardwareSecurityModules/dedicatedHSMs”로 설정된 위임이 있어야 한다는 사실입니다.  이 옵션이 설정되지 않으면 HSM 프로비전이 작동하지 않습니다.
+>가상 네트워크에서 주목해야 할 가장 중요한 구성은 HSM 디바이스의 서브넷에 "Microsoft.HardwareSecurityModules/dedicatedHSMs"로 설정된 위임이 있어야 한다는 것입니다.  이 옵션이 설정되지 않으면 HSM 프로비전이 작동하지 않습니다.
 
 모든 필수 구성 요소가 준비되면 Azure Resource Manager 템플릿을 사용하여 고유한 이름(최소한 리소스 그룹 이름이라도)으로 값을 업데이트했는지 확인하는 다음 명령을 실행합니다.
 
@@ -193,7 +194,7 @@ az resource show \
 
 ![프로비전 출력](media/tutorial-deploy-hsm-cli/progress-status2.png)
 
-또한 이제 [Azure 리소스 탐색기](https://resources.azure.com/)를 사용하여 리소스를 볼 수 있습니다.   탐색기에서 왼쪽에 있는 “구독”, Dedicated HSM의 특정 구독, “리소스 그룹”, 사용한 리소스 그룹을 차례로 확장하고, 마지막으로 “리소스” 항목을 선택합니다.
+또한 이제 [Azure 리소스 탐색기](https://resources.azure.com/)를 사용하여 리소스를 볼 수 있습니다.   탐색기에서 왼쪽에 있는 "구독", Dedicated HSM의 특정 구독, "리소스 그룹", 사용한 리소스 그룹을 차례로 확장하고, 마지막으로 "리소스" 항목을 선택합니다.
 
 ## <a name="testing-the-deployment"></a>배포 테스트
 
@@ -207,7 +208,7 @@ ssh 도구를 사용하여 가상 머신에 연결합니다. 이 명령은 다�
 ![구성 요소 목록](media/tutorial-deploy-hsm-cli/resources.png)
 
 >[!NOTE]
->선택할 경우 HSM 리소스가 표시되는 “숨겨진 형식 표시” 확인란에 주목하세요.
+>선택할 경우 HSM 리소스가 표시되는 "숨겨진 형식 표시" 확인란에 주목하세요.
 
 위의 스크린샷에서 "HSM1_HSMnic" 또는 "HSM2_HSMnic"를 클릭하면 적절한 개인 IP 주소가 표시됩니다. 그렇지 않을 경우 위에서 사용된 `az resource show` 명령으로 올바른 IP 주소를 확인할 수 있습니다. 
 
