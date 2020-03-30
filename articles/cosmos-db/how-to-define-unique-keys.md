@@ -1,25 +1,25 @@
 ---
 title: Azure Cosmos 컨테이너의 고유 키 정의
-description: Azure Portal, PowerShell, .Net, Java 및 기타 다양 한 Sdk를 사용 하 여 Azure Cosmos 컨테이너에 대 한 고유 키를 정의 하는 방법을 알아봅니다.
+description: Azure 포털, PowerShell, .Net, Java 및 기타 다양한 SDK를 사용하여 Azure Cosmos 컨테이너에 대한 고유 키를 정의하는 방법을 알아봅니다.
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: thweiss
 ms.openlocfilehash: fa62495a7b51c9a06a91102299378c15e811eae0
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74872114"
 ---
 # <a name="define-unique-keys-for-an-azure-cosmos-container"></a>Azure Cosmos 컨테이너의 고유 키 정의
 
 이 문서에서는 Azure Cosmos 컨테이너를 만들 때 [고유 키](unique-keys.md)를 정의하는 여러 다른 방법을 제공합니다. 현재, Azure Portal을 사용하거나 SDK 중 하나를 통해 이 작업을 수행할 수 있습니다.
 
-## <a name="use-the-azure-portal"></a>Azure 포털 사용
+## <a name="use-the-azure-portal"></a>Azure Portal 사용
 
-1. [Azure portal](https://portal.azure.com/)에 로그인합니다.
+1. [Azure 포털에](https://portal.azure.com/)로그인합니다.
 
 1. [새 Azure Cosmos 계정을 만들거나](create-sql-api-dotnet.md#create-account) 기존 계정을 선택합니다.
 
@@ -37,7 +37,7 @@ ms.locfileid: "74872114"
 
 ## <a name="use-powershell"></a>PowerShell 사용
 
-고유한 키를 사용 하 여 컨테이너를 만들려면 [고유한 키와 TTL을 사용 하 여 Azure Cosmos 컨테이너 만들기](manage-with-powershell.md#create-container-unique-key-ttl) 를 참조 하세요.
+고유한 키가 있는 컨테이너를 만들려면 [고유한 키와 TTL을 사용하여 Azure Cosmos 컨테이너 만들기](manage-with-powershell.md#create-container-unique-key-ttl)
 
 ## <a name="use-the-net-sdk-v2"></a>.NET SDK V2 사용
 
@@ -61,7 +61,7 @@ client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("database"), n
 
 ## <a name="use-the-net-sdk-v3"></a>.NET SDK V3 사용
 
-[.NET sdk v3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/)을 사용 하 여 새 컨테이너를 만들 때 SDK의 흐름 API를 사용 하 여 간결 하 고 읽기 쉬운 방식으로 고유한 키를 선언 합니다.
+[.NET SDK v3를](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/)사용하여 새 컨테이너를 만들 때 SDK의 유창한 API를 사용하여 간결하고 읽기 쉬운 방식으로 고유 키를 선언합니다.
 
 ```csharp
 await client.GetDatabase("database").DefineContainer(name: "container", partitionKeyPath: "/myPartitionKey")
@@ -147,5 +147,5 @@ client.CreateContainer('dbs/' + config['DATABASE'], {
 
 ## <a name="next-steps"></a>다음 단계
 
-- [분할](partition-data.md)에 대해 자세히 알아보기
+- [분할에](partition-data.md) 대해 자세히 알아보기
 - [인덱싱 작동 원리](index-overview.md) 알아보기

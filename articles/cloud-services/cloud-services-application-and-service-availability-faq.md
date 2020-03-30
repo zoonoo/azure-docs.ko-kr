@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: c294d4583ba2690e1f4952441ffb43bff1459059
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75386921"
 ---
 # <a name="application-and-service-availability-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure Cloud Services의 애플리케이션 및 서비스 사용 가능성 문제: FAQ(질문과 대답)
@@ -29,7 +29,7 @@ ms.locfileid: "75386921"
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## <a name="my-role-got-recycled-was-there-any-update-rolled-out-for-my-cloud-service"></a>내 역할은 재활용되었습니다. 클라우드 서비스에 롤아웃된 업데이트가 있습니까?
-Microsoft에서는 대략 한 달에 한 번 Windows Azure PaaS VM에 대한 새 게스트 OS 버전을 릴리스합니다. 게스트 OS는 파이프라인의 이러한 업데이트 중 하나일 뿐입니다. 릴리스는 다른 요인에 따라 달라질 수 있습니다. 또한 Azure는 수 천만 대의 컴퓨터에서 실행됩니다. 따라서 역할이 다시 부팅되는 정확한 날짜와 시간을 예측할 수 있습니다. 최신 정보로 게스트 OS 업데이트 RSS 피드를 업데이트하지만 보고된 시간은 대략적인 값을 고려해야 합니다. 고객에 문제가 있어 정확하게 재부팅 시간을 제한하도록 작업 중인 것으로 알고 있습니다.
+Microsoft에서는 대략 한 달에 한 번 Windows Azure PaaS VM에 대한 새 게스트 OS 버전을 릴리스합니다.이러한 업데이트로 게스트 OS가 파이프라인에서 유일합니다. 릴리스는 다른 요인에 따라 달라질 수 있습니다. 또한 Azure는 수 천만 대의 컴퓨터에서 실행됩니다. 따라서 역할이 다시 부팅되는 정확한 날짜와 시간을 예측할 수 있습니다. 최신 정보로 게스트 OS 업데이트 RSS 피드를 업데이트하지만 보고된 시간은 대략적인 값을 고려해야 합니다. 고객에 문제가 있어 정확하게 재부팅 시간을 제한하도록 작업 중인 것으로 알고 있습니다.
 
 최신 게스트 OS 업데이트에 대한 자세한 내용은 [Azure 게스트 OS 릴리스 및 SDK 호환성 매트릭스](cloud-services-guestos-update-matrix.md)를 참조하세요.
 
@@ -46,4 +46,4 @@ Microsoft에서는 대략 한 달에 한 번 Windows Azure PaaS VM에 대한 새
 
 IIS의 기본 동작을 변경하려는 경우 웹 역할 인스턴스에 변경 내용을 수동으로 적용하면 변경 내용이 손실되기 때문에 시작 작업을 사용해야 합니다.
 
-자세한 내용은 [클라우드 서비스에 대한 시작 작업 구성 및 실행 방법](cloud-services-startup-tasks.md)을 참조하세요.
+자세한 내용은 [클라우드 서비스에 대한 시작 작업을 구성하고 실행하는 방법을](cloud-services-startup-tasks.md)참조하십시오.
