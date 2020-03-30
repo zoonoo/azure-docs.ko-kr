@@ -6,16 +6,16 @@ ms.date: 05/23/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: bae67b0177823ab4558085db67423edea062fa3c
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: a305914c5c870543e16c515880955693c2634044
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250065"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80239171"
 ---
-# <a name="tutorial-integrate-azure-key-vault-in-your-resource-manager-template-deployment"></a>자습서: Resource Manager 템플릿 배포에 Azure Key Vault 통합
+# <a name="tutorial-integrate-azure-key-vault-in-your-arm-template-deployment"></a>자습서: ARM 템플릿 배포에 Azure Key Vault 통합
 
-Azure Key Vault에서 비밀을 검색하여 Azure Resource Manager를 배포할 때 비밀을 매개 변수로 전달하는 방법을 알아봅니다. 이 매개 변수 값은 해당 Key Vault ID만 참조하기 때문에 절대 노출되지 않습니다. 자세한 내용은 [Azure Key Vault를 사용하여 배포 중에 보안 매개 변수 값 전달](./key-vault-parameter.md)을 참조하세요.
+Azure Key Vault에서 비밀을 검색하여 ARM(Azure Resource Manager) 템플릿을 배포할 때 비밀을 매개 변수로 전달하는 방법을 알아봅니다. 이 매개 변수 값은 해당 Key Vault ID만 참조하기 때문에 절대 노출되지 않습니다. 자세한 내용은 [Azure Key Vault를 사용하여 배포 중에 보안 매개 변수 값 전달](./key-vault-parameter.md)을 참조하세요.
 
 [리소스 배포 순서 설정](./template-tutorial-create-templates-with-dependent-resources.md) 자습서에서는 VM(가상 머신)을 만듭니다. VM 관리자 사용자 이름과 암호를 제공해야 합니다. 암호를 제공하는 대신, Azure Key Vault에 암호를 미리 저장한 다음, 배포 중에 키 자격 증명 모음에서 암호를 검색하도록 템플릿을 사용자 지정할 수 있습니다.
 
@@ -39,7 +39,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 이 문서를 완료하려면 다음이 필요합니다.
 
-* Resource Manager 도구 확장이 포함된 Visual Studio Code. [Visual Studio Code를 사용하여 Azure Resource Manager 템플릿 만들기](use-vs-code-to-create-template.md)를 참조하세요.
+* Resource Manager 도구 확장이 포함된 Visual Studio Code. [Visual Studio Code를 사용하여 ARM 템플릿 만들기](use-vs-code-to-create-template.md)를 참조하세요.
 * 보안을 강화하려면 VM 관리자 계정용으로 생성된 암호를 사용하세요. 암호를 생성하는 방법에 대한 샘플은 다음과 같습니다.
 
     ```console
@@ -49,7 +49,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="prepare-a-key-vault"></a>키 자격 증명 모음 준비
 
-이 섹션에서는 템플릿을 배포할 때 비밀을 검색할 수 있도록 키 자격 증명 모음을 만들고 비밀을 키 자격 증명 모음에 추가합니다. 키 자격 증명 모음을 만드는 여러 가지 방법이 있습니다. 이 자습서에서는 Azure PowerShell을 사용하여 [Resource Manager 템플릿](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorials-use-key-vault/CreateKeyVault.json)을 배포합니다. 이 템플릿은 다음을 수행합니다.
+이 섹션에서는 템플릿을 배포할 때 비밀을 검색할 수 있도록 키 자격 증명 모음을 만들고 비밀을 키 자격 증명 모음에 추가합니다. 키 자격 증명 모음을 만드는 여러 가지 방법이 있습니다. 이 자습서에서는 Azure PowerShell을 사용하여 [ARM 템플릿](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorials-use-key-vault/CreateKeyVault.json)을 배포합니다. 이 템플릿은 다음을 수행합니다.
 
 * `enabledForTemplateDeployment` 속성이 활성화된 키 자격 증명 모음을 만듭니다. 이 속성이 *true*여야 템플릿 배포 프로세스가 이 키 자격 증명 모음에 정의된 비밀에 액세스할 수 있습니다.
 * 키 자격 증명 모음에 비밀을 추가합니다. 비밀에는 VM 관리자 암호가 저장됩니다.
@@ -97,7 +97,7 @@ ID를 복사하여 붙여넣으면 ID가 여러 줄로 분할될 수 있습니�
 
 ## <a name="open-a-quickstart-template"></a>빠른 시작 템플릿 열기
 
-Azure 빠른 시작 템플릿은 Resource Manager 템플릿용 리포지토리입니다. 템플릿을 처음부터 새로 만드는 대신 샘플 템플릿을 찾아서 사용자 지정할 수 있습니다. 이 자습서에 사용되는 템플릿의 이름은 [Deploy a simple Windows VM](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/)입니다.
+Azure 빠른 시작 템플릿은 ARM 템플릿용 리포지토리입니다. 템플릿을 처음부터 새로 만드는 대신 샘플 템플릿을 찾아서 사용자 지정할 수 있습니다. 이 자습서에 사용되는 템플릿의 이름은 [Deploy a simple Windows VM](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/)입니다.
 
 1. Visual Studio Code에서 **파일** > **파일 열기**를 차례로 선택합니다.
 
@@ -107,7 +107,7 @@ Azure 빠른 시작 템플릿은 Resource Manager 템플릿용 리포지토리�
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
     ```
 
-1. **열기**를 선택하여 파일을 엽니다. [자습서: 종속 리소스가 있는 Azure Resource Manager 템플릿 만들기](./template-tutorial-create-templates-with-dependent-resources.md)에서 사용한 대로 Cloud Shell 배포 방법을 사용합니다.
+1. **열기**를 선택하여 파일을 엽니다. [자습서: 종속 리소스를 사용하여 ARM 템플릿 만들기](./template-tutorial-create-templates-with-dependent-resources.md)에서 사용되는 시나리오와 동일합니다.
    템플릿은 5개의 리소스를 정의합니다.
 
    * `Microsoft.Storage/storageAccounts`입니다. [템플릿 참조](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts)를 참조하세요.

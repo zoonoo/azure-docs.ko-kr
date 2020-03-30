@@ -16,10 +16,10 @@ ms.date: 03/18/2019
 ms.author: juliako
 ms.reviewer: anilmur
 ms.openlocfilehash: 259e32d55f25c4a146b7ff358eb503763dd5fab2
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69016581"
 ---
 # <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>.NET을 사용하여 미디어 인코더 표준으로 자산 인코딩  
@@ -30,7 +30,7 @@ Encoding 작업은 Media Services에서 가장 일반적인 처리 작업 중 �
 
 항상 원본 파일을 적응 비트 전송률 MP4 집합으로 인코딩한 다음 [동적 패키징](media-services-dynamic-packaging-overview.md)을 사용하여 원하는 형식으로 집합을 변환하는 것이 좋습니다. 
 
-출력 자산이 암호화된 스토리지인 경우 자산 배달 정책을 구성해야 합니다. 자세한 내용은 [자산 배달 정책 구성](media-services-dotnet-configure-asset-delivery-policy.md)을 참조하세요.
+출력 자산이 암호화된 스토리지인 경우 자산 배달 정책을 구성해야 합니다. 자세한 내용은 [자산 제공 정책 구성을](media-services-dotnet-configure-asset-delivery-policy.md)참조하십시오.
 
 > [!NOTE]
 > MES는 입력 파일 이름의 처음 32개 문자를 포함하는 이름을 가진 출력 파일을 생성합니다. 이름은 미리 설정된 파일에 지정된 내용에 기반합니다. 예를 들어 "FileName": "{Basename}_{Index}{Extension}"과 같습니다. {Basename}은 입력 파일 이름의 처음 32자로 대체됩니다.
@@ -61,7 +61,7 @@ MES를 사용하여 인코딩하는 방법을 보여 주는 샘플은 [여기](h
 
 * 인코딩 작업을 만듭니다.
 * 미디어 인코더 표준 인코더에 대한 참조를 가져옵니다.
-* [적응 스트리밍](media-services-autogen-bitrate-ladder-with-mes.md) 사전 설정을 사용하도록 지정합니다. 
+* [적응형 스트리밍](media-services-autogen-bitrate-ladder-with-mes.md) 사전 설정을 사용하도록 지정합니다. 
 * 작업에 단일 인코딩을 추가합니다. 
 * 인코딩할 입력 자산을 지정합니다.
 * 인코딩된 자산을 포함하는 출력 자산을 만듭니다.
@@ -70,7 +70,7 @@ MES를 사용하여 인코딩하는 방법을 보여 주는 샘플은 [여기](h
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Visual Studio 프로젝트 만들기 및 구성
 
-개발 환경을 설정하고 [.NET을 사용한 Media Services 환경](media-services-dotnet-how-to-use.md)에 설명된 대로 연결 정보를 사용하여 app.config 파일을 채웁니다. 
+.NET 을 사용하면 Media Services 개발에 설명된 대로 개발 환경을 설정하고 app.config 파일을 연결 [정보로](media-services-dotnet-how-to-use.md)채웁니다. 
 
 #### <a name="example"></a>예제 
 
@@ -210,6 +210,6 @@ namespace MediaEncoderStandardSample
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-steps"></a>다음 단계
-[.NET과 함께 Media Encoder Standard를 사용하여 미리 보기를 생성하는 방법](media-services-dotnet-generate-thumbnail-with-mes.md)
-[Media Services Encoding 개요](media-services-encode-asset.md)
+[.NET](media-services-dotnet-generate-thumbnail-with-mes.md)
+[미디어 서비스 인코딩 개요를](media-services-encode-asset.md) 사용하여 미디어 인코더 표준을 사용하여 썸네일을 생성하는 방법
 

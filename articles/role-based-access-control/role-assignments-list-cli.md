@@ -1,6 +1,6 @@
 ---
-title: Azure RBAC 및 Azure CLI를 사용 하 여 역할 할당 나열
-description: Azure RBAC (역할 기반 액세스 제어) 및 Azure CLI를 사용 하 여 사용자, 그룹, 서비스 주체 또는 관리 id가 액세스할 수 있는 리소스를 확인 하는 방법에 대해 알아봅니다.
+title: Azure RBAC 및 Azure CLI를 사용하여 역할 할당 목록
+description: 사용자, 그룹, 서비스 주체 또는 관리되는 ID가 AZURE 역할 기반 액세스 제어(RBAC) 및 Azure CLI를 사용하여 액세스할 수 있는 리소스를 확인하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,41 +14,41 @@ ms.workload: identity
 ms.date: 01/10/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: b02ec00544ef11ca1048fd6d3bd9bdf3fccd8c8c
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 5716e7bb89d017866bd1575256e2d119bb7acbe5
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77471417"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80385064"
 ---
-# <a name="list-role-assignments-using-azure-rbac-and-azure-cli"></a>Azure RBAC 및 Azure CLI를 사용 하 여 역할 할당 나열
+# <a name="list-role-assignments-using-azure-rbac-and-azure-cli"></a>Azure RBAC 및 Azure CLI를 사용하여 역할 할당 목록
 
-이 문서 [!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)] Azure CLI를 사용 하 여 역할 할당을 나열 하는 방법을 설명 합니다.
+[!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)]이 문서에서는 Azure CLI를 사용하여 역할 할당을 나열하는 방법을 설명합니다.
 
 > [!NOTE]
-> 조직에서 [Azure 위임 된 리소스 관리](../lighthouse/concepts/azure-delegated-resource-management.md)를 사용 하는 서비스 공급자에 대해 아웃소싱 된 관리 기능을 사용 하는 경우 해당 서비스 공급자가 승인한 역할 할당은 여기에 표시 되지 않습니다.
+> 조직에서 [Azure 위임리소스 관리를](../lighthouse/concepts/azure-delegated-resource-management.md)사용하는 서비스 공급자에게 관리 기능을 아웃소싱한 경우 해당 서비스 공급자가 승인한 역할 할당은 여기에 표시되지 않습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- Azure Cloud Shell 또는 [Azure CLI](/cli/azure) [의 Bash](/azure/cloud-shell/overview)
+- Azure 클라우드 셸 또는 [Azure CLI에서](/cli/azure) [배쉬](/azure/cloud-shell/overview)
 
 ## <a name="list-role-assignments-for-a-user"></a>사용자에 대한 역할 할당 목록
 
 특정 사용자에 대한 역할 할당을 나열하려면 [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list)를 사용합니다.
 
-```azurecli
+```azurecli-interactive
 az role assignment list --assignee <assignee>
 ```
 
-기본적으로 현재 구독에 대 한 역할 할당만 표시 됩니다. 현재 구독 및 아래에 대 한 역할 할당을 보려면 `--all` 매개 변수를 추가 합니다. 상속 된 역할 할당을 보려면 `--include-inherited` 매개 변수를 추가 합니다.
+기본적으로 현재 구독에 대한 역할 할당만 표시됩니다. 현재 구독 및 아래에 대한 역할 할당을 `--all` 보려면 매개 변수를 추가합니다. 상속된 역할 할당을 보려면 `--include-inherited` 매개 변수를 추가합니다.
 
-다음 예에서는 *patlong\@contoso.com* 사용자에 게 직접 할당 된 역할 할당을 나열 합니다.
+다음 예제에는 *patlong\@contoso.com* 사용자에게 직접 할당되는 역할 할당이 나열되어 있습니다.
 
-```azurecli
+```azurecli-interactive
 az role assignment list --all --assignee patlong@contoso.com --output json | jq '.[] | {"principalName":.principalName, "roleDefinitionName":.roleDefinitionName, "scope":.scope}'
 ```
 
-```Output
+```
 {
   "principalName": "patlong@contoso.com",
   "roleDefinitionName": "Backup Operator",
@@ -63,19 +63,19 @@ az role assignment list --all --assignee patlong@contoso.com --output json | jq 
 
 ## <a name="list-role-assignments-for-a-resource-group"></a>리소스 그룹에 대한 역할 할당 목록
 
-리소스 그룹 범위에 존재 하는 역할 할당을 나열 하려면 [az role 할당 list](/cli/azure/role/assignment#az-role-assignment-list)를 사용 합니다.
+리소스 그룹 범위에 있는 역할 할당을 나열하려면 [az 역할 할당 목록을](/cli/azure/role/assignment#az-role-assignment-list)사용합니다.
 
-```azurecli
+```azurecli-interactive
 az role assignment list --resource-group <resource_group>
 ```
 
-다음 예에서는 *pharma-sales-projectforcast* 리소스 그룹에 대 한 역할 할당을 나열 합니다.
+다음 예제에는 *제약 판매* 리소스 그룹에 대한 역할 할당이 나열됩니다.
 
-```azurecli
+```azurecli-interactive
 az role assignment list --resource-group pharma-sales --output json | jq '.[] | {"principalName":.principalName, "roleDefinitionName":.roleDefinitionName, "scope":.scope}'
 ```
 
-```Output
+```
 {
   "principalName": "patlong@contoso.com",
   "roleDefinitionName": "Backup Operator",
@@ -92,52 +92,56 @@ az role assignment list --resource-group pharma-sales --output json | jq '.[] | 
 
 ## <a name="list-role-assignments-for-a-subscription"></a>구독의 역할 할당 나열
 
-구독 범위에서 모든 역할 할당을 나열 하려면 [az role 할당 list](/cli/azure/role/assignment#az-role-assignment-list)를 사용 합니다. 구독 ID를 가져오려면 Azure Portal의 **구독** 블레이드에서 찾거나 [az account list](/cli/azure/account#az-account-list)를 사용할 수 있습니다.
+구독 범위에서 모든 역할 할당을 나열하려면 [az 역할 할당 목록을](/cli/azure/role/assignment#az-role-assignment-list)사용합니다. 구독 ID를 얻으려면 Azure 포털의 **구독** 블레이드에서 찾거나 [az 계정 목록을](/cli/azure/account#az-account-list)사용할 수 있습니다.
 
-```azurecli
+```azurecli-interactive
 az role assignment list --subscription <subscription_name_or_id>
 ```
 
-```Example
+예제:
+
+```azurecli-interactive
 az role assignment list --subscription 00000000-0000-0000-0000-000000000000 --output json | jq '.[] | {"principalName":.principalName, "roleDefinitionName":.roleDefinitionName, "scope":.scope}'
 ```
 
 ## <a name="list-role-assignments-for-a-management-group"></a>관리 그룹의 역할 할당 나열
 
-관리 그룹 범위에서 모든 역할 할당을 나열 하려면 [az role 할당 list](/cli/azure/role/assignment#az-role-assignment-list)를 사용 합니다. 관리 그룹 ID를 가져오려면 Azure Portal의 **관리 그룹** 블레이드에서 찾거나 [az account management-group list](/cli/azure/account/management-group#az-account-management-group-list)를 사용할 수 있습니다.
+관리 그룹 범위에서 모든 역할 할당을 나열하려면 [az 역할 할당 목록을](/cli/azure/role/assignment#az-role-assignment-list)사용합니다. 관리 그룹 ID를 얻으려면 Azure 포털의 **관리 그룹** 블레이드에서 찾거나 [az 계정 관리 그룹 목록을](/cli/azure/account/management-group#az-account-management-group-list)사용할 수 있습니다.
 
-```azurecli
+```azurecli-interactive
 az role assignment list --scope /providers/Microsoft.Management/managementGroups/<group_id>
 ```
 
-```Example
+예제:
+
+```azurecli-interactive
 az role assignment list --scope /providers/Microsoft.Management/managementGroups/marketing-group --output json | jq '.[] | {"principalName":.principalName, "roleDefinitionName":.roleDefinitionName, "scope":.scope}'
 ```
 
-## <a name="list-role-assignments-for-a-managed-identity"></a>관리 id에 대 한 역할 할당 나열
+## <a name="list-role-assignments-for-a-managed-identity"></a>관리되는 ID에 대한 역할 할당 목록
 
-1. 시스템 할당 또는 사용자 할당 관리 id의 개체 ID를 가져옵니다. 
+1. 시스템에서 할당된 또는 사용자가 할당한 관리 ID의 개체 ID를 가져옵니다.
 
-    사용자 할당 관리 id의 개체 ID를 가져오려면 [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list) 또는 [az identity list](/cli/azure/identity#az-identity-list)를 사용할 수 있습니다.
+    사용자가 할당한 관리 ID의 개체 ID를 얻으려면 [az 광고 sp 목록](/cli/azure/ad/sp#az-ad-sp-list) 또는 az ID [목록을](/cli/azure/identity#az-identity-list)사용할 수 있습니다.
 
-    ```azurecli
+    ```azurecli-interactive
     az ad sp list --display-name "<name>" --query [].objectId --output tsv
     ```
 
-    시스템 할당 관리 id의 개체 ID를 가져오려면 [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list)를 사용할 수 있습니다.
+    시스템에서 할당된 관리 ID의 개체 ID를 얻으려면 [az 광고 sp 목록을](/cli/azure/ad/sp#az-ad-sp-list)사용할 수 있습니다.
 
-    ```azurecli
+    ```azurecli-interactive
     az ad sp list --display-name "<vmname>" --query [].objectId --output tsv
     ```
 
-1. 역할 할당을 나열 하려면 [az role 할당 list](/cli/azure/role/assignment#az-role-assignment-list)를 사용 합니다.
+1. 역할 할당을 나열하려면 [az 역할 할당 목록을](/cli/azure/role/assignment#az-role-assignment-list)사용합니다.
 
-    기본적으로 현재 구독에 대 한 역할 할당만 표시 됩니다. 현재 구독 및 아래에 대 한 역할 할당을 보려면 `--all` 매개 변수를 추가 합니다. 상속 된 역할 할당을 보려면 `--include-inherited` 매개 변수를 추가 합니다.
+    기본적으로 현재 구독에 대한 역할 할당만 표시됩니다. 현재 구독 및 아래에 대한 역할 할당을 `--all` 보려면 매개 변수를 추가합니다. 상속된 역할 할당을 보려면 `--include-inherited` 매개 변수를 추가합니다.
 
-    ```azurecli
+    ```azurecli-interactive
     az role assignment list --assignee <objectid>
     ```
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure RBAC 및 Azure CLI를 사용 하 여 역할 할당 추가 또는 제거](role-assignments-cli.md)
+- [Azure RBAC 및 Azure CLI를 사용하여 역할 할당 추가 또는 제거](role-assignments-cli.md)

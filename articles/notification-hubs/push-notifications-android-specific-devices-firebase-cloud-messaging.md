@@ -1,5 +1,5 @@
 ---
-title: Azure Notification Hubs 및 Google Firebase Cloud Messaging을 사용하여 특정 Android 디바이스에 알림 푸시 | Microsoft Docs
+title: Azure Notification Hubs 및 Google Firebase Cloud Messaging을 사용하여 특정 디바이스에 푸시 알림 보내기 | Microsoft Docs
 description: Notification Hubs를 사용하여 Azure Notification Hubs 및 Google FCM(Firebase Cloud Messaging)을 사용하여 특정 Android 디바이스에 알림을 푸시하는 방법을 알아봅니다.
 services: notification-hubs
 documentationcenter: android
@@ -17,14 +17,14 @@ ms.date: 04/30/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 04/30/2019
-ms.openlocfilehash: 1d0825fcfbcf10aaebc320a5c7cbbf2dd8c13856
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: b7ee3afc2e8b9958a868c8c117262d2017c9b600
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213346"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80126871"
 ---
-# <a name="tutorial-push-notifications-to-specific-android-devices-using-azure-notification-hubs-and-google-firebase-cloud-messaging-fcm"></a>자습서: Azure Notification Hubs 및 Google FCM(Firebase Cloud Messaging)을 사용하여 특정 Android 디바이스에 알림 푸시
+# <a name="tutorial-send-notifications-to-specific-devices-using-notification-hubs-and-google-firebase-cloud-messaging"></a>자습서: Notification Hubs 및 Google Firebase Cloud Messaging을 사용하여 특정 디바이스에 알림 보내기
 
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
@@ -42,7 +42,7 @@ ms.locfileid: "71213346"
 > * 태그가 지정된 알림 보내기
 > * 앱 테스트
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서는 [자습서: Azure Notification Hubs 및 Firebase Cloud Messaging을 사용하여 Android 디바이스에 알림 푸시](notification-hubs-android-push-notification-google-fcm-get-started.md) 이 자습서를 시작하기 전에 [자습서: Azure Notification Hubs 및 Firebase Cloud Messaging을 사용하여 Android 디바이스에 알림 푸시](notification-hubs-android-push-notification-google-fcm-get-started.md)
 

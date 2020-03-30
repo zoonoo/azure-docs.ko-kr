@@ -1,5 +1,5 @@
 ---
-title: Visual Studio를 사용 하 여 역할에 대해 원격 데스크톱을 사용 하도록 설정 합니다 (Azure Cloud Services).
+title: Visual Studio를 사용하여 역할에 대한 원격 데스크톱 사용(Azure 클라우드 서비스)
 description: Azure 클라우드 서비스 애플리케이션을 구성하여 원격 데스크톱 연결을 허용하는 방법입니다.
 services: cloud-services
 author: ghogen
@@ -12,18 +12,18 @@ ms.topic: conceptual
 ms.workload: azure-vs
 ms.date: 03/06/2018
 ms.author: ghogen
-ms.openlocfilehash: 96f71306c060a6a533a3ab1c0c54b49d74e5cd82
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: f4622e44c795182ee68c617f335c9e1651d3adcc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72298395"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294381"
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-visual-studio"></a>Visual Studio를 사용하여 Azure Cloud Services에서 역할에 대한 원격 데스크톱 연결 사용
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](cloud-services-role-enable-remote-desktop-new-portal.md)
-> * [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
+> * [Azure 포털](cloud-services-role-enable-remote-desktop-new-portal.md)
+> * [Powershell](cloud-services-role-enable-remote-desktop-powershell.md)
 > * [Visual Studio](cloud-services-role-enable-remote-desktop-visual-studio.md)
 
 원격 데스크톱을 사용하면 Azure에서 실행 중인 역할의 데스크톱에 액세스할 수 있습니다. 원격 데스크톱 연결을 사용하여 애플리케이션 실행 중에 애플리케이션 문제를 진단하고 해결할 수 있습니다.
@@ -47,7 +47,7 @@ Visual Studio 2017 버전 15.4 및 이전 버전을 사용하는 경우 게시 �
    > [!Note]
    > 원격 데스크톱 연결에 필요한 인증서는 다른 Azure 작업에 사용하는 인증서와 다릅니다. 원격 액세스 인증서에는 프라이빗 키가 있어야 합니다.
 
-5. 목록에서 인증서를 선택하거나 **&lt;만들기...&gt;** 를 선택합니다. 새 인증서를 만들 때 메시지가 표시되면 새 인증서에 대한 이름을 입력하고 **확인**을 선택합니다. 새 인증서가 드롭다운 목록 상자에 표시됩니다.
+5. 목록에서 인증서를 선택하거나 ** &lt;만들기를 선택합니다... &gt;**. 새 인증서를 만들 때 메시지가 표시되면 새 인증서에 대한 이름을 입력하고 **확인**을 선택합니다. 새 인증서가 드롭다운 목록 상자에 표시됩니다.
 
 6. 사용자 이름과 암호를 제공합니다. 기존 계정을 사용할 수 없습니다. "관리자"는 새 계정에 대한 사용자 이름으로 사용하지 않습니다.
 
@@ -65,7 +65,7 @@ Visual Studio 2017 버전 15.5 이상에서는 클라우드 서비스 프로젝�
 
 이 권장 사항은 Visual Studio 2017 버전 15.5 이상에서 클라우드 서비스 VM과 통신하는 방식이 변경되었기 때문입니다. 게시 마법사를 통해 원격 데스크톱을 사용하도록 설정하면 이전 버전의 Visual Studio에서 "RDP 플러그 인"을 통해 VM과 통신합니다. Visual Studio 2017 버전 15.5 이상에서는 더 안전하고 유연한 "RDP 확장"을 대신 사용하여 통신합니다. 또한 이 변경은 원격 데스크톱을 사용하도록 설정하는 Azure Portal 및 PowerShell 메서드에서도 RDP 확장을 사용한다는 사실과 일치합니다.
 
-Visual Studio에서 RDP 확장과 통신하는 경우 SSL을 통해 일반 텍스트 암호를 전송합니다. 그러나 프로젝트의 구성 파일에는 암호화된 암호만 저장되며, 이 암호는 원래 암호화하는데 사용된 로컬 인증서에서만 일반 텍스트로 해독할 수 있습니다.
+Visual Studio가 RDP 확장과 통신할 때 TLS를 통해 일반 텍스트 암호를 전송합니다. 그러나 프로젝트의 구성 파일에는 암호화된 암호만 저장되며, 이 암호는 원래 암호화하는데 사용된 로컬 인증서에서만 일반 텍스트로 해독할 수 있습니다.
 
 매번 동일한 개발 컴퓨터에서 클라우드 서비스 프로젝트를 배포하면 해당 로컬 인증서를 사용할 수 있습니다. 이 경우에도 게시 마법사에서 **모든 역할에 원격 데스크톱 사용** 옵션을 계속 사용할 수 있습니다.
 
@@ -86,7 +86,7 @@ Certificate with thumbprint [thumbprint] doesn't exist.
 
 Azure DevOps Services에서 RDP 확장을 사용하려면 빌드 파이프라인에 다음 세부 정보를 포함합니다.
 
-1. MSBuild 인수에 `/p:ForceRDPExtensionOverPlugin=true`를 포함하여 배포가 RDP 플러그 인 대신 RDP 확장을 통해 작동하는지 확인합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+1. MSBuild 인수에 `/p:ForceRDPExtensionOverPlugin=true`를 포함하여 배포가 RDP 플러그 인 대신 RDP 확장을 통해 작동하는지 확인합니다. 예를 들어:
 
     ```
     msbuild AzureCloudService5.ccproj /t:Publish /p:TargetProfile=Cloud /p:DebugType=None
@@ -95,7 +95,7 @@ Azure DevOps Services에서 RDP 확장을 사용하려면 빌드 파이프라인
 
 1. 빌드 단계가 완료되면 **Azure 클라우드 서비스 배포** 단계를 추가하고 해당 속성을 설정합니다.
 
-1. 배포 단계 후에 **Azure Powershell** 단계를 추가 하 고 **표시 이름** 속성을 "azure 배포: RDP 확장 사용 "(또는 다른 적합 한 이름)을 선택 하 고 적절 한 Azure 구독을 선택 합니다.
+1. 배포 단계가 완료되면 **Azure Powershell** 단계를 추가하고, **표시 이름** 속성을 "Azure 배포: RDP 확장 사용"(또는 다른 적절한 이름)으로 설정하고, 적절한 Azure 구독을 선택합니다.
 
 1. **스크립트 유형**을 "인라인"으로 설정하고, 아래 코드를 **인라인 스크립트** 필드에 붙여넣습니다. (또한 이 스크립트를 사용하여 프로젝트에 `.ps1` 파일을 만들고, **스크립트 유형**을 "스크립트 파일 경로"로 설정하고, 이 파일을 가리키도록 **스크립트 경로**를 설정할 수도 있습니다.)
 
@@ -146,6 +146,6 @@ Azure에 클라우드 서비스를 게시하고 원격 데스크톱을 사용하
 
 3. 이전에 만든 사용자 이름 및 암호를 입력합니다. 이제 원격 세션에 로그인됩니다.
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 
 [Cloud Services를 구성하는 방법](cloud-services-how-to-configure-portal.md)

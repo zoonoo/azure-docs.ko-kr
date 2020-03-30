@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 54a18bb20ab9af3ad794ed678ea3234a712bf5cb
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 0399e1659fb7cc6a650c6b3c1d0189c8802d4904
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75531165"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80064324"
 ---
 # <a name="what-is-iot-plug-and-play-preview"></a>IoT 플러그 앤 플레이 미리 보기란?
 
@@ -77,7 +77,7 @@ IoT 플러그 앤 플레이 디바이스를 연결하면 해당 디바이스 기
 
 ## <a name="regional-availability"></a>국가별 가용성
 
-공개 미리 보기 기간에는 북유럽, 미국 중부 및 일본 동부에서 IoT 플러그 앤 플레이를 사용할 수 있습니다. 이러한 지역 중 하나에 허브를 만들어야 합니다.
+공개 미리 보기로 제공 중에는 모든 지역에서 IoT 플러그 앤 플레이를 사용할 수 있습니다.
 
 ## <a name="message-quotas-in-iot-hub"></a>IoT Hub의 메시지 할당량
 공개 미리 보기 기간에는 IoT 플러그 앤 플레이 디바이스가 인터페이스마다 별도의 메시지를 전송하며, 이로 인해 [메시지 할당량](../iot-hub/iot-hub-devguide-quotas-throttling.md)에 집계되는 메시지 수가 증가할 수 있습니다.

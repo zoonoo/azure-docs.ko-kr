@@ -7,22 +7,23 @@ ms.topic: quickstart
 ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8a1f774aae071a561bdda2d8c349861d640cb287
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 68994f9b79af55b32527eed52bbc4e5866c89538
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73572468"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79205151"
 ---
 # <a name="quickstart-configure-server-firewall---portal"></a>빠른 시작: 서버 방화벽 구성 - 포털
 
 이 빠른 시작은 Azure Analysis Services 서버에 대한 방화벽을 구성하도록 도와줍니다. 서버에 액세스하는 해당 컴퓨터만을 위한 방화벽 활성화 및 IP 주소 범위 구성은 서버 및 데이터 보안의 중요한 부분입니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 구독의 Azure Analysis Services 서버 자세한 내용은 [빠른 시작: 서버 만들기 - 포털](analysis-services-create-server.md) 또는 [빠른 시작: 서버 만들기 - PowerShell](analysis-services-create-powershell.md)을 참조하세요.
 - 클라이언트 컴퓨터에 대한 하나 이상의 IP 주소 범위(필요한 경우)
-- Power BI Premium에서 가져오기 시나리오는 현재 지원되지 않습니다.
+- 데이터 가져오기(새로 고침) 및 페이지가 매겨진 보고서를 비롯하여 Power BI 프리미엄이 Azure Analysis Services에 연결되는 일부 시나리오는 Power BI에서 액세스 허용이 설정된 경우에도 현재 지원되지 않습니다. Power BI 프리미엄에서 Live Connect를 사용하는 보다 일반적인 시나리오가 지원됩니다. 모든 Power BI Pro 시나리오가 지원됩니다.
+
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인 
 

@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 08/29/2019
+ms.date: 03/13/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 58a7689263f9bc761eb0b904a9376c1ca0112c13
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: f2b51213dfc6d7e55f76e78b92d12111f84736be
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79128096"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79365392"
 ---
 # <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>자습서: 서비스 업데이트의 유효성을 검사하기 위한 호스트 풀 만들기
 
@@ -76,7 +76,7 @@ cmdlet의 결과는 다음 출력과 비슷해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 유효성 검사 호스트 풀을 만들었으며 Microsoft Virtual Desktop 리소스를 관리하기 위한 관리 도구를 배포하고 연결하는 방법을 알아봅니다.
+이제 유효성 검사 호스트 풀을 만들었으므로 Azure Service Health를 사용하여 Windows Virtual Desktop 배포를 모니터링하는 방법을 배울 수 있습니다. 
 
 > [!div class="nextstepaction"]
-> [관리 도구 자습서 배포](./manage-resources-using-ui.md)
+> [서비스 경고 설정](./set-up-service-alerts.md)

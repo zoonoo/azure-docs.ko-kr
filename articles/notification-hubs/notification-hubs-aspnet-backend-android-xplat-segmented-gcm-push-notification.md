@@ -17,14 +17,14 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: aa2aa7b77bf174f4a2ca89408ee037b398a32e4d
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 57a11eac47baace0ad9fa7dcae82dca6eeee0988
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387438"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80127299"
 ---
-# <a name="tutorial-push-notifications-to-specific-android-devices-using-azure-notification-hubs-and-google-cloud-messaging-deprecated"></a>자습서: Azure Notification Hubs 및 Google Cloud Messaging을 사용하여 특정 Android 디바이스에 알림 푸시(더 이상 사용되지 않음)
+# <a name="tutorial-send-push-notifications-to-specific-android-devices-using-google-cloud-messaging-deprecated"></a>자습서: Google Cloud Messaging을 사용하여 특정 Android 디바이스에 푸시 알림 보내기(더 이상 사용되지 않음)
 
 > [!WARNING]
 > 2018년 4월 10일 기준으로 Google은 GCM(Google Cloud Messaging)을 더 이상 지원하지 않습니다. GCM 서버 및 클라이언트 API는 더 이상 사용되지 않으며 2019년 5월 29일에 제거될 예정입니다. 자세한 내용은 [GCM 및 FCM 질문과 대답](https://developers.google.com/cloud-messaging/faq)을 참조하세요.
@@ -45,7 +45,7 @@ ms.locfileid: "72387438"
 > * 태그가 지정된 알림 보내기
 > * 앱 테스트
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서는 [자습서: Azure Notification Hubs 및 Google Cloud Messaging을 사용하여 Android 디바이스에 알림 푸시][get-started]에서 만든 알림 허브를 기반으로 합니다. 이 자습서를 시작하기 전에 [자습서: Azure Notification Hubs 및 Google Cloud Messaging을 사용하여 Android 디바이스에 알림 푸시][get-started]에서 만든 알림 허브를 기반으로 합니다.
 

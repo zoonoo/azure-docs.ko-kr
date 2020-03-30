@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 90995b1c9d10c7b589706f5abf37f92d76e4362b
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 5f12b77f5baa1a3b06a093aac7267c65a038881e
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75560354"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80061010"
 ---
 # <a name="configure-a-point-to-site-p2s-vpn-on-windows-for-use-with-azure-files"></a>Azure Files에서 사용하기 위한 Windows의 P2S(지점 및 사이트 간) VPN 구성
 P2S(지점 및 사이트 간) VPN 연결을 사용하여 포트 445을 열지 않고 Azure 외부에서 SMB를 통해 Azure 파일 공유를 탑재할 수 있습니다. 지점 및 사이트 간 VPN 연결은 Azure와 개별 클라이언트 간의 VPN 연결입니다. Azure Files에서 P2S VPN 연결을 사용하려면 연결하려는 각 클라이언트에 대해 P2S VPN 연결을 구성해야 합니다. 온-프레미스 네트워크에서 Azure 파일 공유에 연결해야 하는 클라이언트가 많은 경우에는 각 클라이언트에 대해 지점 및 사이트 간 연결 대신 S2S(사이트 간) VPN 연결을 사용할 수 있습니다. 자세한 내용은 [Azure Files에서 사용하기 위한 사이트 간 VPN 구성](storage-files-configure-s2s-vpn.md)을 참조하세요.
@@ -24,18 +24,9 @@ Azure Files에 사용할 수 있는 네트워킹 옵션에 대해 자세히 알�
 ## <a name="prerequisites"></a>사전 요구 사항
 - 최신 버전의 Azure PowerShell 모듈. Azure PowerShell을 설치하는 방법에 대한 자세한 내용은 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-az-ps)를 참조하고 해당 운영 체제를 선택합니다. Windows에서 Azure CLI를 사용하고 싶은 분들은 그렇게 해도 되지만, 아래 지침은 Azure PowerShell에 대한 지침입니다.
 
-- Azure 프라이빗 DNS PowerShell 모듈. 이 모듈은 현재 Azure PowerShell 모듈의 일부로 배포되지 않으므로, 다음 메서드를 사용하여 설치할 수 있습니다.
-    ```PowerShell
-    if ($PSVersionTable.PSVersion -ge [System.Version]::new(6, 0)) {
-        Install-Module -Name Az.PrivateDns -AllowClobber -AllowPrerelease
-    } else {
-        Install-Module -Name Az.PrivateDns -RequiredVersion "0.1.3"
-    }
+- 온-프레미스에 탑재하려는 Azure 파일 공유. Azure 파일 공유는 스토리지 계정 내에 배포됩니다. 스토리지 계정은 여러 파일 공유뿐만 아니라 다른 스토리지 리소스(예: Blob 컨테이너 또는 큐)도 배포할 수 있는 공유 스토리지 풀을 나타내는 관리 구조입니다. [Azure 파일 공유 만들기](storage-how-to-create-file-share.md)에서 Azure 파일 공유 및 스토리지 계정을 배포하는 방법에 대해 자세히 알아봅니다.
 
-    Import-Module -Name Az.PrivateDns
-    ```  
-
-- 온-프레미스에 탑재하려는 Azure 파일 공유. 지점 및 사이트 간 VPN에서 [표준](storage-how-to-create-file-share.md) 또는 [프리미엄 Azure 파일 공유](storage-how-to-create-premium-fileshare.md)를 사용할 수 있습니다.
+- 온-프레미스에 탑재하려는 Azure 파일 공유가 포함된 스토리지 계정의 프라이빗 엔드포인트입니다. 프라이빗 엔드포인트를 만드는 방법에 대한 자세한 내용은 [Azure Files 네트워크 엔드포인트 구성](storage-files-networking-endpoints.md?tabs=azure-powershell)을 참조하세요. 
 
 ## <a name="deploy-a-virtual-network"></a>가상 네트워크 배포
 지점 및 사이트 간 VPN을 통해 온-프레미스에서 Azure 파일 공유 및 기타 Azure 리소스에 액세스하려면 VNet(가상 네트워크)을 만들어야 합니다. 자동으로 생성되는 P2S VPN 연결은 온-프레미스 Windows 머신과 이 Azure 가상 네트워크 간의 브리지입니다.
@@ -85,91 +76,6 @@ $privateEndpointSubnet = $virtualNetwork.Subnets | `
     Where-Object { $_.Name -eq "PrivateEndpointSubnet" }
 $gatewaySubnet = $virtualNetwork.Subnets | ` 
     Where-Object { $_.Name -eq "GatewaySubnet" }
-```
-
-## <a name="restrict-the-storage-account-to-the-virtual-network"></a>가상 네트워크에 대한 스토리지 계정 제한
-기본적으로 스토리지 계정을 만들 때는 요청을 인증할 수 있는 수단이 있는 한, 세계 어디서든 액세스할 수 있습니다(예: Active Directory ID 또는 스토리지 계정 키 사용). 방금 만든 가상 네트워크에서 이 스토리지 계정에 대한 액세스를 제한하려면 가상 네트워크 내 액세스는 허용하고 다른 모든 액세스는 거부하는 네트워크 규칙 세트를 만들어야 합니다.
-
-스토리지 계정을 가상 네트워크로 제한하려면 서비스 엔드포인트를 사용해야 합니다. 서비스 엔드포인트는 가상 네트워크 내에서만 공용 DNS/공용 IP에 액세스할 수 있는 네트워킹 구문입니다. 공용 IP 주소가 동일하게 유지된다고 보장할 수 없으므로, 궁극적으로 스토리지 계정에 대한 서비스 엔드포인트 대신 프라이빗 엔드포인트를 사용하려고 합니다. 하지만, 서비스 엔드포인트 또한 노출되지 않으면 스토리지 계정을 제한할 수 없습니다.
-
-`<storage-account-name>`을 액세스하려는 스토리지 계정으로 바꿔야 합니다.
-
-```PowerShell
-$storageAccountName = "<storage-account-name>"
-
-$storageAccount = Get-AzStorageAccount `
-    -ResourceGroupName $resourceGroupName `
-    -Name $storageAccountName
-
-$networkRule = Add-AzStorageAccountNetworkRule `
-    -ResourceGroupName $resourceGroupName `
-    -Name $storageAccountName `
-    -VirtualNetworkResourceId $serviceEndpointSubnet.Id
-
-Update-AzStorageAccountNetworkRuleSet `
-    -ResourceGroupName $resourceGroupName `
-    -Name $storageAccountName `
-    -Bypass AzureServices `
-    -DefaultAction Deny `
-    -VirtualNetworkRule $networkRule | Out-Null
-``` 
-
-## <a name="create-a-private-endpoint-preview"></a>프라이빗 엔드포인트 만들기(미리 보기)
-스토리지 계정에 대한 프라이빗 엔드포인트를 만들면 스토리지 계정에 가상 네트워크의 IP 주소 공간 내에 있는 IP 주소가 제공됩니다. 이 개인 IP 주소를 사용하여 온-프레미스에서 Azure 파일 공유를 탑재하면 VPN 설치 시 자동으로 정의되는 회람 규칙이 VPN을 통해 스토리지 계정에 탑재 요청을 라우팅합니다. 
-
-```PowerShell
-$internalVnet = Get-AzResource `
-    -ResourceId $virtualNetwork.Id `
-    -ApiVersion "2019-04-01"
-
-$internalVnet.Properties.subnets[1].properties.privateEndpointNetworkPolicies = "Disabled"
-$internalVnet | Set-AzResource -Force | Out-Null
-
-$privateEndpointConnection = New-AzPrivateLinkServiceConnection `
-    -Name "myConnection" `
-    -PrivateLinkServiceId $storageAccount.Id `
-    -GroupId "file"
-
-$privateEndpoint = New-AzPrivateEndpoint `
-    -ResourceGroupName $resourceGroupName `
-    -Name "$storageAccountName-privateEndpoint" `
-    -Location $region `
-    -Subnet $privateEndpointSubnet `
-    -PrivateLinkServiceConnection $privateEndpointConnection
-
-$zone = Get-AzPrivateDnsZone -ResourceGroupName $resourceGroupName
-if ($null -eq $zone) {
-    $zone = New-AzPrivateDnsZone `
-        -ResourceGroupName $resourceGroupName `
-        -Name "privatelink.file.core.windows.net"
-} else {
-    $zone = $zone[0]
-}
-
-$link = New-AzPrivateDnsVirtualNetworkLink `
-    -ResourceGroupName $resourceGroupName `
-    -ZoneName $zone.Name `
-    -Name ($virtualNetwork.Name + "-link") `
-    -VirtualNetworkId $virtualNetwork.Id
-
-$internalNic = Get-AzResource `
-    -ResourceId $privateEndpoint.NetworkInterfaces[0].Id `
-    -ApiVersion "2019-04-01"
-
-foreach($ipconfig in $internalNic.Properties.ipConfigurations) {
-    foreach($fqdn in $ipconfig.properties.privateLinkConnectionProperties.fqdns) {
-        $recordName = $fqdn.split('.', 2)[0]
-        $dnsZone = $fqdn.split('.', 2)[1]
-        New-AzPrivateDnsRecordSet `
-            -ResourceGroupName $resourceGroupName `
-            -Name $recordName `
-            -RecordType A `
-            -ZoneName $zone.Name `
-            -Ttl 600 `
-            -PrivateDnsRecords (New-AzPrivateDnsRecordConfig `
-                -IPv4Address $ipconfig.properties.privateIPAddress) | Out-Null
-    }
-}
 ```
 
 ## <a name="create-root-certificate-for-vpn-authentication"></a>VPN 인증에 사용할 루트 인증서 만들기

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/24/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc8ba01ea8a443c4f8a3a8e7b911dcc605ee61ea
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.openlocfilehash: 149718dcd325ef6bd6a6754ba100ffdc34be0a07
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78967699"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79136417"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-signalfx"></a>자습서: SignalFx와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -30,7 +30,7 @@ ms.locfileid: "78967699"
 * 사용자가 해당 Azure AD 계정으로 SignalFx에 자동으로 로그인되도록 설정합니다.
 * 한 위치(Azure Portal)에서 계정을 관리합니다.
 
-Azure AD와 SaaS 앱의 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/what-is-single-sign-on)을 참조하세요.
+Azure AD와 SaaS 앱의 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](/azure/active-directory/manage-apps/what-is-single-sign-on)을 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -57,7 +57,7 @@ Azure AD와 SaaS 앱의 통합에 대한 자세한 내용은 [Azure Active Direc
 1. **엔터프라이즈 애플리케이션**을 선택한 다음, **모든 애플리케이션**을 선택합니다.
 1. **새 애플리케이션**을 선택합니다.
 1. **갤러리에서 추가** 섹션의 검색 상자에서 **SignalFx**를 입력하여 선택합니다.
-    * 애플리케이션이 테넌트에 추가될 때까지 몇 분 정도 기다려야 할 수 있습니다.
+     * 애플리케이션이 테넌트에 추가될 때까지 몇 분 정도 기다려야 할 수 있습니다.
 1. Azure Portal을 열어 둔 다음, 새 웹 탭을 엽니다.    
 
 ## <a name="step-2-begin-signalfx-sso-configuration"></a>2단계: SignalFx SSO 구성 시작
@@ -175,7 +175,7 @@ SSO 테스트 방법 및 SignalFx에 처음 로그인하는 데 필요한 항목
 
 - [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/what-is-single-sign-on)
+- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

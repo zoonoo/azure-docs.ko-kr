@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 06/06/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 603bffe3d28214dbdcd51888925c3c653d0759e7
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 89ed0bad2729a9e0983d4ef7f8a53faa4f5426ac
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74068175"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79415652"
 ---
 # <a name="tutorial-back-up-and-restore-files-for-windows-virtual-machines-in-azure"></a>자습서: Azure의 Windows 가상 머신을 위한 파일 백업 및 복원
 
@@ -33,7 +33,7 @@ ms.locfileid: "74068175"
 
 ## <a name="backup-overview"></a>Backup 개요
 
-Azure Backup 서비스에서 백업 작업을 시작하면 백업 확장을 트리거하여 특정 시점 스냅샷을 만듭니다. Azure Backup 서비스는 _VMSnapshot_ 확장을 사용합니다. VM을 실행하는 경우 확장은 첫 번째 VM 백업 중에 설치됩니다. VM이 실행되고 있지 않을 경우 Backup 서비스가 기본 스토리지의 스냅샷을 생성합니다(VM이 중지되었을 때는 애플리케이션 쓰기가 수행되지 않음).
+Azure Backup 서비스에서 백업 작업을 시작하면 백업 확장을 트리거하여 특정 시점 스냅샷을 만듭니다. Azure Backup 서비스는 [VMSnapshot](https://docs.microsoft.com/azure/virtual-machines/extensions/vmsnapshot-windows) 확장을 사용합니다. VM을 실행하는 경우 확장은 첫 번째 VM 백업 중에 설치됩니다. VM이 실행되고 있지 않을 경우 Backup 서비스가 기본 스토리지의 스냅샷을 생성합니다(VM이 중지되었을 때는 애플리케이션 쓰기가 수행되지 않음).
 
 Windows VM의 스냅샷을 생성할 때 Backup 서비스는 가상 머신의 디스크에 대한 일관된 스냅샷을 가져오도록 VSS(볼륨 섀도 복사본 서비스)와 조정됩니다. Azure Backup 서비스가 스냅샷을 생성하면 데이터가 자격 증명 모음으로 전송됩니다. 효율성을 극대화하기 위해 이 서비스는 이전 백업 이후에 변경된 데이터 블록만 식별하여 전송합니다.
 
@@ -93,7 +93,7 @@ Windows VM의 스냅샷을 생성할 때 Backup 서비스는 가상 머신의 �
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * VM 백업 만들기

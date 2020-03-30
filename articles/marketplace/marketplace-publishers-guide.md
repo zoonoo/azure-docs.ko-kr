@@ -1,19 +1,18 @@
 ---
 title: Azure Marketplace 및 AppSource 게시 가이드
 description: 앱 및 서비스 게시자에 대한 Azure Marketplace 및 Microsoft AppSource 개요입니다.
-services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-author: ellacroi
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/05/2018
-ms.author: ellacroi
-ms.openlocfilehash: fba9c481ad9b3da1eb0dd5d8a4ff2499240a8cfa
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 368cb4fdce23e695c074b4893dcdc314c974dd54
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826488"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288396"
 ---
 # <a name="azure-marketplace-and-appsource-publishing-guide"></a>Azure Marketplace 및 AppSource 게시 가이드
 
@@ -31,7 +30,7 @@ Marketplace 게시 가이드는 신규 및 기존 게시자가 [Azure Marketplac
 
 이 가이드에는 애플리케이션 및 서비스를 나열하기 전에 수행해야 하는 단계에 대한 기술 및 비즈니스 정보가 포함되어 있습니다. 목차를 사용하여 가이드의 다른 섹션으로 이동하고 핵심 항목으로 직접 이동할 수 있습니다.
 
-Azure Marketplace 및 AppSource에 대한 질문이 있는 경우 **문제 유형** > **Marketplace 온보딩**에서 메시지를 보내주세요.  Marketplace 게시자 온 보 딩 팀이 도움을 드립니다. 
+Azure 마켓플레이스 및 AppSource에 대한 질문이 있으시면 **문제 유형** > **마켓플레이스 온보딩**에서 메시지를 보내주십시오. Marketplace 게시자 온보딩 팀에서 도움을 드리겠습니다. 
 
 ## <a name="benefits-of-participating-in-the-marketplace"></a>Marketplace에 참여할 경우의 혜택 
 
@@ -53,7 +52,7 @@ Marketplace에서 솔루션 포트폴리오를 활용하여 새로운 시장, �
 
 Marketplace를 통해 사용할 수 있는 인사이트 및 분석을 통해 품목의 성과에 대한 정보를 얻을 수 있습니다. 캠페인 성능, 주문과 결제에 대한 정보와 솔루션에 대한 캠페인 활동을 극대화하는 방법에 대한 정보를 얻을 수 있습니다.
 
-### <a name="commercial-marketplace-benefits"></a>상업적 marketplace 혜택 
+### <a name="commercial-marketplace-benefits"></a>상업적 시장 혜택 
 
 Marketplace의 새 품목은 파트너가 Marketplace에서 사업을 성장시키는 데 도움이 되는 다양한 무료 혜택을 받을 수 있습니다. 이러한 혜택은 다음 범주로 구분됩니다. 
 
@@ -63,9 +62,9 @@ Marketplace의 새 품목은 파트너가 Marketplace에서 사업을 성장시�
 
 *   공동 판매: Marketplace를 통해 Microsoft와 함께 판매를 시작하고 가속화할 수 있습니다. 프로그램 및 지원에 액세스하여 Microsoft 팀과의 공동 판매를 촉진합니다.
 
-일단 Marketplace에 [솔루션을 제출](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv)하면 온보딩 팀에서 게시 환경 지원을 위해 사용자에게 연락합니다.  자세한 내용은 [파트너 센터 계정을 만드는 방법](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) 을 참조 하세요.
+일단 Marketplace에 [솔루션을 제출](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv)하면 온보딩 팀에서 게시 환경 지원을 위해 사용자에게 연락합니다.  자세한 내용은 [파트너 센터 계정을 만드는 방법을](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) 참조하세요.
 
-[상업적 marketplace 혜택](https://docs.microsoft.com//azure/marketplace/gtm-your-marketplace-benefits)에 대해 자세히 알아보세요.
+[상업용 마켓플레이스 혜택에](https://docs.microsoft.com//azure/marketplace/gtm-your-marketplace-benefits)대해 자세히 알아보십시오.
 
 ## <a name="next-steps"></a>다음 단계
 

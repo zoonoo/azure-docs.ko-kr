@@ -1,13 +1,13 @@
 ---
 ms.openlocfilehash: 26eff7b10542843be561264c316bdcf1a63271f7
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
-ms.translationtype: MT
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67181904"
 ---
 ## <a name="setting-up-the-library"></a>라이브러리 설정
 
-환경 데이터를 처리 하 여 세션을 사용 하도록 설정 하려면 start ()를 호출 합니다.
+세션에서 환경 데이터를 처리할 수 있도록 하려면 Start()를 호출합니다.
 
-세션에서 발생 한 이벤트를 처리 하려면 설정의 `delegate` 보기와 같은 개체를 세션에 대 한 속성입니다. 이 개체는 SSCCloudSpatialAnchorSessionDelegate 프로토콜을 구현 해야 합니다.
+세션에서 발생하는 이벤트를 처리하려면 세션의 `delegate` 속성을 보기와 같은 개체로 설정합니다. 이 개체는 SSCCloudSpatialAnchorSessionDelegate 프로토콜을 구현해야 합니다.

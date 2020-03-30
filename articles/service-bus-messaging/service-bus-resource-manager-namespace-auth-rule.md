@@ -1,5 +1,5 @@
 ---
-title: Azure 템플릿을 사용 하 여 Service Bus 권한 부여 규칙 만들기
+title: Azure 템플릿을 사용하여 서비스 버스 권한 부여 규칙 만들기
 description: Azure Resource Manager 템플릿을 사용하여 네임스페이스 및 큐에 대한 Service Bus 권한 부여 규칙 만들기
 services: service-bus-messaging
 documentationcenter: .net
@@ -14,30 +14,30 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 12/20/2019
 ms.author: aschhab
-ms.openlocfilehash: c795c61ec4891205ad9c77e96914d9b374fa88af
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1bfb2d2d946a85c1d051315fb29a5a63f7a00871
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75426908"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80384928"
 ---
 # <a name="create-a-service-bus-authorization-rule-for-namespace-and-queue-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 네임스페이스 및 큐에 대한 Service Bus 권한 부여 규칙 만들기
 
 이 문서에서는 Service Bus 네임스페이스 및 큐에 대한 [권한 부여 규칙](service-bus-authentication-and-authorization.md#shared-access-signature)을 만드는 Azure Resource Manager 템플릿을 사용하는 방법을 보여 줍니다. 이 문서는 어떤 리소스를 배포할지 지정하는 방법 및 배포를 실행할 때 지정되는 매개 변수를 정의하는 방법을 설명합니다. 배포를 위해 이 템플릿을 사용하거나 요구 사항에 맞게 사용자 지정을 할 수 있습니다.
 
-템플릿을 만들기에 대한 자세한 내용은 [Azure Resource Manager 템플릿 작성][Authoring Azure Resource Manager templates]을 참조하세요.
+템플릿 만들기에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성을][Authoring Azure Resource Manager templates]참조하십시오.
 
-전체 템플릿은 GitHub의 [Service Bus 권한 부여 규칙 템플릿][Service Bus auth rule template] 을 참조 하세요.
+전체 템플릿은 GitHub에서 [Service Bus 권한 부여 규칙 템플릿][Service Bus auth rule template]을 참조하세요.
 
 > [!NOTE]
 > 다음 Azure Resource Manager 템플릿은 다운로드하여 배포할 수 있습니다.
 > 
-> * [Service Bus 네임스페이스 만들기](service-bus-resource-manager-namespace.md)
+> * [서비스 버스 네임스페이스 만들기](service-bus-resource-manager-namespace.md)
 > * [큐가 있는 Service Bus 네임스페이스 만들기](service-bus-resource-manager-namespace-queue.md)
 > * [토픽 및 구독이 있는 Service Bus 네임스페이스 만들기](service-bus-resource-manager-namespace-topic.md)
 > * [토픽, 구독 및 규칙이 있는 Service Bus 네임스페이스 만들기](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
-> 최신 템플릿을 확인하려면 [Azure 빠른 시작 템플릿][Azure Quickstart Templates] 갤러리를 방문하여 **Service Bus**를 검색합니다.
+> 최신 템플릿을 확인하려면 Azure [빠른 시작 템플릿 갤러리를][Azure Quickstart Templates] 방문하여 서비스 **버스를**검색합니다.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -58,6 +58,7 @@ Azure 리소스 관리자와 함께 템플릿을 배포할 때 지정하고자 �
 템플릿은 다음 매개 변수를 정의합니다.
 
 ### <a name="servicebusnamespacename"></a>serviceBusNamespaceName
+
 만들 Service Bus 네임스페이스 이름입니다.
 
 ```json
@@ -67,6 +68,7 @@ Azure 리소스 관리자와 함께 템플릿을 배포할 때 지정하고자 �
 ```
 
 ### <a name="namespaceauthorizationrulename"></a>namespaceAuthorizationRuleName
+
 네임스페이스에 대한 권한 부여 규칙 이름입니다.
 
 ```json
@@ -76,6 +78,7 @@ Azure 리소스 관리자와 함께 템플릿을 배포할 때 지정하고자 �
 ```
 
 ### <a name="servicebusqueuename"></a>serviceBusQueueName
+
 Service Bus 네임스페이스에 있는 큐의 이름입니다.
 
 ```json
@@ -85,6 +88,7 @@ Service Bus 네임스페이스에 있는 큐의 이름입니다.
 ```
 
 ### <a name="servicebusapiversion"></a>serviceBusApiVersion
+
 템플릿의 Service Bus API 버전입니다.
 
 ```json
@@ -97,6 +101,7 @@ Service Bus 네임스페이스에 있는 큐의 이름입니다.
 ```
 
 ## <a name="resources-to-deploy"></a>배포할 리소스
+
 **메시징**형식의 표준 Service Bus 네임스페이스와 네임스페이스 및 엔터티에 대한 Service Bus 권한 부여 규칙을 만듭니다.
 
 ```json
@@ -152,21 +157,25 @@ Service Bus 네임스페이스에 있는 큐의 이름입니다.
 JSON 구문 및 속성의 경우 [네임스페이스](/azure/templates/microsoft.servicebus/namespaces), [큐](/azure/templates/microsoft.servicebus/namespaces/queues) 및 [AuthorizationRules](/azure/templates/microsoft.servicebus/namespaces/authorizationrules)를 참조하세요.
 
 ## <a name="commands-to-run-deployment"></a>배포 실행 명령
+
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ### <a name="powershell"></a>PowerShell
-```powershell
+
+```powershell-interactive
 New-AzResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/301-servicebus-create-authrule-namespace-and-queue/azuredeploy.json>
 ```
 
 ## <a name="azure-cli"></a>Azure CLI
-```azurecli
+
+```azurecli-interactive
 azure config mode arm
 
 azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/301-servicebus-create-authrule-namespace-and-queue/azuredeploy.json>
 ```
 
 ## <a name="next-steps"></a>다음 단계
+
 이제 Azure Resource Manager를 사용하여 리소스를 만들고 배포했으므로 다음 문서를 참조하여 이러한 리소스를 관리하는 방법에 대해 알아봅니다.
 
 * [PowerShell을 사용하여 Service Bus 관리](service-bus-powershell-how-to-provision.md)

@@ -1,5 +1,5 @@
 ---
-title: Azure Notification Hubs를 사용하여 특정 Windows 휴대폰에 알림 푸시 | Microsoft Docs
+title: Azure Notification Hubs를 사용하여 특정 Windows 휴대폰에 푸시 알림 보내기 | Microsoft Docs
 description: 이 자습서에서는 Azure Notification Hubs를 사용하여 애플리케이션 백 엔드로 등록된 특정(모두는 아님) Windows Phone 8 또는 Windows Phone 8.1 디바이스에 알림을 푸시하는 방법을 알아봅니다.
 services: notification-hubs
 documentationcenter: windows
@@ -17,14 +17,14 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 88326b07a96dcc8ce7a72f8709a88c2662f48707
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 72ecb5bdb6bb024c5e4422548dd11888c03e4799
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213400"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80126935"
 ---
-# <a name="tutorial-push-notifications-to-specific-windows-phone-devices-by-using-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용하여 특정 Windows Phone 디바이스에 알림 푸시
+# <a name="tutorial-send-push-notifications-to-specific-windows-phones-using-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용하여 특정 Windows 휴대폰에 푸시 알림 보내기
 
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
@@ -35,7 +35,7 @@ ms.locfileid: "71213400"
 > [!NOTE]
 > Notification Hubs Windows Phone SDK에서는 Windows Phone 8.1 Silverlight 앱에서의 WNS(Windows 푸시 알림 서비스) 사용을 지원하지 않습니다. Windows Phone 8.1 Silverlight 앱에서 MPNS 대신 WNS를 사용하려면 REST API를 사용하는 [Notification Hubs - Windows Phone Silverlight 자습서]를 따릅니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 모바일 앱에 범주 선택 추가
@@ -43,9 +43,9 @@ ms.locfileid: "71213400"
 > * 태그가 지정된 알림 보내기
 > * 앱 테스트
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-[자습서: Azure Notification Hubs를 사용하여 Windows Phone 앱에 알림 푸시](notification-hubs-windows-mobile-push-notifications-mpns.md)를 완료하세요. 이 자습서에서는 관심이 있는 속보 범주를 등록하고 해당 범주의 푸시 알림만 받을 수 있도록 모바일 애플리케이션을 업데이트합니다.
+이 자습서를 시작하기 전에 [자습서: Azure Notification Hubs를 사용하여 Windows Phone 앱에 알림 푸시](notification-hubs-windows-mobile-push-notifications-mpns.md)를 완료하세요. 이 자습서에서는 관심이 있는 속보 범주를 등록하고 해당 범주의 푸시 알림만 받을 수 있도록 모바일 애플리케이션을 업데이트합니다.
 
 ## <a name="add-category-selection-to-the-mobile-app"></a>모바일 앱에 범주 선택 추가
 

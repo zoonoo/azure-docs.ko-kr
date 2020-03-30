@@ -13,32 +13,46 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 02/11/2020
 ms.author: spelluru
-ms.openlocfilehash: 88cd29af75239f0ad79eb78b5ff8e106c3b2ee56
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.custom: subject-armqs
+ms.openlocfilehash: c2221fe5b5ab38afbdde167e5bcbf6b47ed4f861
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77163078"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79528084"
 ---
 # <a name="quickstart-create-an-event-hub-by-using-an-azure-resource-manager-template"></a>빠른 시작: Azure Resource Manager 템플릿을 사용하여 이벤트 허브 만들기
 
-Azure Event Hubs는 초당 수백만 개의 이벤트를 수신하여 처리할 수 있는 빅 데이터 스트리밍 플랫폼이자 이벤트 수집 서비스입니다. Event Hubs는 분산된 소프트웨어와 디바이스에서 생성된 이벤트, 데이터 또는 원격 분석을 처리하고 저장할 수 있습니다. Event Hub로 전송된 데이터는 실시간 분석 공급자 또는 일괄 처리/스토리지 어댑터를 사용하여 변환하고 저장할 수 있습니다. Event Hubs에 대한 자세한 개요는 [Event Hubs 개요](event-hubs-about.md) 및 [Event Hubs 기능](event-hubs-features.md)을 참조하세요.
+Azure Event Hubs는 초당 수백만 개의 이벤트를 수신하여 처리할 수 있는 빅 데이터 스트리밍 플랫폼이자 이벤트 수집 서비스입니다. Event Hubs는 분산된 소프트웨어와 디바이스에서 생성된 이벤트, 데이터 또는 원격 분석을 처리하고 저장할 수 있습니다. Event Hub로 전송된 데이터는 실시간 분석 공급자 또는 일괄 처리/스토리지 어댑터를 사용하여 변환하고 저장할 수 있습니다. Event Hubs에 대한 자세한 개요는 [Event Hubs 개요](event-hubs-about.md) 및 [Event Hubs 기능](event-hubs-features.md)을 참조하세요. 이 빠른 시작에서는 [Azure Resource Manager 템플릿](../azure-resource-manager/management/overview.md)을 사용하여 이벤트 허브를 만듭니다. 이벤트 허브가 하나 있는 [Event Hubs](event-hubs-what-is-event-hubs.md) 형식의 네임스페이스를 만드는 Azure Resource Manager 템플릿을 배포합니다.
 
-이 빠른 시작에서는 [Azure Resource Manager 템플릿](../azure-resource-manager/management/overview.md)을 사용하여 이벤트 허브를 만듭니다. 이벤트 허브가 하나 있는 [Event Hubs](event-hubs-what-is-event-hubs.md) 형식의 네임스페이스를 만드는 Azure Resource Manager 템플릿을 배포합니다. 또한 어떤 리소스를 배포할지 정의하는 방법 및 배포를 실행할 때 매개 변수를 지정하는 방법을 설명합니다. 배포를 위해 이 템플릿을 사용하거나 요구 사항에 맞게 사용자 지정을 할 수 있습니다. 템플릿을 만드는 더 자세한 내용은 [Azure Resource Manager 템플릿 작성][Authoring Azure Resource Manager templates]을 참조하세요. 템플릿에서 사용할 JSON 구문 및 속성은 [Microsoft.EventHub 리소스 종류](/azure/templates/microsoft.eventhub/allversions)를 참조하세요.
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
+## <a name="prerequisites"></a>사전 요구 사항
+
+없음
+
 ## <a name="create-an-event-hub"></a>이벤트 허브 만들기
 
-이 빠른 시작에서는 [기존 빠른 시작 템플릿](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-eventhubs-create-namespace-and-eventhub/azuredeploy.json)을 사용합니다.
+### <a name="review-the-template"></a>템플릿 검토
 
-[!code-json[create-azure-event-hub-namespace](~/quickstart-templates/101-eventhubs-create-namespace-and-eventhub/azuredeploy.json)]
+이 빠른 시작에 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-eventhubs-create-namespace-and-eventhub/)에서 나온 것입니다.
+
+:::code language="json" source="~/quickstart-templates/101-eventhubs-create-namespace-and-eventhub/azuredeploy.json" range="1-61" highlight="32-59":::
+
+템플릿에 정의된 리소스는 다음과 같습니다.
+
+- [**Microsoft.EventHub/namespaces**](/azure/templates/microsoft.eventhub/namespaces)
+- [**Microsoft.EventHub/namespaces/eventhubs**](/azure/templates/microsoft.eventhub/namespaces/eventhubs)
 
 더 많은 샘플 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/?term=eventhub&pageNumber=1&sort=Popular)에서 찾을 수 있습니다.
 
+### <a name="deploy-the-template"></a>템플릿 배포
+
 템플릿을 배포하는 방법은 다음과 같습니다.
 
-1. 다음 코드 블록에서 **사용해보기**를 선택한 다음, 지침에 따라 Azure Cloud 셸에 로그인합니다.
+1. 다음 코드 블록에서 **사용해보기**를 선택한 다음, 지침에 따라 Azure Cloud Shell에 로그인합니다.
 
    ```azurepowershell-interactive
    $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
@@ -59,7 +73,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="verify-the-deployment"></a>배포 확인
 
-배포를 확인하려면 [Azure Portal](https://portal.azure.com)에서 리소스 그룹을 열거나 다음 Azure PowerShell 스크립트를 사용하면 됩니다.  Cloud 셸이 아직 열려 있으면 첫 번째 줄(Read-Host)을 복사/실행할 필요가 없습니다.
+배포를 확인하려면 [Azure Portal](https://portal.azure.com)에서 리소스 그룹을 열거나 다음 Azure PowerShell 스크립트를 사용하면 됩니다.  Cloud Shell이 아직 열려 있으면 첫 번째 줄(Read-Host)을 복사/실행할 필요가 없습니다.
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter the same project name that you used in the last procedure"
@@ -73,7 +87,7 @@ Write-Host "Press [ENTER] to continue ..."
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-Azure 리소스가 더 이상 필요하지 않은 경우 리소스 그룹을 삭제하여 배포한 리소스를 정리합니다. Cloud 셸이 아직 열려 있으면 첫 번째 줄(Read-Host)을 복사/실행할 필요가 없습니다.
+Azure 리소스가 더 이상 필요하지 않은 경우 리소스 그룹을 삭제하여 배포한 리소스를 정리합니다. Cloud Shell이 아직 열려 있으면 첫 번째 줄(Read-Host)을 복사/실행할 필요가 없습니다.
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter the same project name that you used in the last procedure"

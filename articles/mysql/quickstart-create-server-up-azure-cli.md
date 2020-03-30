@@ -6,14 +6,14 @@ ms.author: andrela
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 12/02/2019
+ms.date: 3/18/2020
 ms.custom: mvc
-ms.openlocfilehash: 4bb5c62a7df53548ff59a03c6ccc8fb28f1503d3
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 7b81e88fe6f658fdf4c1857c6082100894c6f2f6
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74765686"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80067711"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-using-a-simple-azure-cli-command---az-mysql-up-preview"></a>빠른 시작: 간단한 Azure CLI 명령을 사용하여 Azure Database for MySQL 만들기 - az mysql up(미리 보기)
 
@@ -22,7 +22,7 @@ ms.locfileid: "74765686"
 
 Azure Database for MySQL은 클라우드에서 항상 사용 가능한 MySQL 데이터베이스를 실행, 관리 및 크기 조정할 수 있게 하는 관리 서비스입니다. 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 Azure CLI가 사용됩니다. 이 빠른 시작에서는 Azure CLI에서 [az mysql up](/cli/azure/ext/db-up/mysql#ext-db-up-az-mysql-up) 명령을 사용하여 Azure Database for MySQL 서버를 만드는 방법을 보여 줍니다. `az mysql up` 명령은 서버를 만드는 것 외에도 샘플 데이터베이스(데이터베이스에 루트 사용자)를 만들고, Azure 서비스에 대한 방화벽을 열고, 클라이언트 컴퓨터에 대한 기본 방화벽 규칙을 만듭니다. 이렇게 하면 개발 프로세스를 빠르게 진행할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
@@ -63,8 +63,8 @@ resource-group | 시스템 생성 | 새 Azure 리소스 그룹입니다.
 sku-name | GP_Gen5_2 | SKU의 이름입니다. {가격 책정 계층}\_{계산 세대}\_{vCores} 규칙을 축약형으로 따릅니다. 기본값은 2개의 vCore가 있는 범용 5세대 서버입니다. 계층에 대한 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/mysql/)를 참조하세요.
 backup-retention | 7 | 백업을 보존하는 기간입니다. 단위는 일입니다.
 geo-redundant-backup | 사용 안 함 | 이 서버에 지역 중복 백업을 사용할 것인지 여부를 결정합니다.
-location | westus2 | 서버에 대한 Azure 위치입니다.
-ssl-enforcement | 사용 안 함 | 이 서버에 ssl을 사용할 것인지 여부를 결정합니다.
+위치 | westus2 | 서버에 대한 Azure 위치입니다.
+ssl-enforcement | 사용 안 함 | 이 서버에 SSL을 사용할 것인지 여부를 결정합니다.
 storage-size | 5120 | 서버의 스토리지 용량입니다(단위는 메가바이트).
 버전 | 5.7 | MySQL 주 버전입니다.
 admin-user | 시스템 생성 | 관리자 로그인에 대한 사용자 이름입니다.
@@ -78,8 +78,8 @@ admin-password | 시스템 생성 | 관리자 사용자의 암호입니다.
 - “devbox”라는 방화벽 규칙이 만들어집니다. Azure CLI에서 `az mysql up` 명령이 실행되는 머신의 IP 주소를 검색하여 해당 IP 주소를 허용 목록에 추가합니다.
 - “Azure 서비스에 대한 액세스 허용”이 켜기로 설정됩니다. 이 설정은 구독에 없는 리소스를 포함하여 모든 Azure 리소스로부터의 연결을 허용하도록 서버의 방화벽을 구성합니다.
 - `wait_timeout` 매개 변수가 8시간으로 설정됩니다.
-- "sampledb"라는 빈 데이터베이스가 만들어집니다.
-- "sampledb"에 대한 권한이 있는 "root"라는 새 사용자가 만들어집니다.
+- “sampledb”라는 빈 데이터베이스가 만들어집니다.
+- “sampledb”에 대한 권한이 있는 “root”라는 새 사용자가 만들어집니다.
 
 > [!NOTE]
 > Azure Databases for MySQL은 3306 포트를 통해 통신합니다. 회사 네트워크 내에서 연결하는 경우 3306 포트를 통한 아웃바운드 트래픽이 네트워크의 방화벽에서 허용되지 않을 수 있습니다. 서버에 연결하려면 IT 부서에서 3306 포트를 열도록 요청하세요.

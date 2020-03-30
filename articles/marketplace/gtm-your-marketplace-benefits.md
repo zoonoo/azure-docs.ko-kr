@@ -1,118 +1,117 @@
 ---
-title: 시장 출시 서비스-상용 marketplace 혜택 | Microsoft
+title: 시장 진출 서비스 - 상용 마켓플레이스 혜택 | Azure
 description: 이 섹션에서는 게시자가 사용할 수 있는 시장 진출 서비스 - Microsoft 리소스에 대해 설명합니다.
-services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security, Partner Center
-author: MaggiePucciEvans
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/08/2020
-ms.author: evansma
-ms.openlocfilehash: 1ecb48751715d32e1e67f09e0e3d4bf9577c8eab
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.author: dsindona
+ms.openlocfilehash: d34fb989e7f656df93faae63ef4dc42ed0fe5abe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79269940"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80286237"
 ---
-# <a name="your-commercial-marketplace-benefits"></a>상용 marketplace 혜택
+# <a name="your-commercial-marketplace-benefits"></a>상업적 시장 혜택
 
-Marketplace에 게시 했으므로 이제 제품이 성공적으로 완료 된 것을 확인 하려고 합니다. 제품의 성장을 가속화 하는 데 필요한 판매, 기술 및 마케팅 혜택을 제공 합니다.
+마켓플레이스에 게시한 후 이제 오퍼가 성공하기를 원합니다. 판매, 기술 및 마케팅과 같은 이점을 제공하므로 오퍼의 성장을 가속화해야 합니다.
 
-제품을 사용 하는 경우 Marketplace 보상 팀은 적합 한 혜택에 대 한 작업을 시작 하기 위해 연락 합니다. Marketplace는 상업적 marketplace engagement와 판매에 따라 혜택을 얻습니다. 더 많은 정보를 얻는 것이 더 좋습니다.
+오퍼를 라이브로 진행하면 마켓플레이스 리워즈 팀이 연락하여 적격 혜택에 대해 귀하와 함께 일하기 시작합니다. 마켓플레이스 리워드 혜택은 상업적인 마켓플레이스 참여 및 판매에 따라 발생합니다. 더 많이 참여할수록 더 많이 돌아올 수 있습니다.
 
-## <a name="marketplace-rewards"></a>Marketplace 보상
+## <a name="marketplace-rewards"></a>Marketplace Rewards
 
-Marketplace 보상은 첫 번째 고객을 가져오는 데 도움이 되는 인식 활동부터 시작 하 여 특정 성장 단계에서 사용자를 지원 하도록 설계 되었습니다. Marketplace에서 성장할 때 고객을 변환 하 고 거래를 종결 하는 데 도움이 되도록 설계 된 새로운 혜택의 잠금을 해제 합니다. 
+마켓플레이스 리워드는 첫 번째 고객을 확보하도록 돕는 인식 활동부터 시작하여 특정 성장 단계에서 고객을 지원하도록 설계되었습니다. 마켓플레이스를 통해 성장함에 따라 고객을 전환하고 거래를 성사시킬 수 있도록 설계된 새로운 혜택을 잠금 해제할 수 있습니다. 
 
-이 프로그램은 긍정적인 피드백 루프를 만듭니다. 각 성장 단계의 이점은 다음 단계로 진행 하 여 비즈니스를 microsoft 고객에 게 제공 하 고, microsoft의 필드를 활용 하 고, microsoft의 채널을 통해 비즈니스를 성장 시킬 수 있습니다. 상업적 marketplace를 플랫폼으로. 
+이 프로그램은 긍정적인 피드백 루프를 만듭니다: 성장의 각 단계에서 혜택은 다음 단계로 진행하도록 설계되어 Microsoft 고객, Microsoft 필드 및 Microsoft 채널을 통해 비즈니스를 성장시킬 수 있습니다. 상용 시장을 플랫폼으로 제공합니다. 
 
-혜택은 제품의 [목록, 평가판 또는](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type#choose-a-publishing-option)거래 여부에 따라 차별화 됩니다.
+혜택은 혜택이 [목록, 평가판 또는 거래](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type#choose-a-publishing-option)여부에 따라 차별화됩니다.
 
-귀하는 귀하의 자격에 따라 제품이 라이브 상태가 되 면 보상 팀의 구성원에 게 연락을 드릴 것입니다. 
+귀하의 혜택이 실시간 에 이루어질 때 리워즈 팀의 일원에게 연락하여 자격에 따라 연락을 드립니다. 
 
-거래 파트너의 경우 marketplace 플랫폼을 통해 청구 된 판매를 확장할 때 계층 당 더 많은 혜택을 얻을 수 있습니다. 
+Transact 파트너의 경우 마켓플레이스 플랫폼을 통해 청구된 매출을 늘리면 계층당 더 큰 이점을 얻을 수 있습니다. 
 
-상점에 게시 해야 하는 최소 요구 사항은 MPNID 이므로 이러한 혜택은 MPN 역량 상태 또는 파트너 유형과 관계 없이 모든 파트너에 게 제공 됩니다. 각 파트너는 marketplace를 통해 비즈니스를 플랫폼으로 성장 시킬 수 있습니다. 
+저장소에 게시하는 최소 요구 사항은 MPNID이므로 MPN 역량 상태 또는 파트너 유형에 관계없이 모든 파트너가 이러한 혜택을 사용할 수 있습니다. 각 파트너는 플랫폼으로 마켓플레이스를 통해 비즈니스를 성장시킬 수 있습니다. 
 
-사용자가 사용할 수 있는 리소스를 이해 하 고 모범 사례를 구현 하는 데 도움을 받을 수 있으며, 사용자가 [직접 검토할](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/)수도 있습니다. 
+사용 가능한 리소스를 이해하고 직접 검토할 수 있는 모범 사례를 구현하는 데 대한 지원을 받을 수 [있습니다.](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/) 
 
-모든 프로그램 혜택에 대 한 자세한 설명은 [Marketplace 보상 프로그램 데크](https://aka.ms/marketplacerewards)에서 찾을 수 있습니다.
+모든 프로그램 혜택에 대한 자세한 설명은 [마켓플레이스 리워드 프로그램 데크에서](https://aka.ms/marketplacerewards)확인할 수 있습니다.
 
-시작 하는 단계는 간단 합니다.
+시작하기 위한 단계는 다음과 같습니다.
 
-1. Microsoft AppSource 또는 Azure Marketplace에 제품을 게시 합니다.
-2. 팀에서 marketplace 제품에 대 한 "소유자" 또는 "기본 연락처"에 도달 합니다. 정기적으로 확인 하는 개인 또는 별칭을 입력 하는 것이 가장 좋습니다. info@company.com와 같이 별칭으로 전송 되는 메시지는 자주 손실 됩니다.
+1. Microsoft 앱소스 또는 Azure 마켓플레이스에서 오퍼를 게시합니다.
+2. 팀은 마켓플레이스 오퍼당 "소유자" 또는 "기본 연락처"에 연락합니다. 정기적으로 확인하는 개인 이나 별칭을 입력 하는 info@company.com 것이 좋습니다.
 
 >[!Note]
->제품이 4 주 이상 지속 되 고 메시지를 받지 못한 경우 Cloud 파트너 포털 또는 파트너 센터에서 확인 하 여 해당 제품의 소유자 인 조직 내에서 확인 하세요. 통신 및 다음 단계를 수행 해야 합니다. <br> <br> 소유자를 확인할 수 없거나 소유자가 회사를 떠난 경우 https://aka.ms/marketplacepublishersupport에서 지원 티켓을 올릴 수 있습니다.
+>쿠폰이 4주 이상 라이브로 사용되었지만 메시지를 받지 못한 경우 Cloud 파트너 포털 또는 파트너 센터에서 해당 오퍼의 소유자인 조직 내에서 확인하십시오. 통신 및 다음 단계가 있어야 합니다. <br> <br> 소유자를 확인할 수 없거나 소유자가 회사를 떠난 경우 에서 https://aka.ms/marketplacepublishersupport지원 티켓을 올릴 수 있습니다.
 
-마켓플레이스에서 제품을 확장함에 따라 사용 가능한 활동 범위도 확장됩니다. 모든 목록은 리소스 및 모범 사례에 대 한 셀프 서비스 전자 메일의 일부로 기본 수준의 최적화 권장 사항 및 판촉을 받습니다.
+마켓플레이스에서 제품을 확장함에 따라 사용 가능한 활동 범위도 확장됩니다. 모든 목록은 리소스 및 모범 사례의 셀프 서비스 이메일의 일부로 기본 수준의 최적화 권장 사항 및 프로모션을 받습니다.
 
 ## <a name="list-trial-and-consulting-benefits"></a>목록, 평가판 및 컨설팅 혜택
 
-평가 또는 컨설팅 증명, 구현 또는 워크숍을 게시 하는 경우 3 개월 동안 engagement 관리자를 할당 하 게 되며,이는 시장 시장 출시 계획을 안내 하는 데 도움이 됩니다. 새 제품을 게시할 때마다이 3 개월 참여를 반복 하 여 성공으로 시작 하는 새로운 제품을 쉽게 얻을 수 있습니다.
+평가판 또는 컨설팅 개념 증명, 구현 또는 워크샵을 게시하는 경우 3개월 동안 참여 관리자가 배정되어 성공적인 시장 진출 계획을 안내할 수 있습니다. 새 오퍼를 게시할 때마다 이 3개월 간의 참여를 반복하여 각 새로운 오퍼가 성공으로 시작하도록 도울 수 있습니다.
 
-아래 표에는 목록 및 평가판 제품에 대 한 자격 요구 사항이 요약 되어 있습니다.
+아래 표는 목록 및 평가판 제공에 대한 자격 요건을 요약한 것입니다.
 
-![시장 출시 혜택](./media/marketplace-publishers-guide/gtm-eligibility-requirements.png)
+![시장 진출 혜택](./media/marketplace-publishers-guide/gtm-eligibility-requirements.png)
 
-이러한 모든 혜택에 대 한 자세한 설명은 [Marketplace 보상 프로그램 데크](https://aka.ms/marketplacerewards)에서 찾을 수 있습니다.
+이러한 모든 혜택에 대한 자세한 설명은 [마켓플레이스 리워드 프로그램 데크에서](https://aka.ms/marketplacerewards)확인할 수 있습니다.
 
-## <a name="marketplace-rewards-for-transact-partners"></a>거래 파트너를 위한 Marketplace 보상
+## <a name="marketplace-rewards-for-transact-partners"></a>거래 파트너를 위한 마켓플레이스 보상
 
-Azure Marketplace 또는 Microsoft AppSource에서 불가능 제품을 사용 하는 경우 상업적 Marketplace를 통해 판매 되는 청구 된 판매 트랜잭션 또는 사용자 수를 늘릴 때 추가 혜택에 액세스할 수 있습니다. 
+Azure Marketplace 또는 Microsoft AppSource에서 거래 가능한 오퍼를 실행하면 상업용 마켓플레이스를 통해 판매되는 청구된 판매 거래 또는 시트를 늘리면서 추가 혜택에 액세스할 수 있습니다. 
 
 >[!Note]
->판매 된 사용자 수 임계값은 Microsoft 365 앱에만 적용 되 고 (Microsoft 팀, Office, Outlook 또는 SharePoint와 통합 된 SaaS 응용 프로그램) 혜택은 2020 년 6 월 30 일에 적용 됩니다.
+>시트 판매 임계값은 Microsoft 365 앱(Microsoft 팀, 사무실, Outlook 또는 SharePoint와 통합된 SaaS 응용 프로그램)에만 적용되며 혜택은 2020년 6월 30일까지 완료되어야 합니다.
 
-이러한 혜택은 마케팅, 영업 및 기술 작업을 지원 하도록 설계 되었으며, 따라서 더 많은 방문자를 받고 더 많은 잠재 고객을 받고 더 많은 비즈니스를 전환할 수 있습니다.
+이러한 혜택은 마케팅, 영업 및 기술 활동을 지원하여 더 많은 방문자를 얻고, 더 많은 잠재 고객을 받고, 더 많은 비즈니스를 전환할 수 있도록 돕기 위해 고안되었습니다.
 
-Live 제품을 보유 한 모든 파트너는 전담 참여 관리자와 협력 하 여 marketplace 제품 포트폴리오에 대 한 최고 가치 활동을 선택 합니다. 이 engagement는 제품에 대 한 것 이며,이를 통해 활동을 선택 하 고 이러한 활동의 시간을 선택 하 여 회사의 광범위 한 마케팅 및 판매 전략에 대 한 타이밍에 맞출 수 있습니다. 
+라이브 오퍼가 있는 모든 파트너는 전담 참여 관리자와 협력하여 마켓플레이스 오퍼 포트폴리오에 가장 가치 있는 활동을 선택할 수 있습니다. 이 참여는 제안당 상록이므로 회사의 광범위한 마케팅 및 영업 전략의 타이밍에 맞게 활동과 이러한 활동의 타이밍을 선택할 수 있습니다. 
 
 ![마케팅 혜택](./media/marketplace-publishers-guide/marketing-benefit.png)
 
-![판매 혜택](./media/marketplace-publishers-guide/sales-benefit.png)
+![영업 혜택](./media/marketplace-publishers-guide/sales-benefit.png)
 
 ![기술 혜택](./media/marketplace-publishers-guide/technical-benefit.png)
 
-\* 판매량은 Microsoft 365 앱에만 적용 되 고 (Microsoft 팀, Office, Outlook 또는 SharePoint와 통합 된 SaaS 응용 프로그램) 혜택은 2020 년 6 월 30 일에 적용 됩니다.
+\*시트 판매 임계값은 Microsoft 365 앱(Microsoft 팀, 사무실, Outlook 또는 SharePoint와 통합된 SaaS 응용 프로그램)에만 적용되며 혜택은 2020년 6월 30일까지 완료되어야 합니다.
 
-이러한 모든 혜택에 대 한 자세한 설명은 [Marketplace 보상 프로그램 데크](https://aka.ms/marketplacerewards)에서 찾을 수 있습니다.
+이러한 모든 혜택에 대한 자세한 설명은 [마켓플레이스 리워드 프로그램 데크에서](https://aka.ms/marketplacerewards)확인할 수 있습니다.
 
-비즈니스 응용 프로그램은 향상 된 이점 외에도 [ISV Connect](https://partner.microsoft.com/solutions/business-applications/isv-overview)를 통해 보조 프로그래밍을 사용할 수 있는 Dynamics 제품이 Microsoft AppSource 게시 된 비즈니스 응용 프로그램 파트너에 게 제공 됩니다. 여기에는 비즈니스 응용 프로그램 파트너의 요구에 맞게 특수화 된 기술, 마케팅 및 판매 지원이 포함 됩니다.
+보상 혜택 외에도 Microsoft AppSource에 게시된 Dynamics 제품 과 비즈니스 응용 프로그램 파트너는 [ISV Connect를](https://partner.microsoft.com/solutions/business-applications/isv-overview)통해 추가 프로그래밍을 사용할 수 있습니다. 여기에는 비즈니스 응용 프로그램 파트너의 요구에 특화된 기술, 마케팅 및 영업 지원이 포함됩니다.
 
-## <a name="marketplace-rewards-requirements-and-restrictions"></a>Marketplace 보상 요구 사항 및 제한 사항
+## <a name="marketplace-rewards-requirements-and-restrictions"></a>마켓플레이스 리워드 요구 사항 및 제한 사항
 
 ### <a name="publisher-agreement"></a>게시자 계약
 
-이 페이지에서 설명 하는 모든 작업은 [marketplace 게시자 계약](https://go.microsoft.com/fwlink/?LinkID=699560) 에 포함 되어 있으며 상용 혜택 프로그램 추 록에 기반 합니다.
+이 페이지에 설명된 모든 활동은 [마켓플레이스 게시자 계약의](https://go.microsoft.com/fwlink/?LinkID=699560) 적용을 받고 있으며 상업적 혜택 프로그램 부록에 따라 다룹니다.
 
 ### <a name="cancellation-policy"></a>취소 정책
 
-[목록 및 평가판](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type) 게시자는 제품 게시 당 활동을 옵트인 또는 옵트아웃 (opt out) 할 수 있습니다. 파트너는 언제 든 지 참여를 옵트아웃 (opt out) 할 수 있습니다. 
+[목록 및 평가판](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type) 게시자는 쿠폰 게시당 활동을 옵트인하거나 옵트아웃할 수 있습니다. 파트너는 언제든지 참여를 거부할 수 있습니다. 
 
-Microsoft는 다음을 수행 하는 게시자에 게 Marketplace 보상 혜택을 해지 하 고 종료할 권리를 보유 합니다. 
+Microsoft는 다음과 같은 게시자에게 마켓플레이스 리워드 혜택을 취소하고 해지할 권리를 보유합니다. 
 
-* marketplace 목록을 사용 하 여 잘못 된 활동을 참여 시킵니다.
-* 는 상업적 marketplace에서 나열 되지 않습니다. 
-* 제품을 사용 하 여 저작권 또는 상표 법률을 위반 하는 마케팅 또는 기타 콘텐츠를 표시 합니다.
-* 자체 내부 작업 또는 bitcoin 마이닝에 대 한 Azure 후원 자금 사용을 포함 하 여 [azure 후원 프로그램](https://azure.microsoft.com/offers/ms-azr-0036p/)의 정책을 위반 합니다. 
+* 마켓플레이스 목록을 사용하여 불법 행위에 관여할 수 있습니다.
+* 상업 시장에서 상장 폐지됩니다. 
+* 저작권 또는 상표법을 위반하는 마케팅 또는 기타 콘텐츠를 표시하기 위해 쿠폰을 사용합니다.
+* 자체 내부 운영 또는 비트코인 마이닝에 Azure 스폰서십 자금을 사용하는 것을 포함하되 이에 국한되지 않는 Azure [스폰서십 프로그램의](https://azure.microsoft.com/offers/ms-azr-0036p/)정책을 위반합니다. 
 
 ### <a name="offer-availability"></a>제품 가용성
 
-이 제품은 Azure Marketplace 또는 Microsoft AppSource에서 라이브 제품을 사용 하는 모든 파트너에 대해 영어로 수행 됩니다.
+이 제안은 Azure 마켓플레이스 또는 Microsoft AppSource에서 라이브 오퍼가 있는 모든 파트너를 대상으로 영어로 진행됩니다.
 
-사기성으로 검증 된 트랜잭션은 [목록, 평가판, 컨설팅](#list-trial-and-consulting-benefits) 섹션, [transact-sql 혜택](#marketplace-rewards-for-transact-partners) 섹션 및 [자세한 프로그램 데크에 설명](https://aka.ms/marketplacepublisherrewards)된 대로 게시자의 [청구 된 판매 프로그램 계층](https://aka.ms/marketplacepublisherrewards)에 계산 되지 않습니다. Microsoft는 사기 행위를 제거 하 고 나 서 실제 청구 된 판매량에 따라 적격 계층에 파트너를 할당 합니다. 
+사기로 입증된 거래는 [목록, 평가판, 컨설팅 섹션,](#list-trial-and-consulting-benefits) [거래 파트너 혜택](#marketplace-rewards-for-transact-partners) 섹션 및 자세한 프로그램 [데크에](https://aka.ms/marketplacepublisherrewards)명시된 대로 게시자의 [청구된 판매 프로그램 계층에](https://aka.ms/marketplacepublisherrewards)포함되지 않습니다. Microsoft는 사기가 제거된 후 실제 청구된 판매를 기반으로 파트너를 자격 계층에 할당합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
-[Cloud 파트너 포털](https://cloudpartner.azure.com)에서 제품을 만든 경우에는 로그인 하 여 제품을 만들거나 구성 합니다.
+[클라우드 파트너 포털에서](https://cloudpartner.azure.com)쿠폰을 만든 경우 로그인하여 쿠폰을 만들거나 구성합니다.
 
-[파트너 센터](https://partner.microsoft.com/en-us/dashboard/commercial-marketplace/overview)에서 제품을 만든 경우에는 로그인 하 여 제품을 만들거나 구성 합니다.
+[파트너 센터에서](https://partner.microsoft.com/en-us/dashboard/commercial-marketplace/overview)쿠폰을 만든 경우 로그인하여 쿠폰을 만들거나 구성합니다.
 
-[사용할 수 있는 셀프 서비스 리소스](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/)를 검토 합니다.
+사용 [가능한 셀프 서비스 리소스를 검토합니다.](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/)
 
-[Microsoft AppSource 및 Azure Marketplace 커뮤니티 포럼](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222) 에 등록 하 고 관련 항목에 대해 알아보거나 토론에 참여 하세요.
+[Microsoft AppSource 및 Azure 마켓플레이스 커뮤니티 포럼에](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222) 등록하고 관련 주제에 대해 알아보거나 토론에 참여하세요.
 
 ---

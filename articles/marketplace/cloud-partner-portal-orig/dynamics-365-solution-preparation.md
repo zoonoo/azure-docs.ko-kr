@@ -1,20 +1,18 @@
 ---
 title: Dynamics 365 솔루션 준비
 description: 구성 요소 패키징, 설치 및 제거를 위한 프레임워크
-services: Azure, Marketplace, Cloud Partner Portal,
-author: pbutlerm
-manager: Ricarod.Villalobos
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: bcb3bb63f305aeb98efda3baf0f6661bd7f67a7c
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: ac1e4fa541e945f20904ced114a36b58d14585ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824238"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80278589"
 ---
 # <a name="dynamics-365-solution-preparation"></a>Dynamics 365 솔루션 준비
 
@@ -26,7 +24,7 @@ Dynamics 365 솔루션 시스템은 특정 비즈니스 기능을 제공하는 �
 
 _**참고:** 다음에 나오는 패키지 예제에서는 솔루션 이름을 "SampleSolution.zip"으로 가정합니다._
 
-새 ISV인 경우 [https://msdn.microsoft.com/library/gg334530.aspx](https://msdn.microsoft.com/library/gg334530.aspx)에서 솔루션을 만드는 방법에 대한 자세한 내용을 확인할 수 있습니다.
+새 ISV인 경우 여기에서 솔루션 만들기에 대한 자세한 내용을 확인할 수 있습니다.[https://msdn.microsoft.com/library/gg334530.aspx](https://msdn.microsoft.com/library/gg334530.aspx)
 
 솔루션에 지원 데이터가 필요한 경우:
 

@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 05/03/2019
 ms.author: jeedes
 ms.openlocfilehash: 30a4dcbd15d8a47d99b3a61879a7e61938d3b133
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73160543"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mitel-micloud-connect"></a>자습서: Mitel MiCloud Connect와 Azure Active Directory 통합
@@ -33,7 +33,7 @@ ms.locfileid: "73160543"
 Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 MiCloud Connect와 Azure AD의 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -166,7 +166,7 @@ Azure AD용 SSO를 사용하여 MiCloud Connect를 구성하려면 Azure Portal�
     a. **이름** 필드에서 **BrittaSimon**을 입력합니다.
   
     b. **사용자 이름** 필드에서 brittasimon@\<yourcompanydomain\>.\<extension\>을 입력합니다.  
-예: BrittaSimon@contoso.com
+BrittaSimon@contoso.com)을 입력합니다.
 
     다. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
 

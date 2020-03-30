@@ -17,14 +17,14 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: b68d77bfdcf3fee0285b3c03ae0c598a3f6875c0
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 709926671e1ad4d8beefaf0f1cff4c56b1948ca3
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75531142"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80127373"
 ---
-# <a name="tutorial-push-notification-to-specific-android-application-users-by-using-azure-notification-hubs-and-google-cloud-messaging-deprecated"></a>자습서: Azure Notification Hubs 및 Google Cloud Messaging을 사용하여 특정 Android 애플리케이션 사용자에 알림 푸시(더 이상 사용되지 않음)
+# <a name="tutorial-send-push-notification-to-specific-android-users-using-azure-notification-hubs-and-google-cloud-messaging-deprecated"></a>자습서: Azure Notification Hubs 및 Google Cloud Messaging을 사용하여 특정 Android 사용자에게 푸시 알림 보내기(더 이상 사용되지 않음)
 
 > [!WARNING]
 > 2018년 4월 10일 기준으로 Google은 GCM(Google Cloud Messaging)을 더 이상 지원하지 않습니다. GCM 서버 및 클라이언트 API는 더 이상 사용되지 않으며 2019년 5월 29일에 제거될 예정입니다. 자세한 내용은 [GCM 및 FCM 질문과 대답](https://developers.google.com/cloud-messaging/faq)을 참조하세요.

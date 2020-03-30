@@ -1,25 +1,25 @@
 ---
 title: Azure Application Insights의 분산 추적 | Microsoft Docs
-description: OpenCensus 프로젝트에서 현지 전달자 및 파트너 관계를 통해 분산 추적에 대한 Microsoft의 지원 정보를 제공합니다.
+description: OpenCensus 프로젝트에서 파트너십을 통해 분산 추적에 대한 Microsoft의 지원에 대한 정보를 제공합니다.
 ms.topic: conceptual
 author: nikmd23
 ms.author: nimolnar
 ms.date: 09/17/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: d9f67250a232d4666e4655f83e9bdc7622754331
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.openlocfilehash: c2f384370c3ceaf24164e4a27adc05b1a1e1ddf7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2020
-ms.locfileid: "79136743"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294972"
 ---
 # <a name="what-is-distributed-tracing"></a>분산 추적이란?
 
-최신 클라우드 및 [마이크로 서비스](https://azure.com/microservices) 아키텍처가 등장하면서 비용을 절감하면서 가용성과 처리량을 높일 수 있는 독립적으로 배포할 수 있는 간단한 서비스가 생겨났습니다. 그러나 이러한 이동으로 인해 개별 서비스를 전반적으로 보다 쉽게 이해 하는 동안에는 전체 시스템을 이해 하 고 디버깅 하기가 더 어려워집니다.
+최신 클라우드 및 [마이크로 서비스](https://azure.com/microservices) 아키텍처의 등장으로 가용성과 처리량을 늘리면서 비용을 절감할 수 있는 간단하고 독립적으로 배포가능한 서비스가 생겨나고 있습니다. 그러나 이러한 움직임으로 인해 개별 서비스를 전체적으로 이해하기 가 더 쉬워졌지만 전체 시스템을 추론하고 디버깅하기가 더 어려워졌습니다.
 
-모놀리식 아키텍처에서 호출 스택을 사용 하 여 디버깅 하는 데 사용 되었습니다. 호출 스택은 각 호출에 대한 세부 정보 및 매개 변수와 함께 실행 흐름(메서드 A가 메서드 B를 호출하고 이로 인해 메서드 C가 호출됨)을 표시하기에 훌륭한 도구입니다. 이런 방식은 단일 프로세스에서 실행되는 단일 조직이나 서비스에는 적합하지만 호출이 로컬 스택의 참조가 아닌 프로세스 경계를 넘어서는 경우에는 어떻게 디버그해야 할까요? 
+모놀리식 아키텍처에서는 호출 스택으로 디버깅하는 데 익숙해졌습니다. 호출 스택은 각 호출에 대한 세부 정보 및 매개 변수와 함께 실행 흐름(메서드 A가 메서드 B를 호출하고 이로 인해 메서드 C가 호출됨)을 표시하기에 훌륭한 도구입니다. 이런 방식은 단일 프로세스에서 실행되는 단일 조직이나 서비스에는 적합하지만 호출이 로컬 스택의 참조가 아닌 프로세스 경계를 넘어서는 경우에는 어떻게 디버그해야 할까요? 
 
-분산 추적이 제공 되는 위치입니다.  
+분산 추적이 들어오는 곳입니다.  
 
 분산 추적은 최신 클라우드 및 마이크로 서비스 아키텍처의 호출 스택과 동일하며 단순한 성능 프로파일러가 추가되었습니다. Azure Monitor에는 분산 추적 데이터를 사용하는 두 가지 환경이 제공됩니다. 첫째는 [트랜잭션 진단](https://docs.microsoft.com/azure/application-insights/app-insights-transaction-diagnostics) 보기입니다. 이것은 호출 스택에 시간 차원이 추가된 것과 동일합니다. 트랜잭션 진단 보기는 단일 트랜잭션/요청에 대한 가시성을 제공하며 요청 단위를 기준으로 안정성 문제와 성능 병목 현상의 근본 원인을 찾는 데 유용합니다.
 
@@ -36,8 +36,8 @@ Azure Monitor에는 [애플리케이션 맵](https://docs.microsoft.com/azure/ap
 * [.NET](https://docs.microsoft.com/azure/application-insights/quick-monitor-portal)
 * [.NET Core](https://docs.microsoft.com/azure/application-insights/app-insights-dotnetcore-quick-start)
 * [Java](https://docs.microsoft.com/azure/application-insights/app-insights-java-get-started)
-* [Node.JS](https://docs.microsoft.com/azure/application-insights/app-insights-nodejs-quick-start)
-* [JavaScript](https://docs.microsoft.com/azure/application-insights/app-insights-javascript)
+* [Node.js](https://docs.microsoft.com/azure/application-insights/app-insights-nodejs-quick-start)
+* [자바 스크립트](https://docs.microsoft.com/azure/application-insights/app-insights-javascript)
 * [Python](opencensus-python.md)
 
 적절한 Application Insight SDK가 설치되고 구성되면, 많이 사용되는 프레임워크, 라이브러리 및 기술에 대한 추적 정보가 SDK 종속성 자동 수집기를 통해 자동으로 수집됩니다. 지원되는 기술의 전체 목록은 [종속성 자동 수집 설명서](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies)에 제공됩니다.
@@ -55,5 +55,5 @@ OpenCensus 웹 사이트에는 [Python](https://opencensus.io/api/python/trace/u
 ## <a name="next-steps"></a>다음 단계
 
 * [OpenCensus Python 사용 가이드](https://opencensus.io/api/python/trace/usage.html)
-* [애플리케이션 맵](./../../azure-monitor/app/app-map.md)
+* [신청 지도](./../../azure-monitor/app/app-map.md)
 * [엔드투엔드 성능 모니터링](./../../azure-monitor/learn/tutorial-performance.md)

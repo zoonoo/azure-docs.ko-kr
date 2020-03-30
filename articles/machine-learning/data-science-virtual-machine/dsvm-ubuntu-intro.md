@@ -4,18 +4,18 @@ titleSuffix: Azure Data Science Virtual Machine
 description: 분석 및 기계 학습을 수행하기 위해 Linux(Ubuntu)용 Data Science Virtual Machine을 구성하고 만듭니다.
 ms.service: machine-learning
 ms.subservice: data-science-vm
-author: gvashishtha
-ms.author: gopalv
+author: lobrien
+ms.author: laobri
 ms.topic: quickstart
-ms.date: 12/31/2019
-ms.openlocfilehash: 5d139cbd59b1b3e63786ae22bbd3b934de37cd49
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.date: 03/10/2020
+ms.openlocfilehash: f7629b4724e85f93a8dfe3e37ac2b2155288d235
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78360639"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79290511"
 ---
-# <a name="quickstart-set-up-the-data-science-virtual-machine-for-linux-ubuntu"></a>빠른 시작: Linux 용 Data Science Virtual Machine 설정 (Ubuntu)
+# <a name="quickstart-set-up-the-data-science-virtual-machine-for-linux-ubuntu"></a>빠른 시작: Linux(Ubuntu)용 Data Science Virtual Machine 설정
 
 Ubuntu 18.04 Data Science Virtual Machine을 준비하고 실행합니다.
 
@@ -29,7 +29,7 @@ Azure 체험 계정은 GPU 사용 가상 머신 SKU를 지원하지 않습니다
 Data Science Virtual Machine Ubuntu 18.04의 인스턴스를 만드는 단계는 다음과 같습니다.
 
 1. [Azure Portal](https://portal.azure.com)로 이동하세요. 아직 로그인하지 않은 경우 Azure 계정에 로그인하라는 메시지가 표시될 수 있습니다.
-1. "데이터 과학 가상 머신"을 입력하고 "Data Science Virtual Machine- Ubuntu 18.04 미리 보기"를 선택하여 가상 머신 목록을 찾습니다.
+1. "데이터 과학 가상 머신"을 입력하고 "Data Science Virtual Machine - Ubuntu 18.04"를 선택하여 가상 머신 목록을 찾습니다.
 
 1. 후속 창에서 **만들기**를 선택합니다.
 
@@ -39,23 +39,23 @@ Data Science Virtual Machine Ubuntu 18.04의 인스턴스를 만드는 단계는
 
     1. **기본 사항**:
     
-       * **구독**: 둘 이상의 구독이 있는 경우 컴퓨터가 만들어지고 청구 되는 구독을 선택 합니다. 이 구독에 대한 리소스 만들기 권한이 있어야 합니다.
-       * **리소스 그룹**: 새 그룹을 만들거나 기존 그룹을 사용 합니다.
-       * **가상 컴퓨터 이름**: 가상 컴퓨터의 이름을 입력 합니다. 입력한 대로 Azure Portal에 표시됩니다.
-       * **지역**: 가장 적합 한 데이터 센터를 선택 합니다. 가장 빠른 네트워크 액세스를 위해 대부분의 데이터가 있거나 물리적 위치에 가장 가까운 데이터 센터입니다. [Azure 지역](https://azure.microsoft.com/global-infrastructure/regions/)에 대해 자세히 알아보세요.
+       * **구독**: 둘 이상의 구독이 있으면 머신을 만들고 요금을 청구할 구독을 선택합니다. 이 구독에 대한 리소스 만들기 권한이 있어야 합니다.
+       * **리소스 그룹**: 새 그룹을 만들거나 기존 그룹을 사용합니다.
+       * **가상 머신 이름**: 가상 머신의 이름을 입력합니다. 입력한 대로 Azure Portal에 표시됩니다.
+       * **지역**: 가장 적합한 데이터 센터를 선택합니다. 가장 빠른 네트워크 액세스를 위해 대부분의 데이터가 있거나 물리적 위치에 가장 가까운 데이터 센터입니다. [Azure 지역](https://azure.microsoft.com/global-infrastructure/regions/)에 대해 자세히 알아보세요.
        * **이미지**: 기본값을 그대로 둡니다.
-       * **크기**: 일반 작업에 적절 한 크기로 자동 채워야 합니다. [Azure의 Linux VM 크기](../../virtual-machines/linux/sizes.md)에 대해 자세히 읽어보세요.
-       * **인증 유형**: 더 빠른 설치를 위해 "암호"를 선택 합니다. 
+       * **Size**: 일반 워크로드에 적합한 크기가 자동으로 채워집니다. [Azure의 Linux VM 크기](../../virtual-machines/linux/sizes.md)에 대해 자세히 읽어보세요.
+       * **인증 형식**: 더 빨리 설치하려면 "암호"를 선택합니다. 
          
          > [!NOTE]
          > JupyterHub를 사용하려면 "암호"를 선택해야 합니다. JupyterHub는 SSH 공개 키를 사용하도록 구성되지 *않기* 때문입니다.
 
-       * **사용자 이름**: 관리자 사용자 이름을 입력 합니다. 가상 머신에 로그인할 때 사용할 사용자 이름이며 Azure 사용자 이름과 같지 않아도 됩니다. 대문자는 사용하지 *마십시오*.
+       * **사용자 이름**: 관리자 사용자 이름을 입력합니다. 가상 머신에 로그인할 때 사용할 사용자 이름이며 Azure 사용자 이름과 같지 않아도 됩니다. 대문자는 사용하지 *마십시오*.
          
          > [!NOTE]
          > 사용자 이름에 대문자를 사용하면 JupyterHub가 작동하지 않으며 500 내부 서버 오류가 발생합니다.
 
-       * **암호**: 가상 머신에 로그인 하는 데 사용할 암호를 입력 합니다.    
+       * **암호**: 가상 머신에 로그인하는 데 사용할 암호를 입력합니다.    
     
    1. **검토 + 만들기**를 선택합니다.
    1. **검토+만들기**
@@ -94,12 +94,12 @@ Linux VM은 이미 X2Go 서버와 함께 프로비저닝되었고 클라이언�
 
 1. 구성 창이 열리면 다음과 같은 구성 매개 변수를 입력합니다.
    * **세션 탭**:
-     * **호스트**: 이전에 기록해 둔 VM의 IP 주소를 입력 합니다.
-     * **로그인**: Linux VM에서 사용자 이름을 입력 합니다.
+     * **호스트**: 앞서 기록해 둔 VM의 IP 주소를 입력합니다.
+     * **로그인**: Linux VM에서 사용자 이름을 입력합니다.
      * **SSH 포트**: 기본값 22를 그대로 사용합니다.
      * **세션 유형**: 값을 **XFCE**로 변경합니다. 현재 Linux VM은 XFCE 데스크톱만 지원합니다.
    * **미디어 탭**: 사운드 지원 및 클라이언트 인쇄를 사용하지 않으려면 해제할 수 있습니다.
-   * **공유 폴더**: 클라이언트 컴퓨터의 디렉터리를 Linux VM에 탑재하려면 이 탭에서 VM과 공유하려는 클라이언트 컴퓨터 디렉터리를 추가합니다.
+   * **공유 폴더**: 클라이언트 머신의 디렉터리를 Linux VM에 탑재하려면 이 탭에서 VM과 공유하려는 클라이언트 머신 디렉터리를 추가합니다.
 
    ![X2go 구성](./media/dsvm-ubuntu-intro/x2go-ubuntu.png)
 1. **확인**을 선택합니다.
@@ -118,13 +118,14 @@ Ubuntu DSVM은 다중 사용자 Jupyter 서버인 [JupyterHub](https://github.co
       ![Ubuntu 머신 IP 주소](./media/dsvm-ubuntu-intro/ubuntu-ip-address.png)
 
    1. 로컬 머신에서 웹 브라우저를 열고 https:\//your-vm-ip:8000으로 이동합니다. "your-vm-ip"는 앞에서 기록해 둔 IP 주소로 대체해야 합니다.
+   1. 브라우저에서 인증서 오류가 있음을 알리는 페이지를 직접 열지 못할 수 있습니다. DSVM은 자체 서명된 인증서를 통해 보안을 제공합니다. 대부분의 브라우저는 이 경고 후에 클릭할 수 있습니다. 대부분의 브라우저는 웹 세션 전체에서 인증서에 대한 일종의 시각적 경고를 계속 제공합니다.
    1. VM을 만드는 데 사용한 사용자 이름과 암호를 입력하여 로그인합니다. 
 
       ![Jupyter 로그인 입력](./media/dsvm-ubuntu-intro/jupyter-login.png)
 
    1. 사용 가능한 다양한 샘플 노트북을 찾아봅니다.
 
-Jupyter 노트북의 차세대 JupyterLab 및 JupyterHub도 제공됩니다. 액세스하려면 JupyterHub에 로그인한 다음, URL https:\//your-vm-ip:8000/user/your-username/lab으로 이동합니다. "your-username"은 VM을 구성할 때 선택한 사용자 이름으로 대체해야 합니다.
+Jupyter 노트북의 차세대 JupyterLab 및 JupyterHub도 제공됩니다. 액세스하려면 JupyterHub에 로그인한 다음, URL https:\//your-vm-ip:8000/user/your-username/lab으로 이동합니다. "your-username"은 VM을 구성할 때 선택한 사용자 이름으로 대체해야 합니다. 인증서 오류로 인해 처음에 사이트에 액세스하는 것이 차단될 수도 있습니다.
 
 다음 줄을 `/etc/jupyterhub/jupyterhub_config.py`에 추가하여 JupyterLab을 기본 Notebook 서버로 설정할 수 있습니다.
 

@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: a711303b95eb4acb9c226ce052466bf65d15a038
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: 6db2c907abc495ca3c88e1e73e885043a8f19997
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77612778"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79481537"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>자습서: Azure Active Directory Domain Services 관리되는 도메인에 대한 보안 LDAP 구성
 
@@ -66,9 +66,9 @@ Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https
 * **주체 이름** - 인증서의 주체 이름은 관리되는 도메인이어야 합니다. 예를 들어 도메인 이름이 *aaddscontoso.com*인 경우 인증서의 주체 이름은 * *.aaddscontoso.com*이어야 합니다.
     * 보안 LDAP가 Azure AD Domain Services에서 제대로 작동하려면 인증서의 DNS 이름 또는 주체 대체 이름이 와일드카드 인증서여야 합니다. 도메인 컨트롤러는 임의의 이름을 사용하며, 서비스를 계속 사용할 수 있도록 제거하거나 추가할 수 있습니다.
 * **키 사용** - 인증서를 *디지털 서명* 및 *키 암호화*에 맞게 구성해야 합니다.
-* **인증서 용도** - 인증서는 SSL 서버 인증에 대해 유효해야 합니다.
+* **인증서 용도** - 인증서는 TLS 서버 인증에 대해 유효해야 합니다.
 
-이 자습서에서는 [New-SelfSignedCertificate][New-SelfSignedCertificate] cmdlet을 사용하여 보안 LDAP용 자체 서명된 인증서를 만들어 보겠습니다. PowerShell 창을 **관리자** 권한으로 열고 다음 명령을 실행합니다. *$dnsName* 변수를 사용자 고유의 관리되는 도메인에서 사용하는 DNS 이름(예: *aaddscontoso.com*)으로 바꿉니다.
+OpenSSL, Keytool, MakeCert, [New-SelfSignedCertificate][New-SelfSignedCertificate] cmdlet 등 자체 서명된 인증서를 만드는 데 사용할 수 있는 여러 도구가 있습니다. 이 자습서에서는 [New-SelfSignedCertificate][New-SelfSignedCertificate] cmdlet을 사용하여 보안 LDAP용 자체 서명된 인증서를 만들어 보겠습니다. PowerShell 창을 **관리자** 권한으로 열고 다음 명령을 실행합니다. *$dnsName* 변수를 사용자 고유의 관리되는 도메인에서 사용하는 DNS 이름(예: *aaddscontoso.com*)으로 바꿉니다.
 
 ```powershell
 # Define your own DNS name used by your Azure AD DS managed domain
@@ -142,7 +142,7 @@ Thumbprint                                Subject
 1. 이 인증서는 데이터의 암호를 해독하는 데 사용되므로 액세스를 신중하게 제어해야 합니다. 암호는 인증서의 사용을 보호하는 데 사용할 수 있습니다. 올바른 암호가 없으면 인증서를 서비스에 적용할 수 없습니다.
 
     *.PFX* 인증서 파일을 보호하려면 **보안** 페이지에서 **암호** 옵션을 선택합니다. 암호를 입력하여 확인하고, **다음**을 선택합니다. 이 암호는 다음 섹션에서 Azure AD DS 관리형 도메인에 보안 LDAP를 사용하도록 설정하는 데 사용됩니다.
-1. **내보낼 파일** 페이지에서 인증서를 내보낼 파일 이름과 위치(예: *C:\Users\accountname\azure-ad-ds.pfx*)를 지정합니다.
+1. **내보낼 파일** 페이지에서 인증서를 내보낼 파일 이름과 위치(예: *C:\Users\accountname\azure-ad-ds.pfx*)를 지정합니다. 이 정보는 다음 단계에서 필요하므로 *.PFX* 파일의 암호와 위치를 기록해 둡니다.
 1. 검토 페이지에서 **마침**을 선택하여 인증서를 *.PFX* 인증서 파일로 내보냅니다. 인증서를 성공적으로 내보내면 확인 대화 상자가 표시됩니다.
 1. 다음 섹션에서 사용할 수 있도록 MMC를 열어 둡니다.
 

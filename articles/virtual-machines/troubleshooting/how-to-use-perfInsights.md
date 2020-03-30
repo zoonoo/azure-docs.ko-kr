@@ -14,10 +14,10 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 783b479dd3e5f429516799d7d3ea82f363cac2ec
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79250128"
 ---
 # <a name="how-to-use-perfinsights"></a>PerfInsights를 사용하는 방법
@@ -71,7 +71,7 @@ PerfInsights는 여러 종류의 정보를 수집하고 분석할 수 있습니�
 
 이 시나리오에서는 네트워크 추적과 함께 특별한 성능 카운터 캡처를 실행합니다. 캡처에는 모든 SMB(Server Message Block) 클라이언트 공유 카운터가 포함됩니다. 다음은 캡처에 포함되는 몇 가지 주요 SMB 클라이언트 공유 성능 카운터입니다.
 
-| **형식**     | **SMB 클라이언트 공유 카운터** |
+| **유형**     | **SMB 클라이언트 공유 카운터** |
 |--------------|-------------------------------|
 | IOPS         | 데이터 요청 수/초             |
 |              | 읽기 요청 수/초             |
@@ -85,8 +85,8 @@ PerfInsights는 여러 종류의 정보를 수집하고 분석할 수 있습니�
 | 처리량   | 데이터 바이트 수/쓰기                |
 |              | 읽기 바이트 수/초                |
 |              | 쓰기 바이트 수/초               |
-| 큐 길이 | Avg. 큐 길이 읽기        |
-|              | 평균 쓰기 큐 길이       |
+| 큐 길이 | 평균. 대기열 길이 읽기        |
+|              | 평균. 쓰기 큐 길이       |
 |              | 평균 데이터 큐 길이        |
 
 ### <a name="advanced-performance-analysis"></a>고급 성능 분석
@@ -266,7 +266,7 @@ PerfInsights 도구를 실행하려면 다음 단계를 수행합니다.
 
 **디스크 맵** 및 **볼륨 맵** 섹션에서는 논리 볼륨과 실제 디스크가 서로 관련된 방식을 설명합니다.
 
-실제 디스크 관점(디스크 맵)에서 테이블은 디스크에서 실행 중인 모든 논리 볼륨을 표시합니다. 다음 예에서 **PhysicalDrive2**는 여러 파티션(J 및 H)에서 만든 2개의 논리 볼륨을 실행합니다.
+실제 디스크 관점(디스크 맵)에서 테이블은 디스크에서 실행 중인 모든 논리 볼륨을 표시합니다. 다음 예제에서 **PhysicalDrive2는** 여러 파티션(J 및 H)에서 생성된 두 개의 논리 볼륨을 실행합니다.
 
 ![디스크 탭 스크린샷](media/how-to-use-perfInsights/pi-disk-tab.png)
 
@@ -282,7 +282,7 @@ PerfInsights 도구를 실행하려면 다음 단계를 수행합니다.
 
 이 섹션에는 VM에 호스팅된 SQL Server 인스턴스 각각에 대한 **검색 결과** 탭 및 추가적인 탭이 포함되어 있습니다.
 
-**검색 결과** 탭에는 권장 사항과 함께 확인할 수 있는 모든 SQL 관련 성능 문제의 목록이 포함됩니다.
+**결과** 탭에는 발견된 모든 SQL 관련 성능 문제 목록과 권장 사항이 포함되어 있습니다.
 
 다음 예에서는 **PhysicalDrive0**(C 드라이브 실행)이 표시됩니다. **modeldev** 및 **modellog** 파일이 모두 C 드라이브에 있고 이 파일들은 서로 다른 형식(예: 데이터 파일 및 트랜잭션 로그)의 파일이기 때문입니다.
 

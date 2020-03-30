@@ -1,6 +1,6 @@
 ---
-title: Azure Front Door Service용 도메인에 지역 필터링 HTTPS 구성 | Microsoft Docs
-description: 이 문서에서는 Azure Front Door Service에 대한 지역 필터링 정책에 대해 알아봅니다.
+title: Azure Front Door용 도메인에 지역 필터링 | Microsoft Docs
+description: 이 문서에서는 Azure Front Door에 대한 지역 필터링 정책에 대해 알아봅니다.
 services: frontdoor
 documentationcenter: ''
 author: KumudD
@@ -13,16 +13,16 @@ ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: kumud
 ms.reviewer: tyao
-ms.openlocfilehash: 7ad2d181b6343644205c58ab1d5fe83dc25542d4
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 80641ca27949435f65222ecab17cc3079e2a6359
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67846418"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79471611"
 ---
 # <a name="what-is-geo-filtering-on-a-domain-for-azure-front-door"></a>Azure Front Door용 도메인의 지역 필터링이란?
 
-기본적으로 Azure Front Door Service는 요청을 수행하는 사용자의 위치에 관계없이 사용자 요청에 응답합니다. 그러나 경우에 따라 국가/지역별로 웹 애플리케이션에 대한 액세스를 제한할 수 있습니다. WAF(웹 애플리케이션 방화벽) 서비스를 통해 엔드포인트의 특정 경로에 사용자 지정 액세스 규칙을 사용하는 정책을 정의하여 지정된 국가/지역에서 들어오는 트래픽을 허용하거나 차단할 수 있습니다. 
+기본적으로 Azure Front Door는 요청을 수행하는 사용자의 위치에 관계없이 사용자 요청에 응답합니다. 그러나 경우에 따라 국가/지역별로 웹 애플리케이션에 대한 액세스를 제한할 수 있습니다. WAF(웹 애플리케이션 방화벽) 서비스를 통해 엔드포인트의 특정 경로에 사용자 지정 액세스 규칙을 사용하는 정책을 정의하여 지정된 국가/지역에서 들어오는 트래픽을 허용하거나 차단할 수 있습니다. 
 
 WAF 정책에는 일반적으로 사용자 지정 규칙 집합이 포함됩니다. 규칙은 일치 조건, 작업 및 우선 순위로 구성됩니다. 일치 조건에서는 일치 변수, 연산자, 일치 값을 정의합니다.  지역 필터링 규칙에서 일치 변수는 REMOTE_ADDR, 연산자는 GeoMatch, 값은 해당 국가의 2자 국가 코드입니다. GeoMatch 조건과 REQUEST_URI 문자열 일치 조건을 결합하여 경로 기준 지역 필터링 규칙을 만들 수 있습니다.
 
@@ -62,7 +62,7 @@ WAF 정책에는 일반적으로 사용자 지정 규칙 집합이 포함됩니�
 | BW | 보츠와나|
 | BY | 벨로루시|
 | BZ | 벨리즈|
-| CA | 캐나다|
+| CA | Canada|
 | CD | 콩고 민주 공화국|
 | CF | 중앙 아프리카 공화국|
 | CH | 스위스|
@@ -89,7 +89,7 @@ WAF 정책에는 일반적으로 사용자 지정 규칙 집합이 포함됩니�
 | FJ | 피지|
 | FM | 미크로네시아|
 | FR | 프랑스|
-| GB | 영국|
+| GB | United Kingdom|
 | GE | 조지아|
 | GF | 프랑스령 기아나|
 | GH | 가나|

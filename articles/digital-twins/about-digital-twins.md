@@ -9,14 +9,16 @@ ms.topic: overview
 ms.service: digital-twins
 services: digital-twins
 ms.custom: mvc
-ms.openlocfilehash: a3c696a5bfa9286e664f69bd379bac408b7459d6
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 91386eaf7753f2aefada2d1423a11b366c3ee924
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863243"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79370902"
 ---
-# <a name="overview-of-azure-digital-twins"></a>Azure Digital Twins 개요
+# <a name="overview-of-azure-digital-twins-preview"></a>Azure Digital Twins 미리 보기 개요
+
+[!INCLUDE [digital-twins-preview-limit-alert](../../includes/digital-twins-preview-limit-alert.md)]
 
 Azure Digital Twins 미리 보기는 실제 환경의 종합적 모델을 만드는 Azure IoT 서비스입니다. 사람, 공간 및 디바이스 간의 관계와 상호 작용을 모델링하는 공간 인텔리전스 그래프를 만들 수 있습니다.
 

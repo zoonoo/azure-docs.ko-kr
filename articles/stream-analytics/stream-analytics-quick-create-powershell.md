@@ -7,14 +7,14 @@ ms.date: 12/20/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
-ms.openlocfilehash: 5fd38a781a58da530ad805bbeee352858eb33b41
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
-ms.translationtype: MT
+ms.openlocfilehash: 84c132c333e4d6ba052029350f275ebf499a906f
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78893238"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79536805"
 ---
-# <a name="quickstart-create-a-stream-analytics-job-using-azure-powershell"></a>빠른 시작: Azure PowerShell를 사용 하 여 Stream Analytics 작업 만들기
+# <a name="quickstart-create-a-stream-analytics-job-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Stream Analytics 작업 만들기
 
 Azure PowerShell 모듈은 PowerShell cmdlet 또는 스크립트를 사용하여 Azure 리소스를 만들고 관리하는 데 사용됩니다. 이 빠른 시작에서는 Azure PowerShell 모듈을 사용하여 Azure Stream Analytics 작업을 배포하고 실행하는 방법을 자세히 설명합니다.
 
@@ -28,7 +28,7 @@ Azure PowerShell 모듈은 PowerShell cmdlet 또는 스크립트를 사용하여
 
 * 이 빠른 시작에서는 Azure PowerShell 모듈이 필요합니다. 로컬 컴퓨터에 설치된 버전을 확인하려면 `Get-Module -ListAvailable Az`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-Az-ps)를 참조하세요.
 
-* 일부 IoT Hub 작업은 Azure PowerShell에서 지원 되지 않으며 Azure CLI 버전 2.0.70 이상 및 Azure CLI 용 IoT 확장을 사용 하 여 완료 해야 합니다. [Azure CLI를 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)하고 `az extension add --name azure-iot`를 사용하여 IoT 확장을 설치합니다.
+* 일부 IoT Hub 작업은 Azure PowerShell에서 지원되지 않으므로 Azure CLI 버전 2.0.70 이상 및 Azure CLI용 IoT 확장을 사용하여 완료해야 합니다. [Azure CLI를 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)하고 `az extension add --name azure-iot`를 사용하여 IoT 확장을 설치합니다.
 
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
@@ -104,7 +104,7 @@ Stream Analytics 작업을 정의하기 전에 작업에 대한 입력으로 구
 
     **출력 예제:**
 
-    ```azurecli
+    ```output
     HostName=MyASAIoTHub.azure-devices.net;DeviceId=MyASAIoTDevice;SharedAccessKey=a2mnUsg52+NIgYudxYYUNXI67r0JmNubmfVafojG8=
     ```
 
@@ -297,6 +297,7 @@ New-AzStreamAnalyticsTransformation `
   -File $jobTransformationDefinitionFile `
   -Name $jobTransformationName -Force
 ```
+
 ## <a name="run-the-iot-simulator"></a>IoT 시뮬레이터 실행
 
 1. [Raspberry Pi Azure IoT 온라인 시뮬레이터](https://azure-samples.github.io/raspberry-pi-web-simulator/)를 엽니다.

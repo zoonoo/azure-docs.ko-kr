@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 01/30/2019
 ms.author: cynthn
-ms.openlocfilehash: 1de2e70ccafbbde49e764437bfe8ce94602747b6
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 6d603dbf2746608f499ba37b4f17b533b64bc941
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034446"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80154358"
 ---
 # <a name="tutorial-install-a-lemp-web-server-on-a-linux-virtual-machine-in-azure"></a>자습서: Azure에서 Linux 가상 머신에 LEMP 웹 서버 설치
 
@@ -161,7 +161,7 @@ sudo sh -c 'echo "<?php phpinfo(); ?>" > /var/www/html/info.php'
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 Azure에서 LEMP 서버를 배포했습니다. 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 Azure에서 LEMP 서버를 배포했습니다. 구체적으로 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * Ubuntu VM 만들기
@@ -170,10 +170,10 @@ sudo sh -c 'echo "<?php phpinfo(); ?>" > /var/www/html/info.php'
 > * 설치 및 구성 확인
 > * LEMP 스택에 WordPress 설치
 
-SSL 인증서로 웹 서버를 보호하는 방법에 대해 알아보려면 다음 자습서로 이동합니다.
+다음 자습서로 이동하여 TLS/SSL 인증서를 사용하여 웹 서버를 보호하는 방법에 대해 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [SSL로 웹 서버 보안](tutorial-secure-web-server.md)
+> [TLS로 웹 서버 보안](tutorial-secure-web-server.md)
 
 [2]: ./media/tutorial-lemp-stack/phpsuccesspage.png
 [3]: ./media/tutorial-lemp-stack/nginx.png

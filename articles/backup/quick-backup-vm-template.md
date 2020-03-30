@@ -4,17 +4,19 @@ description: Azure Resource Manager 템플릿을 사용하여 가상 머신을 �
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 05/14/2019
-ms.custom: mvc
-ms.openlocfilehash: 721213dcdd4751de936968b7e67a4b5d31b8d9ec
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.custom: mvc,subject-armqs
+ms.openlocfilehash: c40dc7ef8fc55acade709b1ffbbd86ff306f7f0e
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980647"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79459245"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 Azure에서 가상 머신 백업
 
 [Azure Backup](backup-overview.md)은 온-프레미스 머신과 앱, Azure VM을 백업합니다. 이 문서에서는 Resource Manager 템플릿과 Azure PowerShell을 사용하여 Azure VM을 백업하는 방법을 보여줍니다. 이 빠른 시작에서는 Recovery Services 자격 증명 모음을 만들기 위해 Resource Manager 템플릿을 배포하는 과정에 중점을 둡니다. Resource Manager 탬플릿 개발에 대한 자세한 내용은 [Resource Manager 설명서](/azure/azure-resource-manager/) 및 [템플릿 참조](/azure/templates/microsoft.recoveryservices/allversions)를 참조하세요.
+
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 또는 [Azure PowerShell](./quick-backup-vm-powershell.md), [Azure CLI](quick-backup-vm-cli.md)를 사용하거나 [Azure Portal](quick-backup-vm-portal.md)에서 VM을 백업할 수 있습니다.
 
@@ -22,9 +24,26 @@ ms.locfileid: "75980647"
 
 [Recovery Services 자격 증명 모음](backup-azure-recovery-services-vault-overview.md)은 Azure VM과 같은 보호된 리소스에 대한 백업 데이터를 저장하는 논리 컨테이너입니다. 백업 작업이 실행되면 Recovery Services 자격 증명 모음 내에 복구 지점이 만들어집니다. 이러한 복구 지점 중 하나를 사용하여 지정된 특정 시점으로 데이터를 복원할 수 있습니다.
 
+### <a name="review-the-template"></a>템플릿 검토
+
 이 빠른 시작에 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-recovery-services-create-vm-and-configure-backup/)에서 나온 것입니다. 이 템플릿을 사용하면 보호를 위해 DefaultPolicy로 구성된 간단한 Windows VM 및 Recovery Services 자격 증명 모음을 배포할 수 있습니다.
 
-템플릿을 배포하려면 **사용해 보세요!** 를 선택하여 Azure Cloud Shell을 열고, 다음 PowerShell 스크립트를 셸 창에 붙여넣습니다. 코드를 붙여넣으려면 셸 창을 마우스 오른쪽 단추로 클릭하고 **붙여넣기**를 선택합니다.
+:::code language="json" source="~/quickstart-templates/101-recovery-services-create-vm-and-configure-backup/azuredeploy.json" range="1-247" highlight="221-245":::
+
+템플릿에 정의된 리소스는 다음과 같습니다.
+
+- [**Microsoft.Storage/storageAccounts**](/azure/templates/microsoft.storage/storageaccounts)
+- [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses)
+- [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups)
+- [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks)
+- [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces)
+- [**Microsoft.Compute/virutalMachines**](/azure/templates/microsoft.compute/virtualmachines)
+- [**Microsoft.RecoveryServices/vaults**](/azure/templates/microsoft.recoveryservices/vaults)
+- [**Microsoft.RecoveryServices/vaults/backupFabrics/protectionContainers/protectedItems**](/azure/templates/microsoft.recoveryservices/vaults/backupfabrics/protectioncontainers/protecteditems)
+
+### <a name="deploy-the-template"></a>템플릿 배포
+
+템플릿을 배포하려면 **사용해 보세요**를 선택하여 Azure Cloud Shell을 열고, 다음 PowerShell 스크립트를 셸 창에 붙여넣습니다. 코드를 붙여넣으려면 셸 창을 마우스 오른쪽 단추로 클릭하고 **붙여넣기**를 선택합니다.
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter a project name (limited to eight characters) that is used to generate Azure resource names"
@@ -42,11 +61,13 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
 이 빠른 시작에서는 Azure PowerShell이 Resource Manager 템플릿을 배포하는 데 사용됩니다. [Azure Portal](../azure-resource-manager/templates/deploy-portal.md), [Azure CLI](../azure-resource-manager/templates/deploy-cli.md), [Rest API](../azure-resource-manager/templates/deploy-rest.md)도 템플릿을 배포하는 데 사용할 수 있습니다.
 
-## <a name="start-a-backup-job"></a>백업 작업 시작
+## <a name="validate-the-deployment"></a>배포 유효성 검사
+
+### <a name="start-a-backup-job"></a>백업 작업 시작
 
 템플릿은 VM을 만들고 VM에서 다시 사용하도록 설정합니다. 템플릿을 배포한 후에는 백업 작업을 시작해야 합니다. 자세한 내용은 [백업 작업 시작](./quick-backup-vm-powershell.md#start-a-backup-job)을 참조하세요.
 
-## <a name="monitor-the-backup-job"></a>백업 작업 모니터링
+### <a name="monitor-the-backup-job"></a>백업 작업 모니터링
 
 백업 작업을 모니터링 하려면 [백업 작업 모니터링](./quick-backup-vm-powershell.md#monitor-the-backup-job)을 참조하세요.
 
@@ -72,3 +93,4 @@ Remove-AzResourceGroup -Name "myResourceGroup"
 
 - Azure Portal에서 VM을 백업하는 방법을 [알아봅니다](tutorial-backup-vm-at-scale.md).
 - VM을 빠르게 복원하는 방법을 [알아봅니다](tutorial-restore-disk.md).
+- Resource Manager 템플릿을 만드는 [방법을 알아봅니다](../azure-resource-manager/templates/template-tutorial-create-first-template.md).

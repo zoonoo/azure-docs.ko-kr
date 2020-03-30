@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/14/2020
 ms.author: allensu
-ms.openlocfilehash: ce8ae7f2f4de3659dc8dde98dc71d39886341498
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 2853b1567618127866a4e9c61d81e599d3100823
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77602174"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80064261"
 ---
 # <a name="what-is-azure-load-balancer"></a>Azure Load Balancer란?
 
@@ -40,7 +40,7 @@ Azure Load Balancer는 OSI(Open Systems Interconnect) 모델의 계층 4에서 �
 개별 부하 분산 장치 구성 요소에 대한 자세한 내용은 [Azure Load Balancer 구성 요소 및 제한 사항](./concepts-limitations.md)을 참조하세요.
 
 >[!NOTE]
-> Azure는 사용자 시나리오를 위한 완전히 관리되는 부하 분산 솔루션 모음을 제공합니다. 대기 시간이 짧은 고성능 계층 4 부하 분산이 필요한 경우 [Azure Application Gateway란?](../application-gateway/overview.md)을 참조하세요. 글로벌 DNS 부하 분산을 확인하려는 경우 [Traffic Manager란?](../traffic-manager/traffic-manager-overview.md)을 참조하세요. 엔드투엔드 시나리오에서 이러한 솔루션을 조합하여 이점을 얻을 수 있습니다.
+> Azure는 사용자 시나리오를 위한 완전히 관리되는 부하 분산 솔루션 모음을 제공합니다. 대기 시간이 짧은 고성능 계층 7 부하 분산이 필요한 경우 [Azure Application Gateway란?](../application-gateway/overview.md)을 참조하세요. 글로벌 DNS 부하 분산을 확인하려는 경우 [Traffic Manager란?](../traffic-manager/traffic-manager-overview.md)을 참조하세요. 엔드투엔드 시나리오에서 이러한 솔루션을 조합하여 이점을 얻을 수 있습니다.
 >
 > Azure 부하 분산 옵션 비교는 [Azure의 부하 분산 옵션 개요](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview)를 참조하세요.
 
@@ -69,7 +69,7 @@ Azure Load Balancer는 OSI(Open Systems Interconnect) 모델의 계층 4에서 �
 
 - **[HA 포트](https://docs.microsoft.com/azure/load-balancer/load-balancer-ha-ports-overview)** 를 사용하여 모든 포트에서 TCP 및 UDP 흐름의 부하를 동시에 분산합니다.
 
-### <a name="securebydefault"></a>기본적으로 보안 적용
+### <a name="secure-by-default"></a><a name="securebydefault"></a>기본적으로 보안 적용
 
 표준 Load Balancer는 해당 코어의 제로 신뢰 네트워크 보안 모델을 기반으로 합니다. 기본적으로 보호되는 표준 Load Balancer는 가상 네트워크의 일부입니다. 가상 네트워크는 격리된 프라이빗 네트워크입니다.  즉, 네트워크 보안 그룹에서 열지 않는 한 표준 Load Balancers 및 표준 공용 IP 주소는 인바운드 흐름으로 닫힙니다. NSG는 허용된 트래픽을 명시적으로 허용하는 데 사용됩니다.  서브넷에 NSG가 없거나 가상 머신 리소스의 NIC가 없으면 트래픽이 이 리소스에 도달하도록 허용되지 않습니다. NSG에 대한 개요와 NSG를 시나리오에 적용하는 방법을 자세히 알아보려면 [네트워크 보안 그룹](../virtual-network/security-overview.md)을 참조하세요.
 기본 Load Balancer는 기본적으로 인터넷에 열려 있습니다.

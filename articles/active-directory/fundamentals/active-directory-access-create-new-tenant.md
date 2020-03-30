@@ -10,21 +10,21 @@ ms.workload: identity
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: ajburnle
-ms.custom: fasttrack-edit
+ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de205beaf9800c2061cc41343b4153bd0e2b5dc7
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.openlocfilehash: 5f29d103ce1be426fb0b5c462cc1d831fefe87b6
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78376856"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80050003"
 ---
-# <a name="quickstart-create-a-new-tenant-in-azure-active-directory"></a>빠른 시작: Azure Active Directory에서 새 테 넌 트 만들기
+# <a name="quickstart-create-a-new-tenant-in-azure-active-directory"></a>빠른 시작: Azure Active Directory에서 새 테넌트 만들기
 Azure AD(Azure Active Directory) 포털을 사용하여 조직의 테넌트를 새로 만드는 작업을 비롯한 모든 관리 작업을 수행할 수 있습니다. 
 
 이 빠른 시작에서는 Azure Portal과 Azure Active Directory에 액세스하는 방법과 조직의 기본 테넌트를 만드는 방법을 배웁니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
 ## <a name="create-a-new-tenant-for-your-organization"></a>조직의 테넌트 새로 만들기
 Azure Portal에 로그인한 후에 조직의 테넌트를 새로 만들 수 있습니다. 새 테넌트는 조직을 대표하며 내외부 사용자를 위한 Microsoft 클라우드 서비스의 특정 인스턴스를 관리하는 데 도움이 됩니다.
@@ -45,11 +45,11 @@ Azure Portal에 로그인한 후에 조직의 테넌트를 새로 만들 수 있
 
 1.  **디렉터리 만들기** 페이지에서 다음 정보를 입력합니다.
     
-    - _조직 이름_ 상자에 **Contoso**를 입력합니다.
+    - **조직 이름** 상자에 _Contoso_를 입력합니다.
 
-    - _초기 도메인 이름_ 상자에 **Contoso**를 입력합니다.
+    - **초기 도메인 이름** 상자에 _Contoso_를 입력합니다.
 
-    - _국가 또는 지역_ 상자의 **미국** 옵션은 그대로 사용합니다.
+    - **국가 또는 지역** 상자의 _미국_ 옵션은 그대로 사용합니다.
 
 1. **만들기**를 선택합니다.
 

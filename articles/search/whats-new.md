@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 03/03/2020
-ms.openlocfilehash: 27dae07328af125c25512ab9f1eb81d0f4eda99b
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.date: 03/24/2020
+ms.openlocfilehash: 475f89fc5b33948864fd83c39ee8058ab6908cad
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78271317"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80247200"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Azure Cognitive Search의 새로운 기능
 
@@ -26,6 +26,12 @@ ms.locfileid: "78271317"
 핵심 작업에서 확장된 인지 기술과 AI 처리(아직 선택 사항)를 사용할 수 있도록 Azure Search의 이름이 이제 **Azure Cognitive Search**로 변경되었습니다. API 버전, NuGet 패키지, 네임스페이스 및 엔드포인트는 변경되지 않았습니다. 새 검색 솔루션과 기존 검색 솔루션은 서비스 이름 변경의 영향을 받지 않습니다.
 
 ## <a name="feature-announcements"></a>기능 공지
+
+### <a name="march-2020"></a>2020년 3월
+
++ [네이티브 Blob 일시 삭제(미리 보기)](search-howto-indexing-azure-blob-storage.md#incremental-indexing-and-deletion-detection)는 Azure Cognitive Search의 Azure Blob Storage 인덱서가 일시 삭제된 상태에 있는 Blob을 인식하고 인덱싱 중에 해당 검색 문서를 제거함을 의미합니다.
+
++ 이제 새로운 안정적인 [관리 REST API(2020-03-13)](https://docs.microsoft.com/rest/api/searchmanagement/management-api-versions)를 사용할 수 있습니다. 
 
 ### <a name="february-2020"></a>2020년 2월
 

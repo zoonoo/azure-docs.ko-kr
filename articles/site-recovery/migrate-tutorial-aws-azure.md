@@ -10,15 +10,15 @@ ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: 4a1952f5ece4c021834fb98f8a09f1a2738e6469
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72789383"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>AWS(Amazon Web Services)에서 Azure로 VM 마이그레이션
 
-이 자습서에서는 Azure Site Recovery를 사용하여 AWS(Amazon Web Services) VM(가상 머신)을 Azure VM으로 마이그레이션하는 방법을 설명합니다. AWS EC2 인스턴스를 Azure로 마이그레이션할 때 VM은 온-프레미스의 물리적 컴퓨터처럼 처리됩니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 Azure Site Recovery를 사용하여 AWS(Amazon Web Services) VM(가상 머신)을 Azure VM으로 마이그레이션하는 방법을 설명합니다. AWS EC2 인스턴스를 Azure로 마이그레이션할 때 VM은 온-프레미스의 물리적 컴퓨터처럼 처리됩니다. 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 필수 조건 확인
@@ -35,7 +35,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 > [!NOTE]
 > 이제 Azure Migrate 서비스를 사용하여 AWS 인스턴스를 Azure로 마이그레이션할 수 있습니다. [자세히 알아보기](../migrate/tutorial-migrate-physical-virtual-machines.md).
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 - 마이그레이션할 VM이 지원되는 OS 버전을 실행하고 있는지 확인합니다. 지원되는 버전은 다음과 같습니다. 
   - Windows Server 2016 
   - Windows Server 2012 R2
@@ -72,7 +72,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 5. **복제**에서 **기본 RA-GRS**를 선택합니다.
 6. 이 자습서에 대해 사용하려는 구독을 선택합니다.
 7. **리소스 그룹**에 대해 **새로 만들기**를 선택합니다. 이 예에서는 리소스 그룹 이름에 **migrationRG**를 사용합니다.
-8. **위치**로 **유럽 서부**를 선택합니다.
+8. **위치**로 **서유럽**를 선택합니다.
 9. **만들기**를 선택하여 스토리지 계정을 만듭니다.
 
 ### <a name="create-a-vault"></a>자격 증명 모음 만들기
@@ -82,7 +82,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 3. **이름**에 **myVault**를 입력합니다.
 4. **구독**에 사용할 Azure 구독을 선택합니다.
 4. **리소스 그룹**에서 **기존 항목 사용**을 선택한 후 **migrationRG**를 선택합니다.
-5. **위치**로 **유럽 서부**를 선택합니다.
+5. **위치**로 **서유럽**를 선택합니다.
 5. 대시보드에서 새 자격 증명 모음에 빠르게 액세스하려면 **대시보드에 고정**을 선택합니다.
 7. 완료되면 **만들기**를 선택합니다.
 
@@ -98,7 +98,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 4. **주소 공간**의 기본값을 그대로 둡니다(값을 입력해야 함).
 5. **구독**에 사용할 Azure 구독을 선택합니다.
 6. **리소스 그룹**에서 **기존 항목 사용**을 선택한 후 **migrationRG**를 선택합니다.
-7. **위치**로 **유럽 서부**를 선택합니다.
+7. **위치**로 **서유럽**를 선택합니다.
 8. **서브넷**에서 **이름** 및 **IP 범위**의 기본값을 그대로 둡니다(값을 입력해야 함).
 9. DDoS 보호 설정에 대한 지침을 추가합니다.
 10. **서비스 엔드포인트** 옵션을 비활성화합니다.
@@ -231,7 +231,7 @@ VM에 대해 복제를 사용하도록 설정하면 변경 내용이 적용되�
 2. 장애 조치(failover)에 사용할 복구 시점을 선택합니다.
     - **가장 최근에 처리됨**: VM을 Site Recovery에서 처리된 최신 복구 시점으로 장애 조치(failover)합니다. 타임스탬프가 표시됩니다. 이 옵션을 사용하면 데이터를 처리하는 데 시간을 소비하지 않으므로 낮은 RTO(복구 목표 시간)가 제공됩니다.
     - **최신 앱 일치**: 모든 VM을 최신 앱 일치 복구 시점으로 장애 조치합니다. 타임스탬프가 표시됩니다.
-    - **사용자 지정**: 복구 시점을 선택합니다.
+    - **Custom**: 복구 시점을 선택합니다.
 
 3. **테스트 장애 조치(Failover)** 에서 장애 조치(Failover)가 발생한 후에 Azure VM이 연결될 대상 Azure 네트워크를 선택합니다. 이는 [Azure 리소스 준비](#prepare-azure-resources)에서 만든 네트워크여야 합니다.
 4. **확인**을 선택하여 장애 조치(failover)를 시작합니다. 진행률을 추적하려면 VM을 선택하여 해당 속성을 봅니다. 또는 자격 증명 모음의 페이지에서 **테스트 장애 조치(failover)** 작업을 선택할 수 있습니다. 그러려면 **모니터링 및 보고서** > **작업** >  **Site Recovery 작업**을 선택합니다.

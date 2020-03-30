@@ -17,10 +17,10 @@ ms.date: 05/29/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 179721075484c35c5ebbb3d936b83bc407b75a8d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67093532"
 ---
 # <a name="tutorial-integrate-projectplace-with-azure-active-directory"></a>자습서: Azure Active Directory와 Projectplace 통합
@@ -34,7 +34,7 @@ ms.locfileid: "67093532"
 
 Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -108,7 +108,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자**를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B. Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예: `BrittaSimon@contoso.com`
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `BrittaSimon@contoso.com`)을 입력합니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기**를 클릭합니다.
 
@@ -143,15 +143,15 @@ Azure AD 사용자가 Percolate에 로그인할 수 있도록 설정하려면 �
 
 2. **People**(사람)로 이동한 다음, **Members**(멤버)를 선택합니다.
    
-    ![People로 이동한 다음, Members 선택](./media/projectplace-tutorial/ic790228.png "People")
+    ![사람으로 이동한 다음, 멤버 선택](./media/projectplace-tutorial/ic790228.png "사람")
 
 3. **Add Member**(멤버 추가)를 클릭합니다.
    
-    ![Add Member 선택](./media/projectplace-tutorial/ic790232.png "Member 추가")
+    ![멤버 추가 선택](./media/projectplace-tutorial/ic790232.png "멤버 추가")
 
 4. **Add Member** 섹션에서 다음 단계를 수행합니다.
    
-    ![Add Member 섹션](./media/projectplace-tutorial/ic790233.png "New Members")(새 멤버)
+    ![멤버 추가 섹션](./media/projectplace-tutorial/ic790233.png "새 멤버")
    
     1. **New Members** 텍스트 상자에서 추가하려는 유효한 Azure AD 계정의 이메일 주소를 입력합니다.
    

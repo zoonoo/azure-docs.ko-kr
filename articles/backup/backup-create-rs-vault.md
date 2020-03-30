@@ -1,15 +1,15 @@
 ---
-title: Recovery Services 자격 증명 모음 만들기
-description: 이 문서에서는 백업 및 복구 지점이 저장 되는 Recovery Services 자격 증명 모음을 만드는 방법에 대해 알아봅니다.
+title: 복구 서비스 자격 증명 모음 만들기
+description: 이 문서에서는 백업 및 복구 지점을 저장하는 복구 서비스 자격 증명 모음을 만드는 방법을 알아봅니다.
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 5eac302668c2f322390b38475860c77f1cd40d72
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: e722996f516d21445d8e0028df925ca44eb02bfc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79247957"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80295007"
 ---
 # <a name="create-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 만들기
 
@@ -57,81 +57,93 @@ Recovery Services 자격 증명 모음을 만들려면:
 
 ## <a name="set-storage-redundancy"></a>스토리지 중복 설정
 
-Azure Backup는 자격 증명 모음에 대 한 저장소를 자동으로 처리 합니다. 저장소를 복제 하는 방법을 지정 해야 합니다.
+Azure Backup은 볼트에 대한 저장소를 자동으로 처리합니다. 해당 저장소를 복제하는 방법을 지정해야 합니다.
 
-1. **Recovery Services 자격 증명 모음** 블레이드에서 새 자격 증명 모음을 클릭합니다. **설정** 섹션에서 **속성**을 클릭 합니다.
-2. **속성**의 **백업 구성**에서 **업데이트**를 클릭 합니다.
+1. **Recovery Services 자격 증명 모음** 블레이드에서 새 자격 증명 모음을 클릭합니다. **설정** 섹션에서 **속성**을 클릭합니다.
+2. **속성에서** **백업 구성에서** **을 클릭합니다.**
 
-3. 저장소 복제 유형을 선택 하 고 **저장**을 클릭 합니다.
+3. 저장소 복제 유형을 선택하고 **저장**을 클릭합니다.
 
      ![새 자격 증명 모음의 스토리지 구성 설정](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
 
-   - Azure를 기본 백업 저장소 끝점으로 사용 하는 경우 기본 **지역 중복** 설정을 계속 사용 하는 것이 좋습니다.
+   - Azure를 기본 백업 저장소 끝점으로 사용하는 경우 기본 **지리적 중복** 설정을 계속 사용하는 것이 좋습니다.
    - Azure를 기본 백업 스토리지 엔드포인트로 사용하지 않는 경우 Azure Storage 비용이 감소되는 **로컬 중복**을 선택합니다.
-   - [지역](../storage/common/storage-redundancy-grs.md) 및 [로컬](../storage/common/storage-redundancy-lrs.md) 중복성에 대해 자세히 알아보세요.
+   - [지리적](../storage/common/storage-redundancy-grs.md) 및 [지역](../storage/common/storage-redundancy-lrs.md) 중복성에 대해 자세히 알아보세요.
 
 > [!NOTE]
-> Recovery services 자격 증명 모음에 대 한 **저장소 복제 유형** (로컬 중복/지역 중복) 변경은 자격 증명 모음에서 백업을 구성 하기 전에 수행 해야 합니다. 백업을 구성한 후에는 수정 하는 옵션을 사용할 수 없으며 **저장소 복제 유형을**변경할 수 없습니다.
+> 복구 서비스 자격 증명 모음에 대한 저장소 복제 유형(로컬-중복/지리적 중복)을 변경하려면 볼트에서 백업을 구성하기 전에 수행해야 합니다. **Storage Replication type** 백업을 구성하면 수정 옵션이 비활성화되어 **저장소 복제 유형을**변경할 수 없습니다.
 
-## <a name="set-cross-region-restore"></a>지역 간 복원 설정
+## <a name="set-cross-region-restore"></a>교차 영역 복원 설정
 
-복원 옵션 중 하나로, CRR (교차 지역 복원)을 사용 하면 azure [쌍을 이루는 지역](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)에 있는 보조 지역에서 azure vm을 복원할 수 있습니다. 이 옵션을 사용 하면 다음을 수행할 수 있습니다.
+복원 옵션 중 하나인 CRR(교차 지역 복원)을 사용하면 [Azure 쌍을 이루는 지역인](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)보조 지역에서 Azure VM을 복원할 수 있습니다. 이 옵션을 사용하면 다음을 수행할 수 있습니다.
 
-- 감사 또는 규정 준수 요구 사항이 있는 경우 드릴 수행
-- 주 지역에 재해가 발생 한 경우 VM 또는 해당 디스크를 복원 합니다.
+- 감사 또는 규정 준수 요구 사항이 있을 때 실시 훈련
+- 기본 지역에 재해가 있는 경우 VM 또는 해당 디스크를 복원합니다.
 
-이 기능을 선택 하려면 **백업 구성** 블레이드에서 **교차 영역 복원 사용** 을 선택 합니다.
+이 기능을 선택하려면 **백업 구성** 블레이드에서 **지역 교차 복원 을** 선택합니다.
 
-이 프로세스의 경우 저장소 수준에 따라 가격 책정이 영향을 미칩니다.
+이 프로세스의 경우 저장소 수준과 마찬가지로 가격 에 영향을 미칩니다.
 
 >[!NOTE]
 >시작하기 전에
 >
->- 지원 되는 관리 되는 형식 및 지역 목록은 [지원 매트릭스](backup-support-matrix.md#cross-region-restore) 를 검토 하세요.
->- CRR (교차 지역 복원) 기능은 현재 다음 지역 에서만 사용할 수 있습니다. 
+>- 지원되는 관리 되는 형식 및 지역 목록에 대 한 [지원 매트릭스를](backup-support-matrix.md#cross-region-restore) 검토 합니다.
+>- CRR(교차 영역 복원) 기능은 현재 다음 리전에서만 사용할 수 있습니다. 
 >    - 미국 중서부
 >    - 미국 서부 2
+>    - 미국 중남부
+>    - 미국 동부
+>    - 미국 동부 2
+>    - 미국 중북부
+>    - 캐나다 중부
+>    - 캐나다 동부
 >    - 오스트레일리아 동부
 >    - 오스트레일리아 남동부
+>    - 인도 중부
+>    - 인도 남부
 >    - 일본 동부
 >    - 일본 서부
 >    - 동남아시아
 >    - 영국 남부
->- CRR은 GRS 자격 증명 모음에 대 한 자격 증명 모음 수준 옵트인 기능입니다 (기본적으로 해제 됨).
->- 이 기능에 대 한 구독을 등록 하려면 다음 명령을 사용 하세요.<br>
+>    - 영국 서부
+>    - 프랑스 중부
+>    - 한국 중부
+>    - 한국 남부
+>- CRR은 모든 GRS 볼트에 대한 볼트 수준 옵트인 기능입니다(기본적으로 꺼져 있음).
+>- 다음 명령을 사용하여 이 기능에 대한 구독을 온보온하십시오.<br>
 >  `Register-AzProviderFeature -FeatureName CrossRegionRestore -ProviderNamespace Microsoft.RecoveryServices`
->- 제한 된 공개 미리 보기 중에이 기능을 등록 하는 경우 승인 전자 메일 검토에 가격 정책 세부 정보가 포함 됩니다.
->- 옵트인 후에는 보조 지역에서 백업 항목을 사용 하는 데 최대 48 시간이 걸릴 수 있습니다.
->- 현재 CRR은 백업 관리 유형 ARM Azure VM에 대해서만 지원 됩니다 (클래식 Azure VM은 지원 되지 않음).  추가 관리 유형이 CRR을 지 원하는 경우 **자동으로** 등록 됩니다.
+>- 공개 제한 미리 보기 중에 이 기능에 온보온인 경우 검토 승인 이메일에 가격 정책 세부 정보가 포함됩니다.
+>- 옵트인한 후 보조 지역에서 백업 항목을 사용할 수 있는 데 최대 48시간이 걸릴 수 있습니다.
+>- 현재 CRR은 백업 관리 유형 - ARM Azure VM(클래식 Azure VM이 지원되지 않음)에대해서만 지원됩니다.  추가 관리 유형이 CRR을 지원하면 **자동으로** 등록됩니다.
 
-### <a name="configure-cross-region-restore"></a>지역 간 복원 구성
+### <a name="configure-cross-region-restore"></a>교차 지역 복원 구성
 
-GRS 중복성으로 만든 자격 증명 모음에는 지역 간 복원 기능을 구성 하는 옵션이 포함 됩니다. 모든 GRS 자격 증명 모음에는 설명서에 연결 되는 배너가 있습니다. 자격 증명 모음에 대해 CRR을 구성 하려면이 기능을 사용 하도록 설정 하는 옵션이 포함 된 백업 구성 블레이드로 이동 합니다.
+GRS 중복성으로 만든 볼트에는 교차 지역 복원 기능을 구성하는 옵션이 포함됩니다. 모든 GRS 볼트에는 문서에 연결되는 배너가 있습니다. 볼트에 대한 CRR을 구성하려면 이 기능을 활성화하는 옵션이 포함된 백업 구성 블레이드로 이동하십시오.
 
  ![백업 구성 배너](./media/backup-azure-arm-restore-vms/banner.png)
 
-1. 포털에서 Recovery Services 자격 증명 모음 > 설정 > 속성으로 이동 합니다.
-2. **이 자격 증명 모음에서 교차 지역 복원 사용** 을 클릭 하 여 기능을 사용 하도록 설정 합니다.
+1. 포털에서 속성에 > 복구 서비스 자격 증명 모음으로 이동> 설정합니다.
+2. **이 자격 증명 모음에서 교차 지역 복원 을** 클릭하여 기능을 활성화합니다.
 
-   ![이 자격 증명 모음에서 지역 간 복원 사용을 클릭 하기 전에](./media/backup-azure-arm-restore-vms/backup-configuration1.png)
+   ![이 자격 증명 모음에서 교차 지역 복원 을 클릭하기 전에](./media/backup-azure-arm-restore-vms/backup-configuration1.png)
 
-   ![이 자격 증명 모음에서 교차 영역 복원 사용을 클릭 한 후](./media/backup-azure-arm-restore-vms/backup-configuration2.png)
+   ![이 자격 증명 모음에서 교차 지역 복원 을 클릭한 후](./media/backup-azure-arm-restore-vms/backup-configuration2.png)
 
-[보조 지역에서 백업 항목을 보는](backup-azure-arm-restore-vms.md#view-backup-items-in-secondary-region)방법에 대해 알아봅니다.
+[보조 지역에서 백업 항목을 보는](backup-azure-arm-restore-vms.md#view-backup-items-in-secondary-region)방법을 알아봅니다.
 
-[보조 지역에서 복원](backup-azure-arm-restore-vms.md#restore-in-secondary-region)하는 방법을 알아봅니다.
+[보조 영역에서 복원하는](backup-azure-arm-restore-vms.md#restore-in-secondary-region)방법에 대해 알아봅니다.
 
-[보조 지역 복원 작업을 모니터링](backup-azure-arm-restore-vms.md#monitoring-secondary-region-restore-jobs)하는 방법에 대해 알아봅니다.
+[보조 지역 복원 작업을 모니터링하는](backup-azure-arm-restore-vms.md#monitoring-secondary-region-restore-jobs)방법에 대해 알아봅니다.
 
 ## <a name="modifying-default-settings"></a>기본 설정 수정
 
-**저장소 복제 유형** 및 **보안 설정** 에 대 한 기본 설정은 자격 증명 모음에서 백업을 구성 하기 전에 검토 하는 것이 좋습니다.
+저장소에서 백업을 구성하기 전에 **저장소 복제 유형** 및 보안 **설정에** 대한 기본 설정을 검토하는 것이 좋습니다.
 
-- 기본적으로 **저장소 복제 유형은** **지역 중복**으로 설정 됩니다. 백업을 구성한 후에는 수정 하는 옵션을 사용할 수 없습니다. 설정을 검토 하 고 수정 하려면 다음 [단계](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy) 를 수행 합니다.
+- **저장소 복제 유형은** 기본적으로 **지리적 중복으로**설정됩니다. 백업을 구성하면 수정 옵션이 비활성화됩니다. 다음 [단계에](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy) 따라 설정을 검토하고 수정합니다.
 
-- 새로 만든 자격 증명 모음에 대해 기본적으로 **일시 삭제** 를 **사용** 하 여 실수로 인 한 삭제 또는 악의적인 삭제 로부터 백업 데이터를 보호 합니다. 설정을 검토 하 고 수정 하려면 다음 [단계](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#disabling-soft-delete) 를 수행 합니다.
+- **소프트 삭제는** 기본적으로 새로 생성된 볼트에서 **활성화되어** 실수로 또는 악의적인 삭제로부터 백업 데이터를 보호합니다. 다음 [단계에](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#disabling-soft-delete) 따라 설정을 검토하고 수정합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-[자세한 정보](backup-azure-recovery-services-vault-overview.md) 자격 증명 모음을 Recovery Services 합니다.
-[자세한 정보](backup-azure-delete-vault.md) Recovery Services 자격 증명 모음을 삭제 합니다.
+[자세히 알아보기](backup-azure-recovery-services-vault-overview.md) 복구 서비스 자격 증명 모음입니다.
+[자세히 알아보기](backup-azure-delete-vault.md) 복구 서비스 자격 증명 모음을 삭제합니다.

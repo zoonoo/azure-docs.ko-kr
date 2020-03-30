@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 02/18/2020
+ms.date: 03/13/2020
 ms.author: victorh
-ms.openlocfilehash: 0ba2ce30cee3ff7e3a9f71b4f1b0928fa84e775d
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: 149782f627d586e927c828506a7d4f1b5437b987
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77443155"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79366277"
 ---
 # <a name="what-is-azure-firewall-manager-preview"></a>Azure Firewall Manager Preview란?
 
@@ -80,13 +80,14 @@ Azure Firewall Manager Preview에는 다음과 같이 알려진 문제가 있습
 
 |문제  |Description  |완화 방법  |
 |---------|---------|---------|
-|타사 필터링 제한 사항|타사 공급자를 사용한 V2I 트래픽 필터링은 Azure Firewall B2V 및 V2V에서 지원되지 않습니다.|현재 조사 중입니다.|
-|트래픽 분할은 현재 지원되지 않습니다.|Office 365 및 Azure 퍼블릭 PaaS 트래픽 분할은 현재 지원되지 않습니다. 따라서 V2I 또는 B2I에 대해 타사 공급자를 선택하면 모든 Azure 퍼블릭 PaaS 및 Office 365 트래픽도 파트너 서비스를 통해 전송됩니다.|허브의 트래픽 분할을 현재 조사 중입니다.
-|지역당 하나의 보안 가상 허브|지역당 둘 이상의 보안 가상 허브를 가질 수 없습니다.|한 지역에 여러 가상 WAN을 만듭니다.|
-|기본 정책은 로컬 정책과 동일한 지역에 있어야 합니다.|기본 정책과 동일한 지역에 모든 로컬 정책을 만듭니다. 보안 허브의 한 지역에 생성된 정책을 다른 지역에서 계속 적용할 수 있습니다.|현재 조사 중입니다.|
-|보안 Virtual Hub에서 허브 간 통신이 작동하지 않음|보안 Virtual Hub 간 통신은 아직 지원되지 않습니다.|현재 조사 중입니다.|
+|타사 필터링 제한 사항.|타사 공급자를 사용한 V2I 트래픽 필터링은 Azure Firewall B2V 및 V2V에서 지원되지 않습니다.|조사|
+|트래픽 분할은 현재 지원되지 않습니다.|Office 365 및 Azure 퍼블릭 PaaS 트래픽 분할은 현재 지원되지 않습니다. 따라서 V2I 또는 B2I에 대해 타사 공급자를 선택하면 모든 Azure 퍼블릭 PaaS 및 Office 365 트래픽도 파트너 서비스를 통해 전송됩니다.|허브에서 트래픽 분할을 조사 중입니다.
+|지역당 하나의 보안 가상 허브.|지역당 둘 이상의 보안 가상 허브를 가질 수 없습니다.|한 지역에 여러 가상 WAN을 만듭니다.|
+|기본 정책은 로컬 정책과 동일한 지역에 있어야 합니다.|기본 정책과 동일한 지역에 모든 로컬 정책을 만듭니다. 보안 허브의 한 지역에 생성된 정책을 다른 지역에서 계속 적용할 수 있습니다.|조사|
+|보안 Virtual Hub에서 허브 간 통신이 작동하지 않음|보안 Virtual Hub 간 통신은 아직 지원되지 않습니다.|조사|
 |동일한 가상 WAN을 공유하는 모든 보안 Virtual Hubs는 동일한 리소스 그룹에 있어야 합니다.|이 동작은 현재 Virtual WAN Hubs에 맞춰 조정됩니다.|여러 Virtual WAN을 만들어 다른 리소스 그룹에서 보안 Virtual Hubs를 만들 수 있도록 합니다.|
-|Firewall Policy에서 IP 그룹이 지원되지 않습니다.|IP 그룹은 공개 미리 보기로 제공되며 현재 기존 방화벽 규칙에서만 지원됩니다.|수정 진행 중
+|Firewall Policy에서 IP 그룹이 지원되지 않습니다.|IP 그룹은 공개 미리 보기로 제공되며 현재 기존 방화벽 규칙에서만 지원됩니다.|수정이 진행중입니다.
+|CSP(클라우드 솔루션 공급자) 구독은 지원되지 않습니다.|현재 [CSP 구독](https://azure.microsoft.com/offers/ms-azr-0145p/)은 지원되지 않습니다.|조사
 
 ## <a name="next-steps"></a>다음 단계
 

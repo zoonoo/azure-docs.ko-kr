@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 02/26/2020
+ms.date: 03/17/2020
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: 5f1672b53fa9bd8c8126fefd092e1be78a844ab9
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.openlocfilehash: ed27097d29f3a10e708044ad7e2e30736e2c60e6
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78382584"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79471849"
 ---
 # <a name="what-is-azure-firewall"></a>Azure Firewall이란?
 
@@ -79,7 +79,7 @@ FQDN 태그를 활용하면 방화벽을 통해 잘 알려진 Azure 서비스 �
 
 ## <a name="inbound-dnat-support"></a>인바운드 DNAT 지원
 
-방화벽 공용 IP 주소에 대 한 인바운드 인터넷 네트워크 트래픽이 변환 (대상 네트워크 주소 변환) 되 고 가상 네트워크의 개인 IP 주소로 필터링 됩니다.
+방화벽 공용 IP 주소로의 인바운드 인터넷 네트워크 트래픽이 변환되고(Destination Network Address Translation), 가상 네트워크의 개인 IP 주소로 필터링됩니다.
 
 ## <a name="multiple-public-ip-addresses"></a>여러 공용 IP 주소
 
@@ -114,10 +114,11 @@ TCP/UDP 프로토콜이 아닌 프로토콜(예: ICMP)에 대한 네트워크 �
 |Azure Firewall SNAT/DNAT는 개인 IP 대상에는 작동하지 않습니다.|Azure Firewall SNAT/DNAT 지원은 인터넷 송신/수신으로 제한됩니다. 현재 개인 IP 대상에는 SNAT/DNAT를 사용할 수 없습니다. 예: 스포크-스포크.|이 문제가 현재 제한 사항입니다.|
 |첫 번째 공용 IP 구성을 제거할 수 없음|각 Azure Firewall 공용 IP 주소는 *IP 구성*에 할당됩니다.  첫 번째 IP 구성은 방화벽을 배포하는 동안 할당되며, 일반적으로 방화벽 서브넷에 대한 참조도 포함하고 있습니다(템플릿 배포를 통해 명시적으로 다르게 구성하지 않는 이상). 이 IP 구성을 삭제하면 방화벽이 할당 취소되므로 삭제할 수 없습니다. 방화벽에 사용 가능한 다른 공용 IP 주소가 하나 이상 있는 경우 이 IP 구성과 연결된 공용 IP 주소를 변경하거나 제거할 수 있습니다.|이것은 의도적인 것입니다.|
 |가용성 영역은 배포 중에만 구성할 수 있습니다.|가용성 영역은 배포 중에만 구성할 수 있습니다. 방화벽이 배포된 후에는 가용 영역을 구성할 수 없습니다.|이것은 의도적인 것입니다.|
-|인바운드 연결의 SNAT|DNAT 외에도 방화벽 공용 IP 주소(인바운드)를 통한 연결은 방화벽 개인 IP 중 하나로 SNAT됩니다. 이 요구 사항은 현재(활성/활성 NVA의 경우에도) 대칭 라우팅을 보장합니다.|HTTP/S에 대한 원래 원본을 보존하려면 [XFF](https://en.wikipedia.org/wiki/X-Forwarded-For) 헤더를 사용하는 것이 좋습니다. 예를 들어 방화벽 앞에 있는 [Azure Front Door](../frontdoor/front-door-http-headers-protocol.md#front-door-service-to-backend) 또는 [Azure Application Gateway](../application-gateway/rewrite-http-headers.md)와 같은 서비스를 사용합니다. Azure Front Door의 일부로 WAF를 추가하고 방화벽에 체인을 추가할 수도 있습니다.
+|인바운드 연결의 SNAT|DNAT 외에도 방화벽 공용 IP 주소(인바운드)를 통한 연결은 방화벽 개인 IP 중 하나로 SNAT됩니다. 이 요구 사항은 현재(활성/활성 NVA의 경우에도) 대칭 라우팅을 보장합니다.|HTTP/S에 대한 원래 원본을 보존하려면 [XFF](https://en.wikipedia.org/wiki/X-Forwarded-For) 헤더를 사용하는 것이 좋습니다. 예를 들어 방화벽 앞에 있는 [Azure Front Door](../frontdoor/front-door-http-headers-protocol.md#front-door-to-backend) 또는 [Azure Application Gateway](../application-gateway/rewrite-http-headers.md)와 같은 서비스를 사용합니다. Azure Front Door의 일부로 WAF를 추가하고 방화벽에 체인을 추가할 수도 있습니다.
 |프록시 모드(포트 1433)에서만 지원되는 SQL FQDN 필터링|Azure SQL Database, Azure SQL Data Warehouse 및 Azure SQL Managed Instance:<br><br>미리 보기 기간에는 SQL FQDN 필터링이 프록시 모드(포트 1433)에서만 지원됩니다.<br><br>Azure SQL IaaS:<br><br>비표준 포트를 사용하는 경우 애플리케이션 규칙에서 해당 포트를 지정할 수 있습니다.|Azure 내에서 연결할 때 기본값인 리디렉션 모드의 SQL은 이 방법 대신 SQL 서비스 태그를 Azure Firewall 네트워크 규칙의 일부로 사용하여 액세스를 필터링 할 수 있습니다.
 |TCP 포트 25의 아웃바운드 트래픽은 허용되지 않음| TCP 포트 25를 사용하는 아웃바운드 SMTP 연결이 차단되었습니다. 포트 25는 주로 인증되지 않은 이메일 배달을 위해 사용됩니다. 이는 가상 머신의 기본 플랫폼 동작입니다. 자세한 내용은 [Azure에서 아웃바운드 SMTP 연결 문제 해결](../virtual-network/troubleshoot-outbound-smtp-connectivity.md)을 참조하세요. 그러나 가상 머신과 달리 현재는 Azure 방화벽에서 이 기능을 사용하도록 설정할 수 없습니다.|SMTP 문제 해결 문서에 설명된 것처럼 권장 방법에 따라 이메일을 보냅니다. 또는 기본 경로에서 방화벽으로의 아웃바운드 SMTP 액세스가 필요한 가상 머신을 제외하는 대신, 인터넷에 대한 아웃바운드 액세스를 직접 구성합니다.
 |활성 FTP는 지원되지 않습니다.|FTP PORT 명령을 사용하여 FTP 바운스 공격으로부터 보호하기 위해 Azure 방화벽에서 활성 FTP를 사용하지 않도록 설정합니다.|대신 수동 FTP를 사용할 수 있습니다. 여전히 방화벽에서 TCP 포트 20 및 21을 명시적으로 열어야 합니다.
+|SNAT 포트 사용률 메트릭이 0%를 표시합니다.|SNAT 포트를 사용하는 경우에도 Azure Firewall SNAT 포트 사용률 메트릭이 0% 사용량을 표시할 수 있습니다. 이 경우 방화벽 상태 메트릭의 일부로 메트릭을 사용하면 잘못된 결과가 제공됩니다.|이 문제는 해결되었으며 2020년 5월에 출시될 예정입니다. 방화벽 재배포로 문제가 해결되는 경우도 있지만 일관되지 없습니다. 중간책으로, 방화벽 상태만 사용하여 *status=unhealthy*가 *status=degraded*를 찾습니다. 포트 소모는 *성능 저하됨*으로 표시됩니다. 방화벽 상태에 영향을 주는 더 많은 메트릭이 있는 경우 *정상이 아님*은 나중에 사용하도록 예약되어 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

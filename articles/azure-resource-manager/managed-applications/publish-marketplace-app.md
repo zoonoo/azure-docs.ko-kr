@@ -5,14 +5,14 @@ author: tfitzmac
 ms.topic: tutorial
 ms.date: 07/17/2019
 ms.author: tomfitz
-ms.openlocfilehash: 73d4ccbda854d631248daef439aa3bd232d42e06
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: a42ee5d6f7f40d391acb743ef85f671f25804749
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75649070"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79472999"
 ---
-# <a name="azure-managed-applications-in-the-marketplace"></a>Marketplace에서 Azure 관리되는 애플리케이션
+# <a name="tutorial-publish-azure-managed-applications-in-the-marketplace"></a>자습서: Marketplace에서 Azure 관리형 애플리케이션 게시
 
 공급업체는 Azure 관리되는 애플리케이션을 사용하여 모든 Azure Marketplace 고객에게 솔루션을 제공할 수 있습니다. 이러한 공급업체에는 MSP(관리되는 서비스 제공업체), 독립 소프트웨어 공급업체(ISP), 시스템 통합 사업자(SI) 등이 포함될 수 있습니다. 관리되는 애플리케이션은 고객에 대한 유지 관리 및 서비스 오버헤드를 줄입니다. 공급업체는 마켓플레이스를 통해 인프라 및 소프트웨어를 판매할 수 있습니다. 서비스 및 작업 지원을 관리형 애플리케이션에 연결할 수 있습니다. 자세한 내용은 [관리형 애플리케이션 개요](overview.md)를 참조하세요.
 

@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 02/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 301b68d0dfaeef6d5cfdd4d7a5a504794ac877f4
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: ad074ca2cc9cd335d6697a2383998246468907ad
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78205828"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80052457"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>샘플 레이블 지정 도구를 사용하여 레이블로 Form Recognizer 모델 학습
 
@@ -35,6 +35,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 ## <a name="set-up-the-sample-labeling-tool"></a>샘플 레이블 지정 도구 설정
 
 Docker 엔진을 사용하여 샘플 레이블 지정 도구를 실행합니다. 다음 단계에 따라 Docker 컨테이너를 설정합니다. Docker 및 컨테이너에 대한 기본 사항은 [Docker 개요](https://docs.docker.com/engine/docker-overview/)를 참조하세요.
+
+> [!TIP]
+> OCR 양식 레이블 지정 도구는 GitHub에서 오픈 소스 프로젝트로도 사용할 수 있습니다. 도구는 React + Redux를 사용하여 빌드한 웹 애플리케이션으로, TypeScript로 작성되었습니다. 자세히 알아보거나 기여하려면 [OCR 양식 레이블 지정 도구](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md#run-as-web-application)를 참조하세요.
+
 1. 먼저 Docker를 호스트 컴퓨터에 설치합니다. 이 가이드에서는 로컬 컴퓨터를 호스트로 사용하는 방법을 보여줍니다. Azure에서 Docker 호스팅 서비스를 사용하려면 [샘플 레이블 지정 도구 배포](../deploy-label-tool.md) 방법 가이드를 참조하세요. 
 
    호스트 컴퓨터는 다음 하드웨어 요구 사항을 충족해야 합니다.
@@ -185,11 +189,12 @@ Docker 엔진을 사용하여 샘플 레이블 지정 도구를 실행합니다.
 프로젝트를 다시 시작하려면 먼저 동일한 Blob 스토리지 컨테이너에 대한 연결을 만들어야 합니다. 위의 단계 반복하여 이 작업을 수행합니다. 그런 다음, 애플리케이션 설정 페이지(기어 아이콘)로 이동하여 프로젝트의 보안 토큰이 있는지 확인합니다. 그렇지 않으면 새 보안 토큰을 추가하고, 이전 단계의 토큰 이름과 키를 다시 복사합니다. 그런 다음, [설정 저장]을 클릭합니다. 
 
 ### <a name="resume-a-project"></a>프로젝트 다시 시작
+
 마지막으로, 기본 페이지(집 아이콘)로 이동하여 [클라우드 프로젝트 열기]를 클릭합니다. 그런 다음, Blob 스토리지 연결을 선택하고, 프로젝트의 *.vott* 파일을 선택합니다. 보안 토큰이 있으므로 애플리케이션에서 프로젝트의 모든 설정을 로드합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 Form Recognizer 샘플 레이블 지정 도구를 사용하여 수동으로 레이블이 지정된 데이터로 모델을 학습시키는 방법을 알아보았습니다. 레이블 지정 도구를 사용자 고유의 애플리케이션에 통합하려면 레이블이 지정된 데이터 학습을 처리하는 REST API를 사용합니다.
+이 빠른 시작에서는 Form Recognizer 샘플 레이블 지정 도구를 사용하여 수동으로 레이블이 지정된 데이터로 모델을 학습하는 방법을 알아보았습니다. 레이블 지정 도구를 사용자 고유의 애플리케이션에 통합하려면 레이블이 지정된 데이터 학습을 처리하는 REST API를 사용합니다.
 
 > [!div class="nextstepaction"]
 > [Python을 사용하여 레이블로 학습](./python-labeled-data.md)

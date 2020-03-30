@@ -15,20 +15,19 @@ ms.topic: tutorial
 ms.date: 01/31/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f4084532ac370880df69d825927240c297dd371
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: e812e1b03637a3ecd7a45f02664c4e3547f1aef1
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79129913"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79138980"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-github"></a>자습서: GitHub와 Azure Active Directory SSO(Single Sign-On) 통합
 
 이 자습서에서는 Azure AD(Azure Active Directory)와 GitHub를 통합하는 방법에 대해 알아봅니다. Azure AD와 GitHub를 통합하는 경우 다음을 수행할 수 있습니다.
 
-* Azure AD에서 GitHub에 대한 액세스 권한이 있는 사용자를 제어합니다.
-* 사용자가 해당 Azure AD 계정으로 GitHub에 자동으로 로그온되도록 설정할 수 있습니다.
-* 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
+* GitHub Enterprise Cloud Organization에 액세스할 수 있는 사용자를 Azure AD에서 제어합니다.
+* Azure Portal 중앙에서 GitHub Enterprise Cloud Organization에 대한 액세스를 관리합니다.
 
 Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)를 참조하세요.
 
@@ -45,7 +44,7 @@ GitHub와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
 * GitHub에서 **SP** 시작 SSO를 지원합니다.
 
-* GitHub에서 [**자동** 사용자 프로비전](github-provisioning-tutorial.md)을 지원합니다.
+* GitHub에서 [**자동** 사용자 프로비저닝(조직 초대)](github-provisioning-tutorial.md)을 지원합니다.
 * GitHub를 구성한 후에는 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 침입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법 알아보기](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-github-from-the-gallery"></a>갤러리에서 GitHub 추가

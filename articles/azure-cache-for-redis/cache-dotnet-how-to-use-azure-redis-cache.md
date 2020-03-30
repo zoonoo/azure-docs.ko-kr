@@ -7,13 +7,13 @@ ms.service: cache
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 05/18/2018
-ms.openlocfilehash: b22d40e29d2150592f2753edd789458fbf25911f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 03/11/2020
+ms.openlocfilehash: 6384416c2feef3c9a9517bce08374a7667eb5d6b
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433521"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79369066"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-a-net-framework-application"></a>빠른 시작: .NET Framework 애플리케이션에서 Azure Cache for Redis 사용
 
@@ -49,8 +49,7 @@ ms.locfileid: "75433521"
 
 Visual Studio에서 **파일** > **새로 만들기** > **프로젝트**를 클릭합니다.
 
-**Visual C#** 아래에서 **Windows 클래식 데스크톱**을 클릭한 다음, **콘솔 앱** 및 **확인**을 클릭하여 새 콘솔 애플리케이션을 만듭니다.
-
+**콘솔 앱(.NET Framework)** 을 선택하고 **다음**을 선택하여 앱을 구성합니다. **프로젝트 이름**을 입력하고 **만들기**를 클릭하여 새 콘솔 애플리케이션을 만듭니다.
 
 <a name="configure-the-cache-clients"></a>
 
@@ -128,7 +127,7 @@ Azure Cache for Redis 연결은 `ConnectionMultiplexer` 클래스로 관리됩�
         {
             // Connection refers to a property that returns a ConnectionMultiplexer
             // as shown in the previous example.
-            IDatabase cache = lazyConnection.Value.GetDatabase();
+            IDatabase cache = Connection.GetDatabase();
 
             // Perform cache operations using the cache object...
 

@@ -6,12 +6,12 @@ ms.author: sudbalas
 ms.date: 03/08/2020
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: 6a5cc5bbdb56e308d79b8eb2c8db546184cedb39
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.openlocfilehash: c24be648e4ca1433c7c2af3d659bf4520a7a188c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79080346"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79457290"
 ---
 # <a name="integrate-key-vault-with-azure-private-link"></a>Azure Private Link와 Key Vault 통합
 
@@ -19,11 +19,11 @@ Azure Private Link Service를 사용하면 가상 네트워크의 프라이빗 �
 
 Azure 프라이빗 엔드포인트는 Azure Private Link에서 제공하는 서비스에 비공개로 안전하게 연결하는 네트워크 인터페이스입니다. 프라이빗 엔드포인트는 VNet의 개인 IP 주소를 사용하여 서비스를 VNet으로 효과적으로 가져옵니다. 서비스에 대한 모든 트래픽은 프라이빗 엔드포인트를 통해 라우팅할 수 있으므로 게이트웨이, NAT 디바이스, ExpressRoute 또는 VPN 연결 또는 공용 IP 주소가 필요하지 않습니다. 가상 네트워크와 서비스 간의 트래픽은 Microsoft 백본 네트워크를 통해 이동하여 공용 인터넷에서 노출을 제거합니다. Azure 리소스의 인스턴스에 연결하여 액세스 제어에서 가장 높은 수준의 세분성을 제공할 수 있습니다.
 
-자세한 내용은 [Azure Private Link(미리 보기)란?](../private-link/private-link-overview.md)을 참조하세요.
+자세한 내용은 [Azure Private Link란?](../private-link/private-link-overview.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-키 자격 증명 모음을 Azure Private Link(미리 보기)와 통합하려면 다음이 필요합니다.
+키 자격 증명 모음을 Azure Private Link와 통합하려면 다음이 필요합니다.
 
 - 키 자격 증명 모음.
 - Azure 가상 네트워크
@@ -46,7 +46,7 @@ Azure 프라이빗 엔드포인트는 Azure Private Link에서 제공하는 서�
 
 키 자격 증명 모음 기본 사항이 구성되면 [네트워킹] 탭을 선택하고 다음 단계를 수행합니다.
 
-1. 네트워킹 탭에서 프라이빗 엔드포인트(미리 보기) 라디오 단추를 선택합니다.
+1. 네트워킹 탭에서 프라이빗 엔드포인트 라디오 단추를 선택합니다.
 1. "+ 추가" 단추를 클릭하여 프라이빗 엔드포인트를 추가합니다.
 
     ![이미지](./media/private-link-service-1.png)
@@ -69,7 +69,7 @@ Azure 프라이빗 엔드포인트는 Azure Private Link에서 제공하는 서�
 1. 검색 창에서 "키 자격 증명 모음"을 입력합니다.
 1. 프라이빗 엔드포인트를 추가하려는 목록에서 키 자격 증명 모음을 선택합니다.
 1. [설정] 아래에서 "네트워킹" 탭을 선택합니다.
-1. 페이지 위쪽에서 프라이빗 엔드포인트 연결(미리 보기) 탭을 선택합니다.
+1. 페이지 위쪽에서 프라이빗 엔드포인트 연결 탭을 선택합니다.
 1. 페이지 위쪽에서 "+ 프라이빗 엔드포인트" 단추를 선택합니다.
 
     ![이미지](./media/private-link-service-3.png) ![이미지](./media/private-link-service-4.png)
@@ -100,6 +100,10 @@ az provider register -n Microsoft.KeyVault
 ### <a name="create-a-new-key-vault"></a>새 Key Vault 만들기
 ```console
 az keyvault create --name {KEY VAULT NAME} --resource-group {RG} --location {AZURE REGION}
+```
+### <a name="turn-on-key-vault-firewall"></a>Key Vault Firewall 설정
+```console
+az keyvault update --name {KEY VAULT NAME} --resource-group {RG} --location {AZURE REGION} --default-action deny
 ```
 ### <a name="create-a-virtual-network"></a>Virtual Network 만들기
 ```console
@@ -220,9 +224,9 @@ Aliases:  <your-key-vault-name>.vault.azure.net
 
 ## <a name="limitations-and-design-considerations"></a>제한 사항 및 디자인 고려 사항
 
-**가격 책정**: 가격 책정 정보는 [Azure Private Link(미리 보기) 가격](https://azure.microsoft.com/pricing/details/private-link/)을 참조하세요.
+**가격 책정**: 가격 책정 정보는 [Azure Private Link 가격 책정](https://azure.microsoft.com/pricing/details/private-link/)을 참조하세요.
 
-**제한 사항**:  Azure Key Vault에 대한 프라이빗 엔드포인트는 공개 미리 보기에 있습니다. 이 기능은 모든 Azure 퍼블릭 지역에서 사용할 수 있습니다.
+**제한 사항**:  Azure Key Vault용 프라이빗 엔드포인트는 Azure 공용 지역에서만 사용할 수 있습니다.
 
 **Key Vault당 최대 프라이빗 엔드포인트 수**: 64.
 
@@ -232,5 +236,5 @@ Aliases:  <your-key-vault-name>.vault.azure.net
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Private Link(미리 보기)](../private-link/private-link-service-overview.md)에 대해 자세히 알아봅니다.
+- [Azure Private Link](../private-link/private-link-service-overview.md)에 대해 자세히 알아봅니다.
 - [Azure Key Vault](key-vault-overview.md)에 대해 자세히 알아봅니다.

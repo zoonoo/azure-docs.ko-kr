@@ -3,16 +3,16 @@ title: Mobile Apps 정보
 description: App Service가 엔터프라이즈 모바일 앱에 제공하는 이점을 알아봅니다.
 ms.assetid: 4e96cb9d-a632-4cf6-8219-0810d8ade3f9
 ms.tgt_pltfrm: mobile-multiple
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 06/25/2019
-ms.openlocfilehash: 73fdf7f09ebb5073829f9787917946e8053f8e12
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
-ms.translationtype: MT
+ms.openlocfilehash: 33548f202046310b91fc79d38ac7d8fb18a8727e
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77461439"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79499435"
 ---
-# <a name="getting-started"> </a>Azure App Service의 Mobile Apps 정보
+# <a name="about-mobile-apps-in-azure-app-service"></a><a name="getting-started"> </a>Azure App Service의 Mobile Apps 정보
 
 Azure App Service는 완전히 관리되는 PaaS([platform as a service](https://azure.microsoft.com/overview/what-is-paas/))로써 전문 개발자를 위해 제공됩니다. 이 서비스는 웹, 모바일 및 통합 시나리오에 풍부한 기능 집합을 제공합니다. 
 
@@ -23,7 +23,7 @@ Azure App Service의 Mobile Apps 기능은 엔터프라이즈 개발자 및 시�
 ## <a name="why-mobile-apps"></a>Mobile Apps 사용 이유
 Mobile Apps 기능을 사용하면 다음을 수행할 수 있습니다.
 
-* **네이티브 앱 및 크로스 플랫폼 앱 빌드**: 빌드하는 앱이 네이티브 iOS, Android 및 Windows 앱인지 또는 크로스 플랫폼 Xamarin 앱이나 Cordova(PhoneGap) 앱인지에 관계없이 네이티브 SDK를 통해 App Service를 사용할 수 있습니다.
+* **네이티브 및 플랫폼 간 앱 빌드**: 빌드하는 앱이 네이티브 iOS, Android 및 Windows 앱인지 또는 크로스 플랫폼 Xamarin 앱이나 Cordova(PhoneGap) 앱인지에 관계없이 네이티브 SDK를 통해 App Service를 사용할 수 있습니다.
 * **엔터프라이즈 시스템에 연결**: Mobile Apps 기능을 사용하면 몇 분 내에 회사 로그인을 추가하고 엔터프라이즈 온-프레미스 또는 클라우드 리소스에 연결할 수 있습니다.
 * **데이터 동기화를 사용하여 오프라인 지원 앱 빌드**: 오프라인에서 작동하는 앱을 빌드하여 모바일 작업자의 생산성을 높이고 엔터프라이즈 데이터 원본이나 SaaS(software as a service) API와 연결된 경우 Mobile Apps를 사용하여 백그라운드에서 데이터를 동기화합니다.
 * **몇 초 내에 수백만 명에게 푸시 알림 전송**: 모든 디바이스에서 고객의 요구에 맞게 개인 설정하고 적절한 시간에 보내는 즉시 푸시 알림을 통해 고객을 끌어들입니다.
@@ -31,7 +31,7 @@ Mobile Apps 기능을 사용하면 다음을 수행할 수 있습니다.
 ## <a name="mobile-apps-features"></a>Mobile Apps 기능
 다음 기능은 클라우드 사용 모바일 개발에 중요합니다.
 
-* **인증 및 권한 부여**: 엔터프라이즈 인증용 Azure Active Directory 및 소셜 공급자(예: Facebook, Google, Twitter 및 Microsoft 계정)를 포함한 ID 공급자를 지원합니다. Mobile Apps은 각 공급자에 대해 OAuth 2.0 서비스를 제공합니다. 또한 공급자 특정 기능에 대한 ID 공급자의 SDK도 통합할 수 있습니다.
+* **인증 및 권한 부여**: 엔터프라이즈 인증용 Azure Active Directory 및 소셜 공급 기업(예: Facebook, Google, Twitter 및 Microsoft 계정)을 포함한 ID 공급 기업을 지원합니다. Mobile Apps은 각 공급자에 대해 OAuth 2.0 서비스를 제공합니다. 또한 공급자 특정 기능에 대한 ID 공급자의 SDK도 통합할 수 있습니다.
 
     [인증 기능]에 대해 자세히 알아보세요.
 

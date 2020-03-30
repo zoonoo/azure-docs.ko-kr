@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 06/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 179a6181efdc6c31d50d3b5b3f708fd9149dadd3
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.openlocfilehash: 90ed4bf8f0389619f130e998ed76c720442092b2
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78384720"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79474478"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-edge"></a>자습서: Azure Data Box Edge 배포 준비  
 
@@ -25,6 +25,7 @@ ms.locfileid: "78384720"
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
+>
 > * 새 리소스 만들기
 > * 활성화 키 가져오기
 
@@ -52,13 +53,12 @@ Data Box Edge를 배포하려면 다음 자습서를 지정된 순서대로 참�
 
 시작하기 전에 다음 사항을 확인합니다.
 
-- Data Box Edge 리소스에 대해 Microsoft Azure 구독이 활성화되어 있습니다. 종량제 구독은 지원되지 않습니다.
-- Data Box Edge/Data Box Gateway, IoT Hub 및 Azure Storage 리소스에 대한 리소스 그룹 수준의 소유자 또는 기여자 액세스 권한이 있습니다.
-
+* Data Stack Edge 리소스에 대해 Microsoft Azure 구독이 활성화되어 있습니다. [Microsoft EA(기업계약)](https://azure.microsoft.com/overview/sales-number/), [CSP(클라우드 솔루션 공급자)](https://docs.microsoft.com/partner-center/azure-plan-lp) 또는 [Microsoft Azure 스폰서쉽](https://azure.microsoft.com/offers/ms-azr-0036p/)과 같은 지원되는 구독을 사용했는지 확인합니다.
+* Data Box Edge/Data Box Gateway, IoT Hub 및 Azure Storage 리소스에 대한 리소스 그룹 수준의 소유자 또는 기여자 액세스 권한이 있습니다.
     - Data Box Edge/Data Box Gateway 리소스를 만들려면 리소스 그룹 수준에서 범위가 지정된 기여자(또는 그 이상)로서 권한이 있어야 합니다. 또한 `Microsoft.DataBoxEdge` 공급자가 등록되어 있는지 확인해야 합니다. 등록 방법에 대한 정보는 [리소스 공급자 등록](data-box-edge-manage-access-power-connectivity-mode.md#register-resource-providers)으로 이동하세요.
     - IoT Hub 리소스를 만들려면 해당 Microsoft.Devices 공급자가 등록되어 있는지 확인합니다. 등록 방법에 대한 정보는 [리소스 공급자 등록](data-box-edge-manage-access-power-connectivity-mode.md#register-resource-providers)으로 이동하세요.
     - 스토리지 계정 리소스를 만들려면 리소스 그룹 수준에서 범위가 지정되는 기여자 이상의 액세스 권한이 다시 필요합니다. Azure Storage는 기본적으로 등록된 리소스 공급자입니다.
-- Azure Active Directory Graph API에 대한 관리자 또는 사용자 액세스 권한이 있습니다. 자세한 내용은 [Azure Active Directory Graph API](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-)를 참조하세요.
+- Microsoft Graph API에 대한 관리자 또는 사용자 액세스 권한이 있습니다. 자세한 내용은 [Microsoft Graph 사용 권한 참조](https://docs.microsoft.com/graph/permissions-reference)를 참조하세요.
 - 액세스 자격 증명이 있는 Microsoft Azure Storage 계정이 있습니다.
 
 ### <a name="for-the-data-box-edge-device"></a>Data Box Edge 디바이스의 경우
@@ -66,7 +66,7 @@ Data Box Edge를 배포하려면 다음 자습서를 지정된 순서대로 참�
 물리적 디바이스를 배포하기 전에 먼저 다음 사항을 확인합니다.
 
 - 배송 패키지에 포함된 안전 정보를 검토했습니다.
-- 장치를 랙에 탑재 하는 데 사용할 수 있는 표준 19 "랙 슬롯을 데이터 센터에서 사용할 수 있습니다.
+- 데이터 센터의 표준 19" 랙에 디바이스를 랙에 탑재할 수 있는 하나의 1U 슬롯이 있습니다.
 - 디바이스가 안전하게 있을 수 있는 평평하고 안정된 수평 작업대를 사용할 수 있습니다.
 - 디바이스를 설치하려는 사이트에 독립적인 전원의 표준 AC 전원 디바이스가 있거나 UPS(무정전 전원 공급 디바이스)가 장착된 PDU(랙 전원 분배 디바이스)가 있습니다.
 - 물리적 디바이스에 대한 액세스 권한이 있습니다.
@@ -95,7 +95,7 @@ Data Box Edge 리소스를 만들려면 Azure Portal에서 다음 단계를 수�
     - 또는 URL [https://portal.azure.us](https://portal.azure.us)에서 Azure Government 포털에 로그인합니다. 자세한 내용을 보려면 [포털을 사용하여 Azure Government에 연결](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal)로 이동합니다.
 
 2. 왼쪽 창에서 **+ 리소스 만들기**를 선택합니다. **Data Box Edge/Data Box Gateway**를 검색합니다. **Data Box Edge/Data Box Gateway**를 선택합니다. **만들기**를 선택합니다.
-3. Data Box Edge 디바이스에 사용하려는 구독을 선택합니다. Data Box Edge 리소스를 배포할 지역을 선택합니다. Azure Stack Edge 리소스를 사용할 수 있는 모든 지역 목록은 [지역별 사용 가능한 Azure 제품](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all)을 참조 하세요.
+3. Data Box Edge 디바이스에 사용하려는 구독을 선택합니다. Data Box Edge 리소스를 배포할 지역을 선택합니다. Azure Stack Edge 리소스를 사용할 수 있는 모든 지역 목록을 보려면 [지역별로 사용 가능한 Azure 제품](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all)을 참조하세요.
 
     디바이스를 배포하려는 지역에 지리적으로 가장 가까운 위치를 선택합니다. 지역에는 디바이스 관리용 메타데이터만 저장됩니다. 실제 데이터는 원하는 스토리지 계정에 저장할 수 있습니다.
     
@@ -115,18 +115,18 @@ Data Box Edge 리소스를 만들려면 Azure Portal에서 다음 단계를 수�
     |설정  |값  |
     |---------|---------|
     |속성   | 리소스를 식별하기 위한 이름.<br>이름에는 문자, 숫자 및 하이픈을 포함하여 2~50자가 포함됩니다.<br> 이름은 문자 또는 숫자로 시작하고 끝납니다.        |
-    |지역     |Azure Stack Edge 리소스를 사용할 수 있는 모든 지역 목록은 [지역별 사용 가능한 Azure 제품](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all)을 참조 하세요. Azure Government를 사용하는 경우 [Azure 지역](https://azure.microsoft.com/global-infrastructure/regions/)에서 본 것처럼 모든 정부 지역을 사용할 수 있습니다.<br> 디바이스를 배포하려는 지역에 지리적으로 가장 가까운 위치를 선택합니다.|
+    |지역     |Azure Stack Edge 리소스를 사용할 수 있는 모든 지역 목록을 보려면 [지역별로 사용 가능한 Azure 제품](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all)을 참조하세요. Azure Government를 사용하는 경우 [Azure 지역](https://azure.microsoft.com/global-infrastructure/regions/)에서 본 것처럼 모든 정부 지역을 사용할 수 있습니다.<br> 디바이스를 배포하려는 지역에 지리적으로 가장 가까운 위치를 선택합니다.|
 
     ![프로젝트 및 인스턴스 세부 정보](media/data-box-edge-deploy-prep/data-box-edge-resource.png)
 
-5. **다음: 배송 주소**를 선택 합니다.
+5. 완료되면 **다음: 배송 주소**를 선택합니다.
 
     - 디바이스가 이미 있는 경우 **I have a Data Box Edge device**(Data Box Edge 디바이스가 있습니다) 콤보 상자를 선택합니다.
     - 이 디바이스가 지금 주문하는 새 디바이스인 경우 연락처 이름, 회사, 디바이스를 배송할 주소, 연락처 정보를 입력합니다.
 
     ![새 디바이스의 배송 주소](media/data-box-edge-deploy-prep/data-box-edge-resource1.png)
 
-6. **다음: 검토 + 만들기**를 선택 합니다.
+6. 완료되면 **다음: 리뷰 + 만들기**를 클릭합니다.
 
 7. **검토 + 만들기** 탭에서 **가격 책정 세부 정보**, **사용 약관** 및 리소스 세부 정보를 살펴봅니다. **I have reviewed the privacy terms**(개인정보처리방침을 검토했습니다) 콤보 상자를 선택합니다.
 

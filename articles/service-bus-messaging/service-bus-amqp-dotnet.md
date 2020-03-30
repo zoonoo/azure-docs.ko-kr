@@ -1,6 +1,6 @@
 ---
 title: .NET 및 AMQP 1.0을 사용한 Azure Service Bus | Microsoft Docs
-description: 이 문서에서는 AMQP (고급 메시징 큐 프로토콜)를 사용 하 여 .NET 응용 프로그램에서 Azure Service Bus를 사용 하는 방법을 설명 합니다.
+description: 이 문서에서는 AMQP(고급 메시징 대기열 프로토콜)를 사용하여 .NET 응용 프로그램에서 Azure Service Bus를 사용하는 방법을 설명합니다.
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: 536c315077cb74a1dfa8db457f0f0b3725edf7a1
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 8157efac5ff1fc135659a84b4f4825ff36307480
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759250"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80297664"
 ---
 # <a name="use-service-bus-from-net-with-amqp-10"></a>AMQP 1.0을 사용하여 .NET에서 Service Bus 사용
 
@@ -49,13 +49,13 @@ AMQP 1.0 지원은 Service Bus 패키지 버전 2.1 이상에서 이용할 수 �
 
 `Endpoint=sb://[namespace].servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=Amqp`
 
-Service Bus 네임 스페이스를 만들 때 [Azure Portal][Azure portal] 에서 `namespace` 및 `SAS key`를 가져옵니다. 자세한 내용은 [Azure Portal를 사용 하 여 Service Bus 네임 스페이스 만들기][Create a Service Bus namespace using the Azure portal]를 참조 하세요.
+여기서 `namespace` 및 `SAS key`는 Service Bus 네임스페이스를 만들 때 [Azure 포털][Azure portal]에서 가져옵니다. 자세한 내용은 [Azure 포털을 사용하여 Service Bus 네임스페이스 만들기][Create a Service Bus namespace using the Azure portal]를 참조하세요.
 
 AMQP를 사용하는 경우 `;TransportType=Amqp`을(를) 사용하여 연결 문자열을 추가합니다. 이 표기는 클라이언트 라이브러리가 AMQP 1.0을 사용하여 Service Bus에 연결하도록 지시합니다.
 
 ## <a name="message-serialization"></a>메시지 직렬화
 
-기본 프로토콜을 사용하는 경우 .NET 클라이언트 라이브러리의 기본 직렬화 동작은 [DataContractSerializer][DataContractSerializer] 형식을 사용하여 클라이언트 라이브러리와 Service Bus 서비스 간의 전송에 대한 [BrokeredMessage][BrokeredMessage] 인스턴스를 직렬화하는 것입니다. AMQP 전송 모드를 사용 하는 경우 클라이언트 라이브러리는 amqp 형식 시스템을 사용 하 여 조정 된 [메시지][BrokeredMessage] 를 amqp 메시지로 직렬화 합니다. 이 직렬화를 통해 Service Bus에 액세스하기 위해 JMS API를 사용하는 Java 애플리케이션과 같은 다른 플랫폼에서 잠재적으로 실행하는 애플리케이션 수신을 통해 메시지를 수신하고 해석합니다.
+기본 프로토콜을 사용하는 경우 .NET 클라이언트 라이브러리의 기본 직렬화 동작은 [DataContractSerializer][DataContractSerializer] 형식을 사용하여 클라이언트 라이브러리와 Service Bus 서비스 간의 전송에 대한 [BrokeredMessage][BrokeredMessage] 인스턴스를 직렬화하는 것입니다. AMQP 전송 모드를 사용하는 경우 클라이언트 라이브러리는 [broker 저장 메시지][BrokeredMessage]를 AMQP 메시지로 직렬화하는 데 AMQP 형식 시스템을 사용합니다. 이 직렬화를 통해 Service Bus에 액세스하기 위해 JMS API를 사용하는 Java 애플리케이션과 같은 다른 플랫폼에서 잠재적으로 실행하는 애플리케이션 수신을 통해 메시지를 수신하고 해석합니다.
 
 [BrokeredMessage][BrokeredMessage] 인스턴스를 생성하는 경우 .NET 개체를 매개 변수로 생성자에게 제공하여 메시지의 본문으로 처리할 수 있습니다. AMQP 기본 형식으로 매핑할 수 있는 개체의 경우 본문은 AMQP 데이터 유형으로 직렬화됩니다. 개체를 AMQP 기본 형식으로 직접 매핑할 수 없는 경우 즉, 애플리케이션에서 정의된 사용자 지정 형식이며 개체는 [DataContractSerializer][DataContractSerializer]를 사용하여 직렬화되고 직렬화된 바이트는 AMQP 데이터 메시지로 전송됩니다.
 
@@ -77,7 +77,7 @@ AMQP를 사용하는 경우 `;TransportType=Amqp`을(를) 사용하여 연결 �
 | decimal |decimal128 |AMQP 값 |
 | char |char |AMQP 값 |
 | DateTime |timestamp |AMQP 값 |
-| GUID |uuid |AMQP 값 |
+| Guid |uuid |AMQP 값 |
 | byte[] |binary |AMQP 값 |
 | 문자열 |문자열 |AMQP 값 |
 | System.Collections.IList |list |AMQP 값: 컬렉션에 포함된 항목은 이 테이블에서 정의된 것만 가능합니다. |
@@ -86,7 +86,7 @@ AMQP를 사용하는 경우 `;TransportType=Amqp`을(를) 사용하여 연결 �
 | Uri |설명된 문자열(아래 표 참조) |AMQP 값 |
 | DateTimeOffset |설명된 long(아래 표 참조) |AMQP 값 |
 | TimeSpan |설명된 long(아래 참조) |AMQP 값 |
-| Stream |binary |AMQP 데이터(여러 개가 있을 수 있음). 데이터 섹션에는 스트림 개체에서 읽은 원시 바이트가 포함되어 있습니다. |
+| 스트림 |binary |AMQP 데이터(여러 개가 있을 수 있음). 데이터 섹션에는 스트림 개체에서 읽은 원시 바이트가 포함되어 있습니다. |
 | 다른 개체 |binary |AMQP 데이터(여러 개가 있을 수 있음). 애플리케이션에서 제공된 DataContractSerializer 또는 serializer를 사용하는 개체의 직렬화된 이진을 포함합니다. |
 
 | .NET 형식 | 매핑된 AMQP 설명된 형식 | 메모 |
@@ -105,12 +105,12 @@ AMQP를 사용하는 경우 기본 프로토콜에 비해 Service Bus .NET API�
 
 ## <a name="control-amqp-protocol-settings"></a>AMQP 프로토콜 설정 제어
 
-[.NET API](/dotnet/api/)는 AMQP 프로토콜의 동작을 제어하기 위해 여러 설정을 노출합니다.
+[.NET API는](/dotnet/api/) AMQP 프로토콜의 동작을 제어하기 위해 여러 설정을 노출합니다.
 
-* **[MessageReceiver.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagereceiver.prefetchcount?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_MessageReceiver_PrefetchCount)** : 링크에 적용되는 초기 크레딧을 제어합니다. 기본값은 0입니다.
-* **[MessagingFactorySettings.AmqpTransportSettings.MaxFrameSize](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.maxframesize?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_MaxFrameSize)** : 연결 열기 시간 시 협상 동안 제공되는 최대 AMQP 프레임 크기를 제어합니다. 기본값은 65,536바이트입니다.
-* **[MessagingFactorySettings.AmqpTransportSettings.BatchFlushInterval](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.batchflushinterval?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_BatchFlushInterval)** : 전송을 배치로 사용 가능한 경우 이 값은 배치 전송을 위한 최대 지연을 결정합니다. 기본적으로 발신자/수신자를 상속합니다. 개별 발신자/수신자는 기본값 20 밀리초를 재정의할 수 있습니다.
-* **[MessagingFactorySettings.AmqpTransportSettings.UseSslStreamSecurity](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.usesslstreamsecurity?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_UseSslStreamSecurity)** : AMQP 연결이 SSL 연결을 통해 설정되는지 여부를 제어합니다. 기본값은 **true**입니다.
+* **[MessageReceiver.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagereceiver.prefetchcount?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_MessageReceiver_PrefetchCount)**: 링크에 적용되는 초기 크레딧을 제어합니다. 기본값은 0입니다.
+* **[MessagingFactorySettings.AmqpTransportSettings.MaxFrameSize](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.maxframesize?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_MaxFrameSize)**: 연결 열기 시간 시 협상 동안 제공되는 최대 AMQP 프레임 크기를 제어합니다. 기본값은 65,536바이트입니다.
+* **[MessagingFactorySettings.AmqpTransportSettings.BatchFlushInterval](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.batchflushinterval?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_BatchFlushInterval)**: 전송을 배치로 사용 가능한 경우 이 값은 배치 전송을 위한 최대 지연을 결정합니다. 기본적으로 발신자/수신자를 상속합니다. 개별 발신자/수신자는 기본값 20 밀리초를 재정의할 수 있습니다.
+* **[메시징공장설정.AmqpTransportSettings.UseSslStreamSecurity](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.usesslstreamsecurity?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_UseSslStreamSecurity)**: TLS 연결을 통해 AMQP 연결이 설정되는지 여부를 제어합니다. 기본값은 **true입니다.**
 
 ## <a name="next-steps"></a>다음 단계
 

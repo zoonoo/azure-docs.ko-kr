@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 12/12/2018
 ms.author: erhopf
 ms.openlocfilehash: 777b2608cf5f326556dfaea307f4f3e9346213f8
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "66482433"
 ---
 1. Visual Studio 2019를 시작합니다.
@@ -25,14 +25,14 @@ ms.locfileid: "66482433"
 
 1. [Speech SDK NuGet 패키지](https://aka.ms/csspeech/nuget)를 설치하고 참조합니다. 솔루션 탐색기에서 솔루션을 마우스 오른쪽 단추로 클릭하고, **솔루션에 대한 NuGet 패키지 관리**를 선택합니다.
 
-   ![솔루션의 NuGet 패키지 관리를 강조 표시한 솔루션 탐색기 스크린샷](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-dotnetcore-windows-02-manage-nuget-packages.png "솔루션의 NuGet 패키지 관리")
+   ![솔루션용 NuGet 패키지 관리가 강조 표시된 솔루션 탐색기의 스크린샷](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-dotnetcore-windows-02-manage-nuget-packages.png "솔루션용 NuGet 패키지 관리")
 
 1. 오른쪽 위 모서리의 **패키지 원본** 필드에서 **nuget.org**를 선택합니다. `Microsoft.CognitiveServices.Speech` 패키지를 검색한 후 **helloworld** 프로젝트에 설치합니다.
 
-   ![솔루션에 대한 패키지 관리 대화 상자 스크린샷](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-dotnetcore-windows-03-nuget-install-1.0.0.png "NuGet 패키지 설치")
+   ![솔루션용 패키지 관리 대화 상자 스크린샷](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-dotnetcore-windows-03-nuget-install-1.0.0.png "NuGet 패키지 설치")
 
 1. NuGet 패키지를 설치하려면 표시된 라이선스에 동의합니다.
 
-   ![라이선스 동의 대화 상자 스크린샷](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-dotnetcore-windows-04-nuget-license.png "라이선스에 동의")
+   ![라이선스 동의 대화 상자 스크린샷](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-dotnetcore-windows-04-nuget-license.png "라이선스 동의")
 
 패키지를 설치한 후에 패키지 관리자 콘솔에서 확인 메시지가 나타납니다.

@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: overview
-ms.date: 11/04/2019
+ms.date: 03/18/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 8c2bbd3aff8c2c10864fb2fa8937c9159ecd3606
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: ff1d34462680ddd6be7f1a47d9a27594bcce4ff6
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75972446"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80061497"
 ---
 # <a name="introduction-to-azure-blob-storage"></a>Azure Blob Storage 소개
 
@@ -23,13 +23,13 @@ ms.locfileid: "75972446"
 
 Blob Storage는 다음 세 가지 유형의 리소스를 제공합니다.
 
-- **스토리지 계정** 
+- **스토리지 계정**
 - 스토리지 계정의 **컨테이너**
-- 컨테이너의 **BLOB**. 
+- 컨테이너의 **BLOB**.
 
 다음 다이어그램에서는 이러한 리소스 간의 관계를 보여줍니다.
 
-![계정 BLOB 및 컨테이너 리소스 간의 관계](./media/storage-blob-introduction/blob1.png)
+![스토리지 계정, 컨테이너 및 Blob 간의 관계를 보여주는 다이어그램](./media/storage-blobs-introduction/blob1.png)
 
 ### <a name="storage-accounts"></a>Storage 계정
 
@@ -54,9 +54,9 @@ http://mystorageaccount.blob.core.windows.net
  
 Azure Storage는 다음 세 가지 유형의 Blob을 지원합니다.
 
-* **블록 Blob**은 최대 4.7TB 정도의 텍스트 및 이진 데이터를 저장합니다. 블록 Blob은 개별적으로 관리할 수 있는 데이터 블록으로 구성됩니다.
-* **추가 Blob**은 블록 Blob과 같이 블록으로 구성되지만 추가 작업에 최적화되어 있습니다. 추가 Blob은 가상 머신의 데이터 로깅 같은 시나리오에 적합합니다.
-* **페이지 Blob**은 최대 8TB 크기의 임의 액세스 파일을 저장합니다. 페이지 Blob은 VHD(가상 하드 드라이브) 파일을 저장하고 Azure Virtual Machines의 디스크로 사용됩니다. 페이지 Blob에 대한 자세한 내용은 [Azure 페이지 Blob 개요](storage-blob-pageblob-overview.md)를 참조하세요.
+- **블록 Blob**은 최대 4.7TB 정도의 텍스트 및 이진 데이터를 저장합니다. 블록 Blob은 개별적으로 관리할 수 있는 데이터 블록으로 구성됩니다.
+- **추가 Blob**은 블록 Blob과 같이 블록으로 구성되지만 추가 작업에 최적화되어 있습니다. 추가 Blob은 가상 머신의 데이터 로깅 같은 시나리오에 적합합니다.
+- **페이지 Blob**은 최대 8TB 크기의 임의 액세스 파일을 저장합니다. 페이지 Blob은 VHD(가상 하드 드라이브) 파일을 저장하고 Azure Virtual Machines의 디스크로 사용됩니다. 페이지 Blob에 대한 자세한 내용은 [Azure 페이지 Blob 개요](storage-blob-pageblob-overview.md)를 참조하세요.
 
 다양한 유형의 Blob에 대한 자세한 내용은 [블록 Blob, 추가 Blob 및 페이지 Blob 이해](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs)를 참조하세요.
 

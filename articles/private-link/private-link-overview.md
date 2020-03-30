@@ -8,21 +8,15 @@ ms.topic: overview
 ms.date: 02/27/2020
 ms.author: allensu
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 710c5a780841135344d92e93a02f97963b36b09e
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 3218a2de890124915d62afa86fd5f3dca1e72b2e
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77921393"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80063093"
 ---
 # <a name="what-is-azure-private-link"></a>Azure Private Link란? 
-Azure Private Link를 사용하면 다음과 같은 Azure PaaS 서비스에 액세스할 수 있습니다.
- 
- - **Azure Storage**
- - **Azure Cosmos DB**
- - **Azure SQL Database**
-
-Private Link를 사용하면 가상 네트워크의 [프라이빗 엔드포인트](private-endpoint-overview.md)를 통해 호스팅된 고객 및 파트너 서비스에 액세스할 수 있습니다.
+Azure Private Link를 사용하면 가상 네트워크의 [프라이빗 엔드포인트](private-endpoint-overview.md)를 통해 Azure PaaS Services(예: Azure Storage 및 SQL Database)와 Azure 호스팅 고객 소유/파트너 서비스에 액세스할 수 있습니다.
 
 가상 네트워크와 서비스 사이의 트래픽은 Microsoft 백본 네트워크를 통해 이동합니다. 서비스를 공용 인터넷에 더 이상 노출할 필요가 없습니다. 가상 네트워크에 자체 [프라이빗 링크 서비스](private-link-service-overview.md)를 만들어서 고객에게 제공할 수도 있습니다. Azure Private Link를 사용한 설치 및 소비는 Azure PaaS, 고객 소유 및 공유 파트너 서비스에서 일관적입니다.
 
@@ -48,16 +42,26 @@ Azure Private Link는 다음과 같은 이점이 있습니다.
 
 |시나리오  |지원되는 서비스  |사용 가능한 지역 | 상태  |
 |:---------|:-------------------|:-----------------|:--------|
-|고객 소유 서비스용 Private Link|표준 Azure Load Balancer 뒤에 있는 Private Link 서비스 | 모든 공용 지역  | GA <br/> [자세히 알아보기](https://docs.microsoft.com/azure/private-link/private-link-service-overview) |
-|Azure PaaS 서비스용 Private Link   | Azure Storage        |  모든 공용 지역      | 미리 보기 <br/> [자세히 알아보기](/azure/storage/common/storage-private-endpoints)  |
-|  | Azure Data Lake Storage Gen2        |  모든 공용 지역      | 미리 보기 <br/> [자세히 알아보기](/azure/storage/common/storage-private-endpoints)  |
-|  |  Azure SQL Database         | 모든 공용 지역      |   미리 보기 <br/> [자세히 알아보기](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)      |
-||Azure SQL Data Warehouse| 모든 공용 지역 |미리 보기 <br/> [자세히 알아보기](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)|
-||Azure Cosmos DB| 미국 중서부, 미국 서부, 미국 중북부 |미리 보기 <br/> [자세히 알아보기](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-private-endpoints)|
-|  |  Azure Database for PostgreSQL - 단일 서버         | 모든 공용 지역      |   미리 보기 <br/> [자세히 알아보기](https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-private-link)      |
-|  |  Azure Database for MySQL         | 모든 공용 지역      |   미리 보기 <br/> [자세히 알아보기](https://docs.microsoft.com/azure/mysql/concepts-data-access-security-private-link)     |
-|  |  Azure Database for MariaDB         | 모든 공용 지역      |   미리 보기 <br/> [자세히 알아보기](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-private-link)      |
-|  |  Azure Key Vault         | 모든 공용 지역      |   미리 보기   <br/> [자세히 알아보기](https://docs.microsoft.com/azure/key-vault/private-link-service)   |
+|고객 소유 서비스용 Private Link |표준 Azure Load Balancer 뒤에 있는 Private Link 서비스 | 모든 공용 지역  | GA <br/> [자세히 알아보기](https://docs.microsoft.com/azure/private-link/private-link-service-overview) |
+|Azure PaaS 서비스용 Private Link   | Azure Storage        |  모든 공용 지역      | GA <br/> [자세히 알아보기](/azure/storage/common/storage-private-endpoints)  |
+|  | Azure Data Lake Storage Gen2        |  모든 공용 지역      | GA <br/> [자세히 알아보기](/azure/storage/common/storage-private-endpoints)  |
+|  |  Azure SQL Database         | 모든 공용 지역      |   GA <br/> [자세히 알아보기](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)      |
+|  |Azure Synapse Analytics(SQL Data Warehouse)| 모든 공용 지역 |GA <br/> [자세히 알아보기](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)|
+|  |Azure Cosmos DB|  미국 동부, 미국 동부 2, 미국 서부, 미국 서부 2,  미국 중부, 미국 중남부, 미국 중서부, 미국 중북부, 북유럽, 서유럽  |GA <br/> [자세히 알아보기](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-private-endpoints)|
+|  |  Azure Database for PostgreSQL - 단일 서버         | 모든 공용 지역      |   GA <br/> [자세히 알아보기](https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-private-link)      |
+|  |  Azure Database for MySQL         | 모든 공용 지역      |   GA <br/> [자세히 알아보기](https://docs.microsoft.com/azure/mysql/concepts-data-access-security-private-link)     |
+|  |  Azure Database for MariaDB         | 모든 공용 지역      |   GA <br/> [자세히 알아보기](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-private-link)      |
+|  |  Azure Key Vault         | 모든 공용 지역      |   GA   <br/> [자세히 알아보기](https://docs.microsoft.com/azure/key-vault/private-link-service)   |
+|  |Azure Kubernetes Service - Kubernetes API | 모든 공용 지역      |   GA   <br/> [자세히 알아보기](https://docs.microsoft.com/azure/aks/private-clusters)   |
+|  |Azure Search | 미국 동부, 미국 서부 2, 미국 중남부 |   미리 보기    |
+|  |Azure Container Registry | 모든 공용 지역      |   미리 보기   |
+|  |Azure App Configuration | 모든 공용 지역      |   미리 보기   |
+|  |Azure Backup | 미국 동부, 미국 서부 2, 미국 중남부     |   미리 보기   |
+|  |Azure Event Hub | 모든 공용 지역      |   미리 보기    |
+|  |Azure Service Bus | 모든 공용 지역      |   미리 보기   |
+|  |Azure Relay | 모든 공용 지역      |   미리 보기   |
+|  |Azure Event Grid| 모든 공용 지역      |   미리 보기   <br/> [자세히 알아보기](https://docs.microsoft.com/azure/event-grid/network-security)   |
+|  |Azure Web Apps | 미국 동부, 미국 서부 2, 미국 중남부      |   미리 보기   <br/> [자세히 알아보기](https://docs.microsoft.com/azure/app-service/networking/private-endpoint)   |
 
 최신 알림은 [Azure Virtual Network 업데이트 페이지](https://azure.microsoft.com/updates/?product=virtual-network)를 확인하세요.
 

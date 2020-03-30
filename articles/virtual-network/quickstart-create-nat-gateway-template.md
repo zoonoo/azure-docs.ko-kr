@@ -15,19 +15,16 @@ ms.workload: infrastructure-services
 ms.date: 03/09/2020
 ms.author: allensu
 ms.custom: subject-armqs
-ms.openlocfilehash: 0f6a303bfa42538bf56efa7e9f669588c8bff66c
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.openlocfilehash: 6b3dee698e63ed2b0a44f05b593b8840d1cd23ee
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79082730"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80066408"
 ---
 # <a name="quickstart-create-a-nat-gateway---resource-manager-template"></a>빠른 시작: NAT 게이트웨이 만들기 - Resource Manager 템플릿
 
-Azure Resource Manager 템플릿을 사용하여 Virtual Network NAT를 시작합니다.  이 템플릿은 가상 네트워크, NAT 게이트웨이 및 Ubuntu 가상 머신을 배포합니다. Ubuntu 가상 머신은 NAT 게이트웨이와 연결된 서브넷에 배포됩니다.
-
->[!NOTE] 
->Azure Virtual Network NAT는 현재 공개 미리 보기로 제공되며, 제한된 [지역](https://azure.microsoft.com/global-infrastructure/regions/) 세트에서 사용할 수 있습니다. 이 미리 보기는 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure 미리 보기에 대한 보충 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms)을 참조하세요.
+Azure Resource Manager 템플릿을 사용하여 Virtual Network NAT를 시작합니다.  이 템플릿은 가상 네트워크, NAT 게이트웨이 리소스 및 Ubuntu 가상 머신을 배포합니다. Ubuntu 가상 머신은 NAT 게이트웨이 리소스와 연결된 서브넷에 배포됩니다.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 

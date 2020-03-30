@@ -1,6 +1,6 @@
 ---
-title: '자습서: Azure에서 SSL 인증서로 Windows 웹 서버 보호'
-description: 이 자습서에서는 Azure PowerShell을 사용하여 Azure Key Vault에 저장된 SSL 인증서로 IIS 웹 서버를 실행하는 Windows 가상 머신을 보호하는 방법을 알아봅니다.
+title: '자습서: Azure에서 TLS/SSL 인증서로 Windows 웹 서버 보호'
+description: 이 자습서에서는 Azure PowerShell을 사용하여 Azure Key Vault에 저장된 TLS/SSL 인증서로 IIS 웹 서버를 실행하는 Windows 가상 머신을 보호하는 방법을 알아봅니다.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
@@ -15,25 +15,25 @@ ms.workload: infrastructure
 ms.date: 02/09/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 6185ad4f0e043329c4e833b97a09922ba0238a82
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 5b084f8a226d1cfd5bab2cc81512fb51fa6bf41c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264240"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80154290"
 ---
-# <a name="tutorial-secure-a-web-server-on-a-windows-virtual-machine-in-azure-with-ssl-certificates-stored-in-key-vault"></a>자습서: Key Vault에 저장된 SSL 인증서로 Azure에서 Windows 가상 머신의 웹 서버 보호
+# <a name="tutorial-secure-a-web-server-on-a-windows-virtual-machine-in-azure-with-tlsssl-certificates-stored-in-key-vault"></a>자습서: Key Vault에 저장된 TLS/SSL 인증서로 Azure에서 Windows 가상 머신의 웹 서버 보호
 
 > [!NOTE]
 > 현재 이 문서는 일반화된 이미지에만 적용됩니다. 특수 디스크를 사용하여 이 자습서를 시도하면 오류가 발생합니다. 
 
-웹 서버를 보호하기 위해 웹 트래픽을 암호화하는 데 SSL(Secure Sockets Layer) 인증서를 사용할 수 있습니다. 이러한 SSL 인증서는 Azure Key Vault에 저장될 수 있으며 Azure에서 Windows VM(가상 머신)에 인증서의 보안 배포를 허용합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
+웹 서버를 보호하기 위해 이전에 SSL(Secure Sockets Layer)로 알려진 TLS(Transport Layer Security) 인증서를 사용하여 웹 트래픽을 암호화할 수 있습니다. 이러한 TLS/SSL 인증서는 Azure Key Vault에 저장될 수 있으며 Azure에서 Windows VM(가상 머신)에 인증서의 보안 배포를 허용합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * Azure Key Vault 만들기
 > * Key Vault에 인증서 생성 또는 업로드
 > * VM 만들기 및 IIS 웹 서버 설치
-> * VM에 인증서 삽입 및 SSL 바인딩으로 IIS 구성
+> * VM에 인증서 삽입 및 TLS 바인딩으로 IIS 구성
 
 
 ## <a name="launch-azure-cloud-shell"></a>Azure Cloud Shell 시작
@@ -172,13 +172,13 @@ Get-AzPublicIPAddress -ResourceGroupName $resourceGroup -Name "myPublicIPAddress
 
 
 ## <a name="next-steps"></a>다음 단계
-이 자습서에서는 Azure Key Vault에 저장된 SSL 인증서를 사용하여 IIS 웹 서버를 보호했습니다. 구체적으로 다음 작업 방법을 알아보았습니다.
+이 자습서에서는 Azure Key Vault에 저장된 TLS/SSL 인증서를 사용하여 IIS 웹 서버를 보호했습니다. 구체적으로 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * Azure Key Vault 만들기
 > * Key Vault에 인증서 생성 또는 업로드
 > * VM 만들기 및 IIS 웹 서버 설치
-> * VM에 인증서 삽입 및 SSL 바인딩으로 IIS 구성
+> * VM에 인증서 삽입 및 TLS 바인딩으로 IIS 구성
 
 미리 빌드된 가상 머신 스크립트 샘플을 보려면 이 링크를 따릅니다.
 

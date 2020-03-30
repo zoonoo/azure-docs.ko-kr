@@ -11,10 +11,10 @@ ms.topic: sample
 ms.date: 07/30/2019
 ms.author: aahi
 ms.openlocfilehash: d34f3a03e1bcd35c270d13c4dda57d0394a36e4b
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "70387799"
 ---
 # <a name="example-detect-language-with-text-analytics"></a>예제: Text Analytics를 사용하여 언어 감지
@@ -159,7 +159,7 @@ Text Analytics REST API의 [언어 감지](https://westcentralus.dev.cognitive.m
 
 예를 들어 "Impossible"은 영어와 프랑스어 모두에 공통적이며, 제한된 컨텍스트로 제공되는 경우 응답은 "US" 국가 힌트를 기반으로 합니다. 텍스트의 원본이 힌트로 제공될 수 있는 프랑스에서 온 것으로 알려진 경우입니다.
 
-**입력**
+**Input**
 
 ```json
     {
@@ -228,7 +228,7 @@ Text Analytics REST API의 [언어 감지](https://westcentralus.dev.cognitive.m
 
 동일한 문서 내에 혼합 언어 콘텐츠가 있으면 콘텐츠에서 가장 많은 표현이 있지만 더 낮은 긍정적 등급을 갖는 언어를 반환합니다. 등급은 해당 평가의 한계 강도를 반영합니다. 다음 예제의 입력에는 영어, 스페인어 및 프랑스어가 혼합되어 있습니다. 분석기에서 각 세그먼트의 문자를 계산하여 주요 언어를 결정합니다.
 
-**입력**
+**Input**
 
 ```json
     {

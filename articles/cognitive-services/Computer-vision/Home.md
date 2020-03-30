@@ -11,14 +11,16 @@ ms.topic: overview
 ms.date: 01/27/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: eb338c39ed3b1a095c1ad31e3f695e8d3fec0ed3
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.openlocfilehash: af49e80766d7ac4bd2d9ed677a2571fb0a5a3189
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2020
-ms.locfileid: "77565964"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80131761"
 ---
 # <a name="what-is-computer-vision"></a>Computer Vision이란?
+
+[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 개발자는 관심 있는 시각적 기능에 따라 Azure의 Computer Vision 서비스를 통해 이미지를 처리하고 정보를 반환하는 고급 알고리즘을 사용할 수 있습니다. 예를 들어 Computer Vision은 이미지에 성인 콘텐츠가 포함되어 있는지 확인하거나 이미지에서 모든 사람 얼굴을 찾을 수 있습니다.
 
@@ -77,6 +79,6 @@ Computer Vision에서 이미지를 분석하는 데 충족되어야 하는 요�
 
 빠른 시작 가이드에 따라 Computer Vision 시작:
 
-- [빠른 시작: Computer Vision .NET SDK](quickstarts-sdk/csharp-sdk.md)
-- [빠른 시작: Computer Vision Python SDK](quickstarts-sdk/python-sdk.md)
-- [빠른 시작: Computer Vision Java SDK](quickstarts-sdk/java-sdk.md)
+- [빠른 시작: Computer Vision .NET 클라이언트 라이브러리](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
+- [빠른 시작: Computer Vision Python 클라이언트 라이브러리](./quickstarts-sdk/client-library.md?pivots=programming-language-python)
+- [빠른 시작: Computer Vision Java 클라이언트 라이브러리](./quickstarts-sdk/client-library.md?pivots=programming-language-java)

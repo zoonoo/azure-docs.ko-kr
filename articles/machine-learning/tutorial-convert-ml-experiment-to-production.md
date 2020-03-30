@@ -6,13 +6,13 @@ author: bjcmit
 ms.author: brysmith
 ms.service: machine-learning
 ms.topic: tutorial
-ms.date: 02/10/2020
-ms.openlocfilehash: 5a7c4ce6d5868efef4cfb4fbe2183ec8337ff5b6
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.date: 03/13/2020
+ms.openlocfilehash: f40c2b5f7134458b3f8cb492652bebf14388634c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78301848"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79477139"
 ---
 # <a name="tutorial-convert-ml-experimental-code-to-production-code"></a>자습서: ML 실험 코드를 프로덕션 코드로 변환
 
@@ -29,7 +29,7 @@ ms.locfileid: "78301848"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- [MLOpsPython 템플릿](https://github.com/microsoft/MLOpsPython/generate)을 생성하고 `experimentation/Diabetes Ridge Regression Training.ipynb` 및 `experimentation/Diabetes Ridge Regression Scoring.ipynb` 노트북을 사용합니다. 이러한 노트북은 실험에서 프로덕션으로 변환하는 예로 사용 됩니다.
+- [MLOpsPython 템플릿](https://github.com/microsoft/MLOpsPython/generate)을 생성하고 `experimentation/Diabetes Ridge Regression Training.ipynb` 및 `experimentation/Diabetes Ridge Regression Scoring.ipynb` 노트북을 사용합니다. 이러한 노트북은 실험에서 프로덕션으로 변환하는 예로 사용 됩니다. 이러한 Notebooks는 [https://github.com/microsoft/MLOpsPython/tree/master/experimentation](https://github.com/microsoft/MLOpsPython/tree/master/experimentation)에서 찾을 수 있습니다.
 - nbconvert를 설치합니다. [Installation](https://nbconvert.readthedocs.io/en/latest/install.html)(설치) 페이지의 __Installing nbconvert__(nbconvert 설치) 섹션에 있는 설치 지침을 따릅니다.
 
 ## <a name="remove-all-nonessential-code"></a>불필요한 코드 모두 제거
@@ -74,7 +74,7 @@ joblib.dump(value=reg, filename=model_name)
 `experimentation/Diabetes Ridge Regression Training.ipynb`에서 다음 단계를 완료합니다.
 
 1. `train_model`이라는 함수를 만듭니다. 이 함수는 매개 변수 `data`와 `alpha`를 사용하고 모델을 반환합니다.
-1. “Train Model on Training Set”(학습 세트의 모델 학습) 및 “Validate Model on Validation Set”(유효성 검사 세트의 모델 유효성 검사) 제목 아래에 있는 코드를 `train_model` 함수로 복사합니다.
+1. "학습 집합의 모델 학습" 및 "유효성 검사 집합의 모델 유효성 검사" 제목 아래에 있는 코드를 `train_model` 함수에 복사합니다.
 
 `train_model` 함수는 다음 코드와 같은 모양입니다.
 
@@ -88,7 +88,7 @@ def train_model(data, alpha):
     return reg
 ```
 
-`train_model` 함수가 만들어지면, “Train Model on Training Set”(학습 세트의 모델 학습) 및 “Validate Model on Validation Set”(유효성 검사 세트의 모델 유효성 검사) 제목 아래에 있는 코드를 다음 명령문으로 바꿉니다.
+`train_model` 함수가 만들어지면, "학습 집합의 모델 학습" 및 "유효성 검사 집합의 모델 유효성 검사" 제목 아래에 있는 코드를 다음 명령문으로 바꿉니다.
 
 ```python
 reg = train_model(data, alpha)
@@ -99,7 +99,7 @@ reg = train_model(data, alpha)
 `experimentation/Diabetes Ridge Regression Training.ipynb`에서 다음 단계를 완료합니다.
 
 1. `main`이라는 함수를 새로 만듭니다. 이 함수는 매개 변수를 사용하지 않고 아무것도 반환하지 않습니다.
-1. “Load Data”(데이터 로드), “Split Data into Training and Validation Sets”(데이터를 학습 및 유효성 검사 세트로 분할), “Save Model”(모델 저장) 머리글 아래에 있는 코드를 `main` 함수로 복사합니다.
+1. "데이터 로드", "데이터 학습 및 유효성 검사 집합으로 분할", "모델 저장" 제목 아래에 있는 코드를 `main` 함수에 복사합니다.
 1. `train_model`에 대해 새로 만든 호출을 `main` 함수에 복사합니다.
 
 `main` 함수는 다음 코드와 같은 모양입니다.
@@ -122,7 +122,7 @@ def main():
     joblib.dump(value=reg, filename=model_name)
 ```
 
-`main` 함수가 만들어지면 “Load Data”(데이터 로드), “Split Data into Training and Validation Sets”(데이터를 학습 및 유효성 검사 세트로 분할), “Save Model”(모델 저장) 제목 아래에 있는 모든 코드를 `train_model`에 대해 새로 만든 호출과 함께 다음 명령문으로 바꿉니다.
+`main` 함수가 만들어지면 "데이터 로드", "데이터 학습 및 유효성 검사 집합으로 분할", "모델 저장" 제목 아래에 있는 모든 코드를 `train_model`에 대해 새로 만든 호출과 함께 다음 명령문으로 바꿉니다.
 
 ```python
 main()
@@ -170,7 +170,7 @@ main()
 `experimentation/Diabetes Ridge Regression Scoring.ipynb`에서 다음 단계를 완료합니다.
 
 1. `init`라는 함수를 새로 만듭니다. 이 함수는 매개 변수를 사용하지 않고 아무것도 반환하지 않습니다.
-1. “Load Model”(모델 로드) 제목 아래에 있는 코드를 `init` 함수에 복사합니다.
+1. "모델 로드" 제목 아래에 있는 코드를 `init` 함수에 복사합니다.
 
 `init` 함수는 다음 코드와 같은 모양입니다.
 
@@ -181,7 +181,7 @@ def init():
     model = joblib.load(model_path)
 ```
 
-`init` 함수가 만들어지면, “Load Model”(모델 로드) 제목 아래에 있는 모든 코드를 다음과 같이 `init`에 대한 단일 호출로 바꿉니다.
+`init` 함수가 만들어지면, "모델 로드" 제목 아래에 있는 모든 코드를 다음과 같이 `init`에 대한 단일 호출로 바꿉니다.
 
 ```python
 init()
@@ -195,7 +195,7 @@ init()
     {"result": result.tolist()}
     ```
 
-1. “Prepare Data”(데이터 준비) 및 “Score Data”(데이터 채점) 제목 아래에 있는 코드를 `run` 함수에 복사합니다.
+1. "데이터 준비" 및 "데이터 채점" 제목 아래에 있는 코드를 `run` 함수에 복사합니다.
 
     `run` 함수는 다음 코드와 같은 모양입니다. (`raw_data` 및 `request_headers` 변수를 설정하는 명령문을 제거해야 합니다. 이것은 `run` 함수가 호출될 때 사용됩니다.)
 
@@ -208,7 +208,7 @@ init()
         return {"result": result.tolist()}
     ```
 
-`run` 함수가 만들어지면 “Prepare Data”(데이터 준비) 및 “Score Data”(데이터 채점) 제목 아래에 있는 모든 코드를 다음 코드로 바꿉니다.
+`run` 함수가 만들어지면 "데이터 준비" 및 "데이터 채점" 제목 아래에 있는 모든 코드를 다음 코드로 바꿉니다.
 
 ```python
 raw_data = '{"data":[[1,2,3,4,5,6,7,8,9,10],[10,9,8,7,6,5,4,3,2,1]]}'

@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 09/03/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 05ea21f7b3221425e5b052797d79e629fdfe3ba5
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 9e3c5c12157a007bcad59a78b4623ff4d5a0041f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78360404"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79222590"
 ---
 # <a name="tutorial-secure-a-single-or-pooled-database"></a>자습서: 단일 또는 풀링된 데이터베이스 보호
 
@@ -149,7 +149,7 @@ Azure AD를 구성하는 방법에 대한 자세한 내용은 다음을 참조�
 
 ## <a name="manage-database-access"></a>데이터베이스 액세스 관리
 
-데이터베이스에 사용자를 추가하거나 보안 연결 문자열을 사용하여 사용자 액세스를 허용하여 데이터베이스 액세스를 관리합니다. 연결 문자열은 외부 애플리케이션에 유용합니다. 자세한 내용은 [Azure SQL 액세스 제어](sql-database-control-access.md) 및 [AD 인증](sql-database-aad-authentication.md)을 참조하세요.
+데이터베이스에 사용자를 추가하거나 보안 연결 문자열을 사용하여 사용자 액세스를 허용하여 데이터베이스 액세스를 관리합니다. 연결 문자열은 외부 애플리케이션에 유용합니다. 자세히 알아보려면 [로그인 및 사용자 계정 관리](sql-database-manage-logins.md) 및 [AD 인증](sql-database-aad-authentication.md)을 참조하세요.
 
 사용자를 추가하려면 다음 데이터베이스 인증 유형을 선택합니다.
 

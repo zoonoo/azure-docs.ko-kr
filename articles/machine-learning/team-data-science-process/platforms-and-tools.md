@@ -11,17 +11,17 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: e3297319c67ad2b7c94371356cde49113c7ef737
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79251610"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>데이터 과학 프로젝트용 플랫폼 및 도구
 
-Microsoft는 클라우드 또는 온-프레미스 플랫폼 모두에 대 한 전체 분석 리소스를 제공 합니다. 데이터 과학 프로젝트의 실행이 효율적이고 확장 가능하게 되도록 배포할 수 있습니다. 추적 가능하고, 버전을 제어하고, 공동 작업을 수행하는 방식으로 데이터 과학 프로젝트를 구현하는 팀에 대한 지침은 [TDSP(Team Data Science Process)](overview.md)에서 제공됩니다.  이 프로세스를 표준화하는 데이터 과학 팀에서 처리하는 인력 역할 및 관련 작업에 대한 개요는 [Team Data Science Process 역할 및 작업](roles-tasks.md)을 참조하세요.
+Microsoft는 클라우드 또는 온-프레미스 플랫폼 모두에 대해 전체 스펙트럼의 분석 리소스를 제공합니다. 데이터 과학 프로젝트의 실행이 효율적이고 확장 가능하게 되도록 배포할 수 있습니다. 추적 가능하고, 버전을 제어하고, 공동 작업을 수행하는 방식으로 데이터 과학 프로젝트를 구현하는 팀에 대한 지침은 [TDSP(Team Data Science Process)](overview.md)에서 제공됩니다.  이 프로세스를 표준화하는 데이터 과학 팀에서 처리하는 인력 역할 및 관련 작업에 대한 개요는 [Team Data Science Process 역할 및 작업](roles-tasks.md)을 참조하세요.
 
-TDSP를 사용 하는 데이터 과학 팀에서 사용할 수 있는 분석 리소스는 다음과 같습니다.
+TDSP를 사용하여 데이터 과학 팀에서 사용할 수 있는 분석 리소스는 다음과 같습니다.
 
 - 데이터 과학 Virtual Machine(Windows 및 Linux CentOS)
 - HDInsight Spark 클러스터
@@ -29,7 +29,7 @@ TDSP를 사용 하는 데이터 과학 팀에서 사용할 수 있는 분석 리
 - Azure 데이터 레이크
 - HDInsight Hive 클러스터
 - Azure File Storage
-- SQL Server 2019 R 및 Python 서비스
+- SQL 서버 2019 R 및 파이썬 서비스
 - Azure Databricks
 
 이 문서에서는 리소스를 간략히 설명하고 TDSP 팀에서 게시한 자습서 및 연습에 대한 링크를 제공합니다. 단계별로 사용하는 방법을 배우고, 지능형 애플리케이션을 빌드하는 데 사용할 수 있습니다. 이러한 리소스에 대한 자세한 내용은 해당 제품 페이지에서 확인할 수 있습니다. 
@@ -45,13 +45,13 @@ Microsoft에서 Windows 및 Linux 모두에 제공하는 데이터 과학 가상
 - Windows용 Power BI Desktop
 - Windows의 SQL Server 2016 Developer Edition 및 Linux의 Postgres
 
-또한 xgboost, mxnet 및 Vowpal Wabbit와 같은 **ML 및 AI 도구** 를 포함 합니다.
+또한 xgboost, mxnet 및 Vowpal Wabbit과 같은 **ML 및 AI 도구가** 포함되어 있습니다.
 
 현재 DSVM은 **Windows** 및 **Linux CentOS** 운영 체제에서 사용할 수 있습니다. 실행하려는 데이터 과학 프로젝트의 요구 사항에 따라 DSVM의 크기(CPU 코어 수 및 메모리 양)를 선택합니다. 
 
-DSVM의 Windows 버전에 대 한 자세한 내용은 Azure Marketplace의 [Microsoft Data Science Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-windows) 를 참조 하십시오. Linux DSVM 버전의 경우 [Linux 데이터 과학 Virtual Machine](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/)을 참조하세요.
+DSVM의 Windows 버전에 대한 자세한 내용은 Azure 마켓플레이스의 [Microsoft 데이터 과학 가상 컴퓨터를](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-windows) 참조하십시오. Linux DSVM 버전의 경우 [Linux 데이터 과학 Virtual Machine](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/)을 참조하세요.
 
-DSVM에서 몇 가지 일반적인 데이터 과학 작업을 효율적으로 실행 하는 방법을 알아보려면 [데이터 과학 Virtual Machine에서 수행할 수 있는 10 가지](../data-science-virtual-machine/vm-do-ten-things.md) 작업을 참조 하세요.
+DSVM에서 일부 일반적인 데이터 과학 작업을 효율적으로 실행하는 방법을 알아보려면 [데이터 과학 가상 머신에서 수행할 수 있는 10가지 작업을](../data-science-virtual-machine/vm-do-ten-things.md) 참조하십시오.
 
 
 ## <a name="azure-hdinsight-spark-clusters"></a>Azure HDInsight Spark 클러스터
@@ -72,7 +72,7 @@ Azure SQL Data Warehouse에 대한 자세한 내용은 [SQL Data Warehouse](http
 
 ## <a name="azure-data-lake"></a>Azure 데이터 레이크
 
-Azure Data Lake는 공식적인 요구 사항 또는 스키마 적용에 앞서 단일 위치에 수집 된 모든 유형의 데이터에 대 한 엔터프라이즈 수준의 리포지토리입니다. 이러한 유연성을 통해 크기, 구조 또는 수집 속도에 관계 없이 모든 형식의 데이터를 데이터 레이크에 보관할 수 있습니다. 그런 다음 조직에서는 Hadoop 또는 고급 분석을 사용하여 이러한 데이터 레이크에서 패턴을 찾을 수 있습니다. 또한 데이터 레이크는 데이터를 큐레이팅하고 데이터 웨어하우스로 이동하기 전에 저렴한 비용으로 데이터를 준비하기 위한 리포지토리 역할을 수행할 수 있습니다.
+Azure Data Lake는 공식적인 요구 사항이나 스키마가 부과되기 전에 단일 위치에서 수집된 모든 유형의 데이터에 대한 전사적 리포지토리입니다. 이러한 유연성을 통해 크기, 구조 또는 수집 속도에 관계 없이 모든 형식의 데이터를 데이터 레이크에 보관할 수 있습니다. 그런 다음 조직에서는 Hadoop 또는 고급 분석을 사용하여 이러한 데이터 레이크에서 패턴을 찾을 수 있습니다. 또한 데이터 레이크는 데이터를 큐레이팅하고 데이터 웨어하우스로 이동하기 전에 저렴한 비용으로 데이터를 준비하기 위한 리포지토리 역할을 수행할 수 있습니다.
 
 Azure Data Lake에 대한 자세한 내용은 [Azure Data Lake 소개](https://azure.microsoft.com/blog/introducing-azure-data-lake/)를 참조하세요. Azure Data Lake를 사용하여 확장 가능한 엔드투엔드 데이터 과학 솔루션을 빌드하는 방법은 [Azure Data Lake의 확장 가능한 데이터 과학: 엔드투엔드 연습](data-lake-walkthrough.md)을 참조하세요.
 
@@ -95,16 +95,16 @@ Azure File Storage는 표준 SMB(서버 메시지 블록) 프로토콜을 사용
 Azure 파일 저장소를 프로젝트 팀 구성원과 프로젝트 데이터를 공유할 수 있는 장소로 만드는 기능은 특히 데이터 과학 프로젝트에 유용합니다. 그러면 각 구성원이 Azure File Storage에 있는 동일한 데이터 복사본에 액세스할 수 있습니다. 또한 이 파일 스토리지를 사용하여 프로젝트 실행 중에 생성된 기능 집합을 공유할 수도 있습니다. 클라이언트가 참여하는 프로젝트인 경우 클라이언트에서 자체의 Azure 구독으로 Azure File Storage를 만들어 프로젝트 데이터와 기능을 공유할 수 있습니다. 클라이언트에는 이러한 방식으로 프로젝트 데이터 자산에 대한 모든 권한이 있게 됩니다. Azure File Storage에 대한 자세한 내용은 [Windows에서 Azure File Storage 시작](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-files) 또는 [Linux에서 Azure File Storage를 사용하는 방법](../../storage/files/storage-how-to-use-files-linux.md)을 참조하세요.
 
 
-## <a name="sql-server-2019-r-and-python-services"></a>SQL Server 2019 R 및 Python 서비스
+## <a name="sql-server-2019-r-and-python-services"></a>SQL 서버 2019 R 및 파이썬 서비스
 
-R Services (데이터베이스 내)는 새로운 정보를 발견할 수 있는 지능형 응용 프로그램을 개발 하 고 배포 하기 위한 플랫폼을 제공 합니다. R 커뮤니티에서 제공하는 많은 패키지를 포함하여 풍부하고 강력한 R 언어를 사용하여 SQL Server 데이터에서 모델을 만들고 예측을 생성할 수 있습니다. R Services (데이터베이스 내)는 R 언어를 SQL Server 통합 하기 때문에 분석은 데이터와 가깝게 유지 되므로 데이터 이동과 관련 된 비용 및 보안 위험을 없앨 수 있습니다.
+R 서비스(In-database)는 새로운 통찰력을 발견할 수 있는 지능형 응용 프로그램을 개발하고 배포하기 위한 플랫폼을 제공합니다. R 커뮤니티에서 제공하는 많은 패키지를 포함하여 풍부하고 강력한 R 언어를 사용하여 SQL Server 데이터에서 모델을 만들고 예측을 생성할 수 있습니다. R 서비스(데이터베이스 내)는 R 언어를 SQL Server와 통합하므로 분석은 데이터에 가깝게 유지되므로 데이터 이동과 관련된 비용 및 보안 위험이 제거됩니다.
 
-R Services (데이터베이스 내)는 포괄적인 SQL Server 도구 및 기술 집합을 포함 하는 오픈 소스 R 언어를 지원 합니다. 탁월한 성능, 보안, 안정성 및 관리 효율성을 제공합니다. 편리하고 친숙한 도구를 사용하여 R 솔루션을 배포할 수 있습니다. 프로덕션 애플리케이션에서 R 런타임을 호출하고 Transact-SQL을 사용하여 예측 및 시각적 개체를 검색할 수 있습니다. 또한 ScaleR 라이브러리를 사용하여 R 솔루션의 규모와 성능을 향상시킵니다. 자세한 내용은 [SQL Server R Services](https://docs.microsoft.com/sql/advanced-analytics/r/sql-server-r-services)를 참조하세요.
+R 서비스(데이터베이스 내)는 포괄적인 SQL Server 도구 및 기술 집합을 사용하여 오픈 소스 R 언어를 지원합니다. 탁월한 성능, 보안, 안정성 및 관리 효율성을 제공합니다. 편리하고 친숙한 도구를 사용하여 R 솔루션을 배포할 수 있습니다. 프로덕션 애플리케이션에서 R 런타임을 호출하고 Transact-SQL을 사용하여 예측 및 시각적 개체를 검색할 수 있습니다. 또한 ScaleR 라이브러리를 사용하여 R 솔루션의 규모와 성능을 향상시킵니다. 자세한 내용은 [SQL Server R 서비스를](https://docs.microsoft.com/sql/advanced-analytics/r/sql-server-r-services)참조하십시오.
 
 Microsoft의 TDSP 팀은 SQL Server 2016 R Services에서 R 프로그래머용 및 SQL 개발자용 데이터 과학 솔루션을 빌드하는 방법을 보여 주는 두 가지 엔드투엔드 연습을 게시했습니다. **R 프로그래머**의 경우 [데이터 과학 엔드투엔드 연습](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough)을 참조하세요. **SQL 개발자**의 경우 [SQL 개발자용 In-Database 고급 분석(자습서)](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers)을 참조하세요.
 
 
-## <a name="appendix"></a>부록: 데이터 과학 프로젝트를 설정하는 도구
+## <a name="appendix-tools-to-set-up-data-science-projects"></a><a name="appendix"></a>부록: 데이터 과학 프로젝트를 설정하는 도구
 
 ### <a name="install-git-credential-manager-on-windows"></a>Windows에 Git Credential Manager 설치
 
@@ -136,7 +136,7 @@ Linux(CentOS) 컴퓨터를 사용하여 git 명령을 실행하는 경우 Azure 
 
 1. *ssh-rsa*가 포함된 ssh 키 전체를 복사합니다. 
 1. Azure DevOps Services에 로그인합니다. 
-1. 페이지의 오른쪽 위 모서리에서 **\>이름 <** 클릭 하 고 **보안**을 클릭 합니다. 
+1. 페이지의 오른쪽 상단 모서리에 **있는<\> ** 클릭하여 **보안을**클릭합니다. 
     
    ![이름을 클릭한 다음, 보안 클릭](./media/platforms-and-tools/resources-2-user-setting.png)
 
@@ -144,11 +144,11 @@ Linux(CentOS) 컴퓨터를 사용하여 git 명령을 실행하는 경우 Azure 
 
    ![SSH 공개 키를 클릭한 다음, +추가 클릭](./media/platforms-and-tools/resources-3-add-ssh.png)
 
-1. 텍스트 상자에 복사 된 ssh 키를 붙여넣고 저장 합니다.
+1. 복사된 ssh 키를 텍스트 상자에 붙여넣고 저장합니다.
 
 
 ## <a name="next-steps"></a>다음 단계
 
 **특정 시나리오**에 대한 프로세스의 모든 단계를 보여 주는 전체 엔드투엔드 연습도 제공됩니다. 이러한 단계는 [예제 연습](walkthroughs.md) 항목에서 미리 보기 설명과 함께 나열되고 연결되어 있습니다. 이 연습에서는 클라우드 및 온-프레미스 도구와 서비스를 워크플로 또는 파이프라인에 결합하여 지능형 애플리케이션을 만드는 방법을 보여 줍니다. 
 
-Azure Machine Learning Studio (클래식)를 사용 하 여 팀 데이터 과학 프로세스의 단계를 실행 하는 방법을 보여 주는 예제는 [AZURE ML](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) 학습 경로를 사용 하 여를 참조 하세요.
+Azure 기계 학습 스튜디오(클래식)를 사용하여 팀 데이터 과학 프로세스에서 단계를 실행하는 방법을 보여 주는 예제는 [Azure ML](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) 사용 경로 참조입니다.

@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory에서 지속적인 통합 및 전달
+title: Azure 데이터 팩터리에서 지속적인 통합 및 제공
 description: 지속적인 통합 및 지속적인 업데이트를 사용하여 환경(개발, 테스트, 프로덕션) 간에 Data Factory 파이프라인을 이동하는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -11,24 +11,24 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 02/12/2020
-ms.openlocfilehash: dc0da82447b5df0735b16f46298a2f473ee61ea0
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.openlocfilehash: 8bbb11a8811582bea26e784636564eb5d5a4d284
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/14/2020
-ms.locfileid: "79371378"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80384333"
 ---
-# <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Azure Data Factory에서 지속적인 통합 및 전달
+# <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Azure 데이터 팩터리에서 지속적인 통합 및 제공
 
 ## <a name="overview"></a>개요
 
-연속 통합은 코드 베이스에 대 한 각 변경을 자동으로 가능한 한 빨리 테스트 하는 방법입니다. 연속 전달은 연속 통합 중에 발생 하는 테스트를 따르고 스테이징 또는 프로덕션 시스템에 변경 내용을 푸시합니다.
+지속적인 통합은 코드베이스에 대한 각 변경 사항을 가능한 한 빨리 자동으로 테스트하는 방법입니다.연속 전달은 연속 통합 중에 발생하는 테스트를 따르며 스테이징 또는 프로덕션 시스템에 변경 내용을 푸시합니다.
 
-Azure Data Factory에서 CI/CD (지속적인 통합 및 배달)는 한 환경 (개발, 테스트, 프로덕션)에서 다른 환경으로 Data Factory 파이프라인을 이동 하는 것을 의미 합니다. Azure Resource Manager 템플릿과 Data Factory UX 통합을 사용 하 여 CI/CD를 수행할 수 있습니다.
+Azure 데이터 팩터리에서 지속적인 통합 및 제공(CI/CD)은 데이터 팩터리 파이프라인을 한 환경(개발, 테스트, 프로덕션)에서 다른 환경으로 이동하는 것을 의미합니다. Azure 리소스 관리자 템플릿과 데이터 팩터리 UX 통합을 사용하여 CI/CD를 수행할 수 있습니다.
 
-Data Factory UX의 **ARM 템플릿** 드롭다운 메뉴에서 리소스 관리자 템플릿을 생성할 수 있습니다. **ARM 템플릿 내보내기**를 선택 하면 포털에서 데이터 팩터리에 대 한 리소스 관리자 템플릿과 모든 연결 문자열 및 기타 매개 변수를 포함 하는 구성 파일을 생성 합니다. 그런 다음 각 환경 (개발, 테스트, 프로덕션)에 대해 하나의 구성 파일을 만듭니다. 주 Resource Manager 템플릿 파일은 모든 환경에서 동일하게 유지됩니다.
+데이터 팩터리 UX에서 **ARM 템플릿** 드롭다운 메뉴에서 리소스 관리자 템플릿을 생성할 수 있습니다. **ARM 템플릿 내보내기를**선택하면 포털은 데이터 팩터리에 대한 리소스 관리자 템플릿과 모든 연결 문자열 및 기타 매개 변수를 포함하는 구성 파일을 생성합니다. 그런 다음 각 환경(개발, 테스트, 프로덕션)에 대해 하나의 구성 파일을 만듭니다. 주 Resource Manager 템플릿 파일은 모든 환경에서 동일하게 유지됩니다.
 
-이 기능에 대 한 9 분의 소개와 데모를 보려면 다음 비디오를 시청 하세요.
+이 기능과 데모에 대한 9분 간의 소개를 보려면 다음 비디오를 시청하십시오.
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Continuous-integration-and-deployment-using-Azure-Data-Factory/player]
 
@@ -36,121 +36,121 @@ Data Factory UX의 **ARM 템플릿** 드롭다운 메뉴에서 리소스 관리�
 
 ## <a name="cicd-lifecycle"></a>CI/CD 수명 주기
 
-다음은 Azure Repos Git로 구성 된 Azure data factory의 CI/CD 수명 주기에 대 한 샘플 개요입니다. Git 리포지토리를 구성 하는 방법에 대 한 자세한 내용은 [Azure Data Factory에서 소스 제어](source-control.md)를 참조 하세요.
+다음은 Azure Repos Git으로 구성된 Azure 데이터 팩터리의 CI/CD 수명 주기에 대한 샘플 개요입니다. Git 리포지토리를 구성하는 방법에 대한 자세한 내용은 [Azure 데이터 팩터리의 소스 제어를](source-control.md)참조하십시오.
 
-1.  Azure Repos Git를 사용 하 여 개발 데이터 팩터리가 생성 및 구성 됩니다. 모든 개발자는 파이프라인 및 데이터 집합과 같은 Data Factory 리소스를 작성할 수 있는 권한이 있어야 합니다.
+1.  개발 데이터 팩터리는 Azure Repos Git으로 만들어지고 구성됩니다. 모든 개발자는 파이프라인 및 데이터 집합과 같은 Data Factory 리소스를 작성할 수 있는 권한이 있어야 합니다.
 
-1.  개발자는 해당 기능 분기를 변경할 때 가장 최근의 변경 내용으로 파이프라인 실행을 디버그 합니다. 파이프라인 실행을 디버그 하는 방법에 대 한 자세한 내용은 [Azure Data Factory를 사용 하 여 반복 개발 및 디버깅](iterative-development-debugging.md)을 참조 하세요.
+1.  개발자가 기능 분기를 변경하면 가장 최근의 변경 내용으로 파이프라인 실행을 디버깅합니다. 파이프라인 실행을 디버깅하는 방법에 대한 자세한 내용은 [Azure Data Factory를 사용하여 반복 개발 및 디버깅을](iterative-development-debugging.md)참조하세요.
 
-1.  개발자는 변경 내용을 충족 하 고 나면 해당 기능 분기에서 마스터 또는 공동 작업 분기로 끌어오기 요청을 만들어 해당 변경 내용을 피어로 검토할 수 있습니다.
+1.  개발자가 변경 사항에 만족하면 기능 분기에서 마스터 또는 공동 작업 분기로 끌어오기 요청을 만들어 동료가 변경 내용을 검토합니다.
 
-1.  끌어오기 요청을 승인 하 고 변경 내용을 master 분기에 병합 한 후에는 변경 내용을 개발 팩터리에 게시할 수 있습니다.
+1.  끌어오기 요청이 승인되고 변경 내용이 마스터 분기에 병합되면 변경 내용을 개발 팩터리에 게시할 수 있습니다.
 
-1.  팀이 변경 내용을 테스트 팩터리에 배포할 준비가 되 면 팀은 master 분기에서 리소스 관리자 템플릿을 내보냅니다.
+1.  팀이 테스트 팩터리에 변경 내용을 배포한 다음 프로덕션 팩터에 배포할 준비가 되면 팀은 마스터 분기에서 Resource Manager 템플릿을 내보전합니다.
 
-1.  내보낸 리소스 관리자 템플릿은 테스트 팩터리 및 프로덕션 팩터리에 다른 매개 변수 파일을 사용 하 여 배포 됩니다.
+1.  내보낸 리소스 관리자 템플릿은 테스트 팩터리 및 프로덕션 팩터리에 다른 매개 변수 파일과 함께 배포됩니다.
 
 ## <a name="create-a-resource-manager-template-for-each-environment"></a>각 환경에 Resource Manager 템플릿 만들기
 
-1. **Arm 템플릿** 목록에서 **arm 템플릿 내보내기** 를 선택 하 여 개발 환경에서 데이터 팩터리에 대 한 리소스 관리자 템플릿을 내보냅니다.
+1. ARM **템플릿** 목록에서 **ARM 템플릿 내보내기를** 선택하여 개발 환경에서 데이터 팩터리의 리소스 관리자 템플릿을 내보냅니다.
 
    ![리소스 관리자 템플릿 내보내기](media/continuous-integration-deployment/continuous-integration-image1.png)
 
-1. 테스트 및 프로덕션 데이터 팩터리에서 **ARM 템플릿 가져오기**를 선택 합니다. 이 작업을 통해 Azure Portal로 이동합니다. 여기서 내보낸 템플릿을 가져올 수 있습니다. **편집기에서 사용자 고유의 템플릿 빌드** 를 선택 하 여 리소스 관리자 템플릿 편집기를 엽니다.
+1. 테스트 및 프로덕션 데이터 팩터리에서 **ARM 템플릿 가져오기를**선택합니다. 이 작업을 통해 Azure Portal로 이동합니다. 여기서 내보낸 템플릿을 가져올 수 있습니다. **편집기에서 사용자 고유의 템플릿 빌드를** 선택하여 리소스 관리자 템플릿 편집기를 엽니다.
 
-   ![사용자 고유의 템플릿 빌드](media/continuous-integration-deployment/custom-deployment-build-your-own-template.png) 
+   ![나만의 템플릿 만들기](media/continuous-integration-deployment/custom-deployment-build-your-own-template.png) 
 
-1. **파일 로드**를 선택 하 고 생성 된 리소스 관리자 템플릿을 선택 합니다. 이는 1 단계에서 내보낸 .zip 파일에 있는 **arm_template json** 파일입니다.
+1. **파일 로드를**선택한 다음 생성된 리소스 관리자 템플릿을 선택합니다. 1단계에서 내보낸 .zip 파일에 있는 **arm_template.json** 파일입니다.
 
    ![템플릿 편집](media/continuous-integration-deployment/custom-deployment-edit-template.png)
 
-1. 설정 섹션에서 연결 된 서비스 자격 증명과 같은 구성 값을 입력 합니다. 완료 되 면 **구매** 를 선택 하 여 리소스 관리자 템플릿을 배포 합니다.
+1. 설정 섹션에서 연결된 서비스 자격 증명과 같은 구성 값을 입력합니다. 작업이 완료되면 **구매를** 선택하여 리소스 관리자 템플릿을 배포합니다.
 
    ![설정 섹션](media/continuous-integration-deployment/continuous-integration-image5.png)
 
 ### <a name="connection-strings"></a>연결 문자열
 
-연결 문자열을 구성 하는 방법에 대 한 자세한 내용은 커넥터의 문서를 참조 하세요. 예를 들어 Azure SQL Database의 경우 [Azure Data Factory를 사용하여 Azure SQL Database 간 데이터 복사](connector-azure-sql-database.md)를 참조하세요. 연결 문자열을 확인 하려면 Data Factory UX에서 리소스에 대 한 코드 보기를 열 수 있습니다. 코드 보기에서 연결 문자열의 암호 또는 계정 키 부분이 제거 됩니다. 코드 보기를 열려면 여기에 강조 표시 된 아이콘을 선택 합니다.
+연결 문자열을 구성하는 방법에 대한 자세한 내용은 커넥터의 문서를 참조하십시오. 예를 들어 Azure SQL Database의 경우 [Azure Data Factory를 사용하여 Azure SQL Database 간 데이터 복사](connector-azure-sql-database.md)를 참조하세요. 연결 문자열을 확인하려면 Data Factory UX에서 리소스에 대한 코드 보기를 열 수 있습니다. 코드 보기에서 연결 문자열의 암호 또는 계정 키 부분이 제거됩니다. 코드 보기를 열려면 여기에 강조 표시된 아이콘을 선택합니다.
 
-![코드 보기를 열어 연결 문자열 확인](media/continuous-integration-deployment/continuous-integration-codeview.png)
+![코드 보기를 열어 연결 문자열을 확인합니다.](media/continuous-integration-deployment/continuous-integration-codeview.png)
 
-## <a name="automate-continuous-integration-by-using-azure-pipelines-releases"></a>Azure Pipelines 릴리스를 사용 하 여 연속 통합 자동화
+## <a name="automate-continuous-integration-by-using-azure-pipelines-releases"></a>Azure 파이프라인 릴리스를 사용하여 지속적인 통합 자동화
 
-다음은 데이터 팩터리를 여러 환경으로 배포 하는 작업을 자동화 하는 Azure Pipelines 릴리스를 설정 하기 위한 가이드입니다.
+다음은 여러 환경에 데이터 팩터리 배포를 자동화하는 Azure 파이프라인 릴리스를 설정하기 위한 가이드입니다.
 
 ![Azure Pipelines를 사용하는 지속적인 통합 다이어그램](media/continuous-integration-deployment/continuous-integration-image12.png)
 
 ### <a name="requirements"></a>요구 사항
 
--    [Azure Resource Manager 서비스 끝점](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-resource-manager)을 사용 하는 Visual Studio Team Foundation Server 또는 Azure Repos에 연결 된 Azure 구독입니다.
+-   Azure [리소스 관리자 서비스 끝점을](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-resource-manager)사용하는 Visual Studio Team 파운데이션 서버 또는 Azure 리포지토리에 연결된 Azure 구독입니다.
 
--   Azure Repos Git 통합을 사용 하 여 구성 된 데이터 팩터리입니다.
+-   Azure Repos Git 통합으로 구성된 데이터 팩터리입니다.
 
--   각 환경에 대 한 암호를 포함 하는 [Azure key vault](https://azure.microsoft.com/services/key-vault/) .
+-   각 환경에 대한 비밀이 포함된 [Azure 키 자격 증명 모음입니다.](https://azure.microsoft.com/services/key-vault/)
 
 ### <a name="set-up-an-azure-pipelines-release"></a>Azure Pipelines 릴리스 설정
 
-1.  [Azure DevOps](https://dev.azure.com/)에서 데이터 팩터리를 사용 하 여 구성 된 프로젝트를 엽니다.
+1.  [Azure DevOps에서](https://dev.azure.com/)데이터 팩터리로 구성된 프로젝트를 엽니다.
 
-1.  페이지의 왼쪽에서 **파이프라인**을 선택 하 고 **릴리스**를 선택 합니다.
+1.  페이지 왼쪽에서 **파이프라인 을**선택한 다음 **릴리스를**선택합니다.
 
-    ![파이프라인, 릴리스를 선택 합니다.](media/continuous-integration-deployment/continuous-integration-image6.png)
+    ![파이프라인, 릴리스 선택](media/continuous-integration-deployment/continuous-integration-image6.png)
 
-1.  **새 파이프라인**을 선택 하거나 기존 파이프라인이 있는 경우 **새로 만들기** , **새 릴리스 파이프라인**을 차례로 선택 합니다.
+1.  **새 파이프라인을**선택하거나 기존 파이프라인이 있는 경우 **새** 파이프라인및 새 **릴리스 파이프라인을**선택합니다.
 
-1.  **빈 작업** 템플릿을 선택 합니다.
+1.  빈 **작업** 템플릿을 선택합니다.
 
     ![빈 작업 선택](media/continuous-integration-deployment/continuous-integration-image13.png)
 
-1.  **스테이지 이름** 상자에 사용자 환경의 이름을 입력 합니다.
+1.  스테이지 **이름** 상자에 환경의 이름을 입력합니다.
 
-1.  **아티팩트 추가**를 선택 하 고 데이터 팩터리를 사용 하 여 구성 된 리포지토리를 선택 합니다. **기본 분기**에 대해 **adf_publish** 를 선택 합니다. **기본 버전**의 경우 **기본 분기에서 최신**을 선택 합니다.
+1.  **아티팩트 추가를**선택한 다음 데이터 팩터리로 구성된 리포지토리를 선택합니다. **기본 분기에**대해 **adf_publish** 선택합니다. 기본 **버전의**경우 **기본 분기에서 최신 을**선택합니다.
 
     ![아티팩트 추가](media/continuous-integration-deployment/continuous-integration-image7.png)
 
 1.  Azure Resource Manager 배포 작업을 추가합니다.
 
-    a.  스테이지 보기에서 **스테이지 작업 보기**를 선택 합니다.
+    a.  스테이지 보기에서 **스테이지 작업 보기를**선택합니다.
 
-    ![스테이지 보기](media/continuous-integration-deployment/continuous-integration-image14.png)
+    ![스테이지 뷰](media/continuous-integration-deployment/continuous-integration-image14.png)
 
-    b.  새 태스크를 만듭니다. **Azure 리소스 그룹 배포**를 검색 한 다음 **추가**를 선택 합니다.
+    b.  새 태스크를 만듭니다. Azure **리소스 그룹 배포를**검색한 다음 **에 추가를**선택합니다.
 
-    다.  배포 작업에서 대상 데이터 팩터리에 대 한 구독, 리소스 그룹 및 위치를 선택 합니다. 필요한 경우 자격 증명을 제공 합니다.
+    다.  배포 작업에서 대상 데이터 팩터리의 구독, 리소스 그룹 및 위치를 선택합니다. 필요한 경우 자격 증명을 제공합니다.
 
-    d.  **작업** 목록에서 **리소스 그룹 만들기 또는 업데이트**를 선택 합니다.
+    d.  **작업** 목록에서 리소스 **그룹 만들기 또는 업데이트 를**선택합니다.
 
-    e.  **템플릿** 상자 옆의 줄임표 단추 ( **...** )를 선택 합니다. 이 문서의 [각 환경에 대 한 리소스 관리자 템플릿 만들기](continuous-integration-deployment.md#create-a-resource-manager-template-for-each-environment) 섹션에서 **ARM 템플릿 가져오기** 를 사용 하 여 만든 Azure Resource Manager 템플릿을 찾아봅니다. Adf_publish 분기의 <FactoryName> 폴더에서이 파일을 찾습니다.
+    e.  **템플릿** 상자 옆에 있는 타원**단추(...**) 를 선택합니다. 이 문서의 각 환경 섹션에 대한 리소스 관리자 만들기 템플릿에서 **ARM 가져오기 템플릿을** 사용하여 만든 Azure 리소스 [관리자 템플릿을](continuous-integration-deployment.md#create-a-resource-manager-template-for-each-environment) 찾아봅습니다. adf_publish 분기의 <FactoryName> 폴더에서 이 파일을 찾습니다.
 
-    f.  **템플릿 매개 변수 재정의** 필드 를 클릭 하 **여 매개** 변수 파일을 선택 합니다. 사용자가 선택한 파일은 복사본을 만들었는지 아니면 기본 파일 ARMTemplateParametersForFactory를 사용 하는지에 따라 달라 집니다.
+    f.  선택 **...** **템플릿 매개 변수** 상자 옆에 있는 매개 변수 파일을 선택합니다. 선택한 파일은 복사본을 만들었는지 기본 파일인 ARMTemplateParametersForFactory.json을 사용중인지에 따라 달라집니다.
 
-    g.  **템플릿 매개 변수 재정의** 필드 **템플릿 매개 변수 재정의** 상자 옆에 대상 데이터 팩터리에 대 한 정보를 입력 합니다. Azure Key Vault에서 제공 하는 자격 증명의 경우 큰따옴표 사이에 암호의 이름을 입력 합니다. 예를 들어 비밀의 이름이 cred1 인 경우이 값으로 **"$ (cred1)"** 를 입력 합니다.
+    g.  선택 **...** 재정의 템플릿 매개 변수 상자 옆에 있는 대상 데이터 팩터리에 대한 정보를 **입력합니다.** Azure Key Vault에서 온 자격 증명의 경우 이중 따옴표 사이에 비밀의 이름을 입력합니다. 예를 들어 비밀의 이름이 cred1인 경우 이 값에 **대해 "$(cred1)"를** 입력합니다.
 
-    h. **배포 모드**에 대해 **증분** 을 선택 합니다.
+    h. **배포 모드에**대해 **증분을** 선택합니다.
 
     > [!WARNING]
-    > **배포 모드**에 대해 **완료** 를 선택 하면 리소스 관리자 템플릿에 정의 되지 않은 대상 리소스 그룹의 모든 리소스를 포함 하 여 기존 리소스가 삭제 될 수 있습니다.
+    > **배포에**대한 **완료** 모드를 선택하면 리소스 관리자 템플릿에 정의되지 않은 대상 리소스 그룹의 모든 리소스를 포함하여 기존 리소스가 삭제될 수 있습니다.
 
-    ![Data Factory Prod 배포](media/continuous-integration-deployment/continuous-integration-image9.png)
+    ![데이터 팩터리 프로드 배포](media/continuous-integration-deployment/continuous-integration-image9.png)
 
 1.  릴리스 파이프라인을 저장합니다.
 
-1. 릴리스를 트리거하려면 **릴리스 만들기**를 선택 합니다.
+1. 릴리스를 트리거하려면 **릴리스 만들기를**선택합니다.
 
    ![릴리스 만들기 선택](media/continuous-integration-deployment/continuous-integration-image10.png)
 
 > [!IMPORTANT]
-> CI/CD 시나리오에서 서로 다른 환경의 IR (통합 런타임) 형식이 동일 해야 합니다. 예를 들어 개발 환경에 자체 호스팅 IR이 있는 경우 동일한 IR도 테스트 및 프로덕션과 같은 다른 환경에서 자체 호스트 되는 형식 이어야 합니다. 마찬가지로, 여러 단계에서 통합 런타임을 공유 하는 경우 개발, 테스트, 프로덕션 등의 모든 환경에서 통합 런타임을 연결 된 자체 호스트로 구성 해야 합니다.
+> CI/CD 시나리오에서는 서로 다른 환경의 통합 런타임(IR) 형식이 동일해야 합니다. 예를 들어 개발 환경에서 자체 호스팅된 IR이 있는 경우 동일한 IR도 테스트 및 프로덕션과 같은 다른 환경에서 자체 호스팅되는 형식이어야 합니다. 마찬가지로 여러 단계에서 통합 런타임을 공유하는 경우 개발, 테스트 및 프로덕션과 같은 모든 환경에서 연결된 자체 호스팅으로 통합 런타임을 구성해야 합니다.
 
-### <a name="get-secrets-from-azure-key-vault"></a>Azure Key Vault에서 비밀 가져오기
+### <a name="get-secrets-from-azure-key-vault"></a>Azure 키 볼트에서 비밀 받기
 
-Azure Resource Manager 템플릿에 전달 해야 하는 암호가 있는 경우 Azure Pipelines 릴리스와 Azure Key Vault를 사용 하는 것이 좋습니다.
+Azure 리소스 관리자 템플릿에 전달할 암호가 있는 경우 Azure 파이프라인 릴리스와 함께 Azure 키 자격 증명 모음을 사용하는 것이 좋습니다.
 
-비밀을 처리 하는 방법에는 두 가지가 있습니다.
+비밀을 처리하는 방법에는 두 가지가 있습니다.
 
 1.  매개 변수 파일에 비밀을 추가합니다. 자세한 내용은 [Azure Key Vault를 사용하여 배포 중에 보안 매개 변수 값 전달](../azure-resource-manager/templates/key-vault-parameter.md)을 참조하세요.
 
-    게시 분기에 업로드 되는 매개 변수 파일의 복사본을 만듭니다. 다음 형식을 사용 하 여 Key Vault에서 가져오려는 매개 변수의 값을 설정 합니다.
+    게시 분기에 업로드된 매개 변수 파일의 복사본을 만듭니다. 다음 형식을 사용하여 Key Vault에서 얻을 매개 변수의 값을 설정합니다.
 
     ```json
     {
@@ -171,27 +171,27 @@ Azure Resource Manager 템플릿에 전달 해야 하는 암호가 있는 경우
 
     매개 변수 파일은 게시 분기에 포함되어야 합니다.
 
-1. 이전 섹션에서 설명한 Azure Resource Manager 배포 작업 앞에 [Azure Key Vault 작업](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-key-vault) 을 추가 합니다.
+1. 이전 섹션에서 설명한 Azure 리소스 관리자 배포 작업 앞에 Azure [키 자격 증명 모음](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-key-vault) 작업을 추가합니다.
 
-    1.  **작업** 탭에서 새 작업을 만듭니다. **Azure Key Vault** 를 검색 하 고 추가 합니다.
+    1.  **작업** 탭에서 새 작업을 만듭니다. Azure **키 자격 증명 모음을** 검색하고 추가합니다.
 
-    1.  Key Vault 작업에서 키 자격 증명 모음을 만든 구독을 선택 합니다. 필요한 경우 자격 증명을 제공 하 고 키 자격 증명 모음을 선택 합니다.
+    1.  키 자격 증명 모음 작업에서 키 자격 증명 모음을 만든 구독을 선택합니다. 필요한 경우 자격 증명을 제공한 다음 키 자격 증명을 선택합니다.
 
-    ![Key Vault 태스크 추가](media/continuous-integration-deployment/continuous-integration-image8.png)
+    ![키 볼트 작업 추가](media/continuous-integration-deployment/continuous-integration-image8.png)
 
 #### <a name="grant-permissions-to-the-azure-pipelines-agent"></a>Azure Pipelines 에이전트에 권한 부여
 
-올바른 사용 권한이 설정 되어 있지 않으면 액세스 거부 오류가 발생 하 여 Azure Key Vault 태스크가 실패할 수 있습니다. 릴리스에 대 한 로그를 다운로드 하 고 명령을 포함 하는 ps1 파일을 찾아 Azure Pipelines 에이전트에 대 한 권한을 부여 합니다. 명령을 직접 실행할 수 있습니다. 또는 파일에서 보안 주체 ID를 복사 하 고 Azure Portal에 직접 액세스 정책을 추가할 수 있습니다. `Get` 및 `List`는 필요한 최소 권한입니다.
+올바른 사용 권한이 설정되지 않은 경우 Azure 키 자격 증명 모음 작업이 액세스 거부 오류로 실패할 수 있습니다. 릴리스에 대한 로그를 다운로드하고 Azure 파이프라인 에이전트에 대한 권한을 부여하는 명령이 포함된 .ps1 파일을 찾습니다. 명령을 직접 실행할 수 있습니다. 또는 파일에서 보안 주체 ID를 복사하고 Azure Portal에서 액세스 정책을 수동으로 추가할 수 있습니다. `Get``List` 필요한 최소 사용 권한입니다.
 
 ### <a name="update-active-triggers"></a>활성 트리거 업데이트
 
-활성 트리거를 업데이트하려고 하면 배포에 실패할 수 있습니다. 활성 트리거를 업데이트 하려면 수동으로 중지 한 후 배포 후에 다시 시작 해야 합니다. Azure PowerShell 작업을 사용 하 여이 작업을 수행할 수 있습니다.
+활성 트리거를 업데이트하려고 하면 배포에 실패할 수 있습니다. 활성 트리거를 업데이트하려면 수동으로 중지한 다음 배포 후 다시 시작해야 합니다. Azure PowerShell 작업을 사용하여 이 작업을 수행할 수 있습니다.
 
-1.  릴리스의 **작업** 탭에서 **Azure PowerShell** 작업을 추가 합니다. 작업 버전 4. *를 선택 합니다. 
+1.  릴리스의 **작업** 탭에서 Azure **PowerShell** 작업을 추가합니다. 작업 버전 4.*를 선택합니다. 
 
-1.  팩터리가 있는 구독을 선택 합니다.
+1.  팩터리 구독을 선택합니다.
 
-1.  스크립트 **파일 경로** 를 스크립트 유형으로 선택 합니다. 이렇게 하려면 PowerShell 스크립트를 리포지토리에 저장 해야 합니다. 다음 PowerShell 스크립트를 사용 하 여 트리거를 중지할 수 있습니다.
+1.  **스크립트 파일 경로를** 스크립트 유형으로 선택합니다. 이렇게 하려면 저장소에 PowerShell 스크립트를 저장해야 합니다. 다음 PowerShell 스크립트를 사용하여 트리거를 중지할 수 있습니다.
 
     ```powershell
     $triggersADF = Get-AzDataFactoryV2Trigger -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
@@ -199,24 +199,24 @@ Azure Resource Manager 템플릿에 전달 해야 하는 암호가 있는 경우
     $triggersADF | ForEach-Object { Stop-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_.name -Force }
     ```
 
-`Start-AzDataFactoryV2Trigger` 함수를 사용 하 여 비슷한 단계를 완료 하 여 배포 후에 트리거를 다시 시작할 수 있습니다.
+배포 후 트리거를 다시 `Start-AzDataFactoryV2Trigger` 시작하려면 함수와 함께 유사한 단계를 완료할 수 있습니다.
 
-### <a name="sample-pre--and-post-deployment-script"></a>샘플 배포 전 및 배포 후 스크립트
+### <a name="sample-pre--and-post-deployment-script"></a>배포 전및 후 스크립트 샘플
 
-다음 샘플 스크립트를 사용 하 여 배포 전에 트리거를 중지 하 고 나중에 다시 시작할 수 있습니다. 스크립트에는 제거된 리소스를 삭제하는 코드도 포함됩니다. 스크립트를 Azure DevOps git 리포지토리에 저장 하 고 버전 4. *를 사용 하 여 Azure PowerShell 작업을 통해 참조 합니다.
+다음 샘플 스크립트를 사용하여 배포 전에 트리거를 중지하고 나중에 다시 시작할 수 있습니다. 스크립트에는 제거된 리소스를 삭제하는 코드도 포함됩니다. Azure DevOps git 리포지토리에 스크립트를 저장하고 버전 4.*를 사용하여 Azure PowerShell 작업을 통해 참조합니다.
 
-배포 전 스크립트를 실행 하는 경우 **스크립트 인수** 필드에서 다음 매개 변수의 변형을 지정 해야 합니다.
+배포 전 스크립트를 실행할 때 **스크립트 인수** 필드에서 다음 매개 변수의 변형을 지정해야 합니다.
 
 `-armTemplate "$(System.DefaultWorkingDirectory)/<your-arm-template-location>" -ResourceGroupName <your-resource-group-name> -DataFactoryName <your-data-factory-name>  -predeployment $true -deleteDeployment $false`
 
 
-배포 후 스크립트를 실행 하는 경우 **스크립트 인수** 필드에서 다음 매개 변수의 변형을 지정 해야 합니다.
+배포 후 스크립트를 실행할 때 **스크립트 인수** 필드에서 다음 매개 변수의 변형을 지정해야 합니다.
 
 `-armTemplate "$(System.DefaultWorkingDirectory)/<your-arm-template-location>" -ResourceGroupName <your-resource-group-name> -DataFactoryName <your-data-factory-name>  -predeployment $false -deleteDeployment $true`
 
-    ![Azure PowerShell task](media/continuous-integration-deployment/continuous-integration-image11.png)
+![Azure PowerShell 작업](media/continuous-integration-deployment/continuous-integration-image11.png)
 
-다음은 배포 전 및 후에 사용할 수 있는 스크립트입니다. 삭제 된 리소스 및 리소스 참조를 계정으로 합니다.
+다음은 배포 전및 사후 배포에 사용할 수 있는 스크립트입니다. 삭제된 리소스 및 리소스 참조를 설명합니다.
 
 ```powershell
 param
@@ -366,7 +366,13 @@ if ($predeployment -eq $true) {
     Write-Host "Stopping deployed triggers"
     $triggerstostop | ForEach-Object { 
         Write-host "Disabling trigger " $_
-        Stop-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_ -Force 
+        Remove-AzDataFactoryV2TriggerSubscription -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_ -Force
+    $status = Get-AzDataFactoryV2TriggerSubscriptionStatus -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_
+    while ($status.Status -ne "Disabled"){
+            Start-Sleep -s 15
+            $status = Get-AzDataFactoryV2TriggerSubscriptionStatus -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_
+    }
+    Stop-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_ -Force 
     }
 }
 else {
@@ -459,42 +465,48 @@ else {
     Write-Host "Starting active triggers"
     $activeTriggerNames | ForEach-Object { 
         Write-host "Enabling trigger " $_
-        Start-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_ -Force 
+        Add-AzDataFactoryV2TriggerSubscription -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_ -Force
+    $status = Get-AzDataFactoryV2TriggerSubscriptionStatus -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_
+    while ($status.Status -ne "Enabled"){
+            Start-Sleep -s 15
+            $status = Get-AzDataFactoryV2TriggerSubscriptionStatus -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_
+    }
+    Start-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_ -Force 
     }
 }
 ```
 
 ## <a name="use-custom-parameters-with-the-resource-manager-template"></a>Resource Manager 템플릿에서 사용자 지정 매개 변수 사용
 
-GIT 모드의 경우 템플릿 및 하드 코드 된 속성에서 매개 변수화 된 속성을 설정 하도록 리소스 관리자 템플릿의 기본 속성을 재정의할 수 있습니다. 이러한 시나리오에서는 기본 매개 변수화 템플릿을 재정의할 수 있습니다.
+GIT 모드에 있는 경우 Resource Manager 템플릿의 기본 속성을 재정의하여 템플릿에서 매개 변수화된 속성과 하드 코딩된 속성을 설정할 수 있습니다. 다음 시나리오에서 기본 매개 변수화 템플릿을 재정의할 수 있습니다.
 
-* 자동화 된 CI/CD를 사용 하 고 리소스 관리자 배포 중에 일부 속성을 변경 하려고 하지만 속성은 기본적으로 매개 변수화 되지 않습니다.
-* 팩터리는 기본 리소스 관리자 템플릿이 허용 되는 최대 매개 변수 (256)를 초과 하기 때문에 잘못 되었습니다.
+* 자동화된 CI/CD를 사용하고 리소스 관리자 배포 중에 일부 속성을 변경하려고 하지만 속성은 기본적으로 매개 변수화되지 않습니다.
+* 팩터리의 규모가 너무 커서 기본 Resource Manager 템플릿이 허용되는 최대 매개 변수(256)보다 많기 때문에 유효하지 않습니다.
 
-이러한 조건에서 기본 매개 변수화 템플릿을 재정의 하려면 data factory git 통합에 대 한 루트 폴더로 지정 된 폴더에 이름이 **arm** 인 파일을 만듭니다. 정확한 파일 이름을 사용 해야 합니다. Data Factory는 현재 공동 작업 분기 뿐만 아니라 Azure Data Factory 포털에 있는 분기에서이 파일을 읽습니다. UI에서 **ARM 템플릿 내보내기** 를 선택 하 여 변경 내용을 테스트할 수 있는 private 분기에서 파일을 만들거나 편집할 수 있습니다. 그런 다음 공동 작업 분기에 파일을 병합할 수 있습니다. 파일이 없는 경우 기본 템플릿이 사용 됩니다.
+이러한 조건에서 기본 매개 변수화 템플릿을 재정의하려면 데이터 팩터리 git 통합의 루트 폴더로 지정된 폴더에 **arm-template-parameters-definition.json이라는** 파일을 만듭니다. 정확한 파일 이름을 사용해야 합니다. Data Factory는 공동 작업 분기뿐만 아니라 Azure Data Factory 포털에 현재 있는 분기에서 이 파일을 읽습니다. 개인 분기에서 파일을 만들거나 편집할 수 있으며, 여기서 UI에서 **ARM 템플릿 내보내기를** 선택하여 변경 내용을 테스트할 수 있습니다. 그런 다음 파일을 공동 작업 분기에 병합할 수 있습니다. 파일이 없는 경우 기본 템플릿이 사용됩니다.
 
 > [!NOTE]
-> 사용자 지정 매개 변수화 템플릿은 ARM 템플릿 매개 변수 제한인 256를 변경 하지 않습니다. 이를 통해 매개 변수가 있는 속성의 수를 선택 하 고 줄일 수 있습니다.
+> 사용자 지정 매개 변수화 템플릿은 ARM 템플릿 매개 변수 제한(256)을 변경하지 않습니다. 매개 변수화된 속성 수를 선택하고 줄일 수 있습니다.
 
 ### <a name="syntax-of-a-custom-parameters-file"></a>사용자 지정 매개 변수 파일의 구문
 
-다음은 사용자 지정 매개 변수 파일을 만들 때 따라야 할 몇 가지 지침입니다. 이 파일은 트리거, 파이프라인, 연결 된 서비스, 데이터 집합, 통합 런타임 등의 각 엔터티 형식에 대 한 섹션으로 구성 됩니다.
-* 관련 엔터티 형식 아래에 속성 경로를 입력 합니다.
-* 속성 이름을 `*`로 설정 하면 그 아래에 있는 모든 속성을 매개 변수화 하는 것을 알 수 있습니다 (재귀적이 아닌 첫 번째 수준 까지만). 이 구성에 대 한 예외를 제공할 수도 있습니다.
-* 속성의 값을 문자열로 설정 하면 속성을 매개 변수화 하는 것을 알 수 있습니다.  `<action>:<name>:<stype>`형식을 사용 합니다.
-   *  `<action>` 는 다음 문자 중 하나를 사용할 수 있습니다.
-      * `=` 는 현재 값을 매개 변수의 기본값으로 유지 한다는 의미입니다.
-      * `-` 는 매개 변수의 기본값을 유지 하지 않음을 의미 합니다.
-      * `|` 는 연결 문자열이 나 키에 대 한 Azure Key Vault의 비밀에 대 한 특별 한 사례입니다.
-   * `<name>` 는 매개 변수의 이름입니다. 비어 있는 경우 속성의 이름을 사용 합니다. 값이 `-` 문자로 시작 하는 경우에는 이름이 짧아집니다. 예를 들어 `AzureStorage1_properties_typeProperties_connectionString` `AzureStorage1_connectionString`으로 줄어듭니다.
-   * `<stype>` 는 매개 변수의 형식입니다.  `<stype>` 비어 있는 경우 기본 유형은 `string`입니다. 지원 되는 값: `string`, `bool`, `number`, `object`및 `securestring`.
-* 정의 파일에 배열을 지정 하면 템플릿의 일치 하는 속성이 배열 임을 나타냅니다. Data Factory 배열의 integration runtime 개체에 지정 된 정의를 사용 하 여 배열의 모든 개체를 반복 합니다. 두 번째 개체, 문자열은 각 반복에 대한 매개 변수의 이름으로 사용되는 속성의 이름이 됩니다.
-* 정의는 리소스 인스턴스와 관련 될 수 없습니다. 모든 정의는 해당 형식의 모든 리소스에 적용 됩니다.
-* 기본적으로 Key Vault 암호와 같은 모든 보안 문자열과 연결 문자열, 키, 토큰 등의 보안 문자열이 매개 변수화 됩니다.
+다음은 사용자 지정 매개 변수 파일을 만들 때 따라야 할 몇 가지 지침입니다. 파일은 트리거, 파이프라인, 연결된 서비스, 데이터 집합, 통합 런타임 등 각 엔터티 유형에 대한 섹션으로 구성됩니다.
+* 관련 엔터티 유형 아래에 속성 경로를 입력합니다.
+* 속성 이름을 설정하여 `*` 속성 아래에 있는 모든 속성을 매개변수화하려는 경우를 나타냅니다(재귀가 아닌 첫 번째 수준까지만). 이 구성에 예외를 제공할 수도 있습니다.
+* 속성 값을 문자열로 설정하면 속성을 매개변수화할 수 있음을 나타냅니다. 형식을 `<action>:<name>:<stype>`사용합니다.
+   *  `<action>` 다음 문자 중 하나가 될 수 있습니다.
+      * `=` 즉, 현재 값을 매개 변수의 기본값으로 유지합니다.
+      * `-` 즉, 매개 변수의 기본값을 유지하지 않습니다.
+      * `|` 는 연결 문자열 또는 키에 대 한 Azure 키 볼트에서 암호에 대 한 특별 한 경우입니다.
+   * `<name>` 은 매개 변수의 이름입니다. 비어 있으면 속성의 이름을 지정합니다. 값이 `-` 문자로 시작하면 이름이 짧아집니다. 예를 `AzureStorage1_properties_typeProperties_connectionString` `AzureStorage1_connectionString`들어.
+   * `<stype>` 은 매개 변수의 유형입니다. 비어 `<stype>` 있는 경우 기본 `string`형식은 입니다. 지원되는 `string`값: `object`, 에 대한 값: `securestring`및 `bool` `number`.
+* 정의 파일에 배열을 지정하면 템플릿의 일치하는 속성이 배열임을 나타냅니다. Data Factory는 배열의 통합 런타임 개체에 지정된 정의를 사용하여 배열의 모든 개체를 통해 이어를 지정합니다. 두 번째 개체, 문자열은 각 반복에 대한 매개 변수의 이름으로 사용되는 속성의 이름이 됩니다.
+* 정의는 리소스 인스턴스에만 다를 수 없습니다. 모든 정의는 해당 유형의 모든 리소스에 적용됩니다.
+* 기본적으로 Key Vault 암호와 같은 모든 보안 문자열과 연결 문자열, 키 및 토큰과 같은 보안 문자열은 매개 변수화됩니다.
  
 ### <a name="sample-parameterization-template"></a>샘플 매개 변수화 템플릿
 
-매개 변수화 템플릿의 예는 다음과 같습니다.
+매개 변수화 템플릿의 모양은 다음과 같습니다.
 
 ```json
 {
@@ -555,35 +567,35 @@ GIT 모드의 경우 템플릿 및 하드 코드 된 속성에서 매개 변수�
     }
 }
 ```
-다음은 리소스 유형별로 분할 된 이전 템플릿의 구성 방법에 대 한 설명입니다.
+다음은 리소스 유형별로 세분화된 이전 템플릿을 구성하는 방법에 대한 설명입니다.
 
 #### <a name="pipelines"></a>파이프라인
     
-* `activities/typeProperties/waitTimeInSeconds` 경로에 있는 모든 속성에 매개 변수가 있습니다. `waitTimeInSeconds` 라는 코드 수준 속성 (예: `Wait` 활동)이 있는 파이프라인의 모든 활동은 기본 이름을 가진 숫자로 매개 변수화 됩니다. 그러나 리소스 관리자 템플릿에는 기본값이 없습니다. 리소스 관리자 배포 중에 필수 입력이 됩니다.
-* 마찬가지로 `headers` (예: `Web` 활동) 라는 속성은 형식 `object` (JObject)로 매개 변수화 됩니다. 이 값은 원본 팩터리의 값과 동일한 기본값을 갖습니다.
+* 경로의 `activities/typeProperties/waitTimeInSeconds` 모든 속성은 매개 변수화됩니다. 코드 수준 `waitTimeInSeconds` 속성(예: 활동)이 있는 파이프라인의 `Wait` 모든 활동은 기본 이름으로 매개 변수화됩니다. 그러나 리소스 관리자 템플릿에는 기본값이 없습니다. 리소스 관리자 배포 중에 필수 입력이 됩니다.
+* 마찬가지로 활동에서 `headers` `Web` 라는 속성은 JObject(JObject)와 `object` 매개 변수화됩니다. 기본값은 소스 팩터리의 값과 동일합니다.
 
-#### <a name="integrationruntimes"></a>IntegrationRuntimes
+#### <a name="integrationruntimes"></a>통합런타임
 
-* `typeProperties` 경로 아래에 있는 모든 속성은 해당 기본값을 사용 하 여 매개 변수화 됩니다. 예를 들어 `IntegrationRuntimes` 형식 속성에는 `computeProperties` 및 `ssisProperties`라는 두 가지 속성이 있습니다. 두 속성 유형 모두 해당 기본값과 유형 (개체)을 사용 하 여 생성 됩니다.
+* 경로 `typeProperties` 아래의 모든 속성은 해당 기본값과 매개변수화됩니다. 예를 들어 형식 속성 `IntegrationRuntimes` 아래에는 `computeProperties` 두 `ssisProperties`개의 속성이 있습니다. 두 속성 형식은 각각의 기본값과 형식(개체)으로 만들어집니다.
 
 #### <a name="triggers"></a>트리거
 
-* `typeProperties`에서는 두 개의 속성을 매개 변수화 합니다. 첫 번째 값은 `maxConcurrency`이며 기본값을 갖도록 지정 되 고`string`형식입니다. `<entityName>_properties_typeProperties_maxConcurrency`기본 매개 변수 이름이 있습니다.
-* 또한 `recurrence` 속성은 매개 변수가 있습니다. 이 수준에서 해당 수준의 모든 속성은 기본값으로 매개 변수화 되도록 지정 되며 기본값 및 매개 변수 이름이 사용 됩니다. 단, `number`형식으로 매개 변수화 되는 `interval` 속성은 예외입니다. 매개 변수 이름은 `<entityName>_properties_typeProperties_recurrence_triggerSuffix`접미사로 붙습니다. 마찬가지로 `freq` 속성은 문자열이 며 문자열로 매개 변수화 됩니다. 그러나 `freq` 속성은 기본값이 없는 매개 변수화 됩니다. 이름이 단축 되 고 접미사가 붙습니다. `<entityName>_freq`)을 입력합니다.
+* 아래에서 `typeProperties`두 속성은 매개 변수화됩니다. 첫 번째는 `maxConcurrency`기본값을 갖도록 지정되고 형식입니다.`string` 기본 매개 변수 `<entityName>_properties_typeProperties_maxConcurrency`이름이 있습니다.
+* 속성도 `recurrence` 매개 변수화됩니다. 그 아래에는 해당 수준의 모든 속성이 기본값과 매개 변수 이름으로 매개 변수화되도록 지정됩니다. 예외는 형식으로 `interval` `number`매개 변수화 된 속성입니다. 매개 변수 이름은 에 `<entityName>_properties_typeProperties_recurrence_triggerSuffix`접미사가 있습니다. 마찬가지로 속성은 `freq` 문자열이며 문자열로 매개 변수화됩니다. 그러나 `freq` 속성은 기본값 없이 매개 변수화됩니다. 이름이 짧아지고 접미사가 붙습니다. `<entityName>_freq`)을 입력합니다.
 
-#### <a name="linkedservices"></a>LinkedServices
+#### <a name="linkedservices"></a>링크된 서비스
 
-* 연결 된 서비스는 고유 합니다. 연결 된 서비스 및 데이터 집합에는 다양 한 형식이 있으므로 유형별 사용자 지정을 제공할 수 있습니다. 이 예에서는 `AzureDataLakeStore`형식의 모든 연결 된 서비스에 대해 특정 템플릿이 적용 됩니다. 다른 모든 경우 (`*`을 통해) 다른 템플릿이 적용 됩니다.
-* `connectionString` 속성은 `securestring` 값으로 매개 변수화 됩니다. 기본값은 없습니다. `connectionString`접미사로 사용 되는 약식 매개 변수 이름이 포함 됩니다.
-* 속성 `secretAccessKey`는 Amazon S3 연결 된 서비스의 경우와 같이 `AzureKeyVaultSecret` 되는 경우입니다. 자동으로 Azure Key Vault 암호로 매개 변수화 되 고 구성 된 Key Vault에서 인출 됩니다. 키 자격 증명 모음을 매개 변수화 할 수도 있습니다.
+* 연결된 서비스는 고유합니다. 연결된 서비스 및 데이터 집합에는 다양한 형식이 있으므로 유형별 사용자 지정을 제공할 수 있습니다. 이 예제에서는 형식의 `AzureDataLakeStore`연결된 모든 서비스에 대해 특정 템플릿이 적용됩니다. 다른 모든 (via)에 `*`대해 다른 템플릿이 적용됩니다.
+* 속성은 `connectionString` `securestring` 값으로 매개 변수화됩니다. 기본값이 없습니다. 에 접미사가 있는 단축된 매개 변수 `connectionString`이름이 있습니다.
+* 속성은 `secretAccessKey` `AzureKeyVaultSecret` (예를 들어, 아마존 S3 연결 된 서비스에서) 발생 합니다. Azure 키 자격 증명 모음 보안 검색대로 자동으로 매개 변수화되고 구성된 키 자격 증명 모음에서 가져옵니다. 키 볼트 자체를 매개 변수화할 수도 있습니다.
 
 #### <a name="datasets"></a>데이터 세트
 
-* 데이터 집합에 대해 유형별 사용자 지정을 사용할 수 있지만 명시적으로 \*수준 구성을 사용 하지 않고도 구성을 제공할 수 있습니다. 위의 예제에서 `typeProperties` 아래의 모든 데이터 집합 속성은 매개 변수화 됩니다.
+* 데이터 집합에 대해 형식별 사용자 지정을 사용할 수 있지만 \*명시적으로 -level 구성없이 구성을 제공할 수 있습니다. 앞의 예제에서는 아래의 `typeProperties` 모든 데이터 집합 속성이 매개 변수화됩니다.
 
 ### <a name="default-parameterization-template"></a>기본 매개 변수화 템플릿
 
-다음은 현재 기본 매개 변수화 템플릿입니다. 몇 개의 매개 변수만 추가 해야 하는 경우 기존 매개 변수화 구조를 잃지 않기 때문에이 템플릿을 직접 편집 하는 것이 좋을 수 있습니다.
+다음은 현재 기본 매개 변수화 템플릿입니다. 몇 가지 매개 변수만 추가해야 하는 경우 기존 매개 변수화 구조를 잃지 않으므로 이 템플릿을 직접 편집하는 것이 좋습니다.
 
 ```json
 {
@@ -693,7 +705,7 @@ GIT 모드의 경우 템플릿 및 하드 코드 된 속성에서 매개 변수�
 }
 ```
 
-다음 예제에서는 기본 매개 변수화 템플릿에 단일 값을 추가 하는 방법을 보여 줍니다. Databricks 연결 된 서비스에 대 한 기존 Azure Databricks 대화형 클러스터 ID를 매개 변수 파일에 추가 하려고 합니다. 이 파일은 `Microsoft.DataFactory/factories/linkedServices`의 속성 필드에 `existingClusterId`을 추가 하는 것을 제외 하 고 이전 파일과 동일 합니다.
+다음 예제에서는 기본 매개 변수화 템플릿에 단일 값을 추가하는 방법을 보여 주며 있습니다. Databricks 연결된 서비스에 대한 기존 Azure Databricks 대화형 클러스터 ID만 매개 변수 파일에 추가하려고 합니다. 이 파일은 의 속성 필드 `existingClusterId` 아래에 추가된 경우를 제외하고 `Microsoft.DataFactory/factories/linkedServices`이전 파일과 동일합니다.
 
 ```json
 {
@@ -806,63 +818,63 @@ GIT 모드의 경우 템플릿 및 하드 코드 된 속성에서 매개 변수�
 
 ## <a name="linked-resource-manager-templates"></a>연결된 Resource Manager 템플릿
 
-데이터 팩터리에 대해 CI/CD를 설정한 경우 팩터리가 증가 함에 따라 Azure Resource Manager 템플릿 제한을 초과할 수 있습니다. 예를 들어 한 한도는 리소스 관리자 템플릿에서 최대 리소스 수입니다. 팩터리에 대 한 전체 리소스 관리자 템플릿을 생성 하는 동안 많은 팩터리를 수용 하기 위해 이제 Data Factory 연결 된 리소스 관리자 템플릿을 생성 합니다. 이 기능을 사용 하면 전체 팩터리 페이로드가 여러 파일로 분할 되어 제한에 의해 제한 되지 않습니다.
+데이터 팩터리에 대해 CI/CD를 설정한 경우 팩터리가 커질수록 Azure 리소스 관리자 템플릿 제한을 초과할 수 있습니다. 예를 들어 리소스 관리자 템플릿의 최대 리소스 수입니다. 팩터리의 전체 리소스 관리자 템플릿을 생성하는 동안 대규모 팩터리를 수용하기 위해 Data Factory는 연결된 리소스 관리자 템플릿을 생성합니다. 이 기능을 사용하면 전체 팩터리 페이로드가 여러 파일로 세분화되므로 제한에 제약을 받지 않습니다.
 
-Git를 구성한 경우에는 연결 된 템플릿이 생성 되어 linkedTemplates 이라는 새 폴더의 adf_publish 분기에 전체 리소스 관리자 템플릿과 함께 저장 됩니다.
+Git을 구성한 경우 링크된 템플릿은 링크된 템플릿이라는 새 폴더의 adf_publish 분기의 전체 리소스 관리자 템플릿과 함께 생성되고 저장됩니다.
 
 ![연결된 Resource Manager 템플릿 폴더](media/continuous-integration-deployment/linked-resource-manager-templates.png)
 
-연결 된 리소스 관리자 템플릿은 일반적으로 마스터에 연결 된 마스터 템플릿과 자식 템플릿 집합으로 구성 됩니다. 부모 템플릿을 ArmTemplate_master 이라고 하며, 자식 템플릿은 ArmTemplate_0. json, ArmTemplate_1 등의 패턴으로 이름이 지정 됩니다. 
+연결된 리소스 관리자 템플릿은 일반적으로 마스터 템플릿과 마스터에 연결된 하위 템플릿 집합으로 구성됩니다. 부모 템플릿을 ArmTemplate_master.json이라고 하며 하위 템플릿은 패턴 ArmTemplate_0.json, ArmTemplate_1.json 등의 이름으로 지정됩니다. 
 
-전체 리소스 관리자 템플릿 대신 연결 된 템플릿을 사용 하려면 ArmTemplateForFactory (전체 리소스 관리자 템플릿) 대신 ArmTemplate_master를 가리키도록 CI/CD 작업을 업데이트 합니다. 또한 Azure에서 배포 하는 동안 액세스할 수 있도록 연결 된 템플릿을 저장소 계정에 업로드 해야 하는 리소스 관리자. 자세한 내용은 [VSTS를 사용 하 여 연결 된 리소스 관리자 템플릿 배포](https://blogs.msdn.microsoft.com/najib/2018/04/22/deploying-linked-arm-templates-with-vsts/)를 참조 하세요.
+전체 리소스 관리자 템플릿 대신 연결된 템플릿을 사용하려면 CI/CD 작업을 업데이트하여 ArmTemplateForFactory.json(전체 리소스 관리자 템플릿) 대신 ArmTemplate_master.json을 가리킵니다. 또한 리소스 관리자는 Azure가 배포 하는 동안 액세스할 수 있도록 저장소 계정에 연결 된 템플릿을 업로드 해야 합니다. 자세한 내용은 [VSTS를 사용 하](https://blogs.msdn.microsoft.com/najib/2018/04/22/deploying-linked-arm-templates-with-vsts/)여 링크 된 리소스 관리자 템플릿 배포를 참조 합니다.
 
 배포 작업 전후에 CI/CD 파이프라인에 Data Factory 스크립트를 추가해야 합니다.
 
-Git이 구성 되지 않은 경우 **Arm 템플릿** 목록에서 **arm 템플릿 내보내기** 를 통해 연결 된 템플릿에 액세스할 수 있습니다.
+Git이 구성되지 않은 경우 ARM 템플릿 목록에서 ARM **내보내기 템플릿을** 통해 연결된 **템플릿에** 액세스할 수 있습니다.
 
-## <a name="hotfix-production-branch"></a>핫픽스 프로덕션 분기
+## <a name="hotfix-production-branch"></a>핫픽스 생산 분기
 
-공장을 프로덕션에 배포 하 고 즉시 해결 해야 하는 버그가 있는 경우 현재 공동 작업 분기를 배포할 수 없는 경우 핫픽스를 배포 해야 할 수 있습니다. 이 접근 방식은 빠른 수정 엔지니어링 또는 QFE 라고 합니다.
+팩터리를 프로덕션에 배포하고 즉시 수정해야 하는 버그가 있지만 현재 공동 작업 분기를 배포할 수 없는 경우 핫픽스를 배포해야 할 수 있습니다. 이 방법을 빠른 수정 엔지니어링 또는 QFE라고 합니다.
 
-1.  Azure DevOps에서 프로덕션에 배포 된 릴리스로 이동 합니다. 배포 된 마지막 커밋을 찾습니다.
+1.    Azure DevOps에서 프로덕션에 배포된 릴리스로 이동합니다. 배포된 마지막 커밋을 찾습니다.
 
-2.  커밋 메시지에서 공동 작업 분기의 커밋 ID를 가져옵니다.
+2.    커밋 메시지에서 공동 작업 분기의 커밋 ID를 가져옵니다.
 
-3.  해당 커밋에서 새 핫픽스 분기를 만듭니다.
+3.    해당 커밋에서 새 핫픽스 분기를 만듭니다.
 
-4.  Azure Data Factory UX로 이동 하 여 핫픽스 분기로 전환 합니다.
+4.    Azure 데이터 팩터리 UX로 이동하여 핫픽스 분기로 전환합니다.
 
-5.  Azure Data Factory UX를 사용 하 여 버그를 수정 합니다. 변경 내용을 테스트 합니다.
+5.    Azure 데이터 팩터리 UX를 사용하여 버그를 수정합니다. 변경 내용을 테스트합니다.
 
-6.  수정이 확인 되 면 **ARM 템플릿 내보내기** 를 선택 하 여 핫픽스 리소스 관리자 템플릿을 가져옵니다.
+6.    수정 프로그램이 확인되면 **ARM 내보내기 템플릿을** 선택하여 핫픽스 리소스 관리자 템플릿을 가져옵니다.
 
-7.  Adf_publish 분기에이 빌드를 수동으로 확인 합니다.
+7.    이 빌드를 adf_publish 분기에 수동으로 확인합니다.
 
-8.  Adf_publish 체크 인에 따라 자동으로 트리거되도록 릴리스 파이프라인이 구성 된 경우 새 릴리스가 자동으로 시작 됩니다. 그렇지 않으면 수동으로 릴리스를 큐에 대기 합니다.
+8.    adf_publish 체크 인에 따라 자동으로 트리거하도록 릴리스 파이프라인을 구성한 경우 새 릴리스가 자동으로 시작됩니다. 그렇지 않으면 릴리스를 수동으로 큐에 대기합니다.
 
-9.  핫픽스 릴리스를 테스트 및 프로덕션 팩터리에 배포 합니다. 이 릴리스에는 이전 프로덕션 페이로드와 5 단계에서 만든 수정 사항이 포함 되어 있습니다.
+9.    핫픽스 릴리스를 테스트 및 프로덕션 팩터에 배포합니다. 이 릴리스에는 이전 프로덕션 페이로드와 5단계에서 수정한 수정 사항이 포함되어 있습니다.
 
-10. 이후 릴리스에 동일한 버그가 포함 되지 않도록 핫픽스의 변경 내용을 개발 분기에 추가 합니다.
+10.    이후 릴리스에 동일한 버그가 포함되지 않도록 핫픽스의 변경 내용을 개발 분기에 추가합니다.
 
 ## <a name="best-practices-for-cicd"></a>CI/CD에 대한 모범 사례
 
-데이터 팩터리에 Git 통합을 사용 하 고 변경 내용을 개발에서 테스트로 이동 하는 CI/CD 파이프라인을 사용 하는 경우 다음 모범 사례를 따르는 것이 좋습니다.
+데이터 팩터리와 Git 통합을 사용하고 있고 변경 내용을 개발에서 테스트로 이동한 다음 프로덕션으로 이동하는 CI/CD 파이프라인이 있는 경우 다음 모범 사례를 사용하는 것이 좋습니다.
 
--   **Git 통합**. Git 통합을 사용 하 여 개발 데이터 팩터리만 구성 해야 합니다. 테스트 및 프로덕션에 대 한 변경 사항은 CI/CD를 통해 배포 되며 Git 통합이 필요 하지 않습니다.
+-   **Git 통합**. Git 통합을 사용하여 개발 데이터 팩터리만 구성해야 합니다. 테스트 및 프로덕션에 대한 변경 사항은 CI/CD를 통해 배포되며 Git 통합이 필요하지 않습니다.
 
--   **Data Factory CI/CD 스크립트**. CI/CD의 리소스 관리자 배포 단계 전에 트리거를 중지 하 고 다시 시작 하 고 정리를 수행 하는 등의 특정 작업을 완료 해야 합니다. 배포 전후에 PowerShell 스크립트를 사용 하는 것이 좋습니다. 자세한 내용은 [활성 트리거 업데이트](#update-active-triggers)를 참조 하세요.
+-   **Data Factory CI/CD 스크립트**. CI/CD의 리소스 관리자 배포 단계 전에 트리거 중지 및 다시 시작 및 정리 수행과 같은 특정 작업을 완료해야 합니다. 배포 전후에 PowerShell 스크립트를 사용하는 것이 좋습니다. 자세한 내용은 [활성 트리거 업데이트](#update-active-triggers)를 참조하십시오.
 
--   **통합 런타임 및 공유**. 통합 런타임은 자주 변경 되지 않으며 CI/CD의 모든 단계에서 유사 합니다. 따라서 Data Factory는 CI/CD의 모든 단계에서 동일한 이름 및 유형의 통합 런타임을 사용할 것으로 예상 합니다. 모든 단계에서 통합 런타임을 공유 하려면 공유 통합 런타임을 포함 하기 위해 삼항 팩터리를 사용 하는 것이 좋습니다. 모든 환경에서이 공유 팩터리를 연결 된 통합 런타임 형식으로 사용할 수 있습니다.
+-   **통합 런타임 및 공유**. 통합 런타임은 자주 변경되지 않으며 CI/CD의 모든 단계에서 유사합니다. 따라서 Data Factory는 CI/CD의 모든 단계에서 동일한 이름과 유형의 통합 런타임을 갖출 것으로 예상합니다. 모든 단계에서 통합 런타임을 공유하려면 삼차 팩터리를 사용하여 공유 통합 런타임을 포함하는 것이 좋습니다. 모든 환경에서 이 공유 팩터리를 연결된 통합 런타임 유형으로 사용할 수 있습니다.
 
--   **Key Vault**. Azure Key Vault에 따라 연결 된 서비스를 사용 하는 경우 다른 환경에 대해 별도의 키 자격 증명 모음을 유지 하 여이를 활용할 수 있습니다. 각 키 자격 증명 모음에 대 한 별도의 권한 수준을 구성할 수도 있습니다. 예를 들어 팀 멤버에 게 프로덕션 암호에 대 한 사용 권한을 부여 하지 않으려고 할 수 있습니다. 이 접근 방식을 따를 경우 모든 단계에서 동일한 비밀 이름을 유지 하는 것이 좋습니다. 동일한 이름을 유지 하는 경우 리소스 관리자 템플릿 매개 변수 중 하나인 키 자격 증명 모음 이름만 변경 되므로 CI/CD 환경에서 리소스 관리자 템플릿을 변경할 필요가 없습니다.
+-   **키 볼트**. Azure Key Vault를 기반으로 연결된 서비스를 사용하는 경우 다른 환경에 대해 별도의 키 자격 증명 모음을 유지하여 이 서비스를 더 활용할 수 있습니다. 각 키 자격 증명 모음에 대해 별도의 권한 수준을 구성할 수도 있습니다. 예를 들어 팀 구성원이 프로덕션 암호에 대한 권한을 갖지 않도록 할 수 있습니다. 이 방법을 따르는 경우 모든 단계에서 동일한 비밀 이름을 유지하는 것이 좋습니다. 동일한 이름을 유지하는 경우 CI/CD 환경에서 리소스 관리자 템플릿을 변경할 필요가 없습니다.
 
 ## <a name="unsupported-features"></a>지원되지 않는 기능
 
-- 기본적으로 Data Factory는 커밋 또는 리소스의 선택적 게시를 cherry-pick 수 없습니다. 게시에는 데이터 팩터리에 대 한 모든 변경 내용이 포함 됩니다.
+- 데이터 팩터리는 의도적으로 커밋의 체리 피킹 또는 리소스의 선택적 게시를 허용하지 않습니다. 게시에는 데이터 팩터리에서 변경한 모든 내용이 포함됩니다.
 
-    - 데이터 팩터리 엔터티는 서로 종속 됩니다. 예를 들어 트리거는 파이프라인에 따라 다르며 파이프라인은 데이터 집합 및 기타 파이프라인에 종속 됩니다. 리소스 하위 집합을 선택적으로 게시 하면 예기치 않은 동작 및 오류가 발생할 수 있습니다.
-    - 드물지만 선택적 게시를 사용 해야 하는 경우 핫픽스를 사용 하는 것이 좋습니다. 자세한 내용은 [핫픽스 프로덕션 분기](#hotfix-production-branch)를 참조 하세요.
+    - 데이터 팩터리 엔터티는 서로 종속됩니다. 예를 들어 트리거는 파이프라인에 따라 다르며 파이프라인은 데이터 집합 및 기타 파이프라인에 따라 달라집니다. 리소스 하위 집합을 선택적으로 게시하면 예기치 않은 동작과 오류가 발생할 수 있습니다.
+    - 드물게 선택적 게시가 필요한 경우 핫픽스를 사용하는 것이 좋습니다. 자세한 내용은 [핫픽스 프로덕션 분기를](#hotfix-production-branch)참조하십시오.
 
 -   프라이빗 분기에서 게시할 수 없습니다.
 
--   현재 Bitbucket에서 프로젝트를 호스트할 수 없습니다.
+-   현재 Bitbucket에서 프로젝트를 호스팅할 수 없습니다.

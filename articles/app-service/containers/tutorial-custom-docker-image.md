@@ -7,13 +7,13 @@ ms.assetid: b97bd4e6-dff0-4976-ac20-d5c109a559a8
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: msangapu
-ms.custom: seodec18
-ms.openlocfilehash: 965897afc8e23c123575de0c497d4071ff4ca85a
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.custom: mvc, seodec18
+ms.openlocfilehash: a6c9eb354bce09a5f652895f4af34df1f6750bec
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78358149"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80045753"
 ---
 # <a name="tutorial-build-a-custom-image-and-run-in-app-service-from-a-private-registry"></a>자습서: 개인 레지스트리의 App Service에서 사용자 지정 이미지 빌드 및 실행
 
@@ -49,7 +49,7 @@ cd docker-django-webapp-linux
 
 ## <a name="build-the-image-from-the-docker-file"></a>Docker 파일에서 이미지 빌드
 
-Git 리포지토리에서 _Dockerfile_을 살펴봅니다. 이 Docker 파일은 애플리케이션을 실행하는 데 필요한 Python 환경을 설명합니다. 또한 이미지는 컨테이너와 호스트 간에 보안 통신을 위해 [SSH](https://www.ssh.com/ssh/protocol/) 서버를 설정합니다.
+Git 리포지토리에서 _Dockerfile_을 살펴봅니다. 이 Docker 파일은 애플리케이션을 실행하는 데 필요한 Python 환경을 설명합니다. 또한 이미지는 컨테이너와 호스트 간에 보안 통신을 위해 [SSH](https://www.ssh.com/ssh/protocol/) 서버를 설정합니다. _Dockerfile_, `ENTRYPOINT ["init.sh"]`의 마지막 줄은 `init.sh`를 호출하여 SSH 서비스와 Python 서버를 시작합니다.
 
 ```Dockerfile
 FROM python:3.4
@@ -73,6 +73,8 @@ COPY init.sh /usr/local/bin/
     
 RUN chmod u+x /usr/local/bin/init.sh
 EXPOSE 8000 2222
+
+#service SSH start
 #CMD ["python", "/code/manage.py", "runserver", "0.0.0.0:8000"]
 ENTRYPOINT ["init.sh"]
 ```

@@ -1,14 +1,14 @@
 ---
 title: '빠른 시작: 포털을 사용하여 새 정책 할당'
 description: 이 빠른 시작에서는 Azure Portal을 사용하여 비규격 리소스를 식별하는 Azure Policy 할당을 만듭니다.
-ms.date: 11/25/2019
+ms.date: 03/24/2020
 ms.topic: quickstart
-ms.openlocfilehash: ac876b546ea3bda7541db61e0ab68842a3845541
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 3a514478f3cefa49c37c3431a80b578dff480584
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74482313"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80240004"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources"></a>빠른 시작: 비준수 리소스를 식별하는 정책 할당 만들기
 
@@ -17,7 +17,7 @@ Azure의 규정 준수를 이해하는 첫 번째 단계는 리소스 상태를 
 
 이 과정이 끝나면 관리 디스크를 사용하지 않는 가상 머신이 식별됩니다. 이 가상 머신은 정책 할당을 _비준수_합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
@@ -27,15 +27,15 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 1. **모든 서비스**를 클릭한 후 **정책**을 검색하고 선택하여 Azure Portal에서 Azure Policy 서비스를 시작합니다.
 
-   ![모든 서비스에서 정책 검색](./media/assign-policy-portal/search-policy.png)
+   :::image type="content" source="./media/assign-policy-portal/search-policy.png" alt-text="모든 서비스에서 정책 검색" border="false":::
 
 1. Azure Policy 페이지의 왼쪽에서 **할당**을 선택합니다. 할당은 특정 범위 내에서 수행하도록 할당된 정책입니다.
 
-   ![정책 개요 페이지의 할당 선택 페이지](./media/assign-policy-portal/select-assignments.png)
+   :::image type="content" source="./media/assign-policy-portal/select-assignments.png" alt-text="정책 개요 페이지에서 할당 페이지 선택" border="false":::
 
 1. **정책 - 할당** 창의 위쪽에서 **정책 할당**을 선택합니다.
 
-   ![할당 페이지에서 정책 정의 할당](./media/assign-policy-portal/select-assign-policy.png)
+   :::image type="content" source="./media/assign-policy-portal/select-assign-policy.png" alt-text="할당 페이지에서 정책 정의 할당" border="false":::
 
 1. **정책 할당** 페이지에서 줄임표를 클릭하고 관리 그룹 또는 구독을 선택하여 **범위**를 선택합니다. 원하는 경우 리소스 그룹을 선택합니다. 범위는 정책 할당이 적용되는 리소스 또는 리소스 그룹을 결정합니다. 그 후 **범위** 페이지의 맨 위에서 **선택**을 클릭합니다.
 
@@ -47,13 +47,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
    - 태그 및 해당 값 강제 적용
    - 태그 및 해당 값 적용
-   - SQL Server 버전 12.0 필요
+   - 누락된 경우 리소스 그룹에서 태그 상속
 
    사용 가능한 기본 제공 정책의 부분 목록은 [Azure Policy 샘플](./samples/index.md)을 참조하세요.
 
 1. 정책 정의 목록을 검색하여 _관리 디스크를 사용하지 않는 VM 감사_ 정의를 찾습니다. 해당 정책을 클릭하고 **선택**을 클릭합니다.
 
-   ![올바른 정책 정의 찾기](./media/assign-policy-portal/select-available-definition.png)
+   :::image type="content" source="./media/assign-policy-portal/select-available-definition.png" alt-text="올바른 정책 정의 찾기" border="false":::
 
 1. 선택한 정책 이름이 **할당 이름**에 자동으로 채워지지만, 할당 이름을 변경할 수 있습니다. 이 예제에서는 _관리 디스크를 사용하지 않는 VM 감사_를 사용합니다. 선택적인 **설명**을 추가할 수도 있습니다. 설명은 이 정책 할당에 대한 세부 정보를 제공합니다.
    **할당한 사람**은 로그인한 사용자를 기준으로 자동으로 입력됩니다. 이 필드는 선택 사항이므로 사용자 지정 값을 입력할 수 있습니다.
@@ -68,7 +68,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 페이지 왼쪽에서 **준수**를 선택합니다. 그런 다음, 앞에서 만든 **관리 디스크를 사용하지 않는 감사 VM** 정책 할당을 찾습니다.
 
-![정책 규정 준수 페이지의 규정 준수 세부 정보](./media/assign-policy-portal/policy-compliance.png)
+:::image type="content" source="./media/assign-policy-portal/policy-compliance.png" alt-text="정책 규정 준수 페이지의 규정 준수 세부 정보" border="false":::
 
 이 새로운 할당을 준수하지 않는 기존 리소스가 있는 경우 **비준수 리소스** 아래에 표시됩니다.
 
@@ -76,8 +76,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 | **리소스 상태** | **효과** | **정책 평가** | **규정 준수 상태** |
 | --- | --- | --- | --- |
-| exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | True | 비준수 |
-| exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | False | 준수 |
+| Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | True | 비준수 |
+| Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | False | 준수 |
 | 새로 만들기 | Audit, AuditIfNotExist\* | True | 비준수 |
 | 새로 만들기 | Audit, AuditIfNotExist\* | False | 준수 |
 
@@ -92,7 +92,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 1. **관리 디스크를 사용하지 않는 VM 감사** 정책 할당을 마우스 오른쪽 단추로 클릭하고 **할당 삭제**를 선택합니다.
 
-   ![규정 준수 페이지에서 할당 삭제](./media/assign-policy-portal/delete-assignment.png)
+   :::image type="content" source="./media/assign-policy-portal/delete-assignment.png" alt-text="규정 준수 페이지에서 할당 삭제" border="false":::
 
 ## <a name="next-steps"></a>다음 단계
 

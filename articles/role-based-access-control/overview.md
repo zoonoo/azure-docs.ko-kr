@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/11/2019
+ms.date: 03/19/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 2ef528438591006be6e4cdec508dd15a7fb0a143
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 6e3313e3ae201d0b730d8582fed9659d89f0d0c1
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78379266"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80063046"
 ---
 # <a name="what-is-role-based-access-control-rbac-for-azure-resources"></a>Azure 리소스에 대한 RBAC(역할 기반 액세스 제어)란?
 
@@ -102,7 +102,7 @@ Azure Portal, Azure CLI, Azure PowerShell, Azure SDK 또는 REST API를 사용�
 
 ## <a name="multiple-role-assignments"></a>여러 역할 할당
 
-따라서 여러 겹치는 역할 할당이 있는 경우 어떻게 되나요? RBAC는 가법 모델이므로 유효 권한은 역할 할당의 추가입니다. 사용자가 구독 범위에서 기여자 역할에 부여되고 리소스 그룹에서 읽기 권한자 역할에 부여되는 다음 예제를 고려해 봅니다. 기여자 권한 및 읽기 권한자 권한의 추가는 사실상 리소스 그룹에 대한 기여자 역할입니다. 따라서 이 경우 판독기 역할 할당은 영향을 주지 않습니다.
+따라서 여러 겹치는 역할 할당이 있는 경우 어떻게 되나요? RBAC는 추가 모델이므로 유효 권한은 역할 할당의 합계입니다. 사용자가 구독 범위에서 기여자 역할에 부여되고 리소스 그룹에서 읽기 권한자 역할에 부여되는 다음 예제를 고려해 봅니다. 기여자 권한 및 Reader 권한의 합계는 사실상 리소스 그룹에 대한 기여자 역할입니다. 따라서 이 경우 판독기 역할 할당은 영향을 주지 않습니다.
 
 ![여러 역할 할당](./media/overview/rbac-multiple-roles.png)
 
@@ -126,7 +126,7 @@ Azure Portal, Azure CLI, Azure PowerShell, Azure SDK 또는 REST API를 사용�
 
 1. Azure Resource Manager는 사용자가 이 리소스에 대해 갖는 역할에 API 호출의 동작이 포함되는지 여부를 결정합니다.
 
-1. 사용자에게 요청한 범위의 작업이 있는 역할이 없으면 액세스가 허용되지 않습니다. 그렇지 않으면, Azure Resource Manager는 거부 할당이 적용되는지 확인합니다.
+1. 사용자에게 요청된 범위에서 작업에 대한 역할이 없으면 액세스 권한이 부여되지 않습니다. 그렇지 않으면, Azure Resource Manager는 거부 할당이 적용되는지 확인합니다.
 
 1. 거부 할당이 적용되면 액세스가 차단됩니다. 그렇지 않으면 액세스 권한이 부여됩니다.
 

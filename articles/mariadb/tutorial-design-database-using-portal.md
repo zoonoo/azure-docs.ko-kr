@@ -5,14 +5,14 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: tutorial
-ms.date: 12/02/2019
+ms.date: 3/18/2020
 ms.custom: mvc
-ms.openlocfilehash: 28a20325fac92d0b296c336e2e1186487d1e0272
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 974b6a1e980119582d4fedb5f8b4e73685290de3
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74776711"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80063806"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-database-by-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 Azure Database for MariaDB 데이터베이스 디자인
 
@@ -42,14 +42,14 @@ Azure Database for MariaDB 서버는 정의된 [컴퓨팅 및 스토리지 리�
 1. 포털의 왼쪽 상단 모서리에서 **리소스 만들기** 단추(+)를 선택합니다.
 
 2. **데이터베이스** > **Azure Database for MariaDB**를 차례로 선택합니다. 검색 상자에서 **MariaDB**를 입력하여 해당 서비스를 찾을 수도 있습니다.
-   
+
    ![MySQL로 이동](./media/tutorial-design-database-using-portal/1-Navigate-to-mariadb.png)
 
-3. **Azure Database for MariaDB** 타일을 선택한 다음, **만들기**를 선택합니다. 필요한 정보를 입력하거나 선택합니다.
-   
+3. **Azure Database for MariaDB** 타일을 선택합니다. 필요한 정보를 입력하거나 선택합니다.
+
    ![양식 만들기](./media/tutorial-design-database-using-portal/2-create-form.png)
 
-    설정 | 제안 값 | 필드 설명 
+    설정 | 제안 값 | 필드 설명
     ---|---|---
     서버 이름 | *고유 서버 이름* | Azure Database for MariaDB 서버를 식별하는 고유한 이름을 선택합니다. 예를 들어 **mydemoserver**가 있습니다. 입력한 서버 이름에 도메인 이름 *.mariadb.database.azure.com*이 추가됩니다. 서버 이름은 소문자, 숫자 및 하이픈(-) 문자만 포함할 수 있으며, 3~63자여야 합니다.
     Subscription | *구독* | 서버에 사용할 Azure 구독을 선택합니다. 구독이 여러 개인 경우 해당 리소스에 대해 요금이 청구되는 적절한 구독을 선택합니다.
@@ -67,14 +67,14 @@ Azure Database for MariaDB 서버는 정의된 [컴퓨팅 및 스토리지 리�
    > [!TIP]
    > **자동 증가**를 사용하면 워크로드에 영향을 주지 않고 할당된 제한에 도달할 때 서버가 스토리지를 늘립니다.
 
-4. **만들기**를 선택합니다. 1, 2분 안에 새 Azure Database for MariaDB 서버가 클라우드에서 실행됩니다. 배포 프로세스를 모니터링하려면 도구 모음에서 **알림**을 클릭합니다.
+4. **검토 + 만들기**를 클릭합니다. 도구 모음에서 **알림** 단추를 클릭하여 배포 프로세스를 모니터링할 수 있습니다. 배포는 최대 20분이 걸릴 수 있습니다.
 
 ## <a name="configure-the-firewall"></a>방화벽 구성
 
 Azure Databases for MariaDB는 방화벽으로 보호됩니다. 기본적으로 서버 및 서버 내의 데이터베이스에 대한 모든 연결은 거부됩니다. 처음으로 Azure Database for MariaDB에 연결하기 전에 먼저 방화벽을 구성하여 클라이언트 컴퓨터의 공용 네트워크 IP 주소(또는 IP 주소 범위)를 추가합니다.
 
 1. 새로 만든 서버를 선택한 다음, **연결 보안**을 선택합니다.
-   
+
    ![연결 보안](./media/tutorial-design-database-using-portal/1-Connection-security.png)
 2. **내 IP 추가**를 선택하거나 여기서 방화벽 규칙을 구성할 수 있습니다. 규칙을 만든 후에는 **저장**해야 합니다.
 
@@ -85,7 +85,7 @@ Azure Databases for MariaDB는 방화벽으로 보호됩니다. 기본적으로 
 
 ## <a name="get-connection-information"></a>연결 정보 가져오기
 
-Azure Portal에서 Azure Database for MariaDB 서버의 정규화된 **서버 이름** 및 **서버 관리자 로그인 이름**을 가져옵니다. 정규화된 서버 이름을 사용하여 mysql 명령줄 도구를 통해 서버에 연결합니다. 
+Azure Portal에서 Azure Database for MariaDB 서버의 정규화된 **서버 이름** 및 **서버 관리자 로그인 이름**을 가져옵니다. 정규화된 서버 이름을 사용하여 mysql 명령줄 도구를 통해 서버에 연결합니다.
 
 1. [Azure Portal](https://portal.azure.com/)의 왼쪽 메뉴에서 **모든 리소스**를 선택합니다. 서버 이름을 입력하고 Azure Database for MariaDB 서버를 검색합니다. 서버 이름을 선택하여 서버 세부 정보를 표시합니다.
 
@@ -97,11 +97,11 @@ Azure Portal에서 Azure Database for MariaDB 서버의 정규화된 **서버 �
 
 ## <a name="connect-to-the-server-by-using-mysql"></a>mysql을 사용하여 서버에 연결
 
-[mysql 명령줄 도구](https://dev.mysql.com/doc/refman/5.7/en/mysql.html)를 사용하여 Azure Database for MariaDB 서버에 연결합니다. 브라우저의 Azure Cloud Shell에서나 로컬로 설치된 mysql 도구를 사용하여 사용자 컴퓨터에서 mysql 명령줄 도구를 실행할 수 있습니다. Azure Cloud Shell을 시작하려면 이 문서의 코드 블록에서 **Try It** 단추를 클릭하거나 Azure Portal의 오른쪽 위 도구 모음에서 **>_** 아이콘을 클릭합니다. 
+[mysql 명령줄 도구](https://dev.mysql.com/doc/refman/5.7/en/mysql.html)를 사용하여 Azure Database for MariaDB 서버에 연결합니다. 브라우저의 Azure Cloud Shell에서나 로컬로 설치된 mysql 도구를 사용하여 사용자 컴퓨터에서 mysql 명령줄 도구를 실행할 수 있습니다. Azure Cloud Shell을 시작하려면 이 문서의 코드 블록에서 **Try It** 단추를 클릭하거나 Azure Portal의 오른쪽 위 도구 모음에서 **>_** 아이콘을 클릭합니다.
 
 연결할 명령을 입력합니다.
 
-```azurecli-interactive
+```bash
 mysql -h mydemoserver.mariadb.database.azure.com -u myadmin@mydemoserver -p
 ```
 
@@ -171,7 +171,7 @@ SELECT * FROM inventory;
    ![데이터베이스 복원](./media/tutorial-design-database-using-portal/1-restore-a-db.png)
 
 2. **복원** 페이지에서 다음 정보를 입력하거나 선택합니다.
-   
+
    ![복원 양식](./media/tutorial-design-database-using-portal/2-restore-form.png)
    
    - **복원 지점**: 나열된 기간 내에서 복원하려는 지정 시간을 선택합니다. 현지 표준 시간대를 UTC로 변환해야 합니다.

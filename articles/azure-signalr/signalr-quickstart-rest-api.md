@@ -7,10 +7,10 @@ ms.topic: quickstart
 ms.date: 11/13/2019
 ms.author: zhshang
 ms.openlocfilehash: 17371e3bd426ea81b5e7e07610aac0073ea972c9
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74157690"
 ---
 # <a name="quickstart-broadcast-real-time-messages-from-console-app"></a>빠른 시작: 콘솔 앱에서 실시간 메시지 브로드캐스트
@@ -19,7 +19,7 @@ Azure SignalR Service는 브로드캐스트와 같은 서버-클라이언트 통
 
 이 빠른 시작에서는 명령줄 앱에서 C#으로 작성된 연결된 클라이언트 앱에 메시지를 보내는 방법을 알아보겠습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 빠른 시작은 macOS, Windows 또는 Linux에서 실행할 수 있습니다.
 
@@ -111,7 +111,7 @@ broadcast
 
 각기 다른 클라이언트 이름으로 여러 클라이언트를 시작할 수 있습니다.
 
-## <a name="usage"> </a> 타사 서비스와의 통합
+## <a name="integration-with-third-party-services"></a><a name="usage"> </a> 타사 서비스와 통합
 
 Azure SignalR 서비스를 통해 타사 서비스를 시스템과 통합할 수 있습니다.
 

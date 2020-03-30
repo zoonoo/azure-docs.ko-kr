@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 12/17/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6a70e52771828de6cc9fad7998097d70c28a64fd
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
-ms.translationtype: MT
+ms.openlocfilehash: 9f9f7f709d31967e892900ccb25657a5963c0379
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79127445"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79370222"
 ---
-# <a name="tutorial-create-a-tenant-in-windows-virtual-desktop"></a>자습서: Windows 가상 데스크톱에서 테 넌 트 만들기
+# <a name="tutorial-create-a-tenant-in-windows-virtual-desktop"></a>자습서: Windows Virtual Desktop에서 테넌트 만들기
 
 Windows Virtual Desktop에서 테넌트를 만드는 것은 데스크톱 가상화 솔루션을 빌드하기 위한 첫 번째 단계입니다. 테넌트는 하나 이상의 호스트 풀로 구성된 그룹입니다. 각 호스트 풀은 Azure에서 가상 머신으로 실행되고 Windows Virtual Desktop 서비스에 등록된 여러 세션 호스트로 구성됩니다. 또한 각 호스트 풀은 사용자에게 원격 데스크톱 및 원격 애플리케이션 리소스를 게시하는 데 사용되는 하나 이상의 앱 그룹으로 구성됩니다. 테넌트를 사용하여 호스트 풀을 빌드하고, 앱 그룹을 만들고, 사용자를 할당하고, 서비스를 통한 연결을 설정할 수 있습니다.
 
@@ -73,7 +73,7 @@ Azure Active Directory 사용자에게 TenantCreator 애플리케이션 역할�
 
 TenantCreator 애플리케이션 역할을 할당하려면 다음을 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com) 로 이동 하 여 tenantcreator 응용 프로그램 역할을 관리 합니다. **엔터프라이즈 애플리케이션**을 검색하여 선택합니다. 여러 Azure Active Directory 테넌트로 작업하는 경우 프라이빗 브라우저 세션을 열고 URL을 복사한 후 주소 창에 붙여넣는 것이 가장 좋습니다.
+1. [Azure Portal](https://portal.azure.com)로 이동하여 TenantCreator 애플리케이션 역할을 관리합니다. **엔터프라이즈 애플리케이션**을 검색하여 선택합니다. 여러 Azure Active Directory 테넌트로 작업하는 경우 프라이빗 브라우저 세션을 열고 URL을 복사한 후 주소 창에 붙여넣는 것이 가장 좋습니다.
 
    ![Azure Portal의 엔터프라이즈 애플리케이션 검색 스크린샷](media/azure-portal-enterprise-applications.png)
 2. **엔터프라이즈 애플리케이션** 내에서 **Windows Virtual Desktop**을 검색합니다. 이전 섹션에서 동의를 제공한 두 애플리케이션이 표시됩니다. 이러한 두 앱 중 **Windows Virtual Desktop**을 선택합니다.
@@ -82,7 +82,7 @@ TenantCreator 애플리케이션 역할을 할당하려면 다음을 수행합�
 3. **사용자 및 그룹**을 선택합니다. 애플리케이션에 대한 동의를 부여한 관리자가 **기본 액세스** 역할이 할당된 상태로 목록에 표시되는 것을 볼 수 있습니다. 이것만으로는 Windows Virtual Desktop 테넌트를 만드는 데 충분하지 않습니다. 사용자에게 **TenantCreator** 역할을 추가하려면 다음 지침에 따라 계속 진행합니다.
    
    !["Windows Virtual Desktop" 엔터프라이즈 애플리케이션을 관리하도록 할당된 사용자 및 그룹 스크린샷입니다. 이 스크린샷은 "기본 액세스"에 대한 할당을 하나만 표시합니다.](media/tenant-default-access.png)
-4. **사용자 추가**를 선택한 다음, **할당 추가** 블레이드에서 **사용자 및 그룹**을 선택합니다.
+4. **사용자 추가**를 선택한 다음, **할당 추가** 탭에서 **사용자 및 그룹**을 선택합니다.
 5. Windows Virtual Desktop 테넌트를 만들 사용자 계정을 검색합니다. 편의상 이는 글로벌 관리자 계정일 수 있습니다.
    - contosoadmin@live.com 또는 contosoadmin@outlook.com과 같은 Microsoft ID 공급자를 사용하는 경우 Windows Virtual Desktop에 로그인하지 못할 수도 있습니다. admin@contoso.com 또는 admin@contoso.onmicrosoft.com과 같은 도메인 특정 계정을 사용하는 것이 좋습니다.
 

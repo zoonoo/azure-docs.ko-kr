@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: sstein, carlrab
 ms.date: 09/26/2019
-ms.openlocfilehash: 2af153e5cf09cf331be016066e9c9210a0d39b03
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 25128442cd922f6b9130586e245695b6880f661c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838170"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80257617"
 ---
 # <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>빠른 시작: Azure SQL Database 관리형 인스턴스 만들기
 
@@ -51,7 +51,7 @@ Azure 구독이 아직 없는 경우 [무료 계정을 만듭니다](https://azu
 
    아래 표를 사용하여 이 탭에 필요한 정보를 참조합니다.
 
-   | 설정| 제안 값 | 설명 |
+   | 설정| 제안 값 | Description |
    | ------ | --------------- | ----------- |
    | **구독** | 사용자의 구독. | 새 리소스를 만들 권한을 제공하는 구독입니다. |
    | **리소스 그룹** | 새 또는 기존 리소스 그룹입니다.|유효한 리소스 그룹 이름은 [명명 규칙 및 제한 사항](/azure/architecture/best-practices/resource-naming)을 참조하세요.|
@@ -74,7 +74,7 @@ Azure 구독이 아직 없는 경우 [무료 계정을 만듭니다](https://azu
 
    아래 표를 사용하여 이 탭에 필요한 정보를 참조합니다.
 
-   | 설정| 제안 값 | 설명 |
+   | 설정| 제안 값 | Description |
    | ------ | --------------- | ----------- |
    | **가상 네트워크** | **새 가상 네트워크 만들기** 또는 유효한 가상 네트워크 및 서브넷을 선택합니다.| 네트워크 또는 서브넷을 사용할 수 없는 경우 [네트워크 요구 사항을 충족하도록 수정](sql-database-managed-instance-configure-vnet-subnet.md)해야만 새 관리형 인스턴스의 대상으로 선택할 수 있습니다. 관리형 인스턴스의 네트워크 환경을 구성하기 위한 요구 사항에 대한 자세한 내용은 [관리형 인스턴스에 대한 가상 네트워크 구성](sql-database-managed-instance-connectivity-architecture.md)을 참조하세요. |
    | **연결 형식** | 프록시 또는 리디렉션 연결 형식 중에 선택합니다.|연결 형식에 대한 자세한 내용은 [Azure SQL Database 연결 정책](sql-database-connectivity-architecture.md#connection-policy)을 참조하세요.|
@@ -91,7 +91,7 @@ Azure 구독이 아직 없는 경우 [무료 계정을 만듭니다](https://azu
 
    아래 표를 사용하여 이 탭에 필요한 정보를 참조합니다.
 
-   | 설정| 제안 값 | 설명 |
+   | 설정| 제안 값 | Description |
    | ------ | --------------- | ----------- |
    | **데이터 정렬** | 관리형 인스턴스에 사용할 데이터 정렬을 선택합니다. SQL Server에서 데이터베이스를 마이그레이션하는 경우 `SELECT SERVERPROPERTY(N'Collation')` 명령으로 원본 데이터 정렬을 확인하고 해당 값을 사용합니다.| 데이터 정렬에 대한 자세한 내용은 [서버 데이터 정렬 설정 또는 변경](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation)을 참조하세요.|   
    | **표준 시간대** | 관리형 인스턴스에 사용할 표준 시간대를 선택합니다.|자세한 내용은 [표준 시간대](sql-database-managed-instance-timezone.md)를 참조하세요.|
@@ -122,6 +122,10 @@ Azure 구독이 아직 없는 경우 [무료 계정을 만듭니다](https://azu
 > 1. Azure Portal에서 관리형 인스턴스를 배포할 리소스 그룹(**기본 사항** 탭)을 엽니다.
 > 2. **배포**를 선택합니다.
 > 3. 진행 중인 관리형 인스턴스 배포 작업을 선택합니다.
+
+> [!IMPORTANT]
+> 관리형 인스턴스 만들기 상태를 가져오려면 리소스 그룹에 대해 **읽기 권한**이 있어야 합니다. 관리형 인스턴스가 생성되는 동안이 권한이 없거나 취소되면 관리형 인스턴스가 리소스 그룹 배포 목록에 표시되지 않을 수 있습니다.
+>
 
 ## <a name="post-deployment-operations"></a>배포 후 작업
 

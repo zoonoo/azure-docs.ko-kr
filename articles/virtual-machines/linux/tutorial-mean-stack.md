@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 08/08/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 50ccf0d6db5a50f7dd89732bc870ced6bcf1c2d7
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 9e0ed3454f11907c5f183f08fd2ec51db3384225
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034396"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80154324"
 ---
 # <a name="tutorial-create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-virtual-machine-in-azure"></a>자습서: Azure의 Linux 가상 머신에서 MEAN(MongoDB, Express, AngularJS 및 Node.js) 스택 만들기
 
@@ -327,7 +327,7 @@ sudo apt-get install -y nodejs
 
     ![책 레코드](media/tutorial-mean/meanstack-init.png)
 
-3. 데이터를 텍스트 상자에 입력하고 **추가**를 클릭합니다. 예:
+3. 데이터를 텍스트 상자에 입력하고 **추가**를 클릭합니다. 다음은 그 예입니다.
 
     ![책 레코드 추가](media/tutorial-mean/meanstack-add.png)
 
@@ -339,7 +339,7 @@ sudo apt-get install -y nodejs
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 Linux VM에 대해 MEAN 스택을 사용하여 책 레코드를 추적하는 웹 애플리케이션을 만들었습니다. 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 Linux VM에 대해 MEAN 스택을 사용하여 책 레코드를 추적하는 웹 애플리케이션을 만들었습니다. 구체적으로 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * Linux VM 만들기
@@ -349,7 +349,7 @@ sudo apt-get install -y nodejs
 > * AngularJS를 사용하여 경로에 액세스
 > * 애플리케이션 실행
 
-SSL 인증서로 웹 서버를 보호하는 방법에 대해 알아보려면 다음 자습서로 이동합니다.
+TLS 인증서로 웹 서버를 보호하는 방법에 대해 알아보려면 다음 자습서로 이동합니다.
 
 > [!div class="nextstepaction"]
-> [SSL로 웹 서버 보안](tutorial-secure-web-server.md)
+> [TLS로 웹 서버 보안](tutorial-secure-web-server.md)

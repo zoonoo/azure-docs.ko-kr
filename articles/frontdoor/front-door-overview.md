@@ -1,5 +1,5 @@
 ---
-title: Azure Front Door Service | Microsoft Docs
+title: Azure Front Door | Microsoft Docs
 description: 이 문서는 Azure Front Door의 개요를 제공합니다. 애플리케이션에 대한 사용자 트래픽을 부하 분산하기에 적합한 선택인지 알아보세요.
 services: frontdoor
 documentationcenter: ''
@@ -12,20 +12,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/23/2019
 ms.author: sharadag
-ms.openlocfilehash: e92e51e8aabf24f1c5c4db31e2e203f391620ecc
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 0ee35f4f0b4bd8c46a0445e2905ae3b50d11f721
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74423479"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79471652"
 ---
-# <a name="what-is-azure-front-door-service"></a>Azure Front Door Service란?
-Azure Front Door Service를 사용하면 최적의 성능과 고가용성을 지원하는 즉시 글로벌 장애 조치(failover)를 최적으로 구현하여 웹 트래픽의 글로벌 라우팅을 정의, 관리, 모니터링할 수 있습니다. Front Door를 사용하면 글로벌(다중 지역) 소비자 및 기업 애플리케이션을 글로벌 Azure 잠재 고객에게 도달하는 견고한 고성능의 맞춤형 최신 애플리케이션, API 및 콘텐츠로 변환할 수 있습니다.
+# <a name="what-is-azure-front-door"></a>Azure Front Door란?
+Azure Front Door를 사용하면 최적의 성능과 고가용성을 지원하는 즉시 글로벌 장애 조치(failover)를 최적으로 구현하여 웹 트래픽의 글로벌 라우팅을 정의, 관리, 모니터링할 수 있습니다. Front Door를 사용하면 글로벌(다중 지역) 소비자 및 기업 애플리케이션을 글로벌 Azure 잠재 고객에게 도달하는 견고한 고성능의 맞춤형 최신 애플리케이션, API 및 콘텐츠로 변환할 수 있습니다.
 
 Front Door는 Layer 7 또는 HTTP/HTTPS 계층에서 작동하며, TCP가 분할된 애니캐스트 프로토콜과 Microsoft의 글로벌 네트워크를 사용하여 글로벌 연결을 개선합니다. 따라서 구성에서 선택한 라우팅 방법에 따라 Front Door가 클라이언트 요청을 가장 빠르고 가장 가용성이 높은 애플리케이션 백엔드로 라우팅합니다. 애플리케이션 백엔드는 Azure의 내부 또는 외부에서 호스팅되는 모든 인터넷 연결 서비스입니다. Front Door는 다양한 애플리케이션 요구와 자동 장애 조치(failover)에 맞는 [트래픽 라우팅 방법](front-door-routing-methods.md) 및 [백엔드 상태 모니터링 옵션](front-door-health-probes.md)을 제공합니다. [Traffic Manager](../traffic-manager/traffic-manager-overview.md)와 유사한 Front Door는 전체 Azure 지역의 오류를 포함한, 오류에 대해 복원력을 갖습니다.
 
 >[!NOTE]
-> Azure는 사용자 시나리오를 위한 완전히 관리되는 부하 분산 솔루션 모음을 제공합니다. DNS 기반 글로벌 라우팅이 필요하고, TLS(Transport Layer Security) 프로토콜 종료(&quot;SSL 오프로드&quot;) 또는 HTTP/HTTPS 요청별 애플리케이션 계층 처리에 대한 요구 사항이 **없는** 경우 [Traffic Manager](../traffic-manager/traffic-manager-overview.md)를 검토하세요. 특정 지역의 서버 간 부하 분산이 필요한 경우 응용 프로그램 계층은 [Application Gateway](../application-gateway/application-gateway-introduction.md)를 살펴보고, 네트워크 계층 부하 분산은 [Load Balancer](../load-balancer/load-balancer-overview.md)를 살펴보세요. 필요에 따라 엔드투엔드 시나리오에서 이러한 솔루션을 조합하여 이점을 얻을 수 있습니다.
+> Azure는 사용자 시나리오를 위한 완전히 관리되는 부하 분산 솔루션 모음을 제공합니다. DNS 기반 글로벌 라우팅이 필요하고, TLS(Transport Layer Security) 프로토콜 종료(&quot;SSL 오프로드&quot;) 또는 HTTP/HTTPS 요청별 애플리케이션 계층 처리에 대한 요구 사항이 **없는** 경우 [Traffic Manager](../traffic-manager/traffic-manager-overview.md)를 검토하세요. 특정 지역의 서버 간 부하 분산이 필요한 경우 애플리케이션 계층은 [Application Gateway](../application-gateway/application-gateway-introduction.md)를 살펴보고, 네트워크 계층 부하 분산은 [Load Balancer](../load-balancer/load-balancer-overview.md)를 살펴보세요. 필요에 따라 엔드투엔드 시나리오에서 이러한 솔루션을 조합하여 이점을 얻을 수 있습니다.
 >
 > Azure 부하 분산 옵션 비교는 [Azure의 부하 분산 옵션 개요](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview)를 참조하세요.
 
@@ -44,7 +44,7 @@ URL 경로 기반 라우팅을 사용하여 요청의 URL 경로에 따라 트�
 예를 들어 `http://www.contoso.com/users/*`에 대한 요청은 UserProfilePool로 라우팅되고, `http://www.contoso.com/products/*`에 대한 요청은 ProductInventoryPool로 라우팅됩니다.  Front Door는 최고의 매칭 알고리즘을 사용하여 더 복잡한 경로 매칭도 지원하므로 경로 패턴 중에 일치하는 패턴이 없을 경우 `http://www.contoso.com/*`에 기본 회람 규칙이 선택되고, 기본 범용 회람 규칙에 트래픽이 전달됩니다. [경로 매칭](front-door-route-matching.md)에 대해 자세히 알아보세요.
 
 ## <a name="multiple-site-hosting"></a>다중 사이트 호스팅
-다중 사이트 호스팅을 통해 동일한 Front Door 구성에서 둘 이상의 웹 사이트를 구성할 수 있습니다. 이 기능을 사용하면 여러 웹 사이트를 단일 Front Door 구성으로 추가하여 배포에 보다 효율적인 토폴로지를 구성할 수 있습니다. 애플리케이션의 아키텍처에 따라 각 웹 사이트를 백 엔드 풀로 전달하거나 다양한 웹 사이트가 동일한 백 엔드 풀로 전달되도록 Azure Front Door Service를 구성할 수 있습니다. 예를 들어 Front Door는 ImagePool 및 VideoPool이라는 두 가지 백 엔드 풀에서 `images.contoso.com` 및 `videos.contoso.com`의 트래픽을 제공할 수 있습니다. 또는 MediaPool이라고 하는 단일 백 엔드 풀에 트래픽을 전달하도록 프런트 엔드 호스트를 구성할 수 있습니다.
+다중 사이트 호스팅을 통해 동일한 Front Door 구성에서 둘 이상의 웹 사이트를 구성할 수 있습니다. 이 기능을 사용하면 여러 웹 사이트를 단일 Front Door 구성으로 추가하여 배포에 보다 효율적인 토폴로지를 구성할 수 있습니다. 애플리케이션의 아키텍처에 따라 각 웹 사이트를 백 엔드 풀로 전달하거나 다양한 웹 사이트가 동일한 백 엔드 풀로 전달되도록 Azure Front Door를 구성할 수 있습니다. 예를 들어 Front Door는 ImagePool 및 VideoPool이라는 두 가지 백 엔드 풀에서 `images.contoso.com` 및 `videos.contoso.com`의 트래픽을 제공할 수 있습니다. 또는 MediaPool이라고 하는 단일 백 엔드 풀에 트래픽을 전달하도록 프런트 엔드 호스트를 구성할 수 있습니다.
 
 마찬가지로, 동일한 Front Door에 `www.contoso.com` 및 `www.fabrikam.com`이라는 두 가지 도메인을 구성할 수 있습니다.
 
@@ -66,9 +66,9 @@ Front Door 플랫폼 자체는 [Azure DDoS Protection](../virtual-network/ddos-p
 ## <a name="url-redirection"></a>URL 리디렉션
 업계에 강력한 푸시를 통해 보안 통신만 지원하도록 하기 위해 웹 애플리케이션의 모든 HTTP 트래픽을 HTTPS로 자동으로 리디렉션할 예정입니다. 이는 사용자와 애플리케이션 간의 모든 통신이 암호화된 경로에서 발생하도록 합니다. 
 
-이전에는 애플리케이션 소유자가 전용 서비스를 만들어 이 요구 사항을 처리했으며 유일한 목적은 HTTP에서 수신하는 요청을 HTTPS로 리디렉션하는 것이었습니다. Azure Front Door Service는 HTTP에서 HTTPS로 트래픽을 리디렉션하는 기능을 지원합니다. 이를 통해 애플리케이션 구성이 간소화되고, 리소스 사용이 최적화되고, 전역 및 경로 기반 리디렉션을 비롯한 새로운 리디렉션 시나리오가 지원됩니다. Azure Front Door Service에서 URL 리디렉션은 HTTP에서 HTTPS로 리디렉션뿐만 아니라 다른 호스트 이름으로 리디렉션, 다른 경로로 리디렉션 또는 URL의 새 쿼리 문자열로 리디렉션으로도 제한됩니다.
+이전에는 애플리케이션 소유자가 전용 서비스를 만들어 이 요구 사항을 처리했으며 유일한 목적은 HTTP에서 수신하는 요청을 HTTPS로 리디렉션하는 것이었습니다. Azure Front Door는 HTTP에서 HTTPS로 트래픽을 리디렉션하는 기능을 지원합니다. 이를 통해 애플리케이션 구성이 간소화되고, 리소스 사용이 최적화되고, 전역 및 경로 기반 리디렉션을 비롯한 새로운 리디렉션 시나리오가 지원됩니다. Azure Front Door의 URL 리디렉션은 HTTP에서 HTTPS로의 리디렉션뿐만 아니라 다른 호스트 이름으로 리디렉션하거나 다른 경로로 리디렉션 또는 URL의 새 쿼리 문자열로 리디렉션으로도 제한됩니다.
 
-자세한 내용은 Azure Front Door Service를 사용한 [트래픽 리디렉션](front-door-url-redirect.md)을 참조하세요.
+자세한 내용은 Azure Front Door를 사용한 [트래픽 리디렉션](front-door-url-redirect.md)을 참조하세요.
 
 ## <a name="url-rewrite"></a>URL 다시 쓰기
 Front Door는 백 엔드에 전달할 요청을 생성할 때 사용할 선택적 사용자 지정 전달 경로를 구성할 수 있게 하여 [URL 재작성](front-door-url-rewrite.md)을 지원합니다. Front Door는 백 엔드에 요청을 전달할 때 전송할 호스트 헤더를 추가로 구성할 수 있게 해줍니다.
@@ -76,13 +76,13 @@ Front Door는 백 엔드에 전달할 요청을 생성할 때 사용할 선택�
 ## <a name="protocol-support---ipv6-and-http2-traffic"></a>프로토콜 지원 - IPv6 및 HTTP/2 트래픽
 Azure Front Door는 기본적으로 엔드투엔드 IPv6 연결을 지원하고 HTTP/2 프로토콜도 지원합니다. 
 
-HTTP/2 프로토콜을 사용하면 장기 실행 TCP 연결을 통해 애플리케이션 백 엔드와 클라이언트 간의 전이중 통신을 수행할 수 있습니다. HTTP/2를 사용하면 백 엔드와 클라이언트 간의 대화형 통신이 가능하며, HTTP 기반 구현에서 필요에 따라 폴링하지 않고도 양방향 통신을 수행할 수 있습니다. HTTP/2 프로토콜은 HTTP와 달리 오버헤드가 낮고 여러 요청 또는 응답에 동일한 TCP 연결을 다시 사용하므로 리소스를 더 효율적으로 활용할 수 있습니다. [Azure Front Door Service의 HTTP/2 지원](front-door-http2.md)에 대해 자세히 알아보세요.
+HTTP/2 프로토콜을 사용하면 장기 실행 TCP 연결을 통해 애플리케이션 백 엔드와 클라이언트 간의 전이중 통신을 수행할 수 있습니다. HTTP/2를 사용하면 백 엔드와 클라이언트 간의 대화형 통신이 가능하며, HTTP 기반 구현에서 필요에 따라 폴링하지 않고도 양방향 통신을 수행할 수 있습니다. HTTP/2 프로토콜은 HTTP와 달리 오버헤드가 낮고 여러 요청 또는 응답에 동일한 TCP 연결을 다시 사용하므로 리소스를 더 효율적으로 활용할 수 있습니다. [Azure Front Door의 HTTP/2 지원](front-door-http2.md)에 대해 자세히 알아보세요.
 
-## <a name="pricing"></a>가격
+## <a name="pricing"></a>가격 책정
 
 가격 정보는 [Front Door 가격 책정](https://azure.microsoft.com/pricing/details/frontdoor/)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Front Door를 만드는 방법](quickstart-create-front-door.md)을 알아봅니다.
+- [Front Door를 만드는](quickstart-create-front-door.md) 방법을 알아봅니다.
 - [Front Door의 작동 원리](front-door-routing-architecture.md)를 알아봅니다.

@@ -4,10 +4,10 @@ description: Azure Blueprints 서비스를 통해 Azure 환경에서 아티팩�
 ms.date: 11/21/2019
 ms.topic: overview
 ms.openlocfilehash: 07d84d658d88e977cd73176861e5c5e080c02857
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74321771"
 ---
 # <a name="what-is-azure-blueprints"></a>Azure Blueprints란?
@@ -48,7 +48,7 @@ Resource Manager 템플릿과 청사진 중 하나만 선택할 필요는 없습
 
 청사진은 _아티팩트_로 구성됩니다. 현재 Blueprints에서 아티팩트로 지원하는 리소스는 다음과 같습니다.
 
-|리소스  | 계층 구조 옵션| 설명  |
+|리소스  | 계층 구조 옵션| Description  |
 |---------|---------|---------|
 |리소스 그룹 | Subscription | 청사진 내의 다른 아티팩트에 사용할 새 리소스 그룹을 만듭니다.  이러한 자리 표시자 리소스 그룹을 사용하면 정확히 원하는 구조로 리소스를 구성할 수 있으며, 포함된 정책 및 역할 할당 아티팩트와 Azure Resource Manager 템플릿의 범위도 제한할 수 있습니다. |
 |Azure Resource Manager 템플릿 | 구독, 리소스 그룹 | 중첩된 템플릿과 연결된 템플릿을 포함하는 템플릿은 복잡한 환경을 구성하는 데 사용됩니다. SharePoint 팜, Azure Automation State Configuration 또는 Log Analytics 작업 영역과 같은 환경을 예로 들 수 있습니다. |
@@ -106,7 +106,7 @@ Blueprints에서는 정책/이니셔티브 또는 Azure Resource Manager 템플�
 
 다음과 같은 기본 제공 역할을 사용할 수 있습니다.
 
-|RBAC 역할 | 설명 |
+|RBAC 역할 | Description |
 |-|-|
 |[소유자](../../role-based-access-control/built-in-roles.md#owner) | 다른 권한 외에도 모든 Azure Blueprint 관련 권한이 포함됩니다. |
 |[기여자](../../role-based-access-control/built-in-roles.md#contributor) | 다른 권한 외에도 청사진 정의를 만들고 삭제할 수 있지만 청사진 할당 권한은 없습니다. |
@@ -124,10 +124,10 @@ Blueprints에서는 정책/이니셔티브 또는 Azure Resource Manager 템플�
 
 |Object|필드|허용되는 문자|최대 길이|
 |-|-|-|-|
-|청사진|Name|문자, 숫자, 하이픈 및 마침표|48|
+|청사진|속성|문자, 숫자, 하이픈 및 마침표|48|
 |청사진|버전|문자, 숫자, 하이픈 및 마침표|20|
-|청사진 할당|Name|문자, 숫자, 하이픈 및 마침표|90|
-|청사진 아티팩트|Name|문자, 숫자, 하이픈 및 마침표|48|
+|청사진 할당|속성|문자, 숫자, 하이픈 및 마침표|90|
+|청사진 아티팩트|속성|문자, 숫자, 하이픈 및 마침표|48|
 
 ## <a name="video-overview"></a>비디오 개요
 

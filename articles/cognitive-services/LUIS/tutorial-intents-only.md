@@ -1,22 +1,14 @@
 ---
 title: '자습서: 의도 예측 - LUIS'
-titleSuffix: Azure Cognitive Services
 description: 이 자습서에서는 사용자의 의도를 예측하는 사용자 지정 앱을 만듭니다. 이 앱은 이메일 주소 또는 날짜 등의 발화 텍스트에서 다양한 데이터 요소를 추출하지 않으므로 가장 간단한 형식의 LUIS 앱입니다.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/17/2019
-ms.author: diberry
-ms.openlocfilehash: 89fb76f8c5cc4323e1211524340c0965a7d0716d
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.date: 03/24/2020
+ms.openlocfilehash: c58c96f717de77c065d7f844928714eb4fb3e4db
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76262755"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80286747"
 ---
 # <a name="tutorial-build-a-luis-app-to-determine-user-intentions"></a>자습서: 사용자 의도를 확인하는 LUIS 앱 빌드
 
@@ -53,7 +45,11 @@ ms.locfileid: "76262755"
 
 ## <a name="create-a-new-intent"></a>새 의도 만들기
 
-1. 포털의 앱 **빌드** 섹션 내에서 **+ 만들기**를 선택합니다. 새 의도 이름 `OrderPizza`를 입력한 다음, **완료**를 선택합니다.
+의도는 자연어 텍스트에서 결정되는 사용자의 의도에 따라 사용자 발화를 분류하는 데 사용됩니다.
+
+발화를 분류하기 위해서는 이러한 의도로 분류해야 하는 사용자 발화의 예가 필요합니다.
+
+1. **빌드** 섹션의 **의도** 페이지에서 **+ 만들기**를 선택하여 새 의도를 만듭니다. 새 의도 이름 `OrderPizza`를 입력한 다음, **완료**를 선택합니다.
 
     사용자가 피자를 주문하려는 경우 `OrderPizza` 의도가 예측됩니다.
 
@@ -70,7 +66,7 @@ ms.locfileid: "76262755"
 
     ![예제 발화 추가](media/tutorial-intents-only/add-example-utterances-for-pizza-order.png)
 
-    _예제 발언_을 입력하면 LUIS 앱이 이 의도에 대해 예측해야 하는 발언의 종류를 학습하게 됩니다.
+    _예제 발화_을 입력하면 LUIS가 이 의도에 대해 예측해야 하는 발화의 종류를 학습하게 됩니다.
 
     [!INCLUDE [Do not use too few utterances](includes/do-not-use-too-few-utterances.md)]
 

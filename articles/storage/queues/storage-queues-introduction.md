@@ -3,17 +3,17 @@ title: Azure 큐 소개 - Azure Storage
 description: Azure 큐 소개
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 06/07/2019
+ms.date: 03/18/2020
 ms.service: storage
 ms.subservice: queues
 ms.topic: overview
 ms.reviewer: cbrooks
-ms.openlocfilehash: 0e8bac8344bec06b58a22b8c9162cd8bd22ee700
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 4a2bea77578282d68d86bc1a8cea765aa2cbd555
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750440"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80060866"
 ---
 # <a name="what-are-azure-queues"></a>Azure 큐란?
 
@@ -23,7 +23,7 @@ Azure Queue Storage는 대량의 메시지를 저장하기 위한 서비스입�
 
 큐 서비스에는 다음 구성 요소가 포함됩니다.
 
-![큐 개념](./media/storage-queues-introduction/queue1.png)
+![스토리지 계정, 큐 및 메시지 간의 관계를 보여주는 다이어그램](./media/storage-queues-introduction/queue1.png)
 
 * **URL 형식:** 다음 URL 형식을 사용하여 큐에 주소를 지정할 수 있습니다.
 

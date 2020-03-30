@@ -1,18 +1,18 @@
 ---
-title: ILB ASE v1 만들기
-description: ILB를 사용 하 여 ASE 만들기 및 사용 이 문서는 레거시 v1 ASE를 사용 하는 고객 에게만 제공 됩니다.
+title: ILB ASE v1 생성
+description: ILB를 사용하여 ASE를 만들고 사용합니다. 이 문서는 레거시 v1 ASE를 사용하는 고객에게만 제공됩니다.
 author: ccompy
 ms.assetid: ad9a1e00-d5e5-413e-be47-e21e5b285dbf
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: d8ed6b1806e1cbb0ca7419c5892a4a84bc62e541
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 0c03905017629e28e41cce2adaa65eac347b8185
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688732"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294726"
 ---
 # <a name="using-an-internal-load-balancer-with-an-app-service-environment"></a>App Service Environment에서 내부 부하 분산 장치 사용
 
@@ -20,7 +20,7 @@ ms.locfileid: "74688732"
 > 이 문서는 ASE(App Service Environment) v1에 관한 내용입니다. 사용하기가 더 쉽고 더 강력한 인프라에서 실행되는 최신 버전의 App Service Environment가 있습니다. 새 버전에 대한 자세한 내용은 [App Service Environment 소개](intro.md)를 참조하세요.
 >
 
-ASE(App Service Environment) 기능은 다중 테넌트 증명(stamp)에서 사용할 수 없는 향상된 구성 기능을 제공하는 Azure App Service의 프리미엄 서비스 옵션입니다. ASE 기능은 기본적으로 Azure Virtual Network(VNet)에 Azure App Service를 배포합니다. App Service 환경에서 제공 하는 기능에 대 한 자세한 내용은 [App Service Environment][WhatisASE] 설명서를 참조 하세요. VNet에서 작동 하는 이점을 모르는 경우 [Azure VIRTUAL NETWORK FAQ][virtualnetwork]를 읽어 보세요. 
+ASE(App Service Environment) 기능은 다중 테넌트 증명(stamp)에서 사용할 수 없는 향상된 구성 기능을 제공하는 Azure App Service의 프리미엄 서비스 옵션입니다. ASE 기능은 기본적으로 Azure Virtual Network(VNet)에 Azure App Service를 배포합니다. App Service 환경에서 제공되는 기능에 대한 자세한 내용은 [App Service 환경 정의][WhatisASE] 설명서를 참조하세요. VNet에서 작업할 때의 이점을 잘 모르는 경우 [Azure Virtual Network FAQ][virtualnetwork]를 읽어보세요. 
 
 ## <a name="overview"></a>개요
 ASE는 VNet의 인터넷 액세스 가능 엔드포인트 또는 IP 주소를 사용하여 배포할 수 있습니다. IP 주소를 VNet 주소로 설정하기 위해서는 ILB(내부 부하 분산 장치)를 사용하여 ASE를 배포해야 합니다. ASE가 ILB로 구성된 경우 다음을 제공합니다.
@@ -43,16 +43,16 @@ ILB ASE를 사용하는 경우 수행할 수 없는 작업도 있습니다. 여�
 * 포털을 통해 인증서를 구매하여 앱에 사용 물론 Azure 포털을 통해서가 아니라 인증 기관에서 직접 인증서를 구한 후 앱에 사용할 수도 있습니다.
 
 ## <a name="creating-an-ilb-ase"></a>ILB ASE 만들기
-ILB ASE를 만드는 과정은 일반적으로 ASE를 만드는 과정과 크게 다르지 않습니다. ASE를 만드는 방법에 대 한 자세한 내용은 [App Service Environment 만드는 방법][HowtoCreateASE]을 참조 하세요. ILB ASE를 만드는 프로세스를 ASE 생성 중에 VNet을 만드는 경우와 기존 VNet을 선택하는 경우에서 동일합니다. ILB ASE를 만들려면 
+ILB ASE를 만드는 과정은 일반적으로 ASE를 만드는 과정과 크게 다르지 않습니다. ASE를 만드는 방법에 대한 자세한 내용은 [App Service 환경을 만드는 방법][HowtoCreateASE]을 참조하세요. ILB ASE를 만드는 프로세스를 ASE 생성 중에 VNet을 만드는 경우와 기존 VNet을 선택하는 경우에서 동일합니다. ILB ASE를 만들려면 
 
 1. Azure Portal에서 **리소스 만들기 -> 웹 + 모바일 -> App Service Environment**를 선택합니다.
 2. 구독을 선택합니다.
 3. 리소스 그룹을 선택하거나 만듭니다.
 4. VNet을 선택하거나 만듭니다.
 5. VNet을 선택하는 경우 서브넷 만듭니다.
-6. **Virtual Network/위치 -> VNet 구성**을 선택하고 VIP 유형을 내부로 설정합니다.
+6. **가상 네트워크/위치-> VNet 구성을** 선택하고 VIP 유형을 내부로 설정합니다.
 7. 하위 도메인 이름을 제공합니다. (이 이름은 해당 ASE에서 만든 앱에 사용되는 하위 도메인입니다.)
-8. **확인** 및 **만들기**를 차례로 선택합니다.
+8. **확인을** 선택한 다음 **을 만듭니다.**
 
 ![][1]
 
@@ -93,8 +93,8 @@ ASE를 만든 후에는 해당 하위 도메인이 사용자가 지정한 하위
 4. ASE를 만든 후에 ASE에서 웹앱을 만듭니다. 
 5. 해당 VNET에 없는 경우 VM을 만듭니다(ASE가 있는 동일한 서브넷이 아니거나 연결이 끊긴 경우).
 6. 하위 도메인에 대한 DNS를 설정합니다. DNS에 하위 도메인과 와일드카드를 사용할 수도 있고, 몇 가지 간단한 테스트를 수행하려는 경우 VM의 호스트 파일을 편집하여 웹앱 이름을 VIP IP 주소로 설정할 수 있습니다. ASE에 .ilbase.com이라는 하위 도메인이 있고 웹앱 mytestapp을 만들었으면 mytestapp.ilbase.com에서 주소가 지정되고 해당 사항이 호스트 파일에 설정됩니다. (Windows에서 호스트 파일은 C:\Windows\System32\drivers\etc에 있습니다\).)
-7. 해당 VM의 브라우저를 사용하여 https://mytestapp.ilbase.com (또는 하위 도메인이 포함된 웹앱 이름)으로 이동합니다.
-8. 해당 VM에서 브라우저를 사용하여 https://mytestapp.ilbase.com 로 이동합니다. 자체 서명된 인증서를 사용하는 경우 보안 부족에 동의해야 합니다. 
+7. 해당 VM의 브라우저를 사용하여 `https://mytestapp.ilbase.com`(또는 하위 도메인이 포함된 웹앱 이름)으로 이동합니다.
+8. 해당 VM에서 브라우저를 사용하여 `https://mytestapp.ilbase.com`로 이동합니다. 자체 서명된 인증서를 사용하는 경우 보안 부족에 동의해야 합니다. 
 
 ILB에 대한 IP 주소는 속성에 가상 IP 주소로 표시됩니다.
 
@@ -104,14 +104,14 @@ ILB에 대한 IP 주소는 속성에 가상 IP 주소로 표시됩니다.
 #### <a name="network-security-groups"></a>네트워크 보안 그룹
 ILB ASE는 앱에 대한 네트워크 격리를 설정합니다. 해당 앱은 액세스할 수 없거나 인터넷으로도 알려지지 않았습니다. 이러한 기능은 LOB(기간 업무) 애플리케이션과 같은 인트라넷 사이트를 호스트하는 데 아주 적합합니다. 액세스를 좀 더 제한해야 할 경우, NSG(네트워크 보안 그룹)를 사용하여 네트워크 수준에서 액세스를 제어할 수도 있습니다. 
 
-NSG를 사용하여 액세스를 좀 더 제한하려는 경우 ASE의 작동에 필요한 통신이 끊어지지 않도록 해야 합니다. HTTP/HTTPS 액세스가 ASE에 사용되는 ILB를 통해서만 진행되더라도 ASE에는 VNet 외부의 리소스가 필요합니다. 여전히 필요한 네트워크 액세스를 확인 하려면 [App Service Environment에 대 한 인바운드 트래픽 제어][ControlInbound] 및 express 경로를 [사용 하 여 App Service 환경에 대 한 네트워크 구성 세부 정보][ExpressRoute]를 참조 하세요. 
+NSG를 사용하여 액세스를 좀 더 제한하려는 경우 ASE의 작동에 필요한 통신이 끊어지지 않도록 해야 합니다. HTTP/HTTPS 액세스가 ASE에 사용되는 ILB를 통해서만 진행되더라도 ASE에는 VNet 외부의 리소스가 필요합니다. 여전히 필요한 네트워크 액세스를 확인하려면 [App Service 환경에 대한 인바운드 트래픽 제어][ControlInbound] 및 [ExpressRoute를 사용하는 App Service 환경에 대한 네트워크 구성 세부 정보][ExpressRoute]를 참조하세요. 
 
 ASE를 구성하려면 Azure에서 ASE 관리를 위해 사용하는 IP 주소를 알아야 합니다. 인터넷 요청도 수행하는 경우 해당 IP 주소는 ASE의 아웃바운드 IP 주소입니다. ASE에 대한 아웃바운드 IP 주소는 ASE 수명 동안 정적 상태로 유지됩니다. ASE를 삭제하고 다시 만들면 새 IP 주소를 얻게 됩니다. 이 IP 주소를 찾으려면 **설정 -> 속성**으로 이동한 후 **아웃바운드 IP 주소**를 찾습니다. 
 
 ![][5]
 
 #### <a name="general-ilb-ase-management"></a>일반 ILB ASE 관리
-대체적으로 ILB ASE 관리는 일반적인 ASE 관리와 동일합니다. 추가 ASP 인스턴스를 호스트하려면 작업자 풀을 확장해야 하고, 증가하는 HTTP/HTTPS 트래픽 양을 처리하려면 프런트 엔드 서버를 확장해야 합니다. ASE의 구성 관리에 대 한 일반적인 내용은 [App Service Environment 구성][ASEConfig]을 참조 하세요. 
+대체적으로 ILB ASE 관리는 일반적인 ASE 관리와 동일합니다. 추가 ASP 인스턴스를 호스트하려면 작업자 풀을 확장해야 하고, 증가하는 HTTP/HTTPS 트래픽 양을 처리하려면 프런트 엔드 서버를 확장해야 합니다. ASE의 구성 관리에 대한 일반적인 내용을 보려면 [App Service 환경 구성][ASEConfig]을 참조하세요. 
 
 추가 관리 항목은 인증서 관리 및 DNS 관리입니다. ILB ASE를 만든 후에 HTTPS에 사용되는 인증서를 구하여 업로드하고 만료되기 전에 교체해야 합니다. Azure는 기본 도메인을 소유하므로 ASE에 대한 인증서에 외부 VIP를 제공할 수 있습니다. ILB ASE에 사용되는 하위 도메인에는 제한이 없으므로 HTTPS에 대한 자체 인증서를 제공해야 합니다. 
 
@@ -123,7 +123,7 @@ ASE를 구성하려면 Azure에서 ASE 관리를 위해 사용하는 IP 주소�
 
 
 ## <a name="getting-started"></a>시작
-App Service 환경을 시작 하려면 [App Service 환경 소개][WhatisASE] 를 참조 하세요.
+App Service 환경을 시작하려면 [App Service 환경 소개][WhatisASE]를 참조하세요.
 
 [!INCLUDE [app-service-web-try-app-service](../../../includes/app-service-web-try-app-service.md)]
 

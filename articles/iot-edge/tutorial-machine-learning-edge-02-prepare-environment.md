@@ -4,16 +4,16 @@ description: '자습서: 에지에서 기계 학습에 사용할 모듈의 개�
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 1/23/2020
+ms.date: 3/12/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9809a9b4d644a1fa11fe9cce1cbd35b037206b29
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: 42c776d4d6c3973e7c222c9c9adf3e5105f6c84f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78944286"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79296808"
 ---
 # <a name="tutorial-set-up-an-environment-for-machine-learning-on-iot-edge"></a>자습서: IoT Edge의 기계 학습에 사용할 환경 설정
 
@@ -189,12 +189,13 @@ IoT Hub 만들기의 일환으로, 우리가 이전 섹션에서 실행한 스�
 
 1. **스토리지** 섹션을 펼칩니다.
 
-   ![turbofandevicestorage가 사용자 지정 엔드포인트 목록에 있는지 확인](media/tutorial-machine-learning-edge-02-prepare-environment/custom-endpoints.png)
+   ![turbofanDeviceStorage가 사용자 지정 엔드포인트 목록에 있는지 확인](media/tutorial-machine-learning-edge-02-prepare-environment/custom-endpoints.png)
 
-   사용자 지정 엔드포인트 목록에 **turbofandevicestorage**가 표시됩니다. 이 엔드포인트에 대한 다음 특성에 유의하세요.
+   사용자 지정 엔드포인트 목록에 **turbofanDeviceStorage**가 표시됩니다. 이 엔드포인트에 대한 다음 특성에 유의하세요.
 
    * **컨테이너 이름**에서 표시한 대로 `devicedata`라는 Blob 스토리지 컨테이너를 가리킵니다.
    * **파일 이름 형식**에는 partition이 이름의 마지막 요소로 있습니다. 이 형식은 자습서의 뒷부분에서 Azure Notebooks로 파일 작업을 수행할 때 편리합니다.
+   * **상태**가 정상이어야 합니다.
 
 1. **경로** 탭을 선택합니다.
 

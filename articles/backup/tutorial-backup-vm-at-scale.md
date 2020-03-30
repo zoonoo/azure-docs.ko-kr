@@ -1,15 +1,15 @@
 ---
-title: 자습서 - 대규모로 Azure 가상 머신 백업
+title: 자습서 - 여러 Azure 가상 머신 백업
 description: 이 자습서에서는 Recovery Services 자격 증명 모음을 만들고, 백업 정책을 정의하고, 여러 가상 머신을 동시에 백업하는 방법에 대해 알아봅니다.
 ms.date: 01/31/2019
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 6034202649e6d9bce75f0069316b79b55e533490
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: f9306f2ef5c4b2a53dcba17cafca9ea13b8dab43
+ms.sourcegitcommit: 940e16ff194d5163f277f98d038833b1055a1a3e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74171844"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80245245"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Azure Portal을 사용하여 여러 가상 머신을 백업
 
@@ -43,10 +43,10 @@ Recovery Services 자격 증명 모음에는 백업 데이터, 그리고 보호�
     * **이름**에 *myRecoveryServicesVault*를 입력합니다.
     * 현재 구독 ID가 **구독**에 표시됩니다. 추가 구독이 있는 경우 새 자격 증명 모음에 대해 다른 구독을 선택할 수 있습니다.
     * **리소스 그룹**에서 **기존 항목 사용**을 선택하고 *myResourceGroup*을 선택합니다. *myResourceGroup*이 없는 경우에는 **새로 만들기**를 선택한 후 *myResourceGroup*을 입력합니다.
-    * **위치** 드롭다운 메뉴에서 *유럽 서부*를 선택합니다.
+    * **위치** 드롭다운 메뉴에서 *서유럽*를 선택합니다.
     * **만들기**를 클릭하면 Recovery Services 자격 증명 모음이 생성됩니다.
 
-Recovery Services 자격 증명 모음은 보호 중인 가상 머신과 동일한 위치에 있어야 합니다. 가상 머신이 여러 지역에 있는 경우 각 지역에 Recovery Services 자격 증명 모음을 만듭니다. 이 자습서에서는 *유럽 서부*에 Recovery Services 자격 증명 모음을 만듭니다. 이 지역에 *myVM*(퀵 스타트로 만든 가상 머신)을 생성했기 때문입니다.
+Recovery Services 자격 증명 모음은 보호 중인 가상 머신과 동일한 위치에 있어야 합니다. 가상 머신이 여러 지역에 있는 경우 각 지역에 Recovery Services 자격 증명 모음을 만듭니다. 이 자습서에서는 *서유럽*에 Recovery Services 자격 증명 모음을 만듭니다. 이 지역에 *myVM*(퀵 스타트로 만든 가상 머신)을 생성했기 때문입니다.
 
 Recovery Services 자격 증명 모음을 만드는 데 몇 분 정도 걸릴 수 있습니다. 포털의 오른쪽 위 영역에 있는 상태 알림을 모니터링합니다. 자격 증명 모음이 생성되면 Recovery Services 자격 증명 모음 목록에 표시됩니다.
 
@@ -62,7 +62,7 @@ Recovery Services 자격 증명 모음을 만든 후 다음 단계는 데이터 
 
 2. 자격 증명 모음 대시보드 메뉴에서 **백업**을 클릭하여 백업 메뉴를 엽니다.
 
-3. 백업 목표 메뉴의 **Where is your workload running**(워크로드가 실행되는 위치) 드롭다운 메뉴에서 *Azure*를 선택합니다. **백업할 항목** 드롭다운 메뉴에서 *가상 컴퓨터*를 선택한 다음 **백업**을 클릭합니다.
+3. 백업 목표 메뉴의 **Where is your workload running**(워크로드가 실행되는 위치) 드롭다운 메뉴에서 *Azure*를 선택합니다. **백업할 항목** 드롭다운 메뉴에서 *가상 머신*를 선택한 다음 **백업**을 클릭합니다.
 
     이제 Recovery Services 자격 증명 모음이 가상 머신과 상호 작용할 준비가 되었습니다. Recovery Services 자격 증명 모음에는 매일 복원 지점을 만들고 30일 동안 복원 지점을 유지하는 기본 정책이 있습니다.
 
@@ -124,7 +124,7 @@ Recovery Services 자격 증명 모음에 대한 백업을 사용하도록 설�
 
     ![지금 백업 복구 지점을 유지할 마지막 날을 설정합니다.](./media/tutorial-backup-vm-at-scale/backup-now-short.png)
 
-    배포 알림을 통해 백업 작업이 트리거되고 백업 작업 페이지에서 작업의 진행률을 모니터링할 수 있다는 것을 알립니다. 가상 컴퓨터의 크기에 따라 초기 백업을 만드는 데 시간이 걸릴 수 있습니다.
+    배포 알림을 통해 백업 작업이 트리거되고 백업 작업 페이지에서 작업의 진행률을 모니터링할 수 있다는 것을 알립니다. 가상 머신의 크기에 따라 초기 백업을 만드는 데 시간이 걸릴 수 있습니다.
 
     초기 백업 작업이 완료되면 백업 작업 메뉴에서 상태를 확인할 수 있습니다. 주문형 백업 작업이 *myVM*에 대한 초기 복원 지점을 만들었습니다. 다른 가상 머신을 백업하려는 경우 각 가상 머신에 대해 이러한 단계를 반복합니다.
 

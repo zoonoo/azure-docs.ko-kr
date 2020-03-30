@@ -6,13 +6,13 @@ ms.author: andrela
 ms.service: mariadb
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 12/02/2019
-ms.openlocfilehash: 9ba02f53ba5765d90e8bba80e4d99922d7eb7c46
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 3/19/2020
+ms.openlocfilehash: 698220a7f81dc5fb9d70d2aa65e96dfa199af444
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432042"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80063861"
 ---
 # <a name="create-an-azure-database-for-mariadb-server-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for MariaDB 서버 만들기
 
@@ -37,7 +37,7 @@ Azure Database for MariaDB 서버를 만들려면
    ![Azure Database for MariaDB 옵션](./media/quickstart-create-mariadb-server-database-using-azure-portal/2_navigate-to-mariadb.png)
 
 3. 다음 서버 세부 정보를 입력하거나 선택합니다.
-   
+
    ![서버 양식 만들기](./media/quickstart-create-mariadb-server-database-using-azure-portal/4-create-form.png)
 
     설정 | 제안 값 | Description
@@ -55,18 +55,16 @@ Azure Database for MariaDB 서버를 만들려면
   
    > [!NOTE]
    > 워크로드에 가벼운 컴퓨팅 및 I/O가 적합한 경우 기본 가격 책정 계층을 고려합니다. 기본 가격 책정 계층에서 만든 서버는 나중에 범용으로 또는 메모리 최적화되도록 확장할 수 없습니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/mariadb/)를 참조하세요.
-   > 
 
    ![서버 만들기 - 가격 책정 계층 창](./media/quickstart-create-mariadb-server-database-using-azure-portal/3-pricing-tier.png)
 
-4.  **만들기**를 선택하여 서버를 프로비전합니다. 프로비전에는 최대 20분이 걸릴 수 있습니다.
-   
-5.  배포 프로세스를 모니터링하려면 도구 모음에서 **알림**(종 아이콘)을 클릭합니다.
-   
+4. **검토 + 만들기**를 선택하여 서버를 프로비저닝합니다. 프로비전에는 최대 20분이 걸릴 수 있습니다.
+
+5. 배포 프로세스를 모니터링하려면 도구 모음에서 **알림**(종 아이콘)을 클릭합니다.
+
 기본적으로 서버 아래에 **information_schema**, **mysql**, **performance_schema** 및 **sys** 데이터베이스가 만들어집니다.
 
-
-## <a name="configure-firewall-rule"></a>서버 수준 방화벽 규칙 구성
+## <a name="configure-a-server-level-firewall-rule"></a><a name="configure-firewall-rule"></a>서버 수준 방화벽 규칙 구성
 
 Azure Database for MariaDB 서비스는 서버 수준에서 방화벽을 만듭니다. 방화벽 규칙을 만들어 특정 IP 주소에 대한 방화벽을 열지 않는 한 이 방화벽은 외부 애플리케이션과 도구에서 서버 및 서버의 데이터베이스에 연결되는 것을 방지합니다. 
 
@@ -77,20 +75,19 @@ Azure Database for MariaDB 서비스는 서버 수준에서 방화벽을 만듭�
 2. 서버 개요 페이지에서 **연결 보안**을 선택합니다.
 
 3. **방화벽 규칙** 아래에서 **규칙 이름** 열의 빈 텍스트 상자를 선택하여 방화벽 규칙을 만들기 시작합니다. 이 서버에 연결하는 클라이언트의 정확한 IP 범위를 지정합니다.
-   
+
    ![연결 보안 - 방화벽 규칙](./media/quickstart-create-mariadb-server-database-using-azure-portal/5-firewall-2.png)
 
-4. **연결 보안** 페이지의 위쪽 도구 모음에서 **저장**을 선택합니다. 계속하기 전에 업데이트가 성공적으로 완료되었다는 알림이 나타날 때까지 기다립니다. 
+4. **연결 보안** 페이지의 위쪽 도구 모음에서 **저장**을 선택합니다. 계속하기 전에 업데이트가 성공적으로 완료되었다는 알림이 나타날 때까지 기다립니다.
 
    > [!NOTE]
    > Azure Database for MariaDB에 대한 연결은 포트 3306을 통해 통신합니다. 회사 네트워크 내에서 연결하려고 하면 3306 포트를 통한 아웃바운드 트래픽이 허용되지 않을 수 있습니다. 이 경우 서버에 연결하려면 IT 부서에서 3306 포트를 열어야 합니다.
-   > 
 
 ## <a name="get-connection-information"></a>연결 정보 가져오기
 
 데이터베이스 서버에 연결하려면 전체 서버 이름 및 관리자 로그인 자격 증명이 필요합니다. 이 문서의 앞부분에서 이러한 값을 기록했을 수도 있습니다. 그렇지 않은 경우 Azure Portal의 서버 **개요** 페이지 또는 **속성** 페이지에서 서버 이름과 로그인 정보를 쉽게 찾을 수 있습니다.
 
-1. 서버의 **개요** 페이지로 이동합니다. **서버 이름** 및 **서버 관리자 로그인 이름**의 값을 기록해 둡니다. 
+1. 서버의 **개요** 페이지로 이동합니다. **서버 이름** 및 **서버 관리자 로그인 이름**의 값을 기록해 둡니다.
 
 2. 값을 복사하려면 복사할 필드 위에 커서를 놓습니다. 텍스트의 오른쪽에 복사 아이콘이 나타납니다. 필요에 따라 복사 아이콘을 선택하여 값을 복사합니다.
 
@@ -113,13 +110,13 @@ Azure Database for MariaDB 서비스는 서버 수준에서 방화벽을 만듭�
 
     mysql 유틸리티를 사용하여 Azure Database for MariaDB 서버에 연결하려면 다음 형식을 사용합니다.
 
-    ```bash
+    ```cmd
     mysql --host <fully qualified server name> --user <server admin login name>@<server name> -p
     ```
 
     예를 들어 다음 명령은 예제 서버에 연결합니다.
 
-    ```azurecli-interactive
+    ```cmd
     mysql --host mydemoserver.mariadb.database.azure.com --user myadmin@mydemoserver -p
     ```
 
@@ -129,11 +126,11 @@ Azure Database for MariaDB 서비스는 서버 수준에서 방화벽을 만듭�
     --user | *서버 관리자 로그인 이름* |Azure Database for MariaDB 서버를 만들 때 사용한 서버 관리자 로그인 이름 값입니다. 사용자 이름을 잊어버린 경우 이전 섹션의 단계를 완료하여 연결 정보를 가져옵니다. 형식은 *username\@servername*입니다.
     -p | *사용자 암호*<br>(메시지가 표시될 때까지 대기) |메시지가 표시되면 서버를 만드는 데 사용한 암호를 입력합니다. 입력한 암호 문자는 입력하는 동안 Bash 프롬프트에 표시되지 않습니다. 암호를 입력한 후 Enter 키를 누릅니다.
 
-   mysql 유틸리티가 연결되면 `mysql>` 프롬프트가 표시됩니다. 프롬프트에서 명령을 입력할 수 있습니다. 
+   mysql 유틸리티가 연결되면 `mysql>` 프롬프트가 표시됩니다. 프롬프트에서 명령을 입력할 수 있습니다.
 
    다음은 mysql 출력의 예입니다.
 
-    ```bash
+    ```output
     Welcome to the MySQL monitor.  Commands end with ; or \g.
     Your MySQL connection id is 65505
     Server version: 5.6.39.0 MariaDB Server
@@ -209,7 +206,6 @@ MySQL Workbench를 사용하여 서버에 연결하려면
 
     > [!NOTE]
     > SSL은 서버에서 기본적으로 적용됩니다. 성공적으로 연결하려면 추가 구성이 필요합니다. 자세한 내용은 [Azure Database for MariaDB에 안전하게 연결하기 위한 사용자 애플리케이션의 SSL 연결 구성](./howto-configure-ssl.md)을 참조하세요. 이 빠른 시작에 대해 SSL을 사용하지 않도록 설정하기 위해 Azure portal의 서버 개요 페이지에서 **연결 보안** 메뉴를 선택합니다. **SSL 연결 적용**에서 **사용 안함**을 선택합니다.
-    >
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -217,19 +213,18 @@ MySQL Workbench를 사용하여 서버에 연결하려면
 
 > [!TIP]
 > 이 컬렉션의 다른 빠른 시작은 이 빠른 시작을 기반으로 하여 빌드됩니다. Azure Database for MariaDB 빠른 시작을 계속 사용하려면 이 빠른 시작에서 만든 리소스를 정리하지 마세요. 계속 사용하지 않을 경우 다음 단계에 따라 이 빠른 시작에서 만든 모든 리소스를 삭제할 수 있습니다.
->
 
 새로 만든 서버를 비롯하여 전체 리소스 그룹을 삭제하려면
 
-1.  Azure Portal에서 리소스 그룹을 찾습니다. 왼쪽 메뉴에서 **리소스 그룹**을 선택한 다음, 리소스 그룹의 이름(예: **myresourcegroup**)을 선택합니다.
+1. Azure Portal에서 리소스 그룹을 찾습니다. 왼쪽 메뉴에서 **리소스 그룹**을 선택한 다음, 리소스 그룹의 이름(예: **myresourcegroup**)을 선택합니다.
 
-2.  리소스 그룹 페이지에서 **삭제**를 선택합니다. 리소스 그룹의 이름(예: **myresourcegroup**)을 입력하고 삭제를 확인합니다. **삭제**를 선택합니다.
+2. 리소스 그룹 페이지에서 **삭제**를 선택합니다. 리소스 그룹의 이름(예: **myresourcegroup**)을 입력하고 삭제를 확인합니다. **삭제**를 선택합니다.
 
 새로 만든 서버를 삭제하려면
 
 1. Azure Portal에서 서버를 찾습니다(아직 열려 있지 않은 경우). 왼쪽 메뉴에서 **모든 리소스**를 선택합니다. 그런 다음, 만든 서버를 검색합니다.
 
-2. **개요** 페이지에서 **삭제**를 선택합니다. 
+2. **개요** 페이지에서 **삭제**를 선택합니다.
 
    ![Azure Database for MySQL - 서버 삭제](./media/quickstart-create-mariadb-server-database-using-azure-portal/delete-server.png)
 

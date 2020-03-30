@@ -10,14 +10,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/06/2019
-ms.openlocfilehash: ebde02d222502c58536269243343b21271f19269
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: c4c50ba53bc40ad6ae6fc60b3992f9ab992eb268
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77168867"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79204565"
 ---
 # <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio-classic"></a>빠른 시작: Azure Machine Learning Studio(클래식)에서 첫 번째 데이터 과학 실험 만들기
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
 
@@ -130,7 +132,7 @@ ms.locfileid: "77168867"
 
 ## <a name="define-features"></a>기능 정의
 
-기계 학습에서 *기능*은 관심 있는 부분에 대한 측정 가능한 개별 속성입니다. 여기서는 데이터 세트의 각 행이 하나의 자동차를 나타내고 각 열은 해당 자동차의 기능입니다.
+기계 학습에서 *기능*은 관심 있는 항목에 대한 측정 가능한 개별 속성입니다. 여기서는 데이터 세트의 각 행이 하나의 자동차를 나타내고 각 열은 해당 자동차의 기능입니다.
 
 예측 모델을 만들기에 적절한 기능 집합을 찾으려면 해결하려는 문제에 대한 실험과 지식이 있어야 합니다. 일부 기능은 다른 기능에 비해 대상 예측에 더 유용합니다. 일부 기능은 다른 기능과 강력한 상관 관계가 있으며 제거할 수 있습니다. 예를 들어 city-mpg와 highway-mpg는 밀접한 관련이 있으므로 예측에 크게 영향을 주지 않고 하나를 유지하고 다른 하나를 제거할 수 있습니다.
 

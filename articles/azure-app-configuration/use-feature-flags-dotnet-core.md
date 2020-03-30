@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 04/19/2019
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: b04fe3b6451fd7250bc3b05970d49fdb8e7003bd
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 3182961f928a9befc5a55fb6d58e22c74ba81089
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76899303"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79473441"
 ---
 # <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>자습서: ASP.NET Core 앱에서 기능 플래그 사용
 
@@ -37,6 +37,8 @@ ms.locfileid: "76899303"
 
 ## <a name="set-up-feature-management"></a>기능 관리 설정
 
+`Microsoft.FeatureManagement` NuGet 패키지에 대한 참조를 추가하여 .NET Core 기능 관리자를 활용합니다.
+    
 .NET Core 기능 관리자 `IFeatureManager`는 프레임워크의 기본 구성 시스템에서 기능 플래그를 가져옵니다. 따라서 로컬 *appsettings.json* 또는 환경 변수를 포함하여 .NET Core에서 지원하는 구성 소스를 사용하여 애플리케이션의 기능 플래그를 정의할 수 있습니다. `IFeatureManager`는 .NET Core 종속성 주입을 사용합니다. 표준 규칙을 사용하여 기능 관리 서비스를 등록할 수 있습니다.
 
 ```csharp

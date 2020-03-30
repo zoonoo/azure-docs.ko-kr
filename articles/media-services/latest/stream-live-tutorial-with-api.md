@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/13/2019
 ms.author: juliako
-ms.openlocfilehash: cb6095f1579334b9fe35a02a3006de32ff551989
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: 0b6667965ddd1fce30bb2da2593e2a9274b595ed
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78268167"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79472019"
 ---
 # <a name="tutorial-stream-live-with-media-services"></a>자습서: Media Services로 라이브 스트리밍
 
@@ -34,7 +34,7 @@ ms.locfileid: "78268167"
 > [!div class="checklist"]
 > * 토픽에 설명된 샘플 앱 다운로드
 > * 라이브 스트리밍을 수행하는 코드 검사
-> * https://ampdemo.azureedge.net 에서 [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html)를 사용하여 이벤트 감시
+> * [https://ampdemo.azureedge.net](https://ampdemo.azureedge.net)에서 [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html)를 사용하여 이벤트를 감시합니다.
 > * 리소스를 정리합니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]

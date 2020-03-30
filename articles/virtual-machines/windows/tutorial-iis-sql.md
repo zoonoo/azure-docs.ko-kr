@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 286d00ce718a34dea15a075984cc3b2a5e4cfec3
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 762d67a291ec33e13ca9e7311b0cf11da140dd6c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74064671"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80154273"
 ---
 # <a name="tutorial-install-the-sql-iis-net-stack-in-a-windows-vm-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 Windows VM에 SQL, IIS, .NET 스택 설치
 
@@ -129,7 +129,7 @@ Set-AzVMSqlServerExtension `
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 Azure PowerShell을 사용하여 SQL&#92;IIS&#92;.NET 스택을 설치했습니다. 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 Azure PowerShell을 사용하여 SQL&#92;IIS&#92;.NET 스택을 설치했습니다. 구체적으로 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * VM 만들기 
@@ -137,8 +137,8 @@ Set-AzVMSqlServerExtension `
 > * SQL Server를 실행하는 VM 만들기
 > * SQL Server 확장 설치
 
-SSL 인증서로 IIS 웹 서버를 보호하는 방법에 대해 알아보려면 다음 자습서로 이동합니다.
+TLS/SSL 인증서로 IIS 웹 서버를 보호하는 방법에 대해 알아보려면 다음 자습서로 이동합니다.
 
 > [!div class="nextstepaction"]
-> [SSL 인증서로 IIS 웹 서버 보호](tutorial-secure-web-server.md)
+> [TLS/SSL 인증서로 IIS 웹 서버 보호](tutorial-secure-web-server.md)
 

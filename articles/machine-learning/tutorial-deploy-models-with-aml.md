@@ -1,7 +1,7 @@
 ---
 title: '이미지 분류 자습서: 모델 배포'
 titleSuffix: Azure Machine Learning
-description: 이 자습서에서는 Azure Machine Learning을 사용하여 Python Jupyter Notebook에서 scikit-learn으로 이미지 분류 모델을 배포하는 방법을 보여줍니다. 이 자습서는 2부로 구성된 시리즈 중 제2부입니다.
+description: 두 부분으로 구성된 시리즈의 두 번째인 이 자습서에서는 Azure Machine Learning을 사용하여 Python Jupyter Notebook에서 scikit-learn으로 이미지 분류 모델을 배포하는 방법을 보여줍니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,19 +10,17 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 02/10/2020
 ms.custom: seodec18
-ms.openlocfilehash: 071a8dd40d87e5df6fc5c65b789bb63b515dc60a
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 81e02492f7e79b87e1513a910afe4719908adbbb
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77116496"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80159084"
 ---
 # <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>자습서: Azure Container Instance에서 이미지 분류 모델 배포
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-이 자습서는 **2부로 구성된 자습서 시리즈 중 제2부**입니다. [이전 자습서에서는](tutorial-train-models-with-aml.md), 기계 학습 모델을 학습한 후 클라우드에서 작업 영역에 모델을 등록합니다.  
-
-이제 [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/)에서 모델을 웹 서비스로 배포할 준비가 되었습니다. 웹 서비스는 이미지로, 이 경우 Docker 이미지입니다. 점수 매기기 논리와 모델 자체를 캡슐화합니다. 
+이 자습서는 **2부로 구성된 자습서 시리즈 중 제2부**입니다. [이전 자습서에서는](tutorial-train-models-with-aml.md), 기계 학습 모델을 학습한 후 클라우드에서 작업 영역에 모델을 등록합니다.  이제 웹 서비스로 배포할 준비가 되었습니다. 웹 서비스는 이미지로, 이 경우 Docker 이미지입니다. 점수 매기기 논리와 모델 자체를 캡슐화합니다. 
 
 자습서의 이 부분에서는 Azure Machine Learning을 사용하여 다음 작업을 수행합니다.
 
@@ -50,7 +48,7 @@ Notebook을 실행하려면 먼저 [자습서(1부): 이미지 분류 모델 학
 > 코드를 실행할 때 함께 읽도록 하려면 지금 Jupyter Notebook으로 전환합니다.
 > Notebook에서 단일 코드 셀을 실행하려면 코드 셀을 클릭하고 **Shift+Enter** 키를 누릅니다. 또는 상단 도구 모음에서 **모두 실행**을 선택하여 전체 Notebook을 실행합니다.
 
-## <a name="start"></a>환경 설정
+## <a name="set-up-the-environment"></a><a name="start"></a>환경 설정
 
 테스트 환경 설정부터 시작합니다.
 
@@ -299,7 +297,6 @@ REST 클라이언트 호출을 수락하는 채점 웹 서비스의 HTTP 엔드�
 ```python
 print(service.scoring_uri)
 ```
-
 
 ## <a name="test-the-deployed-service"></a>배포된 서비스 테스트
 

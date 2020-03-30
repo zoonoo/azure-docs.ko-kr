@@ -1,19 +1,18 @@
 ---
 title: Seller Insights 시작
 description: 클라우드 파트너 포털의 Seller insights 기능을 소개합니다.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.author: pabutler
-ms.openlocfilehash: d335525a23ca2e1442ae009dcfbc062bff8cc77d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: b86c2c8b8d0e44adffa0411799b9be01b9f54a9d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824759"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80285353"
 ---
 <a name="getting-started-with-seller-insights"></a>Seller Insights 시작
 ====================================
@@ -44,7 +43,7 @@ ms.locfileid: "73824759"
 6.  **다운로드** - 새로운 다운로드 환경에서 빅 데이터 집합을 중단 없이 더 쉽게 다운로드할 수 있습니다.
 
 실제로는 위에 나와 있는 모듈 중 일부만 표시될 수도 있습니다.
-중요한 고객 및 회사 정보가 포함된 *지급* 및 **고객** 모듈은 **소유자** 권한이 있는 사용자에게만 표시됩니다. 이러한 모듈에 액세스해야 하는 경우 조직 내 소유자 역할 사용자와 논의하여 권한을 변경하세요.
+중요한 고객 및 회사 정보가 포함된 **지급** 및 **고객** 모듈은 *소유자* 권한이 있는 사용자에게만 표시됩니다. 이러한 모듈에 액세스해야 하는 경우 조직 내 소유자 역할 사용자와 논의하여 권한을 변경하세요.
 
 
 <a name="tips"></a>팁:

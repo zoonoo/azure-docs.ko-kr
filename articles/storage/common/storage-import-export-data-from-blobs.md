@@ -5,20 +5,21 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 04/08/2019
+ms.date: 03/12/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 8ce1e7d58ba69d9f36d3b37c1e48bfeebc5d8d65
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: a5afa6439caa6b7c1572447e3b212f3357bf296a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978551"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80282514"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Azure Import/Export 서비스를 사용하여 Azure Blob Storage에서 데이터 내보내기
+
 이 문서에서는 Azure Import/Export 서비스를 사용하여 Azure Blob Storage에서 많은 양의 데이터를 안전하게 내보내는 방법에 대한 단계별 지침을 제공합니다. 서비스를 사용하려면 빈 드라이브를 Azure 데이터 센터에 배송해야 합니다. 서비스에서 스토리지 계정의 데이터를 드라이브로 내보낸 다음, 드라이브를 다시 배송합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 내보내기 작업을 만들어 Azure Blob Storage에서 데이터를 전송하기 전에 이 서비스에 대한 다음 필수 조건 목록을 신중하게 검토하고 완료해야 합니다.
 다음이 필요합니다.
@@ -26,24 +27,24 @@ ms.locfileid: "75978551"
 - Import/Export 서비스에 사용할 수 있는 활성 Azure 구독이 있어야 합니다.
 - Azure Storage 계정이 하나 이상 있어야 합니다. [Import/Export 서비스에 지원되는 스토리지 계정 및 스토리지 유형](storage-import-export-requirements.md) 목록을 참조하세요. 새 Storage 계정 만들기에 대한 자세한 내용은 [Storage 계정을 만드는 방법](storage-account-create.md)(영문)을 참조하세요.
 - [지원되는 형식](storage-import-export-requirements.md#supported-disks)에 속한 적절한 개수의 디스크가 있어야 합니다.
-- FedEx/DHL 계정이 있습니다. FedEx/DHL 이외의 캐리어를 사용 하려는 경우 `adbops@microsoft.com`에서 Azure Data Box 운영 팀에 문의 하세요.
-    - 계정은 유효해야 하고, 잔액이 있어야 하며, 반품 기능이 있어야 합니다.
-    - 내보내기 작업의 추적 번호를 생성합니다.
-    - 모든 작업에는 별도의 추적 번호가 있어야 합니다. 추적 번호가 동일한 여러 작업은 지원되지 않습니다.
-    - 운송업체 계정이 없는 경우, 다음으로 이동합니다.
-        - [FedEX 계정 만들기](https://www.fedex.com/en-us/create-account.html) 또는
-        - [DHL 계정 만들기](http://www.dhl-usa.com/en/express/shipping/open_account.html).
+- FedEx/DHL 계정이 있습니다. FedEx/DHL 이외의 이동통신사를 사용하려면 Azure `adbops@microsoft.com`데이터 상자 운영 팀에 문의하십시오.
+  - 계정은 유효해야 하고, 잔액이 있어야 하며, 반품 기능이 있어야 합니다.
+  - 내보내기 작업의 추적 번호를 생성합니다.
+  - 모든 작업에는 별도의 추적 번호가 있어야 합니다. 추적 번호가 동일한 여러 작업은 지원되지 않습니다.
+  - 운송업체 계정이 없는 경우, 다음으로 이동합니다.
+    - [FedEX 계정 만들기](https://www.fedex.com/en-us/create-account.html) 또는
+    - [DHL 계정 만들기](http://www.dhl-usa.com/en/express/shipping/open_account.html).
 
 ## <a name="step-1-create-an-export-job"></a>1단계: 내보내기 작업 만들기
 
 다음 단계를 수행하여 Azure Portal에서 내보내기 작업을 만듭니다.
 
-1. https://portal.azure.com/ 에 로그온합니다.
+1. https://portal.azure.com/에 로그온합니다.
 2. **모든 서비스 &gt; 스토리지 &gt; 작업 가져오기/내보내기**로 차례로 이동합니다.
 
     ![작업 가져오기/내보내기로 이동](./media/storage-import-export-data-from-blobs/export-from-blob1.png)
 
-3. **가져오기/내보내기 작업 만들기**를 클릭합니다.
+3. **가져오기/내보내기 작업 만들기를**클릭합니다.
 
     ![작업 가져오기/내보내기 클릭](./media/storage-import-export-data-from-blobs/export-from-blob2.png)
 
@@ -58,7 +59,7 @@ ms.locfileid: "75978551"
 
         ![기본 사항](./media/storage-import-export-data-from-blobs/export-from-blob3.png)
 
-3. **작업 세부 정보**에서:
+5. **작업 세부 정보**에서:
 
     - 내보낼 데이터가 있는 스토리지 계정을 선택합니다. 현재 위치에 가까운 스토리지 계정을 사용합니다.
     - 하차 위치는 선택한 스토리지 계정의 지역을 기반으로 자동으로 채워집니다.
@@ -80,17 +81,16 @@ ms.locfileid: "75978551"
    > [!NOTE]
    > 내보낼 Blob가 데이터 복사 중에 사용되는 경우 Azure Import/Export 서비스는 Blob의 스냅샷을 가져와 해당 스냅샷을 복사합니다.
 
+6. **반송 정보**에서:
 
-4. **반송 정보**에서:
-
-    - 드롭다운 목록에서 운송업체를 선택합니다. FedEx/DHL 이외의 캐리어를 사용 하려는 경우 드롭다운에서 기존 옵션을 선택 합니다. 사용 하려는 운송 업체와 관련 된 정보를 `adbops@microsoft.com`에서 Azure Data Box 운영 팀에 문의 하세요.
-    - 운송업체에서 만든 유효한 운송업체 계정 번호를 입력합니다. 내보내기 작업이 완료 되 면 Microsoft는이 계정을 사용 하 여 드라이브를 사용자에 게 다시 제공 합니다.
+    - 드롭다운 목록에서 운송업체를 선택합니다. FedEx/DHL 이외의 이동통신사를 사용하려면 드롭다운에서 기존 옵션을 선택합니다. 사용할 이동통신사에 대한 `adbops@microsoft.com` 정보를 Azure 데이터 상자 운영 팀에 문의하십시오.
+    - 운송업체에서 만든 유효한 운송업체 계정 번호를 입력합니다. Microsoft는 이 계정을 사용하여 내보내기 작업이 완료되면 드라이브를 다시 제공합니다.
     - 완전하고 유효한 연락처 이름, 전화 번호, 이메일, 주소, 구/군/시, 우편 번호, 시/도 및 국가/지역을 제공합니다.
 
         > [!TIP]
         > 단일 사용자의 메일 주소를 지정하는 대신 그룹 메일을 제공합니다. 이렇게 하면 관리자가 자리를 비운 경우에도 알림을 받을 수 있습니다.
 
-5. **요약**에서:
+7. **요약**에서:
 
     - 작업에 대한 세부 정보를 검토합니다.
     - 작업 이름과 Azure로의 배송 디스크에 제공되는 Azure 데이터 센터 배송 주소를 기록합니다.
@@ -99,6 +99,8 @@ ms.locfileid: "75978551"
         > 항상 Azure Portal에 기록된 데이터 센터로 디스크를 보냅니다. 디스크가 잘못된 데이터 센터로 배송되면 작업이 처리되지 않습니다.
 
     - **확인**을 클릭하여 내보내기 작업 만들기를 완료합니다.
+
+<!--## (Optional) Step 2: -->
 
 ## <a name="step-2-ship-the-drives"></a>2단계: 드라이브 배송
 
@@ -110,19 +112,28 @@ ms.locfileid: "75978551"
 
 [!INCLUDE [storage-import-export-update-job-tracking](../../../includes/storage-import-export-update-job-tracking.md)]
 
-
 ## <a name="step-4-receive-the-disks"></a>4단계: 디스크 받기
+
 대시보드에서 작업이 완료되었다고 보고하면 디스크가 배송되고 포털에서 배송 추적 번호를 사용할 수 있습니다.
 
 1. 내보낸 데이터가 있는 드라이브를 받은 후에는 BitLocker 키를 가져와서 드라이브의 잠금을 해제해야 합니다. Azure Portal에서 내보내기 작업으로 이동합니다. **가져오기/내보내기** 탭을 클릭합니다.
-2. 목록에서 내보내기 작업을 선택하고 클릭합니다. **BitLocker 키**로 이동하여 해당 키를 복사합니다.
+2. 목록에서 내보내기 작업을 선택하고 클릭합니다. **암호화로** 이동하여 키를 복사합니다.
 
-   ![내보내기 작업의 BitLocker 키 보기](./media/storage-import-export-service/export-job-bitlocker-keys.png)
+   ![내보내기 작업의 BitLocker 키 보기](./media/storage-import-export-service/export-job-bitlocker-keys-02.png)
 
 3. BitLocker 키를 사용하여 디스크의 잠금을 해제합니다.
 
-내보내기가 완료되었습니다. 이제는 작업을 삭제하거나 90일 후에 자동으로 삭제할 수 있습니다.
+내보내기가 완료되었습니다.
 
+## <a name="step-5-unlock-the-disks"></a>5단계: 디스크 잠금 해제
+
+WAImportExport 도구의 버전 1.4.0.300을 사용하는 경우 다음 명령을 사용하여 드라이브의 잠금을 해제합니다.
+
+    `WAImportExport Unlock /externalKey:<BitLocker key (base 64 string) copied from journal (*.jrn*) file>`  
+
+이전 버전의 도구를 사용하는 경우 BitLocker 대화 상자를 사용하여 드라이브의 잠금을 해제합니다.
+
+이 때 작업을 삭제하거나 그대로 둘 수 있습니다. 작업은 90일 후에 자동으로 삭제됩니다.
 
 ## <a name="check-the-number-of-drives"></a>드라이브 수 확인
 
@@ -140,7 +151,7 @@ ms.locfileid: "75978551"
 
     다음 표에는 매개 변수가 나와 있습니다.
 
-    |명령줄 매개 변수|Description|  
+    |명령줄 매개 변수|설명|  
     |--------------------------|-----------------|  
     |**/logdir:**|(선택 사항) 로그 디렉터리입니다. 이 디렉터리에 자세한 로그 파일이 기록됩니다. 지정하지 않으면 현재 디렉터리가 로그 디렉터리로 사용됩니다.|  
     |**/sn:**|필수 사항입니다. 내보내기 작업에 대한 스토리지 계정의 이름입니다.|  
@@ -157,8 +168,8 @@ ms.locfileid: "75978551"
 
 다음 예제에서는 `PreviewExport` 명령을 보여 줍니다.  
 
-```  
-WAImportExport.exe PreviewExport /sn:bobmediaaccount /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GELxmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /ExportBlobListFile:C:\WAImportExport\mybloblist.xml /DriveSize:500GB    
+```powershell
+    WAImportExport.exe PreviewExport /sn:bobmediaaccount /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GELxmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /ExportBlobListFile:C:\WAImportExport\mybloblist.xml /DriveSize:500GB
 ```  
 
 내보내기 Blob 목록 파일에는 다음과 같이 Blob 이름과 Blob 접두사가 포함될 수 있습니다.  
@@ -176,7 +187,7 @@ Azure Import/Export 도구는 내보낼 모든 Blob을 나열하고 필요한 �
 
 정보 로그가 생략된 출력의 예제는 다음과 같습니다.  
 
-```  
+```powershell
 Number of unique blob paths/prefixes:   3  
 Number of duplicate blob paths/prefixes:        0  
 Number of nonexistent blob paths/prefixes:      1  
@@ -187,14 +198,14 @@ Number of blobs that cannot be exported:        2
 Number of drives needed:        3  
         Drive #1:       blobs = 1, occupied space = 454.74 GB  
         Drive #2:       blobs = 3, occupied space = 441.37 GB  
-        Drive #3:       blobs = 2, occupied space = 131.28 GB    
+        Drive #3:       blobs = 2, occupied space = 131.28 GB
 ```
 
 ## <a name="examples-of-valid-blob-paths"></a>유효한 Blob 경로의 예
 
 다음 표에는 유효한 Blob 경로의 예가 있습니다.
 
-   | 선택기 | Blob 경로 | Description |
+   | 선택기 | Blob 경로 | 설명 |
    | --- | --- | --- |
    | 시작 단어 |/ |스토리지 계정의 모든 Blob을 내보냄 |
    | 시작 단어 |/$root/ |루트 컨테이너의 모든 Blob을 내보냄 |
@@ -206,5 +217,5 @@ Number of drives needed:        3
 
 ## <a name="next-steps"></a>다음 단계
 
-* [작업 및 드라이브 상태 보기](storage-import-export-view-drive-status.md)
-* [Import/Export 요구 사항 검토](storage-import-export-requirements.md)
+- [작업 및 드라이브 상태 보기](storage-import-export-view-drive-status.md)
+- [Import/Export 요구 사항 검토](storage-import-export-requirements.md)

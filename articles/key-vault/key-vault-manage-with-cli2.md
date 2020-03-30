@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 642cc42a9853fe0a93a40ca65652b6dc5fcd8d40
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.openlocfilehash: f69b65ece09a63c7a1d9e23d5cd488d9659724ad
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78387304"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79457426"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Azure CLI를 사용하여 Key Vault 관리 
 
@@ -129,7 +129,7 @@ az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGro
 이 명령의 출력에는 만든 자격 증명 모음의 속성이 표시됩니다. 가장 중요한 두 개의 속성은 다음과 같습니다.
 
 * **name**: 이 예제에서 이름은 ContosoKeyVault입니다. 이 이름은 다른 Key Vault 명령에 사용됩니다.
-* **vaultUri**: 이 예제에서 URI는 https://contosokeyvault.vault.azure.net입니다. REST API를 통해 사용자 자격 증명 모음을 사용하는 애플리케이션은 URI를 사용해야 합니다.
+* **vaultUri**: 이 예제에서 URI는 https://contosokeyvault.vault.azure.net 입니다. REST API를 통해 사용자 자격 증명 모음을 사용하는 애플리케이션은 URI를 사용해야 합니다.
 
 Azure 계정은 이제 이 키 자격 증명 모음에서 모든 작업을 수행할 권한을 가지게 됩니다. 아직까지는 권한이 부여된 사용자가 없습니다.
 
@@ -219,27 +219,27 @@ az keyvault set-policy --name "ContosoKeyVault" --spn 8f8c4bbd-485b-45fd-98f7-ec
 az keyvault set-policy --name "ContosoKeyVault" --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --secret-permissions get
 ```
 
-## <a name="bkmk_KVperCLI"></a> 키 자격 증명 모음 고급 액세스 정책 설정
+## <a name="setting-key-vault-advanced-access-policies"></a><a name="bkmk_KVperCLI"></a> 키 자격 증명 모음 고급 액세스 정책 설정
 
 키 자격 증명 모음에 대해 고급 정책을 사용하도록 설정하려면 [az keyvault update](/cli/azure/keyvault#az-keyvault-update)를 사용합니다.
 
- 배포에 키 자격 증명 모음 사용: 가상 머신이 자격 증명 모음에서 비밀로 저장된 인증서를 검색할 수 있도록 허용합니다.
+ 배포에 Key Vault 사용: Virtual Machines에서 자격 증명 모음으로부터 비밀로 저장된 인증서를 검색할 수 있도록 허용합니다.
 
  ```azurecli
  az keyvault update --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --enabled-for-deployment "true"
  ```
 
-디스크 암호화에 키 자격 증명 모음 사용: Azure 디스크 암호화에 자격 증명 모음을 사용하는 경우 필요합니다.
+디스크 암호화에 Key Vault 사용: Azure Disk Encryption에 대해 자격 증명 모음을 사용하는 경우에 필요합니다.
 
  ```azurecli
  az keyvault update --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --enabled-for-disk-encryption "true"
  ```  
 
-템플릿 배포에 키 자격 증명 모음 사용: Resource Manager가 자격 증명 모음에서 비밀을 검색할 수 있도록 허용합니다.
+템플릿 배포에 Key Vault 사용: Resource Manager가 자격 증명 모음에서 비밀을 검색할 수 있습니다.
 
-```azurecli 
- az keyvault update --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --enabled-for-template-deployment "true"
- ```
+```azurecli
+az keyvault update --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --enabled-for-template-deployment "true"
+```
 
 ## <a name="working-with-hardware-security-modules-hsms"></a>HSM(하드웨어 보안 모듈) 작업
 

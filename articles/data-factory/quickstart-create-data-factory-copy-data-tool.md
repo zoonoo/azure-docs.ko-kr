@@ -10,13 +10,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: quickstart
-ms.date: 06/20/2018
-ms.openlocfilehash: edf03b663383f10168ee5b78a3ad5f1a9fdac288
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 03/18/2020
+ms.openlocfilehash: 26169755fbe252a4be2626dae50d40c005c7c6db
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75440137"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80130989"
 ---
 # <a name="quickstart-use-the-copy-data-tool-to-copy-data"></a>빠른 시작: 데이터 복사 도구를 사용하여 데이터 복사
 
@@ -35,13 +35,9 @@ ms.locfileid: "75440137"
 
 1. **Microsoft Edge** 또는 **Google Chrome** 웹 브라우저를 시작합니다. 현재 Data Factory UI는 Microsoft Edge 및 Google Chrome 웹 브라우저에서만 지원됩니다.
 1. [Azure 포털](https://portal.azure.com)로 이동합니다. 
-1. Azure Portal 메뉴에서 **리소스 만들기**를 선택합니다.
+1. Azure Portal 메뉴에서 **리소스 만들기** > **분석** > **Data Factory**를 차례로 선택합니다.
 
-    ![Azure Portal 메뉴에서 리소스 선택](./media/quickstart-create-data-factory-copy-data-tool/create-data-factory-resource.png)
-
-1. **Analytics**를 선택한 다음, **Data Factory**를 선택합니다.
-
-   !["새로 만들기" 창에서 데이터 팩터리 선택](./media/quickstart-create-data-factory-copy-data-tool/new-azure-data-factory-menu.png)
+    ![새 데이터 팩터리 만들기](./media/doc-common-process/new-azure-data-factory-menu.png)
 
 1. **새 데이터 팩터리** 페이지에서 **이름**에 대해 **ADFTutorialDataFactory**를 입력합니다. 
  
@@ -79,11 +75,13 @@ ms.locfileid: "75440137"
 
     a. **+ 새 연결 만들기**를 클릭하여 연결을 추가합니다.
 
-    b. 갤러리에서 **Azure Blob Storage**를 선택한 다음, **계속**을 선택합니다.
+    b. 원본 연결에 만들려는 연결된 서비스 유형을 선택합니다. 이 자습서에서는 **Azure Blob Storage**를 사용합니다. 갤러리에서 선택한 다음, **계속**을 선택합니다.
+    
+    ![Blob 선택](./media/quickstart-create-data-factory-copy-data-tool/select-blob-source.png)
 
-    다. **새로 연결된 서비스(Azure Blob Storage)** 페이지에서 연결된 서비스의 이름을 지정합니다. **스토리지 계정 이름** 목록에서 스토리지 계정을 선택하고, 연결을 테스트한 다음, **마침**을 선택합니다. 
+    다. **새로 연결된 서비스(Azure Blob Storage)** 페이지에서 연결된 서비스의 이름을 지정합니다. **스토리지 계정 이름** 목록에서 스토리지 계정을 선택하고 연결을 테스트한 다음, **만들기**를 선택합니다. 
 
-   ![Azure Blob Storage 계정 구성](./media/quickstart-create-data-factory-copy-data-tool/configure-blob-storage.png)
+    ![Azure Blob Storage 계정 구성](./media/quickstart-create-data-factory-copy-data-tool/configure-blob-storage.png)
 
     d. 새로 만든 연결된 서비스를 원본으로 선택한 다음, **다음**을 클릭합니다.
 
@@ -111,15 +109,19 @@ ms.locfileid: "75440137"
 
     !["배포 완료" 페이지](./media/quickstart-create-data-factory-copy-data-tool/deployment-page.png)
 
-1. 애플리케이션이 **모니터** 탭으로 전환됩니다. 이 탭에서 파이프라인의 상태가 표시됩니다. **새로 고침**을 선택하여 목록을 새로 고칩니다. 
-    
-1. **작업** 열에서 **활동 실행 보기** 링크를 선택합니다. 파이프라인에는 **복사** 유형의 활동 하나만 있습니다. 
-    
-1. 복사 활동에 대한 세부 정보를 보려면 **작업** 열에서 **세부 정보**(안경 이미지) 링크를 선택합니다. 속성에 대한 자세한 내용은 [복사 활동 개요](copy-activity-overview.md)를 참조하세요.
+1. 애플리케이션이 **모니터** 탭으로 전환됩니다. 이 탭에서 파이프라인의 상태가 표시됩니다. **새로 고침**을 선택하여 목록을 새로 고칩니다. **파이프라인 이름** 아래 링크를 클릭하여 활동 실행 세부 정보를 보거나 파이프라인을 다시 실행합니다. 
+   
+    ![파이프라인 새로 고침](./media/quickstart-create-data-factory-copy-data-tool/refresh-pipeline.png)
+
+1. 복사 작업에 대한 자세한 내용은 활동 실행 페이지의 **작업 이름** 열에서 **세부 정보** 링크(안경 아이콘)를 선택합니다. 속성에 대한 자세한 내용은 [복사 활동 개요](copy-activity-overview.md)를 참조하세요. 
+
+1. 파이프라인 실행 보기로 돌아가려면 이동 경로 탐색 메뉴의 **모든 파이프라인 실행** 링크를 선택합니다. 보기를 새로 고치려면 **새로 고침**을 선택합니다. 
 
 1. **emp.txt** 파일이 **adftutorial** 컨테이너의 **output** 폴더에 만들어졌는지 확인합니다. 출력 폴더가 없는 경우 Data Factory 서비스에서 자동으로 생성됩니다. 
 
 1. 연결된 서비스, 데이터 세트 및 파이프라인을 편집할 수 있도록 왼쪽 창의 **모니터** 탭 위에서 **작성자** 탭으로 전환합니다. 데이터 팩터리 UI에서 이러한 항목을 편집하는 방법을 알아보려면 [Azure Portal을 사용하여 데이터 팩터리 만들기](quickstart-create-data-factory-portal.md)를 참조하세요.
+
+    ![작성자 탭 선택](./media/quickstart-create-data-factory-copy-data-tool/select-author.png)
 
 ## <a name="next-steps"></a>다음 단계
 이 샘플의 파이프라인은 Azure Blob Storage의 한 위치에서 다른 위치로 데이터를 복사합니다. 더 많은 시나리오에서의 데이터 팩터리 사용에 대해 알아보려면 [자습서](tutorial-copy-data-portal.md)를 따릅니다. 

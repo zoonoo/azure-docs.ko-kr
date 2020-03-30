@@ -4,17 +4,17 @@ ms.service: container-instances
 ms.topic: include
 ms.date: 02/13/2019
 ms.author: danlep
-ms.openlocfilehash: 055fbc652d0d72925cccfae40efff8b8eef2a8c2
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.openlocfilehash: 33a82a55b03cde79d2d80826041ee6d43565476a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75904463"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80334810"
 ---
-| 리소스 | 기본 제한 |
+| 리소스 | 제한 |
 | --- | :--- |
-| [구독](../articles/billing-buy-sign-up-azure-subscription.md) 당 지역별 표준 sku 컨테이너 그룹 | 100<sup>1</sup> |
-| [구독](../articles/billing-buy-sign-up-azure-subscription.md) 당 지역별 전용 sku 컨테이너 그룹 | 0<sup>1</sup> |
+| [구독당](../articles/billing-buy-sign-up-azure-subscription.md) 지역별 표준 sku 컨테이너 그룹 | 100<sup>1</sup> |
+| [구독당](../articles/billing-buy-sign-up-azure-subscription.md) 지역별 전용 sku 컨테이너 그룹 | 0<sup>1</sup> |
 | 컨테이너 그룹당 컨테이너 개수 | 60 |
 | 컨테이너 그룹당 볼륨 개수 | 20 |
 | IP당 포트 수 | 5 |
@@ -26,7 +26,7 @@ ms.locfileid: "75904463"
 | 5분당 컨테이너 삭제 수 | 100<sup>1</sup> |
 
 
-<sup>1</sup> 제한 증가를 요청 하려면 [Azure 지원 요청][azure-support]를 만듭니다.<br />
+<sup>1</sup> 제한 증가를 요청하려면 [Azure 지원 요청][azure-support]을 만듭니다.<br />
 
 <!-- LINKS - External -->
 [azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest

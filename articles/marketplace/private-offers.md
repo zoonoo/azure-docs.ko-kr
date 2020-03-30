@@ -1,20 +1,18 @@
 ---
-title: 개인 제품 | Azure Marketplace
+title: 프라이빗 프로모션 | Azure 마켓플레이스
 description: 앱 및 서비스 게시자용 Azure Marketplace의 프라이빗 제품
-services: Azure, Marketplace, Compute
 author: qianw211
-manager: pabutler
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/1/2018
-ms.author: pabutler
-ms.openlocfilehash: 16903d4f9b1bad8a588b1a234ac84bc9c0150c4a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 67aba077304117ad357d4e004ce7bdb25ac58352
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827837"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80285047"
 ---
 # <a name="private-offers"></a>프라이빗 제품
 
@@ -34,7 +32,7 @@ ms.locfileid: "73827837"
 
 ## <a name="creating-private-offers-using-skus-and-plans"></a>SKU 및 계획을 사용하여 프라이빗 제품 만들기
 
-*공용 SKU 또는 계획을 포함한 새 제품 또는 기존 제품*의 경우 게시자는 새로운 SKU 또는 계획을 만들고 프라이빗으로 표시하여 새로운 프라이빗 변형을 쉽게 만들 수 있습니다.  [프라이빗 SKU](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md) 및 계획은 제품의 구성 요소이며 대상 고객에게만 표시되고 구입 가능합니다. 프라이빗 SKU 및 계획은 기본 이미지를 다시 사용하거나 공용 SKU 또는 계획에 이미 게시된 메타데이터를 제공할 수 있습니다. 이 옵션을 통해 게시자가 동일한 기본 이미지의 여러 버전을 게시하고 메타데이터를 제공하지 않고 공용 제품의 여러 프라이빗 변형을 만들 수 있습니다. 가상 컴퓨터 및 Azure 응용 프로그램의 경우에만, 전용 SKU가 공용 SKU를 사용 하 여 기본 이미지를 공유 하는 경우 제품의 기본 이미지에 대 한 모든 변경 내용이 해당 기본 이미지를 사용 하 여 모든 공용 및 사설 Sku에 전파 됩니다.
+*공용 SKU 또는 계획을 포함한 새 제품 또는 기존 제품*의 경우 게시자는 새로운 SKU 또는 계획을 만들고 프라이빗으로 표시하여 새로운 프라이빗 변형을 쉽게 만들 수 있습니다.  [프라이빗 SKU](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md) 및 계획은 제품의 구성 요소이며 대상 고객에게만 표시되고 구입 가능합니다. 프라이빗 SKU 및 계획은 기본 이미지를 다시 사용하거나 공용 SKU 또는 계획에 이미 게시된 메타데이터를 제공할 수 있습니다. 이 옵션을 통해 게시자가 동일한 기본 이미지의 여러 버전을 게시하고 메타데이터를 제공하지 않고 공용 제품의 여러 프라이빗 변형을 만들 수 있습니다. 가상 컴퓨터 및 Azure 응용 프로그램에서만 개인 SKU가 공용 SKU와 기본 이미지를 공유하는 경우에만 해당 기본 이미지를 사용하여 오퍼의 기본 이미지에 대한 변경 내용이 모든 공용 및 개인 SKU에 전파됩니다.
 
 *프라이빗 SKU 또는 계획을 포함하는 새 제품*의 경우 게시자는 해당 제품을 다른 제품으로 만든 다음, SKU 또는 계획을 프라이빗으로 표시할 수 있습니다. 프라이빗 SKU 또는 계획만 설치된 제품은 제품과 연결되지 않은 고객에 의해 [Azure Marketplace](https://azuremarketplace.microsoft.com) 또는 [Azure Portal](https://azure.microsoft.com/features/azure-portal/)을 통해 검색되거나 액세스될 수 없습니다.
 
@@ -49,11 +47,11 @@ ms.locfileid: "73827837"
 
 ![[프라이빗 제품]](./media/marketplace-publishers-guide/private-offer.png)
 
-또한 프라이빗 제품은 검색 결과에 나타납니다. "개인" 배지를 확인 하세요.
+또한 프라이빗 제품은 검색 결과에 나타납니다. "비공개" 배지를 찾아보세요.
 
 >[!Note]
->사설 제품은 클라우드 솔루션 공급자 프로그램 (CSP)의 재판매인을 통해 설정 된 구독에서 지원 되지 않습니다.
+>비공개 오퍼는 CSP(클라우드 솔루션 공급자 프로그램)의 리셀러를 통해 설정된 구독에서는 지원되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-개인 제품 사용을 시작 하려면 [전용 sku 및 요금제](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md) 가이드의 단계를 따르세요.
+비공개 제안을 사용하려면 [비공개 SCO 및 계획](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md) 가이드의 단계를 따르십시오.

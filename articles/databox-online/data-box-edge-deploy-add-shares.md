@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to shares on Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 7a15db6bbbcd9dfd43b025b780fda5a8b1d79da2
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: 3b1988656e2c15515e121df3ee71e31ce7edd750
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78946155"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79212956"
 ---
 # <a name="tutorial-transfer-data-with-azure-data-box-edge"></a>자습서: Azure Data Box Edge를 통해 데이터 전송
 
@@ -59,26 +59,28 @@ Data Box Edge에 공유를 추가하기 전에 다음 사항을 확인합니다.
     유형은 **SMB** 또는 **NFS**이며, SMB가 기본값입니다. SMB는 Windows 클라이언트에 대한 표준이며, NFS는 Linux 클라이언트에 사용됩니다.  
     SMB 또는 NFS 공유를 선택하는지 여부에 따라 나머지 옵션이 약간 다릅니다. 
 
-    다. 공유가 상주할 스토리지 계정을 입력합니다. 
+    다. 공유가 상주할 스토리지 계정을 입력합니다.
 
-    
+      > [!IMPORTANT]
+      > Azure Stack Edge 또는 Data Box Gateway 디바이스에서 사용하는 경우 사용하는 Azure Storage 계정에 불변성 정책을 설정하지 않았는지 확인합니다. 자세한 내용은 [Blob 스토리지에 대한 불변성 정책 설정 및 관리](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage)를 참조하세요.
+
     d. **스토리지 서비스** 드롭다운 목록에서 **블록 Blob**, **페이지 Blob** 또는 **파일**을 선택합니다.  
     선택하는 서비스 유형은 Azure에서 사용하려는 데이터 형식에 따라 달라집니다. 이 예제에서는 데이터를 블록 Blo 으로 Azure에 저장하므로 **블록 Blob**을 선택합니다. **페이지 Blob**을 선택하는 경우 데이터가 512바이트로 정렬되어 있는지 확인합니다. 예를 들어 VHDX는 항상 512바이트로 정렬됩니다.
 
     e. 새 Blob 컨테이너를 만들거나 드롭다운 목록의 기존 항목을 사용합니다. Blob 컨테이너를 만드는 경우 컨테이너 이름을 제공합니다. 컨테이너가 아직 없으면 스토리지 계정에 새로 만든 공유 이름으로 만들어집니다.
-   
-    f. SMB 공유 또는 NFS 공유를 만들었는지 여부에 따라 다음 단계 중 하나를 수행합니다. 
-     
-    - **SMB 공유**: **모든 권한 로컬 사용자**  아래에서 **새로 만들기** 또는 **기존 항목 사용**을 선택합니다. 새 로컬 사용자를 만드는 경우 사용자 이름과 암호를 입력한 다음, 해당 암호를 확인합니다. 이 작업은 로컬 사용자에게 권한을 할당합니다. 공유 수준 권한 수정은 현재 지원되지 않습니다.
+
+    f. SMB 공유 또는 NFS 공유를 만들었는지 여부에 따라 다음 단계 중 하나를 수행합니다.
+
+    * **SMB 공유**: **모든 권한 로컬 사용자**  아래에서 **새로 만들기** 또는 **기존 항목 사용**을 선택합니다. 새 로컬 사용자를 만드는 경우 사용자 이름과 암호를 입력한 다음, 해당 암호를 확인합니다. 이 작업은 로컬 사용자에게 권한을 할당합니다. 공유 수준 권한 수정은 현재 지원되지 않습니다.
 
         이 공유 데이터에 대해 **읽기 작업만 허용** 확인란을 선택하면 읽기 전용 사용자를 지정할 수 있습니다.
 
         ![SMB 공유 추가](./media/data-box-edge-deploy-add-shares/add-share-smb-1.png)
-   
-    - **NFS 공유**: 공유에 액세스할 수 있도록 허용된 클라이언트의 IP 주소를 입력합니다.
+
+    * **NFS 공유**: 공유에 액세스할 수 있도록 허용된 클라이언트의 IP 주소를 입력합니다.
 
         ![NFS 공유 추가](./media/data-box-edge-deploy-add-shares/add-share-nfs-1.png)
-   
+
 4. **만들기**를 선택하여 공유를 만듭니다.
     
     공유 만들기가 진행 중이라는 알림이 표시됩니다. 지정한 설정으로 공유가 만들어지면 새 공유를 반영하도록 **공유** 타일이 업데이트됩니다.

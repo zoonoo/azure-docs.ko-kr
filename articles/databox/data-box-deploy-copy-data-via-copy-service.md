@@ -9,12 +9,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: alkohli
-ms.openlocfilehash: 579c1984ee1906519980bbed154921a20ed40b79
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: ef0d79cae11a382bcca0ddb61e1d4a04b5db41e9
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77466980"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79501868"
 ---
 # <a name="tutorial-use-the-data-copy-service-to-copy-data-into-azure-data-box-preview"></a>자습서: 데이터 복사 서비스를 사용하여 Azure Data Box로 데이터 복사(미리 보기)
 
@@ -28,6 +28,7 @@ ms.locfileid: "77466980"
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
+>
 > * Data Box에 데이터 복사
 
 ## <a name="prerequisites"></a>사전 요구 사항
@@ -43,9 +44,13 @@ ms.locfileid: "77466980"
 
 NAS 디바이스에 연결된 후, 다음 단계는 데이터를 복사하는 것입니다. 데이터 복사를 시작하기 전에 다음 고려 사항을 검토합니다.
 
-- 데이터를 복사하는 동안 데이터 크기가 [Azure 스토리지 및 Data Box 제한](data-box-limits.md) 문서에 설명된 크기 제한을 준수해야 합니다.
-- Data Box에 의해 업로드되는 데이터가 Data Box 외부의 다른 애플리케이션에 의해 동시에 업로드되는 경우 업로드 작업이 실패하고 데이터 손상이 발생할 수 있습니다.
-- 데이터 복사 서비스가 데이터를 읽는 동안 데이터가 변동되는 경우 오류 또는 데이터 손상이 표시될 수 있습니다.
+* 데이터를 복사하는 동안 데이터 크기가 [Azure 스토리지 및 Data Box 제한](data-box-limits.md) 문서에 설명된 크기 제한을 준수해야 합니다.
+
+* Data Box에 의해 업로드되는 데이터가 Data Box 외부의 다른 애플리케이션에 의해 동시에 업로드되는 경우 업로드 작업이 실패하고 데이터 손상이 발생할 수 있습니다.
+
+* 데이터 복사 서비스가 데이터를 읽는 동안 데이터가 변동되는 경우 오류 또는 데이터 손상이 표시될 수 있습니다.
+
+* Data Box에서 Azure Storage로 데이터를 전송했음을 확인할 수 있을 때까지 원본 데이터의 복사본을 유지하세요.
 
 데이터 복사 서비스를 사용하여 데이터를 복사하려면 작업을 만들어야 합니다.
 

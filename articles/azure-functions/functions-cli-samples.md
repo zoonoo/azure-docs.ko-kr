@@ -6,12 +6,12 @@ ms.assetid: 577d2f13-de4d-40d2-9dfc-86ecc79f3ab0
 ms.topic: sample
 ms.date: 01/09/2018
 ms.custom: mvc
-ms.openlocfilehash: 8de245dc6307890c872bfc4b8b66371775e1ad12
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 365275d291244d3c08f856d2d919c7ee7d79161a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78358239"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79223750"
 ---
 # <a name="azure-cli-samples"></a>Azure CLI 샘플
 
@@ -30,6 +30,7 @@ ms.locfileid: "78358239"
 |---|---|
 | [함수 앱을 만들고 스토리지 계정에 연결](scripts/functions-cli-create-function-app-connect-to-storage-account.md) | 함수 앱을 만들고 스토리지 계정에 연결합니다. |
 | [함수 앱을 만들고 Azure Cosmos DB에 연결](scripts/functions-cli-create-function-app-connect-to-cosmos-db.md) | 함수 앱을 만들고 Azure Cosmos DB에 연결합니다. |
+| [Python 함수 앱을 만들고 Azure Files 공유 탑재](scripts/functions-cli-mount-files-storage-linux.md) | Linux 함수 앱에 공유를 탑재하면 기존 기계 학습 모델 또는 함수의 기타 데이터를 활용할 수 있습니다. | 
 
 | 연속 배포 | Description|
 |---|---|

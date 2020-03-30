@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/29/2019
 ms.author: rohink
-ms.openlocfilehash: 36ad1c47e115f06aea2017a049cefe36304504bf
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: e19850243498fc24c9a726f4603590df15f3a046
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76934832"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79531518"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 고가용성 웹 애플리케이션에 대한 Traffic Manager 프로필 만들기
 
@@ -88,6 +88,7 @@ az appservice plan create \
     --sku S1
 
 ```
+
 ### <a name="create-a-web-app-in-the-app-service-plan"></a>앱 서비스 계획에 웹앱 만들기
 [az webapp create](https://docs.microsoft.com/cli/azure/webapp?view=azure-cli-latest#az-webapp-create)를 사용하여 웹 애플리케이션의 두 인스턴스를 *미국 동부* 및 *서유럽* Azure 지역의 App Service 계획에 만듭니다.
 
@@ -111,7 +112,7 @@ az webapp create \
 다음과 같이 [az network traffic-manager endpoint create](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-create)를 사용하여 두 Web App을 Traffic Manager 엔드포인트로 Traffic Manager 프로필에 추가합니다.
 
 - Web App ID를 확인하고, *미국 서부* Azure 지역에 있는 Web App을 모든 사용자 트래픽을 라우팅하는 기본 엔드포인트로 추가합니다. 
-- Web App ID를 확인하고, *서유럽* Azure 지역에 있는 Web App을 장애 조치 엔드포인트로 추가합니다. 
+- Web App ID를 확인하고, *서유럽* Azure 지역에 있는 Web App을 장애 조치(failover) 엔드포인트로 추가합니다. 
 
 기본 엔드포인트를 사용할 수 없으면 트래픽이 자동으로 장애 조치 엔드포인트로 라우팅됩니다.
 
@@ -127,6 +128,7 @@ az webapp show \
     --query id
 
 ```
+
 출력에 표시된 ID를 적어두고, 다음 명령을 사용하여 엔드포인트를 추가합니다.
 
 ```azurecli-interactive
@@ -151,6 +153,7 @@ az webapp show \
     --query id
 
 ```
+
 출력에 표시된 ID를 적어두고, 다음 명령을 사용하여 엔드포인트를 추가합니다.
 
 ```azurecli-interactive
@@ -212,7 +215,7 @@ az network traffic-manager profile show \
 
 완료되면 [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete)를 사용하여 리소스 그룹, 웹 애플리케이션 및 모든 관련 리소스를 삭제합니다.
 
-```azurepowershell-interactive
+```azurecli-interactive
 
 az group delete \
     --resource-group myResourceGroup

@@ -2,14 +2,14 @@
 title: 에이전트 기반 Azure Migrate Server Migration으로 VMware VM 마이그레이션
 description: Azure Migrate를 사용하여 VMware VM의 에이전트 기반 마이그레이션을 실행하는 방법에 대해 알아봅니다.
 ms.topic: tutorial
-ms.date: 11/19/2019
+ms.date: 03/09/2020
 ms.custom: MVC
-ms.openlocfilehash: 49b576770d67ae9d2b98a8a0004f4219ecf0fae4
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 64873c5185660c58cd4d07d60df3d086364d6288
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78388985"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79222030"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>VMware VM을 Azure로 마이그레이션(에이전트 기반)
 
@@ -156,7 +156,7 @@ Azure Migrate 서버 마이그레이션은 다음 작업을 위해 VMware 서버
 
 - 머신에 복제를 사용하도록 설정하면 Azure Migrate 복제 어플라이언스에서 이 서비스의 강제 설치를 수행할 수 있습니다. 그렇지 않으면 수동으로 설치하거나 설치 도구를 사용하여 설치할 수 있습니다.
 - 이 자습서에서는 강제 설치 방식으로 Mobility 서비스를 설치하겠습니다.
-- 강제 설치의 경우 Azure Migrate 서버 마이그레이션에서 VM에 액세스하는 데 사용할 수 있는 계정을 준비해야 합니다.
+- 강제 설치의 경우 Azure Migrate 서버 마이그레이션에서 VM에 액세스하는 데 사용할 수 있는 계정을 준비해야 합니다. 이 계정은 Mobility Service를 수동으로 설치하지 않은 경우 푸시 설치에만 사용됩니다.
 
 다음과 같이 계정을 준비합니다.
 
@@ -409,7 +409,10 @@ OVF 템플릿이 다운로드되면 VMware로 가져와서 Windows Server 2016�
 
 ## <a name="complete-the-migration"></a>마이그레이션 완료
 
-1. 마이그레이션이 완료되면 마우스 오른쪽 단추로 VM > **마이그레이션 중지**를 차례로 클릭합니다. 그러면 온-프레미스 머신에 대한 복제가 중지되고, VM에 대한 복제 상태 정보가 정리됩니다.
+1. 마이그레이션이 완료되면 마우스 오른쪽 단추로 VM > **마이그레이션 중지**를 차례로 클릭합니다. 다음을 수행합니다.
+    - 온-프레미스 머신에 대한 복제를 중지합니다.
+    - Azure Migrate의 **서버 복제** 수에서 머신을 제거합니다. Server Migration에 연결합니다.
+    - VM에 대한 복제 상태 정보를 정리합니다.
 2. Azure VM [Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) 또는 [Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) 에이전트를 마이그레이션된 머신에 설치합니다.
 3. 데이터베이스 연결 문자열 업데이트, 웹 서버 구성 등의 마이그레이션 후 앱 조정을 수정합니다.
 4. 이제 Azure에서 실행 중인 마이그레이션된 애플리케이션에서 최종 애플리케이션 및 마이그레이션 수용 테스트를 수행합니다.

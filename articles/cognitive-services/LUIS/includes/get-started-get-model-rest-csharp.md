@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/31/2020
 ms.author: diberry
-ms.openlocfilehash: e4f995e888d261e1a1a7cb1e63d0d222c165060f
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 96129b9141b4759fd61b539fa08354f02af3af7b
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368422"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80151264"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -21,7 +21,7 @@ ms.locfileid: "77368422"
 * cognitive-services-language-understanding GitHub 리포지토리에서 [TravelAgent 앱](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/change-model/TravelAgent.json)을 가져옵니다.
 * 가져온 TravelAgent 앱의 LUIS 애플리케이션 ID입니다. 애플리케이션 ID는 애플리케이션 대시보드에 표시됩니다.
 * 발언을 수신하는 애플리케이션 내의 버전 ID입니다. 기본 ID는 "0.1"입니다.
-* [.NET Core V2.2 이상](https://dotnet.microsoft.com/download)
+* [.NET Core 3.1](https://dotnet.microsoft.com/download)
 * [Visual Studio Code](https://code.visualstudio.com/)
 
 ## <a name="example-utterances-json-file"></a>예제 발언 JSON 파일

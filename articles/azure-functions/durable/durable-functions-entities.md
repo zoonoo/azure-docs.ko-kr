@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: overview
 ms.date: 12/17/2019
 ms.author: azfuncdf
-ms.openlocfilehash: d469d52a6db6c3640d07b46422ffe669a898dde8
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 6ecf3bb5999296b2f5f8f5c25616fac8e0278cda
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76262999"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80132517"
 ---
 # <a name="entity-functions"></a>엔터티 함수
 
@@ -41,7 +41,7 @@ ms.locfileid: "76262999"
 * 대상 엔터티의 **엔터티 ID**
 * **작업 이름**: 수행할 작업을 지정하는 문자열입니다. 예를 들어 `Counter` 엔터티는 `add`, `get` 또는 `reset` 작업을 지원할 수 있습니다.
 * **작업 입력**: 작업에 대한 선택적 입력 매개 변수입니다. 예를 들어, add 작업은 정수 값을 입력으로 사용할 수 있습니다.
-* 작업의 제공 시간을 지정하기 위한 선택적 매개 변수인 **예약 시간*입니다. 예를 들어 향후 며칠 동안 작업이 안정적으로 실행되도록 예약할 수 있습니다.
+* 작업의 제공 시간을 지정하기 위한 선택적 매개 변수인 **예약 시간**입니다. 예를 들어 향후 며칠 동안 작업이 안정적으로 실행되도록 예약할 수 있습니다.
 
 작업은 결과 값 또는 오류 결과(예: JavaScript 오류 또는 .NET 예외)를 반환할 수 있습니다. 이 결과 또는 오류는 작업을 호출한 오케스트레이션에서 관찰할 수 있습니다.
 
@@ -55,7 +55,7 @@ ms.locfileid: "76262999"
 
 **클래스 기반 구문(.NET 전용)** : 엔터티와 작업이 클래스와 메서드로 표시됩니다. 이 구문은 더 쉽게 읽을 수 있는 코드를 생성하며, 형식이 안전한 방식으로 작업을 호출할 수 있도록 합니다. 클래스 기반 구문은 함수 기반 구문 위에 있는 씬(thin) 계층이므로 두 변형을 모두 동일한 애플리케이션에서 교대로 사용할 수 있습니다.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ### <a name="example-function-based-syntax---c"></a>예제: 함수 기반 구문 - C#
 
@@ -109,7 +109,7 @@ public class Counter
 
 클래스 기반 구문과 이를 사용하는 방법에 대한 자세한 내용은 [엔터티 클래스 정의](durable-functions-dotnet-entities.md#defining-entity-classes)를 참조하세요.
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ### <a name="example-javascript-entity"></a>예제: JavaScript 엔터티
 
@@ -171,7 +171,7 @@ module.exports = df.entity(function(context) {
 
 일반 Azure 함수(클라이언트 함수라고도 함)에서 엔터티에 액세스하려면 [엔터티 클라이언트 바인딩](durable-functions-bindings.md#entity-client)을 사용합니다. 다음 예제에서는 이 바인딩을 사용하여 엔터티에 신호를 보내는 큐 트리거 함수를 보여 줍니다.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 > [!NOTE]
 > 간단히 하기 위해 다음 예제에서는 엔터티에 액세스하기 위한 느슨하게 형식화된 구문을 보여 줍니다. 일반적으로 더 많은 형식 검사를 제공하므로 [인터페이스를 통해 엔터티에 액세스](durable-functions-dotnet-entities.md#accessing-entities-through-interfaces)하는 것이 좋습니다.
@@ -189,7 +189,7 @@ public static Task Run(
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -209,7 +209,7 @@ module.exports = async function (context) {
 
 클라이언트 함수는 다음 예제와 같이 엔터티의 상태를 쿼리할 수도 있습니다.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("QueryCounter")]
@@ -223,7 +223,7 @@ public static async Task<HttpResponseMessage> Run(
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -244,7 +244,7 @@ module.exports = async function (context) {
 
 오케스트레이터 함수는 [오케스트레이션 트리거 바인딩](durable-functions-bindings.md#orchestration-trigger)에서 API를 사용하여 엔터티에 액세스할 수 있습니다. 다음 예제 코드에서는 `Counter` 엔터티를 호출하고 신호를 보내는 오케스트레이터 함수를 보여 줍니다.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("CounterOrchestration")]
@@ -263,7 +263,7 @@ public static async Task Run(
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -291,7 +291,7 @@ module.exports = df.orchestrator(function*(context){
 엔터티 함수는 작업을 실행하는 동안 다른 엔터티(또는 자체)에 신호를 보낼 수 있습니다.
 예를 들어 카운터 값이 100에 도달하면 "마일스톤에 도달했음” 신호를 일부 모니터 엔터티에 보내도록 이전 `Counter` 엔터티 예제를 수정할 수 있습니다.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
    case "add":
@@ -306,7 +306,7 @@ module.exports = df.orchestrator(function*(context){
         break;
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
     case "add":
@@ -321,7 +321,7 @@ module.exports = df.orchestrator(function*(context){
 
 ---
 
-## <a name="entity-coordination"></a>엔터티 조정(현재 .NET 전용)
+## <a name="entity-coordination-currently-net-only"></a><a name="entity-coordination"></a>엔터티 조정(현재 .NET 전용)
 
 여러 엔터티 간에 작업을 조정해야 하는 경우가 있을 수 있습니다. 예를 들어 은행 애플리케이션에서 개별 은행 계좌를 나타내는 엔터티가 있을 수 있습니다. 한 계정에서 다른 계정으로 자금을 이체하는 경우 원본 계정에 충분한 금액이 있는지 확인해야 합니다. 또한 원본 및 대상 계정에 대한 업데이트가 업무상 일관된 방식으로 수행되도록 해야 합니다.
 
