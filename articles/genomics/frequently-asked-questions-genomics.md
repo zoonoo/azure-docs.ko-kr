@@ -1,7 +1,7 @@
 ---
-title: 일반적인 질문-FAQ
+title: 자주 묻는 질문 - 자주 묻는 질문
 titleSuffix: Microsoft Genomics
-description: 기술 정보, SLA 및 청구를 포함 하 여 Microsoft Genomics 서비스 사용과 관련 된 일반적인 질문에 대 한 답변을 받으세요.
+description: 기술 정보, SLA 및 청구를 포함하여 Microsoft 유전체학 서비스 사용과 관련된 일반적인 질문에 대한 답변을 얻을 수 있습니다.
 services: genomics
 author: grhuynh
 manager: cgronlun
@@ -10,22 +10,22 @@ ms.service: genomics
 ms.topic: troubleshooting
 ms.date: 12/07/2017
 ms.openlocfilehash: e8806bc4f761214e6740a22093b7e18030fdf881
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76986039"
 ---
 # <a name="microsoft-genomics-common-questions"></a>Microsoft Genomics: 일반적인 질문
 
-이 문서에는 Microsoft Genomics와 관련될 수 있는 주요 질문이 나열되어 있습니다. Microsoft Genomics 서비스에 대한 자세한 내용은 [Microsoft Genomics란?](overview-what-is-genomics.md)을 참조하세요. 문제 해결 방법에 대한 자세한 내용은 [문제 해결 가이드](troubleshooting-guide-genomics.md)를 참조하세요. 
+이 문서에는 Microsoft Genomics와 관련될 수 있는 주요 질문이 나열되어 있습니다. 마이크로소프트 유전체학 서비스에 대한 자세한 내용은 [마이크로소프트 유전체학이란 무엇입니까?](overview-what-is-genomics.md). 문제 해결 방법에 대한 자세한 내용은 [문제 해결 가이드](troubleshooting-guide-genomics.md)를 참조하세요. 
 
 
-## <a name="how-do-i-run-gatk4-workflows-on-microsoft-genomics"></a>Microsoft Genomics에서 GATK4 워크플로를 실행할 어떻게 할까요? 있나요?
-Microsoft Genomics 서비스의 config.xml 파일에서 `gatk4`process_name를 지정 합니다. 정기적인 청구 요금으로 요금이 청구 됩니다.
+## <a name="how-do-i-run-gatk4-workflows-on-microsoft-genomics"></a>Microsoft 유전체학에서 GATK4 워크플로를 실행하려면 어떻게 해야 합니까?
+Microsoft 유전체학 서비스의 config.txt 파일에서 process_name 를 `gatk4`지정합니다. 일반 청구 요금이 청구됩니다.
 
-## <a name="how-do-i-enable-output-compression"></a>출력 압축을 사용 하도록 설정 어떻게 할까요??
-출력 압축에 대 한 선택적 인수를 사용 하 여 출력 .vcf 또는 gvcf를 압축할 수 있습니다. 이는 `.gz` (bgzip output) 및 `.tbi` (tabix output) 파일을 생성 하기 위해 `-tabix` `-bgzip`를 실행 하는 것과 동일 합니다. `bgzip`는 .vcf 또는 gvcf 파일을 압축 하 `tabix` 압축 된 파일에 대 한 인덱스를 만듭니다. 인수는 부울로, 기본적으로 `false`는 .vcf 출력에 대해 설정 되 고 gcvf 출력에 대해 기본적으로 `true` 됩니다. 명령줄에서를 사용 하려면 `-bz` 또는 `--bgzip-output`을 `true` (bgzip 및 tabix 실행) 또는 `false`로 지정 합니다. Config.xml 파일에서이 인수를 사용 하려면 파일에 `bgzip_output: true` 또는 `bgzip_output: false`를 추가 합니다.
+## <a name="how-do-i-enable-output-compression"></a>출력 압축을 사용하려면 어떻게 해야 합니까?
+출력 압축에 대한 선택적 인수를 사용하여 출력 vcf 또는 gvcf를 압축할 수 있습니다. 이는 vcf `-bgzip` 또는 `-tabix` gvcf 출력에서 실행한 다음 `.gz` bgzip 출력 및 `.tbi` (tabix 출력) 파일을 생성하는 것과 같습니다. `bgzip`는 vcf 또는 gvcf 파일을 `tabix` 압축하고 압축된 파일에 대한 인덱스를 만듭니다. 인수는 부울이며, vcf `false` 출력에 대해 기본적으로 설정되고 `true` gcvf 출력에 대해 기본적으로 설정됩니다. 명령줄에서 사용하려면 또는 `-bz` `--bgzip-output` (bgzip 및 tabix 를 `false`실행) 또는으로 `true` 지정합니다. config.txt 파일에서 이 인수를 사용하려면 `bgzip_output: false` 파일을 추가하거나 `bgzip_output: true` 추가합니다.
 
 ## <a name="what-is-the-sla-for-microsoft-genomics"></a>Microsoft Genomics의 SLA는 무엇인가요?
 워크플로 API 요청을 수신하는 데 Microsoft Genomics 서비스의 99.9% 가용성을 보장합니다. 자세한 내용은 [SLA](https://azure.microsoft.com/support/legal/sla/genomics/v1_0/)를 참조하세요.
@@ -63,7 +63,7 @@ Azure Portal로 이동하여 Genomics 계정 페이지를 여세요. **관리** 
 
 지원되는 참조는 다음과 같습니다.
 
- |참조              | `-pa/--process-args`의 값 |
+ |참고              | `-pa/--process-args`의 값 |
  |:-------------         |:-------------                 |
  |b37                    | `R=b37m1`                     |
  |hg38                   | `R=hg38m1`                    |      
@@ -80,7 +80,7 @@ msgen은 다음 형식으로 구성 파일을 이해합니다.
 
   |명령줄 인수            | 구성 파일 줄 |
   |:-------------                   |:-------------                 |
-  |`-u/--api-url-base https://url`  | *api_url_base: https://url*    |
+  |`-u/--api-url-base https://url`  | *api_url_base:https://url*    |
   |`-k/--access-key KEY`            | *access_key:KEY*              |      
   |`-pa/--process-args R=B37m1`     | *process_args:R-b37m1*        |  
 
@@ -88,5 +88,5 @@ msgen은 다음 형식으로 구성 파일을 이해합니다.
 
 다음 리소스를 사용하여 Microsoft Genomics를 시작하세요.
 - 먼저 Microsoft Genomics 서비스를 통해 첫 번째 워크플로를 실행합니다. [Microsoft Genomics 서비스를 통해 워크플로 실행](quickstart-run-genomics-workflow-portal.md)
-- Microsoft Genomics 서비스에서 처리하도록 자체 데이터 제출: [연결된 FASTQ](quickstart-input-pair-FASTQ.md) | [BAM](quickstart-input-BAM.md) | [여러 FASTQ 또는 BAM](quickstart-input-multiple.md) 
+- Microsoft 유전체학 서비스에서 처리하기 위해 사용자 고유의 데이터를 제출합니다: [페어링된 FASTQ](quickstart-input-pair-FASTQ.md) | [BAM](quickstart-input-BAM.md) | [다중 FASTQ 또는 BAM](quickstart-input-multiple.md) 
 

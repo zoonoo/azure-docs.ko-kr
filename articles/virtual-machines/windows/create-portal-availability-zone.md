@@ -1,5 +1,5 @@
 ---
-title: Azure Portal를 사용 하 여 배열로 영역 설정 Windows VM 만들기
+title: Azure 포털을 사용하여 영역이 지정된 Windows VM 만들기
 description: Azure Portal을 사용하여 가용성 영역에서 Windows VM 만들기
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -16,29 +16,29 @@ ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: ''
 ms.openlocfilehash: c6f843693ccfa16f9b31027ba370242e0462b138
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74033885"
 ---
 # <a name="create-a-windows-virtual-machine-in-an-availability-zone-with-the-azure-portal"></a>Azure Portal을 사용하여 가용성 영역에서 Windows 가상 머신 만들기
 
-이 문서는 Azure Portal을 사용하여 Azure 가용성 영역에서 가상 머신을 만드는 단계를 안내합니다. [가용성 영역](../../availability-zones/az-overview.md)은 Azure 지역에서 물리적으로 별도 영역입니다. 가용성 영역을 사용하여 가능성이 적은 실패 또는 전체 데이터 센터의 손실로부터 앱 및 데이터를 보호합니다.
+이 문서는 Azure Portal을 사용하여 Azure 가용성 영역에서 가상 머신을 만드는 단계를 안내합니다. [가용성 영역은](../../availability-zones/az-overview.md) Azure 지역의 물리적으로 분리된 영역입니다. 가용성 영역을 사용하여 가능성이 적은 실패 또는 전체 데이터 센터의 손실로부터 앱 및 데이터를 보호합니다.
 
 가용성 영역을 사용하려면 [지원되는 Azure 지역](../../availability-zones/az-overview.md#services-support-by-region)에 가상 머신을 만들어야 합니다.
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인 
 
-https://portal.azure.com에서 Azure Portal에 로그인합니다.
+[https://portal.azure.com](https://portal.azure.com) 에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-virtual-machine"></a>가상 머신 만들기
 
-1. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기**를 클릭합니다.
+1. Azure 포털의 왼쪽 상단 모서리에 **있는 리소스 만들기를** 클릭합니다.
 
 2. **Compute**를 선택한 다음, **Windows Server 2016 Datacenter**를 선택합니다. 
 
-3. 가상 컴퓨터 정보를 입력합니다. 여기에서 입력한 이사용자 이름과 암호는 가상 머신에 로그인하는 데 사용됩니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](faq.md#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다. 가용성 영역을 지원하는 미국 동부 2와 같은 위치를 선택합니다. 완료되면 **확인**을 클릭합니다.
+3. 가상 머신 정보를 입력합니다. 여기에서 입력한 이사용자 이름과 암호는 가상 머신에 로그인하는 데 사용됩니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](faq.md#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다. 가용성 영역을 지원하는 미국 동부 2와 같은 위치를 선택합니다. 완료한 경우 **확인**을 클릭합니다.
 
     ![포털 블레이드에서 VM에 대한 기본 정보 입력](./media/create-portal-availability-zone/create-windows-vm-portal-basic-blade.png)
 
@@ -46,7 +46,7 @@ https://portal.azure.com에서 Azure Portal에 로그인합니다.
 
     ![VM 크기 선택](./media/create-portal-availability-zone/create-windows-vm-portal-sizes.png)  
 
-5. **설정** > **고가용성** 아래의 **가용성 영역** 드롭다운에서 번호가 매겨진 영역 중 하나를 선택하고 나머지 기본값을 유지하고 **확인**을 클릭합니다.
+5. **설정** > **고가용성에서** **가용성 영역** 드롭다운에서 번호가 매겨진 영역 중 하나를 선택하고 나머지 기본값을 유지한 다음 **확인을**클릭합니다.
 
     ![가용성 영역 선택](./media/create-portal-availability-zone/create-windows-vm-portal-availability-zone.png)
 
@@ -74,4 +74,4 @@ https://portal.azure.com에서 Azure Portal에 로그인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 가용성 영역에서 VM을 만드는 방법을 배웠습니다. Azure Vm의 [가용성](availability.md) 에 대해 자세히 알아보세요.
+이 문서에서는 가용성 영역에서 VM을 만드는 방법을 배웠습니다. Azure VM의 [가용성에](availability.md) 대해 자세히 알아보세요.

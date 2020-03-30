@@ -1,5 +1,5 @@
 ---
-title: Data Lake tools for Visual Studio & Hortonworks-Azure HDInsight
+title: 비주얼 스튜디오 & 호튼웍스를 위한 데이터 레이크 도구 - Azure HDInsight
 description: Hortonworks Sandbox(로컬 VM에서 실행됨)와 Azure Data Lake tools for Visual Studio를 사용하는 방법을 알아봅니다. 이러한 도구로 샌드박스에 대한 Hive 및 Pig 작업을 만들고 실행하며 작업 출력 및 기록을 볼 수 있습니다.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.openlocfilehash: e128aaf6e1726b7a1341fefc6df3cdafd3beb880
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73500162"
 ---
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>Hortonworks Sandbox와 Azure Data Lake tools for Visual Studio 사용
@@ -21,11 +21,11 @@ Azure Data Lake는 제네릭 Apache Hadoop 클러스터를 사용하기 위한 �
 
 Hortonworks Sandbox를 사용하여 개발 환경에서 로컬로 Hadoop를 사용할 수 있습니다. 솔루션을 개발하여 대규모로 배포했으므로 HDInsight 클러스터를 살펴볼 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 개발 환경의 가상 머신에서 실행되는 Hortonworks Sandbox입니다. 이 문서는 Oracle VirtualBox에서 실행 중인 샌드박스로 작성 및 테스트되었으며, 샌드박스 설정에 대한 자세한 내용은 [Hortonworks 샌드박스 시작](hadoop/apache-hadoop-emulator-get-started.md) 문서를 참조하세요.
 
-* 있습니다.
+* Visual Studio.
 
 * [Azure SDK for .NET](https://azure.microsoft.com/downloads/) 2.7.1 이상
 
@@ -41,17 +41,17 @@ Hortonworks Sandbox가 실행 중인지 확인합니다. [Hortonworks 샌드박�
 
 2. **서버 탐색기**에서 **HDInsight** 항목을 마우스 오른쪽 단추로 클릭한 다음 **HDInsight Emulator에 연결**을 선택합니다.
 
-    ![서버 탐색기, HDInsight Emulator에 연결 강조 표시](./media/hdinsight-hadoop-emulator-visual-studio/connect-hdinsight-emulator.png)
+    ![서버 탐색기, HDInsight 에뮬레이터에 연결 강조 표시](./media/hdinsight-hadoop-emulator-visual-studio/connect-hdinsight-emulator.png)
 
 3. **HDInsight Emulator에 연결** 대화 상자에서 Ambari에 대해 구성한 암호를 입력합니다.
 
-    ![Ambari 암호 입력란이 강조 표시 된 대화 상자의 스크린샷](./media/hdinsight-hadoop-emulator-visual-studio/enter-ambari-password.png)
+    ![대화 상자의 스크린 샷, ambari 암호 텍스트 상자를 강조 표시](./media/hdinsight-hadoop-emulator-visual-studio/enter-ambari-password.png)
 
     **다음**을 선택하여 계속합니다.
 
 4. **암호** 필드를 사용하여 `root` 계정에 대해 구성한 암호를 입력합니다. 다른 필드는 기본값으로 둡니다.
 
-    ![루트 암호 입력란이 강조 표시 된 대화 상자의 스크린샷](./media/hdinsight-hadoop-emulator-visual-studio/enter-root-password1.png)
+    ![대화 상자의 스크린 샷, 루트 암호 텍스트 상자를 강조 표시](./media/hdinsight-hadoop-emulator-visual-studio/enter-root-password1.png)
 
     **다음**을 선택하여 계속합니다.
 
@@ -90,7 +90,7 @@ Hive에서는 구조화된 데이터로 작업하기 위한 SQL과 유사한 쿼
 
     **제출** 옆의 드롭다운 메뉴를 사용하여 **고급**을 선택할 수도 있습니다. 고급 옵션을 사용하여 작업을 제출할 때 추가 옵션을 제공할 수 있습니다.
 
-    ![스크립트 제출 대화 상자 hive의 스크린샷](./media/hdinsight-hadoop-emulator-visual-studio/advanced-apache-hive.png)
+    ![스크립트 대화 상자 하이브 제출 화면](./media/hdinsight-hadoop-emulator-visual-studio/advanced-apache-hive.png)
 
 3. 쿼리를 제출하면 작업 상태가 표시됩니다. 작업 상태에는 Hadoop에서 처리되는 작업에 대한 정보가 표시됩니다. **작업 상태**는 작업의 상태를 제공합니다. 상태는 정기적으로 업데이트됩니다. 또는 새로 고침 아이콘을 사용하여 상태를 수동으로 새로 고칠 수 있습니다.
 
@@ -122,7 +122,7 @@ Hive에서는 구조화된 데이터로 작업하기 위한 SQL과 유사한 쿼
 
 2. 프로젝트 목록에서 **템플릿**, **Azure Data Lake**를 차례로 확장한 다음 **HIVE(HDInsight)** 를 선택합니다. 템플릿 목록에서 **Hive 샘플**을 선택합니다. 이름과 위치를 입력한 다음 **확인**을 선택합니다.
 
-    ![Azure Data Lake, Hive 샘플 및 OK를 사용 하는 새 프로젝트 창](./media/hdinsight-hadoop-emulator-visual-studio/new-apache-hive-project.png)
+    ![새 프로젝트 창, Azure 데이터 호수, 하이브 샘플 및 확인](./media/hdinsight-hadoop-emulator-visual-studio/new-apache-hive-project.png)
 
 **Hive 샘플** 프로젝트에는 **WebLogAnalysis.hql** 및 **SensorDataAnalysis.hql**이라는 두 개의 스크립트가 포함되어 있습니다. 창 위쪽의 동일한 **제출** 단추를 사용하여 이러한 스크립트를 제출할 수 있습니다.
 
@@ -130,7 +130,7 @@ Hive에서는 구조화된 데이터로 작업하기 위한 SQL과 유사한 쿼
 
 Hive에서는 구조화된 데이터로 작업하기 위한 SQL과 유사한 쿼리 언어(HiveQL)를 제공하지만 Pig는 데이터에 대한 변환을 수행하는 방식으로 작동합니다. Pig는 변환의 파이프라인을 개발할 수 있는 언어(Pig Latin)를 제공합니다. 로컬 클러스터에서 Pig를 사용하려면 다음 단계를 따르세요.
 
-1. Visual Studio를 열고 **파일**, **새로 만들기**, **프로젝트**를 차례로 선택합니다. 프로젝트 목록에서 **템플릿**, **Azure Data Lake**를 차례로 확장한 다음 **Pig(HDInsight)** 를 선택합니다. 템플릿 목록에서 **Pig 애플리케이션**을 선택합니다. 이름과 위치를 입력한 다음 **확인**을 선택합니다.
+1. 시각적 스튜디오를 열고 **파일**, **새**것을 선택한 다음 **프로젝트를**선택합니다. 프로젝트 목록에서 **템플릿**, **Azure Data Lake**를 차례로 확장한 다음 **Pig(HDInsight)** 를 선택합니다. 템플릿 목록에서 **Pig 애플리케이션**을 선택합니다. 이름과 위치를 입력한 다음 **확인**을 선택합니다.
 
     ![Azure Data Lake, Pig, Pig 애플리케이션 및 확인이 강조 표시된 새 프로젝트 창의 스크린샷](./media/hdinsight-hadoop-emulator-visual-studio/new-apche-pig-project.png)
 
@@ -147,9 +147,9 @@ Hive에서는 구조화된 데이터로 작업하기 위한 SQL과 유사한 쿼
         c = GROUP b BY ip_address;
         DUMP c;
 
-    Pig에서 Hive와 다른 언어를 사용하는 동안 **제출** 단추를 통해 두 언어 간에 작업을 실행하는 방법은 일치합니다. **제출** 옆에 있는 드롭다운을 선택하면 Pig의 고급 제출 대화 상자가 표시됩니다.
+    Pig는 Hive와 다른 언어를 사용하지만 작업 실행 방법은 **제출** 단추를 통해 두 언어 간에 일치합니다. **제출** 옆에 있는 드롭다운을 선택하면 Pig의 고급 제출 대화 상자가 표시됩니다.
 
-    ![스크립트 제출 대화 상자 pig 스크린샷](./media/hdinsight-hadoop-emulator-visual-studio/advanced-apache-pig1.png)
+    ![스크립트 대화 상자 돼지 제출 화면](./media/hdinsight-hadoop-emulator-visual-studio/advanced-apache-pig1.png)
 
 3. 또한 작업 상태 및 출력은 Hive 쿼리와 동일하게 표시됩니다.
 
@@ -179,7 +179,7 @@ Hive에서는 구조화된 데이터로 작업하기 위한 SQL과 유사한 쿼
 
 2. 테이블을 확장하면 해당 테이블에 대한 열을 표시합니다. 데이터를 신속하게 보려면 테이블을 마우스 오른쪽 단추로 클릭하고 **상위 100개 행 보기**를 선택합니다.
 
-    ![테이블이 확장 되 고 상위 100 행이 선택 된 서버 탐색기](./media/hdinsight-hadoop-emulator-visual-studio/hdi-view-top-100-rows.png)
+    ![테이블이 확장되고 상위 100개 행 보기가 선택된 서버 탐색기](./media/hdinsight-hadoop-emulator-visual-studio/hdi-view-top-100-rows.png)
 
 ### <a name="database-and-table-properties"></a>데이터베이스 및 테이블 속성
 

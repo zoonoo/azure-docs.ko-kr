@@ -1,7 +1,7 @@
 ---
-title: OData order by 참조
+title: OData 순서별 참조
 titleSuffix: Azure Cognitive Search
-description: Azure Cognitive Search 쿼리에서 order by를 사용 하는 방법에 대 한 구문 및 언어 참조 설명서입니다.
+description: Azure 인지 검색 쿼리에서 순서별로 사용하기 위한 구문 및 언어 참조 설명서입니다.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -20,19 +20,19 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 99ec639b88f3334530243242aadfa0ab52a40df0
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74113155"
 ---
-# <a name="odata-orderby-syntax-in-azure-cognitive-search"></a>Azure Cognitive Search의 OData $orderby 구문
+# <a name="odata-orderby-syntax-in-azure-cognitive-search"></a>Azure 인지 검색에서 OData $orderby 구문
 
- [OData **$orderby** 매개 변수](query-odata-filter-orderby-syntax.md) 를 사용 하 여 Azure Cognitive Search에서 검색 결과에 대 한 사용자 지정 정렬 순서를 적용할 수 있습니다. 이 문서에서는 **$orderby** 구문에 대해 자세히 설명 합니다. 검색 결과를 표시할 때 **$orderby** 를 사용 하는 방법에 대 한 일반적인 정보는 [Azure Cognitive Search에서 검색 결과](search-pagination-page-layout.md)를 사용 하는 방법을 참조 하세요.
+ [OData **$orderby** 매개 변수를](query-odata-filter-orderby-syntax.md) 사용하여 Azure 인지 검색에서 검색 결과에 대한 사용자 지정 정렬 순서를 적용할 수 있습니다. 이 문서에서는 **$orderby** 구문을 자세히 설명합니다. 검색 결과를 표시할 때 **$orderby** 사용하는 방법에 대한 자세한 내용은 [Azure Cognitive Search에서 검색 결과로 작업하는 방법을](search-pagination-page-layout.md)참조하세요.
 
 ## <a name="syntax"></a>구문
 
-**$Orderby** 매개 변수는 최대 32 개의 **order by 절**에 대 한 쉼표로 구분 된 목록을 허용 합니다. Order by 절의 구문은 다음 EBNF ([Extended Backus-Backus-naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form))에서 설명 합니다.
+**$orderby** 매개 변수는 최대 32개의 **순서별 절의**쉼표로 구분된 목록을 허용합니다. 주문별 절의 구문은 다음 EBNF(확장[백투스-Naur 양식)에](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)설명되어 있습니다.
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -45,20 +45,20 @@ sortable_function ::= geo_distance_call | 'search.score()'
 대화형 구문 다이어그램도 사용할 수 있습니다.
 
 > [!div class="nextstepaction"]
-> [Azure Cognitive Search에 대 한 OData 구문 다이어그램](https://azuresearch.github.io/odata-syntax-diagram/#order_by_clause)
+> [Azure 인지 검색에 대 한 OData 구문 다이어그램](https://azuresearch.github.io/odata-syntax-diagram/#order_by_clause)
 
 > [!NOTE]
-> 전체 EBNF [Azure Cognitive Search에 대 한 OData 식 구문 참조](search-query-odata-syntax-reference.md) 를 참조 하세요.
+> 전체 EBNF에 대한 Azure 인지 검색에 대한 [OData 식 구문 참조를](search-query-odata-syntax-reference.md) 참조하십시오.
 
-각 절에는 정렬 기준이 있으며, 필요에 따라 정렬 방향 (오름차순 또는 내림차순 `desc``asc`)이 있습니다. 방향을 지정 하지 않는 경우 기본값은 오름차순입니다. 정렬 기준은 `sortable` 필드의 경로 이거나 [`geo.distance`](search-query-odata-geo-spatial-functions.md) 또는 [`search.score`](search-query-odata-search-score-function.md) 함수를 호출할 수 있습니다.
+각 절에는 정렬 기준이 있으며 선택적으로`asc` 정렬 방향(오름차순 또는 `desc` 내림차순)이 뒤따릅니다. 방향을 지정하지 않으면 기본값은 오름차순입니다. 정렬 조건은 `sortable` 필드의 경로이거나 또는 함수에 대한 [`geo.distance`](search-query-odata-geo-spatial-functions.md) 호출일 [`search.score`](search-query-odata-search-score-function.md) 수 있습니다.
 
-여러 문서에 동일한 정렬 기준이 있고 `search.score` 함수를 사용 하지 않는 경우 (예: 숫자 `Rating` 필드를 기준으로 정렬 하는 경우와 4 개의 문서 등급을 모두 4로 정렬 하는 경우) 타이는 문서 점수를 기준으로 내림차순으로 나뉩니다. 문서 점수가 동일한 경우 (예: 요청에 전체 텍스트 검색 쿼리가 지정 되지 않은 경우) 연결 된 문서의 상대 순서는 결정 되지 않습니다.
+여러 문서에 동일한 정렬 조건이 `search.score` 있고 함수가 사용되지 않는 경우(예: 숫자 `Rating` 필드로 정렬하고 세 개의 문서가 모두 4등급인 경우) 내림차순으로 문서 점수별로 관계가 끊어집니다. 문서 점수가 같으면(예: 요청에 지정된 전체 텍스트 검색 쿼리가 없는 경우) 연결된 문서의 상대 순서가 확정되지 않습니다.
 
-여러 정렬 기준을 지정할 수 있습니다. 식의 순서는 최종 정렬 순서를 결정합니다. 예를 들어 점수를 기준으로 내림차순으로 정렬 하 고 그 다음에 등급을 정렬 하려면 구문을 `$orderby=search.score() desc,Rating desc`합니다.
+여러 정렬 기준을 지정할 수 있습니다. 식의 순서는 최종 정렬 순서를 결정합니다. 예를 들어 점수별로 내림차순을 정렬한 다음 등급 `$orderby=search.score() desc,Rating desc`다음에 구문이 됩니다.
 
-`geo.distance`$orderby**에서** 에 대한 구문은 **$filter**에 있을 때와 같습니다. `geo.distance`$orderby**에서** 를 사용하는 경우 적용되는 필드는 `Edm.GeographyPoint` 형식이어야 하고 `sortable`이어야 합니다.
+**$orderby**에서 `geo.distance`에 대한 구문은 **$filter**에 있을 때와 같습니다. **$orderby**에서 `geo.distance`를 사용하는 경우 적용되는 필드는 `Edm.GeographyPoint` 형식이어야 하고 `sortable`이어야 합니다.
 
-`search.score`$orderby**에서** 에 대한 구문은 `search.score()`입니다. `search.score` 함수는 매개 변수를 사용 하지 않습니다.
+**$orderby**에서 `search.score`에 대한 구문은 `search.score()`입니다. 함수는 `search.score` 매개 변수를 고려하지 않습니다.
 
 ## <a name="examples"></a>예
 
@@ -70,17 +70,17 @@ sortable_function ::= geo_distance_call | 'search.score()'
 
     $orderby=Rating desc,BaseRate
 
-지정 된 좌표의 거리를 기준으로 내림차순으로 호텔을 정렬 합니다.
+등급별로 내림차순 호텔을 정렬한 다음 지정된 좌표에서 거리로 오름차순으로 오름차순:
 
     $orderby=Rating desc,geo.distance(Location, geography'POINT(-122.131577 47.678581)') asc
 
-검색을 기준으로 호텔을 내림차순으로 정렬 한 다음, 지정 된 좌표의 거리를 기준으로 오름차순으로 정렬 합니다. 관련성 점수와 등급이 동일한 두 호텔 사이에 가장 가까운 것이 먼저 나열 됩니다.
+search.score 및 등급별로 내림차순으로 호텔을 정렬한 다음 지정된 좌표에서 의 거리별로 오름차순으로 호텔을 정렬합니다. 관련성 점수와 평점이 동일한 두 호텔 간에 가장 가까운 호텔이 먼저 나열됩니다.
 
     $orderby=search.score() desc,Rating desc,geo.distance(Location, geography'POINT(-122.131577 47.678581)') asc
 
 ## <a name="next-steps"></a>다음 단계  
 
-- [Azure Cognitive Search에서 검색 결과를 사용 하는 방법](search-pagination-page-layout.md)
-- [Azure Cognitive Search에 대 한 OData 식 언어 개요](query-odata-filter-orderby-syntax.md)
-- [Azure Cognitive Search에 대 한 OData 식 구문 참조](search-query-odata-syntax-reference.md)
-- [문서 &#40;검색 Azure Cognitive Search REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Azure 인지 검색에서 검색 결과 작업 하는 방법](search-pagination-page-layout.md)
+- [Azure 인지 검색에 대한 OData 식 언어 개요](query-odata-filter-orderby-syntax.md)
+- [Azure 인지 검색에 대 한 OData 식 구문 참조](search-query-odata-syntax-reference.md)
+- [Azure 인지 검색 REST API&#41;&#40;문서 검색](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)

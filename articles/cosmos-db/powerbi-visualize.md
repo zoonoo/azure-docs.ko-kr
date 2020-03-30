@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: sngun
 ms.openlocfilehash: 1dbdd428a54ebf38c7b880bb9530935c0f748226
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69616820"
 ---
 # <a name="visualize-azure-cosmos-db-data-by-using-the-power-bi-connector"></a>Power BI 커넥터를 사용하여 Azure Cosmos DB 데이터 시각화
@@ -25,28 +25,28 @@ ms.locfileid: "69616820"
 > [!NOTE]
 > Azure Cosmos DB와 Power BI 커넥터 연결은 현재 Azure Cosmos DB SQL API 및 Gremlin API 계정에서만 지원됩니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 이 Power BI 자습서의 지침을 따르기 전에 다음 리소스에 액세스할 수 있는지 확인하세요.
 
 * [최신 버전의 Power BI Desktop 다운로드](https://powerbi.microsoft.com/desktop).
 
 * GitHub에서 [샘플 화산 데이터](https://github.com/Azure-Samples/azure-cosmos-db-sample-data/blob/master/SampleData/VolcanoData.json)를 다운로드합니다.
 
-* [Azure Cosmos 데이터베이스 계정을 만들고](https://azure.microsoft.com/documentation/articles/create-account/) [Azure Cosmos DB 데이터 마이그레이션 도구](import-data.md)를 사용 하 여 화산 데이터를 가져옵니다. 데이터를 가져올 때 데이터 마이그레이션 도구의 원본 및 대상에 대한 다음 설정을 고려합니다.
+* [Azure Cosmos DB 데이터](https://azure.microsoft.com/documentation/articles/create-account/) 마이그레이션 도구를 사용하여 Azure [Cosmos](import-data.md)데이터베이스 계정을 만들고 화산 데이터를 가져옵니다. 데이터를 가져올 때 데이터 마이그레이션 도구의 원본 및 대상에 대한 다음 설정을 고려합니다.
 
    * **원본 매개 변수** 
 
-       * **가져올 위치:** : JSON 파일
+       * **다음에서 가져오기:** JSON 파일(들)
 
    * **대상 매개 변수** 
 
-      * **연결 문자열:** `AccountEndpoint=<Your_account_endpoint>;AccountKey=<Your_primary_or_secondary_key>;Database= <Your_database_name>` 
+      * **연결 문자열:**`AccountEndpoint=<Your_account_endpoint>;AccountKey=<Your_primary_or_secondary_key>;Database= <Your_database_name>` 
 
       * **파티션 키:** /Country 
 
-      * **컬렉션 처리량:** 1000 
+      * **수집 처리량:** 1000 
 
-PowerBI.com에서 보고서를 공유하려면 PowerBI.com에 계정이 있어야 합니다.  Power BI 및 Power BI Pro에 대한 자세한 내용은 [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing)을 참조하세요.
+PowerBI.com에서 보고서를 공유하려면 PowerBI.com에 계정이 있어야 합니다.  Power BI 및 Power BI Pro에 [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing)대한 자세한 내용은 을 참조하십시오.
 
 ## <a name="lets-get-started"></a>이제 시작하겠습니다.
 이 자습서에서는 전세계 화산을 연구하는 지질학자라고 보겠습니다. 화산 데이터는 Azure Cosmos DB 계정에 저장되며, JSON 문서 형식은 다음과 같습니다.
@@ -72,7 +72,7 @@ Azure Cosmos DB 계정에서 화산 데이터를 검색하고 대화형 Power BI
 
 1. Power BI Desktop을 실행합니다.
 
-2. 시작 화면에서 직접 **데이터 가져오기**, **최근 원본** 또는 **다른 보고서 열기**를 선택할 수 있습니다. 화면을 닫으려면 오른쪽 상단 모서리의 “X”를 선택합니다. Power BI 데스크톱의 **보고서** 뷰가 표시됩니다.
+2. 시작 화면에서 직접 **데이터를 가져오고**, **최근 원본** 또는 **다른 보고서를 열 수** 있습니다. 화면을 닫으려면 오른쪽 상단 모서리의 “X”를 선택합니다. Power BI 데스크톱의 **보고서** 뷰가 표시됩니다.
    
    ![Power BI 데스크톱 보고서 보기 - Power BI 커넥터](./media/powerbi-visualize/power_bi_connector_pbireportview.png)
 
@@ -84,7 +84,7 @@ Azure Cosmos DB 계정에서 화산 데이터를 검색하고 대화형 Power BI
 
 5. **커넥터 미리 보기** 페이지에서 **계속**을 클릭합니다. **Azure Cosmos DB** 창이 나타납니다.
 
-6. 아래와 같이 데이터를 검색할 Azure Cosmos DB 계정 엔드포인트 URL을 지정한 다음, **확인**을 클릭합니다. 자신의 계정을 사용하려면 Azure Portal의 **키** 블레이드에 있는 URI 상자에서 URL을 검색할 수 있습니다. 필요에 따라 데이터베이스 이름, 컬렉션 이름을 제공하거나 탐색기를 사용하여 데이터를 가져오는 위치를 식별하는 데이터베이스 및 컬렉션을 선택할 수도 있습니다.
+6. 아래와 같이 데이터를 검색할 Azure Cosmos DB 계정 엔드포인트 URL을 지정한 다음, **확인**을 클릭합니다. 자신의 계정을 사용하려는 경우 Azure Portal의 **키** 블레이드에 있는 URI 상자에서 URL을 검색할 수 있습니다. 필요에 따라 데이터베이스 이름, 컬렉션 이름을 제공하거나 탐색기를 사용하여 데이터를 가져오는 위치를 식별하는 데이터베이스 및 컬렉션을 선택할 수도 있습니다.
    
 7. 처음으로 이 엔드포인트에 연결하는 경우 계정 키를 입력하라는 메시지가 표시됩니다. 자신의 계정을 사용하는 경우 Azure Portal의 **읽기 전용 키** 블레이드에 있는 **기본 키** 상자에서 키를 검색합니다. 적절한 키를 입력하고 **연결**을 클릭합니다.
    
@@ -96,7 +96,7 @@ Azure Cosmos DB 계정에서 화산 데이터를 검색하고 대화형 Power BI
 
 10. 이제 검색할 데이터포를 함하는 컬렉션을 선택하고 **volcano1**(컬렉션 이름은 다를 수 있음)을 선택합니다.
     
-    미리 보기 창에는 **Record** 항목의 목록이 표시됩니다.  문서는 Power BI에서 **Record** 형식으로 나타납니다. 마찬가지로, 문서 내의 중첩된 JSON 블록도 **Record**입니다.
+    미리 보기 창에는 **레코드** 항목의 목록이 표시됩니다.  문서는 Power BI에서 **레코드** 형식으로 나타납니다. 마찬가지로, 문서 내의 중첩된 JSON 블록도 **레코드**입니다.
     
     ![Azure Cosmos DB Power BI Connector에 대한 Power BI 자습서 - 탐색기 창](./media/powerbi-visualize/power_bi_connector_pbinavigator.png)
 12. **편집**을 클릭하여 새 창에서 쿼리 편집기를 시작해 데이터를 변환합니다.
@@ -110,11 +110,11 @@ Azure Cosmos DB 계정에서 화산 데이터를 검색하고 대화형 Power BI
 3. 가운데 창에는 선택한 필드와 함께 결과의 미리 보기가 표시됩니다.
    
     ![Azure Cosmos DB Power BI Connector에 대한 Power BI 자습서 - 결과 평면화](./media/powerbi-visualize/power_bi_connector_pbiresultflatten.png)
-4. 이 예제에서 위치 속성은 문서의 GeoJSON 블록입니다.  보이는 것처럼 위치는 Power BI 데스크톱에서 **Record** 형식으로 나타납니다.  
+4. 이 예제에서 위치 속성은 문서의 GeoJSON 블록입니다.  보이는 것처럼 위치는 Power BI 데스크톱에서 **레코드** 형식으로 나타납니다.  
 5. Document.Location 열 헤더의 오른쪽에 있는 확장 아이콘을 클릭합니다.  유형 및 좌표 필드가 있는 상황에 맞는 메뉴가 표시됩니다.  좌표 필드를 선택하고, **원래 열 이름을 접두사로 사용**의 선택을 취소하고, **확인**을 클릭합니다.
    
     ![Azure Cosmos DB Power BI Connector에 대한 Power BI 자습서 - 위치 레코드](./media/powerbi-visualize/power_bi_connector_pbilocationrecord.png)
-6. 이제 가운데 창에는 **List** 유형의 좌표 열이 표시됩니다.  자습서의 시작 부분에서 본 것처럼 이 자습서의 GeoJSON 데이터는 지점 유형으로, 위도와 경도 값이 좌표 배열에 기록됩니다.
+6. 이제 가운데 창에는 **목록** 유형의 좌표 열이 표시됩니다.  자습서의 시작 부분에서 본 것처럼 이 자습서의 GeoJSON 데이터는 지점 유형으로, 위도와 경도 값이 좌표 배열에 기록됩니다.
    
     좌표 [0] 요소는 경도를, 좌표 [1]은 위도를 나타냅니다.
     ![Azure Cosmos DB Power BI Connector에 대한 Power BI 자습서 - 좌표 목록](./media/powerbi-visualize/power_bi_connector_pbiresultflattenlist.png)
@@ -122,7 +122,7 @@ Azure Cosmos DB 계정에서 화산 데이터를 검색하고 대화형 Power BI
 8. LatLong 등, 새 열에 대한 이름을 입력합니다.
 9. 다음으로 새 열에 사용자 지정 수식을 지정합니다.  이 예에서는 `Text.From([coordinates]{1})&","&Text.From([coordinates]{0})`수식을 사용하여 쉼표로 구분하여 위도와 경도 값을 연결합니다. **확인**을 클릭합니다.
    
-    DAX 함수를 포함하여 DAX(Data Analysis Expressions)에 대한 자세한 내용은 [Power BI Desktop의 DAX 기본 사항](https://docs.microsoft.com/power-bi/desktop-quickstart-learn-dax-basics)을 확인합니다.
+    DAX 기능을 포함한 DAX(데이터 분석 표현식)에 대한 자세한 내용은 [Power BI 데스크톱의 DAX 기본](https://docs.microsoft.com/power-bi/desktop-quickstart-learn-dax-basics)사항을 참조하십시오.
    
     ![Azure Cosmos DB Power BI Connector에 대한 Power BI 자습서 - 사용자 지정 열 추가](./media/powerbi-visualize/power_bi_connector_pbicustomlatlong.png)
 
@@ -136,7 +136,7 @@ Azure Cosmos DB 계정에서 화산 데이터를 검색하고 대화형 Power BI
     
     단계가 다른 경우 추가 단계를 삭제하고 사용자 지정 열을 다시 추가해 보십시오. 
 
-11. **닫기 및 적용**을 클릭하여 데이터 모델을 저장합니다.
+11. **닫고 적용** 을 클릭하여 데이터 모델을 저장합니다.
     
     ![Azure Cosmos DB Power BI Connector에 대한 Power BI 자습서 - 닫기 및 적용](./media/powerbi-visualize/power_bi_connector_pbicloseapply.png)
 

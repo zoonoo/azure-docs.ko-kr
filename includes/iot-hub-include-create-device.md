@@ -9,27 +9,27 @@ ms.date: 11/06/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 7b022f71e197c5695876f2049ee376c3616afc6d
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "70049056"
 ---
 <!-- put the ## header in the file that includes this file -->
 
-이 섹션에서는 IoT 허브의 ID 레지스트리에 디바이스 ID를 만듭니다. Id 레지스트리에 항목이 없는 경우 장치를 허브에 연결할 수 없습니다. 자세한 내용은 [IoT Hub 개발자 가이드](../articles/iot-hub/iot-hub-devguide-identity-registry.md#identity-registry-operations)를 참조 하세요.
+이 섹션에서는 IoT 허브의 ID 레지스트리에 디바이스 ID를 만듭니다. 장치는 ID 레지스트리에 항목이 없으면 허브에 연결할 수 없습니다. 자세한 내용은 [IoT Hub 개발자 가이드를](../articles/iot-hub/iot-hub-devguide-identity-registry.md#identity-registry-operations)참조하십시오.
 
-1. Iot hub 탐색 메뉴에서 **Iot 장치**를 열고 **새로 만들기** 를 선택 하 여 iot hub에 장치를 추가 합니다.
+1. IoT 허브 탐색 메뉴에서 **IoT 장치를**연 다음 **새로를** 선택하여 IoT 허브에 장치를 추가합니다.
 
     ![포털에서 디바이스 ID 만들기](./media/iot-hub-include-create-device/create-identity-portal-vs2019.png)
 
-1. **장치 만들기**에서 **mydeviceid**와 같은 새 장치의 이름을 입력 하 고 **저장**을 선택 합니다. 이 작업은 IoT hub에 대 한 장치 id를 만듭니다.
+1. **장치 만들기에서** **myDeviceId**와 같은 새 장치의 이름을 제공하고 **저장을**선택합니다. 이 작업은 IoT 허브에 대한 장치 ID를 만듭니다.
 
    ![새 디바이스 추가](./media/iot-hub-include-create-device/create-a-device-vs2019.png)
 
    [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
-1. 디바이스가 만들어진 후 **IoT 디바이스** 창의 목록에서 디바이스를 엽니다. 나중에 사용할 **기본 연결 문자열** 을 복사 합니다.
+1. 디바이스가 만들어진 후 **IoT 디바이스** 창의 목록에서 디바이스를 엽니다. 나중에 사용할 **기본 연결 문자열을** 복사합니다.
 
     ![디바이스 연결 문자열](./media/iot-hub-include-create-device/device-details-vs2019.png)
 

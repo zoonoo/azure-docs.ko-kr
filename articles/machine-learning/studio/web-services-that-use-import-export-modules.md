@@ -13,13 +13,13 @@ ms.subservice: studio
 ms.topic: conceptual
 ms.date: 03/28/2017
 ms.openlocfilehash: 144a3bc0d9e0499a238e4033d37d5e4d3fa61e05
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79204064"
 ---
-# <a name="deploy-azure-machine-learning-studio-classic-web-services-that-use-data-import-and-data-export-modules"></a>데이터 가져오기 및 데이터 내보내기 모듈을 사용 하는 Azure Machine Learning Studio (클래식) 웹 서비스 배포
+# <a name="deploy-azure-machine-learning-studio-classic-web-services-that-use-data-import-and-data-export-modules"></a>데이터 가져오기 및 데이터 내보내기 모듈을 사용하는 Azure 기계 학습 스튜디오(클래식) 웹 서비스 배포
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
@@ -61,7 +61,7 @@ Azure SQL 테이블에서 데이터를 읽으려면
         [native-country],
         [income]
      from dbo.censusdata;
-8. 실험 캔버스 맨 아래에서 **실행**을 클릭합니다.
+8. 실험 캔버스 하단에서 **실행**을 클릭합니다.
 
 ## <a name="create-the-predictive-experiment"></a>예측 실험 만들기
 다음에는 웹 서비스를 배포할 예측 실험을 설정합니다.
@@ -77,7 +77,7 @@ Azure SQL 테이블에서 데이터를 읽으려면
 9. **데이터 테이블 이름 필드**에 dbo.ScoredLabels를 입력합니다. 이 테이블이 없으면 실험을 실행하거나 웹 서비스를 호출할 때 만들어집니다.
 10. **쉼표로 구분된 데이터베이스 열 목록** 필드에 점수가 매겨진 레이블을 입력합니다.
 
-최종 웹 서비스를 호출하는 애플리케이션을 작성하는 경우 런타임에 다른 입력 쿼리 또는 대상 테이블을 지정할 수 있습니다. 이러한 입력 및 출력을 구성하려면 웹 서비스 매개 변수 기능을 사용하여 *데이터 가져오기* 모듈 *데이터 원본* 속성 및 *데이터 내보내기* 모드 데이터 대상 속성을 설정합니다.  웹 서비스 매개 변수에 대 한 자세한 내용은 Cortana Intelligence 및 Machine Learning 블로그의 [Azure Machine Learning Studio 웹 서비스 매개 변수 항목](https://blogs.technet.microsoft.com/machinelearning/2014/11/25/azureml-web-service-parameters/) 을 참조 하세요.
+최종 웹 서비스를 호출하는 애플리케이션을 작성하는 경우 런타임에 다른 입력 쿼리 또는 대상 테이블을 지정할 수 있습니다. 이러한 입력 및 출력을 구성하려면 웹 서비스 매개 변수 기능을 사용하여 *데이터 가져오기* 모듈 *데이터 원본* 속성 및 *데이터 내보내기* 모드 데이터 대상 속성을 설정합니다.  웹 서비스 매개 변수에 대한 자세한 내용은 Cortana 인텔리전스 및 기계 학습 블로그의 [Azure 기계 학습 스튜디오 웹 서비스 매개 변수 항목을](https://blogs.technet.microsoft.com/machinelearning/2014/11/25/azureml-web-service-parameters/) 참조하십시오.
 
 가져오기 쿼리 및 대상 테이블에 대한 웹 서비스 매개 변수를 구성하려면
 
@@ -102,9 +102,9 @@ Azure SQL 테이블에서 데이터를 읽으려면
 2. 실행이 완료되면 **웹 서비스 배포**를 클릭하고 **웹 서비스 배포[클래식]** 를 선택합니다.
 3. 웹 서비스 대시보드에서 API 키를 찾습니다. 나중에 사용할 수 있게 복사한 다음 저장합니다.
 4. **기본 엔드포인트** 테이블에서 **Batch 실행** 링크를 클릭하여 API 도움말 페이지를 엽니다.
-5. Visual Studio(**새로 만들기** > **프로젝트** > **Visual C#**  > **Windows 클래식 바탕 화면** > **콘솔 앱(.NET Framework)** )에서 C# 콘솔 애플리케이션을 만듭니다.
+5. Visual Studio에서 C# 콘솔 응용 프로그램 만들기: **새** > **프로젝트** > **Visual C#** > **Windows 클래식 데스크톱** > **콘솔 앱(.NET Framework).**
 6. API 도움말 페이지 맨 아래에서 **샘플 코드** 섹션을 찾습니다.
-7. {1}를 스토리지 계정의 이름으로 바꾸고 {2}을 File Storage 공유의 이름으로 바꿉니다.
+7. 를 스토리지 계정의 이름으로 바꾸고 을 File Storage 공유의 이름으로 바꿉니다.
 8. *apiKey* 변수의 값을 이전에 저장된 API 키로 업데이트합니다.
 9. 요청 선언을 찾고 *데이터 가져오기* 및 *데이터 내보내기* 모듈에 전달되는 웹 서비스 매개 변수 값을 업데이트합니다. 이 경우 원래 쿼리를 사용하지만 새 테이블 이름을 정의합니다.
 
@@ -122,16 +122,16 @@ Azure SQL 테이블에서 데이터를 읽으려면
 ### <a name="deploy-a-new-web-service"></a>새 웹 서비스 배포
 
 > [!NOTE]
-> 새 웹 서비스를 배포하려면 웹 서비스를 배포하려는 구독에 충분한 권한이 있어야 합니다. 자세한 내용은 [Azure Machine Learning 웹 서비스 포털에서 웹 서비스 관리](manage-new-webservice.md)를 참조하세요.
+> 새 웹 서비스를 배포하려면 웹 서비스를 배포하려는 구독에 충분한 권한이 있어야 합니다. 자세한 내용은 [Azure 기계 학습 웹 서비스 포털을 사용하여 웹 서비스 관리를](manage-new-webservice.md)참조하십시오.
 
 새 웹 서비스로 배포하고 해당 서비스를 사용하기 위한 애플리케이션을 만들려면
 
-1. 실험 캔버스 맨 아래에서 **실행**을 클릭합니다.
+1. 실험 캔버스 하단에서 **실행**을 클릭합니다.
 2. 실행이 완료되면 **웹 서비스 배포**를 클릭하고 **웹 서비스 배포[신규]** 를 선택합니다.
 3. 실험 배포 페이지에서 웹 서비스의 이름을 입력하고 가격 책정 계획을 선택한 후 **배포**를 클릭합니다.
 4. **빠른 시작** 페이지에서 **사용**을 클릭합니다.
 5. **샘플 코드** 섹션에서 **Batch**를 클릭합니다.
-6. Visual Studio(**새로 만들기** > **프로젝트** > **Visual C#**  > **Windows 클래식 바탕 화면** > **콘솔 앱(.NET Framework)** )에서 C# 콘솔 애플리케이션을 만듭니다.
+6. Visual Studio에서 C# 콘솔 응용 프로그램 만들기: **새** > **프로젝트** > **Visual C#** > **Windows 클래식 데스크톱** > **콘솔 앱(.NET Framework).**
 7. C# 샘플 코드를 복사하고 Program.cs 파일에 붙여 넣습니다.
 8. *apiKey* 변수 값을 **기본 사용량 정보** 섹션에 있는 **기본 키**로 업데이트합니다.
 9. *scoreRequest* 선언을 찾고 *데이터 가져오기* 및 *데이터 내보내기* 모듈에 전달되는 웹 서비스 매개 변수 값을 업데이트합니다. 이 경우 원래 쿼리를 사용하지만 새 테이블 이름을 정의합니다.

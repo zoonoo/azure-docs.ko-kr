@@ -1,6 +1,6 @@
 ---
 title: Azure Data Lake Analytics에서 R로 U-SQL 스크립트 확장
-description: Azure Data Lake Analytics를 사용 하 여 U SQL 스크립트에서 R 코드를 실행 하는 방법을 알아봅니다. 파일에서 R 코드 인라인 또는 참조를 포함 합니다.
+description: Azure Data Lake 분석을 사용하여 U-SQL 스크립트에서 R 코드를 실행하는 방법을 알아봅니다. R 코드를 인라인또는 파일에서 참조합니다.
 services: data-lake-analytics
 ms.service: data-lake-analytics
 author: saveenr
@@ -10,19 +10,19 @@ ms.assetid: c1c74e5e-3e4a-41ab-9e3f-e9085da1d315
 ms.topic: conceptual
 ms.date: 06/20/2017
 ms.openlocfilehash: c5dd3f493e85afc925b639c142a293eed1e8cbd7
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71672690"
 ---
 # <a name="extend-u-sql-scripts-with-r-code-in-azure-data-lake-analytics"></a>Azure Data Lake Analytics에서 R 코드로 U-SQL 스크립트 확장
 
 다음 예제에서는 R 코드를 배포하는 기본 단계를 보여 줍니다.
 * `REFERENCE ASSEMBLY` 문을 사용하여 U-SQL 스크립트에 대한 R 확장을 사용하도록 설정합니다.
-* @No__t-0 연산을 사용 하 여 키의 입력 데이터를 분할 합니다.
+* 키의 `REDUCE` 입력 데이터를 분할하려면 작업을 사용합니다.
 * U-SQL용 R 확장에는 리듀서에 할당된 각 꼭짓점에서 R 코드를 실행하는 기본 제공 리듀서(`Extension.R.Reducer`)가 포함됩니다. 
-* @No__t-0 및 `outputToUSQL` 이라는 전용 명명 된 데이터 프레임을 사용 하 여 데이터 프레임와 R 간에 데이터를 전달 합니다. 입력 및 출력 데이터 프레임 식별자 이름은 고정 되어 있습니다. 즉, 사용자는 입력 및 출력 식별자의 미리 정의 된 이름을 변경할 수 없습니다.
+* U-SQL과 R. `inputFromUSQL` `outputToUSQL` 입력 및 출력 DataFrame 식별자 이름 간에 데이터를 전달하기 위해 각각 호출된 전용 명명된 데이터 프레임의 사용이 고정됩니다(즉, 사용자는 이러한 미리 정의된 입력 및 출력 DataFrame 식별자의 이름을 변경할 수 없음).
 
 ## <a name="embedding-r-code-in-the-u-sql-script"></a>U-SQL 스크립트에 R 코드 포함
 
@@ -162,7 +162,7 @@ R 3.2.2만 지원됩니다.
 ### <a name="input-and-output-size-limitations"></a>입력 및 출력 크기 제한
 모든 정점에는 할당되는 메모리 양이 제한되어 있습니다. 입력 및 출력 DataFrames는 R 코드의 메모리에 있어야 하므로 입력 및 출력의 총 크기는 500MB를 초과할 수 없습니다.
 
-### <a name="sample-code"></a>예제 코드
+### <a name="sample-code"></a>샘플 코드
 U-SQL Advanced Analytics 확장을 설치하면 더 많은 샘플 코드가 Data Lake Store 계정에 제공됩니다. 더 많은 샘플 코드에 대한 경로는 `<your_account_address>/usqlext/samples/R`입니다. 
 
 ## <a name="deploying-custom-r-modules-with-u-sql"></a>U-SQL을 사용한 사용자 지정 R 모듈 배포
@@ -207,6 +207,6 @@ U-SQL Advanced Analytics 확장을 설치하면 더 많은 샘플 코드가 Data
     OUTPUT @RScriptOutput TO @OutputFileModelSummary USING Outputters.Tsv();
 
 ## <a name="next-steps"></a>다음 단계
-* [Microsoft Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)
+* [Microsoft Azure Data Lake Analytics 개요](data-lake-analytics-overview.md)
 * [Visual Studio용 데이터 레이크 도구를 사용하여 U-SQL 스크립트 개발](data-lake-analytics-data-lake-tools-get-started.md)
 * [Azure 데이터 레이크 분석 작업에 U-SQL 창 함수 사용](data-lake-analytics-use-window-functions.md)

@@ -1,7 +1,7 @@
 ---
-title: '예: AdventureWorks Inventory 데이터베이스 모델링'
+title: '예: 어드벤처웍스 인벤토리 데이터베이스 모델링'
 titleSuffix: Azure Cognitive Search
-description: Azure Cognitive Search에서 인덱싱 및 전체 텍스트 검색을 위해 관계형 데이터를 모델링 하 고 평면화 된 데이터 집합으로 변환 하는 방법에 대해 알아봅니다.
+description: Azure Cognitive Search에서 인덱싱 및 전체 텍스트 검색을 위해 관계형 데이터를 병합하여 병합된 데이터 집합으로 변환하는 방법을 알아봅니다.
 author: HeidiSteen
 manager: nitinme
 ms.service: cognitive-search
@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: heidist
 ms.openlocfilehash: edb6162724938962df8a7340afea6e930a0b1049
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72793002"
 ---
-# <a name="example-model-the-adventureworks-inventory-database-for-azure-cognitive-search"></a>예: Azure Cognitive Search에 대 한 AdventureWorks 인벤토리 데이터베이스 모델링
+# <a name="example-model-the-adventureworks-inventory-database-for-azure-cognitive-search"></a>예: Azure 인지 검색을 위한 AdventureWorks 인벤토리 데이터베이스 모델링
 
-Azure Cognitive Search는 일반 행 집합을 [인덱싱 (데이터 수집) 파이프라인](search-what-is-an-index.md)에 대 한 입력으로 받아들입니다. 원본 데이터가 SQL Server 관계형 데이터베이스에서 시작 된 경우이 문서에서는 AdventureWorks 예제 데이터베이스를 예로 사용 하 여 인덱싱 전에 일반 행 집합을 만드는 한 가지 방법을 보여 줍니다.
+Azure Cognitive Search는 병합된 행 집합을 [인덱싱(데이터 수집) 파이프라인에](search-what-is-an-index.md)대한 입력으로 허용합니다. 원본 데이터가 SQL Server 관계형 데이터베이스에서 시작된 경우 이 문서에서는 AdventureWorks 샘플 데이터베이스를 예로 사용하여 인덱싱 전에 병합된 행 집합을 만드는 한 가지 방법을 보여 줍니다.
 
 ## <a name="about-adventureworks"></a>AdventureWorks 정보
 
-SQL Server 인스턴스를 사용 하는 경우 [AdventureWorks 예제 데이터베이스](https://docs.microsoft.com/sql/samples/adventureworks-install-configure?view=sql-server-2017)에 대해 잘 알고 있을 수 있습니다. 이 데이터베이스에는 제품 정보를 공개하는 5개 테이블이 포함되어 있습니다.
+SQL Server 인스턴스가 있는 경우 [AdventureWorks 샘플 데이터베이스에](https://docs.microsoft.com/sql/samples/adventureworks-install-configure?view=sql-server-2017)익숙할 수 있습니다. 이 데이터베이스에는 제품 정보를 공개하는 5개 테이블이 포함되어 있습니다.
 
 + **ProductModel**: 이름
 + **Product**: 이름, 색, 비용, 크기, 무게, 이미지, 범주(각 행은 특정 ProductModel에 조인)
@@ -29,7 +29,7 @@ SQL Server 인스턴스를 사용 하는 경우 [AdventureWorks 예제 데이터
 + **ProductModelProductDescription**: 로캘(각 행은 ProductModel을 특정 언어의 특정 ProductDescription에 조인)
 + **ProductCategory**: 이름, 부모 범주
 
-이 예의 목표는이 모든 데이터를 검색 인덱스에 수집 수 있는 일반 행 집합으로 결합 하는 것입니다. 
+이 모든 데이터를 검색 인덱스로 수집할 수 있는 병합된 행 집합으로 결합하는 것이 이 예제의 목표입니다. 
 
 ## <a name="considering-our-options"></a>옵션 고려
 
@@ -43,13 +43,13 @@ Road-650 모델은 12가지 옵션이 있습니다. 일대다 엔터티 행을 �
 
 ## <a name="use-a-collection-data-type"></a>컬렉션 데이터 형식 사용
 
-"올바른 방법"은 데이터베이스 모델에서 직접 병렬을 사용 하지 않는 검색 스키마 기능을 활용 하는 것입니다. **Collection (Edm. String)** . 이 구문은 Azure Cognitive Search 인덱스 스키마에 정의 되어 있습니다. 컬렉션 데이터 형식은 매우 긴 (단일) 문자열이 아닌 개별 문자열의 목록을 나타내야 할 때 사용 됩니다. 태그 또는 키워드가 있는 경우 이 필드에 컬렉션 데이터 형식을 사용합니다.
+"올바른 접근 방식"은 데이터베이스 모델에서 직접 병렬이 없는 검색 스키마 기능을 활용하는 **것입니다.** 이 구문은 Azure 인지 검색 인덱스 스키마에 정의되어 있습니다. 컬렉션 데이터 형식은 매우 긴(단일) 문자열이 아닌 개별 문자열 목록을 나타내야 할 때 사용됩니다. 태그 또는 키워드가 있는 경우 이 필드에 컬렉션 데이터 형식을 사용합니다.
 
 "색", "크기", "이미지"에 대한 **Collection(Edm.String)** 의 다중 값 인덱스 필드를 정의하면 중복 항목으로 인덱스를 오염시키지 않고 패싯 및 필터링을 위한 보조 정보가 보존됩니다. 마찬가지로, 숫자 Product 필드에 집계 함수를 적용하고, 모든 단일 제품 **listPrice** 대신 **minListPrice**를 인덱싱합니다.
 
 이러한 구조를 사용하는 인덱스를 고려할 때 "산악 자전거"를 검색하면 개별 자전거 모델이 표시되고 색, 크기, 최저 가격 등의 중요한 메타데이터가 유지됩니다. 다음 스크린샷은 일러스트레이션을 제공합니다.
 
-  ![산지 자전거 검색 예제](./media/search-example-adventureworks/mountain-bikes-visual.png "산지 자전거 검색 예제")
+  ![산악 자전거 검색 예](./media/search-example-adventureworks/mountain-bikes-visual.png "산악 자전거 검색 예")
 
 ## <a name="use-script-for-data-manipulation"></a>데이터 조작에 스크립트 사용
 
@@ -163,4 +163,4 @@ WHERE
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [예: Azure Cognitive Search의 다중 수준 패싯 분류](search-example-adventureworks-multilevel-faceting.md)
+> [예: Azure 인지 검색의 다단계 면 분류](search-example-adventureworks-multilevel-faceting.md)

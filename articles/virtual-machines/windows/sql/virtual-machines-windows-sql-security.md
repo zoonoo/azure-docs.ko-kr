@@ -16,10 +16,10 @@ ms.date: 03/23/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: f5ea0ddff38532b119d8d984f2dabd6d898b44a5
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77031359"
 ---
 # <a name="security-considerations-for-sql-server-in-azure-virtual-machines"></a>Azure Virtual Machines의 SQL Server에 대한 보안 고려 사항
@@ -41,7 +41,7 @@ SQL Server 가상 컴퓨터를 만들 때는 컴퓨터 및 SQL Server에 대한 
 
 ## <a name="secure-connections"></a>보안 연결
 
-갤러리 이미지를 사용하여 SQL Server 가상 머신을 만들 때 **SQL Server 연결** 옵션은 **로컬(VM 내부)** , **프라이빗(Virtual Network 내)** 또는 **공용(인터넷)** 중에서 선택할 수 있게 해줍니다.
+갤러리 이미지를 사용하여 SQL Server 가상 머신을 만들 때 **SQL Server 연결** 옵션은 **로컬(VM 내부)**, **프라이빗(Virtual Network 내)** 또는 **공용(인터넷)** 중에서 선택할 수 있게 해줍니다.
 
 ![SQL Server 연결](./media/virtual-machines-windows-sql-security/sql-vm-connectivity-option.png)
 
@@ -59,7 +59,7 @@ SQL Server 가상 컴퓨터를 만들 때는 컴퓨터 및 SQL Server에 대한 
 
 ## <a name="encryption"></a>암호화
 
-관리 디스크는 서버 쪽 암호화 및 Azure Disk Encryption을 제공 합니다. [서버 쪽 암호화](/azure/virtual-machines/windows/disk-encryption) 는 미사용 암호화를 제공 하 고 조직의 보안 및 규정 준수 약정에 맞게 데이터를 보호 합니다. [Azure Disk Encryption](/azure/security/fundamentals/azure-disk-encryption-vms-vmss) 는 BITLOCKER 또는 DM-자리를 사용 하는 기술을 사용 하 고 Azure Key Vault와 통합 하 여 OS 및 데이터 디스크를 모두 암호화 합니다. 
+관리되는 디스크는 서버 측 암호화 및 Azure 디스크 암호화를 제공합니다. [서버 측 암호화는](/azure/virtual-machines/windows/disk-encryption) 미사용 암호화를 제공하고 조직의 보안 및 규정 준수 약정을 충족하기 위해 데이터를 보호합니다. [Azure 디스크 암호화는](/azure/security/fundamentals/azure-disk-encryption-vms-vmss) Bitlocker 또는 DM-Crypt 기술을 사용하며 Azure 키 볼트와 통합하여 OS 및 데이터 디스크를 모두 암호화합니다. 
 
 ## <a name="use-a-non-default-port"></a>기본 포트가 아닌 포트 사용
 
@@ -69,7 +69,7 @@ SQL Server 가상 컴퓨터를 만들 때는 컴퓨터 및 SQL Server에 대한 
 
 프로비전한 후 이를 구성할 때 다음과 같은 두 가지 옵션이 있습니다.
 
-- 리소스 관리자 Vm의 경우 [SQL 가상 머신 리소스](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource)에서 **보안** 을 선택할 수 있습니다. 그러면 포트를 변경하는 옵션이 제공됩니다.
+- 리소스 관리자 VM의 경우 SQL [가상 시스템 리소스에서](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource) **보안을** 선택할 수 있습니다. 그러면 포트를 변경하는 옵션이 제공됩니다.
 
   ![포털에서 TCP 포트 변경](./media/virtual-machines-windows-sql-security/sql-vm-change-tcp-port.png)
 
@@ -93,17 +93,17 @@ SQL Server가 기본 포트가 아닌 포트에서 수신 대기하는 경우 �
   - **sysadmin** 멤버 자격이 있는 고유한 이름을 가진 SQL 계정을 만듭니다. 포털에서 프로비전하는 동안 **SQL 인증**을 사용하도록 설정하여 이렇게 할 수 있습니다.
 
     > [!TIP] 
-    > 프로비전하는 동안 SQL 인증을 사용하도록 설정하지 않으면 인증 모드를 수동으로 **SQL Server 및 Windows 인증 모드**로 변경해야 합니다. 자세한 내용은 [서버 인증 모드 변경](https://docs.microsoft.com/sql/database-engine/configure-windows/change-server-authentication-mode)을 참조하세요.
+    > 프로비전하는 동안 SQL 인증을 사용하도록 설정하지 않으면 인증 모드를 수동으로 **SQL Server 및 Windows 인증 모드**로 변경해야 합니다. 자세한 내용은 [서버 인증 모드 변경을](https://docs.microsoft.com/sql/database-engine/configure-windows/change-server-authentication-mode)참조하십시오.
 
   - **SA** 로그인을 사용해야 하는 경우 프로비전한 후 로그인을 사용하도록 설정하고 새로운 강력한 암호를 할당합니다.
 
 ## <a name="additional-best-practices"></a>추가 모범 사례
 
-이 항목에서 설명 하는 방법 외에도 기존 온-프레미스 보안 방법 및 가상 컴퓨터 보안 모범 사례에서 보안 모범 사례를 검토 하 고 구현 하는 것이 좋습니다. 
+이 항목에서 설명하는 방법 외에도 기존의 온-프레미스 보안 관행과 가상 시스템 보안 모범 사례의 보안 모범 사례를 검토하고 구현하는 것이 좋습니다. 
 
-온-프레미스 보안 방법에 대 한 자세한 내용은 SQL Server 설치 및 [보안 센터](/sql/relational-databases/security/security-center-for-sql-server-database-engine-and-azure-sql-database) [의 보안 고려 사항](/sql/sql-server/install/security-considerations-for-a-sql-server-installation) 을 참조 하세요. 
+온-프레미스 보안 방법에 대한 자세한 내용은 SQL Server 설치 및 [보안 센터에](/sql/relational-databases/security/security-center-for-sql-server-database-engine-and-azure-sql-database) [대한 보안 고려 사항을](/sql/sql-server/install/security-considerations-for-a-sql-server-installation) 참조하십시오. 
 
-가상 컴퓨터 보안에 대 한 자세한 내용은 [virtual machines 보안 개요](/azure/security/fundamentals/virtual-machines-overview)를 참조 하세요.
+가상 시스템 보안에 대한 자세한 내용은 [가상 시스템 보안 개요를](/azure/security/fundamentals/virtual-machines-overview)참조하십시오.
 
 
 ## <a name="next-steps"></a>다음 단계

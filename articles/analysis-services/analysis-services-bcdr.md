@@ -1,6 +1,6 @@
 ---
 title: Azure Analysis Services 고가용성 | Microsoft 문서
-description: 이 문서에서는 Azure Analysis Services 서비스 중단 중에 고가용성을 제공 하는 방법을 설명 합니다.
+description: 이 문서에서는 Azure Analysis Services가 서비스 중단 중에 고가용성을 제공하는 방법을 설명합니다.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
@@ -8,10 +8,10 @@ ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 2e750dce804ea93f3d3068ffd36bc7a73a50906a
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73573353"
 ---
 # <a name="analysis-services-high-availability"></a>Analysis Services 고가용성
@@ -24,7 +24,7 @@ ms.locfileid: "73573353"
 
 * 다른 지역의 중복 서버에 모델을 배포합니다. 이 방법을 적용할 경우 모든 서버가 동기화되도록 기본 서버와 중복 서버에서 모두 병렬로 데이터를 처리해야 합니다.
 
-* 기본 서버에서 데이터베이스를 [백업](analysis-services-backup.md)하고 중복 서버에서 복원합니다. 예를 들어 야간에 Azure Storage에 백업하는 작업을 자동화하고 다른 지역의 다른 중복 서버로 복원할 수 있습니다. 
+* 주 서버에서 데이터베이스를 [백업하고](analysis-services-backup.md) 중복 서버에서 복원합니다. 예를 들어 야간에 Azure Storage에 백업하는 작업을 자동화하고 다른 지역의 다른 중복 서버로 복원할 수 있습니다. 
 
 어느 경우에나 기본 서버에서 작동 중단이 발생하면 다른 지역 데이터 센터의 서버에 연결하기 위해 보고 클라이언트에서 연결 문자열을 변경해야 합니다. 이 변경은 마지막 수단으로, 치명적인 지역 데이터 센터 작동 중단이 발생한 경우에만 고려해야 합니다. 모든 클라이언트에서 연결을 업데이트하기 전에 기본 서버를 호스트하는 데이터 센터 작동 중단 상태에서 다시 온라인 상태로 전환될 가능성이 높습니다. 
 
@@ -32,7 +32,7 @@ ms.locfileid: "73573353"
 
 ## <a name="related-information"></a>관련 정보
 
-[Backup 및 복원](analysis-services-backup.md)   
-[Azure Analysis Services 관리](analysis-services-manage.md)   
+[백업 및 복원](analysis-services-backup.md)   
+[Azure 분석 서비스 관리](analysis-services-manage.md)   
 [별칭 서버 이름](analysis-services-server-alias.md) 
 

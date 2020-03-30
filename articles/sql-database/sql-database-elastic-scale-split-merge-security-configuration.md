@@ -12,10 +12,10 @@ ms.author: vanto
 ms.reviewer: sstein
 ms.date: 12/18/2018
 ms.openlocfilehash: a916645f153f73a98e7fc5d4046bdf557e8acf2b
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73823524"
 ---
 # <a name="split-merge-security-configuration"></a>분할-병합 보안 구성
@@ -81,7 +81,7 @@ ms.locfileid: "73823524"
 2. [클라우드 서비스에 CA 인증서 업로드](#upload-ca-certificate-to-cloud-service)
 3. [서비스 구성 파일의 CA 인증서 업데이트](#update-ca-certificate-in-service-configuration-file)
 4. [클라이언트 인증서 발급](#issue-client-certificates)
-5. [클라이언트 인증서용 PFX 파일 만들기](#create-pfx-files-for-client-certificates)
+5. [클라이언트 인증서에 대한 PFX 파일 만들기](#create-pfx-files-for-client-certificates)
 6. [클라이언트 인증서 가져오기](#import-client-certificate)
 7. [클라이언트 인증서 지문 복사](#copy-client-certificate-thumbprints)
 8. [서비스 구성 파일에서 허용된 클라이언트 구성](#configure-allowed-clients-in-the-service-configuration-file)
@@ -120,7 +120,7 @@ ms.locfileid: "73823524"
 기본 구성에서는 HTTPS 엔드포인트에 대한 모든 액세스가 허용됩니다. 이 설정을 추가로 제한할 수 있습니다.
 
 ### <a name="changing-the-configuration"></a>구성 변경
-및 끝점에 적용 되는 액세스 제어 규칙 그룹은 **서비스 구성 파일**의 **\<endpointacls >** 섹션에서 구성 됩니다.
+적용 되는 액세스 제어 규칙 및 끝 점의 그룹은 **서비스 구성 파일의** ** \<끝점>** 섹션에서 구성 됩니다.
 
 ```xml
 <EndpointAcls>
@@ -129,7 +129,7 @@ ms.locfileid: "73823524"
 </EndpointAcls>
 ```
 
-액세스 제어 그룹의 규칙은 서비스 구성 파일의 \<Accesscontrol-namespace name = "" > 섹션에서 구성 됩니다. 
+액세스 제어 그룹의 규칙은 \<AccessControl 이름="서비스 구성 파일의 > 섹션으로 구성됩니다. 
 
 해당 형식에 대한 설명은 네트워크 Access Control 목록 설명서에 나와 있습니다.
 예를 들어 100.100.0.0~100.100.255.255 범위의 IP만 HTTPS 엔드포인트에 액세스하도록 허용하려는 경우의 규칙은 다음과 같습니다.
@@ -357,8 +357,8 @@ CA 공개 키가 포함된 기존 또는 생성된 .CER 파일과 함께 인증�
 * 표시되는 인증서 대화 상자에서 세부 정보 탭을 선택합니다.
 * 표시가 모두를 나타내는지 확인합니다.
 * 목록에서 지문이라는 필드를 선택합니다.
-* 지문 값을 복사 합니다.
-  * 첫 번째 숫자 앞에 표시 되지 않는 유니코드 문자를 삭제 합니다.
+* 지문 값 복사
+  * 첫 번째 숫자 앞에서 보이지 않는 유니코드 문자 삭제
   * 모든 공백 삭제
 
 ## <a name="configure-allowed-clients-in-the-service-configuration-file"></a>서비스 구성 파일에서 허용된 클라이언트 구성
@@ -422,7 +422,7 @@ CA 공개 키가 포함된 기존 또는 생성된 .CER 파일과 함께 인증�
 3. **인증서**를 선택합니다.
 4. **추가**를 클릭합니다.
 5. 인증서 저장소 위치를 선택합니다.
-6. **Finish**를 클릭합니다.
+6. **마침**을 클릭합니다.
 7. **확인**을 클릭합니다.
 8. **인증서**를 확장합니다.
 9. 인증서 저장소 노드를 확장합니다.
@@ -432,17 +432,17 @@ CA 공개 키가 포함된 기존 또는 생성된 .CER 파일과 함께 인증�
 ## <a name="export-certificate"></a>인증서 내보내기
 **인증서 내보내기 마법사**에서 다음을 수행합니다.
 
-1. **다음**을 누릅니다.
+1. **다음**을 클릭합니다.
 2. **예**를 선택한 다음, **프라이빗 키 내보내기**를 선택합니다.
-3. **다음**을 누릅니다.
+3. **다음**을 클릭합니다.
 4. 원하는 출력 파일 형식을 선택합니다.
 5. 원하는 옵션을 선택합니다.
 6. **암호**를 확인합니다.
 7. 강력한 암호를 입력하고 이를 확인합니다.
-8. **다음**을 누릅니다.
+8. **다음**을 클릭합니다.
 9. 인증서를 저장할 파일 이름을 입력하거나 찾습니다(.PFX 확장명을 사용하여).
-10. **다음**을 누릅니다.
-11. **Finish**를 클릭합니다.
+10. **다음**을 클릭합니다.
+11. **마침**을 클릭합니다.
 12. **확인**을 클릭합니다.
 
 ## <a name="import-certificate"></a>인증서 가져오기
@@ -452,7 +452,7 @@ CA 공개 키가 포함된 기존 또는 생성된 .CER 파일과 함께 인증�
    
    * 현재 사용자 계정으로 실행되는 프로세스만 서비스에 액세스하는 경우 **현재 사용자** 를 선택합니다.
    * 컴퓨터의 다른 프로세스에서 서비스에 액세스하는 경우 **로컬 컴퓨터** 를 선택합니다.
-2. **다음**을 누릅니다.
+2. **다음**을 클릭합니다.
 3. 파일에서 가져오는 경우 파일 경로를 확인합니다.
 4. .PFX 파일을 가져오는 경우:
    1. 프라이빗 키를 보호하는 암호를 입력합니다.
@@ -460,13 +460,13 @@ CA 공개 키가 포함된 기존 또는 생성된 .CER 파일과 함께 인증�
 5. 다음 저장소에 인증서 저장을 선택합니다.
 6. **찾아보기**를 클릭합니다.
 7. 원하는 저장소를 선택합니다.
-8. **Finish**를 클릭합니다.
+8. **마침**을 클릭합니다.
    
    * 신뢰할 수 있는 루트 인증 기관 저장소를 선택한 경우 **예**를 클릭합니다.
 9. 모든 대화 상자 창에서 **확인** 을 클릭합니다.
 
 ## <a name="upload-certificate"></a>인증서 업로드
-[Azure Portal](https://portal.azure.com/)에서
+Azure [포털에서](https://portal.azure.com/)
 
 1. **Cloud Services**를 선택합니다.
 2. 클라우드 서비스를 선택합니다.

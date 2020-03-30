@@ -9,10 +9,10 @@ ms.date: 05/17/2018
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: 222c893f06d9adf77f8a8124af18bc03c5d20bdf
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72821432"
 ---
 # <a name="view-the-status-of-azure-importexport-jobs"></a>Azure Import/Export의 상태 보기
@@ -20,7 +20,7 @@ ms.locfileid: "72821432"
 이 아티클에서는 Azure Import/Export 작업에 대한 드라이브 및 작업 상태를 확인하는 방법을 설명합니다. Azure Import/Export 서비스를 사용하여 Azure Blob 및 Azure Files에 대량의 데이터를 안전하게 전송합니다. 이 서비스는 Azure Blob Storage에서 데이터를 내보내는 데도 사용됩니다.  
 
 ## <a name="view-job-and-drive-status"></a>작업 및 드라이브 상태 보기
-Azure Portal에서 가져오기 또는 내보내기 작업의 상태를 추적할 수 있습니다. **가져오기/내보내기** 탭을 클릭 합니다. 작업 목록이 페이지에 표시 됩니다.
+Azure Portal에서 가져오기 또는 내보내기 작업의 상태를 추적할 수 있습니다. **가져오기/내보내기** 탭을 클릭합니다. 작업 목록이 페이지에 나타납니다.
 
 ![작업 상태 보기](./media/storage-import-export-service/jobstate.png)
 
@@ -63,7 +63,7 @@ Azure Portal의 이 이미지는 예제 작업의 드라이브 상태를 나타�
 | 드라이브 상태 | 행사 | 해결 방법/다음 단계 |
 |:--- |:--- |:--- |
 | 수신되지 않음 | 작업 운송물의 일부로 받지 못하여 **NeverReceived**으로 표시된 드라이브가 다른 운송을 통해 도착했습니다. | 작업 팀은 드라이브를 **수신됨** 상태로 전환합니다. |
-| N/A | 작업에 포함되지 않은 드라이브가 다른 작업의 일부로 데이터 센터에 도착했습니다. | 드라이브가 추가 드라이브로 표시되며 원래 패키지와 관련된 작업이 완료되면 사용자에게 반환됩니다. |
+| 해당 없음 | 작업에 포함되지 않은 드라이브가 다른 작업의 일부로 데이터 센터에 도착했습니다. | 드라이브가 추가 드라이브로 표시되며 원래 패키지와 관련된 작업이 완료되면 사용자에게 반환됩니다. |
 
 ## <a name="time-to-process-job"></a>작업 처리 시간
 Import/Export 작업을 처리하는 데 걸리는 시간은 다음과 같은 다양한 요인에 따라 달라집니다.
@@ -73,11 +73,11 @@ Import/Export 작업을 처리하는 데 걸리는 시간은 다음과 같은 �
 -  작업 형식 및 복사되는 데이터의 크기
 -  작업에서 디스크의 수 
 
-Import/Export 서비스에는 SLA가 없지만 이 서비스는 디스크가 수신되고 7~10일 내에 복사를 완료하려고 합니다. Azure Portal에 게시된 상태 뿐만 아니라, REST API를 사용하여 작업 진행 상황을 추적할 수 있습니다. [작업 나열](/previous-versions/azure/dn529083(v=azure.100)) 작업의 API 호출에 포함된 완료율 매개 변수는 복사 진행률을 제공합니다.
+Import/Export 서비스에는 SLA가 없지만 이 서비스는 디스크가 수신되고 7~10일 내에 복사를 완료하려고 합니다. Azure Portal에 게시된 상태 뿐만 아니라, REST API를 사용하여 작업 진행 상황을 추적할 수 있습니다. [목록 작업](/previous-versions/azure/dn529083(v=azure.100)) API 호출의 백분율 전체 매개 변수는 백분율 복사 진행률을 제공합니다.
 
 
 ## <a name="next-steps"></a>다음 단계
 
 * [WAImportExport 도구 설정](storage-import-export-tool-how-to.md)
 * [AzCopy 명령줄 유틸리티를 사용하여 데이터 전송](storage-use-azcopy.md)
-* [Azure Import/Export REST API 샘플](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/)
+* [Azure 가져오기 내보내기 REST 샘플](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/)

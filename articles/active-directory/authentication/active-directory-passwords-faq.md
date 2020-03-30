@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9e1cc9dde6bb2b6ae47affaed4c557f3746a681b
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77061457"
 ---
 # <a name="password-management-frequently-asked-questions"></a>암호 관리 질문과 대답
@@ -46,7 +46,7 @@ ms.locfileid: "77061457"
   >
 * **Q: 내 사용자 대신 암호 재설정 데이터를 정의할 수 있습니까?**
 
-  > **A:** 예, Azure AD Connect, PowerShell, [Azure Portal](https://portal.azure.com)또는 [Microsoft 365 관리 센터](https://admin.microsoft.com)를 사용 하 여이 작업을 수행할 수 있습니다. 자세한 내용은 [Azure AD 셀프 서비스 암호 재설정에서 사용하는 데이터](howto-sspr-authenticationdata.md)를 참조하세요.
+  > **A:** 예. Azure AD 연결, PowerShell, [Azure 포털](https://portal.azure.com)또는 [Microsoft 365 관리 센터를](https://admin.microsoft.com)사용할 수 있습니다. 자세한 내용은 [Azure AD 셀프 서비스 암호 재설정에서 사용하는 데이터](howto-sspr-authenticationdata.md)를 참조하세요.
   >
   >
 * **Q: 온-프레미스에서 본인 확인 질문 데이터를 동기화할 수 있나요?**
@@ -71,12 +71,12 @@ ms.locfileid: "77061457"
   >
 * **Q: 등록 포털에서 사용자에게 어떤 옵션이 표시되나요?**
 
-  > **A:** 암호 재설정 등록 포털에는 사용자에게 사용하도록 설정된 옵션만 표시됩니다. 이러한 옵션은 디렉터리의 **구성** 탭에 있는 **사용자 암호 재설정 정책** 섹션 아래에 있습니다. 예를 들어 보안 질문을 사용 하지 않는 경우 사용자는 해당 옵션에 등록할 수 없습니다.
+  > **A:** 암호 재설정 등록 포털에는 사용자에게 사용하도록 설정된 옵션만 표시됩니다. 이러한 옵션은 디렉터리 **구성** 탭의 **사용자 암호 재설정 정책** 섹션에서 찾을 수 있습니다. 예를 들어 보안 질문을 사용하도록 설정하지 않으면 사용자가 해당 옵션에 등록할 수 없습니다.
   >
   >
 * **Q: 사용자가 등록된 것으로 간주되는 경우는 언제입니까?**
 
-  > **A:** 관리자가 **Azure Portal**에서 설정한 암호 [재설정에 필요한 메서드의 수](https://portal.azure.com)만큼 또는 그 이상 사용자가 등록한 경우 해당 사용자는 SSPR에 등록된 것으로 간주됩니다.
+  > **A:** 관리자가 [Azure Portal](https://portal.azure.com)에서 설정한 암호 **재설정에 필요한 메서드의 수**만큼 또는 그 이상 사용자가 등록한 경우 해당 사용자는 SSPR에 등록된 것으로 간주됩니다.
   >
   >
 
@@ -101,7 +101,7 @@ ms.locfileid: "77061457"
   > 이 시간 내에 알림이 수신되지 않으면 다음을 수행합니다.
   > * 정크 메일 폴더를 확인합니다.
   > * 연락받을 전화 번호나 메일이 올바른지 확인합니다.
-  > * 디렉터리의 인증 데이터 형식이 올바르게 지정 되었는지 확인 합니다 (예: + 1 4255551234 또는 *사용자\@contoso.com*). 
+  > * 디렉터리에서 인증 데이터가 올바르게 서식이 지정되어 있는지 확인합니다(예: +1 425551234 또는 *\@사용자 contoso.com.* 
 * **Q: 암호 재설정에서 지원되는 언어는 무엇입니까?**
 
   > **A:** 암호 재설정 UI, SMS 메시지 및 음성 통화는 Office 365에서 지원되는 동일한 언어로 지역화됩니다.
@@ -114,7 +114,7 @@ ms.locfileid: "77061457"
   >
 * **Q: 암호 재설정으로 이동할 수 있는 위치에 대해 사용자에게 어떻게 교육할 수 있습니까?**
 
-  > **A:** [SSPR 배포](howto-sspr-deployment.md#plan-communications) 문서의 제안 사항을 직접 시도해 보세요.
+  > **A:** [SSPR 배포](howto-sspr-deployment.md#plan-communications) 문서에서 몇 가지 제안을 시도해 보십시오.
   >
   >
 * **Q: 모바일 디바이스에서 이 페이지를 사용할 수 있습니까?**
@@ -132,14 +132,14 @@ ms.locfileid: "77061457"
   > **A:** 사용자가 Azure AD Premium 고객인 경우, 추가 비용 없이 Microsoft Identity Manager를 설치하고 온-프레미스 암호 재설정 솔루션을 배포할 수 있습니다.
   >
   >
-* **Q: 서로 다른 로캘로 다른 보안 질문을 설정할 수 있습니까?**
+* **Q: 다른 로캘에 대해 서로 다른 보안 질문을 설정할 수 있습니까?**
 
   > **A:** 아니요. 현재로서는 불가능합니다.
   >
   >
 * **Q: 본인 확인 질문 인증 옵션으로 몇 개의 질문을 구성할 수 있나요?**
 
-  > **A:** [Azure Portal](https://portal.azure.com)에서 최대 20개의 사용자 지정 보안 질문을 구성할 수 있습니다.
+  > **A:**[Azure Portal](https://portal.azure.com)에서 최대 20개의 사용자 지정 보안 질문을 구성할 수 있습니다.
   >
   >
 * **Q: 질문의 길이는 최대 얼마까지 지원되나요?**
@@ -162,7 +162,7 @@ ms.locfileid: "77061457"
   > **A:** 아니요. 한 번 등록한 질문은 또다시 등록할 수 없습니다.
   >
   >
-* **Q:는 등록을 위한 보안 질문의 최소 제한을 설정할 수 있습니까?**
+* **Q: 등록 및 재설정에 대한 보안 질문의 최소 한도를 설정할 수 있습니까?**
 
   > **A:** 예, 등록에 대해 하나의 제한, 재설정에 대해 또 하나의 제한을 설정할 수 있습니다. 등록 시에 3~5개의 본인 확인 질문을 요구할 수 있고, 재설정 시에도 3~5개의 본인 확인 질문을 요구할 수 있습니다.
   >
@@ -174,12 +174,12 @@ ms.locfileid: "77061457"
   >
 * **Q: 사용자가 암호 재설정에 필요한 최대 본인 확인 질문 개수보다 많은 질문을 등록한 경우, 암호 재설정 시 어떤 본인 확인 질문이 선택되나요?**
 
-  > **A:** *n* 개의 보안 질문은 사용자가 등록 한 총 질문 수 중에서 임의로 선택 됩니다. 여기서 *n* 은 **다시 설정 하는 데 필요한 질문 수** 에 대해 설정 된 금액입니다. 예를 들어, 사용자가 본인 확인 질문을 5개 등록했는데 암호 재설정에 필요한 본인 확인 질문이 3개만 필요한 경우 암호 재설정 시 5개 질문 중 3개가 임의로 선택되어 제시됩니다. 계속되는 질문을 방지하기 위해 사용자가 질문에 대해 잘못된 답을 입력하면 선택 프로세스가 다시 시작됩니다.
+  > **A: 사용자가 등록한 모든 질문 중에 ** *N*개의 본인 확인 질문이 임의로 선택됩니다. 여기서 *N*은 **재설정에 필요한 질문 개수** 옵션에 설정된 개수입니다. 예를 들어, 사용자가 본인 확인 질문을 5개 등록했는데 암호 재설정에 필요한 본인 확인 질문이 3개만 필요한 경우 암호 재설정 시 5개 질문 중 3개가 임의로 선택되어 제시됩니다. 계속되는 질문을 방지하기 위해 사용자가 질문에 대해 잘못된 답을 입력하면 선택 프로세스가 다시 시작됩니다.
   >
   >
 * **Q: 메일 및 SMS 일회용 암호는 얼마 동안 유효하나요?**
 
-  > **A:** 암호 재설정을 위한 세션 수명은 15분입니다. 암호 재설정 작업을 시작한 순간부터 15분 동안 암호 재설정을 마쳐야 합니다. 전자 메일 및 SMS 일회용 암호는 암호 다시 설정 세션 동안 5 분 동안 유효 합니다.
+  > **A:** 암호 재설정을 위한 세션 수명은 15분입니다. 암호 재설정 작업을 시작한 순간부터 15분 동안 암호 재설정을 마쳐야 합니다. 이메일 및 SMS 일회용 암호는 암호 재설정 세션 동안 5분 동안 유효합니다.
   >
   >
 * **Q: 사용자가 암호를 다시 설정하지 못하도록 차단할 수 있나요?**
@@ -195,7 +195,7 @@ ms.locfileid: "77061457"
   > **A:** 사용자는 [Office 365](https://portal.office.com) 포털의 오른쪽 상단 모서리나 [액세스 패널](https://myapps.microsoft.com) 환경과 같이 프로필 사진이나 아이콘이 표시된 곳이면 어디서나 암호를 변경할 수 있습니다. [액세스 패널 프로필 페이지](https://account.activedirectory.windowsazure.com/r#/profile)에서도 암호를 변경할 수 있습니다. 암호가 만료된 경우 Azure AD 로그인 화면에 암호를 변경하라는 메시지가 자동으로 표시되기도 합니다. [Azure AD 암호 변경 포털](https://account.activedirectory.windowsazure.com/ChangePassword.aspx)로 이동하여 직접 암호를 변경할 수도 있습니다.
   >
   >
-* **Q: 온-프레미스 암호가 만료되는 경우 사용자에게 Office 포털에서 알림을 제공할 수 있나요?**
+* **Q: 온-프레미스 암호가 만료되면 Office 포털에서 사용자에게 알림을 받을 수 있습니까?**
 
   > **A:** 예, AD FS(Active Directory Federation Services)를 사용하는 경우 오늘 바로 가능합니다. AD FS를 사용하는 경우 [AD FS로 암호 정책 클레임 보내기](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configure-ad-fs-to-send-password-expiry-claims?f=255&MSPPError=-2147217396) 문서의 지침을 참조하세요. 암호 해시 동기화를 사용하는 경우 지금으로서는 불가능합니다. 온-프레미스 디렉터리의 암호 정책은 동기화되지 않기 때문에 클라우드 환경에 만료 알림을 게시할 수 없습니다. 두 경우 모두 [PowerShell을 사용하여 암호가 만료될 사용자에게 알림](https://social.technet.microsoft.com/wiki/contents/articles/23313.notify-active-directory-users-about-password-expiry-using-powershell.aspx)을 보낼 수 있습니다.
   >
@@ -208,12 +208,12 @@ ms.locfileid: "77061457"
 
 ## <a name="password-management-reports"></a>암호 관리 보고서
 
-* **Q: 데이터가 암호 관리 보고서를 표시하는 데 시간이 얼마나 소요됩니까?**
+* **Q: 암호 관리 보고서에 데이터가 표시되려면 얼마나 걸습니까?**
 
   > **A:** 데이터는 5~10분 내에 암호 관리 보고서에 표시됩니다. 최대 한 시간이 걸리는 경우도 있습니다.
   >
   >
-* **Q: 어떻게 암호 관리 보고서를 필터링할 수 있습니까?**
+* **Q: 암호 관리 보고서를 필터링하는 방법은 무엇입니까?**
 
   > **A:** 보고서 위쪽의 열 레이블 맨 오른쪽에 있는 작은 돋보기를 선택하여 암호 관리 보고서를 필터링할 수 있습니다. 다양한 필터링 기능을 사용하려면 보고서를 Excel로 다운로드하고 피벗 테이블을 만들면 됩니다.
   >
@@ -223,7 +223,7 @@ ms.locfileid: "77061457"
   > **A:** 암호 관리 보고서에는 최대 30일 동안의 최대 75,000개의 암호 재설정 이벤트 또는 암호 재설정 등록 이벤트가 저장됩니다. 이 번호를 확장하여 더 많은 이벤트를 포함하도록 노력하고 있습니다.
   >
   >
-* **Q: 암호 관리 보고서는 어디까지 표시할 수 있습니까?**
+* **Q: 암호 관리 보고서는 얼마나 뒤로 돌아가나요?**
 
   > **A:** 암호 관리 보고서에는 지난 30일 동안 발생한 작업이 표시됩니다. 지금까지는, 이 데이터를 보관해야 하는 경우 보고서를 주기적으로 다운로드하여 별도 위치에 저장할 수 있습니다.
   >
@@ -241,12 +241,12 @@ ms.locfileid: "77061457"
 
 ## <a name="password-writeback"></a>비밀번호 쓰기 저장
 
-* **Q: 비밀번호 쓰기 저장은 배후에서 어떻게 작동합니까?**
+* **Q: 암호 쓰기 백은 백그라운드에서 어떻게 작동합니까?**
 
   > **A:** 비밀번호 쓰기 저장을 사용하도록 설정한 경우 발생하는 일과 시스템을 통해 온-프레미스 환경으로 데이터가 다시 흘러 들어가는 방식에 대한 설명은 [비밀번호 쓰기 저장 작동 원리](howto-sspr-writeback.md)를 참조하세요.
   >
   >
-* **Q: 비밀 번호 쓰기 저장이 작동 하는 데 얼마나 걸립니까? 암호 해시 동기화와 같은 동기화 지연이 있나요?**
+* **Q: 암호 쓰기 를 다시 작성하는 데 얼마나 걸습니까? 암호 해시 동기화와 같은 동기화 지연이 있습니까?**
 
   > **A:** 비밀번호 쓰기 저장은 인스턴트입니다. 암호 해시 동기화와는 근본적으로 다르게 작동하는 동기 파이프라인입니다. 비밀번호 쓰기 저장을 사용하면 변경 작업 또는 해당 암호 재설정의 성공 여부에 대한 실시간 피드백을 받을 수 있습니다. 성공적인 쓰기 저장에 대한 평균 시간은 500밀리초 미만입니다.
   >
@@ -261,7 +261,7 @@ ms.locfileid: "77061457"
   > **A:** 예. SSPR은 온-프레미스 Active Directory 암호 정책에 의존하고 이를 준수합니다. 이 정책은 일반적인 Active Directory 도메인 암호 정책과 사용자를 대상으로 세분화되고 정의된 암호 정책을 포함합니다.
   >
   >
-* **Q: 비밀번호 쓰기 저장에 대해 어떤 유형의 계정이 작동합니까?**
+* **Q: 암호 쓰기 회수는 어떤 유형의 계정에서 작동합니까?**
 
   > **A:** 페더레이션되고 암호 해시 동기화된 통과 인증 사용자를 비롯하여 온-프레미스 Active Directory에서 Azure AD로 동기화되는 사용자 계정에 대한 비밀번호 쓰기 저장이 작동합니다.
   >
@@ -271,22 +271,22 @@ ms.locfileid: "77061457"
   > **A:** 예. 비밀번호 쓰기 저장은 암호 사용 기간, 기록, 복잡성, 필터 및 관리자가 로컬 도메인에서 암호에 적용한 그 밖의 제한 사항을 이행합니다.
   >
   >
-* **Q: 비밀 번호 쓰기 저장은 안전 한가요?  해킹을 받지 않도록 하려면 어떻게 해야 하나요?**
+* **Q: 암호 쓰기 는 안전한가요?  해킹당하지 않도록 하려면 어떻게 해야 하나요?**
 
-  > **A:** 예, 비밀번호 쓰기 저장은 안전합니다. 비밀번호 쓰기 저장 서비스에 의해 구현되는 여러 보안 레이어에 대한 자세한 내용은 [비밀번호 쓰기 저장 개요](concept-sspr-writeback.md#password-writeback-security) 문서의 [비밀번호 쓰기 저장 보안](howto-sspr-writeback.md) 섹션을 확인하세요.
+  > **A:** 예, 비밀번호 쓰기 저장은 안전합니다. 비밀번호 쓰기 저장 서비스에 의해 구현되는 여러 보안 레이어에 대한 자세한 내용은 [비밀번호 쓰기 저장 개요](howto-sspr-writeback.md) 문서의 [비밀번호 쓰기 저장 보안](concept-sspr-writeback.md#password-writeback-security) 섹션을 확인하세요.
   >
   >
 
 ## <a name="next-steps"></a>다음 단계
 
 * [성공적인 SSPR 롤아웃을 어떻게 완료합니까?](howto-sspr-deployment.md)
-* [암호 재설정 또는 변경](../user-help/active-directory-passwords-update-your-own-password.md)
+* [비밀번호 재설정 또는 변경](../user-help/active-directory-passwords-update-your-own-password.md)
 * [셀프 서비스 암호 재설정 등록](../user-help/active-directory-passwords-reset-register.md)
-* [라이선스 관련 질문이 있습니까?](concept-sspr-licensing.md)
+* [라이선스 문제가 있습니까?](concept-sspr-licensing.md)
 * [SSPR에서 사용하는 데이터는 무엇이며, 사용자에 대해 어떤 데이터를 채워야 합니까?](howto-sspr-authenticationdata.md)
 * [사용자가 사용할 수 있는 인증 방법은 무엇입니까?](concept-sspr-howitworks.md#authentication-methods)
 * [SSPR에서 사용하는 정책 옵션은 무엇입니까?](concept-sspr-policy.md)
 * [비밀번호 쓰기 저장은 무엇이며, 왜 관심을 가져야 합니까?](howto-sspr-writeback.md)
 * [SSPR 작업은 어떻게 보고 합니까?](howto-sspr-reporting.md)
 * [모든 SSPR 옵션과 그 의미는 무엇입니까?](concept-sspr-howitworks.md)
-* [뭐가 손상 된 것으로 생각 합니다. SSPR 문제 해결을 어떻게 할까요??](active-directory-passwords-troubleshoot.md)
+* [뭔가 깨진 것 같아요. SSPR 문제를 해결하려면 어떻게 해야 합니까?](active-directory-passwords-troubleshoot.md)

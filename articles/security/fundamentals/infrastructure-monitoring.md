@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: af9c157b4644156edc6dcdb1b53c141263576500
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68727162"
 ---
 # <a name="azure-infrastructure-monitoring"></a>Azure 인프라 모니터링   
@@ -57,7 +57,7 @@ Azure 인프라를 보호하기 위해 Microsoft에서 수행하는 작업에 �
 - [Azure 정보 시스템 구성 요소 및 경계](infrastructure-components.md)
 - [Azure 네트워크 아키텍처](infrastructure-network.md)
 - [Azure 프로덕션 네트워크](production-network.md)
-- [Azure SQL Database 보안 기능](infrastructure-sql.md)
+- [Azure SQL 데이터베이스 보안 기능](infrastructure-sql.md)
 - [Azure 프로덕션 운영 및 관리](infrastructure-operations.md)
 - [Azure 인프라 무결성](infrastructure-integrity.md)
 - [Azure 고객 데이터 보호](protection-customer-data.md)

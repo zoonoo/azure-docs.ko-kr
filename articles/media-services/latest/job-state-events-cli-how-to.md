@@ -12,15 +12,15 @@ ms.topic: article
 ms.date: 11/09/2018
 ms.author: juliako
 ms.openlocfilehash: 619d40ab56715b4444d8e5649c7fb3401b3f57ff
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71937277"
 ---
 # <a name="create-and-monitor-media-services-events-with-event-grid-using-the-azure-cli"></a>Azure CLI를 사용하여 Event Grid에서 Media Services 이벤트 만들기 및 모니터링
 
-Azure Event Grid는 클라우드에 대한 이벤트 서비스입니다. 이 서비스는 [이벤트 구독](../../event-grid/concepts.md#event-subscriptions) 을 사용 하 여 이벤트 메시지를 구독자로 라우팅합니다. Media Services 이벤트에는 데이터 변경에 대응하는 데 필요한 모든 정보가 포함되어 있습니다. Media Services 이벤트는 eventType 속성이 "Microsoft.Media"로 시작하는 것으로 식별할 수 있습니다. 자세한 내용은 [Media Services 이벤트 스키마](media-services-event-schemas.md)를 참조하세요.
+Azure Event Grid는 클라우드에 대한 이벤트 서비스입니다. 이 서비스는 [이벤트 구독을](../../event-grid/concepts.md#event-subscriptions) 사용하여 이벤트 메시지를 구독자에게 라우팅합니다. Media Services 이벤트에는 데이터 변경에 대응하는 데 필요한 모든 정보가 포함되어 있습니다. Media Services 이벤트는 eventType 속성이 "Microsoft.Media"로 시작하는 것으로 식별할 수 있습니다. 자세한 내용은 [Media Services 이벤트 스키마](media-services-event-schemas.md)를 참조하세요.
 
 이 문서에서는 Azure CLI를 사용하여 Azure Media Services 계정에 대한 이벤트를 구독합니다. 그런 다음, 이벤트를 트리거하여 결과를 봅니다. 일반적으로 이벤트 데이터를 처리하고 작업을 수행하는 엔드포인트에 이벤트를 보냅니다. 이 문서에서는 메시지를 수집하고 표시하는 웹앱에 이벤트를 보냅니다.
 
@@ -59,7 +59,7 @@ az account set --subscription mySubscriptionId
 
 ## <a name="subscribe-to-media-services-events"></a>Media Services 이벤트 구독
 
-추적하려는 이벤트를 Event Grid에 알리도록 문서를 구독합니다. 다음 예제에서는 사용자가 만든 Media Services 계정을 구독하고 이벤트 알림에 대한 엔드포인트로 만든 웹 사이트의 URL을 전달합니다. 
+아티클을 구독하여 추적할 이벤트를 이벤트 그리드에 알려줍니다. 다음 예제에서는 만든 Media Services 계정을 구독하고 이벤트 알림의 끝점으로 만든 웹 사이트의 URL을 전달합니다. 
 
 `<event_subscription_name>`을 이벤트 구독의 고유 이름으로 바꿉니다. `<resource_group_name>` 및 `<ams_account_name>`에는 Media Services 계정을 만들 때 사용한 값을 사용합니다. `<endpoint_URL>`의 경우 웹앱의 URL을 제공하고, 홈 페이지 URL에 `api/updates`를 추가합니다. 구독할 때 엔드포인트를 지정하면 Event Grid에서 해당 엔드포인트로의 이벤트 라우팅을 처리합니다. 
 
@@ -69,7 +69,7 @@ az account set --subscription mySubscriptionId
     amsResourceId=$(az ams account show --name <ams_account_name> --resource-group <resource_group_name> --query id --output tsv)
     ```
 
-    예를 들어 다음과 같은 가치를 제공해야 합니다.
+    예를 들어:
 
     ```
     amsResourceId=$(az ams account show --name amsaccount --resource-group amsResourceGroup --query id --output tsv)
@@ -84,7 +84,7 @@ az account set --subscription mySubscriptionId
     --endpoint <endpoint_URL>
     ```
 
-    예를 들어 다음과 같은 가치를 제공해야 합니다.
+    예를 들어:
 
     ```
     az eventgrid event-subscription create --source-resource-id $amsResourceId --name amsTestEventSubscription --endpoint https://amstesteventgrid.azurewebsites.net/api/updates/

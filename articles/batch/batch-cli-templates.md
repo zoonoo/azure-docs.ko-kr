@@ -1,5 +1,5 @@
 ---
-title: 템플릿을 사용 하 여 종단 간 작업 실행-Azure Batch
+title: 템플릿을 사용하여 작업을 종단 간 실행 - Azure Batch
 description: CLI 명령만을 사용하여 풀을 만들고, 입력 데이터를 업로드하고, 작업 및 관련된 작업을 만들고, 결과 출력 데이터를 다운로드할 수 있습니다.
 services: batch
 author: LauraBrenner
@@ -12,10 +12,10 @@ ms.date: 12/07/2018
 ms.author: labrenne
 ms.custom: seodec18
 ms.openlocfilehash: c7459c4dc700f034feafbf133b831a52b9233d11
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77020168"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer"></a>Azure Batch CLI 템플릿 및 파일 전송 사용
@@ -143,7 +143,7 @@ Azure Batch 템플릿은 Azure Resource Manager 템플릿과 기능 및 구문 �
 az batch pool create --template pool-ffmpeg.json
 ```
 
-CLI는 `poolId` 및 `nodeCount` 매개 변수에 대한 값을 제공하라는 메시지를 표시합니다. JSON 파일의 매개 변수를 제공할 수도 있습니다. 예:
+CLI는 `poolId` 및 `nodeCount` 매개 변수에 대한 값을 제공하라는 메시지를 표시합니다. JSON 파일의 매개 변수를 제공할 수도 있습니다. 예를 들어:
 
 ```json
 {
@@ -260,7 +260,7 @@ Batch 풀 또는 작업을 만들려면 [Batch Explorer](https://github.com/Azur
 
 템플릿을 업로드하려면
 
-1. Batch Explorer에서 **갤러리** > **로컬 템플릿**을 선택합니다.
+1. 일괄 처리 탐색기에서 **갤러리** > **로컬 템플릿을 선택합니다.**
 
 2. 로컬 풀 또는 작업 템플릿을 선택하거나 끌어서 놓습니다.
 

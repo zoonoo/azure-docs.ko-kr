@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/13/2019
 ms.author: magattus
 ms.openlocfilehash: e2827a11f4ec2a5c0467c3699cd9990aaf7ae97a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73495485"
 ---
 # <a name="understanding-azure-cdn-billing"></a>Azure CDN 청구 이해
@@ -62,7 +62,7 @@ Azure CDN을 사용하면 개체의 원본으로 사용되는 서비스에 대�
 - 전송량(GB): CDN 캐시를 채우기 위해 전송된 데이터의 양.
 
 > [!NOTE]
-> 2019 년 10 월부터 Microsoft에서 Azure CDN를 사용 하는 경우 Azure에 호스트 된 원본에서 CDN Pop로 데이터를 전송 하는 비용은 무료로 제공 됩니다. Verizon의 Azure CDN와 Akamai의 Azure CDN에는 아래 설명 된 요금이 적용 됩니다.
+> 2019년 10월부터 Microsoft에서 Azure CDN을 사용하는 경우 Azure에서 CDN PO로 호스팅되는 Origins에서 CDN PO로의 데이터 전송 비용은 무료입니다. 버라이존의 Azure CDN 및 Akamai의 Azure CDN은 아래에 설명된 요금이 적용됩니다.
 
 Azure Storage 청구에 대한 자세한 내용은 [Azure Storage 청구 이해 - 대역폭, 트랜잭션 및 용량](https://blogs.msdn.microsoft.com/windowsazurestorage/2010/07/08/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity/)을 참조하세요.
 
@@ -87,14 +87,14 @@ CDN POP는 캐시를 채워야 할 때마다 캐시되는 개체의 원본에 �
 
 - TTL 영향: 개체의 TTL이 높다는 것은 원본에서 개체를 가져오는 빈도를 낮춰야 한다는 뜻입니다. 또한 브라우저 같은 클라이언트에서 개체를 더 오래 캐시할 수 있으며, 따라서 CDN의 트랜잭션을 줄일 수 있다는 의미입니다.
 
-## <a name="which-origin-services-are-eligible-for-free-data-transfer-with-azure-cdn-from-microsoft"></a>Microsoft의 Azure CDN을 사용 하 여 데이터를 무료로 전송할 수 있는 원본 서비스는 무엇 인가요? 
-다음 Azure 서비스 중 하나를 CDN 원본으로 사용 하는 경우 원본에서 CDN Pop로의 데이터 전송에 대 한 요금이 청구 되지 않습니다. 
+## <a name="which-origin-services-are-eligible-for-free-data-transfer-with-azure-cdn-from-microsoft"></a>Microsoft의 Azure CDN을 사용하여 무료 데이터 전송을 받을 수 있는 오리진 서비스는 무엇입니까? 
+다음 Azure 서비스 중 하나를 CDN 원본으로 사용하는 경우 원본에서 CDN PO로의 데이터 전송에 대한 요금이 청구되지 않습니다. 
 
 - Azure Storage
 - Azure Media Services
 - Azure Virtual Machines
 - Virtual Network
-- 부하 분산 장치
+- Load Balancer
 - Application Gateway
 - Azure DNS
 - ExpressRoute
@@ -105,7 +105,7 @@ CDN POP는 캐시를 채워야 할 때마다 캐시되는 개체의 원본에 �
 - Azure Front Door Service
 - Azure Bastion
 - Azure App Service
-- Azure 기능
+- Azure Functions
 - Azure 데이터 팩터리
 - Azure API Management
 - Azure Batch 

@@ -1,6 +1,6 @@
 ---
-title: IoT 기본 제공 IoT Hub integration service 용 Azure Security Center를 사용 하 여 시작 | Microsoft Docs
-description: IoT 서비스 Azure Security Center의 기본 제공 워크플로를 시작 합니다.
+title: IoT 내장 IoT 허브 통합 서비스를 위한 Azure 보안 센터 사용 시작 | 마이크로 소프트 문서
+description: IoT 서비스를 위한 Azure 보안 센터의 기본 제공 워크플로부터 시작하십시오.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -16,24 +16,24 @@ ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
 ms.openlocfilehash: ef2affcd0cf7f6bd0a8ef0ec2dbc0244a971a57e
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68600515"
 ---
-# <a name="get-started-with-built-in-iot-hub-integration"></a>기본 제공 IoT Hub 통합 시작 
+# <a name="get-started-with-built-in-iot-hub-integration"></a>내장 된 IoT 허브 통합으로 시작하기 
 
-이 옵션을 사용 하면 IoT 보안 에이전트에 Azure Security Center을 사용 하지 않고 서비스를 사용할 수 있습니다.
+이 옵션을 사용하면 IoT 보안 에이전트용 Azure 보안 센터를 사용하지 않고도 서비스를 사용할 수 있습니다.
 
-## <a name="enable-built-in-iot-hub-integration"></a>기본 제공 IoT Hub 통합 사용
-장치 id 관리, 장치-클라우드 및 클라우드-장치 통신 패턴의 모니터링을 사용 하도록 설정 하려면 다음을 수행 하 여 서비스를 시작 합니다. 
+## <a name="enable-built-in-iot-hub-integration"></a>내장 된 IoT 허브 통합 활성화
+장치 ID 관리, 디바이스-클라우드 및 클라우드에서 장치 통신 패턴을 모니터링하려면 다음을 수행하여 서비스를 시작합니다. 
 
-1. **IoT Hub**를 엽니다.
-1. **보안 개요** 메뉴를 선택 합니다. 
-1. **IoT 솔루션 보안** 을 클릭 하 고 온 보 딩 폼을 완료 합니다. 
+1. **IoT 허브를**엽니다.
+1. 보안 개요 메뉴를 **선택합니다.** 
+1. IoT 솔루션 보안을 클릭하고 온보딩 양식을 **작성합니다.** 
 
-축하합니다. IoT Hub에서 IoT 서비스에 대 한 Azure Security Center를 사용 하도록 설정 했습니다. 
+축하합니다! IoT Hub에서 IoT 서비스를 위한 Azure 보안 센터 활성화를 완료했습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

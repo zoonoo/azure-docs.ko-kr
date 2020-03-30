@@ -1,5 +1,5 @@
 ---
-title: Azure에서 Windows Vm에 대 한 정책으로 보안 적용
+title: Azure의 Windows VM에 대한 정책으로 보안 적용
 description: Azure Resource Manager Windows Virtual Machine에 정책을 적용하는 방법
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/02/2017
 ms.author: kasing
 ms.openlocfilehash: a2ee5f36b7dba03bea3cc219651804c5039115d5
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74032968"
 ---
 # <a name="apply-policies-to-windows-vms-with-azure-resource-manager"></a>Azure Resource Manager를 사용하여 Windows VM에 정책 적용
@@ -107,7 +107,7 @@ anyOf를 사용하여 모든 Windows Server 2012 R2 Datacenter 이상 이미지�
 
 정책 필드에 대한 자세한 내용은 [정책 별칭](../../governance/policy/concepts/definition-structure.md#aliases)을 참조하세요.
 
-## <a name="managed-disks"></a>관리되는 디스크
+## <a name="managed-disks"></a>관리 디스크
 
 관리 디스크 사용을 요구하려면 다음 정책을 사용합니다.
 

@@ -11,15 +11,15 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: anzaman
 ms.openlocfilehash: ca3d825fb2f4184448cc279d9408f47ad4ad004a
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73838368"
 ---
 # <a name="customize-a-brands-model-in-video-indexer"></a>Video Indexer에서 브랜드 모델 사용자 지정
 
-Video Indexer는 비디오 및 오디오 콘텐츠의 인덱싱 및 재인덱싱 동안 음성 및 시각적 텍스트에서 브랜드를 검색하도록 지원합니다. 브랜드 검색 기능은 Bing의 브랜드 데이터베이스에서 제안하는 제품, 서비스 및 회사의 멘션을 식별합니다. 예를 들어 Microsoft가 비디오 또는 오디오 콘텐츠에 멘션되거나, 비디오의 시각적 텍스트에 표시되는 경우 Video Indexer는 콘텐츠에서 해당 항목을 브랜드로 검색합니다. 브랜드는 컨텍스트를 사용하여 다른 용어와 구분됩니다.
+Video Indexer는 비디오 및 오디오 콘텐츠의 인덱싱 및 재인덱싱 동안 연설 및 시각적 텍스트에서 브랜드를 검색하도록 지원합니다. 브랜드 검색 기능은 Bing의 브랜드 데이터베이스에서 제안하는 제품, 서비스 및 회사의 멘션을 식별합니다. 예를 들어 Microsoft가 비디오 또는 오디오 콘텐츠에 멘션되거나, 비디오의 시각적 텍스트에 표시되는 경우 Video Indexer는 콘텐츠에서 해당 항목을 브랜드로 검색합니다. 브랜드는 컨텍스트를 사용하여 다른 용어와 구분됩니다.
 
 브랜드 검색은 콘텐츠 보관 및 검색, 컨텍스트 광고, 소셜 미디어 분석, 소매 경쟁 분석 등 다양한 비즈니스 시나리오에서 유용합니다. Video Indexer 브랜드 검색을 사용하면 Bing 브랜드 데이터베이스뿐만 아니라 각 Video Indexer 계정의 사용자 지정 브랜드 모델 빌드를 통한 사용자 지정을 사용하여 연설 및 시각적 텍스트에서 브랜드 멘션을 인덱싱할 수 있습니다. 사용자 지정 브랜드 모델 기능을 사용하여 Video Indexer가 Bing 브랜드 데이터베이스에서 브랜드를 검색할지, 특정 브랜드를 검색되지 않도록 제외할지(브랜드의 차단 목록 생성), Bing의 브랜드 데이터베이스에 없을 수 있는 모델 부분에 해당하는 브랜드를 포함할지(브랜드의 허용 목록 생성)를 선택할 수 있습니다. 사용자가 만드는 사용자 지정 브랜드 모델은 사용자가 모델을 만든 계정에서만 사용할 수 있습니다.
 

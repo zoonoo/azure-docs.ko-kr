@@ -12,24 +12,24 @@ ms.topic: article
 ms.date: 08/18/2018
 ms.author: apimpm
 ms.openlocfilehash: 64649c86dbd3c3469247308bfc4dd0ed12e06949
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70018229"
 ---
 # <a name="upgrade-and-scale-an-azure-api-management-instance"></a>Azure API Management 인스턴스 업그레이드 및 크기 조정  
 
 고객은 단위를 추가하고 제거하여 APIM(Azure API Management) 인스턴스의 크기를 조정할 수 있습니다. **단위**는 전용 Azure 리소스로 구성되며 월당 API 호출 수로 표현되는 특정 로드 베어링 용량을 포함합니다. 이 숫자는 호출 제한이 아닌 대략적인 용량 계획에 허용할 최대 처리량 값을 나타냅니다. 실제 처리량과 대기 시간은 동시 연결 수 및 속도, 구성된 정책의 종류 및 수, 요청 및 응답 크기, 백 엔드 대기 시간 등의 요소에 따라 크게 달라집니다.
 
-단위당 용량 및 가격은 단위가 존재하는 **계층**에 따라 달라집니다. 계층은 **개발자**, **기본**, **표준** 및 **프리미엄**의 네 가지 중에서 선택할 수 있습니다. 계층 내에서 서비스에 대한 용량을 늘려야 할 경우 단위를 추가해야 합니다. APIM 인스턴스에서 현재 선택된 계층에서 단위 추가가 허용되지 않는 경우 상위 수준 계층으로 업그레이드해야 합니다.
+단위당 용량 및 가격은 단위가 존재하는 **계층**에 따라 달라집니다. **개발자**, **기본**, **표준**, **프리미엄**의 4계층 중에서 선택할 수 있습니다. 계층 내에서 서비스에 대한 용량을 늘려야 할 경우 단위를 추가해야 합니다. APIM 인스턴스에서 현재 선택된 계층에서 단위 추가가 허용되지 않는 경우 상위 수준 계층으로 업그레이드해야 합니다.
 
 단위당 가격 및 사용 가능한 기능(예: 다중 지역 배포)은 APIM 인스턴스에 대해 선택한 계층에 따라 달라집니다. [가격 정보](https://azure.microsoft.com/pricing/details/api-management/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 문서에서는 단위당 가격 및 각 계층의 기능에 대해 설명합니다. 
 
 >[!NOTE]
 >[가격 정보](https://azure.microsoft.com/pricing/details/api-management/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 문서에서는 계층별로 대략적인 단위 용량 수를 보여 줍니다. 보다 정확한 수치를 얻기 위해 API에 대해 현실적인 시나리오를 살펴보아야 합니다. [Azure API Management 인스턴스의 용량](api-management-capacity.md) 문서를 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서의 단계를 따르려면 다음이 필요합니다.
 
@@ -45,7 +45,7 @@ ms.locfileid: "70018229"
 
 ## <a name="upgrade-and-scale"></a>업그레이드 및 크기 조정  
 
-계층은 **개발자**, **기본**, **표준** 및 **프리미엄**의 네 가지 중에서 선택할 수 있습니다. **개발자** 계층은 프로덕션 환경이 아닌 서비스를 평가하는 데 사용해야 합니다. **개발자** 계층에는 SLA가 없으며 이 계층의 크기를 조정(추가/제거)할 수 없습니다. 
+**개발자**, **기본**, **표준** 및 **프리미엄**이라는 4가지 계층 중에서 선택할 수 있습니다. **개발자** 계층은 프로덕션 환경이 아닌 서비스를 평가하는 데 사용해야 합니다. **개발자** 계층에는 SLA가 없으며 이 계층의 크기를 조정(추가/제거)할 수 없습니다. 
 
 **기본**, **표준**, **프리미엄**은 SLA를 포함하고 크기를 조정할 수 있는 프로덕션 계층입니다. 가장 저렴한 **기본** 계층은 SLA를 포함하며 2개 단위까지 확장할 수 있습니다. **표준** 계층은 4개 단위까지 확장할 수 있습니다. **프리미엄** 계층에는 원하는 수의 단위를 추가할 수 있습니다.
 
@@ -54,10 +54,10 @@ ms.locfileid: "70018229"
 어떤 계층에서든 업그레이드 및 다운그레이드가 가능합니다. 프리미엄 계층에서 표준 또는 기본으로 다운그레이드할 경우 업그레이드 또는 다운그레이드는 VNET 또는 다중 지역 배포와 같은 일부 기능을 제거할 수 있습니다.
 
 > [!NOTE]
-> 업그레이드 또는 크기 조정 프로세스를 적용하는 데는 15~45분 정도 소요될 수 있습니다. 완료 되 면 알림이 표시 됩니다.
+> 업그레이드 또는 크기 조정 프로세스를 적용하는 데는 15~45분 정도 소요될 수 있습니다. 완료되면 알림을 받습니다.
 
 > [!NOTE]
-> **소비** 계층의 API Management 서비스는 트래픽에 따라 자동으로 확장 됩니다.
+> **소비** 계층의 API 관리 서비스는 트래픽에 따라 자동으로 확장됩니다.
 
 ## <a name="use-the-azure-portal-to-upgrade-and-scale"></a>Azure Portal을 사용하여 업그레이드 및 크기 조정
 
@@ -71,7 +71,7 @@ ms.locfileid: "70018229"
 5. **저장**을 누릅니다.
 
 ## <a name="downtime-during-scaling-up-and-down"></a>확장 및 축소 중 가동 중지 시간
-개발자 계층에서로 크기를 조정 하는 경우 가동 중지 시간이 발생 합니다. 그렇지 않으면 가동 중지 시간이 발생 하지 않습니다. 
+개발자 계층에서 또는 개발자 계층으로 확장하는 경우 가동 중지 시간이 있습니다. 그렇지 않으면 가동 중지 시간이 없습니다. 
 
 
 ## <a name="next-steps"></a>다음 단계

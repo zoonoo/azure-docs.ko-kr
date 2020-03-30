@@ -5,20 +5,20 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.openlocfilehash: 675ad278cb8bdc0ced4eff3bd77572f44c9808fc
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68857444"
 ---
 이 섹션에서는 새 항목이 추가될 때마다 푸시 알림을 보내도록 기존 Mobile Apps 백 엔드 프로젝트의 코드를 업데이트합니다. 이 프로세스는 플랫폼 간 푸시를 구현하는 Azure Notification Hubs의 [템플릿](../articles/notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) 기능으로 구동됩니다. 템플릿을 사용한 푸시 알림에 대해 다양한 클라이언트가 등록되며 단일 범용 푸시를 통해 모든 클라이언트 플랫폼을 가져올 수 있습니다.
 
 백 엔드 프로젝트 형식&mdash;([.NET 백 엔드](#dotnet) 또는[ Node.js 백 엔드](#nodejs))과 일치하는 다음 절차 중 하나를 선택합니다.
 
-### <a name="dotnet"></a>.NET 백 엔드 프로젝트
+### <a name="net-back-end-project"></a><a name="dotnet"></a>.NET 백 엔드 프로젝트
 
 1. Visual Studio에서 서버 프로젝트를 마우스 오른쪽 단추로 클릭합니다. 그런 다음, **NuGet 패키지 관리**를 클릭합니다. `Microsoft.Azure.NotificationHubs`를 검색한 다음, **설치**를 선택합니다. 이 프로세스는 백 엔드에서 알림을 보내기 위한 Notification Hubs 라이브러리를 설치합니다.
-2. 서버 프로젝트에서 **컨트롤러** > **TodoItemController.cs**를 엽니다. 그런 다음, 명령문을 사용하여 다음을 추가합니다.
+2. 서버 프로젝트에서 컨트롤러 **TodoItemController.cs.** > **TodoItemController.cs** 그런 다음, 명령문을 사용하여 다음을 추가합니다.
 
     ```csharp
     using System.Collections.Generic;
@@ -68,9 +68,9 @@ ms.locfileid: "68857444"
 
 4. 서버 프로젝트를 다시 게시합니다.
 
-### <a name="nodejs"></a>Node.js 백 엔드 프로젝트
+### <a name="nodejs-back-end-project"></a><a name="nodejs"></a>Node.js 백 엔드 프로젝트
 
-1. 백 엔드 프로젝트를 설정 합니다.
+1. 백 엔드 프로젝트를 설정합니다.
 2. todoitem.js의 기존 코드를 다음 코드로 바꿉니다.
 
     ```javascript

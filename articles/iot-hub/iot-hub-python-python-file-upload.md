@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: robinsh
 ms.openlocfilehash: f1c0c046c40ff8edbc33c5e93e4207d9fe2fc67a
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77110755"
 ---
-# <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-python"></a>IoT Hub (Python)를 사용 하 여 장치에서 클라우드로 파일 업로드
+# <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-python"></a>IoT 허브 (파이썬)로 장치에서 클라우드로 파일 업로드
 
 [!INCLUDE [iot-hub-file-upload-language-selector](../../includes/iot-hub-file-upload-language-selector.md)]
 
@@ -25,7 +25,7 @@ ms.locfileid: "77110755"
 
 * Python 클라이언트를 사용하여 IoT 허브를 통해 파일을 업로드합니다.
 
-[장치에서 IoT hub로 원격 분석 전송 빠른 시작](quickstart-send-telemetry-python.md) 은 IoT Hub의 기본적인 장치-클라우드 메시징 기능을 보여 줍니다. 그러나 일부 시나리오에서는 디바이스에서 전송하는 데이터를 IoT Hub에서 허용하는 비교적 작은 디바이스-클라우드 메시지에 쉽게 매핑할 수 없습니다. 디바이스에서 파일을 업로드해야 할 때 IoT Hub의 보안 및 안정성을 여전히 사용할 수 있습니다.
+[장치에서 IoT 허브로 원격 분석 보내기](quickstart-send-telemetry-python.md) 퀵스타트는 IoT Hub의 기본 장치-클라우드 메시징 기능을 보여 줍니다. 그러나 일부 시나리오에서는 디바이스에서 전송하는 데이터를 IoT Hub에서 허용하는 비교적 작은 디바이스-클라우드 메시지에 쉽게 매핑할 수 없습니다. 디바이스에서 파일을 업로드해야 할 때 IoT Hub의 보안 및 안정성을 여전히 사용할 수 있습니다.
 
 > [!NOTE]
 > IoT Hub Python SDK는 현재 **.txt** 파일과 같은 문자 기반 파일의 업로드만 지원합니다.
@@ -37,13 +37,13 @@ ms.locfileid: "77110755"
 [!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
 
 > [!NOTE]
-> 이 가이드에서는 새로운 V2 SDK에서 파일 업로드 기능이 아직 구현 되지 않았기 때문에 사용 되지 않는 V1 Python SDK를 사용 합니다.
+> 이 가이드에서는 파일 업로드 기능이 아직 새 V2 SDK에서 구현되지 않았기 때문에 더 이상 사용되지 않는 V1 파이썬 SDK를 사용합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
 
-* 방화벽에서 포트 8883가 열려 있는지 확인 합니다. 이 문서의 device 샘플에서는 포트 8883을 통해 통신 하는 MQTT 프로토콜을 사용 합니다. 이 포트는 일부 회사 및 교육용 네트워크 환경에서 차단 될 수 있습니다. 이 문제를 해결 하는 방법 및 방법에 대 한 자세한 내용은 [IoT Hub에 연결 (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub)을 참조 하세요.
+* 방화벽에서 포트 8883이 열려 있는지 확인합니다. 이 문서의 장치 샘플은 포트 8883을 통해 통신하는 MQTT 프로토콜을 사용합니다. 이 포트는 일부 회사 및 교육용 네트워크 환경에서 차단될 수 있습니다. 이 문제를 해결하는 자세한 내용과 방법은 [IoT Hub에 연결(MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub)을 참조하세요.
 
 [!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-associate-storage.md)]
 
@@ -64,7 +64,7 @@ ms.locfileid: "77110755"
 
 3. 텍스트 편집기를 사용하여 작업 폴더에 **FileUpload.py** 파일을 만듭니다.
 
-4. `import`FileUpload.py**파일의 시작 부분에서 다음** 문 및 변수를 추가합니다. 
+4. **FileUpload.py** 파일의 시작 부분에서 다음 `import` 문 및 변수를 추가합니다. 
 
     ```python
     import time

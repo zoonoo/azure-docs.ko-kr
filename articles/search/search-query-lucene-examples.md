@@ -1,7 +1,7 @@
 ---
-title: Full Lucene 쿼리 구문 사용
+title: 전체 Lucene 쿼리 구문 사용
 titleSuffix: Azure Cognitive Search
-description: Lucene Azure Cognitive Search 서비스에서 유사 항목 검색, 근접 검색, 용어 상승, 정규식 검색 및 와일드 카드 검색을 위한 쿼리 구문입니다.
+description: Azure Cognitive Search 서비스의 퍼지 검색, 근접 검색, 용어 증폭, 정규식 검색 및 와일드카드 검색에 대한 Lucene 쿼리 구문입니다.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
@@ -10,17 +10,17 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 745be21c2a7a09a09fdbbfd57a305d09a4fac3ed
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72793438"
 ---
-# <a name="use-the-full-lucene-search-syntax-advanced-queries-in-azure-cognitive-search"></a>"Full" Lucene 검색 구문 사용 (Azure Cognitive Search의 고급 쿼리)
+# <a name="use-the-full-lucene-search-syntax-advanced-queries-in-azure-cognitive-search"></a>"전체" Lucene 검색 구문 사용(Azure 인지 검색의 고급 쿼리)
 
-Azure Cognitive Search에 대 한 쿼리를 생성 하는 경우 기본 [단순 쿼리 파서](query-simple-syntax.md) 를 [azure Cognitive Search의 더 광범위 한 Lucene 쿼리 파서로](query-lucene-syntax.md) 대체 하 여 특수화 된 고급 쿼리 정의를 작성할 수 있습니다. 
+Azure Cognitive Search에 대한 쿼리를 생성할 때 기본 [단순 쿼리 파서를](query-simple-syntax.md) Azure Cognitive Search의 보다 광범위한 [Lucene 쿼리 파서로](query-lucene-syntax.md) 대체하여 특수하고 고급 쿼리 정의를 공식화할 수 있습니다. 
 
-Lucene 파서는 필드 범위 쿼리, 유사 항목 및 접두사 와일드 카드 검색, 근접 검색, 용어 상승, 정규식 검색 등의 복잡 한 쿼리 구문을 지원 합니다. 성능이 늘어나면 처리 요구 사항도 늘어나므로 실행 시간이 약간 길어진다고 예상해야 합니다. 이 문서에서는 전체 구문을 사용할 때 사용할 수 있는 쿼리 작업을 보여 주는 예제를 단계별로 진행할 수 있습니다.
+Lucene 파서는 필드 범위 쿼리, 퍼지 및 접두사 와일드카드 검색, 근접 검색, 용어 증폭 및 정규식 검색과 같은 복잡한 쿼리 구문들을 지원합니다. 성능이 늘어나면 처리 요구 사항도 늘어나므로 실행 시간이 약간 길어진다고 예상해야 합니다. 이 문서에서는 전체 구문을 사용할 때 사용할 수 있는 쿼리 작업을 보여 주는 예제를 단계별로 진행할 수 있습니다.
 
 > [!Note]
 > 전체 Lucene 쿼리 구문을 통해 사용하도록 설정된 특수화된 쿼리 구문 대부분이 [텍스트 분석](search-lucene-query-architecture.md#stage-2-lexical-analysis)되지 않으므로 형태소 분석 또는 기본형 분석을 예상한 경우에 당황할 수 있습니다. 어휘 분석은 완전한 용어(용어 쿼리 또는 구 쿼리)에만 수행됩니다. 불완전한 용어가 있는 쿼리 형식(접두사 쿼리, 와일드카드 쿼리, regex 쿼리, 유사 항목 쿼리)은 분석 단계를 건너뛰고 쿼리 트리에 직접 추가됩니다. 불완전한 쿼리 용어에서는 소문자 변환만 수행됩니다. 
@@ -28,7 +28,7 @@ Lucene 파서는 필드 범위 쿼리, 유사 항목 및 접두사 와일드 카
 
 ## <a name="formulate-requests-in-postman"></a>Postman에서 요청 작성
 
-다음 예제는 [City of New York OpenData](https://opendata.cityofnewyork.us/) 이니셔티브에서 제공하는 데이터 세트에 기반하여 사용 가능한 작업으로 구성된 NYC Jobs 검색 인덱스를 활용합니다. 이 데이터는 최신 또는 완료로 간주되어서는 안 됩니다. 인덱스는 Microsoft에서 제공 하는 샌드박스 서비스에 있습니다. 즉, 이러한 쿼리를 사용해 볼 수 있는 Azure 구독 또는 Azure Cognitive Search 필요 하지 않습니다.
+다음 예제는 [City of New York OpenData](https://opendata.cityofnewyork.us/) 이니셔티브에서 제공하는 데이터 세트에 기반하여 사용 가능한 작업으로 구성된 NYC Jobs 검색 인덱스를 활용합니다. 이 데이터는 최신 또는 완료로 간주되어서는 안 됩니다. 인덱스는 Microsoft에서 제공하는 샌드박스 서비스에 있으므로 이러한 쿼리를 시도하기 위해 Azure 구독 또는 Azure Cognitive Search가 필요하지 않습니다.
 
 따라서 GET에서 HTTP 요청을 실행하기 위한 Postman 또는 동급의 도구만 있으면 됩니다. 자세한 내용은 [REST 클라이언트로 탐색](search-get-started-postman.md)을 참조하세요.
 
@@ -44,31 +44,31 @@ Lucene 파서는 필드 범위 쿼리, 유사 항목 및 접두사 와일드 카
 
 ### <a name="set-the-request-url"></a>요청 URL 설정
 
-Request는 Azure Cognitive Search 끝점 및 검색 문자열을 포함 하는 URL과 쌍을 이루는 GET 명령입니다.
+요청은 Azure 인지 검색 끝점 및 검색 문자열을 포함하는 URL과 페어링된 GET 명령입니다.
 
   ![Postman 요청 헤더](media/search-query-lucene-examples/postman-basic-url-request-elements.png)
 
 URL 구성에는 다음 요소가 있습니다.
 
-+ **`https://azs-playground.search.windows.net/`** 는 Azure Cognitive Search 개발 팀에서 유지 관리 하는 샌드박스 검색 서비스입니다. 
-+ **`indexes/nycjobs/`** 는 해당 서비스의 인덱스 컬렉션에 있는 NYC 작업 인덱스입니다. 요청에는 서비스 이름과 인덱스가 둘 다 필요합니다.
-+ **`docs`** 는 모든 검색 가능한 콘텐츠를 포함하는 문서 컬렉션입니다. 요청 헤더에 제공되는 쿼리 api-key는 문서 컬렉션을 대상으로 하는 읽기 작업에만 작동합니다.
-+ **`api-version=2019-05-06`** 은 모든 요청에서 필수 매개 변수인 api-version을 설정합니다.
-+ **`search=*`** 는 초기 쿼리에서 null이며 처음 50개 결과(기본값)를 반환하는 쿼리 문자열입니다.
++ **`https://azs-playground.search.windows.net/`** 은 Azure 인지 검색 개발 팀에서 유지 관리하는 샌드박스 검색 서비스입니다. 
++ **`indexes/nycjobs/`** 은 해당 서비스의 인덱스 컬렉션에 있는 NYC 작업 인덱스입니다. 요청에는 서비스 이름과 인덱스가 둘 다 필요합니다.
++ **`docs`** 은 모든 검색 가능한 콘텐츠를 포함하는 문서 모음입니다. 요청 헤더에 제공되는 쿼리 api-key는 문서 컬렉션을 대상으로 하는 읽기 작업에만 작동합니다.
++ **`api-version=2019-05-06`** 모든 요청에 필요한 매개 변수인 api 버전을 설정합니다.
++ **`search=*`** 는 초기 쿼리에서 null인 쿼리 문자열로, 기본적으로 처음 50개의 결과를 반환합니다.
 
 ## <a name="send-your-first-query"></a>첫 번째 쿼리 전송
 
-확인 단계에서 다음 요청을 GET에 붙여넣고 **보내기**를 클릭합니다. 결과는 자세한 JSON 문서로 반환됩니다. 모든 필드와 모든 값을 볼 수 있는 전체 문서가 반환 됩니다.
+확인 단계에서 다음 요청을 GET에 붙여넣고 **보내기**를 클릭합니다. 결과는 자세한 JSON 문서로 반환됩니다. 전체 문서가 반환되어 모든 필드와 모든 값을 볼 수 있습니다.
 
-이 URL을 REST 클라이언트에 유효성 검사 단계로 붙여넣고 문서 구조를 봅니다.
+이 URL을 REST 클라이언트에 유효성 검사 단계로 붙여 넣고 문서 구조를 봅니다.
 
   ```http
   https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&search=*
   ```
 
-쿼리 문자열 **`search=*`** 은 null에 해당하는 미지정 검색이거나 빈 검색입니다. 가장 간단한 검색을 수행할 수 있습니다.
+쿼리 문자열은 **`search=*`** null 또는 빈 검색과 동일한 지정되지 않은 검색입니다. 그것은 당신이 할 수있는 가장 간단한 검색입니다.
 
-필요에 따라 URL에 **`$count=true`** 를 추가하여 검색 조건과 일치하는 문서 수를 반환할 수 있습니다. 빈 검색 문자열에서는 인덱스(NYC 작업의 경우 2800)에 있는 모든 문서입니다.
+선택적으로 URL에 **`$count=true`** 추가하여 검색 조건과 일치하는 문서 수를 반환할 수 있습니다. 빈 검색 문자열에서는 인덱스(NYC 작업의 경우 2800)에 있는 모든 문서입니다.
 
 ## <a name="how-to-invoke-full-lucene-parsing"></a>전체 Lucene 구문 분석을 호출하는 방법
 
@@ -80,11 +80,11 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 
 이 문서의 모든 예제는 전체 구문을 나타내는 **queryType=full** 검색 매개 변수가 Lucene 쿼리 파서에서 처리되도록 지정합니다. 
 
-## <a name="example-1-query-scoped-to-a-list-of-fields"></a>예제 1: 필드 목록으로 범위가 지정 된 쿼리
+## <a name="example-1-query-scoped-to-a-list-of-fields"></a>예 1: 필드 목록으로 범위가 조정된 쿼리
 
-이 첫 번째 예제는 Lucene에 한정 되지 않지만, 첫 번째 기본 쿼리 개념인 필드 범위를 소개 하는 데 사용 됩니다. 이 예에서는 전체 쿼리와 응답의 범위를 몇 개의 특정 필드로 지정 합니다. 도구가 Postman 또는 Search 탐색기인 경우 판독 가능한 JSON 응답을 구성하는 방법을 파악하는 것이 중요합니다. 
+이 첫 번째 예제는 Lucene에 특정되지 는 않지만 첫 번째 기본 쿼리 개념인 필드 범위를 소개합니다. 이 예제는 전체 쿼리 및 몇 가지 특정 필드에 대한 응답의 범위를 제공합니다. 도구가 Postman 또는 Search 탐색기인 경우 판독 가능한 JSON 응답을 구성하는 방법을 파악하는 것이 중요합니다. 
 
-간단히 하기 위해 쿼리는 *business_title*만을 대상으로 하며, 직함만 반환되도록 지정합니다. **Searchfields** 매개 변수는 쿼리 실행을 business_title 필드로 제한 하 고 응답에 포함할 필드를 **지정 합니다.**
+간단히 하기 위해 쿼리는 *business_title*만을 대상으로 하며, 직함만 반환되도록 지정합니다. **searchFields** 매개 변수는 쿼리 실행을 business_title 필드로만 제한하고 **선택** 선택하면 응답에 포함되는 필드를 지정합니다.
 
 ### <a name="partial-query-string"></a>부분 쿼리 문자열
 
@@ -92,16 +92,16 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 &search=*&searchFields=business_title&$select=business_title
 ```
 
-쉼표로 구분 된 목록에 여러 필드가 있는 동일한 쿼리는 다음과 같습니다.
+다음은 쉼표 구분 목록에 여러 필드가 있는 동일한 쿼리입니다.
 
 ```http
 search=*&searchFields=business_title, posting_type&$select=business_title, posting_type
 ```
 
-쉼표 뒤의 공백은 선택 사항입니다.
+쉼표 다음의 공백은 선택 사항입니다.
 
 > [!Tip]
-> 응용 프로그램 코드에서 REST API를 사용 하는 경우 `$select` 및 `searchFields`와 같은 URL 인코딩 매개 변수를 잊지 마십시오.
+> 응용 프로그램 코드에서 REST API를 사용하는 경우 와 같은 `$select` 매개 변수를 URL 인코딩하는 것을 잊지 `searchFields`마십시오.
 
 ### <a name="full-url"></a>전체 URL
 
@@ -113,11 +113,11 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 
   ![Postman 샘플 응답](media/search-query-lucene-examples/postman-sample-results.png)
 
-응답에서 검색 점수를 보았을 수 있습니다. 순위가 없으면 검색이 전체 텍스트 검색이 아니거나 어떤 조건도 적용되지 않기 때문에 균일하게 점수 1이 지정됩니다. 조건 없는 Null 검색의 경우 행은 임의의 순서로 반환됩니다. 실제 검색 조건을 포함 하는 경우 검색 점수가 의미 있는 값으로 증가 하는 것을 볼 수 있습니다.
+응답에서 검색 점수를 보았을 수 있습니다. 순위가 없으면 검색이 전체 텍스트 검색이 아니거나 어떤 조건도 적용되지 않기 때문에 균일하게 점수 1이 지정됩니다. 조건 없는 Null 검색의 경우 행은 임의의 순서로 반환됩니다. 실제 검색 조건을 포함하면 검색 점수가 의미 있는 값으로 진화하는 것을 볼 수 있습니다.
 
-## <a name="example-2-fielded-search"></a>예제 2: 필드 지정 검색
+## <a name="example-2-fielded-search"></a>예 2: 필드 검색
 
-Full Lucene 구문은 특정 필드에 대 한 개별 검색 식의 범위 지정을 지원 합니다. 이 예제에서는 junior 라는 용어가 포함 된 비즈니스 타이틀을 검색 합니다.
+전체 Lucene 구문은 특정 필드에 대한 개별 검색 식의 범위를 지정하는 것을 지원합니다. 이 예제에서는 선배라는 용어가 있는 비즈니스 타이틀을 검색하지만 주니어는 검색하지 않습니다.
 
 ### <a name="partial-query-string"></a>부분 쿼리 문자열
 
@@ -125,7 +125,7 @@ Full Lucene 구문은 특정 필드에 대 한 개별 검색 식의 범위 지�
 $select=business_title&search=business_title:(senior NOT junior)
 ```
 
-다음은 여러 필드를 포함 하는 동일한 쿼리입니다.
+다음은 여러 필드가 있는 동일한 쿼리입니다.
 
 ```http
 $select=business_title, posting_type&search=business_title:(senior NOT junior) AND posting_type:external
@@ -139,18 +139,18 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 
   ![Postman 샘플 응답](media/search-query-lucene-examples/intrafieldfilter.png)
 
-**FieldName: searchexpression** 구문을 사용 하 여 필드 지정 search 작업을 정의할 수 있습니다. 여기서 검색 식은 단일 단어나 구 또는 괄호 안의 보다 복잡 한 식입니다. 선택적으로 부울 연산자를 사용할 수 있습니다. 몇 가지 예제는 다음과 같습니다.
+필드된 검색 작업을 정의할 수 있습니다 **.Name:searchExpression** 구문, 검색 식은 단일 단어 또는 구 또는 괄호 안에 더 복잡 한 식, 선택적으로 부울 연산자. 몇 가지 예는 다음과 같습니다.
 
 - `business_title:(senior NOT junior)`
 - `state:("New York" OR "New Jersey")`
 - `business_title:(senior NOT junior) AND posting_type:external`
 
-이 경우 `state` 필드에서 두 개의 고유 위치를 검색 하는 경우 처럼 두 문자열을 단일 엔터티로 평가 하려면 여러 문자열을 따옴표로 묶어야 합니다. 또한, NOT과 AND와 같이 연산자는 대문자로 표시해야 합니다.
+이 경우 필드에서 두 개의 고유한 위치를 검색하는 경우와 같이 두 문자열을 단일 엔터티로 평가하려면 따옴표 내에 여러 문자열을 `state` 배치해야 합니다. 또한, NOT과 AND와 같이 연산자는 대문자로 표시해야 합니다.
 
-**FieldName: searchExpression** 에 지정 된 필드는 검색 가능한 필드 여야 합니다. 인덱스 특성을 필드 정의에서 사용 하는 방법에 대 한 자세한 내용은 [인덱스 만들기 (Azure Cognitive Search REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index) 를 참조 하세요.
+**필드Name:searchExpression에** 지정된 필드는 검색 가능한 필드여야 합니다. 필드 정의에서 인덱스 특성이 사용되는 방법에 대한 자세한 내용은 [인덱스 만들기(Azure 인지 검색 REST API)를](https://docs.microsoft.com/rest/api/searchservice/create-index) 참조하십시오.
 
 > [!NOTE]
-> 위의 예에서는 쿼리의 각 부분에 명시적으로 지정 된 필드 이름이 있으므로 `searchFields` 매개 변수를 사용할 필요가 없습니다. 그러나 일부 부분의 범위가 특정 필드로 지정 되 고 나머지는 여러 필드에 적용 될 수 있는 쿼리를 실행 하려는 경우에도 `searchFields` 매개 변수를 사용할 수 있습니다. 예를 들어 쿼리 `search=business_title:(senior NOT junior) AND external&searchFields=posting_type`는 `business_title` 필드에 대해서만 `senior NOT junior` 일치 하지만 `posting_type` 필드와는 "external"과 일치 합니다. **FieldName: searchExpression** 에 제공 된 필드 이름이 항상 `searchFields` 매개 변수 보다 우선적으로 적용 됩니다. 따라서이 예에서는 `searchFields` 매개 변수에 `business_title`를 포함할 필요가 없습니다.
+> 위의 예제에서는 쿼리의 `searchFields` 각 부분에 필드 이름이 명시적으로 지정되어 있으므로 매개 변수를 사용할 필요가 없었습니다. 그러나 일부 부분이 특정 `searchFields` 필드로 범위가 지정되고 나머지는 여러 필드에 적용할 수 있는 쿼리를 실행하려는 경우에도 매개 변수를 사용할 수 있습니다. 예를 들어 `search=business_title:(senior NOT junior) AND external&searchFields=posting_type` 쿼리는 `senior NOT junior` `business_title` 필드와만 일치하지만 "외부"와 `posting_type` 필드와 일치합니다. **fieldName:searchExpression에** 제공 된 필드 이름은 항상 `searchFields` 매개 변수보다 우선하므로 이 예제에서는 `business_title` `searchFields` 매개 변수에 포함 할 필요가 없습니다.
 
 ## <a name="example-3-fuzzy-search"></a>예제 3: 유사 항목 검색
 
@@ -162,7 +162,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 searchFields=business_title&$select=business_title&search=business_title:asosiate~
 ```
 
-구는 직접 지원 되지 않지만 구의 구성 요소 부분에서 유사 항목 일치를 지정할 수 있습니다.
+구는 직접 지원되지 않지만 구의 구성 요소 부분에 퍼지 일치를 지정할 수 있습니다.
 
 ```http
 searchFields=business_title&$select=business_title&search=business_title:asosiate~ AND comm~ 
@@ -210,7 +210,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 ## <a name="example-5-term-boosting"></a>예제 5: 용어 상승
 용어 상승은 해당 용어가 포함되지 않은 문서와 상대적으로, 상승된 용어가 포함된 경우 문서에 더 높은 순위를 매기는 것을 의미합니다. 용어를 상승시키려면 검색하려는 용어 끝 부분에 상승 계수(숫자)와 함께 캐럿("^") 기호를 사용하십시오. 
 
-### <a name="full-urls"></a>전체 Url
+### <a name="full-urls"></a>전체 URL
 
 이 “before” 쿼리에서는 *computer analyst* 용어가 포함된 직업을 검색합니다. 여기서 *computer*와 *analyst* 두 단어가 포함된 결과는 없지만, *computer* 직업은 결과의 맨 위에 나옵니다.
 
@@ -247,7 +247,7 @@ searchFields=business_title&$select=business_title&search=business_title:/(Sen|J
 
 ### <a name="full-url"></a>전체 URL
 
-이 쿼리에서는 `search=business_title:/(Sen|Jun)ior/`Junior 라는 용어를 사용 하 여 작업을 검색 합니다.
+이 쿼리에서 Senior 또는 Junior라는 용어로 `search=business_title:/(Sen|Jun)ior/`작업을 검색합니다.
 
 ```GET
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:/(Sen|Jun)ior/
@@ -284,12 +284,12 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 ## <a name="next-steps"></a>다음 단계
 코드에서 Lucene 쿼리 파서를 지정해 보십시오. 다음 링크에서는 .NET와 REST API 모두에 대한 검색 쿼리를 설정하는 방법에 대해 설명합니다. 링크는 기본 단순 구문을 사용하므로 **queryType**을 지정하려면 이 문서에서 배운 내용을 적용해야 합니다.
 
-* [.NET SDK를 사용 하 여 인덱스 쿼리](search-query-dotnet.md)
-* [REST API를 사용 하 여 인덱스 쿼리](search-create-index-rest-api.md)
+* [.NET SDK를 사용하여 인덱스를 쿼리합니다.](search-query-dotnet.md)
+* [REST API를 사용하여 인덱스 쿼리](search-create-index-rest-api.md)
 
 추가 구문 참조, 쿼리 아키텍처 및 예제는 다음 링크에서 찾을 수 있습니다.
 
 + [단순 구문 쿼리 예제](search-query-simple-examples.md)
-+ [Azure Cognitive Search에서 전체 텍스트 검색이 작동 하는 방식](search-lucene-query-architecture.md)
++ [Azure Cognitive Search의 전체 텍스트 검색 작동 방식](search-lucene-query-architecture.md)
 + [단순 쿼리 구문](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
 + [전체 Lucene 쿼리 구문](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)

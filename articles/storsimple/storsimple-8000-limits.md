@@ -16,10 +16,10 @@ ms.date: 03/28/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 70f2d9542082ddf7ecf1d1e7361b0ecdb14c5ef8
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68963383"
 ---
 # <a name="what-are-storsimple-8000-series-system-limits"></a>StorSimple 8000 시리즈 시스템 제한이란?
@@ -38,8 +38,8 @@ StorSimple는 데이터 센터에 대해 확장 가능하고 유연한 스토리
 | 로컬로 고정된 볼륨의 최대 수 |32 | |
 | 대역폭 템플릿당 일정의 최대 수 |168 |매시간, 매일에 대한 일정(24*7). |
 | 물리적 디바이스의 계층화된 볼륨 최대 크기 |8100 및 8600의 경우 64TB |8100과 8600은 물리적 디바이스입니다. |
-| Azure 내 가상 디바이스의 계층화된 볼륨 최대 크기 |8010의 경우 30TB <br></br> 8020의 경우 64TB |8010과 8020은 각각 Standard Storage와 Premium Storage를 사용하는 Azure의 가상 디바이스입니다. |
-| 물리적 디바이스의 로컬로 고정된 볼륨 최대 크기 |8100의 경우 8.5TB <br></br> 8600의 경우 22.5TB |8100과 8600은 물리적 디바이스입니다. |
+| Azure 내 가상 디바이스의 계층화된 볼륨 최대 크기 |8010의 경우 30TB <br></br>  8020의 경우 64TB |8010과 8020은 각각 Standard Storage와 Premium Storage를 사용하는 Azure의 가상 디바이스입니다. |
+| 물리적 디바이스의 로컬로 고정된 볼륨 최대 크기 |8100의 경우 8.5TB <br></br>  8600의 경우 22.5TB |8100과 8600은 물리적 디바이스입니다. |
 | iSCSI 연결의 최대 수 |512 | |
 | 초기자에서 iSCSI 연결의 최대 수 |512 | |
 | 디바이스당 액세스 제어 레코드의 최대 수 |64 | |

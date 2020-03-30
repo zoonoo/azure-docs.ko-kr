@@ -14,22 +14,22 @@ ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6eb0b5e37843413667e51112f52e6a69534e3425
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77063631"
 ---
 # <a name="frequently-asked-questions-about-azure-active-directory"></a>Azure Active Directory에 대해 자주 묻는 질문과 대답
 Azure Active Directory(Azure AD)는 ID, 액세스 관리 및 보안의 모든 측면에 걸쳐있는 포괄적인 IDaaS(Identity as a Service) 솔루션입니다.
 
-자세한 내용은 [Azure Active Directory란?](active-directory-whatis.md)을 참조하세요.
+자세한 내용은 [Azure Active 디렉터리란 무엇입니까?](active-directory-whatis.md)
 
 
 ## <a name="access-azure-and-azure-active-directory"></a>Azure 및 Azure Active Directory 액세스
 **Q: Azure Portal에서 Azure AD에 액세스하려고 할 때 "구독을 찾을 수 없음"이 표시되는 이유는 무엇인가요?**
 
-**A:** Azure Portal에 액세스하려면 각 사용자에게 Azure 구독을 통한 권한이 필요합니다. 유료 Office 365 또는 Azure AD 구독이 있는 경우 일회성 활성화 단계를 위해 [https://aka.ms/accessAAD](https://aka.ms/accessAAD)로 이동하십시오. 그렇지 않으면 무료 [Azure 계정](https://azure.microsoft.com/pricing/free-trial/) 또는 유료 구독을 활성화해야 합니다.
+**A:** Azure Portal에 액세스하려면 각 사용자에게 Azure 구독을 통한 권한이 필요합니다. 유료 Office 365 또는 Azure AD 구독이 [https://aka.ms/accessAAD](https://aka.ms/accessAAD) 있는 경우 일회성 활성화 단계로 이동합니다. 그렇지 않으면 무료 [Azure 계정](https://azure.microsoft.com/pricing/free-trial/) 또는 유료 구독을 활성화해야 합니다.
 
 자세한 내용은 다음을 참조하세요.
 
@@ -82,14 +82,14 @@ Enterprise Mobility + Security와 같은 Azure AD 유료 서비스는 포괄적�
 
 **A:** 온-프레미스 디렉터리와 Azure AD 간에 SSO(Single Sign-On)만 설정하면 됩니다. Azure AD를 통해 클라우드 애플리케이션에 액세스할 수만 있다면 서비스는 온-프레미스 자격 증명으로 올바르게 인증하도록 사용자를 자동으로 유도합니다.
 
-온-프레미스에서 SSO를 구현 하는 것은 Active Directory Federation Services (AD FS)와 같은 페더레이션 솔루션 또는 암호 해시 동기화 구성으로 쉽게 달성할 수 있습니다. Azure AD Connect 구성 마법사를 사용 하 여 두 옵션을 쉽게 배포할 수 있습니다.
+온-프레미스에서 SSO를 구현하는 것은 Active Directory 페더레이션 서비스(AD FS)와 같은 페더레이션 솔루션또는 암호 해시 동기화를 구성하여 쉽게 달성할 수 있습니다. Azure AD Connect 구성 마법사를 사용하여 두 옵션을 모두 쉽게 배포할 수 있습니다.
 
 자세한 내용은 [Azure Active Directory와 온-프레미스 ID 통합](../hybrid/whatis-hybrid-identity.md)을 참조하세요.
 
 ---
 **Q: Azure AD에서 내 조직의 사용자에 대한 셀프 서비스 포털을 제공하나요?**
 
-**A:** 예, Azure AD는 사용자 셀프 서비스 및 애플리케이션 액세스를 위해 [Azure AD 액세스 패널](https://myapps.microsoft.com)을 제공합니다. Office 365 고객 인 경우 [office 365 포털](https://portal.office.com)에서 동일한 많은 기능을 찾을 수 있습니다.
+**A:** 예, Azure AD는 사용자 셀프 서비스 및 애플리케이션 액세스를 위해 [Azure AD 액세스 패널](https://myapps.microsoft.com)을 제공합니다. Office 365 고객인 경우 [Office 365 포털에서](https://portal.office.com)동일한 기능을 많이 찾을 수 있습니다.
 
 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요.
 
@@ -102,7 +102,7 @@ Enterprise Mobility + Security와 같은 Azure AD 유료 서비스는 포괄적�
 
 ---
 ## <a name="password-management"></a>암호 관리
-**Q: 암호 동기화를 사용 하지 않고 Azure AD 비밀 번호 쓰기 복구를 사용할 수 있나요? (이 시나리오에서는 Azure AD SSPR (셀프 서비스 암호 재설정)를 암호 쓰기 저장과 함께 사용 하 고 클라우드에 암호를 저장 하지 않을 수 있나요?)**
+**Q: 암호 동기화 없이 Azure AD 암호 쓰기 백을 사용할 수 있습니까? (이 시나리오에서는 Azure AD 셀프 서비스 암호 재설정 (SSPR)을 암호 쓰기 백으로 사용하고 클라우드에 암호를 저장하지 않을 수 있습니까?)**
 
 **A:** 쓰기 저장을 사용하기 위해 Azure AD에 Active Directory 암호를 동기화할 필요가 없습니다. 페더레이션된 환경에서 Azure AD SSO(Single Sign-On)는 온-프레미스 디렉터리에 의존하여 사용자를 인증합니다. 이 시나리오는 Azure AD에서 추적되는 온-프레미스 암호를 필요로 하지 않습니다.
 
@@ -118,11 +118,11 @@ Enterprise Mobility + Security와 같은 Azure AD 유료 서비스는 포괄적�
 
 **A:** 예, 비밀번호 쓰기 저장을 사용하도록 설정하는 경우 관리자가 수행하는 암호 작업이 온-프레미스 환경에 다시 기록됩니다.  
 
-<a name="for-more-answers-to-password-related-questions-see-password-management-frequently-asked-questionsauthenticationactive-directory-passwords-faqmd"></a>암호와 관련된 질문에 대한 자세한 답변은 [암호 관리 질문과 대답](../authentication/active-directory-passwords-faq.md)을 참조하세요.
+<a name="for-more-answers-to-password-related-questions-see-password-management-frequently-asked-questions"></a>암호와 관련된 질문에 대한 자세한 답변은 [암호 관리 질문과 대답](../authentication/active-directory-passwords-faq.md)을 참조하세요.
 ---
 **Q: 암호 변경을 시도하는 동안 기존 Office 365/Azure AD 암호를 기억할 수 없는 경우 어떻게 해야 하나요?**
 
-**A:** 이러한 상황에는 두 가지 옵션이 있습니다.  SSPR(셀프 서비스 암호 재설정)을 사용할 수 있으면 사용합니다.  SSPR 작동 여부는 구성 방식에 달려 있습니다.  자세한 내용은 [암호 재설정 포털의 작동 원리](../authentication/howto-sspr-deployment.md)를 참조하세요.
+**A:** 이러한 유형의 상황에는 몇 가지 옵션이 있습니다.  SSPR(셀프 서비스 암호 재설정)을 사용할 수 있으면 사용합니다.  SSPR 작동 여부는 구성 방식에 달려 있습니다.  자세한 내용은 [암호 재설정 포털의 작동 방식을](../authentication/howto-sspr-deployment.md)참조하십시오.
 
 Office 365 사용자의 경우 [사용자 암호 다시 설정](https://support.office.com/article/Admins-Reset-user-passwords-7A5D073B-7FAE-4AA5-8F96-9ECD041ABA9C?ui=en-US&rs=en-US&ad=US)에 설명된 단계를 사용하여 관리자가 암호를 재설정할 수 있습니다.
 
@@ -146,7 +146,7 @@ Azure AD 계정의 경우 다음 중 하나를 사용하여 관리자가 암호�
 
 요청을 필터링하고 봇넷으로부터 보호하며, 모든 B2C 테넌트에 적용되는 게이트웨이가 있습니다.
 
-## <a name="application-access"></a>응용 프로그램 액세스
+## <a name="application-access"></a>애플리케이션 액세스
 
 **Q: Azure AD 및 해당 기능과 미리 통합된 애플리케이션의 목록을 어디에서 찾을 수 있나요?**
 
@@ -183,8 +183,8 @@ Azure AD 계정의 경우 다음 중 하나를 사용하여 관리자가 암호�
 
 자세한 내용은 다음을 참조하세요.
 
-* [Azure AD의 인증 시나리오](../develop/authentication-scenarios.md)
-* [Active Directory 인증 프로토콜](https://msdn.microsoft.com/library/azure/dn151124.aspx)
+* [Azure AD에 대한 인증 시나리오](../develop/authentication-scenarios.md)
+* [활성 디렉터리 인증 프로토콜](https://msdn.microsoft.com/library/azure/dn151124.aspx)
 * [Azure AD의 애플리케이션에 대한 Single Sign-On](../manage-apps/what-is-single-sign-on.md)
 
 ---
@@ -197,18 +197,18 @@ Azure AD 계정의 경우 다음 중 하나를 사용하여 관리자가 암호�
 ---
 **Q: 특정 애플리케이션에 액세스하는 사용자의 Multi-Factor Authentication을 어떻게 요청하나요?**
 
-**A:** Azure AD 조건부 액세스를 사용 하 여 각 응용 프로그램에 대 한 고유한 액세스 정책을 할당할 수 있습니다. 정책에서 언제든지 또는 사용자가 로컬 네트워크에 연결되지 않은 경우 Multi-Factor Authentication을 요구할 수 있습니다.  
+**A:** Azure AD 조건부 액세스를 사용하면 각 응용 프로그램에 대해 고유한 액세스 정책을 할당할 수 있습니다. 정책에서 언제든지 또는 사용자가 로컬 네트워크에 연결되지 않은 경우 Multi-Factor Authentication을 요구할 수 있습니다.  
 
 자세한 내용은 [Azure Active Directory에 연결된 Office 365 및 기타 앱에 대한 액세스 보호](../active-directory-conditional-access-azure-portal.md)를 참조하세요.
 
 ---
-**Q: SaaS 앱을 위한 자동 사용자 프로비전이 무엇인가요?**
+**Q: SaaS 앱에 대한 자동화된 사용자 프로비저닝이란 무엇입니까?**
 
 **A:** Azure AD를 사용하여 다수의 인기 있는 클라우드 SaaS 앱의 사용자 ID 만들기, 유지 관리 및 제거를 자동화합니다.
 
-자세한 내용은 [Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비전 및 프로비전 해제](../app-provisioning/user-provisioning.md)를 참조하세요.
+자세한 내용은 [Azure Active Directory를 사용하여 SaaS 응용 프로그램에 대한 사용자 프로비전 자동화 및 프로비저닝 해제를](../app-provisioning/user-provisioning.md)참조하십시오.
 
 ---
 **Q: Azure AD에서 보안 LDAP 연결을 설정할 수 있나요?**
 
-**A:** 아니요. Azure AD는 LDAP (Lightweight Directory Access Protocol) 프로토콜 또는 보안 LDAP을 직접 지원 하지 않습니다. 그러나 LDAP 연결을 구현 하기 위해 Azure 네트워킹을 통해 적절히 구성 된 네트워크 보안 그룹을 사용 하 여 Azure AD 테 넌 트에서 Azure AD Domain Services (Azure AD DS) 인스턴스를 사용 하도록 설정할 수 있습니다. 자세한 내용은 https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap을 참조하세요.
+**A:**  아니요. Azure AD는 LDAP(라이트라이트 디렉터리 액세스 프로토콜) 프로토콜 또는 보안 LDAP를 직접 지원하지 않습니다. 그러나 LDAP 연결을 달성하기 위해 Azure Networking을 통해 제대로 구성된 네트워크 보안 그룹이 있는 Azure AD 테넌트에서 Azure AD 도메인 서비스(Azure AD DS) 인스턴스를 활성화할 수 있습니다. 자세한 내용은 https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap를 참조하세요.

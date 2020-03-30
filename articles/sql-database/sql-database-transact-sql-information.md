@@ -1,5 +1,5 @@
 ---
-title: T-sql 차이점 해결-마이그레이션
+title: T-SQL 차이 마이그레이션 해결
 description: Azure SQL Database에서 완전히 지원되지 않는 Transact-SQL 문
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/03/2018
 ms.openlocfilehash: e0870ac9dc818ca07e149421b486136c76dd61a4
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79208827"
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>SQL Database로의 마이그레이션 중 Transact-SQL 차이점 해결
@@ -38,7 +38,7 @@ SQL Database에서 지원되는 기능 및 지원되지 않는 기능 목록은 
 
 - CREATE 및 ALTER DATABASE 문에는 36개가 넘는 옵션이 있습니다. 이러한 문에는 SQL Server에만 적용되는 파일 배치, FILESTREAM 및 Service Broker 옵션이 포함되어 있습니다. 마이그레이션하기 전에 데이터베이스를 만드는 경우에는 문제가 되지 않지만 데이터베이스를 만드는 T-SQL 코드를 마이그레이션하는 경우에는 [CREATE DATABASE(Azure SQL Database)](https://msdn.microsoft.com/library/dn268335.aspx)를 [CREATE DATABASE(SQL Server Transact-SQL)](https://msdn.microsoft.com/library/ms176061.aspx)의 SQL Server 구문과 비교하여 사용하는 모든 옵션이 지원되는지 확인해야 합니다. Azure SQL Database의 CREATE DATABASE에는 SQL Database에만 적용되는 서비스 목표와 탄력적인 확장 옵션도 포함되어 있습니다.
 - CREATE 및 ALTER TABLE 문에는 FILESTREAM이 지원되지 않으므로 SQL Database에서 사용할 수 없는 FileTable 옵션이 포함되어 있습니다.
-- CREATE 및 ALTER login 문은 지원되지만 일부 옵션만 SQL Database에서 제공합니다. 데이터베이스 이식 가능성을 높이려면 SQL Database에서 가능한 경우 로그인 대신 포함된 데이터베이스 사용자를 사용하도록 권장합니다. 자세한 내용은 [로그인 만들기/변경](https://docs.microsoft.com/sql/t-sql/statements/alter-login-transact-sql) 및 로그인 [및 사용자 관리](sql-database-manage-logins.md)를 참조 하세요.
+- CREATE 및 ALTER login 문은 지원되지만 일부 옵션만 SQL Database에서 제공합니다. 데이터베이스 이식 가능성을 높이려면 SQL Database에서 가능한 경우 로그인 대신 포함된 데이터베이스 사용자를 사용하도록 권장합니다. 자세한 내용은 [로그인/변경 및](https://docs.microsoft.com/sql/t-sql/statements/alter-login-transact-sql) [로그인 및 사용자 관리](sql-database-manage-logins.md)를 참조하십시오.
 
 ## <a name="transact-sql-syntax-not-supported-in-azure-sql-database"></a>Azure SQL Database에서 지원되지 않는 Transact-SQL 구문
 
@@ -78,13 +78,13 @@ SQL Database에서 지원되는 기능 및 지원되지 않는 기능 목록은 
 
 ## <a name="full-transact-sql-reference"></a>전체 TRANSACT-SQL 참조
 
-Transact-SQL 문법, 사용법 및 예제에 대한 자세한 내용은 SQL Server 온라인 설명서의  [Transact-SQL 참조(데이터베이스 엔진)](https://msdn.microsoft.com/library/bb510741.aspx) 를 참조하세요.
+Transact-SQL 문법, 사용법 및 예제에 대한 자세한 내용은 SQL Server 온라인 도서의 [트랜스액트 SQL 참조(데이터베이스 엔진)를](https://msdn.microsoft.com/library/bb510741.aspx) 참조하십시오.
 
 ### <a name="about-the-applies-to-tags"></a>'적용 대상' 태그 정보
 
-Transact-SQL 참조에는 현재까지 게시된 SQL Server 버전 2008과 관련된 문서가 포함되어 있습니다. 문서 제목 아래에 있는 아이콘 모음에는 SQL Server 플랫폼 4개와 적용 가능 여부가 나타납니다. 예를 들어 가용성 그룹은 SQL Server 2012에서 도입되었습니다.  [CREATE AVAILABILITY GROUP](https://msdn.microsoft.com/library/ff878399.aspx) 문서는 문이 **SQL Server (2012부터 시작)** 에 적용 됨을 나타냅니다. SQL Server 2008, SQL Server 2008 R2, Azure SQL Database, Azure SQL Data Warehouse 또는 병렬 데이터 웨어하우스에는 이 문이 적용되지 않습니다.
+Transact-SQL 참조에는 현재까지 게시된 SQL Server 버전 2008과 관련된 문서가 포함되어 있습니다. 문서 제목 아래에 있는 아이콘 모음에는 SQL Server 플랫폼 4개와 적용 가능 여부가 나타납니다. 예를 들어 가용성 그룹은 SQL Server 2012에서 도입되었습니다.  [가용성 그룹](https://msdn.microsoft.com/library/ff878399.aspx) 만들기 문서는 명령문이 **SQL Server(2012년부터)에**적용된다는 것을 나타냅니다. SQL Server 2008, SQL Server 2008 R2, Azure SQL Database, Azure SQL Data Warehouse 또는 병렬 데이터 웨어하우스에는 이 문이 적용되지 않습니다.
 
-경우에 따라 문서에 대 한 일반적인 주제를 제품에서 사용할 수 있지만 제품 간에는 약간의 차이가 있습니다. 차이점은 문서의 중간에 적절하게 표시됩니다. 경우에 따라 문서에 대 한 일반적인 주제를 제품에서 사용할 수 있지만 제품 간에는 약간의 차이가 있습니다. 차이점은 문서의 중간에 적절하게 표시됩니다. 예를 들어 CREATE TRIGGER 문서는 SQL Database에서 사용할 수 있습니다. 하지만 서버 수준 트리거에 필요한 **ALL SERVER** 옵션은 SQL Database에서 서버 수준 트리거를 사용할 수 없음을 나타냅니다. 대신 데이터베이스 수준 트리거를 사용합니다.
+경우에 따라 제품의 일반적인 주제를 사용할 수 있지만 제품 간에 약간의 차이가 있습니다. 차이점은 문서의 중간에 적절하게 표시됩니다. 경우에 따라 제품의 일반적인 주제를 사용할 수 있지만 제품 간에 약간의 차이가 있습니다. 차이점은 문서의 중간에 적절하게 표시됩니다. 예를 들어 CREATE TRIGGER 문서는 SQL Database에서 사용할 수 있습니다. 하지만 서버 수준 트리거에 필요한 **ALL SERVER** 옵션은 SQL Database에서 서버 수준 트리거를 사용할 수 없음을 나타냅니다. 대신 데이터베이스 수준 트리거를 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

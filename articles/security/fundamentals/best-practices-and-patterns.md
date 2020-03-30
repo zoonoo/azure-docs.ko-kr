@@ -1,6 +1,6 @@
 ---
-title: 보안 모범 사례 및 패턴-Microsoft Azure | Microsoft Docs
-description: 이 문서에서는 다양 한 Azure 리소스에 대 한 보안 모범 사례 및 패턴으로 연결 합니다.
+title: 보안 모범 사례 및 패턴 - Microsoft Azure | 마이크로 소프트 문서
+description: 이 문서에서는 서로 다른 Azure 리소스에 대한 보안 모범 사례 및 패턴에 연결됩니다.
 services: azure-security
 documentationcenter: na
 author: TerryLanfear
@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 5/03/2019
 ms.author: terrylan
 ms.openlocfilehash: 0bf9b4d3aa1926343ad25000a05762a31d49617d
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73889849"
 ---
 # <a name="azure-security-best-practices-and-patterns"></a>Azure 보안 모범 사례 및 패턴
@@ -36,7 +36,7 @@ ms.locfileid: "73889849"
 * [Azure 운영 보안 모범 사례](operational-best-practices.md)
 * [Azure PaaS 모범 사례](paas-deployments.md)
 * [Azure Service Fabric 보안 모범 사례](service-fabric-best-practices.md)
-* [Azure VM 보안 모범 사례](iaas.md)
+* [Azure VM 보안에 대한 모범 사례](iaas.md)
 * [Azure에서 보안 하이브리드 네트워크 아키텍처 구현](/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid)
 * [사물 인터넷 보안 모범 사례](iot-best-practices.md)
 * [Azure에서 PaaS 데이터베이스 보안 유지](paas-applications-using-sql.md)

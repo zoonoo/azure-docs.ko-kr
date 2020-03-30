@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 10/30/2018
 ms.author: TomSh
 ms.openlocfilehash: e5ed60ea59dc8cf19b8f9ca7e96777dbc6980171
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69906054"
 ---
 # <a name="azure-database-security-overview"></a>Azure 데이터베이스 보안 개요
@@ -63,7 +63,7 @@ SQL Database는 암호화를 제공하여 데이터를 보호하도록 도와줍
 
 Azure SQL Database에 대한 모든 연결은 데이터베이스로/로부터 데이터 "전송 중"에 항상 암호화(TLS/SSL)가 필요합니다. SQL Database는 TLS/SSL을 사용하여 서버 및 클라이언트를 인증한 다음 인증된 당사자 간의 메시지를 암호화하는 데 사용할 수 있습니다. 
 
-애플리케이션의 연결 문자열에서 연결을 암호화하고 서버 인증서를 신뢰하지 않도록 매개 변수를 지정해야 합니다. Azure Portal 외부에서 연결 문자열을 복사할 때 이 작업을 수행합니다. 그렇지 않으면 연결에서 서버의 ID를 확인하지 않으므로 "메시지 가로채기(man-in-the-middle)" 공격에 노출됩니다. 예를 들어, ADO.NET 드라이버의 경우 이러한 연결 문자열 매개 변수는 `Encrypt=True` 및 `TrustServerCertificate=False`입니다.
+애플리케이션의 연결 문자열에서 연결을 암호화하고 서버 인증서를 신뢰하지 않도록 매개 변수를 지정해야 합니다. Azure 포털에서 연결 문자열을 복사하는 경우 이 작업을 수행합니다. 그렇지 않으면 연결이 서버의 ID를 확인하지 않으며 "중간자" 공격에 취약합니다. 예를 들어, ADO.NET 드라이버의 경우 이러한 연결 문자열 매개 변수는 `Encrypt=True` 및 `TrustServerCertificate=False`입니다.
 
 ### <a name="encryption-at-rest"></a>휴지 상태의 암호화
 
@@ -73,13 +73,13 @@ Azure SQL Database에 대한 모든 연결은 데이터베이스로/로부터 �
 
 이 문제를 해결하기 위해 SQL Server 및 SQL Database는 [투명한 데이터 암호화](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql?view=azuresqldb-current&viewFallbackFrom=sql-server-2017)를 지원합니다. 투명한 데이터 암호화는 SQL Server 및 SQL Database 데이터 파일을 암호화합니다. 이를 미사용 데이터 암호화라고 합니다.
 
-투명한 데이터 암호화는 악의적인 활동의 위협으로부터 보호합니다. 애플리케이션에 대한 변경 없이 미사용 데이터베이스, 연결된 백업 및 트랜잭션 로그 파일의 실시간 암호화 및 암호 해독을 수행합니다.  
+투명한 데이터 암호화는 악의적인 활동의 위협으로부터 보호합니다. 이 기능은 애플리케이션을 변경할 필요 없이 미사용 데이터베이스, 연결된 백업 및 트랜잭션 로그 파일의 실시간 암호화 및 암호 해독을 수행합니다.  
 
 투명한 데이터 암호화는 데이터베이스 암호화 키라는 대칭 키를 사용하여 전체 데이터베이스의 스토리지를 암호화합니다. SQL Database에서 데이터베이스 암호화 키는 기본 제공 서버 인증서에 의해 보호됩니다. 기본 제공 서버 인증서는 각 SQL Database 서버에 대해 고유합니다.
 
-데이터베이스가 Geo-DR 관계에 있는 경우 각 서버에서 서로 다른 키로 보호됩니다. 두 개의 데이터베이스가 동일한 서버에 연결되어 있으면 동일한 기본 제공 인증서를 공유합니다. Microsoft는 적어도 90일마다 이러한 인증서를 자동으로 회전합니다. 
+데이터베이스가 Geo-DR 관계에 있는 경우 각 서버에서 서로 다른 키로 보호됩니다. 두 개의 데이터베이스가 동일한 서버에 연결된 경우에는 동일한 기본 제공 인증서를 공유합니다. Microsoft는 적어도 90일마다 이러한 인증서를 자동으로 회전시킵니다. 
 
-자세한 내용은 [투명한 데이터 암호화](/sql/relational-databases/security/encryption/transparent-data-encryption-tde)를 참조하세요.
+자세한 내용은 [투명 데이터 암호화](/sql/relational-databases/security/encryption/transparent-data-encryption-tde)를 참조하십시오.
 
 ### <a name="encryption-in-use-client"></a>암호화 사용(클라이언트)
 
@@ -93,7 +93,7 @@ Always Encrypted는 데이터를 소유하고 볼 수 있는 사용자와 데이
 
 또한 Always Encrypted는 애플리케이션에 대해 암호화를 투명하게 합니다. 클라이언트 애플리케이션에서 중요 데이터를 자동으로 암호화 및 암호 해독할 수 있게, Always Encrypted를 구현하는 드라이버는 클라이언트 컴퓨터에 설치됩니다. 드라이버는 데이터베이스 엔진에 데이터를 전달하기 전에 중요한 열의 데이터를 암호화합니다. 드라이버는 애플리케이션에 대한 의미 체계가 유지되도록 쿼리를 자동으로 다시 작성합니다. 마찬가지로, 드라이버는 암호화된 데이터베이스 열에 저장되고 쿼리 결과에 포함된 데이터를 투명하게 암호 해독합니다.
 
-## <a name="access-control"></a>액세스 제어
+## <a name="access-control"></a>Access Control
 
 보안을 제공하기 위해 SQL Database는 다음을 사용하여 액세스를 제어합니다.
 
@@ -107,7 +107,7 @@ Always Encrypted는 데이터를 소유하고 볼 수 있는 사용자와 데이
 
 #### <a name="firewall-and-firewall-rules"></a>방화벽 및 방화벽 규칙
 
-[Azure SQL Database](https://azure.microsoft.com/services/sql-database/)는 Azure 및 기타 인터넷 기반 애플리케이션의 관계형 데이터베이스 서비스를 제공합니다. 데이터를 보호하기 위해 방화벽은 권한이 있는 컴퓨터를 지정할 때까지 데이터베이스 서버에 대한 모든 액세스를 금지합니다. 방화벽은 각 요청이 시작된 IP 주소의 데이터베이스에 대한 액세스를 허용합니다. 자세한 내용은 [Azure SQL Database 방화벽 규칙 개요](/azure/sql-database/sql-database-firewall-configure)를 참조하세요.
+[Azure SQL Database](https://azure.microsoft.com/services/sql-database/)는 Azure 및 기타 인터넷 기반 애플리케이션의 관계형 데이터베이스 서비스를 제공합니다. 데이터를 보호하기 위해 방화벽은 권한이 있는 컴퓨터를 지정할 때까지 데이터베이스 서버에 대한 모든 액세스를 금지합니다. 방화벽은 각 요청이 시작된 IP 주소의 데이터베이스에 대한 액세스를 허용합니다. 자세한 내용은 [Azure SQL Database 방화벽 규칙의 개요를](/azure/sql-database/sql-database-firewall-configure)참조하십시오.
 
 Azure SQL Database 서비스는 TCP 포트 1433을 통해서만 사용할 수 있습니다. 사용자의 컴퓨터에서 SQL Database에 액세스하려면 클라이언트 컴퓨터 방화벽이 TCP 포트 1433을 통해 나가는 TCP 통신을 허용해야 합니다. 다른 애플리케이션에 인바운드 연결이 필요하지 않은 경우 TCP 포트 1433에서 인바운드 연결을 차단합니다.
 
@@ -115,7 +115,7 @@ Azure SQL Database 서비스는 TCP 포트 1433을 통해서만 사용할 수 �
 
 인증은 데이터베이스에 연결할 때 사용자의 ID를 증명하는 방법을 가리킵니다. SQL Database는 두 가지 인증 유형을 지원합니다.
 
--   **SQL Server 인증**: 논리적 SQL 인스턴스가 만들어질 때, SQL Database 구독자 계정이라는 단일 로그인 계정이 만들어집니다. 이 계정은 [SQL Server 인증](/azure/sql-database/sql-database-security-overview)(사용자 이름 및 암호)을 사용하여 연결됩니다. 이 계정은 논리적 서버 인스턴스 및 해당 인스턴스에 연결된 모든 사용자 데이터베이스에서 관리자입니다. 구독자 계정의 사용 권한은 제한할 수 없습니다. 이러한 계정 중 하나만 존재할 수 있습니다.
+-   **SQL Server 인증:** 논리적 SQL 인스턴스가 만들어질 때, SQL Database 구독자 계정이라는 단일 로그인 계정이 만들어집니다. 이 계정은 [SQL Server 인증](/azure/sql-database/sql-database-security-overview)(사용자 이름 및 암호)을 사용하여 연결됩니다. 이 계정은 논리적 서버 인스턴스 및 해당 인스턴스에 연결된 모든 사용자 데이터베이스에서 관리자입니다. 구독자 계정의 사용 권한은 제한할 수 없습니다. 이러한 계정 중 하나만 존재할 수 있습니다.
 -   **Azure Active Directory 인증**: [Azure AD 인증](/azure/sql-database/sql-database-aad-authentication)은 Azure AD의 ID를 사용하여 Azure SQL Database 및 Azure SQL Data Warehouse에 연결하는 메커니즘입니다. 이를 사용하여 데이터베이스 사용자의 ID를 중앙에서 관리할 수 있습니다.
 
 ![SQL Database를 사용하는 Azure AD 인증](./media/database-security-overview/azure-database-fig2.png)
@@ -126,7 +126,7 @@ Azure SQL Database 서비스는 TCP 포트 1433을 통해서만 사용할 수 �
   - 외부(Azure AD) 그룹을 사용하여 데이터베이스 사용 권한을 관리할 수 있습니다.
   - Windows 통합 인증 또는 Azure AD에서 지원하는 기타 인증을 사용하여 암호 저장을 제거할 수 있습니다.
 
-#### <a name="authorization"></a>Authorization
+#### <a name="authorization"></a>권한 부여
 
 [권한 부여](/azure/sql-database/sql-database-manage-logins)는 사용자가 Azure SQL Data 데이터베이스 내에서 수행할 수 있는 작업을 참조합니다. 사용자 계정의 데이터베이스 [역할 멤버 자격](https://msdn.microsoft.com/library/ms189121) 및 [개체 수준 사용 권한](https://msdn.microsoft.com/library/ms191291.aspx)에 따라 제어됩니다. 권한 부여는 보안 주체가 액세스할 수 있는 보호 가능한 리소스와, 해당 리소스에 대해 허용되는 작업을 결정하는 프로세스입니다.
 
@@ -142,9 +142,9 @@ Azure SQL Database 서비스는 TCP 포트 1433을 통해서만 사용할 수 �
 
 또 다른 예로, 개인 식별 정보를 보호하는 적절한 데이터 마스크를 정의할 수 있습니다. 그러면 개발자는 준수 규정을 위반하지 않고 문제 해결을 위해 프로덕션 환경을 쿼리할 수 있습니다.
 
-[SQL Database 동적 데이터 마스킹](/azure/sql-database/sql-database-dynamic-data-masking-get-started)에서는 권한이 없는 사용자에 대해 중요한 데이터를 마스킹해 표시함으로써 데이터 노출을 제한합니다. Azure SQL Database의 V12 버전에서는 동적 데이터 마스킹을 지원합니다.
+[SQL Database 동적 데이터 마스킹은](/azure/sql-database/sql-database-dynamic-data-masking-get-started) 권한이 없는 사용자에게 마스킹하여 중요한 데이터 노출을 제한합니다. Azure SQL Database의 V12 버전에서는 동적 데이터 마스킹을 지원합니다.
 
-[동적 데이터 마스킹](/sql/relational-databases/security/dynamic-data-masking)을 수행하면 애플리케이션 계층에 대한 영향을 최소화하면서 표시할 중요한 데이터의 양을 지정할 수 있도록 하여 중요한 데이터에 대한 무단 액세스를 방지할 수 있습니다. 동적 데이터 마스킹은 지정된 데이터베이스 필드에 대한 쿼리의 결과 집합에서 중요한 데이터를 숨기는 정책 기반 보안 기능입니다. 이때 데이터베이스의 데이터 자체는 변경되지 않습니다.
+[동적 데이터 마스킹을](/sql/relational-databases/security/dynamic-data-masking) 사용하면 응용 프로그램 계층에 미치는 영향을 최소화하면서 공개할 중요한 데이터의 양을 지정할 수 있으므로 중요한 데이터에 대한 무단 액세스를 방지할 수 있습니다. 데이터베이스의 데이터는 변경되지 않으면서 지정된 데이터베이스 필드에 대한 쿼리의 결과 집합에서 중요한 데이터를 숨기는 정책 기반 보안 기능입니다.
 
 > [!Note]
 > Azure 데이터베이스 관리자, 서버 관리자 또는 보안 관리자 역할이 동적 데이터 마스킹을 구성할 수 있습니다.
@@ -155,7 +155,7 @@ Azure SQL Database 서비스는 TCP 포트 1433을 통해서만 사용할 수 �
 
 ![클라이언트 응용 프로그램을 통해 사용자가 테이블의 행에 액세스하도록 허용하는 행 수준 보안](./media/database-security-overview/azure-database-fig4.png)
 
-액세스 제한 논리는 다른 애플리케이션 계층의 데이터가 아닌 데이터베이스 계층에 있습니다. 데이터베이스 시스템은 모든 계층에서 데이터 액세스를 시도할 때마다 액세스 제한을 적용합니다. 이렇게 하면 보안 시스템의 노출 영역을 줄임으로써 보안 시스템을 보다 안정적이고 강력하게 만들 수 있습니다.
+액세스 제한 논리는 다른 애플리케이션 계층의 데이터와 다소 떨어진 데이터베이스 계층에 위치합니다. 데이터베이스 시스템은 모든 계층에서 데이터 액세스를 시도할 때마다 액세스를 제한합니다. 이렇게 하면 보안 시스템의 노출 영역을 줄임으로써 보안 시스템을 보다 안정적이고 강력하게 만들 수 있습니다.
 
 행 수준 보안에서는 조건자 기반 액세스 제어를 도입합니다. 이 제어는 메타데이터 또는 관리자가 적절하다고 판단한 다른 기준을 반영할 수 있는 유연하고 중앙 집중적인 평가가 특징입니다. 조건자는 사용자 특성에 따라 해당 사용자가 데이터에 대해 적합한 액세스 권한이 있는지 여부를 판단하기 위한 기준으로 사용됩니다. 조건자 기준 액세스 제어를 사용하여 레이블 기반 액세스 제어를 구현할 수 있습니다.
 
@@ -171,16 +171,16 @@ SQL Database 감사는 데이터베이스 이벤트를 추적하고 Azure Storag
 
 SQL Database 감사를 사용하여 다음을 수행할 수 있습니다.
 
-- 선택한 이벤트의 감사 내역을 **유지**합니다. 감사할 데이터베이스 동작의 범주를 정의할 수 있습니다.
-- 데이터베이스 활동을 **보고**합니다. 미리 구성된 보고서 및 대시보드를 사용하여 활동 및 이벤트 보고를 빠르게 시작할 수 있습니다.
-- 보고서를 **분석**합니다. 의심스러운 이벤트, 특별한 활동 및 추세를 찾을 수 있습니다.
+- **유지** 합니다. 감사할 데이터베이스 동작의 범주를 정의할 수 있습니다.
+- **보고** 합니다. 미리 구성된 보고서 및 대시보드를 사용하여 활동 및 이벤트 보고를 빠르게 시작할 수 있습니다.
+- **분석** 합니다. 의심스러운 이벤트, 특별한 활동 및 추세를 찾을 수 있습니다.
 
 두 가지 감사 방법이 있습니다.
 
--   **Blob 감사**: 로그는 Azure Blob Storage에 쓰기됩니다. 이는 새로운 감사 방법으로, 뛰어난 성능을 제공하고, 보다 세밀한 개체 수준 감사를 지원하며, 보다 비용 효율적인 방법입니다.
--   **테이블 감사**: Azure Table Storage에 로그가 기록됩니다.
+-   **Blob 감사** - Azure Blob Storage에 로그가 기록됩니다. 이는 새로운 감사 방법으로, 뛰어난 성능을 제공하고, 보다 세밀한 개체 수준 감사를 지원하며, 보다 비용 효율적인 방법입니다.
+-   **테이블 감사** - Azure Table Storage에 로그가 기록됩니다.
 
-### <a name="threat-detection"></a>위협 검색
+### <a name="threat-detection"></a>위협 감지
 
 [Azure SQL Database에 대한 Advanced Threat Protection](/azure/sql-database/sql-advanced-threat-protection)은 보안 위협의 가능성이 있는 의심스러운 활동을 검색합니다. 위협 검색을 통해 SQL 삽입 등, 데이터베이스에 의심스러운 이벤트가 발생하면 그에 대처할 수 있습니다. 경고를 제공하며 Azure SQL Database Auditing이 의심스러운 이벤트를 탐색할 수 있게 지원합니다.
 
@@ -188,8 +188,8 @@ SQL Database 감사를 사용하여 다음을 수행할 수 있습니다.
 
 SQL ATP(Advanced Threat Protection)은 데이터 검색 및 분류, 취약성 평가 및 위협 검색을 포함하여 SQL 고급 보안 기능을 제공합니다. 
 
-- [데이터 검색 및 분류](/azure/sql-database/sql-database-data-discovery-and-classification)
-- [취약성 평가](/azure/sql-database/sql-vulnerability-assessment)  
+- [데이터 검색 & 분류](/azure/sql-database/sql-database-data-discovery-and-classification)
+- [취약점 평가](/azure/sql-database/sql-vulnerability-assessment)  
 - [위협 탐지](/azure/sql-database/sql-database-threat-detection)
 
 [Azure Database for PostgreSQL Advanced Threat Protection](/azure/postgresql/concepts-data-access-and-security-threat-protection)은 비정상적인 활동에 대한 보안 경고를 제공하여 잠재적인 위협이 발생하면 사용자가 이를 검색하고 대응할 수 있도록 하는 새로운 차원의 보안을 제공합니다. 사용자는 의심스러운 데이터베이스 활동, 잠재적 취약성, 그리고 비정상적인 데이터베이스 액세스 및 쿼리 패턴에 대한 경고를 받습니다. Azure Database for PostgreSQL용 Advanced Threat Protection의 경고는 Azure Security Center에 통합되어 있습니다. 경고의 유형은 다음과 같습니다.
@@ -233,4 +233,4 @@ Azure Marketplace는 고객과 파트너에게 더 좋은 서비스를 제공하
 - [Azure SQL 데이터베이스 보안](/azure/sql-database/sql-database-security-tutorial)
 - [Azure Security Center 및 Azure SQL Database 서비스](/azure/security-center/security-center-sql-database)
 - [SQL Database 위협 검색](/azure/sql-database/sql-database-threat-detection)
-- [SQL Database 성능 향상](/azure/sql-database/sql-database-performance-tutorial)
+- [SQL 데이터베이스 성능 향상](/azure/sql-database/sql-database-performance-tutorial)

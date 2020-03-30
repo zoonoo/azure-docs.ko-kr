@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 02/16/2017
 ms.author: genli
 ms.openlocfilehash: 1b91a39e1297d8952da67a4f8d3b8568cefe04ce
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73620555"
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-with-the-azure-cli"></a>Azure CLI를 사용하여 OS 디스크를 복구 VM에 연결하는 방식으로 Linux VM 문제 해결
@@ -27,11 +27,11 @@ Linux 가상 머신(VM)에 부팅 또는 디스크 오류가 발생하는 경우
 문제 해결 프로세스는 다음과 같습니다.
 
 1. 영향을 받는 VM을 중지합니다.
-1. VM의 OS 디스크에서 스냅숏을 만듭니다.
+1. VM의 OS 디스크에서 스냅숏을 생성합니다.
 1. OS 디스크 스냅샷에서 디스크를 만듭니다.
-1. 문제 해결을 위해 새 OS 디스크를 다른 Linux VM에 연결 하 고 탑재 합니다.
-1. 문제 해결 VM에 연결합니다. 새 OS 디스크의 문제를 해결 하려면 파일을 편집 하거나 도구를 실행 합니다.
-1. 문제 해결 VM에서 새 OS 디스크를 분리 하 고 분리 합니다.
+1. 문제 해결을 위해 새 OS 디스크를 다른 Linux VM에 연결하고 마운트합니다.
+1. 문제 해결 VM에 연결합니다. 파일을 편집하거나 도구를 실행하여 새 OS 디스크의 문제를 해결합니다.
+1. 문제 해결 VM에서 새 OS 디스크를 마운트 해제하고 분리합니다.
 1. 영향을 받는 VM용 OS 디스크를 변경합니다.
 
 이러한 문제 해결 단계를 수행하려면 최신 [Azure CLI](/cli/azure/install-az-cli2)를 설치하고 [az login](/cli/azure/reference-index)을 사용하여 Azure 계정에 로그인해야 합니다.
@@ -39,12 +39,12 @@ Linux 가상 머신(VM)에 부팅 또는 디스크 오류가 발생하는 경우
 > [!Important]
 > 이 문서의 스크립트는 [관리 디스크](../linux/managed-disks-overview.md)를 사용하는 VM에만 적용됩니다. 
 
-다음 예제에서 매개 변수 이름을 사용자 고유의 값으로 바꿉니다 (예: `myResourceGroup` 및 `myVM`).
+다음 예제에서는 매개 변수 이름을 `myResourceGroup` 및 와 `myVM`같은 고유한 값으로 바꿉니다.
 
 ## <a name="determine-boot-issues"></a>부팅 문제 확인
 VM이 올바르게 부팅할 수 없는 원인을 확인하려면 직렬 출력을 검사합니다. 일반적인 예로는 `/etc/fstab`의 잘못된 항목 또는 삭제하거나 이동 중인 기본 가상 하드 디스크입니다.
 
-[az vm boot-diagnostics get-boot-log](/cli/azure/vm/boot-diagnostics)를 사용하여 부팅 로그를 가져옵니다. 다음 예제에서는 리소스 그룹 `myVM`의 VM `myResourceGroup`에서 직렬 출력을 수신합니다.
+[az vm boot-diagnostics get-boot-log](/cli/azure/vm/boot-diagnostics)를 사용하여 부팅 로그를 가져옵니다. 다음 예제에서는 리소스 그룹 `myResourceGroup`의 VM `myVM`에서 직렬 출력을 수신합니다.
 
 ```azurecli
 az vm boot-diagnostics get-boot-log --resource-group myResourceGroup --name myVM
@@ -54,12 +54,12 @@ az vm boot-diagnostics get-boot-log --resource-group myResourceGroup --name myVM
 
 ## <a name="stop-the-vm"></a>VM을 중지합니다.
 
-다음 예제에서는 리소스 그룹 `myVM`에서 VM `myResourceGroup`을 중지합니다.
+다음 예제에서는 리소스 그룹 `myResourceGroup`에서 VM `myVM`을 중지합니다.
 
 ```azurecli
 az vm stop --resource-group MyResourceGroup --name MyVm
 ```
-## <a name="take-a-snapshot-from-the-os-disk-of-the-affected-vm"></a>영향을 받는 VM의 OS 디스크에서 스냅숏 만들기
+## <a name="take-a-snapshot-from-the-os-disk-of-the-affected-vm"></a>영향을 받는 VM의 OS 디스크에서 스냅샷 생성
 
 스냅샷은 VHD의 전체 읽기 전용 복사본입니다. VM에 연결할 수 없습니다. 다음 단계에서는 이 스냅샷에서 디스크를 만듭니다. 다음 예제에서는 `myVM'이라는 VM의 OS 디스크에서 `mySnapshot` 이름으로 스냅샷을 만듭니다. 
 
@@ -72,7 +72,7 @@ az snapshot create --resource-group myResourceGroupDisk --source "$osdiskid" --n
 ```
 ## <a name="create-a-disk-from-the-snapshot"></a>스냅샷에서 디스크 만들기
 
-이 스크립트에서는 `myOSDisk`이라는 스냅샷에서 `mySnapshot` 이름으로 관리 디스크를 만듭니다.  
+이 스크립트에서는 `mySnapshot`이라는 스냅샷에서 `myOSDisk` 이름으로 관리 디스크를 만듭니다.  
 
 ```azurecli
 #Provide the name of your resource group
@@ -105,14 +105,14 @@ az disk create --resource-group $resourceGroup --name $osDisk --sku $storageType
 
 ```
 
-리소스 그룹과 원본 스냅숏이 동일한 영역에 없는 경우 `az disk create`를 실행 하면 "리소스를 찾을 수 없음" 오류가 표시 됩니다. 이 경우 `--location <region>`를 지정 하 여 원본 스냅숏과 동일한 영역에 디스크를 만들어야 합니다.
+리소스 그룹과 원본 스냅숏이 동일한 지역에 없는 경우 을 실행할 `az disk create`때 "리소스를 찾을 수 없습니다" 오류가 발생합니다. 이 경우 원본 스냅숏과 동일한 영역으로 디스크를 만들도록 지정해야 `--location <region>` 합니다.
 
-이제 원본 OS 디스크의 복사본이 마련됐습니다. 문제 해결을 위해이 새 디스크를 다른 Windows VM에 탑재할 수 있습니다.
+이제 원본 OS 디스크의 복사본이 마련됐습니다. 문제 해결을 위해 이 새 디스크를 다른 Windows VM에 탑재할 수 있습니다.
 
 ## <a name="attach-the-new-virtual-hard-disk-to-another-vm"></a>새 가상 하드 디스크를 다른 VM에 연결
-다음 몇 단계에서는 문제 해결을 위해 다른 VM을 사용합니다. 디스크를이 문제 해결 VM에 연결 하 여 디스크의 콘텐츠를 찾아보고 편집 합니다. 이 프로세스를 통해 모든 구성 오류를 수정 하거나 추가 응용 프로그램 또는 시스템 로그 파일을 검토할 수 있습니다.
+다음 몇 단계에서는 문제 해결을 위해 다른 VM을 사용합니다. 이 문제 해결 VM에 디스크를 연결하여 디스크의 콘텐츠를 찾아보고 편집합니다. 이 프로세스를 사용하면 구성 오류를 수정하거나 추가 응용 프로그램 또는 시스템 로그 파일을 검토할 수 있습니다.
 
-이 스크립트는 VM `MyTroubleshootVM`에 `myNewOSDisk` 디스크를 연결 합니다.
+이 스크립트는 `myNewOSDisk` 디스크를 VM에 `MyTroubleshootVM`연결합니다.
 
 ```azurecli
 # Get ID of the OS disk that you just created.
@@ -160,11 +160,11 @@ az vm disk attach --disk $diskId --resource-group MyResourceGroup --size-gb 128 
     > 가상 하드 디스크의 UUID(Universally Unique Identifier)를 사용하여 Azure의 VM에 데이터 디스크를 마운트하는 것이 가장 좋습니다. 이 짧은 문제 해결 시나리오에서는 UUID를 사용하여 가상 하드 디스크를 탑재할 필요는 없습니다. 그러나 일반적인 사용 환경에서 UUID 대신 디바이스 이름을 사용하여 가상 하드 디스크를 탑재하기 위해 `/etc/fstab`을 편집하면 VM이 부팅되지 않을 수 있습니다.
 
 
-## <a name="fix-issues-on-the-new-os-disk"></a>새 OS 디스크에서 문제 해결
+## <a name="fix-issues-on-the-new-os-disk"></a>새 OS 디스크의 문제 해결
 기존 가상 하드 디스크가 탑재되면 이제 필요에 따라 모든 유지 관리 및 문제 해결 단계를 수행할 수 있습니다. 문제가 해결되면 다음 단계를 계속합니다.
 
 
-## <a name="unmount-and-detach-the-new-os-disk"></a>새 OS 디스크 분리 및 분리
+## <a name="unmount-and-detach-the-new-os-disk"></a>새 OS 디스크마운트 해제 및 분리
 오류가 해결되면 문제 해결 VM에서 기존 가상 하드 디스크를 탑재 해제하고 분리합니다. 가상 하드 디스크를 문제 해결 VM에 연결하는 임대가 해제될 때까지 가상 하드 디스크를 다른 VM과 사용할 수 없습니다.
 
 1. SSH 세션에서 문제 해결 VM까지 기존 가상 하드 디스크를 탑재 해제합니다. 먼저 탑재 지점에 대한 상위 디렉터리에서 변경합니다.
@@ -179,7 +179,7 @@ az vm disk attach --disk $diskId --resource-group MyResourceGroup --size-gb 128 
     sudo umount /dev/sdc1
     ```
 
-2. 이제 VM에서 가상 하드 디스크를 분리합니다. 문제 해결 VM에 대 한 SSH 세션을 종료 합니다.
+2. 이제 VM에서 가상 하드 디스크를 분리합니다. 문제 해결 VM에 SSH 세션을 종료합니다.
 
     ```azurecli
     az vm disk detach -g MyResourceGroup --vm-name MyTroubleShootVm --name myNewOSDisk
@@ -187,7 +187,7 @@ az vm disk attach --disk $diskId --resource-group MyResourceGroup --size-gb 128 
 
 ## <a name="change-the-os-disk-for-the-affected-vm"></a>영향을 받는 VM용 OS 디스크 변경
 
-Azure CLI를 사용 하 여 OS 디스크를 교환할 수 있습니다. VM을 삭제하고 다시 만들 필요가 없습니다.
+Azure CLI를 사용하여 OS 디스크를 교체할 수 있습니다. VM을 삭제하고 다시 만들 필요가 없습니다.
 
 이 예제에서는 `myVM`이라는 VM을 중지하고 `myNewOSDisk`라는 디스크를 새 OS 디스크로 할당합니다.
 

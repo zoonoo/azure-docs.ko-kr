@@ -1,5 +1,5 @@
 ---
-title: 원격 모니터링에서 Data Lake Store로 데이터 스트림-Azure | Microsoft Docs
+title: 원격 모니터링에서 데이터 레이크 저장소로 데이터 스트림 데이터 - Azure | 마이크로 소프트 문서
 description: Azure Stream Analytics 작업을 사용하여 원격 모니터링 솔루션을 Azure Data Lake Store와 통합하는 방법을 알아봅니다.
 author: philmea
 manager: timlt
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: 0a684151e01b298c60ff17ef1470e0648a425850
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73889245"
 ---
 # <a name="integrate-the-remote-monitoring-solution-with-azure-data-lake-store"></a>원격 모니터링 솔루션을 Azure Data Lake Store와 통합
@@ -21,7 +21,7 @@ ms.locfileid: "73889245"
 
 이 방법에서는 Azure Stream Analytics 작업을 사용하여 원격 모니터링 솔루션의 IoT 허브에서 Azure Data Lake Store로 데이터를 스트리밍합니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 방법을 완료하려면 다음이 필요합니다.
 
@@ -38,7 +38,7 @@ ms.locfileid: "73889245"
 > [!NOTE]
 > 소비자 그룹은 애플리케이션에서 Azure IoT Hub의 데이터를 끌어오는 데 사용됩니다. 출력 소비자 5명마다 새로운 소비자 그룹을 만들어야 합니다. 최대 32개의 소비자 그룹까지 만들 수 있습니다.
 
-1. Azure 포털에 로그인합니다.
+1. Azure Portal에 로그인합니다.
 
 1. Azure Portal에서 **Cloud Shell** 단추를 클릭합니다.
 
@@ -65,7 +65,7 @@ Azure Stream Analytics 작업을 만들어 IoT 허브에서 Azure Data Lake Stor
 
 1. Data Lake Store와 가까운 또는 동일한 지역에서 위치를 선택합니다. 여기 우리는 미국 동부를 사용합니다.
 
-1. 호스팅 환경을 기본 **클라우드**로 유지하도록 해야 합니다.
+1. 호스팅 환경을 기본 ** 클라우드 **로 유지하도록 해야 합니다.
 
 1. **만들기**를 클릭합니다.
 
@@ -89,7 +89,7 @@ Azure Stream Analytics 작업을 만들어 IoT 허브에서 Azure Data Lake Stor
 
     ![입력 선택](./media/iot-accelerators-integrate-data-lake/stream-analytics-new-input.png)
 
-1. **Save**를 클릭합니다.
+1. **저장**을 클릭합니다.
 
 1. 개요 페이지에서 **Outputs**을 클릭합니다.
 
@@ -118,7 +118,7 @@ Azure Stream Analytics 작업을 만들어 IoT 허브에서 Azure Data Lake Stor
     > [!NOTE]
     > 팝업 창에 오류가 표시되면 새 브라우저 창을 Incognito Mode로 열고 다시 시도합니다.
 
-1. **Save**를 클릭합니다.
+1. **저장**을 클릭합니다.
 
 ## <a name="edit-the-stream-analytics-query"></a>Stream Analytics 쿼리 편집
 
@@ -141,7 +141,7 @@ Azure Stream Analytics는 SQL과 유사한 쿼리 언어를 사용하여 데이�
 
     ![Stream Analytics 쿼리](./media/iot-accelerators-integrate-data-lake/stream-analytics-query.png)
 
-1. **Save**를 클릭합니다.
+1. **저장**을 클릭합니다.
 1. **예**을 클릭하여 변경 내용을 허용합니다.
 
 ## <a name="start-the-stream-analytics-job"></a>Stream Analytics 작업 시작

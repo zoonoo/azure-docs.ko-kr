@@ -12,21 +12,21 @@ ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
 ms.openlocfilehash: 50ab4b0f1e676ffcba0ce69ab6aa957e4c77ab88
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71058164"
 ---
 # <a name="troubleshoot-storage-resource-deletion-errors"></a>스토리지 리소스 삭제 오류 문제 해결
 
 상황에 따라, 배포된 Azure Resource Manager에서 Azure Storage 계정, 컨테이너 또는 BLOB을 삭제하려고 시도하면 다음 오류 중 하나가 발생할 수 있습니다.
 
-> **스토리지 계정 'StorageAccountName'을 삭제하지 못했습니다. 오류: 스토리지 계정의 아티팩트가 사용 중이기 때문에 스토리지 계정을 삭제할 수 없습니다.**
+> **저장소 계정 'StorageAccountName'을 삭제하지 못했습니다. 오류: 아티팩트가 사용 중이기 때문에 저장소 계정을 삭제할 수 없습니다.**
 > 
-> **# 컨테이너에서 #을 삭제하지 못했습니다.<br>vhds: 현재 컨테이너에 임대가 있는데 요청에서 임대 ID가 지정되지 않았습니다.**
+> **#/#개 컨테이너 삭제 실패: <br>vhds: 현재 컨테이너에 임대가 있는데 요청에서 임대 ID가 지정되지 않았습니다.**
 > 
-> **# Blob에서 #을 삭제하지 못했습니다.<br>BlobName.vhd: 현재 Blob에 임대가 있는데 요청에서 임대 ID가 지정되지 않았습니다.**
+> **#/#개 Blob 삭제 실패 <br>BlobName.vhd: 현재 Blob에 임대가 있는데 요청에서 임대 ID가 지정되지 않았습니다.**
 
 Azure VM에 사용되는 VHD는 Azure의 표준 또는 Premium Storage 계정에 페이지 Blob으로 저장되는 .vhd 파일입니다. Azure 디스크에 대한 자세한 내용은 [관리 디스크 소개](../linux/managed-disks-overview.md)를 참조하세요.
 
@@ -41,8 +41,8 @@ Azure는 손상 방지를 위해 VM에 연결된 디스크 삭제를 차단합�
 
 ## <a name="step-1-identify-blob-attached-to-a-vm"></a>1단계: VM에 연결된 Blob 식별
 
-### <a name="scenario-1-deleting-a-blob--identify-attached-vm"></a>시나리오 1: Blob 삭제 - 연결된 VM 식별
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+### <a name="scenario-1-deleting-a-blob--identify-attached-vm"></a>시나리오 1: Blob tkrwp - 연결된 VM 식별
+1. [Azure 포털에](https://portal.azure.com)로그인합니다.
 2. 허브 메뉴에서 **모든 리소스**를 선택합니다. 스토리지 계정으로 이동하고 **Blob 서비스**에서 **컨테이너**를 선택하고 삭제할 Blob으로 이동합니다.
 3. BLOB **임대 단계**가 **임대됨**이면 마우스 오른쪽 단추를 클릭하고 **메타데이터 편집**을 선택하여 Blob 메타데이터 창을 엽니다. 
 
@@ -53,14 +53,14 @@ Azure는 손상 방지를 위해 VM에 연결된 디스크 삭제를 차단합�
 
      ![스토리지 &quot;Blob 메타 데이터&quot; 창이 열린 포털 스크린샷](./media/troubleshoot-vhds/utd-blob-metadata-sm.png)
 
-6. Blob 디스크 형식이 **OSDisk**이면 [2단계: VM을 삭제하여 OS 디스크 분리](#step-2-delete-vm-to-detach-os-disk)를 따릅니다. 그렇지 않고 Blob 디스크 형식이 **DataDisk**이면 [3단계: VM에서 데이터 디스크 분리](#step-3-detach-data-disk-from-the-vm)의 단계를 따릅니다. 
+6. Blob 디스크 형식이 **OSDisk**이면 [2단계: VM을 삭제하여 OS 디스크 분리](#step-2-delete-vm-to-detach-os-disk)를 다릅니다. 그렇지 않고 Blob 디스크 형식이**DataDisk**이면 [3단계: VM에서 데이터 디스크 분리](#step-3-detach-data-disk-from-the-vm)의 단계를 따릅니다. 
 
 > [!IMPORTANT]
 > **MicrosoftAzureCompute_VMName** 및 **MicrosoftAzureCompute_DiskType**이 Blob 메타데이터에 표시되지 않으면 이 Blob가 명시적으로 임대 상태이며 VM에 연결되지 않았음을 의미합니다. 임대된 Blob는 먼저 임대를 중단해야 삭제할 수 있습니다. 임대를 차단하려면 BLOB을 마우스 오른쪽 단추로 클릭하여 **임대 차단**을 선택합니다. VM에 연결되지 않은 임대된 BLOB은 BLOB의 삭제를 방지하지만 컨테이너 또는 스토리지 계정의 삭제는 방지하지 않습니다.
 
 ### <a name="scenario-2-deleting-a-container---identify-all-blobs-within-container-that-are-attached-to-vms"></a>시나리오 2: 컨테이너 삭제 - VM에 연결된 컨테이너 내 모든 Blob 식별
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. 허브 메뉴에서 **모든 리소스**를 선택합니다. 스토리지 계정의 **Blob Service**에서 **컨테이너**를 선택하고 삭제할 컨테이너를 찾습니다.
+1. [Azure 포털에](https://portal.azure.com)로그인합니다.
+2. 허브 메뉴에서 **모든 리소스**를 선택합니다. **Blob Service** 선택 **컨테이너**에서 저장소 계정으로 이동하여 삭제할 컨테이너를 찾습니다.
 3. 클릭하여 표시되는 Blob의 목록과 컨테이너를 엽니다. Blob 형식이 **페이지 Blob**이고 임대 상태 = **임대**인 모든 Blob를 식별합니다. 시나리오 1에 따라 각각의 이러한 Blob에 연결된 VM을 식별합니다.
 
     ![스토리지 계정 Blob 및 &quot;임대 상태&quot;가 &quot;임대&quot;로 강조 표시된 포털의 스크린샷](./media/troubleshoot-vhds/utd-disks-sm.png)
@@ -68,7 +68,7 @@ Azure는 손상 방지를 위해 VM에 연결된 디스크 삭제를 차단합�
 4. [2단계](#step-2-delete-vm-to-detach-os-disk) 및 [3단계](#step-3-detach-data-disk-from-the-vm)에 따라**OSDisk**가 있는 VM을 삭제하고**DataDisk**를 분리합니다. 
 
 ### <a name="scenario-3-deleting-storage-account---identify-all-blobs-within-storage-account-that-are-attached-to-vms"></a>시나리오 3: 스토리지 계정 삭제 - VM에 연결된 스토리지 계정 내 모든 Blob 식별
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure 포털에](https://portal.azure.com)로그인합니다.
 2. 허브 메뉴에서 **모든 리소스**를 선택합니다. 스토리지 계정으로 이동하고 **Blob 서비스**에서 **Blob**을 선택합니다.
 3. **컨테이너** 창에서 **임대 상태**가 **임대됨**인 모든 컨테이너를 식별하고 **임대된** 컨테이너에 대해 [시나리오 2](#scenario-2-deleting-a-container---identify-all-blobs-within-container-that-are-attached-to-vms)를 수행합니다.
 4. [2단계](#step-2-delete-vm-to-detach-os-disk) 및 [3단계](#step-3-detach-data-disk-from-the-vm)에 따라**OSDisk**가 있는 VM을 삭제하고**DataDisk**를 분리합니다. 
@@ -76,7 +76,7 @@ Azure는 손상 방지를 위해 VM에 연결된 디스크 삭제를 차단합�
 ## <a name="step-2-delete-vm-to-detach-os-disk"></a>2단계: VM을 삭제하여 OS 디스크 분리
 VHD가 OS 디스크인 경우 먼저 VM을 삭제해야 연결된 VHD를 삭제할 수 있습니다. 이 단계를 완료한 후에는 동일한 VM에 연결된 데이터 디스크에 대해 추가적인 작업이 필요하지 않습니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure 포털에](https://portal.azure.com)로그인합니다.
 2. 허브 메뉴에서 **Virtual Machines**를 선택합니다.
 3. VHD가 연결된 VM을 선택합니다.
 4. 실제로 가상 머신을 사용 중인 항목이 없고 가상 머신이 더 이상 필요하지 않음을 확인합니다.
@@ -86,7 +86,7 @@ VHD가 OS 디스크인 경우 먼저 VM을 삭제해야 연결된 VHD를 삭제�
 ## <a name="step-3-detach-data-disk-from-the-vm"></a>3단계: VM에서 데이터 디스크 분리
 VHD가 데이터 디스크인 경우 VM에서 VHD를 분리하여 임대를 제거합니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure 포털에](https://portal.azure.com)로그인합니다.
 2. 허브 메뉴에서 **Virtual Machines**를 선택합니다.
 3. VHD가 연결된 VM을 선택합니다.
 4. **가상 머신 세부 정보** 창에서 **디스크**를 선택합니다.

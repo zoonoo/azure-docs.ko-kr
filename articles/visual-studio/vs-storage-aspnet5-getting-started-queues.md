@@ -1,5 +1,5 @@
 ---
-title: Visual Studio를 사용 하 여 queue storage 시작 (ASP.NET Core)
+title: Visual Studio(ASP.NET 코어)를 사용하여 큐 스토리지 시작
 description: Visual Studio의 ASP.NET Core 프로젝트에서 Azure Queue Storage를 사용하는 방법
 services: storage
 author: ghogen
@@ -14,17 +14,17 @@ ms.date: 11/14/2017
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 5cdf6f2644788674df91b533c9444fc88ab30b09
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72300032"
 ---
 # <a name="get-started-with-queue-storage-and-visual-studio-connected-services-aspnet-core"></a>Queue Storage 및 Visual Studio 연결 서비스 시작(ASP.NET Core)
 
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
-이 문서에서는 Visual Studio **연결된 서비스** 기능을 사용하여 ASP.NET Core 프로젝트에서 Azure Storage 계정을 만들거나 참조한 후 Visual Studio에서 Azure Queue Storage 사용을 시작하는 방법에 대해 설명합니다. **연결된 서비스** 작업은 프로젝트의 Azure Storage에 액세스하는 데 적합한 NuGet 패키지를 설치하고 프로젝트 구성 파일에 스토리지 계정에 대한 연결 문자열을 추가합니다. (Azure Storage에 대한 일반적인 내용은 [스토리지 설명서](https://azure.microsoft.com/documentation/services/storage/)를 참조하세요.)
+이 문서에서는 Visual Studio **연결된 서비스** 기능을 사용하여 ASP.NET Core 프로젝트에서 Azure Storage 계정을 만들거나 참조한 후 Visual Studio에서 Azure Queue Storage 사용을 시작하는 방법에 대해 설명합니다. **연결된 서비스** 작업은 프로젝트에 Azure 저장소에 액세스하기 위해 적절한 NuGet 패키지를 설치하고 저장소 계정에 대한 연결 문자열을 프로젝트 구성 파일에 추가합니다. Azure 저장소에 대한 일반 정보는 [저장소 설명서를](https://azure.microsoft.com/documentation/services/storage/) 참조하십시오.
 
 Azure Queue Storage는 HTTP 또는 HTTPS를 사용하여 인증된 호출을 통해 전 세계 어디에서나 액세스할 수 있는 다수의 메시지를 저장하기 위한 서비스입니다. 단일 큐 메시지의 크기는 최대 64KB일 수 있으며, 하나의 큐에 스토리지 계정의 총 용량 제한까지 수백만 개의 메시지가 포함될 수 있습니다. 또한 큐를 프로그래밍 방식으로 조작하는 방법에 대한 자세한 내용은 [.NET을 사용하여 Azure Queue Storage 시작](../storage/queues/storage-dotnet-how-to-use-queues.md)을 참조하세요.
 
@@ -67,7 +67,7 @@ ASP.NET Core 프로젝트의 큐에 액세스하려면 Azure Queue Storage에 �
 
 ### <a name="create-a-queue-in-code"></a>코드에서 큐 만들기
 
-코드에서 Azure 큐를 만들려면 `CreateIfNotExistsAsync`을 호출 합니다.
+코드에서 Azure 큐를 만들려면 다음을 호출합니다. `CreateIfNotExistsAsync`
 
 ```cs
 // Create the CloudQueue if it does not exist.

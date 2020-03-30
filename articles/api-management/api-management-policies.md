@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
 ms.openlocfilehash: 2b6e056fbfb134f0b1218b4281b9f971a0e24202
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71219479"
 ---
 # <a name="api-management-policies"></a>API Management 정책
@@ -24,9 +24,9 @@ ms.locfileid: "71219479"
   
  정책은 게시자가 구성을 통해 API 동작을 변경할 수 있도록 하는 시스템의 강력한 기능입니다. 정책은 API의 요청이나 응답에 따라 순차적으로 실행되는 명령문의 컬렉션입니다. 많이 사용되는 명령문에는 XML에서 JSON으로 형식 변환, 개발자로부터 들어오는 호출의 양을 제한하는 호출 비율 제한 등이 포함됩니다. 다양한 다른 정책도 바로 사용할 수 있습니다.  
   
- 정책이 다르게 지정하지 않는 한 정책 식은 어떤 API Management 정책에서든 특성 값 또는 텍스트 값으로 사용될 수 있습니다. [제어 흐름](api-management-advanced-policies.md#choose) 및 [변수 설정](api-management-advanced-policies.md#set-variable) 정책 등의 일부 정책은 정책 식을 기반으로 합니다. 자세한 내용은 [고급 정책](api-management-advanced-policies.md#AdvancedPolicies) 및 [정책 식](api-management-policy-expressions.md)을 참조하세요.  
+ 정책이 다르게 지정하지 않는 한 정책 식은 어떤 API Management 정책에서든 특성 값 또는 텍스트 값으로 사용될 수 있습니다. [제어 흐름](api-management-advanced-policies.md#choose) 및 [변수 설정](api-management-advanced-policies.md#set-variable) 정책 등의 일부 정책은 정책 식을 기반으로 합니다. 자세한 내용은 [고급 정책](api-management-advanced-policies.md#AdvancedPolicies) 및 [정책 식을](api-management-policy-expressions.md)참조하십시오.  
   
-##  <a name="ProxyPolicies"></a> 정책  
+##  <a name="policies"></a><a name="ProxyPolicies"></a>정책  
   
 -   [액세스 제한 정책](api-management-access-restriction-policies.md#AccessRestrictionPolicies)  
     -   [HTTP 헤더 확인](api-management-access-restriction-policies.md#CheckHTTPHeader) - HTTP 헤더의 존재 및/또는 값을 적용합니다.  
@@ -50,12 +50,12 @@ ms.locfileid: "71219479"
     -   [변수 설정](api-management-advanced-policies.md#set-variable) - 나중에 액세스할 수 있도록 명명된 context 변수의 값을 유지합니다.  
     -   [요청 메서드 설정](api-management-advanced-policies.md#SetRequestMethod) - 요청에 대한 HTTP 메서드를 변경할 수 있습니다.  
     -   [상태 코드 설정](api-management-advanced-policies.md#SetStatus) - 지정된 값으로 HTTP 상태 코드를 변경합니다.  
-    -   [Trace](api-management-advanced-policies.md#Trace) -사용자 지정 추적을 [API 검사기](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) 출력, Application Insights 원격 분석 및 진단 로그에 추가 합니다.  
-    -   [대기](api-management-advanced-policies.md#Wait) - 계속하기 전에 완료할 포함된 [요청 전송](api-management-advanced-policies.md#SendRequest), [캐시에서 값 가져오기](api-management-caching-policies.md#GetFromCacheByKey) 또는 [제어 흐름](api-management-advanced-policies.md#choose) 정책 등을 기다립니다.  
+    -   [추적](api-management-advanced-policies.md#Trace) - [API 검사기](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) 출력, 응용 프로그램 인사이트 원격 분석 및 진단 로그에 사용자 지정 추적을 추가합니다.  
+    -   [대기](api-management-advanced-policies.md#Wait) - 밀폐된 [보내기 요청](api-management-advanced-policies.md#SendRequest)대기, [캐시에서 값 받기](api-management-caching-policies.md#GetFromCacheByKey)또는 플로우 정책 [제어를](api-management-advanced-policies.md#choose) 계속하기 전에 완료합니다.  
 -   [인증 정책](api-management-authentication-policies.md#AuthenticationPolicies)  
     -   [기본 사용 인증](api-management-authentication-policies.md#Basic) - 기본 인증을 사용하여 백 엔드 서비스를 인증합니다.  
     -   [클라이언트 인증서 사용 인증](api-management-authentication-policies.md#ClientCertificate) - 클라이언트 인증서를 사용하여 백 엔드 서비스를 인증합니다.  
-    -   [관리 id](api-management-authentication-policies.md#ManagedIdentity) 를 사용 하 여 인증- [관리 되는 id](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)를 사용 하 여 백 엔드 서비스로 인증 합니다.  
+    -   [관리되는 ID로 인증](api-management-authentication-policies.md#ManagedIdentity) - [관리되는 ID를](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)사용하여 백 엔드 서비스로 인증합니다.  
 -   [캐싱 정책](api-management-caching-policies.md#CachingPolicies)  
     -   [캐시에서 가져오기](api-management-caching-policies.md#GetFromCache) - 캐시 조회를 수행하여 사용 가능한 경우 올바르게 캐시된 응답을 반환합니다.  
     -   [캐시에 저장](api-management-caching-policies.md#StoreToCache) - 지정된 캐시 제어 구성에 따라 응답을 캐시합니다.  

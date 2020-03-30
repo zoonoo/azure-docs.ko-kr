@@ -12,10 +12,10 @@ ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.openlocfilehash: 16f5bed5a2342bb1d120d0d3dc853e0bc44376dc
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74033132"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Azure VM에서 중첩된 가상화를 사용하는 방법
@@ -26,7 +26,7 @@ ms.locfileid: "74033132"
 
 ## <a name="create-a-nesting-capable-azure-vm"></a>중첩 지원 Azure VM 만들기
 
-새 Windows Server 2016 Azure VM을 만듭니다.  빠른 참조를 위해 모든 v3 가상 머신은 중첩 된 가상화를 지원 합니다. 중첩을 지원하는 가상 머신 크기의 전체 목록은 [Azure 컴퓨팅 단위 문서](acu.md)를 참조하세요.
+새 Windows Server 2016 Azure VM을 만듭니다.  빠른 참조를 위해 모든 v3 가상 시스템은 중첩 가상화를 지원합니다. 중첩을 지원하는 가상 머신 크기의 전체 목록은 [Azure 컴퓨팅 단위 문서](acu.md)를 참조하세요.
 
 게스트 가상 머신의 수요를 지원할 만큼 큰 VM 크기를 선택해야 합니다. 이 예제에서는 D3_v3 크기의 Azure VM을 사용합니다. 
 
@@ -44,7 +44,7 @@ Dv3 또는 Ev3 시리즈 가상 머신의 지역별 가용성은 [여기](https:
 
 2. VM에 연결하려면 다운로드한 RDP 파일을 엽니다. 메시지가 표시되면 **연결**을 클릭합니다. Mac의 Mac 앱 스토어에서 이 [원격 데스크톱 클라이언트](https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12)와 같은 RDP 클라이언트가 필요합니다.
 
-3. 가상 컴퓨터를 만들 때 지정한 사용자 이름 및 암호를 입력하고 **확인**을 클릭합니다.
+3. 가상 머신을 만들 때 지정한 사용자 이름 및 암호를 입력하고 **확인**을 클릭합니다.
 
 4. 로그인 프로세스 중에 인증서 경고가 나타날 수 있습니다. **예** 또는 **계속**을 클릭하여 연결을 진행합니다.
 
@@ -100,7 +100,7 @@ Windows Server 2016 호스트에서 중첩된 가상화를 사용하도록 설�
 게이트웨이를 구성하려면 네트워크에 대한 일부 정보가 필요합니다.    
   * IPAddress - NAT 게이트웨이 IP는 가상 네트워크 서브넷의 기본 게이트웨이 주소로 사용할 IPv4 또는 IPv6 주소를 지정합니다. 일반적인 형식은 a.b.c.1(예: "192.168.0.1")입니다. 최종 위치가 반드시 .1일 필요는 없지만 일반적으로(접두사 길이에 따라) .1입니다. 일반적으로 RFC 1918 프라이빗 네트워크 주소 공간을 사용해야 합니다. 
   * PrefixLength - 서브넷 접두사 길이는 로컬 서브넷 크기(서브넷 마스크)를 정의합니다. 서브넷 접두사 길이는 0에서 32 사이의 정수 값입니다. 0은 전체 인터넷, 32는 하나의 매핑된 IP만 허용합니다. 일반적인 값의 범위는 NAT에 몇 개의 IP를 연결해야 하는지에 따라 24에서 12까지입니다. 일반적인 PrefixLength는 24입니다. 즉, 255.255.255.0의 서브넷 마스크입니다.
-  * InterfaceIndex - **ifIndex**는 이전 단계에서 만든 가상 스위치의 인터페이스 인덱스입니다. 
+  * InterfaceIndex- **ifIndex**는 이전 단계에서 만든 가상 스위치의 인터페이스 인덱스입니다. 
 
     ```powershell
     New-NetIPAddress -IPAddress 192.168.0.1 -PrefixLength 24 -InterfaceIndex 13
@@ -122,7 +122,7 @@ New-NetNat -Name "InternalNat" -InternalIPInterfaceAddressPrefix 192.168.0.0/24
 
 >[!IMPORTANT] 
 >
->Azure 게스트 에이전트는 중첩 된 Vm에서 지원 되지 않으며 호스트와 중첩 된 Vm 모두에서 문제를 일으킬 수 있습니다. 중첩 된 Vm에 Azure 에이전트를 설치 하지 말고, Azure 게스트 에이전트가 이미 설치 된 중첩 된 Vm을 만드는 데 이미지를 사용 하지 마세요.
+>Azure 게스트 에이전트는 중첩된 VM에서 지원되지 않으며 호스트 및 중첩된 VM 모두에 문제가 발생할 수 있습니다. 중첩된 VM에 Azure 에이전트를 설치하지 말고 Azure 게스트 에이전트가 이미 설치된 중첩 된 VM을 만들기 위해 이미지를 사용하지 마십시오.
 
 1. Hyper-V 관리자를 열고 새 가상 머신을 만듭니다. 새로 만든 내부 네트워크를 사용하도록 가상 머신을 구성합니다.
     
@@ -172,7 +172,7 @@ New-NetNat -Name "InternalNat" -InternalIPInterfaceAddressPrefix 192.168.0.0/24
 
 2. 게스트 가상 머신을 마우스 오른쪽 단추로 클릭하고 연결을 클릭합니다.
 
-3. 게스트 가상 컴퓨터에 로그인 합니다.
+3. 게스트 가상 시스템에 로그인합니다.
 
 4. 게스트 가상 컴퓨터에서 네트워크 및 공유 센터를 엽니다.
 

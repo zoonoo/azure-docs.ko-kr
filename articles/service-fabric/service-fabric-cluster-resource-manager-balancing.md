@@ -1,15 +1,15 @@
 ---
-title: Azure Service Fabric 클러스터 균형 조정
+title: Azure 서비스 패브릭 클러스터 균형 조정
 description: 서비스 패브릭 클러스터 리소스 관리자를 사용한 클러스터 분산에 대한 소개
 author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: f56717c086f005b1155988e2041ff2e717e047f2
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.openlocfilehash: 8e170c27923d2bb091c4121e350809b85e4c48a5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79081695"
 ---
 # <a name="balancing-your-service-fabric-cluster"></a>서비스 패브릭 클러스터 분산
@@ -27,9 +27,9 @@ Service Fabric 클러스터 리소스 관리자는 노드나 서비스의 추가
 Cluster Resource Manager에서 수행할 수 있는 이러한 각 형식의 수정 작업은 해당 빈도를 제어하는 다른 타이머에 의해 제어됩니다. 각 타이머가 실행되면 작업이 예약됩니다. 기본적으로 Resource Manager는
 
 * 1/10초마다 상태를 검색하고 업데이트를 적용합니다(예: 노드가 다운된 기록).
-* 매 초 마다 배치 검사 플래그를 설정 합니다.
+* 1초마다 배치 확인 플래그 설정
 * 제약 조건 검사 플래그를 매 초마다 설정합니다.
-* 5 초 마다 분산 플래그를 설정 합니다.
+* 5초마다 균형 조정 플래그 설정
 
 이러한 타이머를 관리하는 구성의 예제는 다음과 같습니다.
 
@@ -123,7 +123,7 @@ ClusterManifest.xml
 
 <center>
 
-![분산 임계값 예제 작업][Image2]
+![임계값 균형 조정 예제 작업][Image2]
 </center>
 
 > [!NOTE]
@@ -139,7 +139,7 @@ ClusterManifest.xml
 
 <center>
 
-![활동 임계값][Image3]
+![활동 임계값 예][Image3]
 </center>
 
 분산 임계값과 마찬가지로 활동 임계값은 클러스터 정의를 통한 메트릭을 기준으로 정의됩니다.
@@ -189,8 +189,8 @@ ClusterManifest.xml
 
 <center>
 
-][Image4]
-</center> 함께 ![분산 서비스
+![분산 서비스 함께 사용][Image4]
+</center>
 
 이 체인으로 인해 메트릭 1-4가 분산되지 않으므로 서비스 1-3에 속한 복제본 또는 인스턴스가 이동할 수 있습니다. 메트릭 1, 2 또는 3이 분산되지 않으므로 서비스 4에서 이동이 발생하지 않음을 알 수 있습니다. 서비스 4에 속한 복제본 또는 인스턴스를 이동해도 메트릭 1-3의 분산에 아무런 영향을 주지 않기 때문에 전혀 의미가 없습니다.
 
@@ -198,14 +198,13 @@ ClusterManifest.xml
 
 <center>
 
-][Image5]
-</center> 함께 ![분산 서비스
+![분산 서비스 함께 사용][Image5]
+</center>
 
 ## <a name="next-steps"></a>다음 단계
-* 메트릭은 서비스 패브릭 클러스터 리소스 관리자가 클러스터의 소비와 용량을 관리하는 방법입니다. 메트릭 및 구성 방법에 대한 자세한 내용은 [이 문서](service-fabric-cluster-resource-manager-metrics.md)를 확인하세요.
+* 메트릭은 서비스 패브릭 클러스터 리소스 관리자가 클러스터의 소비와 용량을 관리하는 방법입니다. 측정항목 및 메트릭 구성 방법에 대해 자세히 알아보려면 [이 도움말을](service-fabric-cluster-resource-manager-metrics.md) 확인하세요.
 * 이동 비용은 특정 서비스가 다른 서비스에 비해 이동하는 데 비용이 더 많이 드는 것을 클러스터 리소스 관리자에게 알리는 한 가지 방법입니다. 이동 비용에 대한 자세한 내용은 [이 문서](service-fabric-cluster-resource-manager-movement-cost.md)를 참조하세요.
 * 클러스터 리소스 관리자에는 클러스터에서 이탈을 늦추도록 구성할 수 있는 몇 가지 제한이 있습니다. 일반적으로 필요하지는 않지만 필요할 경우 [여기](service-fabric-cluster-resource-manager-advanced-throttling.md)
-* 클러스터 리소스 관리자은 하위 클러스터링 (배치 제약 조건 및 분산을 사용 하는 경우에 발생 하는 상황)을 인식 하 고 처리할 수 있습니다. 하위 클러스터링이 분산에 영향을 줄 수 있는 방법 및이를 처리 하는 방법에 대 한 자세한 내용은 [여기](service-fabric-cluster-resource-manager-subclustering.md) 를 참조 하세요.
 
 [Image1]:./media/service-fabric-cluster-resource-manager-balancing/cluster-resrouce-manager-balancing-thresholds.png
 [Image2]:./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-threshold-triggered-results.png

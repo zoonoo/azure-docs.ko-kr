@@ -12,10 +12,10 @@ ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 11/14/2019
 ms.openlocfilehash: c3f7b33e4b42b08334cfb687024985c878dc3713
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79209413"
 ---
 # <a name="how-to-use-azure-sql-database"></a>Azure SQL Database를 사용하는 방법

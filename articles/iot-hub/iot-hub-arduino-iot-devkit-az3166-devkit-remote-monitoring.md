@@ -1,5 +1,5 @@
 ---
-title: MXChip IoT DevKit를 Azure IoT Hub 원격 모니터링에 연결
+title: Azure IoT 허브 원격 모니터링에 MXChip IoT DevKit 연결
 description: 이 자습서에서는 IoT DevKit AZ3166의 센서 상태를 Azure IoT 원격 모니터링 솔루션 가속기로 보내는 방법을 알아봅니다.
 author: liydu
 manager: jeffya
@@ -10,10 +10,10 @@ ms.tgt_pltfrm: arduino
 ms.date: 02/02/2018
 ms.author: liydu
 ms.openlocfilehash: 9eab035d494892671a2451866311ca06599ec030
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73953731"
 ---
 # <a name="connect-mxchip-iot-devkit-to-azure-iot-remote-monitoring-solution-accelerator"></a>MXChip IoT DevKit를 Azure IoT 원격 모니터링 솔루션 가속기에 연결
@@ -29,9 +29,9 @@ ms.locfileid: "73953731"
 * DevKit을 Wi-Fi에 연결
 * 개발 환경 준비
 
-활성 Azure 구독. 구독이 없으면 다음 두 가지 방법 중 하나를 통해 등록할 수 있습니다.
+활성화된 Azure 구독. 구독이 없으면 다음 두 가지 방법 중 하나를 통해 등록할 수 있습니다.
 
-* [30일 평가판 Microsoft Azure 계정](https://azure.microsoft.com/free/) 활성화
+* 무료 [30일 평가판 활성화 Microsoft Azure 계정](https://azure.microsoft.com/free/)
 
 * MSDN 또는 Visual Studio 구독자인 경우 [Azure 크레딧](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 신청합니다.
 
@@ -86,7 +86,7 @@ ms.locfileid: "73953731"
 
 ## <a name="provision-required-azure-services"></a>필요한 Azure 서비스 프로비전
 
-솔루션 창에서 제공된 텍스트 상자에 `Ctrl+P`을 입력하여 `Cmd+P`(macOS: `task cloud-provision`)를 통해 작업을 실행합니다.
+솔루션 창에서 제공된 텍스트 상자에 `task cloud-provision`을 입력하여 `Ctrl+P`(macOS: `Cmd+P`)를 통해 작업을 실행합니다.
 
 VS Code 터미널에서 대화형 명령줄은 필요한 Azure 서비스를 프로비전하는 과정을 안내합니다.
 

@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell: BYOK TDE를 사용 하도록 설정 Azure SQL Database Managed Instance '
+title: 'PowerShell: BYOK TDE - Azure SQL 데이터베이스 관리 인스턴스 사용 '
 description: PowerShell을 사용하여 저장 데이터 암호화에 BYOK TDE(투명한 데이터 암호화)를 사용하도록 Azure SQL Managed Instance를 구성하는 방법을 알아봅니다.
 services: sql-database
 ms.service: sql-database
@@ -12,25 +12,25 @@ ms.author: mlandzic
 ms.reviewer: vanto, carlrab
 ms.date: 11/05/2019
 ms.openlocfilehash: ddffda5229c9c0d33c563e3ae7b4a884f0f92dff
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73691400"
 ---
 # <a name="manage-transparent-data-encryption-in-a-managed-instance-using-your-own-key-from-azure-key-vault"></a>Azure Key Vault의 사용자 고유 키를 사용하여 Managed Instance에서 투명한 데이터 암호화 관리
 
-이 PowerShell 스크립트 예제에서는 Azure Key Vault의 키를 사용 하 여 Azure SQL Managed Instance에 대 한 고객 관리 키를 사용 하 여 TDE (투명한 데이터 암호화)를 구성 합니다. 이를 종종 TDE에 대 한 Bring Your Own Key 시나리오 라고 합니다. 고객 관리 키를 사용 하 여 TDE에 대해 자세히 알아보려면 [AZURE SQL에 대 한 tde Bring Your Own Key를](../transparent-data-encryption-byok-azure-sql.md)참조 하세요.
+이 PowerShell 스크립트 예제에서는 Azure 키 자격 증명 모음의 키를 사용하여 Azure SQL 관리 인스턴스에 대한 고객 관리 키로 투명 데이터 암호화(TDE)를 구성합니다. 이를 TDE에 대한 사용자 고유의 키 가져오기 시나리오라고도 합니다. 고객 관리 키가 있는 TDE에 대해 자세히 알아보려면 [Azure SQL에 사용자 고유키 가져오기](../transparent-data-encryption-byok-azure-sql.md)를 참조하십시오.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-- 기존 Managed Instance입니다. [PowerShell을 사용 하 여 Azure SQL Database 관리 되는 인스턴스 만들기를](sql-database-create-configure-managed-instance-powershell.md)참조 하세요.
+- 기존 관리되는 인스턴스입니다. [PowerShell 사용을 사용하여 Azure SQL Database 관리 인스턴스를 만듭니다.](sql-database-create-configure-managed-instance-powershell.md)
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-PowerShell을 로컬로 사용 하거나 Azure Cloud Shell을 사용 하려면 AZ PowerShell 2.3.2 이상 버전이 필요 합니다. 업그레이드 해야 하는 경우에는 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조 하거나 아래 샘플 스크립트를 실행 하 여 현재 사용자에 대 한 모듈을 설치 합니다.
+로컬로 PowerShell을 사용하거나 Azure 클라우드 셸을 사용하려면 AZ PowerShell 2.3.2 또는 이후 버전이 필요합니다. 업그레이드해야 하는 경우 [Azure PowerShell 설치 모듈을](/powershell/azure/install-az-ps)참조하거나 아래 샘플 스크립트를 실행하여 현재 사용자에 대한 모듈을 설치합니다.
 
 `Install-Module -Name Az -AllowClobber -Scope CurrentUser`
 
