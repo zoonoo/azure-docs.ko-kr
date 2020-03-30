@@ -11,16 +11,16 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 ms.date: 02/20/2019
-ms.openlocfilehash: bc779df06d92d2483755ae888fda121b8e493a18
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: ef20c5b8babdf378b88997ae2fd7b98350c31319
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79269160"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80124918"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql"></a>SQL에서 인증을 위해 Azure Active Directory 인증 사용
 
-Azure Active Directory 인증은 Azure AD(Azure Active Directory)의 ID를 사용하여 Azure [SQL Database](sql-database-technical-overview.md), [Managed Instance](sql-database-managed-instance.md) 및 [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)에 연결하는 메커니즘입니다. 
+Azure Active Directory 인증은 Azure AD(Azure Active Directory)의 ID를 사용하여 Azure [SQL Database](sql-database-technical-overview.md), [Managed Instance](sql-database-managed-instance.md) 및 [SQL Data Warehouse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)에 연결하는 메커니즘입니다. 
 
 > [!NOTE]
 > 이 항목은 Azure SQL 서버 및 Azure SQL 서버에서 생성된 SQL Database와 SQL Data Warehouse 데이터베이스에 적용됩니다. 간단히 하기 위해 SQL Database는 SQL Database와 SQL Data Warehouse를 참조할 때 사용됩니다.
@@ -71,7 +71,7 @@ Azure AD 인증을 사용할 때는 SQL Database 서버 및 Managed Instance에 
 
 ## <a name="permissions"></a>사용 권한
 
-새 사용자를 만들려면 데이터베이스에서 `ALTER ANY USER` 권한이 있어야 합니다. `ALTER ANY USER` 권한은 아무 데이터베이스 사용자에게나 부여할 수 있습니다. 서버 관리자 계정과, 해당 데이터베이스에 대한 `ALTER ANY USER` 또는 `CONTROL ON DATABASE` 권한이 있는 데이터베이스 사용자와, `ALTER ON DATABASE` 데이터베이스 역할 그룹의 구성원도 `db_owner` 권한을 보유할 수 있습니다.
+새 사용자를 만들려면 데이터베이스에서 `ALTER ANY USER` 권한이 있어야 합니다. `ALTER ANY USER` 권한은 아무 데이터베이스 사용자에게나 부여할 수 있습니다. 서버 관리자 계정과, 해당 데이터베이스에 대한 `CONTROL ON DATABASE` 또는 `ALTER ON DATABASE` 권한이 있는 데이터베이스 사용자와, `db_owner` 데이터베이스 역할 그룹의 구성원도 `ALTER ANY USER` 권한을 보유할 수 있습니다.
 
 Azure SQL Database, Managed Instance 또는 SQL Data Warehouse에 포함된 데이터베이스 사용자를 만들려면 Azure AD ID를 사용하여 데이터베이스 또는 인스턴스에 연결해야 합니다. 최초 포함 데이터베이스 사용자를 만들려면 Azure AD 관리자(데이터베이스 소유자)를 사용하여 데이터베이스에 연결해야 합니다. 이 내용은 [SQL Database 또는 SQL Data Warehouse에서 Azure Active Directory 인증 구성 및 관리](sql-database-aad-authentication-configure.md)에서 설명합니다. 모든 Azure AD 인증은 Azure Active Directory 관리자가 Azure SQL Database 또는 SQL Data Warehouse 서버에 대해 생성된 경우에만 가능합니다. Azure Active Directory 관리자가 서버에서 제거된 경우 SQL Server 내에 이전에 만든 기존 Azure Active Directory 사용자는 Azure Active Directory 자격 증명을 사용하여 데이터베이스에 더 이상 연결할 수 없습니다.
 
@@ -147,7 +147,7 @@ Azure AD 서버 보안 주체(로그인)(**공개 미리 보기**)에 대해 지
 
 - Azure AD를 만들고 채운 후 Azure SQL Database 및 Azure SQL Data Warehouse에서 Azure AD를 구성하는 방법은 [SQL Database, Managed Instance 또는 SQL Data Warehouse에서 Azure Active Directory 인증 구성 및 관리](sql-database-aad-authentication-configure.md)를 참조하세요.
 - Managed Instance에 Azure AD 서버 보안 주체(로그인)를 사용하는 방법에 대한 자습서는 [Managed Instance를 사용하는 Azure AD 서버 보안 주체(로그인)](sql-database-managed-instance-aad-security-tutorial.md)를 참조하세요.
-- SQL Database의 로그인, 사용자, 데이터베이스 역할 및 권한에 대 한 개요는 [로그인, 사용자, 데이터베이스 역할 및 사용 권한](sql-database-manage-logins.md)을 참조 하세요.
+- SQL Database의 로그인, 사용자, 데이터베이스 역할 및 사용 권한에 대한 개요는 [로그인, 사용자, 데이터베이스 역할 및 사용 권한을](sql-database-manage-logins.md)참조하십시오.
 - 데이터베이스 보안 주체에 대한 자세한 내용은 [보안 주체](https://msdn.microsoft.com/library/ms181127.aspx)를 참조하세요.
 - 데이터베이스 역할에 대한 자세한 내용은 [데이터베이스 역할](https://msdn.microsoft.com/library/ms189121.aspx)을 참조하세요.
 - Managed Instance에 대한 Azure AD 서버 보안 주체(로그인)를 만드는 구문은 [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current)을 참조하세요.

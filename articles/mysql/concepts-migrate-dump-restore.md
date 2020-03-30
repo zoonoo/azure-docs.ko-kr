@@ -1,5 +1,5 @@
 ---
-title: 덤프 및 복원을 사용 하 여 마이그레이션-Azure Database for MySQL
+title: 덤프 를 사용하여 마이그레이션 및 복원 - MySQL용 Azure 데이터베이스
 description: 이 문서에서는 mysqldump, MySQL Workbench 및 PHPMyAdmin과 같은 도구를 사용하여 MySQL용 Azure Database에서 데이터베이스를 백업 및 복원하는 2가지 일반적인 방법에 대해 설명합니다.
 author: ajlam
 ms.author: andrela
@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 2/27/2020
 ms.openlocfilehash: b15da2aa83231bfdc8732995888349b06ab56d15
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78163780"
 ---
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>덤프 및 복원을 사용하여 MySQL Database를 MySQL용 Azure 데이터베이스로 마이그레이션
@@ -20,12 +20,12 @@ ms.locfileid: "78163780"
 
 ## <a name="before-you-begin"></a>시작하기 전에
 이 방법 가이드를 단계별로 실행하려면 다음이 필요합니다.
-- [MySQL용 Azure 데이터베이스 서버 만들기 - Azure Portal](quickstart-create-mysql-server-database-using-azure-portal.md)
-- [mysqldump](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html) 명령줄 유틸리티가 컴퓨터에 설치되어 있어야 함
-- MySQL 워크 벤치 [Mysql 워크 벤치 다운로드](https://dev.mysql.com/downloads/workbench/) 또는 다른 타사 MySQL 도구를 통해 덤프 및 복원 명령을 수행할 수 있습니다.
+- [Azure Database for MySQL 서버 만들기 - Azure Portal](quickstart-create-mysql-server-database-using-azure-portal.md)
+- [mysqldump](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html) 명령줄 유틸리티는 컴퓨터에 설치.
+- MySQL 워크 벤치 [MySQL 워크 벤치 다운로드](https://dev.mysql.com/downloads/workbench/) 또는 덤프 및 복원 명령을 수행하는 또 다른 타사 MySQL 도구.
 
 ## <a name="use-common-tools"></a>일반 도구 사용
-MySQL 워크 벤치 또는 mysqldump와 같은 일반적인 유틸리티와 도구를 사용 하 여 데이터를 원격으로 연결 하 고 Azure Database for MySQL에 복원 합니다. 인터넷에 연결된 클라이언트 컴퓨터에서 이러한 도구를 사용하여 MySQL용 Azure 데이터베이스에 데이터에 연결합니다. 최상의 보안을 위해 SSL 암호화 연결을 사용합니다. [MySQL용 Azure 데이터베이스에서 SSL 연결 구성](concepts-ssl-connection-security.md)을 참조하세요. MySQL용 Azure 데이터베이스로 마이그레이션할 때 덤프 파일을 특수한 클라우드 위치로 이동할 필요가 없습니다. 
+MySQL Workbench 또는 mysqldump과 같은 일반적인 유틸리티 및 도구를 사용하여 MySQL용 Azure 데이터베이스에 데이터를 원격으로 연결하고 복원합니다. 인터넷에 연결된 클라이언트 컴퓨터에서 이러한 도구를 사용하여 MySQL용 Azure 데이터베이스에 데이터에 연결합니다. 최상의 보안을 위해 SSL 암호화 연결을 사용합니다. [MySQL용 Azure 데이터베이스에서 SSL 연결 구성](concepts-ssl-connection-security.md)을 참조하세요. MySQL용 Azure 데이터베이스로 마이그레이션할 때 덤프 파일을 특수한 클라우드 위치로 이동할 필요가 없습니다. 
 
 ## <a name="common-uses-for-dump-and-restore"></a>덤프 및 복원을 위한 일반적인 사용
 몇 가지 일반적인 시나리오에서 mysqldump 및 mysqlpump와 같은 MySQL 유틸리티를 사용하여 데이터베이스를 Azure MySQL Database로 덤프 및 로드할 수 있습니다. 다른 시나리오에서 대신 [가져오기 및 내보내기](concepts-migrate-import-export.md) 방법을 사용할 수 있습니다.
@@ -47,9 +47,9 @@ MySQL 워크 벤치 또는 mysqldump와 같은 일반적인 유틸리티와 도�
 -  데이터가 기본 키 순서로 스크립팅되도록 데이터베이스를 덤프할 때 mysqldump에서 `order-by-primary` 옵션을 사용합니다.
 -   로드 전에 외래 키 제약 조건을 비활성화하려면 데이터를 덤프할 때 mysqldump에서 `disable-keys` 옵션을 사용합니다. 외래 키 검사 비활성화는 성능 향상을 제공합니다. 제약 조건을 활성화하고 참조 무결성을 확인하도록 로드 후 데이터를 확인합니다.
 -   적절한 경우 분할된 테이블을 사용합니다.
--   데이터를 병렬로 로드합니다. 리소스 제한에 도달하도록 하는 너무 많은 병렬 처리를 피하고 Azure Portal에서 사용할 수 있는 메트릭을 사용하여 리소스를 모니터링합니다. 
+-   병렬로 데이터를 로드합니다. 리소스 제한에 도달하도록 하는 너무 많은 병렬 처리를 피하고 Azure Portal에서 사용할 수 있는 메트릭을 사용하여 리소스를 모니터링합니다. 
 -   테이블 데이터가 로드된 후 인덱스 생성이 발생하도록 데이터베이스를 덤프할 때 mysqlpump에서 `defer-table-indexes` 옵션을 사용합니다.
--   Mysqlpump의 `skip-definer` 옵션을 사용 하 여 뷰 및 저장 프로시저에 대 한 create 문에서 definer 및 SQL 보안 절을 생략 합니다.  덤프 파일을 다시 로드 하면 기본 DEFINER 및 SQL 보안 값을 사용 하는 개체가 만들어집니다.
+-   mysqlpump에서 `skip-definer` 옵션을 사용하여 뷰 및 저장 프로시저에 대한 만들기 명령문에서 정의자 및 SQL SECURITY 절을 생략합니다.  덤프 파일을 다시 로드하면 기본 DEFINER 및 SQL SECURITY 값을 사용하는 개체가 만들어집니다.
 -   Azure blob/저장소에 백업 파일을 복사하고, 인터넷을 통해 복원을 수행할 때보다 훨씬 더 빨리 수행할 수 있는 위치에서 복원을 수행합니다.
 
 ## <a name="create-a-backup-file-from-the-command-line-using-mysqldump"></a>mysqldump를 사용하여 명령줄에서 백업 파일 만들기
@@ -65,7 +65,7 @@ $ mysqldump --opt -u [uname] -p[pass] [dbname] > [backupfile.sql]
 - [backupfile.sql] 데이터베이스 백업의 파일 이름 
 - [-opt] mysqldump 옵션 
 
-예를 들어 사용자 이름이 'testuser'이고 암호가 없는 'testdb'라는 MySQL 서버의 데이터베이스를 파일 testdb_backup.sql에 백업하려면 다음 명령을 사용합니다. 명령은 데이터베이스를 다시 만드는 데 필요한 모든 SQL 문을 포함하는 `testdb`이라는 파일로 `testdb_backup.sql` 데이터베이스를 백업합니다. 
+예를 들어 사용자 이름이 'testuser'이고 암호가 없는 'testdb'라는 MySQL 서버의 데이터베이스를 파일 testdb_backup.sql에 백업하려면 다음 명령을 사용합니다. 명령은 데이터베이스를 다시 만드는 데 필요한 모든 SQL 문을 포함하는 `testdb_backup.sql`이라는 파일로 `testdb` 데이터베이스를 백업합니다. 
 
 ```bash
 $ mysqldump -u root -p testdb > testdb_backup.sql
@@ -80,7 +80,7 @@ $ mysqldump -u root -p --databases testdb1 testdb3 testdb5 > testdb135_backup.sq
 ```
 
 ## <a name="create-a-database-on-the-target-azure-database-for-mysql-server"></a>대상 Azure Database for MySQL 서버에서 데이터베이스 만들기
-데이터를 마이그레이션하려는 대상 Azure Database for MySQL 서버에서 빈 데이터베이스를 만듭니다. MySQL 워크 벤치와 같은 도구를 사용 하 여 데이터베이스를 만듭니다. 이 데이터베이스는 덤프된 데이터를 포함하는 데이터베이스와 이름이 같을 수 있고 다른 이름의 데이터베이스를 만들 수도 있습니다.
+데이터를 마이그레이션하려는 대상 Azure Database for MySQL 서버에서 빈 데이터베이스를 만듭니다. MySQL 워크벤치와 같은 도구를 사용하여 데이터베이스를 만듭니다. 이 데이터베이스는 덤프된 데이터를 포함하는 데이터베이스와 이름이 같을 수 있고 다른 이름의 데이터베이스를 만들 수도 있습니다.
 
 연결하려면 Azure Database for MySQL의 **개요**에서 연결 정보를 찾습니다.
 

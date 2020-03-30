@@ -1,5 +1,5 @@
 ---
-title: 데이터 이동-데이터 관리 게이트웨이
+title: 데이터 이동 - 데이터 관리 게이트웨이
 description: 데이터 게이트웨이를 설정하여 온-프레미스와 클라우드 간에 데이터를 이동합니다. Azure Data Factory의 데이터 관리 게이트웨이를 사용하여 데이터를 이동합니다.
 services: data-factory
 documentationcenter: ''
@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: be797f76988c924503e11b6f66cce899b515e3a2
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75982190"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>온-프레미스 원본과 클라우드 간에 데이터 관리 게이트웨이로 데이터 이동
@@ -46,8 +46,8 @@ ms.locfileid: "75982190"
 이 연습을 시작하기 전에 다음 필수 조건이 있어야 합니다.
 
 * **Azure 구독**.  구독이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/) 문서를 참조하세요.
-* **Azure Storage 계정**. 이 자습서에서는 Blob Storage를 **대상/싱크** 데이터 저장소로 사용합니다. Azure Storage 계정이 없는 경우 새로 만드는 단계는 [스토리지 계정 만들기](../../storage/common/storage-account-create.md) 문서를 참조하세요.
-* **SQL Server**. 이 자습서에서는 온-프레미스 SQL Server 데이터베이스를 **원본** 데이터 저장소로 사용합니다.
+* **Azure 저장소 계정**. 이 자습서에서는 Blob Storage를 **대상/싱크** 데이터 저장소로 사용합니다. Azure Storage 계정이 없는 경우 새로 만드는 단계는 [스토리지 계정 만들기](../../storage/common/storage-account-create.md) 문서를 참조하세요.
+* **SQL 서버**. 이 자습서에서는 온-프레미스 SQL Server 데이터베이스를 **원본** 데이터 저장소로 사용합니다.
 
 ## <a name="create-data-factory"></a>데이터 팩터리 만들기
 이 단계에서는 Azure Portal을 사용하여 **ADFTutorialOnPremDF**라는 Azure Data Factory 인스턴스를 만듭니다.
@@ -63,7 +63,7 @@ ms.locfileid: "75982190"
    > [!IMPORTANT]
    > Azure Data Factory 이름은 전역적으로 고유해야 합니다. **데이터 팩터리 이름 “ADFTutorialOnPremDF”를 사용할 수 없습니다.** 오류가 표시되는 경우 데이터 팩터리 이름을 변경하고(예: yournameADFTutorialOnPremDF) 다시 만듭니다. 이 자습서의 나머지 단계를 수행하는 동안 ADFTutorialOnPremDF 대신에 이 이름을 사용합니다.
    >
-   > 데이터 팩터리의 이름은 나중에 **DNS** 이름으로 등록되므로 공개적으로 표시될 수도 있습니다.
+   > 데이터 팩터리의 이름은 나중에 **DNS** 이름으로 등록되어 공개적으로 표시될 수 있습니다.
    >
    >
 4. 데이터 팩터리를 만들려는 위치의 **Azure 구독** 을 선택합니다.
@@ -82,7 +82,7 @@ ms.locfileid: "75982190"
 1. **데이터 팩터리** 페이지에서 **작성자 및 배포** 타일을 클릭하여 데이터 팩터리에 대한 **편집기**를 시작합니다.
 
     ![작성 및 배포 타일](./media/data-factory-move-data-between-onprem-and-cloud/author-deploy-tile.png)
-2. Data Factory 편집기 **에서 ...를 클릭 합니다. 추가** 를 클릭 한 다음 **새 데이터 게이트웨이**를 클릭 합니다. 또는 트리 보기에서 마우스 오른쪽 단추로 **데이터 게이트웨이**를 클릭하고 **새 데이터 게이트웨이**를 클릭할 수 있습니다.
+2. 데이터 팩터리 **편집기에서... **도구 모음에 대한 자세한 내용을 클릭한 다음 **새 데이터 게이트웨이를**클릭합니다. 또는 트리 보기에서 마우스 오른쪽 단추로 **데이터 게이트웨이**를 클릭하고 **새 데이터 게이트웨이**를 클릭할 수 있습니다.
 
    ![도구 모음의 새 데이터 게이트웨이](./media/data-factory-move-data-between-onprem-and-cloud/NewDataGateway.png)
 3. **만들기** 페이지에서 **이름**에 **adftutorialgateway**를 입력하고 **확인**을 클릭합니다.     
@@ -96,22 +96,22 @@ ms.locfileid: "75982190"
    > [!NOTE]
    > Internet Explorer 또는 Microsoft ClickOnce 호환 웹 브라우저를 사용합니다.
    >
-   > Chrome을 사용하는 경우 [Chrome 웹 스토어](https://chrome.google.com/webstore/)로 이동하여 "ClickOnce" 키워드로 검색하고 ClickOnce 확장 중 하나를 선택해 설치합니다.
+   > 크롬을 사용 하는 경우, [크롬 웹 저장소로](https://chrome.google.com/webstore/)이동 , "ClickOnce" 키워드로 검색, 클릭 한 광고 확장 중 하나를 선택, 그것을 설치.
    >
-   > Firefox의 경우에도 동일한 작업을 수행합니다(추가 기능 설치). 도구 모음(상단 오른쪽 모서리의 **가로 줄 세 개**)의 **열기 메뉴** 단추를 클릭하고 **추가 기능**을 클릭하고 "ClickOnce" 키워드로 검색하고 ClickOnce 확장 중 하나를 선택하고 설치합니다.    
+   > Firefox의 경우에도 동일한 작업을 수행합니다(추가 기능 설치). 도구 모음에서 **메뉴 열기** 버튼을 클릭 (오른쪽 상단 모서리에 세 개의**가로 줄),** **추가 기능을**클릭 , "ClickOnce"키워드로 검색, ClickOnce 확장 중 하나를 선택하고 설치.    
    >
    >
 
     ![게이트웨이 - 구성 페이지](./media/data-factory-move-data-between-onprem-and-cloud/OnPremGatewayConfigureBlade.png)
 
-    이 방법은 하나의 단계로 게이트웨이를 다운로드, 설치, 구성 및 등록하는 가장 쉬운 방법(한 번 클릭)입니다. **Microsoft 데이터 관리 게이트웨이 구성 관리자** 애플리케이션이 컴퓨터에 설치된 것을 확인할 수 있습니다. **C:\Program Files\Microsoft Data Management Gateway\2.0\Shared** 폴더에서 **ConfigManager.exe** 실행 파일을 찾을 수도 있습니다.
+    이 방법은 하나의 단계로 게이트웨이를 다운로드, 설치, 구성 및 등록하는 가장 쉬운 방법(한 번 클릭)입니다. **Microsoft 데이터 관리 게이트웨이 구성 관리자** 애플리케이션이 컴퓨터에 설치된 것을 확인할 수 있습니다. 또한 폴더에서 실행 파일 **ConfigManager.exe를** 찾을 수 있습니다: **C:\프로그램 파일\Microsoft 데이터 관리 게이트웨이\2.0\공유**.
 
     또한 이 페이지에서 링크를 사용하여 게이트웨이를 수동으로 다운로드하여 설치하고 **새 키** 텍스트 상자에 표시된 키를 사용하여 등록할 수도 있습니다.
 
     게이트웨이에 대한 모든 세부 정보는 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md) 문서를 참조하세요.
 
    > [!NOTE]
-   > 데이터 관리 게이트웨이를 성공적으로 설치 및 구성하려면 로컬 컴퓨터의 관리자여야 합니다. **데이터 관리 게이트웨이 사용자** 로컬 Windows 그룹에 사용자를 더 추가할 수 있습니다. 이 그룹의 구성원은 데이터 관리 게이트웨이 구성 관리자 도구를 사용하여 게이트웨이를 구성할 수 있습니다.
+   > 데이터 관리 게이트웨이를 성공적으로 설치 및 구성하려면 로컬 컴퓨터의 관리자여야 합니다. **데이터 관리 게이트웨이 사용자** 로컬 Windows 그룹에 사용자를 추가할 수 있습니다. 이 그룹의 구성원은 데이터 관리 게이트웨이 구성 관리자 도구를 사용하여 게이트웨이를 구성할 수 있습니다.
    >
    >
 5. 몇 분 정도 기다리거나 다음과 같은 알림 메시지가 나타날 때까지 기다립니다.
@@ -126,10 +126,10 @@ ms.locfileid: "75982190"
 
    * [등록] 단추를 사용하여 Azure Portal에서 키가 있는 게이트웨이를 **등록**합니다.
    * 게이트웨이 컴퓨터에서 실행 중인 데이터 관리 게이트웨이 호스트 서비스를 **중지**합니다.
-   * 하루 중 특정 시간에 **업데이트를 설치하도록 예약**합니다.
+   * 하루 중 특정 시간에 설치될 **업데이트를 예약**합니다.
    * 게이트웨이가 **마지막으로 업데이트된 시간**을 봅니다.
    * 게이트웨이 업데이트를 설치할 수 있는 시간을 지정합니다.
-8. **설정** 탭으로 전환 합니다. **인증서** 섹션에 지정 된 인증서는 포털에서 지정한 온-프레미스 데이터 저장소에 대 한 자격 증명을 암호화/해독 하는 데 사용 됩니다. (선택 사항) **변경**을 클릭하여 고유한 인증서를 대신 사용합니다. 기본적으로 게이트웨이는 데이터 팩터리 서비스에서 자동으로 생성되는 인증서를 사용합니다.
+8. **설정** 탭으로 전환합니다. **인증서** 섹션에 지정된 인증서는 포털에서 지정한 온-프레미스 데이터 저장소에 대한 자격 증명을 암호화/해독하는 데 사용됩니다. (선택 사항) **변경**을 클릭하여 고유한 인증서를 대신 사용합니다. 기본적으로 게이트웨이는 데이터 팩터리 서비스에서 자동으로 생성되는 인증서를 사용합니다.
 
     ![게이트웨이 인증서 구성](./media/data-factory-move-data-between-onprem-and-cloud/gateway-certificate.png)
 
@@ -210,7 +210,7 @@ ms.locfileid: "75982190"
 
 ### <a name="create-input-dataset"></a>입력 데이터 세트 만들기
 
-1. **Data Factory 편집기** **에서 ...를 클릭 합니다. 추가**를 클릭 하 고 명령 모음에서 **새 데이터 집합** 을 클릭 한 다음 **SQL Server 테이블**을 클릭 합니다.
+1. 데이터 **팩터리 편집기에서**... ** 더 많은**, 명령 모음에서 **새 데이터 집합을** 클릭하고 **SQL Server 테이블을**클릭합니다.
 2. 오른쪽 창의 JSON을 다음 텍스트로 바꿉니다.
 
     ```JSON   
@@ -277,9 +277,9 @@ ms.locfileid: "75982190"
    * **type**을 **AzureBlob**으로 설정합니다.
    * **linkedServiceName**을 **AzureStorageLinkedService**(2단계에서 만든 연결된 서비스)로 설정합니다.
    * **folderPath**를 **adftutorial/outfromonpremdf**로 설정합니다. 여기서 outfromonpremdf는 adftutorial 컨테이너의 폴더입니다. 아직 없는 경우 **adftutorial** 컨테이너를 만듭니다.
-   * **가용성**은 **매시간**으로 설정됩니다(**빈도**는 **매시간**으로, **간격**은 **1**로 설정).  데이터 팩터리 서비스는 Azure SQL Database의 **emp** 테이블에 출력 데이터 조각을 1시간마다 생성합니다.
+   * **가용성은** **시간당으로** 설정됩니다(빈도는 **시간** 및 간격으로 **설정된 간격은 1로**설정).**frequency** **interval**  데이터 팩터리 서비스는 Azure SQL Database의 **emp** 테이블에 출력 데이터 조각을 1시간마다 생성합니다.
 
-   **출력 테이블**의 **fileName** 을 지정 하지 않으면 **folderPath** 에 생성 된 파일의 이름은 `Data.<Guid>.txt` (예:: 0a405f8a-93ff-4c6f-b3be-f69616f1df7a) 형식으로 지정 됩니다.
+   **출력 테이블에**대한 **fileName을** 지정하지 않으면 **folderPath에서** 생성된 파일의 이름이 다음과 `Data.<Guid>.txt` 같습니다(예: Data.0a405f8a-93ff-4c6f-b3be-f69611f1df7a.txt.).
 
    **SliceStart** 시간을 기반으로 **folderPath** 및 **fileName**을 동적으로 설정하려면 partitionedBy 속성을 사용합니다. 다음 예제에서 folderPath는 SliceStart(처리 중인 조각의 시작 시간)의 연도, 월 및 일을 사용하고 fileName은 SliceStart의 시간을 사용합니다. 예를 들어 조각이 2014-10-20T08:00:00에 생성되는 경우 folderName은 wikidatagateway/wikisampledataout/2014/10/20으로 설정되고 fileName은 08.csv로 설정됩니다.
 
@@ -302,7 +302,7 @@ ms.locfileid: "75982190"
 ## <a name="create-pipeline"></a>파이프라인 만들기
 이 단계에서는 **EmpOnPremSQLTable**을 입력으로, **OutputBlobTable**을 출력으로 사용하는 **복사 작업**을 포함하는 **파이프라인**을 만듭니다.
 
-1. Data Factory 편집기 **에서 ...를 클릭 합니다. 추가**를 클릭 하 고 **새 파이프라인**을 클릭 합니다.
+1. 데이터 팩터리 편집기에서... ** 자세한**내용을 클릭하고 **새 파이프라인을**클릭합니다.
 2. 오른쪽 창의 JSON을 다음 텍스트로 바꿉니다.    
 
     ```JSON   
@@ -358,7 +358,7 @@ ms.locfileid: "75982190"
 
    * activities 섹션에는 **type**이 **Copy**로 설정된 작업 하나밖에 없습니다.
    * 작업에 대한 **입력**을 **EmpOnPremSQLTable**로 설정하고 작업에 대한 **출력**을 **OutputBlobTable**로 설정합니다.
-   * **TypeProperties** 섹션에서 **sqlsource** 를 **원본 유형** 으로 지정 하 고 **blobsink** 를 **싱크 유형**으로 지정 합니다.
+   * **typeProperties** 섹션에서 **SqlSource는** **소스 유형으로** 지정되고 **BlobSink는** **싱크 유형으로**지정됩니다.
    * **SqlSource**의 **sqlReaderQuery** 속성에 대해 SQL 쿼리 `select * from emp`을 지정합니다.
 
    start 및 end 날짜/시간은 둘 다 [ISO 형식](https://en.wikipedia.org/wiki/ISO_8601)(영문)이어야 합니다. 예: 2014-10-14T16:32:41Z. **종료** 시간은 선택 사항이지만 이 자습서에서는 사용합니다.
@@ -397,7 +397,7 @@ ms.locfileid: "75982190"
 
     ![데이터 조각 블레이드](./media/data-factory-move-data-between-onprem-and-cloud/DataSlice.png)
 
-    조각이 **준비** 상태가 아닌 경우 **준비되지 않은 업스트림 슬라이스** 목록에서 [준비] 상태가 아니고 현재 조각의 실행을 차단하는 업스트림 조각을 확인할 수 있습니다.
+    슬라이스가 **준비** 상태가 아닌 경우 준비되지 않은 업스트림 슬라이스를 볼 수 있으며 현재 조각이 **준비되지 않은 업스트림 슬라이스에서** 실행되지 못하도록 차단하고 있습니다.
 5. 맨 아래 목록에서 **작업 실행**을 클릭하여 **작업 실행 세부 정보**를 표시합니다.
 
    ![작업 실행 세부 정보 페이지](./media/data-factory-move-data-between-onprem-and-cloud/ActivityRunDetailsBlade.png)

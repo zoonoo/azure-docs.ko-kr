@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: 853c138c8cf73b41b0cebb6c1d349865e18eab6a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61296052"
 ---
 # <a name="create-a-custom-image-from-a-vhd-file"></a>VHD 파일에서 사용자 지정 이미지 만들기
@@ -33,9 +33,9 @@ ms.locfileid: "61296052"
 
 다음 단계는 Azure Portal을 사용하여 VHD 파일에서 사용자 지정 이미지를 만드는 과정을 안내합니다.
 
-1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
+1. [Azure 포털에](https://go.microsoft.com/fwlink/p/?LinkID=525040)로그인합니다.
 
-1. **모든 서비스**를 선택한 다음 목록에서 **DevTest Labs**를 선택합니다.
+1. **모든 서비스를**선택한 다음 목록에서 **DevTest 랩을 선택합니다.**
 
 1. 랩 목록에서 원하는 랩을 탭합니다.  
 
@@ -60,9 +60,9 @@ ms.locfileid: "61296052"
 
 1. 사용자 지정 이미지를 만드는 데 사용되는 이미지가 라이선스 이미지(Microsoft에서 게시)가 아닌 경우 계획 이름, 계획 제안 및 계획 게시자를 입력할 수도 있습니다.
 
-   - **계획 이름:** 이 사용자 지정 이미지 생성은 Marketplace 이미지 (SKU)의 이름 입력 
-   - **계획 제품:** 이 사용자 지정 이미지를 만들 Marketplace 이미지의 제품 (제안)를 입력 합니다. 
-   - **계획 게시자:** 이 사용자 지정 이미지를 만들 Marketplace 이미지의 게시자를 입력 합니다.
+   - **계획 이름:** 이 사용자 지정 이미지를 만들 Marketplace 이미지(SKU)의 이름을 입력합니다. 
+   - **계획 제품:** 이 사용자 지정 이미지를 만들 Marketplace 이미지의 제품(제안)을 입력합니다. 
+   - **계획 게시자:** 이 사용자 지정 이미지를 만들 Marketplace 이미지의 게시자를 입력합니다.
 
    > [!NOTE]
    > 사용자 지정 이미지를 만드는 데 사용되는 이미지가 **라이선스 이미지가 아닌 경우** 이러한 필드는 비어 있으며, 해당 필드를 선택하면 채울 수 있습니다. **라이선스 이미지인 경우** 계획 정보가 자동으로 필드에 채워집니다. 이 경우 변경하려고 하면 경고 메시지가 표시됩니다.

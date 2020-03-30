@@ -1,51 +1,51 @@
 ---
-title: 포털을 사용 하 여 직접 피어 링에서 피어 링 서비스 사용
+title: 포털을 사용하여 직접 피어링에 Peering Service 사용 설정
 titleSuffix: Azure
-description: 포털을 사용 하 여 직접 피어 링에서 피어 링 서비스 사용
+description: 포털을 사용하여 직접 피어링에 Peering Service 사용 설정
 services: internet-peering
-author: prmitiki
+author: derekolo
 ms.service: internet-peering
 ms.topic: article
-ms.date: 11/27/2019
-ms.author: prmitiki
-ms.openlocfilehash: d6b67c42ef8a5ba5ae98894775d1f56cee39ba8b
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.date: 3/18/2020
+ms.author: derekol
+ms.openlocfilehash: 87a65826a338f4098ae24c33939ea7f9d4475e36
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75774979"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80129904"
 ---
-# <a name="enable-peering-service-on-a-direct-peering-using-the-portal"></a>포털을 사용 하 여 직접 피어 링에서 피어 링 서비스 사용
+# <a name="enable-peering-service-on-a-direct-peering-using-the-portal"></a>포털을 사용하여 직접 피어링에 Peering Service 사용 설정
 
-이 문서에서는 포털을 사용 하 여 직접 피어 링에서 [피어 링 서비스](overview-peering-service.md) 를 사용 하도록 설정 하는 방법을 설명 합니다.
+이 문서에서는 포털을 사용하여 직접 피어링에서 [피어링 서비스를](overview-peering-service.md) 사용하도록 설정하는 방법에 대해 설명합니다.
 
-원하는 경우 [PowerShell](howto-peering-service-powershell.md)을 사용 하 여이 가이드를 완료할 수 있습니다.
+원하는 경우 [PowerShell](howto-peering-service-powershell.md)을 사용하여 이 가이드를 완료할 수 있습니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
-* 구성을 시작 하기 전에 [필수 구성 요소](prerequisites.md) 를 검토 하세요.
-* 구독에서 피어 링 서비스를 사용 하도록 설정 하려는 직접 피어 링을 선택 합니다. 없는 경우 레거시 직접 피어 링을 변환 하거나 새 직접 피어 링을 만듭니다.
-    * 레거시 직접 피어 링을 변환 하려면 [포털을 사용 하 여 레거시 직접 피어 링을 Azure 리소스로 변환](howto-legacy-direct-portal.md)의 지침을 따르세요.
-    * 새 직접 피어 링을 만들려면 [포털을 사용 하 여 직접 피어 링 만들기 또는 수정](howto-direct-portal.md)의 지침을 따르세요.
+* 구성을 시작하기 전에 [필수 구성 조건을](prerequisites.md) 검토합니다.
+* 피어링 서비스를 사용하도록 설정하려는 구독에서 직접 피어링을 선택합니다. 레거시 직접 피어링을 변환하거나 새 직접 피어링을 만듭니다.
+    * 레거시 직접 피어링을 변환하려면 [포털을 사용하여 레거시 직접 피어링에서 Azure 리소스로 변환하는](howto-legacy-direct-portal.md)방법에 따라.
+    * 새 직접 피어링을 만들려면 [포털을 사용하여 직접 피어링 만들기 또는 수정의](howto-direct-portal.md)지침을 따릅니다.
 
-## <a name="enable-peering-service-on-a-direct-peering"></a>직접 피어 링에서 피어 링 서비스 사용
+## <a name="enable-peering-service-on-a-direct-peering"></a>직접 피어링에 Peering Service 사용 설정
 
-### <a name= get></a>직접 피어 링 보기
+### <a name="view-direct-peering"></a><a name= get></a>직접 피어링 보기
 [!INCLUDE [peering-direct-get-portal](./includes/direct-portal-get.md)]
 
-### <a name= get></a>피어 링 서비스에 대 한 직접 피어 링 사용
+### <a name="enable-the-direct-peering-for-peering-service"></a><a name= get></a>피어링 서비스를 위한 직접 피어링 사용
 
-이전 단계에서 직접 피어 링을 연 후 피어 링 서비스에 대해 사용 하도록 설정 합니다.
+이전 단계에서 직접 피어링을 연 후 피어링 서비스에 대해 사용하도록 설정합니다.
 [!INCLUDE [peering-direct-modify](./includes/peering-service-direct-portal.md)]
 
-## <a name="modify-a-direct-peering-connection"></a>직접 피어 링 연결 수정
+## <a name="modify-a-direct-peering-connection"></a>직접 피어링 연결 수정
 
-연결 설정을 수정 해야 하는 경우 [포털을 사용 하 여 직접 피어 링 만들기 또는 수정](howto-direct-portal.md) 에서 **직접 피어 링 수정** 섹션을 참조 하세요.
+연결 설정을 수정해야 하는 경우 만들기에서 **직접 피어링** 수정 섹션을 [참조하거나 포털을 사용하여 직접 피어링을 수정합니다.](howto-direct-portal.md)
 
 ## <a name="next-steps"></a>다음 단계
 
-* [포털을 사용 하 여 Exchange 피어 링 만들기 또는 수정](howto-exchange-portal.md)
-* [포털을 사용 하 여 레거시 Exchange 피어 링을 Azure 리소스로 변환](howto-legacy-exchange-portal.md)
+* [포털을 사용하여 Exchange 피어링 만들기 또는 수정](howto-exchange-portal.md)
+* [포털을 사용하여 레거시 Exchange 피어링을 Azure 리소스로 변환](howto-legacy-exchange-portal.md)
 
 ## <a name="additional-resources"></a>추가 리소스
 
-질문과 대답은 [피어 링 서비스 FAQ](service-faqs.md)를 참조 하세요.
+자주 묻는 질문은 [피어링 서비스 FAQ를](service-faqs.md)참조하십시오.

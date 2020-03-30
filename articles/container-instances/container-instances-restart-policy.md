@@ -1,14 +1,14 @@
 ---
-title: 한 번 실행 태스크에 대 한 정책 다시 시작
+title: 한 번 실행 된 작업에 대 한 정책 다시 시작
 description: Azure Container Instances를 사용하여 빌드, 테스트 또는 이미지 렌더링 작업에서처럼 완료될 때까지 실행되는 작업을 실행하는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 04/15/2019
-ms.openlocfilehash: f814b1c99827c07f8dadfb0cfd80c87a93377cdc
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 8ef4ef228038242f53abc8041470f7f596ab1157
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533452"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80131504"
 ---
 # <a name="run-containerized-tasks-with-restart-policies"></a>다시 시작 정책으로 컨테이너 작업 실행
 
@@ -16,7 +16,7 @@ Azure Container Instances에서는 컨테이너를 배포하는 것이 쉽고 �
 
 구성 가능한 다시 시작 정책을 사용하면 프로세스가 완료될 때 컨테이너가 중지되도록 지정할 수 있습니다. 컨테이너 인스턴스는 초 단위로 비용이 청구되기 때문에 작업을 실행하는 컨테이너가 실행되는 동안 사용된 컴퓨팅 리소스에 대해서만 요금이 부과됩니다.
 
-이 문서에서 제시된 예제는 Azure CLI를 사용합니다. Azure CLI 버전 2.0.21 이상이 [로컬로 설치되어 있거나][azure-cli-install], [Azure Cloud Shell](../cloud-shell/overview.md)에서 CLI를 사용해야 합니다.
+이 문서에서 제시된 예제는 Azure CLI를 사용합니다. Azure CLI 버전 2.0.21 이상이 [로컬로 설치되어 있거나][azure-cli-install][Azure Cloud Shell](../cloud-shell/overview.md)에서 CLI를 사용해야 합니다.
 
 ## <a name="container-restart-policy"></a>컨테이너 다시 시작 정책
 
@@ -30,7 +30,7 @@ Azure Container Instances에서 [컨테이너 그룹](container-instances-contai
 
 ## <a name="specify-a-restart-policy"></a>다시 시작 정책 지정
 
-다시 시작 정책을 지정하는 방법은 Azure CLI, Azure PowerShell cmdlet 또는 Azure Portal에서와 같이 컨테이너 인스턴스를 만드는 방법에 따라 다릅니다. Azure CLI에서 [az container create][az-container-create]를 호출할 때 `--restart-policy` 매개 변수를 지정 합니다.
+다시 시작 정책을 지정하는 방법은 Azure CLI, Azure PowerShell cmdlet 또는 Azure Portal에서와 같이 컨테이너 인스턴스를 만드는 방법에 따라 다릅니다. Azure CLI에서 [create a container][az-container-create]를 호출할 때 `--restart-policy` 매개 변수를 지정합니다.
 
 ```azurecli-interactive
 az container create \
@@ -42,9 +42,9 @@ az container create \
 
 ## <a name="run-to-completion-example"></a>완료될 때까지 실행 예제
 
-작업에서 다시 시작 정책을 보려면 Microsoft [aci-wordcount][aci-wordcount-image] 이미지에서 컨테이너 인스턴스를 만들고 `OnFailure` 다시 시작 정책을 지정 합니다. 이 예제 컨테이너는 기본적으로 셰익스피어의 [Hamlet](http://shakespeare.mit.edu/hamlet/full.html) 텍스트를 분석하고, 가장 많이 쓰이는 10개의 단어를 STDOUT에 쓰고 종료하는 Python 스크립트를 실행합니다.
+실행 중 정책을 보려면 Microsoft [aci-wordcount][aci-wordcount-image] 이미지에서 컨테이너 인스턴스를 만들고 `OnFailure` 다시 시작 정책을 지정합니다. 이 예제 컨테이너는 기본적으로 셰익스피어의 [Hamlet](http://shakespeare.mit.edu/hamlet/full.html) 텍스트를 분석하고, 가장 많이 쓰이는 10개의 단어를 STDOUT에 쓰고 종료하는 Python 스크립트를 실행합니다.
 
-다음 [az container create][az-container-create] 명령을 사용 하 여 예제 컨테이너를 실행 합니다.
+다음 [az container create][az-container-create] 명령으로 예제 컨테이너를 실행합니다.
 
 ```azurecli-interactive
 az container create \
@@ -54,10 +54,13 @@ az container create \
     --restart-policy OnFailure
 ```
 
-Azure Container Instances는 컨테이너를 시작한 다음, 애플리케이션(또는 이 경우 스크립트)이 종료될 때 컨테이너를 중지합니다. Azure Container Instances가 다시 시작 정책이 `Never` 또는 `OnFailure`인 컨테이너를 중지하면 컨테이너의 상태가 **Terminated**으로 설정됩니다. [Az container show][az-container-show] 명령을 사용 하 여 컨테이너의 상태를 확인할 수 있습니다.
+Azure Container Instances는 컨테이너를 시작한 다음, 애플리케이션(또는 이 경우 스크립트)이 종료될 때 컨테이너를 중지합니다. Azure Container Instances가 다시 시작 정책이 `Never` 또는 `OnFailure`인 컨테이너를 중지하면 컨테이너의 상태가 **Terminated**으로 설정됩니다. [az container show][az-container-show] 명령을 사용하여 컨테이너의 상태를 확인할 수 있습니다.
 
 ```azurecli-interactive
-az container show --resource-group myResourceGroup --name mycontainer --query containers[0].instanceView.currentState.state
+az container show \
+    --resource-group myResourceGroup \
+    --name mycontainer \
+    --query containers[0].instanceView.currentState.state
 ```
 
 예제 출력:
@@ -66,13 +69,13 @@ az container show --resource-group myResourceGroup --name mycontainer --query co
 "Terminated"
 ```
 
-예제 컨테이너의 상태가 *Terminated*로 표시되면 컨테이너 로그를 확인하여 작업 출력을 볼 수 있습니다. [Az container logs][az-container-logs] 명령을 실행 하 여 스크립트의 출력을 확인 합니다.
+예제 컨테이너의 상태가 *Terminated*로 표시되면 컨테이너 로그를 확인하여 작업 출력을 볼 수 있습니다. 스크립트의 출력을 보려면 [az container logs][az-container-logs] 명령을 실행합니다.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name mycontainer
 ```
 
-출력
+출력:
 
 ```bash
 [('the', 990),
@@ -91,7 +94,7 @@ az container logs --resource-group myResourceGroup --name mycontainer
 
 ## <a name="next-steps"></a>다음 단계
 
-여러 컨테이너를 포함 하는 큰 데이터 집합을 일괄 처리 하는 등의 작업 기반 시나리오에서는 사용자 지정 [환경 변수](container-instances-environment-variables.md) 또는 [명령줄](container-instances-start-command.md) 을 런타임에 활용할 수 있습니다.
+여러 컨테이너가 있는 대규모 데이터 집합을 일괄 처리하는 것과 같은 작업 기반 시나리오는 런타임시 사용자 지정 [환경 변수](container-instances-environment-variables.md) 또는 [명령줄을](container-instances-start-command.md) 활용할 수 있습니다.
 
 완료될 때까지 실행되는 컨테이너 출력을 유지하는 방법에 대한 자세한 내용은 [Azure Container Instances를 사용하여 Azure 파일 공유 탑재](container-instances-mounting-azure-files-volume.md)를 참조하세요.
 
