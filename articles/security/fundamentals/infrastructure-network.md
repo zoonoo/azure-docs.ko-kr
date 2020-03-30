@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 02/20/2019
 ms.author: terrylan
 ms.openlocfilehash: c4756c36c2243840df69f3696e7ddac3628f3a00
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68727166"
 ---
 # <a name="azure-network-architecture"></a>Azure 네트워크 아키텍처
@@ -81,7 +81,7 @@ Azure 네트워크의 에지 및 액세스 계층에 있는 필터링 라우터�
 ### <a name="ddos-mitigation"></a>DDoS 완화
 DDoS(분산 서비스 거부) 공격은 계속해서 온라인 서비스의 안정성에 대한 실질적인 위협이 되고 있습니다. 공격의 대상이 더 많아지고 더 정교해지고 Microsoft에서 제공하는 서비스가 지리적으로 더 다양해짐에 따라 이러한 공격의 영향을 식별하고 최소화하는 것이 최우선 과제입니다.
 
-[Azure DDoS Protection 표준](../../virtual-network/ddos-protection-overview.md)은 DDoS 공격으로부터 보호합니다. 자세한 내용은 [Azure DDoS Protection: 모범 사례 및 참조 아키텍처](ddos-best-practices.md)를 참조하세요.
+[Azure DDoS Protection 표준](../../virtual-network/ddos-protection-overview.md)은 DDoS 공격으로부터 보호합니다. 자세한 내용은 [Azure DDoS 보호: 모범 사례 및 참조 아키텍처를](ddos-best-practices.md) 참조하십시오.
 
 > [!NOTE]
 > Microsoft는 기본적으로 모든 Azure 고객에게 DDoS 보호를 제공합니다.
@@ -102,7 +102,7 @@ Azure 인프라를 보호하기 위해 Microsoft에서 수행하는 작업에 �
 - [Azure 인프라 가용성](infrastructure-availability.md)
 - [Azure 정보 시스템 구성 요소 및 경계](infrastructure-components.md)
 - [Azure 프로덕션 네트워크](production-network.md)
-- [Azure SQL Database 보안 기능](infrastructure-sql.md)
+- [Azure SQL 데이터베이스 보안 기능](infrastructure-sql.md)
 - [Azure 프로덕션 운영 및 관리](infrastructure-operations.md)
 - [심층 인프라 모니터링](infrastructure-monitoring.md)
 - [Azure 인프라 무결성](infrastructure-integrity.md)

@@ -11,10 +11,10 @@ ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
 ms.openlocfilehash: ccc422dfb3105fd1e12569a84a4ebfd22182b225
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73837813"
 ---
 # <a name="is-your-data-ready-for-data-science"></a>데이터 과학에 사용할 수 있게 데이터가 준비되었나요?
@@ -100,8 +100,8 @@ ms.locfileid: "73837813"
 
 관련성이 있고, 연결되고, 정확하고, 충분한 데이터가 있으면 고품질의 데이터 과학을 수행하는 데 필요한 모든 재료를 갖추게 되는 것입니다.
 
-Microsoft Azure Machine Learning Studio (클래식)의 *초보자를 위한 데이터 과학* 의 다른 4 가지 비디오를 확인 하세요.
+Microsoft Azure 기계 학습 스튜디오(클래식)의 *초보자를 위한 데이터 과학의* 다른 4개 비디오를 확인하십시오.
 
 ## <a name="next-steps"></a>다음 단계
-* [Machine Learning Studio를 사용 하 여 첫 번째 데이터 과학 실험 시도 (클래식)](create-experiment.md)
+* [기계 학습 스튜디오(클래식)를 사용하여 첫 번째 데이터 과학 실험을 해보세요.](create-experiment.md)
 * [Microsoft Azure의 Machine Learning 소개 보기](/azure/machine-learning/preview/overview-what-is-azure-ml)

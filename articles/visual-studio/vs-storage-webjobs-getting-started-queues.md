@@ -1,5 +1,5 @@
 ---
-title: Visual Studio를 사용 하 여 queue storage 시작 (WebJob 프로젝트)
+title: Visual Studio(WebJob 프로젝트)를 사용하여 큐 저장소 시작
 description: Visual Studio 연결된 서비스를 사용하여 스토리지 계정에 연결한 후 WebJob 프로젝트에서 Azure Queue Storage 사용을 시작하는 방법입니다.
 services: storage
 author: ghogen
@@ -14,10 +14,10 @@ ms.date: 12/02/2016
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: ffba203bafaf3837cd2d7fc1a6fd962a6926b186
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72298755"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-webjob-projects"></a>Azure Queue Storage 및 Visual Studio 연결된 서비스 시작(WebJob 프로젝트)
@@ -45,7 +45,7 @@ public static void ProcessQueueMessage([QueueTrigger("logqueue")] string logMess
 
 **string** 외에도 매개 변수는 바이트 배열, **CloudQueueMessage** 개체 또는 사용자가 정의한 POCO일 수 있습니다.
 
-### <a name="poco-plain-old-clr-objecthttpsenwikipediaorgwikiplain_old_clr_object-queue-messages"></a>POCO( [Plain Old CLR Object](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) 큐 메시지
+### <a name="poco-plain-old-clr-object-queue-messages"></a>POCO( [Plain Old CLR Object](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) 큐 메시지
 다음 예제에서 큐 메시지에는 **BlobName** 속성을 포함하는 **BlobInformation** 개체에 대한 JSON이 포함됩니다. SDK에서 자동으로 개체를 역직렬화합니다.
 
 ```csharp
@@ -89,10 +89,10 @@ public async static Task ProcessQueueMessageAsyncCancellationToken(
 ## <a name="types-the-queuetrigger-attribute-works-with"></a>QueueTrigger 특성이 작동하는 유형
 다음 유형에서 **QueueTrigger** 를 사용할 수 있습니다.
 
-* **string**
+* **문자열**
 * JSON으로 serialize된 POCO 유형
-* **byte[]**
-* **CloudQueueMessage**
+* **바이트[]**
+* **클라우드큐메시지**
 
 ## <a name="polling-algorithm"></a>폴링 알고리즘
 SDK는 무작위 지수 백오프 알고리즘을 구현하여 유휴 큐 폴링이 스토리지 트랜잭션 비용에 미치는 영향을 줄입니다.  메시지가 발견되면 SDK는 2초 대기하고 다른 메시지가 있는지 확인하며, 메시지가 발견되지 않으면 4초 정도 대기하고 나서 다시 시도합니다. 후속 시도로 큐 메시지를 가져오지 못하면 최대 대기 시간(기본값 1분)에 도달할 때까지 대기 시간이 계속 증가합니다. [최대 대기 시간은 구성 가능합니다](#how-to-set-configuration-options).
@@ -112,7 +112,7 @@ SDK는 무작위 지수 백오프 알고리즘을 구현하여 유휴 큐 폴링
 * **DateTimeOffset** insertionTime
 * **DateTimeOffset** nextVisibleTime
 * **string** queueTrigger(메시지 텍스트 포함)
-* **string** id
+* **문자열** ID
 * **string** popReceipt
 * **int** dequeueCount
 
@@ -191,7 +191,7 @@ public static void GracefulShutdownDemo(
 새 큐 메시지를 만드는 함수를 작성하려면 **Queue** 특성을 사용합니다. **QueueTrigger**와 마찬가지로 큐 이름을 문자열로 전달하거나, [동적으로 큐 이름을 설정](#how-to-set-configuration-options)할 수 있습니다.
 
 ### <a name="string-queue-messages"></a>문자열 큐 메시지
-다음 비동기가 아닌 코드 샘플에서는 "inputqueue"라는 큐에 수신된 큐 메시지와 동일한 콘텐츠를 가진 새로운 큐 메시지를 "outputqueue"라는 큐에 만듭니다. 비동기 함수의 경우이 단원의 뒷부분에 나와 있는 것 처럼 **>\<Iasynccollector** 를 사용 합니다.
+다음 비동기가 아닌 코드 샘플에서는 "inputqueue"라는 큐에 수신된 큐 메시지와 동일한 콘텐츠를 가진 새로운 큐 메시지를 "outputqueue"라는 큐에 만듭니다. 비동기 함수의 경우 이 섹션의 후반부와 같이 **IAsyncCollector\<T>** 사용하십시오.
 
 ```csharp
 public static void CreateQueueMessage(
@@ -202,7 +202,7 @@ public static void CreateQueueMessage(
 }
 ```
 
-### <a name="poco-plain-old-clr-objecthttpsenwikipediaorgwikiplain_old_clr_object-queue-messages"></a>POCO( [Plain Old CLR Object](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) 큐 메시지
+### <a name="poco-plain-old-clr-object-queue-messages"></a>POCO( [Plain Old CLR Object](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) 큐 메시지
 문자열 대신 POCO가 포함된 큐 메시지를 만들려면 POCO 유형을 출력 매개 변수로 **Queue** 특성 생성자에 전달합니다.
 
 ```csharp
@@ -217,7 +217,7 @@ public static void CreateQueueMessage(
 SDK에서 자동으로 개체를 JSON으로 serialize합니다. 개체가 null인 경우에도 항상 큐 메시지가 생성됩니다.
 
 ### <a name="create-multiple-messages-or-in-async-functions"></a>여러 메시지 만들기 또는 비동기 함수로 큐 메시지 만들기
-여러 메시지를 만들려면 다음 예제와 같이 **\<t >** 또는 **iasynccollector\<t >** 출력 큐에 대 한 매개 변수 형식을 설정 합니다.
+여러 메시지를 만들려면 다음 예제와 같이 출력 큐 **ICollector\<T>** 또는 **IAsyncCollector\<T>** 대한 매개 변수 유형을 만듭니다.
 
 ```csharp
 public static void CreateQueueMessages(
@@ -237,7 +237,7 @@ public static void CreateQueueMessages(
 다음 매개 변수 유형에서 **Queue** 특성을 사용할 수 있습니다.
 
 * **out string** (함수가 종료될 때 매개 변수 값이 null이 아닌 경우 큐 메시지 생성)
-* **out byte[]** (**문자열**처럼 작동)
+* **out byte[]**(**문자열**처럼 작동)
 * **out CloudQueueMessage**(**문자열**처럼 작동)
 * **out POCO**(직렬화 가능한 유형, 함수가 종료될 때 매개 변수가 null인 경우 null 개체가 포함된 메시지 생성)
 * **ICollector**
@@ -282,7 +282,7 @@ public static void ProcessQueueMessage(
 }
 ```
 
-**Blob** 특성 생성자는 컨테이너 및 Blob 이름을 지정하는 **blobPath** 매개 변수를 사용합니다. 이 자리 표시자에 대한 자세한 내용은 [WebJobs SDK에서 Azure Blob Storage를 사용하는 방법](https://github.com/Azure/azure-webjobs-sdk/wiki)을 참조하세요.
+**Blob** 특성 생성자는 컨테이너 및 Blob 이름을 지정하는 **blobPath** 매개 변수를 사용합니다. 이 자리 표시자에 대한 자세한 내용은 [WebJobs SDK에서 Azure Blob 저장소를 사용하는 방법을](https://github.com/Azure/azure-webjobs-sdk/wiki)참조하세요.
 
 특성이 **Stream** 개체를 데코레이팅하는 경우 또 다른 생성자 매개 변수가 **FileAccess** 모드를 읽기, 쓰기 또는 읽기/쓰기로 지정합니다.
 
@@ -297,7 +297,7 @@ public static void DeleteBlob(
 }
 ```
 
-### <a name="poco-plain-old-clr-objecthttpsenwikipediaorgwikiplain_old_clr_object-queue-messages"></a>POCO( [Plain Old CLR Object](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) 큐 메시지
+### <a name="poco-plain-old-clr-object-queue-messages"></a>POCO( [Plain Old CLR Object](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) 큐 메시지
 큐 메시지에 JSON으로 저장된 POCO의 경우 **Queue** 특성의 **blobPath** 매개 변수에서 개체 속성의 이름을 지정하는 자리 표시자를 사용할 수 있습니다. 큐 메타데이터 속성 이름을 자리 표시자로 사용할 수도 있습니다. [큐 또는 큐 메시지 메타데이터 가져오기](#get-queue-or-queue-message-metadata)를 참조하세요.
 
 다음 예제에서는 Blob을 확장명이 다른 새 Blob에 복사합니다. 큐 메시지는 **BlobName** 및 **BlobNameWithoutExtension** 속성을 포함하는 **BlobInformation** 개체입니다. 속성 이름은 **Blob** 특성에 대한 Blob 경로에서 자리 표시자로 사용됩니다.
@@ -343,7 +343,7 @@ logQueue.AddMessage(queueMessage);
 ### <a name="automatic-poison-message-handling"></a>자동 포이즌 메시지 처리
 SDK는 최대 5회까지 함수를 호출하여 큐 메시지를 처리합니다. 다섯 번째 시도가 실패하면 메시지가 포이즌 큐로 이동됩니다. [구성 옵션을 설정하는 방법](#how-to-set-configuration-options)에서 최대 다시 시도 횟수를 구성하는 방법을 확인할 수 있습니다.
 
-포이즌 큐의 이름은 *{originalqueuename}* -poison으로 지정됩니다. 메시지를 기록하거나 수동 작업이 필요하다는 알림을 보내 포이즌 큐의 메시지를 처리하는 함수를 작성할 수 있습니다.
+포이즌 큐의 이름은 *{originalqueuename}*-poison으로 지정됩니다. 메시지를 기록하거나 수동 작업이 필요하다는 알림을 보내 포이즌 큐의 메시지를 처리하는 함수를 작성할 수 있습니다.
 
 다음 예제에서는 큐 메시지에 존재하지 않는 Blob 이름이 포함되어 있을 경우 **CopyBlob** 함수가 실패합니다. 이 경우 메시지가 copyblobqueue 큐에서 copyblobqueue-poison 큐로 이동됩니다. **ProcessPoisonMessage** 에서 포이즌 메시지를 기록합니다.
 
@@ -545,7 +545,7 @@ WebJobs SDK 대시보드에서 콘솔 출력의 최근 100줄은 함수 호출�
 
 ![Toggle Output](./media/vs-storage-webjobs-getting-started-queues/dashboardapplogs.png)
 
-연속 WebJob에서는 애플리케이션 로그가 웹앱 파일 시스템의 /data/jobs/continuous/ *{webjobname}* /job_log.txt에 표시됩니다.
+연속 WebJob에서는 애플리케이션 로그가 웹앱 파일 시스템의 /data/jobs/continuous/*{webjobname}*/job_log.txt에 표시됩니다.
 
         [09/26/2014 21:01:13 > 491e54: INFO] Console.Write - Hello world!
         [09/26/2014 21:01:13 > 491e54: ERR ] Console.Error - Hello world!

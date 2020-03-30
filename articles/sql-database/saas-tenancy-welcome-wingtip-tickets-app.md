@@ -1,7 +1,7 @@
 ---
-title: Wingtips 앱 시작
+title: 윙 팁 응용 프로그램에 오신 것을 환영합니다
 description: 클라우드 환경의 Azure SQL Database에 대한 샘플 Wingtips SaaS 애플리케이션 및 데이터베이스 테넌시 모델에 대해 알아봅니다.
-keywords: sql 데이터베이스 자습서
+keywords: SQL Database 자습서
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
@@ -13,21 +13,21 @@ ms.author: sstein
 ms.reviewer: billgib
 ms.date: 01/25/2019
 ms.openlocfilehash: 4e0b3afe51ac7c7a6b9213fcee79af57cbbd8197
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73818325"
 ---
 # <a name="the-wingtip-tickets-saas-application"></a>Wingtip Tickets SaaS 애플리케이션
 
-세 개의 샘플 각각에 동일한 *Wingtip Tickets* SaaS 애플리케이션이 구현되어 있습니다. 앱은 small 장소-극장, 클럽 등을 대상으로 하는 간단한 이벤트 목록 및 티켓 SaaS 앱입니다. 각 장소는 앱의 테 넌 트 이며, 장소 세부 정보, 이벤트 목록, 고객, 티켓 주문 등의 고유한 데이터가 있습니다.  앱은 관리 스크립트 및 자습서와 함께 종단 간 SaaS 시나리오를 소개 합니다. 여기에는 테넌트 프로비전, 성능 모니터링 및 관리, 스키마 관리, 테넌트 간 보고 및 분석이 포함됩니다.
+세 개의 샘플 각각에 동일한 *Wingtip Tickets* SaaS 애플리케이션이 구현되어 있습니다. 극장, 클럽 등 - 응용 프로그램은 작은 장소를 대상으로 간단한 이벤트 목록 및 발권 SaaS 응용 프로그램입니다 각 장소는 앱의 테넌트이며 장소 세부 정보, 이벤트 목록, 고객, 티켓 주문 등 자체 데이터가 있습니다.  이 앱은 관리 스크립트 및 자습서와 함께 종단 간 SaaS 시나리오를 보여 주었습니다. 여기에는 테넌트 프로비전, 성능 모니터링 및 관리, 스키마 관리, 테넌트 간 보고 및 분석이 포함됩니다.
 
 ## <a name="three-saas-application-and-tenancy-patterns"></a>세 개의 SaaS 애플리케이션과 테넌트 패턴
 
 세 버전의 앱을 사용할 수 있으며, 각각 Azure SQL Database에서 다른 데이터베이스 테넌트 패턴을 보여 줍니다.  첫 번째는 자체 데이터베이스를 사용하여 테넌트별로 각각 독립 실행형 애플리케이션을 사용합니다. 두 번째는 테넌트별 데이터베이스를 사용하여 다중 테넌트 앱을 사용합니다. 세 번째 샘플은 다중 테넌트 앱과 분할된 다중 테넌트 데이터베이스를 사용합니다.
 
-![세 가지 테넌트 패턴][image-three-tenancy-patterns]
+![세 가지 테넌시 패턴][image-three-tenancy-patterns]
 
  각 샘플에는 다양한 디자인 및 관리 패턴을 살펴볼 수 있는 자습서, 관리 스크립트와 애플리케이션 코드가 포함되어 있습니다.  각 샘플은 5분 내에 배포됩니다.  세 패턴은 모두 나란히 배포되어 디자인 및 관리의 차이를 비교할 수 있습니다.
 
@@ -35,13 +35,13 @@ ms.locfileid: "73818325"
 
 테넌트별 독립 실행형 앱 패턴에서는 각 테넌트별 데이터베이스를 사용하여 단일 테넌트 애플리케이션을 사용합니다. 각 테넌트의 앱과 데이터베이스는 별도의 Azure 리소스 그룹에 배포됩니다. 리소스 그룹은 서비스 공급자의 구독 또는 테넌트의 구독에 배포되어 공급자가 테넌트를 대신하여 관리할 수 있습니다. 테넌트별 독립 실행형 앱 패턴은 테넌트 격리가 가장 높은 수준으로 구현되지만, 여러 테넌트 간에 리소스를 공유할 수 없기 때문에 일반적으로 비용이 가장 높습니다.  이 패턴은 비교적 복잡한 애플리케이션이 소수의 테넌트에 배포된 경우에 적합합니다.  독립 실행형 배포에서는 다른 패턴에 비해 각 테넌트별로 훨씬 간편하게 앱을 사용자 지정할 수 있습니다.  
 
-[../Microsoft/WingtipTicketsSaaS-StandaloneApp][github-code-for-wingtip-sa]에서 [자습서][docs-tutorials-for-wingtip-sa] 및 코드를 확인 하세요.
+[자습서][docs-tutorials-for-wingtip-sa] 및 GitHub [.../Microsoft/WingtipTicketsSaaS-StandaloneApp][github-code-for-wingtip-sa]의 코드를 확인합니다.
 
 ## <a name="database-per-tenant-pattern"></a>테넌트별 데이터베이스 패턴
 
 테넌트별 데이터베이스 패턴은 테넌트 격리에 관심이 있고 공유 리소스를 비용 효율적으로 사용할 수 있는 중앙 집중식 서비스를 실행하려는 서비스 공급자에게 효과적입니다. 데이터베이스는 각 장소(또는 테넌트)에 대해 만들어지며, 모든 데이터베이스가 중앙에서 관리됩니다. 데이터베이스가 탄력적 풀에 호스트되어 비용 효율적이고 쉽게 성능을 관리할 수 있으며, 이는 테넌트의 예측할 수 없는 워크로드 패턴을 활용합니다. 카탈로그 데이터베이스는 테넌트와 해당 데이터베이스 간의 매핑을 포함합니다. 이 매핑은 [Elastic Database 클라이언트 라이브러리](sql-database-elastic-database-client-library.md)의 분할 맵 관리 기능을 사용하여 관리되며, 이를 통해 애플리케이션에 대한 연결을 효율적으로 관리할 수 있습니다.
 
-[../Microsoft/WingtipTicketsSaaS-DbPerTenant][github-code-for-wingtip-dpt]에서 [자습서][docs-tutorials-for-wingtip-dpt] 및 코드를 확인 하세요.
+GitHub[.../Microsoft/WingtipTicketsSaaS-DbPerTenant][github-code-for-wingtip-dpt]에서 [자습서][docs-tutorials-for-wingtip-dpt] 및 코드를 확인하세요.
 
 ## <a name="sharded-multi-tenant-database-pattern"></a>분할된 다중 테넌트 데이터베이스 패턴
 
@@ -49,27 +49,27 @@ ms.locfileid: "73818325"
 
 이 패턴을 사용하면 여러 개의 테넌트가 하나의 데이터베이스를 사용하도록 하여 비용을 최적화하거나 테넌트마다 자체 데이터베이스를 갖도록 하여 격리를 최적화하는 *하이브리드* 모델을 구현할 수 있습니다. 테넌트가 프로비전될 때 또는 그 후에 테넌트별로 애플리케이션에 영향을 미치지 않고 적용할 수 있습니다.  이 모델은 서로 다른 테넌트 그룹을 각각 다르게 취급해야 하는 경우 효과적입니다. 예를 들어, 요금이 낮은 테넌트는 공유 데이터베이스에 할당하고, 프리미엄 테넌트는 자체 데이터베이스에 할당할 수 있습니다. 
 
-[../Microsoft/WingtipTicketsSaaS-MultiTenantDb][github-code-for-wingtip-mt]에서 [자습서][docs-tutorials-for-wingtip-mt] 및 코드를 확인 하세요.
+GitHub[.../Microsoft/WingtipTicketsSaaS-MultiTenantDb][github-code-for-wingtip-mt]에서 [자습서][docs-tutorials-for-wingtip-mt] 및 코드를 확인하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 #### <a name="conceptual-descriptions"></a>개념적 설명
 
-- [다중 테 넌 트 SaaS 데이터베이스 테 넌 트 패턴][saas-tenancy-app-design-patterns-md] 에서 사용할 수 있는 응용 프로그램 테 넌 트 패턴에 대 한 자세한 설명
+- [다중 테넌트 SaaS 데이터베이스 테넌트 패턴][saas-tenancy-app-design-patterns-md]에 애플리케이션 테넌트 패턴에 대해 자세히 설명되어 있습니다.
 
 #### <a name="tutorials-and-code"></a>자습서 및 코드
 
 - 테넌트당 독립형 앱:
-    - [독립 실행형 앱에 대 한 자습서][docs-tutorials-for-wingtip-sa]입니다.
-    - [독립 실행형 앱에 대 한 코드, GitHub][github-code-for-wingtip-sa].
+    - [독립 실행형 앱에 대한 자습서][docs-tutorials-for-wingtip-sa].
+    - [독립 실행형 앱 코드(GitHub)][github-code-for-wingtip-sa].
 
 - 테넌트당 데이터베이스:
-    - [테 넌 트 별 데이터베이스에 대 한 자습서][docs-tutorials-for-wingtip-dpt]입니다.
-    - [GitHub에 대 한 테 넌 트 별 데이터베이스에 대 한 코드][github-code-for-wingtip-dpt]입니다.
+    - [테넌트별 데이터베이스에 대한 자습서][docs-tutorials-for-wingtip-dpt].
+    - [테넌트별 데이터베이스에 대한 코드, GitHub][github-code-for-wingtip-dpt].
 
 - 분할된 다중 테넌트:
-    - [분할 된 다중 테 넌 트에 대 한 자습서][docs-tutorials-for-wingtip-mt]입니다.
-    - [GitHub의 분할 된 다중 테 넌 트에 대 한 코드][github-code-for-wingtip-mt]입니다.
+    - [분할된 다중 테넌트에 대한 자습서][docs-tutorials-for-wingtip-mt].
+    - [분할된 다중 테넌트에 대한 코드, GitHub][github-code-for-wingtip-mt].
 
 
 

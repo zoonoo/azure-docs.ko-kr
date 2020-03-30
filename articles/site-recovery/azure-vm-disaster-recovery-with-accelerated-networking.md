@@ -1,5 +1,5 @@
 ---
-title: Azure Site Recovery를 사용 하 여 Azure VM 재해 복구를 위한 가속화 된 네트워킹 사용
+title: Azure 사이트 복구를 사용하여 Azure VM 재해 복구를 위한 빠른 네트워킹 을 활성화합니다.
 description: Azure 가상 머신 재해 복구에 대해 Azure Site Recovery에서 가속화된 네트워킹을 사용하는 방법을 설명합니다.
 services: site-recovery
 documentationcenter: ''
@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
 ms.openlocfilehash: 27691d8fab3e7c8ccd60351dc0be83898ff984ed
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73622425"
 ---
 # <a name="accelerated-networking-with-azure-virtual-machine-disaster-recovery"></a>Azure 가상 머신 장애 복구에서 가속화된 네트워킹
@@ -24,7 +24,7 @@ ms.locfileid: "73622425"
 
 Azure Site Recovery를 사용하면 다른 Azure 지역에 장애 조치된 Azure 가상 머신에 대한 가속화된 네트워킹의 이점을 활용할 수 있습니다. 이 문서에서는 Azure Site Recovery를 사용하여 복제된 Azure 가상 머신에 대해 가속화된 네트워킹을 사용하는 방법을 설명합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 다음을 이해해야 합니다.
 -   Azure 가상 머신 [복제 아키텍처](azure-to-azure-architecture.md)
@@ -36,14 +36,14 @@ Azure Site Recovery를 사용하면 다른 Azure 지역에 장애 조치된 Azur
 Azure Site Recovery는 원본 가상 머신에 가속화된 네트워킹이 활성화된 경우에만 복제된 가상 머신에 대한 가속화된 네트워킹 활성화를 지원합니다. 원본 가상 머신에 가속화된 네트워킹이 활성화되지 않은 경우 [여기](../virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms)에서 Windows 가상 머신에 대해 가속화된 네트워킹을 활성화하는 방법을 알아볼 수 있습니다.
 
 ### <a name="supported-operating-systems"></a>지원되는 운영 체제
-다음 분포는 즉시 Azure Gallery에서 기본으로 지원됩니다.
+다음 배포는 즉시 Azure Gallery에서 기본으로 지원됩니다.
 * **Windows Server 2016 Datacenter**
-* **Windows Server 2012 R2 Datacenter**
+* **윈도우 서버 2012 R2 데이터 센터**
 
 ### <a name="supported-vm-instances"></a>지원되는 VM 인스턴스
-가속화된 네트워킹은 가장 일반적인 용도 및 2개 이상의 vCPU가 포함된 계산 최적화 인스턴스 크기로 지원됩니다.  이러한 지원되는 계열은 D/DSv2 및 F/Fs입니다.
+가속 네트워킹은 가장 일반적인 용도로 2개 이상의 vCPU가 포함된 계산 최적화 인스턴스 크기에서 지원됩니다.  이러한 지원되는 계열은 D/DSv2 및 F/Fs입니다.
 
-하이퍼스레딩을 지원하는 인스턴스에서 가속화된 네트워킹은 4개 이상의 vCPU가 포함된 VM 인스턴스에서 지원됩니다. 지원되는 계열은 D/DSv3, E/ESv3, Fsv2 및 Ms/Mms입니다.
+하이퍼스레딩을 지원하는 인스턴스에서 가속 네트워킹은 4개 이상의 vCPU가 포함된 VM 인스턴스에서 지원됩니다. 지원되는 계열은 D/DSv3, E/ESv3, Fsv2 및 Ms/Mms입니다.
 
 VM 인스턴스에 대한 자세한 내용은 [Windows VM 크기](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
 
@@ -52,7 +52,7 @@ VM 인스턴스에 대한 자세한 내용은 [Windows VM 크기](../virtual-mac
 Azure Site Recovery는 원본 가상 머신에 가속화된 네트워킹이 활성화된 경우에만 복제된 가상 머신에 대한 가속화된 네트워킹 활성화를 지원합니다. 원본 가상 머신에 가속화된 네트워킹이 활성화되지 않은 경우 [여기](../virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms)에서 Linux 가상 머신에 대해 가속화된 네트워킹을 활성화하는 방법을 알아볼 수 있습니다.
 
 ### <a name="supported-operating-systems"></a>지원되는 운영 체제
-다음 분포는 즉시 Azure Gallery에서 기본으로 지원됩니다.
+다음 배포는 즉시 Azure Gallery에서 기본으로 지원됩니다.
 * **Ubuntu 16.04**
 * **SLES 12 SP3**
 * **RHEL 7.4**
@@ -62,9 +62,9 @@ Azure Site Recovery는 원본 가상 머신에 가속화된 네트워킹이 활�
 * **Oracle Linux 7.4**
 
 ### <a name="supported-vm-instances"></a>지원되는 VM 인스턴스
-가속화된 네트워킹은 가장 일반적인 용도 및 2개 이상의 vCPU가 포함된 계산 최적화 인스턴스 크기로 지원됩니다.  이러한 지원되는 계열은 D/DSv2 및 F/Fs입니다.
+가속 네트워킹은 가장 일반적인 용도로 2개 이상의 vCPU가 포함된 계산 최적화 인스턴스 크기에서 지원됩니다.  이러한 지원되는 계열은 D/DSv2 및 F/Fs입니다.
 
-하이퍼스레딩을 지원하는 인스턴스에서 가속화된 네트워킹은 4개 이상의 vCPU가 포함된 VM 인스턴스에서 지원됩니다. 지원되는 계열은 D/DSv3, E/ESv3, Fsv2 및 Ms/Mms입니다.
+하이퍼스레딩을 지원하는 인스턴스에서 가속 네트워킹은 4개 이상의 vCPU가 포함된 VM 인스턴스에서 지원됩니다. 지원되는 계열은 D/DSv3, E/ESv3, Fsv2 및 Ms/Mms입니다.
 
 VM 인스턴스에 대한 자세한 내용은 [Linux VM 크기](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
 

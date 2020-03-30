@@ -1,5 +1,5 @@
 ---
-title: Azure AD를 사용 하 여 Azure Disk Encryption (이전 릴리스)
+title: Azure AD를 사용한 Azure 디스크 암호화(이전 릴리스)
 description: 이 문서에서는 IaaS VM용 Microsoft Azure Disk Encryption을 사용하기 위한 필수 구성 요소를 설명합니다.
 author: msmbaldwin
 ms.service: security
@@ -8,19 +8,19 @@ ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
 ms.openlocfilehash: 33b257e9d344fc31df072509f105d2e8fd1bd29b
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72245176"
 ---
-# <a name="azure-disk-encryption-with-azure-ad-previous-release"></a>Azure AD를 사용 하 여 Azure Disk Encryption (이전 릴리스)
+# <a name="azure-disk-encryption-with-azure-ad-previous-release"></a>Azure AD를 사용한 Azure 디스크 암호화(이전 릴리스)
 
-**Azure Disk Encryption의 새 릴리스는 Azure AD 애플리케이션 매개 변수 제공에 대한 요구 사항을 제거하여 VM 디스크 암호화를 사용하도록 설정합니다. 새 릴리스를 사용하면 암호화 단계를 사용하는 동안 더 이상 Azure AD 자격 증명을 제공할 필요가 없습니다. 모든 새 VM은 새 릴리스를 사용하는 Azure AD 애플리케이션 매개 변수를 사용하지 않고 암호화되어야 합니다. 새 릴리스를 사용 하 여 VM 디스크 암호화를 사용 하도록 설정 하는 지침을 보려면 [Windows vm에 대 한 Azure Disk Encryption](disk-encryption-overview.md)를 참조 하세요. Azure AD 애플리케이션 매개 변수를 사용하여 이미 암호화된 VM도 여전히 지원되며 AAD 구문을 사용하여 계속 유지 관리되어야 합니다.**
+**Azure 디스크 암호화의 새 릴리스는 VM 디스크 암호화를 사용하도록 사용하도록 Azure AD 응용 프로그램 매개 변수를 제공하는 데 대한 요구 사항을 제거합니다. 새 릴리스에서는 암호화 활성화 단계에서 Azure AD 자격 증명을 더 이상 제공할 필요가 없습니다. 모든 새 VM은 새 릴리스를 사용하는 Azure AD 응용 프로그램 매개 변수 없이 암호화되어야 합니다. 새 릴리스를 사용하여 VM 디스크 암호화를 사용하도록 설정하는 지침을 보려면 [Windows VM용 Azure 디스크 암호화를](disk-encryption-overview.md)참조하십시오. Azure AD 응용 프로그램 매개 변수로 이미 암호화된 VM은 여전히 지원되며 AAD 구문으로 계속 유지 관리해야 합니다.**
 
-이 문서에서는 Azure AD (이전 릴리스)와 Azure Disk Encryption에 대 한 추가 요구 사항 및 필수 구성 요소가 포함 된 [Windows vm에 대 한 Azure Disk Encryption를](disk-encryption-overview.md) 보완 [지원 되는 vm 및 운영 체제](disk-encryption-overview.md#supported-vms-and-operating-systems) 섹션은 동일 하 게 유지 됩니다.
+이 문서에서는 Azure AD(이전 릴리스)를 사용한 Azure 디스크 암호화에 대한 추가 요구 사항 및 필수 구성 조건을 통해 [Windows VM용](disk-encryption-overview.md) Azure 디스크 암호화를 보완합니다. [지원되는 VM 및 운영 체제](disk-encryption-overview.md#supported-vms-and-operating-systems) 섹션은 동일하게 유지됩니다.
 
-## <a name="networking-and-group-policy"></a>네트워킹 및 그룹 정책
+## <a name="networking-and-group-policy"></a> 네트워킹 및 그룹 정책
 
 **기존 AAD 매개 변수 구문을 사용하여 Azure Disk Encryption 기능을 사용하도록 설정하려면 IaaS VM이 다음 네트워크 엔드포인트 구성 요구 사항을 충족해야 합니다.** 
   - Key Vault에 연결할 토큰을 얻으려면 IaaS VM에서 Azure Active Directory 엔드포인트인 \[login.microsoftonline.com\]에 연결할 수 있어야 합니다.
@@ -41,17 +41,17 @@ ms.locfileid: "72245176"
 **그룹 정책:**
  - Azure Disk Encryption 솔루션은 Windows IaaS VM에 대해 BitLocker 외부 키 보호기를 사용합니다. 도메인 가입 VM의 경우 TPM 보호기를 적용하는 그룹 정책을 푸시하지 않습니다. "호환되는 TPM이 없이 BitLocker 허용"에 대한 그룹 정책 정보는 [BitLocker 그룹 정책 참조](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#bkmk-unlockpol1)를 참조하세요.
 
--  사용자 지정 그룹 정책을 사용하는 도메인 가입 가상 머신의 BitLocker 정책은 다음 설정을 포함해야 합니다. [BitLocker 복구 정보의 사용자 저장소 구성-256 비트 복구 키를 허용 >](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings)합니다. BitLocker에 대한 사용자 지정 그룹 정책 설정이 호환되지 않으면 Azure Disk Encryption이 실패합니다. 올바른 정책 설정이 없는 머신에서 새 정책을 적용하고, 새 정책을 강제로 업데이트한(gpupdate.exe /force) 다음, 다시 시작해야 할 수 있습니다.  
+-  사용자 지정 그룹 정책이 있는 도메인 에 대한 BitLocker 정책에는 다음 설정이 포함되어야 합니다 [>.](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings) BitLocker에 대한 사용자 지정 그룹 정책 설정이 호환되지 않으면 Azure Disk Encryption이 실패합니다. 올바른 정책 설정이 없는 머신에서 새 정책을 적용하고, 새 정책을 강제로 업데이트한(gpupdate.exe /force) 다음, 다시 시작해야 할 수 있습니다.  
 
-## <a name="encryption-key-storage-requirements"></a>암호화 키 저장소 요구 사항  
+## <a name="encryption-key-storage-requirements"></a>암호화 키 스토리지 요구 사항  
 
-Azure Disk Encryption에서 디스크 암호화 키와 암호를 제어 하 고 관리 하는 Azure Key Vault 필요 합니다. 주요 자격 증명 모음 및 Vm은 동일한 Azure 지역 및 구독에 있어야 합니다.
+Azure 디스크 암호화에는 디스크 암호화 키 및 비밀을 제어하고 관리하기 위해 Azure 키 자격 증명 모음이 필요합니다. 키 자격 증명 모음 및 VM은 동일한 Azure 리전 및 구독에 있어야 합니다.
 
-자세한 내용은 [AZURE AD를 사용 하 여 Azure Disk Encryption에 대 한 key Vault 만들기 및 구성 (이전 릴리스)](disk-encryption-key-vault-aad.md)을 참조 하세요.
+자세한 내용은 [Azure AD(이전 릴리스)를 사용한 Azure 디스크 암호화에 대한 키 자격 증명 모음 만들기 및 구성을](disk-encryption-key-vault-aad.md)참조하십시오.
  
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure AD (이전 릴리스)를 사용 하 여 Azure Disk Encryption 키 자격 증명 모음 만들기 및 구성](disk-encryption-key-vault-aad.md)
-- [Windows Vm에서 Azure AD를 사용 하 여 Azure Disk Encryption 사용 (이전 릴리스)](disk-encryption-windows-aad.md)
-- [Azure Disk Encryption 필수 구성 요소 CLI 스크립트](https://github.com/ejarvi/ade-cli-getting-started)
-- [필수 조건 PowerShell 스크립트 Azure Disk Encryption](https://github.com/Azure/azure-powershell/tree/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts)
+- [Azure AD를 사용한 Azure 디스크 암호화에 대한 키 자격 증명 모음 만들기 및 구성(이전 릴리스)](disk-encryption-key-vault-aad.md)
+- [Windows VM에서 Azure AD를 사용하여 Azure 디스크 암호화 를 사용하도록 설정합니다(이전 릴리스)](disk-encryption-windows-aad.md)
+- [Azure 디스크 암호화 필수 구성 조건 CLI 스크립트](https://github.com/ejarvi/ade-cli-getting-started)
+- [Azure 디스크 암호화 필수 구성 조건 PowerShell 스크립트](https://github.com/Azure/azure-powershell/tree/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts)

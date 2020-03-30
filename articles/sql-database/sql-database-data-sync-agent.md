@@ -1,5 +1,5 @@
 ---
-title: SQL 데이터 동기화에 대 한 데이터 동기화 에이전트
+title: SQL 데이터 동기화를 위한 데이터 동기화 에이전트
 description: Azure SQL 데이터 동기화용 데이터 동기화 에이전트를 설치 및 실행하여 온-프레미스 SQL Server 데이터베이스와 데이터를 동기화하는 방법을 알아봅니다.
 services: sql-database
 ms.service: sql-database
@@ -12,18 +12,18 @@ ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 12/20/2018
 ms.openlocfilehash: 6d0a728401ac9f0156cc8fa913ce486bb577c6dd
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73825166"
 ---
 # <a name="data-sync-agent-for-azure-sql-data-sync"></a>Azure SQL 데이터 동기화용 데이터 동기화 에이전트
 
-Azure SQL 데이터 동기화에 대 한 데이터 동기화 에이전트를 설치 하 고 구성 하 여 온-프레미스 SQL Server 데이터베이스와 데이터를 동기화 합니다. SQL 데이터 동기화에 대 한 자세한 내용은 [SQL 데이터 동기화를 사용 하 여 여러 클라우드 및 온-프레미스 데이터베이스에서 데이터 동기화](sql-database-sync-data.md)를 참조 하세요.
+Azure SQL 데이터 동기화에 대한 데이터 동기화 에이전트를 설치하고 구성하여 온-프레미스 SQL Server 데이터베이스와 데이터를 동기화합니다. SQL 데이터 동기화에 대한 자세한 내용은 [SQL Data Sync를 사용하여 여러 클라우드 및 온-프레미스 데이터베이스에서 데이터 동기화를](sql-database-sync-data.md)참조하십시오.
 
 > [!IMPORTANT]
-> Azure SQL 데이터 동기화는 이때 Azure SQL Database Managed Instance를 지원하지 **않습니다**.
+> Azure SQL Data Sync는 현재 Azure SQL 데이터베이스 관리 인스턴스를 지원하지 **않습니다.**
 
 ## <a name="download-and-install"></a>다운로드 및 설치
 
@@ -37,7 +37,7 @@ Azure SQL 데이터 동기화에 대 한 데이터 동기화 에이전트를 설
 
 - `LocalSystem`을 **SERVICEACCOUNT**의 값으로 제공하는 경우, 온-프레미스 SQL Server에 연결하도록 에이전트를 구성할 때 SQL Server 인증을 사용합니다.
 
-- 도메인 사용자 계정 또는 로컬 사용자 계정을 **SERVICEACCOUNT**의 값으로 제공하는 경우, **SERVICEPASSWORD** 인수를 사용하여 암호를 제공해야 합니다. 예: `SERVICEACCOUNT="<domain>\<user>"  SERVICEPASSWORD="<password>"`
+- 도메인 사용자 계정 또는 로컬 사용자 계정을 **SERVICEACCOUNT**의 값으로 제공하는 경우, **SERVICEPASSWORD** 인수를 사용하여 암호를 제공해야 합니다. `SERVICEACCOUNT="<domain>\<user>"  SERVICEPASSWORD="<password>"`)을 입력합니다.
 
 ```cmd
 msiexec /i "SQLDataSyncAgent-2.0-x86-ENU.msi" TARGETDIR="C:\Program Files (x86)\Microsoft SQL Data Sync 2.0" SERVICEACCOUNT="LocalSystem" /qn
@@ -47,7 +47,7 @@ msiexec /i "SQLDataSyncAgent-2.0-x86-ENU.msi" TARGETDIR="C:\Program Files (x86)\
 
 하나 이상의 온-프레미스 SQL Server 데이터베이스와 데이터를 동기화할 수 있도록 데이터 동기화 에이전트를 구성하려면 [온-프레미스 SQL Server 데이터베이스 추가](sql-database-get-started-sql-data-sync.md#add-on-prem)를 참조하세요.
 
-## <a name="agent-faq"></a> 데이터 동기화 에이전트 FAQ
+## <a name="data-sync-agent-faq"></a><a name="agent-faq"></a> 데이터 동기화 에이전트 FAQ
 
 ### <a name="why-do-i-need-a-client-agent"></a>클라이언트 에이전트가 왜 필요한가요?
 
@@ -79,23 +79,23 @@ UI 인스턴스는 하나만 실행할 수 있습니다.
 4. 클라이언트 에이전트가 앞서 등록된 온-프레미스 데이터베이스 목록을 다운로드하는 동안 기다립니다.
 5. 연결할 수 없다고 표시된 모든 데이터베이스에 대해 데이터베이스 자격 증명을 제공합니다. 이러한 데이터베이스는 에이전트가 설치된 새 컴퓨터에서 연결할 수 있어야 합니다.
 
-## <a name="agent-tshoot"></a> 데이터 동기화 에이전트 문제 해결
+## <a name="troubleshoot-data-sync-agent-issues"></a><a name="agent-tshoot"></a> 데이터 동기화 에이전트 문제 해결
 
 - [클라이언트 에이전트의 설치, 제거 또는 복구 실패](#agent-install)
 
-- [제거를 취소한 후 클라이언트 에이전트가 작동하지 않음](#agent-uninstall)
+- [제거를 취소한 후 클라이언트 에이전트가 작동하지 않습니다.](#agent-uninstall)
 
 - [내 데이터베이스가 에이전트 목록에 나열되지 않음](#agent-list)
 
-- [클라이언트 에이전트가 시작하지 않음(오류 1069)](#agent-start)
+- [클라이언트 에이전트가 시작되지 않습니다(오류 1069)](#agent-start)
 
-- [에이전트 키를 제출할 수 없음](#agent-key)
+- [에이전트 키를 제출할 수 없습니다.](#agent-key)
 
-- [연결된 온-프레미스 데이터베이스를 연결할 수 없는 경우, 클라이언트 에이전트를 포털에서 삭제할 수 없음](#agent-delete)
+- [연결된 온-프레미스 데이터베이스에 연결할 수 없는 경우 포털에서 클라이언트 에이전트를 삭제할 수 없습니다.](#agent-delete)
 
 - [로컬 동기화 에이전트 앱을 로컬 동기화 서비스에 연결할 수 없음](#agent-connect)
 
-### <a name="agent-install"></a> 클라이언트 에이전트의 설치, 제거 또는 복구 실패
+### <a name="the-client-agent-install-uninstall-or-repair-fails"></a><a name="agent-install"></a>클라이언트 에이전트 설치, 제거 또는 복구실패
 
 - **원인**. 대부분의 시나리오에서 이 오류가 발생할 수 있습니다. 이 오류에 대한 특정 원인을 확인하려면 로그를 검토합니다.
 
@@ -106,7 +106,7 @@ UI 인스턴스는 하나만 실행할 수 있습니다.
 
     또한 Windows Installer에서 수행한 모든 설치에 대한 로깅을 켤 수 있습니다. Microsoft 기술 자료 문서 [Windows Installer 로깅을 설정하는 방법](https://support.microsoft.com/help/223300/how-to-enable-windows-installer-logging)은 Windows Installer에 대한 로깅을 켜기 위한 원클릭 솔루션을 제공합니다. 또한 로그의 위치도 제공합니다.
 
-### <a name="agent-uninstall"></a> 제거를 취소한 후 클라이언트 에이전트가 작동하지 않음
+### <a name="the-client-agent-doesnt-work-after-i-cancel-the-uninstall"></a><a name="agent-uninstall"></a> 제거를 취소한 후 클라이언트 에이전트가 작동하지 않음
 
 클라이언트 에이전트가 제거를 취소했는데도 작동하지 않습니다.
 
@@ -117,7 +117,7 @@ UI 인스턴스는 하나만 실행할 수 있습니다.
     -   services.msc를 사용하여 클라이언트 에이전트에 대한 자격 증명을 다시 입력합니다.
     -   이 클라이언트 에이전트를 제거하고 새로 설치합니다. 최신 클라이언트 에이전트를 [다운로드 센터](https://www.microsoft.com/download/details.aspx?id=27693)에서 다운로드하여 설치합니다.
 
-### <a name="agent-list"></a> 내 데이터베이스가 에이전트 목록에 나열되지 않음
+### <a name="my-database-isnt-listed-in-the-agent-list"></a><a name="agent-list"></a>내 데이터베이스가 에이전트 목록에 나열되지 않았습니다.
 
 동기화 그룹에 기존 SQL Server 데이터베이스를 추가하려고 할 때 데이터베이스가 에이전트 목록에 나타나지 않습니다.
 
@@ -136,7 +136,7 @@ UI 인스턴스는 하나만 실행할 수 있습니다.
 
     로컬 에이전트는 첫 번째 에이전트 키 전송 시에만 연관된 데이터베이스의 목록을 다운로드합니다. 후속 에이전트 키 제출에서는 연관된 데이터베이스 목록이 다운로드되지 않습니다. 에이전트가 이동하는 동안 등록된 데이터베이스는 원래 에이전트 인스턴스에 표시되지 않습니다.
 
-### <a name="agent-start"></a> 클라이언트 에이전트가 시작하지 않음(오류 1069)
+### <a name="client-agent-doesnt-start-error-1069"></a><a name="agent-start"></a> 클라이언트 에이전트가 시작하지 않음(오류 1069)
 
 에이전트가 SQL Server를 호스트하는 컴퓨터에서 실행되고 있지 않습니다. 에이전트를 수동으로 시작하려고 하면 대화 상자에 “오류 1069: 서비스가 로그온 실패로 인해 시작되지 않았습니다.”라는 메시지가 표시됩니다.
 
@@ -149,8 +149,8 @@ UI 인스턴스는 하나만 실행할 수 있습니다.
   1. SQL 데이터 동기화 클라이언트 에이전트 서비스를 찾습니다.  
     a. **시작**을 선택합니다.  
     b. 검색 상자에 **services.msc**를 입력합니다.  
-    c. 검색 결과에서 **서비스**선택합니다.  
-    ㄹ. **서비스** 창에서 **SQL 데이터 동기화 에이전트**에 대한 항목으로 스크롤합니다.  
+    다. 검색 결과에서 **서비스를**선택합니다.  
+    d. **서비스** 창에서 **SQL 데이터 동기화 에이전트**에 대한 항목으로 스크롤합니다.  
   1. 마우스 오른쪽 단추로 **SQL 데이터 동기화**를 클릭한 후 **중지**를 선택합니다.
   1. 마우스 오른쪽 단추로 **SQL 데이터 동기화**를 클릭한 후 **속성**을 선택합니다.
   1. **SQL 데이터 동기화 에이전트 속성**에서 **로그인** 탭을 선택합니다.
@@ -160,13 +160,13 @@ UI 인스턴스는 하나만 실행할 수 있습니다.
   1. **서비스** 창에서 **SQL 데이터 동기화 에이전트** 서비스를 마우스 오른쪽 단추로 클릭한 다음, **시작**을 클릭합니다.
   1. **서비스** 창을 닫습니다.
 
-### <a name="agent-key"></a> 에이전트 키를 제출할 수 없음
+### <a name="i-cant-submit-the-agent-key"></a><a name="agent-key"></a> 에이전트 키를 제출할 수 없음
 
 에이전트에 대한 키를 만들거나 다시 만든 후 SqlAzureDataSyncAgent 애플리케이션을 통해 해당 키를 제출하려고 하지만, 제출이 완료되지 않습니다.
 
 ![동기화 오류 대화 상자 - 에이전트 키를 제출할 수 없음](media/sql-database-troubleshoot-data-sync/sync-error-cant-submit-agent-key.png)
 
-- **필수 조건**. 계속 진행하기 전에 다음 필수 구성 요소를 확인합니다.
+- **필수 구성 조건**. 계속 진행하기 전에 다음 필수 구성 요소를 확인합니다.
 
   - SQL 데이터 동기화 Windows 서비스가 실행 중입니다.
 
@@ -196,7 +196,7 @@ UI 인스턴스는 하나만 실행할 수 있습니다.
   1. **확인**을 선택합니다.
   1. 프로그램을 닫습니다.
 
-### <a name="agent-delete"></a> 연결된 온-프레미스 데이터베이스를 연결할 수 없는 경우, 클라이언트 에이전트를 포털에서 삭제할 수 없음
+### <a name="the-client-agent-cant-be-deleted-from-the-portal-if-its-associated-on-premises-database-is-unreachable"></a><a name="agent-delete"></a> 연결된 온-프레미스 데이터베이스를 연결할 수 없는 경우, 클라이언트 에이전트를 포털에서 삭제할 수 없음
 
 SQL 데이터 동기화 클라이언트 에이전트에 등록된 로컬 엔드포인트(즉, 데이터베이스)에 연결할 수 없는 경우 클라이언트 에이전트를 삭제할 수 없습니다.
 
@@ -207,7 +207,7 @@ SQL 데이터 동기화 클라이언트 에이전트에 등록된 로컬 엔드�
 > [!NOTE]
 > “강제 삭제” 후 동기화 메타데이터 테이블이 남아 있는 경우, `deprovisioningutil.exe`를 사용하여 정리합니다.
 
-### <a name="agent-connect"></a> 로컬 동기화 에이전트 앱을 로컬 동기화 서비스에 연결할 수 없음
+### <a name="local-sync-agent-app-cant-connect-to-the-local-sync-service"></a><a name="agent-connect"></a>로컬 동기화 에이전트 앱이 로컬 동기화 서비스에 연결할 수 없습니다.
 
 - **해결 방법**. 다음 단계를 수행합니다.
 

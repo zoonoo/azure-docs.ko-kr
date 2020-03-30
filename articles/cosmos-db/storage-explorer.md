@@ -8,10 +8,10 @@ ms.date: 10/23/2019
 ms.author: dech
 ms.custom: seodec18
 ms.openlocfilehash: fd044d4f32aefc00e1b04f7060e0fc0dc74fd6c7
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72882361"
 ---
 # <a name="work-with-data-using-azure-storage-explorer"></a>Azure Storage Explorer 를 사용하여 데이터 작업
@@ -19,7 +19,7 @@ ms.locfileid: "72882361"
 Azure Storage Explorer에서 Azure Cosmos DB를 사용하면 사용자는 Azure Cosmos DB 엔터티를 관리하고, 데이터를 조작하고, Storage Blob 및 큐와 같은 다른 Azure 엔터티와 함께 저장 프로시저 및 트리거를 업데이트할 수 있게 됩니다. 이제 동일한 도구를 사용하여 다양한 Azure 엔터티를 한 곳에서 관리할 수 있습니다. 현재 Azure Storage Explorer는 SQL, MongoDB, Graph 및 Table API용으로 구성된 Cosmos 계정을 지원합니다.
 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 SQL API 또는 Azure Cosmos DB의 MongoDB API가 있는 Cosmos 계정 계정이 없는 경우 [Azure Cosmos DB: .NET 및 Azure Portal을 사용하여 SQL API 웹앱 빌드](create-sql-api-dotnet.md)의 설명에 따라 Azure Portal에서 계정을 만들 수 있습니다.
 
@@ -29,7 +29,7 @@ SQL API 또는 Azure Cosmos DB의 MongoDB API가 있는 Cosmos 계정 계정이 
 
 ## <a name="connect-to-an-azure-subscription"></a>Azure 구독에 연결
 
-1. **Azure Storage Explorer**를 설치한 후 다음 이미지에 나온 것처럼 왼쪽에 있는 **플러그 인** 아이콘을 클릭합니다.
+1. Azure 저장소 **탐색기를**설치한 후 다음 이미지와 같이 왼쪽에 있는 **플러그인** 아이콘을 클릭합니다.
        
    ![플러그 인 아이콘](./media/storage-explorer/plug-in-icon.png)
  
@@ -37,13 +37,13 @@ SQL API 또는 Azure Cosmos DB의 MongoDB API가 있는 Cosmos 계정 계정이 
 
    ![Azure 구독에 연결](./media/storage-explorer/connect-to-azure-subscription.png)
 
-2. **Azure 로그인** 대화 상자에서 **로그인**을 선택한 후에 Azure 자격 증명을 입력합니다.
+2. Azure **로그인** 대화 상자에서 **로그인을**선택한 다음 Azure 자격 증명을 입력합니다.
 
     ![로그인](./media/storage-explorer/sign-in.png)
 
 3. 목록에서 구독을 선택하고 **적용**을 클릭합니다.
 
-    ![신청](./media/storage-explorer/apply-subscription.png)
+    ![적용](./media/storage-explorer/apply-subscription.png)
 
     탐색기 창이 업데이트되고, 선택한 구독에서 계정이 표시됩니다.
 
@@ -59,7 +59,7 @@ Azure Cosmos DB에 연결하는 또 다른 방법은 연결 문자열을 사용�
 
     ![연결 문자열을 사용하여 Cosmos DB에 연결](./media/storage-explorer/connect-to-db-by-connection-string.png)
 
-2. 현재 SQL 및 테이블 API만 지원합니다. API를 선택하고, **연결 문자열**을 붙여넣고, **계정 레이블**을 입력하고, **다음**을 클릭하여 요약을 확인한 다음, **연결**을 클릭하여 Azure Cosmos DB 계정을 연결합니다. 기본 연결 문자열을 검색 하는 방법에 대 한 자세한 내용은 [연결 문자열 가져오기](manage-with-powershell.md#list-keys)를 참조 하세요.
+2. 현재 SQL 및 테이블 API만 지원합니다. API를 선택하고, **연결 문자열**을 붙여넣고, **계정 레이블**을 입력하고, **다음**을 클릭하여 요약을 확인한 다음, **연결**을 클릭하여 Azure Cosmos DB 계정을 연결합니다. 기본 연결 문자열 검색에 대한 자세한 내용은 [연결 문자열 받기를](manage-with-powershell.md#list-keys)참조하십시오.
 
     ![연결 문자열](./media/storage-explorer/connection-string.png)
 
@@ -73,7 +73,7 @@ Azure Cosmos DB에 연결하는 또 다른 방법은 연결 문자열을 사용�
 
     ![에뮬레이터로 Cosmos DB에 연결](./media/storage-explorer/emulator-entry.png)
 
-3. 현재 SQL API만 지원합니다. **연결 문자열**을 붙여넣고, **계정 레이블**을 입력하고, **다음**을 클릭하여 요약을 확인한 다음, **연결**을 클릭하여 Azure Cosmos DB 계정을 연결합니다. 기본 연결 문자열을 검색 하는 방법에 대 한 자세한 내용은 [연결 문자열 가져오기](manage-with-powershell.md#list-keys)를 참조 하세요.
+3. 현재 SQL API만 지원합니다. **연결 문자열**을 붙여넣고, **계정 레이블**을 입력하고, **다음**을 클릭하여 요약을 확인한 다음, **연결**을 클릭하여 Azure Cosmos DB 계정을 연결합니다. 기본 연결 문자열 검색에 대한 자세한 내용은 [연결 문자열 받기를](manage-with-powershell.md#list-keys)참조하십시오.
 
     ![에뮬레이터로 Cosmos DB에 연결 대화 상자](./media/storage-explorer/emulator-dialog.png)
 
@@ -116,7 +116,7 @@ Azure Cosmos DB에 연결하는 또 다른 방법은 연결 문자열을 사용�
     ![database2 삭제](./media/storage-explorer/delete-database2.png) 
 
 #### <a name="create-a-collection"></a>컬렉션 만들기
-1. 데이터베이스를 마우스 오른쪽 단추로 클릭 하 고 **컬렉션 만들기**를 선택한 후 **컬렉션 ID**, **저장소 용량**등과 같은 정보를 제공 합니다. **확인** 을 클릭 하 여 완료 합니다. 
+1. 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **컬렉션 만들기를**선택한 다음 **컬렉션 ID,** **저장소 용량**등과 같은 정보를 제공합니다. **확인을** 클릭하여 완료합니다. 
 
     ![collection1 만들기](./media/storage-explorer/create-collection.png)
 
@@ -174,7 +174,7 @@ Azure Cosmos DB에 연결하는 또 다른 방법은 연결 문자열을 사용�
 1. 새 테이블을 만들려면 왼쪽 창에서 **엔터티**를 열고, **추가**를 클릭하고, **엔터티 추가** 대화 상자에서 콘텐츠를 편집하고, **추가 속성** 단추를 클릭하여 속성을 추가한 다음, **삽입**을 클릭합니다.
 2. 테이블을 수정하려면 **편집**을 클릭하고, 콘텐츠를 수정한 다음, **업데이트**를 클릭합니다.
 
-    ![Table](./media/storage-explorer/table.png)
+    ![테이블](./media/storage-explorer/table.png)
 
 #### <a name="import-and-export-table"></a>테이블 가져오기 및 내보내기
 1. 가져오려면 **가져오기** 단추를 클릭하고 기존 테이블을 선택합니다.
@@ -213,7 +213,7 @@ Storage Explorer의 Azure Cosmos DB에서 나타나는 일반적인 문제에 �
 
 이 오류가 표시되는 원인에는 몇 가지가 있는데, 가장 일반적인 두 가지는 다음과 같습니다.
 
-+ *투명 프록시* 뒤에 있습니다. 즉, IT 부서와 같은 누군가가 HTTPS 트래픽을 가로 채고 해독한 다음, 자체 서명된 인증서를 사용하여 암호화하는 것을 의미합니다.
++ IT 부서와 같은 누군가가 HTTPS 트래픽을 가로채고 암호를 해독한 다음 자체 서명된 인증서를 사용하여 암호화하는 *투명한 프록시*뒤에 있습니다.
 
 + 수신한 HTTPS 메시지에 자체 서명된 SSL 인증서를 삽입하는 바이러스 백신 소프트웨어와 같은 소프트웨어를 실행하고 있습니다.
 
@@ -228,7 +228,7 @@ Storage Explorer가 이러한 "자체 서명된 인증서" 중 하나를 발견�
 3. `s_client -showcerts -connect microsoft.com:443` 실행
 4. 자체 서명된 인증서를 찾습니다. 어떤 인증서가 자체 서명된 것인지 확실하지 않은 경우 제목(“s:”)과 발급자(“i:”)가 같은 위치를 찾습니다.
 5.  자체 서명된 인증서를 찾았으면 각 인증서에 대해 **-----BEGIN CERTIFICATE-----** 부터 **-----END CERTIFICATE-----** 까지 모든 줄을 복사하여 새 .cer 파일에 붙여넣습니다.
-6.  Storage Explorer를 연 다음, **편집** > **SSL 인증서** > **인증서 가져오기**로 이동합니다. 파일 선택기를 사용하여, 만든 .cer 파일을 찾아서 선택하고 엽니다.
+6.  저장소 탐색기를 연 다음**SSL 인증서** > 가져오기 인증서 **편집으로** > **이동합니다.** 파일 선택기를 사용하여, 만든 .cer 파일을 찾아서 선택하고 엽니다.
 
 위의 단계를 사용하여 자체 서명된 인증서를 찾을 수 없는 경우 사용자 의견을 보내 도움을 받을 수 있습니다.
 
@@ -298,9 +298,9 @@ ASE에서 http/https 프록시를 구성할 때 왼쪽 트리에서 Azure Cosmos
 - Azure Cosmos DB 계정이 프로비전 진행 중인지 확인하고 계정을 성공적으로 생성될 때 다시 시도합니다.
 - 계정이 노드 “빠른 액세스” 노드 또는 “로컬 및 연결” 노드에 있는 경우 해당 계정이 삭제되었는지 확인합니다. 이 경우 노드를 수동으로 제거해야 합니다.
 
-## <a name="contact-us"></a>문의하기
+## <a name="contact-us"></a>문의처
 
-솔루션이 작동하지 않는 경우 문제 해결을 위해 해당 문제에 대한 세부 정보가 포함된 이메일을 Azure Cosmos DB Dev Tooling 팀([cosmosdbtooling@microsoft.com](mailto:cosmosdbtooling@microsoft.com))으로 보냅니다.
+해결 솔루션 중 어느 것도 작동하지 않는 경우 문제를 해결하기 위해[cosmosdbtooling@microsoft.com](mailto:cosmosdbtooling@microsoft.com)문제에 대한 세부 정보가 있는 Azure Cosmos DB 개발자 도구 팀()에 전자 메일을 보냅니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 1234263fa800a17d0a5c235df54ca2751e3094bb
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69015862"
 ---
 # <a name="filters-and-dynamic-manifests"></a>필터 및 동적 매니페스트
 
-> [!div class="op_single_selector" title1="사용 중인 Media Services의 버전을 선택 합니다."]
+> [!div class="op_single_selector" title1="사용 중인 미디어 서비스의 버전을 선택합니다."]
 > * [버전 2](media-services-dynamic-manifest-overview.md)
 > * [버전 3](../latest/filters-dynamic-manifest-overview.md)
 
@@ -35,7 +35,7 @@ Media Services 2.17 버전부터 자산에 대한 필터를 정의할 수 있습
 스트리밍 라이브 이벤트 또는 주문형 비디오 등의 콘텐츠를 고객에게 전달할 경우 다양한 네트워크 조건의 다양한 디바이스에 고품질 비디오를 제공하는 것이 목표입니다. 이 목표를 위해 다음을 수행합니다.
 
 * 사용자의 스트림을 다중 비트 전송률([가변 품질](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)) 비디오 스트림으로 인코딩(품질 및 네트워크 상태를 관리) 
-* Media Services [동적 패키징](media-services-dynamic-packaging-overview.md)을 사용하여 스트림을 여러 프로토콜로 동적으로 다시 패키징(여러 디바이스의 스트리밍 관리 가능) Media Services서 다음과 같은 적응 비트 전송률 스트리밍 기술 제공을 지원합니다. HLS(HTTP 라이브 스트리밍), 부드러운 스트리밍, MPEG DASH 
+* Media Services [동적 패키징](media-services-dynamic-packaging-overview.md)을 사용하여 스트림을 여러 프로토콜로 동적으로 다시 패키징(여러 디바이스의 스트리밍 관리 가능) Media Services에서 지원하는 적응 비트 전송률 스트리밍은 HLS(HTTP 라이브 스트리밍), 부드러운 스트리밍 및 MPEG DASH입니다. 
 
 ### <a name="manifest-files"></a>매니페스트 파일
 가변 품질 스트리밍을 위해 자산을 인코딩하면 **매니페스트** (재생 목록) 파일이 만들어집니다(텍스트 기반 또는 XML 기반 파일). **매니페스트** 파일에는 트랙 유형(오디오, 비디오 또는 텍스트), 트랙 이름, 시작 및 종료 시간, 비트 전송률(품질), 트랙 언어, 프레젠테이션 창(고정 기간의 슬라이딩 창), 비디오 코덱(FourCC) 등의 스트리밍 메타 데이터가 포함됩니다. 또한 다음으로 재생할 수 있는 비디오 조각 및 위치에 대한 정보를 제공하여 다음 조각을 검색하도록 플레이어에 지시합니다. 조각(또는 세그먼트)은 비디오 콘텐츠의 실제 "청크"입니다.
@@ -73,14 +73,14 @@ Media Services 2.17 버전부터 자산에 대한 필터를 정의할 수 있습
     </SmoothStreamingMedia>
 
 ### <a name="dynamic-manifests"></a>동적 매니페스트
-클라이언트가 기본 자산의 매니페스트 파일에 설명된 것 보다 높은 유연성을 필요로 하는 경우의 [시나리오](media-services-dynamic-manifest-overview.md#scenarios) 가 있습니다. 이는 아래와 같이 함수의 반환값을 데이터 프레임으로 바로 변환하는 데 사용할 수 있음을 나타냅니다.
+클라이언트가 기본 자산의 매니페스트 파일에 설명된 것 보다 높은 유연성을 필요로 하는 경우의 [시나리오](media-services-dynamic-manifest-overview.md#scenarios) 가 있습니다. 예를 들어:
 
 * 디바이스별: 콘텐츠를 재생하는 데 사용되는 디바이스에서 지원하는 지정된 변환 및/또는 지정된 언어 트랙만 전달합니다("변환 필터링"). 
 * 라이브 이벤트의 하위 클립을 표시하는 매니페스트를 줄입니다("하위 클립 필터링").
 * 비디오의 시작 부분을 자릅니다("비디오 트리밍").
 * 플레이어의 DVR 창 길이를 제한하기 위해 프레젠테이션 창(DVR)을 조정합니다("프레젠테이션 창 조정").
 
-이러한 유연성을 실현하기 위해 Media Services는 미리 정의된 **필터**를 기반으로 [동적 매니페스트](media-services-dynamic-manifest-overview.md#filters)를 제공합니다.  필터를 정의하고 나면 클라이언트가 비디오의 특정 변환 또는 하위 클립을 스트리밍하는 데 해당 필터를 사용할 수 있습니다. 스트리밍 URL에서 필터를 지정할 수 있습니다. [동적 패키징](media-services-dynamic-packaging-overview.md)에서 지원하는 다음과 같은 적응 비트 전송률 스트리밍 프로토콜에 필터를 적용할 수 있습니다. HLS, MPEG-DASH 및 부드러운 스트리밍. 이는 아래와 같이 함수의 반환값을 데이터 프레임으로 바로 변환하는 데 사용할 수 있음을 나타냅니다.
+이러한 유연성을 실현하기 위해 Media Services는 미리 정의된 **필터**를 기반으로 [동적 매니페스트](media-services-dynamic-manifest-overview.md#filters)를 제공합니다.  필터를 정의하고 나면 클라이언트가 비디오의 특정 변환 또는 하위 클립을 스트리밍하는 데 해당 필터를 사용할 수 있습니다. 스트리밍 URL에서 필터를 지정할 수 있습니다. [동적 패키징](media-services-dynamic-packaging-overview.md)에서 지원하는 HLS, MPEG-DASH 및 부드러운 스트리밍 등의 적응 비트 전송률 스트리밍 프로토콜에 필터를 적용할 수 있습니다. 예를 들어:
 
 필터가 있는 MPEG DASH URL
 
@@ -98,7 +98,7 @@ Media Services 2.17 버전부터 자산에 대한 필터를 정의할 수 있습
 > 
 > 
 
-### <a id="filters"></a>필터
+### <a name="filters"></a><a id="filters"></a>필터
 자산 필터에는 두 가지 유형이 있습니다. 
 
 * 전역 필터(Azure Media Services 계정의 모든 자산에 적용 가능, 계정의 수명 동안 보유) 
@@ -106,7 +106,7 @@ Media Services 2.17 버전부터 자산에 대한 필터를 정의할 수 있습
 
 전역 및 로컬 필터 형식은 속성과 정확하게 동일합니다. 둘 사이의 주요 차이는 어떤 시나리오에 어떤 유형의 필터가 더 적합한가의 차이입니다. 글로벌 필터는 일반적으로 디바이스 프로필에 적합(변환 필터링)한 반면 로컬 필터는 특정 자산을 트리밍하는 데 사용할 수 있습니다.
 
-## <a id="scenarios"></a>일반적인 시나리오
+## <a name="common-scenarios"></a><a id="scenarios"></a>일반적인 시나리오
 앞에서 설명한 것처럼 스트리밍 라이브 이벤트 또는 주문형 비디오 등의 콘텐츠를 고객에게 전달할 때는 다양한 네트워크 조건의 다양한 디바이스에 고품질 비디오를 제공하는 것이 목표입니다. 또한 자산 필터링 및 **동적 매니페스트** 사용과 관련된 다른 요구 사항이 있을 수 있습니다. 다음 섹션에서는 다양한 필터링 시나리오에 대한 간략한 개요를 제공합니다.
 
 * 자산과 연결된 모든 변환 대신 특정 디바이스에서 처리할 수 있는 오디오 및 비디오 변환의 하위 집합만 지정합니다. 
@@ -120,12 +120,12 @@ Media Services 2.17 버전부터 자산에 대한 필터를 정의할 수 있습
 
 ![변환 필터링 예제][renditions2]
 
-다음 예제에서는 7개의 ISO MP4 비디오 변환(180p에서 1080p까지)으로 메자닌 자산을 인코드하는 데 인코더가 사용되었습니다. 인코딩된 자산은 다음 스트리밍 프로토콜 중 하나로 동적으로 패키징할 수 있습니다. HLS, Smooth 및 MPEG DASH.  다이어그램의 맨 위에 필터가 없는 자산을 위한 HLS 매니페스트가 나와 있습니다(7개의 모든 변환 포함).  왼쪽 아래에는 "ott" 필터가 적용된 HLS 매니페스트가 표시되어 있습니다. "ott" 필터는 1Mbps 아래의 모든 비트 전송률을 제거하도록 지정하며, 이 때문에 응답에서 맨 아래의 두 품질 수준이 제거됩니다. 오른쪽 아래에는 "mobile" 필터가 적용된 HLS 매니페스트가 나와 있습니다. "mobile" 필터는 해상도가 720p보다 높은 변환을 제거하도록 지정하며, 이 때문에 두 개의 1080p 변환이 제거됩니다.
+다음 예제에서는 7개의 ISO MP4 비디오 변환(180p에서 1080p까지)으로 메자닌 자산을 인코드하는 데 인코더가 사용되었습니다. 인코딩된 자산은 HLS, 부드러운 스트리밍 및 MPEG DASH 등의 스트리밍 프로토콜 중 하나로 동적으로 패키징할 수 있습니다.  다이어그램의 맨 위에 필터가 없는 자산을 위한 HLS 매니페스트가 나와 있습니다(7개의 모든 변환 포함).  왼쪽 아래에는 "ott" 필터가 적용된 HLS 매니페스트가 표시되어 있습니다. "ott" 필터는 1Mbps 아래의 모든 비트 전송률을 제거하도록 지정하며, 이 때문에 응답에서 맨 아래의 두 품질 수준이 제거됩니다. 오른쪽 아래에는 "mobile" 필터가 적용된 HLS 매니페스트가 나와 있습니다. "mobile" 필터는 해상도가 720p보다 높은 변환을 제거하도록 지정하며, 이 때문에 두 개의 1080p 변환이 제거됩니다.
 
 ![변환 필터링][renditions1]
 
 ## <a name="removing-language-tracks"></a>언어 트랙 제거
-자산에는 영어, 스페인어, 프랑스어 등 여러 오디오 언어가 포함될 수 있습니다. 일반적으로 플레이어 SDK는 기본 오디오 트랙 선택 및 사용자별로 사용 가능한 오디오 트랙 선택을 관리합니다. 이러한 플레이어 SDK를 개발하는 것은 까다로운 일로, 디바이스별 플레이어 프레임워크 간에 서로 다른 구현이 필요합니다. 또한 일부 플랫폼은 플레이어 API가 제한되어 있고 오디오 선택 기능이 포함되어 있지 않으므로 사용자는 기본 오디오 트랙을 선택하거나 변경할 수 없습니다. 자산 필터를 사용하면 원하는 오디오 언어만 포함하는 필터를 만들어 동작을 제어할 수 있습니다.
+자산에는 영어, 스페인어, 프랑스어 등과 같은 여러 오디오 언어가 포함될 수 있습니다. 일반적으로 Player SDK 관리자는 사용자 선택당 기본 오디오 트랙 선택 및 사용 가능한 오디오 트랙을 선택합니다. 이러한 플레이어 SDK를 개발하는 것은 까다로운 일로, 디바이스별 플레이어 프레임워크 간에 서로 다른 구현이 필요합니다. 또한 일부 플랫폼에서는 Player API가 제한되어 있으며 사용자가 기본 오디오 트랙을 선택하거나 변경할 수 없는 오디오 선택 기능은 포함되지 않습니다. 자산 필터를 사용하면 원하는 오디오 언어만 포함하는 필터를 만들어 동작을 제어할 수 있습니다.
 
 ![언어 트랙 필터링][language_filter]
 
@@ -165,7 +165,7 @@ Media Services 2.17 버전부터 자산에 대한 필터를 정의할 수 있습
 ## <a name="create-filters-programmatically"></a>프로그래밍 방식으로 필터 만들기
 다음 문서에서는 필터와 연결된 Media Services 엔터티에 대해 설명합니다. 또한 이 문서에서는 프로그래밍 방식으로 필터를 만드는 방법을 보여줍니다.  
 
-[REST API를 사용하여 필터 만들기](media-services-rest-dynamic-manifest.md)
+[REST API를 사용하여 필터를 만듭니다.](media-services-rest-dynamic-manifest.md)
 
 ## <a name="combining-multiple-filters-filter-composition"></a>여러 개의 필터 결합(필터 컴퍼지션)
 단일 URL로 여러 개의 필터를 결합할 수도 있습니다. 
@@ -182,7 +182,7 @@ Media Services 2.17 버전부터 자산에 대한 필터를 정의할 수 있습
 
 최대 3개의 필터를 결합할 수 있습니다. 
 
-자세한 내용은 [이 블로그](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/) 를 참조하세요.
+자세한 내용은 [이](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/) 블로그를 참조하세요.
 
 ## <a name="know-issues-and-limitations"></a>알려진 문제 및 제한 사항
 * 동적 매니페스트는 GOP 경계(키 프레임)에서 작동하므로 트리밍에는 GOP 정확도가 있습니다. 

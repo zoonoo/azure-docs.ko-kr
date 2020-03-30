@@ -15,15 +15,15 @@ ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
 ms.openlocfilehash: f6f678f91e74ea9b0b68127c1786fee745508b99
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70101472"
 ---
 # <a name="disaster-recovery-for-an-oracle-database-12c-database-in-an-azure-environment"></a>Azure 환경의 Oracle Database 12c 데이터베이스 재해 복구
 
-## <a name="assumptions"></a>Assumptions
+## <a name="assumptions"></a>가정
 
 - Oracle Data Guard 설계 및 Azure 환경에 대해 이해하고 있습니다.
 
@@ -31,7 +31,7 @@ ms.locfileid: "70101472"
 ## <a name="goals"></a>목표
 - DR(재해 복구) 요구 사항을 충족하는 토폴로지 및 구성을 설계합니다.
 
-## <a name="scenario-1-primary-and-dr-sites-on-azure"></a>시나리오 1: Azure의 기본 및 DR 사이트
+## <a name="scenario-1-primary-and-dr-sites-on-azure"></a>시나리오 1: 기본 사이트 및 DR 사이트가 Azure에 있음
 
 기본 사이트에 설치한 Oracle 데이터베이스가 고객에게 있습니다. DR 사이트는 다른 지역에 있습니다. 고객은 이러한 사이트 간의 빠른 복구를 위해 Oracle Data Guard를 사용합니다. 기본 사이트에는 보고 및 다른 용도를 위한 보조 데이터베이스도 있습니다. 
 
@@ -51,13 +51,13 @@ ms.locfileid: "70101472"
 
 ![DR 토폴로지 페이지의 스크린샷](./media/oracle-disaster-recovery/oracle_topology_01.png)
 
-## <a name="scenario-2-primary-site-on-premises-and-dr-site-on-azure"></a>시나리오 2: Azure의 기본 사이트 온-프레미스 및 DR 사이트
+## <a name="scenario-2-primary-site-on-premises-and-dr-site-on-azure"></a>시나리오 2: 기본 사이트는 온-프레미스에 있고, DR 사이트는 Azure에 있음
 
 고객이 온-프레미스에 Oracle 데이터베이스를 설치했습니다(기본 사이트). DR 사이트는 Azure에 있습니다. Oracle Data Guard는 이러한 사이트 간의 빠른 복구에 사용됩니다. 기본 사이트에는 보고 및 다른 용도를 위한 보조 데이터베이스도 있습니다. 
 
 이 설치에 대한 접근 방법은 두 가지가 있습니다.
 
-### <a name="approach-1-direct-connections-between-on-premises-and-azure-requiring-open-tcp-ports-on-the-firewall"></a>방법 1: 온-프레미스와 Azure 간의 직접 연결, 방화벽에서 오픈 TCP 포트 요구 
+### <a name="approach-1-direct-connections-between-on-premises-and-azure-requiring-open-tcp-ports-on-the-firewall"></a>방법 1: 온-프레미스와 Azure 간에 직접 연결하고, 방화벽에서 열려 있는 TCP 포트가 필요합니다. 
 
 TCP 포트를 외부에 공개하므로 직접 연결은 사용하지 않는 것이 좋습니다.
 
@@ -95,7 +95,7 @@ TCP 포트를 외부에 공개하므로 직접 연결은 사용하지 않는 것
 
 ![DR 토폴로지 페이지의 스크린샷](./media/oracle-disaster-recovery/oracle_topology_03.png)
 
-## <a name="additional-reading"></a>추가 참조 항목
+## <a name="additional-reading"></a>추가 참조 자료
 
 - [Azure에서 Oracle 데이터베이스 설계 및 구현](oracle-design.md)
 - [Oracle Data Guard 구성](configure-oracle-dataguard.md)

@@ -1,5 +1,5 @@
 ---
-title: 테 넌 트 데이터베이스에 대해 분석 쿼리 실행
+title: 테넌트 데이터베이스에 대한 분석 쿼리 실행
 description: Azure SQL Database, SQL Data Warehouse, Azure Data Factory 또는 Power BI에서 추출된 데이터를 사용하는 교차 테넌트 분석 쿼리입니다.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: anjangsh
 ms.reviewer: MightyPen, sstein
 ms.date: 12/18/2018
 ms.openlocfilehash: 4791cd3a6b6f72c5d9ee4ca828d66b0d361f356c
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73816778"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-sql-data-warehouse-data-factory-and-power-bi"></a>Azure SQL Database, SQL Data Warehouse, Data Factory 및 Power BI를 사용한 SaaS 분석 탐색
@@ -62,17 +62,17 @@ SaaS 애플리케이션은 클라우드에서 방대한 양의 테넌트 데이�
 
 이 자습서에서는 Wingtip Tickets 데이터로부터 창출할 수 있는 기본적인 인사이트를 제공합니다. 각 행사장이 서비스를 사용하는 방법을 이해하면 Wingtip Tickets 공급 업체가 예를 들어 다소 활동적인 행사장을 대상으로 다양한 서비스 계획을 고려하게 할 수 있습니다. 
 
-## <a name="setup"></a>설정
+## <a name="setup"></a>설치 프로그램
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>사전 요구 사항
 
 > [!NOTE]
 > 이 자습서에서는 현재 미리 보기가 제한된 Azure Data Factory의 기능을 사용합니다(연결된 서비스 매개 변수화). 이 자습서를 수행하려는 경우 [여기에](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxrVywox1_tHk9wgd5P8SVJUNlFINjNEOElTVFdMUEREMjVVUlJCUDdIRyQlQCN0PWcu) 구독 ID를 제공합니다. 구독을 사용하도록 설정하는 즉시 확인을 전송합니다.
 
 이 자습서를 수행하려면 다음 필수 조건이 충족되었는지 확인합니다.
-- Wingtip Tickets SaaS Database Per Tenant 애플리케이션이 배포되어 있어야 합니다. 5분 이내에 배포하려면 [Wingtip SaaS 애플리케이션 배포 및 탐색](saas-dbpertenant-get-started-deploy.md)을 참조하세요.
+- Wingtip Tickets SaaS Database Per Tenant 애플리케이션이 배포되어 있어야 합니다. 5분 이내에 배포하려면 [Wingtip SaaS 응용 프로그램 배포 및 탐색을](saas-dbpertenant-get-started-deploy.md)참조하십시오.
 - Wingtip Tickets SaaS Database Per Tenant 스크립트와 애플리케이션 [소스 코드](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/)를 GitHub에서 다운로드해야 합니다. 다운로드 지침을 참조하세요. 콘텐츠를 추출하기 전에 *zip 파일의 차단을 해제*해야 합니다.
-- Power BI Desktop이 설치되어 있어야 합니다. [Power BI Desktop 다운로드](https://powerbi.microsoft.com/downloads/).
+- Power BI Desktop이 설치되어 있어야 합니다. [전원 BI 데스크톱을 다운로드합니다.](https://powerbi.microsoft.com/downloads/)
 - 추가 테넌트 배치가 프로비전되어 있어야 합니다. [**테넌트 프로비전 자습서**](saas-dbpertenant-provision-and-catalog.md)를 참조하세요.
 
 ### <a name="create-data-for-the-demo"></a>데모를 위한 데이터 만들기
@@ -80,7 +80,7 @@ SaaS 애플리케이션은 클라우드에서 방대한 양의 테넌트 데이�
 이 자습서는 티켓 판매량 데이터에 대한 분석을 탐색합니다. 이 단계에서는 모든 테넌트의 티켓 데이터를 생성합니다. 다음 단계에서 이 데이터는 분석을 위해 추출됩니다. (앞서 설명한 대로) 충분한 데이터가 있어 다른 티켓 구매 패턴의 범위를 공개할 수 있도록 _테넌트의 일괄 처리를 프로비전했는지 확인합니다_.
 
 1. PowerShell ISE에서 *…\Learning Modules\Operational Analytics\Tenant Analytics DW\Demo-TenantAnalyticsDW.ps1*을 열고 다음 값을 설정합니다.
-    - **$DemoScenario** = **1** 모든 행사장에서 이벤트 티켓 구입
+    - **$DemoScenario** = **1** 모든 장소에서 이벤트 티켓 구매
 2. **F5** 키를 눌러 스크립트를 실행하고 모든 행사장에 대한 티켓 구입 기록을 만듭니다. 20개 테넌트를 사용하여 스크립트는 티켓 수만 장을 생성하는 데 10분 이상 걸릴 수 있습니다.
 
 ### <a name="deploy-sql-data-warehouse-data-factory-and-blob-storage"></a>SQL Data Warehouse, Data Factory 및 Blob Storage 배포 
@@ -88,20 +88,20 @@ Wingtip Tickets 앱에서 테넌트의 트랜잭션 데이터는 많은 데이�
 
 이 단계에서는 자습서에서 사용되는 추가 리소스를 배포합니다. 즉, _tenantanalytics_이라는 SQL Data Warehouse, _dbtodwload-\<user\>_ 라는 Azure Data Factory 및 _wingtipstaging\<user\>_ 라는 Azure Storage 계정입니다. 스토리지 계정은 데이터 웨어하우스에 로드하기 전에 추출된 데이터 파일을 BLOB으로 임시 보유하는 데 사용됩니다. 또한 이 단계에서는 데이터 웨어하우스 스키마를 배포하고 ELT 프로세스를 오케스트레이션하는 ADF 파이프라인을 정의합니다.
 1. PowerShell ISE에서 *…\Learning Modules\Operational Analytics\Tenant Analytics DW\Demo-TenantAnalyticsDW.ps1*을 열고 다음을 설정합니다.
-    - **$DemoScenario** = **2** 테넌트 분석 데이터 웨어하우스, Blob Storage 및 데이터 팩터리 배포 
+    - **$DemoScenario** = **2** 테넌트 분석 데이터 웨어하우스, Blob 저장소 및 데이터 팩터리 배포 
 1. **F5** 키를 눌러 데모 스크립트를 실행하고 Azure 리소스를 배포합니다. 
 
 이제 배포한 Azure 리소스를 검토합니다.
 #### <a name="tenant-databases-and-analytics-store"></a>테넌트 데이터베이스 및 분석 저장소
-[SSMS(SQL Server Management Studio)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)를 사용하여 **tenants1-dpt-&lt;user&gt;** 및 **catalog-dpt-&lt;user&gt;** 서버에 연결합니다. &lt;user&gt;를 앱을 배포할 때 사용한 값으로 바꿉니다. Login = *developer* 및 Password = *P\@ssword1*를 사용 합니다. 자세한 내용은 [입문용 자습서](saas-dbpertenant-wingtip-app-overview.md)를 참조하세요.
+[SSMS(SQL Server Management Studio)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)를 사용하여 **tenants1-dpt-&lt;user&gt;** 및 **catalog-dpt-&lt;user&gt;** 서버에 연결합니다. &lt;user&gt;를 앱을 배포할 때 사용한 값으로 바꿉니다. 로그인 = *개발자* 및 암호 = *P\@sword1*. 자세한 내용은 [입문용 자습서](saas-dbpertenant-wingtip-app-overview.md)를 참조하세요.
 
 ![SSMS에서 SQL Database 서버에 연결](media/saas-tenancy-tenant-analytics/ssmsSignIn.JPG)
 
 개체 탐색기에서:
 
-1. *tenants1-dpt-&lt;user&gt;* 서버를 확장합니다.
+1. *&lt;테넌스1-dpt-사용자&gt; 서버를* 확장합니다.
 1. Databases 노드를 확장하여 테넌트 데이터베이스 목록을 확인합니다.
-1. *catalog-dpt-&lt;user&gt;* 서버를 확장합니다.
+1. *카탈로그-dpt-사용자&lt;&gt; * 서버를 확장합니다.
 1. 다음 개체가 포함된 저장소 분석이 표시되는지 확인합니다.
     1. 테이블 **raw_Tickets**, **raw_Customers**, **raw_Events** 및 **raw_Venues**은 테넌트 데이터베이스에서 추출된 원시 데이터를 보유합니다.
     1. 스타 스키마 테이블은 **fact_Tickets**, **dim_Customers**, **dim_Venues**, **dim_Events**, **dim_Dates**입니다.
@@ -109,7 +109,7 @@ Wingtip Tickets 앱에서 테넌트의 트랜잭션 데이터는 많은 데이�
 
 ![DWtables](media/saas-tenancy-tenant-analytics/DWtables.JPG)
 
-#### <a name="blob-storage"></a>Linux 사용자 그룹용 Azure Files는 Linux에서 File Storage를 평가하고 채택할 때 피드백을 공유할 수 있도록 포럼을 제공합니다.
+#### <a name="blob-storage"></a>Blob Storage
 1. [Azure Portal](https://ms.portal.azure.com)에서 애플리케이션을 배포하는 데 사용한 리소스 그룹으로 이동합니다. **wingtipstaging\<user\>** 이라는 스토리지 계정이 추가되었는지 확인합니다.
 
    ![DWtables](media/saas-tenancy-tenant-analytics/adf-staging-storage.PNG)
@@ -158,7 +158,7 @@ Azure Data Factory는 데이터의 추출, 로드 및 변환을 오케스트레�
 ### <a name="data-warehouse-pattern-overview"></a>데이터 웨어하우스 패턴 개요
 SQL Data Warehouse는 테넌트 데이터에 대해 집계를 수행하기 위한 분석 저장소로 사용됩니다. 이 샘플에서 PolyBase는 SQL Data Warehouse에 데이터를 로드하는 데 사용됩니다. 원시 데이터는 스타 스키마 테이블로 변환된 행을 추적하는 ID 열이 있는 준비 테이블에 로드됩니다. 다음 이미지는 ![loadingpattern](media/saas-tenancy-tenant-analytics/loadingpattern.JPG) 같은 부하 패턴을 보여줍니다.
 
-SCD(Slowly Changing Dimension) 유형 1 차원 테이블을 이 예제에서 사용합니다. 각 차원에는 ID 열을 사용하여 정의한 서로게이트 키가 있습니다. 모범 사례로 날짜 차원 테이블은 시간을 절약하기 위해 미리 채워져 있습니다. 다른 차원 CREATE TABLE 테이블의 경우 SELECT ... (CTAS) 문을 사용 하 여 기존에 수정 되거나 수정 되지 않은 행과 서로게이트 키를 포함 하는 임시 테이블을 만들 수 있습니다. 이는 IDENTITY_INSERT = ON을 사용하여 완료됩니다. 그런 다음, 새 행은 IDENTITY_INSERT=OFF를 사용하여 테이블에 삽입됩니다. 쉬운 롤백을 위해 기존 차원 테이블 및 임시 테이블의 이름을 바꾸어 새 차원 테이블로 만듭니다. 각 실행에 앞서 기존 차원 테이블은 삭제됩니다.
+SCD(Slowly Changing Dimension) 유형 1 차원 테이블을 이 예제에서 사용합니다. 각 차원에는 ID 열을 사용하여 정의한 서로게이트 키가 있습니다. 모범 사례로 날짜 차원 테이블은 시간을 절약하기 위해 미리 채워져 있습니다. 다른 차원 테이블의 경우 테이블을 선택으로 만들기... CTAS 문은 서로게이트 키와 함께 기존 수정 및 수정되지 않은 행을 포함하는 임시 테이블을 만드는 데 사용됩니다. 이는 IDENTITY_INSERT = ON을 사용하여 완료됩니다. 그런 다음, 새 행은 IDENTITY_INSERT=OFF를 사용하여 테이블에 삽입됩니다. 쉬운 롤백을 위해 기존 차원 테이블 및 임시 테이블의 이름을 바꾸어 새 차원 테이블로 만듭니다. 각 실행에 앞서 기존 차원 테이블은 삭제됩니다.
 
 차원 테이블은 팩트 테이블보다 먼저 로드됩니다. 이 시퀀싱은 각 도착 팩트에 대해 모든 참조된 차원이 이미 존재하는지 확인합니다. 팩트가 로드되면 각 해당 차원에 대한 비즈니스 키가 일치하고 해당 서로게이트 키가 각 팩트에 추가됩니다.
 
@@ -189,18 +189,18 @@ SCD(Slowly Changing Dimension) 유형 1 차원 테이블을 이 예제에서 사
 
 1. Power BI Desktop을 실행합니다.
 2. 홈 리본에서 **데이터 가져오기**를 선택하고 메뉴에서 **자세히…** 를 선택합니다. (채널 만들기...)을 선택합니다.
-3. **데이터 가져오기** 창에서 **Azure SQL Database**를 선택합니다.
-4. 데이터베이스 로그인 창에 서버 이름(**catalog-dpt-&lt;User&gt;.database.windows.net**)을 입력합니다. **데이터 연결 모드**에서 **가져오기**를 선택하고 **확인**을 클릭합니다. 
+3. 데이터 **받기** 창에서 **Azure SQL 데이터베이스**를 선택합니다.
+4. 데이터베이스 로그인 창에서 서버**이름(카탈로그-dpt-user&lt;&gt;database.windows.net)을**입력합니다. **데이터 연결 모드에**대한 **가져오기를** 선택한 다음 **확인**을 클릭합니다. 
 
     ![sign-in-to-power-bi](./media/saas-tenancy-tenant-analytics/powerBISignIn.PNG)
 
-5. 왼쪽 창에서 **데이터베이스** 를 선택 하 고 사용자 이름 = *개발자*를 입력 한 다음 password = *P\@ssword1*를 입력 합니다. **Connect**를 클릭합니다.  
+5. 왼쪽 창에서 **데이터베이스를** 선택한 다음 사용자 이름 = *개발자를*입력하고 암호 = *P\@sword1을*입력합니다. **연결**을 클릭합니다.  
 
     ![database-sign-in](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
 
-6. **탐색기** 패널의 분석 데이터베이스 아래에서 스타 스키마 테이블(**fact_Tickets**, **dim_Events**, **dim_Venues**, **dim_Customers** 및 **dim_Dates**)을 선택합니다. 그런 다음 **로드**를 선택합니다. 
+6. **Navigator** 창에서 분석 데이터베이스에서 별 표 선택: **fact_Tickets,** **dim_Events,** **dim_Venues,** **dim_Customers** 및 **dim_Dates**. 그런 다음 **로드**를 선택합니다. 
 
-축하합니다. Power BI에 데이터를 성공적으로 로드했습니다. 지금부터 시각화 데이터를 탐색하여 테넌트에 대한 유용한 정보를 얻습니다. 분석을 사용하여 Wingtip Tickets 비즈니스 팀에게 일부 데이터 기반 권장 사항을 제공하는 방법을 살펴보겠습니다. 권장 사항을 바탕으로 비즈니스 모델과 고객 경험을 최적화할 수 있습니다.
+축하합니다! Power BI에 데이터를 성공적으로 로드했습니다. 지금부터 시각화 데이터를 탐색하여 테넌트에 대한 유용한 정보를 얻습니다. 분석을 사용하여 Wingtip Tickets 비즈니스 팀에게 일부 데이터 기반 권장 사항을 제공하는 방법을 살펴보겠습니다. 권장 사항을 바탕으로 비즈니스 모델과 고객 경험을 최적화할 수 있습니다.
 
 먼저 티켓 판매량 데이터를 분석하여 행사장별 판매량의 차이를 확인합니다. Power BI에 있는 옵션을 선택하여 각 행사장에서 판매된 총 티켓 수를 막대형 차트로 표시합니다. (티켓 생성기가 임의로 작동하기 때문에 결과가 그림과 다르게 나타날 수 있습니다.)
  
@@ -248,7 +248,7 @@ Wingtip Tickets 예제에서는 일찌기 티켓 판매량이 예측 가능한 �
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * 테넌트 분석에 대한 스타 스키마로 채워진 SQL Data Warehouse를 배포합니다.
@@ -257,8 +257,8 @@ Wingtip Tickets 예제에서는 일찌기 티켓 판매량이 예측 가능한 �
 > * 분석 데이터 웨어하우스를 쿼리합니다. 
 > * Power BI를 사용하여 모든 테넌트 간 데이터 추세를 시각화합니다.
 
-축하합니다.
+축하합니다!
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Wingtip SaaS 애플리케이션을 사용하는 또 다른 자습서](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials).
+- [Wingtip SaaS 응용 프로그램을 기반으로 하는](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)추가 자습서 .

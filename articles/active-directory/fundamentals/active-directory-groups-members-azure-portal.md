@@ -14,10 +14,10 @@ ms.custom: it-pro, seodec18
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f1c83c57be63ae9e2a4d4113accaefe8a2c2b525
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68561964"
 ---
 # <a name="add-or-remove-group-members-using-azure-active-directory"></a>Azure Active Directory를 사용하여 그룹 멤버 추가 또는 제거
@@ -25,7 +25,7 @@ Azure Active Directory를 사용하여 그룹 멤버를 계속 추가하거나 �
 
 ## <a name="to-add-group-members"></a>그룹 멤버를 추가하려면
 
-1. 해당 디렉터리에 대한 글로벌 관리자 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. 디렉터리에 대한 글로벌 관리자 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 2. **Azure Active Directory**를 선택한 다음, **그룹**을 선택합니다.
 
@@ -63,4 +63,4 @@ Azure Active Directory를 사용하여 그룹 멤버를 계속 추가하거나 �
 
 - [그룹의 사용자에 대한 동적 규칙 관리](../users-groups-roles/groups-create-rule.md)
 
-- [Azure Active Directory에 Azure 구독 연결 또는 추가](active-directory-how-subscriptions-associated-directory.md)
+- [Azure Active 디렉터리에 Azure 구독 연결 또는 추가](active-directory-how-subscriptions-associated-directory.md)

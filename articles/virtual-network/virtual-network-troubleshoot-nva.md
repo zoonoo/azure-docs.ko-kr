@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2018
 ms.author: genli
 ms.openlocfilehash: b998043bc7d896989590ac21db5f309a81cc02bd
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71056826"
 ---
 # <a name="network-virtual-appliance-issues-in-azure"></a>Azure의 네트워크 가상 어플라이언스 문제
@@ -42,7 +42,7 @@ Microsoft Azure에서 타사 NVA(네트워크 가상 어플라이언스)를 사�
 - NVA의 트래픽을 보내는 가상 네트워크 서브넷의 UDR
 - NVA 내의 라우팅 테이블 및 NVA(예를 들어 NIC1에서 NIC2로)
 - NVA NIC를 추적하여 네트워크 트래픽 수신 및 전송 확인
-- 표준 SKU 및 공용 Ip를 사용 하는 경우 NSG가 생성 되 고 트래픽이 NVA로 라우팅될 수 있도록 하는 명시적 규칙이 있어야 합니다.
+- 표준 SKU 및 공용 IP를 사용하는 경우 트래픽을 NVA로 라우팅할 수 있도록 NSG가 생성되고 명시적 규칙이 있어야 합니다.
 
 ## <a name="basic-troubleshooting-steps"></a>기본 문제 해결 단계
 
@@ -83,7 +83,7 @@ PowerShell 사용
    NetworkSecurityGroup : null
    ```
 
-**STANDARD SKU PUBILC IP를 사용 하는 경우 NSG 확인** 표준 SKU 및 공용 Ip를 사용 하는 경우 NVA에 대 한 트래픽을 허용 하는 NSG 및 명시적 규칙을 만들어야 합니다.
+**표준 SKU Pubilc IP를 사용할 때 NSG 확인** 표준 SKU 및 공용 IP를 사용하는 경우 NsG가 생성되고 NVA에 대한 트래픽을 허용하는 명시적 규칙이 있어야 합니다.
 
 **트래픽을 NVA로 라우팅할 수 있는지 확인**
 
@@ -114,7 +114,7 @@ PowerShell 사용
 
 ### <a name="validate-vm-cpu"></a>VM CPU 유효성 검사
 
-CPU 사용량이 100%에 근접 한 경우 네트워크 패킷 삭제에 영향을 주는 문제가 발생할 수 있습니다. VM은 Azure Portal에서 특정 시간대의 평균 CPU 사용량을 보고합니다. CPU가 급증하는 시간에 게스트 VM의 어떤 프로세스 때문에 CPU 사용량이 높아지는지 확인하고, 가능하다면 사용량을 줄입니다. 또한 VM 크기를 좀 더 큰 SKU로 조정하거나, 가상 머신 확장 집합의 경우 인스턴스 수를 늘리거나 CPU 사용량에 따라 자동으로 크기를 조정하도록 설정해야 합니다. 필요에 따라 이러한 문제에 대해 [NVA 공급업체에 지원을 요청](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines)하세요.
+CPU 사용량이 100%에 가까워지면 네트워크 패킷 삭제에 영향을 주는 문제가 발생할 수 있습니다. VM은 Azure Portal에서 특정 시간대의 평균 CPU 사용량을 보고합니다. CPU가 급증하는 시간에 게스트 VM의 어떤 프로세스 때문에 CPU 사용량이 높아지는지 확인하고, 가능하다면 사용량을 줄입니다. 또한 VM 크기를 좀 더 큰 SKU로 조정하거나, 가상 머신 확장 집합의 경우 인스턴스 수를 늘리거나 CPU 사용량에 따라 자동으로 크기를 조정하도록 설정해야 합니다. 이러한 문제 중 하나에 대 [한, 도움을 NVA 공급 업체에 문의,](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines)필요에 따라.
 
 ### <a name="validate-vm-network-statistics"></a>VM 네트워크 통계 유효성 검사
 
@@ -127,11 +127,11 @@ VM 네트워크 사용량이 급증하거나 특정 기간에 사용량이 많�
 
 1. 동시 네트워크 추적을 캡처하려면 다음 명령을 실행합니다.
 
-   **Windows의 경우**
+   **윈도우용**
 
-   netsh trace start capture = yes tracefile = C:\server_l
+   netsh 추적 시작 캡처=예 추적 파일=c:\server_IP.etl 시나리오=netconnection
 
-   **Linux의 경우**
+   **리눅스에 대 한**
 
    sudo tcpdump -s0 -i eth0 -X -w vmtrace.cap
 

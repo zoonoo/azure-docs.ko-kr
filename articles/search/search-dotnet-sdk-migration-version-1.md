@@ -1,5 +1,5 @@
 ---
-title: Azure Search .NET SDK 버전 1.1로 업그레이드
+title: Azure 검색 .NET SDK 버전 1.1로 업그레이드
 titleSuffix: Azure Cognitive Search
 description: 이전 API 버전에서 Azure Search .NET SDK 버전 1.1로 코드를 마이그레이션합니다. 새로운 기능과 필요한 코드 변경 내용을 알아봅니다.
 manager: nitinme
@@ -10,13 +10,13 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 159aaa8424c3d7a711b587464b80696929f02186
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72792390"
 ---
-# <a name="upgrade-to-azure-search-net-sdk-version-11"></a>Azure Search .NET SDK 버전 1.1로 업그레이드
+# <a name="upgrade-to-azure-search-net-sdk-version-11"></a>Azure 검색 .NET SDK 버전 1.1로 업그레이드
 
 버전 1.0.2-preview 또는 이전 버전의 [Azure Search .NET SDK](https://aka.ms/search-sdk)를 사용하는 경우 이 문서를 통해 버전 1.1로 애플리케이션을 업그레이드할 수 있습니다.
 
@@ -100,14 +100,14 @@ Azure Search .NET SDK의 각 작업은 동기 및 비동기 호출자에 대한 
 
 예를 들어 이전 버전의 SDK에서 "인덱스 통계 가져오기" 작업은 다음과 같은 서명을 노출했습니다.
 
-`IIndexOperations`:
+`IIndexOperations`의 경우:
 
     // Asynchronous operation with all parameters
     Task<IndexGetStatisticsResponse> GetStatisticsAsync(
         string indexName,
         CancellationToken cancellationToken);
 
-`IndexOperationsExtensions`:
+`IndexOperationsExtensions`의 경우:
 
     // Asynchronous operation with only required parameters
     public static Task<IndexGetStatisticsResponse> GetStatisticsAsync(
@@ -121,7 +121,7 @@ Azure Search .NET SDK의 각 작업은 동기 및 비동기 호출자에 대한 
 
 버전 1.1에서 동일한 작업에 대한 메서드 서명은 다음과 같습니다.
 
-`IIndexesOperations`:
+`IIndexesOperations`의 경우:
 
     // Asynchronous operation with lower-level HTTP features exposed
     Task<AzureOperationResponse<IndexGetStatisticsResult>> GetStatisticsWithHttpMessagesAsync(
@@ -130,7 +130,7 @@ Azure Search .NET SDK의 각 작업은 동기 및 비동기 호출자에 대한 
         Dictionary<string, List<string>> customHeaders = null,
         CancellationToken cancellationToken = default(CancellationToken));
 
-`IndexesOperationsExtensions`:
+`IndexesOperationsExtensions`의 경우:
 
     // Simplified asynchronous operation
     public static Task<IndexGetStatisticsResult> GetStatisticsAsync(
@@ -173,7 +173,7 @@ Azure Search .NET SDK의 각 작업은 동기 및 비동기 호출자에 대한 
         };
 
 ### <a name="model-class-changes"></a>모델 클래스 변경
-[작업 메서드 변경](#OperationMethodChanges)에 설명된 서명 변경으로 인해 `Microsoft.Azure.Search.Models` 네임스페이스의 많은 클래스가 이름이 변경되거나 제거되었습니다. 다음은 그 예입니다.
+[작업 메서드 변경](#OperationMethodChanges)에 설명된 서명 변경으로 인해 `Microsoft.Azure.Search.Models` 네임스페이스의 많은 클래스가 이름이 변경되거나 제거되었습니다. 예를 들어:
 
 * `IndexDefinitionResponse`는 `AzureOperationResponse<Index>`로 대체되었습니다.
 * `DocumentSearchResponse`는 `DocumentSearchResult`로 이름이 변경되었습니다.
@@ -322,7 +322,7 @@ Azure Search .NET SDK의 각 작업은 동기 및 비동기 호출자에 대한 
 
 <a name="BugFixesV1"></a>
 
-## <a name="bug-fixes-in-version-11"></a>1\.1 버전의 버그 수정
+## <a name="bug-fixes-in-version-11"></a>1.1 버전의 버그 수정
 이전 버전의 Azure Search .NET SDK에는 사용자 지정 모델 클래스의 serialization과 관련된 버그가 있었습니다. Null이 허용되지 않는 값 형식의 속성으로 사용자 지정 모델 클래스를 만든 경우 버그가 발생할 수 있습니다.
 
 ### <a name="steps-to-reproduce"></a>재현 단계

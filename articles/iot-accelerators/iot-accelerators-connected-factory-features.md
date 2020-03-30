@@ -1,6 +1,6 @@
 ---
 title: 연결된 팩터리 솔루션 특징 - Azure | Microsoft Docs
-description: 이 문서에서는 클라우드 대시보드, 규칙 및 경고와 같이 연결 된 공장 미리 구성 된 솔루션의 기능에 대 한 개요를 설명 합니다.
+description: 이 문서에서는 클라우드 대시보드, 규칙 및 경고와 같은 커넥티드 팩토리 미리 구성된 솔루션의 기능에 대한 개요를 설명합니다.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: dobett
 ms.openlocfilehash: c868aa0f1c2449ccf163523c9ded25a31d1d84c4
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73820104"
 ---
 # <a name="what-is-connected-factory-iot-solution-accelerator"></a>연결된 팩터리 IoT 솔루션 가속기란?
@@ -61,8 +61,8 @@ ms.locfileid: "73820104"
 ## <a name="customizability"></a>사용자 지정 가능
 
 - 특정 비즈니스 요구 사항을 충족하도록 솔루션을 사용자 지정할 수 있습니다.
-- GitHub에서 전체 솔루션 소스 코드를 제공합니다. [연결된 팩터리 미리 구성된 솔루션](https://github.com/Azure/azure-iot-connected-factory) 리포지토리를 참조하세요.
+- GitHub에서 전체 솔루션 소스 코드를 제공합니다. [커넥티드 팩토리 사전 구성된 솔루션](https://github.com/Azure/azure-iot-connected-factory) 리포지토리를 참조하십시오.
 
 ## <a name="next-steps"></a>다음 단계
 
-연결 된 팩터리 솔루션 가속기에 대 한 자세한 내용은 빠른 시작 [클라우드 기반 솔루션을 사용 하 여 내 산업용 IoT 장치 관리](quickstart-connected-factory-deploy.md)를 참조 하세요.
+커넥티드 팩토리 솔루션 가속기에 대해 자세히 알아보려면 Quickstart [내 산업용 IoT 장치를 관리하는 클라우드 기반 솔루션을 사용해](quickstart-connected-factory-deploy.md)보십시오.

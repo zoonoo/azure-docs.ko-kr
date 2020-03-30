@@ -11,10 +11,10 @@ ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
 ms.openlocfilehash: 6ad9c7912eee6c3f5ec55b9cd7ab340bc79c9db7
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73837765"
 ---
 # <a name="predict-an-answer-with-a-simple-model"></a>단순 모델을 사용하여 답변 예측
@@ -92,12 +92,12 @@ ms.locfileid: "73837765"
 ## <a name="use-the-model-to-find-the-answer"></a>모델을 사용하여 해답 찾기
 이제 우리에게는 모델이 있고 “1.35 캐럿의 다이아몬드 가격은 얼마나 될까요?”라는 질문을 해보겠습니다.
 
-질문에 대한 답변을 얻기 위해 1.35 캐럿에서 수직선을 그립니다. 모델 선을 지나는 위치에서 달러 축과 만나는 수평선을 그려 확인합니다. 정확히 10,000에 닿네요. 와우 그렇다면 이게 정답입니다. 1\.35 캐럿 다이아몬드의 가격은 약 10,000달러입니다.
+질문에 대한 답변을 얻기 위해 1.35 캐럿에서 수직선을 그립니다. 모델 선을 지나는 위치에서 달러 축과 만나는 수평선을 그려 확인합니다. 정확히 10,000에 닿네요. 와우 그렇다면 이게 정답입니다. 1.35 캐럿 다이아몬드의 가격은 약 10,000달러입니다.
 
 ![모델에서 해답 찾기](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/find-the-answer.png)
 
 ## <a name="create-a-confidence-interval"></a>신뢰 구간 만들기
-이 예측이 얼마나 정확한지 궁금해하는 것은 당연하겠죠. 1\.35 캐럿 다이아몬드 가격이 10,000에 아주 가까운지, 약간 더 높은지 또는 더 낮은지를 알면 도움이 됩니다. 이를 알아내기 위해 회귀 직선 주위에 대부분의 점들을 포함하는 범위를 그려보겠습니다. 이 범위를 *신뢰 구간*이라고 합니다. 앞서 확인한 것처럼 대부분의 가격이 이 범위에 속한다고 확신할 수 있습니다. 1\.35 캐럿 선이 해당 범위의 맨 위와 맨 아래에서 교차하는 수평선을 2개 더 그릴 수 있습니다.
+이 예측이 얼마나 정확한지 궁금해하는 것은 당연하겠죠. 1.35 캐럿 다이아몬드 가격이 10,000에 아주 가까운지, 약간 더 높은지 또는 더 낮은지를 알면 도움이 됩니다. 이를 알아내기 위해 회귀 직선 주위에 대부분의 점들을 포함하는 범위를 그려보겠습니다. 이 범위를 *신뢰 구간*이라고 합니다. 앞서 확인한 것처럼 대부분의 가격이 이 범위에 속한다고 확신할 수 있습니다. 1.35 캐럿 선이 해당 범위의 맨 위와 맨 아래에서 교차하는 수평선을 2개 더 그릴 수 있습니다.
 
 ![예측](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/confidence-interval.png)
 
@@ -124,8 +124,8 @@ ms.locfileid: "73837765"
 
 오늘은 선형 회귀를 수행하는 방법을 논의했으며 데이터를 사용해서 예측을 수행했습니다.
 
-Microsoft Azure Machine Learning Studio (클래식)에서 "초보자를 위한 데이터 과학"의 다른 비디오를 확인 하세요.
+Microsoft Azure 기계 학습 스튜디오(클래식)의 "초보자를 위한 데이터 과학"의 다른 비디오를 확인하십시오.
 
 ## <a name="next-steps"></a>다음 단계
-* [Machine Learning Studio를 사용 하 여 첫 번째 데이터 과학 실험 시도 (클래식)](create-experiment.md)
+* [기계 학습 스튜디오(클래식)를 사용하여 첫 번째 데이터 과학 실험을 해보세요.](create-experiment.md)
 * [Microsoft Azure의 Machine Learning 소개 보기](/azure/machine-learning/preview/overview-what-is-azure-ml)
