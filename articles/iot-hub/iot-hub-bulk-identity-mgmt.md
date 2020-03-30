@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Hub 장치 id 가져오기/내보내기 | Microsoft Docs
-description: Azure IoT 서비스 SDK를 사용 하 여 id 레지스트리에 대해 대량 작업을 실행 하 여 장치 id를 가져오고 내보내는 방법 가져오기 작업을 사용하여 대량으로 디바이스 ID를 생성, 업데이트 및 삭제할 수 있습니다.
+title: Azure IoT Hub 장치 ID 가져오기/내보내기 | 마이크로 소프트 문서
+description: Azure IoT 서비스 SDK를 사용하여 ID 레지스트리에 대해 대량 작업을 실행하여 장치 ID를 가져오고 내보내는 방법. 가져오기 작업을 사용하여 대량으로 디바이스 ID를 생성, 업데이트 및 삭제할 수 있습니다.
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -9,24 +9,24 @@ ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: robinsh
 ms.openlocfilehash: 2a0394e6e7c17e0a4954bbdddb1d5b2811959746
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79371582"
 ---
-# <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>대량으로 IoT Hub 장치 id 가져오기 및 내보내기
+# <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>대량으로 IoT Hub 디바이스 ID 가져오기 및 내보내기
 
-각 IoT Hub에는 서비스에서 디바이스마다 리소스를 만드는 데 사용할 수 있는 ID 레지스트리가 있습니다. 또한 ID 레지스트리를 통해 디바이스 지향 엔드포인트에 대한 액세스를 제어할 수 있습니다. 이 문서에서는 ID 레지스트리에서 디바이스 ID를 대량으로 가져오고 내보내는 방법에 대해 설명합니다. 에서 C# 작업 샘플을 확인 하 고 허브를 다른 지역으로 복제할 때이 기능을 사용 하는 방법에 대 한 자세한 내용은 [IoT Hub를 복제 하는 방법](iot-hub-how-to-clone.md)을 참조 하세요.
+각 IoT Hub에는 서비스에서 디바이스마다 리소스를 만드는 데 사용할 수 있는 ID 레지스트리가 있습니다. 또한 ID 레지스트리를 통해 디바이스 지향 엔드포인트에 대한 액세스를 제어할 수 있습니다. 이 문서에서는 ID 레지스트리에서 디바이스 ID를 대량으로 가져오고 내보내는 방법에 대해 설명합니다. C#의 작업 샘플을 확인하고 허브를 다른 지역으로 복제할 때 이 기능을 사용하는 방법을 알아보려면 [IoT Hub를 복제하는 방법을](iot-hub-how-to-clone.md)참조하세요.
 
 > [!NOTE]
-> IoT Hub는 제한 된 수의 지역에서 최근에 가상 네트워크 지원을 추가 했습니다. 이 기능은 가져오기 및 내보내기 작업을 보호 하 고 인증을 위해 키를 전달 하지 않아도 됩니다.  처음에는 가상 네트워크 지원은 *WestUS2*, *Eastus*및 *SouthCentralUS*지역 에서만 사용할 수 있습니다. 가상 네트워크 지원 및이를 구현 하는 API 호출에 대 한 자세한 내용은 [virtual networks에 대 한 IoT Hub 지원](virtual-network-support.md)을 참조 하세요.
+> IoT Hub는 최근 제한된 수의 지역에서 가상 네트워크 지원을 추가했습니다. 이 기능은 가져오기 및 내보내기 작업을 보호하고 인증을 위해 키를 전달할 필요가 없습니다.  처음에는 가상 네트워크 지원이 *WestUS2,* *EastUS*및 *SouthCentralUS*와 같은 지역에서만 사용할 수 있습니다. 가상 네트워크 지원 및 이를 구현하기 위한 API 호출에 대해 자세히 알아보려면 [가상 네트워크에 대한 IoT Hub Support를](virtual-network-support.md)참조하십시오.
 
 가져오기 및 내보내기 작업은 사용자가 IoT Hub에 대해 대량 서비스 작업을 실행할 수 있는 *작업* 상황에서 이루어집니다.
 
 **RegistryManager** 클래스는 **Job** 프레임워크를 사용하는 **ExportDevicesAsync** 및 **ImportDevicesAsync** 메서드를 포함합니다. 이러한 메서드를 사용하면 전체 IoT Hub ID 레지스트리를 내보내고, 가져오고, 동기화할 수 있습니다.
 
-이 항목에서는 **RegistryManager** 클래스 및 **작업** 시스템을 사용 하 여 IoT hub의 id 레지스트리에서 장치를 대량으로 가져오고 내보내는 방법을 설명 합니다. 또한 Azure IoT Hub Device Provisioning Service를 사용하여 사용자 개입 없이, 하나 이상의 IoT Hub에 대해 무인 Just-In-Time 프로비저닝을 수행할 수도 있습니다. 자세한 내용은 [프로비저닝 서비스 설명서](/azure/iot-dps)를 참조하세요.
+이 항목에서는 **RegistryManager** 클래스 및 **작업** 시스템을 사용하여 IoT 허브의 ID 레지스트리와 장치 대/으로부터 대량 가져오기 및 내보내기를 수행하는 방법을 설명합니다. 또한 Azure IoT Hub Device Provisioning Service를 사용하여 사용자 개입 없이, 하나 이상의 IoT Hub에 대해 무인 Just-In-Time 프로비저닝을 수행할 수도 있습니다. 자세한 내용은 [프로비저닝 서비스 설명서](/azure/iot-dps)를 참조하세요.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -88,16 +88,16 @@ while(true)
 ```
 
 > [!NOTE]
-> 저장소 계정에 IoT Hub의 연결을 제한 하는 방화벽 구성이 있는 경우 [Microsoft 신뢰할 수](./virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing) 있는 자사 예외 (관리 서비스 id를 사용 하 여 IoT hub의 선택 영역에서 사용 가능)를 사용 하는 것이 좋습니다.
+> 저장소 계정에 IoT Hub의 연결을 제한하는 방화벽 구성이 있는 경우 [Microsoft 신뢰할 수 있는 타사 예외를](./virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing) 사용하는 것이 좋습니다(관리되는 서비스 ID가 있는 IoT 허브의 일부 지역에서 사용 가능).
 
 
 ## <a name="device-importexport-job-limits"></a>장치 가져오기/내보내기 작업 제한
 
-모든 IoT Hub 계층에 대해 한 번에 하나의 활성 장치 가져오기 또는 내보내기 작업만 허용 됩니다. 또한 IoT Hub에는 작업의 비율이 제한 됩니다. 자세히 알아보려면 [참조 IoT Hub 할당량 및 제한](iot-hub-devguide-quotas-throttling.md)을 참조 하세요.
+모든 IoT Hub 계층에 대해 한 번에 활성 장치 가져오기 또는 내보내기 작업이 한 번에 1개만 허용됩니다. 또한 IoT Hub에는 작업 작업 속도에 대한 제한이 있습니다. 자세한 내용은 [참조 - IoT 허브 할당량 및 제한을](iot-hub-devguide-quotas-throttling.md)참조하십시오.
 
 ## <a name="export-devices"></a>내보내기 디바이스
 
-**ExportDevicesAsync** 메서드를 사용 하 여 SAS (공유 액세스 서명)를 사용 하 여 Azure Storage blob 컨테이너로 전체 IoT hub id 레지스트리를 내보낼 수 있습니다. 공유 액세스 서명에 대 한 자세한 내용은 [SAS (공유 액세스 서명)를 사용 하 여 Azure Storage 리소스에 대 한 제한 된 액세스 권한 부여](../storage/common/storage-sas-overview.md)를 참조 하세요.
+**ExportDevicesAsync** 메서드를 사용 하 여 IoT 허브 ID 레지스트리의 전체를 공유 액세스 서명(SAS)을 사용 하 여 Azure 저장소 Blob 컨테이너에 내보낼 수 있습니다. 공유 액세스 서명에 대한 자세한 내용은 [SAS(공유 액세스 서명)를 사용하여 Azure Storage 리소스에 대한 제한된 액세스 권한 부여를](../storage/common/storage-sas-overview.md)참조하십시오.
 
 이 메서드를 사용하면 사용자가 제어하는 blob 컨테이너에 디바이스 정보의 신뢰할 수 있는 백업을 만들 수 있습니다.
 
@@ -263,15 +263,15 @@ JobProperties importJob =
 
 각 디바이스에 대한 가져오기 직렬화 데이터에 선택적 **importMode** 속성을 사용하여 가져오기 프로세스를 디바이스별로 제어합니다. **importMode** 속성에 다음과 같은 옵션이 있습니다.
 
-| importMode | Description |
+| importMode | 설명 |
 | --- | --- |
-| **createOrUpdate** |지정 된 **ID**를 가진 장치가 없으면 새로 등록 됩니다. <br/>디바이스가 이미 존재하는 경우 **ETag** 값과 관계 없이 제공된 입력 데이터가 기존 정보를 덮어씁니다. <br> 사용자는 디바이스 데이터와 함께 쌍으로 된 데이터를 선택적으로 지정할 수 있습니다. 쌍의 etag (지정 된 경우)는 장치의 etag와 독립적으로 처리 됩니다. 기존 쌍의 etag와 일치 하지 않는 경우 오류가 로그 파일에 기록 됩니다. |
-| **create** |지정 된 **ID**를 가진 장치가 없으면 새로 등록 됩니다. <br/>디바이스에 이미 존재하는 경우 오류가 로그 파일에 기록됩니다. <br> 사용자는 디바이스 데이터와 함께 쌍으로 된 데이터를 선택적으로 지정할 수 있습니다. 쌍의 etag (지정 된 경우)는 장치의 etag와 독립적으로 처리 됩니다. 기존 쌍의 etag와 일치 하지 않는 경우 오류가 로그 파일에 기록 됩니다. |
-| **update** |지정 된 **ID**를 가진 장치가 이미 존재 하는 경우 **ETag** 값과 관계 없이 제공 된 입력 데이터를 사용 하 여 기존 정보를 덮어씁니다. <br/>디바이스가 존재하지 않는 경우 오류가 로그 파일에 기록됩니다. |
-| **updateIfMatchETag** |지정 된 **ID**를 가진 장치가 이미 존재 하는 경우 **ETag** 가 일치 하는 경우에만 제공 된 입력 데이터를 사용 하 여 기존 정보를 덮어씁니다. <br/>디바이스가 존재하지 않는 경우 오류가 로그 파일에 기록됩니다. <br/>**ETag** 가 일치하지 않는 경우 불일치 오류가 로그 파일에 기록됩니다. |
-| **createOrUpdateIfMatchETag** |지정 된 **ID**를 가진 장치가 없으면 새로 등록 됩니다. <br/>디바이스가 이미 존재하는 경우 **ETag** 가 일치하는 경우에만 제공된 입력 데이터가 기존 정보를 덮어씁니다. <br/>**ETag** 가 일치하지 않는 경우 불일치 오류가 로그 파일에 기록됩니다. <br> 사용자는 디바이스 데이터와 함께 쌍으로 된 데이터를 선택적으로 지정할 수 있습니다. 쌍의 etag (지정 된 경우)는 장치의 etag와 독립적으로 처리 됩니다. 기존 쌍의 etag와 일치 하지 않는 경우 오류가 로그 파일에 기록 됩니다. |
-| **delete** |지정 된 **ID**를 가진 장치가 이미 존재 하는 경우 **ETag** 값과 관계 없이 삭제 됩니다. <br/>디바이스가 존재하지 않는 경우 오류가 로그 파일에 기록됩니다. |
-| **deleteIfMatchETag** |지정 된 **ID**를 가진 장치가 이미 존재 하는 경우 **ETag** 가 일치 하는 경우에만 삭제 됩니다. 디바이스가 존재하지 않는 경우 오류가 로그 파일에 기록됩니다. <br/>ETag가 일치하지 않는 경우 불일치 오류가 로그 파일에 기록됩니다. |
+| **createOrUpdate** |장치가 지정된 **ID와**함께 존재하지 않는 경우 새로 등록됩니다. <br/>디바이스가 이미 존재하는 경우 **ETag** 값과 관계 없이 제공된 입력 데이터가 기존 정보를 덮어씁니다. <br> 사용자는 디바이스 데이터와 함께 쌍으로 된 데이터를 선택적으로 지정할 수 있습니다. 트윈의 etag를 지정하면 장치의 etag와 독립적으로 처리됩니다. 기존 트윈의 전자 태그와 일치하지 않으면 로그 파일에 오류가 기록됩니다. |
+| **만들** |장치가 지정된 **ID와**함께 존재하지 않는 경우 새로 등록됩니다. <br/>디바이스에 이미 존재하는 경우 오류가 로그 파일에 기록됩니다. <br> 사용자는 디바이스 데이터와 함께 쌍으로 된 데이터를 선택적으로 지정할 수 있습니다. 트윈의 etag를 지정하면 장치의 etag와 독립적으로 처리됩니다. 기존 트윈의 전자 태그와 일치하지 않으면 로그 파일에 오류가 기록됩니다. |
+| **업데이트** |장치가 지정된 **ID를**이미 가지고 있는 경우 기존 정보는 **ETag** 값에 관계없이 제공된 입력 데이터로 덮어씁입니다. <br/>디바이스가 존재하지 않는 경우 오류가 로그 파일에 기록됩니다. |
+| **updateIfMatchETag** |장치가 지정된 **ID로**이미 있는 경우 기존 정보는 **ETag** 일치가 있는 경우에만 제공된 입력 데이터로 덮어씁입니다. <br/>디바이스가 존재하지 않는 경우 오류가 로그 파일에 기록됩니다. <br/>**ETag** 가 일치하지 않는 경우 불일치 오류가 로그 파일에 기록됩니다. |
+| **createOrUpdateIfMatchETag** |장치가 지정된 **ID와**함께 존재하지 않는 경우 새로 등록됩니다. <br/>디바이스가 이미 존재하는 경우 **ETag** 가 일치하는 경우에만 제공된 입력 데이터가 기존 정보를 덮어씁니다. <br/>**ETag** 가 일치하지 않는 경우 불일치 오류가 로그 파일에 기록됩니다. <br> 사용자는 디바이스 데이터와 함께 쌍으로 된 데이터를 선택적으로 지정할 수 있습니다. 트윈의 etag를 지정하면 장치의 etag와 독립적으로 처리됩니다. 기존 트윈의 전자 태그와 일치하지 않으면 로그 파일에 오류가 기록됩니다. |
+| **삭제** |장치가 지정된 **ID로**이미 있는 경우 **ETag** 값에 관계없이 삭제됩니다. <br/>디바이스가 존재하지 않는 경우 오류가 로그 파일에 기록됩니다. |
+| **deleteIfMatchETag** |장치가 지정된 **ID로**이미 있는 경우 **ETag** 일치가 있는 경우에만 삭제됩니다. 디바이스가 존재하지 않는 경우 오류가 로그 파일에 기록됩니다. <br/>ETag가 일치하지 않는 경우 불일치 오류가 로그 파일에 기록됩니다. |
 
 > [!NOTE]
 > 직렬화 데이터가 디바이스에 대한 **importMode** 플래그를 명시적으로 정의하는 경우 가져오기 작업 중에 기본적으로 **createOrUpdate**를 가정합니다.
@@ -427,14 +427,14 @@ static string GetContainerSasUri(CloudBlobContainer container)
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 IoT Hub의 ID 레지스트리에 대한 대량 작업을 수행하는 방법을 살펴보았습니다. 허브 간에 장치를 이동 하는 방법을 비롯 하 여 이러한 많은 작업은 [IoT Hub를 복제 하는 방법의 IoT hub에 등록 된 장치 관리 섹션](iot-hub-how-to-clone.md#managing-the-devices-registered-to-the-iot-hub)에서 사용 됩니다. 
+이 문서에서는 IoT Hub의 ID 레지스트리에 대한 대량 작업을 수행하는 방법을 살펴보았습니다. 한 허브에서 다른 허브로 장치를 이동하는 방법을 포함하여 이러한 작업의 대부분은 [IoT Hub를 복제하는 방법의 IoT 허브 섹션에 등록된 관리 장치에](iot-hub-how-to-clone.md#managing-the-devices-registered-to-the-iot-hub)사용됩니다. 
 
-복제 문서에는이 항목에 연결 된 작업 샘플이 있습니다 .이 샘플은이 C# 페이지의 iot 샘플 ( [에 대 한 C#Azure iot 샘플 ](https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/))에 있으며, 프로젝트가 importexportdevic입니다. 샘플을 다운로드 하 여 사용해 볼 수 있습니다. [IoT Hub 복제](iot-hub-how-to-clone.md) 하는 방법 문서에 지침이 있습니다.
+복제 문서에는 이 페이지의 IoT C# 샘플에 있는 작업 샘플이 [있습니다.](https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/) 샘플을 다운로드하여 사용해 볼 수 있습니다. [IoT Hub 를 복제하는 방법 문서에는 지침이 있습니다.](iot-hub-how-to-clone.md)
 
-Azure IoT Hub 관리에 대해 자세히 알아보려면 다음 문서를 확인 하세요.
+Azure IoT Hub 관리에 대해 자세히 알아보려면 다음 문서를 확인하십시오.
 
 * [IoT Hub 메트릭](iot-hub-metrics.md)
-* [IoT Hub 로그](iot-hub-monitor-resource-health.md)
+* [IoT 허브 로그](iot-hub-monitor-resource-health.md)
 
 IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 

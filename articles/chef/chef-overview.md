@@ -5,10 +5,10 @@ keywords: azure, chef, devops, 가상 머신, 개요, 자동화
 ms.date: 02/22/2020
 ms.topic: article
 ms.openlocfilehash: c22faa69bf8f42111d328a9c156dc1a2432731b2
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77586345"
 ---
 # <a name="using-chef-with-azure"></a>Azure로 Chef 사용하기
@@ -17,13 +17,13 @@ ms.locfileid: "77586345"
 이 문서에서는 Chef를 사용하여 Azure 인프라를 관리하는 이점에 대해 설명합니다.
 
 ## <a name="chef-extension-on-azure"></a>Azure의 Chef 확장
-[Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)에서 [Chef 확장](https://docs.microsoft.com/azure/chef/chef-extension-portal) 을 사용 하 여 백그라운드 서비스로 실행 되는 Chef 클라이언트를 사용 하 여 가상 컴퓨터를 프로 비전 합니다. 프로비전되고 나면 이러한 가상 머신을 Chef 서버에서 관리할 준비가 된 것입니다.
+[Azure 포털에서](https://go.microsoft.com/fwlink/p/?LinkID=525040)Chef [확장으로](https://docs.microsoft.com/azure/chef/chef-extension-portal) 백그라운드 서비스로 실행되는 Chef 클라이언트를 통해 가상 컴퓨터를 프로비전합니다. 프로비전되고 나면 이러한 가상 머신을 Chef 서버에서 관리할 준비가 된 것입니다.
 
 ## <a name="chef-cloud-shell"></a>Chef Cloud Shell
 Azure Cloud Shell에서 Chef 워크스테이션을 직접 사용하세요! Cloud Shell에서 바로, 모든 Chef 유틸리티 및 InSpec을 실행합니다. 다음에서 Chef 명령을 이용할 수 있습니다.
 
-* [chef](https://docs.chef.io/ctl_chef.html)
-* [kitchen](https://docs.chef.io/ctl_kitchen.html)
+* [요리사](https://docs.chef.io/ctl_chef.html)
+* [주방](https://docs.chef.io/ctl_kitchen.html)
 * [inspec](https://www.inspec.io/docs/reference/cli/)
 * [knife](https://docs.chef.io/knife.html)
 * [cookstyle](https://docs.chef.io/cookstyle.html)

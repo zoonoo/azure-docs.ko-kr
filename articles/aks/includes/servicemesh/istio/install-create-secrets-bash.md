@@ -4,15 +4,15 @@ ms.topic: include
 ms.date: 10/09/2019
 ms.author: pabouwer
 ms.openlocfilehash: e8b94b4adc39de81dbdf17dfd24fcff39532b482
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77593995"
 ---
-### <a name="add-grafana-secret"></a>Grafana 암호 추가
+### <a name="add-grafana-secret"></a>그라파나 시크릿 추가
 
-`REPLACE_WITH_YOUR_SECURE_PASSWORD` 토큰을 암호로 바꾸고 다음 명령을 실행 합니다.
+토큰을 `REPLACE_WITH_YOUR_SECURE_PASSWORD` 암호로 바꾸고 다음 명령을 실행합니다.
 
 ```bash
 GRAFANA_USERNAME=$(echo -n "grafana" | base64)
@@ -33,9 +33,9 @@ data:
 EOF
 ```
 
-### <a name="add-kiali-secret"></a>Kiali 암호 추가
+### <a name="add-kiali-secret"></a>키알리 시크릿 추가
 
-`REPLACE_WITH_YOUR_SECURE_PASSWORD` 토큰을 암호로 바꾸고 다음 명령을 실행 합니다.
+토큰을 `REPLACE_WITH_YOUR_SECURE_PASSWORD` 암호로 바꾸고 다음 명령을 실행합니다.
 
 ```bash
 KIALI_USERNAME=$(echo -n "kiali" | base64)

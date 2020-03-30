@@ -4,10 +4,10 @@ description: 분석 쿼리를 Power BI에서 표시할 수 있습니다.
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.openlocfilehash: 0e17ca6e07ec76f0a7a1cb04f7aa13619fb9970c
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77664000"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Application Insights에서 Power BI 공급
@@ -15,7 +15,7 @@ ms.locfileid: "77664000"
 
 Power BI에 Application Insights 데이터를 내보내는 세 가지 방법이 있습니다.
 
-* [**Analytics 쿼리 내보내기**](#export-analytics-queries). 이는 선호되는 방법입니다. 원하는 쿼리를 작성하여 Power BI에 내보냅니다. 이 쿼리를 다른 데이터와 함께 대시보드에 배치할 수 있습니다.
+* [**내보내기 분석 쿼리**](#export-analytics-queries). 이는 선호되는 방법입니다. 원하는 쿼리를 작성하여 Power BI에 내보냅니다. 이 쿼리를 다른 데이터와 함께 대시보드에 배치할 수 있습니다.
 * [**연속 내보내기 및 Azure Stream Analytics**](../../azure-monitor/app/export-stream-analytics.md). 이 방법은 데이터를 오랜 기간 저장하려는 경우에 유용합니다. 데이터를 오랜 기간 보존해야 할 필요가 없다면 분석 쿼리를 내보내는 방법을 사용하세요. 연속 내보내기 및 Stream Analytics의 경우 추가 설정 작업이 필요하고 스토리지 오버헤드가 추가로 발생합니다.
 * **Power BI 어댑터**. 일련의 차트가 미리 정의되어 있으나, 다른 원본에서 직접 쿼리를 추가할 수 있습니다.
 
@@ -28,7 +28,7 @@ Power BI에 Application Insights 데이터를 내보내는 세 가지 방법이 
 ### <a name="one-time-install-power-bi-desktop"></a>한 번: Power BI Desktop을 설치합니다.
 Application Insights 쿼리를 가져오려면 데스크톱 버전의 Power BI를 사용합니다. 그런 다음 또 웹이나 사용자의 Power BI 클라우드 작업 영역으로 게시할 수 있습니다. 
 
-[Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/)을 설치합니다.
+[전원 BI 데스크톱을](https://powerbi.microsoft.com/en-us/desktop/)설치합니다.
 
 ### <a name="export-an-analytics-query"></a>Analytics 쿼리 내보내기
 1. [Analytics 열기 및 쿼리 작성](../../azure-monitor/log-query/get-started-portal.md).
@@ -36,13 +36,13 @@ Application Insights 쿼리를 가져오려면 데스크톱 버전의 Power BI�
 3. **내보내기** 메뉴에서 **Power BI(M)** 를 선택합니다. 텍스트 파일을 저장합니다.
    
     ![내보내기 메뉴가 강조 표시된 Analytics 스크린샷](./media/export-power-bi/analytics-export-power-bi.png)
-4. Power BI Desktop을 열고 **데이터 가져오기** > **빈 쿼리**를 선택합니다. 그런 다음 쿼리 편집기의 **보기**에서 **고급 편집기**를 선택합니다.
+4. Power BI 데스크톱에서 데이터 > 빈 쿼리 **받기를****선택합니다.** 그런 다음 쿼리 편집기의 **보기**에서 **고급 편집기**를 선택합니다.
 
     내보낸 M 언어 스크립트를 고급 편집기에 붙여넣습니다.
 
     ![고급 편집기가 강조 표시된 Power BI Desktop 스크린샷](./media/export-power-bi/power-bi-import-analytics-query.png)
 
-5. Power BI가 Azure에 액세스할 수 있도록 자격 증명을 제공해야 할 수 있습니다. **조직 계정**을 사용하여 Microsoft 계정에 로그인합니다.
+5. Power BI가 Azure에 액세스할 수 있도록 자격 증명을 제공해야 할 수 있습니다. **조직 계정을** 사용하여 Microsoft 계정으로 로그인합니다.
    
     ![Power BI 쿼리 설정 대화 상자 스크린샷](./media/export-power-bi/power-bi-import-sign-in.png)
 
@@ -56,12 +56,12 @@ Application Insights 쿼리를 가져오려면 데스크톱 버전의 Power BI�
 8. 간격을 두고 보고서를 수동으로 새로 고치거나 옵션 페이지에서 예약된 새로 고침을 설정합니다.
 
 ### <a name="export-a-funnel"></a>깔때기 내보내기
-1. [깔때기를 만듭니다](../../azure-monitor/app/usage-funnels.md).
+1. [깔때기를 확인합니다.](../../azure-monitor/app/usage-funnels.md)
 2. **Power BI**를 선택합니다.
 
    ![Power BI 단추 스크린샷](./media/export-power-bi/button.png)
 
-3. Power BI Desktop을 열고 **데이터 가져오기** > **빈 쿼리**를 선택합니다. 그런 다음 쿼리 편집기의 **보기**에서 **고급 편집기**를 선택합니다.
+3. Power BI 데스크톱에서 데이터 > 빈 쿼리 **받기를****선택합니다.** 그런 다음 쿼리 편집기의 **보기**에서 **고급 편집기**를 선택합니다.
 
    ![쿼리 단추가 강조 표시된 Power BI Desktop 스크린샷](./media/export-power-bi/blankquery.png)
 
@@ -84,9 +84,9 @@ Application Insights 쿼리를 가져오려면 데스크톱 버전의 Power BI�
 ### <a name="unauthorized-401-or-403"></a>권한 없음(401 또는 403)
 새로 고침 토큰이 업데이트되지 않은 경우에 발생할 수 있습니다. 액세스 권한이 있는지 확인하려면 다음 단계를 시도합니다.
 
-1. Azure Portal에 로그인 하 고 리소스에 액세스할 수 있는지 확인 합니다.
+1. Azure 포털에 로그인하고 리소스에 액세스할 수 있는지 확인합니다.
 2. 대시보드에 대한 자격 증명 새로 고침을 시도합니다.
-3. PowerBI Desktop에서 캐시를 지워야 합니다.
+3. PowerBI 데스크톱에서 캐시를 지워보십시오.
 
 
    액세스 권한이 있고 자격 증명 새로 고침이 작동하지 않는 경우 지원 티켓을 여세요.
@@ -96,10 +96,10 @@ Application Insights 쿼리를 가져오려면 데스크톱 버전의 Power BI�
 
 분석 쿼리에서 들어오는 데이터 세트 감소가 요구 사항을 충족하지 않는 경우 더 큰 데이터 세트를 가져오도록 [API](https://dev.applicationinsights.io/documentation/overview) 사용을 고려해야 합니다. M 쿼리 내보내기를 변환하여 API를 사용하는 방법은 다음과 같습니다.
 
-1. [API 키](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID)를 만듭니다.
+1. API [키를](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID)만듭니다.
 2. Azure Resource Manager URL을 Application Insights API로 대체하여 Analytics에서 내보낸 Power BI M 스크립트를 업데이트합니다.
-   * **Https:\//management.azure.com/subscriptions/** 를 바꿉니다.
-   * , **https:\//api.applicationinsights.io/beta/apps/** ...
+   * **https 바꾸기:\//management.azure.com/subscriptions/...**
+   * 와 함께, **https:\//api.applicationinsights.io/beta/apps/...**
 3. 마지막으로 자격 증명을 기본으로 업데이트하고 API 키를 사용합니다.
 
 **기존 스크립트**
@@ -112,14 +112,14 @@ Application Insights 쿼리를 가져오려면 데스크톱 버전의 Power BI�
  ```
 
 ## <a name="about-sampling"></a>샘플링 정보
-애플리케이션에서 보낸 데이터의 양에 따라 원격 분석의 백분율만 보내는 적응 샘플링 기능을 사용할 수 있습니다. 이는 SDK 또는 수집에서 샘플링을 수동으로 설정한 경우에도 마찬가지입니다. [샘플링에 대해 자세히 알아봅니다](../../azure-monitor/app/sampling.md).
+애플리케이션에서 보낸 데이터의 양에 따라 원격 분석의 백분율만 보내는 적응 샘플링 기능을 사용할 수 있습니다. 이는 SDK 또는 수집에서 샘플링을 수동으로 설정한 경우에도 마찬가지입니다. [샘플링에 대해 자세히 알아보십시오.](../../azure-monitor/app/sampling.md)
 
 ## <a name="power-bi-adapter-deprecated"></a>Power BI 어댑터(사용되지 않음)
 이 방법은 원격 분석의 전체 대시보드를 만듭니다. 초기 데이터 세트는 미리 정의되어 있으나, 더 많은 데이터를 추가할 수 있습니다.
 
 ### <a name="get-the-adapter"></a>어댑터 가져오기
-1. [Power BI](https://app.powerbi.com/)에 로그인합니다.
-2. 왼쪽 아래 모퉁이](./media/export-power-bi/001.png)**서비스**에서 GetData 아이콘의 **데이터 가져오기** ![스크린샷을 엽니다.
+1. [Power BI에 로그인합니다.](https://app.powerbi.com/)
+2. **데이터 가져오기** ![왼쪽 하단 모서리의 데이터 가져오기 아이콘 스크린샷](./media/export-power-bi/001.png), **서비스**를 엽니다.
 
     ![Application Insights 데이터 원본에서 가져오기 스크린샷](./media/export-power-bi/002.png)
 

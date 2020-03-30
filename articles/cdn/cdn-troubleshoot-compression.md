@@ -3,8 +3,8 @@ title: Azure CDN의 파일 압축 문제 해결 | Microsoft Docs
 description: Azure CDN 파일 압축과 관련된 문제를 해결합니다.
 services: cdn
 documentationcenter: ''
-author: zhangmanling
-manager: erikre
+author: sohamnc
+manager: danielgi
 editor: ''
 ms.assetid: a6624e65-1a77-4486-b473-8d720ce28f8b
 ms.service: azure-cdn
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 5195dc3c47d2a4377147b2ef49b23bab6b3fee77
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: aff2dadee365fcdc7e14070714aa1d2cbba901ff
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67593331"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79476426"
 ---
 # <a name="troubleshooting-cdn-file-compression"></a>CDN 파일 압축 문제 해결
 이 문서는 [CDN 파일 압축](cdn-improve-performance.md)관련 문제를 해결하는 데 도움이 됩니다.
@@ -42,6 +42,7 @@ ms.locfileid: "67593331"
 * 요청된 콘텐츠에 압축을 사용할 수 없습니다.
 * 압축은 요청된 파일 형식에 대해 활성화되지 않습니다.
 * HTTP 요청에 유효한 압축 형식을 요청하는 헤더가 포함되지 않았습니다.
+* Origin에서 청크 콘텐츠를 전송합니다.
 
 ## <a name="troubleshooting-steps"></a>문제 해결 단계
 > [!TIP]
@@ -116,6 +117,6 @@ ms.locfileid: "67593331"
 ### <a name="check-the-request-at-the-origin-server-for-a-via-header"></a>원본 서버의 요청에서 **Via** 헤더 확인
 **Via** HTTP 헤더는 요청이 프록시 서버에 의해 전달되고 있음을 웹 서버에 알립니다.  기본적으로 Microsoft IIS 웹 서버는 요청에 **Via** 헤더가 들어 있으면 응답을 압축하지 않습니다.  이 동작을 재정의하려면 다음 단계를 수행합니다.
 
-* **IIS 6**: [설정 HcNoCompressionForProxies = "FALSE" IIS 메타 베이스 속성](/previous-versions/iis/6.0-sdk/ms525390(v=vs.90))
-* **IIS 7 이상**: [모두 설정 **noCompressionForHttp10** 하 고 **noCompressionForProxies** 서버 구성에서 False로](https://www.iis.net/configreference/system.webserver/httpcompression)
+* **IIS 6**: [IIS 메타베이스 속성에서 HcNoCompressionForProxies="FALSE" 설정](/previous-versions/iis/6.0-sdk/ms525390(v=vs.90))
+* **IIS 7 이상**: [서버 구성에서 **noCompressionForHttp10** 및 **noCompressionForProxies**를 둘 다 False로 설정](https://www.iis.net/configreference/system.webserver/httpcompression)
 

@@ -7,10 +7,10 @@ ms.author: cweining
 ms.date: 02/23/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 9c98cd5d3d4d76f9455e4c036aa32a4ead20cfff
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671718"
 ---
 # <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>Application Insights Profiler를 사용하여 ASP.NET Core Azure Linux 웹앱 프로파일링
@@ -47,7 +47,7 @@ ms.locfileid: "77671718"
     dotnet add package Microsoft.ApplicationInsights.Profiler.AspNetCore
     ```
 
-1. Program.cs에서 Application Insights를 사용 하도록 설정 합니다.
+1. Program.cs 애플리케이션 인사이트 사용:
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -56,7 +56,7 @@ ms.locfileid: "77671718"
             .UseStartup<Startup>();
     ```
     
-1. Startup.cs에서 Profiler를 사용 하도록 설정 합니다.
+1. Startup.cs 프로파일러 사용:
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -150,7 +150,7 @@ ms.locfileid: "77671718"
 
 ## <a name="add-application-insights-to-monitor-your-web-apps"></a>웹앱을 모니터링하는 Application Insights 추가
 
-1. [Application Insights 리소스를 만듭니다](./../../azure-monitor/app/create-new-resource.md ).
+1. [응용 프로그램 인사이트 리소스 만들기.](./../../azure-monitor/app/create-new-resource.md )
 
 2. Application Insights 리소스의 **iKey** 값을 복사하고 웹앱에서 다음 설정을 지정합니다.
 
@@ -170,8 +170,8 @@ ms.locfileid: "77671718"
 
 ## <a name="known-issues"></a>알려진 문제
 
-### <a name="profile-now-button-doesnt-work-for-linux-profiler"></a>Linux Profiler에 대해 지금 프로 파일링 단추가 작동 하지 않음
-Linux 버전의 App Insights profiler는 지금 프로필 단추를 사용 하 여 요청 시 프로 파일링을 아직 지원 하지 않습니다.
+### <a name="profile-now-button-doesnt-work-for-linux-profiler"></a>프로필 지금 버튼 리눅스 프로파일러에 대 한 작동 하지 않습니다.
+앱 인사이트 프로파일러의 Linux 버전은 아직 프로필 지금 버튼을 사용하여 주문형 프로파일링을 지원하지 않습니다.
 
 
 ## <a name="next-steps"></a>다음 단계

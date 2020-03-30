@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor 메트릭 데이터베이스에 클래식 Cloud Services 메트릭 보내기
-description: Azure 클래식 Cloud Services에 대 한 게스트 OS 성능 메트릭을 Azure Monitor 메트릭 저장소에 전송 하는 프로세스를 설명 합니다.
+title: Azure 모니터 메트릭 데이터베이스에 클래식 클라우드 서비스 메트릭 보내기
+description: Azure 클래식 클라우드 서비스에 대한 게스트 OS 성능 메트릭을 Azure 모니터 메트릭 저장소로 보내는 프로세스를 설명합니다.
 author: anirudhcavale
 services: azure-monitor
 ms.topic: conceptual
@@ -8,10 +8,10 @@ ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
 ms.openlocfilehash: 3b390ffa20cf3cf79b8fb6311ad05b2978bd5d24
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77655800"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-classic-cloud-services"></a>Azure Monitor 메트릭 저장소의 클래식 Cloud Services에 게스트 OS 메트릭 보내기 
@@ -30,11 +30,11 @@ Azure Monitor [진단 확장](diagnostics-extension-overview.md)을 사용하여
 
 - Azure 구독의 [서비스 관리자 또는 공동 관리자](../../cost-management-billing/manage/add-change-subscription-administrator.md)여야 합니다. 
 
-- 구독이 [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services)에 등록되어야 합니다. 
+- 구독은 [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services)에 등록해야 합니다. 
 
 - [Azure PowerShell](/powershell/azure) 또는 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)이 설치되어 있어야 합니다.
 
-- 클라우드 서비스 [는 사용자 지정 메트릭을 지 원하는 지역](metrics-custom-overview.md#supported-regions)에 있어야 합니다.
+- 클라우드 서비스는 [사용자 지정 메트릭을 지원하는 지역에](metrics-custom-overview.md#supported-regions)있어야 합니다.
 
 ## <a name="provision-a-cloud-service-and-storage-account"></a>클라우드 서비스 및 스토리지 계정 프로비전 
 
@@ -175,15 +175,15 @@ Set-AzureServiceDiagnosticsExtension -ServiceName <classicCloudServiceName> -Sto
 
    ![Azure Portal의 메트릭](./media/collect-custom-metrics-guestos-vm-cloud-service-classic/navigate-metrics.png)
 
-2. 왼쪽 메뉴에서 **모니터**를 선택합니다.
+2. 왼쪽 메뉴에서 **모니터를 선택합니다.**
 
 3. **모니터** 블레이드에서 **메트릭 미리 보기** 탭을 선택합니다.
 
 4. 리소스 드롭다운 메뉴에서 클래식 클라우드 서비스를 선택합니다.
 
-5. 네임스페이스 드롭다운 메뉴에서 **azure.vm.windows.guest**를 선택합니다. 
+5. 네임스페이스 드롭다운 메뉴에서 **azure.vm.windows.guest를**선택합니다. 
 
-6. 메트릭 드롭다운 메뉴에서 **Memory\Committed Bytes in Use**를 선택합니다. 
+6. 메트릭 드롭다운 메뉴에서 사용 **중 메모리\커밋된 바이트를**선택합니다. 
 
 차원 필터링 및 분할 기능을 사용하여 특정 역할 또는 역할 인스턴스에서 사용하는 총 메모리를 볼 수 있습니다. 
 

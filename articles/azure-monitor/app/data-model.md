@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 10/14/2019
 ms.reviewer: sergkanz
 ms.openlocfilehash: 94013a12e1cf48a8007fce2547c200d82a657b71
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671837"
 ---
 # <a name="application-insights-telemetry-data-model"></a>Application Insights 원격 분석 데이터 모델
@@ -38,7 +38,7 @@ Application Insights는 사용자 지정 원격 분석을 위한 데이터 형�
 * [이벤트](data-model-event-telemetry.md) - 일반적으로 사용 패턴을 분석하기 위해 서비스와 사용자 간의 상호 작용을 캡처하는 데 사용됩니다.
 * [메트릭](data-model-metric-telemetry.md) - 정기적인 스칼라 측정을 보고하는 데 사용됩니다.
 
-모든 원격 분석 항목은 응용 프로그램 버전 또는 사용자 세션 id와 같은 [컨텍스트 정보](data-model-context.md) 를 정의할 수 있습니다. 컨텍스트는 특정 시나리오를 차단 해제 하는 강력한 형식의 필드 집합입니다. 애플리케이션 버전이 올바르게 초기화된 경우 Application Insights는 재배포와 상호 관련된 애플리케이션 동작에서 새 패턴을 검색할 수 있습니다. 세션 ID를 사용하여 가동 중단 또는 문제가 사용자에게 미치는 영향을 계산할 수 있습니다. 실패한 특정 종속성, 오류 추적 또는 중요한 예외에 대한 세션 ID 값의 고유 개수를 계산하면 영향을 쉽게 이해할 수 있습니다.
+모든 원격 분석 항목은 응용 프로그램 버전 또는 사용자 세션 ID와 같은 [컨텍스트 정보를](data-model-context.md) 정의할 수 있습니다. 컨텍스트는 특정 시나리오를 차단 해제하는 강력하게 형식이 설정된 필드 집합입니다. 애플리케이션 버전이 올바르게 초기화된 경우 Application Insights는 재배포와 상호 관련된 애플리케이션 동작에서 새 패턴을 검색할 수 있습니다. 세션 ID를 사용하여 가동 중단 또는 문제가 사용자에게 미치는 영향을 계산할 수 있습니다. 실패한 특정 종속성, 오류 추적 또는 중요한 예외에 대한 세션 ID 값의 고유 개수를 계산하면 영향을 쉽게 이해할 수 있습니다.
 
 Application Insights 원격 분석 모델은 원격 분석과 해당 분석에 속하는 작업 간의 [상관 관계를 지정](../../azure-monitor/app/correlation.md)하는 방법을 정의합니다. 예를 들어 요청은 SQL Database 호출을 수행하고 기록된 진단 정보를 작성할 수 있습니다. 요청 원격 분석과 다시 연결할 해당 원격 분석 항목에 대한 상관 관계 컨텍스트를 설정할 수 있습니다.
 
@@ -50,7 +50,7 @@ Application Insights 데이터 모델은 애플리케이션 원격 분석을 모
 
 ## <a name="next-steps"></a>다음 단계
 
-- [사용자 지정 원격 분석을 작성합니다](../../azure-monitor/app/api-custom-events-metrics.md).
+- [사용자 지정 원격 분석 작성](../../azure-monitor/app/api-custom-events-metrics.md)
 - [원격 분석을 확장 및 필터링](../../azure-monitor/app/api-filtering-sampling.md)하는 방법을 알아봅니다.
 - [샘플링](../../azure-monitor/app/sampling.md)을 사용하여 데이터 모델을 기준으로 하는 원격 분석의 양을 최소화합니다.
 - Application Insights에서 지원되는 [플랫폼](../../azure-monitor/app/platforms.md)을 확인합니다.

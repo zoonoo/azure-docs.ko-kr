@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory를 사용 하 여 Batch Management 솔루션 인증
-description: Azure Active Directory를 사용 하 여 Batch 관리 .NET 라이브러리를 사용 하는 응용 프로그램에서 인증 하는 방법을 알아봅니다.
+title: Azure Active Directory를 사용하여 일괄 처리 관리 솔루션 인증
+description: Azure Active Directory를 사용하여 일괄 처리 관리 .NET 라이브러리를 사용하는 응용 프로그램에서 인증합니다.
 services: batch
 documentationcenter: .net
 author: LauraBrenner
@@ -14,28 +14,28 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/27/2017
 ms.author: labrenne
-ms.openlocfilehash: f1f47df841b61599b6aed8cd4d6715decd27a288
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 5c217971bd213c97a2ee31a0a1f513b601d14df9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77025982"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79472982"
 ---
 # <a name="authenticate-batch-management-solutions-with-active-directory"></a>Active Directory를 사용하여 Batch Management 솔루션 인증
 
-Azure Batch Management service를 호출 하는 응용 프로그램은 [Azure Active Directory][aad_about] (Azure AD)를 사용 하 여 인증 합니다. Azure AD는 Microsoft의 다중 테넌트 클라우드 기반 디렉터리 및 ID 관리 서비스입니다. Azure에서는 해당 고객, 서비스 관리자 및 조직 사용자의 인증을 위해 Azure AD를 자체적으로 사용합니다.
+Azure Batch Management 서비스를 호출하는 애플리케이션은 [Azure Active Directory][aad_about](Azure AD)로 인증합니다. Azure AD는 Microsoft의 다중 테넌트 클라우드 기반 디렉터리 및 ID 관리 서비스입니다. Azure에서는 해당 고객, 서비스 관리자 및 조직 사용자의 인증을 위해 Azure AD를 자체적으로 사용합니다.
 
-Batch 관리 .NET 라이브러리는 배치 계정, 계정 키, 애플리케이션 및 애플리케이션 패키지를 사용하기 위한 종류를 표시합니다. Batch 관리 .NET 라이브러리는 Azure 리소스 공급자 클라이언트 이며 이러한 리소스를 프로그래밍 방식으로 관리 하는 [Azure Resource Manager][resman_overview] 함께 사용 됩니다. Azure AD는 Batch 관리 .NET 라이브러리를 비롯 하 여 Azure 리소스 공급자 클라이언트를 통해 수행 된 요청을 인증 하 고 [Azure Resource Manager][resman_overview]를 통해 인증 해야 합니다.
+Batch 관리 .NET 라이브러리는 배치 계정, 계정 키, 애플리케이션 및 애플리케이션 패키지를 사용하기 위한 종류를 표시합니다. Batch 관리 .NET 라이브러리는 Azure 리소스 공급자 클라이언트이며 [Azure Resource Manager][resman_overview]와 함께 프로그래밍 방식으로 해당 리소스를 관리하는 데 사용됩니다. Azure AD는 Batch Management .NET 라이브러리를 비롯한 Azure 리소스 공급자 클라이언트 및 [Azure Resource Manager][resman_overview]를 통해 만들어지는 요청을 인증하는 데 필요합니다.
 
-이 문서에서는 Batch Management .NET 라이브러리를 사용하는 애플리케이션에서 Azure AD를 사용하여 인증하는 방법을 살펴봅니다. Azure AD를 사용하여 통합 인증을 통해 구독 관리자 또는 공동 관리자를 인증하는 방법을 보여 줍니다. GitHub에서 사용할 수 있는 [accountmanagement][acct_mgmt_sample] 샘플 프로젝트를 사용 하 여 Batch 관리 .net 라이브러리와 함께 Azure AD를 사용 하는 과정을 안내 합니다.
+이 문서에서는 Batch Management .NET 라이브러리를 사용하는 애플리케이션에서 Azure AD를 사용하여 인증하는 방법을 살펴봅니다. Azure AD를 사용하여 통합 인증을 통해 구독 관리자 또는 공동 관리자를 인증하는 방법을 보여 줍니다. GitHub에서 사용할 수 있는 [AccountManagement][acct_mgmt_sample] 샘플 프로젝트에서 Batch Management .NET 라이브러리와 함께 Azure AD를 사용하도록 단계별로 안내합니다.
 
 Batch 관리 .NET 라이브러리 및 AccountManagement 샘플을 사용하는 방법에 대한 자세한 내용은 [.NET용 Batch 관리 클라이언트 라이브러리를 사용하여 배치 계정 및 할당량 관리](batch-management-dotnet.md)를 참조하세요.
 
 ## <a name="register-your-application-with-azure-ad"></a>Azure AD에 애플리케이션 등록
 
-ADAL (Azure [Active Directory 인증 라이브러리][aad_adal] )은 응용 프로그램 내에서 사용할 수 있도록 azure AD에 대 한 프로그래밍 인터페이스를 제공 합니다. 애플리케이션에서 ADAL을 호출하려면 Azure AD 테넌트에 애플리케이션을 등록해야 합니다. 애플리케이션을 등록할 때 Azure AD 테넌트 내에서 이름을 포함하여 애플리케이션에 대한 Azure AD 정보를 제공합니다. 그런 다음, Azure AD는 런타임 시 애플리케이션을 Azure AD와 연결하는 데 사용하는 애플리케이션 ID를 제공합니다. 애플리케이션 ID에 대한 자세한 내용은 [Azure Active Directory의 애플리케이션 및 서비스 주체 개체](../active-directory/develop/app-objects-and-service-principals.md)를 참조하세요.
+Azure [Active Directory 인증 라이브러리][aad_adal](ADAL)는 애플리케이션 내에서 사용하기 위해 Azure AD에 프로그래밍 방식 인터페이스를 제공합니다. 애플리케이션에서 ADAL을 호출하려면 Azure AD 테넌트에 애플리케이션을 등록해야 합니다. 애플리케이션을 등록할 때 Azure AD 테넌트 내에서 이름을 포함하여 애플리케이션에 대한 Azure AD 정보를 제공합니다. 그런 다음, Azure AD는 런타임 시 애플리케이션을 Azure AD와 연결하는 데 사용하는 애플리케이션 ID를 제공합니다. 애플리케이션 ID에 대한 자세한 내용은 [Azure Active Directory의 애플리케이션 및 서비스 주체 개체](../active-directory/develop/app-objects-and-service-principals.md)를 참조하세요.
 
-AccountManagement 샘플 응용 프로그램을 등록 하려면 [Azure Active Directory와 응용 프로그램 통합][aad_integrate]에서 [응용 프로그램 추가](../active-directory/develop/quickstart-register-app.md) 섹션의 단계를 따르세요. 애플리케이션 유형으로 **네이티브 클라이언트 애플리케이션**을 지정합니다. **리디렉션 URI**의 업계 표준 OAuth 2.0 URI는 `urn:ietf:wg:oauth:2.0:oob`입니다. 그러나 실제 엔드포인트일 필요가 없으므로 `http://myaccountmanagementsample`리디렉션 URI**에 대한 유효한 URI(예:** )를 지정할 수 있습니다.
+AccountManagement 샘플 애플리케이션을 등록하려면 [Azure Active Directory와 애플리케이션 통합][aad_integrate]에서 [애플리케이션 추가](../active-directory/develop/quickstart-register-app.md) 섹션의 단계를 따릅니다. 애플리케이션 유형으로 **네이티브 클라이언트 애플리케이션**을 지정합니다. **리디렉션 URI**의 업계 표준 OAuth 2.0 URI는 `urn:ietf:wg:oauth:2.0:oob`입니다. 그러나 실제 엔드포인트일 필요가 없으므로 `http://myaccountmanagementsample`리디렉션 URI**에 대한 유효한 URI(예: **)를 지정할 수 있습니다.
 
 ![](./media/batch-aad-auth-management/app-registration-management-plane.png)
 
@@ -91,9 +91,9 @@ private const string ResourceUri = "https://management.core.windows.net/";
 
 ```csharp
 // Specify the unique identifier (the "Client ID") for your application. This is required so that your
-// native client application (i.e. this sample) can access the Microsoft Azure AD Graph API. For information
-// about registering an application in Azure Active Directory, please see "Adding an Application" here:
-// https://azure.microsoft.com/documentation/articles/active-directory-integrating-applications/
+// native client application (i.e. this sample) can access the Microsoft Graph API. For information
+// about registering an application in Azure Active Directory, please see "Register an application with the Microsoft identity platform" here:
+// https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app
 private const string ClientId = "<application-id>";
 ```
 또한 등록 프로세스 중 지정한 리디렉션 URI를 복사합니다. 코드에 지정된 리디렉션 URI는 애플리케이션을 등록할 때 제공한 리디렉션 URI와 일치해야 합니다.
@@ -124,17 +124,17 @@ AuthenticationResult authResult = authContext.AcquireToken(ResourceUri,
 
 ## <a name="next-steps"></a>다음 단계
 
-[Accountmanagement 샘플 응용 프로그램][acct_mgmt_sample]을 실행 하는 방법에 대 한 자세한 내용은 [.Net 용 batch 관리 클라이언트 라이브러리를 사용 하 여 batch 계정 및 할당량 관리](batch-management-dotnet.md)를 참조 하세요.
+[AccountManagement 샘플 애플리케이션][acct_mgmt_sample] 실행에 대한 자세한 내용은 [.NET용 Batch 관리 클라이언트 라이브러리를 사용하여 배치 계정 및 할당량 관리](batch-management-dotnet.md)를 참조하세요.
 
 Azure AD에 대한 자세한 내용은 [Azure Active Directory 설명서](https://docs.microsoft.com/azure/active-directory/)를 참조하세요. ADAL을 사용하는 방법을 보여 주는 자세한 예제는 [Azure 코드 샘플](https://azure.microsoft.com/resources/samples/?service=active-directory) 라이브러리에서 사용할 수 있습니다.
 
 Azure AD를 사용하여 Batch 서비스 애플리케이션을 인증하려면 [Active Directory를 사용하여 Batch 서비스 솔루션 인증](batch-aad-auth.md)을 참조하세요. 
 
 
-[aad_about]:../active-directory/fundamentals/active-directory-whatis.md "Azure Active Directory란?"
+[aad_about]:../active-directory/fundamentals/active-directory-whatis.md "Azure Active 디렉터리란?"
 [aad_adal]: ../active-directory/active-directory-authentication-libraries.md
-[aad_auth_scenarios]:../active-directory/develop/authentication-scenarios.md "Azure AD의 인증 시나리오"
-[aad_integrate]: ../active-directory/active-directory-integrating-applications.md "Azure Active Directory와 애플리케이션 통합"
+[aad_auth_scenarios]:../active-directory/develop/authentication-scenarios.md "Azure AD에 대한 인증 시나리오"
+[aad_integrate]: ../active-directory/active-directory-integrating-applications.md "응용 프로그램을 Azure Active 디렉터리와 통합"
 [acct_mgmt_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/AccountManagement
 [azure_portal]: https://portal.azure.com
 [resman_overview]: ../azure-resource-manager/management/overview.md

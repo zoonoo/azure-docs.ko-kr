@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/21/2018
 ms.author: mazha
 ms.openlocfilehash: 41f2d4540f665137d34d262546cdc1a2edfbae3a
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77608745"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
@@ -19,8 +19,8 @@ CDN 관리 코드를 작성하려면 먼저 코드가 Azure Resource Manager와 
 * 리소스 그룹에 권한을 적용하여 Azure AD 테넌트의 권한이 있는 사용자만 CDN 프로필과 상호 작용하게 만들기
 
 ### <a name="creating-the-resource-group"></a>리소스 그룹 만들기
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. **리소스 만들기**를 클릭합니다.
+1. [Azure 포털에](https://portal.azure.com)로그인합니다.
+2. **리소스 만들기를 클릭합니다.**
 3. **리소스 그룹**을 검색하고 리소스 그룹 창에서 **만들기**를 클릭합니다.
 
     ![새 리소스 그룹 만들기](./media/cdn-app-dev-prep/cdn-new-rg-1-include.png)
@@ -39,9 +39,9 @@ Azure Active Directory 애플리케이션 만들기를 비롯하여 여러 반�
 > [!IMPORTANT]
 > [연결된 자습서](../articles/active-directory/develop/howto-create-service-principal-portal.md)의 모든 단계를 따르세요.  설명한 대로 완료하는 것이 *중요합니다*.  나중에 이 정보가 필요하므로 **테넌트 ID**, **테넌트 도메인 이름**(사용자 지정 도메인을 지정하지 않을 경우, 일반적으로는 *.onmicrosoft.com* 도메인), **클라이언트 ID**, **클라이언트 인증 키**를 메모합니다.  **클라이언트 ID**와 **클라이언트 인증 키**를 신중하게 보호해야 합니다. 이 자격 증명을 사용하는 사람은 누구나 서비스 주체로 작업을 실행할 수 있습니다.
 >
-> 다중 테넌트 애플리케이션 구성 단계에 도달하면 **아니요**를 선택합니다.
+> 다중 테넌트 응용 프로그램 구성이라는 단계에 도달하면 **아니요를 선택합니다.**
 >
-> [역할에 애플리케이션 할당](../articles/active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application) 단계에 도달하면 *독자* 역할 대신 앞서 만든 리소스 그룹 **CdnConsoleTutorial**을 사용하여 **CDN 프로필 기여자** 역할을 할당합니다.  리소스 그룹에서 애플리케이션에 **CDN 프로필 참가자** 역할을 할당한 후에 이 자습서로 돌아옵니다. 
+> [역할에 애플리케이션 할당](../articles/active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application) 단계에 도달하면 **독자** 역할 대신 앞서 만든 리소스 그룹 *CdnConsoleTutorial*을 사용하여 **CDN 프로필 기여자** 역할을 할당합니다.  리소스 그룹에서 애플리케이션에 **CDN 프로필 참가자** 역할을 할당한 후에 이 자습서로 돌아옵니다. 
 >
 >
 
@@ -62,6 +62,6 @@ Azure Active Directory 애플리케이션 만들기를 비롯하여 여러 반�
     ![네이티브 애플리케이션](./media/cdn-app-dev-prep/cdn-native-application-include.png)
 2. 다음 페이지에서 **URI 리디렉션** 메시지가 표시됩니다.  이 URI은 유효성을 검사하지 않지만, 입력한 내용을 기억해야 합니다. 나중에 필요합니다.
 3. **클라이언트 인증 키**를 만들 필요가 없습니다.
-4. 서비스 주체를 **CDN 프로필 참가자** 역할에 할당하는 대신 개별 사용자 또는 그룹을 할당합니다.  이 예제에서는 *CDN 데모 사용자* 를 **CDN 프로필 참가자** 역할에 할당한 것을 알 수 있습니다.  
+4. 서비스 주체를 **CDN 프로필 참가자** 역할에 할당하는 대신 개별 사용자 또는 그룹을 할당합니다.  이 예제에서는 *CDN 데모 사용자를 CDN* **프로필 기여자** 역할에 할당한 것을 확인할 수 있습니다.  
 
     ![개별 사용자 액세스](./media/cdn-app-dev-prep/cdn-aad-user-include.png)

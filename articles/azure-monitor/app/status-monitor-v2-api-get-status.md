@@ -1,35 +1,35 @@
 ---
-title: Azure 애플리케이션 Insights 에이전트 API 참조
-description: 에이전트 API 참조를 Application Insights 합니다. Get-ApplicationInsightsMonitoringStatus. 웹 사이트를 다시 배포 하지 않고 웹 사이트 성능을 모니터링 합니다. VM 또는 Azure의 온-프레미스에서 호스트되는 ASP.NET 웹앱으로 작업합니다.
+title: Azure 응용 프로그램 인사이트 에이전트 API 참조
+description: 응용 프로그램 인사이트 에이전트 API 참조. 응용 프로그램 인사이트 모니터링 상태 받기. 웹 사이트를 다시 배포하지 않고 웹 사이트 성능을 모니터링합니다. VM 또는 Azure의 온-프레미스에서 호스트되는 ASP.NET 웹앱으로 작업합니다.
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
 ms.openlocfilehash: 159dab4a228c822ef62c45c9ccceff638a9bea45
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671259"
 ---
-# <a name="application-insights-agent-api-get-applicationinsightsmonitoringstatus"></a>Application Insights 에이전트 API: ApplicationInsightsMonitoringStatus
+# <a name="application-insights-agent-api-get-applicationinsightsmonitoringstatus"></a>애플리케이션 인사이트 에이전트 API: 애플리케이션 인사이트 모니터링 상태 얻기
 
-이 문서에서는 [Az. ApplicationMonitor PowerShell 모듈](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/)의 멤버인 cmdlet에 대해 설명 합니다.
+이 문서에서는 [Az.ApplicationMonitor PowerShell 모듈의](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/)구성원인 cmdlet에 대해 설명합니다.
 
-## <a name="description"></a>Description
+## <a name="description"></a>설명
 
-이 cmdlet은 상태 모니터에 대 한 문제 해결 정보를 제공 합니다.
-이 cmdlet을 사용 하 여 PowerShell 모듈의 모니터링 상태와 버전을 조사 하 고 실행 중인 프로세스를 검사할 수 있습니다.
-이 cmdlet은 버전 정보 및 모니터링에 필요한 키 파일에 대 한 정보를 보고 합니다.
+이 cmdlet은 상태 모니터에 대한 문제 해결 정보를 제공합니다.
+이 cmdlet을 사용하여 모니터링 상태, PowerShell 모듈 버전을 조사하고 실행 중인 프로세스를 검사합니다.
+이 cmdlet은 모니터링에 필요한 주요 파일에 대한 버전 정보와 정보를 보고합니다.
 
 > [!IMPORTANT] 
-> 이 cmdlet을 사용 하려면 관리자 권한이 있는 PowerShell 세션이 있어야 합니다.
+> 이 cmdlet에는 관리자 권한이 있는 PowerShell 세션이 필요합니다.
 
 ## <a name="examples"></a>예
 
 ### <a name="example-application-status"></a>예: 응용 프로그램 상태
 
-명령 `Get-ApplicationInsightsMonitoringStatus`를 실행 하 여 웹 사이트의 모니터링 상태를 표시 합니다.
+명령을 `Get-ApplicationInsightsMonitoringStatus` 실행하여 웹 사이트의 모니터링 상태를 표시합니다.
 
 ```
 PS C:\Windows\system32> Get-ApplicationInsightsMonitoringStatus
@@ -65,17 +65,17 @@ ProcessId              : 5184
 AppAlreadyInstrumented : true
 ```
 
-이 예제에서는
-- **컴퓨터 식별자** 는 서버를 고유 하 게 식별 하는 데 사용 되는 익명 ID입니다. 지원 요청을 만들 경우 서버에 대 한 로그를 찾을 수 있는이 ID가 필요 합니다.
-- IIS에서 **기본 웹 사이트가** 중지 되었습니다.
-- **DemoWebApp111** 가 IIS에서 시작 되었지만 요청을 받지 못했습니다. 이 보고서는 실행 중인 프로세스가 없음을 보여 줍니다 (ProcessId: 찾을 수 없음).
-- **DemoWebApp222** 이 실행 중 이며 모니터링 되 고 있습니다 (계측 됨: true). 사용자 구성에 따라이 사이트에 대해 xxxxxxxxx123 계측 키가 일치 했습니다.
-- Application Insights SDK를 사용 하 여 **DemoWebApp333** 을 수동으로 계측 했습니다. SDK를 검색 상태 모니터이 사이트를 모니터링 하지 않습니다.
+이 예제에서는;
+- **컴퓨터 식별자는** 서버를 고유하게 식별하는 데 사용되는 익명 ID입니다. 지원 요청을 만드는 경우 서버에 대한 로그를 찾으려면 이 ID가 필요합니다.
+- **IIS에서 기본 웹 사이트가** 중지됨
+- **데모웹앱111은** IIS에서 시작되었지만 요청을 받지 못했습니다. 이 보고서는 실행 중인 프로세스가 없음을 보여 주며(ProcessId: 찾을 수 없음).
+- **DemoWebApp22가** 실행 중이며 모니터링중입니다(계측: true). 사용자 구성에 따라 계측 키 xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx123이 이 사이트에 일치했습니다.
+- **DemoWebApp333은** 애플리케이션 인사이트 SDK를 사용하여 수동으로 계측되었습니다. 상태 모니터가 SDK를 감지했으며 이 사이트를 모니터링하지 않습니다.
 
 
 ### <a name="example-powershell-module-information"></a>예: PowerShell 모듈 정보
 
-명령 `Get-ApplicationInsightsMonitoringStatus -PowerShellModule`를 실행 하 여 현재 모듈에 대 한 정보를 표시 합니다.
+명령을 `Get-ApplicationInsightsMonitoringStatus -PowerShellModule` 실행하여 현재 모듈에 대한 정보를 표시합니다.
 
 ```
 PS C:\> Get-ApplicationInsightsMonitoringStatus -PowerShellModule
@@ -129,9 +129,9 @@ C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\Runtime
 
 ### <a name="example-runtime-status"></a>예: 런타임 상태
 
-계측 된 컴퓨터에서 프로세스를 검사 하 여 모든 Dll이 로드 되었는지 확인할 수 있습니다. 모니터링이 작동 하는 경우 12 개 이상의 Dll을 로드 해야 합니다.
+계측된 컴퓨터에서 프로세스를 검사하여 모든 DLL이 로드되었는지 확인할 수 있습니다. 모니터링이 작동하는 경우 최소 12개의 DLL을 로드해야 합니다.
 
-명령 `Get-ApplicationInsightsMonitoringStatus -InspectProcess`를 실행 합니다.
+명령 `Get-ApplicationInsightsMonitoringStatus -InspectProcess`실행 :
 
 
 ```
@@ -169,33 +169,33 @@ listdlls64.exe -accepteula w3wp
 
 ### <a name="no-parameters"></a>(매개 변수 없음)
 
-기본적으로이 cmdlet은 웹 응용 프로그램의 모니터링 상태를 보고 합니다.
-응용 프로그램이 성공적으로 계측 되었는지 검토 하려면이 옵션을 사용 합니다.
-사이트와 일치 하는 계측 키를 검토할 수도 있습니다.
+기본적으로 이 cmdlet은 웹 응용 프로그램의 모니터링 상태를 보고합니다.
+이 옵션을 사용하여 응용 프로그램이 성공적으로 계측되었는지 검토합니다.
+사이트에 일치시킨 계측 키를 검토할 수도 있습니다.
 
 
-### <a name="-powershellmodule"></a>-PowerShellModule
-**선택 사항**. 이 스위치를 사용 하 여 모니터링에 필요한 Dll의 버전 번호와 경로를 보고 합니다.
-Application Insights SDK를 포함 하 여 DLL의 버전을 식별 해야 하는 경우이 옵션을 사용 합니다.
+### <a name="-powershellmodule"></a>- 파워쉘모듈
+**선택 사항입니다**. 이 스위치를 사용하여 모니터링에 필요한 DLL의 버전 번호와 경로를 보고합니다.
+응용 프로그램 인사이트 SDK를 포함하여 DLL의 버전을 식별해야 하는 경우 이 옵션을 사용합니다.
 
-### <a name="-inspectprocess"></a>-InspectProcess
+### <a name="-inspectprocess"></a>- 검사 과정
 
-**선택 사항**. 이 스위치를 사용 하 여 IIS가 실행 중인지 여부를 보고 합니다.
-또한 필요한 Dll이 IIS 런타임에 로드 되는지 확인 하기 위해 외부 도구도 다운로드 합니다.
+**선택 사항입니다**. 이 스위치를 사용하여 IIS가 실행 되고 있는지 여부를 보고합니다.
+또한 외부 도구를 다운로드하여 필요한 DLL이 IIS 런타임에 로드되는지 확인합니다.
 
 
-어떤 이유로 든이 프로세스가 실패 하는 경우 다음 명령을 수동으로 실행할 수 있습니다.
-- iisreset.exe /status
-- [handle64](https://docs.microsoft.com/sysinternals/downloads/handle) -p w3wp.exe | findstr/I "InstrumentationEngine AI. ApplicationInsights"
-- [listdlls64](https://docs.microsoft.com/sysinternals/downloads/listdlls) w3wp.exe | findstr/I "InstrumentationEngine AI ApplicationInsights"
+어떤 이유로든 이 프로세스가 실패하면 다음 명령을 수동으로 실행할 수 있습니다.
+- 아이스레셋.exe/상태
+- [핸들64.exe](https://docs.microsoft.com/sysinternals/downloads/handle) -p w3wp | findstr /I "계측 엔진 AI. 애플리케이션인사이트"
+- [listdlls64.exe](https://docs.microsoft.com/sysinternals/downloads/listdlls) w3wp | findstr /I "계측 엔진 AI 애플리케이션인사이트"
 
 
 ### <a name="-force"></a>-Force
 
-**선택 사항**. InspectProcess에만 사용 됩니다. 이 스위치를 사용 하 여 추가 도구가 다운로드 되기 전에 표시 되는 사용자 프롬프트를 건너뛸 수 있습니다.
+**선택 사항입니다**. 검사 프로세스에만 사용됩니다. 이 스위치를 사용하여 추가 도구를 다운로드하기 전에 나타나는 사용자 프롬프트를 건너뜁니다.
 
 
 ## <a name="next-steps"></a>다음 단계
 
- Application Insights 에이전트를 사용 하 여 더 많은 작업 수행:
- - 가이드를 사용 하 여 Application Insights 에이전트 [문제를 해결할](status-monitor-v2-troubleshoot.md) 수 있습니다.
+ 애플리케이션 인사이트 에이전트로 더 많은 작업을 수행합니다.
+ - 가이드를 사용하여 애플리케이션 인사이트 에이전트 [문제를 해결하세요.](status-monitor-v2-troubleshoot.md)

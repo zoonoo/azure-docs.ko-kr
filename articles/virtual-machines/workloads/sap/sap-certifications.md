@@ -17,10 +17,10 @@ ms.date: 02/13/2020
 ms.author: juergent
 ms.custom: ''
 ms.openlocfilehash: 43fc2e9369b9d11b1ac0205beddea01b633fb633
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77598377"
 ---
 # <a name="sap-certifications-and-configurations-running-on-microsoft-azure"></a>Microsoft Azure에서 실행되는 SAP 인증 및 구성
@@ -36,10 +36,10 @@ SAP와 Microsoft는 고객에게 상호 혜택을 주는 강력한 파트너 관
 | --- | --- | --- |
 | SAP HANA Developer Edition(SQLODBC, ODBO(Windows 전용), ODBC, JDBC 드라이버로 구성된 HANA Client 소프트웨어, HANA Studio, HANA Database 포함) | Red Hat Enterprise Linux, SUSE Linux Enterprise | D 시리즈 VM 제품군 |
 | HANA의 Business One | SUSE Linux Enterprise | DS14_v2, M32ts, M32ls, M64ls, M64s <br /> [SAP HANA 인증 IaaS 플랫폼](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure%23SAP%20Business%20One) |
-| SAP S/4 HANA | Red Hat Enterprise Linux, SUSE Linux Enterprise | GS5의 제어되는 가용성 M64s, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, M208s_v2, M208ms_v2, M416s_v2, M416ms_v2에 대 한 완전 한 지원 <br /> Azure의 SAP HANA (대규모 인스턴스) [SAP HANA 인증 IaaS 플랫폼](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) |
-| Suite on HANA, OLTP | Red Hat Enterprise Linux, SUSE Linux Enterprise | M64s, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, M208s_v2, M208ms_v2, <br /> Azure (Large instances)의 M416s_v2, M416ms_v2, SAP HANA [인증 된 IaaS 플랫폼 SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) |
-| HANA Enterprise for BW, OLAP | Red Hat Enterprise Linux, SUSE Linux Enterprise | GS5, M64s, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, M208s_v2, M208ms_v2, <br /> Azure (Large instances)의 M416s_v2, M416ms_v2, SAP HANA [인증 된 IaaS 플랫폼 SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) |
-| SAP BW/4 HANA | Red Hat Enterprise Linux, SUSE Linux Enterprise | GS5, M64s, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, M208s_v2, M208ms_v2, <br /> Azure (Large instances)에서 M416s_v2, M416ms_v2, SAP HANA <br /> [SAP HANA 인증 IaaS 플랫폼](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) |
+| SAP S/4 HANA | Red Hat Enterprise Linux, SUSE Linux Enterprise | GS5의 제어되는 가용성 Full support for M64s, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, M208s_v2, M208ms_v2, M416s_v2, M416ms_v2, <br /> Azure의 SAP HANA (대규모 인스턴스) [SAP HANA 인증 IaaS 플랫폼](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) |
+| Suite on HANA, OLTP | Red Hat Enterprise Linux, SUSE Linux Enterprise | M64s, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, M208s_v2, M208ms_v2, <br /> M416s_v2, M416ms_v2, SAP HANA 온 Azure(대용량 인스턴스) [SAP HANA 인증 IaaS 플랫폼](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) |
+| HANA Enterprise for BW, OLAP | Red Hat Enterprise Linux, SUSE Linux Enterprise | GS5, M64s, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, M208s_v2, M208ms_v2, <br /> M416s_v2, M416ms_v2, SAP HANA 온 Azure(대용량 인스턴스) [SAP HANA 인증 IaaS 플랫폼](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) |
+| SAP BW/4 HANA | Red Hat Enterprise Linux, SUSE Linux Enterprise | GS5, M64s, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, M208s_v2, M208ms_v2, <br /> M416s_v2, M416ms_v2, Azure에서 SAP HANA(대규모 인스턴스) <br /> [SAP HANA 인증 IaaS 플랫폼](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) |
 
 SAP는 '클러스터링'이라는 용어를 고가용성 '클러스터링'이라는 의미가 아닌 [SAP HANA 인증 IaaS 플랫폼](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)의 '스케일 아웃'과 동일한 의미로 사용합니다.
 
@@ -52,10 +52,10 @@ Microsoft Azure는 다음과 같은 SAP 제품에서 인증되었고 Microsoft�
 
 | SAP 제품 | 게스트 OS | RDBMS | Virtual Machine 유형 |
 | --- | --- | --- | --- |
-| SAP Business Suite 소프트웨어 | Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux, Oracle Linux |SQL Server, Oracle(Windows 및 Oracle Linux만 해당), DB2, SAP ASE |A5에서 A11, D14, DS11, DS14, DS11_v2 DS15_v2, GS1 to GS5, D64s_v3 D2s_v3 D2as_v4 D64as_v4, E2s_v3 E64s_v3 E2as_v4, M64s, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, E64as_v4 , M208ms_v2, M416s_v2, M416ms_v2 |
-| SAP Business All-in-One | Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux, Oracle Linux |SQL Server, Oracle(Windows 및 Oracle Linux만 해당), DB2, SAP ASE |A5에서 A11, D14, DS11, DS14, DS11_v2 DS15_v2, GS1 to GS5, D64s_v3 D2s_v3 D2as_v4 D64as_v4, E2s_v3 E64s_v3 E2as_v4, M64s, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, E64as_v4 , M208ms_v2, M416s_v2, M416ms_v2 |
-| SAP BusinessObjects BI | Windows |해당 없음 |A5에서 A11, D14, DS11, DS14, DS11_v2 DS15_v2, GS1 to GS5, D64s_v3 D2s_v3 D2as_v4 D64as_v4, E2s_v3 E64s_v3 E2as_v4, M64s, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, E64as_v4 , M208ms_v2, M416s_v2, M416ms_v2 |
-| SAP NetWeaver | Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux, Oracle Linux |SQL Server, Oracle(Windows 및 Oracle Linux만 해당), DB2, SAP ASE |A5에서 A11, D14, DS11, DS14, DS11_v2 DS15_v2, GS1 to GS5, D64s_v3 D2s_v3 D2as_v4 D64as_v4, E2s_v3 E64s_v3 E2as_v4, M64s, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, E64as_v4 , M208ms_v2, M416s_v2, M416ms_v2 |
+| SAP Business Suite 소프트웨어 | Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux, Oracle Linux |SQL Server, Oracle(Windows 및 Oracle Linux만 해당), DB2, SAP ASE |A5 ~A11, D11에서 D14까지, DS11에서 DS14로, DS11_v2 DS15_v2, GS1에서 GS5까지 D2s_v3, D64s_v3, D2as_v4, D64as_v4, E64s_v3 E2s_v3, E2as_v4 E64as_v4, M64ms, M64ms, M64ls, M62ls, M32ls, M32ts, M208s_v2 M208s_v2 M208ms_v2, M416s_v2, M416ms_v2 |
+| SAP Business All-in-One | Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux, Oracle Linux |SQL Server, Oracle(Windows 및 Oracle Linux만 해당), DB2, SAP ASE |A5 ~A11, D11에서 D14까지, DS11에서 DS14로, DS11_v2 DS15_v2, GS1에서 GS5까지 D2s_v3, D64s_v3, D2as_v4, D64as_v4, E64s_v3 E2s_v3, E2as_v4 E64as_v4, M64ms, M64ms, M64ls, M62ls, M32ls, M32ts, M208s_v2 M208s_v2 M208ms_v2, M416s_v2, M416ms_v2 |
+| SAP BusinessObjects BI | Windows |해당 없음 |A5 ~A11, D11에서 D14까지, DS11에서 DS14로, DS11_v2 DS15_v2, GS1에서 GS5까지 D2s_v3, D64s_v3, D2as_v4, D64as_v4, E64s_v3 E2s_v3, E2as_v4 E64as_v4, M64ms, M64ms, M64ls, M62ls, M32ls, M32ts, M208s_v2 M208s_v2 M208ms_v2, M416s_v2, M416ms_v2 |
+| SAP NetWeaver | Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux, Oracle Linux |SQL Server, Oracle(Windows 및 Oracle Linux만 해당), DB2, SAP ASE |A5 ~A11, D11에서 D14까지, DS11에서 DS14로, DS11_v2 DS15_v2, GS1에서 GS5까지 D2s_v3, D64s_v3, D2as_v4, D64as_v4, E64s_v3 E2s_v3, E2as_v4 E64as_v4, M64ms, M64ms, M64ls, M62ls, M32ls, M32ts, M208s_v2 M208s_v2 M208ms_v2, M416s_v2, M416ms_v2 |
 
 ## <a name="other-sap-workload-supported-on-azure"></a>Azure에서 지원되는 다른 SAP 워크로드
 

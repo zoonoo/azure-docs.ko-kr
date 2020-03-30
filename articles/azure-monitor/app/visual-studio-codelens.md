@@ -8,10 +8,10 @@ ms.date: 03/17/2017
 ms.reviewer: mbullwin
 ms.custom: vs-azure
 ms.openlocfilehash: dc334932bfd57bc81a58314ee68f02aeed520f41
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77670953"
 ---
 # <a name="application-insights-telemetry-in-visual-studio-codelens"></a>Visual Studio CodeLens에서 Application Insights 원격 분석
@@ -67,7 +67,7 @@ ms.locfileid: "77670953"
 * **추세** 를 선택하여 지난 24시간 동안 발생한 요청, 실패한 요청 또는 평균 응답 시간에 대한 추세 시각화를 봅니다.
 * CodeLens 세부 정보 보기의 왼쪽 위 모퉁이에 있는 Application Insights 리소스의 이름을 선택하여 CodeLens 데이터의 원본인 리소스를 변경합니다.
 
-## <a name="next"></a>다음 단계
+## <a name="next-steps"></a><a name="next"></a>다음 단계
 |  |  |
 | --- | --- |
 | **[Visual Studio Online에서 Application Insights로 작업](../../azure-monitor/app/visual-studio.md)**<br/>원격 분석을 검색하고, CodeLens에서 데이터를 확인하며, Application Insights를 구성합니다. Visual Studio 내에서 모두 수행할 수 있습니다. |![프로젝트를 마우스 오른쪽 단추로 클릭하고 Application Insights 및 검색을 선택합니다.](./media/visual-studio-codelens/34.png) |

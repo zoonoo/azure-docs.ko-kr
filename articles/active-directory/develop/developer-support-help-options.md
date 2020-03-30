@@ -14,10 +14,10 @@ ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 89bf49fb44d8575b251a0b33698bc4ce8425cc2b
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77160970"
 ---
 # <a name="support-and-help-options-for-developers"></a>개발자를 위한 지원 및 도움말 옵션
@@ -47,7 +47,7 @@ Azure AD(Azure Active Directory), Microsoft ID 또는 Microsoft Graph API와 통
 
 ## <a name="use-the-development-support-tools"></a>개발 지원 도구 사용
 
-| 도구  | Description  |
+| 도구  | 설명  |
 |---------|---------|
 | [jwt.ms](https://jwt.ms) | ID 또는 액세스 토큰을 붙여넣어 클레임 이름 및 값을 디코드합니다. |
 | [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)| Microsoft Graph API에 대해 요청을 하고 응답을 확인할 수 있는 도구입니다. |
@@ -60,27 +60,27 @@ Stack Overflow는 개발 관련 질문에 대한 기본 설정 채널입니다. 
 
 |구성 요소/영역  | 태그들 |
 |---------|---------|
-| ADAL 라이브러리 | [[adal]](https://stackoverflow.com/questions/tagged/adal) |
+| ADAL 라이브러리 | [[아달]](https://stackoverflow.com/questions/tagged/adal) |
 | MSAL 라이브러리     | [[msal]](https://stackoverflow.com/questions/tagged/msal) |
-| OWIN 미들웨어  | [[azure-active-directory]](https://stackoverflow.com/questions/tagged/azure-active-directory) |
+| OWIN 미들웨어  | [[azure 활성 디렉터리]](https://stackoverflow.com/questions/tagged/azure-active-directory) |
 | [Azure B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)  | [[azure-ad-b2b]](https://stackoverflow.com/questions/tagged/azure-ad-b2b) |
 | [Azure B2C](https://azure.microsoft.com/services/active-directory-b2c/)  | [[azure-ad-b2c]](https://stackoverflow.com/questions/tagged/azure-ad-b2c) |
-| [Microsoft Graph API](https://developer.microsoft.com/graph/) | [[microsoft-graph]](https://stackoverflow.com/questions/tagged/microsoft-graph) |
-| 인증 또는 권한 부여 주제와 관련된 다른 모든 영역 | [[azure-active-directory]](https://stackoverflow.com/questions/tagged/azure-active-directory) |
+| [Microsoft Graph API](https://developer.microsoft.com/graph/) | [[마이크로소프트 그래프]](https://stackoverflow.com/questions/tagged/microsoft-graph) |
+| 인증 또는 권한 부여 주제와 관련된 다른 모든 영역 | [[azure 활성 디렉터리]](https://stackoverflow.com/questions/tagged/azure-active-directory) |
 
 Stack Overflow의 다음 게시물에는 질문하는 방법과 소스 코드를 추가하는 방법에 대한 팁이 포함되어 있습니다. 커뮤니티 구성원이 질문을 빠르게 평가하고 답변할 가능성을 높이려면 다음 지침을 따르세요.
 
-* [좋은 질문을 하는 방법](https://stackoverflow.com/help/how-to-ask)
+* [좋은 질문을 어떻게 해야 하나요?](https://stackoverflow.com/help/how-to-ask)
 * [최소한의 완전하고 검증 가능한 예제를 만드는 방법](https://stackoverflow.com/help/mcve)
 
 ## <a name="create-a-github-issue"></a>GitHub 문제 만들기
 
 라이브러리와 관련된 버그 또는 문제가 있으면 GitHub 리포지토리에서 문제를 제기합니다. 라이브러리는 오픈 소스이므로 끌어오기 요청을 제출할 수도 있습니다.
 
-라이브러리 및 해당 GitHub 리포지토리 목록은 다음을 참조 하세요.
+라이브러리 및 해당 GitHub 리포지토리 목록은 다음을 참조하십시오.
 
-* [ADAL (Azure Active Directory Authentication Library)](../azuread-dev/active-directory-authentication-libraries.md) 라이브러리 및 GitHub 리포지토리
-* [MSAL (Microsoft 인증 라이브러리)](reference-v2-libraries.md) 라이브러리 및 GitHub 리포지토리
+* [Azure Active Directory 인증 라이브러리(ADAL)](../azuread-dev/active-directory-authentication-libraries.md) 라이브러리 및 GitHub 리포지토리
+* [마이크로소프트 인증 라이브러리 (MSAL)](reference-v2-libraries.md) 라이브러리 및 GitHub 리포지토리
 
 ## <a name="open-a-support-request"></a>지원 요청 열기
 

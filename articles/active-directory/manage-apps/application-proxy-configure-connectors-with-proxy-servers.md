@@ -12,12 +12,12 @@ ms.date: 05/21/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d7c7d9f6d59ffd57ddb14f7c060d0a3f6f2a6eb
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.openlocfilehash: 5fe3a63e119fed6825982b9de13bc78cb7da5415
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78967748"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79481401"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>기존 온-프레미스 프록시 서버 작업
 
@@ -38,7 +38,7 @@ OS 구성 요소는 wpad.domainsuffix에 대한 DNS 조회를 수행하여 프�
 
 온-프레미스 프록시를 바이패스하여 Azure 서비스로 직접 연결을 사용하도록 커넥터를 구성할 수 있습니다. 이렇게 하면 유지할 구성이 줄어들기 때문에 네트워크 정책에서 허용하기만 한다면 이 방법을 사용하는 것이 좋습니다.
 
-커넥터에 아웃바운드 프록시 사용을 사용하지 않도록 설정하려면 C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe.config 파일을 편집하여 다음 코드 샘플에 표시된 *system.net* 섹션을 추가합니다.
+커넥터에 대한 아웃바운드 프록시 사용을 사용하지 않으려면 C:\프로그램 파일\Microsoft AAD 앱 프록시 커넥터\ApplicationProxyConnectOr.exe.config 파일을 편집하고 이 코드 샘플에 표시된 *system.net* 섹션을 추가합니다.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -76,7 +76,7 @@ OS 구성 요소는 wpad.domainsuffix에 대한 DNS 조회를 수행하여 프�
 
 환경에 WPAD가 사용되고 적절히 구성된 경우 커넥터는 아웃바운드 프록시 서버를 자동으로 검색하고 사용하려고 합니다. 하지만 트래픽이 아웃바운드 프록시를 통과하도록 명시적으로 커넥터를 구성할 수 있습니다.
 
-이렇게 하려면 C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe.config 파일을 편집하여 다음 코드 샘플에 표시된 *system.net* 섹션을 추가합니다. 로컬 프록시 서버 이름 또는 IP 주소와 수신 대기 중인 포트를 반영하도록 *proxyserver:8080*을 변경합니다. IP 주소를 사용하는 경우에도 값에는 http:// 접두사가 있어야 합니다.
+이렇게 하려면 C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe.config 파일을 편집하여 다음 코드 샘플에 표시된 *system.net* 섹션을 추가합니다. *프록시 서버:8080을* 변경하여 로컬 프록시 서버 이름 또는 IP 주소와 수신 대기 중인 포트를 반영합니다. IP 주소를 사용하는 경우에도 값에는 http:// 접두사가 있어야 합니다.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -104,7 +104,7 @@ OS 구성 요소는 wpad.domainsuffix에 대한 DNS 조회를 수행하여 프�
 * 프록시 아웃바운드 규칙
 * 프록시 인증
 * 프록시 포트
-* SSL 조사
+* TLS 검사
 
 #### <a name="proxy-outbound-rules"></a>프록시 아웃바운드 규칙
 
@@ -113,10 +113,10 @@ OS 구성 요소는 wpad.domainsuffix에 대한 DNS 조회를 수행하여 프�
 | URL | 사용 방법 |
 | --- | --- |
 | \*.msappproxy.net<br>\*.servicebus.windows.net | 커넥터와 애플리케이션 프록시 클라우드 서비스 간의 통신 |
-| mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | 커넥터는 이러한 Url을 사용 하 여 인증서를 확인 합니다. |
-| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>*. microsoftonline.com<br>* microsoftonline-p.com<br>*. msauth.net<br>* msauthimages.net<br>*. msecnd.net<br>* msftauth.net<br>*. msftauthimages.net<br>* phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctdl.windowsupdate.com:80 | 커넥터는 등록 프로세스 동안 다음과 같은 URL을 사용합니다. |
+| mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | 커넥터는 이러한 URL을 사용하여 인증서를 확인합니다. |
+| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>*.microsoftonline.com<br>*.microsoftonline-p.com<br>*msauth.net<br>*.msauthimages.net<br>*.msecnd.net<br>*.msftauth.net<br>*msftauthimages.net<br>*.phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctdl.windowsupdate.com:80 | 커넥터는 등록 프로세스 동안 다음과 같은 URL을 사용합니다. |
 
-방화벽이 나 프록시를 사용 하 여 DNS 허용 목록을 구성할 수 있는 경우 msappproxy.net 및 servicebus.windows.net에 \*대 \*한 연결을 허용할 수 있습니다. 그렇지 않으면 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)에 대한 액세스를 허용해야 합니다. IP 범위는 매주 업데이트됩니다.
+방화벽 또는 프록시에서 DNS 허용 목록을 구성할 \*수 있는 경우 \*.msappproxy.net 및 .servicebus.windows.net 연결을 허용할 수 있습니다. 그렇지 않으면 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)에 대한 액세스를 허용해야 합니다. IP 범위는 매주 업데이트됩니다.
 
 FQDN으로 연결을 허용할 수 없고 그 대신 IP 범위를 지정해야 하는 경우 다음 옵션을 사용합니다.
 
@@ -129,14 +129,14 @@ FQDN으로 연결을 허용할 수 없고 그 대신 IP 범위를 지정해야 �
 
 #### <a name="proxy-ports"></a>프록시 포트
 
-커넥터는 CONNECT 메서드를 사용하여 아웃바운드 SSL 기반 연결을 만듭니다. 이 메서드는 기본적으로 아웃바운드 프록시를 통해 터널을 설정합니다. 비표준 SSL 포트 443 및 80으로 터널링을 허용하도록 프록시 서버를 구성합니다.
+커넥터는 CONNECT 방법을 사용하여 아웃바운드 TLS 기반 연결을 만듭니다. 이 메서드는 기본적으로 아웃바운드 프록시를 통해 터널을 설정합니다. 비표준 SSL 포트 443 및 80으로 터널링을 허용하도록 프록시 서버를 구성합니다.
 
 > [!NOTE]
 > Service Bus가 HTTPS를 초과하면 포트 443을 사용합니다. 하지만 기본적으로 Service Bus는 직접 TCP 연결을 시도하며 직접 연결이 실패할 때만 HTTPS를 대체합니다.
 
-#### <a name="ssl-inspection"></a>SSL 조사
+#### <a name="tls-inspection"></a>TLS 검사
 
-커넥터 트래픽에 대한 문제를 발생시키기 때문에 커넥터 트래픽에 대한 SSL 검사를 사용하지 않습니다. 커넥터는 인증서를 사용하여 애플리케이션 프록시 서비스를 인증하며 SSL 검사 중에 인증서가 손실될 수 있습니다.
+커넥터 트래픽에 문제가 발생하므로 커넥터 트래픽에 대한 TLS 검사를 사용하지 마십시오. 커넥터는 인증서를 사용하여 응용 프로그램 프록시 서비스를 인증하며 TLS 검사 중에 인증서를 손실할 수 있습니다.
 
 ## <a name="troubleshoot-connector-proxy-problems-and-service-connectivity-issues"></a>커넥터 프록시 및 서비스 연결 문제 해결
 
@@ -161,7 +161,7 @@ FQDN으로 연결을 허용할 수 없고 그 대신 IP 범위를 지정해야 �
 1. Azure AD 애플리케이션 프록시 커넥터 서비스를 시작합니다.
 1. 네트워크 캡처를 중지합니다.
 
-   ![네트워크 캡처 중지 단추를 보여 주는 스크린샷](./media/application-proxy-configure-connectors-with-proxy-servers/stop-trace.png)
+   ![스크린샷은 네트워크 캡처 중지 버튼을 보여줍니다.](./media/application-proxy-configure-connectors-with-proxy-servers/stop-trace.png)
 
 ### <a name="check-if-the-connector-traffic-bypasses-outbound-proxies"></a>커넥터 트래픽이 아웃바운드 프록시를 바이패스하는지 확인
 
@@ -185,5 +185,5 @@ SYN 패킷은 TCP 연결을 설정하기 위해 전송된 첫 번째 패킷입�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure AD 애플리케이션 프록시 커넥터 이해](application-proxy-connectors.md)
+* [Azure AD 응용 프로그램 프록시 커넥터 이해](application-proxy-connectors.md)
 * 커넥터 연결 문제가 있는 경우 [Azure Active Directory 포럼](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD&forum=WindowsAzureAD)에 질문하거나 지원 팀을 사용하여 티켓을 만드세요.

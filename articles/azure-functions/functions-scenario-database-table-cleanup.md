@@ -1,25 +1,25 @@
 ---
-title: Azure Functions를 사용 하 여 데이터베이스 정리 작업 수행
+title: Azure Functions를 사용하여 데이터베이스 정리 작업을 수행합니다.
 description: Azure Functions를 사용하여 Azure SQL Database에 연결하여 행을 주기적으로 정리하는 작업을 예약합니다.
 ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.openlocfilehash: 2e3f53943d45e90b8aff8e386ce8d0e28670673f
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79366815"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Azure Functions를 사용하여 Azure SQL Database에 연결
 
-이 문서에서는 Azure Functions를 사용 하 여 Azure SQL Database 또는 Azure SQL Managed Instance에 연결 하는 예약 된 작업을 만드는 방법을 보여 줍니다. 함수 코드는 데이터베이스의 테이블에 있는 행을 정리합니다. 새 C# 함수는 Visual Studio 2019의 미리 정의 된 타이머 트리거 템플릿을 기반으로 생성 됩니다. 이 시나리오를 지원하려면 함수 앱에서 데이터베이스 연결 문자열을 앱 설정으로 설정해야 합니다. Azure SQL Managed Instance의 경우 Azure Functions에서 연결할 수 있도록 [공용 끝점을 설정](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure) 해야 합니다. 이 시나리오는 데이터베이스에 대한 대량 작업을 사용합니다. 
+이 문서에서는 Azure Functions를 사용하여 Azure SQL Database 또는 Azure SQL 관리 인스턴스에 연결되는 예약된 작업을 만드는 방법을 보여 주며 있습니다. 함수 코드는 데이터베이스의 테이블에 있는 행을 정리합니다. 새로운 C# 함수는 Visual Studio 2019에서 미리 정의된 타이머 트리거 템플릿을 기반으로 만들어집니다. 이 시나리오를 지원하려면 함수 앱에서 데이터베이스 연결 문자열을 앱 설정으로 설정해야 합니다. Azure SQL 관리 인스턴스의 경우 [공용 끝점이](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure) Azure Functions에서 연결할 수 있도록 설정해야 합니다. 이 시나리오는 데이터베이스에 대한 대량 작업을 사용합니다. 
 
 C# 함수를 처음 사용하는 경우 [Azure Functions C# 개발자 참조](functions-dotnet-class-library.md)를 참고해야 합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-+ [Visual Studio를 사용 하 여 첫 번째 함수 만들기](functions-create-your-first-function-visual-studio.md) 문서의 단계를 완료 하 여 버전 2.x 또는 이후 버전의 런타임을 대상으로 하는 로컬 함수 앱을 만듭니다. 또한 프로젝트를 Azure의 함수 앱에 게시했어야 합니다.
++ 문서의 단계를 [완료Visual Studio를 사용하여 첫 번째 함수를](functions-create-your-first-function-visual-studio.md) 만들어 버전 2.x 또는 런타임의 이후 버전을 대상으로 하는 로컬 함수 앱을 만듭니다. 또한 프로젝트를 Azure의 함수 앱에 게시했어야 합니다.
 
 + 이 문서은 AdventureWorksLT 샘플 데이터베이스의 **SalesOrderHeader** 테이블에서 대량 정리 작업을 실행하는 Transact-SQL 명령을 보여줍니다. AdventureWorksLT 샘플 데이터베이스를 만들려면 [Azure Portal에서 Azure SQL Database 만들기](../sql-database/sql-database-get-started-portal.md) 문서의 단계를 완료합니다.
 
@@ -29,11 +29,11 @@ C# 함수를 처음 사용하는 경우 [Azure Functions C# 개발자 참조](fu
 
 [Azure Portal에서 Azure SQL 데이터베이스 만들기](../sql-database/sql-database-get-started-portal.md)를 완료하면 만든 데이터베이스에 대한 연결 문자열을 가져와야 합니다.
 
-1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+1. [Azure 포털에](https://portal.azure.com/)로그인합니다.
 
 1. 왼쪽 메뉴에서 **SQL Database**를 선택하고 **SQL Database** 페이지에서 데이터베이스를 선택합니다.
 
-1. **설정** 아래에서 **연결 문자열**을 선택하고, 전체 **ADO.NET** 연결 문자열을 복사합니다. Azure SQL Managed Instance 공용 끝점에 대 한 연결 문자열을 복사 합니다.
+1. **설정** 아래에서 **연결 문자열**을 선택하고, 전체 **ADO.NET** 연결 문자열을 복사합니다. 공용 끝점에 대한 Azure SQL 관리 인스턴스 복사 연결 문자열의 경우
 
     ![ADO.NET 연결 문자열을 복사합니다.](./media/functions-scenario-database-table-cleanup/adonet-connection-string.png)
 
@@ -43,7 +43,7 @@ C# 함수를 처음 사용하는 경우 [Azure Functions C# 개발자 참조](fu
 
 이전에 Azure에 앱을 게시했어야 합니다. 아직 이렇게 수행하지 않은 경우 [함수 앱을 Azure에 게시](functions-develop-vs.md#publish-to-azure)합니다.
 
-1. 솔루션 탐색기에서 함수 앱 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **게시** > **Azure App Service 설정 편집**을 선택 합니다. **설정 추가**를 선택하고, **새 앱 설정 이름**에서 `sqldb_connection`을 입력하고, **확인**을 선택합니다.
+1. 솔루션 탐색기에서 함수 앱 프로젝트를 마우스 오른쪽 단추로 클릭하고 Azure 앱 서비스 설정 편집 **게시를** > **Edit Azure App Service settings**선택합니다. **설정 추가**를 선택하고, **새 앱 설정 이름**에서 `sqldb_connection`을 입력하고, **확인**을 선택합니다.
 
     ![함수 앱에 대한 애플리케이션 설정입니다.](./media/functions-scenario-database-table-cleanup/functions-app-service-add-setting.png)
 
@@ -73,7 +73,7 @@ SqlClient 라이브러리를 포함하는 NuGet 패키지를 추가해야 합니
 
 ## <a name="add-a-timer-triggered-function"></a>타이머 트리거 함수 추가
 
-1. 솔루션 탐색기에서 함수 앱 프로젝트를 마우스 오른쪽 단추로 클릭하고, **추가** > **새 Azure 함수**를 선택합니다.
+1. 솔루션 탐색기에서 함수 앱 프로젝트를 마우스 오른쪽 단추로 클릭하고**새 Azure** **추가** > 기능을 선택합니다.
 
 1. **Azure Functions** 템플릿을 선택하여 새 항목의 이름을 `DatabaseCleanup.cs`와 같이 지정하고, **추가**를 선택합니다.
 
@@ -132,6 +132,6 @@ SqlClient 라이브러리를 포함하는 NuGet 패키지를 추가해야 합니
 Functions에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 + [Azure Functions 개발자 참조](functions-reference.md)  
-  함수를 코딩하고 트리거 및 바인딩을 정의하기 위한 프로그래머 참조입니다.
-+ [Azure Functions 테스트](functions-test-a-function.md)  
+   함수를 코딩하고 트리거 및 바인딩을 정의하기 위한 프로그래머 참조입니다.
++ [Azure 함수 테스트](functions-test-a-function.md)  
   함수를 테스트하는 다양한 도구와 기법을 설명합니다.  

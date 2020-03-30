@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.reviewer: sdash
 ms.openlocfilehash: 39c4c51a1bc84e06efac3674b1ee5b487f9e6729
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671140"
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>통합된 구성 요소 간 트랜잭션 진단
@@ -66,9 +66,9 @@ ms.locfileid: "77671140"
 
 [Application Insights 프로파일러](../../azure-monitor/app/profiler.md) 또는 [스냅샷 디버거](snapshot-debugger.md)는 성능 및 오류 문제에 대한 코드 수준 진단에 도움이 됩니다. 이 환경을 사용하면 한 번의 클릭으로 모든 구성 요소에서 프로파일러 추적 또는 스냅샷을 볼 수 있습니다.
 
-프로파일러 작업을 수행할 수 없는 경우 **serviceprofilerhelp\@microsoft.com** 에 문의 하세요.
+프로파일러가 작동하지 않을 경우 **서비스 프로파일러\@헬프 microsoft.com**
 
-스냅숏 디버거 작업을 수행할 수 없는 경우 **snapshothelp\@microsoft.com** 에 문의 하세요.
+스냅샷 디버거가 작동하지 않는 경우 **snapshothelp\@microsoft.com** 문의하십시오.
 
 ![프로파일러 통합](media/transaction-diagnostics/profilerTraces.png)
 
@@ -84,7 +84,7 @@ ms.locfileid: "77671140"
 
 액세스 권한이 있고 구성 요소가 최신 Application Insights SDK를 통해 계측되는 경우 오른쪽 위에 있는 피드백 채널을 통해 알려주세요.
 
-*종속성에 대 한 중복 행이 표시 됩니다. 이것이 예상 되나요?*
+*종속성에 대한 중복 행이 표시됩니다. 예상되는가요?*
 
 현재 아웃바운드 종속성 호출은 인바운드 요청과는 별도로 표시됩니다. 일반적으로 두 호출은 네트워크 왕복으로 인해 기간 값만 다를 뿐 동일하게 보입니다. 기간 막대의 선행 아이콘과 고유한 스타일은 구분하는 데 도움이 됩니다. 이러한 데이터 표시가 혼란스러운가요? 의견을 보내주세요!
 

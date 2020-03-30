@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
 ms.openlocfilehash: 8a515f01bfa9f8ec579c51b806c997d79b629250
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77670324"
 ---
 # <a name="creating-charts-and-diagrams-from-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리에서 차트 및 다이어그램 만들기
@@ -50,7 +50,7 @@ Perf
 | summarize avg(CounterValue), percentiles(CounterValue, 50, 95)  by bin(TimeGenerated, 1h)
 ```
 
-**꺾은선형** 차트 표시 옵션을 선택합니다.
+**선선** 차트 표시 옵션을 선택합니다.
 
 ![꺾은선형 차트](media/charts/charts-and-diagrams-multiSeries.png)
 
@@ -69,7 +69,7 @@ Perf
 ![참조선](media/charts/charts-and-diagrams-multiSeriesThreshold.png)
 
 ## <a name="multiple-dimensions"></a>여러 차원
-`by`의 `summarize` 절에 포함된 여러 식은 결과에 값의 각 조합에 대해 하나씩 여러 행을 만듭니다.
+`summarize`의 `by` 절에 포함된 여러 식은 결과에 값의 각 조합에 대해 하나씩 여러 행을 만듭니다.
 
 ```Kusto
 SecurityEvent

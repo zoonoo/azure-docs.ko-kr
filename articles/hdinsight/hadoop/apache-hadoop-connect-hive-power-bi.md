@@ -9,20 +9,20 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 03/02/2020
 ms.openlocfilehash: d9b64785dbd82842479eb3f313b8394f9f25b40b
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79370001"
 ---
 # <a name="visualize-apache-hive-data-with-microsoft-power-bi-using-odbc-in-azure-hdinsight"></a>Azure HDInsight의 ODBC를 사용하여 Microsoft Power BI와 Apache Hive 데이터 시각화
 
-ODBC를 사용 하 여 Microsoft Power BI Desktop를 Azure HDInsight에 연결 하 고 Apache Hive 데이터를 시각화 하는 방법을 알아봅니다.
+ODBC를 사용하여 Microsoft Power BI 데스크톱을 Azure HDInsight에 연결하고 아파치 하이브 데이터를 시각화하는 방법을 알아봅니다.
 
 > [!IMPORTANT]
 > Hive ODBC 드라이버를 활용하여 Power BI Desktop에서 제네릭 ODBC 커넥터를 통해 가져오기를 수행할 수 있습니다. 그러나 BI 워크로드의 경우 Hive 쿼리 엔진의 비대화형 특성을 지정하지 않는 것이 좋습니다. 성능을 개선하기 위해 [대화형 쿼리 HDInsight 커넥터](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md) 및 [HDInsight Spark 커넥터](https://docs.microsoft.com/power-bi/spark-on-hdinsight-with-direct-connect)를 선택할 수 있습니다.
 
-이 문서에서는 `hivesampletable` Hive 테이블의 데이터를 Power BI로 로드 합니다. Hive 테이블에는 일부 휴대폰 사용량 현황 데이터가 포함되어 있습니다. 그런 다음 전 세계 맵에 사용량 현황 데이터를 그림으로 나타냅니다.
+이 문서에서는 Hive 테이블에서 `hivesampletable` Power BI로 데이터를 로드합니다. Hive 테이블에는 일부 휴대폰 사용량 현황 데이터가 포함되어 있습니다. 그런 다음 전 세계 맵에 사용량 현황 데이터를 그림으로 나타냅니다.
 
 ![HDInsight Power BI 맵 보고서](./media/apache-hadoop-connect-hive-power-bi/hdinsight-power-bi-visualization.png)
 
@@ -34,7 +34,7 @@ ODBC를 사용 하 여 Microsoft Power BI Desktop를 Azure HDInsight에 연결 �
 
 * HDInsight 클러스터. 클러스터는 Hive를 사용한 HDInsight 클러스터 또는 새로 릴리스된 대화형 쿼리 클러스터일 수 있습니다. 클러스터를 만드는 방법은 [클러스터 만들기](apache-hadoop-linux-tutorial-get-started.md)를 참조하세요.
 
-* [Microsoft Power BI Desktop](https://powerbi.microsoft.com/desktop/). [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=45331)에서 복사본을 다운로드할 수 있습니다.
+* [마이크로 소프트 파워 BI 데스크톱](https://powerbi.microsoft.com/desktop/). [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=45331)에서 복사본을 다운로드할 수 있습니다.
 
 ## <a name="create-hive-odbc-data-source"></a>Hive ODBC 데이터 원본 만들기
 
@@ -42,31 +42,31 @@ ODBC를 사용 하 여 Microsoft Power BI Desktop를 Azure HDInsight에 연결 �
 
 ## <a name="load-data-from-hdinsight"></a>HDInsight에서 데이터 로드
 
-**Hivesampletable** Hive 테이블은 모든 HDInsight 클러스터와 함께 제공 됩니다.
+**하이브 샘플 테이블** 하이브 테이블은 모든 HDInsight 클러스터와 함께 제공됩니다.
 
-1. Power BI Desktop를 시작 합니다.
+1. Power BI Desktop을 시작합니다.
 
-1. 상단 메뉴에서 **홈** > **데이터 가져오기** > **자세히**...로 이동 합니다.
+1. 상단 메뉴에서 **홈** > **데이터** > **더 보기로 이동합니다...**
 
-    ![HDInsight Excel Power BI 열 데이터](./media/apache-hadoop-connect-hive-power-bi/hdinsight-power-bi-open-odbc.png)
+    ![HDInsight 엑셀 파워 BI 오픈 데이터](./media/apache-hadoop-connect-hive-power-bi/hdinsight-power-bi-open-odbc.png)
 
-1. **데이터 가져오기** 대화 상자의 왼쪽에서 **기타** 를 선택 하 고 오른쪽에서 **ODBC** 를 선택한 다음 아래쪽에서 **연결** 을 선택 합니다.
+1. 데이터 **받기** 대화 상자에서 **왼쪽에서 기타를** 선택하고 오른쪽에서 **ODBC를** 선택한 다음 아래쪽에 **있는 연결을** 선택합니다.
 
-1. **ODBC에서** 대화 상자의 드롭다운 목록에서 마지막 섹션에 만든 데이터 원본 이름을 선택 합니다. 그런 다음, **확인**을 선택합니다.
+1. **ODBC 에서** 대화 상자에서 드롭다운 목록에서 마지막 섹션에서 만든 데이터 원본 이름을 선택합니다. 그런 다음 **확인을**선택합니다.
 
-1. 처음 사용 하는 경우 **ODBC 드라이버** 대화 상자가 열립니다. 왼쪽 메뉴에서 **기본값 또는 사용자 지정** 을 선택 합니다. 그런 다음 **연결** 을 선택 하 여 **탐색기**를 엽니다.
+1. 처음 사용할 때는 **ODBC 드라이버** 대화 상자가 열립니다. 왼쪽 메뉴에서 **기본 값 또는 사용자 지정을** 선택합니다. 그런 다음 **연결을** 선택하여 **탐색기를**엽니다.
 
-1. **탐색기** 대화 상자에서 **ODBC > HIVE > 기본값**을 확장 하 고 **hivesampletable**를 선택한 다음 **로드**를 선택 합니다.
+1. **네비게이터** 대화 상자에서 **ODBC > HIVE > 기본값으로**확장하고 **하이브 샘플 테이블을**선택한 다음 **로드를**선택합니다.
 
-## <a name="visualize-data"></a>데이터 가상화
+## <a name="visualize-data"></a>데이터 시각화
 
 마지막 절차에서 계속 진행합니다.
 
-1. 시각화 창에서 **지도**를 선택 합니다 .이 아이콘은 지구본입니다.
+1. 시각화 창에서 **맵을**선택합니다.
 
     ![HDInsight Power BI 보고서 사용자 지정](./media/apache-hadoop-connect-hive-power-bi/hdinsight-power-bi-customize.png)
 
-1. **필드** 창에서 **country** and **devicemake**를 선택 합니다. 맵에 표시된 데이터를 볼 수 있습니다.
+1. **필드** 창에서 **국가** 및 **장치 만들기를**선택합니다. 맵에 표시된 데이터를 볼 수 있습니다.
 
 1. 맵을 확장합니다.
 
@@ -74,9 +74,9 @@ ODBC를 사용 하 여 Microsoft Power BI Desktop를 Azure HDInsight에 연결 �
 
 이 문서에서는 Power BI를 사용하여 HDInsight에서 데이터를 시각화하는 방법을 알아보았습니다.  자세히 알아보려면 다음 아티클을 참조하세요.
 
-* [Azure HDInsight에서 Apache Zeppelin을 사용하여 Apache Hive 쿼리 실행](../interactive-query/hdinsight-connect-hive-zeppelin.md)
+* [아파치 제플린을 사용하여 Azure HDInsight에서 아파치 하이브 쿼리를 실행합니다.](../interactive-query/hdinsight-connect-hive-zeppelin.md)
 * [Microsoft Hive ODBC Driver로 HDInsight에 Excel 연결](./apache-hadoop-connect-excel-hive-odbc-driver.md)
-* [파워 쿼리를 사용하여 Apache Hadoop에 Excel 연결](apache-hadoop-connect-excel-power-query.md)
+* [전원 쿼리를 사용하여 아파치 하두프에 엑셀을 연결합니다.](apache-hadoop-connect-excel-power-query.md)
 * [Data Lake Tools for Visual Studio를 사용하여 Azure HDInsight에 연결 및 Apache Hive 쿼리 실행](apache-hadoop-visual-studio-tools-get-started.md)
-* [Azure HDInsight Tool for Visual Studio Code 사용](../hdinsight-for-vscode.md)
-* [HDInsight에 데이터 업로드](./../hdinsight-upload-data.md)
+* [비주얼 스튜디오 코드에 대 한 Azure HDInsight 도구를 사용 하 여](../hdinsight-for-vscode.md).
+* [HDInsight에 데이터를 업로드합니다.](./../hdinsight-upload-data.md)

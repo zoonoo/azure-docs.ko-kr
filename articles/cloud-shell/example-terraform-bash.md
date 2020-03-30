@@ -1,6 +1,6 @@
 ---
-title: Azure Cloud Shell에서 Terraform을 사용 하 여 배포 Microsoft Docs
-description: Azure Cloud Shell에서 Terraform을 사용 하 여 배포
+title: Azure 클라우드 셸에서 테라폼으로 배포 | 마이크로 소프트 문서
+description: Azure 클라우드 셸에서 테라폼으로 배포
 services: Azure
 documentationcenter: ''
 author: tomarchermsft
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: tarcher
-ms.openlocfilehash: f5939251729905d349b79a94411cf87e3873b279
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: 8bacadd8941131f608411e61cc15c120c1b2bc60
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742073"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79458157"
 ---
 # <a name="deploy-with-terraform-from-bash-in-azure-cloud-shell"></a>Azure Cloud Shell에서 Bash의 Terraform을 사용하여 배포
-이 문서에서는 Terraform [AzureRM 공급자](https://www.terraform.io/docs/providers/azurerm/index.html)로 리소스 그룹을 만드는 과정을 안내합니다. 
+이 문서에서는 Terraform [AzureRM 공급자](https://www.terraform.io/docs/providers/azurerm/index.html)로 리소스 그룹을 만드는 과정을 안내합니다.
 
-[Hashicorp Terraform](https://www.terraform.io/)은 API를 선언적 구성 파일로 체계화하는 공개 소스 도구로, 팀 구성원간에 공유하여 편집, 검토 및 버전 관리할 수 있습니다. Microsoft AzureRM 공급자는 AzureRM API를 통해 Azure Resource Manager에서 지원하는 리소스와 상호 작용하는 데 사용됩니다. 
+[Hashicorp Terraform](https://www.terraform.io/)은 API를 선언적 구성 파일로 체계화하는 공개 소스 도구로, 팀 구성원간에 공유하여 편집, 검토 및 버전 관리할 수 있습니다. Microsoft AzureRM 공급자는 AzureRM API를 통해 Azure Resource Manager에서 지원하는 리소스와 상호 작용하는 데 사용됩니다.
 
 ## <a name="automatic-authentication"></a>자동 인증
 Terraform은 기본적으로 Cloud Shell의 Bash에 설치됩니다. 또한 Cloud Shell은 기본 Azure CLI 구독을 자동으로 인증하여 Terraform Azure 모듈을 통해 리소스를 배포합니다.
@@ -147,7 +147,7 @@ Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
 ### <a name="verify-deployment-with-azure-cli"></a>Azure CLI로 배포 확인
 리소스가 프로비저닝에 성공했는지 확인하려면 `az group show -n myRgName`을 실행합니다.
 
-```azcliinteractive
+```azurecli-interactive
 az group show -n myRgName
 ```
 

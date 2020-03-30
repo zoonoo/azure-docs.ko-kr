@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
 ms.openlocfilehash: 3d8de08605d3dd693eb74a84a29c2efa6cad669a
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671735"
 ---
 # <a name="smart-detection---performance-anomalies"></a>스마트 감지 - 성능 이상
@@ -49,7 +49,7 @@ Application Insights가 애플리케이션 성능이 다음과 같은 방식 중
 
 ## <a name="configure-email-notifications"></a>전자 메일 알림 구성
 
-스마트 검색 알림은 기본적으로 사용 하도록 설정 되며, Application Insights 리소스가 있는 구독에 대 한 [모니터링 판독기](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) 및 [모니터링 참가자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) 액세스 권한이 있는 사용자에 게 전송 됩니다. 이를 변경하려면 전자 메일 알림에서 **구성**을 클릭하거나 Application Insights에서 스마트 검색 설정을 엽니다. 
+스마트 검색 알림은 기본적으로 활성화되어 있으며 애플리케이션 인사이트 리소스가 있는 구독에 [대한 모니터링 리더](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) 및 모니터링 [기여자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) 액세스 권한이 있는 사람에게 전송됩니다. 이를 변경하려면 전자 메일 알림에서 **구성**을 클릭하거나 Application Insights에서 스마트 검색 설정을 엽니다. 
   
   ![스마트 검색 설정](media/proactive-performance-diagnostics/smart_detection_configuration.png)
   
@@ -70,12 +70,12 @@ Application Insights가 애플리케이션 성능이 다음과 같은 방식 중
 * *나만의 이상 감지 규칙을 만들거나 기존 규칙을 사용자 지정할 수 있나요?*
 
   * 아직은 가능하지 않지만 다음 작업은 가능합니다.
-    * 메트릭 임계값을 초과할 때 알리도록 [경고를 설정](../../azure-monitor/app/alerts.md)할 수 있습니다.
-    * 직접 분석할 수 있는 [데이터베이스](../../azure-monitor/app/export-telemetry.md), [PowerBI](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md)에 [원격 분석을 내보냅니다](../../azure-monitor/app/export-power-bi.md ).
+    * [메트릭이 임계값을](../../azure-monitor/app/alerts.md) 초과할 때를 알려주는 경고를 설정합니다.
+    * 직접 분석할 수 있는 [데이터베이스](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md), [PowerBI](../../azure-monitor/app/export-power-bi.md )에 [원격 분석을 내보냅니다](../../azure-monitor/app/export-telemetry.md).
 * *얼마나 자주 분석합니까?*
 
   * 원격 분석 데이터에 대한 분석은 전날부터 매일 실행됩니다(UTC 표준 시간대로 하루 종일).
-* 이것이 *메트릭 경고[를 대신하나요](../../azure-monitor/app/alerts.md)?*
+* *그래서이 [메트릭 경고를 대체합니까?](../../azure-monitor/app/alerts.md)*
   * 아니요.  비정상이라고 간주할만한 동작을 모두 감지한다고 커밋할 수 없습니다.
 
 
@@ -160,7 +160,7 @@ Application Insights는 일부 사용자에게만 영향을 주거나 일부 경
 ![Azure에서 전자 메일 경고의 진단 보고서를 열려면 해당 링크를 클릭합니다.](./media/proactive-performance-diagnostics/03.png)
 
 * **When(시간)** 에는 문제가 감지된 시간이 표시됩니다.
-* **What(내용)** 에는 다음 설명이 표시됩니다.
+* **설명하는 내용:**
 
   * 감지된 문제
   * 문제가 되는 동작을 표시하는 이벤트의 특징

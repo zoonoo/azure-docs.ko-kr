@@ -1,6 +1,6 @@
 ---
-title: .NET에서 blob 스냅숏 만들기 및 관리-Azure Storage
-description: Blob의 읽기 전용 스냅숏을 만들어 지정 된 시간에 blob 데이터를 백업 하는 방법에 대해 알아봅니다.
+title: .NET - Azure 저장소에서 Blob 스냅숏 생성 및 관리
+description: 특정 시점에 Blob 데이터를 백업하기 위해 Blob의 읽기 전용 스냅샷을 만드는 방법에 대해 알아봅니다.
 services: storage
 author: tamram
 ms.service: storage
@@ -9,17 +9,17 @@ ms.date: 09/06/2019
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: 17cd57fbcf9b1c14fb275a070bdefdd1282c4d6e
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79370528"
 ---
-# <a name="create-and-manage-a-blob-snapshot-in-net"></a>.NET에서 blob 스냅숏 만들기 및 관리
+# <a name="create-and-manage-a-blob-snapshot-in-net"></a>.NET에서 Blob 스냅샷 생성 및 관리
 
-스냅샷은 특정 시점에 생성된 Blob의 읽기 전용 버전입니다. 스냅샷은 blob를 백업하는데 유용합니다. 이 문서에서는 [.net 용 Azure Storage 클라이언트 라이브러리](/dotnet/api/overview/azure/storage?view=azure-dotnet)를 사용 하 여 blob 스냅숏을 만들고 관리 하는 방법을 보여 줍니다.
+스냅샷은 특정 시점에 생성된 Blob의 읽기 전용 버전입니다. 스냅샷은 blob를 백업하는데 유용합니다. 이 문서에서는 .NET 에 대한 Azure [Storage 클라이언트 라이브러리를](/dotnet/api/overview/azure/storage?view=azure-dotnet)사용하여 Blob 스냅숏을 만들고 관리하는 방법을 보여 주며 있습니다.
 
-## <a name="about-blob-snapshots"></a>Blob 스냅숏 정보
+## <a name="about-blob-snapshots"></a>Blob 스냅숏 소개
 
 [!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
 
@@ -29,7 +29,7 @@ Blob URI에 스냅샷이 만들어진 시점의 시간을 나타내는 Blob URI�
 > 모든 스냅샷은 기본 Blob의 URI를 공유합니다. 기본 Blob와 스냅샷의 유일한 차이는 추가된 **DateTime** 값입니다.
 >
 
-Blob 하나에 여러 스냅샷이 있을 수 있습니다. 스냅숏은 명시적으로 삭제 될 때까지 유지 됩니다. 즉, 스냅숏은 기본 blob을 사용할 수 없습니다. 기본 Blob와 연결된 스냅샷을 열거하여 현재 스냅샷을 추적할 수 있습니다.
+Blob 하나에 여러 스냅샷이 있을 수 있습니다. 스냅숏은 명시적으로 삭제될 때까지 유지되므로 스냅숏이 기본 Blob보다 오래 지속될 수 없습니다. 기본 Blob와 연결된 스냅샷을 열거하여 현재 스냅샷을 추적할 수 있습니다.
 
 Blob의 스냅샷을 만들면 blob의 시스템 속성이 같은 값으로 스냅샷에 복사됩니다. 만들 때 스냅샷에 대한 별도의 메타데이터를 지정하지 않으면 기본 Blob의 메타데이터가 스냅샷에 복사됩니다. 스냅샷을 만든 후에 읽기, 복사 또는 삭제할 수 있지만 수정할 수 없습니다.
 
@@ -39,12 +39,12 @@ VM 디스크에 대한 현재 정보 및 상태를 저장하는 데 VHD 파일�
 
 ## <a name="create-a-snapshot"></a>스냅샷 만들기
 
-블록 blob의 스냅숏을 만들려면 다음 방법 중 하나를 사용 합니다.
+블록 Blob의 스냅숏을 만들려면 다음 방법 중 하나를 사용합니다.
 
-- [고 icloudblob.createsnapshot](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.createsnapshot)
-- [CreateSnapshotAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.createsnapshotasync)
+- [스냅샷 만들기](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.createsnapshot)
+- [생성스냅샷Async](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.createsnapshotasync)
 
-다음 코드 예제에서는 스냅숏을 만드는 방법을 보여 줍니다. 이 예제에서는 만들 때 스냅샷에 대한 추가 메타데이터를 지정합니다.
+다음 코드 예제에서는 스냅숏을 만드는 방법을 보여 주며 있습니다. 이 예제에서는 만들 때 스냅샷에 대한 추가 메타데이터를 지정합니다.
 
 ```csharp
 private static async Task CreateBlockBlobSnapshot(CloudBlobContainer container)
@@ -81,16 +81,16 @@ private static async Task CreateBlockBlobSnapshot(CloudBlobContainer container)
 
 ## <a name="delete-snapshots"></a>스냅샷 삭제
 
-Blob을 삭제 하려면 먼저 해당 blob의 모든 스냅숏을 삭제 해야 합니다. 스냅샷을 개별적으로 삭제하거나 원본 Blob를 삭제할 때 모든 스냅샷을 삭제되도록 지정할 수 있습니다. 스냅샷이 있는 Blob을 삭제하려고 하면 오류가 발생합니다.
+Blob을 삭제하려면 먼저 해당 Blob의 스냅숏을 삭제해야 합니다. 스냅샷을 개별적으로 삭제하거나 원본 Blob를 삭제할 때 모든 스냅샷을 삭제되도록 지정할 수 있습니다. 스냅샷이 있는 Blob을 삭제하려고 하면 오류가 발생합니다.
 
-Blob 스냅숏을 삭제 하려면 다음 blob 삭제 방법 중 하나를 사용 하 고 [DeleteSnapshotsOption](/dotnet/api/microsoft.azure.storage.blob.deletesnapshotsoption) 열거형을 포함 합니다.
+Blob 스냅숏을 삭제하려면 다음 Blob 삭제 방법 중 하나를 사용하고 [DeleteSnapshotsOption](/dotnet/api/microsoft.azure.storage.blob.deletesnapshotsoption) 열거형을 포함합니다.
 
-- [Delete](/dotnet/api/microsoft.azure.storage.blob.cloudblob.delete)
+- [삭제](/dotnet/api/microsoft.azure.storage.blob.cloudblob.delete)
 - [DeleteAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.deleteasync)
-- [DeleteIfExists](/dotnet/api/microsoft.azure.storage.blob.cloudblob.deleteifexists)
-- [DeleteIfExistsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.deleteifexistsasync)
+- [삭제IfExists](/dotnet/api/microsoft.azure.storage.blob.cloudblob.deleteifexists)
+- [삭제IfExistsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.deleteifexistsasync)
 
-다음 코드 예제에서는 .NET에서 blob 및 해당 스냅숏을 삭제 하는 방법을 보여 줍니다. 여기서 `blockBlob`은 [Cloudblockblob][dotnet_CloudBlockBlob]형식의 개체입니다.
+다음 코드 예제에서는 .NET에서 Blob 및 해당 스냅샷을 삭제하는 방법을 보여 줍니다. 여기서 `blockBlob`은 [CloudBlockBlob][dotnet_CloudBlockBlob] 형식의 개체입니다.
 
 ```csharp
 await blockBlob.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null, null, null);
@@ -98,7 +98,7 @@ await blockBlob.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null
 
 ## <a name="return-the-absolute-uri-to-a-snapshot"></a>스냅샷에 대한 절대 URI 반환
 
-다음 코드 예제에서는 스냅숏을 만들고 기본 위치에 대 한 절대 URI를 작성 합니다.
+다음 코드 예제는 스냅숏을 만들고 기본 위치에 대한 절대 URI를 기록합니다.
 
 ```csharp
 //Create the blob service client object.
@@ -130,7 +130,7 @@ Blob의 읽기 전용 복사본인 스냅샷을 만들면 계정에 데이터 �
 
 - 스토리지 계정에서는 고유 블록이나 페이지가 Blob에 있는지 혹은 스냅샷에 있는지에 관계없이 요금이 발생합니다. 스냅샷의 기준이 되는 Blob을 업데이트할 때까지는 해당 Blob와 연결된 스냅샷에 대해 계정에 추가 요금이 부과되지 않습니다. 기본 Blob를 업데이트한 후에 해당 스냅샷과 달라집니다. 이 경우에 Blob 또는 스냅샷 각각에서 고유한 블록이나 페이지에 대한 요금이 청구됩니다.
 - 블록 Blob 내의 블록을 바꾸고 나면 해당 블록은 이후부터 고유 블록으로 요금이 청구됩니다. 블록의 ID와 데이터가 스냅샷에서와 같더라도 마찬가지입니다. 블록을 다시 커밋하면 스냅샷의 해당 항목과 달라지므로 해당 데이터에 대해 요금이 부과됩니다. 같은 데이터로 업데이트하는 페이지 Blob 내 페이지의 경우에도 마찬가지입니다.
-- [UploadFromFile][dotnet_UploadFromFile], [UploadText][dotnet_UploadText], [UploadFromStream][dotnet_UploadFromStream]또는 [UploadFromByteArray][dotnet_UploadFromByteArray] 메서드를 호출 하 여 블록 blob을 바꾸면 blob의 모든 블록이 바뀝니다. 해당 Blob에 스냅샷이 연결되어 있으면 스냅샷과 기본 Blob의 모든 블록이 달라지므로 두 Blob의 모든 블록에 대해 요금이 부과됩니다. 이는 기본 Blob와 스냅샷의 데이터가 동일하게 유지되더라도 마찬가지입니다.
+- [UploadFromFile][dotnet_UploadFromFile], [UploadText][dotnet_UploadText], [UploadFromStream][dotnet_UploadFromStream] 또는 [UploadFromByteArray][dotnet_UploadFromByteArray] 메서드를 호출하여 블록 Blob을 바꾸면 해당 Blob의 모든 블록이 바뀝니다. 해당 Blob에 스냅샷이 연결되어 있으면 스냅샷과 기본 Blob의 모든 블록이 달라지므로 두 Blob의 모든 블록에 대해 요금이 부과됩니다. 이는 기본 Blob와 스냅샷의 데이터가 동일하게 유지되더라도 마찬가지입니다.
 - Azure Blob service에서는 두 블록이 같은 데이터를 포함하는지를 확인할 수 없습니다. 업로드/커밋되는 각 블록은 데이터와 블록 ID가 같더라도 고유한 블록으로 처리됩니다. 고유한 블록에 대해서는 비용이 부과되므로 스냅샷이 포함된 Blob을 업데이트하면 고유한 블록이 추가로 생성되어 추가 비용이 발생함을 고려해야 합니다.
 
 ### <a name="minimize-cost-with-snapshot-management"></a>스냅샷 관리 비용을 최소화
@@ -138,7 +138,7 @@ Blob의 읽기 전용 복사본인 스냅샷을 만들면 계정에 데이터 �
 추가 비용을 방지하기 위해서는 스냅샷을 신중하게 관리하는 것이 좋습니다. 스냅샷 스토리지으로 인해 발생하는 비용을 최소화하려면 다음 모범 사례를 따를 수 있습니다.
 
 - 애플리케이션 디자인상 스냅샷을 유지해야 하는 경우가 아니면, Blob을 업데이트할 때마다 같은 데이터로 업데이트하더라도 해당 Blob에 연결된 스냅샷을 삭제한 후에 다시 만듭니다. Blob의 스냅샷을 삭제한 후에 다시 만들면 Blob와 스냅샷이 달라지지 않습니다.
-- Blob에 대 한 스냅숏을 유지 하는 경우 [UploadFromFile][dotnet_UploadFromFile], [UploadText][dotnet_UploadText], [UploadFromStream][dotnet_UploadFromStream]또는 [UploadFromByteArray][dotnet_UploadFromByteArray] 를 호출 하 여 blob을 업데이트 하지 마십시오. 이러한 메서드는 Blob의 모든 블록을 바꾸어 기본 Blob 및 해당 스냅샷이 심각하게 달라집니다. 대신 [PutBlock][dotnet_PutBlock] 및 [PutBlockList][dotnet_PutBlockList] 메서드를 사용하여 가능한 최소 블록 수만 업데이트합니다.
+- Blob의 스냅샷을 유지하는 경우에는 [UploadFromFile][dotnet_UploadFromFile], [UploadText][dotnet_UploadText], [UploadFromStream][dotnet_UploadFromStream] 또는 [UploadFromByteArray][dotnet_UploadFromByteArray]를 호출하여 Blob을 업데이트하지 않습니다. 이러한 메서드는 Blob의 모든 블록을 바꾸어 기본 Blob 및 해당 스냅샷이 심각하게 달라집니다. 대신 [PutBlock][dotnet_PutBlock] 및 [PutBlockList][dotnet_PutBlockList] 메서드를 사용하여 가능한 최소 블록 수만 업데이트합니다.
 
 ### <a name="snapshot-billing-scenarios"></a>스냅샷 청구 시나리오
 
@@ -164,7 +164,7 @@ Blob의 읽기 전용 복사본인 스냅샷을 만들면 계정에 데이터 �
 
 #### <a name="scenario-4"></a>시나리오 4
 
-시나리오 4에서는 기본 Blob이 완전히 업데이트되었으며 원래 블록을 하나도 포함하지 않습니다. 따라서 8개 고유 블록 모두에 대한 요금이 계정에 청구됩니다. [UploadFromFile][dotnet_UploadFromFile], [UploadText][dotnet_UploadText], [UploadFromStream][dotnet_UploadFromStream]또는 [UploadFromByteArray][dotnet_UploadFromByteArray]와 같은 업데이트 메서드를 사용 하는 경우 이러한 메서드가 blob의 모든 콘텐츠를 바꾸기 때문에이 시나리오가 발생할 수 있습니다.
+시나리오 4에서는 기본 Blob이 완전히 업데이트되었으며 원래 블록을 하나도 포함하지 않습니다. 따라서 8개 고유 블록 모두에 대한 요금이 계정에 청구됩니다. [UploadFromFile][dotnet_UploadFromFile], [UploadText][dotnet_UploadText], [UploadFromStream][dotnet_UploadFromStream] 또는 [UploadFromByteArray][dotnet_UploadFromByteArray] 등의 업데이트 메서드를 사용하는 경우가 이러한 시나리오에 해당합니다. 이러한 메서드는 Blob의 모든 콘텐츠를 바꾸기 때문입니다.
 
 ![Azure Storage 리소스](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-4.png)
 

@@ -4,10 +4,10 @@ description: Stream Analytics를 사용하면 Application Insights에서 내보�
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.openlocfilehash: b93bc49d005e3e54f1e5db84e6ff1adc49e25a65
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77664017"
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Stream Analytics를 사용하여 Application Insights에서 내보낸 데이터 처리
@@ -25,7 +25,7 @@ ms.locfileid: "77664017"
 ## <a name="create-storage-in-azure"></a>Azure에서 스토리지 만들기
 연속 내보내기는 항상 Azure Storage 계정에 데이터를 출력하므로 스토리지를 먼저 만들어야 합니다.
 
-1. [Azure 포털](https://portal.azure.com)에서 구독에 &quot;클래식&quot; 스토리지 계정을 만듭니다.
+1. [Azure Portal](https://portal.azure.com)에서 구독에 &quot;클래식&quot; 스토리지 계정을 만듭니다.
    
    ![Azure Portal에서 새로 만들기, 데이터, 스토리지 선택](./media/export-stream-analytics/030.png)
 2. 컨테이너 만들기
@@ -89,13 +89,13 @@ ms.locfileid: "77664017"
 
 ### <a name="set-path-prefix-pattern"></a>경로 접두사 패턴 설정
 
-**날짜 형식을 YYYY-MM-DD(파선 포함)로 설정해야 합니다.**
+**날짜 형식을 YYYY-MM-DD(대시)로 설정해야 합니다.**
 
 전위 패턴은 Stream Analytics가 스토리지에서 입력 파일을 찾는 위치를 지정합니다. 연속 내보내기에서 데이터를 저장하는 방법과 일치하도록 설정해야 합니다. 다음과 같이 설정합니다.
 
     webapplication27_12345678123412341234123456789abcdef0/PageViews/{date}/{time}
 
-이 예제에서:
+이 예제에 대한 설명:
 
 * `webapplication27`은 Application Insights 리소스의 이름으로, **모두 소문자**입니다.
 * `1234...`는 **대시를 생략한**Application Insights 리소스의 계측 키입니다. 
@@ -107,7 +107,7 @@ ms.locfileid: "77664017"
 > 
 
 ## <a name="add-new-output"></a>새 출력 추가
-이제 작업 > **출력** > **추가**를 선택합니다.
+이제 작업 > 출력**추가를** **선택합니다.** > 
 
 ![](./media/export-stream-analytics/SA006.png)
 

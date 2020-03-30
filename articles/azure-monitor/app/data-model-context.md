@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 05/15/2017
 ms.reviewer: sergkanz
 ms.openlocfilehash: 8a2e3296643b13a54c4fceb11f044a2808cf2877
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671866"
 ---
 # <a name="telemetry-context-application-insights-data-model"></a>원격 분석 컨텍스트: Application Insights 데이터 모델
@@ -74,7 +74,7 @@ ms.locfileid: "77671866"
 
 ## <a name="anonymous-user-id"></a>익명 사용자 ID
 
-익명 사용자 id입니다. 응용 프로그램의 최종 사용자를 나타냅니다. 원격 분석이 서비스에서 전송되는 경우 사용자 컨텍스트는 서비스에서 작업을 시작한 사용자와 관련이 있습니다.
+익명 사용자 ID입니다. 응용 프로그램의 최종 사용자를 나타냅니다. 원격 분석이 서비스에서 전송되는 경우 사용자 컨텍스트는 서비스에서 작업을 시작한 사용자와 관련이 있습니다.
 
 [샘플링](../../azure-monitor/app/sampling.md)은 수집된 원격 분석의 양을 최소화하는 기술 중 하나입니다. 샘플링 알고리즘은 상관 관계가 지정된 모든 원격 분석을 샘플링합니다. 익명 사용자 ID는 샘플링 점수 생성에 사용됩니다. 따라서 익명 사용자 ID는 충분히 임의의 값이어야 합니다. 
 
@@ -85,14 +85,14 @@ ms.locfileid: "77671866"
 
 ## <a name="authenticated-user-id"></a>인증된 사용자 ID
 
-인증 된 사용자 id입니다. 익명 사용자 id와 반대 되는이 필드는 친숙 한 이름을 가진 사용자를 나타냅니다. PII 정보이므로 기본적으로 대부분의 SDK에서 수집되지 않습니다.
+인증된 사용자 ID입니다. 익명 사용자 ID의 반대로 이 필드는 친숙한 이름을 가진 사용자를 나타냅니다. PII 정보이므로 기본적으로 대부분의 SDK에서 수집되지 않습니다.
 
 최대 길이: 1024
 
 
 ## <a name="account-id"></a>계정 ID
 
-다중 테넌트 애플리케이션에서 이는 사용자가 작업하는 데 사용하는 계정 ID 또는 이름입니다. 예는 블로그 플랫폼에 대 한 Azure Portal 또는 블로그 이름의 구독 ID 일 수 있습니다.
+다중 테넌트 애플리케이션에서 이는 사용자가 작업하는 데 사용하는 계정 ID 또는 이름입니다. 예를 들어 Azure 포털의 구독 ID 또는 블로그 플랫폼의 블로그 이름일 수 있습니다.
 
 최대 길이: 1024
 
@@ -113,7 +113,7 @@ ms.locfileid: "77671866"
 
 ## <a name="internal-sdk-version"></a>내부: SDK 버전
 
-SDK 버전입니다. 자세한 내용은 [이 문서](https://github.com/microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/SDK-VERSIONS.md) 를 참조 하세요.
+SDK 버전입니다. 자세한 내용은 [이 문서를](https://github.com/microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/SDK-VERSIONS.md) 참조하십시오.
 
 최대 길이: 64
 

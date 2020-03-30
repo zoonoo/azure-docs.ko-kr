@@ -7,17 +7,17 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.subservice: alerts
 ms.openlocfilehash: fdf492b8f103e725046b9b1cbbd079c4d249664a
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77667791"
 ---
 # <a name="log-alert-queries-in-azure-monitor"></a>Azure Monitor의 로그 경고 쿼리
 [Azure Monitor 로그를 기반으로 하는 경고 규칙](alerts-unified-log.md)은 일정한 간격으로 실행되므로 오버헤드와 대기 시간을 최소화할 수 있도록 규칙을 작성해야 합니다. 이 문서에서는 로그 경고용으로 효율적인 쿼리를 작성하는 방법과 관련된 권장 사항과 기존 쿼리를 변환하는 프로세스를 제공합니다. 
 
 ## <a name="types-of-log-queries"></a>로그 쿼리의 유형
-[Azure Monitor의 로그 쿼리](../log-query/log-query-overview.md) 는 테이블이 나 [검색](/azure/kusto/query/searchoperator) 또는 [union](/azure/kusto/query/unionoperator) 연산자로 시작 합니다.
+[Azure Monitor의 로그 쿼리는](../log-query/log-query-overview.md) 테이블 또는 [검색](/azure/kusto/query/searchoperator) 또는 [공용 구조조정자로](/azure/kusto/query/unionoperator) 시작합니다.
 
 예를 들어 범위가 _SecurityEvent_ 테이블로 지정된 다음 쿼리는 특정 이벤트 ID를 검색합니다. 쿼리는 이 테이블만 처리하면 됩니다.
 
@@ -50,7 +50,7 @@ workspace('Contoso-workspace1').Perf
 ```
 
 >[!NOTE]
->로그 경고의 [리소스 간 쿼리](../log-query/cross-workspace-query.md)는 새 [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)에서 지원됩니다. [레거시 Log Analytics 경고 API](api-alerts.md)에서 전환하지 않는 한, Azure Monitor는 기본적으로 [레거시 Log Analytics 경고 API](alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api)를 사용하여 Azure Portal에서 새 로그 경고 규칙을 만듭니다. 전환 후에는 새 API가 Azure Portal에서 새 경고 규칙의 기본값이 되며, 해당 API를 사용하여 리소스 간 쿼리 로그 경고 규칙을 만들 수 있습니다. [scheduledQueryRules API에 대한 ARM 템플릿](../log-query/cross-workspace-query.md)을 사용하면 전환하지 않고 [리소스 간 쿼리](alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template) 로그 경고 규칙을 만들 수 있지만, 이 경고 규칙은 Azure Portal이 아닌 [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)를 통해 관리할 수 있습니다.
+>로그 경고의 [리소스 간 쿼리](../log-query/cross-workspace-query.md)는 새 [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)에서 지원됩니다. [레거시 Log Analytics 경고 API](api-alerts.md)에서 전환하지 않는 한, Azure Monitor는 기본적으로 [레거시 Log Analytics 경고 API](alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api)를 사용하여 Azure Portal에서 새 로그 경고 규칙을 만듭니다. 전환 후에는 새 API가 Azure Portal에서 새 경고 규칙의 기본값이 되며, 해당 API를 사용하여 리소스 간 쿼리 로그 경고 규칙을 만들 수 있습니다. [scheduledQueryRules API에 대한 ARM 템플릿](alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template)을 사용하면 전환하지 않고 [리소스 간 쿼리](../log-query/cross-workspace-query.md) 로그 경고 규칙을 만들 수 있지만, 이 경고 규칙은 Azure Portal이 아닌 [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)를 통해 관리할 수 있습니다.
 
 ## <a name="examples"></a>예
 `search` 및 `union`을 사용하는 로그 쿼리가 포함된 다음 예제에서는 경고 규칙에 사용할 수 있도록 이러한 쿼리를 수정하기 위해 수행할 수 있는 단계를 제공합니다.
@@ -137,7 +137,7 @@ search (ObjectName == "Processor" and CounterName == "% Idle Time" and InstanceN
 
 이 쿼리의 결과에는 이러한 모든 속성이 _Perf_ 테이블에 포함되어 있었음이 표시됩니다. 
 
-이제 `union` 명령에서 `withsource`을 사용하여 각 행을 제공한 원본 테이블을 식별합니다.
+이제 `withsource` 명령에서 `union`을 사용하여 각 행을 제공한 원본 테이블을 식별합니다.
 
 ``` Kusto
 union withsource=table * | where CounterName == "% Processor Utility" 

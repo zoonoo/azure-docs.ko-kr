@@ -1,7 +1,7 @@
 ---
-title: V2 사용자 지정 규칙 만들기 및 사용
+title: v2 사용자 지정 규칙 만들기 및 사용
 titleSuffix: Azure Web Application Firewall
-description: 이 문서에서는 Azure 애플리케이션 게이트웨이에서 WAF (웹 응용 프로그램 방화벽) v2 사용자 지정 규칙을 만드는 방법에 대 한 정보를 제공 합니다.
+description: 이 문서에서는 Azure 응용 프로그램 게이트웨이에서 WAF(웹 응용 프로그램 방화벽) v2 사용자 지정 규칙을 만드는 방법에 대한 정보를 제공합니다.
 services: web-application-firewall
 ms.topic: article
 author: vhorne
@@ -9,17 +9,17 @@ ms.service: web-application-firewall
 ms.date: 11/14/2019
 ms.author: victorh
 ms.openlocfilehash: bfa6690c636e15fa933f50698cd81359600b5c05
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77368312"
 ---
-# <a name="create-and-use-web-application-firewall-v2-custom-rules-on-application-gateway"></a>Application Gateway에서 웹 응용 프로그램 방화벽 v2 사용자 지정 규칙 만들기 및 사용
+# <a name="create-and-use-web-application-firewall-v2-custom-rules-on-application-gateway"></a>응용 프로그램 게이트웨이에서 웹 응용 프로그램 방화벽 v2 사용자 지정 규칙 생성 및 사용
 
-Azure 애플리케이션 Gateway의 WAF (웹 응용 프로그램 방화벽) v2는 웹 응용 프로그램에 대 한 보호를 제공 합니다. 이 보호는 OWASP (Open Web Application Security Project) CRS (핵심 규칙 집합)에서 제공 합니다. 경우에 따라 특정 요구 사항을 충족 하기 위해 사용자 지정 규칙을 만들어야 할 수도 있습니다. WAF 사용자 지정 규칙에 대 한 자세한 내용은 [사용자 지정 웹 응용 프로그램 방화벽 규칙 개요](custom-waf-rules-overview.md)를 참조 하세요.
+Azure 응용 프로그램 게이트웨이의 WAF(웹 응용 프로그램 방화벽) v2는 웹 응용 프로그램에 대한 보호를 제공합니다. 이 보호는 개방형 웹 응용 프로그램 보안 프로젝트(OWASP) 핵심 규칙 집합(CRS)에서 제공됩니다. 경우에 따라 특정 요구 사항에 맞게 사용자 지정 규칙을 직접 만들어야 할 수도 있습니다. WAF 사용자 지정 규칙에 대한 자세한 내용은 [사용자 지정 웹 응용 프로그램 방화벽 규칙 개요를](custom-waf-rules-overview.md)참조하십시오.
 
-이 문서에서는 v2 WAF에서 만들고 사용할 수 있는 몇 가지 예제 사용자 지정 규칙을 보여 줍니다. Azure PowerShell를 사용 하 여 사용자 지정 규칙으로 WAF를 배포 하는 방법을 알아보려면 [Azure PowerShell를 사용 하 여 웹 응용 프로그램 방화벽 사용자 지정 규칙 구성](configure-waf-custom-rules.md)을 참조 하세요.
+이 문서에서는 v2 WAF에서 만들고 사용할 수 있는 몇 가지 사용자 지정 규칙을 보여 줍니다. Azure PowerShell을 사용하여 사용자 지정 규칙으로 WAF를 배포하는 방법을 알아보려면 [Azure PowerShell을 사용하여 웹 응용 프로그램 방화벽 사용자 지정 규칙 구성을](configure-waf-custom-rules.md)참조하세요.
 
 >[!NOTE]
 > Application Gateway에서 WAF 계층을 사용하지 않는 경우 Application Gateway를 WAF 계층으로 업그레이드하는 옵션이 오른쪽 창에 표시됩니다.
@@ -28,7 +28,7 @@ Azure 애플리케이션 Gateway의 WAF (웹 응용 프로그램 방화벽) v2�
 
 ## <a name="example-1"></a>예 1
 
-웹 사이트 탐색에서 차단 하려는 *evilbot* 이라는 봇이 있음을 알고 있습니다. 이 경우 요청 헤더의 사용자 에이전트 *evilbot* 를 차단 합니다.
+당신은 당신이 당신의 웹 사이트를 크롤링에서 차단하려는 *evilbot라는* 이름의 봇이 있다는 것을 알고있다. 이 경우 요청 헤더에서 사용자 에이전트 *evilbot을* 차단합니다.
 
 논리: p
 
@@ -52,7 +52,7 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
    -Action Block
 ```
 
-해당 JSON은 다음과 같습니다.
+그리고 여기에 해당 JSON입니다 :
 
 ```json
   {
@@ -76,11 +76,11 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
   }
 ```
 
-이 사용자 지정 규칙을 사용 하 여 배포 된 WAF를 보려면 [Azure PowerShell를 사용 하 여 웹 응용 프로그램 방화벽 사용자 지정 규칙 구성](configure-waf-custom-rules.md)을 참조 하세요.
+이 사용자 지정 규칙을 사용하여 배포된 WAF를 보려면 [Azure PowerShell을 사용하여 웹 응용 프로그램 방화벽 사용자 지정 규칙 구성을](configure-waf-custom-rules.md)참조하십시오.
 
-### <a name="example-1a"></a>예 1a
+### <a name="example-1a"></a>실시예 1a
 
-정규식을 사용 하 여 동일한 작업을 수행할 수 있습니다.
+정규식을 사용하여 동일한 작업을 수행할 수 있습니다.
 
 ```azurepowershell
 $variable = New-AzApplicationGatewayFirewallMatchVariable `
@@ -102,7 +102,7 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
    -Action Block
 ```
 
-및 해당 JSON:
+그리고 해당 JSON :
 
 ```json
   {
@@ -128,7 +128,7 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
 
 ## <a name="example-2"></a>예제 2
 
-GeoMatch 연산자를 사용 하 여 미국에서 트래픽을 허용 하려고 합니다.
+GeoMatch 연산자를 사용하여 미국에서 트래픽을 허용하려고 합니다.
 
 ```azurepowershell
 $variable = New-AzApplicationGatewayFirewallMatchVariable `
@@ -149,7 +149,7 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
    -Action Allow
 ```
 
-및 해당 JSON:
+그리고 해당 JSON :
 
 ```json
   {
@@ -177,9 +177,9 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
 
 ## <a name="example-3"></a>예제 3
 
-198.168.5.0/24 범위의 IP 주소에 대 한 모든 요청을 차단 하려고 합니다.
+범위 198.168.5.0/24의 IP 주소에서 모든 요청을 차단하려고 합니다.
 
-이 예에서는 IP 주소 범위에서 들어오는 모든 트래픽을 차단 합니다. 규칙 이름은 *myrule1* 이 고 우선 순위는 10으로 설정 됩니다.
+이 예제에서는 IP 주소 범위에서 오는 모든 트래픽을 차단합니다. 규칙의 이름은 *myrule1이고* 우선 순위는 10으로 설정됩니다.
 
 논리: p
 
@@ -225,13 +225,13 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
   }
 ```
 
-해당 하는 CRS 규칙: `SecRule REMOTE_ADDR "@ipMatch 192.168.5.0/24" "id:7001,deny"`
+해당 CRS 규칙:`SecRule REMOTE_ADDR "@ipMatch 192.168.5.0/24" "id:7001,deny"`
 
 ## <a name="example-4"></a>예제 4
 
-이 예에서는 사용자 에이전트 *evilbot*및 192.168.5.0/24 범위의 트래픽을 차단 하려고 합니다. 이를 수행 하기 위해 두 개의 서로 다른 일치 조건을 만든 다음 둘 다 동일한 규칙에 둘 수 있습니다. 이렇게 하면 사용자 에이전트 헤더의 두 *evilbot* 192.168.5.0/24 범위의 IP 주소 **와** 일치 하는 경우 요청이 차단 됩니다.
+이 예제에서는 사용자 에이전트 *evilbot*및 범위 192.168.5.0/24의 트래픽을 차단하려고 합니다. 이렇게 하려면 두 개의 별도 일치 조건을 만들고 둘 다 동일한 규칙에 둘 다 넣을 수 있습니다. 이렇게 하면 사용자 에이전트 헤더의 *evilbot과* 범위 192.168.5.0/24의 IP 주소가 모두 일치하는 경우 요청이 차단됩니다. **and**
 
-논리: p **및** q
+논리 : **p와** q
 
 ```azurepowershell
 $variable1 = New-AzApplicationGatewayFirewallMatchVariable `
@@ -301,9 +301,9 @@ $condition2 = New-AzApplicationGatewayFirewallCondition `
 
 ## <a name="example-5"></a>예제 5
 
-이 예에서는 요청이 IP 주소 범위 *192.168.5.0/24*외부에 있거나 사용자 에이전트 문자열이 *chrome* 이 아닌 경우 (사용자가 chrome 브라우저를 사용 하지 않음) 차단 하려고 합니다. 이 논리는 **또는**를 사용 하기 때문에 다음 예제에서 볼 수 있듯이 두 조건은 별도의 규칙에 있습니다. *myrule1* 및 *myrule2* 는 둘 다 일치 하 여 트래픽을 차단 해야 합니다.
+이 예제에서는 요청이 IP 주소 범위 *192.168.5.0/24*외부에 있거나 사용자 에이전트 문자열이 *크롬이* 아닌 경우 차단하려고 합니다(사용자가 Chrome 브라우저를 사용하지 않는 경우). 이 논리는 다음 예제에서 볼 수 있듯이 두 조건이 별도의 규칙에 **사용하거나 사용하므로**두 가지 조건이 서로 다른 규칙에 있습니다. *myrule1과* *myrule2* 모두 트래픽을 차단하기 위해 일치해야합니다.
 
-논리: **not** (p **및** q **) = p가 아니거나 no** **q입니다** .
+논리: **아니** (p **및** q) = **아니** p **또는 q.**
 
 ```azurepowershell
 $variable1 = New-AzApplicationGatewayFirewallMatchVariable `
@@ -341,7 +341,7 @@ $rule2 = New-AzApplicationGatewayFirewallCustomRule `
    -Action Block
 ```
 
-및 해당 JSON:
+그리고 해당 JSON :
 
 ```json
 {
@@ -388,9 +388,9 @@ $rule2 = New-AzApplicationGatewayFirewallCustomRule `
 
 ## <a name="example-6"></a>예제 6
 
-사용자 지정 SQLI를 차단 하려고 합니다. 여기서 사용 되는 논리는 **또는**이 고 모든 값이 *RequestUri*에 있으므로 *matchvalues* 는 모두 쉼표로 구분 된 목록에 있을 수 있습니다.
+사용자 지정 SQLI를 차단하려고 합니다. 여기에 사용된 논리가 **또는**,에 모든 값이 *RequestUri에*있기 때문에 모든 *MatchValues는* 쉼표로 구분된 목록에 있을 수 있습니다.
 
-논리: p **또는** q **또는** r
+논리 : p **또는** Q **또는** r
 
 ```azurepowershell
 $variable1 = New-AzApplicationGatewayFirewallMatchVariable `
@@ -545,6 +545,6 @@ $rule3 = New-AzApplicationGatewayFirewallCustomRule `
 
 ## <a name="next-steps"></a>다음 단계
 
-사용자 지정 규칙을 만든 후 WAF 로그를 보는 방법에 대해 알아볼 수 있습니다. 자세한 내용은 [Application Gateway 진단](../../application-gateway/application-gateway-diagnostics.md#diagnostic-logging)을 참조하세요.
+사용자 지정 규칙을 만든 후 WAF 로그를 보는 방법을 알아볼 수 있습니다. 자세한 내용은 [응용 프로그램 게이트웨이 진단을](../../application-gateway/application-gateway-diagnostics.md#diagnostic-logging)참조하십시오.
 
 [fig1]: ../media/create-custom-waf-rules/1.png

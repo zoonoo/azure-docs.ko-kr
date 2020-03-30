@@ -1,6 +1,6 @@
 ---
-title: Vm에서 Azure 관리 디스크 공유 (미리 보기)
-description: 여러 Vm에서 Azure managed disks를 공유 하는 방법에 대해 알아봅니다.
+title: VM 에서 Azure 관리 디스크 공유(미리 보기)
+description: 여러 VM에서 Azure 관리 디스크를 공유하는 방법에 대해 알아봅니다.
 author: roygara
 ms.service: virtual-machines-windows
 ms.topic: conceptual
@@ -8,10 +8,10 @@ ms.date: 02/18/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: dcd21daa3c5e51c8e81b0775eea61ead6baf4662
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77472023"
 ---
 # <a name="azure-shared-disks"></a>Azure 공유 디스크
@@ -20,4 +20,4 @@ ms.locfileid: "77472023"
 
 ## <a name="next-steps"></a>다음 단계
 
-관리 디스크에 대 한 공유 디스크를 사용 하도록 설정 하 고 사용 하는 데 관심이 있는 경우 [공유 디스크 사용](disks-shared-enable.md)문서를 진행 하세요.
+관리 디스크에 대한 공유 디스크를 사용하도록 설정하고 사용하는 데 관심이 있다면 공유 [디스크 활성화](disks-shared-enable.md)문서로 이동하십시오.

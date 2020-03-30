@@ -4,10 +4,10 @@ description: Application Insights용 CollectD 플러그 인을 통해 Java 웹 �
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.openlocfilehash: 687f97c305bffdfb408feb314ccded4f93ac574a
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77660736"
 ---
 # <a name="collectd-linux-performance-metrics-in-application-insights"></a>collectd: Application Insights에서 Linux 성능 메트릭
@@ -15,7 +15,7 @@ ms.locfileid: "77660736"
 
 Linux 시스템 성능 메트릭을[Application Insights](../../azure-monitor/app/app-insights-overview.md)에서 탐색하려면 [collectd](https://collectd.org/)와 Application Insights 플러그 인을 함께 설치합니다. 이 오픈 소스 솔루션은 다양한 시스템 및 네트워크 통계를 수집합니다.
 
-[Application Insights를 사용 하 여 이미 Java 웹 서비스를 계측][java]한 경우 일반적으로 collectd를 사용 합니다. 앱의 성능을 향상시키거나 문제를 진단할 수 있도록 더 많은 데이터를 제공합니다. 
+이미 [Application Insights로 Java 웹 서비스를 계측][java]한 경우 일반적으로 collectd를 사용합니다. 앱의 성능을 향상시키거나 문제를 진단할 수 있도록 더 많은 데이터를 제공합니다. 
 
 ## <a name="get-your-instrumentation-key"></a>계측 키 가져오기
 [Microsoft Azure Portal](https://portal.azure.com)에서 데이터를 표시하고 싶은 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 리소스를 엽니다. (또는 [새 리소스를 만듭니다](../../azure-monitor/app/create-new-resource.md ).)
@@ -82,7 +82,7 @@ Linux 서버 컴퓨터에서:
 Collectd를 해당 [설명서](https://collectd.org/wiki/index.php/First_steps)에 따라서 다시 시작합니다.
 
 ## <a name="view-the-data-in-application-insights"></a>Application Insights에서 데이터 보기
-Application Insights 리소스에서 메트릭을 열고 [차트를 추가][metrics]하 여 사용자 지정 범주에서 보려는 메트릭을 선택 합니다.
+Application Insights 리소스에서 [메트릭을][metrics]열고 차트를 추가하여 맞춤 범주에서 보려는 메트릭을 선택합니다.
 
 기본적으로 메트릭을 수집한 모든 호트스 컴퓨터의 메트릭이 집계됩니다. 차트 세부 정보 블레이드에서 호스트마다 메트릭을 보려면 그룹화를 설정하고 CollectD 호스트별로 그룹화를 선택합니다.
 
@@ -97,14 +97,14 @@ Application Insights 리소스에서 메트릭을 열고 [차트를 추가][metr
 | 지시문 | 영향 |
 | --- | --- |
 | `Exclude disk` |`disk` 플러그인에 의해 수집된 모든 데이터를 제외 |
-| `Exclude disk:read,write` |`read` 플러그인에서 `write`과 `disk`라고 명명된 원본을 제외합니다. |
+| `Exclude disk:read,write` |`disk` 플러그인에서 `read`과 `write`라고 명명된 원본을 제외합니다. |
 
 새 줄을 포함한 별도 지시문입니다.
 
 ## <a name="problems"></a>문제가 있습니까?
 *포털에 데이터가 표시되지 않습니다.*
 
-* [검색][diagnostic] 을 열어 원시 이벤트가 도착 했는지 확인 합니다. 때로는 메트릭 탐색기에 나타날 때 시간이 오래 걸립니다.
+* [검색][diagnostic]을 열고 원시 이벤트가 도착했는지 확인합니다. 때로는 메트릭 탐색기에 나타날 때 시간이 오래 걸립니다.
 * [나가는 데이터에 대한 방화벽 예외를 설정](../../azure-monitor/app/ip-addresses.md)
 * Application insights 플러그 인에서 추적을 사용할 수 있습니다. `<Plugin ApplicationInsightsWriter>`에서 이 줄 추가:
   * `SDKLogger true`
@@ -115,7 +115,7 @@ Application Insights 리소스에서 메트릭을 열고 [차트를 추가][metr
 
 Application Insights 쓰기 플러그 인이 특정 읽기 플러그 인과 호환되지 않습니다. 경우에 따라 일부 플러그 인은 Application Insights 플러그 인에서 부동 소수점 숫자를 예상하는 위치로 “NaN”를 전송합니다.
 
-증상: collectd 로그에 "AI: ... SyntaxError: 예기치 않은 토큰 N ".
+증상: 수집된 로그에 "AI: ... 구문오류: 예기치 않은 토큰 N".
 
 해결 방법: 문제 쓰기 플러그 인에 의해 수집된 데이터를 제외합니다. 
 

@@ -8,10 +8,10 @@ ms.author: bwren
 ms.date: 05/24/2017
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 8ef9f27546e9db95d5a41769e1b5bc7bc0c2f851
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77663065"
 ---
 # <a name="adding-azure-automation-resources-to-a-management-solution-preview"></a>관리 솔루션에 Azure Automation 리소스 추가(미리 보기)
@@ -68,7 +68,7 @@ Azure Automation의 모든 리소스는 [Automation 계정](../../automation/aut
 
 Runbook의 속성은 다음 표에서 설명하고 있습니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:--- |:--- |
 | runbookType |runbook 유형을 지정합니다. <br><br> Script - PowerShell 스크립트 <br>PowerShell - PowerShell 워크플로 <br> GraphPowerShell - 그래픽 PowerShell 스크립트 runbook <br> GraphPowerShellWorkflow - 그래픽 PowerShell 워크플로 runbook |
 | logProgress |runbook에 대한 [진행률 레코드](../../automation/automation-runbook-output-and-messages.md)를 생성해야 하는지 지정합니다. |
@@ -104,7 +104,7 @@ Azure Automation에서 Runbook을 시작하면 자동화 작업이 만들어집�
 
 자동화 작업의 속성은 다음 표에서 설명하고 있습니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:--- |:--- |
 | runbook |시작할 Runbook의 이름을 포함하는 단일 이름 엔터티입니다. |
 | 매개 변수 |Runbook에 필요한 각 매개 변수 값의 엔터티입니다. |
@@ -135,7 +135,7 @@ Azure Automation에서 Runbook을 시작하면 자동화 작업이 만들어집�
 
 인증서 리소스의 속성은 다음 표에서 설명하고 있습니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:--- |:--- |
 | base64Value |인증서에 대한 Base 64 값입니다. |
 | thumbprint |인증서의 지문입니다. |
@@ -162,7 +162,7 @@ Azure Automation에서 Runbook을 시작하면 자동화 작업이 만들어집�
 
 자격 증명 리소스의 속성은 다음 표에서 설명하고 있습니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:--- |:--- |
 | userName |인증서의 사용자 이름입니다. |
 | password |인증서의 암호입니다. |
@@ -190,7 +190,7 @@ Azure Automation에서 Runbook을 시작하면 자동화 작업이 만들어집�
 
 일정 리소스의 속성은 다음 테이블에 설명되어 있습니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:--- |:--- |
 | description |일정에 대한 선택적 설명입니다. |
 | startTime |일정 시작 시간을 DateTime 개체로 지정합니다. 적합한 DateTime으로 변환될 수 있는 경우 문자열을 제공할 수 있습니다. |
@@ -233,14 +233,14 @@ Azure Automation에서 Runbook을 시작하면 자동화 작업이 만들어집�
 
 작업 일정의 속성은 다음 표에서 설명하고 있습니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:--- |:--- |
 | 일정 이름 |일정의 이름을 포함하는 단일 **이름** 엔터티입니다. |
 | Runbook 이름  |runbook 이름을 포함하는 단일 **name** 엔터티입니다.  |
 
 
 
-## <a name="variables"></a>variables
+## <a name="variables"></a>변수
 [Azure Automation 변수](../../automation/automation-variables.md)의 형식은 **Microsoft.Automation/automationAccounts/variables**이며, 다음과 같은 구조를 가집니다.  여기에는 일반 변수 및 매개 변수가 포함되어 있으므로 이 코드 조각을 복사하여 솔루션 파일에 붙여넣고 매개 변수 이름을 변경할 수 있습니다.
 
     {
@@ -260,12 +260,12 @@ Azure Automation에서 Runbook을 시작하면 자동화 작업이 만들어집�
 
 변수 리소스의 속성은 다음 표에서 설명하고 있습니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:--- |:--- |
 | description | 변수에 대한 선택적 설명입니다. |
 | isEncrypted | 변수를 암호화해야 하는지 지정합니다. |
 | type | 이 속성은 현재 적용되지 않습니다.  변수의 데이터 형식은 초기 값에 의해 결정됩니다. |
-| 값 | 변수의 값입니다. |
+| value | 변수의 값입니다. |
 
 > [!NOTE]
 > **type** 속성은 현재 생성 중인 변수에 적용되지 않습니다.  변수의 데이터 형식은 해당 값에 의해 결정됩니다.  
@@ -300,7 +300,7 @@ Azure Automation에서 Runbook을 시작하면 자동화 작업이 만들어집�
 
 모듈 리소스의 속성은 다음 표에서 설명하고 있습니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:--- |:--- |
 | contentLink |모듈의 내용을 지정합니다. <br><br>uri - 모듈 내용에 대한 Uri입니다.  이 URL은 PowerShell 및 Script runbook의 경우 .ps1 파일이 되고 그래프 runbook의 경우 내보낸 그래픽 runbook 파일이 됩니다.  <br> version - 자체적으로 추적하기 위한 모듈의 버전입니다. |
 
@@ -315,7 +315,7 @@ Azure Automation에서 Runbook을 시작하면 자동화 작업이 만들어집�
 
 
 
-## <a name="sample"></a>샘플
+## <a name="sample"></a>예제
 다음은 다음 리소스를 포함하는 솔루션의 샘플입니다.
 
 - Runbook -  공용 GitHub 리포지토리에 저장된 샘플 Runbook입니다.

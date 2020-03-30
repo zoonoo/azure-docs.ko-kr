@@ -4,174 +4,174 @@ description: 리소스 종류가 Azure Resource Manager 템플릿에서 전체 �
 ms.topic: conceptual
 ms.date: 02/26/2020
 ms.openlocfilehash: 5f797974212636460306c6a17869d6b8380545ab
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77664409"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>완료 모드 배포를 위한 Azure 리소스의 삭제
 
 이 문서에서는 완료 모드로 배포된 템플릿에 없는 경우 리소스 종류가 삭제를 처리하는 방법을 설명합니다.
 
-**예** 로 표시 된 리소스 유형은 형식이 전체 모드로 배포 된 템플릿에 없는 경우 삭제 됩니다.
+**예로** 표시된 리소스 유형은 형식이 전체 모드로 배포된 템플릿에 없을 때 삭제됩니다.
 
-로 표시 된 리소스 종류는 템플릿에 없을 때 자동으로 삭제 **되지 않습니다.** 그러나 부모 리소스를 삭제 하는 경우 삭제 됩니다. 동작에 대한 전체 설명은 [Azure Resource Manager 배포 모드](deployment-modes.md)를 참조하세요.
+**아니오로** 표시된 리소스 유형은 템플릿에 없을 때 자동으로 삭제되지 않습니다. 그러나 상위 리소스가 삭제되면 삭제됩니다. 동작에 대한 전체 설명은 [Azure Resource Manager 배포 모드](deployment-modes.md)를 참조하세요.
 
-[템플릿에서 둘 이상의 리소스 그룹](cross-resource-group-deployment.md)에 배포 하는 경우 배포 작업에 지정 된 리소스 그룹의 리소스를 삭제할 수 있습니다. 보조 리소스 그룹의 리소스는 삭제 되지 않습니다.
+[템플릿에서 둘 이상의 리소스 그룹에](cross-resource-group-deployment.md)배포하는 경우 배포 작업에 지정된 리소스 그룹의 리소스를 삭제할 수 있습니다. 보조 리소스 그룹의 리소스는 삭제되지 않습니다.
 
-리소스 공급자 네임 스페이스로 이동 합니다.
+리소스 공급자 네임스페이스로 이동합니다.
 > [!div class="op_single_selector"]
-> - [Microsoft AAD](#microsoftaad)
-> - [Addons](#microsoftaddons)
-> - [ADHybridHealthService](#microsoftadhybridhealthservice)
-> - [Microsoft Advisor](#microsoftadvisor)
-> - [AlertsManagement](#microsoftalertsmanagement)
-> - [Microsoft.analysisservices.sharepoint.integration.dll](#microsoftanalysisservices)
+> - [Microsoft.AAD](#microsoftaad)
+> - [Microsoft.Addons](#microsoftaddons)
+> - [Microsoft.ADHybridHealthService](#microsoftadhybridhealthservice)
+> - [Microsoft.Advisor](#microsoftadvisor)
+> - [Microsoft.AlertsManagement](#microsoftalertsmanagement)
+> - [Microsoft.AnalysisServices](#microsoftanalysisservices)
 > - [Microsoft.ApiManagement](#microsoftapimanagement)
-> - [Microsoft AppConfiguration](#microsoftappconfiguration)
-> - [Microsoft AppPlatform](#microsoftappplatform)
-> - [Microsoft 증명](#microsoftattestation)
-> - [Microsoft.Authorization](#microsoftauthorization)
+> - [마이크로소프트.앱구성](#microsoftappconfiguration)
+> - [마이크로소프트.앱플랫폼](#microsoftappplatform)
+> - [Microsoft.Attestation](#microsoftattestation)
+> - [마이크로소프트.권한 부여](#microsoftauthorization)
 > - [Microsoft.Automation](#microsoftautomation)
-> - [Azconfig](#microsoftazconfig)
-> - [Geneva](#microsoftazuregeneva)
-> - [AzureActiveDirectory](#microsoftazureactivedirectory)
-> - [Microsoft AzureData](#microsoftazuredata)
-> - [Microsoft AzureStack](#microsoftazurestack)
-> - [Microsoft Batch](#microsoftbatch)
-> - [Microsoft 청구](#microsoftbilling)
-> - [Microsoft. BingMaps](#microsoftbingmaps)
-> - [Microsoft Blockchain](#microsoftblockchain)
-> - [Microsoft 청사진](#microsoftblueprint)
-> - [BotService](#microsoftbotservice)
+> - [마이크로소프트.아즈콘피그](#microsoftazconfig)
+> - [Microsoft.Azure.Geneva](#microsoftazuregeneva)
+> - [Microsoft.AzureActiveDirectory](#microsoftazureactivedirectory)
+> - [마이크로소프트.Azure데이터](#microsoftazuredata)
+> - [Microsoft.AzureStack](#microsoftazurestack)
+> - [Microsoft.Batch](#microsoftbatch)
+> - [Microsoft.Billing](#microsoftbilling)
+> - [Microsoft.BingMaps](#microsoftbingmaps)
+> - [Microsoft.Blockchain](#microsoftblockchain)
+> - [Microsoft.Blueprint](#microsoftblueprint)
+> - [Microsoft.BotService](#microsoftbotservice)
 > - [Microsoft.Cache](#microsoftcache)
-> - [Microsoft 용량](#microsoftcapacity)
+> - [Microsoft.Capacity](#microsoftcapacity)
 > - [Microsoft.Cdn](#microsoftcdn)
-> - [CertificateRegistration](#microsoftcertificateregistration)
-> - [Microsoft.classiccompute](#microsoftclassiccompute)
-> - [ClassicInfrastructureMigrate](#microsoftclassicinfrastructuremigrate)
-> - [Microsoft.classicnetwork](#microsoftclassicnetwork)
-> - [ClassicStorage](#microsoftclassicstorage)
-> - [Cognitiveservices account](#microsoftcognitiveservices)
-> - [Microsoft 상거래](#microsoftcommerce)
-> - [Microsoft Compute](#microsoftcompute)
-> - [Microsoft 소비량](#microsoftconsumption)
-> - [ContainerInstance](#microsoftcontainerinstance)
+> - [Microsoft.CertificateRegistration](#microsoftcertificateregistration)
+> - [Microsoft.ClassicCompute](#microsoftclassiccompute)
+> - [Microsoft.ClassicInfrastructureMigrate](#microsoftclassicinfrastructuremigrate)
+> - [마이크로소프트.클래식네트워크](#microsoftclassicnetwork)
+> - [Microsoft.ClassicStorage](#microsoftclassicstorage)
+> - [Microsoft.CognitiveServices](#microsoftcognitiveservices)
+> - [Microsoft.Commerce](#microsoftcommerce)
+> - [마이크로소프트.컴퓨트](#microsoftcompute)
+> - [Microsoft.Consumption](#microsoftconsumption)
+> - [Microsoft.ContainerInstance](#microsoftcontainerinstance)
 > - [Microsoft.ContainerRegistry](#microsoftcontainerregistry)
 > - [Microsoft.ContainerService](#microsoftcontainerservice)
-> - [CortanaAnalytics](#microsoftcortanaanalytics)
-> - [CostManagement](#microsoftcostmanagement)
-> - [Microsoft. CustomerLockbox](#microsoftcustomerlockbox)
-> - [Microsoft CustomProviders](#microsoftcustomproviders)
-> - [DataBox](#microsoftdatabox)
-> - [DataBoxEdge](#microsoftdataboxedge)
-> - [Databricks](#microsoftdatabricks)
-> - [Microsoft.datacatalog](#microsoftdatacatalog)
+> - [Microsoft.CortanaAnalytics](#microsoftcortanaanalytics)
+> - [Microsoft.CostManagement](#microsoftcostmanagement)
+> - [마이크로소프트.고객 잠금 상자](#microsoftcustomerlockbox)
+> - [마이크로소프트.사용자 지정 공급자](#microsoftcustomproviders)
+> - [마이크로소프트.데이터박스](#microsoftdatabox)
+> - [Microsoft.DataBoxEdge](#microsoftdataboxedge)
+> - [Microsoft.Databricks](#microsoftdatabricks)
+> - [Microsoft.DataCatalog](#microsoftdatacatalog)
 > - [Microsoft.DataFactory](#microsoftdatafactory)
-> - [Microsoft.DataLakeAnalytics](#microsoftdatalakeanalytics)
+> - [마이크로소프트.데이터레이크애널리틱스](#microsoftdatalakeanalytics)
 > - [Microsoft.DataLakeStore](#microsoftdatalakestore)
-> - [Microsoft.datamigration](#microsoftdatamigration)
-> - [DataShare](#microsoftdatashare)
-> - [DBforMariaDB](#microsoftdbformariadb)
-> - [Microsoft DBforMySQL](#microsoftdbformysql)
-> - [DBforPostgreSQL](#microsoftdbforpostgresql)
-> - [Microsoft DeploymentManager](#microsoftdeploymentmanager)
-> - [Microsoft DesktopVirtualization](#microsoftdesktopvirtualization)
-> - [Microsoft.Devices](#microsoftdevices)
-> - [Microsoft DevOps](#microsoftdevops)
-> - [Microsoft DevSpaces](#microsoftdevspaces)
+> - [Microsoft.DataMigration](#microsoftdatamigration)
+> - [마이크로소프트.데이터 쉐어](#microsoftdatashare)
+> - [Microsoft.DBforMariaDB](#microsoftdbformariadb)
+> - [Microsoft.DBforMySQL](#microsoftdbformysql)
+> - [Microsoft.DBforPostgreSQL](#microsoftdbforpostgresql)
+> - [Microsoft.DeploymentManager](#microsoftdeploymentmanager)
+> - [마이크로소프트.데스크톱 가상화](#microsoftdesktopvirtualization)
+> - [마이크로소프트.디바이스](#microsoftdevices)
+> - [마이크로소프트.데브옵스](#microsoftdevops)
+> - [Microsoft.DevSpaces](#microsoftdevspaces)
 > - [Microsoft.DevTestLab](#microsoftdevtestlab)
 > - [Microsoft.DocumentDB](#microsoftdocumentdb)
-> - [Microsoft DomainRegistration](#microsoftdomainregistration)
-> - [Microsoft. DynamicsLcs](#microsoftdynamicslcs)
-> - [EnterpriseKnowledgeGraph](#microsoftenterpriseknowledgegraph)
-> - [Microsoft EventGrid](#microsofteventgrid)
+> - [Microsoft.DomainRegistration](#microsoftdomainregistration)
+> - [Microsoft.DynamicsLcs](#microsoftdynamicslcs)
+> - [마이크로소프트.엔터프라이즈 지식그래프](#microsoftenterpriseknowledgegraph)
+> - [Microsoft.EventGrid](#microsofteventgrid)
 > - [Microsoft.EventHub](#microsofteventhub)
-> - [Microsoft. 기능](#microsoftfeatures)
-> - [Microsoft 갤러리](#microsoftgallery)
-> - [Genomics](#microsoftgenomics)
+> - [Microsoft.Features](#microsoftfeatures)
+> - [Microsoft.Gallery](#microsoftgallery)
+> - [Microsoft.Genomics](#microsoftgenomics)
 > - [Microsoft.GuestConfiguration](#microsoftguestconfiguration)
-> - [HanaOnAzure](#microsofthanaonazure)
-> - [HardwareSecurityModules](#microsofthardwaresecuritymodules)
+> - [Microsoft.HanaOnAzure](#microsofthanaonazure)
+> - [Microsoft.HardwareSecurityModules](#microsofthardwaresecuritymodules)
 > - [Microsoft.HDInsight](#microsofthdinsight)
-> - [HealthcareApis](#microsofthealthcareapis)
+> - [마이크로소프트.헬스케어아피](#microsofthealthcareapis)
 > - [Microsoft.HybridCompute](#microsofthybridcompute)
-> - [HybridData](#microsofthybriddata)
-> - [Microsoft 히드라](#microsofthydra)
-> - [Microsoft ImportExport](#microsoftimportexport)
-> - [Microsoft Intune](#microsoftintune)
-> - [Microsoft. IoTCentral](#microsoftiotcentral)
-> - [Microsoft. IoTSpaces](#microsoftiotspaces)
+> - [Microsoft.HybridData](#microsofthybriddata)
+> - [마이크로소프트.히드라](#microsofthydra)
+> - [Microsoft.ImportExport](#microsoftimportexport)
+> - [Microsoft.Intune](#microsoftintune)
+> - [Microsoft.IoTCentral](#microsoftiotcentral)
+> - [Microsoft.IoTSpaces](#microsoftiotspaces)
 > - [Microsoft.KeyVault](#microsoftkeyvault)
-> - [Microsoft. Kusto](#microsoftkusto)
-> - [Microsoft. 서비스](#microsoftlabservices)
+> - [Microsoft.Kusto](#microsoftkusto)
+> - [Microsoft.LabServices](#microsoftlabservices)
 > - [Microsoft.Logic](#microsoftlogic)
-> - [MachineLearning](#microsoftmachinelearning)
-> - [MachineLearningServices](#microsoftmachinelearningservices)
-> - [Microsoft.managedidentity](#microsoftmanagedidentity)
-> - [Microsoft ManagedServices](#microsoftmanagedservices)
-> - [Microsoft 관리](#microsoftmanagement)
-> - [Microsoft Maps](#microsoftmaps)
-> - [Microsoft Marketplace](#microsoftmarketplace)
-> - [MarketplaceApps](#microsoftmarketplaceapps)
-> - [MarketplaceOrdering](#microsoftmarketplaceordering)
+> - [Microsoft.MachineLearning](#microsoftmachinelearning)
+> - [Microsoft.MachineLearningServices](#microsoftmachinelearningservices)
+> - [Microsoft.ManagedIdentity](#microsoftmanagedidentity)
+> - [마이크로소프트.ManagedServices](#microsoftmanagedservices)
+> - [Microsoft.Management](#microsoftmanagement)
+> - [Microsoft.Maps](#microsoftmaps)
+> - [Microsoft.Marketplace](#microsoftmarketplace)
+> - [Microsoft.MarketplaceApps](#microsoftmarketplaceapps)
+> - [Microsoft.MarketplaceOrdering](#microsoftmarketplaceordering)
 > - [Microsoft.Media](#microsoftmedia)
-> - [Microservices4Spring](#microsoftmicroservices4spring)
-> - [Microsoft 마이그레이션](#microsoftmigrate)
-> - [MixedReality](#microsoftmixedreality)
-> - [Microsoft NetApp](#microsoftnetapp)
-> - [Microsoft. 전자 필기장](#microsoftnotebooks)
-> - [Microsoft 네트워크](#microsoftnetwork)
+> - [마이크로소프트.마이크로 서비스4Spring](#microsoftmicroservices4spring)
+> - [Microsoft.Migrate](#microsoftmigrate)
+> - [마이크로소프트.혼합현실](#microsoftmixedreality)
+> - [Microsoft.NetApp](#microsoftnetapp)
+> - [마이크로소프트.노트북](#microsoftnotebooks)
+> - [마이크로소프트 네트워크](#microsoftnetwork)
 > - [Microsoft.NotificationHubs](#microsoftnotificationhubs)
-> - [Microsoft ObjectStore](#microsoftobjectstore)
-> - [Microsoft. OffAzure](#microsoftoffazure)
-> - [OperationalInsights](#microsoftoperationalinsights)
-> - [Microsoft.operationsmanagement](#microsoftoperationsmanagement)
-> - [Microsoft 피어 링](#microsoftpeering)
-> - [Microsoft.PolicyInsights](#microsoftpolicyinsights)
-> - [Microsoft 포털](#microsoftportal)
-> - [Microsoft PowerBI](#microsoftpowerbi)
-> - [Microsoft. PowerBIDedicated](#microsoftpowerbidedicated)
-> - [ProjectBabylon](#microsoftprojectbabylon)
+> - [마이크로소프트.오브젝트스토어](#microsoftobjectstore)
+> - [Microsoft.OffAzure](#microsoftoffazure)
+> - [마이크로소프트.오퍼랙타인사이트](#microsoftoperationalinsights)
+> - [마이크로소프트.오퍼레이션매니지먼트](#microsoftoperationsmanagement)
+> - [마이크로소프트.피어링](#microsoftpeering)
+> - [마이크로소프트.정책인사이트](#microsoftpolicyinsights)
+> - [Microsoft.Portal](#microsoftportal)
+> - [Microsoft.PowerBI](#microsoftpowerbi)
+> - [Microsoft.PowerBIDedicated](#microsoftpowerbidedicated)
+> - [마이크로소프트.프로젝트바빌론](#microsoftprojectbabylon)
 > - [Microsoft.RecoveryServices](#microsoftrecoveryservices)
-> - [Microsoft Relay](#microsoftrelay)
-> - [Microsoft RemoteApp](#microsoftremoteapp)
-> - [Microsoft ResourceGraph](#microsoftresourcegraph)
-> - [Microsoft ResourceHealth](#microsoftresourcehealth)
+> - [Microsoft.Relay](#microsoftrelay)
+> - [마이크로소프트.리모트 앱](#microsoftremoteapp)
+> - [Microsoft.ResourceGraph](#microsoftresourcegraph)
+> - [Microsoft.ResourceHealth](#microsoftresourcehealth)
 > - [Microsoft.Resources](#microsoftresources)
-> - [Microsoft SaaS](#microsoftsaas)
-> - [Microsoft.Search](#microsoftsearch)
+> - [Microsoft.SaaS](#microsoftsaas)
+> - [마이크로소프트.검색](#microsoftsearch)
 > - [Microsoft.Security](#microsoftsecurity)
-> - [Microsoft SecurityGraph](#microsoftsecuritygraph)
-> - [Microsoft SecurityInsights](#microsoftsecurityinsights)
+> - [Microsoft.SecurityGraph](#microsoftsecuritygraph)
+> - [마이크로소프트.시큐리티인사이트](#microsoftsecurityinsights)
 > - [Microsoft.ServiceBus](#microsoftservicebus)
 > - [Microsoft.ServiceFabric](#microsoftservicefabric)
-> - [ServiceFabricMesh](#microsoftservicefabricmesh)
-> - [Microsoft 서비스](#microsoftservices)
-> - [SignalRService](#microsoftsignalrservice)
-> - [SiteRecovery](#microsoftsiterecovery)
-> - [SoftwarePlan](#microsoftsoftwareplan)
-> - [Microsoft 솔루션](#microsoftsolutions)
-> - [SpoolService](#microsoftspoolservice)
-> - [Microsoft .SQL](#microsoftsql)
-> - [SqlVirtualMachine](#microsoftsqlvirtualmachine)
+> - [Microsoft.ServiceFabricMesh](#microsoftservicefabricmesh)
+> - [마이크로소프트 서비스](#microsoftservices)
+> - [Microsoft.SignalRService](#microsoftsignalrservice)
+> - [Microsoft.SiteRecovery](#microsoftsiterecovery)
+> - [마이크로소프트.소프트웨어플랜](#microsoftsoftwareplan)
+> - [Microsoft.Solutions](#microsoftsolutions)
+> - [마이크로소프트.스풀서비스](#microsoftspoolservice)
+> - [마이크로소프트 SQL](#microsoftsql)
+> - [Microsoft.SqlVirtualMachine](#microsoftsqlvirtualmachine)
 > - [Microsoft.Storage](#microsoftstorage)
-> - [StorageCache](#microsoftstoragecache)
-> - [StorageReplication](#microsoftstoragereplication)
-> - [Microsoft.storagesync](#microsoftstoragesync)
-> - [Microsoft. StorageSyncDev](#microsoftstoragesyncdev)
-> - [Microsoft StorageSyncInt](#microsoftstoragesyncint)
-> - [Microsoft StorSimple](#microsoftstorsimple)
-> - [Microsoft StreamAnalytics](#microsoftstreamanalytics)
-> - [Microsoft 구독](#microsoftsubscription)
-> - [Microsoft. TimeSeriesInsights](#microsofttimeseriesinsights)
-> - [VMwareCloudSimple](#microsoftvmwarecloudsimple)
-> - [Microsoft VnfManager](#microsoftvnfmanager)
+> - [마이크로소프트.스토리지캐시](#microsoftstoragecache)
+> - [마이크로소프트.스토리지복제](#microsoftstoragereplication)
+> - [Microsoft.StorageSync](#microsoftstoragesync)
+> - [Microsoft.StorageSyncDev](#microsoftstoragesyncdev)
+> - [Microsoft.StorageSyncInt](#microsoftstoragesyncint)
+> - [Microsoft.StorSimple](#microsoftstorsimple)
+> - [Microsoft.StreamAnalytics](#microsoftstreamanalytics)
+> - [Microsoft.Subscription](#microsoftsubscription)
+> - [Microsoft.TimeSeriesInsights](#microsofttimeseriesinsights)
+> - [마이크로소프트.VM웨어클라우드심플](#microsoftvmwarecloudsimple)
+> - [마이크로소프트.VnfManager](#microsoftvnfmanager)
 > - [Microsoft.Web](#microsoftweb)
-> - [WindowsDefenderATP](#microsoftwindowsdefenderatp)
-> - [Microsoft WindowsIoT](#microsoftwindowsiot)
-> - [WorkloadMonitor](#microsoftworkloadmonitor)
+> - [Microsoft.WindowsDefenderATP](#microsoftwindowsdefenderatp)
+> - [Microsoft.WindowsIoT](#microsoftwindowsiot)
+> - [Microsoft.WorkloadMonitor](#microsoftworkloadmonitor)
 
 ## <a name="microsoftaad"></a>Microsoft.AAD
 
@@ -179,7 +179,7 @@ ms.locfileid: "77664409"
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
 > | DomainServices | yes |
-> | DomainServices/oucontainer | 예 |
+> | 도메인 서비스 / 오컨테이너 | 예 |
 
 ## <a name="microsoftaddons"></a>Microsoft.Addons
 
@@ -222,7 +222,7 @@ ms.locfileid: "77664409"
 > | actionRules | yes |
 > | 경고 | 예 |
 > | alertsList | 예 |
-> | alertsMetaData | 예 |
+> | 알림메타데이터 | 예 |
 > | alertsSummary | 예 |
 > | alertsSummaryList | 예 |
 > | 사용자 의견 | 예 |
@@ -246,15 +246,15 @@ ms.locfileid: "77664409"
 > | 서비스 | yes |
 > | validateServiceName | 예 |
 
-## <a name="microsoftappconfiguration"></a>Microsoft.AppConfiguration
+## <a name="microsoftappconfiguration"></a>마이크로소프트.앱구성
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
-> | configurationStores | yes |
-> | configurationStores/eventGridFilters | 예 |
+> | 구성 스토어 | yes |
+> | 구성스토어 / 이벤트그리드필터 | 예 |
 
-## <a name="microsoftappplatform"></a>Microsoft AppPlatform
+## <a name="microsoftappplatform"></a>마이크로소프트.앱플랫폼
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 전체 모드 삭제 |
@@ -274,10 +274,10 @@ ms.locfileid: "77664409"
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
 > | classicAdministrators | 예 |
-> | dataAliases | 예 |
+> | 데이터알리아스 | 예 |
 > | denyAssignments | 예 |
 > | elevateAccess | 예 |
-> | findOrphanRoleAssignments | 예 |
+> | 찾기Orphan역할할당 | 예 |
 > | locks | 예 |
 > | 권한 | 예 |
 > | policyAssignments | 예 |
@@ -285,7 +285,7 @@ ms.locfileid: "77664409"
 > | policySetDefinitions | 예 |
 > | providerOperations | 예 |
 > | roleAssignments | 예 |
-> | roleAssignmentsUsageMetrics | 예 |
+> | 역할할당사용메트릭 | 예 |
 > | roleDefinitions | 예 |
 
 ## <a name="microsoftautomation"></a>Microsoft.Automation
@@ -294,22 +294,22 @@ ms.locfileid: "77664409"
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
 > | automationAccounts | yes |
-> | automationAccounts/구성 | yes |
-> | automationAccounts/job | 예 |
-> | automationAccounts/privateEndpointConnectionProxies | 예 |
-> | automationAccounts/privateEndpointConnections | 예 |
-> | automationAccounts/privateLinkResources | 예 |
-> | automationAccounts/runbook | yes |
-> | automationAccounts/softwareUpdateConfigurations | 예 |
-> | automationAccounts/웹 후크 | 예 |
+> | 자동화계정 / 구성 | yes |
+> | 자동화계정 / 채용 정보 | 예 |
+> | 자동화계정 / 사설엔드포인트커넥션프록시 | 예 |
+> | 자동화계정 / 프라이빗엔드포인트커넥션 | 예 |
+> | 자동화계정 / 개인링크자원 | 예 |
+> | 자동화계정 / 런북 | yes |
+> | 자동화계정 / 소프트웨어업데이트구성 | 예 |
+> | 자동화계정 / 웹후크 | 예 |
 
-## <a name="microsoftazconfig"></a>Azconfig
+## <a name="microsoftazconfig"></a>마이크로소프트.아즈콘피그
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
-> | configurationStores | yes |
-> | configurationStores/eventGridFilters | 예 |
+> | 구성 스토어 | yes |
+> | 구성스토어 / 이벤트그리드필터 | 예 |
 
 ## <a name="microsoftazuregeneva"></a>Microsoft.Azure.Geneva
 
@@ -317,9 +317,9 @@ ms.locfileid: "77664409"
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
 > | environments | 예 |
-> | 환경/계정 | 예 |
-> | 환경/계정/네임 스페이스 | 예 |
-> | 환경/계정/네임 스페이스/구성 | 예 |
+> | 환경 / 계정 | 예 |
+> | 환경 / 계정 / 네임 스페이스 | 예 |
+> | 환경 / 계정 / 네임 스페이스 / 구성 | 예 |
 
 ## <a name="microsoftazureactivedirectory"></a>Microsoft.AzureActiveDirectory
 
@@ -329,17 +329,17 @@ ms.locfileid: "77664409"
 > | b2cDirectories | yes |
 > | b2ctenants | 예 |
 
-## <a name="microsoftazuredata"></a>Microsoft AzureData
+## <a name="microsoftazuredata"></a>마이크로소프트.Azure데이터
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
-> | hybridDataManagers | yes |
-> | postgresInstances | yes |
-> | sqlBigDataClusters | yes |
+> | 하이브리드 데이터 관리자 | yes |
+> | 포스트그레스 | yes |
+> | sqlBigData클러스터 | yes |
 > | sqlInstances | yes |
-> | sqlServerRegistrations | yes |
-> | sqlServerRegistrations/sqlServers | 예 |
+> | sqlServer등록 | yes |
+> | sqlServer등록 / sqlServers | 예 |
 
 ## <a name="microsoftazurestack"></a>Microsoft.AzureStack
 
@@ -347,9 +347,9 @@ ms.locfileid: "77664409"
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
 > | registrations | yes |
-> | 등록/customerSubscriptions | 예 |
-> | 등록/제품 | 예 |
-> | verificationKeys | 예 |
+> | 등록 / 고객 구독 | 예 |
+> | 등록 / 제품 | 예 |
+> | 확인 키 | 예 |
 
 ## <a name="microsoftbatch"></a>Microsoft.Batch
 
@@ -364,88 +364,88 @@ ms.locfileid: "77664409"
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
 > | billingAccounts | 예 |
-> | billingAccounts/규약 | 예 |
-> | billingAccounts / billingPermissions | 예 |
-> | billingAccounts / billingProfiles | 예 |
-> | billingAccounts / billingProfiles / billingPermissions | 예 |
-> | billingAccounts / billingProfiles / billingRoleAssignments | 예 |
-> | billingAccounts / billingProfiles / billingRoleDefinitions | 예 |
-> | billingAccounts / billingProfiles / billingSubscriptions | 예 |
-> | billingAccounts / billingProfiles / createBillingRoleAssignment | 예 |
-> | billingAccounts/billingProfiles/고객 | 예 |
-> | billingAccounts/billingProfiles/지침 | 예 |
-> | billingAccounts/billingProfiles/송장 | 예 |
-> | billingAccounts/billingProfiles/청구서/가격표 | 예 |
-> | billingAccounts/billingProfiles/송장/트랜잭션 | 예 |
-> | billingAccounts / billingProfiles / invoiceSections | 예 |
-> | billingAccounts / billingProfiles / invoiceSections / billingPermissions | 예 |
-> | billingAccounts / billingProfiles / invoiceSections / billingRoleAssignments | 예 |
-> | billingAccounts / billingProfiles / invoiceSections / billingRoleDefinitions | 예 |
-> | billingAccounts / billingProfiles / invoiceSections / billingSubscriptions | 예 |
-> | billingAccounts / billingProfiles / invoiceSections / createBillingRoleAssignment | 예 |
-> | billingAccounts / billingProfiles / invoiceSections / initiateTransfer | 예 |
-> | billingAccounts/billingProfiles/invoiceSections/products | 예 |
-> | billingAccounts/billingProfiles/invoiceSections/products/transfer | 예 |
-> | billingAccounts/billingProfiles/invoiceSections/products/updateAutoRenew | 예 |
-> | billingAccounts/billingProfiles/invoiceSections/트랜잭션 | 예 |
-> | billingAccounts/billingProfiles/invoiceSections/transfer | 예 |
-> | billingAccounts / BillingProfiles / patchOperations | 예 |
-> | billingAccounts / billingProfiles / paymentMethods | 예 |
-> | billingAccounts/billingProfiles/정책 | 예 |
-> | billingAccounts/billingProfiles/가격표 | 예 |
-> | billingAccounts / billingProfiles / pricesheetDownloadOperations | 예 |
-> | billingAccounts/billingProfiles/제품 | 예 |
-> | billingAccounts/billingProfiles/트랜잭션 | 예 |
-> | billingAccounts / billingRoleAssignments | 예 |
-> | billingAccounts / billingRoleDefinitions | 예 |
-> | billingAccounts / billingSubscriptions | 예 |
-> | billingAccounts/billingSubscriptions/송장 | 예 |
-> | billingAccounts / createBillingRoleAssignment | 예 |
-> | billingAccounts / createInvoiceSectionOperations | 예 |
-> | billingAccounts/고객 | 예 |
-> | billingAccounts/customers/billingPermissions | 예 |
-> | billingAccounts/customers/billingSubscriptions | 예 |
-> | billingAccounts/customers/initiateTransfer | 예 |
-> | billingAccounts/고객/정책 | 예 |
-> | billingAccounts/고객/제품 | 예 |
-> | billingAccounts/고객/트랜잭션 | 예 |
-> | billingAccounts/고객/전송 | 예 |
-> | billingAccounts/부서 | 예 |
-> | billingAccounts / enrollmentAccounts | 예 |
-> | billingAccounts/송장 | 예 |
-> | billingAccounts / invoiceSections | 예 |
-> | billingAccounts / invoiceSections / billingSubscriptionMoveOperations | 예 |
-> | billingAccounts / invoiceSections / billingSubscriptions | 예 |
-> | billingAccounts/invoiceSections/billingSubscriptions/transfer | 예 |
-> | billingAccounts/invoiceSections/상승 | 예 |
-> | billingAccounts / invoiceSections / initiateTransfer | 예 |
-> | billingAccounts / invoiceSections / patchOperations | 예 |
-> | billingAccounts/invoiceSections/제품 Moveoperations | 예 |
-> | billingAccounts/invoiceSections/제품 | 예 |
-> | billingAccounts/invoiceSections/제품/이전 | 예 |
-> | billingAccounts/invoiceSections/products/updateAutoRenew | 예 |
-> | billingAccounts/invoiceSections/트랜잭션 | 예 |
-> | billingAccounts/invoiceSections/전송 | 예 |
-> | billingAccounts/lineOfCredit | 예 |
-> | billingAccounts / patchOperations | 예 |
-> | billingAccounts / paymentMethods | 예 |
-> | billingAccounts/제품 | 예 |
-> | billingAccounts/트랜잭션 | 예 |
+> | 청구계정/ 계약 | 예 |
+> | 청구계정 / 청구권한 | 예 |
+> | 청구계정 / 청구프로필 | 예 |
+> | 청구계정 / 청구프로필 / 청구권한 | 예 |
+> | 청구계정 / 청구프로필 / 청구역할할당 | 예 |
+> | 청구계정 / 청구프로필 / 청구롤정의 | 예 |
+> | 청구계정 / 청구프로필 / 청구 구독 | 예 |
+> | 청구계정 / 청구 프로필 / 생성청구역할할당 | 예 |
+> | 청구계정 / 청구프로필 / 고객 | 예 |
+> | 청구계정 / 청구프로필 / 지침 | 예 |
+> | 청구계정 / 청구프로필 / 인보이스 | 예 |
+> | 청구계정 / 청구프로필 / 인보이스/ 가격표 | 예 |
+> | 청구계정 / 청구프로필 / 인보이스 / 거래 | 예 |
+> | 청구계정 / 청구프로필 / 청구서섹션 | 예 |
+> | 청구계정 / 청구프로필 / 인보이스섹션 / 청구권한 | 예 |
+> | 청구계정 / 청구프로필 / 인보이스섹션 / 청구역할할당 | 예 |
+> | 청구계정 / 청구프로필 / 인보이스섹션 / 청구역할정의 | 예 |
+> | 청구계정 / 청구계정 / 청구서섹션 / 청구구독 | 예 |
+> | 청구계정 / 청구 프로필 / 인보이스섹션 / 생성청구역할할당 | 예 |
+> | 청구계정 / 청구 프로필 / 인보이스섹션 / 시작전송 | 예 |
+> | 청구계정 / 청구프로필 / 인보이스섹션 /제품 | 예 |
+> | 청구계정 / 청구프로필 / 인보이스섹션 / 제품 / 이전 | 예 |
+> | 청구계정 / 청구 프로필 / 인보이스섹션 / 제품 / 업데이트자동갱신 | 예 |
+> | 청구계정 / 청구프로필 / 인보이스섹션/거래 | 예 |
+> | 청구계정 / 청구프로필 / 인보이스섹션/이체 | 예 |
+> | 청구 계정 / 청구 프로필 / 패치운영 | 예 |
+> | 청구계정 / 청구프로필 / 결제방법 | 예 |
+> | 청구계정 / 청구프로필 / 정책 | 예 |
+> | 청구계정 / 청구프로필 / 가격표 | 예 |
+> | 청구계정 / 청구프로필 / 프라이스시트다운로드운영 | 예 |
+> | 청구계정 / 청구프로필 / 제품 | 예 |
+> | 청구계정 / 청구계정 / 거래프로필/ 거래 | 예 |
+> | 청구계정 / 청구역할할당 | 예 |
+> | 청구계정 / 청구역할정의 | 예 |
+> | 청구계정 / 청구구독 | 예 |
+> | 청구계정 / 청구구독 / 인보이스 | 예 |
+> | 청구 계정 / 만들기청구역할할당 | 예 |
+> | 청구 계정 / createInvoiceSectionOperations | 예 |
+> | 청구계정 / 고객 | 예 |
+> | 청구계정 / 고객 / 청구권한 | 예 |
+> | 청구계정 / 고객 / 청구 구독 | 예 |
+> | 청구계정 / 고객 / 시작 전송 | 예 |
+> | 청구계정 / 고객 / 정책 | 예 |
+> | 청구계정 / 고객 / 제품 | 예 |
+> | 청구계정 / 고객 / 거래 | 예 |
+> | 청구계정 / 고객 / 이체 | 예 |
+> | 청구계정/부서 | 예 |
+> | 청구계정계정/ 등록계정 | 예 |
+> | 청구계정 / 인보이스 | 예 |
+> | 청구계정 / 송장섹션 | 예 |
+> | 청구계정 / 인보이스섹션 / 청구구독이동운영 | 예 |
+> | 청구계정 / 인보이스섹션 / 청구구독 | 예 |
+> | 청구계정 / 인보이스섹션 / 청구구독/ 이전 | 예 |
+> | 청구계정 / 인보이스섹션/ 상승 | 예 |
+> | 청구계정 / 인보이스섹션 / 시작전송 | 예 |
+> | 청구계정 / 송장섹션 / 패치운영 | 예 |
+> | 청구계정 / 인보이스섹션 / 제품이동운영 | 예 |
+> | 청구계정 / 인보이스섹션 /제품 | 예 |
+> | 청구계정 / 인보이스섹션 / 제품/ 이체 | 예 |
+> | 청구계정 / 인보이스섹션 / 제품/ 업데이트자동갱신 | 예 |
+> | 청구계정 / 인보이스섹션/거래 | 예 |
+> | 청구계정 / 인보이스섹션/이체 | 예 |
+> | 청구계정 / 라인오브크레디트 | 예 |
+> | 청구계정 / 패치운영 | 예 |
+> | 청구계정 / 결제 방법 | 예 |
+> | 청구계정 / 제품 | 예 |
+> | 청구계정/거래 | 예 |
 > | billingPeriods | 예 |
-> | billingPermissions | 예 |
+> | 청구권한 | 예 |
 > | billingProperty | 예 |
-> | billingRoleAssignments | 예 |
-> | billingRoleDefinitions | 예 |
-> | createBillingRoleAssignment | 예 |
+> | 청구역할할당 | 예 |
+> | 청구롤정의 | 예 |
+> | 만들기빌링롤할당 | 예 |
 > | departments | 예 |
 > | enrollmentAccounts | 예 |
 > | invoices | 예 |
 > | transfers | 예 |
-> | 전송/acceptTransfer | 예 |
-> | 전송/declineTransfer | 예 |
-> | 전송/operationStatus | 예 |
-> | 전송/validateTransfer | 예 |
-> | validateAddress | 예 |
+> | 전송 / 수락 전송 | 예 |
+> | 전송 / 거절전송 | 예 |
+> | 전송 / 작업상태 | 예 |
+> | 전송 / 유효성 검사 전송 | 예 |
+> | 유효성 검사주소 | 예 |
 
 ## <a name="microsoftbingmaps"></a>Microsoft.BingMaps
 
@@ -460,9 +460,9 @@ ms.locfileid: "77664409"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
-> | blockchainMembers | yes |
-> | cordaMembers | yes |
-> | 감시자 | yes |
+> | 블록체인 회원 | yes |
+> | 코다 회원 | yes |
+> | 전문가 | yes |
 
 ## <a name="microsoftblueprint"></a>Microsoft.Blueprint
 
@@ -470,12 +470,12 @@ ms.locfileid: "77664409"
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
 > | blueprintAssignments | 예 |
-> | blueprintAssignments / assignmentOperations | 예 |
-> | blueprintAssignments/작업 | 예 |
+> | 청사진할당 / 할당운영 | 예 |
+> | 청사진할당/운영 | 예 |
 > | blueprints | 예 |
-> | 청사진/아티팩트 | 예 |
-> | 청사진/버전 | 예 |
-> | 청사진/버전/아티팩트 | 예 |
+> | 청사진 / 아티팩트 | 예 |
+> | 청사진 / 버전 | 예 |
+> | 청사진 / 버전 / 아티팩트 | 예 |
 
 ## <a name="microsoftbotservice"></a>Microsoft.BotService
 
@@ -483,8 +483,8 @@ ms.locfileid: "77664409"
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
 > | botServices | yes |
-> | botServices/채널 | 예 |
-> | botServices/연결 | 예 |
+> | 봇 서비스 / 채널 | 예 |
+> | 봇 서비스 / 연결 | 예 |
 > | 언어 | 예 |
 > | 템플릿 | 예 |
 
@@ -501,24 +501,24 @@ ms.locfileid: "77664409"
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
 > | appliedReservations | 예 |
-> | autoQuotaIncrease | 예 |
-> | calculateExchange | 예 |
+> | 자동 할당량 증가 | 예 |
+> | 계산교환 | 예 |
 > | calculatePrice | 예 |
-> | calculatePurchasePrice | 예 |
+> | 계산구매가격 | 예 |
 > | catalogs | 예 |
 > | commercialReservationOrders | 예 |
 > | 교환 | 예 |
-> | placePurchaseOrder | 예 |
+> | 플레이스구매 주문 | 예 |
 > | reservationOrders | 예 |
-> | reservationOrders / calculateRefund | 예 |
-> | reservationOrders/병합 | 예 |
-> | reservationOrders/예약 | 예 |
-> | reservationOrders/예약/수정 버전 | 예 |
-> | reservationOrders/반환 | 예 |
-> | reservationOrders/분할 | 예 |
-> | reservationOrders/교환 | 예 |
+> | 예약 주문 / 계산환불 | 예 |
+> | 예약 주문 / 병합 | 예 |
+> | 예약 주문/예약 | 예 |
+> | 예약 주문/예약/개정 | 예 |
+> | 예약 주문 /반품 | 예 |
+> | 예약 주문 / 분할 | 예 |
+> | 예약 주문 / 스왑 | 예 |
 > | reservations | 예 |
-> | resourceProviders | 예 |
+> | 리소스 공급자 | 예 |
 > | 리소스 | 예 |
 > | validateReservationOrder | 예 |
 
@@ -527,13 +527,13 @@ ms.locfileid: "77664409"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
-> | CdnWebApplicationFirewallManagedRuleSets | 예 |
-> | CdnWebApplicationFirewallPolicies | yes |
+> | CdnWeb응용프로그램방화벽관리규칙세트 | 예 |
+> | CdnWeb응용프로그램방화벽정책 | yes |
 > | edgenodes | 예 |
 > | 프로필 | yes |
-> | 프로필/끝점 | yes |
-> | 프로필/끝점/customdomains | 예 |
-> | 프로필/끝점/원본 | 예 |
+> | 프로파일 / 끝점 | yes |
+> | 프로필 / 끝점 / 사용자 정의 도메인 | 예 |
+> | 프로파일 / 끝점 / 원점 | 예 |
 > | validateProbe | 예 |
 
 ## <a name="microsoftcertificateregistration"></a>Microsoft.CertificateRegistration
@@ -542,7 +542,7 @@ ms.locfileid: "77664409"
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
 > | certificateOrders | yes |
-> | certificateOrders/certificate | 예 |
+> | 인증서주문/증명서 | 예 |
 > | validateCertificateRegistrationInformation | 예 |
 
 ## <a name="microsoftclassiccompute"></a>Microsoft.ClassicCompute
@@ -552,13 +552,13 @@ ms.locfileid: "77664409"
 > | ------------- | ----------- |
 > | capabilities | 예 |
 > | domainNames | yes |
-> | domainNames/기능 | 예 |
-> | domainNames/internalLoadBalancers 장치 | 예 |
-> | domainNames/serviceCertificates | 예 |
-> | domainNames/슬롯 | 예 |
-> | domainNames/슬롯/역할 | 예 |
-> | domainNames/슬롯/역할/metricDefinitions | 예 |
-> | domainNames/슬롯/역할/메트릭 | 예 |
+> | 도메인 이름 / 기능 | 예 |
+> | 도메인 이름 / 내부로드 밸러저 | 예 |
+> | 도메인 이름 / 서비스인증서 | 예 |
+> | 도메인 이름 / 슬롯 | 예 |
+> | 도메인 이름 / 슬롯 / 역할 | 예 |
+> | 도메인 이름 / 슬롯 / 역할 / 메트릭정의 | 예 |
+> | 도메인 이름 / 슬롯 / 역할 / 메트릭 | 예 |
 > | moveSubscriptionResources | 예 |
 > | operatingSystemFamilies | 예 |
 > | operatingSystems | 예 |
@@ -566,9 +566,9 @@ ms.locfileid: "77664409"
 > | resourceTypes | 예 |
 > | validateSubscriptionMoveAvailability | 예 |
 > | virtualMachines | yes |
-> | virtualMachines/diagnosticSettings | 예 |
-> | virtualMachines/metricDefinitions | 예 |
-> | virtualMachines/메트릭 | 예 |
+> | 가상 머신 / 진단설정 | 예 |
+> | 가상 머신 / 메트릭정의 | 예 |
+> | 가상 머신 / 메트릭 | 예 |
 
 ## <a name="microsoftclassicinfrastructuremigrate"></a>Microsoft.ClassicInfrastructureMigrate
 
@@ -584,14 +584,14 @@ ms.locfileid: "77664409"
 > | ------------- | ----------- |
 > | capabilities | 예 |
 > | expressRouteCrossConnections | 예 |
-> | expressRouteCrossConnections/피어 링 | 예 |
+> | 익스프레스루트크로스커넥션 / 피어링 | 예 |
 > | gatewaySupportedDevices | 예 |
 > | networkSecurityGroups | yes |
 > | quotas | 예 |
 > | reservedIps | yes |
 > | virtualNetworks | yes |
-> | virtualNetworks/remoteVirtualNetworkPeeringProxies | 예 |
-> | virtualNetworks/virtualNetworkPeerings | 예 |
+> | 가상 네트워크 / 원격가상 네트워크피어링프로시 | 예 |
+> | 가상 네트워크 / 가상 네트워크 피어링 | 예 |
 
 ## <a name="microsoftclassicstorage"></a>Microsoft.ClassicStorage
 
@@ -606,17 +606,17 @@ ms.locfileid: "77664409"
 > | publicImages | 예 |
 > | quotas | 예 |
 > | storageAccounts | yes |
-> | storageAccounts/blobServices | 예 |
-> | storageAccounts/fileServices | 예 |
-> | storageAccounts/metricDefinitions | 예 |
-> | storageAccounts/메트릭 | 예 |
-> | storageAccounts/queueServices | 예 |
-> | storageAccounts/서비스 | 예 |
-> | storageAccounts/services/diagnosticSettings | 예 |
-> | storageAccounts/services/metricDefinitions | 예 |
-> | storageAccounts/서비스/메트릭 | 예 |
-> | storageAccounts/tableServices | 예 |
-> | storageAccounts/vmImages | 예 |
+> | 저장소계정 / blob서비스 | 예 |
+> | 저장소계정 / 파일서비스 | 예 |
+> | 저장소계정 / 메트릭정의 | 예 |
+> | 저장소계정/ 메트릭 | 예 |
+> | 저장소계정/ 큐서비스 | 예 |
+> | 저장소계정/ 서비스 | 예 |
+> | 저장소계정 / 서비스 / 진단설정 | 예 |
+> | 저장소계정 / 서비스 / 메트릭정의 | 예 |
+> | 저장소계정 / 서비스 / 메트릭 | 예 |
+> | 저장소계정 / 테이블서비스 | 예 |
+> | 스토리지계정 / vmImages | 예 |
 > | vmImages | 예 |
 
 ## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
@@ -640,31 +640,31 @@ ms.locfileid: "77664409"
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
 > | availabilitySets | yes |
-> | Disk; 집합 | yes |
+> | 디스크 암호화 세트 | yes |
 > | disks | yes |
 > | galleries | yes |
-> | 갤러리/응용 프로그램 | 예 |
-> | 갤러리/응용 프로그램/버전 | 예 |
-> | 갤러리/이미지 | 예 |
-> | 갤러리/이미지/버전 | 예 |
+> | 갤러리 / 응용 프로그램 | 예 |
+> | 갤러리 / 응용 프로그램 / 버전 | 예 |
+> | 갤러리 / 이미지 | 예 |
+> | 갤러리 / 이미지 / 버전 | 예 |
 > | 호스트 그룹 | yes |
-> | 호스트 그룹/호스트 | yes |
+> | 호스트 그룹 / 호스트 | yes |
 > | images | yes |
-> | proximityPlacementGroups | yes |
+> | 근접배치그룹 | yes |
 > | restorePointCollections | yes |
-> | restorePointCollections / restorePoints | 예 |
+> | 복원포인트컬렉션 / 리포지그포인트 | 예 |
 > | sharedVMImages | yes |
-> | sharedVMImages/버전 | 예 |
+> | 공유VM이미지 / 버전 | 예 |
 > | 스냅샷 | yes |
 > | virtualMachines | yes |
-> | virtualMachines/확장 | yes |
-> | virtualMachines/metricDefinitions | 예 |
+> | 가상 머신 / 확장 | yes |
+> | 가상 머신 / 메트릭정의 | 예 |
 > | virtualMachineScaleSets | yes |
-> | virtualMachineScaleSets/확장 | 예 |
-> | virtualMachineScaleSets/networkInterfaces | 예 |
-> | virtualMachineScaleSets/publicIPAddresses | 예 |
-> | virtualMachineScaleSets/virtualMachines | 예 |
-> | virtualMachineScaleSets/virtualMachines/networkInterfaces | 예 |
+> | 가상머신스케일세트/확장 | 예 |
+> | 가상머신스케일세트 / 네트워크인터페이스 | 예 |
+> | 가상머신스케일세트 / 퍼블릭IP주소 | 예 |
+> | 가상머신스케일셋 / 가상머신 | 예 |
+> | 가상머신스케일셋 / 가상머신/ 네트워크인터페이스 | 예 |
 
 ## <a name="microsoftconsumption"></a>Microsoft.Consumption
 
@@ -706,35 +706,35 @@ ms.locfileid: "77664409"
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
 > | registries | yes |
-> | 레지스트리/빌드 | 예 |
-> | 레지스트리/빌드/취소 | 예 |
-> | 레지스트리/빌드/getLogLink | 예 |
-> | 레지스트리/buildTasks | yes |
-> | 레지스트리/buildTasks/단계 | 예 |
-> | 레지스트리/eventGridFilters | 예 |
-> | 레지스트리/generateCredentials | 예 |
-> | 레지스트리/getBuildSourceUploadUrl | 예 |
-> | 레지스트리/GetCredentials | 예 |
-> | 레지스트리/importImage | 예 |
-> | 레지스트리/privateEndpointConnectionProxies | 예 |
-> | 레지스트리/privateEndpointConnectionProxies/유효성 검사 | 예 |
-> | 레지스트리/privateEndpointConnections | 예 |
-> | 레지스트리/privateLinkResources | 예 |
-> | 레지스트리/queueBuild | 예 |
-> | 레지스트리/regenerateCredential | 예 |
-> | 레지스트리/regenerateCredentials | 예 |
-> | 레지스트리/복제 | yes |
-> | 레지스트리/실행 | 예 |
-> | 레지스트리/실행/취소 | 예 |
-> | 레지스트리/scheduleRun | 예 |
-> | 레지스트리/scopeMaps | 예 |
-> | 레지스트리/taskRuns | yes |
-> | 레지스트리/작업 | yes |
-> | 레지스트리/토큰 | 예 |
-> | 레지스트리/updatePolicies | 예 |
-> | 레지스트리/웹 후크 | yes |
-> | registry/웹 후크/getcallbackconfig | 예 |
-> | registry/웹 후크/ping | 예 |
+> | 레지스트리 / 빌드 | 예 |
+> | 레지스트리 / 빌드 / 취소 | 예 |
+> | 레지스트리 / 빌드 / getLogLink | 예 |
+> | 레지스트리 / 빌드작업 | yes |
+> | 레지스트리 / 빌드작업 / 단계 | 예 |
+> | 레지스트리 / 이벤트그리드필터 | 예 |
+> | 레지스트리 / 생성자격 증명 | 예 |
+> | 레지스트리 / getBuildSourceUploadUrl | 예 |
+> | 레지스트리 / 자격 증명 받기 | 예 |
+> | 레지스트리 / 가져오기이미지 | 예 |
+> | 레지스트리 / 개인엔드포인트커넥션프록시 | 예 |
+> | 레지스트리 / 개인엔드포인트커넥션프록시 / 검증 | 예 |
+> | 레지스트리 / 개인엔드포인트연결 | 예 |
+> | 레지스트리 / 개인링크리소스 | 예 |
+> | 레지스트리 / 큐빌드 | 예 |
+> | 레지스트리 / 다시 생성 자격 증명 | 예 |
+> | 레지스트리 / 다시 생성자격 증명 | 예 |
+> | 레지스트리 / 복제 | yes |
+> | 레지스트리 / 실행 | 예 |
+> | 레지스트리 / 실행 / 취소 | 예 |
+> | 레지스트리 / 일정 실행 | 예 |
+> | 레지스트리 / 범위맵 | 예 |
+> | 레지스트리 / 작업 실행 | yes |
+> | 레지스트리 / 작업 | yes |
+> | 레지스트리 / 토큰 | 예 |
+> | 레지스트리 / 업데이트정책 | 예 |
+> | 레지스트리 / 웹 후크 | yes |
+> | 레지스트리 / 웹 후크 / getCallbackConfig | 예 |
+> | 레지스트리 / 웹 후크 / 핑 | 예 |
 
 ## <a name="microsoftcontainerservice"></a>Microsoft.ContainerService
 
@@ -743,7 +743,7 @@ ms.locfileid: "77664409"
 > | ------------- | ----------- |
 > | containerServices | yes |
 > | managedClusters | yes |
-> | openShiftManagedClusters | yes |
+> | 오픈 시프트관리 클러스터 | yes |
 
 ## <a name="microsoftcortanaanalytics"></a>Microsoft.CortanaAnalytics
 
@@ -760,45 +760,45 @@ ms.locfileid: "77664409"
 > | 경고 | 예 |
 > | BillingAccounts | 예 |
 > | 예산 | 예 |
-> | CloudConnectors | 예 |
+> | 클라우드 커넥터 | 예 |
 > | 커넥터 | yes |
 > | Departments | 예 |
 > | 차원 | 예 |
 > | EnrollmentAccounts | 예 |
-> | 내보내도록 | 예 |
-> | ExternalBillingAccounts | 예 |
-> | ExternalBillingAccounts/경고 | 예 |
-> | ExternalBillingAccounts/차원 | 예 |
-> | ExternalBillingAccounts/예측 | 예 |
-> | ExternalBillingAccounts/쿼리 | 예 |
-> | ExternalSubscriptions | 예 |
-> | ExternalSubscriptions/Alerts | 예 |
-> | ExternalSubscriptions/차원 | 예 |
-> | ExternalSubscriptions/예측 | 예 |
-> | ExternalSubscriptions/Query | 예 |
+> | 수출 | 예 |
+> | 외부 결제 계정 | 예 |
+> | 외부 결제 계정 / 경고 | 예 |
+> | 외부 결제 계정 / 차원 | 예 |
+> | 외부 결제 계정 / 예측 | 예 |
+> | 외부 결제 계정 / 쿼리 | 예 |
+> | 외부 구독 | 예 |
+> | 외부 구독 / 경고 | 예 |
+> | 외부 구독 / 치수 | 예 |
+> | 외부 구독 / 예측 | 예 |
+> | 외부 구독 / 쿼리 | 예 |
 > | 예측 | 예 |
 > | 쿼리 | 예 |
 > | register | 예 |
 > | Reportconfigs | 예 |
 > | 보고서 | 예 |
 > | 설정 | 예 |
-> | showbackRules | 예 |
+> | 쇼백규칙 | 예 |
 > | 뷰 | 예 |
 
-## <a name="microsoftcustomerlockbox"></a>Microsoft.CustomerLockbox
+## <a name="microsoftcustomerlockbox"></a>마이크로소프트.고객 잠금 상자
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
 > | requests | 예 |
 
-## <a name="microsoftcustomproviders"></a>Microsoft.CustomProviders
+## <a name="microsoftcustomproviders"></a>마이크로소프트.사용자 지정 공급자
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
 > | 연결 | 예 |
-> | resourceProviders | yes |
+> | 리소스 공급자 | yes |
 
 ## <a name="microsoftdatabox"></a>Microsoft.DataBox
 
@@ -820,9 +820,9 @@ ms.locfileid: "77664409"
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
 > | workspaces | yes |
-> | workspace/dbWorkspaces | 예 |
-> | 작업 영역/storageEncryption | 예 |
-> | 작업 영역/virtualNetworkPeerings | 예 |
+> | 작업 영역 / dbWork스페이스 | 예 |
+> | 작업 영역 / 저장소암호화 | 예 |
+> | 작업 영역 / 가상 네트워크 피어링 | 예 |
 
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
 
@@ -830,11 +830,11 @@ ms.locfileid: "77664409"
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
 > | catalogs | yes |
-> | datacatalogs | yes |
-> | datacatalogs/데이터 원본 | 예 |
-> | datacatalogs/데이터 원본/검색 | 예 |
-> | datacatalogs/데이터 원본/검색/데이터 집합 | 예 |
-> | datacatalogs/데이터 원본/검색/트리거 | 예 |
+> | 데이터 카탈로그 | yes |
+> | 데이터 카탈로그 / 데이터 소스 | 예 |
+> | 데이터 카탈로그 / 데이터 소스 / 스캔 | 예 |
+> | 데이터 카탈로그 / 데이터 소스 / 스캔 / 데이터 세트 | 예 |
+> | 데이터 카탈로그 / 데이터 소스 / 스캔 / 트리거 | 예 |
 
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
 
@@ -842,11 +842,11 @@ ms.locfileid: "77664409"
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
 > | dataFactories | yes |
-> | dataFactories/diagnosticSettings | 예 |
-> | dataFactories/metricDefinitions | 예 |
+> | 데이터공장 / 진단설정 | 예 |
+> | 데이터팩토리 / 메트릭정의 | 예 |
 > | dataFactorySchema | 예 |
 > | factories | yes |
-> | 팩터리/integrationRuntimes | 예 |
+> | 공장 / 통합실행시간 | 예 |
 
 ## <a name="microsoftdatalakeanalytics"></a>Microsoft.DataLakeAnalytics
 
@@ -854,10 +854,10 @@ ms.locfileid: "77664409"
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
 > | 계정 | yes |
-> | 계정/dataLakeStoreAccounts | 예 |
-> | 계정/storageAccounts | 예 |
-> | 계정/storageAccounts/컨테이너 | 예 |
-> | 계정/transferAnalyticsUnits | 예 |
+> | 계정 / 데이터레이크스토어계정 | 예 |
+> | 계정 / 저장소 계정 계정 | 예 |
+> | 계정 / 저장소계정 / 컨테이너 | 예 |
+> | 계정 / 이체애분석유닛 | 예 |
 
 ## <a name="microsoftdatalakestore"></a>Microsoft.DataLakeStore
 
@@ -865,8 +865,8 @@ ms.locfileid: "77664409"
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
 > | 계정 | yes |
-> | 계정/eventGridFilters | 예 |
-> | 계정/firewallRules | 예 |
+> | 계정 / 이벤트그리드필터 | 예 |
+> | 계정 / 방화벽규칙 | 예 |
 
 ## <a name="microsoftdatamigration"></a>Microsoft.DataMigration
 
@@ -874,23 +874,23 @@ ms.locfileid: "77664409"
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
 > | services | yes |
-> | 서비스/프로젝트 | yes |
+> | 서비스 / 프로젝트 | yes |
 
-## <a name="microsoftdatashare"></a>DataShare
+## <a name="microsoftdatashare"></a>마이크로소프트.데이터 쉐어
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
 > | 계정 | yes |
-> | 계정/공유 | 예 |
-> | 계정/공유/데이터 집합 | 예 |
-> | 계정/공유/초대 | 예 |
-> | 계정/공유/providersharesubscriptions | 예 |
-> | 계정/공유/synchronizationSettings | 예 |
-> | 계정/sharesubscriptions | 예 |
-> | 계정/sharesubscriptions/consumerSourceDataSets | 예 |
-> | 계정/sharesubscriptions/datasetmappings | 예 |
-> | 계정/sharesubscriptions/트리거 | 예 |
+> | 계정 / 공유 | 예 |
+> | 계정 / 공유 / 데이터 세트 | 예 |
+> | 계정 / 공유 / 초대 | 예 |
+> | 계정 / 주식 / 공급자 공유 구독 | 예 |
+> | 계정 / 공유 / 동기화설정 | 예 |
+> | 계정 / 공유 구독 | 예 |
+> | 계정 / 공유 구독 / 소비자 소스데이터세트 | 예 |
+> | 계정 / 공유 구독 / 데이터 집합 매핑 | 예 |
+> | 계정 / 공유 구독 / 트리거 | 예 |
 
 ## <a name="microsoftdbformariadb"></a>Microsoft.DBforMariaDB
 
@@ -898,16 +898,16 @@ ms.locfileid: "77664409"
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
 > | servers | yes |
-> | 서버/관리자 | 예 |
-> | 서버/키 | 예 |
-> | servers/privateEndpointConnectionProxies | 예 |
-> | servers/privateEndpointConnections | 예 |
-> | servers/privateLinkResources | 예 |
-> | 서버/queryTexts | 예 |
-> | servers/recoverableServers | 예 |
-> | servers/topQueryStatistics | 예 |
-> | servers/virtualNetworkRules | 예 |
-> | 서버/waitStatistics | 예 |
+> | 서버 / 고문 | 예 |
+> | 서버 / 키 | 예 |
+> | 서버 / 개인엔드포인트커넥션프록시 | 예 |
+> | 서버 / 개인엔드포인트연결 | 예 |
+> | 서버 / 개인링크자원 | 예 |
+> | 서버 / 쿼리텍스트 | 예 |
+> | 서버 / 복구 서버 | 예 |
+> | 서버 / topQueryStatistics | 예 |
+> | 서버 / 가상 네트워크규칙 | 예 |
+> | 서버 / 대기통계 | 예 |
 
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
 
@@ -915,61 +915,61 @@ ms.locfileid: "77664409"
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
 > | servers | yes |
-> | 서버/관리자 | 예 |
-> | 서버/키 | 예 |
-> | servers/privateEndpointConnectionProxies | 예 |
-> | servers/privateEndpointConnections | 예 |
-> | servers/privateLinkResources | 예 |
-> | 서버/queryTexts | 예 |
-> | servers/recoverableServers | 예 |
-> | servers/topQueryStatistics | 예 |
-> | servers/virtualNetworkRules | 예 |
-> | 서버/waitStatistics | 예 |
+> | 서버 / 고문 | 예 |
+> | 서버 / 키 | 예 |
+> | 서버 / 개인엔드포인트커넥션프록시 | 예 |
+> | 서버 / 개인엔드포인트연결 | 예 |
+> | 서버 / 개인링크자원 | 예 |
+> | 서버 / 쿼리텍스트 | 예 |
+> | 서버 / 복구 서버 | 예 |
+> | 서버 / topQueryStatistics | 예 |
+> | 서버 / 가상 네트워크규칙 | 예 |
+> | 서버 / 대기통계 | 예 |
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
-> | serverGroups | yes |
+> | 서버 그룹 | yes |
 > | servers | yes |
-> | 서버/관리자 | 예 |
-> | 서버/키 | 예 |
-> | servers/privateEndpointConnectionProxies | 예 |
-> | servers/privateEndpointConnections | 예 |
-> | servers/privateLinkResources | 예 |
-> | 서버/queryTexts | 예 |
-> | servers/recoverableServers | 예 |
-> | servers/topQueryStatistics | 예 |
-> | servers/virtualNetworkRules | 예 |
-> | 서버/waitStatistics | 예 |
-> | serversv2 | yes |
+> | 서버 / 고문 | 예 |
+> | 서버 / 키 | 예 |
+> | 서버 / 개인엔드포인트커넥션프록시 | 예 |
+> | 서버 / 개인엔드포인트연결 | 예 |
+> | 서버 / 개인링크자원 | 예 |
+> | 서버 / 쿼리텍스트 | 예 |
+> | 서버 / 복구 서버 | 예 |
+> | 서버 / topQueryStatistics | 예 |
+> | 서버 / 가상 네트워크규칙 | 예 |
+> | 서버 / 대기통계 | 예 |
+> | 서버v2 | yes |
 
 ## <a name="microsoftdeploymentmanager"></a>Microsoft.DeploymentManager
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
-> | artifactSources | yes |
+> | 아티팩트 소스 | yes |
 > | rollouts | yes |
-> | serviceTopologies | yes |
-> | serviceTopologies/서비스 | yes |
-> | serviceTopologies/서비스/serviceUnits | yes |
+> | 서비스토폴로지 | yes |
+> | 서비스토폴로지/ 서비스 | yes |
+> | 서비스토폴로지 / 서비스 / 서비스단위 | yes |
 > | 단계 | yes |
 
-## <a name="microsoftdesktopvirtualization"></a>Microsoft DesktopVirtualization
+## <a name="microsoftdesktopvirtualization"></a>마이크로소프트.데스크톱 가상화
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
-> | applicationgroups | yes |
-> | applicationgroups/응용 프로그램 | 예 |
-> | applicationgroups/데스크톱 | 예 |
-> | applicationgroups/startmenuitems | 예 |
-> | hostpools | yes |
-> | hostpools/sessionhosts | 예 |
-> | hostpools/sessionhosts/usersessions | 예 |
-> | hostpools/usersessions | 예 |
+> | 응용 프로그램 그룹 | yes |
+> | 응용 프로그램 그룹 / 응용 프로그램 | 예 |
+> | 응용 프로그램 그룹 / 데스크톱 | 예 |
+> | 응용 프로그램 그룹 / 시작 메뉴 항목 | 예 |
+> | 호스트 풀 | yes |
+> | 호스트 풀 / 세션 호스트 | 예 |
+> | 호스트 풀 / 세션 호스트 / 사용자 세션 | 예 |
+> | 호스트 풀 / 사용자 세션 | 예 |
 > | workspaces | yes |
 
 ## <a name="microsoftdevices"></a>Microsoft.Devices
@@ -977,16 +977,16 @@ ms.locfileid: "77664409"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
-> | ElasticPools | yes |
-> | ElasticPools / IotHubTenants | yes |
-> | ElasticPools/IotHubTenants/securitySettings | 예 |
+> | 탄성 풀 | yes |
+> | 탄성 풀 / IotHubTenants | yes |
+> | 탄성 풀 / IotHubTenants / 보안설정 | 예 |
 > | IotHubs | yes |
-> | IotHubs/eventGridFilters | 예 |
-> | IotHubs/securitySettings | 예 |
+> | IotHubs / 이벤트그리드필터 | 예 |
+> | IotHubs / 보안설정 | 예 |
 > | ProvisioningServices | yes |
 > | usages | 예 |
 
-## <a name="microsoftdevops"></a>Microsoft DevOps
+## <a name="microsoftdevops"></a>마이크로소프트.데브옵스
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 전체 모드 삭제 |
@@ -1007,9 +1007,9 @@ ms.locfileid: "77664409"
 > | ------------- | ----------- |
 > | labcenters | yes |
 > | labs | yes |
-> | 랩/환경 | yes |
-> | labs/serviceRunners | yes |
-> | labs/virtualMachines | yes |
+> | 실험실 / 환경 | yes |
+> | 랩 / 서비스 러너 | yes |
+> | 랩 / 가상 머신 | yes |
 > | schedules | yes |
 
 ## <a name="microsoftdocumentdb"></a>Microsoft.DocumentDB
@@ -1026,7 +1026,7 @@ ms.locfileid: "77664409"
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
 > | domains | yes |
-> | 도메인/도메인 소유자의 식별자 | 예 |
+> | 도메인 / 도메인소유권 식별자 | 예 |
 > | generateSsoRequest | 예 |
 > | topLevelDomains | 예 |
 > | validateDomainRegistrationInformation | 예 |
@@ -1037,10 +1037,10 @@ ms.locfileid: "77664409"
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
 > | lcsprojects | 예 |
-> | lcsprojects/clouddeployments | 예 |
-> | lcsprojects/커넥터 | 예 |
+> | lcsprojects / 클라우드 배포 | 예 |
+> | lcsprojects / 커넥터 | 예 |
 
-## <a name="microsoftenterpriseknowledgegraph"></a>Microsoft.EnterpriseKnowledgeGraph
+## <a name="microsoftenterpriseknowledgegraph"></a>마이크로소프트.엔터프라이즈 지식그래프
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 전체 모드 삭제 |
@@ -1053,16 +1053,16 @@ ms.locfileid: "77664409"
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
 > | domains | yes |
-> | 도메인/항목 | 예 |
+> | 도메인 / 주제 | 예 |
 > | eventSubscriptions | 예 |
 > | extensionTopics | 예 |
-> | 네임 스페이스 | yes |
-> | 네임 스페이스/a s p 채널 | 예 |
+> | 파트너 네임 스페이스 | yes |
+> | 파트너네임스페이스 / 이벤트채널 | 예 |
 > | 파트너 등록 | yes |
-> | 항목 항목 | yes |
-> | 항목 토픽/eventSubscriptions | 예 |
-> | systemTopics | yes |
-> | systemTopics/eventSubscriptions | 예 |
+> | 파트너 주제 | yes |
+> | 파트너주제 / 이벤트 구독 | 예 |
+> | 시스템 주제 | yes |
+> | 시스템주제 / 이벤트구독 | 예 |
 > | topics | yes |
 > | topicTypes | 예 |
 
@@ -1073,12 +1073,12 @@ ms.locfileid: "77664409"
 > | ------------- | ----------- |
 > | clusters | yes |
 > | 네임스페이스 | yes |
-> | 네임 스페이스/authorizationrules | 예 |
-> | 네임 스페이스/disasterrecoveryconfigs | 예 |
-> | 네임 스페이스/eventhubs | 예 |
-> | 네임 스페이스/eventhubs/authorizationrules | 예 |
-> | 네임 스페이스/eventhubs/consumergroups | 예 |
-> | 네임 스페이스/네트워크 규칙 집합 | 예 |
+> | 네임스페이스/ 권한 부여 규칙 | 예 |
+> | 네임스페이스 / 재해 복구구성 | 예 |
+> | 네임스페이스/ 이벤트 허브 | 예 |
+> | 네임스페이스 / 이벤트 허브 / 권한 부여 규칙 | 예 |
+> | 네임스페이스 / 이벤트 허브 / 소비자 그룹 | 예 |
+> | 네임스페이스 / 네트워크 규칙 집합 | 예 |
 
 ## <a name="microsoftfeatures"></a>Microsoft.Features
 
@@ -1097,11 +1097,11 @@ ms.locfileid: "77664409"
 > | galleryitems | 예 |
 > | generateartifactaccessuri | 예 |
 > | myareas | 예 |
-> | myareas/areas | 예 |
-> | myareas/areas/areas | 예 |
-> | myareas/areas/areas/galleryitems | 예 |
-> | myareas/areas/galleryitems | 예 |
-> | myareas/galleryitems | 예 |
+> | 마이지역/ 영역 | 예 |
+> | 마이지역/ 지역/ 지역 | 예 |
+> | 마이지역 / 지역 / 지역 / 갤러리 항목 | 예 |
+> | 마이지역 / 영역 / 갤러리 아이템 | 예 |
+> | 마이지역/ 갤러리 아이템 | 예 |
 > | register | 예 |
 > | 리소스 | 예 |
 > | retrieveresourcesbyid | 예 |
@@ -1118,13 +1118,13 @@ ms.locfileid: "77664409"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
-> | autoManagedAccounts | yes |
-> | autoManagedVmConfigurationProfiles | yes |
-> | configurationprofil | 예 |
+> | 자동 관리 계정 | yes |
+> | 자동 관리Vm구성 프로필 | yes |
+> | 구성 프로필할당 | 예 |
 > | guestConfigurationAssignments | 예 |
 > | software | 예 |
-> | softwareUpdateProfile | 예 |
-> | 업데이트 | 예 |
+> | 소프트웨어업데이트프로필 | 예 |
+> | 소프트웨어 업데이트 | 예 |
 
 ## <a name="microsofthanaonazure"></a>Microsoft.HanaOnAzure
 
@@ -1139,7 +1139,7 @@ ms.locfileid: "77664409"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
-> | dedicatedHSMs | yes |
+> | 전용HSMs | yes |
 
 ## <a name="microsofthdinsight"></a>Microsoft.HDInsight
 
@@ -1147,9 +1147,9 @@ ms.locfileid: "77664409"
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
 > | clusters | yes |
-> | 클러스터/응용 프로그램 | 예 |
+> | 클러스터 / 응용 프로그램 | 예 |
 
-## <a name="microsofthealthcareapis"></a>Microsoft.HealthcareApis
+## <a name="microsofthealthcareapis"></a>마이크로소프트.헬스케어아피
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 전체 모드 삭제 |
@@ -1161,23 +1161,23 @@ ms.locfileid: "77664409"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
-> | 머신의 | yes |
-> | 컴퓨터/확장 | yes |
+> | 기계 | yes |
+> | 기계 / 확장 | yes |
 
 ## <a name="microsofthybriddata"></a>Microsoft.HybridData
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
-> | dataManagers | yes |
+> | 데이터 관리자 | yes |
 
-## <a name="microsofthydra"></a>Microsoft 히드라
+## <a name="microsofthydra"></a>마이크로소프트.히드라
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
 > | components | yes |
-> | networkScopes | yes |
+> | 네트워크 스코프 | yes |
 
 ## <a name="microsoftimportexport"></a>Microsoft.ImportExport
 
@@ -1199,7 +1199,7 @@ ms.locfileid: "77664409"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
-> | appTemplates | 예 |
+> | 앱 템플릿 | 예 |
 > | IoTApps | yes |
 
 ## <a name="microsoftiotspaces"></a>Microsoft.IoTSpaces
@@ -1217,9 +1217,9 @@ ms.locfileid: "77664409"
 > | deletedVaults | 예 |
 > | hsmPools | yes |
 > | vaults | yes |
-> | 자격 증명 모음/Accesspolicy | 예 |
-> | 자격 증명 모음/eventGridFilters | 예 |
-> | 자격 증명 모음/비밀 | 예 |
+> | 볼트 / 액세스 정책 | 예 |
+> | 볼트 / 이벤트그리드필터 | 예 |
+> | 볼트 / 비밀 | 예 |
 
 ## <a name="microsoftkusto"></a>Microsoft.Kusto
 
@@ -1227,13 +1227,13 @@ ms.locfileid: "77664409"
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
 > | clusters | yes |
-> | 클러스터/attacheddatabaseconfigurations | 예 |
-> | 클러스터/데이터베이스 | 예 |
-> | 클러스터/데이터베이스/dataconnections | 예 |
-> | 클러스터/데이터베이스/eventhubconnections | 예 |
-> | 클러스터/데이터베이스/principalassignments | 예 |
-> | 클러스터/principalassignments | 예 |
-> | 클러스터/sharedidentities | 예 |
+> | 클러스터 / 첨부 데이터베이스 구성 | 예 |
+> | 클러스터 / 데이터베이스 | 예 |
+> | 클러스터 / 데이터베이스 / 데이터 연결 | 예 |
+> | 클러스터 / 데이터베이스 / 이벤트 허브 연결 | 예 |
+> | 클러스터 / 데이터베이스 / 보안 주체 할당 | 예 |
+> | 클러스터 / 보안 주체 할당 | 예 |
+> | 클러스터 / 공유 ID | 예 |
 
 ## <a name="microsoftlabservices"></a>Microsoft.LabServices
 
@@ -1250,9 +1250,9 @@ ms.locfileid: "77664409"
 > | ------------- | ----------- |
 > | hostingEnvironments | yes |
 > | integrationAccounts | yes |
-> | integrationServiceEnvironments | yes |
-> | integrationServiceEnvironments/managedApis | yes |
-> | isolatedEnvironments | yes |
+> | 통합서비스환경 | yes |
+> | 통합서비스환경 / 관리형 | yes |
+> | 격리된환경 | yes |
 > | workflows | yes |
 
 ## <a name="microsoftmachinelearning"></a>Microsoft.MachineLearning
@@ -1270,8 +1270,8 @@ ms.locfileid: "77664409"
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
 > | workspaces | yes |
-> | 작업 영역/계산 | 예 |
-> | workspace/eventGridFilters | 예 |
+> | 작업 영역/ 계산 | 예 |
+> | 작업 영역 / 이벤트그리드 필터 | 예 |
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
 
@@ -1281,14 +1281,14 @@ ms.locfileid: "77664409"
 > | Identities | 예 |
 > | userAssignedIdentities | yes |
 
-## <a name="microsoftmanagedservices"></a>Microsoft ManagedServices
+## <a name="microsoftmanagedservices"></a>마이크로소프트.ManagedServices
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
-> | marketplaceRegistrationDefinitions | 예 |
-> | registrationAssignments | 예 |
-> | registrationDefinitions | 예 |
+> | 마켓플레이스등록정의 | 예 |
+> | 등록할당 | 예 |
+> | 등록정의 | 예 |
 
 ## <a name="microsoftmanagement"></a>Microsoft.Management
 
@@ -1297,7 +1297,7 @@ ms.locfileid: "77664409"
 > | ------------- | ----------- |
 > | getEntities | 예 |
 > | managementGroups | 예 |
-> | managementGroups/settings | 예 |
+> | 관리 그룹 / 설정 | 예 |
 > | 리소스 | 예 |
 > | startTenantBackfill | 예 |
 > | tenantBackfillStatus | 예 |
@@ -1308,7 +1308,7 @@ ms.locfileid: "77664409"
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
 > | 계정 | yes |
-> | 계정/eventGridFilters | 예 |
+> | 계정 / 이벤트그리드필터 | 예 |
 
 ## <a name="microsoftmarketplace"></a>Microsoft.Marketplace
 
@@ -1317,18 +1317,18 @@ ms.locfileid: "77664409"
 > | ------------- | ----------- |
 > | offers | 예 |
 > | offerTypes | 예 |
-> | offerTypes/게시자 | 예 |
-> | offerTypes/게시자/제안 | 예 |
-> | offerTypes/게시자/제품/계획 | 예 |
-> | offerTypes/게시자/제품/계획/규약 | 예 |
-> | offerTypes/게시자/제품/계획/configs | 예 |
-> | offerTypes/publishers/제품/계획/configs/importImage | 예 |
+> | 제공유형/퍼블리셔 | 예 |
+> | 제공유형 /퍼블리셔/ 오퍼 | 예 |
+> | 제공유형 / 퍼블리셔 / 오퍼 / 플랜 | 예 |
+> | 제공유형 / 퍼블리셔 / 제안 / 계획 / 계약 | 예 |
+> | 제공유형 / 퍼블리셔 / 오퍼 / 플랜 / 구성 | 예 |
+> | 제공유형 / 퍼블리셔 / 오퍼 / 플랜 / 구성 / 수입이미지 | 예 |
 > | privategalleryitems | 예 |
-> | privateStoreClient | 예 |
+> | 프라이빗 스토어클라이언트 | 예 |
 > | products | 예 |
 > | 게시자 | 예 |
-> | 게시자/제안 | 예 |
-> | 게시자/제품/개정 | 예 |
+> | 게시자 / 제안 | 예 |
+> | 게시자 / 제안 / 수정 | 예 |
 
 ## <a name="microsoftmarketplaceapps"></a>Microsoft.MarketplaceApps
 
@@ -1352,105 +1352,105 @@ ms.locfileid: "77664409"
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
 > | mediaservices | yes |
-> | windowsazure.mediaservices/accountFilters | 예 |
-> | windowsazure.mediaservices/자산 | 예 |
-> | windowsazure.mediaservices/asset/assetFilters | 예 |
-> | windowsazure.mediaservices/Contentkeypolicy | 예 |
-> | windowsazure.mediaservices/eventGridFilters | 예 |
-> | windowsazure.mediaservices/liveEventOperations | 예 |
-> | windowsazure.mediaservices/liveEvents | yes |
-> | windowsazure.mediaservices/liveEvents/Liveoutput | 예 |
-> | windowsazure.mediaservices/liveOutputOperations | 예 |
-> | windowsazure.mediaservices/mediaGraphs | 예 |
-> | windowsazure.mediaservices/streamingEndpointOperations | 예 |
-> | windowsazure.mediaservices/streamingEndpoints | yes |
-> | windowsazure.mediaservices/streamingLocators | 예 |
-> | windowsazure.mediaservices/streamingPolicies | 예 |
-> | windowsazure.mediaservices/변환 | 예 |
-> | windowsazure.mediaservices/변환/작업 | 예 |
+> | 미디어 서비스 / 계정 필터 | 예 |
+> | 미디어 서비스 / 자산 | 예 |
+> | 미디어 서비스 / 자산 / 자산필터 | 예 |
+> | 미디어 서비스 / 콘텐츠키정책 | 예 |
+> | 미디어 서비스 / 이벤트그리드필터 | 예 |
+> | 미디어 서비스 / 라이브이벤트운영 | 예 |
+> | 미디어 서비스 / 라이브 이벤트 | yes |
+> | 미디어 서비스 / 라이브 이벤트 / 라이브 출력 | 예 |
+> | 미디어 서비스 / 라이브 출력운영 | 예 |
+> | 미디어 서비스 / 미디어 그래프 | 예 |
+> | 미디어 서비스 / 스트리밍엔드포인트운영 | 예 |
+> | 미디어 서비스 / 스트리밍엔드포인트 | yes |
+> | 미디어 서비스 / 스트리밍로케이터 | 예 |
+> | 미디어 서비스 / 스트리밍정책 | 예 |
+> | 미디어 서비스 / 변환 | 예 |
+> | 미디어 서비스 / 변환 / 작업 | 예 |
 
-## <a name="microsoftmicroservices4spring"></a>Microservices4Spring
+## <a name="microsoftmicroservices4spring"></a>마이크로소프트.마이크로 서비스4Spring
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
-> | appClusters | yes |
+> | 앱 클러스터 | yes |
 
 ## <a name="microsoftmigrate"></a>Microsoft.Migrate
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
-> | assessmentProjects | yes |
+> | 평가 프로젝트 | yes |
 > | migrateprojects | yes |
-> | moveCollections | yes |
+> | 이동컬렉션 | yes |
 > | projects | yes |
 
-## <a name="microsoftmixedreality"></a>Microsoft.MixedReality
+## <a name="microsoftmixedreality"></a>마이크로소프트.혼합현실
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
-> | holographicsBroadcastAccounts | yes |
-> | objectUnderstandingAccounts | yes |
-> | remoteRenderingAccounts | yes |
-> | spatialAnchorsAccounts | yes |
-> | surfaceReconstructionAccounts | yes |
+> | 홀로그램방송계정 | yes |
+> | 개체이해계정 | yes |
+> | 원격 렌더링계정 | yes |
+> | 공간앵커계정 | yes |
+> | 표면재건계정 | yes |
 
 ## <a name="microsoftnetapp"></a>Microsoft.NetApp
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
-> | netAppAccounts | yes |
-> | netAppAccounts/capacityPools | yes |
-> | netAppAccounts/capacityPools/볼륨 | yes |
-> | netAppAccounts/capacityPools/볼륨/mountTargets | yes |
-> | netAppAccounts/capacityPools/볼륨/스냅숏 | yes |
+> | 넷앱 어카운트 | yes |
+> | netApp계정 / 용량풀 | yes |
+> | netApp계정 / 용량풀 / 볼륨 | yes |
+> | netAppAccounts / 용량풀 / 볼륨 / 마운트 대상 | yes |
+> | netApp계정 / 용량풀 / 볼륨 / 스냅샷 | yes |
 
-## <a name="microsoftnotebooks"></a>Microsoft. 전자 필기장
+## <a name="microsoftnotebooks"></a>마이크로소프트.노트북
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
-> | NotebookProxies | 예 |
+> | 노트북 프록시 | 예 |
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
 > | applicationGateways | yes |
-> | applicationGatewayWebApplicationFirewallPolicies | yes |
+> | 응용 프로그램게이트웨이웹응용방화벽정책 | yes |
 > | applicationSecurityGroups | yes |
 > | azureFirewallFqdnTags | 예 |
 > | azureFirewalls | yes |
-> | bastionHosts | yes |
+> | 요새호스트 | yes |
 > | bgpServiceCommunities | 예 |
 > | connections | yes |
 > | ddosCustomPolicies | yes |
 > | ddosProtectionPlans | yes |
 > | dnsOperationStatuses | 예 |
 > | dnszones | yes |
-> | dnszones/A | 예 |
-> | dnszones/AAAA | 예 |
-> | dnszones/모두 | 예 |
-> | dnszones/CAA | 예 |
-> | dnszones/CNAME | 예 |
-> | dnszones/MX | 예 |
-> | dnszones/NS | 예 |
-> | dnszones/PTR | 예 |
-> | dnszones/레코드 집합 | 예 |
-> | dnszones/SOA | 예 |
-> | dnszones/SRV | 예 |
-> | dnszones/TXT | 예 |
+> | dnszones / A | 예 |
+> | dnszones / AAAA | 예 |
+> | dnszones / 모든 | 예 |
+> | dnszones / CAA | 예 |
+> | dnszones / CNAME | 예 |
+> | dnszones / MX | 예 |
+> | dnszones / NS | 예 |
+> | dnszones / PTR | 예 |
+> | dnszones / 레코드 세트 | 예 |
+> | dnszones / SOA | 예 |
+> | dnszones / SRV | 예 |
+> | dnszones / TXT | 예 |
 > | expressRouteCircuits | yes |
 > | expressRouteCrossConnections | yes |
-> | expressRouteGateways | yes |
-> | expressRoutePorts | yes |
+> | 익스프레스루트게이트웨이 | yes |
+> | 익스프레스루트포트 | yes |
 > | expressRouteServiceProviders | 예 |
-> | firewallPolicies | yes |
+> | 방화벽정책 | yes |
 > | frontdoors | yes |
-> | frontdoorWebApplicationFirewallManagedRuleSets | 예 |
+> | 프론트도어웹응용프로그램관리규칙세트 | 예 |
 > | frontdoorWebApplicationFirewallPolicies | yes |
 > | getDnsResourceReference | 예 |
 > | internalNotify | 예 |
@@ -1462,23 +1462,23 @@ ms.locfileid: "77664409"
 > | networkProfiles | yes |
 > | networkSecurityGroups | yes |
 > | networkWatchers | yes |
-> | networkWatchers/connectionMonitors | yes |
-> | networkWatchers/lenses | yes |
-> | networkWatchers/ | yes |
-> | p2sVpnGateways | yes |
-> | privateDnsOperationStatuses | 예 |
-> | privateDnsZones | yes |
-> | privateDnsZones/A | 예 |
-> | privateDnsZones/AAAA | 예 |
-> | privateDnsZones/모두 | 예 |
-> | privateDnsZones/CNAME | 예 |
-> | privateDnsZones/MX | 예 |
-> | privateDnsZones/PTR | 예 |
-> | privateDnsZones/SOA | 예 |
-> | privateDnsZones/SRV | 예 |
-> | privateDnsZones/TXT | 예 |
-> | privateDnsZones / virtualNetworkLinks | yes |
-> | privateEndpoints | yes |
+> | 네트워크 감시자 / 연결모니터 | yes |
+> | 네트워크 감시자 / 렌즈 | yes |
+> | 네트워크 감시자 / 핑메시 | yes |
+> | p2sVpn게이트웨이 | yes |
+> | privateDns운영 상태 | 예 |
+> | 프라이빗DnsZones | yes |
+> | 프라이빗DnsZones / A | 예 |
+> | 프라이빗들존 / AAAA | 예 |
+> | 프라이빗DnsZones / 모든 | 예 |
+> | 프라이빗디언스존 / CNAME | 예 |
+> | 프라이빗디존스 / MX | 예 |
+> | 프라이빗디존스 / PTR | 예 |
+> | 프라이빗디존스 / SOA | 예 |
+> | 프라이빗디존스 / SRV | 예 |
+> | 프라이빗디존스 / TXT | 예 |
+> | 프라이빗DnsZones / 가상네트워크링크 | yes |
+> | 프라이빗 엔드포인트 | yes |
 > | privateLinkServices | yes |
 > | publicIPAddresses | yes |
 > | publicIPPrefixes | yes |
@@ -1487,8 +1487,8 @@ ms.locfileid: "77664409"
 > | serviceEndpointPolicies | yes |
 > | trafficManagerGeographicHierarchies | 예 |
 > | trafficmanagerprofiles | yes |
-> | trafficmanagerprofiles/열 지도 | 예 |
-> | trafficManagerUserMetricsKeys | 예 |
+> | 트래픽 관리자 프로필 / 히트맵 | 예 |
+> | 트래픽관리자사용자메트릭키 | 예 |
 > | virtualHubs | yes |
 > | virtualNetworkGateways | yes |
 > | virtualNetworks | yes |
@@ -1504,24 +1504,24 @@ ms.locfileid: "77664409"
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
 > | 네임스페이스 | yes |
-> | 네임 스페이스/notificationHubs | yes |
+> | 네임스페이스 / 알림허브 | yes |
 
-## <a name="microsoftobjectstore"></a>Microsoft ObjectStore
+## <a name="microsoftobjectstore"></a>마이크로소프트.오브젝트스토어
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
-> | osNamespaces 스페이스 | yes |
+> | os네임 스페이스 | yes |
 
 ## <a name="microsoftoffazure"></a>Microsoft.OffAzure
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
-> | HyperVSites | yes |
-> | ImportSites | yes |
-> | ServerSites | yes |
-> | VMwareSites | yes |
+> | 하이퍼V사이트 | yes |
+> | 가져오기사이트 | yes |
+> | 서버 사이트 | yes |
+> | VMware사이트 | yes |
 
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
 
@@ -1532,14 +1532,14 @@ ms.locfileid: "77664409"
 > | linkTargets | 예 |
 > | storageInsightConfigs | 예 |
 > | workspaces | yes |
-> | 작업 영역/데이터 내보내기 | 예 |
-> | 작업 영역/데이터 원본 | 예 |
-> | 작업 영역/Linkedservices.json 및 datasets.json | 예 |
-> | 작업 영역/privateEndpointConnectionProxies | 예 |
-> | 작업 영역/privateEndpointConnections | 예 |
-> | 작업 영역/privateLinkResources | 예 |
-> | 작업 영역/쿼리 | 예 |
-> | 작업 영역/scopedPrivateLinkProxies | 예 |
+> | 작업 영역 / 데이터수출 | 예 |
+> | 작업 영역 / 데이터 소스 | 예 |
+> | 작업 영역 / 링크된 서비스 | 예 |
+> | 작업 영역 / 개인 엔드 포인트 연결 프록시 | 예 |
+> | 작업 영역 / 개인 엔드포인트연결 | 예 |
+> | 작업 영역 / 개인링크리소스 | 예 |
+> | 작업 영역/ 쿼리 | 예 |
+> | 작업 영역 / 범위개인링크프록시 | 예 |
 
 ## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
 
@@ -1551,17 +1551,17 @@ ms.locfileid: "77664409"
 > | solutions | yes |
 > | 뷰 | yes |
 
-## <a name="microsoftpeering"></a>Microsoft.Peering
+## <a name="microsoftpeering"></a>마이크로소프트.피어링
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
-> | legacyPeerings | 예 |
-> | peerAsns | 예 |
-> | 피어 링 | yes |
-> | peeringServiceCountries | 예 |
-> | peeringServiceProviders | 예 |
-> | peeringServices | yes |
+> | 레거시피어링 | 예 |
+> | 피어아시 | 예 |
+> | 피어링 | yes |
+> | 피어링서비스국가 | 예 |
+> | 피어링서비스프로바이더 | 예 |
+> | 피어링 서비스 | yes |
 
 ## <a name="microsoftpolicyinsights"></a>Microsoft.PolicyInsights
 
@@ -1569,7 +1569,7 @@ ms.locfileid: "77664409"
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
 > | policyEvents | 예 |
-> | policyMetadata | 예 |
+> | 정책 메타데이터 | 예 |
 > | policyStates | 예 |
 > | policyTrackedResources | 예 |
 > | remediations | 예 |
@@ -1597,7 +1597,7 @@ ms.locfileid: "77664409"
 > | ------------- | ----------- |
 > | capacities | yes |
 
-## <a name="microsoftprojectbabylon"></a>ProjectBabylon
+## <a name="microsoftprojectbabylon"></a>마이크로소프트.프로젝트바빌론
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 전체 모드 삭제 |
@@ -1618,21 +1618,21 @@ ms.locfileid: "77664409"
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
 > | 네임스페이스 | yes |
-> | 네임 스페이스/authorizationrules | 예 |
-> | 네임 스페이스/hybridconnections | 예 |
-> | 네임 스페이스/hybridconnections/authorizationrules | 예 |
-> | 네임 스페이스/wcfrelays | 예 |
-> | 네임 스페이스/wcfrelays/authorizationrules | 예 |
+> | 네임스페이스/ 권한 부여 규칙 | 예 |
+> | 네임스페이스 / 하이브리드 연결 | 예 |
+> | 네임스페이스 / 하이브리드 연결 / 권한 부여 규칙 | 예 |
+> | 네임스페이스 / wcfrelays | 예 |
+> | 네임스페이스 / wcfrelays / 권한 부여 규칙 | 예 |
 
-## <a name="microsoftremoteapp"></a>Microsoft RemoteApp
+## <a name="microsoftremoteapp"></a>마이크로소프트.리모트 앱
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
 > | 계정 | 예 |
 > | 컬렉션 | yes |
-> | 컬렉션/응용 프로그램 | 예 |
-> | collections/securityprincipals | 예 |
+> | 컬렉션 / 응용 프로그램 | 예 |
+> | 컬렉션 / 보안 교장 | 예 |
 > | 템플릿 이미지 | 예 |
 
 ## <a name="microsoftresourcegraph"></a>Microsoft.ResourceGraph
@@ -1641,10 +1641,10 @@ ms.locfileid: "77664409"
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
 > | 쿼리 | yes |
-> | resourceChangeDetails | 예 |
-> | resourceChanges | 예 |
+> | 리소스변경세부정보 | 예 |
+> | 리소스 변경 | 예 |
 > | 리소스 | 예 |
-> | 자원 기록 | 예 |
+> | 리소스기록 | 예 |
 > | subscriptionsStatus | 예 |
 
 ## <a name="microsoftresourcehealth"></a>Microsoft.ResourceHealth
@@ -1655,7 +1655,7 @@ ms.locfileid: "77664409"
 > | availabilityStatuses | 예 |
 > | childAvailabilityStatuses | 예 |
 > | childResources | 예 |
-> | emergingissues | 예 |
+> | 신흥 이슈 | 예 |
 > | events | 예 |
 > | impactedResources | 예 |
 > | metadata | 예 |
@@ -1668,8 +1668,8 @@ ms.locfileid: "77664409"
 > | ------------- | ----------- |
 > | 배포 | 예 |
 > | 배포/작업 | 예 |
-> | deploymentScripts | yes |
-> | deploymentScripts/logs | 예 |
+> | 배포스크립트 | yes |
+> | 배포스크립트/로그 | 예 |
 > | 링크 | 예 |
 > | notifyResourceJobs | 예 |
 > | providers | 예 |
@@ -1698,39 +1698,39 @@ ms.locfileid: "77664409"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
-> | adaptiveNetworkHardenings | 예 |
+> | 적응네트워크강화 | 예 |
 > | advancedThreatProtectionSettings | 예 |
 > | 경고 | 예 |
 > | allowedConnections | 예 |
 > | applicationWhitelistings | 예 |
-> | assessmentMetadata | 예 |
-> | 인사 | 예 |
-> | autoDismissAlertsRules | 예 |
+> | 평가메타데이터 | 예 |
+> | 평가 | 예 |
+> | 자동 해제 경고규칙 | 예 |
 > | 자동화 | yes |
 > | AutoProvisioningSettings | 예 |
 > | Compliances | 예 |
 > | dataCollectionAgents | 예 |
-> | deviceSecurityGroups | 예 |
+> | 장치 보안 그룹 | 예 |
 > | discoveredSecuritySolutions | 예 |
 > | externalSecuritySolutions | 예 |
 > | InformationProtectionPolicies | 예 |
-> | iotSecuritySolutions | yes |
-> | IanalyticsModels Securitysolutions/ | 예 |
-> | iotSecuritySolutions/analyticsModels/aggregatedAlerts | 예 |
-> | iotSecuritySolutions/analyticsModels/aggregatedRecommendations | 예 |
+> | 이오시큐리티솔루션 | yes |
+> | iot보안솔루션 / 분석모델 | 예 |
+> | iot보안 솔루션 / 분석모델 / 집계경고 | 예 |
+> | iot보안솔루션 / 분석모델 / 집계추천 | 예 |
 > | jitNetworkAccessPolicies | 예 |
-> | Networkdata.xml | 예 |
+> | 네트워크데이터 | 예 |
 > | 정책 | 예 |
 > | pricings | 예 |
-> | regulatoryComplianceStandards | 예 |
-> | regulatoryComplianceStandards / regulatoryComplianceControls | 예 |
-> | regulatoryComplianceStandards / regulatoryComplianceControls / regulatoryComplianceAssessments | 예 |
+> | 규제 준수 표준 | 예 |
+> | 규제 준수 표준 / 규제 준수 규정 제어 | 예 |
+> | 규제 준수 표준 / 규제 준수 제어 / 규제 준수 평가 | 예 |
 > | securityContacts | 예 |
 > | securitySolutions | 예 |
 > | securitySolutionsReferenceData | 예 |
 > | securityStatuses | 예 |
 > | securityStatusesSummaries | 예 |
-> | serverVulnerabilityAssessments | 예 |
+> | 서버취약성평가 | 예 |
 > | 설정 | 예 |
 > | 하위 평가 | 예 |
 > | tasks | 예 |
@@ -1745,22 +1745,22 @@ ms.locfileid: "77664409"
 > | diagnosticSettings | 예 |
 > | diagnosticSettingsCategories | 예 |
 
-## <a name="microsoftsecurityinsights"></a>Microsoft SecurityInsights
+## <a name="microsoftsecurityinsights"></a>마이크로소프트.시큐리티인사이트
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
 > | aggregations | 예 |
-> | alertRules | 예 |
-> | alertRuleTemplates | 예 |
+> | 경고규칙 | 예 |
+> | 경고규칙 템플릿 | 예 |
 > | 책갈피 | 예 |
 > | cases | 예 |
-> | dataConnectors | 예 |
-> | dataConnectorsCheckRequirements | 예 |
+> | 데이터 커넥터 | 예 |
+> | 데이터 커넥터체크요구사항 | 예 |
 > | 엔터티 | 예 |
-> | entityQueries | 예 |
-> | 사고 | 예 |
-> | officeConsents | 예 |
+> | 엔터티쿼리 | 예 |
+> | 사건 | 예 |
+> | 사무실동의 | 예 |
 > | 설정 | 예 |
 
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
@@ -1769,16 +1769,16 @@ ms.locfileid: "77664409"
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
 > | 네임스페이스 | yes |
-> | 네임 스페이스/authorizationrules | 예 |
-> | 네임 스페이스/disasterrecoveryconfigs | 예 |
-> | 네임 스페이스/eventgridfilters | 예 |
-> | 네임 스페이스/네트워크 규칙 집합 | 예 |
-> | 네임 스페이스/큐 | 예 |
-> | 네임 스페이스/큐/authorizationrules | 예 |
-> | 네임 스페이스/항목 | 예 |
-> | 네임 스페이스/토픽/authorizationrules | 예 |
-> | 네임 스페이스/토픽/구독 | 예 |
-> | 네임 스페이스/항목/구독/규칙 | 예 |
+> | 네임스페이스/ 권한 부여 규칙 | 예 |
+> | 네임스페이스 / 재해 복구구성 | 예 |
+> | 네임스페이스/이벤트그리드필터 | 예 |
+> | 네임스페이스 / 네트워크 규칙 집합 | 예 |
+> | 네임스페이스/큐 | 예 |
+> | 네임스페이스 / 큐 / 권한 부여 규칙 | 예 |
+> | 네임스페이스/ 토픽 | 예 |
+> | 네임스페이스 / 토픽 / 권한 부여 규칙 | 예 |
+> | 네임스페이스 / 토픽 / 구독 | 예 |
+> | 네임 스페이스 / 토픽 / 구독 / 규칙 | 예 |
 > | premiumMessagingRegions | 예 |
 
 ## <a name="microsoftservicefabric"></a>Microsoft.ServiceFabric
@@ -1788,17 +1788,17 @@ ms.locfileid: "77664409"
 > | ------------- | ----------- |
 > | 애플리케이션 | yes |
 > | clusters | yes |
-> | 클러스터/응용 프로그램 | 예 |
+> | 클러스터 / 응용 프로그램 | 예 |
 > | containerGroups | yes |
-> | containerGroupSets | yes |
+> | 컨테이너그룹세트 | yes |
 > | edgeclusters | yes |
-> | edgeclusters/응용 프로그램 | 예 |
+> | 에지 클러스터 / 응용 프로그램 | 예 |
 > | managedclusters | yes |
-> | managedclusters/nodetypes | 예 |
+> | 관리되는 클러스터/ 노드 유형 | 예 |
 > | networks | yes |
 > | secretstores | yes |
-> | secretstores/인증서 | 예 |
-> | secretstores/비밀 | 예 |
+> | 비밀 상점 / 인증서 | 예 |
+> | 비밀 상점 / 비밀 | 예 |
 > | volumes | yes |
 
 ## <a name="microsoftservicefabricmesh"></a>Microsoft.ServiceFabricMesh
@@ -1813,13 +1813,13 @@ ms.locfileid: "77664409"
 > | secrets | yes |
 > | volumes | yes |
 
-## <a name="microsoftservices"></a>Microsoft 서비스
+## <a name="microsoftservices"></a>마이크로소프트 서비스
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
 > | providerRegistrations | 예 |
-> | providerRegistrations resourceTypeRegistrations | 예 |
+> | 공급자등록 /자료유형등록 | 예 |
 > | rollouts | yes |
 
 ## <a name="microsoftsignalrservice"></a>Microsoft.SignalRService
@@ -1828,7 +1828,7 @@ ms.locfileid: "77664409"
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
 > | SignalR | yes |
-> | SignalR/eventGridFilters | 예 |
+> | 시그널R /이벤트그리드필터 | 예 |
 
 ## <a name="microsoftsiterecovery"></a>Microsoft.SiteRecovery
 
@@ -1837,12 +1837,12 @@ ms.locfileid: "77664409"
 > | ------------- | ----------- |
 > | SiteRecoveryVault | yes |
 
-## <a name="microsoftsoftwareplan"></a>SoftwarePlan
+## <a name="microsoftsoftwareplan"></a>마이크로소프트.소프트웨어플랜
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
-> | hybridUseBenefits | 예 |
+> | 하이브리드사용혜택 | 예 |
 
 ## <a name="microsoftsolutions"></a>Microsoft.Solutions
 
@@ -1853,12 +1853,12 @@ ms.locfileid: "77664409"
 > | 애플리케이션 | yes |
 > | jitRequests | yes |
 
-## <a name="microsoftspoolservice"></a>SpoolService
+## <a name="microsoftspoolservice"></a>마이크로소프트.스풀서비스
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
-> | registeredSubscriptions | 예 |
+> | 등록된 구독 | 예 |
 > | 스풀 | yes |
 
 ## <a name="microsoftsql"></a>Microsoft.SQL
@@ -1867,26 +1867,26 @@ ms.locfileid: "77664409"
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
 > | managedInstances | yes |
-> | managedInstances/데이터베이스 | yes |
-> | managedInstances/databases/backupShortTermRetentionPolicies | 예 |
-> | managedInstances/데이터베이스/스키마/테이블/열/sensitivityLabels | 예 |
-> | managedInstances/databases/vulnerabilityAssessments | 예 |
-> | managedInstances/databases/vulnerabilityAssessments/rules/기준선 | 예 |
-> | managedInstances/가 나 보호기 | 예 |
-> | managedInstances/키 | 예 |
-> | managedInstances/restorableDroppedDatabases/backupShortTermRetentionPolicies | 예 |
-> | managedInstances/vulnerabilityAssessments | 예 |
+> | 관리 인스턴스 / 데이터베이스 | yes |
+> | 관리인스턴스 / 데이터베이스 / 백업단기 보존 정책 | 예 |
+> | managedInstances / 데이터베이스 / 스키마 / 테이블 / 열 / 감도레이블 | 예 |
+> | 관리인스턴스 / 데이터베이스 / 취약점평가 | 예 |
+> | 관리인스턴스 / 데이터베이스 / 취약점평가 / 규칙 / 기준 | 예 |
+> | 관리인스턴스 / 암호화 보호기 | 예 |
+> | 관리 인스턴스 / 키 | 예 |
+> | 관리인스턴스 / 복원 가능한 데이터베이스 / 백업단기 보존 정책 | 예 |
+> | 관리인스턴스 / 취약점평가 | 예 |
 > | servers | yes |
-> | 서버/관리자 | 예 |
-> | servers/communicationLinks | 예 |
-> | 서버/데이터베이스 | yes |
-> | 서버/서버 보호기 | 예 |
-> | servers/firewallRules | 예 |
-> | 서버/키 | 예 |
-> | servers/restorableDroppedDatabases | 예 |
-> | servers/serviceobjectives | 예 |
-> | servers/tdeCertificates | 예 |
-> | virtualClusters | 예 |
+> | 서버 / 관리자 | 예 |
+> | 서버 / 통신링크 | 예 |
+> | 서버 / 데이터베이스 | yes |
+> | 서버 / 암호화 보호기 | 예 |
+> | 서버 / 방화벽규칙 | 예 |
+> | 서버 / 키 | 예 |
+> | 서버 / 복원 가능데이터베이스 | 예 |
+> | 서버 / 서비스 목적 | 예 |
+> | 서버 / tde인증서 | 예 |
+> | 가상 클러스터 | 예 |
 
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft.SqlVirtualMachine
 
@@ -1894,7 +1894,7 @@ ms.locfileid: "77664409"
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
 > | SqlVirtualMachineGroups | yes |
-> | SqlVirtualMachineGroups/AvailabilityGroupListeners | 예 |
+> | SqlVirtualMachine그룹 / 가용성그룹리스 | 예 |
 > | SqlVirtualMachines | yes |
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage
@@ -1903,29 +1903,29 @@ ms.locfileid: "77664409"
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
 > | storageAccounts | yes |
-> | storageAccounts/blobServices | 예 |
-> | storageAccounts/fileServices | 예 |
-> | storageAccounts/queueServices | 예 |
-> | storageAccounts/서비스 | 예 |
-> | storageAccounts/services/metricDefinitions | 예 |
-> | storageAccounts/tableServices | 예 |
+> | 저장소계정 / blob서비스 | 예 |
+> | 저장소계정 / 파일서비스 | 예 |
+> | 저장소계정/ 큐서비스 | 예 |
+> | 저장소계정/ 서비스 | 예 |
+> | 저장소계정 / 서비스 / 메트릭정의 | 예 |
+> | 저장소계정 / 테이블서비스 | 예 |
 > | usages | 예 |
 
-## <a name="microsoftstoragecache"></a>Microsoft.StorageCache
+## <a name="microsoftstoragecache"></a>마이크로소프트.스토리지캐시
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
 > | 캐시 | yes |
-> | 캐시/storageTargets 가져오기 | 예 |
-> | usageModels | 예 |
+> | 캐시 / 저장소 대상 | 예 |
+> | 사용 모델 | 예 |
 
-## <a name="microsoftstoragereplication"></a>StorageReplication
+## <a name="microsoftstoragereplication"></a>마이크로소프트.스토리지복제
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
-> | replicationGroups | 예 |
+> | 복제 그룹 | 예 |
 
 ## <a name="microsoftstoragesync"></a>Microsoft.StorageSync
 
@@ -1933,11 +1933,11 @@ ms.locfileid: "77664409"
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
 > | storageSyncServices | yes |
-> | storageSyncServices/registeredServers | 예 |
-> | storageSyncServices/syncGroups | 예 |
-> | storageSyncServices/syncGroups/cloudEndpoints | 예 |
-> | storageSyncServices/syncGroups/serverEndpoints | 예 |
-> | storageSyncServices/워크플로 | 예 |
+> | 스토리지싱크서비스 /등록서버 | 예 |
+> | 스토리지싱크서비스 /동기화그룹 | 예 |
+> | 스토리지싱크서비스 /동기화그룹/클라우드엔드포인트 | 예 |
+> | 스토리지싱크서비스 / 싱크그룹 / 서버엔드포인트 | 예 |
+> | 스토리지싱크서비스/워크플로 | 예 |
 
 ## <a name="microsoftstoragesyncdev"></a>Microsoft.StorageSyncDev
 
@@ -1945,11 +1945,11 @@ ms.locfileid: "77664409"
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
 > | storageSyncServices | yes |
-> | storageSyncServices/registeredServers | 예 |
-> | storageSyncServices/syncGroups | 예 |
-> | storageSyncServices/syncGroups/cloudEndpoints | 예 |
-> | storageSyncServices/syncGroups/serverEndpoints | 예 |
-> | storageSyncServices/워크플로 | 예 |
+> | 스토리지싱크서비스 /등록서버 | 예 |
+> | 스토리지싱크서비스 /동기화그룹 | 예 |
+> | 스토리지싱크서비스 /동기화그룹/클라우드엔드포인트 | 예 |
+> | 스토리지싱크서비스 / 싱크그룹 / 서버엔드포인트 | 예 |
+> | 스토리지싱크서비스/워크플로 | 예 |
 
 ## <a name="microsoftstoragesyncint"></a>Microsoft.StorageSyncInt
 
@@ -1957,11 +1957,11 @@ ms.locfileid: "77664409"
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
 > | storageSyncServices | yes |
-> | storageSyncServices/registeredServers | 예 |
-> | storageSyncServices/syncGroups | 예 |
-> | storageSyncServices/syncGroups/cloudEndpoints | 예 |
-> | storageSyncServices/syncGroups/serverEndpoints | 예 |
-> | storageSyncServices/워크플로 | 예 |
+> | 스토리지싱크서비스 /등록서버 | 예 |
+> | 스토리지싱크서비스 /동기화그룹 | 예 |
+> | 스토리지싱크서비스 /동기화그룹/클라우드엔드포인트 | 예 |
+> | 스토리지싱크서비스 / 싱크그룹 / 서버엔드포인트 | 예 |
+> | 스토리지싱크서비스/워크플로 | 예 |
 
 ## <a name="microsoftstorsimple"></a>Microsoft.StorSimple
 
@@ -1995,29 +1995,29 @@ ms.locfileid: "77664409"
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
 > | environments | yes |
-> | 환경/Accesspolicy | 예 |
-> | 환경/s s o 원본 | yes |
-> | environment/referenceDataSets | yes |
+> | 환경 / 액세스 정책 | 예 |
+> | 환경 / 이벤트 소스 | yes |
+> | 환경 / 참조데이터 세트 | yes |
 
-## <a name="microsoftvmwarecloudsimple"></a>Microsoft.VMwareCloudSimple
+## <a name="microsoftvmwarecloudsimple"></a>마이크로소프트.VM웨어클라우드심플
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
-> | dedicatedCloudNodes | yes |
-> | dedicatedCloudServices | yes |
+> | 전용 클라우드 노드 | yes |
+> | 전용 클라우드 서비스 | yes |
 > | virtualMachines | yes |
 
-## <a name="microsoftvnfmanager"></a>Microsoft VnfManager
+## <a name="microsoftvnfmanager"></a>마이크로소프트.VnfManager
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
 > | devices | yes |
-> | registeredSubscriptions | 예 |
-> | 판매 | 예 |
-> | 공급 업체/sku | 예 |
-> | 공급 업체/vnfs | 예 |
+> | 등록된 구독 | 예 |
+> | 공급 업체 | 예 |
+> | 공급 업체 / 스쿠스 | 예 |
+> | 공급 업체 / vnfs | 예 |
 > | vnfs | yes |
 
 ## <a name="microsoftweb"></a>Microsoft.Web
@@ -2026,15 +2026,15 @@ ms.locfileid: "77664409"
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
 > | apiManagementAccounts | 예 |
-> | Apimanagementaccount/apiAcls | 예 |
-> | Apimanagementaccount/api | 예 |
-> | Apimanagementaccount/api/apiAcls | 예 |
-> | Apimanagementaccount/api/connectionAcls | 예 |
-> | Apimanagementaccount/api/연결 | 예 |
-> | Apimanagementaccount/api/connections/connectionAcls | 예 |
-> | Apimanagementaccount/api/localizedDefinitions | 예 |
-> | Apimanagementaccount/connectionAcls | 예 |
-> | Apimanagementaccount/연결 | 예 |
+> | api관리계정 / apiAcls | 예 |
+> | api관리계정 / API | 예 |
+> | api관리계정 / API / apiAcls | 예 |
+> | api관리계정 / APIS / 연결Acls | 예 |
+> | api관리계정 / APIS / 연결 | 예 |
+> | api관리계정 / APIS / 연결 / 연결Acls | 예 |
+> | api관리계정 / APIS / 지역화정의 | 예 |
+> | api관리계정 / 연결Acls | 예 |
+> | api관리계정 / 연결 | 예 |
 > | billingMeters | 예 |
 > | certificates | yes |
 > | connectionGateways | yes |
@@ -2042,27 +2042,27 @@ ms.locfileid: "77664409"
 > | customApis | yes |
 > | deletedSites | 예 |
 > | hostingEnvironments | yes |
-> | hostingEnvironments/eventGridFilters | 예 |
-> | hostingEnvironments/multiRolePools | 예 |
-> | hostingEnvironments/이상 풀 | 예 |
+> | 호스팅환경 / 이벤트그리드필터 | 예 |
+> | 호스팅환경 / 멀티롤풀 | 예 |
+> | 호스팅환경 / 워커풀 | 예 |
 > | publishingUsers | 예 |
 > | 동영상 추천 기능 | 예 |
 > | resourceHealthMetadata | 예 |
 > | runtimes | 예 |
 > | serverFarms | yes |
-> | serverFarms/eventGridFilters | 예 |
+> | 서버농장 / 이벤트그리드필터 | 예 |
 > | sites | yes |
 > | 사이트/구성  | 예 |
-> | sites/eventGridFilters | 예 |
-> | 사이트/hostNameBindings | 예 |
-> | 사이트/네트워크 구성 | 예 |
-> | 사이트/premieraddons | yes |
-> | 사이트/슬롯 | yes |
-> | 사이트/슬롯/eventGridFilters 필터 | 예 |
-> | 사이트/슬롯/hostNameBindings | 예 |
-> | 사이트/슬롯/네트워크 구성 | 예 |
+> | 사이트 / 이벤트그리드필터 | 예 |
+> | 사이트 / 호스트네임 바인딩 | 예 |
+> | 사이트 / 네트워크구성 | 예 |
+> | 사이트 / 프리미어 애드온 | yes |
+> | 사이트 / 슬롯 | yes |
+> | 사이트 / 슬롯 / 이벤트그리드 필터 | 예 |
+> | 사이트 / 슬롯 / 호스트네임 바인딩 | 예 |
+> | 사이트 / 슬롯 / 네트워크구성 | 예 |
 > | sourceControls | 예 |
-> | staticSites | yes |
+> | 정적 사이트 | yes |
 > | validate | 예 |
 > | verifyHostingEnvironmentVnet | 예 |
 

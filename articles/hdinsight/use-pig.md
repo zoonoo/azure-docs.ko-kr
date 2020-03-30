@@ -10,10 +10,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/28/2020
 ms.openlocfilehash: ea960a92aee1c9447bb12d27cffdc42de9fd907a
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77672126"
 ---
 # <a name="use-apache-pig-with-apache-hadoop-on-hdinsight"></a>HDInsight에서 Apache Hadoop과 함께 Apache Pig 사용
@@ -22,7 +22,7 @@ HDInsight에서 [Apache Pig](https://pig.apache.org/)를 사용하는 방법을 
 
 Apache Pig는 *Pig Latin*이라는 절차형 언어를 사용하여 Apache Hadoop용 프로그램을 만드는 플랫폼입니다. Pig는 *MapReduce* 을 만드는 Java를 대체하는 솔루션이며 Azure HDInsight와 함께 포함됩니다. 다음 표를 사용하여 HDInsight에서 Pig를 사용하는 다양한 방법을 검색하세요.
 
-## <a id="why"></a>Apache Pig를 사용하는 이유
+## <a name="why-use-apache-pig"></a><a id="why"></a>Apache Pig를 사용하는 이유
 
 Hadoop의 MapReduce를 사용하여 데이터를 처리할 때 문제는 지도 및 reduce 함수만을 사용하여 처리 논리를 구현하는 것입니다. 복잡한 처리를 위해 종종 처리를 같이 연결된 여러 MapReduce 작업으로 나누어야 원하는 결과를 얻을 수 있습니다.
 
@@ -32,9 +32,9 @@ Pig를 사용하면 원하는 출력을 생산하기 위해 데이터가 통과�
 
 * **로드**: 파일 시스템에서 조작할 데이터를 읽습니다.
 
-* **Transform**: 데이터를 조작 합니다.
+* **변환**: 데이터를 조작합니다.
 
-* **덤프 또는 저장**: 데이터를 화면에 출력 하거나 처리를 위해 저장 합니다.
+* **덤프 또는 저장**: 데이터를 화면에 출력하거나 처리를 위해 저장합니다.
 
 ### <a name="user-defined-functions"></a>사용자 정의 함수
 
@@ -42,9 +42,9 @@ Pig를 사용하면 원하는 출력을 생산하기 위해 데이터가 통과�
 
 Pig Latin에 대한 자세한 내용은 [Pig Latin 참조 설명서 1](https://archive.cloudera.com/cdh/3/pig/piglatin_ref1.html) 및 [Pig Latin 참조 설명서 2](https://archive.cloudera.com/cdh/3/pig/piglatin_ref2.html)를 참조하십시오.
 
-## <a id="data"></a>예제 데이터
+## <a name="example-data"></a><a id="data"></a>예제 데이터
 
-HDInsight에서는 `/example/data` 및 `/HdiSamples` 디렉터리에 저장되는 다양한 예제 데이터 집합을 제공합니다. 이러한 디렉터리는 클러스터의 기본 스토리지에 있습니다. 이 문서의 Pig 예제는 *의* log4j`/example/data/sample.log` 파일을 사용합니다.
+HDInsight에서는 `/example/data` 및 `/HdiSamples` 디렉터리에 저장되는 다양한 예제 데이터 집합을 제공합니다. 이러한 디렉터리는 클러스터의 기본 스토리지에 있습니다. 이 문서의 Pig 예제는 `/example/data/sample.log`의 *log4j* 파일을 사용합니다.
 
 파일 내부의 각 로그는 유형과 심각도를 표시하는 `[LOG LEVEL]`  필드가 포함된 필드의 줄로 구성되어 있습니다. 예를 들어:
 
@@ -55,7 +55,7 @@ HDInsight에서는 `/example/data` 및 `/HdiSamples` 디렉터리에 저장되�
 > [!NOTE]  
 > [Apache Log4j](https://en.wikipedia.org/wiki/Log4j) 도구 로깅하여 log4j 파일을 생성하고 해당 파일을 사용자의 blob에 업로드할 수도 있습니다. 해당 지침은 [HDInsight에 데이터 업로드](hdinsight-upload-data.md) 를 참조하세요. HDInsight와 함께 Azure Blob Storage를 사용하는 방법에 대한 자세한 내용은 [HDInsight에서 Azure Blob Storage 사용](hdinsight-hadoop-use-blob-storage.md)을 참조하세요.
 
-## <a id="job"></a>예제 작업
+## <a name="example-job"></a><a id="job"></a>예제 작업
 
 다음 Pig Latin 작업은 HDInsight 클러스터의 기본 스토리지에서 `sample.log` 파일을 로드합니다. 그런 다음 입력된 데이터에서 각 로그 수준이 발생한 횟수로 나타나는 일련의 변환을 수행합니다. 결과는 STDOUT에 기록됩니다.
 
@@ -73,7 +73,7 @@ HDInsight에서는 `/example/data` 및 `/HdiSamples` 디렉터리에 저장되�
 
 ![변환의 그래픽 표현][image-hdi-pig-data-transformation]
 
-## <a id="run"></a>Pig Latin 작업 실행
+## <a name="run-the-pig-latin-job"></a><a id="run"></a>Pig Latin 작업 실행
 
 HDInsight는 다양한 메서드를 사용하여 Pig Latin 작업을 실행할 수 있습니다. 어떤 메서드가 적합한지 결정하는 다음 테이블을 사용하여 연습할 수 있는 링크를 따르세요.
 
@@ -85,9 +85,9 @@ SSIS(SQL Server Integration Services)를 사용하여 Pig 작업을 실행할 �
 
 * [Azure 구독 연결 관리자][connectionmanager]
 
-SSIS 용 Azure 기능 팩에 대 한 자세한 내용은 [여기][ssispack]를 참조 하세요.
+[여기][ssispack]에서 Azure Feature Pack for SSIS에 대해 자세히 알아보세요.
 
-## <a id="nextsteps"></a>다음 단계
+## <a name="next-steps"></a><a id="nextsteps"></a>다음 단계
 
 Scalding을 사용하여 HDInsight와 함께 Pig를 사용하는 방법을 살펴보았으므로 이제 다음 링크를 사용하여 Azure HDInsight로 작업하는 다른 방법을 알아봅니다.
 

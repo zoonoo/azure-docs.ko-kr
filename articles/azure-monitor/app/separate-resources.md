@@ -1,13 +1,13 @@
 ---
-title: Azure 애플리케이션 Insights에서 원격 분석 분리
+title: Azure 응용 프로그램 인사이트에서 원격 분석 분리
 description: 개발, 테스트 및 프로덕션 스탬프에 대한 다양한 리소스에 직접 원격 분석
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.openlocfilehash: 3580d162f4b3955a04ffcd0f13933221bfef3b65
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671463"
 ---
 # <a name="separating-telemetry-from-development-test-and-production"></a>개발, 테스트 및 프로덕션의 원격 분석 구분
@@ -28,13 +28,13 @@ ms.locfileid: "77671463"
 * A | B 테스트 - 단일 리소스를 사용합니다. 변형을 식별하는 원격 분석에 속성을 추가하는 TelemetryInitializer를 만듭니다.
 
 
-## <a name="dynamic-ikey"></a> 동적 계측 키
+## <a name="dynamic-instrumentation-key"></a><a name="dynamic-ikey"></a> 동적 계측 키
 
 코드가 프로덕션 단계 간에 이동함에 따라 보다 쉽게 ikey를 변경할 수 있도록 구성 파일 대신 코드에 설정합니다.
 
 ASP.NET 서비스의 global.aspx.cs 같은 초기화 메서드에서 키를 설정합니다.
 
-*C#*
+*C #*
 
     protected void Application_Start()
     {
@@ -47,7 +47,7 @@ ASP.NET 서비스의 global.aspx.cs 같은 초기화 메서드에서 키를 설�
 이 예제에서는 서로 다른 리소스에 대한 ikeys는 다른 버전의 웹 구성 파일에 배치됩니다. 웹 구성 파일 교체는 릴리스 스크립트의 일부로 수행될 수 있고 대상 리소스를 교체합니다.
 
 ### <a name="web-pages"></a>웹 페이지
-IKey는 [빠른 시작 블레이드에서 가져온 스크립트](../../azure-monitor/app/javascript.md)의 앱 웹 페이지 에서도 사용 됩니다. 스크립트에 문자 그대로 코딩하는 대신, 서버 상태로부터 생성합니다. 예를 들어, ASP.NET 응용 프로그램에서:
+iKey는 [빠른 시작 블레이드에서 얻은 스크립트에서](../../azure-monitor/app/javascript.md)앱의 웹 페이지에도 사용됩니다. 스크립트에 문자 그대로 코딩하는 대신, 서버 상태로부터 생성합니다. 예를 들어, ASP.NET 응용 프로그램에서:
 
 *Razor에서 JavaScript*
 
@@ -70,14 +70,14 @@ IKey는 [빠른 시작 블레이드에서 가져온 스크립트](../../azure-mo
 ![새로 만들기, Application Insights 클릭](./media/separate-resources/01-new.png)
 
 * **애플리케이션 유형**은 개요 블레이드에 표시되는 내용 및 [메트릭 탐색기](../../azure-monitor/app/metrics-explorer.md)에서 사용할 수 있는 속성에 영향을 줍니다. 앱 유형이 표시되지 않으면 웹 페이지에 대해 웹 유형 중 하나를 선택합니다.
-* **리소스 그룹** 은 [액세스 제어](../../azure-monitor/app/resources-roles-access-control.md)와 같은 속성을 관리하기 위한 편의 기능입니다. 개발, 테스트 및 프로덕션 환경에 대 한 별도 리소스 그룹을 사용할 수 있습니다.
+* **리소스 그룹은** [액세스 제어](../../azure-monitor/app/resources-roles-access-control.md)와 같은 속성을 관리하기 위한 편리함입니다. 개발, 테스트 및 프로덕션 환경에 대 한 별도 리소스 그룹을 사용할 수 있습니다.
 * **구독** 은 Azure의 지불 계정입니다.
 * **위치** 는 데이터를 보관하는 곳입니다. 현재는 변경할 수 없습니다. 
 * **대시보드에 추가** 는 Azure 홈 페이지에 리소스에 대한 빠른 액세스 타일을 넣습니다. 
 
 리소스 생성 시 몇 초 정도 걸립니다. 완료되면 알림이 표시 됩니다.
 
-(리소스를 자동으로 만드는 [PowerShell 스크립트](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource#creating-a-resource-automatically) 를 작성할 수 있습니다).
+PowerShell [스크립트를](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource#creating-a-resource-automatically) 작성하여 리소스를 자동으로 만들 수 있습니다.
 
 ### <a name="getting-the-instrumentation-key"></a>계측 키 가져오기
 계측 키는 사용자가 만든 리소스를 식별합니다. 
@@ -123,14 +123,14 @@ IKey는 [빠른 시작 블레이드에서 가져온 스크립트](../../azure-mo
     </PropertyGroup>
     ```
 
-    이렇게 하면 해당 하는 *projectname*이라는 파일이 생성 됩니다. BuildInfo. .config. 게시 프로세스에서이 이름을 BuildInfo .config로 바꿉니다.
+    이렇게 하면 *yourProjectName*이라는 파일이 생성됩니다. BuildInfo.config. 게시 프로세스는 BuildInfo.config로 이름을 바꿉니다.
 
     Visual Studio를 사용하여 빌드할때 빌드 레이블에는 자리 표시자(AutoGen_...)가 포함됩니다. MSBuild로 빌드할 때는 정확한 버전 번호가 입력됩니다.
 
     MSBuild가 버전 번호를 생성하게 하려면 AssemblyReference.cs에서 `1.0.*` 같이 버전을 설정합니다.
 
 ## <a name="version-and-release-tracking"></a>버전 및 릴리스 추적
-애플리케이션 버전을 추적하려면 `buildinfo.config`가 Microsoft Build Engine 프로세스에 의해 생성되도록 해야 합니다. `.csproj` 파일에서 다음을 추가 합니다.  
+애플리케이션 버전을 추적하려면 `buildinfo.config`가 Microsoft Build Engine 프로세스에 의해 생성되도록 해야 합니다. 파일에 `.csproj` 다음을 추가합니다.  
 
 ```XML
 
@@ -141,7 +141,7 @@ IKey는 [빠른 시작 블레이드에서 가져온 스크립트](../../azure-mo
 
 빌드 정보가 있는 경우 Application Insights 웹 모듈에서 원격 분석의 모든 항목에 **애플리케이션 버전**을 속성으로 자동으로 추가합니다. 이렇게 하면 [진단 검색](../../azure-monitor/app/diagnostic-search.md)을 수행하거나 [메트릭을 탐색](../../azure-monitor/app/metrics-explorer.md)할 때 버전을 기준으로 필터링할 수 있습니다.
 
-그러나 빌드 버전 번호는 Visual Studio에서 개발자가 작성 하는 것이 아니라 Microsoft Build Engine만 생성 됩니다.
+그러나 빌드 버전 번호는 Visual Studio의 개발자 빌드가 아닌 Microsoft 빌드 엔진에서만 생성됩니다.
 
 ### <a name="release-annotations"></a>릴리스 주석
 Azure DevOps를 사용하는 경우 새 버전을 릴리스할 때마다 [주석 표식](../../azure-monitor/app/annotations.md)이 차트에 추가됩니다. 다음 이미지는 이러한 표식이 어떻게 나타나는지를 보여줍니다.

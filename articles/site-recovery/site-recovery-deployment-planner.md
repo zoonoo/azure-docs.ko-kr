@@ -1,5 +1,5 @@
 ---
-title: VMware 재해 복구를 위한 Azure Site Recovery Deployment Planner
+title: VMware 재해 복구를 위한 Azure 사이트 복구 배포 플래너
 description: Azure로 VMware VM 재해 복구를 위한 Azure Site Recovery Deployment Planner에 대해 알아봅니다.
 author: mayurigupta13
 manager: rochakm
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: mayg
 ms.openlocfilehash: 70d84516e2d7a42b1c6a3714d9060bedf6535f58
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79366299"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>VMware에서 Azure로의 Azure Site Recovery Deployment Planner 정보
@@ -31,7 +31,7 @@ Azure Site Recovery를 사용하여 VMware VM(가상 머신) 보호를 시작하
 
 * 디스크 수, 디스크 크기, IOPS, 변동 및 부팅 유형(EFI/BIOS) 및 OS 버전에 기반한 VM 적합성 평가
 
-**네트워크 대역폭 요구 사항 및 RPO 평가**
+**네트워크 대역폭 필요 와 RPO 평가**
 
 * 델타 복제에 필요한 예상 네트워크 대역폭
 * Site Recovery를 통해 온-프레미스에서 Azure로 가져올 수 있는 처리량
@@ -41,8 +41,8 @@ Azure Site Recovery를 사용하여 VMware VM(가상 머신) 보호를 시작하
 
 **Azure 인프라 요구 사항**
 
-* 각 VM에 대 한 저장소 유형 (standard 또는 premium storage) 요구 사항
-* 복제에 대해 설정할 표준 및 프리미엄 저장소 계정의 총 수 (캐시 저장소 계정 포함)
+* 각 VM에 대한 스토리지 유형(표준 또는 프리미엄 스토리지) 요구 사항
+* 복제를 위해 설정할 표준 및 프리미엄 저장소 계정의 총 수(캐시 저장소 계정 포함)
 * Storage 지침에 따른 스토리지 계정 명명 제안
 * 구독에 대한 테스트 장애 조치 또는 장애 조치 이전에 설정할 Azure 코어의 수
 * 각 온-프레미스 VM에 대한 Azure VM 권장 크기
@@ -74,9 +74,9 @@ Site Recovery Deployment Planner의 실행 인스턴스당 프로파일링할 �
 ## <a name="prerequisites"></a>사전 요구 사항
 이 도구에는 두 가지 주요 단계, 즉 프로파일링과 보고서 생성 단계가 있습니다. 또한 처리량만 계산하는 세 번째 옵션도 있습니다. 다음 표에는 프로파일링 및 처리량 측정이 시작되는 서버에 대한 요구 사항이 나와 있습니다.
 
-| 서버 요구 사항 | Description|
+| 서버 요구 사항 | 설명|
 |---|---|
-|프로파일링 및 처리량 측정| <ul><li>운영 체제: Windows Server 2016 또는 Windows Server 2012 R2<br>(적어도 [구성 서버에 대한 크기 권장 사항](https://aka.ms/asr-v2a-on-prem-components)을 일치하는 것이 이상적)</li><li>컴퓨터 구성: 8개 vCPus, 16GB RAM, 300GB HDD</li><li>[.NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli)</li><li>[Visual Studio 2012용 Visual C++ 재배포 가능 패키지](https://aka.ms/vcplusplus-redistributable)</li><li>이 서버에서 Azure (*. blob.core.windows.net)에 대 한 인터넷 액세스, 포트 443<br>[이 옵션은 선택 사항입니다. 보고서를 생성 하는 동안 사용 가능한 대역폭을 수동으로 제공 하도록 선택할 수 있습니다.]</li><li>Azure Storage 계정</li><li>서버에 대한 관리자 액세스</li><li>최소 100GB의 사용 가능한 디스크 공간(각각 평균 3개의 디스크가 있는 1,000개의 VM 가정하에 30일 동안 프로파일링)</li><li>VMware vCenter 통계 수준 설정은 1 이상일 수 있습니다.</li><li>vCenter 포트 허용(기본 443): Site Recovery Deployment Planner는 이 포트를 사용하여 vCenter 서버/ESXi 호스트에 연결합니다.</ul></ul>|
+|프로파일링 및 처리량 측정| <ul><li>운영 체제: Windows Server 2016 또는 Windows Server 2012 R2<br>(적어도 [구성 서버에 대한 크기 권장 사항](https://aka.ms/asr-v2a-on-prem-components)을 일치하는 것이 이상적)</li><li>컴퓨터 구성: 8개 vCPus, 16GB RAM, 300GB HDD</li><li>[.NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli)</li><li>[Visual Studio 2012용 Visual C++ 재배포 가능 패키지](https://aka.ms/vcplusplus-redistributable)</li><li>이 서버에서 Azure(*.blob.core.windows.net)에 대한 인터넷 액세스, 포트 443<br>[선택 사항입니다. 보고서 생성 중에 사용 가능한 대역폭을 수동으로 제공하도록 선택할 수 있습니다.]</li><li>Azure Storage 계정</li><li>서버에 대한 관리자 액세스</li><li>최소 100GB의 사용 가능한 디스크 공간(각각 평균 3개의 디스크가 있는 1,000개의 VM 가정하에 30일 동안 프로파일링)</li><li>VMware vCenter 통계 수준 설정은 1 이상일 수 있습니다.</li><li>vCenter 포트 허용(기본 443): Site Recovery Deployment Planner는 이 포트를 사용하여 vCenter 서버/ESXi 호스트에 연결합니다.</ul></ul>|
 | 보고서 생성 | Excel 2013 이상이 설치된 Windows PC 또는 Windows Server<li>[.NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Visual Studio 2012용 Visual C++ 재배포 가능 패키지](https://aka.ms/vcplusplus-redistributable)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli)은 VM의 최신 VM 구성 정보를 가져오기 위해 보고서 생성 명령에 사용자 옵션을 전달하는 경우에만 필요합니다. Deployment Planner는 vCenter 서버에 연결됩니다. vCenter 포트(기본값 443)를 vCenter 서버에 연결하도록 허용합니다.</li>|
 | 사용자 권한 | 프로파일링 중에 VMware vCenter 서버/VMware vSphere ESXi 호스트에 액세스하는 데 사용되는 사용자 계정에 대한 읽기 전용 권한 |
 
@@ -104,7 +104,7 @@ Site Recovery Deployment Planner의 실행 인스턴스당 프로파일링할 �
 
 ### <a name="update-to-the-latest-version-of-deployment-planner"></a>최신 버전의 Deployment Planner로 업데이트
 
-최신 업데이트는 Deployment Planner [버전 기록](site-recovery-deployment-planner-history.md)에 요약 되어 있습니다.
+최신 업데이트는 배포 플래너 [버전 기록에](site-recovery-deployment-planner-history.md)요약되어 있습니다.
 
 이전 버전의 Deployment Planner가 있는 경우 다음 중 하나를 수행합니다.
  * 최신 버전에 프로파일링 수정 프로그램이 없고 현재 버전의 Planner에서 프로파일링을 이미 진행 중인 경우 프로파일링을 계속합니다.
@@ -119,7 +119,7 @@ Site Recovery Deployment Planner의 실행 인스턴스당 프로파일링할 �
 
 
 ## <a name="version-history"></a>버전 기록
-최신 Site Recovery Deployment Planner 도구 버전은 2.5입니다.
+최신 사이트 복구 배포 플래너 도구 버전은 2.5입니다.
 각 업데이트에 추가된 수정 사항은 [Site Recovery Deployment Planner 버전 기록](https://docs.microsoft.com/azure/site-recovery/site-recovery-deployment-planner-history) 페이지를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계

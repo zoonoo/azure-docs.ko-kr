@@ -1,14 +1,14 @@
 ---
 title: Jenkins 연속 통합 솔루션과 함께 Azure Storage 사용
-description: 이 자습서에서는 Jenkins 연속 통합 솔루션에서 만든 빌드 아티팩트의 리포지토리로 Azure blob service를 사용 하는 방법을 보여 줍니다.
-keywords: jenkins, azure, devops, storage, cicd
+description: 이 자습서에서는 Jenkins 연속 통합 솔루션에서 만든 빌드 아티팩트에 대 한 리포지토리로 Azure Blob 서비스를 사용 하는 방법을 보여 주며 있습니다.
+keywords: 젠킨스, 푸른, devops, 저장, cicd
 ms.topic: article
 ms.date: 08/13/2019
 ms.openlocfilehash: df1d59c40fd09fb055db9d7622d86ff9c82991b8
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77624684"
 ---
 # <a name="using-azure-storage-with-a-jenkins-continuous-integration-solution"></a>Jenkins 연속 통합 솔루션과 함께 Azure Storage 사용
@@ -32,7 +32,7 @@ Blob service를 사용하여 Agile 개발 빌드 아티팩트를 호스트할 �
 * 고객 및 파트너가 빌드 아티팩트를 다운로드할 때의 성능
 * 익명 액세스, 만료 기반 공유 액세스 서명 액세스, 프라이빗 액세스 중에서 선택하여 사용자 액세스 정책 제어
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Jenkins 연속 통합 솔루션
   
@@ -47,7 +47,7 @@ Blob service를 사용하여 Agile 개발 빌드 아티팩트를 호스트할 �
      
       일반적인 Jenkins CI 솔루션은 서비스로 실행하도록 설정되지만, 이 자습서에서는 Jenkins war를 명령줄에서 실행하는 것으로 충분합니다.
 * Azure 계정. <https://www.azure.com>에서 Azure 계정을 등록할 수 있습니다.
-* Azure 저장소 계정이 있어야 합니다. Storage 계정이 아직 없으면 [Storage 계정 만들기](../storage/common/storage-account-create.md)에 설명된 단계를 따라 계정을 만들 수 있습니다.
+* Azure Storage 계정. Storage 계정이 아직 없으면 [Storage 계정 만들기](../storage/common/storage-account-create.md)에 설명된 단계를 따라 계정을 만들 수 있습니다.
 * Jenkins CI 솔루션에 익숙하면 좋지만 반드시 그러해야 하는 것은 아닙니다. 아래에서는 Jenkins CI 빌드 아티팩트를 위한 리포지토리로 Blob service를 사용할 때 필요한 단계를 보여 주기 위해 기본적인 예를 사용합니다.
 
 ## <a name="how-to-use-the-blob-service-with-jenkins-ci"></a>Jenkins CI에서 Blob service를 사용하는 방법
@@ -65,12 +65,12 @@ Blob service를 Jenkins와 함께 사용하려면 Azure Storage 플러그인을 
 1. Jenkins 대시보드에서 **Jenkins 관리**를 선택합니다.
 2. **Jenkins 관리** 페이지에서 **시스템 구성**을 선택합니다.
 3. **Microsoft Azure Storage Account Configuration** 섹션에서:
-   1. [Azure Portal](https://portal.azure.com)에서 가져올 수 있는 저장소 계정 이름을 입력 합니다.
-   2. [Azure Portal](https://portal.azure.com)에서 얻을 수 있는 저장소 계정 키를 입력 합니다.
-   3. 전역 Azure 클라우드를 사용 중이면 **Blob 서비스 엔드포인트 URL**에 기본값을 사용합니다. 다른 Azure 클라우드를 사용 하는 경우 저장소 계정에 대 한 [Azure Portal](https://portal.azure.com) 에 지정 된 대로 끝점을 사용 합니다. 
+   1. [Azure 포털에서](https://portal.azure.com)가져올 수 있는 저장소 계정 이름을 입력합니다.
+   2. [Azure 포털에서](https://portal.azure.com)가져올 수도 있는 저장소 계정 키를 입력합니다.
+   3. 전역 Azure 클라우드를 사용 중이면 **Blob 서비스 엔드포인트 URL**에 기본값을 사용합니다. 다른 Azure 클라우드를 사용하는 경우 저장소 계정에 대해 [Azure 포털에](https://portal.azure.com) 지정된 대로 끝점을 사용합니다. 
    4. **스토리지 자격 증명 유효성 검사**를 선택하여 스토리지 계정의 유효성을 검사합니다. 
    5. [옵션] Jenkins CI에서 더 많은 스토리지 계정을 사용할 수 있게 하려면 **Add more Storage Accounts**(추가 스토리지 계정 추가)를 선택합니다.
-   6. **저장**을 선택하여 설정을 저장합니다.
+   6. 설정을 저장하려면 **저장을** 선택합니다.
 
 ## <a name="how-to-create-a-post-build-action-that-uploads-your-build-artifacts-to-your-storage-account"></a>빌드 아티팩트를 스토리지 계정으로 업로드하는 빌드 후 작업을 만드는 방법
 설명할 목적으로 우선 몇 개의 파일을 만들 작업을 만든 다음, 그 파일을 스토리지 계정에 업로드할 빌드 후 작업을 추가해야 합니다.
@@ -90,7 +90,7 @@ Blob service를 Jenkins와 함께 사용하려면 Azure Storage 플러그인을 
 
 5. 작업 구성의 **Post-build Actions**(빌드 후 작업) 섹션에서 **Add post-build action**(빌드 후 작업 추가)을 선택하고 **Upload artifacts to Azure Blob storage**(Azure Blob 스토리지로 아티팩트 업로드)를 선택합니다.
 6. **Storage account name**에서는 사용할 스토리지 계정을 선택합니다.
-7. **Container name**에서 컨테이너 이름을 지정합니다. (빌드 아티팩트가 업로드 될 때 컨테이너가 아직 없는 경우 생성 됩니다.) 환경 변수를 사용할 수 있으므로이 예제에서는 `${JOB_NAME}`를 컨테이너 이름으로 입력 합니다.
+7. **Container name**에서 컨테이너 이름을 지정합니다. 빌드 아티팩트를 업로드할 때 컨테이너가 아직 존재하지 않는 경우 컨테이너가 만들어집니다. 환경 변수를 사용할 수 있으므로 이 `${JOB_NAME}` 예제에서는 컨테이너 이름으로 입력합니다.
    
     **팁**
    
@@ -99,14 +99,14 @@ Blob service를 Jenkins와 함께 사용하려면 Azure Storage 플러그인을 
 9. [선택 사항] 빌드 아티팩트를 업로드하기 전에 컨테이너에서 내용을 지우려면 **업로드 전에 컨테이너 정리**를 선택합니다. 컨테이너의 내용을 지우지 않으려면 선택 취소한 상태로 둡니다.
 10. **업로드할 아티팩트 목록**에 `text/*.txt`를 입력합니다.
 11. **Common virtual path for uploaded artifacts**(업로드된 아티팩트의 일반 가상 경로)에는 이 자습서에서 사용할 `${BUILD\_ID}/${BUILD\_NUMBER}`를 입력합니다.
-12. **저장**을 선택하여 설정을 저장합니다.
+12. 설정을 저장하려면 **저장을** 선택합니다.
 13. Jenkins 대시보드에서 **지금 빌드**를 선택하여 **MyJob**을 실행합니다. 콘솔 출력을 점검하여 상태를 확인합니다. 빌드 후 작업이 빌드 아티팩트를 업로드하기 시작하면 Azure Storage 상태 메시지가 콘솔 출력에 포함됩니다.
 14. 작업이 성공적으로 완료되었을 때 공용 Blob을 열어 빌드 아티팩트를 검사할 수 있습니다.
-    1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+    1. [Azure 포털에](https://portal.azure.com)로그인합니다.
     2. **저장소**를 선택합니다.
     3. Jenkins에 사용한 스토리지 계정 이름을 선택합니다.
     4. **컨테이너**를 선택합니다.
-    5. **myjob**이라는 이름의 컨테이너를 선택합니다. 이 이름은 Jenkins 작업을 만들 때 할당한 작업 이름의 소문자 버전입니다. 컨테이너 이름 및 Blob 이름은 Azure Storage에서 소문자(및 대/소문자 구분)입니다. **myjob**라는 컨테이너의 Blob 목록 내에서 **hello.txt** 및 **date.txt**가 표시됩니다. 이 항목 중 하나의 URL을 복사하여 브라우저에서 엽니다. 빌드 아티팩트로 업로드된 텍스트 파일이 표시됩니다.
+    5. **myjob**이라는 이름의 컨테이너를 선택합니다. 이 이름은 Jenkins 작업을 만들 때 할당한 작업 이름의 소문자 버전입니다. 컨테이너 이름 및 Blob 이름은 Azure Storage에서 소문자(및 대/소문자 구분)입니다. **myjob라는**컨테이너의 Blob 목록 내에서 **hello.txt** 및 **date.txt를**볼 수 있습니다. 이 항목 중 하나의 URL을 복사하여 브라우저에서 엽니다. 빌드 아티팩트로 업로드된 텍스트 파일이 표시됩니다.
 
 아티팩트를 Azure Blob Storage에 업로드하는 빌드 후 작업은 작업당 하나만 만들 수 있습니다. 아티팩트를 Azure Blob Storage로 업로드하는 단일 빌드 후 작업에서는 세미콜론을 구분 기호로 사용하여 **업로드할 아티팩트 목록**에서 다른 파일(와일드카드 포함) 및 파일 경로를 지정할 수 있습니다. 예를 들어 Jenkins 빌드에서 작업 영역의 **build** 폴더에 JAR 파일과 TXT 파일을 생성한 상태에서 두 개를 모두 Azure Blob Storage에 업로드하려면 **업로드할 아티팩트 목록** 값에 `build/\*.jar;build/\*.txt`를 사용합니다. 이중 콜론 구문을 사용하여 Blob 이름 내에 사용할 경로를 지정할 수도 있습니다. 예를 들어 Blob 경로에 **이진 파일**을 사용하여 JAR을 업로드하고 Blob 경로에 **통지**를 사용하여 TXT 파일을 업로드하려면 **업로드할 아티팩트 목록** 값에 `build/\*.jar::binaries;build/\*.txt::notices`를 사용합니다.
 
@@ -116,7 +116,7 @@ Blob service를 Jenkins와 함께 사용하려면 Azure Storage 플러그인을 
 1. 작업 구성의 **빌드** 섹션에서 **빌드 단계 추가**를 선택한 후 **Azure Blob Storage에서 다운로드**를 선택합니다.
 2. **Storage account name**에서는 사용할 스토리지 계정을 선택합니다.
 3. **Container name**에서 다운로드할 Blob이 있는 컨테이너의 이름을 지정합니다. 환경 변수를 사용할 수 있습니다.
-4. **Blob name**에서 Blob 이름을 지정합니다. 환경 변수를 사용할 수 있습니다. Blob 이름의 첫 부분 글자를 지정한 후에 와일드카드로 별표를 사용할 수도 있습니다. 예를 들어 **project\\** *는 이름이 **project**로 시작 하는 모든 blob을 지정 합니다.
+4. **Blob name**에서 Blob 이름을 지정합니다. 환경 변수를 사용할 수 있습니다. Blob 이름의 첫 부분 글자를 지정한 후에 와일드카드로 별표를 사용할 수도 있습니다. 예를 들어 **\\project***는 이름이 **프로젝트로**시작하는 모든 Blob을 지정합니다.
 5. [옵션] **Download path**에서 Azure Blob Storage로부터 파일을 다운로드할 Jenkins 컴퓨터의 경로를 지정합니다. 환경 변수도 사용할 수 있습니다. ( **Download path**에 값을 제공하지 않으면 Azure Blob Storage의 파일이 작업에 해당하는 작업 영역으로 다운로드됩니다.)
 
 Azure Blob Storage에서 다운로드할 추가 항목이 있는 경우에는 추가 빌드 단계를 만들 수 있습니다.
@@ -126,22 +126,22 @@ Azure Blob Storage에서 다운로드할 추가 항목이 있는 경우에는 �
 ## <a name="components-used-by-the-blob-service"></a>Blob service에서 사용하는 구성 요소
 이 섹션에서는 Blob Service 구성 요소의 개요를 제공합니다.
 
-* **Storage 계정**: Azure Storage에 대한 모든 액세스는 Storage 계정을 통해 수행됩니다. 스토리지 계정은 Blob 액세스를 위한 가장 높은 수준의 네임스페이스입니다. 전체 크기가 100TB를 초과하지 않을 경우 한 계정에 포함될 수 있는 컨테이너 수는 제한이 없습니다.
+* **저장소 계정**: Azure 저장소에 대한 모든 액세스는 저장소 계정을 통해 수행됩니다. 스토리지 계정은 Blob 액세스를 위한 가장 높은 수준의 네임스페이스입니다. 전체 크기가 100TB를 초과하지 않을 경우 한 계정에 포함될 수 있는 컨테이너 수는 제한이 없습니다.
 * **컨테이너**: 컨테이너는 Blob 집합 그룹화를 제공합니다. 모든 Blob은 컨테이너에 있어야 합니다. 계정에 포함될 수 있는 컨테이너의 개수 제한은 없습니다. 한 컨테이너에 저장될 수 있는 Blob 수에도 제한이 없습니다.
 * **Blob**: 모든 형식과 크기의 파일입니다. Azure Blob Storage 서비스에 저장할 수 있는 Blob 유형에는 블록과 페이지 Blob 두 가지가 있습니다. 대부분의 파일은 블록 Blob입니다. 단일 블록 Blob의 크기는 최대 200GB일 수 있습니다. 이 자습서에서는 블록 Blob을 사용합니다. 다른 Blob 유형인 페이지 Blob의 크기는 최대 1TB일 수 있으며, 파일의 바이트 범위가 자주 수정되는 경우 더 효율적입니다. Blob에 대한 자세한 내용은 [블록 Blob, 추가 Blob 및 페이지 Blob 이해](https://msdn.microsoft.com/library/azure/ee691964.aspx)를 참조하세요.
 * **URL 형식**: Blob에 다음 URL 형식을 사용하여 주소를 지정할 수 있습니다.
   
     `http://storageaccount.blob.core.windows.net/container_name/blob_name`
   
-    위의 형식은 전역 Azure 클라우드에 적용됩니다. 다른 Azure 클라우드를 사용 하는 경우 [Azure Portal](https://portal.azure.com) 내에서 끝점을 사용 하 여 URL 끝점을 확인 합니다.)
+    위의 형식은 전역 Azure 클라우드에 적용됩니다. 다른 Azure 클라우드를 사용하는 경우 [Azure 포털](https://portal.azure.com) 내의 끝점을 사용하여 URL 끝점을 확인합니다.
   
-    위 형식에서 `storageaccount`은(는) 스토리지 계정 이름을 나타내고, `container_name`은(는) 컨테이너 이름을 나타내고, `blob_name`은(는) Blob 이름을 각각 나타냅니다. 컨테이너 이름 내에 슬래시( **/** (영문)에서 찾을 수 있습니다. 이 자습서에서 사용되는 컨테이너 이름의 예는 **MyJob**이고 **${BUILD\_ID}/${BUILD\_NUMBER}** 는 일반 가상 경로에 사용되었으므로 Blob의 URL 형식은 다음과 같습니다.
+    위 형식에서 `storageaccount`은(는) 스토리지 계정 이름을 나타내고, `container_name`은(는) 컨테이너 이름을 나타내고, `blob_name`은(는) Blob 이름을 각각 나타냅니다. 컨테이너 이름 내에서 정방향 슬래시로 구분된 여러 경로를 **/** 가질 수 있습니다. 이 자습서에서 사용되는 컨테이너 이름의 예는 **MyJob**이고 **${BUILD\_ID}/${BUILD\_NUMBER}** 는 일반 가상 경로에 사용되었으므로 Blob의 URL 형식은 다음과 같습니다.
   
     `http://example.blob.core.windows.net/myjob/2014-04-14_23-57-00/1/hello.txt`
 
 ## <a name="troubleshooting-the-jenkins-plugin"></a>Jenkins 플러그 인 문제 해결
 
-Jenkins 플러그 인에서 버그가 발생하면 [Jenkins JIRA](https://issues.jenkins-ci.org/)에서 특정 구성 요소에 대한 문제를 제출해 주세요.
+젠킨스 플러그인에 문제가 발생 하는 경우, 특정 구성 요소에 대 한 [젠킨스 JIRA에](https://issues.jenkins-ci.org/) 문제를 제기.
 
 ## <a name="next-steps"></a>다음 단계
 

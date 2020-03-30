@@ -7,10 +7,10 @@ ms.author: daviste
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 15543f7f761c707e8eff8e0cc0a0e4532475ddf8
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671004"
 ---
 # <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>Azure Monitor 통합 문서를 사용하여 대화형 보고서 만들기
@@ -19,7 +19,7 @@ ms.locfileid: "77671004"
 
 통합 문서는 다음과 같은 시나리오에 유용합니다.
 
-* 관심 있는 메트릭을 미리 알지 못하는 경우 사용자 수, 보존 요금, 변환율 등의 앱 사용을 탐색 합니다. 다른 사용 현황 분석 도구와 달리 통합 문서를 사용 하면 여러 종류의 시각화 및 분석을 결합 하 여 이러한 종류의 자유 형식 탐색에 유용 하 게 사용할 수 있습니다.
+* 관심 지표를 미리 모르는 경우 사용자 수, 보유율, 전환율 등을 알아보면 앱 사용법을 탐색할 수 있습니다. 다른 사용 현황 분석 도구와 달리 통합 문서를 사용하면 여러 종류의 시각화 및 분석을 결합할 수 있으므로 이러한 종류의 자유형 탐색에 적합합니다.
 * 팀에 주요 상호 작용 및 다른 메트릭에 대한 사용자 수를 보여 주어 새로 릴리스된 기능이 수행되는 방법을 설명합니다.
 * 앱에서 A/B 실험의 결과를 팀의 다른 멤버와 공유합니다. 텍스트로 실험에 대한 목표를 설명한 다음 각 메트릭이 위 또는 아래-대상이었는지 여부에 대한 분명한 설명선과 함께 실험을 평가하는 데 사용되는 각 사용 현황 메트릭 및 분석 쿼리를 보여줄 수 있습니다.
 * 데이터, 텍스트 설명 및 차후의 중단을 방지하기 위한 다음 단계의 논의를 결합하여 앱의 사용 현황에 대한 중단의 영향을 보고합니다.
@@ -70,7 +70,7 @@ ms.locfileid: "77671004"
 
 * 사용 현황의 감소와 동일한 기간 동안 사이트에서 throw한 예외의 수는?
 * 일부 페이지를 보는 사용자에 대한 페이지 로드 시간의 분포는 무엇이었습니까?
-* 사이트의 일부 페이지 집합을 봤지만 다른 일부 페이지 집합을 보지 않은 사용자의 수는? 이 질문은 사이트 기능의 각기 다른 하위 집합을 사용하는 사용자 클러스터가 있는지 여부를 파악하는 데 유용할 수 있습니다(`join`Kusto 쿼리 언어`kind=leftanti`에서는 [ 한정자와 함께 ](/azure/kusto/query/) 연산자 사용).
+* 사이트의 일부 페이지 집합을 봤지만 다른 일부 페이지 집합을 보지 않은 사용자의 수는? 이 질문은 사이트 기능의 각기 다른 하위 집합을 사용하는 사용자 클러스터가 있는지 여부를 파악하는 데 유용할 수 있습니다([Kusto 쿼리 언어](/azure/kusto/query/)에서는 `kind=leftanti` 한정자와 함께 `join` 연산자 사용).
 
 또한 통합 문서를 시작한 애플리케이션의 컨텍스트에서만 쿼리하도록 제한되지 않습니다. 해당 리소스에 대한 액세스 권한이 있다면 Log Analytics 작업 영역뿐만 아니라 여러 Application Insights 모니터링 앱 간에 쿼리를 수행할 수 있습니다.
 
@@ -89,7 +89,7 @@ union app('app01').requests, app('app02').requests, requests
 
 ### <a name="advanced-analytic-query-settings"></a>고급 분석 쿼리 설정
 
-각 섹션에는 ![매개 변수 추가](./media/usage-workbooks/005-settings.png) 단추의 오른쪽에 있는 **Application Insights 통합 문서 섹션 편집 컨트롤** 설정 아이콘을 통해 액세스할 수 있는 고유한 고급 설정이 있습니다.
+각 섹션에는 **매개 변수 추가** 단추의 오른쪽에 있는 ![Application Insights 통합 문서 섹션 편집 컨트롤](./media/usage-workbooks/005-settings.png) 설정 아이콘을 통해 액세스할 수 있는 고유한 고급 설정이 있습니다.
 
 ![Application Insights 통합 문서 섹션 편집 컨트롤](./media/usage-workbooks/0006-settings-expanded.png)
 
@@ -159,7 +159,7 @@ CPU 성능의 그리드 시각화를 제공하기 위해 통합 문서로 가져
 
 ### <a name="using-a-text-parameter"></a>텍스트 매개 변수 사용
 
-이스케이프 또는 인용 부호 없이 사용자가 텍스트 상자에 입력한 값을 쿼리에서 직접 대체합니다. 필요한 값이 문자열인 경우 쿼리는 매개 변수에 인용 부호를 표시해야 합니다(예: **'{parameter}'** ).
+이스케이프 또는 인용 부호 없이 사용자가 텍스트 상자에 입력한 값을 쿼리에서 직접 대체합니다. 필요한 값이 문자열인 경우 쿼리는 매개 변수에 인용 부호를 표시해야 합니다(예: **'{parameter}'**).
 
 그러면 텍스트 상자의 값을 어디서나 사용할 수 있습니다. 테이블 이름, 열 이름, 함수 이름, 연산자 등일 수 있습니다.
 
@@ -199,7 +199,7 @@ datatable( column1:string, column2:string )
 
 ![Application Insights 통합 문서 섹션 편집 컨트롤](./media/usage-workbooks/011-data-table.png)
 
-더 적절 한 예는 드롭다운을 사용 하 여 국가/지역 집합에서 이름으로 선택 하는 것입니다.
+보다 적용 가능한 예는 드롭다운을 사용하여 이름으로 국가/지역 집합에서 선택하는 것입니다.
 
 ```
 customEvents

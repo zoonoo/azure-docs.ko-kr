@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor Azure Service Bus 메트릭 Microsoft Docs
-description: 이 문서에서는 Azure Monitor를 사용 하 여 Service Bus 엔터티 (큐, 토픽 및 구독)를 모니터링 하는 방법을 설명 합니다.
+title: Azure 모니터의 Azure 서비스 버스 메트릭 | 마이크로 소프트 문서
+description: 이 문서에서는 Azure Monitor를 사용하여 서비스 버스 엔터티(큐, 토픽 및 구독)를 모니터링하는 방법을 설명합니다.
 services: service-bus-messaging
 documentationcenter: .NET
 author: axisc
@@ -9,14 +9,14 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/27/2020
 ms.author: aschhab
-ms.openlocfilehash: 329b930c950ea7c58bdac798fce51af152aa8ff3
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 227dfaff211eb60c5c2b25b5c76ecc82b6ce3edc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79260970"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80240799"
 ---
-# <a name="azure-service-bus-metrics-in-azure-monitor"></a>Azure Monitor Azure Service Bus 메트릭
+# <a name="azure-service-bus-metrics-in-azure-monitor"></a>Azure 모니터의 Azure 서비스 버스 메트릭
 
 Service Bus 메트릭은 Azure 구독에서 리소스의 상태를 제공합니다. 풍부한 메트릭 데이터 집합을 사용하여 네임스페이스 수준에서뿐만 아니라 엔터티 수준에서 Service Bus 리소스의 전반적인 상태를 평가할 수 있습니다. 이러한 통계는 Service Bus의 상태를 모니터링하는 데 도움을 주므로 중요할 수 있습니다. Azure 지원에 문의할 필요 없이 메트릭을 통해 근본 원인 문제를 해결할 수도 있습니다.
 
@@ -27,7 +27,7 @@ Azure Monitor는 다양한 Azure 서비스를 모니터링하기 위한 통합�
 
 ## <a name="access-metrics"></a>메트릭에 액세스
 
-Azure Monitor는 메트릭에 액세스하는 여러 가지 방법을 제공합니다. [Azure Portal](https://portal.azure.com)을 통해 메트릭에 액세스 하거나 Azure Monitor API (REST 및 .net) 및 Azure Monitor 로그 및 Event Hubs 같은 분석 솔루션을 사용할 수 있습니다. 자세한 내용은 [Azure Monitor의 메트릭](../azure-monitor/platform/data-platform-metrics.md)을 참조 하세요.
+Azure Monitor는 메트릭에 액세스하는 여러 가지 방법을 제공합니다. [Azure 포털을](https://portal.azure.com)통해 메트릭에 액세스하거나 Azure 모니터 API(REST 및 .NET) 및 Azure 모니터 로그 및 이벤트 허브와 같은 분석 솔루션을 사용할 수 있습니다. 자세한 내용은 [Azure 모니터의 메트릭을](../azure-monitor/platform/data-platform-metrics.md)참조하십시오.
 
 메트릭은 기본적으로 활성화되며 최근 30일분 데이터에 액세스할 수 있습니다. 더 오랜 기간에 대한 데이터를 보존해야 하는 경우 메트릭 데이터를 Azure Storage 계정에 보관할 수 있습니다. 이 값은 Azure Monitor의 [진단 설정](../azure-monitor/platform/diagnostic-settings.md)에서 구성합니다.
 
@@ -37,7 +37,7 @@ Azure Monitor는 메트릭에 액세스하는 여러 가지 방법을 제공합�
 
 ![][1]
 
-네임스페이스를 통해 메트릭에 직접 액세스할 수도 있습니다. 이렇게 하려면 네임 스페이스를 선택한 다음 **메트릭**을 클릭 합니다. 엔터티 범위에 대해 필터링 된 메트릭을 표시 하려면 엔터티를 선택 하 고 **메트릭**을 클릭 합니다.
+네임스페이스를 통해 메트릭에 직접 액세스할 수도 있습니다. 이렇게 하려면 네임스페이스를 선택한 다음 **메트릭을 클릭합니다.** 엔터티 범위로 필터링된 메트릭을 표시하려면 엔터티를 선택한 다음 **메트릭을 클릭합니다.**
 
 ![][2]
 
@@ -45,9 +45,9 @@ Azure Monitor는 메트릭에 액세스하는 여러 가지 방법을 제공합�
 
 ## <a name="billing"></a>결제
 
-Azure Monitor에 대 한 메트릭 및 경고는 경고 단위로 요금이 부과 됩니다. 이러한 요금은 경고를 설정 하 고 저장 하기 전에 포털에서 사용할 수 있어야 합니다. 
+Azure 모니터의 메트릭 및 경고는 경고별로 청구됩니다. 이러한 요금은 경고가 설정될 때와 경고가 저장되기 전에 포털에서 사용할 수 있어야 합니다. 
 
-메트릭 데이터를 수집 하는 추가 솔루션은 해당 솔루션에 의해 직접 청구 됩니다. 예를 들어 메트릭 데이터를 Azure Storage 계정에 보관하는 경우 Azure Storage에서 요금을 청구합니다. 고급 분석을 위해 Log Analytics에 메트릭 데이터를 스트리밍할 경우 Log Analytics에서 요금을 청구합니다.
+메트릭 데이터를 수집하는 추가 솔루션은 해당 솔루션에 의해 직접 청구됩니다. 예를 들어 메트릭 데이터를 Azure Storage 계정에 보관하는 경우 Azure Storage에서 요금을 청구합니다. 고급 분석을 위해 Log Analytics에 메트릭 데이터를 스트리밍할 경우 Log Analytics에서 요금을 청구합니다.
 
 다음 메트릭은 서비스의 상태에 대한 개요를 제공합니다. 
 
@@ -60,13 +60,13 @@ Azure Monitor에 대 한 메트릭 및 경고는 경고 단위로 요금이 부�
 
 데이터 및 관리 작업 요청 수를 계산합니다.
 
-| 메트릭 이름 | Description |
+| 메트릭 이름 | 설명 |
 | ------------------- | ----------------- |
 | 들어오는 요청| 지정된 기간 동안 Service Bus 서비스에 대한 요청 수입니다. <br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
 |성공한 요청|지정된 기간 동안 Service Bus 서비스에 대한 성공한 요청 수입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
 |서버 오류|지정된 기간 동안 Service Bus 서비스에서 오류로 인해 처리되지 않은 요청 수입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
-|사용자 오류 (다음 하위 섹션 참조)|지정된 기간 동안 사용자 오류로 인해 처리되지 않은 요청 수입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
-|제한 된 요청|사용량 초과로 인해 제한된 요청 수입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
+|사용자 오류(다음 섹션 참조)|지정된 기간 동안 사용자 오류로 인해 처리되지 않은 요청 수입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
+|제한된 요청|사용량 초과로 인해 제한된 요청 수입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
 
 ### <a name="user-errors"></a>사용자 오류
 
@@ -78,25 +78,25 @@ Azure Monitor에 대 한 메트릭 및 경고는 경고 단위로 요금이 부�
 
 ## <a name="message-metrics"></a>메시지 메트릭
 
-| 메트릭 이름 | Description |
+| 메트릭 이름 | 설명 |
 | ------------------- | ----------------- |
 |들어오는 메시지|지정된 기간 동안 Service Bus에 전송된 이벤트 또는 메시지 수입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
 |보내는 메시지|지정된 기간 동안 Service Bus에서 수신한 이벤트 또는 메시지 수입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
 | 메시지| 큐/토픽에 있는 메시지 수 <br/><br/> 단위: 개수 <br/> 집계 형식: 평균 <br/> 차원: EntityName |
 | ActiveMessages| 큐/토픽에 있는 활성 메시지 수 <br/><br/> 단위: 개수 <br/> 집계 형식: 평균 <br/> 차원: EntityName |
-| 배달 못 한 메시지| 큐/토픽에서 배달 못 한 메시지의 수입니다. <br/><br/> 단위: 개수 <br/> 집계 형식: 평균 <br/>차원: EntityName |
-| 예약된 메시지| 큐/토픽에 있는 예약 된 메시지 수입니다. <br/><br/> 단위: 개수 <br/> 집계 형식: 평균  <br/> 차원: EntityName |
+| 죽은 문자 메시지| 큐/토픽에서 배달 못한 문자메시지 수입니다. <br/><br/> 단위: 개수 <br/> 집계 형식: 평균 <br/>차원: EntityName |
+| 예약된 메시지| 큐/토픽에서 예약된 메시지 수입니다. <br/><br/> 단위: 개수 <br/> 집계 형식: 평균  <br/> 차원: EntityName |
 
 > [!NOTE]
-> 다음 메트릭에 대 한 값은 지정 시간 값입니다. 해당 시점 직후에 사용 된 들어오는 메시지는 이러한 메트릭에 반영 되지 않을 수 있습니다. 
+> 다음 메트릭의 값은 시간 시점 값입니다. 해당 시점 이후에 즉시 사용한 수신 메시지는 이러한 메트릭에 반영되지 않을 수 있습니다. 
 > - 메시지
 > - 활성 메시지 
-> - 배달 못 한 메시지 
+> - 죽은 문자 메시지 
 > - 예약된 메시지 
 
 ## <a name="connection-metrics"></a>연결 메트릭
 
-| 메트릭 이름 | Description |
+| 메트릭 이름 | 설명 |
 | ------------------- | ----------------- |
 |ActiveConnections|네임스페이스와 엔터티의 활성 연결 수입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
 
@@ -104,8 +104,12 @@ Azure Monitor에 대 한 메트릭 및 경고는 경고 단위로 요금이 부�
 
 > [!NOTE] 
 > 다음 메트릭은 **프리미엄** 계층에서만 제공됩니다. 
+> 
+> 프리미엄 계층 네임스페이스에 대한 중단을 모니터링해야 하는 중요한 메트릭은 **네임스페이스당 CPU 사용량과 네임스페이스당** **메모리 크기입니다.** Azure [모니터를](../azure-monitor/platform/alerts-metric.md) 사용하여 이러한 메트릭에 대한 경고를 설정합니다.
+> 
+> 모니터링할 수 있는 다른 메트릭은 **제한된 요청입니다.** 네임스페이스가 메모리, CPU 및 중개 된 연결 제한 내에 머무르는 한 문제가되지 않아야합니다. 자세한 내용은 [Azure 서비스 버스 프리미엄 계층의 제한을](service-bus-throttling.md#throttling-in-azure-service-bus-premium-tier) 참조하십시오.
 
-| 메트릭 이름 | Description |
+| 메트릭 이름 | 설명 |
 | ------------------- | ----------------- |
 |네임스페이스당 CPU 사용량|네임스페이스의 CPU 사용량 비율입니다.<br/><br/> 단위: % <br/> 집계 형식: 최대 <br/> 차원: EntityName|
 |네임스페이스당 메모리 크기 사용량|네임스페이스의 메모리 사용량 비율입니다.<br/><br/> 단위: % <br/> 집계 형식: 최대 <br/> 차원: EntityName|
@@ -114,7 +118,7 @@ Azure Monitor에 대 한 메트릭 및 경고는 경고 단위로 요금이 부�
 
 Azure Service Bus는 Azure Monitor의 메트릭에 대해 다음과 같은 차원을 지원합니다. 메트릭에 차원을 추가하는 것은 선택 사항입니다. 차원을 추가하지 않는 경우 메트릭은 네임스페이스 수준에서 지정됩니다. 
 
-|차원 이름|Description|
+|차원 이름|설명|
 | ------------------- | ----------------- |
 |EntityName| Service Bus는 네임스페이스에서 메시징 엔터티를 지원합니다.|
 
@@ -123,11 +127,11 @@ Azure Service Bus는 Azure Monitor의 메트릭에 대해 다음과 같은 차�
 1. **Service Bus 네임스페이스** 페이지의 **메트릭** 탭에서 **경고 구성**을 선택합니다. 
 
     ![메트릭 페이지 - 경고 메뉴 구성](./media/service-bus-metrics-azure-monitor/metrics-page-configure-alerts-menu.png)
-2. **대상 선택** 옵션을 선택 하 고 **리소스 선택** 페이지에서 다음 작업을 수행 합니다. 
+2. 대상 **선택** 옵션을 선택하고 리소스 선택 페이지에서 다음 작업을 **수행합니다.** 
     1. **리소스 종류별로 필터링** 필드에서 **Service Bus 네임스페이스**를 선택합니다. 
     2. **구독별로 필터링** 필드에서 구독을 선택합니다.
     3. 목록에서 **Service Bus 네임스페이스**를 선택합니다. 
-    4. **완료** 를 선택합니다. 
+    4. **완료를 선택합니다.** 
     
         ![네임스페이스 선택](./media/service-bus-metrics-azure-monitor/select-namespace.png)
 1. **조건 추가**를 선택하고, **신호 논리 구성** 페이지에서 다음 작업을 수행합니다.
@@ -138,11 +142,11 @@ Azure Service Bus는 Azure Monitor의 메트릭에 대해 다음과 같은 차�
     1. **조건**으로 **다음보다 큼**을 선택합니다.
     2. **시간 집계**로 **전체**를 선택합니다. 
     3. **임계값**으로 **5**를 입력합니다. 
-    4. **완료** 를 선택합니다.    
+    4. **완료를 선택합니다.**    
 
         ![조건 지정](./media/service-bus-metrics-azure-monitor/specify-condition.png)    
 1. **규칙 만들기** 페이지에서 **경고 세부 정보 정의**를 확장하고 다음 작업을 수행합니다.
-    1. 경고의 **이름**을 입력합니다. 
+    1. 경고의 **이름을** 입력합니다. 
     2. 경고에 대한 **설명** 을 입력합니다.
     3. 경고의 **심각도**를 선택합니다. 
 
@@ -168,7 +172,7 @@ Azure Service Bus는 Azure Monitor의 메트릭에 대해 다음과 같은 차�
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Monitor 개요](../monitoring-and-diagnostics/monitoring-overview.md)를 참조 하세요.
+Azure [모니터 개요를](../monitoring-and-diagnostics/monitoring-overview.md)참조하십시오.
 
 [1]: ./media/service-bus-metrics-azure-monitor/service-bus-monitor1.png
 [2]: ./media/service-bus-metrics-azure-monitor/service-bus-monitor2.png

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/16/2018
 ms.subservice: alerts
 ms.openlocfilehash: b75bda626f887f1224c1b0f18a80887983a2367d
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77665309"
 ---
 # <a name="sms-alert-behavior-in-action-groups"></a>작업 그룹에서 SMS 경고 동작
@@ -30,7 +30,7 @@ ms.locfileid: "77665309"
 * 이 경고가 전달된 작업 그룹의 짧은 이름
 * 경고 제목
 
-| 회신 | Description |
+| 회신 | 설명 |
 | ----- | ----------- |
 | DISABLE `<Action Group Short name>` | 작업 그룹의 추가 SMS 해제 |
 | ENABLE `<Action Group Short name>` | 작업 그룹의 SMS 다시 설정 |
@@ -44,5 +44,5 @@ ms.locfileid: "77665309"
 ## <a name="next-steps"></a>다음 단계
 [활동 로그 경고의 개요](alerts-overview.md)를 확인하고 알림을 받는 방법 알아보기  
 [SMS 속도 제한](alerts-rate-limiting.md)에 대해 자세히 알아보기  
-[작업 그룹](../../azure-monitor/platform/action-groups.md)에 대해 자세히 알아보기
+[작업 그룹에](../../azure-monitor/platform/action-groups.md) 대해 자세히 알아보기
 

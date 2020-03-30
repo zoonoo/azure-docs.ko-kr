@@ -1,14 +1,14 @@
 ---
-title: 요청 원격 분석에 대 한 데이터 모델-Azure 애플리케이션 정보
+title: 요청 원격 분석을 위한 데이터 모델 - Azure 응용 프로그램 인사이트
 description: 요청 원격 분석을 위한 Azure Application Insights 데이터 모델
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.reviewer: sergkanz
 ms.openlocfilehash: d8a28063bf6780c3cace4ead81e289779b95eb9a
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671905"
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>요청 원격 분석: Application Insights 데이터 모델
@@ -17,11 +17,11 @@ ms.locfileid: "77671905"
 
 요청 원격 분석은 사용자 지정 `properties` 및 `measurements`를 사용하여 표준 확장성 모델을 지원합니다.
 
-## <a name="name"></a>속성
+## <a name="name"></a>이름
 
-요청의 이름은 요청을 처리하기 위해 진행된 코드 경로를 나타냅니다. 더 나은 요청 그룹화를 허용하는 낮은 카디널리티 값입니다. HTTP 요청의 경우 HTTP 메서드 및 실제 `GET /values/{id}` 값이 없는 `id`와 같은 URL 경로 템플릿을 나타냅니다.
+요청의 이름은 요청을 처리하기 위해 진행된 코드 경로를 나타냅니다. 더 나은 요청 그룹화를 허용하는 낮은 카디널리티 값입니다. HTTP 요청의 경우 HTTP 메서드 및 실제 `id` 값이 없는 `GET /values/{id}`와 같은 URL 경로 템플릿을 나타냅니다.
 
-Application Insights 웹 SDK는 요청 이름을 대/소문자를 바꾸지 않고 “있는 그대로” 전송합니다. UI의 그룹화는 대/소문자를 구분하므로 `GET /Home/Index`와 `GET /home/INDEX`는 동일한 컨트롤러 및 작업 실행을 발생하더라도 다른 것으로 계산됩니다. 그 이유는 URL이 일반적으로 [대/소문자를 구분](https://www.w3.org/TR/WD-html40-970708/htmlweb.html)하기 때문입니다. 대문자로 입력한 URL에 대해 `404`가 항상 발생하는지 확인하고 싶을 수 있습니다. [블로그 게시물](https://apmtips.com/blog/2015/02/23/request-name-and-url/)에서 ASP.NET 웹 SDK를 통해 요청 이름 수집에 대 한 자세한 내용을 볼 수 있습니다.
+Application Insights 웹 SDK는 요청 이름을 대/소문자를 바꾸지 않고 “있는 그대로” 전송합니다. UI의 그룹화는 대/소문자를 구분하므로 `GET /Home/Index`와 `GET /home/INDEX`는 동일한 컨트롤러 및 작업 실행을 발생하더라도 다른 것으로 계산됩니다. 그 이유는 URL이 일반적으로 [대/소문자를 구분](https://www.w3.org/TR/WD-html40-970708/htmlweb.html)하기 때문입니다. 대문자로 입력한 URL에 대해 `404`가 항상 발생하는지 확인하고 싶을 수 있습니다. 요청 이름 수집에 대한 자세한 내용은 블로그 게시물에서 ASP.NET Web SDK를 통해 확인할 수 [있습니다.](https://apmtips.com/blog/2015/02/23/request-name-and-url/)
 
 최대 길이: 1024자
 

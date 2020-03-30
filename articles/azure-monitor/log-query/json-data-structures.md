@@ -1,22 +1,22 @@
 ---
 title: Azure Monitor 로그 쿼리에서 문자열 작업 | Microsoft Docs
-description: 이 문서에서는 Azure Portal에서 Azure Monitor Log Analytics를 사용 하 여 Azure Monitor의 로그 데이터를 쿼리하고 분석 하는 방법에 대 한 자습서를 제공 합니다.
+description: 이 문서에서는 Azure Portal에서 Azure 모니터 로그 분석을 사용하여 Azure 모니터의 로그 데이터를 쿼리하고 분석하기 위한 자습서를 제공합니다.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
 ms.openlocfilehash: 8be4f318149590ff08b73fda719e99a17220ec2e
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77670154"
 ---
 # <a name="working-with-json-and-data-structures-in-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리에서 JSON 및 데이터 구조 사용
 
 > [!NOTE]
-> 이 단원을 완료 하기 전에 [Azure Monitor Log Analytics 시작](get-started-portal.md) 을 완료 하 고 [Azure Monitor 로그 쿼리를 시작](get-started-queries.md) 해야 합니다.
+> 이 단원을 완료하기 전에 [Azure 모니터 로그 분석](get-started-portal.md) 및 Azure Monitor [로그 쿼리를 시작하기를](get-started-queries.md) 완료해야 합니다.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
@@ -25,7 +25,7 @@ ms.locfileid: "77670154"
 ## <a name="working-with-json-strings"></a>JSON 문자열 사용
 알려진 경로의 특정 JSON 요소에 액세스하려면 `extractjson`을 사용합니다. 이 함수에는 다음 규칙을 사용하는 경로 식이 필요합니다.
 
-- 루트 폴더를 나타내려면 _$_ 를 사용합니다.
+- _$_ 루트 폴더를 참조하려면
 - 다음 예제와 같이 인덱스 및 요소를 나타내려면 대괄호 또는 점 표기법을 사용합니다.
 
 
