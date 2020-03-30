@@ -1,19 +1,18 @@
 ---
-title: Azure 컨테이너 이미지에 대 한 지원 설정 | Azure Marketplace
+title: Azure 컨테이너 이미지에 대한 지원 설정 | Azure 마켓플레이스
 description: Azure 컨테이너에 대한 지원 설정을 구성합니다.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.author: pabutler
-ms.openlocfilehash: 144512683e6afa643639ba12b071e2a3ed7e01bd
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 8124828c565f344387ae946a1fa6e61a84675b81
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823101"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80279966"
 ---
 # <a name="container-support-tab"></a>컨테이너 지원 탭
 
@@ -29,18 +28,18 @@ ms.locfileid: "73823101"
 
 엔지니어링 연락처는 조직과 Microsoft 간의 기술 담당자입니다. 필수 필드는 별표(*)로 표시됩니다.
 
-- **이름\*** -기술/엔지니어링 지원으로 사용 되는 개인 또는 그룹의 이름입니다.
-- **전자 메일\*** -이 기술 담당자의 전자 메일 주소입니다.
-- **전화\*** -기술 지원을 받을 전화 번호입니다.
+- **이름\* ** - 기술/엔지니어링 지원 역할을 하는 사람 또는 그룹의 이름입니다.
+- **이메일\* ** - 이 기술 연락처의 이메일 주소.
+- **전화\* ** - 기술 지원을 위한 전화 번호입니다.
 
 
 ### <a name="customer-support"></a>고객 지원
 
 고객 지원 담당자는 Azure에서 고객이 연 지원 티켓을 수신합니다.  필수 필드는 별표(*)로 표시됩니다.
 
-- **이름\*** -고객 지원으로 사용 되는 개인 또는 그룹의 이름입니다.
-- **전자 메일\*** -이 지원 담당자의 전자 메일 주소입니다.
-- **전화\*** -고객 지원 전화 번호입니다.
+- **이름\* ** - 고객 지원 역할을 하는 사람 또는 그룹의 이름입니다.
+- **이메일\* ** - 이 지원 연락처의 이메일 주소입니다.
+- **전화\* ** - 고객 지원을 위한 전화 번호입니다.
 
 
 ## <a name="next-steps"></a>다음 단계

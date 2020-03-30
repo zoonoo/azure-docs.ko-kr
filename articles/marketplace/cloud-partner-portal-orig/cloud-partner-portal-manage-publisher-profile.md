@@ -1,20 +1,18 @@
 ---
-title: Azure Marketplace 및 AppSource 게시자 프로필 관리
-description: Azure Marketplace 및 AppSource 게시자 프로필 관리
-services: Azure, Marketplace, Cloud Partner Portal,
+title: Azure 마켓플레이스 및 앱소스 게시자 프로필 관리
+description: Azure 마켓플레이스 및 앱소스 게시자 프로필 관리
 author: qianw211
-manager: pbutlerm
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/15/2018
-ms.author: pabutler
-ms.openlocfilehash: c9e8e73d18ec0c2a7334fbb5521e89ead4334cc7
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 9b89ff803e08d0ca929eea913be9a1c87664b124
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826363"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280238"
 ---
 # <a name="manage-azure-marketplace-and-appsource-publisher-profile"></a>'Azure Marketplace' 및 'AppSource' 게시자 프로필 관리
 

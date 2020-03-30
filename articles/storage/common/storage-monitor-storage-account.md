@@ -1,5 +1,5 @@
 ---
-title: Azure Portal에서 Azure Storage 계정을 모니터링 하는 방법 Microsoft Docs
+title: Azure 포털에서 Azure 저장소 계정을 모니터링하는 방법 | 마이크로 소프트 문서
 description: Azure 포털을 사용하여 Azure에서 스토리지 계정을 모니터링하는 방법에 대해 알아봅니다.
 author: normesta
 ms.service: storage
@@ -9,24 +9,24 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.openlocfilehash: 43955950b2fc0544b149c67e3f8df7ca905fafed
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79268289"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Azure 포털에서 스토리지 계정 모니터링
 
 [Azure Storage 분석](storage-analytics.md)은 모든 Storage 서비스에 대한 메트릭과 Blob, 큐 및 테이블에 대한 로그를 제공합니다. [Azure Portal](https://portal.azure.com)을 사용하여 계정에 기록되는 메트릭 및 로그를 구성하고, 메트릭 데이터를 시각적으로 표현하는 차트를 구성할 수 있습니다. 
 
-저장소 (미리 보기) [에 대 한 Azure Monitor](../../azure-monitor/insights/storage-insights-overview.md) 를 검토 하는 것이 좋습니다. Azure Storage 서비스 성능, 용량 및 가용성에 대 한 통합 보기를 제공 하 여 Azure Storage 계정에 대 한 포괄적인 모니터링을 제공 하는 Azure Monitor 기능입니다. 모든 항목을 사용 하도록 설정 하거나 구성 하지 않아도 되며, 미리 정의 된 대화형 차트 및 기타 시각화에서 이러한 메트릭을 즉시 볼 수 있습니다.
+[저장소용 Azure 모니터(미리 보기)를](../../azure-monitor/insights/storage-insights-overview.md) 검토하는 것이 좋습니다. Azure Storage 서비스 성능, 용량 및 가용성에 대한 통합보기를 제공하여 Azure Storage 계정에 대한 포괄적인 모니터링을 제공하는 Azure Monitor의 기능입니다. 아무것도 활성화하거나 구성할 필요가 없으며 미리 정의된 대화형 차트 및 포함된 기타 시각화에서 이러한 메트릭을 즉시 볼 수 있습니다.
 
 > [!NOTE]
 > Azure Portal에서 모니터링 데이터를 검사하는 데 관련된 비용이 있습니다. 자세한 정보는 [스토리지 분석](storage-analytics.md)을 참조하세요.
 >
 > Azure Files는 현재 스토리지 분석 메트릭을 지원하지만 아직 로깅을 지원하지 않습니다.
 >
-> 프리미엄 성능 블록 blob 저장소 계정은 저장소 분석 메트릭을 지원 하지 않지만 로깅을 지원 합니다. REST API 또는 클라이언트 라이브러리를 통해 프로그래밍 방식으로 로깅을 사용 하도록 설정할 수 있습니다. 프리미엄 성능 blob blob storage 계정을 사용 하 여 메트릭을 보려면 [Azure Monitor에서 Azure Storage 메트릭을](storage-metrics-in-azure-monitor.md)사용 하는 것이 좋습니다.
+> 프리미엄 성능 블록 Blob 저장소 계정은 저장소 분석 메트릭을 지원하지 않지만 로깅을 지원합니다. REST API 또는 클라이언트 라이브러리를 통해 프로그래밍 방식으로 로깅을 활성화할 수 있습니다. 프리미엄 성능 Blob Blob 저장소 계정이 있는 메트릭을 보려면 [Azure Monitor에서 Azure 저장소 메트릭을](storage-metrics-in-azure-monitor.md)사용하는 것이 좋습니다.
 >
 > 스토리지 분석 및 기타 도구를 사용하여 Azure Storage 관련 문제를 식별, 진단 및 해결하는 방법에 대한 자세한 지침은 [Microsoft Azure Storage 모니터링, 진단 및 문제 해결](storage-monitoring-diagnosing-troubleshooting.md)을 참조하세요.
 >
@@ -45,7 +45,7 @@ ms.locfileid: "79268289"
    데이터 보존 정책을 설정하려면 1-365일 중에서 **보존(일)** 슬라이더를 이동하거나 데이터 보존 기간(일)을 입력합니다. 새 스토리지 계정의 기본값은 7일입니다. 보존 정책을 설정하지 않으려면 0을 입력합니다. 보존 정책이 없는 경우 언제든 모니터링 데이터를 삭제할 수 있습니다.
 
    > [!WARNING]
-   > 메트릭 데이터를 수동으로 삭제하는 경우 요금이 부과되지만, 오래된 분석 데이터(보존 정책보다 오래된 데이터)는 무료로 시스템에서 삭제됩니다. 따라서 계정에 대한 스토리지 분석 데이터를 보존할 기간에 따라 보존 정책을 설정하는 것이 좋습니다. 자세한 내용은 [저장소 메트릭에 대 한 요금 청구](storage-analytics-metrics.md#billing-on-storage-metrics) 를 참조 하세요.
+   > 메트릭 데이터를 수동으로 삭제하는 경우 요금이 부과되지만, 오래된 분석 데이터(보존 정책보다 오래된 데이터)는 무료로 시스템에서 삭제됩니다. 따라서 계정에 대한 스토리지 분석 데이터를 보존할 기간에 따라 보존 정책을 설정하는 것이 좋습니다. 자세한 내용은 [저장소 측정항목에 대한 청구를](storage-analytics-metrics.md#billing-on-storage-metrics) 참조하세요.
    >
 
 1. 모니터링 구성을 완료하면 **저장**을 선택합니다.
@@ -55,7 +55,7 @@ ms.locfileid: "79268289"
 **상태**를 **해제**로 설정하여 메트릭 수집 및 로깅을 사용하지 않도록 설정할 수 있습니다.
 
 > [!NOTE]
-> Azure Storage는 [테이블 스토리지](storage-introduction.md#table-storage)를 사용하여 스토리지 계정에 대한 메트릭을 저장하고, 계정의 테이블에 메트릭을 저장합니다. 자세한 내용은 다음을 참조하십시오. [메트릭 저장 방법](storage-analytics-metrics.md#how-metrics-are-stored).
+> Azure Storage는 [테이블 스토리지](storage-introduction.md#table-storage)를 사용하여 스토리지 계정에 대한 메트릭을 저장하고, 계정의 테이블에 메트릭을 저장합니다. 자세한 내용은 다음을 참조하십시오. [메트릭이 저장되는 방법.](storage-analytics-metrics.md#how-metrics-are-stored)
 >
 
 ## <a name="customize-metrics-charts"></a>메트릭 차트 사용자 지정
@@ -88,7 +88,7 @@ ms.locfileid: "79268289"
 
 ### <a name="metrics-resolution"></a>메트릭 해상도
 
-**진단**에서 선택한 메트릭에 따라 계정에서 사용할 수 있는 메트릭의 해상도가 결정됩니다.
+**진단에서** 선택한 메트릭에 따라 계정에 사용할 수 있는 메트릭의 해상도가 결정됩니다.
 
 * **집계** 모니터링은 수신/송신, 가용성, 대기 시간 및 성공 비율과 같은 메트릭을 제공합니다. 이러한 메트릭은 Blob, 테이블, 파일 및 큐 서비스에서 집계됩니다.
 * **API당**은 서비스 수준 집계 외에도 개별 스토리지 작업에 사용할 수 있는 메트릭과 함께 보다 세밀한 해상도를 제공합니다.
@@ -110,11 +110,11 @@ ms.locfileid: "79268289"
 
 스토리지 계정에 대한 Azure Storage 메트릭 차트를 포털 대시보드에 추가할 수 있습니다.
 
-1. **Azure Portal**에서 대시보드를 보면서 [대시보드 편집](https://portal.azure.com)을 클릭합니다.
+1. [Azure Portal](https://portal.azure.com)에서 대시보드를 보면서 **대시보드 편집**을 클릭합니다.
 1. **타일 갤러리**에서 **타일 찾기 기준** > **유형**을 차례로 선택합니다.
-1. **유형** > **스토리지 계정**을 차례로 선택합니다.
+1. **저장소 계정** **유형을** > 선택합니다.
 1. **리소스**에서 대시보드에 추가하려는 메트릭의 스토리지 계정을 선택합니다.
-1. **범주** > **모니터링**을 차례로 선택합니다.
+1. **범주** > **모니터링을 선택합니다.**
 1. 표시하려는 메트릭에 대한 차트 타일을 대시보드로 끌어서 놓습니다. 대시보드에 표시하려는 모든 메트릭에 대해 반복합니다. 다음 이미지에서는 한 예로 "Blob - 총 요청 수" 차트를 강조 표시했지만 모든 차트를 대시보드에 배치할 수 있습니다.
 
    ![Azure Portal의 타일 갤러리](./media/storage-monitor-storage-account/storage-customize-dashboard.png)
@@ -131,7 +131,7 @@ Azure Storage에서 Blob, 테이블 및 큐 서비스에 대한 읽기, 쓰기 �
 >
 
 1. [Azure Portal](https://portal.azure.com)에서 **Storage 계정**, Storage 계정 이름을 차례로 선택하여 Storage 계정 블레이드를 엽니다.
-1. 메뉴 블레이드의 **모니터링 (클래식)** 섹션에서 **진단 설정 (클래식)** 을 선택 합니다.
+1. 메뉴 블레이드의 **모니터링(클래식)** 섹션에서 **진단 설정(클래식)을** 선택합니다.
 
     ![Azure Portal에서 모니터링 아래의 진단 메뉴 항목](./media/storage-monitor-storage-account/storage-enable-metrics-00.png)
 
@@ -142,7 +142,7 @@ Azure Storage에서 Blob, 테이블 및 큐 서비스에 대한 읽기, 쓰기 �
 
 진단 로그는 스토리지 계정의 이름이 *$logs*인 Blob 컨테이너에 저장됩니다. [Microsoft Storage Explorer](https://storageexplorer.com)와 같은 스토리지 탐색기를 사용하거나 Storage 클라이언트 라이브러리 또는 PowerShell을 프로그래밍 방식으로 사용하여 로그 데이터를 볼 수 있습니다.
 
-$Logs 컨테이너에 액세스 하는 방법에 대 한 자세한 내용은 [저장소 분석 로깅](storage-analytics-logging.md)을 참조 하세요.
+$logs 컨테이너에 액세스하는 것에 대한 자세한 내용은 [저장소 분석 로깅](storage-analytics-logging.md)을 참조하십시오.
 
 ## <a name="next-steps"></a>다음 단계
 

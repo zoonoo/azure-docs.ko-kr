@@ -1,5 +1,5 @@
 ---
-title: 국가별 클라우드 & Azure AD 인증 | Microsoft
+title: Azure AD 인증 & 국가 클라우드 | Azure
 titleSuffix: Microsoft identity platform
 description: 국가별 클라우드의 앱 등록 및 인증 엔드포인트에 관해 알아봅니다.
 services: active-directory
@@ -14,29 +14,29 @@ ms.author: negoe
 ms.reviewer: negoe,celested
 ms.custom: aaddev
 ms.openlocfilehash: 20a053369149dc29d6485c49bb091a75bb9fb591
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79262998"
 ---
-# <a name="national-clouds"></a>국가별 클라우드
+# <a name="national-clouds"></a>전국 구름
 
-국가별 클라우드는 실제로 격리 된 Azure 인스턴스입니다. 이러한 Azure 지역은 지리적 경계 내에서 데이터 상주, 주권 및 준수 요구 사항이 적용되도록 설계되었습니다.
+국가 클라우드는 Azure의 물리적으로 격리된 인스턴스입니다. 이러한 Azure 지역은 지리적 경계 내에서 데이터 상주, 주권 및 준수 요구 사항이 적용되도록 설계되었습니다.
 
-글로벌 클라우드를 포함 하 여 Azure AD (Azure Active Directory)는 다음 국가 클라우드에 배포 됩니다.  
+전역 클라우드를 포함하여 Azure Active Directory(Azure AD)는 다음과 같은 국가 클라우드에 배포됩니다.  
 
 - Azure Government
 - Azure Germany
 - Azure China 21Vianet
 
-국가별 클라우드는 고유 하며 Azure global과는 별개의 환경입니다. 이러한 환경을 위해 응용 프로그램을 개발 하는 동안 주요 차이점을 알고 있어야 합니다. 응용 프로그램 등록, 토큰 획득 및 끝점 구성 등의 차이점이 있습니다.
+국가 클라우드는 고유하며 Azure 전역환경과는 별개의 환경입니다. 이러한 환경에 대한 응용 프로그램을 개발하는 동안 주요 차이점을 인식하는 것이 중요합니다. 차이점은 응용 프로그램 등록, 토큰 획득 및 끝점 구성입니다.
 
 ## <a name="app-registration-endpoints"></a>앱 등록 엔드포인트
 
-국가별 클라우드 각각에 대해 별도의 Azure Portal 있습니다. 응용 프로그램을 국가별 클라우드의 Microsoft id 플랫폼과 통합 하려면 환경에 고유한 각 Azure Portal에 응용 프로그램을 별도로 등록 해야 합니다.
+각 국가 클라우드에 대해 별도의 Azure 포털이 있습니다. 응용 프로그램을 국가 클라우드에서 Microsoft ID 플랫폼과 통합하려면 환경과 관련된 각 Azure 포털에 응용 프로그램을 별도로 등록해야 합니다.
 
-다음 표에는 각 국가 클라우드의 응용 프로그램을 등록 하는 데 사용 되는 Azure AD 끝점에 대 한 기본 Url이 나열 되어 있습니다.
+다음 표에는 각 국가 클라우드에 대한 응용 프로그램을 등록하는 데 사용되는 Azure AD 끝점에 대한 기본 URL이 나열되어 있습니다.
 
 | 국가별 클라우드 | Azure AD 포털 엔드포인트 |
 |----------------|--------------------------|
@@ -49,7 +49,7 @@ ms.locfileid: "79262998"
 
 모든 국가별 클라우드는 각 환경의 사용자를 개별적으로 인증하며 별도의 인증 엔드포인트를 포함합니다.
 
-다음 표에는 각 국가별 클라우드의 토큰을 획득 하는 데 사용 되는 Azure AD 끝점에 대 한 기본 Url이 나열 되어 있습니다.
+다음 표에는 각 국가 클라우드에 대한 토큰을 획득하는 데 사용되는 Azure AD 끝점에 대한 기본 URL이 나열되어 있습니다.
 
 | 국가별 클라우드 | Azure AD 인증 끝점 |
 |----------------|-------------------------|
@@ -58,21 +58,21 @@ ms.locfileid: "79262998"
 | 21Vianet으로 운영되는 Azure AD China | `https://login.chinacloudapi.cn` |
 | Azure AD(글로벌 서비스)| `https://login.microsoftonline.com` |
 
-적절 한 지역별 기본 URL을 사용 하 여 Azure AD 인증 또는 토큰 끝점에 대 한 요청을 구성할 수 있습니다. 예를 들어 Azure Germany의 경우
+적절한 지역별 기본 URL을 사용하여 Azure AD 권한 부여 또는 토큰 끝점에 대한 요청을 형성할 수 있습니다. 예를 들어 Azure Germany의 경우
 
   - 권한 부여 공통 엔드포인트는 `https://login.microsoftonline.de/common/oauth2/authorize`입니다.
   - 토큰 공통 엔드포인트는 `https://login.microsoftonline.de/common/oauth2/token`입니다.
 
-단일 테 넌 트 응용 프로그램의 경우 이전 Url의 "일반"을 테 넌 트 ID 또는 이름으로 바꿉니다. 예제는 `https://login.microsoftonline.de/contoso.com`입니다.
+단일 테넌트 응용 프로그램의 경우 이전 URL의 "공통"을 테넌트 ID 또는 이름으로 바꿉니다. 예제는 `https://login.microsoftonline.de/contoso.com`입니다.
 
 ## <a name="microsoft-graph-api"></a>Microsoft Graph API
 
-국가별 클라우드 환경에서 Microsoft Graph Api를 호출 하는 방법에 대 한 자세한 내용은 [국가별 클라우드 배포의 Microsoft Graph](https://developer.microsoft.com/graph/docs/concepts/deployments)를 참조 하세요.
+국가 클라우드 환경에서 Microsoft 그래프 API를 호출하는 방법을 알아보려면 [국가 클라우드 배포에서 Microsoft 그래프로 이동하십시오.](https://developer.microsoft.com/graph/docs/concepts/deployments)
 
 > [!IMPORTANT]
-> 일부 국가별 클라우드에서는 글로벌 서비스의 특정 지역에 있는 특정 서비스 및 기능을 사용 하지 못할 수 있습니다. 사용할 수 있는 서비스를 확인 하려면 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia,china-non-regional,china-east,china-east-2,china-north,china-north-2,germany-non-regional,germany-central,germany-northeast)을 참조 하세요.
+> 전역 서비스의 특정 지역에 있는 특정 서비스 및 기능은 모든 국가 클라우드에서 사용하지 못할 수 있습니다. 사용 가능한 서비스를 확인하려면 [지역별로 사용할 수 있는 제품으로](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia,china-non-regional,china-east,china-east-2,china-north,china-north-2,germany-non-regional,germany-central,germany-northeast)이동하십시오.
 
-Microsoft id 플랫폼을 사용 하 여 응용 프로그램을 빌드하는 방법에 대 한 자세한 내용은 [MSAL (Microsoft 인증 라이브러리) 자습서](msal-national-cloud.md)를 참조 하세요. 특히이 앱은 사용자를 로그인 하 고 Microsoft Graph API를 호출 하는 액세스 토큰을 가져옵니다.
+Microsoft ID 플랫폼을 사용하여 응용 프로그램을 빌드하는 방법을 알아보려면 [MSAL(Microsoft 인증 라이브러리) 자습서를](msal-national-cloud.md)따르십시오. 특히, 이 응용 프로그램은 사용자에 로그인 하고 Microsoft 그래프 API를 호출 하는 액세스 토큰을 얻을 것 이다.
 
 ## <a name="next-steps"></a>다음 단계
 

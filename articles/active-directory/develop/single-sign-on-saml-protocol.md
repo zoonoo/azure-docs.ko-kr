@@ -18,10 +18,10 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
 ms.openlocfilehash: cecb78a82eb2925813bdc7f6df2503fae94b6437
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79262426"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Single Sign-On SAML 프로토콜
@@ -46,22 +46,22 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 </samlp:AuthnRequest>
 ```
 
-| 매개 변수 |  | Description |
+| 매개 변수 |  | 설명 |
 | --- | --- | --- |
 | ID | 필수 | Azure AD는 이 특성을 사용하여 반환된 응답의 `InResponseTo` 특성을 채웁니다. ID는 숫자로 시작할 수 없으므로 GUID의 문자열 표현에 "id"와 같은 문자열을 앞에 추가합니다. 예를 들어 `id6c1c178c166d486687be4aaf5e482730` 은 유효한 ID입니다. |
 | 버전 | 필수 | 이 매개 변수는 **2.0**으로 설정해야 합니다. |
 | IssueInstant | 필수 | UTC 값과 [라운드 트립 형식("o")](https://msdn.microsoft.com/library/az4se3k1.aspx)을 포함하는 DateTime 문자열입니다. Azure AD에는 이 형식의 DateTime 값이 필요하지만, 값을 평가하거나 사용하지 않습니다. |
-| AssertionConsumerServiceUrl | 옵션 | 제공되는 경우 이 매개 변수는 Azure AD에서 클라우드 서비스의 `RedirectUri`와 일치해야 합니다. |
-| ForceAuthn | 옵션 | 부울 값입니다. true이면 Azure AD에 유효한 세션이 있어도 사용자를 다시 인증해야 합니다. |
-| IsPassive | 옵션 | 사용자 상호 작용 없이 세션 쿠키(있는 경우)를 사용하여 Azure AD가 사용자를 자동으로 인증할지를 지정하는 부울 값입니다. True이면 Azure AD는 세션 쿠키를 사용하여 사용자 인증을 시도합니다. |
+| AssertionConsumerServiceUrl | Optional | 제공되는 경우 이 매개 변수는 Azure AD에서 클라우드 서비스의 `RedirectUri`와 일치해야 합니다. |
+| ForceAuthn | Optional | 부울 값입니다. true이면 Azure AD에 유효한 세션이 있어도 사용자를 다시 인증해야 합니다. |
+| IsPassive | Optional | 사용자 상호 작용 없이 세션 쿠키(있는 경우)를 사용하여 Azure AD가 사용자를 자동으로 인증할지를 지정하는 부울 값입니다. True이면 Azure AD는 세션 쿠키를 사용하여 사용자 인증을 시도합니다. |
 
-다른 모든 `AuthnRequest` 특성(예: onsent, Destination, AssertionConsumerServiceIndex, AttributeConsumerServiceIndex 및 ProviderName)은 **무시**됩니다.
+동의, `AuthnRequest` 대상, 어설션소비자 서비스 인덱스, 특성소비자 서비스 인덱스 및 공급자 이름과 같은 다른 모든 특성은 **무시됩니다.**
 
-Azure AD도 `Conditions`에서 `AuthnRequest` 요소를 무시합니다.
+Azure AD도 `AuthnRequest`에서 `Conditions` 요소를 무시합니다.
 
 ### <a name="issuer"></a>발급자
 
-`Issuer`의 `AuthnRequest` 요소는 Azure AD에서 클라우드 서비스의 **ServicePrincipalNames** 중 하나와 정확히 일치해야 합니다. 일반적으로 애플리케이션 등록 중에 지정된 **앱 ID URI** 로 설정됩니다.
+`AuthnRequest`의 `Issuer` 요소는 Azure AD에서 클라우드 서비스의 **ServicePrincipalNames** 중 하나와 정확히 일치해야 합니다. 일반적으로 애플리케이션 등록 중에 지정된 **앱 ID URI** 로 설정됩니다.
 
 `Issuer` 요소가 포함된 SAML 발췌 부분은 다음 샘플과 같습니다.
 
@@ -89,7 +89,7 @@ Azure AD도 `Conditions`에서 `AuthnRequest` 요소를 무시합니다.
 Azure AD는 `AllowCreate` 특성을 무시합니다.
 
 ### <a name="requestauthncontext"></a>RequestAuthnContext
-`RequestedAuthnContext` 요소는 원하는 인증 방법을 지정합니다. Azure AD로 전송되는 `AuthnRequest` 요소에서는 선택 사항입니다. Azure AD는 `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`와 같은 `AuthnContextClassRef` 값을 지원 합니다.
+`RequestedAuthnContext` 요소는 원하는 인증 방법을 지정합니다. Azure AD로 전송되는 `AuthnRequest` 요소에서는 선택 사항입니다. Azure AD는 `AuthnContextClassRef` `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`와 같은 값을 지원합니다.
 
 ### <a name="scoping"></a>범위 지정
 ID 공급자 목록을 포함하는 `Scoping` 요소는 Azure AD로 전송되는 `AuthnRequest` 요소에서 선택 사항입니다.
@@ -100,7 +100,7 @@ ID 공급자 목록을 포함하는 `Scoping` 요소는 Azure AD로 전송되는
 Azure AD에서 서명된 인증 요청을 지원하지 않으므로 `Signature` 요소는 `AuthnRequest` 요소에 포함하지 않습니다.
 
 ### <a name="subject"></a>제목
-Azure AD는 `Subject` 요소의 `AuthnRequest` 요소를 무시합니다.
+Azure AD는 `AuthnRequest` 요소의 `Subject` 요소를 무시합니다.
 
 ## <a name="response"></a>응답
 요청한 로그온이 성공적으로 완료되면 Azure AD는 클라우드 서비스에 응답을 게시합니다. 성공적인 로그온 시도에 대한 응답은 다음 샘플과 같습니다.
@@ -150,14 +150,14 @@ Azure AD는 `Subject` 요소의 `AuthnRequest` 요소를 무시합니다.
 
 ### <a name="response"></a>응답
 
-`Response` 요소는 권한 부여 요청의 결과를 포함합니다. Azure AD는 `ID` 요소에 `Version`, `IssueInstant` 및 `Response` 값을 설정합니다. 다음 특성도 설정합니다.
+`Response` 요소는 권한 부여 요청의 결과를 포함합니다. Azure AD는 `Response` 요소에 `ID`, `Version` 및 `IssueInstant` 값을 설정합니다. 다음 특성도 설정합니다.
 
 * `Destination`: 로그온이 성공적으로 완료되면 서비스 공급자(클라우드 서비스)의 `RedirectUri`로 설정됩니다.
-* `InResponseTo`: 응답을 시작한 `ID` 요소의 `AuthnRequest` 특성으로 설정됩니다.
+* `InResponseTo`: 응답을 시작한 `AuthnRequest` 요소의 `ID` 특성으로 설정됩니다.
 
 ### <a name="issuer"></a>발급자
 
-Azure AD는 Azure AD 테 넌 트의 테 넌 트 ID가 TenantIDGUID > \<`https://login.microsoftonline.com/<TenantIDGUID>/` `Issuer` 요소를 설정 합니다.
+Azure AD는 `Issuer` `https://login.microsoftonline.com/<TenantIDGUID>/` \<테넌트IDGUID> Azure AD 테넌트의 테넌트 ID로 요소를 설정합니다.
 
 예를 들어 발급자 요소가 포함된 응답은 다음 샘플과 같습니다.
 
@@ -192,7 +192,7 @@ Timestamp: 2013-03-18 08:49:24Z</samlp:StatusMessage>
 
 #### <a name="issuer"></a>발급자
 
-이는 `https://sts.windows.net/<TenantIDGUID>/`로 설정 됩니다. 여기서 \<TenantIDGUID >은 Azure AD 테 넌 트의 테 넌 트 ID입니다.
+이 설정은 `https://sts.windows.net/<TenantIDGUID>/` \<TenantIDGUID> Azure AD 테넌트의 테넌트 ID로 설정됩니다.
 
 ```
 <Issuer>https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
@@ -214,7 +214,7 @@ Azure AD는 성공적인 로그온에 대한 응답에서 어설션을 서명합
 
 이 어설션의 문 주체인 보안 주체를 지정합니다. 여기에는 인증된 사용자를 나타내는 `NameID` 요소가 포함됩니다. `NameID` 값은 토큰의 대상 그룹인 서비스 공급자에만 전달되는 대상 지정 식별자입니다. 영구적이며 해지할 수 있지만 다시 할당되지는 않습니다. 또한 불투명하며 사용자에 대한 어떠한 정보도 표시하지 않으며 특성 쿼리의 식별자로 사용할 수 없습니다.
 
-`Method` 요소의 `SubjectConfirmation` 특성은 항상 `urn:oasis:names:tc:SAML:2.0:cm:bearer`로 설정됩니다.
+`SubjectConfirmation` 요소의 `Method` 특성은 항상 `urn:oasis:names:tc:SAML:2.0:cm:bearer`로 설정됩니다.
 
 ```
 <Subject>
@@ -239,12 +239,12 @@ Azure AD는 성공적인 로그온에 대한 응답에서 어설션을 서명합
 
 `NotBefore` 및 `NotOnOrAfter` 특성은 어설션이 유효한 간격을 지정합니다.
 
-* `NotBefore` 특성 값은 `IssueInstant` 요소의 `Assertion` 특성 값과 같거나 약간(1초 미만) 나중입니다. Azure AD에서는 Azure AD 자체와 클라우드 서비스(서비스 공급자) 간의 시차를 고려하지 않으며 이 시간에 어떠한 버퍼도 추가하지 않습니다.
+* `NotBefore` 특성 값은 `Assertion` 요소의 `IssueInstant` 특성 값과 같거나 약간(1초 미만) 나중입니다. Azure AD에서는 Azure AD 자체와 클라우드 서비스(서비스 공급자) 간의 시차를 고려하지 않으며 이 시간에 어떠한 버퍼도 추가하지 않습니다.
 * `NotOnOrAfter` 특성 값은 `NotBefore` 특성 값보다 70분 후입니다.
 
 #### <a name="audience"></a>사용자
 
-대상 그룹을 식별하는 URI를 포함합니다. Azure AD는 이 요소의 값을 로그온이 시작된 `Issuer`의 `AuthnRequest` 요소 값으로 설정합니다. `Audience` 값을 평가하려면 애플리케이션 등록 중에 지정된 `App ID URI` 값을 사용합니다.
+대상 그룹을 식별하는 URI를 포함합니다. Azure AD는 이 요소의 값을 로그온이 시작된 `AuthnRequest`의 `Issuer` 요소 값으로 설정합니다. `Audience` 값을 평가하려면 애플리케이션 등록 중에 지정된 `App ID URI` 값을 사용합니다.
 
 ```
 <AudienceRestriction>
@@ -252,7 +252,7 @@ Azure AD는 성공적인 로그온에 대한 응답에서 어설션을 서명합
 </AudienceRestriction>
 ```
 
-`Issuer` 값과 마찬가지로 `Audience` 값은 Azure AD에서 클라우드 서비스를 나타내는 서비스 주체 이름 중 하나와 정확히 일치해야 합니다. 그러나 `Issuer` 요소의 값이 URI 값이 아닌 경우 응답에 있는 `Audience` 값은 `Issuer` 접두사가 있는 `spn:` 값입니다.
+`Issuer` 값과 마찬가지로 `Audience` 값은 Azure AD에서 클라우드 서비스를 나타내는 서비스 주체 이름 중 하나와 정확히 일치해야 합니다. 그러나 `Issuer` 요소의 값이 URI 값이 아닌 경우 응답에 있는 `Audience` 값은 `spn:` 접두사가 있는 `Issuer` 값입니다.
 
 #### <a name="attributestatement"></a>AttributeStatement
 
@@ -270,7 +270,7 @@ Azure AD는 성공적인 로그온에 대한 응답에서 어설션을 서명합
 </AttributeStatement>
 ```        
 
-* **이름 클레임** - `Name` 특성 값(`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`)은 인증된 사용자의 사용자 주체 이름입니다(예: `testuser@managedtenant.com`).
+* **이름 클레임** - `Name` 속성 ()`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`값은 인증된 사용자의 사용자 이름(예: `testuser@managedtenant.com`)입니다.
 * **ObjectIdentifier 클레임** - `ObjectIdentifier` 특성 값(`http://schemas.microsoft.com/identity/claims/objectidentifier`)은 Azure AD에서 인증된 사용자를 나타내는 디렉터리 개체의 `ObjectId`입니다. `ObjectId`는 인증된 사용자에 대해 변경할 수 없고, 전역적으로 고유하며, 안전하게 다시 사용할 수 있는 식별자입니다.
 
 #### <a name="authnstatement"></a>AuthnStatement

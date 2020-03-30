@@ -10,23 +10,23 @@ ms.service: lab-services
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: how-to
 ms.custom: mvc
-ms.date: 09/19/2019
+ms.date: 03/17/2020
 ms.author: spelluru
-ms.openlocfilehash: 2ac9e8b8d0635eceb7d4f85ad867b102f7d064f5
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
-ms.translationtype: HT
+ms.openlocfilehash: db1e60ccd7e05cb8b6923d6b2ec008cdfb76eaa1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73585134"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79501923"
 ---
 # <a name="how-to-access-a-classroom-lab-in-azure-lab-services"></a>Azure Lab Services의 클래스룸 랩에 액세스하는 방법
 이 문서에서는 클래스룸 랩에 등록하고, 액세스할 수 있는 모든 랩을 살펴보고, 랩에서 VM을 시작/중지하고, VM에 연결하는 방법을 설명합니다. 
 
 ## <a name="register-to-the-lab"></a>랩에 등록
 
-1. 교수/강사로부터 받은 **등록 URL**로 이동합니다. 등록을 완료한 후에는 등록 URL을 사용할 필요가 없습니다. 대신 [https://labs.azure.com](https://labs.azure.com) URL을 사용합니다. Internet Explorer 11은 아직 지원되지 않습니다. 
+1. 교수/강사로부터 받은 **등록 URL**로 이동합니다. 등록을 완료한 후에는 등록 URL을 사용할 필요가 없습니다. 대신 URL: [https://labs.azure.com](https://labs.azure.com)을 사용합니다. Internet Explorer 11은 아직 지원되지 않습니다. 
 1. 학교 계정을 사용하여 서비스에 로그인하여 등록을 완료합니다. 
 
     > [!NOTE]
@@ -60,29 +60,6 @@ ms.locfileid: "73585134"
     3. **Linux** 가상 머신의 경우, **SSH** 또는 **RDP**(사용하도록 설정된 경우)를 사용하여 연결할 수 있습니다. 자세한 내용은 [Linux 머신에 대해 원격 데스크톱 연결을 사용하도록 설정](how-to-enable-remote-desktop-linux.md)을 참조하세요. 
     1. **Mac**을 사용하여 랩 VM에 연결하는 경우 다음 섹션의 지침을 따르세요. 
 
-## <a name="connect-to-a-vm-using-rdp-on-a-mac"></a>Mac에서 RDP를 사용하여 VM에 연결
-이 섹션에서는 학생이 RDP를 사용하여 Mac에서 VM에 연결할 수 있는 방법을 보여줍니다.
-
-### <a name="step-1-install-microsoft-remote-desktop-on-a-mac"></a>1단계: Mac에서 Microsoft 원격 데스크톱 설치
-1. Mac에서 App Store를 열고 **Microsoft 원격 데스크톱**을 검색합니다.
-
-    ![Microsoft 원격 데스크톱](../media/how-to-use-classroom-lab/install-ms-remote-desktop.png)
-1. 최신 버전의 Microsoft 원격 데스크톱를 설치합니다. 
-
-### <a name="step-2-access-the-vm-from-your-mac-using-rdp"></a>2단계: RDP를 사용하여 Mac에서 VM 액세스
-1. **Microsoft 원격 데스크톱**이 설치된 컴퓨터에서 다운로드한 **RDP** 파일을 엽니다. VM에 대한 연결이 시작되어야 합니다. 
-
-    ![VM에 연결](../media/how-to-use-classroom-lab/connect-linux-vm.png)
-1. 다음 경고가 표시되면 **계속**을 선택합니다. 
-
-    ![인증서 경고](../media/how-to-use-classroom-lab/certificate-error.png)
-1. VM이 표시됩니다. 
-
-    > [!NOTE]
-    > 다음 예제는 CentOS Linux VM에 대한 것입니다. 
-
-    ![VM](../media/how-to-use-classroom-lab/vm-ui.png)
-
 ## <a name="progress-bar"></a>진행률 표시줄 
 타일의 진행률 표시줄에는 할당된 [할당량 시간](how-to-configure-student-usage.md#set-quotas-for-users) 대비 사용한 시간이 표시됩니다. 이 시간은 랩의 예약된 시간 외에 사용자에게 할당된 추가 시간입니다. 진행률 표시줄 및 진행률 표시줄 아래의 텍스트 색은 다음 시나리오에 따라 달라집니다.
 
@@ -103,7 +80,7 @@ ms.locfileid: "73585134"
 ## <a name="view-all-the-classroom-labs"></a>모든 클래스룸 랩 보기
 랩에 등록한 후 다음 단계를 수행하여 모든 클래스 룸 랩을 볼 수 있습니다. 
 
-1. [https://labs.azure.com](https://labs.azure.com)으로 이동합니다. Internet Explorer 11은 아직 지원되지 않습니다. 
+1. 로 [https://labs.azure.com](https://labs.azure.com)이동합니다. Internet Explorer 11은 아직 지원되지 않습니다. 
 2. 랩에 등록하는 데 사용한 사용자 계정을 사용하여 서비스에 로그인합니다. 
 3. 액세스 권한이 있는 모든 랩이 표시되는지 확인합니다. 
 

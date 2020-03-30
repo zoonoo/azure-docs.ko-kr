@@ -4,14 +4,14 @@ description: Application Insights를 사용하여 웹 및 작업자 역할을 �
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.openlocfilehash: ce794a7bd18635fddfa30056ab2d675dc138097d
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79276193"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Azure Cloud Services용 Application Insights
-[Application Insights][start] 는 Application Insights sdk의 데이터를 클라우드 서비스의 [Azure 진단](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) 데이터와 결합 하 여 [Azure 클라우드 서비스 앱](https://azure.microsoft.com/services/cloud-services/) 의 가용성, 성능, 실패 및 사용 현황을 모니터링할 수 있습니다. 앱의 성능 및 효과에 대한 생생한 피드백을 통해 충분한 정보를 바탕으로 각 개발 수명 주기의 디자인 방향을 결정할 수 있습니다.
+[Application Insights][start]는 Application Insights SDK의 데이터와 Cloud Services의 [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) 데이터를 결합하여 [Azure Cloud Services 앱](https://azure.microsoft.com/services/cloud-services/)의 가용성, 성능, 오류 및 사용량을 모니터링할 수 있습니다. 앱의 성능 및 효과에 대한 생생한 피드백을 통해 충분한 정보를 바탕으로 각 개발 수명 주기의 디자인 방향을 결정할 수 있습니다.
 
 ![개요 대시보드](./media/cloudservices/overview-graphs.png)
 
@@ -31,7 +31,7 @@ Application Insights를 사용하여 클라우드 서비스를 모니터링하�
 
 이 옵션만 필요한 경우, 옵션 선택 후 게시를 완료하면 됩니다. 
 
-다음 단계는 분석을 사용 하 여 데이터를 [쿼리](../../azure-monitor/app/analytics.md)하는 [앱에서 메트릭을 보는](../../azure-monitor/app/metrics-explorer.md)것입니다. 
+다음 단계는 [앱에서 측정항목을 보고](../../azure-monitor/app/metrics-explorer.md) [애널리틱스를 사용하여 데이터를 쿼리하는 것입니다.](../../azure-monitor/app/analytics.md) 
 
 브라우저에서 성능을 모니터링하려면 [가용성 테스트](../../azure-monitor/app/monitor-web-app-availability.md)를 설정하고 [웹 페이지에 코드를 추가](../../azure-monitor/app/javascript.md)할 수도 있습니다.
 
@@ -48,7 +48,7 @@ Application Insights를 사용하여 클라우드 서비스를 모니터링하�
 ## <a name="plan-resources-and-resource-groups"></a>리소스 및 리소스 그룹 계획
 앱의 원격 분석은 Application Insights 형식의 Azure 리소스에 저장, 분석 및 표시됩니다. 
 
-각 리소스는 리소스 그룹에 속합니다. 리소스 그룹은 비용을 관리하고, 팀 구성원에게 액세스 권한을 부여하고, 조정된 단일 트랜잭션에서 업데이트를 배포하는 데 사용됩니다. 예를 들어 한 번의 작업으로 Azure 클라우드 서비스와 해당 Application Insights 모니터링 리소스에 [배포할 스크립트를 작성](../../azure-resource-manager/templates/deploy-powershell.md)할 수 있습니다.
+각 리소스는 리소스 그룹에 속합니다. 리소스 그룹은 비용을 관리하고, 팀 구성원에게 액세스 권한을 부여하고, 조정된 단일 트랜잭션에서 업데이트를 배포하는 데 사용됩니다. 예를 들어 Azure 클라우드 서비스 및 응용 프로그램 인사이트 모니터링 리소스를 모두 하나의 작업에 [배포하는 스크립트를 작성할](../../azure-resource-manager/templates/deploy-powershell.md) 수 있습니다.
 
 ### <a name="resources-for-components"></a>구성 요소에 대한 리소스
 앱의 각 구성 요소에 대해 별도 리소스를 만드는 것이 좋습니다. 즉, 각 웹 역할 및 작업자 역할에 대해 리소스를 만드는 것입니다. 각 구성 요소를 개별적으로 분석할 수 있지만 모든 구성 요소의 주요 차트를 함께 표시하는 [대시보드](../../azure-monitor/app/overview-dashboard.md)를 만들어 단일 보기에서 이러한 차트를 비교하고 함께 모니터링할 수 있습니다. 
@@ -70,7 +70,7 @@ Application Insights를 사용하여 클라우드 서비스를 모니터링하�
 
 각 역할에 대한 별도의 리소스(각 빌드 구성에 대한 별도의 집합)를 만들기로 결정한 경우 Application Insights 포털에서 모든 리소스를 만드는 것이 가장 간편합니다. 많은 리소스를 만드는 경우 [프로세스를 자동화](../../azure-monitor/app/powershell.md)할 수 있습니다.
 
-1. [Azure Portal][portal]에서 **새로 만들기** > **Developer Services** > **Application Insights**를 선택 합니다.  
+1. [Azure Portal][portal]에서 **새로 만들기** > **개발자 서비스** > **Application Insights**를 선택합니다.  
 
     ![Application Insights 창](./media/cloudservices/01-new.png)
 
@@ -82,7 +82,7 @@ Application Insights를 사용하여 클라우드 서비스를 모니터링하�
 ## <a name="set-up-azure-diagnostics-for-each-role"></a>각 역할에 대한 Azure Diagnostics 설정
 Application Insights를 사용하여 앱을 모니터링하려면 이 옵션을 설정합니다. 웹 역할의 경우 이 옵션은 성능 모니터링, 경고, 진단 및 사용량 현황 분석을 제공합니다. 다른 역할의 경우 다시 시작, 성능 카운터 및 System.Diagnostics.Trace 호출과 같은 Azure Diagnostics를 검색하고 모니터링할 수 있습니다. 
 
-1. Visual Studio 솔루션 탐색기의 **\<YourCloudService>**  > **역할**에서 각 역할의 속성을 엽니다.
+1. Visual Studio 솔루션 탐색기에서 ** \<YourCloudService>**  >  **역할에서**각 역할의 속성을 엽니다.
 
 1. **구성**에서 **진단 데이터를 Application Insights로 보내기** 확인란을 선택하고 이전에 만든 적절한 Application Insights 리소스를 선택합니다.
 
@@ -92,9 +92,9 @@ Application Insights를 사용하여 앱을 모니터링하려면 이 옵션을 
 
 그러면 Application Insights 계측 키가 *ServiceConfiguration.\*.cscfg* 파일에 삽입됩니다. 다음은 [샘플 코드](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/AzureEmailService/ServiceConfiguration.Cloud.cscfg)입니다.
 
-Application Insights로 전송되는 진단 정보의 수준을 변경하려는 경우 [.cscfg 파일을 직접 편집*할 수 있습니다.* ](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
+Application Insights로 전송되는 진단 정보의 수준을 변경하려는 경우 [.cscfg 파일을 직접 편집](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md)할 수 있습니다.**
 
-## <a name="sdk"></a>각 프로젝트에 SDK 설치
+## <a name="install-the-sdk-in-each-project"></a><a name="sdk"></a>각 프로젝트에 SDK 설치
 이 옵션을 사용하여 임의 역할에 사용자 지정 비즈니스 원격 분석을 추가할 수 있습니다. 이 옵션은 앱이 사용되는 방식과 성능을 좀 더 자세히 분석해서 제공합니다.
 
 Visual Studio에서 각 클라우드 앱 프로젝트에 Application Insights SDK를 구성합니다.
@@ -111,7 +111,7 @@ Visual Studio에서 각 클라우드 앱 프로젝트에 Application Insights SD
 
 1. Application Insights 리소스에 데이터를 보내도록 SDK를 구성하려면
 
-    a. 적합한 시작 함수에서 .cscfg 파일의 구성 설정에서 계측 키를 설정합니다.
+    a. 적합한 시작 함수에서 .cscfg 파일의 구성 설정에서 계측 키를 설정합니다.**
  
     ```csharp
    
@@ -128,11 +128,11 @@ Visual Studio에서 각 클라우드 앱 프로젝트에 Application Insights SD
 
    *.config* 파일에 계측 키를 배치하도록 요청하는 메시지가 표시됩니다. 그러나 클라우드 앱의 경우에는 *.cscfg* 파일에서 설정하는 것이 좋습니다. 그래야 포털에서 역할이 정확하게 식별됩니다.
 
-## <a name="set-up-status-monitor-to-collect-full-sql-queries-optional"></a>전체 SQL 쿼리를 수집 하도록 상태 모니터 설정 (선택 사항)
+## <a name="set-up-status-monitor-to-collect-full-sql-queries-optional"></a>상태 모니터를 설정하여 전체 SQL 쿼리를 수집합니다(선택 사항)
 
-.NET Framework에서 전체 SQL 쿼리를 캡처하려면이 단계가 필요 합니다. 
+이 단계는 .NET Framework에서 전체 SQL 쿼리를 캡처하려는 경우에만 필요합니다. 
 
-1. `\*.csdef` 파일에서 다음과 같은 각 역할에 대 한 [시작 작업](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks) 추가 
+1. 파일에서 `\*.csdef` 각 역할에 대해 [시작 작업](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks) 추가 
 
     ```xml
     <Startup>
@@ -147,9 +147,9 @@ Visual Studio에서 각 클라우드 앱 프로젝트에 Application Insights SD
     </Startup>
     ```
     
-2. [Installagent .bat](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.bat) 및 [installagent.](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.ps1)p s 1을 다운로드 하 여 각 역할 프로젝트의 `AppInsightsAgent` 폴더에 배치 합니다. Visual Studio 파일 속성 또는 빌드 스크립트를 통해 출력 디렉터리에 복사 해야 합니다.
+2. [InstallAgent.bat](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.bat) 및 [InstallAgent.ps1을](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.ps1)다운로드하여 `AppInsightsAgent` 각 역할 프로젝트의 폴더에 넣습니다. Visual Studio 파일 속성을 통해 출력 디렉토리에 복사하거나 스크립트를 빌드해야 합니다.
 
-3. 모든 작업자 역할에 대해 환경 변수를 추가 합니다. 
+3. 모든 작업자 역할에 환경 변수를 추가합니다. 
 
     ```xml
       <Environment>
@@ -171,7 +171,7 @@ Visual Studio에서 각 클라우드 앱 프로젝트에 Application Insights SD
 
 데이터가 없는 경우 다음을 수행합니다.
 
-1. 개별 이벤트를 보려면 [검색][diagnostic] 타일을 엽니다.
+1. 개별 이벤트를 보려면 [Search][diagnostic] 타일을 엽니다.
 1. 앱에서 원격 분석이 생성되도록 다양한 페이지를 엽니다.
 1. 몇 초 정도 기다렸다가 **새로 고침**을 클릭합니다.  
 
@@ -209,8 +209,8 @@ HTTP 요청과 같은 방법으로 요청을 추적하여 작업자 역할에 �
 
 샘플 웹 역할에는 MVC5 및 Web API 2 컨트롤러에 있습니다. 2에서 처리되지 않은 예외는 다음 처리기를 통해 캡처됩니다.
 
-* [이 예제와 같은](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Telemetry/AiHandleErrorAttribute.cs) MVC5 컨트롤러의 [AiHandleErrorAttribute](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/App_Start/FilterConfig.cs#L12) 설정 
-* [이 예제와 같은](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Telemetry/AiWebApiExceptionLogger.cs) Web API 2 컨트롤러의 [AiWebApiExceptionLogger](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/App_Start/WebApiConfig.cs#L25) 설정 
+* [이 예제와 같은](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/App_Start/FilterConfig.cs#L12) MVC5 컨트롤러의 [AiHandleErrorAttribute](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Telemetry/AiHandleErrorAttribute.cs) 설정 
+* [이 예제와 같은](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/App_Start/WebApiConfig.cs#L25) Web API 2 컨트롤러의 [AiWebApiExceptionLogger](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Telemetry/AiWebApiExceptionLogger.cs) 설정 
 
 작업자 역할의 경우 다음 두 가지 방법으로 예외를 추적할 수 있습니다.
 
@@ -220,7 +220,7 @@ HTTP 요청과 같은 방법으로 요청을 추적하여 작업자 역할에 �
 ## <a name="performance-counters"></a>성능 카운터
 다음 카운터가 기본적으로 수집됩니다.
 
-* \Process (?? APP_WIN32_PROC?)\% 프로세서 시간
+* \프로세스(?? APP_WIN32_PROC?) \% 프로세서 시간
 * \Memory\Available Bytes
 * \.NET CLR Exceptions(??APP_CLR_PROC??)\# of Exceps Thrown / sec
 * \Process(??APP_WIN32_PROC??)\Private Bytes
@@ -233,7 +233,7 @@ HTTP 요청과 같은 방법으로 요청을 추적하여 작업자 역할에 �
 * \ASP.NET Applications(??APP_W3SVC_PROC??)\Request Execution Time
 * \ASP.NET Applications(??APP_W3SVC_PROC??)\Requests In Application Queue
 
-[이 예에 표시 된 것 처럼](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/ApplicationInsights.config#L14) *applicationinsights .config* 를 편집 하 여 추가 사용자 지정 또는 기타 Windows 성능 카운터를 지정할 수 있습니다.
+이 예제에 표시된 대로 *ApplicationInsights.config를* 편집하여 추가 사용자 지정 또는 기타 Windows 성능 [카운터를 지정할](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/ApplicationInsights.config#L14)수 있습니다.
 
   ![성능 카운터](./media/cloudservices/002-servers.png)
 
@@ -249,10 +249,10 @@ HTTP 요청과 같은 방법으로 요청을 추적하여 작업자 역할에 �
 * 사용자 지정 원격 분석 이니셜라이저를 추가합니다. *ApplicationInsights.config* 파일 또는 [이 예제와 같이](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L233) 코드에서 이 작업을 수행할 수 있습니다.
 
 ## <a name="client-telemetry"></a>클라이언트 원격 분석
-페이지 보기 수, 페이지 로드 시간, 스크립트 예외 등의 브라우저 기반 원격 분석을 가져오고 페이지 스크립트에서 사용자 지정 원격 분석을 작성 하려면 [웹 페이지에 JAVASCRIPT SDK 추가][client]를 참조 하세요.
+페이지 보기 수, 페이지 로드 시간, 스크립트 예외 사항과 같은 브라우저 기반 원격 분석을 가져오고 페이지 스크립트에서 사용자 지정 원격 분석을 쓰려면 [JavaScript SDK를 웹 페이지에 추가][client]를 참조하세요.
 
 ## <a name="availability-tests"></a>가용성 테스트
-앱이 라이브 상태를 유지 하 고 응답 하 게 하려면 [웹 테스트를 설정][availability]합니다.
+앱을 라이브 상태로 유지하고 응답하도록 하려면 [웹 테스트를 설정][availability]합니다.
 
 ## <a name="display-everything-together"></a>모든 항목을 함께 표시
 시스템에 대한 전반적인 정보를 얻기 위해 주요 모니터링 차트를 하나의 [대시보드](../../azure-monitor/app/overview-dashboard.md)에 표시할 수 있습니다. 예를 들어 각 역할의 요청 및 실패 수를 고정할 수 있습니다. 

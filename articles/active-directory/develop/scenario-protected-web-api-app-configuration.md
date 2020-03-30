@@ -1,7 +1,7 @@
 ---
-title: 보호 된 웹 API 앱 구성 | Microsoft
+title: 보호된 웹 API 앱 구성 | Azure
 titleSuffix: Microsoft identity platform
-description: 보호 된 웹 API를 빌드하고 응용 프로그램의 코드를 구성 하는 방법에 대해 알아봅니다.
+description: 보호된 웹 API를 빌드하고 응용 프로그램의 코드를 구성하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -17,34 +17,34 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 3f07105c14d4dafeb689eaaf7d679f93e5f235fe
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79262517"
 ---
-# <a name="protected-web-api-code-configuration"></a>보호 된 웹 API: 코드 구성
+# <a name="protected-web-api-code-configuration"></a>보호된 웹 API: 코드 구성
 
-보호 된 web API에 대 한 코드를 구성 하려면 다음을 이해 해야 합니다.
+보호된 웹 API에 대한 코드를 구성하려면 다음을 이해해야 합니다.
 
-- 보호 되는 Api를 정의 합니다.
-- 전달자 토큰을 구성 하는 방법
-- 토큰의 유효성을 검사 하는 방법입니다.
+- API를 보호된 것으로 정의하는 것
+- 베어러 토큰을 구성하는 방법.
+- 토큰의 유효성을 검사하는 방법.
 
-## <a name="what-defines-aspnet-and-aspnet-core-apis-as-protected"></a>ASP.NET 및 ASP.NET Core Api를 보호 된 것으로 정의 하는 것은 무엇 인가요?
+## <a name="what-defines-aspnet-and-aspnet-core-apis-as-protected"></a>ASP.NET 및 ASP.NET 코어 API를 보호된 것으로 정의하는 것은 무엇입니까?
 
-웹 앱과 마찬가지로 ASP.NET 및 ASP.NET Core 웹 Api는 해당 컨트롤러 작업에 **[권한 부여]** 특성이 접두사로 추가 되기 때문에 보호 됩니다. 인증 된 id를 사용 하 여 API를 호출 하는 경우에만 컨트롤러 작업을 호출할 수 있습니다.
+웹 앱과 마찬가지로 ASP.NET 및 ASP.NET Core 웹 API는 컨트롤러 작업이 **[권한 부여]** 특성과 접두사에 붙어 있기 때문에 보호됩니다. 컨트롤러 작업은 API가 승인된 ID로 호출되는 경우에만 호출할 수 있습니다.
 
-다음 질문을 고려 합니다.
+다음 질문을 살펴보세요.
 
-- 앱만 웹 API를 호출할 수 있습니다. API는 API를 호출 하는 앱의 id를 어떻게 알 수 있나요?
-- 앱이 사용자를 대신 하 여 API를 호출 하는 경우 사용자의 id는 무엇 인가요?
+- 앱에서만 웹 API를 호출할 수 있습니다. API는 이를 호출하는 앱의 ID를 어떻게 알 수 있습니까?
+- 앱이 사용자를 대신하여 API를 호출하는 경우 사용자의 ID는 무엇입니까?
 
 ## <a name="bearer-token"></a>전달자 토큰
 
-앱이 호출 될 때 헤더에 설정 된 전달자 토큰에는 앱 id에 대 한 정보가 포함 됩니다. 웹 앱이 디먼 앱에서 서비스 간 호출을 허용 하지 않는 한 사용자에 대 한 정보도 포함 됩니다.
+앱이 호출될 때 헤더에 설정된 베어러 토큰에는 앱 ID에 대한 정보가 포함됩니다. 또한 웹 앱이 데몬 앱에서 서비스 간 호출을 수락하지 않는 한 사용자에 대한 정보도 보유합니다.
 
-다음은 .NET C# 용 Microsoft 인증 라이브러리 (MSAL.NET)를 사용 하 여 토큰을 얻은 후 API를 호출 하는 클라이언트를 보여 주는 코드 예제입니다.
+다음은 .NET(MSAL.NET 대한 Microsoft 인증 라이브러리를 통해 토큰을 획득한 후 API를 호출하는 클라이언트를 보여 주는 C# 코드 예제입니다.
 
 ```csharp
 var scopes = new[] {$"api://.../access_as_user"};
@@ -59,13 +59,13 @@ HttpResponseMessage response = await _httpClient.GetAsync(apiUri);
 ```
 
 > [!IMPORTANT]
-> 클라이언트 응용 프로그램은 *웹 API에 대 한*Microsoft id 플랫폼 끝점에 전달자 토큰을 요청 합니다. 웹 API는 토큰을 확인 하 고 포함 된 클레임을 확인 해야 하는 유일한 응용 프로그램입니다. 클라이언트 앱은 토큰의 클레임을 검사 해 서 사용해 서는 안 됩니다.
+> 클라이언트 응용 프로그램은 *웹 API에 대한*Microsoft ID 플랫폼 끝점에 베어러 토큰을 요청합니다. 웹 API는 토큰을 확인하고 포함된 클레임을 확인해야 하는 유일한 응용 프로그램입니다. 클라이언트 앱은 토큰의 클레임을 검사하려고 시도해서는 안 됩니다.
 >
-> 이후에 웹 API에서 토큰을 암호화 해야 할 수도 있습니다. 이 요구 사항은 액세스 토큰을 볼 수 있는 클라이언트 앱에 대 한 액세스를 방지 합니다.
+> 나중에 웹 API에서 토큰을 암호화해야 할 수 있습니다. 이 요구 사항은 액세스 토큰을 볼 수 있는 클라이언트 앱에 대한 액세스를 방지합니다.
 
-## <a name="jwtbearer-configuration"></a>JwtBearer 구성
+## <a name="jwtbearer-configuration"></a>Jwt베어러 구성
 
-이 섹션에서는 전달자 토큰을 구성 하는 방법을 설명 합니다.
+이 섹션에서는 베어러 토큰을 구성하는 방법에 대해 설명합니다.
 
 ### <a name="config-file"></a>Config 파일
 
@@ -97,22 +97,22 @@ HttpResponseMessage response = await _httpClient.GetAsync(apiUri);
 
 ### <a name="code-initialization"></a>코드 초기화
 
-**[권한 부여]** 특성을 보유 하는 컨트롤러 작업에 대해 앱이 호출 되 면 ASP.NET 및 ASP.NET Core가 권한 부여 헤더의 전달자 토큰에서 액세스 토큰을 추출 합니다. 그런 다음 액세스 토큰은 .NET 용 Microsoft System.identitymodel Extensions를 호출 하는 JwtBearer 미들웨어에 전달 됩니다.
+**[권한 부여]** 특성을 포함하는 컨트롤러 동작에서 앱이 호출되면 ASP.NET 및 ASP.NET Core는 권한 부여 헤더의 베어러 토큰에서 액세스 토큰을 추출합니다. 그런 다음 액세스 토큰은 .NET에 대한 Microsoft IDModel 확장을 호출하는 JwtBearer 미들웨어로 전달됩니다.
 
-ASP.NET Core에서이 미들웨어는 Startup.cs 파일에서 초기화 됩니다.
+ASP.NET 코어에서는 이 미들웨어가 Startup.cs 파일에 초기화됩니다.
 
 ```csharp
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 ```
 
-미들웨어는 다음 명령으로 web API에 추가 됩니다.
+미들웨어는 다음 명령에 따라 웹 API에 추가됩니다.
 
 ```csharp
  services.AddAuthentication(AzureADDefaults.JwtBearerAuthenticationScheme)
          .AddAzureADBearer(options => Configuration.Bind("AzureAd", options));
 ```
 
- 현재 ASP.NET Core 템플릿은 조직 또는 조직 내에서 사용자를 로그인 하는 Azure Active Directory (Azure AD) 웹 Api를 만듭니다. 개인 계정으로 사용자를 로그인 하지 않습니다. 그러나 다음 코드를 Startup.cs에 추가 하 여 Microsoft id 플랫폼 끝점을 사용 하도록 템플릿을 변경할 수 있습니다.
+ 현재 ASP.NET 핵심 템플릿은 조직 또는 조직 내의 사용자를 로그인하는 Azure Active Directory(Azure AD) 웹 API를 만듭니다. 개인 계정으로 로그인하지 않습니다. 그러나 다음 Startup.cs 이 코드를 추가하여 Microsoft ID 플랫폼 끝점을 사용하도록 템플릿을 변경할 수 있습니다.
 
 ```csharp
 services.Configure<JwtBearerOptions>(AzureADDefaults.JwtBearerAuthenticationScheme, options =>
@@ -134,42 +134,42 @@ services.Configure<JwtBearerOptions>(AzureADDefaults.JwtBearerAuthenticationSche
 });
 ```
 
-위의 코드 조각은 [WebApiServiceCollectionExtensions/L50 #-L63](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/154282843da2fc2958fad151e2a11e521e358d42/Microsoft.Identity.Web/WebApiServiceCollectionExtensions.cs#L50-L63)의 ASP.NET CORE web API 증분 자습서에서 추출 되었습니다. 조각으로 표시 되는 것 보다 많은 **AddProtectedWebApi** 메서드는 Startup.cs에서 호출 됩니다.
+위의 코드 조각은 [Microsoft.Identity.Web/WebApiServiceCollectionExtension.cs#L50-L63의](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/154282843da2fc2958fad151e2a11e521e358d42/Microsoft.Identity.Web/WebApiServiceCollectionExtensions.cs#L50-L63)ASP.NET 코어 웹 API 증분 자습서에서 추출됩니다. 코드 조각에 표시되는 것보다 더 많은 작업을 수행하는 **AddProtectedWebApi** 메서드는 Startup.cs 호출됩니다.
 
 ## <a name="token-validation"></a>토큰 유효성 검사
 
-위의 코드 조각에서 web apps의 Openid connect Connect 미들웨어와 같은 JwtBearer 미들웨어는 `TokenValidationParameters`값을 기준으로 토큰의 유효성을 검사 합니다. 필요에 따라 토큰의 암호를 해독 하 고, 클레임을 추출 하 고, 서명을 확인 합니다. 그러면 미들웨어는 다음 데이터를 확인 하 여 토큰의 유효성을 검사 합니다.
+앞의 코드 조각에서 JwtBearer 미들웨어는 웹 앱의 OpenID Connect 미들웨어와 같이 의 값을 `TokenValidationParameters`기반으로 토큰의 유효성을 검사합니다. 토큰은 필요에 따라 해독되고 클레임이 추출되고 서명이 확인됩니다. 그런 다음 미들웨어는 이 데이터를 확인하여 토큰의 유효성을 검사합니다.
 
 - 대상: 토큰은 웹 API를 대상으로 합니다.
-- Sub: web API를 호출할 수 있는 앱에 대해 발급 되었습니다.
-- 발급자: 신뢰할 수 있는 STS (보안 토큰 서비스)에서 발급 되었습니다.
-- 만료: 수명이 범위 내에 있습니다.
-- 서명: 변조 되지 않았습니다.
+- 하위: 웹 API를 호출할 수 있는 앱에 대해 발급되었습니다.
+- 발급자: 신뢰할 수 있는 보안 토큰 서비스(STS)에 의해 발급되었습니다.
+- 만료: 수명이 범위입니다.
+- 서명: 변조되지 않았습니다.
 
-특별 한 유효성 검사를 수행할 수도 있습니다. 예를 들어 토큰에 포함 된 경우 서명 키가 신뢰 되 고 토큰이 재생 되 고 있지 않은지 확인할 수 있습니다. 마지막으로 일부 프로토콜에는 특정 유효성 검사가 필요 합니다.
+특별한 유효성 검사가 있을 수도 있습니다. 예를 들어 토큰에 포함된 서명 키가 신뢰할 수 있고 토큰이 재생되지 않는지 확인할 수 있습니다. 마지막으로 일부 프로토콜에는 특정 유효성 검사가 필요합니다.
 
 ### <a name="validators"></a>유효성 검사기
 
-유효성 검사 단계는 [.net 용 Microsoft System.identitymodel Extensions](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) 오픈 소스 라이브러리에서 제공 하는 유효성 검사기에서 캡처됩니다. 유효성 검사기는 라이브러리 소스 파일 [system.identitymodel/유효성 검사기 .cs](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/blob/master/src/Microsoft.IdentityModel.Tokens/Validators.cs)에 정의 되어 있습니다.
+유효성 검사 단계는 .NET 오픈 소스 라이브러리에 대 한 [Microsoft IDModel 확장에서](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) 제공 하는 유효성 검사기에 캡처 됩니다. 유효성 검사기는 라이브러리 소스 파일 [Microsoft.IdentityModel.Tokens/Validators.cs에 정의되어](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/blob/master/src/Microsoft.IdentityModel.Tokens/Validators.cs)있습니다.
 
-다음 표에서는 유효성 검사기에 대해 설명 합니다.
+이 표는 유효성 검사기에 대해 설명합니다.
 
-| Validator | Description |
+| Validator | 설명 |
 |---------|---------|
-| **ValidateAudience** | 토큰의 유효성을 검사 하는 응용 프로그램에 대 한 토큰을 확인 합니다. |
-| **ValidateIssuer** | 신뢰할 수 있는 STS에서 토큰을 발급 했는지 확인 합니다. 즉, 신뢰할 수 있는 STS에서 토큰을 발급 했는지 확인 합니다. |
-| **ValidateIssuerSigningKey** | 토큰의 유효성을 검사 하는 응용 프로그램에서 토큰을 서명 하는 데 사용 된 키를 신뢰 하는지 확인 합니다. 키가 토큰에 포함 되는 특별 한 경우가 있습니다. 그러나이 경우는 일반적으로 발생 하지 않습니다. |
-| **ValidateLifetime** | 토큰을 아직 또는 이미 사용할 수 있는지 확인 합니다. 유효성 검사기는 토큰의 수명이 **notbefore** 및 **expires** 클레임으로 지정 된 범위 내에 있는지 확인 합니다. |
-| **ValidateSignature** | 토큰이 변조 되지 않았는지 확인 합니다. |
-| **ValidateTokenReplay** | 토큰을 재생 하지 않도록 합니다. Onetime 프로토콜을 사용 하는 특별 한 경우가 있습니다. |
+| **검증 대상** | 토큰이 토큰의 유효성을 검사하는 응용 프로그램에 대한 지 확인합니다. |
+| **유효성 검사 발급자** | 토큰이 신뢰할 수 있는 STS에 의해 발급되었는지 확인합니다. |
+| **유효성 검사발급자 서명키** | 토큰유효성검사 응용 프로그램이 토큰에 서명하는 데 사용된 키를 트러스트하도록 합니다. 키가 토큰에 포함되는 특별한 경우가 있습니다. 그러나이 경우는 일반적으로 발생하지 않습니다. |
+| **유효 수명 확인** | 토큰이 정지 또는 이미 유효한지 확인합니다. 유효성 검사기는 토큰의 수명이 **이전에** 지정된 범위에 있는지 확인하고 **클레임을 만료합니다.** |
+| **유효성 검사 서명** | 토큰이 변조되지 않았는지 확인합니다. |
+| **유효성 검사토큰 재생** | 토큰이 재생되지 않았는지 확인합니다. 일부 일회용 프로토콜에는 특별한 경우가 있습니다. |
 
-유효성 검사기는 **Tokenvalidationparameters** 클래스의 속성과 연결 되어 있습니다. 속성은 ASP.NET 및 ASP.NET Core 구성에서 초기화 됩니다.
+유효성 검사기는 **TokenValidationParameters** 클래스의 속성과 연결됩니다. 속성은 ASP.NET 및 ASP.NET 코어 구성에서 초기화됩니다.
 
-대부분의 경우 매개 변수를 변경할 필요가 없습니다. 단일 테 넌 트가 아닌 앱은 예외입니다. 이러한 웹 앱은 모든 조직이 나 개인 Microsoft 계정의 사용자를 허용 합니다. 이 경우 발급자의 유효성을 검사 해야 합니다.
+대부분의 경우 매개 변수를 변경할 필요가 없습니다. 단일 테넌트가 아닌 앱은 예외입니다. 이러한 웹 앱은 모든 조직 또는 개인 Microsoft 계정의 사용자를 허용합니다. 이 경우 발급자의 유효성을 검사해야 합니다.
 
-## <a name="token-validation-in-azure-functions"></a>Azure Functions에서 토큰 유효성 검사
+## <a name="token-validation-in-azure-functions"></a>Azure 함수의 토큰 유효성 검사
 
-Azure Functions에서 들어오는 액세스 토큰의 유효성을 검사할 수도 있습니다. [Microsoft .NET](https://github.com/Azure-Samples/ms-identity-dotnet-webapi-azurefunctions), [Nodejs](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-azurefunctions)및 [Python](https://github.com/Azure-Samples/ms-identity-python-webapi-azurefunctions)에서 이러한 유효성 검사의 예제를 찾을 수 있습니다.
+Azure Functions에서 들어오는 액세스 토큰의 유효성을 검사할 수도 있습니다. 이러한 유효성 검사의 예는 [Microsoft .NET,](https://github.com/Azure-Samples/ms-identity-dotnet-webapi-azurefunctions) [NodeJS](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-azurefunctions)및 Python에서 찾을 수 [있습니다.](https://github.com/Azure-Samples/ms-identity-python-webapi-azurefunctions)
 
 ## <a name="next-steps"></a>다음 단계
 

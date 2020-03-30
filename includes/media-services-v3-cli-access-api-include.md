@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 05/01/2019
 ms.author: juliako
 ms.custom: include file
-ms.openlocfilehash: 58e9156091702718dccd75eb4a57e5b6d8c1f073
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
-ms.translationtype: HT
+ms.openlocfilehash: 9d8de8826fc3dfcc2360eb3b6c82b3ff8d65d845
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76896345"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79461234"
 ---
-## <a name="access-the-media-services-api"></a>Media Services API 액세스
+### <a name="access-the-media-services-api"></a>Media Services API 액세스
 
 Azure Media Services API에 연결하려면 Azure AD 서비스 주체 인증을 사용합니다. 다음 명령은 Azure AD 애플리케이션을 만들고 계정에 서비스 주체를 연결합니다. 반환된 값을 사용하여 애플리케이션을 구성해야 합니다.
 

@@ -1,7 +1,7 @@
 ---
 title: '행 추가: 모듈 참조'
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning의 행 추가 모듈을 사용 하 여 두 데이터 집합을 연결 하는 방법을 알아봅니다.
+description: Azure 기계 학습에서 행 추가 모듈을 사용하여 두 데이터 집합을 통합하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,18 +9,18 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: 7787a765bf48adc15f4675c6c03ff3d04fa388c6
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: cd9b5f8f182c4deab746d2c41e516a6ac23fb7aa
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77918498"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79477734"
 ---
 # <a name="add-rows-module"></a>행 추가 모듈
 
-이 문서에서는 Azure Machine Learning designer (미리 보기)의 모듈을 설명 합니다.
+이 문서에서는 Azure 기계 학습 디자이너(미리 보기)의 모듈에 대해 설명합니다.
 
-이 모듈을 사용 하 여 두 데이터 집합을 연결 합니다. 연결에서 두 번째 데이터 집합의 행은 첫 번째 데이터 집합의 끝에 추가 됩니다.  
+이 모듈을 사용하여 두 데이터 집합을 연결합니다. 연결에서 두 번째 데이터 집합의 행이 첫 번째 데이터 집합의 끝에 추가됩니다.  
   
 행 연결은 다음과 같은 시나리오에서 유용합니다.  
   
@@ -28,18 +28,18 @@ ms.locfileid: "77918498"
   
 + 여러 데이터 집합에서 작업한 후 해당 데이터 집합을 결합하여 최종 데이터 집합을 만들려는 경우  
 
-## <a name="how-to-use-add-rows"></a>행 추가를 사용 하는 방법  
+## <a name="how-to-use-add-rows"></a>행 추가 사용 방법  
 
-두 데이터 집합의 행을 연결 하려면 행에 정확히 동일한 스키마가 있어야 합니다. 즉, 열에 동일한 수의 열과 동일한 데이터 형식이 있습니다.
+두 데이터 집합에서 행을 연결하려면 행에 정확히 동일한 스키마가 있어야 합니다. 즉, 열수가 같고 열의 동일한 유형의 데이터가 표시됩니다.
 
-1.  **행 추가** 모듈을 파이프라인으로 끌어 **데이터 변환**아래에서 찾을 수 있습니다.
+1.  행 **추가** 모듈을 파이프라인으로 드래그하면 **데이터 변환**에서 찾을 수 있습니다.
 
 2. 두 입력 포트에 데이터 집합을 연결합니다. 추가할 데이터 집합이 두 번째(오른쪽) 포트에 연결되어야 합니다. 
   
-3.  파이프라인을 실행합니다. 출력 데이터 집합의 행 수는 두 입력 데이터 집합의 행 합계와 같아야 합니다.
+3.  파이프라인을 제출합니다. 출력 데이터 집합의 행 수는 두 입력 데이터 집합의 행 합계와 같아야 합니다.
 
-    **행 추가** 모듈의 두 입력에 동일한 데이터 집합을 추가 하는 경우 데이터 집합이 중복 됩니다. 
+    **행 추가** 모듈의 두 입력에 동일한 데이터 집합을 추가하면 데이터 집합이 중복됩니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 
+Azure 기계 학습에 사용할 수 있는 [모듈 집합을](module-reference.md) 참조하십시오. 

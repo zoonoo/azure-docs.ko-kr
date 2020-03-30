@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: ace19f17f5d7a5e920808b76258459c0eba62890
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: a27d4c1712e9d65afcfc8792eac88be468829f6f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750535"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79536380"
 ---
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Azure Linux 가상 머신에 Oracle ASM 설정  
 
@@ -33,7 +33,7 @@ Azure Virtual Machines는 완전하게 구성할 수 있고 유연한 컴퓨팅 
 > * ASM에서 관리하는 Oracle DB 만들기
 
 
-CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에서 Azure CLI 버전 2.0.4 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
+CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에서 Azure CLI 버전 2.0.4 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하십시오. 
 
 ## <a name="prepare-the-environment"></a>환경 준비
 
@@ -62,7 +62,7 @@ Oracle Database 이미지에 따라 가상 머신을 만들고 Oracle ASM을 사
 
 VM을 만든 후 Azure CLI는 다음 예제와 비슷한 정보를 표시합니다. `publicIpAddress`에 대한 값을 기록해 둡니다. 이 주소는 VM에 액세스하는 데 사용됩니다.
 
-   ```azurecli
+   ```output
    {
      "fqdns": "",
      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
@@ -79,7 +79,7 @@ VM을 만든 후 Azure CLI는 다음 예제와 비슷한 정보를 표시합니�
 
 VM으로 SSH 세션을 만들고 추가 설정을 구성하려면 다음 명령을 사용합니다. 해당 IP 주소를 VM의 `publicIpAddress` 값으로 바꿉니다.
 
-```bash 
+```bash
 ssh <publicIpAddress>
 ```
 
@@ -161,7 +161,7 @@ Oracle ASM 설치에 대한 자세한 내용은 [Oracle Linux 6에 대한 Oracle
 
    이 명령의 출력은 다음 출력과 유사해야 하며 표시되는 메시지에 답하면 중지됩니다.
 
-    ```bash
+    ```output
    Configuring the Oracle ASM library driver.
 
    This will configure the on-boot properties of the Oracle ASM library
@@ -178,13 +178,14 @@ Oracle ASM 설치에 대한 자세한 내용은 [Oracle Linux 6에 대한 Oracle
    ```
 
 2. 디스크 구성을 확인합니다.
+
    ```bash
    cat /proc/partitions
    ```
 
    이 명령의 출력은 다음 사용 가능한 디스크 목록과 유사해야 합니다.
 
-   ```bash
+   ```output
    8       16   14680064 sdb
    8       17   14678976 sdb1
    8        0   52428800 sda
@@ -209,9 +210,9 @@ Oracle ASM 설치에 대한 자세한 내용은 [Oracle Linux 6에 대한 Oracle
    fdisk /dev/sdc
    ```
    
-   위에서 제공한 대답을 사용 하 여 `fdisk` 명령의 출력은 다음과 같습니다.
+   위에 제공된 답변을 사용하면 명령의 `fdisk` 출력은 다음과 같아야 합니다.
 
-   ```bash
+   ```output
    Device contains not a valid DOS partition table, or Sun, SGI or OSF disklabel
    Building a new DOS disklabel with disk identifier 0xf865c6ca.
    Changes will remain in memory only, until you decide to write them.
@@ -245,7 +246,7 @@ Oracle ASM 설치에 대한 자세한 내용은 [Oracle Linux 6에 대한 Oracle
    Syncing disks.
    ```
 
-4. `/dev/sdd`, `/dev/sde`및 `/dev/sdf`에 대해 위의 `fdisk` 명령을 반복 합니다.
+4. 에 `/dev/sde`대한 `/dev/sdd` `fdisk` 위의 명령을 반복합니다. `/dev/sdf`
 
 5. 디스크 구성을 확인합니다.
 
@@ -255,7 +256,7 @@ Oracle ASM 설치에 대한 자세한 내용은 [Oracle Linux 6에 대한 Oracle
 
    명령 출력은 다음과 같습니다.
 
-   ```bash
+   ```output
    major minor  #blocks  name
 
      8       16   14680064 sdb
@@ -282,8 +283,8 @@ Oracle ASM 설치에 대한 자세한 내용은 [Oracle Linux 6에 대한 Oracle
    ```
 
    명령 출력은 다음과 같습니다.
-   
-   ```bash
+
+   ```output
    Checking if ASM is loaded: no
    Checking if /dev/oracleasm is mounted: no
    Initializing the Oracle ASMLib driver:                     [  OK  ]
@@ -297,11 +298,11 @@ Oracle ASM 설치에 대한 자세한 내용은 [Oracle Linux 6에 대한 Oracle
    service oracleasm createdisk DATA /dev/sdd1 
    service oracleasm createdisk DATA1 /dev/sde1 
    service oracleasm createdisk FRA /dev/sdf1
-   ```    
+   ```
 
    명령 출력은 다음과 같습니다.
 
-   ```bash
+   ```output
    Marking disk "ASMSP" as an ASM disk:                       [  OK  ]
    Marking disk "DATA" as an ASM disk:                        [  OK  ]
    Marking disk "DATA1" as an ASM disk:                       [  OK  ]
@@ -312,11 +313,11 @@ Oracle ASM 설치에 대한 자세한 내용은 [Oracle Linux 6에 대한 Oracle
 
    ```bash
    service oracleasm listdisks
-   ```   
+   ```
 
    이 명령의 출력은 다음 Oracle ASM 디스크를 나열합니다.
 
-   ```bash
+   ```output
     ASMSP
     DATA
     DATA1
@@ -371,7 +372,7 @@ Oracle Grid Infrastructure 소프트웨어를 다운로드 및 준비하려면 �
    ```
 
 4. 파일의 압축을 풉니다. (Linux 압축 풀기 도구가 설치되어 있지 않은 경우 이를 설치합니다.)
-   
+
    ```bash
    sudo yum install unzip
    sudo unzip linuxamd64_12102_grid_1of2.zip
@@ -379,7 +380,7 @@ Oracle Grid Infrastructure 소프트웨어를 다운로드 및 준비하려면 �
    ```
 
 5. 사용 권한을 변경합니다.
-   
+
    ```bash
    sudo chown -R grid:oinstall /opt/grid
    ```
@@ -390,7 +391,7 @@ Oracle Grid Infrastructure 소프트웨어를 다운로드 및 준비하려면 �
    sudo chmod 777 /etc/waagent.conf  
    vi /etc/waagent.conf
    ```
-   
+
    `ResourceDisk.SwapSizeMB`를 검색하고 값을 **8192**로 변경합니다. `insert`를 눌러 삽입 모드를 입력하고 **8192** 값을 입력한 다음 `esc` 키를 눌러 명령 모드로 돌아가야 합니다. 변경 내용을 쓰고 파일을 종료하려면 `:wq`를 입력하고 `enter` 키를 누릅니다.
    
    > [!NOTE]
@@ -426,7 +427,7 @@ Oracle ASM를 구성하려면 설치 및 구성을 완료할 그래픽 인터페
    > 키에는 문자열 `ssh-rsa`가 포함되어야 합니다. 또한 키의 콘텐츠는 한 줄 텍스트여야 합니다.
    >  
 
-6. 클라이언트 컴퓨터에서 PuTTY를 시작합니다. **범주** 창에서 **연결** > **SSH** > **Auth**로 이동 합니다. **인증을 위한 개인 키 파일** 상자에서 이전에 생성 한 키를 찾습니다.
+6. 클라이언트 컴퓨터에서 PuTTY를 시작합니다. **범주** 창에서 **연결** > **SSH** > **Auth로**이동합니다. 인증 상자에 **대한 개인 키 파일에서** 이전에 생성한 키를 찾아봅습니다.
 
    ![SSH 인증 옵션의 스크린샷](./media/oracle-asm/setprivatekey.png)
 
@@ -550,6 +551,7 @@ Oracle 데이터베이스 소프트웨어는 이미 Azure Marketplace 이미지�
    cd /u01/app/oracle/product/12.1.0/dbhome_1/bin
    ./dbca
    ```
+
    데이터베이스 구성 도우미가 열립니다.
 
 2. **데이터베이스 작업 페이지**에서 `Create Database`를 클릭합니다.

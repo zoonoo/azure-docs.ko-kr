@@ -1,5 +1,5 @@
 ---
-title: 공유 액세스 서명을 사용 하 여 액세스 제어 Azure Service Bus
+title: 공유 액세스 시그니처를 통해 Azure 서비스 버스 액세스 제어
 description: 공유 액세스 서명을 사용한 Azure Service Bus 액세스 제어 개요, Azure Service Bus를 사용한 SAS 권한 부여 상세 정보
 services: service-bus-messaging
 documentationcenter: na
@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 12/20/2019
 ms.author: aschhab
 ms.openlocfilehash: c381d9413c4003bc2ab9a9357ff2769e84d14c3e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79259475"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>공유 액세스 서명을 사용한 Service Bus 액세스 제어
@@ -27,11 +27,11 @@ ms.locfileid: "79259475"
 SAS는 권한 부여 규칙에 따라 Service Bus에 대한 액세스를 보호합니다. 네임스페이스 또는 메시징 엔터티(릴레이, 큐 또는 항목)에서 구성됩니다. 권한 부여 규칙에는 특정 권한과 연결된 이름이 있으며 암호화 키 쌍을 전달합니다. Service Bus SDK를 통해 또는 사용자 고유의 코드에서 규칙의 이름 및 키를 사용하여 SAS 토큰을 생성합니다. 그런 다음, 클라이언트는 토큰을 Service Bus에 전달하여 요청된 작업에 대한 권한 부여를 증명할 수 있습니다.
 
 > [!NOTE]
-> Azure Service Bus는 Azure Active Directory (Azure AD)를 사용 하 여 Service Bus 네임 스페이스 및 해당 엔터티에 대 한 액세스 권한을 부여 합니다. Azure AD에서 반환 된 OAuth 2.0 토큰을 사용 하는 사용자 또는 응용 프로그램에 대 한 권한 부여는 SAS (공유 액세스 서명)를 통해 뛰어난 보안과 사용 편의성을 제공 합니다. Azure AD를 사용 하는 경우 코드에 토큰을 저장 하 고 잠재적인 보안 취약점을 초래할 필요가 없습니다.
+> Azure Service Bus는 Azure Active Directory(Azure AD)를 사용하여 서비스 버스 네임스페이스 및 해당 엔터티에 대한 액세스 권한을 부여합니다. Azure AD에서 반환되는 OAuth 2.0 토큰을 사용하여 사용자 또는 응용 프로그램에 권한을 부여하면 SAS(공유 액세스 서명)를 통해 뛰어난 보안과 사용 편의성을 제공합니다. Azure AD를 사용하면 코드에 토큰을 저장하고 잠재적인 보안 취약점을 위험에 빠뜨릴 필요가 없습니다.
 >
-> 가능 하면 Azure Service Bus 응용 프로그램에서 Azure AD를 사용 하는 것이 좋습니다. 자세한 내용은 다음 문서를 참조하세요.
-> - [Azure Active Directory를 사용 하 여 응용 프로그램을 인증 하 고 권한을 부여 하 여 Azure Service Bus 엔터티에 액세스](authenticate-application.md)합니다.
-> - [Azure Service Bus 리소스에 액세스 하기 위해 Azure Active Directory를 사용 하 여 관리 id 인증](service-bus-managed-service-identity.md)
+> 가능하면 Azure 서비스 버스 응용 프로그램과 함께 Azure AD를 사용하는 것이 좋습니다. 자세한 내용은 다음 문서를 참조하세요.
+> - [Azure Active Directory를 사용하여 응용 프로그램을 인증하고 인증하여 Azure Service Bus 엔터티에 액세스합니다.](authenticate-application.md)
+> - [Azure Active Directory를 사용하여 관리되는 ID를 인증하여 Azure Service Bus 리소스에 액세스](service-bus-managed-service-identity.md)
 
 ## <a name="overview-of-sas"></a>SAS 개요
 
@@ -57,7 +57,7 @@ Service Bus에서 SAS 인증은 연결된 액세스 권한 및 기본 및 보조
 
 네임스페이스 또는 엔터티 정책은 각각 기본 권한 및 Send 및 Listen의 조합을 다루는 세 개의 규칙 집합을 제공하여 최대 12개의 공유 액세스 권한 부여 규칙을 포함할 수 있습니다. 이 제한은 SAS 정책 저장소가 사용자 또는 서비스 계정 저장소에 적합하지 않다는 것을 강조합니다. 애플리케이션에서 사용자 또는 서비스 ID에 따라 Service Bus에 대한 액세스 권한을 부여해야 하는 경우 인증 및 액세스 검사 후 SAS 토큰을 발급하는 보안 토큰 서비스를 구현해야 합니다.
 
-권한 부여 규칙은 *기본 키*와 *보조 키*에 할당됩니다. 이들은 강력한 암호화 키입니다. 이러한 항목을 분실 하거나 누설 하지 마세요. 항상 [Azure Portal][Azure portal]에서 사용할 수 있습니다. 생성된 키 중 하나를 사용할 수 있으며 언제든지 다시 생성할 수 있습니다. 정책에서 키를 다시 생성하거나 변경하는 경우 해당 키에 기반한 이전에 발급된 모든 토큰은 즉시 무효화됩니다. 그러나 이러한 토큰에 따라 생성된 진행 중인 연결은 토큰이 만료될 때까지 작업을 계속합니다.
+권한 부여 규칙은 *기본 키*와 *보조 키*에 할당됩니다. 이들은 강력한 암호화 키입니다. 잃어 버리거나 누출되지 않도록 하세요. 항상 [Azure Portal][Azure portal]에서 사용할 수 있습니다. 생성된 키 중 하나를 사용할 수 있으며 언제든지 다시 생성할 수 있습니다. 정책에서 키를 다시 생성하거나 변경하는 경우 해당 키에 기반한 이전에 발급된 모든 토큰은 즉시 무효화됩니다. 그러나 이러한 토큰에 따라 생성된 진행 중인 연결은 토큰이 만료될 때까지 작업을 계속합니다.
 
 Service Bus 네임스페이스를 만들 때 **RootManageSharedAccessKey**라는 정책 규칙이 네임스페이스에 대해 자동으로 만들어집니다. 이 정책은 전체 네임스페이스에 대한 Manage 사용 권한을 갖습니다. 이 규칙을 관리 **루트** 계정과 같이 처리하고 애플리케이션에서 사용하지 않는 것이 좋습니다. Powershell 또는 Azure CLI를 통해 포털의 해당 네임스페이스에 대한 **구성** 탭에서 추가 정책 규칙을 만들 수 있습니다.
 
@@ -77,12 +77,12 @@ Service Bus 네임스페이스, 큐 또는 항목에 대한 [SharedAccessAuthori
 SharedAccessSignature sig=<signature-string>&se=<expiry>&skn=<keyName>&sr=<URL-encoded-resourceURI>
 ```
 
-* **`se`** - 토큰 만료 인스턴트입니다. 토큰이 만료될 때 1970년 1월 1일(UNIX Epoch)의 Epoch `00:00:00 UTC` 이후의 초를 반영하는 정수
-* **`skn`** - 권한 부여 규칙의 이름입니다.
-* **`sr`** - 액세스되는 리소스의 URI입니다.
-* **`sig`** - 서명입니다.
+* **`se`**- 토큰 만료 인스턴트. 토큰이 만료될 때 1970년 1월 1일(UNIX Epoch)의 Epoch `00:00:00 UTC` 이후의 초를 반영하는 정수
+* **`skn`**- 권한 부여 규칙의 이름입니다.
+* **`sr`**- 액세스 중인 리소스의 URI입니다.
+* **`sig`**- 서명.
 
-`signature-string`은 리소스 URI (이전 섹션에서 설명 하는**범위** )에 대해 계산 된 SHA-256 해시와 토큰 만료 인스턴트의 문자열 표현을 LF로 구분 하 여 계산 합니다.
+는 `signature-string` 리소스 URI(이전 섹션에 설명된**범위)와** LF로 구분된 토큰 만료 인스턴트의 문자열 표현을 통해 계산된 SHA-256 해시입니다.
 
 해시 계산은 다음 의사 코드와 유사하며 256비트/32바이트 해시 값을 반환합니다.
 
@@ -94,11 +94,11 @@ SHA-256('https://<yournamespace>.servicebus.windows.net/'+'\n'+ 1438205742)
 
 리소스 URI은 액세스를 하려는 Service Bus 리소스의 전체 URI입니다. 예를 들면 `http://<namespace>.servicebus.windows.net/<entityPath>` 또는 `sb://<namespace>.servicebus.windows.net/<entityPath>`입니다. 즉, `http://contoso.servicebus.windows.net/contosoTopics/T1/Subscriptions/S3`과 같습니다. 
 
-**URI는 [%로 인코딩해야](https://msdn.microsoft.com/library/4fkewx0t.aspx)합니다.**
+**URI는 [백분율 인코딩되어야](https://msdn.microsoft.com/library/4fkewx0t.aspx)합니다.**
 
 이 URI로 또는 부모 계층 중 하나에 의해 지정된 엔터티에 서명에 사용된 공유 액세스 권한 부여 규칙을 구성해야 합니다. 예를 들어 이전 예에서 `http://contoso.servicebus.windows.net/contosoTopics/T1` 또는 `http://contoso.servicebus.windows.net`입니다.
 
-SAS 토큰은 `<resourceURI>`에서 사용된 `signature-string`를 접두사로 추가하는 모든 리소스에 유효합니다.
+SAS 토큰은 `signature-string`에서 사용된 `<resourceURI>`를 접두사로 추가하는 모든 리소스에 유효합니다.
 
 ## <a name="regenerating-keys"></a>키 다시 생성
 
@@ -114,7 +114,7 @@ SAS 토큰은 `<resourceURI>`에서 사용된 `signature-string`를 접두사로
 
 ## <a name="access-shared-access-authorization-rules-on-an-entity"></a>엔터티에 대한 공유 액세스 권한 부여 규칙 액세스
 
-Service Bus .NET Framework 라이브러리를 사용하여 해당하는 [QueueDescription](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) 또는 [TopicDescription](/dotnet/api/microsoft.servicebus.messaging.authorizationrules)에서 [AuthorizationRules](/dotnet/api/microsoft.servicebus.messaging.queuedescription) 컬렉션을 통해 Service Bus 큐나 토픽에 구성된 [Microsoft.ServiceBus.Messaging.SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.topicdescription) 개체에 액세스할 수 있습니다.
+Service Bus .NET Framework 라이브러리를 사용하여 해당하는 [QueueDescription](/dotnet/api/microsoft.servicebus.messaging.queuedescription) 또는 [TopicDescription](/dotnet/api/microsoft.servicebus.messaging.topicdescription)에서 [AuthorizationRules](/dotnet/api/microsoft.servicebus.messaging.authorizationrules) 컬렉션을 통해 Service Bus 큐나 토픽에 구성된 [Microsoft.ServiceBus.Messaging.SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) 개체에 액세스할 수 있습니다.
 
 다음 코드는 큐에 대한 권한 부여 규칙을 추가하는 방법을 보여줍니다.
 
@@ -191,7 +191,7 @@ ContentType: application/atom+xml;type=entry;charset=utf-8
 
 Service Bus에 데이터의 전송을 시작하기 전에 게시자는 AMQP 메시지 안에 있는 SAS 토큰을 **$cbs**(모든 SAS 토큰을 얻고 유효성을 검사하기 위해 서비스에서 사용하는 "특별" 큐)라는 이름의 정의된 AMQP 노드에 전송해야 합니다. 게시자는 AMQP 메시지 내부에 있는 **ReplyTo** 필드를 지정해야 합니다. 이는 서비스가 토큰 유효성 검사 결과와 함께 게시자에게 응답하는 노드입니다(게시자와 서비스 간의 간단한 요청/응답 패턴). 이 회신 노드는 "즉시" 생성되며 AMQP 1.0 사양에 설명된 것처럼 “원격 노드 동적 생성”에 대해 얘기합니다. SAS 토큰이 유효한지 확인한 후 게시자는 이제 데이터를 서비스에 보내기 시작할 수 있습니다.
 
-다음 단계에서는 [AMQP.NET Lite](https://github.com/Azure/amqpnetlite) 라이브러리를 사용 하 여 amqp 프로토콜을 사용 하 여 SAS 토큰을 보내는 방법을 보여 줍니다. 이는 C\#에서 개발 하는 공식 Service Bus SDK (예: WinRT, .NET Compact Framework, .NET 마이크로 프레임 워크 및 Mono)를 사용할 수 없는 경우에 유용 합니다. 물론 이 라이브러리는 클레임 기반 보안이 HTTP 수준에서 작동하는 방식을 볼 때처럼 AMQP 수준에서 작동하는 방식을 이해하는 데 유용합니다("권한 부여" 헤더 내에서 전송되는 HTTP POST 요청 및 SAS 토큰과 함께). AMQP에 대 한 이러한 심층 지식이 필요 하지 않은 경우에는 .NET Framework 응용 프로그램에서 공식 Service Bus SDK를 사용할 수 있습니다.
+다음 단계에서는 [AMQP.NET Lite](https://github.com/Azure/amqpnetlite) 라이브러리를 사용하여 AMQP 프로토콜을 사용하여 SAS 토큰을 보내는 방법을 보여 준다. 이는 C에서\#개발 중인 공식 서비스 버스 SDK(예: WinRT, .NET 컴팩트 프레임워크, .NET 마이크로 프레임워크 및 모노)를 사용할 수 없는 경우에 유용합니다. 물론 이 라이브러리는 클레임 기반 보안이 HTTP 수준에서 작동하는 방식을 볼 때처럼 AMQP 수준에서 작동하는 방식을 이해하는 데 유용합니다("권한 부여" 헤더 내에서 전송되는 HTTP POST 요청 및 SAS 토큰과 함께). AMQP에 대한 깊은 지식이 필요하지 않은 경우 .NET Framework 응용 프로그램과 함께 공식 서비스 버스 SDK를 사용할 수 있습니다.
 
 ### <a name="c35"></a>C&#35;
 
@@ -244,7 +244,7 @@ private bool PutCbsToken(Connection connection, string sasToken)
 }
 ```
 
-위의 `PutCbsToken()` 메서드는 서비스에 대한 TCP 연결 및 전송할 SAS 토큰인 *sasToken* 매개 변수를 나타내는 [연결](https://github.com/Azure/amqpnetlite)(*AMQP .NET Lite 라이브러리*에서 제공하는 대로 AMQP 연결 클래스 인스턴스)을 수신합니다.
+위의 `PutCbsToken()` 메서드는 서비스에 대한 TCP 연결 및 전송할 SAS 토큰인 *sasToken* 매개 변수를 나타내는 *연결*([AMQP .NET Lite 라이브러리](https://github.com/Azure/amqpnetlite)에서 제공하는 대로 AMQP 연결 클래스 인스턴스)을 수신합니다.
 
 > [!NOTE]
 > 연결이 **ANONYMOUS로 설정된 SASL 인증 메커니즘**(SAS 토큰을 보낼 필요가 없을 때 사용하는 사용자 이름 및 암호를 가진 기본 PLAIN이 아님)으로 생성된다는 사실이 중요합니다.
@@ -253,7 +253,7 @@ private bool PutCbsToken(Connection connection, string sasToken)
 
 그런 다음 게시자는 SAS 토큰을 보내고 서비스로부터 회신(토큰 유효성 검사 결과)을 받기 위한 2개의 AMQP 링크를 만듭니다.
 
-AMQP 메시지는 간단한 메시지보다 정보가 많고 속성이 많습니다. SAS 토큰은 해당 생성자를 사용하여 메시지의 본문으로 배치됩니다. **"ReplyTo"** 속성은 수신기 링크에 대한 유효성 검사 결과를 받기 위한 노드 이름으로 설정됩니다(원하는 대로 이름을 변경할 수 있으며 서비스에서 동적으로 생성함). 마지막 세 애플리케이션/사용자 지정 속성은 서비스에서 실행하는 작업의 종류를 나타내는 데 사용합니다. CBS 초안 사양에서 설명한 것처럼 이들은 **토큰의 형식**(이 경우 **)인** 작업 이름`servicebus.windows.net:sastoken`("put-token")이 되고 토큰이 적용되는 **청중의 "이름"** 이어야 합니다(전체 엔터티).
+AMQP 메시지는 간단한 메시지보다 정보가 많고 속성이 많습니다. SAS 토큰은 해당 생성자를 사용하여 메시지의 본문으로 배치됩니다. **"ReplyTo"** 속성은 수신기 링크에 대한 유효성 검사 결과를 받기 위한 노드 이름으로 설정됩니다(원하는 대로 이름을 변경할 수 있으며 서비스에서 동적으로 생성함). 마지막 세 애플리케이션/사용자 지정 속성은 서비스에서 실행하는 작업의 종류를 나타내는 데 사용합니다. CBS 초안 사양에서 설명한 것처럼 이들은 **토큰의 형식**(이 경우 `servicebus.windows.net:sastoken`)인 **작업 이름**("put-token")이 되고 토큰이 적용되는 **청중의 "이름"** 이어야 합니다(전체 엔터티).
 
 보낸 사람 링크에서 SAS 토큰을 보낸 후 게시자는 수신자 링크에서 회신을 읽어야 합니다. 회신은 HTTP 상태 코드와 동일한 값을 포함할 수 있는 **"status-code"** 라는 이름의 애플리케이션 속성을 가진 간단한 AMQP 메시지입니다.
 
@@ -300,7 +300,7 @@ AMQP 메시지는 간단한 메시지보다 정보가 많고 속성이 많습니
 | 메시지 효력 상실 |수신 대기 |../myTopic/Subscriptions/mySubscription |
 | 항목 세션을 사용하여 연결된 상태 가져오기 |수신 대기 |../myTopic/Subscriptions/mySubscription |
 | 항목 세션을 사용하여 연결된 상태 설정 |수신 대기 |../myTopic/Subscriptions/mySubscription |
-| **규칙.** | | |
+| **규칙** | | |
 | 규칙 만들기 |관리 |../myTopic/Subscriptions/mySubscription |
 | 규칙 삭제 |관리 |../myTopic/Subscriptions/mySubscription |
 | 규칙 열거 |관리 또는 수신 |../myTopic/Subscriptions/mySubscription/Rules
@@ -310,7 +310,7 @@ AMQP 메시지는 간단한 메시지보다 정보가 많고 속성이 많습니
 Service Bus 메시징에 대해 자세히 알아보려면 다음 항목을 참조하세요.
 
 * [Service Bus 큐, 토픽 및 구독](service-bus-queues-topics-subscriptions.md)
-* [Service Bus 큐를 사용하는 방법](service-bus-dotnet-get-started-with-queues.md)
+* [서비스 버스 대기열 사용 방법](service-bus-dotnet-get-started-with-queues.md)
 * [Service Bus 토픽 및 구독을 사용하는 방법](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 
 [Azure portal]: https://portal.azure.com

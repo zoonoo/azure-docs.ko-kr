@@ -1,5 +1,6 @@
 ---
-title: Azure Cloud Services LoadBalancerProbe 스키마 | Microsoft Docs
+title: Azure 클라우드 서비스 Def. 로드밸슬러프로브 스키마 | 마이크로 소프트 문서
+description: 고객이 정의한 LoadBalancerProbe는 역할 인스턴스에서 끝점의 상태 프로브입니다. 서비스 정의 파일의 웹 또는 작업자 역할과 결합합니다.
 ms.custom: ''
 ms.date: 04/14/2015
 services: cloud-services
@@ -8,12 +9,12 @@ ms.topic: reference
 caps.latest.revision: 14
 author: georgewallace
 ms.author: tagore
-ms.openlocfilehash: bc2c0f5137ce78392a8df7c6c2fdd402ded5355a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6d0e84b6724d9df4162d4be3e06a9952087a53a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75449048"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79537349"
 ---
 # <a name="azure-cloud-services-definition-loadbalancerprobe-schema"></a>Azure Cloud Services 정의 LoadBalancerProbe 스키마
 부하 분산 장치 프로브는 UDP 엔드포인트와 역할 인스턴스의 엔드포인트에서 고객이 정의한 상태 프로브입니다. `LoadBalancerProbe`는 독립 실행형 요소가 아닙니다. 서비스 정의 파일의 웹 역할 또는 작업자 역할과 결합됩니다. `LoadBalancerProbe`는 하나 이상의 역할에서 사용할 수 있습니다.
@@ -46,15 +47,15 @@ Azure Load Balancer는 들어오는 트래픽을 역할 인스턴스로 라우�
 - [LoadBalancerProbes 요소](#LoadBalancerProbes)
 - [LoadBalancerProbe 요소](#LoadBalancerProbe)
 
-##  <a name="LoadBalancerProbes"></a> LoadBalancerProbes 요소
+##  <a name="loadbalancerprobes-element"></a><a name="LoadBalancerProbes"></a>로드밸슬러 프로브 요소
 `LoadBalancerProbes` 요소는 부하 분산 장치 프로브의 컬렉션을 설명합니다. 이 요소는 [LoadBalancerProbe 요소](#LoadBalancerProbe)의 부모 요소입니다. 
 
-##  <a name="LoadBalancerProbe"></a> LoadBalancerProbe 요소
+##  <a name="loadbalancerprobe-element"></a><a name="LoadBalancerProbe"></a>로드밸런스 프로브 엘리먼트
 `LoadBalancerProbe` 요소는 모델에 대한 상태 프로브를 정의합니다. 여러 부하 분산 장치 프로브를 정의할 수 있습니다. 
 
 다음 표에서는 `LoadBalancerProbe` 요소의 특성을 설명합니다.
 
-|attribute|유형|Description|
+|특성|Type|Description|
 | ------------------- | -------- | -----------------|
 | `name`              | `string` | 필수 사항입니다. 부하 분산 장치 프로브의 이름입니다. 이름은 고유해야 합니다.|
 | `protocol`          | `string` | 필수 사항입니다. 끝점의 프로토콜을 지정합니다. 가능한 값은 `http` 또는 `tcp`입니다. `tcp`가 지정된 경우 프로브가 성공하려면 수신된 ACK가 필요합니다. `http`가 지정된 경우 프로브가 성공하려면 지정한 URI로부터의 200 OK 응답이 필요합니다.|
@@ -63,5 +64,5 @@ Azure Load Balancer는 들어오는 트래픽을 역할 인스턴스로 라우�
 | `intervalInSeconds` | `integer` | (선택 사항) 상태에 대한 엔드포인트를 검색하는 빈도에 대한 간격(초)입니다. 일반적으로 간격은 인스턴스가 순환에서 제거되기 전에 전체 두 프로브를 허용하는 할당된 시간 제한 기간(초)의 절반보다 약간 더 짧습니다.<br /><br /> 기본값은 15이며 최소값은 5입니다.|
 | `timeoutInSeconds`  | `integer` | (선택 사항) 시간 제한 기간(초)은 응답이 없으면 엔드포인트에 향후 트래픽을 전달하지 않는 프로브에 적용됩니다. 이 값을 사용하면 엔드포인트를 Azure에서 사용되는 일반적인 시간에 비해 더 빠르거나 더 느리게 순환에서 제거할 수 있습니다.<br /><br /> 기본값은 31, 최소 값은 11입니다.|
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>관련 항목
 [Cloud Service(클래식) 정의 스키마](schema-csdef-file.md)

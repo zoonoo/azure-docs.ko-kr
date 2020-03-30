@@ -17,16 +17,16 @@ ms.reviewer: jroth
 experimental: true
 experimental_id: d51f3cc6-753b-4e
 ms.openlocfilehash: 4627d9c4fa5c87e8e80ab80892062dabd77e9229
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79249712"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>Azure에서 SQL Server Virtual Machine 연결(클래식 배포)
 > [!div class="op_single_selector"]
 > * [리소스 관리자](../sql/virtual-machines-windows-sql-connect.md)
-> * [클래식](../classic/sql-connect.md)
+> * [고전적인](../classic/sql-connect.md)
 > 
 > 
 
@@ -34,7 +34,7 @@ ms.locfileid: "79249712"
 이 항목에서는 Azure 가상 머신에서 실행되는 SQL Server 인스턴스에 연결하는 방법을 설명합니다. 여기서는 몇 가지 [일반 연결 시나리오](#connection-scenarios)를 다룬 다음 [Azure VM에서 SQL Server 연결을 구성하기 위한 상세 단계](#steps-for-configuring-sql-server-connectivity-in-an-azure-vm)를 제공합니다.
 
 > [!IMPORTANT] 
-> Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../../../azure-resource-manager/management/deployment-models.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. Resource Manager VM을 사용하는 경우 [Azure에서 Resource Manager를 사용하여 SQL Server Virtual Machine에 연결](../sql/virtual-machines-windows-sql-connect.md)을 참조하세요.
+> Azure에는 리소스 를 만들고 작업하기 위한 두 가지 배포 모델( [리소스 관리자 및 클래식.](../../../azure-resource-manager/management/deployment-models.md) 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. Resource Manager VM을 사용하는 경우 [Azure에서 Resource Manager를 사용하여 SQL Server Virtual Machine에 연결](../sql/virtual-machines-windows-sql-connect.md)을 참조하세요.
 
 ## <a name="connection-scenarios"></a>연결 시나리오
 클라이언트가 Virtual Machine을 실행 중인 SQL Server에 연결하는 방법은 클라이언트의 위치 및 컴퓨터/네트워킹 구성에 따라 달라집니다. 이 시나리오에는 다음이 포함됩니다.
@@ -87,10 +87,10 @@ ms.locfileid: "79249712"
 
 * [가상 컴퓨터에 대한 TCP 엔드포인트 만들기](#create-a-tcp-endpoint-for-the-virtual-machine)
 * [Windows 방화벽에서 TCP 포트 열기](#open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine)
-* [TCP 프로토콜에서 수신하도록 SQL Server 구성](#configure-sql-server-to-listen-on-the-tcp-protocol)
-* [혼합된 모드 인증에 대한 SQL Server 구성](#configure-sql-server-for-mixed-mode-authentication)
+* [TCP 프로토콜을 수신 대기하도록 SQL Server 구성](#configure-sql-server-to-listen-on-the-tcp-protocol)
+* [혼합 모드 인증을 위해 SQL Server 구성](#configure-sql-server-for-mixed-mode-authentication)
 * [SQL Server 인증 로그인 만들기](#create-sql-server-authentication-logins)
-* [가상 머신의 DNS 이름 확인](#determine-the-dns-name-of-the-virtual-machine)
+* [가상 시스템의 DNS 이름 확인](#determine-the-dns-name-of-the-virtual-machine)
 * [다른 컴퓨터에서 데이터베이스 엔진에 연결](#connect-to-the-database-engine-from-another-computer)
 
 연결 경로는 다음 다이어그램에 요약되어 있습니다.

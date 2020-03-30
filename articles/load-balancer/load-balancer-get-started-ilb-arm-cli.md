@@ -1,7 +1,7 @@
 ---
 title: 내부 기본 Load Balancer 만들기 - Azure CLI
 titleSuffix: Azure Load Balancer
-description: 이 문서에서는 Azure CLI를 사용 하 여 내부 부하 분산 장치를 만드는 방법을 알아봅니다.
+description: 이 문서에서는 Azure CLI를 사용하여 내부 로드 밸런서를 만드는 방법을 알아봅니다.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/27/2018
 ms.author: allensu
-ms.openlocfilehash: 8726991682ca8c2eabd628f1539ff940bf94e03d
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 51df1936e5d8725b2243e7c0084973370139c540
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79284110"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79457014"
 ---
 # <a name="create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli"></a>Azure CLI를 사용하여 VM 부하를 분산하는 내부 부하 분산 장치 만들기
 
@@ -26,7 +26,7 @@ ms.locfileid: "79284110"
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
-CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에서는 Azure CLI 버전 2.0.28 이상을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
+CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에서는 Azure CLI 버전 2.0.28 이상을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하십시오.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -39,9 +39,10 @@ CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서�
     --name myResourceGroupILB \
     --location eastus
 ```
+
 ## <a name="create-a-virtual-network"></a>가상 네트워크 만들기
 
-*az network vnet create*를 사용하여 *myResourceGroup*에 *mySubnet*이라는 서브넷이 있는 [myVnet](https://docs.microsoft.com/cli/azure/network/vnet) 가상 네트워크를 만듭니다.
+[az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet)를 사용하여 *myResourceGroup*에 *mySubnet*이라는 서브넷이 있는 *myVnet* 가상 네트워크를 만듭니다.
 
 ```azurecli-interactive
   az network vnet create \
@@ -50,6 +51,7 @@ CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서�
     --location eastus \
     --subnet-name mySubnet
 ```
+
 ## <a name="create-basic-load-balancer"></a>기본 부하 분산 장치 만들기
 
 이 섹션에서는 다음과 같은 부하 분산 장치 구성 요소를 만들고 구성하는 방법에 대해 자세히 설명합니다.
@@ -60,7 +62,7 @@ CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서�
 
 ### <a name="create-the-load-balancer"></a>부하 분산 장치 만들기
 
-**Myloadbalancer**엔드 라는 프런트 엔드 IP 구성을 포함 하는 **myloadbalancer** 라는 [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) 를 사용 하 여 내부 Load Balancer를 만듭니다. 여기에는 개인 IP 주소 * * 10.0.0.7와 연결 된 **myBackEndPool** 라는 백 엔드 풀이 포함 됩니다.
+[az 네트워크 lb가](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) 있는 내부 로드 **밸런서 생성myLoadBalancer를** 생성하여 **개인**IP 주소 **10.0.7과 연결된 **myBackEndPool이라는** 이름의 프런트 엔드 IP 구성을 포함합니다.
 
 ```azurecli-interactive
   az network lb create \
@@ -71,7 +73,8 @@ CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서�
     --backend-pool-name myBackEndPool \
     --vnet-name myVnet \
     --subnet mySubnet      
-  ```
+```
+
 ### <a name="create-the-health-probe"></a>상태 프로브 만들기
 
 상태 프로브는 모든 가상 머신 인스턴스를 검사하여 네트워크 트래픽을 받을 수 있는지 확인합니다. 프로브 검사에 실패한 가상 머신 인스턴스는 다시 온라인 상태가 되어 프로브 검사가 정상으로 나올 때까지 부하 분산 장치에서 제거됩니다. [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest)를 사용하여 가상 머신의 상태를 모니터링하는 상태 프로브를 만듭니다. 
@@ -87,7 +90,7 @@ CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서�
 
 ### <a name="create-the-load-balancer-rule"></a>부하 분산 장치 규칙 만들기
 
-부하 분산 장치 규칙은 들어오는 트래픽에 대한 프런트 엔드 IP 구성 및 트래픽을 받을 백 엔드 IP 풀과 필요한 원본 및 대상 포트를 함께 정의합니다. *az network lb rule create*를 사용하여 [myFrontEnd](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest) 프런트 엔드 풀의 80 포트에서 수신 대기하고, 마찬가지로 80 포트를 통해 부하 분산된 네트워크 트래픽을 *myBackEndPool* 백 엔드 주소 풀에 보내는 *myHTTPRule* 부하 분산 장치 규칙을 만듭니다. 
+부하 분산 장치 규칙은 들어오는 트래픽에 대한 프런트 엔드 IP 구성 및 트래픽을 받을 백 엔드 IP 풀과 필요한 원본 및 대상 포트를 함께 정의합니다. [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest)를 사용하여 *myFrontEnd* 프런트 엔드 풀의 80 포트에서 수신 대기하고, 마찬가지로 80 포트를 통해 부하 분산된 네트워크 트래픽을 *myBackEndPool* 백 엔드 주소 풀에 보내는 *myHTTPRule* 부하 분산 장치 규칙을 만듭니다. 
 
 ```azurecli-interactive
   az network lb rule create \
@@ -128,9 +131,9 @@ done
 
 ### <a name="create-an-availability-set"></a>가용성 집합 만들기
 
-[az vm availabilityset create](/cli/azure/network/nic)를 사용하여 가용성 집합을 만듭니다.
+[az vm 가용성](/cli/azure/network/nic) 집합을 만드는 가용성 집합 만들기
 
- ```azurecli-interactive
+```azurecli-interactive
   az vm availability-set create \
     --resource-group myResourceGroupILB \
     --name myAvailabilitySet
@@ -180,11 +183,11 @@ runcmd:
   - npm init
   - npm install express -y
   - nodejs index.js
-``` 
- 
+```
+
 [az vm create](/cli/azure/vm#az-vm-create)를 사용하여 가상 머신을 만듭니다.
 
- ```azurecli-interactive
+```azurecli-interactive
 for i in `seq 1 2`; do
   az vm create \
     --resource-group myResourceGroupILB \
@@ -196,6 +199,7 @@ for i in `seq 1 2`; do
     --custom-data cloud-init.txt
     done
 ```
+
 VM을 배포하는 데 몇 분 정도 걸릴 수 있습니다.
 
 ### <a name="create-a-vm-for-testing-the-load-balancer"></a>부하 분산 장치를 테스트할 VM 만들기
@@ -221,14 +225,15 @@ VM을 배포하는 데 몇 분 정도 걸릴 수 있습니다.
   az network lb show \
     --name myLoadBalancer \
     --resource-group myResourceGroupILB
-``` 
+```
+
 ![부하 분산 장치 테스트](./media/load-balancer-get-started-ilb-arm-cli/load-balancer-test.png)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
 더 이상 필요하지 않은 경우 [az group delete](/cli/azure/group#az-group-delete) 명령을 사용하여 리소스 그룹, 부하 분산 장치 및 모든 관련 리소스를 제거할 수 있습니다.
 
-```azurecli-interactive 
+```azurecli-interactive
   az group delete --name myResourceGroupILB
 ```
 

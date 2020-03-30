@@ -1,6 +1,6 @@
 ---
-title: 가상 네트워크 서비스 끝점-Azure Service Bus
-description: 이 문서에서는 가상 네트워크에 ServiceBus 서비스 끝점을 추가 하는 방법에 대 한 정보를 제공 합니다.
+title: Azure 서비스 버스에 대한 가상 네트워크 서비스 끝점 구성
+description: 이 문서에서는 가상 네트워크에 Microsoft.ServiceBus 서비스 끝점을 추가하는 방법에 대한 정보를 제공합니다.
 services: service-bus
 documentationcenter: ''
 author: axisc
@@ -10,42 +10,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/20/2019
 ms.author: aschhab
-ms.openlocfilehash: 212cd96571561362003e7dcbd89efc5d2c54ab48
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 9dbf65522d5c85e1054ed3f1f6ca9f86180e7f7d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980808"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79454984"
 ---
-# <a name="use-virtual-network-service-endpoints-with-azure-service-bus"></a>Azure Service Bus에서 Virtual Network 서비스 엔드포인트 사용
+# <a name="configure-virtual-network-service-endpoints-for-azure-service-bus"></a>Azure 서비스 버스에 대한 가상 네트워크 서비스 끝점 구성
 
-Service Bus와 [VNet (Virtual Network) 서비스 끝점][vnet-sep] 을 통합 하면 가상 네트워크에 바인딩된 가상 머신과 같은 워크 로드에서 메시지 기능에 안전 하 게 액세스할 수 있으며, 두 쪽 모두에서 네트워크 트래픽 경로를 안전 하 게 보호할 수 있습니다.
+서비스 버스와 [VNet(가상 네트워크) 서비스 엔드포인트를][vnet-sep] 통합하면 가상 네트워크에 바인딩된 가상 컴퓨터와 같은 워크로드에서 메시징 기능에 안전하게 액세스할 수 있으며 네트워크 트래픽 경로는 양쪽 끝에서 보호됩니다.
 
 적어도 하나의 가상 네트워크 서브넷 서비스 엔드포인트에 바인딩되도록 구성하면 해당하는 Service Bus 네임스페이스는 권한이 부여된 가상 네트워크를 제외한 곳의 트래픽을 더 이상 허용하지 않습니다. 가상 네트워크 큐브 뷰에서 Service Bus 네임스페이스를 서비스 엔드포인트에 바인딩하면 가상 네트워크 서브넷에서 메시징 서비스로 격리된 네트워킹 터널을 구성합니다.
 
 메시징 서비스 엔드포인트의 관찰 가능한 네트워크 주소가 공용 IP 범위에 있음에도 서브넷에 바인딩된 워크로드와 해당하는 Service Bus 네임스페이스 간에 격리된 프라이빗 관계가 생성됩니다.
 
->[!WARNING]
-> Virtual Networks 통합을 구현하면 다른 Azure 서비스가 Service Bus와 상호 작용하지 않도록 방지할 수 있습니다.
->
-> 신뢰할 수 있는 Microsoft 서비스는 Virtual Networks가 구현되는 시점에 지원되지 않습니다.
->
-> Virtual Networks가 작동하지 않는 일반적인 Azure 시나리오(목록은 전체 목록이 **아님**) -
-> - Azure Stream Analytics
-> - Azure Event Grid와 통합
-> - Azure IoT Hub 경로
-> - Azure IoT Device Explorer
->
-> 아래 Microsoft 서비스는 가상 네트워크에 있어야 합니다.
-> - Azure App Service
-> - Azure Function
-
 > [!IMPORTANT]
 > Virtual Network는 [프리미엄 계층](service-bus-premium-messaging.md) Service Bus 네임스페이스에서만 지원됩니다.
-
-## <a name="enable-service-endpoints-with-service-bus"></a>Service Bus에서 서비스 엔드포인트를 사용하도록 설정
-
-Service Bus에서 VNet 서비스 엔드포인트를 사용할 경우의 중요한 고려 사항은 표준 및 프리미엄 계층 Service Bus 네임스페이스를 혼합하는 애플리케이션에서는 이러한 엔드포인트를 사용하지 않아야 한다는 것입니다. 표준 계층은 VNet을 지원하지 않으므로, 엔드포인트는 프리미엄 계층 네임스페이스로만 제한됩니다.
+> 
+> 서비스 버스에서 VNet 서비스 끝점을 사용하는 경우 표준 계층 서비스 버스 네임스페이스와 프리미엄 계층 서비스 버스 네임스페이스를 혼합하는 응용 프로그램에서 이러한 끝점을 사용하도록 설정하면 안 됩니다. 표준 계층은 VNet을 지원하지 않기 때문입니다. 끝점은 프리미엄 계층 네임스페이스로만 제한됩니다.
 
 ## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>VNet 통합에서 사용하도록 설정한 고급 보안 시나리오 
 
@@ -59,12 +42,36 @@ TCP/IP에서 HTTPS를 수행하는 경로를 비롯한 구획 간의 즉시 IP �
 
 *가상 네트워크 규칙*은 Azure Service Bus 서버가 특정 가상 네트워크 서브넷의 연결을 수락할지 여부를 제어하는 방화벽 보안 기능입니다.
 
-Virtual Networks에 Service Bus를 바인딩하는 작업은 2단계 프로세스입니다. 먼저 Virtual Network 서브넷에 **Virtual Network 서비스 끝점** 을 만들고 [서비스 끝점 개요][vnet-sep]에 설명 된 대로 "ServiceBus"에 대해 사용 하도록 설정 해야 합니다. 서비스 엔드포인트를 추가했다면 여기에 *가상 네트워크 규칙*을 사용하여 Service Bus 네임스페이스를 바인딩합니다.
+Virtual Networks에 Service Bus를 바인딩하는 작업은 2단계 프로세스입니다. 먼저 가상 네트워크 서브넷에 **가상 네트워크 서비스 끝점을** 만들고 [서비스 끝점 개요에][vnet-sep]설명된 대로 **Microsoft.ServiceBus에** 사용하도록 설정해야 합니다. 서비스 엔드포인트를 추가했다면 여기에 **가상 네트워크 규칙**을 사용하여 Service Bus 네임스페이스를 바인딩합니다.
 
 가상 네트워크 규칙은 가상 네트워크 서브넷을 사용하는 Service Bus 네임스페이스의 연결입니다. 규칙이 있는 한 서브넷에 바인딩된 모든 워크로드는 Service Bus 네임스페이스에 대한 액세스 권한이 부여됩니다. Service Bus 자체는 아웃바운드 연결을 설정하지 않고, 액세스 권한을 가져올 필요도 없습니다. 따라서 이 규칙을 사용하여 서브넷에 대한 액세스 권한이 부여되지 않습니다.
 
-### <a name="creating-a-virtual-network-rule-with-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 가상 네트워크 규칙 만들기
+## <a name="use-azure-portal"></a>Azure Portal 사용
+이 섹션에서는 Azure 포털을 사용하여 가상 네트워크 서비스 끝점을 추가하는 방법을 보여 주며, 이 섹션에서는 액세스를 제한하려면 이 이벤트 허브 네임스페이스에 대한 가상 네트워크 서비스 끝점을 통합해야 합니다.
 
+1. [Azure 포털에서](https://portal.azure.com) **서비스 버스 네임스페이스로** 이동합니다.
+2. 왼쪽 메뉴에서 **네트워킹** 옵션을 선택합니다. 기본적으로 모든 **네트워크** 옵션이 선택됩니다. 네임스페이스는 모든 IP 주소의 연결을 허용합니다. 이러한 기본 설정은 0.0.0.0/0 IP 주소 범위를 수락하는 규칙과 같습니다. 
+
+    ![방화벽 - 선택한 모든 네트워크 옵션](./media/service-endpoints/firewall-all-networks-selected.png)
+1. 페이지 상단에서 **선택한 네트워크** 옵션을 선택합니다.
+2. 페이지의 **가상 네트워크** 섹션에서 **+기존 가상 네트워크 추가를**선택합니다. 
+
+    ![기존 가상 네트워크 추가](./media/service-endpoints/add-vnet-menu.png)
+3. 가상 네트워크 목록에서 가상 네트워크를 선택한 다음 **서브넷을**선택합니다. 목록에 가상 네트워크를 추가하기 전에 서비스 끝점을 사용하도록 설정해야 합니다. 서비스 끝점을 사용하도록 설정하지 않으면 포털에서 이를 사용하도록 설정하라는 메시지가 표시됩니다.
+   
+   ![서브넷 선택](./media/service-endpoints/select-subnet.png)
+
+4. 서브넷에 대한 서비스 끝점이 **Microsoft.ServiceBus**에 대해 활성화된 후 다음과 같은 성공적인 메시지가 표시됩니다. 페이지를 추가하려면 페이지 하단에 **추가를** 선택합니다. 
+
+    ![서브넷 선택 및 엔드포인트 설정](./media/service-endpoints/subnet-service-endpoint-enabled.png)
+
+    > [!NOTE]
+    > 서비스 끝점을 활성화할 수 없는 경우 Resource Manager 템플릿을 사용하여 누락된 가상 네트워크 서비스 끝점을 무시할 수 있습니다. 이 기능은 포털에서 사용할 수 없습니다.
+6. 설정을 저장하려면 도구 모음에 **저장을** 선택합니다. 확인이 포털 알림에 표시될 때까지 몇 분 동안 기다립니다. **저장** 단추를 사용하지 않도록 설정해야 합니다. 
+
+    ![네트워크 저장](./media/service-endpoints/save-vnet.png)
+
+## <a name="use-resource-manager-template"></a>Resource Manager 템플릿 사용
 다음과 같은 Resource Manager 템플릿을사용 하면 기존 Service Bus 네임스페이스에 가상 네트워크 규칙을 추가할 수 있습니다.
 
 템플릿 매개 변수:
@@ -178,6 +185,7 @@ Virtual Networks에 Service Bus를 바인딩하는 작업은 2단계 프로세�
             }
           ],
           "ipRules":[<YOUR EXISTING IP RULES>],
+          "trustedServiceAccessEnabled": false,          
           "defaultAction": "Deny"
         }
       }
@@ -186,13 +194,13 @@ Virtual Networks에 Service Bus를 바인딩하는 작업은 2단계 프로세�
   }
 ```
 
-템플릿을 배포 하려면 [Azure Resource Manager][lnk-deploy]에 대 한 지침을 따르세요.
+템플릿을 배포하려면 [Azure Resource Manager][lnk-deploy]에 대한 지침을 따르세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 가상 네트워크에 대한 자세한 내용은 다음 링크를 참조하세요.
 
-- [Azure 가상 네트워크 서비스 끝점][vnet-sep]
+- [Azure 가상 네트워크 서비스 엔드포인트][vnet-sep]
 - [Azure Service Bus IP 필터링][ip-filtering]
 
 [vnet-sep]: ../virtual-network/virtual-network-service-endpoints-overview.md

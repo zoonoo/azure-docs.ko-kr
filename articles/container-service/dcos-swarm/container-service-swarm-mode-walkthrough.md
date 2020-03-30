@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: iainfou
 ms.custom: ''
-ms.openlocfilehash: 5f492dd2bd270d3f067c05c1dc2235d54e481847
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: d4bbd5560681aa73709019e87c6c22470a64ad78
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76274871"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79481741"
 ---
 # <a name="deprecated-deploy-docker-ce-cluster"></a>(사용되지 않음) Docker CE 클러스터 배포
 
@@ -53,7 +53,7 @@ az group create --name myResourceGroup --location westus2
 
 ## <a name="create-docker-swarm-cluster"></a>Docker Swarm 클러스터 만들기
 
-[az acs create](/cli/azure/acs#az-acs-create) 명령을 사용하여 Azure Container Service에서 Docker CE 클러스터를 만듭니다. Docker CE의 사용 가능한 지역에 대한 자세한 내용은 [Docker CE의 ACS 지역](https://github.com/Azure/ACS/blob/master/announcements/2017-08-04_additional_regions.md)을 참조하세요.
+[az acs create](/cli/azure/acs#az-acs-create) 명령을 사용하여 Azure Container Service에서 Docker CE 클러스터를 만듭니다. Docker CE의 지역 가용성에 대한 자세한 내용은 [Docker CE의 ACS 지역을](https://github.com/Azure/ACS/blob/master/announcements/2017-08-04_additional_regions.md) 참조하십시오.
 
 다음 예제에서는 하나의 Linux 마스터 노드와 세 개의 Linux 에이전트 노드가 있는 *mySwarmCluster*라는 클러스터를 만듭니다.
 
@@ -67,16 +67,15 @@ az acs create --name mySwarmCluster --orchestrator-type dockerce --resource-grou
 
 ## <a name="connect-to-the-cluster"></a>클러스터에 연결
 
-이 빠른 시작 전체에서 Docker Swarm 마스터와 Docker 에이전트 풀의 FQDN이 모두 필요합니다. 마스터 및 에이전트 FQDN을 모두 반환하려면 다음 명령을 실행합니다.
+이 빠른 시작 을 통해 Docker 군단 마스터와 Docker 에이전트 풀의 FQDN이 필요합니다. 마스터 및 에이전트 FQDN을 모두 반환하려면 다음 명령을 실행합니다.
 
-
-```bash
+```azurecli
 az acs list --resource-group myResourceGroup --query '[*].{Master:masterProfile.fqdn,Agent:agentPoolProfiles[0].fqdn}' -o table
 ```
 
 출력:
 
-```bash
+```output
 Master                                                               Agent
 -------------------------------------------------------------------  --------------------------------------------------------------------
 myswarmcluster-myresourcegroup-d5b9d4mgmt.ukwest.cloudapp.azure.com  myswarmcluster-myresourcegroup-d5b9d4agent.ukwest.cloudapp.azure.com
@@ -125,7 +124,7 @@ docker stack deploy azure-vote --compose-file azure-vote.yaml
 
 출력:
 
-```bash
+```output
 Creating network azure-vote_default
 Creating service azure-vote_azure-vote-back
 Creating service azure-vote_azure-vote-front
@@ -139,7 +138,7 @@ docker stack ps azure-vote
 
 각 서비스의 `CURRENT STATE`가 `Running`이면 애플리케이션이 준비된 것입니다.
 
-```bash
+```output
 ID                  NAME                            IMAGE                                 NODE                               DESIRED STATE       CURRENT STATE                ERROR               PORTS
 tnklkv3ogu3i        azure-vote_azure-vote-front.1   microsoft/azure-vote-front:v1   swarmm-agentpool0-66066781000004   Running             Running 5 seconds ago                            
 lg99i4hy68r9        azure-vote_azure-vote-back.1    redis:latest                          swarmm-agentpool0-66066781000002   Running             Running about a minute ago
@@ -160,13 +159,13 @@ az group delete --name myResourceGroup --yes --no-wait
 
 ## <a name="get-the-code"></a>코드 가져오기
 
-이 빠른 시작에서는 Docker 서비스를 만드는 데 미리 생성된 컨테이너 이미지를 사용했습니다. 관련된 애플리케이션 코드, Dockerfile 및 Compose 파일을 GitHub에서 사용할 수 있습니다.
+이 빠른 시작에서는 미리 만들어진 컨테이너 이미지가 Docker 서비스를 만드는 데 사용되었습니다. 관련된 애플리케이션 코드, Dockerfile 및 Compose 파일을 GitHub에서 사용할 수 있습니다.
 
 [https://github.com/Azure-Samples/azure-voting-app-redis](https://github.com/Azure-Samples/azure-voting-app-redis.git)
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 Docker Swarm 클러스터를 배포하고, 이 클러스터에 다중 컨테이너 애플리케이션을 배포했습니다.
+이 빠른 시작에서는 Docker Swarm 클러스터를 배포하고 다중 컨테이너 응용 프로그램을 배포했습니다.
 
 Docker Swarm을 Azure DevOps와 통합하는 방법에 대해 알아보려면 Docker Swarm 및 Azure DevOps를 사용하는 CI/CD를 진행합니다.
 

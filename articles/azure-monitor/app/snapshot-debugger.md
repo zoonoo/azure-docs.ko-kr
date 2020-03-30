@@ -1,24 +1,24 @@
 ---
-title: .NET 앱 용 Azure 애플리케이션 Insights 스냅숏 디버거
+title: .NET 앱에 대한 Azure 응용 프로그램 인사이트 스냅샷 디버거
 description: 프로덕션 .NET 앱에서 예외가 throw되면 디버그 스냅샷이 자동으로 수집됨
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.reviewer: cweining
 ms.openlocfilehash: 18f43ba90157d71ec9488b6858fa9f41b2ee42a5
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79275764"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>.NET 앱의 예외에 대한 디버그 스냅샷
-예외가 발생할 때 라이브 웹 애플리케이션에서 자동으로 디버그 스냅샷을 수집할 수 있습니다. 스냅샷은 예외가 throw되었을 때의 소스 코드 및 변수의 상태를 보여 줍니다. [Azure 애플리케이션 Insights](../../azure-monitor/app/app-insights-overview.md) 의 스냅숏 디버거는 웹 앱에서 예외 원격 분석을 모니터링 합니다. 프로덕션에서 문제를 진단하는 데 필요한 정보를 유지하도록 많이 throw되는 예외에 대한 스냅샷을 수집합니다. 응용 프로그램에 [스냅숏 수집기 NuGet 패키지](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) 를 포함 하 고 필요에 따라 [applicationinsights](../../azure-monitor/app/configuration-with-applicationinsights-config.md)에서 컬렉션 매개 변수를 구성 합니다. 스냅숏은 Application Insights 포털의 [예외](../../azure-monitor/app/asp-net-exceptions.md) 에 표시 됩니다.
+예외가 발생할 때 라이브 웹 애플리케이션에서 자동으로 디버그 스냅샷을 수집할 수 있습니다. 스냅샷은 예외가 throw되었을 때의 소스 코드 및 변수의 상태를 보여 줍니다. Azure 응용 프로그램 [Insights의](../../azure-monitor/app/app-insights-overview.md) 스냅숏 디버거는 웹 앱의 예외 원격 분석을 모니터링합니다. 프로덕션에서 문제를 진단하는 데 필요한 정보를 유지하도록 많이 throw되는 예외에 대한 스냅샷을 수집합니다. 응용 프로그램에 [스냅숏 수집기 NuGet 패키지를](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) 포함하고 [ApplicationInsights.config에서](../../azure-monitor/app/configuration-with-applicationinsights-config.md)선택적으로 컬렉션 매개 변수를 구성합니다. 스냅숏은 응용 프로그램 인사이트 포털의 [예외에](../../azure-monitor/app/asp-net-exceptions.md) 나타납니다.
 
-포털에서 디버그 스냅샷을 확인하여 호출 스택을 보고 각 호출 스택 프레임에서 변수를 검사할 수 있습니다. 소스 코드를 사용 하 여 보다 강력한 디버깅 환경을 얻으려면 Visual Studio 2019 Enterprise에서 스냅숏을 엽니다. 또한 Visual Studio에서 예외를 기다리지 않고 [snappoint에서 대화형으로 스냅샷을 만들도록 설정](https://aka.ms/snappoint)할 수도 있습니다.
+포털에서 디버그 스냅샷을 확인하여 호출 스택을 보고 각 호출 스택 프레임에서 변수를 검사할 수 있습니다. 소스 코드로 보다 강력한 디버깅 환경을 얻으려면 Visual Studio 2019 Enterprise에서 스냅샷을 엽니다. 또한 Visual Studio에서 예외를 기다리지 않고 [snappoint에서 대화형으로 스냅샷을 만들도록 설정](https://aka.ms/snappoint)할 수도 있습니다.
 
-디버그 스냅숏은 15 일 동안 저장 됩니다. 이 보존 정책은 애플리케이션 단위로 설정됩니다. 이 값을 늘려야 하는 경우 Azure Portal에서 지원 사례를 열어 증가를 요청할 수 있습니다.
+디버그 스냅숏은 15일 동안 저장됩니다. 이 보존 정책은 애플리케이션 단위로 설정됩니다. 이 값을 늘려야 하는 경우 Azure Portal에서 지원 사례를 열어 증가를 요청할 수 있습니다.
 
-## <a name="enable-application-insights-snapshot-debugger-for-your-application"></a>응용 프로그램에 대 한 Application Insights 스냅숏 디버거 사용
+## <a name="enable-application-insights-snapshot-debugger-for-your-application"></a>애플리케이션용 애플리케이션 인사이트 스냅샷 디버거 사용
 스냅샷 컬렉션을 다음에 사용할 수 있습니다.
 * .NET Framework 및 .NET Framework 4.5 이상을 실행하는 ASP.NET 애플리케이션
 * .NET Core 2.0 및 Windows에서 실행되는 ASP.NET Core 2.0 애플리케이션
@@ -26,15 +26,15 @@ ms.locfileid: "79275764"
 다음 환경이 지원됩니다.
 
 * [Azure App Service](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)
-* OS 제품군 4 이상을 실행 하는 [Azure Cloud Services](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
-* Windows Server 2012 R2 이상에서 실행 되는 [Azure Service Fabric 서비스](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
-* Windows Server 2012 R2 이상을 실행 [하는 Azure Virtual Machines 및 가상 머신 확장 집합](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
-* Windows Server 2012 R2 이상 또는 Windows 8.1 이상을 실행 하는 온 [-프레미스 가상 또는 물리적 컴퓨터](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
+* OS 제품군 4 이상실행 중인 [Azure 클라우드 서비스](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
+* Windows 서버 2012 R2 이상에서 실행되는 [Azure 서비스 패브릭 서비스](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
+* Windows Server 2012 R2 이상 실행 중인 [Azure 가상 컴퓨터 및 가상 컴퓨터 규모 집합](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
+* Windows Server 2012 R2 이상 또는 Windows 8.1 이후를 실행하는 [온-프레미스 가상 또는 물리적 컴퓨터](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 
 > [!NOTE]
 > 클라이언트 애플리케이션(예를 들어, WPF, Windows Forms 또는 UWP)은 지원되지 않습니다.
 
-스냅숏 디버거 사용 하도록 설정 했지만 스냅숏이 표시 되지 않는 경우 [문제 해결 가이드](snapshot-debugger-troubleshoot.md?toc=/azure/azure-monitor/toc.json)를 확인 하세요.
+스냅샷 디버거를 활성화했지만 스냅샷이 표시되지 않는 경우 [문제 해결 가이드를](snapshot-debugger-troubleshoot.md?toc=/azure/azure-monitor/toc.json)확인하십시오.
 
 ## <a name="grant-permissions"></a>권한 부여
 
@@ -46,7 +46,7 @@ ms.locfileid: "79275764"
 구독 소유자는 스냅샷을 검사할 사용자에게 `Application Insights Snapshot Debugger` 역할을 할당해야 합니다. 대상 Application Insights 리소스 또는 리소스 그룹이나 구독에 대한 구독 소유자가 개별 사용자 또는 그룹에 이 역할을 할당할 수 있습니다.
 
 1. Azure Portal에서 Application Insights 리소스로 이동합니다.
-1. **액세스 제어(IAM)** 를 클릭합니다.
+1. **액세스 제어(IAM)를 클릭합니다.**
 1. **+역할 할당 추가** 단추를 클릭합니다.
 1. **역할** 드롭다운 목록에서 **Application Insights 스냅샷 디버거**를 선택합니다.
 1. 추가할 사용자의 이름을 검색하고 입력합니다.
@@ -56,13 +56,13 @@ ms.locfileid: "79275764"
 > [!IMPORTANT]
 > 스냅샷은 변수 및 매개 변수 값의 개인 정보 및 기타 중요한 정보를 포함할 수 있습니다.
 
-## <a name="view-snapshots-in-the-portal"></a>포털에서 스냅숏 보기
+## <a name="view-snapshots-in-the-portal"></a>포털에서 스냅샷 보기
 
-응용 프로그램에서 예외가 발생 하 여 스냅숏이 생성 된 후에는 볼 스냅숏이 있어야 합니다. 스냅숏에서 준비를 하 고 포털에서 볼 수 있는 경우 발생 하는 예외부터 5 ~ 10 분 정도 걸릴 수 있습니다. 스냅숏을 보려면 **실패** 창에서 **작업** 탭을 볼 때 **작업** 단추를 선택 하거나 **예외** 탭을 볼 때 **예외** 단추를 선택 합니다.
+응용 프로그램에서 예외가 발생하고 스냅숏이 생성된 후에는 볼 스냅숏이 있어야 합니다. 발생하는 예외에서 포털에서 볼 수 있는 스냅샷에 이르기까지 5~10분이 걸릴 수 있습니다. 스냅샷을 보려면 **실패** 창에서 **작업** 단추를 선택하거나 **Operations** 예외 탭을 볼 때 **예외 단추를** **선택합니다.**
 
-![오류 페이지](./media/snapshot-debugger/failures-page.png)
+![실패 페이지](./media/snapshot-debugger/failures-page.png)
 
-오른쪽 창에서 작업 또는 예외를 선택 하 여 종단 간 **트랜잭션 세부 정보** 창을 연 다음 예외 이벤트를 선택 합니다. 지정 된 예외에 대해 스냅숏을 사용할 수 있는 경우 오른쪽 창에 [예외](../../azure-monitor/app/asp-net-exceptions.md)에 대 한 세부 정보와 함께 **디버그 스냅숏 열기** 단추가 표시 됩니다.
+오른쪽 창에서 작업 또는 예외를 선택하여 **종단 간 트랜잭션 세부 정보** 창을 연 다음 예외 이벤트를 선택합니다. 지정된 예외에 대해 스냅숏을 사용할 수 있는 경우 오른쪽 창에 [예외에](../../azure-monitor/app/asp-net-exceptions.md)대한 세부 정보가 있는 **디버그 스냅숏 열기** 버튼이 나타납니다.
 
 ![예외에서 디버그 스냅샷 열기 단추](./media/snapshot-debugger/e2e-transaction-page.png)
 
@@ -72,10 +72,10 @@ ms.locfileid: "79275764"
 
 중요한 정보가 스냅샷에 포함될 수 있으며 기본적으로 표시되지 않습니다. 스냅샷을 보려면 `Application Insights Snapshot Debugger` 역할이 할당되어 있어야 합니다.
 
-## <a name="view-snapshots-in-visual-studio-2017-enterprise-or-above"></a>Visual Studio 2017 Enterprise 이상에서 스냅숏 보기
-1. **스냅숏 다운로드** 단추를 클릭 하 여 Visual Studio Enterprise에서 열 수 있는 `.diagsession` 파일을 다운로드 합니다.
+## <a name="view-snapshots-in-visual-studio-2017-enterprise-or-above"></a>비주얼 스튜디오 2017 엔터프라이즈 이상의 스냅샷 보기
+1. 스냅샷 **다운로드** 버튼을 클릭하여 `.diagsession` Visual Studio Enterprise에서 열 수 있는 파일을 다운로드합니다.
 
-2. `.diagsession` 파일을 열려면 스냅숏 디버거 Visual Studio 구성 요소가 설치 되어 있어야 합니다. 스냅숏 디버거 구성 요소는 Visual Studio에서 ASP.net 워크 로드의 필수 구성 요소 이며 Visual Studio 설치 관리자의 개별 구성 요소 목록에서 선택할 수 있습니다. Visual Studio 2017 버전 15.5 이전 버전의 Visual Studio를 사용 하는 경우 [Visual Studio Marketplace](https://aka.ms/snapshotdebugger)에서 확장을 설치 해야 합니다.
+2. `.diagsession` 파일을 열려면 스냅숏 디버거 Visual Studio 구성 요소를 설치해야 합니다. 스냅숏 디버거 구성 요소는 Visual Studio에서 ASP.net 워크로드의 필수 구성 요소이며 Visual Studio 설치 관리자의 개별 구성 요소 목록에서 선택할 수 있습니다. Visual Studio 2017 버전 15.5 이전에 Visual Studio 버전을 사용하는 경우 Visual Studio [마켓플레이스에서](https://aka.ms/snapshotdebugger)확장을 설치해야 합니다.
 
 3. 스냅샷 파일을 연 후에 Visual Studio에서 미니덤프 디버깅 페이지가 표시됩니다. **관리 코드 디버그**를 클릭하여 스냅샷을 디버깅하기 시작합니다. 예외가 throw되는 코드 줄에 스냅샷이 열리고 프로세스의 현재 상태를 디버그할 수 있습니다.
 
@@ -104,7 +104,7 @@ ms.locfileid: "79275764"
 
 ## <a name="limitations"></a>제한 사항
 
-기본 데이터 보존 기간은 15 일입니다. 각 Application Insights 인스턴스에 대해 하루에 최대 50 개의 스냅숏이 허용 됩니다.
+기본 데이터 보존 기간은 15일입니다. 각 Application Insights 인스턴스에 대해 하루에 최대 50개의 스냅숏이 허용됩니다.
 
 ### <a name="publish-symbols"></a>기호 게시
 스냅샷 디버거를 사용하려면 Visual Studio에서 변수를 디코딩하고 디버깅 환경을 제공하기 위해 프로덕션 서버에 기호 파일이 있어야 합니다.
@@ -117,8 +117,8 @@ Visual Studio 2017의 15.2 버전 이상은 App Service에 게시할 때 기본�
 Azure Compute 및 기타 형식의 경우 기호 파일이 주 애플리케이션 .dll의 동일한 폴더(일반적으로 `wwwroot/bin`)에 있거나 현재 경로에서 사용할 수 있는지 확인합니다.
 
 > [!NOTE]
-> 사용할 수 있는 다른 기호 옵션에 대 한 자세한 내용은 [Visual Studio 설명서](https://docs.microsoft.com/visualstudio/ide/reference/advanced-build-settings-dialog-box-csharp?view=vs-2019#output
-)를 참조 하세요. 최상의 결과를 위해서는 "Full", "이식 가능" 또는 "포함"을 사용 하는 것이 좋습니다.
+> 사용 가능한 다양한 기호 옵션에 대한 자세한 내용은 [Visual Studio 설명서를](https://docs.microsoft.com/visualstudio/ide/reference/advanced-build-settings-dialog-box-csharp?view=vs-2019#output
+)참조하십시오. 최상의 결과를 얻으려면 "전체", "휴대용" 또는 "임베디드"를 사용하는 것이 좋습니다.
 
 ### <a name="optimized-builds"></a>최적화된 빌드
 경우에 따라 JIT 컴파일러에서 적용한 최적화로 인해 릴리스 빌드에서 지역 변수가 표시되지 않습니다.
@@ -128,15 +128,15 @@ Azure Compute 및 기타 형식의 경우 기호 파일이 주 애플리케이�
 > 최적화 해제 지원을 받으려면 Application Insights 사이트 확장을 App Service에 설치합니다.
 
 ## <a name="next-steps"></a>다음 단계
-응용 프로그램에 대 한 Application Insights 스냅숏 디버거를 사용 하도록 설정 합니다.
+애플리케이션에 대한 애플리케이션 인사이트 스냅샷 디버거 사용:
 
 * [Azure App Service](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)
-* [Azure Cloud Services](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
-* [Azure Service Fabric 서비스](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
+* [Azure 클라우드 서비스](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
+* [Azure 서비스 패브릭 서비스](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Virtual Machines 및 Virtual Machine Scale Sets](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 * [온-프레미스 가상 또는 물리적 컴퓨터](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 
-Application Insights 스냅숏 디버거 이상:
+애플리케이션 인사이트 를 넘어 스냅샷 디버거:
  
 * 예외를 기다리지 않고 스냅샷을 가져오기 위해 [코드에서 snappoint를 설정](https://docs.microsoft.com/visualstudio/debugger/debug-live-azure-applications)합니다.
 * [웹앱의 예외 진단](../../azure-monitor/app/asp-net-exceptions.md)에서는 Application Insights에서 추가 예외를 표시하는 방법을 설명합니다.

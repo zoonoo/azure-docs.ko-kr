@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/13/2019
 ms.openlocfilehash: a04ca3768ade6058c59393591c252bc4347a3663
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79275205"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Azure Monitor의 모니터링 솔루션
@@ -21,26 +21,26 @@ ms.locfileid: "79275205"
 
 모니터링 솔루션은 일반적으로 로그 데이터를 수집하고, 수집된 데이터를 분석하기 위한 쿼리 및 보기를 제공합니다. 또한 Azure Automation 같은 다른 서비스를 활용하여 애플리케이션이나 서비스와 관련된 작업을 수행합니다.
 
-사용하는 애플리케이션 및 서비스의 Azure Monitor에 모니터링 솔루션을 추가할 수 있습니다. 일반적으로 무료로 사용할 수 있지만 사용 요금을 호출할 수 있는 데이터를 수집 합니다. Microsoft에서 제공한 솔루션 외에도 파트너 및 고객은 자신의 환경에서 사용하거나 커뮤니티를 통해 고객이 이용할 수 있는 [관리 솔루션을 만들 수 있습니다](solutions-creating.md).
+사용하는 애플리케이션 및 서비스의 Azure Monitor에 모니터링 솔루션을 추가할 수 있습니다. 일반적으로 사용 요금을 호출할 수 있는 데이터를 수집하지만 비용은 비용 없이 사용할 수 있습니다. Microsoft에서 제공한 솔루션 외에도 파트너 및 고객은 자신의 환경에서 사용하거나 커뮤니티를 통해 고객이 이용할 수 있는 [관리 솔루션을 만들 수 있습니다](solutions-creating.md).
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="use-monitoring-solutions"></a>모니터링 솔루션 사용
 Azure Monitor의 **개요** 페이지를 열면 작업 영역에 설치된 각 솔루션의 타일이 표시됩니다. 
 
-1. [Azure 포털](https://ms.portal.azure.com)로 이동합니다. **모니터**를 검색 하 고 선택 합니다.
+1. [Azure 포털로](https://ms.portal.azure.com)이동합니다. 을 검색하고 **선택합니다.**
 1. **인사이트** 메뉴 아래에서 **자세히**를 선택합니다.
 1. 타일에 사용되는 작업 영역 또는 시간 범위를 변경하려면 화면 맨 위에 있는 드롭다운 상자를 사용합니다.
-1. 솔루션에 대 한 타일을 클릭 하 여 수집 된 데이터의 자세한 분석을 포함 하는 보기를 엽니다.
+1. 타일을 클릭하여 수집된 데이터를 보다 자세한 분석이 포함된 뷰를 엽니다.
 
 ![개요](media/solutions/overview.png)
 
-모니터링 솔루션은 여러 유형의 Azure 리소스를 포함할 수 있으며, 다른 리소스와 마찬가지로 솔루션에 포함된 모든 리소스를 볼 수 있습니다. 예를 들어 솔루션에 포함된 모든 로그 쿼리는 **쿼리 탐색기**의 [솔루션 쿼리](../log-query/get-started-portal.md#load-queries) 아래에 표시됩니다. [로그 쿼리](../log-query/log-query-overview.md)를 사용하여 임시 분석을 수행할 때 해당 쿼리를 사용할 수 있습니다.
+모니터링 솔루션은 여러 유형의 Azure 리소스를 포함할 수 있으며, 다른 리소스와 마찬가지로 솔루션에 포함된 모든 리소스를 볼 수 있습니다. 예를 들어 솔루션에 포함된 모든 로그 쿼리는 [쿼리 탐색기](../log-query/get-started-portal.md#load-queries)의 **솔루션 쿼리** 아래에 표시됩니다. [로그 쿼리](../log-query/log-query-overview.md)를 사용하여 임시 분석을 수행할 때 해당 쿼리를 사용할 수 있습니다.
 
 ## <a name="list-installed-monitoring-solutions"></a>설치된 모니터링 솔루션 나열 
 다음 절차를 사용하여 구독에 설치된 모니터링 솔루션을 나열할 수 있습니다.
 
-1. [Azure 포털](https://ms.portal.azure.com)로 이동합니다. **솔루션**을 검색 하 고 선택 합니다.
+1. [Azure 포털로](https://ms.portal.azure.com)이동합니다. **솔루션을**검색하고 선택합니다.
 1. 모든 작업 영역에 설치된 솔루션이 나열됩니다. 솔루션 이름 뒤에는 솔루션이 설치된 작업 영역의 이름이 나옵니다.
 1. 화면 맨 위에 있는 드롭다운 상자를 사용하여 구독 또는 리소스 그룹으로 필터링할 수 있습니다.
 
@@ -57,10 +57,10 @@ Azure Monitor의 **개요** 페이지를 열면 작업 영역에 설치된 각 �
 Microsoft 및 파트너의 모니터링 솔루션은 [Azure Marketplace](https://azuremarketplace.microsoft.com)에서 사용할 수 있습니다. 다음 절차를 사용하여 사용 가능한 솔루션을 검색하고 설치할 수 있습니다. 솔루션을 설치할 때 솔루션이 설치되고 데이터가 수집될 [Log Analytics 작업 영역](../platform/manage-access.md)을 선택해야 합니다.
 
 1. [구독의 솔루션 목록](#list-installed-monitoring-solutions)에서 **추가**를 클릭합니다.
-1. 솔루션을 찾아보거나 검색 합니다. 또한 [이 검색 링크](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/management-tools?page=1&subcategories=management-solutions)에서 솔루션을 찾아볼 수 있습니다.
+1. 솔루션을 찾아보거나 검색합니다. [이 검색 링크에서](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/management-tools?page=1&subcategories=management-solutions)솔루션을 찾아볼 수도 있습니다.
 1. 원하는 모니터링 솔루션을 찾아서 해당 설명을 자세히 읽습니다.
 1. 설치 프로세스를 시작하려면 **만들기**를 클릭합니다.
-1. 설치 프로세스가 시작 되 면 Log Analytics 작업 영역을 지정 하 고 솔루션에 필요한 구성을 제공 하 라는 메시지가 표시 됩니다.
+1. 설치 프로세스가 시작되면 Log Analytics 작업 영역을 지정하고 솔루션에 필요한 구성을 제공하라는 메시지가 표시됩니다.
 
 ![솔루션 설치](media/solutions/install-solution.png)
 
@@ -86,7 +86,7 @@ Microsoft 및 파트너의 모니터링 솔루션은 [Azure Marketplace](https:/
 ### <a name="create-a-link-between-a-log-analytics-workspace-and-automation-account"></a>Log Analytics 작업 영역 및 Automation 계정 간의 링크 만들기
 Log Analytics 작업 영역 및 Automation 계정을 지정하는 방법은 솔루션의 설치 방법에 따라 달라집니다.
 
-* Azure Marketplace를 통해 솔루션을 설치 하는 경우 작업 영역 및 Automation 계정을 묻는 메시지가 표시 됩니다. 작업 영역과 계정이 아직 서로 연결되지 않았으면 둘 사이에 연결이 만들어집니다.
+* Azure 마켓플레이스를 통해 솔루션을 설치하면 작업 영역 및 자동화 계정에 대한 메시지가 표시됩니다. 작업 영역과 계정이 아직 서로 연결되지 않았으면 둘 사이에 연결이 만들어집니다.
 * Azure Marketplace의 외부 솔루션의 경우 솔루션을 설치하기 전에 Log Analytics 작업 영역 및 Automation 계정을 연결해야 합니다. Azure Marketplace에서 솔루션을 선택하고 Log Analytics 작업 영역 및 Automation 계정을 선택하여 이를 수행할 수 있습니다. Log Analytics 작업 영역 및 Automation 계정을 선택하는 즉시 연결이 만들어지기 때문에 솔루션을 직접 설치할 필요가 없습니다. 링크가 만들어지면 솔루션의 해당 Log Analytics 작업 영역 및 Automation 계정을 사용할 수 있습니다.
 
 ### <a name="verify-the-link-between-a-log-analytics-workspace-and-automation-account"></a>Log Analytics 작업 영역 및 Automation 계정 간의 링크 확인

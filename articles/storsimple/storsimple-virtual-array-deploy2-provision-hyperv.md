@@ -16,10 +16,10 @@ ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 9d3f4f4ab6cc1c928761fce740d39f3f73426e62
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79267535"
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-hyper-v"></a>StorSimple 가상 배열 배포 - Hyper-V에서 프로비전
@@ -40,7 +40,7 @@ ms.locfileid: "79267535"
 시작하기 전에 다음 사항을 확인합니다.
 
 * [StorSimple 가상 배열용 포털 준비](storsimple-virtual-array-deploy1-portal-prep.md)의 모든 단계를 완료했습니다.
-* Azure Portal에서 Hyper-V용 가상 배열 이미지를 다운로드했습니다. 자세한 내용은 **StorSimple 가상 배열을 위한 포털 준비 가이드**의 [3단계: 가상 배열 이미지 다운로드](storsimple-virtual-array-deploy1-portal-prep.md)를 참조하세요.
+* Azure Portal에서 Hyper-V용 가상 배열 이미지를 다운로드했습니다. 자세한 내용은 [StorSimple 가상 배열을 위한 포털 준비 가이드](storsimple-virtual-array-deploy1-portal-prep.md)의 **3단계: 가상 배열 이미지 다운로드**를 참조하세요.
 
   > [!IMPORTANT]
   > StorSimple 가상 배열에서 실행되는 소프트웨어는 StorSimple 디바이스 관리자 서비스와 함께 사용해야 합니다.
@@ -88,7 +88,7 @@ ms.locfileid: "79267535"
 
 #### <a name="to-provision-a-virtual-array"></a>가상 배열을 프로비전하려면
 1. Windows Server 호스트에서 로컬 드라이브에 가상 배열 이미지를 복사합니다. 이 이미지(VHD 또는 VHDX)를 Azure Portal을 통해 다운로드합니다. 나중에 절차에서 이 이미지를 사용하므로 이미지를 복사한 위치를 적어 둡니다.
-2. **서버 관리자**를 엽니다. 오른쪽 위 모서리에서 **도구**를 클릭하고 **Hyper-V 관리자**를 선택합니다.
+2. **서버 관리자를**엽니다. 오른쪽 위 모서리에서 **도구**를 클릭하고 **Hyper-V 관리자**를 선택합니다.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image1.png)  
 
@@ -143,7 +143,7 @@ ms.locfileid: "79267535"
 18. **이름 및 위치 지정** 페이지에서 데이터 디스크의 **이름** 및 **위치**(해당 위치로 이동 가능)를 입력합니다. **다음**을 클릭합니다.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image17.png)
-19. **디스크 구성** 페이지에서 **비어 있는 새 가상 하드 디스크 만들기** 옵션을 선택하고 크기를 **500GB**(또는 그 이상)로 지정합니다. 500GB가 최소 요구 사항이지만 언제나 더 큰 디스크를 프로비전할 수 있습니다. 프로비전된 후에는 디스크를 확장하거나 축소할 수 없습니다. 프로비전할 디스크의 크기에 대한 자세한 정보는 [모범 사례 문서](storsimple-ova-best-practices.md)의 크기 조정 섹션을 검토하세요. **다음**을 클릭합니다.
+19. **디스크 구성** 페이지에서 **비어 있는 새 가상 하드 디스크 만들기** 옵션을 선택하고 크기를 **500GB**(또는 그 이상)로 지정합니다. 500GB가 최소 요구 사항이지만 언제나 더 큰 디스크를 프로비전할 수 있습니다. 프로비전된 후에는 디스크를 확장하거나 축소할 수 없습니다. 프로비저닝할 디스크 크기에 대한 자세한 내용은 모범 [사례 문서의](storsimple-ova-best-practices.md)크기 조정 섹션을 검토합니다. **다음**을 클릭합니다.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image18.png)
 20. **요약** 페이지에서 가상 데이터 디스크의 세부 정보를 검토한 후 만족스러우면 **마침**을 클릭하여 디스크를 만듭니다. 마법사가 닫히고 가상 하드 디스크가 컴퓨터에 추가됩니다.
@@ -208,7 +208,7 @@ ms.locfileid: "79267535"
        >
        >
 
-디바이스가 최소 구성 요구 사항을 충족하지 못하면 아래 표시된 배너 텍스트에 다음 오류가 표시됩니다. 머신이 최소 요구 사항을 충족하기에 충분한 리소스를 확보하도록 디바이스 구성을 수정합니다. 그런 다음, 다시 시작하고 디바이스에 연결합니다. 1 단계: 호스트 시스템이 최소 가상 배열 요구 사항을 충족 하는지 확인에서 최소 구성 요구 사항을 참조 하세요.
+디바이스가 최소 구성 요구 사항을 충족하지 못하면 아래 표시된 배너 텍스트에 다음 오류가 표시됩니다. 머신이 최소 요구 사항을 충족하기에 충분한 리소스를 확보하도록 디바이스 구성을 수정합니다. 그런 다음, 다시 시작하고 디바이스에 연결합니다. 1단계: 호스트 시스템이 최소 가상 배열 요구 사항을 충족하는지 확인에서 최소 구성 요구 사항을 참조하세요.
 
 ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image32.png)
 

@@ -1,6 +1,6 @@
 ---
-title: PowerShell 샘플-인증서가 없는 응용 프로그램 프록시 앱
-description: PowerShell 예제는 사용자 지정 도메인을 사용 하지만 유효한 SSL 인증서가 업로드 되지 않은 모든 Azure Active Directory (Azure AD) 응용 프로그램 프록시 응용 프로그램을 나열 합니다.
+title: PowerShell 샘플 - 인증서가 없는 응용 프로그램 프록시 앱
+description: 사용자 지정 도메인을 사용하지만 업로드된 유효한 TLS/SSL 인증서가 없는 모든 Azure Active Directory(Azure AD) 응용 프로그램 프록시 응용 프로그램을 나열하는 PowerShell 예제입니다.
 services: active-directory
 author: msmimart
 manager: CelesteDG
@@ -12,16 +12,16 @@ ms.date: 12/05/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0732a96c33062fdfdc552810880dedd79ce821ab
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 97dc46a34e1bb5bb85dcb771a9720a19d356e6f5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75482037"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79481214"
 ---
-# <a name="get-all-azure-ad-proxy-application-apps-published-with-no-certificate-uploaded"></a>인증서를 업로드 하지 않고 게시 된 모든 Azure AD 프록시 응용 프로그램 앱 가져오기
+# <a name="get-all-azure-ad-proxy-application-apps-published-with-no-certificate-uploaded"></a>인증서업로드 없이 게시된 모든 Azure AD 프록시 응용 프로그램 앱 받기
 
-이 PowerShell 스크립트 예제는 사용자 지정 도메인을 사용 하지만 유효한 SSL 인증서를 업로드 하지 않은 모든 Azure Active Directory (Azure AD) 응용 프로그램 프록시 앱을 나열 합니다.
+이 PowerShell 스크립트 예제에서는 사용자 지정 도메인을 사용하지만 업로드된 유효한 TLS/SSL 인증서가 없는 모든 Azure Active Directory(Azure AD) 응용 프로그램 프록시 앱을 나열합니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
@@ -29,7 +29,7 @@ ms.locfileid: "75482037"
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
-이 샘플에는 [AzureAD V2 powershell For graph 모듈](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0) (AzureAD) 또는 [AzureAD V2 powershell for graph module preview 버전](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview) (AzureADPreview)이 필요 합니다.
+이 샘플에는 [그래프 모듈용 AzureAD V2 PowerShell(AzureAD)](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0) 또는 [그래프 모듈 미리 보기 버전에 대한 AzureAD V2 PowerShell(AzureADPreview)이](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview) 필요합니다.
 
 ## <a name="sample-script"></a>샘플 스크립트
 
@@ -39,12 +39,12 @@ ms.locfileid: "75482037"
 
 | 명령 | 메모 |
 |---|---|
-|[Get-azureadserviceprincipal](https://docs.microsoft.com/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0) | 서비스 사용자를 가져옵니다. |
-|[Azureadapplication.applicationid](https://docs.microsoft.com/powershell/module/azuread/get-azureadapplication?view=azureadps-2.0) | Azure AD 응용 프로그램을 가져옵니다. |
-|[AzureADApplicationProxyApplication](https://docs.microsoft.com/powershell/module/azuread/get-azureadapplicationproxyapplication?view=azureadps-2.0) | Azure AD에서 응용 프로그램 프록시에 대해 구성 된 응용 프로그램을 검색 합니다. |
+|[Get-AzureADServicePrincipal](https://docs.microsoft.com/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0) | 서비스 주체를 가져옵니다. |
+|[Get-AzureADApplication](https://docs.microsoft.com/powershell/module/azuread/get-azureadapplication?view=azureadps-2.0) | Azure AD 응용 프로그램을 가져옵니다. |
+|[Get-AzureADApplicationProxyApplication](https://docs.microsoft.com/powershell/module/azuread/get-azureadapplicationproxyapplication?view=azureadps-2.0) | Azure AD에서 응용 프로그램 프록시에 대해 구성된 응용 프로그램을 검색합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure AD PowerShell 모듈에 대 한 자세한 내용은 [AZURE Ad powershell 모듈 개요](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-2.0)를 참조 하세요.
+Azure AD PowerShell 모듈에 대한 자세한 내용은 [Azure AD PowerShell 모듈 개요를](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-2.0)참조하십시오.
 
-응용 프로그램 프록시에 대 한 다른 PowerShell 예제는 azure [AD 응용 프로그램 프록시에 대 한 AZURE AD PowerShell 예제](../application-proxy-powershell-samples.md)를 참조 하세요.
+응용 프로그램 프록시에 대한 다른 PowerShell 예제는 [Azure AD 응용 프로그램 프록시에 대한 Azure AD PowerShell 예제를](../application-proxy-powershell-samples.md)참조하십시오.

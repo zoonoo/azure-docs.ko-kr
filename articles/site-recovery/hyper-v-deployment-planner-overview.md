@@ -1,5 +1,5 @@
 ---
-title: Azure Site Recovery를 사용 하 여 Hyper-v 재해 복구를 위한 Deployment Planner
+title: Azure 사이트 복구를 사용 하 고 하이퍼-V 재해 복구에 대 한 배포 플래너
 description: Hyper-V VM과 Azure 간 재해 복구를 위한 Azure Site Recovery Deployment Planner에 대해 알아봅니다.
 author: mayurigupta13
 manager: rochakm
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: mayg
 ms.openlocfilehash: 07c1f7f258dbea7bcf7a6e7ea51fdcfdfaa006aa
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79368726"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Hyper-V와 Azure 간 재해 복구를 위한 Azure Site Recovery Deployment Planner 정보
@@ -30,7 +30,7 @@ Azure Site Recovery Deployment Planner는 Hyper-V에서 Azure로 및 VMware에�
 
 * VM 적합성 평가(디스크 수, 디스크 크기, IOPS, 변동률 및 몇 가지 VM 특성 기준)
 
-**네트워크 대역폭 요구 사항 및 RPO 평가**
+**네트워크 대역폭 필요 와 RPO 평가**
 
 * 델타 복제에 필요한 예상 네트워크 대역폭
 * Azure Site Recovery를 통해 온-프레미스에서 Azure로 가져올 수 있는 처리량
@@ -82,9 +82,9 @@ Azure Site Recovery Deployment Planner 실행 인스턴스당 프로파일링할
 ## <a name="prerequisites"></a>사전 요구 사항
 도구에는 VM 목록 가져오기, 프로파일링 및 보고서 생성이라는 Hyper-V의 세 가지 주요 단계가 있습니다. 또한 처리량만 계산하는 네 번째 옵션도 있습니다. 서로 다른 단계가 실행되어야 하는 서버에 대한 요구 사항은 다음 테이블에 있습니다.
 
-| 서버 요구 사항 | Description |
+| 서버 요구 사항 | 설명 |
 |---|---|
-|VM 목록 가져오기, 프로파일링 및 처리량 측정 |<ul><li>운영 체제: Microsoft Windows Server 2016 또는 Microsoft Windows Server 2012 R2 </li><li>컴퓨터 구성: 8개 vCPus, 16GB RAM, 300GB HDD</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Visual Studio 2012용 Microsoft Visual C++ 재배포 가능 패키지](https://aka.ms/vcplusplus-redistributable)</li><li>이 서버에서 Azure (*. blob.core.windows.net)에 대 한 인터넷 액세스, 포트 443<br>[이 옵션은 선택 사항입니다. 보고서를 생성 하는 동안 사용 가능한 대역폭을 수동으로 제공 하도록 선택할 수 있습니다.]</li><li>Azure Storage 계정</li><li>서버에 대한 관리자 액세스</li><li>최소 100GB의 사용 가능한 디스크 공간(각각 디스크 3개의 평균을 포함한 VM 1000개를 가정, 30일 동안 프로파일링)</li><li>Azure Site Recovery Deployment Planner 도구를 실행 중인 곳의 VM이 모든 Hyper-V 서버의 TrustedHosts 목록에 반드시 추가되어야 합니다.</li><li>도구를 실행 중인 클라이언트 VM의 TrustedHosts 목록에 프로파일링할 모든 Hyper-V 서버를 추가해야 합니다. [서버를 TrustedHosts 목록에 추가하는 내용을 자세히 알아봅니다](#steps-to-add-servers-into-trustedhosts-list). </li><li> 도구는 PowerShell의 관리자 권한 또는 클라이언트의 명령줄 콘솔에서 실행되어야 합니다.</ul></ul>|
+|VM 목록 가져오기, 프로파일링 및 처리량 측정 |<ul><li>운영 체제: Microsoft Windows Server 2016 또는 Microsoft Windows Server 2012 R2 </li><li>컴퓨터 구성: 8개 vCPus, 16GB RAM, 300GB HDD</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Visual Studio 2012용 Microsoft Visual C++ 재배포 가능 패키지](https://aka.ms/vcplusplus-redistributable)</li><li>이 서버에서 Azure(*.blob.core.windows.net)에 대한 인터넷 액세스, 포트 443<br>[선택 사항입니다. 보고서 생성 중에 사용 가능한 대역폭을 수동으로 제공하도록 선택할 수 있습니다.]</li><li>Azure Storage 계정</li><li>서버에 대한 관리자 액세스</li><li>최소 100GB의 사용 가능한 디스크 공간(각각 디스크 3개의 평균을 포함한 VM 1000개를 가정, 30일 동안 프로파일링)</li><li>Azure Site Recovery Deployment Planner 도구를 실행 중인 곳의 VM이 모든 Hyper-V 서버의 TrustedHosts 목록에 반드시 추가되어야 합니다.</li><li>도구를 실행 중인 클라이언트 VM의 TrustedHosts 목록에 프로파일링할 모든 Hyper-V 서버를 추가해야 합니다. [서버를 TrustedHosts 목록에 추가하는 내용을 자세히 알아봅니다](#steps-to-add-servers-into-trustedhosts-list). </li><li> 도구는 PowerShell의 관리자 권한 또는 클라이언트의 명령줄 콘솔에서 실행되어야 합니다.</ul></ul>|
 | 보고서 생성 | Microsoft Excel 2013 이상을 포함한 모든 Windows PC 또는 Windows Server |
 | 사용자 권한 | VM 목록 가져오기 및 프로파일링 작업을 수행하는 동안 Hyper-V 클러스터/Hyper-V 호스트에 액세스하기 위한 관리자 계정입니다.<br>프로파일링해야 하는 모든 호스트에는 자격 증명(예: 사용자 이름 및 암호)이 동일한 도메인 관리자 계정이 있어야 합니다.
  |
@@ -121,7 +121,7 @@ E:\ASR Deployment Planner_v2.3\ASRDeploymentPlanner.exe
 
 ### <a name="updating-to-the-latest-version-of-deployment-planner"></a>최신 버전의 Deployment Planner로 업데이트
 
-최신 업데이트는 Deployment Planner [버전 기록](site-recovery-deployment-planner-history.md)에 요약 되어 있습니다.
+최신 업데이트는 배포 플래너 [버전 기록에](site-recovery-deployment-planner-history.md)요약되어 있습니다.
 
 이전 버전의 Deployment Planner가 있는 경우 다음 중 하나를 수행합니다.
  * 최신 버전에 프로파일링 수정 프로그램이 없고 현재 버전의 Planner에서 프로파일링을 이미 진행 중인 경우 프로파일링을 계속합니다.
@@ -135,9 +135,9 @@ E:\ASR Deployment Planner_v2.3\ASRDeploymentPlanner.exe
   >각 새 Deployment Planner는 .zip 파일의 누적 업데이트입니다. 최신 파일을 이전 폴더로 복사할 필요가 없습니다. 새 폴더를 만들어 사용할 수 있습니다.
 
 ## <a name="version-history"></a>버전 기록
-최신 Azure Site Recovery Deployment Planner 도구 버전은 2.5입니다.
-각 업데이트에 추가 된 수정 사항은 [Azure Site Recovery Deployment Planner 버전 기록](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx) 페이지를 참조 하세요.
+최신 Azure 사이트 복구 배포 계획기 도구 버전은 2.5입니다.
+각 업데이트에 추가된 수정 사항은 [Azure 사이트 복구 배포 계획서 버전 기록](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx) 페이지를 참조하십시오.
 
 
 ## <a name="next-steps"></a>다음 단계
-* [Deployment Planner 실행](site-recovery-hyper-v-deployment-planner-run.md).
+* [배포 플래너를 실행합니다.](site-recovery-hyper-v-deployment-planner-run.md)

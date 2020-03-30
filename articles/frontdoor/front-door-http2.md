@@ -1,6 +1,6 @@
 ---
-title: Azure Front Door Service - HTTP2 지원 | Microsoft Docs
-description: 이 문서에서는 Azure Front Door Service의 HTTP/2 지원에 대해 알아볼 수 있습니다.
+title: Azure 정문 - HTTP2 지원 | 마이크로 소프트 문서
+description: 이 문서에서는 Azure 정문에서 HTTP/2 지원에 대해 알아보는 데 도움이 됩니다.
 services: frontdoor
 documentationcenter: ''
 author: sharad4u
@@ -11,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: c3c1721454c0b3c96071c685a764f34d4fa540b9
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 415a89cbccd6b43d64ba1a553d44ac003df5806a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68775264"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79471628"
 ---
-# <a name="http2-support-in-azure-front-door-service"></a>Azure Front Door Service의 HTTP/2 지원
+# <a name="http2-support-in-azure-front-door"></a>Azure 정문에서 HTTP/2 지원
 
 현재, HTTP/2 지원은 모든 Front Door 구성에 대해 활성화되어 있습니다. 고객의 추가적인 조치가 필요하지 않습니다.
 

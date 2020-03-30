@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
-ms.openlocfilehash: cb906f6b3cf333e3fb3a24a934e5d9f11fc10cda
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 9660e87f3ee4e1c1c6a270f14928fdd111664e66
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77654480"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79480881"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Azure의 네트워크 성능 모니터 솔루션
 
@@ -39,7 +39,8 @@ NPM은 다음 지역 중 한 곳에서 호스트되는 작업 영역에서 전 �
 * 북유럽
 * 서유럽
 * 프랑스 중부
-
+* 캐나다 중부
+* 미국 서부
 * 미국 중서부
 * 미국 중북부
 * 미국 중남부
@@ -67,7 +68,7 @@ ExpressRoute 모니터가 지원되는 지역 목록은 [설명서](https://docs
 
 ### <a name="install-and-configure-agents"></a>에이전트 설치 및 구성 
 
-기본 프로세스를 사용 하 여 [Windows 컴퓨터 연결 Azure Monitor에](../platform/agent-windows.md) 에이전트를 설치 하 고 [Operations Manager Azure Monitor에 연결](../platform/om-agents.md)합니다.
+기본 프로세스를 사용하여 [Windows 컴퓨터 연결에서 에이전트를 Azure 모니터에](../platform/agent-windows.md) 설치하고 [운영 관리자를 Azure 모니터에 연결합니다.](../platform/om-agents.md)
 
 ### <a name="where-to-install-the-agents"></a>에이전트 설치 위치 
 
@@ -91,7 +92,7 @@ ExpressRoute 모니터가 지원되는 지역 목록은 [설명서](https://docs
     > 스크립트는 Windows 방화벽만 로컬로 구성합니다. 네트워크 방화벽이 있는 경우 네트워크 성능 모니터에서 사용하는 TCP 포트를 대상으로 하는 트래픽을 허용하는지 확인해야 합니다.
 
     >[!NOTE]
-    > 서비스 연결 모니터에 대해 [Enablerules.ps1](https://aka.ms/npmpowershellscript ) PowerShell 스크립트를 실행할 필요가 없습니다.
+    > 서비스 연결 모니터에 대한 [EnableRules.ps1](https://aka.ms/npmpowershellscript ) PowerShell 스크립트를 실행할 필요가 없습니다.
 
     
 
@@ -109,9 +110,9 @@ ExpressRoute 모니터가 지원되는 지역 목록은 [설명서](https://docs
 
 ### <a name="configure-the-solution"></a>솔루션 구성 
 
-1. [Azure 마켓플레이스](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview)에서 작업 영역에 네트워크 성능 모니터 솔루션을 추가합니다. [솔루션 갤러리에서 Azure Monitor 솔루션 추가](../../azure-monitor/insights/solutions.md)에 설명 된 프로세스를 사용할 수도 있습니다. 
+1. [Azure 마켓플레이스](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview)에서 작업 영역에 네트워크 성능 모니터 솔루션을 추가합니다. 솔루션 [갤러리에서 Azure Monitor 추가 솔루션에](../../azure-monitor/insights/solutions.md)설명된 프로세스를 사용할 수도 있습니다. 
 2. Log Analytics 작업 영역을 열고 **개요** 타일을 선택합니다. 
-3. 메시지 솔루션을 사용 하 여 **네트워크 성능 모니터** 타일을 선택 하 고 *추가 구성이 필요*합니다.
+3. *메시지 솔루션에 추가 구성이 필요한* **네트워크 성능 모니터** 타일을 선택합니다.
 
    ![네트워크 성능 모니터 타일](media/network-performance-monitor/npm-config.png)
 
@@ -129,23 +130,23 @@ ExpressRoute 모니터가 지원되는 지역 목록은 [설명서](https://docs
 
    ![ExpressRoute 모니터 보기](media/network-performance-monitor/npm-express-route.png)
 
-   검색이 완료 되 면 검색 된 회로 및 피어 링이 표에 나열 됩니다. 
+   검색이 완료되면 검색된 회로 및 피어링이 테이블에 나열됩니다. 
 
    ![네트워크 성능 모니터 구성 페이지](media/network-performance-monitor/npm-private-peerings.png)
     
-이러한 회로 및 피어 링에 대 한 모니터링은 처음에는 사용할 수 없는 상태입니다. 모니터링할 각 리소스를 선택 하 고 오른쪽의 자세히 보기에서 모니터링을 구성 합니다. **저장** 을 선택하여 구성을 저장합니다. 자세히 알아보려면 ExpressRoute 모니터링 구성"을 참조하세요. 
+이러한 회로 및 피어링에 대한 모니터링은 처음에는 비활성화된 상태입니다. 모니터링할 각 리소스를 선택하고 오른쪽의 세부 정보 보기에서 모니터링을 구성합니다. **저장** 을 선택하여 구성을 저장합니다. 자세히 알아보려면 ExpressRoute 모니터링 구성"을 참조하세요. 
 
-설치가 완료된 후 데이터를 채우는 데 30분~1시간이 소요됩니다. 이 솔루션이 네트워크에서 데이터를 집계하는 동안 네트워크 성능 모니터 *개요* 타일에 **솔루션에 추가 구성이 필요합니다.** 라는 메시지가 표시됩니다. 데이터가 수집되고 인덱싱되면 **개요** 타일이 변경되고, 네트워크 상태를 요약으로 알려줍니다. 그런 다음, Log Analytics 에이전트가 설치된 노드 및 환경에서 검색된 서브넷에 대한 모니터링을 편집할 수 있습니다.
+설치가 완료된 후 데이터를 채우는 데 30분~1시간이 소요됩니다. 이 솔루션이 네트워크에서 데이터를 집계하는 동안 네트워크 성능 모니터 **개요** 타일에 *솔루션에 추가 구성이 필요합니다.* 라는 메시지가 표시됩니다. 데이터가 수집되고 인덱싱되면 **개요** 타일이 변경되고, 네트워크 상태를 요약으로 알려줍니다. 그런 다음, Log Analytics 에이전트가 설치된 노드 및 환경에서 검색된 서브넷에 대한 모니터링을 편집할 수 있습니다.
 
 #### <a name="edit-monitoring-settings-for-subnets-and-nodes"></a>서브넷 및 노드에 대한 모니터링 설정 편집 
 
-하나 이상의 에이전트가 설치 된 모든 서브넷은 구성 페이지의 **서브 네트워크** 탭에 나열 됩니다. 
+에이전트가 하나 이상 설치된 모든 서브넷은 구성 페이지의 **하위 네트워크** 탭에 나열됩니다. 
 
 
 특정 서브네트워크의 모니터링을 사용하거나 사용하지 않도록 설정하려면:
 
 1. **서브네트워크 ID** 옆에 있는 확인란을 선택하거나 선택 취소합니다. 그런 다음, 필요에 따라 **모니터링에 사용**이 선택되었거나 선택 취소되었는지 확인합니다. 여러 서브넷을 선택 또는 선택 취소할 수 있습니다. 이 설정을 사용하지 않도록 설정할 경우 서브네트워크가 모니터링되지 않고 다른 에이전트에 대한 Ping을 중지하도록 에이전트가 업데이트됩니다. 
-2. 특정 서브네트워크에서 모니터링할 노드를 선택합니다. 목록에서 서브네트워크를 선택하고 모니터링되지 않는 노드와 모니터링되는 노드가 있는 목록 사이에서 필요한 노드를 이동합니다. 서브 네트워크에 사용자 지정 설명을 추가할 수 있습니다.
+2. 특정 서브네트워크에서 모니터링할 노드를 선택합니다. 목록에서 서브네트워크를 선택하고 모니터링되지 않는 노드와 모니터링되는 노드가 있는 목록 사이에서 필요한 노드를 이동합니다. 서브네트워크에 사용자 지정 설명을 추가할 수 있습니다.
 3. **저장** 을 선택하여 구성을 저장합니다. 
 
 #### <a name="choose-nodes-to-monitor"></a>모니터링할 노드 선택
@@ -161,7 +162,7 @@ ExpressRoute 모니터가 지원되는 지역 목록은 [설명서](https://docs
 
 - [성능 모니터](network-performance-monitor-performance-monitor.md#configuration)
 - [서비스 연결 모니터](network-performance-monitor-performance-monitor.md#configuration)
-- [ExpressRoute 모니터](network-performance-monitor-expressroute.md#configuration)
+- [익스프레스루트 모니터](network-performance-monitor-expressroute.md#configuration)
 
  
 
@@ -176,7 +177,7 @@ ExpressRoute 모니터가 지원되는 지역 목록은 [설명서](https://docs
  
 
  
-이 솔루션은 가상 트랜잭션을 사용하여 네트워크 상태를 평가합니다. 네트워크의 다양한 지점에 설치된 Log Analytics 에이전트는 TCP 패킷 또는 ICMP Echo를 서로 교환합니다. 에이전트가 TCP 패킷을 사용할지 또는 ICMP Echo를 사용할지는 모니터링을 위해 선택한 프로토콜에 따라 달라집니다. 이 과정에서 에이전트는 왕복 시간과 패킷 손실(있는 경우)을 확인합니다. 또한 각 에이전트는 다른 에이전트에 대해 정기적으로 추적 경로를 수행하여 네트워크에서 테스트가 필요한 다양한 경로를 모두 찾아냅니다. 에이전트는 이 데이터를 사용하여 네트워크 대기 시간 및 패킷 손실 수치를 추론할 수 있습니다. 테스트는 5초마다 반복됩니다. 데이터는 에이전트가 Azure Monitor의 Log Analytics 작업 영역에 업로드 되기 전에 약 3 분 동안 집계 됩니다.
+이 솔루션은 가상 트랜잭션을 사용하여 네트워크 상태를 평가합니다. 네트워크의 다양한 지점에 설치된 Log Analytics 에이전트는 TCP 패킷 또는 ICMP Echo를 서로 교환합니다. 에이전트가 TCP 패킷을 사용할지 또는 ICMP Echo를 사용할지는 모니터링을 위해 선택한 프로토콜에 따라 달라집니다. 이 과정에서 에이전트는 왕복 시간과 패킷 손실(있는 경우)을 확인합니다. 또한 각 에이전트는 다른 에이전트에 대해 정기적으로 추적 경로를 수행하여 네트워크에서 테스트가 필요한 다양한 경로를 모두 찾아냅니다. 에이전트는 이 데이터를 사용하여 네트워크 대기 시간 및 패킷 손실 수치를 추론할 수 있습니다. 테스트는 5초마다 반복됩니다. 데이터는 Azure Monitor의 로그 분석 작업 영역에 업로드되기 전에 에이전트에 의해 약 3분 동안 집계됩니다.
 
 
 
@@ -209,9 +210,9 @@ ExpressRoute 모니터가 지원되는 지역 목록은 [설명서](https://docs
 
 ### <a name="drill-down-for-depth"></a>상세하게 드릴다운 
 
-솔루션 대시보드의 다양한 링크를 선택하여 관심 영역을 상세하게 드릴다운할 수 있습니다. 예를 들어 대시보드에 경고 또는 비정상 네트워크 링크가 나타날 경우 해당 링크를 선택하여 자세히 조사할 수 있습니다. 특정 네트워크 링크에 대한 모든 서브네트워크 링크가 페이지에 나열됩니다. 각 서브네트워크 링크의 손실, 대기 시간 및 상태를 볼 수 있습니다. 문제를 유발한 서브네트워크 링크를 빠르게 알아낼 수 있습니다. **노드 링크 보기** 를 선택 하 여 비정상 서브넷 링크의 모든 노드 링크를 볼 수 있습니다. 그런 다음 노드 간 개별 링크를 확인하고 비정상 노드 링크를 찾을 수 있습니다. 
+솔루션 대시보드의 다양한 링크를 선택하여 관심 영역을 상세하게 드릴다운할 수 있습니다. 예를 들어 대시보드에 경고 또는 비정상 네트워크 링크가 나타날 경우 해당 링크를 선택하여 자세히 조사할 수 있습니다. 특정 네트워크 링크에 대한 모든 서브네트워크 링크가 페이지에 나열됩니다. 각 서브네트워크 링크의 손실, 대기 시간 및 상태를 볼 수 있습니다. 문제를 유발한 서브네트워크 링크를 빠르게 알아낼 수 있습니다. **노드 링크 보기를** 선택하여 비정상 서브넷 링크의 모든 노드 링크를 확인합니다. 그런 다음 노드 간 개별 링크를 확인하고 비정상 노드 링크를 찾을 수 있습니다. 
 
-원본 및 대상 노드 간의 경로에 대 한 홉 단위 토폴로지를 보려면 **토폴로지 보기** 를 선택 합니다. 비정상 경로는 빨간색으로 표시됩니다. 각 홉의 영향을 받은 대기 시간을 확인할 수 있으므로 네트워크의 특정 부분에서 문제를 빠르게 식별할 수 있습니다.
+**토폴로지 보기를** 선택하여 소스 노드와 대상 노드 사이의 경로의 홉별 토폴로지를 봅니다. 비정상 경로는 빨간색으로 표시됩니다. 각 홉의 영향을 받은 대기 시간을 확인할 수 있으므로 네트워크의 특정 부분에서 문제를 빠르게 식별할 수 있습니다.
 
  
 
@@ -249,9 +250,9 @@ ExpressRoute 모니터가 지원되는 지역 목록은 [설명서](https://docs
 ![토폴로지 맵](media/network-performance-monitor/topology-map.png)
  
 
-## <a name="log-queries-in-azure-monitor"></a>Azure Monitor의 로그 쿼리
+## <a name="log-queries-in-azure-monitor"></a>Azure 모니터에서 로그 쿼리
 
-네트워크 성능 모니터 대시보드 및 드릴 다운 페이지를 통해 그래픽으로 노출 되는 모든 데이터는 [로그 쿼리에서](../log-query/log-query-overview.md)기본적으로 사용할 수 있습니다. 리포지토리의 데이터를 대화형으로 분석하고 여러 원본의 데이터를 상호 연결할 수 있습니다. 사용자 지정 경고 및 보기를 만들 수 있고 Excel, Power BI 또는 공유할 수 있는 링크로 데이터를 내보낼 수도 있습니다. 대시보드의 **일반 쿼리** 영역에는 고유한 쿼리 및 보고서를 만들기 위한 시작 지점으로 사용할 수 있는 몇 가지 유용한 쿼리가 있습니다. 
+네트워크 성능 모니터 대시보드 및 드릴다운 페이지를 통해 그래픽으로 노출되는 모든 데이터는 [로그 쿼리에서](../log-query/log-query-overview.md)기본적으로 사용할 수 있습니다. 리포지토리의 데이터를 대화형으로 분석하고 여러 원본의 데이터를 상호 연결할 수 있습니다. 사용자 지정 경고 및 보기를 만들 수 있고 Excel, Power BI 또는 공유할 수 있는 링크로 데이터를 내보낼 수도 있습니다. 대시보드의 **공통 쿼리** 영역에는 고유한 쿼리 및 보고서를 만드는 시작점으로 사용할 수 있는 몇 가지 유용한 쿼리가 있습니다. 
 
 ## <a name="alerts"></a>경고
 
@@ -260,22 +261,22 @@ ExpressRoute 모니터가 지원되는 지역 목록은 [설명서](https://docs
 즉, 모든 알림은 [작업 그룹](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups)을 사용하여 관리됩니다.  
 
 Log Analytics를 통해 경고를 만드는 NPM 사용자인 경우: 
-1. Azure Portal로 리디렉션하는 링크가 표시 됩니다. 이 링크를 클릭하여 포털에 액세스합니다.
+1. Azure 포털로 리디렉션되는 링크가 표시됩니다. 이 링크를 클릭하여 포털에 액세스합니다.
 2. 네트워크 성능 모니터 솔루션 타일을 클릭합니다. 
 3. [구성]으로 이동합니다.  
 4. 경고를 만들려는 테스트를 선택하고 아래에 설명된 단계를 따릅니다.
 
-Azure Portal를 통해 경고를 만드는 NPM 사용자 인 경우:  
+Azure 포털을 통해 경고를 만드는 NPM 사용자인 경우:  
 1. 이메일을 직접 입력할 수도 있고 작업 그룹을 통해 경고를 만들 수도 있습니다.
 2. 이메일을 직접 입력하기로 선택하면 **NPM Email ActionGroup**이라는 이름의 작업 그룹이 만들어지고 이 작업 그룹에 이메일 id가 추가됩니다.
 3. 작업 그룹을 사용하기로 선택하면 이전에 만든 작업 그룹을 선택해야 합니다. 작업 그룹을 만드는 방법은 [여기](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#create-an-action-group-by-using-the-azure-portal)서 배울 수 있습니다. 
 4. 경고가 만들어지면 경고 관리를 사용하여 경고를 관리할 수 있습니다. 
 
-경고를 만들 때마다 NPM은 Azure Monitor에 쿼리 기반 로그 경고 규칙을 작성합니다. 이 쿼리는 기본적으로 5 분 마다 트리거됩니다. Azure Monitor에서는 처음 생성된 250개의 로그 경고 규칙에 대해서는 요금을 부과하지 않고 250개 로그 경고 규칙 제한을 초과하는 모든 경고 규칙에 대해 [Azure Monitor 가격 책정 페이지의 경고 가격](https://azure.microsoft.com/pricing/details/monitor/)에 따라 요금을 부과합니다.
+경고를 만들 때마다 NPM은 Azure Monitor에 쿼리 기반 로그 경고 규칙을 작성합니다. 이 쿼리는 기본적으로 5분마다 트리거됩니다. Azure Monitor에서는 처음 생성된 250개의 로그 경고 규칙에 대해서는 요금을 부과하지 않고 250개 로그 경고 규칙 제한을 초과하는 모든 경고 규칙에 대해 [Azure Monitor 가격 책정 페이지의 경고 가격](https://azure.microsoft.com/pricing/details/monitor/)에 따라 요금을 부과합니다.
 알림은 [Azure Monitor 가격 책정 페이지의 알림 가격](https://azure.microsoft.com/pricing/details/monitor/)에 따라 별도로 청구됩니다.
 
 
-## <a name="pricing"></a>가격
+## <a name="pricing"></a>가격 책정
 
 가격 책정에 대한 정보는 [온라인](network-performance-monitor-pricing-faq.md)으로 지원됩니다.
 
@@ -283,7 +284,7 @@ Azure Portal를 통해 경고를 만드는 NPM 사용자 인 경우:
 
 * **UserVoice:** 개발되기를 바라는 네트워크 성능 모니터 기능에 대한 아이디어를 게시할 수 있습니다. [UserVoice 페이지](https://feedback.azure.com/forums/267889-log-analytics/category/188146-network-monitoring)를 방문하세요. 
 
-* **코호트 조인:** 코호트에 조인하는 새 고객을 항상 환영합니다. 그 일환으로 새로운 기능에 초기에 액세스할 수 있고 네트워크 성능 모니터를 개선하는 데 참여할 수 있는 기회가 제공됩니다. 참가 하는 데 관심이 있는 경우이 [빠른 설문 조사](https://aka.ms/npmcohort)를 작성 합니다. 
+* **우리의 코호트에 가입 :** 우리는 항상 새로운 고객이 우리의 코호트에 가입하는 데 관심이 있습니다. 그 일환으로 새로운 기능에 초기에 액세스할 수 있고 네트워크 성능 모니터를 개선하는 데 참여할 수 있는 기회가 제공됩니다. 가입에 관심이 있으시면 이 [빠른 설문조사를](https://aka.ms/npmcohort)작성하십시오. 
 
 ## <a name="next-steps"></a>다음 단계 
 [성능 모니터](network-performance-monitor-performance-monitor.md), [서비스 연결 모니터](network-performance-monitor-performance-monitor.md) 및 [ExpressRoute 모니터](network-performance-monitor-expressroute.md)에 대해 자세히 알아봅니다. 

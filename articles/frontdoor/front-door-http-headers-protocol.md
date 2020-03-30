@@ -1,6 +1,6 @@
 ---
-title: Azure Front 도어 서비스에서 HTTP 헤더에 대 한 프로토콜 지원 | Microsoft Docs
-description: 이 문서에서는 Front 도어 서비스에서 지 원하는 HTTP 헤더 프로토콜에 대해 설명 합니다.
+title: Azure 정문에서 HTTP 헤더에 대한 프로토콜 지원 | 마이크로 소프트 문서
+description: 이 문서에서는 Front Door가 지원하는 HTTP 헤더 프로토콜에 대해 설명합니다.
 services: frontdoor
 documentationcenter: ''
 author: sharad4u
@@ -11,52 +11,52 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 7c77527b7300c1149e96c94a4dbe122da226ac6d
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: bb1de5d51afd01cf0aa519f12aa3665bee804efd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79280821"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79471679"
 ---
-# <a name="protocol-support-for-http-headers-in-azure-front-door-service"></a>Azure Front 도어 서비스에서 HTTP 헤더에 대 한 프로토콜 지원
-이 문서에서는 프런트 도어 서비스에서 호출 경로의 일부를 지 원하는 프로토콜에 대해 간략하게 설명 합니다 (이미지 참조). 다음 섹션에서는 Front 도어 서비스에서 지 원하는 HTTP 헤더에 대 한 자세한 정보를 제공 합니다.
+# <a name="protocol-support-for-http-headers-in-azure-front-door"></a>Azure 정문에서 HTTP 헤더에 대한 프로토콜 지원
+이 문서에서는 Front Door가 호출 경로의 일부와 함께 지원하는 프로토콜을 간략하게 설명합니다(이미지 참조). 다음 섹션에서는 Front Door에서 지원하는 HTTP 헤더에 대한 자세한 정보를 제공합니다.
 
-![Azure Front Door Service HTTP 헤더 프로토콜][1]
+![Azure 정문 HTTP 헤더 프로토콜][1]
 
 >[!IMPORTANT]
->Front 도어 서비스는 여기에 설명 되지 않은 HTTP 헤더를 인증 하지 않습니다.
+>Front Door는 여기에 설명되지 않은 HTTP 헤더를 인증하지 않습니다.
 
-## <a name="client-to-front-door-service"></a>클라이언트와 프런트 도어 서비스
-프런트 도어 서비스는 들어오는 요청의 헤더를 수정 하지 않고 대부분 허용 합니다. 헤더를 포함 하 여 송신 하는 경우 들어오는 요청에서 X-FD-* 접두사가 포함 된 일부 예약 된 헤더가 제거 됩니다.
+## <a name="client-to-front-door"></a>클라이언트-Front Door
+Front Door는 들어오는 요청에서 대부분의 헤더를 수정하지 않고 수락합니다. X-FD-* 접두사가 있는 헤더를 포함하여 일부 예약된 헤더가 전송된 경우 들어오는 요청에서 제거됩니다.
 
-## <a name="front-door-service-to-backend"></a>프런트 도어 서비스에서 백 엔드
+## <a name="front-door-to-backend"></a>Front Door-백 엔드
 
-프런트 도어 서비스에는 제한 사항으로 인해 제거 되지 않는 한 들어오는 요청의 헤더가 포함 됩니다. 또한 앞 도어는 다음 헤더를 추가 합니다.
+정문 에는 제한 사항으로 인해 제거되지 않는 한 들어오는 요청의 헤더가 포함됩니다. 또한 프런트 도어는 다음 헤더를 추가합니다.
 
 | 헤더  | 예제 및 설명 |
 | ------------- | ------------- |
-| Via |  Via: 1.1 Azure </br> 프런트 도어는 클라이언트의 HTTP 버전을 Via 헤더에 대 한 *값으로 추가* 합니다. 이는 클라이언트의 HTTP 버전을 나타내고 앞 도어는 클라이언트와 백 엔드 간의 요청을 위한 중간 수신자 였습니다.  |
-| X-Azure-ClientIP | X-y: 127.0.0.1 </br> 처리 중인 요청과 연결 된 클라이언트 IP 주소를 나타냅니다. 예를 들어 프록시에서 들어오는 요청은 원본 호출자의 IP 주소를 나타내기 위해 X로 전달 된 헤더를 추가할 수 있습니다. |
-| X-Azure-SocketIP |  SocketIP: 127.0.0.1 </br> 현재 요청이 시작 된 TCP 연결과 관련 된 소켓 IP 주소를 나타냅니다. 요청의 클라이언트 IP 주소는 사용자가 임의로 덮어쓸 수 있으므로 해당 소켓 IP 주소와 다를 수 있습니다.|
-| X-Azure-Ref |  X-y-Ref: 0zxV + XAAAAABKMMOjBv2NT4TY6SQVjC0zV1NURURHRTA2MTkANDM3YzgyY2QtMzYwYS00YTU0LTk0YzMtNWZmNzA3NjQ3Nzgz </br> Front 도어가 제공 하는 요청을 식별 하는 고유한 참조 문자열입니다. 액세스 로그를 검색 하는 데 사용 되며 문제 해결을 위해 중요 합니다.|
-| X-Azure-RequestChain |  X-Azure-RequestChain: 홉 = 1 </br> 프런트 도어가 요청 루프를 검색 하는 데 사용 하는 헤더 이며, 사용자가이에 대 한 종속성을 사용 하지 않아야 합니다. |
-| X-Forwarded-For | X 전달-의 경우: 127.0.0.1 </br> X로 전달 된 (XFF) HTTP 헤더 필드는 HTTP 프록시 또는 부하 분산 장치를 통해 웹 서버에 연결 하는 클라이언트의 원래 IP 주소를 식별 하는 경우가 많습니다. 기존 XFF 헤더가 있는 경우 Front 도어가 클라이언트 소켓 IP를 추가 하거나 클라이언트 소켓 IP를 사용 하 여 XFF 헤더를 추가 합니다. |
-| X 전달-호스트 | X 전달-호스트: contoso.azurefd.net </br> X 전달 된 호스트 HTTP 헤더 필드는 호스트 HTTP 요청 헤더에서 클라이언트에 의해 요청 된 원래 호스트를 식별 하는 데 사용 되는 일반적인 방법입니다. 이는 프런트 도어의 호스트 이름이 요청을 처리 하는 백 엔드 서버에 대해 다를 수 있기 때문입니다. |
-| X-Forwarded-Proto | X 전달-프로토콜: http </br> 구성에 따라 프런트 도어가 HTTPS를 사용 하 여 백 엔드와 통신할 수 있기 때문에 X-전달 된 프로토콜 HTTP 헤더 필드는 HTTP 요청의 원래 프로토콜을 식별 하는 데 종종 사용 됩니다. 역방향 프록시에 대 한 요청이 HTTP 인 경우에도 마찬가지입니다. |
-| X FD-HealthProbe | HealthProbe HTTP 헤더 필드는 전면 도어에서 상태 프로브를 식별 하는 데 사용 됩니다. 이 헤더가 1로 설정 되 면 요청이 상태 프로브입니다. X 전달-호스트 헤더 필드를 사용 하 여 특정 전방 도어에서 엄격한 액세스를 원할 때를 사용할 수 있습니다. |
+| Via |  비아: 1.1 Azure </br> Front Door는 클라이언트의 HTTP 버전을 추가하고 *Azure를* Via 헤더의 값으로 추가합니다. 이 헤더는 클라이언트의 HTTP 버전과 정문이 클라이언트와 백 엔드 간의 요청에 대한 중간 수신자임을 나타냅니다.  |
+| X-Azure-클라이언트IP | X-Azure-클라이언트IP: 127.0.0.1 </br> 처리 중인 요청과 연결된 클라이언트 IP 주소를 나타냅니다. 예를 들어 프록시에서 오는 요청은 X-Forwarded-For 헤더를 추가하여 원래 호출자의 IP 주소를 나타낼 수 있습니다. |
+| X-Azure 소켓 IP |  X-Azure 소켓IP: 127.0.0.1 </br> 현재 요청이 시작된 TCP 연결과 연결된 소켓 IP 주소를 나타냅니다. 요청의 클라이언트 IP 주소는 사용자가 임의로 덮어쓸 수 있으므로 소켓 IP 주소와 같지 않을 수 있습니다.|
+| X-Azure-참조 |  X-Azure-Ref: 0zxV+XAAAAABKMMOjBv2NT4TY6SQVjC0zV1NURURHRTA2MTKANDM3YzgyY2QTMzYwYS00YTU0LTk0yzMtNWZMZA3NjQ3Nzgz3Nzgz </br> Front Door에서 제공하는 요청을 식별하는 고유한 참조 문자열입니다. 액세스 로그를 검색하는 데 사용되며 문제 해결에 중요합니다.|
+| X-Azure-요청 체인 |  X-Azure-요청 체인: 홉=1 </br> Front Door가 요청 루프를 검색하는 데 사용하는 헤더이며 사용자는 이에 대한 종속성을 가져서는 안 됩니다. |
+| X-Forwarded-For | X-포워드 용: 127.0.0.1 </br> X-전달-For(XFF) HTTP 헤더 필드는 종종 HTTP 프록시 또는 로드 밸런서를 통해 웹 서버에 연결하는 클라이언트의 원래 IP 주소를 식별합니다. 기존 XFF 헤더가 있는 경우 Front Door는 클라이언트 소켓 IP를 추가하거나 클라이언트 소켓 IP를 사용하여 XFF 헤더를 추가합니다. |
+| X-Forwarded-Host | X-포워드 호스트: contoso.azurefd.net </br> X-전달 호스트 HTTP 헤더 필드는 호스트 HTTP 요청 헤더에서 클라이언트가 요청한 원래 호스트를 식별하는 데 사용되는 일반적인 방법입니다. 이는 요청을 처리하는 백 엔드 서버에 대해 Front Door의 호스트 이름이 다를 수 있기 때문입니다. |
+| X-Forwarded-Proto | X-포워드 프로토: http </br> X-전달-Proto HTTP 헤더 필드는 구성에 따라 Front Door가 HTTPS를 사용하여 백 엔드와 통신할 수 있기 때문에 HTTP 요청의 원래 프로토콜을 식별하는 데 자주 사용됩니다. 역방향 프록시에 대한 요청이 HTTP인 경우에도 마찬가지입니다. |
+| X-FD-헬스프로브 | X-FD-HealthProbe HTTP 헤더 필드는 정문에서 상태 프로브를 식별하는 데 사용됩니다. 이 헤더가 1로 설정되면 요청은 상태 프로브입니다. X-Forwarded-Host 헤더 필드를 사용하여 특정 정문에서 엄격하게 액세스하려는 경우 사용할 수 있습니다. |
 
-## <a name="front-door-service-to-client"></a>프런트 도어 서비스-클라이언트
+## <a name="front-door-to-client"></a>Front Door-클라이언트
 
-백 엔드에서 프런트 도어로 전송 되는 모든 헤더도 클라이언트에 전달 됩니다. 다음은 프런트 도어에서 클라이언트로 전송 되는 헤더입니다.
+백 엔드에서 정문으로 전송된 모든 헤더도 클라이언트로 전달됩니다. 다음은 정문에서 클라이언트로 전송된 헤더입니다.
 
 | 헤더  | 예제 |
 | ------------- | ------------- |
-| X-Azure-Ref |  *X-y-Ref: 0zxV + XAAAAABKMMOjBv2NT4TY6SQVjC0zV1NURURHRTA2MTkANDM3YzgyY2QtMzYwYS00YTU0LTk0YzMtNWZmNzA3NjQ3Nzgz* </br> Front Door에서 제공하는 요청을 참조하는 고유한 참조 문자열입니다. 액세스 로그를 검색 하는 데 사용 되므로 문제를 해결 하는 데 중요 합니다.|
+| X-Azure-참조 |  *X-Azure-Ref: 0zxV+XAAAAABKMMOjBv2NT4TY6SQVjC0zV1NURURHRTA2MTKANDM3YzgyY2QTMzYwYS00YTU0LTk0yzMtNWZMZA3NjQ3Nzgz3Nzgz* </br> Front Door에서 제공하는 요청을 참조하는 고유한 참조 문자열입니다. 이는 액세스 로그를 검색하는 데 사용되기 때문에 문제 해결에 매우 중요합니다.|
 
 ## <a name="next-steps"></a>다음 단계
 
-- [전면 도어 만들기](quickstart-create-front-door.md)
-- [프런트 도어 작동 방법](front-door-routing-architecture.md)
+- [정문 만들기](quickstart-create-front-door.md)
+- [정문 작동 방식](front-door-routing-architecture.md)
 
 <!--Image references-->
 [1]: ./media/front-door-http-headers-protocol/front-door-protocol-summary.png

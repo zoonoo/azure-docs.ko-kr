@@ -1,26 +1,26 @@
 ---
 title: Azure Stream Analytics의 JavaScript 사용자 정의 집계
 description: 이 문서에서는 Azure Stream Analytics에서 JavaScript 사용자 정의 집계로 고급 쿼리 역학을 수행하는 방법을 설명합니다.
-author: rodrigoamicrosoft
+author: rodrigoaatmicrosoft
 ms.author: rodrigoa
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2017
-ms.openlocfilehash: d9b37810146f66806be9b8ce7a38f8dac31facb9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c509d174787a58abeee33e039eb7bbbcbcb43f38
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75426085"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79531737"
 ---
-# <a name="azure-stream-analytics-javascript-user-defined-aggregates"></a>JavaScript 사용자 정의 집계 Azure Stream Analytics
+# <a name="azure-stream-analytics-javascript-user-defined-aggregates"></a>Azure 스트림 분석 자바 스크립트 사용자 정의 집계
  
 Azure Stream Analytics는 JavaScript로 작성된 UDA(사용자 정의 집계)를 지원하고 이를 통해 복잡한 상태 저장 비즈니스 논리를 구현할 수 있습니다. UDA 내에서 상태 데이터 구조, 상태 누적, 상태 누적 처분 및 집계 결과 계산의 모든 권한을 갖고 있습니다. 문서에서는 두 개의 서로 다른 JavaScript UDA 인터페이스, UDA를 만드는 단계 및 Stream Analytics 쿼리에서 창 기반 작업으로 UDA를 사용하는 방법을 소개합니다.
 
 ## <a name="javascript-user-defined-aggregates"></a>JavaScript 사용자 정의 집계
 
-사용자 정의 집계는 시간 창 사양을 기반으로 해당 창의 이벤트에 대해 집계하고 단일 결과 값을 생성하는 데 사용됩니다. Stream Analytics에서 현재 지원하는 두 가지 유형의 UDA 인터페이스, AccumulateOnly 및 AccumulateDeaccumulate가 있습니다. 두 종류의 UDA는 모두 연속, 도약, 슬라이딩 및 세션 창에서 사용할 수 있습니다. AccumulateDeaccumulate UDA는 도약, 슬라이딩 및 세션 창과 함께 사용할 경우 AccumulateOnly UDA 보다 성능이 뛰어납니다. 사용하는 알고리즘에 따라 두 유형 중 하나를 선택합니다.
+사용자 정의 집계는 시간 창 사양을 기반으로 해당 창의 이벤트에 대해 집계하고 단일 결과 값을 생성하는 데 사용됩니다. Stream Analytics에서 현재 지원하는 두 가지 유형의 UDA 인터페이스, AccumulateOnly 및 AccumulateDeaccumulate가 있습니다. UDA의 두 가지 유형은 텀블링, 호핑, 슬라이딩 및 세션 창에서 사용할 수 있습니다. 누적 분해 UDA는 호핑, 슬라이딩 및 세션 창과 함께 사용할 때 누적 만 UDA보다 더 나은 성능을 발휘합니다. 사용하는 알고리즘에 따라 두 유형 중 하나를 선택합니다.
 
 ### <a name="accumulateonly-aggregates"></a>AccumulateOnly 집계
 
@@ -90,7 +90,7 @@ Stream Analytics 작업에서 지원한 특정 유형 또는 쿼리에서 형식
 
 ### <a name="function-name"></a>함수 이름
 
-이 함수 개체의 이름입니다. 함수 이름은 UDA 별칭과 일치 해야 합니다.
+이 함수 개체의 이름입니다. 함수 이름은 UDA 별칭과 일치해야 합니다.
 
 ### <a name="method---init"></a>메서드 - init()
 
@@ -98,11 +98,11 @@ Init() 메서드는 집계 상태를 초기화합니다. 이 메서드는 창이
 
 ### <a name="method--accumulate"></a>메서드 – accumulate()
 
-accumulate() 메서드는 이전 상태 및 현재 이벤트 값에 따라 UDA 상태를 계산합니다. 이 메서드는 이벤트가 시간 창 (TUMBLINGWINDOW, HOPPINGWINDOW, SLIDINGWINDOW 또는 SESSIONWINDOW)에 진입할 때 호출 됩니다.
+accumulate() 메서드는 이전 상태 및 현재 이벤트 값에 따라 UDA 상태를 계산합니다. 이 메서드는 이벤트가 시간 창(텀블링창, 호핑창, 슬라이딩창 또는 세션창)에 들어갈 때 호출됩니다.
 
 ### <a name="method--deaccumulate"></a>메서드 - deaccumulate()
 
-deaccumulate() 메서드는 이전 상태 및 현재 이벤트 값에 따라 상태를 다시 계산합니다. 이 메서드는 이벤트가 SLIDINGWINDOW 또는 SESSIONWINDOW를 벗어날 때 호출 됩니다.
+deaccumulate() 메서드는 이전 상태 및 현재 이벤트 값에 따라 상태를 다시 계산합니다. 이 메서드는 이벤트가 슬라이딩 윈도우 또는 SESSIONWINDOW를 떠날 때 호출됩니다.
 
 ### <a name="method--deaccumulatestate"></a>메서드 - deaccumulateState()
 
@@ -110,7 +110,7 @@ deaccumulateState() 메서드는 이전 상태 및 홉의 상태에 따라 상�
 
 ### <a name="method--computeresult"></a>메서드 - computeResult()
 
-computeResult() 메서드는 현재 상태에 따라 집계 결과를 반환합니다. 이 메서드는 시간 창의 끝 (TUMBLINGWINDOW, HOPPINGWINDOW, SLIDINGWINDOW 또는 SESSIONWINDOW)에서 호출 됩니다.
+computeResult() 메서드는 현재 상태에 따라 집계 결과를 반환합니다. 이 메서드는 시간 창의 끝에서 호출됩니다(텀블링윈도우, 호핑윈도우, 슬라이딩윈도우 또는 세션창).
 
 ## <a name="javascript-uda-supported-input-and-output-data-types"></a>JavaScript UDA 지원되는 입력 및 출력 데이터 형식
 JavaScript UDA 데이터 형식의 경우 [JavaScript UDF 통합](stream-analytics-javascript-user-defined-functions.md)의 **Stream Analytics 및 JavaScript 형식 변환** 섹션을 참조하세요.
@@ -119,7 +119,7 @@ JavaScript UDA 데이터 형식의 경우 [JavaScript UDF 통합](stream-analyti
 
 다음은 포털에서 UDA를 만드는 과정을 단계별로 안내합니다. 여기에서 사용하는 예제는 시간 가중치 평균을 계산합니다.
 
-이제 단계를 따라 기존 ASA 작업에서 JavaScript UDA를 만들어 보겠습니다.
+이제 다음 단계에 따라 기존 ASA 작업에서 자바 스크립트 UDA를 만들어 보겠습니다.
 
 1. Azure Portal에 로그인하고 기존 Stream Analytics 작업을 찾습니다.
 1. 그런 다음 **작업 토폴로지** 아래에서 함수 링크를 클릭합니다.
@@ -173,7 +173,7 @@ JavaScript UDA 데이터 형식의 경우 [JavaScript UDF 통합](stream-analyti
 
 ## <a name="calling-javascript-uda-in-asa-query"></a>ASA 쿼리에서 JavaScript UDA 호출
 
-Azure Portal에서 작업을 열고, 쿼리를 편집하고, 자동 인출 접두사 “uda”로 TWA() 함수를 호출합니다. 예:
+Azure Portal에서 작업을 열고, 쿼리를 편집하고, 자동 인출 접두사 “uda”로 TWA() 함수를 호출합니다. 예를 들어:
 
 ```SQL
 WITH value AS
@@ -223,14 +223,14 @@ GROUP BY TumblingWindow(minute, 5)
 ]
 ```
 
-## <a name="get-help"></a>도움 받기
+## <a name="get-help"></a>도움말 보기
 
 추가 도움이 필요할 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)
-* [Azure Stream Analytics 사용 시작](stream-analytics-real-time-fraud-detection.md)
+* [Azure 스트림 분석 사용 시작](stream-analytics-real-time-fraud-detection.md)
 * [Azure  Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
 * [Azure Stream Analytics 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Azure 스트림 분석 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)

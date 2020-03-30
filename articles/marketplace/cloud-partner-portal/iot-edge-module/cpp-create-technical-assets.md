@@ -1,19 +1,18 @@
 ---
-title: Azure IoT Edge 모듈 기술 자산 만들기 | Azure Marketplace
+title: Azure IoT 에지 모듈 기술 자산 만들기 | Azure 마켓플레이스
 description: IoT Edge 모듈에 대한 기술 자산을 만듭니다.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/18/2018
-ms.author: pabutler
-ms.openlocfilehash: 57bc2f789836a7d3453004cdacc59029c4b24129
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 304ea31f2a6f9820226a6ad0db8bfc803e6fdb94
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827614"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80285217"
 ---
 # <a name="prepare-your-iot-edge-module-technical-assets"></a>IoT Edge 모듈 기술 자산 준비
 
@@ -38,28 +37,28 @@ IoT Edge 모듈은 다음 플랫폼 옵션 중 하나를 지원해야 합니다.
 
 IoT Edge에서 지원되는 모든 계층 1 플랫폼을 지원합니다([Azure IoT Edge 지원](https://docs.microsoft.com/azure/iot-edge/support)에 기록된 대로). 더 나은 고객 경험을 제공하기 때문에 이 옵션을 권장합니다. 이 조건을 충족하는 모듈이 소개됩니다. 이 플랫폼 옵션을 사용하는 모듈은 다음을 수행해야 합니다.
 
-- GitHub `latest`매니페스트 도구`1.0.1`를 사용하여 빌드된 매니페스트 태그인 [ 태그 및 버전 태그(예: ](https://github.com/estesp/manifest-tool))를 제공합니다.
+- GitHub [매니페스트 도구](https://github.com/estesp/manifest-tool)를 사용하여 빌드된 매니페스트 태그인 `latest` 태그 및 버전 태그(예: `1.0.1`)를 제공합니다.
 - [Marketplace 탭](./cpp-marketplace-tab.md)을 사용하여 [호환 IoT Edge 인증 디바이스](https://aka.ms/iot-edge-certified)에 링크를 추가합니다. 이 링크는 고객이 인증된 디바이스를 찾거나 검색할 수 있는 웹 사이트인 `https://aka.ms/iot-edge-certified`로 이동합니다. 이 웹 사이트는 [Azure IoT Edge Certified](https://catalog.azureiotsolutions.com/) 디바이스 카탈로그라고도 합니다.
 
 #### <a name="a-subset-of-tier-1-platforms-supported-by-iot-edge"></a>IoT Edge에서 지원되는 계층 1 플랫폼의 하위 집합
   
 IoT Edge에서 지원되는 계층 1 플랫폼의 하위 집합(하나 이상)을 지원합니다([Azure IoT Edge 지원](https://docs.microsoft.com/azure/iot-edge/support)에 기록된 대로). 이 플랫폼 옵션을 사용하는 모듈은 다음을 수행해야 합니다.
 
-- 둘 이상의 플랫폼이 지원되는 경우 GitHub `latest`매니페스트 도구`1.0.1`를 사용하여 빌드된 매니페스트 태그인 [ 태그 및 버전 태그(예: ](https://github.com/estesp/manifest-tool))를 제공합니다. 하나의 플랫폼이 지원되는 경우에만 매니페스트 태그는 선택 사항입니다.
+- 둘 이상의 플랫폼이 지원되는 경우 GitHub [매니페스트 도구](https://github.com/estesp/manifest-tool)를 사용하여 빌드된 매니페스트 태그인 `latest` 태그 및 버전 태그(예: `1.0.1`)를 제공합니다. 하나의 플랫폼이 지원되는 경우에만 매니페스트 태그는 선택 사항입니다.
 - [Marketplace 탭](./cpp-marketplace-tab.md)을 사용하여 [Azure IoT Edge Certified](https://catalog.azureiotsolutions.com/) 디바이스 카탈로그의 하나 이상의 IoT Edge 디바이스에 링크를 제공합니다.
 
 ### <a name="device-dimensions"></a>디바이스 차원
 
 대상 IoT Edge 디바이스의 IoT Edge 모듈 차원(CPU/RAM/스토리지/GPU/등)은 다음 요구 사항을 충족해야 합니다.
 
-- 모듈은 **Azure IoT Edge Certified** 디바이스 카탈로그에서 [하나 이상의 IoT Edge 인증](https://catalog.azureiotsolutions.com/) 디바이스를 사용하여 작업해야 합니다.
+- 모듈은 [Azure IoT Edge Certified](https://catalog.azureiotsolutions.com/) 디바이스 카탈로그에서 **하나 이상의 IoT Edge 인증** 디바이스를 사용하여 작업해야 합니다.
 - **최소 하드웨어 요구 사항**은 제품의 설명에서 마지막 단락으로 문서화되어야 합니다([Marketplace 탭](./cpp-marketplace-tab.md) 아래). 필요에 따라 크게 다를 경우 권장되는 하드웨어 요구 사항을 나열할 수도 있습니다. 예를 들어 제품 설명의 끝에 다음 섹션을 추가합니다.
 
   ```html
     <p><u>Minimum hardware requirements:</u> Linux x64 and arm32  OS, 1GB of RAM, 500 Mb of storage</p>
   ```
 
-### <a name="configuration"></a>구성
+### <a name="configuration"></a>Configuration
 
 또한 IoT Edge 디바이스에 가능한 간편하게 배포할 수 있도록 하는 기본 구성 설정을 포함합니다. 이 컨테이너는 Edge 허브 및 IoT Hub와 통신할 수 있도록 하는 IoT Edge 모듈 SDK를 포함할 수도 있습니다.
 
@@ -80,11 +79,11 @@ IoT Edge 모듈은 [Cloud 파트너 포털의 SKU 탭](./cpp-skus-tab.md)에 제
 
 #### <a name="configuration-documentation"></a>구성 문서
 
-IoT Edge 모듈의 모든 구성 설정은 명확 하 게 문서화 되어야 합니다 (경로를 사용 하는 방법, desired 속성, 환경 변수, createOptions 등). 설명서에 대 한 링크를 제공 하거나 설명서는 제품/sku 설명에 포함 되어야 합니다.
+IoT Edge 모듈의 모든 구성 설정을 명확하게 문서화해야 합니다(경로 사용 방법, 원하는 속성, 환경 변수, createOptions 등). 문서에 대한 링크를 제공하거나 설명서가 오퍼/스쿠 설명의 일부여야 합니다.
 
 ### <a name="tags-and-versioning"></a>태그 및 버전 관리
 
-고객은 쉽게 모듈을 배포 하 고 개발자 시나리오에서 marketplace에서 업데이트를 자동으로 가져올 수 있어야 합니다. 또한 프로덕션 시나리오에서 테스트 한 정확한 버전을 사용 하 고 고정할 수 있어야 합니다.
+고객은 모듈을 쉽게 배포하고 마켓플레이스에서 자동으로 업데이트를 받을 수 있어야 합니다(개발자 시나리오). 또한 프로덕션 시나리오에서 테스트한 정확한 버전을 사용하고 동결할 수 있어야 합니다.
 
 이러한 고객의 기대를 충족하고 마켓플레이스에 게시하기 위해 IoT Edge 모듈은 다음 요구 사항을 충족해야 합니다.
 
@@ -123,7 +122,7 @@ IoT 모듈 SDK는 실행되는 모듈 인스턴스의 번호에 대한 원격 �
 ## <a name="recertification-process"></a>재인증 프로세스
 
 <!-- Add legal time windows-->
-파트너는 다음과 같은 모듈에 영향을 주는 주요 변경 사항이 있을 때마다 알림이 수신 됩니다.
+ 파트너는 다음과 같은 해당 모듈에 영향을 주는 호환성이 손상되는 변경이 있을 때마다 알림을 받게 됩니다.
 
 - IoT Edge에서 지원되는 계층 1 운영 체제/아키텍처 지원 매트릭스
 - IoT 모듈 SDK
