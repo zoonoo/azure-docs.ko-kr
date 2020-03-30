@@ -7,16 +7,16 @@ author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
 ms.openlocfilehash: 2dace6968fbbe69f806c27fb7a46e60c63f78b4f
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77670205"
 ---
 # <a name="joins-in-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리에서 조인
 
 > [!NOTE]
-> 이 단원을 완료 하기 전에 [Azure Monitor Log Analytics](get-started-portal.md) 및 [Azure Monitor 로그 쿼리](get-started-queries.md) 시작을 완료 해야 합니다.
+> 이 단원을 완료하기 전에 Azure 모니터 로그 분석 및 [Azure Monitor 로그 쿼리를](get-started-queries.md) [시작하기를](get-started-portal.md) 완료해야 합니다.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
@@ -39,7 +39,7 @@ SecurityEvent
 
 이 예제에서는 모든 로그인 이벤트에 대해 첫 번째 데이터 세트가 필터링됩니다. 그런 후 모든 로그아웃 이벤트를 필터링하는 두 번째 데이터 세트와 조인됩니다. 에상되는 열은 _Computer_, _Account_, _TargetLogonId_ 및 _TimeGenerated_입니다. 데이터 세트는 공유 열 _TargetLogonId_를 통해 상호 연관됩니다. 출력은 상관 관계마다 하나의 레코드로 표시되며, 로그인 및 로그아웃 시간이 모두 포함됩니다.
 
-두 데이터 세트에 동일한 이름의 열이 있는 경우 오른쪽 데이터 세트의 열에 인덱스 번호가 지정됩니다. 따라서 이 예제의 결과는 왼쪽 테이블의 값을 포함하는 _TargetLogonId_와 오른쪽 테이블의 값을 포함하는  _TargetLogonId1_으로 표시됩니다. 이 경우 두 번째 _TargetLogonId1_ 열은 `project-away` 연산자를 사용하여 제거되었습니다.
+두 데이터 세트에 동일한 이름의 열이 있는 경우 오른쪽 데이터 세트의 열에 인덱스 번호가 지정됩니다. 따라서 이 예제의 결과는 왼쪽 테이블의 값을 포함하는 _TargetLogonId_와 오른쪽 테이블의 값을 포함하는 _ TargetLogonId1_으로 표시됩니다. 이 경우 두 번째 _TargetLogonId1_ 열은 `project-away` 연산자를 사용하여 제거되었습니다.
 
 > [!NOTE]
 > 성능 향상을 위해 `project` 연산자를 사용하여 조인된 데이터 집합의 관련 열만 유지합니다.
@@ -79,7 +79,7 @@ SecurityEvent
 ## <a name="join-kinds"></a>조인 유형
 _kind_ 인수를 사용하여 조인 유형을 지정합니다. 다음 표에 설명된 대로 각 유형은 지정된 테이블의 레코드 간에 다른 일치를 수행합니다.
 
-| 조인 유형 | Description |
+| 조인 유형 | 설명 |
 |:---|:---|
 | innerunique | 기본 조인 모드입니다. 먼저 왼쪽 테이블에서 일치하는 열의 값이 검색되고 중복 값이 제거됩니다.  그런 후 고유 값 집합이 오른쪽 테이블과 일치하는지 확인합니다. |
 | inner | 두 테이블에서 일치하는 레코드만 결과에 포함됩니다. |

@@ -1,29 +1,29 @@
 ---
-title: Azure HPC 캐시 데이터 수집-수동 복사
-description: Azure HPC 캐시에서 cp 명령을 사용 하 여 Blob 저장소 대상으로 데이터를 이동 하는 방법
+title: Azure HPC 캐시 데이터 수집 - 수동 복사본
+description: cp 명령을 사용하여 Azure HPC 캐시의 Blob 저장소 대상으로 데이터를 이동하는 방법
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: rohogue
 ms.openlocfilehash: fc397088e46f0d2b623080f3deed24c386e7d8b4
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74168489"
 ---
-# <a name="azure-hpc-cache-data-ingest---manual-copy-method"></a>Azure HPC 캐시 데이터 수집-수동 복사 방법
+# <a name="azure-hpc-cache-data-ingest---manual-copy-method"></a>Azure HPC 캐시 데이터 수집 - 수동 복사 방법
 
-이 문서에서는 Azure HPC 캐시에서 사용할 수 있도록 Blob storage 컨테이너에 데이터를 수동으로 복사 하는 방법에 대 한 자세한 지침을 제공 합니다. 다중 스레드 병렬 작업을 사용 하 여 복사 속도를 최적화 합니다.
+이 문서에서는 Azure HPC 캐시와 함께 사용할 수 있도록 Blob 저장소 컨테이너에 데이터를 수동으로 복사하는 방법에 대한 자세한 지침을 제공합니다. 다중 스레드 병렬 작업을 사용하여 복사 속도를 최적화합니다.
 
-Azure HPC 캐시의 Blob 저장소로 데이터를 이동 하는 방법에 대 한 자세한 내용은 [Azure blob storage로 데이터 이동](hpc-cache-ingest.md)을 참조 하세요.
+Azure HPC 캐시의 Blob 저장소로 데이터를 이동하는 방법에 대해 자세히 알아보려면 [Azure Blob 저장소로 데이터 이동을](hpc-cache-ingest.md)읽어보십시오.
 
-## <a name="simple-copy-example"></a>단순 복사 예
+## <a name="simple-copy-example"></a>간단한 복사 예제
 
 미리 정의된 파일 또는 경로 집합에 대해 백그라운드에서 한 번에 둘 이상의 복사 명령을 실행하여 클라이언트에 다중 스레드 복사본을 수동으로 만들 수 있습니다.
 
-``cp`` Linux/UNIX 명령에는 소유권 및 mtime 메타데이터를 유지하기 위해 ``-p`` 인수가 포함됩니다. 아래의 명령에 이 인수를 추가하는 것은 선택 사항입니다. 인수를 추가 하면 메타 데이터 수정을 위해 클라이언트에서 대상 파일 시스템으로 전송 되는 파일 시스템 호출 수가 늘어납니다.
+``cp`` Linux/UNIX 명령에는 소유권 및 mtime 메타데이터를 유지하기 위해 ``-p`` 인수가 포함됩니다. 아래의 명령에 이 인수를 추가하는 것은 선택 사항입니다. 인수를 추가하면 메타데이터 수정을 위해 클라이언트에서 대상 파일 시스템으로 전송된 파일 시스템 호출 수가 증가합니다.
 
 간단한 다음 예제에서는 두 파일을 병렬로 복사합니다.
 
@@ -35,7 +35,7 @@ cp /mnt/source/file1 /mnt/destination1/ & cp /mnt/source/file2 /mnt/destination1
 
 ## <a name="copy-data-with-predictable-file-names"></a>예측 가능한 파일 이름으로 데이터 복사
 
-파일 이름을 예측할 수 있는 경우 식을 사용 하 여 병렬 복사 스레드를 만들 수 있습니다. 
+파일 이름을 예측할 수 있는 경우 식을 사용하여 병렬 복사 스레드를 만들 수 있습니다. 
 
 예를 들어 디렉터리에 `0001`에서 `1000`까지 순차적으로 번호가 매겨진 1,000개의 파일이 있으면 다음 식을 사용하여 각각 100개의 파일을 복사하는 10개의 병렬 스레드를 만들 수 있습니다.
 
@@ -52,9 +52,9 @@ cp /mnt/source/file8* /mnt/destination1/ & \
 cp /mnt/source/file9* /mnt/destination1/
 ```
 
-## <a name="copy-data-with-unstructured-file-names"></a>구조화 되지 않은 파일 이름을 사용 하 여 데이터 복사
+## <a name="copy-data-with-unstructured-file-names"></a>구조화되지 않은 파일 이름으로 데이터 복사
 
-파일 명명 구조를 예측할 수 없는 경우 디렉터리 이름을 기준으로 파일을 그룹화 할 수 있습니다. 
+파일 이름 지정 구조를 예측할 수 없는 경우 디렉터리 이름으로 파일을 그룹화할 수 있습니다. 
 
 다음 예제에서는 전체 디렉터리를 수집하여 백그라운드 작업으로 실행되는 ``cp`` 명령으로 보냅니다.
 
@@ -81,9 +81,9 @@ cp -R /mnt/source/dir1/dir1d /mnt/destination/dir1/ &
 
 ## <a name="when-to-add-mount-points"></a>탑재 지점을 추가하는 경우
 
-단일 대상 파일 시스템 탑재 지점에 대 한 병렬 스레드가 충분 한 경우 더 많은 스레드를 추가 하면 더 이상 처리량이 제공 되지 않습니다. 데이터의 형식에 따라 처리량은 파일/초 또는 바이트/초 단위로 측정 됩니다. 이상 스레딩을 통해 처리량 저하가 발생할 수 있습니다.  
+단일 대상 파일 시스템 마운트 지점에 대해 충분한 병렬 스레드가 있는 경우 스레드를 더 추가해도 처리량이 더 많이 발생하지 않는 지점이 있습니다. 처리량은 데이터 유형에 따라 파일/초 또는 바이트/초단위로 측정됩니다. 또는, 오버 스레딩 처리량 저하를 일으킬 수 있습니다.  
 
-이 경우 동일한 원격 파일 시스템 탑재 경로를 사용 하 여 다른 Azure HPC 캐시 탑재 주소에 클라이언트 쪽 탑재 위치를 추가할 수 있습니다.
+이 경우 동일한 원격 파일 시스템 마운트 경로를 사용하여 다른 Azure HPC Cache 마운트 주소에 클라이언트 측 마운트 지점을 추가할 수 있습니다.
 
 ```bash
 10.1.0.100:/nfs on /mnt/sourcetype nfs (rw,vers=3,proto=tcp,addr=10.1.0.100)
@@ -114,7 +114,7 @@ cp /mnt/source/file8* /mnt/destination3/ & \
 
 마지막으로, 클라이언트 기능에 도달한 경우 더 많은 복사 스레드 또는 추가 탑재 지점을 추가해도 추가 파일 수/초 또는 바이트 수/초가 증가하지 않습니다. 이 경우 자체의 파일 복사 프로세스 집합을 실행할 동일한 탑재 지점 집합을 사용하여 다른 클라이언트를 배포할 수 있습니다. 
 
-예:
+예제:
 
 ```bash
 Client1: cp -R /mnt/source/dir1/dir1a /mnt/destination/dir1/ &
@@ -136,7 +136,7 @@ Client4: cp -R /mnt/source/dir3/dir3d /mnt/destination/dir3/ &
 
 ## <a name="create-file-manifests"></a>매니페스트 파일 만들기
 
-위의 방법을 이해 한 후 (대상 당 다중 복사 스레드, 클라이언트 당 여러 대상, 네트워크 액세스에 액세스할 수 있는 소스 파일 시스템 당 여러 클라이언트) 여러 클라이언트에서 명령
+위의 방법(대상당 여러 복사 스레드, 클라이언트당 여러 대상, 네트워크에 액세스할 수 있는 소스 파일 시스템당 여러 클라이언트)을 이해한 후 다음 이 권장 사항을 고려하십시오. 여러 클라이언트에서 명령을 내다 볼 수 있습니다.
 
 이 시나리오에서는 ``find`` UNIX 명령을 사용하여 파일 또는 디렉터리의 매니페스트를 만듭니다.
 
@@ -208,13 +208,13 @@ for i in 1 2 3 4 ; do sed -n ${i}~4p /tmp/foo > /tmp/client${i}; done
 for i in 1 2 3 4 5; do sed -n ${i}~5p /tmp/foo > /tmp/client${i}; done
 ```
 
-6 ... 필요에 따라 외삽 합니다.
+그리고 여섯 .... 필요에 따라 추정합니다.
 
 ```bash
 for i in 1 2 3 4 5 6; do sed -n ${i}~6p /tmp/foo > /tmp/client${i}; done
 ```
 
-*명령에서 출력의 일부로 얻은 수준 4 디렉터리에 대한 경로 이름을 가진*N*개의 클라이언트 각각에 대해 하나씩* N`find`개의 결과 파일을 받게 됩니다. 
+`find` 명령에서 출력의 일부로 얻은 수준 4 디렉터리에 대한 경로 이름을 가진 *N*개의 클라이언트 각각에 대해 하나씩 *N*개의 결과 파일을 받게 됩니다. 
 
 각 파일을 사용하여 복사 명령을 작성합니다.
 

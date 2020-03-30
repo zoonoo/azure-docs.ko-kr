@@ -1,5 +1,5 @@
 ---
-title: WAD (Windows Azure 진단 확장) 구성 스키마 버전 기록
+title: Windows Azure 진단 확장(WAD) 구성 스키마 버전 기록
 description: Azure Virtual Machines, VM Scale Sets, Service Fabric 및 Cloud Services에서 성능 카운터 수집과 관련됩니다.
 ms.subservice: diagnostic-extension
 ms.topic: reference
@@ -7,14 +7,14 @@ author: bwren
 ms.author: bwren
 ms.date: 01/29/2020
 ms.openlocfilehash: 4dd91363cdebf18e6303238816e8269065a6a317
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77672245"
 ---
-# <a name="windows-azure-diagnostics-extension-wad-configuration-schema-versions-and-history"></a>WAD (Windows Azure 진단 확장) 구성 스키마 버전 및 기록
-이 문서에서는 Microsoft Azure SDK의 일부로 제공 되는 [WAD (Windows 용 Azure 진단 확장)](diagnostics-extension-overview.md) 스키마 버전의 버전 기록을 제공 합니다.  
+# <a name="windows-azure-diagnostics-extension-wad-configuration-schema-versions-and-history"></a>Windows Azure 진단 확장(WAD) 구성 스키마 버전 및 기록
+이 문서에서는 Microsoft Azure SDK의 일부로 제공된 [WAD(Windows)](diagnostics-extension-overview.md) 스키마 버전에 대한 Azure 진단 확장의 버전 기록을 제공합니다.  
 
 
 ## <a name="azure-sdk-and-diagnostics-versions-shipping-chart"></a>Azure SDK 및 진단 버전 전달 차트  
@@ -40,7 +40,7 @@ ms.locfileid: "77672245"
  SDK 2.5(진단 버전 1.2)부터는 Azure 진단이 확장 모델로 이동되었습니다. 새 기능을 활용하기 위한 도구는 최신 Azure SDK에서만 사용할 수 있었지만 Azure 진단을 사용하는 모든 서비스는 Azure에서 직접 최신 전달 버전을 선택할 수 있습니다. 예를 들어, 여전히 SDK 2.5를 사용하는 모든 사용자는 최신 기능을 사용 중인지 여부와 관계 없이 이전 테이블에 표시된 최신 버전이 로딩됩니다.  
 
 ## <a name="schemas-index"></a>스키마 색인  
-서로 다른 버전의 Azure 진단은 다른 구성 스키마를 사용합니다. 스키마 1.0 및 1.2은 더 이상 사용 되지 않습니다. 버전 1.3 이상에 대 한 자세한 내용은 [진단 1.3 이상 구성 스키마](diagnostics-extension-schema-windows.md) 를 참조 하세요.  
+서로 다른 버전의 Azure 진단은 다른 구성 스키마를 사용합니다. 스키마 1.0 및 1.2가 더 이상 사용되지 않았습니다. 버전 1.3 이상에 대한 자세한 내용은 [진단 1.3 및 이후 구성 스키마를](diagnostics-extension-schema-windows.md) 참조하십시오.  
 
 ## <a name="version-history"></a>버전 기록
 
@@ -99,7 +99,7 @@ Docker 지원이 추가되었습니다.
 
 
 ### <a name="diagnostics-extension-181"></a>진단 확장 1.8.1
-는 개인 구성에서 저장소 계정 키 대신 SAS 토큰을 지정할 수 있습니다. SAS 토큰을 제공 하는 경우 저장소 계정 키가 무시 됩니다.
+개인 구성에서 저장소 계정 키 대신 SAS 토큰을 지정할 수 있습니다. SAS 토큰이 제공되면 저장소 계정 키가 무시됩니다.
 
 
 ```json
@@ -167,8 +167,8 @@ Azure SDK 2.4 이하와 Azure SDK 2.6 이상 버전에서 연결 문자열이 �
 
 * Azure SDK 2.4 이하 버전에서는 진단 로그를 전송하기 위한 스토리지 계정 정보를 가져오기 위해 진단 플러그인에 의해 런타임으로 연결 문자열이 사용되었습니다.
 * Azure SDK 2.6 이상 버전에서 Visual Studio는 게시하는 동안 진단 연결 문자열을 사용하여 적절한 스토리지 계정 정보로 진단 확장을 구성합니다. 연결 문자열을 통해 사용자는 Visual Studio에서 게시하는 동안 사용할 다양한 서비스 구성에 대해 서로 다른 스토리지 계정을 정의할 수 있습니다. 그러나 진단 플러그인을 더 이상 사용할 수 없으므로(Azure SDK 2.5 이후) .cscfg 파일 자체만으로 진단 확장을 활성화할 수 없습니다. Visual Studio 또는 PowerShell과 같은 도구를 통해 별도로 확장을 사용하도록 설정해야 합니다.
-* PowerShell을 사용한 진단 확장 구성 프로세스를 단순화하기 위해 Visual Studio의 패키지 출력에도 각 역할에 대한 진단 확장의 공용 구성 XML이 포함됩니다. Visual Studio에서는 진단 연결 문자열을 사용하여 공용 구성에 있는 스토리지 계정 정보를 채웁니다. 공용 구성 파일은 Extensions 폴더에 생성 되 고 `PaaSDiagnostics.<RoleName>.PubConfig.xml`패턴을 따릅니다. 모든 PowerShell 기반 배포에서 이 패턴을 사용하여 각 구성을 역할에 매핑합니다.
-* .Cscfg 파일의 연결 문자열은 Azure Portal에서 진단 데이터에 액세스 하는 데도 사용 되므로 **모니터링** 탭에 나타날 수 있습니다. 연결 문자열은 포털에서 자세한 모니터링 데이터를 표시 하도록 서비스를 구성 하는 데 필요 합니다.
+* PowerShell을 사용한 진단 확장 구성 프로세스를 단순화하기 위해 Visual Studio의 패키지 출력에도 각 역할에 대한 진단 확장의 공용 구성 XML이 포함됩니다. Visual Studio에서는 진단 연결 문자열을 사용하여 공용 구성에 있는 스토리지 계정 정보를 채웁니다. 공용 구성 파일은 Extensions 폴더에 만들어지고 `PaaSDiagnostics.<RoleName>.PubConfig.xml`패턴을 따릅니다. 모든 PowerShell 기반 배포에서 이 패턴을 사용하여 각 구성을 역할에 매핑합니다.
+* .cscfg 파일의 연결 문자열은 Azure 포털에서 진단 데이터에 액세스하여 **모니터링** 탭에 표시할 수도 있습니다. 포털에 자세한 모니터링 데이터를 표시하도록 서비스를 구성하려면 연결 문자열이 필요합니다.
 
 #### <a name="migrating-projects-to-azure-sdk-26-and-later"></a>Azure SDK 2.6 이상으로 프로젝트 마이그레이션
 Azure SDK 2.5에서 Azure SDK 2.6 이상으로 마이그레이션하는 경우 .wadcfgx 파일에 진단 스토리지 계정이 지정된 경우 값이 계속 유지됩니다. 서로 다른 스토리지 구성에 대해 서로 다른 스토리지 계정을 유연성 있게 사용하려면 프로젝트에 연결 문자열을 수동으로 추가해야 합니다. Azure SDK 2.4 또는 이전 버전에서 Azure SDK 2.6으로 프로젝트를 마이그레이션하는 경우 진단 연결 문자열이 유지됩니다. 그러나 이전 섹션에서 지정된 것처럼 Azure SDK 2.6에서 연결 문자열을 처리하는 방식이 변경되었음에 유의하세요.
@@ -179,15 +179,15 @@ Azure SDK 2.5에서 Azure SDK 2.6 이상으로 마이그레이션하는 경우 .
 * .cscfg 파일의 진단 연결 문자열은 .wadcfgx 파일의 스토리지 계정보다 우선합니다. 진단 연결 문자열이.cscfg 파일에 지정된 경우, Visual Studio에서는 이 문자열을 사용하고 .wadcfgx의 스토리지 계정은 무시합니다.
 
 #### <a name="what-does-the-update-development-storage-connection-strings-checkbox-do"></a>“개발 스토리지 연결 문자열 업데이트...” 확인란의 기능은 무엇인가요?
-**Microsoft Azure에 게시할 때 Microsoft Azure Storage 계정 자격 증명을 사용하여 진단 및 캐싱을 위한 개발 스토리지 연결 문자열 업데이트** 확인란은 게시하는 동안 지정된 Azure Storage 계정으로 개발 스토리지 계정 연결 문자열을 업데이트하는 편리한 방법을 제공합니다.
+**Microsoft Azure에 게시할 때 Microsoft Azure 저장소 계정 자격 증명을 통해 진단 및 캐싱에 대한 개발 저장소 연결 문자열 업데이트** 확인란을 사용하면 게시 중에 지정된 Azure 저장소 계정으로 개발 저장소 계정 연결 문자열을 편리하게 업데이트할 수 있습니다.
 
 예를 들어, 사용자가 이 확인란을 선택하고 진단 연결 문자열에서 `UseDevelopmentStorage=true`를 지정한다고 가정합니다. Azure에 프로젝트를 게시할 때 Visual Studio는 사용자가 게시 마법사에 지정한 스토리지 계정을 사용하여 진단 연결 문자열을 자동으로 업데이트합니다. 그러나 실제 스토리지 계정을 진단 연결 문자열로 지정한 경우 해당 계정이 대신 사용됩니다.
 
 ### <a name="diagnostics-functionality-differences-between-azure-sdk-24-and-earlier-and-azure-sdk-25-and-later"></a>Azure SDK 2.4 이하 및 Azure SDK 2.5 이상 간의 진단 기능 차이점
 Azure SDK 2.4에서 Azure SDK 2.5 이상으로 업그레이드하는 경우 다음 진단 기능 차이점을 명심해야 합니다.
 
-* **구성 API가 더 이상 사용되지 않음** – 진단의 프로그래밍 방식 구성은 Azure SDK 2.4 이하 버전에서는 사용할 수 있지만 Azure SDK 2.5 이상 버전에서는 더 이상 사용되지 않습니다. 코드에 진단 구성이 현재 정의된 경우 계속해서 진단하려면 마이그레이션된 프로젝트에서 해당 설정을 처음부터 다시 구성해야 합니다. Azure SDK 2.4에 대한 진단 구성 파일은 diagnostics.wadcfg이고 Azure SDK 2.5 이상에서는 diagnostics.wadcfgx입니다.
+* **구성 API가 사용되지 않음** – 진단의 프로그래밍 방식 구성은 Azure SDK 2.4 또는 이전 버전에서 사용할 수 있지만 Azure SDK 2.5 이상에서는 사용되지 않습니다. 코드에 진단 구성이 현재 정의된 경우 계속해서 진단하려면 마이그레이션된 프로젝트에서 해당 설정을 처음부터 다시 구성해야 합니다. Azure SDK 2.4에 대한 진단 구성 파일은 diagnostics.wadcfg이고 Azure SDK 2.5 이상에서는 diagnostics.wadcfgx입니다.
 * **클라우드 서비스 애플리케이션에 대한 진단은 인스턴스 수준이 아닌 역할 수준에서만 구성할 수 있습니다.**
 * **앱을 배포할 때마다 진단 구성이 업데이트됨** – 이로 인해 서버 탐색기에서 진단 구성을 변경한 후 앱을 다시 배포하는 경우 패리티 문제가 발생할 수 있습니다.
-* **Azure SDK 2.5 이상에서 코드가 아닌 진단 구성 파일에 크래시 덤프가 구성됨** – 코드에 크래시 덤프가 구성된 경우, Azure SDK 2.6으로 마이그레이션하는 동안 크래시 덤프가 전송되지 않으므로 해당 구성을 코드에서 구성 파일로 수동으로 전송해야 합니다.
+* **Azure SDK 2.5 이상에서 크래시 덤프는 코드가 아닌 진단 구성 파일에서 구성됨** – 코드에서 크래시 덤프를 구성했다면 Azure SDK 2.6으로 마이그레이션할 때 크래시 덤프가 전송되지 않으므로 구성을 코드에서 구성 파일로 수동으로 전송해야 합니다.
 

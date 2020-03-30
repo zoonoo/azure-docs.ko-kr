@@ -8,10 +8,10 @@ ms.date: 05/22/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 38339defc9d06f3e809bc24f957ebbb30abb46d3
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77598785"
 ---
 # <a name="how-to-deploy-azure-files"></a>Azure Files를 배포하는 방법
@@ -26,7 +26,7 @@ ms.locfileid: "77598785"
 - Storage 계정에서 원하는 할당량을 사용하여 Azure 파일 공유를 만들었습니다. 파일 공유를 만드는 방법에 대한 단계별 지침은 [파일 공유 만들기](storage-how-to-create-file-share.md)를 참조하세요.
 
 ## <a name="transfer-data-into-azure-files"></a>데이터를 Azure Files로 전송
-온-프레미스에 저장된 파일 공유 같은 기존 파일 공유를 새 Azure 파일 공유로 마이그레이션하려고 할 수 있습니다. 이 섹션에서는 [계획 지침](storage-files-planning.md#migration)에서 자세히 설명된 널리 사용되는 여러 메서드를 통해 데이터를 Azure 파일 공유로 이동하는 방법을 보여줍니다.
+온-프레미스에 저장된 파일 공유 같은 기존 파일 공유를 새 Azure 파일 공유로 마이그레이션하려고 할 수 있습니다. 이 섹션에서는 [계획 가이드에서](storage-files-planning.md#migration) 자세히 설명한 몇 가지 인기 있는 방법을 통해 데이터를 Azure 파일 공유로 이동하는 방법을 보여 줄 것입니다.
 
 ### <a name="azure-file-sync"></a>Azure 파일 동기화
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 희생하지 않고 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. 이 작업은 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환하여 수행합니다. Windows Server에서 사용할 수 있는 아무 프로토콜이나 사용하여 데이터를 로컬로(SMB, NFS 및 FTPS 포함) 액세스할 수 있으며 세계 전역에 걸쳐 필요한 만큼 캐시를 보유할 수 있습니다.
@@ -90,7 +90,7 @@ Azure Import/Export 서비스를 사용하면 하드 디스크 드라이브를 A
 ### <a name="robocopy"></a>Robocopy
 Robocopy는 Windows 및 Windows Server와 함께 제공되는 잘 알려진 복사 도구입니다. 파일 공유를 로컬로 탑재하고 탑재된 위치를 Robocopy 명령의 대상으로 사용하는 방식으로 Robocopy를 사용하여 데이터를 Azure Files로 전송할 수 있습니다. Robocopy 사용은 매우 간단합니다.
 
-1. [Azure 파일 공유 탑재](storage-how-to-use-files-windows.md). 성능을 최적화하려면 데이터가 포함된 서버에서 로컬로 Azure 파일 공유를 탑재하는 것이 좋습니다. 데이터를 제공하는 파일 서버가 NAS 디바이스인 경우와 같이 일부 경우에는 이 기능을 사용하지 못할 수 있습니다. 이 경우 PC에서 Azure 파일 공유를 탑재하면 됩니다. 이 예제에서 `net use`는 명령줄에서 파일 공유를 탑재하는 데 사용됩니다.
+1. [Azure 파일 공유를 마운트합니다.](storage-how-to-use-files-windows.md) 성능을 최적화하려면 데이터가 포함된 서버에서 로컬로 Azure 파일 공유를 탑재하는 것이 좋습니다. 데이터를 제공하는 파일 서버가 NAS 디바이스인 경우와 같이 일부 경우에는 이 기능을 사용하지 못할 수 있습니다. 이 경우 PC에서 Azure 파일 공유를 탑재하면 됩니다. 이 예제에서 `net use`는 명령줄에서 파일 공유를 탑재하는 데 사용됩니다.
 
     ```
     net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> <storage-account-key> /user:Azure\<storage-account-name>
@@ -107,7 +107,7 @@ Robocopy는 Windows 및 Windows Server와 함께 제공되는 잘 알려진 복�
 ### <a name="azcopy"></a>AzCopy
 AzCopy는 간단한 명령과 최적의 성능으로 데이터를 Azure Files 및 Azure Blob Storage에서 복사하도록 디자인된 명령줄 유틸리티입니다. AzCopy 사용은 간단합니다.
 
-1. [Linux](https://aka.ms/downloadazcopy) 또는 [Windows에서 최신 AzCopy 버전](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy-linux#download-and-install-azcopy)을 다운로드합니다.
+1. [Linux](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy-linux#download-and-install-azcopy) 또는 [Windows에서 최신 AzCopy 버전](https://aka.ms/downloadazcopy)을 다운로드합니다.
 2. 명령줄에서 `azcopy`를 사용하여 데이터를 Azure 파일 공유로 이동합니다. Windows의 구문은 다음과 같습니다. 
 
     ```

@@ -1,5 +1,5 @@
 ---
-title: '파트너 FAQ: 클라우드 솔루션 공급자 프로그램에 대 한 StorSimple'
+title: '파트너를 위한 FAQ: 클라우드 솔루션 공급자 프로그램을 위한 StorSimple'
 description: 파트너용 StorSimple 및 CSP에 관련된 몇 가지 일반적인 질문에 대한 답변을 찾습니다.
 services: storsimple
 documentationcenter: NA
@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
 ms.openlocfilehash: eaf22773e581f0b7557a64917e183573039d1cef
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77116156"
 ---
 # <a name="storsimple-for-cloud-solutions-provider-program-frequently-asked-questions"></a>클라우드 솔루션 공급자 프로그램용 StorSimple: 질문과 대답
@@ -63,7 +63,7 @@ CSP용 StorSimple 가상 배열은 현재 StorSimple을 사용할 수 있는 모
 - 관리되는 서비스를 제공하여 새로운 비즈니스 모델을 검색할 수도 있습니다.
 
 ### <a name="what-are-the-incentives-available-for-storsimple-csp-partners-do-i-qualify-for-any-csp-program-incentives"></a>StorSimple CSP 파트너에 사용할 수 있는 인센티브는 무엇입니까? 모든 CSP 프로그램 인센티브에 대한 자격이 있습니까?
-성과급에 대 한 자세한 내용은 [CSP 프로그램의 성과급](https://partner.microsoft.com/en-US/cloud-solution-provider/program-details)으로 이동 하세요.
+인센티브에 대한 자세한 내용은 [CSP 프로그램 인센티브로](https://partner.microsoft.com/en-US/cloud-solution-provider/program-details)이동하십시오.
 
 
 ## <a name="deploy-and-manage-storsimple-as-a-partner"></a>파트너로 StorSimple 배포 및 관리

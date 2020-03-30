@@ -1,5 +1,5 @@
 ---
-title: PowerShell을 사용 하 여 SSL 정책 구성
+title: PowerShell을 사용하여 SSL 정책 구성
 titleSuffix: Azure Application Gateway
 description: 이 문서에서는 Azure Application Gateway에서 SSL 정책을 구성하기 위한 지침을 제공합니다.
 services: application-gateway
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/14/2019
 ms.author: victorh
 ms.openlocfilehash: 105b0b3e40e6e9433ee456914cd5babc1d17d036
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74075243"
 ---
 # <a name="configure-ssl-policy-versions-and-cipher-suites-on-application-gateway"></a>Application Gateway에서 SSL 정책 버전 및 암호 그룹 구성
@@ -116,7 +116,7 @@ CipherSuites:
 * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
 
 > [!IMPORTANT]
-> 사용자 지정 SSL 정책을 구성할 때 TLS_RSA_WITH_AES_256_CBC_SHA256를 선택 해야 합니다. Application gateway는 백 엔드 관리를 위해이 암호 그룹을 사용 합니다. 이를 다른 모든 도구 모음과 함께 사용할 수 있지만이 항목을 선택 해야 합니다. 
+> 사용자 지정 SSL 정책을 구성할 때 TLS_RSA_WITH_AES_256_CBC_SHA256 선택해야 합니다. 응용 프로그램 게이트웨이는 백 엔드 관리를 위해 이 암호 제품군을 사용합니다. 다른 스위트와 함께 사용할 수 있지만 이 스위트도 선택해야 합니다. 
 
 ```powershell
 # get an application gateway resource

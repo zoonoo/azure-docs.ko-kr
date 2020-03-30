@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor로 Surface Hub 모니터링 Microsoft Docs
+title: Azure 모니터를 통해 표면 허브 모니터링 | 마이크로 소프트 문서
 description: Surface Hub 솔루션으로 Surface Hub 상태를 추적하여 Surface Hub가 사용되고 있는 방식을 파악합니다.
 ms.subservice: logs
 ms.topic: conceptual
@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 01/16/2018
 ms.openlocfilehash: 7999735bf2d182b2811d01172adcfc89cba27dc8
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77662504"
 ---
 # <a name="monitor-surface-hubs-with-azure-monitor-to-track-their-health"></a>Azure Monitor로 Surface Hub를 모니터링하여 상태 추적
@@ -40,7 +40,7 @@ Surface Hub를 관리할 Log Analytics 작업 영역에 대한 작업 영역 ID 
 Intune은 하나 이상의 디바이스에 적용되는 Log Analytics 작업 영역 구성 설정을 중앙에서 관리할 수 있게 하는 Microsoft 제품입니다. InTune 통해 디바이스를 구성하려면 다음 단계를 수행합니다.
 
 1. InTune에 로그인합니다.
-2. **설정** > **연결된 원본**으로 이동합니다.
+2. **연결된** **소스 설정으로** > 이동합니다.
 3. Surface Hub 템플릿을 기반으로 하는 정책을 만들거나 편집합니다.
 4. 정책의 Azure Operational Insights 섹션으로 이동하여 해당 정책에 Log Analytics *작업 영역 ID* 및 *작업 영역 키*를 추가합니다.
 5. 해당 정책을 저장합니다.
@@ -61,7 +61,7 @@ Surface Hub를 관리할 Log Analytics 작업 영역에 대한 작업 영역 ID 
 4. **모니터링 사용**을 선택합니다.
 5. Log Analytics 설정 대화 상자에서 Log Analytics **작업 영역 ID**, **작업 영역 키**를 차례로 입력합니다.  
    ![설정](./media/surface-hubs/settings.png)
-6. **확인**을 클릭하여 구성을 완료합니다.
+6. **확인을** 클릭하여 구성을 완료합니다.
 
 디바이스에 구성이 성공적으로 적용되었는지 여부를 알리는 확인 메시지가 나타납니다. 성공한 경우에는 에이전트가 Azure Monitor에 올바르게 연결되었다고 알리는 메시지가 나타납니다. 그러면 해당 디바이스에서 데이터를 확인하고 작업할 수 있는 Azure Monitor로 이 데이터를 보내기 시작합니다.
 

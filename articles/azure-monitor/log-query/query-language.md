@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 01/11/2019
 ms.openlocfilehash: fc943ac3cf82d22a58d0ba3390ad8d9bbee6a4c9
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77669390"
 ---
 # <a name="azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리
@@ -20,14 +20,14 @@ Azure Monitor 로그는 Azure Data Explorer에서 빌드되고, Azure Monitor �
 
 ## <a name="getting-started"></a>시작
 
-- [Azure Monitor Log Analytics 시작](get-started-portal.md) 은 쿼리를 작성 하 고 Azure Portal 결과를 다루는 단원입니다.
+- [Azure 모니터 로그 분석 시작은](get-started-portal.md) 쿼리를 작성하고 Azure 포털의 결과로 작업하는 강의입니다.
 - [Azure Monitor 로그 쿼리 시작](get-started-queries.md)은 Azure Monitor 로그 데이터를 사용하여 쿼리를 작성하는 방법에 대한 단원입니다.
 
 ## <a name="concepts"></a>개념
 - [Azure Monitor에서 로그 데이터 분석](../../azure-monitor/log-query/log-query-overview.md)에서는 로그 쿼리의 간략한 개요를 제공하고 Azure Monitor 로그 데이터가 구성된 방식을 설명합니다.
 - [Azure Monitor에서 데이터 보기 및 분석](../../azure-monitor/log-query/portals.md)에서는 로그 쿼리를 만들고 실행하는 포털을 설명합니다.
 
-## <a name="reference"></a>참조
+## <a name="reference"></a>참고
 
 - [쿼리 언어 참조](/azure/kusto/query)는 Kusto 쿼리 언어에 대한 전체 언어 참조입니다.
 - [Azure Monitor 로그 쿼리 언어 차이](data-explorer-difference.md)에서는 Kusto 쿼리 언어 버전 간의 차이점을 설명합니다.

@@ -1,5 +1,5 @@
 ---
-title: 지리적으로 분산 크기 조정
+title: 지리적 분산 척도
 description: Traffic Manager 및 App Service 환경으로 지역 분포를 사용하여 앱을 수평으로 확장하는 방법을 알아봅니다.
 author: stefsch
 ms.assetid: c1b05ca8-3703-4d87-a9ae-819d741787fb
@@ -8,24 +8,24 @@ ms.date: 09/07/2016
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: 7ab04e23b838f2dfd39b73476db7492947d62e6e
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74688810"
 ---
-# <a name="geo-distributed-scale-with-app-service-environments"></a>App Service 환경을 사용한 지리적 분산 크기 조정
+# <a name="geo-distributed-scale-with-app-service-environments"></a>App Service Environment로 지역 분산된 규모
 ## <a name="overview"></a>개요
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 대규모를 필요로 하는 애플리케이션 시나리오는 앱의 단일 배포에 사용할 수 있는 컴퓨팅 리소스 용량을 초과할 수 있습니다.  투표 애플리케이션, 스포츠 이벤트 및 방송된 엔터테인먼트 이벤트는 대규모를 필요로 하는 시나리오를 모두 포함하는 예입니다. 대규모를 요구하면 수평으로 앱을 확장하여 단일 지역내에서 뿐만 아니라 지역에 걸쳐 수행되는 여러 앱 배포에 맞게 큰 부하 요구 사항을 처리합니다.
 
-App Service 환경은 수평 확장을 위한 이상적인 플랫폼입니다.  알려진 요청 률을 지원할 수 있는 App Service Environment 구성을 선택한 후 개발자는 "쿠키 커터" 방식으로 추가 App Service 환경을 배포 하 여 원하는 최대 부하 용량을 얻을 수 있습니다.
+앱 서비스 환경은 수평 확장에 이상적인 플랫폼입니다.  알려진 요청 속도를 지원할 수 있는 앱 서비스 환경 구성을 선택하면 개발자는 원하는 최대 로드 용량을 달성하기 위해 "쿠키 커터" 방식으로 추가 앱 서비스 환경을 배포할 수 있습니다.
 
 예를 들어 App Service Environment의 구성에서 실행 중인 앱이 초당 20K(RPS) 요청을 처리하는 테스트를 거쳤다고 가정합니다.  원하는 최대 부하 용량이 100K RPS인 경우 다섯 가지(5) App Service Environment를 만들고 구성하여 애플리케이션이 최대 예상된 부하를 처리할 수 있도록 할 수 있습니다.
 
-일반적으로 고객이 사용자 지정(또는 베니티) 도메인을 사용하여 앱에 액세스하기 때문에 개발자는 모든 App Service Environment 인스턴스에 앱 요청을 분산하는 방법이 있어야 합니다.  이를 위해 [Azure Traffic Manager 프로필][AzureTrafficManagerProfile]을 사용 하 여 사용자 지정 도메인을 확인 하는 것이 좋습니다.  Traffic Manager 프로필은 모든 개별 App Service 환경을 가리키도록 구성될 수 있습니다.  Traffic Manager는 Traffic Manager 프로필의 설정에서 부하 분산에 따라 모든 App Service 환경에 고객을 배포하도록 자동으로 처리합니다.  이 방법은 단일 모든 App Service Environment가 Azure 지역에 배포되는지 전세계의 여러 Azure 지역에 배포되는지에 관계 없이 작동합니다.
+일반적으로 고객이 사용자 지정(또는 베니티) 도메인을 사용하여 앱에 액세스하기 때문에 개발자는 모든 App Service Environment 인스턴스에 앱 요청을 분산하는 방법이 있어야 합니다.  이 작업을 수행할 수 있는 좋은 방법은 [Azure Traffic Manager 프로필][AzureTrafficManagerProfile]을 사용하여 사용자 지정 도메인을 해결하는 것입니다.  Traffic Manager 프로필은 모든 개별 App Service 환경을 가리키도록 구성될 수 있습니다.  Traffic Manager는 Traffic Manager 프로필의 설정에서 부하 분산에 따라 모든 App Service 환경에 고객을 배포하도록 자동으로 처리합니다.  이 방법은 단일 모든 App Service Environment가 Azure 지역에 배포되는지 전세계의 여러 Azure 지역에 배포되는지에 관계 없이 작동합니다.
 
 또한 고객이 베니티 도메인을 통해 앱에 액세스하므로 고객은 앱을 실행하는 App Service Environment의 수를 인식하지 않습니다.  결과적으로 개발자는 App Service Environment를 관찰된 트래픽 부하에 따라 쉽고 빠르게 추가 및 제거할 수 있습니다.
 
@@ -38,20 +38,20 @@ App Service 환경은 수평 확장을 위한 이상적인 플랫폼입니다.  
 ## <a name="planning-the-topology"></a>토폴로지 계획
 분산된 앱 공간을 빌드하기 전에 미리 약간 정보가 있는 편이 좋습니다.
 
-* **앱에 대한 사용자 지정 도메인:** 고객이 앱에 액세스하는 데 사용할 사용자 지정 도메인 이름은 무엇입니까?  샘플 앱의 경우 사용자 지정 도메인 이름은 `www.scalableasedemo.com`
-* **도메인 Traffic Manager:**  [Azure Traffic Manager 프로필][AzureTrafficManagerProfile]을 만들 때 도메인 이름을 선택 해야 합니다.  이 이름은 *trafficmanager.net* 접미사와 결합하여 Traffic Manager에서 관리되는 도메인 항목을 등록합니다.  샘플 앱의 경우 선택한 이름은 *scalable-ase-demo*입니다.  결과적으로 Traffic Manager에서 관리되는 전체 도메인 이름은 *scalable-ase-demo.trafficmanager.net*입니다.
-* **앱 공간을 크기 조정하는 전략:** 애플리케이션 공간은 단일 지역의 여러 App Service Environment에 걸쳐 분산됩니까?  여러 영역?  두 방법을 혼합 및 일치?  결정은 고객 트래픽이 생성되는 기대치 뿐만 아니라 백 엔드 인프라를 지원하는 앱의 나머지 부분이 확장할 수 있는 방법에 기반해야 합니다.  예를 들어 100% 상태 비저장 애플리케이션의 경우 Azure 지역 마다 여러 App Service Environment의 조합을 사용하여 앱을 크게 확장할 수 있으며 여러 Azure 지역에 걸쳐 배포된 App Service Environment로 곱해집니다.  선택할 수 있는 15+ 공용 Azure 지역으로 고객은 전세계 하이퍼 규모의 애플리케이션 공간을 진정으로 구축할 수 있습니다.  이 문서에 사용되는 샘플 앱의 경우 세 가지 App Service Environment를 단일 Azure 지역(미국 중남부)에서 만들었습니다.
-* **App Service Environment에 대한 명명 규칙:** 각 App Service Environment에는 고유한 이름이 있어야 합니다.  하나 또는 두 개의 App Service Environment 외에도 각 App Service Environment를 식별하는 데 도움이 되는 명명 규칙을 파악하는 것이 좋습니다.  샘플 앱의 경우 간단한 명명 규칙을 사용했습니다.  세 가지 App Service Environment의 이름은 *fe1ase*, *fe2ase*, 및 *fe3ase*입니다.
-* **앱에 대한 명명 규칙:** 앱의 여러 인스턴스가 배포되기 때문에 이름은 배포된 앱의 인스턴스 각각에 필요합니다.  하나의 잘 알려지지 않지만 매우 편리한 App Service Environment의 기능은 동일한 앱 이름을 여러 App Service Environment에 걸쳐 사용할 수 있다는 점입니다.  각 App Service Environment에 고유한 도메인 접미사가 있으므로 개발자는 각 환경에 정확히 동일한 앱 이름을 다시 사용하도록 선택할 수 있습니다.  예를 들어 개발자에 게 이름이 *myapp.foo1.p.azurewebsites.net*, *myapp.foo2.p.azurewebsites.net*, *myapp.foo3.p.azurewebsites.net*등 인 앱이 있을 수 있습니다.  샘플 앱의 경우 각 응용 프로그램 인스턴스에 고유한 이름이 있습니다.  앱 인스턴스에 사용되는 이름은 *webfrontend1*, *webfrontend2* 및 *webfrontend3*입니다.
+* **앱에 대한 사용자 지정 도메인:**  고객이 앱에 액세스하는 데 사용할 사용자 지정 도메인 이름은 무엇입니까?  샘플 앱의 경우 사용자 지정 도메인 이름은`www.scalableasedemo.com`
+* **트래픽 관리자 도메인:** 도메인 이름은 [Azure Traffic Manager 프로필][AzureTrafficManagerProfile]을 만들 때 선택해야 합니다.  이 이름은 *trafficmanager.net* 접미사와 결합하여 Traffic Manager에서 관리되는 도메인 항목을 등록합니다.  샘플 앱의 경우 선택한 이름은 *scalable-ase-demo*입니다.  결과적으로 Traffic Manager에서 관리되는 전체 도메인 이름은 *scalable-ase-demo.trafficmanager.net*입니다.
+* **앱 공간을 확장하기 위한 전략:**  응용 프로그램 사용 공간이 단일 지역의 여러 앱 서비스 환경에 분산되나요?  여러 영역?  두 방법을 혼합 및 일치?  결정은 고객 트래픽이 생성되는 기대치 뿐만 아니라 백 엔드 인프라를 지원하는 앱의 나머지 부분이 확장할 수 있는 방법에 기반해야 합니다.  예를 들어 100% 상태 비저장 애플리케이션의 경우 Azure 지역 마다 여러 App Service Environment의 조합을 사용하여 앱을 크게 확장할 수 있으며 여러 Azure 지역에 걸쳐 배포된 App Service Environment로 곱해집니다.  선택할 수 있는 15+ 공용 Azure 지역으로 고객은 전세계 하이퍼 규모의 애플리케이션 공간을 진정으로 구축할 수 있습니다.  이 문서에 사용되는 샘플 앱의 경우 세 가지 App Service Environment를 단일 Azure 지역(미국 중남부)에서 만들었습니다.
+* **앱 서비스 환경에 대한 명명 규칙:**  각 앱 서비스 환경에는 고유한 이름이 필요합니다.  하나 또는 두 개의 App Service Environment 외에도 각 App Service Environment를 식별하는 데 도움이 되는 명명 규칙을 파악하는 것이 좋습니다.  샘플 앱의 경우 간단한 명명 규칙을 사용했습니다.  세 가지 App Service Environment의 이름은 *fe1ase*, *fe2ase*, 및 *fe3ase*입니다.
+* **앱에 대한 명명 규칙:** 앱의 여러 인스턴스가 배포되기 때문에 이름은 배포된 앱의 인스턴스 각각에 필요합니다.  하나의 잘 알려지지 않지만 매우 편리한 App Service Environment의 기능은 동일한 앱 이름을 여러 App Service Environment에 걸쳐 사용할 수 있다는 점입니다.  각 App Service Environment에 고유한 도메인 접미사가 있으므로 개발자는 각 환경에 정확히 동일한 앱 이름을 다시 사용하도록 선택할 수 있습니다.  예를 들어 개발자는 다음과 같은 이름의 앱을 가질 수 있습니다: *myapp.foo1.p.azurewebsites.net,* *myapp.foo2.p.azurewebsites.net,* *myapp.foo3.p.azurewebsites.net*등.  샘플 앱의 경우 각 앱 인스턴스에도 고유한 이름이 있습니다.  앱 인스턴스에 사용되는 이름은 *webfrontend1*, *webfrontend2* 및 *webfrontend3*입니다.
 
 ## <a name="setting-up-the-traffic-manager-profile"></a>Traffic Manager 프로필 설정
 여러 App Service Environment에서 앱의 여러 인스턴스를 배포하면 개별 앱 인스턴스는 Traffic Manager를 사용하여 등록할 수 있습니다.  샘플 앱의 경우 Traffic Manager 프로필은 다음 배포된 앱 인스턴스에 고객을 라우팅할 수 있는 *scalable-ase-demo.trafficmanager.net* 에 필요합니다.
 
-* **webfrontend1.fe1ase.p.azurewebsites.net:** 첫 번째 App Service Environment에 배포된 샘플 앱의 인스턴스입니다.
-* **webfrontend2.fe2ase.p.azurewebsites.net:** 두 번째 App Service Environment에 배포된 샘플 앱의 인스턴스입니다.
-* **webfrontend3.fe3ase.p.azurewebsites.net:** 세 번째 App Service Environment에 배포된 샘플 앱의 인스턴스입니다.
+* **webfrontend1.fe1ase.p.azurewebsites.net:**  첫 번째 앱 서비스 환경에 배포된 샘플 앱의 인스턴스입니다.
+* **webfrontend2.fe2ase.p.azurewebsites.net:**  두 번째 앱 서비스 환경에 배포된 샘플 앱의 인스턴스입니다.
+* **webfrontend3.fe3ase.p.azurewebsites.net:**  세 번째 앱 서비스 환경에 배포된 샘플 앱의 인스턴스입니다.
 
-**동일한** Azure 지역에서 실행 되는 여러 Azure App Service 끝점을 등록 하는 가장 쉬운 방법은 Powershell [Azure Resource Manager 지원 Traffic Manager][ARMTrafficManager]를 사용 하는 것입니다.  
+**동일한** Azure 지역에서 실행되는 여러 Azure App Service 엔드포인트를 등록하는 가장 쉬운 방법은 Powershell [Azure Resource Manager Traffic Manager 지원][ARMTrafficManager]을 사용하는 것입니다.  
 
 첫 번째 단계는 Azure Traffic Manager 프로필을 만드는 것입니다.  아래 코드에서는 샘플 앱에 프로필을 만든 방법을 보여줍니다.
 
@@ -79,7 +79,7 @@ App Service 환경은 수평 확장을 위한 이상적인 플랫폼입니다.  
 세 엔드포인트는 모두 *가중치* 매개 변수에 동일한 값(10)을 사용합니다.  그러면 Traffic Manager에서 세 가지 앱 인스턴스에 상대적으로 균일하게 고객 요청을 분산하게 됩니다. 
 
 ## <a name="pointing-the-apps-custom-domain-at-the-traffic-manager-domain"></a>Traffic Manager 도메인에서 앱의 사용자 지정 도메인 가리키기
-필요한 마지막 단계는 Traffic Manager 도메인에서 앱의 사용자 지정 도메인을 가리키는 것입니다.  샘플 앱의 경우이는 `scalable-ase-demo.trafficmanager.net`에서 `www.scalableasedemo.com`를 가리키는 것을 의미 합니다.  이 단계는 사용자 지정 도메인을 관리하는 도메인 등록 기관으로 완료해야 합니다.  
+필요한 마지막 단계는 Traffic Manager 도메인에서 앱의 사용자 지정 도메인을 가리키는 것입니다.  샘플 앱의 경우 `www.scalableasedemo.com` 이 `scalable-ase-demo.trafficmanager.net`앱은 을 가리키는 것을 의미합니다.  이 단계는 사용자 지정 도메인을 관리하는 도메인 등록 기관으로 완료해야 합니다.  
 
 등록 기관의 도메인 관리 도구를 사용하여 CNAME 기록은 Traffic Manager 도메인에서 사용자 지정 도메인을 가리키도록 만들어야 합니다.  아래 그림은 해당 CNAME 구성이 다음과 같다는 예를 보여줍니다.
 
@@ -87,16 +87,16 @@ App Service 환경은 수평 확장을 위한 이상적인 플랫폼입니다.  
 
 이 항목에서 설명하지 않았지만 각 개별 앱 인스턴스도 등록된 사용자 지정 도메인이 있어야 합니다.  그렇지 않은 경우 앱 인스턴스로 요청을 하고 애플리케이션에 앱으로 등록된 사용자 지정 도메인이 없다면 요청은 실패합니다.  
 
-이 예제에서 사용자 지정 도메인은 `www.scalableasedemo.com`되며 각 응용 프로그램 인스턴스에는 연결 된 사용자 지정 도메인이 있습니다.
+이 예제에서 사용자 `www.scalableasedemo.com`지정 도메인은 은 이며 각 응용 프로그램 인스턴스에는 사용자 지정 도메인이 연결 됩니다.
 
 ![사용자 지정 도메인][CustomDomain] 
 
-Azure App Service 앱에 사용자 지정 도메인을 등록 하는 방법에 대 한 자세한 내용은 [사용자 지정 도메인 등록][RegisterCustomDomain]에 대 한 다음 문서를 참조 하세요.
+Azure App Service 앱으로 사용자 지정 도메인을 등록하는 요점은 [사용자 지정 도메인 등록][RegisterCustomDomain]의 다음 문서를 참조하세요.
 
 ## <a name="trying-out-the-distributed-topology"></a>배포된 토폴로지 사용
-Traffic Manager 및 DNS 구성의 최종 결과는 `www.scalableasedemo.com`에 대 한 요청이 다음 시퀀스를 통해 전달 된다는 것입니다.
+트래픽 관리자 및 DNS 구성의 최종 결과는 `www.scalableasedemo.com` 요청이 다음 순서를 통해 흐른다는 것입니다.
 
-1. 브라우저 또는 장치는 `www.scalableasedemo.com`에 대 한 DNS 조회를 수행 합니다.
+1. 브라우저 또는 장치가 DNS 조회를 할 것입니다.`www.scalableasedemo.com`
 2. 도메인 등록 기관에서 CNAME 항목은 DNS를 조회하여 Azure Traffic Manager로 리디렉션됩니다.
 3. DNS 조회는 Azure Traffic Manager DNS 서버 중 하나에 대한 *scalable-ase-demo.trafficmanager.net* 에 대해 수행합니다.
 4. 부하 분산 정책에 따라(Traffic Manager 프로필을 만들 때 이전에 사용된 *TrafficRoutingMethod* 매개 변수) Traffic Manager는 구성된 엔드포인트 중 하나를 선택하고 브라우저 또는 디바이스에 해당 엔드포인트의 FQDN을 반환합니다.
@@ -109,7 +109,7 @@ Traffic Manager 및 DNS 구성의 최종 결과는 `www.scalableasedemo.com`에 
 ![DNS 조회][DNSLookup] 
 
 ## <a name="additional-links-and-information"></a>추가 링크 및 정보
-Powershell에 대 한 설명서 [Azure Resource Manager 지원 Traffic Manager][ARMTrafficManager].  
+Powershell [Azure Resource Manager Traffic Manager 지원][ARMTrafficManager]에 대한 설명서입니다.  
 
 [!INCLUDE [app-service-web-try-app-service](../../../includes/app-service-web-try-app-service.md)]
 

@@ -16,10 +16,10 @@ ms.date: 03/18/2019
 ms.author: anilmur
 ms.reviewer: juliako
 ms.openlocfilehash: a32624c37cd8ca7fbef9e38ca61de9369791dd25
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77162534"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Azure Media Services를 사용하여 다중 비트 전송률 스트림을 만드는 라이브 스트리밍
@@ -28,10 +28,10 @@ ms.locfileid: "77162534"
 > 2018년 5월 12일부터 라이브 채널은 RTP/MPEG-2 전송 스트림 수집 프로토콜을 더 이상 지원하지 않습니다. RTP/MPEG-2에서 RTMP 또는 조각난 MP4(부드러운 스트리밍) 수집 프로토콜로 마이그레이션하세요.
 
 ## <a name="overview"></a>개요
-AMS(Azure Media Services)에서 **채널** 은 라이브 스트리밍 콘텐츠를 처리하기 위한 파이프라인을 나타냅니다. **채널** 은 다음 두 가지 방법 중 하나로 라이브 입력 스트림을 받습니다.
+AMS(Azure Media Services)에서 **채널** 은 라이브 스트리밍 콘텐츠를 처리하기 위한 파이프라인을 나타냅니다. **채널은** 다음 두 가지 방법 중 하나로 라이브 입력 스트림을 수신합니다.
 
 * 온-프레미스 라이브 인코더는 단일 비트 전송률 스트림을 RTMP 또는 부드러운 스트리밍(조각화된 MP4) 형식의 하나로 Media Services를 통해 라이브 인코딩을 수행할 수 있는 채널에 전송합니다. 그러면 채널은 들어오는 단일 비트 전송률 스트림을 다중 비트 전송률(적응) 비디오 스트림으로 라이브 인코딩합니다. 요청된 경우 Media Services는 고객에게 스트림을 배달합니다.
-* 온-프레미스 라이브 인코더가 다중 비트 전송률 **RTMP** 또는 **부드러운 스트리밍**(조각화된 MP4)을 AMS로 라이브 인코딩을 수행하도록 설정되지 않은 채널에 보냅니다. 수집된 스트림은 어떠한 추가적인 처리 없이 **채널**을 통과합니다. 이 방법을 **통과**라고 합니다. 다중 비트 전송률 부드러운 스트리밍을 출력하는 라이브 인코더인 MediaExcel, Ateme, Imagine Communications, Envivio, Cisco 및 Elemental을 사용할 수 있습니다. 다음 라이브 인코더는 RTMP: [Telestream Wirecast](media-services-configure-wirecast-live-encoder.md), Haivision, Teradek 및 Tricaster 인코더를 출력 합니다.  또한 라이브 인코더는 라이브 인코딩이 사용되지 않는 채널에 단일 비트 전송률 스트림을 전송할 수 있지만 이 방법은 권장되지 않습니다. 요청된 경우 Media Services는 고객에게 스트림을 배달합니다.
+* 온-프레미스 라이브 인코더가 다중 비트 전송률 **RTMP** 또는 **부드러운 스트리밍**(조각화된 MP4)을 AMS로 라이브 인코딩을 수행하도록 설정되지 않은 채널에 보냅니다. 인제스트 스트림은 추가 처리 없이 **채널**s를 통과합니다. 이 방법을 **통과**라고 합니다. 다중 비트 전송률 부드러운 스트리밍을 출력하는 라이브 인코더인 MediaExcel, Ateme, Imagine Communications, Envivio, Cisco 및 Elemental을 사용할 수 있습니다. 다음 라이브 인코더 출력 RTMP : [텔레 스트림 와이어 캐스트,](media-services-configure-wirecast-live-encoder.md)하이 비전, 테라 덱과 트리카스터 인코더.  또한 라이브 인코더는 라이브 인코딩이 사용되지 않는 채널에 단일 비트 전송률 스트림을 전송할 수 있지만 이 방법은 권장되지 않습니다. 요청된 경우 Media Services는 고객에게 스트림을 배달합니다.
 
   > [!NOTE]
   > 통과 방법은 라이브 스트리밍을 수행하는 가장 경제적인 방법입니다.
@@ -57,13 +57,13 @@ Media Services 2.10 릴리스부터, 채널을 만들 때 채널이 입력 스�
 채널이 요금을 청구하지 못하게 하려면 API를 통해 또는 Azure Portal에서 채널을 중지해야 합니다.
 라이브 인코딩 채널의 작업이 끝나면 채널을 중지할 책임이 있습니다.  인코딩 채널을 중지하지 않으면 요금이 계속 청구됩니다.
 
-### <a id="states"></a>채널 상태 및 상태가 청구 모드에 매핑되는 방식
+### <a name="channel-states-and-how-they-map-to-the-billing-mode"></a><a id="states"></a>채널 상태 및 상태가 청구 모드에 매핑되는 방식
 채널의 현재 상태입니다. 가능한 값은 다음과 같습니다.
 
-* **중지됨**. 이는 채널을 만든 후의 초기 상태입니다 (포털에서 자동 시작을 선택 하지 않은 경우). 이 상태에서는 청구가 발생 하지 않습니다. 이 상태에서 채널 속성을 업데이트할 수 있지만 스트리밍은 허용되지 않습니다.
-* **시작 중**. 채널이 시작 중입니다. 이 상태에서는 요금이 청구되지 않습니다. 이 상태에서는 업데이트 또는 스트리밍이 허용되지 않습니다. 오류가 발생하는 경우 채널이 중단된 상태를 반환합니다.
+* **중지됨**. 포털에서 자동 시작을 선택하지 않은 경우 채널이 생성된 후의 초기 상태입니다. 이 상태에서는 청구가 발생하지 않습니다. 이 상태에서 채널 속성을 업데이트할 수 있지만 스트리밍은 허용되지 않습니다.
+* **에서 시작합니다.** 채널이 시작 중입니다. 이 상태에서는 요금이 청구되지 않습니다. 이 상태에서는 업데이트 또는 스트리밍이 허용되지 않습니다. 오류가 발생하는 경우 채널이 중단된 상태를 반환합니다.
 * **실행 중**. 라이브 스트림 처리에 채널을 사용할 수 있습니다. 이제 사용 요금이 청구됩니다. 추가 요금 청구를 방지하기 위해 채널을 중지해야 합니다. 
-* **중지 중**. 채널이 중지 중입니다. 이 일시적인 상태에서는 요금이 청구되지 않습니다. 이 상태에서는 업데이트 또는 스트리밍이 허용되지 않습니다.
+* **중지 합니다.** 채널이 중지 중입니다. 이 일시적인 상태에서는 요금이 청구되지 않습니다. 이 상태에서는 업데이트 또는 스트리밍이 허용되지 않습니다.
 * **삭제 중**. 채널이 삭제 중입니다. 이 일시적인 상태에서는 요금이 청구되지 않습니다. 이 상태에서는 업데이트 또는 스트리밍이 허용되지 않습니다.
 
 다음 표에서는 채널 상태가 청구 모드에 매핑되는 방식을 보여 줍니다. 
@@ -85,7 +85,7 @@ Media Services 2.10 릴리스부터, 채널을 만들 때 채널이 입력 스�
 
 ![라이브 워크플로][live-overview]
 
-## <a id="scenario"></a>일반적인 라이브 스트리밍 시나리오
+## <a name="common-live-streaming-scenario"></a><a id="scenario"></a>일반적인 라이브 스트리밍 시나리오
 다음은 일반적인 라이브 스트리밍 애플리케이션을 만드는 일반적인 단계입니다.
 
 > [!NOTE]
@@ -93,7 +93,7 @@ Media Services 2.10 릴리스부터, 채널을 만들 때 채널이 입력 스�
 >
 > 라이브 인코딩의 청구 영향이 있고 라이브 인코딩 채널을 "실행 중" 상태로 두면 시간당 요금이 청구됨을 기억해야 합니다. 시간당 추가 요금 청구를 방지하려면 라이브 스트리밍 이벤트가 완료된 직후 실행 중인 채널을 중지하는 것이 좋습니다. 
 
-1. 비디오 카메라를 컴퓨터에 연결합니다. RTMP 또는 부드러운 스트리밍 프로토콜 중 하나로 **단일** 비트 전송률 스트림을 출력할 수 있는 온-프레미스 라이브 인코더를 시작하고 구성합니다. 
+1. 비디오 카메라를 컴퓨터에 연결합니다. RTMP 또는 부드러운 스트리밍 중 하나에서 **단일** 비트 전송률 스트림을 출력할 수 있는 온-프레미스 라이브 인코더를 시작하고 구성합니다. 
 
     이 단계는 채널을 만든 후에도 수행할 수 있습니다.
 2. 채널을 만들고 시작합니다. 
@@ -111,7 +111,7 @@ Media Services 2.10 릴리스부터, 채널을 만들 때 채널이 입력 스�
 6. 프로그램과 연결된 자산을 게시합니다.   
 
     >[!NOTE]
-    >AMS 계정이 만들어질 때 **기본** 스트리밍 엔드포인트는 **중지됨** 상태에서 계정에 추가됩니다. 콘텐츠를 스트리밍하려는 스트리밍 엔드포인트가 **실행** 상태에 있어야 합니다. 
+    >AMS 계정이 생성되면 **기본** 스트리밍 끝점이 **중지됨** 상태에서 계정에 추가됩니다. 콘텐츠를 스트리밍하려는 스트리밍 엔드포인트가 **실행** 상태에 있어야 합니다. 
 
 7. 스트리밍 및 보관을 시작할 준비가 되었으면 프로그램을 시작합니다.
 8. 필요에 따라 라이브 인코더는 광고를 시작하라는 신호를 받을 수 있습니다. 광고는 출력 스트림에 삽입됩니다.
@@ -123,14 +123,14 @@ Media Services 2.10 릴리스부터, 채널을 만들 때 채널이 입력 스�
 > 
 > 
 
-## <a id="channel"></a>채널 입력(수집) 구성
-### <a id="Ingest_Protocols"></a>수집 스트리밍 프로토콜
+## <a name="channels-input-ingest-configurations"></a><a id="channel"></a>채널 입력(수집) 구성
+### <a name="ingest-streaming-protocol"></a><a id="Ingest_Protocols"></a>수집 스트리밍 프로토콜
 **인코더 형식**이 **표준**으로 설정된 경우 유효한 옵션은 다음과 같습니다.
 
-* 단일 비트 전송률 **RTMP**
-* 단일 비트 전송률 **조각화된 MP4** (부드러운 스트리밍)
+* 단일 비트 레이트 **RTMP**
+* 단일 비트 레이트 **조각 MP4** (부드러운 스트리밍)
 
-#### <a id="single_bitrate_RTMP"></a>단일 비트 전송률 RTMP
+#### <a name="single-bitrate-rtmp"></a><a id="single_bitrate_RTMP"></a>단일 비트 전송률 RTMP
 고려 사항:
 
 * 들어오는 스트림에 다중 비트 전송률 비디오가 포함될 수 없습니다.
@@ -210,7 +210,7 @@ SPTS(단일 프로그램 전송 스트림)로 보내는 것이 좋습니다. 입
 #### <a name="language"></a>언어
 ENG와 같은 ISO 639-2를 따르는 오디오 스트림의 언어 식별자입니다. 없는 경우 기본값은 UND(정의되지 않음)입니다.
 
-### <a id="preset"></a>시스템 기본 설정
+### <a name="system-preset"></a><a id="preset"></a>시스템 기본 설정
 이 채널 내의 라이브 인코더에서 사용할 기본 설정을 지정합니다. 현재 허용되는 유일한 값은 **Default720p** (기본값)입니다.
 
 **Default720p**는 비디오를 다음 6개 계층으로 인코딩합니다.
@@ -247,7 +247,7 @@ ENG와 같은 ISO 639-2를 따르는 오디오 스트림의 언어 식별자입�
 적절한 작업을 수행하기 위해 다운스트림 애플리케이션에서 사용할 중간 광고의 고유 ID입니다. 양의 정수여야 합니다. 이 값을 임의의 양의 정수로 설정하거나 업스트림 시스템을 사용하여 큐 ID를 추적할 수 있습니다. API를 통해 제출하기 전에 모든 ID를 양의 정수로 정규화해야 합니다.
 
 ### <a name="show-slate"></a>슬레이트 표시
-(선택 사항) 중간 광고 중에 [기본 슬레이트](media-services-manage-live-encoder-enabled-channels.md#default_slate) 이미지로 전환하고 들어오는 비디오 피드를 숨기도록 라이브 인코더에 신호를 보냅니다. 슬레이트 중에는 오디오도 음소거됩니다. 기본값은 **false**입니다. 
+(선택 사항) 중간 광고 중에 [기본 슬레이트](media-services-manage-live-encoder-enabled-channels.md#default_slate) 이미지로 전환하고 들어오는 비디오 피드를 숨기도록 라이브 인코더에 신호를 보냅니다. 슬레이트 중에는 오디오도 음소거됩니다. 기본값은 **false입니다.** 
 
 사용되는 이미지는 채널을 만들 때 기본 슬레이트 자산 ID 속성을 통해 지정된 이미지입니다. 슬레이트는 표시 이미지 크기에 맞게 확장됩니다. 
 
@@ -262,7 +262,7 @@ ENG와 같은 ISO 639-2를 따르는 오디오 스트림의 언어 식별자입�
 ### <a name="insert-slate-on-ad-marker"></a>광고 표식에서 슬레이트 삽입
 이 설정은 true로 설정되면 중간 광고 중에 슬레이트 이미지를 삽입하도록 라이브 인코더를 구성합니다. 기본값은 true입니다. 
 
-### <a id="default_slate"></a>기본 슬레이트 자산 ID
+### <a name="default-slate-asset-id"></a><a id="default_slate"></a>기본 슬레이트 자산 ID
 
 (선택 사항) 슬레이트 이미지를 포함하는 Media Services 자산의 자산 ID를 지정합니다. 기본값은 null입니다. 
 
@@ -299,13 +299,13 @@ ENG와 같은 ISO 639-2를 따르는 오디오 스트림의 언어 식별자입�
 ## <a name="getting-a-thumbnail-preview-of-a-live-feed"></a>라이브 피드의 축소판 그림 미리 보기 가져오기
 Live Encoding을 사용하도록 설정한 경우 이제 라이브 피드가 채널에 도달할 때 라이브 피드의 미리 보기를 가져올 수 있습니다. 이 도구는 라이브 피드가 실제로 채널에 도달하고 있는지를 확인하는 데 유용할 수 있습니다. 
 
-## <a id="states"></a>채널 상태 및 상태가 청구 모드에 매핑되는 방식
+## <a name="channel-states-and-how-states-map-to-the-billing-mode"></a><a id="states"></a>채널 상태 및 상태가 청구 모드에 매핑되는 방식
 채널의 현재 상태입니다. 가능한 값은 다음과 같습니다.
 
 * **중지됨**. 만들어진 후 채널의 초기 상태입니다. 이 상태에서 채널 속성을 업데이트할 수 있지만 스트리밍은 허용되지 않습니다.
-* **시작 중**. 채널이 시작 중입니다. 이 상태에서는 업데이트 또는 스트리밍이 허용되지 않습니다. 오류가 발생하는 경우 채널이 중단된 상태를 반환합니다.
+* **에서 시작합니다.** 채널이 시작 중입니다. 이 상태에서는 업데이트 또는 스트리밍이 허용되지 않습니다. 오류가 발생하는 경우 채널이 중단된 상태를 반환합니다.
 * **실행 중**. 라이브 스트림 처리에 채널을 사용할 수 있습니다.
-* **중지 중**. 채널이 중지 중입니다. 이 상태에서는 업데이트 또는 스트리밍이 허용되지 않습니다.
+* **중지 합니다.** 채널이 중지 중입니다. 이 상태에서는 업데이트 또는 스트리밍이 허용되지 않습니다.
 * **삭제 중**. 채널이 삭제 중입니다. 이 상태에서는 업데이트 또는 스트리밍이 허용되지 않습니다.
 
 다음 표에서는 채널 상태가 청구 모드에 매핑되는 방식을 보여 줍니다. 
@@ -322,12 +322,12 @@ Live Encoding을 사용하도록 설정한 경우 이제 라이브 피드가 채
 > 
 > 
 
-## <a id="Considerations"></a>고려 사항
+## <a name="considerations"></a><a id="Considerations"></a>고려 사항
 * **표준** 인코딩 형식의 채널에서 입력 소스/기여도 피드 손실이 발생하는 경우 원본 비디오/오디오를 오류 슬레이트 및 대기로 바꿔 보완합니다. 채널은 입력/기여도 피드가 다시 시작될 때까지 계속 슬레이트를 내보냅니다. 라이브 채널을 2시간 이상 이러한 상태로 두지 않는 것이 좋습니다. 그 후에는 입력 다시 연결 시 채널의 동작이 보장되지 않으며 다시 설정 명령에 대한 응답 동작도 보장되지 않습니다. 채널을 중지하고 삭제한 후 새로 만들어야 합니다.
 * 채널 또는 연결된 프로그램이 실행 중인 동안에는 입력 프로토콜을 변경할 수 없습니다. 다른 프로토콜을 요청하는 경우 각각의 입력 프로토콜에 대한 개별 채널을 만들어야 합니다.
 * 라이브 인코더를 다시 구성할 때마다 채널에 대해 **Reset** 메서드를 호출합니다. 채널을 다시 설정하기 전에 프로그램을 중단해야 합니다. 채널을 다시 설정한 후 프로그램을 다시 시작합니다.
 * 채널이 실행 상태일 때만 중단할 수 있으며 채널의 모든 프로그램이 중단됩니다.
-* 기본적으로 Media Services 계정에 5개의 채널만 추가할 수 있습니다. 이는 모든 새 계정에 대한 소프트 할당량입니다. 자세한 내용은 [할당량 및 제한 사항](media-services-quotas-and-limitations.md)을 참조하세요.
+* 기본적으로 Media Services 계정에 5개의 채널만 추가할 수 있습니다. 이는 모든 새 계정에 대한 소프트 할당량입니다. 자세한 내용은 [할당량 및 제한 을](media-services-quotas-and-limitations.md)참조하십시오.
 * 채널 또는 연결된 프로그램이 실행 중인 동안에는 입력 프로토콜을 변경할 수 없습니다. 다른 프로토콜을 요청하는 경우 각각의 입력 프로토콜에 대한 개별 채널을 만들어야 합니다.
 * 채널이 **실행 중** 상태일 때만 청구됩니다. 자세한 내용은 [이](media-services-manage-live-encoder-enabled-channels.md#states) 섹션을 참조하세요.
 * 현재 라이브 이벤트의 최대 권장 기간은 8시간입니다. 
@@ -342,7 +342,7 @@ Live Encoding을 사용하도록 설정한 경우 이제 라이브 피드가 채
 
 ## <a name="need-help"></a>도움 필요 시
 
-[새 지원 요청](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)으로 이동하여 지원 티켓을 열 수 있습니다.
+[새 지원 요청으로](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) 이동하여 지원 티켓을 열 수 있습니다.
 
 ## <a name="next-step"></a>다음 단계
 
@@ -354,7 +354,7 @@ Media Services 학습 경로를 검토합니다.
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-topics"></a>관련 항목
-[Azure Media Services를 사용하여 라이브 스트리밍 이벤트 제공](media-services-overview.md)
+[Azure 미디어 서비스를 통해 라이브 스트리밍 이벤트 제공](media-services-overview.md)
 
 [포털을 사용하여 단일 비트 전송률에서 적응형 비트 전송률 스트림으로 라이브 인코딩을 수행하는 채널 만들기](media-services-portal-creating-live-encoder-enabled-channel.md)
 
@@ -362,9 +362,9 @@ Media Services 학습 경로를 검토합니다.
 
 [REST API를 사용하여 채널 관리](https://docs.microsoft.com/rest/api/media/operations/channel)
 
-[Media Services 개념](media-services-concepts.md)
+[미디어 서비스 개념](media-services-concepts.md)
 
-[Azure Media Services 조각화된 MP4 라이브 수집 사양](../media-services-fmp4-live-ingest-overview.md)
+[Azure 미디어 서비스 조각난 MP4 라이브 인제스트 사양](../media-services-fmp4-live-ingest-overview.md)
 
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
 

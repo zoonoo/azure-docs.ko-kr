@@ -1,20 +1,20 @@
 ---
 title: Azure Functions 트리거 및 바인딩 예제
-description: Azure 함수 바인딩을 구성 하는 방법 알아보기
+description: Azure Function 바인딩을 구성하는 방법에 대해 알아보기
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/18/2019
 ms.author: cshoe
 ms.openlocfilehash: 8685c0fe02ad6c68918736e857c2015e2bfb4595
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74227236"
 ---
 # <a name="azure-functions-trigger-and-binding-example"></a>Azure Functions 트리거 및 바인딩 예제
 
-이 문서에서는 Azure 함수에서 [트리거와 바인딩을](./functions-triggers-bindings.md) 구성 하는 방법을 보여 줍니다.
+이 문서에서는 Azure Function에서 [트리거 및 바인딩을](./functions-triggers-bindings.md) 구성하는 방법을 보여 줍니다.
 
 Azure Queue 스토리지에 새 메시지가 나타날 때마다 Azure Table Storage에 새 행을 쓰려는 경우를 가정하겠습니다. 이 시나리오는 Azure Queue 스토리지 트리거 및 Azure Table Storage 출력 바인딩을 사용하여 구현할 수 있습니다. 
 
@@ -52,7 +52,7 @@ Azure Portal에서 *function.json*의 내용을 보고 편집하려면 함수의
 
 ## <a name="c-script-example"></a>C# 스크립트 예제
 
-이 트리거 및 바인딩을 사용하는 C# 스크립트 코드는 다음과 같습니다. 큐 메시지 콘텐츠를 제공하는 매개 변수 이름은 `order`이며 `name`function.json*의*  속성 값은 `order`이므로 이 이름이 필요합니다. 
+이 트리거 및 바인딩을 사용하는 C# 스크립트 코드는 다음과 같습니다. 큐 메시지 콘텐츠를 제공하는 매개 변수 이름은 `order`이며 *function.json*의 `name` 속성 값은 `order`이므로 이 이름이 필요합니다. 
 
 ```cs
 #r "Newtonsoft.Json"
@@ -82,7 +82,7 @@ public class Person
 
 ## <a name="javascript-example"></a>JavaScript 예제
 
-동일한 *함수인 json* 파일은 JavaScript 함수와 함께 사용할 수 있습니다.
+동일한 *function.json* 파일을 JavaScript 함수와 함께 사용할 수 있습니다.
 
 ```javascript
 // From an incoming queue message that is a JSON object, add fields and write to Table Storage
@@ -130,7 +130,7 @@ public class Person
 }
 ```
 
-이제 Azure 큐에서 트리거되고 Azure Table storage에 데이터를 출력 하는 작동 하는 함수가 있습니다.
+이제 Azure 큐에 의해 트리거되고 Azure Table 저장소에 데이터를 출력하는 작업 함수가 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

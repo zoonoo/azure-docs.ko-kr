@@ -17,17 +17,17 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2b676508c73ff0233526f19b865bb9e4f7b80f12
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74275559"
 ---
 # <a name="how-to-open-the-firewall-ports-required-for-an-application-proxy-application"></a>애플리케이션 프록시 애플리케이션에 필요한 방화벽 포트를 여는 방법
 
 각 포트의 기능 및 필요한 포트의 전체 목록을 보려면 [애플리케이션 프록시 설명서](application-proxy-add-on-premises-application.md)의 필수 조건 섹션을 참조하세요. 애플리케이션 프록시는 아웃바운드 포트만 사용합니다.
 
-온-프레미스 네트워크에서 [커넥터 포트 테스트 도구](https://aadap-portcheck.connectorporttest.msappproxy.net/) 를 열어 모든 필요한 포트가 열려 있는지 확인할 수도 있습니다. 녹색 확인 표시가 많을수록 복원력이 더 뛰어난 것입니다. 
+온-프레미스 네트워크에서 [커넥터 포트 테스트 도구를](https://aadap-portcheck.connectorporttest.msappproxy.net/) 열어 필요한 모든 포트가 열려 있는지 여부를 확인할 수도 있습니다. 녹색 확인 표시가 많을수록 복원력이 더 뛰어난 것입니다. 
 
 ## <a name="app-proxy-regions"></a>앱 프록시 영역
 
@@ -37,7 +37,7 @@ ms.locfileid: "74275559"
 
 -   커넥터를 설치한 서버의 브라우저에서 도구를 엽니다.
 
--   커넥터에 적용할 수 있는 프록시 또는 방화벽이 이 페이지에도 적용되었는지 확인합니다. Internet Explorer에서 **설정** -&gt; **인터넷 옵션** -&gt; **연결** -&gt; **LAN 설정**으로 이동 하 여이 작업을 수행할 수 있습니다. 이 페이지에 "사용자 LAN에 프록시 서버 사용" 필드가 표시됩니다. 이 확인란을 선택하고 "주소" 필드에 프록시 주소를 입력합니다.
+-   커넥터에 적용할 수 있는 프록시 또는 방화벽이 이 페이지에도 적용되었는지 확인합니다. 이 **설정**  - &gt; **인터넷 옵션**  - &gt; **연결**  - &gt; **LAN 설정으로**이동 하 여 인터넷 익스플로러에서 수행할 수 있습니다. 이 페이지에 "사용자 LAN에 프록시 서버 사용" 필드가 표시됩니다. 이 확인란을 선택하고 "주소" 필드에 프록시 주소를 입력합니다.
 
 ## <a name="next-steps"></a>다음 단계
-[Azure AD 애플리케이션 프록시 커넥터 이해](application-proxy-connectors.md)
+[Azure AD 응용 프로그램 프록시 커넥터 이해](application-proxy-connectors.md)

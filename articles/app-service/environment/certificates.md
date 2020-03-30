@@ -1,6 +1,6 @@
 ---
 title: 인증서 바인딩
-description: App Service Environment에서 인증서와 관련 된 다양 한 항목을 설명 합니다. 인증서 바인딩이 ASE의 단일 테 넌 트 앱에서 작동 하는 방식에 대해 알아봅니다.
+description: 앱 서비스 환경에서 인증서와 관련된 다양한 항목을 설명합니다. 인증서 바인딩이 ASE의 단일 테넌트 앱에서 작동하는 방법을 알아봅니다.
 author: ccompy
 ms.assetid: 9e21a7e4-2436-4e81-bb05-4a6ba70eeaf7
 ms.topic: article
@@ -8,10 +8,10 @@ ms.date: 08/29/2018
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 65fc4ed25b0fd360de8e3b1439d1766485eb2e58
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74688636"
 ---
 # <a name="certificates-and-the-app-service-environment"></a>인증서 및 App Service Environment 
@@ -48,7 +48,7 @@ ASE를 만들고 포털 또는 하나의 템플릿에서 인증서를 하나의 
 
     $fileName = "exportedcert.pfx"
     Export-PfxCertificate -cert $certThumbprint -FilePath $fileName -Password $password     
-자체 서명 된 인증서를 만들 때 주체 이름에 CN = {ASE_NAME_HERE} _InternalLoadBalancingASE 형식이 있는지 확인 해야 합니다.
+자체 서명된 인증서를 만들 때 제목 이름에 CN={ASE_NAME_HERE}_InternalLoadBalancingASE 형식이 있는지 확인해야 합니다.
 
 ## <a name="application-certificates"></a>애플리케이션 인증서 
 
@@ -58,7 +58,7 @@ ASE에서 호스팅되는 앱은 다중 테넌트 App Service에서 사용할 �
 - IP 기반 SSL - 외부 ASE에서만 지원되며,  ILB ASE는 IP 기반 SSL을 지원하지 않습니다.
 - KeyVault 호스팅 인증서 
 
-이러한 인증서를 업로드 하 고 관리 하는 방법에 대 한 지침은 [Azure App Service의 SSL 인증서 추가](../configure-ssl-certificate.md)에서 사용할 수 있습니다.  웹앱에 할당한 사용자 지정 도메인 이름과 일치하도록 인증서를 간단히 구성하는 경우 이러한 지침만으로도 충분합니다. 기본 도메인 이름을 사용하여 ILB ASE 웹앱에 대한 인증서를 업로드하는 경우 앞에서 설명한 대로 인증서의 SAN에 scm 사이트를 지정합니다. 
+이러한 인증서를 업로드하고 관리하는 방법에 대한 지침은 [Azure App Service의 SSL 인증서 추가에서](../configure-ssl-certificate.md)확인할 수 있습니다.  웹앱에 할당한 사용자 지정 도메인 이름과 일치하도록 인증서를 간단히 구성하는 경우 이러한 지침만으로도 충분합니다. 기본 도메인 이름을 사용하여 ILB ASE 웹앱에 대한 인증서를 업로드하는 경우 앞에서 설명한 대로 인증서의 SAN에 scm 사이트를 지정합니다. 
 
 ## <a name="tls-settings"></a>TLS 설정 
 
@@ -78,7 +78,7 @@ ASE에서 인증서를 앱에 업로드하려면 다음을 수행합니다.
 
     84EC242A4EC7957817B8E48913E50953552DAFA6,6A5C65DC9247F762FE17BF8D4906E04FE6B31819
 
-인증서는 해당 설정을 구성한 앱과 동일한 App Service 계획에 있는 모든 앱에서 사용할 수 있습니다. 다른 App Service 계획의 응용 프로그램에서 이 인증서를 사용할 수 있도록 하려면 해당 App Service 계획의 앱에서 앱 설정 작업을 반복해야 합니다. 인증서가 설정 되었는지 확인 하려면 Kudu 콘솔로 이동 하 여 PowerShell 디버그 콘솔에서 다음 명령을 실행 합니다.
+인증서는 해당 설정을 구성한 앱과 동일한 App Service 계획에 있는 모든 앱에서 사용할 수 있습니다. 다른 App Service 계획의 응용 프로그램에서 이 인증서를 사용할 수 있도록 하려면 해당 App Service 계획의 앱에서 앱 설정 작업을 반복해야 합니다. 인증서가 설정되어 있는지 확인하려면 Kudu 콘솔로 이동하여 PowerShell 디버그 콘솔에서 다음 명령을 내보세요.
 
     dir cert:\localmachine\root
 

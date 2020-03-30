@@ -1,6 +1,6 @@
 ---
-title: 공개 미리 보기 서비스 제한-Azure Digital Twins | Microsoft Docs
-description: Azure Digital Twins의 공개 미리 보기 서비스, 구독, 인스턴스 및 요금 제한에 대해 알아봅니다.
+title: 공개 미리 보기 서비스 제한 - Azure 디지털 트윈 | 마이크로 소프트 문서
+description: Azure 디지털 Twins에 대한 공개 미리 보기 서비스, 구독, 인스턴스 및 요금 제한에 대해 알아봅니다.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -9,17 +9,17 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 01/17/2020
 ms.openlocfilehash: 5e323d8faa19ceb0712aa6183df17740ce2a0a1d
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79370385"
 ---
 # <a name="public-preview-service-limits"></a>공개 미리 보기 서비스 제한
 
 [!INCLUDE [digital-twins-preview-limit-alert](../../includes/digital-twins-preview-limit-alert.md)]
 
-공개 미리 보기 중에 Azure Digital Twins는 기존 고객에 대해 다음과 같은 임시 구독, 인스턴스 및 요금 제한을 제공 합니다. 이러한 제약 조건은 새로운 서비스와 다양 한 기능에 대 한 학습을 간소화 하는 데 사용 되며 GA (일반 공급)에 의해 증가 또는 제거 됩니다.
+공개 미리 보기 중에 Azure Digital Twins에는 기존 고객에 대한 다음과 같은 임시 구독, 인스턴스 및 요금 제한이 있습니다. 이러한 제약 조건은 새 서비스와 여러 기능에 대한 학습을 간소화하는 데 도움이 되며 일반 공급(GA)에 의해 증가되거나 제거됩니다.
 
 ## <a name="per-subscription-limits"></a>구독당 제한
 
@@ -52,7 +52,7 @@ Azure Digital Twins 관리 API의 요청 빈도 제한은 다음과 같습니다
 다음 제한은 Azure Digital Twins 인스턴스에 요청한 모든 사용자 정의 함수 호출의 총 수를 설정합니다.
 
 - 초당 400개의 클라이언트 라이브러리 호출
-- 초당 100개의 **SendNotification** 호출
+- 초당 **100 보내기 알림** 호출
 
 > [!NOTE]
 > 다음 작업을 수행하면 임시로 추가 빈도 제한이 적용될 수 있습니다.
@@ -64,8 +64,8 @@ Azure Digital Twins 관리 API의 요청 빈도 제한은 다음과 같습니다
 
 다음 제한은 디바이스가 Azure Digital Twins 인스턴스에 보낼 수 있는 모든 메시지의 총 수를 제한합니다.
 
-- 모든 장치에서 초당 100 메시지 수
--    장치당 초당 25 개 메시지
+- 모든 기기에서 초당 100개의 메시지
+-    장치당 초당 25개의 메시지
 
 ## <a name="next-steps"></a>다음 단계
 

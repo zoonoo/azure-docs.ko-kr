@@ -1,7 +1,7 @@
 ---
 title: Azure SQL 데이터 검색
 titleSuffix: Azure Cognitive Search
-description: Azure Cognitive Search에서 전체 텍스트 검색을 위해 인덱서를 사용 하 여 Azure SQL Database에서 데이터를 가져옵니다. 이 문서에서는 연결, 인덱서 구성 및 데이터 수집에 대해 설명합니다.
+description: Azure 인지 검색에서 전체 텍스트 검색을 위해 인덱서를 사용하여 Azure SQL Database에서 데이터를 가져옵니다. 이 문서에서는 연결, 인덱서 구성 및 데이터 수집에 대해 설명합니다.
 manager: nitinme
 author: mgottein
 ms.author: magottei
@@ -10,19 +10,19 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: c09727e8d92a449b41124eae6ad8381d66cb2619
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74113311"
 ---
-# <a name="connect-to-and-index-azure-sql-database-content-using-an-azure-cognitive-search-indexer"></a>Azure Cognitive Search 인덱서를 사용 하 여 Azure SQL Database 콘텐츠에 연결 및 인덱싱
+# <a name="connect-to-and-index-azure-sql-database-content-using-an-azure-cognitive-search-indexer"></a>Azure 인지 검색 인덱서를 사용하여 Azure SQL Database 콘텐츠에 연결하고 인덱싱
 
-[Azure Cognitive Search 인덱스](search-what-is-an-index.md)를 쿼리하려면 먼저 데이터를 채워야 합니다. 데이터가 Azure SQL database에 있는 경우 Azure SQL Database (또는 짧은 **AZURE sql 인덱서** ) **용 azure Cognitive Search 인덱서** 는 인덱싱 프로세스를 자동화할 수 있습니다. 즉, 작성할 코드와 주의 해야 하는 인프라를 줄일 수 있습니다.
+[Azure 인지 검색 인덱스를](search-what-is-an-index.md)쿼리하려면 먼저 데이터를 채워야 합니다. 데이터가 Azure SQL 데이터베이스에 있는 경우 **Azure SQL Database용 Azure Cognitive Search 인덱서(또는** 짧은 **Azure SQL Indexer)는** 인덱싱 프로세스를 자동화할 수 있으며, 이는 작성할 코드가 적고 걱정할 인프라가 줄어듭니다.
 
 이 문서에서는 [인덱서](search-indexer-overview.md) 사용 원리를 다루지만 Azure SQL 데이터베이스에서만 사용할 수 있는 기능(예: 통합 변경 내용 추적)에 대해서도 설명합니다. 
 
-Azure SQL database 외에도 azure Cognitive Search는 [Azure Cosmos DB](search-howto-index-cosmosdb.md), [azure Blob storage](search-howto-indexing-azure-blob-storage.md)및 [azure table storage](search-howto-indexing-azure-tables.md)에 대 한 인덱서를 제공 합니다. 다른 데이터 원본에 대 한 지원을 요청 하려면 [Azure Cognitive Search 피드백 포럼](https://feedback.azure.com/forums/263029-azure-search/)에 피드백을 제공 하세요.
+Azure SQL 데이터베이스 외에도 Azure Cognitive Search는 [Azure Cosmos DB,](search-howto-index-cosmosdb.md) [Azure Blob 저장소](search-howto-indexing-azure-blob-storage.md)및 [Azure 테이블 저장소에](search-howto-indexing-azure-tables.md)대한 인덱서를 제공합니다. 다른 데이터 원본에 대한 지원을 요청하려면 [Azure 인지 검색 피드백 포럼에](https://feedback.azure.com/forums/263029-azure-search/)대한 피드백을 제공합니다.
 
 ## <a name="indexers-and-data-sources"></a>인덱서 및 데이터 원본
 
@@ -39,8 +39,8 @@ Azure SQL database 외에도 azure Cognitive Search는 [Azure Cosmos DB](search-
 다음을 사용하여 Azure SQL 인덱서를 설정하고 구성할 수 있습니다.
 
 * [Azure Portal](https://portal.azure.com)의 데이터 가져오기 마법사
-* Azure Cognitive Search [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
-* Azure Cognitive Search [REST API](https://docs.microsoft.com/rest/api/searchservice/indexer-operations)
+* Azure 인지 검색 [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
+* Azure 인지 검색 [REST API](https://docs.microsoft.com/rest/api/searchservice/indexer-operations)
 
 이 문서에서는 REST API를 사용하여 **인덱서** 및 **데이터 원본**을 만듭니다.
 
@@ -50,12 +50,12 @@ Azure SQL database 외에도 azure Cognitive Search는 [Azure Cosmos DB](search-
 | 조건 | 세부 정보 |
 |----------|---------|
 | 단일 테이블 또는 뷰에서 발생한 데이터 | 데이터가 여러 테이블에 분산된 경우 데이터에 대한 단일 뷰를 만들 수 있습니다. 그러나 뷰를 사용하는 경우 증분 변경 내용으로 인덱스를 새로 고치는 데 SQL Server 통합 변경 검색을 사용할 수 없습니다. 자세한 내용은 아래의 [변경 및 삭제된 행 캡처](#CaptureChangedRows)를 참조하세요. |
-| 호환되는 데이터 형식 | 모든 SQL 유형은 Azure Cognitive Search 인덱스에서 지원 됩니다. 목록은 [데이터 형식 매핑](#TypeMapping)을 참조하세요. |
+| 호환되는 데이터 형식 | 대부분의 SQL 유형은 Azure 인지 검색 인덱스에서 지원됩니다. 목록은 [데이터 형식 매핑](#TypeMapping)을 참조하세요. |
 | 실시간 데이터 동기화가 필요하지 않습니다. | 인덱서는 최대 5분마다 테이블을 다시 인덱싱할 수 있습니다. 데이터가 자주 변경되고 변경 내용을 몇 초 또는 몇 분 이내에 인덱스에 반영해야 하는 경우에는 [REST API](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents) 또는 [.NET SDK](search-import-data-dotnet.md)를 사용하여 업데이트된 행을 직접 푸시하는 것이 좋습니다. |
-| 증분 인덱싱 가능 | 대량 데이터 집합이 있고 일정에 따라 인덱서를 실행 하려는 경우 Azure Cognitive Search는 새 행, 변경 된 행 또는 삭제 된 행을 효율적으로 식별할 수 있어야 합니다. 비-증분 인덱싱은 주문 시(일정을 따르지 않고) 인덱싱하거나 100,000 미만의 행을 인덱싱하는 경우에만 허용됩니다. 자세한 내용은 아래의 [변경 및 삭제된 행 캡처](#CaptureChangedRows)를 참조하세요. |
+| 증분 인덱싱 가능 | 큰 데이터 집합이 있고 일정에 따라 인덱서를 실행하려는 경우 Azure Cognitive Search는 새 행, 변경됨 또는 삭제된 행을 효율적으로 식별할 수 있어야 합니다. 비-증분 인덱싱은 주문 시(일정을 따르지 않고) 인덱싱하거나 100,000 미만의 행을 인덱싱하는 경우에만 허용됩니다. 자세한 내용은 아래의 [변경 및 삭제된 행 캡처](#CaptureChangedRows)를 참조하세요. |
 
 > [!NOTE] 
-> Azure Cognitive Search는 SQL Server 인증만 지원 합니다. Azure Active Directory 암호 인증에 대한 지원이 필요한 경우 이 [UserVoice 제안](https://feedback.azure.com/forums/263029-azure-search/suggestions/33595465-support-azure-active-directory-password-authentica)에 투표하세요.
+> Azure 인지 검색은 SQL Server 인증만 지원합니다. Azure Active Directory 암호 인증에 대한 지원이 필요한 경우 이 [UserVoice 제안](https://feedback.azure.com/forums/263029-azure-search/suggestions/33595465-support-azure-active-directory-password-authentica)에 투표하세요.
 
 ## <a name="create-an-azure-sql-indexer"></a>Azure SQL 인덱서 만들기
 
@@ -74,9 +74,9 @@ Azure SQL database 외에도 azure Cognitive Search는 [Azure Cosmos DB](search-
     }
    ```
 
-   [ 옵션을 사용하여 ](https://portal.azure.com)Azure Portal`ADO.NET connection string`에서 연결 문자열을 가져올 수 있습니다.
+   `ADO.NET connection string` 옵션을 사용하여 [Azure Portal](https://portal.azure.com)에서 연결 문자열을 가져올 수 있습니다.
 
-2. 아직 없는 경우 대상 Azure Cognitive Search 인덱스를 만듭니다. [포털](https://portal.azure.com) 또는 [인덱스 만들기 API](https://docs.microsoft.com/rest/api/searchservice/Create-Index)를 사용하여 인덱스를 만들 수 있습니다. 대상 인덱스의 스키마가 원본 테이블의 스키마와 호환 되는지 확인 합니다. [SQL과 Azure 인식 검색 데이터 형식 간의 매핑](#TypeMapping)을 참조 하세요.
+2. 아직 없는 경우 대상 Azure 인지 검색 인덱스를 만듭니다. [포털](https://portal.azure.com) 또는 [인덱스 만들기 API](https://docs.microsoft.com/rest/api/searchservice/Create-Index)를 사용하여 인덱스를 만들 수 있습니다. 대상 인덱스의 스키마가 원본 테이블의 [스키마와](#TypeMapping)호환되는지 확인합니다.
 
 3. 이름을 지정하고 데이터 원본 및 대상 인덱스를 참조하여 인덱서는 만듭니다.
 
@@ -157,16 +157,16 @@ Azure 서비스에서 데이터베이스에 연결하도록 허용해야 할 수
 
 **interval** 매개 변수는 필수 사항입니다. 두 개의 연속된 인덱서 실행 간의 시작 시간 간격을 나타냅니다. 허용되는 가장 작은 간격은 5분이고 가장 긴 간격은 1일입니다. 형식은 XSD "dayTimeDuration" 값( [ISO 8601 기간](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) 값의 제한된 하위 집합)이어야 합니다. 해당 패턴은 `P(nD)(T(nH)(nM))`입니다. 예를 들어 15분 간격이면 `PT15M`, 2시간 간격이면 `PT2H`입니다.
 
-인덱서 일정을 정의 하는 방법에 대 한 자세한 내용은 [Azure Cognitive Search의 인덱서를 예약 하는 방법을](search-howto-schedule-indexers.md)참조 하세요.
+인덱서 일정 정의에 대한 자세한 내용은 [Azure Cognitive Search에 대한 인덱서를 예약하는 방법을](search-howto-schedule-indexers.md)참조하십시오.
 
 <a name="CaptureChangedRows"></a>
 
 ## <a name="capture-new-changed-and-deleted-rows"></a>새 행, 변경된 행 및 삭제된 행 캡처
 
-Azure Cognitive Search는 **증분 인덱싱을** 사용 하 여 인덱서가 실행 될 때마다 전체 테이블 또는 뷰를 인덱싱하지 않아도 됩니다. Azure Cognitive Search는 증분 인덱싱을 지원 하기 위해 두 가지 변경 검색 정책을 제공 합니다. 
+Azure Cognitive Search는 **증분 인덱싱을** 사용하여 전체 테이블을 다시 인덱싱하거나 인덱서가 실행될 때마다 볼 필요가 없습니다. Azure Cognitive Search는 증분 인덱싱을 지원하는 두 가지 변경 검색 정책을 제공합니다. 
 
 ### <a name="sql-integrated-change-tracking-policy"></a>SQL 통합 변경 내용 추적 정책
-SQL 데이터베이스에서 [변경 내용 추적](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server)을 지원하는 경우 **SQL 통합 변경 내용 추적 정책**을 사용하는 것이 좋습니다. 가장 효율적인 정책입니다. 또한 테이블에 "소프트 삭제" 열을 명시적으로 추가 하지 않고도 Azure Cognitive Search에서 삭제 된 행을 식별할 수 있습니다.
+SQL 데이터베이스에서 [변경 사항 추적을](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server)지원하는 경우 **SQL 통합 변경 사항 추적 정책을**사용하는 것이 좋습니다. 가장 효율적인 정책입니다. 또한 Azure Cognitive Search를 사용하면 테이블에 명시적 "소프트 삭제" 열을 추가할 필요 없이 삭제된 행을 식별할 수 있습니다.
 
 #### <a name="requirements"></a>요구 사항 
 
@@ -228,7 +228,7 @@ SQL 통합 변경 내용 추적 정책을 사용할 때는 별도의 데이터 �
     }
 
 > [!WARNING]
-> 원본 테이블의 상위 워터 마크 열에 인덱스가 없는 경우 SQL 인덱서에서 사용 하는 쿼리는 시간 초과 될 수 있습니다. 특히 테이블에 많은 행이 포함 된 경우에는 `ORDER BY [High Water Mark Column]` 절을 사용 하 여 인덱스를 효율적으로 실행 해야 합니다.
+> 원본 테이블에 높은 워터 마크 열에 인덱스가 없는 경우 SQL 인덱서에서 사용하는 쿼리가 시간 지정될 수 있습니다. 특히 이 `ORDER BY [High Water Mark Column]` 절에서는 테이블에 많은 행이 포함되어 있을 때 인덱스를 효율적으로 실행해야 합니다.
 >
 >
 
@@ -251,7 +251,7 @@ SQL 통합 변경 내용 추적 정책을 사용할 때는 별도의 데이터 �
 ### <a name="soft-delete-column-deletion-detection-policy"></a>Soft Delete 열 삭제 검색 정책
 원본 테이블에서 행이 삭제된 경우 검색 인덱스에서도 해당 행을 삭제할 수 있습니다. SQL 통합 변경 내용 추적 정책을 사용하는 경우 이 작업이 자동으로 수행됩니다. 그러나 상위 워터 마크 변경 내용 추적 정책은 삭제된 행을 지원하지 않습니다. 그렇다면 어떻게 해야 할까요?
 
-행이 테이블에서 실제로 제거 된 경우 Azure Cognitive Search는 더 이상 존재 하지 않는 레코드의 존재를 유추할 수 없습니다.  그러나 "일시 삭제" 기술을 사용하여 테이블에서 제거하지 않고 논리적으로 행을 삭제할 수 있습니다. 테이블 또는 뷰에 열을 추가하고 이 열을 사용하여 행을 삭제된 것으로 표시합니다.
+행이 테이블에서 물리적으로 제거된 경우 Azure Cognitive Search는 더 이상 존재하지 않는 레코드의 존재를 추론할 수 없습니다.  그러나 "일시 삭제" 기술을 사용하여 테이블에서 제거하지 않고 논리적으로 행을 삭제할 수 있습니다. 테이블 또는 뷰에 열을 추가하고 이 열을 사용하여 행을 삭제된 것으로 표시합니다.
 
 일시 삭제 기술을 사용하는 경우 데이터 원본을 만들거나 업데이트할 때 다음과 같이 일시 삭제 정책을 지정할 수 있습니다.
 
@@ -268,14 +268,14 @@ SQL 통합 변경 내용 추적 정책을 사용할 때는 별도의 데이터 �
 
 <a name="TypeMapping"></a>
 
-## <a name="mapping-between-sql-and-azure-cognitive-search-data-types"></a>SQL과 Azure Cognitive Search 데이터 형식 간 매핑
-| SQL 데이터 형식 | 허용되는 대상 인덱스 필드 유형 | 참고 사항 |
+## <a name="mapping-between-sql-and-azure-cognitive-search-data-types"></a>SQL과 Azure 인지 검색 데이터 형식 간의 매핑
+| SQL 데이터 형식 | 허용되는 대상 인덱스 필드 유형 | 메모 |
 | --- | --- | --- |
 | bit |Edm.Boolean, Edm.String | |
 | int, smallint, tinyint |Edm.Int32, Edm.Int64, Edm.String | |
 | bigint |Edm.Int64, Edm.Int64, Edm.String | |
 | real, float |Edm.Double, Edm.String | |
-| smallmoney, money decimal numeric |Edm.String |Azure Cognitive Search는 소수 형식을 Edm으로 변환 하는 것을 지원 하지 않습니다 .이는 전체 자릿수가 손실 될 수 있기 때문입니다. |
+| smallmoney, money decimal numeric |Edm.String |Azure Cognitive Search는 소수자 유형을 Edm.Double로 변환하는 것을 지원하지 않습니다. |
 | char, nchar, varchar, nvarchar |Edm.String<br/>Collection(Edm.String) |SQL 문자열은 문자열이 JSON 배열을 나타내는 경우 Collection(Edm.String) 필드를 채우는 데 사용할 수 있습니다. `["red", "white", "blue"]` |
 | smalldatetime, datetime, datetime2, date, datetimeoffset |Edm.DateTimeOffset, Edm.String | |
 | uniqueidentifer |Edm.String | |
@@ -283,12 +283,12 @@ SQL 통합 변경 내용 추적 정책을 사용할 때는 별도의 데이터 �
 | rowversion |해당 없음 |행 버전 열은 변경 내용 추적에 사용할 수 있지만 검색 인덱스에 저장할 수는 없습니다. |
 | time, timespan, binary, varbinary, image, xml, geometry, CLR types |해당 없음 |지원되지 않음 |
 
-## <a name="configuration-settings"></a>Configuration 설정
+## <a name="configuration-settings"></a>구성 설정
 SQL 인덱서는 여러 구성 설정을 노출합니다.
 
 | 설정 | 데이터 형식 | 목적 | 기본값 |
 | --- | --- | --- | --- |
-| queryTimeout |string |SQL 쿼리 실행의 제한 시간 설정 |5분("00:05:00") |
+| queryTimeout |문자열 |SQL 쿼리 실행의 제한 시간 설정 |5분("00:05:00") |
 | disableOrderByHighWaterMarkColumn |bool |상위 워터 마크 정책에서 사용하는 SQL 쿼리에서 ORDER BY 절이 생략되도록 합니다. [상위 워터 마크 정책](#HighWaterMarkPolicy)을 참조하세요. |false |
 
 이러한 설정은 인덱서 정의의 `parameters.configuration` 개체에 사용됩니다. 예를 들어 쿼리 제한 시간을 10분으로 설정하려면 다음 구성을 사용하여 인덱서를 만들거나 업데이트합니다.
@@ -303,29 +303,29 @@ SQL 인덱서는 여러 구성 설정을 노출합니다.
 
 **Q:** Azure의 IaaS VM에서 실행되는 SQL 데이터베이스에서 Azure SQL 인덱서를 사용할 수 있습니까?
 
-예. 그러나 검색 서비스에서 데이터베이스에 연결할 수 있도록 허용해야 합니다. 자세한 내용은 azure VM에서 [azure Cognitive Search 인덱서에 SQL Server로 연결 구성](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)을 참조 하세요.
+예. 그러나 검색 서비스에서 데이터베이스에 연결할 수 있도록 허용해야 합니다. 자세한 내용은 [Azure 인지 검색 인덱서에서 Azure VM의 SQL Server로의 연결 구성을](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)참조하십시오.
 
 **Q:** 온-프레미스에서 실행되는 SQL 데이터베이스에서 Azure SQL 인덱서를 사용할 수 있습니까?
 
-직접 끌 수는 없습니다. 직접 연결은 권장되거나 지원되지 않습니다. 이렇게 하려면 데이터베이스를 인터넷 트래픽에 개방해야 하기 때문입니다. 고객은 Azure Data Factory와 같은 브리지 기술을 사용하여 이 시나리오를 성공적으로 수행했습니다. 자세한 내용은 [Azure Data Factory를 사용 하 여 Azure Cognitive Search 인덱스에 데이터 푸시](https://docs.microsoft.com/azure/data-factory/data-factory-azure-search-connector)를 참조 하세요.
+직접 끌 수는 없습니다. 직접 연결은 권장되거나 지원되지 않습니다. 이렇게 하려면 데이터베이스를 인터넷 트래픽에 개방해야 하기 때문입니다. 고객은 Azure Data Factory와 같은 브리지 기술을 사용하여 이 시나리오를 성공적으로 수행했습니다. 자세한 내용은 [Azure 데이터 팩터리를 사용하여 Azure 인지 검색 인덱스에](https://docs.microsoft.com/azure/data-factory/data-factory-azure-search-connector)대한 푸시 데이터를 참조하세요.
 
-**Q:** Azure의 IaaS에서 실행되는 SQL Server가 아닌 데이터베이스에서 Azure SQL 인덱서를 사용할 수 있습니까?
+**Q: Azure의 IaaS에서 실행 중인 SQL Server 이외의 데이터베이스와 Azure SQL 인덱서를 사용할 수 있습니까?**
 
 아니요. SQL Server가 아닌 데이터베이스에서는 인덱서를 테스트하지 않았기 때문에 이 시나리오는 지원되지 않습니다.  
 
-**Q:** 일정에 따라 실행되는 여러 인덱서를 만들 수 있습니까?
+**Q: 일정에 따라 실행되는 여러 인덱서를 만들 수 있습니까?**
 
 예. 그러나 한 번에 하나의 인덱서만 실행할 수 있습니다. 여러 인덱서를 동시에 실행하려면 둘 이상의 검색 단위로 검색 서비스를 확장하는 것이 좋습니다.
 
-**Q:** 인덱서를 실행하면 쿼리 작업이 영향을 받습니까?
+**Q: 인덱서 를 실행하는 것이 쿼리 워크로드에 영향을 미칩니까?**
 
-예. 인덱서는 검색 서비스의 노드 중 하나에서 실행되므로 해당 노드의 리소스가 인덱싱 및 쿼리 지원 트래픽과 다른 API 요청 간에 공유됩니다. 많은 인덱싱 및 쿼리 작업을 실행하는 경우 503 오류가 자주 발생하거나 응답 시간이 증가하면 [검색 서비스를 확장](search-capacity-planning.md)하는 것이 좋습니다.
+예. 인덱서는 검색 서비스의 노드 중 하나에서 실행되므로 해당 노드의 리소스가 인덱싱 및 쿼리 지원 트래픽과 다른 API 요청 간에 공유됩니다. 집중적인 인덱싱 및 쿼리 워크로드를 실행하고 503 오류의 높은 비율이 발생하거나 응답 시간이 증가하는 경우 [검색 서비스를 확장하는](search-capacity-planning.md)것이 좋습니다.
 
 **Q: [장애 조치(failover) 클러스터](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview)에서 데이터 원본으로 보조 복제본을 사용할 수 있습니까?**
 
 경우에 따라 다릅니다. 테이블 또는 뷰의 전체 인덱싱에 대해 보조 복제본을 사용할 수 있습니다. 
 
-증분 인덱싱의 경우 Azure Cognitive Search는 SQL 통합 변경 내용 추적 및 상위 워터 마크와 같은 두 가지 변경 검색 정책을 지원 합니다.
+증분 인덱싱의 경우 Azure Cognitive Search는 SQL 통합 변경 사항 추적 및 하이 워터 마크의 두 가지 변경 검색 정책을 지원합니다.
 
 읽기 전용 복제본에서 SQL 데이터베이스는 통합된 변경 내용 추적을 지원하지 않습니다. 따라서 상위 워터 마크 정책을 사용해야 합니다. 
 
@@ -339,6 +339,6 @@ SQL 인덱서는 여러 구성 설정을 노출합니다.
 
 권장되지 않습니다. 신뢰할 수 있는 데이터 동기화를 위해서는 **rowversion**만 허용됩니다. 그러나 애플리케이션 논리에 따라 다음과 같은 경우 안전할 수 있습니다.
 
-+ 인덱서가 실행 될 때 인덱싱되는 테이블에 처리 중인 트랜잭션이 없는 경우 (예: 모든 테이블 업데이트는 일정에 따라 일괄 처리로 수행 되 고 Azure Cognitive Search 인덱서 일정은 테이블과 겹치지 않도록 설정 됨)을 확인할 수 있습니다. 업데이트 일정).  
++ 인덱서가 실행될 때 인덱싱되는 테이블에 미해결 트랜잭션이 없는지 확인할 수 있습니다(예: 모든 테이블 업데이트가 일정에 대한 일괄 처리로 발생하고 Azure Cognitive Search 인덱서 일정이 테이블과 겹치지 않도록 설정됨). 업데이트 일정)을 참조하십시오.  
 
 + 모든 누락된 행을 선택하기 위해 전체 다시 인덱싱을 정기적으로 수행합니다. 

@@ -7,10 +7,10 @@ ms.author: zarhoads
 ms.topic: article
 ms.date: 01/09/2019
 ms.openlocfilehash: eb48a8558aab6c7a832efe45650686d9df0d7426
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77624749"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-kubernetes-service-aks-with-jenkins-continuous-integration-and-deployment"></a>자습서: Jenkins 지속적인 통합 및 배포를 사용하여 GitHub에서 AKS(Azure Kubernetes Service)로 배포
@@ -26,32 +26,32 @@ ms.locfileid: "77624749"
 > * 자동화된 빌드를 위한 Jenkins 빌드 작업 및 GitHub 웹후크를 만듭니다.
 > * CI/CD 파이프라인을 테스트하여 GitHub 코드 커밋에 따라 AKS에서 애플리케이션을 업데이트합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음 항목이 필요합니다.
 
 - Kubernetes, Git, CI/CD 및 컨테이너 이미지에 대한 기본적인 이해
 
-- [AKS 클러스터](../aks/kubernetes-walkthrough.md) 및 [AKS 클러스터 자격 증명](/cli/azure/aks#az-aks-get-credentials)으로 구성 된 `kubectl`.
+- [AKS 클러스터](../aks/kubernetes-walkthrough.md) 및 [AKS 클러스터 자격 증명](/cli/azure/aks#az-aks-get-credentials)으로 구성된 `kubectl`.
 
-- Acr [레지스트리를 인증](../aks/cluster-container-registry-integration.md)하도록 구성 된 acr [(Azure Container Registry) 레지스트리](../container-registry/container-registry-get-started-azure-cli.md), acr 로그인 서버 이름 및 AKS 클러스터입니다.
+- [ACR(Azure Container Registry) 레지스트리](../container-registry/container-registry-get-started-azure-cli.md), ACR 로그인 서버 이름 및 [ACR 레지스트리에 인증](../aks/cluster-container-registry-integration.md)하도록 구성된 AKS 클러스터.
 
-- Azure CLI 버전 2.0.46 이상의 설치 및 구성.  `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드 해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조 하세요.
+- Azure CLI 버전 2.0.46 이상의 설치 및 구성.  `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우  [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
-- 개발 시스템에 [설치 된 Docker](https://docs.docker.com/install/)
+- 개발 시스템에 [설치된 Docker](https://docs.docker.com/install/)
 
-- 개발 시스템에 설치 된 GitHub 계정, [github 개인용 액세스 토큰](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/)및 Git 클라이언트
+- 개발 시스템에 설치된 GitHub 계정, [GitHub 개인 액세스 토큰](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/)및 Git 클라이언트
 
-- Jenkins를 배포 하기 위해이 샘플 스크립팅된 방법 대신 사용자 고유의 Jenkins 인스턴스를 제공 하는 경우 Jenkins 인스턴스는 [Docker를 설치 하 고 구성](https://docs.docker.com/install/) 하 고 [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)해야 합니다.
+- Jenkins를 배포하는 이 샘플 스크립트 방법이 아닌 사용자 고유의 Jenkins 인스턴스를 제공하는 경우 Jenkins 인스턴스를 사용하려면 [Docker를 설치 및 구성](https://docs.docker.com/install/)해야 하고 [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)이 있어야 합니다.
 
 ## <a name="prepare-your-app"></a>앱 준비
 
 이 문서에서는 하나 이상의 Pod에서 호스트되는 웹 인터페이스와 임시 데이터 스토리지를 위한 Redis를 호스트하는 두 번째 Pod를 포함하는 Azure 투표 애플리케이션 예제를 사용합니다. 자동화된 배포를 위해 Jenkins 및 AKS를 통합하기 전에 먼저 수동으로 Azure 투표 애플리케이션을 준비하고 AKS 클러스터에 배포합니다. 이 수동 배포는 애플리케이션의 버전 1이고 이를 통해 작동 중인 애플리케이션을 볼 수 있습니다.
 
 > [!NOTE]
-> 샘플 Azure 투표 응용 프로그램은 Linux 노드에서 실행 되도록 예약 된 Linux pod를 사용 합니다. 이 문서에서 설명 하는 흐름은 Windows Server 노드에 예약 된 Windows Server pod에도 적용 됩니다.
+> 샘플 Azure 투표 응용 프로그램은 Linux 노드에서 실행되도록 예약된 Linux 포드를 사용합니다. 이 문서에서 설명하는 흐름은 Windows Server 노드에서 예약된 Windows Server 포드에도 적용됩니다.
 
-애플리케이션 예제([https://github.com/Azure-Samples/azure-voting-app-redis](https://github.com/Azure-Samples/azure-voting-app-redis))의 다음 GitHub 리포지토리를 포크합니다. 사용자 고유의 GitHub 계정에 리포지토리를 분기하려면 오른쪽 위 모서리에 있는 **분기** 단추를 선택합니다.
+샘플 응용 프로그램에 대한 다음 GitHub 리포지토리를 포크 - [https://github.com/Azure-Samples/azure-voting-app-redis](https://github.com/Azure-Samples/azure-voting-app-redis). 사용자 고유의 GitHub 계정에 리포지토리를 분기하려면 오른쪽 위 모서리에 있는 **분기** 단추를 선택합니다.
 
 포크를 개발 시스템에 복제합니다. 이 리포지토리를 복제할 때 포크 URL을 사용해야 합니다.
 
@@ -65,13 +65,13 @@ git clone https://github.com/<your-github-account>/azure-voting-app-redis.git
 cd azure-voting-app-redis
 ```
 
-애플리케이션 예제에 필요한 컨테이너 이미지를 만들려면 *와 함께* docker-compose.yaml`docker-compose` 파일을 사용합니다.
+애플리케이션 예제에 필요한 컨테이너 이미지를 만들려면 `docker-compose`와 함께 *docker-compose.yaml* 파일을 사용합니다.
 
 ```console
 docker-compose up -d
 ```
 
-필요한 기본 이미지가 풀되고 애플리케이션 컨테이너가 빌드됩니다. 그런 다음 [docker images](https://docs.docker.com/engine/reference/commandline/images/) 명령을 사용 하 여 생성 된 이미지를 볼 수 있습니다. 3개 이미지가 다운로드되거나 생성되었는지 확인합니다. `azure-vote-front` 이미지는 애플리케이션을 포함하며 `nginx-flask` 이미지를 기준으로 사용합니다. `redis` 이미지는 Redis 인스턴스를 시작하는 데 사용됩니다.
+필요한 기본 이미지가 풀되고 애플리케이션 컨테이너가 빌드됩니다. 그러면 [docker images](https://docs.docker.com/engine/reference/commandline/images/) 명령을 사용하여 만든 이미지를 확인할 수 있습니다. 3개 이미지가 다운로드되거나 생성되었는지 확인합니다. `azure-vote-front` 이미지는 애플리케이션을 포함하며 `nginx-flask` 이미지를 기준으로 사용합니다. `redis` 이미지는 Redis 인스턴스를 시작하는 데 사용됩니다.
 
 ```
 $ docker images
@@ -82,13 +82,13 @@ redis                        latest     a1b99da73d05        7 days ago          
 tiangolo/uwsgi-nginx-flask   flask      788ca94b2313        9 months ago        694MB
 ```
 
-*Azure-투표-전방* 컨테이너 이미지를 acr에 푸시 하려면 먼저 [az acr list](/cli/azure/acr#az-acr-list) 명령을 사용 하 여 acr 로그인 서버를 가져옵니다. 다음 예제는 *myResourceGroup*이라는 리소스 그룹에서 레지스트리의 ACR 로그인 서버 주소를 가져옵니다.
+*azure-vote-front* 컨테이너 이미지를 ACR에 푸시하기 전에 먼저 [az acr list](/cli/azure/acr#az-acr-list) 명령을 사용하여 ACR 로그인 서버를 가져옵니다. 다음 예제는 *myResourceGroup*이라는 리소스 그룹에서 레지스트리의 ACR 로그인 서버 주소를 가져옵니다.
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-[Docker tag](https://docs.docker.com/engine/reference/commandline/tag/) 명령을 사용 하 여 ACR 로그인 서버 이름 및 `v1`버전 번호를 사용 하 여 이미지에 태그를 표시 합니다. 이전 단계에서 가져온 고유한 `<acrLoginServer>` 이름을 입력합니다.
+[docker tag](https://docs.docker.com/engine/reference/commandline/tag/) 명령을 사용하여 이미지에 ACR 로그인 서버 이름 및 버전 번호(`v1`)를 태그로 지정합니다. 이전 단계에서 가져온 고유한 `<acrLoginServer>` 이름을 입력합니다.
 
 ```console
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v1
@@ -102,7 +102,7 @@ docker push <acrLoginServer>/azure-vote-front:v1
 
 ## <a name="deploy-the-sample-application-to-aks"></a>AKS에 애플리케이션 예제 배포
 
-애플리케이션 예제를 AKS 클러스터에 배포하려면 Azure 투표 리포지토리의 루트에 있는 Kubernetes 매니페스트 파일을 사용하면 됩니다. *같은 편집기로*azure-vote-all-in-one-redis.yaml`vi` 매니페스트 파일을 엽니다. `microsoft`를 ACR 로그인 서버 이름으로 바꿉니다. 이 값은 매니페스트 파일의 줄 **47**에 있습니다.
+애플리케이션 예제를 AKS 클러스터에 배포하려면 Azure 투표 리포지토리의 루트에 있는 Kubernetes 매니페스트 파일을 사용하면 됩니다. `vi` 같은 편집기로 *azure-vote-all-in-one-redis.yaml* 매니페스트 파일을 엽니다. `microsoft`를 ACR 로그인 서버 이름으로 바꿉니다. 이 값은 매니페스트 파일의 줄 **47**에 있습니다.
 
 ```yaml
 containers:
@@ -110,13 +110,13 @@ containers:
   image: microsoft/azure-vote-front:v1
 ```
 
-그런 다음 [kubectl apply](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply) 명령을 사용 하 여 AKS 클러스터에 응용 프로그램을 배포 합니다.
+다음으로 [kubectl apply](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply) 명령을 사용하여 애플리케이션을 AKS 클러스터에 배포합니다.
 
 ```console
 kubectl apply -f azure-vote-all-in-one-redis.yaml
 ```
 
-Kubernetes 부하 분산 장치 서비스는 애플리케이션을 인터넷에 노출하기 위해 만들어집니다. 이 프로세스는 몇 분 정도 걸릴 수 있습니다. 부하 분산 장치 배포의 진행률을 모니터링 하려면 `--watch` 인수와 함께 [kubectl get service](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) 명령을 사용 합니다. *EXTERNAL-IP* 주소가 *보류 중*에서 *IP 주소*로 변경되면 `Control + C`를 사용하여 kubectl 조사식 프로세스를 중지합니다.
+Kubernetes 부하 분산 장치 서비스는 애플리케이션을 인터넷에 노출하기 위해 만들어집니다. 이 프로세스는 몇 분 정도 걸릴 수 있습니다. 부하 분산 장치 배포의 진행 상황을 모니터링하려면  인수와 함께 [kubectl get service`--watch`](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) 명령을 사용합니다. *EXTERNAL-IP* 주소가 *보류 중*에서 *IP 주소*로 변경되면 `Control + C`를 사용하여 kubectl 조사식 프로세스를 중지합니다.
 
 ```console
 $ kubectl get service azure-vote-front --watch
@@ -137,7 +137,7 @@ azure-vote-front   LoadBalancer   10.0.215.27   40.117.57.239   80:30747/TCP   2
 > [!WARNING]
 > 이 샘플 스크립트는 Azure VM에서 실행되는 Jenkins 환경을 신속하게 프로비전하기 위한 데모 용도입니다. Azure 사용자 지정 스크립트 확장을 사용하여 VM을 구성한 다음, 필요한 자격 증명을 표시할 수 있습니다. *~/.kube/config*는 Jenkins VM에 복사됩니다.
 
-다음 명령을 실행하여 스크립트를 다운로드하고 실행합니다. 실행하기 전에 스크립트의 콘텐츠를 검토해야 합니다. [https://raw.githubusercontent.com/Azure-Samples/azure-voting-app-redis/master/jenkins-tutorial/deploy-jenkins-vm.sh](https://raw.githubusercontent.com/Azure-Samples/azure-voting-app-redis/master/jenkins-tutorial/deploy-jenkins-vm.sh)
+다음 명령을 실행하여 스크립트를 다운로드하고 실행합니다. 스크립트를 실행하기 전에 스크립트의 내용을 검토해야 합니다. [https://raw.githubusercontent.com/Azure-Samples/azure-voting-app-redis/master/jenkins-tutorial/deploy-jenkins-vm.sh](https://raw.githubusercontent.com/Azure-Samples/azure-voting-app-redis/master/jenkins-tutorial/deploy-jenkins-vm.sh)
 
 ```console
 curl https://raw.githubusercontent.com/Azure-Samples/azure-voting-app-redis/master/jenkins-tutorial/deploy-jenkins-vm.sh > azure-jenkins.sh
@@ -165,7 +165,7 @@ Enter the following to Unlock Jenkins:
 
 Jenkins 환경 변수는 ACR 로그인 서버 이름을 저장하는 데 사용됩니다. 이 변수는 Jenkins 빌드 작업 중에 참조됩니다. 이 환경 변수를 만들려면 다음 단계를 완료합니다.
 
-- Jenkins 포털의 왼쪽에서 **Jenkins 관리** > **시스템 구성**을 선택합니다.
+- 젠킨스 포털의 왼쪽에, **젠킨스** > **구성 시스템** 관리를 선택
 - **전역 속성**에서 **환경 변수**를 선택합니다. 이름이 `ACR_LOGINSERVER`인 변수와 ACR 로그인 서버 값을 추가합니다.
 
     ![Jenkins 환경 변수](media/jenkins-continuous-deployment/env-variables.png)
@@ -174,11 +174,11 @@ Jenkins 환경 변수는 ACR 로그인 서버 이름을 저장하는 데 사용�
 
 ## <a name="create-a-jenkins-credential-for-acr"></a>ACR의 Jenkins 자격 증명 만들기
 
-Jenkins가 업데이트된 컨테이너 이미지를 빌드한 후 ACR에 푸시할 수 있게 하려면 ACR의 자격 증명을 지정해야 합니다. 이 인증에는 Azure Active Directory 서비스 주체를 사용할 수 있습니다. 필수 구성 요소로 ACR 레지스트리에 대한 ‘읽기 권한자’ 권한이 있는 AKS 클러스터의 서비스 주체를 구성했습니다. 이러한 권한을 사용하면 AKS 클러스터가 ACR 레지스트리에서 이미지를 ‘풀’할 수 있습니다. CI/CD 프로세스 중에 Jenkins는 애플리케이션 업데이트를 기반으로 새 컨테이너 이미지를 빌드하고 이후 해당 이미지를 ACR 레지스트리로 ‘푸시’해야 합니다. 역할 및 권한을 구분하기 위해 이제 ACR 레지스트리에 대한 *Contributor* 권한이 있는 Jenkins의 서비스 주체를 구성합니다.
+Jenkins가 업데이트된 컨테이너 이미지를 빌드한 후 ACR에 푸시할 수 있게 하려면 ACR의 자격 증명을 지정해야 합니다. 이 인증에는 Azure Active Directory 서비스 주체를 사용할 수 있습니다. 필수 구성 요소로 ACR 레지스트리에 대한 ‘읽기 권한자’ 권한이 있는 AKS 클러스터의 서비스 주체를 구성했습니다.** 이러한 권한을 사용하면 AKS 클러스터가 ACR 레지스트리에서 이미지를 ‘풀’할 수 있습니다.** CI/CD 프로세스 중에 Jenkins는 애플리케이션 업데이트를 기반으로 새 컨테이너 이미지를 빌드하고 이후 해당 이미지를 ACR 레지스트리로 ‘푸시’해야 합니다.** 역할 및 권한을 구분하기 위해 이제 ACR 레지스트리에 대한 *Contributor* 권한이 있는 Jenkins의 서비스 주체를 구성합니다.
 
 ### <a name="create-a-service-principal-for-jenkins-to-use-acr"></a>ACR를 사용할 Jenkins의 서비스 주체 만들기
 
-먼저 [az ad sp create-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) 명령을 사용 하 여 서비스 주체를 만듭니다.
+먼저 [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) 명령을 사용하여 서비스 주체를 만듭니다.
 
 ```azurecli
 $ az ad sp create-for-rbac --skip-assignment
@@ -194,7 +194,7 @@ $ az ad sp create-for-rbac --skip-assignment
 
 출력에 표시된 *appId* 및 *password*를 기록해 둡니다. 이러한 값은 다음 단계에서 Jenkins에 자격 증명 리소스를 구성하는 데 사용됩니다.
 
-[Az ACR show](/cli/azure/acr#az-acr-show) 명령을 사용 하 여 ACR 레지스트리의 리소스 ID를 가져오고 변수로 저장 합니다. 리소스 그룹 이름과 ACR 이름을 입력합니다.
+[az acr show](/cli/azure/acr#az-acr-show) 명령을 사용하여 ACR 레지스트리의 리소스 ID를 가져오고 변수로 저장합니다. 리소스 그룹 이름과 ACR 이름을 입력합니다.
 
 ```azurecli
 ACR_ID=$(az acr show --resource-group myResourceGroup --name <acrLoginServer> --query "id" --output tsv)
@@ -210,7 +210,7 @@ az role assignment create --assignee 626dd8ea-042d-4043-a8df-4ef56273670f --role
 
 Azure에서 만든 역할 할당을 사용하여 이제 ACR 자격 증명을 Jenkins 자격 증명 개체에 저장합니다. 이러한 자격 증명은 Jenkins 빌드 작업 중에 참조됩니다.
 
-다시 Jenkins 포털의 왼쪽에서 **자격 증명** > **Jenkins** > **전역 자격 증명(무제한)**  > **자격 증명 추가**를 클릭합니다.
+젠킨스 포털의 왼쪽에 다시, 클릭 **자격 증명** > **젠킨스** > **글로벌 자격 증명 (무제한)** > **자격 증명 추가**
 
 자격 증명 종류가 **사용자 이름 및 암호**인지 확인하고 다음 항목을 입력합니다.
 
@@ -229,13 +229,13 @@ Azure에서 만든 역할 할당을 사용하여 이제 ACR 자격 증명을 Jen
 Jenkins 포털 홈페이지의 왼쪽에 있는 **새 항목**을 선택합니다.
 
 1. *azure-vote*를 작업 이름으로 입력합니다. **프리스타일 프로젝트**를 선택한 후 **확인**을 선택합니다.
-1. **일반** 섹션에서 **github 프로젝트** 를 선택 하 고 분기 리포지토리 URL (예: *github.com/\<\>)* 을 입력 합니다\/.
-1. **소스 코드 관리** 섹션 아래에서 **Git**을 선택 하 고 분기\<를 입력 *합니다. git* URL (예: *https:\//github.com/-github-계정\>/azure-voting-app-redis.git*
+1. **일반** 섹션에서 **GitHub 프로젝트를** 선택하고 *https:\/\</github.com/ github 계정\>/azure-voting-app-redis와* 같은 분기된 리포지토리 URL을 입력합니다.
+1. 소스 **코드 관리** 섹션에서 **git을**선택하고 *https:\//github.com/\<github 계정\>/azure-voting-app-redis.git과* 같은 분기된 repo *.git* URL을 입력합니다.
 
 1. **빌드 트리거** 섹션에서 **GITscm 폴링에 대한 GitHub 후크 트리거**를 선택합니다.
 1. **빌드 환경**에서 **비밀 텍스트 또는 파일 사용**을 선택합니다.
 1. **바인딩**에서 **추가** > **사용자 이름 및 암호(구분)** 를 선택합니다.
-   - `ACR_ID`사용자 이름 변수**에** 를 입력하고, `ACR_PASSWORD`암호 변수**에** 를 입력합니다.
+   - **사용자 이름 변수**에 `ACR_ID`를 입력하고, **암호 변수**에 `ACR_PASSWORD`를 입력합니다.
 
      ![Jenkins 바인딩](media/jenkins-continuous-deployment/bindings.png)
 
@@ -279,8 +279,8 @@ GitHub 커밋을 기반으로 작업을 자동화하기 전에 먼저 수동으�
 
 1. 웹 브라우저에서 포크된 GitHub 리포지토리로 이동합니다.
 1. **설정**을 선택한 다음, 왼쪽에 있는 **웹후크**를 선택합니다.
-1. **웹후크 추가**를 선택합니다. ‘페이로드 URL’에 *를 입력합니다. 여기서* 는 Jenkins 서버의 IP 주소입니다.`http://<publicIp:8080>/github-webhook/``<publicIp>` 후행 슬래시(/)를 포함해야 합니다. 콘텐츠 형식에 대한 다른 기본값을 그대로 두고 *푸시* 이벤트를 트리거합니다.
-1. **웹후크 추가**를 선택합니다.
+1. **웹후크 추가**를 선택합니다. ‘페이로드 URL’에 `http://<publicIp:8080>/github-webhook/`를 입력합니다. 여기서 `<publicIp>`는 Jenkins 서버의 IP 주소입니다.** 후행 슬래시(/)를 포함해야 합니다. 콘텐츠 형식에 대한 다른 기본값을 그대로 두고 *푸시* 이벤트를 트리거합니다.
+1. **웹후크 추가를**선택합니다.
 
     ![Jenkins의 GitHub 웹후크 만들기](media/jenkins-continuous-deployment/webhook.png)
 

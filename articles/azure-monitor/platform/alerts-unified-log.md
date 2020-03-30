@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 5/31/2019
 ms.subservice: alerts
 ms.openlocfilehash: a6abf4665c27771497037da35f85bb540e6e904e
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77665224"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Azure Monitor의 로그 경고
@@ -25,25 +25,25 @@ ms.locfileid: "77665224"
 
 ## <a name="log-search-alert-rule---definition-and-types"></a>로그 검색 경고 규칙 - 정의 및 형식
 
-로그 검색 규칙은 일정한 간격으로 지정된 로그 쿼리를 자동으로 실행하도록 Azure Alerts에 의해 만들어집니다.  로그 쿼리 결과가 특정 조건과 일치하는 경우 경고 레코드가 만들어집니다. 그런 다음, 규칙은 [작업 그룹](../../azure-monitor/platform/action-groups.md)을 사용하여 하나 이상의 작업을 자동으로 실행할 수 있습니다. 경고 규칙 또는 경고 쿼리의 분석 대상에 대한 액세스 및 쿼리 실행 권한과 함께 로그 경고를 만들고, 수정하고, 업데이트할 수 있는 [Azure 모니터링 기여자](../../azure-monitor/platform/roles-permissions-security.md) 역할이 필요할 수 있습니다. 사용자를 만드는 경우 경고 규칙 또는 경고 쿼리의 모든 분석 대상에 액세스할 수 없는 경우 규칙 만들기가 실패할 수 있습니다. 그렇지 않으면 로그 경고 규칙이 부분적인 결과로 실행 됩니다.
+로그 검색 규칙은 일정한 간격으로 지정된 로그 쿼리를 자동으로 실행하도록 Azure Alerts에 의해 만들어집니다.  로그 쿼리 결과가 특정 조건과 일치하는 경우 경고 레코드가 만들어집니다. 그런 다음, 규칙은 [작업 그룹](../../azure-monitor/platform/action-groups.md)을 사용하여 하나 이상의 작업을 자동으로 실행할 수 있습니다. 경고 규칙 또는 경고 쿼리의 분석 대상에 대한 액세스 및 쿼리 실행 권한과 함께 로그 경고를 만들고, 수정하고, 업데이트할 수 있는 [Azure 모니터링 기여자](../../azure-monitor/platform/roles-permissions-security.md) 역할이 필요할 수 있습니다. 사용자가 만드는 것이 경고 규칙 또는 경고 쿼리에서 모든 분석 대상에 액세스할 수 없는 경우 규칙 생성이 실패하거나 로그 경고 규칙이 부분 결과로 실행될 수 있습니다.
 
 로그 검색 규칙은 다음 세부 정보에 의해 정의됩니다.
 
-- **로그 쿼리**  경고 규칙이 실행될 때마다 실행되는 쿼리입니다.  이 쿼리에서 반환된 레코드는 경고를 트리거할지 여부를 결정하는 데 사용됩니다. Analytics 쿼리는 특정 Log Analytics 작업 영역 또는 Application Insights 앱에 대한 것이거나, 사용자가 모든 리소스에 대한 쿼리 권한으로 잘 액세스할 수 있는 경우 [여러 Log Analytics 및 Application Insights 리소스](../../azure-monitor/log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights)에 걸쳐 있을 수도 있습니다. 
+- **로그 쿼리**.  경고 규칙이 실행될 때마다 실행되는 쿼리입니다.  이 쿼리에서 반환된 레코드는 경고를 트리거할지 여부를 결정하는 데 사용됩니다. Analytics 쿼리는 특정 Log Analytics 작업 영역 또는 Application Insights 앱에 대한 것이거나, 사용자가 모든 리소스에 대한 쿼리 권한으로 잘 액세스할 수 있는 경우 [여러 Log Analytics 및 Application Insights 리소스](../../azure-monitor/log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights)에 걸쳐 있을 수도 있습니다. 
     > [!IMPORTANT]
-    > [SCHEDULEDQUERYRULES API를 사용 하 여 구성 된 Log Analytics](../../azure-monitor/platform/alerts-log-api-switch.md) 에 대 한 Application Insights 및 로그 경고에 대 한 로그 경고에서 [리소스 간 쿼리](../../azure-monitor/log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) 를 지원 합니다.
+    > 응용 프로그램 인사이트 및 [예약된QueryRules API만을 사용하여 구성된 로그 분석에](../../azure-monitor/platform/alerts-log-api-switch.md) 대한 로그 경고에 대한 [리소스 간 쿼리](../../azure-monitor/log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) 지원
 
     일부 분석 명령 및 조합은 로그 경고에서 사용하는 것과 호환되지 않습니다. 자세한 내용은 [Azure Monitor의 로그 경고 쿼리](../../azure-monitor/platform/alerts-log-query.md)를 참조하세요.
 
-- **기간**  쿼리에 대한 시간 범위를 지정합니다. 쿼리에서는 현재 시간의 이 범위 내에서 생성된 레코드만 반환합니다. 기간은 남용을 방지하고 쿼리 로그에 사용되는 시간 명령(ago 등)을 회피하도록 로그 쿼리에 대해 인출된 데이터를 제한합니다. <br>*예를 들어 기간이 60 분으로 설정 되 고 쿼리가 1:15 PM에 실행 되는 경우 12:15 PM과 1:15 PM 사이에 생성 된 레코드만 로그 쿼리를 실행 하기 위해 반환 됩니다. 이제 로그 쿼리가 전 (7d)와 같은 시간 명령을 사용 하면 지난 60 분 동안만 데이터가 존재 하는 것 처럼 12:15 PM 및 1:15 PM 사이의 데이터에 대해서만 로그 쿼리가 실행 됩니다. 로그 쿼리에 지정 된 7 일 동안의 데이터에는 그렇지 않습니다.*
+- **기간**  쿼리에 대한 시간 범위를 지정합니다. 쿼리에서는 현재 시간의 이 범위 내에서 생성된 레코드만 반환합니다. 기간은 남용을 방지하고 쿼리 로그에 사용되는 시간 명령(ago 등)을 회피하도록 로그 쿼리에 대해 인출된 데이터를 제한합니다. <br>*예를 들어 기간이 60분으로 설정되어 있고 쿼리가 오후 1:15에 실행되는 경우 오후 12시 15분에서 오후 1시 15분 사이에 생성된 레코드만 반환되어 로그 쿼리를 실행합니다. 이제 로그 쿼리가 이전(7d)과 같은 시간 명령을 사용하는 경우, 로그 쿼리는 지난 60분 동안만 데이터가 존재하는 것처럼 오후 12시 15분에서 오후 1시 15분 사이의 데이터에 대해서만 실행됩니다. 그리고 로그 쿼리에 지정된 대로 7 일 간의 데이터가 아닙니다.*
 
-- **빈도**.  쿼리를 실행해야 하는 빈도를 지정합니다. 5 분에서 24 시간 사이의 임의 값일 수 있습니다. 기간 이하여야 합니다.  값이 기간을 초과하는 경우 레코드가 누락될 위험이 있습니다.<br>*예를 들어 30 분의 기간 및 60 분의 빈도를 고려 합니다.  쿼리가 1:00에서 실행 되는 경우 12:30과 1:00 PM 사이의 레코드를 반환 합니다.  다음 번에 쿼리를 실행할 때 1:30과 2:00 간에 레코드를 반환 하는 경우 2:00입니다.  1:00에서 1:30 사이에 만들어진 모든 레코드는 평가 되지 않습니다.*
+- **주파수**.  쿼리를 실행해야 하는 빈도를 지정합니다. 5 분에서 24 시간 사이의 임의 값일 수 있습니다. 기간 이하여야 합니다.  값이 기간을 초과하는 경우 레코드가 누락될 위험이 있습니다.<br>*예를 들어 30분의 기간과 60분의 빈도를 고려합니다.  쿼리가 1:00에서 실행되는 경우 12:30에서 1:00 PM 사이의 레코드를 반환합니다.  다음에 쿼리가 실행될 때는 1:30에서 2:00 사이의 레코드를 반환할 때 2:00입니다.  1:00에서 1:30 사이에 생성된 레코드는 평가되지 않습니다.*
 
 - **임계값**.  로그 검색 결과를 평가하여 경고를 만들어야 하는지 여부를 결정합니다.  임계값은 다양한 유형의 로그 검색 경고 규칙에 따라 다릅니다.
 
 로그 검색 규칙은 [Azure Monitor Logs](../../azure-monitor/learn/tutorial-viewdata.md) 또는 [Application Insights](../../azure-monitor/app/cloudservices.md#view-azure-diagnostics-events)에 적용되고 두 가지 형식일 수 있습니다. 이러한 각 유형에 대해서는 다음 섹션에서 자세히 설명합니다.
 
-- **[결과 수](#number-of-results-alert-rules)** - 로그 검색에서 반환되는 레코드 수가 지정된 수를 초과할 때 만들어지는 단일 경고입니다.
+- **[결과 수](#number-of-results-alert-rules)**. 로그 검색에서 반환되는 레코드 수가 지정된 수를 초과할 때 만들어지는 단일 경고입니다.
 - **[미터법](#metric-measurement-alert-rules)** -  로그 검색 결과에서 지정된 임계값을 초과하는 값을 포함한 각 개체에 대해 만들어지는 경고입니다.
 
 경고 규칙 유형 간의 차이점은 다음과 같습니다.
@@ -59,7 +59,7 @@ ms.locfileid: "77665224"
 
 단일 이벤트에 대해 경고하려면 결과 수를 0보다 크게 설정하고, 마지막 쿼리 실행 이후 생성된 단일 이벤트 발생을 확인합니다. 일부 애플리케이션은 경고를 발생시키지 않아야 할 가끔씩 발생하는 오류를 기록할 수 있습니다.  예를 들어 애플리케이션이 오류 이벤트를 생성한 프로세스를 재시도한 후 다음에 성공할 수 있습니다.  이 경우 특정 기간 내에 복수의 이벤트가 생성되지 않은 한 경고를 만들지 않는 것이 좋습니다.  
 
-경우에 따라 이벤트가 없을 때 경고를 만드는 것이 좋습니다.  예를 들어 프로세스에서 일반 이벤트가 올바르게 작동 중임을 나타내기 위해 일반 이벤트를 기록할 수 있습니다.  특정 기간 내에 이러한 이벤트 중 하나가 기록되지 않으면 경고를 만들어야 합니다.  이 경우 임계값을 **1보다 작게**로 설정할 수 있습니다.
+경우에 따라 이벤트가 없을 때 경고를 만드는 것이 좋습니다.  예를 들어 프로세스에서 일반 이벤트가 올바르게 작동 중임을 나타내기 위해 일반 이벤트를 기록할 수 있습니다.  특정 기간 내에 이러한 이벤트 중 하나가 기록되지 않으면 경고를 만들어야 합니다.  이 경우 임계값을 **1 미만으로**설정합니다.
 
 #### <a name="example-of-number-of-records-type-log-alert"></a>레코드 수 형식 로그 경고의 예제
 
@@ -74,7 +74,7 @@ ms.locfileid: "77665224"
 
 ### <a name="metric-measurement-alert-rules"></a>미터법 경고 규칙
 
-**미터법** 경고 규칙은 지정 된 임계값 및 지정 된 트리거 조건을 초과 하는 값을 사용 하 여 쿼리에 있는 각 개체에 대 한 경고를 만듭니다. **결과 수** 경고 규칙과 달리 **메트릭 측정** 경고 규칙은 분석 결과에서 시계열을 제공할 때 작동 합니다. **결과 수** 경고 규칙과는 다음과 같이 분명하게 구별됩니다.
+**메트릭 측정** 경고 규칙은 지정된 임계값 및 지정된 트리거 조건을 초과하는 값을 사용하여 쿼리의 각 개체에 대한 경고를 만듭니다. 결과 수 경고 **규칙과** 달리 **메트릭 측정** 경고 규칙은 분석 결과가 시계열을 제공하는 경우 작동합니다. **결과 수** 경고 규칙과는 다음과 같이 분명하게 구별됩니다.
 
 - **집계 함수**: 수행되는 계산과 잠재적으로 집계할 숫자 필드를 결정합니다.  예를 들어 **count()** 는 쿼리의 레코드 수를 반환하고, **avg(CounterValue)** 는 해당 간격 동안 CounterValue 필드의 평균을 반환합니다. 쿼리의 집계 함수는 AggregatedValue로 명명되어야 하며 숫자 값을 제공해야 합니다.다. 
 
@@ -99,8 +99,8 @@ ms.locfileid: "77665224"
 - **Query:** Perf | where ObjectName == "Processor" and CounterName == "% Processor Time" | summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 5m), Computer<br>
 - **기간:** 30분<br>
 - **경고 빈도:** 5분<br>
-- **경고 논리-조건 & 임계값:** 90 보다 큼<br>
-- **그룹 필드 (집계):** 컴퓨터별
+- **경고 논리 - 조건 & 임계값:** 90 이상<br>
+- **그룹 필드(집계 수준):** 컴퓨터
 - **경고 트리거 조건:** 총 위반 2 초과<br>
 
 이 쿼리는 각 컴퓨터에 대해 5분 간격으로 평균 값을 만듭니다.  이 쿼리는 이전 30분 동안 수집된 데이터에 대해 5분마다 실행됩니다. 선택한 그룹 필드(Aggregate-on)가 열 형식의 'Computer'이기 때문에 AggregatedValue가 'Computer'의 다양한 값으로 분할되고 각 컴퓨터의 평균 프로세서 사용률이 5분의 시간 bin에 대해 결정됩니다.  3대의 컴퓨터에 대한 샘플 쿼리 결과는 아래와 같습니다.
@@ -121,29 +121,29 @@ ms.locfileid: "77665224"
 ![샘플 쿼리 결과](media/alerts-unified-log/metrics-measurement-sample-graph.png)
 
 이 예에서는 3대의 컴퓨터 각각에 대해 5분의 bin으로 5분 동안의 평균 프로세서 사용률이 계산된 것을 볼 수 있습니다. srv01은 1:25 bin에서 임계값 90을 한 번만 위반했습니다. 이에 비해 srv02는 1:10, 1:15 및 1:25 bin에서 임계값 90을 초과했으며 srv03은 1:10, 1:15, 1:20 및 1:30에서 임계값 90을 초과했습니다.
-경고는 총 위반 횟수가 2를 초과하는 경우를 기준으로 트리거하도록 구성되었으므로 srv02 및 srv03만 기준을 충족하는 것으로 나타납니다. 따라서 srv02 및 sr-srv03에 대 한 별도의 경고가 생성 됩니다 .이는 여러 시간 bin에서 90% 임계값을 두 번 위반 하기 때문  다음을 *기반으로 하는 트리거 경고:* 매개 변수가 *연속 위반* 옵션에 대해 대신 구성 된 경우 1:20 1:10 sr-srv03에 대해서 **만** 경고가 발생 합니다. srv02는 1:10 ~ 1:15 범위에서 2번 연속 시간 bin에 대해 임계값을 위반했으므로 경고가 발생하지 **않습니다**.
+경고는 총 위반 횟수가 2를 초과하는 경우를 기준으로 트리거하도록 구성되었으므로 srv02 및 srv03만 기준을 충족하는 것으로 나타납니다. 따라서 srv02 및 srv03에 대해 별도의 경고가 생성되며 여러 시간 저장소에서 90% 임계값을 두 번 위반했기 때문에 만들어집니다.  트리거 *경고를 기반으로 하는 경우:* 매개 변수가 *연속 위반* 옵션에 대해 대신 구성된 경우 1:10에서 1:20까지 세 개의 연속 시간 저장소에 대한 임계값을 위반했기 때문에 srv03에 대해서만 경고가 **발생합니다.** srv02는 1:10 ~ 1:15 범위에서 2번 연속 시간 bin에 대해 임계값을 위반했으므로 경고가 발생하지 **않습니다**.
 
 ## <a name="log-search-alert-rule---firing-and-state"></a>로그 검색 경고 규칙 - 실행 및 상태
 
-로그 검색 경고 규칙은 쿼리에 작성 하는 논리에 대해서만 작동 합니다. 경고 시스템에는 시스템 상태, 의도 또는 쿼리에 포함 된 근본 원인의 다른 컨텍스트가 없습니다. 따라서 로그 경고는 상태 없음 이라고 합니다. 조건은 실행할 때마다 "TRUE" 또는 "FALSE"로 평가 됩니다.  경고 조건에 대 한 평가가 이전에 발생 하는 것과 관계 없이 "TRUE" 일 때마다 경고가 발생 합니다.    
+로그 검색 경고 규칙은 쿼리에 빌드하는 논리에서만 작동합니다. 경고 시스템에는 시스템 상태, 의도 또는 쿼리에서 암시한 근본 원인에 대한 다른 컨텍스트가 없습니다. 따라서 로그 경고를 상태 없는 것으로 합니다. 조건은 실행할 때마다 "TRUE" 또는 "FALSE"로 평가됩니다.  경고 조건의 평가가 이전에 발생한 경고 조건에 관계없이 "TRUE"일 때마다 경고가 발생합니다.    
 
-실제 예제에서이 동작을 살펴보겠습니다. [결과 유형에 대 한](#example-of-number-of-records-type-log-alert)로그 경고를 제공 하는 예제에 표시 된 것 처럼 구성 된 *Contoso-log-alert*라는 로그 경고 규칙이 있다고 가정 합니다. 조건은 로그에서 500 결과 코드를 찾기 위해 설계 된 사용자 지정 경고 쿼리입니다. 로그에서 500 결과 코드를 하나 이상 찾은 경우 경고의 조건은 true입니다. 
+실용적인 예제와 함께 이 동작이 작동하는 것을 살펴보겠습니다. [결과 수 형식 로그 경고에 제공된 예제와](#example-of-number-of-records-type-log-alert)같이 구성된 *Contoso-Log-Alert라는*로그 경고 규칙이 있다고 가정합니다. 조건은 로그에서 500개의 결과 코드를 찾도록 설계된 사용자 지정 경고 쿼리입니다. 로그에서 500개 이상의 결과 코드가 하나 더 있는 경우 경고 조건이 true입니다. 
 
-아래 간격 마다 Azure alerts 시스템은 *Contoso-로그 경고*의 조건을 평가 합니다.
+아래각 간격에서 Azure 경고 시스템은 *Contoso-Log-Alert*에 대한 조건을 평가합니다.
 
 
-| Time    | 로그 검색 쿼리에서 반환 된 레코드의 개수 | 로그 조건 평가 | 결과 
+| Time    | 로그 검색 쿼리에서 반환되는 레코드의 Num | 로그 조건 증발 | 결과 
 | ------- | ----------| ----------| ------- 
-| 오후 1:05 | 0 개 레코드 | 0은 0 > 하지 않으므로 FALSE입니다. |  경고가 발생 하지 않습니다. 작업은 호출 되지 않습니다.
-| 오후 1:10 | 2 개 레코드 | 2 > 0)  | 경고가 발생 하 고 라는 동작 그룹이 있습니다. 경고 상태가 활성입니다.
-| 오후 1:15 | 5 개 레코드 | 5 > 0  | 경고가 발생 하 고 라는 동작 그룹이 있습니다. 경고 상태가 활성입니다.
-| 오후 1:20 | 0 개 레코드 | 0은 0 > 하지 않으므로 FALSE입니다. |  경고가 발생 하지 않습니다. 작업은 호출 되지 않습니다. 경고 상태가 활성 상태로 남아 있습니다.
+| 오후 1:05 | 레코드 0개 | 0은 > 0이 아니므로 FALSE |  경고가 발생하지 않습니다. 호출된 작업이 없습니다.
+| 오후 1시 10분 | 2개의 레코드 | 2 > 0 그래서 사실  | 호출된 경고 화재 및 작업 그룹입니다. 활성 상태 경고입니다.
+| 오후 1시 15분 | 5개의 레코드 | 5 > 0 그래서 사실  | 호출된 경고 화재 및 작업 그룹입니다. 활성 상태 경고입니다.
+| 오후 1시 20분 | 레코드 0개 | 0은 > 0이 아니므로 FALSE |  경고가 발생하지 않습니다. 호출된 작업이 없습니다. 경고 상태가 활성 상태로 남아 있습니다.
 
-위의 경우를 예로 사용 합니다.
+이전 사례를 예로 사용:
 
-오후 1:15 시에 Azure 경고는 1:10에 표시 되는 기본 문제를 확인 하 고, 레코드가 net new 오류 인지, 아니면 오후 10 시에 이전 실패를 반복 하는지를 확인할 수 없습니다. 사용자가 제공한 쿼리가 이전 레코드를 고려 중이거나 시스템이 인식 하지 못할 수 있습니다. Azure alerts 시스템은 주의 하 여 오류를 발생 시키고 경고와 연결 된 작업을 다시 1:15 PM에 실행 합니다. 
+오후 1시 15분에 Azure 경고는 1:10에서 볼 수 있는 근본적인 문제가 지속되는지 여부와 레코드가 1:10PM에 이전 오류의 순 새 오류 또는 반복인지 확인할 수 없습니다. 사용자가 제공한 쿼리는 이전 레코드를 고려하거나 고려하지 않을 수 있으며 시스템은 알지 못합니다. Azure 경고 시스템은 주의사항의 측면을 잘못 하도록 만들어졌으며 오후 1시 15분에 경고 및 관련 작업을 다시 발생시합니다. 
 
-오후 1:20 시 500 결과 코드를 사용 하 여 레코드 0이 표시 되는 경우 Azure 경고는 1:10 PM 및 1:15 PM에 표시 된 500 결과 코드의 원인이 이제 해결 되었는지 확인할 수 없습니다. 동일한 이유로 다시 500 오류 문제가 발생 하는지 알 수 없습니다. 따라서 *Contoso-로그 경고* 는 Azure 경고 대시보드에서 **해결 됨** 으로 변경 되지 않으며 경고가 해결 되었다는 알림이 전송 되지 않습니다. 분석 쿼리에 포함 된 논리의 정확한 조건이 나 원인을 이해 하는 사용자만이 경고를 필요에 따라 [닫힘으로 표시할](alerts-managing-alert-states.md) 수 있습니다.
+500개의 결과 코드로 0개의 레코드가 나타나면 오후 1시 10분과 오후 1시 15분에 500개의 결과 코드가 해결되었는지 확인할 수 없습니다. 같은 이유로 500 오류 문제가 다시 발생할지 알 수 없습니다. 따라서 *Contoso-Log-Alert는* Azure Alert 대시보드에서 **해결됨으로** 변경되지 않으며 경고가 해결되었다는 알림이 전송되지 않습니다. 분석 쿼리에 포함된 논리의 정확한 상태 나 이유를 이해하는 사용자만 필요에 따라 [경고를 닫힌 것으로 표시할](alerts-managing-alert-states.md) 수 있습니다.
 
 ## <a name="pricing-and-billing-of-log-alerts"></a>로그 경고의 가격 책정 및 대금 청구
 
@@ -152,7 +152,7 @@ ms.locfileid: "77665224"
 - 리소스 그룹 및 경고 속성과 함께 정확한 경고 이름으로 표시된 Application Insights의 로그 경고
 - 리소스 그룹 및 경고 속성과 함께 정확한 경고 이름으로 표시된 Log Analytics의 경고 로그([scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)를 사용하여 만든 경우)
 
-[레거시 Log Analytics API](../../azure-monitor/platform/api-alerts.md)에는 적절한 [Azure 리소스](../../azure-resource-manager/management/overview.md)가 아닌 Log Analytics 저장된 검색의 일부로 경고 작업 및 일정이 있습니다. 따라서 [새 api로 전환](../../azure-monitor/platform/alerts-log-api-switch.md) 하거나 [레거시 Log Analytics api](../../azure-monitor/platform/api-alerts.md) 를 사용 **하지 않고** Azure Portal를 사용 하 여 Log Analytics에 대해 생성 된 이러한 레거시 로그 경고에 대 한 청구를 사용 하도록 설정 하려면 Azure에서 청구 하기 위해 `microsoft.insights/scheduledqueryrules`에 대해 숨겨진 의사 경고 규칙을 만듭니다. `microsoft.insights/scheduledqueryrules`에서 청구를 위해 생성된 숨겨진 의사 경고 규칙은 리소스 그룹 및 경고 속성과 함께 `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>`로 표시됩니다.
+[레거시 Log Analytics API](../../azure-monitor/platform/api-alerts.md)에는 적절한 [Azure 리소스](../../azure-resource-manager/management/overview.md)가 아닌 Log Analytics 저장된 검색의 일부로 경고 작업 및 일정이 있습니다. 따라서 [새 API로 전환하지](../../azure-monitor/platform/alerts-log-api-switch.md) **않고** 또는 [레거시 로그 분석 API를](../../azure-monitor/platform/api-alerts.md) 통해 Azure 포털을 사용하여 Log Analytics용으로 `microsoft.insights/scheduledqueryrules` 만든 이러한 레거시 로그 경고에 대한 청구를 사용하도록 설정하려면 Azure에서 청구할 수 있도록 숨겨진 의사 경고 규칙이 생성됩니다. `microsoft.insights/scheduledqueryrules`에서 청구를 위해 생성된 숨겨진 의사 경고 규칙은 리소스 그룹 및 경고 속성과 함께 `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>`로 표시됩니다.
 
 > [!NOTE]
 > `<, >, %, &, \, ?, /`와 같은 잘못된 문자가 있으면 숨겨진 의사 경고 규칙 이름에서 `_`로 바뀌기 때문에 Azure 청구서에서도 그렇게 바뀝니다.
@@ -160,9 +160,9 @@ ms.locfileid: "77665224"
 [레거시 Log Analytics API](api-alerts.md)를 사용하여 경고 규칙에 대한 청구를 위해 생성된 숨겨진 scheduleQueryRules 리소스를 제거하려면 사용자가 다음 중 하나를 수행하면 됩니다.
 
 - 사용자가 [Log Analytics 작업 영역에서 경고 규칙에 대한 API 기본 설정을 전환](../../azure-monitor/platform/alerts-log-api-switch.md)할 수 있으며 경고 규칙이 손실되거나 Azure Resource Manager 호환 [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)로 모니터링이 이동하지 않습니다. 따라서 청구를 위해 숨겨진 의사 경고 규칙을 만들 필요가 없습니다.
-- API 기본 설정을 전환하지 않으려면 사용자가 **레거시 Log Analytics API**를 사용하여 원래 일정과 경고 작업을 [삭제](api-alerts.md)하거나 [Azure Portal에서 원래 로그 경고 규칙](../../azure-monitor/platform/alerts-log.md#view--manage-log-alerts-in-azure-portal)을 제거해야 합니다.
+- API 기본 설정을 전환하지 않으려면 사용자가 [레거시 Log Analytics API](api-alerts.md)를 사용하여 원래 일정과 경고 작업을 **삭제**하거나 [Azure Portal에서 원래 로그 경고 규칙](../../azure-monitor/platform/alerts-log.md#view--manage-log-alerts-in-azure-portal)을 제거해야 합니다.
 
-또한 [레거시 LOG ANALYTICS API](api-alerts.md)를 사용 하 여 경고 규칙을 청구 하기 위해 만든 숨겨진 scheduleQueryRules 리소스의 경우 PUT과 같은 수정 작업은 실패 합니다. `microsoft.insights/scheduledqueryrules` 형식 의사 규칙은 [레거시 LOG ANALYTICS API](api-alerts.md)를 사용 하 여 만든 경고 규칙의 요금을 청구 하기 위한 것입니다. 모든 경고 규칙 수정은 [레거시 LOG ANALYTICS api](api-alerts.md) 를 사용 하 여 수행 해야 합니다. 또는 사용자가 대신 [scheduledQueryRules api](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) 를 사용 하도록 [경고 규칙에 대 한 API 기본 설정을 전환할](../../azure-monitor/platform/alerts-log-api-switch.md) 수 있습니다.
+또한 숨겨진 된 일정에 대 한QueryRules [레거시 로그 분석 API를](api-alerts.md)사용 하 여 경고 규칙의 청구에 대 한 만든 리소스, PUT 같은 모든 수정 작업이 실패 합니다. `microsoft.insights/scheduledqueryrules` 형식 의사 규칙은 레거시 [로그 분석 API를](api-alerts.md)사용하여 생성된 경고 규칙을 청구하기 위한 것입니다. 모든 경고 규칙 수정은 [레거시 Log Analytics API(또는)](api-alerts.md) 사용자가 경고 규칙에 대한 API 기본 설정을 [전환하여](../../azure-monitor/platform/alerts-log-api-switch.md) [예약된QueryRules API를](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) 대신 사용할 수 있도록 해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -170,4 +170,4 @@ ms.locfileid: "77665224"
 * [Azure의 로그 경고에서 웹후크](alerts-log-webhook.md)를 이해합니다.
 * [Azure Alerts](../../azure-monitor/platform/alerts-overview.md)에 대해 알아봅니다.
 * [Application Insights](../../azure-monitor/app/analytics.md)에 대해 자세히 알아봅니다.
-* [Log Analytics](../../azure-monitor/log-query/log-query-overview.md)에 대해 자세히 알아보기
+* [로그 분석에](../../azure-monitor/log-query/log-query-overview.md)대해 자세히 알아보십시오.

@@ -1,16 +1,16 @@
 ---
-title: ServiceNow를 사용 하 여 Azure 서비스 상태 경고 보내기
+title: ServiceNow를 통해 Azure 서비스 상태 경고 보내기
 description: 서비스 상태 이벤트에 대한 개인 설정 알림을 ServiceNow 인스턴스로 가져옵니다.
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.openlocfilehash: 3daae05aabff571010d043cf5602847e95ea29f0
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77654106"
 ---
-# <a name="send-azure-service-health-alerts-with-servicenow-using-webhooks"></a>웹 후크를 사용 하 여 ServiceNow로 Azure 서비스 상태 경고 보내기
+# <a name="send-azure-service-health-alerts-with-servicenow-using-webhooks"></a>웹후크를 사용하여 ServiceNow를 사용하여 Azure 서비스 상태 경고 보내기
 
 이 문서에서는 웹후크를 사용하여 ServiceNow와 Azure 서비스 상태 경고를 통합하는 방법을 보여 줍니다. ServiceNow 인스턴스로 웹후크 통합을 설정한 후 Azure 서비스 문제에 영향을 받는 경우 기존 알림 인프라를 통해 경고를 받습니다. Azure 서비스 상태 경고가 발생할 때마다 ServiceNow의 스크립팅된 REST API를 통해 웹후크를 호출합니다.
 
@@ -36,7 +36,7 @@ ms.locfileid: "77654106"
 
     ![ServiceNow에서 "리소스 탭"](./media/webhook-alerts/servicenow-resources-tab.png)
 
-1.  새 리소스 **의** 이름`event`을 지정하고 **HTTP 메서드**를 `POST`로 변경합니다.
+1.  새 리소스 `event`의 **이름**을 지정하고 **HTTP 메서드**를 `POST`로 변경합니다.
 
 1.  **스크립트** 섹션에서 다음 JavaScript 코드를 추가합니다.
 
@@ -150,7 +150,7 @@ ms.locfileid: "77654106"
 
 1. **작업** 목록에서 다음을 정의합니다.
 
-    a. **작업 유형:** *Webhook*
+    a. **작업 유형:** *웹후크*
 
     b. **세부 정보:** 이전에 저장한 ServiceNow **통합 URL**입니다.
 
@@ -167,7 +167,7 @@ ms.locfileid: "77654106"
 
 1. **작업** 목록에 다음을 추가합니다.
 
-    a. **작업 유형:** *Webhook*
+    a. **작업 유형:** *웹후크*
 
     b. **세부 정보:** 이전에 저장한 ServiceNow **통합 URL**입니다.
 
@@ -176,7 +176,7 @@ ms.locfileid: "77654106"
 1. 작업 그룹 업데이트가 완료되면 **저장**을 선택합니다.
 
 ## <a name="testing-your-webhook-integration-via-an-http-post-request"></a>HTTP POST 요청을 통해 웹후크 통합 테스트
-1. 보낼 서비스 상태 페이로드를 만듭니다. [Azure 활동 로그 경고에 대한 웹후크](../azure-monitor/platform/activity-log-alerts-webhook.md)에서 예제 서비스 상태 웹후크 페이로드를 찾을 수 있습니다.
+1. 보낼 서비스 상태 페이로드를 만듭니다. [Azure 활동 로그 경고에 대한 Webhooks에서](../azure-monitor/platform/activity-log-alerts-webhook.md)서비스 상태 웹후크 페이로드예제를 찾을 수 있습니다.
 
 1. 다음과 같이 HTTP POST 요청을 만듭니다.
 
@@ -192,7 +192,7 @@ ms.locfileid: "77654106"
 1. [ServiceNow](https://www.servicenow.com/)로 이동하여 통합이 성공적으로 설정되었는지 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
-- [기존 문제 관리 시스템에 대한 웹후크 알림 구성](service-health-alert-webhook-guide.md) 방법에 대해 알아봅니다.
-- [활동 로그 경고 웹후크 스키마](../azure-monitor/platform/activity-log-alerts-webhook.md)를 검토하세요. 
-- [서비스 상태 알림](../azure-monitor/platform/service-notifications.md)에 대해 자세히 알아보세요.
-- [작업 그룹](../azure-monitor/platform/action-groups.md)에 대해 자세히 알아보세요.
+- [기존 문제 관리 시스템에 대한 웹후크 알림을 구성하는](service-health-alert-webhook-guide.md)방법에 대해 알아봅니다.
+- 활동 [로그 경고 webhook 스키마](../azure-monitor/platform/activity-log-alerts-webhook.md)를 검토합니다. 
+- 서비스 [상태 알림에](../azure-monitor/platform/service-notifications.md)대해 자세히 알아봅니다.
+- [작업 그룹에](../azure-monitor/platform/action-groups.md)대해 자세히 알아보세요.

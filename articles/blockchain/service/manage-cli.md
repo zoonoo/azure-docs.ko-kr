@@ -1,27 +1,27 @@
 ---
-title: Azure CLI를 사용 하 여 Azure Blockchain 서비스 관리
-description: Azure CLI를 사용 하 여 Azure Blockchain 서비스를 관리 하는 방법
+title: Azure CLI를 사용하여 Azure 블록 체인 서비스 관리
+description: Azure CLI를 사용하여 Azure 블록 체인 서비스를 관리하는 방법
 ms.date: 11/22/2019
 ms.topic: article
 ms.reviewer: janders
 ms.openlocfilehash: ac75be644877905c1517395c1c789b1ea16fd49c
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74455586"
 ---
-# <a name="manage-azure-blockchain-service-using-azure-cli"></a>Azure CLI를 사용 하 여 Azure Blockchain 서비스 관리
+# <a name="manage-azure-blockchain-service-using-azure-cli"></a>Azure CLI를 사용하여 Azure 블록 체인 서비스 관리
 
-Azure Portal 외에도 Azure CLI를 사용 하 여 Azure Blockchain 서비스의 블록 체인 구성원 및 트랜잭션 노드를 관리할 수 있습니다.
+Azure 포털 외에도 Azure CLI를 사용하여 Azure 블록 체인 서비스에 대한 블록 체인 멤버 및 트랜잭션 노드를 관리할 수 있습니다.
 
-최신 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) 를 설치 하 고 `az login`를 사용 하 여의 Azure 계정에 로그인 했는지 확인 합니다.
+최신 [Azure CLI를](https://docs.microsoft.com/cli/azure/install-azure-cli) 설치하고 `az login`에서 Azure 계정에 로그인했는지 확인합니다.
 
-다음 예제에서는 예제 `<parameter names>`를 사용자 고유의 값으로 바꿉니다.
+다음 예제에서는 예제를 `<parameter names>` 사용자 고유의 값으로 바꿉습니다.
 
-## <a name="create-blockchain-member"></a>Blockchain 구성원 만들기
+## <a name="create-blockchain-member"></a>블록체인 멤버 만들기
 
-예제에서는 새 컨소시엄에서 쿼럼 원장 프로토콜을 실행 하는 Azure Blockchain 서비스에서 blockchain 멤버를 만듭니다.
+예를 들어 새 컨소시엄에서 쿼럼 원장 프로토콜을 실행하는 Azure 블록 체인 서비스에서 블록 체인 멤버를 만듭니다.
 
 ```azurecli
 az resource create \
@@ -34,21 +34,21 @@ az resource create \
 
 | 매개 변수 | 설명 |
 |---------|-------------|
-| **resource-group** | Azure Blockchain Service 리소스가 만들어지는 리소스 그룹 이름입니다. |
-| **name** | Azure Blockchain Service 블록체인 멤버를 식별하는 고유한 이름입니다. 이 이름은 공용 엔드포인트 주소에 사용됩니다. 예: `myblockchainmember.blockchain.azure.com`. |
-| **위치** | 블록체인 멤버가 만들어지는 Azure 지역입니다. 예: `eastus`. 사용자 또는 다른 Azure 애플리케이션에 가장 가까운 위치를 선택합니다. |
-| **password** | 멤버 계정 암호 멤버 계정 암호는 기본 인증을 사용하여 블록체인 멤버의 공용 엔드포인트를 인증할 때 사용됩니다. 암호는 다음 4 가지 요구 사항 중 세 가지를 충족 해야 합니다. 길이는 12 & 72 자, 1 개의 소문자, 1 개의 대문자, 1 개의 숫자 및 1 개의 숫자 기호 (#), 백분율 (%), 쉼표 (,), 별표 (*), 따옴표 (\`), 큰따옴표 ("), 작은따옴표 ('), 대시 (-) 및 semicolumn (;)) 사이 여야 합니다.|
-| **protocol** | 공개 미리 보기는 쿼럼을 지원 합니다. |
+| **리소스 그룹** | Azure Blockchain Service 리소스가 만들어지는 리소스 그룹 이름입니다. |
+| **(이름)** | Azure Blockchain Service 블록체인 멤버를 식별하는 고유한 이름입니다. 이 이름은 공용 엔드포인트 주소에 사용됩니다. `myblockchainmember.blockchain.azure.com`)을 입력합니다. |
+| **위치** | 블록체인 멤버가 만들어지는 Azure 지역입니다. `eastus`)을 입력합니다. 사용자 또는 다른 Azure 애플리케이션에 가장 가까운 위치를 선택합니다. |
+| **다시 설정** | 멤버 계정 암호 멤버 계정 암호는 기본 인증을 사용하여 블록체인 멤버의 공용 엔드포인트를 인증할 때 사용됩니다. 암호는 다음 네 가지 요구 사항 중 세 가지 를 충족해야 합니다: 길이는 12& 72자, 1 소문자, 1 대문자, 1 숫자 및 숫자 기호(#),\`퍼센트(%), 쉼표(%), 쉼표(), 별(*), 따옴표(),double quote("), single quote("), 대시(-) 및 반열(;) 사이에 있어야 합니다.|
+| **프로토콜** | 공개 미리 보기는 쿼럼을 지원합니다. |
 | **컨소시엄** | 참가할 또는 만들 컨소시엄의 이름입니다. |
-| **consortiumManagementAccountPassword** | 컨소시엄 관리 암호입니다. 암호는 컨소시엄을 조인 하는 데 사용 됩니다. |
-| **ruleName** | IP 주소 범위 허용 목록에 대 한 규칙 이름입니다. 방화벽 규칙에 대 한 선택적 매개 변수입니다.|
-| **startIpAddress** | 허용 목록에 대 한 IP 주소 범위의 시작입니다. 방화벽 규칙에 대 한 선택적 매개 변수입니다. |
-| **endIpAddress** | 허용 목록에 대 한 IP 주소 범위의 끝입니다. 방화벽 규칙에 대 한 선택적 매개 변수입니다. |
-| **skuName** | 계층 유형입니다. 표준에는 S0를 사용하고, 기본에는 B0를 사용합니다. |
+| **consortiumManagementAccountPassword** | 컨소시엄 관리 암호입니다. 암호는 컨소시엄에 참여하는 데 사용됩니다. |
+| **규칙 이름** | IP 주소 범위를 허용 목록에 추가하기 위한 규칙 이름입니다. 방화벽 규칙에 대한 선택적 매개 변수입니다.|
+| **시작 입어 주소** | 허용 목록에 대한 IP 주소 범위의 시작입니다. 방화벽 규칙에 대한 선택적 매개 변수입니다. |
+| **엔드IpAddress** | 허용 목록에 대한 IP 주소 범위의 끝입니다. 방화벽 규칙에 대한 선택적 매개 변수입니다. |
+| **스쿠네임** | 계층 유형입니다. 표준에는 S0를 사용하고, 기본에는 B0를 사용합니다. |
 
-## <a name="change-blockchain-member-password"></a>Blockchain 구성원 암호 변경
+## <a name="change-blockchain-member-password"></a>블록체인 회원 비밀번호 변경
 
-예에서는 blockchain 멤버의 암호를 변경 합니다.
+예를 들어 블록 체인 회원의 암호를 변경합니다.
 
 ```azurecli
 az resource update \
@@ -61,13 +61,13 @@ az resource update \
 
 | 매개 변수 | 설명 |
 |---------|-------------|
-| **resource-group** | Azure Blockchain Service 리소스가 만들어지는 리소스 그룹 이름입니다. |
-| **name** | Azure Blockchain 서비스 구성원을 식별 하는 이름입니다. |
-| **password** | 멤버 계정 암호 암호는 다음 4 가지 요구 사항 중 세 가지를 충족 해야 합니다. 길이는 12 & 72 자, 1 자 소문자, 1 개의 대문자, 1 개의 숫자 및 1 개의 숫자 기호 (#), 백분율 (%), 쉼표 (,), 별표 (*), 큰따옴표 (\`), 큰따옴표 ("), 작은따옴표 ('), 대시 (-) 및 세미콜론 (;)) 사이 여야 합니다. |
+| **리소스 그룹** | Azure Blockchain Service 리소스가 만들어지는 리소스 그룹 이름입니다. |
+| **(이름)** | Azure 블록 체인 서비스 멤버를 식별하는 이름입니다. |
+| **다시 설정** | 멤버 계정 암호 암호는 다음 네 가지 요구 사항 중 세 가지 를 충족해야 합니다: 길이는 12& 72자, 1 소문자, 1 대문자, 1 숫자 및 숫자 기호(#),\`퍼센트(%), 쉼표(%), 쉼표(), 별()), 따옴표()), 큰따옴표("), 단일 따옴표("), 대시(-) 및 세미콜론(;) 사이에 있어야 합니다. |
 
 ## <a name="create-transaction-node"></a>트랜잭션 노드 만들기
 
-기존 blockchain 멤버 안에 트랜잭션 노드를 만듭니다. 트랜잭션 노드를 추가 하 여 보안 격리를 강화 하 고 부하를 분산할 수 있습니다. 예를 들어 다른 클라이언트 응용 프로그램에 대 한 트랜잭션 노드 끝점이 있을 수 있습니다.
+기존 블록 체인 멤버 내에서 트랜잭션 노드를 만듭니다. 트랜잭션 노드를 추가하면 보안 격리를 늘리고 부하를 분산할 수 있습니다. 예를 들어 다른 클라이언트 응용 프로그램에 대한 트랜잭션 노드 끝점을 가질 수 있습니다.
 
 ```azurecli
 az resource create \
@@ -80,17 +80,17 @@ az resource create \
 
 | 매개 변수 | 설명 |
 |---------|-------------|
-| **resource-group** | Azure Blockchain Service 리소스가 만들어지는 리소스 그룹 이름입니다. |
-| **name** | 새 트랜잭션 노드 이름도 포함 하는 Azure Blockchain 서비스 Blockchain 멤버의 이름입니다. |
-| **위치** | 블록체인 멤버가 만들어지는 Azure 지역입니다. 예: `eastus`. 사용자 또는 다른 Azure 애플리케이션에 가장 가까운 위치를 선택합니다. |
-| **password** | 트랜잭션 노드 암호입니다. 암호는 다음 4 가지 요구 사항 중 세 가지를 충족 해야 합니다. 길이는 12 & 72 자, 1 자 소문자, 1 개의 대문자, 1 개의 숫자 및 1 개의 숫자 기호 (#), 백분율 (%), 쉼표 (,), 별표 (*), 큰따옴표 (\`), 큰따옴표 ("), 작은따옴표 ('), 대시 (-) 및 세미콜론 (;)) 사이 여야 합니다. |
-| **ruleName** | IP 주소 범위 허용 목록에 대 한 규칙 이름입니다. 방화벽 규칙에 대 한 선택적 매개 변수입니다. |
-| **startIpAddress** | 허용 목록에 대 한 IP 주소 범위의 시작입니다. 방화벽 규칙에 대 한 선택적 매개 변수입니다. |
-| **endIpAddress** | 허용 목록에 대 한 IP 주소 범위의 끝입니다. 방화벽 규칙에 대 한 선택적 매개 변수입니다.|
+| **리소스 그룹** | Azure Blockchain Service 리소스가 만들어지는 리소스 그룹 이름입니다. |
+| **(이름)** | 새 트랜잭션 노드 이름도 포함하는 Azure 블록 체인 서비스 블록 체인 멤버의 이름입니다. |
+| **위치** | 블록체인 멤버가 만들어지는 Azure 지역입니다. `eastus`)을 입력합니다. 사용자 또는 다른 Azure 애플리케이션에 가장 가까운 위치를 선택합니다. |
+| **다시 설정** | 트랜잭션 노드 암호입니다. 암호는 다음 네 가지 요구 사항 중 세 가지 를 충족해야 합니다: 길이는 12& 72자, 1 소문자, 1 대문자, 1 숫자 및 숫자 기호(#),\`퍼센트(%), 쉼표(%), 쉼표(), 별()), 따옴표()), 큰따옴표("), 단일 따옴표("), 대시(-) 및 세미콜론(;) 사이에 있어야 합니다. |
+| **규칙 이름** | IP 주소 범위를 허용 목록에 추가하기 위한 규칙 이름입니다. 방화벽 규칙에 대한 선택적 매개 변수입니다. |
+| **시작 입어 주소** | 허용 목록에 대한 IP 주소 범위의 시작입니다. 방화벽 규칙에 대한 선택적 매개 변수입니다. |
+| **엔드IpAddress** | 허용 목록에 대한 IP 주소 범위의 끝입니다. 방화벽 규칙에 대한 선택적 매개 변수입니다.|
 
 ## <a name="change-transaction-node-password"></a>트랜잭션 노드 암호 변경
 
-예는 트랜잭션 노드 암호를 변경 합니다.
+트랜잭션 노드 암호를 변경하는 예제입니다.
 
 ```azurecli
 az resource update \
@@ -102,13 +102,13 @@ az resource update \
 
 | 매개 변수 | 설명 |
 |---------|-------------|
-| **resource-group** | Azure Blockchain 서비스 리소스가 있는 리소스 그룹 이름입니다. |
-| **name** | 새 트랜잭션 노드 이름도 포함 하는 Azure Blockchain 서비스 Blockchain 멤버의 이름입니다. |
-| **password** | 트랜잭션 노드 암호입니다. 암호는 다음 4 가지 요구 사항 중 세 가지를 충족 해야 합니다. 길이는 12 & 72 자, 1 자 소문자, 1 개의 대문자, 1 개의 숫자 및 1 개의 숫자 기호 (#), 백분율 (%), 쉼표 (,), 별표 (*), 큰따옴표 (\`), 큰따옴표 ("), 작은따옴표 ('), 대시 (-) 및 세미콜론 (;)) 사이 여야 합니다. |
+| **리소스 그룹** | Azure 블록 체인 서비스 리소스가 있는 리소스 그룹 이름입니다. |
+| **(이름)** | 새 트랜잭션 노드 이름도 포함하는 Azure 블록 체인 서비스 블록 체인 멤버의 이름입니다. |
+| **다시 설정** | 트랜잭션 노드 암호입니다. 암호는 다음 네 가지 요구 사항 중 세 가지 를 충족해야 합니다: 길이는 12& 72자, 1 소문자, 1 대문자, 1 숫자 및 숫자 기호(#),\`퍼센트(%), 쉼표(%), 쉼표(), 별()), 따옴표()), 큰따옴표("), 단일 따옴표("), 대시(-) 및 세미콜론(;) 사이에 있어야 합니다. |
 
 ## <a name="change-consortium-management-account-password"></a>컨소시엄 관리 계정 암호 변경
 
-컨소시엄 관리 계정은 consortium 멤버 관리에 사용 됩니다. 각 멤버는 컨소시엄 관리 계정에 의해 고유 하 게 식별 되며, 다음 명령을 사용 하 여이 계정의 암호를 변경할 수 있습니다.
+컨소시엄 관리 계정은 컨소시엄 멤버십 관리에 사용됩니다. 각 구성원은 컨소시엄 관리 계정으로 고유하게 식별되며 다음 명령으로 이 계정의 암호를 변경할 수 있습니다.
 
 ```azurecli
 az resource update \
@@ -121,9 +121,9 @@ az resource update \
 
 | 매개 변수 | 설명 |
 |---------|-------------|
-| **resource-group** | Azure Blockchain Service 리소스가 만들어지는 리소스 그룹 이름입니다. |
-| **name** | Azure Blockchain 서비스 구성원을 식별 하는 이름입니다. |
-| **consortiumManagementAccountPassword** | 컨소시엄 관리 계정 암호입니다. 암호는 다음 4 가지 요구 사항 중 세 가지를 충족 해야 합니다. 길이는 12 & 72 자, 1 자 소문자, 1 개의 대문자, 1 개의 숫자 및 1 개의 숫자 기호 (#), 백분율 (%), 쉼표 (,), 별표 (*), 큰따옴표 (\`), 큰따옴표 ("), 작은따옴표 ('), 대시 (-) 및 세미콜론 (;)) 사이 여야 합니다. |
+| **리소스 그룹** | Azure Blockchain Service 리소스가 만들어지는 리소스 그룹 이름입니다. |
+| **(이름)** | Azure 블록 체인 서비스 멤버를 식별하는 이름입니다. |
+| **consortiumManagementAccountPassword** | 컨소시엄 관리 계정 암호입니다. 암호는 다음 네 가지 요구 사항 중 세 가지 를 충족해야 합니다: 길이는 12& 72자, 1 소문자, 1 대문자, 1 숫자 및 숫자 기호(#),\`퍼센트(%), 쉼표(%), 쉼표(), 별()), 따옴표()), 큰따옴표("), 단일 따옴표("), 대시(-) 및 세미콜론(;) 사이에 있어야 합니다. |
   
 ## <a name="update-firewall-rules"></a>방화벽 규칙 업데이트
 
@@ -138,15 +138,15 @@ az resource update \
 
 | 매개 변수 | 설명 |
 |---------|-------------|
-| **resource-group** | Azure Blockchain 서비스 리소스가 있는 리소스 그룹 이름입니다. |
-| **name** | Azure Blockchain 서비스 Blockchain 멤버의 이름입니다. |
-| **ruleName** | IP 주소 범위 허용 목록에 대 한 규칙 이름입니다. 방화벽 규칙에 대 한 선택적 매개 변수입니다.|
-| **startIpAddress** | 허용 목록에 대 한 IP 주소 범위의 시작입니다. 방화벽 규칙에 대 한 선택적 매개 변수입니다.|
-| **endIpAddress** | 허용 목록에 대 한 IP 주소 범위의 끝입니다. 방화벽 규칙에 대 한 선택적 매개 변수입니다.|
+| **리소스 그룹** | Azure 블록 체인 서비스 리소스가 있는 리소스 그룹 이름입니다. |
+| **(이름)** | Azure 블록 체인 서비스 블록 체인 회원의 이름입니다. |
+| **규칙 이름** | IP 주소 범위를 허용 목록에 추가하기 위한 규칙 이름입니다. 방화벽 규칙에 대한 선택적 매개 변수입니다.|
+| **시작 입어 주소** | 허용 목록에 대한 IP 주소 범위의 시작입니다. 방화벽 규칙에 대한 선택적 매개 변수입니다.|
+| **엔드IpAddress** | 허용 목록에 대한 IP 주소 범위의 끝입니다. 방화벽 규칙에 대한 선택적 매개 변수입니다.|
 
-## <a name="list-api-keys"></a>API 키 나열
+## <a name="list-api-keys"></a>API 키 목록
 
-API 키는 사용자 이름 및 암호와 유사한 노드 액세스에 사용할 수 있습니다. 키 회전을 지 원하는 두 개의 API 키가 있습니다. 다음 명령을 사용 하 여 API 키를 나열 합니다.
+API 키는 사용자 이름 및 암호와 유사한 노드 액세스에 사용할 수 있습니다. 키 회전을 지원하는 두 개의 API 키가 있습니다. 다음 명령을 사용하여 API 키를 나열합니다.
 
 ```azurecli
 az resource invoke-action \
@@ -158,12 +158,12 @@ az resource invoke-action \
 
 | 매개 변수 | 설명 |
 |---------|-------------|
-| **resource-group** | Azure Blockchain 서비스 리소스가 있는 리소스 그룹 이름입니다. |
-| **name** | 새 트랜잭션 노드 이름도 포함 하는 Azure Blockchain 서비스 Blockchain 멤버의 이름입니다. |
+| **리소스 그룹** | Azure 블록 체인 서비스 리소스가 있는 리소스 그룹 이름입니다. |
+| **(이름)** | 새 트랜잭션 노드 이름도 포함하는 Azure 블록 체인 서비스 블록 체인 멤버의 이름입니다. |
 
-## <a name="regenerate-api-keys"></a>API 키 다시 생성
+## <a name="regenerate-api-keys"></a>API 키 재생성
 
-다음 명령을 사용 하 여 API 키를 다시 생성 합니다.
+다음 명령을 사용하여 API 키를 다시 생성합니다.
 
 ```azurecli
 az resource invoke-action \
@@ -176,13 +176,13 @@ az resource invoke-action \
 
 | 매개 변수 | 설명 |
 |---------|-------------|
-| **resource-group** | Azure Blockchain 서비스 리소스가 있는 리소스 그룹 이름입니다. |
-| **name** | 새 트랜잭션 노드 이름도 포함 하는 Azure Blockchain 서비스 Blockchain 멤버의 이름입니다. |
-| **keyName** | \<keyValue\>를 key1 또는 key2로 바꿉니다. |
+| **리소스 그룹** | Azure 블록 체인 서비스 리소스가 있는 리소스 그룹 이름입니다. |
+| **(이름)** | 새 트랜잭션 노드 이름도 포함하는 Azure 블록 체인 서비스 블록 체인 멤버의 이름입니다. |
+| **키 이름** | 키값을 \<\> 키1 또는 key2로 바꿉습니다. |
 
 ## <a name="delete-a-transaction-node"></a>트랜잭션 노드 삭제
 
-예에서는 blockchain 구성원 트랜잭션 노드를 삭제 합니다.
+예를 들어 블록 체인 멤버 트랜잭션 노드를 삭제합니다.
 
 ```azurecli
 az resource delete \
@@ -193,12 +193,12 @@ az resource delete \
 
 | 매개 변수 | 설명 |
 |---------|-------------|
-| **resource-group** | Azure Blockchain 서비스 리소스가 있는 리소스 그룹 이름입니다. |
-| **name** | 삭제할 트랜잭션 노드 이름도 포함 하는 Azure Blockchain 서비스 Blockchain 멤버의 이름입니다. |
+| **리소스 그룹** | Azure 블록 체인 서비스 리소스가 있는 리소스 그룹 이름입니다. |
+| **(이름)** | 삭제할 트랜잭션 노드 이름도 포함하는 Azure 블록 체인 서비스 블록 체인 멤버의 이름입니다. |
 
-## <a name="delete-a-blockchain-member"></a>Blockchain 구성원 삭제
+## <a name="delete-a-blockchain-member"></a>블록체인 회원 삭제
 
-이 예에서는 blockchain 멤버를 삭제 합니다.
+예를 들어 블록 체인 멤버를 삭제합니다.
 
 ```azurecli
 az resource delete \
@@ -209,12 +209,12 @@ az resource delete \
 
 | 매개 변수 | 설명 |
 |---------|-------------|
-| **resource-group** | Azure Blockchain 서비스 리소스가 있는 리소스 그룹 이름입니다. |
-| **name** | 삭제할 Azure Blockchain 서비스 Blockchain 멤버의 이름입니다. |
+| **리소스 그룹** | Azure 블록 체인 서비스 리소스가 있는 리소스 그룹 이름입니다. |
+| **(이름)** | 삭제할 Azure 블록 체인 서비스 블록 체인 멤버의 이름입니다. |
 
 ## <a name="azure-active-directory"></a>Azure Active Directory
 
-### <a name="grant-access-for-azure-ad-user"></a>Azure AD 사용자에 대 한 액세스 권한 부여
+### <a name="grant-access-for-azure-ad-user"></a>Azure AD 사용자에 대한 액세스 권한 부여
 
 ```azurecli
 az role assignment create \
@@ -225,13 +225,13 @@ az role assignment create \
 
 | 매개 변수 | 설명 |
 |---------|-------------|
-| **role** | Azure AD 역할의 이름입니다. |
-| **담당자** | Azure AD 사용자 ID입니다. 예: `user@contoso.com` |
-| **scope** | 역할 할당의 범위입니다. Blockchain 멤버 또는 트랜잭션 노드일 수 있습니다. |
+| **역할** | Azure AD 역할의 이름입니다. |
+| **assignee** | Azure AD 사용자 ID입니다. 예를 들어 `user@contoso.com` |
+| **scope** | 역할 할당의 범위입니다. 블록 체인 멤버 또는 트랜잭션 노드가 될 수 있습니다. |
 
-**예:**
+**예제:**
 
-Azure AD 사용자에 대 한 노드 액세스를 blockchain **구성원**에 게 부여:
+**Azure**AD 사용자에 대한 노드 액세스 권한 부여
 
 ```azurecli
 az role assignment create \
@@ -240,9 +240,9 @@ az role assignment create \
                             --scope /subscriptions/mySubscriptionId/resourceGroups/contosoResourceGroup/providers/Microsoft.Blockchain/blockchainMembers/contosoMember1
 ```
 
-**예:**
+**예제:**
 
-Blockchain **트랜잭션 노드에**Azure AD 사용자에 대 한 노드 액세스를 부여 합니다.
+Azure AD 사용자에 대한 노드 액세스 권한 부여 - 블록 체인 **트랜잭션 노드**:
 
 ```azurecli
 az role assignment create \
@@ -251,7 +251,7 @@ az role assignment create \
                             --scope /subscriptions/mySubscriptionId/resourceGroups/contosoResourceGroup/providers/Microsoft.Blockchain/blockchainMembers/contosoMember1/transactionNodes/contosoTransactionNode1
 ```
 
-### <a name="grant-node-access-for-azure-ad-group-or-application-role"></a>Azure AD 그룹 또는 응용 프로그램 역할에 대 한 노드 액세스 권한 부여
+### <a name="grant-node-access-for-azure-ad-group-or-application-role"></a>Azure AD 그룹 또는 응용 프로그램 역할에 대한 노드 액세스 권한 부여
 
 ```azurecli
 az role assignment create \
@@ -261,13 +261,13 @@ az role assignment create \
 
 | 매개 변수 | 설명 |
 |---------|-------------|
-| **role** | Azure AD 역할의 이름입니다. |
-| **담당자-개체-id** | Azure AD 그룹 ID 또는 응용 프로그램 ID입니다. |
-| **scope** | 역할 할당의 범위입니다. Blockchain 멤버 또는 트랜잭션 노드일 수 있습니다. |
+| **역할** | Azure AD 역할의 이름입니다. |
+| **할당자- 개체 ID** | Azure AD 그룹 ID 또는 응용 프로그램 ID입니다. |
+| **scope** | 역할 할당의 범위입니다. 블록 체인 멤버 또는 트랜잭션 노드가 될 수 있습니다. |
 
-**예:**
+**예제:**
 
-**응용 프로그램 역할** 에 대 한 노드 액세스 권한 부여
+응용 프로그램 **역할에** 대한 노드 액세스 권한 부여
 
 ```azurecli
 az role assignment create \
@@ -287,10 +287,10 @@ az role assignment delete \
 
 | 매개 변수 | 설명 |
 |---------|-------------|
-| **role** | Azure AD 역할의 이름입니다. |
-| **담당자** | Azure AD 사용자 ID입니다. 예: `user@contoso.com` |
-| **scope** | 역할 할당의 범위입니다. Blockchain 멤버 또는 트랜잭션 노드일 수 있습니다. |
+| **역할** | Azure AD 역할의 이름입니다. |
+| **assignee** | Azure AD 사용자 ID입니다. 예를 들어 `user@contoso.com` |
+| **scope** | 역할 할당의 범위입니다. 블록 체인 멤버 또는 트랜잭션 노드가 될 수 있습니다. |
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Portal를 사용 하 여 [Azure Blockchain 서비스 트랜잭션 노드를 구성](configure-transaction-nodes.md)하는 방법을 알아봅니다.
+Azure 포털을 사용하여 [Azure 블록 체인 서비스 트랜잭션 노드를 구성하는](configure-transaction-nodes.md)방법에 대해 알아봅니다.
