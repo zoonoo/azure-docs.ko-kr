@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: e28863f9980d6403bef1f88de01b7a9b5271b444
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 43024b63a355646f607adbb6623cc6c349374ea8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60197088"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79535598"
 ---
 # <a name="integrating-azure-data-lake-storage-gen1-with-other-azure-services"></a>Azure Data Lake Storage Gen1을 다른 Azure 서비스와 통합
 Azure Data Lake Storage Gen1을 다른 Azure 서비스와 함께 사용하여 광범위한 시나리오를 활용할 수 있습니다. 다음 문서에는 Data Lake Storage Gen1과 통합될 수 있는 서비스가 나열되어 있습니다.
@@ -37,7 +37,7 @@ Data Lake Storage Gen1을 사용하는 HDInsight 클러스터를 프로비전하
 Data Lake Storage Gen1과 함께 Data Lake Analytics를 사용하는 방법에 대한 지침은 [Data Lake Storage Gen1을 사용하여 Data Lake Analytics 시작](../data-lake-analytics/data-lake-analytics-get-started-portal.md)을 참조하세요.
 
 ## <a name="use-data-lake-storage-gen1-with-azure-data-factory"></a>Azure Data Factory와 함께 Data Lake Storage Gen1 사용
-[Azure Data Factory](https://azure.microsoft.com/services/data-factory/) 를 사용하여 Azure 테이블, Azure SQL Database, Azure SQL Data Warehouse, Azure Storage Blob 및 온-프레미스 데이터베이스에서 데이터를 수집할 수 있습니다. Azure 에코시스템의 첫 번째 클래스가 된 Azure Data Factory를 사용하면 이러한 원본에서 Data Lake Storage Gen1로 데이터를 수집하는 작업을 오케스트레이션할 수 있습니다.
+[Azure Data Factory](https://azure.microsoft.com/services/data-factory/)를 사용하여 Azure 테이블, Azure SQL Database, Azure SQL Data Warehouse, Azure Storage Blob 및 온-프레미스 데이터베이스에서 데이터를 수집할 수 있습니다. Azure 에코시스템의 첫 번째 클래스가 된 Azure Data Factory를 사용하면 이러한 원본에서 Data Lake Storage Gen1로 데이터를 수집하는 작업을 오케스트레이션할 수 있습니다.
 
 Data Lake Storage Gen1과 함께 Azure Data Factory를 사용하는 방법에 대한 지침은 [Data Factory를 사용하여 Data Lake Storage Gen1에서 데이터 이동](../data-factory/connector-azure-data-lake-store.md)을 참조하세요.
 
@@ -60,13 +60,13 @@ Data Lake Storage Gen1의 데이터를 Azure Data Catalog에 등록하면 조직
 SSIS에서 Data Lake Storage Gen1 연결 관리자를 사용하여 SSIS 패키지를 Data Lake Storage Gen1에 연결할 수 있습니다. 자세한 내용은 [SSIS와 함께 Data Lake Storage Gen1 사용](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-store-connection-manager)을 참조하세요.
 
 ## <a name="use-data-lake-storage-gen1-with-sql-data-warehouse"></a>SQL Data Warehouse와 함께 Data Lake Storage Gen1 사용
-PolyBase를 사용하여 Data Lake Storage Gen1에서 SQL Data Warehouse로 데이터를 로드할 수 있습니다. 자세한 내용은 [SQL Data Warehouse와 함께 Data Lake Storage Gen1 사용](../sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store.md)을 참조하세요.
+PolyBase를 사용하여 Data Lake Storage Gen1에서 SQL Data Warehouse로 데이터를 로드할 수 있습니다. 자세한 내용은 [SQL Data Warehouse와 함께 Data Lake Storage Gen1 사용](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store.md)을 참조하세요.
 
 ## <a name="use-data-lake-storage-gen1-with-azure-event-hubs"></a>Azure Event Hubs와 함께 Data Lake Storage Gen1 사용
 Azure Data Lake Storage Gen1을 사용하여 Azure Event Hubs에서 받은 데이터를 보관하고 캡처할 수 있습니다. 자세한 내용은 [Azure Event Hubs와 함께 Data Lake Storage Gen1 사용](data-lake-store-archive-eventhub-capture.md)을 참조하세요.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 * [Azure Data Lake Storage Gen1 개요](data-lake-store-overview.md)
 * [포털을 사용하여 Data Lake Storage Gen1 시작](data-lake-store-get-started-portal.md)
-* [PowerShell을 사용하여 Data Lake Storage Gen1 시작](data-lake-store-get-started-powershell.md)  
+* [PowerShell을 사용하여 데이터 레이크 스토리지 Gen1시작](data-lake-store-get-started-powershell.md)  
 

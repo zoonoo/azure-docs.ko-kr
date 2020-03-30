@@ -1,13 +1,13 @@
 ---
-title: Service Fabric 서비스 끝점 지정
+title: 서비스 패브릭 서비스 끝점 지정
 description: HTTPS 엔드포인트를 설정하는 방법을 포함하여 서비스 매니페스트에서 엔드포인트 리소스를 설명하는 방법
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: cc4eedf5e5fee0bbfa0a763e9b9ec0dd25409afa
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79282160"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>서비스 매니페스트에서 리소스 지정
@@ -18,9 +18,9 @@ ms.locfileid: "79282160"
 서비스 매니페스트에 엔드포인트 리소스가 정의되면 서비스 패브릭에서는 포트가 명시적으로 지정되지 않을 경우 예약된 애플리케이션 포트 범위에 포함되는 포트를 할당합니다. 예를 들어 이 단락 다음에 제공된 매니페스트 코드 조각에 지정된 엔드포인트 *ServiceEndpoint1* 을 보세요. 또한 서비스에서 리소스의 특정 포트를 요청할 수도 있습니다. 다른 클러스터 노드에서 실행되는 서비스 복제본을 다른 포트 번호에 할당할 수 있으며, 같은 노드에서 실행되는 서비스의 복제본은 포트를 공유합니다. 그러면 서비스 복제본은 복제 및 클라이언트 요청의 수신 대기를 위해 필요한 경우 이러한 포트를 사용할 수 있습니다.
 
 > [!WARNING] 
-> 의도적으로 정적 포트는 ClusterManifest에 지정 된 응용 프로그램 포트 범위와 겹치면 안 됩니다. 정적 포트를 지정 하는 경우에는 응용 프로그램 포트 범위 외부에 할당 합니다. 그렇지 않으면 포트 충돌이 발생 합니다. Release 6.5를 사용 하면 이러한 충돌을 감지 하면 **상태 경고가** cu2 배포를 계속 해 서 배송 된 6.5 동작으로 동기화 할 수 있습니다. 그러나 다음 주요 릴리스에서는 응용 프로그램을 배포 하지 못할 수 있습니다.
+> 정적 포트는 클러스터매니페스트에 지정된 응용 프로그램 포트 범위와 겹치지 않아야 합니다. 정적 포트를 지정하는 경우 응용 프로그램 포트 범위 외부에 할당하면 포트 충돌이 발생합니다. 릴리스 6.5CU2에서는 이러한 충돌을 감지할 때 **상태 경고를** 발행하지만 배포가 제공된 6.5 동작과 동기화될 수 있도록 합니다. 그러나 다음 주요 릴리스에서 응용 프로그램 배포를 방지할 수 있습니다.
 >
-> 릴리스 7.0에서는 응용 프로그램 포트 범위 사용량이 HostingConfig:: ApplicationPortExhaustThresholdPercentage (기본값 80%)를 초과 하는 경우 **상태 경고** 를 발행 합니다.
+> 릴리스 7.0에서는 응용 프로그램 포트 범위 사용량이 HostingConfig::ApplicationPort배분 임계값(기본값 80%)을 초과하는 것을 감지하면 **상태 경고를** 발행합니다.
 >
 
 ```xml
@@ -187,7 +187,7 @@ Parameters에서 아래 내용을 추가합니다.
   </Parameters>
 ```
 
-애플리케이션을 배포하는 동안 이러한 값을 ApplicationParameters로 제공할 수 있습니다.  다음은 그 예입니다.
+애플리케이션을 배포하는 동안 이러한 값을 ApplicationParameters로 제공할 수 있습니다.  예를 들어:
 
 ```powershell
 PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -ApplicationTypeName "AppType" -ApplicationTypeVersion "1.0.0" -ApplicationParameter @{Port='1001'; Protocol='https'; Type='Input'; Port1='2001'; Protocol='http'}
@@ -195,7 +195,7 @@ PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -Application
 
 참고: ApplicationParameters에 제공된 값이 비어 있으면 해당 EndPointName에 대한 ServiceManifest에 제공된 기본값으로 돌아갑니다.
 
-다음은 그 예입니다.
+예를 들어:
 
 ServiceManifest에서 다음을 지정했습니다.
 
@@ -209,4 +209,4 @@ ServiceManifest에서 다음을 지정했습니다.
 
 또한 Applications 매개 변수에 대한 Port1 및 Protocol1 값은 null이거나 비어 있습니다. 포트는 여전히 ServiceFabric에 의해 결정됩니다. 또한 Protocol은 tcp가 됩니다.
 
-잘못된 값을 지정한다고 가정해 보겠습니다. 포트의 경우와 같이 int 대신 문자열 값 "Foo"를 지정 했습니다.  Get-servicefabricapplication 명령이 오류로 인해 실패 합니다. ' ResourceOverrides ' 섹션에서 이름이 ' ServiceEndpoint1 ' 특성이 ' Port1 ' 인 재정의 매개 변수가 잘못 되었습니다. 지정된 값은 'Foo'이지만 'int'가 필요합니다.
+잘못된 값을 지정한다고 가정해 보겠습니다. 포트와 마찬가지로 int 대신 문자열 값 "Foo"를 지정했습니다.  New-ServiceFabricApplication 명령은 오류와 함께 실패합니다 : 'ResourceOverrides' 섹션에서 이름 'ServiceEndpoint1' 속성 'Port1'이 있는 재정의 매개 변수가 잘못되었습니다. 지정된 값은 'Foo'이지만 'int'가 필요합니다.

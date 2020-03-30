@@ -1,7 +1,7 @@
 ---
-title: PowerShell을 사용 하 여 사이트당 WAF 정책 구성
+title: PowerShell을 사용하여 사이트별 WAF 정책 구성
 titleSuffix: Azure Web Application Firewall
-description: Azure PowerShell를 사용 하 여 응용 프로그램 게이트웨이에서 사이트별 웹 응용 프로그램 방화벽 정책을 구성 하는 방법에 대해 알아봅니다.
+description: Azure PowerShell을 사용하여 응용 프로그램 게이트웨이에서 사이트별 웹 응용 프로그램 방화벽 정책을 구성하는 방법을 알아봅니다.
 services: web-application-firewall
 author: winthrop28
 ms.service: web-application-firewall
@@ -9,19 +9,19 @@ ms.date: 01/24/2020
 ms.author: victorh
 ms.topic: conceptual
 ms.openlocfilehash: a04b850857b6abd81934430a05086477acd058d6
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77444694"
 ---
-# <a name="configure-per-site-waf-policies-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 사이트당 WAF 정책 구성
+# <a name="configure-per-site-waf-policies-using-azure-powershell"></a>Azure PowerShell을 사용하여 사이트별 WAF 정책 구성
 
-Waf (웹 응용 프로그램 방화벽) 설정은 WAF 정책에 포함 되어 있으며 WAF 구성을 변경 하려면 WAF 정책을 수정 합니다.
+WAF(웹 응용 프로그램 방화벽) 설정은 WAF 정책에 포함되어 있으며 WAF 구성을 변경하려면 WAF 정책을 수정할 수 있습니다.
 
-Application Gateway와 연결 된 경우 정책과 모든 설정은 전역적으로 반영 됩니다. 따라서 WAF 뒤에 5 개의 사이트가 있는 경우 5 개 사이트는 모두 동일한 WAF 정책으로 보호 됩니다. 이는 모든 사이트에 대해 동일한 보안 설정이 필요한 경우에 유용 합니다. 그러나 사이트별 WAF 구성을 허용 하기 위해 개별 수신기에 WAF 정책을 적용할 수도 있습니다.
+응용 프로그램 게이트웨이와 연결하면 정책 및 모든 설정이 전역적으로 반영됩니다. 따라서 WAF 뒤에 5개의 사이트가 있는 경우 5개 사이트 모두 동일한 WAF 정책에 의해 보호됩니다. 모든 사이트에 대해 동일한 보안 설정이 필요한 경우 이 에 적합합니다. 그러나 개별 청취자에게 WAF 정책을 적용하여 사이트별 WAF 구성을 허용할 수도 있습니다.
 
-수신기에 WAF 정책을 적용 하 여 각 사이트에 영향을 주는 변경 내용 없이 개별 사이트에 대해 WAF 설정을 구성할 수 있습니다. 가장 구체적인 정책은 우선 합니다. 전역 정책 및 사이트별 정책 (수신기와 연결 된 WAF 정책)이 있는 경우 사이트별 정책은 해당 수신기에 대 한 전역 WAF 정책을 재정의 합니다. 자체 정책이 없는 다른 수신기는 전역 WAF 정책의 영향을 받습니다.
+수신기에 WAF 정책을 적용하면 모든 사이트에 영향을 미치는 변경 사항 없이 개별 사이트에 대한 WAF 설정을 구성할 수 있습니다. 가장 구체적인 정책이 선례가 됩니다. 전역 정책과 사이트별 정책(수신기와 연결된 WAF 정책)이 있는 경우 사이트별 정책은 해당 수신기에 대한 전역 WAF 정책을 재정의합니다. 자체 정책이 없는 다른 수신기는 글로벌 WAF 정책의 영향을 받습니다.
 
 이 문서에서는 다음 방법을 설명합니다.
 
@@ -29,7 +29,7 @@ Application Gateway와 연결 된 경우 정책과 모든 설정은 전역적으
 > * 네트워크 설정
 > * WAF 정책 만들기
 > * WAF를 사용하는 애플리케이션 게이트웨이 만들기
-> * WAF 정책을 전역적, 사이트별 및 URI 별로 적용
+> * WAF 정책을 전 세계, 사이트별 및 URI당 적용
 > * 가상 머신 확장 집합 만들기
 > * 스토리지 계정 만들기 및 진단 구성
 > * 애플리케이션 게이트웨이 테스트
@@ -54,7 +54,7 @@ $rgname = New-AzResourceGroup -Name myResourceGroupAG -Location eastus
 
 ## <a name="create-network-resources"></a>네트워크 리소스 만들기 
 
-*New-AzVirtualNetworkSubnetConfig*를 사용하여 *myBackendSubnet* 및 [myAGSubnet](/powershell/module/az.network/new-azvirtualnetworksubnetconfig)이라는 서브넷 구성을 만듭니다. 서브넷 구성으로 *New-AzVirtualNetwork*를 사용하여 [myVNet](/powershell/module/az.network/new-azvirtualnetwork)이라는 가상 네트워크를 만듭니다. 마지막으로 *New-AzPublicIpAddress*를 사용하여 [myAGPublicIPAddress](/powershell/module/az.network/new-azpublicipaddress)라는 공용 IP 주소를 만듭니다. 이러한 리소스는 애플리케이션 게이트웨이 및 연결된 리소스에 대한 네트워크 연결을 제공하는 데 사용됩니다.
+[New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig)를 사용하여 *myBackendSubnet* 및 *myAGSubnet*이라는 서브넷 구성을 만듭니다. 서브넷 구성으로 [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork)를 사용하여 *myVNet*이라는 가상 네트워크를 만듭니다. 마지막으로 [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress)를 사용하여 *myAGPublicIPAddress*라는 공용 IP 주소를 만듭니다. 이러한 리소스는 애플리케이션 게이트웨이 및 연결된 리소스에 대한 네트워크 연결을 제공하는 데 사용됩니다.
 
 ```azurepowershell-interactive
 $backendSubnetConfig = New-AzVirtualNetworkSubnetConfig `
@@ -90,7 +90,7 @@ $pip = New-AzPublicIpAddress `
 
 ### <a name="create-the-ip-configurations-and-frontend-port"></a>IP 구성 및 프론트 엔드 포트 만들기
 
-*New-AzApplicationGatewayIPConfiguration*을 사용하여 이전에 애플리케이션 게이트웨이에 만든 [myAGSubnet](/powershell/module/az.network/new-azapplicationgatewayipconfiguration)을 연결합니다. *New-AzApplicationGatewayFrontendIPConfig*를 사용하여 [myAGPublicIPAddress](/powershell/module/az.network/new-azapplicationgatewayfrontendipconfig)를 애플리케이션 게이트웨이에 할당합니다.
+[New-AzApplicationGatewayIPConfiguration](/powershell/module/az.network/new-azapplicationgatewayipconfiguration)을 사용하여 이전에 애플리케이션 게이트웨이에 만든 *myAGSubnet*을 연결합니다. [New-AzApplicationGatewayFrontendIPConfig](/powershell/module/az.network/new-azapplicationgatewayfrontendipconfig)를 사용하여 *myAGPublicIPAddress*를 애플리케이션 게이트웨이에 할당합니다.
 
 ```azurepowershell-interactive
 $vnet = Get-AzVirtualNetwork `
@@ -118,7 +118,7 @@ $frontendport8080 = New-AzApplicationGatewayFrontendPort `
 
 ### <a name="create-the-backend-pool-and-settings"></a>백 엔드 풀 및 설정 만들기
 
-*New-AzApplicationGatewayBackendAddressPool*을 사용하여 애플리케이션 게이트웨이에 대한 [appGatewayBackendPool](/powershell/module/az.network/new-azapplicationgatewaybackendaddresspool)이라는 백 엔드 풀을 만듭니다. [New-AzApplicationGatewayBackendHttpSettings](/powershell/module/az.network/new-azapplicationgatewaybackendhttpsetting)를 사용하여 백 엔드 주소 풀에 대한 설정을 구성합니다.
+[New-AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/new-azapplicationgatewaybackendaddresspool)을 사용하여 애플리케이션 게이트웨이에 대한 *appGatewayBackendPool*이라는 백 엔드 풀을 만듭니다. [New-AzApplicationGatewayBackendHttpSettings](/powershell/module/az.network/new-azapplicationgatewaybackendhttpsetting)를 사용하여 백 엔드 주소 풀에 대한 설정을 구성합니다.
 
 ```azurepowershell-interactive
 $defaultPool = New-AzApplicationGatewayBackendAddressPool `
@@ -132,11 +132,11 @@ $poolSettings = New-AzApplicationGatewayBackendHttpSettings `
   -RequestTimeout 120
 ```
 
-### <a name="create-two-waf-policies"></a>두 WAF 정책 만들기
+### <a name="create-two-waf-policies"></a>두 개의 WAF 정책 만들기
 
-글로벌 및 사이트별로 두 개의 WAF 정책을 만들고 사용자 지정 규칙을 추가 합니다. 
+두 개의 WAF 정책을 만듭니다(하나의 전역 및 사이트당 하나)를 만들고 사용자 지정 규칙을 추가합니다. 
 
-사이트별 정책은 파일 업로드 한도를 5mb로 제한 합니다. 다른 모든 항목은 동일 합니다.
+사이트별 정책은 파일 업로드 제한을 5MB로 제한합니다. 다른 모든 것은 동일합니다.
 
 ```azurepowershell-interactive
 $variable = New-AzApplicationGatewayFirewallMatchVariable -VariableName RequestUri
@@ -194,7 +194,7 @@ $wafPolicySite = New-AzApplicationGatewayFirewallPolicy `
 
 수신기는 애플리케이션 게이트웨이를 백 엔드 주소 풀에 트래픽을 적절하게 라우팅하도록 설정해야 합니다. 이 예제에서는 루트 URL에서 트래픽을 수신 대기하는 기본 수신기를 만듭니다. 
 
-이전에 만든 프런트 엔드 구성 및 프런트 엔드 포트가 포함된 *New-AzApplicationGatewayHttpListener*를 사용하여 [mydefaultListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener)라는 수신기를 만듭니다. 수신기에서 들어오는 트래픽에 사용할 백 엔드 풀을 인식할 수 있는 규칙이 필요합니다. *New-AzApplicationGatewayRequestRoutingRule*을 사용하여 [rule1](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule)이라는 기본 규칙을 만듭니다.
+이전에 만든 프런트 엔드 구성 및 프런트 엔드 포트가 포함된 [New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener)를 사용하여 *mydefaultListener*라는 수신기를 만듭니다. 수신기에서 들어오는 트래픽에 사용할 백 엔드 풀을 인식할 수 있는 규칙이 필요합니다. [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule)을 사용하여 *rule1*이라는 기본 규칙을 만듭니다.
 
 ```azurepowershell-interactive
 $globalListener = New-AzApplicationGatewayHttpListener `
@@ -227,7 +227,7 @@ $frontendRuleSite = New-AzApplicationGatewayRequestRoutingRule `
 
 ### <a name="create-the-application-gateway-with-the-waf"></a>WAF를 사용하여 애플리케이션 게이트웨이 만들기
 
-이제 필요한 지원 리소스를 만들었으므로 [New-AzApplicationGatewaySku](/powershell/module/az.network/new-azapplicationgatewaysku)를 사용하여 애플리케이션 게이트웨이에 대한 매개 변수를 지정합니다. [New-AzApplicationGatewayFirewallPolicy](/powershell/module/az.network/new-azapplicationgatewayfirewallpolicy)를 사용하여 방화벽 정책을 지정합니다. 그런 다음, *New-AzApplicationGateway*를 사용하여 [myAppGateway](/powershell/module/az.network/new-azapplicationgateway)라는 애플리케이션 게이트웨이를 만듭니다.
+이제 필요한 지원 리소스를 만들었으므로 [New-AzApplicationGatewaySku](/powershell/module/az.network/new-azapplicationgatewaysku)를 사용하여 애플리케이션 게이트웨이에 대한 매개 변수를 지정합니다. [New-AzApplicationGatewayFirewallPolicy](/powershell/module/az.network/new-azapplicationgatewayfirewallpolicy)를 사용하여 방화벽 정책을 지정합니다. 그런 다음, [New-AzApplicationGateway](/powershell/module/az.network/new-azapplicationgateway)를 사용하여 *myAppGateway*라는 애플리케이션 게이트웨이를 만듭니다.
 
 ```azurepowershell-interactive
 $sku = New-AzApplicationGatewaySku `
@@ -250,9 +250,9 @@ $appgw = New-AzApplicationGateway `
   -FirewallPolicy $wafPolicyGlobal
 ```
 
-### <a name="apply-a-per-uri-policy"></a>URI 별 정책 적용
+### <a name="apply-a-per-uri-policy"></a>URI당 정책 적용
 
-URI 별 정책을 적용 하려면 새 정책을 만들어 경로 규칙 구성에 적용 하기만 하면 됩니다. 
+URI당 정책을 적용하려면 새 정책을 만들고 경로 규칙 구성에 적용하기만 하면 됩니다. 
 
 ```azurepowershell-interactive
 $policySettingURI = New-AzApplicationGatewayFirewallPolicySetting `
@@ -372,7 +372,7 @@ Update-AzVmss `
 
 ### <a name="create-the-storage-account"></a>스토리지 계정 만들기
 
-*New-AzStorageAccount*를 사용하여 [myagstore1](/powershell/module/az.storage/new-azstorageaccount)이라는 스토리지 계정을 만듭니다.
+[New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount)를 사용하여 *myagstore1*이라는 스토리지 계정을 만듭니다.
 
 ```azurepowershell-interactive
 $storageAccount = New-AzStorageAccount `
@@ -406,7 +406,7 @@ Set-AzDiagnosticSetting `
 
 ## <a name="test-the-application-gateway"></a>애플리케이션 게이트웨이 테스트
 
-[Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress)를 사용하여 애플리케이션 게이트웨이의 공용 IP 주소를 가져올 수 있습니다. 그런 다음이 IP 주소를 사용 하 여 (아래에 표시 된 1.1.1.1 대체)이 IP 주소를 사용 합니다. 
+[Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress)를 사용하여 애플리케이션 게이트웨이의 공용 IP 주소를 가져올 수 있습니다. 그런 다음 이 IP 주소를 사용하여 말기(아래 표시된 1.1.1.1 을 대체). 
 
 ```azurepowershell-interactive
 Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress

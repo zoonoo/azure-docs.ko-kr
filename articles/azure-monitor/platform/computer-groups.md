@@ -7,26 +7,26 @@ author: bwren
 ms.author: bwren
 ms.date: 02/05/2019
 ms.openlocfilehash: a005b6cec811b8a584123dc4c8abab77766961e0
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79274776"
 ---
-# <a name="computer-groups-in-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리의 컴퓨터 그룹
-Azure Monitor의 컴퓨터 그룹을 사용하여 [로그 쿼리](../log-query/log-query-overview.md)의 범위를 특정 컴퓨터 집합으로 지정할 수 있습니다.  각 그룹에는 사용자가 정의를 사용하거나 여러 원본에서 그룹을 가져와 컴퓨터가 채워집니다.  로그 쿼리에 그룹을 포함하면 결과가 그룹의 컴퓨터와 일치하는 레코드로 제한됩니다.
+# <a name="computer-groups-in-azure-monitor-log-queries"></a>Azure 모니터 로그 쿼리의 컴퓨터 그룹
+Azure Monitor의 컴퓨터 그룹을 사용하면 특정 컴퓨터 집합에 대한 [로그 쿼리의](../log-query/log-query-overview.md) 범위를 설정할 수 있습니다.  각 그룹에는 사용자가 정의를 사용하거나 여러 원본에서 그룹을 가져와 컴퓨터가 채워집니다.  로그 쿼리에 그룹을 포함하면 결과가 그룹의 컴퓨터와 일치하는 레코드로 제한됩니다.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="creating-a-computer-group"></a>컴퓨터 그룹 만들기
 Azure Monitor에서 다음 표의 방법 중 하나를 사용하여 컴퓨터 그룹을 만들 수 있습니다.  각 방법에 대한 자세한 내용은 아래 섹션에서 설명합니다. 
 
-| 방법 | Description |
+| 방법 | 설명 |
 |:--- |:--- |
 | 로그 쿼리 |컴퓨터 목록을 반환하는 로그 쿼리를 만듭니다. |
 | 로그 검색 API |로그 검색 API를 사용하여 로그 쿼리 결과에 따라 프로그래밍 방식으로 컴퓨터 그룹을 만듭니다. |
 | Active Directory |Active Directory 도메인의 구성원인 에이전트 컴퓨터의 그룹 구성원을 자동으로 검색하고 Azure Monitor에서 각 보안 그룹에 대한 그룹을 만듭니다. (Windows 머신에만 해당)|
-| 구성 관리자 | Microsoft Endpoint Configuration Manager에서 컬렉션을 가져오고 각각에 대해 Azure Monitor에 그룹을 만듭니다. |
+| 구성 관리자 | Microsoft 엔드포인트 구성 관리자에서 컬렉션을 가져오고 각각에 대한 Azure 모니터에서 그룹을 만듭니다. |
 | Windows Server 업데이트 서비스 |WSUS 서버나 클라이언트에서 대상 그룹을 자동으로 검색하고 Azure Monitor에서 각 대상 그룹에 대한 그룹을 만듭니다. |
 
 ### <a name="log-query"></a>로그 쿼리
@@ -46,9 +46,9 @@ Azure Monitor에서 다음 표의 방법 중 하나를 사용하여 컴퓨터 �
 
 다음 표는 컴퓨터 그룹을 정의하는 속성을 설명합니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:---|:---|
-| 속성   | 포털에 표시할 쿼리의 이름입니다. |
+| 이름   | 포털에 표시할 쿼리의 이름입니다. |
 | 함수 별칭 | 쿼리에서 컴퓨터 그룹을 식별하는 데 사용되는 고유한 별칭입니다. |
 | Category       | 포털에서 쿼리를 구성할 범주입니다. |
 
@@ -118,7 +118,7 @@ Azure Portal의 Log Analytics 작업 영역에 있는 **고급 설정**에서 �
 ## <a name="computer-group-records"></a>컴퓨터 그룹 레코드
 Active Directory 또는 WSUS에서 만든 각 컴퓨터 그룹 멤버 자격에 대한 레코드가 Log Analytics 작업 영역에 생성됩니다.  이 레코드의 형식은 **ComputerGroup**이며 다음 표의 속성을 갖습니다.  로그 쿼리 기반의 컴퓨터 그룹에 대한 레코드는 만들어지지 않습니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:--- |:--- |
 | `Type` |*ComputerGroup* |
 | `SourceSystem` |*SourceSystem* |

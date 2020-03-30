@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
 ms.openlocfilehash: f10be8efcd2d8e838b4b5f62310eb405f6ed0158
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79278741"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Azure Cache for Redis를 구성하는 방법
@@ -41,19 +41,19 @@ Azure Cache for Redis 설정은 **리소스 메뉴**를 사용하여 **Azure Cac
     * [Azure Cache for Redis Advisor](#azure-cache-for-redis-advisor)
     * [규모](#scale)
     * [클러스터 크기](#cluster-size):
-    * [데이터 지 속성](#redis-data-persistence)
+    * [데이터 지속성](#redis-data-persistence)
     * [업데이트 예약](#schedule-updates)
-    * [지역에서 복제](#geo-replication)
-    * [Virtual Network](#virtual-network)
+    * [지역 복제](#geo-replication)
+    * [가상 네트워크](#virtual-network)
     * [방화벽](#firewall)
     * [속성](#properties)
     * [잠금](#locks)
-    * [Automation 스크립트](#automation-script)
+    * [자동화 스크립트](#automation-script)
 * 관리
     * [데이터 가져오기](#importexport)
     * [데이터 내보내기](#importexport)
     * [Reboot](#reboot)
-* [Monitoring](#monitoring)
+* <bpt i="1000001" x="1000001" type="formatting">{b&gt;</bpt>모니터링<ept i="1000001">&lt;b}</ept>
     * [Redis 메트릭](#redis-metrics)
     * [경고 규칙](#alert-rules)
     * [진단](#diagnostics)
@@ -93,14 +93,14 @@ Azure Cache for Redis 설정은 **리소스 메뉴**를 사용하여 **Azure Cac
 * [Azure Cache for Redis Advisor](#azure-cache-for-redis-advisor)
 * [규모](#scale)
 * [클러스터 크기](#cluster-size):
-* [데이터 지 속성](#redis-data-persistence)
+* [데이터 지속성](#redis-data-persistence)
 * [업데이트 예약](#schedule-updates)
-* [지역에서 복제](#geo-replication)
-* [Virtual Network](#virtual-network)
+* [지역 복제](#geo-replication)
+* [가상 네트워크](#virtual-network)
 * [방화벽](#firewall)
 * [속성](#properties)
 * [잠금](#locks)
-* [Automation 스크립트](#automation-script)
+* [자동화 스크립트](#automation-script)
 
 
 
@@ -120,7 +120,7 @@ Azure Cache for Redis 설정은 **리소스 메뉴**를 사용하여 **Azure Cac
 비 SSL 액세스는 기본적으로 새 캐시에 대해 사용하지 않도록 설정됩니다. 비 SSL 포트를 사용하도록 설정하려면 **고급 설정 블레이드**의 **SSL을 통해서만 액세스 허용**에서 **아니요**를 클릭한 다음 **저장**을 클릭합니다.
 
 > [!NOTE]
-> Redis 용 Azure Cache에 대 한 SSL 액세스는 현재 TLS 1.0, 1.1 및 1.2을 지원 하지만, 버전 1.0 및 1.1은 곧 사용 중지 될 예정입니다.  자세한 내용은 [TLS 1.0 및 1.1 제거 페이지](cache-remove-tls-10-11.md) 를 참조 하세요.
+> Redis용 Azure 캐시에 대한 SSL 액세스는 현재 TLS 1.0, 1.1 및 1.2를 지원하지만 버전 1.0 및 1.1은 곧 사용 중지될 예정입니다.  자세한 내용은 [TLS 제거 1.0 및 1.1 페이지를](cache-remove-tls-10-11.md) 참조하십시오.
 
 ![Azure Cache for Redis 액세스 포트](./media/cache-configure/redis-cache-access-ports.png)
 
@@ -141,7 +141,7 @@ Azure Cache for Redis 설정은 **리소스 메뉴**를 사용하여 **Azure Cac
 
 `maxmemory` 정책에 대한 자세한 내용은 [제거 정책](https://redis.io/topics/lru-cache#eviction-policies)을 참조하세요.
 
-**maxmemory-reserved** 설정은 장애 조치(Failover) 중 복제와 같은 비캐시 작업을 위해 예약되는 메모리의 양을 MB 단위로 구성합니다. 이 값을 설정하면 부하가 달라져도 Redis 서버 환경이 더 일관되도록 할 수 있습니다. 이 값은 쓰기 작업이 많은 워크로드에서 더 높게 설정되어야 합니다. 이러한 작업을 위해 메모리가 예약된 경우 캐시된 데이터의 스토리지에는 사용할 수 없습니다.
+**maxmemory 예약** 설정은 장애 조치 중 복제와 같이 캐시가 아닌 작업에 예약된 MB의 메모리 양을 구성합니다. 이 값을 설정하면 부하가 달라져도 Redis 서버 환경이 더 일관되도록 할 수 있습니다. 이 값은 쓰기 작업이 많은 워크로드에서 더 높게 설정되어야 합니다. 이러한 작업을 위해 메모리가 예약된 경우 캐시된 데이터의 스토리지에는 사용할 수 없습니다.
 
 **maxfragmentationmemory-reserved** 설정은 메모리 조각화를 고려하여 예약된 메모리 양을 MB 단위로 구성합니다. 이 값을 설정하면 캐시가 가득 찼거나 거의 가득 찼고 조각화 비율이 높을 때 더욱 일관된 Redis 서버 환경을 갖출 수 있습니다. 이러한 작업을 위해 메모리가 예약된 경우 캐시된 데이터의 스토리지에는 사용할 수 없습니다.
 
@@ -162,7 +162,7 @@ Redis keyspace 알림은 **고급 설정** 블레이드에서 구성됩니다. K
 >
 >
 
-자세한 내용은 [Redis Keyspace 알림](https://redis.io/topics/notifications)을 참조하세요. 샘플 코드는 [Hello world](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/KeySpaceNotifications.cs) 샘플의 [KeySpaceNotifications.cs](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) 파일을 참조하세요.
+자세한 내용은 [Redis Keyspace 알림](https://redis.io/topics/notifications)을 참조하세요. 샘플 코드는 [Hello world](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) 샘플의 [KeySpaceNotifications.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/KeySpaceNotifications.cs) 파일을 참조하세요.
 
 
 <a name="recommendations"></a>
@@ -179,9 +179,9 @@ Redis keyspace 알림은 **고급 설정** 블레이드에서 구성됩니다. K
 
 ![권장 사항](./media/cache-configure/redis-cache-recommendations.png)
 
-이러한 메트릭은 [Azure Cache for Redis](cache-how-to-monitor.md#monitoring-charts) 블레이드의 [모니터링 차트](cache-how-to-monitor.md#usage-charts) 및 **사용 현황 차트** 섹션에서 모니터링할 수 있습니다.
+이러한 메트릭은 **Azure Cache for Redis** 블레이드의 [모니터링 차트](cache-how-to-monitor.md#monitoring-charts) 및 [사용 현황 차트](cache-how-to-monitor.md#usage-charts) 섹션에서 모니터링할 수 있습니다.
 
-가격 책정 계층마다 클라이언트 연결, 메모리 및 대역폭에 대한 제한이 다릅니다. 캐시가 오랫동안 이러한 메트릭의 최대 용량에 근접하면 추천이 생성됩니다. **추천** 도구에서 검토하는 메트릭 및 제한에 대한 자세한 내용은 다음 테이블을 참조하세요.
+가격 책정 계층마다 클라이언트 연결, 메모리 및 대역폭에 대한 제한이 다릅니다. 캐시가 오랫동안 이러한 메트릭의 최대 용량에 근접하면 추천이 생성됩니다. **권장 사항** 도구에서 검토한 메트릭 및 제한에 대한 자세한 내용은 다음 표를 참조하십시오.
 
 | Azure Cache for Redis 메트릭 | 자세한 정보 |
 | --- | --- |
@@ -190,7 +190,7 @@ Redis keyspace 알림은 **고급 설정** 블레이드에서 구성됩니다. K
 | 서버 부하 |[사용 현황 차트 - Redis 서버 부하](cache-how-to-monitor.md#usage-charts) |
 | 메모리 사용량 |[캐시 성능 - 크기](cache-faq.md#cache-performance) |
 
-캐시를 업그레이드하려면 **지금 업그레이드**를 클릭하여 [가격 책정 계층](#scale)을 변경하고 캐시 크기를 조정하세요. 가격 책정 계층을 선택하는 방법에 대한 자세한 내용은 [사용해야 하는 Azure Cache for Redis 제안 및 크기는 어떻게 되나요?](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use)를 참조하세요.
+캐시를 업그레이드하려면 **지금 업그레이드를** 클릭하여 가격 책정 계층을 변경하고 캐시를 [확장합니다.](#scale) 가격 책정 계층을 선택하는 방법에 대한 자세한 내용은 [사용해야 하는 Azure Cache for Redis 제안 및 크기는 어떻게 되나요?](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use)를 참조하세요.
 
 
 ### <a name="scale"></a>확장
@@ -201,7 +201,7 @@ Redis keyspace 알림은 **고급 설정** 블레이드에서 구성됩니다. K
 <a name="cluster-size"></a>
 
 ### <a name="redis-cluster-size"></a>Redis 클러스터 크기
-클러스터링을 사용 하도록 설정 하 고 실행 중인 프리미엄 캐시의 클러스터 크기를 변경 하려면 **클러스터 크기** 를 클릭 합니다.
+**클러스터 크기를** 클릭하여 클러스터링을 사용하도록 설정한 실행 중인 프리미엄 캐시의 클러스터 크기를 변경합니다.
 
 ![클러스터 크기](./media/cache-configure/redis-cache-redis-cluster-size.png)
 
@@ -214,7 +214,7 @@ Redis keyspace 알림은 **고급 설정** 블레이드에서 구성됩니다. K
 
 
 ### <a name="redis-data-persistence"></a>Redis 데이터 지속성
-**데이터 지 속성** 을 클릭 하 여 프리미엄 캐시에 대 한 데이터 지 속성을 사용, 사용 안 함 또는 구성 합니다. Azure Cache for Redis는 [RDB 지속성](cache-how-to-premium-persistence.md#configure-rdb-persistence) 또는 [AOF 지속성](cache-how-to-premium-persistence.md#configure-aof-persistence)을 사용하여 Redis 지속성을 제공합니다.
+**데이터 지속성을** 클릭하여 프리미엄 캐시에 대한 데이터 지속성을 활성화, 비활성화 또는 구성합니다. Azure Cache for Redis는 [RDB 지속성](cache-how-to-premium-persistence.md#configure-rdb-persistence) 또는 [AOF 지속성](cache-how-to-premium-persistence.md#configure-aof-persistence)을 사용하여 Redis 지속성을 제공합니다.
 
 자세한 내용은 [프리미엄 Azure Redis Cache에 대한 지속성을 구성하는 방법](cache-how-to-premium-persistence.md)을 참조하세요.
 
@@ -274,12 +274,12 @@ Redis keyspace 알림은 **고급 설정** 블레이드에서 구성됩니다. K
 >
 
 ### <a name="properties"></a>속성
-**속성** 을 클릭하여 캐시 엔드포인트 및 포트를 포함하여 캐시에 대한 정보를 볼 수 있습니다.
+**속성**을 클릭하여 캐시 엔드포인트 및 포트 등 캐시에 대한 정보를 봅니다.
 
 ![Azure Cache for Redis 속성](./media/cache-configure/redis-cache-properties.png)
 
 ### <a name="locks"></a>잠금
-**잠금** 섹션에서는 구독, 리소스 그룹 또는 리소스에 잠금을 설정하여 조직의 다른 사용자가 실수로 중요한 리소스를 삭제 또는 수정하지 못하게 방지할 수 있습니다. 자세한 내용은 [Azure 리소스 관리자를 사용하여 리소스 잠그기](../azure-resource-manager/management/lock-resources.md)를 참조하세요.
+**Locks** 섹션을 사용하면 구독, 리소스 그룹 또는 리소스를 잠그면 조직의 다른 사용자가 중요한 리소스를 실수로 삭제하거나 수정하지 못하도록 할 수 있습니다. 자세한 내용은 [Azure 리소스 관리자를 사용 하 여 리소스 잠금](../azure-resource-manager/management/lock-resources.md)을 참조 합니다.
 
 ### <a name="automation-script"></a>Automation 스크립트
 
@@ -336,7 +336,7 @@ Azure Cache for Redis를 모니터링하고 진단하는 방법에 대한 자세
 * [진단](#diagnostics)
 
 ### <a name="redis-metrics"></a>Redis 메트릭
-캐시에 대한 **메트릭을 보려면**[Redis 메트릭](cache-how-to-monitor.md#view-cache-metrics)을 클릭합니다.
+캐시에 대한 [메트릭을 보려면](cache-how-to-monitor.md#view-cache-metrics)**Redis 메트릭**을 클릭합니다.
 
 ### <a name="alert-rules"></a>경고 규칙
 
@@ -347,7 +347,7 @@ Azure Cache for Redis를 모니터링하고 진단하는 방법에 대한 자세
 기본적으로 Azure Monitor의 캐시 메트릭은 [30일 동안 저장](../azure-monitor/platform/data-platform-metrics.md)되었다가 삭제됩니다. 30일 이후에도 캐시 메트릭을 유지하려면 **진단**을 클릭하여 캐시 진단을 저장하는 데 사용되는 [스토리지 계정을 구성](cache-how-to-monitor.md#export-cache-metrics)합니다.
 
 >[!NOTE]
->캐시 메트릭을 저장소에 보관 하는 것 외에도 [이벤트 허브로 스트림 하거나 Azure Monitor 로그에 보낼](../azure-monitor/platform/stream-monitoring-data-event-hubs.md)수 있습니다.
+>캐시 메트릭을 저장소에 보관하는 것 외에도 [이벤트 허브로 스트리밍하거나 Azure Monitor 로그로 보낼](../azure-monitor/platform/stream-monitoring-data-event-hubs.md)수도 있습니다.
 >
 >
 
@@ -386,7 +386,7 @@ Azure Cache for Redis를 모니터링하고 진단하는 방법에 대한 자세
 >
 >
 
-| 설정 | 기본값 | Description |
+| 설정 | 기본값 | 설명 |
 | --- | --- | --- |
 | `databases` |16 |데이터베이스의 기본 수는 16이지만 가격 책정 계층에 따라 다른 숫자를 구성할 수 있습니다.<sup>1</sup> 기본 데이터베이스는 DB 0입니다. `connection.GetDatabase(dbid)`을 사용하여 연결 단위로 다른 데이터베이스를 선택할 수 있습니다. 여기서 `dbid`는 `0`에서 `databases - 1` 사이의 숫자입니다. |
 | `maxclients` |가격 책정 계층에 따라 달라집니다.<sup>2</sup> |이 값은 동시에 연결이 허용되는 클라이언트의 최대 수입니다. 제한에 도달하면 Redis는 'max number of clients reached' 오류를 반환하고 모든 새 연결을 닫습니다. |
@@ -394,7 +394,7 @@ Azure Cache for Redis를 모니터링하고 진단하는 방법에 대한 자세
 | `maxmemory-samples` |3 |메모리를 절약하기 위해 LRU 및 최소 TTL 알고리즘은 정밀한 알고리즘이 아닌 대략적인 알고리즘입니다. 기본적으로 Redis는 세 개의 키를 확인하고 가장 오래 전에 사용된 키를 선택합니다. |
 | `lua-time-limit` |5,000 |밀리초 단위의 Lua 스크립트 최대 실행 시간입니다. 최대 실행 시간에 도달하면 Redis는 허용된 시간 이후에도 실행 중인 스크립트를 기록하고 쿼리에 오류로 응답하기 시작합니다. |
 | `lua-event-limit` |500 |스크립트 이벤트 큐의 최대 크기 |
-| `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8mb 60 |클라이언트 출력 버퍼 제한은 어떤 이유로 서버에서 데이터를 읽는 속도가 충분히 빠르지 않은 클라이언트의 연결을 강제로 끊는 데 사용할 수 있습니다. 속도가 느린 일반적인 이유는 게시/구독 클라이언트가 게시자의 생성 속도만큼 빠르게 메시지를 소화하지 못하기 때문입니다. 자세한 내용은 [https://redis.io/topics/clients](https://redis.io/topics/clients)를 참조하세요. |
+| `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8mb 60 |클라이언트 출력 버퍼 제한은 어떤 이유로 서버에서 데이터를 읽는 속도가 충분히 빠르지 않은 클라이언트의 연결을 강제로 끊는 데 사용할 수 있습니다. 속도가 느린 일반적인 이유는 게시/구독 클라이언트가 게시자의 생성 속도만큼 빠르게 메시지를 소화하지 못하기 때문입니다. 자세한 내용은 을 [https://redis.io/topics/clients](https://redis.io/topics/clients)참조하십시오. |
 
 <a name="databases"></a>
 <sup>1</sup>`databases`에 대한 제한은 Azure Cache for Redis 가격 책정 계층마다 다르며 캐시를 만들 때 설정할 수 있습니다. 캐시를 만드는 동안 `databases` 설정이 지정되지 않았다면 기본값은 16입니다.
@@ -461,14 +461,14 @@ Azure Cache for Redis를 모니터링하고 진단하는 방법에 대한 자세
 >
 >
 
-Redis 명령에 대한 자세한 내용은 [https://redis.io/commands](https://redis.io/commands)를 참조하세요.
+Redis 명령에 대한 자세한 내용은 [https://redis.io/commands](https://redis.io/commands)을 참조하십시오.
 
 ## <a name="redis-console"></a>Redis 콘솔
 Azure Portal에서 모든 캐시에 제공되는 **Redis 콘솔**을 사용하여 Azure Cache for Redis 인스턴스에 명령을 안전하게 실행할 수 있습니다.
 
 > [!IMPORTANT]
 > - Redis 콘솔이 [VNET](cache-how-to-premium-vnet.md)에서 작동하지 않습니다. 캐시가 VNET의 일부인 경우 VNET의 클라이언트만 캐시에 액세스할 수 있습니다. Redis 콘솔은 VNET 외부에 있는 로컬 브라우저에서 실행되기 때문에 캐시에 연결할 수 없습니다.
-> - Redis 명령 중 일부는 Azure Cache for Redis에서 지원되지 않습니다. Azure Cache for Redis에서 사용할 수 없는 Redis 명령 목록은 이전 [Azure Cache for Redis에서 지원되지 않는 Redis 명령](#redis-commands-not-supported-in-azure-cache-for-redis) 섹션을 참조하세요. Redis 명령에 대한 자세한 내용은 [https://redis.io/commands](https://redis.io/commands)를 참조하세요.
+> - Redis 명령 중 일부는 Azure Cache for Redis에서 지원되지 않습니다. Azure Cache for Redis에서 사용할 수 없는 Redis 명령 목록은 이전 [Azure Cache for Redis에서 지원되지 않는 Redis 명령](#redis-commands-not-supported-in-azure-cache-for-redis) 섹션을 참조하세요. Redis 명령에 대한 자세한 내용은 [https://redis.io/commands](https://redis.io/commands)을 참조하십시오.
 >
 >
 
@@ -505,4 +505,4 @@ shard1>get myKey
 한 리소스 그룹에서 다른 리소스 그룹으로, 그리고 한 구독에서 다른 구독으로 리소스를 이동하는 방법에 대한 자세한 내용은 [새 리소스 그룹 또는 구독으로 리소스 이동](../azure-resource-manager/management/move-resource-group-and-subscription.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-* Redis 명령을 사용하는 방법은 [어떻게 Redis 명령을 실행할 수 있나요?](cache-faq.md#how-can-i-run-redis-commands)를 참조하세요.
+* Redis 명령 작업에 대한 자세한 내용은 [Redis 명령을 실행하는 방법을 참조하세요.](cache-faq.md#how-can-i-run-redis-commands)

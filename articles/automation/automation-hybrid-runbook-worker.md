@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 04/05/2019
 ms.topic: conceptual
 ms.openlocfilehash: cb1444261a2ba4810f4fddb3d7aa3bc172f09654
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79278871"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Hybrid Runbook Worker를 사용하여 데이터 센터 또는 클라우드의 리소스 자동화
@@ -20,7 +20,7 @@ Azure Automation의 Runbook은 Azure 클라우드 플랫폼에서 실행되므�
 
 ![Hybrid Runbook Worker 개요](media/automation-hybrid-runbook-worker/automation.png)
 
-각 Hybrid Runbook Worker는 에이전트를 설치할 때 지정한 Hybrid Runbook Worker 그룹의 구성원입니다. 그룹은 단일 에이전트를 포함할 수 있지만 고가용성을 위해 그룹에 여러 에이전트를 설치할 수 있습니다. 각 컴퓨터는 하나의 Automation 계정에 보고 한 Hybrid Worker를 호스트할 수 있습니다.
+각 Hybrid Runbook Worker는 에이전트를 설치할 때 지정한 Hybrid Runbook Worker 그룹의 구성원입니다. 그룹은 단일 에이전트를 포함할 수 있지만 고가용성을 위해 그룹에 여러 에이전트를 설치할 수 있습니다. 각 컴퓨터는 하나의 자동화 계정에 하나의 하이브리드 작업자 보고를 호스트할 수 있습니다.
 
 Hybrid Runbook Worker에서 Runbook을 시작할 경우 이를 실행할 그룹을 지정합니다. 그룹의 각 작업자는 Azure Automation을 폴링하여 사용할 수 있는 작업이 있는지 확인합니다. 작업을 사용할 수 있는 경우 작업을 가져올 수 있는 첫 번째 작업자가 해당 작업을 수행합니다. 작업 큐의 처리 시간은 하이브리드 작업자 하드웨어 프로필 및 로드에 따라 달라집니다. 특정 작업자를 지정할 수 없습니다. Hybrid Runbook Worker는 Azure의 샌드박스에 있는 제한 중 다수를 공유하지 않습니다. 디스크 공간, 메모리 또는 네트워크 소켓에 동일한 제한이 없습니다. Hybrid Runbook Worker는 Hybrid Runbook Worker 자체의 리소스에 의해서만 제한됩니다. 또한 Hybrid Runbook Worker는 Azure 샌드박스가 적용하는 180분 [공평 분배](automation-runbook-execution.md#fair-share) 시한을 공유하지 않습니다. Azure 샌드박스 및 Hybrid Runbook Worker의 서비스 제한에 대해 자세히 알아보려면 [한도](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits) 페이지를 참조하세요.
 
@@ -32,7 +32,7 @@ Windows Hybrid Runbook Worker를 설치 및 구성하려면 2가지 방법을 �
 
 |OS  |배포 형식  |
 |---------|---------|
-|Windows     | [PowerShell](automation-windows-hrw-install.md#automated-deployment)<br>[수동](automation-windows-hrw-install.md#manual-deployment)        |
+|Windows     | [Powershell](automation-windows-hrw-install.md#automated-deployment)<br>[수동](automation-windows-hrw-install.md#manual-deployment)        |
 |Linux     | [Python](automation-linux-hrw-install.md#installing-a-linux-hybrid-runbook-worker)        |
 
 > [!NOTE]
@@ -81,7 +81,7 @@ sudo python onboarding.py --deregister --endpoint="<URL>" --key="<PrimaryAccessK
 그룹을 제거하려면 먼저 앞서 보았던 절차를 사용하여 그룹의 구성원인 모든 컴퓨터에서 Hybrid Runbook Worker를 제거합니다. 이후 다음 단계를 사용하여 그룹을 제거합니다.
 
 1. Azure Portal에서 Automation 계정을 엽니다.
-2. **프로세스 자동화**에서 **Hybrid Worker 그룹**을 선택합니다. 삭제할 그룹을 선택합니다. 해당 그룹에 대한 속성 페이지가 표시됩니다.
+2. **프로세스 자동화에서** **하이브리드 작업자 그룹을**선택합니다. 삭제할 그룹을 선택합니다. 해당 그룹에 대한 속성 페이지가 표시됩니다.
 
    ![속성 페이지](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-group-properties.png)
 
@@ -91,15 +91,15 @@ sudo python onboarding.py --deregister --endpoint="<URL>" --key="<PrimaryAccessK
 
    이 프로세스를 마치는 데 몇 초 정도 걸릴 수 있습니다. 메뉴의 **알림**에서 진행 상황을 추적할 수 있습니다.
 
-## <a name="network-planning"></a>네트워크 구성
+## <a name="configure-your-network"></a><a name="network-planning"></a>네트워크 구성
 
 ### <a name="hybrid-worker-role"></a>Hybrid Worker 역할
 
-Hybrid Runbook Worker Azure Automation에 연결 하 고 등록 하려면이 섹션에서 설명 하는 포트 번호 및 Url에 대 한 액세스 권한이 있어야 합니다. 이 액세스는 Microsoft Monitoring Agent Azure Monitor 로그에 연결 하는 데 [필요한 포트 및 url](../azure-monitor/platform/agent-windows.md) 위에 있습니다.
+하이브리드 Runbook 워커가 Azure 자동화에 연결하고 등록하려면 이 섹션에 설명된 포트 번호 및 URL에 액세스할 수 있어야 합니다. 이 액세스는 Microsoft [모니터링 에이전트가](../azure-monitor/platform/agent-windows.md) Azure Monitor 로그에 연결하는 데 필요한 포트 및 URL 위에 있습니다.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-에이전트와 Azure Automation 서비스 간의 통신에 프록시 서버를 사용 하는 경우 적절 한 리소스에 액세스할 수 있는지 확인 합니다. Hybrid Runbook Worker 및 자동화 서비스의 요청에 대 한 제한 시간은 30 초입니다. 3 번 시도 하면 요청이 실패 합니다. 방화벽을 사용하여 인터넷 액세스를 제한하는 경우 액세스를 허용하도록 방화벽을 구성해야 합니다. Log Analytics 게이트웨이를 프록시로 사용하면 하이브리드 작업자에 대해 구성되었는지 확인합니다. 이 작업을 수행하는 방법에 대한 지침은 [Automation Hybrid Worker에 대한 Log Analytics 게이트웨이 구성](https://docs.microsoft.com/azure/log-analytics/log-analytics-oms-gateway)을 참조하세요.
+에이전트와 Azure 자동화 서비스 간의 통신을 위해 프록시 서버를 사용하는 경우 적절한 리소스에 액세스할 수 있는지 확인합니다. 하이브리드 Runbook 작업자 및 자동화 서비스의 요청 시간 초과는 30초입니다. 3번 시도하면 요청이 실패합니다. 방화벽을 사용하여 인터넷 액세스를 제한하는 경우 액세스를 허용하도록 방화벽을 구성해야 합니다. Log Analytics 게이트웨이를 프록시로 사용하면 하이브리드 작업자에 대해 구성되었는지 확인합니다. 이 작업을 수행하는 방법에 대한 지침은 [Automation Hybrid Worker에 대한 Log Analytics 게이트웨이 구성](https://docs.microsoft.com/azure/log-analytics/log-analytics-oms-gateway)을 참조하세요.
 
 Hybrid Runbook Worker 역할에서 Automation 역할과 통신하려면 다음 포트와 URL이 필요합니다.
 

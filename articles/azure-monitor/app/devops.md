@@ -1,13 +1,13 @@
 ---
-title: 웹 앱 성능 모니터링-Azure 애플리케이션 정보
+title: 웹 앱 성능 모니터링 - Azure 응용 프로그램 인사이트
 description: devOps 주기에 Application Insights를 적용하는 방법
 ms.topic: conceptual
 ms.date: 12/21/2018
 ms.openlocfilehash: 24095aade80022d1e1ebb38357971512bfc873c0
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77669695"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Application Insights로 웹앱 및 서비스 심층 진단
@@ -157,7 +157,7 @@ Application Insights가 예외를 기록하면 Visual Studio에서 데이터 포
 ## <a name="next-steps"></a>다음 단계
 Application Insights로 시작하기가 쉽습니다. 기본 옵션:
 
-* [IIS 서버](../../azure-monitor/app/monitor-performance-live-website-now.md)및 [Azure App Service](../../azure-monitor/app/app-insights-overview.md)에 대 한도 있습니다.
+* [IIS 서버](../../azure-monitor/app/monitor-performance-live-website-now.md)및 [Azure 앱 서비스에](../../azure-monitor/app/app-insights-overview.md)대한 .
 * 개발 중에 프로젝트를 계측합니다. [ASP.NET](../../azure-monitor/app/asp-net.md) 또는 [Java](../../azure-monitor/app/java-get-started.md) 앱, [Node.js](../../azure-monitor/app/nodejs.md), 여러 가지 [기타 유형](../../azure-monitor/app/platforms.md) 호스트에 적용할 수 있습니다. 
 * 짧은 코드 조각을 추가하여 [아무 웹 페이지](../../azure-monitor/app/javascript.md) 나 계측합니다.
 

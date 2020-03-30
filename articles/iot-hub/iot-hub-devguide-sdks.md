@@ -9,19 +9,19 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/14/2020
 ms.openlocfilehash: 419a71acbca59c00bd0ffecf39d5d1ff38833b08
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79284591"
 ---
 # <a name="understand-and-use-azure-iot-hub-sdks"></a>Azure IoT Hub SDK 이해 및 사용
 
 IoT Hub를 사용하기 위한 SDK(소프트웨어 개발 키트)의 범주는 두 가지입니다.
 
-* **IoT Hub 디바이스 SDK**를 사용하면 디바이스 클라이언트나 모듈 클라이언트를 사용하여 IoT 디바이스에서 실행되는 앱을 빌드할 수 있습니다. 이러한 앱은 IoT Hub로 원격 분석 데이터를 보내고, 필요에 따라 IoT Hub에서 메시지, 작업, 메서드, 쌍 업데이트를 받습니다.  모듈 클라이언트를 사용하여 [Azure IoT Edge 런타임](../iot-edge/iot-edge-modules.md)용 [모듈](../iot-edge/about-iot-edge.md)을 작성할 수도 있습니다.
+* **IoT Hub 장치 SDK를** 사용하면 장치 클라이언트 또는 모듈 클라이언트를 사용하여 IoT 장치에서 실행되는 앱을 빌드할 수 있습니다. 이러한 앱은 IoT Hub로 원격 분석 데이터를 보내고, 필요에 따라 IoT Hub에서 메시지, 작업, 메서드, 쌍 업데이트를 받습니다.  모듈 클라이언트를 사용하여 [Azure IoT Edge 런타임](../iot-edge/about-iot-edge.md)용 [모듈](../iot-edge/iot-edge-modules.md)을 작성할 수도 있습니다.
 
-* **IoT Hub 서비스 SDK**를 사용하면 백엔드 애플리케이션을 빌드하여 IoT Hub를 관리하고 필요에 따라 메시지를 보내거나, 작업을 예약하고, 직접 메서드를 호출하거나, IoT 디바이스 또는 모듈에 원하는 속성 업데이트를 보낼 수 있습니다.
+* **IoT Hub Service SDK를** 사용하면 백엔드 애플리케이션을 빌드하여 IoT 허브를 관리하고, 선택적으로 메시지를 보내고, 작업을 예약하거나, 직접 메서드를 호출하거나, 원하는 속성 업데이트를 IoT 장치 또는 모듈에 보낼 수 있습니다.
 
 또한 [디바이스 프로비저닝 서비스](../iot-dps/about-iot-dps.md)와 함께 작동하는 SDK 세트도 제공됩니다.
 * **프로비저닝 디바이스 SDK**를 사용하면 IoT 디바이스에서 실행되는 앱을 빌드하여 디바이스 프로비저닝 서비스와 통신할 수 있습니다.
@@ -45,7 +45,7 @@ Microsoft Azure IoT 디바이스 SDK에는 Azure IoT Hub 서비스에 연결되�
 
 .NET용 Azure IoT Hub 디바이스 SDK: 
 
-* [Nuget](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/)에서 다운로드하세요.  네임스페이스는 IoT Hub 디바이스 클라이언트(DeviceClient, ModuleClient)를 포함하는 Microsoft.Azure.Devices.Clients입니다.
+* [Nuget에서](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/)다운로드 .  네임스페이스는 IoT Hub 디바이스 클라이언트(DeviceClient, ModuleClient)를 포함하는 Microsoft.Azure.Devices.Clients입니다.
 * [소스 코드](https://github.com/Azure/azure-iot-sdk-csharp)
 * [API 참조](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices?view=azure-dotnet)
 * [모듈 참조](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet)
@@ -59,7 +59,7 @@ C(ANSI C - C99)용 Azure IoT Hub 디바이스 SDK:
 * [모듈 참조](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h)
 * [다른 플랫폼에 C SDK 이식](https://github.com/Azure/azure-c-shared-utility/blob/master/devdoc/porting_guide.md)
 * 교차 컴파일, 여러 플랫폼에서 시작하기 등에 대한 정보를 제공하는 [개발자 설명서](https://github.com/Azure/azure-iot-sdk-c/tree/master/doc)
-* [Azure IoT Hub C SDK 리소스 소비 정보](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/c_sdk_resource_information.md)
+* [Azure IoT 허브 C SDK 리소스 소비 정보](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/c_sdk_resource_information.md)
 
 Java용 Azure IoT Hub 디바이스 SDK: 
 
@@ -93,7 +93,7 @@ Azure IoT 서비스 SDK에는 디바이스와 보안을 관리하기 위해 IoT 
 
 .NET용 Azure IoT Hub 서비스 SDK:
 
-* [Nuget](https://www.nuget.org/packages/Microsoft.Azure.Devices/)에서 다운로드하세요.  네임스페이스는 IoT Hub 서비스 클라이언트(RegistryManager, ServiceClients)를 포함하는 Microsoft.Azure.Devices입니다.
+* [Nuget에서](https://www.nuget.org/packages/Microsoft.Azure.Devices/)다운로드 .  네임스페이스는 IoT Hub 서비스 클라이언트(RegistryManager, ServiceClients)를 포함하는 Microsoft.Azure.Devices입니다.
 * [소스 코드](https://github.com/Azure/azure-iot-sdk-csharp)
 * [API 참조](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices)
 
@@ -164,7 +164,7 @@ Python용 Azure 프로비저닝 디바이스 및 서비스 SDK:
 
 Azure IoT SDK는 개발을 도와주는 도구 집합도 제공합니다.
 * [iothub 진단](https://github.com/Azure/iothub-diagnostics): IoT Hub 연결 관련 문제를 진단할 수 있는 플랫폼 간 명령줄 도구입니다.
-* [azure-iot-탐색기](https://github.com/Azure/azure-iot-explorer): IoT Hub에 연결 하 고 iot 장치를 추가/관리/통신 하기 위한 플랫폼 간 데스크톱 응용 프로그램입니다.
+* [azure-iot-explorer](https://github.com/Azure/azure-iot-explorer): IoT Hub에 연결하고 IoT 장치와 추가/관리/통신하는 크로스 플랫폼 데스크톱 응용 프로그램입니다.
 
 Azure IoT SDK를 사용한 개발과 관련된 문서
 * IoT Hub 디바이스 SDK를 사용하여 [연결 및 신뢰할 수 있는 메시지를 관리하는 방법](iot-hub-reliability-features-in-sdks.md)에 대해 알아보세요.

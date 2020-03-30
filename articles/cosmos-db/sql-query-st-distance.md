@@ -1,21 +1,21 @@
 ---
-title: Azure Cosmos DB 쿼리 언어의 ST_DISTANCE
-description: Azure Cosmos DB의 SQL 시스템 함수 ST_DISTANCE에 대해 알아봅니다.
+title: Azure 코스모스 DB 쿼리 언어로 ST_DISTANCE
+description: Azure Cosmos DB에서 ST_DISTANCE SQL 시스템 기능에 대해 알아봅니다.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/12/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 972712d37c146ce288c49af7832919946f5503cd
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.openlocfilehash: 02844569137a46ea030b2189191b84a9db24ed22
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79297121"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79537298"
 ---
-# <a name="st_distance-azure-cosmos-db"></a>ST_DISTANCE (Azure Cosmos DB)
- 두 GeoJSON Point, Polygon, MultiPolygon 또는 LineString 식 사이의 거리를 반환 합니다. 자세히 알아보려면 [지리 공간적 및 GeoJSON location data](sql-query-geospatial-intro.md) 문서를 참조 하세요.
+# <a name="st_distance-azure-cosmos-db"></a>ST_DISTANCE (Azure 코스모스 DB)
+ 두 GeoJSON 점, 다각형, 다각형 또는 LineString 식 사이의 거리를 반환합니다. 자세한 내용은 지리 [공간 및 GeoJSON 위치 데이터](sql-query-geospatial-intro.md) 문서를 참조하십시오.
   
 ## <a name="syntax"></a>구문
   
@@ -34,7 +34,7 @@ ST_DISTANCE (<spatial_expr>, <spatial_expr>)
   
 ## <a name="examples"></a>예
   
-  다음 예에서는 `ST_DISTANCE` 기본 제공 함수를 사용 하 여 지정 된 위치에서 30km 이내에 있는 모든 패밀리 문서를 반환 하는 방법을 보여 줍니다. .  
+  다음 예제에서는 기본 제공 함수를 사용하여 지정된 위치에서 30km `ST_DISTANCE` 이내에 있는 모든 패밀리 문서를 반환하는 방법을 보여 주었습니다. .  
   
 ```sql
 SELECT f.id
@@ -52,10 +52,10 @@ WHERE ST_DISTANCE(f.location, {'type': 'Point', 'coordinates':[31.9, -4.8]}) < 3
 
 ## <a name="remarks"></a>설명
 
-이 시스템 함수는 [지리 공간적 인덱스](index-policy.md#spatial-indexes)를 활용 합니다.
+이 시스템 함수는 [지리 공간 인덱스의](index-policy.md#spatial-indexes)이점을 얻을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [공간 함수 Azure Cosmos DB](sql-query-spatial-functions.md)
-- [시스템 함수 Azure Cosmos DB](sql-query-system-functions.md)
-- [Azure Cosmos DB 소개](introduction.md)
+- [공간 함수 Azure 코스모스 DB](sql-query-spatial-functions.md)
+- [시스템 기능 Azure 코스모스 DB](sql-query-system-functions.md)
+- [Azure 코스모스 DB 소개](introduction.md)

@@ -1,22 +1,22 @@
 ---
 title: PowerShell 사용하여 Azure Application Insights 자동화 | Microsoft Docs
-description: Azure Resource Manager 템플릿을 사용 하 여 PowerShell에서 리소스, 경고 및 가용성 테스트 만들기 및 관리를 자동화 합니다.
+description: Azure 리소스 관리자 템플릿을 사용하여 PowerShell에서 리소스, 경고 및 가용성 테스트를 만들고 관리합니다.
 ms.topic: conceptual
 ms.date: 10/17/2019
 ms.openlocfilehash: 9494b659b5b4357f3190c45d8cc72c4e130f0ecc
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79275881"
 ---
-#  <a name="manage-application-insights-resources-using-powershell"></a>PowerShell을 사용 하 여 Application Insights 리소스 관리
+#  <a name="manage-application-insights-resources-using-powershell"></a>PowerShell을 사용하여 애플리케이션 인사이트 리소스 관리
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 이 문서에서는 Azure Resource Management를 사용하여 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 리소스의 생성 및 업데이트를 자동화하는 방법을 보여줍니다. 예를 들어 빌드 프로세스의 일부로 이 작업을 수행할 수 있습니다. 기본 Application Insights 리소스와 함께 [가용성 웹 테스트](../../azure-monitor/app/monitor-web-app-availability.md)를 만들고, [경고](../../azure-monitor/app/alerts.md)를 설정하고, [가격 책정 계층](pricing.md)을 설정하고, 기타 Azure 리소스를 만들 수 있습니다.
 
-이러한 리소스를 만드는 데 핵심 사항은 [Azure Resource Manager](../../azure-resource-manager/management/manage-resources-powershell.md)용 JSON 템플릿입니다. 기본 절차는 다음과 같습니다. 기존 리소스의 JSON 정의를 다운로드 합니다. 이름 등의 특정 값 매개 변수화 그런 다음 새 리소스를 만들려는 때마다 템플릿을 실행 합니다. 여러 리소스를 함께 패키지하여 모두 한꺼번에 만들 수 있습니다(예: 가용성 테스트, 경고 및 연속 내보내기에 대한 스토리지를 포함하는 앱 모니터). 일부 매개 변수화에 있는 약간의 미묘한 사항은 여기서 설명합니다.
+이러한 리소스를 만드는 데 핵심 사항은 [Azure Resource Manager](../../azure-resource-manager/management/manage-resources-powershell.md)용 JSON 템플릿입니다. 기본 절차는 다음과 같은 것입니다: 기존 리소스의 JSON 정의를 다운로드합니다. 이름과 같은 특정 값을 매개 변수화합니다. 그런 다음 새 리소스를 만들 때마다 템플릿을 실행합니다. 여러 리소스를 함께 패키지하여 모두 한꺼번에 만들 수 있습니다(예: 가용성 테스트, 경고 및 연속 내보내기에 대한 스토리지를 포함하는 앱 모니터). 일부 매개 변수화에 있는 약간의 미묘한 사항은 여기서 설명합니다.
 
 ## <a name="one-time-setup"></a>일 회 설정
 아직 Azure 구독에서 PowerShell을 사용한 적이 없을 경우:
@@ -26,29 +26,29 @@ ms.locfileid: "79275881"
 1. [Microsoft 웹 플랫폼 설치 관리자(v5 이상)](https://www.microsoft.com/web/downloads/platform.aspx)를 설치합니다.
 2. 이를 사용하여 Microsoft Azure Powershell을 설치합니다.
 
-리소스 관리자 템플릿 사용 외에도 Application Insights 리소스를 프로그래밍 방식으로 쉽게 구성할 수 있도록 하는 다양 한 [Application Insights PowerShell cmdlet](https://docs.microsoft.com/powershell/module/az.applicationinsights)이 있습니다. Cmdlet에 의해 활성화 되는 기능은 다음과 같습니다.
+리소스 관리자 템플릿을 사용하는 것 외에도 다양한 [응용 프로그램 인사이트 PowerShell cmdlet](https://docs.microsoft.com/powershell/module/az.applicationinsights)집합이 있어 응용 프로그램 인사이트 리소스를 프로그래밍 방식으로 쉽게 구성할 수 있습니다. cmdlet에 의해 활성화되는 기능은 다음과 같습니다.
 
-* Application Insights 리소스 만들기 및 삭제
-* Application Insights 리소스 및 해당 속성의 목록을 가져옵니다.
-* 연속 내보내기 만들기 및 관리
-* 응용 프로그램 키 만들기 및 관리
-* 일일 상한 설정
+* 애플리케이션 인사이트 리소스 생성 및 삭제
+* 애플리케이션 인사이트 리소스 및 해당 속성 목록 가져오기
+* 지속적인 내보내기 생성 및 관리
+* 응용 프로그램 키 생성 및 관리
+* 일일 캡 설정
 * 가격 책정 계획 설정
 
-## <a name="create-application-insights-resources-using-a-powershell-cmdlet"></a>PowerShell cmdlet을 사용 하 여 Application Insights 리소스 만들기
+## <a name="create-application-insights-resources-using-a-powershell-cmdlet"></a>PowerShell cmdlet을 사용하여 애플리케이션 인사이트 리소스 만들기
 
-[AzApplicationInsights](https://docs.microsoft.com/powershell/module/az.applicationinsights/New-AzApplicationInsights) cmdlet을 사용 하 여 Azure 미국 동부 데이터 센터에 새 Application Insights 리소스를 만드는 방법은 다음과 같습니다.
+[New-AzApplicationInsights](https://docs.microsoft.com/powershell/module/az.applicationinsights/New-AzApplicationInsights) cmdlet을 사용하여 Azure East Us 데이터 센터에서 새 응용 프로그램 인사이트 리소스를 만드는 방법은 다음과 같습니다.
 
 ```PS
 New-AzApplicationInsights -ResourceGroupName <resource group> -Name <resource name> -location eastus
 ```
 
 
-## <a name="create-application-insights-resources-using-a-resource-manager-template"></a>리소스 관리자 템플릿을 사용 하 여 Application Insights 리소스 만들기
+## <a name="create-application-insights-resources-using-a-resource-manager-template"></a>리소스 관리자 템플릿을 사용하여 응용 프로그램 인사이트 리소스 만들기
 
-리소스 관리자 템플릿을 사용 하 여 새 Application Insights 리소스를 만드는 방법은 다음과 같습니다.
+리소스 관리자 템플릿을 사용하여 새 응용 프로그램 인사이트 리소스를 만드는 방법은 다음과 같습니다.
 
-### <a name="create-the-azure-resource-manager-template"></a>Azure Resource Manager 템플릿 만들기
+### <a name="create-the-azure-resource-manager-template"></a>Azure 리소스 관리자 템플릿 만들기
 
 새 .json 파일을 만듭니다. 이 예제에서는 `template1.json`입니다. 아래 내용을 이 파일에 복사합니다.
 
@@ -186,11 +186,11 @@ New-AzApplicationInsights -ResourceGroupName <resource group> -Name <resource na
     }
 ```
 
-### <a name="use-the-resource-manager-template-to-create-a-new-application-insights-resource"></a>리소스 관리자 템플릿을 사용 하 여 새 Application Insights 리소스 만들기
+### <a name="use-the-resource-manager-template-to-create-a-new-application-insights-resource"></a>리소스 관리자 템플릿을 사용하여 새 응용 프로그램 인사이트 리소스 만들기
 
-1. PowerShell에서 `$Connect-AzAccount`를 사용 하 여 Azure에 로그인 합니다.
-2. 를 사용 하 여 컨텍스트를 구독으로 설정 `Set-AzContext "<subscription ID>"`
-2. 새 배포를 실행 하 여 새 Application Insights 리소스를 만듭니다.
+1. PowerShell에서 사용 하 여 Azure에 로그인`$Connect-AzAccount`
+2. 컨텍스트를 구독으로 설정합니다.`Set-AzContext "<subscription ID>"`
+2. 새 배포를 실행하여 새 응용 프로그램 인사이트 리소스를 만듭니다.
    
     ```PS
         New-AzResourceGroupDeployment -ResourceGroupName Fabrikam `
@@ -205,7 +205,7 @@ New-AzApplicationInsights -ResourceGroupName <resource group> -Name <resource na
 
 다른 매개 변수를 추가할 수 있습니다. 템플릿의 매개 변수 섹션에서 해당 설명을 찾을 수 있습니다.
 
-## <a name="get-the-instrumentation-key"></a>계측 키 가져오기
+## <a name="get-the-instrumentation-key"></a>계측 키 받기
 
 애플리케이션 리소스를 만든 후 계측 키가 필요할 수 있습니다. 
 
@@ -215,35 +215,35 @@ New-AzApplicationInsights -ResourceGroupName <resource group> -Name <resource na
 4. `$details = Get-AzResource -ResourceId $resource.ResourceId`
 5. `$details.Properties.InstrumentationKey`
 
-Application Insights 리소스의 여러 다른 속성 목록을 보려면 다음을 사용 합니다.
+Application Insights 리소스의 다른 많은 속성 목록을 보려면 다음을 사용합니다.
 
 ```PS
 Get-AzApplicationInsights -ResourceGroupName Fabrikam -Name FabrikamProd | Format-List
 ```
 
-Cmdlet을 통해 추가 속성을 사용할 수 있습니다.
+cmdlet을 통해 추가 속성을 사용할 수 있습니다.
 * `Set-AzApplicationInsightsDailyCap`
 * `Set-AzApplicationInsightsPricingPlan`
 * `Get-AzApplicationInsightsApiKey`
 * `Get-AzApplicationInsightsContinuousExport`
 
-이러한 cmdlet의 매개 변수에 대 한 [자세한 설명서](https://docs.microsoft.com/powershell/module/az.applicationinsights) 를 참조 하세요.  
+이러한 cmdlet에 대한 매개 변수에 대한 [자세한 설명서를](https://docs.microsoft.com/powershell/module/az.applicationinsights) 참조하십시오.  
 
 ## <a name="set-the-data-retention"></a>데이터 보존 설정 
 
-Application Insights 리소스에 대 한 현재 데이터 보존을 얻으려면 OSS 도구 [ARMClient](https://github.com/projectkudu/ARMClient)를 사용할 수 있습니다.  [David Ebbo](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) 및 [Daniel Bowbyes](https://blog.bowbyes.co.nz/2016/11/02/using-armclient-to-directly-access-azure-arm-rest-apis-and-list-arm-policy-details/)에서 ARMClient에 대해 자세히 알아보세요.  현재 보존을 얻기 위해 `ARMClient`를 사용 하는 예제는 다음과 같습니다.
+응용 프로그램 인사이트 리소스에 대한 현재 데이터 보존을 얻으려면 OSS 도구 [ARMClient를](https://github.com/projectkudu/ARMClient)사용할 수 있습니다.  (데이비드 [Ebbo와](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) [다니엘 보비즈에](https://blog.bowbyes.co.nz/2016/11/02/using-armclient-to-directly-access-azure-arm-rest-apis-and-list-arm-policy-details/)의해 기사에서 ARMClient에 대해 자세히 알아보기 .)  현재 보존을 얻으려면 `ARMClient`을 사용하는 예는 다음과 같습니다.
 
 ```PS
 armclient GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/microsoft.insights/components/MyResourceName?api-version=2018-05-01-preview
 ```
 
-보존을 설정 하기 위해 명령은 유사 하 게 배치 됩니다.
+보존을 설정하려면 명령은 비슷한 PUT입니다.
 
 ```PS
 armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/microsoft.insights/components/MyResourceName?api-version=2018-05-01-preview "{location: 'eastus', properties: {'retentionInDays': 365}}"
 ```
 
-위의 템플릿을 사용 하 여 데이터 보존을 365 일로 설정 하려면 다음을 실행 합니다.
+위의 템플릿을 사용하여 데이터 보존을 365일로 설정하려면 다음을 실행합니다.
 
 ```PS
 New-AzResourceGroupDeployment -ResourceGroupName "<resource group>" `
@@ -252,7 +252,7 @@ New-AzResourceGroupDeployment -ResourceGroupName "<resource group>" `
        -appName myApp
 ```
 
-다음 스크립트를 사용 하 여 보존 기간을 변경할 수도 있습니다. 이 스크립트를 복사 하 여 `Set-ApplicationInsightsRetention.ps1`로 저장 합니다.
+다음 스크립트를 사용하여 보존을 변경할 수도 있습니다. 이 스크립트를 복사하여 로 저장합니다. `Set-ApplicationInsightsRetention.ps1`
 
 ```PS
 Param(
@@ -302,7 +302,7 @@ $PutResponse = Invoke-RestMethod -Method "PUT" -Uri "$($RequestUri)" -Headers $H
 $PutResponse
 ```
 
-그런 다음이 스크립트를 다음과 같이 사용할 수 있습니다.
+그런 다음 이 스크립트를 다음과 같이 사용할 수 있습니다.
 
 ```PS
 Set-ApplicationInsightsRetention `
@@ -312,29 +312,29 @@ Set-ApplicationInsightsRetention `
         [-RetentionInDays <Int>]
 ```
 
-## <a name="set-the-daily-cap"></a>일일 상한 설정
+## <a name="set-the-daily-cap"></a>일일 캡 설정
 
-일일 상한 속성을 가져오려면 [AzApplicationInsightsPricingPlan](https://docs.microsoft.com/powershell/module/az.applicationinsights/Set-AzApplicationInsightsPricingPlan) cmdlet을 사용 합니다. 
+일일 캡 속성을 얻으려면 [Set-AzApplicationInsights가격 책정 계획](https://docs.microsoft.com/powershell/module/az.applicationinsights/Set-AzApplicationInsightsPricingPlan) cmdlet을 사용합니다. 
 
 ```PS
 Set-AzApplicationInsightsDailyCap -ResourceGroupName <resource group> -Name <resource name> | Format-List
 ```
 
-일일 상한 속성을 설정 하려면 동일한 cmdlet을 사용 합니다. 예를 들어 cap를 300 g b/일로 설정 하려면
+일일 캡 속성을 설정하려면 동일한 cmdlet을 사용합니다. 예를 들어, 캡을 일300GB로 설정하려면
 
 ```PS
 Set-AzApplicationInsightsDailyCap -ResourceGroupName <resource group> -Name <resource name> -DailyCapGB 300
 ```
 
-[ARMClient](https://github.com/projectkudu/ARMClient) 를 사용 하 여 일일 상한 매개 변수를 가져오고 설정할 수도 있습니다.  현재 값을 가져오려면 다음을 사용 합니다.
+[ARMClient를](https://github.com/projectkudu/ARMClient) 사용하여 일일 캡 매개 변수를 얻고 설정할 수도 있습니다.  현재 값을 얻으려면 다음을 사용합니다.
 
 ```PS
 armclient GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/microsoft.insights/components/MyResourceName/CurrentBillingFeatures?api-version=2018-05-01-preview
 ```
 
-## <a name="set-the-daily-cap-reset-time"></a>일일 상한 다시 설정 시간 설정
+## <a name="set-the-daily-cap-reset-time"></a>일일 한도 리셋 시간 설정
 
-일일 상한 다시 설정 시간을 설정 하려면 [ARMClient](https://github.com/projectkudu/ARMClient)를 사용 하면 됩니다. 다음은 `ARMClient`를 사용 하 여 다시 설정 된 시간을 새 시간 (이 예제에서는 12:00 UTC)으로 설정 하는 예제입니다.
+일일 한도 리셋 시간을 설정하려면 [ARMClient](https://github.com/projectkudu/ARMClient)를 사용할 수 있습니다. 을 사용하여 `ARMClient`재설정 시간을 새 시간으로 설정하는 예제는 다음과 같습니다(이 예제에서는 12:00 UTC).
 
 ```PS
 armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/microsoft.insights/components/MyResourceName/CurrentBillingFeatures?api-version=2018-05-01-preview "{'CurrentBillingFeatures':['Basic'],'DataVolumeCap':{'ResetTime':12}}"
@@ -343,19 +343,19 @@ armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/
 <a id="price"></a>
 ## <a name="set-the-pricing-plan"></a>가격 책정 계획 설정 
 
-현재 가격 책정 계획을 얻으려면 [AzApplicationInsightsPricingPlan](https://docs.microsoft.com/powershell/module/az.applicationinsights/Set-AzApplicationInsightsPricingPlan) cmdlet을 사용 합니다.
+현재 가격 책정 계획을 얻으려면 [설정-AzApplicationInsights가격 책정 계획](https://docs.microsoft.com/powershell/module/az.applicationinsights/Set-AzApplicationInsightsPricingPlan) cmdlet을 사용하십시오.
 
 ```PS
 Set-AzApplicationInsightsPricingPlan -ResourceGroupName <resource group> -Name <resource name> | Format-List
 ```
 
-가격 책정 계획을 설정 하려면 지정 된 `-PricingPlan`와 동일한 cmdlet을 사용 합니다.  
+가격 책정 계획을 설정하려면 지정된 cmdlet과 동일한 cmdlet을 `-PricingPlan` 사용합니다.  
 
 ```PS
 Set-AzApplicationInsightsPricingPlan -ResourceGroupName <resource group> -Name <resource name> -PricingPlan Basic
 ```
 
-위의 리소스 관리자 템플릿을 사용 하 여 기존 Application Insights 리소스에 대 한 가격 책정 계획을 설정할 수도 있습니다 .이 경우에는 "microsoft Insights/components" 리소스와 청구 리소스의 `dependsOn` 노드가 생략 됩니다. 예를 들어 GB 당 요금제 (이전의 기본 계획)로 설정 하려면 다음을 실행 합니다.
+위의 리소스 관리자 템플릿을 사용하여 기존 Application Insights 리소스에 대한 가격 책정 계획을 설정하고 청구 리소스에서 `dependsOn` "microsoft.insights/components" 리소스 및 노드를 생략할 수도 있습니다. 예를 들어 GB당 계획(이전의 기본 계획이라고 함)으로 설정하려면 다음을 실행합니다.
 
 ```PS
         New-AzResourceGroupDeployment -ResourceGroupName "<resource group>" `
@@ -364,36 +364,36 @@ Set-AzApplicationInsightsPricingPlan -ResourceGroupName <resource group> -Name <
                -appName myApp
 ```
 
-`priceCode`은 다음과 같이 정의 됩니다.
+`priceCode` 는 다음과 같이 정의됩니다.
 
 |priceCode|계획|
 |---|---|
-|1|GB 당 (이전의 기본 계획 이라고 명명)|
-|2|노드당 (이전에는 엔터프라이즈 계획 이름)|
+|1|GB당(이전 기본 계획이라고 도는)|
+|2|노드당(이전의 엔터프라이즈 계획 이름)|
 
-마지막으로 [ARMClient](https://github.com/projectkudu/ARMClient) 를 사용 하 여 가격 책정 계획과 일일 상한 매개 변수를 가져오고 설정할 수 있습니다.  현재 값을 가져오려면 다음을 사용 합니다.
+마지막으로 [ARMClient를](https://github.com/projectkudu/ARMClient) 사용하여 가격 계획 및 일일 한도 매개 변수를 얻고 설정할 수 있습니다.  현재 값을 얻으려면 다음을 사용합니다.
 
 ```PS
 armclient GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/microsoft.insights/components/MyResourceName/CurrentBillingFeatures?api-version=2018-05-01-preview
 ```
 
-다음을 사용 하 여 이러한 모든 매개 변수를 설정할 수 있습니다.
+그리고 다음을 사용하여 이러한 모든 매개 변수를 설정할 수 있습니다.
 
 ```PS
 armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/microsoft.insights/components/MyResourceName/CurrentBillingFeatures?api-version=2018-05-01-preview
 "{'CurrentBillingFeatures':['Basic'],'DataVolumeCap':{'Cap':200,'ResetTime':12,'StopSendNotificationWhenHitCap':true,'WarningThreshold':90,'StopSendNotificationWhenHitThreshold':true}}"
 ```
 
-일일 한도를 200 g b/일로 설정 하 고, 일일 캡 다시 설정 시간을 12:00 UTC로 구성 하 고, cap에 도달 하 여 경고 수준이 충족 되 면 전자 메일을 보내고, 경고 임계값을 cap의 90%로 설정 합니다.  
+이렇게 하면 일일 한도가 200GB/일로 설정되고, 일일 상한 재설정 시간을 12:00 UTC로 구성하고, 캡이 적중하고 경고 수준이 충족될 때 전자 메일을 보내고, 경고 임계값을 한도의 90%로 설정합니다.  
 
 ## <a name="add-a-metric-alert"></a>메트릭 경고 추가
 
-메트릭 경고 만들기를 자동화 하려면 [메트릭 경고 템플릿 문서](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates#template-for-a-simple-static-threshold-metric-alert) 를 참조 하세요.
+메트릭 경고 생성을 자동화하려면 메트릭 [경고 템플릿 문서를 참조하십시오.](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates#template-for-a-simple-static-threshold-metric-alert)
 
 
 ## <a name="add-an-availability-test"></a>가용성 테스트 추가
 
-가용성 테스트를 자동화 하려면 [메트릭 경고 템플릿 문서](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates#template-for-an-availability-test-along-with-a-metric-alert)를 참조 하세요.
+가용성 테스트를 자동화하려면 메트릭 [경고 템플릿 문서를](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates#template-for-an-availability-test-along-with-a-metric-alert)참조하십시오.
 
 ## <a name="add-more-resources"></a>리소스 추가
 
@@ -411,11 +411,11 @@ armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/
    * `InstrumentationKey`
    * `CreationDate`
    * `TenantId`
-4. `webtests` 및 `alertrules` 섹션을 열고 개별 항목에 대 한 JSON을 템플릿에 복사 합니다. `webtests` 또는 `alertrules` 노드에서 복사 하지 않습니다. 아래 항목으로 이동 합니다.
+4. `webtests` 및 `alertrules` 섹션을 열고 개별 항목에 대한 JSON을 템플릿에 복사합니다. `webtests` (또는 `alertrules` 노드에서 복사하지 마십시오: 그 아래에 있는 항목으로 이동합니다.)
    
     각 웹 테스트에는 연결된 경고 규칙이 있으므로 둘 다 복사해야 합니다.
    
-    메트릭에 대한 경고를 포함할 수도 있습니다. [메트릭 이름](powershell-alerts.md#metric-names)
+    메트릭에 대한 경고를 포함할 수도 있습니다. [메트릭 이름](powershell-alerts.md#metric-names).
 5. 각 리소스에 다음 줄을 삽입합니다.
    
     `"apiVersion": "2015-05-01",`
@@ -456,6 +456,6 @@ Azure에서는 엄격한 순서로 리소스를 설정해야 합니다. 다음 �
 * [Application Insights 리소스 만들기](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource#creating-a-resource-automatically) - 템플릿을 사용하지 않는 빠른 방법입니다.
 * [경고 설정](powershell-alerts.md)
 * [웹 테스트 만들기](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/)
-* [Application Insights에 Azure Diagnostics 보내기](powershell-azure-diagnostics.md)
+* [응용 프로그램 인사이트로 Azure 진단 프로그램 보내기](powershell-azure-diagnostics.md)
 * [GitHub에서 Azure로 배포](https://blogs.msdn.com/b/webdev/archive/2015/09/16/deploy-to-azure-from-github-with-application-insights.aspx)
 * [릴리스 주석 만들기](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)

@@ -1,6 +1,6 @@
 ---
 title: 규모에 맞게 ETL(추출, 변환 및 로드) - Azure HDInsight
-description: Apache Hadoop를 사용 하 여 HDInsight에서 추출, 변환 및 로드를 사용 하는 방법에 대해 알아봅니다.
+description: 아파치 하눕과 함께 HDInsight에서 추출, 변환 및 부하가 어떻게 사용되는지 알아보십시오.
 author: ashishthaps
 ms.author: ashishth
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 03/03/2020
-ms.openlocfilehash: 8a4205002a98a5b9670839b0de7b53d81e0221a6
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: f4be3343f090c4d31ccb85eba8e99f22a3b1fcae
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78271925"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79529478"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>규모에 맞게 ETL(추출, 변환 및 로드)
 
@@ -21,7 +21,7 @@ ETL(추출, 변환 및 로드)은 다양한 원본에서 데이터를 가져오�
 
 ETL 프로세스에서 HDInsight를 사용하는 방법은 다음과 같은 파이프라인으로 요약할 수 있습니다.
 
-![대규모 HDInsight ETL 개요 개요](./media/apache-hadoop-etl-at-scale/hdinsight-etl-at-scale-overview.png)
+![규모의 HDInsight ETL 개요](./media/apache-hadoop-etl-at-scale/hdinsight-etl-at-scale-overview.png)
 
 다음 섹션에서는 ETL 단계 및 관련 구성 요소 각각에 대해 살펴봅니다.
 
@@ -39,7 +39,7 @@ Apache Oozie는 Hadoop 작업을 관리하는 워크플로 조정 시스템입�
 
 ### <a name="azure-data-factory"></a>Azure 데이터 팩터리
 
-Azure Data Factory는 오케스트레이션 기능을 PaaS(Platform as a Service ) 형태로 제공합니다. 데이터 이동 및 데이터 변환을 오케스트레이션 하 고 자동화 하기 위해 클라우드에서 데이터 기반 워크플로를 만들 수 있는 클라우드 기반 데이터 통합 서비스입니다.
+Azure Data Factory는 오케스트레이션 기능을 PaaS(Platform as a Service ) 형태로 제공합니다. 클라우드 기반 데이터 통합 서비스로 데이터 이동 및 데이터 변환을 오케스트레이션하고 자동화하기 위해 클라우드에서 데이터 기반 워크플로를 만들 수 있습니다.
 
 Azure Data Factory를 사용하면 다음을 수행할 수 있습니다.
 
@@ -51,11 +51,11 @@ Azure Data Factory에 대한 자세한 내용은 [이 설명서](../../data-fact
 
 ## <a name="ingest-file-storage-and-result-storage"></a>파일 스토리지 및 결과 스토리지 수집
 
-원본 데이터 파일은 일반적으로 Azure Storage 또는 Azure Data Lake Storage의 한 위치에 로드됩니다. 파일은 어떤 형식이 든 될 수 있지만 일반적으로 Csv와 같은 플랫 파일입니다.
+원본 데이터 파일은 일반적으로 Azure Storage 또는 Azure Data Lake Storage의 한 위치에 로드됩니다. 파일은 모든 형식일 수 있지만 일반적으로 CSV와 같은 플랫 파일입니다.
 
 ### <a name="azure-storage"></a>Azure Storage
 
-[Azure Storage](https://azure.microsoft.com/services/storage/blobs/) 에는 특정 확장성 목표가 있습니다. 자세한 내용은 [Azure 스토리지의 확장성 및 성능 목표](../../storage/blobs/scalability-targets.md)를 참조하세요. 대부분의 분석 노드의 경우 Azure Storage에서 더 작은 파일을 많이 처리할 때 그 크기가 가장 효율적으로 조정됩니다.  Azure Storage는 파일 수 또는 파일 크기에 관계 없이(한도 내에서) 동일한 성능을 보장합니다.  즉, 데이터의 하위 집합 또는 모든 데이터를 사용 하 든 관계 없이 tb의 데이터를 저장 하 고 일관 된 성능을 얻을 수 있습니다.
+[Azure 저장소에는](https://azure.microsoft.com/services/storage/blobs/) 특정 확장성 대상이 있습니다. 자세한 내용은 [Azure 스토리지의 확장성 및 성능 목표](../../storage/blobs/scalability-targets.md)를 참조하세요. 대부분의 분석 노드의 경우 Azure Storage에서 더 작은 파일을 많이 처리할 때 그 크기가 가장 효율적으로 조정됩니다.  Azure Storage는 파일 수 또는 파일 크기에 관계 없이(한도 내에서) 동일한 성능을 보장합니다.  즉, 데이터의 하위 집합을 사용하든 모든 데이터를 사용하든 테라바이트 의 데이터를 저장하고 일관된 성능을 얻을 수 있습니다.
 
 Azure Storage에는 여러 가지 유형의 Blob이 있습니다.  *추가 Blob*은 웹 로그 또는 센서 데이터를 저장하는 데 유용한 옵션입니다.  
 
@@ -65,7 +65,7 @@ Azure Storage에는 여러 가지 유형의 Blob이 있습니다.  *추가 Blob*
 
 데이터는 일반적으로 PowerShell, Azure Storage SDK 또는 AZCopy를 사용하여 Azure Storage로 수집됩니다.
 
-### <a name="azure-data-lake-storage"></a>Azure Data Lake 스토리지
+### <a name="azure-data-lake-storage"></a>Azure Data Lake Storage
 
 ADLS(Azure Data Lake Storage)는 HDFS와 호환되는 분석 데이터를 위한 관리되는 하이퍼스케일 리포지토리입니다.  ADLS는 HDFS와 비슷한 디자인 패러다임을 사용하며, 총 용량 및 개별 파일 크기 측면에서 무제한의 확장성을 제공합니다. ADLS는 큰 파일을 여러 노드에 걸쳐 저장할 수 있으므로 큰 파일로 작업할 때 매우 유용합니다.  ADLS에서 데이터를 분할하는 작업은 백그라운드에서 수행됩니다.  수백 테라바이트의 데이터를 효율적으로 읽고 쓰는 수천 개의 동시 실행기를 사용하여 분석 작업을 실행하는 대규모 처리량을 얻을 수 있습니다.
 
@@ -85,7 +85,7 @@ ADLS(Azure Data Lake Storage)는 HDFS와 호환되는 분석 데이터를 위한
 
 Azure SQL DW(SQL Data Warehouse)는 향후 분석을 위해 정리되고 준비된 결과를 저장하는 데 매우 적합합니다.  Azure HDInsight는 Azure SQL DW에 대해 이러한 서비스를 수행하는 데 사용할 수 있습니다.
 
-Azure SQL DW는 분석 작업에 최적화된 관계형 데이터베이스 저장소입니다.  Azure SQL DW의 크기는 분할된 테이블에 따라 조정됩니다.  테이블은 여러 노드에 걸쳐 분할될 수 있습니다.  Azure SQL DW 노드는 테이블을 만들 때 선택됩니다.  사후에 크기를 조정할 수 있지만, 이 경우 데이터 이동이 필요할 수 있는 활성 프로세스입니다. 자세한 내용은 [SQL Data Warehouse-계산 관리](../../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)를 참조 하세요.
+Azure SQL DW는 분석 작업에 최적화된 관계형 데이터베이스 저장소입니다.  Azure SQL DW의 크기는 분할된 테이블에 따라 조정됩니다.  테이블은 여러 노드에 걸쳐 분할될 수 있습니다.  Azure SQL DW 노드는 테이블을 만들 때 선택됩니다.  사후에 크기를 조정할 수 있지만, 이 경우 데이터 이동이 필요할 수 있는 활성 프로세스입니다. 자세한 내용은 [SQL 데이터 웨어하우스 - 계산 관리](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)를 참조하십시오.
 
 ### <a name="apache-hbase"></a>Apache HBase
 
@@ -105,7 +105,7 @@ Azure는 PAAS(Platform-as-a-Service)와 같은 별도의 세 가지 관계형 �
 * [Azure Database for MySQL](../../mysql/overview.md)은 Oracle MySQL을 구현한 데이터베이스입니다.
 * [Azure Database for PostgreSQL](../../postgresql/quickstart-create-server-database-portal.md)은 PostgreSQL을 구현한 데이터베이스입니다.
 
-이러한 제품은 확장 됩니다. 즉, CPU와 메모리를 더 추가 하 여 크기를 조정 합니다.  또한 I/O 성능을 향상시키기 위해 제품과 함께 프리미엄 디스크를 사용하도록 선택할 수도 있습니다.
+이러한 제품은 확장되므로 CPU와 메모리를 더 추가하여 확장됩니다.  또한 I/O 성능을 향상시키기 위해 제품과 함께 프리미엄 디스크를 사용하도록 선택할 수도 있습니다.
 
 ## <a name="azure-analysis-services"></a>Azure Analysis Services
 
@@ -127,14 +127,14 @@ Sqoop은 MapReduce를 사용하여 데이터를 가져오고 내보내고, 병�
 
 Apache Flume은 대량의 로그 데이터를 효율적으로 수집, 집계 및 이동하기 위해 안정적으로 사용할 수 있는 분산 서비스입니다. Flume은 스트리밍 데이터 흐름에 기반한 간단하고 유연한 아키텍처입니다. Flume은 튜닝할 수 있는 안정성 메커니즘과 다양한 장애 조치 및 복구 메커니즘을 통해 내결함성이 있는 강력한 도구입니다. Flume은 온라인 분석 애플리케이션을 허용하는 확장 가능한 간단한 데이터 모델을 사용합니다.
 
-Apache Flume는 Azure HDInsight와 함께 사용할 수 없습니다.  온-프레미스 Hadoop 설치에서는 Flume을 사용하여 Azure Storage Blob 또는 Azure Data Lake Storage에 데이터를 보낼 수 있습니다.  자세한 내용은 [HDInsight와 함께 Apache Flume 사용](https://web.archive.org/web/20190217104751/https://blogs.msdn.microsoft.com/bigdatasupport/2014/03/18/using-apache-flume-with-hdinsight/)을 참조하세요.
+아파치 수로는 Azure HDInsight와 함께 사용할 수 없습니다.  온-프레미스 Hadoop 설치에서는 Flume을 사용하여 Azure Storage Blob 또는 Azure Data Lake Storage에 데이터를 보낼 수 있습니다.  자세한 내용은 [HDInsight와 함께 Apache Flume 사용](https://web.archive.org/web/20190217104751/https://blogs.msdn.microsoft.com/bigdatasupport/2014/03/18/using-apache-flume-with-hdinsight/)을 참조하세요.
 
 ## <a name="transform"></a>변환
 
-선택한 위치에 데이터가 있으면 특정 사용 패턴에 맞게 데이터를 정리, 결합 또는 준비해야 합니다.  Hive, Pig 및 Spark SQL은 모두 이러한 종류의 작업에 적합합니다.  HDInsight에서 모두 지원 됩니다.
+선택한 위치에 데이터가 있으면 특정 사용 패턴에 맞게 데이터를 정리, 결합 또는 준비해야 합니다.  Hive, Pig 및 Spark SQL은 모두 이러한 종류의 작업에 적합합니다.  모두 HDInsight에서 지원됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [Apache Hive를 ETL 도구로 사용](apache-hadoop-using-apache-hive-as-an-etl-tool.md)
 * [Azure HDInsight 클러스터에 Azure Data Lake Storage Gen2 사용](../hdinsight-hadoop-use-data-lake-storage-gen2.md)
-* [Azure SQL Database에서 Apache Hive 테이블로 데이터 이동](./apache-hadoop-use-sqoop-mac-linux.md)
+* [Azure SQL 데이터베이스에서 아파치 하이브 테이블로 데이터 이동](./apache-hadoop-use-sqoop-mac-linux.md)

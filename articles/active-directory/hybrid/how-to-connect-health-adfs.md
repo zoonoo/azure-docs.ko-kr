@@ -19,14 +19,14 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bbd1ad6178e0120bf8414fc424b79254e306d2c2
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79261568"
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>Azure AD Connect Health를 사용하여 AD FS 모니터링
-다음 문서는 AZure AD Connect Health와 함께 AD FS 인프라 모니터링에 중점을 둡니다. Azure AD Connect Health에서 Azure AD Connect (동기화)를 모니터링 하는 방법에 대 한 자세한 내용은 [동기화에 Azure AD Connect Health 사용](how-to-connect-health-sync.md)을 참조 하세요. 또한 Azure AD Connect Health Active Directory Domain Services 모니터링에 대 한 자세한 내용은 AD DS에서 [Azure AD Connect Health 사용](how-to-connect-health-adds.md)을 참조 하세요.
+다음 문서는 AZure AD Connect Health와 함께 AD FS 인프라 모니터링에 중점을 둡니다. Azure AD 연결 상태와 Azure AD 연결(동기화) 모니터링에 대한 자세한 내용은 [동기화에 Azure AD 연결 상태 사용을](how-to-connect-health-sync.md)참조하십시오. 또한 Azure AD Connect 상태를 사용하여 Active Directory 도메인 서비스를 모니터링하는 방법에 대한 자세한 내용은 [Azure AD Connect 상태를 AD DS와 함께 사용](how-to-connect-health-adds.md)하십시오.
 
 ## <a name="alerts-for-ad-fs"></a>AD FS의 경고
 Azure AD Connect Health 경고 섹션은 활성 경고 목록을 제공합니다. 각 경고에는 관련 정보, 해결 단계 및 관련된 설명서 링크가 포함됩니다.
@@ -108,7 +108,7 @@ Azure AD Connect Health for ADFS는 사용자 이름 또는 암호가 잘못되�
 
 이 보고서는 다음 정보를 제공합니다.
 
-| 보고서 항목 | Description |
+| 보고서 항목 | 설명 |
 | --- | --- |
 | 사용자 ID |사용된 사용자 ID를 표시합니다. 이것은 사용자가 입력한 값이며, 잘못된 사용자 ID가 사용되는 경우도 있습니다. |
 | 실패한 시도 |특정 사용자 ID에 대한 총 실패 횟수를 보여 줍니다. 테이블은 가장 높은 실패 횟수부터 내림차순으로 정렬됩니다. |

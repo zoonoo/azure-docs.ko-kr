@@ -1,18 +1,18 @@
 ---
 title: Azure IoT Hub 고가용성 및 재해 복구 | Microsoft Docs
 description: 재해 복구 기능을 사용하여 고가용성 Azure IoT 솔루션을 빌드할 수 있도록 지원하는 Azure and IoT Hub 기능을 설명합니다.
-author: rkmanda
+author: jlian
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 08/21/2019
+ms.date: 03/17/2020
 ms.author: philmea
-ms.openlocfilehash: 173be8207df2f0128dfc9ae3c36aa3c3dc392bee
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 615dc1b7bd1a31069a542ebb7ea44693c404cb40
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79271071"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79499103"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>IoT Hub 고가용성 및 재해 복구
 
@@ -32,7 +32,7 @@ IoT 솔루션에 대해 정의한 가동 시간 목표에 따라 아래에 설�
 
 ## <a name="intra-region-ha"></a>역내 HA
 
-IoT Hub 서비스는 거의 모든 서비스 계층에서 중복성을 구현하여 역내 HA를 제공합니다. [IoT Hub 서비스에 의해 게시된 SLA](https://azure.microsoft.com/support/legal/sla/iot-hub)는 이러한 중복성을 통해 구현됩니다. IoT 솔루션 개발자는 추가적인 작업 없이 이러한 HA 특성을 활용할 수 있습니다. IoT Hub는 비교적 높은 가동 시간을 보장하지만 분산 컴퓨팅 플랫폼에서와 마찬가지로 일시적인 오류는 여전히 발생합니다. 온-프레미스 솔루션에서 솔루션을 클라우드로 마이그레이션하는 작업을 시작 하는 경우 "오류 간 평균 시간"에서 "평균 복구 시간"까지 포커스를 이동 해야 합니다. 즉, 클라우드 혼합 운영 중에 일시적 오류는 정상적인 것으로 간주됩니다. 일시적 오류 처리를 위해 클라우드 애플리케이션과 상호 작용하는 적절한 [다시 시도 정책](iot-hub-reliability-features-in-sdks.md)을 구성해야 합니다.
+IoT Hub 서비스는 거의 모든 서비스 계층에서 중복성을 구현하여 역내 HA를 제공합니다. [IoT Hub 서비스에 의해 게시된 SLA](https://azure.microsoft.com/support/legal/sla/iot-hub)는 이러한 중복성을 통해 구현됩니다. IoT 솔루션 개발자는 추가적인 작업 없이 이러한 HA 특성을 활용할 수 있습니다. IoT Hub는 비교적 높은 가동 시간을 보장하지만 분산 컴퓨팅 플랫폼에서와 마찬가지로 일시적인 오류는 여전히 발생합니다. 온-프레미스 솔루션에서 클라우드로 솔루션을 마이그레이션하는 것을 막 시작하는 경우 "오류 간 평균 시간"을 최적화하는 것에서 "평균 복구 시간"으로 전환해야 합니다. 즉, 클라우드 혼합 운영 중에 일시적 오류는 정상적인 것으로 간주됩니다. 일시적 오류 처리를 위해 클라우드 애플리케이션과 상호 작용하는 적절한 [다시 시도 정책](iot-hub-reliability-features-in-sdks.md)을 구성해야 합니다.
 
 > [!NOTE]
 > 또한 일부 Azure 서비스는 [AZ(가용성 영역)](../availability-zones/az-overview.md)과의 통합을 통해 영역 내에서 추가적인 가용성 게층을 제공합니다. AZ는 현재 IoT Hub 서비스에서 지원되지 않습니다.
@@ -41,7 +41,7 @@ IoT Hub 서비스는 거의 모든 서비스 계층에서 중복성을 구현하
 
 데이터 센터에서 정전 또는 물리적 자산 관련 오류로 인해 중단 시간이 늘어나는 경우도 드물지만 있을 수 있습니다. 이러한 이벤트는 드물며, 위에서 설명한 역내 HA가 도움이 되지 못할 수도 있습니다. IoT Hub는 이렇게 늘어난 가동 중단에서의 복구를 위한 여러 솔루션을 제공합니다. 
 
-이러한 상황에서 고객이 사용할 수 있는 복구 옵션은 [Microsoft에서 시작한 장애 조치 (failover](#microsoft-initiated-failover) ) 및 [수동 장애 조치 (failover)](#manual-failover)입니다. 두 옵션 사이의 기본적인 차이점은 전자는 Microsoft가, 후자는 사용자가 시작하는 점입니다. 또한 수동 장애 조치(failover)는 Microsoft 시작 장애 조치(failover)보다 RTO(복구 시간 목표)가 더 낮습니다. 각 옵션에서 제공하는 특정 RTO는 아래 섹션에서 설명합니다. 이 옵션 중 하나가 주 지역의 IoT Hub 장애 조치(failover)를 실행할 때 허브는 해당 [Azure 지역과 쌍을 이루는 지역](../best-practices-availability-paired-regions.md)에서 완전히 작동하게 됩니다.
+이러한 상황에서 고객이 사용할 수 있는 복구 옵션은 [Microsoft에서 시작한 장애 조치(failover)](#microsoft-initiated-failover) 및 [수동 장애 조치입니다.](#manual-failover) 두 옵션 사이의 기본적인 차이점은 전자는 Microsoft가, 후자는 사용자가 시작하는 점입니다. 또한 수동 장애 조치(failover)는 Microsoft 시작 장애 조치(failover)보다 RTO(복구 시간 목표)가 더 낮습니다. 각 옵션에서 제공하는 특정 RTO는 아래 섹션에서 설명합니다. 이 옵션 중 하나가 주 지역의 IoT Hub 장애 조치(failover)를 실행할 때 허브는 해당 [Azure 지역과 쌍을 이루는 지역](../best-practices-availability-paired-regions.md)에서 완전히 작동하게 됩니다.
 
 두 장애 조치(failover) 옵션 모두 다음 RPO(복구 지점 목표)를 제공합니다.
 
@@ -55,14 +55,14 @@ IoT Hub 서비스는 거의 모든 서비스 계층에서 중복성을 구현하
 | 작업 모니터링 메시지 |읽지 않은 메시지가 모두 손실됨 |
 | 클라우드-디바이스 피드백 메시지 |읽지 않은 메시지가 모두 손실됨 |
 
-<sup>1</sup> 클라우드-장치 메시지 및 부모 작업은 수동 장애 조치 (failover)의 일부로 복구 되지 않습니다.
+<sup>1개</sup> 클라우드-장치 메시지 및 상위 작업은 수동 장애 조치의 일부로 복구되지 않습니다.
 
-IoT Hub에 대한 장애 조치(failover) 작업이 완료되면 해당 디바이스와 백엔드 애플리케이션의 모든 작업이 수동 개입 없이 계속 작동해야 합니다. 즉, 장치-클라우드 메시지는 계속 작동 하 고 전체 장치 레지스트리는 그대로 유지 되어야 합니다. Event Grid를 통해 내보낸 이벤트는 해당 Event Grid 구독을 계속 사용할 수 있는 한 이전에 구성 된 동일한 구독을 통해 사용 될 수 있습니다.
+IoT Hub에 대한 장애 조치(failover) 작업이 완료되면 해당 디바이스와 백엔드 애플리케이션의 모든 작업이 수동 개입 없이 계속 작동해야 합니다. 즉, 장치-클라우드 메시지는 계속 작동해야 하며 전체 장치 레지스트리는 그대로 유지됩니다. 이벤트 그리드를 통해 내보낸 이벤트는 이벤트 그리드 구독을 계속 사용할 수 있는 한 이전에 구성된 동일한 구독을 통해 사용할 수 있습니다.
 
 > [!CAUTION]
-> - 장애 조치(failover) 후에는 Event Hub 호환 이름 및 IoT Hub 기본 제공 이벤트 엔드포인트가 변경됩니다. 이벤트 허브 클라이언트나 이벤트 프로세서 호스트를 사용하여 기본 제공 엔드포인트로부터 원격 분석 메시지를 수신할 때는 [IoT Hub 연결 문자열](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint)을 사용하여 연결을 설정해야 합니다. 이를 통해 장애 조치(failover) 후에 수동 개입 없이 백엔드 애플리케이션이 계속 작동하게 됩니다. 백엔드 애플리케이션에서 직접 Event Hub 호환 이름과 엔드포인트를 사용할 경우, 계속 작동하려면 장애 조치(failover) 후 [새 Event Hub 호환 이름 및 엔드포인트를 페치하여](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) 애플리케이션을 다시 구성해야 합니다.
+> - 장애 조치 후 IoT Hub 기본 제공 이벤트 끝점의 이벤트 허브 호환 이름과 끝점이 변경되고 구성된 소비자 그룹이 제거됩니다(2020년 5월 이전에 수정되는 버그임). Event Hub 클라이언트 또는 이벤트 프로세서 호스트를 사용하여 기본 제공 끝점에서 원격 분석 메시지를 받을 [때는 IoT 허브 연결 문자열을 사용하여](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) 연결을 설정해야 합니다. 이를 통해 장애 조치(failover) 후에 수동 개입 없이 백엔드 애플리케이션이 계속 작동하게 됩니다. 응용 프로그램에서 Event Hub 호환 이름과 끝점을 직접 사용하는 경우 [사용하는 소비자 그룹을 다시 구성하고](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) 장애 조치 후 새 Event Hub 호환 끝점을 가져와 작업을 계속해야 합니다. Azure Functions 또는 Azure 스트림 분석을 사용하여 기본 제공 끝점을 연결하는 경우 **다시 시작을**수행해야 할 수 있습니다.
 >
-> - 저장소로 라우팅할 때 blob 또는 파일을 나열 하 고이를 반복 하 여 파티션을 가정 하지 않고 모든 blob 또는 파일을 읽을 수 있습니다. Microsoft에서 시작한 장애 조치 (failover) 또는 수동 장애 조치 (failover) 중에 파티션 범위가 변경 될 수 있습니다. [목록 BLOB api](https://docs.microsoft.com/rest/api/storageservices/list-blobs) 를 사용 하 여 파일 목록에 대 한 Blob 또는 [목록 ADLS Gen2 api](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/list) 목록을 열거할 수 있습니다. 
+> - 저장소로 라우팅할 때는 파티션을 가정하지 않고 모든 Blob 또는 파일을 읽을 수 있도록 Blob 또는 파일을 나열한 다음 반복하는 것이 좋습니다. Microsoft에서 시작한 장애 조치 또는 수동 장애 조치 중에 파티션 범위가 변경될 수 있습니다. [Blob 목록 API를](https://docs.microsoft.com/rest/api/storageservices/list-blobs) 사용하여 파일 목록에 대한 Blob 목록을 열거하거나 [ADLS Gen2 API 를 나열할](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/list) 수 있습니다. 
 
 ## <a name="microsoft-initiated-failover"></a>Microsoft 시작 장애 조치
 
@@ -72,14 +72,19 @@ Microsoft가 해당 지역의 영양을 받는 모든 고객을 대신해 장애
 
 ## <a name="manual-failover"></a>수동 장애 조치(failover)
 
-Microsoft에서 시작한 장애 조치 (failover)가 제공 하는 RTO에의 한 비즈니스 작동 시간 목표가 충족 되지 않는 경우 수동 장애 조치 (failover)를 사용 하 여 장애 조치 프로세스를 직접 이 옵션 사용의 RTO는 10분에서 몇 시간 사이입니다. RTO는 현재 장애 조치(failover)되는 IoT Hub에 대해 등록된 디바이스 수의 함수입니다. 약 100,000대의 디바이스를 호스팅하는 허브의 RTO는 15분 전후로 예상할 수 있습니다. 이 프로세스가 트리거된 후 런타임 작업이 완전히 작동하게 되는 총 시간은 "복구 시간" 섹션에서 설명합니다.
+Microsoft에서 장애 조치(failover)가 시작한 RTO에 의해 비즈니스 가동 시간 목표가 충족되지 않는 경우 수동 장애 조치(failover)를 사용하여 장애 조치 프로세스를 직접 트리거하는 것이 좋습니다. 이 옵션 사용의 RTO는 10분에서 몇 시간 사이입니다. RTO는 현재 장애 조치(failover)되는 IoT Hub에 대해 등록된 디바이스 수의 함수입니다. 약 100,000대의 디바이스를 호스팅하는 허브의 RTO는 15분 전후로 예상할 수 있습니다. 이 프로세스가 트리거된 후 런타임 작업이 완전히 작동하게 되는 총 시간은 "복구 시간" 섹션에서 설명합니다.
 
 수동 장애 조치(failover) 옵션은 주 지역의 가동 중지 시간 발생 여부에 관계없이 항상 사용할 수 있습니다. 따라서 이 옵션을 통해 계획된 장애 조치(failover)를 수행하는 데 사용할 수 있습니다. 계획된 장애 조치(Failover)의 한 사용 예로 정기 장애 조치(failover) 훈련을 들 수 있습니다. 그러나 계획된 장애 조치(Failover) 작업은 이 옵션에 대한 RTO에서 정의한 기간에 대해 허브 가동 중지 시간이 발생하고 위의 RPO 테이블에서 정의한 데이터 손실을 초래합니다. 실제 재해가 발생했을 때 엔드투엔드 솔루션이 가동되어 실행되는 상태를 확실히 유지할 수 있도록 주기적으로 계획된 장애 조치(failover) 옵션을 실행하는 테스트 IoT Hub 인스턴스를 설정할 수 있습니다.
 
-> [!IMPORTANT]
-> - 프로덕션 환경에서 사용 중인 IoT Hub에서는 테스트 훈련을 수행하면 안 됩니다.
->
-> - 수동 장애 조치(failover)는 Azure 지역 쌍을 이루는 지역 간에 허브를 영구적으로 마이그레이션하는 메커니즘으로 사용하지 않아야 합니다. 이렇게 하면 이전 주 지역에 상주하는 디바이스로부터 허브에 대해 작업을 수행하는 데 대기 시간이 길어집니다.
+단계별 지침은 [자습서: IoT 허브에 대한 수동 장애 조치 수행 을](tutorial-manual-failover.md) 참조하십시오.
+
+### <a name="running-test-drills"></a>테스트 드릴 실행
+
+프로덕션 환경에서 사용 중인 IoT Hub에서는 테스트 훈련을 수행하면 안 됩니다.
+
+### <a name="dont-use-manual-failover-to-migrate-iot-hub-to-a-different-region"></a>수동 장애 조치(failover)를 사용하여 IoT 허브를 다른 리전으로 마이그레이션하지 마십시오.
+
+수동 장애 조치(failover)는 Azure 지리적 으로 쌍을 이루는 영역 간에 허브를 영구적으로 마이그레이션하는 메커니즘으로 *사용해서는* 안 됩니다. 이렇게 하면 이전 기본 지역에 있는 장치에서 IoT 허브에 대해 수행되는 작업에 대한 대기 시간이 증가합니다.
 
 ## <a name="failback"></a>장애 복구
 
@@ -88,11 +93,11 @@ Microsoft에서 시작한 장애 조치 (failover)가 제공 하는 RTO에의 �
 > [!IMPORTANT]
 > - 사용자는 매일 2회의 성공적인 장애 조치와 2개의 성공적인 장애 복구 작업이 허용됩니다.
 >
-> - 역방향 장애 조치(failover)/장애 복구(failback) 작업은 허용되지 않습니다. 이러한 작업 간에 1 시간 동안 기다려야 합니다.
+> - 역방향 장애 조치(failover)/장애 복구(failback) 작업은 허용되지 않습니다. 이러한 작업 사이에 1시간 동안 기다려야 합니다.
 
 ## <a name="time-to-recover"></a>복구 시간
 
-IoT hub 인스턴스의 FQDN (그리고 따라서 연결 문자열)은 동일한 사후 장애 조치 (failover)를 유지 하지만 기본 IP 주소가 변경 됩니다. 따라서 장애 조치(failover) 프로세스가 트리거된 후 완전히 작동하게 되는 IoT hub 인스턴스에 대해 수행되는 런타임 작업의 전체 시간은 다음 함수를 통해 나타낼 수 있습니다.
+IoT 허브 인스턴스의 FQDN(따라서 연결 문자열)이 동일한 포스트 장애 조치로 유지되지만 기본 IP 주소는 변경됩니다. 따라서 장애 조치(failover) 프로세스가 트리거된 후 완전히 작동하게 되는 IoT hub 인스턴스에 대해 수행되는 런타임 작업의 전체 시간은 다음 함수를 통해 나타낼 수 있습니다.
 
 복구 시간 = RTO [수동 장애 조치(failover)의 경우 10분~2시간 | Microsoft 시작 장애 조치(failover)의 경우 2~26시간 ] + DNS 전파 지연 + 클라이언트 애플리케이션이 캐시된 IoT Hub IP 주소를 새로 고치는 데 걸리는 시간
 
@@ -113,7 +118,7 @@ IoT 솔루션으로 배포 토폴로지를 완벽하게 수행하는 것은 이 
    > [!NOTE]
    > IoT Hub 서비스는 Azure Traffic Manager에서 지원되는 엔드포인트 유형이 아닙니다. 엔드포인트 상태 프로브 API를 구현하여 Azure Traffic Manage와 제안된 컨시어지 서비스를 통합하는 것이 좋습니다.
 
-* **ID 레지스트리 복제**: 사용하려면 보조 IoT Hub가 솔루션에 연결할 수 있는 모든 디바이스 ID를 포함해야 합니다. 솔루션은 지역에서 복제된 디바이스 ID의 백업을 유지하고 이를 보조 IoT Hub로 업로드한 후 디바이스에 대한 활성 엔드포인트를 전환해야 합니다. 이 경우 IoT Hub의 디바이스 ID 내보내기 기능은 유용합니다. 자세한 내용은 [IoT Hub 개발자 가이드 - ID 레지스트리](iot-hub-devguide-identity-registry.md)를 참조하세요.
+* **ID 레지스트리 복제**: 사용하려면 보조 IoT Hub가 솔루션에 연결할 수 있는 모든 디바이스 ID를 포함해야 합니다. 솔루션은 지역에서 복제된 디바이스 ID의 백업을 유지하고 이를 보조 IoT Hub로 업로드한 후 디바이스에 대한 활성 엔드포인트를 전환해야 합니다. 이 경우 IoT Hub의 디바이스 ID 내보내기 기능은 유용합니다. 자세한 내용은 [IoT Hub 개발자 가이드 - ID 레지스트리를](iot-hub-devguide-identity-registry.md)참조하십시오.
 
 * **논리 병합**: 주 지역을 다시 사용할 수 있게 된 경우 보조 사이트에 생성된 모든 상태 및 데이터를 주 지역으로 다시 마이그레이션해야 합니다. 이러한 상태 및 데이터는 주로 디바이스 ID 및 애플리케이션 메타데이터와 관련되며 기본 IoT Hub 및 주 지역의 기타 가능한 애플리케이션별 스토리지에 병합되어야 합니다. 
 
@@ -133,4 +138,4 @@ IoT 솔루션으로 배포 토폴로지를 완벽하게 수행하는 것은 이 
 
 * [Azure IoT Hub란?](about-iot-hub.md)
 * [IoT Hub 시작(빠른 시작)](quickstart-send-telemetry-dotnet.md)
-* [자습서: IoT hub에 대 한 수동 장애 조치 (failover) 수행](tutorial-manual-failover.md)
+* [자습서: IoT 허브에 대 한 수동 장애 조치 수행](tutorial-manual-failover.md)

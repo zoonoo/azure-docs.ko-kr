@@ -1,26 +1,25 @@
 ---
-title: Azure Marketplace에 대 한 가상 컴퓨터 제품에 대 한 기술 자산 만들기
+title: Azure 마켓플레이스용 가상 시스템 오퍼에 대한 기술 자산 생성
 description: Azure Marketplace에서 가상 머신 제안에 대한 기술 자산을 만드는 방법을 설명합니다.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: pbutlerm
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/20/2018
-ms.author: pabutler
-ms.openlocfilehash: 45d0ff5b7b3fea1566b13b61bd01cc17da61e4b3
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 57f56a341cfc3db6a5f0664503809e6ab6cf3d3d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824505"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80278027"
 ---
 # <a name="create-technical-assets-for-a-virtual-machine-offer"></a>가상 머신 제안에 대한 기술 자산 만들기
 
 이 섹션에서는 Azure Marketplace의 VM(가상 머신) 제안에 대한 기술 자산을 만들고 구성하는 방법을 안내합니다.  VM에는 솔루션 VHD(가상 하드 디스크)와 선택적인 연결된 데이터 디스크의 두 가지 구성 요소가 있습니다.  
 
 - *VHD(가상 하드 디스크)* - Azure Marketplace 제안을 통해 배포할 운영 체제와 솔루션이 포함되어 있습니다. VHD가 Linux 기반, Windows 기반 또는 사용자 지정 기반 VM인지 여부에 따라 VHD를 준비하는 프로세스가 달라집니다.
-- *데이터 디스크* - 가상 머신에 대한 전용 영구 스토리지를 나타냅니다. 솔루션 VHD(예: *드라이브)는 영구 정보를 저장하는 데 사용하지*않습니다`C:`.
+- *데이터 디스크* - 가상 머신에 대한 전용 영구 스토리지를 나타냅니다. 솔루션 VHD(예: `C:` 드라이브)는 영구 정보를 저장하는 데 사용하지 *않습니다*.
 
 VM 이미지에는 운영 체제 디스크 하나와 0개 이상의 데이터 디스크가 포함되어 있습니다. 디스크당 VHD 하나가 필요합니다. 데이터 디스크가 비어 있는 경우에도 VHD를 만들어야 합니다.
 VM OS, VM 크기, 개방할 포트 및 최대 15개의 연결된 데이터 디스크를 구성해야 합니다.
@@ -29,13 +28,13 @@ VM OS, VM 크기, 개방할 포트 및 최대 15개의 연결된 데이터 디�
 > 사용 중인 운영 체제에 상관없이 SKU에 필요한 최소 개수의 데이터 디스크만 추가합니다. 고객은 배포 시 이미지의 일부인 디스크를 제거할 수 없지만, 배포 중 또는 배포 후에 언제든지 디스크를 추가할 수 있습니다. 
 
 > [!IMPORTANT]
-> *새 이미지 버전에서 디스크 수를 변경하지 마세요.* 이미지에서 데이터 디스크를 다시 구성해야 하는 경우 새 SKU를 정의합니다. 디스크 수가 다른 새 이미지 버전을 게시하면 자동 크기 조정 시의 새 이미지 버전에 기반한 새 배포, Azure Resource Manager 템플릿을 통한 솔루션의 자동 배포 및 기타 시나리오가 중단될 수 있습니다.
+> *새 이미지 버전에서 디스크 수를 변경하지 마세요.*  이미지에서 데이터 디스크를 다시 구성해야 하는 경우 새 SKU를 정의합니다. 디스크 수가 다른 새 이미지 버전을 게시하면 자동 크기 조정 시의 새 이미지 버전에 기반한 새 배포, Azure Resource Manager 템플릿을 통한 솔루션의 자동 배포 및 기타 시나리오가 중단될 수 있습니다.
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
 ## <a name="fundamental-technical-knowledge"></a>기본 기술 지식
 
-이러한 자산의 디자인, 빌드 및 테스트는 시간이 걸리고 제품을 빌드하는 데 사용 되는 Azure 플랫폼 및 기술에 대 한 기술 지식이 필요 합니다. 엔지니어링 팀은 솔루션 도메인 외에 다음과 같은 Microsoft 기술에 대해 알고 있어야 합니다. 
+이러한 자산을 디자인, 빌드 및 테스트하려면 시간이 걸리며 Azure 플랫폼과 오퍼를 빌드하는 데 사용되는 기술에 대한 기술 지식이 필요합니다. 솔루션 도메인 외에도 엔지니어링 팀은 다음과 같은 Microsoft 기술에 대한 지식을 가지고 있어야 합니다. 
 -   [Azure 서비스](https://azure.microsoft.com/services/)에 대한 기본적 이해 
 -   [Azure 애플리케이션을 디자인 및 설계](https://azure.microsoft.com/solutions/architecture/)하는 방법
 -   [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/), [Azure Storage](https://azure.microsoft.com/services/?filter=storage) 및 [Azure 네트워킹](https://azure.microsoft.com/services/?filter=networking)에 대한 실무 지식
@@ -46,13 +45,13 @@ VM OS, VM 크기, 개방할 포트 및 최대 15개의 연결된 데이터 디�
 ## <a name="suggested-tools"></a>권장되는 도구 
 
 VHD 및 VM을 관리하는 데 도움이 되는 다음 스크립팅 환경 중 하나 또는 둘 다를 선택합니다.
--   [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
+-   [Azure 파워쉘](https://docs.microsoft.com/powershell/azure/overview)
 -   [Azure CLI](https://docs.microsoft.com/cli/azure)
 
 또한 개발 환경에 다음 도구를 추가하는 것이 좋습니다. 
 
--   [Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
--   [Visual Studio Code](https://code.visualstudio.com/)
+-   [Azure 저장소 탐색기](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
+-   [비주얼 스튜디오 코드](https://code.visualstudio.com/)
     *   확장: [Azure Resource Manager Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
     *   확장: [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
     *   확장: [Prettify JSON](https://marketplace.visualstudio.com/items?itemName=mohsen1.prettify-json)

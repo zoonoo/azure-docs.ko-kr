@@ -1,19 +1,18 @@
 ---
-title: 특정 제품 API 검색 | Azure Marketplace
+title: 특정 오퍼 API 검색 | Azure 마켓플레이스
 description: API는 게시자 네임스페이스 내에서 지정된 제안을 검색합니다.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: 030fb221b9227acf9c5dcda8797b106e51f56d64
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: a83b664bb770a88f3c4c13a672655e736a46ca75
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827343"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280459"
 ---
 <a name="retrieve-a-specific-offer"></a>특정 제안 검색
 =========================
@@ -41,9 +40,9 @@ ms.locfileid: "73827343"
 
 | **이름**    | **설명**                                                                          | **데이터 형식** |
 |-------------|------------------------------------------------------------------------------------------|---------------|
-| publisherid | publisherId입니다. 예: Contoso                                                        | 문자열        |
-| offerId     | 제안을 고유하게 식별하는 GUID입니다.                                                 | 문자열        |
-| 버전     | 검색 중인 제안의 버전입니다. 기본적으로 최신 제안 버전이 검색됩니다. | Integer       |
+| publisherId | publisherId입니다. 예: Contoso                                                        | String        |
+| offerId     | 제안을 고유하게 식별하는 GUID입니다.                                                 | String        |
+| 버전     | 검색 중인 제안의 버전입니다. 기본적으로 최신 제안 버전이 검색됩니다. | 정수       |
 | slotId      | 제안이 검색될 슬롯으로, 다음 중 하나일 수 있습니다.      <br/>  - `Draft`(기본값)는 현재 초안에 있는 제안 버전을 검색합니다.  <br/>  -  `Preview`는 현재 미리 보기에 있는 제안 버전을 검색합니다.     <br/>  -  `Production`은 현재 프로덕션 환경에 있는 제안 버전을 검색합니다.          |      enum |
 | api-version | 최신 버전 API                                                                    | Date          |
 |  |  |  |
@@ -172,10 +171,10 @@ ms.locfileid: "73827343"
 |  **이름**       |   **설명**                                                                                                               |
 |  -------------  |   -----------------------------------------------------------------------------------------------------                         |
 |  offerTypeId    | 제안의 형식을 식별합니다.                                                                                                    |
-|  publisherid    | 게시자의 고유 식별자입니다.                                                                                              |
-|  status         | 제품 상태. 가능한 값 목록을 보려면 아래 [제품 상태](#offer-status)를 참조하세요.                                  |
-|  id             | 제안을 고유하게 식별하는 GUID입니다.                                                                                         |
-|  버전        | 제품의 현재 버전. 버전 속성은 클라이언트가 수정할 수 없습니다. 각 게시 후에 증분됩니다.    |
+|  publisherId    | 게시자의 고유 식별자입니다.                                                                                              |
+|  상태         | 제안의 상태입니다. 가능한 값 목록을 보려면 아래 [제안 상태](#offer-status)를 참조하세요.                                  |
+|  Id             | 제안을 고유하게 식별하는 GUID입니다.                                                                                         |
+|  버전        | 제안의 현재 버전입니다. 버전 속성은 클라이언트가 수정할 수 없습니다. 각 게시 후에 증분됩니다.    |
 |  정의     | 워크로드의 실제 정의입니다.                                                                                               |
 |  changedTime    | 제안을 마지막으로 수정한 UTC 날짜/시간입니다.                                                                                   |
 |  |  |
@@ -200,7 +199,7 @@ ms.locfileid: "73827343"
 |  NotStarted                 | 제안이 새 제안이지만 시작되지 않았습니다.              |
 |  WaitingForPublisherReview  | 제안이 게시자 승인을 기다리고 있습니다.      |
 |  실행 중                    | 제안 제출을 처리 중입니다.          |
-|  Succeeded                  | 제안 제출 처리를 완료했습니다.    |
-|  Canceled                   | 제안 제출이 취소되었습니다.                |
-|  Failed                     | 제안 제출에 실패했습니다.                      |
+|  성공                  | 제안 제출 처리를 완료했습니다.    |
+|  취소됨                   | 제안 제출이 취소되었습니다.                |
+|  실패                     | 제안 제출에 실패했습니다.                      |
 |  |  |

@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
 ms.openlocfilehash: 7f1927a67127766c72be463c283225135b2a2aad
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77466912"
 ---
 # <a name="deploy-storsimple-virtual-array-for-cloud-solution-provider-program"></a>클라우드 솔루션 공급자 프로그램용 StorSimple 가상 배열 배포
@@ -40,7 +40,7 @@ ms.locfileid: "77466912"
 
 고객을 추가하는 경우 구독이 자동으로 만들어집니다. 고객을 추가하려면(및 구독을 자동으로 만들려면) 파트너 포털에서 다음 단계를 수행합니다.
 
-1. [파트너 센터](https://partnercenter.microsoft.com/)로 이동하고 CSP 자격 증명을 사용하여 로그인합니다. **Dashboard**를 클릭합니다.
+1. [파트너 센터](https://partnercenter.microsoft.com/)로 이동하고 CSP 자격 증명을 사용하여 로그인합니다. **대시보드**를 클릭합니다.
 
      ![파트너 센터의 대시보드](./media/storsimple-partner-csp-deploy/image1.png)
                               
@@ -77,7 +77,7 @@ ms.locfileid: "77466912"
 
 일부 경우에는 기존 고객이 있을 수 있으며 구독을 추가해야 합니다. 기존 고객에 구독을 추가하려면 파트너 포털에서 다음 단계를 수행합니다.
 
-1. [파트너 센터](https://partnercenter.microsoft.com/)로 이동하고 CSP 자격 증명을 사용하여 로그인합니다. **Dashboard**를 클릭합니다.
+1. [파트너 센터](https://partnercenter.microsoft.com/)로 이동하고 CSP 자격 증명을 사용하여 로그인합니다. **대시보드**를 클릭합니다.
 
      ![파트너 센터의 대시보드](./media/storsimple-partner-csp-deploy/image1.png)
                               

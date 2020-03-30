@@ -2,13 +2,13 @@
 title: Azure Application Insights로 사용 분석 | Microsoft Docs
 description: 어떤 사용자가 앱으로 어떤 작업을 수행하는지 이해합니다.
 ms.topic: conceptual
-ms.date: 09/19/2019
-ms.openlocfilehash: 9f34267a1820f8b2365a41569bd3c8eaed9f2f9c
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.date: 03/25/2019
+ms.openlocfilehash: e964b1b5b9d5500f2d9f24ed765299389e6dbbb9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79275647"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80283959"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Application Insights를 사용하여 사용량 분석
 
@@ -18,11 +18,11 @@ ms.locfileid: "79275647"
 
 앱 서버 코드와 웹 페이지에 모두 Application Insights를 설치하여 최상의 환경을 얻습니다. 앱의 클라이언트 및 서버 구성 요소는 분석을 위해 Azure Portal로 원격 분석을 다시 보냅니다.
 
-1. **서버 코드:** [ASP.NET](../../azure-monitor/app/asp-net.md), [Azure](../../azure-monitor/app/app-insights-overview.md), [Java](../../azure-monitor/app/java-get-started.md), [Node.js](../../azure-monitor/app/nodejs.md) 또는 [기타](../../azure-monitor/app/platforms.md) 앱에 적합한 모듈을 설치합니다.
+1. **서버 코드:**[ASP.NET](../../azure-monitor/app/asp-net.md), [Azure](../../azure-monitor/app/app-insights-overview.md), [Java](../../azure-monitor/app/java-get-started.md), [Node.js](../../azure-monitor/app/nodejs.md) 또는 [기타](../../azure-monitor/app/platforms.md) 앱에 적합한 모듈을 설치합니다.
 
-    * *서버 코드를 설치 하지 않으려는 경우 [Azure 애플리케이션 Insights 리소스를 만듭니다](../../azure-monitor/app/create-new-resource.md ).*
+    * *서버 코드를 설치하고 싶지 않으십니까? [Azure 응용 프로그램 인사이트 리소스를 만드기만 하면](../../azure-monitor/app/create-new-resource.md )됩니다.*
 
-2. **웹 페이지 코드:** ``</head>``하기 전에 웹 페이지에 다음 스크립트를 추가 합니다. 계측 키를 Application Insights 리소스에 대한 적절한 값으로 바꿉니다.
+2. **웹 페이지 코드:** 닫기 ``</head>``전에 웹 페이지에 다음 스크립트를 추가합니다. 계측 키를 Application Insights 리소스에 대한 적절한 값으로 바꿉니다.
     
     ```html
     <script type="text/javascript">
@@ -34,7 +34,7 @@ ms.locfileid: "79275647"
     </script>
     ```
 
-    웹 사이트 모니터링에 대 한 고급 구성을 알아보려면 [JAVASCRIPT SDK 참조 문서](https://docs.microsoft.com/azure/azure-monitor/app/javascript)를 확인 하세요.
+    웹 사이트 모니터링을 위한 고급 구성을 자세히 알아보려면 [JavaScript SDK 참조 문서를](https://docs.microsoft.com/azure/azure-monitor/app/javascript)확인하십시오.
 
 3. **모바일 앱 코드:** App Center SDK를 사용하여 앱에서 이벤트를 수집한 다음, 분석을 위해 [이 가이드에 따라](../../azure-monitor/learn/mobile-center-quickstart.md) 이러한 이벤트의 복사본을 Application Insights로 보냅니다.
 
@@ -129,10 +129,14 @@ Application Insights 포털에서 속성 값에 대해 데이터를 필터링하
     // Telemetry initializer class
     public class MyTelemetryInitializer : ITelemetryInitializer
     {
-        public void Initialize (ITelemetry telemetry)
-        {
-            telemetry.Properties["AppVersion"] = "v2.1";
-        }
+        public void Initialize(ITelemetry item)
+            {
+                var itemProperties = item as ISupportProperties;
+                if (itemProperties != null && !itemProperties.Properties.ContainsKey("AppVersion"))
+                {
+                    itemProperties.Properties["AppVersion"] = "v2.1";
+                }
+            }
     }
 ```
 
@@ -148,12 +152,12 @@ Global.asax.cs 같은 웹앱 이니셜라이저에서 다음이 적용됩니다.
     }
 ```
 
-**ASP.NET Core 앱**
+**ASP.NET 핵심 앱**
 
 > [!NOTE]
-> `ApplicationInsights.config` 또는 `TelemetryConfiguration.Active`를 사용 하 여 이니셜라이저를 추가 하는 것은 ASP.NET Core 응용 프로그램에 적합 하지 않습니다. 
+> 사용 `ApplicationInsights.config` 하거나 사용 `TelemetryConfiguration.Active` 하 여 initializer를 추가 ASP.NET 코어 응용 프로그램에 대 한 유효 하지 않습니다. 
 
-[ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) 응용 프로그램의 경우 아래와 같이 종속성 주입 컨테이너에 추가 하 여 새 `TelemetryInitializer`를 추가 합니다. 이 작업은 `Startup.cs` 클래스의 `ConfigureServices` 메서드에서 수행 됩니다.
+[ASP.NET 핵심](asp-net-core.md#adding-telemetryinitializers) 응용 프로그램의 경우 `TelemetryInitializer` 아래와 같이 종속성 주입 컨테이너에 새 응용 프로그램을 추가하여 새 응용 프로그램을 추가합니다. 이 작업은 `ConfigureServices` `Startup.cs` 클래스의 메서드에서 수행됩니다.
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;

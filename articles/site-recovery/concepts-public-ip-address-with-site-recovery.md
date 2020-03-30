@@ -1,5 +1,5 @@
 ---
-title: Azure Site Recovery로 장애 조치 (failover) 후 공용 IP 주소 할당
+title: Azure 사이트 복구를 사용 하 여 장애 조치 후 공용 IP 주소 할당
 description: 재해 복구 및 마이그레이션을 위해 Azure Site Recovery 및 Azure Traffic Manager를 사용하여 공용 IP 주소를 설정하는 방법 설명
 services: site-recovery
 author: mayurigupta13
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
 ms.openlocfilehash: b1f3ffa6fc90fc0cab0217d1b71907342f2dbd0d
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79281952"
 ---
 # <a name="set-up-public-ip-addresses-after-failover"></a>장애 조치(failover) 후 공용 IP 주소 설정
@@ -44,7 +44,7 @@ Azure Resource Manager에서 공용 IP 주소는 자체 속성이 있는 리소�
 Azure Traffic Manager에서는 엔드포인트 간의 DNS 수준 라우팅이 가능하며, DR 시나리오에서는 [RTO를 단축](../site-recovery/concepts-traffic-manager-with-site-recovery.md#recovery-time-objective-rto-considerations)할 수 있습니다. 
 
 다음 항목에서 Traffic Manager를 사용하는 장애 조치(failover) 시나리오에 대해 자세히 알아보세요.
-1. Traffic Manager를 사용 하 여 온 [-프레미스에서 Azure로 장애 조치 (failover)](../site-recovery/concepts-traffic-manager-with-site-recovery.md#on-premises-to-azure-failover) 
+1. 트래픽 [관리자를 사용하여 온-프레미스-Azure 장애 조치](../site-recovery/concepts-traffic-manager-with-site-recovery.md#on-premises-to-azure-failover) 
 2. Traffic Manager를 사용한 [Azure 간의 장애 조치(failover)](../site-recovery/concepts-traffic-manager-with-site-recovery.md#azure-to-azure-failover) 
 
 설정 방법은 다음과 같습니다.

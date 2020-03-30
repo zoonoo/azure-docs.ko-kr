@@ -1,17 +1,17 @@
 ---
-title: 서버 다시 시작-Azure Portal-Azure Database for MariaDB
+title: 서버 다시 시작 - Azure 포털 - MariaDB용 Azure 데이터베이스
 description: 이 문서에서는 Azure Portal을 사용하여 Azure Database for MariaDB 서버를 다시 시작하는 방법을 설명합니다.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: fb4e56a3f40573a65b679ee026c22dfc5d6e5fa2
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: ed95304807a1a03880cc824c1a58f010203d418d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74769424"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79534714"
 ---
 # <a name="restart-azure-database-for-mariadb-server-using-azure-portal"></a>Azure Portal을 사용한 Azure Database for MariaDB 서버 다시 시작
 이 항목에서는 Azure Database for MariaDB 서버를 다시 시작하는 방법을 설명합니다. 유지 관리를 위해 서버를 다시 시작해야 할 수 있지만 이 경우 서버가 해당 작업을 수행할 때 잠깐 가동이 중단됩니다.
@@ -20,9 +20,9 @@ ms.locfileid: "74769424"
 
 다시 시작을 완료하는 데 필요한 시간은 MariaDB 복구 프로세스에 따라 달라집니다. 다시 시작 시간을 줄이려면 다시 시작 전에 서버에서 발생하는 작업의 양을 최소화하는 것이 좋습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 이 방법 가이드를 완료하려면 다음이 필요합니다.
-- [Azure Database for MariaDB 서버](./quickstart-create-mariadb-server-database-using-azure-portal.md)
+- [MariaDB 서버에 대한 Azure 데이터베이스](./quickstart-create-mariadb-server-database-using-azure-portal.md)
 
 ## <a name="perform-server-restart"></a>서버 다시 시작 수행
 
@@ -48,4 +48,4 @@ ms.locfileid: "74769424"
 
 ## <a name="next-steps"></a>다음 단계
 
-[빠른 시작: Azure Portal를 사용 하 여 Azure Database for MariaDB 서버 만들기](./quickstart-create-mariadb-server-database-using-azure-portal.md)
+[빠른 시작: Azure 포털을 사용하여 MariaDB 서버에 대한 Azure 데이터베이스 만들기](./quickstart-create-mariadb-server-database-using-azure-portal.md)

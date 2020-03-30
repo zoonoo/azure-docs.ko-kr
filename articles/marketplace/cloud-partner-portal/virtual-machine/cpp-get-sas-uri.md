@@ -1,19 +1,18 @@
 ---
-title: Microsoft Azure 기반 VM 이미지에 대 한 공유 액세스 서명 URI 가져오기 | Azure Marketplace
+title: Microsoft Azure 기반 VM 이미지에 대한 공유 액세스 서명 URI 받기 | Azure 마켓플레이스
 description: VM 이미지에 대한 SAS(공유 액세스 서명) URI를 가져오는 방법을 설명합니다.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: pbutlerm
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/19/2018
-ms.author: pabutler
-ms.openlocfilehash: cb6f1772c7c6f9abd268a8cb58550b253f095dbf
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.author: dsindona
+ms.openlocfilehash: 6fe15fb18d8865911363a4696e44dd7fe1d90c09
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132451"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80277806"
 ---
 # <a name="get-shared-access-signature-uri-for-your-vm-image"></a>VM 이미지에 대한 공유 액세스 서명 URI 가져오기
 
@@ -22,7 +21,7 @@ ms.locfileid: "74132451"
 VHD에 대한 SAS URI를 생성하는 경우 준수해야 하는 요구 사항은 다음과 같습니다.
 
 - 관리되지 않는 VHD만 지원됩니다.
-- `List` 및 `Read` 권한으로 충분합니다. *또는* 액세스는 제공하지 `Write`않습니다`Delete`.
+- `List` 및 `Read` 권한으로 충분합니다. `Write` 또는 `Delete` 액세스는 제공하지 *않습니다*.
 - 액세스 기간(*만료 날짜*)은 SAS URI가 생성된 시점에서 3주 이상이어야 합니다.
 - UTC 시간 변동을 방지하려면 시작 날짜를 현재 날짜보다 하루 전의 날짜로 설정합니다. 예를 들어, 현재 날짜가 2014년 10월 6일이면 2014년 10월 5일을 선택합니다.
 
@@ -30,18 +29,17 @@ VHD에 대한 SAS URI를 생성하는 경우 준수해야 하는 요구 사항�
 
 SAS URL은 다음 도구를 사용하여 일반적인 두 가지 방법으로 생성할 수 있습니다.
 
--   Microsoft Storage Explorer - Windows, macOS 및 Linux에서 사용할 수 있는 그래픽 도구
--   Microsoft Azure CLI - 비 Windows OS 및 자동 또는 지속적인 통합 환경에 권장됨
-
+- Microsoft Storage Explorer - Windows, macOS 및 Linux에서 사용할 수 있는 그래픽 도구
+- Microsoft Azure CLI - 비 Windows OS 및 자동 또는 지속적인 통합 환경에 권장됨
 
 ### <a name="azure-cli"></a>Azure CLI
 
 다음 단계를 사용하여 Azure CLI를 통해 SAS URI를 생성합니다.
 
-1. [Microsoft Azure CLI](https://azure.microsoft.com/documentation/articles/xplat-cli-install/)를 다운로드하고 설치합니다.  버전은 Windows, macOS 및 다양한 Linux 배포판에서 사용할 수 있습니다.
+1. [Microsoft Azure CLI](https://azure.microsoft.com/documentation/articles/xplat-cli-install/)를 다운로드하고 설치합니다. 버전은 Windows, macOS 및 다양한 Linux 배포판에서 사용할 수 있습니다.
 2. PowerShell 파일(`.ps1` 파일 확장명)을 만들고, 다음 코드를 복사한 다음, 로컬로 저장합니다.
 
-   ``` powershell
+   ```azurecli-interactive
    az storage container generate-sas --connection-string 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net' --name <vhd-name> --permissions rl --start '<start-date>' --expiry '<expiry-date>'
    ```
 
@@ -54,8 +52,8 @@ SAS URL은 다음 도구를 사용하여 일반적인 두 가지 방법으로 �
 
    다음 예제에서는 적절한 매개 변수 값을 보여 줍니다(이 문서의 작성 시점 기준).
 
-   ``` powershell
-       az storage container generate-sas --connection-string 'DefaultEndpointsProtocol=https;AccountName=st00009;AccountKey=6L7OWFrlabs7Jn23OaR3rvY5RykpLCNHJhxsbn9ONc+bkCq9z/VNUPNYZRKoEV1FXSrvhqq3aMIDI7N3bSSvPg==;EndpointSuffix=core.windows.net' --name vhds --permissions rl --start '2017-11-06T00:00:00Z' --expiry '2018-08-20T00:00:00Z'
+   ```azurecli-interactive
+   az storage container generate-sas --connection-string 'DefaultEndpointsProtocol=https;AccountName=st00009;AccountKey=6L7OWFrlabs7Jn23OaR3rvY5RykpLCNHJhxsbn9ONc+bkCq9z/VNUPNYZRKoEV1FXSrvhqq3aMIDI7N3bSSvPg==;EndpointSuffix=core.windows.net' --name vhds --permissions rl --start '2017-11-06T00:00:00Z' --expiry '2018-08-20T00:00:00Z'
    ```
 
 4. 이 PowerShell 스크립트의 변경 내용을 저장합니다.
@@ -82,7 +80,6 @@ SAS URL은 다음 도구를 사용하여 일반적인 두 가지 방법으로 �
 
 게시하려는 SKU의 각 VHD에 대해 이러한 단계를 반복합니다.
 
-
 ### <a name="microsoft-storage-explorer"></a>Microsoft Storage Explorer
 
 다음 단계를 사용하여 따라 Microsoft Azure Storage Explorer를 통해 SAS URI를 생성합니다.
@@ -95,7 +92,7 @@ SAS URL은 다음 도구를 사용하여 일반적인 두 가지 방법으로 �
 
     ![Azure 탐색기에서 SAS 항목 가져오기](./media/publishvm_034.png)
 
-6. **공유 액세스 서명** 대화 상자가 표시됩니다. 다음 필드에 대한 값을 입력합니다.
+6. ** 공유 액세스 서명 ** 대화 상자가 표시됩니다. 다음 필드에 대한 값을 입력합니다.
    - **시작 시간** - VHD 액세스 권한의 시작 날짜입니다. 현재 날짜보다 하루 전의 날짜를 제공합니다.
    - **만료 시간** - VHD 액세스 권한의 만료 날짜입니다.  현재 날짜보다 최소 3주 후의 날짜를 제공합니다.
    - **권한** - `Read` 및 `List` 권한을 선택합니다.
@@ -119,16 +116,15 @@ SAS URL은 다음 도구를 사용하여 일반적인 두 가지 방법으로 �
 
 게시하려는 SKU의 각 VHD에 대해 이러한 단계를 반복합니다.
 
-
 ## <a name="verify-the-sas-uri"></a>SAS URI 확인
 
 다음 검사 목록을 사용하여 생성된 각 SAS URI를 검토하고 확인합니다.  다음 사항을 확인합니다.
-- URI의 형식은 `<blob-service-endpoint-url>` + `/vhds/` + `<vhd-name>?` + `<sas-connection-string>`입니다.
+
+- URI는 다음과 같은 `<blob-service-endpoint-url>` + `/vhds/` + `<vhd-name>?` + 형식입니다.`<sas-connection-string>`
 - URI에는 ".vhd" 파일 이름 확장명이 있는 VHD 이미지 파일 이름이 포함됩니다.
 - URI 중간에 `sp=rl`이 나타납니다. 이 문자열은 `Read` 및 `List` 액세스 권한이 지정되었음을 나타냅니다.
 - 이후에는 `sr=c`도 나타납니다. 이 문자열은 컨테이너 수준 액세스 권한이 지정되었음을 나타냅니다.
 - 연결된 Blob을 다운로드하려면 URI를 복사하여 브라우저에 붙여넣습니다.  (다운로드가 완료되기 전에 작업을 취소할 수 있습니다.)
-
 
 ## <a name="next-steps"></a>다음 단계
 

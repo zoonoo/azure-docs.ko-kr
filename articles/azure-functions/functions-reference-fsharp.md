@@ -7,10 +7,10 @@ ms.topic: reference
 ms.date: 10/09/2018
 ms.author: syclebsc
 ms.openlocfilehash: 669701f91ab28a4eb734b0346be6515dc44e8685
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79276765"
 ---
 # <a name="azure-functions-f-developer-reference"></a>Azure Functions F# 개발자 참조
@@ -18,7 +18,7 @@ ms.locfileid: "79276765"
 Azure Functions용 F#란 클라우드에서 작은 코드 또는 "함수"를 쉽게 실행하기 위한 솔루션입니다. 데이터는 함수 인수를 통해 F# 함수로 흐릅니다. 인수 이름은 `function.json`에 지정되며 함수 로거 및 취소 토큰 같은 항목에 액세스하기 위해 미리 정의된 이름이 있습니다. 
 
 >[!IMPORTANT]
->F# 스크립트(.fsx)는 Azure Functions 런타임 [버전 1.x](functions-versions.md#creating-1x-apps)에서만 지원됩니다. 버전 2.x 이상 버전의 F# 런타임을 사용 하려면 미리 컴파일된 F# 클래스 라이브러리 프로젝트 (fs)를 사용 해야 합니다. [C# 클래스 라이브러리 프로젝트](functions-dotnet-class-library.md)를 사용할 때처럼 Visual Studio를 사용하여 F# 클래스 라이브러리 프로젝트를 만들고, 관리하고, 게시합니다. Functions 버전에 대한 자세한 내용은 [Azure Functions 런타임 버전 개요](functions-versions.md)를 참조하세요.
+>F# 스크립트(.fsx)는 Azure Functions 런타임 [버전 1.x](functions-versions.md#creating-1x-apps)에서만 지원됩니다. 버전 2.x 및 이후 버전의 런타임에서 F#을 사용하려면 미리 컴파일된 F# 클래스 라이브러리 프로젝트(.fs)를 사용해야 합니다. [C# 클래스 라이브러리 프로젝트](functions-dotnet-class-library.md)를 사용할 때처럼 Visual Studio를 사용하여 F# 클래스 라이브러리 프로젝트를 만들고, 관리하고, 게시합니다. Functions 버전에 대한 자세한 내용은 [Azure Functions 런타임 버전 개요](functions-versions.md)를 참조하세요.
 
 이 문서에서는 [Azure Functions 개발자 참조](functions-reference.md)를 이미 읽었다고 가정합니다.
 
@@ -48,10 +48,10 @@ FunctionsProject
 
 함수 앱을 구성하는 데 사용할 수 있는 공유 [host.json](functions-host-json.md) 파일이 있습니다. 각 함수에는 자체 코드 파일(.fsx)과 바인딩 구성 파일(function.json)이 있습니다.
 
-[버전 2.x 및 이후 버전](functions-versions.md) 의 함수 런타임에 필요한 바인딩 확장은 `bin` 폴더의 실제 라이브러리 파일을 사용 하 여 `extensions.csproj` 파일에 정의 됩니다. 로컬에서 개발할 때는 [바인딩 확장을 등록](./functions-bindings-register.md#extension-bundles)해야 합니다. Azure Portal에서 함수를 개발할 때 이 등록이 자동으로 수행됩니다.
+[버전 2.x 및 함수](functions-versions.md) 런타임의 이후 버전에 필요한 바인딩 확장은 `extensions.csproj` `bin` 폴더에 실제 라이브러리 파일과 함께 파일에 정의됩니다. 로컬에서 개발할 때는 [바인딩 확장을 등록](./functions-bindings-register.md#extension-bundles)해야 합니다. Azure Portal에서 함수를 개발할 때 이 등록이 자동으로 수행됩니다.
 
 ## <a name="binding-to-arguments"></a>인수에 바인딩
-각 바인딩은 [Azure Functions 트리거 및 바인딩 개발자 참조](functions-triggers-bindings.md)에 설명된 대로 일부 인수 집합을 지원합니다. 예를 들어 Blob 트리거가 지원하는 인수 바인딩 중 하나는 F# 레코드를 사용하여 표현될 수 있는 POCO입니다. 다음은 그 예입니다.
+각 바인딩은 [Azure Functions 트리거 및 바인딩 개발자 참조](functions-triggers-bindings.md)에 설명된 대로 일부 인수 집합을 지원합니다. 예를 들어 Blob 트리거가 지원하는 인수 바인딩 중 하나는 F# 레코드를 사용하여 표현될 수 있는 POCO입니다. 예를 들어:
 
 ```fsharp
 type Item = { Id: string }
@@ -61,11 +61,11 @@ let Run(blob: string, output: byref<Item>) =
     output <- item
 ```
 
-이 F# Azure Function에서는 하나 이상의 인수를 사용하게 됩니다. Azure Functions 인수에 대해 이야기할 때 *입력* 인수 및 *출력* 인수를 언급합니다. 입력 인수란 표현 그대로 F# Azure Function에 입력하는 것입니다. *출력* 인수란 함수에서 데이터를 `byref<>`출력*하여 다시 전달하는 방식으로 사용되는 변경 가능한 데이터 또는*  인수입니다.
+이 F# Azure Function에서는 하나 이상의 인수를 사용하게 됩니다. Azure Functions 인수에 대해 이야기할 때 *입력* 인수 및 *출력* 인수를 언급합니다. 입력 인수란 표현 그대로 F# Azure Function에 입력하는 것입니다. *출력* 인수란 함수에서 데이터를 *출력*하여 다시 전달하는 방식으로 사용되는 변경 가능한 데이터 또는 `byref<>` 인수입니다.
 
-위의 예에서 `blob`은 입력 인수이며 `output`은 출력 인수입니다. 여기서는 `byref<>`에 `output`를 사용합니다(`[<Out>]` 주석을 추가할 필요 없음). `byref<>` 형식을 사용하면 인수가 참조하는 레코드 또는 개체를 함수를 통해 변경할 수 있습니다.
+위의 예에서 `blob`은 입력 인수이며 `output`은 출력 인수입니다. 여기서는 `output`에 `byref<>`를 사용합니다(`[<Out>]` 주석을 추가할 필요 없음). `byref<>` 형식을 사용하면 인수가 참조하는 레코드 또는 개체를 함수를 통해 변경할 수 있습니다.
 
-F# 레코드를 입력 형식으로 사용한 경우, Azure Functions 프레임워크에서 필드를 적절하게 설정하려면 레코드를 함수로 전달하기 전에 레코드 정의를 `[<CLIMutable>]` 로 표시해야 합니다. 내부적으로 `[<CLIMutable>]` 은 레코드 속성에 대한 setter를 생성합니다. 다음은 그 예입니다.
+F# 레코드를 입력 형식으로 사용한 경우, Azure Functions 프레임워크에서 필드를 적절하게 설정하려면 레코드를 함수로 전달하기 전에 레코드 정의를 `[<CLIMutable>]` 로 표시해야 합니다. 내부적으로 `[<CLIMutable>]` 은 레코드 속성에 대한 setter를 생성합니다. 예를 들어:
 
 ```fsharp
 [<CLIMutable>]
@@ -77,7 +77,7 @@ let Run(req: TestObject, log: ILogger) =
     { req with Greeting = sprintf "Hello, %s" req.SenderName }
 ```
 
-F# 클래스는 들어오고 나가는 인수 모두에 대해서도 사용할 수 있습니다. 클래스의 경우 일반적으로 속성은 getter 및 setter가 필요합니다. 다음은 그 예입니다.
+F# 클래스는 들어오고 나가는 인수 모두에 대해서도 사용할 수 있습니다. 클래스의 경우 일반적으로 속성은 getter 및 setter가 필요합니다. 예를 들어:
 
 ```fsharp
 type Item() =
@@ -90,7 +90,7 @@ let Run(input: string, item: byref<Item>) =
 ```
 
 ## <a name="logging"></a>로깅
-출력을 F#의 [스트리밍 로그](../app-service/troubleshoot-diagnostic-logs.md)에 기록하려면 함수에 [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) 형식의 인수를 사용해야 합니다. 일관성을 위해 이 인수의 이름을 `log`로 지정하는 것이 좋습니다. 다음은 그 예입니다.
+출력을 F#의 [스트리밍 로그](../app-service/troubleshoot-diagnostic-logs.md)에 기록하려면 함수에 [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) 형식의 인수를 사용해야 합니다. 일관성을 위해 이 인수의 이름을 `log`로 지정하는 것이 좋습니다. 예를 들어:
 
 ```fsharp
 let Run(blob: string, output: byref<string>, log: ILogger) =
@@ -109,7 +109,7 @@ let Run(req: HttpRequestMessage) =
 ```
 
 ## <a name="cancellation-token"></a>취소 토큰
-함수가 정상적인 종료를 처리해야 하는 경우 [`CancellationToken`](/dotnet/api/system.threading.cancellationtoken) 인수를 사용할 수 있습니다. 이는 `async`와 결합할 수 있습니다. 예:
+함수가 종료를 정상적으로 처리해야 하는 경우 [`CancellationToken`](/dotnet/api/system.threading.cancellationtoken) 인수를 제공할 수 있습니다. 이는 `async`와 결합할 수 있습니다. 예:
 
 ```fsharp
 let Run(req: HttpRequestMessage, token: CancellationToken)
@@ -141,7 +141,7 @@ let Run(req: HttpRequestMessage, log: ILogger) =
 * `System.Net.Http`
 * `System.Threading.Tasks`
 * `Microsoft.Azure.WebJobs`
-* `Microsoft.Azure.WebJobs.Host`입니다.
+* `Microsoft.Azure.WebJobs.Host`.
 
 ## <a name="referencing-external-assemblies"></a>외부 어셈블리 참조
 마찬가지로 프레임워크 어셈블리 참조는 `#r "AssemblyName"` 지시문을 사용하여 추가할 수 있습니다.
@@ -169,7 +169,7 @@ let Run(req: HttpRequestMessage, log: ILogger) =
 * `Microsoft.Azure.WebJobs.Host`
 * `Microsoft.Azure.WebJobs.Extensions`
 * `System.Web.Http`
-* `System.Net.Http.Formatting`입니다.
+* `System.Net.Http.Formatting`.
 
 또한 다음 어셈블리는 특수한 경우이며 simplename으로 참조할 수 있습니다(예: `#r "AssemblyName"`).
 
@@ -177,12 +177,12 @@ let Run(req: HttpRequestMessage, log: ILogger) =
 * `Microsoft.WindowsAzure.Storage`
 * `Microsoft.ServiceBus`
 * `Microsoft.AspNet.WebHooks.Receivers`
-* `Microsoft.AspNEt.WebHooks.Common`입니다.
+* `Microsoft.AspNEt.WebHooks.Common`.
 
 프라이빗 어셈블리를 참조해야 하는 경우 어셈블리 파일을 함수에 상대적인 `bin` 폴더에 업로드하고 파일 이름(예: `#r "MyAssembly.dll"`)을 사용하여 참조할 수 있습니다. 함수 폴더에 파일을 업로드하는 방법에 대한 내용은 패키지 관리에 대한 다음 섹션을 참조하세요.
 
 ## <a name="editor-prelude"></a>Editor Prelude
-F# 컴파일러 서비스를 지원하는 편집기는 Azure Functions에 자동으로 포함되는 네임스페이스 및 어셈블리를 인식하지 않습니다. 따라서 편집기가 사용 중인 어셈블리를 찾고 네임스페이스를 명시적으로 여는 데 도움이 되는 Prelude를 포함하는 것이 유용할 수 있습니다. 다음은 그 예입니다.
+F# 컴파일러 서비스를 지원하는 편집기는 Azure Functions에 자동으로 포함되는 네임스페이스 및 어셈블리를 인식하지 않습니다. 따라서 편집기가 사용 중인 어셈블리를 찾고 네임스페이스를 명시적으로 여는 데 도움이 되는 Prelude를 포함하는 것이 유용할 수 있습니다. 예를 들어:
 
 ```fsharp
 #if !COMPILED
@@ -203,7 +203,7 @@ Azure Functions에서 코드를 실행하는 경우 `COMPILED` 정의된 소스�
 <a name="package"></a>
 
 ## <a name="package-management"></a>패키지 관리
-F# 함수에서 NuGet 패키지를 사용하려면 `project.json` 파일을 함수 앱의 파일 시스템에 있는 함수의 폴더에 추가합니다. 다음은 NuGet 패키지 참조를 `project.json` 버전 1.1.0에 추가하는 예제 `Microsoft.ProjectOxford.Face` 파일입니다.
+F# 함수에서 NuGet 패키지를 사용하려면 `project.json` 파일을 함수 앱의 파일 시스템에 있는 함수의 폴더에 추가합니다. 다음은 NuGet 패키지 참조를 `Microsoft.ProjectOxford.Face` 버전 1.1.0에 추가하는 예제 `project.json` 파일입니다.
 
 ```json
 {
@@ -258,7 +258,7 @@ let Run(timer: TimerInfo, log: ILogger) =
 ```
 
 ## <a name="reusing-fsx-code"></a>.fsx 코드 다시 사용
-`.fsx` 지시문을 사용하면 다른 `#load` 파일의 코드를 사용할 수 있습니다. 다음은 그 예입니다.
+`#load` 지시문을 사용하면 다른 `.fsx` 파일의 코드를 사용할 수 있습니다. 예를 들어:
 
 `run.fsx`
 
@@ -282,15 +282,15 @@ let mylog(log: ILogger, text: string) =
 * `#load "package\logger.fsx"`는 함수 폴더의 `package` 폴더에 있는 파일을 로드합니다.
 * `#load "..\shared\mylogger.fsx"`는 함수 폴더와 동일한 수준의 `shared` 폴더 즉, `wwwroot`에 있는 파일을 로드합니다.
 
-`#load` 지시문은 `.fsx`파일이 아닌 `.fs`(F# 스크립트) 파일에서만 작동합니다.
+`#load` 지시문은 `.fs`파일이 아닌 `.fsx`(F# 스크립트) 파일에서만 작동합니다.
 
 ## <a name="next-steps"></a>다음 단계
-자세한 내용은 다음 리소스를 참조하세요.
+자세한 내용은 다음 자료를 참조하세요.
 
 * [F# 가이드](/dotnet/articles/fsharp/index)
 * [Azure Functions에 대한 모범 사례](functions-best-practices.md)
 * [Azure Functions 개발자 참조](functions-reference.md)
-* [Azure Functions 트리거 및 바인딩](functions-triggers-bindings.md)
+* [Azure 함수 트리거 및 바인딩](functions-triggers-bindings.md)
 * [Azure Functions 테스트](functions-test-a-function.md)
 * [Azure Functions 크기 조정](functions-scale.md)
 

@@ -1,19 +1,18 @@
 ---
-title: Azure Marketplace에서 VM 배포
-description: Azure Marketplace 미리 구성 된 가상 컴퓨터에서 가상 컴퓨터를 배포 하는 방법을 설명 합니다.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+title: Azure 마켓플레이스에서 VM 배포
+description: Azure Marketplace에서 미리 구성된 가상 머신에서 가상 컴퓨터를 배포하는 방법을 설명합니다.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/29/2018
-ms.author: pabutler
-ms.openlocfilehash: 2888d7643fd4f624634dc2ec520bec6e753382f1
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 7d5269cf8865faeb65356bc8fd3eea087cb7653c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73816832"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80277976"
 ---
 # <a name="deploy-a-virtual-machine-from-the-azure-marketplace"></a>Azure Marketplace에서 가상 머신 배포
 

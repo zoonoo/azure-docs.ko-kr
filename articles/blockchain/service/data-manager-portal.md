@@ -1,70 +1,70 @@
 ---
-title: Azure Portal를 사용 하 여 블록 체인 Data Manager 구성-Azure Blockchain 서비스
-description: Azure Portal를 사용 하 여 Azure Blockchain 서비스의 Blockchain Data Manager를 만들고 관리 합니다.
+title: Azure 포털을 사용하여 블록 체인 데이터 관리자 구성 - Azure 블록 체인 서비스
+description: Azure 포털을 사용하여 Azure 블록 체인 서비스에 대한 블록 체인 데이터 관리자를 만들고 관리합니다.
 ms.date: 11/04/2019
 ms.topic: article
 ms.reviewer: chroyal
 ms.openlocfilehash: 03c22a7a23f1579a846746f21ce048b3425399c3
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79273164"
 ---
 # <a name="configure-blockchain-data-manager-using-the-azure-portal"></a>Azure Portal을 사용하여 Blockchain Data Manager 구성
 
-Blockchain 데이터를 캡처하여 Azure Event Grid 토픽으로 전송 하도록 Azure Blockchain 서비스에 대 한 Blockchain Data Manager를 구성 합니다.
+Azure 블록 체인 서비스에 대한 블록 체인 데이터 관리자를 구성하여 블록 체인 데이터를 캡처하고 Azure 이벤트 그리드 토픽으로 보냅니다.
 
-Blockchain Data Manager 인스턴스를 구성 하려면 다음을 수행 합니다.
+블록체인 데이터 관리자 인스턴스를 구성하려면 다음을 수행하십시오.
 
-* Azure Blockchain 서비스 트랜잭션 노드에 대 한 Blockchain Data Manager 인스턴스 만들기
-* 블록 체인 응용 프로그램 추가
+* Azure 블록 체인 서비스 트랜잭션 노드에 대한 블록 체인 데이터 관리자 인스턴스 만들기
+* 블록체인 애플리케이션 추가
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* 빠른 시작 완료: Azure Portal 또는 [빠른 시작: Azure CLI를 사용 하 여 Azure Blockchain 서비스 blockchain 구성원 만들기](create-member-cli.md) 를 [사용 하 여 블록 체인 구성원 만들기](create-member.md)
-* [Event Grid 토픽](../../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic) 만들기
+* 빠른 [시작 완료: Azure 포털](create-member.md) 또는 빠른 시작을 사용하여 블록 체인 멤버 [만들기: Azure CLI를 사용하여 Azure 블록 체인 서비스 블록 체인 멤버 만들기](create-member-cli.md)
+* 이벤트 [그리드 주제](../../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic) 만들기
 * [Azure Event Grid의 이벤트 처리기](../../event-grid/event-handlers.md) 알아보기
 
 ## <a name="create-instance"></a>인스턴스 만들기
 
-Blockchain Data Manager 인스턴스는 Azure Blockchain Service 트랜잭션 노드에 연결하여 모니터링합니다. 트랜잭션 노드에 대 한 액세스 권한이 있는 사용자만 연결을 만들 수 있습니다. 인스턴스는 트랜잭션 노드의 모든 원시 블록 및 원시 트랜잭션 데이터를 캡처합니다.
+Blockchain Data Manager 인스턴스는 Azure Blockchain Service 트랜잭션 노드에 연결하여 모니터링합니다. 트랜잭션 노드에 액세스할 수 있는 사용자만 연결을 만들 수 있습니다. 인스턴스는 트랜잭션 노드의 모든 원시 블록 및 원시 트랜잭션 데이터를 캡처합니다.
 
-아웃바운드 연결은 블록체인 데이터를 Azure Event Grid로 보냅니다. 인스턴스를 만들 때 단일 아웃바운드 연결을 구성합니다. Blockchain Data Manager는 지정된 Blockchain Data Manager 인스턴스에 대한 여러 개의 Event Grid 항목 아웃바운드 연결을 지원합니다. 블록체인 데이터는 단일 대상 또는 여러 대상으로 보낼 수 있습니다. 다른 대상을 추가 하려면 인스턴스에 대 한 아웃 바운드 연결을 추가 하면 됩니다.
+아웃바운드 연결은 블록체인 데이터를 Azure Event Grid로 보냅니다. 인스턴스를 만들 때 단일 아웃바운드 연결을 구성합니다. Blockchain Data Manager는 지정된 Blockchain Data Manager 인스턴스에 대한 여러 개의 Event Grid 항목 아웃바운드 연결을 지원합니다. 블록체인 데이터는 단일 대상 또는 여러 대상으로 보낼 수 있습니다. 다른 대상을 추가하려면 인스턴스에 아웃바운드 연결을 추가하기만 하면 됩니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. Blockchain Data Manager에 연결 하려는 Azure Blockchain 서비스 구성원으로 이동 합니다. **Blockchain Data Manager**를 선택합니다.
+1. [Azure 포털에](https://portal.azure.com)로그인합니다.
+1. 블록 체인 데이터 관리자에 연결하려는 Azure 블록 체인 서비스 멤버로 이동하십시오. **Blockchain Data Manager**를 선택합니다.
 1. **추가**를 선택합니다.
 
     ![Blockchain Data Manager 추가](./media/data-manager-portal/add-instance.png)
 
     다음 세부 정보를 입력합니다.
 
-    설정 | Description
+    설정 | 설명
     --------|------------
-    속성 | 연결된 Blockchain Data Manager의 고유 이름을 입력합니다. Blockchain Data Manager 이름에는 소문자와 숫자가 포함 될 수 있으며 최대 길이는 20 자입니다.
-    트랜잭션 노드 | 트랜잭션 노드를 선택 합니다. 읽기 권한이 있는 트랜잭션 노드만 나열 됩니다.
+    이름 | 연결된 Blockchain Data Manager의 고유 이름을 입력합니다. 블록체인 데이터 관리자 이름은 소문자와 숫자를 포함할 수 있으며 최대 길이는 20자입니다.
+    트랜잭션 노드 | 트랜잭션 노드를 선택합니다. 읽은 액세스 권한이 있는 트랜잭션 노드만 나열됩니다.
     연결 이름 | 블록체인 트랜잭션 데이터가 전송되는 아웃바운드 연결의 고유 이름을 입력합니다.
-    Event Grid 엔드포인트 | Blockchain Data Manager 인스턴스와 동일한 구독에서 event grid 항목을 선택 합니다.
+    Event Grid 엔드포인트 | 블록체인 데이터 관리자 인스턴스와 동일한 구독에서 이벤트 그리드 항목을 선택합니다.
 
 1. **확인**을 선택합니다.
 
-    1분 내에 Blockchain Data Manager 인스턴스가 만들어집니다. 인스턴스가 배포된 후 자동으로 시작됩니다. 실행 중인 Blockchain Data Manager 인스턴스는 트랜잭션 노드에서 Blockchain 이벤트를 캡처하고 아웃 바운드 연결에 데이터를 보냅니다.
+    1분 내에 Blockchain Data Manager 인스턴스가 만들어집니다. 인스턴스가 배포된 후 자동으로 시작됩니다. 실행 중인 블록 체인 데이터 관리자 인스턴스는 트랜잭션 노드에서 블록 체인 이벤트를 캡처하고 아웃 바운드 연결로 데이터를 보냅니다.
 
-    새 인스턴스는 Azure Blockchain 서비스 구성원의 블록 체인 Data Manager 인스턴스 목록에 표시 됩니다.
+    새 인스턴스는 Azure 블록 체인 서비스 구성원의 블록 체인 데이터 관리자 인스턴스 목록에 나타납니다.
 
-    ![Blockchain 데이터 멤버 인스턴스 목록](./media/data-manager-portal/instance-list.png)
+    ![블록체인 데이터 구성원 인스턴스 목록](./media/data-manager-portal/instance-list.png)
 
 ## <a name="add-blockchain-application"></a>블록 체인 응용 프로그램 추가
 
-Blockchain 응용 프로그램을 추가 하는 경우 Blockchain Data Manager 응용 프로그램에 대 한 이벤트 및 속성 상태를 디코딩합니다. 그렇지 않으면 원시 블록 및 원시 트랜잭션 데이터만 전송 됩니다. Blockchain Data Manager 계약을 배포할 때 계약 주소도 검색 합니다. 블록 체인 Data Manager 인스턴스에 여러 블록 체인 응용 프로그램을 추가할 수 있습니다.
+블록 체인 응용 프로그램을 추가하면 블록 체인 데이터 관리자는 응용 프로그램의 이벤트 및 속성 상태를 디코딩합니다. 그렇지 않으면 원시 블록 및 원시 트랜잭션 데이터만 전송됩니다. 블록체인 데이터 관리자는 또한 계약이 배포될 때 계약 주소를 검색합니다. 블록 체인 데이터 관리자 인스턴스에 여러 블록 체인 응용 프로그램을 추가 할 수 있습니다.
 
 > [!IMPORTANT]
-> 현재는 농담 [배열 형식](https://solidity.readthedocs.io/en/v0.5.12/types.html#arrays) 또는 [매핑 형식을](https://solidity.readthedocs.io/en/v0.5.12/types.html#mapping-types) 선언 하는 블록 체인 응용 프로그램은 완전히 지원 되지 않습니다. 배열 또는 매핑 형식으로 선언 된 속성은 *ContractPropertiesMsg* 또는 *DecodedContractEventsMsg* 메시지에서 디코딩되 지 않습니다.
+> 현재 Solidity [배열 유형](https://solidity.readthedocs.io/en/v0.5.12/types.html#arrays) 또는 [매핑 형식을](https://solidity.readthedocs.io/en/v0.5.12/types.html#mapping-types) 선언하는 블록 체인 응용 프로그램은 완전히 지원되지 않습니다. 배열 또는 매핑 유형으로 선언된 속성은 *ContractPropertiesMsg* 또는 *디코딩된ContractEventsMsg* 메시지에서 디코딩되지 않습니다.
 
-Blockchain Data Manager에는 응용 프로그램을 추가할 스마트 계약 ABI 및 배포 된 바이트 코드 파일이 필요 합니다.
+블록 체인 데이터 관리자는 응용 프로그램을 추가하기 위해 스마트 계약 ABI 및 배포 된 바이트 코드 파일이 필요합니다.
 
-### <a name="get-contract-abi-and-bytecode"></a>계약 ABI 및 바이트 코드 가져오기
+### <a name="get-contract-abi-and-bytecode"></a>계약 ABI 및 바이트 코드 받기
 
 계약 ABI는 스마트 계약 인터페이스를 정의합니다. 스마트 계약과 상호 작용하는 방법을 설명합니다. [Azure Blockchain Development Kit for Ethereum 확장](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain)을 사용하여 계약 ABI를 클립보드에 복사할 수 있습니다.
 
@@ -108,9 +108,9 @@ Blockchain Data Manager을 사용하려면 애플리케이션을 추가할 때 U
 
     ![스토리지 계정 컨테이너 만들기](./media/data-manager-portal/create-container.png)
 
-    | 필드 | Description |
+    | 필드 | 설명 |
     |-------|-------------|
-    | 속성  | 컨테이너 이름을 지정합니다. 예: *smartcontract* |
+    | 이름  | 컨테이너 이름을 지정합니다. 예: *smartcontract* |
     | 공용 액세스 수준 | *프라이빗(익명 액세스 없음)* 선택 |
 
 1. **확인**을 선택하여 컨테이너를 만듭니다.
@@ -144,9 +144,9 @@ Blockchain Data Manager을 사용하려면 애플리케이션을 추가할 때 U
 
     블록체인 애플리케이션의 이름과 스마트 계약 ABI 및 바이트 코드 URL을 입력합니다.
 
-    설정 | Description
+    설정 | 설명
     --------|------------
-    속성 | 추적할 블록체인 애플리케이션의 고유 이름을 입력합니다.
+    이름 | 추적할 블록체인 애플리케이션의 고유 이름을 입력합니다.
     계약 ABI | 계약 ABI 파일의 URL 경로입니다. 자세한 내용은 [계약 ABI 및 바이트 코드 URL 만들기](#create-contract-abi-and-bytecode-url)를 참조하세요.
     계약 바이트 코드 | 바이트 코드 파일의 URL 경로입니다. 자세한 내용은 [계약 ABI 및 바이트 코드 URL 만들기](#create-contract-abi-and-bytecode-url)를 참조하세요.
 
@@ -160,15 +160,15 @@ Azure Storage 계정을 삭제해도 되고 또 다른 블록체인 애플리케
 
 ## <a name="stop-instance"></a>인스턴스 중지
 
-블록 체인 이벤트 캡처를 중지 하 고 아웃 바운드 연결에 데이터를 전송 하려는 경우 Blockchain 관리자 인스턴스를 중지 합니다. 인스턴스가 중지 되 면 Blockchain Data Manager에 대 한 요금이 발생 하지 않습니다. 자세한 내용은 [가격 책정](https://azure.microsoft.com/pricing/details/blockchain-service)을 참조하세요.
+블록 체인 이벤트 캡처 및 아웃 바운드 연결로 데이터 전송을 중지하려는 경우 Blockchain Manager 인스턴스를 중지합니다. 인스턴스가 중지되면 블록체인 데이터 관리자에 대한 요금이 발생하지 않습니다. 자세한 내용은 [가격 책정](https://azure.microsoft.com/pricing/details/blockchain-service)을 참조하십시오.
 
-1. **개요** 로 이동 하 고 **중지**를 선택 합니다.
+1. **개요로** 이동하여 **중지를 선택합니다.**
 
     ![인스턴스 중지](./media/data-manager-portal/stop-instance.png)
 
 ## <a name="next-steps"></a>다음 단계
 
-블록 체인 Data Manager 및 Azure Cosmos DB를 사용 하 여 블록 체인 트랜잭션 메시지 탐색기를 만드는 다음 자습서를 시도 합니다.
+블록 체인 데이터 관리자 및 Azure Cosmos DB를 사용하여 블록 체인 트랜잭션 메시지 탐색기를 만드는 다음 자습서를 사용해 보십시오.
 
 > [!div class="nextstepaction"]
-> [Blockchain Data Manager를 사용 하 여 데이터를 Azure Cosmos DB으로 보냅니다.](data-manager-cosmosdb.md)
+> [Blockchain Data Manager를 사용하여 Azure Cosmos DB로 데이터 보내기](data-manager-cosmosdb.md)

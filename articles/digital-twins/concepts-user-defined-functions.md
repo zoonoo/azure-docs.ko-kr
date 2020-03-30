@@ -1,5 +1,5 @@
 ---
-title: 데이터 처리 및 사용자 정의 함수-Azure Digital Twins | Microsoft Docs
+title: 데이터 처리 및 사용자 정의 기능 - Azure 디지털 트윈 | 마이크로 소프트 문서
 description: Azure Digital Twins의 데이터 처리, 검사기 및 사용자 정의 함수의 개요입니다.
 ms.author: alinast
 author: alinamstanciu
@@ -9,10 +9,10 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 01/03/2020
 ms.openlocfilehash: 75ed2029582438ede43687addfd54c0a187e0120
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79265182"
 ---
 # <a name="data-processing-and-user-defined-functions"></a>데이터 처리 및 사용자 정의 함수
@@ -21,7 +21,7 @@ Azure Digital Twins는 고급 컴퓨팅 기능을 제공합니다. 개발자는 
 
 ## <a name="data-processing-flow"></a>데이터 처리 흐름
 
-디바이스에서 원격 분석 데이터를 Azure Digital Twins에 보내면 개발자는 *유효성 검사*, *일치*, *컴퓨팅* 및 *디스패치*의 네 가지 단계로 데이터를 처리할 수 있습니다.
+장치가 Azure Digital Twins로 원격 분석 데이터를 보낸 후 개발자는 *유효성 검사,* *일치,* *계산*및 *디스패치의*네 단계로 데이터를 처리할 수 있습니다.
 
 [![Azure Digital Twins 데이터 처리 흐름](media/concepts/digital-twins-data-processing-flow.png)](media/concepts/digital-twins-data-processing-flow.png#lightbox)
 
@@ -32,7 +32,7 @@ Azure Digital Twins는 고급 컴퓨팅 기능을 제공합니다. 개발자는 
 
 ## <a name="data-processing-objects"></a>데이터 처리 개체
 
-Azure Digital Twins의 데이터 처리는 *검사기*, *사용자 정의 함수* 및 *역할 할당*이라는 세 가지 개체로 구성됩니다.
+Azure Digital Twins의 데이터 처리는 *일치자,* 사용자 정의 함수 및 *역할 할당의*세 가지 *개체를*정의하는 것으로 구성됩니다.
 
 [![Azure Digital Twins 데이터 처리 개체](media/concepts/digital-twins-user-defined-functions.png)](media/concepts/digital-twins-user-defined-functions.png#lightbox)
 
@@ -42,9 +42,9 @@ Azure Digital Twins의 데이터 처리는 *검사기*, *사용자 정의 함수
 
 - **온도** 데이터 형식의 모든 센서는 이스케이프된 문자열 값 `\"Temperature\"`로 표현됩니다.
 - 포트에 `01`이 있습니다.
-- 이스케이프된 문자열 값 **로 설정된 확장 속성 키** 제조업체`\"Contoso\"`가 있는 디바이스에 속합니다.
+- 이스케이프된 문자열 값 `\"Contoso\"`로 설정된 확장 속성 키 **제조업체**가 있는 디바이스에 속합니다.
 - 이스케이프된 문자열 `\"Venue\"`에서 지정된 형식의 공간에 속합니다.
-- 부모 **SpaceId** 의 하위 항목인 `DE8F06CA-1138-4AD7-89F4-F782CC6F69FD`
+- 상위 **SpaceId** `DE8F06CA-1138-4AD7-89F4-F782CC6F69FD`의 하위 항목입니다.
 
 ```JSON
 {
@@ -104,7 +104,7 @@ Azure Digital Twins의 데이터 처리는 *검사기*, *사용자 정의 함수
 - 들어오는 센서 값에 대해 특정 조건이 충족되면 알림을 생성합니다.
 - 알림을 전송하기 전에 센서 값에 그래프 메타데이터를 첨부합니다.
 
-자세한 내용은 [사용자 정의 함수를 사용 하는 방법](./how-to-user-defined-functions.md)을 참조 하세요.
+자세한 내용은 [사용자 정의 함수를 사용하는 방법을](./how-to-user-defined-functions.md)참조하십시오.
 
 #### <a name="examples"></a>예
 
@@ -114,7 +114,7 @@ Azure Digital Twins의 데이터 처리는 *검사기*, *사용자 정의 함수
 
 ### <a name="role-assignment"></a>역할 할당
 
-사용자 정의 함수의 작업은 Azure Digital Twins의 [역할 기반 액세스 제어](./security-role-based-access-control.md)에 따라 서비스 내의 데이터를 보호합니다. 역할 할당은 공간 그래프 및 해당 엔터티와 상호 작용할 수 있는 적절한 사용 권한이 있는 사용자 정의 함수를 정의합니다. 예를 들어, 사용자 정의 함수에는 지정된 공간에서 그래프 데이터에 대한 *만들기*, *읽기*, *업데이트* 또는 *삭제* 기능 및 사용 권한이 있습니다. 사용자 정의 함수의 액세스 수준은 해당 함수가 데이터에 대한 그래프를 요청하거나 작업을 시도할 때 검사됩니다. 자세한 내용은 [역할 기반 액세스 제어](./security-create-manage-role-assignments.md)를 참조 하세요.
+사용자 정의 함수의 작업은 Azure Digital Twins의 [역할 기반 액세스 제어](./security-role-based-access-control.md)에 따라 서비스 내의 데이터를 보호합니다. 역할 할당은 공간 그래프 및 해당 엔터티와 상호 작용할 수 있는 적절한 사용 권한이 있는 사용자 정의 함수를 정의합니다. 예를 들어, 사용자 정의 함수에는 지정된 공간에서 그래프 데이터에 대한 *만들기*, *읽기*, *업데이트* 또는 *삭제* 기능 및 사용 권한이 있습니다. 사용자 정의 함수의 액세스 수준은 해당 함수가 데이터에 대한 그래프를 요청하거나 작업을 시도할 때 검사됩니다. 자세한 내용은 [역할 기반 액세스 제어를](./security-create-manage-role-assignments.md)참조하십시오.
 
 검사기가 역할 할당이 없는 사용자 정의 함수를 트리거할 수 있습니다. 이 경우에 사용자 정의 함수는 그래프에서 데이터를 읽을 수 없습니다.
 

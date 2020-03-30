@@ -1,5 +1,5 @@
 ---
-title: 공유 갤러리를 사용 하 여 VM 이미지 공유
+title: 공유 갤러리와 VM 이미지 공유
 description: 공유 이미지 갤러리를 사용하여 조직 전체에 VM 이미지를 공유하는 방법을 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -16,10 +16,10 @@ ms.author: akjosh
 ms.reviewer: cynthn
 ms.custom: ''
 ms.openlocfilehash: b79abeffffd7dc1bb54e828823aa909216508496
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79267132"
 ---
 # <a name="shared-image-galleries-overview"></a>공유 이미지 갤러리 개요

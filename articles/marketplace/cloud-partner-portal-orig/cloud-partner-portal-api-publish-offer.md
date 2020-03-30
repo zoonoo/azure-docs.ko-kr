@@ -1,19 +1,18 @@
 ---
-title: 제품 게시 | Azure Marketplace
+title: 오퍼 게시 | Azure 마켓플레이스
 description: 지정한 제품을 게시하는 API를 소개합니다.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: b7ad8086c417cf1f14d9116fa4abcb0a88030922
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 4163bf5727c327d559b81db42f99684aa0cc8d5b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819649"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280527"
 ---
 <a name="publish-an-offer"></a>제안 게시
 ================
@@ -27,8 +26,8 @@ ms.locfileid: "73819649"
 
 |  **이름**      |    **설명**                               |  **데이터 형식** |
 |  ------------- |  ------------------------------------            |   -----------  |
-|  publisherid   | 게시자 식별자입니다(예: `contoso`).      |   문자열       |
-|  offerId       | 제안 식별자입니다.                                 |   문자열       |
+|  publisherId   | 게시자 식별자입니다(예: `contoso`).      |   String       |
+|  offerId       | 제안 식별자입니다.                                 |   String       |
 |  api-version   | 최신 버전의 API입니다.                        |   Date         |
 |  |  |
 
