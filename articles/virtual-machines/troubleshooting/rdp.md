@@ -15,22 +15,22 @@ ms.topic: troubleshooting
 ms.date: 12/13/2018
 ms.author: genli
 ms.openlocfilehash: 2fd2efa9de3deff1fcf983ac0fa45e412357d312
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71057280"
 ---
 # <a name="troubleshoot-rdp-issues"></a>RDP 문제 해결
 
 이 섹션에서는 VM 연결을 위한 RDP를 만들 때 발생하는 다음과 같은 문제를 다룹니다.
 
-- [RDP 다시 설정](reset-rdp.md)
+- [RDP 재설정](reset-rdp.md)
 - [RDP 문제 해결](troubleshoot-rdp-connection.md)
 - [자세한 RDP 문제 해결](detailed-troubleshoot-rdp.md)
 - [DHCP를 사용 안 함으로 인한 RDP 오류 문제 해결](troubleshoot-rdp-dhcp-disabled.md)
 - [NSG 설정으로 인한 RDP 오류 문제 해결](troubleshoot-rdp-nsg-problem.md)
-- [특정 오류 해결](troubleshoot-specific-rdp-errors.md)
+- [특정 오류 문제 해결](troubleshoot-specific-rdp-errors.md)
 - [라이선스 없는 서버 오류 해결](troubleshoot-rdp-no-license-server.md)
 - [원격 데스크톱 서비스 문제 해결](troubleshoot-remote-desktop-services-issues.md)
 - [내부 오류 문제 해결](Troubleshoot-rdp-internal-error.md)

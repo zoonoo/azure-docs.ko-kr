@@ -1,6 +1,6 @@
 ---
 title: 내 ASP.NET 프로젝트가 어떻게 되었습니까?
-description: Visual Studio 연결 서비스를 사용 하 여 ASP.NET 프로젝트에 Azure Storage를 추가한 후의 동작에 대해 설명 합니다.
+description: Visual Studio 연결 서비스를 사용하여 ASP.NET 프로젝트에 Azure Storage를 추가한 후 발생하는 작업
 services: storage
 author: ghogen
 manager: jillfra
@@ -14,10 +14,10 @@ ms.date: 12/02/2016
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 4374955d6d51c1ae44c211aaa93d0b5e8930fe5b
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72300045"
 ---
 # <a name="what-happened-to-my-aspnet-project-visual-studio-azure-storage-connected-service"></a>내 ASP.NET 프로젝트(Visual Studio Azure Storage 연결 서비스)의 변경 내용
@@ -31,7 +31,7 @@ Azure Storage NuGet 패키지가 Visual Studio 프로젝트에 추가되었습�
 * **Microsoft.WindowsAzure.Configuration**
 * **Microsoft.WindowsAzure.Storage**
 * **Newtonsoft.Json**
-* **System.Data**
+* **시스템.데이터**
 * **System.Spatial**
 
 ## <a name="connection-string-for-azure-storage-added"></a>추가된 Azure Storage에 대한 연결 문자열

@@ -1,6 +1,6 @@
 ---
 title: Azure Analysis Services 데이터베이스 백업 및 복원 | Microsoft Docs
-description: 이 문서에서는 Azure Analysis Services 데이터베이스에서 모델 메타 데이터 및 데이터를 백업 하 고 복원 하는 방법을 설명 합니다.
+description: 이 문서에서는 Azure Analysis Services 데이터베이스에서 모델 메타데이터 및 데이터를 백업하고 복원하는 방법을 설명합니다.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
@@ -8,13 +8,13 @@ ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 3f63ecf560a14248fed6dea53c30a27acdf9a938
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73573442"
 ---
-# <a name="backup-and-restore"></a>Backup 및 Restore 메서드
+# <a name="backup-and-restore"></a>백업 및 복원
 
 Azure Analysis Services에서 테이블 형식 모델 데이터베이스를 백업하는 것은 온-프레미스 Analysis Services의 경우와 매우 유사합니다. 주요 차이점은 백업 파일을 저장하는 위치입니다. Backup 파일은 [Azure Storage 계정](../storage/common/storage-create-storage-account.md)의 컨테이너에 저장해야 합니다. 이미 있는 스토리지 계정과 컨테이너를 사용하거나 서버에 대한 스토리지 설정을 구성할 때 만들 수 있습니다.
 
@@ -23,7 +23,7 @@ Azure Analysis Services에서 테이블 형식 모델 데이터베이스를 백�
 > 
 > 
 
-백업은. .abf 확장을 사용 하 여 저장 됩니다. 메모리 내 테이블 형식 모델의 경우 모델 데이터와 메타데이터가 모두 저장됩니다. DirectQuery 테이블 형식 모델의 경우 모델 메타데이터만 저장됩니다. Backup은 선택한 옵션에 따라 압축하고 암호화할 수 있습니다.
+백업은 .abf 확장으로 저장됩니다. 메모리 내 테이블 형식 모델의 경우 모델 데이터와 메타데이터가 모두 저장됩니다. DirectQuery 테이블 형식 모델의 경우 모델 메타데이터만 저장됩니다. Backup은 선택한 옵션에 따라 압축하고 암호화할 수 있습니다.
 
 
 ## <a name="configure-storage-settings"></a>스토리지 설정 구성
@@ -55,7 +55,7 @@ Azure Analysis Services에서 테이블 형식 모델 데이터베이스를 백�
 
 1. SSMS에서 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **백업**을 클릭합니다.
 
-2. **데이터베이스 Backup** > **Backup 파일**에서 **찾아보기**를 클릭합니다.
+2. **백업 데이터베이스** > **백업 파일에서** **찾아보기를**클릭합니다.
 
 3. **다른 이름으로 파일 저장** 대화 상자에서 폴더 경로 확인한 다음 백업 파일의 이름을 입력합니다. 
 
