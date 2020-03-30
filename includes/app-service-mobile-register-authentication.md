@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
 ms.openlocfilehash: d5557ce1dda7bb36b8b0a6a44fcaca50e0667bb7
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67182695"
 ---
 우선 ID 공급자 사이트에서 앱을 등록한 다음 Mobile Apps 백 엔드에서 공급자가 생성한 자격 증명을 설정합니다.
@@ -16,7 +16,7 @@ ms.locfileid: "67182695"
 1. 공급자 관련 지침에 따라 기본 설정된 ID 공급자를 구성합니다.
 
    * [Azure Active Directory](../articles/app-service/configure-authentication-provider-aad.md)
-   * [Facebook](../articles/app-service/configure-authentication-provider-facebook.md)
+   * [페이스 북](../articles/app-service/configure-authentication-provider-facebook.md)
    * [Google](../articles/app-service/configure-authentication-provider-google.md)
    * [Microsoft](../articles/app-service/configure-authentication-provider-microsoft.md)
    * [Twitter](../articles/app-service/configure-authentication-provider-twitter.md)
