@@ -16,17 +16,17 @@ ms.date: 01/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f0ac06fc3018b4230cbf32712067c48400599082
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77058266"
 ---
 # <a name="tutorial-configure-gotomeeting-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 GoToMeeting 구성
 
 이 자습서의 목적은 사용자 계정을 Azure AD에서 GoToMeeting으로 자동으로 프로비전 및 프로비전 해제하기 위해 GoToMeeting 및 Azure AD에서 수행해야 하는 단계를 설명하는 것입니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
@@ -57,7 +57,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 ### <a name="to-configure-automatic-user-account-provisioning"></a>자동 사용자 계정 프로비전을 구성하려면
 
-1. [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory &gt; 엔터프라이즈 앱 &gt; 모든 애플리케이션** 섹션으로 이동합니다.
+1. Azure [포털에서](https://portal.azure.com) **Azure Active Directory > 엔터프라이즈 앱 > 모든 응용 프로그램 섹션으로 이동합니다.**
 
 1. Single Sign-On에 대한 GoToMeeting을 이미 구성한 경우 검색 필드를 사용하여 GoToMeeting의 인스턴스를 검색합니다. 그렇지 않은 경우 **추가**를 선택하고 애플리케이션 갤러리에서 **GoToMeeting**을 검색합니다. 검색 결과에서 GoToMeeting을 선택하고 애플리케이션의 목록에 추가합니다.
 
@@ -77,7 +77,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 1. 프로비전 오류 알림을 받을 개인 또는 그룹의 이메일 주소를 **알림 메일** 필드에 입력하고 확인란을 선택합니다.
 
-1. **저장**을 클릭합니다.
+1. **저장을 클릭합니다.**
 
 1. 매핑 섹션에서 **Synchronize Azure Active Directory Users to GoToMeeting**(Azure Active Directory 사용자를 GoToMeeting에 동기화)를 선택합니다.
 
@@ -85,7 +85,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 1. GoToMeeting에 대한 Azure AD 프로비전 서비스를 사용하도록 설정하려면 설정 섹션에서 **프로비전 상태**를 **설정**으로 변경합니다.
 
-1. **저장**을 클릭합니다.
+1. **저장을 클릭합니다.**
 
 사용자 및 그룹 섹션에서 GoToMeeting에 할당된 모든 사용자 및/또는 그룹의 초기 동기화가 시작됩니다. 초기 동기화는 서비스가 실행되는 동안 약 40분마다 발생하는 후속 동기화보다 더 많은 시간이 걸립니다. **동기화 세부 정보** 섹션을 사용하여 진행 상태를 모니터링하고 GoToMeeting 앱의 프로비저닝 서비스에서 수행하는 모든 작업을 설명하는 프로비저닝 활동 로그에 연결된 링크를 따를 수 있습니다.
 
@@ -93,8 +93,8 @@ Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [
 
 ## <a name="additional-resources"></a>추가 리소스
 
-* [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](tutorial-list.md)
-* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
-* [Single Sign-On 구성](https://docs.microsoft.com/azure/active-directory/active-directory-saas-citrix-gotomeeting-tutorial)
+* [엔터프라이즈 앱용 사용자 계정 프로비저닝 관리](tutorial-list.md)
+* [Azure Active Directory의 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](../manage-apps/what-is-single-sign-on.md)
+* [단일 사인온 구성](https://docs.microsoft.com/azure/active-directory/active-directory-saas-citrix-gotomeeting-tutorial)
 
 

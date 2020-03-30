@@ -3,15 +3,15 @@ title: Azure HPC Cache 만들기
 description: Azure HPC Cache 인스턴스를 만드는 방법
 author: ekpgh
 ms.service: hpc-cache
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 11/11/2019
 ms.author: rohogue
-ms.openlocfilehash: 793a80e7019e72c1cb3087da02d5642639cb8d5e
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
-ms.translationtype: HT
+ms.openlocfilehash: c6090d19ce530829b79dca69636c2123e2519961
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647159"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80129564"
 ---
 # <a name="create-an-azure-hpc-cache"></a>Azure HPC Cache 만들기
 
@@ -57,7 +57,7 @@ Azure HPC Cache는 캐시 적중률을 최대화하기 위해 캐시되고 미�
 
 ## <a name="finish-creating-the-cache"></a>캐시 만들기 완료
 
-새 캐시를 구성한 후 **검토 + 만들기** 탭을 클릭합니다. 포털에서 선택 항목의 유효성을 검사하고 사용자가 선택 항목을 검토할 수 있도록 합니다. 모든 선택 항목이 올바르면 **만들기**를 클릭합니다.
+새 캐시를 구성한 후 **검토 + 만들기** 탭을 클릭합니다. 포털에서 선택 항목의 유효성을 검사하고 선택 항목을 검토할 수 있습니다. 모든 선택 항목이 올바르면 **만들기**를 클릭합니다.
 
 캐시를 만드는 데 10분 정도 걸립니다. Azure Portal의 알림 패널에서 진행 상황을 추적할 수 있습니다.
 

@@ -9,10 +9,10 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.openlocfilehash: 537369c9466b1083723642ec9e93fcdf25056c5e
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68855334"
 ---
 # <a name="azure-storage-metrics-migration"></a>Azure Storage 메트릭 마이그레이션
@@ -73,13 +73,13 @@ Azure Storage는 이전 메트릭 값을 수집하고, 집계하며, 동일한 �
 | **AnonymousServerTimeoutError** | **ResponseType** 차원이 **ServerTimeoutError**와 동일하고 **Authentication** 차원이 **Anonymous**와 동일한 트랜잭션 |
 | **AnonymousSuccess** | **ResponseType** 차원이 **Success**와 동일하고 **Authentication** 차원이 **Anonymous**와 동일한 트랜잭션 |
 | **AnonymousThrottlingError** | **ResponseType** 차원이 **ClientThrottlingError** 또는 **ServerBusyError**와 동일하고 **Authentication** 차원이 **Anonymous**와 동일한 트랜잭션 |
-| **AuthorizationError** | **ResponseType** 차원이 **AuthorizationError**와 동일한 트랜잭션 |
+| **권한 부여오류** | **ResponseType** 차원이 **AuthorizationError**와 동일한 트랜잭션 |
 | **가용성** | **가용성** |
 | **AverageE2ELatency** | **SuccessE2ELatency** |
 | **AverageServerLatency** | **SuccessServerLatency** |
-| **ClientOtherError** | **ResponseType** 차원이 **ClientOtherError**와 동일한 트랜잭션 |
+| **클라이언트다른 오류** | **ResponseType** 차원이 **ClientOtherError**와 동일한 트랜잭션 |
 | **ClientTimeoutError** | **ResponseType** 차원이 **ClientTimeoutError**와 동일한 트랜잭션 |
-| **NetworkError** | **ResponseType** 차원이 **NetworkError**와 동일한 트랜잭션 |
+| **네트워크 오류** | **ResponseType** 차원이 **NetworkError**와 동일한 트랜잭션 |
 | **PercentAuthorizationError** | **ResponseType** 차원이 **AuthorizationError**와 동일한 트랜잭션 |
 | **PercentClientOtherError** | **ResponseType** 차원이 **ClientOtherError**와 동일한 트랜잭션 |
 | **PercentNetworkError** | **ResponseType** 차원이 **NetworkError**와 동일한 트랜잭션 |
@@ -95,13 +95,13 @@ Azure Storage는 이전 메트릭 값을 수집하고, 집계하며, 동일한 �
 | **SASServerTimeoutError** | **ResponseType** 차원이 **ServerTimeoutError**와 동일하고 **Authentication** 차원이 **SAS**와 동일한 트랜잭션 |
 | **SASSuccess** | **ResponseType** 차원이 **Success**와 동일하고 **Authentication** 차원이 **SAS**와 동일한 트랜잭션 |
 | **SASThrottlingError** | **ResponseType** 차원이 **ClientThrottlingError** 또는 **ServerBusyError**와 동일하고 **Authentication** 차원이 **SAS**와 동일한 트랜잭션 |
-| **ServerOtherError** | **ResponseType** 차원이 **ServerOtherError**와 동일한 트랜잭션 |
-| **ServerTimeoutError** | **ResponseType** 차원이 **ServerTimeoutError**와 동일한 트랜잭션 |
+| **서버다른 오류** | **ResponseType** 차원이 **ServerOtherError**와 동일한 트랜잭션 |
+| **서버 시간 삭제 오류** | **ResponseType** 차원이 **ServerTimeoutError**와 동일한 트랜잭션 |
 | **Success** | **ResponseType** 차원이 **Success**와 동일한 트랜잭션 |
 | **ThrottlingError** | **ResponseType** 차원이 **ClientThrottlingError** 또는 **ServerBusyError**와 동일한 **트랜잭션**|
 | **TotalBillableRequests** | **트랜잭션** |
-| **TotalEgress** | **송신** |
-| **TotalIngress** | **수신** |
+| **TotalEgress** | **탈출구** |
+| **TotalIngress** | **진입** |
 | **TotalRequests** | **트랜잭션** |
 
 ## <a name="faq"></a>FAQ
@@ -112,9 +112,9 @@ Azure Storage는 이전 메트릭 값을 수집하고, 집계하며, 동일한 �
 
 ### <a name="is-new-metric-data-stored-in-the-same-storage-account-by-default"></a>새 메트릭 데이터는 기본적으로 동일한 스토리지 계정에 저장되나요?
 
-번호 메트릭 데이터를 스토리지 계정에 보관하려면 [Azure Monitor 진단 설정 API](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate)를 사용합니다.
+아니요. 메트릭 데이터를 스토리지 계정에 보관하려면 [Azure Monitor 진단 설정 API](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate)를 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Monitor](../../monitoring-and-diagnostics/monitoring-overview.md)
-* [Azure Monitor의 스토리지 메트릭](./storage-metrics-in-azure-monitor.md)
+* [Azure 모니터의 저장소 메트릭](./storage-metrics-in-azure-monitor.md)

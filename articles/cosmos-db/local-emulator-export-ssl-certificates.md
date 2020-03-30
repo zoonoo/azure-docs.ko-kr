@@ -2,16 +2,16 @@
 title: Azure Cosmos DB 에뮬레이터 인증서 내보내기
 description: Windows 인증서 저장소를 사용하지 않는 언어와 런타임으로 개발할 때는 SSL 인증서를 내보내고 관리해야 합니다. 이 게시물에서는 단계별 지침을 제공합니다.
 ms.service: cosmos-db
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 05/23/2019
 author: deborahc
 ms.author: dech
-ms.openlocfilehash: a398c10511fdd3891a2c429f0ef46869dcc48922
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: HT
+ms.openlocfilehash: 623837b30038ef8524aef1e87aeb5933204925a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66244442"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80156024"
 ---
 # <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs"></a>Java, Python 및 Node.js에서 사용할 Azure Cosmos DB 에뮬레이터 인증서 내보내기
 
@@ -36,7 +36,7 @@ Windows 트레이에서 실행 중인 Azure Cosmos DB 에뮬레이터에서 아�
 
 ## <a name="how-to-export-the-azure-cosmos-db-ssl-certificate"></a>Azure Cosmos DB SSL 인증서를 내보내는 방법
 
-1. certlm.msc를 실행하여 Windows 인증서 관리자를 시작하고, 개인 -> 인증서 폴더로 이동한 다음 **DocumentDbEmulatorCertificate**라는 친숙한 이름의 인증서를 엽니다.
+1. certlm.msc를 실행 하여 Windows 인증서 관리자를 시작하고 개인 >인증서 폴더로 이동하여 친숙한 이름 **DocumentDbEmulator인증서로**인증서를 엽니다.
 
     ![Azure Cosmos DB 로컬 에뮬레이터 내보내기 1단계](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-1.png)
 
@@ -52,7 +52,7 @@ Windows 트레이에서 실행 중인 Azure Cosmos DB 에뮬레이터에서 아�
 
     ![Azure Cosmos DB 로컬 에뮬레이터 내보내기 4단계](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-4.png)
 
-5. **아니요, 개인 키를 내보내지 않습니다.** 를 클릭한 후 **다음**을 클릭합니다.
+5. **아니요, 프라이빗 키를 내보내지 않습니다.** 를 클릭한 후, **다음**을 클릭합니다.
 
     ![Azure Cosmos DB 로컬 에뮬레이터 내보내기 5단계](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-5.png)
 
@@ -64,7 +64,7 @@ Windows 트레이에서 실행 중인 Azure Cosmos DB 에뮬레이터에서 아�
 
     ![Azure Cosmos DB 로컬 에뮬레이터 내보내기 7단계](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-7.png)
 
-8. **Finish**를 클릭합니다.
+8. **마침**을 클릭합니다.
 
     ![Azure Cosmos DB 로컬 에뮬레이터 내보내기 8단계](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-8.png)
 
@@ -74,7 +74,7 @@ Java 클라이언트를 사용하는 Java 애플리케이션 또는 MongoDB 애�
 
 X.509 인증서를 Java 기본 인증서 저장소로 가져 오려면 [Java CA 인증서 저장소에 인증서 추가](https://docs.microsoft.com/azure/java-add-certificate-ca-store)의 지침을 따릅니다. keytool을 실행할 때는 %JAVA_HOME% 디렉터리에서 작업하게 됩니다.
 
-"CosmosDBEmulatorCertificate" SSL 인증서가 설치되면 애플리케이션에서 로컬 Azure Cosmos DB 에뮬레이터에 연결하여 사용할 수 있어야 합니다. 문제가 계속 발생하면 [SSL/TLS 연결 디버그](https://docs.oracle.com/javase/7/docs/technotes/guides/security/jsse/ReadDebug.html) 문서의 지침을 따릅니다. 인증서가 %JAVA_HOME%/jre/lib/security/cacerts 저장소에 설치되지 않은 것 같습니다. 예를 들어 설치된 Java 버전이 여러 개 있는 경우 애플리케이션이 업데이트한 것과는 다른 cacerts 저장소를 사용하고 있을 수도 있습니다.
+"CosmosDBEmulatorCertificate" SSL 인증서가 설치되면 애플리케이션에서 로컬 Azure Cosmos DB 에뮬레이터에 연결하여 사용할 수 있어야 합니다. 문제가 계속 발생하면 [디버깅 SSL/TLS 연결](https://docs.oracle.com/javase/7/docs/technotes/guides/security/jsse/ReadDebug.html) 문서를 따르도록 할 수 있습니다. 인증서가 %JAVA_HOME%/jre/lib/security/cacerts 저장소에 설치되지 않은 것 같습니다. 예를 들어 설치된 Java 버전이 여러 개 있는 경우 애플리케이션이 업데이트한 것과는 다른 cacerts 저장소를 사용하고 있을 수도 있습니다.
 
 ## <a name="how-to-use-the-certificate-in-python"></a>Python에서 인증서를 사용하는 방법
 

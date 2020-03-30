@@ -1,6 +1,6 @@
 ---
-title: IoT 장치 조사 가이드 Azure Security Center | Microsoft Docs
-description: 이 방법 가이드에서는 IoT 용 Azure Security Center를 사용 하 여 Log Analytics를 사용 하 여 의심 스러운 IoT 장치를 조사 하는 방법을 설명 합니다.
+title: IoT 장치 조사를 위한 Azure 보안 센터 | 마이크로 소프트 문서
+description: 이 가이드는 IoT용 Azure 보안 센터를 사용하여 Log Analytics를 사용하여 의심스러운 IoT 장치를 조사하는 방법을 설명합니다.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -16,45 +16,45 @@ ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
 ms.openlocfilehash: 8d2fe8d63c7ece6f3b3426d8fc5a3454a61826f8
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68596243"
 ---
 # <a name="investigate-a-suspicious-iot-device"></a>의심스러운 IoT 디바이스 조사
 
-IoT 서비스 경고에 대 한 Azure Security Center은 IoT 장치에서 의심 스러운 활동에 참여 하는 것으로 의심 되는 경우 또는 장치가 손상 된 경우 표시 될 때 명확한 표시를 제공 합니다. 
+IoT 서비스 용 Azure 보안 센터 경고는 IoT 장치가 의심스러운 활동에 관여한 것으로 의심되거나 장치가 손상되었다는 표시가 있는 경우 명확한 표시를 제공합니다. 
 
-이 가이드에서는 제공 되는 조사 제안을 사용 하 여 조직에 대 한 잠재적인 위험을 확인 하 고, 향후에 비슷한 공격을 방지 하는 가장 좋은 방법을 결정 하는 방법에 대해 알아봅니다.  
+이 가이드에서는 제공된 조사 제안을 사용하여 조직에 대한 잠재적 위험을 파악하고, 해결하는 방법을 결정하고, 향후 유사한 공격을 방지하는 가장 좋은 방법을 찾아내십시오.  
 
 > [!div class="checklist"]
 > * 디바이스 데이터 찾기
 > * kql 쿼리를 사용하여 조사
 
 
-## <a name="how-can-i-access-my-data"></a>데이터에 액세스 하려면 어떻게 해야 하나요?
+## <a name="how-can-i-access-my-data"></a>내 데이터에 액세스하는 방법은 무엇입니까?
 
-기본적으로 IoT 용 Azure Security Center은 Log Analytics 작업 영역에 보안 경고 및 권장 사항을 저장 합니다. 원시 보안 데이터를 저장하도록 선택할 수도 있습니다.
+기본적으로 IoT용 Azure 보안 센터는 로그 분석 작업 영역에 보안 경고 및 권장 사항을 저장합니다. 원시 보안 데이터를 저장하도록 선택할 수도 있습니다.
 
-데이터 저장소에 대 한 Log Analytics 작업 영역을 찾으려면 다음을 수행 합니다.
+데이터 저장을 위한 로그 분석 작업 영역을 찾으려면 다음을 수행하십시오.
 
 1. IoT Hub를 엽니다. 
-1. **보안**에서 **개요**를 클릭 한 다음 **설정**을 선택 합니다.
+1. **보안에서** **개요를**클릭한 다음 **설정을**선택합니다.
 1. Log Analytics 작업 영역의 구성 세부 정보를 변경합니다. 
-1. **Save**을 클릭합니다. 
+1. **저장**을 클릭합니다. 
 
 구성이 완료되면 다음을 수행하여 Log Analytics 작업 영역에 저장된 데이터에 액세스합니다.
 
-1. IoT Hub에서 IoT 경고에 대 한 Azure Security Center를 선택 하 고 클릭 합니다. 
+1. IoT 허브에서 IoT 경고를 위한 Azure 보안 센터를 선택하고 클릭합니다. 
 1. **추가 조사**를 클릭합니다. 
 1. **이 경고가 있는 디바이스를 확인하려면 여기를 클릭하여 DeviceId 열을 보십시오**를 선택합니다.
 
 ## <a name="investigation-steps-for-suspicious-iot-devices"></a>의심스러운 IoT 디바이스에 대한 조사 단계
 
-IoT 장치에 대 한 정보 및 원시 데이터를 보려면 Log Analytics 작업 영역으로 이동 하 여 [데이터에 액세스](#how-can-i-access-my-data)합니다.
+IoT 장치에 대한 인사이트 및 원시 데이터를 보려면 Log Analytics 작업 [영역으로 이동하여 데이터에 액세스합니다.](#how-can-i-access-my-data)
 
-아래 샘플 kql 쿼리를 참조 하 여 장치에서 경고와 활동을 조사 하는 작업을 시작 하세요.
+기기의 경고 및 활동을 조사하려면 아래 샘플 kql 쿼리를 참조하십시오.
 
 ### <a name="related-alerts"></a>관련 경고
 
@@ -87,11 +87,11 @@ IoT 장치에 대 한 정보 및 원시 데이터를 보려면 Log Analytics 작
  ```
 이 데이터를 사용하여 다음을 검색합니다. 
 - 어떤 사용자가 디바이스에 액세스할 수 있습니까?
-- 액세스 권한이 있는 사용자에 게 필요한 권한 수준이 있나요?
+- 액세스 권한이 있는 사용자에게 예상 권한 수준이 있습니까?
 
-### <a name="open-ports"></a>열린 포트
+### <a name="open-ports"></a>포트 열기
 
-장치에서 현재 사용 중이거나 사용 중인 포트를 확인 하려면 다음 kql 쿼리를 사용 합니다. 
+장치의 현재 사용 중이거나 사용 중인 포트를 확인하려면 다음 kql 쿼리를 사용합니다. 
 
  ```
   let device = "YOUR_DEVICE_ID";
@@ -113,12 +113,12 @@ IoT 장치에 대 한 정보 및 원시 데이터를 보려면 Log Analytics 작
 
 이 데이터를 사용하여 다음을 검색합니다.
 - 디바이스에서 현재 활성 중인 수신 대기 소켓은 무엇입니까?
-- 현재 활성 상태인 수신 대기 소켓이 허용 되나요?
-- 장치에 연결 된 의심 스러운 원격 주소가 있나요?
+- 현재 활성 상태인 수신 대기 소켓을 허용해야 합니까?
+- 장치에 연결된 의심스러운 원격 주소가 있습니까?
 
 ### <a name="user-logins"></a>사용자 로그인
 
-장치에 로그인 한 사용자를 찾으려면 다음 kql 쿼리를 사용 합니다. 
+장치에 로그인한 사용자를 찾으려면 다음 kql 쿼리를 사용합니다. 
  
  ```
   let device = "YOUR_DEVICE_ID";
@@ -144,12 +144,12 @@ IoT 장치에 대 한 정보 및 원시 데이터를 보려면 Log Analytics 작
 
 이 쿼리 결과를 사용하여 다음을 검색합니다.
 - 어떤 사용자가 디바이스에 로그인했습니까?
-- 로그인 한 사용자가 로그인 해야 하나요?
+- 로그인한 사용자가 로그인해야 합니까?
 - 로그인한 사용자가 예상 IP 주소 또는 예기치 않은 IP 주소에서 연결했습니까?
   
 ### <a name="process-list"></a>프로세스 목록
 
-프로세스 목록이 예상 대로 작동 하는지 확인 하려면 다음 kql 쿼리를 사용 합니다. 
+프로세스 목록이 예상대로 인지 확인하려면 다음 kql 쿼리를 사용합니다. 
 
  ```
   let device = "YOUR_DEVICE_ID";

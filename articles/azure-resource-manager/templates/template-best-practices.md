@@ -3,24 +3,24 @@ title: 템플릿 모범 사례
 description: Azure Resource Manager 템플릿 작성에 대한 권장되는 방법을 설명합니다. 템플릿을 사용할 때 일반적인 문제를 방지하기 위한 제안을 제공합니다.
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: f623255a64404f0e041173fd29488ded24cd03b3
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 870636d6457d842c89f261c2537644c17a335294
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79248269"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80156415"
 ---
-# <a name="azure-resource-manager-template-best-practices"></a>Azure Resource Manager 템플릿 모범 사례
+# <a name="arm-template-best-practices"></a>ARM 템플릿 모범 사례
 
-이 문서에서는 Resource Manager 템플릿을 생성하는 방법에 대한 권장 사항을 제공합니다. 이러한 권장 사항은 템플릿을 사용하여 솔루션을 배포할 때 일반적인 문제를 방지하는 데 도움이 됩니다.
+이 문서에서는 ARM(Azure 리소스 관리자) 템플릿을 구성하는 방법에 대한 권장 사항을 제공합니다. 이러한 권장 사항은 ARM 템플릿을 사용하여 솔루션을 배포할 때 일반적인 문제를 방지하는 데 도움이 됩니다.
 
-Azure 구독을 관리 하는 방법에 대 한 권장 사항은 [azure enterprise 스 캐 폴드: 규범적 구독 거 버 넌 스](/azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=%2Fen-us%2Fazure%2Fazure-resource-manager%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)를 참조 하세요.
+Azure 구독을 관리하는 방법에 대한 권장 사항은 [Azure 엔터프라이즈 스캐폴드: 규범구독 거버넌스를](/azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=%2Fen-us%2Fazure%2Fazure-resource-manager%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)참조하십시오.
 
 모든 Azure 클라우드 환경에서 작동하는 템플릿을 빌드하는 방법에 대한 권장 사항은 [클라우드 일관성에 대한 Azure Resource Manager 템플릿 개발](templates-cloud-consistency.md)을 참조하세요.
 
 ## <a name="template-limits"></a>템플릿 제한
 
-템플릿의 크기를 4mb로 제한 하 고 각 매개 변수 파일을 64 KB로 제한 합니다. 4mb 제한은 반복 리소스 정의를 사용 하 여 확장 된 템플릿의 최종 상태와 변수 및 매개 변수의 값에 적용 됩니다. 
+템플릿 크기를 4MB로 제한하고 각 매개 변수 파일을 64KB로 제한합니다. 4MB 제한은 반복 리소스 정의와 변수 및 매개 변수에 대한 값으로 확장된 후 템플릿의 최종 상태에 적용됩니다. 
 
 또한 다음으로 제한됩니다.
 
@@ -34,7 +34,7 @@ Azure 구독을 관리 하는 방법에 대 한 권장 사항은 [azure enterpri
 
 ## <a name="resource-group"></a>Resource group
 
-리소스 그룹에 리소스를 배포 하는 경우 리소스 그룹은 리소스에 대 한 메타 데이터를 저장 합니다. 메타 데이터는 리소스 그룹의 위치에 저장 됩니다.
+리소스 그룹에 리소스를 배포하면 리소스 그룹은 리소스에 대한 메타데이터를 저장합니다. 메타데이터는 리소스 그룹의 위치에 저장됩니다.
 
 리소스 그룹의 지역이 일시적으로 사용할 수 없는 경우 메타데이터를 사용할 수 없기 때문에 리소스 그룹의 리소스를 업데이트할 수 없습니다. 다른 지역에 있는 리소스는 여전히 예상대로 작동하지만 업데이트는 불가능합니다. 위험을 최소화하려면 동일한 지역에 있는 리소스 그룹 및 리소스를 찾습니다.
 
@@ -93,9 +93,9 @@ Azure 구독을 관리 하는 방법에 대 한 권장 사항은 [azure enterpri
 
 * 리소스 유형의 API 버전에 대해서는 매개 변수를 사용하지 마세요. 리소스 속성 및 값은 버전 번호에 따라 달라질 수 있습니다. API 버전이 매개 변수로 설정되면 코드 편집기의 IntelliSense에서 올바른 스키마를 확인할 수 없습니다. 대신, 템플릿에 API 버전을 하드 코드합니다.
 
-* `allowedValues`를 제한적으로 사용합니다. 일부 값이 허용되는 옵션에 포함되지 않도록 해야 하는 경우에만 사용합니다. `allowedValues` 너무 광범위 하 게 사용 하는 경우 목록을 최신 상태로 유지 하지 않는 방식으로 유효한 배포를 차단할 수 있습니다.
+* `allowedValues`를 제한적으로 사용합니다. 일부 값이 허용되는 옵션에 포함되지 않도록 해야 하는 경우에만 사용합니다. 너무 광범위하게 `allowedValues` 사용하는 경우 목록을 최신 상태로 유지하지 않음으로써 유효한 배포를 차단할 수 있습니다.
 
-* 템플릿의 매개 변수 이름이 PowerShell 배포 명령의 매개 변수와 일치하는 경우 Resource Manager는 템플릿 매개 변수에 **FromTemplate**이라는 접미사를 추가하여 이러한 이름 충돌을 해결합니다. 예를 들어 템플릿에 **ResourceGroupName**이라는 매개 변수가 포함되면 **New-AzResourceGroupDeployment** cmdlet의 [ResourceGroupName](/powershell/module/az.resources/new-azresourcegroupdeployment) 매개 변수와 충돌합니다. 배포하는 동안 **ResourceGroupNameFromTemplate**에 대한 값을 제공하라는 메시지가 표시됩니다.
+* 템플릿의 매개 변수 이름이 PowerShell 배포 명령의 매개 변수와 일치하는 경우 Resource Manager는 템플릿 매개 변수에 **FromTemplate**이라는 접미사를 추가하여 이러한 이름 충돌을 해결합니다. 예를 들어 템플릿에 **ResourceGroupName**이라는 매개 변수가 포함되면 [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) cmdlet의 **ResourceGroupName** 매개 변수와 충돌합니다. 배포하는 동안 **ResourceGroupNameFromTemplate**에 대한 값을 제공하라는 메시지가 표시됩니다.
 
 ### <a name="security-recommendations-for-parameters"></a>매개 변수에 대한 보안 권장 사항
 
@@ -140,11 +140,11 @@ Azure 구독을 관리 하는 방법에 대 한 권장 사항은 [azure enterpri
 
 * 모든 위치에서 사용할 수 없는 리소스의 경우 별도 매개 변수를 사용하거나 리터럴 위치 값을 지정합니다.
 
-## <a name="variables"></a>variables
+## <a name="variables"></a>변수
 
 다음 정보는 [변수](template-variables.md)로 작업하는 경우 도움이 될 수 있습니다.
 
-* 변수 이름에 카멜식 대/소문자를 사용 합니다.
+* 변수 이름에 는 낙타 대/소문자를 사용합니다.
 
 * 두 번 이상 사용해야 하는 값의 경우 템플릿에서 변수를 사용합니다. 값을 한 번만 사용할 경우에는 하드 코드된 값을 사용해야 템플릿을 더 쉽게 읽을 수 있습니다.
 
@@ -152,7 +152,7 @@ Azure 구독을 관리 하는 방법에 대 한 권장 사항은 [azure enterpri
 
 * 리소스에서 `apiVersion`에 대해 변수를 사용하지 마세요. API 버전은 리소스의 스키마를 결정합니다. 종종 리소스에 대한 속성을 변경하지 않고 버전을 변경할 수 없습니다.
 
-* 템플릿의 [변수](template-functions-resource.md#reference) 섹션에서 **reference** 함수를 사용할 수 없습니다. **reference** 함수는 리소스의 런타임 상태에서 해당 값을 파생합니다. 하지만 템플릿의 초기 구문 분석 중에 변수가 확인됩니다. 템플릿의 **resources** 또는 **outputs** 섹션에서 직접 **reference** 함수에 필요한 값을 생성합니다.
+* 템플릿의 **변수** 섹션에서 [reference](template-functions-resource.md#reference) 함수를 사용할 수 없습니다. **reference** 함수는 리소스의 런타임 상태에서 해당 값을 파생합니다. 하지만 템플릿의 초기 구문 분석 중에 변수가 확인됩니다. 템플릿의 **resources** 또는 **outputs** 섹션에서 직접 **reference** 함수에 필요한 값을 생성합니다.
 
 * 고유해야 하는 리소스 이름에 대한 변수를 포함합니다.
 
@@ -204,7 +204,7 @@ Azure 구독을 관리 하는 방법에 대 한 권장 사항은 [azure enterpri
    }
    ```
    
-   저장소 계정이 작성 중인 동일한 템플릿에 배포 되 고 저장소 계정 이름이 템플릿의 다른 리소스와 공유 되지 않는 경우 리소스를 참조할 때 공급자 네임 스페이스나 apiVersion을 지정할 필요가 없습니다. 다음 예제에서는 간소화된 구문을 보여 줍니다.
+   저장소 계정이 만드는 것과 동일한 템플릿에 배포되고 저장소 계정의 이름이 템플릿의 다른 리소스와 공유되지 않는 경우 리소스를 참조할 때 공급자 네임스페이스 또는 apiVersion을 지정할 필요가 없습니다. 다음 예제에서는 간소화된 구문을 보여 줍니다.
    
    ```json
    "diagnosticsProfile": {
@@ -279,5 +279,5 @@ Azure 구독을 관리 하는 방법에 대 한 권장 사항은 [azure enterpri
 
 ## <a name="next-steps"></a>다음 단계
 
-* Resource Manager 템플릿 파일의 구조에 대한 자세한 내용은 [Azure Resource Manager 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조하세요.
-* 모든 Azure 클라우드 환경에서 작동하는 템플릿을 빌드하는 방법에 대한 권장 사항은 [클라우드 일관성에 대한 Azure Resource Manager 템플릿 개발](templates-cloud-consistency.md)을 참조하세요.
+* 템플릿 파일의 구조에 대한 자세한 내용은 [ARM 템플릿의 구조 및 구문 이해를](template-syntax.md)참조하십시오.
+* 모든 Azure 클라우드 환경에서 작동하는 템플릿을 빌드하는 방법에 대한 권장 사항은 [클라우드 일관성을 위한 ARM 템플릿 개발을](templates-cloud-consistency.md)참조하십시오.

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
 ms.openlocfilehash: 748d10b994080b667885e5d0d5f4d688269e86ab
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68728040"
 ---
 # <a name="microsoft-threat-modeling-tool-mitigations"></a>Microsoft 위협 모델링 도구 해결 방법
@@ -32,11 +32,11 @@ ms.locfileid: "68728040"
 
 위협 모델링 도구 해결 방법은 다음으로 구성된 웹 애플리케이션 보안 프레임에 따라 분류됩니다.
 
-| 범주 | Description |
+| Category | 설명 |
 | -------- | ----------- |
 | **[감사 및 로깅](threat-modeling-tool-auditing-and-logging.md)** | 누가 언제 무엇을 했나요? 감사 및 로깅은 애플리케이션이 보안 관련 이벤트를 기록하는 방법을 나타냅니다. |
-| **[인증](threat-modeling-tool-authentication.md)** | 누구십니까? 인증은 엔터티가 일반적으로 사용자 이름 및 암호와 같은 자격 증명을 통해 다른 엔터티의 ID를 증명하는 과정입니다. |
-| **[권한 부여](threat-modeling-tool-authorization.md)** | 어떻게 해야 합니까? 권한 부여는 애플리케이션이 리소스 및 작업에 대한 액세스 제어를 제공하는 방법입니다. |
+| **[인증](threat-modeling-tool-authentication.md)** | 귀하는 누구인가요? 인증은 엔터티가 일반적으로 사용자 이름 및 암호와 같은 자격 증명을 통해 다른 엔터티의 ID를 증명하는 과정입니다. |
+| **[권한 부여](threat-modeling-tool-authorization.md)** | 무엇을 할 수 있나요? 권한 부여는 애플리케이션이 리소스 및 작업에 대한 액세스 제어를 제공하는 방법입니다. |
 | **[통신 보안](threat-modeling-tool-communication-security.md)** | 누구에게 이야기하고 있나요? 통신 보안은 수행되는 모든 통신을 최대한 안전하게 유지합니다. |
 | **[구성 관리](threat-modeling-tool-configuration-management.md)** | 애플리케이션이 어떤 권한으로 실행되고 있나요? 어떤 데이터베이스에 연결되나요? 애플리케이션이 어떤 방식으로 관리되나요? 이러한 설정은 어떻게 보호되나요? 구성 관리는 애플리케이션이 이러한 운영 문제를 처리하는 방법을 나타냅니다. |
 | **[암호화](threat-modeling-tool-cryptography.md)** | 비밀(기밀성)은 어떻게 유지하나요? 데이터 또는 라이브러리의 변조를 방지하려면 어떻게 하나요(무결성)? 암호로 강력하게 보호해야 하는 임의 값에 대해 시드를 제공하려면 어떻게 해야 하나요? 암호화는 애플리케이션이 기밀성 및 무결성을 적용하는 방법을 나타냅니다. |

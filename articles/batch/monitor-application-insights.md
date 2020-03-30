@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 04/05/2018
 ms.author: labrenne
 ms.openlocfilehash: b1f4fb0207d4f659861dbd3fdfd1b2d502409935
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77022463"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>Application Insights를 사용하여 Azure Batch .NET 애플리케이션 모니터링 및 디버깅
@@ -27,17 +27,17 @@ ms.locfileid: "77022463"
 이 문서에서 코드와 함께 사용할 샘플 C# 솔루션은 [GitHub](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ApplicationInsights)에서 제공합니다. 이 예제에서는 Application Insights 계측 코드를 [TopNWords](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/TopNWords) 예제에 추가합니다. 이 예제에 익숙하지 않은 경우 먼저 TopNWords를 빌드하고 실행해 보세요. 여러 컴퓨팅 노드에서 입력 Blobs 세트를 병렬로 처리하는 기본 Batch 워크플로를 이해하는 데 도움이 될 것입니다. 
 
 > [!TIP]
-> 대안으로 Batch Explorer의 VM 성능 카운터 같은 Application Insights 데이터를 표시하도록 Batch 솔루션을 구성합니다. [Batch Explorer](https://github.com/Azure/BatchExplorer)는 Azure Batch 애플리케이션을 만들고, 디버그하고, 모니터링할 수 있도록 하는 무료의 풍부한 기능을 가진 독립 실행형 클라이언트 도구입니다. Mac, Linux 또는 Windows의 경우 [설치 패키지](https://azure.github.io/BatchExplorer/)를 다운로드합니다. Batch Explorer에서 Application Insights 데이터를 사용하도록 설정하는 빠른 단계는 [일괄 처리 인사이트 리포지토리](https://github.com/Azure/batch-insights)를 참조하세요. 
+> 대안으로 Batch Explorer의 VM 성능 카운터 같은 Application Insights 데이터를 표시하도록 Batch 솔루션을 구성합니다. [Batch Explorer](https://github.com/Azure/BatchExplorer)는 Azure Batch 애플리케이션을 만들고, 디버그하고, 모니터링할 수 있도록 하는 무료의 풍부한 기능을 가진 독립 실행형 클라이언트 도구입니다. Mac, Linux 또는 Windows용 [설치 패키지를](https://azure.github.io/BatchExplorer/) 다운로드합니다. Batch Explorer에서 Application Insights 데이터를 사용하도록 설정하는 빠른 단계는 [일괄 처리 인사이트 리포지토리](https://github.com/Azure/batch-insights)를 참조하세요. 
 >
 
-## <a name="prerequisites"></a>필수 조건
-* [Visual Studio 2017 이상](https://www.visualstudio.com/vs)
+## <a name="prerequisites"></a>사전 요구 사항
+* [비주얼 스튜디오 2017 이상](https://www.visualstudio.com/vs)
 
 * [Batch 계정 및 연결된 스토리지 계정](batch-account-create-portal.md)
 
 * [Application Insights 리소스](../azure-monitor/app/create-new-resource.md )
   
-   * Azure Portal을 사용하여 Application Insights *리소스*를 만듭니다. *일반* **응용 프로그램 유형을**선택 합니다.
+   * Azure Portal을 사용하여 Application Insights *리소스*를 만듭니다. *일반* **애플리케이션 유형**을 선택합니다.
 
    * 포털에서 [계측 키](../azure-monitor/app/create-new-resource.md #copy-the-instrumentation-key)를 복사합니다. 이 문서의 뒷부분에서 필요합니다.
   
@@ -288,7 +288,7 @@ Application Insights 리소스에서 추적 로그를 보려면 **검색**을 �
 사용자 지정 메트릭도 포털의 유용한 도구입니다. 예를 들어 각 컴퓨팅 노드가 처리 중인 필수 텍스트 파일을 다운로드하는 데 걸린 평균 시간을 표시할 수 있습니다.
 
 샘플 차트를 만들려면:
-1. Application Insights 리소스에서 **메트릭 탐색기** > **차트 추가**를 클릭합니다.
+1. 응용 프로그램 인사이트 리소스에서 메트릭 탐색기 > 차트**추가를** **클릭합니다.**
 2. 추가된 차트에서 **편집**을 클릭합니다.
 2. 다음과 같이 차트 세부 정보를 업데이트합니다.
    * **차트 종류**를 **그리드**로 설정합니다.

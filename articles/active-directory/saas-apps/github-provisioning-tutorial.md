@@ -1,5 +1,5 @@
 ---
-title: '자습서: GitHub에 대 한 사용자 프로 비전-Azure AD'
+title: '자습서: GitHub에 대 한 사용자 프로비저닝 - Azure AD'
 description: 사용자 계정을 GitHub에 자동으로 프로비전하고 프로비전 해제하도록 Azure Active Directory를 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: ''
@@ -16,27 +16,27 @@ ms.date: 03/27/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 82f7252f2d9cdd2c54fae593d8463bfe84bd6ce2
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77057654"
 ---
 # <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 GitHub 구성
 
 이 자습서의 목적은 사용자 계정을 Azure AD에서 GitHub로 자동으로 프로비전하고 프로비전 해제하기 위해 GitHub 및 Azure AD에서 수행해야 하는 단계를 보여주는 것입니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
 * Azure Active Directory 테넌트
 * [GitHub Enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise)에서 만든 GitHub 조직. 여기에는 [GitHub Enterprise 요금제](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations)가 필요합니다.
-* 조직에 대 한 관리자 권한이 있는 GitHub의 사용자 계정
-* [여기](https://help.github.com/en/github/setting-up-and-managing-organizations-and-teams/approving-oauth-apps-for-your-organization) 에 설명 된 대로 조직에 대 한 OAuth 액세스가 제공 되었는지 확인 합니다.
+* 조직에 대한 관리자 권한이 있는 GitHub의 사용자 계정
+* [여기에](https://help.github.com/en/github/setting-up-and-managing-organizations-and-teams/approving-oauth-apps-for-your-organization) 설명된 대로 조직에 OAuth 액세스가 제공되었는지 확인합니다.
 
 > [!NOTE]
-> Azure AD 프로 비전 통합은 github 엔터프라이즈 [청구 계획](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations)의 Github [enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise) 고객이 사용할 수 있는 [github scim API](https://developer.github.com/v3/scim/)를 사용 합니다.
+> Azure AD 프로비저닝 통합은 GitHub 엔터프라이즈 청구 계획의 [GitHub 엔터프라이즈 클라우드](https://help.github.com/articles/github-s-products/#github-enterprise) 고객이 사용할 수 있는 [GitHub](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations) [SCIM API를](https://developer.github.com/v3/scim/)기반으로 합니다.
 
 ## <a name="assigning-users-to-github"></a>GitHub에 사용자 할당
 
@@ -67,11 +67,11 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 3. GitHub 인스턴스를 선택한 다음 **프로비전** 탭을 선택합니다.
 
-4. **프로비전 모드**를 **자동**으로 설정합니다.
+4. **프로비저닝 모드를** **자동으로**설정합니다.
 
     ![GitHub 프로비전](./media/github-provisioning-tutorial/GitHub1.png)
 
-5. **관리자 자격 증명** 섹션에서 **권한 부여**를 클릭합니다. 이 작업은 새 브라우저 창에 GitHub 권한 부여 대화 상자를 엽니다. 액세스 권한을 부여 하도록 승인 되었는지 확인 해야 합니다. [여기](https://help.github.com/github/setting-up-and-managing-organizations-and-teams/approving-oauth-apps-for-your-organization)에 설명 된 지침을 따르세요.
+5. **관리자 자격 증명** 섹션에서 **권한 부여**를 클릭합니다. 이 작업은 새 브라우저 창에 GitHub 권한 부여 대화 상자를 엽니다. 액세스 권한을 부여할 수 있도록 승인되었는지 확인해야 합니다. [여기에](https://help.github.com/github/setting-up-and-managing-organizations-and-teams/approving-oauth-apps-for-your-organization)설명된 지침을 따르십시오.
 
 6. 새 창에서 관리자 계정을 사용하여 GitHub에 로그인합니다. 표시된 권한 부여 대화 상자에서 프로비전을 사용하도록 설정하려는 GitHub 팀을 선택한 다음 **권한 부여**를 선택합니다. 완료되면 Azure Portal로 돌아가서 프로비전 구성을 완료합니다.
 
@@ -99,8 +99,8 @@ Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [
 
 ## <a name="additional-resources"></a>추가 리소스
 
-* [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [엔터프라이즈 앱용 사용자 계정 프로비저닝 관리](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Azure Active Directory의 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>다음 단계
 

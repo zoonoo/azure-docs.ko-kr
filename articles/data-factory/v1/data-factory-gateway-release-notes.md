@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 9d0e31a89494477e048c7a2f9f7b8165e08d1a2f
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 838e523f74a21c44958ddb6dc88e4dab3526d81a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74924271"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80064988"
 ---
 # <a name="release-notes-for-data-management-gateway"></a>데이터 관리 게이트웨이에 대한 릴리스 정보
 > [!NOTE]
-> 이 문서는 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [V2의 자체 호스팅 통합 런타임](../create-self-hosted-integration-runtime.md)을 참조하세요.
+> 이 아티클은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [V2의 자체 호스팅 통합 런타임](../create-self-hosted-integration-runtime.md)을 참조하세요.
 
 최신 데이터 통합의 과제 중 하나는 온-프레미스 간 및 온-프레미스에서 클라우드로 데이터를 이동하는 것입니다. Data Factory를 사용하면 하이브리드 데이터 이동을 지원하기 위해 온-프레미스에 설치할 수 있는 에이전트인 데이터 관리 게이트웨이와 이러한 통합을 수행할 수 있습니다.
 
@@ -40,7 +40,7 @@ ms.locfileid: "74924271"
 ## <a name="21063477"></a>2.10.6347.7
 ### <a name="enhancements-"></a>향상된 기능
 - 필요한 경우 방화벽의 모든 Azure IP 주소를 허용 목록에 포함하는 대신 DNS 항목을 추가하여 서비스 버스를 허용 목록에 포함할 수 있습니다. Azure Portal에서 각각의 DNS 항목을 찾을 수 있습니다(Data Factory -> '작성자 및 배포' -> '게이트웨이' -> JSON의 “serviceUrls”).
-- 이제 HDFS 커넥터는 SSL 유효성 검사를 건너뛸 수 있도록 하여 자체 서명된 공용 인증서를 지원합니다.
+- HDFS 커넥터는 이제 TLS 유효성 검사를 건너뛸 수 있도록 하여 자체 서명된 공용 인증서를 지원합니다.
 - 업데이트 중에 클록 오차(clock skew)로 인해 발생하는 게이트웨이 오프라인 문제가 수정되었습니다.
 
 
@@ -64,7 +64,7 @@ ms.locfileid: "74924271"
 - Oracle에서 10진수 null 값을 원본으로 잘못 읽는 문제가 수정되었습니다.
 
 ## <a name="2661922"></a>2.6.6192.2
-### <a name="whats-new"></a>새 소식
+### <a name="whats-new"></a>새로운 기능
 - 고객이 게이트웨이 등록 경험에 대한 피드백을 제공할 수 있습니다.
 - 새 압축 형식 지원: ZIP (Deflate)
 
@@ -74,14 +74,14 @@ ms.locfileid: "74924271"
 
 
 ## <a name="2561641"></a>2.5.6164.1
-### <a name="enhancements"></a>향상된 기능
+### <a name="enhancements"></a>개선 사항
 - 더욱 강력하고 향상된 게이트웨이 등록 환경- 게이트웨이 등록 프로세스 동안 진행 상태를 추적할 수 있어, 더 나은 응답성의 등록 환경이 만들어졌습니다.
 - 게이트웨이 복원 프로세스 개선-이 업데이트를 사용하여 게이트웨이 백업 파일이 없는 경우에도 게이트웨이를 복구할 수 있습니다. 포털에서 연결된 서비스 자격 증명을 다시 설정해야 합니다.
 - 버그 수정
 
 ## <a name="2461511"></a>2.4.6151.1
 
-### <a name="whats-new"></a>새 소식
+### <a name="whats-new"></a>새로운 기능
 
 - 이제 데이터 원본 자격 증명을 로컬로 저장할 수 있습니다. 자격 증명은 암호화됩니다. 데이터 원본 자격 증명은 기존 게이트웨이에서 내보낸 백업 파일을 사용하여 온-프레미스에서 모두 복구하고 복원할 수 있습니다.
 
@@ -128,7 +128,7 @@ ms.locfileid: "74924271"
     *  [코드가 없는 복사 도구](data-factory-copy-data-wizard-tutorial.md)를 사용하여 스토리지에서 데이터를 복사할 수 있습니다. 이 기능에 대한 전반적인 세부 정보는 [준비된 복사](data-factory-copy-activity-performance.md#staged-copy) 를 참조하세요.
 *  데이터 관리 게이트웨이를 사용하여 온-프레미스 SQL Server 데이터베이스에서 Azure Machine Learning으로 직접 데이터를 수신할 수 있습니다.
 
-*  성능 개선
+*  성능 향상
 
     * 코드가 없는 복사 도구에서 SQL Server에 대해 스키마/미리 보기를 보는 성능이 향상됩니다.
 
@@ -144,7 +144,7 @@ ms.locfileid: "74924271"
 
 *  자동 업데이트가 실패하면 게이트웨이 설치 관리자는 자동 업데이트를 최대 3회까지 다시 시도합니다.
 
-*  성능 개선
+*  성능 향상
 
     * 코드가 없는 복사 시나리오를 통해 온-프레미스 서버의 큰 테이블을 로드하는 성능을 개선합니다.
 
@@ -152,7 +152,7 @@ ms.locfileid: "74924271"
 
 ## <a name="11058921"></a>1.10.5892.1
 
-*  성능 개선
+*  성능 향상
 
 *  버그 수정
 
@@ -164,34 +164,34 @@ ms.locfileid: "74924271"
 *  업데이트 일정 시간을 설정하는 기능
 *  자동 업데이트를 설정/해제하기 위한 PowerShell 스크립트
 *  JSON 형식 파일 지원  
-*  성능 개선
+*  성능 향상
 *  버그 수정
 
 ## <a name="1858221"></a>1.8.5822.1
 
 *  문제 해결 환경 개선
-*  성능 개선
+*  성능 향상
 *  버그 수정
 
 ### <a name="1757951"></a>1.7.5795.1
 
-*  성능 개선
+*  성능 향상
 *  버그 수정
 
 ### <a name="1757641"></a>1.7.5764.1
 
-*  성능 개선
+*  성능 향상
 *  버그 수정
 
 ### <a name="1657351"></a>1.6.5735.1
 
 *  온-프레미스 HDFS 원본/싱크 지원
-*  성능 개선
+*  성능 향상
 *  버그 수정
 
 ### <a name="1656961"></a>1.6.5696.1
 
-*  성능 개선
+*  성능 향상
 *  버그 수정
 
 ### <a name="1656761"></a>1.6.5676.1
@@ -208,7 +208,7 @@ ms.locfileid: "74924271"
 ### <a name="1656721"></a>1.6.5672.1
 
 *  Azure 데이터 팩터리에 대 한 ODBC 데이터 원본의 테이블 이름 지원
-*  성능 개선
+*  성능 향상
 *  버그 수정
 
 ### <a name="1656581"></a>1.6.5658.1
@@ -229,13 +229,13 @@ ms.locfileid: "74924271"
 
 *  Azure Data Factory에 대해 관계형 데이터베이스 5개(MySQL, PostgreSQL, DB2, Teradata, Sybase) 지원
 *  압축 지원(Gzip 및 Deflate)
-*  성능 개선
+*  성능 향상
 *  버그 수정
 
 ### <a name="1455491"></a>1.4.5549.1
 
 *  Azure 데이터 팩터리에 대 한 Oracle 데이터 원본 지원 추가
-*  성능 개선
+*  성능 향상
 *  버그 수정
 
 ### <a name="1454921"></a>1.4.5492.1

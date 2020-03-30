@@ -1,29 +1,27 @@
 ---
-title: 메모리 내 OLTP는 SQL 트랜잭션 성능 향상
+title: 인 메모리 OLTP는 SQL TXn 퍼프를 향상시킵니다.
 description: 메모리 내 OLTP를 채택하여 기존 SQL 데이터베이스의 트랜잭션 성능을 향상합니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: ''
-ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: MightyPen
 ms.date: 11/07/2018
-ms.openlocfilehash: 0f10936867c101c07cc8d29d68dc45021bfad1b3
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 653ed75341d5d56ecbe06cb59f0efafa1e68aa0f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73810301"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80067276"
 ---
 # <a name="use-in-memory-oltp-to-improve-your-application-performance-in-sql-database"></a>메모리 내 OLTP를 사용하여 SQL Database에서 애플리케이션의 성능 향상
 
 [메모리 내 OLTP](sql-database-in-memory.md)를 사용하면 가격대를 높이지 않고도 [프리미엄 및 중요 비즈니스용 계층](sql-database-service-tiers-vcore.md) 데이터베이스에서 트랜잭션 처리, 데이터 수집 및 일시적인 데이터 시나리오의 성능을 개선할 수 있습니다. 
 
 > [!NOTE] 
-> [쿼럼이 SQL Database를 사용하여 DTU를 70% 줄이는 동시에 키 데이터베이스의 워크로드를 두 배로 증가시키는 방법](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)에 대해 알아보기
+> SQL [Database를 사용하여 DTU를 70% 줄이면서 쿼럼이 키 데이터베이스의 워크로드를 두 배로 늘리는](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database) 방법에 대해 알아보십시오.
 
 
 기존 데이터베이스에서 메모리 내 OLTP를 채택하려면 다음 단계를 따르세요.
@@ -46,7 +44,7 @@ SSMS는 활성 워크로드를 사용하여 데이터베이스에 대해 실행�
 SSMS에서 보고서를 생성합니다.
 
 * **개체 탐색기**에서 데이터베이스 노드를 마우스 오른쪽 단추로 클릭합니다.
-* **보고서** > **표준 보고서** > **트랜잭션 성능 분석 개요**를 클릭합니다.
+* **보고서** > **표준 보고서** > **트랜잭션 성능 분석 개요를**클릭합니다.
 
 자세한 내용은 [테이블 또는 저장 프로시저가 메모리 내 OLTP로 이식되어야 하는지 결정](https://msdn.microsoft.com/library/dn205133.aspx)을 참조하세요.
 
@@ -82,8 +80,8 @@ SSMS에서 보고서를 생성합니다.
 3. 마법사에서 **마이그레이션 유효성 검사**(또는 **다음** 단추)를 클릭하여 메모리 최적화 테이블에서 지원하지 않는 지원되지 않는 기능이 테이블에 있는지 확인합니다. 자세한 내용은 다음을 참조하세요.
    
    * *메모리 최적화 관리자* 의 [메모리 최적화 검사 목록](https://msdn.microsoft.com/library/dn284308.aspx).
-   * [메모리 내 OLTP에서 지원되지 않는 TRANSACT-SQL 항목](https://msdn.microsoft.com/library/dn246937.aspx).
-   * [메모리 내 OLTP로 마이그레이션](https://msdn.microsoft.com/library/dn247639.aspx).
+   * [메모리 내 OLTP에서 지원되지 않는 거래 SQL 구문](https://msdn.microsoft.com/library/dn246937.aspx).
+   * [메모리 내 OLTP로 마이그레이션합니다.](https://msdn.microsoft.com/library/dn247639.aspx)
 4. 테이블에 지원되지 않는 기능이 없는 경우 관리자는 사용자에게 실제 스키마 및 데이터 마이그레이션을 수행할 수 있습니다.
 
 #### <a name="manual-t-sql"></a>수동 T-SQL
@@ -93,7 +91,7 @@ SSMS에서 보고서를 생성합니다.
 2. 테이블 및 해당 인덱스에 대한 완전한 T-SQL 스크립트를 가져옵니다.
    
    * SSMS에서 테이블 노드를 마우스 오른쪽 단추로 클릭합니다.
-   * **테이블 스크립팅** > **CREATE** > **새 쿼리 창**을 클릭합니다.
+   * 스크립트 테이블을**새 쿼리 창으로** **만들기로** > **CREATE To** > 클릭합니다.
 3. 스크립트 창에서 테이블 만들기 문에 WITH (MEMORY_OPTIMIZED = ON)을 추가합니다.
 4. 클러스터형 인덱스가 있을 경우 비클러스터형으로 변경합니다.
 5. SP_RENAME을 사용하여 기존 테이블의 이름을 바꿉니다.
@@ -135,7 +133,7 @@ CREATE PROCEDURE schemaname.procedurename
 
 * TRANSACTION_ISOLATION_LEVEL의 경우 스냅샷은 고유하게 컴파일된 저장 프로시저에 대한 가장 일반적인 값입니다. 그러나 다른 값의 하위 집합에서도 지원됩니다.
   
-  * 반복 가능한 읽기
+  * REPEATABLE READ
   * 직렬화 가능
 * sys.languages 보기에 언어 값이 나탸나야 합니다.
 

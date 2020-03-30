@@ -7,12 +7,12 @@ ms.topic: article
 ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: cynthn
-ms.openlocfilehash: 7b9b536def2aa7da25fef9f3baa5efdd8b0ed6f7
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: 0314095a053087a7d490926c41c6ae386c304919
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78944606"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80066641"
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>SMB를 사용하여 Linux VM에 Azure File Storage 탑재
 
@@ -29,15 +29,15 @@ VM에서 File Storage에서 호스팅되는 SMB 탑재로 파일을 이동하는
 
 *미국 동부* 위치에 *myResourceGroup*이라는 이름의 리소스 그룹을 만듭니다.
 
-```bash
+```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
 ## <a name="create-a-storage-account"></a>스토리지 계정 만들기
 
-[az storage account create](/cli/azure/storage/account)를 사용하여 만든 리소스 그룹 내에 새 스토리지 계정을 만듭니다. 이 예제에서는 *Mystorageacct\<난수 >* 라는 저장소 계정을 만들고 해당 저장소 계정의 이름을 **storage계정**변수에 넣습니다. 스토리지 계정 이름은 고유해야 하며, 사용하는 `$RANDOM` 끝에 숫자를 추가하여 고유하게 만듭니다.
+[az storage account create](/cli/azure/storage/account)를 사용하여 만든 리소스 그룹 내에 새 스토리지 계정을 만듭니다. 이 예제에서는 *mySTORAGEACCT\<난수>* 라는 저장소 계정을 만들고 해당 저장소 계정의 이름을 변수 **STORAGEACCT에**넣습니다. 스토리지 계정 이름은 고유해야 하며, 사용하는 `$RANDOM` 끝에 숫자를 추가하여 고유하게 만듭니다.
 
-```bash
+```azurecli
 STORAGEACCT=$(az storage account create \
     --resource-group "myResourceGroup" \
     --name "mystorageacct$RANDOM" \
@@ -52,7 +52,7 @@ STORAGEACCT=$(az storage account create \
 
 [az storage account keys list](/cli/azure/storage/account/keys)를 사용하여 스토리지 계정 키를 봅니다. 다음 예제에서는 키 1의 값을 **STORAGEKEY** 변수에 저장합니다.
 
-```bash
+```azurecli
 STORAGEKEY=$(az storage account keys list \
     --resource-group "myResourceGroup" \
     --account-name $STORAGEACCT \
@@ -67,7 +67,7 @@ STORAGEKEY=$(az storage account keys list \
 
 다음 예제에서는 10GiB 할당량이 있는 *myshare*라는 공유를 만듭니다. 
 
-```bash
+```azurecli
 az storage share create --name myshare \
     --quota 10 \
     --account-name $STORAGEACCT \
@@ -103,11 +103,12 @@ Linux VM를 다시 부팅하면 탑재된 SMB 공유가 종료하는 동안 분�
 ```bash
 //myaccountname.file.core.windows.net/mystorageshare /mnt/mymountpoint cifs vers=3.0,username=mystorageaccount,password=myStorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
 ```
+
 프로덕션 환경에서 보안을 강화하려면 자격 증명을 fstab 외부에 저장해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 - [cloud-init를 사용하여 생성 중인 Linux VM 사용자 지정](using-cloud-init.md)
 - [Linux VM에 디스크 추가](add-disk.md)
-- [Linux Vm에 대 한 Azure Disk Encryption](disk-encryption-overview.md)
+- [리눅스 VM에 대 한 Azure 디스크 암호화](disk-encryption-overview.md)
 

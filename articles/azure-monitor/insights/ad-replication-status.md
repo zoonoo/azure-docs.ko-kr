@@ -1,17 +1,17 @@
 ---
-title: Azure Monitor를 사용하여 Active Directory 복제 상태 모니터링 | Microsoft Docs
+title: 활성 디렉터리 복제 상태 모니터링
 description: Active Directory 복제 상태 솔루션 팩은 Active Directory 환경에서 복제 실패가 있는지를 정기적으로 모니터링합니다.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/24/2018
-ms.openlocfilehash: bfc9572e8b21692a386c510ffd3409c571eff8f4
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 30b0c7c87f6d55586b931be1445b175ce58565d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77667179"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80055894"
 ---
 # <a name="monitor-active-directory-replication-status-with-azure-monitor"></a>Azure Monitor를 사용하여 Active Directory 복제 상태 모니터링
 
@@ -19,7 +19,7 @@ ms.locfileid: "77667179"
 
 Active Directory는 엔터프라이즈 IT 환경의 핵심 구성 요소입니다. 고가용성 및 고성능을 보장하기 위해 각 도메인 컨트롤러에 Active Directory 데이터베이스의 자체 복사본이 있습니다. 도메인 컨트롤러는 변경 내용을 엔터프라이즈 전체에 전파하기 위해 서로 복제합니다. 이 복제 프로세스의 오류는 엔터프라이즈에서 다양한 문제를 발생시킬 수 있습니다.
 
-AD 복제 상태 솔루션은 복제 오류에 대 한 Active Directory 환경을 정기적으로 모니터링 합니다.
+AD 복제 상태 솔루션은 정기적으로 Active Directory 환경을 모니터링하여 복제 실패를 확인합니다.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand-solution.md)]
 
@@ -28,9 +28,9 @@ AD 복제 상태 솔루션은 복제 오류에 대 한 Active Directory 환경�
 
 ### <a name="prerequisites"></a>사전 요구 사항
 
-* AD 복제 상태 솔루션에는 Windows 용 Log Analytics 에이전트 (Microsoft Monitoring Agent (MMA) 라고도 함)가 설치 된 각 컴퓨터에 지원 되는 버전의 .NET Framework 4.6.2 이상이 설치 되어 있어야 합니다.  에이전트는 System Center 2016-Operations Manager, Operations Manager 2012 R2 및 Azure Monitor에서 사용 됩니다.
+* AD 복제 상태 솔루션에는 Windows용 로그 분석 에이전트(MMA(Microsoft 모니터링 에이전트)라고도 함)이 설치된 각 컴퓨터에 설치된 .NET Framework 4.6.2 이상의 지원되는 버전이 필요합니다.  에이전트는 시스템 센터 2016 - 운영 관리자, 운영 관리자 2012 R2 및 Azure 모니터에서 사용됩니다.
 * 이 솔루션은 Windows Server 2008 및 2008 R2, Windows Server 2012 및 2012 R2 및 Windows Server 2016을 실행하는 도메인 컨트롤러를 지원합니다.
-* Azure Marketplace로부터 Active Directory Health Check 솔루션을 추가하기 위한 Azure Portal의 Log Analytics 작업 영역. 추가 구성은 필요 하지 않습니다.
+* Azure Marketplace로부터 Active Directory Health Check 솔루션을 추가하기 위한 Azure Portal의 Log Analytics 작업 영역. 추가 구성이 필요하지 않습니다.
 
 
 ### <a name="install-agents-on-domain-controllers"></a>도메인 컨트롤러에 에이전트 설치
@@ -44,7 +44,7 @@ Azure Monitor에 도메인 컨트롤러를 직접 연결하지 않으려는 경�
 3. 해당 컴퓨터에서 다음 레지스트리 키를 설정합니다.<br>키: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management Groups\<ManagementGroupName>\Solutions\ADReplication**<br>값: **IsTarget**<br>값 데이터: **true**
 
    > [!NOTE]
-   > 이러한 변경 내용은 Microsoft Monitoring Agent 서비스 (Health service)를 다시 시작할 때까지 적용 되지 않습니다.
+   > 이러한 변경 사항은 Microsoft 모니터링 에이전트 서비스(HealthService.exe)를 다시 시작할 때까지 적용되지 않습니다.
    > ### <a name="install-solution"></a>솔루션 설치
    > [모니터링 솔루션 설치](solutions.md#install-a-monitoring-solution)에 설명된 프로세스에 따라 Log Analytics 작업 영역에 **Active Directory 복제 상태** 솔루션을 추가합니다. 추가 구성은 필요 없습니다.
 
@@ -123,26 +123,26 @@ AD 복제 상태 타일에는 현재 발생한 복제 오류 수가 표시됩니
 A: 정보는 5일마다 업데이트됩니다.
 
 **Q: 이 데이터가 업데이트되는 빈도를 구성하는 방법이 있나요?**
-A: 지금은 없습니다.
+ A: 지금은 없습니다.
 
 **Q: 복제 상태를 보려면 내 Log Analytics 작업 영역에 내 도메인 컨트롤러를 모두 추가해야 하나요?**
-A: 아니요, 단일 도메인 컨트롤러만 추가되어야 합니다. Log Analytics 작업 영역에 도메인 컨트롤러가 여러 개 있는 경우 모든 도메인 컨트롤러의 데이터가 Azure Monitor에 전송됩니다.
+ A: 아니요, 단일 도메인 컨트롤러만 추가되어야 합니다. Log Analytics 작업 영역에 도메인 컨트롤러가 여러 개 있는 경우 모든 도메인 컨트롤러의 데이터가 Azure Monitor에 전송됩니다.
 
-**Q: 내 Log Analytics 작업 영역에 도메인 컨트롤러를 추가 하 고 싶지 않습니다. AD 복제 상태 솔루션을 계속 사용할 수 있나요?**
+**Q: 로그 분석 작업 영역에 도메인 컨트롤러를 추가하고 싶지 않습니다. AD 복제 상태 솔루션을 계속 사용할 수 있습니까?**
 
 A: 예. 이 기능을 활성화하도록 레지스트리 키의 값을 설정할 수 있습니다. [비도메인 컨트롤러 사용](#enable-non-domain-controller)을 참조하세요.
 
 **Q: 데이터 수집을 수행하는 프로세스의 이름은 무엇인가요?**
-A: AdvisorAssessment.exe
+ A: AdvisorAssessment.exe
 
 **Q: 데이터를 수집하려면 시간이 얼마나 걸리나요?**
-A: 데이터 수집 시간은 Active Directory 환경의 크기에 따라 달라지지만 일반적으로 약 15분 미만이 소요됩니다.
+ A: 데이터 수집 시간은 Active Directory 환경의 크기에 따라 달라지지만 일반적으로 약 15분 미만이 소요됩니다.
 
 **Q: 어떤 유형의 데이터를 수집하나요?**
-A: 복제 정보는 LDAP를 통해 수집됩니다.
+ A: 복제 정보는 LDAP를 통해 수집됩니다.
 
 **Q: 데이터를 수집하는 경우 구성하는 방법이 있나요?**
-A: 지금은 없습니다.
+ A: 지금은 없습니다.
 
 **Q: 데이터를 수집하려면 어떤 권한이 필요합니까?**
 A: Active Directory에 대한 일반 사용자 권한으로 충분합니다.

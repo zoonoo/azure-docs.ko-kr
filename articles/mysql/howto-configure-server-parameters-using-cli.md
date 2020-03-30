@@ -1,25 +1,25 @@
 ---
-title: 서버 매개 변수 구성-Azure CLI-Azure Database for MySQL
+title: 서버 매개 변수 구성 - Azure CLI - MySQL용 Azure 데이터베이스
 description: 이 문서에서는 Azure CLI 명령줄 유틸리티를 사용하여 Azure Database for MySQL에서 서비스 매개 변수를 구성하는 방법을 설명합니다.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 12/05/2019
-ms.openlocfilehash: 0250810d25b0abb5bf675d8c91f3c0678d895c37
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.date: 3/18/2020
+ms.openlocfilehash: 5f3027909d1c4684e2ef5d1b6e967cb11f570fd0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893164"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80062423"
 ---
-# <a name="customize-server-parameters-by-using-azure-cli"></a>Azure CLI를 사용 하 여 서버 매개 변수 사용자 지정
+# <a name="customize-server-parameters-by-using-azure-cli"></a>Azure CLI를 사용하여 서버 매개 변수 사용자 지정
 Azure 명령줄 유틸리티인 Azure CLI를 사용하여 Azure Database for MySQL 서버의 구성 매개 변수를 나열하고, 표시하며, 업데이트할 수 있습니다. 엔진 구성의 하위 집합은 서버 수준에서 노출되고 수정할 수 있습니다. 
 
-## <a name="prerequisites"></a>전제 조건
-이 방법 가이드를 단계별로 실행하려면 다음을 수행해야 합니다.
-- [Azure Database for MySQL 서버](quickstart-create-mysql-server-database-using-azure-cli.md)
+## <a name="prerequisites"></a>사전 요구 사항
+이 방법 가이드를 단계별로 실행하려면 다음이 필요합니다.
+- [MySQL 서버용 Azure 데이터베이스](quickstart-create-mysql-server-database-using-azure-cli.md)
 - [Azure CLI](/cli/azure/install-azure-cli) 명령줄 유틸리티 또는 브라우저의 Azure Cloud Shell
 
 ## <a name="list-server-configuration-parameters-for-azure-database-for-mysql-server"></a>Azure Database for MySQL에 대한 서버 구성 매개 변수 나열
@@ -65,7 +65,7 @@ CALL mysql.az_load_timezone();
 ```
 
 > [!IMPORTANT]
-> 표준 시간대 테이블이 제대로 채워졌는지 확인 하려면 서버를 다시 시작 해야 합니다. 서버를 다시 시작 하려면 [Azure Portal](howto-restart-server-portal.md) 또는 [CLI](howto-restart-server-cli.md)를 사용 합니다.
+> 표준 시간대 테이블이 제대로 채워지도록 서버를 다시 시작해야 합니다. 서버를 다시 시작하려면 [Azure 포털](howto-restart-server-portal.md) 또는 [CLI를](howto-restart-server-cli.md)사용합니다.
 
 사용 가능한 표준 시간대 값을 보려면 다음 명령을 실행합니다.
 

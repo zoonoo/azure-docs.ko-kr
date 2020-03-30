@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
 ms.openlocfilehash: 3ca3e9074f28d66068d49b80915e98600759d9be
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68568284"
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>클라우드 데이터베이스의 분산 트랜잭션
@@ -32,7 +32,7 @@ SQL DB용 Elastic Database 트랜잭션은 여러 개의 다른 SQL Database에 
 탄력적 데이터베이스 트랜잭션은 다음과 같은 시나리오를 대상으로 합니다.
 
 * Azure의 다중 데이터베이스 애플리케이션: 이 시나리오의 경우 데이터가 SQL DB의 여러 데이터베이스에 걸쳐 수직으로 분할되어 있고 다른 종류의 데이터가 다른 데이터베이스에 상주합니다. 일부 작업은 둘 이상의 데이터베이스에 보관되는 데이터에 대한 변경을 필요로 합니다. 애플리케이션은 여러 데이터베이스에 걸쳐 변경을 조정하고 원자성을 보장하기 위해 탄력적 데이터베이스 트랜잭션을 사용합니다.
-* Azure의 분할된 데이터베이스 애플리케이션: 이 시나리오의 경우, 데이터 계층은 [Elastic Database 클라이언트 라이브러리](sql-database-elastic-database-client-library.md) 또는 자체 분할을 사용하여 SQL DB의 여러 데이터베이스에 걸쳐 있는 데이터를 수평적으로 분할합니다. 한 가지 주요한 사용 사례는 여러 테넌트에 변경이 미칠 때 분할된 다중 테넌트 애플리케이션에 원자성 변경을 수행해야 하는 경우입니다. 서로 다른 데이터베이스에 상주하는 하나의 테넌트에서 다른 테넌트로 전송하는 인스턴스를 생각해 볼 수 있습니다. 두 번째 사례는 대규모 테넌트에 필요한 용량을 공급하기 위한 세분화된 분할이며, 일반적으로 원자성 작업이 동일한 테넌트의 여러 데이터베이스에까지 결과적으로 영향을 미쳐야 하는 필요성을 수반합니다. 세 번째 사례는 여러 데이터베이스에 걸쳐 복제되는 참조 데이터에 대한 원자성 업데이트입니다. 이러한 방식의 트랜잭션 처리된, 원자성, 작업은 미리 보기를 사용하여 여러 데이터베이스에 걸쳐 조정될 수 있습니다.
+* Azure의 분할된 데이터베이스 애플리케이션: 이 시나리오의 경우, 데이터 계층은 [Elastic Database 클라이언트 라이브러리](sql-database-elastic-database-client-library.md) 또는 자체 분할을 사용하여 SQL DB의 여러 데이터베이스에 걸쳐있는 데이터를 수평적으로 분할합니다. 한 가지 주요한 사용 사례는 여러 테넌트에 변경이 미칠 때 분할된 다중 테넌트 애플리케이션에 원자성 변경을 수행해야 하는 경우입니다. 서로 다른 데이터베이스에 상주하는 하나의 테넌트에서 다른 테넌트로 전송하는 인스턴스를 생각해 볼 수 있습니다. 두 번째 사례는 대규모 테넌트에 필요한 용량을 공급하기 위한 세분화된 분할이며, 일반적으로 원자성 작업이 동일한 테넌트의 여러 데이터베이스에까지 결과적으로 영향을 미쳐야 하는 필요성을 수반합니다. 세 번째 사례는 여러 데이터베이스에 걸쳐 복제되는 참조 데이터에 대한 원자성 업데이트입니다. 이러한 방식의 트랜잭션 처리된, 원자성, 작업은 미리 보기를 사용하여 여러 데이터베이스에 걸쳐 조정될 수 있습니다.
   탄력적 데이터베이스 트랜잭션은 여러 데이터베이스에 걸쳐 트랜잭션 원자성을 보장하기 위해 2단계 커밋을 사용합니다. 이것은 단일 트랜잭션 내에 한 번에 100개 미만의 데이터베이스가 관여되는 트랜잭션에 적합합니다. 이 한도가 강제로 적용되지는 않지만, 한도를 초과하는 경우 탄력적 데이터베이스의 성능 및 성공률이 불리해질 수 있다는 것을 예상해야 합니다.
 
 ## <a name="installation-and-migration"></a>설치 및 마이그레이션
@@ -47,7 +47,7 @@ SQL DB의 탄력적 데이터베이스 트랜잭션 기능은 .NET 라이브러�
 
 ### <a name="multi-database-applications"></a>다중 데이터베이스 애플리케이션
 
-다음 샘플 코드는 .NET System.Transactions와 친숙한 프로그래밍 환경을 사용합니다. TransactionScope 클래스는 .NET에서 앰비언트 트랜잭션을 설정합니다. (“앰비언트 트랜잭션”이란 현재 스레드에 존재하는 트랜잭션입니다.) 모든 연결은 트랜잭션에 참여하는 TransactionScope 내에서 열려 있습니다. 다른 데이터베이스가 참여하면, 트랜잭션은 분산 트랜잭션으로 자동 승격됩니다. 트랜잭션의 결과는 커밋을 나타내기 위해 완료해야 하는 범위를 설정하여 제어됩니다.
+다음 샘플 코드는 .NET System.Transactions와 친숙한 프로그래밍 환경을 사용합니다. TransactionScope 클래스는 .NET에서 앰비언트 트랜잭션을 설정합니다. ("앰비언트 트랜잭션"은 현재 스레드에 있는 트랜잭션입니다. 트랜잭션 Scope 내에서 열린 모든 연결은 트랜잭션에 참여합니다. 다른 데이터베이스가 참여하면, 트랜잭션은 분산 트랜잭션으로 자동 승격됩니다. 트랜잭션의 결과는 커밋을 나타내기 위해 완료해야 하는 범위를 설정하여 제어됩니다.
 
     using (var scope = new TransactionScope())
     {
@@ -127,19 +127,19 @@ Azure App Services의 경우에는 현재 게스트 OS 업그레이드가 지원
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Azure SQL Database, Azure Resource Manager PowerShell 모듈은 계속 지원하지만 모든 향후 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대한 내용은 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조합니다. Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다.
+> PowerShell Azure 리소스 관리자 모듈은 Azure SQL Database에서 계속 지원되지만 향후 모든 개발은 Az.Sql 모듈용입니다. 이러한 cmdlet에 대 한 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조 합니다. Az 모듈 및 AzureRm 모듈의 명령에 대한 인수는 거의 동일합니다.
 
 Elastic Database 트랜잭션은 Azure SQL Database의 여러 SQL Database 서버에 걸쳐 지원됩니다. 트랜잭션이 여러 SQL Database 서버에 걸쳐 진행될 때는 먼저 해당 트랜잭션에 참여하는 서버 간의 상호 통신 관계가 설정되어야 합니다. 통신 관계가 설정된 후에는 두 서버 중 하나의 모든 데이터베이스가 다른 서버 데이터베이스와의 탄력적인 트랜잭션에 참여할 수 있습니다. SQL Database 서버 3개 이상에 걸쳐 트랜잭션이 진행될 때는 SQL Database 쌍에 대해 통신 관계가 설정되어야 합니다.
 
 다음 PowerShell cmdlet을 사용하여 탄력적인 데이터베이스 트랜잭션에 대한 서버 간 통신 관계를 관리할 수 있습니다.
 
-* **New-AzSqlServerCommunicationLink**: Azure SQL Database에서 두 SQL Database 서버 간에 새 통신 관계를 만들려면 이 cmdlet을 사용합니다. 관계는 대칭적입니다. 즉, 두 서버 모두 상대 서버와의 트랜잭션을 시작할 수 있습니다.
-* **Get-AzSqlServerCommunicationLink**: 기존 통신 관계와 해당 속성을 검색하려면 이 cmdlet을 사용합니다.
-* **Remove-AzSqlServerCommunicationLink**: 기존 통신 관계와 해당 속성을 제거하려면 이 cmdlet을 사용합니다. 
+* **New-AzSqlServerCommunicationLink**: 이 cmdlet을 사용하여 Azure SQL Database의 두 SQL 데이터베이스 서버 간에 새 통신 관계를 만듭니다. 관계는 대칭적입니다. 즉, 두 서버 모두 상대 서버와의 트랜잭션을 시작할 수 있습니다.
+* **Get-AzSqlServerCommunicationLink**: 이 cmdlet을 사용하여 기존 통신 관계 및 해당 속성을 검색합니다.
+* **제거-AzSqlServerCommunicationLink**제거 : 이 cmdlet을 사용하여 기존 통신 관계를 제거합니다. 
 
 ## <a name="monitoring-transaction-status"></a>트랜잭션 상태 모니터링
 
-SQL DB의 동적 관리 뷰(DMV)를 사용하여 진행 중인 탄력적 데이터베이스 트랜잭션의 상태와 진행률을 모니터링합니다. 트랜잭션과 관련된 모든 DMV는 SQL DB의 분산 트랜잭션과 관련이 있습니다. 해당 DMV 목록은 다음에서 찾을 수 있습니다. [트랜잭션 관련 동적 관리 뷰 및 함수(Transact-SQL)](https://msdn.microsoft.com/library/ms178621.aspx)
+SQL DB의 동적 관리 뷰(DMV)를 사용하여 진행 중인 탄력적 데이터베이스 트랜잭션의 상태와 진행률을 모니터링합니다. 트랜잭션과 관련된 모든 DMV는 SQL DB의 분산 트랜잭션과 관련이 있습니다. 해당 DMV 목록은 [트랜잭션 관련 동적 관리 뷰 및 함수(Transact-SQL)](https://msdn.microsoft.com/library/ms178621.aspx)에서 찾을 수 있습니다.
 
 다음 DMV는 특히 유용합니다.
 

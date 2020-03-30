@@ -5,31 +5,31 @@ ms.topic: include
 ms.date: 02/27/2020
 ms.author: orspodek
 ms.openlocfilehash: a2297301a0b9c0540c73c0f50483cccfc3181a0f
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "79128754"
 ---
 ### <a name="event-system-properties-mapping"></a>이벤트 시스템 속성 매핑
 
 > [!Note]
-> * 시스템 속성은 단일 레코드 이벤트에 대해 지원 됩니다.
-> * `csv` 매핑의 경우 레코드의 시작 부분에 속성이 추가 됩니다. `json` 매핑의 경우 드롭다운 목록에 표시 되는 이름에 따라 속성이 추가 됩니다.
+> * 단일 레코드 이벤트에는 시스템 속성이 지원됩니다.
+> * 매핑의 경우 `csv` 속성은 레코드의 시작 부분에 추가됩니다. 매핑의 경우 `json` 드롭다운 목록에 나타나는 이름에 따라 속성이 추가됩니다.
 
-테이블의 **데이터 원본** 섹션에서 **이벤트 시스템 속성** 을 선택한 경우 테이블 스키마 및 매핑에 다음 속성을 포함 해야 합니다.
+테이블의 **데이터 원본** 섹션에서 이벤트 **시스템 속성을** 선택한 경우 테이블 스키마 및 매핑에 다음 속성을 포함해야 합니다.
 
 **테이블 스키마 예제**
 
-데이터에 세 개의 열 (`Timespan`, `Metric`및 `Value`)이 포함 되어 있는 경우 포함 하는 속성은 `x-opt-enqueued-time` 하 고 `x-opt-offset`다음 명령을 사용 하 여 테이블 스키마를 만들거나 변경 합니다.
+데이터에 세 개의 열`Timespan`(, `Metric` `Value`및) 및 포함 `x-opt-enqueued-time` 하는 `x-opt-offset`속성이 포함 하는 경우 는 이 명령을 사용 하 여 테이블 스키마를 만들거나 변경 합니다.
 
 ```kusto
     .create-merge table TestTable (TimeStamp: datetime, Metric: string, Value: int, EventHubEnqueuedTime:datetime, EventHubOffset:string)
 ```
 
-**CSV 매핑 예**
+**CSV 매핑 예제**
 
-다음 명령을 실행 하 여 레코드의 시작 부분에 데이터를 추가 합니다. 서 수 값을 메모 합니다.
+다음 명령을 실행하여 레코드의 시작 부분에 데이터를 추가합니다. 서수 값을 기록합니다.
 
 ```kusto
     .create table TestTable ingestion csv mapping "CsvMapping1"
@@ -42,9 +42,9 @@ ms.locfileid: "79128754"
     ']'
 ```
  
-**JSON 매핑 예**
+**JSON 매핑 예제**
 
-데이터는 **데이터 연결** 블레이드 **이벤트 시스템 속성** 목록에 표시 되는 시스템 속성 이름을 사용 하 여 추가 됩니다. 다음 명령을 실행합니다.
+데이터는 **데이터 연결** 블레이드 **이벤트 시스템 속성** 목록에 나타나는 시스템 속성 이름을 사용하여 추가됩니다. 다음 명령을 실행합니다.
 
 ```kusto
     .create table TestTable ingestion json mapping "JsonMapping1"

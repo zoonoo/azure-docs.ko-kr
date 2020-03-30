@@ -3,55 +3,55 @@ title: 새 Azure Application Insights 리소스 만들기 | Microsoft Docs
 description: 새 라이브 애플리케이션에 대한 Application Insights 모니터링을 수동으로 설정합니다.
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 090c983dcca101557f8dec479d1267275d24908b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: c1b3a6920723ad59b714cce4bd69e1b95fe1995f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79276050"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80132414"
 ---
 # <a name="create-an-application-insights-resource"></a>Application Insights 리소스 만들기
 
-Azure Application Insights는 Microsoft Azure *리소스*에 애플리케이션에 대한 데이터를 표시합니다. 따라서 새 리소스 만들기는 [새 응용 프로그램을 모니터링 하 Application Insights를 설정 하][start]는 과정에 포함 됩니다. 새 리소스를 만든 후에는 해당 계측 키를 가져오고이를 사용 하 여 Application Insights SDK를 구성할 수 있습니다. 계측 키는 원격 분석을 리소스에 연결 합니다.
+Azure Application Insights는 Microsoft Azure *리소스*에 애플리케이션에 대한 데이터를 표시합니다. 따라서 새 리소스 만들기는 [새 애플리케이션을 모니터링하도록 Application Insights를 설정][start]하는 과정에 포함됩니다. 새 리소스를 만든 후 계측 키를 얻고 이를 사용하여 응용 프로그램 인사이트 SDK를 구성할 수 있습니다. 계측 키는 원격 분석을 리소스에 연결합니다.
 
 ## <a name="sign-in-to-microsoft-azure"></a>Microsoft Azure에 로그인
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
+Azure 구독이 없는 경우 시작하기 전에 [무료](https://azure.microsoft.com/free/) 계정을 만드세요.
 
 ## <a name="create-an-application-insights-resource"></a>Application Insights 리소스 만들기
 
-[Azure Portal](https://portal.azure.com)에 로그인 하 고 Application Insights 리소스를 만듭니다.
+[Azure 포털에](https://portal.azure.com)로그인하고 응용 프로그램 인사이트 리소스를 만듭니다.
 
-![왼쪽 위 모서리에 있는 ' + ' 기호를 클릭 합니다. 개발자 도구 다음에 Application Insights를 선택 합니다.](./media/create-new-resource/new-app-insights.png)
+![왼쪽 상단 모서리에 있는 '+' 기호를 클릭합니다. 개발자 도구 선택 후 애플리케이션 인사이트](./media/create-new-resource/new-app-insights.png)
 
-   | 설정        |  값           | Description  |
+   | 설정        |  값           | 설명  |
    | ------------- |:-------------|:-----|
-   | **이름**      | 고유 값 | 모니터링할 앱을 식별 하는 이름입니다. |
-   | **리소스 그룹**     | myResourceGroup      | Application Insights 데이터를 호스트할 새 리소스 그룹 또는 기존 리소스 그룹의 이름입니다. |
-   | **위치** | 미국 동부 | 가까운 위치 또는 앱이 호스트 되는 위치를 선택 합니다. |
+   | **이름**      | 고유 값 | 모니터링 중인 앱을 식별하는 이름입니다. |
+   | **리소스 그룹**     | myResourceGroup      | App Insights 데이터를 호스트할 새 리소스 또는 기존 리소스 그룹의 이름입니다. |
+   | **위치** | 미국 동부 | 가까운 위치 또는 앱이 호스팅되는 위치 근처를 선택합니다. |
 
 > [!NOTE]
-> 서로 다른 리소스 그룹에서 동일한 리소스 이름을 사용할 수 있지만 전역적으로 고유한 이름을 사용 하는 것이 유용할 수 있습니다. 이는 필요한 구문을 간소화 하므로 [리소스 간 쿼리를 수행할](https://docs.microsoft.com/azure/azure-monitor/log-query/cross-workspace-query#identifying-an-application) 계획인 경우에 유용할 수 있습니다.
+> 다른 리소스 그룹에서 동일한 리소스 이름을 사용할 수 있지만 전역고유의 이름을 사용하는 것이 좋습니다. 이 기능은 필요한 구문을 단순화할 때 [교차 리소스 쿼리를 수행하려는](https://docs.microsoft.com/azure/azure-monitor/log-query/cross-workspace-query#identifying-an-application) 경우에 유용할 수 있습니다.
 
-필요한 필드에 적절 한 값을 입력 한 다음 **검토 + 만들기**를 선택 합니다.
+필요한 필드에 적절한 값을 입력한 다음 **검토 + 만들기를**선택합니다.
 
-![필수 필드에 값을 입력 하 고 "검토 + 만들기"를 선택 합니다.](./media/create-new-resource/review-create.png)
+![필수 필드에 값을 입력한 다음 "검토 + 만들기"를 선택합니다.](./media/create-new-resource/review-create.png)
 
-앱이 만들어지면 새 창이 열립니다. 이 창에는 모니터링 되는 응용 프로그램에 대 한 성능 및 사용 데이터가 표시 됩니다. 
+앱을 만들면 새 창이 열립니다. 이 창은 모니터링되는 응용 프로그램에 대한 성능 및 사용 현황 데이터를 볼 수 있는 창입니다. 
 
 ## <a name="copy-the-instrumentation-key"></a>계측 키 복사
 
-계측 키는 원격 분석 데이터를 연결 하려는 리소스를 식별 합니다. 응용 프로그램의 코드에 계측 키를 추가 하려면 복사본이 필요 합니다.
+계측 키는 원격 분석 데이터를 연결할 리소스를 식별합니다. 계측 키를 복사하여 응용 프로그램의 코드에 추가해야 합니다.
 
-![계측 키를 클릭 하 고 복사 합니다.](./media/create-new-resource/instrumentation-key.png)
+![계측 키를 클릭하고 복사합니다.](./media/create-new-resource/instrumentation-key.png)
 
 ## <a name="install-the-sdk-in-your-app"></a>응용 프로그램에 SDK를 설치합니다.
 
 Application Insights SDK를 애플리케이션에 설치합니다. 이 단계는 애플리케이션의 형식에 따라 크게 달라 집니다.
 
-계측 키를 사용 하 여 [응용 프로그램에 설치한 SDK][start]를 구성 합니다.
+계측 키를 사용하여 [애플리케이션에 설치한 SDK][start]를 구성합니다.
 
-SDK에는 추가 코드를 작성 하지 않고도 원격 분석을 전송 하는 표준 모듈이 포함 되어 있습니다. 사용자 작업을 추적 하거나 문제를 자세히 진단 하려면 [API를 사용][api] 하 여 사용자 고유의 원격 분석을 보냅니다.
+SDK에는 추가 코드를 작성하지 않고도 원격 분석을 보내는 표준 모듈이 포함되어 있습니다. 사용자 작업을 추적하거나 문제를 보다 세부적으로 진단하려면 [API를 사용][api]하여 사용자 고유의 원격 분석을 보내도록 합니다.
 
 ## <a name="creating-a-resource-automatically"></a>자동으로 리소스 만들기
 
@@ -92,19 +92,19 @@ SamplingPercentage :
 TenantId           : {subid}
 ```
 
-이 cmdlet에 대 한 전체 PowerShell 설명서 및 계측 키를 검색 하는 방법을 알아보려면 [Azure PowerShell 설명서](https://docs.microsoft.com/powershell/module/az.applicationinsights/new-azapplicationinsights?view=azps-2.5.0)를 참조 하세요.
+이 cmdlet에 대한 전체 PowerShell 설명서와 계측 기중키를 검색하는 방법에 대한 자세한 내용은 [Azure PowerShell 설명서를](https://docs.microsoft.com/powershell/module/az.applicationinsights/new-azapplicationinsights?view=azps-2.5.0)참조하십시오.
 
-### <a name="azure-cli-preview"></a>Azure CLI (미리 보기)
+### <a name="azure-cli-preview"></a>Azure CLI(미리 보기)
 
-미리 보기 Application Insights Azure CLI 명령에 액세스 하려면 먼저 다음을 실행 해야 합니다.
+미리 보기에 액세스하려면 응용 프로그램 인사이트 Azure CLI 명령을 먼저 실행해야 합니다.
 
 ```azurecli
  az extension add -n application-insights
 ```
 
-`az extension add` 명령을 실행 하지 않으면 다음 오류 메시지가 표시 됩니다. `az : ERROR: az monitor: 'app-insights' is not in the 'az monitor' command group. See 'az monitor --help'.`
+`az extension add` 명령을 실행하지 않으면 다음과 같은 오류 메시지가 표시됩니다.`az : ERROR: az monitor: 'app-insights' is not in the 'az monitor' command group. See 'az monitor --help'.`
 
-이제 다음을 실행 하 여 Application Insights 리소스를 만들 수 있습니다.
+이제 다음을 실행하여 응용 프로그램 인사이트 리소스를 만들 수 있습니다.
 
 ```azurecli
 az monitor app-insights component create --app
@@ -149,7 +149,7 @@ az monitor app-insights component create --app demoApp --location eastus --kind 
 }
 ```
 
-이 명령에 대 한 전체 Azure CLI 설명서 및 계측 키를 검색 하는 방법에 대 한 자세한 내용은 [Azure CLI 설명서](https://docs.microsoft.com/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest#ext-application-insights-az-monitor-app-insights-component-create)를 참조 하세요.
+이 명령에 대한 전체 Azure CLI 설명서및 계측 기중기 키를 검색하는 방법에 대한 자세한 내용은 [Azure CLI 설명서를](https://docs.microsoft.com/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest#ext-application-insights-az-monitor-app-insights-component-create)참조하십시오.
 
 ## <a name="next-steps"></a>다음 단계
 * [진단 검색](../../azure-monitor/app/diagnostic-search.md)

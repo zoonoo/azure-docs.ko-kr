@@ -9,10 +9,10 @@ ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: jamesbak
 ms.openlocfilehash: 04df30c2a97e865d23999df26768b38cb38be607
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68855554"
 ---
 # <a name="use-the-azure-data-lake-storage-gen2-uri"></a>Azure Data Lake Storage Gen2 URI 사용
@@ -33,7 +33,7 @@ Data Lake Storage Gen2에 대한 URI 구문은 스토리지 계정이 Data Lake 
 
 3. **계정 이름**: 만드는 동안 스토리지 계정에 지정된 이름입니다.
 
-4. **경로**: 슬래시(`/`)로 구분된 디렉터리 구조의 표현입니다.
+4. **경로**: 디렉터리 구조의 슬래시 구분 기호(`/`) 표시입니다.
 
 5. **파일 이름**: 개별 파일의 이름입니다. 이 매개 변수는 디렉터리의 주소를 지정하는 경우, 선택 사항입니다.
 
@@ -41,7 +41,7 @@ Data Lake Storage Gen2에 대한 URI 구문은 스토리지 계정이 Data Lake 
 
 <pre>/&lt;path&gt;<sup>1</sup>/&lt;file_name&gt;<sup>2</sup></pre>
 
-1. **경로**: 슬래시(`/`)로 구분된 디렉터리 구조의 표현입니다.
+1. **경로**: 디렉터리 구조의 슬래시 구분 기호(`/`) 표시입니다.
 
 2. **파일 이름**: 개별 파일의 이름입니다.
 

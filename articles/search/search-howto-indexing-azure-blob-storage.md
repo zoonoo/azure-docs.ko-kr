@@ -1,7 +1,7 @@
 ---
-title: Azure Blob storage 콘텐츠를 검색 합니다.
+title: Azure Blob 저장소 콘텐츠를 검색합니다.
 titleSuffix: Azure Cognitive Search
-description: Azure Cognitive Search를 사용 하 여 문서에서 텍스트를 인덱싱하고 Azure Blob Storage 하는 방법에 대해 알아봅니다.
+description: Azure Blob 저장소를 인덱싱하고 Azure 인지 검색을 사용하여 문서에서 텍스트를 추출하는 방법을 알아봅니다.
 manager: nitinme
 author: mgottein
 ms.author: magottei
@@ -10,16 +10,16 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 32912f0aef91bd4a7c831a82d1e83f00a1e0f131
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 5df1198e6681431738f886eb7c3ad549936eab1a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79283109"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80067656"
 ---
-# <a name="how-to-index-documents-in-azure-blob-storage-with-azure-cognitive-search"></a>Azure Cognitive Search를 사용 하 여 Azure Blob Storage에서 문서를 인덱싱하는 방법
+# <a name="how-to-index-documents-in-azure-blob-storage-with-azure-cognitive-search"></a>Azure 인지 검색을 사용하여 Azure Blob 저장소에서 문서를 인덱싱하는 방법
 
-이 문서에서는 azure Cognitive Search를 사용 하 여 Azure Blob storage에 저장 된 문서 (예: Pdf, Microsoft Office 문서 및 다른 몇 가지 일반적인 형식)를 인덱싱하는 방법을 보여 줍니다. 먼저, blob 인덱서 설정 및 구성의 기본 사항을 설명합니다. 그런 다음, 동작 및 발생할 수 있는 시나리오의 심층적 탐색을 제공합니다.
+이 문서에서는 Azure Cognitive Search를 사용하여 Azure Blob 저장소에 저장된 문서(예: PDF, Microsoft Office 문서 및 기타 여러 일반적인 형식)를 인덱싱하는 방법을 보여 주십니다. 먼저, blob 인덱서 설정 및 구성의 기본 사항을 설명합니다. 그런 다음, 동작 및 발생할 수 있는 시나리오의 심층적 탐색을 제공합니다.
 
 <a name="SupportedFormats"></a>
 
@@ -31,9 +31,9 @@ BLOB 인덱서는 다음과 같은 문서 형식에서 텍스트를 추출할 �
 ## <a name="setting-up-blob-indexing"></a>BLOB 인덱싱 설정
 다음을 사용하여 Azure Blob Storage 인덱서를 설정할 수 있습니다.
 
-* [Azure Portal](https://ms.portal.azure.com)
-* Azure Cognitive Search [REST API](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations)
-* Azure Cognitive Search [.NET SDK](https://aka.ms/search-sdk)
+* [Azure 포털](https://ms.portal.azure.com)
+* Azure 인지 검색 [REST API](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations)
+* Azure 인지 검색 [.NET SDK](https://aka.ms/search-sdk)
 
 > [!NOTE]
 > 일부 기능(예: 필드 매핑)은 포털에서 아직 사용할 수 없으며 프로그래밍 방식으로 사용해야 합니다.
@@ -41,7 +41,7 @@ BLOB 인덱서는 다음과 같은 문서 형식에서 텍스트를 추출할 �
 
 여기에서는 REST API를 사용하여 흐름을 설명합니다.
 
-### <a name="step-1-create-a-data-source"></a>1단계: 데이터 원본 만들기
+### <a name="step-1-create-a-data-source"></a>1단계: 데이터 소스 만들기
 데이터 원본은 인덱싱할 데이터, 데이터에 액세스하는 데 필요한 자격 증명 및 데이터 변경 내용(예: 수정되거나 삭제된 행)을 효율적으로 식별할 수 있도록 해주는 정책을 지정합니다. 데이터 원본을 동일한 검색 서비스의 여러 인덱서에서 사용할 수 있습니다.
 
 데이터 원본에는 BLOB 인덱싱을 위한 다음과 같은 필수 속성이 있어야 합니다.
@@ -71,9 +71,9 @@ BLOB 인덱서는 다음과 같은 문서 형식에서 텍스트를 추출할 �
 
 Blob 컨테이너에 대한 자격 증명을 제공하는 방법은 다음 중 하나입니다.
 
-- **전체 액세스 스토리지 계정 연결 문자열**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` 저장소 계정 블레이드 > 설정 > 키 (클래식 저장소 계정) 또는 설정 > 액세스 키 (Azure Resource Manager 저장소 계정)로 이동 하 여 Azure Portal에서 연결 문자열을 가져올 수 있습니다.
-- **스토리지 계정 공유 액세스 서명**(SAS) 연결 문자열: `BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl` SAS에 컨테이너 및 개체(이 경우 Blob)에 대한 읽기 권한 및 목록이 있어야 합니다.
--  **컨테이너 공유 액세스 서명**: `ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl` SAS에 컨테이너에 대한 읽기 권한 및 목록이 있어야 합니다.
+- **전체 액세스 저장소**계정 `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` 연결 문자열 : 저장소 계정 블레이드 > 설정 > 키(클래식 저장소 계정의 경우) 또는 설정 > 액세스 키(Azure Resource Manager 저장소 계정의 경우)로 이동하여 Azure 포털에서 연결 문자열을 얻을 수 있습니다.
+- **Storage 계정 SAS(공유 액세스 서명)** 연결 문자열: `BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl` SAS에 컨테이너 및 개체(이 경우 Blob)에 대한 읽기 권한 및 목록이 있어야 합니다.
+-  **컨테이너 공유**액세스 `ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl` 서명 : SAS는 컨테이너에 대한 목록과 읽기 권한을 가져야 합니다.
 
 스토리지 공유 액세스 서명에 대한 자세한 내용은 [공유 액세스 서명 사용](../storage/common/storage-dotnet-shared-access-signature-part-1.md)을 참조하세요.
 
@@ -97,7 +97,7 @@ Blob 컨테이너에 대한 자격 증명을 제공하는 방법은 다음 중 �
           ]
     }
 
-인덱스 만들기에 자세한 내용은 [인덱스 만들기](https://docs.microsoft.com/rest/api/searchservice/create-index)를 참조하세요.
+인덱스 생성에 대한 자세한 내용은 [인덱스 만들기를](https://docs.microsoft.com/rest/api/searchservice/create-index) 참조하십시오.
 
 ### <a name="step-3-create-an-indexer"></a>3단계: 인덱서 만들기
 인덱서는 데이터 원본을 대상 검색 인덱스와 연결하고 데이터 새로 고침을 자동화하는 일정을 제공합니다.
@@ -119,56 +119,56 @@ Blob 컨테이너에 대한 자격 증명을 제공하는 방법은 다음 중 �
 
 인덱서 만들기 API에 대한 자세한 내용은 [인덱서 만들기](https://docs.microsoft.com/rest/api/searchservice/create-indexer)를 확인하세요.
 
-인덱서 일정을 정의 하는 방법에 대 한 자세한 내용은 [Azure Cognitive Search의 인덱서를 예약 하는 방법을](search-howto-schedule-indexers.md)참조 하세요.
+인덱서 일정 정의에 대한 자세한 내용은 [Azure Cognitive Search에 대한 인덱서를 예약하는 방법을](search-howto-schedule-indexers.md)참조하십시오.
 
 <a name="how-azure-search-indexes-blobs"></a>
 
-## <a name="how-azure-cognitive-search-indexes-blobs"></a>Azure Cognitive Search 인덱스 blob 방법
+## <a name="how-azure-cognitive-search-indexes-blobs"></a>Azure 인지 검색 인덱스 Blob
 
 [인덱서 구성](#PartsOfBlobToIndex)에 따라, Blob 인덱서는 스토리지 메타데이터만 인덱싱하거나(메타데이터만 필요하고 Blob 콘텐츠를 인덱싱할 필요가 없는 경우에 유용함), 스토리지 및 콘텐츠 메타데이터를 인덱싱하거나, 메타데이터와 텍스트 콘텐츠 모두를 인덱싱할 수 있습니다. 기본적으로 인덱서는 메타데이터와 콘텐츠를 둘 다 추출합니다.
 
 > [!NOTE]
-> 기본적으로 JSON 또는 CSV와 같이 구조화된 콘텐츠를 포함하는 Blob은 단일 텍스트 청크로 인덱싱됩니다. 구조화 된 방식으로 JSON 및 CSV blob을 인덱싱하는 방법에 대 한 자세한 내용은 [json Blob 인덱싱](search-howto-index-json-blobs.md) 및 [csv blob 인덱싱](search-howto-index-csv-blobs.md) 을 참조 하세요.
+> 기본적으로 JSON 또는 CSV와 같이 구조화된 콘텐츠를 포함하는 Blob은 단일 텍스트 청크로 인덱싱됩니다. 구조적인 방식으로 JSON 및 CSV Blob을 [인덱싱하려면 JSON Blob 인덱싱](search-howto-index-json-blobs.md) 및 [CSV Blob 인덱싱을](search-howto-index-csv-blobs.md) 참조하세요.
 >
 > 복합 또는 포함된 문서(예: ZIP 보관 파일 또는 첨부 파일이 있는 Outlook 메일이 포함된 Word 문서)도 단일 문서로 인덱싱됩니다.
 
 * 문서의 텍스트 콘텐츠가 `content`라는 문자열 필드로 추출됩니다.
 
 > [!NOTE]
-> Azure Cognitive Search는 가격 책정 계층에 따라 추출 되는 텍스트의 양을 제한 합니다. 무료 계층의 경우 32000 자, Basic의 경우 64000, 표준의 경우 400만, 표준 S2의 경우 800만, 표준 S3의 경우 1600만입니다. 잘린 문서의 인덱서 상태 응답에는 경고가 포함되어 있습니다.  
+> Azure Cognitive Search는 가격 책정 계층에 따라 추출하는 텍스트의 양을 제한합니다: 프리 티어의 경우 32,000자, 기본 계층의 경우 64,000자, 표준 S2의 경우 400만 개, 표준 S2의 경우 8백만 개, 표준 S3의 경우 1,600만 개입니다. 잘린 문서의 인덱서 상태 응답에는 경고가 포함되어 있습니다.  
 
-* BLOB에 있는 사용자 지정 메타데이터 속성은 그대로 추출됩니다(있는 경우). 이렇게 하려면 blob의 메타 데이터 키와 동일한 이름의 인덱스에 필드가 정의 되어 있어야 합니다. 예를 들어 blob의 메타 데이터 키가 값 `High`인 `Sensitivity` 경우 검색 인덱스에 `Sensitivity` 이라는 필드를 정의 해야 하며 `High`값으로 채워집니다.
+* BLOB에 있는 사용자 지정 메타데이터 속성은 그대로 추출됩니다(있는 경우). 이렇게 하려면 Blob의 메타데이터 키와 이름이 같은 인덱스에 필드를 정의해야 합니다. 예를 `Sensitivity` 들어 Blob에 값으로 `High`메타데이터 키가 있는 경우 검색 `Sensitivity` 인덱스에 명명된 필드를 정의해야 하며 `High`값으로 채워집니다.
 * 표준 BLOB 메타데이터 속성이 다음 필드로 추출됩니다.
 
   * **metadata\_storage\_name**(Edm.String) - BLOB의 파일 이름. 예를 들어 blob /my-container/my-folder/subfolder/resume.pdf를 포함하는 경우 이 필드의 값은 `resume.pdf`입니다.
-  * **metadata\_storage\_path**(Edm.String - 스토리지 계정을 포함한 BLOB의 전체 URI. 예를 들어 IPv4 주소를 사용하는 경우 `https://myaccount.blob.core.windows.net/my-container/my-folder/subfolder/resume.pdf`
+  * **metadata\_storage\_path**(Edm.String - 스토리지 계정을 포함한 BLOB의 전체 URI. 예를 들어 `https://myaccount.blob.core.windows.net/my-container/my-folder/subfolder/resume.pdf`
   * **metadata\_storage\_content\_type**(Edm.String) - BLOB를 업로드하기 위해 사용한 코드에 지정된 콘텐츠 형식. `application/octet-stream`)을 입력합니다.
-  * **metadata\_storage\_last\_modified**(Edm.DateTimeOffset) - BLOB에 대해 마지막으로 수정된 타임스탬프. Azure Cognitive Search는이 타임 스탬프를 사용 하 여 초기 인덱싱 후 모든 항목을 다시 인덱싱하도록 방지 하기 위해 변경 된 blob를 식별 합니다.
+  * **metadata\_storage\_last\_modified**(Edm.DateTimeOffset) - BLOB에 대해 마지막으로 수정된 타임스탬프. Azure Cognitive Search는 이 타임스탬프를 사용하여 변경된 Blob을 식별하여 초기 인덱싱 후 모든 것을 다시 인덱싱하지 않도록 합니다.
   * **metadata\_storage\_size** (Edm.Int64) - BLOB 크기(바이트).
   * **metadata\_storage\_content\_md5**(Edm.String) - BLOB 콘텐츠의 MD5 해시(사용 가능한 경우).
-  * **메타 데이터\_저장소\_sas\_토큰** (Edm. 문자열)-blob에 대 한 액세스 권한을 얻기 위해 [사용자 지정 기술](cognitive-search-custom-skill-interface.md) 에서 사용할 수 있는 임시 sas 토큰입니다. 이 토큰은 만료 될 수 있으므로 나중에 사용할 수 있도록 저장 해서는 안 됩니다.
+  * **\_메타데이터\_저장소\_sas** 토큰(Edm.String) - 사용자 지정 [기술이](cognitive-search-custom-skill-interface.md) Blob에 액세스하는 데 사용할 수 있는 임시 SAS 토큰입니다. 이 토큰은 만료될 수 있으므로 나중에 사용할 수 있으므로 저장해서는 안 됩니다.
 
 * 각 문서 형식과 관련된 메타데이터 속성이 [여기](#ContentSpecificMetadata) 나열된 필드로 추출됩니다.
 
 검색 인덱스에서 위의 모든 속성에 대한 필드를 정의하지 않아도 되는 경우 애플리케이션에 필요한 속성만 캡처합니다.
 
 > [!NOTE]
-> 기존 인덱스의 필드 이름이 문서 추출 중에 생성된 필드 이름과 달라지는 경우가 있습니다. **필드 매핑을** 사용 하 여 Azure Cognitive Search에서 제공 하는 속성 이름을 검색 인덱스의 필드 이름에 매핑할 수 있습니다. 아래에 필드 매핑 사용 예제가 있습니다.
+> 기존 인덱스의 필드 이름이 문서 추출 중에 생성된 필드 이름과 달라지는 경우가 있습니다. **필드 매핑을** 사용하여 Azure Cognitive Search에서 제공하는 속성 이름을 검색 인덱스의 필드 이름에 매핑할 수 있습니다. 아래에 필드 매핑 사용 예제가 있습니다.
 >
 >
 
 <a name="DocumentKeys"></a>
 ### <a name="defining-document-keys-and-field-mappings"></a>문서 키 및 필드 매핑 정의
-Azure Cognitive Search에서 문서 키는 문서를 고유 하 게 식별 합니다. 모든 검색 인덱스는 Edm.String 형식의 키 필드를 정확히 하나만 포함해야 합니다. 인덱스에 추가할 각 문서에는 키 필드가 필요합니다(이 필드는 실제로 유일한 필수 필드임).  
+Azure 인지 검색에서 문서 키는 문서를 고유하게 식별합니다. 모든 검색 인덱스는 Edm.String 형식의 키 필드를 정확히 하나만 포함해야 합니다. 인덱스에 추가할 각 문서에는 키 필드가 필요합니다(이 필드는 실제로 유일한 필수 필드임).  
 
 어떤 추출된 필드를 인덱스에 대한 키 필드에 매핑할지 신중하게 고려해야 합니다. 후보는 다음과 같습니다.
 
-* **metadata\_storage\_name** - 편리한 후보일 수 있으나 1) 다른 폴더에 같은 이름을 가진 BLOB를 포함할 수 있으므로 이름이 고유하지 않을 수 있으며 2) 이름에 대시와 같은 문서 키로 유효하지 않은 문자가 포함될 수 있습니다. `base64Encode` [필드 매핑 함수](search-indexer-field-mappings.md#base64EncodeFunction) 를 사용 하 여 잘못 된 문자를 처리할 수 있습니다. 이렇게 하면 조회와 같은 API 호출에서 문서 키를 전달할 때 문서 키를 인코딩해야 합니다. 예를 들어 .NET에서 이러한 용도로 [UrlTokenEncode 메서드](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx)를 사용할 수 있습니다.
-* **metadata\_storage\_path** - 전체 경로를 사용하여 고유성을 보장할 수 있지만 해당 경로에 [문서 키로 유효하지 않은](https://docs.microsoft.com/rest/api/searchservice/naming-rules)`/` 문자가 분명히 포함됩니다.  위에서 설명한 것 처럼 `base64Encode` [함수](search-indexer-field-mappings.md#base64EncodeFunction)를 사용 하 여 키를 인코딩할 수 있습니다.
+* **metadata\_storage\_name** - 편리한 후보일 수 있으나 1) 다른 폴더에 같은 이름을 가진 BLOB를 포함할 수 있으므로 이름이 고유하지 않을 수 있으며 2) 이름에 대시와 같은 문서 키로 유효하지 않은 문자가 포함될 수 있습니다. `base64Encode` [필드 매핑 함수](search-indexer-field-mappings.md#base64EncodeFunction)를 사용하여 유효하지 않은 문자를 처리할 수 있습니다. 이렇게 하면 Lookup과 같은 API 호출에 전달할 때 문서 키를 인코딩해야 합니다. 예를 들어 .NET에서 이러한 용도로 [UrlTokenEncode 메서드](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx)를 사용할 수 있습니다.
+* **metadata\_storage\_path** - 전체 경로를 사용하여 고유성을 보장할 수 있지만 해당 경로에 [문서 키로 유효하지 않은](https://docs.microsoft.com/rest/api/searchservice/naming-rules)`/` 문자가 분명히 포함됩니다.  위와 같이 `base64Encode` [함수](search-indexer-field-mappings.md#base64EncodeFunction)를 사용하여 키를 인코딩하는 옵션이 제공됩니다.
 * 위의 옵션이 작동하지 않는 경우 BLOB에 사용자 지정 메타데이터 속성을 추가할 수 있습니다. 그러나 이 옵션에는 해당 메타데이터 속성을 모든 BLOB에 추가하는 BLOB 업로드 프로세스가 필요합니다. 키는 필수 속성이므로 해당 속성이 없는 모든 BLOB는 인덱싱에 실패합니다.
 
 > [!IMPORTANT]
-> 인덱스의 키 필드에 대 한 명시적 매핑이 없는 경우 Azure Cognitive Search는 자동으로 `metadata_storage_path`를 키로 사용 하 고 64을 사용 하 여 키 값을 인코딩합니다 (위의 두 번째 옵션).
+> 인덱스의 키 필드에 대한 명시적 매핑이 없는 경우 Azure `metadata_storage_path` Cognitive Search는 자동으로 키로 사용하고 기본 64는 키 값을 인코딩합니다(위의 두 번째 옵션).
 >
 >
 
@@ -228,7 +228,7 @@ Azure Cognitive Search에서 문서 키는 문서를 고유 하 게 식별 합�
       "parameters" : { "configuration" : { "excludedFileNameExtensions" : ".png,.jpeg" } }
     }
 
-`indexedFileNameExtensions` 및 `excludedFileNameExtensions` 매개 변수가 모두 있는 경우 Azure Cognitive Search 먼저 `indexedFileNameExtensions`를 확인 한 다음 `excludedFileNameExtensions`합니다. 동일한 파일 확장명이 두 목록 모두에 있는 경우 인덱싱에서 제외되는 것을 의미합니다.
+둘 `indexedFileNameExtensions` 다 `excludedFileNameExtensions` 와 매개 변수가 있는 경우 `indexedFileNameExtensions`Azure `excludedFileNameExtensions`인지 검색은 먼저 을 찾습니다. 동일한 파일 확장명이 두 목록 모두에 있는 경우 인덱싱에서 제외되는 것을 의미합니다.
 
 <a name="PartsOfBlobToIndex"></a>
 ## <a name="controlling-which-parts-of-the-blob-are-indexed"></a>Blob에서 인덱싱할 부분 제어
@@ -273,15 +273,15 @@ Azure Cognitive Search에서 문서 키는 문서를 고유 하 게 식별 합�
       "parameters" : { "configuration" : { "failOnUnsupportedContentType" : false } }
     }
 
-일부 blob의 경우 Azure Cognitive Search에서 콘텐츠 형식을 확인할 수 없거나 지원 되지 않는 콘텐츠 형식의 문서를 처리할 수 없습니다. 이 오류 모드를 무시하려면 `failOnUnprocessableDocument` 구성 매개 변수를 False로 설정합니다.
+일부 Blob의 경우 Azure Cognitive Search에서 콘텐츠 유형을 확인할 수 없거나 지원되는 콘텐츠 형식의 문서를 처리할 수 없습니다. 이 오류 모드를 무시하려면 `failOnUnprocessableDocument` 구성 매개 변수를 False로 설정합니다.
 
       "parameters" : { "configuration" : { "failOnUnprocessableDocument" : false } }
 
-Azure Cognitive Search은 인덱싱되는 blob의 크기를 제한 합니다. 이러한 한도는 [Azure Cognitive Search의 서비스 제한](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity)사항에 설명 되어 있습니다. 너무 큰 Blob은 기본적으로 오류로 처리됩니다. 그러나 `indexStorageMetadataOnlyForOversizedDocuments` 구성 매개 변수를 true로 설정한 경우 너무 큰 Blob의 스토리지 메타데이터를 여전히 인덱싱할 수 있습니다. 
+Azure 인지 검색은 인덱싱되는 Blob의 크기를 제한합니다. 이러한 제한은 [Azure 인지 검색의 서비스 제한에](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity)설명되어 있습니다. 너무 큰 Blob은 기본적으로 오류로 처리됩니다. 그러나 `indexStorageMetadataOnlyForOversizedDocuments` 구성 매개 변수를 true로 설정한 경우 너무 큰 Blob의 스토리지 메타데이터를 여전히 인덱싱할 수 있습니다. 
 
     "parameters" : { "configuration" : { "indexStorageMetadataOnlyForOversizedDocuments" : true } }
 
-또한 Blob을 구문 분석하거나 문서를 인덱스를 추가할 때 임의 처리 지점에서 오류가 발생하는 경우에도 인덱싱을 계속할 수 있습니다. 설정 개수의 오류를 무시하려면 `maxFailedItems` 및 `maxFailedItemsPerBatch` 구성 매개 변수를 원하는 값으로 설정합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+또한 Blob을 구문 분석하거나 문서를 인덱스를 추가할 때 임의 처리 지점에서 오류가 발생하는 경우에도 인덱싱을 계속할 수 있습니다. 설정 개수의 오류를 무시하려면 `maxFailedItems` 및 `maxFailedItemsPerBatch` 구성 매개 변수를 원하는 값으로 설정합니다. 예를 들어:
 
     {
       ... other parts of indexer definition
@@ -297,19 +297,22 @@ BLOB 인덱서가 일정에 따라 실행되도록 설정하는 경우 BLOB의 `
 
 문서 삭제를 지원하려면 "일시 삭제" 방법을 사용합니다. Blob을 완전히 삭제해도 해당 문서는 검색 인덱스에서 제거되지 않습니다.
 
-일시 삭제 방식을 구현 하는 방법에는 두 가지가 있습니다. 두 가지 모두 아래에 설명 되어 있습니다.
+소프트 삭제 방법을 구현하는 방법에는 두 가지가 있습니다. 둘 다 아래에 설명되어 있습니다.
 
-### <a name="native-blob-soft-delete-preview"></a>네이티브 blob 일시 삭제 (미리 보기)
+### <a name="native-blob-soft-delete-preview"></a>네이티브 Blob 소프트 삭제(미리 보기)
 
 > [!IMPORTANT]
-> 기본 blob 일시 삭제에 대 한 지원은 미리 보기 상태입니다. 미리 보기 기능은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. 이 기능은 [REST API 버전 2019-05-06-미리 보기](https://docs.microsoft.com/azure/search/search-api-preview)에서 제공됩니다. 현재 포털 또는 .NET SDK가 지원 되지 않습니다.
+> 네이티브 Blob 소프트 삭제에 대한 지원은 미리 보기입니다. 미리 보기 기능은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. 이 기능은 [REST API 버전 2019-05-06-미리 보기](https://docs.microsoft.com/azure/search/search-api-preview)에서 제공됩니다. 현재 포털 또는 .NET SDK 지원이 없습니다.
 
-이 방법에서는 Azure Blob 저장소에서 제공 하는 [기본 blob 일시 삭제](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) 기능을 사용 합니다. 데이터 원본에 기본 일시 삭제 정책이 설정 되어 있고 인덱서가 일시 삭제 된 상태로 전환 된 blob을 찾은 경우 인덱서는 인덱스에서 해당 문서를 제거 합니다.
+> [!NOTE]
+> 네이티브 Blob 소프트 삭제 정책을 사용하는 경우 인덱스의 문서에 대한 문서 키는 Blob 속성 또는 Blob 메타데이터여야 합니다.
+
+이 메서드에서는 Azure [Blob](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) 저장소에서 제공하는 기본 Blob 소프트 삭제 기능을 사용합니다. 저장소 계정에서 네이티브 Blob 소프트 삭제가 활성화된 경우 데이터 원본에 기본 소프트 삭제 정책이 설정되어 있고 인덱서에서 소프트 삭제 상태로 전환된 Blob을 찾은 경우 인덱서에서 해당 문서를 인덱스에서 제거합니다. Azure Data Lake Storage Gen2에서 Blob을 인덱싱할 때 기본 Blob 소프트 삭제 정책이 지원되지 않습니다.
 
 다음 단계를 사용합니다.
-1. [Azure Blob storage에 대해 네이티브 일시 삭제를](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete)사용 하도록 설정 합니다. 보존 정책을 인덱서 간격 일정 보다 훨씬 더 높은 값으로 설정 하는 것이 좋습니다. 이러한 방식으로 인덱서를 실행 하는 데 문제가 있거나 인덱싱할 문서 수가 많은 경우 인덱서는 결국 일시 삭제 된 blob을 처리 하는 데 많은 시간이 발생 합니다. Azure Cognitive Search 인덱서는 blob이 일시 삭제 된 상태에 있는 동안 blob을 처리 하는 경우에만 인덱스에서 문서를 삭제 합니다.
-1. 데이터 원본에 대 한 기본 blob 일시 삭제 검색 정책을 구성 합니다. 예제는 다음과 같습니다. 이 기능은 미리 보기 상태 이므로 미리 보기 REST API를 사용 해야 합니다.
-1. 인덱서를 실행 하거나 인덱서를 일정에 따라 실행 하도록 설정 합니다. 인덱서를 실행 하 고 blob을 처리 하면 문서가 인덱스에서 제거 됩니다.
+1. [Azure Blob 저장소에 대해 네이티브 소프트 삭제를](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete)사용하도록 설정합니다. 보존 정책을 인덱서 간격 일정보다 훨씬 높은 값으로 설정하는 것이 좋습니다. 이렇게 하면 인덱서를 실행하는 데 문제가 있거나 인덱싱할 문서가 많은 경우 인덱서가 결국 일시 삭제된 Blob을 처리할 수 있는 충분한 시간이 있습니다. Azure Cognitive Search 인덱서에서는 소프트 삭제된 상태에 있는 동안 Blob을 처리하는 경우에만 인덱스에서 문서를 삭제합니다.
+1. 데이터 원본에 대한 기본 Blob 소프트 삭제 검색 정책을 구성합니다. 아래에 예제가 나와 있습니다. 이 기능은 미리 보기이므로 REST 미리 보기 API를 사용해야 합니다.
+1. 인덱서를 실행하거나 인덱서가 일정에 따라 실행되도록 설정합니다. 인덱서가 실행 되고 Blob을 처리하면 문서가 인덱스에서 제거됩니다.
 
     ```
     PUT https://[service name].search.windows.net/datasources/blob-datasource?api-version=2019-05-06-Preview
@@ -326,19 +329,19 @@ BLOB 인덱서가 일정에 따라 실행되도록 설정하는 경우 BLOB의 `
     }
     ```
 
-#### <a name="reindexing-undeleted-blobs"></a>삭제 취소 한 blob 인덱스
+#### <a name="reindexing-undeleted-blobs"></a>삭제되지 않은 Blob 다시 인덱싱
 
-저장소 계정에서 네이티브 일시 삭제를 사용 하도록 설정 하 여 Azure Blob storage에서 blob을 삭제 하는 경우 blob는 보존 기간 내에 해당 blob을 삭제 취소 하는 옵션을 제공 하는 일시 삭제 됨 상태로 전환 됩니다. Azure Cognitive Search 데이터 원본에 기본 blob 일시 삭제 정책이 있고 인덱서가 일시 삭제 된 blob을 처리 하는 경우 인덱스에서 해당 문서를 제거 합니다. 해당 blob이 나중에 삭제 취소 되는 경우 인덱서는 항상 해당 blob의 인덱스를 다시 **만들지 않습니다** . 이는 인덱서는 blob의 `LastModified` 타임 스탬프를 기반으로 인덱싱할 blob을 결정 하기 때문입니다. 일시 삭제 된 blob의 삭제를 취소 하면 `LastModified` 타임 스탬프가 업데이트 되지 않으므로 인덱서가 이미 `LastModified` 타임 스탬프를 사용 하 여 blob을 처리 한 경우에는 삭제 되지 않은 blob 보다 최신의 타임 스탬프가 삭제 되지 않은 blob의 인덱스를 다시 만들지 않습니다. 삭제 취소 된 blob이 인덱싱해야이 되도록 하려면 해당 blob의 메타 데이터를 다시 저장 해야 합니다. 메타 데이터를 변경할 필요는 없지만 다시 저장이 blob을 다시 인덱싱 해야 함을 알 수 있도록 메타 데이터에서 blob의 `LastModified` 타임 스탬프를 업데이트 합니다.
+저장소 계정에서 네이티브 소프트 삭제가 활성화된 Azure Blob 저장소에서 Blob을 삭제하면 Blob이 일시 삭제된 상태로 전환되어 보존 기간 내에 해당 Blob을 삭제 취소할 수 있습니다. Azure Cognitive Search 데이터 원본에 네이티브 Blob 소프트 삭제 정책이 있고 인덱서가 부드럽게 삭제된 Blob을 처리하면 인덱스에서 해당 문서가 제거됩니다. 해당 Blob이 나중에 삭제 취소된 경우 인덱서가 해당 Blob을 항상 다시 인덱싱하지는 않습니다. 이는 인덱서가 Blob의 타임스탬프를 기반으로 인덱싱할 `LastModified` Blob을 결정하기 때문입니다. 일시 삭제된 Blob이 삭제취소되면 타임스탬프가 `LastModified` 업데이트되지 않으므로 인덱서에서 삭제되지 `LastModified` 않은 Blob보다 최근 타임스탬프가 있는 Blob을 이미 처리한 경우 삭제되지 않은 Blob을 다시 인덱싱하지 않습니다. 삭제되지 않은 Blob이 다시 인덱싱되었는지 확인하려면 Blob의 `LastModified` 타임스탬프를 업데이트해야 합니다. 이 작업을 수행하는 한 가지 방법은 해당 Blob의 메타데이터를 다시 저장하는 것입니다. 메타데이터를 변경할 필요는 없지만 메타데이터를 다시 저장하면 인덱서가 `LastModified` 이 Blob을 다시 인덱싱해야 한다는 것을 알 수 있도록 Blob의 타임스탬프가 업데이트됩니다.
 
-### <a name="soft-delete-using-custom-metadata"></a>사용자 지정 메타 데이터를 사용 하 여 일시 삭제
+### <a name="soft-delete-using-custom-metadata"></a>사용자 지정 메타데이터를 사용하여 소프트 삭제
 
-이 방법에서는 사용자 지정 메타 데이터 속성을 사용 하 여 검색 인덱스에서 문서를 제거 해야 하는 시기를 지정 합니다.
+이 메서드에서는 Blob의 메타데이터를 사용하여 문서를 검색 인덱스에서 제거해야 하는 시기를 나타냅니다.
 
 다음 단계를 사용합니다.
 
-1. Blob에 사용자 지정 메타 데이터 속성을 추가 하 여 논리적으로 삭제 되었음을 Azure Cognitive Search에 표시 합니다.
-1. 데이터 원본에 대 한 일시 삭제 열 검색 정책을 구성 합니다. 예제는 다음과 같습니다.
-1. 인덱서가 blob을 처리 하 고 인덱스에서 문서를 삭제 한 후에는 Azure Blob 저장소에 대 한 blob을 삭제할 수 있습니다.
+1. 사용자 지정 메타데이터 키-값 쌍을 Blob에 추가하여 Azure Cognitive Search에 논리적으로 삭제되었음을 나타냅니다.
+1. 데이터 원본에 대한 소프트 삭제 열 검색 정책을 구성합니다. 아래에 예제가 나와 있습니다.
+1. 인덱서에서 Blob을 처리하고 인덱스에서 문서를 삭제하면 Azure Blob 저장소에 대한 Blob을 삭제할 수 있습니다.
 
 예를 들어 다음 정책은 `true` 값의 메타데이터 속성 `IsDeleted`가 있는 경우 Blob을 삭제해야 하는 것으로 간주합니다.
 
@@ -358,16 +361,16 @@ BLOB 인덱서가 일정에 따라 실행되도록 설정하는 경우 BLOB의 `
         }
     }
 
-#### <a name="reindexing-undeleted-blobs"></a>삭제 취소 한 blob 인덱스
+#### <a name="reindexing-undeleted-blobs"></a>삭제되지 않은 Blob 다시 인덱싱
 
-데이터 원본에 대해 일시 삭제 열 검색 정책을 설정한 후에는 표식 값을 사용 하 여 blob에 사용자 지정 메타 데이터 속성을 추가한 다음 인덱서를 실행 하면 인덱서가 인덱스에서 해당 문서를 제거 합니다. 해당 문서를 다시 인덱싱 하려는 경우 해당 blob에 대 한 일시 삭제 메타 데이터 값을 변경 하 고 인덱서를 다시 실행 하면 됩니다.
+데이터 원본에 소프트 삭제 열 검색 정책을 설정한 다음 사용자 지정 메타데이터를 마커 값이 있는 Blob에 추가한 다음 인덱서를 실행하면 인덱서가 인덱스에서 해당 문서를 제거합니다. 해당 문서를 다시 인덱싱하려면 해당 Blob에 대한 소프트 삭제 메타데이터 값을 변경하고 인덱서를 다시 실행하기만 하면 됩니다.
 
 ## <a name="indexing-large-datasets"></a>큰 데이터 세트 인덱싱
 
 BLOB 인덱싱은 시간이 오래 걸리는 프로세스입니다. 인덱싱할 Blob이 수백만 개인 경우에는 데이터를 분할하고 데이터를 병렬로 처리하도록 여러 인덱서를 사용하여 인덱싱 속도를 높일 수 있습니다. 설정 방법은 다음과 같습니다.
 
 - 데이터를 여러 BLOB 컨테이너 또는 가상 폴더로 분할합니다.
-- 컨테이너 또는 폴더 마다 하나씩 여러 Azure Cognitive Search 데이터 원본을 설정 합니다. BLOB 폴더를 가리키려면 `query` 매개 변수를 사용합니다.
+- 컨테이너 또는 폴더당 하나씩 여러 Azure 인지 검색 데이터 원본을 설정합니다. BLOB 폴더를 가리키려면 `query` 매개 변수를 사용합니다.
 
     ```
     {
@@ -380,13 +383,13 @@ BLOB 인덱싱은 시간이 오래 걸리는 프로세스입니다. 인덱싱할
 
 - 각 데이터 소스에 해당하는 인덱서를 만듭니다. 모든 인덱서가 동일한 대상 검색 인덱스를 가리킬 수 있습니다.  
 
-- 서비스에서 하나의 검색 단위가 지정된 시점에 하나의 인덱서를 실행할 수 있습니다. 위에서 설명한 대로 여러 인덱서를 만들면 실제 병렬로 실행하는 경우에 유용합니다. 동시에 여러 인덱서를 실행하려면 적절한 수의 파티션 및 복제본을 만들어서 검색 서비스를 확장합니다. 예를 들어 검색 서비스에 6개의 검색 단위(예: 2개 파티션x3개 복제본)가 있으면 6개의 인덱서가 동시에 실행될 수 있고 그로 인해 인덱싱 처리량이 6배 증가합니다. 크기 조정 및 용량 계획에 대 한 자세한 내용은 [Azure Cognitive Search의 쿼리 및 인덱싱 작업을 위한 리소스 수준 확장](search-capacity-planning.md)을 참조 하세요.
+- 서비스에서 하나의 검색 단위가 지정된 시점에 하나의 인덱서를 실행할 수 있습니다. 위에서 설명한 대로 여러 인덱서를 만들면 실제 병렬로 실행하는 경우에 유용합니다. 동시에 여러 인덱서를 실행하려면 적절한 수의 파티션 및 복제본을 만들어서 검색 서비스를 확장합니다. 예를 들어 검색 서비스에 6개의 검색 단위(예: 2개 파티션x3개 복제본)가 있으면 6개의 인덱서가 동시에 실행될 수 있고 그로 인해 인덱싱 처리량이 6배 증가합니다. 확장 및 용량 계획에 대한 자세한 내용은 [Azure Cognitive Search에서 쿼리 및 인덱싱 워크로드에 대한 리소스 수준 확장을 참조하세요.](search-capacity-planning.md)
 
 ## <a name="indexing-documents-along-with-related-data"></a>관련된 데이터와 함께 문서 인덱싱
 
 인덱스에 있는 여러 원본의 문서를 "조합"할 수도 있습니다. 예를 들어 Cosmos DB에 저장된 다른 메타데이터와 BLOB의 텍스트를 병합할 수 있습니다. 푸시 인덱싱 API를 다양한 인덱서와 함께 사용하여 여러 부분에서 검색 문서를 구축할 수도 있습니다. 
 
-이렇게 하려면 모든 인덱서 및 기타 구성 요소가 문서 키에 동의해야 합니다. 이 항목에 대 한 자세한 내용은 [여러 Azure 데이터 원본 인덱싱](https://docs.microsoft.com/azure/search/tutorial-multiple-data-sources)을 참조 하세요. 자세한 내용은 다음 외부 문서를 참조하세요. [Azure Cognitive Search의 다른 데이터와 문서를 결합](https://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html)합니다.
+이렇게 하려면 모든 인덱서 및 기타 구성 요소가 문서 키에 동의해야 합니다. 이 항목에 대한 자세한 내용은 [여러 Azure 데이터 원본 인덱스를](https://docs.microsoft.com/azure/search/tutorial-multiple-data-sources)참조하십시오. 자세한 내용은 이 외부 문서: [Azure Cognitive Search의 다른 데이터와 문서를 결합합니다.](https://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html)
 
 <a name="IndexingPlainText"></a>
 ## <a name="indexing-plain-text"></a>일반 텍스트 인덱싱 
@@ -412,36 +415,36 @@ BLOB 인덱싱은 시간이 오래 걸리는 프로세스입니다. 인덱싱할
 
 <a name="ContentSpecificMetadata"></a>
 ## <a name="content-type-specific-metadata-properties"></a>콘텐츠 형식별 메타데이터 속성
-다음 표에서는 각 문서 형식에 대 한 처리 작업을 요약 하 고 Azure Cognitive Search에서 추출 된 메타 데이터 속성을 설명 합니다.
+다음 표에서는 각 문서 형식에 대해 수행된 처리를 요약하고 Azure Cognitive Search에서 추출한 메타데이터 속성을 설명합니다.
 
 | 문서 형식/콘텐츠 형식 | 콘텐츠 형식별 메타데이터 속성 | 처리 세부 정보 |
 | --- | --- | --- |
-| HTML (텍스트/html) |`metadata_content_encoding`<br/>`metadata_content_type`<br/>`metadata_language`<br/>`metadata_description`<br/>`metadata_keywords`<br/>`metadata_title` |HTML 태그를 제거하고 텍스트 추출 |
-| PDF (응용 프로그램/pdf) |`metadata_content_type`<br/>`metadata_language`<br/>`metadata_author`<br/>`metadata_title` |포함된 문서를 비롯한 텍스트 추출(이미지 제외) |
+| HTML(텍스트/HTML) |`metadata_content_encoding`<br/>`metadata_content_type`<br/>`metadata_language`<br/>`metadata_description`<br/>`metadata_keywords`<br/>`metadata_title` |HTML 태그를 제거하고 텍스트 추출 |
+| PDF(응용 프로그램/PDF) |`metadata_content_type`<br/>`metadata_language`<br/>`metadata_author`<br/>`metadata_title` |포함된 문서를 비롯한 텍스트 추출(이미지 제외) |
 | DOCX(application/vnd.openxmlformats-officedocument.wordprocessingml.document) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` |포함된 문서를 비롯한 텍스트 추출 |
 | DOC(application/msword) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` |포함된 문서를 비롯한 텍스트 추출 |
-| .DOCM (application/vnd. macroenabled) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` |포함된 문서를 비롯한 텍스트 추출 |
-| WORD XML (application/vnd word2006ml) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` |XML 태그를 제거하고 텍스트 추출 |
-| WORD 2003 XML (application/vnd. ms-wordml) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date` |XML 태그를 제거하고 텍스트 추출 |
+| DOCM(응용 프로그램/vnd.ms-word.document.macroenabled.12) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` |포함된 문서를 비롯한 텍스트 추출 |
+| 워드 XML (응용 프로그램 / vnd.ms-워드2006ml) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` |XML 태그를 제거하고 텍스트 추출 |
+| WORD 2003 XML (응용 프로그램/vnd.ms-wordml) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date` |XML 태그를 제거하고 텍스트 추출 |
 | XLSX(application/vnd.openxmlformats-officedocument.spreadsheetml.sheet) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified` |포함된 문서를 비롯한 텍스트 추출 |
 | XLS(application/vnd.ms-excel) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified` |포함된 문서를 비롯한 텍스트 추출 |
-| .XLSM (application/vnd. vnd.ms-excel. macroenabled) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified` |포함된 문서를 비롯한 텍스트 추출 |
+| XLSM(응용 프로그램/vnd.ms-excel.sheet.sheet.macroenabled.12) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified` |포함된 문서를 비롯한 텍스트 추출 |
 | PPTX(application/vnd.openxmlformats-officedocument.presentationml.presentation) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_slide_count`<br/>`metadata_title` |포함된 문서를 비롯한 텍스트 추출 |
 | PPT(application/vnd.ms-powerpoint) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_slide_count`<br/>`metadata_title` |포함된 문서를 비롯한 텍스트 추출 |
-| PPTM (application/vnd. ms-powerpoint macroenabled) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_slide_count`<br/>`metadata_title` |포함된 문서를 비롯한 텍스트 추출 |
-| MSG(application/vnd.ms-outlook) |`metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_from_email`<br/>`metadata_message_to`<br/>`metadata_message_to_email`<br/>`metadata_message_cc`<br/>`metadata_message_cc_email`<br/>`metadata_message_bcc`<br/>`metadata_message_bcc_email`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_subject` |첨부 파일을 포함 하는 텍스트를 추출 합니다. `metadata_message_to_email`, `metadata_message_cc_email` 및 `metadata_message_bcc_email`는 문자열 컬렉션입니다. 나머지 필드는 문자열입니다.|
-| ODT (application/vnd. oasis) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` |포함된 문서를 비롯한 텍스트 추출 |
-| ODS (application/vnd. oasis) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified` |포함된 문서를 비롯한 텍스트 추출 |
-| ODP (application/vnd. oasis) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`title` |포함된 문서를 비롯한 텍스트 추출 |
+| PPTM(애플리케이션/vnd.ms-powerpoint.presentation.macroenabled.12) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_slide_count`<br/>`metadata_title` |포함된 문서를 비롯한 텍스트 추출 |
+| MSG(application/vnd.ms-outlook) |`metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_from_email`<br/>`metadata_message_to`<br/>`metadata_message_to_email`<br/>`metadata_message_cc`<br/>`metadata_message_cc_email`<br/>`metadata_message_bcc`<br/>`metadata_message_bcc_email`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_subject` |첨부 파일을 포함하여 텍스트를 추출합니다. `metadata_message_to_email`및 `metadata_message_cc_email` `metadata_message_bcc_email` 문자열 컬렉션이며 나머지 필드는 문자열입니다.|
+| ODT(응용 프로그램/vnd.oasis.opendocument.텍스트) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` |포함된 문서를 비롯한 텍스트 추출 |
+| ODS(애플리케이션/vnd.oasis.opendocument.스프레드시트) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified` |포함된 문서를 비롯한 텍스트 추출 |
+| ODP(응용 프로그램/vnd.oasis.opendocument.프레젠테이션) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`title` |포함된 문서를 비롯한 텍스트 추출 |
 | ZIP(application/zip) |`metadata_content_type` |보관 파일의 모든 문서에서 텍스트 추출 |
-| RELEASE.TAR.GZ (응용 프로그램/gzip) |`metadata_content_type` |보관 파일의 모든 문서에서 텍스트 추출 |
-| EPUB (application/EPUB + zip) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_title`<br/>`metadata_description`<br/>`metadata_language`<br/>`metadata_keywords`<br/>`metadata_identifier`<br/>`metadata_publisher` |보관 파일의 모든 문서에서 텍스트 추출 |
+| GZ (응용 프로그램 / gzip) |`metadata_content_type` |보관 파일의 모든 문서에서 텍스트 추출 |
+| EPUB (응용 프로그램 / epub + 지퍼) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_title`<br/>`metadata_description`<br/>`metadata_language`<br/>`metadata_keywords`<br/>`metadata_identifier`<br/>`metadata_publisher` |보관 파일의 모든 문서에서 텍스트 추출 |
 | XML(application/xml) |`metadata_content_type`<br/>`metadata_content_encoding`<br/> |XML 태그를 제거하고 텍스트 추출 |
-| JSON(application/json) |`metadata_content_type`<br/>`metadata_content_encoding` |텍스트 추출<br/>참고:  JSON BLOB에서 여러 문서 필드를 추출해야 하는 경우 자세한 내용은 [JSON BLOB 인덱싱](search-howto-index-json-blobs.md)을 참조하세요. |
+| JSON(application/json) |`metadata_content_type`<br/>`metadata_content_encoding` |텍스트 추출<br/>참고: JSON BLOB에서 여러 문서 필드를 추출해야 하는 경우 자세한 내용은 [JSON BLOB 인덱싱](search-howto-index-json-blobs.md)을 참조하세요. |
 | EML(메시지/rfc822) |`metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_creation_date`<br/>`metadata_subject` |첨부 파일을 비롯한 텍스트 추출 |
 | RTF(application/rtf) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_page_count`<br/>`metadata_word_count`<br/> | 텍스트 추출|
 | 일반 텍스트(text/plain) |`metadata_content_type`<br/>`metadata_content_encoding`<br/> | 텍스트 추출|
 
 
-## <a name="help-us-make-azure-cognitive-search-better"></a>Azure Cognitive Search 향상에 도움을 주세요.
+## <a name="help-us-make-azure-cognitive-search-better"></a>Azure 인지 검색을 더 잘 만드는 데 도움이 됩니다.
 요청할 기능이 있거나 개선을 위한 아이디어가 있는 경우 [UserVoice 사이트](https://feedback.azure.com/forums/263029-azure-search/)를 통해 알려주세요.

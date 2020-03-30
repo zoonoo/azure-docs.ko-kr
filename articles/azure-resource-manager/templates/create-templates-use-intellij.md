@@ -4,24 +4,24 @@ description: IntelliJ IDEA를 사용하여 첫 번째 Azure Resource Manager 템
 ms.devlang: java
 ms.date: 08/01/2019
 ms.topic: conceptual
-ms.openlocfilehash: 1046c942e6bec4ded332027b7856110238b8f2d7
-ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
+ms.openlocfilehash: a5015a018f905b4353afd6bf25a48a2d942b3b97
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75680616"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80153355"
 ---
-# <a name="create-and-deploy-azure-resource-manager-templates-by-using-the-intellij-idea"></a>IntelliJ IDEA를 사용하여 Azure Resource Manager 템플릿 만들기 및 배포
+# <a name="create-and-deploy-arm-templates-by-using-the-intellij-idea"></a>IntelliJ IDEA를 사용하여 ARM 템플릿 생성 및 배포
 
-IntelliJ IDEA를 사용하여 Azure Resource Manager 템플릿을 Azure에 배포하는 방법과 함께 IDE에서 직접 템플릿을 편집하고 업데이트하는 프로세스를 알아봅니다. Resource Manager 템플릿은 솔루션에 배포해야 하는 리소스를 정의하는 JSON 파일입니다. Azure 솔루션 배포 및 관리와 관련 된 개념을 이해 하려면 [템플릿 배포 개요](overview.md)를 참조 하세요.
+IntelliJ IDEA를 사용하여 Azure 리소스 관리자(ARM) 템플릿을 Azure에 배포하는 방법과 IDE에서 직접 템플릿을 편집하고 업데이트하는 프로세스에 대해 알아봅니다. ARM 템플릿은 솔루션에 배포해야 하는 리소스를 정의하는 JSON 파일입니다. Azure 솔루션 배포 및 관리와 관련된 개념을 이해하려면 [템플릿 배포 개요](overview.md)를 참조하세요.
 
 ![리소스 관리자 템플릿 포털 다이어그램](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-export-deploy-template-portal.png)
 
 자습서를 완료한 후 Azure Storage 계정을 배포합니다. 다른 Azure 리소스를 배포하는 데 동일한 프로세스를 사용할 수 있습니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
+Azure 구독이 없는 경우 시작하기 전에 [무료 계정을 만드세요.](https://azure.microsoft.com/free/)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서를 완료하려면 다음이 필요합니다.
 
@@ -31,9 +31,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="deploy-a-quickstart-template"></a>빠른 시작 템플릿 배포
 
-템플릿을 처음부터 만드는 대신 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/)에서 템플릿을 엽니다. Azure 빠른 시작 템플릿은 Resource Manager 템플릿용 리포지토리입니다. 이 문서에 사용 된 템플릿은 [표준 저장소 계정 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/101-storage-account-create/)라고 합니다. Azure Storage 계정 리소스를 정의합니다.
+템플릿을 처음부터 만드는 대신 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/)에서 템플릿을 엽니다. Azure 빠른 시작 템플릿은 ARM 템플릿에 대한 리포지토리입니다. 이 문서에 사용된 템플릿을 [표준 저장소 계정 만들기라고](https://github.com/Azure/azure-quickstart-templates/tree/master/101-storage-account-create/)합니다. Azure Storage 계정 리소스를 정의합니다.
 
-1. [`azuredeploy.json`](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) 및 [`azuredeploy.parameters.json`](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.parameters.json)을 마우스 오른쪽 단추로 클릭하고 로컬 컴퓨터에 저장합니다.
+1. 마우스 오른쪽 단추로 [`azuredeploy.json`](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) [`azuredeploy.parameters.json`](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.parameters.json) 클릭하고 로컬 컴퓨터에 저장합니다.
 
 1. Azure 도구 키트가 제대로 설치되고 로그인된 경우 IntelliJ IDEA의 사이드바에 Azure Explorer가 표시됩니다. **리소스 관리**를 마우스 오른쪽 단추로 클릭하고 **배포 만들기**를 선택합니다.
 
@@ -80,10 +80,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서의 주요 초점은 IntelliJ 아이디어를 사용 하 여 Azure 빠른 시작 템플릿에서 기존 템플릿을 배포 하는 것입니다. 또한 Azure에서 기존 배포를 확인하고 업데이트하는 방법도 알아보았습니다. Azure 빠른 시작 템플릿의 템플릿은 필요한 모든 것을 제공하지 않을 수도 있습니다. 템플릿 개발에 대해 자세히 알아보려면 새로운 초보자용 자습서 시리즈를 참조하세요.
+이 문서의 주요 초점은 IntelliJ IDEA를 사용하여 Azure 빠른 시작 템플릿에서 기존 템플릿을 배포하는 것입니다. 또한 Azure에서 기존 배포를 확인하고 업데이트하는 방법도 알아보았습니다. Azure 빠른 시작 템플릿의 템플릿은 필요한 모든 것을 제공하지 않을 수도 있습니다. 템플릿 개발에 대해 자세히 알아보려면 새로운 초보자용 자습서 시리즈를 참조하세요.
 
 > [!div class="nextstepaction"]
-> [초보자용 자습서](./template-tutorial-create-first-template.md)
+> [초보자를 위한 자습서](./template-tutorial-create-first-template.md)
 
 > [!div class="nextstepaction"]
 > [Azure 개발자 센터에서 Java 방문](https://docs.microsoft.com/azure/java)

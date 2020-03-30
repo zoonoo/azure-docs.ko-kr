@@ -1,17 +1,17 @@
 ---
-title: Azure Log Analytics의 네트워크 성능 모니터 솔루션에 포함된 성능 모니터 기능 | Microsoft Docs
+title: 네트워크 성능 모니터의 성능 모니터
 description: 네트워크 성능 모니터의 성능 모니터 기능을 사용하면 네트워크의 다양한 지점 간 네트워크 연결을 모니터링할 수 있습니다. 클라우드 배포 및 온-프레미스 위치, 여러 데이터 센터, 지점, 업무에 중요한 다중 계층 애플리케이션 또는 마이크로 서비스를 모니터링할 수 있습니다.
 ms.subservice: logs
 ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
-ms.openlocfilehash: dfbc4ea8e168ced95a4239dd100cf7277e0adf7b
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 126cca9d3606b378e59e4f4e1c5b52d985d19d94
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77654531"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80055680"
 ---
 # <a name="network-performance-monitor-solution-performance-monitoring"></a>네트워크 성능 모니터 솔루션: 성능 모니터링
 
@@ -26,8 +26,8 @@ ms.locfileid: "77654531"
 
 ![네트워크 성능 모니터](media/network-performance-monitor-performance-monitor/npm-performance-monitor.png)
 
-## <a name="configuration"></a>구성
-네트워크 성능 모니터에 대한 구성을 열려면 [네트워크 성능 모니터 솔루션](network-performance-monitor.md)을 열고 **구성**을 선택합니다.
+## <a name="configuration"></a>Configuration
+네트워크 성능 모니터에 대한 구성을 열려면 [네트워크 성능 모니터 솔루션을](network-performance-monitor.md)열고 **구성을**선택합니다.
 
 ![네트워크 성능 모니터 구성](media/network-performance-monitor-performance-monitor/npm-configure-button.png)
 
@@ -94,7 +94,7 @@ ms.locfileid: "77654531"
 
 배포하는 동안 ICMP를 사용하도록 선택한 경우에는 기본 모니터링 규칙을 편집하여 TCP로 언제든 전환할 수 있습니다.
 
-1. **네트워크 성능** > **모니터** > **구성** > **모니터**로 이동합니다. 그런 다음,  **기본 규칙**을 선택합니다. 
+1. 네트워크 **성능** > **모니터** > **구성**  **Monitor**모니터로 이동합니다.> 그런 다음,  **기본 규칙**을 선택합니다. 
 2. **프로토콜** 섹션으로 스크롤하여 사용할 프로토콜을 선택합니다. 
 3. **저장**을 선택하여 설정을 적용합니다. 
 

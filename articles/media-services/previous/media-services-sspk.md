@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/21/2019
 ms.author: xpouyat
 ms.openlocfilehash: 59ac3ab2e70bfa00f19bae7e551780f2b2bb8ccb
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79096705"
 ---
 # <a name="licensing-microsoft-smooth-streaming-client-porting-kit"></a>Microsoft® 부드러운 스트리밍 클라이언트 이식 키트 라이선스 
@@ -29,7 +29,7 @@ Microsoft 부드러운 스트리밍 클라이언트 이식 키트(줄여서**SSP
 
 ![SSPK](./media/media-services-sspk/sspk-arch.png)
 
-## <a name="description"></a>Description
+## <a name="description"></a>설명
 SSPK는 뛰어난 비즈니스 가치를 제공하는 조건으로 사용 허가됩니다. SSPK 라이선스는 업계에 다음을 제공합니다.
 
 * C++의 부드러운 스트리밍 이식 키트 소스 
@@ -71,11 +71,11 @@ Microsoft 부드러운 스트리밍 클라이언트 이식 키트는 두 가지�
 * 각 연도의 최초 10,000대의 디바이스 구현에 대해서는 사용료 없음 
 
 ## <a name="licensing-procedure-and-sspk-access"></a>라이선스 절차 및 SSPK 액세스
-라이선스와 관련해서 궁금한 점이 있으면 [sspkinfo@microsoft.com](mailto:sspkinfo@microsoft.com)으로 메일을 보내 주세요.
+모든 [sspkinfo@microsoft.com](mailto:sspkinfo@microsoft.com) 라이선스 쿼리에 대한 전자 메일입니다.
 
 [SSPK 배포 포털](https://microsoft.sharepoint.com/teams/SSPKDOWNLOAD/) 은 등록된 중간 정식 사용자가 액세스할 수 있습니다.
 
-중간 및 최종 SSPK 정식 사용자는 [smoothpk@microsoft.com](mailto:smoothpk@microsoft.com)를 클릭하세요.
+임시 및 최종 SSPK 사용권자에 기술 질문을 제출할 수 [smoothpk@microsoft.com](mailto:smoothpk@microsoft.com)있습니다.
 
 ## <a name="microsoft-smooth-streaming-client-interim-product-agreement-licensees"></a>Microsoft 부드러운 스트리밍 클라이언트 중간 제품 계약 정식 사용자
 
@@ -91,7 +91,7 @@ Microsoft 부드러운 스트리밍 클라이언트 이식 키트는 두 가지�
 * EchoStar Purchasing Corporation
 * Enseo, Inc.
 * Fluendo S.A.
-* Guangzhou Shikun
+* 광저우 시쿤 전자 주식회사
 * HANDAN BroadInfoCom Co., Ltd.
 * Infomir GMBH
 * Irdeto USA Inc.
@@ -125,9 +125,9 @@ Microsoft 부드러운 스트리밍 클라이언트 이식 키트는 두 가지�
 * Dongguan Digital AV Technology Corp., Ltd.
 * EchoStar Purchasing Corporation
 * Enseo, Inc.
-* FilmFlex 영화가 제한 됨
+* 필름플렉스 영화 제한
 * Fluendo S.A.
-* FUNAI 전기 CO., L T D
+* (주)푸나이일렉트릭
 * Gibson Innovations Limited
 * Haier Information Applicantion S.R.L
 * HANDAN BroadInfoCom Co., Ltd.
@@ -141,7 +141,7 @@ Microsoft 부드러운 스트리밍 클라이언트 이식 키트는 두 가지�
 * Orange SA
 * Saffron Digital Limited
 * Sagemcom Broadband SAS
-* Shenzhen Chuangwei-RGB 전자 제품
+* 심천 추앙웨이 -RGB 전자 유한 공사
 * Shenzhen Coship Electronics CO., LTD
 * Shenzhen Jiuzhou Electric Co., Ltd
 * Shenzhen Skyworth Digital Technology Co., Ltd

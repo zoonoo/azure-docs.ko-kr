@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.date: 08/29/2017
 ms.author: robinsh
 ms.openlocfilehash: fd3e02101f206ebdb183da87089eadcbc9619b33
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68883168"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-iothubclient"></a>C용 Azure IoT 디바이스 SDK – IoTHubClient에 대한 자세한 정보
 
-[C용 Azure IoT 디바이스 SDK](iot-hub-device-sdk-c-intro.md)는 **C용 Azure IoT 디바이스 SDK**를 소개하는 이 시리즈의 첫 번째 문서입니다. 첫 번째 문서에서 SDK에 두 아키텍처 계층이 있다는 것을 설명했습니다. 맨 하단은 IoT Hub와의 통신을 직접 관리하는 **IoTHubClient** 라이브러리입니다. 직렬화 서비스를 제공하기 위해 위쪽에 구축되는 **serializer** 라이브러리도 있습니다. 이 문서에서는 **IoTHubClient** 라이브러리에 대한 추가 세부 정보를 제공합니다.
+[C용 Azure IoT 장치 SDK는](iot-hub-device-sdk-c-intro.md) **C용 Azure IoT 장치 SDK를**소개하는 이 시리즈의 첫 번째 문서입니다. 이 기사에서는 SDK에 두 개의 아키텍처 레이어가 있다고 설명했습니다. 맨 하단은 IoT Hub와의 통신을 직접 관리하는 **IoTHubClient** 라이브러리입니다. 직렬화 서비스를 제공하기 위해 위쪽에 구축되는 **serializer** 라이브러리도 있습니다. 이 문서에서는 **IoTHubClient** 라이브러리에 대한 추가 세부 정보를 제공합니다.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
@@ -66,7 +66,7 @@ IoTHubClient_Destroy(iotHubClientHandle);
 
 이러한 함수는 모두 API 이름에 **LL**을 포함합니다. 이름의 **LL** 부분 외에, 이러한 각 함수의 매개 변수는 비-LL 해당 항목과 동일합니다. 그러나 이러한 함수의 동작은 한 가지 중요한 방식에서 서로 다릅니다.
 
-**IoTHubClient\_CreateFromConnectionString**을 호출하면 기본 라이브러리에서 백그라운드로 실행되는 새 스레드를 만듭니다. 이 스레드는 IoT Hub로 이벤트 전송 및 메시지 수신을 처리합니다. 이러한 스레드는 **LL** API로 작업할 때 만들어지지 않습니다. 백그라운드 스레드를 생성하면 개발자가 편리합니다. 이벤트 전송 및 IoT Hub에서 메시지 수신을 명시적으로 지정하는 것에 대해 신경 쓰지 않아도 됩니다. 백그라운드로 자동으로 이루어지기 때문입니다. 이와 반대로, **LL** API는 필요한 경우 IoT Hub와의 통신을 명시적으로 제어합니다.
+**IoTHubClient\_CreateFromConnectionString**을 호출하면 기본 라이브러리에서 백그라운드로 실행되는 새 스레드를 만듭니다. 이 스레드는 IoT Hub로 이벤트 전송 및 메시지 수신을 처리합니다. 이러한 스레드는 **LL** API로 작업할 때 만들어지지 않습니다. 백그라운드 스레드를 생성하면 개발자가 편리합니다. 이벤트 전송 및 IoT Hub에서 메시지 수신을 명시적으로 지정하는 것에 대해 신경 쓰지 않아도 됩니다. 백그라운드로 자동으로 이루어지기 때문입니다. 반대로 **LL** API는 필요한 경우 IoT Hub와의 통신을 명시적으로 제어할 수 있습니다.
 
 이 개념에 대한 이해를 돕기 위해 예제를 살펴보겠습니다.
 
@@ -74,7 +74,7 @@ IoTHubClient_Destroy(iotHubClientHandle);
 
 마찬가지로 **IoTHubClient\_SetMessageCallback**을 사용하여 메시지에 대한 콜백 함수를 등록하면 사용자는 SDK를 통해, 메시지를 수신할 때 백그라운드 스레드가 메인 스레드와 별개로 콜백 함수를 호출하도록 합니다.
 
-**LL** API는 백그라운드 스레드를 만들지 않습니다. 대신, IoT Hub에서 데이터를 명시적으로 전송 및 수신하는 새 API를 호출해야 합니다. 다음 예제를 통해 볼 수 있습니다.
+**LL** API는 백그라운드 스레드를 만들지 않습니다. 대신, IoT Hub에서 데이터를 명시적으로 전송 및 수신하는 새 API를 호출해야 합니다. 다음 예제에 이 내용이 나와 있습니다.
 
 SDK에 포함된 **iothub\_client\_sample\_http** 애플리케이션은 하위 수준 API를 보여줍니다. 이 샘플에서는 다음과 같은 코드로 IoT Hub에 이벤트를 전송합니다.
 
@@ -235,9 +235,9 @@ iotHubClientHandle = IoTHubClient_CreateFromConnectionString(connectionString, A
 HostName=IOTHUBNAME.IOTHUBSUFFIX;DeviceId=DEVICEID;SharedAccessKey=SHAREDACCESSKEY
 ```
 
-이 문자열에는 다음 네 가지 정보가 있습니다. IoT Hub 이름, IoT Hub 접미사, 장치 ID 및 공유 액세스 키가 있습니다. Azure 포털에서 IoT Hub 인스턴스를 만들 때 IoT Hub의 정규화된 도메인 이름(FQDN)을 가져옵니다. 여기서 IoT Hub 이름(FQDN의 첫 번째 부분) 및 IoT Hub 접미사(FQDN의 나머지 부분)가 제공됩니다. 디바이스를 IoT Hub에 등록할 때 디바이스 ID 및 공유 액세스 키를 가져옵니다([이전 문서](iot-hub-device-sdk-c-intro.md)에서 설명).
+이 문자열에는 IoT Hub 이름, IoT Hub 접미사, 디바이스 ID 및 공유 액세스 키의 네 가지 정보가 있습니다. Azure 포털에서 IoT Hub 인스턴스를 만들 때 IoT Hub의 정규화된 도메인 이름(FQDN)을 가져옵니다. 여기서 IoT Hub 이름(FQDN의 첫 번째 부분) 및 IoT Hub 접미사(FQDN의 나머지 부분)가 제공됩니다. IoT Hub에 장치를 등록할 때 장치 ID와 공유 액세스 키가 [표시됩니다(이전 문서에](iot-hub-device-sdk-c-intro.md)설명된 대로).
 
-**IoTHubClient\_CreateFromConnectionString**은 라이브러리를 초기화하는 한 가지 방법을 제공합니다. 원하는 경우 디바이스 연결 문자열 대신 개별 매개 변수를 사용하여 새 **IOTHUB\_CLIENT\_HANDLE**을 만들 수 있습니다. 이 작업은 다음 코드를 사용 하 여 수행 됩니다.
+**IoTHubClient\_CreateFromConnectionString**은 라이브러리를 초기화하는 한 가지 방법을 제공합니다. 원하는 경우 디바이스 연결 문자열 대신 개별 매개 변수를 사용하여 새 **IOTHUB\_CLIENT\_HANDLE**을 만들 수 있습니다. 다음 코드로 이 작업을 수행합니다.
 
 ```C
 IOTHUB_CLIENT_CONFIG iotHubClientConfig;
@@ -255,7 +255,7 @@ IOTHUB_CLIENT_HANDLE iotHubClientHandle = IoTHubClient_LL_Create(&iotHubClientCo
 
 ## <a name="configuration-options"></a>구성 옵션
 
-지금까지 **IoTHubClient** 라이브러리가 작동하는 방법에 대해 설명한 모든 내용은 기본 동작에 대한 것입니다. 하지만 라이브러리가 작동하는 방식을 변경하도록 설정 가능한 몇 가지 옵션이 있습니다. 이 작업은 **IoTHubClient\_LL\_SetOption** API를 활용하여 수행합니다. 다음 예제를 고려해 보세요.
+지금까지 **IoTHubClient** 라이브러리가 작동하는 방법에 대해 설명한 모든 내용은 기본 동작에 대한 것입니다. 하지만 라이브러리가 작동하는 방식을 변경하도록 설정 가능한 몇 가지 옵션이 있습니다. 이 작업은 **IoTHubClient\_LL\_SetOption** API를 활용하여 수행합니다. 다음 예를 살펴보세요.
 
 ```C
 unsigned int timeout = 30000;
@@ -264,7 +264,7 @@ IoTHubClient_LL_SetOption(iotHubClientHandle, "timeout", &timeout);
 
 일반적으로 사용되는 몇 가지 옵션이 있습니다.
 
-* **SetBatching**(bool) – **true**이면 IoT Hub로 전송된 데이터가 일괄 처리로 전송됩니다. **false**이면 메시지가 개별적으로 전송됩니다. 기본값은 **false**입니다. D2C 메시지에 시스템 속성을 추가 하는 것은 물론 AMQP/AMQP-WS를 통한 일괄 처리가 지원 됩니다.
+* **SetBatching**(bool) – **true**이면 IoT Hub로 전송된 데이터가 일괄 처리로 전송됩니다. **false**이면 메시지가 개별적으로 전송됩니다. 기본값은 **false입니다.** AMQP/AMQP-WS를 통해 일괄 처리하고 D2C 메시지에 시스템 속성을 추가하는 것이 지원됩니다.
 
 * **Timeout** (unsigned int) – 이 값은 밀리초 단위로 표시됩니다. HTTPS 요청을 전송하고 응답을 수신하는 경우 이 시간보다 오래 걸리면 연결이 시간 초과됩니다.
 
@@ -272,7 +272,7 @@ IoTHubClient_LL_SetOption(iotHubClientHandle, "timeout", &timeout);
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 **C용 Azure IoT 디바이스 SDK**에 있는 **IoTHubClient** 라이브러리의 동작에 대해 자세히 설명했습니다. 이 정보로 **IoTHubClient** 라이브러리의 기능에 대해 제대로 이해해야 합니다. 이 시리즈의 두 번째 문서는 [C용 Azure IoT 디바이스 SDK - 직렬 변환기](iot-hub-device-sdk-c-serializer.md)로, **직렬 변환기** 라이브러리에 대한 유사한 세부 정보를 제공합니다.
+이 문서에서는 **C에 대한 Azure IoT 장치 SDK에**있는 **IoTHubClient** 라이브러리의 동작에 대해 자세히 설명합니다. 이 정보를 사용하면 **IoTHubClient** 라이브러리의 기능을 잘 이해해야 합니다. 이 시리즈의 두 번째 문서는 [C용 Azure IoT 디바이스 SDK - 직렬 변환기](iot-hub-device-sdk-c-serializer.md)로, **직렬 변환기** 라이브러리에 대한 유사한 세부 정보를 제공합니다.
 
 IoT Hub를 개발하는 방법에 대한 자세한 내용은 [Azure IoT SDK](iot-hub-devguide-sdks.md)를 참조하세요.
 

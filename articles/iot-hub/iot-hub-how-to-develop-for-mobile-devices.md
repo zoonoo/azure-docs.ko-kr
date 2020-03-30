@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/16/2018
 ms.author: robinsh
 ms.openlocfilehash: 945b02003a443c04e692fdc06ca5714de362d074
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68883090"
 ---
 # <a name="develop-for-mobile-devices-using-azure-iot-sdks"></a>Azure IoT SDK를 사용하여 모바일 디바이스용 솔루션 개발
@@ -34,7 +34,7 @@ Azure IoT Hub C SDK는 다양한 플랫폼으로 이식할 수 있도록 C99로 
 
 ### <a name="develop-with-azure-iot-hub-cocoapod-libraries"></a>Azure IoT Hub CocoaPod 라이브러리를 사용하여 개발
 
-Azure IoT Hub SDK는 iOS 개발을 위한 Objective-C CocoaPod 라이브러리 집합을 릴리스합니다.  최신 CocoaPod 라이브러리 목록은 [Microsoft Azure IoT용 CocoaPod](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/samples/ios/CocoaPods.md)을 참조하세요.  관련 라이브러리가 XCode 프로젝트에 통합되면 두 가지 방법으로 IoT Hub 관련 코드를 작성할 수 있습니다.
+Azure IoT Hub SDK는 iOS 개발을 위한 Objective-C CocoaPod 라이브러리 집합을 릴리스합니다.  최신 CocoaPod 라이브러리 목록은 [Microsoft Azure IoT용 CocoaPod](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/samples/ios/CocoaPods.md)를 참조하세요.  관련 라이브러리가 XCode 프로젝트에 통합되면 두 가지 방법으로 IoT Hub 관련 코드를 작성할 수 있습니다.
 
 * Objective C 함수: 프로젝트가 Objective-C로 작성되는 경우 Azure IoT Hub C SDK에서 직접 API를 호출할 수 있습니다.  프로젝트가 Swift로 작성되는 경우 함수를 만들기 전에 `@objc func`를 호출하고, C 또는 Objective-C 코드를 사용하여 Azure IoT Hub와 관련된 모든 논리를 작성합니다.  두 가지 방법을 보여주는 샘플 집합은 [샘플 리포지토리](https://github.com/Azure-Samples/azure-iot-samples-ios)에서 찾을 수 있습니다.  
 
@@ -48,7 +48,7 @@ Azure IoT Hub Java SDK는 Android 플랫폼을 지원합니다.  테스트를 �
 다음 설명서는 Android 디바이스에서 Gradle 및 Android Studio를 사용하여 디바이스 애플리케이션 또는 서비스 애플리케이션을 개발하는 방법을 안내합니다.
 
 * [빠른 시작: 디바이스에서 IoT Hub로 원격 분석 데이터 보내기](quickstart-send-telemetry-android.md)  
-* [빠른 시작: 디바이스 제어](quickstart-control-device-android.md) 
+* [빠른 시작: 장치 제어](quickstart-control-device-android.md) 
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/30/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: a1ade6e823201419c3a742a36c66a50a9dc09976
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 72c8b4d57b5064af34665cff1386179e62324938
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64728806"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80235070"
 ---
 # <a name="filter-network-traffic-with-a-network-security-group-using-the-azure-cli"></a>Azure CLI를 사용하여 네트워크 보안 그룹을 통해 네트워크 트래픽 필터링
 
@@ -37,7 +37,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 문서에서는 Azure CLI 버전 2.0.28 이상을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. 
+CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 문서에서는 Azure CLI 버전 2.0.28 이상을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하십시오. 
 
 
 ## <a name="create-a-network-security-group"></a>네트워크 보안 그룹 만들기
@@ -119,7 +119,7 @@ az network nsg rule create \
 
 ## <a name="create-a-virtual-network"></a>가상 네트워크 만들기
 
-[az network vnet create](/cli/azure/network/vnet)를 사용하여 가상 네트워크를 만듭니다. 다음 예제에서는 *myVirtualNetwork*라는 가상 네트워크를 만듭니다.
+[az 네트워크 vnet을 사용하여](/cli/azure/network/vnet)가상 네트워크를 만듭니다. 다음 예제에서는 *myVirtualNetwork*라는 가상 네트워크를 만듭니다.
 
 ```azurecli-interactive 
 az network vnet create \
@@ -143,7 +143,7 @@ az network vnet subnet create \
 
 이후 단계에서 트래픽 필터링의 유효성을 검사할 수 있도록 가상 네트워크에 두 VM을 만듭니다. 
 
-[az vm create](/cli/azure/vm)로 VM을 만듭니다. 다음 예제에서는 웹 서버 역할을 수행 하는 VM을 만듭니다. `--asgs myAsgWebServers` 옵션을 사용하면 Azure는 VM에 대해 만든 네트워크 인터페이스를*myAsgWebServers* 애플리케이션 보안 그룹의 멤버로 지정할 수 있습니다.
+[az vm 만들기를 사용하여 VM을 만듭니다.](/cli/azure/vm) 다음 예제에서는 웹 서버 역할을 수행 하는 VM을 만듭니다. `--asgs myAsgWebServers` 옵션을 사용하면 Azure는 VM에 대해 만든 네트워크 인터페이스를*myAsgWebServers* 애플리케이션 보안 그룹의 멤버로 지정할 수 있습니다.
 
 Azure에서 VM을 만들 때 만든 네트워크 인터페이스에 대해 Azure가 기본 네트워크 보안 그룹을 만들지 않도록 하기 위해 `--nsg ""` 옵션을 지정합니다. 이 문서를 간소화하기 위해 암호가 사용됩니다. 일반적으로 키는 프로덕션 배포에 사용됩니다. 키를 사용하는 경우 나머지 단계에 대해 SSH 에이전트 전달도 구성해야 합니다. 자세한 내용은 SSH 클라이언트를 위한 설명서를 참조하세요. 다음 명령에서 `<replace-with-your-password>`를 원하는 암호로 바꿉니다.
 
@@ -164,7 +164,7 @@ az vm create \
 
 VM을 만드는 데 몇 분이 걸립니다. VM을 만들면 다음 예제 출력과 유사한 출력이 반환됩니다. 
 
-```azurecli 
+```output
 {
   "fqdns": "",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVmWeb",
@@ -196,7 +196,7 @@ VM을 만드는 데 몇 분이 걸립니다. VM을 만든 후에는 반환된 �
 
 ## <a name="test-traffic-filters"></a>트래픽 필터 테스트
 
-다음 명령을 사용하여 *myVmMgmt* VM으로 SSH 세션을 만듭니다. 바꿉니다  *\<publicIpAddress >* VM의 공용 IP 주소를 사용 하 여 합니다. 위의 예제에서 IP 주소는 *13.90.242.231*입니다.
+다음 명령을 사용하여 *myVmMgmt* VM으로 SSH 세션을 만듭니다. * \<publicIpAddress>* VM의 공용 IP 주소로 바꿉니다. 위의 예제에서 IP 주소는 *13.90.242.231*입니다.
 
 ```bash 
 ssh azureuser@<publicIpAddress>
@@ -230,13 +230,13 @@ sudo apt-get -y install nginx
 curl myVmWeb
 ```
 
-*myVmMgmt* VM에서 로그아웃합니다. Azure 외부에서 *myVmWeb* 웹 서버에 액세스할 수 있는지 확인하기 위해 자신의 컴퓨터에서 `curl <publicIpAddress>`를 입력합니다. 포트 80은 *myVmWeb* VM에 연결된 네트워크 인터페이스가 In인 *myAsgWebServers* 애플리케이션 보안 그룹으로 가는 인터넷의 인바운드 트래픽을 허용하기 때문에 연결에 성공합니다.
+*myVmMgmt* VM에서 로그아웃합니다. Azure 외부에서 *myVmWeb* 웹 서버에 액세스할 수 있는지 확인하기 위해 자신의 컴퓨터에서 `curl <publicIpAddress>`를 입력합니다. 포트 80이 *myVmWeb* VM에 연결된 네트워크 인터페이스가 있는 *myAsgWebServers* 응용 프로그램 보안 그룹에 인터넷에서 인바운드할 수 있기 때문에 연결이 성공합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
 더 이상 필요하지 않은 경우 [az group delete](/cli/azure/group)를 사용하여 리소스 그룹 및 그룹에 포함된 모든 리소스를 제거합니다.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group delete --name myResourceGroup --yes
 ```
 
