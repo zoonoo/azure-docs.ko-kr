@@ -1,20 +1,18 @@
 ---
-title: Microsoft로 비즈니스 홍보 | Azure Marketplace
+title: Microsoft로 비즈니스 홍보 | Azure 마켓플레이스
 description: 앱 및 서비스 게시자를 위한 Azure Marketplace 및 AppSource를 사용한 비즈니스 홍보
-services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: jm-aditi-ms
-manager: pabutler
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/04/2018
-ms.author: ellacroi
-ms.openlocfilehash: c0f33402c5ff9f970e2ffebf405178dbc0974690
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 89309bc09559d205fd9b8826749def6d98dd43bd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827802"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80285030"
 ---
 # <a name="promote-your-business-with-microsoft"></a>Microsoft를 통한 비즈니스 홍보 
 

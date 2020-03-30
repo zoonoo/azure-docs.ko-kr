@@ -1,27 +1,26 @@
 ---
-title: SaaS 행 Api v1 | Azure Marketplace
-description: 관련 된 처리 v1 Api를 사용 하 여 Azure Marketplace에서 SaaS 제품을 만들고 관리 하는 방법을 설명 합니다.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+title: SaaS 주문 API v1 | Azure 마켓플레이스
+description: 연결된 주문 처리 v1 API를 사용하여 Azure 마켓플레이스에서 SaaS 오퍼를 만들고 관리하는 방법을 설명합니다.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 05/23/2019
-ms.author: evansma
+ms.author: dsindona
 ROBOTS: NOINDEX
-ms.openlocfilehash: f56e9b4f6c3db6fb47452c7478f5a27445955e87
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 3ec8373288a2ea5809ee5d349c52c57051586035
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76715380"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288345"
 ---
-# <a name="saas-fulfillment-apis-version-1-deprecated"></a>SaaS 행 Api 버전 1 (사용 되지 않음)
+# <a name="saas-fulfillment-apis-version-1-deprecated"></a>SaaS 주문 처리 API 버전 1(더 이상 사용되지 않습니다)
 
-이 문서에서는 API를 사용하여 SaaS 제안을 만드는 방법을 설명합니다. Azure를 통해 판매 하는 경우 SaaS 제품에 대 한 구독을 허용 하기 위해 REST 메서드 및 끝점으로 구성 된 Api가 필요 합니다.  
+이 문서에서는 API를 사용하여 SaaS 제안을 만드는 방법을 설명합니다. REST 메서드와 끝점으로 구성된 API는 Azure를 통해 판매를 선택한 경우 SaaS 제품의 구독을 허용하는 데 필요합니다.  
 
 > [!WARNING]
-> 이 초기 버전의 SaaS 처리 API는 더 이상 사용 되지 않습니다. 대신 SaaS를 사용 하는 [API V2](./pc-saas-fulfillment-api-v2.md)를 사용 합니다.  이 초기 버전의 API는 현재 기존 게시자를 제공 하기 위해서만 유지 되 고 있습니다. 
+> SaaS 주문 처리 API의 이 초기 버전은 더 이상 사용되지 않습니다. 대신 [SaaS 주문 처리 API V2를](./pc-saas-fulfillment-api-v2.md)사용합니다.  이 초기 버전의 API는 현재 기존 게시자를 위해서만 유지 관리되고 있습니다. 
 
 다음 API는 Azure와 SaaS 서비스를 통합하는 데 도움을 주기 위해 제공됩니다.
 
@@ -47,11 +46,11 @@ Azure Marketplace API의 엔드포인트은 `https://marketplaceapi.microsoft.co
 
 엔드포인트 확인에 대한 POST 작업을 사용하여 마켓플레이스 토큰을 영구 리소스 ID로 확인할 수 있습니다.  리소스 ID는 SAAS 구독의 고유 식별자입니다. 
 
-사용자가 ISV 웹 사이트로 리디렉션되는 경우 URL에는 쿼리 매개 변수의 토큰이 포함 됩니다. ISV는 이 토큰을 사용하고, 이를 확인하는 요청을 수행해야 합니다. 응답에는 고유한 SAAS 구독 ID, 이름, 제품 ID 및 리소스 계획이 포함됩니다. 이 토큰은 한 시간 동안만 유효합니다.
+사용자가 ISV의 웹 사이트로 리디렉션되면 URL에는 쿼리 매개 변수에 토큰이 포함됩니다. ISV는 이 토큰을 사용하고, 이를 확인하는 요청을 수행해야 합니다. 응답에는 고유한 SAAS 구독 ID, 이름, 제품 ID 및 리소스 계획이 포함됩니다. 이 토큰은 한 시간 동안만 유효합니다.
 
 *요청*
 
-**POST**
+**올리기**
 
 **https://marketplaceapi.microsoft.com/api/saas/subscriptions/resolve?api-version=2017-04-15**
 
@@ -66,10 +65,10 @@ Azure Marketplace API의 엔드포인트은 `https://marketplaceapi.microsoft.co
 | **헤더 키**     | **필수** | **설명**                                                                                                                                                                                                                  |
 |--------------------|--------------|-----------------------------------------------------------|
 | x-ms-requestid     | 예           | 클라이언트의 요청을 추적하기 위한 고유한 문자열 값(기본적으로 GUID)입니다. 이 값을 제공하지 않으면 값이 하나 생성된 후 응답 헤더에 제공됩니다.  |
-| x-ms-correlationid | 예           | 클라이언트의 작업에 대한 고유한 문자열 값입니다. 이 필드는 클라이언트 작업에서 서버 쪽의 이벤트와 모든 이벤트의 상관 관계를 설정 합니다. 이 값을 제공하지 않으면 값이 하나 생성된 후 응답 헤더에 제공됩니다. |
+| x-ms-correlationid | 예           | 클라이언트의 작업에 대한 고유한 문자열 값입니다. 이 필드는 클라이언트 작업의 모든 이벤트와 서버 측의 이벤트의 상관 관계를 지정합니다. 이 값을 제공하지 않으면 값이 하나 생성된 후 응답 헤더에 제공됩니다. |
 | Content-type       | yes          | `application/json`                                        |
 | 권한 부여      | yes          | JWT(JSON Web Token) 전달자 토큰입니다.                    |
-| x-ms-marketplace-token| yes| 사용자가 Azure에서 SaaS ISV의 웹 사이트로 리디렉션되는 경우 URL의 토큰 쿼리 매개 변수입니다. **참고:** 이 토큰은 1 시간 동안만 유효 합니다. 또한 URL은 토큰 값을 사용하기 전에 브라우저에서 디코드합니다.|
+| x-ms-marketplace-token| yes| 사용자가 Azure에서 SaaS ISV의 웹 사이트로 리디렉션될 때 URL의 토큰 쿼리 매개 변수입니다. **참고:** 이 토큰은 1시간 동안만 유효합니다. 또한 URL은 토큰 값을 사용하기 전에 브라우저에서 디코드합니다.|
 |  |  |  |
   
 
@@ -111,7 +110,7 @@ Azure Marketplace API의 엔드포인트은 `https://marketplaceapi.microsoft.co
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
 | x-ms-requestid     | yes          | 클라이언트에서 받은 요청 ID입니다.                                                                   |
 | x-ms-correlationid | yes          | 클라이언트가 전달한 경우 상관관계 ID이고, 그렇지 않은 경우 서버 상관관계 ID입니다.                   |
-| x-ms-activityid    | yes          | 서비스의 요청을 추적하기 위한 고유한 문자열 값입니다. 이 ID는 모든 reconciliations 사용 됩니다. |
+| x-ms-activityid    | yes          | 서비스의 요청을 추적하기 위한 고유한 문자열 값입니다. 이 ID는 조정에 사용됩니다. |
 | Retry-After        | 예           | 이 값은 429 응답에 대해서만 설정됩니다.                                                                   |
 |  |  |  |
 
@@ -120,13 +119,13 @@ Azure Marketplace API의 엔드포인트은 `https://marketplaceapi.microsoft.co
 
 구독 엔드포인트를 사용하면 지정된 요금제로 SaaS 서비스 구독을 시작하고, 상거래 시스템에서 청구를 사용하도록 설정할 수 있습니다.
 
-**PUT**
+**넣어**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/ *{subscriptionId}* ?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{구독Id}*?api 버전=2017-04-15**
 
 | **매개 변수 이름**  | **설명**                                       |
 |---------------------|-------------------------------------------------------|
-| subscriptionId      | 확인 API를 통해 토큰을 확인 한 후 가져온 SaaS 구독의 고유 ID입니다.                              |
+| subscriptionId      | 해결 API를 통해 토큰을 해결한 후 얻은 SaaS 구독의 고유 ID입니다.                              |
 | api-version         | 이 요청에 사용할 작업의 버전입니다. |
 |  |  |
 
@@ -139,7 +138,7 @@ Azure Marketplace API의 엔드포인트은 `https://marketplaceapi.microsoft.co
 | If-Match/If-None-Match |   예         |   강력한 유효성 검사기 ETag 값입니다.                                                          |
 | content-type           |   yes        |    `application/json`                                                                   |
 |  권한 부여         |   yes        |    JWT(JSON Web Token) 전달자 토큰입니다.                                               |
-| x-ms-marketplace-session-mode| 예 | SaaS 제안을 구독하는 동안 시험 실행 모드를 사용하도록 설정하기 위한 플래그입니다. 설정되면 구독 요금이 청구되지 않습니다. ISV 테스트 시나리오에 유용합니다. **' Dryrun '** 로 설정 하세요.|
+| x-ms-marketplace-session-mode| 예 | SaaS 제안을 구독하는 동안 시험 실행 모드를 사용하도록 설정하기 위한 플래그입니다. 설정되면 구독 요금이 청구되지 않습니다. ISV 테스트 시나리오에 유용합니다. **'드라이런'으로** 설정해 주세요|
 |  |  |  |
 
 *본문*
@@ -152,7 +151,7 @@ Azure Marketplace API의 엔드포인트은 `https://marketplaceapi.microsoft.co
 
 | **요소 이름** | **데이터 형식** | **설명**                      |
 |------------------|---------------|--------------------------------------|
-| planId           | (필수) 문자열        | 사용자가 구독 하는 SaaS 서비스의 계획 ID입니다.  |
+| planId           | (필수) 문자열        | SaaS 서비스 사용자의 계획 ID가 구독됩니다.  |
 |  |  |  |
 
 *응답 코드*
@@ -168,7 +167,7 @@ Azure Marketplace API의 엔드포인트은 `https://marketplaceapi.microsoft.co
 | 503                  | `ServiceUnavailable` | 서비스가 일시적으로 가동 중단되었습니다. 나중에 다시 시도하세요.                          |
 |  |  |  |
 
-202 응답의 경우 ' 작업-위치 ' 헤더의 요청 작업 상태를 따르세요. 인증은 다른 Marketplace API와 동일합니다.
+202 응답의 경우 '작업 위치' 헤더에서 요청 작업의 상태를 따릅니다. 인증은 다른 Marketplace API와 동일합니다.
 
 *응답 헤더*
 
@@ -185,9 +184,9 @@ Azure Marketplace API의 엔드포인트은 `https://marketplaceapi.microsoft.co
 
 엔드포인트 변경을 통해 현재 구독한 요금제를 새 요금제로 변환할 수 있습니다.
 
-**PATCH**
+**패치**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/ *{subscriptionId}* ?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{구독Id}*?api 버전=2017-04-15**
 
 | **매개 변수 이름**  | **설명**                                       |
 |---------------------|-------------------------------------------------------|
@@ -216,7 +215,7 @@ Azure Marketplace API의 엔드포인트은 `https://marketplaceapi.microsoft.co
 
 |  **요소 이름** |  **데이터 형식**  | **설명**                              |
 |  ---------------- | -------------   | --------------------------------------       |
-|  planId           |  (필수) 문자열         | 사용자가 구독 하는 SaaS 서비스의 계획 ID입니다.          |
+|  planId           |  (필수) 문자열         | SaaS 서비스 사용자의 계획 ID가 구독됩니다.          |
 |  |  |  |
 
 *응답 코드*
@@ -249,9 +248,9 @@ Azure Marketplace API의 엔드포인트은 `https://marketplaceapi.microsoft.co
 
 *요청*
 
-**DELETE**
+**삭제**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/ *{subscriptionId}* ?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{구독Id}*?api 버전=2017-04-15**
 
 | **매개 변수 이름**  | **설명**                                       |
 |---------------------|-------------------------------------------------------|
@@ -280,7 +279,7 @@ Azure Marketplace API의 엔드포인트은 `https://marketplaceapi.microsoft.co
 | 503                  | `ServiceUnavailable` | 서비스가 일시적으로 가동 중단되었습니다. 나중에 다시 시도하십시오.                          |
 |  |  |  |
 
-202 응답의 경우 ' 작업-위치 ' 헤더의 요청 작업 상태를 따르세요. 인증은 다른 Marketplace API와 동일합니다.
+202 응답의 경우 '작업 위치' 헤더에서 요청 작업의 상태를 따릅니다. 인증은 다른 Marketplace API와 동일합니다.
 
 *응답 헤더*
 
@@ -299,9 +298,9 @@ Azure Marketplace API의 엔드포인트은 `https://marketplaceapi.microsoft.co
 
 *요청*
 
-**GET**
+**가져오기**
 
-**https://marketplaceapi.microsoft.com/api/saas/operations/ *{operationId}* ?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/operations/*{operationId}*?api 버전=2017-04-15**
 
 | **매개 변수 이름**  | **설명**                                       |
 |---------------------|-------------------------------------------------------|
@@ -346,7 +345,7 @@ Azure Marketplace API의 엔드포인트은 `https://marketplaceapi.microsoft.co
 | 200                  | `OK`                 | 가져오기 요청을 확인했으며 본문에 응답이 포함됩니다.    |
 | 400                  | `BadRequest`         | 필요한 헤더가 없거나 잘못된 api-version을 지정했습니다. |
 | 403                  | `Forbidden`          | 호출자는 이 작업을 수행할 권한이 없습니다.                      |
-| 404                  | `NotFound`           | 지정 된 ID의 구독을 찾을 수 없습니다.                                     |
+| 404                  | `NotFound`           | 지정된 ID로 구독을 찾을 수 없습니다.                                     |
 | 429                  | `RequestThrottleId`  | 서비스가 요청을 처리 중입니다. 나중에 다시 시도하세요.                     |
 | 503                  | `ServiceUnavailable` | 서비스가 일시적으로 가동 중단되었습니다. 나중에 다시 시도하세요.                             |
 |  |  |  |
@@ -367,9 +366,9 @@ Azure Marketplace API의 엔드포인트은 `https://marketplaceapi.microsoft.co
 
 *요청*
 
-**GET**
+**가져오기**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/ *{subscriptionId}* ?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{구독Id}*?api 버전=2017-04-15**
 
 | **매개 변수 이름**  | **설명**                                       |
 |---------------------|-------------------------------------------------------|
@@ -440,7 +439,7 @@ Azure Marketplace API의 엔드포인트은 `https://marketplaceapi.microsoft.co
 
 *요청*
 
-**GET**
+**가져오기**
 
 **https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=2017-04-15**
 
@@ -475,12 +474,12 @@ Azure Marketplace API의 엔드포인트은 `https://marketplaceapi.microsoft.co
 | **매개 변수 이름**     | **데이터 형식** | **설명**                               |
 |------------------------|---------------|-----------------------------------------------|
 | id                     | String        | Azure의 SaaS 구독 리소스 ID    |
-| offerId                | String        | 사용자가 구독 하는 제품 ID         |
-| planId                 | String        | 사용자가 구독 하는 계획 ID          |
-| saasSubscriptionName   | String        | SaaS 구독의 이름                |
+| offerId                | String        | 사용자가 구독한 오퍼 ID         |
+| planId                 | String        | 사용자가 구독한 계획 ID          |
+| saasSubscriptionName   | String        | SaaS 구독 이름                |
 | saasSubscriptionStatus | 열거형          | 작업 상태입니다.  다음 중 하나  <br/> - `Subscribed`: 구독이 활성화되어 있습니다.  <br/> - `Pending`: 사용자가 리소스를 만들지만, ISV에서 활성화하지 않았습니다.   <br/> - `Unsubscribed`: 사용자가 구독을 취소했습니다.   <br/> - `Suspended`: 사용자 구독을 일시 중단했습니다.   <br/> - `Deactivated`: Azure 구독이 일시 중단되었습니다.  |
-| created                | DateTime      | 구독 생성 타임 스탬프 값 (UTC) |
-| lastModified           | DateTime      | 구독 수정 된 타임 스탬프 값 (UTC) |
+| created                | DateTime      | UTC의 구독 생성 타임스탬프 값 |
+| lastModified           | DateTime      | UTC의 구독 수정된 타임스탬프 값 |
 |  |  |  |
 
 *응답 코드*
@@ -537,4 +536,4 @@ SaaS 웹후크는 SaaS 서비스에 변경 내용을 미리 알리는 데 사용
 
 ## <a name="next-steps"></a>다음 단계
 
-개발자는 [CLOUD 파트너 포털 REST api](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview)를 사용 하 여 프로그래밍 방식으로 작업, 제품 및 게시자 프로필을 검색 하 고 조작할 수도 있습니다.
+개발자는 [또한 클라우드 파트너 포털 REST API를](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview)사용하여 워크로드, 오퍼 및 퍼블리셔 프로필을 프로그래밍 방식으로 검색하고 조작할 수 있습니다.

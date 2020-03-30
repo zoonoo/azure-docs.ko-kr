@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.openlocfilehash: 6d1ab50e471c9c603c7886130375dc74e9b2a755
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79284630"
 ---
 # <a name="reference---choose-a-communication-protocol"></a>참조 - 통신 프로토콜 선택
@@ -21,7 +21,7 @@ IoT Hub를 사용하면 디바이스가 디바이스 쪽 통신에 다음 프로
 
 * [MQTT](https://docs.oasis-open.org/mqtt/mqtt/v3.1.1/mqtt-v3.1.1.pdf)
 * WebSocket을 통한 MQTT
-* [AMQP](https://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-complete-v1.0-os.pdf)
+* [Amqp](https://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-complete-v1.0-os.pdf)
 * Websocket 통한 AMQP
 * HTTPS
 
@@ -39,7 +39,7 @@ IoT Hub를 사용하면 디바이스가 디바이스 쪽 통신에 다음 프로
 
 * **클라우드-디바이스 패턴**. HTTPS에는 서버 푸시를 구현하는 효율적인 방법이 없습니다. 이와 같이 HTTPS를 사용하는 경우 디바이스는 클라우드-디바이스 메시지에 IoT Hub를 폴링합니다. 이 방법은 디바이스와 IoT Hub 모두에 비효율적입니다. 현재 HTTPS 지침에 따르면 각 디바이스는 25분 이상 간격으로 메시지를 폴링해야 합니다. MQTT 및 AMQP는 클라우드-디바이스 메시지를 받을 때 서버 푸시를 지원합니다. 따라서 IoT Hub의 메시지가 디바이스에 즉시 푸시될 수 있습니다. 전달 대기 시간이 중요한 경우 MQTT 또는 AMQP는 가장 사용하기 적합한 프로토콜입니다. 드물게 연결되는 디바이스의 경우 HTTPS도 작동합니다.
 
-* **현장 게이트웨이**. MQTT 및 HTTPS를 사용하는 경우 동일한 TLS 연결을 사용하여 여러 디바이스(각각 디바이스별 자격 증명 보유)를 연결할 수 없습니다. 연결된 각 디바이스에 대해 필드 게이트웨이와 IoT Hub 간에 하나의 TLS 연결이 필요한 [필드 게이트웨이 시나리오](iot-hub-devguide-endpoints.md#field-gateways)의 경우 이러한 프로토콜이 최적의 방법은 아닙니다.
+* **필드 게이트웨이**. MQTT 및 HTTPS를 사용하는 경우 동일한 TLS 연결을 사용하여 여러 디바이스(각각 디바이스별 자격 증명 보유)를 연결할 수 없습니다. 연결된 각 디바이스에 대해 필드 게이트웨이와 IoT Hub 간에 하나의 TLS 연결이 필요한 [필드 게이트웨이 시나리오](iot-hub-devguide-endpoints.md#field-gateways)의 경우 이러한 프로토콜이 최적의 방법은 아닙니다.
 
 * **낮은 리소스 디바이스**. MQTT 및 HTTPS 라이브러리는 AMQP 라이브러리보다 적은 공간을 차지합니다. 이와 같이 디바이스에 리소스가 제한되어 있으면(예: 1MB RAM보다 작음) 이러한 프로토콜은 사용할 수 있는 유일한 프로토콜 구현일 수도 있습니다.
 
@@ -48,7 +48,7 @@ IoT Hub를 사용하면 디바이스가 디바이스 쪽 통신에 다음 프로
 * **페이로드 크기**. MQTT 및 AMQP는 바이너리 프로토콜로, HTTPS보다 더 많이 압축된 페이로드를 발생합니다.
 
 > [!WARNING]
-> HTTPS를 사용 하는 경우 각 장치는 25 분 마다 한 번만 클라우드-장치 메시지를 폴링합니다. 개발 시, 원하는 경우 각 장치에서 더 자주 폴링할 수 있습니다.
+> HTTPS를 사용하는 경우 각 장치는 25분마다 한 번만 클라우드-장치 메시지에 대해 폴링해야 합니다. 개발 에서 각 장치는 원하는 경우 더 자주 폴링할 수 있습니다.
 
 ## <a name="port-numbers"></a>포트 번호
 

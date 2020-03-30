@@ -1,19 +1,18 @@
 ---
-title: Marketplace 제품 업데이트 | Azure Marketplace
+title: 마켓플레이스 업데이트 상품 | Azure 마켓플레이스
 description: Cloud 파트너 포털을 이용하여 Azure 및 AppSource Marketplace에서 제품 업데이트
-services: Azure, AppSource, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/11/2019
-ms.author: pabutler
-ms.openlocfilehash: b3f579dbdc943b2380c9de3dde6b2ebf4754d4d1
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 101369a050770be3acd9534cef6229037fe1c366
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826722"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288515"
 ---
 # <a name="update-azure-marketplace-and-appsource-offers"></a>Azure Marketplace 및 AppSource 제품 업데이트
 
@@ -47,7 +46,7 @@ ms.locfileid: "73826722"
 
 제품에 대한 지원 연락처를 업데이트하려면 다음 단계를 사용합니다.
 1. **모든 제품** 페이지에서 제품을 선택합니다.
-2. **연락처** 탭을 선택 합니다. 연락처를 업데이트 합니다.
+2. 연락처 **탭을 선택합니다.**
 3. **저장** 단추를 선택합니다.
 4. **게시**를 선택하여 게시 프로세스를 시작합니다.
 
@@ -62,7 +61,7 @@ ms.locfileid: "73826722"
 
 Azure Marketplace 제품의 경우
 
-1. **Sku** 탭을 선택 합니다.  수정할 SKU를 선택 합니다.
+1. **SCO** 탭을 선택합니다.  수정할 SKU를 선택합니다.
 1. **국가/지역 가용성** 필드 아래에서 **국가 선택** 단추를 클릭합니다.
 1. 지역 가용성 대화 상자에서 해당하는 SKU의 지역을 추가하거나 제거합니다.
 
@@ -91,10 +90,10 @@ AppSource 제품의 경우
 
 ### <a name="update-offer-marketplace-assets"></a>제품 마켓플레이스 자산 업데이트
 
-Marketplace 텍스트 기반 및 이미지 자산 (회사 로고, 제안 설명 등)을 업데이트 해야 하는 시나리오가 있을 수 있습니다. 다음 단계를 사용 하 여 이러한 자산을 업데이트 합니다.
+회사 로고, 제안 설명 등 마켓플레이스 텍스트 기반 및 이미지 자산을 업데이트해야 하는 시나리오가 있을 수 있습니다. 다음 단계를 사용하여 이러한 자산을 업데이트합니다.
 
 1. **모든 제품** 페이지에서 제품을 찾습니다. 
-2. **마켓플레이스** 탭을 선택하고 제품의 ‘마켓플레이스 탭’ 항목에 있는 지침을 따릅니다.
+2. **마켓플레이스** 탭을 선택하고 제품의 ‘마켓플레이스 탭’ 항목에 있는 지침을 따릅니다.**
 3. **게시**를 클릭하여 게시 프로세스를 시작합니다.
 
 
@@ -104,7 +103,7 @@ Marketplace 텍스트 기반 및 이미지 자산 (회사 로고, 제안 설명 
 
 1. 가격을 낮추려는 SKU를 선택합니다.
 2. 포털 UI에서 직접 또는 가져오기/내보내기 스프레드시트 사용 등 원래 사용한 것과 동일한 메커니즘으로 낮은 가격을 설정해야 합니다.
-3. **Save**를 클릭합니다.
+3. **저장**을 클릭합니다.
 4. **게시**를 클릭하여 게시 프로세스를 시작합니다.
 
 가격은 마켓플레이스에서 라이브로 전환된 후 새 고객에게 표시되며, 모든 새 고객은 인하된 새 가격을 지불합니다.  기존 고객의 경우 가격 인하는 발효된 청구 주기 시작 시점까지 소급하여 적용됩니다.  가격 인하가 발생한 주기에 대한 요금이 이미 청구되었으면 다음 청구 주기에 인하된 가격에 대한 환불을 받게 됩니다.
@@ -112,7 +111,7 @@ Marketplace 텍스트 기반 및 이미지 자산 (회사 로고, 제안 설명 
 
 ## <a name="compare-feature"></a>기능 비교
 
-게시된 제품을 변경하는 경우 ‘비교’ 기능을 사용하여 변경 내용을 감사할 수 있습니다. 이 기능을 이용하려면 다음을 수행합니다.
+게시된 제품을 변경하는 경우 ‘비교’ 기능을 사용하여 변경 내용을 감사할 수 있습니다.** 이 기능을 이용하려면 다음을 수행합니다.
 
 1. 편집 프로세스 중 언제든지 제품에 대해 **편집기** 탭의 **비교** 단추를 클릭할 수 있습니다.
 2. 비교 창에는 이 제품에 대해 저장된 변경 내용의 버전이 마켓플레이스 제품과 비교하여 나란히 표시됩니다. 

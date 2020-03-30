@@ -1,32 +1,31 @@
 ---
-title: Cloud 파트너 포털에 대 한 지원 | Azure Marketplace
+title: 클라우드 파트너 포털 지원 | Azure 마켓플레이스
 description: 클라우드 파트너 포털에서 지원을 받는 방법을 알아봅니다.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/17/2018
-ms.author: pabutler
-ms.openlocfilehash: 30fc0ea4a8baba4f0677c9cceb12a7887d205f21
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: d27482fbec91700f24e5d0f25d4796ab24f1a9e5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827664"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80276175"
 ---
 # <a name="get-support-for-cloud-partner-portal"></a>클라우드 파트너 포털에서 지원 받기
 
 Microsoft는 광범위한 제품 및 서비스에 대한 지원을 제공합니다.
 적절하고 신속한 응답을 받으려면 쿼리에서 올바른 지원 팀을 찾아야 합니다. 다음은 쿼리를 적절한 팀으로 라우팅하는 데 도움이 되는 시나리오입니다.
 
--   게시자이 고 고객의 질문이 있는 경우 [Azure Portal](https://portal.azure.com/) 에서 지원 링크를 사용 하 여 지원을 요청 하도록 고객에 게 요청 하세요.
+-   게시자이고 고객의 질문이 있는 경우 고객에게 [Azure Portal의](https://portal.azure.com/) 지원 링크를 사용하여 지원을 요청하도록 요청하십시오.
 
 -   앱이나 서비스 관련 질문을 하려는 게시자인 경우 아래에 나와 있는 지원 티켓 개설 단계를 검토합니다.
 
 ## <a name="to-open-a-support-ticket"></a>지원 티켓을 개설하려면
 
-1.  [Cloud 파트너 포털](https://cloudpartner.azure.com/) 로 이동 하 여 회사 또는 학교 계정으로 로그인 합니다.
+1. 클라우드 [파트너 포털로](https://cloudpartner.azure.com/) 이동하여 회사 또는 학교 계정으로 로그인합니다.
 
 2. 페이지의 오른쪽 위 메뉴에서 **도움말** 아이콘과 **지원**을 차례로 선택합니다.
 

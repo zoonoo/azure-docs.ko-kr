@@ -1,6 +1,6 @@
 ---
 title: HDInsight에서 Curl과 Apache Hadoop Hive 사용 - Azure
-description: Pig를 사용 하 여 Azure HDInsight에 원격으로 Apache 작업을 제출 하는 방법에 대해 알아봅니다.
+description: 컬을 사용하여 아파치 돼지 작업을 Azure HDInsight에 원격으로 제출하는 방법에 대해 알아봅니다.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/06/2020
 ms.openlocfilehash: 10a2f413142124db7547e68280a0d5e9abac9b98
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79298753"
 ---
 # <a name="run-apache-hive-queries-with-apache-hadoop-in-hdinsight-using-rest"></a>REST를 사용하여 HDInsight에서 Apache Hadoop과 함께 Apache Hive 쿼리 실행
@@ -23,42 +23,42 @@ WebHCat REST API를 사용하여 Azure HDInsight 클러스터에서 Apache Hadoo
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* HDInsight의 Apache Hadoop 클러스터. [Linux에서 HDInsight 시작](./apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
+* HDInsight의 Apache Hadoop 클러스터. [리눅스에서 HDInsight로 시작하기를](./apache-hadoop-linux-tutorial-get-started.md)참조하십시오.
 
-* REST 클라이언트 이 문서에서는 Windows PowerShell에서 [호출 WebRequest](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest) 를 사용 하 고 [Bash](https://docs.microsoft.com/windows/wsl/install-win10)에서 [말아 넘기기](https://curl.haxx.se/) 를 사용 합니다.
+* REST 클라이언트 이 문서는 Windows PowerShell에서 [호출-웹Request를](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest) 사용하고 [Bash에서](https://docs.microsoft.com/windows/wsl/install-win10) [Curl을](https://curl.haxx.se/) 사용합니다.
 
-* Bash를 사용 하는 경우 명령줄 JSON 프로세서인 jq도 필요 합니다.  [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/)을 참조하세요.
+* Bash를 사용하는 경우 명령줄 JSON 프로세서인 jq도 필요합니다.  을 [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/)참조하십시오.
 
-## <a name="base-uri-for-rest-api"></a>Rest API에 대 한 기본 URI
+## <a name="base-uri-for-rest-api"></a>나머지 API에 대한 기본 URI
 
-HDInsight의 REST API에 대 한 기본 URI (Uniform Resource Identifier)는 `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME`됩니다. 여기서 `CLUSTERNAME`은 클러스터의 이름입니다.  Uri의 클러스터 이름은 **대/소문자를 구분**합니다.  URI의 FQDN (정규화 된 도메인 이름) 부분에 있는 클러스터 이름 (`CLUSTERNAME.azurehdinsight.net`)은 대/소문자를 구분 하지 않지만 URI에서 다른 항목은 대/소문자를 구분 합니다.
+HDInsight의 REST API에 대한 기본 균일 리소스 `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME`식별자(URI)는 클러스터 의 `CLUSTERNAME` 이름입니다.  URI의 클러스터 이름은 **대/소문자를 구분합니다.**  URI(URI)의`CLUSTERNAME.azurehdinsight.net`정규화된 도메인 이름(FQDN) 부분의 클러스터 이름은 대/소문자를 구분하지 않지만 URI의 다른 발생은 대/소문자를 구분합니다.
 
 ## <a name="authentication"></a>인증
 
 WebHCat에서 cURL 또는 다른 모든 REST 통신을 사용하는 경우 HDInsight 클러스터 관리자의 사용자 이름 및 암호를 제공하여 요청을 인증해야 합니다. REST API는 [기본 인증](https://en.wikipedia.org/wiki/Basic_access_authentication)을 통해 보안됩니다. 자격 증명이 안전하게 서버에 전송되도록 하려면 항상 Secure HTTP(HTTPS)를 사용하여 요청하십시오.
 
-### <a name="setup-preserve-credentials"></a>설치 (자격 증명 유지)
+### <a name="setup-preserve-credentials"></a>설정(자격 증명 보존)
 
-각 예제에 대해 자격 증명을 입력할 필요가 없도록 자격 증명을 유지 합니다.  클러스터 이름은 별도의 단계로 유지 됩니다.
+자격 증명을 보존하여 각 예제에 대해 자격 증명을 다시 입력하지 않도록 합니다.  클러스터 이름은 별도의 단계로 유지됩니다.
 
-**A. Bash**  
-`PASSWORD`를 실제 암호로 바꿔서 아래 스크립트를 편집 합니다.  그런 다음 명령을 입력 합니다.
+**A. 배쉬**  
+실제 암호로 대체하여 `PASSWORD` 아래 스크립트를 편집합니다.  그런 다음 명령을 입력합니다.
 
 ```bash
 export password='PASSWORD'
 ```  
 
-**B. PowerShell** 아래 코드를 실행 하 고 팝업 창에 자격 증명을 입력 합니다.
+**B. PowerShell** 아래 코드를 실행하고 팝업 창에서 자격 증명을 입력합니다.
 
 ```powershell
 $creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"
 ```
 
-### <a name="identify-correctly-cased-cluster-name"></a>대/소문자를 올바르게 식별 하는 클러스터 이름
+### <a name="identify-correctly-cased-cluster-name"></a>올바르게 대/소문자 클러스터 이름 식별
 
-클러스터 생성 방법에 따라 클러스터 이름의 실제 대/소문자가 예상과 다를 수 있습니다.  여기에서 설명 하는 단계는 실제 대/소문자를 표시 한 다음 나중에 모든 예제에 대 한 변수에 저장 합니다.
+클러스터 생성 방법에 따라 클러스터 이름의 실제 대/소문자가 예상과 다를 수 있습니다.  여기에 있는 단계는 실제 대/소문자와 함께 다음 모든 이후 예제에 대 한 변수에 저장 됩니다.
 
-다음 스크립트를 편집 하 여 `CLUSTERNAME`를 클러스터 이름으로 바꿉니다. 그런 다음 명령을 입력 합니다. FQDN의 클러스터 이름은 대/소문자를 구분 하지 않습니다.
+클러스터 이름으로 바꾸려면 `CLUSTERNAME` 아래 스크립트를 편집합니다. 그런 다음 명령을 입력합니다. (FQDN의 클러스터 이름은 대/소문자를 구분하지 않습니다.)
 
 ```bash
 export clusterName=$(curl -u admin:$password -sS -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
@@ -146,7 +146,7 @@ $clusterName
 
    이러한 문은 다음 작업을 수행합니다.
 
-   * `DROP TABLE`-테이블이 이미 있는 경우 삭제 됩니다.
+   * `DROP TABLE`- 테이블이 이미 있으면 삭제됩니다.
    * `CREATE EXTERNAL TABLE` - Hive에서 새 "외부" 테이블을 만듭니다. 외부 테이블은 테이블 정의만 Hive에 저장합니다. 데이터는 원래 위치에 그대로 유지됩니다.
 
      > [!NOTE]  
@@ -155,8 +155,8 @@ $clusterName
      > 외부 테이블을 삭제하면 데이터는 삭제되지 **않고** 테이블 정의만 삭제됩니다.
 
    * `ROW FORMAT` - 데이터의 형식을 지정하는 방식입니다. 각 로그의 필드는 공백으로 구분됩니다.
-   * `STORED AS TEXTFILE LOCATION`-데이터가 저장 되는 위치 (example/data 디렉터리) 및 텍스트로 저장 됩니다.
-   * `SELECT` - 열 **t4**에 값 **[ERROR]** 가 포함된 모든 행의 수를 선택합니다. 이 값이 포함된 행이 3개이므로 이 문은 **3** 값을 반환합니다.
+   * `STORED AS TEXTFILE LOCATION`- 데이터가 저장되는 위치(예제/데이터 디렉토리) 및 텍스트로 저장되는 위치입니다.
+   * `SELECT`- 열 **t4값** **[ERROR]을**포함하는 모든 행의 수를 선택합니다. 이 값이 포함된 행이 3개이므로 이 문은 **3** 값을 반환합니다.
 
      > [!NOTE]  
      > Curl과 함께 사용할 경우 HiveQL 문 사이의 공백이 `+` 문자로 바뀝니다. 구분 기호와 같이 공백을 포함하는 따옴표로 묶인 값은 `+`로 바뀌지 않아야 합니다.

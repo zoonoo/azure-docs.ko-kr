@@ -1,5 +1,5 @@
 ---
-title: Azure Site Recovery를 사용 하 여 Azure VM 재해 복구의 네트워킹 정보
+title: Azure 사이트 복구를 사용 하 여 Azure VM 재해 복구에서 네트워킹에 대 한
 description: Azure Site Recovery를 사용하는 Azure VM의 복제에 대한 네트워킹을 간략히 설명합니다.
 services: site-recovery
 author: sujayt
@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/13/2020
 ms.author: sutalasi
-ms.openlocfilehash: 5dcae83714ee3693288abf54afe8df7bb55dd578
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.openlocfilehash: 58348c9aed14a5cc9126be780fe01817274a0b47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/14/2020
-ms.locfileid: "79371446"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80283262"
 ---
 # <a name="about-networking-in-azure-vm-disaster-recovery"></a>Azure VM 재해 복구의 네트워킹 정보
 
@@ -46,27 +46,27 @@ Site Recovery가 [이 시나리오](azure-to-azure-architecture.md)에 재해 �
 URL 기반 방화벽 프록시를 사용하여 아웃바운드 연결을 제어하는 경우 이러한 Site Recovery URL을 허용하세요.
 
 
-**URL** | **세부 정보**  
+**Url** | **세부 정보**
 --- | ---
-\*.blob.core.windows.net | VM에서 원본 지역의 캐시 스토리지 계정에 데이터를 쓸 수 있도록 하는 데 필요합니다. Vm에 대 한 모든 캐시 저장소 계정을 알고 있는 경우 *. blob.core.windows.net 대신 특정 저장소 계정 Url (예: cache1.blob.core.windows.net 및 cache2.blob.core.windows.net)에 대 한 액세스를 허용할 수 있습니다.
+\*.blob.core.windows.net | VM에서 원본 지역의 캐시 스토리지 계정에 데이터를 쓸 수 있도록 하는 데 필요합니다. VM의 모든 캐시 저장소 계정을 알고 있는 경우 *.blob.core.windows.net 대신 특정 저장소 계정 URL(예: cache1.blob.core.windows.net 및 cache2.blob.core.windows.net)에 대한 액세스를 허용할 수 있습니다.
 login.microsoftonline.com | Site Recovery 서비스 URL에 대한 권한 부여 및 인증에 필요합니다.
 \*.hypervrecoverymanager.windowsazure.com | VM에서 Site Recovery 서비스 통신이 발생할 수 있도록 하는 데 필요합니다.
 \*.servicebus.windows.net | VM에서 Site Recovery 모니터링 및 진단 데이터를 쓸 수 있도록 하는 데 필요합니다.
-*.vault.azure.net | 포털을 통해 ADE 지원 가상 컴퓨터에 대 한 복제를 사용 하도록 설정 하는 액세스 허용
-*. automation.ext.azure.com | 포털을 통해 복제 된 항목에 대해 모바일 에이전트의 자동 업그레이드를 사용 하도록 설정 합니다.
+*.vault.azure.net | 포털을 통해 ADE 지원 가상 시스템에 대한 복제를 사용하도록 설정하는 액세스 허용
+*automation.ext.azure.com | 포털을 통해 복제된 항목에 대한 모빌리티 에이전트의 자동 업그레이드 를 사용할 수 있습니다.
 
-## <a name="outbound-connectivity-for-ip-address-ranges"></a>IP 주소 범위에 대한 아웃바운드 연결
+## <a name="outbound-connectivity-using-service-tags"></a>서비스 태그를 사용한 아웃바운드 연결
 
-NSG를 사용 하 여 아웃 바운드 연결을 제어 하는 경우 이러한 서비스 태그를 허용 해야 합니다.
+NSG를 사용하여 아웃바운드 연결을 제어하는 경우 이러한 서비스 태그를 허용해야 합니다.
 
-- 원본 지역의 스토리지 계정 해당하는 모든 IP 주소 범위
+- 원본 지역의 저장소 계정의 경우:
     - 원본 지역에 대한 NSG 규칙을 기반으로 [스토리지 서비스 태그](../virtual-network/security-overview.md#service-tags)를 만듭니다.
     - VM에서 캐시 스토리지 계정에 데이터를 쓸 수 있도록 이러한 주소를 허용합니다.
 - AAD에 해당하는 모든 IP 주소에 대한 액세스를 허용하는 [AAD(Azure Active Directory) 서비스 태그](../virtual-network/security-overview.md#service-tags) 기반 NSG 규칙을 만드세요.
-- 대상 지역에 대 한 EventsHub 서비스 태그 기반 NSG 규칙을 만들어 Site Recovery 모니터링에 대 한 액세스를 허용 합니다.
-- 모든 지역에서 Site Recovery 서비스에 대 한 액세스를 허용 하는 NSG 규칙을 기반으로 AzureSiteRecovery 서비스 태그를 만듭니다.
-- AzureKeyVault 서비스 태그 기반 NSG 규칙을 만듭니다. 이는 포털을 통해 ADE 지원 가상 컴퓨터의 복제를 사용 하도록 설정 하는 경우에만 필요 합니다.
-- GuestAndHybridManagement service 태그 기반 NSG 규칙을 만듭니다. 이는 포털을 통해 복제 된 항목에 대 한 모바일 에이전트의 자동 업그레이드를 사용 하도록 설정 하는 경우에만 필요 합니다.
+- 사이트 복구 모니터링에 대한 액세스를 허용하여 대상 지역에 대한 EventsHub 서비스 태그 기반 NSG 규칙을 만듭니다.
+- 모든 리전에서 사이트 복구 서비스에 대한 액세스를 허용하기 위한 AzureSiteRecovery 서비스 기반 NSG 규칙을 만듭니다.
+- AzureKeyVault 서비스 태그 기반 NSG 규칙을 만듭니다. 이는 포털을 통해 ADE 지원 가상 시스템의 복제를 활성화하는 데만 필요합니다.
+- 게스트앤하이브리드관리 서비스 기반 NSG 규칙을 만듭니다. 이는 포털을 통해 복제된 항목에 대해 모빌리티 에이전트의 자동 업그레이드를 활성화하는 데만 필요합니다.
 - 프로덕션 NSG에서 규칙을 만들기 전에 테스트 NSG에서 필요한 NSG 규칙을 만들고 문제가 없는지 확인하는 것이 좋습니다.
 
 ## <a name="example-nsg-configuration"></a>NSG 구성 예제
@@ -86,9 +86,9 @@ NSG를 사용 하 여 아웃 바운드 연결을 제어 하는 경우 이러한 
 
       ![aad-tag](./media/azure-to-azure-about-networking/aad-tag.png)
 
-3. 위의 보안 규칙과 마찬가지로 대상 위치에 해당 하는 NSG에서 "CentralUS"에 대 한 아웃 바운드 HTTPS (443) 보안 규칙을 만듭니다. 이를 통해 Site Recovery 모니터링에 액세스할 수 있습니다.
+3. 위의 보안 규칙과 마찬가지로 대상 위치에 해당하는 NSG에서 "EventHub.CentralUS"에 대한 아웃바운드 HTTPS(443) 보안 규칙을 만듭니다. 이렇게 하면 사이트 복구 모니터링에 액세스할 수 있습니다.
 
-4. NSG에서 "AzureSiteRecovery"에 대 한 아웃 바운드 HTTPS (443) 보안 규칙을 만듭니다. 이를 통해 모든 지역에서 Site Recovery 서비스에 액세스할 수 있습니다.
+4. NSG에서 "AzureSiteRecovery"에 대한 아웃바운드 HTTPS(443) 보안 규칙을 만듭니다. 이렇게 하면 모든 리전에서 사이트 복구 서비스에 액세스할 수 있습니다.
 
 ### <a name="nsg-rules---central-us"></a>NSG 규칙 - 미국 중부
 
@@ -98,9 +98,9 @@ NSG를 사용 하 여 아웃 바운드 연결을 제어 하는 경우 이러한 
 
 2. NSG에서 “AzureActiveDirectory”에 대한 아웃바운드 HTTPS(443) 보안 규칙을 만듭니다.
 
-3. 위의 보안 규칙과 마찬가지로, 원본 위치에 해당 하는 NSG에 대 한 아웃 바운드 HTTPS (443) 보안 규칙을 만듭니다. 이를 통해 Site Recovery 모니터링에 액세스할 수 있습니다.
+3. 위의 보안 규칙과 마찬가지로 소스 위치에 해당하는 NSG에서 "EventHub.EastUS"에 대한 아웃바운드 HTTPS(443) 보안 규칙을 만듭니다. 이렇게 하면 사이트 복구 모니터링에 액세스할 수 있습니다.
 
-4. NSG에서 "AzureSiteRecovery"에 대 한 아웃 바운드 HTTPS (443) 보안 규칙을 만듭니다. 이를 통해 모든 지역에서 Site Recovery 서비스에 액세스할 수 있습니다.
+4. NSG에서 "AzureSiteRecovery"에 대한 아웃바운드 HTTPS(443) 보안 규칙을 만듭니다. 이렇게 하면 모든 리전에서 사이트 복구 서비스에 액세스할 수 있습니다.
 
 ## <a name="network-virtual-appliance-configuration"></a>네트워크 가상 어플라이언스 구성
 
@@ -126,4 +126,4 @@ NVA(네트워크 가상 어플라이언스)를 사용하여 VM에서 아웃바�
 ## <a name="next-steps"></a>다음 단계
 - [Azure 가상 머신을 복제](site-recovery-azure-to-azure.md)하여 워크로드 보호를 시작합니다.
 - Azure 가상 머신 장애 조치(failover)를 위한 [IP 주소 보존](site-recovery-retain-ip-azure-vm-failover.md)에 대해 자세히 알아보세요.
-- [Express 경로를 사용 하 여 Azure virtual machines](azure-vm-disaster-recovery-with-expressroute.md)의 재해 복구에 대해 자세히 알아보세요.
+- [ExpressRoute를 사용 하](azure-vm-disaster-recovery-with-expressroute.md)여 Azure 가상 시스템의 재해 복구에 대해 자세히 알아봅니다.

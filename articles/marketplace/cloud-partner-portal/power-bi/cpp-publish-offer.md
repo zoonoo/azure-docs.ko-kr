@@ -1,60 +1,59 @@
 ---
-title: Power BI 앱 제안 게시 | Azure Marketplace
-description: Microsoft AppSource marketplace에 Power BI 앱 제품을 게시 합니다.
-services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
-author: v-miclar
+title: 파워 BI 앱 오퍼 게시 | Azure 마켓플레이스
+description: Microsoft 앱소스 마켓플레이스에 Power BI 앱 오퍼를 게시합니다.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.author: pabutler
-ms.openlocfilehash: 324be960bd2d22623763ca3e24b99be92ff04174
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 89d437fe74d209e0dc04ffc590a1e32426b28732
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826047"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80275869"
 ---
-# <a name="publish-a-power-bi-app-offer"></a>Power BI 앱 제안 게시
+# <a name="publish-a-power-bi-app-offer"></a>Power BI 앱 오퍼 게시
 
-마지막 단계는 Cloud 파트너 포털에서 제품을 정의 하 고 관련 기술 자산을 만든 후 게시를 위해 제품을 제출 하는 것입니다. 이 프로세스를 시작 하려면 **새 제품** 창의 왼쪽 창에서 **게시**를 선택 합니다. 자세한 내용은 [Azure Marketplace 및 AppSource 제안 게시](../manage-offers/cpp-publish-offer.md)를 참조하세요.
+클라우드 파트너 포털에서 오퍼를 정의하고 관련 기술 자산을 만든 후 마지막 단계는 게시를 위한 제안을 제출하는 것입니다. 이 프로세스를 시작하려면 **새 오퍼** 창의 왼쪽 창에서 **게시를**선택합니다. 자세한 내용은 [Azure Marketplace 및 AppSource 제안 게시](../manage-offers/cpp-publish-offer.md)를 참조하세요.
 
 
 ## <a name="publishing-steps"></a>게시 단계
 
 다음은 게시 프로세스의 주요 단계입니다.
 
-![Power BI 앱 제안에 대 한 프로세스 단계 게시](./media/publishing-process-steps.png)
+![Power BI 앱 오퍼에 대한 프로세스 단계 게시](./media/publishing-process-steps.png)
 
-이 표에서는 각 단계를 설명 하 고 예상 완료 시간을 제공 합니다.
+이 표에서는 각 단계를 설명하고 예상 완료 시간을 제공합니다.
 
 |   게시 단계            |   Time     |   설명                                                                  |
 | --------------------         |------------| ----------------                                                               |
 | 필수 구성 요소 유효성 검사       | 15분     | 제안 정보 및 제안 설정의 유효성이 검사됩니다.                            |
-| 인증                | 1-7일   | Power BI 인증 팀은 제품을 분석 합니다. 팀은 제공 된 설치 URL을 통해 앱을 설치 하 여 수동 확인 테스트를 통해 Power BI 앱을 실행 합니다. 기본 유효성 검사는이 문서의 뒷부분에서 설명 하는 앱 인증 프로세스의 일부로 수행 됩니다.         |
-| 패키징                    | 1시간 미만  | 제품의 기술 자산은 고객이 사용할 수 있도록 패키지 됩니다.                        |
-| 리드 생성 등록 | 1시간 미만  | 잠재 고객 시스템이 구성 및 배포됩니다.                                      |
-| 게시자 확인            | \-         | 제품이 라이브 상태가 되기 전에 최종 검토 및 확인을 완료 합니다. 또한 제품을 미리 볼 수 있는 링크가 있습니다. 미리 보기가 표시 되는 방법에 만족 했으면 **상태** 탭에서 **라이브 이동** 을 선택 합니다. 그러면 온 보 딩 팀이 AppSource에서 앱을 나열 하는 요청을 보냅니다.    |
-| 라이브                         | 3시간 미만 | 이제 제품이 공개적으로 나열 되 고 ("live"), 고객이 앱을 보고 Power BI 구독에 배포할 수 있습니다. 확인 전자 메일도 받게 됩니다. **모든 제품** 탭의 오른쪽 열에서 모든 제품의 상태를 볼 수 있습니다. **상태** 탭에서 제품에 대 한 자세한 게시 흐름 상태를 볼 수 있습니다. |
+| 인증                | 1-7일   | Power BI 인증 팀은 오퍼를 분석합니다. 팀은 제공된 설치 URL을 통해 앱을 설치하여 수동 확인 테스트를 통해 Power BI 앱을 실행합니다. 기본 유효성 검사는 앱 인증 프로세스의 일부로 수행됩니다(이 문서의 후반부 설명).         |
+| 패키징                    | 1시간 미만  | 오퍼의 기술 자산은 고객용으로 포장됩니다.                        |
+| 잠재 고객 생성 등록 | 1시간 미만  | 잠재 고객 시스템이 구성 및 배포됩니다.                                      |
+| 게시자 확인            | \-         | 오퍼가 진행되기 전에 최종 검토 및 확인을 완료합니다. 이제 오퍼링을 미리 볼 수 있는 링크도 있습니다. 미리 보기의 모양이 만족스러워진 후에는 **상태** 탭에서 **라이브 로이동을** 선택합니다. 이렇게 하면 온보딩 팀에 AppSource에 앱을 나열하라는 요청이 전송됩니다.    |
+| 라이브                         | 3시간 미만 | 이제 AppSource에 제품이 공개적으로 나열되고 고객은 앱을 보고 Power BI 구독에 배포할 수 있습니다. 확인 이메일도 받게 됩니다. **All 오퍼** 탭의 오른쪽 열에서 모든 오퍼의 상태를 확인할 수 있습니다. **상태** 탭에서 오퍼의 자세한 게시 흐름 상태를 확인할 수 있습니다. |
 |   |   |
 
-이 프로세스가 완료 될 때까지 최대 8 일이 소요 됩니다. 이러한 게시 단계를 진행 한 후에는 Power BI 앱 제품이 [Appsource](https://appsource.microsoft.com/marketplace/apps?product=power-bi%20) Power BI 앱 섹션에 나열 됩니다.
+이 프로세스가 완료될 수 있도록 최대 8일이 허용됩니다. 이러한 게시 단계를 거치면 Power BI 앱 앱 이 [AppSource](https://appsource.microsoft.com/marketplace/apps?product=power-bi%20) Power BI 앱 섹션에 나열됩니다.
 
 
 ### <a name="app-certification-process"></a>앱 인증 프로세스
 
-Microsoft 온 보 딩 팀은이 프로세스를 사용 하 여 Power BI 앱 제안 제출의 유효성을 검사 합니다.
+Microsoft 온보딩 팀은 이 프로세스를 사용하여 Power BI 앱 제품 제출의 유효성을 검사합니다.
 
-1. 법적 문서와 도움말 링크를 검토 합니다.
-2. 지원 연락처 정보를 확인 합니다.
-3. 설치 관리자 URL을 사용 하 여 적절 한 설치를 확인 합니다.
-4. 앱에서 맬웨어 및 기타 악의적인 콘텐츠를 검색 합니다.
-5. 표시 된 콘텐츠가 앱의 설명과 일치 하는지 확인 합니다.
-6. Power BI에서 앱 관련 작업이 예상 대로 작동 하는지 확인 합니다. 팀은 샘플 데이터가 포함 된 보고서 및 대시보드를 열고, 사용자 지정 데이터 원본에 연결 하 고, 데이터를 새로 고칩니다.
+1. 법률 문서 및 도움말 링크를 검토합니다.
+2. 지원 연락처 정보의 유효성을 검사합니다.
+3. 설치 관리자 URL을 사용하여 적절한 설치를 확인합니다.
+4. 앱을 검색하여 맬웨어 및 기타 악의적인 콘텐츠를 검색합니다.
+5. 표시된 콘텐츠가 앱 설명과 일치하는지 확인합니다.
+6. Power BI에서 앱 관련 작업이 예상대로 작동하는지 확인합니다. 팀은 샘플 데이터로 보고서 및 대시보드를 열고, 사용자 지정 데이터 원본에 연결하고, 데이터를 새로 고치는 등의 등입니다.
 
-문제가 발견되면 인증 팀에서 피드백을 제공합니다.  Power BI 앱 요구 사항에 대 한 자세한 내용은 [Power BI 앱 설명서](https://go.microsoft.com/fwlink/?linkid=2028636)를 참조 하세요.
+문제가 발견되면 인증 팀에서 피드백을 제공합니다.  Power BI 앱 요구 사항에 대한 자세한 내용은 [Power BI 앱 설명서를](https://go.microsoft.com/fwlink/?linkid=2028636)참조하십시오.
 
 
 ## <a name="next-steps"></a>다음 단계
 
-[Appsource marketplace](https://appsource.microsoft.com)에서 앱을 정기적으로 모니터링 하는 것이 좋습니다.  또한 [Cloud 파트너 포털](https://cloudpartner.azure.com/#insights) 의 [판매자 insights](../../cloud-partner-portal-orig/si-getting-started.md) 기능을 사용 하 여 marketplace 고객과 앱 사용에 대 한 통찰력을 얻을 수 있습니다. 마지막으로 제품을 [업데이트할](./cpp-update-existing-offer.md)수 있습니다.
+[AppSource 마켓플레이스에서](https://appsource.microsoft.com)앱을 정기적으로 모니터링하는 것이 좋습니다.  또한 [클라우드 파트너 포털의](https://cloudpartner.azure.com/#insights) [판매자 인사이트](../../cloud-partner-portal-orig/si-getting-started.md) 기능을 사용하여 마켓플레이스 고객 및 앱 사용에 대한 통찰력을 얻어야 합니다. 마지막으로 [쿠폰을 업데이트할](./cpp-update-existing-offer.md)수 있습니다.

@@ -1,19 +1,18 @@
 ---
-title: Azure Marketplace에 대 한 새 제품 메뉴
-description: Azure Marketplace에 대 한 Cloud 파트너 포털의 새 제품 메뉴 개요입니다.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+title: Azure 마켓플레이스의 새로운 쿠폰 메뉴
+description: Azure 마켓플레이스용 클라우드 파트너 포털의 새 제안 메뉴 개요입니다.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/12/2018
-ms.author: pabutler
-ms.openlocfilehash: c96341d462d541b1c08ce2851acf3a6a4c0bd804
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 3e56fbbab144dd99d18f63a3dfc2318db0306acd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821509"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288923"
 ---
 # <a name="new-offer-menu"></a>새 제품 메뉴
 
@@ -21,16 +20,16 @@ ms.locfileid: "73821509"
 
 |    **새 제품 메뉴 항목**     |     **해당 문서 섹션**                       |
 |    -----------------------     |     -----------------------------                       |
-| ![Azure 애플리케이션 메뉴 항목](./media/new-offer-menu1.png) |  [Azure 애플리케이션 제품](../azure-applications/cpp-azure-app-offer.md) |
+| ![Azure 애플리케이션 메뉴 항목](./media/new-offer-menu1.png) |  [Azure 응용 프로그램 오퍼](../azure-applications/cpp-azure-app-offer.md) |
 | ![컨설팅 서비스 메뉴 항목](./media/new-offer-menu2.png) | [컨설팅 서비스 제품](./../../cloud-partner-portal-orig/cloud-partner-portal-consulting-services-publishing-offer.md) |
 | ![컨테이너 메뉴 항목](./media/new-offer-menu3.png) | [컨테이너 제품](./../containers/cpp-containers-offer.md) |
 | ![Dynamics 365 Business Central 메뉴 항목](./media/new-offer-menu4.png) | [Dynamics 365 Business Central 제품](./../../cloud-partner-portal-orig/cpp-business-central-offer.md) |
 | ![Dynamics 365 for Customer Engagement 메뉴 항목](./media/new-offer-menu5.png) | [Dynamics 365 for Customer Engagement 제품](./../../cloud-partner-portal-orig/cpp-customer-engagement-offer.md) |
 | ![Dynamics 365 for Operations 메뉴 항목](./media/new-offer-menu6.png) | [Dynamics 365 for Operations 제품](./../../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md) |
 | ![IoT Edge 모듈 메뉴 항목](./media/new-offer-menu7.png) | [IoT Edge 모듈 제품](./../iot-edge-module/cpp-offer-process-parts.md) |
-| ![Power BI 앱 메뉴 항목](./media/new-offer-pbi.png)   |  [Power BI 앱 제안](../power-bi/cpp-power-bi-offer.md)  |
+| ![Power BI 앱 메뉴 항목](./media/new-offer-pbi.png)   |  [Power BI 앱 제품](../power-bi/cpp-power-bi-offer.md)  |
 | ![ SasS 애플리케이션 메뉴 항목](./media/new-offer-menu8.png) | [SasS 애플리케이션 제품](../saas-app/cpp-saas-offer.md) |
-| ![ 가상 머신 메뉴 항목](./media/new-offer-menu9.png) | [가상 머신 제품](./../virtual-machine/cpp-virtual-machine-offer.md) |
+| ![ 가상 머신 메뉴 항목](./media/new-offer-menu9.png) | [가상 머신 제공](./../virtual-machine/cpp-virtual-machine-offer.md) |
 |  |  |
 
 > [!NOTE]

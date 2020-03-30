@@ -1,5 +1,6 @@
 ---
 title: HTTPS를 통해 Azure CDN 사용자 지정 도메인을 사용하여 스토리지 Blob에 액세스
+description: Azure CDN 사용자 지정 도메인을 추가하고 사용자 지정 Blob 스토리지 엔드포인트에 대해 해당 도메인에서 HTTPS를 사용하도록 설정하는 방법을 알아봅니다.
 services: cdn
 documentationcenter: ''
 author: mdgattuso
@@ -14,18 +15,18 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: e6415c9e8e0ab8743042891a2d0d422dffe37bdb
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: be09229136289e343856f1e2ba61cda63730d21f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279099"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80053959"
 ---
 # <a name="tutorial-access-storage-blobs-using-an-azure-cdn-custom-domain-over-https"></a>자습서: HTTPS를 통해 Azure CDN 사용자 지정 도메인을 사용하여 스토리지 Blob에 액세스
 
 Azure 스토리지 계정을 Azure CDN(Content Delivery Network)과 통합한 후, 사용자 지정 도메인을 추가하고 사용자 지정 Blob Storage 엔드포인트에 대한 해당 도메인에서 HTTPS를 사용하도록 설정할 수 있습니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서의 단계를 완료하려면 먼저 Azure Storage 계정을 Azure CDN과 통합해야 합니다. 자세한 내용은 [빠른 시작: Azure CDN과 Azure Storage 계정 통합](cdn-create-a-storage-account-with-cdn.md)을 참조하세요.
 
