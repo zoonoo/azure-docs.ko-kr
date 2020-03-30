@@ -1,16 +1,16 @@
 ---
-title: Android에서 인증 추가
-description: Azure App Service를 사용 하 여 Google, Facebook, Twitter, Microsoft 등의 id 공급자를 통해 Android 앱의 사용자를 인증 하는 방법을 알아봅니다.
+title: 안드로이드에 인증 추가
+description: Azure 앱 서비스를 사용하여 Google, Facebook, Twitter 및 Microsoft와 같은 ID 공급자를 사용하여 Android 앱 사용자를 인증하는 방법에 대해 알아봅니다.
 ms.assetid: 1fc8e7c1-6c3c-40f4-9967-9cf5e21fc4e1
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
 ms.date: 06/25/2019
 ms.openlocfilehash: 705ebb5809840155e6bbf3f8eef091eb95f63e63
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77461643"
 ---
 # <a name="add-authentication-to-your-android-app"></a>Android 앱에 인증 추가
@@ -19,10 +19,10 @@ ms.locfileid: "77461643"
 ## <a name="summary"></a>요약
 이 자습서에서는 지원되는 ID 공급자를 사용하여 Android의 할 일 모음 빠른 시작 프로젝트에 인증을 추가합니다. 이 자습서는 [Mobile Apps 시작] 자습서를 기반으로 하며 이를 먼저 완료해야 합니다.
 
-## <a name="register"></a>인증을 위한 앱 등록 및 Azure App Service 구성
+## <a name="register-your-app-for-authentication-and-configure-azure-app-service"></a><a name="register"></a>인증을 위한 앱 등록 및 Azure App Service 구성
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
-## <a name="redirecturl"></a>허용되는 외부 리디렉션 URL에 앱 추가
+## <a name="add-your-app-to-the-allowed-external-redirect-urls"></a><a name="redirecturl"></a>허용되는 외부 리디렉션 URL에 앱 추가
 
 보안 인증을 위해서는 앱에 대한 새로운 URL 체계를 정의해야 합니다. 이를 통해 인증 시스템은 인증 프로세스가 완료되면 앱으로 다시 리디렉션될 수 있습니다. 이 자습서에서는 전체적으로 URL 체계 _appname_을 사용합니다. 그러나 선택한 어떤 URL 체계도 사용 가능합니다. 이 체계는 모바일 애플리케이션에 고유해야 합니다. 서버 쪽에서 리디렉션을 사용하도록 설정하려면:
 
@@ -36,7 +36,7 @@ ms.locfileid: "77461643"
 
 5. **저장**을 클릭합니다.
 
-## <a name="permissions"></a>사용 권한을 인증된 사용자로 제한
+## <a name="restrict-permissions-to-authenticated-users"></a><a name="permissions"></a>인증된 사용자에게 권한 제한
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
 * Android Studio에서 [Mobile Apps 시작] 자습서를 완료한 프로젝트를 엽니다. **실행** 메뉴에서 **앱 실행**을 클릭하여 앱이 시작된 후 상태 코드 401(인증되지 않음)의 처리되지 않은 예외가 발생하는지 확인합니다.
@@ -50,13 +50,13 @@ ms.locfileid: "77461643"
 
 
 
-## <a name="cache-tokens"></a>클라이언트에 인증 토큰 캐시
+## <a name="cache-authentication-tokens-on-the-client"></a><a name="cache-tokens"></a>클라이언트에 인증 토큰 캐시
 [!INCLUDE [mobile-android-authenticate-app-with-token](../../includes/mobile-android-authenticate-app-with-token.md)]
 
 ## <a name="next-steps"></a>다음 단계
 이 기본 인증 자습서를 완료했으므로 다음 자습서 중 하나를 계속하는 것을 고려해보세요.
 
-* [Android 앱에 푸시 알림을 추가합니다](app-service-mobile-android-get-started-push.md).
+* [안드로이드 응용 프로그램에 푸시 알림을 추가합니다.](app-service-mobile-android-get-started-push.md)
   Azure Notification Hubs를 사용하는 Mobile Apps 백 엔드를 구성하여 푸시 알림을 보내는 방법을 알아봅니다.
 * [Android 앱에 대해 오프라인 동기화를 사용합니다](app-service-mobile-android-get-started-offline-data.md).
   Mobile Apps 백 엔드를 사용하여 앱에 오프라인 지원을 추가하는 방법을 알아봅니다. 오프라인 동기화를 사용하면 사용자는 네트워크에 연결되어 있지 않을 때도 모바일 앱&mdash;데이터 보기, 추가 또는 수정&mdash;과 같은 상호 작용을 수행할 수 있습니다.
@@ -71,5 +71,5 @@ ms.locfileid: "77461643"
 
 
 <!-- URLs. -->
-[Mobile Apps 시작]: app-service-mobile-android-get-started.md
-[Azure Portal]: https://portal.azure.com/
+[모바일 앱 시작]: app-service-mobile-android-get-started.md
+[Azure 포털]: https://portal.azure.com/

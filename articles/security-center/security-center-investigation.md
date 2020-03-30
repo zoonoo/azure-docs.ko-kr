@@ -14,17 +14,17 @@ ms.workload: na
 ms.date: 06/29/2018
 ms.author: memildin
 ms.openlocfilehash: ef1684f11349696c22a290c90469a8d94f922e58
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77603986"
 ---
-# <a name="investigate-incidents-and-alerts-in-azure-security-center-retired"></a>Azure Security Center에서 인시던트 및 경고 조사 (사용 중지 됨)
-이 문서는 Azure Security Center의 조사 기능 (미리 보기)을 사용 하 여 보안 인시던트 및 경고를 조사 하는 데 도움이 됩니다.
+# <a name="investigate-incidents-and-alerts-in-azure-security-center-retired"></a>Azure 보안 센터에서 인시던트 및 경고 조사(사용 중지됨)
+이 문서는 Azure 보안 센터의 조사 기능(미리 보기)을 사용하여 보안 인시던트 및 경고를 조사하는 데 도움이 됩니다.
 
 > [!NOTE]
-> 경고 및 인시던트 조사 (미리 보기) 환경은 2019 년 7 월 31 일에 사용이 중지 되었습니다. 자세한 내용 및 대체 서비스는 [Security Center 기능 사용 중지 (7 월 2019)](security-center-features-retirement-july2019.md#menu_investigate)를 참조 하세요.
+> 경고 및 인시던트 조사(미리 보기) 환경은 2019년 7월 31일에 사용 중지되었습니다. 자세한 정보 및 대체 서비스는 [보안 센터 사용 중지 기능(2019년 7월)을](security-center-features-retirement-july2019.md#menu_investigate)참조하십시오.
 
 ## <a name="what-is-investigation-in-security-center"></a>Security Center의 조사란?
 Security Center의 조사 기능을 사용하면 범위를 심사하고, 이해하고, 잠재적인 [보안 인시던트](https://docs.microsoft.com/azure/security-center/security-center-incident)의 근본 원인을 추적할 수 있습니다.
@@ -34,7 +34,7 @@ Security Center의 조사 기능을 사용하면 범위를 심사하고, 이해�
 
 > [!NOTE]
 > * [사용자 지정 경고](security-center-custom-alert.md)는 Security Center의 조사 기능에서 지원되지 않습니다.
-> * 조사는 Windows 서버에서 수집 된 데이터를 기반으로 하는 경고에 대해서만 지원 됩니다.
+> * 조사는 Windows 서버에서 수집된 데이터를 기반으로 하는 경고에 대해서만 지원됩니다.
 
 
 ## <a name="how-investigation-works"></a>조사 작동 방식
@@ -72,7 +72,7 @@ Security Center의 조사 기능을 사용하면 범위를 심사하고, 이해�
 
 ### <a name="exploration"></a>탐색
 
-**탐색** 탭을 사용하면 조사기에서 엔터티와 관련된 다양한 문제와 관련된 데이터를 검사할 수 있습니다. 예를 들어 컴퓨터를 조사 하는 경우 해당 컴퓨터에서 실행 되는 프로세스 목록이 탐색 탭에 표시 됩니다. 탐색 탭에서 의심 스러운 문제를 나타낼 수 있는 데이터를 표시 하는 경우도 있습니다. 조사기는 탭 내에서 데이터를 검사하거나 검색 화면에서 열어서 큰 데이터 집합을 검사하고 필터링 및 Excel로 내보내기 등 고급 검색 옵션을 사용할 수 있습니다.
+**탐색** 탭을 사용하면 조사기에서 엔터티와 관련된 다양한 문제와 관련된 데이터를 검사할 수 있습니다. 예를 들어 컴퓨터를 조사할 때 실행된 프로세스 목록이 탐색 탭에 표시됩니다. 경우에 따라 탐색 탭에 의심스러운 문제를 나타낼 수 있는 데이터가 표시됩니다. 조사기는 탭 내에서 데이터를 검사하거나 검색 화면에서 열어서 큰 데이터 집합을 검사하고 필터링 및 Excel로 내보내기 등 고급 검색 옵션을 사용할 수 있습니다.
 
 ![탐색](./media/security-center-investigation/security-center-investigation-fig6.png)
 
@@ -98,7 +98,7 @@ Security Center의 조사 기능을 사용하면 범위를 심사하고, 이해�
 
 ## <a name="how-to-perform-an-investigation"></a>조사를 수행 하는 방법
 
-보안 인시던트 또는 경고에서 조사를 시작할 수 있습니다. 선택한 옵션은 필요에 따라 달라집니다. 다음 단계는 경고에서 조사를 시작 하는 데 사용 됩니다.
+보안 인시던트 또는 경고에서 조사를 시작할 수 있습니다. 선택한 옵션은 필요에 따라 달라집니다. 다음 단계는 경고에서 조사를 시작하는 데 사용됩니다.
 
 1.  **Security Center** 대시보드를 엽니다.
 2.  **보안 경고**를 클릭하여 조사하려는 인시던트를 선택합니다.
@@ -112,7 +112,7 @@ Security Center의 조사 기능을 사용하면 범위를 심사하고, 이해�
 
 이 지점에서부터 이 인시던트에 관련된 엔터티를 탐색하고 각각에 대한 자세한 정보를 탐색할 수 있습니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 이 문서에서는 Security Center에서 조사 기능을 사용하는 방법을 살펴보았습니다. 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
 
 * [Azure Security Center에서 보안 경고 관리 및 대응](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts) Security Center에서 경고를 관리하고 보안 인시던트에 대응하는 방법을 알아봅니다.

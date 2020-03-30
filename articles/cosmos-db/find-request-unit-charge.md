@@ -6,11 +6,11 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/01/2019
 ms.author: thweiss
-ms.openlocfilehash: 86e9854cb5a522a56cca09a6e1ea155fd8a62f14
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: c5699bb851bd0a818a987228155c62683e93f51a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77585903"
 ---
 # <a name="find-the-request-unit-charge-in-azure-cosmos-db"></a>Azure Cosmos DB에서 요청 단위 요금 알아보기
@@ -25,7 +25,7 @@ SQL API를 사용하는 경우 Azure Cosmos 컨테이너에 대해 실행한 작
 
 현재는 Azure Portal에서 SQL 쿼리에 대한 요청 요금만 알아볼 수 있습니다.
 
-1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+1. [Azure 포털에](https://portal.azure.com/)로그인합니다.
 
 1. [새 Azure Cosmos 계정을 만들고](create-sql-api-dotnet.md#create-account) 데이터를 입력하거나, 이미 데이터가 들어 있는 기존 Azure Cosmos 계정을 선택합니다.
 
@@ -79,9 +79,9 @@ while (query.HasMoreResults)
 
 [.NET SDK v3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/)에서 반환되는 개체는 다음과 같이 `RequestCharge` 속성을 표시합니다.
 
-:::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos/tests/Microsoft.Azure.Cosmos.Tests/SampleCodeForDocs/CustomDocsSampleCode.cs" id="GetRequestCharge":::
+[!code-csharp[](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos/tests/Microsoft.Azure.Cosmos.Tests/SampleCodeForDocs/CustomDocsSampleCode.cs?name=GetRequestCharge)]
 
-자세한 내용은 [빠른 시작: Azure Cosmos DB에서 SQL API 계정을 사용 하 여 .net 웹 앱 빌드](create-sql-api-dotnet.md)를 참조 하세요.
+자세한 내용은 [빠른 시작: Azure Cosmos DB에서 SQL API 계정을 사용하여 .NET 웹 앱 빌드를](create-sql-api-dotnet.md)참조하십시오.
 
 ### <a name="use-the-java-sdk"></a>Java SDK 사용
 
@@ -111,7 +111,7 @@ feedResponse.forEach(result -> {
 });
 ```
 
-자세한 내용은 [빠른 시작: AZURE COSMOS DB SQL API 계정을 사용 하 여 Java 응용 프로그램 빌드](create-sql-api-java.md)를 참조 하세요.
+자세한 내용은 [빠른 시작: Azure Cosmos DB SQL API 계정을 사용하여 Java 응용 프로그램 빌드를](create-sql-api-java.md)참조하십시오.
 
 ### <a name="use-the-nodejs-sdk"></a>Node.js SDK 사용
 
@@ -146,11 +146,11 @@ while (query.hasMoreResults()) {
 }
 ```
 
-자세한 내용은 [빠른 시작: AZURE COSMOS DB SQL API 계정을 사용 하 여 node.js 앱 빌드](create-sql-api-nodejs.md)를 참조 하세요. 
+자세한 내용은 [빠른 시작: Azure Cosmos DB SQL API 계정을 사용하여 Node.js 앱 빌드를](create-sql-api-nodejs.md)참조하십시오. 
 
 ### <a name="use-the-python-sdk"></a>Python SDK 사용
 
-`CosmosClient`Python SDK[의 ](https://pypi.org/project/azure-cosmos/) 개체는 마지막으로 실행된 작업의 기본 HTTP API에서 반환된 모든 헤더를 매핑하는 `last_response_headers` 사전을 표시합니다. 요청 요금은 다음과 같이 `x-ms-request-charge` 키 아래에서 확인할 수 있습니다.
+[Python SDK](https://pypi.org/project/azure-cosmos/)의 `CosmosClient` 개체는 마지막으로 실행된 작업의 기본 HTTP API에서 반환된 모든 헤더를 매핑하는 `last_response_headers` 사전을 표시합니다. 요청 요금은 다음과 같이 `x-ms-request-charge` 키 아래에서 확인할 수 있습니다.
 
 ```python
 response = client.ReadItem(
@@ -162,17 +162,17 @@ response = client.ExecuteStoredProcedure(
 request_charge = client.last_response_headers['x-ms-request-charge']
 ```
 
-자세한 내용은 [빠른 시작: AZURE COSMOS DB SQL API 계정을 사용 하 여 Python 앱 빌드](create-sql-api-python.md)를 참조 하세요. 
+자세한 내용은 [빠른 시작: Azure Cosmos DB SQL API 계정을 사용하여 파이썬 앱 빌드를](create-sql-api-python.md)참조하십시오. 
 
 ## <a name="azure-cosmos-db-api-for-mongodb"></a>Azure Cosmos DB API for MongoDB
 
-RU 요금은 [라는 사용자 지정 ](https://docs.mongodb.com/manual/reference/command/)데이터베이스 명령`getLastRequestStatistics`을 통해 표시됩니다. 이 명령은 마지막으로 실행된 작업의 이름, 해당 작업의 요청 요금 및 해당 작업 기간이 포함된 문서를 반환합니다. Azure Cosmos DB API for MongoDB를 사용하는 경우 RU 요금을 검색하는 여러 옵션이 있습니다.
+RU 요금은 `getLastRequestStatistics`라는 사용자 지정 [데이터베이스 명령](https://docs.mongodb.com/manual/reference/command/)을 통해 표시됩니다. 이 명령은 마지막으로 실행된 작업의 이름, 해당 작업의 요청 요금 및 해당 작업 기간이 포함된 문서를 반환합니다. Azure Cosmos DB API for MongoDB를 사용하는 경우 RU 요금을 검색하는 여러 옵션이 있습니다.
 
 ### <a name="use-the-azure-portal"></a>Azure Portal 사용
 
 현재는 Azure Portal에서 쿼리에 대한 요청 요금만 알아볼 수 있습니다.
 
-1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+1. [Azure 포털에](https://portal.azure.com/)로그인합니다.
 
 1. [새 Azure Cosmos 계정을 만들고](create-mongodb-dotnet.md#create-a-database-account) 데이터를 입력하거나, 이미 데이터가 들어 있는 기존 계정을 선택합니다.
 
@@ -188,7 +188,7 @@ RU 요금은 [라는 사용자 지정 ](https://docs.mongodb.com/manual/referenc
 
 ### <a name="use-the-mongodb-net-driver"></a>MongoDB .NET 드라이버 사용
 
-[공식 MongoDB .NET 드라이버](https://docs.mongodb.com/ecosystem/drivers/csharp/)를 사용하는 경우 `RunCommand` 개체에서 `IMongoDatabase` 메서드를 호출하여 명령을 실행할 수 있습니다. 이 메서드를 호출하려면 다음과 같이 `Command<>` 추상 클래스를 구현해야 합니다.
+[공식 MongoDB .NET 드라이버](https://docs.mongodb.com/ecosystem/drivers/csharp/)를 사용하는 경우 `IMongoDatabase` 개체에서 `RunCommand` 메서드를 호출하여 명령을 실행할 수 있습니다. 이 메서드를 호출하려면 다음과 같이 `Command<>` 추상 클래스를 구현해야 합니다.
 
 ```csharp
 class GetLastRequestStatisticsCommand : Command<Dictionary<string, object>>
@@ -203,23 +203,23 @@ Dictionary<string, object> stats = database.RunCommand(new GetLastRequestStatist
 double requestCharge = (double)stats["RequestCharge"];
 ```
 
-자세한 내용은 [빠른 시작: MONGODB API를 사용 Azure Cosmos DB 하 여 .net 웹 앱 빌드](create-mongodb-dotnet.md)를 참조 하세요.
+자세한 내용은 [빠른 시작: MongoDB 에 대한 Azure 코스모스 DB API를 사용하여 .NET 웹 앱 빌드를](create-mongodb-dotnet.md)참조하십시오.
 
 ### <a name="use-the-mongodb-java-driver"></a>MongoDB Java 드라이버 사용
 
 
-[공식 MongoDB Java 드라이버](https://mongodb.github.io/mongo-java-driver/)를 사용하는 경우 `runCommand` 개체에서 `MongoDatabase` 메서드를 호출하여 명령을 실행할 수 있습니다.
+[공식 MongoDB Java 드라이버](https://mongodb.github.io/mongo-java-driver/)를 사용하는 경우 `MongoDatabase` 개체에서 `runCommand` 메서드를 호출하여 명령을 실행할 수 있습니다.
 
 ```java
 Document stats = database.runCommand(new Document("getLastRequestStatistics", 1));
 Double requestCharge = stats.getDouble("RequestCharge");
 ```
 
-자세한 내용은 [빠른 시작: MONGODB API를 사용 Azure Cosmos DB 하 여 웹 앱 빌드 및 JAVA SDK](create-mongodb-java.md)를 참조 하세요.
+자세한 내용은 [빠른 시작: MongoDB 및 Java SDK에 대한 Azure Cosmos DB API를 사용하여 웹 앱 빌드를](create-mongodb-java.md)참조하세요.
 
 ### <a name="use-the-mongodb-nodejs-driver"></a>MongoDB Node.js 드라이버 사용
 
-[공식 MongoDB Node.js 드라이버](https://mongodb.github.io/node-mongodb-native/)를 사용하는 경우 `command` 개체에서 `db` 메서드를 호출하여 명령을 실행할 수 있습니다.
+[공식 MongoDB Node.js 드라이버](https://mongodb.github.io/node-mongodb-native/)를 사용하는 경우 `db` 개체에서 `command` 메서드를 호출하여 명령을 실행할 수 있습니다.
 
 ```javascript
 db.command({ getLastRequestStatistics: 1 }, function(err, result) {
@@ -228,7 +228,7 @@ db.command({ getLastRequestStatistics: 1 }, function(err, result) {
 });
 ```
 
-자세한 내용은 [빠른 시작: 기존 MongoDB node.js 웹 앱을 Azure Cosmos DB로 마이그레이션](create-mongodb-nodejs.md)을 참조 하세요.
+자세한 내용은 [빠른 시작: 기존 MongoDB Node.js 웹 앱을 Azure Cosmos DB로 마이그레이션합니다.](create-mongodb-nodejs.md)
 
 ## <a name="cassandra-api"></a>Cassandra API
 
@@ -236,25 +236,25 @@ Azure Cosmos DB Cassandra API에 대해 작업을 수행하는 경우 RU 요금�
 
 ### <a name="use-the-net-sdk"></a>.NET SDK 사용
 
-[.NET SDK](https://www.nuget.org/packages/CassandraCSharpDriver/)를 사용하는 경우 `Info` 개체의 `RowSet` 속성 아래에서 수신 페이로드를 검색할 수 있습니다.
+[.NET SDK](https://www.nuget.org/packages/CassandraCSharpDriver/)를 사용하는 경우 `RowSet` 개체의 `Info` 속성 아래에서 수신 페이로드를 검색할 수 있습니다.
 
 ```csharp
 RowSet rowSet = session.Execute("SELECT table_name FROM system_schema.tables;");
 double requestCharge = BitConverter.ToDouble(rowSet.Info.IncomingPayload["RequestCharge"].Reverse().ToArray(), 0);
 ```
 
-자세한 내용은 [빠른 시작: .NET SDK를 사용 하 여 Cassandra 앱 빌드 및 Azure Cosmos DB](create-cassandra-dotnet.md)을 참조 하세요.
+자세한 내용은 [빠른 시작: .NET SDK 및 Azure Cosmos DB를 사용하여 Cassandra 앱 빌드를](create-cassandra-dotnet.md)참조하십시오.
 
 ### <a name="use-the-java-sdk"></a>Java SDK 사용
 
-[Java SDK](https://mvnrepository.com/artifact/com.datastax.cassandra/cassandra-driver-core)를 사용하는 경우 `getExecutionInfo()` 개체에서 `ResultSet` 메서드를 호출하여 수신 페이로드를 검색할 수 있습니다.
+[Java SDK](https://mvnrepository.com/artifact/com.datastax.cassandra/cassandra-driver-core)를 사용하는 경우 `ResultSet` 개체에서 `getExecutionInfo()` 메서드를 호출하여 수신 페이로드를 검색할 수 있습니다.
 
 ```java
 ResultSet resultSet = session.execute("SELECT table_name FROM system_schema.tables;");
 Double requestCharge = resultSet.getExecutionInfo().getIncomingPayload().get("RequestCharge").getDouble();
 ```
 
-자세한 내용은 [빠른 시작: JAVA SDK를 사용 하 여 Cassandra 앱 빌드 및 Azure Cosmos DB](create-cassandra-java.md)을 참조 하세요.
+자세한 내용은 [빠른 시작: Java SDK 및 Azure Cosmos DB를 사용하여 Cassandra 앱 빌드를](create-cassandra-java.md)참조하십시오.
 
 ## <a name="gremlin-api"></a>Gremlin API
 
@@ -266,25 +266,25 @@ Gremlin API에서 반환되는 헤더는 현재 Gremlin .NET 및 Java SDK에서 
 
 ### <a name="use-the-net-sdk"></a>.NET SDK 사용
 
-[Gremlin.NET SDK](https://www.nuget.org/packages/Gremlin.Net/)를 사용하는 경우 `StatusAttributes` 개체의 `ResultSet<>` 속성 아래에서 상태 특성을 사용할 수 있습니다.
+[Gremlin.NET SDK](https://www.nuget.org/packages/Gremlin.Net/)를 사용하는 경우 `ResultSet<>` 개체의 `StatusAttributes` 속성 아래에서 상태 특성을 사용할 수 있습니다.
 
 ```csharp
 ResultSet<dynamic> results = client.SubmitAsync<dynamic>("g.V().count()").Result;
 double requestCharge = (double)results.StatusAttributes["x-ms-request-charge"];
 ```
 
-자세한 내용은 [빠른 시작: Azure Cosmos DB GREMLIN API 계정을 사용 하 여 .NET Framework 또는 핵심 응용 프로그램 빌드](create-graph-dotnet.md)를 참조 하세요.
+자세한 내용은 [빠른 시작: Azure Cosmos DB Gremlin API 계정을 사용하여 .NET 프레임워크 또는 코어 응용 프로그램 빌드를](create-graph-dotnet.md)참조하십시오.
 
 ### <a name="use-the-java-sdk"></a>Java SDK 사용
 
-[Gremlin Java SDK](https://mvnrepository.com/artifact/org.apache.tinkerpop/gremlin-driver)를 사용하는 경우 `statusAttributes()` 개체의 `ResultSet` 메서드를 호출하여 상태 특성을 검색할 수 있습니다.
+[Gremlin Java SDK](https://mvnrepository.com/artifact/org.apache.tinkerpop/gremlin-driver)를 사용하는 경우 `ResultSet` 개체의 `statusAttributes()` 메서드를 호출하여 상태 특성을 검색할 수 있습니다.
 
 ```java
 ResultSet results = client.submit("g.V().count()");
 Double requestCharge = (Double)results.statusAttributes().get().get("x-ms-request-charge");
 ```
 
-자세한 내용은 [빠른 시작: JAVA SDK를 사용 하 여 Azure Cosmos DB에서 그래프 데이터베이스 만들기](create-graph-java.md)를 참조 하세요.
+자세한 내용은 [빠른 시작: Java SDK를 사용하여 Azure Cosmos DB에서 그래프 데이터베이스 만들기를](create-graph-java.md)참조하십시오.
 
 ## <a name="table-api"></a>테이블 API
 
@@ -299,7 +299,7 @@ if (tableResult.RequestCharge.HasValue) // would be false when using Azure Stora
 }
 ```
 
-자세한 내용은 [빠른 시작: .NET SDK를 사용 하 여 Table API 앱 빌드 및 Azure Cosmos DB](create-table-dotnet.md)를 참조 하세요.
+자세한 내용은 [빠른 시작: .NET SDK 및 Azure Cosmos DB를 사용하여 테이블 API 앱 빌드를](create-table-dotnet.md)참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -308,7 +308,7 @@ RU 사용량을 최적화하는 방법에 대한 자세한 내용은 다음 문�
 * [Azure Cosmos DB의 요청 단위 및 처리량](request-units.md)
 * [Azure Cosmos DB의 프로비저닝된 처리량 비용 최적화](optimize-cost-throughput.md)
 * [Azure Cosmos DB의 쿼리 비용 최적화](optimize-cost-queries.md)
-* [프로비저닝된 처리량을 전역적으로 크기 조정](scaling-throughput.md)
+* [전역적으로 프로비전된 처리량 크기 조정](scaling-throughput.md)
 * [컨테이너 및 데이터베이스의 처리량 프로비전](set-throughput.md)
 * [컨테이너의 처리량 프로비전](how-to-provision-container-throughput.md)
 * [Azure Cosmos DB에서 메트릭을 사용하여 모니터링 및 디버그](use-metrics.md)

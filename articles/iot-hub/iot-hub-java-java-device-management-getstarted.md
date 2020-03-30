@@ -10,10 +10,10 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.openlocfilehash: f68e25a618f5c6499ccc9d76c510eab8f1650330
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77110890"
 ---
 # <a name="get-started-with-device-management-java"></a>디바이스 관리 시작(Java)
@@ -49,17 +49,17 @@ ms.locfileid: "77110890"
 * 업데이트된 보고된 속성을 표시합니다.
 
 > [!NOTE]
-> 디바이스와 솔루션 백 엔드에서 실행할 애플리케이션을 빌드하는 데 사용할 수 있는 SDK에 대한 자세한 내용은 [Azure IoT SDK](iot-hub-devguide-sdks.md)를 참조하세요.
+> 디바이스와 솔루션 백 엔드에서 실행하기 위해 애플리케이션을 빌드하는 데 사용할 수 있는 SDK에 관한 정보는 [Azure IoT SDK](iot-hub-devguide-sdks.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* [Java SE Development Kit 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable)입니다. JDK 8용 다운로드를 가져오려면 **장기 지원**에서 **Java 8**을 선택해야 합니다.
+* [자바 SE 개발 키트 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable). JDK 8용 다운로드를 가져오려면 **장기 지원**에서 **Java 8**을 선택해야 합니다.
 
 * [Maven 3](https://maven.apache.org/download.cgi)
 
-* 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)을 만들 수 있습니다.
+* 활성 Azure 계정. 계정이 없는 경우 몇 분 안에 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)을 만들 수 있습니다.
 
-* 방화벽에서 포트 8883가 열려 있는지 확인 합니다. 이 문서의 device 샘플에서는 포트 8883을 통해 통신 하는 MQTT 프로토콜을 사용 합니다. 이 포트는 일부 회사 및 교육용 네트워크 환경에서 차단 될 수 있습니다. 이 문제를 해결 하는 방법 및 방법에 대 한 자세한 내용은 [IoT Hub에 연결 (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub)을 참조 하세요.
+* 방화벽에서 포트 8883이 열려 있는지 확인합니다. 이 문서의 장치 샘플은 포트 8883을 통해 통신하는 MQTT 프로토콜을 사용합니다. 이 포트는 일부 회사 및 교육용 네트워크 환경에서 차단될 수 있습니다. 이 문제를 해결하는 자세한 내용과 방법은 [IoT Hub에 연결(MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub)을 참조하세요.
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 
@@ -69,7 +69,7 @@ ms.locfileid: "77110890"
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
-## <a name="get-the-iot-hub-connection-string"></a>IoT hub 연결 문자열을 가져옵니다.
+## <a name="get-the-iot-hub-connection-string"></a>IoT 허브 연결 문자열 받기
 
 [!INCLUDE [iot-hub-howto-device-management-shared-access-policy-text](../../includes/iot-hub-howto-device-management-shared-access-policy-text.md)]
 
@@ -87,17 +87,17 @@ ms.locfileid: "77110890"
 
 이 콘솔 앱은 IoT Hub에 연결하여 직접 메서드를 호출하고 보고된 속성을 읽습니다.
 
-1. **Dm-시작**이라는 빈 폴더를 만듭니다.
+1. **dm-get-시작이라는**빈 폴더를 만듭니다.
 
-2. **Dm-시작** 폴더에서 명령 프롬프트에서 다음 명령을 **사용 하 여** Maven 프로젝트를 만듭니다.
+2. **dm-get-started** 폴더에서 명령 프롬프트에서 다음 명령을 사용하여 **트리거 재부팅이라는** Maven 프로젝트를 만듭니다.
 
     ```cmd/sh
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=trigger-reboot -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
 
-3. 명령 프롬프트에서 **트리거-다시 부팅** 폴더로 이동 합니다.
+3. 명령 프롬프트에서 **트리거 재부팅** 폴더로 이동합니다.
 
-4. 텍스트 편집기를 사용 하 여 **트리거-다시 부팅** 폴더에서 **pom .xml** 파일을 열고 **종속성** 노드에 다음 종속성을 추가 합니다. 이러한 종속성을 통해 IoT Hub와 통신하도록 앱에서 iot-service-client 패키지를 사용할 수 있습니다.
+4. 텍스트 편집기를 사용하여 **트리거 재부팅** 폴더에서 **pom.xml** 파일을 열고 **종속성** 노드에 다음 종속성을 추가합니다. 이러한 종속성을 통해 IoT Hub와 통신하도록 앱에서 iot-service-client 패키지를 사용할 수 있습니다.
 
     ```xml
     <dependency>
@@ -109,7 +109,7 @@ ms.locfileid: "77110890"
     ```
 
     > [!NOTE]
-    > **Maven 검색**을 사용하여 [iot-service-client](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22)의 최신 버전을 확인할 수 있습니다.
+    > [Maven 검색](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22)을 사용하여 **iot-service-client**의 최신 버전을 확인할 수 있습니다.
 
 5. **종속성** 노드 뒤에 다음 **빌드** 노드를 추가합니다. 이 구성에서는 Maven에 Java 1.8을 사용하여 앱을 빌드하도록 지시합니다.
 
@@ -131,7 +131,7 @@ ms.locfileid: "77110890"
 
 6. **pom.xml** 파일을 저장하고 닫습니다.
 
-7. 텍스트 편집기를 사용 하 여 **trigger-reboot\src\main\java\com\mycompany\app\App.java** 원본 파일을 엽니다.
+7. 텍스트 편집기에서 **트리거 재부팅\src\main\java\com\mycompany\App.java** 소스 파일을 엽니다.
 
 8. 파일에 다음 **import** 문을 추가합니다.
 
@@ -148,7 +148,7 @@ ms.locfileid: "77110890"
     import java.util.concurrent.ExecutorService;
     ```
 
-9. 다음 클래스 수준 변수를 **App** 클래스에 추가합니다. `{youriothubconnectionstring}`을 이전에 [IoT Hub 연결 문자열 가져오기](#get-the-iot-hub-connection-string)에서 복사한 IoT Hub 연결 문자열로 바꿉니다.
+9. **App** 클래스에 다음 클래스 수준 변수를 추가합니다. IoT 허브 연결 문자열 Get에서 이전에 복사한 `{youriothubconnectionstring}` [IoT Hub 연결 문자열로](#get-the-iot-hub-connection-string)바꾸기:
 
     ```java
     public static final String iotHubConnectionString = "{youriothubconnectionstring}";
@@ -186,7 +186,7 @@ ms.locfileid: "77110890"
     public static void main(String[] args) throws IOException
     ```
 
-12. 시뮬레이션 된 장치에서 다시 부팅 직접 메서드를 호출 하려면 **main** 메서드의 코드를 다음 코드로 바꿉니다.
+12. 시뮬레이서드 장치에서 직접 재부팅 메서드를 호출하려면 **기본** 메서드의 코드를 다음 코드로 바꿉니다.
 
     ```java
     System.out.println("Starting sample...");
@@ -228,9 +228,9 @@ ms.locfileid: "77110890"
     System.out.println("Shutting down sample...");
     ```
 
-15. **Trigger-reboot\src\main\java\com\mycompany\app\App.java** 파일을 저장 하 고 닫습니다.
+15. **트리거 재부팅\src\main\java\com\mycompany\App\App.java** 파일을 저장하고 닫습니다.
 
-16. **trigger-reboot** 백 엔드 앱을 빌드하고 오류를 수정합니다. 명령 프롬프트에서 **트리거-재부팅** 폴더로 이동 하 고 다음 명령을 실행 합니다.
+16. **trigger-reboot** 백 엔드 앱을 빌드하고 오류를 수정합니다. 명령 프롬프트에서 **트리거 재부팅** 폴더로 이동하여 다음 명령을 실행합니다.
 
     ```cmd/sh
     mvn clean package -DskipTests
@@ -240,15 +240,15 @@ ms.locfileid: "77110890"
 
 이 섹션에서는 디바이스를 시뮬레이트하는 Java 콘솔 앱을 만듭니다. 이 앱은 IoT Hub의 재부팅 직접 메서드 호출을 수신하고 그 즉시 해당 호출에 응답합니다. 그런 다음 잠시 유휴 상태로 전환하여 재부팅 프로세스를 시뮬레이트한 후 보고된 속성을 사용하여 **trigger-reboot** 백 엔드 앱에 재부팅이 완료되었음을 알립니다.
 
-1. **Dm-시작** 폴더에서 명령 프롬프트에 다음 명령을 사용 하 여 **시뮬레이션 된 장치** 라는 Maven 프로젝트를 만듭니다.
+1. **dm-get-started** 폴더에서 명령 프롬프트에서 다음 명령을 사용하여 **시뮬레이션 장치라는** Maven 프로젝트를 만듭니다.
 
     ```cmd/sh
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=simulated-device -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
 
-2. 명령 프롬프트에서 **시뮬레이션 된 장치** 폴더로 이동 합니다.
+2. 명령 프롬프트에서 **시뮬레이션된 장치** 폴더로 이동합니다.
 
-3. 텍스트 편집기를 사용 하 여 **시뮬레이션 된 장치** 폴더에서 **pom .xml** 파일을 열고 **종속성** 노드에 다음 종속성을 추가 합니다. 이러한 종속성을 통해 IoT Hub와 통신하도록 앱에서 iot-service-client 패키지를 사용할 수 있습니다.
+3. 텍스트 편집기를 사용하여 **시뮬레이션된 장치** 폴더에서 **pom.xml** 파일을 열고 **종속성** 노드에 다음 종속성을 추가합니다. 이러한 종속성을 통해 IoT Hub와 통신하도록 앱에서 iot-service-client 패키지를 사용할 수 있습니다.
 
     ```xml
     <dependency>
@@ -259,9 +259,9 @@ ms.locfileid: "77110890"
     ```
 
     > [!NOTE]
-    > **Maven 검색**을 사용하여 [iot-device-client](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22)의 최신 버전을 확인할 수 있습니다.
+    > [Maven 검색](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22)을 사용하여 **iot-device-client**의 최신 버전을 확인할 수 있습니다.
 
-4. **종속성** 노드에 다음 종속성을 추가 합니다. 이 종속성은 장치 클라이언트 SDK에서 로깅을 구현 하는 데 사용 되는 Apache [SLF4J](https://www.slf4j.org/) 로깅 외관에 대해 NOP를 구성 합니다. 이 구성은 선택 사항 이지만, 생략 하면 앱을 실행할 때 콘솔에 경고가 표시 될 수 있습니다. 장치 클라이언트 SDK의 로그인에 대 한 자세한 내용은 *Java 용 Azure IoT 장치 SDK* 추가 정보 파일에 대 한 샘플의 [로깅](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/readme.md#logging) 을 참조 하세요.
+4. **종속성** 노드에 다음 종속성을 추가합니다. 이 종속성은 장치 클라이언트 SDK에서 로깅을 구현하는 데 사용되는 아파치 [SLF4J](https://www.slf4j.org/) 로깅 외관에 대한 NOP를 구성합니다. 이 구성은 선택 사항이지만 생략하면 앱을 실행할 때 콘솔에 경고가 표시될 수 있습니다. 장치 클라이언트 SDK에서 로깅에 대한 자세한 내용은 Java readme 파일에 *대한 Azure IoT 장치 SDK의* [샘플로깅을](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/readme.md#logging) 참조하십시오.
 
     ```xml
     <dependency>
@@ -291,7 +291,7 @@ ms.locfileid: "77110890"
 
 6. **pom.xml** 파일을 저장하고 닫습니다.
 
-7. 텍스트 편집기를 사용 하 여 **simulated-device\src\main\java\com\mycompany\app\App.java** 원본 파일을 엽니다.
+7. 텍스트 편집기에서 **시뮬레이션된 장치\src\main\java\com\mycompany\App.java** 소스 파일을 엽니다.
 
 8. 파일에 다음 **import** 문을 추가합니다.
 
@@ -307,7 +307,7 @@ ms.locfileid: "77110890"
     import java.util.HashSet;
     ```
 
-9. 다음 클래스 수준 변수를 **App** 클래스에 추가합니다. `{yourdeviceconnectionstring}`를 [IoT hub에서 새 장치 등록](#register-a-new-device-in-the-iot-hub) 섹션에서 기록한 장치 연결 문자열로 바꿉니다.
+9. **App** 클래스에 다음 클래스 수준 변수를 추가합니다. IoT 허브 섹션의 `{yourdeviceconnectionstring}` 새 [장치 등록에 언급된](#register-a-new-device-in-the-iot-hub) 장치 연결 문자열로 바꿉입니다.
 
     ```java
     private static final int METHOD_SUCCESS = 200;
@@ -376,7 +376,7 @@ ms.locfileid: "77110890"
     }
     ```
 
-14. 디바이스에서 직접 메서드를 구현하려면 **App** 클래스에 다음 중첩 클래스를 추가합니다. 시뮬레이션 된 앱은 **다시 부팅** 직접 메서드에 대 한 호출을 받으면 호출자에 게 승인을 반환한 후 다시 부팅을 처리 하는 스레드를 시작 합니다.
+14. 디바이스에서 직접 메서드를 구현하려면 **App** 클래스에 다음 중첩 클래스를 추가합니다. 시뮬레이트된 앱이 **재부팅** 직접 메서드에 대한 호출을 받으면 호출자에게 승인을 반환한 다음 스레드를 시작하여 재부팅을 처리합니다.
 
     ```java
     protected static class DirectMethodCallback implements com.microsoft.azure.sdk.iot.device.DeviceTwin.DeviceMethodCallback
@@ -414,7 +414,7 @@ ms.locfileid: "77110890"
     public static void main(String[] args) throws IOException, URISyntaxException
     ```
 
-16. **DeviceClient**를 인스턴스화하려면 **main** 메서드의 코드를 다음 코드로 바꿉니다.
+16. **DeviceClient를**인스턴스화하려면 **기본** 메서드의 코드를 다음 코드로 바꿉니다.
 
     ```java
     System.out.println("Starting device client sample...");
@@ -452,7 +452,7 @@ ms.locfileid: "77110890"
 
 19. simulated-device\src\main\java\com\mycompany\app\App.java 파일을 저장한 후 닫습니다.
 
-20. **simulated-device** 앱을 빌드하고 오류를 수정합니다. 명령 프롬프트에서 **시뮬레이션 된 장치** 폴더로 이동 하 고 다음 명령을 실행 합니다.
+20. **simulated-device** 앱을 빌드하고 오류를 수정합니다. 명령 프롬프트에서 **시뮬레이션된 장치** 폴더로 이동하여 다음 명령을 실행합니다.
 
     ```cmd/sh
     mvn clean package -DskipTests
@@ -462,7 +462,7 @@ ms.locfileid: "77110890"
 
 이제 앱을 실행할 준비가 되었습니다.
 
-1. **시뮬레이션 된 장치** 폴더의 명령 프롬프트에서 다음 명령을 실행 하 여 IoT hub의 다시 부팅 메서드 호출에 대 한 수신 대기를 시작 합니다.
+1. **시뮬레이션된 장치** 폴더의 명령 프롬프트에서 다음 명령을 실행하여 IoT Hub에서 메서드 호출을 재부팅하기 시작합니다.
 
     ```cmd/sh
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
@@ -470,7 +470,7 @@ ms.locfileid: "77110890"
 
     ![재부팅 직접 메서드 호출을 수신 대기할 Java IoT Hub 시뮬레이트된 디바이스 앱](./media/iot-hub-java-java-device-management-getstarted/launchsimulator.png)
 
-2. **트리거-다시 부팅** 폴더의 명령 프롬프트에서 다음 명령을 실행 하 여 IoT hub에서 시뮬레이션 된 장치에 대 한 다시 부팅 메서드를 호출 합니다.
+2. **트리거 재부팅** 폴더의 명령 프롬프트에서 다음 명령을 실행하여 IoT Hub에서 시뮬레이션된 장치에서 재부팅 메서드를 호출합니다.
 
     ```cmd/sh
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"

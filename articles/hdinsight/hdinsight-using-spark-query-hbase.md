@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/24/2020
 ms.openlocfilehash: 888f24e13ce67c878592068927383dd8cbfefa60
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77623098"
 ---
 # <a name="use-apache-spark-to-read-and-write-apache-hbase-data"></a>Apache Spark를 사용하여 Apache HBase 데이터 읽기 및 쓰기
@@ -21,11 +21,11 @@ Apache HBase는 일반적으로 낮은 수준의 API(scans, gets, puts) 또는 A
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* 동일한 [가상 네트워크](./hdinsight-plan-virtual-network-deployment.md)에 배포 된 두 개의 별도 HDInsight 클러스터. HBase 하나 및 spark 2.1 (HDInsight 3.6) 이상이 설치 된 Spark 하나 자세한 내용은 [Azure Portal을 사용하여 HDInsight에서 Linux 기반 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-portal.md)를 참조하세요.
+* 동일한 [가상 네트워크에](./hdinsight-plan-virtual-network-deployment.md)배포된 두 개의 별도 HDInsight 클러스터. 하나의 HBase, 그리고 적어도 스파크 와 하나의 스파크 2.1 (HDInsight 3.6) 설치. 자세한 내용은 [Azure Portal을 사용하여 HDInsight에서 Linux 기반 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-portal.md)를 참조하세요.
 
 * SSH 클라이언트. 자세한 내용은 [SSH를 사용하여 HDInsight(Apache Hadoop)에 연결](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
-* 클러스터 기본 스토리지에 대한 [URI 체계](hdinsight-hadoop-linux-information.md#URI-and-scheme)입니다. 이 체계는 Azure Data Lake Storage Gen1에 대 한 Azure Data Lake Storage Gen2 또는 adl://의 Azure Blob Storage, abfs://에 대 한 wasb://입니다. Blob Storage에 대해 보안 전송이 사용 되는 경우 URI는 `wasbs://`됩니다.  [보안 전송](../storage/common/storage-require-secure-transfer.md)도 참조하세요.
+* 클러스터 기본 스토리지에 대한 [URI 체계](hdinsight-hadoop-linux-information.md#URI-and-scheme)입니다. 이 체계는 Azure Blob 저장소, azure 데이터 호수 저장소 세대2에 대 한 abfs:// 또는 Azure 데이터 호수 저장소 Gen1에 대 한 adl:// 대 한 wasb:// 합니다. Blob Storage에 대해 보안 전송을 사용하도록 `wasbs://`설정하면 URI가 됩니다.  [보안 전송](../storage/common/storage-require-secure-transfer.md)도 참조하세요.
 
 ## <a name="overall-process"></a>전체 프로세스
 
@@ -34,33 +34,33 @@ Spark 클러스터가 HDInsight 클러스터를 쿼리할 수 ​​있도록 �
 1. HBase에서 일부 샘플 데이터를 준비합니다.
 2. HBase 클러스터 구성 폴더(/etc/hbase/conf)에서 hbase-site.xml 파일을 얻습니다.
 3. Spark 2 구성 폴더(/etc/spark2/conf)에 hbase-site.xml 사본을 배치합니다.
-4. `spark-shell` 옵션의 Maven 좌표를 기준으로 Spark HBase 커넥터를 참조하는 `packages`을 실행합니다.
+4. `packages` 옵션의 Maven 좌표를 기준으로 Spark HBase 커넥터를 참조하는 `spark-shell`을 실행합니다.
 5. Spark에서 HBase로 스키마를 매핑하는 카탈로그를 정의합니다.
 6. RDD 또는 데이터 프레임 API를 사용하여 HBase 데이터와 상호 작용합니다.
 
 ## <a name="prepare-sample-data-in-apache-hbase"></a>Apache HBase에서 샘플 데이터 준비
 
-이 단계에서는 Spark를 사용 하 여 쿼리할 수 있는 Apache HBase의 테이블을 만들고 채웁니다.
+이 단계에서는 Spark를 사용하여 쿼리할 수 있는 Apache HBase에서 테이블을 만들고 채웁니다.
 
-1. `ssh` 명령을 사용 하 여 HBase 클러스터에 연결 합니다. `HBASECLUSTER`를 HBase 클러스터의 이름으로 바꿔서 아래 명령을 편집 하 고 명령을 입력 합니다.
+1. `ssh` 명령을 사용하여 HBase 클러스터에 연결합니다. HBase 클러스터의 이름으로 `HBASECLUSTER` 바꿉니다 아래 명령을 편집한 다음 명령을 입력합니다.
 
     ```cmd
     ssh sshuser@HBASECLUSTER-ssh.azurehdinsight.net
     ```
 
-2. `hbase shell` 명령을 사용 하 여 HBase 대화형 셸을 시작 합니다. SSH 연결에서 다음 명령을 입력합니다.
+2. `hbase shell` 명령을 사용하여 HBase 대화형 셸을 시작합니다. SSH 연결에서 다음 명령을 입력합니다.
 
     ```bash
     hbase shell
     ```
 
-3. `create` 명령을 사용 하 여 두 열 패밀리가 있는 HBase 테이블을 만듭니다. 다음 명령을 입력합니다.
+3. `create` 명령을 사용하여 두 개의 열 패밀리가 있는 HBase 테이블을 만듭니다. 다음 명령을 입력합니다.
 
     ```hbase
     create 'Contacts', 'Personal', 'Office'
     ```
 
-4. `put` 명령을 사용 하 여 특정 테이블의 지정 된 행에 지정 된 열에 값을 삽입할 수 있습니다. 다음 명령을 입력합니다.
+4. 명령을 `put` 사용하여 특정 테이블의 지정된 행에서 지정된 열에 값을 삽입합니다. 다음 명령을 입력합니다.
 
     ```hbase
     put 'Contacts', '1000', 'Personal:Name', 'John Dole'
@@ -73,27 +73,27 @@ Spark 클러스터가 HDInsight 클러스터를 쿼리할 수 ​​있도록 �
     put 'Contacts', '8396', 'Office:Address', '5415 San Gabriel Dr.'
     ```
 
-5. `exit` 명령을 사용 하 여 HBase 대화형 셸을 중지 합니다. 다음 명령을 입력합니다.
+5. `exit` 명령을 사용하여 HBase 대화형 셸을 중지합니다. 다음 명령을 입력합니다.
 
     ```hbase
     exit
     ```
 
-## <a name="copy-hbase-sitexml-to-spark-cluster"></a>Hbase-site.xml을 Spark 클러스터에 복사 합니다.
+## <a name="copy-hbase-sitexml-to-spark-cluster"></a>hbase-site.xml을 스파크 클러스터로 복사
 
-로컬 저장소의 hbase-site.xml를 Spark 클러스터의 기본 저장소의 루트에 복사 합니다.  구성을 반영 하도록 아래 명령을 편집 합니다.  그런 다음 열린 SSH 세션에서 HBase 클러스터로 명령을 입력 합니다.
+로컬 저장소에서 Spark 클러스터의 기본 저장소루트로 hbase-site.xml을 복사합니다.  구성을 반영하도록 아래 명령을 편집합니다.  그런 다음 열린 SSH 세션에서 HBase 클러스터로 명령을 입력합니다.
 
 | 구문 값 | 새 값|
 |---|---|
-|[URI 체계](hdinsight-hadoop-linux-information.md#URI-and-scheme) | 저장소를 반영 하도록를 수정 합니다.  아래 구문은 보안 전송을 사용 하도록 설정 된 blob 저장소에 대 한 것입니다.|
-|`SPARK_STORAGE_CONTAINER`|을 Spark 클러스터에 사용 되는 기본 저장소 컨테이너 이름으로 바꿉니다.|
-|`SPARK_STORAGE_ACCOUNT`|을 Spark 클러스터에 사용 되는 기본 저장소 계정 이름으로 바꿉니다.|
+|[URI 체계](hdinsight-hadoop-linux-information.md#URI-and-scheme) | 저장소를 반영하도록 수정합니다.  아래 구문은 보안 전송이 활성화된 Blob 저장소에 대한 것입니다.|
+|`SPARK_STORAGE_CONTAINER`|Spark 클러스터에 사용되는 기본 저장소 컨테이너 이름으로 바꿉니다.|
+|`SPARK_STORAGE_ACCOUNT`|Spark 클러스터에 사용되는 기본 저장소 계정 이름으로 바꿉니다.|
 
 ```bash
 hdfs dfs -copyFromLocal /etc/hbase/conf/hbase-site.xml wasbs://SPARK_STORAGE_CONTAINER@SPARK_STORAGE_ACCOUNT.blob.core.windows.net/
 ```
 
-그런 다음 HBase 클러스터에 대 한 ssh 연결을 종료 합니다.
+그런 다음 HBase 클러스터에 대한 ssh 연결을 종료합니다.
 
 ```bash
 exit
@@ -101,13 +101,13 @@ exit
 
 ## <a name="put-hbase-sitexml-on-your-spark-cluster"></a>Spark 클러스터에 hbase-site.xml 배치
 
-1. SSH를 사용하여 Spark 클러스터의 헤드 노드에 연결합니다. `SPARKCLUSTER`를 Spark 클러스터의 이름으로 바꾸고 아래 명령을 편집 하 고 명령을 입력 합니다.
+1. SSH를 사용하여 Spark 클러스터의 헤드 노드에 연결합니다. Spark 클러스터의 이름으로 `SPARKCLUSTER` 바꿉니다 아래 명령을 편집한 다음 명령을 입력합니다.
 
     ```cmd
     ssh sshuser@SPARKCLUSTER-ssh.azurehdinsight.net
     ```
 
-2. 다음 명령을 입력 하 여 Spark 클러스터의 기본 저장소에서 클러스터의 로컬 저장소에 있는 Spark 2 구성 폴더로 `hbase-site.xml`를 복사 합니다.
+2. 아래 명령을 입력하여 `hbase-site.xml` Spark 클러스터의 기본 저장소에서 클러스터의 로컬 저장소의 Spark 2 구성 폴더로 복사합니다.
 
     ```bash
     sudo hdfs dfs -copyToLocal /hbase-site.xml /etc/spark2/conf
@@ -115,7 +115,7 @@ exit
 
 ## <a name="run-spark-shell-referencing-the-spark-hbase-connector"></a>Spark HBase 커넥터를 참조하는 Spark 셸 실행
 
-1. 열린 SSH 세션에서 Spark 클러스터로 아래 명령을 입력 하 여 spark 셸을 시작 합니다.
+1. 열려 있는 SSH 세션에서 스파크 클러스터까지 아래 명령을 입력하여 스파크 셸을 시작합니다.
 
     ```bash
     spark-shell --packages com.hortonworks:shc-core:1.1.1-2.1-s_2.11 --repositories https://repo.hortonworks.com/content/groups/public/
@@ -127,7 +127,7 @@ exit
 
 이 단계에서는 Apache Spark에서 Apache HBase로 스키마를 매핑하는 카탈로그 개체를 정의합니다.  
 
-1. 열려 있는 Spark 셸에서 다음 `import` 문을 입력 합니다.
+1. 열린 스파크 셸에서 다음 `import` 문을 입력합니다.
 
     ```scala
     import org.apache.spark.sql.{SQLContext, _}
@@ -136,7 +136,7 @@ exit
     import spark.sqlContext.implicits._
     ```  
 
-1. 다음 명령을 입력 하 여 HBase에서 만든 Contacts 테이블에 대 한 카탈로그를 정의 합니다.
+1. 아래 명령을 입력하여 HBase에서 만든 연락처 테이블에 대한 카탈로그를 정의합니다.
 
     ```scala
     def catalog = s"""{
@@ -158,7 +158,7 @@ exit
      b. rowkey를 `key`로 식별하고 Spark에서 사용된 열 이름을 HBase에서 사용되는 열 패밀리, 열 이름 및 열 유형으로 매핑합니다.  
      다. 또한 rowkey는 `rowkey`의 특정 열 패밀리 `cf`가 있는 명명된 열(`rowkey`)로 자세하게 정의되어야 합니다.  
 
-1. 다음 명령을 입력 하 여 HBase의 `Contacts` 테이블 주위에 데이터 프레임를 제공 하는 메서드를 정의 합니다.
+1. 아래 명령을 입력하여 HBase의 테이블 주위에 `Contacts` DataFrame을 제공하는 메서드를 정의합니다.
 
     ```scala
     def withCatalog(cat: String): DataFrame = {
@@ -263,7 +263,7 @@ exit
     +------+--------------------+--------------+------------+--------------+
     ```
 
-1. 다음 명령을 입력 하 여 spark 셸을 닫습니다.
+1. 다음 명령을 입력하여 스파크 셸을 닫습니다.
 
     ```scala
     :q

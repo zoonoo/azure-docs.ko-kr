@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 787336f00a83d9403e3069754787743b9be6c5b1
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77049999"
 ---
 # <a name="publish-azure-media-services-content-using-rest"></a>REST를 사용하여 Azure Media Services 콘텐츠 게시 
 > [!div class="op_single_selector"]
 > * [.NET](media-services-deliver-streaming-content.md)
-> * [REST (영문)](media-services-rest-deliver-streaming-content.md)
+> * [나머지](media-services-rest-deliver-streaming-content.md)
 > * [포털](media-services-portal-publish.md)
 > 
 > 
@@ -33,7 +33,7 @@ ms.locfileid: "77049999"
 
 주문형 스트리밍 로케이터는 점진적으로 다운로드할 수 있는 MP4 파일을 가리키는 URL을 작성하는 데 사용할 수도 있습니다.  
 
-이 문서에서는 자산을 게시하고 부드러운 MPEG DASH 및 HLS 스트리밍 URL을 빌드하기 위해 OnDemand 스트리밍 로케이터를 만드는 방법을 설명합니다. 또한 점진적 다운로드 Url을 작성 하는 방법을 보여 줍니다.
+이 문서에서는 자산을 게시하고 부드러운 MPEG DASH 및 HLS 스트리밍 URL을 빌드하기 위해 OnDemand 스트리밍 로케이터를 만드는 방법을 설명합니다. 또한 점진적 다운로드 URL을 빌드하는 방법도 보여 주며, 이 URL을 빌드하는 방법도 보여 주실 것입니다.
 
 [다음](#types) 섹션에서는 REST 호출에 사용되는 값을 가진 열거형 유형을 보여 줍니다.   
 
@@ -46,7 +46,7 @@ ms.locfileid: "77049999"
 AMS API에 연결하는 방법에 대한 자세한 내용은 [Azure AD 인증을 사용하여 Azure Media Services API 액세스](media-services-use-aad-auth-to-access-ams-api.md)를 참조하세요. 
 
 >[!NOTE]
->https://media.windows.net에 연결하면 다른 Media Services URI를 지정하는 301 리디렉션을 받게 됩니다. 새 URI에 대한 후속 호출을 수행해야 합니다.
+>https://media.windows.net에 연결하면 다른 Media Services URI를 지정하는 301 리디렉션을 받게 됩니다. 사용자는 새 URI에 대한 후속 호출을 해야 합니다.
 
 ## <a name="create-an-ondemand-streaming-locator"></a>주문형 스트리밍 로케이터 만들기
 OnDemand 스트리밍 로케이터를 만들고 URL을 가져오려면 다음을 수행해야 합니다.
@@ -169,7 +169,7 @@ URL: **경로** + 자산 파일 mp4 이름
 
     https://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
 
-## <a id="types"></a>열거형 형식
+## <a name="enum-types"></a><a id="types"></a>열거형 형식
     [Flags]
     public enum AccessPermissions
     {
@@ -193,8 +193,8 @@ URL: **경로** + 자산 파일 mp4 이름
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 [Media Services Operations REST API 개요](media-services-rest-how-to-use.md)
 
-[자산 배달 정책 구성](media-services-rest-configure-asset-delivery-policy.md)
+[자산 제공 정책 구성](media-services-rest-configure-asset-delivery-policy.md)
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Storage에서 진단 데이터 저장 및 보기
-description: 사용할 수 있는 여러 도구 중 하나를 사용 하 여 볼 수 있도록 Azure Storage 계정에서 Azure 진단 데이터를 수집 하는 방법을 알아봅니다.
+description: 사용 가능한 여러 도구 중 하나를 사용하여 볼 수 있도록 Azure Storage 계정에서 Azure 진단 데이터를 수집하는 방법에 대해 알아봅니다.
 services: azure-monitor
 author: bwren
 ms.service: azure-monitor
@@ -9,10 +9,10 @@ ms.date: 08/01/2016
 ms.author: bwren
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: 17430330d068fb55b45f073afecb8ba348286cb5
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77472675"
 ---
 # <a name="store-and-view-diagnostic-data-in-azure-storage"></a>Azure Storage에서 진단 데이터 저장 및 보기
@@ -66,12 +66,12 @@ SDK 2.4 및 이전 버전의 경우 프로그래밍 방식으로 구성 파일�
 **Blob**
 
 * **wad-control-container** – (SDK 2.4 및 이전 버전의 경우만) Azure 진단을 제어하는 XML 구성 파일을 포함합니다.
-* **wad-iis-failedreqlogfiles** – IIS 실패한 요청 로그의 정보를 포함합니다.
-* **wad-iis-logfiles** – IIS 로그에 관한 정보를 포함합니다.
+* **wad-iis-failedreqlogfiles** – IIS 실패한 요청 로그의 정보가 포함됩니다.
+* **wad-iis-logfiles** – IIS 로그의 정보가 포함됩니다.
 * **"custom"** – 진단 모니터에 의해 모니터링되는 구성 디렉터리에 기반한 사용자 지정 컨테이너입니다.  이 Blob 컨테이너의 이름은 WADDirectoriesTable에 지정됩니다.
 
 ## <a name="tools-to-view-diagnostic-data"></a>진단 데이터를 볼 도구
-여러 도구를 사용하여 스토리지로 전송된 후 데이터를 볼 수 있습니다. 다음은 그 예입니다.
+여러 도구를 사용하여 스토리지로 전송된 후 데이터를 볼 수 있습니다. 예를 들어:
 
 * Visual Studio의 서버 탐색기 - Microsoft Visual Studio용 Azure 도구를 설치한 경우 서버 탐색기에서 Azure Storage 노드를 사용하여 Azure Storage 계정에서 읽기 전용 Blob 및 테이블 데이터를 볼 수 있습니다. 로컬 스토리지 에뮬레이터 계정 및 Azure용으로 만든 스토리지 계정에서 데이터를 표시할 수 있습니다. 자세한 내용은 [서버 탐색기로 Storage 리소스 탐색 및 관리](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage)를 참조하세요.
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md)는 Windows, OSX 및 Linux에서 Azure Storage 데이터로 손쉽게 작업할 수 있도록 해주는 독립 실행형 앱입니다.

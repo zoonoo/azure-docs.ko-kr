@@ -1,6 +1,6 @@
 ---
-title: '자습서: Azure Active Directory을 사용 하 여 자동 사용자 프로 비전을 위한 ZPA (Zscaler Private Access) 구성 Microsoft Docs'
-description: 사용자 계정을 ZPA (Zscaler Private Access)에 자동으로 프로 비전 및 프로 비전 해제 하도록 Azure Active Directory를 구성 하는 방법에 대해 알아봅니다.
+title: '자습서: Azure Active Directory를 사용 하 고 자동 사용자 프로비저닝에 대 한 Zscaler 개인 액세스 (ZPA) 구성 | 마이크로 소프트 문서'
+description: Zscaler 개인 액세스(ZPA)에 사용자 계정을 자동으로 프로비전 및 프로비저닝 해제하도록 Azure Active Directory를 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: zchia
@@ -16,88 +16,88 @@ ms.topic: article
 ms.date: 10/07/2019
 ms.author: Zhchia
 ms.openlocfilehash: 609d2726eaaaeb49210e19f000bcc2faef1de5d7
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77064158"
 ---
-# <a name="tutorial-configure-zscaler-private-access-zpa-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 ZPA (Zscaler Private Access) 구성
+# <a name="tutorial-configure-zscaler-private-access-zpa-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Zscaler 개인 액세스(ZPA) 구성
 
-이 자습서에서는 사용자 및/또는 그룹을 ZPA (Zscaler Private Access)로 자동으로 프로 비전 및 프로 비전 해제 하도록 Azure AD를 구성 하기 위해 ZPA (Zscaler Private Access) 및 Azure Active Directory (Azure AD)에서 수행 하는 단계를 보여 줍니다.
+이 자습서의 목적은 Zscaler 개인 액세스(ZPA) 및 Azure Active Directory(Azure AD)에서 수행할 단계를 보여 주어 사용자 및/또는 그룹을 Zscaler 개인 액세스(ZPA)로 자동으로 프로비전 및 프로비저닝 해제하도록 Azure AD를 구성하는 것입니다.
 
 > [!NOTE]
 > 이 자습서에서는 Azure AD 사용자 프로비저닝 서비스에 기반하여 구축된 커넥터에 대해 설명합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../app-provisioning/user-provisioning.md)를 참조하세요.
 >
 > 이 커넥터는 현재 공개 미리 보기로 있습니다. 미리 보기 기능의 Microsoft Azure 일반 사용 약관에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 조건](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
 * Azure AD 테넌트
-* [ZPA (Zscaler Private Access) 테 넌 트](https://www.zscaler.com/pricing-and-plans#contact-us)
-* 관리자 권한이 있는 ZPA (Zscaler Private Access)의 사용자 계정
+* [Zscaler 프라이빗 액세스(ZPA) 테넌트](https://www.zscaler.com/pricing-and-plans#contact-us)
+* Zscaler 개인 액세스(ZPA)의 사용자 계정과 관리자 권한이 있습니다.
 
-## <a name="assigning-users-to-zscaler-private-access-zpa"></a>ZPA (Zscaler Private Access)에 사용자 할당
+## <a name="assigning-users-to-zscaler-private-access-zpa"></a>Zscaler 개인 액세스(ZPA)에 사용자 할당
 
-Azure Active Directory는 *할당* 이라는 개념을 사용 하 여 선택한 앱에 대 한 액세스 권한을 받아야 하는 사용자를 결정 합니다. 자동 사용자 프로 비전의 컨텍스트에서는 Azure AD의 응용 프로그램에 할당 된 사용자 및/또는 그룹만 동기화 됩니다.
+Azure Active Directory는 *할당이라는* 개념을 사용하여 선택한 앱에 대한 액세스 권한을 받아야 하는 사용자를 결정합니다. 자동 사용자 프로비저닝의 컨텍스트에서는 Azure AD의 응용 프로그램에 할당된 사용자 및/또는 그룹만 동기화됩니다.
 
-자동 사용자 프로비저닝을 구성 하 고 사용 하도록 설정 하기 전에 ZPA (Zscaler Private Access)에 액세스 해야 하는 Azure AD의 사용자 및/또는 그룹을 결정 해야 합니다. 일단 결정 되 면 다음 지침에 따라 이러한 사용자 및/또는 그룹을 ZPA (Zscaler Private Access)에 할당할 수 있습니다.
+자동 사용자 프로비저닝을 구성하고 활성화하기 전에 Azure AD의 Zscaler 개인 액세스(ZPA)에 액세스해야 하는 사용자 및/또는 그룹을 결정해야 합니다. 일단 결정, 다음 지침에 따라 Zscaler 개인 액세스 (ZPA)에 이러한 사용자 및/또는 그룹을 할당할 수 있습니다.
 * [엔터프라이즈 앱에 사용자 또는 그룹 할당](../manage-apps/assign-user-or-group-access-portal.md)
 
-## <a name="important-tips-for-assigning-users-to-zscaler-private-access-zpa"></a>ZPA (Zscaler Private Access)에 사용자를 할당 하기 위한 주요 팁
+## <a name="important-tips-for-assigning-users-to-zscaler-private-access-zpa"></a>Zscaler 개인 액세스 (ZPA)에 사용자를 할당하기위한 중요한 팁
 
-* 자동 사용자 프로 비전 구성을 테스트 하려면 단일 Azure AD 사용자를 ZPA (Zscaler Private Access)에 할당 하는 것이 좋습니다. 추가 사용자 및/또는 그룹은 나중에 할당할 수도 있습니다.
+* 자동 사용자 프로비저닝 구성을 테스트하기 위해 단일 Azure AD 사용자가 Zscaler 개인 액세스(ZPA)에 할당되는 것이 좋습니다. 추가 사용자 및/또는 그룹은 나중에 할당할 수도 있습니다.
 
-* 사용자를 ZPA (Zscaler Private Access)에 할당할 때 할당 대화 상자에서 유효한 응용 프로그램별 역할 (사용 가능한 경우)을 선택 해야 합니다. **기본 액세스** 역할이 있는 사용자는 프로비전에서 제외됩니다.
+* Zscaler 개인 액세스(ZPA)에 사용자를 할당할 때 할당 대화 상자에서 유효한 응용 프로그램 별 역할(사용 가능한 경우)을 선택해야 합니다. **기본 액세스** 역할이 있는 사용자는 프로비저닝에서 제외됩니다.
 
-## <a name="set-up-zscaler-private-access-zpa-for-provisioning"></a>프로 비전을 위한 ZPA (Zscaler Private Access) 설정
+## <a name="set-up-zscaler-private-access-zpa-for-provisioning"></a>프로비저닝을 위한 Zscaler 프라이빗 액세스(ZPA) 설정
 
-1. [ZPA (Zscaler Private Access) 관리 콘솔](https://admin.private.zscaler.com/)에 로그인 합니다. **관리 > IdP 구성**으로 이동 합니다.
+1. [Zscaler 개인 액세스(ZPA) 관리 콘솔에](https://admin.private.zscaler.com/)로그인합니다. **IdP 구성을 > 관리로**이동합니다.
 
-    ![ZPA (Zscaler Private Access) 관리 콘솔](media/zscaler-private-access-provisioning-tutorial/idpconfig.png)
+    ![Zscaler 개인 액세스 (ZPA) 관리 콘솔](media/zscaler-private-access-provisioning-tutorial/idpconfig.png)
 
-2.  **Single sign-on** 에 대 한 IdP가 구성 되어 있는지 확인 합니다. IdP가 설정 되지 않은 경우 화면의 오른쪽 위 모퉁이에 있는 더하기 아이콘을 클릭 하 여 추가 합니다.
+2.  **단일 사인온용** IdP가 구성되어 있는지 확인합니다. IdP가 설정되지 않은 경우 화면 오른쪽 상단에 있는 더하기 아이콘을 클릭하여 IdP를 추가합니다.
 
-    ![ZPA (Zscaler Private Access) SCIM 추가](media/zscaler-private-access-provisioning-tutorial/plusicon.png)
+    ![Zscaler 개인 액세스 (ZPA) SCIM 추가](media/zscaler-private-access-provisioning-tutorial/plusicon.png)
 
-3. **IdP 구성 추가** 마법사의 지침에 따라 IdP를 추가 합니다. **Single sign-on** 필드를 **사용자**로 설정 된 상태로 둡니다. **이름을** 입력 하 고 드롭다운 목록에서 **도메인** 을 선택 합니다. **다음을 클릭 하 여** 다음 창으로 이동 합니다.
+3. IdP 구성 추가 마법사를 따라 **IdP를** 추가합니다. 단일 **사인온** 필드를 **사용자로**설정된 상태로 둡니다. **이름을** 제공하고 드롭다운 목록에서 **도메인을 선택합니다.** **다음을** 클릭하여 다음 창으로 이동합니다.
 
-    ![ZPA (Zscaler Private Access) IdP 추가](media/zscaler-private-access-provisioning-tutorial/addidp.png)
+    ![Zscaler 개인 액세스 (ZPA) IdP 추가](media/zscaler-private-access-provisioning-tutorial/addidp.png)
 
-4. **서비스 공급자 인증서**를 다운로드 합니다. **다음을 클릭 하 여** 다음 창으로 이동 합니다.
+4. 서비스 **공급자 인증서를 다운로드합니다.** **다음을** 클릭하여 다음 창으로 이동합니다.
 
-    ![ZPA (Zscaler Private Access) SP 인증서](media/zscaler-private-access-provisioning-tutorial/spcertificate.png)
+    ![Zscaler 개인 액세스 (ZPA) SP 인증서](media/zscaler-private-access-provisioning-tutorial/spcertificate.png)
 
-5. 다음 창에서 이전에 다운로드 한 **서비스 공급자 인증서** 를 업로드 합니다.
+5. 다음 창에서 이전에 다운로드한 **서비스 공급자 인증서를** 업로드합니다.
 
-    ![ZPA (Zscaler Private Access) 인증서 업로드](media/zscaler-private-access-provisioning-tutorial/uploadfile.png)
+    ![Zscaler 개인 액세스 (ZPA) 업로드 인증서](media/zscaler-private-access-provisioning-tutorial/uploadfile.png)
 
-6.  아래로 스크롤하여 **Single SIGN-ON URL** 및 **IdP 엔터티 ID**를 제공 합니다.
+6.  아래로 스크롤하여 **단일 사인온 URL** 및 **IdP 엔터티 ID를**제공합니다.
 
-    ![ZPA (Zscaler Private Access) IdP ID](media/zscaler-private-access-provisioning-tutorial/idpid.png)
+    ![Zscaler 개인 액세스 (ZPA) IDP ID](media/zscaler-private-access-provisioning-tutorial/idpid.png)
 
-7.  아래로 스크롤하여 **SCIM 동기화를 사용 하도록 설정**합니다. **새 토큰 생성** 단추를 클릭 합니다. **전달자 토큰**을 복사 합니다. 이 값은 Azure Portal에서 ZPA (Zscaler Private Access) 응용 프로그램의 프로 비전 탭에 있는 비밀 토큰 필드에 입력 됩니다.
+7.  아래로 스크롤하여 **SCIM 동기화 를 사용하도록 설정합니다.** 새 **토큰 생성** 버튼을 클릭합니다. **베어러 토큰을**복사합니다. 이 값은 Azure 포털의 Zscaler 개인 액세스(ZPA) 응용 프로그램의 프로비저닝 탭의 비밀 토큰 필드에 입력됩니다.
 
-    ![ZPA (Zscaler Private Access) 토큰 만들기](media/zscaler-private-access-provisioning-tutorial/token.png)
+    ![Zscaler 개인 액세스 (ZPA) 토큰 만들기](media/zscaler-private-access-provisioning-tutorial/token.png)
 
-8.  **테 넌 트 URL** 을 찾으려면 **관리 > IdP 구성**으로 이동 합니다. 페이지에 나열 된 새로 추가 된 IdP 구성의 이름을 클릭 합니다.
+8.  **테넌트 URL을** 찾으려면 **idP 구성을 > 관리로**이동합니다. 페이지에 나열된 새로 추가된 IdP 구성의 이름을 클릭합니다.
 
-    ![ZPA (Zscaler Private Access) Idp 이름](media/zscaler-private-access-provisioning-tutorial/idpname.png)
+    ![Zscaler 개인 액세스 (ZPA) IDP 이름](media/zscaler-private-access-provisioning-tutorial/idpname.png)
 
-9.  아래로 스크롤하여 페이지 끝에 **Scim 서비스 공급자 끝점** 을 표시 합니다. **Scim 서비스 공급자 끝점**을 복사 합니다. 이 값은 Azure Portal에서 ZPA (Zscaler Private Access) 응용 프로그램의 프로 비전 탭에 있는 테 넌 트 URL 필드에 입력 됩니다.
+9.  아래로 스크롤하여 페이지 끝에 있는 **SCIM 서비스 공급자 끝점을** 봅니다. **SCIM 서비스 공급자 끝점을**복사합니다. 이 값은 Azure 포털의 Zscaler 개인 액세스(ZPA) 응용 프로그램의 프로비저닝 탭의 테넌트 URL 필드에 입력됩니다.
 
-    ![ZPA (Zscaler Private Access) SCIM URL](media/zscaler-private-access-provisioning-tutorial/tenanturl.png)
+    ![Zscaler 개인 액세스 (ZPA) SCIM URL](media/zscaler-private-access-provisioning-tutorial/tenanturl.png)
 
 
-## <a name="add-zscaler-private-access-zpa-from-the-gallery"></a>갤러리에서 ZPA (Zscaler Private Access) 추가
+## <a name="add-zscaler-private-access-zpa-from-the-gallery"></a>갤러리에서 Zscaler 개인 액세스(ZPA) 추가
 
-Azure AD를 사용한 자동 사용자 프로 비전을 위해 ZPA (Zscaler Private Access)를 구성 하기 전에 Azure AD 응용 프로그램 갤러리의 ZPA (Zscaler Private Access)를 관리 되는 SaaS 응용 프로그램 목록에 추가 해야 합니다.
+Azure AD를 사용하여 자동 사용자 프로비전을 위해 Zscaler 개인 액세스(ZPA)를 구성하기 전에 Azure AD 응용 프로그램 갤러리에서 Zscaler 개인 액세스(ZPA)를 관리되는 SaaS 응용 프로그램 목록에 추가해야 합니다.
 
-**Azure AD 응용 프로그램 갤러리에서 ZPA (Zscaler Private Access)를 추가 하려면 다음 단계를 수행 합니다.**
+**Azure AD 응용 프로그램 갤러리에서 Zscaler 개인 액세스(ZPA)를 추가하려면 다음 단계를 수행합니다.**
 
-1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 패널에서 **Azure Active Directory**를 선택 합니다.
+1. Azure **[포털에서](https://portal.azure.com)** 왼쪽 탐색 패널에서 **Azure Active Directory**를 선택합니다.
 
     ![Azure Active Directory 단추](common/select-azuread.png)
 
@@ -105,27 +105,27 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위해 ZPA (Zscaler Priv
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
-3. 새 응용 프로그램을 추가 하려면 창의 위쪽에 있는 **새 응용 프로그램** 단추를 선택 합니다.
+3. 새 응용 프로그램을 추가하려면 창 상단의 **새 응용 프로그램** 단추를 선택합니다.
 
     ![새 애플리케이션 단추](common/add-new-app.png)
 
-4. 검색 상자에서 **ZPA (Zscaler Private access**)를 입력 하 고, 결과 패널에서 **Zpa (Zscaler private access)** 를 선택한 다음, **추가** 단추를 클릭 하 여 응용 프로그램을 추가 합니다.
+4. 검색 상자에서 **Zscaler 개인 액세스(ZPA)를**입력하고 결과 패널에서 **Zscaler 개인 액세스(ZPA)를** 선택한 다음 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
 
     ![결과 목록의 ZPA(Zscaler Private Access)](common/search-new-app.png)
 
-## <a name="configuring-automatic-user-provisioning-to-zscaler-private-access-zpa"></a>ZPA (Zscaler Private Access)에 자동 사용자 프로 비전 구성 
+## <a name="configuring-automatic-user-provisioning-to-zscaler-private-access-zpa"></a>Zscaler 프라이빗 액세스(ZPA)로 자동 사용자 프로비전 구성 
 
-이 섹션에서는 azure ad의 사용자 및/또는 그룹 할당을 기반으로 ZPA (Zscaler Private Access)에서 사용자 및/또는 그룹을 만들고, 업데이트 하 고, 사용 해제 하도록 Azure AD 프로 비전 서비스를 구성 하는 단계를 안내 합니다.
+이 섹션에서는 Azure AD의 사용자 및/또는 그룹 할당을 기반으로 Zscaler 개인 액세스(ZPA)에서 사용자 및/또는 그룹을 생성, 업데이트 및 비활성화하도록 Azure AD 프로비저닝 서비스를 구성하는 단계를 안내합니다.
 
 > [!TIP]
-> [ZPA (Zscaler Private access) single sign-on 자습서](https://docs.microsoft.com/azure/active-directory/saas-apps/zscalerprivateaccess-tutorial)에 제공 된 지침에 따라 Zpa (Zscaler private access)에 SAML 기반 Single Sign-On를 사용 하도록 선택할 수도 있습니다. Single sign-on은 자동 사용자 프로 비전과 독립적으로 구성할 수 있습니다. 하지만이 두 가지 기능은 서로 보완적입니다.
+> Zscaler 개인 [액세스(ZPA) 단일 사인온 자습서에서](https://docs.microsoft.com/azure/active-directory/saas-apps/zscalerprivateaccess-tutorial)제공된 지침에 따라 Zscaler 개인 액세스(ZPA)에 대한 SAML 기반 단일 사인온을 사용하도록 선택할 수도 있습니다. 단일 사인온은 자동 사용자 프로비저닝과 독립적으로 구성할 수 있지만 이러한 두 기능은 서로 보완됩니다.
 
 > [!NOTE]
-> Zscaler 개인 액세스의 SCIM 끝점에 대 한 자세한 내용은 [다음](https://www.zscaler.com/partners/microsoft)을 참조 하세요.
+> Zscaler 프라이빗 액세스의 SCIM 끝점에 대해 자세히 알아보려면 [이 을](https://www.zscaler.com/partners/microsoft)참조하십시오.
 
-### <a name="to-configure-automatic-user-provisioning-for-zscaler-private-access-zpa-in-azure-ad"></a>Azure AD에서 ZPA (Zscaler Private Access)에 대 한 자동 사용자 프로 비전을 구성 하려면:
+### <a name="to-configure-automatic-user-provisioning-for-zscaler-private-access-zpa-in-azure-ad"></a>Azure AD에서 Zscaler 개인 액세스(ZPA)에 대한 자동 사용자 프로비저닝을 구성하려면 다음을 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **엔터프라이즈 응용 프로그램**을 선택한 다음 **모든 응용 프로그램**을 선택 합니다.
+1. [Azure 포털에](https://portal.azure.com)로그인합니다. **엔터프라이즈 응용 프로그램을**선택한 다음 모든 응용 프로그램을 **선택합니다.**
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -133,15 +133,15 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위해 ZPA (Zscaler Priv
 
     ![애플리케이션 목록의 ZPA(Zscaler Private Access) 링크](common/all-applications.png)
 
-3. **프로비전** 탭을 선택합니다.
+3. **프로비저닝** 탭을 선택합니다.
 
-    ![프로 비전 탭](common/provisioning.png)
+    ![프로비저닝 탭](common/provisioning.png)
 
-4. **프로비전 모드**를 **자동**으로 설정합니다.
+4. **프로비저닝 모드를** **자동으로**설정합니다.
 
-    ![프로 비전 탭](common/provisioning-automatic.png)
+    ![프로비저닝 탭](common/provisioning-automatic.png)
 
-5. **관리자 자격 증명** 섹션 아래에서 이전에 **테 넌 트 URL**에서 검색 된 **scim 서비스 공급자 끝점** 값을 입력 합니다. 이전에 **비밀 토큰**에서 검색 된 **전달자 토큰** 값을 입력 합니다. **연결 테스트** 를 클릭 하 여 Azure AD가 Zpa (Zscaler Private Access)에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 ZPA (Zscaler Private Access) 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 합니다.
+5. 관리자 자격 증명 섹션에서 **테넌트 URL에서**앞에서 검색한 **SCIM 서비스 공급자 Endpoint** 값을 **입력합니다.** **비밀** **토큰의** 앞에서 검색한 베어러 토큰 값을 입력합니다. Azure AD가 Zscaler 개인 액세스(ZPA)에 연결할 수 있는지 확인하려면 **테스트 연결을** 클릭합니다. 연결이 실패하면 Zscaler 개인 액세스(ZPA) 계정에 관리자 권한이 있는지 확인하고 다시 시도하십시오.
 
     ![테넌트 URL + 토큰](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -151,29 +151,29 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위해 ZPA (Zscaler Priv
 
 7. **저장**을 클릭합니다.
 
-8. **매핑** 섹션에서 **Azure Active Directory 사용자를 Zpa (Zscaler Private Access)에 동기화를**선택 합니다.
+8. **매핑** 섹션에서 **Azure Active Directory 사용자를 Zscaler 개인 액세스(ZPA)로 동기화합니다.**
 
-    ![ZPA (Zscaler Private Access) 사용자 매핑](media/zscaler-private-access-provisioning-tutorial/usermappings.png)
+    ![Zscaler 개인 액세스(ZPA) 사용자 매핑](media/zscaler-private-access-provisioning-tutorial/usermappings.png)
 
-9. **특성 매핑** 섹션에서 Azure AD에서 Zpa (Zscaler Private Access)로 동기화 되는 사용자 특성을 검토 합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 Zpa (Zscaler Private Access)의 사용자 계정을 일치 시키는 데 사용 됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
+9. **특성 매핑** 섹션에서 Azure AD에서 Zscaler 개인 액세스(ZPA)로 동기화된 사용자 특성을 검토합니다. **일치** 속성으로 선택한 특성은 Zscaler 개인 액세스(ZPA)의 사용자 계정을 업데이트 작업에 일치시키는 데 사용됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
-    ![ZPA (Zscaler Private Access) 사용자 특성](media/zscaler-private-access-provisioning-tutorial/userattributes.png)
+    ![Zscaler 개인 액세스 (ZPA) 사용자 속성](media/zscaler-private-access-provisioning-tutorial/userattributes.png)
 
-10. **매핑** 섹션 아래에서 **Zscaler Private Access (zpa)에 Azure Active Directory 그룹 동기화를**선택 합니다.
+10. **매핑** 섹션에서 **Azure Active Directory 그룹 동기화를 Zscaler 개인 액세스(ZPA)로**선택합니다.
 
-    ![ZPA (Zscaler Private Access) 그룹 매핑](media/zscaler-private-access-provisioning-tutorial/groupmappings.png)
+    ![Zscaler 개인 액세스(ZPA) 그룹 매핑](media/zscaler-private-access-provisioning-tutorial/groupmappings.png)
 
-11. **특성 매핑** 섹션에서 Azure AD에서 Zpa (Zscaler Private Access)로 동기화 되는 그룹 특성을 검토 합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 Zpa (Zscaler Private Access)의 그룹을 일치 시키는 데 사용 됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
+11. **특성 매핑** 섹션에서 Azure AD에서 Zscaler 개인 액세스(ZPA)로 동기화된 그룹 특성을 검토합니다. **일치** 속성으로 선택한 특성은 Zscaler 개인 액세스(ZPA)의 그룹과 업데이트 작업에 일치하는 데 사용됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
-    ![ZPA (Zscaler Private Access) 그룹 특성](media/zscaler-private-access-provisioning-tutorial/groupattributes.png)
+    ![Zscaler 개인 액세스 (ZPA) 그룹 속성](media/zscaler-private-access-provisioning-tutorial/groupattributes.png)
 
 12. 범위 지정 필터를 구성하려면 [범위 지정 필터 자습서](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)에서 제공하는 다음 지침을 참조합니다.
 
-13. ZPA (Zscaler Private Access)에 대 한 Azure AD 프로 비전 서비스를 사용 하도록 **설정 하려면 설정** 섹션에서 **프로 비전 상태** 를 **켜기** 로 변경 합니다.
+13. Zscaler 개인 액세스(ZPA)에 대한 Azure AD 프로비저닝 서비스를 사용하려면 **설정** 섹션에서 **프로비저닝 상태를** **켜기로** 변경합니다.
 
     ![프로비전 상태 켜기로 전환](common/provisioning-toggle-on.png)
 
-14. **설정** 섹션의 **범위** 에서 원하는 값을 선택 하 여 Zpa (Zscaler Private Access)에 프로 비전 하려는 사용자 및/또는 그룹을 정의 합니다.
+14. **설정** 섹션의 **범위에서** 원하는 값을 선택하여 Zscaler 개인 액세스(ZPA)에 프로비전할 사용자 및/또는 그룹을 정의합니다.
 
     ![프로비전 범위](common/provisioning-scope.png)
 
@@ -181,14 +181,14 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위해 ZPA (Zscaler Priv
 
     ![프로비전 구성 저장](common/provisioning-configuration-save.png)
 
-이 작업은 **설정**의 **범위** 섹션에 정의된 모든 사용자 및/또는 그룹의 초기 동기화를 시작합니다. 초기 동기화는 Azure AD 프로비전 서비스가 실행되는 동안 약 40분마다 발생하는 후속 동기화보다 더 많은 시간이 걸립니다. **동기화 세부 정보** 섹션을 사용 하 여 진행률을 모니터링 하 고 프로 비전 활동 보고서에 대 한 링크를 따라 Zpa (Zscaler Private Access)에서 Azure AD 프로 비전 서비스에서 수행 하는 모든 작업을 설명 합니다.
+이 작업은 **설정**의 **범위** 섹션에 정의된 모든 사용자 및/또는 그룹의 초기 동기화를 시작합니다. 초기 동기화는 Azure AD 프로비전 서비스가 실행되는 동안 약 40분마다 발생하는 후속 동기화보다 더 많은 시간이 걸립니다. 동기화 세부 **정보** 섹션을 사용하여 진행 상황을 모니터링하고 Zscaler 개인 액세스(ZPA)에서 Azure AD 프로비저닝 서비스에서 수행하는 모든 작업을 설명하는 프로비저닝 활동 보고서에 대한 링크를 따를 수 있습니다.
 
 Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](../app-provisioning/check-status-user-account-provisioning.md)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 
-* [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [엔터프라이즈 앱용 사용자 계정 프로비저닝 관리](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Azure Active Directory의 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>다음 단계
 

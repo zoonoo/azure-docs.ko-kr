@@ -1,6 +1,6 @@
 ---
-title: Azure DevTest Labs에서 VM에 아티팩트 추가 | Microsoft Docs
-description: Azure DevTest Labs에서 랩에서 가상 머신에 아티팩트를 추가 하는 방법에 대해 알아봅니다.
+title: Azure DevTest 랩의 VM에 아티팩트 추가 | 마이크로 소프트 문서
+description: Azure DevTest 랩의 랩에서 가상 컴퓨터에 아티팩트를 추가하는 방법에 대해 알아봅니다.
 services: devtest-lab,virtual-machines
 documentationcenter: na
 author: spelluru
@@ -15,23 +15,23 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
 ms.openlocfilehash: 27fec279582d845972b87ac635c87c16c239924e
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73901319"
 ---
 # <a name="add-an-artifact-to-a-vm"></a>VM에 아티팩트 추가
-VM을 만드는 동안 기존 아티팩트를 추가할 수 있습니다. 이러한 아티팩트는 [공용 DevTest Labs git 리포지토리](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) 또는 사용자 고유의 Git 리포지토리에서 만들 수 있습니다. 이 문서에서는 Azure PowerShell를 사용 하 여 Azure Portal에 아티팩트를 추가 하는 방법을 보여 줍니다. 
+VM을 만드는 동안 기존 아티팩트를 추가할 수 있습니다. 이러한 아티팩트는 공용 [DevTest Labs Git 리포지토리](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) 또는 사용자 고유의 Git 리포지토리에서 사용할 수 있습니다. 이 문서에서는 Azure Portal에서 아티팩트를 추가하는 방법과 Azure PowerShell을 사용하여 아티팩트를 추가하는 방법을 보여 주며 이 문서에서는 이러한 아티팩트를 추가합니다. 
 
 Windows PowerShell 스크립트 실행, Bash 명령 실행 및 소프트웨어 설치 등 Azure DevTest Labs *아티팩트*를 통해 VM을 프로비전할 때 수행하는 *작업*을 지정할 수 있습니다. 아티팩트 *매개 변수* 를 통해 특정 시나리오에 대한 아티팩트를 사용자 지정할 수 있습니다.
 
-사용자 지정 아티팩트를 만드는 방법에 대 한 자세한 내용은 [사용자 지정 아티팩트 만들기](devtest-lab-artifact-author.md)문서를 참조 하세요.
+사용자 지정 아티팩트를 만드는 방법에 대해 자세히 알아보려면 다음 문서를 [참조하십시오.](devtest-lab-artifact-author.md)
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="use-azure-portal"></a>Azure Portal 사용 
-1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
+1. [Azure 포털에](https://go.microsoft.com/fwlink/p/?LinkID=525040)로그인합니다.
 1. **모든 서비스**를 선택한 다음, 목록에서 **DevTest Labs**를 선택합니다.
 1. 랩 목록에서 사용하려는 VM을 포함하는 랩을 선택합니다.  
 1. **내 가상 머신**를 선택합니다.
@@ -65,7 +65,7 @@ Windows PowerShell 스크립트 실행, Bash 명령 실행 및 소프트웨어 �
 1. **확인**을 선택하여 **선택한 아티팩트** 창을 닫습니다.
 
 ## <a name="use-powershell"></a>PowerShell 사용
-다음 스크립트는 지정 된 아티팩트를 지정 된 VM에 적용 합니다. [AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction) 명령은 작업을 수행 합니다.  
+다음 스크립트는 지정된 아티팩트를 지정된 VM에 적용합니다. [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction) 명령은 작업을 수행하는 명령입니다.  
 
 ```powershell
 #Requires -Module Az.Resources
@@ -164,9 +164,9 @@ if ($virtualMachine -ne $null) {
 ```
 
 ## <a name="next-steps"></a>다음 단계
-아티팩트에 대 한 다음 문서를 참조 하세요.
+아티팩트에 대한 다음 문서를 참조하십시오.
 
-- [랩에 대 한 필수 아티팩트 지정](devtest-lab-mandatory-artifacts.md)
+- [랩에 필수 아티팩트 지정](devtest-lab-mandatory-artifacts.md)
 - [사용자 지정 아티팩트 만들기](devtest-lab-artifact-author.md)
 - [랩에 아티팩트 리포지토리 추가](devtest-lab-artifact-author.md)
 - [아티팩트 실패 진단](devtest-lab-troubleshoot-artifact-failure.md)

@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.reviewer: sdash
 ms.openlocfilehash: d91595a863901fcc420611ac644c7856e74320dd
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77655126"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Azure Application Insights 데이터를 사용하여 사용자 지정 보고서 자동화
@@ -70,7 +70,7 @@ availabilityResults
 
 ## <a name="application-insights-scheduled-digest-report"></a>Application Insights 예약된 다이제스트 보고서
 
-1. Azure Portal에서 **리소스 만들기** > **Compute** > **함수 앱**을 선택합니다.
+1.  > Azure 포털에서 리소스 계산**함수 앱** **만들기를****선택합니다.** > 
 
    ![Azure Resource 함수 앱 만들기 스크린샷](./media/automate-custom-reports/function-app-01.png)
 
@@ -87,7 +87,7 @@ availabilityResults
 5. **_Application Insights 예약된 다이제스트 템플릿_** 을 선택합니다.
 
      > [!NOTE]
-     > 기본적으로 함수 앱은 런타임 버전 2.x로 생성 됩니다. Application Insights 예약 된 다이제스트 템플릿을 사용 하려면 [Azure Functions 런타임 버전](https://docs.microsoft.com/azure/azure-functions/set-runtime-version) 1.x를 대상으로 해야 **합니다.**  ![런타임 스크린샷](./../../../includes/media/functions-view-update-version-portal/function-app-view-version.png)
+     > 기본적으로 함수 앱은 런타임 버전 2.x로 만들어집니다. 응용 프로그램 인사이트 예약 된 다이제스트 템플릿을 사용 하려면 [Azure Functions 런타임 버전](https://docs.microsoft.com/azure/azure-functions/set-runtime-version) **1.x를** 대상으로 해야 합니다.  ![런타임 스크린샷](./../../../includes/media/functions-view-update-version-portal/function-app-view-version.png)
 
 
 
@@ -97,7 +97,7 @@ availabilityResults
 
    ![함수 설정 스크린샷](./media/automate-custom-reports/function-app-05.png)
 
-7. **함수 앱** > **플랫폼 기능** > **애플리케이션 설정**을 선택합니다.
+7. 함수 **앱** > **플랫폼 기능** > **응용 프로그램 설정을**선택합니다.
 
     ![Azure 함수 애플리케이션 설정 스크린샷](./media/automate-custom-reports/function-app-07.png)
 
@@ -142,7 +142,7 @@ availabilityResults
 
      ![API 키 설정 스크린샷](./media/automate-custom-reports/function-app-14.png)
 
-3. SendGrid의 사이트가 시작됩니다. **설정** > **API 키**를 선택합니다.
+3. SendGrid의 사이트가 시작됩니다. **설정** > **API 키를 선택합니다.**
 
      ![API 키 앱 만들기 및 보기 스크린샷](./media/automate-custom-reports/function-app-15.png)
 

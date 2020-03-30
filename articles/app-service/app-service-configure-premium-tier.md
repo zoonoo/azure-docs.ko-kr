@@ -7,17 +7,17 @@ ms.topic: article
 ms.date: 07/25/2018
 ms.custom: seodec18
 ms.openlocfilehash: f7f9f6d5617ad0f9be69c47ce514d395534fd892
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74672220"
 ---
 # <a name="configure-premiumv2-tier-for-azure-app-service"></a>Azure App Service에 대한 PremiumV2 계층 구성
 
 새 **PremiumV2** 가격 책정 계층은 프로세서, SSD 스토리지 속도를 개선하며 기존 가격 책정 계층의 메모리 대 코어 비율을 두 배로 높입니다. 성능상의 이점 덕분에 더 적은 인스턴스에서 앱을 실행하여 비용을 절감할 수 있습니다. 이 문서에서는 **PremiumV2** 계층에서 앱을 만들거나 **PremiumV2** 계층으로 앱을 강화하는 방법에 대해 알아봅니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 앱을 **PremiumV2**로 강화하려면 **PremiumV2**보다 낮은 가격 책정 계층에서 실행되는 Azure App Service이 있어야 하며, 앱은 PremiumV2를 지원하는 App Service 배포에서 실행되어야 합니다.
 
@@ -68,7 +68,7 @@ App Service 앱 페이지의 왼쪽 탐색 영역에서 **강화(App Service 계
 
 ![](media/app-service-configure-premium-tier/finished.png)
 
-### <a name="if-you-get-an-error"></a>오류가 발생한 경우
+### <a name="if-you-get-an-error"></a>오류가 발생하는 경우
 
 일부 App Service 계획은 기본 App Service 배포가 PremiumV2를 지원하지 않는 경우 PremiumV2 계층을 강화할 수 없습니다.  자세한 내용은 [지원되지 않는 리소스 그룹 및 지역 조합에서 강화](#unsupported)를 참조합니다.
 

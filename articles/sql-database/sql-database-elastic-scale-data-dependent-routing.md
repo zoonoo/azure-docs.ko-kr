@@ -12,17 +12,17 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.openlocfilehash: fbdf8e316368be02ebd0c4bfd320917c20d80777
-ms.sourcegitcommit: a460fdc19d6d7af6d2b5a4527e1b5c4e0c49942f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77069458"
 ---
 # <a name="use-data-dependent-routing-to-route-a-query-to-appropriate-database"></a>데이터 의존 라우팅을 사용하여 적절한 데이터베이스로 쿼리 라우팅
 
 **데이터 종속 라우팅** 은 쿼리에서 데이터를 사용하여 적절한 데이터베이스로 요청을 라우트하는 기능입니다. 데이터 종속 라우팅은 분할된 데이터베이스를 사용할 때의 기본 패턴입니다. 요청 컨텍스트는 특히 분할 키가 쿼리의 일부가 아닌 경우 요청을 라우트하는 데 사용될 수도 있습니다. 데이터 종속 라우팅을 사용하는 애플리케이션의 각 특정 쿼리 또는 트랜잭션은 요청당 하나의 데이터베이스에 액세스하는 것으로 제한됩니다. Azure SQL Database 탄력적 도구의 경우 이 라우팅은 **ShardMapManager**([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager)) 클래스를 통해 수행됩니다.
 
-애플리케이션에서는 다양한 연결 문자열 또는 분할된 환경의 여러 데이터 조각과 연결된 DB 위치를 추적하지 않아도 됩니다. 대신 [분할된 데이터베이스 맵 관리자](sql-database-elastic-scale-shard-map-management.md)에서 필요한 경우 분할된 데이터베이스 맵의 데이터 및 애플리케이션의 요청 대상인 분할 키의 값에 따라 올바른 데이터베이스에 연결을 엽니다. 이 키는 일반적으로 *customer_id*, *tenant_id*, *date_key* 또는 데이터베이스 요청의 기본 매개 변수인 별도의 특정 식별자입니다.
+애플리케이션에서는 다양한 연결 문자열 또는 분할된 환경의 여러 데이터 조각과 연결된 DB 위치를 추적하지 않아도 됩니다. 대신 [분할된 데이터베이스 맵 관리자](sql-database-elastic-scale-shard-map-management.md)에서 필요한 경우 분할된 데이터베이스 맵의 데이터 및 애플리케이션의 요청 대상인 분할 키의 값에 따라 올바른 데이터베이스에 연결을 엽니다. 키는 일반적으로 *customer_id*, *tenant_id*, *date_key*또는 데이터베이스 요청의 기본 매개 변수인 다른 특정 식별자입니다.
 
 자세한 내용은 [Scaling Out SQL Server with Data Dependent Routing](https://technet.microsoft.com/library/cc966448.aspx)(데이터 종속 라우팅을 사용하여 SQL Server 크기 조정)을 참조하세요.
 
@@ -35,7 +35,7 @@ ms.locfileid: "77069458"
 
 ## <a name="using-a-shardmapmanager-in-a-data-dependent-routing-application"></a>데이터 종속 라우팅 애플리케이션에서 ShardMapManager 사용
 
-애플리케이션에서 초기화 중에 **GetSQLShardMapManager**(**Java**, [.NET](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanagerfactory.getsqlshardmapmanager)) 팩터리 호출을 사용하여 [ShardMapManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager)를 인스턴스화해야 합니다. 이 예제에서는 **ShardMapManager** 및 포함하는 특정 **ShardMap**이 모두 초기화됩니다. 이 예제에서는 GetSqlShardMapManager 및 GetRangeShardMap([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager.getrangeshardmap), [.NET](https://docs.microsoft.com/previous-versions/azure/dn824173(v=azure.100))) 메서드를 보여 줍니다.
+애플리케이션에서 초기화 중에 **GetSQLShardMapManager**([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanagerfactory.getsqlshardmapmanager), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager)) 팩터리 호출을 사용하여 **ShardMapManager**를 인스턴스화해야 합니다. 이 예제에서는 **ShardMapManager** 및 포함하는 특정 **ShardMap**이 모두 초기화됩니다. 이 예제에서는 GetSqlShardMapManager 및 GetRangeShardMap([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager.getrangeshardmap), [.NET](https://docs.microsoft.com/previous-versions/azure/dn824173(v=azure.100))) 메서드를 보여 줍니다.
 
 ```Java
 ShardMapManager smm = ShardMapManagerFactory.getSqlShardMapManager(connectionString, ShardMapManagerLoadPolicy.Lazy);
@@ -66,7 +66,7 @@ public SqlConnection OpenConnectionForKey<TKey>(TKey key, string connectionStrin
 ```
 
 * **key** 매개 변수는 요청에 대한 적합한 데이터베이스를 결정하는 분할된 데이터베이스 맵의 조회 키로 사용됩니다.
-* **connectionString** 은 원하는 연결에 대한 사용자 자격 증명만 전달하는 데 사용됩니다. 메서드에서 *ShardMap*을 사용하여 데이터베이스와 서버를 결정하므로 이 **connectionString**에는 데이터베이스 이름 또는 서버 이름이 포함되지 않습니다.
+* **connectionString** 은 원하는 연결에 대한 사용자 자격 증명만 전달하는 데 사용됩니다. 메서드에서 **ShardMap**을 사용하여 데이터베이스와 서버를 결정하므로 이 *connectionString*에는 데이터베이스 이름 또는 서버 이름이 포함되지 않습니다.
 * 분할된 데이터베이스 맵이 변경되고 분할 또는 병합 작업의 결과에 따라 다른 데이터베이스로 행이 이동할 수 있는 환경인 경우 **connectionOptions**([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper.connectionoptions), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.connectionoptions))를 **ConnectionOptions.Validate**로 설정해야 합니다. 이 유효성 검사에는 연결이 애플리케이션에 전달되기 전 대상 데이터베이스의 로컬 분할된 데이터베이스 맵(글로벌하게 분할된 데이터베이스 맵이 아님)에 대한 간략한 쿼리가 포함됩니다.
 
 로컬 분할된 데이터베이스 맵에 대한 유효성 검사가 실패하면(캐시가 올바르지 않음을 나타냄) 분할된 데이터베이스 맵 관리자에서 전역 분할된 데이터베이스 맵을 쿼리하여 올바른 새 값을 가져오고, 캐시를 업데이트하고, 적절한 데이터베이스 연결을 가져오고 반환합니다.

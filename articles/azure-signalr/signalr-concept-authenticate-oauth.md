@@ -1,16 +1,16 @@
 ---
-title: Azure SignalR Service 클라이언트를 인증 하기 위한 가이드
-description: 사용자 고유의 인증을 구현 하 고 e2e 예제에 따라 Azure SignalR Service와 통합 하는 방법에 대해 알아봅니다.
+title: Azure SignalR 서비스 클라이언트 인증 가이드
+description: e2e 예제에 따라 자체 인증을 구현하고 Azure SignalR 서비스와 통합하는 방법을 알아봅니다.
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zhshang
 ms.openlocfilehash: cc955adffbe7df5809f9c4c860877ad22df3e99b
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74158272"
 ---
 # <a name="azure-signalr-service-authentication"></a>Azure SignalR Service 인증
@@ -31,7 +31,7 @@ GitHub를 통해 제공되는 OAuth 인증 API에 대한 자세한 내용은 [�
 
 ![Azure에서 호스트되는 OAuth 완료](media/signalr-concept-authenticate-oauth/signalr-oauth-complete-azure.png)
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * GitHub 계정을 사용하여 새 OAuth 앱 등록
@@ -40,21 +40,21 @@ GitHub를 통해 제공되는 OAuth 인증 API에 대한 자세한 내용은 [�
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음 필수 구성 요소가 있어야 합니다.
 
 * [GitHub](https://github.com/)에서 만들어진 계정
 * [Git](https://git-scm.com/)
 * [.NET Core SDK](https://www.microsoft.com/net/download/windows)
-* [Azure Cloud Shell이 구성됨](https://docs.microsoft.com/azure/cloud-shell/quickstart)
+* [Azure 클라우드 셸 구성](https://docs.microsoft.com/azure/cloud-shell/quickstart)
 * [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples) GitHub 리포지토리를 다운로드하거나 복제합니다.
 
 ## <a name="create-an-oauth-app"></a>OAuth 앱 만들기
 
 1. 웹 브라우저를 열고 `https://github.com`으로 이동한 후 계정에 로그인합니다.
 
-2. 사용자 계정의 경우, **설정** > **개발자 설정**으로 이동한 후 **새 애플리케이션 등록** 또는 **OAuth 앱** 아래의 *새 OAuth 앱*을 클릭합니다.
+2. 계정의 경우 **설정** > **개발자 설정으로** 이동하여 **새 응용 프로그램 등록**또는 *OAuth 앱에서* **새 OAuth 앱을** 클릭합니다.
 
 3. 새 OAuth 앱에 대해 다음 설정을 사용한 후 **애플리케이션 등록**을 클릭합니다.
 
@@ -62,7 +62,7 @@ GitHub를 통해 제공되는 OAuth 인증 API에 대한 자세한 내용은 [�
     | ------------ | --------------- | ----------- |
     | 애플리케이션 이름 | *Azure SignalR Chat* | GitHub 사용자는 인증하는 앱을 인식하고 신뢰할 수 있어야 합니다.   |
     | 홈페이지 URL | `http://localhost:5000/home` | |
-    | 애플리케이션 설명 | *GitHub 인증에서 Azure SignalR Service를 사용하는 대화방 샘플* | 애플리케이션 사용자가 사용 중인 인증 컨텍스트를 이해하는 데 도움이 되는 애플리케이션에 대한 유용한 설명입니다. |
+    | 애플리케이션 설명 | *GitHub 인증을 사용하는 Azure SignalR 서비스를 사용하는 채팅방 샘플* | 애플리케이션 사용자가 사용 중인 인증 컨텍스트를 이해하는 데 도움이 되는 애플리케이션에 대한 유용한 설명입니다. |
     | 권한 부여 호출 URL | `http://localhost:5000/signin-github` | 이 설정은 OAuth 애플리케이션에 대한 가장 중요한 설정입니다. GitHub가 성공적인 인증 후에 사용자를 반환하는 콜백 URL입니다. 이 자습서에서는 *AspNet.Security.OAuth.GitHub* 패키지에 대한 기본 콜백 URL인 */signin-github*를 사용해야 합니다.  |
 
 4. 새 OAuth 앱 등록이 완료되면 다음 명령을 사용하여 *클라이언트 ID* 및 *클라이언트 암호*를 보안 관리자에 추가합니다. *Your_GitHub_Client_Id* 및 *Your_GitHub_Client_Secret*을 OAuth 앱에 대한 값으로 바꿉니다.
@@ -377,7 +377,7 @@ GitHub를 통해 제공되는 OAuth 인증 API에 대한 자세한 내용은 [�
 
 ## <a name="deploy-the-app-to-azure"></a>Azure에 앱 배포
 
-이 섹션에서는 Azure Cloud Shell의 Azure CLI (명령줄 인터페이스)를 사용 하 여 Azure에서 ASP.NET 응용 프로그램을 호스트 하는 [Azure App Service](https://docs.microsoft.com/azure/app-service/) 새 웹 앱을 만듭니다. 이 웹앱은 로컬 Git 배포를 사용하도록 구성됩니다. 또한 SignalR 연결 문자열, GitHub OAuth 앱 암호 및 배포 사용자로도 구성됩니다.
+이 섹션에서는 Azure Cloud Shell의 Azure 명령줄 인터페이스(CLI)를 사용하여 Azure 앱 서비스에서 새 웹 앱을 만들어 [Azure에서](https://docs.microsoft.com/azure/app-service/) ASP.NET 응용 프로그램을 호스트합니다. 이 웹앱은 로컬 Git 배포를 사용하도록 구성됩니다. 또한 SignalR 연결 문자열, GitHub OAuth 앱 암호 및 배포 사용자로도 구성됩니다.
 
 이 섹션의 단계에서는 Azure CLI에 대해 *signalr* 확장을 사용합니다. 다음 명령을 실행하여 Azure CLI용 *signalr* 확장을 설치합니다.
 
@@ -412,11 +412,11 @@ az webapp create --name $WebAppName --resource-group $ResourceGroupName \
     --plan $WebAppPlan
 ```
 
-| 매개 변수를 포함해야 합니다. | 설명 |
+| 매개 변수 | 설명 |
 | -------------------- | --------------- |
 | ResourceGroupName | 이 리소스 그룹 이름은 이전 자습서에서 제안된 것입니다. 모든 자습서 리소스를 그룹화된 상태로 유지하는 것이 좋습니다. 이전 자습서에서 사용한 것과 동일한 리소스 그룹을 사용합니다. |
 | WebAppPlan | 새로운 고유한 App Service 계획 이름을 입력합니다. |
-| WebAppName | 이것은 새 웹앱의 이름이 되고 URL의 일부로 사용됩니다. 고유한 이름을 사용합니다. 예를 들어 signalrtestwebapp22665120과 같습니다.   |
+| WebAppName | 이것은 새 웹앱의 이름이 되고 URL의 일부로 사용됩니다. 고유 이름을 사용하십시오. 예를 들어 signalrtestwebapp22665120과 같습니다.   |
 
 ### <a name="add-app-settings-to-the-web-app"></a>웹앱에 앱 설정 추가
 
@@ -460,7 +460,7 @@ az webapp config appsettings set --name $WebAppName \
     --settings "GitHubClientSecret=$GitHubClientSecret"
 ```
 
-| 매개 변수를 포함해야 합니다. | 설명 |
+| 매개 변수 | 설명 |
 | -------------------- | --------------- |
 | GitHubClientId | GitHub OAuth 앱에 대한 비밀 클라이언트 ID를 이 변수에 할당합니다. |
 | GitHubClientSecret | GitHub OAuth 앱에 대한 비밀 암호를 이 변수에 할당합니다. |
@@ -495,7 +495,7 @@ az webapp deployment source config-local-git --name $WebAppName \
     --query [url] -o tsv
 ```
 
-| 매개 변수를 포함해야 합니다. | 설명 |
+| 매개 변수 | 설명 |
 | -------------------- | --------------- |
 | DeploymentUserName | 새 배포 사용자 이름을 선택합니다. |
 | DeploymentUserPassword | 새 배포 사용자의 암호를 선택합니다. |
@@ -539,11 +539,11 @@ az webapp deployment source config-local-git --name $WebAppName \
 
 수행해야 하는 마지막 작업은 GitHub OAuth 앱의 **홈페이지 URL** 및 **권한 부여 콜백 URL**이 새로 호스트된 앱을 가리키도록 업데이트하는 것입니다.
 
-1. 브라우저에서 [https://github.com](https://github.com)을 열고 계정의 **설정** > **개발자 설정** > **Oauth 앱**으로 이동합니다.
+1. 브라우저에서 [https://github.com](https://github.com) 열고 계정의 **설정** > **개발자 설정** > **Oauth 앱으로**이동합니다.
 
 2. 인증 앱을 클릭하고 아래와 같이 **홈페이지 URL** 및 **권한 부여 콜백 URL**을 업데이트합니다.
 
-    | 설정 | 예 |
+    | 설정 | 예제 |
     | ------- | ------- |
     | 홈페이지 URL | https://signalrtestwebapp22665120.azurewebsites.net/home |
     | 권한 부여 호출 URL | https://signalrtestwebapp22665120.azurewebsites.net/signin-github |
@@ -556,20 +556,20 @@ az webapp deployment source config-local-git --name $WebAppName \
 
 다음 자습서를 계속 진행하려는 경우 이 빠른 시작에서 만든 리소스를 그대로 두었다가 다음 자습서에서 다시 사용할 수 있습니다.
 
-또는, 빠른 시작 샘플 애플리케이션 사용을 마친 경우 이 빠른 시작에서 만든 Azure 리소스를 삭제하여 요금이 청구되는 것을 방지할 수 있습니다.
+그렇지 않고, 빠른 시작 샘플 애플리케이션 사용이 끝나면 이 빠른 시작에서 만든 Azure 리소스를 삭제하여 요금이 청구되는 것을 방지할 수 있습니다.
 
 > [!IMPORTANT]
 > 리소스 그룹 삭제는 취소할 수 없으며 해당 리소스 그룹 및 해당 그룹 안에 있는 모든 리소스는 영구적으로 삭제됩니다. 잘못된 리소스 그룹 또는 리소스를 자동으로 삭제하지 않도록 해야 합니다. 유지하려는 리소스가 포함된 기존 리소스 그룹 내에 이 샘플을 호스트하기 위한 리소스를 만든 경우 리소스 그룹을 삭제하는 대신, 해당 블레이드에서 각 리소스를 개별적으로 삭제할 수 있습니다.
 
 [Azure 포털](https://portal.azure.com) 에 로그인하고 **리소스 그룹**을 클릭합니다.
 
-**이름을 기준으로 필터링...** 텍스트 상자에 리소스 그룹의 이름을 입력합니다. 이 문서의 지침에서는 *SignalRTestResources*라는 리소스 그룹을 사용합니다. 결과 목록의 리소스 그룹에서 **...** 를 클릭한 후 **리소스 그룹 삭제**를 클릭합니다.
+이름으로 **필터...** 텍스트 상자에서 리소스 그룹의 이름을 입력합니다. 이 문서의 지침에서는 *SignalRTestResources*라는 리소스 그룹을 사용합니다. 결과 목록의 리소스 그룹에서 **...** 를 클릭한 다음, **리소스 그룹 삭제**를 클릭합니다.
 
-![삭제](./media/signalr-concept-authenticate-oauth/signalr-delete-resource-group.png)
+![DELETE](./media/signalr-concept-authenticate-oauth/signalr-delete-resource-group.png)
 
 리소스 그룹을 삭제할지 확인하는 메시지가 표시됩니다. 리소스 그룹의 이름을 입력하여 확인한 후 **삭제**를 클릭합니다.
 
-잠시 후 리소스 그룹 및 해당 그룹에 포함된 모든 리소스가 삭제됩니다.
+잠시 후, 리소스 그룹 및 해당 그룹에 포함된 모든 리소스가 삭제됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

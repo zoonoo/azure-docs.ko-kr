@@ -1,40 +1,40 @@
 ---
-title: AKS (Azure Kubernetes Service)에 대 한 CoreDNS 사용자 지정
-description: Azure Kubernetes 서비스 (AKS)를 사용 하 여 하위 도메인을 추가 하거나 사용자 지정 DNS 끝점을 확장 하도록 CoreDNS를 사용자 지정 하는 방법 알아보기
+title: Azure Kubernetes 서비스(AKS)에 대한 코어DNS 사용자 지정
+description: Azure Kubernetes 서비스(AKS)를 사용하여 CoreDNS를 사용자 지정하여 하위 도메인을 추가하거나 사용자 지정 DNS 끝점을 확장하는 방법을 알아봅니다.
 services: container-service
 author: jnoller
 ms.topic: article
 ms.date: 03/15/2019
 ms.author: jenoller
 ms.openlocfilehash: 78132a53313f4a8ee5c10af340c8dab08c3e42c2
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77595827"
 ---
-# <a name="customize-coredns-with-azure-kubernetes-service"></a>Azure Kubernetes Service를 사용 하 여 CoreDNS 사용자 지정
+# <a name="customize-coredns-with-azure-kubernetes-service"></a>Azure Kubernetes Service를 사용하여 CoreDNS 사용자 지정
 
-AKS (Azure Kubernetes Service)는 모든 *1.12. x* 이상 클러스터에서 클러스터 DNS 관리 및 확인을 위해 [coredns][coredns] 프로젝트를 사용 합니다. 이전에는 kube 프로젝트를 사용 했습니다. 이 kube 프로젝트는 이제 사용 되지 않습니다. CoreDNS 사용자 지정 및 Kubernetes에 대 한 자세한 내용은 [공식 업스트림 설명서][corednsk8s]를 참조 하세요.
+Azure Kubernetes 서비스(AKS)는 *모든 1.12.x* 이상 클러스터에서 클러스터 DNS 관리 및 해결을 위해 [CoreDNS][coredns] 프로젝트를 사용합니다. 이전에는 kube-dns 프로젝트가 사용되었습니다. 이 kube-dns 프로젝트는 이제 더 이상 사용되지 않습니다. CoreDNS 사용자 지정 및 Kubernetes에 대한 자세한 내용은 [공식 업스트림 설명서를][corednsk8s]참조하십시오.
 
-AKS는 관리 되는 서비스 이므로 CoreDNS (a *CoreFile*)에 대 한 기본 구성을 수정할 수 없습니다. 대신 Kubernetes *Configmap* 을 사용 하 여 기본 설정을 재정의 합니다. 기본 AKS CoreDNS ConfigMaps를 보려면 `kubectl get configmaps --namespace=kube-system coredns -o yaml` 명령을 사용 합니다.
+AKS는 관리되는 서비스이기 때문에 CoreDNS(코어파일)의 *CoreFile*기본 구성을 수정할 수 없습니다. 대신 Kubernetes *ConfigMap을* 사용하여 기본 설정을 재정의합니다. 기본 AKS CoreDNS 구성지도를 보려면 `kubectl get configmaps --namespace=kube-system coredns -o yaml` 명령을 사용합니다.
 
-이 문서에서는 AKS에서 CoreDNS의 기본 사용자 지정 옵션에 대해 ConfigMaps를 사용 하는 방법을 보여 줍니다. 이 방법은 CoreFile를 사용 하는 것과 같은 다른 컨텍스트에서 CoreDNS를 구성 하는 것과 다릅니다. 구성 값이 버전 간에 변경 될 수 있으므로 실행 중인 CoreDNS의 버전을 확인 합니다.
+이 문서에서는 AKS에서 CoreDNS의 기본 사용자 지정 옵션에 ConfigMaps를 사용하는 방법을 보여 주며 있습니다. 이 방법은 CoreFile 사용과 같은 다른 컨텍스트에서 CoreDNS를 구성하는 것과 다릅니다. 구성 값이 버전 간에 변경될 수 있으므로 실행 중인 CoreDNS 버전을 확인합니다.
 
 > [!NOTE]
-> `kube-dns` Kubernetes 구성 맵을 통해 다른 [사용자 지정 옵션][kubednsblog] 을 제공 했습니다. CoreDNS는 이전 버전인 kube와 호환 **되지 않습니다** . 이전에 사용 했던 사용자 지정 항목은 CoreDNS에서 사용 하기 위해 업데이트 해야 합니다.
+> `kube-dns`Kubernetes 구성 맵을 통해 다양한 [사용자 정의 옵션을][kubednsblog] 제공했습니다. CoreDNS는 kube-dns와 이전 버전과 **호환되지 않습니다.** 이전에 사용한 모든 사용자 지정은 CoreDNS와 함께 사용하도록 업데이트되어야 합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터가 필요한 경우 [Azure CLI를 사용][aks-quickstart-cli] 하거나 [Azure Portal를 사용][aks-quickstart-portal]하 여 AKS 빠른 시작을 참조 하세요.
+이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터가 필요한 경우 AKS 빠른 시작[Azure CLI 사용][aks-quickstart-cli] 또는 [Azure Portal 사용][aks-quickstart-portal]을 참조하세요.
 
-## <a name="what-is-supportedunsupported"></a>지원 되는/지원 되지 않는 기능
+## <a name="what-is-supportedunsupported"></a>지원되다/지원되지 않는 것
 
-모든 기본 제공 CoreDNS 플러그 인이 지원 됩니다. 추가 기능/타사 플러그 인은 지원 되지 않습니다.
+모든 기본 제공 CoreDNS 플러그인이 지원됩니다. 추가 기능/타사 플러그인이 지원되지 않습니다.
 
-## <a name="rewrite-dns"></a>DNS 다시 작성
+## <a name="rewrite-dns"></a>DNS 다시 쓰기
 
-사용자가 수행 하는 한 가지 시나리오는 즉석에서 DNS 이름을 다시 작성 하는 것입니다. 다음 예에서는 `<domain to be written>`를 고유한 정규화 된 도메인 이름으로 바꿉니다. `corednsms.yaml` 라는 파일을 만들고 다음 예제 구성을 붙여넣습니다.
+한 가지 시나리오는 즉석에서 DNS 이름 다시 쓰기를 수행하는 것입니다. 다음 예제에서는 정규화된 고유한 도메인 이름으로 바꿉니다. `<domain to be written>` 다음 예제 `corednsms.yaml` 구성이라는 파일을 만들고 붙여넣습니다.
 
 ```yaml
 apiVersion: v1
@@ -52,30 +52,30 @@ data:
     }
 ```
 
-[Kubectl apply ConfigMap][kubectl-apply] 명령을 사용 하 여 ConfigMap을 만들고 yaml 매니페스트의 이름을 지정 합니다.
+[kubectl 적용 configmap][kubectl-apply] 명령을 사용 하 여 ConfigMap을 만들고 YAML 매니페스트의 이름을 지정 합니다.
 
 ```console
 kubectl apply -f corednsms.yaml
 ```
 
-사용자 지정 항목이 적용 되었는지 확인 하려면 [kubectl 가져오기 configmaps][kubectl-get] 를 사용 하 고 *coredns-custom* configmaps을 지정 합니다.
+사용자 지정이 적용되었는지 확인하려면 [kubectl get configmaps를][kubectl-get] 사용하고 *coredns-custom* ConfigMap을 지정합니다.
 
 ```
 kubectl get configmaps --namespace=kube-system coredns-custom -o yaml
 ```
 
-이제 CoreDNS를 강제로 실행 하 여 ConfigMap을 다시 로드 합니다. [Kubectl delete pod][kubectl delete] 명령은 소거식이 아니며 시간을 발생 시 키 지 않습니다. `kube-dns` pod가 삭제 되 고 Kubernetes Scheduler가 다시 만듭니다. 이러한 새 pod TTL 값의 변경 내용을 포함 합니다.
+이제 CoreDNS가 구성맵을 다시 로드하도록 합니다. [kubectl 삭제 포드][kubectl delete] 명령은 파괴적이지 않으며 가동 중지 시간을 일으키지 않습니다. 포드가 `kube-dns` 삭제되고 Kubernetes 스케줄러가 다시 만듭니다. 이러한 새 포드에는 TTL 값의 변경 내용이 포함되어 있습니다.
 
 ```console
 kubectl delete pod --namespace kube-system -l k8s-app=kube-dns
 ```
 
 > [!Note]
-> 위의 명령이 올바릅니다. `coredns`를 변경 하는 동안 배포는 **kube** 이름 아래에 있습니다.
+> 위의 명령이 정확합니다. 변경하는 `coredns`동안 배포는 **kube-dns** 이름 아래에 있습니다.
 
 ## <a name="custom-forward-server"></a>사용자 지정 전달 서버
 
-네트워크 트래픽에 대 한 전달 서버를 지정 해야 하는 경우 ConfigMap을 만들어 DNS를 사용자 지정할 수 있습니다. 다음 예제에서는 사용자의 환경에 대 한 값으로 `forward` 이름과 주소를 업데이트 합니다. `corednsms.yaml` 라는 파일을 만들고 다음 예제 구성을 붙여넣습니다.
+네트워크 트래픽에 대한 전달 서버를 지정해야 하는 경우 ConfigMap을 만들어 DNS를 사용자 지정할 수 있습니다. 다음 예제에서는 사용자 `forward` 고유의 환경에 대한 값으로 이름과 주소를 업데이트합니다. 다음 예제 `corednsms.yaml` 구성이라는 파일을 만들고 붙여넣습니다.
 
 ```yaml
 apiVersion: v1
@@ -90,7 +90,7 @@ data:
     }
 ```
 
-이전 예제와 같이 [kubectl apply ConfigMap][kubectl-apply] 명령을 사용 하 여 ConfigMap을 만들고 yaml 매니페스트의 이름을 지정 합니다. 그런 다음 Kubernetes Scheduler에 대 한 [kubectl delete pod][kubectl delete] 를 사용 하 여 Coredns에서 configmap을 다시 로드 하 여 다시 만듭니다.
+이전 예제와 마찬가지로 [kubectl 적용 configmap][kubectl-apply] 명령을 사용 하 여 ConfigMap을 만들고 YAML 매니페스트의 이름을 지정 합니다. 그런 다음 CoreDNS가 Kubernetes 스케줄러에 대한 [kubectl delete 포드를][kubectl delete] 사용하여 ConfigMap을 다시 로드하여 다시 만듭니다.
 
 ```console
 kubectl apply -f corednsms.yaml
@@ -99,9 +99,9 @@ kubectl delete pod --namespace kube-system --selector k8s-app=kube-dns
 
 ## <a name="use-custom-domains"></a>사용자 지정 도메인 사용
 
-내부적 으로만 확인할 수 있는 사용자 지정 도메인을 구성할 수 있습니다. 예를 들어 유효한 최상위 도메인이 아닌 사용자 지정 도메인 *puglife*를 확인 하는 것이 좋습니다. 사용자 지정 도메인 ConfigMap이 없으면 AKS 클러스터가 주소를 확인할 수 없습니다.
+내부적으로만 해결할 수 있는 사용자 지정 도메인을 구성할 수 있습니다. 예를 들어 유효한 최상위 도메인이 아닌 사용자 지정 도메인 *puglife.local을*해결할 수 있습니다. 사용자 지정 도메인 ConfigMap이 없으면 AKS 클러스터가 주소를 확인할 수 없습니다.
 
-다음 예제에서는 사용자 지정 도메인 및 IP 주소를 업데이트 하 여 사용자 환경에 대 한 값으로 트래픽을 보냅니다. `corednsms.yaml` 라는 파일을 만들고 다음 예제 구성을 붙여넣습니다.
+다음 예제에서는 사용자 지정 도메인 및 IP 주소를 업데이트하여 사용자 환경의 값으로 트래픽을 직접 처리합니다. 다음 예제 `corednsms.yaml` 구성이라는 파일을 만들고 붙여넣습니다.
 
 ```yaml
 apiVersion: v1
@@ -118,7 +118,7 @@ data:
     }
 ```
 
-이전 예제와 같이 [kubectl apply ConfigMap][kubectl-apply] 명령을 사용 하 여 ConfigMap을 만들고 yaml 매니페스트의 이름을 지정 합니다. 그런 다음 Kubernetes Scheduler에 대 한 [kubectl delete pod][kubectl delete] 를 사용 하 여 Coredns에서 configmap을 다시 로드 하 여 다시 만듭니다.
+이전 예제와 마찬가지로 [kubectl 적용 configmap][kubectl-apply] 명령을 사용 하 여 ConfigMap을 만들고 YAML 매니페스트의 이름을 지정 합니다. 그런 다음 CoreDNS가 Kubernetes 스케줄러에 대한 [kubectl delete 포드를][kubectl delete] 사용하여 ConfigMap을 다시 로드하여 다시 만듭니다.
 
 ```console
 kubectl apply -f corednsms.yaml
@@ -127,7 +127,7 @@ kubectl delete pod --namespace kube-system --selector k8s-app=kube-dns
 
 ## <a name="stub-domains"></a>스텁 도메인
 
-CoreDNS는 스텁 도메인을 구성 하는 데도 사용할 수 있습니다. 다음 예제에서는 사용자 지정 도메인 및 IP 주소를 사용자 환경의 값으로 업데이트 합니다. `corednsms.yaml` 라는 파일을 만들고 다음 예제 구성을 붙여넣습니다.
+CoreDNS를 사용하여 스텁 도메인을 구성할 수도 있습니다. 다음 예제에서는 사용자 지정 도메인 및 IP 주소를 사용자 고유의 환경에 대한 값으로 업데이트합니다. 다음 예제 `corednsms.yaml` 구성이라는 파일을 만들고 붙여넣습니다.
 
 ```yaml
 apiVersion: v1
@@ -150,16 +150,16 @@ data:
 
 ```
 
-이전 예제와 같이 [kubectl apply ConfigMap][kubectl-apply] 명령을 사용 하 여 ConfigMap을 만들고 yaml 매니페스트의 이름을 지정 합니다. 그런 다음 Kubernetes Scheduler에 대 한 [kubectl delete pod][kubectl delete] 를 사용 하 여 Coredns에서 configmap을 다시 로드 하 여 다시 만듭니다.
+이전 예제와 마찬가지로 [kubectl 적용 configmap][kubectl-apply] 명령을 사용 하 여 ConfigMap을 만들고 YAML 매니페스트의 이름을 지정 합니다. 그런 다음 CoreDNS가 Kubernetes 스케줄러에 대한 [kubectl delete 포드를][kubectl delete] 사용하여 ConfigMap을 다시 로드하여 다시 만듭니다.
 
 ```console
 kubectl apply -f corednsms.yaml
 kubectl delete pod --namespace kube-system --selector k8s-app=kube-dns
 ```
 
-## <a name="hosts-plugin"></a>호스트 플러그 인
+## <a name="hosts-plugin"></a>호스트 플러그인
 
-모든 기본 제공 플러그 인이 지원 되므로 CoreDNS [호스트][coredns hosts] 플러그 인을 사용자 지정 하는 것도 가능 합니다.
+모든 기본 제공 플러그인이 지원되므로 CoreDNS [호스트][coredns hosts] 플러그인도 사용자 정의 할 수 있습니다.
 
 ```yaml
 apiVersion: v1
@@ -175,9 +175,9 @@ data:
           }
 ```
 
-## <a name="enable-logging-for-dns-query-debugging"></a>DNS 쿼리 디버깅을 위한 로깅 사용 
+## <a name="enable-logging-for-dns-query-debugging"></a>DNS 쿼리 디버깅에 대한 로깅 사용 
 
-DNS 쿼리 로깅을 사용 하도록 설정 하려면 coredns-custom ConfigMap에 다음 구성을 적용 합니다.
+DNS 쿼리 로깅을 사용하려면 coredns 사용자 지정 ConfigMap에 다음 구성을 적용합니다.
 
 ```yaml
 apiVersion: v1
@@ -192,9 +192,9 @@ data:
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 CoreDNS 사용자 지정에 대 한 몇 가지 예제 시나리오를 살펴보았습니다. CoreDNS 프로젝트에 대 한 자세한 내용은 [coredns 업스트림 프로젝트 페이지][coredns]를 참조 하세요.
+이 문서에서는 CoreDNS 사용자 지정에 대한 몇 가지 예제 시나리오를 보여 주어 있습니다. CoreDNS 프로젝트에 대한 자세한 내용은 [CoreDNS 업스트림 프로젝트 페이지를][coredns]참조하십시오.
 
-핵심 네트워크 개념에 대해 자세히 알아보려면 [AKS의 응용 프로그램에 대 한 네트워크 개념][concepts-network]을 참조 하세요.
+핵심 네트워크 개념에 대한 자세한 내용은 [AKS의 응용 프로그램에 대한 네트워크 개념을][concepts-network]참조하십시오.
 
 <!-- LINKS - external -->
 [kubednsblog]: https://www.danielstechblog.io/using-custom-dns-server-for-domain-specific-name-resolution-with-azure-kubernetes-service/

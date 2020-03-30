@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/12/2019
 ms.openlocfilehash: 3c2e9d5634916c3713b7e3380c0496611d8f60a6
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77656282"
 ---
 # <a name="create-a-log-analytics-workspace-in-the-azure-portal"></a>Azure Portal에서 Log Analytics 작업 영역 만들기
@@ -18,7 +18,7 @@ ms.locfileid: "77656282"
 
 * 구독의 Azure 리소스
 * System Center Operations Manager에서 모니터링하는 온-프레미스 컴퓨터
-* Configuration Manager에서 장치 컬렉션 
+* 구성 관리자의 장치 컬렉션 
 * Azure Storage에서 진단 또는 로그 데이터
 
 Azure VM 및 사용자 환경의 Windows 또는 Linux VM 등 다른 소스의 경우 다음 항목을 참조하세요.
@@ -30,19 +30,19 @@ Azure VM 및 사용자 환경의 Windows 또는 Linux VM 등 다른 소스의 �
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="sign-in-to-azure-portal"></a>Azure Portal에 로그인
-[https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다. 
+에서 [https://portal.azure.com](https://portal.azure.com)Azure 포털에 로그인합니다. 
 
 ## <a name="create-a-workspace"></a>작업 영역 만들기
-1. Azure Portal에서 **모든 서비스**를 클릭합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics 작업 영역**을 선택합니다.
+1. Azure 포털에서 **모든 서비스를**클릭합니다. 리소스 목록에서 **로그 분석을**입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics 작업 영역**을 선택합니다.
 
     ![Azure portal](media/quick-create-workspace/azure-portal-01.png)
   
 2. **추가**를 클릭한 후 다음 항목에 대한 선택 항목을 선택합니다.
 
    * 새 **Log Analytics 작업 영역**의 이름(예: *DefaultLAWorkspace*)을 지정합니다. 이 이름은 모든 Azure Monitor 구독에서 전역적으로 고유해야 합니다.
-   * 기본으로 선택된 값이 적절하지 않으면 드롭다운 목록에서 선택하여 연결할 **구독**을 선택합니다.
+   * 선택한 기본값이 적절하지 않은 경우 드롭다운 목록에서 선택하여 링크할 **구독을** 선택합니다.
    * **리소스 그룹**의 경우 이미 설정된 기존 리소스 그룹을 사용하도록 선택하거나 새 리소스 그룹을 만듭니다.  
-   * 사용 가능한 **위치**를 선택합니다.  자세한 내용은 [에서 사용할 수 있는 Log Analytics 지역을](https://azure.microsoft.com/regions/services/) 확인 하 고 **제품 검색** 필드에서 Azure Monitor를 검색 합니다.  
+   * 사용 가능한 **위치**를 선택합니다.  자세한 내용은 Log [Analytics에서 사용할 수 있는 지역을](https://azure.microsoft.com/regions/services/) 참조하고 제품 검색 필드에서 Azure **Monitor를** 검색합니다.  
    * 2018년 4월 2일 이후에 만들어진 새 구독에서 작업 영역을 만드는 경우 *GB당* 가격 책정 계획이 자동으로 사용되며 가격 책정 계층을 선택할 수 있는 옵션이 제공되지 않습니다.  4월 2일 전에 만들어진 기존 구독 또는 기존 EA(기업계약) 등록과 연결된 구독에서 작업 영역을 만드는 경우 선호하는 가격 책정 계층을 선택합니다.  특정 계층에 대한 자세한 내용은 [Log Analytics 가격 책정 정보](https://azure.microsoft.com/pricing/details/log-analytics/)를 참조하세요.
 
         ![Log Analytics 리소스 블레이드 만들기](media/quick-create-workspace/create-loganalytics-workspace-02.png)  
@@ -55,6 +55,6 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 이제 사용 가능한 작업 영역이 있으므로 모니터링 원격 분석의 컬렉션을 구성하고, 해당 데이터를 분석하는 로그 검색을 실행하고, 추가 데이터 및 분석 정보를 제공하는 관리 솔루션을 추가할 수 있습니다. 
 
 * Azure Diagnostics 또는 Azure 스토리지를 사용하여 Azure 리소스의 데이터 수집을 사용하려면 [Log Analytics에서 사용할 Azure 서비스 로그 및 메트릭 수집](../platform/collect-azure-metrics-logs.md)을 참조하세요.  
-* [System Center Operations Manager를 데이터 원본으로 추가](../platform/om-agents.md)하여 Operations Manager 관리 그룹을 보고하는 에이전트에서 데이터를 수집하고 Log Analytics 작업 영역에 저장합니다. 
+* [시스템 센터 운영 관리자를 데이터 원본으로 추가하여](../platform/om-agents.md) 운영 관리자 관리 그룹을 보고하는 에이전트의 데이터를 수집하고 Log Analytics 작업 영역에 저장합니다. 
 * [Configuration Manager](../platform/collect-sccm.md)를 연결하여 계층에서 컬렉션의 멤버인 컴퓨터를 가져옵니다.  
 * 제공되는 [모니터링 솔루션](../insights/solutions.md)을 검토하고 작업 영역에서 솔루션을 추가하거나 제거하는 방법을 검토합니다.

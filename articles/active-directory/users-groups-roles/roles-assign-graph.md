@@ -1,6 +1,6 @@
 ---
-title: Microsoft Graph API를 사용 하 여 Azure AD 관리자 역할 할당 | Microsoft Docs
-description: Azure Active Directory에서 Graph API를 사용 하 여 Azure AD 관리자 역할 할당 및 제거
+title: Microsoft 그래프 API를 통해 Azure AD 관리자 역할 할당 | 마이크로 소프트 문서
+description: Azure Active Directory에서 그래프 API를 사용 하 고 Azure AD 관리자 역할 할당 및 제거
 services: active-directory
 author: curtand
 manager: daveba
@@ -14,23 +14,23 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3632f8a360df8837569104232b7380fdc8383953
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77559150"
 ---
-# <a name="assign-custom-admin-roles-using-the-microsoft-graph-api-in-azure-active-directory"></a>Azure Active Directory에서 Microsoft Graph API를 사용 하 여 사용자 지정 관리자 역할 할당 
+# <a name="assign-custom-admin-roles-using-the-microsoft-graph-api-in-azure-active-directory"></a>Azure Active Directory에서 Microsoft 그래프 API를 사용하여 사용자 지정 관리자 역할 할당 
 
-Microsoft Graph API를 사용 하 여 사용자 계정에 역할을 할당 하는 방법을 자동화할 수 있습니다. 이 문서에서는 roleAssignments에 대 한 POST, GET 및 DELETE 작업에 대해 설명 합니다.
+Microsoft 그래프 API를 사용하여 사용자 계정에 역할을 할당하는 방법을 자동화할 수 있습니다. 이 문서에서는 역할할당에 대한 POST, GET 및 DELETE 작업을 다룹니다.
 
 ## <a name="required-permissions"></a>필요한 사용 권한
 
-전역 관리자 계정 또는 권한 있는 Id 관리자를 사용 하 여 Azure AD 테 넌 트에 연결 하 여 역할을 할당 하거나 제거 합니다.
+글로벌 관리자 계정 또는 권한 있는 ID 관리자를 사용하여 Azure AD 테넌트에 연결하여 역할을 할당하거나 제거합니다.
 
-## <a name="post-operations-on-roleassignment"></a>RoleAssignment에 대 한 POST 작업
+## <a name="post-operations-on-roleassignment"></a>역할 할당에 대한 POST 작업
 
-사용자와 역할 정의 간에 역할 할당을 만들기 위한 HTTP 요청입니다.
+사용자와 역할 정의 간에 역할 할당을 만드는 HTTP 요청입니다.
 
 POST
 
@@ -55,7 +55,7 @@ Content-type: application/json
 HTTP/1.1 201 Created
 ```
 
-주 또는 역할 정의가 없는 역할 할당을 만들기 위한 HTTP 요청
+서버 또는 역할 정의가 없는 역할 할당을 만드는 HTTP 요청
 
 POST
 
@@ -79,10 +79,10 @@ https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
 HTTP/1.1 404 Not Found
 ```
 
-기본 제공 역할 정의에 대 한 단일 리소스 범위 역할 할당을 만들기 위한 HTTP 요청입니다.
+기본 제공 역할 정의에서 단일 리소스 범위의 역할 할당을 만드는 HTTP 요청입니다.
 
 > [!NOTE] 
-> 현재 기본 제공 역할에는 "/" 조직 전체의 범위 또는 "/AU/*" 범위로만 범위를 지정할 수 있는 제한 사항이 있습니다. 단일 리소스 범위 지정은 기본 제공 역할에 대해 작동 하지 않지만 사용자 지정 역할에 대해 작동 합니다.
+> 현재 기본 제공 역할에는 "/" 조직 전체 범위 또는 "/AU/*" 범위로만 범위를 정할 수 있는 제한이 있습니다. 단일 리소스 범위 지정은 기본 제공 역할에 는 적용되지 않지만 사용자 지정 역할에는 작동합니다.
 
 POST
 
@@ -124,9 +124,9 @@ HTTP/1.1 400 Bad Request
 }
 ```
 
-## <a name="get-operations-on-roleassignment"></a>RoleAssignment에 대 한 작업 가져오기
+## <a name="get-operations-on-roleassignment"></a>역할 할당에 대한 작업 받기
 
-지정 된 보안 주체에 대 한 역할 할당을 가져오기 위한 HTTP 요청
+특정 보안 주체에 대한 역할 할당을 받기 위한 HTTP 요청
 
 GET
 
@@ -152,7 +152,7 @@ HTTP/1.1 200 OK
 }
 ```
 
-지정 된 역할 정의에 대 한 역할 할당을 가져오기 위한 HTTP 요청입니다.
+지정된 역할 정의에 대한 역할 할당을 받으려면 HTTP 요청입니다.
 
 GET
 
@@ -172,7 +172,7 @@ HTTP/1.1 200 OK
 }
 ```
 
-ID로 역할 할당을 가져오기 위한 HTTP 요청입니다.
+ID로 역할 할당을 받으려면 HTTP 요청입니다.
 
 GET
 
@@ -192,11 +192,11 @@ HTTP/1.1 200 OK
 }
 ```
 
-## <a name="delete-operations-on-roleassignment"></a>RoleAssignment에 대 한 삭제 작업
+## <a name="delete-operations-on-roleassignment"></a>역할 할당에 대한 작업 삭제
 
-사용자와 역할 정의 간의 역할 할당을 삭제 하는 HTTP 요청입니다.
+사용자와 역할 정의 간의 역할 할당을 삭제하도록 HTTP 요청
 
-DELETE
+Delete
 
 ``` HTTP
 GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments/lAPpYvVpN0KRkAEhdxReEJC2sEqbR_9Hr48lds9SGHI-1
@@ -207,9 +207,9 @@ GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments/lA
 HTTP/1.1 204 No Content
 ```
 
-더 이상 존재 하지 않는 역할 할당을 삭제 하는 HTTP 요청
+더 이상 존재하지 않는 역할 할당을 삭제하는 HTTP 요청
 
-DELETE
+Delete
 
 ``` HTTP
 GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments/lAPpYvVpN0KRkAEhdxReEJC2sEqbR_9Hr48lds9SGHI-1
@@ -221,9 +221,9 @@ GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments/lA
 HTTP/1.1 404 Not Found
 ```
 
-자체 역할과 기본 제공 역할 정의 간의 역할 할당을 삭제 하는 HTTP 요청
+자체 역할 정의와 기본 제공 역할 정의 간의 역할 할당 을 삭제하는 HTTP 요청
 
-DELETE
+Delete
 
 ``` HTTP
 GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments/lAPpYvVpN0KRkAEhdxReEJC2sEqbR_9Hr48lds9SGHI-1

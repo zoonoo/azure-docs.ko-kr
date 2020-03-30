@@ -1,5 +1,5 @@
 ---
-title: 클라이언트 라이브러리를 사용 C++ 하 여 Azure Storage 리소스 나열
+title: C++ 클라이언트 라이브러리를 가진 Azure 저장소 리소스 목록
 description: Microsoft Azure Storage Client Library for C++에서 목록 API를 사용하여 컨테이너, Blob, 큐, 테이블 및 엔터티를 열거하는 방법에 대해 배웁니다.
 author: mhopkins-msft
 ms.author: mhopkins
@@ -9,10 +9,10 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: dineshm
 ms.openlocfilehash: 0f9e80aff20c1b2663491f6d6ceb99aaec58230f
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74269443"
 ---
 # <a name="list-azure-storage-resources-in-c"></a>C++에서 Azure Storage 리소스 나열
@@ -34,7 +34,7 @@ Storage Client Library는 Azure 스토리지에서 개체를 나열 또는 쿼�
 
 ## <a name="asynchronous-versus-synchronous"></a>비동기 및 동기
 
-Storage Client Library for C++는 [C++ REST 라이브러리](https://github.com/Microsoft/cpprestsdk) 상단에 기본 제공되어 있기 때문에 [pplx::task](https://microsoft.github.io/cpprestsdk/classpplx_1_1task.html)를 사용하여 기본적으로 비동기 작업을 지원합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+Storage Client Library for C++는 [C++ REST 라이브러리](https://github.com/Microsoft/cpprestsdk) 상단에 기본 제공되어 있기 때문에 [pplx::task](https://microsoft.github.io/cpprestsdk/classpplx_1_1task.html)를 사용하여 기본적으로 비동기 작업을 지원합니다. 예를 들어:
 
 ```cpp
 pplx::task<list_blob_item_segment> list_blobs_segmented_async(continuation_token& token) const;
@@ -201,4 +201,4 @@ Azure 스토리지 및 Storage Client Library for C++에 대한 자세한 내용
 * [C++에서 Queue Storage를 사용하는 방법](../storage-c-plus-plus-how-to-use-queues.md)
 * [Azure Storage Client Library for C++ API 설명서](https://azure.github.io/azure-storage-cpp/)
 * [Azure Storage 팀 블로그](https://blogs.msdn.com/b/windowsazurestorage/)
-* [Azure Storage 설명서](https://azure.microsoft.com/documentation/services/storage/)
+* [Azure 저장소 설명서](https://azure.microsoft.com/documentation/services/storage/)

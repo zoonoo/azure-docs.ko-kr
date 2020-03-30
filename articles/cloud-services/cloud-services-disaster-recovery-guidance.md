@@ -1,5 +1,5 @@
 ---
-title: Azure Cloud Services에 영향을 주는 Azure 서비스 중단 처리
+title: Azure 클라우드 서비스에 영향을 주는 Azure 서비스 중단 처리
 titleSuffix: Azure Cloud Services
 description: Azure Cloud Services에 영향을 주는 Azure 서비스 중단 발생 시 수행할 작업에 대해 알아봅니다.
 services: cloud-services
@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/04/2017
 ms.author: memccror
 ms.openlocfilehash: e3f0fd88eb302dac208f43d0622ae28b31dcddc2
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77157510"
 ---
 # <a name="what-to-do-in-the-event-of-an-azure-service-disruption-that-impacts-azure-cloud-services"></a>Azure Cloud Services에 영향을 주는 Azure 서비스 중단 발생 시 수행할 작업
@@ -46,7 +46,7 @@ Azure에는 항상 사용 가능한 애플리케이션을 지원하는 많은 �
 
 애플리케이션 데이터 원본에 따라 애플리케이션 데이터 원본에 대한 복구 절차를 확인해야 할 수 있습니다.
 
-* Azure Storage 데이터 원본의 경우 응용 프로그램에 대해 선택한 중복성 모델에 따라 사용할 수 있는 옵션을 확인 하려면 [중복성 Azure Storage](../storage/common/storage-redundancy.md) 를 참조 하세요.
+* Azure Storage 데이터 원본의 경우 [Azure Storage 중복성을](../storage/common/storage-redundancy.md) 참조하여 응용 프로그램에 대해 선택한 중복 모델을 기반으로 사용할 수 있는 옵션을 확인합니다.
 * SQL Database 원본에 대해서는 [개요: SQL Database를 사용한 클라우드 비즈니스 연속성 및 데이터베이스 재해 복구](../sql-database/sql-database-business-continuity.md) 를 참조하여 애플리케이션에 대해 선택한 복제 모델에 따라 사용할 수 있는 옵션을 확인합니다.
 
 

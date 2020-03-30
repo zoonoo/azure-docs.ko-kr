@@ -1,13 +1,13 @@
 ---
 title: Azure Stack에 Azure Backup Server 설치
-description: 이 문서에서는 Azure Backup Server를 사용 하 여 Azure Stack에서 작업을 보호 하거나 백업 하는 방법에 대해 알아봅니다.
+description: 이 문서에서는 Azure 백업 서버를 사용하여 Azure 스택에서 워크로드를 보호하거나 백업하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.openlocfilehash: b78e5a662bdcf23ad38cb33292658d4d2455e579
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77583438"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Azure Stack에 Azure Backup Server 설치
@@ -107,7 +107,7 @@ Azure Backup 서버를 사용하여 워크로드를 보호하는 데는 미묘�
 
 ### <a name="set-storage-replication"></a>스토리지 복제 설정
 
-Recovery Services 자격 증명 모음 스토리지 복제를 사용하면 지역 중복 스토리지와 로컬 중복 스토리지 중에서 선택할 수 있습니다. 기본적으로 Recovery Services 자격 증명 모음은 지역 중복 스토리지를 사용합니다. 이 자격 증명 모음이 기본 자격 증명 모음인 경우 스토리지 옵션을 지역 중복 스토리지 상태로 둡니다. 오래 지속되지 않는 저렴한 옵션을 원하는 경우에는 로컬 중복 스토리지를 선택합니다. [지역 중복](../storage/common/storage-redundancy-grs.md) 및 [로컬 중복](../storage/common/storage-redundancy-lrs.md) 스토리지 옵션에 대한 자세한 내용은 [Azure Storage 복제 개요](../storage/common/storage-redundancy.md)를 참조하세요.
+Recovery Services 자격 증명 모음 스토리지 복제를 사용하면 지역 중복 스토리지와 로컬 중복 스토리지 중에서 선택할 수 있습니다. 기본적으로 Recovery Services 자격 증명 모음은 지역 중복 스토리지를 사용합니다. 이 자격 증명 모음이 기본 자격 증명 모음인 경우 스토리지 옵션을 지역 중복 스토리지 상태로 둡니다. 오래 지속되지 않는 저렴한 옵션을 원하는 경우에는 로컬 중복 스토리지를 선택합니다. [Azure Storage 복제 개요에서](../storage/common/storage-redundancy.md) [지리적 중복](../storage/common/storage-redundancy-grs.md) 및 [로컬 중복](../storage/common/storage-redundancy-lrs.md) 저장소 옵션에 대해 자세히 알아보기.
 
 스토리지 복제 설정을 편집하려면
 
@@ -163,7 +163,7 @@ Azure Backup Server 설치 관리자를 다운로드하는 두 가지 방법이 
 
     ![다운로드 센터 1](./media/backup-mabs-install-azure-stack/download-center-selected-files.png)
 
-    모든 설치 파일의 다운로드 크기가 3gb 보다 큽니다. 10Mbps 다운로드 링크에서 모든 설치 파일을 다운로드하는 데 최대 60분이 걸릴 수 있습니다. 지정한 다운로드 위치에 파일이 다운로드됩니다.
+    모든 설치 파일의 다운로드 크기가 3GB보다 큽니다. 10Mbps 다운로드 링크에서 모든 설치 파일을 다운로드하는 데 최대 60분이 걸릴 수 있습니다. 지정한 다운로드 위치에 파일이 다운로드됩니다.
 
 ## <a name="extract-azure-backup-server-install-files"></a>Azure Backup Server 설치 파일 추출
 
@@ -320,7 +320,7 @@ Azure Backup Server는 Data Protection Manager과 코드를 공유합니다. Azu
 
 Azure Backup 서버가 Azure Backup 서비스에 연결되어야 제품이 제대로 작동합니다. 컴퓨터가 Azure에 연결되어 있는지 여부를 확인하려면 Azure Backup 서버 PowerShell 콘솔에서 ```Get-DPMCloudConnection``` cmdlet을 사용합니다. cmdlet의 출력이 TRUE인 경우 연결되어 있고 그렇지 않으면 연결되지 않은 것입니다.
 
-이와 동시에 Azure 구독은 정상 상태여야 합니다. 구독 상태를 확인 하 고 관리 하려면 [구독 포털](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)에 로그인 합니다.
+이와 동시에 Azure 구독은 정상 상태여야 합니다. 구독 상태를 알아보고 관리하려면 [구독 포털에](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)로그인합니다.
 
 Azure 연결 및 Azure 구독 상태를 알고 있다면 아래 표를 사용하여 제공된 백업/복원 기능에 미치는 영향을 알아볼 수 있습니다.
 
@@ -335,7 +335,7 @@ Azure 연결 및 Azure 구독 상태를 알고 있다면 아래 표를 사용하
 
 ### <a name="recovering-from-loss-of-connectivity"></a>연결 끊김 복구
 
-방화벽 또는 프록시가 Azure에 대 한 액세스를 차단 하는 경우 방화벽/프록시 프로필 허용 목록에 다음 도메인 주소를 추가 합니다.
+방화벽 또는 프록시가 Azure에 대한 액세스를 방해하는 경우 방화벽/프록시 허용 목록에 다음 도메인 주소를 추가합니다.
 
 - `http://www.msftncsi.com/ncsi.txt`
 - \*.Microsoft.com

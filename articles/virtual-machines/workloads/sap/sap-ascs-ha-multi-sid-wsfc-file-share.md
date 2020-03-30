@@ -17,10 +17,10 @@ ms.date: 02/03/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 2c12372dbc47548755c0680b0acb7a93360a0987
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77617476"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
@@ -198,7 +198,7 @@ ms.locfileid: "77617476"
 > ![Windows][Logo_Windows] Windows
 >
 
-[Azure 내부 부하 분산 장치][load-balancer-multivip-overview]를 사용 하 여 여러 가상 IP 주소를 관리할 수 있습니다. 
+[Azure 내부 부하 분산 장치][load-balancer-multivip-overview]를 사용하여 여러 가상 IP 주소를 관리할 수 있습니다. 
 
 SAP를 배포한 경우 내부 부하 분산 장치를 사용하여 SAP 중앙 서비스(ASCS/SCS) 인스턴스에 대한 Windows 클러스터 구성을 만들 수 있습니다.
 
@@ -215,7 +215,7 @@ SAP를 배포한 경우 내부 부하 분산 장치를 사용하여 SAP 중앙 �
 > 이 설명서에 도입한 구성은 아직 [Azure 가용성 영역](https://docs.microsoft.com/azure/availability-zones/az-overview)에 사용하도록 지원되지 않습니다.
 > 
 
-부하 분산 장치 제한에 대 한 자세한 내용은 [네트워킹 제한: Azure Resource Manager][networking-limits-azure-resource-manager]의 "부하 분산 장치당 개인 프런트 엔드 IP" 섹션을 참조 하세요. 또한 Azure 부하 분산 장치의 기본 SKU 대신 [Azure 표준 Load Balancer SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) 사용도 고려하세요.
+부하 분산 장치 제한에 대한 자세한 내용은 [네트워킹 제한 - Azure Resource Manager][networking-limits-azure-resource-manager]에서 "부하 분산 장치당 프라이빗 프런트 엔드 IP" 섹션을 참조하세요. 또한 Azure 부하 분산 장치의 기본 SKU 대신 [Azure 표준 Load Balancer SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) 사용도 고려하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -238,15 +238,15 @@ _**그림 1:** 두 클러스터에 배포된 SAP ASCS/SCS 인스턴스 및 SOFS_
 
 ![그림 2: 두 클러스터에 SAP 다중 SID 구성][sap-ha-guide-figure-8008]
 
-_**그림 2:** 두 클러스터에 SAP 다중 SID 구성_
+_**그림 2:** 두 클러스터의 SAP 다중 SID 구성_
 
-추가 **SAP \<SID2 >** 시스템의 설치는 \<SID > 시스템 하나를 설치 하는 것과 동일 합니다. ASCS/SCS 클러스터 및 파일 공유 SOFS 클러스터에서 두 개의 추가 준비 단계가 필요합니다.
+추가 **SAP \<SID2>** 시스템의 설치는 하나의 \<SID> 시스템의 설치와 동일합니다. ASCS/SCS 클러스터 및 파일 공유 SOFS 클러스터에서 두 개의 추가 준비 단계가 필요합니다.
 
 ## <a name="prepare-the-infrastructure-for-an-sap-multi-sid-scenario"></a>SAP 다중 SID 시나리오에 대한 인프라 준비
 
 ### <a name="prepare-the-infrastructure-on-the-domain-controller"></a>도메인 컨트롤러에서 인프라 준비
 
-예를 들어 **SID2> = PR2를 사용하여 \<\<Domain>\SAP_** SID2>_GlobalAdmin\< 도메인 그룹을 만듭니다. 도메인 그룹 이름은 \<Domain>\SAP_PR2_GlobalAdmin입니다.
+예를 들어 SID2> = PR2를 사용하여 \<도메인 ** \<도메인>\SAP_\<SID2>_GlobalAdmin**만듭니다. 도메인 그룹 이름은 \<Domain>\SAP_PR2_GlobalAdmin입니다.
 
 ### <a name="prepare-the-infrastructure-on-the-ascsscs-cluster"></a>ASCS/SCS 클러스터에서 인프라 준비
 
@@ -255,12 +255,12 @@ _**그림 2:** 두 클러스터에 SAP 다중 SID 구성_
 * DNS 서버에서 클러스터형 SAP ASCS/SCS 인스턴스의 가상 호스트 이름을 만듭니다.
 * PowerShell을 사용하여 기존 Azure 내부 부하 분산 장치에 IP 주소를 추가합니다.
 
-이러한 단계는 [SAP 다중 SID 시나리오를 위한 인프라 준비][sap-ascs-ha-multi-sid-wsfc-shared-disk-infrast-prepare]에 설명 되어 있습니다.
+이러한 단계는 [SAP 다중 SID 시나리오를 위한 인프라 준비][sap-ascs-ha-multi-sid-wsfc-shared-disk-infrast-prepare]에 설명되어 있습니다.
 
 
 ### <a name="prepare-the-infrastructure-on-an-sofs-cluster-by-using-the-existing-sap-global-host"></a>기존 SAP 글로벌 호스트를 사용하여 SOFS 클러스터에서 인프라 준비
 
-첫 번째 SAP \<SID1 > 시스템의 기존 \<SAPGlobalHost > 및 Volume1를 다시 사용할 수 있습니다.
+첫 번째 SAP \<SID1> 시스템의 기존 SAPGlobalHost \<> 및 Volume1을 다시 사용할 수 있습니다.
 
 ![그림 3: 다중 SID SOFS가 SAP 글로벌 호스트 이름과 같음][sap-ha-guide-figure-8014]
 
@@ -270,7 +270,7 @@ _**그림 3:** 다중 SID SOFS가 SAP 글로벌 호스트 이름과 같음_
 >두 번째 **SAP \<SID2>** 시스템의 경우 동일한 Volume1 및 동일한 **\<SAPGlobalHost>** 네트워크 이름이 사용됩니다.
 >**SAPMNT**를 다양한 SAP 시스템의 공유 이름으로 이미 설정했으므로 **\<SAPGlobalHost>** 네트워크 이름을 다시 사용하려면 동일한 **Volume1**을 사용해야 합니다.
 >
->\<SID2 > 전역 호스트의 파일 경로는 C:\ClusterStorage\\**Volume1**\USR\SAP\<SID2 > \sys\.
+>SID2> \<글로벌 호스트의 파일 경로는 C:\ClusterStorage\\**볼륨1**\<\usr\sap SID2>\SYS입니다.\.
 >
 
 \<SID2> 시스템의 경우 SOFS 클러스터에서 SAP 글로벌 호스트 ..\SYS\.. 폴더를 준비해야 합니다.
@@ -326,7 +326,7 @@ Set-Acl $UsrSAPFolder $Acl -Verbose
 
 ### <a name="prepare-the-infrastructure-on-the-sofs-cluster-by-using-a-different-sap-global-host"></a>다른 SAP 글로벌 호스트를 사용하여 SOFS 클러스터에서 인프라 준비
 
-두 번째 SOFS를 구성할 수 있습니다(예를 들어 두 번째 **\<SID2>** 에 대해SAPGlobalHost2> **및 다른 \<Volume2**를 사용하여 두 번째 SOFS 클러스터 역할 구성).
+두 번째 SOFS(예: ** \<SAPGlobalHost2>** 두 번째 SOFS 클러스터 역할과 두 번째 ** \<SID2>** 대해 다른 **Volume2)를** 구성할 수 있습니다.
 
 ![그림 4: 다중 SID SOFS가 SAP 글로벌 호스트 이름 2와 같음][sap-ha-guide-figure-8015]
 
@@ -393,7 +393,7 @@ $Acl.SetAccessRule($Ar)
 Set-Acl $UsrSAPFolder $Acl -Verbose
 ```
 
-두 번째 SAP*SID2>에 대해 \<* SAPGlobalHost2>\< 호스트 이름을 사용하여 Volume2에 SAPMNT 파일 공유를 만들려면 장애 조치(Failover) 클러스터 관리자에서 **파일 공유 추가** 마법사를 시작합니다.
+볼륨2에서 두 번째 * \<SAP SID2*> 대한 호스트 이름을>볼륨2에서 \<SAPMNT 파일 공유를 만들려면 장애 조치 클러스터 관리자에서 **파일 공유 추가** 마법사를 시작합니다.
 
 **saoglobal2** SOFS 클러스터 그룹을 마우스 오른쪽 단추로 클릭하고 **파일 공유 추가**를 선택합니다.
 
@@ -403,21 +403,21 @@ _**그림 6:** "파일 공유 추가" 마법사 시작_
 
 <br>
 
-![그림 7: "SMB 공유 – 빠른 선택"][sap-ha-guide-figure-8018]
+![그림 7: "중소기업 공유 선택 – 빠른"][sap-ha-guide-figure-8018]
 
 _**그림 7:** "SMB 공유 – 빠르게" 선택_
 
 <br>
 
-![그림 8: "sapglobalhost2"를 선택 하 고 Volume2에 경로 지정][sap-ha-guide-figure-8019]
+![그림 8: "sapglobalhost2"를 선택하고 Volume2에 경로 지정][sap-ha-guide-figure-8019]
 
-_**그림 8:** "sapglobalhost2"를 선택하고 Volume2에 경로 지정_
+_**그림 8:** "sapglobalhost2"를 선택하고 Volume2에서 경로를 지정합니다._
 
 <br>
 
 ![그림 9: 파일 공유 이름을 "sapmnt"로 설정][sap-ha-guide-figure-8020]
 
-_**그림 9:** 파일 공유 이름을 "sapmnt"로 설정_
+_**그림 9:** 파일 공유 이름을 "sapmnt"로 설정합니다._
 
 <br>
 
@@ -439,7 +439,7 @@ _**그림 11:** 사용자 그룹 및 컴퓨터 계정에 대한 "모든 권한" 
 
 ![그림 12: "만들기" 선택][sap-ha-guide-figure-8023]
 
-_**그림 12:** "만들기" 선택_
+_**그림 12:** "만들기"를 선택합니다._
 
 <br>
 
@@ -460,10 +460,10 @@ _**그림 13:** 두 번째 sapmnt가 sapglobal2 호스트에 바인딩되고 Vol
 
 ## <a name="next-steps"></a>다음 단계
 
-* [공유 디스크 없이 장애 조치 (failover) 클러스터에 ASCS/SCS 인스턴스 설치][sap-official-ha-file-share-document]: HA 파일 공유에 대 한 공식 SAP 지침
+* [공유 디스크 없이 장애 조치(Failover) 클러스터에 ASCS/SCS 인스턴스 설치][sap-official-ha-file-share-document]: HA 파일 공유에 대한 공식 SAP 지침
 
-* [Windows Server 2016의 저장소 공간 다이렉트][s2d-in-win-2016]
+* [Windows 서버 2016에서 직접 저장 공간][s2d-in-win-2016]
 
-* [응용 프로그램 데이터를 위한 스케일 아웃 파일 서버 개요][sofs-overview]
+* [응용 프로그램 데이터 개요를 위한 파일 서버 확장][sofs-overview]
 
-* [Windows Server 2016에서 제공 되는 저장소의 새로운 기능][new-in-win-2016-storage]
+* [Windows Server 2016 스토리지의 새로운 기능][new-in-win-2016-storage]

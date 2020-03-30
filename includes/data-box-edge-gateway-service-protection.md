@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 04/16/2019
 ms.author: alkohli
 ms.openlocfilehash: 248d10e8814d195a515a658653cfc38de7dd4652
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67182848"
 ---
-- 가장자리가 상자의 데이터 서비스에 액세스 하려면 조직 EA (기업 계약) 또는 클라우드 솔루션 공급자 (CSP) 구독을 보유 해야 합니다. 자세한 내용은 [Azure 구독에 대 한 등록](https://azure.microsoft.com/resources/videos/sign-up-for-microsoft-azure/)합니다.
-- 이 관리 서비스는 Azure에서 호스팅되므로 Azure 보안 기능으로 보호 됩니다. Azure에서 제공 하는 보안 기능에 대 한 자세한 내용은로 이동 합니다 [Microsoft Azure 보안 센터](https://azure.microsoft.com/support/trust-center/security/)합니다.
-- SDK 관리 작업에 대 한 리소스에 대 한 암호화 키를 가져올 수 있습니다 **장치 속성**합니다. 리소스 Graph API에 대 한 권한이 있는 경우에 암호화 키를 볼 수 있습니다.
+- Data Box Edge 서비스에 액세스하려면 조직에 EA(엔터프라이즈 계약) 또는 CSP(클라우드 솔루션 공급자) 구독이 있어야 합니다. 자세한 내용은 [Azure 구독에 등록을](https://azure.microsoft.com/resources/videos/sign-up-for-microsoft-azure/)참조하십시오.
+- 이 관리 서비스는 Azure에서 호스팅되므로 Azure 보안 기능으로 보호됩니다. Azure에서 제공하는 보안 기능에 대한 자세한 내용은 [Microsoft Azure 신뢰 센터를](https://azure.microsoft.com/support/trust-center/security/)참조하십시오.
+- SDK 관리 작업의 경우 **장치 속성에서**리소스에 대한 암호화 키를 얻을 수 있습니다. 리소스 그래프 API에 대한 권한이 있는 경우에만 암호화 키를 볼 수 있습니다.

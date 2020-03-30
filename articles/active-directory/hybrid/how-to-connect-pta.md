@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d4b52a3025bfb15e2679709353cebf28254a75c2
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77185512"
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Azure Active Directory 통과 인증으로 사용자 로그인
@@ -59,24 +59,24 @@ Azure AD(Azure Active Directory) 통과 인증을 사용하면 사용자가 온-
 
 - 모든 웹 브라우저 기반 애플리케이션 및 [최신 인증](https://aka.ms/modernauthga)을 사용하는 Microsoft Office 클라이언트 애플리케이션에 사용자 로그인을 지원합니다.
 - 로그인 사용자 이름은 온-프레미스 기본 사용자 이름(`userPrincipalName`) 또는 Azure AD Connect에 구성된 다른 특성(`Alternate ID`라고 함) 중 하나일 수 있습니다.
-- 이 기능은 Multi-Factor Authentication (MFA)와 같은 [조건부 액세스](../active-directory-conditional-access-azure-portal.md) 기능을 사용 하 여 원활 하 게 작동 하 여 사용자의 보안을 유지 합니다.
+- 이 기능은 MFA(다단계 인증)와 같은 [조건부 액세스](../active-directory-conditional-access-azure-portal.md) 기능과 원활하게 작동하여 사용자를 보호합니다.
 - 온-프레미스 Active Directory에 대한 암호 쓰기 저장 및 일반적으로 사용되는 암호 금지에 의한 암호 보호를 포함하여 클라우드 기반 [셀프 서비스 암호 관리](../authentication/active-directory-passwords-overview.md)와 통합되었습니다.
 - AD 포리스트 간에 포리스트 트러스트가 있고 이름 접미사 라우팅이 제대로 구성된 경우 다중 포리스트 환경이 지원됩니다.
 - 무료 기능이며 이 기능을 사용하는 데는 Azure AD 유료 버전이 필요하지 않습니다.
-- [Azure AD Connect](whatis-hybrid-identity.md)를 통해 사용하도록 설정할 수 있습니다.
+- [Azure AD Connect를](whatis-hybrid-identity.md)통해 사용할 수 있습니다.
 - 암호 유효성 검사 요청을 수신하고 이에 응답하는 간단한 온-프레미스 에이전트를 사용합니다.
 - 여러 에이전트를 설치하면 로그인 요청의 고가용성을 제공합니다.
 - 이렇게 하면 클라우드의 무차별 암호 대입 공격으로부터 온-프레미스 계정이 [보호](../authentication/howto-password-smart-lockout.md)됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [빠른](how-to-connect-pta-quick-start.md) 시작-Azure AD 통과 인증을 시작 및 실행 합니다.
+- [빠른 시작](how-to-connect-pta-quick-start.md) - Azure AD 통과 인증을 시작하고 실행합니다.
 - [AD FS에서 통과 인증으로 마이그레이션](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx?raw=true) - AD FS(또는 기타 페더레이션 기술)에서 통과 인증으로 마이그레이션하는 방법에 대한 자세한 가이드입니다.
 - [스마트 잠금](../authentication/howto-password-smart-lockout.md) - 테넌트에서 사용자 계정을 보호하도록 스마트 잠금 기능을 구성합니다.
-- [현재 제한 사항](how-to-connect-pta-current-limitations.md) - 지원되는 시나리오와 지원되지 않는 시나리오에 대해 알아봅니다.
+- [현재 제한 사항](how-to-connect-pta-current-limitations.md) - 지원되는 시나리오와 지원되지 않는 시나리오를 알아봅니다.
 - [기술 심층 분석](how-to-connect-pta-how-it-works.md) - 이 기능의 작동 방식을 이해합니다.
 - [FAQ(질문과 대답)](how-to-connect-pta-faq.md) - 질문과 대답을 다루고 있습니다.
 - [문제 해결](tshoot-connect-pass-through-authentication.md) - 기능과 관련된 일반적인 문제를 해결하는 방법에 대해 알아봅니다.
 - [보안 심층 분석](how-to-connect-pta-security-deep-dive.md) - 해당 기능에 대한 자세한 추가 기술 정보입니다.
-- [Azure AD Seamless SSO](how-to-connect-sso.md) - 보완적인 Azure AD Seamless SSO 기능을 자세히 알아봅니다.
+- [Azure AD 원활한 SSO](how-to-connect-sso.md) - 이 보완 기능에 대해 자세히 알아봅니다.
 - [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - 새로운 기능 요청을 제출합니다.

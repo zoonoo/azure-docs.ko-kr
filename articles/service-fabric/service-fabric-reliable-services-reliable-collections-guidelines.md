@@ -1,13 +1,13 @@
 ---
-title: 신뢰할 수 있는 컬렉션에 대 한 지침
-description: Azure Service Fabric 응용 프로그램에서 Service Fabric 신뢰할 수 있는 컬렉션을 사용 하기 위한 지침과 권장 사항입니다.
+title: 신뢰할 수 있는 컬렉션에 대한 지침
+description: Azure 서비스 패브릭 응용 프로그램에서 서비스 패브릭 신뢰할 수 있는 컬렉션 사용에 대 한 지침 및 권장 사항입니다.
 ms.topic: conceptual
 ms.date: 12/10/2017
 ms.openlocfilehash: 37c734205877f9e0cb98ef2834462691e8e483d9
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75645483"
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Azure Service Fabric에서 신뢰할 수 있는 컬렉션에 대한 지침 및 권장 사항
@@ -21,7 +21,7 @@ ms.locfileid: "75645483"
 * 트랜잭션을 커밋, 중단 또는 삭제한 후에는 사용하지 마십시오.
 * 열거형이 만들어진 트랜잭션 범위 외부에서는 해당 열거형을 사용하지 마세요.
 * 다른 트랜잭션의 `using` 문 내에 트랜잭션을 만들지 마세요. 교착 상태가 발생할 수 있습니다.
-* `IReliableStateManager.GetOrAddAsync`를 사용 하 여 신뢰할 수 있는 상태를 만들지 말고 동일한 트랜잭션에서 신뢰할 수 있는 상태를 사용 합니다. 이로 인해 InvalidOperationException이 발생 합니다.
+* 동일한 트랜잭션에서 `IReliableStateManager.GetOrAddAsync` 신뢰할 수 있는 상태를 만들고 신뢰할 수 있는 상태를 사용 하지 마십시오. 이로 인해 잘못된작업예외가 발생합니다.
 * `IComparable<TKey>` 구현이 올바른지 확인하세요. 시스템은 검사점 및 행 병합을 위해 `IComparable<TKey>`에 대한 종속성을 보유합니다.
 * 특정 유형의 교착 상태를 방지하기 위해 항목을 업데이트하려는 경우에는 항목을 읽을 때 업데이트 잠금을 사용하지 마세요.
 * 파티션당 신뢰할 수 있는 컬렉션 수를 1,000개 미만으로 유지하세요. 항목 수가 더 적은 신뢰할 수 있는 컬렉션보다 항목 수가 더 많은 신뢰할 수 있는 컬렉션이 우선됩니다.
@@ -45,10 +45,10 @@ ms.locfileid: "75645483"
 * [신뢰할 수 있는 컬렉션 작업](service-fabric-work-with-reliable-collections.md)
 * [트랜잭션 및 잠금](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
 * 데이터 관리
-  * [Backup 및 복원](service-fabric-reliable-services-backup-restore.md)
-  * [알림](service-fabric-reliable-services-notifications.md)
+  * [백업 및 복원](service-fabric-reliable-services-backup-restore.md)
+  * [알림을](service-fabric-reliable-services-notifications.md)
   * [Serialization 및 업그레이드](service-fabric-application-upgrade-data-serialization.md)
   * [신뢰할 수 있는 상태 관리자 구성](service-fabric-reliable-services-configuration.md)
 * 기타
-  * [Reliable Services 빠른 시작](service-fabric-reliable-services-quick-start.md)
+  * [신뢰할 수 있는 서비스 빠른 시작](service-fabric-reliable-services-quick-start.md)
   * [신뢰할 수 있는 컬렉션에 대한 개발자 참조](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)

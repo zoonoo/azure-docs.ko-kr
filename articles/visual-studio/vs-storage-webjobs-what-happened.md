@@ -1,6 +1,6 @@
 ---
-title: WebJob 프로젝트 (Visual Studio Azure Storage)의 변경 내용
-description: Visual Studio 연결 서비스를 사용 하 여 저장소 계정에 연결한 후 Azure WebJob 프로젝트에서 발생 하는 작업에 대해 설명 합니다.
+title: 내 WebJob 프로젝트(Visual Studio Azure 저장소)는 어떻게 되었습니까?
+description: Visual Studio 연결 서비스를 사용하여 저장소 계정에 연결한 후 Azure WebJob 프로젝트에서 발생한 작업에 대해 설명합니다.
 services: storage
 author: ghogen
 manager: jillfra
@@ -14,10 +14,10 @@ ms.date: 12/02/2016
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 17861b7c25dfaf9bc9399e5261cdf2a5b43caf21
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72298734"
 ---
 # <a name="what-happened-to-my-webjob-project-visual-studio-azure-storage-connected-service"></a>내 WebJob 프로젝트(Visual Studio Azure Storage 연결 서비스)의 변경 내용
@@ -31,7 +31,7 @@ Azure Storage NuGet 패키지가 Visual Studio 프로젝트에 추가 또는 업
 * **Microsoft.WindowsAzure.ConfigurationManager**
 * **Microsoft.WindowsAzure.Storage**
 * **Newtonsoft.Json**
-* **System.Data**
+* **시스템.데이터**
 * **System.Spatial**
 
 ## <a name="connection-string-for-azure-storage-added"></a>추가된 Azure Storage에 대한 연결 문자열

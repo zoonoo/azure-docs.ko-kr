@@ -4,13 +4,13 @@ ms.topic: include
 ms.date: 10/09/2019
 ms.author: pabouwer
 ms.openlocfilehash: 8931ba97cf72891c78e20389be10178dd2c0317a
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77594273"
 ---
-Windows의 PowerShell 기반 셸에서 `Invoke-WebRequest`를 사용 하 여 Consul 투구 차트 릴리스를 다운로드 한 후 다음과 같이 `Expand-Archive`를 사용 하 여 추출 합니다.
+Windows의 PowerShell 기반 셸에서 `Invoke-WebRequest` 영사 헬름 차트 릴리스를 다운로드한 다음 다음과 `Expand-Archive` 같이 추출하는 데 사용합니다.
 
 ```powershell
 # Specify the Consul Helm chart version that will be leveraged throughout these instructions
