@@ -1,5 +1,5 @@
 ---
-title: 모듈 쌍 & 모듈 쌍 (node.js)으로 시작 Azure IoT Hub
+title: Azure IoT Hub 모듈 ID & 모듈 트윈(Node.js)으로 시작
 description: Node.js용 IoT SDK를 사용하여 모듈 ID를 만들고 모듈 쌍을 업데이트하는 방법을 알아봅니다.
 author: wesmc7777
 manager: philmea
@@ -10,13 +10,13 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.openlocfilehash: bf80925a2dc5c6d06ba14fe1c0d72a2fc1f88d51
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73953865"
 ---
-# <a name="get-started-with-iot-hub-module-identity-and-module-twin-nodejs"></a>IoT Hub 모듈 id 및 모듈 쌍 시작 (node.js)
+# <a name="get-started-with-iot-hub-module-identity-and-module-twin-nodejs"></a>IoT Hub 모듈 ID 및 모듈 트윈(Node.js) 시작하기
 
 [!INCLUDE [iot-hub-selector-module-twin-getstarted](../../includes/iot-hub-selector-module-twin-getstarted.md)]
 
@@ -32,17 +32,17 @@ ms.locfileid: "73953865"
 > [!NOTE]
 > 디바이스와 솔루션 백 엔드에서 실행하기 위해 두 애플리케이션을 빌드하는 데 사용할 수 있는 Azure IoT SDK에 관한 정보는 [Azure IoT SDK](iot-hub-devguide-sdks.md)를 참조하세요.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-* Node.js 버전 10.0. x 이상 [개발 환경 준비](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) Windows 또는 Linux에서이 자습서에 대 한 node.js를 설치 하는 방법을 설명 합니다.
+* Node.js 버전 10.0.x 이상. Windows 또는 Linux에서 이 자습서를 위해 Node.js를 설치하는 방법에 대해서는 [개발 환경 준비](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md)에서 설명합니다.
 
-* 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)을 만들 수 있습니다.
+* 활성 Azure 계정. 계정이 없는 경우 몇 분 안에 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)을 만들 수 있습니다.
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-## <a name="get-the-iot-hub-connection-string"></a>IoT hub 연결 문자열을 가져옵니다.
+## <a name="get-the-iot-hub-connection-string"></a>IoT 허브 연결 문자열 받기
 
 [!INCLUDE [iot-hub-howto-module-twin-shared-access-policy-text](../../includes/iot-hub-howto-module-twin-shared-access-policy-text.md)]
 
@@ -50,13 +50,13 @@ ms.locfileid: "73953865"
 
 ## <a name="create-a-device-identity-and-a-module-identity-in-iot-hub"></a>IoT Hub에서 디바이스 ID 및 모듈 ID 만들기
 
-이 섹션에서는 IoT Hub의 ID 레지스트리에 디바이스 ID 및 모듈 ID를 만드는 Node.js 앱을 만듭니다. ID 레지스트리에 항목이 없는 경우 디바이스 또는 모듈을 IoT Hub에 연결할 수 없습니다. 자세한 내용은 [IoT Hub 개발자 가이드](iot-hub-devguide-identity-registry.md)의 "id 레지스트리" 섹션을 참조 하세요. 이 콘솔 앱을 실행하면 디바이스 및 모듈 둘 다의 고유한 ID 및 키가 생성됩니다. 디바이스 및 모듈은 IoT Hub에 디바이스-클라우드 메시지를 보낼 때 이러한 값을 사용하여 자신을 식별합니다. ID는 대/소문자를 구분합니다.
+이 섹션에서는 IoT Hub의 ID 레지스트리에 디바이스 ID 및 모듈 ID를 만드는 Node.js 앱을 만듭니다. ID 레지스트리에 항목이 없는 경우 디바이스 또는 모듈을 IoT Hub에 연결할 수 없습니다. 자세한 내용은 [IoT Hub 개발자 가이드의](iot-hub-devguide-identity-registry.md)"ID 레지스트리" 섹션을 참조하십시오. 이 콘솔 앱을 실행하면 디바이스 및 모듈 둘 다의 고유한 ID 및 키가 생성됩니다. 디바이스 및 모듈은 IoT Hub에 디바이스-클라우드 메시지를 보낼 때 이러한 값을 사용하여 자신을 식별합니다. ID는 대/소문자를 구분합니다.
 
 1. 코드를 저장할 디렉터리를 만듭니다.
 
 2. 이 디렉터리 내부에서 먼저 **npm init -y**를 실행하여 기본값으로 빈 package.json을 만듭니다. 코드의 프로젝트 파일입니다.
 
-3. **Npm install-S iothub\@modules-preview** 를 실행 하 여 **node_modules** 하위 디렉터리 내에 서비스 SDK를 설치 합니다.
+3. **npm 설치\@-S azure-iothub 모듈 미리 보기를** 실행하여 **node_modules** 하위 디렉터리 내에 서비스 SDK를 설치합니다.
 
     > [!NOTE]
     > 하위 디렉터리 이름 node_modules는 ‘module’이라는 단어를 사용하여 “노드 라이브러리”를 나타냅니다. 여기서 이 용어는 IoT Hub 모듈과 아무 관계도 없습니다.
@@ -118,7 +118,7 @@ ms.locfileid: "73953865"
 
     ```
 
-이 앱은 ID가 **myFirstDevice**인 디바이스 ID와 ID가 **myFirstModule**인 모듈 ID를 **myFirstDevice** 디바이스 아래에 만듭니다. (해당 모듈 ID가 이미 id 레지스트리에 있는 경우 코드는 기존 모듈 정보만 검색 합니다.) 그러면 앱은 해당 id의 기본 키를 표시 합니다. 이 키를 시뮬레이션된 모듈 앱에서 사용하여 IoT Hub에 연결합니다.
+이 앱은 ID가 **myFirstDevice**인 디바이스 ID와 ID가 **myFirstModule**인 모듈 ID를 **myFirstDevice** 디바이스 아래에 만듭니다. 해당 모듈 ID가 ID 레지스트리에 이미 있는 경우 코드는 기존 모듈 정보를 검색하기만 하면 됩니다. 그런 다음 앱에 해당 ID의 기본 키가 표시됩니다. 이 키를 시뮬레이션된 모듈 앱에서 사용하여 IoT Hub에 연결합니다.
 
 node add.js를 사용하여 실행합니다. 그러면 디바이스 ID에 대한 연결 문자열과 모듈 ID에 대한 다른 연결 문자열이 제공됩니다.
 
@@ -129,11 +129,11 @@ node add.js를 사용하여 실행합니다. 그러면 디바이스 ID에 대한
 
 이 섹션에서는 시뮬레이션된 디바이스에 보고된 모듈 쌍 속성을 업데이트하는 Node.js 앱을 만듭니다.
 
-1. **모듈 연결 문자열 가져오기** - [Azure Portal](https://portal.azure.com/)에 로그인 합니다. IoT Hub로 이동하고 IoT 디바이스를 클릭합니다. myFirstDevice를 찾아서 열면 성공적으로 만들어진 myFirstModule이 표시됩니다. 모듈 연결 문자열을 복사합니다. 이는 다음 단계에서 필요합니다.
+1. **모듈 연결 문자열 --** Azure [포털에](https://portal.azure.com/)로그인합니다. IoT Hub로 이동하고 IoT 디바이스를 클릭합니다. myFirstDevice를 찾아서 열면 성공적으로 만들어진 myFirstModule이 표시됩니다. 모듈 연결 문자열을 복사합니다. 이는 다음 단계에서 필요합니다.
 
    ![Azure Portal 모듈 세부 정보](./media/iot-hub-node-node-module-twin-getstarted/module-detail.png)
 
-2. 위의 단계에서와 마찬가지로 장치 코드에 대 한 디렉터리를 만들고 NPM를 사용 하 여 장치를 초기화 하 고 장치 SDK를 설치 합니다 (**NPM install-\@S**.
+2. 위의 단계에서했던 것과 마찬가지로 장치 코드에 대한 디렉토리를 만들고 NPM을 사용하여 장치를 초기화하고 장치 SDK **(npm 설치 -S azure-iot-device-amqp\@모듈 미리 보기)를 설치합니다.**
 
    > [!NOTE]
    > npm install 명령의 속도가 느린 것처럼 보일 수도 있습니다. 이 명령은 패키지 리포지토리에서 많은 코드를 끌어오고 있으므로 잠시 기다려 주세요.
@@ -198,7 +198,7 @@ node add.js를 사용하여 실행합니다. 그러면 디바이스 ID에 대한
    F:\temp\module_twin>node twin.js
    ```
 
-   그러면 다음과 같이 표시 됩니다.
+   그러면 다음이 표시됩니다.
 
    ```console
    client opened
