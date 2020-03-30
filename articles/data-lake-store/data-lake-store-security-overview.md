@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: 4e640aa1cb02174c935c0f7c1d61ab2fca5ea046
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75974571"
 ---
 # <a name="security-in-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1의 보안
@@ -53,8 +53,8 @@ ms.locfileid: "75974571"
 
 | 역할 | 관리 권한 | 데이터 액세스 권한 | 설명 |
 | --- | --- | --- | --- |
-| 할당된 역할 없음 |없음 |ACL에 의해 제어 |사용자는 Azure Portal 또는 Azure PowerShell cmdlet을 사용하여 Data Lake Storage Gen1을 찾아볼 수 없습니다. 사용자는 명령줄 도구만 사용할 수 있습니다. |
-| 소유자 |전체 |전체 |소유자 역할은 superuser입니다. 이 역할은 모든 것을 관리할 수 있으며 데이터에 대한 완전한 액세스를 가집니다. |
+| 할당된 역할 없음 |None |ACL에 의해 제어 |사용자는 Azure Portal 또는 Azure PowerShell cmdlet을 사용하여 Data Lake Storage Gen1을 찾아볼 수 없습니다. 사용자는 명령줄 도구만 사용할 수 있습니다. |
+| 소유자 |모두 |모두 |소유자 역할은 superuser입니다. 이 역할은 모든 것을 관리할 수 있으며 데이터에 대한 완전한 액세스를 가집니다. |
 | 판독기 |읽기 전용 |ACL에 의해 제어 |리더 역할은 계정 관리와 관련된 모든 항목(예: 어떤 사용자가 어떤 역할에 할당되는지)을 볼 수 있습니다. 리더 역할은 항목을 변경할 수 없습니다. |
 | 참가자 |역할 추가 및 제거를 제외한 모든 항목 |ACL에 의해 제어 |참여자 역할은 배포 및 경고 만들기 및 관리와 같은 계정의 일부 측면을 관리할 수 있습니다. 참여자 역할은 역할을 추가 또는 제거할 수 없습니다. |
 | 사용자 액세스 관리자 |역할 추가 및 제거 |ACL에 의해 제어 |사용자 액세스 관리자 역할은 계정에 대한 사용자 액세스를 관리할 수 있습니다. |
@@ -66,7 +66,7 @@ Data Lake Storage Gen1은 HDFS(Hadoop 분산 파일 시스템)와 같은 계층�
 
 [보안 그룹](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)을 사용하여 여러 사용자에 대한 ACL을 정의하는 것이 좋습니다. 사용자를 보안 그룹에 추가한 다음 파일 또는 폴더에 대한 ACL을 해당 보안 그룹에 할당합니다. 할당된 권한에 대해 최대 28개 항목으로 제한하기 때문에 할당된 사용 권한을 제공하려는 경우에 유용합니다. Azure Active Directory 보안 그룹을 사용하여 Data Lake Storage Gen1에 저장된 데이터의 보안을 강화하는 방법에 대한 자세한 내용은 [ACL인 사용자 또는 보안 그룹을 Azure Data Lake Storage Gen1 파일 시스템에 할당](data-lake-store-secure-data.md#filepermissions)을 참조하세요.
 
-![액세스 권한 나열](./media/data-lake-store-security-overview/adl.acl.2.png "액세스 권한 나열")
+![액세스 권한 목록](./media/data-lake-store-security-overview/adl.acl.2.png "액세스 권한 목록")
 
 ## <a name="network-isolation"></a>네트워크 격리
 네트워크 수준에서 데이터 저장소에 대한 액세스를 제어하려면 Data Lake Storage Gen1을 사용합니다. 방화벽을 설정하고 신뢰할 수 있는 클라이언트에 대한 IP 주소 범위를 정의할 수 있습니다. IP 주소 범위와 함께 정의된 범위 내에서 IP 주소를 가지고 있는 클라이언트만 Data Lake Storage Gen1에 연결할 수 있습니다.
@@ -76,7 +76,7 @@ Data Lake Storage Gen1은 HDFS(Hadoop 분산 파일 시스템)와 같은 계층�
 ## <a name="data-protection"></a>데이터 보호
 Data Lake Storage Gen1은 수명 주기 전체에 걸쳐 데이터를 보호합니다. 전송 중인 데이터의 경우 Data Lake Storage Gen1은 업계 표준 TLS(전송 계층 보안) 1.2 프로토콜을 사용하여 네트워크에서 데이터를 보호합니다.
 
-![Data Lake Storage Gen1 암호화](./media/data-lake-store-security-overview/adls-encryption.png "Data Lake Storage Gen1 암호화")
+![데이터 레이크 스토리지 Gen1의 암호화](./media/data-lake-store-security-overview/adls-encryption.png "데이터 레이크 스토리지 Gen1의 암호화")
 
 또한 Data Lake Storage Gen1은 계정에 저장된 데이터에 대한 암호화를 제공합니다. 암호화된 데이터 또는 암호화 없음을 선택할 수 있습니다. 암호화를 선택하면 Data Lake Storage Gen1에 저장된 데이터가 영구 미디어에 저장되기 전에 암호화됩니다. 이 경우 Data Lake Storage Gen1은 자동으로 데이터를 영구 저장하기 전에 데이터를 암호화하고, 검색하기 전에 데이터를 해독하므로 데이터에 액세스하는 클라이언트는 완전히 투명합니다. 데이터를 암호화/해독하기 위해 클라이언트 쪽에서 코드를 변경할 필요가 없습니다.
 
@@ -98,7 +98,7 @@ Data Lake Storage Gen1은 수명 주기 전체에 걸쳐 데이터를 보호합�
 활동 로그로 작업하는 방법에 대한 자세한 내용은 [리소스에 대한 작업을 감사하기 위해 활동 로그 보기](../azure-resource-manager/management/view-activity-logs.md)를 참조하세요.
 
 ### <a name="diagnostics-logs"></a>진단 로그
-Azure Portal에서 데이터 액세스 감사 및 진단 로깅을 사용 하도록 설정 하 고 Azure Blob storage 계정, 이벤트 허브 또는 Azure Monitor 로그에 로그를 보낼 수 있습니다.
+Azure 포털에서 데이터 액세스 감사 및 진단 로깅을 활성화하고 Azure Blob 저장소 계정, 이벤트 허브 또는 Azure Monitor 로그로 로그를 보낼 수 있습니다.
 
 ![진단 로그](./media/data-lake-store-security-overview/diagnostic-logs.png "진단 로그")
 
@@ -109,7 +109,7 @@ Data Lake Storage Gen1과 함께 진단 로그를 사용하는 방법에 대한 
 
 Data Lake Storage Gen1의 새로운 기능을 참조하려는 경우 [Data Lake Storage Gen1 UserVoice 포럼](https://feedback.azure.com/forums/327234-data-lake)에 사용자 의견을 보내주세요.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 * [Azure Data Lake Storage Gen1 개요](data-lake-store-overview.md)
 * [Data Lake Storage Gen1 시작](data-lake-store-get-started-portal.md)
 * [Data Lake Storage Gen1의 데이터 보호](data-lake-store-secure-data.md)

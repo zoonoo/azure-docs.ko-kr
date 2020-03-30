@@ -3,23 +3,23 @@ title: Azure에 SQL Server 데이터베이스 백업
 description: 이 문서에서는 Azure에 SQL Server를 백업하는 방법을 설명합니다. SQL Server 복구에 대해서도 설명합니다.
 ms.topic: conceptual
 ms.date: 06/18/2019
-ms.openlocfilehash: 7305a75852deac466028e6278fca76626d8c1820
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.openlocfilehash: 537257733d7693598fd8007da6ce12c28fbeb02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79297495"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79408763"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Azure VM의 SQL Server 백업 정보
 
-[Azure Backup](backup-overview.md) 은 Azure vm에서 실행 되는 SQL Server를 백업 하는 스트림 기반의 특수 솔루션을 제공 합니다. 이 솔루션은 제로 인프라 백업, 장기 보존 및 중앙 관리에 대 한 Azure Backup의 이점에 부합 합니다. 또한 SQL Server에 대해 특별히 다음과 같은 이점을 제공 합니다.
+[Azure Backup은](backup-overview.md) Azure VM에서 실행되는 SQL Server를 백업하는 스트림 기반의 특수 솔루션을 제공합니다. 이 솔루션은 인프라 제로 백업, 장기 보존 및 중앙 관리의 Azure Backup의 이점과 일치합니다. 또한 SQL Server에 대해 다음과 같은 이점을 제공합니다.
 
-1. 모든 백업 유형을 지 원하는 작업 인식 백업-전체, 차등 및 로그
-2. 로그 백업이 빈번한 15 분 RPO (복구 지점 목표)
-3. 지정 시간 복구 (초)
+1. 모든 백업 유형을 지원하는 워크로드 인식 백업- 전체, 차등 및 로그
+2. 빈번한 로그 백업으로 15분 RPO(복구 지점 목표)
+3. 최대 1초의 시점 복구
 4. 개별 데이터베이스 수준 백업 및 복원
 
-현재 지원 되는 백업 및 복원 시나리오를 보려면 [지원 매트릭스](backup-azure-sql-database.md#scenario-support)를 참조 하세요.
+오늘 지원되는 백업 및 복원 시나리오를 보려면 [지원 매트릭스를](sql-support-matrix.md#scenario-support)참조하십시오.
 
 ## <a name="backup-process"></a>백업 프로세스
 
@@ -40,82 +40,8 @@ ms.locfileid: "79297495"
 시작하기 전에 다음을 확인합니다.
 
 1. Azure에서 실행되는 SQL Server 인스턴스가 있는지 확인합니다. [SQL Server 인스턴스를 마켓플레이스에 빠르게 만들](../virtual-machines/windows/sql/quickstart-sql-vm-create-portal.md) 수 있습니다.
-2. [기능 고려 사항](#feature-consideration-and-limitations) 및 [시나리오 지원](#scenario-support)을 검토합니다.
+2. [기능 고려 사항](sql-support-matrix.md#feature-consideration-and-limitations) 및 [시나리오 지원](sql-support-matrix.md#scenario-support)을 검토합니다.
 3. 이 시나리오에 대한 [일반적인 질문을 검토](faq-backup-sql-server.md)합니다.
-
-## <a name="scenario-support"></a>시나리오 지원
-
-**지원** | **세부 정보**
---- | ---
-**지원되는 배포** | SQL Marketplace Azure VM 및 비 Marketplace VM(SQL Server가 수동 설치됨)이 지원됩니다.
-**지원되는 지역** | 오스트레일리아 남동부(ASE), 오스트레일리아 동부(AE), 오스트레일리아 중부(AC), 오스트레일리아 중부 2(AC) <br> 브라질 남부(BRS)<br> 캐나다 중부(CNC), 캐나다 동부(CE)<br> 동남 아시아(SEA), 동아시아(EA) <br> 미국 동부(EUS), 미국 동부 2(EUS2), 미국 중서부(WCUS), 미국 서부(WUS), 미국 서부 2(WUS 2), 미국 중북부(NCUS), 미국 중부(CUS), 미국 중남부(SCUS) <br> 인도 중부(INC), 인도 남부(INS), 인도 서부 <br> 일본 동부(JPE), 일본 서부(JPW) <br> 한국 중부(KRC), 한국 남부(KRS) <br> 북유럽(NE), 서유럽 <br> 영국 남부(UKS), 영국 서부(UKW) <br> US Gov 애리조나, US Gov 버지니아, US Gov 텍사스, US DoD 중부, US DoD 동부 <br> 독일 북부, 독일 중서부 <br> 스위스 북부, 스위스 서부 <br> 프랑스 중부 <br> 중국 동부, 중국 동부 2, 중국 북부, 중국 북부 2
-**지원되는 운영 체제** | Windows Server 2019, Windows Server 2016, Windows Server 2012, Windows Server 2008 R2 SP1 <br/><br/> Linux는 현재 지원되지 않습니다.
-**지원되는 SQL Server 버전** | [제품 수명 주기 페이지 검색](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202017)에 설명된 SQL Server 2019, SQL Server 2017, [제품 수명 주기 페이지 검색](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202016%20service%20pack)에 설명된 SQL Server 2016 및 SP, SQL Server 2014, SQL Server 2012, SQL Server 2008 R2, SQL Server 2008 <br/><br/> Enterprise, Standard, Web, Developer, Express
-**지원되는 .NET 버전** | VM에 설치된 .NET Framework 4.5.2 이상
-
-## <a name="feature-consideration-and-limitations"></a>기능 고려 사항 및 제한 사항
-
-* SQL Server 백업은 Azure Portal 또는 **PowerShell**에서 구성할 수 있습니다. CLI는 지원되지 않습니다.
-* 솔루션은 Azure Resource Manager VM과 클래식 VM의 두 종류 [배포](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model)에서 모두 지원됩니다.
-* SQL Server를 실행하는 VM에서 Azure 공용 IP 주소에 액세스하려면 인터넷 연결이 필요합니다.
-* SQL Server **장애 조치 (Failover) 클러스터 인스턴스 (FCI)** 는 지원 되지 않습니다.
-* 미러 데이터베이스와 데이터베이스 스냅샷에 대한 백업 및 복원 작업은 지원되지 않습니다.
-* 백업 솔루션을 2개 이상 사용하여 독립 실행형 SQL Server 인스턴스 또는 SQL Always On 가용성 그룹을 백업하면 오류가 발생할 수 있으므로 그렇게 하지 말아야 합니다.
-* 같은 솔루션 또는 다른 솔루션을 사용하여 한 가용성 그룹의 두 노드를 개별적으로 백업해도 오류가 발생할 수 있습니다.
-* Azure Backup은 **읽기 전용** 데이터베이스에 전체 백업 및 복사 전용 전체 백업만 지원합니다.
-* 많은 수의 파일이 있는 데이터베이스는 보호할 수 없습니다. 지원되는 최대 파일 수는 **1000**개입니다.  
-* 하나의 자격 증명 모음에 최대 **2,000**개의 SQL Server 데이터베이스를 백업할 수 있습니다. 데이터베이스 수가 이보다 더 많은 경우 자격 증명 모음을 여러 개 만들면 됩니다.
-* 한 번에 데이터베이스 **50**개까지 백업을 구성할 수 있습니다. 이 제한은 백업 부하 최적화에 도움이 됩니다.
-* 최대 **2tb** 크기의 데이터베이스를 지원 합니다. 크기 보다 큰 경우 성능 문제가 발생할 수 있습니다.
-* 서버당 보호할 수 있는 데이터베이스 수에 대 한 의미를 이해 하려면 대역폭, VM 크기, 백업 빈도, 데이터베이스 크기 등의 요소를 고려해 야 합니다. VM 리소스 및 백업 정책에 따라 서버당 사용할 수 있는 데이터베이스의 대략적인 수를 제공 하는 resource planner를 [다운로드](https://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx) 합니다.
-* 가용성 그룹의 경우 백업은 몇 가지 요소에 따라 다른 노드에서 수행됩니다. 아래는 가용성 그룹에 대한 백업 동작을 요약한 것입니다.
-
-### <a name="back-up-behavior-in-case-of-always-on-availability-groups"></a>Always On 가용성 그룹의 백업 동작
-
-백업이 AG의 한 노드에서 구성되어 있는 것이 좋습니다. 백업은 항상 주 노드와 동일한 지역에서 구성되어야 합니다. 즉, 백업을 구성하는 지역에 항상 주 노드가 있어야 합니다. AG의 모든 노드가 백업이 구성 된 동일한 지역에 있는 경우 아무 문제가 없습니다.
-
-#### <a name="for-cross-region-ag"></a>지역 간 AG
-
-* 백업 기본 설정에 관계 없이 백업이 구성 된 동일한 지역에 있지 않은 노드에서는 백업이 수행 되지 않습니다. 따라서 지역 간 백업은 지원되지 않습니다. 노드가 두 개만 있고 보조 노드가 다른 지역에 있는 경우 이 경우 백업 기본 설정이 ' 보조 전용 ' 인 경우를 제외 하 고는 주 노드에서 백업이 계속 수행 됩니다.
-* 백업이 구성되어 있는 곳과 다른 지역으로 장애 조치(failover)가 발생하는 경우 장애 조치 지역의 노드에서 백업이 실패합니다.
-
-백업 기본 설정 및 백업 유형(전체/차등/로그/복사 전용 전체)에 따라 특정 노드(주/보조)에서 백업이 수행됩니다.
-
-* **백업 기본 설정: 기본**
-
-**백업 유형** | **Node**
-    --- | ---
-    전체 | 주
-    차등 | 주
-    로그 |  주
-    복사 전용 전체 |  주
-
-* **백업 기본 설정: 보조만**
-
-**백업 유형** | **Node**
---- | ---
-전체 | 주
-차등 | 주
-로그 |  보조
-복사 전용 전체 |  보조
-
-* **백업 기본 설정: 보조**
-
-**백업 유형** | **Node**
---- | ---
-전체 | 주
-차등 | 주
-로그 |  보조
-복사 전용 전체 |  보조
-
-* **백업 기본 설정 없음**
-
-**백업 유형** | **Node**
---- | ---
-전체 | 주
-차등 | 주
-로그 |  보조
-복사 전용 전체 |  보조
 
 ## <a name="set-vm-permissions"></a>VM 권한 설정
 
@@ -132,11 +58,11 @@ Windows 2008 R2에서 실행되는 **SQL 2008** 및 **2008 R2**의 경우 권한
 다른 모든 버전의 경우 다음 단계에 따라 권한을 수정합니다.
 
   1. SQL Server sysadmin 권한이 있는 계정을 사용하여 SSMS(SQL Server Management Studio)에 로그인합니다. 특별한 사용 권한이 필요하지 않으면 Windows 인증이 작동해야 합니다.
-  2. SQL Server에서 **Security/Logins** 폴더를 엽니다.
+  2. SQL Server에서 **보안/로그인 폴더를 엽니다.**
 
       ![Security/Logins 폴더를 열어서 계정 보기](./media/backup-azure-sql-database/security-login-list.png)
 
-  3. **Logins** 폴더를 마우스 오른쪽 단추로 클릭하고 **새 로그인**을 선택합니다. **로그인 - 새로 만들기**에서 **검색**을 선택합니다.
+  3. **로그인** 폴더를 마우스 오른쪽 단추로 클릭하고 **새 로그인을**선택합니다. **로그인 - 새로 만들기**에서 **검색**을 선택합니다.
 
       ![로그인 - 신규 대화 상자에서 검색 선택](./media/backup-azure-sql-database/new-login-search.png)
 
@@ -183,7 +109,7 @@ SQL Server 인스턴스에 **NT AUTHORITY\SYSTEM** 및 **NT Service\AzureWLBacku
 
 7. 확인을 클릭합니다.
 8. 동일한 일련의 단계(위의 1~7)를 반복하여 SQL Server 인스턴스에 NT Service\AzureWLBackupPluginSvc 로그인을 추가합니다. 로그인이 이미 있으면 sysadmin 서버 역할이 있는지 확인하고 상태에서 데이터베이스 엔진 연결 권한이 허용되고 로그인이 사용되는지 확인합니다.
-9. 사용 권한을 부여 하 고 나면 포털에서 **db** 를 다시 검색: 자격 증명 모음 **->** 백업 인프라 **->** Azure VM에서 작업을 수행 합니다.
+9. 권한을 부여한 후 포털에서 **DB를** 다시 **->** 검색합니다: Azure VM의 Vault 백업 인프라 **->** 워크로드:
 
     ![Azure Portal에서 DB 다시 검색](media/backup-azure-sql-database/sql-rediscover-dbs.png)
 

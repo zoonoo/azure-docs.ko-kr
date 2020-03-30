@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: c570f988dea894b8106405f4e427edb386a3e74a
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75969282"
 ---
 # <a name="use-case---customer-profiling"></a>사용 사례 - 고객 프로파일링
@@ -63,6 +63,6 @@ Contoso의 목표는 플레이어의 게임 기록을 기반으로 상향 판매
 
 이 예에서 Data Factory는 입력 데이터의 복사, 변환 및 처리를 조정하고 Azure SQL Database로 최종 데이터를 출력하는 데 사용됩니다.  또한 데이터 파이프라인의 네트워크를 시각화하고 관리하며 UI에서 상태를 모니터링할 수 있습니다.
 
-## <a name="benefits"></a>혜택
+## <a name="benefits"></a>이점
 사용자 프로필 분석을 최적화하고 비즈니스 목표에 맞추어 게임 회사는 신속하게 사용 패턴을 수집하고 마케팅 캠페인의 효과를 분석할 수 있습니다.
 

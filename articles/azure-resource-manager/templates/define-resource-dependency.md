@@ -1,24 +1,24 @@
 ---
-title: 리소스의 배포 순서 설정
+title: 리소스에 대한 배포 순서 설정
 description: 리소스가 올바른 순서대로 배포되도록 배포 중 다른 리소스에 종속된 것으로 리소스를 설정하는 방법에 대해 설명합니다.
 ms.topic: conceptual
 ms.date: 12/03/2019
-ms.openlocfilehash: ffd6d6c65a1cbe9578b5f9162d29f3238e27ea71
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: f11f79df875492a568a76f494dfffb4a163f64cb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77207692"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80153287"
 ---
-# <a name="define-the-order-for-deploying-resources-in-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿에서 리소스를 배포하는 순서 정의
+# <a name="define-the-order-for-deploying-resources-in-arm-templates"></a>ARM 템플릿에 리소스 배포 순서 정의
 
-리소스를 배포할 때 다른 리소스가 배포 되기 전에 존재 하는지 확인 해야 할 수 있습니다. 예를 들어 sql 데이터베이스를 배포 하기 전에 SQL server가 필요 합니다. 하나의 리소스를 다른 리소스에 종속된 것으로 표시하여 이 관계를 정의합니다. 종속성은 **dependsOn** 요소를 사용하거나 **reference** 함수를 사용하여 정의합니다.
+리소스를 배포할 때 리소스를 배포하기 전에 다른 리소스가 있는지 확인해야 할 수 있습니다. 예를 들어 SQL 데이터베이스를 배포하기 전에 SQL 서버가 필요합니다. 하나의 리소스를 다른 리소스에 종속된 것으로 표시하여 이 관계를 정의합니다. 종속성은 **dependsOn** 요소를 사용하거나 **reference** 함수를 사용하여 정의합니다.
 
 Resource Manager는 리소스 간의 종속성을 평가한 후 종속된 순서에 따라 리소스를 배포합니다. 리소스가 서로 종속되어 있지 않은 경우 Resource Manager는 이를 병렬로 배포합니다. 동일한 템플릿에 배포되는 리소스에 대한 종속성만 정의하면 됩니다.
 
 ## <a name="dependson"></a>dependsOn
 
-템플릿 내에서 dependsOn 요소를 사용하면 하나의 리소스를 하나 이상의 리소스에 종속된 것으로 정의할 수 있습니다. 해당 값은 쉼표로 구분 된 리소스 이름 목록입니다. 이 목록에는 [조건적으로 배포](conditional-resource-deployment.md)된 리소스가 포함 될 수 있습니다. 조건부 리소스가 배포 되지 않은 경우 Azure Resource Manager은 필요한 종속성에서 자동으로 제거 합니다.
+템플릿 내에서 dependsOn 요소를 사용하면 하나의 리소스를 하나 이상의 리소스에 종속된 것으로 정의할 수 있습니다. 해당 값은 쉼표로 구분된 리소스 이름 목록입니다. 목록에는 [조건부로 배포된](conditional-resource-deployment.md)리소스가 포함될 수 있습니다. 조건부 리소스가 배포되지 않으면 Azure Resource Manager는 필요한 종속성에서 자동으로 제거합니다.
 
 다음 예제에서는 부하 분산 디바이스, 가상 네트워크 및 여러 스토리지 계정을 만드는 루프에 종속된 가상 머신 확장 집합을 보여 줍니다. 이러한 다른 리소스는 다음 예제에 표시되어 있지 않지만 템플릿 내 다른 곳에 존재해야 합니다.
 
@@ -55,7 +55,7 @@ dependsOn을 사용하여 리소스 간의 관계를 매핑하도록 선택할 �
 
 ## <a name="child-resources"></a>자식 리소스
 
-resources 속성을 사용하면 정의되는 리소스에 관련된 자식 리소스를 지정할 수 있습니다. 자식 리소스는 5개 수준 깊이까지만 정의할 있습니다. 자식 리소스와 부모 리소스 사이에는 암시적 배포 종속성이 생성 되지 않는다는 점에 유의 해야 합니다. 부모 리소스 다음에 자식 리소스를 배포해야 하는 경우 dependsOn 속성을 사용하여 해당 종속성을 확실하게 명시해야 합니다.
+resources 속성을 사용하면 정의되는 리소스에 관련된 자식 리소스를 지정할 수 있습니다. 자식 리소스는 5개 수준 깊이까지만 정의할 있습니다. 암시적 배포 종속성은 자식 리소스와 상위 리소스 간에 만들어지지 않습니다. 부모 리소스 다음에 자식 리소스를 배포해야 하는 경우 dependsOn 속성을 사용하여 해당 종속성을 확실하게 명시해야 합니다.
 
 각 부모 리소스는 특정 리소스 종류만 자식 리소스로 허용합니다. 허용되는 리소스 종류는 부모 리소스의 [템플릿 스키마](https://github.com/Azure/azure-resource-manager-schemas)에서 지정됩니다. 자식 리소스 종류의 이름에는 부모 리소스 종류의 이름이 포함됩니다. 예를 들어 **Microsoft.Web/sites/config**와 **Microsoft.Web/sites/extensions**는 둘 다 **Microsoft.Web/sites**의 자식 리소스입니다.
 

@@ -6,10 +6,10 @@ ms.date: 04/11/2019
 ms.topic: article
 ms.custom: mvc
 ms.openlocfilehash: 385806dca7dcac9fd0aac4c1bf9e1072e7fe5ecb
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75979482"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>여러 VM에서 업데이트 관리, 변경 내용 추적 및 인벤토리 솔루션 사용
@@ -18,13 +18,13 @@ Azure Automation은 운영 체제 보안 업데이트를 관리하고, 변경 �
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-[https://portal.azure.com](https://portal.azure.com ) 에서 Azure에 로그인
+https://portal.azure.com 에서 Azure에 로그인
 
 ## <a name="enable-solutions"></a>솔루션 사용
 
 Azure Portal에서 **가상 머신**으로 이동합니다.
 
-확인란을 사용하여 변경 내용 추적 및 인벤토리 또는 업데이트 관리를 등록할 가상 머신을 선택합니다. 한 번에 최대 3개의 리소스 그룹을 등록할 수 있습니다. Azure Vm은 Automation 계정의 위치와 상관 없이 모든 지역에 있을 수 있습니다.
+확인란을 사용하여 변경 내용 추적 및 인벤토리 또는 업데이트 관리를 등록할 가상 머신을 선택합니다. 한 번에 최대 3개의 리소스 그룹을 등록할 수 있습니다. Azure VM은 자동화 계정의 위치에 관계없이 모든 지역에 존재할 수 있습니다.
 
 ![VM 목록](media/automation-onboard-solutions-from-browse/vmlist.png)
 > [!TIP]
@@ -39,17 +39,17 @@ Azure Portal에서 **가상 머신**으로 이동합니다.
 
 가상 머신 목록은 동일한 구독 및 위치에 있는 가상 머신만 표시하도록 필터링됩니다. 가상 머신이 3개 초과 리소스 그룹에 있는 경우 처음 3개 리소스 그룹이 선택됩니다.
 
-### <a name="resource-group-limit"></a> 온보딩 제한 사항
+### <a name="onboarding-limitations"></a><a name="resource-group-limit"></a> 온보딩 제한 사항
 
-온보딩에 사용할 수 있는 리소스 그룹 수는 [Resource Manager 배포 제한](../azure-resource-manager/templates/cross-resource-group-deployment.md)으로 제한됩니다. 업데이트 배포와 혼동 하지 않는 리소스 관리자 배포는 배포 당 리소스 그룹 5 개로 제한 됩니다. 온보딩의 무결성을 보장하기 위해 이러한 리소스 그룹 중 2개는 Log Analytics 작업 영역, Automation 계정 및 관련 리소스를 구성하기 위해 예약되어 있습니다. 그러면 배포를 위해 선택할 리소스 그룹이 3개 남습니다. 이 제한은 자동화 솔루션에서 관리할 수 있는 리소스 그룹의 수가 아니라 동시 온 보 딩에만 적용 됩니다.
+온보딩에 사용할 수 있는 리소스 그룹 수는 [Resource Manager 배포 제한](../azure-resource-manager/templates/cross-resource-group-deployment.md)으로 제한됩니다. 업데이트 배포와 혼동되지 않는 리소스 관리자 배포는 배포당 5개의 리소스 그룹으로 제한됩니다. 온보딩의 무결성을 보장하기 위해 이러한 리소스 그룹 중 2개는 Log Analytics 작업 영역, Automation 계정 및 관련 리소스를 구성하기 위해 예약되어 있습니다. 그러면 배포를 위해 선택할 리소스 그룹이 3개 남습니다. 이 제한은 자동화 솔루션에서 관리할 수 있는 리소스 그룹 수가 아닌 동시 온보딩에만 적용됩니다.
 
-Runbook을 온 보 딩에 사용할 수도 있습니다. 자세한 내용은 [Azure Automation에 대 한 업데이트 및 변경 내용 추적 솔루션](automation-onboard-solutions.md)등록을 참조 하세요.
+또한 온보딩을 위해 Runbook을 사용할 수 있으며, 자세한 내용은 [Onboard 업데이트 및 Azure Automation에 대한 변경 추적 솔루션을](automation-onboard-solutions.md)참조하십시오.
 
 필터 컨트롤을 사용하여 다른 구독, 위치 및 리소스 그룹의 가상 머신을 선택할 수 있습니다.
 
 ![업데이트 관리 솔루션 등록](media/automation-onboard-solutions-from-browse/onboardsolutions.png)
 
-Log Analytics 작업 영역 및 Automation 계정에 대 한 선택 사항을 검토 합니다. 기존 작업 영역 및 Automation 계정은 기본적으로 선택됩니다. 서로 다른 Log Analytics 작업 영역 및 Automation 계정을 사용하려면 **사용자 지정 구성** 페이지에서 **사용자 지정**을 클릭하여 선택하면 됩니다. Log Analytics 작업 영역을 선택하는 경우 Automation 계정에 연결되는지 확인이 이루어집니다. 연결된 Automation 계정에 있으면 다음과 같은 화면이 표시됩니다. 완료하면 **확인**을 클릭합니다.
+로그 분석 작업 영역 및 자동화 계정에 대한 선택 사항을 검토합니다. 기존 작업 영역 및 Automation 계정은 기본적으로 선택됩니다. 서로 다른 Log Analytics 작업 영역 및 Automation 계정을 사용하려면 **사용자 지정 구성** 페이지에서 **사용자 지정**을 클릭하여 선택하면 됩니다. Log Analytics 작업 영역을 선택하는 경우 Automation 계정에 연결되는지 확인이 이루어집니다. 연결된 Automation 계정에 있으면 다음과 같은 화면이 표시됩니다. 완료하면 **확인**을 클릭합니다.
 
 ![작업 영역 및 계정 선택](media/automation-onboard-solutions-from-browse/selectworkspaceandaccount.png)
 
@@ -60,7 +60,7 @@ Log Analytics 작업 영역 및 Automation 계정에 대 한 선택 사항을 �
 > [!NOTE]
 > 솔루션을 사용하도록 설정할 때 특정 Azure 지역에서만 Log Analytics 작업 영역 및 Automation 계정을 연결할 수 있습니다.
 >
-> 지원 되는 매핑 쌍 목록은 [Automation 계정 및 Log Analytics 작업 영역에 대 한 지역 매핑](how-to/region-mappings.md)을 참조 하세요.
+> 지원되는 매핑 쌍 목록은 자동화 [계정 및 로그 분석 작업 영역에 대한 지역 매핑을](how-to/region-mappings.md)참조하십시오.
 
 사용하지 않을 가상 머신 옆에 있는 확인란을 선택 취소합니다. 사용할 수 없는 가상 머신은 이미 선택이 취소되어 있습니다.
 
@@ -71,10 +71,10 @@ Log Analytics 작업 영역 및 Automation 계정에 대 한 선택 사항을 �
 다음 솔루션은 Log Analytics 작업 영역에 따라 다릅니다.
 
 * [업데이트 관리](automation-update-management.md)
-* [변경 내용 추적](automation-change-tracking.md)
+* [변경 추적](automation-change-tracking.md)
 * [작업이 없는 동안 VM 시작/중지](automation-solution-vm-management.md)
 
-Automation 계정을 Log Analytics 작업 영역에 더 이상 통합 하지 않기로 결정 한 경우 Azure Portal에서 직접 계정 연결을 해제할 수 있습니다. 계속하기 전에 앞에서 언급한 솔루션을 제거해야 합니다. 그러지 않으면 이 프로세스가 계속 진행되지 않습니다. 가져온 특정 솔루션에 대한 문서를 검토하여 제거에 필요한 단계를 이해하세요.
+자동화 계정을 Log Analytics 작업 영역과 더 이상 통합하지 않으려면 Azure 포털에서 직접 계정을 연결 해제할 수 있습니다. 계속하기 전에 앞에서 언급한 솔루션을 제거해야 합니다. 그러지 않으면 이 프로세스가 계속 진행되지 않습니다. 가져온 특정 솔루션에 대한 문서를 검토하여 제거에 필요한 단계를 이해하세요.
 
 이러한 솔루션을 제거한 후에 다음 단계에 따라 Automation 계정 연결을 해제할 수 있습니다.
 
@@ -103,7 +103,7 @@ Automation 계정을 Log Analytics 작업 영역에 더 이상 통합 하지 않
 * VM runbook 시작 및 중지
 * 변수
 
-또는 Log Analytics 작업 영역에서 Automation 계정에서 작업 영역의 연결을 끊을 수도 있습니다. 작업 영역에서 **관련 리소스**아래에 있는 **Automation 계정** 을 선택 합니다. Automation 계정 페이지에서 **계정 연결 해제**를 선택 합니다.
+또는 Log Analytics 작업 영역에서 자동화 계정에서 작업 영역의 연결을 해제할 수도 있습니다. 작업 영역에서 **관련 리소스**에서 **자동화 계정을** 선택합니다. 자동화 계정 페이지에서 **계정 연결 해제를 선택합니다.**
 
 ## <a name="troubleshooting"></a>문제 해결
 
@@ -129,13 +129,13 @@ Automation 계정을 Log Analytics 작업 영역에 더 이상 통합 하지 않
 
 **원인:** 솔루션이 일부 Linux 배포판 또는 일부 Windows에 지원되지 않습니다.
 
-**해결 방법:** [지원되는 클라이언트 목록](automation-update-management.md#clients)을 참조하세요.
+**해결 방법:**[지원되는 클라이언트 목록](automation-update-management.md#clients)을 참조하세요.
 
 ### <a name="classic-vms-cannot-be-enabled"></a>클래식 VM을 사용할 수 없음
 
 **원인**: 클래식 배포 모델을 사용하는 VM이 지원되지 않습니다.
 
-**해결**방법: 가상 컴퓨터를 리소스 관리자 배포 모델로 마이그레이션합니다. 작업 방법은 [클래식 배포 모델 리소스 마이그레이션](../virtual-machines/windows/migration-classic-resource-manager-overview.md)을 참조하세요.
+**해결:** 가상 컴퓨터를 리소스 관리자 배포 모델로 마이그레이션합니다. 작업 방법은 [클래식 배포 모델 리소스 마이그레이션](../virtual-machines/windows/migration-classic-resource-manager-overview.md)을 참조하세요.
 
 ### <a name="vm-is-stopped-deallocated"></a>VM이 중지되었습니다. (할당 취소됨)
 
@@ -152,10 +152,10 @@ Automation 계정을 Log Analytics 작업 영역에 더 이상 통합 하지 않
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 가상 머신에 대 한 솔루션을 사용 하도록 설정 했으므로 업데이트 관리 개요 문서를 방문 하 여 컴퓨터에 대 한 **업데이트 배포** 를 만드는 방법을 알아보세요.
+이제 가상 시스템에 대해 솔루션을 사용하도록 설정되었으므로 업데이트 관리 개요 문서를 방문하여 컴퓨터에 대한 **업데이트 배포를** 만드는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [업데이트 관리-Azure Vm에 대 한 업데이트 및 패치 관리](./automation-tutorial-update-management.md)
+> [업데이트 관리 - Azure VM에 대한 업데이트 및 패치 관리](./automation-tutorial-update-management.md)
 
 솔루션 및 솔루션 사용 방법에 대한 추가 자습서:
 

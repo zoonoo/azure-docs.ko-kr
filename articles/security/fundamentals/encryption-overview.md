@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: barclayn
-ms.openlocfilehash: 541039c82d5ea21c43a847da2710bef4162a2bc7
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 5d8fd578c5539c83e37a232d8425ad8bdf22129b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79243537"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80125056"
 ---
 # <a name="azure-encryption-overview"></a>Azure 암호화 개요
 
@@ -40,7 +40,7 @@ Azure는 서비스 관리 키를 사용하는 서버 쪽 암호화, Key Vault의
 
 ### <a name="client-side-encryption"></a>클라이언트 쪽 암호화
 
-클라이언트 쪽 암호화는 Azure 외부에서 수행됩니다. 다음을 포함합니다.
+클라이언트 쪽 암호화는 Azure 외부에서 수행됩니다.  다음을 포함합니다.
 
 - 고객의 데이터 센터에서 실행 중인 애플리케이션 또는 서비스 애플리케이션으로 암호화된 데이터.
 - Azure에서 수신될 때 이미 암호화된 데이터입니다.
@@ -59,7 +59,7 @@ Azure는 서비스 관리 키를 사용하는 서버 쪽 암호화, Key Vault의
 
 ### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 
-[Windows BitLocker](/azure/security/fundamentals/azure-disk-encryption-vms-vmss) 기술과 Linux [DM-Crypt](https://technet.microsoft.com/library/cc766295(v=ws.10).aspx)를 사용하여 전체 볼륨 암호화로 운영 체제 디스크와 데이터 디스크를 모두 보호하는 [Azure Disk Encryption](https://en.wikipedia.org/wiki/Dm-crypt)으로 Windows 및 Linux 가상 머신을 보호할 수 있습니다.
+[Windows BitLocker](https://technet.microsoft.com/library/cc766295(v=ws.10).aspx) 기술과 Linux [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt)를 사용하여 전체 볼륨 암호화로 운영 체제 디스크와 데이터 디스크를 모두 보호하는 [Azure Disk Encryption](/azure/security/fundamentals/azure-disk-encryption-vms-vmss)으로 Windows 및 Linux 가상 머신을 보호할 수 있습니다.
 
 암호화 키 및 비밀은 사용자의 [Azure Key Vault](../../key-vault/key-vault-overview.md) 구독에서 보호됩니다. Azure Backup 서비스를 사용하여 KEK(키 암호화) 구성으로 암호화된 VM을 백업 및 복원할 수 있습니다.
 
@@ -89,7 +89,7 @@ Key Vault를 사용한 클라이언트 쪽 암호화에 대해 자세히 알아�
 
 #### <a name="transparent-data-encryption"></a>투명한 데이터 암호화
 
-[TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde)는 복구 중에 사용 가능하도록 데이터베이스 부트 레코드에 저장된 DEK(데이터베이스 암호화 키)를 사용하여 [SQL Server](https://www.microsoft.com/sql-server/sql-server-2016), [Azure SQL Database](../../sql-database/sql-database-technical-overview.md) 및 [Azure SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) 데이터 파일을 실시간으로 암호화하는 데 사용됩니다.
+[TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde)는 복구 중에 사용 가능하도록 데이터베이스 부트 레코드에 저장된 DEK(데이터베이스 암호화 키)를 사용하여 [SQL Server](https://www.microsoft.com/sql-server/sql-server-2016), [Azure SQL Database](../../sql-database/sql-database-technical-overview.md) 및 [Azure SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) 데이터 파일을 실시간으로 암호화하는 데 사용됩니다.
 
 TDE는 AES 및 3DES(Triple Data Encryption Standard) 암호화 알고리즘을 사용하여 데이터 및 로그 파일을 보호합니다. 데이터베이스 파일의 암호화는 페이지 수준에서 수행됩니다. 암호화된 데이터베이스에서 페이지는 디스크에 기록되기 전에 암호화되고 메모리로 읽어올 때 암호 해독됩니다. 기본적으로 TDE는 이제 새로 만든 Azure SQL 데이터베이스에서 사용하도록 설정됩니다.
 
@@ -105,7 +105,7 @@ CLE에는 대칭 또는 비대칭 키를 사용하고 인증서의 공개 키 �
 
 ### <a name="cosmos-db-database-encryption"></a>Cosmos DB 데이터베이스 암호화
 
-[Azure Cosmos DB](../../cosmos-db/database-encryption-at-rest.md)는 전 세계에 배포된 Microsoft의 멀티모델 데이터베이스입니다. 비휘발성 스토리지(반도체 드라이브)의 Cosmos DB에 저장된 사용자 데이터는 기본적으로 암호화됩니다. 이를 설정하거나 해제하는 컨트롤은 없습니다. 저장 데이터 암호화는 보안 키 스토리지 시스템, 암호화된 네트워크 및 암호화 API를 비롯한 수많은 보안 기술을 사용하여 구현되었습니다. 암호화 키는 Microsoft에서 관리하며 Microsoft 내부 지침에 따라 순환됩니다.
+[Azure 코스모스 DB는](../../cosmos-db/database-encryption-at-rest.md) Microsoft의 전 세계에 분산된 다중 모델 데이터베이스입니다. 비휘발성 스토리지(반도체 드라이브)의 Cosmos DB에 저장된 사용자 데이터는 기본적으로 암호화됩니다. 이를 설정하거나 해제하는 컨트롤은 없습니다. 저장 데이터 암호화는 보안 키 스토리지 시스템, 암호화된 네트워크 및 암호화 API를 비롯한 수많은 보안 기술을 사용하여 구현되었습니다. 암호화 키는 Microsoft에서 관리하며 Microsoft 내부 지침에 따라 순환됩니다.
 
 ### <a name="at-rest-encryption-in-data-lake"></a>Data Lake의 미사용 암호화
 
@@ -207,5 +207,5 @@ Key Vault는 조직이 HSM(하드웨어 보안 모듈) 및 키 관리 소프트�
 - [Azure 네트워크 보안 개요](network-overview.md)
 - [Azure 데이터베이스 보안 개요](database-security-overview.md)
 - [Azure 가상 머신 보안 개요](virtual-machines-overview.md)
-- [저장 데이터 암호화](encryption-atrest.md)
+- [미사용 데이터 암호화](encryption-atrest.md)
 - [데이터 보안 및 암호화 모범 사례](data-encryption-best-practices.md)

@@ -5,24 +5,21 @@ services: active-directory
 documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
-ms.assetid: 6c0dc122-2cd8-4d70-be5a-3943459d308e
 ms.service: active-directory
 ms.subservice: azuread-dev
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ryanwi
-ms.reviewer: jesakowi, justhu
+ms.reviewer: jesakowi
 ms.custom: aaddev
-ms.openlocfilehash: cde2d286be7180458d997f6db06e4ff16a993dff
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ROBOTS: NOINDEX
+ms.openlocfilehash: 08def16f53cb0f544513c39a85f26e97c3606a42
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77164007"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80154477"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v10-endpoint"></a>Azure Active Directory v1.0 엔드포인트의 사용 권한 및 동의
 
@@ -30,14 +27,14 @@ ms.locfileid: "77164007"
 
 Azure AD(Azure Active Directory)는 OAuth 및 OpenID Connect(OIDC) 흐름을 위해 권한을 폭 넓게 사용합니다. 앱이 Azure AD에서 액세스 토큰을 받는 경우, 해당 액세스 토큰은 앱이 특정 리소스에 대해 가지는 권한을 설명하는 클레임을 포함합니다.
 
-범위라고도 하는 사용 권한을 사용하면 리소스가 앱이 호출하는 API에 대한 적절한 권한이 토큰에 포함되어 있는지만 확인하면 되기 때문에 리소스에 대한 권한 부여가 쉬워집니다.
+범위라고도 하는 사용 권한을 사용하면 리소스가 앱이 호출하는 API에 대한 적절한 권한이 토큰에 포함되어 있는지만 확인하면 되기 때문에 리소스에 대한 권한 부여가 쉬워집니다.****
 
 ## <a name="types-of-permissions"></a>권한 형식
 
 Azure AD는 두 종류의 권한을 정의합니다.
 
-* **위임된 권한** - 로그인한 사용자가 현재 있는 앱에서 사용합니다. 이 앱에 대해 사용자 또는 관리자는 앱이 요청하는 권한 및 앱이 API를 호출할 때 로그인한 사용자로 행동하도록 위임된 권한이라는 데 동의합니다. API에 따라 사용자는 API에 직접 동의할 수 없고 대신에 [관리자에게 “관리자 동의”를 제공할 것을 요구](/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview)합니다.
-* **애플리케이션 권한** - 로그인한 사용자가 없이 실행한 앱(예: 백그라운드 서비스 또는 디먼으로 실행한 앱)에서 사용합니다. 응용 프로그램 권한은 일반적으로 강력 하 고 사용자 경계 또는 관리자에 게 제한 되는 데이터를 통해 데이터에 대 한 액세스를 허용 하기 때문에 [관리자만 동의한](/azure/active-directory/develop/active-directory-v2-scopes#requesting-consent-for-an-entire-tenant) 수 있습니다. 리소스 응용 프로그램 소유자 (예: 사용 권한을 게시 하는 API)로 정의 된 사용자는 자신이 소유 하는 Api에 대 한 응용 프로그램 사용 권한도 부여할 수 있습니다.
+* **위임된 권한** - 로그인한 사용자가 현재 있는 앱에서 사용합니다. 이 앱에 대해 사용자 또는 관리자는 앱이 요청하는 권한 및 앱이 API를 호출할 때 로그인한 사용자로 행동하도록 위임된 권한이라는 데 동의합니다. API에 따라 사용자는 API에 직접 동의할 수 없으며 대신 [관리자에게 "관리자 동의"를 제공하도록 요구할](/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview)수 있습니다.
+* **애플리케이션 권한** - 로그인한 사용자가 없이 실행한 앱(예: 백그라운드 서비스 또는 디먼으로 실행한 앱)에서 사용합니다. 응용 프로그램 권한은 일반적으로 강력하며 사용자 경계를 넘어 데이터에 대한 액세스를 허용하거나 관리자로 제한되는 데이터에 액세스할 수 있기 때문에 [관리자만 동의할](/azure/active-directory/develop/active-directory-v2-scopes#requesting-consent-for-an-entire-tenant) 수 있습니다. 리소스 응용 프로그램의 소유자(즉, 사용 권한을 게시하는 API)로 정의된 사용자도 소유한 API에 대한 응용 프로그램 권한을 부여할 수 있습니다.
 
 효과적인 권한은 앱이 API를 요청할 때 갖게 될 권한입니다. 
 
@@ -105,7 +102,7 @@ Azure AD의 애플리케이션이 필요한 리소스 또는 API에 액세스하
   - `Permission`은 사용자가 해당 데이터에 대해 취할 수 있는 작업에 해당합니다.
   - `Modifier`는 다른 권한의 특수화를 설명하기 위해 필요에 따라 사용됩니다.
     
-    다음은 그 예입니다.
+    예를 들어:
   - Mail.Read - 사용자가 메일을 읽도록 허용합니다.
   - Mail.ReadWrite - 사용자가 메일을 읽거나 쓰도록 허용합니다.
   - Mail.ReadWrite.All - 관리자 또는 사용자가 조직의 모든 메일에 액세스하도록 허용합니다.

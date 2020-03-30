@@ -1,52 +1,52 @@
 ---
-title: Azure IoT Central 채팅 표시/숨기기 | Microsoft Docs
-description: 이 문서에서는 IoT Central 응용 프로그램에서 채팅을 표시 하 고 숨기는 방법을 설명 합니다. 라이브 채팅을 사용 하 여 기술 지원에 액세스할 수 있습니다.
+title: Azure IoT 센트럴 쇼/숨기기 채팅 | 마이크로 소프트 문서
+description: 이 문서에서는 IoT Central 응용 프로그램에서 채팅을 표시하고 숨기는 방법을 설명합니다. 라이브 채팅을 사용하여 기술 지원에 액세스할 수 있습니다.
 author: v-krghan
 ms.author: v-krghan
 ms.date: 08/23/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: bd1c3d27ebedfb8479b9f30ac08d8132b2a44a04
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: a8e93ea12f176a4b28f14f5878cc580873d3c7c4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023466"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80157707"
 ---
 # <a name="toggle-live-chat"></a>라이브 채팅 토글
 
-이 방법 문서에서는 IoT Central 응용 프로그램에서 라이브 채팅을 전환 하는 방법을 보여 줍니다. 라이브 채팅을 사용 하 여 기술 지원에 액세스할 수 있습니다.
+이 방법 문서에서는 IoT Central 응용 프로그램에서 라이브 채팅을 전환하는 방법을 보여 줍니다. 라이브 채팅을 사용하여 기술 지원에 액세스할 수 있습니다.
 
 > [!NOTE]
-> 채팅 옵션은 무료 요금제를 사용 하 여 만든 응용 프로그램에만 사용할 수 있습니다.
+> 채팅 옵션은 무료 가격 책정 계획을 사용하여 만든 응용 프로그램에만 사용할 수 있습니다.
 
-## <a name="chat-with-us"></a>채팅
+## <a name="chat-with-us"></a>우리와 함께 채팅
 
-기술 지원을 받으려면 IoT Central 응용 프로그램을 열고 **microsoft와 채팅**을 선택 합니다.
+기술 지원을 받으려면 IoT 중앙 응용 프로그램을 열고 **우리와 함께 채팅을**선택하십시오.
 
-![채팅](media/howto-show-hide-chat/chat-with-us.png)
+![우리와 함께 채팅](media/howto-show-hide-chat/chat-with-us.png)
 
-다음 스크린샷에 표시 된 것 처럼 질문을 입력할 수 있습니다.
+다음 스크린샷과 같이 질문을 입력할 수 있습니다.
 
 ![설정 및 속성에 대한 세부 정보가 있는 "디바이스 세부 정보 구성" 양식](media/howto-show-hide-chat/sample-chat.png)
 
 ## <a name="hide-chat"></a>채팅 숨기기
 
-채팅을 숨기려면 **도움말** 패널에서 **채팅 숨기기** 를 선택 합니다.
+채팅을 숨기려면 **도움말** 패널에서 **채팅 숨기기를** 선택합니다.
 
  ![채팅 숨기기](media/howto-show-hide-chat/hide-chat.png)
 
 ## <a name="enable-chat"></a>채팅 사용
 
-채팅을 표시 하려면 **도움말** 패널에서 **채팅 표시** 를 선택 합니다.
+채팅을 표시하려면 **도움말** 패널에서 **채팅 표시를** 선택합니다.
 
  ![채팅 표시](media/howto-show-hide-chat/show-chat.png)
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 Azure IoT Central에서 라이브 채팅을 전환 하는 방법을 배웠으므로 제안 된 다음 단계는 다음과 같습니다.
+Azure IoT Central에서 라이브 채팅을 전환하는 방법을 배웠으니 다음 단계로 제안된 다음 단계는 다음과 같습니다.
 
 > [!div class="nextstepaction"]
 > [대시보드에 타일 추가](howto-add-tiles-to-your-dashboard.md)

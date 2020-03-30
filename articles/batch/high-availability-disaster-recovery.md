@@ -1,6 +1,6 @@
 ---
-title: 고가용성 및 재해 복구-Azure Batch
-description: 지역 가동 중단에 대 한 Batch 응용 프로그램을 디자인 하는 방법을 알아봅니다. 워크 로드는 다른 지역으로 장애 조치 (failover) 하거나 둘 이상의 지역 간에 분할 되어야 합니다.
+title: 고가용성 및 재해 복구 - Azure 일괄 처리
+description: 지역 중단에 대한 Batch 응용 프로그램을 디자인하는 방법에 대해 알아봅니다. 워크로드는 다른 리전으로 장애 조치(failover)하거나 두 개 이상의 리전으로 분할되어야 합니다.
 services: batch
 documentationcenter: ''
 author: LauraBrenner
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/29/2019
 ms.author: labrenne
 ms.openlocfilehash: 84b0cce9557b4ae05586579f175cd0f5db14fdfc
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77026084"
 ---
 # <a name="design-your-application-for-high-availability"></a>고가용성을 위해 애플리케이션 디자인
@@ -49,5 +49,5 @@ Batch를 사용하는 애플리케이션이나 솔루션을 항상 사용할 수
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Portal](batch-account-create-portal.md), [Azure CLI](cli-samples.md), [PowerShell](batch-powershell-cmdlets-get-started.md)또는 [Batch 관리 API](batch-management-dotnet.md)를 사용 하 여 batch 계정을 만드는 방법에 대해 자세히 알아보세요.
+- [Azure 포털,](batch-account-create-portal.md) [Azure CLI,](cli-samples.md) [PowerShell](batch-powershell-cmdlets-get-started.md)또는 [일괄 처리 관리 API를](batch-management-dotnet.md)통해 일괄 처리 계정을 만드는 방법에 대해 자세히 알아봅니다.
 - Batch 계정에는 기본 할당량이 연결되어 있습니다. [이 문서](batch-quota-limit.md)에서는 기본 할당량 값과 할당량을 늘릴 수 있는 방법에 대해 자세히 설명합니다.

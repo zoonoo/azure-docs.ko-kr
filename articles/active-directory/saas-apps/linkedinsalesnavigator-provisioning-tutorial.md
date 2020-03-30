@@ -1,5 +1,5 @@
 ---
-title: '자습서: 사용자 프로 비전-LinkedIn Sales Navigator, Azure AD'
+title: '튜토리얼: 사용자 프로비저닝 - 링크드인 판매 네비게이터, Azure AD'
 description: 사용자 계정을 LinkedIn Sales Navigator로 자동으로 프로비전 및 프로비전 해제하도록 Azure Active Directory를 구성하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
@@ -16,17 +16,17 @@ ms.date: 03/28/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f789f82288c9820214c4ab32c271bb547945d4d1
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77057382"
 ---
 # <a name="tutorial-configure-linkedin-sales-navigator-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 LinkedIn Sales Navigator 구성
 
 이 자습서의 목적은 사용자 계정을 Azure AD에서 LinkedIn Sales Navigator로 자동으로 프로비전 및 프로비전 해제하도록 LinkedIn Sales Navigator 및 Azure AD에서 수행해야 하는 단계를 설명하는 것입니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
@@ -93,7 +93,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 9. LinkedIn Sales Navigator의 인스턴스를 선택한 다음, **프로비전** 탭을 선택합니다.
 
-10. **프로비전 모드**를 **자동**으로 설정합니다.
+10. **프로비저닝 모드를** **자동으로**설정합니다.
 
     ![LinkedIn Sales Navigator 프로비저닝](./media/linkedinsalesnavigator-provisioning-tutorial/linkedin_3.PNG)
 
@@ -123,5 +123,5 @@ Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [
 
 ## <a name="additional-resources"></a>추가 리소스
 
-* [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [엔터프라이즈 앱용 사용자 계정 프로비저닝 관리](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Azure Active Directory의 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](../manage-apps/what-is-single-sign-on.md)

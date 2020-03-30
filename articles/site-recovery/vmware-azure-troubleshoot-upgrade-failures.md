@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure Site Recovery 공급자 업그레이드 문제 해결
-description: Microsoft Azure Site Recovery 공급자를 업그레이드할 때 발생 하는 일반적인 문제를 해결 합니다.
+title: Microsoft Azure 사이트 복구 공급자의 업그레이드 문제 해결
+description: Microsoft Azure 사이트 복구 공급자를 업그레이드할 때 발생하는 일반적인 문제를 해결합니다.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 11/10/2019
 ms.author: raynew
 ms.openlocfilehash: b59f933fedd5f1d3ed3f7972b1a1fe653df31be2
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75893906"
 ---
 # <a name="troubleshoot-microsoft-azure-site-recovery-provider-upgrade-failures"></a>Microsoft Azure Site Recovery 공급 기업 업그레이드 오류 문제 해결
@@ -42,9 +42,9 @@ Microsoft Azure Site Recovery Provider(DRA)를 업그레이드하는 경우 통�
 
 1. 통합 설치를 다운로드한 폴더로 돌아가서 MicrosoftAzureSiteRecoveryUnifiedSetup.exe를 실행하여 업그레이드를 완료합니다. 
 
-## <a name="upgrade-failure-due-to-the-3rd-party-folder-being-renamed"></a>이름을 바꾼 타사 폴더로 인해 업그레이드 하지 못했습니다.
+## <a name="upgrade-failure-due-to-the-3rd-party-folder-being-renamed"></a>이름이 바뀌는 제 3 자 폴더로 인해 업그레이드 실패
 
-업그레이드를 성공적으로 수행 하려면 타사 폴더의 이름을 바꾸지 않아야 합니다.
+업그레이드가 성공하려면 제3자 폴더의 이름을 바뀌지 않아야 합니다.
 
 이 문제를 해결하려면 다음을 수행합니다.
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Functions를 사용 하 여 도어를 열 때 전자 메일 보내기
+title: Azure 함수를 사용하여 문이 열릴 때 전자 메일 보내기
 description: 자기 센서를 모니터링하여 문이 열릴 때를 감지하고 Azure Functions를 사용하여 이메일 알림을 보냅니다.
 author: liydu
 ms.service: iot-hub
@@ -9,13 +9,13 @@ ms.tgt_pltfrm: arduino
 ms.date: 03/19/2018
 ms.author: liydu
 ms.openlocfilehash: 6bebe8ac6b9869466938600d6267fd0062c84477
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75977308"
 ---
-# <a name="door-monitor----using-azure-functions-and-sendgrid-send-email-when-a-door-is-opened"></a>도어 모니터-Azure Functions 및 SendGrid를 사용 하 여 도어를 열 때 전자 메일 보내기           
+# <a name="door-monitor----using-azure-functions-and-sendgrid-send-email-when-a-door-is-opened"></a>도어 모니터 - Azure 기능 및 SendGrid를 사용하여 문이 열릴 때 전자 메일을 보냅니다.           
 
 MXChip IoT DevKit에는 기본 제공 자기 센서가 포함되어 있습니다. 이 프로젝트에서 주변의 강력한 자기 필드 유무를 검색할 있습니다. 이 경우에는 작은 영구 자석입니다.
 
@@ -39,7 +39,7 @@ MXChip IoT DevKit에는 기본 제공 자기 센서가 포함되어 있습니다
 
 활성화된 Azure 구독. 구독이 없으면 다음과 같은 방법 중 하나를 통해 등록할 수 있습니다.
 
-* [30일 평가판 Microsoft Azure 계정](https://azure.microsoft.com/free/)을 활성화합니다.
+* 무료 [30일 평가판 Microsoft Azure 계정을](https://azure.microsoft.com/free/)활성화합니다.
 * MSDN 또는 Visual Studio 구독자인 경우 [Azure 크레딧](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 신청합니다.
 
 ## <a name="deploy-the-sendgrid-service-in-azure"></a>Azure에서 SendGrid 서비스 배포
@@ -53,7 +53,7 @@ MXChip IoT DevKit에는 기본 제공 자기 센서가 포함되어 있습니다
 
 Azure 서비스를 프로비전하려면 **Azure에 배포** 단추를 사용합니다. 이 단추를 사용하면 Microsoft Azure에 오픈 소스 프로젝트를 빠르고 쉽게 배포할 수 있습니다.
 
-아래에서 **Azure에 배포** 단추를 클릭합니다. 
+**아래Azure에 배포 단추를 클릭합니다.** 
 
 [![Azure에 배포](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FVSChina%2Fdevkit-door-monitor%2Fmaster%2FSendGridDeploy%2Fazuredeploy.json)
 
@@ -81,7 +81,7 @@ Azure 서비스를 프로비전하려면 **Azure에 배포** 단추를 사용합
 
 ![SendGrid 관리](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/sendgrid-manage.png)
 
-SendGrid 페이지에서 **설정** > **API 키** > **API 키 만들기**를 클릭합니다.
+SendGrid 페이지에서 API **Settings** > **키** > 설정**API 키 만들기 를 클릭합니다.**
 
 ![SendGrid API 처음 만들기](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/sendgrid-create-api-first.png)
 
@@ -95,7 +95,7 @@ API 키는 한 번만 표시됩니다. 다음 단계에서 사용되므로 복�
 
 다음 단계에서는 다른 Azure IoT 관련 서비스를 프로비전하고 이 프로젝트에 Azure Functions를 배포합니다.
 
-아래에서 **Azure에 배포** 단추를 클릭합니다. 
+**아래Azure에 배포 단추를 클릭합니다.** 
 
 [![Azure에 배포](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FVSChina%2Fdevkit-door-monitor%2Fmaster%2Fazuredeploy.json)
 
@@ -184,9 +184,9 @@ DevKit가 안정적인 자기 필드가 있는 경우 프로그램이 먼저 초
 
 초기화 후에 `Door closed`가 화면에 표시됩니다. 자기 필드가 상태가 변경된 경우 상태가 `Door opened`로 변경됩니다. 문 상태가 변경될 때마다 이메일 알림을 수신합니다. (이러한 이메일 메시지를 수신하는 데 최대 5분이 걸릴 수 있습니다.)
 
-![센서 가까운 자석 가까이: 도어 닫힘](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/test-door-closed.jpg "센서 가까운 자석 가까이: 도어 닫힘")
+![센서 에 가까운 자석: 문 닫힘](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/test-door-closed.jpg "센서 에 가까운 자석: 문 닫힘")
 
-![센서에서 떨어진 자석 이동: 문 열림](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/test-door-opened.jpg "센서에서 떨어진 자석 이동: 문 열림")
+![센서에서 멀어지자 자석: 도어 개통](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/test-door-opened.jpg "센서에서 멀어지자 자석: 도어 개통")
 
 ## <a name="problems-and-feedback"></a>문제 및 피드백
 

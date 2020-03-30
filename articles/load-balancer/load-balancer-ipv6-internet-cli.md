@@ -1,7 +1,7 @@
 ---
 title: IPv6로 공용 Load Balancer 만들기 - Azure CLI
 titleSuffix: Azure Load Balancer
-description: 이 학습 경로를 사용 하 여 Azure CLI 사용 하는 i p v 6으로 공용 부하 분산 장치 만들기를 시작 합니다.
+description: 이 학습 경로를 사용하여 Azure CLI를 사용하여 IPv6를 사용하여 공용 로드 밸런서를 만들기 시작하십시오.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -15,16 +15,16 @@ ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: allensu
 ms.openlocfilehash: bff6a7ca6eb1a6859ec25d488f564c66946a780b
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76045418"
 ---
 # <a name="create-a-public-load-balancer-with-ipv6-using-azure-cli"></a>Azure CLI를 사용하여 IPv6로 공용 부하 분산 장치 만들기
 
 >[!NOTE] 
->이 문서에서는 기본 부하 분산 장치에서 IPv4 및 IPv6 연결을 모두 제공할 수 있도록 하는 소개 IPv6 기능을 설명 합니다. 이제 ipv6 연결을 가상 네트워크와 통합 하 고 ipv6 네트워크 보안 그룹 규칙, IPv6 사용자 정의 라우팅, IPv6 기본 및 표준 부하 분산 등의 주요 기능을 포함 하는 [Azure vnet에 대 한 ipv6](../virtual-network/ipv6-overview.md) 에서 포괄적인 ipv6 연결을 사용할 수 있습니다.  Azure Vnet의 i p v 6은 Azure의 IPv6 응용 프로그램에 권장 되는 표준입니다. [AZURE VNET Powershell 배포를 위한 IPv6](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md) 참조 
+>이 문서에서는 기본 로드 밸런서가 IPv4 및 IPv6 연결을 모두 제공할 수 있도록 하는 소개 IPv6 기능에 대해 설명합니다. 이제 가상 네트워크와 IPv6 연결을 통합하고 IPv6 네트워크 보안 그룹 규칙, IPv6 사용자 정의 라우팅, IPv6 기본 및 표준 로드 밸런싱 등과 같은 주요 기능을 포함하는 [Azure VNET용](../virtual-network/ipv6-overview.md) IPv6 연결에서 포괄적인 IPv6 연결을 사용할 수 있습니다.  Azure VNET에 대한 IPv6는 Azure의 IPv6 응용 프로그램에 권장되는 표준입니다. [Azure VNET 전원 셸 배포에 대한 IPv6](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md) 참조 
 
 Azure 부하 분산 장치는 계층 4(TCP, UDP) 부하 분산 장치입니다. 부하 분산 장치는 클라우드 서비스의 정상 서비스 인스턴스 또는 부하 분산 장치 집합의 가상 머신 간에 들어오는 트래픽을 배포하여 고가용성을 제공합니다. 부하 분산 장치는 여러 포트, 여러 IP 주소 또는 둘 다에서 이러한 서비스를 제공할 수도 있습니다.
 
@@ -282,7 +282,7 @@ VM을 만들려면 스토리지 계정이 있어야 합니다. 부하 분산을 
     ```
 
     > [!WARNING]
-    > 이 예제에서는 일반 텍스트인 VM의 사용자 이름 및 비밀번호를 사용합니다. 일반 텍스트인 이러한 자격 증명을 사용할 경우 적절한 조치를 취합니다. PowerShell에서 자격 증명을 처리하는 보다 안전한 방법은 [`Get-Credential`](https://technet.microsoft.com/library/hh849815.aspx) cmdlet을 참조하세요.
+    > 이 예제에서는 일반 텍스트인 VM의 사용자 이름 및 비밀번호를 사용합니다. 일반 텍스트인 이러한 자격 증명을 사용할 경우 적절한 조치를 취합니다. PowerShell에서 자격 증명을 처리하는 보다 안전한 [`Get-Credential`](https://technet.microsoft.com/library/hh849815.aspx) 방법은 cmdlet을 참조하십시오.
 
 2. 가용성 집합을 만듭니다.
 

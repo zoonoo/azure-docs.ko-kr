@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/13/2019
 ms.author: cynthn
 ms.openlocfilehash: d1c98fa4f3572c40279978d787b1719746478a06
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75940444"
 ---
 # <a name="download-a-windows-vhd-from-azure"></a>Azure에서 Windows VHD 다운로드
@@ -27,16 +27,16 @@ ms.locfileid: "75940444"
 
 ## <a name="optional-generalize-the-vm"></a>선택 사항: VM 일반화
 
-VHD를 [이미지로](tutorial-custom-images.md) 사용 하 여 다른 vm을 만들려면 [Sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation) 를 사용 하 여 운영 체제를 일반화 해야 합니다. 
+VHD를 [이미지로](tutorial-custom-images.md) 사용하여 다른 VM을 만들려면 [Sysprep을](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation) 사용하여 운영 체제를 일반화해야 합니다. 
 
-VHD를 이미지로 사용 하 여 다른 Vm을 만들려면 VM을 일반화 합니다.
+VHD를 이미지로 사용하여 다른 VM을 만들려면 VM을 일반화합니다.
 
 1. 아직 로그인하지 않은 경우 [Azure 포털](https://portal.azure.com/)에 로그인합니다.
-2. [VM에 연결합니다](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+2. [VM에 연결합니다.](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 
 3. VM에서 관리자로 명령 프롬프트 창을 엽니다.
 4. 디렉터리를 *%windir%\system32\sysprep*로 변경한 후 sysprep.exe를 실행합니다.
 5. 시스템 준비 도구 대화 상자에서 **시스템 OOBE(첫 실행 경험) 입력**을 선택하고 **일반화** 확인란을 선택했는지 확인합니다.
-6. 종료 옵션에서 **종료**를 선택한 다음 **확인**을 클릭합니다. 
+6. 종료 옵션에서 **종료를**선택한 다음 **확인을**클릭합니다. 
 
 
 ## <a name="stop-the-vm"></a>VM을 중지합니다.
@@ -52,10 +52,10 @@ VHD를 이미지로 사용 하 여 다른 Vm을 만들려면 VM을 일반화 합
 
 VHD 파일을 다운로드하려면 [SAS(공유 액세스 서명)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) URL을 생성해야 합니다. URL이 생성될 때 만료 시간이 URL에 할당됩니다.
 
-1. VM에 대 한 페이지의 왼쪽 메뉴에서 **디스크** 를 클릭 합니다.
-1. VM에 대 한 운영 체제 디스크를 선택 합니다.
-1. 디스크에 대 한 페이지의 왼쪽 메뉴에서 **디스크 내보내기** 를 선택 합니다.
-1. URL의 기본 만료 시간은 *3600* 초입니다. Windows OS 디스크에 대해 **36000** 로 늘립니다.
+1. VM 페이지의 왼쪽 메뉴에서 **디스크를 클릭합니다.**
+1. VM의 운영 체제 디스크를 선택합니다.
+1. 디스크 페이지에서 왼쪽 메뉴에서 **디스크 내보내기를** 선택합니다.
+1. URL의 기본 만료 시간은 *3600초입니다.* Windows OS 디스크의 경우 이 것을 **36000으로** 늘립니다.
 1. **URL 생성**을 클릭합니다.
 
 > [!NOTE]
@@ -66,11 +66,11 @@ VHD 파일을 다운로드하려면 [SAS(공유 액세스 서명)](../../storage
 ## <a name="download-vhd"></a>VHD 다운로드
 
 1. 생성된 URL에서 VHD 파일 다운로드를 클릭합니다.
-1. 브라우저에서 **저장** 을 클릭 하 여 다운로드를 시작 해야 할 수도 있습니다. VHD 파일에 대한 기본 이름은 *abcd*입니다.
+1. 다운로드를 시작하려면 브라우저에서 **저장을** 클릭해야 할 수 있습니다. VHD 파일에 대한 기본 이름은 *abcd*입니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure로 VHD 파일 업로드](upload-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 방법을 알아봅니다. 
-- [스토리지 계정의 비관리 디스크에서 관리 디스크를 만듭니다](attach-disk-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-- [PowerShell을 사용하여 Azure 디스크를 관리합니다](tutorial-manage-data-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- [저장소 계정에서 관리되지 않는 디스크에서 관리되는 디스크를 만듭니다.](attach-disk-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+- [PowerShell을 통해 Azure 디스크를 관리합니다.](tutorial-manage-data-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 

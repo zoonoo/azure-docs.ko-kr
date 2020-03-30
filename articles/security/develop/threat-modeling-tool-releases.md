@@ -1,5 +1,5 @@
 ---
-title: Microsoft Threat Modeling Tool 릴리스 정보
+title: 마이크로소프트 위협 모델링 도구 릴리스 노트
 titleSuffix: Azure
 description: Threat Modeling Tool 릴리스 정보 문서화
 services: security
@@ -14,14 +14,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2019
+ms.date: 03/22/2019
 ms.author: jegeib
-ms.openlocfilehash: a1a3687edaed012f255af915886917c3ac188896
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: eea853ec5829eda3f7496439979adae7bb20c639
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78269614"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80125096"
 ---
 # <a name="threat-modeling-tool-releases"></a>Threat Modeling Tool 릴리스
 
@@ -38,10 +38,11 @@ Microsoft Threat Modeling Tool은 현재 Windows용 무료 애플리케이션으
 
 ## <a name="release-notes"></a>릴리스 정보
 
-- [MICROSOFT THREAT MODELING TOOL GA 릴리스 버전 7.3.00206.1](threat-modeling-tool-releases-73002061.md) -2 월 11 2020
-- [MICROSOFT THREAT MODELING TOOL GA 릴리스 버전 7.1.61015.1](threat-modeling-tool-releases-71610151.md) -10 월 16 2019
-- [MICROSOFT THREAT MODELING TOOL GA 릴리스 버전 7.1.60702.1](threat-modeling-tool-releases-71607021.md) -7 월 2 2019
-- [MICROSOFT THREAT MODELING TOOL GA 릴리스 버전 7.1.60408.1](threat-modeling-tool-releases-71604081.md) -4 월 9 2019
+- [마이크로소프트 위협 모델링 도구 GA 릴리스 버전 7.3.00316.1](threat-modeling-tool-releases-73003161.md) - 3 월 22 2020
+- [마이크로소프트 위협 모델링 도구 GA 릴리스 버전 7.3.00206.1](threat-modeling-tool-releases-73002061.md) - 2월 11 2020
+- [마이크로소프트 위협 모델링 도구 GA 릴리스 버전 7.1.61015.1](threat-modeling-tool-releases-71610151.md) - 10 월 16 2019
+- [마이크로소프트 위협 모델링 도구 GA 릴리스 버전 7.1.60702.1](threat-modeling-tool-releases-71607021.md) - 7 월 2 2019
+- [마이크로소프트 위협 모델링 도구 GA 릴리스 버전 7.1.60408.1-](threat-modeling-tool-releases-71604081.md) 4 월 9 2019
 - [Microsoft Threat Modeling Tool GA 릴리스 버전 7.1.60126.1](threat-modeling-tool-releases-71601261.md) - 2019년 1월 29일
 - [Microsoft Threat Modeling Tool GA 릴리스 버전 7.1.51023.1](threat-modeling-tool-releases-71510231.md) - 2018년 11월 1일
 - [Microsoft Threat Modeling Tool GA 릴리스 버전 7.1.50911.2](threat-modeling-tool-releases-71509112.md) - 2018년 9월 12일

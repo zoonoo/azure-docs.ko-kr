@@ -1,6 +1,6 @@
 ---
 title: HDInsight에서 PowerShell과 Apache Hive 사용 - Azure
-description: PowerShell을 사용 하 여 Azure HDInsight의 Apache Hadoop에서 Apache Hive 쿼리 실행
+description: PowerShell을 사용하여 Azure HDInsight에서 아파치 하두프에서 아파치 하이브 쿼리를 실행합니다.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,24 +9,24 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/24/2019
 ms.openlocfilehash: deaa934b257fab74830d75e308a283e7608dc590
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75552596"
 ---
 # <a name="run-apache-hive-queries-using-powershell"></a>PowerShell을 사용하여 Apache Hive 쿼리 실행
 
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
-이 문서에서는 Azure PowerShell를 사용 하 여 HDInsight 클러스터의 Apache Hadoop에서 Apache Hive 쿼리를 실행 하는 예를 제공 합니다.
+이 문서에서는 Azure PowerShell을 사용하여 HDInsight 클러스터의 아파치 하두프에서 아파치 하이브 쿼리를 실행하는 예제를 제공합니다.
 
 > [!NOTE]  
 > 이 문서에는 예제에 사용된 HiveQL 문이 수행하는 작업에 대해 자세한 설명을 제공하지 않습니다. 이 예제에서 사용된 HiveQL에 대한 자세한 내용은 [HDInsight에서 Apache Hadoop과 Apache Hive 사용](hdinsight-use-hive.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-* HDInsight의 Apache Hadoop 클러스터. [Linux에서 HDInsight 시작](./apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
+* HDInsight의 Apache Hadoop 클러스터. [리눅스에서 HDInsight로 시작하기를](./apache-hadoop-linux-tutorial-get-started.md)참조하십시오.
 
 * PowerShell [Az 모듈](https://docs.microsoft.com/powershell/azure/overview)이 설치되었습니다.
 
@@ -54,7 +54,7 @@ Azure PowerShell은 HDInsight에서 Hive 쿼리를 원격으로 실행할 수 �
 
         .\hivejob.ps1
 
-    스크립트가 실행 되 면 클러스터 이름과 HTTPS/Cluster Admin 계정 자격 증명을 입력 하 라는 메시지가 표시 됩니다. Azure 구독에 로그인 하 라는 메시지가 표시 될 수도 있습니다.
+    스크립트가 실행되면 클러스터 이름과 HTTPS/클러스터 관리자 계정 자격 증명을 입력하라는 메시지가 표시됩니다. Azure 구독에 로그인하라는 메시지가 표시될 수도 있습니다.
 
 3. 작업이 완료되면 다음 텍스트와 유사한 정보가 반환됩니다.
 

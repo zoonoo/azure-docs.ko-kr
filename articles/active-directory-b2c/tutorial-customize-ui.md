@@ -1,7 +1,7 @@
 ---
 title: '자습서: 사용자 인터페이스 사용자 지정'
 titleSuffix: Azure AD B2C
-description: Azure Portal를 사용 하 여 Azure Active Directory B2C에서 응용 프로그램의 UI (사용자 인터페이스)를 사용자 지정 하는 방법을 알아봅니다.
+description: Azure 포털을 사용하여 Azure Active Directory B2C에서 응용 프로그램의 사용자 인터페이스(UI)를 사용자 지정하는 방법을 알아봅니다.
 services: B2C
 author: msmimart
 manager: celestedg
@@ -12,15 +12,15 @@ ms.date: 02/01/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: b2b2bc8dd4e60348553228b8b418df252a8c426a
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78186253"
 ---
-# <a name="tutorial-customize-the-interface-of-user-experiences-in-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C에서 사용자 환경의 인터페이스 사용자 지정
+# <a name="tutorial-customize-the-interface-of-user-experiences-in-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C에서 사용자 환경 의 인터페이스를 사용자 지정
 
-등록, 로그인 및 프로필 편집과 같은 일반적인 사용자 환경을 위해 Azure Active Directory B2C (Azure AD B2C)에서 [사용자 흐름](user-flow-overview.md) 을 사용할 수 있습니다. 이 자습서의 정보는 고유한 HTML 및 CSS 파일을 사용하여 이러한 환경의 [UI(사용자 인터페이스)를 사용자 지정](customize-ui-overview.md)하는 방법을 알아보는 데 도움이 됩니다.
+등록, 로그인 및 프로필 편집과 같은 보다 일반적인 사용자 환경의 경우 Azure Active Directory B2C(Azure AD B2C)에서 [사용자 흐름을](user-flow-overview.md) 사용할 수 있습니다. 이 자습서의 정보는 고유한 HTML 및 CSS 파일을 사용하여 이러한 환경의 [UI(사용자 인터페이스)를 사용자 지정](customize-ui-overview.md)하는 방법을 알아보는 데 도움이 됩니다.
 
 이 문서에서는 다음 방법을 설명합니다.
 
@@ -31,7 +31,7 @@ ms.locfileid: "78186253"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 사용자가 애플리케이션에 가입하고 로그인할 수 있는 [사용자 흐름을 만듭니다](tutorial-create-user-flows.md).
 
@@ -43,12 +43,12 @@ Azure Storage 계정 및 컨테이너를 만든 다음, 기본 HTML 및 CSS 파�
 
 여러 가지 방법으로 파일을 저장할 수 있지만, 이 자습서에서는 [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md)에 저장합니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. Azure 구독이 포함된 디렉터리를 사용하고 있는지 확인합니다. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택 하 고 구독을 포함 하는 디렉터리를 선택 합니다. 이 디렉터리는 Azure B2C 테넌트가 포함된 디렉터리와 다릅니다.
+1. [Azure 포털에](https://portal.azure.com)로그인합니다.
+2. Azure 구독이 포함된 디렉터리를 사용하고 있는지 확인합니다. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택하고 구독이 포함된 디렉토리를 선택합니다. 이 디렉터리는 Azure B2C 테넌트가 포함된 디렉터리와 다릅니다.
 3. Azure Portal의 왼쪽 상단 모서리에서 모든 서비스를 선택하고 **스토리지 계정**을 검색하여 선택합니다.
 4. **추가**를 선택합니다.
 5. **리소스 그룹** 아래에서 **새로 만들기**를 선택하고 새 리소스 그룹의 이름을 입력한 다음, **확인**을 클릭합니다.
-6. 저장소 계정의 이름을 입력합니다. 선택하는 이름은 Azure 전체에서 고유해야 하고, 3~24자 사이여야 하고, 숫자 및 소문자만 포함할 수 있습니다.
+6. 스토리지 계정의 이름을 입력합니다. 선택하는 이름은 Azure 전체에서 고유해야 하고, 3~24자 사이여야 하고, 숫자 및 소문자만 포함할 수 있습니다.
 7. 스토리지 계정의 위치를 선택하거나 기본 위치를 적용합니다.
 8. 다른 모든 기본값을 적용하고 **검토 + 만들기**를 선택한 다음, **만들기**를 클릭합니다.
 9. 스토리지 계정을 만든 후 **리소스로 이동**을 선택합니다.
@@ -64,18 +64,18 @@ Azure Storage 계정 및 컨테이너를 만든 다음, 기본 HTML 및 CSS 파�
 
 1. 메뉴에서 **CORS**를 선택합니다.
 2. **허용된 원본**에 `https://your-tenant-name.b2clogin.com`을 입력합니다. `your-tenant-name`은 Azure AD B2C 테넌트의 이름으로 바꿉니다. `https://fabrikam.b2clogin.com`)을 입력합니다. 테넌트 이름을 입력할 때는 모두 소문자를 사용해야 합니다.
-3. **허용 되는 메서드의**경우 `GET`,`PUT`및 `OPTIONS`를 선택 합니다.
+3. **허용된 메서드의**`PUT`경우 `OPTIONS`을 선택합니다. `GET`
 4. **허용된 헤더**에 별표(*)를 입력합니다.
 5. **노출된 헤더**에 별표(*)를 입력합니다.
 6. **최대 기간**에 200을 입력합니다.
 
-    ![Azure Portal Azure Blob storage의 CORS 구성 페이지](./media/tutorial-customize-ui/enable-cors.png)
+    ![Azure 포털의 Azure Blob 저장소의 CORS 구성 페이지](./media/tutorial-customize-ui/enable-cors.png)
 
 5. **저장**을 클릭합니다.
 
 ### <a name="create-the-customization-files"></a>사용자 지정 파일 만들기
 
-등록 환경의 UI를 사용자 지정하려면 간단한 HTML 및 CSS 파일을 만드는 것으로 시작합니다. 원하는 방식으로 HTML을 구성할 수 있지만 식별자가 **인** div`api` 요소가 있어야 합니다. `<div id="api"></div>`)을 입력합니다. Azure AD B2C는 페이지가 표시될 때 `api` 컨테이너에 요소를 삽입합니다.
+등록 환경의 UI를 사용자 지정하려면 간단한 HTML 및 CSS 파일을 만드는 것으로 시작합니다. 원하는 방식으로 HTML을 구성할 수 있지만 식별자가 `api`인 **div** 요소가 있어야 합니다. `<div id="api"></div>`)을 입력합니다. Azure AD B2C는 페이지가 표시될 때 `api` 컨테이너에 요소를 삽입합니다.
 
 1. 로컬 폴더에서 다음 파일을 만들고 `your-storage-account`를 스토리지 계정 이름으로 변경하고 `your-container`를 생성된 컨테이너의 이름으로 변경해야 합니다. `https://store1.blob.core.windows.net/b2c/style.css`)을 입력합니다.
 
@@ -127,11 +127,11 @@ Azure Storage 계정 및 컨테이너를 만든 다음, 기본 HTML 및 CSS 파�
 
 이 자습서에서는 Azure AD B2C가 액세스할 수 있도록 스토리지 계정에서 만든 파일을 저장합니다.
 
-1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **스토리지 계정**을 검색하여 선택합니다.
+1. Azure 포털의 왼쪽 상단 모서리에 있는 **모든 서비스를** 선택하고 **저장소 계정을**검색하고 선택합니다.
 2. 생성한 스토리지 계정을 선택하고 **Blobs**를 선택한 다음, 생성한 컨테이너를 선택합니다.
 3. **업로드**를 선택하고 *custom-ui.html* 파일을 선택한 다음, **업로드**를 클릭합니다.
 
-    ![업로드 단추와 파일이 강조 표시 된 포털의 blob 업로드 페이지](./media/tutorial-customize-ui/upload-blob.png)
+    ![업로드 버튼과 파일이 강조 표시된 포털에서 Blob 페이지 업로드](./media/tutorial-customize-ui/upload-blob.png)
 
 4. 자습서 뒷부분에서 사용하기 위해 업로드한 파일의 URL을 복사합니다.
 5. *style.css* 파일에 대해 3 ~ 4단계를 반복합니다.
@@ -150,11 +150,11 @@ Azure Storage 계정 및 컨테이너를 만든 다음, 기본 HTML 및 CSS 파�
 2. 페이지 맨 위에서 **사용자 흐름 실행**을 클릭합니다.
 3. **사용자 흐름 실행** 단추를 클릭합니다.
 
-    ![등록 또는 로그인 사용자 흐름에 대 한 사용자 흐름 페이지를 실행 합니다.](./media/tutorial-customize-ui/run-user-flow.png)
+    ![등록 또는 로그인 사용자 흐름에 대한 사용자 흐름 페이지 실행](./media/tutorial-customize-ui/run-user-flow.png)
 
     생성한 CSS 파일에 따라 요소가 중심에 있는 다음 예제와 유사한 페이지가 표시됩니다.
 
-    ![사용자 지정 UI 요소를 사용 하 여 등록 또는 로그인 페이지를 표시 하는 웹 브라우저](./media/tutorial-customize-ui/run-now.png)
+    ![사용자 지정 UI 요소로 페이지에 등록 또는 로그인을 표시하는 웹 브라우저](./media/tutorial-customize-ui/run-now.png)
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -166,4 +166,4 @@ Azure Storage 계정 및 컨테이너를 만든 다음, 기본 HTML 및 CSS 파�
 > * 사용자 지정된 UI 테스트
 
 > [!div class="nextstepaction"]
-> [Azure Active Directory B2C의 사용자 언어 지정](user-flow-language-customization.md)
+> [Azure Active Directory B2C의 언어 사용자 지정](user-flow-language-customization.md)

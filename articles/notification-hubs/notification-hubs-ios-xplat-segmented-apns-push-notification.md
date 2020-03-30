@@ -1,5 +1,5 @@
 ---
-title: Azure Notification Hubs를 사용하여 특정 iOS 디바이스에 알림 푸시 | Microsoft Docs
+title: Azure 알림 허브를 사용하여 특정 iOS 장치에 푸시 알림 보내기 | 마이크로 소프트 문서
 description: 이 자습서에서는 Azure Notification Hubs를 사용하여 특정 iOS 디바이스로 푸시 알림을 보내는 방법을 알아봅니다.
 services: notification-hubs
 documentationcenter: ios
@@ -16,14 +16,14 @@ ms.date: 11/07/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: 618be4bc2d7669879daa927d5c4392b1097d29af
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: a775963f1b0fa19cd687c839f527f4a078c76864
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76774880"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80126987"
 ---
-# <a name="tutorial-push-notifications-to-specific-ios-devices-using-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용하여 특정 iOS 디바이스에 알림 푸시
+# <a name="tutorial-send-push-notifications-to-specific-ios-devices-using-azure-notification-hubs"></a>자습서: Azure 알림 허브를 사용 하 여 특정 iOS 장치에 푸시 알림을 보내기
 
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
@@ -41,9 +41,9 @@ ms.locfileid: "76774880"
 > * 디바이스에서 알림 보내기
 > * 앱 실행 및 알림 생성
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-이 항목은 [자습서: Azure Notification Hubs를 사용 하 여 iOS 앱에 알림 푸시][get-started]에서 만든 앱을 기반으로 합니다. 이 자습서를 시작 하기 전에 [자습서: Azure Notification Hubs를 사용 하 여 iOS 앱에 알림 푸시를][get-started]이미 완료 해야 합니다.
+이 항목은 [자습서: Azure Notification Hubs를 사용하여 iOS 앱에 알림 푸시][get-started]에서 만든 앱을 기반으로 합니다. 이 자습서를 시작하기 전에 [자습서: Azure Notification Hubs를 사용하여 iOS 앱에 알림 푸시][get-started]를 이미 완료해야 합니다.
 
 ## <a name="add-category-selection-to-the-app"></a>앱에 범주 선택 추가
 
@@ -159,7 +159,7 @@ ms.locfileid: "76774880"
 9. `AppDelegate.m`의 `didRegisterForRemoteNotificationsWithDeviceToken` 메서드에서 디바이스 토큰을 `notifications` 클래스에 전달하는 다음 코드로 메서드의 코드를 바꿉니다. `notifications` 클래스는 범주를 사용하여 알림에 대해 등록을 수행합니다. 사용자가 범주 선택 항목을 변경하는 경우 **구독** 단추에 대한 응답으로 `subscribeWithCategories` 메서드를 호출하여 범주 선택 항목을 업데이트합니다.
 
     > [!NOTE]
-    > APNS (Apple Push Notification Service)에서 할당 하는 장치 토큰은 언제 든 지 변경 될 수 있으므로 알림 실패를 방지 하려면 알림을 자주 등록 해야 합니다. 이 예제에서는 앱이 시작될 때마다 알림을 등록합니다. 자주(하루 두 번 이상) 실행되는 앱에서는 이전 등록 이후 만 하루가 지나지 않은 경우 대역폭 유지를 위한 등록을 건너뛸 수 있습니다.
+    > APNS(Apple Push Notification Service)에서 할당한 장치 토큰은 언제든지 변경될 수 있으므로 알림 오류를 방지하려면 알림을 자주 등록해야 합니다. 이 예제에서는 앱이 시작될 때마다 알림을 등록합니다. 자주(하루 두 번 이상) 실행되는 앱에서는 이전 등록 이후 만 하루가 지나지 않은 경우 대역폭 유지를 위한 등록을 건너뛸 수 있습니다.
 
     ```objc
     self.notifications.deviceToken = deviceToken;
@@ -177,7 +177,7 @@ ms.locfileid: "76774880"
 
     이때 `didRegisterForRemoteNotificationsWithDeviceToken` 메서드에 다른 코드가 있어서는 안 됩니다.
 
-10. [Notification Hubs 시작][get-started] 자습서를 완료 하는 `AppDelegate.m`에는 다음 메서드가 이미 있어야 합니다. 그렇지 않은 경우 메서드를 추가합니다.
+10. 다음 메서드는 [Notification Hubs 시작][get-started] 자습서를 완료할 때부터 `AppDelegate.m`에 있어야 합니다. 그렇지 않은 경우 메서드를 추가합니다.
 
     ```objc
     - (void)MessageBox:(NSString *)title message:(NSString *)messageText
@@ -253,7 +253,7 @@ Visual Studio에 액세스할 수 없는 경우 다음 섹션으로 건너뛰고
 
 ## <a name="optional-send-notifications-from-the-device"></a>(선택 사항) 디바이스에서 알림 보내기
 
-일반적으로 백 엔드 서비스에서 알림을 보내지만 속보 알림은 앱 자체에서 직접 보낼 수 있습니다. 이렇게 하려면 [Notification Hubs 시작][get-started] 자습서에서 정의한 `SendNotificationRESTAPI` 메서드를 업데이트 합니다.
+일반적으로 백 엔드 서비스에서 알림을 보내지만 속보 알림은 앱 자체에서 직접 보낼 수 있습니다. 이렇게 하기 위해 [Notification Hubs 시작][get-started] 자습서에 정의한 `SendNotificationRESTAPI` 메서드를 업데이트합니다.
 
 1. `ViewController.m`에서 범주 태그에 대한 매개 변수를 허용하고 적절한 [템플릿](notification-hubs-templates-cross-platform-push-messages.md) 알림을 보내도록 다음과 같이 `SendNotificationRESTAPI` 메서드를 업데이트합니다.
 
@@ -371,4 +371,4 @@ Visual Studio에 액세스할 수 없는 경우 다음 섹션으로 건너뛰고
 [Notification Hubs Guidance]: https://msdn.microsoft.com/library/dn530749.aspx
 [Notification Hubs How-To for iOS]: https://msdn.microsoft.com/library/jj927168.aspx
 [get-started]: notification-hubs-ios-apple-push-notification-apns-get-started.md
-[Azure Portal]: https://portal.azure.com
+[Azure 포털]: https://portal.azure.com

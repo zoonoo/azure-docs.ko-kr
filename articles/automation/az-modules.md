@@ -6,10 +6,10 @@ ms.subservice: shared-capabilities
 ms.date: 02/08/2019
 ms.topic: conceptual
 ms.openlocfilehash: dfbf54c19aef00cbda886a4531797cda7ef3a191
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76986107"
 ---
 # <a name="az-module-support-in-azure-automation"></a>Azure Automation의 Az 모듈 지원
@@ -18,7 +18,7 @@ Azure Automation은 Runbook에서 [Azure Powershell Az 모듈](/powershell/azure
 
 ## <a name="considerations"></a>고려 사항
 
-Azure Automation에서 Az 모듈을 사용할 경우 여러 가지 사항을 고려해야 합니다. Runbook 및 모듈은 Automation 계정의 상위 솔루션에서 사용할 수 있습니다. Runbook을 편집하거나 모듈을 업그레이드하면 Runbook에 문제가 발생할 수 있습니다. 새 `Az` 모듈을 가져오기 전에 모든 Runbook 및 솔루션을 별도 Automation 계정에서 신중히 테스트해야 합니다. 모듈을 수정 하면 [시작/중지](automation-solution-vm-management.md) 솔루션에 부정적인 영향을 줄 수 있습니다. 솔루션을 포함 하는 Automation 계정에서 모듈 및 runbook을 변경 하지 않는 것이 좋습니다. 이 동작은 Az 모듈과 관련이 없습니다. Automation 계정을 변경할 때는 이 동작을 고려해야 합니다.
+Azure Automation에서 Az 모듈을 사용할 경우 여러 가지 사항을 고려해야 합니다. Runbook 및 모듈은 Automation 계정의 상위 솔루션에서 사용할 수 있습니다. Runbook을 편집하거나 모듈을 업그레이드하면 Runbook에 문제가 발생할 수 있습니다. 새 `Az` 모듈을 가져오기 전에 모든 Runbook 및 솔루션을 별도 Automation 계정에서 신중히 테스트해야 합니다. 모듈을 수정하면 [시작/중지](automation-solution-vm-management.md) 솔루션에 부정적인 영향을 줄 수 있습니다. 솔루션이 포함된 자동화 계정의 모듈 및 runbook을 변경하는 것은 권장되지 않습니다. 이 동작은 Az 모듈과 관련이 없습니다. Automation 계정을 변경할 때는 이 동작을 고려해야 합니다.
 
 Automation 계정으로 `Az` 모듈을 가져와도 Runbook이 사용하는 PowerShell 세션으로 모듈을 자동으로 가져오지 않습니다. 다음과 같은 상황에서 모듈을 PowerShell 세션으로 가져올 수 있습니다.
 
@@ -49,7 +49,7 @@ Runbook에 필요한 Az 모듈만 가져옵니다. 롤업 `Az` 모듈의 경우 
 
 [Az.Accounts](https://www.powershellgallery.com/packages/Az.Accounts/1.1.0) 모듈은 다른 `Az.*` 모듈에 대한 종속성입니다. 이러한 이유로 인해, 다른 모듈을 가져오기 전에 먼저 이 모듈을 Automation 계정으로 가져와야 합니다.
 
-Automation 계정의 **공유 리소스** 아래에서 **모듈**을 선택합니다. **갤러리 찾아보기**를 클릭하여 **갤러리 찾아보기** 페이지를 엽니다.  검색 표시줄에서 모듈 이름(예: `Az.Accounts`)을 입력합니다. PowerShell 모듈 페이지에서 **가져오기**를 클릭하여 Automation 계정으로 모듈을 가져옵니다.
+자동화 계정에서 **공유 리소스**에서 **모듈을** 선택합니다. **갤러리 찾아보기**를 클릭하여 **갤러리 찾아보기** 페이지를 엽니다.  검색 표시줄에서 모듈 이름(예: `Az.Accounts`)을 입력합니다. PowerShell 모듈 페이지에서 **가져오기**를 클릭하여 Automation 계정으로 모듈을 가져옵니다.
 
 ![Automation 계정에서 모듈 가져오기](media/az-modules/import-module.png)
 
@@ -65,7 +65,7 @@ Automation 계정의 **공유 리소스** 아래에서 **모듈**을 선택합�
 
 ## <a name="after-migration-details"></a>마이그레이션 후 세부 정보
 
-마이그레이션이 완료된 후에는 더 이상 계정에서 `AzureRM` 모듈을 사용하여 Runbook을 시작하지 않도록 합니다. 또한 이 계정에서 `AzureRM` 모듈을 가져오거나 업데이트하지 않는 것이 좋습니다. 이때부터 이 계정이 `Az`로 마이그레이션되었다고 간주하고 `Az` 모듈만 사용하는 것이 좋습니다. 새 Automation 계정을 만들 때 기존 `AzureRM` 모듈은 계속 설치되고, 자습서 Runbook은 `AzureRM` cmdlet으로 계속 작성됩니다. 이러한 runbook은 실행 하면 안 됩니다.
+마이그레이션이 완료된 후에는 더 이상 계정에서 `AzureRM` 모듈을 사용하여 Runbook을 시작하지 않도록 합니다. 또한 이 계정에서 `AzureRM` 모듈을 가져오거나 업데이트하지 않는 것이 좋습니다. 이때부터 이 계정이 `Az`로 마이그레이션되었다고 간주하고 `Az` 모듈만 사용하는 것이 좋습니다. 새 Automation 계정을 만들 때 기존 `AzureRM` 모듈은 계속 설치되고, 자습서 Runbook은 `AzureRM` cmdlet으로 계속 작성됩니다. 이러한 Runbook을 실행해서는 안 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -16,18 +16,18 @@ ms.date: 11/13/2019
 ms.author: juliako
 ms.reviewer: milanga; johndeu
 ms.openlocfilehash: ab1eba3de474d9ff985e62f491c24fa63be0fa63
-ms.sourcegitcommit: a460fdc19d6d7af6d2b5a4527e1b5c4e0c49942f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77069628"
 ---
 # <a name="media-analytics-on-the-media-services-platform"></a>Media Services 플랫폼에서 미디어 분석 
 
-## <a name="retirement-plans"></a>사용 중지 계획
+## <a name="retirement-plans"></a>은퇴 계획
 
 > [!IMPORTANT]
-> 일부 미디어 프로세서를 사용 중지 하 고 있습니다. 사용 중지 날짜 및 자세한 내용은 [레거시 구성 요소](legacy-components.md) 항목을 참조 하세요. 
+> 일부 미디어 프로세서는 사용 중지되고 있습니다. 사용 중지 날짜 및 자세한 내용은 [레거시 구성 요소](legacy-components.md) 항목을 참조하세요. 
 
 ## <a name="overview"></a>개요
 
@@ -46,7 +46,7 @@ ms.locfileid: "77069628"
 ## <a name="media-analytics-services"></a>미디어 분석 서비스
 
 ### <a name="indexer"></a>인덱서
-Azure Media Indexer를 사용하면 콘텐츠를 검색할 수 있도록 설정하고 선택 캡션 트랙을 생성할 수 있습니다. 자세한 내용 및 예제를 보려면 [Azure Media Indexer를 사용 하 여 미디어 파일 인덱싱](media-services-index-content.md)을 참조 하세요.
+Azure Media Indexer를 사용하면 콘텐츠를 검색할 수 있도록 설정하고 선택 캡션 트랙을 생성할 수 있습니다. 자세한 정보 및 예제는 [Azure 미디어 인덱서를 통해 미디어 파일 인덱싱](media-services-index-content.md)을 참조하십시오.
 
 ### <a name="motion-detector"></a>동작 감지기
 동작 감지기를 사용하여 편지지 배경의 비디오에서 동작을 감지할 수 있습니다. 그러면 감시 카메라에서 감지된 동작 이벤트에서의 거짓 긍정을 확인할 수 있습니다. 자세한 내용 및 예제는 [Azure Media 분석에 대한 동작 감지](media-services-motion-detection.md)를 참조하세요.

@@ -1,6 +1,6 @@
 ---
-title: Azure Cosmos DB를 사용 하는 경우 쿼리 문제 해결
-description: Azure Cosmos DB SQL 쿼리 문제를 식별, 진단 및 해결 하는 방법에 대해 알아봅니다.
+title: Azure Cosmos DB를 사용할 때 쿼리 문제 해결
+description: Azure Cosmos DB SQL 쿼리 문제를 식별, 진단 및 해결하는 방법을 알아봅니다.
 author: timsander1
 ms.service: cosmos-db
 ms.topic: troubleshooting
@@ -8,86 +8,91 @@ ms.date: 02/10/2020
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 0dd3cb12c52e23a0a8acd57bf401ba68acfb9925
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 852ed8c49eda7f13542eb0bad63d84e1cf770e92
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77623700"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80131371"
 ---
-# <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Azure Cosmos DB를 사용 하는 경우 쿼리 문제 해결
+# <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Azure Cosmos DB를 사용할 때 쿼리 문제 해결
 
-이 문서에서는 Azure Cosmos DB의 쿼리 문제를 해결 하기 위한 일반적인 권장 방법을 안내 합니다. 이 문서에 설명 된 단계는 잠재적 쿼리 문제에 대 한 "모두"로 간주 되지 않지만 여기에는 가장 일반적인 성능 팁이 포함 되어 있습니다. 이 문서는 Azure Cosmos DB의 코어 (SQL) API에서 속도가 느리거나 비용이 많이 드는 쿼리 문제를 해결 하기 위한 시작 위치로 사용 해야 합니다. [진단 로그](cosmosdb-monitor-resource-logs.md) 를 사용 하 여 속도가 느리거나 처리량이 많은 쿼리를 식별할 수도 있습니다.
+이 문서에서는 Azure Cosmos DB에서 쿼리 문제를 해결하는 데 권장되는 일반적인 방법을 안내합니다. 이 문서에서 설명하는 단계를 잠재적인 쿼리 문제에 대한 완전한 방어책으로 간주해서는 안 되지만 여기에 가장 일반적인 성능 팁이 포함되어 있습니다. 이 문서를 Azure Cosmos DB 코어(SQL) API에서 느리거나 비용이 많이 드는 쿼리 문제를 해결하는 시작 장소로 사용해야 합니다. [진단 로그를](cosmosdb-monitor-resource-logs.md) 사용하여 느리거나 상당한 양의 처리량을 소비하는 쿼리를 식별할 수도 있습니다.
 
-쿼리 최적화를 광범위 하 게 분류 하 여 쿼리 최적화의 비용을 줄이고 대기 시간을 줄이는 최적화를 Azure Cosmos DB 수 있습니다. 쿼리의 작업량을 줄여 대기 시간을 거의 줄일 수 있습니다.
+Azure Cosmos DB에서 쿼리 최적화를 광범위하게 분류할 수 있습니다. 
 
-이 문서에서는 [영양](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) 데이터 집합을 사용 하 여 다시 만들 수 있는 예제를 사용 합니다.
+- 쿼리의 RU(요청 단위) 요금을 줄이는 최적화
+- 대기 시간을 줄이는 최적화
+
+쿼리의 RU 요금을 줄이면 대기 시간도 거의 확실하게 줄어듭니다.
+
+이 문서에서는 [영양](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) 데이터 집합을 사용하여 다시 만들 수 있는 예제를 제공합니다.
 
 ## <a name="important"></a>중요
 
-- 최상의 성능을 위해 [성능 팁](performance-tips.md)을 따르세요.
-    > [!NOTE] 
-    > 성능 향상을 위해 Windows 64 비트 호스트를 처리 하는 것이 좋습니다. SQL SDK는 로컬에서 쿼리를 구문 분석 하 고 최적화 하는 네이티브 ServiceInterop .dll을 포함 하며, Windows x64 플랫폼 에서만 지원 됩니다. ServiceInterop .dll을 사용할 수 없는 linux 및 기타 지원 되지 않는 플랫폼의 경우에는 게이트웨이에 대 한 추가 네트워크 호출을 수행 하 여 최적화 된 쿼리를 가져옵니다. 
-- Cosmos DB 쿼리는 최소 항목 수를 지원 하지 않습니다.
-    - 코드는 0에서 최대까지 항목 수 사이의 페이지 크기를 처리 해야 합니다.
-    - 페이지의 항목 수는 알림 없이 변경 될 수 있으며 변경 될 수 있습니다.
-- 빈 페이지는 쿼리에 필요 하며 언제 든 지 표시할 수 있습니다. 
-    - 빈 페이지가 Sdk에 표시 되는 이유는 쿼리를 취소할 수 있는 기회를 제공 하는 것입니다. 또한 SDK가 여러 네트워크 호출을 수행 하 고 있음을 명확히 알 수 있습니다.
-    - 실제 파티션이 Cosmos DB 분할 되므로 기존 작업에 빈 페이지가 표시 될 수 있습니다. 현재 첫 번째 파티션에는 빈 페이지를 발생 시키는 0 개의 결과가 있습니다.
-    - 쿼리가 백 엔드에서 문서를 검색 하는 데 어느 정도 시간이 걸리므로 쿼리가 선점 백 엔드에서 쿼리를 검색 하는 데 문제가 발생 합니다. 쿼리를 보다 우선 하는 Cosmos DB 경우 쿼리를 계속할 수 있도록 하는 연속 토큰을 반환 합니다. 
-- 쿼리를 완전히 드레이닝 해야 합니다. SDK 샘플을 살펴보고 `FeedIterator.HasMoreResults`에서 while 루프를 사용 하 여 전체 쿼리를 드레이닝 합니다.
+- 최상의 성능을 위해 [성능 팁을](performance-tips.md)따르십시오.
+    > [!NOTE]
+    > 성능 향상을 위해 Windows 64비트 호스트 처리를 권장합니다. SQL SDK에는 로컬에서 쿼리를 구문 분석하고 최적화하는 네이티브 ServiceInterop.dll이 포함되어 있습니다. ServiceInterop.dll은 Windows x64 플랫폼에서만 지원됩니다. ServiceInterop.dll을 사용할 수 없는 Linux 및 기타 지원되지 않는 플랫폼의 경우 게이트웨이에 추가 네트워크 호출을 통해 최적화된 쿼리를 가져옵니다.
+- Azure Cosmos DB 쿼리는 최소 항목 수를 지원하지 않습니다.
+    - 코드는 0에서 최대 항목 수까지 모든 페이지 크기를 처리해야 합니다.
+    - 페이지의 항목 수는 예고 없이 변경될 수 있습니다.
+- 빈 페이지는 쿼리에 대해 예상되며 언제든지 나타날 수 있습니다.
+    - 빈 페이지는 노출로 인해 쿼리를 취소할 수 있으므로 SDK에 노출됩니다. 또한 SDK가 여러 네트워크 호출을 수행하고 있음을 분명히 합니다.
+    - Azure Cosmos DB에서 물리적 파티션이 분할되므로 빈 페이지가 기존 워크로드에 나타날 수 있습니다. 첫 번째 파티션에는 결과가 0으로 비어 페이지가 생성됩니다.
+    - 빈 페이지는 쿼리가 문서를 검색하는 데 백 엔드에 일정 시간 이상 걸리기 때문에 쿼리를 선점하여 쿼리를 선점하여 발생합니다. Azure Cosmos DB가 쿼리를 선점하는 경우 쿼리를 계속할 수 있는 연속 토큰을 반환합니다.
+- 쿼리를 완전히 드레인해야 합니다. SDK 샘플을 살펴보고 루프를 `while` `FeedIterator.HasMoreResults` 사용하여 전체 쿼리를 드레인합니다.
 
-### <a name="obtaining-query-metrics"></a>쿼리 메트릭 가져오기:
+## <a name="get-query-metrics"></a>쿼리 메트릭 받기
 
-Azure Cosmos DB에서 쿼리를 최적화 하는 경우 첫 번째 단계는 항상 쿼리에 대 한 [쿼리 메트릭을 가져오는](profile-sql-api-query.md) 것입니다. 이러한 항목은 아래와 같이 Azure Portal를 통해서도 사용할 수 있습니다.
+Azure Cosmos DB에서 쿼리를 최적화하는 경우 첫 번째 단계는 항상 쿼리에 대한 [쿼리 메트릭을 얻는](profile-sql-api-query.md) 것입니다. 이러한 메트릭은 Azure 포털에서도 사용할 수 있습니다.
 
-[쿼리 메트릭을 가져오는 ![](./media/troubleshoot-query-performance/obtain-query-metrics.png)](./media/troubleshoot-query-performance/obtain-query-metrics.png#lightbox)
+[![쿼리 메트릭](./media/troubleshoot-query-performance/obtain-query-metrics.png) 얻기](./media/troubleshoot-query-performance/obtain-query-metrics.png#lightbox)
 
-쿼리 메트릭을 구한 후 검색 된 문서 수를 쿼리의 출력 문서 수와 비교 합니다. 이 비교를 사용 하 여 아래에서 참조할 관련 섹션을 식별 합니다.
+쿼리 메트릭을 가져온 후 검색된 문서 수와 쿼리의 출력 문서 수를 비교합니다. 이 비교를 사용하여 이 문서에서 검토할 관련 섹션을 식별합니다.
 
-검색 된 문서 수는 쿼리를 로드 하는 데 필요한 문서 수입니다. 출력 문서 수는 쿼리 결과에 필요한 문서 수입니다. 검색 된 문서 수가 출력 문서 수보다 크게 높으면 인덱스를 사용할 수 없고 검색을 수행 하는 데 필요한 쿼리의 일부가 하나 이상 있습니다.
+검색된 문서 수는 쿼리가 로드하는 데 필요한 문서 수입니다. 출력 문서 수는 쿼리 결과에 필요한 문서 수입니다. 검색된 문서 수가 출력 문서 수보다 훨씬 높으면 인덱스를 사용할 수 없고 검사를 수행해야 하는 쿼리 부분이 하나 이상 있었습니다.
 
-아래 섹션을 참조 하 여 시나리오에 대 한 관련 쿼리 최적화를 이해할 수 있습니다.
+시나리오에 대한 관련 쿼리 최적화를 이해하려면 다음 섹션을 참조하십시오.
 
-### <a name="querys-ru-charge-is-too-high"></a>쿼리의 과도 한 요금이 너무 높음
+### <a name="querys-ru-charge-is-too-high"></a>쿼리의 RU 요금이 너무 높습니다.
 
-#### <a name="retrieved-document-count-is-significantly-greater-than-output-document-count"></a>검색 된 문서 수가 출력 문서 수보다 크게 큽니다.
+#### <a name="retrieved-document-count-is-significantly-higher-than-output-document-count"></a>검색된 문서 수는 출력 문서 수보다 훨씬 높습니다.
 
-- [인덱싱 정책에 필요한 경로를 포함 합니다.](#include-necessary-paths-in-the-indexing-policy)
+- [인덱싱 정책에 필요한 경로를 포함합니다.](#include-necessary-paths-in-the-indexing-policy)
 
-- [인덱스를 활용 하는 시스템 함수 이해](#understand-which-system-functions-utilize-the-index)
+- [인덱스를 사용하는 시스템 함수를 이해합니다.](#understand-which-system-functions-use-the-index)
 
-- [필터 및 ORDER BY 절을 모두 사용 하 여 쿼리](#queries-with-both-a-filter-and-an-order-by-clause)
+- [필터와 ORDER BY 절이 모두 있는 쿼리를 수정합니다.](#modify-queries-that-have-both-a-filter-and-an-order-by-clause)
 
-- [하위 쿼리를 사용 하 여 조인 식 최적화](#optimize-join-expressions-by-using-a-subquery)
-
-<br>
-
-#### <a name="retrieved-document-count-is-approximately-equal-to-output-document-count"></a>검색 된 문서 수가 출력 문서 수와 거의 동일 합니다.
-
-- [파티션 간 쿼리 방지](#avoid-cross-partition-queries)
-
-- [여러 속성에 대 한 필터](#filters-on-multiple-properties)
-
-- [필터 및 ORDER BY 절을 모두 사용 하 여 쿼리](#queries-with-both-a-filter-and-an-order-by-clause)
+- [하위 쿼리를 사용하여 JOIN 식을 최적화합니다.](#optimize-join-expressions-by-using-a-subquery)
 
 <br>
 
-### <a name="querys-ru-charge-is-acceptable-but-latency-is-still-too-high"></a>쿼리의 과도 한 요금이 허용 되지만 대기 시간이 너무 높습니다.
+#### <a name="retrieved-document-count-is-approximately-equal-to-output-document-count"></a>검색된 문서 수는 출력 문서 수와 거의 같습니다.
 
-- [근접성 향상](#improve-proximity)
+- [교차 파티션 쿼리를 피하십시오.](#avoid-cross-partition-queries)
 
-- [프로 비전 된 처리량 증가](#increase-provisioned-throughput)
+- [여러 속성에 필터가 있는 쿼리를 최적화합니다.](#optimize-queries-that-have-filters-on-multiple-properties)
 
-- [MaxConcurrency 늘리기](#increase-maxconcurrency)
+- [필터와 ORDER BY 절이 모두 있는 쿼리를 수정합니다.](#modify-queries-that-have-both-a-filter-and-an-order-by-clause)
 
-- [MaxBufferedItemCount 증가](#increase-maxbuffereditemcount)
+<br>
 
-## <a name="queries-where-retrieved-document-count-exceeds-output-document-count"></a>검색 된 문서 개수가 출력 문서 수를 초과 하는 쿼리
+### <a name="querys-ru-charge-is-acceptable-but-latency-is-still-too-high"></a>쿼리의 RU 요금은 허용되지만 대기 시간이 여전히 너무 높습니다.
 
- 검색 된 문서 수는 쿼리를 로드 하는 데 필요한 문서 수입니다. 출력 문서 수는 쿼리 결과에 필요한 문서 수입니다. 검색 된 문서 수가 출력 문서 수보다 크게 높으면 인덱스를 사용할 수 없고 검색을 수행 하는 데 필요한 쿼리의 일부가 하나 이상 있습니다.
+- [근접성을 향상시킵니다.](#improve-proximity)
 
- 다음은 인덱스에서 완전히 처리 되지 않은 검색 쿼리의 예입니다.
+- [프로비저닝된 처리량을 늘립니다.](#increase-provisioned-throughput)
+
+- [최대 동시성을 늘립니다.](#increase-maxconcurrency)
+
+- [최대 버퍼드항목 수를 늘립니다.](#increase-maxbuffereditemcount)
+
+## <a name="queries-where-retrieved-document-count-exceeds-output-document-count"></a>검색된 문서 수가 출력 문서 수를 초과하는 쿼리
+
+ 검색된 문서 수는 쿼리가 로드하는 데 필요한 문서 수입니다. 출력 문서 수는 쿼리 결과에 필요한 문서 수입니다. 검색된 문서 수가 출력 문서 수보다 훨씬 높으면 인덱스를 사용할 수 없고 검사를 수행해야 하는 쿼리 부분이 하나 이상 있었습니다.
+
+다음은 인덱스에서 완전히 제공되지 않은 검색 쿼리의 예입니다.
 
 쿼리:
 
@@ -123,15 +128,15 @@ Client Side Metrics
   Request Charge                         :        4,059.95 RUs
 ```
 
-검색 된 문서 수 (60951)가 출력 문서 수 (7) 보다 훨씬 크므로이 쿼리는 검색을 수행 하는 데 필요 합니다. 이 경우 시스템 함수 [UPPER ()](sql-query-upper.md) 는 인덱스를 사용 하지 않습니다.
+검색된 문서 수(60,951)는 출력 문서 수(7)보다 훨씬 높기 때문에 이 쿼리는 검사를 수행해야 합니다. 이 경우 시스템 함수 [UPPER()는](sql-query-upper.md) 인덱스를 사용하지 않습니다.
 
-## <a name="include-necessary-paths-in-the-indexing-policy"></a>인덱싱 정책에 필요한 경로를 포함 합니다.
+### <a name="include-necessary-paths-in-the-indexing-policy"></a>인덱싱 정책에 필요한 경로 포함
 
-인덱싱 정책은 `WHERE` 절, `ORDER BY` 절, `JOIN`및 대부분의 시스템 함수에 포함 된 모든 속성을 포함 해야 합니다. 인덱스 정책에 지정 된 경로는 JSON 문서의 속성과 일치 해야 합니다 (대/소문자 구분).
+인덱싱 정책은 절, `WHERE` `ORDER BY` 절 `JOIN`및 대부분의 시스템 함수에 포함된 모든 속성을 포함해야 합니다. 인덱스 정책에 지정된 경로는 JSON 문서의 속성과 일치해야 합니다(대/소문자 구분).
 
-[영양](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) 데이터 집합에 대 한 간단한 쿼리를 실행 하는 경우에는 `WHERE` 절의 속성이 인덱싱되는 경우 매우 낮은 요금이 발생 합니다.
+[영양](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) 데이터 집합에 대한 간단한 쿼리를 실행하는 경우 `WHERE` 절의 속성이 인덱싱될 때 훨씬 낮은 RU 요금이 표시됩니다.
 
-### <a name="original"></a>Original
+#### <a name="original"></a>Original
 
 쿼리:
 
@@ -158,11 +163,11 @@ SELECT * FROM c WHERE c.description = "Malabar spinach, cooked"
 }
 ```
 
-**작업 요금:** 409.51 RUs
+**RU 충전:** 409.51 RU
 
-### <a name="optimized"></a>최적화됨
+#### <a name="optimized"></a>최적화됨
 
-업데이트 된 인덱싱 정책:
+업데이트된 인덱싱 정책:
 
 ```json
 {
@@ -177,37 +182,37 @@ SELECT * FROM c WHERE c.description = "Malabar spinach, cooked"
 }
 ```
 
-**작업 요금:** 2.98 RUs
+**RU 요금:** 2.98 RU
 
-쓰기 가용성 또는 성능에 영향을 주지 않고 언제 든 지 인덱싱 정책에 추가 속성을 추가할 수 있습니다. 인덱스에 새 속성을 추가 하는 경우이 속성을 사용 하는 쿼리는 사용 가능한 새 인덱스를 즉시 활용 합니다. 쿼리를 작성 하는 동안 새 인덱스를 활용 합니다. 따라서 인덱스 다시 작성이 진행 중일 때 쿼리 결과가 일치 하지 않을 수 있습니다. 새 속성이 인덱싱되는 경우에는 인덱스를 다시 작성 하는 동안 기존 인덱스만 활용 하는 쿼리는 영향을 받지 않습니다. [인덱스 변환 진행률을 추적할](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-net-sdk-v3)수 있습니다.
+언제든지 인덱싱 정책에 속성을 추가할 수 있으며 쓰기 가용성이나 성능에는 영향을 주지 않습니다. 인덱스에 새 속성을 추가 하는 경우 속성을 사용 하는 쿼리는 즉시 사용 가능한 새 인덱스를 사용 합니다. 쿼리는 빌드되는 동안 새 인덱스를 사용합니다. 따라서 인덱스 재생성 진행 중에는 쿼리 결과가 일치하지 않을 수 있습니다. 새 속성이 인덱싱된 경우 인덱스 를 다시 작성하는 동안 기존 인덱스만 사용하는 쿼리는 영향을 받지 않습니다. 인덱스 [변환 진행률을 추적할](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-net-sdk-v3)수 있습니다.
 
-## <a name="understand-which-system-functions-utilize-the-index"></a>인덱스를 활용 하는 시스템 함수 이해
+### <a name="understand-which-system-functions-use-the-index"></a>인덱스를 사용하는 시스템 기능 이해
 
-식을 문자열 값 범위로 변환할 수 있는 경우 인덱스를 사용할 수 있으며 그렇지 않은 경우에는 사용할 수 없습니다.
+식을 문자열 값범위로 변환할 수 있는 경우 인덱스를 사용할 수 있습니다. 그렇지 않으면 할 수 없습니다.
 
-인덱스를 활용할 수 있는 문자열 함수의 목록은 다음과 같습니다.
+인덱스를 사용할 수 있는 문자열 함수 목록은 다음과 같습니다.
 
 - STARTSWITH(str_expr, str_expr)
 - LEFT(str_expr, num_expr) = str_expr
-- SUBSTRING(str_expr, num_expr, num_expr) = str_expr, but only if first num_expr is 0
+- SUBSTRING (str_expr, num_expr, num_expr) = str_expr,하지만 첫 번째 num_expr 0인 경우에만
 
-인덱스를 사용 하지 않고 각 문서를 로드 해야 하는 일반적인 시스템 함수는 다음과 같습니다.
+다음은 인덱스를 사용하지 않고 각 문서를 로드해야 하는 몇 가지 일반적인 시스템 함수입니다.
 
-| **시스템 함수**                     | **최적화에 대 한 아이디어**             |
+| **시스템 기능**                     | **최적화를 위한 아이디어**             |
 | --------------------------------------- |------------------------------------------------------------ |
-| CONTAINS                                | 전체 텍스트 검색에 Azure Search 사용                        |
-| 위쪽/아래쪽                             | 비교할 때마다 시스템 함수를 사용 하 여 데이터를 정규화 하는 대신 삽입 시 대/소문자를 정규화 합니다. 그러면 ```SELECT * FROM c WHERE UPPER(c.name) = 'BOB'```와 같은 쿼리가 ```SELECT * FROM c WHERE c.name = 'BOB'``` 됩니다. |
-| 수치 연산 함수 (비 집계) | 쿼리에서 값을 자주 계산 해야 하는 경우이 값을 JSON 문서에 속성으로 저장 하는 것이 좋습니다. |
+| CONTAINS                                | 전체 텍스트 검색에 Azure 검색을 사용합니다.                        |
+| 상부/하부                             | 비교를 위해 데이터를 정규화하기 위해 시스템 함수를 사용하는 대신 삽입 시 케이싱을 정규화합니다. 와 같은 ```SELECT * FROM c WHERE UPPER(c.name) = 'BOB'``` ```SELECT * FROM c WHERE c.name = 'BOB'```쿼리가 됩니다. |
+| 수학 함수(비집계) | 쿼리에서 값을 자주 계산해야 하는 경우 JSON 문서에 값을 속성으로 저장하는 것이 좋습니다. |
 
 ------
 
-인덱스를 사용 하지 않는 시스템 함수에도 불구 하 고 쿼리의 다른 부분은 인덱스를 계속 사용할 수 있습니다.
+시스템 기능이 작동하지 않더라도 쿼리의 다른 부분에서도 인덱스를 사용할 수 있습니다.
 
-## <a name="queries-with-both-a-filter-and-an-order-by-clause"></a>필터 및 ORDER BY 절을 모두 사용 하 여 쿼리
+### <a name="modify-queries-that-have-both-a-filter-and-an-order-by-clause"></a>필터와 ORDER BY 절이 모두 있는 쿼리 수정
 
-필터와 `ORDER BY` 절을 사용 하는 쿼리는 일반적으로 범위 인덱스를 사용 하지만 복합 인덱스에서 제공 될 수 있는 경우에는 더 효율적입니다. 인덱싱 정책을 수정 하는 것 외에도 복합 인덱스의 모든 속성을 `ORDER BY` 절에 추가 해야 합니다. 이 쿼리를 수정 하면 복합 인덱스를 활용 하 게 됩니다.  [영양](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) 데이터 집합에 대해 쿼리를 실행 하 여 영향을 관찰할 수 있습니다.
+필터와 `ORDER BY` 절이 있는 쿼리는 일반적으로 범위 인덱스를 사용하지만 복합 인덱스에서 제공될 수 있는 경우 더 효율적입니다. 인덱싱 정책을 수정하는 것 외에도 복합 인덱스의 모든 속성을 `ORDER BY` 절에 추가해야 합니다. 이렇게 쿼리를 변경하면 복합 인덱스를 사용할 수 있습니다.  [영양](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) 데이터 집합에 대한 쿼리를 실행하여 영향을 관찰할 수 있습니다.
 
-### <a name="original"></a>Original
+#### <a name="original"></a>Original
 
 쿼리:
 
@@ -231,19 +236,19 @@ SELECT * FROM c WHERE c.foodGroup = "Soups, Sauces, and Gravies" ORDER BY c._ts 
 }
 ```
 
-**작업 요금:** 44.28 RUs
+**RU 충전:** 44.28 RU
 
-### <a name="optimized"></a>최적화됨
+#### <a name="optimized"></a>최적화됨
 
-업데이트 된 쿼리 (`ORDER BY` 절의 두 속성 포함):
+업데이트된 쿼리(절에 `ORDER BY` 두 속성을 모두 포함) :
 
 ```sql
 SELECT * FROM c
-WHERE c.foodGroup = “Soups, Sauces, and Gravies”
+WHERE c.foodGroup = "Soups, Sauces, and Gravies"
 ORDER BY c.foodGroup, c._ts ASC
 ```
 
-업데이트 된 인덱싱 정책:
+업데이트된 인덱싱 정책:
 
 ```json
 {  
@@ -271,12 +276,12 @@ ORDER BY c.foodGroup, c._ts ASC
 
 ```
 
-**작업 요금:** 8.86 RUs
+**RU 요금:** 8.86 RU
 
-## <a name="optimize-join-expressions-by-using-a-subquery"></a>하위 쿼리를 사용 하 여 조인 식 최적화
-다중 값 하위 쿼리는 `WHERE` 절의 모든 크로스 조인이 아니라 각 select-many 식 뒤에 조건자를 푸시하여 `JOIN` 식을 최적화할 수 있습니다.
+### <a name="optimize-join-expressions-by-using-a-subquery"></a>하위 쿼리를 사용하여 JOIN 식 최적화
+다중 값 하위 쿼리는 절에서 모든 교차 조인이 아닌 선택-다수 식 다음에 조건자 푸시를 통해 식을 최적화할 `JOIN` 수 있습니다. `WHERE`
 
-다음과 같은 쿼리를 고려해 보세요.
+다음 쿼리를 살펴보십시오.
 
 ```sql
 SELECT Count(1) AS Count
@@ -288,13 +293,13 @@ WHERE t.name = 'infant formula' AND (n.nutritionValue > 0
 AND n.nutritionValue < 10) AND s.amount > 1
 ```
 
-**작업 요금:** 167.62 RUs
+**RU 충전:** 167.62 RU
 
-이 쿼리의 경우 인덱스는 "infant formula" 라는 이름의 태그가 있는 모든 문서와 일치 하 고, 0 보다 크고 nutritionValue 1 보다 큰 값을 제공 합니다. 여기에서 `JOIN` 식은 필터를 적용 하기 전에 일치 하는 각 문서에 대 한 태그, nutrients 및 배열 항목의 모든 항목에 대 한 교차곱을 수행 합니다. 그런 다음 `WHERE` 절은 각 `<c, t, n, s>` 튜플에 필터 조건자를 적용 합니다.
+이 쿼리의 경우 인덱스는 태그가 있는 문서와 "유아식", 영양값이 0보다 크고 서빙 량이 1보다 큰 모든 문서와 일치합니다. 여기서 `JOIN` 식은 필터를 적용하기 전에 각 일치 문서에 대한 태그, 영양소 및 서빙 배열의 모든 항목의 교차 곱을 수행합니다. 그런 `WHERE` 다음 절은 각 `<c, t, n, s>` 튜플에 필터 조건어를 적용합니다.
 
-예를 들어, 일치 하는 문서에 각각 3 개의 배열에 10 개의 항목이 있는 경우 1 x 10 x 10 x 10 (즉, 1000) 튜플로 확장 됩니다. 여기서 하위 쿼리를 사용 하면 다음 식으로 조인 하기 전에 조인 된 배열 항목을 필터링 하는 데 도움이 될 수 있습니다.
+예를 들어 일치하는 문서에 세 개의 배열 각각에 10개의 항목이 있는 경우 1 x 10 x 10 x 10(즉, 1,000) 투플으로 확장됩니다. 여기서 하위 쿼리를 사용하면 다음 식으로 조인하기 전에 조인된 배열 항목을 필터링하는 데 도움이 될 수 있습니다.
 
-이 쿼리는 위의 쿼리와 동일 하지만 하위 쿼리를 사용 합니다.
+이 쿼리는 앞의 쿼리와 동일하지만 하위 쿼리를 사용합니다.
 
 ```sql
 SELECT Count(1) AS Count
@@ -304,35 +309,35 @@ JOIN (SELECT VALUE n FROM n IN c.nutrients WHERE n.nutritionValue > 0 AND n.nutr
 JOIN (SELECT VALUE s FROM s IN c.servings WHERE s.amount > 1)
 ```
 
-**작업 요금:** 22.17 RUs
+**RU 요금:** 22.17 RU
 
-태그 배열의 한 항목만 필터와 일치 하 고 nutrients 및 servings 배열 모두에 대해 5 개의 항목이 있다고 가정 합니다. 그러면 `JOIN` 식은 첫 번째 쿼리의 1000 항목과 달리 1 x 1 x 5 x 5 = 25 개 항목으로 확장 됩니다.
+태그 배열의 항목 하나만 필터와 일치하고 영양소와 서빙 배열모두에 대해 5개의 항목이 있다고 가정합니다. 식은 `JOIN` 첫 번째 쿼리에서 1,000개의 항목이 아닌 1 x 1 x 5 x 5 = 25항목으로 확장됩니다.
 
-## <a name="queries-where-retrieved-document-count-is-equal-to-output-document-count"></a>검색 된 문서 수가 출력 문서 수와 같은 쿼리
+## <a name="queries-where-retrieved-document-count-is-equal-to-output-document-count"></a>검색된 문서 수가 출력 문서 수와 동일한 쿼리
 
-검색 된 문서 수가 출력 문서 수와 거의 같으면 쿼리가 불필요 한 많은 문서를 검색할 필요가 없음을 의미 합니다. TOP 키워드를 사용 하는 것과 같은 많은 쿼리의 경우 검색 된 문서 수는 출력 문서 수를 1로 초과할 수 있습니다. 이는 문제가 발생 하지 않습니다.
+검색된 문서 수가 출력 문서 수와 거의 같으면 쿼리에서 불필요한 문서를 많이 검색할 필요가 없습니다. TOP 키워드를 사용하는 쿼리와 같은 많은 쿼리의 경우 검색된 문서 수가 출력 문서 수를 1로 초과할 수 있습니다. 당신은 이것에 대해 걱정할 필요가 없습니다.
 
-## <a name="avoid-cross-partition-queries"></a>파티션 간 쿼리 방지
+### <a name="avoid-cross-partition-queries"></a>교차 파티션 쿼리 방지
 
-Azure Cosmos DB에서는 [분할](partitioning-overview.md) 을 사용 하 여 개별 컨테이너를 요청 단위로 확장 하 고 데이터 저장소를 증가 시켜야 합니다. 각 실제 파티션에는 별도의 독립 된 인덱스가 있습니다. 쿼리에 컨테이너의 파티션 키와 일치 하는 같음 필터가 있는 경우 관련 파티션의 인덱스만 확인 하면 됩니다. 이러한 최적화를 통해 쿼리에 필요한 전체 수를 줄일 수 있습니다.
+Azure Cosmos DB는 [분할을](partitioning-overview.md) 사용하여 요청 단위 및 데이터 저장소 요구가 증가함에 따라 개별 컨테이너를 확장합니다. 각 물리적 파티션에는 별도의 독립 인덱스가 있습니다. 쿼리에 컨테이너의 파티션 키와 일치하는 같음 필터가 있는 경우 관련 파티션의 인덱스만 확인해야 합니다. 이 최적화는 쿼리에 필요한 총 루수를 줄입니다.
 
-프로 비전 된 r u의 많은 수 (3만 이상) 또는 대용량의 데이터가 저장 되어 있는 경우 (약 100 GB 이상) 쿼리를 크게 줄일 수 있는 충분 한 컨테이너가 있을 가능성이 높습니다.
+프로비저닝된 RU(30,000개 이상) 또는 많은 양의 데이터가 저장된 경우(약 100GB 이상) 쿼리 RU 요금이 크게 감소할 수 있는 충분한 컨테이너가 있을 수 있습니다.
 
-예를 들어 파티션 키가 foodGroup 인 컨테이너를 만들 경우 다음 쿼리는 단일 실제 파티션만 확인 하면 됩니다.
+예를 들어 파티션 키 foodGroup을 사용하여 컨테이너를 만드는 경우 다음 쿼리는 단일 물리적 파티션만 확인해야 합니다.
 
 ```sql
 SELECT * FROM c
 WHERE c.foodGroup = "Soups, Sauces, and Gravies" and c.description = "Mushroom, oyster, raw"
 ```
 
-이러한 쿼리는 또한 쿼리에 파티션 키를 포함 하 여 최적화 됩니다.
+이러한 쿼리는 쿼리에 파티션 키를 추가하여 최적화됩니다.
 
 ```sql
 SELECT * FROM c
 WHERE c.foodGroup IN("Soups, Sauces, and Gravies", "Vegetables and Vegetable Products") and c.description = "Mushroom, oyster, raw"
 ```
 
-파티션 키에 대해 범위 필터를 포함 하거나 파티션 키에 필터가 없는 쿼리는 "팬 아웃" 하 고 결과에 대 한 모든 물리적 파티션의 인덱스를 확인 해야 합니다.
+파티션 키에 범위 필터가 있거나 파티션 키에 필터가 없는 쿼리는 모든 실제 파티션의 인덱스에 결과를 확인해야 합니다.
 
 ```sql
 SELECT * FROM c
@@ -344,11 +349,11 @@ SELECT * FROM c
 WHERE c.foodGroup > "Soups, Sauces, and Gravies" and c.description = "Mushroom, oyster, raw"
 ```
 
-## <a name="filters-on-multiple-properties"></a>여러 속성에 대 한 필터
+### <a name="optimize-queries-that-have-filters-on-multiple-properties"></a>여러 속성에 필터가 있는 쿼리 최적화
 
-여러 속성에 대 한 필터를 포함 하는 쿼리는 일반적으로 범위 인덱스를 사용 하지만 복합 인덱스에서 제공 될 수 있는 경우에는 더 효율적입니다. 적은 양의 데이터에 대해 이러한 최적화는 상당한 영향을 주지 않습니다. 그러나 많은 양의 데이터에 대해 유용 하 게 사용할 수 있습니다. 복합 인덱스 당 최대 하나의 일치 하지 않는 필터만 최적화할 수 있습니다. 쿼리에 일치 하지 않는 필터가 여러 개 있는 경우 복합 인덱스를 사용할 하나를 선택 해야 합니다. 나머지는 범위 인덱스를 계속 활용 합니다. 같지 않음 필터는 복합 인덱스에서 마지막으로 정의 되어야 합니다. [복합 인덱스에 대해 자세히 알아보기](index-policy.md#composite-indexes)
+여러 속성에 필터가 있는 쿼리는 일반적으로 범위 인덱스를 사용하지만 복합 인덱스에서 제공될 수 있는 경우 더 효율적입니다. 소량의 데이터의 경우 이 최적화는 큰 영향을 미치지 않습니다. 그러나 많은 양의 데이터에 유용할 수 있습니다. 복합 인덱스당 하나의 비같음 필터만 최적화할 수 있습니다. 쿼리에 같지 않은 필터가 여러 개 있는 경우 복합 인덱스를 사용할 필터 중 하나를 선택합니다. 나머지는 범위 인덱스를 계속 사용합니다. 비같음 필터는 복합 인덱스에서 마지막으로 정의되어야 합니다. [복합 인덱스에 대해 자세히 알아봅니다.](index-policy.md#composite-indexes)
 
-다음은 복합 인덱스를 사용 하 여 최적화할 수 있는 쿼리의 몇 가지 예입니다.
+다음은 복합 인덱스로 최적화할 수 있는 쿼리의 몇 가지 예입니다.
 
 ```sql
 SELECT * FROM c
@@ -360,7 +365,7 @@ SELECT * FROM c
 WHERE c.foodGroup = "Vegetables and Vegetable Products" AND c._ts > 1575503264
 ```
 
-다음은 관련 복합 인덱스입니다.
+관련 복합 인덱스는 다음과 같습니다.
 
 ```json
 {  
@@ -387,29 +392,29 @@ WHERE c.foodGroup = "Vegetables and Vegetable Products" AND c._ts > 1575503264
 }
 ```
 
-## <a name="optimizations-that-reduce-query-latency"></a>쿼리 대기 시간을 줄이는 최적화:
+## <a name="optimizations-that-reduce-query-latency"></a>쿼리 대기 시간을 줄이는 최적화
 
-대부분의 경우에는 많은 요금이 부과 될 수 있지만 쿼리 대기 시간은 여전히 너무 높습니다. 아래 섹션에서는 쿼리 대기 시간을 줄이기 위한 팁의 개요를 제공 합니다. 동일한 쿼리를 동일한 데이터 집합에서 여러 번 실행 하는 경우에는 매번 동일한 실행 요금이 발생 합니다. 그러나 쿼리 대기 시간은 쿼리 실행 마다 다를 수 있습니다.
+대부분의 경우 쿼리 대기 시간이 여전히 너무 높으면 RU 요금이 허용될 수 있습니다. 다음 섹션에서는 쿼리 대기 시간을 줄이기 위한 팁에 대한 개요를 제공합니다. 동일한 데이터 집합에서 동일한 쿼리를 여러 번 실행하는 경우 매번 동일한 RU 요금이 청구됩니다. 그러나 쿼리 대기 시간은 쿼리 실행마다 다를 수 있습니다.
 
-## <a name="improve-proximity"></a>근접성 향상
+### <a name="improve-proximity"></a>근접성 향상
 
-Azure Cosmos DB 계정이 아닌 다른 지역에서 실행 되는 쿼리는 동일한 지역 내에서 실행 된 경우 보다 대기 시간이 높습니다. 예를 들어 데스크톱 컴퓨터에서 코드를 실행 하는 경우 쿼리가 Azure Cosmos DB와 동일한 Azure 지역 내에서 가상 컴퓨터의 가상 컴퓨터에서 발생 한 경우 보다 수십 또는 수백 (또는 그 이상) 밀리초가 될 것으로 간주 해야 합니다. 데이터를 앱에 더 가깝게 가져올 수 있도록 [Azure Cosmos DB 데이터를 전역적으로 배포](distribute-data-globally.md) 하는 것이 간단 합니다.
+Azure Cosmos DB 계정과 다른 지역에서 실행되는 쿼리는 동일한 리전 내에서 실행된 경우보다 대기 시간이 더 높습니다. 예를 들어 데스크톱 컴퓨터에서 코드를 실행하는 경우 쿼리가 Azure Cosmos DB와 동일한 Azure 지역 내의 가상 컴퓨터에서 온 경우보다 대기 시간이 수십 또는 수백 밀리초 이상일 것으로 예상해야 합니다. [Azure Cosmos DB에서 데이터를 전역적으로 배포하여](distribute-data-globally.md) 데이터를 앱에 더 가깝게 가져올 수 있도록 하는 것은 간단합니다.
 
-## <a name="increase-provisioned-throughput"></a>프로 비전 된 처리량 증가
+### <a name="increase-provisioned-throughput"></a>프로비저닝된 처리량 증가
 
-Azure Cosmos DB에서 프로 비전 된 처리량은 (요청 단위)로 측정 됩니다. 5 개의 처리량을 사용 하는 쿼리가 있다고 가정 합니다. 예를 들어 1000 r u s를 프로 비전 하는 경우 초당 해당 200 쿼리를 실행할 수 있습니다. 사용 가능한 처리량이 충분 하지 않은 경우 쿼리를 실행 하려고 하면 Azure Cosmos DB HTTP 429 오류가 반환 됩니다. 현재 코어 (SQL) API sdk는 잠깐 기다린 후이 쿼리를 자동으로 다시 시도 합니다. 제한 된 요청은 시간이 오래 걸리므로 프로 비전 된 처리량이 증가 하면 쿼리 대기 시간이 향상 될 수 있습니다. Azure Portal의 메트릭 블레이드에서 [제한 된 요청의 총 수](use-metrics.md#understand-how-many-requests-are-succeeding-or-causing-errors) 를 확인할 수 있습니다.
+Azure Cosmos DB에서 프로비저닝된 처리량은 요청 단위(R)로 측정됩니다. 처리량의 5 R을 소비하는 쿼리가 있다고 가정해 보냅니다. 예를 들어 1,000개의 R을 프로비전하는 경우 해당 쿼리를 초당 200회 실행할 수 있습니다. 사용 가능한 처리량이 충분하지 않을 때 쿼리를 실행하려고 하면 Azure Cosmos DB에서 HTTP 429 오류를 반환합니다. 현재 코어(SQL) API SDK는 짧은 시간 동안 기다린 후 이 쿼리를 자동으로 다시 시도합니다. 제한된 요청은 시간이 오래 걸리므로 프로비저닝된 처리량을 늘리면 쿼리 대기 시간이 향상될 수 있습니다. Azure 포털의 메트릭 블레이드에서 [제한된 요청의 총 수를](use-metrics.md#understand-how-many-requests-are-succeeding-or-causing-errors) 관찰할 수 **있습니다.**
 
-## <a name="increase-maxconcurrency"></a>MaxConcurrency 늘리기
+### <a name="increase-maxconcurrency"></a>최대 동시성 증가
 
-병렬 쿼리는 여러 파티션을 병렬로 쿼리하여 작동 합니다. 그러나 개별 분할된 컬렉션의 데이터는 쿼리와 관련하여 순차적으로 가져오기 됩니다. 따라서 파티션 수에 대 한 MaxConcurrency를 조정 하는 것은 다른 모든 시스템 조건을 동일 하 게 유지 하는 경우 가장 성능이 뛰어난 쿼리를 달성할 수 있는 최대 기회를 제공 합니다. 파티션 수를 모르는 경우 MaxConcurrency (또는 이전 sdk 버전의 MaxDegreesOfParallelism)를 높은 숫자로 설정 하면 시스템에서 최소 (파티션 수, 사용자가 제공한 입력)를 최대 병렬 처리 수준으로 선택할 수 있습니다.
+병렬 쿼리는 여러 파티션을 병렬로 쿼리하여 작동합니다. 그러나 개별 분할된 컬렉션의 데이터는 쿼리와 관련하여 직렬로 가져옵니다. 따라서 MaxConcurrency를 파티션 수로 설정하면 다른 모든 시스템 조건이 동일하게 유지되는 경우 가장 성능이 뛰어난 쿼리를 얻을 수 있습니다. 파티션 수를 모르는 경우 MaxConcurrency(또는 이전 SDK 버전의 MaxDegreesOfParallelism)를 높은 숫자로 설정할 수 있습니다. 시스템은 최소(파티션 수, 사용자가 제공한 입력)를 최대 병렬 처리 수준으로 선택합니다.
 
-## <a name="increase-maxbuffereditemcount"></a>MaxBufferedItemCount 증가
+### <a name="increase-maxbuffereditemcount"></a>최대 버퍼드항목 수 증가
 
-쿼리는 결과의 현재 배치가 클라이언트에서 처리 되는 동안 결과를 미리 인출 하도록 디자인 되었습니다. 프리페치는 쿼리의 전체 대기 시간 개선 사항에 도움이 됩니다. MaxBufferedItemCount를 설정 하면 프리페치 된 결과의 수가 제한 됩니다. 이 값을 반환 된 예상 결과 수 (또는 더 높은 수)로 설정 하면 쿼리는 미리 페치를 통해 최대한의 이점을 얻을 수 있습니다. 이 값을-1로 설정 하면 시스템에서 버퍼링 할 항목 수를 자동으로 결정할 수 있습니다.
+쿼리는 현재 결과 일괄 처리가 클라이언트에서 처리되는 동안 결과를 미리 가져오도록 설계되었습니다. 사전 페칭은 쿼리의 전체 대기 시간을 개선하는 데 도움이 됩니다. MaxBufferedItemCount 설정은 미리 가져온 결과 수를 제한합니다. 이 값을 반환된 예상 결과 수(또는 더 높은 수)로 설정하면 쿼리가 사전 페칭을 통해 가장 많은 이점을 얻을 수 있습니다. 이 값을 -1로 설정하면 시스템이 버퍼링할 항목 수를 자동으로 결정합니다.
 
 ## <a name="next-steps"></a>다음 단계
-쿼리 별 RUs를 측정 하는 방법, 쿼리를 튜닝 하기 위한 실행 통계 가져오기 등의 문서를 참조 하세요.
+쿼리당 R을 측정하는 방법, 쿼리를 조정하는 실행 통계 를 얻는 방법에 대한 자세한 내용은 다음 문서를 참조하십시오.
 
-* [.NET SDK를 사용하여 SQL 쿼리 실행 메트릭 가져오기](profile-sql-api-query.md)
+* [.NET SDK를 사용하여 SQL 쿼리 실행 메트릭 받기](profile-sql-api-query.md)
 * [Azure Cosmos DB와 함께 쿼리 성능 튜닝](sql-api-sql-query-metrics.md)
 * [.NET SDK용 성능 팁](performance-tips.md)
