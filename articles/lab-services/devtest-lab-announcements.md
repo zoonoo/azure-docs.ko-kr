@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: 84120b07de3a03a049493eb973b6dc46f8668387
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75976441"
 ---
 # <a name="post-an-announcement-to-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩에 공지 게시
@@ -35,7 +35,7 @@ ms.locfileid: "75976441"
 
 ## <a name="steps-to-post-an-announcement-in-an-existing-lab"></a>기존 랩에 공지를 게시하는 단계
 
-1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
+1. [Azure 포털에](https://go.microsoft.com/fwlink/p/?LinkID=525040)로그인합니다.
 1. 필요한 경우 **모든 서비스**를 선택하고 목록에서 **DevTest Labs**를 선택합니다. 대시보드의 **모든 리소스** 아래에 랩이 이미 표시되어 있을 수 있습니다.
 1. 랩 목록에서 공지를 게시하려는 랩을 선택합니다.
 1. 랩의 **개요** 영역에서 **구성 및 정책**을 선택합니다.
@@ -160,11 +160,11 @@ ms.locfileid: "75976441"
 
 다음 방법 중 하나를 사용하여 Azure Resource Manager 템플릿을 배포할 수 있습니다.
 
-- [Azure Portal](../azure-resource-manager/templates/deploy-portal.md)
-- [Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
+- [Azure 포털](../azure-resource-manager/templates/deploy-portal.md)
+- [Azure 파워쉘](../azure-resource-manager/templates/deploy-powershell.md)
 - [Azure CLI](../azure-resource-manager/templates/deploy-cli.md)
-- [REST API](../azure-resource-manager/templates/deploy-rest.md)
+- [나머지 API](../azure-resource-manager/templates/deploy-rest.md)
 
 ## <a name="next-steps"></a>다음 단계
 * 랩 정책을 변경하거나 설정하는 경우 사용자에게 알리기 위해 공지를 게시할 수 있습니다. [정책 및 일정 설정](devtest-lab-set-lab-policy.md)은 사용자 지정된 정책을 사용하여 구독에 제한 사항 및 규칙을 적용하는 방법에 대한 정보를 제공합니다.
-* [DevTest Labs Azure Resource Manager 빠른 시작 템플릿 갤러리](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates)를 탐색합니다.
+* [DevTest 랩 Azure 리소스 관리자 빠른 시작 템플릿 갤러리를](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates)탐색합니다.

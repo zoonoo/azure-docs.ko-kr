@@ -10,10 +10,10 @@ ms.date: 08/30/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017, mvc
 ms.openlocfilehash: f031f55bbff534181459bb1bf7469f315aee27cb
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75887787"
 ---
 # <a name="deprecated-container-service-frequently-asked-questions"></a>(사용되지 않음) Container Service 질문과 대답
@@ -24,7 +24,7 @@ ms.locfileid: "75887787"
 
 ### <a name="which-container-orchestrators-do-you-support-on-azure-container-service"></a>Azure Container Service에 어떤 컨테이너 오케스트레이터가 지원되나요? 
 
-오픈 소스 DC/OS, Docker Swarm 및 Kubernetes가 지원됩니다. 자세한 내용은 [개요](container-service-intro-kubernetes.md)를 참조하세요.
+오픈 소스 DC/OS, Docker Swarm 및 Kubernetes가 지원됩니다. 자세한 내용은 [개요](container-service-intro-kubernetes.md)를 참조하십시오.
  
 ### <a name="do-you-support-docker-swarm-mode"></a>Docker Swarm 모드가 지원되나요? 
 
@@ -52,7 +52,7 @@ Azure Container Service는 Azure Portal, Azure 명령줄 도구 및 Azure API의
 
 클러스터의 Linux 가상 머신에 대한 인증을 위해 운영 체제에서 표준 도구를 사용하여 SSH RSA 공용 및 프라이빗 키 쌍을 생성할 수 있습니다. 단계는 [OS X 및 Linux](../../virtual-machines/linux/mac-create-ssh-keys.md) 또는 [Windows](../../virtual-machines/linux/ssh-from-windows.md) 지침을 참조하세요. 
 
-Azure CLI 명령을 사용 하 여 컨테이너 서비스 클러스터를 배포 하는 경우 클러스터에 대 한 SSH 키가 자동으로 생성 될 수 있습니다.
+Azure CLI 명령을 사용하여 컨테이너 서비스 클러스터를 배포하는 경우 클러스터용 SSH 키가 자동으로 생성될 수 있습니다.
 
 ### <a name="how-do-i-create-a-service-principal-for-my-kubernetes-cluster"></a>Kubernetes 클러스터에 대한 서비스 주체는 어떻게 만드나요?
 
@@ -104,7 +104,7 @@ DNSnamePrefix.AzureRegion.cloudapp.azure.net
 
 4. **요약** 페이지의 **출력** 아래에 여러 개의 클러스터 링크가 제공됩니다. **SSHMaster0**은 컨테이너 서비스 클러스터의 첫 번째 마스트에 SSH 연결 문자열을 제공합니다. 
 
-이전에 언급했듯이 Azure 도구를 사용하여 마스터의 FQDN을 찾을 수도 있습니다. 마스터의 FQDN 및 클러스터를 만들 때 지정한 사용자 이름을 사용하여 마스터에 SSH 연결을 만듭니다. 예:
+이전에 언급했듯이 Azure 도구를 사용하여 마스터의 FQDN을 찾을 수도 있습니다. 마스터의 FQDN 및 클러스터를 만들 때 지정한 사용자 이름을 사용하여 마스터에 SSH 연결을 만듭니다. 예를 들어:
 
 ```bash
 ssh userName@masterFQDN –A –p 22 
@@ -114,7 +114,7 @@ ssh userName@masterFQDN –A –p 22 
 
 ### <a name="my-dns-name-resolution-isnt-working-on-windows-what-should-i-do"></a>내 DNS 이름 확인이 Windows에서 작동하지 않습니다. 어떻게 해야 하나요?
 
-수정이 아직 진행 중인 Windows에 대 한 몇 가지 알려진 DNS 문제가 있습니다. 환경에서이 기능을 사용할 수 있도록 가장 많이 업데이트 한 acs 엔진 및 Windows 버전 ( [KB4074588](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4074588) 및 [KB4089848](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4089848) 설치 됨)을 사용 하 고 있는지 확인 하세요. 그렇지 않은 경우, 아래 표에서 완화 단계를 참조하세요.
+Windows에서 알려진 DNS 문제가 있는데, 이 문제는 여전히 적극적으로 단계적으로 폐지되고 있습니다. 사용자 환경이 이점을 누릴 수 있도록 가장 업데이트된 ACS 엔진 및 Windows [버전(KB4074588](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4074588) 및 [KB4089848](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4089848) 설치)을 사용하고 있는지 확인하십시오. 그렇지 않은 경우, 아래 표에서 완화 단계를 참조하세요.
 
 | DNS 증상 | 해결 방법  |
 |-------------|-------------|

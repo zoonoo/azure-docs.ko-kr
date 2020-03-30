@@ -9,10 +9,10 @@ ms.date: 08/09/2018
 ms.author: vashan, cynthn, rajsqr
 ms.custom: include file
 ms.openlocfilehash: 57f557a812ec5e4eea75b76ca1394ca360a85d30
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67182142"
 ---
 Azure VM(Virtual Machines)은 *프로비전* 및 *전원* 상태로 분류될 수 있는 여러 상태를 거칩니다. 이 아티클은 이러한 상태를 설명하고, 고객에게 인스턴스 사용량에 요금이 청구된 경우 특히 강조 표시하려고 합니다. 
@@ -40,7 +40,7 @@ Azure VM(Virtual Machines)은 *프로비전* 및 *전원* 상태로 분류될 �
 </tr>
 <tr>
 <td>
-<p><b>시작 중</b></p>
+<p><b>시작</b></p>
 </td>
 <td>
 <p>VM이 시작되고 있습니다.</p>
@@ -71,7 +71,7 @@ Azure VM(Virtual Machines)은 *프로비전* 및 *전원* 상태로 분류될 �
  ]</code><br>
 </td>
 <td>
-<p><b>청구됨</b></p>
+<p><b>청구</b></p>
 </td>
 </tr>
 <tr>
@@ -89,7 +89,7 @@ Azure VM(Virtual Machines)은 *프로비전* 및 *전원* 상태로 분류될 �
  ]</code><br>
 </td>
 <td>
-<p><b>청구됨</b></p>
+<p><b>청구</b></p>
 </td>
 </tr>
 <tr>
@@ -131,7 +131,7 @@ Azure VM(Virtual Machines)은 *프로비전* 및 *전원* 상태로 분류될 �
 </tr>
 <tr>
 <td>
-<p><b>할당 취소됨</b></p>
+<p><b>할당</b></p>
 </td>
 <td>
 <p>VM이 성공적으로 중지되고 호스트에서 제거됩니다. </p>
@@ -210,7 +210,7 @@ Azure VM(Virtual Machines)은 *프로비전* 및 *전원* 상태로 분류될 �
 </tr>
 <tr>
 <td width="162">
-<p><b>삭제 중</b></p>
+<p><b>삭제</b></p>
 </td>
 <td width="366">
 <code>"statuses": [<br>

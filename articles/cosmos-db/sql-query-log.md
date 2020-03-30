@@ -1,6 +1,6 @@
 ---
-title: Azure Cosmos DB 쿼리 언어 로그인
-description: 지정 된 숫자 식의 자연 로그를 반환 하 Azure Cosmos DB의 로그 SQL 시스템 함수에 대해 알아봅니다.
+title: Azure 코스모스 DB 쿼리 언어의 로그인
+description: Azure Cosmos DB의 LOG SQL 시스템 함수에 대해 알아보고 지정된 숫자 식의 자연스러운 로그백을 반환합니다.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,13 +8,13 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 9213ef03f383dec7109652246411fac154b4a7f9
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78302511"
 ---
-# <a name="log-azure-cosmos-db"></a>로그 (Azure Cosmos DB)
+# <a name="log-azure-cosmos-db"></a>로그 (Azure 코스모스 DB)
  지정된 숫자 식의 자연 로그를 반환합니다.  
   
 ## <a name="syntax"></a>구문
@@ -39,7 +39,7 @@ LOG (<numeric_expr> [, <base>])
   
   LOG()는 기본적으로 자연 로그를 반환합니다. 선택적인 base 매개 변수를 사용하여 로그의 밑을 다른 값으로 변경할 수 있습니다.  
   
-  자연 로그는 밑이 **e**인 로그입니다. 여기서 **e**는 대략 2.718281828과 같은 무리 상수입니다.  
+  자연 로그는 밑 **e**의 로그입니다. 여기서 **e**는 무리 상수(대략 2.718281828)입니다.  
   
   숫자의 지수의 자연 로그는 숫자 자체, 즉 LOG( EXP( n ) ) = n입니다. 그리고 숫자의 자연 로그의 지수는 숫자 자체, 즉 EXP( LOG( n ) ) = n입니다.  
   
@@ -71,10 +71,10 @@ SELECT EXP(LOG(10)) AS expLog
 
 ## <a name="remarks"></a>설명
 
-이 시스템 함수는 인덱스를 활용 하지 않습니다.
+이 시스템 함수는 인덱스를 사용하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [수치 연산 함수 Azure Cosmos DB](sql-query-mathematical-functions.md)
-- [시스템 함수 Azure Cosmos DB](sql-query-system-functions.md)
-- [Azure Cosmos DB 소개](introduction.md)
+- [수학적 함수 Azure 코스모스 DB](sql-query-mathematical-functions.md)
+- [시스템 기능 Azure 코스모스 DB](sql-query-system-functions.md)
+- [Azure 코스모스 DB 소개](introduction.md)

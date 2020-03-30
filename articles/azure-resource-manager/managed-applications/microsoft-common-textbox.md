@@ -1,15 +1,15 @@
 ---
-title: TextBox UI 요소
-description: Azure Portal의 Microsoft.Common.TextBox UI 요소에 대해 설명합니다. 서식 없는 텍스트를 추가 하는 데 사용 합니다.
+title: 텍스트 상자 UI 요소
+description: Azure Portal의 Microsoft.Common.TextBox UI 요소에 대해 설명합니다. 형식이 지정되지 않은 텍스트를 추가하는 데 사용합니다.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: tomfitz
 ms.openlocfilehash: e9f084badda9ea1905e43c6f00b29aaf957a6dbd
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75652282"
 ---
 # <a name="microsoftcommontextbox-ui-element"></a>Microsoft.Common.TextBox UI 요소
@@ -46,7 +46,7 @@ ms.locfileid: "75652282"
 
 ## <a name="remarks"></a>설명
 
-- `constraints.required`를 **true**로 설정하면 텍스트 상자에서 유효성을 성공적으로 검사할 수 있는 값을 포함해야 합니다. 기본 값은 **false**입니다.
+- `constraints.required`를 **true**로 설정하면 텍스트 상자에서 유효성을 성공적으로 검사할 수 있는 값을 포함해야 합니다. 기본값은 **false**입니다.
 - `constraints.regex`는 JavaScript 정규식 패턴입니다. 지정하면 텍스트 상자의 값이 유효성을 성공적으로 검사하기 위한 패턴과 일치해야 합니다. 기본값은 **null**입니다.
 - `constraints.validationMessage`는 텍스트 상자의 값이 유효성 검사에 실패할 때 표시할 문자열입니다. 지정하지 않으면 텍스트 상자의 기본 제공 유효성 검사 메시지가 사용됩니다. 기본값은 **null**입니다.
 - `constraints.required`를 **false**로 설정하면 `constraints.regex`에 대한 값을 지정할 수 있습니다. 이 시나리오에서는 텍스트 상자에서 유효성을 성공적으로 검사하는 데 값이 필요하지 않습니다. 지정하는 경우 정규식 패턴과 일치해야 합니다.

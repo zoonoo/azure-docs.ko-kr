@@ -1,5 +1,5 @@
 ---
-title: 'Azure Express 경로: 회로 수정: PowerShell'
+title: 'Azure 익스프레스루트: 회로 수정: PowerShell'
 description: ExpressRoute 회로를 만들고, 프로비전하고, 확인하고, 업데이트하고, 삭제하고, 프로비전을 해제합니다.
 services: expressroute
 author: cherylmc
@@ -8,20 +8,20 @@ ms.topic: article
 ms.date: 01/08/2020
 ms.author: cherylmc
 ms.openlocfilehash: ab44d5358154c17622eef68205ac2326e81377a0
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75770971"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-powershell"></a>PowerShell을 사용하여 ExpressRoute 회로 만들기 및 수정
 > [!div class="op_single_selector"]
-> * [Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
-> * [PowerShell](expressroute-howto-circuit-arm.md)
+> * [Azure 포털](expressroute-howto-circuit-portal-resource-manager.md)
+> * [Powershell](expressroute-howto-circuit-arm.md)
 > * [Azure CLI](howto-circuit-cli.md)
-> * [Azure Resource Manager 템플릿](expressroute-howto-circuit-resource-manager-template.md)
+> * [Azure 리소스 관리자 템플릿](expressroute-howto-circuit-resource-manager-template.md)
 > * [비디오 - Azure Portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
-> * [PowerShell(클래식)](expressroute-howto-circuit-classic.md)
+> * [파워 쉘 (클래식)](expressroute-howto-circuit-classic.md)
 >
 
 이 문서에서는 PowerShell cmdlet 및 Azure Resource Manager 배포 모델을 사용하여 ExpressRoute 회로를 만듭니다. 상태를 확인하고, 회로를 업데이트, 삭제 또는 프로비전 해제할 수도 있습니다.
@@ -36,15 +36,15 @@ ms.locfileid: "75770971"
 
 [!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
-## <a name="create"></a>ExpressRoute 회로 만들기 및 프로비전
-### <a name="1-sign-in-to-your-azure-account-and-select-your-subscription"></a>1. Azure 계정에 로그인 하 고 구독을 선택 합니다.
+## <a name="create-and-provision-an-expressroute-circuit"></a><a name="create"></a>ExpressRoute 회로 만들기 및 프로비전
+### <a name="1-sign-in-to-your-azure-account-and-select-your-subscription"></a>1. Azure 계정에 로그인하고 구독을 선택합니다.
 
 [!INCLUDE [sign in](../../includes/expressroute-cloud-shell-connect.md)]
 
-### <a name="2-get-the-list-of-supported-providers-locations-and-bandwidths"></a>2. 지원 되는 공급자, 위치 및 대역폭 목록 가져오기
+### <a name="2-get-the-list-of-supported-providers-locations-and-bandwidths"></a>2. 지원되는 공급자, 위치 및 대역폭 목록 받기
 ExpressRoute 회로를 만들기 전에 지원되는 연결 공급자, 위치 및 대역폭 옵션 목록이 필요합니다.
 
-PowerShell cmdlet **AzExpressRouteServiceProvider** 는 이후 단계에서 사용할이 정보를 반환 합니다.
+PowerShell cmdlet **Get-AzExpressRouteServiceProvider는** 이 정보를 반환하며, 이후 단계에서 사용할 수 있습니다.
 
 ```azurepowershell-interactive
 Get-AzExpressRouteServiceProvider
@@ -58,7 +58,7 @@ Get-AzExpressRouteServiceProvider
 
 이제 ExpressRoute 회로를 만들 준비가 되었습니다.
 
-### <a name="3-create-an-expressroute-circuit"></a>3. Express 경로 회로 만들기
+### <a name="3-create-an-expressroute-circuit"></a>3. 익스프레스루트 회로 만들기
 아직 리소스 그룹이 없는 경우 ExpressRoute 회로를 만들기 전에 먼저 리소스 그룹을 만들어야 합니다. 다음 명령을 실행하여 수행할 수 있습니다.
 
 ```azurepowershell-interactive
@@ -73,8 +73,8 @@ New-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "Exp
 
 올바른 SKU 계층과 SKU 제품군을 지정하는지 확인합니다.
 
-* SKU 계층은 Express 경로 회로가 [로컬](expressroute-faqs.md#expressroute-local), 표준 또는 [프리미엄](expressroute-faqs.md#expressroute-premium)인지 여부를 결정 합니다. *Local*, *Standard* 또는 *Premium*을 지정할 수 있습니다.
-* SKU 제품군은 청구서 유형을 결정합니다. 데이터 요금제의 경우 *Metereddata*를 선택하고 무제한 데이터 요금제의 경우 *Unlimiteddata*를 선택할 수 있습니다. 청구서 유형을 *Metereddata*에서 *Unlimiteddata*로 변경할 수 있지만, *Unlimiteddata*에서 *Metereddata*로는 변경할 수 없습니다. *로컬* 회로는 항상 *unlimiteddata로*입니다.
+* SKU 계층은 ExpressRoute 회로가 [로컬,](expressroute-faqs.md#expressroute-local)표준 또는 [프리미엄인지](expressroute-faqs.md#expressroute-premium)여부를 결정합니다. *로컬,* *표준* 또는 *프리미엄을*지정할 수 있습니다.
+* SKU 제품군은 청구서 유형을 결정합니다. 무제한 *데이터* 요금제에 대해 계량 데이터 및 무제한 데이터 요금제에 대해 *무제한 데이터를* 지정할 수 있습니다. 청구서 유형을 *Metereddata*에서 *Unlimiteddata*로 변경할 수 있지만, *Unlimiteddata*에서 *Metereddata*로는 변경할 수 없습니다. *로컬* 회로는 항상 *무제한데이터입니다.*
 
 > [!IMPORTANT]
 > ExpressRoute 회로는 서비스 키가 발급된 순간부터 비용이 청구됩니다. 연결 공급자가 회로를 프로비전할 준비가 된 후에 이 작업을 수행하도록 하십시오.
@@ -88,8 +88,8 @@ get-help New-AzExpressRouteCircuit -detailed
 ```
 
 
-### <a name="4-list-all-expressroute-circuits"></a>4. 모든 Express 경로 회로 나열
-만든 모든 Express 경로 회로 목록을 가져오려면 **AzExpressRouteCircuit** 명령을 실행 합니다.
+### <a name="4-list-all-expressroute-circuits"></a>4. 모든 익스프레스루트 회로 목록
+만든 모든 ExpressRoute 회로 목록을 얻으려면 **Get-AzExpressRouteCircuit** 명령을 실행합니다.
 
 ```azurepowershell-interactive
 Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
@@ -151,8 +151,8 @@ Get-AzExpressRouteCircuit
     Peerings                         : []
 
 
-### <a name="5-send-the-service-key-to-your-connectivity-provider-for-provisioning"></a>5. 프로 비전을 위해 연결 공급자에 서비스 키 보내기
-*ServiceProviderProvisioningState* 는 서비스 공급자 측의 현재 프로비전 상태에 대한 정보를 제공합니다. 상태는 Microsoft 측의 상태를 제공합니다. 회로 프로비전 상태에 대한 자세한 내용은 [워크플로](expressroute-workflows.md#expressroute-circuit-provisioning-states)를 참조하세요.
+### <a name="5-send-the-service-key-to-your-connectivity-provider-for-provisioning"></a>5. 프로비저닝을 위해 연결 공급자에게 서비스 키 보내기
+*ServiceProvider프로비저닝상태는* 서비스 공급자 측에서 프로비저닝의 현재 상태에 대한 정보를 제공합니다. 상태는 Microsoft 측의 상태를 제공합니다. 회로 프로비전 상태에 대한 자세한 내용은 [워크플로](expressroute-workflows.md#expressroute-circuit-provisioning-states)를 참조하세요.
 
 새 ExpressRoute 회로를 만들면 회로는 다음 상태가 됩니다.
 
@@ -171,7 +171,7 @@ ExpressRoute 회로를 사용하려면 다음 상태여야 합니다.
     ServiceProviderProvisioningState : Provisioned
     CircuitProvisioningState         : Enabled
 
-### <a name="6-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>6. 회로 키의 상태와 상태를 주기적으로 확인 합니다.
+### <a name="6-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>6. 주기적으로 회로 키의 상태와 상태를 확인합니다.
 회로 키의 상태를 확인하면 공급자가 회로를 사용하도록 설정한 시점을 알 수 있습니다. 회로가 구성된 후에는 *ServiceProviderProvisioningState*가 아래 예에서처럼 *Provisioned*로 표시됩니다.
 
 ```azurepowershell-interactive
@@ -211,11 +211,11 @@ Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "Exp
 >
 >
 
-### <a name="8-link-a-virtual-network-to-an-expressroute-circuit"></a>8. 가상 네트워크를 Express 경로 회로에 연결
+### <a name="8-link-a-virtual-network-to-an-expressroute-circuit"></a>8. 가상 네트워크를 익스프레스루트 회로에 연결
 그 다음 가상 네트워크를 ExpressRoute 회로에 연결합니다. Resource Manager 배포 모델을 작업하는 경우에는 [ExpressRoute 회로에 가상 네트워크 연결](expressroute-howto-linkvnet-arm.md) 문서를 사용할 수 있습니다.
 
 ## <a name="getting-the-status-of-an-expressroute-circuit"></a>ExpressRoute 회로의 상태 가져오기
-**AzExpressRouteCircuit** cmdlet을 사용 하 여 언제 든 지이 정보를 검색할 수 있습니다. 매개 변수 없이 호출을 수행하면 모든 회로가 표시됩니다.
+**Get-AzExpressRouteCircuit** cmdlet을 사용하여 언제든지 이 정보를 검색할 수 있습니다. 매개 변수 없이 호출을 수행하면 모든 회로가 표시됩니다.
 
 ```azurepowershell-interactive
 Get-AzExpressRouteCircuit
@@ -285,7 +285,7 @@ Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "Exp
 get-help Get-AzExpressRouteCircuit -detailed
 ```
 
-## <a name="modify"></a>ExpressRoute 회로 수정
+## <a name="modifying-an-expressroute-circuit"></a><a name="modify"></a>ExpressRoute 회로 수정
 연결에 미치는 영향 없이 ExpressRoute 회로의 특정 속성을 수정할 수 있습니다.
 
 가동 중지 시간 없이 다음 작업을 수행할 수 있습니다.
@@ -371,12 +371,12 @@ Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ### <a name="to-control-access-to-the-classic-and-resource-manager-environments"></a>클래식 및 리소스 관리자 환경에 대한 액세스를 제어하려면
 [클래식에서 Resource Manager 배포 모델로 ExpressRoute 회로 이동](expressroute-howto-move-arm.md)의 지침을 검토합니다.
 
-## <a name="delete"></a>ExpressRoute 회로 프로비전 해제 및 삭제
+## <a name="deprovisioning-and-deleting-an-expressroute-circuit"></a><a name="delete"></a>ExpressRoute 회로 프로비저닝 해제 및 삭제
 다음 정보에 유의하세요.
 
 * 모든 가상 네트워크를 ExpressRoute 회로에서 연결 해제해야 합니다. 이 작업에 실패한 경우 회로에 연결된 가상 네트워크가 있는지 확인하세요.
-* ExpressRoute 회로 서비스 공급자 프로비전 상태가 **프로비전 중** 또는 **프로비전됨**인 경우에는 서비스 공급자에게 회로 프로비전 해제를 요청해야 합니다. 서비스 공급자가 회로의 프로비전을 해제한 다음 통지를 보낼 때까지 리소스가 계속 예약되며 요금이 청구됩니다.
-* 서비스 공급자가 회로 프로비전을 해제하여 서비스 공급자 프로비전 상태가 **프로비전되지 않음**이 되면 회로를 삭제할 수 있습니다. 그러면 회로에 대한 요금 청구가 중지됩니다.
+* ExpressRoute 회로 서비스 공급자 프로비전 상태가 **프로비저닝** 또는 **프로비저닝인** 경우 서비스 공급자와 협력하여 해당 측의 회로프로비저닝을 해제해야 합니다. 서비스 공급자가 회로의 프로비전을 해제한 다음 통지를 보낼 때까지 리소스가 계속 예약되며 요금이 청구됩니다.
+* 서비스 공급자가 회로를 프로비전 해제한 경우(서비스 공급자 프로비저닝 상태가 **프로비저닝되지 않음으로**설정되어 있음) 회로를 삭제할 수 있습니다. 그러면 회로에 대한 요금 청구가 중지됩니다.
 
 다음 명령을 실행하여 ExpressRoute 회로를 삭제할 수 있습니다.
 

@@ -8,10 +8,10 @@ ms.subservice: cosmosdb-graph
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.openlocfilehash: 7aa1e0aa6bbbee9d40eb0d48318a8e2908a75f9d
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78897855"
 ---
 # <a name="regional-endpoints-for-azure-cosmos-db-graph-account"></a>Azure Cosmos DB 그래프 계정의 지역별 엔드포인트
@@ -112,4 +112,4 @@ foreach (string location in readLocations)
 * Azure Cosmos DB에서 [데이터베이스 계정 제어를 관리하는 방법](how-to-manage-database-account.md)
 * Azure Cosmos DB의 [고가용성](high-availability.md)
 * [Azure Cosmos DB를 사용한 전역 배포 - 기본적인 이해](global-dist-under-the-hood.md)
-* Azure Cosmos DB에 대한 [Azure CLI 샘플](cli-samples.md)
+* Azure 코스모스 DB에 대한 [Azure CLI 샘플](cli-samples.md)

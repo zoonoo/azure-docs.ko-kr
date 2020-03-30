@@ -9,10 +9,10 @@ ms.date: 01/17/2019
 ms.author: avneet723
 ms.custom: include file
 ms.openlocfilehash: 1f567b3d083853f9bb342bfad462e8545caa6480
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67182636"
 ---
 ## <a name="download-the-source-code"></a>소스 코드 다운로드
@@ -59,21 +59,21 @@ git submodule foreach git pull origin master
 
      스크립트는 솔루션 이름을 사용하여 Azure에서 리소스 그룹을 만듭니다. 이 리소스 그룹에는 솔루션 가속기에서 사용하는 Azure 리소스가 포함됩니다. 해당 리소스가 더 이상 필요하지 않으면 이 리소스 그룹을 삭제할 수 있습니다.
 
-     또한 이 스크립트는 로컬 머신에 **PCS** 접두사가 있는 환경 변수 세트도 추가합니다. 이러한 환경 변수를 Azure Key Vault 리소스에서 읽을 수 있도록 하려면 원격 모니터링에 대 한 세부 정보를 제공 합니다. 이 키 자격 증명 모음 리소스 원격 모니터링를 해당 구성 값에서를 읽이 됩니다는 위치입니다.
+     또한 이 스크립트는 로컬 머신에 **PCS** 접두사가 있는 환경 변수 세트도 추가합니다. 이러한 환경 변수는 Azure Key Vault 리소스에서 읽을 수 있도록 원격 모니터링에 대한 세부 정보를 제공합니다. 이 키 볼트 리소스는 원격 모니터링에서 구성 값을 읽을 수 있는 위치입니다.
 
      > [!TIP]
-     > 스크립트가 완료되면 **\<홈 폴더\>\\.pcs\\\<솔루션 이름\>.env**라는 파일에 환경 변수를 저장합니다. 나중에 솔루션 가속기 배포에 사용할 수 있습니다. **docker-compose**를 실행할 때 로컬 머신에 설정된 모든 환경 변수에서 **services\\scripts\\local\\.env** 파일의 값을 재정의합니다.
+     > 스크립트가 완료되면 환경 변수를 ** \<홈 폴더\>\\.pcs\\\<솔루션 이름\>.env라는**파일에 저장합니다. 나중에 솔루션 가속기 배포에 사용할 수 있습니다. **docker-compose**를 실행할 때 로컬 머신에 설정된 모든 환경 변수에서 **services\\scripts\\local\\.env** 파일의 값을 재정의합니다.
 
 1. 명령줄 환경에서 나갑니다.
 
 ### <a name="use-existing-azure-resources"></a>기존 Azure 리소스 사용
 
 필요한 Azure 리소스를 이미 만든 경우 로컬 머신에 해당 환경 변수를 만듭니다.
-다음에 대 한 환경 변수를 설정 합니다.
-* **PCS_KEYVAULT_NAME** -Azure Key Vault 리소스의 이름
-* **PCS_AAD_APPID** -The AAD 응용 프로그램 ID
-* **PCS_AAD_APPSECRET** -The AAD 응용 프로그램 암호
+다음에 대한 환경 변수를 설정합니다.
+* **PCS_KEYVAULT_NAME** - Azure 키 자격 증명 모음 리소스의 이름
+* **PCS_AAD_APPID** - AAD 응용 프로그램 ID
+* **PCS_AAD_APPSECRET** - AAD 응용 프로그램 비밀
 
-이 Azure Key Vault 리소스에서 구성 값을 읽습니다. 이러한 환경 변수에서 저장 되는  **\<홈 폴더\>\\.pcs\\\<솔루션 이름\>.env** 배포에서 파일. **docker-compose**를 실행할 때 로컬 머신에 설정된 환경 변수에서 **services\\scripts\\local\\.env** 파일의 값을 재정의합니다.
+구성 값은 이 Azure 키 자격 증명 모음 리소스에서 읽습니다. 이러한 환경 변수는 ** \<배포에서 홈\>\\폴더\\\<.pcs\>솔루션 이름 .env** 파일에 저장 될 수 있습니다. **docker-compose**를 실행할 때 로컬 머신에 설정된 환경 변수에서 **services\\scripts\\local\\.env** 파일의 값을 재정의합니다.
 
-인스턴스의에 저장 된 마이크로 서비스에 필요한 구성의 일부 **Key Vault** 초기 배포에서 생성 된 합니다. 필요에 따라 keyvault에서 해당 변수를 수정 해야 합니다.
+마이크로 서비스에 필요한 구성 중 일부는 초기 배포시 만들어진 **Key Vault** 인스턴스에 저장됩니다. 키 볼트의 해당 변수는 필요에 따라 수정해야 합니다.

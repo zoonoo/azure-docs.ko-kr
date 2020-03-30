@@ -1,6 +1,6 @@
 ---
 title: IoT Hub에 대한 Azure Event Grid 스키마 | Microsoft Docs
-description: 이 아티클에서는 Azure IoT Hub 이벤트에 대한 속성 및 스키마를 제공합니다. 사용 가능한 이벤트 유형, 예제 이벤트 및 이벤트 속성을 나열 합니다.
+description: 이 아티클에서는 Azure IoT Hub 이벤트에 대한 속성 및 스키마를 제공합니다. 사용 가능한 이벤트 유형, 예제 이벤트 및 이벤트 속성을 나열합니다.
 services: iot-hub
 documentationcenter: ''
 author: kgremban
@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 01/21/2020
 ms.author: kgremban
 ms.openlocfilehash: cfbd46ad961bd1dc914bae98e761cd83d445ff88
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76513034"
 ---
 # <a name="azure-event-grid-event-schema-for-iot-hub"></a>IoT Hub에 대한 Azure Event Grid 이벤트 스키마
@@ -27,15 +27,15 @@ ms.locfileid: "76513034"
 
 Azure IoT Hub는 다음과 같은 이벤트 유형을 내보냅니다.
 
-| 이벤트 유형 | Description |
+| 이벤트 유형 | 설명 |
 | ---------- | ----------- |
 | Microsoft.Devices.DeviceCreated | IoT 허브에 디바이스를 등록하는 경우 게시합니다. |
 | Microsoft.Devices.DeviceDeleted | IoT 허브에서 디바이스를 삭제하는 경우 게시합니다. | 
 | Microsoft.Devices.DeviceConnected | IoT Hub에 디바이스가 연결되는 경우 게시합니다. |
 | Microsoft.Devices.DeviceDisconnected | IoT Hub와 디바이스의 연결이 해제되는 경우 게시합니다. | 
-| Microsoft.Devices.DeviceTelemetry | 원격 분석 메시지를 IoT hub로 보낼 때 게시 됩니다. |
+| 마이크로소프트.디바이스.디바이스 텔레메트리 | 원격 분석 메시지가 IoT 허브로 전송될 때 게시됩니다. |
 
-장치 원격 분석 이벤트를 제외한 모든 장치 이벤트는 일반적으로 Event Grid에서 지 원하는 모든 지역에서 사용할 수 있습니다. 장치 원격 분석 이벤트는 공개 미리 보기 상태 이며 미국 동부, 미국 서 부, 유럽 서부, [Azure Government](../azure-government/documentation-government-welcome.md), [azure 중국 21Vianet](/azure/china/china-welcome)및 [azure 독일](https://azure.microsoft.com/global-infrastructure/germany/)을 제외한 모든 지역에서 사용할 수 있습니다.
+장치 원격 분석 이벤트를 제외한 모든 장치 이벤트는 일반적으로 Event Grid에서 지원하는 모든 지역에서 사용할 수 있습니다. 장치 원격 분석 이벤트는 공개 미리 보기로 제공되며 미국 동부, 미국 서부, 서유럽, [Azure 정부,](../azure-government/documentation-government-welcome.md) [Azure China 21Vianet](/azure/china/china-welcome)및 [Azure Germany를](https://azure.microsoft.com/global-infrastructure/germany/)제외한 모든 지역에서 사용할 수 있습니다.
 
 ## <a name="example-event"></a>예제 이벤트
 
@@ -62,7 +62,7 @@ DeviceConnected 및 DeviceDisconnected 이벤트에 대한 스키마는 구조�
 }]
 ```
 
-DeviceTelemetry 이벤트는 원격 분석 이벤트가 IoT Hub 전송 될 때 발생 합니다. 이 이벤트에 대 한 샘플 스키마는 다음과 같습니다.
+DeviceTelemetry 이벤트는 원격 분석 이벤트가 IoT Hub로 전송될 때 발생합니다. 이 이벤트에 대한 샘플 스키마는 다음과 같습니다.
 
 ```json
 [{
@@ -148,7 +148,7 @@ DeviceCreated 및 DeviceDeleted 이벤트에 대한 스키마는 구조가 동�
 
 모든 이벤트에는 동일한 최상위 수준 데이터가 포함됩니다. 
 
-| 속성 | 유형 | Description |
+| 속성 | Type | Description |
 | -------- | ---- | ----------- |
 | id | 문자열 | 이벤트에 대한 고유 식별자입니다. |
 | 토픽 | 문자열 | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
@@ -161,7 +161,7 @@ DeviceCreated 및 DeviceDeleted 이벤트에 대한 스키마는 구조가 동�
 
 모든 IoT Hub 이벤트의 경우 데이터 개체에 다음 속성이 포함됩니다.
 
-| 속성 | 유형 | Description |
+| 속성 | Type | Description |
 | -------- | ---- | ----------- |
 | hubName | 문자열 | 디바이스가 만들어지거나 삭제된 IoT Hub의 이름입니다. |
 | deviceId | 문자열 | 디바이스의 고유 식별자입니다. 이 대/소문자 구분 문자열은 최대 128자까지 가능하며, ASCII 7 비트 영숫자 문자 + 다음 특수 문자 `- : . + % _ # * ? ! ( ) , = @ ; $ '`을 지원합니다. |
@@ -170,25 +170,25 @@ DeviceCreated 및 DeviceDeleted 이벤트에 대한 스키마는 구조가 동�
 
 **Device Connected** 및 **Device Disconnected** IoT Hub 이벤트의 경우 데이터 개체에 다음 속성이 포함됩니다.
 
-| 속성 | 유형 | Description |
+| 속성 | Type | Description |
 | -------- | ---- | ----------- |
 | moduleId | 문자열 | 모듈의 고유 식별자입니다. 이 필드는 모듈 디바이스에 대해서만 출력됩니다. 이 대/소문자 구분 문자열은 최대 128자까지 가능하며, ASCII 7 비트 영숫자 문자 + 다음 특수 문자 `- : . + % _ # * ? ! ( ) , = @ ; $ '`을 지원합니다. |
 | deviceConnectionStateEventInfo | object | 디바이스 연결 상태 이벤트 정보
 | sequenceNumber | 문자열 | 연결된 디바이스 또는 디바이스 분리 이벤트의 순서를 나타내는 데 도움이 되는 숫자입니다. 최신 이벤트는 이전 이벤트보다 시퀀스 번호가 높습니다. 이 숫자는 1을 초과하여 변경될 수 있지만 엄격하게 증가합니다. [시퀀스 번호 사용 방법](../iot-hub/iot-hub-how-to-order-connection-state-events.md)을 참조하세요. |
 
-**장치 원격 분석** IoT Hub 이벤트의 경우 데이터 개체는 [IoT Hub 메시지 형식](../iot-hub/iot-hub-devguide-messages-construct.md) 에 장치-클라우드 메시지를 포함 하 고 다음과 같은 속성을 포함 합니다.
+**장치 원격 분석** IoT Hub 이벤트의 경우 데이터 개체는 [IoT 허브 메시지 형식의](../iot-hub/iot-hub-devguide-messages-construct.md) 장치-클라우드 메시지를 포함하며 다음과 같은 속성을 가있습니다.
 
-| 속성 | 유형 | Description |
+| 속성 | Type | Description |
 | -------- | ---- | ----------- |
-| 본문 | 문자열 | 장치의 메시지 내용입니다. |
+| 본문 | 문자열 | 장치에서 메시지의 내용입니다. |
 | properties | 문자열 | 애플리케이션 속성은 메시지에 추가할 수 있는 사용자 정의 문자열입니다. 이러한 필드는 선택 사항입니다. |
-| 시스템 속성 | 문자열 | [시스템 속성](../iot-hub/iot-hub-devguide-routing-query-syntax.md#system-properties) 은 메시지의 내용과 출처를 식별 하는 데 도움이 됩니다. 장치 원격 분석 메시지는 메시지 시스템 속성에서 contentType이 JSON으로 설정 되 고 contentEncoding이 u t f-8로 설정 된 유효한 JSON 형식 이어야 합니다. 이 설정을 지정 하지 않으면 IoT Hub는 메시지를 base 64 인코딩 형식으로 씁니다.  |
+| 시스템 속성 | 문자열 | [시스템 속성은](../iot-hub/iot-hub-devguide-routing-query-syntax.md#system-properties) 메시지의 내용과 소스를 식별하는 데 도움이 됩니다. 장치 원격 분석 메시지는 contentType이 JSON으로 설정되고 메시지 시스템 속성에서 CONTENTEncoding이 UTF-8로 설정된 유효한 JSON 형식이어야 합니다. 이 설정이 설정되지 않은 경우 IoT Hub는 기본 64 인코딩 된 형식으로 메시지를 작성합니다.  |
 
 **디바이스가 생성됨** 및 **디바이스가 삭제됨** IoT Hub 이벤트의 경우 데이터 개체에 다음 속성이 포함됩니다.
 
-| 속성 | 유형 | Description |
+| 속성 | Type | Description |
 | -------- | ---- | ----------- |
-| 쌍 | object | 응용 프로그램 장치 메타 데이터의 클라우드 표현인 장치 쌍에 대 한 정보입니다. | 
+| 쌍 | object | 응용 프로그램 장치 메타데이터의 클라우드 표현인 장치 쌍에 대한 정보입니다. | 
 | deviceID | 문자열 | 디바이스 쌍의 고유 식별자입니다. | 
 | etag | 문자열 | 디바이스 쌍에 대한 업데이트의 일관성을 확인하는 유효성 검사기입니다. 각 etag은 디바이스 쌍마다 고유합니다. |  
 | deviceEtag| 문자열 | 디바이스 레지스트리에 대한 업데이트의 일관성을 확인하는 유효성 검사기입니다. 각 deviceEtag는 디바이스 레지스트리마다 고유해야 합니다. |

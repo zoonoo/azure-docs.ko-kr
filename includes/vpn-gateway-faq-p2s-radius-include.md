@@ -9,10 +9,10 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: b802cab7d52fd886770c326e97d0378a0da64762
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "75752107"
 ---
 [!INCLUDE [P2S FAQ All](vpn-gateway-faq-p2s-all-include.md)]
@@ -23,7 +23,7 @@ RADIUS 인증은 VpnGw1, VpnGw2 및 VpnGw3 SKU에서 사용할 수 있습니다.
  
 ### <a name="is-radius-authentication-supported-for-the-classic-deployment-model"></a>클래식 배포 모델에 RADIUS 인증이 지원되나요?
  
-아닙니다. RADIUS 인증은 클래식 배포 모델에서 사용할 수 없습니다.
+아니요. RADIUS 인증은 클래식 배포 모델에서 사용할 수 없습니다.
  
 ### <a name="are-3rd-party-radius-servers-supported"></a>타사 RADIUS 서버가 지원되나요?
 
@@ -35,11 +35,11 @@ RADIUS 인증은 VpnGw1, VpnGw2 및 VpnGw3 SKU에서 사용할 수 있습니다.
  
 ### <a name="can-traffic-to-an-on-premises-radius-server-from-the-azure-vpn-gateway-be-routed-over-an-expressroute-connection"></a>ExpressRoute 연결을 통해 Azure VPN Gateway에서 온-프레미스 RADIUS 서버로 트래픽을 라우팅할 수 있나요?
 
-아닙니다. 사이트 간 연결을 통해서만 라우팅될 수 있습니다.
+아니요. 사이트 간 연결을 통해서만 라우팅될 수 있습니다.
  
 ### <a name="is-there-a-change-in-the-number-of-sstp-connections-supported-with-radius-authentication-what-is-the-maximum-number-of-sstp-and-ikev2-connections-supported"></a>RADIUS 인증으로 지원되는 SSTP 연결 수가 변경되었나요? 지원되는 SSTP 및 IKEv2 연결의 최대 수는 무엇인가요?
 
-RADIUS 인증을 사용하여 게이트웨이에서 지원되는 SSTP 연결의 최대 수는 변경되지 않았습니다. SSTP의 경우 128개가 남지만, IKEv2의 경우 게이트웨이 SKU에 따라 달라집니다. 지원 되는 연결 수에 대 한 자세한 내용은 [게이트웨이 sku](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku)를 참조 하세요.
+RADIUS 인증을 사용하여 게이트웨이에서 지원되는 SSTP 연결의 최대 수는 변경되지 않았습니다. SSTP의 경우 128개가 남지만, IKEv2의 경우 게이트웨이 SKU에 따라 달라집니다.지원되는 연결 수에 대한 자세한 내용은 [게이트웨이 SKU](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku)를 참조하세요.
  
 ### <a name="what-is-the-difference-between-doing-certificate-authentication-using-a-radius-server-vs-using-azure-native-certificate-authentication-by-uploading-a-trustedcertificate-to-azure"></a>(신뢰할 수 있는 인증서를 Azure에 업로드하여) RADIUS 서버 또는 Azure 네이티브 인증서 인증을 사용하여 인증서 인증을 수행하는 작업의 차이점은 무엇인가요?
 
@@ -51,6 +51,6 @@ RADIUS 인증서 인증에서 인증 요청은 실제 인증서 유효성 검사
 
 예, RADIUS 인증은 IKEv2 및 SSTP VPN 모두에서 지원됩니다. 
 
-### <a name="does-radius-authentication-work-with-the-openvpn-client"></a>RADIUS 인증은 OpenVPN 클라이언트에서 작동 하나요?
+### <a name="does-radius-authentication-work-with-the-openvpn-client"></a>RADIUS 인증이 OpenVPN 클라이언트에서 작동합니까?
 
-RADIUS 인증은 PowerShell을 통해서만 OpenVPN 프로토콜에 대해 지원 됩니다.
+RADIUS 인증은 PowerShell을 통해서만 OpenVPN 프로토콜에 대해 지원됩니다.

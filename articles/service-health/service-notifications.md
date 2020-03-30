@@ -4,19 +4,19 @@ description: 서비스 상태 알림을 통해 Microsoft Azure에서 게시한 �
 ms.topic: conceptual
 ms.date: 6/27/2019
 ms.openlocfilehash: 21416edc95d345eb183030a9b0cccb7529305d6d
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75748642"
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Azure Portal을 사용하여 서비스 상태 알림 보기
 
-서비스 상태 알림은 azure 인프라에 의해 [azure 활동 로그](../azure-monitor/platform/platform-logs-overview.md)에 게시 됩니다.  알림에는 구독에서 리소스에 대 한 정보가 포함 됩니다. 활동 로그에 저장 된 대용량 정보를 제공 하는 경우, 서비스 상태 알림에 대 한 경고를 보다 쉽게 확인 하 고 설정할 수 있는 별도의 사용자 인터페이스가 있습니다. 
+서비스 상태 알림은 Azure 인프라에서 [Azure 활동 로그에](../azure-monitor/platform/platform-logs-overview.md)게시됩니다.  알림에는 구독 아래의 리소스에 대한 정보가 포함됩니다. 활동 로그에 저장된 많은 양의 정보를 감안할 때 서비스 상태 알림에 대한 경고를 보다 쉽게 보고 설정할 수 있도록 별도의 사용자 인터페이스가 있습니다. 
 
 서비스 상태 알림은 클래스에 따라 정보만 제공하거나 실행할 수 있습니다.
 
-다양 한 서비스 상태 알림 클래스에 대 한 자세한 내용은 [서비스 상태 알림 속성](service-health-notifications-properties.md)을 참조 하세요.
+다양한 서비스 상태 알림 클래스에 대한 자세한 내용은 [서비스 상태 알림 속성을](service-health-notifications-properties.md)참조하십시오.
 
 ## <a name="view-your-service-health-notifications-in-the-azure-portal"></a>Azure Portal에서 서비스 상태 알림 보기
 

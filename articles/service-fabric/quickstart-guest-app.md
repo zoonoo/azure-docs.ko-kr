@@ -1,26 +1,26 @@
 ---
-title: 클러스터에 기존 앱을 신속 하 게 배포
+title: 기존 앱을 클러스터에 신속하게 배포
 description: Azure Service Fabric 클러스터를 사용하여 Visual Studio에서 기존 Node.js 애플리케이션을 호스트합니다.
 ms.topic: conceptual
 ms.date: 12/06/2017
 ms.openlocfilehash: 9153fc4cd60cb892532db49bf4339b517320b1a6
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75614845"
 ---
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>Azure Service Fabric에서 Node.js 애플리케이션 호스트
 
 이 빠른 시작을 통해 Azure에서 실행되는 Service Fabric 클러스터에 기존 애플리케이션(이 예제에서는 Node.js)을 배포할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-시작하기 전에 [개발 환경을 설정](service-fabric-get-started.md)하도록 합니다. Service Fabric SDK 및 Visual Studio 2019 또는 2015 설치를 포함 합니다.
+시작하기 전에 [개발 환경을 설정](service-fabric-get-started.md)하도록 합니다. 서비스 패브릭 SDK 및 비주얼 스튜디오 2019 또는 2015 설치가 포함됩니다.
 
-또한 배포하기 위해 기존 Node.js 애플리케이션이 필요합니다. 이 빠른 시작에서는 [여기][download-sample]에서 다운로드할 수 있는 간단한 node.js 웹 사이트를 사용 합니다. 다음 단계에서 프로젝트를 만든 후 `<path-to-project>\ApplicationPackageRoot\<package-name>\Code\` 폴더에 이 파일을 추출합니다.
+또한 배포하기 위해 기존 Node.js 애플리케이션이 필요합니다. 이 빠른 시작은 [여기][download-sample]에서 다운로드할 수 있는 간단한 Node.js 웹 사이트를 사용합니다. 다음 단계에서 프로젝트를 만든 후 `<path-to-project>\ApplicationPackageRoot\<package-name>\Code\` 폴더에 이 파일을 추출합니다.
 
-Azure 구독이 아직 없는 경우 [체험 계정][create-account]을 만듭니다.
+Azure 구독이 없는 경우 [무료 계정을][create-account]만듭니다.
 
 ## <a name="create-the-service"></a>서비스 만들기
 
@@ -43,7 +43,7 @@ Azure 구독이 아직 없는 경우 [체험 계정][create-account]을 만듭�
 
 | 설정                   | 값 |
 | ------------------------- | ------ |
-| 코드 패키지 폴더       | _&lt;Node.js 앱을 포함한 폴더&gt;_ |
+| 코드 패키지 폴더       | _&lt;Node.js 앱이 있는 폴더&gt;_ |
 | 코드 패키지 동작     | 프로젝트에 폴더 내용 복사 |
 | 프로그램                   | node.exe |
 | 인수                 | server.js |
@@ -55,7 +55,7 @@ Azure 구독이 아직 없는 경우 [체험 계정][create-account]을 만듭�
 
 Visual Studio는 애플리케이션 프로젝트 및 작업자 서비스 프로젝트를 만들고 솔루션 탐색기에 표시합니다.
 
-응용 프로그램 프로젝트 (**MyGuestApp**)는 코드를 직접 포함 하지 않습니다. 프로젝트는 서비스 프로젝트 집합을 참조 합니다. 또한 세 가지 다른 형식의 콘텐츠를 포함 합니다.
+응용 프로그램 프로젝트 **(MyGuestApp)에는**코드가 직접 포함되어 있지 않습니다. 프로젝트는 서비스 프로젝트 집합을 참조합니다. 또한 세 가지 다른 유형의 콘텐츠가 포함되어 있습니다.
 
 * **게시 프로필**  
 다양한 환경에 대한 도구 기본 설정입니다.
@@ -72,7 +72,7 @@ Visual Studio는 애플리케이션 프로젝트 및 작업자 서비스 프로�
 
 배포하는 예제 Node.js 앱은 포트 **80**을 사용하므로 Service Fabric에 해당 포트를 노출하도록 지시합니다.
 
-프로젝트에서 **ServiceManifest.xml** 파일을 엽니다. 매니페스트의 아래쪽에는 이미 정의 된 항목이 있는 `<Resources> \ <Endpoints>` 있습니다. 해당 항목을 수정하여 `Port`, `Protocol` 및 `Type`을 추가합니다. 
+프로젝트에서 **ServiceManifest.xml** 파일을 엽니다. 매니페스트의 맨 아래에는 이미 `<Resources> \ <Endpoints>` 정의된 항목이 있습니다. 해당 항목을 수정하여 `Port`, `Protocol` 및 `Type`을 추가합니다. 
 
 ```xml
   <Resources>
@@ -85,9 +85,9 @@ Visual Studio는 애플리케이션 프로젝트 및 작업자 서비스 프로�
   </Resources>
 ```
 
-## <a name="deploy-to-azure"></a>Azure에 배포
+## <a name="deploy-to-azure"></a>Deploy to Azure
 
-**F5** 키를 누르고 프로젝트를 실행 하면 로컬 클러스터에 배포 됩니다. 하지만 대신 Azure에 배포해보겠습니다.
+**F5를** 누르고 프로젝트를 실행하면 로컬 클러스터에 배포됩니다. 하지만 대신 Azure에 배포해보겠습니다.
 
 프로젝트를 마우스 오른쪽 단추로 클릭하고 대화 상자를 여는 **게시...** 를 선택하여 Azure에 게시할 수 있습니다.
 
@@ -97,13 +97,13 @@ Visual Studio는 애플리케이션 프로젝트 및 작업자 서비스 프로�
 
 이전에 수행하지 않은 경우 배포할 Azure 계정을 선택합니다. 아직 없는 경우 [하나에 등록][create-account]합니다.
 
-**연결 엔드포인트**에서 배포할 Service Fabric 클러스터를 선택합니다. 없는 경우 **&lt;새 클러스터 만들기 ...&gt;** 를 선택 하 여 Azure Portal에 웹 브라우저 창을 엽니다. 자세한 내용은 [포털에서 클러스터 만들기](service-fabric-cluster-creation-via-portal.md#create-cluster-in-the-azure-portal)를 참조하세요. 
+**연결 엔드포인트**에서 배포할 Service Fabric 클러스터를 선택합니다. 없는 경우 ** &lt;새 클러스터 만들기를 선택합니다... &gt; ** Azure 포털에 대한 웹 브라우저 창을 엽니다. 자세한 내용은 [포털에서 클러스터 만들기](service-fabric-cluster-creation-via-portal.md#create-cluster-in-the-azure-portal)를 참조하세요. 
 
 Service Fabric 클러스터를 만들 때 **사용자 지정 엔드포인트** 설정을 **80**으로 설정해야 합니다.
 
 ![사용자 지정 엔드포인트가 있는 Service Fabric 노드 형식 구성][custom-endpoint]
 
-새 Service Fabric 클러스터 만들기를 완료하려면 다소 시간이 걸립니다. Service Fabric 클러스터를 만들면 게시 대화 상자로 다시 이동하고 **&lt;새로 고침&gt;** 을 선택합니다. 새 클러스터가 드롭다운 상자에 나열되면 선택합니다.
+새 Service Fabric 클러스터 만들기를 완료하려면 다소 시간이 걸립니다. 이 대화가 만들어지면 게시 대화 상자로 돌아가 ** &lt;서 새로 고침을&gt;** 선택합니다. 새 클러스터가 드롭다운 상자에 나열되면 선택합니다.
 
 **게시**를 눌러서 배포가 끝나기를 기다립니다.
 
@@ -119,11 +119,11 @@ Service Fabric 클러스터를 만들 때 **사용자 지정 엔드포인트** �
 
 ![Azure Portal에서 Service Fabric 개요 블레이드][overview]
 
-`HELLO WORLD` 응답이 표시 되는이 주소로 이동 합니다.
+응답이 표시되는 이 주소로 `HELLO WORLD` 이동합니다.
 
 ## <a name="delete-the-cluster"></a>클러스터 삭제
 
-해당 리소스에 대 한 요금이 청구 되므로이 빠른 시작에 대해 만든 리소스를 모두 삭제 해야 합니다.
+이 빠른 시작을 위해 만든 모든 리소스를 삭제하는 것을 잊지 마십시오.
 
 ## <a name="next-steps"></a>다음 단계
 [게스트 실행 파일](service-fabric-guest-executables-introduction.md)에 대해 자세히 알아보세요.

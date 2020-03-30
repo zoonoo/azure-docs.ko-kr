@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell를 사용 하 여 Windows VM에서 진단을 사용 하도록 설정
+title: Azure PowerShell을 사용하여 Windows VM에서 진단을 사용하도록 설정합니다.
 services: virtual-machines-windows
 documentationcenter: ''
 description: PowerShell을 사용하여 Windows를 실행하는 가상 머신에서 Azure Diagnostics를 사용하도록 설정하는 방법 알아보기
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 12/15/2015
 ms.author: saurabh
 ms.openlocfilehash: 55afeb52323ead7db8be7e8fd1dabc880328e888
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77921541"
 ---
 # <a name="use-powershell-to-enable-azure-diagnostics-in-a-virtual-machine-running-windows"></a>PowerShell을 사용하여 Windows를 실행하는 가상 머신에서 Azure Diagnostics를 사용하도록 설정
@@ -42,9 +42,9 @@ Resource Manager 배포 모델을 통해 만든 기존 VM에서 진단 확장을
 
 진단 구성 파일이 스토리지 계정 이름으로 **StorageAccount** 요소를 지정할 경우 *Set-AzVMDiagnosticsExtension* 스크립트에서 해당 스토리지 계정으로 진단 데이터를 보내도록 진단 확장을 자동으로 설정합니다. 이렇게 작동하려면, 스토리지 계정이 VM과 동일한 구독 내에 있어야 합니다.
 
-진단 구성에 **StorageAccount** 가 지정되지 않은 경우 cmdlet에 *StorageAccountName* 매개 변수를 전달해야 합니다. *StorageAccountName* 매개 변수가 지정된 경우 cmdlet은 항상 진단 구성 파일에 지정된 스토리지 계정이 아닌 매개 변수에 지정된 스토리지 계정을 사용합니다.
+진단 구성에 **StorageAccount** 가 지정되지 않은 경우 cmdlet에 *StorageAccountName* 매개 변수를 전달해야 합니다. *StorageAccountName* 매개 변수가 지정되면 cmdlet은 항상 진단 구성 파일에 지정된 것이 아니라 매개 변수에 지정된 저장소 계정을 사용합니다.
 
-진단 스토리지 계정이 VM과 다른 구독에 있는 경우 *StorageAccountName* 및 *StorageAccountKey* 매개 변수를 cmdlet에 명시적으로 전달해야 합니다. 진단 스토리지 계정이 동일한 구독에 있는 경우 진단 확장을 사용하도록 설정하면 cmdlet이 키 값을 자동으로 쿼리하고 설정할 수 있으므로 *StorageAccountKey* 매개 변수가 필요하지 않습니다. 하지만 진단 스토리지 계정이 다른 구독에 있는 경우에는 cmdlet이 자동으로 키를 얻지 못할 수 있으며, 사용자가 *StorageAccountKey* 매개 변수를 통해 키를 명시적으로 지정해야 합니다.  
+진단 스토리지 계정이 VM과 다른 구독에 있는 경우 *StorageAccountName* 및 *StorageAccountKey* 매개 변수를 cmdlet에 명시적으로 전달해야 합니다. cmdlet이 진단 확장을 사용하도록 설정할 때 키 값을 자동으로 쿼리하고 설정할 수 있으므로 진단 저장소 계정이 동일한 구독에 있을 때 *StorageAccountKey* 매개 변수가 필요하지 않습니다. 그러나 진단 저장소 계정이 다른 구독에 있는 경우 cmdlet이 자동으로 키를 받지 못할 수 있으며 *StorageAccountKey* 매개 변수를 통해 키를 명시적으로 지정해야 합니다.  
 
     Set-AzVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup -VMName $vm_name -DiagnosticsConfigurationPath $diagnosticsconfig_path -StorageAccountName $diagnosticsstorage_name -StorageAccountKey $diagnosticsstorage_key
 
