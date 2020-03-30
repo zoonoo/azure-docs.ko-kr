@@ -1,6 +1,6 @@
 ---
-title: Azure Cosmos DB 쿼리 언어의 STARTSWITH
-description: Azure Cosmos DB의 SQL 시스템 함수 STARTSWITH에 대해 알아봅니다.
+title: 시작하늘에서 Azure 코스모스 DB 쿼리 언어
+description: Azure 코스모스 DB에서 SQL 시스템 기능에 대해 자세히 알아봅니다.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,13 +8,13 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 9ed49c067946186f8b79f67bad0a460113eacb73
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78295711"
 ---
-# <a name="startswith-azure-cosmos-db"></a>STARTSWITH (Azure Cosmos DB)
+# <a name="startswith-azure-cosmos-db"></a>스타트위드 (푸른 코스모스 DB)
  첫 번째 문자열 식이 두 번째 문자열 식에서 시작하는지 여부를 나타내는 부울 값을 반환합니다.  
   
 ## <a name="syntax"></a>구문
@@ -26,10 +26,10 @@ STARTSWITH(<str_expr1>, <str_expr2>)
 ## <a name="arguments"></a>인수
   
 *str_expr1*  
-   는 문자열 식입니다.
+   문자열 식입니다.
   
 *str_expr2*  
-   *Str_expr1*의 시작과 비교할 문자열 식입니다.
+   *str_expr1*초와 비교할 문자열 식입니다.
 
 ## <a name="return-types"></a>반환 형식
   
@@ -51,10 +51,10 @@ SELECT STARTSWITH("abc", "b") AS s1, STARTSWITH("abc", "a") AS s2
 
 ## <a name="remarks"></a>설명
 
-이 시스템 함수는 [범위 인덱스](index-policy.md#includeexclude-strategy)를 활용 합니다.
+이 시스템 함수는 [범위 인덱스의](index-policy.md#includeexclude-strategy)이점을 누릴 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [문자열 함수 Azure Cosmos DB](sql-query-string-functions.md)
-- [시스템 함수 Azure Cosmos DB](sql-query-system-functions.md)
-- [Azure Cosmos DB 소개](introduction.md)
+- [문자열 함수 Azure 코스모스 DB](sql-query-string-functions.md)
+- [시스템 기능 Azure 코스모스 DB](sql-query-system-functions.md)
+- [Azure 코스모스 DB 소개](introduction.md)

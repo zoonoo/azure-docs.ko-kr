@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 4cffbb1aaa438bac08ec77f576b32a901abacabd
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67182249"
 ---
 > [!NOTE] 
@@ -18,7 +18,7 @@ ms.locfileid: "67182249"
 
 1. StorSimple 디바이스 관리자 서비스로 이동한 다음 **관리 &gt; 볼륨 컨테이너**로 이동합니다.
 
-2. 테이블 형식의 볼륨 컨테이너 목록에서 수정하려는 볼륨 컨테이너를 선택합니다. **디바이스** 페이지에서 디바이스를 선택하고 두 번 클릭한 다음 **볼륨 컨테이너** 탭을 클릭합니다.
+2. 테이블 형식의 볼륨 컨테이너 목록에서 수정하려는 볼륨 컨테이너를 선택합니다. **장치** 페이지에서 장치를 선택하고 두 번 클릭한 다음 **볼륨 컨테이너** 탭을 클릭합니다.
 
 2. 테이블 형식의 볼륨 컨테이너 목록에서 수정하려는 볼륨 컨테이너를 선택합니다. 열리는 블레이드의 명령 모음에서 **수정**을 클릭합니다.
 
@@ -31,7 +31,7 @@ ms.locfileid: "67182249"
        ![대역폭 설정 변경](./media/storsimple-8000-modify-volume-container/modify-vol-container2.png)
 
    2.  **확인**을 클릭합니다.
-4. **볼륨 컨테이너 수정** 대화 상자의 다음 페이지:
+4. **볼륨 컨테이너 수정** 대화 상자의 다음 페이지에서 아래 작업을 수행합니다.
    
    1. 드롭다운 목록에서 기존 대역폭 템플릿을 선택합니다.
    2. 지정된 대역폭 템플릿에 대한 일정 설정을 검토합니다.

@@ -1,15 +1,15 @@
 ---
-title: FabricTransport 설정 변경
-description: 여러 행위자 구성에 대 한 Azure Service Fabric 행위자 통신 설정을 구성 하는 방법을 알아봅니다.
+title: 패브릭운송 설정 변경
+description: 다양한 행위자 구성에 대한 Azure 서비스 패브릭 행위자 통신 설정 구성에 대해 자세히 알아봅니다.
 author: suchiagicha
 ms.topic: conceptual
 ms.date: 04/20/2017
 ms.author: pepogors
 ms.openlocfilehash: 182b35194a647f5de706f9ada07b8e9db51bb4c2
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75645585"
 ---
 # <a name="configure-fabrictransport-settings-for-reliable-actors"></a>Reliable Actors에 대한 FabricTransport 설정 구성

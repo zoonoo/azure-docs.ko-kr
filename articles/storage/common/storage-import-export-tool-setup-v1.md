@@ -9,10 +9,10 @@ ms.date: 01/15/2017
 ms.author: twooley
 ms.subservice: common
 ms.openlocfilehash: f65220a04a709bae5a6892bfd4105195cee35741
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75978426"
 ---
 # <a name="setting-up-the-azure-importexport-tool"></a>Azure Import/Export 도구 설정
@@ -24,7 +24,7 @@ Microsoft Azure Import/Export 도구는 Microsoft Azure Import/Export 서비스�
 
 -   완료된 내보내기 작업에서 드라이브를 받은 후에는 이 도구를 사용하여 드라이브에서 손상되거나 누락된 파일을 복구할 수 있습니다.  
 
-## <a name="prerequisites"></a>필수 조건  
+## <a name="prerequisites"></a>사전 요구 사항  
 가져오기 작업을 위해 드라이브를 준비하는 경우 다음과 같은 필수 조건을 충족해야 합니다.  
 
 -   활성 Azure 구독이 있어야 합니다.  
@@ -249,9 +249,9 @@ Examples:
 
 ## <a name="next-steps"></a>다음 단계
 
-* [가져오기 작업을 위한 하드 드라이브 준비](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
-* [내보내기 작업에 대한 드라이브 사용량 미리 보기](../storage-import-export-tool-previewing-drive-usage-export-v1.md)   
+* [가져오기 작업에 대한 하드 드라이브 준비](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
+* [내보내기 작업에 대한 드라이브 사용 미리 보기](../storage-import-export-tool-previewing-drive-usage-export-v1.md)   
 * [복사 로그 파일을 사용하여 작업 상태 검토](../storage-import-export-tool-reviewing-job-status-v1.md)   
 * [가져오기 작업 복구](../storage-import-export-tool-repairing-an-import-job-v1.md)   
 * [내보내기 작업 복구](../storage-import-export-tool-repairing-an-export-job-v1.md)   
-* [Azure Import/Export 도구 문제 해결](storage-import-export-tool-troubleshooting-v1.md)
+* [Azure 가져오기/내보내기 도구 문제 해결](storage-import-export-tool-troubleshooting-v1.md)

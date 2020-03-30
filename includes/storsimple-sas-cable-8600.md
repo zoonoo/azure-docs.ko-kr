@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 51e1fd18b52d7e215ba43be540156199fb41778e
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67182237"
 ---
 #### <a name="to-attach-the-sas-cables"></a>SAS 케이블을 연결하려면
@@ -43,7 +43,7 @@ ms.locfileid: "67182237"
       
       | 레이블 | 설명 |
       |:--- |:--- |
-      | 문자열(UTF-8 형식) 또는 |기본 인클로저 |
+      | A |기본 인클로저 |
       | b |EBOD 인클로저 |
       | 1 |컨트롤러 0 |
       | 2 |컨트롤러 1 |

@@ -1,21 +1,21 @@
 ---
-title: Java SDK에서 Maven로 마이그레이션
+title: 자바 SDK에서 메이븐으로 마이그레이션
 description: Service Fabric Java SDK를 사용하기 위해 사용되는 이전 Java 애플리케이션을 업데이트하여 Maven에서 Service Fabric Java 종속성을 페치합니다. 이 설정을 완료한 후에 이전 Java 애플리케이션을 빌드할 수 있습니다.
 author: rapatchi
 ms.topic: conceptual
 ms.date: 08/23/2017
 ms.author: rapatchi
 ms.openlocfilehash: b5e126ebdf3b89470472391c59d378c7a6d39b86
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75609811"
 ---
 # <a name="update-your-previous-java-service-fabric-application-to-fetch-java-libraries-from-maven"></a>이전 Java Service Fabric 애플리케이션을 업데이트하여 Maven에서 Java 라이브러리 페치
 최근에 Service Fabric Java 이진 파일을 Service Fabric Java SDK에서 Maven 호스트로 이동했습니다. 이제 **mavencentral**을 사용하여 최신 Service Fabric Java 종속성을 페치할 수 있습니다. 이 빠른 시작을 통해 Yeoman 템플릿이나 Eclipse 중 하나를 사용하여 Maven 기반 빌드와 호환하도록 Service Fabric Java SDK에서 사용하기 위해 이전에 만들어진 기존 Java 애플리케이션을 업데이트할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 1. 먼저 기존 Java SDK를 제거해야 합니다.
 
    ```bash
@@ -58,7 +58,7 @@ Service Fabric Java 라이브러리는 Maven에서 호스팅되었습니다. 프
   }
   ```
 
-### <a name="services"></a>서비스
+### <a name="services"></a>Services
 
 애플리케이션에 대한 Service Fabric 상태 비저장 서비스 지원입니다.
 
@@ -80,7 +80,7 @@ Service Fabric Java 라이브러리는 Maven에서 호스팅되었습니다. 프
   ```
 
 ### <a name="others"></a>기타
-#### <a name="transport"></a>운송
+#### <a name="transport"></a>전송
 
 Service Fabric Java 애플리케이션에 대한 전송 계층 지원입니다. 전송 계층에서 프로그래밍하지 않으면 Reliable Actor 또는 Service 애플리케이션에 이 종속성을 명시적으로 추가할 필요가 없습니다.
 
@@ -158,7 +158,7 @@ task copyDeps <<{
     }
 }
 ```
-이제 Maven에서 종속성을 페치 하기 위해 **업데이트** 된 ``build.gradle``는 다음과 같이 해당 하는 부분을 포함 합니다.
+이제 Maven에서 종속성을 페치하기 위해 **업데이트** ``build.gradle``에는 다음과 같은 내용에 해당하는 부분이 있습니다.
 ```
 repositories {
         mavenCentral()
@@ -232,7 +232,7 @@ dependencies {
 .
 .
 ```
-이제 Maven에서 종속성을 페치 하기 위해 **업데이트** 된 ``build.gradle``는 다음과 같이 해당 하는 부분을 포함 합니다.
+이제 Maven에서 종속성을 페치하기 위해 **업데이트** ``build.gradle``에는 다음과 같은 내용에 해당하는 부분이 있습니다.
 ```
 repositories {
     mavenCentral()
@@ -304,7 +304,7 @@ task copyDeps<< {
     }
 }
 ```
-이제 Maven에서 종속성을 페치 하기 위해 **업데이트** 된 ``build.gradle``는 다음과 같이 해당 하는 부분을 포함 합니다.
+이제 Maven에서 종속성을 페치하기 위해 **업데이트** ``build.gradle``에는 다음과 같은 내용에 해당하는 부분이 있습니다.
 ```
 repositories {
     mavenCentral()
@@ -404,7 +404,7 @@ task copyDeps<< {
         }
 }
 ```
-이제 Maven에서 종속성을 페치 하기 위해 **업데이트** 된 ``build.gradle``는 다음과 같이 해당 하는 부분을 포함 합니다.
+이제 Maven에서 종속성을 페치하기 위해 **업데이트** ``build.gradle``에는 다음과 같은 내용에 해당하는 부분이 있습니다.
 ```
 repositories {
     mavenCentral()

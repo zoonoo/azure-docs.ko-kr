@@ -1,6 +1,6 @@
 ---
-title: Azure Analysis Services 관리자 역할에 서비스 주체 추가 | Microsoft Docs
-description: Azure Analysis Services 서버 관리자 역할에 automation 서비스 주체를 추가 하는 방법에 대해 알아봅니다.
+title: Azure 분석 서비스 관리자 역할에 서비스 주체 추가 | 마이크로 소프트 문서
+description: Azure 분석 서비스 서버 관리자 역할에 자동화 서비스 주체를 추가하는 방법 알아보기
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
@@ -9,28 +9,28 @@ ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 1370f65405963ebf825e986e6801607a0d96156e
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78298091"
 ---
 # <a name="add-a-service-principal-to-the-server-administrator-role"></a>서버 관리자 역할에 서비스 사용자 추가 
 
- 무인 PowerShell 태스크를 자동화하려면 서비스 사용자가 관리할 Analysis Services 서버에 대해 **서버 관리자** 권한이 있어야 합니다. 이 문서에서는 Azure AS 서버에서 서버 관리자 역할에 서비스 사용자를 추가하는 방법을 설명합니다. SQL Server Management Studio 또는 리소스 관리자 템플릿을 사용 하 여이 작업을 수행할 수 있습니다.
+ 무인 PowerShell 태스크를 자동화하려면 서비스 사용자가 관리할 Analysis Services 서버에 대해 **서버 관리자** 권한이 있어야 합니다. 이 문서에서는 Azure AS 서버에서 서버 관리자 역할에 서비스 사용자를 추가하는 방법을 설명합니다. SQL Server 관리 스튜디오 또는 리소스 관리자 템플릿을 사용하여 이 작업을 수행할 수 있습니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 이 태스크를 완료하기 전에 Azure Active Directory에 등록된 서비스 사용자가 있어야 합니다.
 
-[서비스 사용자 만들기 - Azure Portal](../active-directory/develop/howto-create-service-principal-portal.md)   
+[서비스 주체 만들기 - Azure 포털](../active-directory/develop/howto-create-service-principal-portal.md)   
 [서비스 사용자 만들기 - PowerShell](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 
 ## <a name="using-sql-server-management-studio"></a>SQL Server Management Studio 사용
 
-SSMS (SQL Server Management Studio)를 사용 하 여 서버 관리자를 구성할 수 있습니다. 이 태스크를 완료하려면 Azure AS 서버에서 [서버 관리자](analysis-services-server-admins.md) 권한이 있어야 합니다. 
+SQL 서버 관리 스튜디오(SSMS)를 사용하여 서버 관리자를 구성할 수 있습니다. 이 태스크를 완료하려면 Azure AS 서버에서 [서버 관리자](analysis-services-server-admins.md) 권한이 있어야 합니다. 
 
 1. SSMS에서 Azure AS 서버에 연결합니다.
-2. **서버 속성** > **보안**에서 **추가**를 클릭합니다.
+2. **서버 속성** > **보안에서** **추가를**클릭합니다.
 3. **사용자 또는 그룹 선택**에서 등록된 앱을 이름으로 검색하고 **추가**를 클릭합니다.
 
     ![서비스 사용자 계정 검색](./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-picker.png)
@@ -41,12 +41,12 @@ SSMS (SQL Server Management Studio)를 사용 하 여 서버 관리자를 구성
 
 ## <a name="using-a-resource-manager-template"></a>리소스 관리자 템플릿 사용
 
-Azure Resource Manager 템플릿을 사용 하 여 Analysis Services 서버를 배포 하 여 서버 관리자를 구성할 수도 있습니다. 배포를 실행 하는 id는 [Azure 역할 기반 Access Control (RBAC)](../role-based-access-control/overview.md)의 리소스에 대 한 **참가자** 역할에 속해야 합니다.
+Azure 리소스 관리자 템플릿을 사용하여 분석 서비스 서버를 배포하여 서버 관리자를 구성할 수도 있습니다. 배포를 실행하는 ID는 [RBAC(Azure 역할 기반 액세스 제어)의](../role-based-access-control/overview.md)리소스에 대한 **기여자** 역할에 속해야 합니다.
 
 > [!IMPORTANT]
-> `app:{service-principal-client-id}@{azure-ad-tenant-id}`형식을 사용 하 여 서비스 주체를 추가 해야 합니다.
+> 서비스 주체는 형식을 `app:{service-principal-client-id}@{azure-ad-tenant-id}`사용하여 추가해야 합니다.
 
-다음 리소스 관리자 템플릿은 지정 된 서비스 주체가 Analysis Services 관리자 역할에 추가 된 Analysis Services 서버를 배포 합니다.
+다음 리소스 관리자 템플릿은 분석 서비스 관리자 역할에 지정된 서비스 주체가 추가된 분석 서비스 서버를 배포합니다.
 
 ```json
 {
@@ -94,11 +94,11 @@ Azure Resource Manager 템플릿을 사용 하 여 Analysis Services 서버를 �
 }
 ```
 
-## <a name="using-managed-identities"></a>관리 id 사용
+## <a name="using-managed-identities"></a>관리되는 ID 사용
 
-관리 id를 Analysis Services Admins 목록에 추가할 수도 있습니다. 예를 들어 [시스템 할당 관리 id를 사용 하는 논리 앱](../logic-apps/create-managed-service-identity.md)이 있고 Analysis Services 서버를 관리할 수 있는 권한을 부여 하려고 합니다.
+관리되는 ID를 분석 서비스 관리자 목록에 추가할 수도 있습니다. 예를 들어 [시스템 할당된 관리 ID가 있는 논리 앱이](../logic-apps/create-managed-service-identity.md)있고 분석 서비스 서버를 관리하는 기능을 부여하려고 할 수 있습니다.
 
-Azure Portal 및 Api의 대부분에서 관리 되는 id는 해당 서비스 주체 개체 ID를 사용 하 여 식별 됩니다. 그러나 Analysis Services의 경우 클라이언트 ID를 사용 하 여 식별 해야 합니다. 서비스 사용자의 클라이언트 ID를 가져오려면 Azure CLI를 사용할 수 있습니다.
+Azure 포털 및 API의 대부분의 부분에서 관리되는 ID는 서비스 주체 개체 ID를 사용하여 식별됩니다. 그러나 분석 서비스는 클라이언트 ID를 사용하여 식별해야 합니다. 서비스 주체에 대한 클라이언트 ID를 가져오려면 Azure CLI를 사용할 수 있습니다.
 
 ```bash
 az ad sp show --id <ManagedIdentityServicePrincipalObjectId> --query appId -o tsv
@@ -110,7 +110,7 @@ az ad sp show --id <ManagedIdentityServicePrincipalObjectId> --query appId -o ts
 (Get-AzureADServicePrincipal -ObjectId <ManagedIdentityServicePrincipalObjectId>).AppId
 ```
 
-그런 다음 위에서 설명한 대로 테 넌 트 ID와 함께이 클라이언트 ID를 사용 하 여 관리 되는 id를 Analysis Services Admins 목록에 추가할 수 있습니다.
+그런 다음 테넌트 ID와 함께 이 클라이언트 ID를 사용하여 위에서 설명한 대로 관리되는 ID를 분석 서비스 관리자 목록에 추가할 수 있습니다.
 
 ## <a name="related-information"></a>관련 정보
 

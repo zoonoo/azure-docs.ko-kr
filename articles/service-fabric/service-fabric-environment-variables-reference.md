@@ -1,22 +1,22 @@
 ---
-title: Azure Service Fabric 환경 변수
-description: Azure Service Fabric의 환경 변수에 대해 알아봅니다. 변수의 전체 목록 및 해당 용도에 대 한 참조를 포함 합니다.
+title: Azure 서비스 패브릭 환경 변수
+description: Azure 서비스 패브릭의 환경 변수에 대해 알아봅니다. 변수 및 해당 용도의 전체 목록에 대한 참조가 포함되어 있습니다.
 author: mikkelhegn
 ms.topic: reference
 ms.date: 12/07/2017
 ms.author: mikhegn
 ms.openlocfilehash: b13522b1d9f2acd2aa3f7923c1b623fab696056d
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75645687"
 ---
 # <a name="service-fabric-environment-variables"></a>Service Fabric 환경 변수
 
 Service Fabric에는 각 서비스 인스턴스에 대해 설정된 기본 제공 환경 변수가 있습니다. 환경 변수의 전체 목록은 다음과 같습니다.
 
-| 환경 변수                         | Description                                                            | 예                                                              |
+| 환경 변수                         | Description                                                            | 예제                                                              |
 |----------------------------------------------|------------------------------------------------------------------------|----------------------------------------------------------------------|
 | Fabric_ApplicationName                       | 애플리케이션의 패브릭 URI 이름                                 | fabric:/MyApplication                                                |
 | Fabric_CodePackageName                       | 프로세스가 속하는 코드 패키지의 이름              | 코드                                                                 |

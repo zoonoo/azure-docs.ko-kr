@@ -1,5 +1,5 @@
 ---
-title: 일시적으로 Azure 사이트 간 VPN의 연결 문제 해결
+title: Azure 사이트 간 VPN 연결이 간헐적으로 끊어지는 문제 해결
 description: 사이트 간 VPN 연결이 자주 끊어지는 문제를 해결하는 방법을 알아봅니다.
 services: vpn-gateway
 titleSuffix: Azure VPN Gateway
@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 10/30/2018
 ms.author: genli
 ms.openlocfilehash: 82054099a5a496e99c49135ab98ee1163af19784
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75862563"
 ---
 # <a name="troubleshooting-azure-site-to-site-vpn-disconnects-intermittently"></a>문제 해결: Azure 사이트 간 VPN 일시적 연결 끊김
@@ -62,7 +62,7 @@ Azure Virtual Network Gateway의 형식을 확인합니다.
 
 ### <a name="step-7-check-whether-the-on-premises-vpn-device-has-perfect-forward-secrecy-enabled"></a>7단계 온-프레미스 VPN 디바이스에 PFS(Perfect Forward Secrecy)가 사용하도록 설정되어 있는지 확인
 
-**PFS(Perfect Forward Secrecy)** 기능은 연결 끊김 문제를 발생시킬 수 있습니다. VPN 디바이스에 **PFS(Perfect Forward Secrecy)** 기능이 사용하도록 설정되어 있으면 이 기능을 사용하지 않도록 설정합니다. 그런 다음 [가상 네트워크 게이트웨이 IPsec 정책을 업데이트](vpn-gateway-ipsecikepolicy-rm-powershell.md#managepolicy)합니다.
+**PFS(Perfect Forward Secrecy)** 기능은 연결 끊김 문제를 발생시킬 수 있습니다. VPN 장치에 **완벽한 전달 비밀이** 활성화된 경우 이 기능을 사용하지 않도록 설정합니다. 그런 다음 [가상 네트워크 게이트웨이 IPsec 정책을 업데이트합니다.](vpn-gateway-ipsecikepolicy-rm-powershell.md#managepolicy)
 
 ## <a name="next-steps"></a>다음 단계
 

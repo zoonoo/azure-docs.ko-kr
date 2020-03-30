@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
 ms.openlocfilehash: 57f238a8f91df1271e91894b88a7f02118b1f123
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67182147"
 ---
 ### <a name="determine-the-dns-name-of-the-virtual-machine"></a>가상 컴퓨터의 DNS 이름 확인
@@ -32,5 +32,5 @@ ms.locfileid: "67182147"
 3. **인증** 상자에 **SQL Server 인증**을 선택합니다.
 4. **로그인** 상자에, 이전 작업에서 만든 로그인 이름을 입력합니다.
 5. **암호** 상자에, 이전 작업에서 만든 로그인의 암호를 입력합니다.
-6. **Connect**를 클릭합니다.
+6. **연결**을 클릭합니다.
 

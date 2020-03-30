@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: clemensv
 ms.openlocfilehash: ceb2626a43ed44338bb0faad475ae2333af2de9e
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67182435"
 ---
 [Relay 네임스페이스][namespace-how-to]를 이미 만들었는지 확인합니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure 포털에](https://portal.azure.com)로그인합니다.
 2. 왼쪽 메뉴에서 **모든 리소스**를 선택합니다.
 3. 하이브리드 연결을 만들려는 네임스페이스를 선택합니다. 이 경우 **mynewns**입니다.  
 4. **Relay 네임스페이스** 아래에서 **하이브리드 연결**을 선택합니다.

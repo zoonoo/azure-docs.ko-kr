@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 745ddcc95bb91e61478307265aec1ac8a7ebba54
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75609199"
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>동기화 중 오류 문제 해결
@@ -41,7 +41,7 @@ Azure AD로 내보내는 중 오류는 Azure Active Directory에서 Azure AD Con
 
 ## <a name="data-mismatch-errors"></a>데이터 불일치 오류
 ### <a name="invalidsoftmatch"></a>InvalidSoftMatch
-#### <a name="description"></a>Description
+#### <a name="description"></a>설명
 * Azure AD Connect \(동기화 엔진\)이 Azure Active Directory에 개체 추가 또는 업데이트를 지시하면 Azure AD는 **sourceAnchor** 특성을 사용하여 들어오는 개체를 Azure AD 개체의 **immutableId** 특성과 일치시킵니다. 이 일치를 **하드 일치**라고 합니다.
 * Azure AD가 **immutableId** 특성과 들어오는 개체의 **sourceAnchor** 특성이 일치하는 개체를 **찾지 못하면** 새 개체를 프로비전하기 전에 다시 ProxyAddresses 및 UserPrincipalName 특성을 사용하여 일치를 찾습니다. 이 일치를 **소프트 일치**라고 합니다. 소프트 일치는 Azure AD에 이미 있는 개체(Azure AD가 출처)를, 온-프레미스에서 동일한 엔터티(사용자, 그룹)를 나타내는 동기화 중에 추가/업데이트되는 새 개체와 일치시키도록 설계되었습니다.
 * **InvalidSoftMatch** 오류는 하드 일치에서 일치하는 개체를 찾지 **못했고,** 소프트 매치에서는 일치하는 개체를 찾았으나 이 개체에 이미 수신 개체의 *SourceAnchor*와 다른 *immutableId* 값이 있어 이 일치하는 개체가 온-프레미스 Active Directory의 다른 개체와 동기화되었음을 나타내는 경우에 발생합니다.
@@ -71,20 +71,20 @@ Azure Active Directory 스키마에서는 다음 특성의 값이 둘 이상의 
 7. Azure AD Connect를 제거 후 다시 설치했습니다. 다시 설치하는 동안 다른 특성을 SourceAnchor로 선택했습니다. 이전에 동기화된 모든 개체의 동기화가 중단되고 InvalidSoftMatch 오류가 발생합니다.
 
 #### <a name="example-case"></a>예제 사례:
-1. **Bob Smith**는 *contoso.com*의 온-프레미스 Active Directory로부터 Azure Active Directory의 사용자와 동기화됩니다.
-2. Bob Smith의 **UserPrincipalName** 는 **bobs-machine\@contoso.com**로 설정 됩니다.
+1. **Bob Smith는** contoso.com 온프레미스 활성 디렉터리에서 Azure *contoso.com* Active Directory에서 동기화된 사용자입니다.
+2. Bob Smith의 **UserPrincipalName은** **bobs\@contoso.com**로 설정됩니다.
 3. **"abcdefghijklmnopqrstuv=="** 은 Azure AD Connect가 온-프레미스 Active Directory에서 Bob Smith의 **objectGUID**를 사용하여 산출한 **SourceAnchor**로, Azure Active Directory에서 Bob Smith에 대한 **immutableId**입니다.
 4. 또한 **proxyAddresses** 특성에는 다음 값이 있습니다.
    * smtp: bobs@contoso.com
    * smtp: bob.smith@contoso.com
-   * **smtp: bob\@contoso.com**
+   * **smtp:\@밥 contoso.com**
 5. 새 사용자 **Bob Taylor**가 온-프레미스 Active Directory에 추가됩니다.
-6. Bob의 **UserPrincipalName** 은 **bobt\@contoso.com**로 설정 됩니다.
+6. 밥 테일러의 **사용자 PrincipalName은** **bobt\@contoso.com**로 설정됩니다.
 7. **"abcdefghijkl0123456789==""** 은 온-프레미스 Active Directory에서 Bob Taylor의 **objectGUID**를 사용하여 Azure AD Connect가 산출한**sourceAnchor**입니다. Bob Taylor의 개체는 아직 Azure Active Directory에 동기화되지 않았습니다.
 8. Bob Taylor의 proxyAddresses 특성 값은 다음과 같습니다.
    * smtp: bobt@contoso.com
    * smtp: bob.taylor@contoso.com
-   * **smtp: bob\@contoso.com**
+   * **smtp:\@밥 contoso.com**
 9. 동기화하는 동안 Azure AD Connect는 온-프레미스 Active Directory에서 Bob Taylor의 추가를 인식하고 Azure AD에 동일한 변경을 요청합니다.
 10. Azure AD는 먼저 하드 일치를 수행합니다. 즉 immutableId가 "abcdefghijkl0123456789=="인 개체가 있는지 검색합니다. Azure AD에 이 immutableId를 갖는 다른 개체가 없으므로 하드 일치가 실패합니다.
 11. 다음으로 Azure AD는 Bob Taylor 일치를 시도합니다. 즉 smtp: bob@contoso.com을 포함한 세 값과 일치하는 proxyAddresses를 갖는 개체가 있는지 검색합니다.
@@ -109,15 +109,15 @@ InvalidSoftMatch 오류가 발생하는 가장 일반적인 원인은 SourceAnch
 * [Office 365에서 디렉터리 동기화를 방해하는 중복 또는 잘못된 특성](https://support.microsoft.com/kb/2647098)
 
 ### <a name="objecttypemismatch"></a>ObjectTypeMismatch
-#### <a name="description"></a>Description
+#### <a name="description"></a>설명
 Azure AD가 두 개체의 소프트 일치를 시도할 때 "개체 유형"(예: 사용자, 그룹, 연락처 등)이 다른 두 개체가 소프트 일치 수행에 사용된 특성에 대해 동일한 값을 가질 수 있습니다. 이러한 특성의 중복은 Azure AD에서 허용되지 않으므로 이 작업에서 "ObjectTypeMismatch" 동기화 오류가 발생합니다.
 
 #### <a name="example-scenarios-for-objecttypemismatch-error"></a>ObjectTypeMismatch 오류의 예제 시나리오
 * Office 365에서 메일을 지원하는 보안 그룹이 만들어집니다. 관리자가 온-프레미스 AD(아직 Azure AD와 동기화되지 않음)에 Office 365 그룹과 ProxyAddresses 특성 값이 같은 새 사용자나 연락처를 추가합니다.
 
 #### <a name="example-case"></a>예제 사례
-1. 관리자가 Office 365에서 Tax 부서에 대해 새 메일 지원 보안 그룹을 만들고 이메일 주소를 tax@contoso.com으로 제공합니다. 이 그룹에는 **smtp: 세금\@contoso.com** 의 ProxyAddresses 특성 값이 할당 됩니다.
-2. 새 사용자가 Contoso.com 조인 하 고 proxyAddress를 **smtp: 세금\@contoso.com** 로 온-프레미스에서 사용자에 대 한 계정을 만듭니다.
+1. 관리자가 Office 365에서 Tax 부서에 대해 새 메일 지원 보안 그룹을 만들고 이메일 주소를 tax@contoso.com으로 제공합니다. 이 그룹에는 **smtp의\@** Proxy주소 특성 값이 할당됩니다contoso.com
+2. 새 사용자가 Contoso.com 조인하고 프록시주소가 **smtp로\@** 온-프레미스 사용자에 대해 생성됩니다: 세금 contoso.com
 3. Azure AD Connect가 새 사용자 계정을 동기화하면 "ObjectTypeMismatch" 오류가 발생합니다.
 
 #### <a name="how-to-fix-objecttypemismatch-error"></a>ObjectTypeMismatch 오류 해결 방법
@@ -130,7 +130,7 @@ ObjectTypeMismatch 오류의 가장 일반적인 원인은 두 개체의 다른 
 
 ## <a name="duplicate-attributes"></a>중복 특성
 ### <a name="attributevaluemustbeunique"></a>AttributeValueMustBeUnique
-#### <a name="description"></a>Description
+#### <a name="description"></a>설명
 Azure Active Directory 스키마에서는 다음 특성의 값이 둘 이상의 개체에서 동일할 수 없습니다. Azure AD의 각 개체는 특정 인스턴스에서 다음 특성에 대해 고유한 값을 가져야 합니다.
 
 * ProxyAddresses
@@ -143,16 +143,16 @@ Azure AD Connect가 이미 Azure Active Directory의 다른 개체에 할당된 
 
 #### <a name="example-case"></a>예제 사례:
 1. **Bob Smith**는 contoso.com의 온-프레미스 Active Directory로부터 Azure Active Directory의 사용자와 동기화됩니다.
-2. Bob Smith의 **UserPrincipalName** 온-프레미스는 **bobs-machine\@contoso.com**로 설정 됩니다.
+2. Bob Smith의 **사용자 PrincipalName** 온프레미스는 **\@bobcontoso.com**로 설정됩니다.
 3. 또한 **proxyAddresses** 특성에는 다음 값이 있습니다.
    * smtp: bobs@contoso.com
    * smtp: bob.smith@contoso.com
-   * **smtp: bob\@contoso.com**
+   * **smtp:\@밥 contoso.com**
 4. 새 사용자 **Bob Taylor**가 온-프레미스 Active Directory에 추가됩니다.
-5. Bob의 **UserPrincipalName** 은 **bobt\@contoso.com**로 설정 됩니다.
+5. 밥 테일러의 **사용자 PrincipalName은** **bobt\@contoso.com**로 설정됩니다.
 6. **Bob Taylor**의 **ProxyAddresses** 특성 값은 i. smtp: bobt@contoso.com ii. smtp: bob.taylor@contoso.com
 7. Bob Taylor의 개체가 Azure AD에 성공적으로 동기화됩니다.
-8. 관리자가 Bob Taylor의 **ProxyAddresses** 특성을 i 값으로 업데이트하기로 결정했습니다. **smtp: bob\@contoso.com**
+8. 관리자가 Bob Taylor의 **ProxyAddresses** 특성을 i 값으로 업데이트하기로 결정했습니다. **smtp:\@밥 contoso.com**
 9. Azure AD가 Azure AD의 Bob Taylor 개체를 위의 값으로 업데이트하려 하지만 이미 ProxyAddresses 값이 Bob Smith에게 할당되었으므로 이 작업이 실패하고 "AttributeValueMustBeUnique" 오류가 발생합니다.
 
 #### <a name="how-to-fix-attributevaluemustbeunique-error"></a>AttributeValueMustBeUnique 오류 해결 방법
@@ -168,7 +168,7 @@ AttributeValueMustBeUnique 오류가 발생하는 가장 일반적인 원인은 
 
 ## <a name="data-validation-failures"></a>데이터 유효성 검사 실패
 ### <a name="identitydatavalidationfailed"></a>IdentityDataValidationFailed
-#### <a name="description"></a>Description
+#### <a name="description"></a>설명
 Azure Active Directory는 데이터를 디렉터리에 쓰도록 허용하기 전에 데이터 자체에 다양한 제약을 적용합니다. 이러한 제한은 애플리케이션을 사용하는 동안 최종 사용자에게 가능한 최적의 환경을 제공하기 위한 것으로, 이 데이터가 환경을 좌우합니다.
 
 #### <a name="scenarios"></a>시나리오
@@ -182,29 +182,29 @@ a. UserPrincipalName 특성이 지원되는 문자와 필요한 형식을 따르
 * [Office 365 디렉터리 동기화를 통한 사용자 프로비전 준비](https://support.office.com/article/Prepare-to-provision-users-through-directory-synchronization-to-Office-365-01920974-9e6f-4331-a370-13aea4e82b3e)
 
 ### <a name="federateddomainchangeerror"></a>FederatedDomainChangeError
-#### <a name="description"></a>Description
+#### <a name="description"></a>설명
 이 경우는 사용자의 UserPrincipalName 접미사가 한 페더레이션된 도메인에서 다른 페더레이션된 도메인으로 변경되었을 때 **“FederatedDomainChangeError”** 동기화 오류를 초래합니다.
 
 #### <a name="scenarios"></a>시나리오
-동기화된 사용자의 경우 UserPrincipalName 접미사가 하나의 페더레이션된 도메인에서 온-프레미스의 다른 페더레이션된 도메인으로 변경되었습니다. 예를 들어 *UserPrincipalName = bob\@contoso.com* 은 *UserPrincipalName = bob\@fabrikam.com*로 변경 되었습니다.
+동기화된 사용자의 경우 UserPrincipalName 접미사가 하나의 페더레이션된 도메인에서 온-프레미스의 다른 페더레이션된 도메인으로 변경되었습니다. 예를 *들어, UserPrincipalName\@= bob contoso.com* *userPrincipalName =\@bob fabrikam.com*로 변경되었습니다.
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 1. Contoso.com 계정인 Bob Smith가 Active Directory에서 UserPrincipalName bob@contoso.com으로 새 사용자로 추가되었습니다.
-2. Bob은 Fabrikam.com 라는 Contoso.com의 다른 나누기로 이동 하 고 UserPrincipalName는 bob@fabrikam.com로 변경 됩니다.
+2. Bob이 Fabrikam.com 라는 다른 Contoso.com 부서로 이동 하 고 해당 userPrincipalName이 변경 됩니다.bob@fabrikam.com
 3. Contoso.com과 fabrikam.com 도메인은 모두 Azure Active Directory와 페더레이션된 도메인입니다.
 4. Bob의 userPrincipalName이 업데이트되지 않아 “FederatedDomainChangeError” 동기화 오류가 발생합니다.
 
 #### <a name="how-to-fix"></a>해결 방법
-사용자의 UserPrincipalName 접미사가 bob@**contoso.com** 에서 bob\@**fabrikam.com**로 업데이트 된 경우 **contoso.com** 와 **fabrikam.com** 모두 **페더레이션된 도메인**인 경우 다음 단계에 따라 동기화 오류를 수정 합니다.
+사용자의 UserPrincipalName 접미사가 bob@**contoso.com** \@밥**fabrikam.com**업데이트된 경우 **contoso.com** 및 **fabrikam.com** 모두 **페더레이션 도메인인**경우 다음 단계를 수행하여 동기화 오류를 수정합니다.
 
 1. Azure AD에 있는 사용자의 UserPrincipalName을 bob@contoso.com에서 bob@contoso.onmicrosoft.com으로 업데이트합니다. 다음 PowerShell 명령을 Azure AD PowerShell 모듈과 함께 사용할 수 있습니다. `Set-MsolUserPrincipalName -UserPrincipalName bob@contoso.com -NewUserPrincipalName bob@contoso.onmicrosoft.com`
 2. 다음 동기화 주기에서 동기화 시도를 허용합니다. 이번에는 동기화에 성공하고 Bob의 UserPrincipalName이 예상대로 bob@fabrikam.com으로 업데이트됩니다.
 
 #### <a name="related-articles"></a>관련 문서
-* [다른 페더레이션된 도메인을 사용하기 위해 사용자 계정의 UPN을 변경한 후에 Azure Active Directory 동기화 도구에서 변경 사항이 동기화되지 않습니다(영문).](https://support.microsoft.com/help/2669550/changes-aren-t-synced-by-the-azure-active-directory-sync-tool-after-you-change-the-upn-of-a-user-account-to-use-a-different-federated-domain)
+* [다른 페더레이션된 도메인을 사용하도록 사용자 계정의 UPN을 변경한 후 변경 내용은 Azure Active Directory Sync 도구에서 동기화되지 않습니다.](https://support.microsoft.com/help/2669550/changes-aren-t-synced-by-the-azure-active-directory-sync-tool-after-you-change-the-upn-of-a-user-account-to-use-a-different-federated-domain)
 
 ## <a name="largeobject"></a>LargeObject
-### <a name="description"></a>Description
+### <a name="description"></a>설명
 한 특성이 Azure Active Directory 스키마에서 정한 허용된 크기 제한, 길이 제한 또는 수 제한을 초과할 경우 동기화 작업에서 **LargeObject** 또는 **ExceededAllowedLength** 동기화 오류가 발생합니다. 일반적으로 이 오류는 다음 특성에 대해 발생합니다.
 
 * userCertificate
@@ -223,7 +223,7 @@ a. UserPrincipalName 특성이 지원되는 문자와 필요한 형식을 따르
 
 ## <a name="existing-admin-role-conflict"></a>기존 관리자 역할 충돌
 
-### <a name="description"></a>Description
+### <a name="description"></a>설명
 **기존 관리자 역할 충돌**은 해당 사용자 개체에 다음이 있는 경우 동기화하는 동안 사용자 개체에서 발생합니다.
 
 - 관리자 권한 및
@@ -237,14 +237,14 @@ Azure AD Connect는 온-프레미스 AD의 사용자 개체를 관리자 역할�
 ### <a name="how-to-fix"></a>해결 방법
 이 문제를 해결하려면 다음을 수행합니다.
 
-1. 모든 관리자 역할에서 Azure AD 계정 (소유자)을 제거 합니다. 
-2. 클라우드에서 격리 된 개체를 **하드 삭제** 합니다. 
-3. 다음 동기화 주기는 클라우드 계정에 대 한 온-프레미스 사용자의 소프트 일치를 처리 합니다 (클라우드 사용자는 이제 더 이상 전역 GA는 아님). 
-4. 소유자의 역할 멤버 자격을 복원 합니다. 
+1. 모든 관리자 역할에서 Azure AD 계정(소유자)을 제거합니다. 
+2. 클라우드에서 격리된 오브젝트를 **하드 삭제합니다.** 
+3. 다음 동기화 주기는 온-프레미스 사용자를 클라우드 계정에 소프트 매칭하는 데 사용됩니다(클라우드 사용자가 이제 더 이상 글로벌 GA가 아니므로). 
+4. 소유자의 역할 멤버 자격을 복원합니다. 
 
 >[!NOTE]
 >온-프레미스 사용자 개체와 Azure AD 사용자 개체 간의 소프트 일치가 완료된 후 기존 사용자 개체에 관리자 역할을 다시 할당할 수 있습니다.
 
-## <a name="related-links"></a>관련된 링크
+## <a name="related-links"></a>관련 링크
 * [Active Directory 관리 센터에서 Active Directory 개체 찾기](https://technet.microsoft.com/library/dd560661.aspx)
 * [Azure Active Directory PowerShell을 사용하여 개체에 대해 Azure Active Directory를 쿼리하는 방법](https://msdn.microsoft.com/library/azure/jj151815.aspx)

@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 04/15/2019
 ms.author: alkohli
 ms.openlocfilehash: e02c0b86cd542b3ea12914e35a6577cf4e9b43d8
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67182654"
 ---
 디바이스의 성능을 모니터링하거나 일부 인스턴스에서 디바이스 문제를 해결하기 위해 메트릭을 볼 수도 있습니다.
 
 선택한 디바이스 메트릭에 대한 차트를 만들려면 Azure Portal에서 다음 단계를 수행합니다.
 
-1. Azure Portal에 있는 리소스의 경우 **모니터링 > 메트릭**으로 차례로 이동하여  **메트릭 추가**를 선택합니다.
+1. Azure Portal에 있는 리소스의 경우 **모니터링 > 메트릭**으로 차례로 이동하여 ** 메트릭 추가**를 선택합니다.
 
     ![메트릭 추가](media/data-box-edge-gateway-view-metrics/view-metrics-1.png)
 
@@ -23,7 +23,7 @@ ms.locfileid: "67182654"
 
     ![현재 리소스](media/data-box-edge-gateway-view-metrics/view-metrics-2.png)
 
-    다른 리소스를 지정하려면 해당 리소스를 선택합니다. **리소스 선택** 블레이드에서 메트릭을 표시하려는 구독, 리소스 그룹, 리소스 종류 및 특정 리소스를 선택하고 **적용**을 선택합니다.
+    다른 리소스를 지정하려면 해당 리소스를 선택합니다. ** 리소스 선택** 블레이드에서 메트릭을 표시하려는 구독, 리소스 그룹, 리소스 종류 및 특정 리소스를 선택하고 **적용**을 선택합니다.
 
     ![다른 리소스 선택](media/data-box-edge-gateway-view-metrics/view-metrics-3.png)
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Cosmos DB 쿼리 언어의도
-description: 라디안으로 지정 된 각도에 해당 하는 각도 (도)를 반환 하는 Azure Cosmos DB의 SQL 시스템 함수에 대해 알아봅니다.
+title: Azure 코스모스 DB 쿼리 언어의 학위
+description: Azure Cosmos DB의 DEGREES SQL 시스템 함수에 대해 알아서 해당 각도를 라디안에 지정된 각도에 대해 해당 각도를 각도로 반환합니다.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,13 +8,13 @@ ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: d175ba53a71998fc8e7812a1b761f9cd264c38a9
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78299473"
 ---
-# <a name="degrees-azure-cosmos-db"></a>도 (Azure Cosmos DB)
+# <a name="degrees-azure-cosmos-db"></a>학위 (Azure 코스모스 DB)
  라디안에서 지정된 각도로 해당하는 각도를 반환합니다.  
   
 ## <a name="syntax"></a>구문
@@ -48,10 +48,10 @@ SELECT DEGREES(PI()/2) AS degrees
 
 ## <a name="remarks"></a>설명
 
-이 시스템 함수는 인덱스를 활용 하지 않습니다.
+이 시스템 함수는 인덱스를 사용하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [수치 연산 함수 Azure Cosmos DB](sql-query-mathematical-functions.md)
-- [시스템 함수 Azure Cosmos DB](sql-query-system-functions.md)
-- [Azure Cosmos DB 소개](introduction.md)
+- [수학적 함수 Azure 코스모스 DB](sql-query-mathematical-functions.md)
+- [시스템 기능 Azure 코스모스 DB](sql-query-system-functions.md)
+- [Azure 코스모스 DB 소개](introduction.md)

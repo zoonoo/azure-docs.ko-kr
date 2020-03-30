@@ -1,15 +1,15 @@
 ---
-title: ReliableDictionaryActorStateProvider 설정 변경
+title: 신뢰할 수 있는사전액자상태 제공자 설정 변경
 description: "'ReliableDictionaryActorStateProvider' 형식의 Azure 서비스 패브릭 상태 저장 행위자 구성에 대해 알아봅니다."
 author: sumukhs
 ms.topic: conceptual
 ms.date: 10/2/2017
 ms.author: sumukhs
 ms.openlocfilehash: fbd6f7cd3ade753c659464522408aa715cce48f9
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75609743"
 ---
 # <a name="configuring-reliable-actors--reliabledictionaryactorstateprovider"></a>Reliable Actors 구성--ReliableDictionaryActorStateProvider
@@ -33,7 +33,7 @@ ReliableDictionaryActorStateProvider의 구성에 영향을 주는 전역 설정
 | 이름 | 단위 | 기본값 | 설명 |
 | --- | --- | --- | --- |
 | WriteBufferMemoryPoolMinimumInKB |킬로바이트 |8388608 |로거 쓰기 버퍼 메모리 풀에 대해 커널 모드에서 할당되는 최소 KB 수입니다. 이 메모리 풀은 디스크에 쓰기 전에 상태 정보를 캐시하는 데 사용됩니다. |
-| WriteBufferMemoryPoolMaximumInKB |킬로바이트 |무제한 |로거 쓰기 버퍼 메모리 풀이 증가할 수 있는 최대 크기입니다. |
+| WriteBufferMemoryPoolMaximumInKB |킬로바이트 |제한 없음 |로거 쓰기 버퍼 메모리 풀이 증가할 수 있는 최대 크기입니다. |
 | SharedLogId |GUID |"" |서비스별 구성에서 SharedLogId를 지정하지 않은 클러스터에 있는 모든 노드에서 모든 Reliable Services에 사용된 기본 공유 로그 파일을 식별하는 데 사용할 고유 GUID를 지정합니다. SharedLogId가 지정된 경우 SharedLogPath도 지정해야 합니다. |
 | SharedLogPath |정규화된 경로 이름 |"" |서비스별 구성에서 SharedLogPath를 지정하지 않은 클러스터에 있는 모든 노드에서 모든 Reliable Services가 공유 로그 파일을 사용하는 정규화된 경로 이름을 지정합니다. 그러나 SharedLogPath가 지정된 경우 SharedLogId도 지정해야 합니다. |
 | SharedLogSizeInMB |메가바이트 |8192 |공유 로그에 대해 정적으로 할당할 디스크 공간(MB) 수를 지정합니다. 값은 2048 이상이어야 합니다. |
@@ -78,10 +78,10 @@ SharedLogSizeInMB는 모든 노드에서 기본 공유 로그를 위해 미리 �
 | 이름 | 단위 | 기본값 | 설명 |
 | --- | --- | --- | --- |
 | BatchAcknowledgementInterval |초 |0.015 |작업을 수신한 후 주 복제본에 대한 승인을 다시 보내기 전에 보조 복제본의 복제자가 대기하는 시간. 이 간격 내에서 처리하는 작업에 대해 보낼 나머지 승인은 모두 하나의 응답으로 전송됩니다. |
-| ReplicatorEndpoint |N/A |기본값 없음--필수 매개 변수 |주/보조 복제자가 복제본 세트의 다른 복제자와 통신하는 데 사용할 IP 주소 및 포트. 서비스 매니페스트의 TCP 리소스 엔드포인트를 참조해야 합니다. 서비스 매니페스트에서 엔드포인트 리소스를 정의하는 방법에 대한 자세한 내용은 [서비스 매니페스트 리소스](service-fabric-service-manifest-resources.md) 를 참조하세요. |
+| ReplicatorEndpoint |해당 없음 |기본값 없음--필수 매개 변수 |주/보조 복제자가 복제본 세트의 다른 복제자와 통신하는 데 사용할 IP 주소 및 포트. 서비스 매니페스트의 TCP 리소스 엔드포인트를 참조해야 합니다. 서비스 매니페스트에서 엔드포인트 리소스를 정의하는 방법에 대한 자세한 내용은 [서비스 매니페스트 리소스](service-fabric-service-manifest-resources.md) 를 참조하세요. |
 | MaxReplicationMessageSize |바이트 |50MB |단일 메시지에서 전송할 수 있는 복제 데이터의 최대 크기. |
-| MaxPrimaryReplicationQueueSize |작업 수 |8192 |기본 큐의 최대 작업 수. 작업은 주 복제자가 모든 보조 복제자로부터 승인을 받은 후 해제됩니다. 이 값은 64보다 크고 2의 제곱이어야 합니다. |
-| MaxSecondaryReplicationQueueSize |작업 수 |16384 |보조 큐의 최대 작업 수. 작업은 지속성을 통해 상태를 항상 사용 가능하도록 설정한 후 해제됩니다. 이 값은 64보다 크고 2의 제곱이어야 합니다. |
+| MaxPrimaryReplicationQueueSize |작업의 수 |8192 |기본 큐의 최대 작업 수. 작업은 주 복제자가 모든 보조 복제자로부터 승인을 받은 후 해제됩니다. 이 값은 64보다 크고 2의 제곱이어야 합니다. |
+| MaxSecondaryReplicationQueueSize |작업의 수 |16384 |보조 큐의 최대 작업 수. 작업은 지속성을 통해 상태를 항상 사용 가능하도록 설정한 후 해제됩니다. 이 값은 64보다 크고 2의 제곱이어야 합니다. |
 | CheckpointThresholdInMB |MB |200 |상태가 검사점이 된 후의 로그 파일 공간 크기 |
 | MaxRecordSizeInKB |KB |1024 |복제자가 로그에 기록할 수 있는 최대 레코드 크기. 이 값은 4의 배수이고 16보다 커야 합니다. |
 | OptimizeLogForLowerDiskUsage |부울 |true |True일 경우 NTFS 스파스 파일을 사용하여 복제본의 전용 로그 파일을 만들도록 로그가 구성됩니다. 이렇게 하면 파일의 실제 디스크 공간 사용이 줄어듭니다. False일 경우 파일이 고정 할당으로 생성되고, 최상의 쓰기 성능을 제공합니다. |

@@ -9,22 +9,22 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 86e1a9cce1864ce259fe07b6949be2e32be242a8
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75774420"
 ---
-Exchange 피어 링에 대해 다음 수정 작업이 지원 됩니다.
-1. Exchange 피어 링 연결 추가
-1. Exchange 피어 링 연결 제거
-1. 활성 연결에 IPv4/IPv6 세션을 추가 합니다.
-1. 활성 연결에서 IPv4/IPv6 세션을 제거 합니다.
+Exchange 피어링에 대해 다음 수정 작업이 지원됩니다.
+1. Exchange 피어링 연결 추가
+1. Exchange 피어링 연결 제거
+1. 활성 연결에 IPv4/IPv6 세션을 추가합니다.
+1. 활성 연결에서 IPv4/IPv6 세션을 제거합니다.
 
 
-### <a name="add-exchange-peering-connections"></a>Exchange 피어 링 연결 추가
+### <a name="add-exchange-peering-connections"></a>Exchange 피어링 연결 추가
 
-아래 예제에서는 기존 Exchange 피어 링에 대 한 연결을 추가 하는 방법을 설명 합니다.
+아래 예제는 기존 Exchange 피어링에 연결을 추가하는 방법을 설명합니다.
 
 ```powershell
 
@@ -43,9 +43,9 @@ $exchangePeering | Update-AzPeering
 
 ```
 
-### <a name="remove-exchange-peering-connections"></a>Exchange 피어 링 연결 제거
+### <a name="remove-exchange-peering-connections"></a>Exchange 피어링 연결 제거
 
-아래 예제에서는 기존 Exchange 피어 링에 대 한 연결을 제거 하는 방법을 설명 합니다.
+아래 예제는 기존 Exchange 피어링에 대한 연결을 제거하는 방법을 설명합니다.
 
 ```powershell
 
@@ -53,7 +53,7 @@ $exchangePeering = Get-AzPeering -Name "SeattleExchangePeering" -ResourceGroupNa
 
 ```
 
-모든 연결을 확인 하 고 제거 하려는 연결을 선택 합니다. 
+모든 연결을 보고 제거할 연결을 선택합니다. 
 
 ```powershell
 
@@ -73,7 +73,7 @@ Tags              : {}
 
 ```
 
-아래 명령에서 0 대신 제거 하려는 연결에 대 한 인덱스 번호를 입력 합니다.
+아래 명령에서 0 대신 제거할 연결의 인덱스 번호를 입력합니다.
 
 ```powershell
 
@@ -87,7 +87,7 @@ $exchangePeering | Update-AzPeering
 
 ### <a name="add-ipv4ipv6-session-on-active-connections"></a>활성 연결에 IPv4/IPv6 세션 추가
 
-아래 예제에서는 기존 exchange 연결에 IPv6 세션을 추가 하는 방법을 설명 합니다.
+아래 예제는 기존 교환 연결에 IPv6 세션을 추가하는 방법을 설명합니다.
 
 ```powershell
 
@@ -101,4 +101,4 @@ $exchangePeering | Update-AzPeering
 
 ### <a name="remove-ipv4ipv6-session-on-active-connections"></a>활성 연결에서 IPv4/IPv6 세션 제거
 
-기존 연결에서 IPv4/IPv6 세션을 제거 하는 기능은 현재 PowerShell에서 지원 되지 않습니다. [Microsoft 피어 링](mailto:peeringexperience@microsoft.com)에 문의 하세요.
+기존 연결에서 IPv4/IPv6 세션을 제거하는 것은 현재 PowerShell에서 지원되지 않습니다. [연락처 마이크로 소프트 피어링](mailto:peeringexperience@microsoft.com).

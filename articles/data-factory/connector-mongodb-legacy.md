@@ -1,5 +1,5 @@
 ---
-title: 레거시를 사용 하 여 MongoDB에서 데이터 복사
+title: 레거시를 사용하여 MongoDB의 데이터 복사
 description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 Mongo DB에서 지원되는 싱크 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 08/12/2019
 ms.openlocfilehash: 0bdd8d454b979250b57cf657d347309b99a86ede
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75892564"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Azure Data Factory를 사용하여 MongoDB에서 데이터 복사
@@ -39,7 +39,7 @@ MongoDB 데이터베이스에서 지원되는 모든 싱크 데이터 저장소�
 - MongoDB **버전 2.4, 2.6, 3.0, 3.2, 3.4 및 3.6**
 - **Basic** 또는 **Anonymous** 인증을 사용하여 데이터를 복사합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -55,21 +55,21 @@ MongoDB 데이터베이스에서 지원되는 모든 싱크 데이터 저장소�
 
 MongoDB 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type |형식 속성은 **MongoDb**로 설정해야 합니다. |예 |
-| 서버 |MongoDB 서버의 IP 주소 또는 호스트 이름입니다. |예 |
+| type |형식 속성은 **MongoDb**로 설정해야 합니다. |yes |
+| 서버 |MongoDB 서버의 IP 주소 또는 호스트 이름입니다. |yes |
 | 포트 |MongoDB 서버가 클라이언트 연결을 수신하는 데 사용하는 TCP 포트입니다. |아니요(기본값: 27017) |
-| databaseName |액세스하려는 MongoDB 데이터베이스의 이름입니다. |예 |
-| authenticationType | MongoDB 데이터베이스에 연결하는 데 사용되는 인증 형식입니다.<br/>허용되는 값은 **Basic** 및 **Anonymous**입니다. |예 |
+| databaseName |액세스하려는 MongoDB 데이터베이스의 이름입니다. |yes |
+| authenticationType | MongoDB 데이터베이스에 연결하는 데 사용되는 인증 형식입니다.<br/>허용된 값은 **기본**및 **익명**입니다. |yes |
 | 사용자 이름 |MongoDB에 액세스하는 사용자 계정입니다. |예(기본 인증을 사용하는 경우) |
-| password |사용자에 대한 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. |예(기본 인증을 사용하는 경우) |
-| authSource |인증에 대한 자격 증명을 확인하는 데 사용하려는 MongoDB 데이터베이스의 이름입니다. |아닙니다. 기본 인증의 경우 기본값은 관리자 계정 및 databaseName 속성을 사용하여 지정된 데이터베이스를 사용하는 것입니다. |
-| enableSsl | 서버에 대한 연결이 SSL을 사용하여 암호화되는지 여부를 지정합니다. 기본값은 False입니다.  | 아닙니다. |
-| allowSelfSignedServerCert | 서버의 자체 서명된 인증서를 허용할지 여부를 지정합니다. 기본값은 False입니다.  | 아닙니다. |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. [전제 조건](#prerequisites) 섹션에서 자세히 알아보세요. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아닙니다. |
+| password |사용자에 대한 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. |예(기본 인증을 사용하는 경우) |
+| authSource |인증에 대한 자격 증명을 확인하는 데 사용하려는 MongoDB 데이터베이스의 이름입니다. |아니요. 기본 인증의 경우 기본값은 관리자 계정 및 databaseName 속성을 사용하여 지정된 데이터베이스를 사용하는 것입니다. |
+| enableSsl | 서버에 대한 연결이 SSL을 사용하여 암호화되는지 여부를 지정합니다. 기본값은 False입니다.  | 예 |
+| allowSelfSignedServerCert | 서버의 자체 서명된 인증서를 허용할지 여부를 지정합니다. 기본값은 False입니다.  | 예 |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임입니다.](concepts-integration-runtime.md) [필수 구성 조건](#prerequisites) 섹션에서 자세히 알아보십시오. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |예 |
 
-**예:**
+**예제:**
 
 ```json
 {
@@ -98,12 +98,12 @@ MongoDB 연결된 서비스에 다음 속성이 지원됩니다.
 
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트 및 연결된 서비스](concepts-datasets-linked-services.md)를 참조하세요. MongoDB 데이터 세트에 대해 다음 속성을 지원합니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 데이터 세트의 type 속성을 **MongoDbCollection**으로 설정해야 합니다. | 예 |
-| collectionName |MongoDB 데이터베이스에 있는 컬렉션의 이름입니다. |예 |
+| type | 데이터 세트의 type 속성을 **MongoDbCollection**으로 설정해야 합니다. | yes |
+| collectionName |MongoDB 데이터베이스에 있는 컬렉션의 이름입니다. |yes |
 
-**예:**
+**예제:**
 
 ```json
 {
@@ -127,14 +127,14 @@ MongoDB 연결된 서비스에 다음 속성이 지원됩니다.
 
 ### <a name="mongodb-as-source"></a>MongoDB를 원본으로
 
-복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
+다음 속성은 복사 활동 **소스** 섹션에서 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업 원본의 type 속성을 **MongoDbSource**로 설정해야 합니다. | 예 |
+| type | 복사 작업 원본의 type 속성을 **MongoDbSource**로 설정해야 합니다. | yes |
 | Query |사용자 지정 SQL-92 쿼리를 사용하여 데이터를 읽습니다. 예: select * from MyTable. |아니요(데이터 세트의 "collectionName"이 지정된 경우) |
 
-**예:**
+**예제:**
 
 ```json
 "activities":[
@@ -171,7 +171,7 @@ MongoDB 연결된 서비스에 다음 속성이 지원됩니다.
 
 ## <a name="schema-by-data-factory"></a>Data Factory에서의 스키마
 
-Azure Data Factory 서비스는 컬렉션에 있는 **최신 100개의 문서**를 사용하여 MongoDB 컬렉션에서 스키마를 유추합니다. 이러한 100개의 문서에 전체 스키마가 포함되어 있지 않는 경우, 일부 열은 복사 작업 중 무시될 수 있습니다.
+Azure Data Factory 서비스는 컬렉션의 **최신 100개 문서를** 사용하여 MongoDB 컬렉션에서 스키마를 추론합니다. 이러한 100개의 문서에 전체 스키마가 포함되어 있지 않는 경우, 일부 열은 복사 작업 중 무시될 수 있습니다.
 
 ## <a name="data-type-mapping-for-mongodb"></a>MongoDB에 대한 데이터 형식 매핑
 
@@ -181,14 +181,14 @@ MongoDB에서 데이터를 복사하는 경우 MongoDB 데이터 형식에서 Az
 |:--- |:--- |
 | 이진 |Byte[] |
 | 부울 |부울 |
-| 날짜 |DateTime |
+| Date |DateTime |
 | NumberDouble |Double |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
 | ObjectID |String |
 | String |String |
-| UUID |GUID |
-| 개체 |중첩 구분 기호로 "_"를 사용한 평면화된 열에 다시 정규화 |
+| UUID |Guid |
+| Object |중첩 구분 기호로 "_"를 사용한 평면화된 열에 다시 정규화 |
 
 > [!NOTE]
 > 가상 테이블을 사용한 배열 지원에 대해 알아보려면 [가상 테이블을 사용하는 복합 형식에 대한 지원](#support-for-complex-types-using-virtual-tables) 섹션을 참조하세요.
@@ -204,7 +204,7 @@ Azure Data Factory는 기본 제공 ODBC 드라이버를 사용하여 MongoDB �
 
 가상 테이블은 실제 테이블의 데이터를 나타내며, 드라이버가 정규화되지 않은 데이터에 액세스할 수 있도록 합니다. 가상 테이블을 쿼리 및 조인하여 MongoDB 배열의 콘텐츠에 액세스할 수 있습니다.
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 예를 들어 여기 ExampleTable은 MongoDB 테이블로, 각 셀의 개체 배열이 있는 하나의 열(송장)과 스칼라 형식의 배열이 있는 하나의 열(등급)이 있습니다.
 
@@ -226,7 +226,7 @@ Azure Data Factory는 기본 제공 ODBC 드라이버를 사용하여 MongoDB �
 * 원본 배열 내에서 데이터의 위치 표시
 * 배열 내의 각 요소에 대해 확장된 데이터
 
-**테이블 "ExampleTable_Invoices":**
+**표 "ExampleTable_Invoices":**
 
 | _id | ExampleTable_Invoices_dim1_idx | 송장_id | 항목 | price | 할인 |
 | --- | --- | --- | --- | --- | --- |
@@ -234,7 +234,7 @@ Azure Data Factory는 기본 제공 ODBC 드라이버를 사용하여 MongoDB �
 | 1111 |1 |124 |오븐 |1235 |0.2 |
 | 2222 |0 |135 |냉장고 |12543 |0.0 |
 
-**테이블 "ExampleTable_Ratings":**
+**표 "ExampleTable_Ratings":**
 
 | _id | ExampleTable_Ratings_dim1_idx | ExampleTable_Ratings |
 | --- | --- | --- |

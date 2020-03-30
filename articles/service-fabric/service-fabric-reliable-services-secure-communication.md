@@ -1,20 +1,20 @@
 ---
-title: 의 보안 서비스 원격 통신C#
+title: 'C와의 보안 서비스 원격 통신 #'
 description: Azure Service Fabric 클러스터에서 실행되는 C# Reliable Services에서 서비스 원격 기반 통신을 보호하는 방법을 알아봅니다.
 author: suchiagicha
 ms.topic: conceptual
 ms.date: 04/20/2017
 ms.author: pepogors
 ms.openlocfilehash: ee2f1d70f4094ccc7d80edbfaf16509b5124f607
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75609624"
 ---
 # <a name="secure-service-remoting-communications-in-a-c-service"></a>C# 서비스에서 서비스 원격 통신 보호
 > [!div class="op_single_selector"]
-> * [Windows에서 C#](service-fabric-reliable-services-secure-communication.md)
+> * [윈도우에서 C #](service-fabric-reliable-services-secure-communication.md)
 > * [Linux에서 Java](service-fabric-reliable-services-secure-communication-java.md)
 >
 >

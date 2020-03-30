@@ -9,13 +9,13 @@ ms.date: 02/01/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 1aca39a7ff162aa3c42fdb3ca5999c71091ec02e
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67181936"
 ---
- Azure Cloud Shell을 사용 하는 경우 로그인 할 Azure 계정에 자동으로 '평가판 사용해 보기'를 클릭 한 후. 로컬 로그인 하려면 상승 된 권한으로 PowerShell 콘솔을 엽니다 및 연결할 cmdlet을 실행 합니다.
+ Azure 클라우드 셸을 사용하는 경우 '사용해 보십시오'를 클릭한 후 자동으로 Azure 계정에 로그인합니다. 로컬로 로그인하려면 PowerShell 콘솔을 높은 권한으로 열고 cmdlet을 실행하여 연결합니다.
 
 ```azurepowershell
 Connect-AzAccount

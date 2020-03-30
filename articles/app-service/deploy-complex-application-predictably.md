@@ -1,15 +1,15 @@
 ---
-title: ARM을 사용 하 여 예측 가능한 앱 배포
-description: Azure 리소스 관리 템플릿 및 PowerShell 스크립팅을 사용 하 여 예측 가능한 방식으로 여러 Azure App Service 앱을 단일 단위로 배포 하는 방법에 대해 알아봅니다.
+title: ARM을 통해 예측 가능한 앱 배포
+description: Azure 리소스 관리 템플릿 및 PowerShell 스크립팅을 사용하여 여러 Azure 앱 서비스 앱을 단일 단위로 예측 가능한 방식으로 배포하는 방법을 알아봅니다.
 ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 01/06/2016
 ms.custom: seodec18
 ms.openlocfilehash: 62d0bf776b2d0c97d95b992ed6a1fd2a356e467a
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75967387"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Azure에서 마이크로 서비스를 예측 가능하게 프로비전 및 배포
@@ -41,8 +41,8 @@ Azure PowerShell 설치는 버전 0.8.0부터 Azure 모듈 외에도 Azure 리�
 
 자세한 내용은 [Azure 리소스 관리자로 Azure PowerShell 사용](../powershell-azure-resource-manager.md)
 
-### <a name="azure-resource-explorer"></a>Azure 리소스 탐색기
-이 [미리 보기 도구](https://resources.azure.com)를 사용하면 구독 및 개별 리소스에서 모든 리소스 그룹의 JSON 정의를 탐색할 수 있습니다. 도구에서 리소스의 JSON 정의를 편집하고 리소스의 전체 계층을 삭제하며 새 리소스를 만들 수 있습니다.  이 도구에서 쉽게 사용할 수 있는 정보는 특정 유형의 리소스, 올바른 값 등에 대해 설정 해야 하는 속성을 보여 주므로 템플릿 제작에 매우 유용 합니다. [Azure Portal](https://portal.azure.com/)에서 리소스 그룹을 만든 다음 탐색기 도구에서 해당 JSON 정의를 검사 하 여 리소스 그룹을 templatize 수 있습니다.
+### <a name="azure-resource-explorer"></a>Azure Resource Explorer
+이 [미리 보기 도구](https://resources.azure.com)를 사용하면 구독 및 개별 리소스에서 모든 리소스 그룹의 JSON 정의를 탐색할 수 있습니다. 도구에서 리소스의 JSON 정의를 편집하고 리소스의 전체 계층을 삭제하며 새 리소스를 만들 수 있습니다.  이 도구에서 쉽게 사용할 수 있는 정보는 특정 유형의 리소스, 올바른 값 등에 대해 설정해야 하는 속성을 보여 주므로 템플릿 작성에 매우 유용합니다. [Azure Portal에서](https://portal.azure.com/)리소스 그룹을 만든 다음 탐색기 도구에서 JSON 정의를 검사하여 리소스 그룹을 템플릿화할 수도 있습니다.
 
 ### <a name="deploy-to-azure-button"></a>Azure 단추에 배포
 소스 제어용 GitHub를 사용하는 경우 [Azure 단추에 배포](https://azure.microsoft.com/blog/2014/11/13/deploy-to-azure-button-for-azure-websites-2/) 를 README.MD에 배치하여 턴키 배포 UI를 Azure에 사용합니다. 간단한 모든 앱에 이 작업을 수행할 수 있지만, azuredeploy.json 파일을 리포지토리 루트에 배치하면 전체 리소스 그룹을 배포하도록 이를 확장할 수 있습니다. 리소스 그룹을 만들려면 Azure 단추에 배포하 여 리소스 그룹 템플릿을 포함하는 이 JSON 파일을 사용합니다. 예를 들어 [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) 샘플을 참조하여 이 자습서에서 사용합니다.
@@ -182,8 +182,8 @@ JSON에서 간단한 루트 수준 리소스부터 살펴보겠습니다. JSON �
 ## <a name="deploy-the-resource-group-template-yourself"></a>리소스 그룹 템플릿을 직접 배포
 **Azure에 배포** 단추는 유용하지만 GitHub에 azuredeploy.json를 이미 푸시한 경우에만 azuredeploy.json의 리소스 그룹 템플릿을 배포할 수 있습니다. 또한 Azure.NET SDK는 로컬 컴퓨터에서 직접 모든 JSON 템플릿 파일을 배포하는 도구를 제공 합니다. 이렇게 하려면 다음 단계를 수행하세요.
 
-1. Visual Studio에서 **파일** > **새로 만들기** > **프로젝트**를 클릭합니다.
-2. **Visual C#**  > **클라우드** > **Azure 리소스 그룹**을 클릭한 후에 **확인**을 클릭합니다.
+1. 비주얼 스튜디오에서 새**프로젝트** **파일** > 을**클릭합니다.** > 
+2. **시각적 C #** > **클라우드** > Azure 리소스**그룹을**클릭한 다음 **확인을**클릭합니다.
    
    ![](./media/app-service-deploy-complex-application-predictably/deploy-1-vsproject.png)
 3. **Azure 템플릿 선택**에서 **빈 템플릿**을 선택하고 **확인**을 클릭합니다.
@@ -209,7 +209,7 @@ JSON에서 간단한 루트 수준 리소스부터 살펴보겠습니다. JSON �
 11. `location` 및 `isEnabled` 속성을 찾아 아래와 같이 설정합니다. 다른 3 개의 경고(자주색 전구)에 대해 동일한 작업을 수행합니다.
     
     ![](./media/app-service-deploy-complex-application-predictably/deploy-7-alerts.png)
-12. 배포할 준비가 되었습니다. 프로젝트를 마우스 오른쪽 단추로 클릭하고 **배포** > **New 배포ment**을 참조하십시오.
+12. 배포할 준비가 되었습니다. 프로젝트를 마우스 오른쪽 단추로 클릭하고**새 배포** **배포를** > 선택합니다.
     
     ![](./media/app-service-deploy-complex-application-predictably/deploy-8-newdeployment.png)
 13. 아직 수행하지 않은 경우 Azure 계정에 로그인합니다.
@@ -228,7 +228,7 @@ JSON에서 간단한 루트 수준 리소스부터 살펴보겠습니다. JSON �
     > 자동 크기 조정은 **표준** 계층 이상에서 제공되는 기능이며 계획 수준 경고는 **기본** 계층 이상에서 제공되는 기능입니다. 모든 새 App Insights 리소스를 켜서 확인하기 위해서는 **sku** 매개 변수를 **표준** 또는 **프리미엄**으로 설정해야 합니다.
     > 
     > 
-16. **배포**을 참조하십시오. **암호 저장**을 선택한 경우, 암호가 **일반 텍스트에서** 매개 변수 파일에 저장됩니다. 그렇지 않은 경우 배포 프로세스 중에 데이터베이스 암호를 입력하라는 메시지가 표시됩니다.
+16. **배포**를 클릭합니다. **암호 저장**을 선택한 경우, 암호가 **일반 텍스트에서** 매개 변수 파일에 저장됩니다. 그렇지 않은 경우 배포 프로세스 중에 데이터베이스 암호를 입력하라는 메시지가 표시됩니다.
 
 끝났습니다. 이제 애플리케이션에 배포된 JSON에 추가된 도구를 새 경고 및 자동 크기 조정 설정을 보기 위해 [Azure Portal](https://portal.azure.com/) 및 [Azure Resource Explorer](https://resources.azure.com) 도구로 이동해야 합니다.
 
@@ -252,7 +252,7 @@ DevOps에서 반복성 및 예측 가능성은 마이크로 서비스로 구성�
 ## <a name="more-resources"></a>추가 리소스
 * [Azure 리소스 관리자 템플릿 언어](../azure-resource-manager/templates/template-syntax.md)
 * [Azure 리소스 관리자 템플릿 작성](../azure-resource-manager/templates/template-syntax.md)
-* [Azure 리소스 관리자 템플릿 함수](../azure-resource-manager/templates/template-functions.md)
+* [Azure 리소스 관리자 템플릿 기능](../azure-resource-manager/templates/template-functions.md)
 * [Azure 리소스 관리자 템플릿으로 애플리케이션 배포](../azure-resource-manager/templates/deploy-powershell.md)
 * [Azure 리소스 관리자로 Azure PowerShell 사용](../azure-resource-manager/powershell-azure-resource-manager.md)
 * [Azure에서 리소스 그룹 배포 문제 해결](../azure-resource-manager/templates/common-deployment-errors.md)
@@ -267,4 +267,4 @@ DevOps에서 반복성 및 예측 가능성은 마이크로 서비스로 구성�
 * [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms)
 * [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)
 * [Microsoft.Web/sites/slots](/azure/templates/microsoft.web/sites/slots)
-* [Microsoft.Insights/autoscalesettings](/azure/templates/microsoft.insights/autoscalesettings)
+* [마이크로소프트.인사이트/자동 스케일 설정](/azure/templates/microsoft.insights/autoscalesettings)

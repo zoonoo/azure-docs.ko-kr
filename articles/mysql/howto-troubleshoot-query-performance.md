@@ -1,17 +1,17 @@
 ---
-title: 쿼리 성능 문제 해결-Azure Database for MySQL
-description: 설명을 사용 하 여 Azure Database for MySQL에서 쿼리 성능 문제를 해결 하는 방법에 대해 알아봅니다.
+title: 쿼리 성능 문제 해결 - MySQL용 Azure 데이터베이스
+description: MYSQL용 Azure 데이터베이스에서 EXPLAIN를 사용하여 쿼리 성능 문제를 해결하는 방법을 알아봅니다.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: troubleshooting
-ms.date: 12/02/2019
-ms.openlocfilehash: 5bfefe3215558a94396e729a318e0746a4fb3aec
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: 6b27e47339b80cc46290065c4d17150a301f2534
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74764800"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80067835"
 ---
 # <a name="how-to-use-explain-to-profile-query-performance-in-azure-database-for-mysql"></a>EXPLAIN을 사용하여 Azure Database for MySQL에서 쿼리 성능을 프로파일링하는 방법
 **EXPLAIN**은 쿼리를 최적화하는 편리한 도구입니다. EXPLAIN 문은 SQL 문이 어떻게 실행되는지에 대한 정보를 얻는 데 사용할 수 있습니다. 다음 출력은 EXPLAIN 문의 실행 예제입니다.
@@ -120,7 +120,7 @@ possible_keys: covered
 위의 EXPLAIN에서 보면 MySQL은 이제 covered 인덱스를 사용하기 때문에 임시 테이블을 만들지 않아도 됩니다. 
 
 ## <a name="combined-index"></a>결합된 인덱스
-결합된 인덱스는 여러 열의 값으로 구성되며 인덱싱된 열의 값을 연결하여 정렬되는 행의 배열로 간주할 수 있습니다. 이 메서드는 **GROUP BY** 문에 유용할 수 있습니다.
+결합된 인덱스는 여러 열의 값으로 구성되며 인덱싱된 열의 값을 연결하여 정렬되는 행의 배열로 간주할 수 있습니다.이 메서드는 **GROUP BY** 문에 유용할 수 있습니다.
 
 ```sql
 mysql> EXPLAIN SELECT c1, c2 from tb1 WHERE c2 LIKE '%100' ORDER BY c1 DESC LIMIT 10\G
@@ -163,7 +163,7 @@ possible_keys: NULL
  
 ## <a name="conclusion"></a>결론
  
-EXPLAIN과 다른 유형의 인덱스를 사용하면 성능이 크게 향상될 수 있습니다. 테이블에 인덱스가 있으면 MySQL이이를 쿼리에 사용할 수 있다는 의미는 아닙니다. 항상 EXPLAIN을 사용하여 가정을 검증하고 인덱스를 사용하여 쿼리를 최적화하십시오.
+EXPLAIN과 다른 유형의 인덱스를 사용하면 성능이 크게 향상될 수 있습니다. 테이블에 인덱스가 있다고 해서 반드시 MySQL이 쿼리에 사용할 수 있는 것은 아닙니다. 항상 EXPLAIN을 사용하여 가정을 검증하고 인덱스를 사용하여 쿼리를 최적화하십시오.
 
 
 ## <a name="next-steps"></a>다음 단계

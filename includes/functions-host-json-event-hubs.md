@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
 ms.openlocfilehash: b5d8f67a70961aab21312b6f241081dcb33f66fb
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67181997"
 ---
 ```json
@@ -21,7 +21,7 @@ ms.locfileid: "67181997"
 }
 ```
 
-|자산  |Default | 설명 |
+|속성  |기본값 | 설명 |
 |---------|---------|---------| 
 |maxBatchSize|64|수신 루프 당 받은 최대 이벤트 수입니다.|
 |prefetchCount|해당 없음|기본 EventProcessorHost에서 사용할 기본 PrefetchCount입니다.| 

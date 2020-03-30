@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 19d2dedc2ccf7015696504a94f5ef7c43a90d3be
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67182400"
 ---
 #### <a name="to-download-hotfixes"></a>핫픽스를 다운로드하려면
 
 Microsoft 업데이트 카탈로그에서 소프트웨어 업데이트를 다운로드하려면 다음 단계를 수행합니다.
 
-1. Internet Explorer를 시작하고 [http://catalog.update.microsoft.com](https://catalog.update.microsoft.com)으로 이동합니다.
+1. 인터넷 익스플로러를 시작하고 로 이동합니다. [http://catalog.update.microsoft.com](https://catalog.update.microsoft.com)
 2. 이 컴퓨터에서 Microsoft 업데이트 카탈로그를 처음 사용하는 경우 Microsoft 업데이트 카탈로그 추가 기능을 설치하라는 메시지가 나타나면 **설치** 를 클릭합니다.
 
     ![카탈로그 설치](./media/storsimple-install-update2-hotfix/HCS_InstallCatalog-include.png)
@@ -26,7 +26,7 @@ Microsoft 업데이트 카탈로그에서 소프트웨어 업데이트를 다운
    
     ![카탈로그 검색](./media/storsimple-install-update5-hotfix/update-catalog-search.png)
 
-4. **다운로드**를 클릭합니다. 다운로드를 표시할 로컬 위치를 지정하거나 **검색** 합니다. 파일을 클릭하여 지정된 위치 및 폴더로 다운로드합니다. 디바이스에서 연결할 수 있는 네트워크 공유에 폴더도 복사할 수 있습니다.
+4. **다운로드**를 다운로드를 표시할 로컬 위치를 지정하거나 **검색** 합니다. 파일을 클릭하여 지정된 위치 및 폴더로 다운로드합니다. 디바이스에서 연결할 수 있는 네트워크 공유에 폴더도 복사할 수 있습니다.
 5. 위의 표에 나열된 추가 핫픽스(**4037266**)를 검색하고 해당 파일을 이전 표에 나열된 대로 특정 폴더에 다운로드합니다.
 
 > [!NOTE]
@@ -93,7 +93,7 @@ Microsoft 업데이트 카탈로그에서 소프트웨어 업데이트를 다운
     > [!NOTE]
     > 업데이트가 진행 중일 때 cmdlet에서 `False`를 보고하는 경우도 있습니다. 핫픽스가 완료되었는지 확인하려면 몇 분 동안 기다린 후 이 명령을 다시 실행하고 `RunInProgress`가 `False`인지 확인합니다. 맞으면 핫픽스가 완료된 것입니다.
 
-7. 소프트웨어 업데이트가 완료된 후 시스템 소프트웨어 버전을 확인합니다. 형식:
+7. 소프트웨어 업데이트가 완료된 후 시스템 소프트웨어 버전을 확인합니다. 유형:
    
     `Get-HcsSystem`
    
@@ -175,7 +175,7 @@ KB4037263을 사용하여 디스크 펌웨어 업데이트를 설치합니다. �
         [Y] Yes [N] No (Default is "Y"): Y
         WARNING: Installation is currently in progress. This operation can take several minutes to complete.
 3. `Get-HcsUpdateStatus` 명령을 사용하여 설치 진행률을 모니터링합니다. `RunInProgress`가 `False`로 변경되면 업데이트가 완료됩니다.
-4. 설치가 완료된 후에 유지 관리 모드 핫픽스가 설치된 컨트롤러가 다시 시작됩니다. 옵션 1, **모든 권한으로 로그인**으로 로그인하고 디스크 펌웨어 버전을 확인합니다. 형식:
+4. 설치가 완료된 후에 유지 관리 모드 핫픽스가 설치된 컨트롤러가 다시 시작됩니다. 옵션 1, **모든 권한으로 로그인**으로 로그인하고 디스크 펌웨어 버전을 확인합니다. 유형:
    
    `Get-HcsFirmwareVersion`
    

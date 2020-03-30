@@ -1,24 +1,24 @@
 ---
-title: 사용자 지정 C# 공급자 RESTful 끝점 참조
-description: Azure 사용자 지정 공급자 C# RESTful 끝점에 대 한 기본 참조를 제공 합니다. 끝점은 Azure 함수 앱을 통해 제공 됩니다.
+title: 사용자 지정 공급자 C# RESTful 끝점 참조
+description: Azure 사용자 지정 공급자 C# RESTful 끝점에 대 한 기본 참조를 제공 합니다. 끝점은 Azure 함수 앱을 통해 제공됩니다.
 ms.topic: conceptual
 ms.author: jobreen
 author: jjbfour
 ms.date: 06/20/2019
 ms.openlocfilehash: b6ecb22cb968e0d963242c8c2d5dd1a6cb24229c
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75651177"
 ---
-# <a name="custom-provider-c-restful-endpoint-reference"></a>사용자 지정 C# 공급자 RESTful 끝점 참조
+# <a name="custom-provider-c-restful-endpoint-reference"></a>사용자 지정 공급자 C# RESTful 끝점 참조
 
 이 문서는 사용자 지정 공급자 C# RESTful 끝점에 대 한 기본 참조입니다. Azure 사용자 지정 공급자에 익숙하지 않은 경우 [사용자 지정 리소스 공급자에 대한 개요](overview.md)를 참조하세요.
 
 ## <a name="azure-function-app-restful-endpoint"></a>Azure 함수 앱 RESTful 끝점
 
-다음 코드는 Azure 함수 앱과 함께 작동 합니다. Azure 사용자 지정 공급자를 사용 하도록 Azure 함수 앱을 설정 하는 방법을 알아보려면 [Azure 사용자 지정 공급자에 대 한 Azure Functions 설정에 대 한 자습서](./tutorial-custom-providers-function-setup.md)를 참조 하세요.
+다음 코드는 Azure 함수 앱에서 작동합니다. Azure 사용자 지정 공급자와 함께 작동하도록 Azure 함수 앱을 설정하는 방법에 대해 알아보려면 [Azure 사용자 지정 공급자에 대한 Azure 함수 설정에 대한 자습서를](./tutorial-custom-providers-function-setup.md)참조하세요.
 
 ```csharp
 #r "Newtonsoft.Json"
@@ -255,7 +255,7 @@ public static async Task<HttpResponseMessage> RemoveCustomResource(HttpRequestMe
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure 사용자 지정 리소스 공급자 개요](overview.md)
-- [자습서: Azure 사용자 지정 리소스 공급자 만들기 및 사용자 지정 리소스 배포](./create-custom-provider.md)
+- [Azure 사용자 지정 리소스 공급자 의 개요](overview.md)
+- [자습서: Azure 사용자 지정 리소스 공급자를 만들고 사용자 지정 리소스배포](./create-custom-provider.md)
 - [방법: Azure REST API에 사용자 지정 작업 추가](./custom-providers-action-endpoint-how-to.md)
 - [참조: 사용자 지정 리소스 캐시 참조](proxy-cache-resource-endpoint-reference.md)

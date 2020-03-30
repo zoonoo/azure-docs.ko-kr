@@ -9,17 +9,17 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 0014b67443797f45de51ec1bc459f71bde55cdc9
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75774433"
 ---
-다음 예에서는 시애틀에서 Exchange 연결을 만드는 방법을 보여 줍니다. 다른 공급자와 다른 설정을 사용하는 경우, 요청을 수행할 때 해당 정보를 대체합니다.
+다음 예제에서는 시애틀의 Equinix 인터넷 교환에서 Exchange 연결을 만드는 방법을 보여 주며 있습니다. 다른 공급자와 다른 설정을 사용하는 경우, 요청을 수행할 때 해당 정보를 대체합니다.
 
-PowerShell cmdlet **AzPeeringExchangeConnectionObject** 를 사용 하 여 새 피어 링 요청을 생성 하는 데 사용 되는 Powershell 연결 개체를 만듭니다.
+PowerShell cmdlet **New-AzPeeringExchangeExchangeObject를** 사용하여 새 피어링 요청을 생성하는 데 사용되는 PowerShell 연결 개체를 만듭니다.
 
-Exchange 연결을 만드는 예는 다음과 같습니다.
+다음은 Exchange 연결을 만드는 예제입니다.
 
 ```powershell
 $connection1 = New-AzPeeringExchangeConnectionObject `
@@ -30,7 +30,7 @@ $connection1 = New-AzPeeringExchangeConnectionObject `
     -MaxPrefixesAdvertisedIPv6 2000 `
 ```
 
-지정 된 피어 링 위치에서 중복성이 필요한 경우 다른 연결을 만듭니다.
+지정된 피어링 위치에서 중복성이 필요한 경우 다른 연결을 만듭니다.
 
 ```powershell
 $connection2 = New-AzPeeringExchangeConnectionObject `
@@ -41,7 +41,7 @@ $connection2 = New-AzPeeringExchangeConnectionObject `
     -MaxPrefixesAdvertisedIPv6 2000 `
 ```
 
-PowerShell cmdlet **AzPeering** 를 사용 하 여 새 Exchange 피어 링을 만들 수 있습니다.
+PowerShell cmdlet **New-AzPeering을** 사용하여 새 Exchange 피어링을 만들 수 있습니다.
 
 ```powershell
 $asn = Get-AzPeerAsn
@@ -54,7 +54,7 @@ New-AzPeering `
 ```
 &nbsp;
 
-다음은 하나의 연결을 사용 하 여 요청을 실행 한 경우의 예제 응답입니다.
+다음은 하나의 연결을 사용하여 요청이 실행되었을 때의 예제 응답입니다.
 
 ```powershell
 
@@ -73,10 +73,10 @@ Tags              : {}
 ```
 
 > [!IMPORTANT]
-> Microsoft에서 요청 된 피어 링 프로 비전을 시작 하 고 `ConnectionState`는 진행 상황을 반영 합니다.
-> 관련 단계를 프로 비전 하려면 [Exchange 피어 링 연습](../walkthrough-exchange-all.md) 문서를 참조 하세요.
+> Microsoft는 요청된 피어링 프로비저닝을 시작하고 진행 상황을 `ConnectionState` 반영합니다.
+> 관련 단계를 프로비전하려면 [Exchange 피어링 연습](../walkthrough-exchange-all.md) 문서를 참조하십시오.
 
-다음과 같이 ConnectionState를 확인할 수 있습니다.
+아래와 같이 ConnectionState를 확인할 수 있습니다.
 
 ```powershell
 

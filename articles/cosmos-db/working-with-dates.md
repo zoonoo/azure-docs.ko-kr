@@ -1,27 +1,27 @@
 ---
 title: Azure Cosmos DB에서 날짜 사용
-description: Azure Cosmos DB에서 DataTime 개체를 저장, 인덱싱 및 쿼리 하는 방법에 대해 알아봅니다.
+description: Azure Cosmos DB에서 DataTime 개체를 저장, 인덱싱 및 쿼리하는 방법에 대해 알아봅니다.
 ms.service: cosmos-db
 author: SnehaGunda
 ms.author: sngun
 ms.topic: conceptual
 ms.date: 03/03/2020
 ms.openlocfilehash: 92fa35fbe8e5eef4dbdc8b6c47a9055affd449a5
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78273197"
 ---
 # <a name="working-with-dates-in-azure-cosmos-db"></a>Azure Cosmos DB에서 날짜 사용
 
 Azure Cosmos DB는 네이티브 [JSON](https://www.json.org) 데이터 모델을 통해 스키마 유연성과 풍부한 인덱싱을 제공합니다. 데이터베이스, 컨테이너, 문서 및 저장 프로시저를 포함한 모든 Azure Cosmos DB 리소스는 모델링되어 JSON 문서로 저장됩니다. 이식 가능성을 위한 요구 사항인 JSON(및 Azure Cosmos DB)은 String, Number, Boolean, Array, Object 및 Null과 같은 기본 형식만 지원합니다. 그러나 JSON은 유연하므로 개발자와 프레임워크는 이러한 기본형을 사용하여 개체 또는 배열로 구성하여 보다 복잡한 형식을 나타낼 수 있습니다.
 
-기본 형식 외에도 많은 응용 프로그램에서 날짜 및 타임 스탬프를 나타내는 DateTime 형식이 필요 합니다. 이 문서에서는 개발자가 .NET SDK를 사용하여 Azure Cosmos DB에서 날짜를 저장, 검색 및 쿼리하는 방법에 대해 설명합니다.
+기본형 외에도 많은 애플리케이션에는 날짜 및 타임스탬프를 나타내기 위해 DateTime 형식이 필요합니다. 이 문서에서는 개발자가 .NET SDK를 사용하여 Azure Cosmos DB에서 날짜를 저장, 검색 및 쿼리하는 방법에 대해 설명합니다.
 
 ## <a name="storing-datetimes"></a>날짜/시간 저장
 
-Azure Cosmos DB는-string, number, boolean, null, array, object 등의 JSON 형식을 지원 합니다. DateTime 형식을 직접 지원 하지 않습니다. 현재 Azure Cosmos DB는 날짜 지역화를 지원 하지 않습니다. 따라서 DateTimes를 문자열로 저장 해야 합니다. Azure Cosmos DB의 DateTime 문자열에 권장 되는 형식은 ISO 8601 UTC 표준을 따르는 `YYYY-MM-DDThh:mm:ss.sssZ`입니다. Azure Cosmos DB의 모든 날짜를 UTC로 저장 하는 것이 좋습니다. 날짜 문자열을이 형식으로 변환 하면 날짜를 사전순으로 정렬할 수 있습니다. 비 UTC 날짜를 저장 한 경우에는 클라이언트 쪽에서 논리를 처리 해야 합니다. 현지 DateTime을 UTC로 변환 하려면 오프셋을 JSON에서 속성으로 인식/저장 해야 하며 클라이언트는 오프셋을 사용 하 여 UTC DateTime 값을 계산할 수 있습니다.
+Azure Cosmos DB는 문자열, 숫자, 부울, null, 배열, 개체 와 같은 JSON 형식을 지원합니다. DateTime 형식을 직접 지원하지는 않습니다. 현재 Azure Cosmos DB는 날짜의 현지화를 지원하지 않습니다. 따라서 DateTimes를 문자열로 저장해야 합니다. Azure Cosmos DB의 DateTime 문자열에 `YYYY-MM-DDThh:mm:ss.sssZ` 권장되는 형식은 ISO 8601 UTC 표준을 따르는 형식입니다. Azure 코스모스 DB에 모든 날짜를 UTC로 저장하는 것이 좋습니다. 날짜 문자열을 이 형식으로 변환하면 날짜를 사전으로 정렬할 수 있습니다. UTC가 아닌 날짜가 저장되는 경우 클라이언트 측에서 논리를 처리해야 합니다. 로컬 DateTime을 UTC로 변환하려면 오프셋을 JSON의 속성으로 알고 저장해야 하며 클라이언트는 오프셋을 사용하여 UTC DateTime 값을 계산할 수 있습니다.
 
 대부분의 애플리케이션에서는 다음과 같은 이유로 DateTime의 기본 문자열 표현을 사용할 수 있습니다.
 
@@ -30,7 +30,7 @@ Azure Cosmos DB는-string, number, boolean, null, array, object 등의 JSON 형�
 * JSON에 저장된 날짜는 사람이 읽을 수 있습니다.
 * 이 접근 방식은 빠른 쿼리 성능을 위해 Azure Cosmos DB의 인덱스를 활용할 수 있습니다.
 
-예를 들어 다음 코드 조각에서는 .NET SDK를 사용하여 두 가지 DateTime 속성(`Order` 및 `ShipDate`)을 문서로 포함하는 `OrderDate` 개체를 저장합니다.
+예를 들어 다음 코드 조각에서는 .NET SDK를 사용하여 두 가지 DateTime 속성(`ShipDate` 및 `OrderDate`)을 문서로 포함하는 `Order` 개체를 저장합니다.
 
 ```csharp
     public class Order
@@ -67,23 +67,23 @@ Azure Cosmos DB는-string, number, boolean, null, array, object 등의 JSON 형�
 
 ## <a name="querying-datetimes-in-linq"></a>LINQ에서 날짜/시간 쿼리
 
-SQL .NET SDK는 LINQ를 통해 Azure Cosmos DB에 저장된 데이터의 쿼리를 자동으로 지원합니다. 예를 들어, 다음 코드 조각은 지난 3 일간 배송 된 주문을 필터링 하는 LINQ 쿼리를 보여 줍니다.
+SQL .NET SDK는 LINQ를 통해 Azure Cosmos DB에 저장된 데이터의 쿼리를 자동으로 지원합니다. 예를 들어 다음 코드 조각에는 지난 3일 동안 제공된 주문을 필터링하는 LINQ 쿼리가 표시됩니다.
 
 ```csharp
     IQueryable<Order> orders = container.GetItemLinqQueryable<Order>(allowSynchronousQueryExecution: true).Where(o => o.ShipDate >= DateTime.UtcNow.AddDays(-3));
 ```
 
-다음 SQL 문으로 변환 되 고 Azure Cosmos DB에서 실행 됩니다.
+다음 SQL 문으로 변환되어 Azure Cosmos DB에서 실행됩니다.
 
 ```sql
     SELECT * FROM root WHERE (root["ShipDate"] >= "2016-12-18T21:55:03.45569Z")
 ```
 
-[Linq에서 Cosmos DB를 쿼리하면](sql-query-linq-to-sql.md)AZURE COSMOS DB의 SQL 쿼리 언어와 linq 공급자에 대해 자세히 알아볼 수 있습니다.
+Azure Cosmos DB의 SQL 쿼리 언어 및 [LINQ](sql-query-linq-to-sql.md)공급자에 대해 자세히 알아볼 수 있습니다.
 
 ## <a name="indexing-datetimes-for-range-queries"></a>범위 쿼리의 날짜/시간 인덱싱
 
-쿼리는 DateTime 값에 공통적으로 사용 됩니다. 이러한 쿼리를 효율적으로 실행 하려면 쿼리 필터의 모든 속성에 인덱스를 정의 해야 합니다.
+쿼리는 DateTime 값과 공통적입니다. 이러한 쿼리를 효율적으로 실행하려면 쿼리 필터의 모든 속성에 정의된 인덱스가 있어야 합니다.
 
 [Azure Cosmos DB 인덱싱 정책](index-policy.md)에서 인덱싱 정책을 구성하는 방법에 대해 자세히 알아볼 수 있습니다. 
 

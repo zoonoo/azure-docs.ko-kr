@@ -1,15 +1,15 @@
 ---
-title: Azure Service Fabric에서 행위자 열거
-description: 예제를 사용 하 여 Azure Service Fabric 응용 프로그램에서 Reliable Actors 및 해당 메타 데이터 열거에 대해 알아봅니다.
+title: Azure 서비스 패브릭에서 액터 를 돋우기
+description: 예제를 사용하여 Azure 서비스 패브릭 응용 프로그램에서 신뢰할 수 있는 행위자 및 해당 메타데이터의 열거에 대해 알아봅니다.
 author: vturecek
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: vturecek
 ms.openlocfilehash: 1516c9005a7c4dd0adcb279e9954e5f882c575c1
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75645602"
 ---
 # <a name="enumerate-service-fabric-reliable-actors"></a>Service Fabric Reliable Actors 열거

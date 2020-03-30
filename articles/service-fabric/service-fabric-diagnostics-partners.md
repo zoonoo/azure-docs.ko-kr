@@ -1,15 +1,15 @@
 ---
 title: Azure Service Fabric 모니터링 파트너
-description: 파트너 모니터링 솔루션을 사용 하 여 Azure Service Fabric 응용 프로그램, 클러스터 및 인프라를 모니터링 하는 방법을 알아봅니다.
+description: 파트너 모니터링 솔루션을 사용하여 Azure Service Fabric 응용 프로그램, 클러스터 및 인프라를 모니터링하는 방법을 알아봅니다.
 author: srrengar
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: srrengar
 ms.openlocfilehash: fd24d65ebdf4e458870819286024d1ea2e13d83e
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75645721"
 ---
 # <a name="azure-service-fabric-monitoring-partners"></a>Azure Service Fabric 모니터링 파트너
@@ -18,7 +18,7 @@ ms.locfileid: "75645721"
 
 ## <a name="dynatrace"></a>Dynatrace
 
-Dynatrace와의 통합은 Service Fabric 클러스터를 모니터링하는 대부분의 기본 제공 기능을 제공합니다. VMSS 인스턴스에 Dynatrace OneAgent를 설치하면 해당 앱 수준까지 성능 카운터 및 Service Fabric 배포의 토폴로지를 제공합니다. Dynatrace는 온-프레미스 모니터링에도 적합합니다. 클러스터에서 Dynatrace를 사용 하도록 설정 하려면 [공지 사항](https://www.dynatrace.com/news/blog/automatic-end-to-end-service-fabric-monitoring-with-dynatrace/) 및 [지침](https://www.dynatrace.com/news/blog/automatic-end-to-end-service-fabric-monitoring-with-dynatrace/) 에 나열 된 기능을 자세히 확인 하세요. 
+Dynatrace와의 통합은 Service Fabric 클러스터를 모니터링하는 대부분의 기본 제공 기능을 제공합니다. VMSS 인스턴스에 Dynatrace OneAgent를 설치하면 해당 앱 수준까지 성능 카운터 및 Service Fabric 배포의 토폴로지를 제공합니다. Dynatrace는 온-프레미스 모니터링에도 적합합니다. [클러스터에서](https://www.dynatrace.com/news/blog/automatic-end-to-end-service-fabric-monitoring-with-dynatrace/) Dynatrace를 사용하도록 설정하는 공지 사항 및 [지침에](https://www.dynatrace.com/news/blog/automatic-end-to-end-service-fabric-monitoring-with-dynatrace/) 나열된 더 많은 기능을 확인하십시오. 
 
 ## <a name="datadog"></a>Datadog
 
@@ -34,11 +34,11 @@ New Relic은 Service Fabric 애플리케이션과 잘 통합되는 다른 애플
 
 ## <a name="elk"></a>ELK 
 
-ELK 스택은 오픈 소스 기술 (Elasticsearch, Logstash 및 Kibana)의 컬렉션입니다. 이러한 기술을 함께 사용 하 여 Service Fabric 모니터링 및 진단 데이터를 수집, 저장 및 분석할 수 있습니다. [여기](service-fabric-tutorial-java-elk.md)에 Service Fabric 네이티브 Java 애플리케이션을 사용하여 이 작업을 수행하는 방법에 대한 자습서가 있습니다. 
+ELK 스택은 Elasticsearch, Logstash 및 Kibana와 같은 오픈 소스 기술의 모음입니다. 이러한 기술을 조합하여 사용하면 서비스 패브릭 모니터링 및 진단 데이터를 수집, 저장 및 분석할 수 있습니다. [여기](service-fabric-tutorial-java-elk.md)에 Service Fabric 네이티브 Java 애플리케이션을 사용하여 이 작업을 수행하는 방법에 대한 자습서가 있습니다. 
 
-## <a name="humio"></a>Humio
+## <a name="humio"></a>후미오 섬
 
-Humio은 클라우드 또는 온-프레미스의 Service Fabric에서 응용 프로그램 및 이벤트의 로그를 실시간으로 수집할 수 있는 로그 수집 서비스입니다. Live 관찰성 외에도 Humio는 진단 정보를 보고 수집 하기 위한 최신 분석 및 시각화 기능을 제공 합니다. Humio는 비용 효율적인 요금제를 보유 하 고 있으며 빠른 속도를 유지 하면서 확장할 수 있습니다. Service Fabric 플랫폼 이벤트와 응용 프로그램 원격 분석과 직접 통합 됩니다. [여기](https://github.com/humio/service-fabric-humio)에서 Humio 및 Service Fabric 통합에 대해 자세히 알아볼 수 있습니다.
+Humio는 클라우드 또는 온-프레미스의 Service Fabric에서 응용 프로그램 및 이벤트에서 로그를 실시간으로 수집할 수 있는 로그 수집 서비스입니다. Humio는 실시간 관찰 기능 외에도 진단 에서 정보를 보고 수집할 수 있는 최첨단 분석 및 시각화 기능을 제공합니다. Humio는 비용 효율적인 가격 책정 계획을 가지고 있으며 빠른 속도를 유지하면서 확장하도록 제작되었습니다. 서비스 패브릭 플랫폼 이벤트 및 응용 프로그램 원격 분석과 직접 통합됩니다. 휴미오 및 서비스 패브릭 통합에 대한 자세한 내용은 여기에서 확인할 수 [있습니다.](https://github.com/humio/service-fabric-humio)
 
 ## <a name="next-steps"></a>다음 단계
 
