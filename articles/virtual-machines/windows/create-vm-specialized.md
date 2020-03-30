@@ -1,5 +1,5 @@
 ---
-title: Azure의 특수 한 VHD에서 Windows VM 만들기
+title: Azure의 특수 VHD에서 Windows VM 만들기
 description: Resource Manager 배포 모델을 사용하여 특수한 관리 디스크를 OS 디스크로 연결하여 새 Windows VM을 만듭니다.
 services: virtual-machines-windows
 author: cynthn
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 10/10/2019
 ms.author: cynthn
 ms.openlocfilehash: fc157c2253a718860e028fa493574cb9aa2ccdf2
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79243368"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>PowerShell을 사용하여 특수 디스크에서 Windows VM 만들기
@@ -33,9 +33,9 @@ ms.locfileid: "79243368"
 
 Azure Portal을 사용하여 [특수 VHD에서 새 VM을 만들](create-vm-specialized-portal.md) 수도 있습니다.
 
-이 문서에서는 관리 디스크를 사용하는 방법을 보여줍니다. 스토리지 계정을 사용해야 하는 레거시 배포가 있는 경우 [스토리지 계정의 특수한 VHD에서 VM 만들기](sa-create-vm-specialized.md)를 참조하세요.
+이 문서에서는 관리 디스크를 사용하는 방법을 보여줍니다. 저장소 계정을 사용 해야 하는 레거시 배포가 있는 경우 [저장소 계정의 특수VHD에서 VM 만들기를](sa-create-vm-specialized.md)참조합니다.
 
-단일 VHD 또는 스냅숏에서 최대 20 개의 Vm에 대 한 동시 배포 수를 제한 하는 것이 좋습니다. 
+단일 VHD 또는 스냅숏에서 동시 배포 수를 20VM로 제한하는 것이 좋습니다. 
 
 ## <a name="option-1-use-an-existing-disk"></a>옵션 1: 기존 디스크 사용
 
@@ -57,20 +57,20 @@ Hyper-V와 같은 온-프레미스 가상화 도구를 사용하여 만든 특�
 ### <a name="prepare-the-vm"></a>VM 준비
 VHD를 그대로 사용하여 새 VM을 만듭니다. 
   
-  * [Azure에 업로드할 Windows VHD를 준비합니다](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Sysprep을 사용하여 VM을 일반화하지 **마십시오**.
+  * [Azure에 업로드할 Windows VHD를 준비합니다.](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) Sysprep을 사용하여 VM을 일반화하지 **마십시오**.
   * VM에 설치된 에이전트 및 모든 게스트 가상화 도구를 제거합니다(예: VMware 도구).
   * VM이 DHCP를 통해 IP 주소 및 DNS 설정을 가져오도록 구성되었는지 확인합니다. 이렇게 하면 서버를 시작할 때 가상 네트워크 내의 IP 주소를 가져옵니다. 
 
 
 ### <a name="upload-the-vhd"></a>VHD 업로드
 
-이제 VHD를 관리 디스크로 직접 업로드할 수 있습니다. 지침은 [Azure PowerShell를 사용 하 여 Azure에 VHD 업로드](disks-upload-vhd-to-managed-disk-powershell.md)를 참조 하세요.
+이제 VHD를 관리 디스크에 바로 업로드할 수 있습니다. 지침은 Azure [PowerShell을 사용하여 Azure에 VHD 업로드를](disks-upload-vhd-to-managed-disk-powershell.md)참조하십시오.
 
 ## <a name="option-3-copy-an-existing-azure-vm"></a>옵션 3: 기존 Azure VM 복사
 
 VM의 스냅샷을 만든 다음, 이 스냅샷을 사용하여 새 관리 디스크 및 새 VM을 만드는 방식으로 관리 디스크를 사용하는 VM의 복사본을 만들 수 있습니다.
 
-기존 VM을 다른 지역에 복사 하려는 경우 azcopy를 사용 하 여 [다른 지역에 디스크의 복사본을 만들](disks-upload-vhd-to-managed-disk-powershell.md#copy-a-managed-disk)수 있습니다. 
+기존 VM을 다른 지역으로 복사하려면 azcopy를 사용하여 다른 [지역에서 디스크의 복사본을 만들](disks-upload-vhd-to-managed-disk-powershell.md#copy-a-managed-disk)수 있습니다. 
 
 ### <a name="take-a-snapshot-of-the-os-disk"></a>OS 디스크의 스냅샷 만들기
 
@@ -118,7 +118,7 @@ $snapShot = New-AzSnapshot `
 ```
 
 
-이 스냅숏을 사용 하 여 높은 성능을 필요로 하는 VM을 만들려면 AzSnapshotConfig 명령에 `-AccountType Premium_LRS` 매개 변수를 추가 합니다. 이 매개 변수는 스냅샷을 만들어서 프리미엄 관리 디스크로 저장되도록 합니다. 프리미엄 관리 디스크는 표준보다 비용이 높으므로 이 매개 변수를 사용하기 전에 프리미엄이 필요한지 확인하세요.
+이 스냅숏을 사용하여 고성능이어야 하는 VM을 만들려면 `-AccountType Premium_LRS` New-AzSnapshotConfig 명령에 매개 변수를 추가합니다. 이 매개 변수는 스냅샷을 만들어서 프리미엄 관리 디스크로 저장되도록 합니다. 프리미엄 관리 디스크는 표준보다 비용이 높으므로 이 매개 변수를 사용하기 전에 프리미엄이 필요한지 확인하세요.
 
 ### <a name="create-a-new-disk-from-the-snapshot"></a>스냅샷에서 새 디스크 만들기
 
@@ -226,7 +226,7 @@ $nsg = New-AzNetworkSecurityGroup `
 
 ### <a name="set-the-vm-name-and-size"></a>VM 이름 및 크기 설정
 
-이 예에서는 VM 이름을 *myVM*으로 설정하고 VM 크기를 *Standard_A2*로 설정합니다.
+이 예제에서 vM 이름을 *myVM으로* 설정하고 VM 크기를 *Standard_A2.*
 
 ```powershell
 $vmName = "myVM"
@@ -267,7 +267,7 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 ```
 
 ### <a name="verify-that-the-vm-was-created"></a>VM이 만들어졌는지 확인
-새로 만든 VM은 [Azure Portal](https://portal.azure.com)에서 **찾아보기** > **가상 머신**에 표시되며 다음 PowerShell 명령을 사용해도 표시할 수 있습니다.
+새로 만든 VM은**가상 검색 컴퓨터** **아래의** > Azure [포털에서](https://portal.azure.com) 또는 다음 PowerShell 명령을 사용하여 표시됩니다.
 
 ```powershell
 $vmList = Get-AzVM -ResourceGroupName $destinationResourceGroup
