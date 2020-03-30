@@ -1,14 +1,14 @@
 ---
 title: Azure Marketplace의 관리형 서비스 솔루션
 description: 관리형 서비스를 통해 서비스 공급자는 Azure Marketplace에서 고객에게 리소스 관리 제품을 판매할 수 있습니다.
-ms.date: 12/16/2019
+ms.date: 03/17/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1b4f0d7457a74afe710a48f429cfe47535a9b122
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2d6e39f753736c0582e9d91870a99b66ae41255b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453578"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79500793"
 ---
 # <a name="managed-services-offers-in-azure-marketplace"></a>Azure Marketplace의 관리형 서비스 솔루션
 
@@ -22,7 +22,7 @@ ms.locfileid: "75453578"
 
 ## <a name="public-and-private-offers"></a>퍼블릭 및 프라이빗 제품
 
-각 관리형 서비스 제품에는 하나 이상의 플랜이 포함됩니다. 요금제는 개인 또는 공용 일 수 있습니다. 
+각 관리형 서비스 제품에는 하나 이상의 플랜이 포함됩니다. 계획은 비공개 또는 공개 일 수 있습니다. 
 
 특정 고객으로 제품을 제한하려는 경우 프라이빗 플랜을 게시할 수 있습니다. 이렇게 하면 사용자가 제공하는 특정 구독 ID에 대해서만 플랜을 구매할 수 있습니다. 자세한 내용은 [프라이빗 제품](../../marketplace/private-offers.md)을 참조하세요.
 
@@ -31,7 +31,7 @@ ms.locfileid: "75453578"
 적절한 경우 퍼블릭 및 프라이빗 플랜을 모두 동일한 제품에 포함할 수 있습니다.
 
 > [!IMPORTANT]
-> 계획이 공개로 게시 되 면 비공개로 변경할 수 없습니다. 제품을 수락 하 고 리소스를 위임할 수 있는 고객을 제어 하려면 비공개 요금제를 사용 합니다. 공개 계획을 사용 하면 특정 고객 또는 특정 수의 고객에 대 한 가용성을 제한할 수 없습니다 (이렇게 선택 하는 경우 계획을 완전히 판매 하지 않을 수 있음). 고객이 제품을 수락한 후에는 현재 고객에 게 연락 하 여 [액세스 권한을 제거](../how-to/view-manage-service-providers.md#add-or-remove-service-provider-offers)하도록 요청할 수 있는 경우에도 위임을 거부 하거나 제거할 수 있는 메커니즘이 없습니다.
+> 계획이 공개로 게시된 후에는 비공개로 변경할 수 없습니다. 제안을 수락하고 리소스를 위임할 수 있는 고객을 제어하려면 개인 요금제(개인 요금제)를 사용합니다. 공개 요금제의 경우 특정 고객 또는 특정 수의 고객으로의 가용성을 제한할 수 없습니다(요금제 판매를 완전히 중단할 수 있음). 고객이 오퍼를 수락한 후에는 오퍼를 게시할 때 [관리되는 서비스 등록 할당 삭제 역할로](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) 설정된 **역할 정의에** **대한 권한 부여를** 포함한 경우에만 [위임에 대한 액세스를 제거할](../how-to/onboard-customer.md#remove-access-to-a-delegation) 수 있습니다. 고객에게 연락하여 액세스 권한을 제거하도록 요청할 수도 [있습니다.](../how-to/view-manage-service-providers.md#add-or-remove-service-provider-offers)
 
 ## <a name="publish-managed-service-offers"></a>관리형 서비스 제품 게시
 

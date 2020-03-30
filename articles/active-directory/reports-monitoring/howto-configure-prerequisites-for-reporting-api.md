@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory 보고 API에 대 한 필수 구성 요소 | Microsoft Docs
+title: Azure Active Directory 보고 API에 대한 필수 구성 조건 | 마이크로 소프트 문서
 description: Azure AD Reporting API에 액세스하기 위한 필수 구성 요소에 대해 알아보기
 services: active-directory
 documentationcenter: ''
@@ -18,15 +18,15 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 12abfc0d345c937ae886f9bfacfb8ce30227cc45
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78399300"
 ---
 # <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>Azure Active Directory reporting API에 액세스하기 위한 필수 구성 요소
 
-[Azure AD(Azure Active Directory) Reporting API](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-reporting-api)는 일련의 REST 기반 API를 통해 데이터에 프로그래밍 방식으로 액세스합니다. 프로그래밍 언어 및 도구에서 이러한 Api를 호출할 수 있습니다.
+[Azure AD(Azure Active Directory) Reporting API](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-reporting-api)는 일련의 REST 기반 API를 통해 데이터에 프로그래밍 방식으로 액세스합니다. 프로그래밍 언어 및 도구에서 이러한 API를 호출할 수 있습니다.
 
 Reporting API는 [OAuth](https://docs.microsoft.com/azure/api-management/api-management-howto-protect-backend-with-aad) 를 사용하여 Web API에 대한 액세스 권한을 부여합니다.
 
@@ -50,9 +50,9 @@ API를 통해 보고 데이터에 액세스하려면 다음 역할 중 하나를
 
 ## <a name="register-an-application"></a>애플리케이션 등록
 
-스크립트를 사용 하 여 보고 API에 액세스 하는 경우에도 등록이 필요 합니다. 등록은 권한 부여 호출에 필요한 **응용 프로그램 ID**를 제공 하며 코드에서 토큰을 받을 수 있도록 합니다.
+스크립트를 사용하여 보고 API에 액세스하는 경우에도 등록이 필요합니다. 등록은 권한 부여 호출에 필요한 **응용 프로그램 ID를**제공하고 코드가 토큰을 받을 수 있도록 합니다.
 
-Azure AD 보고 API에 액세스하도록 디렉터리를 구성하려면 Azure AD 테넌트에서 [글로벌 관리자](https://portal.azure.com) 디렉터리 역할의 멤버이기도 한 Azure 관리자 계정을 사용하여 **Azure Portal**에 로그인해야 합니다.
+Azure AD 보고 API에 액세스하도록 디렉터리를 구성하려면 Azure AD 테넌트에서 **글로벌 관리자** 디렉터리 역할의 멤버이기도 한 Azure 관리자 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인해야 합니다.
 
 > [!IMPORTANT]
 > 이 같은 관리자 권한이 있는 자격 증명 하에서 실행 중인 애플리케이션은 매우 강력할 수 있으므로, 애플리케이션의 ID 및 비밀 자격 증명을 안전하게 보관해야 합니다.
@@ -68,7 +68,7 @@ Azure AD 보고 API에 액세스하도록 디렉터리를 구성하려면 Azure 
 
     ![애플리케이션 등록](./media/howto-configure-prerequisites-for-reporting-api/02.png) 
 
-3. **앱 등록** 페이지에서 **새 등록**을 선택 합니다.
+3. 앱 등록 페이지에서 새 **등록을** **선택합니다.**
 
     ![애플리케이션 등록](./media/howto-configure-prerequisites-for-reporting-api/03.png)
 
@@ -78,11 +78,11 @@ Azure AD 보고 API에 액세스하도록 디렉터리를 구성하려면 Azure 
 
     a. **이름** 텍스트 상자에서 `Reporting API application`을 입력합니다.
 
-    b. **지원 되는 계정 유형**으로 **이 조직 에서만 계정을**선택 합니다.
+    b. **지원되는 거래처 유형의**경우 **이 조직에서만 계정을**선택합니다.
 
-    c. **리디렉션 URL** 선택 **웹** 텍스트 상자에 `https://localhost`을 입력 합니다.
+    다. 리디렉션 **URL에서** **웹** 텍스트 상자를 `https://localhost`선택하고 을 입력합니다.
 
-    . **등록**을 선택합니다. 
+    d. **등록을**선택합니다. 
 
 
 ## <a name="grant-permissions"></a>권한 부여 
@@ -102,23 +102,23 @@ Azure AD 보고 API에 액세스하도록 디렉터리를 구성하려면 Azure 
 **API를 사용하도록 애플리케이션에 권한을 부여하려면:**
 
 
-1. **API 사용 권한을** 선택한 다음 **사용 권한을 추가**합니다. 
+1. **API 권한을** 선택한 다음 사용 **권한을 추가합니다.** 
 
     ![애플리케이션 등록](./media/howto-configure-prerequisites-for-reporting-api/05.png)
 
-2. **Api 권한 요청 페이지**에서 **지원 레거시 API** **Azure Active Directory 그래프**를 찾습니다. 
+2. API **사용 권한 요청 페이지에서** **지원 레거시 API** Azure **Active Directory 그래프를**찾습니다. 
 
     ![애플리케이션 등록](./media/howto-configure-prerequisites-for-reporting-api/06.png)
 
-3. **필요한 권한** 페이지에서 **응용 프로그램 사용 권한**을 선택 하 고 **디렉터리** 확인란 디렉터리를 확장 **합니다. readall**을 선택 합니다.  **권한 추가**를 선택합니다.
+3. 필수 **권한** 페이지에서 응용 **프로그램 권한,** **디렉터리** 확인란 확장 **디렉터리 디렉토리.ReadAll**을 선택합니다.  **권한 추가**를 선택합니다.
 
     ![애플리케이션 등록](./media/howto-configure-prerequisites-for-reporting-api/07.png)
 
-4. **보고 Api 응용 프로그램-Api 권한** 페이지에서 **관리자 동의 부여**를 선택 합니다. 
+4. 보고 API 응용 프로그램 - API 권한 페이지에서 **권한 부여 관리자 동의를** **선택합니다.** 
 
     ![애플리케이션 등록](./media/howto-configure-prerequisites-for-reporting-api/08.png)
 
-5. 참고: **Microsoft Graph** 는 API 등록 중에 기본적으로 추가 됩니다.
+5. 참고: API 등록 중에 **Microsoft 그래프가** 기본적으로 추가됩니다.
 
     ![애플리케이션 등록](./media/howto-configure-prerequisites-for-reporting-api/15.png)
 
@@ -163,7 +163,7 @@ Reporting API에 대한 호출을 구성하는 경우 이 값이 필요합니다
 
 
 ### <a name="get-your-applications-client-secret"></a>애플리케이션의 클라이언트 비밀 가져오기
- API를 사용 하 여 감사 로그에 액세스 하거나 로그인 하는 동안 오류가 발생 하지 않도록 합니다.
+ API를 사용하여 감사 로그에 액세스하거나 로그인하려는 오류를 방지합니다.
 
 **애플리케이션의 클라이언트 비밀을 가져오려면**
 
@@ -173,52 +173,52 @@ Reporting API에 대한 호출을 구성하는 경우 이 값이 필요합니다
 
 2.  **앱 등록** 페이지에서 애플리케이션을 선택합니다.
 
-3.  **API 응용 프로그램** 페이지에서 **인증서 및 암호** 를 선택 하 고 **클라이언트 암호** 섹션에서 **+ 새 클라이언트 암호**를 클릭 합니다. 
+3.  **API 응용 프로그램** 페이지에서 클라이언트 보안 **암호** 섹션에서 인증서 **+ New Client Secret** **및 비밀을** 선택합니다. 
 
     ![애플리케이션 등록](./media/howto-configure-prerequisites-for-reporting-api/12.png)
 
-5. **클라이언트 암호 추가** 페이지에서 다음을 추가 합니다.
+5. 클라이언트 비밀 추가 페이지에서 **다음을** 추가합니다.
 
     a. **설명** 텍스트 상자에서 `Reporting API`를 입력합니다.
 
     b. **만료**로 **In 2 years**(2년)를 선택합니다.
 
-    c. **저장**을 클릭합니다.
+    다. **저장**을 클릭합니다.
 
-    . 키 값을 복사합니다.
+    d. 키 값을 복사합니다.
 
 ## <a name="troubleshoot-errors-in-the-reporting-api"></a>보고 API의 오류 문제 해결
 
-이 섹션에서는 Microsoft Graph API를 사용 하 여 작업 보고서에 액세스 하는 동안 발생할 수 있는 일반적인 오류 메시지와 해결 단계를 나열 합니다.
+이 섹션에서는 Microsoft Graph API를 사용하여 활동 보고서에 액세스하는 동안 발생할 수 있는 일반적인 오류 메시지와 해결 단계를 나열합니다.
 
-### <a name="error-failed-to-get-user-roles-from-microsoft-graph"></a>오류: Microsoft Graph에서 사용자 역할을 가져오지 못했습니다.
+### <a name="error-failed-to-get-user-roles-from-microsoft-graph"></a>오류: Microsoft 그래프에서 사용자 역할을 받지 못했습니다.
 
- Graph explorer를 사용 하 여 로그인 할 때 오류가 발생 하지 않도록 하려면 Graph Explorer UI의 로그인 단추를 모두 사용 하 여 계정에 로그인 합니다. 
+ 그래프 탐색기 UI의 두 로그인 단추를 사용하여 계정에 로그인하면 그래프 탐색기를 사용하여 로그인할 때 오류가 발생하지 않습니다. 
 
-![그래프 탐색기](./media/troubleshoot-graph-api/graph-explorer.png)
+![Graph 탐색기](./media/troubleshoot-graph-api/graph-explorer.png)
 
-### <a name="error-failed-to-do-premium-license-check-from-microsoft-graph"></a>오류: Microsoft Graph에서 프리미엄 라이선스 검사를 수행 하지 못했습니다. 
+### <a name="error-failed-to-do-premium-license-check-from-microsoft-graph"></a>오류: Microsoft 그래프에서 프리미엄 라이선스 검사를 수행 하지 못했습니다. 
 
 Graph 탐색기를 사용하여 로그인에 액세스하는 동안 이 오류 메시지가 표시되면 왼쪽 탐색에 있는 계정 아래에서 **권한 수정**을 선택하고 **Tasks.ReadWrite** 및 **Directory.Read.All**을 선택합니다. 
 
 ![권한 수정 UI](./media/troubleshoot-graph-api/modify-permissions.png)
 
-### <a name="error-tenant-is-not-b2c-or-tenant-doesnt-have-premium-license"></a>오류: 테 넌 트가 B2C이 아니거나 테 넌 트에 프리미엄 라이선스가 없습니다.
+### <a name="error-tenant-is-not-b2c-or-tenant-doesnt-have-premium-license"></a>오류: 테넌트가 B2C가 아니거나 테넌트에 프리미엄 라이선스가 없습니다.
 
 로그인 보고서에 액세스하려면 Azure Active Directory P1(Premium 1) 라이선스가 필요합니다. 로그인에 액세스하는 동안 이 오류 메시지가 표시되면 Azure AD P1 라이선스를 사용하여 테넌트에게 사용이 허가되었는지 확인합니다.
 
-### <a name="error-the-allowed-roles-does-not-include-user"></a>오류: 허용 되는 역할에는 사용자가 포함 되지 않습니다. 
+### <a name="error-the-allowed-roles-does-not-include-user"></a>오류: 허용된 역할에는 사용자가 포함되지 않습니다. 
 
- API를 사용 하 여 감사 로그에 액세스 하거나 로그인 하는 동안 오류가 발생 하지 않도록 합니다. 계정이 Azure Active Directory 테 넌 트에서 **보안 읽기 권한자** 또는 **보고서 구독자** 역할의 일부 인지 확인 합니다.
+ API를 사용하여 감사 로그에 액세스하거나 로그인하려는 오류를 방지합니다. 계정이 Azure Active Directory 테넌트의 **보안 판독기** 또는 **보고서 판독기** 역할의 일부인지 확인합니다.
 
 ### <a name="error-application-missing-aad-read-directory-data-permission"></a>오류: 애플리케이션에 AAD ‘디렉터리 데이터 읽기’ 권한이 없음 
 
-### <a name="error-application-missing-microsoft-graph-api-read-all-audit-log-data-permission"></a>오류: 응용 프로그램에 Microsoft Graph API ' 모든 감사 로그 데이터 읽기 ' 권한이 없습니다.
+### <a name="error-application-missing-microsoft-graph-api-read-all-audit-log-data-permission"></a>오류: 응용 프로그램 누락 된 마이크로소프트 그래프 API '모든 감사 로그 데이터 읽기' 권한
 
-[Azure Active Directory 보고 API에 액세스 하기 위한 필수 구성 요소](howto-configure-prerequisites-for-reporting-api.md) 의 단계에 따라 응용 프로그램이 올바른 권한 집합으로 실행 되 고 있는지 확인 합니다. 
+응용 프로그램이 올바른 사용 권한 집합으로 실행되고 있는지 확인하려면 필수 구성 조건의 단계를 [수행하여 Azure Active Directory 보고 API에 액세스합니다.](howto-configure-prerequisites-for-reporting-api.md) 
 
 ## <a name="next-steps"></a>다음 단계
 
-* [인증서와 함께 Azure Active Directory reporting API를 사용하여 데이터 가져오기](tutorial-access-api-with-certificates.md).
+* [인증서와 함께 Azure Active Directory Reporting API를 사용하여 데이터 가져오기](tutorial-access-api-with-certificates.md)
 * [감사 API 참조](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 
 * [로그인 활동 보고서 API 참조](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)

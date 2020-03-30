@@ -1,7 +1,7 @@
 ---
-title: 자동화 된 machine learning에서 모델 interpretability
+title: 자동화된 Machine Learning의 모델 해석력
 titleSuffix: Azure Machine Learning
-description: 자동화 된 ML 모델이 기능 중요도를 결정 하 고 Azure Machine Learning SDK를 사용 하는 경우 예측을 수행 하는 방법에 대 한 설명을 가져오는 방법에 대해 알아봅니다.
+description: 자동화된 ML 모델이 기능 의 중요성을 결정하고 Azure 기계 학습 SDK를 사용할 때 예측을 만드는 방법에 대한 설명을 얻는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,39 +10,39 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: trbye
 ms.date: 10/25/2019
-ms.openlocfilehash: b2c7825b10feab45df9cb89dbe2b82da1c143866
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: e6fa3b9705fcd718f802b73560e7703b008af2b5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79129758"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80064004"
 ---
-# <a name="model-interpretability-in-automated-machine-learning"></a>자동화 된 machine learning에서 모델 interpretability
+# <a name="model-interpretability-in-automated-machine-learning"></a>자동화된 Machine Learning의 모델 해석력
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-이 문서에서는 Azure Machine Learning의 ML (자동화 된 기계 학습)에 interpretability 기능을 사용 하도록 설정 하는 방법에 대해 알아봅니다. 자동화 된 ML은 엔지니어링 된 기능 중요도를 이해 하는 데 도움이 됩니다. 
+이 문서에서는 Azure 기계 학습에서 자동화된 기계 학습(ML)에 대한 해석 기능을 사용하도록 설정하는 방법을 알아봅니다. 자동화된 ML을 사용하면 엔지니어링된 기능의 중요성을 이해하는 데 도움이 됩니다. 
 
-1\.0.85가 설정 된 이후의 모든 SDK 버전은 기본적으로 `model_explainability=True` 합니다. SDK 버전 1.0.85 이전 버전에서는 사용자가 모델 interpretability을 사용 하기 위해 `AutoMLConfig` 개체에 `model_explainability=True`를 설정 해야 합니다. 
+기본적으로 1.0.85 `model_explainability=True` 이후의 모든 SDK 버전입니다. SDK 버전 1.0.85 및 이전 버전에서는 `model_explainability=True` 모델 `AutoMLConfig` 해석가능성을 사용하려면 개체에 설정해야 합니다. 
 
 이 문서에서는 다음 방법을 설명합니다.
 
-- 모범 모델 또는 모델에 대 한 학습 중에 interpretability을 수행 합니다.
-- 시각화를 사용 하 여 데이터 및 설명의 패턴을 쉽게 확인할 수 있습니다.
-- 유추 또는 점수 매기기 중 interpretability을 구현 합니다.
+- 최상의 모델 또는 모든 모델에 대한 교육 중에 해석성을 수행합니다.
+- 시각화를 사용하면 데이터 및 설명의 패턴을 볼 수 있습니다.
+- 추론 또는 채점 중에 해석성을 구현합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- Interpretability 기능. `pip install azureml-interpret azureml-contrib-interpret`를 실행 하 여 필요한 패키지를 가져옵니다.
-- 자동화 된 ML 실험 빌드에 대 한 지식. Azure Machine Learning SDK를 사용 하는 방법에 대 한 자세한 내용은이 [회귀 모델 자습서](tutorial-auto-train-models.md) 를 완료 하거나 [자동화 된 ML 실험을 구성](how-to-configure-auto-train.md)하는 방법을 참조 하세요.
+- 해석 기능. 필요한 `pip install azureml-interpret azureml-contrib-interpret` 패키지를 얻기 위해 실행합니다.
+- 자동화된 ML 실험 구축에 대한 지식. Azure 기계 학습 SDK를 사용하는 방법에 대한 자세한 내용은 이 [회귀 모델 자습서를](tutorial-auto-train-models.md) 완료하거나 자동화된 ML 실험을 구성하는 방법을 [참조하세요.](how-to-configure-auto-train.md)
 
-## <a name="interpretability-during-training-for-the-best-model"></a>최상의 모델을 위한 학습 중에 Interpretability
+## <a name="interpretability-during-training-for-the-best-model"></a>최고의 모델을 위한 교육 중 해석성
 
-엔지니어링 된 기능에 대 한 설명이 포함 된 `best_run`에서 설명을 검색 합니다.
+에서 설명을 `best_run`검색합니다.
 
-### <a name="download-engineered-feature-importance-from-artifact-store"></a>아티팩트 저장소에서 엔지니어링 된 기능 중요도 다운로드
+### <a name="download-engineered-feature-importance-from-artifact-store"></a>아티팩트 스토어에서 엔지니어링 기능 중요도 다운로드
 
-`ExplanationClient`를 사용 하 여 `best_run`의 아티팩트 저장소에서 엔지니어링 된 기능 설명을 다운로드할 수 있습니다. 
+의 아티팩트 저장소에서 엔지니어링된 기능 설명을 다운로드하는 데 사용할 `ExplanationClient` 수 있습니다. `best_run` 
 
 ```python
 from azureml.explain.model._internal.explanation_client import ExplanationClient
@@ -52,11 +52,11 @@ engineered_explanations = client.download_model_explanation(raw=False)
 print(engineered_explanations.get_feature_importance_dict())
 ```
 
-## <a name="interpretability-during-training-for-any-model"></a>모델에 대해 학습 하는 동안 Interpretability 
+## <a name="interpretability-during-training-for-any-model"></a>모든 모델에 대한 교육 중 해석성 
 
-모델 설명을 계산 하 고 시각화 하는 경우 자동화 된 ML 모델에 대 한 기존 모델 설명으로 제한 되지 않습니다. 다른 테스트 데이터를 사용 하 여 모델에 대 한 설명을 볼 수도 있습니다. 이 단원의 단계에서는 테스트 데이터를 기반으로 엔지니어링 된 기능 중요도를 계산 하 고 시각화 하는 방법을 보여 줍니다.
+모델 설명을 계산하고 시각화할 때 자동화된 ML 모델에 대한 기존 모델 설명에 국한되지 않습니다. 다른 테스트 데이터로 모델에 대한 설명을 얻을 수도 있습니다. 이 섹션의 단계는 테스트 데이터를 기반으로 엔지니어링된 기능 중요도를 계산하고 시각화하는 방법을 보여 줍니다.
 
-### <a name="retrieve-any-other-automl-model-from-training"></a>학습에서 다른 AutoML 모델 검색
+### <a name="retrieve-any-other-automl-model-from-training"></a>교육에서 다른 AutoML 모델 검색
 
 ```python
 automl_run, fitted_model = local_run.get_output(metric='accuracy')
@@ -64,13 +64,13 @@ automl_run, fitted_model = local_run.get_output(metric='accuracy')
 
 ### <a name="set-up-the-model-explanations"></a>모델 설명 설정
 
-`automl_setup_model_explanations`를 사용 하 여 엔지니어링 된 설명을 가져옵니다. `fitted_model`는 다음 항목을 생성할 수 있습니다.
+엔지니어링 `automl_setup_model_explanations` 된 설명을 얻을 하는 데 사용 합니다. 다음 `fitted_model` 항목을 생성할 수 있습니다.
 
-- 학습 된 또는 테스트 샘플의 주요 데이터
-- 엔지니어링 된 기능 이름 목록
-- 분류 시나리오에서 레이블이 지정 된 열의 findable 클래스
+- 학습된 또는 테스트 샘플의 주요 데이터
+- 엔지니어링된 피쳐 이름 목록
+- 분류 시나리오에서 레이블이 지정된 열에서 찾을 수 있는 클래스
 
-`automl_explainer_setup_obj`는 위의 목록에 있는 모든 구조를 포함 합니다.
+는 `automl_explainer_setup_obj` 위의 목록에서 모든 구조를 포함 합니다.
 
 ```python
 from azureml.train.automl.runtime.automl_explain_utilities import automl_setup_model_explanations
@@ -80,15 +80,15 @@ automl_explainer_setup_obj = automl_setup_model_explanations(fitted_model, X=X_t
                                                              task='classification')
 ```
 
-### <a name="initialize-the-mimic-explainer-for-feature-importance"></a>기능 중요도에 대 한 모방 설명 초기화
+### <a name="initialize-the-mimic-explainer-for-feature-importance"></a>기능 중요도에 대한 모방 설명자 초기화
 
-AutoML 모델에 대 한 설명을 생성 하려면 `MimicWrapper` 클래스를 사용 합니다. 다음 매개 변수를 사용 하 여 MimicWrapper를 초기화할 수 있습니다.
+AutoML 모델에 대한 설명을 생성하려면 `MimicWrapper` 클래스를 사용합니다. 다음과 같은 매개 변수를 통해 MimicWrapper를 초기화할 수 있습니다.
 
-- 설명 설정 개체
-- 작업 영역
-- `fitted_model` 자동화 된 ML 모델에 대 한 서로게이트 역할을 하는 LightGBM 모델
+- 설명자 설정 개체
+- 작업 공간
+- `fitted_model` 자동화된 ML 모델의 대리 역할을 하는 LightGBM 모델
 
-또한 MimicWrapper는 엔지니어링 된 설명이 업로드 될 `automl_run` 개체를 사용 합니다.
+또한 MimicWrapper는 `automl_run` 엔지니어링된 설명이 업로드되는 개체를 취합니다.
 
 ```python
 from azureml.explain.model.mimic.models.lightgbm_model import LGBMExplainableModel
@@ -102,24 +102,24 @@ explainer = MimicWrapper(ws, automl_explainer_setup_obj.automl_estimator, LGBMEx
                          classes=automl_explainer_setup_obj.classes)
 ```
 
-### <a name="use-mimicexplainer-for-computing-and-visualizing-engineered-feature-importance"></a>엔지니어링 된 기능 중요도를 계산 하 고 시각화 하는 데 MimicExplainer 사용
+### <a name="use-mimicexplainer-for-computing-and-visualizing-engineered-feature-importance"></a>설계기능 중요도 를 계산하고 시각화하기 위해 MimicExplainer 사용
 
-변환 된 테스트 샘플을 사용 하 여 MimicWrapper의 `explain()` 메서드를 호출 하 여 생성 된 엔지니어링 된 기능에 대 한 기능 중요도를 가져올 수 있습니다. 또한 `ExplanationDashboard`를 사용 하 여 자동화 된 ML featurizers 생성 된 엔지니어링 기능의 기능 중요도 값에 대 한 대시보드 시각화를 볼 수 있습니다.
+변환된 테스트 `explain()` 샘플과 함께 MimicWrapper에서 메서드를 호출하여 생성된 엔지니어링 피쳐에 대한 기능 중요성을 얻을 수 있습니다. `ExplanationDashboard` 자동화된 ML 위화기를 통해 생성된 엔지니어링 피처의 기능 중요도 값의 대시보드 시각화를 볼 수도 있습니다.
 
 ```python
 engineered_explanations = explainer.explain(['local', 'global'], eval_dataset=automl_explainer_setup_obj.X_test_transform)
 print(engineered_explanations.get_feature_importance_dict())
 ```
 
-### <a name="interpretability-during-inference"></a>유추 중 Interpretability
+### <a name="interpretability-during-inference"></a>추론 중 해석 가능성
 
-이 섹션에서는 이전 섹션에서 설명을 계산 하는 데 사용 된 설명으로 자동화 된 ML 모델을 운영 하는 방법에 대해 알아봅니다.
+이 섹션에서는 이전 섹션의 설명을 계산하는 데 사용된 설명과 함께 자동화된 ML 모델을 운영하는 방법을 알아봅니다.
 
-### <a name="register-the-model-and-the-scoring-explainer"></a>모델 및 점수 매기기 설명을 등록 합니다.
+### <a name="register-the-model-and-the-scoring-explainer"></a>모델 및 점수 매기기 설명자 등록
 
-유추 시간에 엔지니어링 된 기능 중요도 값을 계산 하는 점수 매기기 설명을 만들려면 `TreeScoringExplainer`를 사용 합니다. 이전에 계산 된 `feature_map`를 사용 하 여 점수 매기기 설명를 초기화 합니다. 
+을 `TreeScoringExplainer` 사용하여 추론 시간에 엔지니어링된 피쳐 중요도 값을 계산하는 점수 계산기를 만듭니다. 이전에 계산된 점수 설명기를 `feature_map` 초기화합니다. 
 
-점수 매기기 설명을 저장 한 다음 모델 및 점수 매기기 설명를 모델 관리 서비스에 등록 합니다. 다음 코드를 실행합니다.
+점수 매기기 설명자를 저장한 다음 모델 관리 서비스에 모델 및 점수 설명자를 등록합니다. 다음 코드를 실행합니다.
 
 ```python
 from azureml.interpret.scoring.scoring_explainer import TreeScoringExplainer, save
@@ -139,9 +139,9 @@ automl_run.upload_file('scoring_explainer.pkl', 'scoring_explainer.pkl')
 scoring_explainer_model = automl_run.register_model(model_name='scoring_explainer', model_path='scoring_explainer.pkl')
 ```
 
-### <a name="create-the-conda-dependencies-for-setting-up-the-service"></a>서비스를 설정 하기 위한 conda 종속성 만들기
+### <a name="create-the-conda-dependencies-for-setting-up-the-service"></a>서비스 설정에 대한 conda 종속성 만들기
 
-그런 다음 배포 된 모델에 대 한 컨테이너에서 필요한 환경 종속성을 만듭니다. > = 1.0.45 버전의 azureml 기본값은 모델을 웹 서비스로 호스트 하는 데 필요한 기능을 포함 하므로 pip 종속성으로 나열 되어야 합니다.
+다음으로 배포된 모델에 대해 컨테이너에 필요한 환경 종속성을 만듭니다. 버전 >= 1.0.45의 azureml 기본값은 웹 서비스로 모델을 호스트하는 데 필요한 기능을 포함하므로 pip 종속성으로 나열되어야 합니다.
 
 ```python
 from azureml.core.conda_dependencies import CondaDependencies
@@ -164,7 +164,7 @@ with open("myenv.yml","r") as f:
 
 ### <a name="deploy-the-service"></a>서비스 배포
 
-이전 단계의 conda 파일 및 점수 매기기 파일을 사용 하 여 서비스를 배포 합니다.
+이전 단계의 conda 파일 및 점수 매기기 파일을 사용하여 서비스를 배포합니다.
 
 ```python
 from azureml.core.webservice import Webservice
@@ -189,9 +189,9 @@ service = Model.deploy(ws,
 service.wait_for_deployment(show_output=True)
 ```
 
-### <a name="inference-with-test-data"></a>테스트 데이터를 사용한 유추
+### <a name="inference-with-test-data"></a>테스트 데이터로 추론
 
-자동화 된 ML 모델의 예측 값을 보기 위해 일부 테스트 데이터를 사용 하는 유추 예측 값에 대 한 엔지니어링 된 기능 중요도를 확인 합니다.
+일부 테스트 데이터를 사용하여 자동화된 ML 모델에서 예측된 값을 확인합니다. 예측 값에 대한 엔지니어링 피쳐 중요도를 봅니다.
 
 ```python
 if service.state == 'Healthy':
@@ -206,12 +206,12 @@ if service.state == 'Healthy':
     print(output['engineered_local_importance_values'])
 ```
 
-### <a name="visualize-to-discover-patterns-in-data-and-explanations-at-training-time"></a>학습 시간에 데이터 및 설명의 패턴을 검색 하는 시각화
+### <a name="visualize-to-discover-patterns-in-data-and-explanations-at-training-time"></a>학습 시 데이터 패턴 및 설명 검색에 시각화
 
-[Azure Machine Learning studio](https://ml.azure.com)에서 작업 영역에 있는 기능 중요도 차트를 시각화할 수 있습니다. 자동화 된 ML 실행이 완료 되 면 **모델 세부 정보 보기** 를 선택 하 여 특정 실행을 볼 수 있습니다. 설명 탭 **을 선택 하 여 설명** 시각화 대시보드를 표시 합니다.
+[Azure 기계 학습 스튜디오에서](https://ml.azure.com)작업 영역에서 기능 중요도 차트를 시각화할 수 있습니다. 자동화된 ML 실행이 완료되면 **모델 세부 정보 보기를** 선택하여 특정 실행을 봅니다. 설명 시각화 대시보드를 보려면 **설명 탭을** 선택합니다.
 
-[![Machine Learning Interpretability 아키텍처](./media/how-to-machine-learning-interpretability-automl/automl-explainability.png)](./media/how-to-machine-learning-interpretability-automl/automl-explainability.png#lightbox)
+[![기계 학습 해석 아키텍처](./media/how-to-machine-learning-interpretability-automl/automl-explainability.png)](./media/how-to-machine-learning-interpretability-automl/automl-explainability.png#lightbox)
 
 ## <a name="next-steps"></a>다음 단계
 
-자동화 된 Machine Learning 외에 Azure Machine Learning SDK의 영역에서 모델 설명과 기능 중요도를 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [interpretability의 개념 문서](how-to-machine-learning-interpretability.md)를 참조 하세요.
+자동화된 기계 학습 이외의 Azure 기계 학습 SDK 영역에서 모델 설명 및 기능 중요성을 사용하도록 설정하는 방법에 대한 자세한 내용은 [해석 가능성에 대한 개념 문서를](how-to-machine-learning-interpretability.md)참조하십시오.

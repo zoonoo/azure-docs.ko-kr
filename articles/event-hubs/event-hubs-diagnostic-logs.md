@@ -17,18 +17,18 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: 68aa62ad34f8db531d439a581ef024862da0f90c
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77162313"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Azure 이벤트 허브에 대한 진단 로그 설정
 
 Azure Event Hubs에 대해 다음 두 가지 유형의 로그를 볼 수 있습니다.
 
-* **[활동 로그](../azure-monitor/platform/platform-logs-overview.md)** : 이러한 로그에는 작업에 대해 수행된 작업 관련 정보가 포함됩니다. 로그는 항상 켜져 있습니다.
-* **[진단 로그](../azure-monitor/platform/platform-logs-overview.md)** : 작업에서 발생하는 모든 상황을 보다 잘 이해할 수 있도록 진단 로그를 구성할 수 있습니다. 진단 로그는 업데이트 및 작업이 실행 중일 때 발생하는 활동을 비롯하여 작업이 만들어질 때부터 삭제될 때까지의 모든 활동을 포함합니다.
+* **[활동 로그](../azure-monitor/platform/platform-logs-overview.md)**: 이러한 로그에는 작업에 대해 수행된 작업 관련 정보가 포함됩니다. 로그는 항상 켜져 있습니다.
+* **[진단 로그](../azure-monitor/platform/platform-logs-overview.md)**: 작업에서 발생하는 모든 상황을 보다 잘 이해할 수 있도록 진단 로그를 구성할 수 있습니다. 진단 로그는 업데이트 및 작업이 실행 중일 때 발생하는 활동을 비롯하여 작업이 만들어질 때부터 삭제될 때까지의 모든 활동을 포함합니다.
 
 ## <a name="enable-diagnostic-logs"></a>진단 로그 활성화
 
@@ -48,7 +48,7 @@ Azure Event Hubs에 대해 다음 두 가지 유형의 로그를 볼 수 있습�
 
     ![진단 로그의 상태 변경](./media/event-hubs-diagnostic-logs/image3.png)
 
-5.  원하는 보관 대상을 설정 합니다. 예를 들어 저장소 계정, 이벤트 허브 또는 Azure Monitor 로그가 있습니다.
+5.  원하는 아카이브 대상을 설정합니다. 예를 들어 저장소 계정, 이벤트 허브 또는 Azure Monitor 로그를 예로 들 수 있습니다.
 
 6.  새 진단 설정을 저장합니다.
 
@@ -71,7 +71,7 @@ Event Hubs는 다음 두 가지 범주에 대한 진단 로그를 캡처합니�
 
 보관 로그 JSON 문자열에는 다음 표에 나열된 요소가 포함되어 있습니다.
 
-속성 | Description
+이름 | 설명
 ------- | -------
 TaskName | 실패한 작업에 대한 설명입니다.
 ActivityId | 추적에 사용되는 내부 ID입니다.
@@ -109,7 +109,7 @@ category | ArchiveLogs
 
 작업 로그 JSON 문자열에는 다음 표에 나열된 요소가 포함되어 있습니다.
 
-속성 | Description
+이름 | 설명
 ------- | -------
 ActivityId | 추적 목적에 사용되는 내부 ID입니다.
 EventName | 작업 이름입니다.  
@@ -145,4 +145,4 @@ Example:
     - [.NET Core](get-started-dotnet-standard-send-v2.md)
     - [Java](get-started-java-send-v2.md)
     - [Python](get-started-python-send-v2.md)
-    - [JavaScript](get-started-java-send-v2.md)
+    - [자바 스크립트](get-started-java-send-v2.md)

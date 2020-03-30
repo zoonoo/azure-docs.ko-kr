@@ -6,12 +6,12 @@ ms.author: sudbalas
 ms.date: 03/08/2020
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: c24be648e4ca1433c7c2af3d659bf4520a7a188c
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 53036a43cbb0fe3c3a1e61f7124fe7dcbef228f3
+ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79457290"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80388936"
 ---
 # <a name="integrate-key-vault-with-azure-private-link"></a>Azure Private Link와 Key Vault 통합
 
@@ -57,7 +57,7 @@ Azure 프라이빗 엔드포인트는 Azure Private Link에서 제공하는 서�
 1. "개인 영역 DNS와 통합" 옵션은 변경하지 않고 그대로 둡니다.  
 1. "확인"을 선택합니다.
 
-    ![이미지](./media/private-link-service-2.png)
+    ![이미지](./media/private-link-service-8.png)
  
 이제 구성된 프라이빗 엔드포인트를 볼 수 있습니다. 이 프라이빗 엔드포인트를 삭제하고 편집할 수 있는 옵션이 있습니다. "검토 + 만들기" 단추를 선택하고 키 자격 증명 모음을 만듭니다. 배포가 완료되는 데 5-10분이 걸릴 수 있습니다. 
 

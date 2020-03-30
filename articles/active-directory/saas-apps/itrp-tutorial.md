@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.openlocfilehash: d44391624e29d2bdd182bb07452e0e8def2d1407
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67656688"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-itrp"></a>자습서: ITRP와 Azure Active Directory 통합
@@ -35,7 +35,7 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 ITRP와 Azure AD의 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -92,7 +92,7 @@ ITRP에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합
 
     ![Single Sign-On 선택](common/select-sso.png)
 
-2. **Single Sign-On 방법 선택** 대화 상자에서 **SAML/WS-Fed** 모드를 선택하여 Single Sign-On을 사용하도록 설정합니다.
+2. **Single Sign-On 선택 방법** 대화 상자에서 **SAML/WS-Fed** 모드를 선택하여 Single Sign-On을 사용하도록 설정합니다.
 
     ![Single Sign-On 방법 선택](common/select-saml-option.png)
 
@@ -139,7 +139,7 @@ ITRP에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합
 
 1. 창 위쪽에서 **Settings**(설정) 아이콘을 선택합니다.
 
-    ![Settings 아이콘](./media/itrp-tutorial/ic775570.png "Settings 아이콘")
+    ![설정 아이콘](./media/itrp-tutorial/ic775570.png "설정 아이콘")
 
 1. 왼쪽 창에서 **Single Sign-On**을 선택합니다.
 
@@ -221,11 +221,11 @@ Azure AD 사용자가 ITRP에 로그인할 수 있도록 설정하려면 해당 
 
 1. 창 위쪽에서 **Records**(레코드) 아이콘을 선택합니다.
 
-    ![Records 아이콘](./media/itrp-tutorial/ic775575.png "Records 아이콘")
+    ![레코드 아이콘](./media/itrp-tutorial/ic775575.png "레코드 아이콘")
 
 1. 메뉴에서 **People**(사람)을 선택합니다.
 
-    ![People 선택](./media/itrp-tutorial/ic775587.png "People 선택")
+    ![사용자 선택](./media/itrp-tutorial/ic775587.png "사용자 선택")
 
 1. 더하기 기호( **+** )를 선택하여 새 사람을 추가합니다.
 
@@ -233,7 +233,7 @@ Azure AD 사용자가 ITRP에 로그인할 수 있도록 설정하려면 해당 
 
 1. **Add New Person**(새 사람 추가) 대화 상자에서 다음 단계를 수행합니다.
 
-    ![New Person 추가 대화 상자](./media/itrp-tutorial/ic775577.png "New Person 추가 대화 상자")
+    ![새 사람 추가 대화 상자](./media/itrp-tutorial/ic775577.png "새 사람 추가 대화 상자")
 
     1. 추가하려는 유효한 Azure AD 계정의 이름과 이메일 주소를 입력합니다.
 

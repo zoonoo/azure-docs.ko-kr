@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.author: keli19
 author: likebupt
 ms.date: 02/24/2020
-ms.openlocfilehash: 264b169eefde18880f50feae2554aa3ca7037b1f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c8791e933882832dc7b0037c860a4c4e1e9a54c7
+ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79368165"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80389038"
 ---
 # <a name="retrain-models-with-azure-machine-learning-designer-preview"></a>Azure Machine Learning 디자이너(미리 보기)를 사용하여 모델 다시 학습
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -54,14 +54,14 @@ ms.locfileid: "79368165"
    이 예제에서는 데이터가 [Azure 데이터 스토어에](how-to-access-data.md)저장됩니다. 아직 데이터스토어가 없는 경우 **새 데이터스토어를**선택하여 지금 만들 수 있습니다.
 
 1. 데이터에 대한 경로를 지정합니다. **찾아보기 경로를** 선택하여 데이터스토어로 찾아볼 수도 있습니다. 
-1. 캔버스 상단에서 **실행을** 선택합니다.
+1. 캔버스 상단에서 **제출을** 선택합니다.
     
    > [!NOTE]
    > 이 파이프라인 초안에 대한 기본 계산을 이미 설정한 경우 파이프라인이 자동으로 실행됩니다. 그렇지 않으면 설정 창의 프롬프트를 따라 지금 설정할 수 있습니다.
 
 ### <a name="find-your-trained-model"></a>학습된 모델 찾기
 
-디자이너는 학습된 모델을 포함한 모든 파이프라인 출력을 기본 저장소 계정에 저장합니다. 디자이너에서 직접 학습된 모델에 액세스할 수도 있습니다.
+디자이너는 학습된 모델을 포함한 모든 파이프라인 출력을 기본 저장소 계정에 저장합니다. 그러나 디자이너에서 직접 학습된 모델에 직접 액세스할 수도 있습니다.
 
 1. 파이프라인실행이 완료될 때까지 기다립니다.
 1. **모델 학습** 모듈을 선택합니다.

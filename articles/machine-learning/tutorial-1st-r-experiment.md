@@ -1,7 +1,7 @@
 ---
-title: '자습서: R의 로지스틱 회귀 분석 모델'
+title: '자습서: R을 사용하여 기계 학습 모델 만들기'
 titleSuffix: Azure Machine Learning
-description: 이 자습서에서는 R 패키지 azuremlsdk 및 caret을 통해 로지스틱 회귀 모델을 만들어 자동차 사고로 인한 사망 확률을 예측합니다.
+description: 이 자습서에서는 Azure Machine Learning R SDK를 사용하여 자동차 사고로 인한 사망 확률을 예측하는 로지스틱 회귀 모델을 만듭니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,17 +10,17 @@ ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
 ms.date: 02/07/2020
-ms.openlocfilehash: 09c976f3076ea41a0441ea62a14ba4d45395a1d4
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 72488ba339399c526e882ffd11c41410a0b011ea
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77648294"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80159099"
 ---
-# <a name="tutorial-create-a-logistic-regression-model-in-r-with-azure-machine-learning"></a>자습서: Azure Machine Learning을 사용하여 R에서 로지스틱 회귀 모델 만들기
+# <a name="tutorial-use-r-to-create-a-machine-learning-model"></a>자습서: R을 사용하여 기계 학습 모델 만들기
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-이 자습서에서는 R 및 Azure Machine Learning을 사용하여 자동차 사고로 인한 사망 확률을 예측하는 로지스틱 회귀 모델을 만듭니다. 이 자습서를 완료하면 Azure Machine Learning R SDK에 대한 실용적인 지식을 습득하여 더 복잡한 실험과 워크플로를 개발하도록 크기 조정할 수 있습니다.
+이 자습서에서는 Azure Machine Learning R SDK를 사용하여 자동차 사고로 인한 사망 확률을 예측하는 로지스틱 회귀 모델을 만듭니다. Azure Machine Learning 클라우드 리소스가 R과 함께 작동하여 모델 교육 및 배포를 위한 확장 가능한 환경을 제공하는 방법을 살펴봅니다.  
 
 이 자습서에서는 다음 작업을 수행합니다.
 > [!div class="checklist"]
@@ -49,7 +49,7 @@ Azure 리소스를 관리하기 위한 웹 기반 콘솔인 Azure Portal을 통�
 > **작업 영역** 및 **구독**을 적어 둡니다. 올바른 작업 영역에 실험을 만들려면 이 정보가 필요합니다. 
 
 
-## <a name="azure"></a>Notebook 폴더 복제
+## <a name="clone-a-notebook-folder"></a><a name="azure"></a>Notebook 폴더 복제
 
 이 예에서는 작업 영역의 클라우드 Notebook 서버를 설치하지 않는 미리 구성된 환경으로 사용합니다. 환경, 패키지 및 종속성을 제어하려면 [사용자 고유의 환경](https://azure.github.io/azureml-sdk-for-r/articles/installation.html)을 사용합니다.
 

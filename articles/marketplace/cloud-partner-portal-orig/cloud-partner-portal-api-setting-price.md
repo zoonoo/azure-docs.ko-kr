@@ -1,19 +1,18 @@
 ---
-title: Virtual machine 제품의 가격 책정 | Azure Marketplace
+title: 가상 머신 제공에 대한 가격 | Azure 마켓플레이스
 description: 가상 머신 제품의 가격을 지정하는 세 가지 방법에 대해 설명합니다.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: c7ea5afeb46c30837c2ae53e871bb64f5d8cf292
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: b96dcfa6a140d5c16208fd8183003a7462b1aa56
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827327"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280442"
 ---
 <a name="pricing-for-virtual-machine-offers"></a>가상 머신 제품 가격 책정
 ==================================
@@ -24,7 +23,7 @@ ms.locfileid: "73827327"
 <a name="customized-core-pricing"></a>사용자 지정 코어 가격
 -----------------------
 
-각 지역과 코어의 조합별로 가격을 책정합니다. 정의의 **virtualMachinePricing**/**regionPrices** 섹션에서 모든 판매 지역을 지정해야 합니다.  각 [지역](#regions)의 현재 통화 코드를 요청에 사용합니다.  다음 예제에서는 이러한 요구 사항을 보여 줍니다.
+각 지역과 코어의 조합별로 가격을 책정합니다. 판매 목록의 모든 리전은 **가상머신가격 책정**/**지역가격** 섹션에서 정의에 지정해야 합니다.  각 [지역](#regions)의 현재 통화 코드를 요청에 사용합니다.  다음 예제에서는 이러한 요구 사항을 보여 줍니다.
 
 ``` json
     "virtualMachinePricing": 
@@ -101,10 +100,10 @@ ms.locfileid: "73827327"
      }
 ```
 
-<a name="new-core-sizes-added-on-722019"></a>7/2/2019에 추가 된 새 코어 크기
+<a name="new-core-sizes-added-on-722019"></a>2019년 7월 2일에 추가된 새로운 코어 크기
 ---------------------------
 
-VM 게시자는 새 Azure virtual machine 크기에 대 한 새 가격 (코어 수 기반)을 추가 하는 2019 년 7 월 2 일에 통보 받았습니다.  새 가격은 10, 44, 48, 60, 120, 208 및 416의 핵심 크기에 해당 합니다.  기존 VM의 경우 이러한 코어 크기에 대 한 새로운 가격은 현재 가격에 따라 자동으로 계산 됩니다.  게시자는 2019 년 8 월 1 일까 지 추가 가격을 검토 하 고 원하는 대로 변경할 수 있습니다.  이 날짜 이후에는 아직 게시자가 다시 게시 하지 않은 경우 이러한 새 코어 크기에 대해 자동으로 계산 된 가격이 적용 됩니다.
+VM 게시자는 2019년 7월 2일에 새로운 Azure 가상 시스템 크기에 대한 새 가격 추가(코어 수에 따라)를 통보받았습니다.  새로운 가격은 코어 크기 10, 44, 48, 60, 120, 208 및 416입니다.  기존 VM의 경우 이러한 코어 크기에 대한 새로운 가격이 현재 가격을 기준으로 자동으로 계산되었습니다.  게시자는 2019년 8월 1일까지 추가 가격을 검토하고 원하는 변경 사항을 확인해야 합니다.  이 날짜 이후에 게시자가 이미 다시 게시하지 않은 경우 이러한 새 코어 크기에 대해 자동으로 계산된 가격이 적용됩니다.
 
 
 <a name="regions"></a>영역
@@ -123,7 +122,7 @@ VM 게시자는 새 Azure virtual machine 크기에 대 한 새 가격 (코어 �
 | BE         | 벨기에              | EUR               |
 | BR         | 브라질               | USD               |
 | BG         | 불가리아             | BGN               |
-| CA         | 캐나다               | CAD               |
+| CA         | Canada               | CAD               |
 | CL         | 칠레                | CLP               |
 | CO         | 콜롬비아             | COP               |
 | CR         | 코스타리카           | CRC               |
@@ -198,7 +197,7 @@ VM 게시자는 새 Azure virtual machine 크기에 대 한 새 가격 (코어 �
 | TR         | 터키               | TRY               |
 | UA         | 우크라이나              | UAH               |
 | AE         | 아랍에미리트 | EUR               |
-| GB         | 영국       | GBP               |
+| GB         | United Kingdom       | GBP               |
 | US         | 미국        | USD               |
 | UY         | 우루과이              | UYU               |
 | VE         | 베네수엘라            | USD               |

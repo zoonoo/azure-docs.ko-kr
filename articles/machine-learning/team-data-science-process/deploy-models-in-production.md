@@ -11,10 +11,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: e3e2ef3340ca836f56176c21cf3d221f0bf172b9
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76722240"
 ---
 # <a name="deploy-models-to-production-to-play-an-active-role-in-making-business-decisions"></a>비즈니스 의사 결정에 적극적인 역할을 수행할 수 있도록 프로덕션에 모델 배포
@@ -25,9 +25,9 @@ ms.locfileid: "76722240"
 
 모델을 프로덕션으로 전환하기 위한 여러 접근법과 플랫폼이 있습니다. 다음은 몇 가지 옵션입니다.
 
-- [Azure Machine Learning를 사용 하 여 모델을 배포 하는 위치](../how-to-deploy-and-where.md)
+- [Azure 기계 학습을 사용하여 모델을 배포할 위치](../how-to-deploy-and-where.md)
 - [SQL-Server의 모델 배포](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
-- [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
+- [마이크로소프트 기계 학습 서버](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 
 >[!NOTE]
 >배포 전에 모델 스코어링의 대기 시간이 프로덕션에 사용할 만큼 충분히 낮은지 확인해야 합니다.
@@ -39,7 +39,7 @@ ms.locfileid: "76722240"
 
 ## <a name="ab-testing"></a>A/B 테스트
 
-여러 모델이 프로덕션 환경에 있는 경우 [A/B 테스트](https://en.wikipedia.org/wiki/A/B_testing) 를 사용 하 여 모델 성능을 비교할 수 있습니다. 
+여러 모델이 프로덕션 중인 경우 [A/B 테스트를](https://en.wikipedia.org/wiki/A/B_testing) 사용하여 모델 성능을 비교할 수 있습니다. 
  
 ## <a name="next-steps"></a>다음 단계
 

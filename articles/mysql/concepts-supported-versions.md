@@ -1,17 +1,17 @@
 ---
-title: 지원 되는 버전-Azure Database for MySQL
-description: Azure Database for MySQL 서비스에서 지원 되는 MySQL server 버전을 알아봅니다.
+title: 지원되는 버전 - MySQL용 Azure 데이터베이스
+description: MySQL 서비스에 대한 Azure 데이터베이스에서 지원되는 MySQL 서버 버전을 알아봅니다.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/12/2019
-ms.openlocfilehash: 05d4ecd58f6febff75212f1ad88b60be4f23c2a7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 3/18/2020
+ms.openlocfilehash: 197b3100190711a51cfe125fe1214a59c18e1491
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75454327"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79536975"
 ---
 # <a name="supported-azure-database-for-mysql-server-versions"></a>지원되는 MySQL용 Azure 데이터베이스 서버 버전
 
@@ -28,24 +28,24 @@ Azure Database for MySQL은 현재 다음 버전을 지원합니다.
 
 버그 수정 릴리스: 5.6.45
 
-이 버전의 향상 된 기능 및 수정 내용에 대 한 자세한 내용은 MySQL [릴리스 정보](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-45.html) 를 참조 하세요.
+이 버전의 개선 사항 및 수정 사항에 대해 자세히 알아보려면 MySQL [릴리스 노트를](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-45.html) 참조하십시오.
 
 ## <a name="mysql-version-57"></a>MySQL 버전 5.7
 
 버그 수정 릴리스: 5.7.27
 
-이 버전의 향상 된 기능 및 수정 내용에 대 한 자세한 내용은 MySQL [릴리스 정보](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-27.html) 를 참조 하세요.
+이 버전의 개선 사항 및 수정 사항에 대해 자세히 알아보려면 MySQL [릴리스 노트를](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-27.html) 참조하십시오.
 
 ## <a name="mysql-version-80"></a>MySQL 버전 8.0
 
 버그 수정 릴리스: 8.0.15
 
-이 버전의 향상 된 기능 및 수정 내용에 대 한 자세한 내용은 MySQL [릴리스 정보](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-15.html) 를 참조 하세요.
+이 버전의 개선 사항 및 수정 사항에 대해 자세히 알아보려면 MySQL [릴리스 노트를](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-15.html) 참조하십시오.
 
 ## <a name="managing-updates-and-upgrades"></a>업데이트 및 업그레이드 관리
 서비스는 버그 수정 버전 업데이트에 대한 패치를 자동으로 관리합니다. 예: 5.7.20~5.7.21  
 
-현재 주 및 부 버전 업그레이드는 지원되지 않습니다. 예를 들어 MySQL 5.6에서 MySQL 5.7로의 업그레이드는 지원되지 않습니다. 5\.6에서 5.7로 업그레이드하려는 경우 새 엔진 버전을 사용하여 만든 서버에 부 버전을 [덤프 및 복원](./concepts-migrate-dump-restore.md)합니다.
+현재 주 및 부 버전 업그레이드는 지원되지 않습니다. 예를 들어 MySQL 5.6에서 MySQL 5.7로의 업그레이드는 지원되지 않습니다. 5.6에서 5.7로 업그레이드하려는 경우 새 엔진 버전을 사용하여 만든 서버에 부 버전을 [덤프 및 복원](./concepts-migrate-dump-restore.md)합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

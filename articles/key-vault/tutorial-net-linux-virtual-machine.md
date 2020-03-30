@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: 8c5b3fcc1cb2ac481be0b435c48ce213c716edde
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 05968fdd9e2ddfd89bd9310c744d9ee699f440d2
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78198170"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79472727"
 ---
 # <a name="tutorial-use-a-linux-vm-and-a-net-app-to-store-secrets-in-azure-key-vault"></a>자습서: Linux VM 및 .NET 앱을 사용하여 Azure Key Vault에 비밀 저장
 
@@ -114,7 +114,7 @@ az vm create \
 
 VM 및 지원 리소스를 만드는 데 몇 분이 걸립니다. 다음 예제 출력은 VM 만들기 작업이 성공했음을 보여줍니다.
 
-```azurecli
+```output
 {
   "fqdns": "",
   "id": "/subscriptions/<guid>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
@@ -139,7 +139,7 @@ az vm identity assign --name <NameOfYourVirtualMachine> --resource-group <YourRe
 
 명령의 출력은 다음과 같아야 합니다.
 
-```azurecli
+```output
 {
   "systemAssignedIdentity": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "userAssignedIdentities": {}

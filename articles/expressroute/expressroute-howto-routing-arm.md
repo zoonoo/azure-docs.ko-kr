@@ -1,5 +1,5 @@
 ---
-title: 'Azure Express 경로: 피어 링 구성: PowerShell'
+title: 'Azure 익스프레스 라우팅: 피어링 구성: PowerShell'
 description: 이 문서에서는 ExpressRoute 회로의 프라이빗, 공용 및 Microsoft 피어링을 만들고 프로비전하는 단계를 안내합니다. 또한 회로의 상태를 확인하고 업데이트 또는 삭제하는 방법을 보여줍니다.
 services: expressroute
 author: jaredr80
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: jaredro
 ms.openlocfilehash: 2c28df35eec862afb5b0078ca7693898e9b58533
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79264844"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-using-powershell"></a>PowerShell을 사용하여 ExpressRoute 회로의 피어링 만들기 및 수정
@@ -19,13 +19,13 @@ ms.locfileid: "79264844"
 이 문서는 PowerShell을 사용하여 Resource Manager 배포 모델에서 ExpressRoute 회로에 라우팅 구성을 만들고 관리하는 데 도움이 됩니다. ExpressRoute 회로에 대한 피어링의 상태를 확인, 업데이트 또는 삭제 및 프로비전 해제를 수행할 수도 있습니다. 회로를 사용하는 다른 메서드를 사용하려는 경우 다음 목록에서 문서를 선택합니다.
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
-> * [PowerShell](expressroute-howto-routing-arm.md)
+> * [Azure 포털](expressroute-howto-routing-portal-resource-manager.md)
+> * [Powershell](expressroute-howto-routing-arm.md)
 > * [Azure CLI](howto-routing-cli.md)
-> * [공용 피어 링](about-public-peering.md)
+> * [공용 피어링](about-public-peering.md)
 > * [비디오 - 프라이빗 피어링](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
 > * [비디오 - Microsoft 피어링](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit)
-> * [PowerShell(클래식)](expressroute-howto-routing-classic.md)
+> * [파워 쉘 (클래식)](expressroute-howto-routing-classic.md)
 > 
 
 
@@ -36,7 +36,7 @@ ms.locfileid: "79264844"
 > 
 > 
 
-Express 경로 회로에 대해 개인 피어 링 및 Microsoft 피어 링을 구성할 수 있습니다 (Azure 공용 피어 링은 새 회로에서 사용 되지 않음). 피어 링은 선택 하는 순서에 관계 없이 구성할 수 있습니다. 그러나 각 피어링의 구성을 한 번에 하나 씩 완료하도록 해야 합니다. 라우팅 도메인 및 피어링에 대한 자세한 내용은 [ExpressRoute 라우팅 도메인](expressroute-circuit-peerings.md)을 참조하세요. 공용 피어 링에 대 한 자세한 내용은 [express 경로 공용 피어 링](about-public-peering.md)을 참조 하세요.
+ExpressRoute 회로에 대해 개인 피어링 및 Microsoft 피어링을 구성할 수 있습니다(새 회로에 대해 Azure 공용 피어링이 더 이상 사용되지 않습니다). 피어링은 원하는 순서로 구성할 수 있습니다. 그러나 각 피어링의 구성을 한 번에 하나 씩 완료하도록 해야 합니다. 라우팅 도메인 및 피어링에 대한 자세한 내용은 [ExpressRoute 라우팅 도메인](expressroute-circuit-peerings.md)을 참조하세요. 공용 피어링에 대한 자세한 내용은 [ExpressRoute 공용 피어링을](about-public-peering.md)참조하십시오.
 
 ## <a name="configuration-prerequisites"></a>필수 구성 요소
 
@@ -49,7 +49,7 @@ Express 경로 회로에 대해 개인 피어 링 및 Microsoft 피어 링을 �
 
 [!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
-## <a name="msft"></a>Microsoft 피어링
+## <a name="microsoft-peering"></a><a name="msft"></a>마이크로소프트 피어링
 
 이 섹션은 ExpressRoute 회로에 Microsoft 피어링 구성을 만들고 가져오며 업데이트하고 삭제하는 데 도움이 됩니다.
 
@@ -121,9 +121,9 @@ Express 경로 회로에 대해 개인 피어 링 및 Microsoft 피어 링을 �
      * 하나를 사용하기로 선택한 경우 MD5 해시를 사용합니다.
 
 > [!IMPORTANT]
-> Microsoft는 지정 된 ' 보급 된 공용 접두사 ' 및 ' 피어 ASN ' (또는 ' Customer ASN ')이 인터넷 라우팅 레지스트리에서 할당 되었는지 확인 합니다. 다른 엔터티에서 공용 접두사를 가져오는 경우 및 라우팅이 라우팅 레지스트리를 사용 하 여 기록 되지 않으면 자동 유효성 검사가 완료 되지 않으며 수동 유효성 검사를 요구 합니다. 자동 유효성 검사에 실패 하는 경우 "AzExpressRouteCircuitPeeringConfig"의 출력에 ' AdvertisedPublicPrefixesState '가 ' 유효성 검사 필요 '로 표시 됩니다 (아래의 "Microsoft 피어 링 세부 정보를 가져오려면" 참조). 
+> Microsoft는 지정된 '광고된 공용 접두사' 및 '피어 ASN'(또는 '고객 ASN')이 인터넷 라우팅 레지스트리에 사용자에게 할당되어 있는지 확인합니다. 다른 엔터티에서 공용 접두사를 가져오는 경우 할당이 라우팅 레지스트리에 기록되지 않으면 자동 유효성 검사가 완료되지 않고 수동 유효성 검사가 필요합니다. 자동 유효성 검사가 실패하면 'Get-AzExpressRouteCircuitPeeringConfig"(아래 "Microsoft 피어링 세부 정보 가져오기" 참조)의 출력에 '유효성 검사 필요'로 '광고된PublicPrefixesState'가 표시됩니다. 
 > 
-> ' 유효성 검사 필요 ' 메시지가 표시 되 면 라우팅 레지스트리에서 접두사의 소유자로 표시 된 엔터티가 조직에 할당 된 공용 접두사를 표시 하는 문서를 수집 하 고 다음을 통해 수동으로 유효성 검사를 위해 이러한 문서를 제출 합니다. 아래와 같이 지원 티켓을 엽니다. 
+> '유효성 검사가 필요'라는 메시지가 표시되면 라우팅 레지스트리의 접두사 소유자로 나열된 엔터티에서 공용 접두사가 조직에 할당됨을 표시하는 문서를 수집하고 이러한 문서를 제출하여 수동 유효성 검사를 위해 아래와 같이 지원 티켓을 여는 경우. 
 > 
 >
 
@@ -137,7 +137,7 @@ Express 경로 회로에 대해 개인 피어 링 및 Microsoft 피어 링을 �
    Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
    ```
 
-### <a name="getmsft"></a>Microsoft 피어링 정보를 가져오려면
+### <a name="to-get-microsoft-peering-details"></a><a name="getmsft"></a>Microsoft 피어링 정보를 가져오려면
 
 다음 예제를 사용하여 구성 세부 정보를 가져올 수 있습니다.
 
@@ -147,7 +147,7 @@ $ckt = Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupNa
 Get-AzExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt
 ```
 
-### <a name="updatemsft"></a>Microsoft 피어링 구성을 업데이트하려면
+### <a name="to-update-microsoft-peering-configuration"></a><a name="updatemsft"></a>Microsoft 피어링 구성을 업데이트하려면
 
 다음 예제를 사용하여 구성의 일부를 업데이트할 수 있습니다.
 
@@ -159,7 +159,7 @@ Set-AzExpressRouteCircuitPeeringConfig  -Name "MicrosoftPeering" -ExpressRouteCi
 Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-### <a name="deletemsft"></a>Microsoft 피어링을 삭제하려면
+### <a name="to-delete-microsoft-peering"></a><a name="deletemsft"></a>Microsoft 피어링을 삭제하려면
 
 다음 cmdlet을 실행하여 피어링 구성을 제거할 수 있습니다.
 
@@ -169,7 +169,7 @@ Remove-AzExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRoute
 Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-## <a name="private"></a>Azure 프라이빗 피어링
+## <a name="azure-private-peering"></a><a name="private"></a>Azure 개인 피어링
 
 이 섹션은 ExpressRoute 회로에 Azure 프라이빗 피어링 구성을 만들고 가져오며 업데이트하고 삭제하는 데 도움이 됩니다.
 
@@ -183,7 +183,7 @@ Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
    Install-Module Az
    ```
 
-   알려진 의미 체계 버전 범위 내의 Az.\* 모듈을 모두 가져옵니다.
+   알려진 의미 체계\* 버전 범위 내에서 모든 Az. 모듈을 가져옵니다.
 
    ```azurepowershell-interactive
    Import-Module Az
@@ -269,7 +269,7 @@ Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
    > 
    >
 
-### <a name="getprivate"></a>Azure 프라이빗 피어링 세부 정보를 가져오려면
+### <a name="to-get-azure-private-peering-details"></a><a name="getprivate"></a>Azure 프라이빗 피어링 세부 정보를 가져오려면
 
 다음 예제를 사용하여 구성 세부 정보를 가져올 수 있습니다.
 
@@ -279,7 +279,7 @@ $ckt = Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupNa
 Get-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt
 ```
 
-### <a name="updateprivate"></a>Azure 프라이빗 피어링 구성을 업데이트하려면
+### <a name="to-update-azure-private-peering-configuration"></a><a name="updateprivate"></a>Azure 프라이빗 피어링 구성을 업데이트하려면
 
 다음 예제를 사용하여 구성의 일부를 업데이트할 수 있습니다. 이 예제에서는 회로의 VLAN ID를 100개에서 500개로 업데이트됩니다.
 
@@ -289,7 +289,7 @@ Set-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRoute
 Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-### <a name="deleteprivate"></a>Azure 프라이빗 피어링을 삭제하려면
+### <a name="to-delete-azure-private-peering"></a><a name="deleteprivate"></a>Azure 프라이빗 피어링을 삭제하려면
 
 다음 예제를 실행하여 피어링 구성을 제거할 수 있습니다.
 

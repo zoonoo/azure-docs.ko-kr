@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 8942ad8bdc4f9fc37a88d09871c983f63cd8c1b9
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76773691"
 ---
 # <a name="dynamic-encryption-configure-a-content-key-authorization-policy"></a>동적 암호화: 콘텐츠 키 인증 정책 구성  
@@ -31,7 +31,7 @@ Media Services에서 자산을 암호화하려는 경우 암호화 키(CommonEnc
 
 플레이어가 스트림을 요청하면 Media Services는 지정된 키를 사용하여 AES 또는 PlayReady 암호화를 통해 콘텐츠를 동적으로 암호화합니다. 스트림을 해독하기 위해 플레이어는 키 배달 서비스에서 키를 요청합니다. 사용자에게 키를 얻을 수 있는 권한이 있는지 여부를 결정하기 위해 서비스는 키에 지정된 권한 부여 정책을 평가합니다.
 
-Media Services는 키를 요청 하는 사용자를 인증 하는 여러 방법을 지원합니다. 콘텐츠 키 인증 정책에는 개방형 제한 또는 토큰 제한을 사용하여 하나 이상의 권한 부여 제한이 있을 수 있습니다. 토큰 제한 정책에는 STS(보안 토큰 서비스)에서 발급한 토큰이 수반되어야 합니다. Media Services는 [SWT(단순 웹 토큰)](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2) 형식 및 JWT(JSON Web Token) 형식의 토큰을 지원합니다.
+Media Services는 키를 요청 하는 사용자를 인증 하는 여러 방법을 지원합니다. 콘텐츠 키 인증 정책에는 개방형 제한 또는 토큰 제한을 사용하여 하나 이상의 권한 부여 제한이 있을 수 있습니다. 토큰 제한 정책에는 STS(보안 토큰 서비스)에서 발급한 토큰이 수반되어야 합니다. 미디어 서비스는 간단한 웹[토큰(SWT)](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)및 JSON 웹 토큰(JWT) 형식의 토큰을 지원합니다.
 
 Media Services는 STS를 제공하지 않습니다. 사용자 지정 STS를 만들거나 Azure AD(Azure Active Directory)를 사용하여 토큰을 발급할 수 있습니다. 지정된 키로 서명된 토큰을 만들고 토큰 제한 구성에서 지정한 클레임을 발급하려면 반드시 STS를 구성해야 합니다(이 문서에서 설명). 토큰이 유효하고 해당 토큰의 클레임이 콘텐츠 키에 대해 구성된 클레임과 일치하는 경우 Media Services 키 배달 서비스는 암호화 키를 클라이언트에게 반환합니다.
 
@@ -53,7 +53,7 @@ Media Services는 STS를 제공하지 않습니다. 사용자 지정 STS를 만�
 > [!NOTE]
 > Media Services REST API를 사용할 때는 다음 사항을 고려해야 합니다.
 > 
-> Media Services에서 엔터티에 액세스하는 경우 HTTP 요청에 특정 헤더 필드와 값을 설정해야 합니다. 자세한 내용은 [Media Services REST API 개발 설정](media-services-rest-how-to-use.md)을 참조하세요.
+> Media Services에서 엔터티에 액세스하는 경우 HTTP 요청에 특정 헤더 필드와 값을 설정해야 합니다. 자세한 내용은 [미디어 서비스 REST API 개발 설정을](media-services-rest-how-to-use.md)참조하십시오.
 > 
 > 
 > 
@@ -63,7 +63,7 @@ Media Services는 STS를 제공하지 않습니다. 사용자 지정 STS를 만�
 
 다음 예제에서는 열기 권한 부여 정책을 만들고 콘텐츠 키에 추가합니다.
 
-#### <a id="ContentKeyAuthorizationPolicies"></a>ContentKeyAuthorizationPolicies 만들기
+#### <a name="create-contentkeyauthorizationpolicies"></a><a id="ContentKeyAuthorizationPolicies"></a>ContentKeyAuthorizationPolicies 만들기
 요청:
 
     POST https://wamsbayclus001rest-hs.cloudapp.net/api/ContentKeyAuthorizationPolicies HTTP/1.1
@@ -99,7 +99,7 @@ Media Services는 STS를 제공하지 않습니다. 사용자 지정 STS를 만�
 
     {"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#ContentKeyAuthorizationPolicies/@Element","Id":"nb:ckpid:UUID:db4593da-f4d1-4cc5-a92a-d20eacbabee4","Name":"Open Authorization Policy"}
 
-#### <a id="ContentKeyAuthorizationPolicyOptions"></a>ContentKeyAuthorizationPolicyOptions 만들기
+#### <a name="create-contentkeyauthorizationpolicyoptions"></a><a id="ContentKeyAuthorizationPolicyOptions"></a>ContentKeyAuthorizationPolicyOptions 만들기
 요청:
 
     POST https://wamsbayclus001rest-hs.cloudapp.net/api/ContentKeyAuthorizationPolicyOptions HTTP/1.1
@@ -135,7 +135,7 @@ Media Services는 STS를 제공하지 않습니다. 사용자 지정 STS를 만�
 
     {"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#ContentKeyAuthorizationPolicyOptions/@Element","Id":"nb:ckpoid:UUID:57829b17-1101-4797-919b-f816f4a007b7","Name":"policy","KeyDeliveryType":2,"KeyDeliveryConfiguration":"","Restrictions":[{"Name":"HLS Open Authorization Policy","KeyRestrictionType":0,"Requirements":null}]}
 
-#### <a id="LinkContentKeyAuthorizationPoliciesWithOptions"></a>ContentKeyAuthorizationPolicies를 옵션과 연결
+#### <a name="link-contentkeyauthorizationpolicies-with-options"></a><a id="LinkContentKeyAuthorizationPoliciesWithOptions"></a>ContentKeyAuthorizationPolicies를 옵션과 연결
 요청:
 
     POST https://wamsbayclus001rest-hs.cloudapp.net/api/ContentKeyAuthorizationPolicies('nb%3Ackpid%3AUUID%3A0baa438b-8ac2-4c40-a53c-4d4722b78715')/$links/Options HTTP/1.1
@@ -156,7 +156,7 @@ Media Services는 STS를 제공하지 않습니다. 사용자 지정 STS를 만�
 
     HTTP/1.1 204 No Content
 
-#### <a id="AddAuthorizationPolicyToKey"></a>콘텐츠 키에 권한 부여 정책 추가
+#### <a name="add-an-authorization-policy-to-the-content-key"></a><a id="AddAuthorizationPolicyToKey"></a>콘텐츠 키에 권한 부여 정책 추가
 요청:
 
     PUT https://wamsbayclus001rest-hs.cloudapp.net/api/ContentKeys('nb%3Akid%3AUUID%3A2e6d36a7-a17c-4e9a-830d-eca23ad1a6f9') HTTP/1.1
@@ -183,7 +183,7 @@ Media Services는 STS를 제공하지 않습니다. 사용자 지정 STS를 만�
 토큰 제한 옵션을 구성하려면 XML을 사용하여 토큰의 권한 부여 요구 사항을 설명해야 합니다. 토큰 제한 구성 XML은 다음 XML 스키마를 준수 해야 합니다.
 
 
-#### <a id="schema"></a>토큰 제한 스키마
+#### <a name="token-restriction-schema"></a><a id="schema"></a>토큰 제한 스키마
     <?xml version="1.0" encoding="utf-8"?>
     <xs:schema xmlns:tns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1" xmlns:xs="https://www.w3.org/2001/XMLSchema">
       <xs:complexType name="TokenClaim">
@@ -290,7 +290,7 @@ PlayReady로 콘텐츠를 보호하려는 경우 권한 부여 정책에서 지�
 
 다음 예제에서는 열기 권한 부여 정책을 만들고 콘텐츠 키에 추가합니다.
 
-#### <a id="ContentKeyAuthorizationPolicies2"></a>ContentKeyAuthorizationPolicies 만들기
+#### <a name="create-contentkeyauthorizationpolicies"></a><a id="ContentKeyAuthorizationPolicies2"></a>ContentKeyAuthorizationPolicies 만들기
 요청:
 
     POST https://wamsbayclus001rest-hs.cloudapp.net/api/ContentKeyAuthorizationPolicies HTTP/1.1
@@ -417,8 +417,8 @@ ContentKeyAuthorizationPolicies를 옵션과 연결합니다(“[ContentKeyAutho
 #### <a name="add-an-authorization-policy-to-the-content-key"></a>콘텐츠 키에 권한 부여 정책 추가
 ContentKey에 AuthorizationPolicy를 추가합니다(“[콘텐츠 키에 권한 부여 정책 추가](#AddAuthorizationPolicyToKey)” 섹션 참조).
 
-## <a id="types"></a>ContentKeyAuthorizationPolicy를 정의할 때 사용되는 형식
-### <a id="ContentKeyRestrictionType"></a>ContentKeyRestrictionType
+## <a name="types-used-when-you-define-contentkeyauthorizationpolicy"></a><a id="types"></a>ContentKeyAuthorizationPolicy를 정의할 때 사용되는 형식
+### <a name="contentkeyrestrictiontype"></a><a id="ContentKeyRestrictionType"></a>ContentKeyRestrictionType
     public enum ContentKeyRestrictionType
     {
         Open = 0,
@@ -431,7 +431,7 @@ ContentKey에 AuthorizationPolicy를 추가합니다(“[콘텐츠 키에 권한
 > 콘텐츠 키 인증 정책에 대한 IP 제한은 아직 서비스에서 사용할 수 없습니다.
 
 
-### <a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType
+### <a name="contentkeydeliverytype"></a><a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType
     public enum ContentKeyDeliveryType
     {
         None = 0,
@@ -447,7 +447,7 @@ ContentKey에 AuthorizationPolicy를 추가합니다(“[콘텐츠 키에 권한
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>피드백 제공하기
+## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-steps"></a>다음 단계

@@ -4,10 +4,10 @@ description: Azure Container Instances에서 현재 실행 중인 컨테이너�
 ms.topic: article
 ms.date: 03/30/2018
 ms.openlocfilehash: de48e6ac246e2b0751561b4c60bb63d88b599bdf
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79247203"
 ---
 # <a name="execute-a-command-in-a-running-azure-container-instance"></a>실행 중인 Azure Container Instances에서 명령 실행
@@ -16,7 +16,7 @@ Azure Container Instances는 실행 중인 컨테이너에서 명령을 실행�
 
 ## <a name="run-a-command-with-azure-cli"></a>Azure CLI를 사용하여 명령 실행
 
-[Azure CLI][azure-cli]에서 [az container exec][az-container-exec] 를 사용 하 여 실행 중인 컨테이너에서 명령을 실행 합니다.
+[Azure CLI][azure-cli]에서 실행 중인 컨테이너에서 [az container exec][az-container-exec]으로 명령을 실행합니다.
 
 ```azurecli
 az container exec --resource-group <group-name> --name <container-group-name> --exec-command "<command>"
@@ -82,7 +82,7 @@ az container exec --resource-group myResourceGroup --name mynginx --container-na
 
 ## <a name="restrictions"></a>제한
 
-Azure Container Instances는 현재 [az Container exec][az-container-exec]를 사용 하 여 단일 프로세스를 시작 하도록 지원 하며 명령 인수를 전달할 수 없습니다. 예를 들어 `sh -c "echo FOO && echo BAR"`에서 명령을 연결하거나 `echo FOO`를 실행할 수 없습니다.
+현재 Azure Container Instances에서는 [az container exec][az-container-exec]를 사용하여 단일 프로세스를 시작하도록 지원합니다. 또한 명령 인수를 전달할 수 없습니다. 예를 들어 `sh -c "echo FOO && echo BAR"`에서 명령을 연결하거나 `echo FOO`를 실행할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

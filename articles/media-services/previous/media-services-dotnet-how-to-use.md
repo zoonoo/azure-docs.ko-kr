@@ -15,26 +15,26 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 51fffbd170daecfec6fcea95caa0526e6d881407
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "64724110"
 ---
 # <a name="media-services-development-with-net"></a>.NET을 사용한 Media Services 개발 
 
 > [!NOTE]
-> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 참고: [v2에서 v3 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)
+> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>최신 버전, [미디어 서비스 v3을](https://docs.microsoft.com/azure/media-services/latest/)확인하십시오. 또한 [v2에서 v3로의 마이그레이션 지침을](../latest/migrate-from-v2-to-v3.md) 참조하십시오.
 
 이 문서에서는 .NET을 사용하여 Media Services 애플리케이션 개발을 시작하는 방법을 설명합니다.
 
 **Azure Media Services .NET SDK** 라이브러리를 사용하면 .NET을 사용하여 Media Services를 프로그래밍 할 수 있습니다. .NET을 사용한 개발을 더욱 쉽게 도와주는 **Azure Media Services .NET SDK 확장** 라이브러리가 제공 됩니다. 이 라이브러리는 .NET 코드를 단순화하는 일련의 확장 방법 및 도우미 함수를 포함합니다. 두 라이브러리 모두 **NuGet** 및 **GitHub**를 통해 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 * 신규 또는 기존 Azure 구독의 Media Services 계정. [Media Services 계정을 만드는 방법](media-services-portal-create-account.md) 문서를 참조하세요.
 * 운영 체제: Windows 10, Windows 7, Windows 2008 R2 또는 Windows 8.
 * .NET Framework 4.5 이상
-* 있습니다.
+* Visual Studio.
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Visual Studio 프로젝트 만들기 및 구성
 이 섹션에서는 Visual Studio에서 프로젝트를 생성하고 Media Services 개발에 대해 설정하는 방법을 설명합니다.  이 경우에 프로젝트는 C# Windows 콘솔 애플리케이션이지만 여기에 설명된 설정 방법은 Media Services 애플리케이션에 생성할 수 있는 다른 프로젝트 유형에도 그대로 적용됩니다(예: Windows Forms 애플리케이션 또는 ASP.NET 웹 애플리케이션).
@@ -43,13 +43,13 @@ ms.locfileid: "64724110"
 
 또는 GitHub에서 최신 Media Services .NET SDK 비트를 가져오고([github.com/Azure/azure-sdk-for-media-services](https://github.com/Azure/azure-sdk-for-media-services) 또는 [github.com/Azure/azure-sdk-for-media-services-extensions](https://github.com/Azure/azure-sdk-for-media-services-extensions)) 솔루션을 빌드하고 클라이언트 프로젝트에 대한 참조를 추가합니다. 필요한 종속성은 모두 자동으로 다운로드되고 추출됩니다.
 
-1. Visual Studio를 사용하여 새 C# 콘솔 애플리케이션을 만듭니다. **이름**, **위치** 및 **솔루션 이름**을 입력하고 확인을 클릭합니다.
-2. 솔루션을 빌드하십시오.
+1. Visual Studio를 사용하여 새 C# 콘솔 애플리케이션을 만듭니다. **이름,** **위치**및 **솔루션 이름을**입력한 다음 확인을 클릭합니다.
+2. 솔루션을 빌드합니다.
 3. **NuGet**을 사용하여 **Azure Media Services .NET SDK Extensions**(**windowsazure.mediaservices.extensions**)를 설치한 후 추가합니다. 이 패키지를 설치하면 **Media Services .NET SDK** 도 설치되고 다른 모든 필수 종속성이 추가됩니다.
    
     최신 버전의 NuGet이 설치 되어있는지 확인하십시오. 자세한 내용 및 설치 지침은 [NuGet](https://nuget.codeplex.com/)을 참조하세요.
 
-    1. 솔루션 탐색기에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다.
+    1. 솔루션 탐색기에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리를 선택합니다.**
 
     2. NuGet 패키지 관리 대화 상자가 나타납니다.
 
@@ -80,7 +80,7 @@ ms.locfileid: "64724110"
         ```
 
 7. 프로젝트에 **System.Configuration** 참조를 추가합니다.
-8. 다음 코드를 사용하여 Program.cs 파일의 앞부분에 있는 기존 **using** 문을 덮어씁니다.
+8. Program.cs 파일의 시작 부분에 있는 기존 **using** 문을 다음 코드로 덮어씁니다.
 
     ```csharp      
             using System;
@@ -94,7 +94,7 @@ ms.locfileid: "64724110"
 
     이제 Media Services 애플리케이션 개발을 시작할 준비가 되었습니다.    
 
-## <a name="example"></a>예
+## <a name="example"></a>예제
 
 다음은 AMS API에 연결하고 사용 가능한 모든 미디어 프로세서를 나열하는 간단한 예제입니다.
 
@@ -135,7 +135,7 @@ ms.locfileid: "64724110"
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 [AMS API에 연결하고](media-services-use-aad-auth-to-access-ams-api.md) [개발](media-services-dotnet-get-started.md)을 시작할 수 있습니다.
+이제 [AMS API에 연결하고](media-services-use-aad-auth-to-access-ams-api.md)[개발](media-services-dotnet-get-started.md)을 시작할 수 있습니다.
 
 
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로

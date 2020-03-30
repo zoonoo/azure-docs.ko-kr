@@ -1,20 +1,18 @@
 ---
 title: Azure IoT Edge 모듈
 description: 앱 및 서비스 게시자용으로 Azure Marketplace에서 제공되는 IoT Edge 모듈에 대해 설명합니다.
-services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, IoT Edge module offer
 author: qianw211
-manager: pabutler
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/22/2018
-ms.author: pabutler
-ms.openlocfilehash: db501c34a4418bc7b08b19105a9b28585288f877
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: aadbf33914f919e393a5ec88cf6fc0a6103911b0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823061"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80286152"
 ---
 # <a name="iot-edge-modules"></a>IoT Edge 모듈
 
@@ -56,7 +54,7 @@ Marketplace는 현재 IoT Edge 모듈에 대해 **무료** 하 고 **BYOL(Bring 
 
 IoT Edge 모듈 제품에는 Microsoft Azure Marketplace 계약 및 정책의 모든 약관이 적용됩니다.  또한 IoT Edge 모듈 관련 필수 구성 요소와 기술 요구 사항도 적용됩니다.  
 
-**필수 구성 요소**
+**필수 구성 조건**
 
 IoT Edge 모듈을 Azure Marketplace에 게시하려면 다음 필수 구성 요소를 갖춰야 합니다.
 
@@ -68,7 +66,7 @@ IoT Edge 모듈을 Azure Marketplace에 게시하려면 다음 필수 구성 요
     - 로고 이미지(PNG 형식 및 40x40px, 90x90px, 115x115px, 255x115px를 포함한 고정 이미지 크기)
     - 사용 약관 및 개인정보처리방침
     - 기본 모듈 구성(경로, 원하는 속성 쌍, createOptions, 환경 변수)
-    - 문서화
+    - 설명서
     - 지원 연락처
 
 **기술 요구 사항**
@@ -77,7 +75,7 @@ IoT Edge 모듈 인증을 받고 Azure Marketplace에 모듈을 게시하기 위
 
 ## <a name="documentation-and-resources"></a>설명서 및 리소스
 
-[IoT Edge module 제품 만들기](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-create-offer) -클라우드 게시 포털을 사용 하 여 새 IoT Edge 모듈 제품을 게시 하는 단계입니다.
+[IoT Edge 모듈 오퍼 생성](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-create-offer) - 클라우드 게시 포털을 사용하여 새로운 IoT Edge 모듈 오퍼를 게시하는 단계입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

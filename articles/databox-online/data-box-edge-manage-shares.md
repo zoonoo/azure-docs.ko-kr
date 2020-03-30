@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: alkohli
 ms.openlocfilehash: b25409c63806e203bd841b0373543b7cc2b96d9d
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79212934"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-your-azure-data-box-edge"></a>Azure Portal을 사용하여 Azure Data Box Edge에서 공유 관리
@@ -23,8 +23,8 @@ ms.locfileid: "79212934"
 
 Azure에 데이터를 전송하려면 Azure Data Box Edge에 공유를 만들어야 합니다. Data Box Edge 디바이스에 추가하는 공유는 로컬 공유 또는 데이터를 클라우드로 푸시하는 공유일 수 있습니다.
 
- - **로컬 공유**: 장치에서 데이터를 로컬로 처리 하려면 이러한 공유를 사용 합니다.
- - **공유**: 클라우드의 저장소 계정에 장치 데이터를 자동으로 푸시 하려면 이러한 공유를 사용 합니다. **새로 고침** 및 **스토리지 키 동기화**와 같은 모든 클라우드 기능이 공유에 적용됩니다.
+ - **로컬 공유**: 장치에서 데이터를 로컬로 처리하려는 경우 이러한 공유를 사용합니다.
+ - **공유**: 장치 데이터가 클라우드의 저장소 계정에 자동으로 푸시될 때 이러한 공유를 사용합니다. **새로 고침** 및 **스토리지 키 동기화**와 같은 모든 클라우드 기능이 공유에 적용됩니다.
 
 이 문서에서는 다음 방법을 설명합니다.
 
@@ -54,7 +54,7 @@ Azure에 데이터를 전송하려면 Azure Data Box Edge에 공유를 만들어
 5. 드롭다운 목록의 블록 Blob, 페이지 Blob 또는 파일에서 **스토리지 서비스**를 선택합니다. 선택하는 서비스 유형은 데이터를 Azure에 저장할 형식에 따라 달라집니다. 예를 들어, 이 인스턴스에서는 Azure에서 데이터가 블록 Blob으로 존재하기를 원하므로 **블록 Blob**을 선택합니다. **페이지 Blob**을 선택하는 경우 데이터가 512바이트로 정렬되었는지 확인해야 합니다. 항상 512바이트로 정렬되는 VHD 또는 VHDX에는 **페이지 Blob**을 사용합니다.
 
    > [!IMPORTANT]
-   > Azure Stack Edge 또는 Data Box Gateway 장치에서 사용 하는 경우 사용 하는 Azure Storage 계정에 불변성 정책을 설정 하지 않았는지 확인 합니다. 자세한 내용은 [blob 저장소에 대 한 불변성 정책 설정 및 관리](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage)를 참조 하세요.
+   > 사용하는 Azure Storage 계정에 Azure 스택 가장자리 또는 데이터 상자 게이트웨이 장치와 함께 사용 하는 경우 변경 가능성 정책이 설정 되어 있지 않은지 확인 합니다. 자세한 내용은 [Blob 저장소에 대한 불변성 정책 설정 및 관리를](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage)참조하십시오.
 
 6. 이 단계는 SMB 공유 또는 NFS 공유 중에서 어느 것을 만드는지에 따라 달라집니다.
     - **SMB 공유를 만드는 경우** - **모든 권한 로컬 사용자** 필드에서 **새로 만들기** 또는 **기존 항목 사용**을 선택합니다. 새 로컬 사용자를 만드는 경우 **사용자 이름**, **암호**를 입력한 다음, 암호를 확인합니다. 이렇게 하면 로컬 사용자에게 해당 권한이 할당됩니다. 여기에서 권한을 할당한 후에 파일 탐색기를 사용하여 해당 권한을 수정할 수 있습니다.
@@ -157,7 +157,7 @@ Data Box Edge 디바이스에서 컴퓨팅을 구성하기 전에 공유를 만�
 
     ![삭제 클릭](media/data-box-edge-manage-shares/delete-share-2.png)
 
-3. 확인하라는 메시지가 표시되면 **예**를 클릭합니다.
+3. 확인 메시지가 표시되면 **예**를 클릭합니다.
 
     ![삭제 확인](media/data-box-edge-manage-shares/delete-share-3.png)
 
@@ -178,11 +178,11 @@ Data Box Edge 디바이스에서 컴퓨팅을 구성하기 전에 공유를 만�
 
     ![공유 선택](media/data-box-edge-manage-shares/refresh-share-1.png)
 
-2.   **새로 고침**을 클릭합니다. 
+2.   **새로 고침을 클릭합니다.** 
 
     ![새로 고침 클릭](media/data-box-edge-manage-shares/refresh-share-2.png)
  
-3.   확인하라는 메시지가 표시되면 **예**를 클릭합니다. 온-프레미스 공유의 콘텐츠를 새로 고치는 작업이 시작됩니다.
+3.   확인 메시지가 표시되면 **예**를 클릭합니다. 온-프레미스 공유의 콘텐츠를 새로 고치는 작업이 시작됩니다.
 
     ![새로 고침 확인](media/data-box-edge-manage-shares/refresh-share-3.png)
  
@@ -205,7 +205,7 @@ Data Box Edge 디바이스에서 컴퓨팅을 구성하기 전에 공유를 만�
 
     ![관련 스토리지 계정과 함께 공유 선택](media/data-box-edge-manage-shares/sync-storage-key-1.png)
 
-2. **스토리지 키 동기화**를 클릭합니다. 페이지의 아래쪽에서 **예** 를 클릭합니다.
+2. **스토리지 키 동기화**를 클릭합니다. 확인 메시지가 표시되면 **예**를 클릭합니다.
 
      ![스토리지 키 동기화 선택](media/data-box-edge-manage-shares/sync-storage-key-2.png)
 

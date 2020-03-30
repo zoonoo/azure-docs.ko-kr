@@ -1,24 +1,24 @@
 ---
 title: Azure Blockchain Workbench 문제 해결
-description: Azure Blockchain 워크 벤치 미리 보기 응용 프로그램 문제를 해결 하는 방법입니다.
+description: Azure 블록 체인 워크벤치 미리 보기 응용 프로그램의 문제를 해결하는 방법.
 ms.date: 10/14/2019
 ms.topic: article
 ms.reviewer: brendal
 ms.openlocfilehash: ef4bce4dfba77aafa9b86c6877c153534b54636e
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74324295"
 ---
-# <a name="azure-blockchain-workbench-preview-troubleshooting"></a>Azure Blockchain 워크 벤치 미리 보기 문제 해결
+# <a name="azure-blockchain-workbench-preview-troubleshooting"></a>Azure 블록 체인 워크벤치 미리 보기 문제 해결
 
 개발자 디버깅 또는 지원을 돕는 데 PowerShell 스크립트를 사용할 수 있습니다. 스크립트는 요약을 생성하고 문제 해결을 위한 자세한 로그를 수집합니다. 수집된 로그에는 다음이 포함됩니다.
 
 * Ethereum과 같은 블록체인 네트워크
 * Blockchain Workbench 마이크로 서비스
-* Application Insights
-* Azure 모니터링 (Azure Monitor 로그)
+* 애플리케이션 정보
+* Azure 모니터링(Azure 모니터 로그)
 
 다음 단계를 확인하고 문제의 근본 원인을 확인하는 데 정보를 사용할 수 있습니다.
 
@@ -35,7 +35,7 @@ git clone https://github.com/Azure-Samples/blockchain.git
 ## <a name="run-the-script"></a>스크립트 실행
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
 
-`collectBlockchainWorkbenchTroubleshooting.ps1` 스크립트를 실행하여 로그를 수집하고 문제 해결 정보의 폴더가 포함된 ZIP 파일을 만듭니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+`collectBlockchainWorkbenchTroubleshooting.ps1` 스크립트를 실행하여 로그를 수집하고 문제 해결 정보의 폴더가 포함된 ZIP 파일을 만듭니다. 예를 들어:
 
 ``` powershell
 collectBlockchainWorkbenchTroubleshooting.ps1 -SubscriptionID "<subscription_id>" -ResourceGroupName "workbench-resource-group-name"
@@ -44,13 +44,13 @@ collectBlockchainWorkbenchTroubleshooting.ps1 -SubscriptionID "<subscription_id>
 
 | 매개 변수  | 설명 | 필수 |
 |---------|---------|----|
-| 구독 ID | 모든 리소스를 만들거나 찾는 SubscriptionID입니다. | 예 |
-| ResourceGroupName | Blockchain Workbench가 배포된 Azure 리소스 그룹의 이름입니다. | 예 |
-| OutputDirectory | 출력 ZIP 파일을 생성하는 경로입니다. 지정하지 않으면 기본값은 현재 디렉터리입니다. | 아니오 |
-| LookbackHours | 원격 분석을 끌어올 때 사용할 시간 수입니다. 기본값은 24시간입니다. 최댓값은 90시간입니다. | 아니오 |
-| OmsSubscriptionId | Azure Monitor 로그가 배포 되는 구독 ID입니다. Blockchain 네트워크에 대 한 Azure Monitor 로그가 Blockchain 워크 벤치의 리소스 그룹 외부에 배포 되는 경우에만이 매개 변수를 전달 합니다.| 아니오 |
-| OmsResourceGroup |Azure Monitor 로그가 배포 되는 리소스 그룹입니다. Blockchain 네트워크에 대 한 Azure Monitor 로그가 Blockchain 워크 벤치의 리소스 그룹 외부에 배포 되는 경우에만이 매개 변수를 전달 합니다.| 아니오 |
-| OmsWorkspaceName | Log Analytics 작업 영역 이름입니다. Blockchain 네트워크에 대 한 Azure Monitor 로그가 Blockchain 워크 벤치의 리소스 그룹 외부에 배포 되는 경우에만이 매개 변수를 전달 합니다. | 아니오 |
+| 구독 ID | 모든 리소스를 만들거나 찾는 SubscriptionID입니다. | yes |
+| ResourceGroupName | Blockchain Workbench가 배포된 Azure 리소스 그룹의 이름입니다. | yes |
+| OutputDirectory | 출력 ZIP 파일을 생성하는 경로입니다. 지정하지 않으면 기본값은 현재 디렉터리입니다. | 예 |
+| LookbackHours | 원격 분석을 끌어올 때 사용할 시간 수입니다. 기본값은 24시간입니다. 최댓값은 90시간입니다. | 예 |
+| OmsSubscriptionId | Azure 모니터 로그가 배포되는 구독 ID입니다. 블록 체인 네트워크에 대한 Azure Monitor 로그가 블록 체인 워크 벤치의 리소스 그룹 외부에 배포된 경우에만이 매개 변수를 전달합니다.| 예 |
+| OmsResourceGroup |Azure Monitor 로그가 배포되는 리소스 그룹입니다. 블록 체인 네트워크에 대한 Azure Monitor 로그가 블록 체인 워크 벤치의 리소스 그룹 외부에 배포된 경우에만이 매개 변수를 전달합니다.| 예 |
+| OmsWorkspaceName | Log Analytics 작업 영역 이름입니다. 블록 체인 네트워크에 대한 Azure Monitor 로그가 블록 체인 워크 벤치의 리소스 그룹 외부에 배포된 경우에만이 매개 변수를 전달합니다. | 예 |
 
 ## <a name="what-is-collected"></a>수집되는 항목은?
 

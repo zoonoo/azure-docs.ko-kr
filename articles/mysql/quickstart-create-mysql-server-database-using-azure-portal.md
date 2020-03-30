@@ -6,13 +6,13 @@ ms.author: andrela
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 12/02/2019
-ms.openlocfilehash: bbf2e3204cb1e703aba445822bfb699fae13a112
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 3/20/2020
+ms.openlocfilehash: 50a3eebaa18674a0d0a7e9da88b8d3386e5016c5
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75454322"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80067789"
 ---
 # <a name="create-an-azure-database-for-mysql-server-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for MySQL 서버 만들기
 
@@ -57,7 +57,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](h
 
    ![서버 만들기 - 가격 책정 계층 창](./media/quickstart-create-mysql-server-database-using-azure-portal/3-pricing-tier.png)
 
-4. **만들기**를 선택하여 서버를 프로비전합니다. 프로비전에는 최대 20분이 걸릴 수 있습니다.
+4. **검토 + 만들기**를 선택하여 서버를 프로비저닝합니다. 프로비전에는 최대 20분이 걸릴 수 있습니다.
    
 5. 배포 프로세스를 모니터링하려면 도구 모음에서 **알림**(벨 아이콘)을 클릭합니다.
    
@@ -171,7 +171,7 @@ Azure Database for MySQL 서비스는 서버 수준에서 방화벽을 만듭니
 ## <a name="connect-to-the-server-by-using-the-mysql-workbench-gui-tool"></a>MySQL Workbench GUI 도구를 사용하여 서버에 연결
 MySQL Workbench GUI 도구를 사용하여 서버에 연결하려면 다음 단계를 수행합니다.
 
-1.  클라이언트 컴퓨터에서 MySQL Workbench 애플리케이션을 엽니다. [MySQL Workbench 다운로드](https://dev.mysql.com/downloads/workbench/)에서 MySQL Workbench를 다운로드하고 설치할 수 있습니다.
+1.    클라이언트 컴퓨터에서 MySQL Workbench 애플리케이션을 엽니다. [MySQL Workbench 다운로드](https://dev.mysql.com/downloads/workbench/)에서 MySQL Workbench를 다운로드하고 설치할 수 있습니다.
 
 2. 새 연결을 만듭니다. **MySQL 연결** 제목 옆에 있는 더하기(+) 아이콘을 선택합니다.
 
@@ -202,9 +202,9 @@ MySQL Workbench GUI 도구를 사용하여 서버에 연결하려면 다음 단�
 
 새로 만든 서버를 포함하여 전체 리소스 그룹을 삭제하려면 다음 단계를 수행합니다.
 
-1.  Azure Portal에서 리소스 그룹을 찾습니다. 왼쪽 메뉴에서 **리소스 그룹**을 선택한 다음, 리소스 그룹의 이름(예: **myresourcegroup**)을 선택합니다.
+1.    Azure Portal에서 리소스 그룹을 찾습니다. 왼쪽 메뉴에서 **리소스 그룹**을 선택한 다음, 리소스 그룹의 이름(예: **myresourcegroup**)을 선택합니다.
 
-2.  리소스 그룹 페이지에서 **삭제**를 선택합니다. 그런 다음, 상자에서 리소스 그룹의 이름(예: **myresourcegroup**)을 입력하여 삭제를 확인한 후 **삭제**를 선택합니다.
+2.    리소스 그룹 페이지에서 **삭제**를 선택합니다. 그런 다음, 상자에서 리소스 그룹의 이름(예: **myresourcegroup**)을 입력하여 삭제를 확인한 후 **삭제**를 선택합니다.
 
 새로 만든 서버만 삭제하려면 다음 단계를 수행합니다.
 

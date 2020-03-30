@@ -16,16 +16,16 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 24143f8c94a294da90be84bacfe633db0cd24f85
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60244566"
 ---
 # <a name="getting-started-with-azure-ad-connect-using-express-settings"></a>기본 설정을 사용하여 Azure AD Connect 시작
 인증을 위한 단일 포리스트 토폴로지 및 **암호 해시 동기화**가 있는 경우 Azure AD Connect [Express 설정](how-to-connect-password-hash-synchronization.md)을 사용합니다. **Express 설정** 은 기본 옵션이며 가장 일반적으로 배포된 시나리오에 사용됩니다. 몇 번의 클릭만으로 온-프레미스 디렉터리를 클라우드로 확장할 수 있습니다.
 
-Azure AD Connect 설치를 시작하기 전에 [Azure AD Connect를 다운로드](https://go.microsoft.com/fwlink/?LinkId=615771)하고 [Azure AD Connect: 하드웨어 및 필수 구성 요소](how-to-connect-install-prerequisites.md)의 필수 구성 요소 단계를 완료해야 합니다.
+Azure AD Connect 설치를 시작하기 전에 [Azure AD Connect를 다운로드](https://go.microsoft.com/fwlink/?LinkId=615771)하고 [Azure AD Connect: 하드웨어 및 필수 구성 요소](how-to-connect-install-prerequisites.md)의 필수 구성 요소 단계를 완료하도록 합니다.
 
 Express 설정이 토폴로지와 일치하지 않는 경우 다른 시나리오는 [관련 설명서](#related-documentation) 를 참조하세요.
 
@@ -53,7 +53,7 @@ Express 설정이 토폴로지와 일치하지 않는 경우 다른 시나리오
 9. 설치가 완료되면 **끝내기**를 클릭합니다.
 10. 설치가 완료된 후 로그아웃하고 동기화 서비스 관리자 또는 동기화 규칙 편집기를 사용하기 전에 다시 로그인합니다.
 
-## <a name="videos"></a>동영상
+## <a name="videos"></a>비디오
 빠른 설치 사용에 대한 비디오는 다음을 참조하세요.
 
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-Active-Directory-Connect-Express-Settings/player]
@@ -63,7 +63,7 @@ Express 설정이 토폴로지와 일치하지 않는 경우 다른 시나리오
 ## <a name="next-steps"></a>다음 단계
 Azure AD Connect를 설치했으므로 [설치를 확인하고 라이선스를 할당](how-to-connect-post-installation.md)할 수 있습니다.
 
-다음을 설치하여 사용할 수 있는 이러한 기능에 대해 알아봅니다. [자동 업그레이드](how-to-connect-install-automatic-upgrade.md), [실수로 인한 삭제 방지](how-to-connect-sync-feature-prevent-accidental-deletes.md) 및 [Azure AD Connect Health](how-to-connect-health-sync.md).
+[자동 업그레이드](how-to-connect-install-automatic-upgrade.md), [실수로 인한 삭제 방지](how-to-connect-sync-feature-prevent-accidental-deletes.md) 및 [Azure AD Connect Health](how-to-connect-health-sync.md)를 설치하여 사용할 수 있는 이러한 기능에 대해 자세히 알아봅니다.
 
 공통 항목인 [스케줄러 및 동기화를 트리거하는 방법](how-to-connect-sync-feature-scheduler.md)에 대해 자세히 알아봅니다.
 
@@ -71,7 +71,7 @@ Azure AD Connect를 설치했으므로 [설치를 확인하고 라이선스를 �
 
 ## <a name="related-documentation"></a>관련 설명서
 
-| 항목 | 연결 |
+| 항목 | 링크 |
 | --- | --- |
 | Azure AD Connect 개요 | [Azure Active Directory와 온-프레미스 디렉터리 통합](whatis-hybrid-identity.md)
 | 사용자 지정된 설정을 사용하여 설치 | [Azure AD Connect의 사용자 지정 설치](how-to-connect-install-custom.md) |

@@ -15,10 +15,10 @@ ms.date: 09/12/2019
 ms.author: labrenne
 ms.custom: seodec18
 ms.openlocfilehash: c18190ec5e5d079d51630a976681717a78a46e00
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77087052"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Azure Batch 풀의 컴퓨팅 노드에 대한 VM 크기 선택
@@ -27,27 +27,27 @@ Azure Batch 풀에 대한 노드 크기를 선택하면 Azure에서 사용할 �
 
 VM 크기를 선택하는 데는 몇 가지 예외 및 제한 사항이 있습니다.
 
-* 일부 VM 시리즈 또는 VM 크기는 Batch에서 지원 되지 않습니다.
+* 일부 VM 계열 또는 VM 크기는 일괄 처리에서 지원되지 않습니다.
 * 일부 VM 크기는 제한되어 있으므로 할당하기 전에 특별히 사용하도록 설정해야 합니다.
 
-## <a name="supported-vm-series-and-sizes"></a>지원 되는 VM 시리즈 및 크기
+## <a name="supported-vm-series-and-sizes"></a>지원되는 VM 시리즈 및 크기
 
 ### <a name="pools-in-virtual-machine-configuration"></a>Virtual Machine 구성의 풀
 
-가상 컴퓨터 구성의 Batch 풀은 거의 모든 VM 크기 ([Linux](../virtual-machines/linux/sizes.md), [Windows](../virtual-machines/windows/sizes.md))를 지원 합니다. 지원 되는 크기 및 제한 사항에 대해 자세히 알아보려면 다음 표를 참조 하세요.
+가상 머신 구성의 배치 풀은 거의 모든 VM 크기[(리눅스](../virtual-machines/linux/sizes.md), [윈도우)를](../virtual-machines/windows/sizes.md)지원합니다. 지원되는 크기 및 제한 사항에 대해 자세히 알아보려면 다음 표를 참조하십시오.
 
 | VM 시리즈  | 지원되는 크기 |
 |------------|---------|
-| Basic A | Basic_A0 (A0)를 *제외한* 모든 크기 |
-| A | Standard_A0를 *제외한* 모든 크기 |
+| Basic A | Basic_A0(A0)를 *제외한* 모든 사이즈 |
+| A | Standard_A0 *제외한* 모든 크기 |
 | Av2 | 모든 크기 |
 | b | None |
 | DC | None |
 | Dv2, DSv2 | 모든 크기 |
 | Dv3, Dsv3 | 모든 크기 |
-| Dav4, Dasv4 | 없음-아직 사용할 수 없음 |
-| Ev3, Esv3 | E64is_v3 및 E64i_v3를 제외한 모든 크기 |
-| Eav4, Easv4 | 없음-아직 사용할 수 없음 |
+| Dav4, Dasv4 | 없음 - 아직 사용할 수 없음 |
+| Ev3, 에스브3 | E64is_v3 및 E64i_v3 제외한 모든 크기 |
+| Eav4, Easv4 | 없음 - 아직 사용할 수 없음 |
 | F, Fs | 모든 크기 |
 | Fsv2 | 모든 크기 |
 | G, Gs | 모든 크기 |
@@ -56,24 +56,24 @@ VM 크기를 선택하는 데는 몇 가지 예외 및 제한 사항이 있습�
 | HBv2<sup>1</sup> | 모든 크기 |
 | HC<sup>1</sup> | 모든 크기 |
 | Ls | 모든 크기 |
-| Lsv2 | 없음-아직 사용할 수 없음 |
+| Lsv2 | 없음 - 아직 사용할 수 없음 |
 | M<sup>1</sup> | M64, M64m, M128, M128m를 제외한 모든 크기 |
-| Mv2 | 없음-아직 사용할 수 없음 |
+| Mv2 | 없음 - 아직 사용할 수 없음 |
 | NC | 모든 크기 |
 | NCv2<sup>1</sup> | 모든 크기 |
 | NCv3<sup>1</sup> | 모든 크기 |
 | ND<sup>1</sup> | 모든 크기 |
-| NDv2<sup>1</sup> | 없음-아직 사용할 수 없음 |
+| NDv2<sup>1</sup> | 없음 - 아직 사용할 수 없음 |
 | NV | 모든 크기 |
 | NVv3<sup>1</sup> | 모든 크기 |
 | NVv4 | None |
 | SAP HANA | None |
 
-<sup>1</sup> 가상 컴퓨터 구성에서 배치 풀에 이러한 VM 크기를 할당할 수 있지만 새 batch 계정을 만들고 특정 [할당량 증가](batch-quota-limit.md#increase-a-quota)를 요청 해야 합니다. VM 시리즈 당 vCPU 할당량이 Batch 계정에 대해 완전히 지원 되 면이 제한이 제거 됩니다.
+<sup>1</sup> 이러한 VM 크기는 가상 컴퓨터 구성의 Batch 풀에 할당할 수 있지만 새 Batch 계정을 만들고 특정 [할당량 증가를](batch-quota-limit.md#increase-a-quota)요청해야 합니다. 이 제한은 Batch 계정에 대해 VM 시리즈당 vCPU 할당량이 완전히 지원되면 제거됩니다.
 
 ### <a name="pools-in-cloud-service-configuration"></a>Cloud Service 구성의 풀
 
-클라우드 서비스 구성의 Batch 풀은 다음을 **제외 하 고** [Cloud Services의 모든 VM 크기](../cloud-services/cloud-services-sizes-specs.md) 를 지원 합니다.
+클라우드 서비스 구성의 일괄 풀은 다음을 **제외한** 클라우드 서비스에 대한 모든 [VM 크기를](../cloud-services/cloud-services-sizes-specs.md) 지원합니다.
 
 | VM 시리즈  | 지원되지 않는 크기 |
 |------------|-------------------|
@@ -88,7 +88,7 @@ VM 크기를 선택하는 데는 몇 가지 예외 및 제한 사항이 있습�
 
 * **다른 태스크에 대한 로드 수준** - 풀의 모든 노드는 동일한 크기입니다. 상이한 시스템 요구 사항 및/또는 부하 수준으로 애플리케이션을 실행하려면 별도의 풀을 사용하는 것이 좋습니다.
 
-* **지역 가용성** -Batch 계정을 만드는 지역에서 VM 시리즈 또는 크기를 사용 하지 못할 수 있습니다. 크기를 사용할 수 있는지를 확인하려면 [지역별 사용 가능한 제품](https://azure.microsoft.com/regions/services/)을 참조하세요.
+* **지역 가용성** - Batch 계정을 만드는 지역에서는 VM 시리즈 또는 크기를 사용하지 못할 수 있습니다. 크기를 사용할 수 있는지를 확인하려면 [지역별 사용 가능한 제품](https://azure.microsoft.com/regions/services/)을 참조하세요.
 
 * **할당량** - 배치 계정의 [코어 할당량](batch-quota-limit.md#resource-quotas)은 Batch 풀에 추가할 수 있는 지정된 크기의 노드 수를 제한할 수 있습니다. 할당량 증가를 요청하려면 [이 문서](batch-quota-limit.md#increase-a-quota)를 참조하세요. 
 

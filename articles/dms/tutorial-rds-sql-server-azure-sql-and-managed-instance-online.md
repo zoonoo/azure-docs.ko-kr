@@ -1,7 +1,7 @@
 ---
-title: '자습서: SQL Database로 RDS SQL Server online 마이그레이션'
+title: '자습서: RDS SQL 서버를 SQL 데이터베이스로 온라인으로 마이그레이션'
 titleSuffix: Azure Database Migration Service
-description: Azure Database Migration Service를 사용 하 여 RDS SQL Server에서 Azure SQL Database 단일 데이터베이스 또는 관리 되는 인스턴스로 온라인 마이그레이션을 수행 하는 방법에 대해 알아봅니다.
+description: Azure 데이터베이스 마이그레이션 서비스를 사용하여 RDS SQL Server에서 Azure SQL Database 단일 데이터베이스 또는 관리되는 인스턴스로의 온라인 마이그레이션을 수행하는 방법을 알아봅니다.
 services: dms
 author: pochiraju
 ms.author: rajpo
@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: db561761acbd5ff991f88cfd18cec8d4625336f2
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.openlocfilehash: 8d538deca610fd9981d401d28b6bea1c31c6d4c8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78255514"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80298864"
 ---
-# <a name="tutorial-migrate-rds-sql-server-to-azure-sql-database-or-an-azure-sql-database-managed-instance-online-using-dms"></a>자습서: DMS를 사용 하 여 RDS SQL Server Azure SQL Database 또는 Azure SQL Database 관리 되는 인스턴스로 마이그레이션
+# <a name="tutorial-migrate-rds-sql-server-to-azure-sql-database-or-an-azure-sql-database-managed-instance-online-using-dms"></a>자습서: RDS SQL Server를 Azure SQL 데이터베이스 또는 DMS를 사용하여 온라인으로 관리되는 Azure SQL Database로 마이그레이션
 Azure Database Migration Service를 사용하여 가동 중지 시간을 최소화하면서 데이터베이스를 RDS SQL Server 인스턴스에서 [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/) 또는 [Azure SQL Database 관리형 인스턴스](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index)로 마이그레이션할 수 있습니다. 이 자습서에서는 Azure Database Migration Service를 사용하여 SQL Server 2012 이상의 RDS SQL Server 인스턴스로 복원된 **Adventureworks2012** 데이터베이스를 Azure SQL Database 또는 Azure SQL Database 관리형 인스턴스로 마이그레이션합니다.
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
@@ -33,7 +33,7 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
 > * 마이그레이션 보고서를 다운로드합니다.
 
 > [!NOTE]
-> Azure Database Migration Service를 사용하여 온라인 마이그레이션을 수행하려면 프리미엄 가격 책정 계층에 따라 인스턴스를 만들어야 합니다. 자세한 내용은 Azure Database Migration Service [가격 책정](https://azure.microsoft.com/pricing/details/database-migration/) 페이지를 참조하세요.
+> Azure Database Migration Service를 사용하여 온라인 마이그레이션을 수행하려면 프리미엄 가격 책정 계층에 따라 인스턴스를 만들어야 합니다. 자세한 내용은 Azure 데이터베이스 마이그레이션 서비스 [가격 책정](https://azure.microsoft.com/pricing/details/database-migration/) 페이지를 참조하세요.
 
 > [!IMPORTANT]
 > 최적의 마이그레이션 환경을 위해 대상 데이터베이스와 동일한 Azure 지역에서 Azure Database Migration Service의 인스턴스를 만드는 것이 좋습니다. 영역 또는 지역 간에 데이터를 이동하면 마이그레이션 프로세스 속도가 저하되고 오류가 발생할 수 있습니다.
@@ -52,10 +52,10 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
     > Azure SQL Database 관리형 인스턴스로 마이그레이션하는 경우 [Azure SQL Database 관리형 인스턴스 만들기](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started) 문서의 세부 지침을 수행한 다음, **AdventureWorks2012**라는 빈 데이터베이스를 만듭니다. 
  
 * [DMA(Data Migration Assistant)](https://www.microsoft.com/download/details.aspx?id=53595) v3.3 이상을 다운로드하여 설치합니다.
-* Azure Resource Manager 배포 모델을 사용 하 여 Azure Database Migration Service에 대 한 Microsoft Azure Virtual Network를 만듭니다. Azure SQL Database 관리 되는 인스턴스로 마이그레이션하는 경우에는 Azure SQL Database 관리 되는 인스턴스에 사용 되는 것과 동일한 가상 네트워크에 있는 DMS 인스턴스를 다른 서브넷에 만들어야 합니다.  또는 DMS에 대해 다른 가상 네트워크를 사용 하는 경우 두 가상 네트워크 간에 가상 네트워크 피어 링을 만들어야 합니다. 가상 네트워크를 만드는 방법에 대 한 자세한 내용은 [Virtual Network 설명서](https://docs.microsoft.com/azure/virtual-network/)와 특히 단계별 정보를 포함 하는 빠른 시작 문서를 참조 하세요.
+* Azure 리소스 관리자 배포 모델을 사용하여 Azure 데이터베이스 마이그레이션 서비스에 대한 Microsoft Azure 가상 네트워크를 만듭니다. Azure SQL Database 관리 인스턴스로 마이그레이션하는 경우 Azure SQL Database 관리 인스턴스에 사용되는 동일한 가상 네트워크에서 다른 서브넷에서 DMS 인스턴스를 만들어야 합니다.  또는 DMS에 다른 가상 네트워크를 사용하는 경우 두 가상 네트워크 간에 가상 네트워크 피어링을 만들어야 합니다. 가상 네트워크 만들기에 대한 자세한 내용은 [가상 네트워크 설명서](https://docs.microsoft.com/azure/virtual-network/)및 특히 단계별 세부 정보가 있는 빠른 시작 문서를 참조하십시오.
 
     > [!NOTE]
-    > 가상 네트워크를 설정 하는 동안 Microsoft에 네트워크 피어 링을 사용 하는 Express 경로를 사용 하는 경우 서비스가 프로 비전 될 서브넷에 다음 서비스 [끝점](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) 을 추가 합니다.
+    > 가상 네트워크 설정 중에 Microsoft에 피어링하는 네트워크와 함께 ExpressRoute를 사용하는 경우 서비스를 프로비전할 서브넷에 다음 서비스 [끝점을](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) 추가합니다.
     >
     > * 대상 데이터베이스 엔드포인트(예: SQL 엔드포인트, Cosmos DB 엔드포인트 등)
     > * 스토리지 엔드포인트
@@ -63,10 +63,10 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
     >
     > Azure Database Migration Service에는 인터넷 연결이 없으므로 이 구성이 필요합니다. 
 
-* 가상 네트워크 네트워크 보안 그룹 규칙에서 Azure Database Migration Service에 대 한 인바운드 통신 포트 (443, 53, 9354, 445, 12000)를 차단 하지 않는지 확인 합니다. Virtual network NSG 트래픽 필터링에 대 한 자세한 내용은 [네트워크 보안 그룹을 사용 하 여 네트워크 트래픽 필터링](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg)문서를 참조 하세요.
+* 가상 네트워크 네트워크 보안 그룹 규칙이 Azure 데이터베이스 마이그레이션 서비스(443, 53, 9354, 445, 12000)에 대한 다음 인바운드 통신 포트를 차단하지 않도록 합니다. 가상 네트워크 NSG 트래픽 필터링에 대한 자세한 내용은 [네트워크 보안 그룹과 네트워크 트래픽 필터링](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg)문서를 참조하십시오.
 * [데이터베이스 엔진 액세스를 위한 Windows 방화벽](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access)을 구성합니다.
 * Azure Database Migration Service가 기본적으로 TCP 포트 1433인 원본 SQL Server에 액세스하도록 허용하려면 Windows 방화벽을 엽니다.
-* 대상 데이터베이스에 대한 Azure Database Migration Service 액세스를 허용하도록 Azure SQL Database 서버에 서버 수준 [방화벽 규칙](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure)을 만듭니다. Azure Database Migration Service에 사용 되는 가상 네트워크의 서브넷 범위를 제공 합니다.
+* 대상 데이터베이스에 대한 Azure Database Migration Service 액세스를 허용하도록 Azure SQL Database 서버에 서버 수준 [방화벽 규칙](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure)을 만듭니다. Azure 데이터베이스 마이그레이션 서비스에 사용되는 가상 네트워크의 서브넷 범위를 제공합니다.
 * 원본 RDS SQL Server 인스턴스에 연결하는 데 사용되는 자격 증명이 "Processadmin" 서버 역할의 멤버이자 마이그레이션할 모든 데이터베이스의 "db_owner" 데이터베이스 역할 멤버인 계정과 연결되어야 합니다.
 * Azure SQL Database 관리형 인스턴스로 마이그레이션하는 경우 대상 Azure SQL Database 인스턴스에 연결하는 데 사용되는 자격 증명에는 대상 Azure SQL 데이터베이스 및 sysadmin 역할의 멤버에 대한 CONTROL DATABASE 권한이 있어야 합니다.
 * 원본 RDS SQL Server 버전은 SQL Server 2012 이상이어야 합니다. SQL Server 인스턴스에서 실행하는 버전을 확인하려면 [SQL Server의 버전, 에디션 및 업데이트 수준과 해당 구성 요소를 확인하는 방법 ](https://support.microsoft.com/help/321185/how-to-determine-the-version-edition-and-update-level-of-sql-server-an) 문서를 참조하세요.
@@ -146,7 +146,7 @@ DMA를 사용하여 Azure SQL Database로 스키마를 마이그레이션합니�
 
     ![리소스 공급자 보기](media/tutorial-sql-server-to-azure-sql-online/portal-select-resource-provider.png)
 
-3. 마이그레이션을 검색한 다음 **Microsoft.DataMigration**의 오른쪽에서 **등록**을 선택합니다.
+3. 마이그레이션을 검색한 다음 **Microsoft.DataMigration**의 오른쪽에서 **레지스터를**선택합니다.
 
     ![리소스 공급자 등록](media/tutorial-rds-sql-to-azure-sql-and-managed-instance/portal-register-resource-provider.png)    
 
@@ -164,15 +164,15 @@ DMA를 사용하여 Azure SQL Database로 스키마를 마이그레이션합니�
 
 4. Azure Database Migration Service의 인스턴스를 만들 위치를 선택합니다. 
 
-5. 기존 가상 네트워크를 선택 하거나 새 가상 네트워크를 만드세요.
+5. 기존 가상 네트워크를 선택하거나 새 가상 네트워크를 만듭니다.
 
-    가상 네트워크는 원본 SQL Server 및 대상 Azure SQL Database 인스턴스에 대 한 액세스 권한을 Azure Database Migration Service 제공 합니다.
+    가상 네트워크는 Azure 데이터베이스 마이그레이션 서비스에 원본 SQL Server 및 대상 Azure SQL Database 인스턴스에 대한 액세스를 제공합니다.
 
-    Azure Portal에서 가상 네트워크를 만드는 방법에 대 한 자세한 내용은 [Azure Portal를 사용 하 여 가상 네트워크 만들기](https://aka.ms/DMSVnet)문서를 참조 하세요.
+    Azure 포털에서 가상 네트워크를 만드는 방법에 대한 자세한 내용은 [Azure 포털을 사용하여 가상 네트워크 만들기](https://aka.ms/DMSVnet)문서를 참조하십시오.
 
 6. 이 온라인 마이그레이션의 가격 책정 계층을 선택합니다. 프리미엄 가격 책정 계층을 선택해야 합니다.
 
-    비용 및 가격 책정 계층에 대한 자세한 내용은 [가격 책정 페이지](https://aka.ms/dms-pricing)를 참조하세요.
+    비용 및 가격 책정 계층에 대한 자세한 내용은 [가격 책정 페이지를](https://aka.ms/dms-pricing)참조하십시오.
 
      ![Azure Database Migration Service 인스턴스 설정 구성](media/tutorial-rds-sql-to-azure-sql-and-managed-instance/dms-settings3.png)
 
@@ -196,7 +196,7 @@ DMA를 사용하여 Azure SQL Database로 스키마를 마이그레이션합니�
     > [!NOTE]
     > 대상 서버 유형에 대해 Azure SQL Database 싱글톤 데이터베이스 및 Azure SQL Database 관리형 인스턴스로 마이그레이션하려면 **Azure SQL Database**를 선택합니다.
 
-5. **활동 유형 선택** 섹션에서 **온라인 데이터 마이그레이션**을 선택합니다.
+5. 활동 **유형 선택** 섹션에서 **온라인 데이터 마이그레이션을**선택합니다.
 
     > [!IMPORTANT]
     > **온라인 데이터 마이그레이션**을 선택합니다. 이 시나리오에서는 오프라인 마이그레이션이 지원되지 않습니다.
@@ -223,7 +223,7 @@ DMA를 사용하여 Azure SQL Database로 스키마를 마이그레이션합니�
     신뢰할 수 있는 인증서가 설치되어 있지 않으면 인스턴스가 시작될 때 SQL Server에서 자체 서명 인증서를 생성합니다. 이 인증서는 클라이언트 연결에 대한 자격 증명을 암호화하는 데 사용됩니다.
 
     > [!CAUTION]
-    > 자체 서명 인증서를 사용하여 암호화된 SSL 연결은 강력한 보안을 제공하지 않습니다. 중간자 공격(man-in-the-middle)을 받기 쉽습니다. 프로덕션 환경이나 인터넷에 연결된 서버에서 자체 서명 인증서를 사용하는 SSL을 신뢰해서는 안 됩니다.
+    > 자체 서명된 인증서를 사용하여 암호화된 TLS 연결은 강력한 보안을 제공하지 않습니다. 중간자 공격(man-in-the-middle)을 받기 쉽습니다. 프로덕션 환경이나 인터넷에 연결된 서버에서 자체 서명된 인증서를 사용하여 TLS에 의존해서는 안 됩니다.
 
    ![원본 세부 정보](media/tutorial-rds-sql-to-azure-sql-and-managed-instance/dms-source-details3.png)
 
@@ -247,7 +247,7 @@ DMA를 사용하여 Azure SQL Database로 스키마를 마이그레이션합니�
 
 4. 다음 **고급 온라인 마이그레이션 설정**을 지정한 후 **저장**을 선택합니다.
 
-    | 설정 | Description |
+    | 설정 | 설명 |
     | ------------- | ------------- |
     | **동시에 로드할 수 있는 최대 테이블 수** | 마이그레이션하는 동안 DMS가 병렬로 실행하는 테이블 수를 지정합니다. 기본값은 5이며, POC 마이그레이션에 따라 특정 마이그레이션 요구 사항에 맞는 최적의 값으로 설정할 수 있습니다. |
     | **원본 테이블이 잘리는 경우** | 마이그레이션하는 동안 DMS가 대상 테이블을 자를지 여부를 지정합니다. 하나 이상의 테이블이 마이그레이션 프로세스의 일환으로 잘리는 경우 이 설정이 도움이 될 수 있습니다. |
@@ -263,7 +263,7 @@ DMA를 사용하여 Azure SQL Database로 스키마를 마이그레이션합니�
 
 * **마이그레이션 실행**을 선택합니다.
 
-    마이그레이션 작업 창이 나타나고, 작업 **상태**는 **초기화 중**입니다.
+    마이그레이션 활동 창이 나타나고 활동의 **상태가** **초기화되고**있습니다.
 
     ![작업 상태 - 초기화 중](media/tutorial-rds-sql-to-azure-sql-and-managed-instance/dms-activity-status2.png)
 

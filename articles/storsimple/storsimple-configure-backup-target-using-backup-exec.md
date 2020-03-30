@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/05/2016
 ms.author: matd
 ms.openlocfilehash: 4dcda65384190050e11f1bf9b15c706b0e38c6b3
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75561646"
 ---
 # <a name="storsimple-as-a-backup-target-with-backup-exec"></a>Backup Exec에서 백업 대상으로 StorSimple 구성
@@ -56,7 +56,7 @@ StorSimple이 백업 대상으로 적합한 이유는 다음과 같습니다.
 StorSimple은 잘 정의된 데이터(핫 데이터)의 작업 집합에서 작동하는 애플리케이션에 대한 스토리지를 제공하도록 설계되었습니다. 이 모델에서 데이터의 작업 집합은 로컬 계층에 저장되고 데이터의 나머지 비작업/콜드/보관 집합은 클라우드에서 계층화됩니다. 다음 그림에서 이 모델을 나타냅니다. 평평한 녹색선은 StorSimple 디바이스의 로컬 계층에 저장된 데이터를 나타냅니다. 빨간색 선은 모든 계층에서 StorSimple 솔루션에 저장된 총 데이터 양을 나타냅니다. 평편한 녹색선과 빨강색 지수 곡선 사이의 간격은 클라우드에 저장된 데이터의 총량을 나타냅니다.
 
 **StorSimple 계층화**
-![StorSimple 계층화 다이어그램](./media/storsimple-configure-backup-target-using-backup-exec/image1.jpg)
+![Stor간단한 계층화 다이어그램](./media/storsimple-configure-backup-target-using-backup-exec/image1.jpg)
 
 이 아키텍처를 염두에 두면 StorSimple이 백업 대상으로 작동하는 데 적합하다는 점을 알 수 있습니다. StorSimple을 사용하면 다음 작업을 수행할 수 있습니다.
 -   데이터의 로컬 작업 집합에서 가장 빈번하게 복원을 수행합니다.
@@ -102,7 +102,7 @@ StorSimple에 대한 자세한 내용은 [StorSimple 8000 시리즈: 하이브�
 | Backup 시나리오  | 로컬 스토리지 용량  | 클라우드 스토리지 용량  |
 |---|---|---|
 | 기본 백업  | RPO(복구 지점 목표)를 충족하기 위해 빠른 복구용 로컬 스토리지에 최근 백업 저장 | 클라우드 용량에 적합한 Backup 기록(RPO) |
-| 보조 백업 | 클라우드 용량에 백업 데이터의 보조 복사본을 저장할 수 있습니다.  | N/A  |
+| 보조 백업 | 클라우드 용량에 백업 데이터의 보조 복사본을 저장할 수 있습니다.  | 해당 없음  |
 
 ## <a name="storsimple-as-a-primary-backup-target"></a>기본 백업 대상인 StorSimple
 
@@ -233,7 +233,7 @@ Backup Exec 설치 모범 사례는 [Backup Exec 설치에 대한 모범 사례]
 -   StorSimple은 Backup Exec 전체 백업과 증분 백업을 지원합니다. 가상 백업과 차등 백업은 사용하지 않는 것이 좋습니다.
 -   Backup 데이터 파일에는 특정 작업에 대한 데이터만 포함되어야 합니다. 예를 들어 다른 작업에 미디어 추가가 허용되지 않습니다.
 -   작업 검증을 사용하지 않도록 설정합니다. 필요한 경우 최신 백업 작업 후에 검증을 예약해야 합니다. 이 작업이 백업 창에 주는 영향을 이해하는 것이 중요합니다.
--   **스토리지** > **사용자 디스크** > **세부 정보** > **속성**을 차례로 선택합니다. **디스크 공간 미리 할당**을 해제합니다.
+-   **저장소** > **디스크** > **세부 정보** > **속성입니다.** **디스크 공간 미리 할당**을 해제합니다.
 
 최신 Backup Exec 설정 및 이러한 요구 사항을 구현하는 모범 사례에 대해서는 [Veritas 사이트](https://www.veritas.com)를 참조하세요.
 
@@ -267,7 +267,7 @@ Backup Exec 설치 모범 사례는 [Backup Exec 설치에 대한 모범 사례]
 
 ### <a name="to-set-up-backup-exec-storage"></a>Backup Exec 스토리지를 설정하려면
 
-1.  Backup Exec 관리 콘솔에서 **스토리지** > **스토리지 구성** > **디스크 기반 스토리지** > **다음**을 차례로 선택합니다.
+1.  백업 Exec 관리 콘솔에서 **다음 저장소** > **구성 저장소** > **디스크 기반 저장소를** > **선택합니다.**
 
     ![Backup Exec 관리 콘솔 - 스토리지 구성 페이지](./media/storsimple-configure-backup-target-using-backup-exec/image4.png)
 
@@ -313,7 +313,7 @@ Backup Exec 설치 모범 사례는 [Backup Exec 설치에 대한 모범 사례]
 | 빈도/백업 유형 | 전체 | 증분(1-5일)  |   
 |---|---|---|
 | 매주(1-4주) | 토요일 | 월요일-금요일 |
-| 월간  | 토요일  |   |
+| 매월  | 토요일  |   |
 | 매년 | 토요일  |   |
 
 
@@ -323,7 +323,7 @@ Backup Exec 설치 모범 사례는 [Backup Exec 설치에 대한 모범 사례]
 
 #### <a name="to-assign-storsimple-volumes-to-a-backup-exec-backup-job"></a>Backup Exec 백업 작업에 StorSimple 볼륨을 할당하려면
 
-1.  Backup Exec 관리 콘솔에서 **호스트** > **백업** > **디스크에 백업**을 차례로 선택합니다.
+1.  백업 Exec 관리 콘솔에서 디스크에 **대한 백업 백업 호스트를** > **Backup** > **선택합니다.**
 
     ![Backup Exec 관리 콘솔 - 호스트, 백업 및 디스크에 백업 선택](./media/storsimple-configure-backup-target-using-backup-exec/image14.png)
 
@@ -381,13 +381,13 @@ Backup Exec 설치 모범 사례는 [Backup Exec 설치에 대한 모범 사례]
 
 ### <a name="gfs-example-schedule-gfs-rotation-weekly-monthly-and-yearly-schedule"></a>GFS 예제 일정: GFS 회전 매주, 매월 및 매년 일정
 
-| 주 | 전체 | 증분 1일차 | 증분 2일차 | 증분 3일차 | 증분 4일차 | 증분 5일차 |
+| Week | 전체 | 증분 1일차 | 증분 2일차 | 증분 3일차 | 증분 4일차 | 증분 5일차 |
 |---|---|---|---|---|---|---|
 | 1주차 | 로컬 RAID 볼륨  | 로컬 RAID 볼륨 | 로컬 RAID 볼륨 | 로컬 RAID 볼륨 | 로컬 RAID 볼륨 | 로컬 RAID 볼륨 |
 | 2주차 | StorSimple 2-4주 |   |   |   |   |   |
 | 3주차 | StorSimple 2-4주 |   |   |   |   |   |
 | 4주차 | StorSimple 2-4주 |   |   |   |   |   |
-| 월간 | StorSimple 매월 |   |   |   |   |   |
+| 매월 | StorSimple 매월 |   |   |   |   |   |
 | 매년 | StorSimple 매년  |   |   |   |   |   |
 
 
@@ -395,11 +395,11 @@ Backup Exec 설치 모범 사례는 [Backup Exec 설치에 대한 모범 사례]
 
 #### <a name="to-assign-storsimple-volumes-to-a-backup-exec-archive-and-duplication-job"></a>Backup Exec 보관 및 중복 제거 작업에 StorSimple 볼륨을 할당하려면
 
-1.  Backup Exec 관리 콘솔에서 StorSimple 볼륨에 보관할 작업을 마우스 오른쪽 단추로 클릭한 다음 **백업 정의 속성** > **편집**을 차례로 선택합니다.
+1.  Backup Exec 관리 콘솔에서 StorSimple 볼륨에 보관할 작업을 마우스 오른쪽 단추로 클릭한 다음 **백업 정의 속성** > **편집을**선택합니다.
 
     ![Backup Exec 관리 콘솔 - 백업 정의 속성 탭](./media/storsimple-configure-backup-target-using-backup-exec/image19.png)
 
-2.  **스테이지 추가** > **디스크에 복제** > **편집**을 차례로 선택합니다.
+2.  디스크 > 편집에 > 스테이지**복제 추가를****선택합니다.** **Add Stage**
 
     ![Backup Exec 관리 콘솔 - 스테이지 추가](./media/storsimple-configure-backup-target-using-backup-exec/image20.png)
 
@@ -448,7 +448,7 @@ StorSimple 클라우드 스냅샷은 StorSimple 디바이스에 있는 데이터
 
 ### <a name="to-start-or-delete-a-cloud-snapshot"></a>클라우드 스냅샷을 시작하거나 삭제하려면
 
-1. [Azure PowerShell 설치](/powershell/azure/overview)
+1. [Azure PowerShell 설치](/powershell/azure/overview).
 2. [Manage-CloudSnapshots.ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Manage-CloudSnapshots.ps1) PowerShell 스크립트를 다운로드 및 설치합니다.
 3. 스크립트를 실행하는 서버에서 관리자 권한으로 PowerShell을 실행합니다. `-WhatIf $true`를 포함하는 스크립트를 실행하여 스크립트가 어떻게 변경되는지 확인합니다. 유효성 검사가 완료되면 `-WhatIf $false`를 전달합니다. 아래 명령을 실행합니다.
    ```powershell

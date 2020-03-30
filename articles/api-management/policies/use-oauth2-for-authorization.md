@@ -1,5 +1,5 @@
 ---
-title: Azure API management 정책 샘플-게이트웨이와 백 엔드 간의 권한 부여를 위해 OAuth2 사용
+title: 샘플 Azure API 관리 정책 - 게이트웨이와 백 엔드 간의 권한 부여를 위해 OAuth2를 사용합니다.
 titleSuffix: Azure API Management
 description: Azure API Management 정책 샘플 - 게이트웨이와 백 엔드 간의 권한 부여를 위해 OAuth2를 사용하는 방법을 보여줍니다. AAD에서 액세스 토큰을 가져오고 백 엔드로 전달하는 방법을 보여 줍니다.
 services: api-management
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
 ms.openlocfilehash: 09d51759c07e7dacc25d5b5ffce9698831c37a7d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75442360"
 ---
 # <a name="use-oauth2-for-authorization-between-the-gateway-and-a-backend"></a>게이트웨이와 백 엔드 간의 권한 부여에 OAuth2 사용

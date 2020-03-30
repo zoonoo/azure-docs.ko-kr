@@ -1,23 +1,21 @@
 ---
 title: 데이터 엔터티
-description: 이 CPP 문서 및 PC에 연결 된 문서를 사용 하지 않습니다. "데이터 엔터티의 개요"입니다.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: ChJenk
-manager: Ricardo.Villalobos
+description: 이 CPP 문서를 더 이상 사용되지 않으며 PC 아티클에 링크되었습니다. "데이터 엔터티의 개요"였습니다.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/30/2019
-ms.author: v-chjen
-ms.openlocfilehash: 729693b4f887f41140b2df852e70a744edbc060d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 5fcddcf978fe3776d02e035b72cfea332726330b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819959"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80276005"
 ---
 # <a name="data-entities"></a>데이터 엔터티
 
-[Cloud 파트너 포털](https://cloudpartner.azure.com/) 는 더 이상 재무 및 운영 제품에 대 한 Dynamics 365의 생성 및 관리를 지원 하지 않습니다. 대신이 기능은 Microsoft [파트너 센터 포털로](https://partner.microsoft.com/)이동 되었습니다. 자세한 내용은 [Operations 제안의 새 Dynamics 365 만들기](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-operations-offer)를 참조 하세요.
+[클라우드 파트너 포털은](https://cloudpartner.azure.com/) 더 이상 재무 및 운영 제공을 위한 Dynamics 365의 생성 및 관리를 지원하지 않습니다. 대신 이 기능이 Microsoft 파트너 [센터 포털로](https://partner.microsoft.com/)이동되었습니다. 자세한 내용은 [운영 에 대한 새 Dynamics 365 만들기 를](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-operations-offer)참조하십시오.
 
-운영 제안의 새 Dynamics 365을 만들기 전에 [파트너 센터 계정 만들기](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) 를 읽은 다음 **개요** 페이지가 선택 된 상태로 [상용 마켓플레이스 대시보드](https://partner.microsoft.com/dashboard/directory) 를 열어야 합니다. [작업 제안의 새 Dynamics 365 만들기](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-operations-offer) 의 지침에 따라 제품을 만듭니다.
+운영용 새 Dynamics 365 오퍼를 만들기 전에 [파트너 센터 계정 만들기를](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) 읽은 다음 **개요** 페이지를 선택한 상업 [용 마켓플레이스 대시보드를](https://partner.microsoft.com/dashboard/directory) 열어야 합니다. 오퍼를 만들 수 있는 [운영 용 새로운 Dynamics 365 만들기의](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-operations-offer) 지침을 따르십시오.

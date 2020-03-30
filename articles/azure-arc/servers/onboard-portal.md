@@ -6,14 +6,14 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 02/24/2020
+ms.date: 03/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7465ec4ef717f709aacb5e543a8f1cf4fa37bfb5
-ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
+ms.openlocfilehash: 40885e1de4ff4c16d2a50399c654d8596396ab53
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2020
-ms.locfileid: "79139014"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80366374"
 ---
 # <a name="connect-hybrid-machines-to-azure-from-the-azure-portal"></a>Azure Portal에서 Azure에 하이브리드 머신 연결
 
@@ -43,11 +43,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     >- WestEurope
     >- WestAsia
     >
-    >개요 문서 [에서 영역을](overview.md#supported-regions) 선택할 때 추가 고려 사항을 검토 합니다.
+    >개요 문서에서 [지역을](overview.md#supported-regions) 선택할 때 추가 고려 사항을 검토합니다.
 
 1. **스크립트 생성** 페이지의 **운영 체제** 드롭다운 목록에서 스크립트를 실행할 운영 체제를 선택합니다.
 
-1. 컴퓨터가 인터넷에 연결 하기 위해 프록시 서버를 통해 통신 하는 경우 **다음: 프록시 서버**를 선택 합니다. 
+1. 컴퓨터가 프록시 서버를 통해 통신하여 인터넷에 연결하는 경우 **다음: 프록시 서버를**선택합니다. 
 1. **프록시 서버** 탭에서 머신에서 프록시 서버와 통신하는 데 사용할 프록시 서버 IP 주소 또는 이름 및 포트 번호를 지정합니다. 해당 값을 `http://<proxyURL>:<proxyport>` 형식으로 입력합니다. 
 1. **검토 + 생성**을 선택합니다.
 
@@ -65,16 +65,21 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 머신에서 프록시 서버를 통해 서비스와 통신해야 하는 경우 에이전트를 설치한 후에 이 문서의 뒷부분에서 설명하는 명령을 실행해야 합니다. 그러면 `https_proxy` 프록시 서버 시스템 환경 변수가 설정됩니다.
 
-다음 표에는 명령줄에서 에이전트 설정을 통해 지원되는 매개 변수가 강조 표시되어 있습니다.
+Windows Installer 패키지의 명령줄 옵션에 익숙하지 않은 경우 [Msiexec 표준 명령줄 옵션](https://docs.microsoft.com/windows/win32/msi/standard-installer-command-line-options) 및 [Msiexec 명령줄 옵션을](https://docs.microsoft.com/windows/win32/msi/command-line-options)검토하십시오.
 
-| 매개 변수 | Description |
-|:--|:--|
-| /? | 명령줄 옵션의 목록을 반환합니다. |
-| /S | 사용자 상호 작용 없이 자동 설치를 수행합니다. |
+예를 들어 매개 변수를 `/?` 사용하여 설치 프로그램을 실행하여 도움말 및 빠른 참조 옵션을 검토합니다. 
 
-예를 들어 `/?` 매개 변수를 사용하여 설치 프로그램을 실행하려면 `msiexec.exe /i AzureConnectedMachineAgent.msi /?`를 입력합니다.
+```dos
+msiexec.exe /i AzureConnectedMachineAgent.msi /?
+```
 
-Connected Machine 에이전트용 파일은 기본적으로 *C:\Program Files\AzureConnectedMachineAgent*에 설치됩니다. 설치가 완료된 후 에이전트가 시작되지 않으면 자세한 오류 정보를 로그에서 확인합니다. 로그 디렉터리는 *%Programfiles%\AzureConnectedMachineAgentAgent\logs*입니다.
+에이전트를 자동으로 설치하고 `C:\Support\Logs` 폴더에 설치 로그 파일을 만들려면 다음 명령을 실행합니다.
+
+```dos
+msiexec.exe /i AzureConnectedMachineAgent.msi /qn /l*v "C:\Support\Logs\Azcmagentsetup.log"
+```
+
+연결된 컴퓨터 에이전트에 대한 파일은 기본적으로 *C:\프로그램 파일\AzureConnectedMachineAgent*에 설치됩니다. 설치가 완료된 후 에이전트가 시작되지 않으면 자세한 오류 정보를 로그에서 확인합니다. 로그 디렉터리는 *%Programfiles%\AzureConnectedMachineAgentAgent\logs*입니다.
 
 ### <a name="install-with-the-scripted-method"></a>스크립팅된 메서드를 사용하여 설치
 
@@ -149,60 +154,8 @@ bash ~/Install_linux_azcmagent.sh --proxy "{proxy-url}:{proxy-port}"
 
 ![성공적인 서버 연결](./media/onboard-portal/arc-for-servers-successful-onboard.png)
 
-## <a name="clean-up"></a>정리
-
-서버용 Azure Arc(미리 보기)에서 머신의 연결을 끊으려면 다음을 수행합니다.
-
-1. [Azure Portal](https://aka.ms/hybridmachineportal)로 이동하여 서버용 Azure Arc를 엽니다.
-
-1. 목록에서 머신을 선택하고, 줄임표 ( **...** )를 선택한 다음, **삭제**를 선택합니다.
-
-1. 머신에서 Windows 에이전트를 제거하려면 다음을 수행합니다.
-
-    a. 관리자 권한이 있는 계정으로 컴퓨터에 로그인합니다.  
-    b. **제어판**에서 **프로그램 및 기능**을 선택합니다.  
-    다. **프로그램 및 기능**에서 **Azure Connected Machine 에이전트**,  **제거**, **예**를 차례로 선택합니다.  
-
-    >[!NOTE]
-    > **AzureConnectedMachineAgent.msi** 설치 관리자 패키지를 두 번 클릭하여 에이전트 설정 마법사를 실행할 수도 있습니다.
-
-    에이전트의 제거를 스크립팅 하려는 경우 다음 예제를 사용 하면 제품 코드를 검색 하 고 Msiexec.exe 명령줄-`msiexec /x {Product Code}`를 사용 하 여 에이전트를 제거할 수 있습니다. 이렇게 하려면 다음을 수행합니다.  
-    
-    a. 레지스트리 편집기를 엽니다.  
-    b. `HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall` 레지스트리 키 아래에서 제품 코드 GUID를 찾아 복사합니다.  
-    다. 그런 다음, Msiexec를 사용하여 에이전트를 제거할 수 있습니다.
-
-    다음 예제에서는 에이전트를 제거하는 방법을 보여 줍니다.
-
-    ```powershell
-    Get-ChildItem -Path HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall | `
-    Get-ItemProperty | `
-    Where-Object {$_.DisplayName -eq "Azure Connected Machine Agent"} | `
-    ForEach-Object {MsiExec.exe /x "$($_.PsChildName)" /qn}
-    ```
-
-1. Linux 에이전트를 제거 하려면 사용할 명령은 Linux 운영 체제에 따라 달라 집니다.
-
-    - Ubuntu의 경우 다음 명령을 실행 합니다.
-
-      ```bash
-      sudo apt purge azcmagent
-      ```
-
-    - RHEL, CentOS 및 Amazon Linux의 경우 다음 명령을 실행 합니다.
-
-      ```bash
-      sudo yum remove azcmagent
-      ```
-
-    - SLES의 경우 다음 명령을 실행 합니다.
-
-      ```bash
-      sudo zypper remove azcmagent
-      ```
-
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Policy](../../governance/policy/overview.md)를 사용 하 여 컴퓨터를 관리 하는 방법, 컴퓨터에서 예상 Log Analytics 작업 영역에 보고 하는지 [확인,](../../governance/policy/concepts/guest-configuration.md)vm을 사용 하 여 [Azure Monitor](../../azure-monitor/insights/vminsights-enable-at-scale-policy.md)모니터링 사용 등의 작업을 수행 하는 방법을 알아봅니다.
+- Azure [Policy를](../../governance/policy/overview.md)사용하여 컴퓨터를 관리하는 방법, VM [게스트 구성,](../../governance/policy/concepts/guest-configuration.md)컴퓨터가 예상 로그 분석 작업 영역에 보고되고 있는지 확인, [VM을 사용한 Azure 모니터로](../../azure-monitor/insights/vminsights-enable-at-scale-policy.md)모니터링 을 활성화하는 방법 등을 알아봅니다.
 
-- [Log Analytics 에이전트](../../azure-monitor/platform/log-analytics-agent.md)에 대해 자세히 알아보세요. 머신에서 실행되는 OS 및 워크로드를 사전에 모니터링하거나, 자동화 Runbook 또는 업데이트 관리 같은 솔루션을 사용하여 관리하거나, [Azure Security Center](../../security-center/security-center-intro.md) 같은 다른 Azure 서비스를 사용하려는 경우에는 Windows 및 Linux용 Log Analytics 에이전트가 필요합니다.
+- [로그 분석 에이전트에](../../azure-monitor/platform/log-analytics-agent.md)대해 자세히 알아봅니다. 머신에서 실행되는 OS 및 워크로드를 사전에 모니터링하거나, 자동화 Runbook 또는 업데이트 관리 같은 솔루션을 사용하여 관리하거나, [Azure Security Center](../../security-center/security-center-intro.md) 같은 다른 Azure 서비스를 사용하려는 경우에는 Windows 및 Linux용 Log Analytics 에이전트가 필요합니다.

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: robinsh
 ms.openlocfilehash: 96c3a7b2cfda23f173f4caeff4fb7a92b1ddc438
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61440236"
 ---
 # <a name="how-to-upgrade-your-iot-hub"></a>IoT Hub를 업그레이드하는 방법
@@ -23,15 +23,15 @@ IoT 솔루션 증대에 따라 Azure IoT Hub도 고객의 확장을 지원할 �
 
 * IoT Hub 안에 단위를 추가합니다. 예를 들어 B1 IoT Hub 안의 각 추가 단위는 매일 400,000건의 추가적인 메시지를 허용합니다.
 
-* IoT Hub의 크기를 변경합니다. 예를 들어, 각 단위는 하루 지원할 수 있는 메시지의 수를 늘리려면 B2 계층 B1 계층에서 마이그레이션하십시오.
+* IoT Hub의 크기를 변경합니다. 예를 들어 B1 계층에서 B2 계층으로 마이그레이션하여 각 단위가 하루에 지원할 수 있는 메시지 수를 늘립니다.
 
-* 상위 계층으로 업그레이드합니다. 예를 들어 동일한 메시징 기능을 사용 하 여 고급 기능에 대 한 액세스를 위해 S1 계층으로 B1 계층에서 업그레이드 합니다.
+* 상위 계층으로 업그레이드합니다. 예를 들어 B1 계층에서 S1 계층으로 업그레이드하여 메시징 용량이 동일한 고급 기능에 액세스할 수 있습니다.
 
 이러한 변경은 모두 기존 작업 중단 없이 가능합니다.
 
-IoT hub를 다운 그레이드 하려면 단위를 제거 하 고 IoT hub의 크기를 줄일 수 있지만 하위 계층으로 다운 그레이드할 수 없습니다. 예를 들어 S2 계층에서 S1 계층으로는 이동할 수 있지만 S2 계층에서 B1 계층으로는 이동할 수 없습니다. 한 가지 형식만 [Iot Hub 버전](https://azure.microsoft.com/pricing/details/iot-hub/) 계층 내에서 IoT Hub 당 선택할 수 있습니다. 예를 들어 S1 및 B3 또는 S1 및 S2와 같은 서로 다른 버전의 단위 혼합이 아닌 여러 단위의 S1을 사용하여 IoT Hub를 만들 수 있습니다.
+IoT 허브를 다운그레이드하려는 경우 단위를 제거하고 IoT 허브의 크기를 줄일 수 있지만 하위 계층으로 다운그레이드할 수는 없습니다. 예를 들어 S2 계층에서 S1 계층으로는 이동할 수 있지만 S2 계층에서 B1 계층으로는 이동할 수 없습니다. 계층 내에서 [Iot Hub 에디션은](https://azure.microsoft.com/pricing/details/iot-hub/) IoT Hub당 한 가지 유형의 Iot 허브 에디션만 선택할 수 있습니다. 예를 들어 S1 및 B3 또는 S1 및 S2와 같은 서로 다른 버전의 단위 혼합이 아닌 여러 단위의 S1을 사용하여 IoT Hub를 만들 수 있습니다.
 
-이 예제는 사용자 솔루션 변경에 따라 IoT Hub를 조정하는 방법을 이해하는 데 도움이 됩니다. 각 계층의 기능에 대 한 특정 내용은 항상 참조 해야 [Azure IoT Hub 가격 책정](https://azure.microsoft.com/pricing/details/iot-hub/)합니다.
+이 예제는 사용자 솔루션 변경에 따라 IoT Hub를 조정하는 방법을 이해하는 데 도움이 됩니다. 각 계층의 기능에 대한 자세한 내용은 항상 [Azure IoT Hub 가격을](https://azure.microsoft.com/pricing/details/iot-hub/)참조해야 합니다.
 
 ## <a name="upgrade-your-existing-iot-hub"></a>기존 IoT Hub 업그레이드
 
@@ -51,7 +51,7 @@ IoT hub를 다운 그레이드 하려면 단위를 제거 하 고 IoT hub의 크
 
 이제 IoT Hub가 조정되었으며 구성은 변경되지 않았습니다.
 
-기본 계층 IoT Hub 및 IoT Hub 표준 계층에 대 한 최대 파티션 제한은 32입니다. 대부분의 IoT Hub는 4개의 파티션만 필요합니다. 파티션 제한은 IoT Hub가 만들어질 때 선택되며 디바이스-클라우드 메시지를 이러한 메시지의 동시 독자 수와 연결합니다. 기본 계층에서 표준 계층으로 마이그레이션할 때 이 값은 변경되지 않습니다.
+기본 계층 IoT 허브 및 표준 계층 IoT Hub의 최대 파티션 제한은 32입니다. 대부분의 IoT Hub는 4개의 파티션만 필요합니다. 파티션 제한은 IoT Hub가 만들어질 때 선택되며 디바이스-클라우드 메시지를 이러한 메시지의 동시 독자 수와 연결합니다. 기본 계층에서 표준 계층으로 마이그레이션할 때 이 값은 변경되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

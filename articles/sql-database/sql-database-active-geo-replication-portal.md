@@ -1,6 +1,6 @@
 ---
-title: '자습서: 포털에서 지역에서 복제 & 장애 조치 (failover)'
-description: Azure Portal를 사용 하 여 Azure SQL Database에서 단일 또는 풀링된 데이터베이스에 대 한 지역에서 복제를 구성 하 고 장애 조치를 시작 합니다.
+title: '자습서: 포털에서 장애 & 지역 복제'
+description: Azure 포털을 사용하여 Azure SQL Database에서 단일 또는 풀린 데이터베이스에 대한 지역 복제를 구성하고 장애 조치(failover)를 시작합니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -12,17 +12,17 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 02/13/2019
 ms.openlocfilehash: 601c537a51e29ae1f107127e1b83c07448eee9ab
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79256433"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Azure Portal에서 Azure SQL Database에 대한 활성 지역 복제 구성 및 장애 조치(failover) 시작
 
-이 문서에서는 [Azure Portal](sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities)을 사용하여 Azure SQL Database에서 [단일 및 풀링된 데이터베이스의 활성 지역 복제](https://portal.azure.com)를 구성하고 장애 조치(failover)를 시작하는 방법을 보여 줍니다.
+이 문서에서는 [Azure Portal](https://portal.azure.com)을 사용하여 Azure SQL Database에서 [단일 및 풀링된 데이터베이스의 활성 지역 복제](sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities)를 구성하고 장애 조치(failover)를 시작하는 방법을 보여 줍니다.
 
-단일 및 풀링된 데이터베이스를 사용하는 자동 장애 조치(failover) 그룹에 대한 자세한 내용은 [단일 및 풀링된 데이터베이스로 장애 조치(failover) 그룹을 사용하는 방법의 모범 사례](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools)를 참조하세요. 관리 되는 인스턴스가 있는 자동 장애 조치 그룹에 대 한 자세한 내용은 [관리 되는 인스턴스에서 장애 조치 (failover) 그룹 사용](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-managed-instances)에 대 한 모범 사례를 참조 하세요.
+단일 및 풀링된 데이터베이스를 사용하는 자동 장애 조치(failover) 그룹에 대한 자세한 내용은 [단일 및 풀링된 데이터베이스로 장애 조치(failover) 그룹을 사용하는 방법의 모범 사례](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools)를 참조하세요. 관리되는 인스턴스를 사용한 자동 장애 조치 그룹에 대한 자세한 내용은 [관리형 인스턴스가 있는 장애 조치 그룹을 사용하는 모범 사례를](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-managed-instances)참조하십시오.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -45,7 +45,7 @@ Azure Portal을 사용하여 활성 지역 복제를 구성하려면 다음 리�
 > [!NOTE]
 > 파트너 데이터베이스가 이미 있는 경우(예: 이전 지역에서 복제 관계를 종료한 결과) 명령이 실패합니다.
 
-1. [Azure Portal](https://portal.azure.com)에서 지역에서 복제를 위해 설치하려는 데이터베이스를 찾습니다.
+1. Azure [포털에서](https://portal.azure.com)지역 복제를 위해 설정하려는 데이터베이스를 찾아봅습니다.
 2. SQL Database 페이지에서 **지역에서 복제**를 선택하고 보조 데이터베이스를 만들 지역을 선택합니다. 주 데이터베이스를 호스트하는 지역과 다른 지역을 선택할 수 있지만 [쌍을 이루는 지역](../best-practices-availability-paired-regions.md)이 권장됩니다.
 
     ![지역에서 복제 구성](./media/sql-database-geo-replication-portal/configure-geo-replication.png)
@@ -65,14 +65,14 @@ Azure Portal을 사용하여 활성 지역 복제를 구성하려면 다음 리�
 
 보조 데이터베이스가 주 데이터베이스가 되도록 전환할 수 있습니다.  
 
-1. [Azure Portal](https://portal.azure.com)에서 지역에서 복제 파트너 관계에 있는 주 데이터베이스를 찾습니다.
-2. SQL Database 블레이드에서 **모든 설정** > **지역에서 복제**를 선택합니다.
+1. Azure [포털에서](https://portal.azure.com)지역 복제 파트너십의 기본 데이터베이스를 찾아봅습니다.
+2. SQL Database 블레이드에서 **모든 설정** > **지역 복제를**선택합니다.
 3. **보조** 목록에서 새로운 주 데이터베이스가 될 데이터베이스를 선택하고 **장애 조치**를 클릭합니다.
 
     ![failover](./media/sql-database-geo-replication-failover-portal/secondaries.png)
 4. 장애 조치를 시작하려면 **예** 를 클릭합니다.
 
-이 명령은 보조 데이터베이스를 주 역할로 즉시 전환합니다. 이 프로세스는 일반적으로 30 초 이내에 완료 되어야 합니다.
+이 명령은 보조 데이터베이스를 주 역할로 즉시 전환합니다. 이 프로세스는 일반적으로 30초 이내에 완료되어야 합니다.
 
 역할이 전환되는 동안 두 데이터베이스를 모두 사용할 수 없는 (0-25초의 순서로) 짧은 기간이 있습니다. 주 데이터베이스에 여러 개의 보조 데이터베이스가 있는 경우 이 명령을 사용하면 새로운 주 데이터베이스에 연결할 다른 보조 데이터베이스가 자동으로 다시 구성됩니다. 전체 작업은 정상적인 상황에서 완료하는데 1분 미만이 걸려야 합니다.
 
@@ -83,7 +83,7 @@ Azure Portal을 사용하여 활성 지역 복제를 구성하려면 다음 리�
 
 이 작업은 보조 데이터베이스에 대한 복제를 영구적으로 종료하고 보조의 역할을 일반적인 읽기-쓰기 데이터베이스로 변경합니다. 보조 데이터베이스에 대한 연결이 끊어진 경우 명령이 성공하지만 연결이 복원된 후에야 보조는 읽기-쓰기가 됩니다.  
 
-1. [Azure Portal](https://portal.azure.com)에서 지역에서 복제 파트너 관계에 있는 주 데이터베이스를 찾습니다.
+1. Azure [포털에서](https://portal.azure.com)지역 복제 파트너십의 기본 데이터베이스를 찾아봅습니다.
 2. SQL Database 페이지에서 **지역에서 복제**를 선택합니다.
 3. **보조** 목록에서 지역에서 복제 파트너 관계에서 제거할 데이터베이스를 선택합니다.
 4. **복제 중지**를 클릭합니다.
@@ -93,6 +93,6 @@ Azure Portal을 사용하여 활성 지역 복제를 구성하려면 다음 리�
 
 ## <a name="next-steps"></a>다음 단계
 
-* 활성 지역 복제에 대한 자세한 내용은 [활성 지역 복제](sql-database-active-geo-replication.md)를 참조하세요.
+* 활성 지역 복제에 대한 자세한 내용은 [활성 지역 복제](sql-database-active-geo-replication.md)를 참조하십시오.
 * 자동 장애 조치(failover) 그룹에 대해 알아보려면 [자동 장애 조치(failover) 그룹](sql-database-auto-failover-group.md)을 참조하세요.
-* 비즈니스 연속성의 개요 및 시나리오를 보려면 [비즈니스 연속성 개요](sql-database-business-continuity.md)를 참조하세요.
+* 비즈니스 연속성 개요 및 시나리오는 [비즈니스 연속성 개요를](sql-database-business-continuity.md)참조하십시오.

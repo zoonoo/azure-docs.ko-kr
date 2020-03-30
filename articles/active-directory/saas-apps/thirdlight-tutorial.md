@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.openlocfilehash: 448d46cd21a63488c4f567d5555fe6406fc0fa73
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67089099"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thirdlight"></a>자습서: ThirdLight와 Azure Active Directory 통합
@@ -34,7 +34,7 @@ Azure AD와 SaaS 앱의 통합에 대해 자세히 알아보려면 [Azure Active
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 ThirdLight와 Azure AD의 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -91,7 +91,7 @@ ThirdLight에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
     ![Single Sign-On 선택](common/select-sso.png)
 
-2. **Single Sign-On 방법 선택** 대화 상자에서 **SAML/WS-Fed** 모드를 선택하여 Single Sign-On을 사용하도록 설정합니다.
+2. **Single Sign-On 선택 방법** 대화 상자에서 **SAML/WS-Fed** 모드를 선택하여 Single Sign-On을 사용하도록 설정합니다.
 
     ![Single Sign-On 방법 선택](common/select-saml-option.png)
 

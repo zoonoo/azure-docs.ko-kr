@@ -1,64 +1,64 @@
 ---
-title: 사이드카 컨테이너를 사용 하 여 SSL 사용
-description: 사이드카 컨테이너에서 Nginx를 실행 하 여 Azure Container Instances에서 실행 되는 컨테이너 그룹에 대 한 SSL 또는 TLS 끝점을 만듭니다.
+title: 사이드카 컨테이너로 SSL 사용
+description: 사이드카 컨테이너에서 Nginx를 실행하여 Azure 컨테이너 인스턴스에서 실행 중인 컨테이너 그룹에 대한 SSL 또는 TLS 끝점 만들기
 ms.topic: article
 ms.date: 02/14/2020
-ms.openlocfilehash: 524e997cf6c7c464cc352048b1abf4be119d2f37
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: 43b39c7c13d6d5e52aae2ce1706e4880ab27d225
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77460555"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294954"
 ---
-# <a name="enable-an-ssl-endpoint-in-a-sidecar-container"></a>사이드카 컨테이너에서 SSL 끝점을 사용 하도록 설정
+# <a name="enable-an-ssl-endpoint-in-a-sidecar-container"></a>사이드카 컨테이너에서 SSL 엔드포인트 사용
 
-이 문서에서는 응용 프로그램 컨테이너와 SSL 공급자를 실행 하는 사이드카 컨테이너를 사용 하 여 [컨테이너 그룹](container-instances-container-groups.md) 을 만드는 방법을 보여 줍니다. 별도의 SSL 끝점을 사용 하 여 컨테이너 그룹을 설정 하 여 응용 프로그램 코드를 변경 하지 않고 응용 프로그램에 대 한 SSL 연결을 사용 하도록 설정 합니다.
+이 문서에서는 응용 프로그램 [컨테이너와](container-instances-container-groups.md) SSL 공급자를 실행 하는 사이드카 컨테이너를 사용 하 여 컨테이너 그룹을 만드는 방법을 보여 주며 있습니다. 별도의 SSL 끝점으로 컨테이너 그룹을 설정하면 응용 프로그램 코드를 변경하지 않고 응용 프로그램에 대한 SSL 연결을 사용하도록 설정합니다.
 
-두 개의 컨테이너로 구성 된 예제 컨테이너 그룹을 설정 합니다.
-* 공용 Microsoft [aci-helloworld](https://hub.docker.com/_/microsoft-azuredocs-aci-helloworld) 이미지를 사용 하 여 간단한 웹 앱을 실행 하는 응용 프로그램 컨테이너입니다. 
-* SSL을 사용 하도록 구성 된 public [Nginx](https://hub.docker.com/_/nginx) 이미지를 실행 하는 사이드카 컨테이너 
+두 개의 컨테이너로 구성된 예제 컨테이너 그룹을 설정합니다.
+* 공용 Microsoft [aci-helloworld](https://hub.docker.com/_/microsoft-azuredocs-aci-helloworld) 이미지를 사용하여 간단한 웹 앱을 실행하는 응용 프로그램 컨테이너입니다. 
+* 공용 [Nginx](https://hub.docker.com/_/nginx) 이미지를 실행하는 사이드카 컨테이너로 SSL을 사용하도록 구성됩니다. 
 
-이 예제에서 컨테이너 그룹은 공용 IP 주소를 사용 하 여 Nginx에 대 한 포트 443만 노출 합니다. Nginx는 포트 80에서 내부적으로 수신 대기 하는 도우미 웹 앱에 대 한 HTTPS 요청을 라우팅합니다. 다른 포트에서 수신 대기 하는 컨테이너 앱에 대 한 예제를 적용할 수 있습니다. 
+이 예제에서 컨테이너 그룹은 공용 IP 주소가 있는 Nginx에 대한 포트 443만 노출합니다. Nginx는 포트 80에서 내부적으로 수신하는 도우미 웹 앱으로 HTTPS 요청을 라우팅합니다. 다른 포트에서 수신 하는 컨테이너 앱에 대 한 예제를 조정할 수 있습니다. 
 
-컨테이너 그룹에서 SSL을 사용 하도록 설정 하는 다른 방법은 [다음 단계](#next-steps) 를 참조 하세요.
+컨테이너 그룹에서 SSL을 사용하도록 설정하는 다른 방법에 대한 [다음 단계를](#next-steps) 참조하십시오.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Azure Cloud Shell 또는 Azure CLI의 로컬 설치를 사용하여 이 문서를 완료할 수 있습니다. 로컬로 사용하려면 2.0.55 버전 이상이 권장됩니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
+Azure Cloud Shell 또는 Azure CLI의 로컬 설치를 사용하여 이 문서를 완료할 수 있습니다. 로컬로 사용하려면 2.0.55 버전 이상이 권장됩니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하십시오.
 
 ## <a name="create-a-self-signed-certificate"></a>자체 서명된 인증서 만들기
 
-Nginx를 SSL 공급자로 설정 하려면 SSL 인증서가 필요 합니다. 이 문서에서는 자체 서명 된 SSL 인증서를 만들고 설정 하는 방법을 보여 줍니다. 프로덕션 시나리오의 경우 인증 기관에서 인증서를 받아야 합니다.
+Nginx를 SSL 공급자로 설정하려면 SSL 인증서가 필요합니다. 이 문서에서는 자체 서명된 SSL 인증서를 만들고 설정하는 방법을 보여 주며 있습니다. 프로덕션 시나리오의 경우 인증서 기관에서 인증서를 가져와야 합니다.
 
-자체 서명 된 SSL 인증서를 만들려면 Azure Cloud Shell 및 많은 Linux 배포판에서 사용할 수 있는 [OpenSSL](https://www.openssl.org/) 도구를 사용 하거나, 운영 체제에서 동급 클라이언트 도구를 사용 합니다.
+자체 서명된 SSL 인증서를 만들려면 Azure Cloud Shell 및 여러 Linux 배포판에서 사용할 수 있는 [OpenSSL](https://www.openssl.org/) 도구를 사용하거나 운영 체제에서 유사한 클라이언트 도구를 사용합니다.
 
-먼저 로컬 작업 디렉터리에서 인증서 요청 (csr 파일)을 만듭니다.
+먼저 로컬 작업 디렉토리에 인증서 요청(.csr 파일)을 만듭니다.
 
 ```console
 openssl req -new -newkey rsa:2048 -nodes -keyout ssl.key -out ssl.csr
 ```
 
-프롬프트에 따라 식별 정보를 추가 합니다. 일반 이름에 인증서와 연결 된 호스트 이름을 입력 합니다. 암호를 입력 하 라는 메시지가 표시 되 면 입력 하지 않고 Enter 키를 눌러 암호 추가를 건너뜁니다.
+프롬프트에 따라 식별 정보를 추가합니다. 일반 이름의 경우 인증서와 연결된 호스트 이름을 입력합니다. 암호를 입력하라는 메시지가 표시되면 입력하지 않고 Enter를 눌러 암호 추가를 건너뜁니다.
 
-다음 명령을 실행 하 여 인증서 요청에서 자체 서명 된 인증서 (.crt 파일)를 만듭니다. 예를 들면 다음과 같습니다.
+다음 명령을 실행하여 인증서 요청에서 자체 서명된 인증서(.crt file)를 만듭니다. 예를 들어:
 
 ```console
 openssl x509 -req -days 365 -in ssl.csr -signkey ssl.key -out ssl.crt
 ```
 
-이제 디렉터리에 인증서 요청 (`ssl.csr`), 개인 키 (`ssl.key`) 및 자체 서명 된 인증서 (`ssl.crt`) 라는 세 개의 파일이 표시 됩니다. 이후 단계에서 `ssl.key` 및 `ssl.crt`를 사용 합니다.
+이제 디렉터리에서 인증서 요청(), 개인 키()`ssl.csr``ssl.key`및 자체 서명된 인증서()의`ssl.crt`세 개의 파일이 표시됩니다. 이후 `ssl.key` `ssl.crt` 단계에서 사용합니다.
 
-## <a name="configure-nginx-to-use-ssl"></a>SSL을 사용 하도록 Nginx 구성
+## <a name="configure-nginx-to-use-ssl"></a>SSL을 사용하도록 Nginx 구성
 
 ### <a name="create-nginx-configuration-file"></a>Nginx 구성 파일 만들기
 
-이 섹션에서는 SSL을 사용 하기 위해 Nginx에 대 한 구성 파일을 만듭니다. `nginx.conf`이라는 새 파일에 다음 텍스트를 복사 하 여 시작 합니다. Azure Cloud Shell에서 Visual Studio Code를 사용 하 여 작업 디렉터리에 파일을 만들 수 있습니다.
+이 섹션에서는 Nginx가 SSL을 사용할 수 있도록 구성 파일을 만듭니다. 먼저 다음 텍스트를 라는 `nginx.conf`새 파일에 복사합니다. Azure Cloud Shell에서 Visual Studio 코드를 사용하여 작업 디렉터리에서 파일을 만들 수 있습니다.
 
 ```console
 code nginx.conf
 ```
 
-`location`에서 `proxy_pass`를 앱에 대 한 올바른 포트로 설정 해야 합니다. 이 예제에서는 `aci-helloworld` 컨테이너에 대해 포트 80을 설정 합니다.
+에서 `location`앱에 대한 `proxy_pass` 올바른 포트로 설정해야 합니다. 이 예제에서는 컨테이너에 대 한 `aci-helloworld` 포트 80을 설정 합니다.
 
 ```console
 # nginx Configuration File
@@ -122,9 +122,9 @@ http {
 }
 ```
 
-### <a name="base64-encode-secrets-and-configuration-file"></a>Base64-암호 및 구성 파일 인코딩
+### <a name="base64-encode-secrets-and-configuration-file"></a>Base64-인코딩 비밀 및 구성 파일
 
-Nginx 구성 파일, SSL 인증서 및 SSL 키를 Base64로 인코딩합니다. 다음 섹션에서는 컨테이너 그룹을 배포 하는 데 사용 되는 YAML 파일에 인코딩된 콘텐츠를 입력 합니다.
+Base64 Nginx 구성 파일, SSL 인증서 및 SSL 키를 인코딩합니다. 다음 섹션에서는 컨테이너 그룹을 배포하는 데 사용되는 YAML 파일에 인코딩된 내용을 입력합니다.
 
 ```console
 cat nginx.conf | base64 > base64-nginx.conf
@@ -134,17 +134,17 @@ cat ssl.key | base64 > base64-ssl.key
 
 ## <a name="deploy-container-group"></a>컨테이너 그룹 배포
 
-이제 [Yaml 파일](container-instances-multi-container-yaml.md)의 컨테이너 구성을 지정 하 여 컨테이너 그룹을 배포 합니다.
+이제 [YAML 파일에서](container-instances-multi-container-yaml.md)컨테이너 구성을 지정하여 컨테이너 그룹을 배포합니다.
 
 ### <a name="create-yaml-file"></a>YAML 파일 만들기
 
-다음 YAML을 `deploy-aci.yaml`이라는 새 파일에 복사 합니다. Azure Cloud Shell에서 Visual Studio Code를 사용 하 여 작업 디렉터리에 파일을 만들 수 있습니다.
+다음 YAML을 라는 `deploy-aci.yaml`새 파일에 복사합니다. Azure Cloud Shell에서 Visual Studio 코드를 사용하여 작업 디렉터리에서 파일을 만들 수 있습니다.
 
 ```console
 code deploy-aci.yaml
 ```
 
-`secret`아래에 표시 되는 base64 인코딩 파일의 내용을 입력 합니다. 예를 들어 각 b a s e 64로 인코딩된 파일을 `cat` 하 여 해당 내용을 확인 합니다. 배포 하는 동안 이러한 파일은 컨테이너 그룹의 [비밀 볼륨](container-instances-volume-secret.md) 에 추가 됩니다. 이 예제에서는 비밀 볼륨이 Nginx 컨테이너에 탑재 됩니다.
+아래에 `secret`표시된 base64 인코딩 된 파일의 내용을 입력합니다. 예를 `cat` 들어, 각 base64 인코딩된 파일은 해당 내용을 볼 수 있습니다. 배포 하는 동안 이러한 파일 컨테이너 그룹의 [비밀 볼륨에](container-instances-volume-secret.md) 추가 됩니다. 이 예제에서는 비밀 볼륨이 Nginx 컨테이너에 탑재됩니다.
 
 ```YAML
 api-version: 2018-10-01
@@ -193,13 +193,13 @@ type: Microsoft.ContainerInstance/containerGroups
 
 ### <a name="deploy-the-container-group"></a>컨테이너 그룹 배포
 
-[Az group create](/cli/azure/group#az-group-create) 명령을 사용 하 여 리소스 그룹을 만듭니다.
+az 그룹이 명령을 만드는 리소스 그룹을 [만듭니다.](/cli/azure/group#az-group-create)
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location eastus
+az group create --name myResourceGroup --location westus
 ```
 
-[Az container create](/cli/azure/container#az-container-create) 명령을 사용 하 여 yaml 파일을 인수로 전달 하 여 컨테이너 그룹을 배포 합니다.
+[Az 컨테이너 create](/cli/azure/container#az-container-create) 명령을 사용하여 컨테이너 그룹을 배포하여 YAML 파일을 인수로 전달합니다.
 
 ```azurecli
 az container create --resource-group <myResourceGroup> --file deploy-aci.yaml
@@ -207,13 +207,13 @@ az container create --resource-group <myResourceGroup> --file deploy-aci.yaml
 
 ### <a name="view-deployment-state"></a>배포 상태 확인
 
-배포 상태를 보려면 다음 [az container show](/cli/azure/container#az-container-show) 명령을 사용 합니다.
+배포 상태를 확인하려면 [az container show](/cli/azure/container#az-container-show) 명령을 사용합니다.
 
 ```azurecli
 az container show --resource-group <myResourceGroup> --name app-with-ssl --output table
 ```
 
-성공적으로 배포 하는 경우 출력은 다음과 유사 합니다.
+성공적인 배포의 경우 출력은 다음과 유사합니다.
 
 ```console
 Name          ResourceGroup    Status    Image                                                    IP:ports             Network    CPU/Memory       OsType    Location
@@ -223,23 +223,23 @@ app-with-ssl  myresourcegroup  Running   nginx, mcr.microsoft.com/azuredocs/aci-
 
 ## <a name="verify-ssl-connection"></a>SSL 연결 확인
 
-브라우저를 사용 하 여 컨테이너 그룹의 공용 IP 주소로 이동 합니다. 이 예제에 표시 된 IP 주소는 `52.157.22.76`이므로 URL은 **https://52.157.22.76** 됩니다. Nginx 서버 구성으로 인해 실행 중인 응용 프로그램을 보려면 HTTPS를 사용 해야 합니다. HTTP를 통한 연결 시도가 실패 합니다.
+브라우저를 사용하여 컨테이너 그룹의 공용 IP 주소로 이동합니다. 이 예제에 표시된 IP `52.157.22.76`주소는 은 **https://52.157.22.76**. Nginx 서버 구성으로 인해 실행 중인 응용 프로그램을 보려면 HTTPS를 사용해야 합니다. HTTP를 통해 연결하려고 시도실패합니다.
 
 ![Azure 컨테이너 인스턴스에서 실행되는 애플리케이션을 보여주는 브라우저 스크린샷](./media/container-instances-container-group-ssl/aci-app-ssl-browser.png)
 
 > [!NOTE]
-> 이 예제에서는 인증 기관의 인증서가 아니라 자체 서명 된 인증서를 사용 하기 때문에 HTTPS를 통해 사이트에 연결할 때 브라우저에서 보안 경고를 표시 합니다. 페이지를 계속 진행 하려면 경고를 수락 하거나 브라우저 또는 인증서 설정을 조정 해야 할 수 있습니다. 이 동작은 예상된 동작입니다.
+> 이 예제에서는 인증 기관의 인증서가 아닌 자체 서명된 인증서를 사용하기 때문에 브라우저는 HTTPS를 통해 사이트에 연결할 때 보안 경고를 표시합니다. 페이지를 진행하려면 경고를 수락하거나 브라우저 또는 인증서 설정을 조정해야 할 수 있습니다. 이는 정상적인 동작입니다.
 
 >
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 컨테이너 그룹에서 실행 되는 웹 앱에 대 한 SSL 연결을 사용 하도록 Nginx 컨테이너를 설정 하는 방법을 살펴보았습니다. 포트 80 이외의 포트에서 수신 대기 하는 앱에 대해이 예제를 적용할 수 있습니다. HTTPS를 사용 하도록 Nginx 구성 파일을 업데이트 하 여 포트 80 (HTTP)에서 서버 연결을 자동으로 리디렉션할 수도 있습니다.
+이 문서에서는 컨테이너 그룹에서 실행 중인 웹 앱에 대한 SSL 연결을 사용하도록 Nginx 컨테이너를 설정하는 방법을 보여 주어 있습니다. 포트 80이 아닌 다른 포트에서 수신 하는 앱에 대해 이 예제를 조정할 수 있습니다. 또한 Nginx 구성 파일을 업데이트하여 포트 80(HTTP)에서 서버 연결을 자동으로 리디렉션하여 HTTPS를 사용할 수도 있습니다.
 
-이 문서에서는 사이드카의 Nginx를 사용 하지만 [Caddy](https://caddyserver.com/)와 같은 다른 SSL 공급자를 사용할 수 있습니다.
+이 문서에서는 사이드카에서 Nginx를 사용하지만 [Caddy와](https://caddyserver.com/)같은 다른 SSL 공급자를 사용할 수 있습니다.
 
-[Azure 가상 네트워크](container-instances-vnet.md)에 컨테이너 그룹을 배포 하는 경우 다음을 포함 하 여 백 엔드 컨테이너 인스턴스에 대해 SSL 끝점을 사용 하도록 설정 하는 다른 옵션을 고려할 수 있습니다.
+[Azure 가상 네트워크에](container-instances-vnet.md)컨테이너 그룹을 배포하는 경우 다음을 포함하여 백 엔드 컨테이너 인스턴스에 대한 SSL 끝점을 사용하도록 설정하는 다른 옵션을 고려할 수 있습니다.
 
-* [Azure Functions 프록시](../azure-functions/functions-proxies.md)
-* [Azure API Management](../api-management/api-management-key-concepts.md)
-* [Azure 애플리케이션 Gateway](../application-gateway/overview.md) -샘플 [배포 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-wordpress-vnet)을 참조 하세요.
+* [Azure 함수 프록시](../azure-functions/functions-proxies.md)
+* [Azure API 관리](../api-management/api-management-key-concepts.md)
+* [Azure 응용 프로그램 게이트웨이](../application-gateway/overview.md) - 샘플 [배포 템플릿을](https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-wordpress-vnet)참조하십시오.

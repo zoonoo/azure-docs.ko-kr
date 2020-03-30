@@ -1,5 +1,5 @@
 ---
-title: '보안: 온-프레미스 Apache Hadoop을 Azure HDInsight로 마이그레이션'
+title: '보안: 온-프레미스 아파치 하두롭을 Azure HDInsight로 마이그레이션'
 description: 온-프레미스 Hadoop 클러스터를 Azure HDInsight로 마이그레이션하는 보안 및 DevOps 모범 사례를 알아봅니다.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/19/2019
 ms.openlocfilehash: 4ceefcbbbb53e3ae13f8ced930ae8417fb00965f
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75974415"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---security-and-devops-best-practices"></a>온-프레미스 Apache Hadoop 클러스터를 Azure HDInsight로 마이그레이션 - 보안 및 DevOps 모범 사례
@@ -42,14 +42,14 @@ ESP는 Apache Hadoop, Apache Spark, Apache HBase, Apache Kafka 및 Interactive Q
 
 - 다음 매개 변수를 설정하여 HDInsight ESP 클러스터를 배포합니다.
 
-    |매개 변수 |Description |
+    |매개 변수 |설명 |
     |---|---|
     |도메인 이름|Azure AD DS와 연결된 도메인 이름입니다.|
-    |도메인 사용자 이름|이전 섹션에서 만든 Azure AD DS DC 관리 도메인의 서비스 계정 (예: `hdiadmin@contoso.onmicrosoft.com`). 이 도메인 사용자는 이 HDInsight 클러스터의 관리자가 됩니다.|
+    |도메인 사용자 이름|이전 섹션에서 만든 Azure AD DS DC 관리되는 도메인의 서비스 계정입니다(예: `hdiadmin@contoso.onmicrosoft.com`). 이 도메인 사용자는 이 HDInsight 클러스터의 관리자가 됩니다.|
     |도메인 암호|서비스 계정의 암호입니다.|
-    |조직 구성 단위|HDInsight 클러스터와 함께 사용 하려는 OU의 고유 이름입니다 (예: `OU=HDInsightOU,DC=contoso,DC=onmicrosoft,DC=com`). 이 OU가 없을 경우 HDInsight 클러스터는 서비스 계정의 권한을 사용 하 여 OU를 만들려고 시도 합니다.|
-    |LDAPS URL|예를 들어 `ldaps://contoso.onmicrosoft.com:636`합니다.|
-    |사용자 그룹 액세스|클러스터에 동기화 할 사용자를 포함 하는 보안 그룹 (예: `HiveUsers`). 여러 사용자 그룹을 지정하려면 세미콜론 ‘;’으로 구분합니다. 그룹은 ESP 클러스터를 만들기 전에 디렉터리에 있어야 합니다.|
+    |조직 구성 단위|HDInsight 클러스터에 사용하려는 OU의 고유 이름입니다(예: `OU=HDInsightOU,DC=contoso,DC=onmicrosoft,DC=com`). 이 OU가 없으면 HDInsight 클러스터는 서비스 계정의 권한을 사용하여 OU를 만들려고 시도합니다.|
+    |LDAPS URL|예를 들어, `ldaps://contoso.onmicrosoft.com:636`을 참조하십시오.|
+    |사용자 그룹에 액세스|클러스터에 동기화할 사용자가 속하는 보안 그룹입니다(예: `HiveUsers`). 여러 사용자 그룹을 지정하려면 세미콜론 ‘;’으로 구분합니다. 그룹은 ESP 클러스터를 만들기 전에 디렉터리에 있어야 합니다.|
 
 자세한 내용은 다음 문서를 참조하세요.
 
@@ -79,7 +79,7 @@ ESP는 Apache Hadoop, Apache Spark, Apache HBase, Apache Kafka 및 Interactive Q
 
 **암호화**
     - Microsoft 관리 키 또는 고객 관리 키를 사용하는 투명한 서버 쪽 암호화입니다.
-    - 클라이언트 쪽 암호화, https 및 TLS를 사용 하는 전송 암호화
+    - 클라이언트 측 암호화, https 및 TLS를 사용하여 전송 암호화합니다.
 
 자세한 내용은 다음 문서를 참조하세요.
 
@@ -93,7 +93,7 @@ ESP는 Apache Hadoop, Apache Spark, Apache HBase, Apache Kafka 및 Interactive Q
 
 자세한 내용은 다음 문서를 참조하세요.
 
-[Azure Monitor 개요](../../azure-monitor/overview.md)
+[Azure 모니터 개요](../../azure-monitor/overview.md)
 
 ## <a name="upgrade-clusters"></a>클러스터 업그레이드
 
@@ -104,17 +104,17 @@ ESP는 Apache Hadoop, Apache Spark, Apache HBase, Apache Kafka 및 Interactive Q
 1. 작업, 애플리케이션 또는 워크로드를 필요한 대로 수정합니다.
 1. 클러스터 노드에 로컬로 저장된 모든 임시 데이터를 백업합니다.
 1. 기존 클러스터를 삭제합니다.
-1. 이전 클러스터와 동일한 기본 데이터 및 메타 저장소를 사용 하 여 동일한 가상 네트워크 서브넷에 최신 HDInsight 버전의 클러스터를 만듭니다.
+1. 이전 클러스터와 동일한 기본 데이터 및 메타 저장소를 사용하여 동일한 가상 네트워크 서브넷에서 최신 HDInsight 버전 클러스터를 만듭니다.
 1. 백업된 임시 데이터를 가져옵니다.
 1. 새 클러스터를 사용하여 작업을 시작하거나 계속 처리합니다.
 
-자세한 내용은 [HDInsight 클러스터를 새 버전으로 업그레이드](../hdinsight-upgrade-cluster.md)문서를 참조 하세요.
+자세한 내용은 문서를 참조하십시오: [HDInsight 클러스터를 새 버전으로 업그레이드하십시오.](../hdinsight-upgrade-cluster.md)
 
 ## <a name="patch-cluster-operating-systems"></a>클러스터 운영 체제 패치
 
 관리되는 Hadoop 서비스인 HDInsight는 HDInsight 클러스터에서 사용하는 VM의 OS를 패치하는 작업을 담당합니다.
 
-자세한 내용은 [HDInsight에 대 한 OS 패치](../hdinsight-os-patching.md)문서를 참조 하세요.
+자세한 내용은 문서를 참조하십시오: [HDInsight에 대한 OS 패치](../hdinsight-os-patching.md).
 
 ## <a name="post-migration"></a>마이그레이션 후 작업
 

@@ -2,25 +2,25 @@
 title: Azure 마이그레이션에서 VM웨어 평가 지원
 description: Azure 마이그레이션 서버 평가를 통해 VMware VM 평가에 대한 지원에 대해 알아봅니다.
 ms.topic: conceptual
-ms.date: 03/23/2020
-ms.openlocfilehash: 03d07adb6f19346901286bdae148f95e68290e4e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/29/2020
+ms.openlocfilehash: e0172656d06075f89a7c3a06e8d4e9be94e6f5d0
+ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80336869"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80389310"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>VMware 평가를 위한 지원 매트릭스 
 
-이 문서에서는 Azure로 마이그레이션할 준비를 위해 VMware VM을 평가하기 위한 필수 구성 조건 및 지원 요구 사항을 요약합니다. VMware VM을 Azure로 마이그레이션하려면 마이그레이션 [지원 매트릭스를](migrate-support-matrix-vmware-migration.md)검토합니다.
+이 문서에서는 Azure 마이그레이션:서버 평가](마이그레이션-서비스-개요.md#azure-마이그레이션-서버-평가 도구) 도구를 사용 하 여 Azure로 마이그레이션하기 위한 VM웨어 VM을 평가할 때 필수 구성 조건 및 지원 요구 사항을 요약합니다. VMware VM을 Azure로 마이그레이션하려면 마이그레이션 [지원 매트릭스를](migrate-support-matrix-vmware-migration.md)검토합니다.
 
-[Azure 마이그레이션:서버 평가](migrate-services-overview.md#azure-migrate-server-assessment-tool) 도구를 사용하여 실제 서버를 평가합니다. Azure 마이그레이션 프로젝트를 만든 다음 프로젝트에 도구를 추가합니다. 도구가 추가된 후 Azure [마이그레이션 어플라이언스를](migrate-appliance.md)배포합니다. 어플라이언스는 온-프레미스 컴퓨터를 지속적으로 검색하고 컴퓨터 메타데이터 및 성능 데이터를 Azure로 보냅니다. 컴퓨터 검색 후 검색된 컴퓨터를 그룹으로 수집하고 그룹에 대한 평가를 실행합니다.
+VMware VM을 평가하려면 Azure 마이그레이션 프로젝트를 만든 다음 프로젝트에 서버 평가 도구를 추가합니다. 도구가 추가된 후 Azure [마이그레이션 어플라이언스를](migrate-appliance.md)배포합니다. 어플라이언스는 온-프레미스 컴퓨터를 지속적으로 검색하고 컴퓨터 메타데이터 및 성능 데이터를 Azure로 보냅니다. 검색이 완료되면 검색된 컴퓨터를 그룹으로 수집하고 그룹에 대한 평가를 실행합니다.
 
 ## <a name="limitations"></a>제한 사항
 
 **지원** | **세부 정보**
 --- | ---
-**프로젝트 한도** | Azure 구독에서 여러 프로젝트를 만들 수 있습니다.<br/><br/> 단일 [프로젝트에서](migrate-support-matrix.md#azure-migrate-projects)최대 35,000개의 VMware VM을 검색하고 평가할 수 있습니다. 프로젝트에는 VMware VM, 물리적 서버 및 하이퍼 VM이 포함될 수 있으며 각 VM에 대한 평가 한도까지 포함됩니다.
+**프로젝트 한도** | Azure 구독에서 여러 프로젝트를 만들 수 있습니다.<br/><br/> 단일 [프로젝트에서](migrate-support-matrix.md#azure-migrate-projects)최대 35,000개의 VMware VM을 검색하고 평가할 수 있습니다. 프로젝트에는 각각에 대한 평가 한도까지 물리적 서버 및 Hyper-V VM도 포함될 수 있습니다.
 **검색** | Azure 마이그레이션 어플라이언스는 vCenter 서버에서 최대 10,000개의 VMware VM을 검색할 수 있습니다.
 **평가** | 단일 그룹에 최대 35,000대의 컴퓨터를 추가할 수 있습니다.<br/><br/> 단일 평가에서 최대 35,000개의 VM을 평가할 수 있습니다.
 
@@ -29,11 +29,11 @@ ms.locfileid: "80336869"
 
 ## <a name="application-discovery"></a>애플리케이션 검색
 
-컴퓨터를 검색하는 것 외에도 Azure 마이그레이션: 서버 평가는 컴퓨터에서 실행되는 앱, 역할 및 기능을 검색할 수 있습니다. 앱 인벤토리를 검색하면 온-프레미스 워크로드에 맞게 조정된 마이그레이션 경로를 식별하고 계획할 수 있습니다. 
+서버 평가는 컴퓨터를 검색하는 것 외에도 컴퓨터에서 실행되는 앱, 역할 및 기능을 검색할 수 있습니다. 앱 인벤토리를 검색하면 온-프레미스 워크로드에 맞게 조정된 마이그레이션 경로를 식별하고 계획할 수 있습니다. 
 
 **지원** | **세부 정보**
 --- | ---
-**지원되는 컴퓨터** | 앱 검색은 현재 온-프레미스 VMware VM에서만 지원됩니다.
+**지원되는 컴퓨터** | 앱 검색은 현재 VMware VM에서만 지원됩니다.
 **검색** | 앱 검색은 에이전트가 없습니다. 컴퓨터 게스트 자격 증명을 사용하고 WMI 및 SSH 호출을 사용하여 컴퓨터에 원격으로 액세스합니다.
 **VM 지원** | 앱 검색은 모든 Windows 및 Linux 버전에서 지원됩니다.
 **v센터 자격 증명** | 앱 검색에는 읽기 전용 액세스 권한이 있는 vCenter Server 계정이 필요하며 가상 컴퓨터 > 게스트 작업에 사용할 수 있는 권한이 필요합니다.
@@ -58,7 +58,7 @@ ms.locfileid: "80336869"
 
 ## <a name="azure-migrate-appliance-requirements"></a>Azure Migrate 어플라이언스 요구 사항
 
-Azure Migrate는 검색 및 평가를 위해 [Azure 마이그레이션 어플라이언스를](migrate-appliance.md) 사용합니다. VMware용 어플라이언스는 vCenter 서버로 가져온 OVA 템플릿을 사용하여 배포됩니다. 
+Azure Migrate는 검색 및 평가를 위해 [Azure 마이그레이션 어플라이언스를](migrate-appliance.md) 사용합니다. OVA 템플릿을 사용하거나 vCenter 서버로 가져오거나 [PowerShell 스크립트를](deploy-appliance-script.md)사용하여 어플라이언스를 VMWare VM으로 배포할 수 있습니다.
 
 - VMware의 [어플라이언스 요구 사항에](migrate-appliance.md#appliance---vmware) 대해 알아봅니다.
 - 어플라이언스가 액세스해야 하는 [URL에](migrate-appliance.md#url-access) 대해 알아봅니다.
@@ -77,7 +77,7 @@ ESXi 호스트(앱 검색/에이전트 없는 종속성 분석) | [앱 검색](h
 
 **요구 사항** | **세부 정보**
 --- | --- 
-**배포 전** | Azure 마이그레이션: 서버 평가 도구가 프로젝트에 추가된 Azure 마이그레이션 프로젝트가 있어야 합니다.<br/><br/>  Azure Migrate 어플라이언스를 설정하여 온-프레미스 VMWare 컴퓨터를 검색한 후 종속성 시각화를 배포합니다.<br/><br/> 프로젝트를 처음 만드는 [방법에 대해 알아봅니다.](create-manage-projects.md)<br/> 기존 프로젝트에 평가 도구를 추가하는 [방법을 알아봅니다.](how-to-assess.md)<br/> VMware VM 평가를 위해 Azure 마이그레이션 어플라이언스를 설정하는 [방법에 대해 알아봅니다.](how-to-set-up-appliance-vmware.md)
+**배포 전** | 서버에 평가 도구가 추가된 Azure 마이그레이션 프로젝트가 있어야 합니다.<br/><br/>  Azure Migrate 어플라이언스를 설정하여 온-프레미스 VMWare 컴퓨터를 검색한 후 종속성 시각화를 배포합니다.<br/><br/> 프로젝트를 처음 만드는 [방법에 대해 알아봅니다.](create-manage-projects.md)<br/> 기존 프로젝트에 평가 도구를 추가하는 [방법을 알아봅니다.](how-to-assess.md)<br/> VMware VM 평가를 위해 Azure 마이그레이션 어플라이언스를 설정하는 [방법에 대해 알아봅니다.](how-to-set-up-appliance-vmware.md)
 **VM 지원** | 현재 VMware VM에서만 지원됩니다.
 **Windows VM** | Windows Server 2016<br/> Windows Server 2012 R2<br/> Windows Server 2012<br/> 윈도우 서버 2008 R2 (64 비트).
 **Windows 계정** |  종속성 분석을 위해 Azure 마이그레이션 어플라이언스는 Windows VM에 액세스하려면 로컬 또는 도메인 관리자 계정이 필요합니다.

@@ -1,16 +1,16 @@
 ---
 title: Azure Cosmos DB에서 다중 마스터를 구성하는 방법
-description: Azure Cosmos DB에서 다른 Sdk를 사용 하 여 응용 프로그램에 대 한 다중 마스터를 구성 하는 방법에 대해 알아봅니다.
+description: Azure Cosmos DB에서 서로 다른 SDK를 사용하여 응용 프로그램에 대한 다중 마스터를 구성하는 방법을 알아봅니다.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: mjbrown
 ms.openlocfilehash: 654baed649093add2aa62f4ba81bf6ce7c3e0df5
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74873644"
 ---
 # <a name="configure-multi-master-in-your-applications-that-use-azure-cosmos-db"></a>Azure Cosmos DB를 사용하는 애플리케이션에서 다중 마스터 구성
@@ -20,7 +20,7 @@ ms.locfileid: "74873644"
 > [!Note]
 > 처음에 단일 쓰기 지역으로 구성된 Cosmos 계정을 중단 시간이 0인 다중 쓰기 지역(즉, 다중 마스터)에 구성할 수 있습니다. 자세한 내용은 [다중 쓰기 지역 구성](how-to-manage-database-account.md#configure-multiple-write-regions)을 참조하세요.
 
-## <a id="netv2"></a>.NET SDK v2
+## <a name="net-sdk-v2"></a><a id="netv2"></a>.NET SDK v2
 
 애플리케이션에서 다중 마스터를 사용하도록 설정하려면 `UseMultipleWriteLocations`를 `true`로 설정합니다. 또한 `SetCurrentLocation`을 애플리케이션이 배포되고 Azure Cosmos DB가 복제되는 지역으로 설정합니다.
 
@@ -34,7 +34,7 @@ ConnectionPolicy policy = new ConnectionPolicy
 policy.SetCurrentLocation("West US 2");
 ```
 
-## <a id="netv3"></a>.NET SDK v3
+## <a name="net-sdk-v3"></a><a id="netv3"></a>.NET SDK v3
 
 애플리케이션에서 다중 마스터를 사용하도록 설정하려면 `ApplicationRegion`을 애플리케이션이 배포되고 Cosmos DB가 복제되는 지역으로 설정합니다.
 
@@ -55,7 +55,7 @@ CosmosClientBuilder cosmosClientBuilder = new CosmosClientBuilder("<connection-s
 CosmosClient client = cosmosClientBuilder.Build();
 ```
 
-## <a id="java"></a>Java 비동기 SDK
+## <a name="java-async-sdk"></a><a id="java"></a>Java 비동기 SDK
 
 애플리케이션에서 다중 마스터를 사용하도록 설정하려면 `policy.setUsingMultipleWriteLocations(true)`를 설정하고 `policy.setPreferredLocations`를 애플리케이션이 배포되고 Cosmos DB가 복제되는 지역으로 설정합니다.
 
@@ -72,7 +72,7 @@ AsyncDocumentClient client =
         .withConnectionPolicy(policy).build();
 ```
 
-## <a id="javascript"></a>Node.js, JavaScript 및 TypeScript SDK
+## <a name="nodejs-javascript-and-typescript-sdks"></a><a id="javascript"></a>Node.js, JavaScript 및 TypeScript SDK
 
 애플리케이션에서 다중 마스터를 사용하도록 설정하려면 `connectionPolicy.UseMultipleWriteLocations`를 `true`로 설정합니다. 또한 `connectionPolicy.PreferredLocations`를 애플리케이션이 배포되고 Cosmos DB가 복제되는 지역으로 설정합니다.
 
@@ -89,7 +89,7 @@ const client = new CosmosClient({
 });
 ```
 
-## <a id="python"></a>Python SDK
+## <a name="python-sdk"></a><a id="python"></a>Python SDK
 
 애플리케이션에서 다중 마스터를 사용하도록 설정하려면 `connection_policy.UseMultipleWriteLocations`를 `true`로 설정합니다. 또한 `connection_policy.PreferredLocations`를 애플리케이션이 배포되고 Cosmos DB가 복제되는 지역으로 설정합니다.
 
@@ -108,10 +108,10 @@ client = cosmos_client.CosmosClient(self.account_endpoint, {
 
 * [Azure Cosmos DB에서 세션 토큰을 사용하여 일관성 관리](how-to-manage-consistency.md#utilize-session-tokens)
 * [Azure Cosmos DB의 충돌 유형 및 해결 정책](conflict-resolution-policies.md)
-* [Azure Cosmos DB의 고가용성](high-availability.md)
-* [Azure Cosmos DB의 일관성 수준](consistency-levels.md)
-* [Azure Cosmos DB에서 적절한 일관성 수준 선택](consistency-levels-choosing.md)
+* [Azure 코스모스 DB의 고가용성](high-availability.md)
+* [Azure 코스모스 DB의 일관성 수준](consistency-levels.md)
+* [Azure Cosmos DB에서 올바른 일관성 수준 선택](consistency-levels-choosing.md)
 * [Azure Cosmos DB의 일관성, 가용성 및 성능 절충](consistency-levels-tradeoffs.md)
-* [다양한 일관성 수준에 대한 가용성 및 성능의 장단점](consistency-levels-tradeoffs.md)
+* [다양한 일관성 수준의 가용성 및 성능 절충](consistency-levels-tradeoffs.md)
 * [전역적으로 프로비전된 처리량 크기 조정](scaling-throughput.md)
-* [전역 배포: 내부적으로](global-dist-under-the-hood.md)
+* [글로벌 배포: 후드 아래](global-dist-under-the-hood.md)

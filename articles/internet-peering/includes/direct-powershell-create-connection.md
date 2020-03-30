@@ -9,17 +9,17 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: e1cb1bec6273fa79315b9439bec1412622ebfe28
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75774303"
 ---
-다음 예에서는 시애틀에서 10Gbps Direct 피어 링을 만드는 방법을 보여 줍니다.
+다음 예제에서는 시애틀에서 10Gbps 직접 피어링을 만드는 방법을 보여 주며 있습니다.
 
-PowerShell cmdlet **AzPeeringDirectConnectionObject** 를 사용 하 여 새 피어 링 요청에 사용할 directconnections를 만듭니다.
+PowerShell cmdlet **New-AzPeeringDirectConnectionObject를** 사용하여 새 피어링 요청에 사용할 직접 연결을 만듭니다.
 
-다음은 DirectConnection을 만드는 예입니다.
+다음은 직접 연결을 만드는 예제입니다.
 
 ```powershell
 $connection1 = New-AzPeeringDirectConnectionObject `
@@ -32,9 +32,9 @@ $connection1 = New-AzPeeringDirectConnectionObject `
 ```
 
 > [!NOTE]
-> 위의 예제에서 [<index>] $peeringLocation에 대 한 <index>은 사용자가 선택한 피어 링 위치와 일치 해야 합니다.
+> <index> $peeringLocation[]에<index>대한 용은 위의 예에서 선택한 피어링 위치에 해당해야 합니다.
 
-지정 된 피어 링 위치에서 중복성이 필요한 경우 다른 연결을 만듭니다.
+지정된 피어링 위치에서 중복성이 필요한 경우 다른 연결을 만듭니다.
 
 ```powershell
 $connection2 = New-AzPeeringDirectConnectionObject `
@@ -46,7 +46,7 @@ $connection2 = New-AzPeeringDirectConnectionObject `
     -BandwidthInMbps 10000
 ```
 
-PowerShell cmdlet **AzPeering** 를 사용 하 여 새 직접 피어 링을 만듭니다. 이 명령에는 아래와 같이 검색할 수 있는 ASN 리소스 ID가 필요 합니다.
+PowerShell cmdlet **New-AzPeering을** 사용하여 새 직접 피어링을 만듭니다. 이 명령에는 아래와 같이 검색할 수 있는 ASN 리소스 ID가 필요합니다.
 
 
 ```powershell
@@ -60,7 +60,7 @@ New-AzPeering `
 ```
 &nbsp;
 
-요청이 성공적으로 처리 된 경우의 예제 응답은 다음과 같습니다.
+다음은 요청이 성공적으로 처리되었을 때의 예제 응답입니다.
 
 ```powershell
 
@@ -78,4 +78,4 @@ New-AzPeering `
     Tags                 : {}
 
 ```
-위의 출력에서 **{subscriptionId}** 대신 실제 구독 ID가 표시 됩니다.
+위의 출력에 **{subscriptionId}** 대신 실제 구독 ID가 표시됩니다.

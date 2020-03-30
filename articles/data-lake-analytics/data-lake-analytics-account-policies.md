@@ -1,6 +1,6 @@
 ---
-title: Azure Data Lake Analytics 계정 정책 관리
-description: 계정 정책을 사용 하 여 최대 au 및 최대 작업과 같은 Data Lake Analytics 계정의 사용량을 제어 하는 방법에 대해 알아봅니다.
+title: Azure 데이터 레이크 분석 계정 정책 관리
+description: 계정 정책을 사용하여 최대 AUs 및 최대 작업과 같은 Data Lake Analytics 계정의 사용을 제어하는 방법을 알아봅니다.
 services: data-lake-analytics
 ms.service: data-lake-analytics
 author: guyhay
@@ -10,15 +10,15 @@ ms.assetid: 0a6102d1-7554-4df2-b487-4dae9a7287b6
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.openlocfilehash: 4689714073047e383a53a04bd0069a8a27afdf9d
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72966438"
 ---
-# <a name="manage-azure-data-lake-analytics-using-account-policies"></a>계정 정책을 사용 하 여 Azure Data Lake Analytics 관리
+# <a name="manage-azure-data-lake-analytics-using-account-policies"></a>계정 정책을 사용하여 Azure 데이터 레이크 분석 관리
 
-계정 정책은 Azure Data Lake Analytics 계정이 사용 되는 방법을 제어 하는 데 도움이 됩니다. 이러한 정책을 통해 Azure Data Lake Analytics 사용 비용을 제어할 수 있습니다. 예를 들어, 이러한 정책을 통해 계정에서 동시에 사용할 수 있는 AU 수를 제한하여 예기치 않은 비용 급증을 방지할 수 있습니다.
+계정 정책을 사용하면 Azure Data Lake Analytics 계정의 리소스사용 방법을 제어할 수 있습니다. 이러한 정책을 통해 Azure Data Lake Analytics 사용 비용을 제어할 수 있습니다. 예를 들어, 이러한 정책을 통해 계정에서 동시에 사용할 수 있는 AU 수를 제한하여 예기치 않은 비용 급증을 방지할 수 있습니다.
 
 ## <a name="account-level-policies"></a>계정 수준 정책
 
@@ -30,48 +30,48 @@ Data Lake Analytics 계정에서 사용할 수 있는 총 AU(분석 단위) 수�
 Data Lake Analytics 계정의 AU 수를 변경하려면:
 
 1. Azure Portal에서 Data Lake Analytics 계정으로 이동합니다.
-2. **제한 및 정책**을 클릭 합니다.
+2. **제한 및 정책을**클릭합니다.
 3. **최대 AU** 아래에서 슬라이더를 움직여 값을 선택하거나 텍스트 상자에 값을 입력합니다. 
-4. 페이지 맨 아래에 있는 **저장**을 참조하세요.
+4. **저장**을 클릭합니다.
 
 > [!NOTE]
 > 기본(250) AU보다 더 많이 필요한 경우 포털에서 **도움말 + 지원**을 클릭하여 지원 요청을 제출합니다. Data Lake Analytics 계정에서 사용할 수 있는 AU 수를 늘릴 수 있습니다.
 >
 
 ### <a name="maximum-number-of-jobs-that-can-run-simultaneously"></a>동시에 실행될 수 있는 최대 작업 수
-이 정책은 동시에 실행할 수 있는 작업 수를 제한 합니다. 기본적으로 이 값은 20으로 설정됩니다. Data Lake Analytics에 사용할 수 있는 AU가 있는 경우 새 작업은 실행 중인 작업 총수가 이 정책 값에 도달할 때까지 즉시 실행되도록 예약됩니다. 동시에 실행할 수 있는 최대 작업 수에 도달 하면 실행 중인 하나 이상의 작업이 완료 될 때까지 후속 작업이 우선 순위 순서 대로 큐에 추가 됩니다 (사용 가능한 au에 따라).
+이 정책은 동시에 실행할 수 있는 작업 수를 제한합니다. 기본적으로 이 값은 20으로 설정됩니다. Data Lake Analytics에 사용할 수 있는 AU가 있는 경우 새 작업은 실행 중인 작업 총수가 이 정책 값에 도달할 때까지 즉시 실행되도록 예약됩니다. 동시에 실행할 수 있는 최대 작업 수에 도달하면 사용 가능한 AUs에 따라 하나 이상의 실행 중인 작업이 완료될 때까지 후속 작업이 우선 순위로 큐에 대기됩니다.
 
 동시에 실행될 수 있는 작업 수를 변경하려면:
 
 1. Azure Portal에서 Data Lake Analytics 계정으로 이동합니다.
-2. **제한 및 정책**을 클릭 합니다.
+2. **제한 및 정책을**클릭합니다.
 3. **최대 실행 중인 작업 수** 아래에서 슬라이더를 움직여 값을 선택하거나 텍스트 상자에 값을 입력합니다. 
-4. 페이지 맨 아래에 있는 **저장**을 참조하세요.
+4. **저장**을 클릭합니다.
 
 > [!NOTE]
 > 기본(20) 작업 수보다 더 많이 실행해야 할 경우 포털에서 **도움말 + 지원**을 클릭하여 지원 요청을 제출합니다. Data Lake Analytics 계정에서 동시에 실행할 수 있는 작업 수를 늘릴 수 있습니다.
 >
 
 ### <a name="how-long-to-keep-job-metadata-and-resources"></a>작업 메타데이터 및 리소스를 유지할 기간 
-사용자가 U-SQL 작업을 실행 하면 Data Lake Analytics 서비스에서 모든 관련 파일을 유지 합니다. 이러한 파일에는 u-sql 스크립트, U-SQL 스크립트에서 참조 되는 DLL 파일, 컴파일된 리소스 및 통계가 포함 됩니다. 파일은 기본 Azure Data Lake Storage 계정의 /system/ 폴더에 있습니다. 이 정책은 이러한 리소스가 자동으로 삭제되기 전에 저장되는 기간을 제어합니다(기본값: 30일). 이러한 파일은 디버깅 및 나중에 다시 실행할 작업의 성능 튜닝에 사용할 수 있습니다.
+사용자가 U-SQL 작업을 실행하면 Data Lake Analytics 서비스가 모든 관련 파일을 유지합니다. 이러한 파일에는 U-SQL 스크립트, U-SQL 스크립트에서 참조되는 DLL 파일, 컴파일된 리소스 및 통계가 포함됩니다. 파일은 기본 Azure Data Lake Storage 계정의 /system/ 폴더에 있습니다. 이 정책은 이러한 리소스가 자동으로 삭제되기 전에 저장되는 기간을 제어합니다(기본값: 30일). 이러한 파일은 디버깅 및 나중에 다시 실행할 작업의 성능 튜닝에 사용할 수 있습니다.
 
 작업 메타데이터 및 리소스를 유지할 기간을 변경하려면:
 
 1. Azure Portal에서 Data Lake Analytics 계정으로 이동합니다.
-2. **제한 및 정책**을 클릭 합니다.
+2. **제한 및 정책을**클릭합니다.
 3. **작업 쿼리를 유지할 일 수** 아래에서 슬라이더를 움직여 값을 선택하거나 텍스트 상자에 값을 입력합니다.  
-4. 페이지 맨 아래에 있는 **저장**을 참조하세요.
+4. **저장**을 클릭합니다.
 
 ## <a name="job-level-policies"></a>작업 수준 정책
 
-작업 수준 정책을 사용 하면 개별 사용자 (또는 특정 보안 그룹의 구성원)가 제출한 작업에서 설정할 수 있는 최대 au 및 최대 우선 순위를 제어할 수 있습니다. 이 정책을 사용하여 사용자가 발생시키는 비용을 제어할 수 있습니다. 또한 예약된 작업이 같은 Data Lake Analytics 계정에서 실행되고 있는 우선 순위가 더 높은 프로덕션 작업에 줄 수 있는 효과를 제어할 수 있습니다.
+작업 수준 정책을 사용하면 개별 사용자(또는 특정 보안 그룹의 구성원)가 제출하는 작업에 설정할 수 있는 최대 AUs 및 최대 우선 순위를 제어할 수 있습니다. 이 정책을 사용하여 사용자가 발생시키는 비용을 제어할 수 있습니다. 또한 예약된 작업이 같은 Data Lake Analytics 계정에서 실행되고 있는 우선 순위가 더 높은 프로덕션 작업에 줄 수 있는 효과를 제어할 수 있습니다.
 
 Data Lake Analytics에는 작업 수준에서 설정할 수 있는 두 가지 정책이 있습니다.
 
 * **작업당 AU 한도**: 사용자는 최대 이 AU 수가 있는 작업만 제출할 수 있습니다. 기본적으로 이 한도는 계정의 최대 AU 한도와 같습니다.
 * **우선 순위**: 사용자는 우선 순위가 이 값보다 낮거나 같은 작업만 제출할 수 있습니다. 숫자가 높을수록 우선 순위가 낮습니다. 기본적으로 이 한도는 가능한 가장 높은 우선 순위인 1로 설정됩니다.
 
-모든 계정에는 설정된 기본 정책이 있습니다. 기본 정책은 계정의 모든 사용자에게 적용됩니다. 특정 사용자 및 그룹에 대 한 추가 정책을 만들 수 있습니다. 
+모든 계정에는 설정된 기본 정책이 있습니다. 기본 정책은 계정의 모든 사용자에게 적용됩니다. 특정 사용자 및 그룹에 대한 추가 정책을 만들 수 있습니다. 
 
 > [!NOTE]
 > 계정 수준 정책 및 작업 수준 정책은 동시에 적용됩니다.
@@ -80,7 +80,7 @@ Data Lake Analytics에는 작업 수준에서 설정할 수 있는 두 가지 �
 ### <a name="add-a-policy-for-a-specific-user-or-group"></a>특정 사용자 또는 그룹에 대한 정책 추가
 
 1. Azure Portal에서 Data Lake Analytics 계정으로 이동합니다.
-2. **제한 및 정책**을 클릭 합니다.
+2. **제한 및 정책을**클릭합니다.
 3. **작업 제출 한도** 아래에서 **정책 추가** 단추를 클릭합니다. 그런 후 다음 설정을 선택하거나 입력합니다.
     1. **Compute 정책 이름**: 정책의 목적을 상기시키는 정책 이름을 입력합니다.
     2. **사용자 또는 그룹 선택**: 이 정책이 적용되는 사용자 또는 그룹을 선택합니다.
@@ -94,9 +94,9 @@ Data Lake Analytics에는 작업 수준에서 설정할 수 있는 두 가지 �
 ### <a name="delete-or-edit-an-existing-policy"></a>기존 정책 삭제 또는 편집
 
 1. Azure Portal에서 Data Lake Analytics 계정으로 이동합니다.
-2. **제한 및 정책**을 클릭 합니다.
+2. **제한 및 정책을**클릭합니다.
 3. **작업 제출 한도** 아래에서 편집할 정책을 찾습니다.
-4.  **삭제** 및 **편집** 옵션을 보려면 테이블의 맨 오른쪽 열에서 `...`을 클릭합니다.
+4.  **테이블의** 오른쪽 열에서 삭제 및 **편집** 옵션을 보려면 을 `...`클릭합니다.
 
 ## <a name="additional-resources-for-job-policies"></a>정책 작업에 대한 추가 리소스
 * [Policy overview blog post](https://blogs.msdn.microsoft.com/azuredatalake/2017/06/08/managing-your-azure-data-lake-analytics-compute-resources-overview/)(정책 개요 블로그 게시물)

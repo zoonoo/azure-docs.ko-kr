@@ -1,6 +1,6 @@
 ---
 title: Azure Maps 용어집 | Microsoft Docs
-description: Azure Maps, 위치 기반 서비스 및 GIS와 관련 된 일반적으로 사용 되는 용어에 대 한 용어입니다.
+description: Azure 지도, 위치 기반 서비스 및 GIS와 관련된 일반적으로 사용되는 용어의 용어집입니다.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 09/18/2018
@@ -9,404 +9,404 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.openlocfilehash: c9d5c2efc14dec5beee0eaf81a4f628421ef3d49
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77657047"
 ---
 # <a name="glossary"></a>용어
 
-다음 목록에서는 Azure Maps 서비스에 사용 되는 일반적인 단어에 대해 설명 합니다.
+다음 목록에서는 Azure Maps 서비스와 함께 사용되는 일반적인 단어에 대해 설명합니다.
 
 ## <a name="a"></a>A
 
-<a name="address-validation"></a>**주소 유효성 검사**: 주소가 있는지 확인 하는 프로세스입니다.
+<a name="address-validation"></a> **주소 유효성 검사**: 주소의 존재를 확인하는 프로세스입니다.
 
-<a name="advanced-routing"></a>**고급 라우팅**:도로 라우팅 데이터를 사용 하 여 고급 작업을 수행 하는 서비스 모음입니다. 예를 들어, 연결 가능한 범위 (등시성), 거리 행렬 및 배치 경로 요청을 계산 합니다.
+<a name="advanced-routing"></a>**고급 라우팅**: 도로 라우팅 데이터를 사용하여 사전 작업을 수행하는 서비스의 컬렉션입니다. 예를 들어 도달 가능한 범위(이소크론), 거리 행렬 및 배치 경로 요청을 계산합니다.
 
-<a name="aerial-imagery"></a>**항공 이미지**: [위성 이미지](#satellite-imagery)를 참조 하세요. 
+<a name="aerial-imagery"></a> **항공 이미지**: [위성 이미지](#satellite-imagery)를 참조하세요. 
 
-<a name="along-a-route-search"></a>**경로 검색**: 지정 된 우회 시간 내에 데이터를 찾는 공간 쿼리 또는 경로 경로에서의 거리입니다.
+<a name="along-a-route-search"></a>**경로 검색:** 지정된 우회 시간 또는 경로 경로로부터의 거리 내에서 데이터를 찾는 공간 쿼리입니다.
 
-<a name="altitude"></a>고 **도: 참조**화면 위에 있는 점의 높이 또는 수직 상승입니다. 고도 측정은 평균 해면 등 지정된 참조 자료를 기반으로 합니다. 상승도 참조하세요.
+<a name="altitude"></a> **고도**: 참조 지표 위에 있는 지점의 높이 또는 세로 상승점입니다. 고도 측정은 평균 해면 등 지정된 참조 자료를 기반으로 합니다. 상승도 참조하세요.
 
-<a name="ambiguous"></a>**모호한**: 지정 된 특성에 대 한 둘 이상의 값이 개체에 적절 하 게 할당 될 수 있는 경우에 존재 하는 데이터 분류의 불확실성 상태입니다. 예를 들어, "CA"를 지 오 코딩 때 두 개의 모호한 결과가 반환 됩니다. "캐나다" 및 "캘리포니아". "CA"는 각각 "캐나다" 및 "캘리포니아"에 대 한 국가 및 상태 코드입니다. 
+<a name="ambiguous"></a> **모호함**: 개체가 지정된 특성에 대해 두 개 이상의 값이 적절하게 할당된 경우 존재하는 데이터 분류의 불확실성 상태입니다. 예를 들어 지오코딩 "CA"를 할 때 "Canada" 및 "California"라는 두 가지 모호한 결과가 반환됩니다. "CA"는 각각 "캐나다"와 "캘리포니아"에 대한 국가 및 주 코드입니다. 
 
-<a name="annotation"></a>**주석**: 사용자에 게 정보를 제공 하기 위해 지도에 표시 되는 텍스트 또는 그래픽입니다. 주석은 특정 지도 엔터티를 식별하고 설명하거나, 지도에서 영역에 대한 일반 정보를 제공하거나, 지도 자체에 대한 정보를 제공할 수 있습니다.
+<a name="annotation"></a> **주석**: 사용자에게 정보를 제공하는 지도에 표시된 텍스트 또는 그래픽입니다. 주석은 특정 지도 엔터티를 식별하고 설명하거나, 지도에서 영역에 대한 일반 정보를 제공하거나, 지도 자체에 대한 정보를 제공할 수 있습니다.
 
-<a name="antimeridian"></a>**Antimeridian**: 180<sup>th</sup> 자오선 라고도 합니다. 이는-180도와 180 각도의 경도를 충족 하는 지점입니다. 전 세계에서 프라임 자오선의 반대입니다.
+<a name="antimeridian"></a>**안타임리디안**: 180번째 자오선이라고도<sup>합니다.</sup> 경도가 -180도, 경도가 180도가 만나는 지점입니다. 이는 지구상에서 주요 자오선의 반대입니다.
 
-<a name="application-programming-interface-api"></a>**API (응용 프로그래밍 인터페이스)** : 개발자가 응용 프로그램을 만들 수 있도록 하는 사양입니다.
+<a name="application-programming-interface-api"></a> **API(애플리케이션 프로그래밍 인터페이스)**: 개발자가 애플리케이션을 만들 수 있는 사양입니다.
 
-<a name="api-key"></a>**API 키**: [공유 키 인증](#shared-key-authentication)을 참조 하세요.
+<a name="api-key"></a>**API 키**: [공유 키 인증을](#shared-key-authentication)참조하십시오.
 
-<a name="area-of-interest-aoi"></a>**관심 영역 (AOI)** : 지도 또는 데이터베이스 생산에 대 한 포커스 영역을 정의 하는 데 사용 되는 범위입니다.
+<a name="area-of-interest-aoi"></a>**관심 영역(AOI)**: 맵 또는 데이터베이스 프로덕션의 초점 영역을 정의하는 데 사용되는 범위입니다.
 
-<a name="asset-tracking"></a>**자산 추적**: 사람, 차량 또는 기타 개체와 같은 자산의 위치를 추적 하는 프로세스입니다.
+<a name="asset-tracking"></a>**자산 추적**: 사람, 차량 또는 기타 개체와 같은 자산의 위치를 추적하는 프로세스입니다.
 
-<a name="asynchronous-request"></a>**비동기 요청**: 연결을 열고 비동기 요청에 대 한 식별자를 반환 하는 서버에 요청을 한 다음 연결을 닫는 HTTP 요청입니다. 서버는 요청을 계속 처리하고 사용자는 식별자를 사용하여 상태를 확인할 수 있습니다. 요청 처리가 완료되면 사용자가 응답을 다운로드할 수 있습니다. 이 유형의 요청은 장기 실행 프로세스에 사용 됩니다.
+<a name="asynchronous-request"></a>**비동기 요청**: 연결을 열고 비동기 요청에 대한 식별자를 반환한 다음 연결을 닫는 서버에 요청을 하는 HTTP 요청입니다. 서버는 요청을 계속 처리하고 사용자는 식별자를 사용하여 상태를 확인할 수 있습니다. 요청 처리가 완료되면 사용자가 응답을 다운로드할 수 있습니다. 이 유형의 요청은 장기 실행 프로세스에 사용됩니다.
 
-<a name="autocomplete"></a>**자동 완성**: 사용자가 입력 하는 나머지 단어를 예측 하는 응용 프로그램의 기능입니다. 
+<a name="autocomplete"></a>**자동 완성**: 사용자가 입력하는 단어의 나머지 부분을 예측하는 응용 프로그램의 기능입니다. 
 
-<a name="autosuggest"></a>**Autosuggest**: 사용자가 입력 하는 내용에 대 한 논리적 가능성을 예측 하는 응용 프로그램의 기능입니다.
+<a name="autosuggest"></a>**자동 제안**: 사용자가 입력하는 내용에 대한 논리적 가능성을 예측하는 응용 프로그램의 기능입니다.
 
-<a name="azure-location-based-services-lbs"></a>**Azure Location Based Services (이란)** : 미리 보기 상태인 Azure Maps의 이전 이름입니다.
+<a name="azure-location-based-services-lbs"></a> **Azure LBS(Location Based Services)**: 미리 보기 상태로 제공되었을 때 Azure Maps의 이전 이름입니다.
 
-<a name="azure-active-directory"></a>**Azure Active Directory (AZURE ad)** : azure Ad는 Microsoft의 클라우드 기반 id 및 액세스 관리 서비스입니다. Azure Maps Azure AD 통합은 현재 모든 Azure Maps Api에 대해 미리 보기에서 사용할 수 있습니다. Azure AD는 RBAC (역할 기반 액세스 제어)를 지원 하 여 Azure Maps 리소스에 대 한 세분화 액세스를 허용 합니다. Azure Maps Azure AD 통합에 대 한 자세한 내용은 [Azure Maps 및 AZURE ad](azure-maps-authentication.md) 및 [Azure Maps에서 인증 관리](how-to-manage-authentication.md)를 참조 하세요.
+<a name="azure-active-directory"></a>**Azure Active Directory(Azure AD)**: Azure AD는 Microsoft의 클라우드 기반 ID 및 액세스 관리 서비스입니다. Azure Maps Azure AD 통합은 현재 모든 Azure 지도 API에 대한 미리 보기에서 사용할 수 있습니다. Azure AD는 역할 기반 액세스 제어(RBAC)를 지원하여 Azure Maps 리소스에 대한 세분화된 액세스를 허용합니다. Azure Maps Azure AD 통합에 대해 자세히 알아보려면 [Azure 지도 및 Azure AD 및](azure-maps-authentication.md) Azure [지도에서 인증 관리를](how-to-manage-authentication.md)참조하세요.
 
-<a name="azure-maps-key"></a>**Azure Maps 키**: [공유 키 인증](#shared-key-authentication)을 참조 하세요.
+<a name="azure-maps-key"></a>**Azure 지도 키**: [공유 키 인증](#shared-key-authentication)을 참조하십시오.
 
 ## <a name="b"></a>b
 
-<a name="base-map"></a>**기본 맵**:도로, 랜드마크 및 정치적 경계와 같은 배경 참조 정보를 표시 하는 맵 응용 프로그램의 일부입니다.
+<a name="base-map"></a> **기본 지도**: 도로, 랜드마크 및 정치적 경계 등 배경 참조 정보를 표시하는 지도 애플리케이션의 일부입니다.
 
-<a name="batch-request"></a>**일괄 처리 요청**: 여러 요청을 단일 요청으로 결합 하는 프로세스입니다.
+<a name="batch-request"></a> **일괄 처리 요청**: 여러 요청을 단일 요청으로 결합하는 프로세스입니다.
 
-<a name="bearing"></a>**베어링**: 다른 점을 기준으로 하는 점의 가로 방향입니다. 이는 시계 방향으로 0도에서 360도까지 북쪽에 상대적인 각도로 표현 됩니다. 
+<a name="bearing"></a> **방위**: 다른 포인트를 기준으로 하는 요소의 가로 방향입니다. 이는 0도에서 360도까지 의 북쪽을 기준으로 시계 방향으로 표현됩니다. 
 
-<a name="boundary"></a>**경계**: 국가/지역, 학구 및 속성과 같이 인접 정치적 엔터티를 구분 하는 선 또는 다각형입니다. 경계는 강, 산 또는 벽 등 물리적 물체를 따르거나 따르지 않는 선입니다.
+<a name="boundary"></a>**경계**: 국가/지역, 지역 및 속성과 같은 인접 한 정치 엔터티를 구분 하는 선 또는 다각형입니다. 경계는 강, 산 또는 벽 등 물리적 물체를 따르거나 따르지 않는 선입니다.
 
-<a name="bounds"></a>**경계:** [경계 상자](#bounding-box)를 참조 하세요.
+<a name="bounds"></a> **경계**: [경계 상자](#bounding-box)를 참조하세요.
 
-<a name="bounding-box"></a>**경계 상자**: 지도의 사각형 영역을 나타내는 데 사용 되는 좌표 집합입니다. 
+<a name="bounding-box"></a> **경계 상자**: 지도에 사각형 영역을 나타내는 데 사용되는 좌표 집합입니다. 
 
 ## <a name="c"></a>C
 
-<a name="cadastre"></a>**Cadastre**: 등록 된 육지 및 속성에 대 한 레코드입니다. 또한 [구획](#parcel)을 참조하세요.
+<a name="cadastre"></a> **토지 대장**: 등록된 토지 및 부동산 기록입니다. 또한 [구획](#parcel)을 참조하세요.
 
-<a name="camera"></a>**카메라**: 대화형 지도 컨트롤의 컨텍스트에서 카메라는 보기의 맵 필드를 정의 합니다. 카메라의 뷰포트는 가운데, 확대/축소 수준, 피치, 베어링 등 여러 가지 맵 매개 변수를 기반으로 결정 됩니다. 
+<a name="camera"></a> **카메라**: 대화형 지도 컨트롤의 컨텍스트에 카메라는 보기의 지도 필드를 정의합니다. 카메라의 뷰포트는 중심, 줌 레벨, 피치, 베어링 등 여러 맵 매개변수를 기반으로 결정됩니다. 
 
-<a name="centroid"></a>**중심**: 기능의 기하학적 중심입니다. 선의 중심은 중간점인 반면 다각형의 중심은 영역의 중심입니다.
+<a name="centroid"></a> **중심**: 물체의 기하학적 중심입니다. 선의 중심은 중간점인 반면 다각형의 중심은 영역의 중심입니다.
 
-<a name="choropleth-map"></a>**Choropleth map**: 통계 변수의 측정에 비례하여 영역을 음영 처리 하는 테마 맵입니다. 이 통계 변수는 맵에 표시 됩니다. 예를 들어 다른 모든 주에 대한 상대 인구를 기준으로 각 미국 주의 경계 색을 지정합니다.
+<a name="choropleth-map"></a>**중추도**: 통계 변수의 측정에 비례하여 영역이 그늘진 주제지도입니다. 이 통계 변수는 맵에 표시됩니다. 예를 들어 다른 모든 주에 대한 상대 인구를 기준으로 각 미국 주의 경계 색을 지정합니다.
 
-<a name="concave-hull"></a>**오목 선체**: 지정 된 데이터 집합의 모든 셰이프를 둘러싸는 가능한 오목 기 하 도형을 나타내는 도형입니다. 생성된 모양은 데이터를 랩으로 감싸고 열을 가한 것과 비슷합니다. 따라서 지점 간에 넓은 범위를 기타 데이터 요소로 감싸게 됩니다.
+<a name="concave-hull"></a> **오목 껍데기**: 지정된 데이터 집합에서 모든 모양을 둘러쌀 수 있는 오목 기하 도형을 나타내는 모양입니다. 생성된 모양은 데이터를 랩으로 감싸고 열을 가한 것과 비슷합니다. 따라서 지점 간에 넓은 범위를 기타 데이터 요소로 감싸게 됩니다.
 
-<a name="consumption-model"></a>**소비 모델**: 차량 연료 또는 전기를 소비 하는 속도를 정의 하는 정보입니다. 또한 [소비 모델 설명서](consumption-model.md)를 참조하세요.
+<a name="consumption-model"></a> **소비 모델**: 차량이 연료 또는 전기를 사용하는 속도를 정의하는 정보입니다. 또한 [소비 모델 설명서](consumption-model.md)를 참조하세요.
 
-<a name="control"></a>**Control**: 인터페이스에 대 한 동작 집합을 정의 하는 그래픽 사용자 인터페이스로 구성 된 자체 포함 되거나 재사용 가능한 구성 요소입니다. 예를 들어 지도 컨트롤은 일반적으로 대화형 지도를 로드하는 사용자 인터페이스의 일부입니다.
+<a name="control"></a> **컨트롤**: 인터페이스에 대한 동작 집합을 정의하는 그래픽 사용자 인터페이스를 구성하는 자체 포함 또는 재사용 가능한 구성 요소입니다. 예를 들어 지도 컨트롤은 일반적으로 대화형 지도를 로드하는 사용자 인터페이스의 일부입니다.
 
-<a name="convex-hull"></a>**볼록 선체**: 볼록 선체는 지정 된 데이터 집합의 모든 셰이프를 둘러싸는 최소 볼록 기 하 도형을 나타내는 도형입니다. 생성된 모양은 데이터 집합 주위를 래핑하는 탄력적 밴드와 비슷합니다.
+<a name="convex-hull"></a> **볼록 집합**: 볼록 집합은 지정된 데이터 집합에서 모든 모양을 둘러싸는 최소 볼록 기하 도형을 나타내는 모양입니다. 생성된 모양은 데이터 집합 주위를 래핑하는 탄력적 밴드와 비슷합니다.
 
-<a name="coordinate"></a>**좌표**: 지도의 위치를 나타내는 데 사용 되는 경도 및 위도 값으로 구성 됩니다.
+<a name="coordinate"></a> **좌표**: 지도에서 위치를 나타내는 데 사용되는 경도 및 위도 값으로 구성됩니다.
 
-<a name="coordinate-system"></a>**좌표계**: 두 개 또는 세 개의 차원에서 공간에 있는 점의 위치를 정의 하는 데 사용 되는 참조 프레임 워크입니다.
+<a name="coordinate-system"></a> **좌표계**: 2 또는 3차원의 공간에서 지점의 위치를 정의하는 데 사용되는 참조 프레임워크입니다.
 
-<a name="country-code"></a>**국가 코드**: ISO 표준을 기반으로 하는 국가/지역에 대 한 고유 식별자입니다. ISO2는 국가의 두자리 코드(예: US)이고, ISO3은 3자리 코드(예: USA)를 나타냅니다.
+<a name="country-code"></a>**국가 코드**: ISO 표준을 기반으로 하는 국가/지역의 고유 식별자입니다. ISO2는 국가의 두자리 코드(예: US)이고, ISO3은 3자리 코드(예: USA)를 나타냅니다.
 
-<a name="country-subdivision"></a>**국가**하위 수준: 일반적으로 시/도 라고 하는 국가/지역의 첫 번째 수준 하위 수준입니다.
+<a name="country-subdivision"></a>**국가 세분화**: 일반적으로 시/도로 알려진 국가/지역의 1단계 세분화입니다.
 
-<a name="country-secondary-subdivision"></a>**국가 보조**하위 수준: 일반적으로 관할지 이라고 하는 국가/지역의 두 번째 수준 하위 수준입니다.
+<a name="country-secondary-subdivision"></a>**국가 보조 세분화**: 일반적으로 카운티로 알려진 국가/지역의 2단계 세분화입니다.
 
-<a name="country-tertiary-subdivision"></a>**국가 3 차**: 국가/지역의 세 번째 수준 하위 수준 (일반적으로는 같은 이름의 영역)입니다.
+<a name="country-tertiary-subdivision"></a>**국가 세차분할**: 국가/지역의 세 번째 하위 구역( 일반적으로 와드와 같은 명명된 영역)입니다.
 
-<a name="cross-street"></a>**교차 주소**: 두 개 이상이 교차 하는 지점입니다.
+<a name="cross-street"></a> **교차로**: 두 개 이상의 거리가 교차하는 지점입니다.
 
-<a name="cylindrical-projection"></a>**원통형 프로젝션**: spheroid 또는 구의 요소를 탄젠트 또는 시/시 실린더로 변형 하는 프로젝션입니다. 원기둥은 위쪽에서 아래쪽으로 잘려서 평면으로 펴집니다.
+<a name="cylindrical-projection"></a> **투영 도법**: 타원체 또는 구체에서 탄젠트 또는 시컨트 원기둥으로 지점을 변환하는 투영입니다. 원기둥은 위쪽에서 아래쪽으로 잘려서 평면으로 펴집니다.
 
 ## <a name="d"></a>D
 
-<a name="datum"></a>**Datum**: 측정 시스템의 참조 사양으로, 표면 (가로 데이텀) 또는 표면 위 또는 아래 (세로 데이텀)의 좌표 위치에 대 한 시스템입니다.
+<a name="datum"></a> **자료**: 측정 시스템의 참조 사양인 좌표계는 지표(가로 자료) 또는 지표 위아래의 높이(세로 자료)에 위치합니다.
 
-<a name="dbf-file"></a>**DBF 파일**: 셰이프 파일 (.shp)와 함께 사용 되는 데이터베이스 파일 형식입니다.
+<a name="dbf-file"></a> **DBF 파일**: 셰이프 파일(SHP)과 함께 사용되는 데이터베이스 파일 서식입니다.
 
-<a name="degree-minutes-seconds-dms"></a>**분 초 (DMS)** : 위도 및 경도를 설명 하는 측정 단위입니다. 도는 원의 1/360<sup>번째</sup>입니다. 도는 60분으로 나눠지고, 분은 60초로 나눠집니다.
+<a name="degree-minutes-seconds-dms"></a> **DMS(도 분 초)**: 위도 및 경도를 설명하는 측정 단위입니다. 도는 원의 1/360<sup>번째</sup>입니다. 도는 60분으로 나눠지고, 분은 60초로 나눠집니다.
 
-<a name="delaunay-triangulation"></a>**Delaunay 삼각 측정**: 점의 데이터 집합에서 겹치지 않는 연속 삼각형의 메시를 만드는 기술입니다. 각 삼각형의 외접구에는 내부에 있는 데이터 세트의 지점이 없습니다.
+<a name="delaunay-triangulation"></a> **드로네 삼각기법**: 요소의 데이터 세트에서 겹치지 않는 연속 삼각형의 메시를 만드는 기술입니다. 각 삼각형의 외접구에는 내부에 있는 데이터 세트의 지점이 없습니다.
 
-<a name="demographics"></a>**인구**통계: 인간 모집단의 통계 특성 (예: 나이, 출생 율 및 수입)입니다.
+<a name="demographics"></a> **인구 통계**: 인구의 통계 특성(예: 나이, 출생 속도 및 수입)입니다.
 
-<a name="destination"></a>**Destination**: 누군가가 이동 하는 끝점 또는 위치입니다.
+<a name="destination"></a> **대상** 사용자가 여행하는 엔드포인트 또는 위치입니다.
 
-<a name="digital-elevation-model-dem"></a>**DEM (디지털 권한 상승 모델)** : 공통 된 일정을 사용 하 여 정기적으로 영역에 캡처한 서피스와 관련 된 상승 값의 데이터 집합입니다. DEM은 일반적으로 지형을 나타내는 데 사용됩니다.
+<a name="digital-elevation-model-dem"></a> **DEM(디지털 권한 상승 모델)**: 지표에 관련된 상승 값 데이터 세트로 일반 데이터를 사용하여 정기적으로 영역을 통해 캡처됩니다. DEM은 일반적으로 지형을 나타내는 데 사용됩니다.
 
-<a name="dijkstra's-algorithm"></a>**Dijkstra의 알고리즘**: 네트워크 연결을 검사 하 여 두 지점과 가장 짧은 경로를 찾는 알고리즘입니다.
+<a name="dijkstra's-algorithm"></a> **다익스트라의 알고리즘**: 두 지점 간에 최단 경로 찾기 위해 네트워크의 연결을 검사하는 알고리즘입니다.
 
-<a name="distance-matrix"></a>**거리 행렬**: 원본 및 대상 집합 간의 이동 시간 및 거리 정보를 포함 하는 행렬입니다. 
+<a name="distance-matrix"></a> **거리 행렬**: 원본과 대상 집합 간에 여행 시간 및 거리 정보를 포함하는 행렬입니다. 
 
 ## <a name="e"></a>E
 
-<a name="elevation"></a>**상승**: 참조 서피스나 데이텀 위 또는 아래에 있는 점 또는 개체의 세로 거리입니다. 일반적으로 참조 화면은 평균 바다 수준입니다. 일반적으로 상승은 토지의 세로 높이를 가리킵니다.
+<a name="elevation"></a>**표고**: 점또는 객체의 수직 거리 또는 기준 지표면 또는 데이텀 의 위 또는 아래에 있는 객체입니다. 일반적으로, 기준 표면은 평균 해수면이다. 일반적으로 상승은 토지의 세로 높이를 가리킵니다.
 
-<a name="envelope"></a>**봉투 (Envelope**): [경계 상자](#bounding-box)를 참조 하세요.
+<a name="envelope"></a> **봉투**: [경계 상자](#bounding-box)를 참조하세요.
 
-<a name="extended-postal-code"></a>**확장 된 우편 번호**: 추가 정보를 포함할 수 있는 우편 번호입니다. 예를 들어 미국의 우편 번호는 5 자리 숫자입니다. 하지만 zip + 4 라고 하는 확장 된 우편 번호에는 4 개의 추가 숫자가 포함 됩니다. 이러한 추가 숫자는 도시 블록, 아파트 그룹 또는 post office 상자와 같이 5 자리 배달 영역 내에서 지리 세그먼트를 식별 하는 데 사용 됩니다. 지리적 세그먼트를 알면 효율적인 메일 정렬 및 전달이 지원 됩니다.
+<a name="extended-postal-code"></a> **확장된 우편 번호**: 추가 정보를 포함할 수 있는 우편 번호입니다. 예를 들어 미국에서 우편 번호에는 다섯 자리 숫자가 있습니다. 그러나 zip+4로 알려진 확장 우편 번호에는 4개의 추가 숫자가 포함됩니다. 이러한 추가 숫자는 도시 블록, 아파트 그룹 또는 우체국 상자와 같은 5자리 배달 영역 내의 지리적 세그먼트를 식별하는 데 사용됩니다. 지리적 세그먼트를 알면 효율적인 메일 정렬 및 배달에 도움이 됩니다.
 
-<a name="extent"></a>**익스텐트**: [경계 상자](#bounding-box)를 참조 하세요.
+<a name="extent"></a> **익스텐트**: [경계 상자](#bounding-box)를 참조하세요.
 
 ## <a name="f"></a>F
 
-<a name="federated-authentication"></a>**페더레이션된 인증**: 여러 웹 및 모바일 앱에서 단일 로그온/인증 메커니즘을 사용할 수 있도록 하는 인증 방법입니다. 
+<a name="federated-authentication"></a> **페더레이션된 인증**: 단일 로그온/인증 메커니즘을 여러 웹 및 모바일 앱에서 사용할 수 있는 인증 방법입니다. 
 
-<a name="feature"></a>**Feature**: 추가 메타 데이터 정보와 함께 기 하 도형을 결합 하는 개체입니다. 
+<a name="feature"></a> **기능**: 추가 메타데이터 정보와 기하 도형을 결합하는 개체입니다. 
 
-<a name="feature-collection"></a>**기능 컬렉션**: 기능 개체의 컬렉션입니다.
+<a name="feature-collection"></a> **기능 컬렉션**: 기능 개체의 컬렉션입니다.
 
-<a name="find-along-route"></a>**경로를 따라 찾기**: 지정 된 우회 시간 또는 경로 경로에서의 거리 내에 있는 데이터를 찾는 공간 쿼리입니다.
+<a name="find-along-route"></a> **경로 따라 찾기**: 지정된 우회 시간 또는 경로의 거리 내에 있는 데이터를 찾는 공간 쿼리입니다.
 
-<a name="find-nearby"></a>**주변 찾기**: 포인트에서 고정 된 직선 거리 (crow)를 검색 하는 공간 쿼리
+<a name="find-nearby"></a> **주변 찾기**: 지점에서 고정된 직선 거리(crow 파일)를 검색하는 공간 쿼리입니다.
 
-<a name="fleet-management"></a>**차량 관리**: 자동차, 트럭, 선박 및 평면과 같은 상업 차량 관리 선단 관리에는 차량 비용, 유지 관리, 컴퓨터 통신(추적 및 진단)뿐만 아니라 드라이버, 속도, 연료, 상태 및 안전 관리와 같은 다양한 함수가 포함될 수 있습니다. 차량 관리는 회사에서 교통를 사용 하는 회사에서 사용 하는 프로세스입니다. 회사는 정부 법규를 준수 하는 동시에 위험을 최소화 하 고 전반적인 교통 및 직원 비용을 절감 하려고 합니다.
+<a name="fleet-management"></a> **선단 관리**: 자동차, 트럭, 선박, 비행기 등 상용차를 관리합니다. 선단 관리에는 차량 비용, 유지 관리, 컴퓨터 통신(추적 및 진단)뿐만 아니라 드라이버, 속도, 연료, 상태 및 안전 관리와 같은 다양한 함수가 포함될 수 있습니다. 차량 관리는 비즈니스에서 운송에 의존하는 회사에서 사용하는 프로세스입니다. 기업은 위험을 최소화하고 전반적인 운송 및 직원 비용을 줄이는 동시에 정부 법규를 준수하기를 원합니다.
 
-<a name="free-flow-speed"></a>**사용 가능한 흐름 속도**: 이상적인 조건에서는 사용 가능한 흐름 속도가 필요 합니다. 일반적으로 속도 제한이 있습니다.
+<a name="free-flow-speed"></a> **무료 흐름 속도**: 이상적인 조건에서 예상되는 무료 흐름 속도입니다. 일반적으로 속도 제한이 있습니다.
 
-<a name="free-form-address"></a>**자유 형식 주소**: 한 줄의 텍스트로 표시 되는 전체 주소입니다.
+<a name="free-form-address"></a> **무료 양식 주소**: 텍스트 한 줄로 표시되는 전체 주소입니다.
 
-<a name="fuzzy-search"></a>**유사 항목 검색**: 주소나 관심 지점이 될 수 있는 텍스트의 자유 형식 문자열을 사용 하는 검색입니다. 
+<a name="fuzzy-search"></a> **유사 항목 검색**: 주소나 관심 영역일 수 있는 텍스트의 자유 양식 문자열에서 사용하는 검색입니다. 
 
 ## <a name="g"></a>G
 
-<a name="geocode"></a>**Geocode**: 지도에 해당 위치를 표시 하는 데 사용할 수 있는 좌표로 변환 된 주소 또는 위치입니다. 
+<a name="geocode"></a> **지역 코드**: 해당 위치를 지도에 표시하는 데 사용할 수 있는 좌표로 변환된 주소 또는 위치입니다. 
 
-<a name="geocoding"></a>**지 오 코딩**: 전방 지 오 코딩 라고도 하며, 위치 데이터의 주소를 좌표로 변환 하는 프로세스입니다. 
+<a name="geocoding"></a> **지오코딩**: 순방향 지오코딩이라고도 하며 위치 데이터의 주소를 좌표로 변환하는 프로세스입니다. 
 
-<a name="geodesic-path"></a>**측 지 path**: 구부러진 표면의 두 요소 사이의 최단 경로입니다. Azure Maps에서 렌더링되면 이 경로는 메르카토르 도법으로 인해 곡선으로 나타납니다.
+<a name="geodesic-path"></a> **측지선 경로**: 곡면에서 두 지점 간에 최단 경로입니다. Azure Maps에서 렌더링되면 이 경로는 메르카토르 도법으로 인해 곡선으로 나타납니다.
 
-<a name="geofence"></a>지 **오**의: 장치가 지역에 들어가거나 있을 때 이벤트를 트리거하는 데 사용할 수 있는 정의 된 지리적 영역입니다.
+<a name="geofence"></a>**지오펜스**: 장치가 영역으로 들어가거나 존재할 때 이벤트를 트리거하는 데 사용할 수 있는 정의된 지리적 영역입니다.
 
-<a name="geojson"></a>**GeoJSON**: 점으로, 선, 다각형 등의 지리적 벡터 데이터를 저장 하는 데 사용 되는 일반적인 JSON 기반 파일 형식입니다. **참고**: Azure Maps는 [여기에서 설명한](extend-geojson.md) 대로 GeoJSON의 확장된 버전을 사용합니다.
+<a name="geojson"></a> **GeoJSON**: 점, 선 및 다각형 등 지리적 벡터 데이터를 저장하는 데 사용되는 일반적인 JSON 기반 파일 서식입니다. **참고**: Azure Maps는 [여기에서 설명한](extend-geojson.md) 대로 GeoJSON의 확장된 버전을 사용합니다.
 
-<a name="geometry"></a>**Geometry**: 점, 선, 다각형 등의 공간 개체를 나타냅니다.
+<a name="geometry"></a> **기하 도형**: 점, 선 또는 다각형 등 공간 개체를 나타냅니다.
 
-<a name="geometrycollection"></a>**GeometryCollection**: geometry 개체의 컬렉션입니다.
+<a name="geometrycollection"></a> **GeometryCollection**: 기하 도형 개체의 컬렉션입니다.
 
-<a name="geopol"></a>**Geopol**: geopolitically 중요 한 데이터 (예: 벌어지고 테두리 및 장소 이름)를 나타냅니다.
+<a name="geopol"></a> **GeoPol**: 분쟁이 발생한 경계 및 위치 이름과 같은 지정학적으로 중요 한 데이터를 가리킵니다.
 
-<a name="georeference"></a>**Georeference**: 지리적 데이터 또는 이미지를 알려진 좌표계에 정렬 하는 프로세스입니다. 이 프로세스는 데이터 기울이기, 회전, 크기 조정 또는 이동으로 구성될 수 있습니다.
+<a name="georeference"></a> **Georeference**: 지리 데이터 또는 이미지를 알려진 좌표계에 맞추는 프로세스입니다. 이 프로세스는 데이터 기울이기, 회전, 크기 조정 또는 이동으로 구성될 수 있습니다.
 
-<a name="georss"></a>**GeoRSS**: RSS 피드에 공간 데이터를 추가 하는 XML 확장입니다.
+<a name="georss"></a> **GeoRSS**: RSS 피드에 공간 데이터를 추가하는 XML 확장입니다.
 
-<a name="gis"></a>**Gis**: "지리 정보 시스템"의 머리글자어입니다. 매핑 산업을 설명하는 데 사용되는 일반적인 용어입니다.
+<a name="gis"></a> **GIS**: "지리적 정보 시스템"의 약어입니다. 매핑 산업을 설명하는 데 사용되는 일반적인 용어입니다.
 
-<a name="gml"></a>**GML**: Geography Markup Language 라고도 합니다. 공간 데이터를 저장하는 XML 파일 확장명입니다.
+<a name="gml"></a> **GML**: 지리학 표시 언어라고도 합니다. 공간 데이터를 저장하는 XML 파일 확장명입니다.
 
-<a name="gps"></a>**GPS**: 전역 위치 지정 시스템이 라고도 하며, 지구에서 장치 위치를 결정 하는 데 사용 되는 위성 시스템입니다. 궤도 위성은 지구 상 어디서든 GPS 수신기가 삼변 측량을 통해 고유한 위치를 계산할 수 있는 신호를 전송합니다.
+<a name="gps"></a> **GPS**: 위성항법정보시스템이라고도 하며, 지구 상의 디바이스 위치를 결정하는 데 사용되는 위성 시스템입니다. 궤도 위성은 지구 상 어디서든 GPS 수신기가 삼변 측량을 통해 고유한 위치를 계산할 수 있는 신호를 전송합니다.
 
-<a name="gpx"></a> **.Gpx)** : gps 교환 형식이 라고도 하는는 gps 장치에서 일반적으로 생성 되는 XML 파일 형식입니다.  
+<a name="gpx"></a> **GPX**: GPS 교환 서식이라고도 하고, 일반적으로 GPS 디바이스에서 생성된 XML 파일 서식입니다.  
 
-<a name="great-circle-distance"></a>**매우 원 거리**: 구의 표면에서 두 요소 사이의 최단 거리입니다.
+<a name="great-circle-distance"></a> **대권거리**: 지구의 지표에서 두 지점 사이의 최단 거리입니다.
 
-<a name="greenwich-mean-time-gmt"></a>**GMT (그리니치 표준시): GMT**, 영국에서 선명한 해군를 통해 실행 되는 프라임 자오선의 시간입니다.
+<a name="greenwich-mean-time-gmt"></a> **GMT(그리니치 표준시)**: 영국 그리니치에서에서 왕립 관측소를 통해 실행하는 본초 자오선의 시간입니다.
 
-<a name="guid"></a>**GUID: guid**(globally unique identifier)입니다. 인터페이스, 클래스, 형식 라이브러리, 구성 요소 범주 또는 레코드를 고유하게 식별하는 데 사용되는 문자열입니다.
+<a name="guid"></a> **GUID**: 전 세계에 고유한 식별자입니다. 인터페이스, 클래스, 형식 라이브러리, 구성 요소 범주 또는 레코드를 고유하게 식별하는 데 사용되는 문자열입니다.
 
 ## <a name="h"></a>H
 
-<a name="haversine-formula"></a>**Haversine 수식**: 구에 있는 두 요소 사이의 매우 둥근 거리를 계산 하는 데 사용 되는 일반적인 수식입니다.
+<a name="haversine-formula"></a> **하버사인 수식**: 지구 상 두 지점 간의 대권거리를 계산하는 데 사용되는 일반적인 수식입니다.
 
-<a name="hd-maps"></a>**Hd 맵**: 높은 정의 맵이 라고도 하며, 자치 구동에 필요한 레인 표시, signage 및 방향 광원과 같은 고화질 네트워크 정보로 구성 됩니다.
+<a name="hd-maps"></a> **HD 지도**: 또한 고화질 지도라고 하고, 자율 주행에 필요한 차로 표시, 간판 및 방향등과 같은 하이파이 도로 네트워크 정보로 구성됩니다.
 
-<a name="heading"></a>**제목**: 점이 가리키는 방향입니다. [방위](#heading)를 참조하세요.
+<a name="heading"></a> **제목**: 무언가 가리키거나 마주하는 방향입니다. [방위](#heading)를 참조하세요.
 
-<a name="heatmap"></a>**열 지도**: 색 범위가 특정 영역에 있는 점의 밀도를 나타내는 데이터 시각화입니다. 주제도를 참조하세요.
+<a name="heatmap"></a> **열 지도**: 색 범위가 특정 영역에 있는 지점의 밀도를 나타내는 데이터 시각화입니다. 주제도를 참조하세요.
 
-<a name="hybrid-imagery"></a>**하이브리드 이미지**: 도로의 데이터와 레이블이 위에 겹쳐서 겹쳐진 위성 또는 항공 이미지입니다.
+<a name="hybrid-imagery"></a> **하이브리드 이미지**: 도로 데이터가 포함되고 그 위에 레이블이 오버레이된 위성 또는 항공 이미지입니다.
 
 ## <a name="i"></a>I
 
-<a name="iana"></a>**IANA**: 인터넷에 할당 된 번호 기관의 머리글자어입니다. 글로벌 IP 주소 할당을 감독하는 비영리 그룹입니다.
+<a name="iana"></a> **IANA**: Internet Assigned Numbers Authority의 약어입니다. 글로벌 IP 주소 할당을 감독하는 비영리 그룹입니다.
 
-<a name="isochrone"></a>**Isochrone**: Isochrone는 지정 된 위치에서 임의 방향으로 전송 모드를 지정 된 시간 내에 이동할 수 있는 영역을 정의 합니다. [연결 가능 범위](#reachable-range)를 참조하세요.
+<a name="isochrone"></a> **등시선**: 등시선은 지정된 위치에서 임의의 방향으로 운송 모드에 지정된 시간 내에 이동할 수 있는 영역을 정의합니다. [연결 가능 범위](#reachable-range)를 참조하세요.
 
-<a name="isodistance"></a>**Isodistance**: 위치가 지정 된 경우 isochrone는 모든 방향에서 교통 모드에 대해 지정 된 거리 내에서 이동할 수 있는 영역을 정의 합니다. [연결 가능 범위](#reachable-range)를 참조하세요.
+<a name="isodistance"></a> **등거리선**: 등시선은 지정된 위치에서 임의의 방향으로 운송 모드에 지정된 시간 내에 이동할 수 있는 영역을 정의합니다. [연결 가능 범위](#reachable-range)를 참조하세요.
 
 ## <a name="k"></a>K
 
-<a name="kml"></a>**KML**: 키, 선, 다각형 등의 지리적 벡터 데이터를 저장 하는 데 사용할 수 있는 일반적인 XML 파일 형식인 Keyhole Markup Language 라고도 합니다. 
+<a name="kml"></a> **KML**: 키홀 태그 언어라고도 하고, 점, 선 및 다각형 등 지리적 벡터 데이터를 저장하는 일반적인 XML 파일 형식입니다. 
 
 ## <a name="l"></a>L
 
-<a name="landsat"></a>**Landsat**: Multispectral, 땅의 이미지를 수집 하는 NASA에서 개발한 위성 orbiting 위성입니다. 이 이미지는 농업, 임업 및 지도 제작와 같은 여러 산업에서 사용 됩니다.
+<a name="landsat"></a>**위성**: NASA가 개발한 다중 스펙트럼, 지구 궤도 위성은 토지의 이미지를 수집합니다. 이 이미지는 농업, 임업 및 지도 제작과 같은 많은 산업에서 사용됩니다.
 
-<a name="latitude"></a>**위도**: 적도에서 북쪽 또는 남 방향으로 측정 한 각도 거리 (도)입니다.
+<a name="latitude"></a> **위도**: 북쪽 또는 남쪽 방향에서 적도로부터 단위로 측정된 각거리입니다.
 
-<a name="level-of-detail"></a>**세부 정보 수준**: 확대/축소 수준을 참조 하세요.
+<a name="level-of-detail"></a>**세부 수준**: 확대/축소 수준을 참조하십시오.
 
-<a name="lidar"></a>**Lidar**: 밝은 검색 및 기타 범위의 머리글자어입니다. 반사 화면에 대한 거리를 측정하기 위해 레이저를 사용하는 원격 감지 기술입니다.
+<a name="lidar"></a> **Lidar**: 광원 검색 및 범위의 약어입니다. 반사 화면에 대한 거리를 측정하기 위해 레이저를 사용하는 원격 감지 기술입니다.
 
-<a name="linear-interpolation"></a>**선형 보간**: 알려진 값 사이의 선형 거리를 사용 하 여 알 수 없는 값을 예측 합니다.
+<a name="linear-interpolation"></a> **선형 보간**: 알려진 값 간에 선형 거리를 사용하는 알 수 없는 값의 예측값입니다.
 
-<a name="linestring"></a>**LineString**: 선을 나타내는 데 사용 되는 기 하 도형입니다. 다중선이라고도 합니다. 
+<a name="linestring"></a> **LineString**: 선을 나타내는 데 사용되는 기하 도형입니다. 다중선이라고도 합니다. 
 
-<a name="localization"></a>**지역화**: 다양 한 언어와 문화권을 지원 합니다.
+<a name="localization"></a> **지역화**: 다른 언어와 문화권에 대한 지원입니다.
 
-<a name="logistics"></a>**물류**: 사람, 차량, 물품 또는 자산을 조정 된 방식으로 이동 하는 프로세스입니다.
+<a name="logistics"></a> **물류**: 조정된 방법으로 사용자, 차량, 물자 또는 자산을 이동하는 프로세스입니다.
 
-<a name="longitude"></a>**경도**: 동 또는 서 방향으로 프라임 자오선 측정 된 각도 거리 (도)입니다.
+<a name="longitude"></a> **경도**: 서쪽 또는 동쪽 방향에서 본초 자오선으로부터 도로 측정된 각거리입니다.
 
 ## <a name="m"></a>M
 
-<a name="map-tile"></a>**지도 타일**: 지도 캔버스의 파티션을 나타내는 사각형 이미지입니다. 자세한 내용은 [확대/축소 수준 및 타일 그리드 설명서](zoom-levels-and-tile-grid.md)를 참조하세요.
+<a name="map-tile"></a> **지도 타일**: 지도 캔버스의 파티션을 나타내는 사각형 이미지입니다. 자세한 내용은 [확대/축소 수준 및 타일 그리드 설명서](zoom-levels-and-tile-grid.md)를 참조하세요.
 
-<a name="marker"></a>**표식**: 핀 또는 압정이 라고도 하는는 지도의 점 위치를 나타내는 아이콘입니다.
+<a name="marker"></a> **표식**: 핀 또는 압정이라고도 하고, 지도에서 지점 위치를 나타내는 아이콘입니다.
 
-<a name="mercator-projection"></a>**Mercator 프로젝션**: 자오선를 사용 하 여 각도를 절약 하는 직선 세그먼트로 rhumb 선 이라고 하는 상수 과정의 줄을 나타내는 기능 때문에 항해의 표준 맵 프로젝션이 되는 원통형 지도 투영입니다. 지표면의 진정한 레이아웃에 비해 모든 평면 지도 투영은 지도의 모양이나 크기를 왜곡합니다. 메르카토르 도법은 적도에서 먼 지역을 과장합니다. 즉, 더 작은 영역이 극 지방으로 가까워질 수록 지도에 크게 표시됩니다. 
+<a name="mercator-projection"></a> **메르카토르 도법**: 항정선(자오선을 사용하여 각도를 유지하는 직선)으로 알려진 일관된 항로의 선을 나타낼 수 있기 때문에 항해용으로 표준 지도 도법이 된 투영 도법입니다. 지표면의 진정한 레이아웃에 비해 모든 평면 지도 투영은 지도의 모양이나 크기를 왜곡합니다. 메르카토르 도법은 적도에서 먼 지역을 과장합니다. 즉, 더 작은 영역이 극 지방으로 가까워질 수록 지도에 크게 표시됩니다. 
 
-<a name="multilinestring"></a>**MultiLineString**: LineString 개체의 컬렉션을 나타내는 기 하 도형입니다. 
+<a name="multilinestring"></a> **MultiLineString**: LineString 개체의 컬렉션을 나타내는 기하 도형입니다. 
 
-<a name="multipoint"></a>**MultiPoint**: Point 개체의 컬렉션을 나타내는 기 하 도형입니다.
+<a name="multipoint"></a> **MultiPoint**: Point 개체의 컬렉션을 나타내는 기하 도형입니다.
 
-<a name="multipolygon"></a>**Multipolygon**: polygon 개체의 컬렉션을 나타내는 기 하 도형입니다. 예를 들어 하와이의 경계를 표시 하기 위해 각 섬에는 다각형이 간략하게 표시 됩니다. 따라서 하와이의 경계는 MultiPolygon입니다.
+<a name="multipolygon"></a> **MultiPolygon**: Polygon 개체의 컬렉션을 나타내는 기하 도형입니다. 예를 들어 하와이 경계를 표시하기 위해 각 섬에는 다각형이 표시됩니다. 따라서 하와이의 경계는 멀티 폴리곤이 될 것입니다.
 
-<a name="municipality"></a>**지방 자치 체**: 도시 또는 타운. 
+<a name="municipality"></a> **지방 자치체**: 도시 또는 마을입니다. 
 
-<a name="municipality-subdivision"></a>**지방 자치 체**하위 작업: "downtown"와 같은 환경 또는 로컬 영역 이름과 같은 지방 자치 체의 하위 분류입니다.
+<a name="municipality-subdivision"></a> **지방 자치체 구획**: 이웃 또는 "시내"와 같은 지역 이름과 같은 지방 자치체의 구획입니다.
 
 ## <a name="n"></a>N
 
-<a name="navigation-bar"></a>**탐색 모음**: 확대/축소 수준, 피치, 회전 및 기본 지도 계층 전환을 조정 하는 데 사용 되는 지도의 컨트롤 집합입니다.
+<a name="navigation-bar"></a> **탐색 모음**:, 확대/축소 수준, 피치, 회전을 조정하고 기본 지도 계층을 전환하는 데 사용되는 지도의 컨트롤 집합입니다.
 
-<a name="nearby-search"></a>**근접 검색**: 시점에서 고정 된 직선 거리 (crow)를 검색 하는 공간 쿼리
+<a name="nearby-search"></a> **주변 검색**: 지점에서 고정된 직선 거리(crow 파일)를 검색하는 공간 쿼리입니다.
 
-<a name="neutral-ground-truth"></a>**중립 접지 참**: 사용 가능한 경우 로컬 스크립트에서 나타내는 지역의 공식 언어로 레이블을 렌더링 하는 지도입니다.
+<a name="neutral-ground-truth"></a> **중립 참조 자료**: 렌더링된 지도는 나타내는 지역의 공식 언어 및 사용 가능한 경우 로컬 스크립트로 레이블을 지정합니다.
 
 ## <a name="o"></a>O
 
-<a name="origin"></a>**원본**: 사용자가 있는 시작점 또는 위치입니다.
+<a name="origin"></a> **Origin**: 사용자의 시작점 또는 위치입니다.
 
 ## <a name="p"></a>P
 
-<a name="panning"></a>**패닝**: 일정 한 확대/축소 수준을 유지 하면서 모든 방향으로 지도를 이동 하는 프로세스입니다.
+<a name="panning"></a> **패닝**: 일관된 확대/축소 수준을 유지하는 동안 어떤 방향으로 지도를 이동하는 프로세스입니다.
 
-<a name="parcel"></a>**Parcel**: 육지 또는 속성 경계의 플롯입니다.
+<a name="parcel"></a> **구획**: 토지 또는 부동산 경계의 도면입니다.
 
-<a name="pitch"></a>**피치**: 지도의 기울이기 양은 세로를 기준으로 합니다. 여기서 0은 지도에서 바로 아래로 이동 합니다.
+<a name="pitch"></a> **피치**: 0이 지도의 아래 방향을 보고 있는 경우 세로 기준으로 지도에 포함된 타일의 양입니다.
 
-<a name="point"></a>**Point**: 지도의 단일 위치를 나타내는 기 하 도형입니다. 
+<a name="point"></a> **지점**: 맵에서 단일 위치를 나타내는 기하 도형입니다. 
 
-<a name="points-of-interest-poi"></a>**POI (관심 지점)** : 비즈니스, 랜드마크 또는 공통적인 관심 위치입니다.
+<a name="points-of-interest-poi"></a> **POI(관심 지점)**: 관심 있는 비즈니스, 랜드마크 또는 일반적인 장소입니다.
 
-<a name="polygon"></a>**Polygon**: 지도의 영역을 나타내는 솔리드 기 하 도형입니다. 
+<a name="polygon"></a> **다각형**: 지도에서 영역을 나타내는 입체 기하 도형입니다. 
 
-<a name="polyline"></a>**다중선**: 선을 나타내는 데 사용 되는 기 하 도형입니다. LineString이라고도 합니다. 
+<a name="polyline"></a> **Polyline**: 선을 나타내는 데 사용되는 기하 도형입니다. LineString이라고도 합니다. 
 
-<a name="position"></a>**Position**: 점의 경도, 위도 및 고도 (x, y, z 좌표)입니다.
+<a name="position"></a> **위치**: 지점의 경도, 위도 및 고도(x, y, z 좌표)입니다.
 
-<a name="post-code"></a>**코드 게시**: [우편](#postal-code)번호를 참조 하세요.
+<a name="post-code"></a> **코드 게시**: [우편 번호](#postal-code)를 참조하세요.
 
-<a name="postal-code"></a>**우편**번호: 특정 형식의 일련의 문자 또는 숫자입니다. 우편 번호는 메일 배달의 간소화를 위해 국가/지역의 우편 서비스에서 지리적 영역을 영역으로 나누는 데 사용 됩니다.
+<a name="postal-code"></a>**우편 번호**: 일련의 문자 또는 숫자 또는 둘 다 특정 형식으로 표시됩니다. 우편 번호는 우편 물의 배달을 단순화하기 위해 영역으로 지역을 분할하는 국가 / 지역의 우편 서비스에 의해 사용된다.
 
-<a name="primary-key"></a>**기본 키**: Azure Maps 공유 키 인증을 위해 제공 되는 두 구독 키 중 첫 번째 키입니다. [공유 키 인증](#shared-key-authentication)을 참조 하세요.
+<a name="primary-key"></a>**기본 키:** Azure Maps공유 키 인증에 대해 제공된 두 개의 구독 키 중 첫 번째 키입니다. [공유 키 인증을](#shared-key-authentication)참조하십시오.
 
-<a name="prime-meridian"></a>**프라임 자오선**: 0도 경도를 나타내는 경도 선입니다. 일반적으로 경도 값은 180도까지 westerly 방향으로 이동 하는 경우 감소 하 고 easterly 방향 180으로으로 이동할 때 증가 합니다. 
+<a name="prime-meridian"></a> **본초 자오선**: 0도 경도를 나타내는 경도선입니다. 일반적으로 경도 값은 180도까지 서쪽 방향으로 여행할 때 감소하고 동쪽 방향으로 -180도로 여행할 때 증가합니다. 
 
-<a name="prj"></a>**Prj**: 데이터 집합이 있는 예상 좌표 시스템에 대 한 정보가 포함 된 esri 파일이 자주 포함 되는 텍스트 파일입니다.
+<a name="prj"></a>**PRJ**: 데이터 세트가 있는 투영좌표계에 대한 정보가 포함된 Shapefile 파일과 함께 제공되는 텍스트 파일입니다.
 
-<a name="projection"></a>**프로젝션**: 가로 Mercator, Albers 같은 영역 및 Robinson과 같은 지도 프로젝션을 기반으로 하는 예상 좌표 시스템입니다. 여기에서는 2차원 데카르트 좌표 평면에 지표면의 지도를 투영하는 기능을 제공합니다. 투영된 좌표계는 지도 프로젝션이라고도 합니다.
+<a name="projection"></a> **투영**: 횡축 메르카토르 도법, 알버스정적도법 및 로빈슨 도법과 같은 도법에 따라 투영된 좌표계입니다. 여기에서는 2차원 데카르트 좌표 평면에 지표면의 지도를 투영하는 기능을 제공합니다. 투영된 좌표계는 지도 프로젝션이라고도 합니다.
 
 ## <a name="q"></a>Q
 
-<a name="quadkey"></a>**Quadkey**: quadtree 바둑판식 배열 시스템 내의 타일에 대 한 기본-4 주소 인덱스입니다. 자세한 내용은 [확대/축소 수준 및 타일 그리드](zoom-levels-and-tile-grid.md) 설명서를 참조하세요.
+<a name="quadkey"></a> **Quadkey**: 4분할 타일링 시스템 내에서 타일에 대한 base-4 주소 인덱스입니다. 자세한 내용은 [확대/축소 수준 및 타일 그리드](zoom-levels-and-tile-grid.md) 설명서를 참조하세요.
 
-<a name="quadtree"></a>**Quadtree**: 각 노드에 정확히 네 개의 자식이 있는 데이터 구조입니다. Azure Maps에서 사용 되는 바둑판식 배열 시스템은 사용자가 한 수준으로 확대 하는 경우 각 지도 타일이 4 개의 하위 타일로 분할 되도록 quadtree 구조를 사용 합니다.  자세한 내용은 [확대/축소 수준 및 타일 그리드](zoom-levels-and-tile-grid.md) 설명서를 참조하세요.
+<a name="quadtree"></a> **Quadtree**: 각 노드에 정확히 네 개의 자식 항목이 있는 데이터 구조입니다. Azure Maps에 사용되는 타일링 시스템은 사용자가 한 수준에서 확대할 때 각 맵 타일이 4개의 하위 타일로 나아감에 따라 쿼드트리 구조를 사용합니다.  자세한 내용은 [확대/축소 수준 및 타일 그리드](zoom-levels-and-tile-grid.md) 설명서를 참조하세요.
 
-<a name="queries-per-second-qps"></a>초당 **쿼리 수 (QPS)** : 1 초 이내에 서비스 또는 플랫폼에 대해 수행할 수 있는 쿼리 또는 요청 수입니다. 
+<a name="queries-per-second-qps"></a> **QPS(초당 쿼리)**: 1초 이내에 서비스 또는 플랫폼에 수행할 수 있는 쿼리 또는 요청 수입니다. 
 
 ## <a name="r"></a>R
 
-<a name="radial-search"></a>**방사형 검색**: 요소에서 고정 된 직선 거리 (crowdidia)를 검색 하는 공간 쿼리입니다. 
+<a name="radial-search"></a> **방사형 검색**: 지점에서 고정된 직선 거리(crow 파일)를 검색하는 공간 쿼리입니다. 
 
-<a name="raster-data"></a>**래스터 데이터**: 각 셀에 온도와 같은 정보를 나타내는 값이 포함 된 행과 열 (또는 그리드)으로 구성 된 셀의 행렬 (또는 픽셀)입니다. 래스터에는 디지털 항공 사진, 위성 이미지, 디지털 사진 및 스캔된 지도가 포함됩니다.
+<a name="raster-data"></a> **래스터 데이터**: 각 셀에서 온도와 같은 정보를 나타내는 값을 포함하는 행 및 열(또는 그리드)로 구성된 셀(또는 픽셀)의 행렬입니다. 래스터에는 디지털 항공 사진, 위성 이미지, 디지털 사진 및 스캔된 지도가 포함됩니다.
 
-<a name="raster-layer"></a>**래스터 계층**: 래스터 이미지로 구성 된 타일 계층입니다.
+<a name="raster-layer"></a> **래스터 계층**: 래스터 이미지로 이루어진 타일 계층입니다.
 
-<a name="reachable-range"></a>연결 가능한 **범위**: 연결 가능한 범위는 이동 하는 데 사용할 모드에 대 한 지정 된 시간 또는 거리 내에서 다른 사람이 이동 하는 영역을 정의 합니다. [등시선](#isochrone) 및 [등거리선](#isodistance)을 참조하세요.
+<a name="reachable-range"></a> **연결 가능한 범위**: 연결 가능한 범위는 위치에서 임의의 방향으로 운송 모드에 지정된 시간 또는 거리 내에 이동할 수 있는 영역을 정의합니다. [등시선](#isochrone) 및 [등거리선](#isodistance)을 참조하세요.
 
-<a name="remote-sensing"></a>**원격 감지**: 거리에서 센서 데이터를 수집 하 고 해석 하는 프로세스입니다.
+<a name="remote-sensing"></a> **원격 감지**: 원거리에서 센서 데이터를 수집하고 해석하는 프로세스입니다.
 
-<a name="rest-service"></a>**Rest 서비스**: rest 머리글자어는 Representational State Transfer를 나타냅니다. REST 서비스는 통신하기 위해 기본 웹 기술을 사용하는 URL 기반 웹 서비스이며 가장 일반적인 방법은 HTTP GET 및 POST 요청입니다. 이러한 형식의 서비스는 기존 SOAP 기반 서비스보다 훨씬 빠르고 작은 경향이 있습니다.
+<a name="rest-service"></a> **REST 서비스**: REST라는 약어는 Representational State Transfer를 의미합니다. REST 서비스는 통신하기 위해 기본 웹 기술을 사용하는 URL 기반 웹 서비스이며 가장 일반적인 방법은 HTTP GET 및 POST 요청입니다. 이러한 형식의 서비스는 기존 SOAP 기반 서비스보다 훨씬 빠르고 작은 경향이 있습니다.
 
-<a name="reverse-geocode"></a>**역방향 geocode**: 좌표를 가져오고가 지도에서가 나타내는 주소를 확인 하는 프로세스입니다.
+<a name="reverse-geocode"></a> **역방향 지역 코드**: 지도에서 나타내는 좌표를 알아내고 주소를 결정하는 프로세스입니다.
 
-<a name="reproject"></a>**Reproject**: [변환](#transformation)을 참조 하세요.
+<a name="reproject"></a> **재투영**: [변환](#transformation)을 참조하세요.
 
-<a name="rest-service"></a>**REST 서비스**: Representational State Transfer에 대 한 머리글자어입니다. 분산되고 광범위한 환경에서 피어 간에 정보를 교환하는 아키텍처입니다. REST를 사용 하면 다른 컴퓨터의 프로그램이 운영 체제 또는 플랫폼과 독립적으로 통신할 수 있습니다. 서비스는 URL (uniform resource locator)에 대 한 HTTP (하이퍼텍스트 전송 프로토콜) 요청을 전송 하 고 데이터를 다시 가져올 수 있습니다.
+<a name="rest-service"></a> **REST 서비스**: Representational State Transfer의 약어입니다. 분산되고 광범위한 환경에서 피어 간에 정보를 교환하는 아키텍처입니다. REST를 사용하면 다른 컴퓨터의 프로그램이 운영 체제 또는 플랫폼과 독립적으로 통신할 수 있습니다. 서비스는 균일한 리소스 로케이터(URL)로 하이퍼텍스트 전송 프로토콜(HTTP) 요청을 보내고 데이터를 다시 얻을 수 있습니다.
 
-<a name="route"></a>**Route**: 두 개 이상의 위치 간 경로입니다. 경로를 따라 waypoints에 대 한 지침과 같은 추가 정보를 포함할 수도 있습니다.
+<a name="route"></a> **경로**: 둘 이상의 위치 간에 경로이며, 경로에 따른 중간 지점에 대한 지침과 같은 추가 정보가 포함될 수도 있습니다.
 
-<a name="requests-per-second-rps"></a>초당 **요청 수 (RPS)** : [초당 쿼리 수 (QPS)](#queries-per-second-qps)를 참조 하십시오. 
+<a name="requests-per-second-rps"></a> **RPS(초당 요청)**: [QPS(초당 쿼리)](#queries-per-second-qps)를 참조하세요. 
 
-<a name="rss"></a>**RSS**: 원본에 따라 매우 간단한 배포, RDF (리소스 설명 프레임 워크) 사이트 요약 또는 리치 사이트 요약의 약어입니다. 여러 웹 사이트에서 콘텐츠를 공유하는 간단하고 구조화된 XML 서식입니다. RSS 문서에는 작성자, 날짜, 제목, 간략한 설명 및 하이퍼텍스트 링크 등 키 메타데이터 요소가 포함됩니다. 이 정보는 사용자(또는 RSS 게시자 서비스)가 추가 정보가 필요한 자료를 결정하는 데 도움이 됩니다.
+<a name="rss"></a> **RSS**: 원본에 따라 Really Simple Syndication, RDF(Really Simple Syndication) Site Summary 또는 Rich Site Summary의 약어입니다. 여러 웹 사이트에서 콘텐츠를 공유하는 간단하고 구조화된 XML 서식입니다. RSS 문서에는 작성자, 날짜, 제목, 간략한 설명 및 하이퍼텍스트 링크 등 키 메타데이터 요소가 포함됩니다. 이 정보는 사용자(또는 RSS 게시자 서비스)가 추가 정보가 필요한 자료를 결정하는 데 도움이 됩니다.
 
 ## <a name="s"></a>S
 
-<a name="satellite-imagery"></a>**위성 이미지**: 비행기와 위성에서 캡처한 이미지를 가리킵니다.
+<a name="satellite-imagery"></a> **위성 이미지**: 바로 아래쪽을 향하는 비행기 및 위성에서 캡처된 이미지입니다.
 
-<a name="secondary-key"></a>**보조 키**: Azure Maps 공유 키 인증을 위해 제공 되는 두 가지 구독 키 중 두 번째입니다. [공유 키 인증](#shared-key-authentication)을 참조 하세요.
+<a name="secondary-key"></a>**보조 키:** Azure Maps공유 키 인증에 대해 제공된 두 번째 구독 키 중 두 번째키입니다. [공유 키 인증을](#shared-key-authentication)참조하십시오.
 
-<a name="shapefile-shp"></a>**Esri (.shp)** : ESRI esri 라고도 하는는 지리적 기능의 위치, 모양 및 특성을 저장 하는 벡터 데이터 저장소 형식입니다. 셰이프 파일은 관련된 파일 집합에 저장됩니다.
+<a name="shapefile-shp"></a> **셰이프 파일(SHP)**: ESRI 셰이프 파일이라고도 하고, 지리적 기능의 위치, 모양 및 특성을 저장하는 벡터 데이터 스토리지 서식입니다. 셰이프 파일은 관련된 파일 집합에 저장됩니다.
 
-<a name="shared-key-authentication"></a>**공유 키 인증**: 공유 키 인증은 Azure Maps에 대 한 각 요청과 함께 계정 생성 키 Azure Maps 전달에 의존 합니다. 이러한 키를 주로 구독 키 라고 합니다. 보안을 위해 키를 정기적으로 다시 생성 하는 것이 좋습니다. 다른 키를 다시 생성 하는 동안 한 키를 사용 하 여 연결을 유지할 수 있도록 두 개의 키가 제공 됩니다. 키를 다시 생성하는 경우 이 계정에 액세스하는 모든 애플리케이션이 새 키를 사용하도록 업데이트해야 합니다. Azure Maps 인증에 대 한 자세한 내용은 [Azure Maps 및 AZURE AD](azure-maps-authentication.md) 및 [Azure Maps에서 인증 관리](how-to-manage-authentication.md)를 참조 하세요.
+<a name="shared-key-authentication"></a>**공유 키 인증**: 공유 키 인증은 Azure Maps에 각 요청이 있는 Azure Maps 계정 생성 키를 전달하는 데 의존합니다. 이러한 키를 구독 키라고도 합니다. 보안을 위해 키를 정기적으로 다시 생성하는 것이 좋습니다. 다른 키를 다시 생성하는 동안 하나의 키를 사용하여 연결을 유지할 수 있도록 두 개의 키가 제공됩니다. 키를 다시 생성하는 경우 이 계정에 액세스하는 모든 애플리케이션이 새 키를 사용하도록 업데이트해야 합니다. Azure Maps 인증에 대한 자세한 내용은 [Azure 지도 및 Azure AD 및](azure-maps-authentication.md) Azure [지도의 인증 관리를](how-to-manage-authentication.md)참조하세요.
 
-<a name="software-development-kit-sdk"></a>**SDK (소프트웨어 개발 키트)** : 개발자가 API를 사용 하 여 앱을 빌드하는 데 도움이 되는 설명서, 샘플 코드 및 샘플 앱 모음입니다.
+<a name="software-development-kit-sdk"></a> **SDK(소프트웨어 개발 키트)**: 개발자가 API를 사용하여 앱을 빌드할 수 있는 설명서, 샘플 코드 및 샘플 앱의 컬렉션입니다.
 
-<a name="spherical-mercator-projection"></a>**구면 Mercator 프로젝션**: [웹 Mercator](#web-mercator)를 참조 하세요. 
+<a name="spherical-mercator-projection"></a> **구형 메르카토르 도법**: [웹 메르카토르](#web-mercator)를 참조하세요. 
 
-<a name="spatial-query"></a>**공간 쿼리**: 공간 작업을 수행 하는 서비스에 대 한 요청입니다. 방사형 검색 또는 경로 검색 등이 있습니다.
+<a name="spatial-query"></a> **공간 쿼리**: 공간 작업을 수행하는 서비스에 대한 요청입니다. 방사형 검색 또는 경로 검색 등이 있습니다.
 
-<a name="spatial-reference"></a>**공간 참조**: 지리적 엔터티를 정확 하 게 찾는 데 사용 되는 좌표 기반 지역, 지역 또는 전역 시스템입니다. 지도 좌표를 실제 위치에 연결하는 데 사용되는 좌표계를 정의합니다. 공간 참조는 정확한 보기 또는 분석을 위해 여러 계층 또는 원본의 공간 데이터를 통합할 수 있도록 합니다. Azure Maps는 입력 기하 도형 데이터에 대해 [EPSG:3857](https://epsg.io/3857) 참조 좌표계 및 WGS 84를 사용합니다.
+<a name="spatial-reference"></a> **공간 참조**: 정확한 지리적 엔터티를 찾는 데 사용되는 좌표 기반 로컬, 지역 또는 글로벌 시스템입니다. 지도 좌표를 실제 위치에 연결하는 데 사용되는 좌표계를 정의합니다. 공간 참조는 정확한 보기 또는 분석을 위해 서로 다른 레이어 또는 소스의 공간 데이터를 통합할 수 있도록 합니다. Azure Maps는 입력 기하 도형 데이터에 대해 [EPSG:3857](https://epsg.io/3857) 참조 좌표계 및 WGS 84를 사용합니다.
 
-<a name="sql-spatial"></a>**SQL 공간**: SQL Azure에 기본 제공 되는 공간 기능 및 SQL Server 2008 이상을 참조 합니다. 이 공간 기능은 SQL Server와 독립적으로 사용할 수 있는 .NET 라이브러리로 사용할 수 있습니다. 자세한 내용은 [공간 데이터(SQL Server) 설명서](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-sql-server)를 참조하세요.
+<a name="sql-spatial"></a> **SQL 공간**: SQL Azure 및 SQL Server 2008 이상에 빌드된 공간 기능을 가리킵니다. 이 공간 기능은 SQL Server와 독립적으로 사용할 수 있는 .NET 라이브러리로 사용할 수 있습니다. 자세한 내용은 [공간 데이터(SQL Server) 설명서](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-sql-server)를 참조하세요.
 
-<a name="subscription-key"></a>**구독 키**: [공유 키 인증](#shared-key-authentication)을 참조 하세요.
+<a name="subscription-key"></a>**구독 키**: [공유 키 인증을](#shared-key-authentication)참조하십시오.
 
-<a name="synchronous-request"></a>**동기 요청**: HTTP 요청은 연결을 열고 응답을 기다립니다. 브라우저는 페이지에서 수행할 수 있는 동시 HTTP 요청의 수를 제한합니다. 동시에 여러 개의 장기 실행 동기 요청이 수행 되는 경우이 한도에 도달할 수 있습니다. 요청은 다른 요청 중 하나가 완료 될 때까지 지연 됩니다.
+<a name="synchronous-request"></a> **동기 요청**: HTTP 요청은 연결을 열고 응답을 기다립니다. 브라우저는 페이지에서 수행할 수 있는 동시 HTTP 요청의 수를 제한합니다. 여러 장기 실행 동기 요청이 동시에 이루어지는 경우 이 제한에 도달할 수 있습니다. 요청은 다른 요청 중 하나가 완료될 때까지 지연됩니다.
 
 ## <a name="t"></a>T
 
-<a name="telematics"></a>**텔레매틱스**: 원격 개체의 주는 제어와 함께 통신 장치를 통해 정보를 보내고 받고 저장 합니다. 
+<a name="telematics"></a> **컴퓨터 통신**: 원격 개체에서 제어에 영향을 주는 동시에 통신 디바이스를 통해 정보를 전송하고, 수신하고, 저장합니다. 
 
-<a name="temporal-data"></a>**Temporal 데이터**: 특히 시간 또는 날짜를 참조 하는 데이터입니다. 임시 데이터는 번개와 같은 개별 이벤트, 기차와 같은 이동하는 개체 또는 트래픽 센서의 개수와 같은 반복된 관찰을 가리킬 수 있습니다.
+<a name="temporal-data"></a> **임시 데이터**: 특히 시간 또는 날짜를 가리키는 데이터입니다. 임시 데이터는 번개와 같은 개별 이벤트, 기차와 같은 이동하는 개체 또는 트래픽 센서의 개수와 같은 반복된 관찰을 가리킬 수 있습니다.
 
-<a name="terrain"></a>**지형**: 샌 트 지형 또는 mountainous와 같은 특정 특성을 갖는 지역입니다.
+<a name="terrain"></a> **지형**: 모래 지형 또는 산악 지형 등 특정 특성을 가진 토지 영역입니다.
 
-<a name="thematic-maps"></a>**테마 maps**: 테마 map은 지리적 영역에 대 한 테마를 반영 하기 위해 작성 된 간단한 맵입니다. 이러한 유형의 지도에 대 한 일반적인 시나리오는 데이터의 일부 메트릭에 따라 국가/지역과 같은 관리 영역에 색을 설정 하는 것입니다.
+<a name="thematic-maps"></a> **주제도**: 주제도는 지리적 영역에 대한 테마를 반영하도록 만든 간단한 지도입니다. 이러한 유형의 맵에 대한 일반적인 시나리오는 일부 데이터 메트릭을 기반으로 국가/지역과 같은 관리 영역의 색상을 입력하는 것입니다.
 
-<a name="tile-layer"></a>**타일 계층**: 지도 타일 (사각형 섹션)을 연속 계층으로 조합 하 여 표시 되는 계층입니다. 타일은 래스터 이미지 타일 또는 벡터 타일입니다. 래스터 타일 계층은 일반적으로 미리 렌더링 되며 서버에 이미지로 저장 됩니다. 래스터 타일 계층은 많은 저장소 공간을 사용할 수 있습니다. 벡터 타일 계층은 클라이언트 응용 프로그램 내에서 실시간으로 렌더링 됩니다. 따라서 벡터 타일 계층의 경우 서버 쪽 저장소 요구 사항이 더 작습니다.
+<a name="tile-layer"></a> **타일 계층**: 연속 레이어로 지도 타일(사각형 섹션)을 조합하여 표시된 계층입니다. 타일은 래스터 이미지 타일 또는 벡터 타일입니다. 래스터 타일 레이어는 일반적으로 미리 렌더링되며 서버에 이미지로 저장됩니다. 래스터 타일 층은 큰 저장 공간을 사용할 수 있습니다. 벡터 타일 레이어는 클라이언트 응용 프로그램 내에서 거의 실시간으로 렌더링됩니다. 따라서 벡터 타일 레이어에 대한 서버 측 스토리지 요구 사항은 더 작습니다.
 
-<a name="time-zone"></a>**표준 시간대**: 법률, 상용 및 소셜 목적에 대해 균일 한 표준 시간을 관찰 하는 전 세계 지역입니다. 표준 시간대는 국가/지역과 하위 범위를 따르는 경향이 있습니다.
+<a name="time-zone"></a> **표준 시간대**: 법률, 상업 및 소셜용으로 균일한 표준 시간대가 관찰되는 전 세계의 지역입니다. 표준 시간대는 국가/지역 및 해당 하위 영역의 경계를 따르는 경향이 있습니다.
 
-<a name="transaction"></a>**트랜잭션**: Azure Maps는 트랜잭션 라이선스 모델을 사용 합니다.
+<a name="transaction"></a> **트랜잭션**: Azure Maps는 다음과 같은 경우 트랜잭션 라이선스 모델을 사용합니다.
 
 - 요청된 모든 15개의 지도 또는 트래픽 타일에 대해 하나의 트랜잭션이 만들어집니다.
-- Azure Maps 서비스 중 하나에 대 한 각 API 호출에 대해 하나의 트랜잭션이 생성 됩니다. 검색 및 라우팅은 Azure Maps 서비스의 예입니다.
+- Azure Maps의 서비스 중 하나에 대한 각 API 호출에 대해 하나의 트랜잭션이 만들어집니다. 검색 및 라우팅은 Azure Maps 서비스의 예입니다.
 
-<a name="transformation"></a>**변환**: 서로 다른 지리적 좌표계 간에 데이터를 변환 하는 프로세스입니다. 예를 들어 영국에서 캡처되고 OSGB 1936 지리 좌표계에 기반한 일부 데이터가 있을 수 있습니다. Azure Maps는 WGS84라는 [EPSG:3857](https://epsg.io/3857) 참조 좌표계 변수를 사용합니다. 따라서 데이터를 올바르게 표시하려면 여러 시스템 간에 좌표를 변환해야 합니다.
+<a name="transformation"></a> **변환**: 다른 지리적 좌표계 간에 데이터를 변환하는 프로세스입니다. 예를 들어 영국에서 캡처되고 OSGB 1936 지리 좌표계에 기반한 일부 데이터가 있을 수 있습니다. Azure Maps는 WGS84라는 [EPSG:3857](https://epsg.io/3857) 참조 좌표계 변수를 사용합니다. 따라서 데이터를 올바르게 표시하려면 여러 시스템 간에 좌표를 변환해야 합니다.
 
-<a name="traveling-salesmen-problem-tsp"></a>Hamiltonian **Salesmen 문제 (TSP)** : 영업 사원이 일련의 중지를 방문 하는 가장 효율적인 방법을 찾고 시작 위치로 돌아가는 회로 문제입니다.  
+<a name="traveling-salesmen-problem-tsp"></a> **TSP(세일즈 외판원 문제)**: 외판원이 일련의 목적지를 방문한 다음, 시작 지점으로 돌아오는 가장 효율적인 방법을 찾아야 하는 Hamiltonian 회로 문제입니다.  
 
-<a name="trilateration"></a>**Trilateration**: 세 점 사이의 거리를 측정 하 여 두 개의 다른 점과 관련 하 여 지구 표면의 점의 위치를 확인 하는 프로세스입니다.
+<a name="trilateration"></a>**삼자측**: 세 점 사이의 거리를 측정하여 두 개의 다른 점에 대해 지구 표면에 있는 점의 위치를 결정하는 프로세스입니다.
 
-<a name="turn-by-turn-navigation"></a>**단계별 탐색**: 사용자가 다음 행동에 도달할 때 경로의 각 단계에 대 한 경로 지침을 제공 하는 응용 프로그램입니다.
+<a name="turn-by-turn-navigation"></a> **턴바이턴 내비게이션**: 사용자가 다음 조작에 도달하면 경로의 각 단계에 대한 경로 지침을 제공하는 애플리케이션입니다.
 
 ## <a name="v"></a>V
 
-<a name="vector-data"></a>**벡터 데이터**: 요소, 선 또는 다각형으로 표현 되는 데이터를 기반으로 하는 좌표입니다.
+<a name="vector-data"></a> **벡터 데이터**: 점, 선 또는 다각형으로 표현되는 좌표 기반 데이터입니다.
 
-<a name="vector-tile"></a>**Vector 타일**: 맵 컨트롤과 동일한 타일 시스템을 사용 하 여 지리 공간적 벡터 데이터를 저장 하기 위한 개방형 데이터 사양입니다. [타일 계층](#tile-layer)을 참조하세요.
+<a name="vector-tile"></a> **벡터 타일**: 지도 컨트롤과 동일한 타일 시스템을 사용하여 지리 공간적 벡터 데이터를 저장하는 개방형 데이터 사양입니다. [타일 계층](#tile-layer)을 참조하세요.
 
-<a name="vehicle-routing-problem-vrp"></a>**차량 라우팅 문제 (VRP)** : 일련의 차량에 대 한 일련의 주문 된 경로를 계산 하는 동시에 제약 조건 집합을 고려 하는 문제를 해결 하는 클래스입니다. 이러한 제약 조건에는 배달 시간 창, 여러 경로 용량 및 여행 기간 제약 조건이 포함 될 수 있습니다.
+<a name="vehicle-routing-problem-vrp"></a>**차량 라우팅 문제(VRP)**: 차량 함대에 대한 정렬된 경로 집합을 제약 조건으로 고려하여 계산하는 문제 클래스입니다. 이러한 제약 조건에는 배달 시간 창, 여러 경로 용량 및 이동 기간 제약 조건이 포함될 수 있습니다.
 
-<a name="voronoi-diagram"></a>**Voronoi 다이어그램**: 일련의 기하학적 개체 (일반적으로 point 기능)를 둘러싸는 영역 또는 셀로 이루어진 공간 파티션입니다. 이러한 셀 또는 다각형은 드로네 삼각형의 조건을 충족해야 합니다. 영역 내의 모든 위치는 집합의 다른 개체보다 둘러싸고 있는 개체에 더 가깝습니다. 보로노이 다이어그램은 지리적 기능에 영향을 주는 영역을 나타내는 데 자주 사용됩니다. 
+<a name="voronoi-diagram"></a>**보로노이 다이어그램**: 기하학적 객체 세트를 둘러싸는 영역 또는 셀로 공간의 파티션, 일반적으로 포인트 피처. 이러한 셀 또는 다각형은 드로네 삼각형의 조건을 충족해야 합니다. 영역 내의 모든 위치는 집합의 다른 개체보다 둘러싸고 있는 개체에 더 가깝습니다. 보로노이 다이어그램은 지리적 기능에 영향을 주는 영역을 나타내는 데 자주 사용됩니다. 
 
 ## <a name="w"></a>W
 
-<a name="waypoint"></a>이동 **경로**: 이동 경로는 탐색 목적으로 사용 되는 경도 및 위도로 정의 된 지정 된 지리적 위치입니다. 경로를 이동하는 사용자가 있는 지점을 나타내는 데 자주 사용됩니다.
+<a name="waypoint"></a> **중간 지점**: 중간 지점은 내비게이션용으로 사용되는 경도 및 위도에 의해 정의된 지리적 위치입니다. 경로를 이동하는 사용자가 있는 지점을 나타내는 데 자주 사용됩니다.
 
-<a name="waypoint-optimization"></a>**중간 지점 최적화**: 제공 된 모든 waypoints를 통과 하는 데 필요한 이동 시간이 나 거리를 최소화 하기 위해 waypoints 집합을 다시 정렬 하는 프로세스입니다. 최적화의 복잡성에 따라 이러한 최적화를 주로 [여행 Salesmen 문제](#traveling-salesmen-problem-tsp) 또는 [차량 라우팅 문제](#vehicle-routing-problem-vrp)라고 합니다.
+<a name="waypoint-optimization"></a> **중간 지점 최적화**: 모든 제공된 중간 지점을 통과하는 데 필요한 이동 시간 및 거리를 최소화하기 위해 중간 지점 집합을 다시 정렬하는 프로세스입니다. 최적화의 복잡성에 따라 이 최적화를 종종 여행 영업 사원 [문제](#traveling-salesmen-problem-tsp) 또는 차량 라우팅 [문제라고](#vehicle-routing-problem-vrp)합니다.
 
-<a name="web-map-service-wms"></a>**Wms (웹 맵 서비스**): wms는 이미지 기반 맵 서비스를 정의 하는 개방형 지리 컨소시엄 (OGC) 표준입니다. WMS 서비스는 주문형 지도 내에서 특정 영역에 대한 지도 이미지를 제공합니다. 이미지는 미리 렌더링된 기호를 포함하고 서비스에서 정의하는 경우 몇 가지 명명된 스타일 중 하나로 렌더링될 수 있습니다.
+<a name="web-map-service-wms"></a> **WMS(웹 지도 서비스)**: WMS는 이미지 기반 지도 서비스를 정의하는 OGC(Open Geographic Consortium) 표준입니다. WMS 서비스는 주문형 지도 내에서 특정 영역에 대한 지도 이미지를 제공합니다. 이미지는 미리 렌더링된 기호를 포함하고 서비스에서 정의하는 경우 몇 가지 명명된 스타일 중 하나로 렌더링될 수 있습니다.
 
-<a name="web-mercator"></a>**웹 Mercator**: 구면 Mercator 프로젝션이 라고도 합니다. 주로 웹 기반 매핑 프로그램에서 사용 되는 Mercator 프로젝션을 약간 변형 한 것입니다. 소규모 지도에 사용되는 표준 메르카토르 도법과 동일한 수식을 사용합니다. 그러나 웹 Mercator는 모든 눈금에서 구면 수식을 사용 하지만 대규모 Mercator 맵은 일반적으로 타원 형태의 프로젝션을 사용 합니다. 차이는 글로벌 규모에서 imperceptible 로컬 영역의 맵은 동일한 규모의 진정한 타원 Mercator 지도에서 약간의 차이가 있습니다.
+<a name="web-mercator"></a>**웹 메르카토르**: 구형 메르카토르 프로젝션이라고도 합니다. 주로 웹 기반 매핑 프로그램에서 사용되는 Mercator 프로젝션의 약간의 변형입니다. 소규모 지도에 사용되는 표준 메르카토르 도법과 동일한 수식을 사용합니다. 그러나 웹 메르카터는 모든 축척에서 구형 수식을 사용하지만 대규모 Mercator 맵은 일반적으로 투영의 타원 형태를 사용합니다. 이 불일치는 전역 척도에서는 눈에 띄지 않지만 로컬 영역의 맵이 동일한 배율로 실제 타원 메르카토르 맵에서 약간 벗어나게 합니다.
 
-<a name="wgs84"></a>**WGS84**: 공간 좌표를 지도 표면의 위치와 연결 하는 데 사용 되는 상수 집합입니다. WGS84 자료는 온라인 매핑 공급자 및 GPS 디바이스에서 사용되는 표준입니다. Azure Maps는 WGS84라는 [EPSG:3857](https://epsg.io/3857) 참조 좌표계 변수를 사용합니다.
+<a name="wgs84"></a> **WGS84**: 공간 좌표를 지표면의 위치에 연결하는 데 사용되는 상수 집합입니다. WGS84 자료는 온라인 매핑 공급자 및 GPS 디바이스에서 사용되는 표준입니다. Azure Maps는 WGS84라는 [EPSG:3857](https://epsg.io/3857) 참조 좌표계 변수를 사용합니다.
 
 ## <a name="z"></a>Z
 
-<a name="z-coordinate"></a>**Z 좌표**: 고도 [를 참조 하세요](#altitude). 
+<a name="z-coordinate"></a> **Z-좌표**: [고도](#altitude)를 참조하세요. 
 
-<a name="zip-code"></a>**우편**번호: [우편](#postal-code)번호를 참조 하세요.
+<a name="zip-code"></a> **우편 번호**: [우편 번호](#postal-code)를 참조하세요.
 
-<a name="Zoom level"></a>**확대/축소 수준**: 세부 수준 및 표시 되는 지도의 크기를 지정 합니다. 수준 0으로 모든 방법을 확대 하면 전체 세계 지도가 표시 되는 경우가 많습니다. 그러나 지도에는 국가/지역 이름, 테두리 및 바다 이름과 같은 제한 된 정보가 표시 됩니다. 수준 17에 가깝게 확대하면 지도는 자세한 정보를 포함한 몇 가지 도시 블록 영역을 표시합니다. Azure maps에서 가장 높은 확대/축소 수준은 22입니다. 자세한 내용은 [확대/축소 수준 및 타일 그리드 설명서](zoom-levels-and-tile-grid.md)를 참조하세요.
+<a name="Zoom level"></a> **확대/축소 수준**: 세부 정보 및 지도 표시 정도를 지정합니다. 레벨 0까지 확대하면 전체 세계 지도가 표시되는 경우가 많습니다. 그러나 지도에는 국가/지역 이름, 테두리 및 바다 이름과 같은 제한된 세부 정보가 표시됩니다. 수준 17에 가깝게 확대하면 지도는 자세한 정보를 포함한 몇 가지 도시 블록 영역을 표시합니다. Azure 맵에서 가장 높은 확대/축소 수준은 22입니다. 자세한 내용은 [확대/축소 수준 및 타일 그리드](zoom-levels-and-tile-grid.md) 설명서를 참조하십시오.
 

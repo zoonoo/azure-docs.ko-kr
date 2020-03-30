@@ -9,10 +9,10 @@ ms.date: 08/01/2019
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: b6bc0b00579bdef0a358f756b8cf2b6034aca017
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68688188"
 ---
 # <a name="route-web-traffic-based-on-the-url-using-the-azure-cli"></a>Azure CLI를 사용하여 URL을 기반으로 웹 트래픽 라우팅
@@ -37,7 +37,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하여 사용하기로 선택할 경우 이 문서에서 Azure CLI 버전 2.0.4 이상을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
+CLI를 로컬로 설치하여 사용하기로 선택할 경우 이 문서에서 Azure CLI 버전 2.0.4 이상을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하십시오.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -77,7 +77,7 @@ az network public-ip create \
 
 ## <a name="create-the-app-gateway-with-a-url-map"></a>URL 맵을 사용하여 응용 프로그램 게이트웨이 만들기
 
-`az network application-gateway create`를 사용하여 *myAppGateway*라는 애플리케이션 게이트웨이를 만듭니다. Azure CLI를 사용하여 애플리케이션 게이트웨이를 만들 때 용량, sku, HTTP 설정 등의 구성 정보를 지정합니다. Application gateway는 *Myagsubnet* 및 *myAGPublicIPAddress*에 할당 됩니다.
+`az network application-gateway create`를 사용하여 *myAppGateway*라는 애플리케이션 게이트웨이를 만듭니다. Azure CLI를 사용하여 애플리케이션 게이트웨이를 만들 때 용량, sku, HTTP 설정 등의 구성 정보를 지정합니다. 애플리케이션 게이트웨이는 *myAGSubnet* 및 *myAGPublicIPAddress*에 할당됩니다.
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -98,7 +98,7 @@ az network application-gateway create \
  애플리케이션 게이트웨이를 만들 때까지 몇 분 정도 걸릴 수 있습니다. 애플리케이션 게이트웨이가 생성되면 다음과 같은 새 기능을 볼 수 있습니다.
 
 
-|기능  |Description  |
+|기능  |설명  |
 |---------|---------|
 |appGatewayBackendPool     |애플리케이션 게이트웨이에 백 엔드 주소 풀이 하나 이상 있어야 합니다.|
 |appGatewayBackendHttpSettings     |포트 80 및 HTTP 프로토콜을 통신에 사용하도록 지정합니다.|
@@ -167,7 +167,7 @@ az network application-gateway url-path-map rule create \
   --address-pool videoBackendPool
 ```
 
-### <a name="add-a-routing-rule"></a>회람 규칙 추가
+### <a name="add-a-routing-rule"></a>라우팅 규칙 추가
 
 라우팅 규칙은 URL 맵을 만든 수신기에 연결합니다. `az network application-gateway rule create`를 사용하여 *rule2*라는 규칙을 추가합니다.
 
@@ -248,11 +248,11 @@ az network public-ip show \
 
 ![애플리케이션 게이트웨이의 기준 URL 테스트](./media/tutorial-url-route-cli/application-gateway-nginx.png)
 
-URL&lt;을 http://&gt;: 8080/images/test.html로 변경 합니다. ip 주소는 ip 주소를 &lt;대체&gt;하며 다음 예제와 같이 표시 됩니다.
+URL을 http://&lt;ip-address&gt;:8080/images/test.html로 변경하고 &lt;ip-address&gt;를 사용자의 IP 주소로 대체하면 다음 예제와 같은 내용이 표시됩니다.
 
 ![애플리케이션 게이트웨이의 이미지 URL 테스트](./media/tutorial-url-route-cli/application-gateway-nginx-images.png)
 
-URL&lt;을 http://&gt;: 8080/video/test.html로 변경 합니다. ip 주소는 ip 주소를 &lt;대체&gt;하며 다음 예제와 같이 표시 됩니다.
+URL을&lt;http:// ip 주소&gt;:8080/video/test.html IP 주소로 &lt;대체하면&gt;IP 주소로 대체되며 다음 예제와 같은 것이 표시됩니다.
 
 ![애플리케이션 게이트웨이의 비디오 URL 테스트](./media/tutorial-url-route-cli/application-gateway-nginx-video.png)
 

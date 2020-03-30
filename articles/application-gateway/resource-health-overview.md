@@ -1,6 +1,6 @@
 ---
 title: Azure 응용 프로그램 게이트웨이 리소스 상태 개요
-description: 이 문서는 Azure Application Gateway에 대 한 리소스 상태 기능의 개요
+description: 이 문서는 Azure 응용 프로그램 게이트웨이에 대한 리소스 상태 기능에 대한 개요입니다.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
@@ -8,32 +8,32 @@ ms.topic: article
 ms.date: 7/9/2019
 ms.author: victorh
 ms.openlocfilehash: db29551a8150b70e797d45fe659482470c8aca2a
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67659503"
 ---
 # <a name="azure-application-gateway-resource-health-overview"></a>Azure 응용 프로그램 게이트웨이 리소스 상태 개요
 
-[Azure Resource Health](../service-health/resource-health-overview.md) 진단 및 Azure 서비스 문제가 리소스에 영향을 줍니다 때 지원을 받을 수 있습니다. 리소스의 현재 및 과거 상태를 알려줍니다. 또한 문제를 완화하는 데 도움이 되는 기술 지원을 제공합니다.
+Azure 서비스 문제가 리소스에 영향을 미칠 때 [Azure Resource Health](../service-health/resource-health-overview.md)를 사용하여 문제를 진단하고 지원을 받을 수 있습니다. 리소스의 현재 및 과거 상태를 알려줍니다. 또한 문제를 완화하는 데 도움이 되는 기술 지원을 제공합니다.
 
-Application Gateway에 대 한 Resource Health는 것이 정상 상태 인지 여부를 평가 하는 게이트웨이의에서 내보낸 신호에 의존 합니다. 게이트웨이가 정상이 아니면 경우 Resource Health는 문제의 원인을 파악 하기 추가 정보를 분석 합니다. 또한 Microsoft에서 수행 되는 작업이 나 수행할 수 있는 문제를 해결 하려면 식별 합니다.
+응용 프로그램 게이트웨이의 경우 리소스 상태는 게이트웨이에서 내보낸 신호를 사용하여 정상 여부를 평가합니다. 게이트웨이가 비정상이면 리소스 상태는 추가 정보를 분석하여 문제의 원인을 확인합니다. 또한 Microsoft에서 수행 중이거나 문제를 해결하기 위해 수행할 수 있는 작업을 식별합니다.
 
 상태가 평가되는 방식에 대한 자세한 내용은 [Azure Resource Health](../service-health/resource-health-checks-resource-types.md#microsoftnetworkapplicationgateways)에서 리소스 유형 및 상태 검사에 대한 전체 목록을 확인하세요.
 
 
-Application Gateway에 대 한 상태는 다음 상태 중 하나로 표시 됩니다.
+응용 프로그램 게이트웨이의 상태 상태는 다음 상태 중 하나로 표시됩니다.
 
 ## <a name="available"></a>사용 가능
 
-**사용 가능한** 상태 서비스는 리소스의 상태에 영향을 주는 어떠한 이벤트도 감지 되지 않은 것을 의미 합니다. 표시는 **최근에 해결 됨** 게이트웨이 마지막 24 시간 동안 계획 되지 않은 가동 중지 시간에서 복구 된 경우에는 알림입니다.
+**사용 가능한** 상태는 서비스가 리소스의 상태에 영향을 주는 이벤트를 검색하지 않았음을 의미합니다. 게이트웨이가 지난 24시간 동안 계획되지 않은 가동 중지 시간에서 복구된 경우 **최근에 해결된** 알림이 표시됩니다.
 
-![사용 가능한 상태입니다.](media/resource-health-overview/available-full.png)
+![사용 가능한 상태](media/resource-health-overview/available-full.png)
 
 ## <a name="unavailable"></a>사용할 수 없음
 
-**사용할 수 없습니다** 상태 서비스는 진행 중인 플랫폼 또는 게이트웨이의 상태에 영향을 주는 비-플랫폼 이벤트를 감지 합니다.을 의미 합니다.
+**사용할 수 없는** 상태는 서비스가 게이트웨이의 상태에 영향을 주는 진행 중인 플랫폼 또는 비플랫폼 이벤트를 검색되었음을 의미합니다.
 
 ### <a name="platform-events"></a>플랫폼 이벤트
 
@@ -45,20 +45,20 @@ Resource Health에는 이벤트 및 복구 프로세스에 대한 추가 세부 
 
 ## <a name="unknown"></a>알 수 없음
 
-합니다 **알 수 없는** 상태가 리소스 상태를 나타내며 게이트웨이에 대 한 정보를 10 분 넘게 수신 하지. 이 상태는 게이트웨이의 상태 선언적 표시가 없습니다. 하지만 문제 해결 프로세스의 중요 한 데이터 요소입니다.
+**알 수 없는** 상태는 리소스 상태가 게이트웨이에 대한 정보를 10분 이상 받지 못했음을 나타냅니다. 이 상태는 게이트웨이의 상태를 명확히 나타내는 것이 아닙니다. 그러나 문제 해결 프로세스에서 중요한 데이터 포인트입니다.
 
-상태 변경 게이트웨이가 예상 대로 실행 중이면 **사용 가능한** 몇 분 후입니다.
+게이트웨이가 예상대로 실행중인 경우 몇 분 후에 상태가 **사용 가능으로** 변경됩니다.
 
-문제가 발생 하는 경우는 **알 수 없는** 상태는 플랫폼에서 이벤트에 영향을 주지 게이트웨이 제안 수 있습니다.
+문제가 발생하는 경우 알 **수 없는** 상태 상태는 플랫폼의 이벤트가 게이트웨이에 영향을 미치고 있음을 나타낼 수 있습니다.
 
 ![알 수 없는 상태](media/resource-health-overview/unknown.png)
 
 ## <a name="degraded"></a>성능 저하됨
 
-합니다 **Degraded** 상태 게이트웨이 성능에서 저하가 감지 되었음을 사용량에 대 한 계속 사용할 수 있지만 나타냅니다.
+**성능 저하** 상태는 게이트웨이에서 성능 저하를 감지했음을 나타내지만 여전히 사용할 수 있습니다.
 
-![Degrated 상태](media/resource-health-overview/degraded.png)
+![디그된 상태](media/resource-health-overview/degraded.png)
 
 ## <a name="next-steps"></a>다음 단계
 
-Application Gateway 웹 응용 프로그램 방화벽 (WAF) 문제를 해결 하는 방법에 대 한 자세한 참조 [문제 해결 웹 응용 프로그램 방화벽 (WAF) Azure Application Gateway에 대 한](web-application-firewall-troubleshoot.md)합니다.
+응용 프로그램 게이트웨이 웹 응용 프로그램 방화벽(WAF) 문제 해결에 대한 자세한 내용은 [Azure 응용 프로그램 게이트웨이에 대한 WAF(웹 응용 프로그램 방화벽) 문제를 참조하십시오.](web-application-firewall-troubleshoot.md)

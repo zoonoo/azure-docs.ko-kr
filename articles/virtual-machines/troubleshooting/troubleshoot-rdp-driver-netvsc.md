@@ -13,19 +13,19 @@ ms.workload: infrastructure
 ms.date: 11/19/2018
 ms.author: genli
 ms.openlocfilehash: 4c10a2dcd55c1605cfafe6c67cfefd9d8a3c5f9d
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71057981"
 ---
 # <a name="cannot-connect-remotely-to-a-windows-10-or-windows-server-2016-vm-in-azure-because-of-netvscsys"></a>netvsc.sys로 인해 Windows 10 또는 Azure의 Windows Server 2016 VM에 원격으로 연결할 수 없습니다.
 
-이 문서에서는 Hyper-V Server 2016 호스트에서 Windows 10 또는 Windows Server 2016 Datacenter VM(가상 머신)에 연결할 때 네트워크 연결이 없는 문제를 해결하는 방법을 설명합니다.
+이 문서에서는 Hyper-V Server 2016 호스트에서 Windows 10 또는 Windows Server 2016 Datacenter VM(가상 머신)에 연결할 때 네트워크가 연결되지 않는 문제를 해결하는 방법을 설명합니다.
 
 ## <a name="symptoms"></a>증상
 
-원격 데스크톱 프로토콜 (RDP)를 사용 하 여 Azure Windows 10 또는 Windows Server 2016 VM에 연결할 수 없습니다. [부트 진단](boot-diagnostics.md) 화면에는 NIC(네트워크 인터페이스 카드)를 위에 빨간색 십자가 표시됩니다. 이것은 운영 체제를 완전히 로드한 후에 VM이 연결되지 않았음을 의미합니다.
+RDP(원격 데스크톱 프로토콜)를 사용하여 Azure Windows 10 또는 Windows 서버 2016 VM에 연결할 수 없습니다. [부트 진단](boot-diagnostics.md) 화면에는 NIC(네트워크 인터페이스 카드)를 위에 빨간색 십자가 표시됩니다. 이것은 운영 체제를 완전히 로드한 후에 VM이 연결되지 않았음을 의미합니다.
 
 일반적으로 이 문제는 Windows [빌드 14393](https://support.microsoft.com/help/4093120/) 및 [빌드 15063](https://support.microsoft.com/help/4015583/)에서 나타납니다. 해당 빌드 이상의 운영 체제 버전을 사용 중인 경우, 이 문서의 내용이 해당 시나리오에 적용되지 않습니다. 시스템 버전을 확인하려면 [직렬 액세스 콘솔 기능](serial-console-windows.md)에서 CMD 세션을 열고 **Ver**을 실행합니다.
 
@@ -36,7 +36,7 @@ ms.locfileid: "71057981"
 
 ## <a name="solution"></a>해결 방법
 
-다음 단계를 따르기 전에 영향을 받는 VM의 [시스템 디스크 스냅샷을 백업으로 만듭니다](../windows/snapshot-copy-managed-disk.md). 이 문제를 해결하려면 직렬 콘솔을 사용하거나 VM의 시스템 디스크를 복구 VM에 연결하여 [오프라인으로 VM을 복구](#repair-the-vm-offline)합니다.
+이 단계를 수행하기 전에 영향을 받는 [VM의 시스템 디스크의 스냅숏을](../windows/snapshot-copy-managed-disk.md) 백업으로 수행합니다. 이 문제를 해결하려면 직렬 콘솔을 사용하거나 VM의 시스템 디스크를 복구 VM에 연결하여 [오프라인으로 VM을 복구](#repair-the-vm-offline)합니다.
 
 
 ### <a name="use-the-serial-console"></a>직렬 콘솔 사용
@@ -69,11 +69,11 @@ ms.locfileid: "71057981"
 
 ### <a name="repair-the-vm-offline"></a>오프라인으로 VM 복구
 
-1. [복구 VM에 시스템 디스크 연결](../windows/troubleshoot-recovery-disks-portal.md)
+1. [복구 VM에 시스템 디스크 연결](../windows/troubleshoot-recovery-disks-portal.md).
 
 2. 복구 VM에 대한 원격 데스크톱 연결을 시작합니다.
 
-3. 디스크 관리 콘솔에서 디스크의 플래그가 **온라인**으로 지정되었는지 확인합니다. 연결된 시스템 디스크에 할당된 드라이브 문자를 적어 둡니다.
+3. 디스크 관리 콘솔에서 디스크가 **온라인으로** 플래그가 지정되어 있는지 확인합니다. 연결된 시스템 디스크에 할당된 드라이브 문자를 적어 둡니다.
 
 4. 변경할 때 롤백해야 하는 경우 **\Windows\System32\config** 폴더의 복사본을 만듭니다.
 
@@ -116,6 +116,6 @@ ms.locfileid: "71057981"
 
 16. [시스템 디스크를 분리하고 VM을 다시 만듭니다](../windows/troubleshoot-recovery-disks-portal.md).
 
-## <a name="need-help-contact-support"></a>도움이 필요하세요? 지원 문의
+## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
 
 추가 도움이 필요한 경우 [Azure 지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.

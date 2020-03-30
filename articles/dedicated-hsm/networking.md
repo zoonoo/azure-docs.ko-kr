@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mbaldwin
 ms.openlocfilehash: 044930c9df7b54515b9b66426a6b05aa9517a3a1
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70881277"
 ---
 # <a name="azure-dedicated-hsm-networking"></a>Azure Dedicated HSM 네트워킹
@@ -39,7 +39,7 @@ Azure 서비스를 가상 네트워크에 통합하는 방법 및 제공되는 �
 
 ### <a name="subnets"></a>서브넷
 
-서브넷은 가상 네트워크를 서브넷에 배치하는 Azure 리소스가 사용할 수 있는 개별 주소 공간으로 구분합니다. 전용 HSM은 가상 네트워크의 서브넷에 배포됩니다. 고객의 서브넷에 배포되는 각 전용 HSM 디바이스는 이 서브넷에서 개인 IP 주소를 수신합니다. HSM 디바이스가 배포되는 서브넷은 서비스: Microsoft.HardwareSecurityModules/dedicatedHSMs에 명시적으로 위임되어야 합니다. 그러면 서브넷에 배포를 위해 HSM 서비스에 특정 권한이 부여됩니다. 전용 HSM에 위임하면 서브넷에 특정 정책 제한을 적용합니다. NSG(네트워크 보안 그룹) 및 UDR(사용자 정의 경로)은 현재 위임된 서브넷에서 지원되지 않습니다. 결과적으로 전용 HSM에 위임되는 서브넷은 HSM 리소스를 배포하는 데만 사용될 수 있습니다. 따라서 다른 고객의 모든 리소스를 서브넷에 배포하지 못합니다.
+서브넷은 가상 네트워크를 서브넷에 배치하는 Azure 리소스가 사용할 수 있는 개별 주소 공간으로 구분합니다. 전용 HSM은 가상 네트워크의 서브넷에 배포됩니다. 고객의 서브넷에 배포되는 각 전용 HSM 디바이스는 이 서브넷에서 개인 IP 주소를 수신합니다. HSM 디바이스를 배포하는 서브넷은 명시적으로 서비스(Microsoft.HardwareSecurityModules/dedicatedHSMs)에 위임되어야 합니다. 그러면 서브넷에 배포를 위해 HSM 서비스에 특정 권한이 부여됩니다. 전용 HSM에 위임하면 서브넷에 특정 정책 제한을 적용합니다. NSG(네트워크 보안 그룹) 및 UDR(사용자 정의 경로)은 현재 위임된 서브넷에서 지원되지 않습니다. 결과적으로 전용 HSM에 위임되는 서브넷은 HSM 리소스를 배포하는 데만 사용될 수 있습니다. 따라서 다른 고객의 모든 리소스를 서브넷에 배포하지 못합니다.
 
 
 ### <a name="expressroute-gateway"></a>ExpressRoute 게이트웨이
@@ -60,7 +60,7 @@ Azure 서비스를 가상 네트워크에 통합하는 방법 및 제공되는 �
 
 ### <a name="site-to-site-vpn"></a>사이트 간 VPN
 
-사이트 간 가상 사설망을 사용하면 Azure 기반 전용 HSM 및 온-프레미스 IT 간 보안 통신이 가능합니다. 이 작업을 수행 하는 이유는 HSM의 온-프레미스에 대 한 백업 기능이 있고 백업을 실행 하기 위해 둘 사이에 연결이 필요한 이유입니다.
+사이트 간 가상 사설망을 사용하면 Azure 기반 전용 HSM 및 온-프레미스 IT 간 보안 통신이 가능합니다. 이 작업을 수행하는 이유는 HSM의 온-프레미스에 대한 백업 기능을 가지고 있고 백업을 실행하기 위해 둘 사이의 연결이 필요하기 때문입니다.
 
 ## <a name="connecting-virtual-networks"></a>가상 네트워크 연결
 
@@ -91,5 +91,5 @@ HSM 디바이스에는 소프트웨어 라이브러리를 통해 대체 HSM에 �
 - [지원 가능성](supportability.md)
 - [고가용성](high-availability.md)
 - [물리적 보안](physical-security.md)
-- [모니터링](monitoring.md)
+- <bpt i="1000001" x="1000001" type="formatting">{b&gt;</bpt>모니터링<ept i="1000001">&lt;b}</ept>
 - [배포 아키텍처](deployment-architecture.md)

@@ -1,5 +1,5 @@
 ---
-title: MongoDB에서 데이터 이동
+title: 몽고DB에서 데이터 이동
 description: Azure Data Factory를 사용하여 MongoDB 데이터베이스에서 데이터를 이동하는 방법에 대해 알아봅니다.
 services: data-factory
 author: linda33wj
@@ -10,10 +10,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/13/2018
 ms.openlocfilehash: edddd100bddab1d642a8169353298a2d20620274
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79281341"
 ---
 # <a name="move-data-from-mongodb-using-azure-data-factory"></a>Azure Data Factory를 사용하여 MongoDB에서 데이터 이동
@@ -26,14 +26,14 @@ ms.locfileid: "79281341"
 > 이 아티클은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [V2의 MongoDB 커넥터](../connector-mongodb.md)를 참조하세요.
 
 
-이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 온-프레미스 MongoDB 데이터베이스에서 데이터를 이동하는 방법을 설명합니다. 이 문서는 복사 작업을 사용한 데이터 이동의 일반적인 개요를 보여주는 [데이터 이동 작업](data-factory-data-movement-activities.md) 문서를 기반으로 합니다.
+이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 온-프레미스 MongoDB 데이터베이스에서 데이터를 이동하는 방법을 설명합니다. [복사 활동과 함께 데이터](data-factory-data-movement-activities.md) 이동에 대한 일반적인 개요를 제공하는 데이터 이동 활동 문서를 기반으로 합니다.
 
-온-프레미스 MongoDB 데이터 저장소의 데이터를 지원되는 싱크 데이터 저장소로 복사할 수 있습니다. 복사 작업의 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 테이블을 참조하세요. 현재 데이터 팩터리는 다른 데이터 저장소에서 MongoDB 데이터 저장소로 데이터 이동이 아닌 MongoDB 데이터 저장소에서 다른 데이터 저장소로 데이터 이동만을 지원합니다.
+온-프레미스 MongoDB 데이터 저장소의 데이터를 지원되는 싱크 데이터 저장소로 복사할 수 있습니다. 복사 활동에서 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 테이블을 참조하십시오. 현재 데이터 팩터리는 다른 데이터 저장소에서 MongoDB 데이터 저장소로 데이터 이동이 아닌 MongoDB 데이터 저장소에서 다른 데이터 저장소로 데이터 이동만을 지원합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 Azure Data Factory 서비스가 사용자의 온-프레미스 MongoDB 데이터베이스에 연결할 수 있도록 하려면 다음 구성 요소를 설치해야 합니다.
 
-- 지원 되는 MongoDB 버전은 2.4, 2.6, 3.0, 3.2, 3.4 및 3.6입니다.
+- 지원되는 MongoDB 버전은 2.4, 2.6, 3.0, 3.2, 3.4 및 3.6입니다.
 - 데이터 관리 게이트웨이를 데이터베이스를 호스팅하는 컴퓨터와 같은 컴퓨터에 설치하거나 데이터베이스와 리소스 경쟁을 피하려면 별도의 컴퓨터에 설치합니다. 데이터 관리 게이트웨이는 온-프레미스 데이터 원본을 클라우드 서비스에 안전하고 관리되는 방식으로 연결하는 소프트웨어입니다. 데이터 관리 게이트웨이에 대한 세부 정보는 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md) 문서를 참조하세요. 데이터 이동을 위한 데이터 파이프라인 및 게이트웨이 설정에 대한 단계별 지침은 [온-프레미스에서 클라우드로 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) 문서를 참조하세요.
 
     게이트웨이를 설치하면 MongoDB에 연결하는 데 사용되는 Microsoft MongoDB ODBC 드라이버가 자동으로 설치됩니다.
@@ -44,15 +44,15 @@ Azure Data Factory 서비스가 사용자의 온-프레미스 MongoDB 데이터�
 ## <a name="getting-started"></a>시작
 여러 도구/API를 사용하여 온-프레미스 MongoDB 데이터 저장소의 데이터를 이동하는 복사 작업으로 파이프라인을 만들 수 있습니다.
 
-파이프라인을 만드는 가장 쉬운 방법은 **복사 마법사**를 사용하는 것입니다. 데이터 복사 마법사를 사용하여 파이프라인을 만드는 방법에 대한 빠른 연습은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md)를 참조하세요.
+파이프라인을 만드는 가장 쉬운 방법은 **복사 마법사를**사용하는 것입니다. 데이터 복사 마법사를 사용하여 파이프라인을 만드는 방법에 대한 빠른 연습은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md)를 참조하세요.
 
-또한 다음 도구를 사용 하 여 파이프라인을 만들 수 있습니다. **Visual Studio**, **Azure PowerShell** **Azure Resource Manager 템플릿**, **.net API**및 **REST API**. 복사 작업을 사용하여 파이프라인을 만드는 단계별 지침은 [복사 작업 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
+또한 다음 도구를 사용하여 파이프라인을 만들 수 있습니다: **Visual Studio,** **Azure PowerShell,** **Azure 리소스 관리자 템플릿,** **.NET API**및 REST **API**. 복사 활동이 있는 파이프라인을 만들려면 단계별 지침에 대한 활동 [복사 자습서를](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) 참조하십시오.
 
 도구를 사용하든 API를 사용하든, 다음 단계에 따라 원본 데이터 저장소에서 싱크 데이터 저장소로 데이터를 이동하는 파이프라인을 만들면 됩니다.
 
-1. 입력 및 출력 데이터 저장소를 데이터 팩터리에 연결하는 **연결된 서비스**를 만듭니다.
-2. 복사 작업의 입력 및 출력 데이터를 나타내는 **데이터 세트**를 만듭니다.
-3. 입력으로 데이터 세트를, 출력으로 데이터 세트를 사용하는 복사 작업을 통해 **파이프라인**을 만듭니다.
+1. **연결된 서비스를** 만들어 입력 및 출력 데이터 저장소를 데이터 팩터리에 연결합니다.
+2. 복사 작업에 대한 입력 및 출력 데이터를 나타내는 **데이터 집합을** 만듭니다.
+3. 데이터 **집합을** 입력으로, 데이터 집합을 출력으로 하는 복사 활동이 있는 파이프라인을 만듭니다.
 
 마법사를 사용하는 경우 이러한 Data Factory 엔터티(연결된 서비스, 데이터 세트 및 파이프라인)에 대한 JSON 정의가 자동으로 생성됩니다. 도구/API(.NET API 제외)를 사용하는 경우 JSON 형식을 사용하여 이러한 Data Factory 엔터티를 정의합니다.  온-프레미스 MongoDB 데이터 저장소의 데이터를 복사하는 데 사용되는 Data Factory 엔터티의 JSON 정의에 대한 샘플은 이 문서의 [JSON의 예: MongoDB에서 Azure Blob으로 데이터 복사](#json-example-copy-data-from-mongodb-to-azure-blob) 섹션을 참조하세요.
 
@@ -61,7 +61,7 @@ Azure Data Factory 서비스가 사용자의 온-프레미스 MongoDB 데이터�
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
 다음 테이블은 **OnPremisesMongoDB** 연결된 서비스에 특정된 JSON 요소에 대한 설명을 제공합니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 | --- | --- | --- |
 | type |형식 속성은 **OnPremisesMongoDb** |yes |
 | 서버 |MongoDB 서버의 IP 주소 또는 호스트 이름입니다. |yes |
@@ -72,46 +72,46 @@ Azure Data Factory 서비스가 사용자의 온-프레미스 MongoDB 데이터�
 | authSource |인증에 대한 자격 증명을 확인하는 데 사용하려는 MongoDB 데이터베이스의 이름입니다. |선택 사항(기본 인증을 사용하는 경우). 기본값: 관리자 계정 및 databaseName 속성을 사용하는 지정된 데이터베이스를 사용합니다. |
 | databaseName |액세스하려는 MongoDB 데이터베이스의 이름입니다. |yes |
 | gatewayName |데이터 저장소에 액세스하는 게이트웨이의 이름입니다. |yes |
-| encryptedCredential |게이트웨이에 의해 암호화된 자격 증명입니다. |옵션 |
+| encryptedCredential |게이트웨이에 의해 암호화된 자격 증명입니다. |Optional |
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트 만들기](data-factory-create-datasets.md) 문서를 참조하세요. 구조, 가용성 및 JSON 데이터 세트의 정책과 같은 섹션이 모든 데이터 세트 형식에 대해 유사합니다(Azure SQL, Azure blob, Azure 테이블 등).
 
-**typeProperties** 섹션은 데이터 세트의 각 형식에 따라 다르며 데이터 저장소에 있는 데이터의 위치에 대한 정보를 제공합니다. **MongoDbCollection** 데이터 세트 형식의 데이터 세트에 대한 typeProperties 섹션에는 다음 속성이 있습니다.
+**typeProperties** 섹션은 데이터 집합의 각 유형에 대해 다르며 데이터 저장소의 데이터 위치에 대한 정보를 제공합니다. **MongoDbCollection** 데이터 세트 형식의 데이터 세트에 대한 typeProperties 섹션에는 다음 속성이 있습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 | --- | --- | --- |
 | collectionName |MongoDB 데이터베이스에 있는 컬렉션의 이름입니다. |yes |
 
 ## <a name="copy-activity-properties"></a>복사 작업 속성
 활동 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [파이프라인 만들기](data-factory-create-pipelines.md) 문서를 참조하세요. 이름, 설명, 입력/출력 테이블, 정책 등의 속성은 모든 형식의 활동에 사용할 수 있습니다.
 
-반면 활동의 **typeProperties** 섹션에서 사용할 수 있는 속성은 각 활동 형식에 따라 다릅니다. 복사 활동의 경우 이러한 속성은 소스 및 싱크의 형식에 따라 달라집니다.
+**type에서** 사용할 수 있는 속성반면활동의속성 섹션은 각 활동 유형에 따라 다릅니다. 복사 활동의 경우 이러한 속성은 소스 및 싱크의 형식에 따라 달라집니다.
 
 원본이 **MongoDbSource** 형식인 경우 typeProperties 섹션에서 다음과 같은 속성을 사용할 수 있습니다.
 
-| 속성 | Description | 허용되는 값 | 필수 |
+| 속성 | 설명 | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
 | Query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL-92 쿼리 문자열입니다. 예: select * from MyTable. |아니요(**데이터 세트**의 **collectionName**이 지정된 경우) |
 
 
 
 ## <a name="json-example-copy-data-from-mongodb-to-azure-blob"></a>JSON 예: MongoDB에서 Azure Blob으로 데이터 복사
-이 예제에서는 [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)를 사용 하 여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공 합니다. 온-프레미스 MongoDB에서 Azure Blob Storage로 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure Data Factory의 복사 작업을 사용하여 [여기](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 에 설명한 싱크로 데이터를 복사할 수 있습니다.
+이 예제에서는 [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [Azure PowerShell을](data-factory-copy-activity-tutorial-using-powershell.md)사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공합니다. 온-프레미스 MongoDB에서 Azure Blob Storage로 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure Data Factory의 복사 작업을 사용하여 [여기](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 에 설명한 싱크로 데이터를 복사할 수 있습니다.
 
 이 샘플에는 다음 데이터 팩터리 엔터티가 있습니다.
 
 1. [OnPremisesMongoDb](#linked-service-properties) 형식의 연결된 서비스입니다.
 2. [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties) 형식의 연결된 서비스
-3. [MongoDbCollection](data-factory-create-datasets.md) 형식의 입력 [데이터 세트](#dataset-properties)입니다.
-4. [AzureBlob](data-factory-create-datasets.md) 형식의 출력 [데이터 세트](data-factory-azure-blob-connector.md#dataset-properties)
-5. [MongoDbSource](data-factory-create-pipelines.md) 및 [BlobSink](#copy-activity-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-azure-blob-connector.md#copy-activity-properties)입니다.
+3. [MongoDbCollection](#dataset-properties) 형식의 입력 [데이터 세트](data-factory-create-datasets.md)입니다.
+4. [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties) 형식의 출력 [데이터 세트](data-factory-create-datasets.md)
+5. [MongoDbSource](#copy-activity-properties) 및 [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)입니다.
 
 샘플은 MongoDB 데이터베이스의 쿼리 결과에서 blob에 매시간 데이터를 복사합니다. 이 샘플에 사용된 JSON 속성은 샘플 다음에 나오는 섹션에서 설명합니다.
 
 첫 번째 단계로 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md) 문서의 지침에 따라 데이터 관리 게이트웨이를 설정합니다.
 
-**MongoDB 연결된 서비스**
+**몽고DB 연결 서비스:**
 
 ```json
 {
@@ -134,7 +134,7 @@ Azure Data Factory 서비스가 사용자의 온-프레미스 MongoDB 데이터�
 }
 ```
 
-**Azure Storage 연결된 서비스:**
+**Azure 저장소 연결 서비스:**
 
 ```json
 {
@@ -148,7 +148,7 @@ Azure Data Factory 서비스가 사용자의 온-프레미스 MongoDB 데이터�
 }
 ```
 
-**MongoDB 입력 데이터 세트** "external": "true"를 설정하면 테이블이 Data Factory의 외부에 있으며 Data Factory의 활동에 의해 생성되지 않는다는 사실이 Data Factory 서비스에 전달됩니다.
+**MongoDB 입력 데이터 집합:** "외부"를 설정: "true"는 테이블이 데이터 팩터리 외부에 있으며 데이터 팩터리의 활동에 의해 생성되지 않음을 데이터 팩터리 서비스에 알립니다.
 
 ```json
 {
@@ -168,7 +168,7 @@ Azure Data Factory 서비스가 사용자의 온-프레미스 MongoDB 데이터�
 }
 ```
 
-**Azure Blob 출력 데이터 세트:**
+**Azure Blob 출력 데이터 집합:**
 
 데이터는 매시간 새 blob에 기록됩니다.(빈도: 1시간, 간격:1회) Blob에 대한 폴더 경로는 처리 중인 조각의 시작 시간에 기반하여 동적으로 평가됩니다. 폴더 경로는 시작 시간에서 연도, 월, 일 및 시간 부분을 사용합니다.
 
@@ -360,7 +360,7 @@ Azure Data Factory는 기본 제공 ODBC 드라이버를 사용하여 MongoDB �
 원본 데이터 세트의 열을 싱크 데이터 세트의 열로 매핑하는 방법은 [Azure Data Factory의 데이터 세트 열 매핑](data-factory-map-columns.md)을 참조하세요.
 
 ## <a name="repeatable-read-from-relational-sources"></a>관계형 원본에서 반복 가능한 읽기
-관계형 데이터 저장소에서 데이터를 복사할 때는 의도치 않는 결과를 방지하기 위해 반복성을 염두에 두어야 합니다. Azure Data Factory에서는 조각을 수동으로 다시 실행할 수 있습니다. 또한 오류가 발생하면 조각을 다시 실행하도록 데이터 세트에 대한 재시도 정책을 구성할 수 있습니다. 어느 쪽이든 조각이 재실행되는 경우 조각이 실행되는 횟수에 관계없이 같은 데이터를 읽어야 합니다. [관계형 원본에서 반복 가능한 읽기](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources)를 참조하세요.
+관계형 데이터 저장소에서 데이터를 복사할 때는 의도치 않는 결과를 방지하기 위해 반복성을 염두에 두어야 합니다. Azure Data Factory에서는 조각을 수동으로 다시 실행할 수 있습니다. 또한 오류가 발생하면 조각을 다시 실행하도록 데이터 세트에 대한 재시도 정책을 구성할 수 있습니다. 어느 쪽이든 조각이 재실행되는 경우 조각이 실행되는 횟수에 관계없이 같은 데이터를 읽어야 합니다. [관계형 소스에서 반복 읽기를](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources)참조하십시오.
 
 ## <a name="performance-and-tuning"></a>성능 및 튜닝
 Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는 주요 요소 및 최적화하는 다양한 방법에 대해 알아보려면 [복사 작업 성능 및 조정 가이드](data-factory-copy-activity-performance.md)를 참조하세요.

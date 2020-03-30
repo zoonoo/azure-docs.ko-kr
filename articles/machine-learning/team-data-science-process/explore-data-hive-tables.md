@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 75dce2b5a83d13fe4a7d166595456e9a8d6324ba
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76722172"
 ---
 # <a name="explore-data-in-hive-tables-with-hive-queries"></a>Hive 쿼리를 사용하여 Hive 테이블의 데이터 탐색
@@ -69,5 +69,5 @@ ms.locfileid: "76722172"
             ON a.<common_columnname1>=b.<common_columnname1> and a.<common_columnname2>=b.<common_columnname2>
 
 ## <a name="additional-query-scripts-for-taxi-trip-data-scenarios"></a>택시 여정 데이터 시나리오에 대한 추가 쿼리 스크립트
-또한 [NYC Taxi Trip Data](https://chriswhong.com/open-data/foil_nyc_taxi/) 시나리오에 대한 쿼리 예제가 [GitHub 리포지토리](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts)에 제공됩니다. 이러한 쿼리는 이미 데이터 스키마가 지정되어 있으며 바로 제출하여 실행할 수 있습니다.
+[NYC Taxi Trip 데이터](https://chriswhong.com/open-data/foil_nyc_taxi/) 시나리오와 관련된 쿼리의 예는 [GitHub 리포지토리에도](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts)제공됩니다. 이러한 쿼리는 이미 데이터 스키마가 지정되어 있으며 바로 제출하여 실행할 수 있습니다.
 

@@ -1,5 +1,5 @@
 ---
-title: 'TitleSuffix에 연결할 수 없는 Azure 사이트 간 VPN 연결 문제 해결: Azure VPN Gateway'
+title: '제목을 연결할 수 없는 Azure 사이트 간 VPN 연결 문제 해결Suffix: Azure VPN 게이트웨이'
 description: 갑자기 작동 중단되어 다시 연결할 수 없는 사이트 간 VPN 연결 문제를 해결하는 방법을 알아봅니다.
 services: vpn-gateway
 author: chadmath
@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 09/16/2019
 ms.author: genli
 ms.openlocfilehash: 4e827c5f6eedc819bc3635cb09a28f65df51312c
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75862580"
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>문제 해결: Azure 사이트 간 VPN 연결에서 연결할 수 없고 작동이 중지됨
@@ -28,7 +28,7 @@ ms.locfileid: "75862580"
 
 Azure VPN 게이트웨이 유형을 확인합니다.
 
-1. [Azure 포털](https://portal.azure.com)로 이동합니다.
+1. [Azure 포털로](https://portal.azure.com)이동합니다.
 
 2. VPN 게이트웨이에 대한 **개요** 페이지에서 유형 정보를 확인합니다.
     
@@ -46,15 +46,15 @@ Azure VPN 게이트웨이 유형을 확인합니다.
 
 Azure VPN 연결에 대한 공유 키를 보려면 다음 방법 중 하나를 사용합니다.
 
-**Azure Portal**
+**Azure 포털**
 
 1. 만든 VPN 게이트웨이 사이트 간 연결로 이동합니다.
 
-2. **설정** 섹션에서 **공유 키**를 클릭합니다.
+2. **설정** 섹션에서 공유 키 를 **클릭합니다.**
     
     ![공유 키](media/vpn-gateway-troubleshoot-site-to-site-cannot-connect/sharedkey.png)
 
-**Azure PowerShell**
+**Azure 파워쉘**
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

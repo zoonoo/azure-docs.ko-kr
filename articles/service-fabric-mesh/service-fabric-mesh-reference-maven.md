@@ -1,20 +1,20 @@
 ---
-title: Azure Service Fabric 메시 Maven 참조
+title: Azure 서비스 패브릭 메쉬 메이븐 참조
 description: Service Fabric Mesh에 대한 Maven 플러그 인을 사용하는 방법에 대한 참조를 포함합니다.
 author: suhuruli
 ms.author: suhuruli
 ms.date: 11/26/2018
 ms.topic: reference
 ms.openlocfilehash: bcc3fb7c6c3adce0997d0960c4d98227089b048b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75459010"
 ---
 # <a name="maven-plugin-for-service-fabric-mesh"></a>Service Fabric Mesh에 대한 Maven 플러그 인
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Java SDK
 - Maven
@@ -36,7 +36,7 @@ ms.locfileid: "75459010"
 - `appresources` 폴더에서 제공된 게이트웨이 이름을 사용하여 `gateway` YAML을 생성합니다. 
 
 #### `azure-sfmesh:addvolume`
-- `appresources` 폴더에 제공 된 볼륨 이름을 사용 하 여 `volume` YAML을 생성 합니다.
+- 폴더에 `volume` 제공된 볼륨 이름이 있는 YAML을 생성합니다. `appresources`
 
 ### `azure-sfmesh:addsecret`
 - `appresources` 폴더에서 제공된 비밀 이름을 사용하여 `secret` YAML을 생성합니다. 
@@ -53,7 +53,7 @@ ms.locfileid: "75459010"
 - Azure Service Fabric 클러스터에 모든 리소스를 배포합니다.
  
 
-## <a name="usage"></a>사용량
+## <a name="usage"></a>사용
 
 Maven Java 앱에서 Maven 플러그 인을 사용하려면 pom.xml 파일에 다음 코드 조각을 추가합니다.
 

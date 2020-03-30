@@ -1,5 +1,5 @@
 ---
-title: Azure CLI를 사용 하 여 사용자 지정 Linux 디스크 업로드
+title: Azure CLI를 통해 사용자 지정 Linux 디스크 업로드
 description: Resource Manager 배포 모델 및 Azure CLI를 사용하여 Azure에 VHD(가상 하드 디스크) 만들기 및 업로드
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: cynthn
-ms.openlocfilehash: 378b802602576c4cf50862149f5d31d16d721be0
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: bc90a409dd2695ce16f8c7d5909f8e2d7867673c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77115844"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80060253"
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-with-the-azure-cli"></a>Azure CLI를 사용하여 사용자 지정 디스크에서 Linux VM 업로드 및 만들기
 
@@ -35,7 +35,7 @@ ms.locfileid: "77115844"
 
 다음 예제에서 매개 변수 이름을 고유한 값으로 바꿉니다. 예제 매개 변수 이름에 `myResourceGroup`, `mystorageaccount` 및 `mydisks`가 포함됩니다.
 
-먼저 [az group create](/cli/azure/group)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 `myResourceGroup` 위치에 `WestUs`이라는 리소스 그룹을 만듭니다.
+먼저 [az group create](/cli/azure/group)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 `WestUs` 위치에 `myResourceGroup`이라는 리소스 그룹을 만듭니다.
 
 ```azurecli
 az group create --name myResourceGroup --location westus
@@ -54,7 +54,7 @@ az storage account create --resource-group myResourceGroup --location westus \
 az storage account keys list --resource-group myResourceGroup --account-name mystorageaccount
 ```
 
-[az storage container create](/cli/azure/storage/container)를 사용하여 획득한 스토리지 키를 사용하여 스토리지 계정 내에 컨테이너를 만듭니다. 다음 예제에서는 `mydisks`의 스토리지 키 값을 사용하여 `key1`라는 컨테이너를 만듭니다.
+[az storage container create](/cli/azure/storage/container)를 사용하여 획득한 스토리지 키를 사용하여 스토리지 계정 내에 컨테이너를 만듭니다. 다음 예제에서는 `key1`의 스토리지 키 값을 사용하여 `mydisks`라는 컨테이너를 만듭니다.
 
 ```azurecli
 az storage container create --account-name mystorageaccount \
@@ -69,7 +69,7 @@ az storage blob upload --account-name mystorageaccount \
     --file /path/to/disk/mydisk.vhd --name myDisk.vhd
 ```
 
-`--image`az vm create[를 사용하여 디스크에 대한 URI를 지정합니다(](/cli/azure/vm)). 다음 예제에서는 이전에 업로드한 가상 디스크를 사용하여 `myVM`이라는 VM을 만듭니다.
+[az vm create](/cli/azure/vm)를 사용하여 디스크에 대한 URI를 지정합니다(`--image`). 다음 예제에서는 이전에 업로드한 가상 디스크를 사용하여 `myVM`이라는 VM을 만듭니다.
 
 ```azurecli
 az vm create --resource-group myResourceGroup --location westus \
@@ -79,17 +79,17 @@ az vm create --resource-group myResourceGroup --location westus \
     --use-unmanaged-disk
 ```
 
-대상 스토리지 계정은 가상 디스크를 업로드한 곳과 같아야 합니다. 또한 가상 네트워크, 공용 IP 주소, 사용자 이름 및 SSH 키와 같은 **az vm create** 명령이 필요로 하는 모든 추가 매개 변수를 지정하거나 프롬프트에 응답할 수 있습니다. [사용 가능한 클래식 CLI 리소스 관리자 매개 변수에](../azure-cli-arm-commands.md#virtual-machines)대 한 자세한 내용을 확인할 수 있습니다.
+대상 스토리지 계정은 가상 디스크를 업로드한 곳과 같아야 합니다. 또한 가상 네트워크, 공용 IP 주소, 사용자 이름 및 SSH 키와 같은 **az vm create** 명령이 필요로 하는 모든 추가 매개 변수를 지정하거나 프롬프트에 응답할 수 있습니다. 사용 가능한 클래식 [CLI 리소스 관리자 매개 변수에](../azure-cli-arm-commands.md#virtual-machines)대해 자세히 확인할 수 있습니다.
 
 ## <a name="requirements"></a>요구 사항
 다음 단계를 완료하려면 다음이 필요합니다.
 
 * **.vhd 파일에 설치된 Linux 운영 체제** - 가상 디스크에 VHD 형식으로 [Azure 보증 Linux 배포판](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)(또는 [보증되지 않는 배포에 대한 정보](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 참조)을 설치합니다. VM과 VHD를 만드는 도구는 여러 가지가 있습니다.
-  * [QEMU](https://en.wikibooks.org/wiki/QEMU/Installing_QEMU) 또는 [KVM](https://www.linux-kvm.org/page/RunningKVM)을 설치 및 구성하고 VHD를 이미지 형식으로 사용하도록 주의합니다. 필요한 경우 [를 사용하여 ](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats)이미지를 변환`qemu-img convert`할 수 있습니다.
+  * [QEMU](https://en.wikibooks.org/wiki/QEMU/Installing_QEMU) 또는 [KVM](https://www.linux-kvm.org/page/RunningKVM)을 설치 및 구성하고 VHD를 이미지 형식으로 사용하도록 주의합니다. 필요한 경우 `qemu-img convert`를 사용하여 [이미지를 변환](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats)할 수 있습니다.
   * 또한 [Windows 10](https://msdn.microsoft.com/virtualization/hyperv_on_windows/quick_start/walkthrough_install) 또는 [Windows Server 2012/2012 R2](https://technet.microsoft.com/library/hh846766.aspx)에서 Hyper-V를 사용할 수 있습니다.
 
 > [!NOTE]
-> 새 VHDX 형식은 Azure에서 지원되지 않습니다. VM을 만들 때 VHD를 형식으로 지정합니다. 필요하다면 [`qemu-img convert`](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) 또는 [`Convert-VHD`](https://technet.microsoft.com/library/hh848454.aspx) PowerShell cmdlet을 사용하여 VHDX 디스크를 VHD로 변환할 수 있습니다. 그뿐 아니라 Azure는 동적 VHD 업로드를 지원하지 않으므로 업로드하기 전에 이러한 디스크를 정적 VHD로 변환해야 합니다. Azure로 업로딩하는 과정 중에 [GO용 Azure VHD 유틸리티](https://github.com/Microsoft/azure-vhd-utils-for-go) 와 같은 도구를 사용하여 동적 디스크를 변환할 수 있습니다.
+> 새 VHDX 형식은 Azure에서 지원되지 않습니다. VM을 만들 때 VHD를 형식으로 지정합니다. 필요한 경우 VHDX 디스크를 사용하여 [`qemu-img convert`](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) VHD 또는 [`Convert-VHD`](https://technet.microsoft.com/library/hh848454.aspx) PowerShell cmdlet으로 변환할 수 있습니다. 그뿐 아니라 Azure는 동적 VHD 업로드를 지원하지 않으므로 업로드하기 전에 이러한 디스크를 정적 VHD로 변환해야 합니다. Azure로 업로딩하는 과정 중에 [GO용 Azure VHD 유틸리티](https://github.com/Microsoft/azure-vhd-utils-for-go) 와 같은 도구를 사용하여 동적 디스크를 변환할 수 있습니다.
 > 
 > 
 
@@ -106,25 +106,25 @@ az vm create --resource-group myResourceGroup --location westus \
 ## <a name="prepare-the-disk-to-be-uploaded"></a>업로드할 디스크 준비
 Azure에서는 다양한 Linux 배포를 지원합니다( [보증 배포판](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)참조). 다음 문서에서는 Azure에서 지원되는 다양한 Linux 배포를 준비하는 방법을 안내합니다.
 
-* **[CentOS 기반 배포](create-upload-centos.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
-* **[Debian Linux](debian-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
+* **[센트로스 기반 배포판](create-upload-centos.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
+* **[데비안 리눅스](debian-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 * **[Oracle Linux](oracle-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
-* **[Red Hat Enterprise Linux](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
-* **[SLES 및 openSUSE](suse-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
-* **[Ubuntu](create-upload-ubuntu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
-* **[기타 - 보증되지 않는 배포](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
+* **[레드 햇 엔터프라이즈 리눅스](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
+* **[SLES & 오픈수즈](suse-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
+* **[우분투](create-upload-ubuntu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
+* **[기타 - 승인되지 않은 배포](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 
 또한 Azure용 Linux 이미지를 준비하는 방법에 대한 일반적인 추가 팁은 **[Linux 설치 참고 사항](create-upload-generic.md#general-linux-installation-notes)** 을 참조하세요.
 
 > [!NOTE]
-> [Azure 인증 배포의 Linux](https://azure.microsoft.com/support/legal/sla/virtual-machines/)의 '지원되는 버전'에 지정된 대로 보증 배포판 중 하나가 구성 세부 정보와 함께 사용되는 경우에만 Linux를 실행하는 VM에 [Azure 플랫폼 SLA](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)가 적용됩니다.
+> [Azure 플랫폼 SLA는](https://azure.microsoft.com/support/legal/sla/virtual-machines/) 승인된 배포판 중 하나가 Azure 승인 배포판의 Linux에서 Linux의 '지원되는 버전'에 지정된 구성 세부 정보와 함께 사용되는 경우에만 [Linux를](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)실행하는 VM에 적용됩니다.
 > 
 > 
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 리소스 그룹은 가상 네트워킹 및 스토리지와 같은 가상 머신을 지원하기 위해 논리적으로 모든 Azure 리소스를 모읍니다. 리소스 그룹에 대한 자세한 내용은 [리소스 그룹 개요](../../azure-resource-manager/management/overview.md)를 참조하세요. 사용자 지정 디스크를 업로드하고 VM을 만들기 전에 먼저 [az group create](/cli/azure/group)를 사용하여 리소스 그룹을 만들어야 합니다.
 
-다음 예제에서는 `myResourceGroup` 위치에 `westus`이라는 리소스 그룹을 만듭니다.
+다음 예제에서는 `westus` 위치에 `myResourceGroup`이라는 리소스 그룹을 만듭니다.
 
 ```azurecli
 az group create --name myResourceGroup --location westus
@@ -142,7 +142,7 @@ az storage account create --resource-group myResourceGroup --location westus \
 ```
 
 ## <a name="list-storage-account-keys"></a>스토리지 계정 키 나열
-Azure는 각 스토리지 계정에 대해 두 개의 512 비트 선택키를 생성합니다. 이러한 선택키는 쓰기 작업을 수행할 때와 같이 스토리지 계정에 인증할 때에 사용됩니다. 저장소 계정 액세스 키에 대 한 자세한 내용은 [저장소 계정 액세스 키 관리](../../storage/common/storage-account-keys-manage.md)를 참조 하세요. [az storage account keys list](/cli/azure/storage/account/keys)를 사용하여 액세스 키를 확인합니다.
+Azure는 각 스토리지 계정에 대해 두 개의 512 비트 선택키를 생성합니다. 이러한 선택키는 쓰기 작업을 수행할 때와 같이 스토리지 계정에 인증할 때에 사용됩니다. 저장소 계정 액세스 키에 대한 자세한 내용은 [저장소 계정 액세스 키 관리를](../../storage/common/storage-account-keys-manage.md)참조하십시오. [az storage account keys list](/cli/azure/storage/account/keys)를 사용하여 액세스 키를 확인합니다.
 
 만든 스토리지 계정에 대한 선택키를 봅니다.
 
@@ -152,7 +152,7 @@ az storage account keys list --resource-group myResourceGroup --account-name mys
 
 다음과 유사하게 출력됩니다.
 
-```azurecli
+```output
 info:    Executing command storage account keys list
 + Getting storage account keys
 data:    Name  Key                                                                                       Permissions
@@ -161,6 +161,7 @@ data:    key1  d4XAvZzlGAgWdvhlWfkZ9q4k9bYZkXkuPCJ15NTsQOeDeowCDAdB80r9zA/tUINAp
 data:    key2  Ww0T7g4UyYLaBnLYcxIOTVziGAAHvU+wpwuPvK4ZG0CDFwu/mAxS/YYvAQGHocq1w7/3HcalbnfxtFdqoXOw8g==  Full
 info:    storage account keys list command OK
 ```
+
 다음 단계에서 스토리지 계정과 상호 작용하는 데 사용할 수 있도록 `key1` 을 기록해 둡니다.
 
 ## <a name="create-a-storage-container"></a>스토리지 컨테이너 만들기
@@ -186,9 +187,9 @@ az storage blob upload --account-name mystorageaccount \
 ```
 
 ## <a name="create-the-vm"></a>VM 만들기
-관리되지 않는 디스크로 VM을 만들려면 `--image`az vm create[를 사용하여 디스크(](/cli/azure/vm))에 URI를 지정합니다. 다음 예제에서는 이전에 업로드한 가상 디스크를 사용하여 `myVM`이라는 VM을 만듭니다.
+관리되지 않는 디스크로 VM을 만들려면 [az vm create](/cli/azure/vm)를 사용하여 디스크(`--image`)에 URI를 지정합니다. 다음 예제에서는 이전에 업로드한 가상 디스크를 사용하여 `myVM`이라는 VM을 만듭니다.
 
-`--image`az vm create[를 사용하여 ](/cli/azure/vm) 매개 변수가 사용자 지정 디스크를 가리키도록 지정합니다. `--storage-account`가 사용자 지정 디스크가 저장된 스토리지 계정과 일치하는지 확인합니다. 사용자 지정 디스크와 동일한 컨테이너를 사용하여 VM을 저장할 필요는 없습니다. 사용자 지정 디스크를 업로드하기 전에 이전 단계와 동일한 방식으로 모든 추가 컨테이너를 만들어야 합니다.
+[az vm create](/cli/azure/vm)를 사용하여 `--image` 매개 변수가 사용자 지정 디스크를 가리키도록 지정합니다. `--storage-account`가 사용자 지정 디스크가 저장된 스토리지 계정과 일치하는지 확인합니다. 사용자 지정 디스크와 동일한 컨테이너를 사용하여 VM을 저장할 필요는 없습니다. 사용자 지정 디스크를 업로드하기 전에 이전 단계와 동일한 방식으로 모든 추가 컨테이너를 만들어야 합니다.
 
 다음 예제에서는 사용자 지정 디스크에서 `myVM`이라는 VM을 만듭니다.
 

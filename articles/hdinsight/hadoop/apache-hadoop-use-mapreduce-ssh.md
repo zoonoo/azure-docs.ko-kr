@@ -1,5 +1,5 @@
 ---
-title: Apache Hadoop와 MapReduce 및 SSH 연결-Azure HDInsight
+title: 아파치 하두롭과의 지도감소 및 SSH 연결 - Azure HDInsight
 description: SSH를 사용하여 HDInsight에서 Apache Hadoop으로 MapReduce 작업을 실행하는 방법을 알아봅니다.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/10/2020
 ms.openlocfilehash: 543bc29adc85bd767de9479607d067fadf7b0078
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75934709"
 ---
 # <a name="use-mapreduce-with-apache-hadoop-on-hdinsight-with-ssh"></a>SSH를 사용하여 HDInsight에서 Apache Hadoop으로 MapReduce 사용
@@ -24,13 +24,13 @@ SSH(Secure Shell) 연결에서 HDInsight로 MapReduce 작업을 제출하는 방
 > [!NOTE]
 > Linux 기반 Apache Hadoop 서버 사용에 익숙하지만 HDInsight는 생소하다면 [Linux 기반 HDInsight 팁](../hdinsight-hadoop-linux-information.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-HDInsight의 Apache Hadoop 클러스터. [Azure Portal를 사용 하 여 Apache Hadoop 클러스터 만들기를](../hdinsight-hadoop-create-linux-clusters-portal.md)참조 하세요.
+HDInsight의 Apache Hadoop 클러스터. [Azure 포털을 사용하여 아파치 하두롭 클러스터 만들기를](../hdinsight-hadoop-create-linux-clusters-portal.md)참조하십시오.
 
 ## <a name="use-hadoop-commands"></a>Hadoop 명령 사용
 
-1. [Ssh 명령을](../hdinsight-hadoop-linux-use-ssh-unix.md) 사용 하 여 클러스터에 연결 합니다. CLUSTERNAME을 클러스터의 이름으로 바꿔서 아래 명령을 편집 하 고 명령을 입력 합니다.
+1. [ssh 명령을](../hdinsight-hadoop-linux-use-ssh-unix.md) 사용하여 클러스터에 연결합니다. CLUSTERNAME을 클러스터 이름으로 바꿉니다 아래 명령을 편집한 다음 명령을 입력합니다.
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net

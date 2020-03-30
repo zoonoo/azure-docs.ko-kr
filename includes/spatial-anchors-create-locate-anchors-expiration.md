@@ -1,11 +1,11 @@
 ---
 ms.openlocfilehash: 1598d89d254e788ecf94f9a42b83cbe22b62204a
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
-ms.translationtype: MT
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67181918"
 ---
 ## <a name="set-expiration"></a>Set expiration
 
-나중에 지정 된 날짜에 자동으로 만료 되도록 앵커 구성도 가능 합니다. 앵커 만료 되 면이 더 이상 있는 하거나 업데이트할 수 없습니다. 만료 앵커를 만들 때에 설정할 수 있습니다. 그 후에 만료를 업데이트 할 수 없습니다. 따라서 클라우드에 저장 하기 전에 해당 만료를 설정할 수 있습니다.
+나중에 지정된 날짜에 자동으로 만료되도록 앵커를 구성할 수도 있습니다. 앵커가 만료되면 더 이상 찾거나 업데이트되지 않습니다. 앵커가 생성된 경우에만 만료를 설정할 수 있습니다. 이후에는 만료를 업데이트할 수 없습니다. 따라서 클라우드에 저장하기 전에 만료를 설정할 수 있습니다.

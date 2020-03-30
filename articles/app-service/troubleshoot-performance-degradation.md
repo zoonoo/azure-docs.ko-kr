@@ -1,6 +1,6 @@
 ---
 title: 성능 저하 문제 해결
-description: 앱 동작 모니터링, 데이터 수집 및 문제 완화를 비롯 하 여 Azure App Service에서 속도가 느려지는 앱 성능 문제를 해결 하는 방법에 대해 알아보세요.
+description: Azure App 서비스에서 앱 동작 모니터링, 데이터 수집 및 문제 완화를 비롯하여 느린 앱 성능 문제를 해결하는 방법을 알아보십시오.
 tags: top-support-issue
 keywords: 웹앱 성능, 느린 앱, 앱 느림
 ms.assetid: b8783c10-3a4a-4dd6-af8c-856baafbdde5
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/03/2016
 ms.custom: seodec18
 ms.openlocfilehash: 98c11a72b5aea0fac15d943977402289dc33a970
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74688311"
 ---
 # <a name="troubleshoot-slow-app-performance-issues-in-azure-app-service"></a>Azure App Service에서 느린 앱 성능 문제 해결
@@ -58,7 +58,7 @@ Microsoft Azure는 서비스가 중단되거나 성능이 저하될 때마다 �
 
 ![앱 성능 모니터링](./media/app-service-web-troubleshoot-performance-degradation/1-monitor-metrics.png)
 
-자세한 내용은
+자세한 내용은 다음을 참조하세요.
 
 * [Azure App Service에서 앱 모니터링](web-sites-monitor.md)
 * [경고 알림 받기](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
@@ -72,7 +72,7 @@ Microsoft Azure는 서비스가 중단되거나 성능이 저하될 때마다 �
 
 설정하려면 [Azure App Service에서 앱 모니터링](web-sites-monitor.md)을 참조하세요.
 
-또한, 엔드포인트 모니터링의 비디오에 대해서는 [Azure Websites 가동 및 끝 점 모니터링 - 스테판 스차코우(Stefan Schackow)](https://channel9.msdn.com/Shows/Azure-Friday/Keeping-Azure-Web-Sites-up-plus-Endpoint-Monitoring-with-Stefan-Schackow) 를 참조하세요.
+또한, 엔드포인트 모니터링의 비디오에 대해서는 [Azure 웹 사이트 가동 및 엔드포인트 모니터링 - 스테판 스차코우(Stefan Schackow)](https://channel9.msdn.com/Shows/Azure-Friday/Keeping-Azure-Web-Sites-up-plus-Endpoint-Monitoring-with-Stefan-Schackow) 를 참조하세요.
 
 #### <a name="application-performance-monitoring-using-extensions"></a>확장을 사용하여 애플리케이션 성능 모니터링
 *사이트 확장*을 사용하여 애플리케이션 성능을 모니터링할 수도 있습니다.
@@ -92,8 +92,8 @@ App Service는 웹 서버와 웹 애플리케이션 모두의 정보에 로깅�
 #### <a name="enable-web-server-diagnostics"></a>웹 서버 진단 사용
 다음과 같은 종류의 로그를 사용하거나 사용하지 않도록 설정할 수 있습니다.
 
-* **자세한 오류 로깅** - 오류를 나타내는 HTTP 상태 코드(상태 코드 400 이상)의 자세한 오류 정보입니다. 여기에는 서버에서 오류 코드를 반환한 이유를 확인하는 데 도움이 되는 정보가 포함될 수 있습니다.
-* **실패한 요청 추적** - 요청을 처리하는 데 사용된 IIS 구성 요소 추적 및 각 구성 요소에 소요된 시간을 포함하여 실패한 요청에 대해 자세한 정보입니다. 이 기능은 앱 성능을 개선하거나 특정 HTTP 오류 원인을 격리하려는 경우에 유용할 수 있습니다.
+* **자세한 오류 로깅** - 오류를 나타내는 HTTP 상태 코드에 대한 자세한 오류 정보(상태 코드 400 이상). 여기에는 서버에서 오류 코드를 반환한 이유를 확인하는 데 도움이 되는 정보가 포함될 수 있습니다.
+* **실패한 요청 추적** - 요청을 처리하는 데 사용되는 IIS 구성 요소의 추적 및 각 구성 요소에서 걸린 시간을 포함하여 실패한 요청에 대한 자세한 정보입니다. 이 기능은 앱 성능을 개선하거나 특정 HTTP 오류 원인을 격리하려는 경우에 유용할 수 있습니다.
 * **웹 서버 로깅** - W3C 확장 로그 파일 형식을 사용하는 HTTP 트랜잭션에 대한 정보입니다. 이 기능은 처리된 요청의 수 또는 특정 IP 주소에서 넘어온 많은 요청처럼 전반적인 앱 메트릭을 결정할 때 유용합니다.
 
 #### <a name="enable-application-diagnostics"></a>애플리케이션 진단 사용
@@ -152,7 +152,7 @@ Azure App Service에서 성능과 처리량의 증가를 위해 사용자가 실
 수동 또는 자동으로 크기를 조정할 수 있습니다.
 
 #### <a name="use-autoheal"></a>AutoHeal를 사용
-AutoHeal은 사용자가 선택한 설정(예: 구성 변경, 요청, 메모리 기반 제한 또는 요청을 실행하는데 필요한 시간)에 따라 앱에 대한 작업자 프로세스를 재활용 합니다. 대부분의 경우에는 프로세스를 재활용하는 방법이 문제를 해결하는 가장 빠른 방법입니다. Azure Portal 내에서 직접 앱을 재시작할 수도 있지만, AutoHeal은 자동으로 재시작을 수행하게 해줍니다. 앱의 루트 web.config에 일부 트리거를 추가하기만 하면 됩니다. 이러한 설정은 응용 프로그램이 .NET 앱이 아닌 경우에도 동일한 방식으로 작동 합니다.
+AutoHeal은 사용자가 선택한 설정(예: 구성 변경, 요청, 메모리 기반 제한 또는 요청을 실행하는데 필요한 시간)에 따라 앱에 대한 작업자 프로세스를 재활용 합니다. 대부분의 경우에는 프로세스를 재활용하는 방법이 문제를 해결하는 가장 빠른 방법입니다. Azure Portal 내에서 직접 앱을 재시작할 수도 있지만, AutoHeal은 자동으로 재시작을 수행하게 해줍니다. 앱의 루트 web.config에 일부 트리거를 추가하기만 하면 됩니다. 이러한 설정은 응용 프로그램이 .NET 앱이 아닌 경우에도 동일한 방식으로 작동합니다.
 
 자세한 내용은 [Auto-Healing Azure Websites](https://azure.microsoft.com/blog/auto-healing-windows-azure-web-sites/)를 참조하세요.
 
@@ -161,4 +161,4 @@ AutoHeal은 사용자가 선택한 설정(예: 구성 변경, 요청, 메모리 
 
  ![앱을 다시 시작하여 성능 문제 해결](./media/app-service-web-troubleshoot-performance-degradation/2-restart.png)
 
-또한 Azure Powershell을 사용하여 앱을 관리할 수 있습니다. 자세한 내용은 [Azure 리소스 관리자에서 Azure PowerShell 사용](../powershell-azure-resource-manager.md)을 참조하세요.
+또한 Azure Powershell을 사용하여 앱을 관리할 수 있습니다. 자세한 내용은 [Azure 리소스 관리자를 사용하여 Azure PowerShell 사용](../powershell-azure-resource-manager.md)을 참조하십시오.

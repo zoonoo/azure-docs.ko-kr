@@ -1,5 +1,5 @@
 ---
-title: 'Azure Express 경로: 회로에 VNet 연결: 클래식'
+title: 'Azure 익스프레스루트: 회로에 VNet 연결: 클래식'
 description: 이 문서는 클래식 배포 모델 및 PowerShell을 사용하여 VNet(가상 네트워크)을 ExpressRoute 회로에 연결하는 방법에 대한 개요를 제공합니다.
 services: expressroute
 author: cherylmc
@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 12/06/2019
 ms.author: cherylmc
 ms.openlocfilehash: 53c200b01dfa6bce09cfc058dc24ab8e38d253a6
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74930029"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-powershell-classic"></a>PowerShell을 사용하여 ExpressRoute 회로에 가상 네트워크 연결(클래식)
 > [!div class="op_single_selector"]
 > * [Azure 포털](expressroute-howto-linkvnet-portal-resource-manager.md)
-> * [PowerShell](expressroute-howto-linkvnet-arm.md)
+> * [Powershell](expressroute-howto-linkvnet-arm.md)
 > * [Azure CLI](howto-linkvnet-cli.md)
 > * [비디오 - Azure Portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
-> * [PowerShell(클래식)](expressroute-howto-linkvnet-classic.md)
+> * [파워 쉘 (클래식)](expressroute-howto-linkvnet-classic.md)
 >
 
 이 문서는 PowerShell을 사용하여 VNet(가상 네트워크)을 Azure ExpressRoute 회로에 연결하는 데 도움이 됩니다. 단일 VNet을 최대 4개의 ExpressRoute 회로에 연결할 수 있습니다. 이 문서의 단계를 사용하여 연결되어 있는 각 ExpressRoute 회로에 대한 새 링크를 만듭니다. ExpressRoute 회로는 동일한 구독, 서로 다른 구독 또는 두 가지가 혼합된 상태로 존재할 수 있습니다. 이 문서는 클래식 배포 모델을 사용하여 만들어진 가상 네트워크에 적용됩니다.
@@ -129,7 +129,7 @@ Get-AzureDedicatedCircuitLinkAuthorization -ServiceKey: "***********************
   Used                : 2
   ```
 
-**권한 부여 업데이트**
+**권한 부여 업데이트하기**
 
 회로 소유자는 다음 cmdlet을 사용하여 권한 부여를 수정할 수 있습니다.
 
@@ -147,7 +147,7 @@ Set-AzureDedicatedCircuitLinkAuthorization -ServiceKey "************************
   Used                : 0
   ```
 
-**권한 부여 삭제**
+**권한 부여 삭제하기**
 
 회로 소유자는 다음 cmdlet을 실행하여 권한 부여를 취소/삭제할 수 있습니다.
 
@@ -179,7 +179,7 @@ Get-AzureAuthorizedDedicatedCircuit
   UsedLinks                        : 0
   ```
 
-**링크 권한 부여 사용**
+**링크 권한 부여 사용하기**
 
 회로 사용자는 다음 cmdlet을 실행하여 링크 권한 부여를 사용할 수 있습니다.
 
@@ -203,4 +203,4 @@ New-AzureDedicatedCircuitLink -ServiceKey "*****************************" -VNetN
 
 ## <a name="next-steps"></a>다음 단계
 
-ExpressRoute에 대한 자세한 내용은 [ExpressRoute FAQ](expressroute-faqs.md)를 참조하세요.
+익스프레스루트에 대한 자세한 내용은 [익스프레스루트 FAQ를](expressroute-faqs.md)참조하십시오.

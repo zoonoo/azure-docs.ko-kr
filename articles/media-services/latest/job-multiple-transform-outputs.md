@@ -1,6 +1,6 @@
 ---
-title: 여러 변환 출력을 사용 하 여 Azure Media Services 작업 만들기
-description: 이 항목에서는 여러 변환 출력을 사용 하 여 Azure Media Services 작업을 만드는 방법을 보여 줍니다.
+title: 여러 변환 출력을 사용하여 Azure 미디어 서비스 작업 만들기
+description: 이 항목에서는 여러 변환 출력을 사용하여 Azure Media Services 작업을 만드는 방법을 보여 줍니다.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,23 +12,23 @@ ms.topic: article
 ms.date: 02/17/2020
 ms.author: juliako
 ms.openlocfilehash: dbbeeb33ee46b37ec920fe598483c332d3439689
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77563142"
 ---
-# <a name="create-a-job-with-multiple-transform-outputs"></a>여러 변환 출력을 사용 하 여 작업 만들기
+# <a name="create-a-job-with-multiple-transform-outputs"></a>여러 변환 출력으로 작업 만들기
 
-이 항목에서는 두 개의 변환 출력을 사용 하 여 변환을 만드는 방법을 보여 줍니다. 첫 번째는 기본 제공 [AdaptiveStreaming](encoding-concept.md#builtinstandardencoderpreset) 사전 설정을 사용 하 여 적응 비트 전송률 스트리밍을 위해 인코딩할 입력에 대해를 호출 합니다. 두 번째는 [AudioAnalyzerPreset](analyzing-video-audio-files-concept.md#built-in-presets)를 사용 하 여 처리 하기 위해 입력 비디오에서 오디오 신호를 호출 합니다. 변환을 만든 후 비디오를 처리 하는 작업을 적절 하 게 제출할 수 있습니다. 이 예제에서는 두 개의 변환 출력을 지정 하므로 두 개의 작업 출력을 지정 해야 합니다. 두 작업 출력을 동일한 자산 (아래에 표시 된 것 처럼)으로 보내도록 선택 하거나 별도의 자산에 결과를 쓸 수 있습니다.
+이 항목에서는 두 개의 변환 출력을 사용하여 변환을 만드는 방법을 보여 주십습니다. 첫 번째 는 기본 제공 [AdaptiveStreaming](encoding-concept.md#builtinstandardencoderpreset) 사전 설정으로 적응 비트 레이트 스트리밍을 위해 입력을 인코딩해야 합니다. 두 번째 는 입력 비디오의 오디오 신호를 [AudioAnalyzerPreset으로](analyzing-video-audio-files-concept.md#built-in-presets)처리해야 합니다. 변환을 만든 후 그에 따라 비디오를 처리하는 작업을 제출할 수 있습니다. 이 예제에서는 두 개의 변환 출력을 지정하므로 두 개의 작업 출력을 지정해야 합니다. 두 작업 출력을 동일한 에셋으로 향하도록 선택하거나(아래 그림과 같이) 결과를 별도의 에셋에 기록하도록 할 수 있습니다.
  
 
 > [!TIP]
-> 개발을 시작 하기 전에 [Media Services V3 api를 사용 하 여 개발](media-services-apis-overview.md) (api에 액세스 하는 방법, 명명 규칙 등)을 검토 합니다.
+> 개발을 시작하기 전에 [미디어 서비스 v3 API 개발을](media-services-apis-overview.md) 검토합니다(API 액세스, 명명 규칙 등에 대한 정보 포함)
 
 ## <a name="create-a-transform"></a>변환 만들기
 
-다음 코드에서는 두 개의 출력을 생성 하는 변환을 만드는 방법을 보여 줍니다.
+다음 코드는 두 개의 출력을 생성하는 변환을 만드는 방법을 보여 주십니다.
 
 ```csharp
 private static async Task<Transform> GetOrCreateTransformAsync(
@@ -67,7 +67,7 @@ private static async Task<Transform> GetOrCreateTransformAsync(
 ```
 ## <a name="submit-a-job"></a>작업 제출
 
-HTTPS URL 입력 및 두 개의 작업 출력을 사용 하 여 작업을 만듭니다.
+HTTPS URL 입력과 두 개의 작업 출력으로 작업을 만듭니다.
 
 ```csharp
 private static async Task<Job> SubmitJobAsync(IAzureMediaServicesClient client,
@@ -135,4 +135,4 @@ private static async Task<Job> SubmitJobAsync(IAzureMediaServicesClient client,
 
 ## <a name="next-steps"></a>다음 단계
 
-[.NET을 사용 하 여 v3 샘플 Azure Media Services](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/) 
+[.NET을 사용하는 Azure 미디어 서비스 v3 샘플](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/) 
