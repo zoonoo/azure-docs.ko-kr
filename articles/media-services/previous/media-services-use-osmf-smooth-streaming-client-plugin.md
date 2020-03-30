@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 45a2829411ea4713df898c90be73792718160cd2
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78255104"
 ---
 # <a name="how-to-use-the-microsoft-smooth-streaming-plugin-for-the-adobe-open-source-media-framework"></a>Adobe 오픈 소스 미디어 프레임워크용 Microsoft 부드러운 스트리밍 플러그 인을 사용하는 방법  
@@ -30,7 +30,7 @@ SS for OSMF에는 두 가지 버전의 플러그 인이 포함됩니다.
 * OSMF용 정적 부드러운 스트리밍 플러그 인(.swc)
 * OSMF용 동적 부드러운 스트리밍 플러그 인(.swf)
 
-이 문서에서는 독자에 게 OSMF 및 OSMF 플러그 인에 대 한 일반적인 작업 지식이 있다고 가정 합니다. OSMF에 대 한 자세한 내용은 [공식 osmf 사이트](http://osmf.org/)의 설명서를 참조 하세요.
+이 문서에서는 판독기가 OSMF 및 OSMF 플러그인에 대한 일반적인 작업 지식을 가지고 있다고 가정합니다. OSMF에 대한 자세한 내용은 [공식 OSMF 사이트에서](http://osmf.org/)설명서를 참조하십시오.
 
 ### <a name="smooth-streaming-plugin-for-osmf-20"></a>OSMF용 부드러운 스트리밍 플러그 인 2.0
 이 플러그 인은 다음 기능을 통해 주문형 부드러운 스트리밍 콘텐츠의 로딩과 재생을 지원합니다.
@@ -391,6 +391,6 @@ OSMF용 부드러운 스트리밍 동적 플러그 인은 [SMP(Strobe Media Play
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>관련 항목
 [OSMF용 Microsoft 적응 스트리밍 플러그 인 업데이트](https://azure.microsoft.com/blog/2014/10/27/microsoft-adaptive-streaming-plugin-for-osmf-update/) 
 

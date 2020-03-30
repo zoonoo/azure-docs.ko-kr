@@ -4,10 +4,10 @@ description: Azure Container Instances에서 컨테이너의 CPU 및 메모리�
 ms.topic: article
 ms.date: 04/24/2019
 ms.openlocfilehash: b4a66254c18d7e01b6d56e64e6b62721b620d499
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78250028"
 ---
 # <a name="monitor-container-resources-in-azure-container-instances"></a>Azure Container Instances에서 컨테이너 리소스 모니터링
@@ -17,7 +17,7 @@ ms.locfileid: "78250028"
 이 문서에서는 Azure Portal 및 Azure CLI를 사용하여 컨테이너 인스턴스에 대한 Azure Monitor 메트릭 수집에 대해 자세히 설명합니다.
 
 > [!IMPORTANT]
-> Azure Container Instances의 Azure Monitor 메트릭은 현재 미리 보기로 제공되며, 일부 [제한 사항이 적용](#preview-limitations)됩니다. [부속 사용 약관][terms-of-use]에 동의하면 미리 보기를 사용할 수 있습니다. 이 기능의 몇 가지 측면은 일반 공급(GA) 전에 변경될 수 있습니다.
+> Azure Container Instances의 Azure Monitor 메트릭은 현재 미리 보기로 제공되며, 일부 [제한 사항이 적용](#preview-limitations)됩니다. [추가 사용 조건][terms-of-use]에 동의하는 조건으로 미리 보기를 사용할 수 있습니다. 이 기능의 몇 가지 측면은 일반 공급(GA) 전에 변경될 수 있습니다.
 
 ## <a name="preview-limitations"></a>미리 보기 제한 사항
 

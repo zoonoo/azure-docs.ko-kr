@@ -1,15 +1,15 @@
 ---
-title: 일반적인 FabricClient 예외가 발생 합니다.
+title: 일반적인 패브릭 클라이언트 예외throw
 description: 애플리케이션 및 클러스터 관리 작업을 수행하는 동안 FabricClient API에 의해 발생될 수 있는 일반적인 예외 및 오류를 설명합니다.
 author: oanapl
 ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: oanapl
 ms.openlocfilehash: 9ad3097a490d4728e05ea90652c17c24b79cac2c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75457924"
 ---
 # <a name="common-exceptions-and-errors-when-working-with-the-fabricclient-apis"></a>FabricClient API로 작업하는 경우 일반적인 예외 및 오류
@@ -20,14 +20,14 @@ FabricClient를 사용하여 수행할 수 있는 다양한 유형의 작업이 
 | 예외 | 발생 시점 |
 | --- |:--- |
 | [System.Fabric.FabricObjectClosedException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricobjectclosedexception) |[FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) 개체가 닫힌 상태입니다. 사용 중인 [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) 개체를 삭제하고 새 [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) 개체를 인스턴스화합니다. |
-| [System.TimeoutException](https://docs.microsoft.com/dotnet/core/api/system.timeoutexception) |작업 시간이 초과 되었습니다. 작업을 완료 하는 데 MaxOperationTimeout 이상이 소요 되는 경우 [OperationTimedOut](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode) 이 반환 됩니다. |
+| [System.TimeoutException](https://docs.microsoft.com/dotnet/core/api/system.timeoutexception) |작업 시간이 시간 미정되었습니다. [작업TimedOut](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode) 작업이 MaxOperationTimeout보다 더 많은 작업이 완료될 때 반환됩니다. |
 | [System.UnauthorizedAccessException](https://docs.microsoft.com/dotnet/core/api/system.unauthorizedaccessexception) |작업에 대한 액세스 검사에 실패했습니다. E_ACCESSDENIED가 반환됩니다. |
 | [System.Fabric.FabricException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception) |작업을 수행하는 동안 런타임 오류가 발생했습니다. FabricClient 메서드 중 하나가 잠재적으로 [FabricException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception)을 발생시킬 수 있으며 [ErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception.ErrorCode) 속성이 예외의 정확한 원인을 나타냅니다. [FabricErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode) 열거형에 정의된 오류 코드입니다. |
 | [System.Fabric.FabricTransientException](https://docs.microsoft.com/dotnet/api/system.fabric.fabrictransientexception) |일종의 일시적인 오류 조건으로 인해 작업이 실패했습니다. 예를 들어 복제본의 쿼럼에 일시적으로 연결할 수 없기 때문에 작업이 실패할 수 있습니다. 일시적인 예외는 다시 시도할 수 있는 실패한 작업에 해당합니다. |
 
 일부 일반 [FabricErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode) 오류는 [FabricException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception)으로 반환될 수 있습니다.
 
-| 오류 | 조건 |
+| Error | 조건 |
 | --- |:--- |
 | CommunicationError |통신 오류로 인해 작업이 실패했습니다. 작업을 다시 시도하세요. |
 | InvalidCredentialType |자격 증명 유형이 올바르지 않습니다. |

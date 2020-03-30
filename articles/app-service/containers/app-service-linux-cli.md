@@ -1,15 +1,15 @@
 ---
-title: CLI를 사용 하 여 사용자 지정 Linux 컨테이너 관리
-description: 명령줄에서 Azure App Service의 사용자 지정 Linux 컨테이너를 관리 하는 방법에 대해 알아봅니다. 앱 프로 비전 또는 유지 관리를 자동화 합니다.
+title: CLI로 사용자 지정 Linux 컨테이너 관리
+description: 명령줄에서 Azure 앱 서비스에서 사용자 지정 Linux 컨테이너를 관리하는 방법에 대해 알아봅니다. 앱 프로비저닝 또는 유지 관리를 자동화합니다.
 keywords: azure app service, 웹앱, cli, linux, oss
 ms.topic: article
 ms.date: 08/22/2017
 ms.custom: seodec18
 ms.openlocfilehash: 5ca5322467402af710df68c82d747f8f8d65e142
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78255933"
 ---
 # <a name="manage-web-app-for-containers-using-azure-cli"></a>Azure CLI를 사용하여 Web App for Containers 관리
@@ -98,4 +98,4 @@ az webapp deployment source config -n sname -g rgname --repo-url <gitrepo url> -
 * [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)
 * [Azure Cloud Shell(미리 보기)](../../cloud-shell/overview.md)
 * [Azure App Service에서 스테이징 환경 설정](../../app-service/deploy-staging-slots.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-* [Web App for Containers를 사용한 연속 배포](app-service-linux-ci-cd.md)
+* [컨테이너용 웹 앱으로 연속 배포](app-service-linux-ci-cd.md)

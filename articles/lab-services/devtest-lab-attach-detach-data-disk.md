@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/28/2020
 ms.author: spelluru
 ms.openlocfilehash: 3f18425408e6526904db85eae1c3a4db41d11a58
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78198868"
 ---
 # <a name="attach-or-detach-a-data-disk-to-a-virtual-machine-in-azure-devtest-labs"></a>Azure DevTest Labs에서 데이터 디스크를 가상 머신에 연결 또는 분리
@@ -29,13 +29,13 @@ ms.locfileid: "78198868"
 ## <a name="attach-a-data-disk"></a>데이터 디스크 연결
 데이터 디스크를 VM에 연결하기 전에 다음 팁을 검토하세요.
 
-- VM의 크기는 연결할 수 있는 데이터 디스크 수를 제어합니다. 자세한 내용은 [가상 머신의 크기](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)를 참조하세요.
+- VM의 크기는 연결할 수 있는 데이터 디스크 수를 제어합니다. 자세한 내용은 [가상 시스템의 크기를](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)참조하십시오.
 - 데이터 디스크는 실행 중인 VM에만 연결할 수 있습니다. 데이터 디스크 연결을 시도하기 전에 VM이 실행 중인지 확인하세요.
 
 ### <a name="attach-a-new-disk"></a>새 디스크 연결
 다음 단계에 따라 새 관리되는 데이터 디스크를 Azure DevTest Labs의 VM에 연결합니다.
 
-1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
+1. [Azure 포털에](https://go.microsoft.com/fwlink/p/?LinkID=525040)로그인합니다.
 1. **모든 서비스**를 선택한 다음, 목록에서 **DevTest Labs**를 선택합니다.
 1. 랩 목록에서 원하는 랩을 탭합니다. 
 1. **내 가상 머신** 목록에서 실행 중인 VM을 선택합니다.
@@ -48,7 +48,7 @@ ms.locfileid: "78198868"
     !["새 디스크 연결" 양식 채우기](./media/devtest-lab-attach-detach-data-disk/devtest-lab-attach-new-form.png)
 1. **확인**을 선택합니다.
 
-잠시 후 새 데이터 디스크가 생성 되어 VM에 연결 되 고 해당 VM의 **데이터 디스크** 목록에 나타납니다.
+잠시 후 새 데이터 디스크가 만들어지고 VM에 연결되고 해당 VM의 **데이터 디스크** 목록에 나타납니다.
 
 ### <a name="attach-an-existing-disk"></a>기존 디스크 연결
 다음 단계에 따라 기존의 사용 가능한 데이터 디스크를 실행 중인 VM에 다시 연결합니다. 
@@ -63,7 +63,7 @@ ms.locfileid: "78198868"
 
     ![기존 데이터 디스크를 가상 머신에 연결](./media/devtest-lab-attach-detach-data-disk/devtest-lab-attach-existing.png)
 
-잠시 후에 데이터 디스크가 VM에 연결 되 고 해당 VM의 **데이터 디스크** 목록에 나타납니다.
+잠시 후 데이터 디스크가 VM에 연결되고 해당 VM의 **데이터 디스크** 목록에 나타납니다.
 
 ## <a name="detach-a-data-disk"></a>데이터 디스크 분리
 VM에 연결된 데이터 디스크가 더 이상 필요하지 않은 경우 쉽게 분리할 수 있습니다. 분리하면 디스크가 VM에서 제거되지만 나중에 사용할 수 있도록 스토리지에 보관됩니다.
@@ -73,7 +73,7 @@ VM에 연결된 데이터 디스크가 더 이상 필요하지 않은 경우 쉽
 ### <a name="detach-from-the-vms-management-pane"></a>VM의 관리 창에서 분리
 1. 가상 머신 목록에서 데이터 디스크가 연결된 VM을 선택합니다.
 1. 왼쪽 메뉴에서 **디스크**를 선택합니다.
-1. **데이터 디스크**목록에서 분리 하려는 데이터 디스크를 선택 합니다.
+1. 데이터 디스크 목록에서 분리할 데이터 **디스크를 선택합니다.**
 
     ![가상 머신용 데이터 디스크 선택](./media/devtest-lab-attach-detach-data-disk/devtest-lab-detach-button.png) 
 1. 디스크의 세부 정보 창 위쪽에서 **분리**를 선택합니다.
@@ -84,7 +84,7 @@ VM에 연결된 데이터 디스크가 더 이상 필요하지 않은 경우 쉽
 디스크가 분리되어 다른 VM에 연결할 수 있습니다. 
 ### <a name="detach-from-the-labs-main-pane"></a>랩의 기본 창에서 분리
 1. 랩의 기본 창에서 **내 데이터 디스크**를 선택합니다.
-1. 분리 하려는 데이터 디스크를 마우스 오른쪽 단추로 클릭 하거나 줄임표 ( **...** )를 선택 하 고 **분리**를 선택 합니다.
+1. 분리하려는 데이터 디스크를 마우스 오른쪽 단추로 클릭하거나 타원을**선택합니다.** **Detach**
 
     ![데이터 디스크 분리](./media/devtest-lab-attach-detach-data-disk/devtest-lab-detach-data-disk.png)
 1. **예**를 선택하여 데이터 디스크를 분리할 것인지 확인합니다.

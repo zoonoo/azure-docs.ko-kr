@@ -1,6 +1,6 @@
 ---
 title: Visual Studio에서 스토리지 에뮬레이터 구성 및 사용 | Microsoft Docs
-description: 로컬 개발 컴퓨터의 Azure에서 사용할 수 있는 Blob, 큐 및 Table storage 서비스를 시뮬레이트하는 유틸리티인 저장소 에뮬레이터를 구성 하 고 사용 합니다.
+description: 로컬 개발 컴퓨터에서 Azure에서 사용할 수 있는 Blob, Queue 및 테이블 저장소 서비스를 시뮬레이션하는 유틸리티인 저장소 에뮬레이터를 구성하고 사용합니다.
 services: visual-studio-online
 author: ghogen
 manager: jillfra
@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 8/17/2017
 ms.author: ghogen
 ms.openlocfilehash: a6f853924416cce2440ca15767044029b20e651f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75450734"
 ---
 # <a name="configuring-and-using-the-storage-emulator-with-visual-studio"></a>Visual Studio에서 스토리지 에뮬레이터 구성 및 사용
@@ -41,7 +41,7 @@ Azure SDK 개발 환경은 로컬 개발 컴퓨터의 Azure에서 사용할 수 
 
 ## <a name="initializing-and-running-the-storage-emulator"></a>스토리지 에뮬레이터 초기화 및 실행
 
-Visual Studio에서 서비스를 실행하거나 디버깅하는 경우 Visual Studio가 자동으로 스토리지 에뮬레이터를 시작하도록 지정할 수 있습니다. 솔루션 탐색기에서 **Azure** 프로젝트에 대한 바로 가기 메뉴를 열고 **속성**을 선택합니다. **개발** 탭의 **Azure Storage 에뮬레이터 시작** 목록에서 **True**를 선택합니다(이미 해당 값으로 설정되지 않은 경우).  일부 프로젝트 형식에는 **개발** 탭이 없습니다. 이 경우 프로젝트 파일에서 `StartDevelopmentStorage` 요소를 설정 하 여 저장소 에뮬레이터 시작을 사용 하거나 사용 하지 않도록 설정할 수 있습니다. 설정 하려면 **True** 로 설정 하 고, 사용 하지 않으려면 **False** 로 설정 합니다.  예를 들어 Azure Functions 프로젝트에서 편집을 위해 프로젝트 파일을 열고 XML 코드를 다음과 같이 수정 합니다.
+Visual Studio에서 서비스를 실행하거나 디버깅하는 경우 Visual Studio가 자동으로 스토리지 에뮬레이터를 시작하도록 지정할 수 있습니다. 솔루션 탐색기에서 **Azure** 프로젝트에 대한 바로 가기 메뉴를 열고 **속성**을 선택합니다. **개발** 탭의 **Azure 저장소 에뮬레이터 시작** 목록에서 **True**(해당 값으로 아직 설정되지 않은 경우)를 선택합니다.  일부 프로젝트 **유형에는 개발** 탭이 없습니다. 이 경우 프로젝트 파일의 `StartDevelopmentStorage` 요소를 설정하여 저장소 에뮬레이터 시작을 활성화하거나 비활성화할 수 있습니다. 활성화하려면 **True로** 설정하거나 **False를** 비활성화합니다.  예를 들어 Azure Functions 프로젝트에서 편집할 프로젝트 파일을 열고 다음과 같이 XML 코드를 수정합니다.
 
 ```xml
   <PropertyGroup>
